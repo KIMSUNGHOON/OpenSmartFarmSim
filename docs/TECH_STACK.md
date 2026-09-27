@@ -42,7 +42,7 @@
 
 ## 버전·재현 정책
 
-**구현된 버전 상태:** `backend/pyproject.toml`·`uv.lock`은 FastAPI `0.141.1`, Pydantic `2.13.5`, 개발용 pytest `9.1.1`을 고정한다. `web/package.json`·`package-lock.json`은 React/ReactDOM `19.3.0`, Vite `8.3.1`, TypeScript `7.0.2`, Vitest `5.0.2`, React 타입 `19.3.0`을 고정한다. 두 잠금 파일은 Git에 추적된다. 오프라인 캐시에서 `uv lock --check`, `uv sync --locked`, FastAPI/Pydantic import와 `npm ci --strict-peer-deps`(43개 패키지)가 통과했고, 이후 `node_modules`는 제거됐다. `compose.yaml`과 Dockerfile은 잠금 의존성 이미지의 정적 골격으로 추가됐으며 standalone Compose 기본·`app` 프로필 `config -q`가 통과했다. 신규 온라인 설치, 이미지 빌드·기동, 전체 응용 코드 시험·빌드, production 버전/라이선스 검증은 아직 없다. Docker Engine이 없어 `compose-runtime`·C0는 미완료다.
+**구현된 버전 상태:** `backend/pyproject.toml`·`uv.lock`은 FastAPI `0.141.1`, Pydantic `2.13.5`, 개발용 pytest `9.1.1`을 고정한다. `web/package.json`·`package-lock.json`은 React/ReactDOM `19.3.0`, Vite `8.3.1`, TypeScript `7.0.2`, Vitest `5.0.2`, React 타입 `19.3.0`을 고정한다. 두 잠금 파일은 Git에 추적된다. 오프라인 캐시에서 `uv lock --check`, `uv sync --locked`, FastAPI/Pydantic import와 `npm ci --strict-peer-deps`(43개 패키지)가 통과했고, 이후 `node_modules`는 제거됐다. `compose.yaml`과 Dockerfile은 잠금 의존성 이미지의 정적 골격으로 추가됐으며 standalone Compose 기본·`app` 프로필 `config -q`가 통과했다. 추가로 Psycopg/psycopg-binary `3.3.6`과 dev용 jsonschema `4.26.0`을 잠그고 `uv lock --check`·동기화·import 및 사용자 로컬 PostgreSQL 16.15 연결을 확인했다. 이미지 빌드·기동, 전체 응용 코드 시험·빌드, production 버전/라이선스 검증은 아직 없다. Docker Engine이 없어 `compose-runtime`·C0는 미완료다.
 
 후속 구성 요소를 구현할 때 각 도구의 **공식 지원 중인 안정 릴리스**와 호환 범위를 확인하고, 실제 선택한 정확한 버전을 기록한다. 베타/미리보기나 `latest` 태그를 production 기본값으로 두지 않는다. 현재 문서의 링크가 표시하는 버전이 배포 버전이라는 뜻은 아니다. 모델 ID `gpt-6-sol`과 추론 강도 `xhigh`는 사용자 지정값이므로 다른 값으로 자동 대체하지 않는다. 시장 어댑터/스키마, 원본 판본·권리, 조건부 시나리오 규칙과 후속 전망 모델·학습 자료·특성 절단시각·구간 보정·G3 검증 ID를 실행 manifest에 고정한다. 외부 시장 자료의 호출/저장/표시 비용과 판본 보존 용량도 배포 전 실측한다.
 
