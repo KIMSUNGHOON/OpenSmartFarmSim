@@ -10,31 +10,40 @@ import psycopg
 from psycopg import sql
 import pytest
 
-from test_jobs import INPUT, pg_store, submit
+from test_jobs import pg_store, submit, synthetic_decision_bytes, validated_decision
+
+
+def restarted_store(store):
+    return type(store)(os.environ["OSSF_TEST_PG_DSN"], store.schema, store.artifact_root,
+                       decision_validator=store.decision_validator,
+                       evidence_policy=store.evidence_policy,
+                       principal_provider=store.principal_provider,
+                       allow_synthetic_invocation=True)
 
 
 def test_stale_decision_audited_but_cannot_publish(pg_store):
     job = submit(pg_store, max_attempts=2)
     first = pg_store.claim(60)
-    old_decision = pg_store.record_decision("tenant-a", job["job_id"], 1, first["lease_token"], INPUT)
+    payload = b"complete synthetic artifact"
+    old_decision = validated_decision(pg_store, job, first, payload)
     with pg_store.connect() as conn:
         conn.execute(sql.SQL("UPDATE {}.jobs SET lease_until = clock_timestamp() - interval '1 second' WHERE job_id = %s")
                      .format(sql.Identifier(pg_store.schema)), (job["job_id"],))
-    restarted = type(pg_store)(os.environ["OSSF_TEST_PG_DSN"], pg_store.schema, pg_store.artifact_root)
+    restarted = restarted_store(pg_store)
     second = restarted.claim(60)
     assert second["attempt"] == 2
     assert second["input_bytes"] == b'{"fixture":"synthetic"}'
     assert restarted.read_input("tenant-a", job["job_id"], 1, first["lease_token"]) is None
     assert restarted.read_input("tenant-a", job["job_id"], 2, second["lease_token"]) == second["input_bytes"]
-    late_decision = restarted.record_decision("tenant-a", job["job_id"], 1, first["lease_token"], INPUT)
+    late_decision = validated_decision(restarted, job, first, payload)
     assert late_decision is None
     assert {item["decision_id"] for item in restarted.list_decisions("tenant-a", job["job_id"])} == {old_decision}
-    payload = b"complete synthetic artifact"
     digest = sha256(payload).hexdigest()
     assert restarted.publish("tenant-a", job["job_id"], 1, first["lease_token"], old_decision, payload, digest, {"schema_version": "1"}) is None
     assert restarted.publish("tenant-a", job["job_id"], 1, first["lease_token"], late_decision, payload, digest, {"schema_version": "1"}) is None
-    assert not pg_store.artifact_root.exists()
-    decision = restarted.record_decision("tenant-a", job["job_id"], 2, second["lease_token"], INPUT)
+    assert not (pg_store.artifact_root / digest).exists()
+    assert restarted.get_publication("tenant-a", job["job_id"]) is None
+    decision = validated_decision(restarted, job, second, payload)
     publication = restarted.publish("tenant-a", job["job_id"], 2, second["lease_token"], decision, payload, digest, {"schema_version": "1"})
     assert publication["decision_id"] == decision
     assert restarted.get_publication("tenant-b", job["job_id"]) is None
@@ -42,7 +51,7 @@ def test_stale_decision_audited_but_cannot_publish(pg_store):
     assert restarted.read_artifact("tenant-a", job["job_id"]) == payload
     assert restarted.read_artifact("tenant-b", job["job_id"]) is None
     assert restarted.publish("tenant-a", job["job_id"], 2, second["lease_token"], decision, payload, digest, {"schema_version": "1"}) is None
-    assert restarted.record_decision("tenant-a", job["job_id"], 2, second["lease_token"], INPUT) is None
+    assert validated_decision(restarted, job, second, payload) is None
     assert restarted.read_input("tenant-a", job["job_id"], 2, second["lease_token"]) is None
     with restarted.connect() as conn, pytest.raises(psycopg.errors.UniqueViolation):
         conn.execute(sql.SQL("""
@@ -65,7 +74,8 @@ def test_deterministic_stage_publishes_without_fabricated_ai_decision(pg_store, 
     lease = pg_store.claim(60)
     assert lease["stage"] == stage
     assert pg_store.record_decision("tenant-a", job["job_id"], 1,
-                                    lease["lease_token"], INPUT) is None
+                                    lease["lease_token"], synthetic_decision_bytes(job),
+                                    b"synthetic deterministic artifact") is None
     assert pg_store.list_decisions("tenant-a", job["job_id"]) == []
     payload = (stage + " synthetic output").encode()
     digest = sha256(payload).hexdigest()
@@ -76,8 +86,7 @@ def test_deterministic_stage_publishes_without_fabricated_ai_decision(pg_store, 
     assert publication["decision_id"] is None
     assert publication["manifest"]["stage"] == stage
     assert publication["manifest"].get("decision_id") is None
-    restarted = type(pg_store)(os.environ["OSSF_TEST_PG_DSN"], pg_store.schema,
-                               pg_store.artifact_root)
+    restarted = restarted_store(pg_store)
     assert restarted.get_publication("tenant-a", job["job_id"])["artifact_sha256"] == digest
     assert restarted.read_artifact("tenant-a", job["job_id"]) == payload
 
@@ -100,20 +109,39 @@ def test_database_rejects_publication_decision_for_wrong_stage(pg_store, stage,
     job = submit(pg_store, stage=stage)
     lease = pg_store.claim(60)
     decision_id = uuid4() if has_decision else None
+    if has_decision:
+        final = pg_store.append_evidence("tenant-a", job["job_id"], 1,
+            lease["lease_token"], kind="final_output", payload=synthetic_decision_bytes(job),
+            rights_ref="self_authored_fixture")
+        report = pg_store.append_evidence("tenant-a", job["job_id"], 1,
+            lease["lease_token"], kind="validation_report",
+            payload=b"synthetic validation report", rights_ref="self_authored_fixture")
+        with pg_store.connect() as conn, pytest.raises(psycopg.errors.CheckViolation,
+                                                       match="decision needs live current attempt"):
+            conn.execute(sql.SQL("""
+                INSERT INTO {}.ai_decisions
+                    (tenant_id, job_id, attempt, decision_id, output_sha256,
+                     artifact_sha256, final_evidence_id, validation_evidence_id)
+                VALUES (%s, %s, 1, %s, %s, %s, %s, %s)
+            """).format(sql.Identifier(pg_store.schema)),
+                ("tenant-a", job["job_id"], decision_id, final["sha256"],
+                 sha256(b"").hexdigest(), final["evidence_id"], report["evidence_id"]))
+        assert pg_store.get_job("tenant-a", job["job_id"])["state"] == "collecting"
+        assert pg_store.get_publication("tenant-a", job["job_id"]) is None
+        return
     with pytest.raises(psycopg.errors.CheckViolation):
         with pg_store.connect() as conn:
-            if decision_id is not None:
-                conn.execute(sql.SQL("""
-                    INSERT INTO {}.ai_decisions
-                        (tenant_id, job_id, attempt, decision_id, output_sha256)
-                    VALUES (%s, %s, 1, %s, %s)
-                """).format(sql.Identifier(pg_store.schema)),
-                    ("tenant-a", job["job_id"], decision_id, INPUT))
             conn.execute(sql.SQL("""
                 UPDATE {}.jobs SET state = 'succeeded', lease_token = NULL,
                     lease_until = NULL WHERE tenant_id = %s AND job_id = %s
             """).format(sql.Identifier(pg_store.schema)),
                 ("tenant-a", job["job_id"]))
+            conn.execute(sql.SQL("""
+                INSERT INTO {}.attempt_outcomes
+                    (tenant_id, job_id, attempt, attempt_id, state)
+                VALUES (%s, %s, 1, %s, 'succeeded')
+            """).format(sql.Identifier(pg_store.schema)),
+                ("tenant-a", job["job_id"], lease["attempt_id"]))
             conn.execute(sql.SQL("""
                 INSERT INTO {}.job_publications
                     (tenant_id, job_id, publication_id, attempt, decision_id,
@@ -129,9 +157,8 @@ def test_database_rejects_publication_decision_for_wrong_stage(pg_store, stage,
 def test_public_manifest_rejects_caller_fields_before_writing_and_uses_server_metadata(pg_store):
     job = submit(pg_store)
     lease = pg_store.claim(60)
-    decision = pg_store.record_decision("tenant-a", job["job_id"], 1,
-                                        lease["lease_token"], INPUT)
     payload = b"synthetic public manifest artifact"
+    decision = validated_decision(pg_store, job, lease, payload)
     digest = sha256(payload).hexdigest()
     invalid_manifests = (
         {"schema_version": "2"},
@@ -146,7 +173,7 @@ def test_public_manifest_rejects_caller_fields_before_writing_and_uses_server_me
         with pytest.raises(ValueError, match="manifest"):
             pg_store.publish("tenant-a", job["job_id"], 1, lease["lease_token"],
                              decision, payload, digest, manifest)
-        assert not pg_store.artifact_root.exists()
+        assert not (pg_store.artifact_root / digest).exists()
         assert pg_store.get_publication("tenant-a", job["job_id"]) is None
         assert pg_store.get_job("tenant-a", job["job_id"])["state"] == "researching"
 
@@ -193,8 +220,7 @@ def test_succeeded_job_requires_publication_at_commit(pg_store):
 def test_publication_requires_succeeded_job_at_commit(pg_store):
     job = submit(pg_store)
     lease = pg_store.claim(60)
-    decision = pg_store.record_decision("tenant-a", job["job_id"], 1,
-                                        lease["lease_token"], INPUT)
+    decision = validated_decision(pg_store, job, lease, b"")
     with pytest.raises(psycopg.errors.CheckViolation):
         with pg_store.connect() as conn:
             conn.execute(sql.SQL("""
@@ -218,11 +244,11 @@ def test_expired_and_cancel_requested_attempts_cannot_record_decision(pg_store):
             WHERE tenant_id = %s AND job_id = %s
         """).format(sql.Identifier(pg_store.schema)), ("tenant-a", job["job_id"]))
     assert pg_store.read_input("tenant-a", job["job_id"], 1, lease["lease_token"]) is None
-    assert pg_store.record_decision("tenant-a", job["job_id"], 1, lease["lease_token"], INPUT) is None
+    assert validated_decision(pg_store, job, lease, b"synthetic expired artifact") is None
     assert pg_store.list_decisions("tenant-a", job["job_id"]) == []
     second = pg_store.claim(60)
     assert pg_store.cancel("tenant-a", job["job_id"])
-    assert pg_store.record_decision("tenant-a", job["job_id"], 2, second["lease_token"], INPUT) is None
+    assert validated_decision(pg_store, job, second, b"synthetic canceled artifact") is None
     assert pg_store.list_decisions("tenant-a", job["job_id"]) == []
 
 
@@ -329,9 +355,8 @@ def test_database_rejects_mismatched_input_bytes_at_update(pg_store):
 def test_first_artifact_root_creation_syncs_parent_directory(pg_store, monkeypatch):
     job = submit(pg_store)
     lease = pg_store.claim(60)
-    decision = pg_store.record_decision("tenant-a", job["job_id"], 1,
-                                        lease["lease_token"], INPUT)
     payload = b"synthetic fsync artifact"
+    decision = validated_decision(pg_store, job, lease, payload)
     digest = sha256(payload).hexdigest()
     parent = pg_store.artifact_root.parent
     real_fsync = os.fsync
@@ -351,28 +376,26 @@ def test_first_artifact_root_creation_syncs_parent_directory(pg_store, monkeypat
 
 @pytest.mark.parametrize("parent_kind", ("missing", "symlink"))
 def test_artifact_root_requires_existing_real_parent(pg_store, parent_kind):
-    job = submit(pg_store)
+    job = submit(pg_store, stage="collection")
     lease = pg_store.claim(60)
-    decision = pg_store.record_decision("tenant-a", job["job_id"], 1,
-                                        lease["lease_token"], INPUT)
+    payload = b"synthetic parent check"
     parent = pg_store.artifact_root.parent / "alternate-parent"
     if parent_kind == "symlink":
         parent.symlink_to(pg_store.artifact_root.parent, target_is_directory=True)
     pg_store.artifact_root = parent / "artifacts"
-    payload = b"synthetic parent check"
     digest = sha256(payload).hexdigest()
     with pytest.raises(OSError):
         pg_store.publish("tenant-a", job["job_id"], 1, lease["lease_token"],
-                         decision, payload, digest, {"schema_version": "1"})
-    assert pg_store.get_job("tenant-a", job["job_id"])["state"] == "researching"
+                         None, payload, digest, {"schema_version": "1"})
+    assert pg_store.get_job("tenant-a", job["job_id"])["state"] == "collecting"
     assert pg_store.get_publication("tenant-a", job["job_id"]) is None
 
 
 def test_rollback_leaves_no_visible_run_and_cancel_wins(pg_store, monkeypatch):
     job = submit(pg_store)
     lease = pg_store.claim(60)
-    decision = pg_store.record_decision("tenant-a", job["job_id"], 1, lease["lease_token"], INPUT)
     payload = b"complete synthetic artifact"
+    decision = validated_decision(pg_store, job, lease, payload)
     digest = sha256(payload).hexdigest()
     original = pg_store._insert_publication
 
@@ -400,7 +423,7 @@ def test_expired_cancel_recovered_after_restart(pg_store):
     with pg_store.connect() as conn:
         conn.execute(sql.SQL("UPDATE {}.jobs SET lease_until = clock_timestamp() - interval '1 second' WHERE job_id = %s")
                      .format(sql.Identifier(pg_store.schema)), (job["job_id"],))
-    restarted = type(pg_store)(os.environ["OSSF_TEST_PG_DSN"], pg_store.schema, pg_store.artifact_root)
+    restarted = restarted_store(pg_store)
     restarted.recover_expired()
     assert restarted.get_job("tenant-a", job["job_id"])["state"] == "canceled"
     assert not restarted.ack_cancel("tenant-a", job["job_id"], 1, lease["lease_token"])
@@ -409,8 +432,8 @@ def test_expired_cancel_recovered_after_restart(pg_store):
 def test_cancel_and_publication_race_serializes_on_job_row(pg_store):
     job = submit(pg_store)
     lease = pg_store.claim(60)
-    decision = pg_store.record_decision("tenant-a", job["job_id"], 1, lease["lease_token"], INPUT)
     payload = b"race artifact"
+    decision = validated_decision(pg_store, job, lease, payload)
     digest = sha256(payload).hexdigest()
     barrier = Barrier(2)
 
@@ -439,10 +462,10 @@ def test_cancel_and_publication_race_serializes_on_job_row(pg_store):
 def test_content_address_is_never_replaced(pg_store):
     job = submit(pg_store)
     lease = pg_store.claim(60)
-    decision = pg_store.record_decision("tenant-a", job["job_id"], 1, lease["lease_token"], INPUT)
     payload = b"verified complete artifact"
+    decision = validated_decision(pg_store, job, lease, payload)
     digest = sha256(payload).hexdigest()
-    pg_store.artifact_root.mkdir(mode=0o700)
+    pg_store.artifact_root.mkdir(mode=0o700, exist_ok=True)
     existing = pg_store.artifact_root / digest
     existing.write_bytes(b"corrupt existing bytes")
     with pytest.raises(ValueError, match="corrupt"):
@@ -456,9 +479,8 @@ def test_content_address_is_never_replaced(pg_store):
 def test_invalid_publication_identity_leaves_artifact_directory_unchanged(pg_store):
     job = submit(pg_store)
     lease = pg_store.claim(60)
-    decision = pg_store.record_decision("tenant-a", job["job_id"], 1,
-                                        lease["lease_token"], INPUT)
     payload = b"rejected synthetic artifact"
+    decision = validated_decision(pg_store, job, lease, payload)
     digest = sha256(payload).hexdigest()
     invalid = (("tenant-b", 1, lease["lease_token"], decision),
                ("tenant-a", 1, "wrong-token", decision),
@@ -476,9 +498,8 @@ def test_invalid_publication_identity_leaves_artifact_directory_unchanged(pg_sto
 def test_lease_expiry_during_artifact_write_leaves_unpublished_orphan(pg_store, monkeypatch):
     job = submit(pg_store)
     lease = pg_store.claim(60)
-    decision = pg_store.record_decision("tenant-a", job["job_id"], 1,
-                                        lease["lease_token"], INPUT)
     payload = b"artifact written before lease expiry"
+    decision = validated_decision(pg_store, job, lease, payload)
     digest = sha256(payload).hexdigest()
     original = pg_store._durable_artifact
 
@@ -502,9 +523,8 @@ def test_lease_expiry_during_artifact_write_leaves_unpublished_orphan(pg_store, 
 def test_succeeded_job_cannot_mutate_and_publication_remains_readable(pg_store):
     job = submit(pg_store)
     lease = pg_store.claim(60)
-    decision = pg_store.record_decision("tenant-a", job["job_id"], 1,
-                                        lease["lease_token"], INPUT)
     payload = b"accepted synthetic artifact"
+    decision = validated_decision(pg_store, job, lease, payload)
     digest = sha256(payload).hexdigest()
     publication = pg_store.publish("tenant-a", job["job_id"], 1,
                                     lease["lease_token"], decision, payload,
@@ -519,3 +539,24 @@ def test_succeeded_job_cannot_mutate_and_publication_remains_readable(pg_store):
         assert pg_store.get_job("tenant-a", job["job_id"])["state"] == "succeeded"
         assert pg_store.get_publication("tenant-a", job["job_id"])["publication_id"] == publication["publication_id"]
         assert pg_store.read_artifact("tenant-a", job["job_id"]) == payload
+
+
+def test_database_rejects_incompatible_direct_outcome_and_job_state(pg_store):
+    job = submit(pg_store)
+    lease = pg_store.claim(60)
+    with pytest.raises(psycopg.errors.CheckViolation,
+                       match="each claimed attempt must have exactly one closure"):
+        with pg_store.connect() as conn:
+            conn.execute(sql.SQL("""
+                UPDATE {}.jobs SET state = 'hold', lease_token = NULL,
+                    lease_until = NULL, reason = %s::jsonb
+                WHERE tenant_id = %s AND job_id = %s
+            """).format(sql.Identifier(pg_store.schema)),
+                ('{"code":"synthetic_hold"}', "tenant-a", job["job_id"]))
+            conn.execute(sql.SQL("""
+                INSERT INTO {}.attempt_outcomes
+                    (tenant_id, job_id, attempt, attempt_id, state)
+                VALUES (%s, %s, 1, %s, 'succeeded')
+            """).format(sql.Identifier(pg_store.schema)),
+                ("tenant-a", job["job_id"], lease["attempt_id"]))
+    assert pg_store.get_job("tenant-a", job["job_id"])["state"] == "researching"

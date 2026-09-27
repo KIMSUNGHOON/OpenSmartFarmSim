@@ -2,6 +2,7 @@
 
 from concurrent.futures import ThreadPoolExecutor
 from hashlib import sha256
+import json
 import os
 from pathlib import Path
 import sys
@@ -30,14 +31,120 @@ def pg_store(tmp_path):
     try:
         with psycopg.connect(dsn) as conn:
             install_schema(conn, schema)
-        yield JobStore(dsn, schema, tmp_path / "artifacts")
+        yield JobStore(
+            dsn, schema, tmp_path / "artifacts",
+            decision_validator=synthetic_validator,
+            evidence_policy=synthetic_evidence_policy,
+            principal_provider=synthetic_principal,
+            allow_synthetic_invocation=True,
+        )
     finally:
         with psycopg.connect(dsn, autocommit=True) as conn:
             conn.execute(sql.SQL("DROP SCHEMA {} CASCADE").format(sql.Identifier(schema)))
 
 
-INPUT = sha256(b"synthetic input").hexdigest()
 MAX_INPUT_BYTES = 64 * 1024
+
+
+def synthetic_decision_bytes(job):
+    return json.dumps({
+        "schema_version": "decision_v1", "stage": job["stage"],
+        "input_sha256": job["input_sha256"], "fixture": "synthetic",
+    }, sort_keys=True, separators=(",", ":")).encode()
+
+
+def synthetic_validator(job, final_output, proposed_artifact):
+    try:
+        value = json.loads(final_output)
+    except (ValueError, UnicodeDecodeError):
+        return {"passed": False, "version": "synthetic-storage-v1", "code": "invalid_json"}
+    passed = (value == json.loads(synthetic_decision_bytes(job))
+              and isinstance(proposed_artifact, bytes))
+    return {"passed": passed, "version": "synthetic-storage-v1",
+            "code": "synthetic_pass" if passed else "synthetic_mismatch"}
+
+
+def synthetic_evidence_policy(tenant_id, source_id, intended_use, kind, payload, digest):
+    fixture_bytes = (intended_use == "decision_evidence" and
+                     (b"synthetic" in payload or
+                     (kind == "final_output" and payload == b"invalid JSON") or
+                     (kind == "validation_report" and b'"report_version":"decision-validation-v1"' in payload)))
+    return dict(tenant_id=tenant_id,
+                source_id="synthetic_self_authored" if fixture_bytes else "unverified",
+                intended_use=intended_use,
+                payload_sha256=digest,
+                rights_proof_id="synthetic_self_authored" if fixture_bytes else "synthetic_denial",
+                rights_version="fixture-v1", policy_version="synthetic-storage-v1",
+                classification="private" if fixture_bytes else "restricted",
+                read_scope="auditor" if fixture_bytes else "none",
+                retain_raw=fixture_bytes, retain_digest=True)
+
+
+synthetic_evidence_policy.policy_version = "synthetic-storage-v1"
+
+
+def synthetic_principal():
+    return {"authenticated": True, "tenant_id": "tenant-a",
+            "scopes": ("metadata", "auditor", "artifact", "cancel")}
+
+
+def test_isolated_runtime_role_cannot_insert_authoritative_audit_rows(pg_store):
+    role = "ossf_test_runtime_" + uuid4().hex
+    created = False
+    try:
+        with pg_store.connect() as conn:
+            current_user = conn.execute("SELECT current_user AS name").fetchone()["name"]
+            try:
+                conn.execute(sql.SQL("CREATE ROLE {} NOLOGIN").format(sql.Identifier(role)))
+                conn.execute(sql.SQL("GRANT {} TO {}").format(
+                    sql.Identifier(role), sql.Identifier(current_user)))
+            except psycopg.errors.InsufficientPrivilege:
+                pytest.skip("test server does not permit isolated role creation")
+            created = True
+            conn.execute(sql.SQL("GRANT USAGE ON SCHEMA {} TO {}").format(
+                sql.Identifier(pg_store.schema), sql.Identifier(role)))
+            for table in ("evidence_authorizations", "attempt_evidence",
+                          "validation_receipts", "ai_decisions"):
+                conn.execute(sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                    sql.Identifier(pg_store.schema), sql.Identifier(table), sql.Identifier(role)))
+        for table in ("evidence_authorizations", "attempt_evidence",
+                      "validation_receipts", "ai_decisions"):
+            with pg_store.connect() as conn:
+                conn.execute(sql.SQL("SET LOCAL ROLE {}").format(sql.Identifier(role)))
+                with pytest.raises(psycopg.errors.InsufficientPrivilege):
+                    conn.execute(sql.SQL("INSERT INTO {}.{} SELECT * FROM {}.{} WHERE false").format(
+                        sql.Identifier(pg_store.schema), sql.Identifier(table),
+                        sql.Identifier(pg_store.schema), sql.Identifier(table)))
+    finally:
+        if created:
+            with pg_store.connect() as conn:
+                conn.execute(sql.SQL("DROP OWNED BY {}").format(sql.Identifier(role)))
+                conn.execute(sql.SQL("DROP ROLE {}").format(sql.Identifier(role)))
+
+
+def validated_decision(store, job, lease, payload):
+    prepare_synthetic_invocation(store, job, lease)
+    return store.record_decision(job["tenant_id"], job["job_id"], lease["attempt"],
+                                 lease["lease_token"], synthetic_decision_bytes(job), payload)
+
+
+def prepare_synthetic_invocation(store, job, lease):
+    tenant, job_id, attempt, token = (job["tenant_id"], job["job_id"],
+                                      lease["attempt"], lease["lease_token"])
+    if store.get_invocation(tenant, job_id, attempt) is not None:
+        return
+    if store.read_input(tenant, job_id, attempt, token) is None:
+        return
+    prompt = store.append_evidence(tenant, job_id, attempt, token, kind="prompt",
+        payload=b"synthetic instruction v1", rights_ref="self_authored_fixture")
+    schema = store.append_evidence(tenant, job_id, attempt, token, kind="output_schema",
+        payload=b'{"fixture":"synthetic"}', rights_ref="self_authored_fixture")
+    assert prompt is not None and schema is not None
+    assert store.register_invocation(tenant, job_id, attempt, token,
+        prompt_evidence_id=prompt["evidence_id"], schema_evidence_id=schema["evidence_id"],
+        prompt_version="synthetic-v1", schema_version="synthetic-v1",
+        execution_kind="synthetic_fixture", cli_version="synthetic_fixture",
+        model=None, reasoning_effort=None)
 
 
 def test_canonical_input_serializes_once_and_rejects_non_json(monkeypatch):
@@ -266,16 +373,22 @@ def test_retry_hold_fatal_and_cancel(pg_store):
 def test_append_only_audit_rows_enforced_by_database(pg_store):
     job = submit(pg_store)
     lease = pg_store.claim(60)
-    decision = pg_store.record_decision("tenant-a", job["job_id"], 1, lease["lease_token"], INPUT)
+    decision = validated_decision(pg_store, job, lease, b"synthetic audit artifact")
     assert UUID(str(decision))
-    for table in ("job_attempts", "job_events", "ai_decisions"):
+    for table in ("job_attempts", "job_events", "attempt_evidence",
+                  "attempt_invocations", "ai_decisions"):
         with pg_store.connect() as conn, pytest.raises(psycopg.Error):
             conn.execute(sql.SQL("DELETE FROM {}.{}").format(sql.Identifier(pg_store.schema), sql.Identifier(table)))
     assert pg_store.list_decisions("tenant-b", job["job_id"]) == []
-    assert pg_store.record_decision("tenant-b", job["job_id"], 1, lease["lease_token"], INPUT) is None
-    with pg_store.connect() as conn, pytest.raises(psycopg.errors.ForeignKeyViolation):
+    assert pg_store.record_decision("tenant-b", job["job_id"], 1, lease["lease_token"],
+                                    synthetic_decision_bytes(job), b"synthetic audit artifact") is None
+    with pg_store.connect() as conn, pytest.raises(psycopg.errors.CheckViolation,
+                                                   match="decision needs retained current final output and validation report"):
         conn.execute(sql.SQL("""
-            INSERT INTO {}.ai_decisions (tenant_id, job_id, attempt, decision_id, output_sha256)
-            VALUES (%s, %s, 1, %s, %s)
+            INSERT INTO {}.ai_decisions
+                (tenant_id, job_id, attempt, decision_id, output_sha256,
+                 artifact_sha256, final_evidence_id, validation_evidence_id)
+            VALUES (%s, %s, 1, %s, %s, %s, %s, %s)
         """).format(sql.Identifier(pg_store.schema)),
-            ("tenant-b", job["job_id"], uuid4(), INPUT))
+            ("tenant-b", job["job_id"], uuid4(), sha256(synthetic_decision_bytes(job)).hexdigest(),
+             sha256(b"synthetic audit artifact").hexdigest(), uuid4(), uuid4()))
