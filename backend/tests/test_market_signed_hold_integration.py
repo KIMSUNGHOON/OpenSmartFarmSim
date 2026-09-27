@@ -16,6 +16,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.db import install_market_hold_schema
+from app.break_even_store import BreakEvenStore, install_break_even_store_schema
 from app.economic_contracts import EconomicScenario
 from app.economics import canonical_scenario_sha256
 from app.market_candidate_store import MarketCandidateStore, install_market_candidate_schema
@@ -26,6 +27,7 @@ from test_economics import DECISION
 from test_market_hold_store import (CONTEXT_KEY, HOLD_KEY, SNAPSHOT_RAWS,
                                     canonical, context_verifier)
 from test_market_scenario import case, digest, repin_shock
+from test_break_even import trial_plan
 
 
 @pytest.fixture
@@ -41,9 +43,11 @@ def signed_market():
             install_thermal_run_schema(conn, schema)
             install_market_hold_schema(conn, schema)
             install_market_candidate_schema(conn, schema)
+            install_break_even_store_schema(conn, schema)
         principal = {"authenticated": True, "tenant_id": "tenant-1",
                      "scopes": {"market_hold_issue", "market_hold_context_read",
-                                "market_candidate_read", "market_candidate_write"}}
+                                "market_candidate_read", "market_candidate_write",
+                                "break_even_read", "break_even_write"}}
         context_principal = {"authenticated": True, "tenant_id": "tenant-1",
                              "scopes": {"decision_context_write", "decision_context_read",
                                         "thermal_snapshot_write"}}
@@ -109,14 +113,14 @@ def signed_market():
             return MarketCandidateStore(dsn, schema, trusted,
                 principal_provider=lambda: principal)
 
-        yield candidate_store, request, principal, scope
+        yield candidate_store, source, request, principal, scope
     finally:
         with psycopg.connect(dsn, autocommit=True) as conn:
             conn.execute(sql.SQL("DROP SCHEMA {} CASCADE").format(sql.Identifier(schema)))
 
 
 def test_signed_hold_survives_candidate_pin_and_replay(signed_market):
-    factory, request, principal, scope = signed_market
+    factory, _, request, principal, scope = signed_market
     candidate = MarketScenarioService(factory()).build_candidate(request, "tenant-1")
     result = MarketScenarioService(factory()).calculate_pinned(
         candidate.scenario_id, candidate.revision, "tenant-1")
@@ -132,3 +136,30 @@ def test_signed_hold_survives_candidate_pin_and_replay(signed_market):
     with pytest.raises(ValueError):
         MarketScenarioService(factory()).calculate_pinned(
             candidate.scenario_id, candidate.revision, "tenant-1")
+
+
+def test_signed_hold_replays_three_persisted_break_even_trials(signed_market):
+    candidate_factory, source, market_request, principal, scope = signed_market
+    candidate_store, request = trial_plan([20, 26, 32],
+        candidate_repository_factory=lambda _: candidate_factory(),
+        case_factory=lambda: (source, market_request))
+    assert len(source.scenarios) == 1
+
+    def plan_store():
+        return BreakEvenStore(candidate_store.dsn, candidate_store.schema,
+            candidate_factory(), principal_provider=lambda: principal)
+
+    pinned = plan_store().pin_break_even_plan(request, source.break_even_plan)
+    assert pinned.status == "zero_on_grid"
+    assert pinned.assessment_status == "hold"
+    assert tuple(str(item.target_value) for item in pinned.trials) == ("-54", "0", "54")
+    assert plan_store().get_break_even_result(request["plan_id"]) == pinned
+    with candidate_store.connect() as conn:
+        candidate_count = conn.execute(sql.SQL("SELECT count(*) AS n FROM {}")
+            .format(candidate_store._table("market_candidate_pins"))).fetchone()["n"]
+        plan_count = conn.execute(sql.SQL("SELECT count(*) AS n FROM {}")
+            .format(plan_store()._table())).fetchone()["n"]
+    assert (candidate_count, plan_count) == (3, 1)
+    scope["scope_version"] = "v2"
+    with pytest.raises(ValueError):
+        plan_store().get_break_even_result(request["plan_id"])

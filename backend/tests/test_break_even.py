@@ -24,8 +24,9 @@ from test_market_scenario import case, digest, sidecar
 
 
 def trial_plan(values, *, target="oi", variable="KRW/kg", vary_cap=False,
-               collection_overrides=None, candidate_repository_factory=None):
-    repo, template = case()
+               collection_overrides=None, candidate_repository_factory=None,
+               case_factory=case):
+    repo, template = case_factory()
     candidate_repository = (candidate_repository_factory(repo)
                             if candidate_repository_factory else repo)
     baseline = EconomicScenario.model_validate(repo.scenarios[("scenario-1", "r1")])
