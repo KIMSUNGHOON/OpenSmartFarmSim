@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-상태: **내부 구현 계약 초안, 2026-09-27. `repo-bootstrap`은 완료됐고 응용 코드나 시험용 입력은 아직 승인되지 않았다.** 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
+상태: **내부 구현 계약 초안, 2026-09-27. `repo-bootstrap`은 완료됐고 Compose 정적 골격이 준비됐다. 출처 계약 코드는 검토 중이며 시험용 입력은 아직 승인되지 않았다.** 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
 
 ## 1. 목표와 확인할 사용자 경로
 
@@ -16,7 +16,7 @@
 
 ## 2. 초기 설정 작업에서 만들 실행 명령
 
-`repo-bootstrap`의 다섯 파일 `backend/pyproject.toml`, `backend/uv.lock`, `web/package.json`, `web/package-lock.json`, `.gitignore`가 준비됐고 두 잠금 파일은 Git에 추적된다. 오프라인 캐시에서 `uv lock --check`, `uv sync --locked`, FastAPI/Pydantic import와 `npm ci --strict-peer-deps`(43개 패키지)가 통과했다. 웹 `node_modules`는 이후 제거됐고 신규 온라인 설치는 검증하지 않았다. 앱 자료형 검사·시험·빌드·API 실행은 해당 소스와 시험이 생긴 뒤 확인한다. 별도 `compose-runtime`의 예정 파일은 정확히 `compose.yaml`, `.env.example`, `backend/Dockerfile`, `web/Dockerfile`, `.dockerignore` 다섯 개다. [Compose 빌드](https://docs.docker.com/reference/compose-file/build/)의 문맥과 Dockerfile을 명시하고 [`.dockerignore`의 제외 규칙](https://docs.docker.com/build/concepts/context/)으로 비밀·원본 자료가 이미지 빌드에 들어가지 않게 한다.
+`repo-bootstrap`의 다섯 파일 `backend/pyproject.toml`, `backend/uv.lock`, `web/package.json`, `web/package-lock.json`, `.gitignore`가 준비됐고 두 잠금 파일은 Git에 추적된다. 오프라인 캐시에서 `uv lock --check`, `uv sync --locked`, FastAPI/Pydantic import와 `npm ci --strict-peer-deps`(43개 패키지)가 통과했다. 웹 `node_modules`는 이후 제거됐고 신규 온라인 설치는 검증하지 않았다. 앱 자료형 검사·시험·빌드·API 실행은 해당 소스와 시험이 생긴 뒤 확인한다. 별도 `compose-runtime`의 `compose.yaml`, `.env.example`, `backend/Dockerfile`, `web/Dockerfile`, `.dockerignore` 다섯 파일은 정적 골격으로 추가됐다. [Compose 빌드](https://docs.docker.com/reference/compose-file/build/)의 문맥과 Dockerfile을 명시하고 [`.dockerignore`의 제외 규칙](https://docs.docker.com/build/concepts/context/)으로 비밀·원본 자료가 이미지 빌드에 들어가지 않게 한다. 실제 이미지 빌드와 DB 영속성은 계속 수용 전이다.
 
 다음은 **후속 작업에서 실행할 검증 명령**이다. 현재 앱 소스·시험과 프로젝트 `compose.yaml`이 없어 완료 증거로 세지 않는다.
 
