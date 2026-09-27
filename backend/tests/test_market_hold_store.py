@@ -114,10 +114,9 @@ def test_not_evaluated_report_is_immutable_and_resolves_market_context(setup):
         repository=store(), decision_context_id="context-a",
         input_snapshot_id=SNAPSHOT_ID, claim_mode="ex_post_replay",
         decision_time_kind="hypothetical") == market
-    with pytest.raises(ValueError, match="decision context differs"):
-        resolve_market_context(market, tenant_id="tenant-a",
-            decision_at=datetime.fromisoformat(D.replace("Z", "+00:00")),
-            repository=store())
+    assert resolve_market_context(market, tenant_id="tenant-a",
+        decision_at=datetime.fromisoformat(D.replace("Z", "+00:00")),
+        repository=store()) == market
     principal["scopes"].remove("market_hold_context_read")
     assert store().get_market_hold_report(first["hold_report_id"]) is None
     assert store().get_public_report("tenant-a", first["hold_report_id"])["status"] == "hold"

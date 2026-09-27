@@ -252,6 +252,11 @@ class MarketHoldStore:
                 "claim_mode": payload["claim_mode"],
                 "decision_time_kind": payload["decision_time_kind"]}
 
+    def get_decision_context(self, tenant, snapshot_id, context_id):
+        if not self._principal(tenant, "market_hold_context_read"):
+            return None
+        return self._context(tenant, snapshot_id, context_id)
+
     def get_public_report(self, tenant, report_id):
         if not self._principal(tenant, "market_hold_read"):
             return None

@@ -184,8 +184,24 @@ def resolve_market_context(
         report_fields = (report.decision_context_id, report.snapshot_id,
                          report.claim_mode, report.decision_time_kind)
         if any(value is not None for value in (*context_fields, *report_fields)):
-            if (not all(isinstance(value, str) and value for value in context_fields) or
-                    report_fields != context_fields):
+            if not all(isinstance(value, str) and value for value in report_fields):
+                raise ValueError("market hold report decision context differs")
+            signed = _lookup(repository, "get_decision_context", tenant_id,
+                             report.snapshot_id, report.decision_context_id)
+            if not isinstance(signed, Mapping):
+                raise ValueError("market hold decision context is malformed")
+            try:
+                signed_decision = datetime.fromisoformat(
+                    signed["decision_at_utc"].replace("Z", "+00:00"))
+            except (KeyError, AttributeError, ValueError) as exc:
+                raise ValueError("market hold signed decision time is invalid") from exc
+            signed_fields = (signed.get("decision_context_id"),
+                             signed.get("snapshot_id"), signed.get("claim_mode"),
+                             signed.get("decision_time_kind"))
+            if (signed.get("tenant_id") != tenant_id or
+                    signed_decision != decision_at or signed_fields != report_fields or
+                    (any(value is not None for value in context_fields) and
+                     context_fields != signed_fields)):
                 raise ValueError("market hold report decision context differs")
         return market
 

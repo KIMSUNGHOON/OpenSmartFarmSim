@@ -19,6 +19,7 @@ _READ_METHODS = frozenset({
     "get_joint_shock", "get_joint_shock_pin", "get_input_rights",
     "get_settlement_applicability", "get_settlement_evidence",
     "get_prior_batch_cost", "get_market_hold_report", "get_market_candidate",
+    "get_decision_context",
 })
 
 
