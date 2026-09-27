@@ -61,6 +61,10 @@ class _HoldReport(FrozenContract):
     decision_at: datetime
     reasons: tuple[Name, ...] = Field(min_length=1)
     missing_evidence: tuple[Name, ...] = Field(min_length=1)
+    decision_context_id: Name | None = None
+    snapshot_id: Name | None = None
+    claim_mode: Literal["ex_ante", "ex_post_replay"] | None = None
+    decision_time_kind: Literal["actual", "hypothetical"] | None = None
 
     @field_validator("decision_at")
     @classmethod
@@ -154,6 +158,10 @@ def resolve_market_context(
     tenant_id: str,
     decision_at: datetime,
     repository: object,
+    decision_context_id: str | None = None,
+    input_snapshot_id: str | None = None,
+    claim_mode: str | None = None,
+    decision_time_kind: str | None = None,
 ) -> MarketContext:
     """Verify an ID against tenant-owned server records at a UTC decision time."""
     market = _validated_context(market)
@@ -171,6 +179,14 @@ def resolve_market_context(
             market.hold_report_id, tenant_id, decision_at
         ):
             raise ValueError("market hold report does not match the request")
+        context_fields = (decision_context_id, input_snapshot_id,
+                          claim_mode, decision_time_kind)
+        report_fields = (report.decision_context_id, report.snapshot_id,
+                         report.claim_mode, report.decision_time_kind)
+        if any(value is not None for value in (*context_fields, *report_fields)):
+            if (not all(isinstance(value, str) and value for value in context_fields) or
+                    report_fields != context_fields):
+                raise ValueError("market hold report decision context differs")
         return market
 
     snapshot = _record(

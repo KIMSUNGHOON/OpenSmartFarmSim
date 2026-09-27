@@ -56,6 +56,49 @@ def upgrade_job_intent_key(conn: psycopg.Connection, schema: str) -> None:
         """).format(table))
 
 
+def install_market_hold_schema(conn: psycopg.Connection, schema: str) -> None:
+    """Owner-run, additive installation after the shared decision-context table."""
+    namespace = sql.Identifier(schema)
+    conn.execute(sql.SQL("""
+        CREATE TABLE {}.market_hold_reports (
+            tenant_id text NOT NULL CHECK (length(tenant_id) BETWEEN 1 AND 200),
+            hold_report_id text NOT NULL CHECK (length(hold_report_id) BETWEEN 1 AND 200),
+            snapshot_id text NOT NULL CHECK (length(snapshot_id) BETWEEN 1 AND 200),
+            decision_context_id text NOT NULL CHECK (length(decision_context_id) BETWEEN 1 AND 200),
+            intent_sha256 char(64) NOT NULL CHECK (intent_sha256 ~ '^[0-9a-f]{{64}}$'),
+            payload_raw bytea NOT NULL CHECK (octet_length(payload_raw) BETWEEN 1 AND 16384),
+            payload_sha256 char(64) NOT NULL CHECK (payload_sha256 ~ '^[0-9a-f]{{64}}$'),
+            signature char(64) NOT NULL CHECK (signature ~ '^[0-9a-f]{{64}}$'),
+            recorded_at timestamptz NOT NULL DEFAULT clock_timestamp(),
+            PRIMARY KEY (tenant_id, hold_report_id),
+            UNIQUE (tenant_id, intent_sha256),
+            FOREIGN KEY (tenant_id, snapshot_id, decision_context_id)
+                REFERENCES {}.decision_contexts (tenant_id, snapshot_id, decision_context_id),
+            FOREIGN KEY (tenant_id, snapshot_id)
+                REFERENCES {}.thermal_input_snapshots (tenant_id, snapshot_id),
+            CHECK (payload_sha256 = encode(sha256(payload_raw), 'hex')),
+            CHECK (((convert_from(payload_raw, 'UTF8')::jsonb->>'tenant_id') = tenant_id) IS TRUE),
+            CHECK (((convert_from(payload_raw, 'UTF8')::jsonb->>'hold_report_id') = hold_report_id) IS TRUE),
+            CHECK (((convert_from(payload_raw, 'UTF8')::jsonb->>'snapshot_id') = snapshot_id) IS TRUE),
+            CHECK (((convert_from(payload_raw, 'UTF8')::jsonb->>'decision_context_id') =
+                    decision_context_id) IS TRUE)
+        )
+    """).format(namespace, namespace, namespace))
+    conn.execute(sql.SQL("""
+        CREATE INDEX market_hold_by_context ON {}.market_hold_reports
+            (tenant_id, decision_context_id, recorded_at)
+    """).format(namespace))
+    conn.execute(sql.SQL("""
+        CREATE FUNCTION {}.reject_market_hold_change() RETURNS trigger LANGUAGE plpgsql AS $$
+        BEGIN RAISE EXCEPTION 'market hold reports are immutable'; END
+        $$
+    """).format(namespace))
+    conn.execute(sql.SQL("""
+        CREATE TRIGGER market_hold_immutable BEFORE UPDATE OR DELETE ON {}.market_hold_reports
+        FOR EACH ROW EXECUTE FUNCTION {}.reject_market_hold_change()
+    """).format(namespace, namespace))
+
+
 def install_schema(conn: psycopg.Connection, schema: str) -> None:
     """Install v1 tables into an existing, explicitly selected schema."""
     namespace = sql.Identifier(schema)
