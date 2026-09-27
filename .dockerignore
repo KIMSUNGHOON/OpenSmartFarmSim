@@ -1,0 +1,10 @@
+# Only dependency manifests enter this root build context. This excludes .env*,
+# ops/secrets, data/raw/private, credentials, .venv, node_modules, build output,
+# caches, and .git, including nested copies of those paths.
+**
+!backend/
+!backend/pyproject.toml
+!backend/uv.lock
+!web/
+!web/package.json
+!web/package-lock.json

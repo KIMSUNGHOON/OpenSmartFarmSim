@@ -1,0 +1,96 @@
+name: opensmartfarmsim
+
+# Dependency images only. App entrypoints and readiness checks require app source.
+x-backend-build: &backend-build
+  context: .
+  dockerfile: backend/Dockerfile
+  target: backend-deps
+
+services:
+  db:
+    image: postgres:18.6-bookworm@sha256:3725f4e2499eef5134592b3b4ab79a543ed7f8e533b05b5b637af926630f6650
+    environment:
+      POSTGRES_DB: opensmartfarmsim
+      POSTGRES_USER: opensmartfarmsim_admin
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_admin_password
+    secrets:
+      - db_admin_password
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  web:
+    profiles: [app]
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+      target: web-deps
+
+  api:
+    profiles: [app]
+    build: *backend-build
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_NAME: opensmartfarmsim
+      DB_USER: opensmartfarmsim_app
+      DB_PASSWORD_FILE: /run/secrets/db_app_password
+    secrets:
+      - db_app_password
+    volumes:
+      - artifacts:/artifacts:ro
+
+  collector:
+    profiles: [app]
+    build: *backend-build
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_NAME: opensmartfarmsim
+      DB_USER: opensmartfarmsim_app
+      DB_PASSWORD_FILE: /run/secrets/db_app_password
+    secrets:
+      - db_app_password
+    volumes:
+      - artifacts:/artifacts
+
+  # This role is a placeholder, not a per-job isolated Codex runtime or G4 proof.
+  cli:
+    profiles: [app]
+    build: *backend-build
+
+  simulation:
+    profiles: [app]
+    build: *backend-build
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_NAME: opensmartfarmsim
+      DB_USER: opensmartfarmsim_app
+      DB_PASSWORD_FILE: /run/secrets/db_app_password
+    secrets:
+      - db_app_password
+    volumes:
+      - artifacts:/artifacts
+
+secrets:
+  db_admin_password:
+    file: ${DB_ADMIN_PASSWORD_FILE:?set an external DB admin password file path}
+  # Provisioning the separate app DB role is deferred with the application.
+  db_app_password:
+    file: ${DB_APP_PASSWORD_FILE:?set an external app DB password file path}
+
+volumes:
+  postgres_data:
+  artifacts:
