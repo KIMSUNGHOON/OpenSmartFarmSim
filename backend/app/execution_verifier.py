@@ -65,6 +65,8 @@ class ExecutionVerifier:
             """).format(table("ai_decisions")), (tenant, job_id, attempt)).fetchone()
             if any(row is None for row in (job, attempt_row, invocation, launch, decision)):
                 return False
+            if not self.store.job_store._verified_invocation_inputs(conn, job, invocation):
+                return False
             capture = self.store.job_store._valid_cli_capture(
                 conn, job, attempt, decision["output_sha256"])
             if capture is None:
@@ -74,6 +76,8 @@ class ExecutionVerifier:
             job["stage"] == "collection_review" and job["state"] == "succeeded" and
             input_value.get("snapshot_id") == snapshot_id and
             record.input_sha256 == job["input_sha256"] and
+            record.prompt_sha256 == invocation["prompt_sha256"] == launch["prompt_sha256"] and
+            record.schema_sha256 == invocation["schema_sha256"] == launch["schema_sha256"] and
             record.attempt_id == attempt_row["attempt_id"] == invocation["attempt_id"] and
             record.launch_id == launch["launch_id"] == capture["launch_id"] and
             record.capture_id == capture["capture_id"] == decision["capture_id"] and
@@ -90,6 +94,6 @@ class ExecutionVerifier:
             record.termination_reason == capture["termination_reason"] == "completed" and
             record.usage == capture["usage"] and
             str(decision["decision_id"]) == str(decision_id) and
-            job["created_at"] <= record.started_at_utc <= record.ended_at_utc and
-            launch["spawned_at"] <= capture["sealed_at"] <= record.signed_at_utc
+            job["created_at"] <= record.started_at_utc <= launch["spawned_at"] <=
+                record.ended_at_utc <= capture["sealed_at"] <= record.signed_at_utc
         )

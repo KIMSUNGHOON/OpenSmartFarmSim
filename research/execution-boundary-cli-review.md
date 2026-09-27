@@ -39,3 +39,18 @@ The final review's conclusions were:
 The implementation in [the attestation contract](../contracts/cli-execution-attestation-v1.md)
 follows that boundary as a software candidate. This review does not attest
 that the separate supervisor has been deployed.
+
+## Follow-up: actual CLI input-byte binding
+
+On 2026-09-27 UTC, a second private temporary `codex-cli 0.157.1` session
+used the same `gpt-6-sol`/`xhigh`, read-only, ephemeral command form. Its
+narrow prompt disclosed only the record and JobStore field lists and asked
+whether unsigned actual stdin and output-schema bytes leave a binding gap.
+The terminal usage was 46,913 input tokens (41,600 cached), 1,238 output
+tokens (622 reasoning output). The CLI concluded that the separately controlled
+observer must hash the bytes actually supplied to the child, sign both
+`prompt_sha256` and `schema_sha256`, and the publisher must compare each with
+both invocation and launch records. It proposed an adversarial case where the
+job store retains prompt A but the child reads prompt B. This was a design
+review; the local fake-child regression is not an independently deployed
+observer or G1 execution proof.

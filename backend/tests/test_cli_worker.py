@@ -26,6 +26,7 @@ from test_jobs import pg_store
 def _fake_cli(tmp_path, mode="valid"):
     path = tmp_path / ("codex-" + uuid4().hex)
     script = """#!/usr/bin/env python3
+from hashlib import sha256
 import json
 import os
 import pathlib
@@ -40,6 +41,9 @@ if '--version' in sys.argv:
 args = sys.argv
 target = pathlib.Path(args[args.index('--output-last-message') + 1])
 prompt = sys.stdin.buffer.read()
+pathlib.Path(PROMPT_DIGEST_MARKER).write_text(sha256(prompt).hexdigest())
+schema = pathlib.Path(args[args.index('--output-schema') + 1]).read_bytes()
+pathlib.Path(SCHEMA_DIGEST_MARKER).write_text(sha256(schema).hexdigest())
 context = json.loads(prompt.split(b'\\n')[-2])
 if MODE == 'timeout':
     time.sleep(30)
@@ -73,6 +77,8 @@ print(json.dumps({'type': 'turn.completed', 'usage': {'input_tokens': 1,
     'output_tokens': 1}}))
 """
     path.write_text(script.replace("PID_MARKER", repr(str(tmp_path / "grandchild.pid")))
+                         .replace("PROMPT_DIGEST_MARKER", repr(str(tmp_path / "actual-prompt.sha256")))
+                         .replace("SCHEMA_DIGEST_MARKER", repr(str(tmp_path / "actual-schema.sha256")))
                          .replace("MODE", repr(mode)))
     path.chmod(0o700)
     return path

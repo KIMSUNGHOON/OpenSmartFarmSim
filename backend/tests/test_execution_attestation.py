@@ -23,7 +23,7 @@ from test_cli_worker import _worker
 from test_jobs import pg_store
 
 
-def _completed(pg_store, tmp_path):
+def _completed(pg_store, tmp_path, *, misrecorded_kind=None):
     def approved(job, value):
         return replace(resolver(job, value), allow_proceed=True, missing_evidence=())
 
@@ -38,6 +38,16 @@ def _completed(pg_store, tmp_path):
         return original(*args, **kwargs)
 
     store.record_cli_launch = captured_launch
+    if misrecorded_kind is not None:
+        assert misrecorded_kind in {"prompt", "output_schema"}
+        original_append = store.append_evidence
+
+        def misrecorded_evidence(*args, **kwargs):
+            if kwargs.get("kind") == misrecorded_kind:
+                kwargs["payload"] += b" "
+            return original_append(*args, **kwargs)
+
+        store.append_evidence = misrecorded_evidence
     review_input = input_for("collection_review")
     review_input.update(decision_context_id="attestation-context-a",
                         decision_at_utc="2026-01-03T00:00:00Z",
@@ -72,7 +82,10 @@ def _signed(store, worker, worked, rows, argv, *, private=None):
         record_version="cli-execution-attestation-v1", key_id="test-observer-v1",
         tenant_id="tenant-a", job_id=worked.job_id, attempt=worked.attempt,
         attempt_id=invocation["attempt_id"], nonce=uuid4(),
-        input_sha256=job["input_sha256"], cli_version=invocation["cli_version"],
+        input_sha256=job["input_sha256"],
+        prompt_sha256=(Path(worker.cli_path).parent / "actual-prompt.sha256").read_text(),
+        schema_sha256=(Path(worker.cli_path).parent / "actual-schema.sha256").read_text(),
+        cli_version=invocation["cli_version"],
         executable_sha256=binary_sha, argv=argv, environment_sha256=env_sha,
         launch_id=launch["launch_id"], capture_id=worked.capture_id,
         jsonl_sha256=capture["jsonl_sha256"],
@@ -154,6 +167,20 @@ def test_attestation_rejects_forgery_and_nonce_reuse(pg_store, tmp_path):
                              environment_sha256=record.environment_sha256)(
         "tenant-a", worked.job_id, worked.attempt, worked.capture_id,
         "snapshot-a", worked.decision_id) is False
+
+
+@pytest.mark.parametrize("kind,digest_field", [
+    ("prompt", "prompt_sha256"), ("output_schema", "schema_sha256")])
+def test_actual_cli_input_bytes_must_match_durable_invocation(
+        pg_store, tmp_path, kind, digest_field):
+    data = _completed(pg_store, tmp_path, misrecorded_kind=kind)
+    store, _, worked, rows, _ = data
+    record, raw, signature, attestations, verifier, _ = _signed(*data)
+    assert getattr(record, digest_field) != rows["attempt_invocations"][digest_field]
+    attestations.put(raw, signature)
+    assert verifier("tenant-a", worked.job_id, worked.attempt,
+                    worked.capture_id, "snapshot-a", worked.decision_id) is False
+    assert store.get_job("tenant-a", worked.job_id)["state"] == "succeeded"
 
 
 def test_request_role_cannot_insert_execution_attestation(pg_store, tmp_path):

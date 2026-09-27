@@ -20,7 +20,8 @@ default production constructor remains closed. Same-process HMAC and internally
 consistent JSONL cannot prove that a separate process ran.
 
 The canonical UTF-8 JSON record includes a version and key ID; tenant, job,
-attempt and attempt ID; frozen job input SHA-256 and unique v4 nonce; CLI version,
+attempt and attempt ID; frozen job input SHA-256, actual stdin prompt and
+output-schema file SHA-256, and unique v4 nonce; CLI version,
 executable and environment digests, exact argv; launch and capture IDs; JSONL
 and final-output digests; PID and a process start token; UTC start/end/signing
 times; successful exit, completion reason, and observed usage. Ed25519 signs
@@ -38,9 +39,11 @@ job-attempt foreign key, raw SHA-256 and immutable trigger. A repeated identical
 insert is idempotent; another record for the attempt or a reused nonce fails.
 `ExecutionVerifier` checks the signature, job input and snapshot reference,
 attempt/launch/capture/decision IDs, exact model and effort, argv hash, pinned
-executable/environment digests, final and JSONL hashes, usage, process ID and
+executable/environment digests, actual prompt/schema hashes against both the
+invocation and launch rows, final and JSONL hashes, usage, process ID and
 chronology against the existing durable JobStore capture. It also calls the
-JobStore's raw capture validator before it returns true. A valid-looking
+JobStore's raw invocation-input and capture validators before it returns true.
+A valid-looking
 JobStore capture without the signed record returns false. The thermal publisher
 already accepts this callable verifier interface, but the production supervisor
 has not been connected to it.
@@ -54,6 +57,13 @@ unapproved binary digest, deletion, and a sample request DB role attempting to
 insert an attestation. The sample role is not a deployed grant policy. The
 test signer reconstructs evidence after the fake process; it is deliberately
 not independent process observation.
+
+A subsequent exact CLI review found a missing binding between the signed
+record and bytes actually passed to the CLI. The record now requires the
+observer-computed prompt and schema digests. A fake child records the bytes it
+read independently of JobStore, and regression tests reject otherwise valid
+decisions when JobStore retained different prompt or schema bytes. The fake
+child and test signer do not establish the required production supervisor.
 
 G1 remains HOLD until the separately controlled supervisor directly observes
 an actual CLI child, signs after durable capture with a private key outside

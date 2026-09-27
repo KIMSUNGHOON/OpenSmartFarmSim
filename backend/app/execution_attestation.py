@@ -48,6 +48,8 @@ class ExecutionAttestation(BaseModel):
     attempt_id: UUID
     nonce: UUID
     input_sha256: str
+    prompt_sha256: str
+    schema_sha256: str
     cli_version: str
     executable_sha256: str
     argv: list[str] = Field(min_length=1, max_length=32)
@@ -72,7 +74,8 @@ class ExecutionAttestation(BaseModel):
             raise ValueError("invalid attestation key ID")
         return value
 
-    @field_validator("input_sha256", "executable_sha256", "environment_sha256",
+    @field_validator("input_sha256", "prompt_sha256", "schema_sha256",
+                     "executable_sha256", "environment_sha256",
                      "jsonl_sha256", "final_output_sha256")
     @classmethod
     def valid_digest(cls, value):
