@@ -15,7 +15,8 @@ from typing import Literal
 from zoneinfo import ZoneInfo
 
 from app.economic_contracts import (
-    EconomicNumber, EconomicScenario, OwnedEconomicRecord, OwnedScenarioPin, PriorBatchCostRecord,
+    EconomicNumber, EconomicScenario, OwnedEconomicRecord, OwnedScenarioPin, OwnedSettlementRecord,
+    PriorBatchCostRecord,
     ZERO_GROUP_UNITS, iter_economic_numbers,
     untrusted_data,
 )
@@ -26,7 +27,7 @@ from app.market import (
 
 KST = ZoneInfo("Asia/Seoul")
 ZERO = Decimal("0")
-FORMULA_VERSION = "economic-ledger-v7-pre-dispatch-sale-cost"
+FORMULA_VERSION = "economic-ledger-v9-sales-settlement"
 SalesTotalsStatus = Literal["inventory_reconciled", "unverified_input_arithmetic"]
 
 
@@ -62,6 +63,14 @@ def required_sum(events, converter=money) -> Decimal | None:
     return None if events is None else total(converter(item.amount) for item in events)
 
 
+def remittance_per_kg(amount: Decimal, kg: Decimal) -> Decimal:
+    with localcontext() as context:
+        context.prec = 128
+        context.rounding = ROUND_HALF_UP
+        context.traps[Inexact] = False
+        return amount / kg
+
+
 def canonical_scenario_sha256(scenario: EconomicScenario) -> str:
     payload = json.dumps(scenario.model_dump(mode="json"), sort_keys=True,
                          separators=(",", ":"), ensure_ascii=False)
@@ -85,6 +94,24 @@ class FutureCashEvent:
     at: datetime
     amount: Decimal
     category: str
+
+
+@dataclass(frozen=True)
+class FutureSetoffEvent:
+    event_id: str
+    sale_id: str
+    cost_id: str
+    at: datetime
+    amount: Decimal
+
+
+@dataclass(frozen=True)
+class SaleNetRemittance:
+    sale_id: str
+    amount: Decimal | None
+    per_kg: Decimal | None
+    status: Literal["conditional_user_assumption", "hold"]
+    hold_reason: str | None
 
 
 @dataclass(frozen=True)
@@ -133,6 +160,8 @@ class EconomicResult:
     operating_payable_end: Decimal | None
     operating_cash_bridge: Decimal | None
     future_cash_schedule: tuple[FutureCashEvent, ...]
+    future_setoff_schedule: tuple[FutureSetoffEvent, ...]
+    sale_net_remittances: tuple[SaleNetRemittance, ...]
     business_cash: Decimal | None
     equity_cash: Decimal | None
     monthly_cash: tuple[MonthlyCash, ...] | None
@@ -166,6 +195,7 @@ class EconomicLedger:
         if not inputs:
             raise ValueError("economic scenario needs scoped user inputs")
         self._verify_inputs(scenario, inputs)
+        self._verify_settlement_evidence(scenario)
         validate_first_g1_use(
             market,
             economic_inputs=tuple({"origin": item.origin, "evidence_level": item.evidence_level,
@@ -244,6 +274,29 @@ class EconomicLedger:
                     or prior.allocation_policy != lot.allocation_policy):
                 raise ValueError("prior batch cost reference does not match opening inventory")
 
+    def _verify_settlement_evidence(self, scenario: EconomicScenario) -> None:
+        for item in scenario.setoffs or ():
+            try:
+                raw = self._repository.get_settlement_evidence(
+                    item.settlement_ref, item.evidence_revision)
+                if raw is None or not isinstance(raw, dict):
+                    raise ValueError("missing settlement evidence")
+                record = OwnedSettlementRecord.model_validate(untrusted_data(raw))
+            except Exception as exc:
+                raise ValueError("trusted settlement evidence lookup failed") from exc
+            payload = json.dumps(record.model_dump(mode="json", exclude={"raw_sha256"}),
+                                 sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+            digest = sha256(payload.encode("utf-8")).hexdigest()
+            if (record.raw_sha256 != digest or item.evidence_sha256 != digest
+                    or (record.settlement_ref, record.revision, record.tenant_id,
+                        record.sale_id, record.cost_id, record.at, record.amount) !=
+                       (item.settlement_ref, item.evidence_revision, scenario.tenant_id,
+                        item.sale_id, item.cost_id, item.at, item.amount)
+                    or record.available_at > scenario.decision_at
+                    or record.scope_start > scenario.period_start
+                    or record.scope_end < max(scenario.period_end, day(item.at))):
+                raise ValueError("settlement evidence does not match owned immutable revision, rights, or period")
+
     def _calculate_verified(self, s, market, inputs, scenario_sha256):
         declared_zeros = {item.group for item in s.zero_declarations}
         missing_zeros = {
@@ -254,7 +307,7 @@ class EconomicLedger:
         holds = ["MARKET_CONTEXT_UNAVAILABLE"]
         event_ids = []
         for events in (s.harvests, s.packouts, s.culls, s.cull_disposals, s.sales, s.collections,
-                       s.returns, s.discounts, s.disposals, s.variable_costs, s.fixed_costs,
+                       s.returns, s.discounts, s.setoffs, s.disposals, s.variable_costs, s.fixed_costs,
                        s.depreciation, s.grants, s.asset_disposals, s.taxes, s.capex,
                        s.loan_draws, s.principal_payments, s.interest_payments):
             event_ids.extend(item.id for item in (events or ()))
@@ -267,7 +320,7 @@ class EconomicLedger:
         if any(day(at) < s.period_start for at in cash_times):
             raise ValueError("before-period cash unsupported for first G1")
 
-        for field in ("cull_disposals", "opening_inventory", "collections", "returns", "discounts", "disposals",
+        for field in ("cull_disposals", "opening_inventory", "collections", "returns", "discounts", "setoffs", "disposals",
                       "variable_costs", "fixed_costs", "depreciation", "assets", "grants",
                       "asset_disposals", "taxes", "capex", "loan_draws",
                       "principal_payments", "interest_payments", "debt_accounts", "opening_cash"):
@@ -343,6 +396,26 @@ class EconomicLedger:
                 raise ValueError("discount needs an earlier original sale")
             self._event_in_period(item.at, s)
             discounts_by_sale[item.sale_id] += money(item.amount)
+        costs_by_id = {cost.id: cost for cost in s.variable_costs or ()}
+        setoff_by_cost = {}
+        setoff_by_sale = defaultdict(lambda: ZERO)
+        for item in s.setoffs or ():
+            sale = sales.get(item.sale_id)
+            cost = costs_by_id.get(item.cost_id)
+            if (sale is None or cost is None or cost.purpose != "sale"
+                    or cost.sale_id != item.sale_id
+                    or cost.batch_id not in (None, sale.batch_id)):
+                raise ValueError("setoff needs the same sale's variable sale cost")
+            if item.cost_id in setoff_by_cost:
+                raise ValueError("one settlement setoff per cost")
+            if cost.payment is not None or cost.paid_at is not None:
+                raise ValueError("setoff cost cannot also have bank payment")
+            if item.at < max(sale.recognized_at, cost.incurred_at):
+                raise ValueError("setoff precedes recognized sale or incurred cost")
+            if money(item.amount) != cost.quantity.amount * cost.unit_cost.amount:
+                raise ValueError("setoff must fully equal incurred sale cost")
+            setoff_by_cost[item.cost_id] = item
+            setoff_by_sale[item.sale_id] += money(item.amount)
         for sale in s.sales:
             if returned_by_sale[sale.id] > quantity(sale.quantity):
                 raise ValueError("returns exceed original sale quantity")
@@ -352,7 +425,7 @@ class EconomicLedger:
             if (money(item.amount) > ZERO and total(
                 money(collection.amount) for collection in s.collections or ()
                 if collection.sale_id == item.sale_id and collection.at < item.at
-            ) >= gross_by_sale[item.sale_id]):
+            ) > ZERO):
                 raise ValueError("DISCOUNT_AFTER_COLLECTION_CASH_CORRECTION_UNSUPPORTED")
         for item in s.collections or ():
             sale = sales.get(item.sale_id)
@@ -361,10 +434,45 @@ class EconomicLedger:
             money(item.amount)
         for sale in s.sales:
             collected = total(money(item.amount) for item in s.collections or () if item.sale_id == sale.id)
-            if collected > gross_by_sale[sale.id] - discounts_by_sale[sale.id]:
-                raise ValueError("collections exceed sale after discounts")
+            if collected + setoff_by_sale[sale.id] + discounts_by_sale[sale.id] > gross_by_sale[sale.id]:
+                raise ValueError("collections, discounts, and setoffs exceed gross sale")
 
         closing_inventory = self._inventory(s, holds)
+        sale_net_remittances = []
+        for sale in s.sales:
+            net_amount = (gross_by_sale[sale.id] - discounts_by_sale[sale.id] - setoff_by_sale[sale.id]
+                          if s.setoffs is not None and s.discounts is not None else None)
+            related_collections = [item for item in s.collections or () if item.sale_id == sale.id]
+            if s.setoffs is None:
+                reason = "SETTLEMENT_UNDECLARED"
+            elif s.discounts is None:
+                reason = "DISCOUNTS_UNDECLARED"
+            elif s.returns is None:
+                reason = "RETURNS_UNDECLARED"
+            elif any(item.sale_id == sale.id for item in s.returns):
+                reason = "RETURN_PRESENT"
+            elif closing_inventory is None:
+                reason = "INVENTORY_UNRECONCILED"
+            elif any(item.sale_id == sale.id and not in_period(item.at, s) for item in s.setoffs):
+                reason = "SETTLEMENT_AFTER_PERIOD"
+            elif s.collections is None:
+                reason = "COLLECTIONS_UNDECLARED"
+            elif any(not in_period(item.at, s) for item in related_collections):
+                reason = "COLLECTION_AFTER_PERIOD"
+            elif total(money(item.amount) for item in related_collections) != net_amount:
+                reason = "COLLECTION_INCOMPLETE"
+            else:
+                reason = None
+            sale_net_remittances.append(SaleNetRemittance(
+                sale_id=sale.id, amount=net_amount,
+                per_kg=(remittance_per_kg(net_amount, quantity(sale.quantity))
+                        if reason is None else None),
+                status="conditional_user_assumption" if reason is None else "hold",
+                hold_reason=reason,
+            ))
+            if reason is not None:
+                holds.append(f"SALE_NET_REMITTANCE_{sale.id}:{reason}")
+
         variable_cost = self._costs(s.variable_costs, s, harvested_batches, sales)
         fixed_cost = self._costs(s.fixed_costs, s, harvested_batches, sales)
         depreciation = required_sum(s.depreciation) if asset_schedules_complete else None
@@ -381,6 +489,9 @@ class EconomicLedger:
 
         op_events = []
         future_events = []
+        future_setoffs = tuple(sorted((FutureSetoffEvent(
+            item.id, item.sale_id, item.cost_id, item.at, money(item.amount))
+            for item in s.setoffs or () if not in_period(item.at, s)), key=lambda event: event.at))
         operating_cash = None
         cash_rows = (
             [(item.id, item.at, money(item.amount), "collection") for item in s.collections or ()]
@@ -405,14 +516,17 @@ class EconomicLedger:
                 holds.append(f"{name.upper()}_UNDECLARED")
             elif money(value) != ZERO:
                 raise ValueError(f"unsupported nonzero opening {name}")
-        if (s.collections is not None and s.returns is not None and s.variable_costs is not None
+        if (s.collections is not None and s.returns is not None and s.setoffs is not None
+                and s.variable_costs is not None
                 and s.fixed_costs is not None and s.discounts is not None
                 and s.cull_disposals is not None and s.opening_inventory is not None
                 and s.disposals is not None and closing_inventory is not None
                 and all(getattr(s, name) is not None for name in bridge_opening_names)
-                and all(cost.payment is not None for cost in (*s.variable_costs, *s.fixed_costs))):
+                and all(cost.payment is not None or cost.id in setoff_by_cost
+                        for cost in (*s.variable_costs, *s.fixed_costs))):
             operating_cash = total(amount for _, amount in op_events)
-        elif any(cost.payment is None for cost in (*(s.variable_costs or ()), *(s.fixed_costs or ()))):
+        elif any(cost.payment is None and cost.id not in setoff_by_cost
+                 for cost in (*(s.variable_costs or ()), *(s.fixed_costs or ()))):
             holds.append("OPERATING_PAYMENT_UNDECLARED")
 
         ar_begin = money(s.opening_receivable) if s.opening_receivable is not None else None
@@ -422,12 +536,14 @@ class EconomicLedger:
         if (operating_cash is not None and None not in (ar_begin, refund_begin, payable_begin,
                                                        revenue, variable_cost, fixed_cost)):
             ar_end = ar_begin + gross - total(discounts_by_sale.values()) - total(
-                money(item.amount) for item in s.collections if in_period(item.at, s))
+                money(item.amount) for item in s.collections if in_period(item.at, s)) - total(
+                money(item.amount) for item in s.setoffs if in_period(item.at, s))
             refund_end = refund_begin + total(refunds_by_sale.values()) - total(
                 money(item.refund) for item in s.returns if in_period(item.refund_paid_at, s))
             payable_end = payable_begin + variable_cost + fixed_cost - total(
                 money(item.payment) for item in (*s.variable_costs, *s.fixed_costs)
-                if in_period(item.paid_at, s))
+                if item.paid_at is not None and in_period(item.paid_at, s)) - total(
+                money(item.amount) for item in s.setoffs if in_period(item.at, s))
             if min(ar_end, refund_end, payable_end) < ZERO:
                 raise ValueError("cash bridge balance is negative")
             if oi is not None:
@@ -520,6 +636,7 @@ class EconomicLedger:
             refund_payable_begin=refund_begin, refund_payable_end=refund_end,
             operating_payable_begin=payable_begin, operating_payable_end=payable_end,
             operating_cash_bridge=bridge, future_cash_schedule=tuple(future_events),
+            future_setoff_schedule=future_setoffs, sale_net_remittances=tuple(sale_net_remittances),
             business_cash=business_cash, equity_cash=equity_cash, monthly_cash=monthly_cash,
             minimum_cash_balance=minimum_cash_balance, minimum_cash_at=minimum_cash_at,
             cash_shortage=cash_shortage,

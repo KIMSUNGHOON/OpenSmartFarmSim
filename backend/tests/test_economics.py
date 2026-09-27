@@ -2,6 +2,7 @@
 
 from datetime import date, datetime, timezone
 from decimal import Decimal
+from hashlib import sha256
 from pathlib import Path
 import json
 import sys
@@ -21,7 +22,7 @@ T = lambda day, hour=0: datetime(2026, 10, day, hour, tzinfo=timezone.utc)
 MARKET = {"kind": "unavailable", "hold_report_id": "hold-1"}
 ZERO_GROUP_UNITS = {
     "cull_disposals": "kg", "opening_inventory": "kg", "collections": "KRW",
-    "returns": "kg", "discounts": "KRW", "disposals": "kg",
+    "returns": "kg", "discounts": "KRW", "setoffs": "KRW", "disposals": "kg",
     "variable_costs": "KRW", "fixed_costs": "KRW", "depreciation": "KRW",
     "assets": "KRW", "grants": "KRW", "asset_disposals": "KRW",
     "taxes": "KRW", "capex": "KRW", "loan_draws": "KRW",
@@ -44,7 +45,7 @@ def opening_lot(quantity=5, cost=200, basis=5):
 
 
 def base(**overrides):
-    data = dict(schema_version="2", scenario_id="scenario-1", scenario_revision="r1",
+    data = dict(schema_version="3", scenario_id="scenario-1", scenario_revision="r1",
                 tenant_id="tenant-1",
                 decision_at=DECISION, period_start=date(2026, 10, 1), period_end=date(2026, 11, 30),
                 scenario_market_context=MARKET, market_context=MARKET,
@@ -63,7 +64,7 @@ def base(**overrides):
                         "price_basis": "gross_before_deductions"},),
                 collections=({"id": "collection-1", "sale_id": "sale-1", "at": T(20),
                               "amount": n(500, "collection", "KRW")},),
-                returns=(), discounts=(), disposals=(),
+                returns=(), discounts=(), setoffs=(), disposals=(),
                 variable_costs=({"id": "production", "purpose": "production", "batch_id": "batch-1",
                                  "sale_id": None, "incurred_at": T(15),
                                  "quantity": n(10, "production-q"), "unit_cost": n(2, "production-rate", "KRW/kg"),
@@ -85,6 +86,28 @@ def base(**overrides):
         for group, unit in ZERO_GROUP_UNITS.items() if data[group] == ()
     ))
     return data
+
+
+def settlement_record(scenario, item):
+    """Self-authored immutable evidence in the injected test repository only."""
+    if hasattr(item, "model_dump"):
+        item = item.model_dump(mode="python")
+    payload = {
+        "settlement_ref": item["settlement_ref"],
+        "revision": item["evidence_revision"],
+        "tenant_id": getattr(scenario, "tenant_id", None) or scenario["tenant_id"],
+        "sale_id": item["sale_id"], "cost_id": item["cost_id"],
+        "at": item["at"], "amount": item["amount"],
+        "origin": "user", "evidence_level": "assumed",
+        "rights": "conditional_g1_use", "immutable": True,
+        "available_at": DECISION,
+        "scope_start": getattr(scenario, "period_start", None) or scenario["period_start"],
+        "scope_end": max(getattr(scenario, "period_end", None) or scenario["period_end"],
+                         date.fromisoformat(str(item["at"])[:10])),
+    }
+    raw = json.dumps(payload, sort_keys=True, separators=(",", ":"),
+                     default=lambda v: v.isoformat().replace("+00:00", "Z"))
+    return {**payload, "raw_sha256": sha256(raw.encode()).hexdigest()}
 
 
 class TrustedTestRepository:
@@ -122,6 +145,10 @@ class TrustedTestRepository:
             }
             for lot in scenario.opening_inventory or () if lot.prior_cost_ref is not None
         }
+        self.settlements = {}
+        for item in scenario.setoffs or ():
+            record = settlement_record(scenario, item)
+            self.settlements[(item.settlement_ref, item.evidence_revision)] = record
 
     def tenant_is_authenticated(self, tenant_id):
         return self.authenticated and tenant_id == "tenant-1"
@@ -141,6 +168,9 @@ class TrustedTestRepository:
     def get_prior_batch_cost(self, cost_ref):
         return self.prior_costs.get(cost_ref)
 
+    def get_settlement_evidence(self, settlement_ref, revision):
+        return self.settlements.get((settlement_ref, revision))
+
 
 def run(data=None, repo=None):
     scenario = EconomicScenario.model_validate(data or base())
@@ -151,7 +181,7 @@ def test_complete_synthetic_ledger_tracks_inventory_and_distinct_targets():
     result = run()
     assert result.market_context.hold_report_id == "hold-1"
     assert result.scenario_revision == "r1"
-    assert result.formula_version == "economic-ledger-v7-pre-dispatch-sale-cost"
+    assert result.formula_version == "economic-ledger-v9-sales-settlement"
     assert result.scenario_sha256 == canonical_scenario_sha256(EconomicScenario.model_validate(base()))
     assert result.assessment_market_context == result.market_context
     assert result.assessment_status == "hold" and result.forecast_run_id is None
@@ -190,7 +220,8 @@ def test_declared_zero_opening_cash_is_a_verified_numeric_input():
 @pytest.mark.parametrize("group,result_field", [
     ("cull_disposals", "cull_disposed_kg"), ("opening_inventory", "closing_inventory"),
     ("collections", "operating_cash"), ("returns", "revenue"),
-    ("discounts", "revenue"), ("disposals", "closing_inventory"),
+    ("discounts", "revenue"), ("setoffs", "operating_cash"),
+    ("disposals", "closing_inventory"),
     ("variable_costs", "variable_cost"), ("fixed_costs", "fixed_cost"),
     ("depreciation", "depreciation"), ("assets", "management_oi"),
     ("grants", "business_cash"), ("asset_disposals", "business_cash"),
@@ -642,8 +673,9 @@ def test_cost_purpose_is_required_and_links_follow_purpose_matrix():
             EconomicScenario.model_validate(invalid)
 
 
-def test_old_scenario_schema_version_is_rejected_after_cost_shape_change():
-    data = base(schema_version="1")
+@pytest.mark.parametrize("old_version", ["1", "2"])
+def test_old_scenario_schema_version_is_rejected_after_cost_shape_change(old_version):
+    data = base(schema_version=old_version)
     with pytest.raises(ValidationError, match="schema_version"):
         EconomicScenario.model_validate(data)
 

@@ -199,6 +199,42 @@ class Discount(FrozenContract):
     _at_utc = field_validator("at")(utc)
 
 
+class SettlementSetoff(FrozenContract):
+    id: Name
+    sale_id: Name
+    cost_id: Name
+    at: datetime
+    amount: EconomicNumber
+    settlement_ref: Name
+    evidence_revision: Name
+    evidence_sha256: Digest
+
+    _at_utc = field_validator("at")(utc)
+
+
+class OwnedSettlementRecord(FrozenContract):
+    settlement_ref: Name
+    revision: Name
+    tenant_id: Name
+    sale_id: Name
+    cost_id: Name
+    at: datetime
+    amount: EconomicNumber
+    origin: Literal["user"]
+    evidence_level: Literal["assumed"]
+    rights: Literal["conditional_g1_use"]
+    immutable: Literal[True]
+    available_at: datetime
+    scope_start: date
+    scope_end: date
+    raw_sha256: Digest
+
+    @field_validator("at", "available_at")
+    @classmethod
+    def settlement_time_utc(cls, value: datetime) -> datetime:
+        return utc(value)
+
+
 class Disposal(FrozenContract):
     id: Name
     batch_id: Name
@@ -271,14 +307,14 @@ class DebtAccount(FrozenContract):
 
 
 ZeroGroup = Literal[
-    "cull_disposals", "opening_inventory", "collections", "returns", "discounts",
+    "cull_disposals", "opening_inventory", "collections", "returns", "discounts", "setoffs",
     "disposals", "variable_costs", "fixed_costs", "depreciation", "assets",
     "grants", "asset_disposals", "taxes", "capex", "loan_draws",
     "principal_payments", "interest_payments", "debt_accounts",
 ]
 ZERO_GROUP_UNITS = {
     "cull_disposals": "kg", "opening_inventory": "kg", "collections": "KRW",
-    "returns": "kg", "discounts": "KRW", "disposals": "kg",
+    "returns": "kg", "discounts": "KRW", "setoffs": "KRW", "disposals": "kg",
     "variable_costs": "KRW", "fixed_costs": "KRW", "depreciation": "KRW",
     "assets": "KRW", "grants": "KRW", "asset_disposals": "KRW",
     "taxes": "KRW", "capex": "KRW", "loan_draws": "KRW",
@@ -298,7 +334,7 @@ class ZeroDeclaration(FrozenContract):
 
 
 class EconomicScenario(FrozenContract):
-    schema_version: Literal["2"]
+    schema_version: Literal["3"]
     scenario_id: Name
     scenario_revision: Name
     tenant_id: Name
@@ -316,6 +352,7 @@ class EconomicScenario(FrozenContract):
     collections: tuple[Collection, ...] | None = None
     returns: tuple[Return, ...] | None = None
     discounts: tuple[Discount, ...] | None = None
+    setoffs: tuple[SettlementSetoff, ...] | None = None
     disposals: tuple[Disposal, ...] | None = None
     variable_costs: tuple[Cost, ...] | None = None
     fixed_costs: tuple[Cost, ...] | None = None

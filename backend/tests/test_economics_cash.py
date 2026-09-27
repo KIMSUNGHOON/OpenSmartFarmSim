@@ -6,6 +6,7 @@ from decimal import Decimal
 import pytest
 
 from test_economics import DECISION, T, base, n, run
+from test_economics_settlement import example
 
 
 def test_complete_two_month_cash_and_three_distinct_objectives():
@@ -49,6 +50,17 @@ def test_complete_two_month_cash_and_three_distinct_objectives():
         ("2026-10", Decimal("100"), Decimal("337"), Decimal("437")),
         ("2026-11", Decimal("437"), Decimal("0"), Decimal("437")),
     ]
+
+
+def test_setoff_changes_balances_without_changing_monthly_bank_minimum():
+    data = example()
+    data["opening_cash"] = n(0, "opening-cash", "KRW")
+    result = run(data)
+    assert result.operating_cash == result.operating_cash_bridge == Decimal(770)
+    assert result.monthly_cash[0].net == Decimal(770)
+    assert result.monthly_cash[0].minimum_balance == Decimal(-70)
+    assert result.monthly_cash[0].minimum_at == T(21)
+    assert result.receivable_end == result.operating_payable_end == Decimal(0)
 
 
 def test_kst_month_boundary_governs_cash_period():
