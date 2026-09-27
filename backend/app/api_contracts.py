@@ -1,4 +1,4 @@
-"""Public fields for the first durable-job HTTP read path."""
+"""Public fields for versioned, tenant-scoped HTTP read paths."""
 
 from datetime import datetime
 from typing import Literal
@@ -30,6 +30,46 @@ class MarketHoldStatus(BaseModel):
     status: Literal["hold"]
     reasons: list[str]
     missing_evidence: list[str]
+
+
+class ThermalRunSummary(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    run_id: str
+    status: Literal["accepted"]
+    synthetic: Literal[True]
+    temporal_provenance: Literal["ex_post_replay"]
+    decision_at_utc: datetime
+    review_at_utc: datetime
+    start_utc: datetime
+    end_utc: datetime
+    model_version: Literal["thermal-v1"]
+    parameter_set_version: Literal["synthetic-thermal-parameters-v1"]
+    engine_version: Literal["thermal-euler-v1"]
+    unit_registry_version: Literal["thermal-si-nws-v1"]
+    manifest_sha256: str
+    trace_sha256: list[str]
+    point_count: int = Field(ge=1)
+
+
+class ThermalSeriesPoint(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    at_utc: datetime
+    temperature_k: float
+    humidity_ratio_kg_v_per_kg_da: float
+    relative_humidity_fraction: float
+    heat_demand_w_th: float
+    heat_delivered_w_th: float
+    delivered_heat_energy_kwh_th: float
+
+
+class ThermalRunSeries(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    run_id: str
+    temporal_provenance: Literal["ex_post_replay"]
+    points: list[ThermalSeriesPoint]
 
 
 class ErrorDetail(BaseModel):

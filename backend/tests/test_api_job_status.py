@@ -18,6 +18,11 @@ class UnusedMarketHoldStore:
         raise AssertionError("job status must not read a market report")
 
 
+class UnusedThermalRunStore:
+    def get_run(self, _tenant, _run_id):
+        raise AssertionError("job status must not read a thermal Run")
+
+
 def get(app, path):
     async def call():
         sent = []
@@ -48,7 +53,8 @@ def get(app, path):
 
 def test_job_http_status_scope_and_public_projection(pg_store):
     principal = {"authenticated": True, "tenant_id": "tenant-a", "scopes": {"metadata"}}
-    app = create_app(pg_store, UnusedMarketHoldStore(), principal_provider=lambda: principal)
+    app = create_app(pg_store, UnusedMarketHoldStore(), UnusedThermalRunStore(),
+                     principal_provider=lambda: principal)
     job = pg_store.submit("tenant-a", "research", {"fixture": "synthetic"},
                           "api-" + uuid4().hex)
     path = f"/v1/jobs/{job['job_id']}"
@@ -90,7 +96,7 @@ def test_job_http_store_failure_is_generic_and_reason_details_are_removed(pg_sto
         def get_job(self, _tenant, _job_id):
             raise RuntimeError("private database location and credential")
 
-    app = create_app(BrokenStore(), UnusedMarketHoldStore(),
+    app = create_app(BrokenStore(), UnusedMarketHoldStore(), UnusedThermalRunStore(),
                      principal_provider=lambda: principal)
     status, payload = get(app, f"/v1/jobs/{uuid4()}")
     assert status == 503
@@ -103,7 +109,7 @@ def test_job_http_store_failure_is_generic_and_reason_details_are_removed(pg_sto
         def get_job(self, _tenant, _job_id):
             return {**job, "tenant_id": "tenant-b"}
 
-    app = create_app(ForeignStore(), UnusedMarketHoldStore(),
+    app = create_app(ForeignStore(), UnusedMarketHoldStore(), UnusedThermalRunStore(),
                      principal_provider=lambda: principal)
     assert get(app, f"/v1/jobs/{job['job_id']}")[0] == 404
 
