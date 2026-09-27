@@ -21,6 +21,7 @@ from app.economic_contracts import EconomicScenario
 from app.economics import canonical_scenario_sha256
 from app.market_candidate_store import MarketCandidateStore, install_market_candidate_schema
 from app.market_hold_store import MarketHoldStore
+from app.market_result_store import MarketResultStore, install_market_result_schema
 from app.market_scenario import MarketScenarioService
 from app.thermal_run_store import ThermalRunStore, install_thermal_run_schema, snapshot_id_for
 from test_economics import DECISION
@@ -43,10 +44,12 @@ def signed_market():
             install_thermal_run_schema(conn, schema)
             install_market_hold_schema(conn, schema)
             install_market_candidate_schema(conn, schema)
+            install_market_result_schema(conn, schema)
             install_break_even_store_schema(conn, schema)
         principal = {"authenticated": True, "tenant_id": "tenant-1",
                      "scopes": {"market_hold_issue", "market_hold_context_read",
                                 "market_candidate_read", "market_candidate_write",
+                                "market_result_read", "market_result_write",
                                 "break_even_read", "break_even_write"}}
         context_principal = {"authenticated": True, "tenant_id": "tenant-1",
                              "scopes": {"decision_context_write", "decision_context_read",
@@ -136,6 +139,42 @@ def test_signed_hold_survives_candidate_pin_and_replay(signed_market):
     with pytest.raises(ValueError):
         MarketScenarioService(factory()).calculate_pinned(
             candidate.scenario_id, candidate.revision, "tenant-1")
+
+
+def test_signed_hold_market_result_pin_is_durable_and_replayed(signed_market):
+    candidate_factory, _, request, principal, scope = signed_market
+    candidate = MarketScenarioService(candidate_factory()).build_candidate(request, "tenant-1")
+
+    def result_store():
+        candidate_store = candidate_factory()
+        return MarketResultStore(candidate_store.dsn, candidate_store.schema,
+            candidate_store, principal_provider=lambda: principal)
+
+    pinned = result_store().pin_market_result(candidate.scenario_id, candidate.revision)
+    assert pinned.assessment_status == "hold"
+    assert result_store().pin_market_result(candidate.scenario_id, candidate.revision) == pinned
+    assert result_store().get_market_result(candidate.scenario_id, candidate.revision) == pinned
+    with result_store().connect() as conn:
+        count = conn.execute(sql.SQL("SELECT count(*) AS n FROM {}")
+            .format(result_store()._table("market_result_records"))).fetchone()["n"]
+    assert count == 1
+    with pytest.raises(psycopg.errors.RaiseException):
+        with result_store().connect() as conn:
+            conn.execute(sql.SQL("DELETE FROM {} WHERE tenant_id=%s AND result_id=%s")
+                .format(result_store()._table("market_result_records")),
+                ("tenant-1", pinned.result_id))
+
+    principal["scopes"].remove("market_result_write")
+    with pytest.raises(ValueError, match="write authority denied"):
+        result_store().pin_market_result(candidate.scenario_id, candidate.revision)
+    principal["scopes"].add("market_result_write")
+
+    principal["scopes"].remove("market_result_read")
+    assert result_store().get_market_result(candidate.scenario_id, candidate.revision) is None
+    principal["scopes"].add("market_result_read")
+    scope["scope_version"] = "v2"
+    with pytest.raises(ValueError):
+        result_store().get_market_result(candidate.scenario_id, candidate.revision)
 
 
 def test_signed_hold_replays_three_persisted_break_even_trials(signed_market):
