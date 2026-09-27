@@ -1,5 +1,9 @@
 # Conditional economic result read v1
 
+Status: implemented software read candidate. Its exact public field set has not
+received a separate `gpt-6-sol`/`xhigh` CLI interface review and must be checked
+before `api-flow` acceptance.
+
 `GET /v1/economic-results/{economic_result_id}` reads an already pinned, replayed
 ledger result. The ID is the 64-character lowercase SHA-256 ID inside the economic
 ledger, not the surrounding market scenario result ID. The API resolves it through
