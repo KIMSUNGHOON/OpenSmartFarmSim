@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-상태: **내부 구현 계약 초안, 2026-09-27. `repo-bootstrap`과 `compose-runtime` C0는 수용됐다. 출처/G0 판정 계약 101개, 시장 문맥 87개, 합성 weather/economics fixture 30개와 열 trace 구조 계약 55개 집중 시험이 통과했다. 열 매개변수·포화압 법칙의 사전 등록, 서버 영속 승인 저장소, 실제 원천 G0와 G1 전체 경로는 아직 수용 전이다.** 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
+상태: **내부 구현 계약·부분 구현, 2026-09-27.** C0 Compose, 출처/G0 형식·시장 문맥, 합성 열 매개변수·trace 계약과 `candidate` 엔진, 조건부 경제 원장·판매 정산, PostgreSQL 지속 작업·AI 시도 증거 저장 계약이 수용됐다. G0 독립 권리 증거의 실제 연결, CLI 저장소 브리지와 실제 세 단계 실행, 서버 열 G1 승격, 공동 시장 시나리오·손익분기, API·3D·G1 전체 경로는 아직 수용 전이다. 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
 
 ## 1. 목표와 확인할 사용자 경로
 
@@ -87,7 +87,7 @@ MarketContext = Annotated[
 
 ## 6. 범위, 기능 목록과 구현 순서
 
-첫 범위에는 작물 생장·수확 예측, 구매 에너지·요금 예측, 미래 마진, 작물 순위, 식물 생장 애니메이션이 없다. 사용자 입력 물량·비용으로 만든 조건부 산술은 예측이 아니다. 이 문서는 온실 계수·센서 허용 오차·경제 정확도 비율·관측소를 가정하지 않는다. 첫 열·수증기 수지는 방정식·계수·제어·수분 유입과 배출·초기 상태·단위·적분 설정·잔차 시험을 CLI 조사로 확정하고 검토하기 전까지 **제안된 계약**이다.
+첫 범위에는 작물 생장·수확 예측, 구매 에너지·요금 예측, 미래 마진, 작물 순위, 식물 생장 애니메이션이 없다. 사용자 입력 물량·비용으로 만든 조건부 산술은 예측이 아니다. 이 문서는 온실 계수·센서 허용 오차·경제 정확도 비율·관측소를 가정하지 않는다. 첫 열·수증기 수지의 계약과 합성 후보 엔진은 검토됐다. 승인 trace와 G1 Run은 서버 입력 연결·독립 재계산·새 해제 증거 판본 및 두 시간 최종 해시 원자 게시 전까지 보류한다.
 
 다음 영문 소문자 ID는 [작업 목록](../tasks/todo.md)의 작업 이름이기도 하다.
 
@@ -104,7 +104,8 @@ MarketContext = Annotated[
 | `g0-authority-store` | 서버가 소유한 출처·권리·검토 정책과 변경 불가 G0 승인 증거 저장소 |
 | `cli-worker` | 제한된 실제 CLI 단계·스키마·보류·감사 |
 | `market-context` | 결정 당시 시장 자료의 가용/불가 구분과 ForecastRun 분리 |
-| `thermal-engine` | 결정적 단일 구역 물리 Run |
+| `thermal-engine` | 결정적 단일 구역 합성 열·수증기 후보 trace |
+| `thermal-g1-publisher` | 서버 입력·권리/QC·독립 재계산 및 승인 trace 원자 게시 |
 | `cli-worker-store-bridge` | CLI 단계별 임대·검증된 보류 보고서·실행 사건 저장 계약 |
 | `economic-ledger` | `Decimal` 조건부 원장과 날짜별 현금 |
 | `sales-settlement` | 판매별 공제·수금과 미수금/미지급금 대사, 증거가 완전한 조건부 순송금 단가 |
