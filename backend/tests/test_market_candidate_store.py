@@ -18,7 +18,7 @@ from app.market_candidate_store import (MarketCandidateStore,
 from app.economic_contracts import EconomicScenario
 from app.economics import canonical_scenario_sha256
 from app.market_scenario import MarketScenarioService
-from test_market_scenario import case
+from test_market_scenario import case, digest
 
 
 @pytest.fixture
@@ -92,19 +92,50 @@ def test_conflicting_numeric_revision_rolls_back_entire_new_candidate(saved_mark
         rows = conn.execute(sql.SQL("SELECT * FROM {} ORDER BY input_id, revision")
             .format(store._table("market_candidate_inputs"))).fetchall()
     new_records = [store._checked_input(row) for row in rows]
-    scenario["scenario_id"] = "market-conflicting-revision"
+    new_shock_sha = "0" * 64
+    record["request"]["shock"]["sha256"] = new_shock_sha
+    record["shock_sha256"] = new_shock_sha
+    identity = digest({"baseline": record["request"]["baseline"]["sha256"],
+                       "shock": new_shock_sha,
+                       "rights": record["rights_manifest_sha256"],
+                       "bindings": record["binding_manifest_sha256"]})
+    scenario["scenario_id"] = f"market-{identity[:32]}"
     scenario["sales"][0]["price"]["value"] = "91"
     next(item for item in new_records if item["input_id"] == "price")["value"] = "91"
-    record.update(candidate_id="f" * 64, scenario_id=scenario["scenario_id"],
-                  economic_scenario_sha256=canonical_scenario_sha256(
-                      EconomicScenario.model_validate(scenario)))
+    scenario_sha = canonical_scenario_sha256(EconomicScenario.model_validate(scenario))
+    candidate_id = digest({"shock": (record["request"]["shock"]["shock_id"],
+                                     record["request"]["shock"]["revision"], new_shock_sha),
+                           "rights": record["rights_manifest_sha256"],
+                           "bindings": record["binding_manifest_sha256"],
+                           "economic_scenario": scenario_sha})
+    record.update(candidate_id=candidate_id, scenario_id=scenario["scenario_id"],
+                  economic_scenario_sha256=scenario_sha,
+                  immutable_job_input_ref=f"market-job-{candidate_id[:32]}",
+                  immutable_job_input_sha256=scenario_sha)
     with pytest.raises(ValueError, match="numeric revision conflict"):
         store.pin_market_candidate(record, scenario, new_records)
     with store.connect() as conn:
         count = conn.execute(sql.SQL("SELECT count(*) AS n FROM {}")
             .format(store._table("market_candidate_pins"))).fetchone()["n"]
     assert count == 1
-    assert store.get_market_candidate("market-conflicting-revision", "r1") is None
+    assert store.get_market_candidate(scenario["scenario_id"], "r1") is None
+
+
+def test_store_rejects_forged_candidate_and_job_identities(saved_market):
+    factory, _, request, _ = saved_market
+    store = factory()
+    candidate = MarketScenarioService(store).build_candidate(request, "tenant-1")
+    scenario = store.get_economic_scenario(candidate.scenario_id, candidate.revision)
+    record = store.get_market_candidate(candidate.scenario_id, candidate.revision)
+    with store.connect() as conn:
+        rows = conn.execute(sql.SQL("SELECT * FROM {}")
+            .format(store._table("market_candidate_inputs"))).fetchall()
+    new_records = [store._checked_input(row) for row in rows]
+    for changed in ({"candidate_id": "0" * 64},
+                    {"immutable_job_input_ref": "market-job-forged"},
+                    {"immutable_job_input_sha256": "0" * 64}):
+        with pytest.raises(ValueError, match="record derivation differs"):
+            store.pin_market_candidate({**record, **changed}, scenario, new_records)
 
 
 def test_tenant_scope_and_concurrent_retry_do_not_fork_candidate(saved_market):

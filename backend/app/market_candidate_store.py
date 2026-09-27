@@ -17,10 +17,14 @@ from psycopg.rows import dict_row
 from .economic_contracts import (EconomicScenario, OwnedEconomicRecord,
                                  iter_economic_numbers, untrusted_data)
 from .economics import canonical_scenario_sha256
-from .market_scenario import _json
+from .market_scenario import MarketScenarioRequest, _json
 
 
 _DIGEST = re.compile(r"[0-9a-f]{64}\Z")
+_RECORD_KEYS = {"candidate_id", "tenant_id", "request", "scenario_id", "revision",
+                "economic_scenario_sha256", "shock_sha256", "rights_manifest_sha256",
+                "binding_manifest_sha256", "immutable_job_input_ref",
+                "immutable_job_input_sha256", "market_hold_report_id", "immutable"}
 
 
 def _canonical(value):
@@ -51,6 +55,44 @@ def _parse(raw, maximum=1048576):
     except (UnicodeError, TypeError, RecursionError, OverflowError) as exc:
         raise ValueError("market candidate JSON invalid") from exc
     return value
+
+
+def _check_record_identity(record, scenario):
+    if type(record) is not dict or set(record) != _RECORD_KEYS:
+        raise ValueError("market candidate record shape differs")
+    request = MarketScenarioRequest.model_validate_json(_canonical(record["request"]))
+    hashes = (record["candidate_id"], record["economic_scenario_sha256"],
+              record["shock_sha256"], record["rights_manifest_sha256"],
+              record["binding_manifest_sha256"], record["immutable_job_input_sha256"])
+    if any(type(value) is not str or not _DIGEST.fullmatch(value) for value in hashes):
+        raise ValueError("market candidate digest is invalid")
+    scenario_sha = canonical_scenario_sha256(scenario)
+    identity = _hash(_canonical({"baseline": request.baseline.sha256,
+                                 "shock": record["shock_sha256"],
+                                 "rights": record["rights_manifest_sha256"],
+                                 "bindings": record["binding_manifest_sha256"]}))
+    candidate_id = _hash(_canonical({"shock": (request.shock.shock_id,
+                                               request.shock.revision,
+                                               record["shock_sha256"]),
+                                      "rights": record["rights_manifest_sha256"],
+                                      "bindings": record["binding_manifest_sha256"],
+                                      "economic_scenario": scenario_sha}))
+    if (record["immutable"] is not True or
+            (record["tenant_id"], record["scenario_id"], record["revision"],
+         record["economic_scenario_sha256"], record["candidate_id"],
+         record["shock_sha256"], record["market_hold_report_id"],
+         record["immutable_job_input_ref"], record["immutable_job_input_sha256"],
+         record["immutable"]) !=
+            (scenario.tenant_id, scenario.scenario_id, scenario.scenario_revision,
+             scenario_sha, candidate_id, request.shock.sha256,
+             request.market_context.hold_report_id, f"market-job-{candidate_id[:32]}",
+             scenario_sha, True) or
+            scenario.scenario_id != f"market-{identity[:32]}" or
+            scenario.scenario_revision != "r1" or
+            request.decision_at != scenario.decision_at or
+            request.market_context != scenario.market_context or
+            scenario.scenario_market_context != scenario.market_context):
+        raise ValueError("market candidate record derivation differs")
 
 
 def install_market_candidate_schema(conn, schema):
@@ -189,6 +231,7 @@ class MarketCandidateStore:
                 canonical_scenario_sha256(scenario) != row["scenario_sha256"] or
                 record.get("economic_scenario_sha256") != row["scenario_sha256"]):
             raise ValueError("market candidate pin scope differs")
+        _check_record_identity(record, scenario)
         if any(type(ref) is not dict or set(ref) != {"input_id", "revision", "sha256"} or
                type(ref["input_id"]) is not str or type(ref["revision"]) is not str or
                type(ref["sha256"]) is not str or not _DIGEST.fullmatch(ref["sha256"])
@@ -285,6 +328,7 @@ class MarketCandidateStore:
                 not _DIGEST.fullmatch(record["candidate_id"]) or
                 type(new_records) is not list or len(new_records) > 1000):
             raise ValueError("market candidate bundle scope invalid")
+        _check_record_identity(record, scenario)
         scenario_numbers = tuple(iter_economic_numbers(scenario))
         numbers = {(item.input_id, item.revision): item for item in scenario_numbers}
         if len(numbers) != len(scenario_numbers):
