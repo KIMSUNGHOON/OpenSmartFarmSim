@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-상태: **내부 구현 계약 초안, 2026-09-27. 코드나 시험용 입력은 아직 승인되지 않았다.** 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
+상태: **내부 구현 계약 초안, 2026-09-27. `repo-bootstrap`은 완료됐고 응용 코드나 시험용 입력은 아직 승인되지 않았다.** 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
 
 ## 1. 목표와 확인할 사용자 경로
 
@@ -16,15 +16,17 @@
 
 ## 2. 초기 설정 작업에서 만들 실행 명령
 
-다음은 `repo-bootstrap`과 후속 작업의 **예정된 수용 명령이며, 현재 저장소에서는 아직 실행할 수 없다.** `repo-bootstrap`의 예정 파일은 정확히 `backend/pyproject.toml`, `backend/uv.lock`, `web/package.json`, `web/package-lock.json`, `.gitignore` 다섯 개다. `.gitignore`는 이미 준비됐지만 작업 전체는 미완료다. 이 작업은 호환되는 의존성 버전과 최소 실행·검사 스크립트를 고정한다. 별도 `compose-runtime`은 `compose.yaml`, `.env.example`을 만들고 안전한 비밀 주입과 자체 운영 서비스를 정의한다. 각 명령은 필요한 파일·소스·시험과 로컬 서비스가 준비된 뒤 실행한다.
+`repo-bootstrap`의 다섯 파일 `backend/pyproject.toml`, `backend/uv.lock`, `web/package.json`, `web/package-lock.json`, `.gitignore`가 준비됐고 두 잠금 파일은 Git에 추적된다. 오프라인 캐시에서 `uv lock --check`, `uv sync --locked`, FastAPI/Pydantic import와 `npm ci --strict-peer-deps`(43개 패키지)가 통과했다. 웹 `node_modules`는 이후 제거됐고 신규 온라인 설치는 검증하지 않았다. 앱 자료형 검사·시험·빌드·API 실행은 해당 소스와 시험이 생긴 뒤 확인한다. 별도 `compose-runtime`의 예정 파일은 정확히 `compose.yaml`, `.env.example`, `backend/Dockerfile`, `web/Dockerfile`, `.dockerignore` 다섯 개다. [Compose 빌드](https://docs.docker.com/reference/compose-file/build/)의 문맥과 Dockerfile을 명시하고 [`.dockerignore`의 제외 규칙](https://docs.docker.com/build/concepts/context/)으로 비밀·원본 자료가 이미지 빌드에 들어가지 않게 한다.
+
+다음은 **후속 작업에서 실행할 검증 명령**이다. 현재 앱 소스·시험과 프로젝트 `compose.yaml`이 없어 완료 증거로 세지 않는다.
 
 ```sh
-(cd backend && uv sync --locked && uv run pytest)
+(cd backend && uv run pytest)
 (cd web && npm ci && npm run typecheck && npm run test && npm run build)
-docker compose config # compose-runtime: Docker를 사용할 수 있을 때
+docker compose config -q # compose-runtime: Docker/Compose 호스트에서 비밀값 출력 없이 구성 검증
 ```
 
-후속 `end-to-end-g1` 작업은 `compose-runtime`의 서비스를 사용하고 `scripts/run-g1.sh`를 만들어 합성 자료 요청을 제출하고, **실제** CLI 세 단계를 실행하고, 작업 완료를 확인하고, 결과와 화면을 점검한다. 작동하는 CLI 계정과 배포 도구가 필요하며 모의 판단은 수용 증거가 아니다. 현재 호스트의 PATH에는 Docker/Podman과 PostgreSQL 명령이 없어 여기서 Compose 검사를 실행하지 못했다. `compose.yaml`이 이미 만들어졌다는 뜻도 아니다.
+`compose-runtime`의 C0 수용은 Docker/Compose 호스트에서 정식 Compose 모델을 [`docker compose config -q`](https://docs.docker.com/reference/cli/docker/compose/config/)로 검증하고, 그 시점의 부트스트랩 파일만으로 만들 수 있는 이미지를 빌드하며, 응용 소스 없이 PostgreSQL을 기동해 `pg_isready` 준비 상태와 재생성 후 데이터 보존을 확인하는 것이다. 비밀이 풀린 `docker compose config` 출력을 증거로 남기지 않는다. web/API/작업자 전체 기동, 장애 복구, 실제 CLI 세 단계와 UI는 각 후속 작업 및 `end-to-end-g1`의 수용이다. 실제 앱 실행 명령과 건강 확인 끝점은 코드가 생길 때 정한다. 현재 호스트에는 Docker Engine/Podman/PostgreSQL 명령과 Docker 소켓이 없어 C0 실행 증거가 없으며 `compose-runtime`도 체크하지 않는다. 예정된 Dockerfile이나 이미지가 이미 있다는 뜻도 아니다.
 
 ## 3. 제안하는 프로젝트 구조
 
@@ -40,9 +42,14 @@ research/          G2/G3 시험 계획과 출처 등록부
 scripts/           재현 가능한 G1 수용 실행기
 compose.yaml       자체 운영 web/API/작업자/PostgreSQL/볼륨 구성
 .env.example       비밀값 없는 환경 변수 이름과 설정 예시
+backend/Dockerfile  부트스트랩 파일부터 빌드할 모듈형 백엔드 이미지 정의
+web/Dockerfile      부트스트랩 파일부터 빌드할 웹 이미지 정의
+.dockerignore       비밀·원본 자료의 빌드 문맥 제외
 ```
 
-백엔드는 모듈형 Python 코드베이스 하나로 두고 API·수집·CLI·수치 계산을 별도 프로세스로 실행한다. PostgreSQL은 지속 작업과 메타데이터를 관리한다. 내용 해시로 식별하는 영속 파일에는 변경 불가한 원천·정규화 입력·CLI 이벤트·출력 객체를 보관한다. CLI는 작업자 계약을 통해 제한되고 권리를 확인한 입력만 받는다. 제공자 HTTP 접근은 승인된 연결 도구가 맡는다. 이 범위에는 별도 에이전트 프레임워크가 필요하지 않다.
+백엔드는 모듈형 Python 코드베이스 하나로 두고 Compose에 web·API·수집·CLI·수치 계산의 별도 서비스/작업자 역할과 PostgreSQL을 정의한다. PostgreSQL은 지속 작업과 메타데이터를, 영속 POSIX 아티팩트 볼륨은 내용 해시로 식별한 변경 불가 원천·정규화 입력·CLI 이벤트·출력 객체를 보관한다. [Compose `depends_on`](https://docs.docker.com/compose/how-tos/startup-order/)만으로 DB 준비를 보장하지 않으므로 `pg_isready` 건강 검사와 `service_healthy` 조건을 사용한다. PostgreSQL 18을 **검증 후 선택한다면** [공식 이미지](https://hub.docker.com/_/postgres)의 데이터 볼륨 위치는 `/var/lib/postgresql`이다. 실제 검사 전에는 버전이나 digest를 정하지 않는다.
+
+`.env.example`에는 비밀값을 넣지 않고 실행 시 [비밀 파일/관리자](https://docs.docker.com/compose/how-tos/use-secrets/)에서 서비스별 최소 권한으로 주입한다. PostgreSQL에는 `POSTGRES_PASSWORD_FILE`을 사용하며 비밀 파일과 제한된 원본 자료는 저장소·빌드 문맥·이미지에서 제외한다. 기반/배포 이미지의 버전과 digest는 실제 빌드·실행을 확인해 고정한다. CLI 작업자에 Docker 소켓을 마운트하지 않는다. 장기 실행 Compose CLI 작업자 정의만으로는 작업마다 별도 비특권 컨테이너·임시 파일시스템·제한된 외부 통신을 입증하지 못하며, 이 격리와 G4 검증은 후속 작업에 남는다. CLI는 권리를 확인한 입력만 받고 제공자 HTTP 접근은 승인된 연결 도구가 맡는다.
 
 ## 4. 코드 형태 예시
 
@@ -86,8 +93,8 @@ MarketContext = Annotated[
 
 | 기능 ID | 구현 결과 |
 | --- | --- |
-| `repo-bootstrap` | 버전이 고정된 Python/web 의존성과 최소 스크립트; 준비된 `.gitignore`를 포함한 작업 전체는 미완료 |
-| `compose-runtime` | 비밀 예시를 분리한 자체 운영 web/API/작업자/PostgreSQL/볼륨 정의 |
+| `repo-bootstrap` | **완료:** Python/web 설정·잠금 파일과 웹 검사·시험·빌드 스크립트, `.gitignore`; 오프라인 잠금·설치·import 확인 |
+| `compose-runtime` | 다섯 파일의 빌드 문맥·이미지 정의, 별도 서비스 역할, DB 준비·영속성 및 비밀 분리의 C0 수용 |
 | `provenance-g0` | 변경 불가한 출처·권리·품질·관문 기록 계약 |
 | `thermal-contract` | 버전을 고정한 열·수증기 모델 계약 확정 |
 | `fixture-policy` | 직접 작성한 합성 G1 추적 입력과 manifest |
