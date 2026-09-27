@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-상태: **내부 구현 계약 초안, 2026-09-27. `repo-bootstrap`은 완료됐고 Compose 정적 골격이 준비됐다. 출처 계약 코드는 검토 중이며 시험용 입력은 아직 승인되지 않았다.** 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
+상태: **내부 구현 계약 초안, 2026-09-27. `repo-bootstrap`은 완료됐고 Compose 정적 골격이 준비됐다. 출처/G0 판정 계약의 101개 시험은 통과했지만 서버 영속 승인 저장소와 실제 원천 G0는 미구현이며 시험용 입력은 아직 승인되지 않았다.** 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
 
 ## 1. 목표와 확인할 사용자 경로
 
