@@ -65,6 +65,17 @@ read independently of JobStore, and regression tests reject otherwise valid
 decisions when JobStore retained different prompt or schema bytes. The fake
 child and test signer do not establish the required production supervisor.
 
+`CliProcessSupervisor` now provides a process-observation core: it chooses the
+locked read-only CLI argv, copies only private credentials into a temporary
+home, owns the child and output files, reads the Linux process start token,
+hashes the actual prompt/schema and binary bytes, observes the exit, and
+classifies bounded JSONL/final output. The schema bytes come from the pinned
+server contract, rather than the caller. Local tests run a fake child and check
+success, timeout, late polling, cleanup, and an observer in a separate local
+process. This core is not yet a
+separately deployed service, does not hold the signing key, and is not wired
+to the durable worker. It cannot issue an execution attestation or pass G1.
+
 G1 remains HOLD until the separately controlled supervisor directly observes
 an actual CLI child, signs after durable capture with a private key outside
 request/worker control, and production PostgreSQL 18 roles prohibit the
