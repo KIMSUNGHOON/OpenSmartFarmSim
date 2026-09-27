@@ -7,7 +7,7 @@ from uuid import uuid4
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.api import create_app
-from test_api_job_status import get
+from test_api_job_status import get, UnusedMarketResultStore
 from test_api_job_status import UnusedThermalRunStore
 from test_market_hold_store import SNAPSHOT_ID, setup
 
@@ -21,6 +21,7 @@ def test_market_hold_http_safe_projection_and_tenant_scope(setup):
     store, principal, scope, _, _ = setup
     report = store().issue_not_evaluated("tenant-a", SNAPSHOT_ID, "context-a")
     app = create_app(UnusedJobStore(), store(), UnusedThermalRunStore(),
+                     UnusedMarketResultStore(),
                      principal_provider=lambda: principal)
     path = f"/v1/market-hold-reports/{report['hold_report_id']}"
 
@@ -61,6 +62,7 @@ def test_market_hold_http_store_failure_does_not_expose_internal_details(setup):
             raise RuntimeError("private signing key or database path")
 
     app = create_app(UnusedJobStore(), BrokenMarketHoldStore(), UnusedThermalRunStore(),
+                     UnusedMarketResultStore(),
                      principal_provider=lambda: principal)
     status, payload = get(app, f"/v1/market-hold-reports/{uuid4()}")
     assert status == 503

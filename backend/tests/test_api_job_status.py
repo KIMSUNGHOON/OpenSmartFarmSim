@@ -26,6 +26,11 @@ class UnusedThermalRunStore:
         raise AssertionError("job status must not read a thermal snapshot")
 
 
+class UnusedMarketResultStore:
+    def get_economic_result(self, _tenant, _result_id):
+        raise AssertionError("this route must not read an economic result")
+
+
 def get(app, path):
     async def call():
         sent = []
@@ -57,6 +62,7 @@ def get(app, path):
 def test_job_http_status_scope_and_public_projection(pg_store):
     principal = {"authenticated": True, "tenant_id": "tenant-a", "scopes": {"metadata"}}
     app = create_app(pg_store, UnusedMarketHoldStore(), UnusedThermalRunStore(),
+                     UnusedMarketResultStore(),
                      principal_provider=lambda: principal)
     job = pg_store.submit("tenant-a", "research", {"fixture": "synthetic"},
                           "api-" + uuid4().hex)
@@ -100,6 +106,7 @@ def test_job_http_store_failure_is_generic_and_reason_details_are_removed(pg_sto
             raise RuntimeError("private database location and credential")
 
     app = create_app(BrokenStore(), UnusedMarketHoldStore(), UnusedThermalRunStore(),
+                     UnusedMarketResultStore(),
                      principal_provider=lambda: principal)
     status, payload = get(app, f"/v1/jobs/{uuid4()}")
     assert status == 503
@@ -113,6 +120,7 @@ def test_job_http_store_failure_is_generic_and_reason_details_are_removed(pg_sto
             return {**job, "tenant_id": "tenant-b"}
 
     app = create_app(ForeignStore(), UnusedMarketHoldStore(), UnusedThermalRunStore(),
+                     UnusedMarketResultStore(),
                      principal_provider=lambda: principal)
     assert get(app, f"/v1/jobs/{job['job_id']}")[0] == 404
 

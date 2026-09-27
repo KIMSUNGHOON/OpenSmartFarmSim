@@ -151,3 +151,26 @@ class MarketResultStore:
         if encode_market_result(recalculated) != row["result_raw"]:
             raise ValueError("market result replay differs")
         return stored
+
+    def get_economic_result(self, tenant_id, economic_result_id):
+        """Resolve a ledger ID through its tenant-owned, replayable market result."""
+        tenant = self._tenant("market_result_read")
+        if tenant is None or tenant != tenant_id:
+            return None
+        with self.connect() as conn:
+            rows = conn.execute(sql.SQL("""
+                SELECT scenario_id, revision FROM {}
+                WHERE tenant_id=%s AND
+                  convert_from(result_raw, 'UTF8')::jsonb->'result'->
+                    'economic_result'->>'result_id'=%s
+                LIMIT 2
+            """).format(self._table("market_result_records")),
+                (tenant, economic_result_id)).fetchall()
+        if not rows:
+            return None
+        if len(rows) != 1:
+            raise ValueError("economic result ID is not unique")
+        stored = self.get_market_result(rows[0]["scenario_id"], rows[0]["revision"])
+        if stored is None or stored.economic_result.result_id != economic_result_id:
+            raise ValueError("economic result lookup changed")
+        return stored

@@ -7,10 +7,11 @@ from fastapi import FastAPI, Path
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
-from .api_contracts import (ErrorEnvelope, JobStatus, MarketHoldStatus,
+from .api_contracts import (EconomicResultRead, ErrorEnvelope, JobStatus, MarketHoldStatus,
                             ThermalRunManifest, ThermalRunSeries, ThermalRunSummary,
                             public_job_status,
                             public_market_hold)
+from .api_economics import RESULT_ID_PATTERN, project_economic_result
 from .api_thermal import RUN_ID_PATTERN, project_thermal_manifest, project_thermal_run
 
 
@@ -19,12 +20,14 @@ def _error(status: int, code: str, message: str) -> JSONResponse:
                         content={"error": {"code": code, "message": message}})
 
 
-def create_app(job_store, market_hold_store, thermal_run_store, *, principal_provider) -> FastAPI:
+def create_app(job_store, market_hold_store, thermal_run_store, market_result_store,
+               *, principal_provider) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
             not callable(getattr(thermal_run_store, "get_run", None)) or
-            not callable(getattr(thermal_run_store, "get_snapshot", None))):
+            not callable(getattr(thermal_run_store, "get_snapshot", None)) or
+            not callable(getattr(market_result_store, "get_economic_result", None))):
         raise ValueError("API trusted stores and principal provider are required")
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
 
@@ -118,5 +121,21 @@ def create_app(job_store, market_hold_store, thermal_run_store, *, principal_pro
             return project_thermal_manifest(stored, snapshot)
         except Exception:
             return _error(503, "store_unavailable", "Run manifest unavailable")
+
+    @app.get("/v1/economic-results/{result_id}", response_model=EconomicResultRead,
+             responses=errors)
+    def get_economic_result(result_id: Annotated[str, Path(pattern=RESULT_ID_PATTERN)]):
+        tenant, denied = authorized_tenant("market_result_read")
+        if denied is not None:
+            return denied
+        try:
+            result = market_result_store.get_economic_result(tenant, result_id)
+            if result is None:
+                return _error(404, "not_found", "Economic result not found")
+            if result.economic_result.result_id != result_id:
+                raise ValueError("economic result ID differs from request")
+            return project_economic_result(result)
+        except Exception:
+            return _error(503, "store_unavailable", "Economic result unavailable")
 
     return app

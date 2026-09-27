@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.api import create_app
 from app.api_thermal import project_thermal_manifest
-from test_api_job_status import get
+from test_api_job_status import get, UnusedMarketResultStore
 from test_api_market_hold import UnusedJobStore
 from test_jobs import pg_store
 from test_thermal_publisher import setup as publisher_setup
@@ -29,6 +29,7 @@ def test_accepted_run_metadata_and_series_share_one_verified_record(publisher_se
     principal = {"authenticated": True, "tenant_id": "tenant-a",
                  "scopes": {"thermal_run_read"}}
     app = create_app(UnusedJobStore(), UnusedMarketHoldStore(), run_store,
+                     UnusedMarketResultStore(),
                      principal_provider=lambda: principal)
     path = f"/v1/runs/{record['run_id']}"
 
@@ -99,6 +100,7 @@ def test_missing_candidate_or_corrupt_run_is_not_displayed(publisher_setup):
     principal = {"authenticated": True, "tenant_id": "tenant-a",
                  "scopes": {"thermal_run_read"}}
     app = create_app(UnusedJobStore(), UnusedMarketHoldStore(), run_store,
+                     UnusedMarketResultStore(),
                      principal_provider=lambda: principal)
     unknown_id = "synthetic-thermal-v1:" + "a" * 64
     assert get(app, f"/v1/runs/{unknown_id}")[0] == 404
@@ -111,6 +113,7 @@ def test_missing_candidate_or_corrupt_run_is_not_displayed(publisher_setup):
             raise AssertionError("corrupt Run must not read snapshot")
 
     app = create_app(UnusedJobStore(), UnusedMarketHoldStore(), CorruptStore(),
+                     UnusedMarketResultStore(),
                      principal_provider=lambda: principal)
     status, error = get(app, f"/v1/runs/{unknown_id}")
     assert status == 503
@@ -131,6 +134,7 @@ def test_missing_candidate_or_corrupt_run_is_not_displayed(publisher_setup):
             raise AssertionError("denied Run must not read snapshot")
 
     app = create_app(UnusedJobStore(), UnusedMarketHoldStore(), DeniedDisplayStore(),
+                     UnusedMarketResultStore(),
                      principal_provider=lambda: principal)
     assert get(app, f"/v1/runs/{record['run_id']}")[0] == 503
 
@@ -146,6 +150,7 @@ def test_missing_candidate_or_corrupt_run_is_not_displayed(publisher_setup):
 
     principal["scopes"].add("thermal_snapshot_read")
     app = create_app(UnusedJobStore(), UnusedMarketHoldStore(), WrongSnapshotStore(),
+                     UnusedMarketResultStore(),
                      principal_provider=lambda: principal)
     assert get(app, f"/v1/runs/{record['run_id']}/manifest")[0] == 503
 
@@ -158,6 +163,7 @@ def test_store_only_packet_without_full_publisher_release_is_not_public(run_stor
     principal = {"authenticated": True, "tenant_id": "tenant-a",
                  "scopes": {"thermal_run_read", "thermal_snapshot_read"}}
     app = create_app(UnusedJobStore(), UnusedMarketHoldStore(), run_store,
+                     UnusedMarketResultStore(),
                      principal_provider=lambda: principal)
     path = f"/v1/runs/{record['run_id']}"
     assert get(app, path)[0] == 503

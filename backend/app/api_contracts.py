@@ -125,6 +125,52 @@ class ThermalRunManifest(BaseModel):
     law_reference: ThermalLawReference
 
 
+class EconomicQuantities(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    harvest_kg: str
+    packout_kg: str
+    recognized_kg: str
+    net_sold_kg: str | None
+
+
+class EconomicAmounts(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    gross_sales_krw: str
+    revenue_krw: str | None
+    variable_cost_krw: str | None
+    fixed_cost_krw: str | None
+    depreciation_krw: str | None
+    management_operating_income_krw: str | None
+    operating_cash_krw: str | None
+    business_cash_krw: str | None
+    equity_cash_krw: str | None
+    minimum_cash_balance_krw: str | None
+    cash_shortage_krw: str | None
+
+
+class EconomicResultRead(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    economic_result_id: str
+    market_scenario_result_id: str
+    scenario_id: str
+    scenario_revision: str
+    decision_at_utc: datetime
+    formula_version: str
+    market_context_kind: Literal["unavailable"]
+    market_hold_report_id: UUID
+    calculation_status: Literal["conditional_user_assumption", "hold"]
+    assessment_status: Literal["hold"]
+    sales_totals_status: Literal["inventory_reconciled", "unverified_input_arithmetic"]
+    input_origin: Literal["user"]
+    evidence_level: Literal["assumed"]
+    quantities: EconomicQuantities
+    amounts: EconomicAmounts
+    hold_reason_codes: list[str]
+
+
 class ErrorDetail(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
