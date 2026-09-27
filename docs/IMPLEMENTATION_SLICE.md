@@ -94,8 +94,9 @@ MarketContext = Annotated[
 | 기능 ID | 구현 결과 |
 | --- | --- |
 | `repo-bootstrap` | **완료:** Python/web 설정·잠금 파일과 웹 검사·시험·빌드 스크립트, `.gitignore`; 오프라인 잠금·설치·import 확인 |
-| `compose-runtime` | 다섯 파일의 빌드 문맥·이미지 정의, 별도 서비스 역할, DB 준비·영속성 및 비밀 분리의 C0 수용 |
+| `compose-runtime` | **완료:** 다섯 파일의 빌드 문맥·이미지 정의, 별도 서비스 역할, DB 준비·영속성 및 비밀 분리의 C0 호스팅 시험 수용 |
 | `provenance-g0` | 변경 불가한 출처·권리·품질·관문 기록 계약 |
+| `thermal-synthetic-parameters` | 1차 근거의 포화압 법칙과 버전 고정 합성 시설·초기·제어·수치 기준, manifest v2 |
 | `thermal-contract` | 버전을 고정한 열·수증기 모델 계약 확정 |
 | `fixture-policy` | 직접 작성한 합성 G1 추적 입력과 manifest |
 | `durable-jobs` | PostgreSQL 임대·중복 처리·복구·게시 상태 |
