@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.break_even import (BreakEvenService, canonical_request_sha256,
                             fixed_shock_sha256, fixed_trial_sha256)
+from app.break_even_store import BreakEvenStore, install_break_even_store_schema
 from app.economic_contracts import EconomicScenario
 from app.market_candidate_store import (MarketCandidateStore,
                                         install_market_candidate_schema)
@@ -153,6 +154,94 @@ def test_grid_reloads_postgresql_pinned_candidates_for_every_trial():
     finally:
         with psycopg.connect(dsn, autocommit=True) as conn:
             conn.execute(sql.SQL("DROP SCHEMA {} CASCADE").format(sql.Identifier(schema)))
+
+
+@pytest.fixture
+def saved_break_even():
+    dsn = os.environ.get("OSSF_TEST_PG_DSN")
+    if not dsn:
+        pytest.skip("OSSF_TEST_PG_DSN is unset")
+    schema = "break_even_store_test_" + uuid4().hex
+    with psycopg.connect(dsn, autocommit=True) as conn:
+        conn.execute(sql.SQL("CREATE SCHEMA {}").format(sql.Identifier(schema)))
+    try:
+        with psycopg.connect(dsn) as conn:
+            install_market_candidate_schema(conn, schema)
+            install_break_even_store_schema(conn, schema)
+        principal = {"authenticated": True, "tenant_id": "tenant-1",
+                     "scopes": {"market_candidate_read", "market_candidate_write",
+                                "break_even_read", "break_even_write"}}
+        source_holder = {}
+
+        def candidate_factory(source):
+            source_holder["source"] = source
+            return MarketCandidateStore(dsn, schema, source,
+                principal_provider=lambda: principal)
+
+        _, request = trial_plan([20, 26, 32],
+            candidate_repository_factory=candidate_factory)
+        source = source_holder["source"]
+
+        def store():
+            return BreakEvenStore(dsn, schema, candidate_factory(source),
+                principal_provider=lambda: principal)
+
+        yield store, source, request, principal
+    finally:
+        with psycopg.connect(dsn, autocommit=True) as conn:
+            conn.execute(sql.SQL("DROP SCHEMA {} CASCADE").format(sql.Identifier(schema)))
+
+
+def test_break_even_plan_and_result_survive_new_store(saved_break_even):
+    factory, source, request, _ = saved_break_even
+    plan = deepcopy(source.break_even_plan)
+    first = factory()
+    pinned = first.pin_break_even_plan(request, plan)
+    assert pinned.status == "zero_on_grid"
+    resumed = factory()
+    assert resumed.get_break_even_result(request["plan_id"]) == pinned
+    assert BreakEvenService(resumed).scan(request, "tenant-1") == pinned
+    assert resumed.pin_break_even_plan(request, plan) == pinned
+    with resumed.connect() as conn:
+        count = conn.execute(sql.SQL("SELECT count(*) AS n FROM {}")
+            .format(resumed._table())).fetchone()["n"]
+    assert count == 1
+
+
+def test_invalid_or_conflicting_break_even_plan_cannot_replace_pin(saved_break_even):
+    factory, source, request, _ = saved_break_even
+    store = factory()
+    plan = deepcopy(source.break_even_plan)
+    broken = deepcopy(plan)
+    broken["fixed_inputs_sha256"] = "0" * 64
+    with pytest.raises(ValueError, match="fixed inputs"):
+        store.pin_break_even_plan(request, broken)
+    assert store.get_break_even_plan(request["plan_id"]) is None
+    store.pin_break_even_plan(request, plan)
+    changed_request = {**request, "target": "operating_cash"}
+    changed_plan = {**plan, "request_sha256": canonical_request_sha256(changed_request)}
+    with pytest.raises(ValueError, match="immutable plan conflict"):
+        store.pin_break_even_plan(changed_request, changed_plan)
+    with store.connect() as conn:
+        with pytest.raises(psycopg.errors.RaiseException, match="immutable"):
+            conn.execute(sql.SQL("DELETE FROM {}").format(store._table()))
+    assert store.get_break_even_result(request["plan_id"]).status == "zero_on_grid"
+
+
+def test_break_even_result_replay_checks_source_and_read_scope(saved_break_even):
+    factory, source, request, principal = saved_break_even
+    store = factory()
+    store.pin_break_even_plan(request, source.break_even_plan)
+    principal["tenant_id"] = "tenant-2"
+    assert factory().get_break_even_plan(request["plan_id"]) is None
+    assert factory().get_break_even_result(request["plan_id"]) is None
+    principal["tenant_id"] = "tenant-1"
+    principal["scopes"].remove("break_even_read")
+    assert factory().get_break_even_result(request["plan_id"]) is None
+    principal["scopes"].add("break_even_read")
+    source.shocks[("joint-trial-0", "r1")]["drivers"][0]["hypothesis"] = "changed"
+    with pytest.raises(ValueError):
+        factory().get_break_even_result(request["plan_id"])
 
 
 @pytest.mark.parametrize("target", ["oi", "operating_cash", "cumulative_equity_cash"])
