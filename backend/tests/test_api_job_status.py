@@ -22,6 +22,9 @@ class UnusedThermalRunStore:
     def get_run(self, _tenant, _run_id):
         raise AssertionError("job status must not read a thermal Run")
 
+    def get_snapshot(self, _tenant, _snapshot_id):
+        raise AssertionError("job status must not read a thermal snapshot")
+
 
 def get(app, path):
     async def call():

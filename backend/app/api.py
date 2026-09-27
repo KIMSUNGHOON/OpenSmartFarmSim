@@ -8,9 +8,10 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
 from .api_contracts import (ErrorEnvelope, JobStatus, MarketHoldStatus,
-                            ThermalRunSeries, ThermalRunSummary, public_job_status,
+                            ThermalRunManifest, ThermalRunSeries, ThermalRunSummary,
+                            public_job_status,
                             public_market_hold)
-from .api_thermal import RUN_ID_PATTERN, project_thermal_run
+from .api_thermal import RUN_ID_PATTERN, project_thermal_manifest, project_thermal_run
 
 
 def _error(status: int, code: str, message: str) -> JSONResponse:
@@ -22,7 +23,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, *, principal_pro
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
-            not callable(getattr(thermal_run_store, "get_run", None))):
+            not callable(getattr(thermal_run_store, "get_run", None)) or
+            not callable(getattr(thermal_run_store, "get_snapshot", None))):
         raise ValueError("API trusted stores and principal provider are required")
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
 
@@ -30,7 +32,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, *, principal_pro
     async def invalid_request(_request, _error_detail):
         return _error(422, "invalid_request", "Invalid request")
 
-    def authorized_tenant(scope: str):
+    def authorized_tenant(*required_scopes: str):
         try:
             principal = principal_provider()
         except Exception:
@@ -41,7 +43,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, *, principal_pro
                 not isinstance(principal.get("scopes"), (set, frozenset, list, tuple)) or
                 not all(type(item) is str for item in principal["scopes"])):
             return None, _error(401, "unauthenticated", "Authentication required")
-        if scope not in principal["scopes"]:
+        if any(scope not in principal["scopes"] for scope in required_scopes):
             return None, _error(403, "forbidden", "Resource access denied")
         return principal["tenant_id"], None
 
@@ -99,5 +101,22 @@ def create_app(job_store, market_hold_store, thermal_run_store, *, principal_pro
     def get_run_series(run_id: RunId):
         result = displayed_run(run_id)
         return result if isinstance(result, JSONResponse) else result[1]
+
+    @app.get("/v1/runs/{run_id}/manifest", response_model=ThermalRunManifest,
+             responses=errors)
+    def get_run_manifest(run_id: RunId):
+        tenant, denied = authorized_tenant("thermal_run_read", "thermal_snapshot_read")
+        if denied is not None:
+            return denied
+        try:
+            stored = thermal_run_store.get_run(tenant, run_id)
+            if stored is None:
+                return _error(404, "not_found", "Run not found")
+            snapshot = thermal_run_store.get_snapshot(tenant, stored["report"]["snapshot_id"])
+            if snapshot is None:
+                return _error(503, "store_unavailable", "Run manifest unavailable")
+            return project_thermal_manifest(stored, snapshot)
+        except Exception:
+            return _error(503, "store_unavailable", "Run manifest unavailable")
 
     return app

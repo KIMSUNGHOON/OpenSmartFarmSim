@@ -72,6 +72,59 @@ class ThermalRunSeries(BaseModel):
     points: list[ThermalSeriesPoint]
 
 
+class ThermalManifestSource(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    fixture_id: str
+    product_id: str
+    source_locator: str
+    raw_sha256: str
+    vintage_id: str
+    revision_id: str
+    available_at_utc: datetime
+    retrieved_at_utc: datetime
+    observed_start_utc: datetime | None
+    observed_end_utc: datetime | None
+    qc_status: Literal["self_checked_synthetic"]
+    review_status: Literal["self_reviewed_synthetic"]
+    display_right: Literal["allowed"]
+    synthetic: Literal[True]
+
+
+class ThermalLawReference(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    product_id: str
+    source_url: str
+    raw_pdf_sha256: str
+    published_at_utc: datetime | None
+    available_at_utc: datetime | None
+    retrieved_at_utc: datetime
+    publication_time_status: str
+    version_status: str
+    rights_status: str
+    display_right: Literal["allowed_with_conditions"]
+    display_conditions: str
+
+
+class ThermalRunManifest(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    run_id: str
+    synthetic: Literal[True]
+    temporal_provenance: Literal["ex_post_replay"]
+    snapshot_id: str
+    manifest_sha256: str
+    code_sha256: str
+    environment_sha256: str
+    release_sha256: str
+    trace_sha256: list[str]
+    source_unresolved_at_creation: list[str]
+    used_sources: list[ThermalManifestSource]
+    excluded_fixture_ids: list[str]
+    law_reference: ThermalLawReference
+
+
 class ErrorDetail(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
