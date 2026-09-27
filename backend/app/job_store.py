@@ -189,7 +189,7 @@ class JobStore:
                 INSERT INTO {} (tenant_id, job_id, stage, input_sha256, input_bytes,
                                 idempotency_key, state, max_attempts)
                 VALUES (%s, %s, %s, %s, %s, %s, 'queued', %s)
-                ON CONFLICT (tenant_id, stage, input_sha256, idempotency_key)
+                ON CONFLICT ON CONSTRAINT jobs_intent_key
                 DO NOTHING
                 RETURNING *
             """).format(self._table("jobs")),
@@ -198,12 +198,13 @@ class JobStore:
             if row is None:
                 row = conn.execute(sql.SQL("""
                     SELECT * FROM {} WHERE tenant_id = %s AND stage = %s
-                        AND input_sha256 = %s AND idempotency_key = %s
+                        AND idempotency_key = %s
                 """).format(self._table("jobs")),
-                    (tenant_id, stage, digest, idempotency_key)).fetchone()
+                    (tenant_id, stage, idempotency_key)).fetchone()
             else:
                 self._event(conn, tenant_id, job_id, "submitted")
-            self._verified_input(row)
+            if row is None or self._verified_input(row) != input_bytes:
+                raise ValueError("idempotency key conflicts with a different input")
         return self._public_job(row)
 
     def get_job(self, tenant_id: str, job_id) -> dict | None:

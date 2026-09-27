@@ -178,7 +178,7 @@ def submit(store, tenant="tenant-a", stage="research", input_value=None, key="ke
     return store.submit(tenant, stage, input_value or {"fixture": "synthetic"}, key, **kwargs)
 
 
-def test_exact_tuple_dedup_concurrent_and_terminal(pg_store):
+def test_intent_key_dedup_concurrent_and_terminal(pg_store):
     with ThreadPoolExecutor(max_workers=8) as pool:
         results = list(pool.map(lambda _: submit(pg_store), range(16)))
     job_id = results[0]["job_id"]
@@ -187,7 +187,9 @@ def test_exact_tuple_dedup_concurrent_and_terminal(pg_store):
     assert submit(pg_store)["job_id"] == job_id
     assert submit(pg_store, tenant="tenant-b")["job_id"] != job_id
     assert submit(pg_store, stage="simulation")["job_id"] != job_id
-    assert submit(pg_store, input_value={"fixture": "other"})["job_id"] != job_id
+    with pytest.raises(ValueError, match="idempotency"):
+        submit(pg_store, input_value={"fixture": "other"})
+    assert submit(pg_store, input_value={"fixture": "other"}, key="other-input")["job_id"] != job_id
     assert submit(pg_store, key="other")["job_id"] != job_id
     assert canonical_input_sha256({"a": 1, "b": 2}) == canonical_input_sha256({"b": 2, "a": 1})
     assert results[0]["input_sha256"] == canonical_input_sha256({"fixture": "synthetic"})

@@ -24,6 +24,38 @@ def connect_app(environ: Mapping[str, str] | None = None) -> psycopg.Connection:
     )
 
 
+def upgrade_job_intent_key(conn: psycopg.Connection, schema: str) -> None:
+    """Upgrade an installed job table before running code that names jobs_intent_key.
+
+    This is an explicit, owner-run migration. Conflicting historical intents require
+    operator reconciliation; the migration never discards or rewrites jobs.
+    """
+    table = sql.Identifier(schema, "jobs")
+    with conn.transaction():
+        conn.execute(sql.SQL("LOCK TABLE {} IN ACCESS EXCLUSIVE MODE").format(table))
+        exists = conn.execute("""
+            SELECT EXISTS (
+                SELECT 1 FROM pg_constraint c
+                JOIN pg_class t ON t.oid = c.conrelid
+                JOIN pg_namespace n ON n.oid = t.relnamespace
+                WHERE n.nspname = %s AND t.relname = 'jobs'
+                  AND c.conname = 'jobs_intent_key' AND c.contype = 'u'
+            ) AS present
+        """, (schema,)).fetchone()["present"]
+        if exists:
+            return
+        duplicate = conn.execute(sql.SQL("""
+            SELECT 1 FROM {} GROUP BY tenant_id, stage, idempotency_key
+            HAVING count(*) > 1 LIMIT 1
+        """).format(table)).fetchone()
+        if duplicate is not None:
+            raise ValueError("job intent key migration requires duplicate reconciliation")
+        conn.execute(sql.SQL("""
+            ALTER TABLE {} ADD CONSTRAINT jobs_intent_key
+                UNIQUE (tenant_id, stage, idempotency_key)
+        """).format(table))
+
+
 def install_schema(conn: psycopg.Connection, schema: str) -> None:
     """Install v1 tables into an existing, explicitly selected schema."""
     namespace = sql.Identifier(schema)
@@ -48,7 +80,7 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
             created_at timestamptz NOT NULL DEFAULT clock_timestamp(),
             updated_at timestamptz NOT NULL DEFAULT clock_timestamp(),
             PRIMARY KEY (tenant_id, job_id),
-            UNIQUE (tenant_id, stage, input_sha256, idempotency_key),
+            CONSTRAINT jobs_intent_key UNIQUE (tenant_id, stage, idempotency_key),
             CHECK (attempt_count <= max_attempts),
             CHECK (state NOT IN ('researching','collecting','reviewing','simulating','assessing')
                    OR attempt_count > 0),
