@@ -44,6 +44,14 @@
       "type": "string",
       "minLength": 1
     },
+    "trace_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trace_sequence_index": {
+      "type": "integer",
+      "minimum": 0
+    },
     "input_snapshot_id": {
       "type": "string",
       "minLength": 1
@@ -101,11 +109,17 @@
             "const": true
           },
           "observed_start_utc": {
+            "const": null
+          },
+          "observed_end_utc": {
+            "const": null
+          },
+          "applicability_start_utc": {
             "type": "string",
             "format": "date-time",
             "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
           },
-          "observed_end_utc": {
+          "applicability_end_utc": {
             "type": "string",
             "format": "date-time",
             "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
@@ -134,8 +148,30 @@
             "minLength": 1
           },
           "original_unit": {
-            "type": "string",
-            "minLength": 1
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "T_o": {"const": "K"},
+                  "phi_o": {"const": "1"},
+                  "p_o": {"const": "Pa"},
+                  "solar_interval_energy": {"const": "J/m²"}
+                },
+                "required": ["T_o", "phi_o", "p_o", "solar_interval_energy"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "temperature": {"const": "K"},
+                  "humidity_ratio": {"const": "kg_v/kg_da"},
+                  "heat": {"const": "W_th"},
+                  "time": {"const": "s"}
+                },
+                "required": ["temperature", "humidity_ratio", "heat", "time"],
+                "additionalProperties": false
+              }
+            ]
           },
           "provider_qc": {
             "type": "object",
@@ -221,6 +257,8 @@
           "synthetic",
           "observed_start_utc",
           "observed_end_utc",
+          "applicability_start_utc",
+          "applicability_end_utc",
           "published_at_utc",
           "available_at_utc",
           "retrieved_at_utc",
@@ -262,10 +300,10 @@
       "type": "object",
       "properties": {
         "temperature": {
-          "$ref": "#/$defs/sourced_K__positive"
+          "$ref": "#/$defs/initial_K"
         },
         "humidity_ratio": {
-          "$ref": "#/$defs/sourced_kg_v_kg_da_nonnegative"
+          "$ref": "#/$defs/initial_kg_v_kg_da"
         }
       },
       "required": [
@@ -778,6 +816,8 @@
     "run_status",
     "scope",
     "run_id",
+    "trace_id",
+    "trace_sequence_index",
     "input_snapshot_id",
     "decision_id",
     "model_version",
@@ -797,7 +837,78 @@
     "steps"
   ],
   "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {"properties": {"trace_sequence_index": {"const": 0}}, "required": ["trace_sequence_index"]},
+      "then": {
+        "properties": {
+          "initial_state": {
+            "properties": {
+              "temperature": {"$ref": "#/$defs/sourced_K__positive"},
+              "humidity_ratio": {"$ref": "#/$defs/sourced_kg_v_kg_da_nonnegative"}
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "initial_state": {
+            "properties": {
+              "temperature": {"$ref": "#/$defs/carried_K"},
+              "humidity_ratio": {"$ref": "#/$defs/carried_kg_v_kg_da"}
+            }
+          }
+        }
+      }
+    }
+  ],
   "$defs": {
+    "initial_K": {
+      "oneOf": [
+        {"$ref": "#/$defs/sourced_K__positive"},
+        {"$ref": "#/$defs/carried_K"}
+      ]
+    },
+    "initial_kg_v_kg_da": {
+      "oneOf": [
+        {"$ref": "#/$defs/sourced_kg_v_kg_da_nonnegative"},
+        {"$ref": "#/$defs/carried_kg_v_kg_da"}
+      ]
+    },
+    "carried_K": {
+      "type": "object",
+      "properties": {
+        "value": {"type": "number", "exclusiveMinimum": 0},
+        "unit": {"const": "K"},
+        "origin": {"const": "derived"},
+        "basis_ref": {"type": "string", "pattern": "^trace-sha256:[0-9a-f]{64}#/steps/(0|[1-9][0-9]*)/state_end/temperature$"},
+        "version": {"const": "v1"},
+        "calculation_rule_ref": {"const": "thermal-state-carry-v1"},
+        "calculation_rule_version": {"const": "v1"},
+        "previous_trace_id": {"type": "string", "minLength": 1},
+        "previous_trace_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "previous_state_pointer": {"type": "string", "pattern": "^/steps/(0|[1-9][0-9]*)/state_end/temperature$"}
+      },
+      "required": ["value", "unit", "origin", "basis_ref", "version", "calculation_rule_ref", "calculation_rule_version", "previous_trace_id", "previous_trace_sha256", "previous_state_pointer"],
+      "additionalProperties": false
+    },
+    "carried_kg_v_kg_da": {
+      "type": "object",
+      "properties": {
+        "value": {"type": "number", "minimum": 0},
+        "unit": {"const": "kg_v/kg_da"},
+        "origin": {"const": "derived"},
+        "basis_ref": {"type": "string", "pattern": "^trace-sha256:[0-9a-f]{64}#/steps/(0|[1-9][0-9]*)/state_end/humidity_ratio$"},
+        "version": {"const": "v1"},
+        "calculation_rule_ref": {"const": "thermal-state-carry-v1"},
+        "calculation_rule_version": {"const": "v1"},
+        "previous_trace_id": {"type": "string", "minLength": 1},
+        "previous_trace_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "previous_state_pointer": {"type": "string", "pattern": "^/steps/(0|[1-9][0-9]*)/state_end/humidity_ratio$"}
+      },
+      "required": ["value", "unit", "origin", "basis_ref", "version", "calculation_rule_ref", "calculation_rule_version", "previous_trace_id", "previous_trace_sha256", "previous_state_pointer"],
+      "additionalProperties": false
+    },
     "trace_K": {
       "type": "object",
       "properties": {
@@ -914,20 +1025,16 @@
           "const": "derived"
         },
         "basis_ref": {
-          "type": "string",
-          "minLength": 1
+          "const": "synthetic-thermal-parameters-v1:/conversion_rules/outdoor_humidity_ratio"
         },
         "version": {
-          "type": "string",
-          "minLength": 1
+          "const": "v1"
         },
         "calculation_rule_ref": {
-          "type": "string",
-          "minLength": 1
+          "const": "thermal-outdoor-w-v1"
         },
         "calculation_rule_version": {
-          "type": "string",
-          "minLength": 1
+          "const": "v1"
         },
         "input_record_ids": {
           "type": "array",
@@ -965,20 +1072,16 @@
           "const": "derived"
         },
         "basis_ref": {
-          "type": "string",
-          "minLength": 1
+          "const": "synthetic-thermal-parameters-v1:/conversion_rules/solar_gain"
         },
         "version": {
-          "type": "string",
-          "minLength": 1
+          "const": "v1"
         },
         "calculation_rule_ref": {
-          "type": "string",
-          "minLength": 1
+          "const": "thermal-solar-interval-v1"
         },
         "calculation_rule_version": {
-          "type": "string",
-          "minLength": 1
+          "const": "v1"
         },
         "input_record_ids": {
           "type": "array",
