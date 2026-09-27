@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-상태: **내부 구현 계약·부분 구현, 2026-09-27.** C0 Compose, 출처/G0 형식·시장 문맥, 합성 열 매개변수·trace 계약과 `candidate` 엔진, 조건부 경제 원장·판매 정산, PostgreSQL 지속 작업·AI 시도 증거 저장 계약이 수용됐다. G0 독립 권리 증거의 실제 연결, CLI 저장소 브리지와 실제 세 단계 실행, 서버 열 G1 승격, 공동 시장 시나리오·손익분기, API·3D·G1 전체 경로는 아직 수용 전이다. 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
+상태: **내부 구현 계약·부분 구현, 2026-09-27.** C0 Compose, 출처/G0 형식·서버 승인 저장 계약·시장 문맥, 합성 열 매개변수·trace 계약과 `candidate` 엔진, 조건부 경제 원장·판매 정산, PostgreSQL 지속 작업·AI 시도 증거 저장 계약이 수용됐다. G0 독립 권리 증거의 실제 연결, CLI 저장소 브리지와 실제 세 단계 실행, 서버 열 G1 승격, 공동 시장 시나리오·손익분기, API·3D·G1 전체 경로는 아직 수용 전이다. 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
 
 ## 1. 목표와 확인할 사용자 경로
 
@@ -101,7 +101,7 @@ MarketContext = Annotated[
 | `fixture-policy` | 직접 작성한 합성 G1 추적 입력과 manifest |
 | `durable-jobs` | PostgreSQL 임대·중복 처리·복구·게시 상태 |
 | `decision-evidence-store` | CLI 시도별 불변 종료·출력/검사·권리별 감사 아티팩트; 실제 검증 출력에만 AI 결정 ID |
-| `g0-authority-store` | 서버가 소유한 출처·권리·검토 정책과 변경 불가 G0 승인 증거 저장소 |
+| `g0-authority-store` | **완료:** 독립 검토 resolver를 요구하는 서버 소유 출처·권리·정책 및 불변 G0 판정 저장 계약; 실제 제공자 G0는 보류 |
 | `cli-worker` | 제한된 실제 CLI 단계·스키마·보류·감사 |
 | `market-context` | 결정 당시 시장 자료의 가용/불가 구분과 ForecastRun 분리 |
 | `thermal-engine` | 결정적 단일 구역 합성 열·수증기 후보 trace |
