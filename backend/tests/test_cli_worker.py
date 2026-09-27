@@ -279,43 +279,42 @@ def test_production_constructor_rejects_unattested_launcher(pg_store, tmp_path):
                   codex_home=worker.codex_home)
 
 
-@pytest.mark.skipif(os.environ.get("OSSF_REAL_CLI_SMOKE") != "1",
-                    reason="set OSSF_REAL_CLI_SMOKE=1 for three real model calls")
-def test_real_cli_three_stage_synthetic_hold(pg_store, tmp_path):
-    cli = Path(os.environ["OSSF_REAL_CLI_PATH"])
-    home = Path(os.environ["OSSF_REAL_CODEX_HOME"])
-    contract = DecisionContract(resolver)
-    base = cli_store(pg_store)
-    store = JobStore(base._dsn, base.schema, base.artifact_root,
-                     decision_validator=contract, evidence_policy=base.evidence_policy,
-                     principal_provider=base.principal_provider)
-    worker = CliWorker(store, contract, cli_path=cli, codex_home=home,
-                       timeout_seconds=600, lease_seconds=660, synthetic_smoke=True)
-    jobs = [_submit(store, stage) for stage in
-            ("research", "collection_review", "assessment")]
-    for job in jobs:
-        result = worker.run_once()
-        assert result.job_id == job["job_id"]
-        assert result.state == "hold" and result.reason_code == "validated_hold"
-        assert result.capture_id and result.decision_id
-        assert store.read_hold_report("tenant-a", job["job_id"])
-        invocation = store.get_invocation("tenant-a", job["job_id"], result.attempt)
-        assert invocation["execution_kind"] == "codex_cli"
-        assert (invocation["model"], invocation["reasoning_effort"]) == ("gpt-6-sol", "xhigh")
-        with store.connect() as conn:
-            capture = conn.execute(sql.SQL("""
-                SELECT capture_id, jsonl_sha256, final_output_sha256, exit_code,
-                       termination_reason, usage FROM {}
-                WHERE tenant_id = %s AND job_id = %s AND attempt = %s
-            """).format(store._table("attempt_cli_captures")),
-                ("tenant-a", job["job_id"], result.attempt)).fetchone()
-        assert capture["capture_id"] == result.capture_id
-        assert capture["exit_code"] == 0 and capture["termination_reason"] == "completed"
-        assert capture["jsonl_sha256"] and capture["final_output_sha256"]
-        assert capture["usage"]["input_tokens"] > 0
-        print(json.dumps({"stage": job["stage"], "job_id": str(job["job_id"]),
-                          "attempt": result.attempt, "capture_id": str(result.capture_id),
-                          "decision_id": str(result.decision_id),
-                          "jsonl_sha256": capture["jsonl_sha256"],
-                          "final_output_sha256": capture["final_output_sha256"],
-                          "usage": capture["usage"]}, sort_keys=True))
+if os.environ.get("OSSF_REAL_CLI_SMOKE") == "1":
+    def test_real_cli_three_stage_synthetic_hold(pg_store, tmp_path):
+        cli = Path(os.environ["OSSF_REAL_CLI_PATH"])
+        home = Path(os.environ["OSSF_REAL_CODEX_HOME"])
+        contract = DecisionContract(resolver)
+        base = cli_store(pg_store)
+        store = JobStore(base._dsn, base.schema, base.artifact_root,
+                         decision_validator=contract, evidence_policy=base.evidence_policy,
+                         principal_provider=base.principal_provider)
+        worker = CliWorker(store, contract, cli_path=cli, codex_home=home,
+                           timeout_seconds=600, lease_seconds=660, synthetic_smoke=True)
+        jobs = [_submit(store, stage) for stage in
+                ("research", "collection_review", "assessment")]
+        for job in jobs:
+            result = worker.run_once()
+            assert result.job_id == job["job_id"]
+            assert result.state == "hold" and result.reason_code == "validated_hold"
+            assert result.capture_id and result.decision_id
+            assert store.read_hold_report("tenant-a", job["job_id"])
+            invocation = store.get_invocation("tenant-a", job["job_id"], result.attempt)
+            assert invocation["execution_kind"] == "codex_cli"
+            assert (invocation["model"], invocation["reasoning_effort"]) == ("gpt-6-sol", "xhigh")
+            with store.connect() as conn:
+                capture = conn.execute(sql.SQL("""
+                    SELECT capture_id, jsonl_sha256, final_output_sha256, exit_code,
+                           termination_reason, usage FROM {}
+                    WHERE tenant_id = %s AND job_id = %s AND attempt = %s
+                """).format(store._table("attempt_cli_captures")),
+                    ("tenant-a", job["job_id"], result.attempt)).fetchone()
+            assert capture["capture_id"] == result.capture_id
+            assert capture["exit_code"] == 0 and capture["termination_reason"] == "completed"
+            assert capture["jsonl_sha256"] and capture["final_output_sha256"]
+            assert capture["usage"]["input_tokens"] > 0
+            print(json.dumps({"stage": job["stage"], "job_id": str(job["job_id"]),
+                              "attempt": result.attempt, "capture_id": str(result.capture_id),
+                              "decision_id": str(result.decision_id),
+                              "jsonl_sha256": capture["jsonl_sha256"],
+                              "final_output_sha256": capture["final_output_sha256"],
+                              "usage": capture["usage"]}, sort_keys=True))
