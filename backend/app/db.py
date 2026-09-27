@@ -99,7 +99,7 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
             tenant_id text NOT NULL, job_id uuid NOT NULL,
             attempt integer NOT NULL, evidence_id uuid NOT NULL,
             kind text NOT NULL CHECK (kind IN
-                ('prompt','output_schema','final_output','jsonl','tool_event','validation_report')),
+                ('prompt','output_schema','final_output','jsonl','tool_event','launch_event','validation_report')),
             sequence integer NOT NULL CHECK (sequence >= 0),
             late boolean NOT NULL,
             classification text NOT NULL CHECK (classification IN ('private','restricted')),
@@ -171,6 +171,47 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
         )
     """).format(namespace, namespace, namespace, namespace))
     conn.execute(sql.SQL("""
+        CREATE TABLE {}.attempt_cli_launches (
+            tenant_id text NOT NULL, job_id uuid NOT NULL, attempt integer NOT NULL,
+            attempt_id uuid NOT NULL, launch_id uuid NOT NULL UNIQUE,
+            launch_evidence_id uuid NOT NULL, executable text NOT NULL
+                CHECK (length(executable) BETWEEN 1 AND 200),
+            cli_version text NOT NULL, args_sha256 char(64) NOT NULL
+                CHECK (args_sha256 ~ '^[0-9a-f]{{64}}$'),
+            prompt_sha256 char(64) NOT NULL, schema_sha256 char(64) NOT NULL,
+            process_id integer NOT NULL CHECK (process_id > 0),
+            spawned_at timestamptz NOT NULL DEFAULT clock_timestamp(),
+            PRIMARY KEY (tenant_id, job_id, attempt),
+            UNIQUE (tenant_id, job_id, attempt, attempt_id, launch_id),
+            FOREIGN KEY (tenant_id, job_id, attempt)
+                REFERENCES {}.attempt_invocations (tenant_id, job_id, attempt),
+            FOREIGN KEY (tenant_id, job_id, attempt, attempt_id)
+                REFERENCES {}.job_attempts (tenant_id, job_id, attempt, attempt_id),
+            FOREIGN KEY (tenant_id, job_id, attempt, launch_evidence_id)
+                REFERENCES {}.attempt_evidence (tenant_id, job_id, attempt, evidence_id)
+        )
+    """).format(namespace, namespace, namespace, namespace))
+    conn.execute(sql.SQL("""
+        CREATE TABLE {}.attempt_cli_captures (
+            tenant_id text NOT NULL, job_id uuid NOT NULL, attempt integer NOT NULL,
+            attempt_id uuid NOT NULL, launch_id uuid NOT NULL, capture_id uuid NOT NULL UNIQUE,
+            jsonl_evidence_id uuid, jsonl_sha256 char(64),
+            final_output_sha256 char(64) NOT NULL CHECK (final_output_sha256 ~ '^[0-9a-f]{{64}}$'),
+            exit_code integer CHECK (exit_code BETWEEN 0 AND 255),
+            termination_reason text NOT NULL CHECK (termination_reason ~ '^[a-z][a-z0-9_]{{0,63}}$'),
+            usage jsonb,
+            completed boolean NOT NULL,
+            sealed_at timestamptz NOT NULL DEFAULT clock_timestamp(),
+            PRIMARY KEY (tenant_id, job_id, attempt),
+            UNIQUE (tenant_id, job_id, attempt, capture_id, jsonl_sha256),
+            FOREIGN KEY (tenant_id, job_id, attempt, attempt_id, launch_id)
+                REFERENCES {}.attempt_cli_launches (tenant_id, job_id, attempt, attempt_id, launch_id),
+            FOREIGN KEY (tenant_id, job_id, attempt, jsonl_evidence_id)
+                REFERENCES {}.attempt_evidence (tenant_id, job_id, attempt, evidence_id),
+            CHECK (jsonl_evidence_id IS NOT NULL OR jsonl_sha256 IS NULL)
+        )
+    """).format(namespace, namespace, namespace))
+    conn.execute(sql.SQL("""
         CREATE TABLE {}.validation_receipts (
             tenant_id text NOT NULL, job_id uuid NOT NULL, attempt integer NOT NULL,
             attempt_id uuid NOT NULL, receipt_id uuid NOT NULL UNIQUE,
@@ -184,6 +225,8 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
             prompt_version text NOT NULL, schema_version text NOT NULL,
             execution_kind text NOT NULL, cli_version text NOT NULL,
             model text, reasoning_effort text,
+            disposition text NOT NULL DEFAULT 'proceed' CHECK (disposition IN ('proceed','hold')),
+            capture_id uuid, capture_sha256 char(64),
             stage text NOT NULL, validator_version text NOT NULL,
             validator_code text NOT NULL, passed boolean NOT NULL CHECK (passed),
             recorded_at timestamptz NOT NULL DEFAULT clock_timestamp(),
@@ -193,9 +236,13 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
             FOREIGN KEY (tenant_id, job_id, attempt, final_evidence_id)
                 REFERENCES {}.attempt_evidence (tenant_id, job_id, attempt, evidence_id),
             FOREIGN KEY (tenant_id, job_id, attempt, validation_evidence_id)
-                REFERENCES {}.attempt_evidence (tenant_id, job_id, attempt, evidence_id)
+                REFERENCES {}.attempt_evidence (tenant_id, job_id, attempt, evidence_id),
+            FOREIGN KEY (tenant_id, job_id, attempt, capture_id, capture_sha256)
+                REFERENCES {}.attempt_cli_captures (tenant_id, job_id, attempt, capture_id, jsonl_sha256),
+            CHECK ((execution_kind = 'codex_cli' AND capture_id IS NOT NULL AND capture_sha256 IS NOT NULL)
+                OR (execution_kind = 'synthetic_fixture' AND capture_id IS NULL AND capture_sha256 IS NULL))
         )
-    """).format(namespace, namespace, namespace, namespace))
+    """).format(namespace, namespace, namespace, namespace, namespace))
     conn.execute(sql.SQL("""
         CREATE TABLE {}.ai_decisions (
             tenant_id text NOT NULL, job_id uuid NOT NULL,
@@ -205,6 +252,8 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
             final_evidence_id uuid NOT NULL,
             validation_evidence_id uuid NOT NULL,
             receipt_id uuid NOT NULL REFERENCES {}.validation_receipts (receipt_id),
+            disposition text NOT NULL DEFAULT 'proceed' CHECK (disposition IN ('proceed','hold')),
+            capture_id uuid, capture_sha256 char(64),
             recorded_at timestamptz NOT NULL DEFAULT clock_timestamp(),
             PRIMARY KEY (tenant_id, job_id, attempt),
             UNIQUE (tenant_id, job_id, attempt, decision_id),
@@ -212,7 +261,25 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
             FOREIGN KEY (tenant_id, job_id, attempt, final_evidence_id)
                 REFERENCES {}.attempt_evidence (tenant_id, job_id, attempt, evidence_id),
             FOREIGN KEY (tenant_id, job_id, attempt, validation_evidence_id)
-                REFERENCES {}.attempt_evidence (tenant_id, job_id, attempt, evidence_id)
+                REFERENCES {}.attempt_evidence (tenant_id, job_id, attempt, evidence_id),
+            FOREIGN KEY (tenant_id, job_id, attempt, capture_id, capture_sha256)
+                REFERENCES {}.attempt_cli_captures (tenant_id, job_id, attempt, capture_id, jsonl_sha256)
+        )
+    """).format(namespace, namespace, namespace, namespace, namespace, namespace))
+    conn.execute(sql.SQL("""
+        CREATE TABLE {}.job_hold_reports (
+            tenant_id text NOT NULL, job_id uuid NOT NULL, attempt integer NOT NULL,
+            attempt_id uuid NOT NULL, decision_id uuid NOT NULL, receipt_id uuid NOT NULL,
+            hold_id uuid NOT NULL UNIQUE, report_sha256 char(64) NOT NULL,
+            report_size integer NOT NULL CHECK (report_size BETWEEN 1 AND 16384),
+            authorization_id uuid NOT NULL REFERENCES {}.evidence_authorizations (authorization_id),
+            recorded_at timestamptz NOT NULL DEFAULT clock_timestamp(),
+            PRIMARY KEY (tenant_id, job_id),
+            FOREIGN KEY (tenant_id, job_id, attempt, attempt_id)
+                REFERENCES {}.job_attempts (tenant_id, job_id, attempt, attempt_id),
+            FOREIGN KEY (tenant_id, job_id, attempt, decision_id)
+                REFERENCES {}.ai_decisions (tenant_id, job_id, attempt, decision_id),
+            FOREIGN KEY (receipt_id) REFERENCES {}.validation_receipts (receipt_id)
         )
     """).format(namespace, namespace, namespace, namespace, namespace))
     conn.execute(sql.SQL("""
@@ -283,8 +350,9 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
         CREATE TRIGGER guard_change BEFORE UPDATE OR DELETE ON {}.jobs
         FOR EACH ROW EXECUTE FUNCTION {}.guard_job_change()
     """).format(namespace, namespace))
-    for table in ("job_attempts", "job_events", "evidence_authorizations", "attempt_evidence", "attempt_invocations", "validation_receipts", "ai_decisions",
-                  "attempt_outcomes", "job_publications"):
+    for table in ("job_attempts", "job_events", "evidence_authorizations", "attempt_evidence", "attempt_invocations",
+                  "attempt_cli_launches", "attempt_cli_captures", "validation_receipts", "ai_decisions",
+                  "attempt_outcomes", "job_publications", "job_hold_reports"):
         conn.execute(sql.SQL("""
             CREATE TRIGGER reject_change BEFORE UPDATE OR DELETE ON {}.{}
             FOR EACH ROW EXECUTE FUNCTION {}.reject_audit_change()
@@ -361,8 +429,52 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
     """).format(namespace, namespace))
     conn.execute(sql.SQL("""
         CREATE FUNCTION {}.check_outcome_metadata() RETURNS trigger LANGUAGE plpgsql AS $$
-        DECLARE jsonl_row record;
+        DECLARE jsonl_row record; invocation_row record; capture_row record;
+                recovery_code text;
         BEGIN
+            IF NEW.state = 'lease_expired' THEN
+                recovery_code := 'lease_expired';
+            ELSIF NEW.state = 'canceled'
+                  AND NEW.reason = '{{"code":"cancel_lease_expired"}}'::jsonb THEN
+                recovery_code := 'cancel_lease_expired';
+            ELSIF NEW.state = 'failed'
+                  AND NEW.reason = '{{"code":"attempts_exhausted"}}'::jsonb THEN
+                recovery_code := 'attempts_exhausted';
+            END IF;
+            IF recovery_code IS NOT NULL AND
+               (NEW.reason->>'code' IS DISTINCT FROM recovery_code
+                OR NEW.termination_reason IS DISTINCT FROM recovery_code
+                OR NEW.exit_code IS NOT NULL OR NEW.usage IS NOT NULL) THEN
+                RAISE EXCEPTION 'recovered attempt outcome must retain closure reason and unknown process status'
+                    USING ERRCODE = '23514';
+            END IF;
+            SELECT execution_kind INTO invocation_row FROM {}.attempt_invocations
+                WHERE tenant_id = NEW.tenant_id AND job_id = NEW.job_id AND attempt = NEW.attempt;
+            IF invocation_row.execution_kind = 'codex_cli' THEN
+                SELECT * INTO capture_row FROM {}.attempt_cli_captures
+                    WHERE tenant_id = NEW.tenant_id AND job_id = NEW.job_id AND attempt = NEW.attempt;
+                IF capture_row.capture_id IS NULL THEN
+                    IF NEW.exit_code IS NOT NULL OR NEW.usage IS NOT NULL
+                       OR (recovery_code IS NULL AND NEW.termination_reason IS NOT NULL)
+                       OR NEW.state = 'succeeded'
+                       OR NEW.reason->>'code' = 'ai_validated_hold' THEN
+                        RAISE EXCEPTION 'uncaptured CLI outcome cannot claim process status'
+                            USING ERRCODE = '23514';
+                    END IF;
+                ELSE
+                    IF NEW.jsonl_evidence_id IS DISTINCT FROM capture_row.jsonl_evidence_id
+                       OR (recovery_code IS NULL AND
+                           (NEW.exit_code IS DISTINCT FROM capture_row.exit_code
+                            OR NEW.usage IS DISTINCT FROM capture_row.usage
+                            OR NEW.termination_reason IS DISTINCT FROM capture_row.termination_reason))
+                       OR (NEW.state = 'succeeded' AND
+                           (capture_row.completed IS DISTINCT FROM true OR capture_row.exit_code IS DISTINCT FROM 0))
+                       OR (NEW.reason->>'code' = 'ai_validated_hold' AND
+                           (capture_row.completed IS DISTINCT FROM true OR capture_row.exit_code IS DISTINCT FROM 0)) THEN
+                        RAISE EXCEPTION 'CLI outcome must match sealed capture' USING ERRCODE = '23514';
+                    END IF;
+                END IF;
+            END IF;
             IF NEW.jsonl_evidence_id IS NOT NULL THEN
                 SELECT kind, late INTO jsonl_row FROM {}.attempt_evidence
                     WHERE tenant_id = NEW.tenant_id AND job_id = NEW.job_id
@@ -379,7 +491,8 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
                 END IF;
                 IF EXISTS (SELECT 1 FROM jsonb_each(NEW.usage) AS item(key, value)
                     WHERE item.key NOT IN ('input_tokens','output_tokens','total_tokens',
-                                           'cached_input_tokens','reasoning_output_tokens')
+                                           'cached_input_tokens','cache_write_input_tokens',
+                                           'reasoning_output_tokens')
                        OR jsonb_typeof(item.value) IS DISTINCT FROM 'number'
                        OR item.value::text !~ '^(0|[1-9][0-9]{{0,18}})$'
                        OR item.value::numeric > 9223372036854775807) THEN
@@ -390,11 +503,67 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
             RETURN NEW;
         END
         $$
-    """).format(namespace, namespace))
+    """).format(namespace, namespace, namespace, namespace))
     conn.execute(sql.SQL("""
         CREATE TRIGGER check_outcome_metadata BEFORE INSERT ON {}.attempt_outcomes
         FOR EACH ROW EXECUTE FUNCTION {}.check_outcome_metadata()
     """).format(namespace, namespace))
+    conn.execute(sql.SQL("""
+        CREATE FUNCTION {}.check_cli_bridge() RETURNS trigger LANGUAGE plpgsql AS $$
+        DECLARE invocation_row record; launch_row record; evidence_row record; job_row record;
+        BEGIN
+            SELECT * INTO invocation_row FROM {}.attempt_invocations
+                WHERE tenant_id = NEW.tenant_id AND job_id = NEW.job_id AND attempt = NEW.attempt;
+            SELECT * INTO job_row FROM {}.jobs
+                WHERE tenant_id = NEW.tenant_id AND job_id = NEW.job_id FOR UPDATE;
+            IF invocation_row.execution_kind IS DISTINCT FROM 'codex_cli'
+               OR job_row.attempt_count IS DISTINCT FROM NEW.attempt
+               OR job_row.state NOT IN ('researching','reviewing','assessing')
+               OR job_row.cancel_requested IS DISTINCT FROM false
+               OR (job_row.lease_until > clock_timestamp()) IS DISTINCT FROM true
+               OR invocation_row.attempt_id IS DISTINCT FROM NEW.attempt_id THEN
+                RAISE EXCEPTION 'CLI bridge needs live matching invocation' USING ERRCODE = '23514';
+            END IF;
+            IF TG_TABLE_NAME = 'attempt_cli_launches' THEN
+                SELECT * INTO evidence_row FROM {}.attempt_evidence WHERE tenant_id = NEW.tenant_id
+                    AND job_id = NEW.job_id AND attempt = NEW.attempt
+                    AND evidence_id = NEW.launch_evidence_id;
+                IF evidence_row.kind IS DISTINCT FROM 'launch_event' OR evidence_row.late
+                   OR evidence_row.receipt_state IS DISTINCT FROM 'retained'
+                   OR NEW.cli_version IS DISTINCT FROM invocation_row.cli_version
+                   OR NEW.prompt_sha256 IS DISTINCT FROM invocation_row.prompt_sha256
+                   OR NEW.schema_sha256 IS DISTINCT FROM invocation_row.schema_sha256 THEN
+                    RAISE EXCEPTION 'CLI launch evidence mismatch' USING ERRCODE = '23514';
+                END IF;
+            ELSE
+                SELECT * INTO launch_row FROM {}.attempt_cli_launches WHERE tenant_id = NEW.tenant_id
+                    AND job_id = NEW.job_id AND attempt = NEW.attempt AND launch_id = NEW.launch_id;
+                IF launch_row.attempt_id IS DISTINCT FROM NEW.attempt_id THEN
+                    RAISE EXCEPTION 'CLI capture launch mismatch' USING ERRCODE = '23514';
+                END IF;
+                IF NEW.jsonl_evidence_id IS NOT NULL THEN
+                    SELECT * INTO evidence_row FROM {}.attempt_evidence WHERE tenant_id = NEW.tenant_id
+                        AND job_id = NEW.job_id AND attempt = NEW.attempt
+                        AND evidence_id = NEW.jsonl_evidence_id;
+                    IF evidence_row.kind IS DISTINCT FROM 'jsonl' OR evidence_row.late
+                       OR (evidence_row.receipt_state = 'retained' AND
+                           (NEW.jsonl_sha256 IS NULL OR
+                            evidence_row.sha256 IS DISTINCT FROM NEW.jsonl_sha256))
+                       OR (evidence_row.receipt_state <> 'retained' AND
+                           NEW.jsonl_sha256 IS NOT NULL) THEN
+                        RAISE EXCEPTION 'CLI capture JSONL mismatch' USING ERRCODE = '23514';
+                    END IF;
+                END IF;
+            END IF;
+            RETURN NEW;
+        END
+        $$
+    """).format(namespace, namespace, namespace, namespace, namespace, namespace))
+    for table in ("attempt_cli_launches", "attempt_cli_captures"):
+        conn.execute(sql.SQL("""
+            CREATE TRIGGER check_cli_bridge BEFORE INSERT ON {}.{}
+            FOR EACH ROW EXECUTE FUNCTION {}.check_cli_bridge()
+        """).format(namespace, sql.Identifier(table), namespace))
     conn.execute(sql.SQL("""
         CREATE FUNCTION {}.check_decision_evidence() RETURNS trigger LANGUAGE plpgsql AS $$
         DECLARE final_row record; report_row record; job_row record;
@@ -444,6 +613,18 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
                OR receipt_row.model IS DISTINCT FROM invocation_row.model
                OR receipt_row.reasoning_effort IS DISTINCT FROM invocation_row.reasoning_effort
                OR receipt_row.stage IS DISTINCT FROM job_row.stage
+               OR receipt_row.disposition IS DISTINCT FROM NEW.disposition
+               OR receipt_row.capture_id IS DISTINCT FROM NEW.capture_id
+               OR receipt_row.capture_sha256 IS DISTINCT FROM NEW.capture_sha256
+               OR (invocation_row.execution_kind = 'codex_cli' AND
+                   (NEW.capture_id IS NULL OR NEW.capture_sha256 IS NULL OR
+                    NOT EXISTS (SELECT 1 FROM {}.attempt_cli_captures c WHERE
+                        c.tenant_id = NEW.tenant_id AND c.job_id = NEW.job_id
+                        AND c.attempt = NEW.attempt AND c.capture_id = NEW.capture_id
+                        AND c.jsonl_sha256 = NEW.capture_sha256
+                        AND c.final_output_sha256 = NEW.output_sha256
+                        AND c.completed AND c.exit_code = 0
+                        AND c.termination_reason = 'completed')))
                OR receipt_row.final_evidence_id IS DISTINCT FROM NEW.final_evidence_id
                OR receipt_row.validation_evidence_id IS DISTINCT FROM NEW.validation_evidence_id
                OR receipt_row.report_sha256 IS DISTINCT FROM report_row.sha256
@@ -460,10 +641,42 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
             RETURN NEW;
         END
         $$
-    """).format(namespace, namespace, namespace, namespace, namespace, namespace, namespace))
+    """).format(namespace, namespace, namespace, namespace, namespace, namespace, namespace, namespace))
     conn.execute(sql.SQL("""
         CREATE TRIGGER check_decision_evidence BEFORE INSERT ON {}.ai_decisions
         FOR EACH ROW EXECUTE FUNCTION {}.check_decision_evidence()
+    """).format(namespace, namespace))
+    conn.execute(sql.SQL("""
+        CREATE FUNCTION {}.check_hold_report() RETURNS trigger LANGUAGE plpgsql AS $$
+        DECLARE decision_row record; auth_row record;
+        BEGIN
+            SELECT d.*, r.attempt_id AS receipt_attempt_id, r.disposition AS receipt_disposition
+              INTO decision_row FROM {}.ai_decisions d JOIN {}.validation_receipts r
+                ON r.tenant_id = d.tenant_id AND r.job_id = d.job_id
+                AND r.attempt = d.attempt AND r.receipt_id = d.receipt_id
+             WHERE d.tenant_id = NEW.tenant_id AND d.job_id = NEW.job_id
+               AND d.attempt = NEW.attempt AND d.decision_id = NEW.decision_id;
+            SELECT * INTO auth_row FROM {}.evidence_authorizations
+                WHERE authorization_id = NEW.authorization_id;
+            IF decision_row.disposition IS DISTINCT FROM 'hold'
+               OR decision_row.receipt_disposition IS DISTINCT FROM 'hold'
+               OR decision_row.receipt_id IS DISTINCT FROM NEW.receipt_id
+               OR decision_row.receipt_attempt_id IS DISTINCT FROM NEW.attempt_id
+               OR decision_row.artifact_sha256 IS DISTINCT FROM NEW.report_sha256
+               OR auth_row.tenant_id IS DISTINCT FROM NEW.tenant_id
+               OR auth_row.payload_sha256 IS DISTINCT FROM NEW.report_sha256
+               OR auth_row.retain_raw IS DISTINCT FROM true
+               OR auth_row.read_scope IS DISTINCT FROM 'auditor' THEN
+                RAISE EXCEPTION 'hold report needs matching validated hold and authorization'
+                    USING ERRCODE = '23514';
+            END IF;
+            RETURN NEW;
+        END
+        $$
+    """).format(namespace, namespace, namespace, namespace))
+    conn.execute(sql.SQL("""
+        CREATE TRIGGER check_hold_report BEFORE INSERT ON {}.job_hold_reports
+        FOR EACH ROW EXECUTE FUNCTION {}.check_hold_report()
     """).format(namespace, namespace))
     conn.execute(sql.SQL("""
         CREATE FUNCTION {}.check_attempt_closure() RETURNS trigger LANGUAGE plpgsql AS $$
@@ -471,6 +684,7 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
                 job_state text; job_reason jsonb; missing_count bigint; bad_prior_count bigint;
                 total_count bigint;
                 current_state text; publication_row record; current_decision uuid;
+                hold_row record;
         BEGIN
             row_tenant := NEW.tenant_id; row_job := NEW.job_id;
             SELECT attempt_count, state, reason INTO current_attempt, job_state, job_reason FROM {}.jobs
@@ -488,6 +702,8 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
                 WHERE tenant_id = row_tenant AND job_id = row_job
                   AND attempt = current_attempt;
             SELECT attempt, decision_id INTO publication_row FROM {}.job_publications
+                WHERE tenant_id = row_tenant AND job_id = row_job;
+            SELECT attempt, decision_id INTO hold_row FROM {}.job_hold_reports
                 WHERE tenant_id = row_tenant AND job_id = row_job;
             IF missing_count <> 0 OR bad_prior_count <> 0 OR total_count <> current_attempt OR
                (job_state IN ('researching','collecting','reviewing','simulating','assessing')
@@ -507,15 +723,20 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
                     AND NOT (current_state IN ('queued','lease_expired')
                              AND job_reason->>'code' = 'canceled_by_request')) OR
                (job_state IN ('queued','hold','failed','canceled','succeeded')
-                    AND current_attempt > 0 AND current_state IS NULL) THEN
+                    AND current_attempt > 0 AND current_state IS NULL) OR
+               ((job_state = 'hold' AND job_reason->>'code' = 'ai_validated_hold') IS DISTINCT FROM
+                    (hold_row.attempt IS NOT NULL)) OR
+               (hold_row.attempt IS NOT NULL AND
+                    (hold_row.attempt IS DISTINCT FROM current_attempt OR
+                     hold_row.decision_id IS DISTINCT FROM current_decision)) THEN
                 RAISE EXCEPTION 'each claimed attempt must have exactly one closure'
                     USING ERRCODE = '23514';
             END IF;
             RETURN NULL;
         END
         $$
-    """).format(namespace, namespace, namespace, namespace, namespace, namespace, namespace, namespace))
-    for table in ("jobs", "job_attempts", "attempt_outcomes"):
+    """).format(namespace, namespace, namespace, namespace, namespace, namespace, namespace, namespace, namespace))
+    for table in ("jobs", "job_attempts", "attempt_outcomes", "job_hold_reports"):
         conn.execute(sql.SQL("""
             CREATE CONSTRAINT TRIGGER check_attempt_closure
             AFTER INSERT OR UPDATE OR DELETE ON {}.{}
@@ -552,7 +773,8 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
                     JOIN {}.job_publications p ON p.tenant_id = d.tenant_id
                         AND p.job_id = d.job_id AND p.attempt = d.attempt
                         AND p.decision_id = d.decision_id
-                    WHERE p.tenant_id = row_tenant AND p.job_id = row_job;
+                    WHERE p.tenant_id = row_tenant AND p.job_id = row_job
+                      AND d.disposition = 'proceed';
                     IF authorized_artifact IS DISTINCT FROM
                         (SELECT artifact_sha256 FROM {}.job_publications
                          WHERE tenant_id = row_tenant AND job_id = row_job) THEN

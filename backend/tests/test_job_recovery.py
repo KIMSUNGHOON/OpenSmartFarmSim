@@ -560,3 +560,49 @@ def test_database_rejects_incompatible_direct_outcome_and_job_state(pg_store):
             """).format(sql.Identifier(pg_store.schema)),
                 ("tenant-a", job["job_id"], lease["attempt_id"]))
     assert pg_store.get_job("tenant-a", job["job_id"])["state"] == "researching"
+
+
+def test_claim_stage_allowlist_is_atomic_and_leaves_other_workers_jobs(pg_store):
+    collection = submit(pg_store, stage="collection", key="collection-first")
+    research = submit(pg_store, stage="research", key="research-second")
+    lease = pg_store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    assert lease is not None and lease["job_id"] == research["job_id"]
+    assert pg_store.claim(60, allowed_stages=("research", "collection_review", "assessment")) is None
+    assert pg_store.get_job("tenant-a", collection["job_id"])["state"] == "queued"
+    deterministic_lease = pg_store.claim(60, allowed_stages=("collection", "simulation"))
+    assert deterministic_lease is not None
+    assert deterministic_lease["job_id"] == collection["job_id"]
+
+
+def test_claim_stage_filter_validates_and_concurrent_workers_do_not_cross_claim(pg_store):
+    for invalid in ((), [], "research", ("unknown",), ("research", "unknown")):
+        with pytest.raises(ValueError):
+            pg_store.claim(60, allowed_stages=invalid)
+    collection = submit(pg_store, stage="collection", key="collection")
+    research = submit(pg_store, stage="research", key="research")
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        futures = (pool.submit(pg_store.claim, 60, allowed_stages=("research",)),
+                   pool.submit(pg_store.claim, 60, allowed_stages=("collection",)))
+        claimed = [future.result() for future in futures]
+    assert {row["job_id"] for row in claimed} == {collection["job_id"], research["job_id"]}
+    assert len({row["attempt_id"] for row in claimed}) == 2
+    assert pg_store.claim(60, allowed_stages=("research",)) is None
+
+
+def test_filtered_claim_recovery_does_not_close_other_stage_attempt(pg_store):
+    collection = submit(pg_store, stage="collection", key="collection", max_attempts=2)
+    collection_lease = pg_store.claim(60, allowed_stages=("collection",))
+    with pg_store.connect() as conn:
+        conn.execute(sql.SQL("""
+            UPDATE {}.jobs SET lease_until = clock_timestamp() - interval '1 second'
+            WHERE tenant_id = %s AND job_id = %s
+        """).format(sql.Identifier(pg_store.schema)), ("tenant-a", collection["job_id"]))
+    research = submit(pg_store, stage="research", key="research")
+    ai_lease = pg_store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    assert ai_lease["job_id"] == research["job_id"]
+    assert pg_store.get_job("tenant-a", collection["job_id"])["attempt_count"] == 1
+    assert pg_store.list_attempt_outcomes("tenant-a", collection["job_id"]) == []
+    recovered = pg_store.claim(60, allowed_stages=("collection",))
+    assert recovered["job_id"] == collection["job_id"] and recovered["attempt"] == 2
+    assert recovered["attempt_id"] != collection_lease["attempt_id"]
+    assert pg_store.list_attempt_outcomes("tenant-a", collection["job_id"])[0]["state"] == "lease_expired"

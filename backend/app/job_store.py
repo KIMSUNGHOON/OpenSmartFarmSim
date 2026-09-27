@@ -94,7 +94,8 @@ class JobStore:
             require_reason_code(termination_reason)
         if usage is not None:
             keys = {"input_tokens", "output_tokens", "total_tokens",
-                    "cached_input_tokens", "reasoning_output_tokens"}
+                    "cached_input_tokens", "cache_write_input_tokens",
+                    "reasoning_output_tokens"}
             if (type(usage) is not dict or not usage or any(
                     key not in keys or type(value) is not int or not 0 <= value <= 9223372036854775807
                     for key, value in usage.items())):
@@ -115,6 +116,24 @@ class JobStore:
 
     def _outcome(self, conn, tenant_id, job_id, attempt, state, reason=None,
                  *, exit_code=None, termination_reason=None, usage=None, jsonl_evidence_id=None):
+        invocation = conn.execute(sql.SQL("""
+            SELECT execution_kind FROM {} WHERE tenant_id = %s AND job_id = %s AND attempt = %s
+        """).format(self._table("attempt_invocations")), (tenant_id, job_id, attempt)).fetchone()
+        if invocation and invocation["execution_kind"] == "codex_cli":
+            capture = self._capture(conn, tenant_id, job_id, attempt)
+            recovery = (state == "lease_expired" and reason == {"code": "lease_expired"}
+                        or state == "canceled" and reason == {"code": "cancel_lease_expired"}
+                        or state == "failed" and reason == {"code": "attempts_exhausted"})
+            if recovery:
+                exit_code, usage = None, None
+                jsonl_evidence_id = capture["jsonl_evidence_id"] if capture else None
+            elif capture:
+                exit_code = capture["exit_code"]
+                usage = capture["usage"]
+                jsonl_evidence_id = capture["jsonl_evidence_id"]
+                termination_reason = capture["termination_reason"]
+            else:
+                exit_code, usage, termination_reason = None, None, None
         self._check_outcome_args(exit_code, termination_reason, usage, jsonl_evidence_id)
         self._check_jsonl_reference(conn, tenant_id, job_id, attempt, jsonl_evidence_id)
         decision = conn.execute(sql.SQL("""
@@ -195,14 +214,24 @@ class JobStore:
                                .format(self._table("jobs")), (tenant_id, job_id)).fetchone()
             return self._public_job(row)
 
-    def recover_expired(self) -> int:
-        with self.connect() as conn:
+    @staticmethod
+    def _allowed_stages(allowed_stages):
+        if allowed_stages is None:
+            return tuple(ACTIVE_BY_STAGE)
+        if (isinstance(allowed_stages, (str, bytes)) or
+                not isinstance(allowed_stages, (tuple, list, set, frozenset)) or
+                not allowed_stages or any(type(stage) is not str or stage not in ACTIVE_BY_STAGE
+                                          for stage in allowed_stages)):
+            raise ValueError("allowed_stages must be a nonempty subset of job stages")
+        return tuple(sorted(set(allowed_stages)))
+
+    def _recover_expired(self, conn, allowed_stages) -> int:
             rows = conn.execute(sql.SQL("""
                 SELECT tenant_id, job_id, attempt_count, cancel_requested, max_attempts
                 FROM {} WHERE state IN ('researching','collecting','reviewing','simulating','assessing')
-                    AND lease_until <= clock_timestamp()
+                    AND lease_until <= clock_timestamp() AND stage = ANY(%s)
                 FOR UPDATE SKIP LOCKED
-            """).format(self._table("jobs"))).fetchall()
+            """).format(self._table("jobs")), (list(allowed_stages),)).fetchall()
             for row in rows:
                 target = ("canceled" if row["cancel_requested"] else
                           "failed" if row["attempt_count"] >= row["max_attempts"] else "queued")
@@ -222,20 +251,25 @@ class JobStore:
                               termination_reason=reason["code"])
             return len(rows)
 
-    def claim(self, lease_seconds: int) -> dict | None:
-        require_seconds(lease_seconds, "lease_seconds")
-        self.recover_expired()
+    def recover_expired(self) -> int:
         with self.connect() as conn:
+            return self._recover_expired(conn, self._allowed_stages(None))
+
+    def claim(self, lease_seconds: int, *, allowed_stages=None) -> dict | None:
+        require_seconds(lease_seconds, "lease_seconds")
+        stages = self._allowed_stages(allowed_stages)
+        with self.connect() as conn:
+            self._recover_expired(conn, stages)
             while True:
                 row = conn.execute(sql.SQL("""
-                    SELECT * FROM {} WHERE
+                    SELECT * FROM {} WHERE stage = ANY(%s) AND (
                         (state = 'queued' AND next_attempt_at <= clock_timestamp())
                         OR (state IN ('researching','collecting','reviewing','simulating','assessing')
                             AND lease_until <= clock_timestamp() AND NOT cancel_requested
-                            AND attempt_count < max_attempts)
+                            AND attempt_count < max_attempts))
                     ORDER BY created_at, job_id
                     FOR UPDATE SKIP LOCKED LIMIT 1
-                """).format(self._table("jobs"))).fetchone()
+                """).format(self._table("jobs")), (list(stages),)).fetchone()
                 if row is None:
                     return None
                 try:
@@ -360,6 +394,25 @@ class JobStore:
         """).format(self._table("attempt_invocations")),
             (tenant_id, job_id, attempt)).fetchone() is not None
 
+    def _verified_invocation_inputs(self, conn, job, invocation) -> bool:
+        if (invocation is None or invocation["input_sha256"] != job["input_sha256"]
+                or invocation["attempt"] != job["attempt_count"]):
+            return False
+        for evidence_id, kind, digest in (
+            (invocation["prompt_evidence_id"], "prompt", invocation["prompt_sha256"]),
+            (invocation["schema_evidence_id"], "output_schema", invocation["schema_sha256"]),
+        ):
+            row = self._evidence_row(conn, job["tenant_id"], job["job_id"], evidence_id)
+            if (row is None or row["attempt"] != invocation["attempt"]
+                    or row["kind"] != kind or row["late"]
+                    or row["receipt_state"] != "retained" or row["sha256"] != digest):
+                return False
+            try:
+                self._read_private_evidence(job["tenant_id"], row)
+            except (OSError, ValueError, TypeError):
+                return False
+        return True
+
     def get_invocation(self, tenant_id, job_id, attempt):
         if not self._has_scope(tenant_id, "auditor"):
             return None
@@ -368,6 +421,209 @@ class JobStore:
                 SELECT * FROM {} WHERE tenant_id = %s AND job_id = %s AND attempt = %s
             """).format(self._table("attempt_invocations")),
                 (tenant_id, job_id, attempt)).fetchone()
+
+    def _capture(self, conn, tenant_id, job_id, attempt):
+        return conn.execute(sql.SQL("""
+            SELECT * FROM {} WHERE tenant_id = %s AND job_id = %s AND attempt = %s
+        """).format(self._table("attempt_cli_captures")),
+            (tenant_id, job_id, attempt)).fetchone()
+
+    @staticmethod
+    def _parse_cli_jsonl(payload):
+        if not payload or not payload.endswith(b"\n"):
+            raise ValueError("incomplete CLI JSONL")
+        events = []
+        for line in payload.splitlines():
+            if not line or len(line) > 1048576:
+                raise ValueError("invalid CLI JSONL line")
+            event = json.loads(line.decode("utf-8"), object_pairs_hook=JobStore._unique_pairs)
+            if (type(event) is not dict or event.get("type") not in
+                    {"thread.started", "turn.started", "item.started", "item.updated",
+                     "item.completed", "turn.completed", "turn.failed", "error"}):
+                raise ValueError("invalid CLI JSONL event")
+            events.append(event)
+        if (len(events) < 4 or events[0]["type"] != "thread.started" or
+                events[1]["type"] != "turn.started" or
+                sum(event["type"] == "thread.started" for event in events) != 1 or
+                sum(event["type"] == "turn.started" for event in events) != 1 or
+                events[-1]["type"] != "turn.completed" or
+                any(event["type"] in ("turn.failed", "error") for event in events) or
+                any(event["type"] not in ("item.started", "item.updated", "item.completed")
+                    for event in events[2:-1])):
+            raise ValueError("CLI JSONL has no sole completed terminal event")
+        if any(event.get("error") is not None or event.get("status") == "failed"
+               for event in events):
+            raise ValueError("CLI event contains an error or failed status")
+        item_types = {}
+        started_ids = set()
+        completed_ids = set()
+        allowed_items = {"agent_message", "reasoning", "command_execution",
+                         "file_change", "mcp_tool_call", "web_search", "todo_list"}
+        for event in events[2:-1]:
+            item = event.get("item")
+            if type(item) is not dict:
+                raise ValueError("CLI item is missing")
+            item_id, item_type = item.get("id"), item.get("type")
+            if (type(item_id) is not str or not item_id or len(item_id) > 200
+                    or item_type not in allowed_items or item.get("status") == "failed"
+                    or item.get("error") is not None or item_id in completed_ids
+                    or (item_id in item_types and item_types[item_id] != item_type)):
+                raise ValueError("CLI item is failed or has an invalid lifecycle")
+            if event["type"] == "item.started":
+                if item_id in item_types:
+                    raise ValueError("CLI item started twice")
+                started_ids.add(item_id)
+            elif event["type"] == "item.updated" and item_id not in started_ids:
+                raise ValueError("CLI item updated before it started")
+            item_types[item_id] = item_type
+            if event["type"] == "item.completed":
+                completed_ids.add(item_id)
+        messages = [event["item"].get("text") for event in events
+                    if event["type"] == "item.completed"
+                    and type(event.get("item")) is dict
+                    and event["item"].get("type") == "agent_message"]
+        if not messages or type(messages[-1]) is not str:
+            raise ValueError("CLI JSONL has no final completed agent message")
+        usage = events[-1].get("usage")
+        if usage is not None:
+            JobStore._check_outcome_args(None, None, usage, None)
+        return usage, messages[-1].encode("utf-8")
+
+    @staticmethod
+    def _unique_pairs(pairs):
+        value = {}
+        for key, item in pairs:
+            if key in value:
+                raise ValueError("duplicate JSON key")
+            value[key] = item
+        return value
+
+    def record_cli_launch(self, tenant_id, job_id, attempt, token, *,
+                          argv, process_id, executable="codex"):
+        if (type(argv) not in (list, tuple) or not argv or
+                any(type(arg) is not str or not arg or len(arg) > 1000 for arg in argv)
+                or type(process_id) is not int or process_id <= 0 or executable != "codex"):
+            raise ValueError("invalid CLI launch observation")
+        args_digest = sha256(self._canonical_report(list(argv))).hexdigest()
+        with self.connect() as conn:
+            job = self._locked_job(conn, tenant_id, job_id)
+            invocation = conn.execute(sql.SQL("""
+                SELECT * FROM {} WHERE tenant_id = %s AND job_id = %s AND attempt = %s
+            """).format(self._table("attempt_invocations")),
+                (tenant_id, job_id, attempt)).fetchone()
+            if (not self._owns_live_lease(job, attempt, token) or job["cancel_requested"]
+                    or invocation is None or invocation["execution_kind"] != "codex_cli"):
+                return None
+        event_bytes = self._canonical_report({"event_version": "cli-launch-v1",
+            "attempt_id": str(invocation["attempt_id"]), "executable": executable,
+            "cli_version": invocation["cli_version"], "args_sha256": args_digest,
+            "process_id": process_id})
+        evidence = self.append_evidence(tenant_id, job_id, attempt, token,
+            kind="launch_event", payload=event_bytes, rights_ref="server_cli_launch")
+        if evidence is None or evidence["late"] or evidence["receipt_state"] != "retained":
+            return None
+        with self.connect() as conn:
+            job = self._locked_job(conn, tenant_id, job_id)
+            if not self._owns_live_lease(job, attempt, token) or job["cancel_requested"]:
+                return None
+            if self._read_private_evidence(tenant_id, evidence) != event_bytes:
+                return None
+            return conn.execute(sql.SQL("""
+                INSERT INTO {} (tenant_id, job_id, attempt, attempt_id, launch_id,
+                    launch_evidence_id, executable, cli_version, args_sha256,
+                    prompt_sha256, schema_sha256, process_id)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                RETURNING *
+            """).format(self._table("attempt_cli_launches")),
+                (tenant_id, job_id, attempt, invocation["attempt_id"], uuid4(),
+                 evidence["evidence_id"], executable, invocation["cli_version"], args_digest,
+                 invocation["prompt_sha256"], invocation["schema_sha256"], process_id)).fetchone()
+
+    def seal_cli_capture(self, tenant_id, job_id, attempt, token, *, launch_id,
+                         jsonl_evidence_id, final_output, exit_code,
+                         termination_reason="completed", completed=True):
+        if type(final_output) is not bytes or len(final_output) > 1048576:
+            raise ValueError("invalid captured final output")
+        self._check_outcome_args(exit_code, termination_reason, None, jsonl_evidence_id)
+        if type(completed) is not bool or not isinstance(launch_id, UUID):
+            raise ValueError("invalid capture state")
+        with self.connect() as conn:
+            job = self._locked_job(conn, tenant_id, job_id)
+            launch = conn.execute(sql.SQL("""
+                SELECT * FROM {} WHERE tenant_id = %s AND job_id = %s AND attempt = %s
+                    AND launch_id = %s
+            """).format(self._table("attempt_cli_launches")),
+                (tenant_id, job_id, attempt, launch_id)).fetchone()
+            if (not self._owns_live_lease(job, attempt, token) or job["cancel_requested"]
+                    or launch is None or self._capture(conn, tenant_id, job_id, attempt)):
+                return None
+            evidence = (self._evidence_row(conn, tenant_id, job_id, jsonl_evidence_id)
+                        if jsonl_evidence_id else None)
+            if jsonl_evidence_id is not None and evidence is None:
+                return None
+            if evidence and (evidence["attempt"] != attempt or evidence["kind"] != "jsonl"
+                             or evidence["late"]):
+                return None
+            digest = evidence["sha256"] if evidence and evidence["receipt_state"] == "retained" else None
+            usage = None
+            if digest:
+                try:
+                    usage, terminal_output = self._parse_cli_jsonl(
+                        self._read_private_evidence(tenant_id, evidence))
+                    if terminal_output != final_output:
+                        usage = None
+                except (OSError, ValueError, TypeError, UnicodeError):
+                    pass
+            return conn.execute(sql.SQL("""
+                INSERT INTO {} (tenant_id, job_id, attempt, attempt_id, launch_id,
+                    capture_id, jsonl_evidence_id, jsonl_sha256, final_output_sha256,
+                    exit_code, termination_reason, usage, completed)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                RETURNING *
+            """).format(self._table("attempt_cli_captures")),
+                (tenant_id, job_id, attempt, launch["attempt_id"], launch_id, uuid4(),
+                 jsonl_evidence_id, digest,
+                 sha256(final_output).hexdigest(), exit_code, termination_reason,
+                 Jsonb(usage) if usage is not None else None, completed)).fetchone()
+
+    def _valid_cli_capture(self, conn, job, attempt, final_digest):
+        capture = self._capture(conn, job["tenant_id"], job["job_id"], attempt)
+        if (capture is None or not capture["completed"] or capture["exit_code"] != 0
+                or capture["termination_reason"] != "completed"
+                or capture["final_output_sha256"] != final_digest
+                or capture["jsonl_evidence_id"] is None or capture["jsonl_sha256"] is None):
+            return None
+        launch = conn.execute(sql.SQL("""
+            SELECT * FROM {} WHERE tenant_id = %s AND job_id = %s AND attempt = %s
+                AND launch_id = %s
+        """).format(self._table("attempt_cli_launches")),
+            (job["tenant_id"], job["job_id"], attempt, capture["launch_id"])).fetchone()
+        launch_evidence = (self._evidence_row(conn, job["tenant_id"], job["job_id"],
+                                              launch["launch_evidence_id"]) if launch else None)
+        if (launch is None or launch_evidence is None or launch_evidence["late"]
+                or launch_evidence["kind"] != "launch_event"
+                or launch_evidence["receipt_state"] != "retained"):
+            return None
+        expected_launch = self._canonical_report({"event_version": "cli-launch-v1",
+            "attempt_id": str(launch["attempt_id"]), "executable": launch["executable"],
+            "cli_version": launch["cli_version"], "args_sha256": launch["args_sha256"],
+            "process_id": launch["process_id"]})
+        try:
+            if self._read_private_evidence(job["tenant_id"], launch_evidence) != expected_launch:
+                return None
+        except (OSError, ValueError, TypeError):
+            return None
+        row = self._evidence_row(conn, job["tenant_id"], job["job_id"], capture["jsonl_evidence_id"])
+        if (row is None or row["attempt"] != attempt or row["kind"] != "jsonl" or row["late"]
+                or row["receipt_state"] != "retained" or row["sha256"] != capture["jsonl_sha256"]):
+            return None
+        try:
+            usage, terminal_output = self._parse_cli_jsonl(
+                self._read_private_evidence(job["tenant_id"], row))
+        except (OSError, ValueError, TypeError, UnicodeError):
+            return None
+        return capture if (usage == capture["usage"] and
+                           sha256(terminal_output).hexdigest() == final_digest) else None
 
     def _locked_job(self, conn, tenant_id, job_id):
         return conn.execute(sql.SQL("""
@@ -404,6 +660,9 @@ class JobStore:
         if kind not in FAILURE_KINDS:
             raise ValueError("unknown failure kind")
         require_reason_code(code)
+        if code in {"lease_expired", "cancel_lease_expired", "attempts_exhausted",
+                    "canceled_by_request", "ai_validated_hold", "input_sha256_mismatch"}:
+            raise ValueError("failure code is reserved for a server transition")
         require_seconds(retry_delay_seconds, "retry_delay_seconds", 0, 3600)
         self._check_outcome_args(exit_code, termination_reason, usage, jsonl_evidence_id)
         with self.connect() as conn:
@@ -501,7 +760,7 @@ class JobStore:
 
     @staticmethod
     def _check_evidence_args(kind, payload, rights_ref, withhold_reason, sequence):
-        if kind not in {"prompt", "output_schema", "final_output", "jsonl",
+        if kind not in {"prompt", "output_schema", "final_output", "jsonl", "launch_event",
                         "tool_event", "validation_report"}:
             raise ValueError("unknown evidence kind")
         if (not isinstance(rights_ref, str)
@@ -643,7 +902,7 @@ class JobStore:
         return self._read_private_evidence(tenant_id, row)
 
     @staticmethod
-    def _validation_context(job, invocation, final_digest, artifact_digest):
+    def _validation_context(job, invocation, final_digest, artifact_digest, capture=None):
         return {
             "tenant_id": job["tenant_id"], "job_id": str(job["job_id"]),
             "attempt": invocation["attempt"], "attempt_id": str(invocation["attempt_id"]),
@@ -658,6 +917,8 @@ class JobStore:
             "cli_version": invocation["cli_version"], "model": invocation["model"],
             "reasoning_effort": invocation["reasoning_effort"],
             "output_sha256": final_digest, "artifact_sha256": artifact_digest,
+            "capture_id": str(capture["capture_id"]) if capture else None,
+            "capture_sha256": capture["jsonl_sha256"] if capture else None,
         }
 
     @staticmethod
@@ -681,6 +942,24 @@ class JobStore:
             raise ValueError("validation report is not canonical")
         return report
 
+    @staticmethod
+    def _parse_hold_report(payload):
+        if type(payload) is not bytes or len(payload) > 16384:
+            raise ValueError("invalid hold report bytes")
+        report = JobStore._parse_report(payload)
+        if set(report) != {"schema_version", "reason_code", "missing_evidence"}:
+            raise ValueError("hold report has unexpected fields")
+        if report["schema_version"] != "hold_v1":
+            raise ValueError("unknown hold report version")
+        require_reason_code(report["reason_code"])
+        identifiers = report["missing_evidence"]
+        if (type(identifiers) is not list or len(identifiers) > 50 or
+                any(type(item) is not str or
+                    not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.:-]{0,199}", item)
+                    for item in identifiers) or len(set(identifiers)) != len(identifiers)):
+            raise ValueError("missing evidence requires safe bounded identifiers")
+        return report
+
     def record_decision(self, tenant_id, job_id, attempt, token,
                         final_output: bytes, proposed_artifact: bytes):
         if type(final_output) is not bytes or type(proposed_artifact) is not bytes:
@@ -694,12 +973,22 @@ class JobStore:
                     or not self._has_invocation(conn, tenant_id, job_id, attempt)
                     or self._has_decision(conn, tenant_id, job_id, attempt, None)):
                 return None
+            invocation = conn.execute(sql.SQL("""
+                SELECT * FROM {} WHERE tenant_id = %s AND job_id = %s AND attempt = %s
+            """).format(self._table("attempt_invocations")),
+                (tenant_id, job_id, attempt)).fetchone()
+            if not self._verified_invocation_inputs(conn, job, invocation):
+                return None
+            if (invocation["execution_kind"] == "codex_cli" and
+                    self._valid_cli_capture(conn, job, attempt, sha256(final_output).hexdigest()) is None):
+                return None
         final = self.append_evidence(tenant_id, job_id, attempt, token,
             kind="final_output", payload=final_output, rights_ref="server_generated")
         if final is None:
             return None
         if final["receipt_state"] != "retained" or final["late"]:
-            report = {"passed": False, "version": "storage-v1", "code": "final_withheld"}
+            report = {"passed": False, "version": "storage-v1", "code": "final_withheld",
+                      "disposition": None}
         else:
             stored = self._read_private_evidence(tenant_id, final)
             with self.connect() as conn:
@@ -709,11 +998,25 @@ class JobStore:
                 report = {
                     "passed": result.get("passed") is True,
                     "version": result["version"], "code": result["code"],
+                    "disposition": result.get("disposition"),
+                    "hold_report_sha256": None,
                 }
                 require_name(report["version"], "validator version")
                 require_reason_code(report["code"])
+                if (report["disposition"] is None and self.allow_synthetic_invocation
+                        and invocation["execution_kind"] == "synthetic_fixture"):
+                    report["disposition"] = "proceed"
+                if report["disposition"] not in ("proceed", "hold"):
+                    raise ValueError("validator must give a disposition")
+                if report["disposition"] == "hold":
+                    normalized_hold = result.get("hold_report")
+                    if type(normalized_hold) is not bytes or normalized_hold != proposed_artifact:
+                        raise ValueError("validator did not authorize exact hold report bytes")
+                    self._parse_hold_report(normalized_hold)
+                    report["hold_report_sha256"] = sha256(normalized_hold).hexdigest()
             except Exception:
-                report = {"passed": False, "version": "storage-v1", "code": "validator_error"}
+                report = {"passed": False, "version": "storage-v1", "code": "validator_error",
+                          "disposition": None}
         with self.connect() as conn:
             invocation = conn.execute(sql.SQL("""
                 SELECT * FROM {} WHERE tenant_id = %s AND job_id = %s AND attempt = %s
@@ -723,10 +1026,19 @@ class JobStore:
                                .format(self._table("jobs")), (tenant_id, job_id)).fetchone()
         if invocation is None or job is None:
             return None
+        with self.connect() as conn:
+            if not self._verified_invocation_inputs(conn, job, invocation):
+                return None
+            capture = (self._valid_cli_capture(conn, job, attempt, final["sha256"])
+                       if invocation["execution_kind"] == "codex_cli" else None)
+        if invocation["execution_kind"] == "codex_cli" and capture is None:
+            return None
         report = {"report_version": "decision-validation-v1", "passed": report["passed"],
                   "validator_version": report["version"], "validator_code": report["code"],
+                  "disposition": report["disposition"],
+                  "hold_report_sha256": report.get("hold_report_sha256"),
                   **self._validation_context(job, invocation, final["sha256"],
-                                             sha256(proposed_artifact).hexdigest())}
+                                             sha256(proposed_artifact).hexdigest(), capture)}
         report_bytes = self._canonical_report(report)
         if len(report_bytes) > 16384:
             raise ValueError("validation report exceeds bound")
@@ -746,11 +1058,21 @@ class JobStore:
                 SELECT * FROM {} WHERE tenant_id = %s AND job_id = %s AND attempt = %s
             """).format(self._table("attempt_invocations")),
                 (tenant_id, job_id, attempt)).fetchone()
+            if not self._verified_invocation_inputs(conn, job, current_invocation):
+                return None
+            current_capture = (self._valid_cli_capture(conn, job, attempt, final["sha256"])
+                               if current_invocation["execution_kind"] == "codex_cli" else None)
+            if current_invocation["execution_kind"] == "codex_cli" and current_capture is None:
+                return None
             expected_report = {"report_version": "decision-validation-v1", "passed": True,
                                "validator_version": report["validator_version"],
                                "validator_code": report["validator_code"],
+                               "disposition": report["disposition"],
+                               "hold_report_sha256": (report["artifact_sha256"]
+                                                      if report["disposition"] == "hold" else None),
                                **self._validation_context(job, current_invocation,
-                                                          final["sha256"], report["artifact_sha256"])}
+                                                          final["sha256"], report["artifact_sha256"],
+                                                          current_capture)}
             if report != expected_report:
                 return None
             self._read_private_evidence(tenant_id, validation)
@@ -762,9 +1084,11 @@ class JobStore:
                     prompt_evidence_id, schema_evidence_id, prompt_sha256,
                     schema_sha256, prompt_version, schema_version,
                     execution_kind, cli_version, model, reasoning_effort, stage,
-                    validator_version, validator_code, passed)
+                    validator_version, validator_code, disposition, capture_id,
+                    capture_sha256, passed)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
-                        %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, true)
+                        %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
+                        %s, %s, %s, true)
             """).format(self._table("validation_receipts")),
                 (tenant_id, job_id, attempt, current_invocation["attempt_id"], receipt_id,
                  final["evidence_id"], validation["evidence_id"], validation["sha256"],
@@ -774,16 +1098,21 @@ class JobStore:
                  current_invocation["prompt_version"], current_invocation["schema_version"],
                  current_invocation["execution_kind"], current_invocation["cli_version"],
                  current_invocation["model"], current_invocation["reasoning_effort"],
-                 job["stage"], report["validator_version"], report["validator_code"]))
+                 job["stage"], report["validator_version"], report["validator_code"],
+                 report["disposition"], current_capture["capture_id"] if current_capture else None,
+                 current_capture["jsonl_sha256"] if current_capture else None))
             decision_id = uuid4()
             inserted = conn.execute(sql.SQL("""
                 INSERT INTO {} (tenant_id, job_id, attempt, decision_id, output_sha256,
-                    artifact_sha256, final_evidence_id, validation_evidence_id, receipt_id)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING decision_id
+                    artifact_sha256, final_evidence_id, validation_evidence_id, receipt_id,
+                    disposition, capture_id, capture_sha256)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING decision_id
             """).format(self._table("ai_decisions")),
                 (tenant_id, job_id, attempt, decision_id, final["sha256"],
                  sha256(proposed_artifact).hexdigest(), final["evidence_id"],
-                 validation["evidence_id"], receipt_id)).fetchone()
+                 validation["evidence_id"], receipt_id, report["disposition"],
+                 current_capture["capture_id"] if current_capture else None,
+                 current_capture["jsonl_sha256"] if current_capture else None)).fetchone()
             return inserted["decision_id"]
 
     def list_decisions(self, tenant_id, job_id) -> list[dict]:
@@ -905,12 +1234,15 @@ class JobStore:
             return False
         decision = self._has_decision(conn, job["tenant_id"], job["job_id"],
                                       attempt, decision_id)
-        return bool(decision and decision["artifact_sha256"] == digest)
+        return bool(decision and decision["artifact_sha256"] == digest
+                    and decision["disposition"] == "proceed")
 
-    def _verify_decision_final(self, conn, job, attempt, decision_id, digest):
+    def _verify_decision_final(self, conn, job, attempt, decision_id, digest,
+                               disposition="proceed"):
         tenant_id, job_id = job["tenant_id"], job["job_id"]
         decision = self._has_decision(conn, tenant_id, job_id, attempt, decision_id)
-        if decision is None or decision["artifact_sha256"] != digest:
+        if (decision is None or decision["artifact_sha256"] != digest
+                or decision["disposition"] != disposition):
             return False
         final = self._evidence_row(conn, tenant_id, job_id, decision["final_evidence_id"])
         report_row = self._evidence_row(conn, tenant_id, job_id,
@@ -933,7 +1265,20 @@ class JobStore:
                 or receipt["final_evidence_id"] != final["evidence_id"]
                 or receipt["validation_evidence_id"] != report_row["evidence_id"]
                 or receipt["output_sha256"] != decision["output_sha256"]
-                or receipt["artifact_sha256"] != digest or receipt["passed"] is not True):
+                or receipt["artifact_sha256"] != digest or receipt["passed"] is not True
+                or receipt["disposition"] != disposition
+                or receipt["capture_id"] != decision["capture_id"]
+                or receipt["capture_sha256"] != decision["capture_sha256"]):
+            return False
+        if not self._verified_invocation_inputs(conn, job, invocation):
+            return False
+        capture = None
+        if invocation["execution_kind"] == "codex_cli":
+            capture = self._valid_cli_capture(conn, job, attempt, decision["output_sha256"])
+            if (capture is None or capture["capture_id"] != decision["capture_id"]
+                    or capture["jsonl_sha256"] != decision["capture_sha256"]):
+                return False
+        elif decision["capture_id"] is not None or decision["capture_sha256"] is not None:
             return False
         try:
             self._read_private_evidence(tenant_id, final)
@@ -943,8 +1288,10 @@ class JobStore:
         expected = {"report_version": "decision-validation-v1", "passed": True,
                     "validator_version": receipt["validator_version"],
                     "validator_code": receipt["validator_code"],
+                    "disposition": disposition,
+                    "hold_report_sha256": digest if disposition == "hold" else None,
                     **self._validation_context(job, invocation,
-                                               decision["output_sha256"], digest)}
+                                               decision["output_sha256"], digest, capture)}
         return (report == expected and receipt["attempt_id"] == invocation["attempt_id"]
                 and receipt["input_sha256"] == job["input_sha256"]
                 and receipt["prompt_sha256"] == invocation["prompt_sha256"]
@@ -1010,6 +1357,99 @@ class JobStore:
                           exit_code=exit_code, termination_reason=termination_reason,
                           usage=usage, jsonl_evidence_id=jsonl_evidence_id)
             return publication
+
+    def finish_validated_hold(self, tenant_id, job_id, attempt, token,
+                              decision_id, report_bytes):
+        self._parse_hold_report(report_bytes)
+        digest = sha256(report_bytes).hexdigest()
+        with self.connect() as conn:
+            job = self._locked_job(conn, tenant_id, job_id)
+            if (not self._owns_live_lease(job, attempt, token) or job["cancel_requested"]
+                    or not self._verify_decision_final(conn, job, attempt, decision_id,
+                                                       digest, "hold")):
+                return None
+        self._durable_evidence(tenant_id, report_bytes, digest)
+        with self.connect() as conn:
+            job = self._locked_job(conn, tenant_id, job_id)
+            if (not self._owns_live_lease(job, attempt, token) or job["cancel_requested"]
+                    or not self._verify_decision_final(conn, job, attempt, decision_id,
+                                                       digest, "hold")):
+                return None
+            decision = self._has_decision(conn, tenant_id, job_id, attempt, decision_id)
+            receipt = conn.execute(sql.SQL("""
+                SELECT * FROM {} WHERE tenant_id = %s AND job_id = %s AND attempt = %s
+                    AND receipt_id = %s
+            """).format(self._table("validation_receipts")),
+                (tenant_id, job_id, attempt, decision["receipt_id"])).fetchone()
+            auth_id = uuid4()
+            conn.execute(sql.SQL("""
+                INSERT INTO {} (authorization_id, tenant_id, source_id, intended_use,
+                    payload_sha256, rights_proof_id, rights_version, policy_version,
+                    classification, read_scope, retain_raw, retain_digest)
+                VALUES (%s, %s, 'server_hold_report', 'hold_report', %s,
+                    'server_validated', 'hold-v1', 'hold-v1', 'private', 'auditor', true, true)
+            """).format(self._table("evidence_authorizations")),
+                (auth_id, tenant_id, digest))
+            held = conn.execute(sql.SQL("""
+                INSERT INTO {} (tenant_id, job_id, attempt, attempt_id, decision_id,
+                    receipt_id, hold_id, report_sha256, report_size, authorization_id)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING *
+            """).format(self._table("job_hold_reports")),
+                (tenant_id, job_id, attempt, receipt["attempt_id"], decision_id,
+                 receipt["receipt_id"], uuid4(), digest, len(report_bytes), auth_id)).fetchone()
+            reason = {"code": "ai_validated_hold"}
+            updated = conn.execute(sql.SQL("""
+                UPDATE {} SET state = 'hold', reason = %s, lease_token = NULL,
+                    lease_until = NULL, updated_at = clock_timestamp()
+                WHERE tenant_id = %s AND job_id = %s AND attempt_count = %s
+                    AND lease_token = %s AND lease_until > clock_timestamp()
+                    AND NOT cancel_requested
+            """).format(self._table("jobs")),
+                (Jsonb(reason), tenant_id, job_id, attempt, token))
+            if updated.rowcount != 1:
+                return None
+            self._event(conn, tenant_id, job_id, "hold", attempt, reason)
+            self._outcome(conn, tenant_id, job_id, attempt, "hold", reason)
+            return held
+
+    def get_hold_report(self, tenant_id, job_id):
+        if not self._has_scope(tenant_id, "metadata"):
+            return None
+        with self.connect() as conn:
+            row = conn.execute(sql.SQL("""
+                SELECT h.* FROM {} h JOIN {} j USING (tenant_id, job_id)
+                WHERE h.tenant_id = %s AND h.job_id = %s AND j.state = 'hold'
+                    AND j.reason->>'code' = 'ai_validated_hold'
+            """).format(self._table("job_hold_reports"), self._table("jobs")),
+                (tenant_id, job_id)).fetchone()
+        if row is None:
+            return None
+        return {key: row[key] for key in ("tenant_id", "job_id", "attempt", "attempt_id",
+                                          "decision_id", "receipt_id", "hold_id", "recorded_at")}
+
+    def read_hold_report(self, tenant_id, job_id):
+        if not self._has_scope(tenant_id, "artifact"):
+            return None
+        with self.connect() as conn:
+            row = conn.execute(sql.SQL("""
+                SELECT h.* FROM {} h JOIN {} j USING (tenant_id, job_id)
+                JOIN {} a ON a.authorization_id = h.authorization_id
+                WHERE h.tenant_id = %s AND h.job_id = %s AND j.state = 'hold'
+                    AND j.reason->>'code' = 'ai_validated_hold' AND a.tenant_id = h.tenant_id
+                    AND a.payload_sha256 = h.report_sha256 AND a.retain_raw
+                    AND a.read_scope = 'auditor'
+            """).format(self._table("job_hold_reports"), self._table("jobs"),
+                          self._table("evidence_authorizations")),
+                (tenant_id, job_id)).fetchone()
+        if row is None:
+            return None
+        directory_fd = self._content_directory(tenant_id)
+        try:
+            data = self._read_content(directory_fd, row["report_sha256"], row["report_size"])
+        finally:
+            os.close(directory_fd)
+        self._parse_hold_report(data)
+        return data
 
     def _publication_row(self, tenant_id, job_id) -> dict | None:
         with self.connect() as conn:

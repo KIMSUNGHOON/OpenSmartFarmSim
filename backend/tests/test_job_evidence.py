@@ -9,7 +9,66 @@ from psycopg import errors, sql
 import pytest
 
 from test_jobs import (pg_store, prepare_synthetic_invocation, submit,
-                       synthetic_decision_bytes, validated_decision)
+                       synthetic_decision_bytes, synthetic_validator, validated_decision)
+
+
+def cli_store(store, disposition="proceed"):
+    def policy(tenant_id, source_id, intended_use, kind, payload, digest):
+        return dict(tenant_id=tenant_id, source_id="synthetic_cli_test",
+                    intended_use=intended_use, payload_sha256=digest,
+                    rights_proof_id="synthetic_cli_test", rights_version="fixture-v1",
+                    policy_version="fixture-v1", classification="private",
+                    read_scope="auditor", retain_raw=True, retain_digest=True)
+
+    def validator(job, final_output, proposed_artifact):
+        result = synthetic_validator(job, final_output, proposed_artifact)
+        return result | {"disposition": disposition, **(
+            {"hold_report": proposed_artifact} if disposition == "hold" else {})}
+
+    return type(store)(store._dsn, store.schema, store.artifact_root,
+                       decision_validator=validator, evidence_policy=policy,
+                       principal_provider=store.principal_provider)
+
+
+def prepare_cli_capture(store, job, lease, *, jsonl=None, exit_code=0,
+                        completed=True, final_output=None, seal=True):
+    tenant, job_id, attempt, token = (job["tenant_id"], job["job_id"],
+                                      lease["attempt"], lease["lease_token"])
+    prompt = store.append_evidence(tenant, job_id, attempt, token, kind="prompt",
+        payload=b"synthetic CLI prompt", rights_ref="synthetic_cli_test")
+    schema = store.append_evidence(tenant, job_id, attempt, token, kind="output_schema",
+        payload=b'{"synthetic":true}', rights_ref="synthetic_cli_test")
+    assert store.register_invocation(tenant, job_id, attempt, token,
+        prompt_evidence_id=prompt["evidence_id"], schema_evidence_id=schema["evidence_id"],
+        prompt_version="synthetic-v1", schema_version="synthetic-v1",
+        execution_kind="codex_cli", cli_version="codex-cli 0.157.1",
+        model="gpt-6-sol", reasoning_effort="xhigh")
+    launch = store.record_cli_launch(tenant, job_id, attempt, token,
+        argv=["codex", "exec", "-m", "gpt-6-sol"], process_id=1234)
+    assert launch is not None
+    if jsonl is ...:
+        jsonl = None
+    elif jsonl is None:
+        final_text = (final_output if final_output is not None
+                      else synthetic_decision_bytes(job)).decode("utf-8")
+        jsonl = (b'{"type":"thread.started"}\n'
+                 b'{"type":"turn.started"}\n'
+                 + json.dumps({"type": "item.completed", "item": {
+                     "id": "item_final", "type": "agent_message", "text": final_text}},
+                     separators=(",", ":")).encode() + b"\n"
+                 + b'{"type":"turn.completed","usage":{"input_tokens":1}}\n')
+    evidence = store.append_evidence(tenant, job_id, attempt, token, kind="jsonl",
+        payload=jsonl, withhold_reason="not_received" if jsonl is None else None,
+        rights_ref="synthetic_cli_test")
+    if not seal:
+        return launch, evidence, None
+    capture = store.seal_cli_capture(tenant, job_id, attempt, token,
+        launch_id=launch["launch_id"], jsonl_evidence_id=evidence["evidence_id"],
+        final_output=final_output or synthetic_decision_bytes(job), exit_code=exit_code,
+        termination_reason="completed" if exit_code == 0 else "cli_error",
+        completed=completed)
+    assert capture is not None
+    return launch, evidence, capture
 
 
 def test_attempt_ids_and_failure_outcomes_need_no_ai_decision(pg_store):
@@ -683,3 +742,512 @@ def test_forged_report_binding_cannot_publish_even_with_matching_receipt_hash(pg
     assert pg_store.publish("tenant-a", job["job_id"], 1, lease["lease_token"],
         decision_id, artifact, sha256(artifact).hexdigest(), {"schema_version": "1"}) is None
     assert pg_store.get_publication("tenant-a", job["job_id"]) is None
+
+
+def test_validated_ai_hold_has_immutable_tenant_scoped_readable_report(pg_store):
+    def hold_validator(job, final_output, proposed_artifact):
+        return synthetic_validator(job, final_output, proposed_artifact) | {
+            "disposition": "hold", "hold_report": proposed_artifact}
+
+    store = type(pg_store)(pg_store._dsn, pg_store.schema, pg_store.artifact_root,
+        decision_validator=hold_validator, evidence_policy=pg_store.evidence_policy,
+        principal_provider=pg_store.principal_provider, allow_synthetic_invocation=True)
+    job = submit(store)
+    lease = store.claim(60)
+    prepare_synthetic_invocation(store, job, lease)
+    report = json.dumps({"schema_version": "hold_v1", "reason_code": "g0_missing",
+                         "missing_evidence": ["source_a"]},
+                        sort_keys=True, separators=(",", ":")).encode()
+    decision = store.record_decision("tenant-a", job["job_id"], 1,
+        lease["lease_token"], synthetic_decision_bytes(job), report)
+    assert decision is not None
+    assert store.publish("tenant-a", job["job_id"], 1, lease["lease_token"],
+        decision, report, sha256(report).hexdigest(), {"schema_version": "1"}) is None
+    held = store.finish_validated_hold("tenant-a", job["job_id"], 1,
+        lease["lease_token"], decision, report)
+    assert held is not None and held["decision_id"] == decision
+    assert held["attempt"] == 1 and held["receipt_id"] is not None
+    assert store.get_job("tenant-a", job["job_id"])["state"] == "hold"
+    assert store.get_publication("tenant-a", job["job_id"]) is None
+    assert store.get_hold_report("tenant-a", job["job_id"])["hold_id"] == held["hold_id"]
+    assert store.read_hold_report("tenant-a", job["job_id"]) == report
+    assert store.get_hold_report("tenant-b", job["job_id"]) is None
+    assert store.read_hold_report("tenant-b", job["job_id"]) is None
+    restarted = type(pg_store)(pg_store._dsn, pg_store.schema, pg_store.artifact_root,
+        principal_provider=pg_store.principal_provider)
+    assert restarted.get_hold_report("tenant-a", job["job_id"])["hold_id"] == held["hold_id"]
+    assert restarted.read_hold_report("tenant-a", job["job_id"]) == report
+    assert restarted.finish_validated_hold("tenant-a", job["job_id"], 1,
+        lease["lease_token"], decision, report) is None
+
+
+@pytest.mark.parametrize("jsonl,exit_code,completed", [
+    (..., 0, True),
+    (b'{"type":"turn.started"}\n', 0, True),
+    (b'{"type":"turn.completed"}', 0, True),
+    (b'{"type":"thread.started"}\n{"type":"turn.started"}\n{"type":"turn.completed"}\n', 1, True),
+    (b'{"type":"thread.started"}\n{"type":"turn.started"}\n{"type":"turn.completed"}\n', 0, False),
+])
+def test_cli_capture_must_be_retained_complete_zero_exit_and_terminal(
+        pg_store, jsonl, exit_code, completed):
+    store = cli_store(pg_store)
+    job = submit(store)
+    lease = store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    prepare_cli_capture(store, job, lease, jsonl=jsonl, exit_code=exit_code,
+                        completed=completed)
+    artifact = b"synthetic publication"
+    assert store.record_decision("tenant-a", job["job_id"], 1, lease["lease_token"],
+                                 synthetic_decision_bytes(job), artifact) is None
+    assert store.list_decisions("tenant-a", job["job_id"]) == []
+
+
+def test_cli_capture_binds_final_hash_and_outcome_uses_observed_metadata(pg_store):
+    store = cli_store(pg_store)
+    job = submit(store)
+    lease = store.claim(60)
+    _, _, capture = prepare_cli_capture(store, job, lease)
+    artifact = b"synthetic publication"
+    assert store.record_decision("tenant-a", job["job_id"], 1, lease["lease_token"],
+                                 b"other final", artifact) is None
+    decision = store.record_decision("tenant-a", job["job_id"], 1, lease["lease_token"],
+                                     synthetic_decision_bytes(job), artifact)
+    assert decision is not None
+    assert store.publish("tenant-a", job["job_id"], 1, lease["lease_token"], decision,
+                         artifact, sha256(artifact).hexdigest(), {"schema_version": "1"},
+                         exit_code=9, usage={"input_tokens": 999})
+    outcome = store.list_attempt_outcomes("tenant-a", job["job_id"])[0]
+    assert outcome["exit_code"] == 0
+    assert outcome["usage"] == {"input_tokens": 1}
+    assert outcome["jsonl_evidence_id"] == capture["jsonl_evidence_id"]
+    with store.connect() as conn:
+        receipt = conn.execute(sql.SQL("SELECT disposition, capture_id, capture_sha256 FROM {}.validation_receipts")
+            .format(sql.Identifier(store.schema))).fetchone()
+    assert receipt == {"disposition": "proceed", "capture_id": capture["capture_id"],
+                       "capture_sha256": capture["jsonl_sha256"]}
+
+
+def test_cli_capture_cannot_use_foreign_jsonl_and_corruption_blocks_decision(pg_store):
+    store = cli_store(pg_store)
+    first = submit(store, key="first")
+    second = submit(store, key="second")
+    lease = store.claim(60)
+    launch, evidence, _ = prepare_cli_capture(store, first, lease, seal=False)
+    other_lease = store.claim(60)
+    _, other_evidence, _ = prepare_cli_capture(store, second, other_lease)
+    assert store.seal_cli_capture("tenant-a", first["job_id"], 1, lease["lease_token"],
+        launch_id=launch["launch_id"], jsonl_evidence_id=other_evidence["evidence_id"],
+        final_output=synthetic_decision_bytes(first), exit_code=0) is None
+    capture = store.seal_cli_capture("tenant-a", first["job_id"], 1, lease["lease_token"],
+        launch_id=launch["launch_id"], jsonl_evidence_id=evidence["evidence_id"],
+        final_output=synthetic_decision_bytes(first), exit_code=0)
+    assert capture is not None
+    directory = store._content_directory("tenant-a")
+    os.close(directory)
+    path = (store.artifact_root / ".evidence" / sha256(b"tenant-a").hexdigest()
+            / evidence["sha256"])
+    path.write_bytes(b"corrupt")
+    assert store.record_decision("tenant-a", first["job_id"], 1, lease["lease_token"],
+                                 synthetic_decision_bytes(first), b"synthetic publication") is None
+    assert capture["jsonl_sha256"] == evidence["sha256"]
+
+
+@pytest.mark.parametrize("after_decision", (False, True))
+def test_cli_launch_event_corruption_blocks_decision_or_publication(pg_store, after_decision):
+    store = cli_store(pg_store)
+    job = submit(store)
+    lease = store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    launch, _, _ = prepare_cli_capture(store, job, lease)
+    artifact = b"synthetic publication"
+    final = synthetic_decision_bytes(job)
+    decision = (store.record_decision("tenant-a", job["job_id"], 1,
+        lease["lease_token"], final, artifact) if after_decision else None)
+    if after_decision:
+        assert decision is not None
+    launch_row = next(row for row in store.list_evidence("tenant-a", job["job_id"])
+                      if row["evidence_id"] == launch["launch_evidence_id"])
+    path = (store.artifact_root / ".evidence" / sha256(b"tenant-a").hexdigest()
+            / launch_row["sha256"])
+    path.write_bytes(b"corrupt launch observation")
+    if after_decision:
+        assert store.publish("tenant-a", job["job_id"], 1, lease["lease_token"],
+            decision, artifact, sha256(artifact).hexdigest(), {"schema_version": "1"}) is None
+    else:
+        assert store.record_decision("tenant-a", job["job_id"], 1,
+            lease["lease_token"], final, artifact) is None
+    assert store.get_publication("tenant-a", job["job_id"]) is None
+
+
+def test_withheld_cli_jsonl_is_linked_to_failure_outcome_without_decision(pg_store):
+    base = cli_store(pg_store)
+
+    def withhold_jsonl(tenant_id, source_id, intended_use, kind, payload, digest):
+        authority = base.evidence_policy(tenant_id, source_id, intended_use,
+                                         kind, payload, digest)
+        if kind == "jsonl":
+            authority = authority | {"classification": "restricted", "read_scope": "none",
+                                     "retain_raw": False, "retain_digest": False}
+        return authority
+
+    store = type(pg_store)(pg_store._dsn, pg_store.schema, pg_store.artifact_root,
+        decision_validator=base.decision_validator, evidence_policy=withhold_jsonl,
+        principal_provider=pg_store.principal_provider)
+    job = submit(store)
+    lease = store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    _, evidence, capture = prepare_cli_capture(store, job, lease)
+    assert evidence["receipt_state"] == "received_but_withheld"
+    assert evidence["sha256"] is None
+    assert capture["jsonl_evidence_id"] == evidence["evidence_id"]
+    assert capture["jsonl_sha256"] is None
+    assert store.record_decision("tenant-a", job["job_id"], 1, lease["lease_token"],
+        synthetic_decision_bytes(job), b"synthetic publication") is None
+    assert store.fail("tenant-a", job["job_id"], 1, lease["lease_token"],
+                      "hold", "jsonl_rights_missing")
+    outcome = store.list_attempt_outcomes("tenant-a", job["job_id"])[0]
+    assert outcome["jsonl_evidence_id"] == evidence["evidence_id"]
+    assert outcome["decision_id"] is None
+    assert store.get_hold_report("tenant-a", job["job_id"]) is None
+
+
+def test_cli_validated_hold_and_operational_hold_are_distinct(pg_store):
+    store = cli_store(pg_store, disposition="hold")
+    report = b'{"missing_evidence":["source_a"],"reason_code":"g0_missing","schema_version":"hold_v1"}'
+    job = submit(store)
+    lease = store.claim(60)
+    prepare_cli_capture(store, job, lease)
+    decision = store.record_decision("tenant-a", job["job_id"], 1,
+                                     lease["lease_token"], synthetic_decision_bytes(job), report)
+    assert decision is not None
+    assert store.publish("tenant-a", job["job_id"], 1, lease["lease_token"], decision,
+                         report, sha256(report).hexdigest(), {"schema_version": "1"}) is None
+    held = store.finish_validated_hold("tenant-a", job["job_id"], 1,
+                                       lease["lease_token"], decision, report)
+    assert held is not None and store.read_hold_report("tenant-a", job["job_id"]) == report
+    restart = cli_store(store, disposition="hold")
+    assert restart.read_hold_report("tenant-a", job["job_id"]) == report
+    operational = submit(store, key="operational")
+    lease = store.claim(60)
+    assert store.fail("tenant-a", operational["job_id"], 1, lease["lease_token"],
+                      "hold", "cli_unavailable")
+    assert store.get_hold_report("tenant-a", operational["job_id"]) is None
+    assert store.read_hold_report("tenant-a", operational["job_id"]) is None
+
+
+@pytest.mark.parametrize("stop", ["cancel", "expire"])
+def test_cli_validated_hold_cannot_complete_after_cancel_or_expiry(pg_store, stop):
+    store = cli_store(pg_store, disposition="hold")
+    report = b'{"missing_evidence":[],"reason_code":"g0_missing","schema_version":"hold_v1"}'
+    job = submit(store)
+    lease = store.claim(60)
+    prepare_cli_capture(store, job, lease)
+    decision = store.record_decision("tenant-a", job["job_id"], 1,
+                                     lease["lease_token"], synthetic_decision_bytes(job), report)
+    assert decision is not None
+    if stop == "cancel":
+        assert store.cancel("tenant-a", job["job_id"])
+    else:
+        with store.connect() as conn:
+            conn.execute(sql.SQL("""
+                UPDATE {}.jobs SET lease_until = clock_timestamp() - interval '1 second'
+                WHERE tenant_id = %s AND job_id = %s
+            """).format(sql.Identifier(store.schema)), ("tenant-a", job["job_id"]))
+    assert store.finish_validated_hold("tenant-a", job["job_id"], 1,
+                                       lease["lease_token"], decision, report) is None
+    assert store.get_hold_report("tenant-a", job["job_id"]) is None
+
+
+def test_hold_report_read_scope_hash_and_sql_immutability(pg_store):
+    store = cli_store(pg_store, disposition="hold")
+    report = b'{"missing_evidence":[],"reason_code":"g0_missing","schema_version":"hold_v1"}'
+    job = submit(store)
+    lease = store.claim(60)
+    prepare_cli_capture(store, job, lease)
+    decision = store.record_decision("tenant-a", job["job_id"], 1,
+                                     lease["lease_token"], synthetic_decision_bytes(job), report)
+    held = store.finish_validated_hold("tenant-a", job["job_id"], 1,
+                                       lease["lease_token"], decision, report)
+    metadata_only = type(store)(store._dsn, store.schema, store.artifact_root,
+        principal_provider=lambda: {"authenticated": True, "tenant_id": "tenant-a",
+                                    "scopes": ("metadata",)})
+    assert metadata_only.get_hold_report("tenant-a", job["job_id"])["hold_id"] == held["hold_id"]
+    assert metadata_only.read_hold_report("tenant-a", job["job_id"]) is None
+    for statement in ("UPDATE {}.job_hold_reports SET report_size = report_size",
+                      "DELETE FROM {}.job_hold_reports"):
+        with store.connect() as conn, pytest.raises(Exception):
+            conn.execute(sql.SQL(statement).format(sql.Identifier(store.schema)))
+    path = (store.artifact_root / ".evidence" / sha256(b"tenant-a").hexdigest()
+            / sha256(report).hexdigest())
+    path.write_bytes(b"corrupt")
+    with pytest.raises(ValueError):
+        store.read_hold_report("tenant-a", job["job_id"])
+
+
+@pytest.mark.parametrize("message", (None, b"different final"))
+def test_cli_jsonl_must_bind_last_completed_agent_message(pg_store, message):
+    store = cli_store(pg_store)
+    job = submit(store)
+    lease = store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    lines = [b'{"type":"thread.started"}', b'{"type":"turn.started"}']
+    if message is not None:
+        lines.append(json.dumps({"type": "item.completed", "item": {
+            "id": "final", "type": "agent_message", "text": message.decode()}},
+            separators=(",", ":")).encode())
+    lines.append(b'{"type":"turn.completed","usage":{"input_tokens":1}}')
+    prepare_cli_capture(store, job, lease, jsonl=b"\n".join(lines) + b"\n")
+    assert store.record_decision("tenant-a", job["job_id"], 1,
+        lease["lease_token"], synthetic_decision_bytes(job), b"synthetic publication") is None
+
+
+@pytest.mark.parametrize("misordered", (True, False))
+def test_cli_jsonl_rejects_item_before_turn_or_error_event(pg_store, misordered):
+    store = cli_store(pg_store)
+    job = submit(store)
+    lease = store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    message = json.dumps({"type": "item.completed", "item": {
+        "id": "final", "type": "agent_message",
+        "text": synthetic_decision_bytes(job).decode()}}, separators=(",", ":")).encode()
+    lines = ([b'{"type":"thread.started"}', message, b'{"type":"turn.started"}']
+             if misordered else [b'{"type":"thread.started"}', b'{"type":"turn.started"}',
+                                 b'{"type":"error","message":"nonfatal"}', message])
+    lines.append(b'{"type":"turn.completed","usage":{"input_tokens":1}}')
+    prepare_cli_capture(store, job, lease, jsonl=b"\n".join(lines) + b"\n")
+    assert store.record_decision("tenant-a", job["job_id"], 1,
+        lease["lease_token"], synthetic_decision_bytes(job), b"synthetic publication") is None
+
+
+@pytest.mark.parametrize("fault", (
+    "error_item", "late_update", "failed_tool", "terminal_error",
+    "thread_error", "event_error", "terminal_failed", "update_without_start",
+))
+def test_cli_jsonl_rejects_error_and_invalid_item_lifecycle(pg_store, fault):
+    store = cli_store(pg_store)
+    job = submit(store)
+    lease = store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    message = {"type": "item.completed", "item": {"id": "final", "type": "agent_message",
+                                                  "text": synthetic_decision_bytes(job).decode()}}
+    events = [{"type": "thread.started"}, {"type": "turn.started"}]
+    if fault == "thread_error":
+        events[0]["error"] = {"message": "inconsistent thread"}
+    if fault == "error_item":
+        events.append({"type": "item.completed", "item": {"id": "error_0", "type": "error",
+                                                          "message": "nonfatal failure"}})
+    elif fault == "failed_tool":
+        events.append({"type": "item.completed", "item": {"id": "tool_0",
+            "type": "command_execution", "status": "failed", "exit_code": 1}})
+    elif fault == "update_without_start":
+        events.append({"type": "item.updated", "item": {"id": "orphan",
+            "type": "reasoning", "text": "unexpected update"}})
+    if fault == "event_error":
+        message["error"] = {"message": "inconsistent item"}
+    events.append(message)
+    if fault == "late_update":
+        events.append({"type": "item.updated", "item": {"id": "final",
+            "type": "agent_message", "text": "changed"}})
+    terminal = {"type": "turn.completed", "usage": {"input_tokens": 1}}
+    if fault == "terminal_error":
+        terminal["error"] = {"message": "inconsistent completion"}
+    elif fault == "terminal_failed":
+        terminal["status"] = "failed"
+    events.append(terminal)
+    stream = b"".join(json.dumps(event, separators=(",", ":")).encode() + b"\n"
+                      for event in events)
+    prepare_cli_capture(store, job, lease, jsonl=stream)
+    assert store.record_decision("tenant-a", job["job_id"], 1,
+        lease["lease_token"], synthetic_decision_bytes(job), b"synthetic publication") is None
+
+
+def test_cli_current_usage_schema_is_retained_and_revalidated(pg_store):
+    store = cli_store(pg_store)
+    job = submit(store)
+    lease = store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    final = synthetic_decision_bytes(job)
+    usage = {"input_tokens": 1, "cached_input_tokens": 0,
+             "cache_write_input_tokens": 0, "output_tokens": 1,
+             "reasoning_output_tokens": 0}
+    events = [{"type": "thread.started", "thread_id": "synthetic"},
+              {"type": "turn.started"},
+              {"type": "item.completed", "item": {"id": "final", "type": "agent_message",
+                                                   "text": final.decode()}},
+              {"type": "turn.completed", "usage": usage}]
+    stream = b"".join(json.dumps(event, separators=(",", ":")).encode() + b"\n"
+                      for event in events)
+    _, _, capture = prepare_cli_capture(store, job, lease, jsonl=stream)
+    assert capture["usage"] == usage
+    decision = store.record_decision("tenant-a", job["job_id"], 1,
+                                     lease["lease_token"], final, b"synthetic publication")
+    assert decision is not None
+
+
+@pytest.mark.parametrize("kind,after_decision", [
+    ("prompt", False), ("prompt", True),
+    ("output_schema", False), ("output_schema", True),
+])
+def test_corrupt_invocation_inputs_block_decision_and_publication(pg_store, kind, after_decision):
+    store = cli_store(pg_store)
+    job = submit(store)
+    lease = store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    prepare_cli_capture(store, job, lease)
+    artifact = b"synthetic publication"
+    final = synthetic_decision_bytes(job)
+    decision = (store.record_decision("tenant-a", job["job_id"], 1,
+        lease["lease_token"], final, artifact) if after_decision else None)
+    if after_decision:
+        assert decision is not None
+    evidence = next(row for row in store.list_evidence("tenant-a", job["job_id"])
+                    if row["kind"] == kind)
+    path = (store.artifact_root / ".evidence" / sha256(b"tenant-a").hexdigest()
+            / evidence["sha256"])
+    path.write_bytes(b"corrupt invocation input")
+    restarted = cli_store(store)
+    if after_decision:
+        assert restarted.publish("tenant-a", job["job_id"], 1, lease["lease_token"],
+            decision, artifact, sha256(artifact).hexdigest(), {"schema_version": "1"}) is None
+    else:
+        assert restarted.record_decision("tenant-a", job["job_id"], 1,
+            lease["lease_token"], final, artifact) is None
+    assert restarted.get_publication("tenant-a", job["job_id"]) is None
+
+
+def test_hold_requires_exact_trusted_validator_report(pg_store):
+    proposed = b'{"missing_evidence":["invented"],"reason_code":"g0_pass","schema_version":"hold_v1"}'
+    normalized = b'{"missing_evidence":["source_a"],"reason_code":"g0_missing","schema_version":"hold_v1"}'
+
+    def validator(job, final_output, artifact):
+        return synthetic_validator(job, final_output, artifact) | {
+            "disposition": "hold", "hold_report": normalized}
+
+    base = cli_store(pg_store)
+    store = type(pg_store)(pg_store._dsn, pg_store.schema, pg_store.artifact_root,
+        decision_validator=validator, evidence_policy=base.evidence_policy,
+        principal_provider=pg_store.principal_provider)
+    job = submit(store)
+    lease = store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    prepare_cli_capture(store, job, lease)
+    assert store.record_decision("tenant-a", job["job_id"], 1,
+        lease["lease_token"], synthetic_decision_bytes(job), proposed) is None
+    assert store.get_hold_report("tenant-a", job["job_id"]) is None
+    assert store.list_decisions("tenant-a", job["job_id"]) == []
+
+
+def test_recovered_sealed_cli_attempt_preserves_lease_expiry_closure(pg_store):
+    store = cli_store(pg_store)
+    job = submit(store, max_attempts=2)
+    lease = store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    _, _, capture = prepare_cli_capture(store, job, lease)
+    assert capture["exit_code"] == 0 and capture["termination_reason"] == "completed"
+    with store.connect() as conn:
+        conn.execute(sql.SQL("""
+            UPDATE {}.jobs SET lease_until = clock_timestamp() - interval '1 second'
+            WHERE tenant_id = %s AND job_id = %s
+        """).format(sql.Identifier(store.schema)), ("tenant-a", job["job_id"]))
+    restarted = cli_store(store)
+    next_lease = restarted.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    assert next_lease["attempt"] == 2
+    outcome = restarted.list_attempt_outcomes("tenant-a", job["job_id"])[0]
+    assert outcome["state"] == "lease_expired"
+    assert outcome["reason"] == {"code": "lease_expired"}
+    assert outcome["termination_reason"] == "lease_expired"
+    assert outcome["exit_code"] is None and outcome["usage"] is None
+    assert outcome["jsonl_evidence_id"] == capture["jsonl_evidence_id"]
+
+
+def test_isolated_runtime_writer_has_no_authoritative_bridge_insert_grants(pg_store):
+    role = "ossf_bridge_runtime_" + uuid4().hex
+    created = False
+    authoritative = ("attempt_invocations", "attempt_cli_launches", "attempt_cli_captures",
+                     "attempt_evidence", "evidence_authorizations", "validation_receipts",
+                     "ai_decisions", "job_hold_reports", "job_publications", "attempt_outcomes")
+    try:
+        with pg_store.connect() as conn:
+            owner = conn.execute("SELECT current_user AS name").fetchone()["name"]
+            try:
+                conn.execute(sql.SQL("CREATE ROLE {} NOLOGIN").format(sql.Identifier(role)))
+                conn.execute(sql.SQL("GRANT {} TO {}").format(
+                    sql.Identifier(role), sql.Identifier(owner)))
+            except errors.InsufficientPrivilege:
+                pytest.skip("test server cannot create isolated role")
+            created = True
+            conn.execute(sql.SQL("GRANT USAGE ON SCHEMA {} TO {}").format(
+                sql.Identifier(pg_store.schema), sql.Identifier(role)))
+            for table in ("jobs", *authoritative):
+                conn.execute(sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                    sql.Identifier(pg_store.schema), sql.Identifier(table), sql.Identifier(role)))
+            conn.execute(sql.SQL("GRANT INSERT ON {}.jobs TO {}").format(
+                sql.Identifier(pg_store.schema), sql.Identifier(role)))
+        for table in authoritative:
+            with pg_store.connect() as conn:
+                conn.execute(sql.SQL("SET LOCAL ROLE {}").format(sql.Identifier(role)))
+                assert conn.execute(sql.SQL("SELECT has_table_privilege(current_user, %s, 'INSERT') AS allowed"),
+                    (f"{pg_store.schema}.jobs",)).fetchone()["allowed"] is True
+                with pytest.raises(errors.InsufficientPrivilege):
+                    conn.execute(sql.SQL("INSERT INTO {}.{} SELECT * FROM {}.{} WHERE false").format(
+                        sql.Identifier(pg_store.schema), sql.Identifier(table),
+                        sql.Identifier(pg_store.schema), sql.Identifier(table)))
+    finally:
+        if created:
+            with pg_store.connect() as conn:
+                conn.execute(sql.SQL("DROP OWNED BY {}").format(sql.Identifier(role)))
+                conn.execute(sql.SQL("DROP ROLE {}").format(sql.Identifier(role)))
+
+
+def test_sql_rejects_recovered_outcome_with_fabricated_process_status(pg_store):
+    job = submit(pg_store)
+    pg_store.claim(60)
+    with pg_store.connect() as conn, pytest.raises(errors.CheckViolation):
+        conn.execute(sql.SQL("""
+            INSERT INTO {}.attempt_outcomes
+                (tenant_id, job_id, attempt, attempt_id, state, reason,
+                 exit_code, termination_reason)
+            SELECT tenant_id, job_id, attempt, attempt_id, 'lease_expired',
+                '{{"code":"lease_expired"}}'::jsonb, 0, 'completed'
+            FROM {}.job_attempts WHERE tenant_id = %s AND job_id = %s AND attempt = 1
+        """).format(sql.Identifier(pg_store.schema), sql.Identifier(pg_store.schema)),
+            ("tenant-a", job["job_id"]))
+
+
+def test_uncaptured_cli_failure_keeps_jsonl_audit_but_no_process_status(pg_store):
+    store = cli_store(pg_store)
+    job = submit(store, max_attempts=2)
+    lease = store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    _, evidence, _ = prepare_cli_capture(store, job, lease, seal=False)
+    assert store.fail("tenant-a", job["job_id"], 1, lease["lease_token"],
+        "transient", "cli_timeout", retry_delay_seconds=0, exit_code=255,
+        termination_reason="caller_claimed_timeout", usage={"input_tokens": 7},
+        jsonl_evidence_id=evidence["evidence_id"])
+    outcome = store.list_attempt_outcomes("tenant-a", job["job_id"])[0]
+    assert outcome["state"] == "queued" and outcome["reason"]["code"] == "cli_timeout"
+    assert outcome["exit_code"] is None and outcome["usage"] is None
+    assert outcome["termination_reason"] is None
+    assert outcome["jsonl_evidence_id"] == evidence["evidence_id"]
+    assert store.list_decisions("tenant-a", job["job_id"]) == []
+
+
+def test_sql_rejects_uncaptured_cli_process_status(pg_store):
+    store = cli_store(pg_store)
+    job = submit(store)
+    lease = store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    prepare_cli_capture(store, job, lease, seal=False)
+    with store.connect() as conn, pytest.raises(errors.CheckViolation):
+        conn.execute(sql.SQL("""
+            INSERT INTO {}.attempt_outcomes
+                (tenant_id, job_id, attempt, attempt_id, state, reason, termination_reason)
+            SELECT tenant_id, job_id, attempt, attempt_id, 'hold',
+                '{{"code":"cli_unavailable"}}'::jsonb, 'caller_claimed_timeout'
+            FROM {}.job_attempts WHERE tenant_id = %s AND job_id = %s AND attempt = 1
+        """).format(sql.Identifier(store.schema), sql.Identifier(store.schema)),
+            ("tenant-a", job["job_id"]))
+
+
+@pytest.mark.parametrize("kind,code", (
+    ("hold", "cancel_lease_expired"),
+    ("fatal", "attempts_exhausted"),
+    ("transient", "lease_expired"),
+))
+def test_live_cli_failure_cannot_claim_server_recovery_reason(pg_store, kind, code):
+    store = cli_store(pg_store)
+    job = submit(store, max_attempts=2)
+    lease = store.claim(60, allowed_stages=("research", "collection_review", "assessment"))
+    prepare_cli_capture(store, job, lease, seal=False)
+    with pytest.raises(ValueError):
+        store.fail("tenant-a", job["job_id"], 1, lease["lease_token"],
+                   kind, code, termination_reason=code)
+    assert store.list_attempt_outcomes("tenant-a", job["job_id"]) == []
