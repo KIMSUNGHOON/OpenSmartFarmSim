@@ -77,6 +77,27 @@ def test_schema_declares_project_scope_and_synthetic_claim_only(contract):
     assert field(schema, scope, "thermal_control_volumes")["const"] == 1
 
 
+def test_accepted_shape_requires_explicit_decision_and_review_clocks(contract):
+    schema, _, _ = contract
+    requires(schema, schema, "decision_id", "decision_context_id", "decision_at_utc",
+             "review_at_utc", "claim_mode", "decision_time_kind")
+    assert field(schema, schema, "claim_mode")["enum"] == ["ex_ante", "ex_post_replay"]
+    assert set(field(schema, schema, "decision_time_kind")["enum"]) == {"actual", "hypothetical"}
+    for name in ("decision_at_utc", "review_at_utc"):
+        timestamp = field(schema, schema, name)
+        assert timestamp["type"] == "string"
+        assert timestamp["format"] == "date-time"
+        assert timestamp["pattern"].endswith("Z$")
+    candidate = schema_shaped_synthetic_candidate(schema)
+    validator = Draft202012Validator(schema)
+    assert validator.is_valid(candidate)
+    for name in ("decision_context_id", "decision_at_utc", "review_at_utc",
+                 "claim_mode", "decision_time_kind"):
+        stripped = deepcopy(candidate)
+        stripped.pop(name)
+        assert not validator.is_valid(stripped)
+
+
 def test_utc_interval_and_two_required_initial_states(contract):
     schema, model, _ = contract
     interval = field(schema, schema, "interval")
@@ -289,6 +310,10 @@ def fixture_linked_temporal_candidate(schema, hour_index=0):
     thermal = json.loads((ROOT / "fixtures/synthetic-thermal-parameters-v1.json").read_bytes())
     interval = thermal["intervals"][hour_index]
     candidate = candidate_with_derived_forcing(schema)
+    candidate.update(decision_context_id="synthetic-context-sentinel",
+                     decision_at_utc="2026-09-27T10:00:00Z",
+                     review_at_utc="2026-09-27T10:00:00Z",
+                     claim_mode="ex_ante", decision_time_kind="hypothetical")
     candidate["trace_id"] = f"synthetic-hour-{hour_index}"
     candidate["trace_sequence_index"] = hour_index
     candidate["manifest_sha256"] = hashlib.sha256(manifest_raw).hexdigest()
@@ -353,7 +378,7 @@ def fixture_linked_temporal_candidate(schema, hour_index=0):
     return candidate, manifest, weather, weather_raw
 
 
-def temporal_provenance_errors(candidate, manifest, weather, weather_raw, decision_at_utc):
+def temporal_provenance_errors(candidate, manifest, weather, weather_raw, review_at_utc):
     """Test reference for time and immutable input links; no gate or engine."""
     errors = []
 
@@ -378,7 +403,12 @@ def temporal_provenance_errors(candidate, manifest, weather, weather_raw, decisi
         raw_by_id = {weather["fixture_id"]: weather_raw, thermal["fixture_id"]: thermal_raw}
         fixture_by_id = {weather["fixture_id"]: weather, thermal["fixture_id"]: thermal}
         entries = {entry["fixture_id"]: entry for entry in manifest["files"]}
-        decision_at = utc(decision_at_utc)
+        decision_at = utc(candidate["decision_at_utc"])
+        review_at = utc(review_at_utc)
+        if candidate["review_at_utc"] != review_at_utc or decision_at > review_at:
+            errors.append("decision/review clock mismatch")
+        if candidate["claim_mode"] not in ("ex_ante", "ex_post_replay"):
+            errors.append("claim mode")
         run_start, run_end = (utc(candidate["interval"][key]) for key in ("start_utc", "end_utc"))
         if run_start >= run_end:
             errors.append("run interval order")
@@ -397,8 +427,11 @@ def temporal_provenance_errors(candidate, manifest, weather, weather_raw, decisi
             errors.append("manifest pin")
         for record in (manifest, *entries.values()):
             if not (utc(record["published_at_utc"]) <= utc(record["available_at_utc"])
-                    <= utc(record["retrieved_at_utc"]) <= decision_at):
-                errors.append("decision chronology")
+                    <= utc(record["retrieved_at_utc"]) <= review_at):
+                errors.append("review chronology")
+            if (candidate["claim_mode"] == "ex_ante" and
+                    utc(record["available_at_utc"]) > decision_at):
+                errors.append("decision availability")
         for fixture_id, raw in raw_by_id.items():
             if entries[fixture_id]["sha256"] != hashlib.sha256(raw).hexdigest():
                 errors.append("raw pin")
@@ -466,8 +499,11 @@ def temporal_provenance_errors(candidate, manifest, weather, weather_raw, decisi
                 if not start <= run_start < run_end <= end:
                     errors.append("forcing outside applicability")
                 if not (utc(source["published_at_utc"]) <= utc(source["available_at_utc"])
-                        <= utc(source["retrieved_at_utc"]) <= decision_at):
-                    errors.append("decision chronology")
+                        <= utc(source["retrieved_at_utc"]) <= review_at):
+                    errors.append("review chronology")
+                if (candidate["claim_mode"] == "ex_ante" and
+                        utc(source["available_at_utc"]) > decision_at):
+                    errors.append("decision availability")
             records = {record["record_id"]: record for record in thermal["input_records"]}
             if len(records) != len(thermal["input_records"]):
                 errors.append("duplicate input record")
@@ -531,7 +567,9 @@ def carried_state_errors(previous_raw, current):
         if previous["trace_sequence_index"] + 1 != current["trace_sequence_index"]:
             errors.append("trace sequence")
         for key in ("run_id", "model_version", "parameter_set_version", "manifest_sha256",
-                    "engine_version", "unit_registry_version", "input_snapshot_id", "decision_id"):
+                    "engine_version", "unit_registry_version", "input_snapshot_id", "decision_id",
+                    "decision_context_id", "decision_at_utc", "review_at_utc", "claim_mode",
+                    "decision_time_kind"):
             if previous[key] != current[key]:
                 errors.append(f"{key} mismatch")
         if previous["interval"]["end_utc"] != current["interval"]["start_utc"]:
@@ -996,6 +1034,11 @@ def test_source_labeled_assumed_state_cannot_bypass_carry(contract):
         ("wrong_manifest", "manifest_sha256 mismatch"),
         ("wrong_engine", "engine_version mismatch"),
         ("wrong_unit_registry", "unit_registry_version mismatch"),
+        ("wrong_context", "decision_context_id mismatch"),
+        ("wrong_D", "decision_at_utc mismatch"),
+        ("wrong_R", "review_at_utc mismatch"),
+        ("wrong_mode", "claim_mode mismatch"),
+        ("wrong_time_kind", "decision_time_kind mismatch"),
         ("wrong_pointer", "temperature prior state pointer"),
         ("wrong_sequence", "trace sequence"),
     ],
@@ -1034,8 +1077,16 @@ def test_carried_state_reference_rejects_broken_link(contract, change, expected)
             "wrong_run": "run_id", "wrong_model": "model_version",
             "wrong_parameter_set": "parameter_set_version", "wrong_manifest": "manifest_sha256",
             "wrong_engine": "engine_version", "wrong_unit_registry": "unit_registry_version",
+            "wrong_context": "decision_context_id", "wrong_D": "decision_at_utc",
+            "wrong_R": "review_at_utc", "wrong_mode": "claim_mode",
+            "wrong_time_kind": "decision_time_kind",
         }[change]
-        second[key] = "f" * 64 if key == "manifest_sha256" else "other-version"
+        second[key] = (
+            "f" * 64 if key == "manifest_sha256" else
+            "2026-09-27T11:00:00Z" if key in ("decision_at_utc", "review_at_utc") else
+            "ex_post_replay" if key == "claim_mode" else
+            "actual" if key == "decision_time_kind" else "other-version"
+        )
     assert expected in carried_state_errors(previous_raw, second)
 
 
@@ -1069,8 +1120,8 @@ def test_exact_fixture_input_sets_reject_bad_references(contract, name, change):
         ("forcing_outside_applicability", "forcing interval gap, overlap, or mismatch"),
         ("forcing_gap", "forcing interval gap, overlap, or order"),
         ("invalid_calendar_date", "invalid temporal provenance"),
-        ("too_early_decision", "decision chronology"),
-        ("manifest_after_decision", "decision chronology"),
+        ("too_early_decision", "review chronology"),
+        ("manifest_after_decision", "decision availability"),
         ("missing_forcing_link", "solar_gain input record set"),
         ("raw_pin_mismatch", "source/manifest link"),
         ("fixture_interval_mismatch", "forcing interval gap, overlap, or mismatch"),
@@ -1113,6 +1164,23 @@ def test_temporal_reference_rejects_unproven_intervals(contract, change, expecte
     assert any(expected in error for error in temporal_provenance_errors(
         candidate, manifest, weather, weather_raw, decision_at
     ))
+
+
+def test_temporal_reference_separates_planning_availability_from_review_retrieval(contract):
+    schema, _, _ = contract
+    candidate, manifest, weather, weather_raw = fixture_linked_temporal_candidate(schema)
+    candidate["decision_at_utc"] = "2026-09-27T08:00:00Z"
+    assert "decision availability" in temporal_provenance_errors(
+        candidate, manifest, weather, weather_raw, "2026-09-27T10:00:00Z"
+    )
+    candidate["claim_mode"] = "ex_post_replay"
+    assert temporal_provenance_errors(
+        candidate, manifest, weather, weather_raw, "2026-09-27T10:00:00Z"
+    ) == []
+    candidate["review_at_utc"] = "2026-09-27T08:00:00Z"
+    assert "review chronology" in temporal_provenance_errors(
+        candidate, manifest, weather, weather_raw, "2026-09-27T08:00:00Z"
+    )
 
 
 @pytest.mark.parametrize(

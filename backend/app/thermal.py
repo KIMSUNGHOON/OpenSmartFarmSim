@@ -278,10 +278,12 @@ def _preflight(thermal, weather):
         raise ThermalHold("TIMESTAMP_HOLD: weather coverage differs")
 
 
-def _read_inputs(manifest_raw, weather_raw, thermal_raw, decision_at_utc):
+def _read_inputs(manifest_raw, weather_raw, thermal_raw, review_at_utc, *,
+                 decision_at_utc=None, claim_mode=None):
     try:
         manifest, weather, thermal = (json.loads(raw) for raw in (manifest_raw, weather_raw, thermal_raw))
-        decision_at = utc(decision_at_utc)
+        review_at = utc(review_at_utc)
+        decision_at = utc(decision_at_utc) if decision_at_utc is not None else None
         _preflight(thermal, weather)
         _need(manifest.get("claim_scope") == "synthetic_g1_software_input_only" and
               manifest.get("synthetic_input_review_id"), "REVIEW_HOLD: synthetic scope/review missing")
@@ -315,8 +317,11 @@ def _read_inputs(manifest_raw, weather_raw, thermal_raw, decision_at_utc):
                   "RIGHTS_HOLD: source use rights")
             for item in (manifest, row):
                 _need(utc(item["published_at_utc"]) <= utc(item["available_at_utc"])
-                      <= utc(item["retrieved_at_utc"]) <= decision_at,
-                      "TIMESTAMP_HOLD: unavailable at decision")
+                      <= utc(item["retrieved_at_utc"]) <= review_at,
+                      "TIMESTAMP_HOLD: source chronology or review cutoff")
+                if claim_mode == "ex_ante":
+                    _need(utc(item["available_at_utc"]) <= decision_at,
+                          "TIMESTAMP_HOLD: source unavailable at planning decision")
             _need(utc(row["applicability_start_utc"]) < utc(row["applicability_end_utc"]),
                   "TIMESTAMP_HOLD: invalid applicability")
         return manifest, weather, thermal, rows
@@ -398,12 +403,31 @@ def _iso(moment):
 
 
 def calculate_fixture(manifest_raw, weather_raw, thermal_raw, *, decision_id, decision_at_utc,
-                      input_snapshot_id):
+                      input_snapshot_id, decision_context_id=None, claim_mode=None,
+                      decision_time_kind=None, review_at_utc=None):
     """Build two immutable synthetic candidates; only a server can issue G1 acceptance."""
     _need(type(decision_id) is str and bool(decision_id) and
           type(input_snapshot_id) is str and bool(input_snapshot_id),
           "INPUT_HOLD: invalid decision/snapshot ID")
-    manifest, weather, thermal, rows = _read_inputs(manifest_raw, weather_raw, thermal_raw, decision_at_utc)
+    context_fields = (decision_context_id, claim_mode, decision_time_kind, review_at_utc)
+    contextual = any(value is not None for value in context_fields)
+    if contextual:
+        _need(type(decision_context_id) is str and bool(decision_context_id) and
+              type(claim_mode) is str and claim_mode in ("ex_ante", "ex_post_replay") and
+              type(decision_time_kind) is str and decision_time_kind in ("actual", "hypothetical") and
+              type(review_at_utc) is str,
+              "INPUT_HOLD: incomplete or invalid decision context")
+        try:
+            _need(utc(decision_at_utc) <= utc(review_at_utc),
+                  "TIMESTAMP_HOLD: planning decision after review")
+        except ValueError as exc:
+            raise ThermalHold(str(exc)) from exc
+    manifest, weather, thermal, rows = _read_inputs(
+        manifest_raw, weather_raw, thermal_raw,
+        review_at_utc if contextual else decision_at_utc,
+        decision_at_utc=decision_at_utc if contextual else None,
+        claim_mode=claim_mode if contextual else None,
+    )
     _need(len(weather["intervals"]) == len(thermal["intervals"]) == 2,
           "TIMESTAMP_HOLD: exactly two forcing hours required")
     _need(weather["start_utc"] == thermal["intervals"][0]["start_utc"] and
@@ -419,6 +443,11 @@ def calculate_fixture(manifest_raw, weather_raw, thermal_raw, *, decision_id, de
         "engine_version": ENGINE_VERSION, "input_snapshot_id": input_snapshot_id,
         "manifest_sha256": manifest_digest, "unit_registry_version": UNIT_REGISTRY_VERSION,
     }
+    if contextual:
+        run_identity.update(decision_context_id=decision_context_id,
+                            claim_mode=claim_mode, decision_time_kind=decision_time_kind,
+                            review_at_utc=review_at_utc, model_version="thermal-v1",
+                            parameter_set_version=thermal["fixture_id"])
     run_id = "synthetic-thermal-v1:" + sha256(json.dumps(
         run_identity, sort_keys=True, separators=(",", ":"), ensure_ascii=False
     ).encode("utf-8")).hexdigest()
@@ -534,6 +563,11 @@ def calculate_fixture(manifest_raw, weather_raw, thermal_raw, *, decision_id, de
             "heater": deepcopy(thermal["heater"]), "condensation_policy": "hold_on_saturation",
             "integration": deepcopy(thermal["integration"]), "steps": steps,
         }
+        if contextual:
+            trace.update(decision_context_id=decision_context_id,
+                         decision_at_utc=decision_at_utc,
+                         review_at_utc=review_at_utc, claim_mode=claim_mode,
+                         decision_time_kind=decision_time_kind)
         trace_raw = json.dumps(trace, sort_keys=True, separators=(",", ":"), ensure_ascii=False,
                                allow_nan=False).encode("utf-8")
         raw_traces.append(trace_raw)
@@ -542,11 +576,16 @@ def calculate_fixture(manifest_raw, weather_raw, thermal_raw, *, decision_id, de
 
 
 def verify_replay(trace_raw_bytes, manifest_raw, weather_raw, thermal_raw, *, decision_id,
-                  decision_at_utc, input_snapshot_id):
+                  decision_at_utc, input_snapshot_id, decision_context_id=None,
+                  claim_mode=None, decision_time_kind=None, review_at_utc=None):
     """Compare complete immutable trace bytes against a fresh deterministic calculation."""
     expected = calculate_fixture(manifest_raw, weather_raw, thermal_raw,
                                  decision_id=decision_id, decision_at_utc=decision_at_utc,
-                                 input_snapshot_id=input_snapshot_id)
+                                 input_snapshot_id=input_snapshot_id,
+                                 decision_context_id=decision_context_id,
+                                 claim_mode=claim_mode,
+                                 decision_time_kind=decision_time_kind,
+                                 review_at_utc=review_at_utc)
     if not isinstance(trace_raw_bytes, (tuple, list)) or len(trace_raw_bytes) != 2 or any(
         type(raw) is not bytes or raw != generated for raw, generated in zip(trace_raw_bytes, expected)
     ):

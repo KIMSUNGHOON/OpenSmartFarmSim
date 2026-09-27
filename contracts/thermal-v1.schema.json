@@ -60,6 +60,26 @@
       "type": "string",
       "minLength": 1
     },
+    "decision_context_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision_at_utc": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+    },
+    "review_at_utc": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+    },
+    "claim_mode": {
+      "enum": ["ex_ante", "ex_post_replay"]
+    },
+    "decision_time_kind": {
+      "enum": ["actual", "hypothetical"]
+    },
     "model_version": {
       "type": "string",
       "minLength": 1
@@ -820,6 +840,11 @@
     "trace_sequence_index",
     "input_snapshot_id",
     "decision_id",
+    "decision_context_id",
+    "decision_at_utc",
+    "review_at_utc",
+    "claim_mode",
+    "decision_time_kind",
     "model_version",
     "parameter_set_version",
     "engine_version",

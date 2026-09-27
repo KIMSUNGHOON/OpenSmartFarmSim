@@ -18,6 +18,8 @@ from app.thermal_units import saturation_pressure_pa
 ROOT = Path(__file__).resolve().parents[2]
 FIXTURES = ROOT / "fixtures"
 DECISION_AT = "2026-09-28T00:00:00Z"
+REVIEW_AT = "2026-09-28T01:00:00Z"
+CONTEXT_ID = "synthetic-decision-context-v1"
 
 
 def raw_inputs():
@@ -29,6 +31,9 @@ def raw_inputs():
 def run(*raw):
     return calculate_fixture(*(raw or raw_inputs()), decision_id="synthetic-decision-v1",
                              decision_at_utc=DECISION_AT,
+                             decision_context_id=CONTEXT_ID,
+                             claim_mode="ex_ante", decision_time_kind="hypothetical",
+                             review_at_utc=REVIEW_AT,
                              input_snapshot_id="synthetic-input-snapshot-v1")
 
 
@@ -46,6 +51,11 @@ def test_nws_formula_and_two_candidate_hour_traces():
         accepted_shape = copy.deepcopy(trace)
         accepted_shape["run_status"] = "accepted"
         assert validator.is_valid(accepted_shape)
+        assert trace["decision_context_id"] == CONTEXT_ID
+        assert trace["decision_at_utc"] == DECISION_AT
+        assert trace["review_at_utc"] == REVIEW_AT
+        assert trace["claim_mode"] == "ex_ante"
+        assert trace["decision_time_kind"] == "hypothetical"
         assert trace["trace_sequence_index"] == index
         assert len(trace["steps"]) == 60
         assert trace["source_records"][0]["observed_start_utc"] is None
@@ -64,6 +74,70 @@ def test_nws_formula_and_two_candidate_hour_traces():
             assert step["convergence_deltas"]["delivered_heat_energy"]["value"] == 0
     assert traces[0]["interval"]["end_utc"] == traces[1]["interval"]["start_utc"]
     assert traces[0]["steps"][-1]["state_end"]["temperature"]["value"] == traces[1]["initial_state"]["temperature"]["value"]
+
+
+def test_legacy_candidate_cannot_pass_accepted_trace_schema():
+    legacy = json.loads(calculate_fixture(*raw_inputs(), decision_id="legacy-review",
+                                          decision_at_utc=DECISION_AT,
+                                          input_snapshot_id="legacy-snapshot")[0])
+    legacy["run_status"] = "accepted"
+    schema = json.loads((ROOT / "contracts/thermal-v1.schema.json").read_bytes())
+    assert not Draft202012Validator(schema).is_valid(legacy)
+
+
+def test_later_material_requires_ex_post_replay_label_and_review_cutoff():
+    base = dict(decision_id="review-decision-1", decision_context_id="context-1",
+                decision_at_utc="2026-09-27T08:00:00Z",
+                decision_time_kind="hypothetical", input_snapshot_id="snapshot-1",
+                review_at_utc="2026-09-27T10:00:00Z")
+    with pytest.raises(ThermalHold, match="TIMESTAMP_HOLD"):
+        calculate_fixture(*raw_inputs(), **base, claim_mode="ex_ante")
+    replay = [json.loads(raw) for raw in calculate_fixture(
+        *raw_inputs(), **base, claim_mode="ex_post_replay"
+    )]
+    assert all(trace["claim_mode"] == "ex_post_replay" for trace in replay)
+    assert all(trace["decision_at_utc"] == base["decision_at_utc"] for trace in replay)
+    assert all(trace["review_at_utc"] == base["review_at_utc"] for trace in replay)
+    with pytest.raises(ThermalHold, match="TIMESTAMP_HOLD"):
+        calculate_fixture(*raw_inputs(), **{**base, "review_at_utc": "2026-09-27T08:00:00Z"},
+                          claim_mode="ex_post_replay")
+
+
+@pytest.mark.parametrize("change", [
+    {"decision_context_id": "context-2"},
+    {"decision_at_utc": "2026-09-28T00:01:00Z"},
+    {"review_at_utc": "2026-09-28T01:01:00Z"},
+    {"claim_mode": "ex_post_replay"},
+    {"decision_time_kind": "actual"},
+])
+def test_context_and_both_clocks_bind_run_identity_and_replay(change):
+    from app.thermal import verify_replay
+
+    base = dict(decision_id="review-decision-1", decision_context_id="context-1",
+                decision_at_utc=DECISION_AT, review_at_utc=REVIEW_AT,
+                claim_mode="ex_ante", decision_time_kind="hypothetical",
+                input_snapshot_id="snapshot-1")
+    raw = calculate_fixture(*raw_inputs(), **base)
+    altered = calculate_fixture(*raw_inputs(), **{**base, **change})
+    assert json.loads(raw[0])["run_id"] != json.loads(altered[0])["run_id"]
+    with pytest.raises(ThermalHold, match="REPLAY_HOLD"):
+        verify_replay(raw, *raw_inputs(), **{**base, **change})
+
+
+@pytest.mark.parametrize("change", [
+    {"decision_context_id": ""}, {"decision_context_id": 1},
+    {"claim_mode": "unknown"}, {"claim_mode": 1},
+    {"decision_time_kind": "claimed_actual"}, {"decision_time_kind": 1},
+    {"review_at_utc": "2026-09-28T01:00:00+00:00"},
+    {"decision_at_utc": "2026-09-28T02:00:00Z"},
+])
+def test_invalid_context_or_clock_is_controlled_hold(change):
+    base = dict(decision_id="review-decision-1", decision_context_id="context-1",
+                decision_at_utc=DECISION_AT, review_at_utc=REVIEW_AT,
+                claim_mode="ex_ante", decision_time_kind="hypothetical",
+                input_snapshot_id="snapshot-1")
+    with pytest.raises(ThermalHold):
+        calculate_fixture(*raw_inputs(), **{**base, **change})
 
 
 def test_euler_controls_and_signed_ledger():
