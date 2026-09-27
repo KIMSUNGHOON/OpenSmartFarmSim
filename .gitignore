@@ -1,0 +1,27 @@
+# Local credentials and private inputs
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+data/raw/
+ops/secrets/
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Web builds and local tooling
+node_modules/
+dist/
+.vite/
+
+# Local noise
+*.log
+.DS_Store

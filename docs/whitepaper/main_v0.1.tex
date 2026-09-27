@@ -1,0 +1,345 @@
+% !TEX program = xelatex
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage{kotex}
+\providecommand{\NotoCJKFontPath}{/usr/share/fonts/opentype/noto/}
+\setmainhangulfont{NotoSerifCJK-Regular.ttc}[
+  Path=\NotoCJKFontPath,
+  FontIndex=1,
+  BoldFont={NotoSerifCJK-Bold.ttc},
+  BoldFeatures={FontIndex=1}
+]
+\setsanshangulfont{NotoSansCJK-Regular.ttc}[
+  Path=\NotoCJKFontPath,
+  FontIndex=1,
+  BoldFont={NotoSansCJK-Bold.ttc},
+  BoldFeatures={FontIndex=1}
+]
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array,tabularx,longtable,multirow}
+\usepackage{graphicx,xcolor,tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.28em}
+\setlist{nosep,leftmargin=2em}
+\renewcommand{\arraystretch}{1.24}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\status}{\textbf{설계 백서 --- 미구현·미검증}}
+\newcommand{\hold}{\textsf{판단 보류}}
+\renewcommand{\refname}{참고문헌}
+\renewcommand{\abstractname}{초록}
+\renewcommand{\contentsname}{목차}
+\renewcommand{\figurename}{그림}
+\renewcommand{\tablename}{표}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{OpenSmartFarmSim 설계 백서}
+\fancyhead[R]{v0.1 / 2026-09-27}
+\fancyfoot[C]{\thepage}
+
+\title{\textbf{OpenSmartFarmSim}\\[0.35em]\large 근거 추적형 온실 시뮬레이션과 조건부 사업성 평가를 위한 설계 백서}
+\author{OpenSmartFarmSim 프로젝트 설계 문서}
+\date{버전 0.1 \quad 2026년 9월 27일\\[0.3em]\status}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+본 백서는 대한민국의 한 좌표와 한 온실 구역을 대상으로, 과거 기상자료의 출처·권리를 조사하고 고정된 입력으로 온실 열·수증기 상태를 계산한 뒤 3D와 표로 재생하며, 근거가 허용하는 범위에서만 경제성과 작물 선택을 평가하는 \emph{제안 설계}를 제시한다. 첫 내부 시범의 경제 기능은 사용자가 입력한 등급별 판매량, 계약 가격, 비용, 투자 및 수금·지급 일정을 대입한 조건부 손익·현금흐름·세 종류의 손익분기 계산이다. 식물 생장·수확량, 미래 이익, 후보 간 순위는 현재 검증되지 않았다. 작물별 독립 경제 검증과 같은 조건의 대응 작물 비교 검증이 없으면 각각의 미래 마진과 ``평가한 후보 중 최적''이라는 문구를 잠근다. 런타임 Codex CLI \texttt{gpt-6-sol}/\texttt{xhigh}는 조사와 평가 판단을 담당하고, 수치 산술과 자료·권리·검증 관문은 버전 고정 서버 코드가 담당한다. 이 문서는 실행 결과나 현장 성능의 보고가 아니며 제품의 존재 또는 출시 가능성을 주장하지 않는다.
+\end{abstract}
+\noindent\textbf{핵심어:} 온실; 과거 기상 재현; 열·수증기 수지; 출처 추적; 관리용 운영이익; 손익분기; 대응 검증; 판단 보류
+
+\tableofcontents
+\clearpage
+
+\section{문제, 독자와 주장 경계}
+온실 운영자는 ``이 장소의 이 시설에서 이 기간에 어떤 작물을 선택할 것인가''라는 질문을 마주한다. 농업 배경이 없는 독자에게는 먼저 \emph{작기}가 심고 기르는 기간, \emph{배지재배}가 자연 토양 대신 배지에서 뿌리를 기르는 방식, \emph{packout}이 수확물 중 등급별 판매 가능 물량의 비율임을 설명해야 한다. 같은 작물도 온실 구조, 제어, 재배 기간, 판매 채널과 계약이 바뀌면 답이 바뀐다. FAO의 토지 적합성 체계도 정해진 토지 이용과 관리 조건에 대해 적합성을 정의한다. 이를 온실 의사결정의 조건 명시에 적용하는 것은 본 프로젝트의 설계 판단이다\cite{fao-land}.
+
+현재 저장소 명세가 허용하는 첫 범위는 대한민국 육지의 \textbf{WGS84 좌표 한 점, 단일 온실 구역, 배지재배 과채류 한 작기, 과거 기상 재현}이다. 지역명이나 지도에서 찍은 대표점은 실제 농장 센서 위치와 구별한다. 기상 관측소의 관측값도 해당 필지의 외기 실측이 아니다. 단기예보, 다구역, 노지, 실시간 제어, 병해충, 배지 물수지, 수확 모델은 첫 구현 범위 밖이다. 한 작기의 성과를 여러 번 곱해 연간 이익으로 제시하지 않는다. 방울토마토 \emph{한 품종·한 작기}가 첫 현장 검증 대상이며, 오이와 파프리카는 작물 프로필 및 대응 비교 자료의 \emph{연구 후보}다. WUR의 공개 방울토마토 데이터는 변수와 시험 설계에 참고할 수 있으나 네덜란드 유리온실 자료로 국내 정확도나 작물 간 순위를 입증하지 않는다\cite{wur-data}.
+
+이 백서의 ``계산 가능''은 입력과 산식이 정해졌다는 뜻이다. ``현장 예측 가능''은 독립된 현장 자료에서 정해 둔 손실 기준을 충족했다는 뜻이며 아직 해당 증거가 없다. 첫 화면의 3D는 저장된 온도·습도·설비 상태를 설명한다. \textbf{생장·수확 애니메이션, 미래 이익 예측과 작물 수익 순위는 검증 전 표시하지 않는다.} 조건부 손익은 사용자가 넣은 수량·가격·비용의 산술 결과로 명확히 표시한다.
+
+\section{사용 흐름과 시스템 경계}
+\subsection{한 번의 평가가 지나는 단계}
+사용자는 좌표, 시설 사양, 작기와 평가 목표를 정한다. 런타임 조사 작업은 그 좌표와 기간에 가능한 기상·가격·원가 출처, 적용일, 공간 차이와 이용 권한을 검토한다. 허용 목록의 제공자 어댑터가 원자료를 받아 단위·시간·결측을 정규화하고 불변 스냅샷을 만든다. 결정적 수치 작업자는 스냅샷과 버전 고정 시나리오로 온실 상태를 계산한다. 웹 화면은 완료된 결과만 3D·표·그래프로 재생한다. 매 평가 요청에서 별도 판단 작업이 후보의 근거와 불확실성을 읽고, 서버의 관문 검사 결과가 허용한 주장만 게시한다. 그림~\ref{fig:architecture}는 이 흐름의 제안 구조다.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw=blue!45!black,rounded corners=2pt,fill=blue!4,align=left,text width=12cm,minimum height=0.95cm,font=\small},
+  arr/.style={-{Stealth[length=2.2mm]},thick,draw=blue!55!black},
+  node distance=0.48cm]
+\node[box] (ui) {\textbf{지역·시설·목표 입력}\\한 좌표·한 구역 / React·MapLibre};
+\node[box,below=of ui] (research) {\textbf{Codex CLI 조사와 수집 판단}\\출처·가격·권리·적용일 / \texttt{gpt-6-sol}, \texttt{xhigh}};
+\node[box,below=of research] (snap) {\textbf{허용 자료 수집과 G0 검사}\\원본·권리 기록과 불변 입력 스냅샷};
+\node[box,below=of snap] (calc) {\textbf{버전 고정 계산과 G1 검사}\\열·수증기 상태와 조건부 경제 산술};
+\node[box,below=of calc] (replay) {\textbf{저장된 실행 결과 재생}\\3D·그래프와 동등한 표·설명};
+\node[box,below=of replay] (assess) {\textbf{매 평가 판단과 G0--G3 재검사}\\Codex CLI 판단 / 서버의 게시 관문 / \hold};
+\draw[arr] (ui)--(research); \draw[arr] (research)--(snap); \draw[arr] (snap)--(calc);
+\draw[arr] (calc)--(replay); \draw[arr] (replay)--(assess);
+\end{tikzpicture}
+\caption{제안 아키텍처. 화살표는 자료와 결과의 게시 순서다. G4는 공개 운영·권리·설치의 별도 출시 관문이다.}
+\label{fig:architecture}
+\end{figure}
+
+\subsection{권한과 재현 계약}
+원본 요청, 제공자·제품·지점 ID, 관측·발표·수집 시각, 원 단위, 품질 플래그의 제공 여부, 변환 코드와 해시를 \texttt{Source record}에 남긴다. ASOS 원본의 \texttt{TM}은 KST 관측시각으로 그대로 보존한다\cite{kma-api}. \texttt{Snapshot}은 원본 목록·UTC 시간축·결측/대체 이력과 품질 보고서를 고정한다. \texttt{Run}은 Snapshot ID, Scenario ID, 모델·계수·적분 설정, 환경 digest와 결과 해시를 포함한다. \texttt{Assessment}는 참조한 Run, 후보, 목표, 관문 증거 ID와 판단 ID를 보존한다. 원본에서 결과까지 연결하는 개념은 W3C PROV를 참고한 프로젝트 출처 모델이다\cite{w3c-prov}. 공급자의 사후 정정은 새 Snapshot과 Run으로만 반영한다.
+
+수치 재실행은 같은 고정 입력의 계산을 사전 허용 오차 내에서 반복하는 일이다. Codex CLI를 다시 호출하면 새 판단이므로 새 decision ID와 새 관문 검사를 생성한다. 이전 판단의 재생은 저장된 기록을 읽는 것이다. API는 긴 조사·계산을 작업표에 넣고 \texttt{queued}, \texttt{succeeded}, \texttt{hold}, \texttt{failed} 등을 구분한다. PostgreSQL의 \texttt{SKIP LOCKED}는 큐 소비 작업자에 사용할 수 있으나, 임대 만료·중복 요청·원자적 결과 게시·백업 복구는 별도 구현·시험 대상이다\cite{postgres-select}.
+
+\section{기상·작물·경제 근거의 채택}
+\subsection{한국 우선 자료와 권리}
+기상청 ASOS 시간 API는 기온, 습도, 풍속과 일사 \texttt{SI} 등 변수를 설명한다. 출력 필드 목록에는 일사의 QC 필드가 확인되지 않고, 별도 기상자료개방포털이 열거한 시간/분 QC 대상에도 일사는 들어 있지 않다\cite{kma-api,kma-qc}. 이는 모든 ASOS 일사값이 불량하다는 뜻이 아니다. \emph{프로젝트 검사}로 지점·기간별 보유율, 야간과 음수값, 물리 범위, 구간 적산, 인접 지점 또는 현장 계측과의 차이를 검토한다. 일조 QC를 일사 QC로 대체하지 않는다. 결측 강수를 0으로 채우거나 적산 일사를 보존 규칙 없이 보간하지 않는다. 시범 좌표의 실제 가용성과 오차는 아직 조사해야 한다.
+
+원자료에 대한 접근, 저장, 가공, 화면 표시, 재배포는 서로 다른 권리다. 기상청의 저작권 정책은 개별 공공누리 표시와 유형을 확인하도록 안내한다\cite{kma-rights}. 따라서 무료 API 접근만으로 원본의 공개 재배포를 허용하지 않는다. 농사로 매뉴얼·통계도 항목별 공공누리 유형을 확인해야 하며 미표시 자료는 사전 협의가 필요하다고 농사로 정책이 설명한다\cite{nongsaro-rights}. 지도 타일, WUR 파일, 농장 로그도 각각 권리와 출처표시를 검토한다. 협력 농장의 좌표, 원장, 계약가격과 센서 로그는 소유자 동의·접근 범위·삭제 조건을 기록한다. 권리 미확인 자료는 공개 다운로드나 G0 통과 자료로 게시하지 않는다.
+
+NASA POWER 시간자료는 공간·시간 해상도가 현장 센서와 다르므로 명시적인 민감도 비교 또는 저해상도 탐색 대안으로만 고려한다. 사용한다면 시간 기준을 명시해 요청하고 제품·버전·접근일을 기록한다\cite{nasa-hourly}. 짧은 예보의 발표시각과 유효시각을 과거 관측과 합쳐 하나의 실측 시계열로 만들지 않는다. 첫 범위의 예보 모드는 미지원이다.
+
+\begin{table}[htbp]
+\centering\small
+\caption{초기 입력의 최소 출처 계약. 각 행의 실제 값과 권리는 시범 좌표에서 검증해야 한다.}
+\begin{tabularx}{\textwidth}{p{2.35cm}YY}
+\toprule
+입력 묶음 & 기록할 근거와 단위 & 미확인 시 처리 \\
+\midrule
+위치·기상 & 경도/위도, 관측소·격자와 거리/고도 차이, 시각 기준, 기온 $^\circ$C, 습도 \%, 풍속 m/s, 일사 MJ/m$^2$; 변수별 QC/결측 & 핵심 일사·외기 품질 실패면 현장용 실행 보류; 대표점은 탐색으로 격하 \\
+시설·설비 & 바닥/식재·유효 일사·외피 면적 m$^2$, 고정 공기 체적 m$^3$, 외피·환기 사양과 공급열 용량 kW$_{th}$, 초기 상태, 제어 규칙, 계량 로그 & 용량의 물리적 뜻이 모호하면 공급열·구매량 표시 보류 \\
+작물 프로필 & 종·품종·작기·단계, 원문 URL/단위/권리, 시설·지역 검증 범위 & 원문 검토 전 수치 기본값·작물 권고 등록 보류 \\
+경제 증거 & 정산·원장·청구·견적, 등급/경로/규격, 거래·적용일, KRW/kg 및 청구 단위, 원문 해시 & 필수값은 0이 아니라 ``미확인''; 조건부 결과의 입력 등급 노출 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+가격의 출처를 고를 때 유통 단계를 확인한다. KAMIS 가격통계가 부르는 도매가격은 중도매인 판매가격이다\cite{kamis}. 이를 농가의 실제 정산 단가로 옮기려면 해당 농장의 등급·포장·채널·수수료·운송·환불을 연결한 정산서가 필요하다. 농촌진흥청의 비용 통계도 비용 항목의 참고 자료일 수 있으나 특정 농장의 실제 원가가 아니다. 값마다 \texttt{measured}(측정·거래확정), \texttt{quoted}(견적), \texttt{modeled}(모델값), \texttt{assumed}(가정)를 붙인다. 이 명칭은 정확도 순위가 아니며 측정값도 계량기와 원장 대조가 필요하다.
+
+\subsection{작물 연구의 선후관계}
+방울토마토에서 먼저 품종·작기, 정식·수확 달력, 온습도·광·급액 기준의 원문 맥락과 권리, 시설형, 실제 측정 가능한 출력을 확정한다. FAO AquaCrop은 기상·작물·토양·관리 입력을 요구한다\cite{fao-aquacrop}. 이는 배지재배 온실의 수확 모델을 곧바로 제공한다는 증거가 아니므로 첫 수확 엔진으로 채택하지 않는다. WUR의 온실 물리 모델과 GreenLight는 기상·구조·제어에 따른 열·수증기 모델 설계의 연구 근거지만, 그 연구의 오차를 국내 온실의 예상 오차로 전가하지 않는다\cite{wur-bot,wur-greenlight}. 오이·파프리카의 품종별 프로필과 현지 대응 시험은 후속 연구 의존성으로 남긴다.
+
+\section{단일 구역 열·수증기 계산의 제안}
+\subsection{설명 가능한 축약 수지}
+첫 수치 모델은 경계가 명시된 회색상자(grey-box) 제안이다. 다음 식은 구조를 설명하는 \emph{개략식}이며 계수값, 보정법, 현장 적합성은 정해지지 않았다. 시간 $t$의 실내 절대온도 $T_i$와 외기 절대온도 $T_o$는 K, 실내 공기 수증기 질량 $M_v$는 kg으로 둔다. 구역 공기 체적 $V_{\rm air}$ (m$^3$)은 시설 사양으로 고정하며 이 모델 안에서 변하지 않는다.
+\begin{align}
+C_T\frac{dT_i}{dt}
+ &= \alpha A_{\rm sol} G + P_{h,th} - U A_{\rm env}(T_i-T_o)
+    - \rho_a c_{p,a}\dot V(T_i-T_o) - L_v E + P_{\mathrm{other}}, \label{eq:heat}\\
+\frac{dM_v}{dt}
+ &= E + \dot V(\rho_{v,o}-\rho_{v,i}) - C_v. \label{eq:vapor}
+\end{align}
+$t$는 s, $C_T$는 구역의 유효 열용량 J/K, $A_{\rm sol}$은 유효 일사 유입 면적 m$^2$, $A_{\rm env}$는 열손실을 계산하는 외피 면적 m$^2$다. 두 면적은 시설 사양에 따로 기록한다. $G$는 입사 일사 W/m$^2$, $\alpha$는 무차원 유효 흡수율, $P_{h,th}$는 온실에 전달된 난방 열출력 W$_{th}$, $U$는 외피 열관류 계수 W/(m$^2$K), $\rho_a$는 공기 밀도 kg/m$^3$, $c_{p,a}$는 공기 비열 J/(kg K), $\dot V$는 환기 체적유량 m$^3$/s, $L_v$는 증발 잠열 J/kg, $E$는 증발·증산으로 공기에 들어오는 수증기 질량유량 kg/s, $P_{\mathrm{other}}$는 명시된 다른 열유입 W, $C_v$는 응축·제습에 의한 제거량 kg/s다. 수증기와 잠열의 부호 및 질량 보존은 구현 시 동일한 경계에서 검증한다. $E$는 검증된 생장 모델의 출력이 아니며 초기에는 출처가 붙은 시나리오 계수 또는 보류 상태다. $\alpha$, $U$, $C_T$, $\dot V$를 외국 논문에서 가져와 국내 시설의 보정값처럼 쓰지 않는다.
+
+실내 수증기 밀도는 $\rho_{v,i}=M_v/V_{\rm air}$ (kg/m$^3$)로 닫는다. ASOS 외기 상대습도(\%)를 100으로 나눈 $\phi_o$ (0--1)와 절대온도 $T_o$가 모두 있을 때, 버전이 고정된 포화수증기압식 $p_{\rm sat}(T)$ (Pa)과 수증기 기체상수 $R_v$ (J/(kg K))로 $\rho_{v,o}=\phi_o p_{\rm sat}(T_o)/(R_vT_o)$를 계산한다. 실내 상대습도도 $\rho_{v,i}R_vT_i/p_{\rm sat}(T_i)$로 계산한다. 외기 입력이나 식의 적용 범위가 미확인이면 수증기 계산을 보류한다. 체적이 변하는 시설은 별도 상태·수지 모델이 필요하다.
+
+ASOS의 원본 \texttt{TM} (KST)과 \texttt{SI} (MJ/m$^2$)를 함께 보존한다\cite{kma-api}. 제공자 문서 또는 제공자 확인으로 각 \texttt{SI}의 적산 시작·종료 시각과 \texttt{TM}이 그 구간의 어느 경계를 가리키는지 검증하고 근거와 함께 \texttt{Source record}에 기록한다. 그 전에는 구간을 임의 배치하거나 $G$를 계산하지 않는다. 확인된 두 경계를 UTC로 변환한 뒤 그 구간의 길이 $\Delta t$ (s)에만 $G=10^6\,SI/\Delta t$ (W/m$^2$)를 적용한다. 순간값과 적산값을 혼합하지 않는다. 내부 적분 간격, 허용오차, 물리 경계, 초기조건, 제어 규칙과 단위 레지스트리는 모델 버전에 고정하고 G1에서 열·질량 잔차를 시험한다. 시간별 결과는 사용자가 재생할 기준 시각으로 저장하고 내부 적분 간격과 구별한다.
+
+\subsection{열, 전기, 연료의 구분}
+기간 $[t_0,t_1]$의 모델 공급열은 $Q_{th}=\int_{t_0}^{t_1}P_{h,th}(t)\,dt/(3.6\times10^6)$ kWh$_{th}$다($P_{h,th}$는 W, $dt$는 s). 제어 목표를 맞추기 위해 필요한 \emph{난방 열수요}와 용량 제약 안에서 실제로 모델에 투입된 \emph{공급열}도 별도 값이다. 공급열 용량이 실내 전달 출력인지 확인되지 않으면 공급열 숫자 자체를 숨긴다. 전기 계량기의 구매량 kWh$_e$, 연료의 L·kg·m$^3$ 또는 기준이 명시된 kWh$_{fuel}$은 다른 물리량이다. 공급열은 운전 구간 $j$마다 먼저 설비별로 배분한다.
+\begin{align}
+Q_{th,j}&=Q^{\rm HP}_{th,j}+Q^{\rm fuel}_{th,j}+Q^{\rm other}_{th,j},\notag\\
+Q_{th}&=\sum_j Q_{th,j},\notag\\
+E_e^{\rm HP}&=\sum_j\frac{Q^{\rm HP}_{th,j}}{\mathrm{COP}_j}+E_{\mathrm{aux}},\notag\\
+F_{\rm fuel}&=\sum_j\frac{Q^{\rm fuel}_{th,j}}{\eta_j},
+\qquad N_{\rm fuel}=\frac{F_{\rm fuel}}{h_{\rm fuel}}. \label{eq:energy}
+\end{align}
+각 $Q$는 kWh$_{th}$이며 음수가 아니다. $Q^{\rm HP}_{th,j}$, $Q^{\rm fuel}_{th,j}$, $Q^{\rm other}_{th,j}$는 각각 히트펌프, 연료 설비, 그 밖의 공급원에서 실내에 전달한 열이다. $\mathrm{COP}_j$는 해당 구간 히트펌프 열출력/전기입력의 무차원 비, $E_{\mathrm{aux}}$는 중복 없이 더한 보조 전기 kWh$_e$, $\eta_j$는 선택한 발열량 기준의 무차원 연료 설비 효율, $F_{\rm fuel}$은 kWh$_{fuel}$이다. 연료별 $h_{\rm fuel}$은 선택한 구매 단위 $u_{\rm fuel}\in\{\mathrm{L},\mathrm{kg},\mathrm{m^3}\}$당 kWh$_{fuel}$이며, $N_{\rm fuel}$은 그 단위의 구매량이다. 여러 연료는 연료별로 이 식을 적용한다. $Q^{\rm other}_{th,j}$는 공급원과 구매 에너지 변환 근거가 따로 확인되기 전까지 구매량으로 환산하지 않으며, 그런 구간의 전체 구매 에너지 합계도 표시하지 않는다. 미국 에너지부는 COP를 열출력과 전기 입력의 비로 설명한다\cite{doe-cop}. 식~\eqref{eq:energy}는 운전점별 COP·효율, 보조전력, 발열량의 HHV/LHV 기준과 계량 대조가 있을 때만 사용한다. 그 전에는 구매량·요금·절감률을 모델 성과로 제시하지 않는다. 사용자가 구매량과 가격을 가정으로 넣은 비용표는 \emph{조건부}로만 표시한다.
+
+\section{저장 상태의 3D 재생과 접근성}
+지도는 선택 좌표와 관측소·격자의 거리와 의미를 보여 준다. 별도의 개념적 단일 구역 3D 장면은 \texttt{run\_id + timestamp}가 가리키는 온도, 습도, 난방·환기 상태, 모델 난방 열수요/공급열만 읽는다. 색과 움직임은 물리량의 범례·단위·기준을 제시하고, 프레임 사이 보간은 시각 효과라고 표시한다. 실제 시설 도면을 받지 않았다면 개념적 형태임을 밝힌다. 식물 키·과실·수확·병해의 시간 변화는 계산 상태에 없으므로 그리지 않는다. 연구 단계의 비용·매출을 시간별 실적으로 보간하지 않는다.
+
+같은 상태 레코드를 HTML 표, 설명 문장, 시계열 그래프로도 제공한다. WebGL을 사용할 수 없어도 사용자는 좌표 선택, 실행 결과, 보류 이유를 읽을 수 있어야 한다. 재생/정지·시각 이동의 키보드 조작, 동작 줄이기, 대비와 텍스트 대안은 WCAG 2.2를 기준으로 구현·시험한다\cite{wcag}. 화면에서 경제 결과를 겹쳐 보일 때는 그 시점에 실제로 연결된 판매·수금·계량 사건과 유효 가격·요금 버전이 있어야 하고, 별도 \texttt{economic\_result\_id}를 함께 제시한다. 월별 조건부 합계를 시간별 측정값처럼 분배하지 않는다.
+
+\section{경제 계약: 판매, 재고, 기간 비용}
+\subsection{의사결정 단위와 사건 원장}
+경제 평가의 기준은 통화 KRW, 질량 kg, 단가 KRW/kg, 시설 바닥면적과 식재면적 m$^2$, 그리고 공통 시작일·종료일이다. 수확물의 발생일, 선별일, 계약상 판매 인정일, 반품일, 수금일은 다를 수 있다. 비용의 발생일과 지급일도 구별한다. 서로 다른 작기 길이는 같은 달력에 정식·수확·철거·청소·휴지·재정식과 시설 교체를 배치한다. 빈 온실의 임차료·기본요금·상근 노동도 기간 비용이다. 신설 투자와 보유 시설의 작물 교체는 서로 다른 의사결정이므로 전체 사업현금과 회피 가능한 증분현금을 별도 계산한다. 이 정의는 제품의 \emph{관리용} 목표이며 재무제표나 세무 신고서가 아니다.
+
+기간 $t$, 품질 등급 $g$, 판매 경로 $h$에 대해 $H_t$는 수확 kg, $P_{tg}$는 선별 후 등급별 판매 가능 kg, $S_{tgh}$는 인도·검수 등 계약상 조건을 충족하여 판매로 인정한 kg, $T_{tgh}$는 그 판매와 연결된 반품 kg으로 정의한다. $D_{tg}$는 판매 전 폐기 kg, $I_{tg}^{b},I_{tg}^{e}$는 기간 초·말의 판매 가능 재고 kg, $U_{tg}$는 반품 중 재판매 가능 상태로 재입고한 kg이다. 반품의 폐기·다른 처분은 원판매와 별도 사건으로 기록한다. 다음은 원장의 필수 보존식이다.
+\begin{align}
+0\leq\sum_g P_{tg}&\leq H_t,
+&\operatorname{packout}_{tg}&=\frac{P_{tg}}{H_t}\quad (H_t>0),\label{eq:packout}\\
+I^e_{tg}&=I^b_{tg}+P_{tg}+U_{tg}-\sum_h S_{tgh}-D_{tg},
+&0\leq U_{tg}&\leq\sum_h T_{tgh}.\label{eq:inventory}
+\end{align}
+모든 질량은 kg이고 packout은 무차원이다. 판매 후 반품이 다음 기간에 들어오면 그 날짜의 $U$와 처분으로 처리한다. $S$는 \emph{총 판매 인정량}이고 $\sum(S-T)$는 반품을 차감한 순판매량이다. 반품 환불·재판매·폐기의 날짜와 원거래를 연결해야 식~\eqref{eq:inventory}의 재고와 매출을 함께 검산할 수 있다. 수확량 $H$나 판매 가능량 $P$, 기말 재고 $I^e$는 판매수입이 아니다. 계약서나 선급금만으로 $S$를 만들지 않는다. 고객에게 통제가 이전될 때 수익을 인식한다는 IFRS 15의 설명은 참고하되, 이 판매 인정일 규칙은 계약별 인도·검수 조건을 모델링하기 위한 프로젝트의 관리용 정의다\cite{ifrs15}.
+
+\subsection{실제 정산 범위와 매출}
+$p_{tgh}$를 수수료·운송 차감 전 계약 판매단가 KRW/kg, $A_t$를 할인·반품 환불액 KRW로 두면 기간 관리용 매출은 다음과 같다.
+\begin{equation}
+R=\sum_{t,g,h}S_{tgh}p_{tgh}-\sum_t A_t \qquad [\mathrm{KRW}].\label{eq:revenue}
+\end{equation}
+$S$는 실제 판매 또는 계약상 인도·검수로 인정된 물량이어야 한다. 농가 정산서에 \emph{순수취 단가}만 있다면 별도 순액 방식을 명시하고, 이미 차감된 수수료·운송을 다시 비용으로 빼지 않는다. 할인과 환불의 범위도 단가와 겹치지 않도록 거래별로 대사한다. 지원금과 대출금은 $R$에 넣지 않는다. 정산이 늦어졌더라도 판매 인정일과 수금일을 분리한다.
+
+\begin{table}[htbp]
+\centering\small
+\caption{농장 경제 결과의 관리용 산식과 표현 경계. $V,F,D_A$의 발생 기간은 동일하다.}
+\begin{tabularx}{\textwidth}{p{2.4cm}p{3.25cm}Y}
+\toprule
+항목 & 산식·단위 & 표시와 원장 규칙 \\
+\midrule
+매출 $R$ & 식~\eqref{eq:revenue}, KRW & 등급·경로별 판매 인정 kg와 적용 단가, 환불을 연결; 미판매 재고 매출 0 \\
+변동 운영비 $V$ & $\sum$ 발생량$\times$단가, KRW & 종묘·양액·배지·물·구매 에너지·작업량 연동 노동 및 판매·보관·폐기 비용; 미판매분의 당기 생산 투입 포함 \\
+공헌이익 $CM$ & $R-V$, KRW & 고정비를 감당할 여지. $R>0$일 때에만 $CM/R$ 정의 \\
+고정 현금 운영비 $F$ & 기간 발생액, KRW & 임차료·상근 인건비·정기 보수·보험·기본요금; 공실 기간 포함 \\
+관리용 운영이익 $OI$ & $R-V-F-D_A$, KRW & $D_A$는 관리용 감가상각. 이자·세금 전, 현금 잔액이나 정식 회계이익으로 부르지 않음 \\
+영업 현금 $C^{op}$ & 수금$-$현금 운영비 지급, KRW & 매출·비용 발생일과 별도 날짜의 직접 현금 원장으로 계산 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{기말 미판매분 원가를 한 번만 반영}
+후보 비교의 시작 재고는 원칙적으로 0kg이다. 기존 재고가 있으면 그 수량과 과거 생산원가를 고정 기준선으로 분리한다. 배치별 생산 투입 원장에는 발생 기간과 연결된 재고 kg를 표시한다. 비교 기간에 생산한 미판매분의 원가는 \emph{당기} $V$에 이미 들어 있다. 따라서 기말 재고에 예상 판매가나 추정 처분가를 붙여 $R$ 또는 순위 목표에 더하지 않으며, 원가를 당기에 두 번째로 빼지도 않는다. 다음 기간에 실제 판매되면 그 기간의 $R$에 매출을 넣되 앞 기간에 잡은 생산 투입을 다시 $V$에 넣지 않는다. 다음 기간의 보관·재선별·판매·폐기에 새로 든 비용만 새 기간에 기록한다. 연속 기간 원장의 각 투입 사건은 정확히 한 기간·한 번에만 비용으로 들어간다.
+
+이 규칙은 기간 말에 수확을 앞당겨 미판매 재고를 쌓는 후보가 가공의 매출로 높은 순위를 얻는 것을 막기 위한 \emph{관리용 비교 규칙}이다. IAS 2는 재고 원가를 측정하고, 판매 시 관련 매출의 기간에 장부금액을 비용으로 인식하는 재무회계 방식을 설명한다\cite{ias2}. 따라서 본 백서의 $OI$를 IAS 2 기반 재무제표의 영업이익으로 제시하지 않는다. 기간 말 재고의 품질 저하·판매 기회와 저장 비용 위험은 후보별 별도 정보로 보여 주되, 검증되지 않은 잔존가치를 목표에 더하지 않는다.
+
+직접비는 해당 작물·배치·설비에 먼저 붙인다. 공동 전기·물은 계량량, 노동은 작업시간, 공간 비용은 식재 가능 m$^2$와 점유일 같은 사전 고정 동인으로 배분한다. 배분 합계는 원장 공동비 총액과 일치해야 한다. 배분할 수 없는 잔액은 ``미배분 공동비''로 사업 전체 손익에 남긴다. 후보 순위가 배분 정책에 따라 뒤집히는지도 민감도에 포함한다. kg당 임의 배분을 실측 원가라고 하지 않는다.
+
+\section{현금·투자·세 손익분기 목표}
+\subsection{발생, 지급과 감가상각}
+관리용 감가상각 $D_A$는 자산 취득원가 $K$와 잔존가치 $K_r$ (각 KRW), 추정 총 사용일수 $L$ (일), 평가 기간 중 사용일수 $d$ (일)가 확인된 정액 시나리오에서 $D_A=(K-K_r)d/L$ KRW로 계산한다. CAPEX의 지급일과 교체·처분일은 이 비용 배분과 분리한다. 감가상각은 현금 지출이 아니다. 잔존가치와 사용기간은 사용자 가정 또는 자산대장의 출처·검토일과 함께 표시한다. IAS 16은 유형자산의 감가상각 개념을 다루지만, 본 식은 세무상 상각액의 주장도 특정 농장의 회계정책 확정도 아니다\cite{ias16}.
+
+일자 $d$의 실제 판매대금 수금 $X_d$, 현금 변동비 지급 $Y_d^V$, 현금 고정비 지급 $Y_d^F$, 실제 수령 지원금 $G_d$, 자산 처분 수금 $Z_d$, 세금 지급 $Tax_d$, CAPEX·교체 지급 $K_d$, 대출 실행 $L_d^+$, 원금 지급 $L_d^-$, 이자 지급 $Int_d$를 모두 KRW로 정의한다. 할인·환불 현금은 $X_d$에 순액으로 기록하되 식~\eqref{eq:revenue}의 매출 조정과 대사한다. 그러면
+\begin{align}
+C_d^{op}&=X_d-Y_d^V-Y_d^F,\label{eq:opcash}\\
+C_d^{biz}&=C_d^{op}+G_d+Z_d-Tax_d-K_d,\label{eq:bizcash}\\
+C_d^{eq}&=C_d^{biz}+L_d^+-L_d^--Int_d.\label{eq:eqcash}
+\end{align}
+$C^{op}$는 영업 현금, $C^{biz}$는 투자·세금·실수령 지원금을 포함한 사업 현금, $C^{eq}$는 금융을 포함한 자기자본 현금이다. 기초 현금 잔액 $B_0$와 누적 순현금 $\sum C^{eq}$는 별도다. $B_d=B_0+\sum_{u\leq d}C_u^{eq}$를 월별·일별로 계산하여 가장 작은 잔액과 약정 상환일의 부족을 보고한다. 대출 실행으로 잔액이 양수가 되더라도 투자 수익성이 증명된 것은 아니다. 세금·보조금은 자격과 실제 적용일이 확인되기 전에는 별도 가정 또는 미확인으로 둔다.
+
+직접 현금 합계는 발생 기준 $OI$에서 출발한 대사와 일치해야 한다. 평가 기간 $D$에 대해
+\begin{equation}
+\sum_{d\in D} C_d^{op}=OI+D_A+
+\left(\sum_{d\in D}X_d-R\right)+
+\left(V+F-\sum_{d\in D}(Y_d^V+Y_d^F)\right)\quad[\mathrm{KRW}].\label{eq:reconcile}
+\end{equation}
+이는 수금과 매출, 지급과 발생의 날짜 차이를 직접 드러내는 항등식이다. 기간 밖에서 발생한 매출의 당기 수금이나 당기 비용의 미래 지급도 사건 원장에 포함한다. 미판매분 생산원가는 $V$에 이미 있으므로 식~\eqref{eq:reconcile}에 ``재고 증가''를 별도로 다시 빼지 않는다. 선급 재료·미지급금 등 사건의 분류와 기간 경계를 점검해 양쪽 합계가 맞아야 한다.
+
+\subsection{서로 다른 세 개의 0점}
+공통 평가 종료일 $d_1$에 대해 목표 함수 세 개를 분리한다. 변수 $x$는 필요한 판매 인정 kg 또는 기준 단가 KRW/kg 중 하나이고, 다른 입력을 무엇으로 고정하는지 명시한다.
+\begin{align}
+B_{OI}(x)&=R(x)-V(x)-F(x)-D_A(x),\label{eq:be1}\\
+B_{op}(x)&=\sum_{d\leq d_1}C_d^{op}(x),\label{eq:be2}\\
+B_{eq}(x)&=\sum_{d\leq d_1}C_d^{eq}(x).\label{eq:be3}
+\end{align}
+세 함수의 단위는 KRW이며 각각 \emph{관리용 운영이익 손익분기}, \emph{영업 현금 손익분기}, \emph{투자·금융 포함 자기자본 누적 순현금 손익분기}다. 각 손익분기의 해는 허용된 $x$ 범위에서 $B_k(x)=0$인 값이며, kg와 KRW/kg을 섞어 하나의 답으로 표시하지 않는다. 영업 현금은 수금 지연 때문에 운영이익과 다른 0점을 가질 수 있고, 자기자본 현금은 투자·대출·상환일 때문에 다시 달라진다. 세 번째 목표의 기초 현금잔액은 식~\eqref{eq:be3}에 넣지 않는다. 금융 전 사업 누적 순현금도 식~\eqref{eq:bizcash}로 별도 조회할 수 있다.
+
+해를 찾을 때는 단순한 ``고정비/단위마진'' 공식으로 끝내지 않는다. 후보 $x$마다 모든 날짜의 등급·경로별 판매 인정, 반품·재고, 수수료·포장·운송, 생산 가능량, 비용 발생·지급, 감가상각, 투자·교체, 보조금·세금, 대출·상환을 \emph{전체 재계산}한다. 가격을 바꿀 때 수량·등급 구성을 고정했다면 명시하고, 판매 kg을 바꿀 때 packout·계약·생산 가능량을 제약으로 검사한다. 계단식 요금과 최소 주문으로 함수가 비단조일 수 있으므로 허용 구간을 나누어 모든 해 또는 해 없음의 이유를 보고한다. 기간 중 $B_d<0$인 시점과 기말 0점도 별도로 제시한다. 필요한 가격·kg은 달성 가능성이나 수확 예측이 아니다.
+
+\subsection{경제 입력 등급과 불확실성}
+가격 버전은 품종·등급·규격·경로·지역·계약 종별, 적용 시작/끝과 거래·조회일, 세금·운송·수수료의 포함 범위, 원문 해시 및 이용 권리를 기록한다. 금액과 단가는 API에서 십진 문자열, 저장소에서 \texttt{numeric}, 계산기에서 \texttt{Decimal}로 다루고 반올림 시점을 계약 버전으로 남긴다. 자료의 최약 핵심 입력을 결과 카드에 보여 준다. 기상 연도·관측소 차이·설비 효율·packout·판매경로와 가격·노동시간·CAPEX·수금 지연을 독립 변수처럼 무작정 섞지 않고 실제 연관된 시나리오로 바꾼다. 불확실성 구간은 표본 근거와 방법을 붙이며, 검증 전에는 성공 확률이나 근거 없는 정밀도·정확도 목표를 만들지 않는다.
+
+\section{후보 중 ``최적''의 조건부 의미}
+후보 집합 $\mathcal C$는 이번 평가에 실제 등록되고 검증 범위에 들어온 둘 이상의 작물이다. $s$는 동일한 시설·식재 면적·달력·시작 재고·관리/비용 배분 정책과 제약, $\omega$는 근거 있는 기상 연도·계수·가격 시나리오다. 명시된 목표 $J(c;s,\omega)$가 관리용 $OI$, 검증된 구매 에너지 비용, 또는 물 사용량 등 무엇인지를 먼저 정한다. 물수지가 구현되지 않은 첫 범위에서 물 사용의 계산 최적화를 수행하지 않는다. 적합성은 온도만의 통과 여부가 아니며 품종·빛·양액·병해·판매와 자원 제약의 적용 범위를 요구한다.
+
+충분한 검증 후에만 프로젝트가 다루는 최적화 문제는 다음처럼 쓸 수 있다.
+\begin{equation}
+c^*\in\underset{c\in\mathcal C}{\operatorname{arg\,max}}\;\mathcal{A}_{\omega}
+\bigl[J(c;s,\omega)\bigr]
+\quad\text{subject to}\quad
+g_j(c;s,\omega)\leq 0\ \ (j\in\mathcal J).\label{eq:choice}
+\end{equation}
+$J$의 단위는 선택한 목표에 따라 KRW, kWh$_e$, L 등이므로 목적이 비용 최소화라면 부호 또는 \(\operatorname{arg\,min}\)을 명시한다. $\mathcal A_\omega$는 평균·보수적 분위수 등 \emph{사용자가 선택하고 검증된} 시나리오 집계 규칙이며, $g_j$는 단위와 허용한도가 정의된 제약이다. 무관한 단위를 임의 가중합하지 않는다. ``최적''은 $\mathcal C$, 목표, 공통 면적·기간·제약, 불확실성 집계와 검증 범위 안의 \emph{상대적 선택}이다. 하나의 후보만 남거나 결과가 겹치고 순위 역전 위험을 구별할 근거가 없으면 \hold 라고 표시한다.
+
+작물별 모델의 예측오차가 작아도 두 작물 간 선택 손실이 작다는 결론은 따르지 않는다. G3b는 같은 지역·시설형·평가 기간·면적·관리 및 목표/비용 기준에서 실제 가능했던 둘 이상의 후보를 시험구 또는 대응 작기로 비교한, 모델 개발·보정·후보 선택에 사용하지 않은 독립 자료를 요구한다. 작기 길이가 다르면 같은 종료일의 미판매 재고·휴지·교체·공동비를 동일 규칙으로 처리한다. 비교 설계, 매칭·제외 기준, 순위 역전과 잘못 선택했을 때의 후회 손실 및 불확실성 평가는 시험 전에 등록한다. 대응 자료 확보와 공유권은 협력 농장에 의존하는 미해결 조건이다. G3a 개별 미래 마진이 통과해도 G3b 없이 순위는 열리지 않는다.
+
+\section{구현 아키텍처와 필수 런타임 판단}
+\subsection{기술 선택과 책임의 위치}
+첫 구현은 모듈형 단일 Python 백엔드 코드베이스에 API, 수집, Codex CLI, 수치·경제 산술 작업자를 별도 프로세스로 둔다. 표~\ref{tab:stack}의 소프트웨어는 \emph{설계 선택}이며 현재 설치·성능·라이선스 감사를 완료했다는 뜻이 아니다. FastAPI 문서도 무거운 계산은 별도 프로세스의 작업 처리 방식을 고려하라고 설명한다\cite{fastapi-bg}. 초기 PostgreSQL 작업표는 재시도·임대·중복 제거의 단일 상태 소유자다. 분산 작업 엔진을 추가할 필요는 운영 측정 뒤 판단한다.
+
+\begin{table}[htbp]
+\centering\small
+\caption{첫 구현의 제안 구성과 계산 책임. 특정 버전의 출시·승격·성능은 주장하지 않는다.}
+\label{tab:stack}
+\begin{tabularx}{\textwidth}{p{2.5cm}p{4.1cm}Y}
+\toprule
+계층 & 선택 & 담당 계약 \\
+\midrule
+브라우저 & React, TypeScript, MapLibre GL JS, Three.js, Apache ECharts & 좌표·상태·근거 표시, 저장된 한 구역의 3D 재생, 동등한 표·그래프 \\
+API·검증 & FastAPI, Pydantic & 입력/출력 스키마, 권한, 작업 제출, 결과 게시; Pydantic 형 검사는 자료의 과학적 진실성 검사와 구별 \\
+수집·수치 & HTTPX, NumPy, SciPy, Pint & 허용 제공자 HTTPS 어댑터, 방정식 적분, 단위 검사; SciPy의 \texttt{solve\_ivp}는 후보 적분기\cite{scipy-ivp} \\
+금액·작업·객체 & Python \texttt{Decimal}, PostgreSQL \texttt{numeric}·작업표, 해시 고정 객체 파일 & 원화 산술·원장, 임대 큐, 원본/스냅샷/결과의 불변 참조와 권리 제어 \\
+조사·판단 & 격리된 Codex CLI \texttt{gpt-6-sol}/\texttt{xhigh} & 좌표·기간·목표별 근거 조사, 수집 계획·채택/보류, 완료 계산의 매 평가 판단 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+AI 출력은 자료원·후보·근거 ID와 불확실성을 제안한다. 실제 수집은 서버가 허용한 제공자·변수·기간만 실행한다. 기상 방정식·계수, KRW 산술, G0--G3 통과 여부는 AI가 임의로 만들거나 덮어쓰지 못한다. LangChain의 모델 루프, LangGraph의 체크포인트, Deep Agents의 하위 작업 및 Hermes의 세션 기능은 첫 흐름에 필수로 확인된 요구가 없어 \emph{연기하거나 첫 출시에 사용하지 않는} 설계 결정이다. 이 판단은 각 프레임워크의 품질 우열이나 향후 불채택을 뜻하지 않는다. 작업표 하나의 상태 소유권, 장애 복구와 출처 감사에 실제 결핍이 드러날 때 해당 도구를 재평가한다.
+
+\subsection{Codex CLI의 세 번의 경계 작업}
+저장소 명세는 개발 중 조사·설계와 배포 제품의 실제 사용 중 모두 \textbf{Codex CLI의 정확한 모델 \texttt{gpt-6-sol}, 추론 강도 \texttt{xhigh}}를 필수로 정한다. 공식 OpenAI Docs는 해당 모델 ID와 \texttt{xhigh} 지원을 설명하고, 비대화형 \texttt{codex exec}의 JSONL 사건 및 최종 JSON Schema 출력을 설명한다\cite{openai-model,openai-exec}. 이것은 특정 배포 계정의 접근·계약·한도·실제 청구액을 보증하지 않는다. G4 전에 실제 운영 주체가 인증된 호출로 확인해야 한다.
+
+지역·기간·목표가 확정될 때 CLI는 허용된 출처에서 관측소·변수·기간과 가격·요금·원가의 계약 범위, 적용일·권리, 누락을 조사한다. 수집 후에는 실제 품질·일사 검사, 원본 해시, 견적의 단위·규격·유효기간을 검토해 채택·추가 조사·보류를 제안한다. 완료된 Run의 \emph{매 Assessment}에서는 후보·목표별 근거와 불확실성, 제약 위반, 추천 또는 보류 사유를 새로 판단한다. 단순히 이전 프로필의 ``통과'' 표식을 복사하지 않는다.
+
+작업자는 테넌트별 일회성 읽기 전용 환경에서 인자 배열로 CLI를 실행하고, 비밀키를 그 프로세스에만 공급한다. 허용 목록의 읽기 전용 근거 게이트웨이를 통해서만 자료를 읽으며 임의 URL·파일·코드 수정 및 다른 테넌트 접근을 막는다. 수집 원문과 사용자 텍스트는 명령이 아닌 인용용 자료로 전달한다. 프롬프트/스키마 버전, 원문·입력 해시, CLI 버전·모델/강도, 사건 로그, 구조화된 제안, 서버 검사 결과, 사용량과 종료 사유를 감사 기록으로 보존한다. 구조화 출력은 형식 계약일 뿐 근거의 진실을 증명하지 않는다. 서버는 참조 ID의 존재, 테넌트 소유권, 적용 범위와 관문을 다시 확인한다. 스키마·권리·모델 접근·예산·근거가 실패하면 정상적인 \texttt{hold} 또는 통제된 오류로 끝낸다. 같은 입력의 재호출은 새 decision ID다.
+
+\section{검증 관문과 열리는 주장}
+관문은 구현 단계 이름이 아니라 \emph{각 주장에 필요한 증거의 상태}다. 허용 오차와 합격선은 센서 오차, 시범 농장의 실제 변동, 운영자의 의사결정 손실을 측정한 뒤 시험 전에 등록한다. 측정 전 임의 백분율을 적어 넣지 않는다. 표~\ref{tab:gates}는 이번 Run·후보·목표에 다시 적용할 검사와 허용 표현을 정한다.
+
+\begin{longtable}{p{1.3cm}p{7.05cm}p{5.0cm}}
+\caption{G0--G4의 증거, 잠금 및 허용 주장. G4는 공개 서비스의 별도 조건이다.}\label{tab:gates}\\
+\toprule
+관문 & 검사할 증거와 실패 처리 & 해당 범위에서 열 수 있는 주장 \\
+\midrule
+\endfirsthead
+\toprule
+관문 & 검사할 증거와 실패 처리 & 해당 범위에서 열 수 있는 주장 \\
+\midrule
+\endhead
+G0 자료·권리 & 선택 좌표·기간·변수의 보유율, 지점/필지 차이, 단위·시각, 제공자 QC와 별도 프로젝트 검사, 일사 자체 검사를 기록한다. 접근·저장·가공·표시·재배포 권리를 항목별로 확인한다. 핵심 결측/권리 미확인은 실행 또는 공개를 보류한다. & 승인된 용도의 고정 입력과 출처 표시. G0만으로 현장 온도·수확·이익 정확도를 주장할 수 없다. \\
+G1 수치·경제 & 고정 입력 재실행, 열·수증기 잔차, 경계·단위·시간대·설비용량을 시험한다. kg 보존, 반품·재고 배치 원가 단일 반영, Decimal 반올림, 공동비 합계, 현금 대사, 날짜별 세 손익분기의 모든 해/해 없음을 시험한다. & \emph{모델 상태}와 완전한 입력의 \emph{조건부} 손익·현금·필요 kg/가격. 현장 예측 또는 미래 이익으로 부르지 않는다. \\
+G2 현장 & 보정에 쓰지 않은 국내 온실 기간/작기의 독립 실내 온습도 계측과 명시된 기준선 비교. 실제 출력하려는 공급열·전력·연료는 같은 물리량의 계량 및 청구로 각각 검증한다. 오차·편향·극값·구간 포함률과 적용 시설형을 보고한다. & 검증된 시설·기간·변수에 한정된 기후/구매 에너지 모델 평가. 생장·수확·경제 예측은 여전히 잠근다. \\
+G3a 개별 마진 & 품종별 독립 수확·등급 packout·판매 인정·반품·폐기·재고·배치 원가·정산·구매 에너지·노동·월별 현금 원장을 대조한다. 비용/마진의 오차·편향·구간 포함률과 적용 범위를 사전 등록한다. & 이번 후보와 시설·기간·목표에 적용 가능한 \emph{개별 미래 마진}만 범위·불확실성과 함께 표시. 후보 간 순위는 잠금. \\
+G3b 대응 순위 & 같은 의사결정에서 실제 가능했던 둘 이상 후보의 지역·시설·면적·달력·관리/비용 기준·목표를 대응한 \emph{독립} 자료. 개발·보정·후보 선택에 미사용. 순위 역전·후회 손실·불확실성 및 제외 규칙을 검증. & G0--G3a도 모두 유효할 때 이번 후보 집합과 목표에 한정해 ``평가한 후보 중 최적''. 하나라도 범위 밖이면 \hold. \\
+G4 공개·운영 & 실제 CLI 모델/강도 접근·계약·비용·한도, 격리·주입 방어, 중복·장애·복구, 권한·백업, 3D/표 일치·접근성, 설치 절차와 코드·의존성·자료·타일·자산 권리 및 예제 데이터 재배포를 시험한다. & 필요한 하위 관문을 충족한 기능의 공개 production 제공. G3b가 없으면 공개 서비스에서도 순위는 보류. \\
+\bottomrule
+\end{longtable}
+
+과거 농장 원장이 대사되면 그 농장의 그 기간에 관한 \emph{과거 실적 재계산}이라고 쓸 수 있다. G1의 가정 기반 표는 ``이 조건이라면''이고, G2의 온습도 검증은 수확 검증이 아니다. 매 평가 때 G0의 이번 스냅샷·권리, G1의 모델/산식, G2의 좌표·시설형·기간, G3a의 품종·경제 범위, G3b의 이번 후보 집합·목표·대응 설계를 증거 ID로 재검사한다. G4 이전의 탐색·현장·추천 시험은 모두 내부 시범이다. G3b 자료가 끝내 없을 수 있으며, 그 경우 순위를 보류하는 것이 이 설계의 정상 결과다.
+
+\section{농장과 서비스의 서로 다른 원장}
+농장 $OI$와 플랫폼 사업자의 수익성은 합쳐 계산하지 않는다. 서비스 자체에는 요청당 CLI 호출·실제 청구, 실패와 재시도, 기상/지도 요청, 계산·저장·백업·지원 비용이 든다. 기간의 서비스 매출 $R_s$와 요청량에 연동한 변동비 $V_s$, 고정 운영비 $F_s$가 확인되면 서비스 공헌이익 $CM_s=R_s-V_s$, 서비스 영업 잔여액 $S_s=CM_s-F_s$ (모두 KRW)로 별도 계산한다. 완료 요청 수 $N_{done}>0$이면 실패·무료 요청의 비용까지 포함한 실효 변동원가 $V_s/N_{done}$ (KRW/완료 요청)을 본다. $N_{done}=0$이면 정의하지 않는다. 무료 사용량과 재시도율이 달라지면 유료 요청의 단순 손익분기식도 전체 수요·용량 시나리오로 다시 계산한다. 실제 배포 계정의 계약·사용량·수요를 확인하기 전 서비스 가격표나 양의 마진을 주장하지 않는다.
+
+\section{연구 의존성과 구현 순서}
+첫 단계에서 협력 농장의 시설형·한 좌표·한 작기·방울토마토 품종과 자료 제공 범위를 합의하고, 관측소 일사 보유율과 현장 외기 차이, 계량기·정산서·원장·자산대장 접근권을 확인한다. G0의 필수 변수·결측·권리 기준과 G1의 수지·경제 회귀 사례를 사전 등록한다. G3b의 대응 작물 시험이 가능한 협력 구조와 공유권도 이때부터 조사한다. 이 마지막 의존성을 뒤로 미루면 독립 순위 검증을 나중에 만들 수 없다.
+
+둘째 단계는 지역 선택에서 CLI 조사·허용 수집·불변 스냅샷·한 구역 과거 기상 계산·3D/표 재생·CLI 평가와 \hold 까지 끊기지 않는 \emph{내부 탐색 시범}을 만든다. 같은 실행에 조건부 수확·판매·비용 입력표, 기간 관리용 $OI$, 세 손익분기와 월별 현금 부족을 연결하고 G1 경제 원장의 단일 반영·대사 시험을 통과시킨다. 미래 수확·마진·순위 대신 부족한 근거를 보여 준다. CLI와 자료/운영의 실제 서비스 비용도 계측한다.
+
+셋째 단계는 보정 기간과 분리한 국내 현장 실내 온습도·열계량을 확보해 G2를 평가한다. 구매 전력/연료 변환은 운전점 효율, 보조 전력, 발열량 기준, 청구 요율을 독립 대조한 범위에서만 연다. 배지 물수지와 품종별 요구조건은 별도 모듈·검증 계획을 거친다. 넷째 단계는 수확·등급·판매·재고·원가·현금 실적의 독립 시험으로 G3a의 개별 미래 마진을 검토하고, 대응 작물 자료로 G3b의 상대 선택을 별도로 검토한다. 다섯째 단계의 공개 서비스는 G4의 설치·권리·보안·복구·접근성·실제 CLI 비용 시험 이후에만 가능하다. 지역·시설형·품종·기간을 늘릴 때는 적용 범위마다 관문을 다시 통과시킨다.
+
+\section{결론과 미해결 질문}
+이 설계의 첫 유용한 산출물은 \emph{근거가 고정된 과거 온실 상태의 설명}과 \emph{완전한 가정을 입력했을 때의 조건부 농장 사업성 계산}이다. 자료가 빠지면 숫자 0으로 보충하지 않고, 열량을 구매 전기나 연료로 바꾸지 않으며, 미판매 작물을 매출로 계산하지 않는다. 결과의 출처·권리·적용 범위와 매 평가의 보류 이유가 사용자에게 보인다. 다음 미해결 문제는 시범 좌표의 일사 품질, 국내 온실의 열·수분 계수와 센서 편향, 방울토마토의 품종별 작기 자료, 구매 에너지 효율과 요금, 등급별 정산·배치 원가, 그리고 \emph{같은 의사결정 조건의 독립 대응 작물 비교}다. 이 증거가 갖춰져야 미래 마진과 작물 선택의 주장 범위를 넓힐 수 있다.
+
+\section*{내부 설계 문서와 상태}
+\phantomsection
+\addcontentsline{toc}{section}{내부 설계 문서와 상태}
+본 백서는 2026-09-27 현재 저장소의 \path{README.md}와 다음 설계 문서를 통합했다: \path{docs/PROJECT_SPEC.md}, \path{docs/RESEARCH_BASELINE.md}, \path{docs/ARCHITECTURE.md}, \path{docs/ECONOMICS.md}, \path{docs/TECH_STACK.md}, \path{docs/DOMAIN_PRIMER.md}. 이 문서들은 프로젝트의 요구·선택·미확인 질문을 정의하며 서로 독립된 실측 증거가 아니다. 구현물, 성능 결과, 현장 검증 결과 및 공개 서비스의 존재를 뜻하지 않는다.
+
+\begin{thebibliography}{99}
+\phantomsection
+\addcontentsline{toc}{section}{참고문헌}
+\bibitem{fao-land} FAO, \emph{Framework for Land Evaluation: Land Suitability Classifications}, 3장. \url{https://www.fao.org/4/x5310e/x5310e04.htm} (열람 2026-09-27).
+\bibitem{wur-data} S. Hemming, F. de Zwart, A. Elings, A. Petropoulou, I. Righini (creators), \emph{Autonomous Greenhouse Challenge, Second Edition (2019)}, Wageningen University \& Research 데이터셋, 공개 2020-08-20. DOI: \url{https://doi.org/10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7}. \url{https://research.wur.nl/en/datasets/autonomous-greenhouse-challenge-second-edition-2019/} (열람 2026-09-27).
+\bibitem{w3c-prov} W3C, \emph{PROV-O: The PROV Ontology}. \url{https://www.w3.org/TR/prov-o/} (열람 2026-09-27).
+\bibitem{postgres-select} PostgreSQL Global Development Group, \emph{SELECT}, \texttt{SKIP LOCKED} 설명. \url{https://www.postgresql.org/docs/current/sql-select.html} (열람 2026-09-27).
+\bibitem{kma-api} 기상청, \emph{API허브 종관기상관측(ASOS) 시간자료 설명}. \url{https://apihub.kma.go.kr/apiList.do} (열람 2026-09-27).
+\bibitem{kma-qc} 기상청 기상자료개방포털, \emph{종관기상관측(ASOS) OPEN-API 자료·QC 설명}. \url{https://data.kma.go.kr/data/grnd/selectAsosRltmList.do?pgmNo=36&tabNo=2} (열람 2026-09-27).
+\bibitem{kma-rights} 기상청 기상자료개방포털, \emph{저작권 보호 및 정책}. \url{https://data.kma.go.kr/cmmn/static/staticPage.do?page=pageCr} (열람 2026-09-27).
+\bibitem{nongsaro-rights} 농촌진흥청 농사로, \emph{책임의 한계와 저작권 정책}. \url{https://www.nongsaro.go.kr/portal/ps/psz/psza/contentMain.mo?menuId=PS00190} (열람 2026-09-27).
+\bibitem{nasa-hourly} NASA POWER, \emph{Hourly API: Time Standards}. \url{https://power.larc.nasa.gov/docs/services/api/temporal/hourly/} (열람 2026-09-27).
+\bibitem{kamis} 한국농수산식품유통공사 KAMIS, \emph{가격통계}. \url{https://www.kamis.or.kr/customer/price/statistics.do} (열람 2026-09-27).
+\bibitem{fao-aquacrop} FAO, \emph{AquaCrop Input Requirements}. \url{https://www.fao.org/aquacrop/overview/input-requirements/} (열람 2026-09-27).
+\bibitem{wur-bot} G. P. A. Bot, ``A validated physical model of greenhouse climate,'' \emph{Acta Horticulturae} 245 (1989), 289--298. DOI: \url{https://doi.org/10.17660/ActaHortic.1989.245.52}. \url{https://research.wur.nl/en/publications/a-validated-physical-model-of-greenhouse-climate/} (열람 2026-09-27).
+\bibitem{wur-greenlight} D. Katzin, S. van Mourik, F. Kempkes, E. J. van Henten, ``GreenLight -- An open source model for greenhouses with supplemental lighting: Evaluation of heat requirements under LED and HPS lamps,'' \emph{Biosystems Engineering} 194 (2020), 61--81. DOI: \url{https://doi.org/10.1016/j.biosystemseng.2020.03.010}. \url{https://research.wur.nl/en/publications/greenlight-an-open-source-model-for-greenhouses-with-supplemental/} (열람 2026-09-27).
+\bibitem{doe-cop} U.S. Department of Energy, \emph{Purchasing Energy-Efficient Geothermal Heat Pumps}, COP 정의. \url{https://www.energy.gov/cmei/femp/purchasing-energy-efficient-geothermal-heat-pumps} (열람 2026-09-27).
+\bibitem{wcag} W3C, \emph{Web Content Accessibility Guidelines (WCAG) 2.2}. \url{https://www.w3.org/TR/WCAG22/} (열람 2026-09-27).
+\bibitem{ifrs15} IFRS Foundation, \emph{IFRS 15 Revenue from Contracts with Customers}, 개요. \url{https://www.ifrs.org/issued-standards/list-of-standards/ifrs-15-revenue-from-contracts-with-customers/} (열람 2026-09-27).
+\bibitem{ias2} IFRS Foundation, \emph{IAS 2 Inventories}, 개요. \url{https://www.ifrs.org/issued-standards/list-of-standards/ias-2-inventories/} (열람 2026-09-27).
+\bibitem{ias16} IFRS Foundation, \emph{IAS 16 Property, Plant and Equipment}, 개요. \url{https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/} (열람 2026-09-27).
+\bibitem{fastapi-bg} FastAPI, \emph{Background Tasks}, 무거운 작업에 관한 주의. \url{https://fastapi.tiangolo.com/tutorial/background-tasks/} (열람 2026-09-27).
+\bibitem{scipy-ivp} SciPy, \emph{scipy.integrate.solve\_ivp} 공식 문서. \url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html} (열람 2026-09-27).
+\bibitem{openai-model} OpenAI, \emph{GPT-6 Sol Model}, 공식 OpenAI Docs. \url{https://developers.openai.com/api/docs/models/gpt-6-sol} (열람 2026-09-27).
+\bibitem{openai-exec} OpenAI, \emph{Codex Non-interactive Mode}, 공식 OpenAI Docs. \url{https://learn.chatgpt.com/docs/non-interactive-mode} (열람 2026-09-27).
+\end{thebibliography}
+
+\end{document}
