@@ -206,6 +206,9 @@ class DecisionContract:
         self.authority_resolver = authority_resolver
         self.input_parser = input_parser
 
+    def binding_fields(self, job):
+        return _STAGE_FIELDS[job["stage"]]
+
     def input_context(self, job):
         raw = job.get("input_bytes")
         if type(raw) is not bytes:
@@ -229,7 +232,7 @@ class DecisionContract:
                 raise ProposalHold("decision_context_mismatch")
         if not set(value.get("candidate_ids", [])) <= authority.candidate_ids:
             raise ProposalHold("candidate_scope_mismatch")
-        required_bindings = _STAGE_FIELDS[job["stage"]]
+        required_bindings = self.binding_fields(job)
         if (set(authority.stage_bindings) != required_bindings or
                 any(value.get(key) != authority.stage_bindings[key]
                     for key in required_bindings)):
