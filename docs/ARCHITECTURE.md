@@ -106,10 +106,12 @@ WebGL을 쓰지 못하는 사용자도 지역 선택·실행·결과 판단을 �
 
 ```text
 codex --ask-for-approval never exec -m gpt-6-sol -c 'model_reasoning_effort="xhigh"' \
-  --sandbox read-only --skip-git-repo-check --ignore-user-config \
+  --sandbox read-only --skip-git-repo-check \
   --ephemeral --json --output-schema /contracts/decision-v1.schema.json \
   --output-last-message /work/decision.json -C /work/input -
 ```
+
+작업별 격리된 `CODEX_HOME/config.toml`에 승인된 읽기 전용 MCP만 기록하고 기동 시 실제 활성 도구 목록을 검사한다. 로컬 `codex-cli 0.157.1`의 `codex exec --help`에서 `--ignore-user-config`는 이 `CODEX_HOME/config.toml`도 읽지 않으므로 승인 MCP가 필요한 호출에는 사용하지 않는다. 격리 홈과 읽기 전용 작업 디렉터리의 설정 파일·권한을 서버가 만든 뒤 실행한다.
 
 stdin은 서버가 생성한 버전 고정 지시문과 `tenant_id/job_id`, 좌표·기간·목표, 허용 자료원 ID, **해시로 고정된 자료·가격/요금/비용 버전·프로필·Run·관문 증거 참조**를 담는다. 원문은 길이·형식·권리를 검사한 뒤 식별자와 출처를 붙인 **인용용 자료**로만 전달한다. 단계별 입력 스키마는 `research_input_v1`(좌표/기간/제공자 등록부/기존 기상·가격·요금·비용 근거), `collection_review_input_v1`(계획 ID/원본 해시/품질 보고서/가격·요금 적용일·계약·권리·증거 등급), `assessment_input_v1`(Run·Economic result·프로필·후보/목표·G0~G3a/G3b 증거 ID)로 버전 관리한다. CLI 최종 JSON의 공통 봉투 `decision_v1`에는 `schema_version`, `stage`, `input_sha256`, `proposed_status`(`proceed/hold`), `selected_ids`, `rejected_ids`, `claims[]`(주장·`evidence_ids[]`·불확실성), `missing_evidence[]`, `reason`을 필수로 둔다. 조사 단계의 `selected_ids`는 제공자·관측소·변수/기간 요청이고 평가 단계는 후보/목표와 제외 사유다. 증거 레지스트리에는 각 `evidence_id`의 URL·발표/조회시각·원본 해시·권리를 둔다. `--output-schema`는 출력 형태를 요구할 뿐 과학적 사실을 증명하지 않는다. 서버가 별도 Pydantic/JSON Schema 검증으로 필수 필드·열거값·길이·값 범위·참조 ID 존재·테넌트 소유권·증거 적용 범위·권리·평가별 G0~G3a/G3b 관문을 검사한다. G4는 공개 배포 때 별도 검사한다. 스키마 오류·근거 없는 주장·허용되지 않은 도구 호출은 게시하지 않고 `hold` 또는 통제된 실패로 처리한다.
 

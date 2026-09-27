@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-상태: **내부 구현 계약 초안, 2026-09-27. `repo-bootstrap`은 완료됐고 Compose 정적 골격이 준비됐다. 출처/G0 판정 계약의 101개 시험은 통과했지만 서버 영속 승인 저장소와 실제 원천 G0는 미구현이며 시험용 입력은 아직 승인되지 않았다.** 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
+상태: **내부 구현 계약 초안, 2026-09-27. `repo-bootstrap`과 `compose-runtime` C0는 수용됐다. 출처/G0 판정 계약 101개, 시장 문맥 87개, 합성 weather/economics fixture 30개와 열 trace 구조 계약 55개 집중 시험이 통과했다. 열 매개변수·포화압 법칙의 사전 등록, 서버 영속 승인 저장소, 실제 원천 G0와 G1 전체 경로는 아직 수용 전이다.** 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
 
 ## 1. 목표와 확인할 사용자 경로
 
@@ -16,9 +16,9 @@
 
 ## 2. 초기 설정 작업에서 만들 실행 명령
 
-`repo-bootstrap`의 다섯 파일 `backend/pyproject.toml`, `backend/uv.lock`, `web/package.json`, `web/package-lock.json`, `.gitignore`가 준비됐고 두 잠금 파일은 Git에 추적된다. 오프라인 캐시에서 `uv lock --check`, `uv sync --locked`, FastAPI/Pydantic import와 `npm ci --strict-peer-deps`(43개 패키지)가 통과했다. 웹 `node_modules`는 이후 제거됐고 신규 온라인 설치는 검증하지 않았다. 앱 자료형 검사·시험·빌드·API 실행은 해당 소스와 시험이 생긴 뒤 확인한다. 별도 `compose-runtime`의 `compose.yaml`, `.env.example`, `backend/Dockerfile`, `web/Dockerfile`, `.dockerignore` 다섯 파일은 정적 골격으로 추가됐다. [Compose 빌드](https://docs.docker.com/reference/compose-file/build/)의 문맥과 Dockerfile을 명시하고 [`.dockerignore`의 제외 규칙](https://docs.docker.com/build/concepts/context/)으로 비밀·원본 자료가 이미지 빌드에 들어가지 않게 한다. 실제 이미지 빌드와 DB 영속성은 계속 수용 전이다.
+`repo-bootstrap`의 다섯 파일 `backend/pyproject.toml`, `backend/uv.lock`, `web/package.json`, `web/package-lock.json`, `.gitignore`와 잠금 설치 확인이 완료됐다. `compose-runtime`의 `compose.yaml`, `.env.example`, `backend/Dockerfile`, `web/Dockerfile`, `.dockerignore`도 준비됐다. [C0 Actions 실행](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36303540834)에서 두 Compose 모델, web/API 의존성 이미지 빌드, PostgreSQL 18.6 건강 확인·컨테이너 재생성 뒤 데이터 보존이 통과했다. 앱 역할 전체 기동과 실제 CLI 세 단계, API·브라우저 경로는 후속 작업이다.
 
-다음은 **후속 작업에서 실행할 검증 명령**이다. 현재 앱 소스·시험과 프로젝트 `compose.yaml`이 없어 완료 증거로 세지 않는다.
+다음 명령은 각 후속 소스·시험이 생길 때 해당 작업의 범위를 확인한다. C0 수용은 위 호스팅 실행으로 별도 확인했다.
 
 ```sh
 (cd backend && uv run pytest)
@@ -26,7 +26,7 @@
 docker compose config -q # compose-runtime: Docker/Compose 호스트에서 비밀값 출력 없이 구성 검증
 ```
 
-`compose-runtime`의 C0 수용은 Docker/Compose 호스트에서 정식 Compose 모델을 [`docker compose config -q`](https://docs.docker.com/reference/cli/docker/compose/config/)로 검증하고, 그 시점의 부트스트랩 파일만으로 만들 수 있는 이미지를 빌드하며, 응용 소스 없이 PostgreSQL을 기동해 `pg_isready` 준비 상태와 재생성 후 데이터 보존을 확인하는 것이다. 비밀이 풀린 `docker compose config` 출력을 증거로 남기지 않는다. web/API/작업자 전체 기동, 장애 복구, 실제 CLI 세 단계와 UI는 각 후속 작업 및 `end-to-end-g1`의 수용이다. 실제 앱 실행 명령과 건강 확인 끝점은 코드가 생길 때 정한다. 현재 호스트에는 Docker Engine/Podman/PostgreSQL 명령과 Docker 소켓이 없어 C0 실행 증거가 없으며 `compose-runtime`도 체크하지 않는다. 예정된 Dockerfile이나 이미지가 이미 있다는 뜻도 아니다.
+`compose-runtime` C0는 Docker/Compose 호스트에서 정식 Compose 모델 [`docker compose config -q`](https://docs.docker.com/reference/cli/docker/compose/config/)와 web/API 의존성 이미지를 확인하고, PostgreSQL의 `pg_isready` 준비 상태와 컨테이너 재생성 뒤 데이터 보존을 [호스팅 실행](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36303540834)에서 검증해 수용했다. 비밀이 풀린 `docker compose config` 출력을 증거로 남기지 않았다. 현재 로컬 호스트에는 Docker Engine과 소켓이 없어 앱 역할 기동·작업자 복구·실제 CLI 세 단계·UI 경로는 후속 `end-to-end-g1`에서 확인한다.
 
 ## 3. 제안하는 프로젝트 구조
 
