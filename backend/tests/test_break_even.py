@@ -2,9 +2,13 @@
 
 from copy import deepcopy
 from decimal import Decimal
+import os
 from pathlib import Path
 import sys
+from uuid import uuid4
 
+import psycopg
+from psycopg import sql
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -12,13 +16,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app.break_even import (BreakEvenService, canonical_request_sha256,
                             fixed_shock_sha256, fixed_trial_sha256)
 from app.economic_contracts import EconomicScenario
-from app.market_scenario import settlement_path_sha256
-from test_market_scenario import case, digest, service, sidecar
+from app.market_candidate_store import (MarketCandidateStore,
+                                        install_market_candidate_schema)
+from app.market_scenario import MarketScenarioService, settlement_path_sha256
+from test_market_scenario import case, digest, sidecar
 
 
 def trial_plan(values, *, target="oi", variable="KRW/kg", vary_cap=False,
-               collection_overrides=None):
+               collection_overrides=None, candidate_repository_factory=None):
     repo, template = case()
+    candidate_repository = (candidate_repository_factory(repo)
+                            if candidate_repository_factory else repo)
     baseline = EconomicScenario.model_validate(repo.scenarios[("scenario-1", "r1")])
     sale = baseline.sales[0]
     refs = []
@@ -69,10 +77,11 @@ def trial_plan(values, *, target="oi", variable="KRW/kg", vary_cap=False,
         trial_request = deepcopy(template)
         trial_request["shock"] = {"shock_id": shock_id, "revision": "r1",
                                   "sha256": digest(shock)}
-        candidate = service(repo).build_candidate(trial_request, "tenant-1")
+        candidate = MarketScenarioService(candidate_repository).build_candidate(
+            trial_request, "tenant-1")
         assert candidate.status == "pinned"
-        scenario = EconomicScenario.model_validate(repo.scenarios[
-            (candidate.scenario_id, candidate.revision)])
+        scenario = EconomicScenario.model_validate(candidate_repository.get_economic_scenario(
+            candidate.scenario_id, candidate.revision))
         current = fixed_trial_sha256(scenario, variable, "sale-1")
         fixed_hash = current if fixed_hash is None else fixed_hash
         assert current == fixed_hash
@@ -101,7 +110,49 @@ def trial_plan(values, *, target="oi", variable="KRW/kg", vary_cap=False,
                             "trials": refs}
     repo.get_break_even_plan = lambda plan_id: (
         repo.break_even_plan if plan_id == request["plan_id"] else None)
-    return repo, request
+    return candidate_repository, request
+
+
+def test_grid_reloads_postgresql_pinned_candidates_for_every_trial():
+    dsn = os.environ.get("OSSF_TEST_PG_DSN")
+    if not dsn:
+        pytest.skip("OSSF_TEST_PG_DSN is unset")
+    schema = "break_even_candidate_test_" + uuid4().hex
+    with psycopg.connect(dsn, autocommit=True) as conn:
+        conn.execute(sql.SQL("CREATE SCHEMA {}").format(sql.Identifier(schema)))
+    try:
+        with psycopg.connect(dsn) as conn:
+            install_market_candidate_schema(conn, schema)
+        principal = {"authenticated": True, "tenant_id": "tenant-1",
+                     "scopes": {"market_candidate_read", "market_candidate_write"}}
+
+        class PlanBackedCandidateStore(MarketCandidateStore):
+            def get_break_even_plan(self, plan_id):
+                if not self.tenant_is_authenticated("tenant-1"):
+                    return None
+                return self._source.get_break_even_plan(plan_id)
+
+        def factory(source):
+            return PlanBackedCandidateStore(dsn, schema, source,
+                principal_provider=lambda: principal)
+
+        first_store, request = trial_plan([20, 26, 32],
+            candidate_repository_factory=factory)
+        assert len(first_store._source.scenarios) == 1
+        resumed = factory(first_store._source)
+        result = BreakEvenService(resumed).scan(request, "tenant-1")
+        assert result.status == "zero_on_grid"
+        assert result.zero_values == (Decimal("26"),)
+        assert tuple(item.target_value for item in result.trials) == (
+            Decimal("-54"), Decimal("0"), Decimal("54"))
+        assert len({item.market_result_id for item in result.trials}) == 3
+        with resumed.connect() as conn:
+            count = conn.execute(sql.SQL("SELECT count(*) AS n FROM {}")
+                .format(resumed._table("market_candidate_pins"))).fetchone()["n"]
+        assert count == 3
+    finally:
+        with psycopg.connect(dsn, autocommit=True) as conn:
+            conn.execute(sql.SQL("DROP SCHEMA {} CASCADE").format(sql.Identifier(schema)))
 
 
 @pytest.mark.parametrize("target", ["oi", "operating_cash", "cumulative_equity_cash"])
