@@ -23,6 +23,15 @@ class JobStatus(BaseModel):
     reason_code: str | None
 
 
+class MarketHoldStatus(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    hold_report_id: UUID
+    status: Literal["hold"]
+    reasons: list[str]
+    missing_evidence: list[str]
+
+
 class ErrorDetail(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
@@ -47,4 +56,12 @@ def public_job_status(row: dict) -> JobStatus:
         "attempt_count": row["attempt_count"], "max_attempts": row["max_attempts"],
         "created_at": row["created_at"], "updated_at": row["updated_at"],
         "reason_code": reason_code,
+    })
+
+
+def public_market_hold(row: dict) -> MarketHoldStatus:
+    """The display projection cannot carry signed context or raw report bytes."""
+    return MarketHoldStatus.model_validate({
+        "hold_report_id": row["hold_report_id"], "status": row["status"],
+        "reasons": row["reasons"], "missing_evidence": row["missing_evidence"],
     })

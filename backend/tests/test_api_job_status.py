@@ -13,6 +13,11 @@ from app.api_contracts import public_job_status
 from test_jobs import pg_store
 
 
+class UnusedMarketHoldStore:
+    def get_public_report(self, _tenant, _report_id):
+        raise AssertionError("job status must not read a market report")
+
+
 def get(app, path):
     async def call():
         sent = []
@@ -43,7 +48,7 @@ def get(app, path):
 
 def test_job_http_status_scope_and_public_projection(pg_store):
     principal = {"authenticated": True, "tenant_id": "tenant-a", "scopes": {"metadata"}}
-    app = create_app(pg_store, principal_provider=lambda: principal)
+    app = create_app(pg_store, UnusedMarketHoldStore(), principal_provider=lambda: principal)
     job = pg_store.submit("tenant-a", "research", {"fixture": "synthetic"},
                           "api-" + uuid4().hex)
     path = f"/v1/jobs/{job['job_id']}"
@@ -85,7 +90,8 @@ def test_job_http_store_failure_is_generic_and_reason_details_are_removed(pg_sto
         def get_job(self, _tenant, _job_id):
             raise RuntimeError("private database location and credential")
 
-    app = create_app(BrokenStore(), principal_provider=lambda: principal)
+    app = create_app(BrokenStore(), UnusedMarketHoldStore(),
+                     principal_provider=lambda: principal)
     status, payload = get(app, f"/v1/jobs/{uuid4()}")
     assert status == 503
     assert payload == {"error": {"code": "store_unavailable",
@@ -97,7 +103,8 @@ def test_job_http_store_failure_is_generic_and_reason_details_are_removed(pg_sto
         def get_job(self, _tenant, _job_id):
             return {**job, "tenant_id": "tenant-b"}
 
-    app = create_app(ForeignStore(), principal_provider=lambda: principal)
+    app = create_app(ForeignStore(), UnusedMarketHoldStore(),
+                     principal_provider=lambda: principal)
     assert get(app, f"/v1/jobs/{job['job_id']}")[0] == 404
 
     projected = public_job_status({**job, "reason": {"code": "temporary_failure",

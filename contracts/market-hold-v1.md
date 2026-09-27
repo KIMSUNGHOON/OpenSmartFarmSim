@@ -1,6 +1,6 @@
 # Market unavailability report v1
 
-Status: implemented as a synthetic software storage contract. Market source G0, actual thermal G1, API publication, and deployment G4 remain HOLD. This report says only that the market G0 review has **not been evaluated** for the specified decision. It does not claim that a source failed G0, that a crop is unsuitable, or that an approved MarketSnapshot exists.
+Status: implemented as a synthetic software storage contract with a limited [HTTP read path](api-market-hold-v1.md). Market source G0, actual thermal G1, full API flow, and deployment G4 remain HOLD. This report says only that the market G0 review has **not been evaluated** for the specified decision. It does not claim that a source failed G0, that a crop is unsuitable, or that an approved MarketSnapshot exists.
 
 ## Authority and identity
 
