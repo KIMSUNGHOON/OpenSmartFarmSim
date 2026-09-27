@@ -606,8 +606,8 @@ class MarketScenarioService:
             raise ValueError("trusted candidate pin failed") from exc
         if pinned is not True:
             raise ValueError("candidate pin was not committed")
-        if (_load(self._repository, "get_market_candidate", scenario.scenario_id,
-                  scenario.scenario_revision) != record or
+        if (_json(_load(self._repository, "get_market_candidate", scenario.scenario_id,
+                       scenario.scenario_revision)) != _json(record) or
                 canonical_scenario_sha256(_parse(EconomicScenario, _require_raw_identity(_load(
                     self._repository, "get_economic_scenario", scenario.scenario_id,
                     scenario.scenario_revision), authenticated_tenant_id, "scenario_id",
@@ -627,7 +627,8 @@ class MarketScenarioService:
         if not isinstance(stored, dict) or stored.get("tenant_id") != authenticated_tenant_id:
             raise ValueError("foreign or malformed candidate pin")
         request, derived, expected, _ = self._prepare(stored.get("request"), authenticated_tenant_id)
-        if stored != expected or (scenario_id, revision) != (derived.scenario_id, derived.scenario_revision):
+        if (_json(stored) != _json(expected) or
+                (scenario_id, revision) != (derived.scenario_id, derived.scenario_revision)):
             raise ValueError("candidate, shock, rights, or job pin changed")
         actual = _parse(EconomicScenario, _require_raw_identity(_load(
             self._repository, "get_economic_scenario", scenario_id, revision),
