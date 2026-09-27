@@ -9,6 +9,7 @@ flowchart LR
   repo-bootstrap --> provenance-g0 --> thermal-synthetic-parameters --> thermal-contract --> fixture-policy --> thermal-engine
   repo-bootstrap --> compose-runtime --> durable-jobs --> decision-evidence-store --> cli-worker-store-bridge --> cli-worker
   repo-bootstrap --> db-driver-bootstrap --> durable-jobs
+  durable-jobs --> job-intent-idempotency --> api-flow
   compose-runtime --> backend-ci
   db-driver-bootstrap --> backend-ci
   provenance-g0 --> cli-worker
@@ -19,7 +20,6 @@ flowchart LR
   economic-ledger --> economic-break-even
   thermal-contract --> thermal-engine
   cli-worker --> api-flow
-  durable-jobs --> api-flow
   market-context --> api-flow
   thermal-engine --> thermal-g1-publisher --> api-flow
   decision-evidence-store --> thermal-g1-publisher
