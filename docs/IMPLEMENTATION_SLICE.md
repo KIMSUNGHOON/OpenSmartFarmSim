@@ -105,6 +105,7 @@ MarketContext = Annotated[
 | `cli-worker` | 제한된 실제 CLI 단계·스키마·보류·감사 |
 | `market-context` | 결정 당시 시장 자료의 가용/불가 구분과 ForecastRun 분리 |
 | `thermal-engine` | 결정적 단일 구역 물리 Run |
+| `cli-worker-store-bridge` | CLI 단계별 임대·검증된 보류 보고서·실행 사건 저장 계약 |
 | `economic-ledger` | `Decimal` 조건부 원장과 날짜별 현금 |
 | `sales-settlement` | 판매별 공제·수금과 미수금/미지급금 대사, 증거가 완전한 조건부 순송금 단가 |
 | `market-scenario` | 수요·공급·거시 공동 충격, 시점·권리·재고·계약 제약을 따르는 조건부 날짜별 경로 |
