@@ -9,6 +9,8 @@ flowchart LR
   repo-bootstrap --> provenance-g0 --> thermal-synthetic-parameters --> thermal-contract --> fixture-policy --> thermal-engine
   repo-bootstrap --> compose-runtime --> durable-jobs --> decision-evidence-store --> cli-worker-store-bridge --> cli-worker
   repo-bootstrap --> db-driver-bootstrap --> durable-jobs
+  compose-runtime --> backend-ci
+  db-driver-bootstrap --> backend-ci
   provenance-g0 --> cli-worker
   provenance-g0 --> market-context --> economic-ledger --> sales-settlement --> market-scenario --> economic-break-even
   fixture-policy --> economic-ledger
