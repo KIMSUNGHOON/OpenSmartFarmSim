@@ -18,7 +18,9 @@ from .thermal_run_store import snapshot_id_for, ThermalStoreHold
 HEX = re.compile(r"^[0-9a-f]{64}$")
 CODE_FILES = ("backend/app/thermal.py", "backend/app/thermal_units.py",
               "backend/app/thermal_publisher.py", "backend/app/thermal_run_store.py",
-              "contracts/thermal-v1.schema.json")
+              "backend/app/job_store.py", "backend/app/jobs.py", "backend/app/db.py",
+              "backend/app/cli_contracts.py", "backend/app/cli_worker.py",
+              "contracts/thermal-v1.schema.json", "contracts/decision-v1.schema.json")
 WEATHER_ID = "synthetic-weather-v1"
 THERMAL_ID = "synthetic-thermal-parameters-v1"
 RELEASE_HOLDS = ["NO_ENGINE_OPERATION_ORDER_REVIEW", "NO_SERVER_INPUT_LINKAGE_REVIEW"]
@@ -102,20 +104,27 @@ def runtime_digests(root):
     return _hash(_json(code)), _hash((root / "backend/uv.lock").read_bytes())
 
 
-def collection_review_input(snapshot):
+CONTEXT_FIELDS = ("decision_context_id", "decision_at_utc", "claim_mode", "decision_time_kind")
+
+
+def collection_review_input(snapshot, context):
     return {"input_version": "thermal-g1-collection-review-input-v1",
             "snapshot_id": snapshot["snapshot_id"],
             "manifest_sha256": snapshot["manifest_sha256"],
             "weather_sha256": snapshot["weather_sha256"],
-            "thermal_sha256": snapshot["thermal_sha256"]}
+            "thermal_sha256": snapshot["thermal_sha256"],
+            "context_sha256": context["context_sha256"],
+            **{key: context[key] for key in CONTEXT_FIELDS}}
 
 
-def collection_review_proposal(snapshot):
+def collection_review_proposal(snapshot, context):
     return {"proposal_version": "thermal-g1-collection-review-proposal-v1",
             "snapshot_id": snapshot["snapshot_id"],
             "manifest_sha256": snapshot["manifest_sha256"],
             "weather_sha256": snapshot["weather_sha256"],
-            "thermal_sha256": snapshot["thermal_sha256"]}
+            "thermal_sha256": snapshot["thermal_sha256"],
+            "context_sha256": context["context_sha256"],
+            **{key: context[key] for key in CONTEXT_FIELDS}}
 
 
 def _pointer(document, pointer):
@@ -131,7 +140,7 @@ def _pointer(document, pointer):
     return node
 
 
-def _source_checks(manifest, weather, thermal, raw_hashes, decision_at):
+def _source_checks(manifest, weather, thermal, raw_hashes, decision_at, review_at, claim_mode):
     _need(manifest.get("claim_scope") == "synthetic_g1_software_input_only" and
           manifest.get("assessment_intent") == "hold" and
           all(code in manifest.get("unresolved", ()) for code in RELEASE_HOLDS),
@@ -165,8 +174,11 @@ def _source_checks(manifest, weather, thermal, raw_hashes, decision_at):
               "SOURCE_HOLD: synthetic raw pin, rights, QC or provenance")
         for source in (manifest, row):
             _need(_utc(source["published_at_utc"]) <= _utc(source["available_at_utc"])
-                  <= _utc(source["retrieved_at_utc"]) <= decision_at,
-                  "SOURCE_HOLD: source unavailable at decision")
+                  <= _utc(source["retrieved_at_utc"]) <= review_at,
+                  "SOURCE_HOLD: source chronology or review cutoff")
+            if claim_mode == "ex_ante":
+                _need(_utc(source["available_at_utc"]) <= decision_at,
+                      "SOURCE_HOLD: source unavailable at planning decision")
         _need(_utc(row["applicability_start_utc"]) < _utc(row["applicability_end_utc"]),
               "SOURCE_HOLD: invalid applicability")
     law = thermal.get("law_source", {})
@@ -176,14 +188,15 @@ def _source_checks(manifest, weather, thermal, raw_hashes, decision_at):
           law.get("rights", {}).get("status") ==
           "nws_public_domain_disclaimer_independent_cli_reviewed_conditional" and
           law.get("rights", {}).get("redistribute") == "allowed_with_conditions" and
-          _utc(law["retrieved_at_utc"]) <= decision_at,
+          _utc(law["retrieved_at_utc"]) <= review_at,
           "SOURCE_HOLD: law source is unverified or rights misstated")
     return rows
 
 
-def _check_trace_sources(traces, weather, thermal, rows, decision_at, identity):
+def _check_trace_sources(traces, weather, thermal, rows, review_at, identity):
     run_identity = {**identity, "engine_version": "thermal-euler-v1",
-                    "unit_registry_version": "thermal-si-nws-v1"}
+                    "unit_registry_version": "thermal-si-nws-v1",
+                    "model_version": "thermal-v1", "parameter_set_version": THERMAL_ID}
     run_id = "synthetic-thermal-v1:" + _hash(_json(run_identity))
     record_map = {}
     files = {WEATHER_ID: weather, THERMAL_ID: thermal}
@@ -199,6 +212,9 @@ def _check_trace_sources(traces, weather, thermal, rows, decision_at, identity):
               trace.get("run_id") == run_id and
               trace.get("trace_id") == f"{run_id}:hour-{hour}" and
               trace.get("decision_id") == identity["decision_id"] and
+              all(trace.get(key) == identity[key] for key in
+                  ("decision_context_id", "decision_at_utc", "review_at_utc",
+                   "claim_mode", "decision_time_kind")) and
               trace.get("input_snapshot_id") == identity["input_snapshot_id"] and
               trace.get("manifest_sha256") == identity["manifest_sha256"] and
               trace.get("synthetic_input_review_id") ==
@@ -260,7 +276,7 @@ def _check_trace_sources(traces, weather, thermal, rows, decision_at, identity):
                       "detail": "self-authored synthetic input"} and
                   source.get("reviewer") == row["review"]["reviewer"] and
                   source.get("rights") == {"use": "allowed", "display": "allowed", "redistribute": "allowed"} and
-                  _utc(source["retrieved_at_utc"]) <= decision_at,
+                  _utc(source["retrieved_at_utc"]) <= review_at,
                   "SOURCE_HOLD: source record metadata differs from pinned manifest")
         expected = {
             "outdoor_humidity_ratio": [
@@ -449,8 +465,17 @@ class ThermalG1Publisher:
             job = conn.execute(sql.SQL("SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s")
                                .format(table("jobs")), (tenant, job_id)).fetchone()
             _need(job is not None and job["stage"] == "collection_review" and
-                  job["state"] == "succeeded" and job["input_bytes"] ==
-                  _json(collection_review_input(snapshot)) and
+                  job["state"] == "succeeded", "REVIEW_HOLD: no completed collection review")
+            submitted = _parse(job["input_bytes"], canonical=True)
+            context_id = submitted.get("decision_context_id")
+            _need(type(context_id) is str and bool(context_id),
+                  "CONTEXT_HOLD: review lacks decision context")
+            context = self.run_store.get_decision_context(tenant, snapshot["snapshot_id"], context_id)
+            _need(context is not None and context["tenant_id"] == tenant and
+                  context["snapshot_id"] == snapshot["snapshot_id"],
+                  "CONTEXT_HOLD: no trusted tenant/snapshot decision context")
+            _need(job["input_bytes"] ==
+                  _json(collection_review_input(snapshot, context)) and
                   _hash(job["input_bytes"]) == job["input_sha256"],
                   "REVIEW_HOLD: no exact completed collection review")
             publication = conn.execute(sql.SQL("SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s")
@@ -468,7 +493,12 @@ class ThermalG1Publisher:
                                    .format(table("attempt_outcomes")), (tenant, job_id, attempt)).fetchone()
             _need(decision is not None and invocation is not None and outcome is not None and
                   decision["decision_id"] == publication["decision_id"] and
-                  snapshot["recorded_at"] <= decision["recorded_at"] <= publication["published_at"] and
+                  snapshot["recorded_at"] <= job["created_at"] <= decision["recorded_at"] <= publication["published_at"] and
+                  context["recorded_at"] <= job["created_at"] and
+                  _utc(context["issued_at_utc"]) <= job["created_at"] and
+                  _utc(context["decision_at_utc"]) <= decision["recorded_at"],
+                  "REVIEW_HOLD: invalid context/review chronology")
+            _need(decision["decision_id"] == publication["decision_id"] and
                   decision["artifact_sha256"] == publication["artifact_sha256"] and
                   decision["disposition"] == "proceed" and
                   invocation["execution_kind"] == "codex_cli" and
@@ -480,17 +510,18 @@ class ThermalG1Publisher:
                   "REVIEW_HOLD: CLI capture, decision or validation is not trusted")
             capture = self.job_store._valid_cli_capture(conn, job, attempt, decision["output_sha256"])
             _need(capture is not None and capture["capture_id"] == decision["capture_id"] and
+                  invocation["created_at"] <= capture["sealed_at"] <= decision["recorded_at"] and
                   callable(self.execution_verifier) and
                   self.execution_verifier(tenant, job_id, attempt,
                       capture["capture_id"], snapshot["snapshot_id"], decision["decision_id"]) is True,
                   "REVIEW_HOLD: no independently observed CLI worker execution")
         artifact = self.job_store.read_artifact(tenant, job_id)
-        _need(artifact == _json(collection_review_proposal(snapshot)) and
+        _need(artifact == _json(collection_review_proposal(snapshot, context)) and
               _hash(artifact) == publication["artifact_sha256"],
               "REVIEW_HOLD: review proposal does not bind snapshot")
-        return str(decision["decision_id"]), _iso(decision["recorded_at"]), str(capture["capture_id"])
+        return context, str(decision["decision_id"]), _iso(decision["recorded_at"]), str(capture["capture_id"])
 
-    def _checked_snapshot(self, tenant, snapshot_id, decision_at):
+    def _checked_snapshot(self, tenant, snapshot_id, decision_at, review_at, claim_mode):
         snapshot = self.run_store.get_snapshot(tenant, snapshot_id)
         _need(snapshot is not None and snapshot_id_for(snapshot["manifest_raw"],
             snapshot["weather_raw"], snapshot["thermal_raw"]) == snapshot_id,
@@ -500,13 +531,14 @@ class ThermalG1Publisher:
               _hash(raw[2]) == snapshot["thermal_sha256"],
               "PIN_HOLD: input bytes differ")
         manifest, weather, thermal = map(_parse, raw)
-        rows = _source_checks(manifest, weather, thermal, tuple(map(_hash, raw)), decision_at)
+        rows = _source_checks(manifest, weather, thermal, tuple(map(_hash, raw)),
+                              decision_at, review_at, claim_mode)
         _need(rows[WEATHER_ID]["byte_length"] == len(raw[1]) and
               rows[THERMAL_ID]["byte_length"] == len(raw[2]),
               "PIN_HOLD: fixture length differs")
         return manifest, weather, thermal
 
-    def _release(self, tenant, snapshot_id, snapshot, decision_at, code_sha, env_sha):
+    def _release(self, tenant, snapshot_id, snapshot, context, review_at, code_sha, env_sha):
         result = self.release_resolver(tenant, snapshot_id)
         _need(type(result) is tuple and len(result) == 2,
               "RELEASE_HOLD: no independently issued release evidence")
@@ -520,25 +552,32 @@ class ThermalG1Publisher:
         except Exception as exc:
             raise ThermalPublishHold("RELEASE_HOLD: release verifier failed") from exc
         _need(type(attestation) is dict and
-              set(attestation) == {"authority_id", "reviewer", "review_evidence_raw"} and
+              set(attestation) == {"authority_id", "reviewer", "review_evidence_raw",
+                                   "issued_at_utc"} and
               type(attestation["authority_id"]) is str and attestation["authority_id"] and
               type(attestation["reviewer"]) is str and attestation["reviewer"] and
               type(attestation["review_evidence_raw"]) is bytes and
               1 <= len(attestation["review_evidence_raw"]) <= 1048576 and
               _hash(attestation["review_evidence_raw"]) == release.get("review_evidence_sha256") and
               attestation["authority_id"] == release.get("authority_id") and
-              attestation["reviewer"] == release.get("reviewer"),
+              attestation["reviewer"] == release.get("reviewer") and
+              attestation["issued_at_utc"] == release.get("issued_at_utc"),
               "RELEASE_HOLD: untrusted release authority or review evidence")
         evidence = _parse(attestation["review_evidence_raw"], canonical=True)
         required = {"release_version", "scope", "manifest_sha256", "weather_sha256",
                     "thermal_sha256", "code_sha256", "environment_sha256", "reviewer",
-                    "authority_id", "reviewed_at_utc", "review_evidence_sha256",
-                    "cleared_holds", "source_verdict"}
+                    "authority_id", "reviewed_at_utc", "issued_at_utc",
+                    "review_evidence_sha256",
+                    "cleared_holds", "source_verdict", "snapshot_id", "context_sha256",
+                    *CONTEXT_FIELDS}
         _need(set(release) == required and release["release_version"] == "thermal-g1-release-v1" and
               release["scope"] == "synthetic_only" and
               release["manifest_sha256"] == snapshot["manifest_sha256"] and
               release["weather_sha256"] == snapshot["weather_sha256"] and
               release["thermal_sha256"] == snapshot["thermal_sha256"] and
+              release["snapshot_id"] == snapshot_id and
+              release["context_sha256"] == context["context_sha256"] and
+              all(release[key] == context[key] for key in CONTEXT_FIELDS) and
               release["code_sha256"] == code_sha and
               release["environment_sha256"] == env_sha and
               release["cleared_holds"] == RELEASE_HOLDS and
@@ -550,22 +589,29 @@ class ThermalG1Publisher:
               HEX.fullmatch(release["review_evidence_sha256"]) and
               _utc(release["reviewed_at_utc"]) >=
               max(_utc(snapshot_row["retrieved_at_utc"]) for snapshot_row in
-                  (self._manifest_row(snapshot, WEATHER_ID),
-                   self._manifest_row(snapshot, THERMAL_ID))) and
-              _utc(release["reviewed_at_utc"]) <= decision_at,
+                  (_parse(snapshot["manifest_raw"]),
+                   self._manifest_row(snapshot, WEATHER_ID),
+                   self._manifest_row(snapshot, THERMAL_ID),
+                   _parse(snapshot["thermal_raw"])["law_source"])) and
+              _utc(release["reviewed_at_utc"]) >=
+              max(context["recorded_at"], _utc(context["issued_at_utc"])) and
+              _utc(release["reviewed_at_utc"]) <= _utc(release["issued_at_utc"]) <= review_at,
               "RELEASE_HOLD: wrong scope, authority, code, source or time")
         evidence_required = {"review_version", "authority_id", "reviewer", "reviewed_at_utc",
-                             "review_method", "manifest_sha256", "weather_sha256",
+                             "issued_at_utc", "review_method", "manifest_sha256", "weather_sha256",
                              "thermal_sha256", "code_sha256", "environment_sha256",
-                             "cleared_holds", "operation_order", "input_linkage", "source_rights_qc"}
+                             "cleared_holds", "operation_order", "input_linkage", "source_rights_qc",
+                             "snapshot_id", "context_sha256", *CONTEXT_FIELDS}
         _need(set(evidence) == evidence_required and
               evidence["review_version"] == "thermal-g1-review-evidence-v1" and
               evidence["review_method"] == "codex_cli_gpt-6-sol_xhigh" and
               evidence["reviewer"] == release["reviewer"] and
               evidence["reviewed_at_utc"] == release["reviewed_at_utc"] and
+              evidence["issued_at_utc"] == release["issued_at_utc"] and
               all(evidence[key] == release[key] for key in
                   ("manifest_sha256", "weather_sha256", "thermal_sha256",
-                   "code_sha256", "environment_sha256", "cleared_holds")) and
+                   "code_sha256", "environment_sha256", "cleared_holds",
+                   "snapshot_id", "context_sha256", *CONTEXT_FIELDS)) and
               evidence["operation_order"] == {"status": "pass", "version": "thermal-euler-v1"} and
               evidence["input_linkage"] == {"status": "pass", "version": "thermal-g1-publisher-v1"} and
               evidence["source_rights_qc"] == {"status": "pass", "scope": "synthetic_only"},
@@ -583,25 +629,36 @@ class ThermalG1Publisher:
         try:
             snapshot = self.run_store.get_snapshot(tenant, snapshot_id)
             _need(snapshot is not None, "PIN_HOLD: no tenant-scoped snapshot")
-            decision_id, decision_time, capture_id = self._review(tenant, review_job_id, snapshot)
-            decision_at = _utc(decision_time)
-            manifest, weather, thermal = self._checked_snapshot(tenant, snapshot_id, decision_at)
+            context, decision_id, review_time, capture_id = self._review(tenant, review_job_id, snapshot)
+            decision_at, review_at = _utc(context["decision_at_utc"]), _utc(review_time)
+            if context["claim_mode"] == "ex_ante":
+                raise ThermalPublishHold("SOURCE_HOLD: no durable D-time vintage/rights evidence protocol")
+            manifest, weather, thermal = self._checked_snapshot(
+                tenant, snapshot_id, decision_at, review_at, context["claim_mode"])
             _source_checks(manifest, weather, thermal,
                 (snapshot["manifest_sha256"], snapshot["weather_sha256"], snapshot["thermal_sha256"]),
-                decision_at)
+                decision_at, review_at, context["claim_mode"])
             code_sha, env_sha = runtime_digests(self.root)
             release_raw, release_signature = self._release(tenant, snapshot_id, snapshot,
-                                                          decision_at, code_sha, env_sha)
+                                                          context, review_at, code_sha, env_sha)
+            clock = {"decision_id": decision_id, "decision_at_utc": context["decision_at_utc"],
+                     "input_snapshot_id": snapshot_id,
+                     "decision_context_id": context["decision_context_id"],
+                     "claim_mode": context["claim_mode"],
+                     "decision_time_kind": context["decision_time_kind"],
+                     "review_at_utc": review_time}
             candidate = calculate_fixture(snapshot["manifest_raw"], snapshot["weather_raw"],
-                snapshot["thermal_raw"], decision_id=decision_id,
-                decision_at_utc=decision_time, input_snapshot_id=snapshot_id)
+                snapshot["thermal_raw"], **clock)
             verify_replay(candidate, snapshot["manifest_raw"], snapshot["weather_raw"],
-                snapshot["thermal_raw"], decision_id=decision_id,
-                decision_at_utc=decision_time, input_snapshot_id=snapshot_id)
+                snapshot["thermal_raw"], **clock)
             traces = [_parse(raw, canonical=True) for raw in candidate]
             rows = {row["fixture_id"]: row for row in manifest["files"]}
-            _check_trace_sources(traces, weather, thermal, rows, decision_at,
-                {"decision_id": decision_id, "decision_at_utc": decision_time,
+            _check_trace_sources(traces, weather, thermal, rows, review_at,
+                {"decision_id": decision_id, "decision_at_utc": context["decision_at_utc"],
+                 "review_at_utc": review_time,
+                 "decision_context_id": context["decision_context_id"],
+                 "claim_mode": context["claim_mode"],
+                 "decision_time_kind": context["decision_time_kind"],
                  "input_snapshot_id": snapshot_id,
                  "manifest_sha256": snapshot["manifest_sha256"]})
             _check_physics(traces, weather, thermal)
@@ -636,7 +693,13 @@ class ThermalG1Publisher:
                 "gate_version": "thermal-g1-publisher-v1", "status": "pass",
                 "tenant_id": tenant,
                 "run_id": first["run_id"], "snapshot_id": snapshot_id,
-                "decision_id": decision_id, "decision_at_utc": decision_time,
+                "decision_id": decision_id,
+                "decision_context_id": context["decision_context_id"],
+                "context_sha256": context["context_sha256"],
+                "decision_at_utc": context["decision_at_utc"],
+                "review_at_utc": review_time,
+                "claim_mode": context["claim_mode"],
+                "decision_time_kind": context["decision_time_kind"],
                 "review_job_id": str(review_job_id), "review_capture_id": capture_id,
                 "manifest_sha256": snapshot["manifest_sha256"],
                 "code_sha256": code_sha, "environment_sha256": env_sha,

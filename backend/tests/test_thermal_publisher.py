@@ -1,6 +1,7 @@
 """Synthetic publisher contract tests; signed fixtures are test doubles, not G1 evidence."""
 
 from hashlib import sha256
+from datetime import timezone
 import hmac
 import json
 import os
@@ -16,11 +17,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.thermal_publisher import (ThermalG1Publisher, ThermalPublishHold,
                                    collection_review_input, collection_review_proposal,
-                                   runtime_digests, _check_physics, _check_trace_sources)
+                                   runtime_digests, _check_physics, _check_trace_sources,
+                                   _source_checks)
 from app.thermal import calculate_fixture
 from app.thermal_run_store import ThermalRunStore, install_thermal_run_schema
 from test_job_evidence import cli_store, prepare_cli_capture
 from test_jobs import pg_store, synthetic_decision_bytes
+from test_thermal_run_store import stored_context, verify_test_context
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -38,7 +41,7 @@ def input_raws():
 
 
 @pytest.fixture
-def setup(pg_store):
+def setup(pg_store, request):
     with pg_store.connect() as conn:
         install_thermal_run_schema(conn, pg_store.schema)
     job_store = cli_store(pg_store)
@@ -48,19 +51,25 @@ def setup(pg_store):
             RELEASE_KEY, b"thermal-g1-release-v1\0" + raw, sha256).hexdigest()):
             return None
         return {"authority_id": "test-authority", "reviewer": "independent synthetic reviewer",
-                "review_evidence_raw": evidence_holder["raw"]}
+                "review_evidence_raw": evidence_holder["raw"],
+                "issued_at_utc": json.loads(raw)["issued_at_utc"]}
     run_store = ThermalRunStore(pg_store._dsn, pg_store.schema, gate_key=GATE_KEY,
         release_verifier=verify_test_release, principal_provider=lambda: {
             "authenticated": True, "tenant_id": "tenant-a", "scopes": (
                 "thermal_snapshot_write", "thermal_snapshot_read", "thermal_run_publish",
-                "thermal_run_read")})
+                "thermal_run_read", "decision_context_write", "decision_context_read")},
+        context_verifier=verify_test_context)
     snapshot_id = run_store.put_snapshot("tenant-a", *input_raws())
     snapshot = run_store.get_snapshot("tenant-a", snapshot_id)
+    context = stored_context(run_store, snapshot_id,
+                             mode=getattr(request, "param", "ex_post_replay"))
+    reviewed_at = context["recorded_at"].astimezone(timezone.utc).isoformat(
+        timespec="microseconds").replace("+00:00", "Z")
     job = job_store.submit("tenant-a", "collection_review",
-        collection_review_input(snapshot), "thermal-review-" + uuid4().hex)
+        collection_review_input(snapshot, context), "thermal-review-" + uuid4().hex)
     lease = job_store.claim(60, allowed_stages=("collection_review",))
     prepare_cli_capture(job_store, job, lease)
-    proposal = collection_review_proposal(snapshot)
+    proposal = collection_review_proposal(snapshot, context)
     decision = job_store.record_decision("tenant-a", job["job_id"], lease["attempt"],
         lease["lease_token"], synthetic_decision_bytes(job), canonical(proposal))
     assert decision is not None
@@ -72,7 +81,8 @@ def setup(pg_store):
     evidence = {
         "review_version": "thermal-g1-review-evidence-v1",
         "authority_id": "test-authority", "reviewer": "independent synthetic reviewer",
-        "reviewed_at_utc": "2026-09-27T09:05:00Z",
+        "reviewed_at_utc": reviewed_at,
+        "issued_at_utc": reviewed_at,
         "review_method": "codex_cli_gpt-6-sol_xhigh",
         "manifest_sha256": snapshot["manifest_sha256"],
         "weather_sha256": snapshot["weather_sha256"],
@@ -82,6 +92,9 @@ def setup(pg_store):
         "operation_order": {"status": "pass", "version": "thermal-euler-v1"},
         "input_linkage": {"status": "pass", "version": "thermal-g1-publisher-v1"},
         "source_rights_qc": {"status": "pass", "scope": "synthetic_only"},
+        "snapshot_id": snapshot_id, "context_sha256": context["context_sha256"],
+        **{key: context[key] for key in
+           ("decision_context_id", "decision_at_utc", "claim_mode", "decision_time_kind")},
     }
     evidence_holder["raw"] = canonical(evidence)
     release = {
@@ -91,10 +104,14 @@ def setup(pg_store):
         "thermal_sha256": snapshot["thermal_sha256"],
         "code_sha256": code_sha, "environment_sha256": environment_sha,
         "authority_id": "test-authority", "reviewer": "independent synthetic reviewer",
-        "reviewed_at_utc": "2026-09-27T09:05:00Z",
+        "reviewed_at_utc": reviewed_at,
+        "issued_at_utc": reviewed_at,
         "review_evidence_sha256": sha256(evidence_holder["raw"]).hexdigest(),
         "cleared_holds": ["NO_ENGINE_OPERATION_ORDER_REVIEW", "NO_SERVER_INPUT_LINKAGE_REVIEW"],
         "source_verdict": "synthetic_qc_rights_and_links_checked",
+        "snapshot_id": snapshot_id, "context_sha256": context["context_sha256"],
+        **{key: context[key] for key in
+           ("decision_context_id", "decision_at_utc", "claim_mode", "decision_time_kind")},
     }
 
     def resolver(_tenant, _snapshot_id):
@@ -118,6 +135,11 @@ def test_real_db_review_link_promotes_two_recarried_bytes_atomically(setup):
     assert first["run_status"] == second["run_status"] == "accepted"
     assert second["initial_state"]["temperature"]["previous_trace_sha256"] == sha256(stored["trace_raws"][0]).hexdigest()
     assert stored["report"]["decision_id"] == first["decision_id"]
+    assert first["decision_context_id"] == second["decision_context_id"] == stored["report"]["decision_context_id"]
+    assert first["decision_at_utc"] == "2026-09-27T09:04:30Z"
+    assert first["review_at_utc"] == stored["report"]["review_at_utc"]
+    assert first["decision_at_utc"] != first["review_at_utc"]
+    assert first["claim_mode"] == second["claim_mode"] == "ex_post_replay"
     assert publisher.publish("tenant-a", job["job_id"], snapshot_id) == receipt
     with runs.connect() as conn:
         count = conn.execute(sql.SQL("SELECT count(*) FROM {}.thermal_g1_runs")
@@ -153,10 +175,58 @@ def test_signed_release_cannot_clear_holds_when_review_evidence_bytes_change(set
     assert runs.get_run("tenant-a", "none") is None
 
 
+def test_release_review_cannot_predate_signed_context(setup):
+    publisher, runs, _, job, snapshot_id, release, _, evidence_holder = setup
+    early = "2026-09-27T09:05:00Z"
+    release["reviewed_at_utc"] = early
+    evidence = json.loads(evidence_holder["raw"])
+    evidence["reviewed_at_utc"] = early
+    evidence_holder["raw"] = canonical(evidence)
+    release["review_evidence_sha256"] = sha256(evidence_holder["raw"]).hexdigest()
+    with pytest.raises(ThermalPublishHold, match="RELEASE_HOLD"):
+        publisher.publish("tenant-a", job["job_id"], snapshot_id)
+    assert runs.get_run("tenant-a", "none") is None
+
+
 def test_no_real_worker_proof_holds_even_with_cli_shaped_db_capture(setup):
     publisher, runs, _, job, snapshot_id, _, _, _ = setup
     publisher.execution_verifier = None
     with pytest.raises(ThermalPublishHold, match="REVIEW_HOLD"):
+        publisher.publish("tenant-a", job["job_id"], snapshot_id)
+    assert runs.get_run("tenant-a", "none") is None
+
+
+def test_missing_or_swapped_context_holds_before_publication(setup, monkeypatch):
+    publisher, runs, _, job, snapshot_id, _, _, _ = setup
+    original = runs.get_decision_context
+    monkeypatch.setattr(runs, "get_decision_context", lambda *_: None)
+    with pytest.raises(ThermalPublishHold, match="CONTEXT_HOLD"):
+        publisher.publish("tenant-a", job["job_id"], snapshot_id)
+    def swapped(tenant, snapshot, context_id):
+        value = original(tenant, snapshot, context_id)
+        return {**value, "decision_at_utc": "2026-09-27T08:00:00Z"}
+    monkeypatch.setattr(runs, "get_decision_context", swapped)
+    with pytest.raises(ThermalPublishHold, match="REVIEW_HOLD"):
+        publisher.publish("tenant-a", job["job_id"], snapshot_id)
+    assert runs.get_run("tenant-a", "none") is None
+
+
+def test_server_source_checker_keeps_ex_ante_D_separate_from_R():
+    raw = input_raws()
+    manifest, weather, thermal = map(json.loads, raw)
+    from datetime import datetime, timezone
+    D = datetime(2026, 9, 27, 8, tzinfo=timezone.utc)
+    R = datetime(2026, 9, 27, 10, tzinfo=timezone.utc)
+    hashes = tuple(sha256(value).hexdigest() for value in raw)
+    with pytest.raises(ThermalPublishHold, match="SOURCE_HOLD"):
+        _source_checks(manifest, weather, thermal, hashes, D, R, "ex_ante")
+    _source_checks(manifest, weather, thermal, hashes, D, R, "ex_post_replay")
+
+
+@pytest.mark.parametrize("setup", ["ex_ante"], indirect=True)
+def test_ex_ante_requires_independent_archived_vintage_and_rights_proof(setup):
+    publisher, runs, _, job, snapshot_id, _, _, _ = setup
+    with pytest.raises(ThermalPublishHold, match="SOURCE_HOLD: no durable D-time"):
         publisher.publish("tenant-a", job["job_id"], snapshot_id)
     assert runs.get_run("tenant-a", "none") is None
 
@@ -189,8 +259,9 @@ def test_release_pin_change_or_wrong_job_holds(setup):
 def test_source_checker_rejects_tampered_rights_and_source_ids_without_publication(setup, monkeypatch):
     publisher, runs, _, job, snapshot_id, _, _, _ = setup
     original = publisher._checked_snapshot
-    def bad_snapshot(tenant, identifier, decision_at):
-        manifest, weather, thermal = original(tenant, identifier, decision_at)
+    def bad_snapshot(tenant, identifier, decision_at, review_at, claim_mode):
+        manifest, weather, thermal = original(tenant, identifier, decision_at,
+                                              review_at, claim_mode)
         manifest["files"][0]["rights"]["display"] = "denied"
         return manifest, weather, thermal
     monkeypatch.setattr(publisher, "_checked_snapshot", bad_snapshot)
@@ -204,20 +275,25 @@ def test_independent_checker_rejects_cross_hour_ids_and_changed_energy():
     manifest, weather, thermal = map(json.loads, (manifest_raw, weather_raw, thermal_raw))
     traces = [json.loads(raw) for raw in calculate_fixture(
         manifest_raw, weather_raw, thermal_raw, decision_id="synthetic-test-decision",
-        decision_at_utc="2026-09-27T09:05:00Z", input_snapshot_id="synthetic-test-snapshot")]
+        decision_at_utc="2026-09-27T09:04:30Z", input_snapshot_id="synthetic-test-snapshot",
+        decision_context_id="synthetic-test-context", claim_mode="ex_post_replay",
+        decision_time_kind="hypothetical", review_at_utc="2026-09-27T09:06:00Z")]
     rows = {row["fixture_id"]: row for row in manifest["files"]}
     identity = {"decision_id": "synthetic-test-decision",
-                "decision_at_utc": "2026-09-27T09:05:00Z",
+                "decision_at_utc": "2026-09-27T09:04:30Z",
+                "review_at_utc": "2026-09-27T09:06:00Z",
+                "decision_context_id": "synthetic-test-context",
+                "claim_mode": "ex_post_replay", "decision_time_kind": "hypothetical",
                 "input_snapshot_id": "synthetic-test-snapshot",
                 "manifest_sha256": sha256(manifest_raw).hexdigest()}
     from datetime import datetime, timezone
-    decision_at = datetime(2026, 9, 27, 9, 5, tzinfo=timezone.utc)
-    _check_trace_sources(traces, weather, thermal, rows, decision_at, identity)
+    review_at = datetime(2026, 9, 27, 9, 6, tzinfo=timezone.utc)
+    _check_trace_sources(traces, weather, thermal, rows, review_at, identity)
     _check_physics(traces, weather, thermal)
     traces[1]["forcing"]["solar_gain"]["input_record_ids"][0] = (
         "synthetic-weather-v1:/intervals/0/values/solar_interval_energy")
     with pytest.raises(ThermalPublishHold, match="SOURCE_HOLD"):
-        _check_trace_sources(traces, weather, thermal, rows, decision_at, identity)
+        _check_trace_sources(traces, weather, thermal, rows, review_at, identity)
     traces[1]["forcing"]["solar_gain"]["input_record_ids"][0] = (
         "synthetic-weather-v1:/intervals/1/values/solar_interval_energy")
     traces[0]["steps"][0]["heat_terms"]["heater"]["value"] += 1
@@ -230,15 +306,15 @@ def test_independent_checker_rejects_cross_hour_ids_and_changed_energy():
     traces[0]["parameters"]["effective_heat_capacity"]["value"] -= 1
     traces[0]["initial_state"]["temperature"]["basis_ref"] = "unrelated-source"
     with pytest.raises(ThermalPublishHold, match="SOURCE_HOLD"):
-        _check_trace_sources(traces, weather, thermal, rows, decision_at, identity)
+        _check_trace_sources(traces, weather, thermal, rows, review_at, identity)
     traces[0]["initial_state"]["temperature"]["basis_ref"] = "thermal-assumption-v1"
     traces[1]["source_records"][0]["normalization_rule_ref"] = "invented-rule"
     with pytest.raises(ThermalPublishHold, match="SOURCE_HOLD"):
-        _check_trace_sources(traces, weather, thermal, rows, decision_at, identity)
+        _check_trace_sources(traces, weather, thermal, rows, review_at, identity)
     traces[1]["source_records"][0]["normalization_rule_ref"] = "synthetic-identity-si-v1"
     traces[0]["run_id"] = "forged-run"
     with pytest.raises(ThermalPublishHold, match="SOURCE_HOLD"):
-        _check_trace_sources(traces, weather, thermal, rows, decision_at, identity)
+        _check_trace_sources(traces, weather, thermal, rows, review_at, identity)
     traces[0]["initial_state"]["humidity_ratio"]["value"] = 0.1
     with pytest.raises(ThermalPublishHold, match="PHYSICS_HOLD"):
         _check_physics(traces, weather, thermal)
