@@ -4,8 +4,9 @@ umask 077
 
 ossf_repo_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
 ossf_mode=${1:---check}
-if [[ "$ossf_mode" != "--check" && "$ossf_mode" != "--run" ]]; then
-    printf 'usage: %s [--check|--run]\n' "$0" >&2
+if [[ "$ossf_mode" != "--check" && "$ossf_mode" != "--run" &&
+      "$ossf_mode" != "--thermal" ]]; then
+    printf 'usage: %s [--check|--run|--thermal]\n' "$0" >&2
     exit 2
 fi
 
@@ -63,8 +64,15 @@ trap 'exit 143' TERM
 mkdir -m 700 -- "$ossf_smoke_root/home"
 install -m 600 -- "$ossf_auth_file" "$ossf_smoke_root/home/auth.json"
 
-OSSF_REAL_CLI_SMOKE=1 \
-OSSF_REAL_CLI_PATH="$ossf_cli_bin" \
-OSSF_REAL_CODEX_HOME="$ossf_smoke_root/home" \
-uv run --locked --group dev pytest -q -s \
-    tests/test_cli_worker.py::test_real_cli_three_stage_synthetic_hold
+if [[ "$ossf_mode" == "--thermal" ]]; then
+    ossf_smoke_flag=OSSF_REAL_THERMAL_CLI_SMOKE
+    ossf_smoke_test=tests/test_thermal_cli_smoke.py::test_real_cli_synthetic_thermal_review
+else
+    ossf_smoke_flag=OSSF_REAL_CLI_SMOKE
+    ossf_smoke_test=tests/test_cli_worker.py::test_real_cli_three_stage_synthetic_hold
+fi
+
+env "$ossf_smoke_flag=1" \
+    OSSF_REAL_CLI_PATH="$ossf_cli_bin" \
+    OSSF_REAL_CODEX_HOME="$ossf_smoke_root/home" \
+    uv run --locked --group dev pytest -q -s "$ossf_smoke_test"
