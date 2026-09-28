@@ -5,6 +5,8 @@ future product Scenario; it does not implement the complete farm/economic plan,
 Run submission or G1/G4 acceptance by itself. Subsequent
 [HTTP thermal admission](api-run-submission-v1.md) binds it to an actual queued
 v2 job after publisher evidence checks; complete farm/economic plans are pending.
+The [HTTP registration/lookup](api-scenario-intent-v1.md) returns only the actual
+version/hash/status/first timestamp under current write/reference scopes.
 
 [ThermalScenario](../backend/app/thermal_scenario_store.py) and its
 [closed schema](thermal-scenario-v1.schema.json) identify a tenant/scenario/revision,

@@ -2,7 +2,6 @@
 
 from uuid import UUID
 from typing import Annotated
-import json
 
 from fastapi import FastAPI, Path, Query, Request
 from fastapi.exceptions import RequestValidationError
@@ -17,10 +16,12 @@ from .api_economics import RESULT_ID_PATTERN, project_economic_result
 from .api_break_even import PLAN_ID_PATTERN, BreakEvenRead, project_break_even_result
 from .api_thermal import RUN_ID_PATTERN, project_thermal_manifest, project_thermal_run
 from .api_job_run import read_job_run
-from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold
+from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold, ThermalScenarioConflict, IDENTIFIER
 from .thermal_scenario_execution import SCENARIO_SCOPES
 from .thermal_publisher import ThermalPublishHold
 from .thermal_run_submission import ThermalRunRequest, ThermalRunSubmissionService, SUBMISSION_SCOPES
+from .api_json import read_json_request, JsonRequestRejected
+from .api_scenario import ThermalScenarioRequest, ThermalScenarioSummary, project_scenario, scenario_request_schema
 from .job_store import JobIntentConflict
 from .orchestration import LocationRequest, LocationResearchService, ResearchRequestRejected
 
@@ -101,24 +102,10 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return denied
         if location_research_service is None:
             return _error(503, "research_unavailable", "Research submission unavailable")
-        if request.headers.get("content-type", "").split(";", 1)[0].strip().lower() != "application/json":
-            return _error(415, "unsupported_media_type", "JSON request required")
-        raw = bytearray()
-        async for chunk in request.stream():
-            if len(raw)+len(chunk) > 4096:
-                return _error(413, "request_too_large", "Request too large")
-            raw.extend(chunk)
-        def unique_pairs(items):
-            value = {}
-            for key, item in items:
-                if key in value:
-                    raise ValueError("duplicate request key")
-                value[key] = item
-            return value
         try:
-            value = json.loads(raw.decode("utf-8"), object_pairs_hook=unique_pairs,
-                parse_constant=lambda _: (_ for _ in ()).throw(ValueError()))
-            body = LocationRequest.model_validate(value)
+            body = LocationRequest.model_validate(await read_json_request(request))
+        except JsonRequestRejected as exc:
+            return _error(exc.status, exc.code, exc.message)
         except (ValueError, UnicodeError, RecursionError):
             return _error(422, "invalid_request", "Invalid request")
         try:
@@ -145,24 +132,10 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return denied
         if thermal_run_submission_service is None:
             return _error(503, "simulation_unavailable", "Simulation submission unavailable")
-        if request.headers.get("content-type", "").split(";", 1)[0].strip().lower() != "application/json":
-            return _error(415, "unsupported_media_type", "JSON request required")
-        raw = bytearray()
-        async for chunk in request.stream():
-            if len(raw)+len(chunk) > 4096:
-                return _error(413, "request_too_large", "Request too large")
-            raw.extend(chunk)
-        def unique_pairs(items):
-            value = {}
-            for key, item in items:
-                if key in value:
-                    raise ValueError("duplicate request key")
-                value[key] = item
-            return value
         try:
-            value = json.loads(raw.decode("utf-8"), object_pairs_hook=unique_pairs,
-                parse_constant=lambda _: (_ for _ in ()).throw(ValueError()))
-            body = ThermalRunRequest.model_validate(value)
+            body = ThermalRunRequest.model_validate(await read_json_request(request))
+        except JsonRequestRejected as exc:
+            return _error(exc.status, exc.code, exc.message)
         except (ValueError, UnicodeError, RecursionError):
             return _error(422, "invalid_request", "Invalid request")
         try:
@@ -176,6 +149,57 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(409, "intent_conflict", "Intent already has a different request")
         except Exception:
             return _error(503, "simulation_unavailable", "Simulation submission unavailable")
+
+    scenario_read_scopes = SCENARIO_SCOPES
+    scenario_write_scopes = ('thermal_scenario_write',) + SCENARIO_SCOPES
+
+    @app.post('/v1/scenarios', response_model=ThermalScenarioSummary, operation_id='registerThermalScenario',
+              responses={status: {'model': ErrorEnvelope} for status in (401, 403, 409, 413, 415, 422, 503)},
+              openapi_extra={**_access(scenario_write_scopes), 'x-ossf-max-body-bytes': 4096,
+                  'requestBody': {'required': True, 'content': {
+                  'application/json': {'schema': scenario_request_schema()}}}})
+    async def post_scenario(request: Request):
+        tenant, denied = authorized_tenant(*scenario_write_scopes)
+        if denied is not None:
+            return denied
+        if thermal_scenario_store is None:
+            return _error(503, 'scenario_unavailable', 'Scenario registration unavailable')
+        try:
+            body = ThermalScenarioRequest.model_validate(await read_json_request(request))
+        except JsonRequestRejected as exc:
+            return _error(exc.status, exc.code, exc.message)
+        except (ValueError, UnicodeError, RecursionError):
+            return _error(422, 'invalid_request', 'Invalid request')
+        try:
+            value = body.model_dump(mode='json') | {'tenant_id': tenant}
+            record = await run_in_threadpool(thermal_scenario_store.put, tenant, value)
+            return project_scenario(record)
+        except ThermalScenarioConflict:
+            return _error(409, 'scenario_conflict', 'Scenario version already has different input')
+        except ThermalScenarioHold:
+            _, denied = authorized_tenant(*scenario_write_scopes)
+            if denied is not None:
+                return denied
+            return _error(422, 'scenario_hold', 'Scenario references unavailable')
+        except Exception:
+            return _error(503, 'scenario_unavailable', 'Scenario registration unavailable')
+
+    @app.get('/v1/scenarios', response_model=ThermalScenarioSummary, responses=errors,
+             operation_id='getThermalScenario', openapi_extra=_access(scenario_read_scopes))
+    def get_scenario(scenario_id: Annotated[str, Query(pattern=IDENTIFIER, max_length=200)],
+                     scenario_revision: Annotated[str, Query(pattern=IDENTIFIER, max_length=200)]):
+        tenant, denied = authorized_tenant(*scenario_read_scopes)
+        if denied is not None:
+            return denied
+        if thermal_scenario_store is None:
+            return _error(503, 'scenario_unavailable', 'Scenario lookup unavailable')
+        try:
+            record = thermal_scenario_store.get(tenant, scenario_id, scenario_revision)
+            if record is None:
+                return _error(404, 'not_found', 'Scenario version not found')
+            return project_scenario(record)
+        except Exception:
+            return _error(503, 'scenario_unavailable', 'Scenario lookup unavailable')
 
     @app.get("/v1/jobs/{job_id}", response_model=JobStatus, responses=errors,
              operation_id="getJob", openapi_extra=_access(job_scopes))

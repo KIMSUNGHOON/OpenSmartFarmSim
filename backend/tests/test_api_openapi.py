@@ -19,6 +19,10 @@ from test_http_identity import request
 
 
 OPERATIONS = {
+    ('/v1/scenarios', 'post'): ('registerThermalScenario', ['thermal_scenario_write',
+        'thermal_scenario_read', 'thermal_snapshot_read', 'decision_context_read', 'market_hold_context_read']),
+    ('/v1/scenarios', 'get'): ('getThermalScenario', ['thermal_scenario_read',
+        'thermal_snapshot_read', 'decision_context_read', 'market_hold_context_read']),
     ("/v1/runs", "post"): ("submitThermalRun", ['thermal_run_submit', 'metadata', 'artifact',
         'thermal_scenario_read', 'thermal_snapshot_read', 'decision_context_read', 'market_hold_context_read']),
     ("/v1/locations", "post"): ("registerLocation", ["location_create"]),
@@ -116,7 +120,8 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
     for missing in scopes:
         principal["scopes"] = set(scopes)-{missing}
         status, body, _ = asyncio.run(request(app, path=path, method=method.upper(),
-            query=b"plan_id=example" if path == "/v1/break-even-results" else b"token=spoofed"))
+            query=(b'scenario_id=example&scenario_revision=r1' if path == '/v1/scenarios'
+                else b"plan_id=example" if path == "/v1/break-even-results" else b"token=spoofed")))
         assert status == 403 and body["error"]["code"] == "forbidden" and stores.calls == 0
 
 

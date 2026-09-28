@@ -40,6 +40,10 @@ class ThermalScenarioHold(ValueError):
     pass
 
 
+class ThermalScenarioConflict(ThermalScenarioHold):
+    pass
+
+
 def install_thermal_scenario_schema(conn, schema):
     """Provisioner-only, before explicit v6 grants; runtime never creates objects."""
     if type(schema) is not str or not NAME.fullmatch(schema):
@@ -183,7 +187,7 @@ class ThermalScenarioStore:
             row = conn.execute(sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND scenario_id=%s AND revision=%s')
                 .format(self._table()), (tenant, model.scenario_id, model.scenario_revision)).fetchone()
             if row is None or row['payload_raw'] != raw:
-                raise ThermalScenarioHold('conflicting immutable scenario')
+                raise ThermalScenarioConflict('conflicting immutable scenario')
             record = self._record(row)
             self._binding()
             if not self.runs._scope(tenant, 'thermal_scenario_write'):
