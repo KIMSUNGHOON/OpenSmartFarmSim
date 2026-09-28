@@ -10,6 +10,7 @@ from pathlib import Path
 import pwd
 import select
 import signal
+import subprocess
 import sys
 import tempfile
 import time
@@ -210,16 +211,25 @@ def test_distinct_uid_services_and_authenticated_roles(login_scope, stage):
             with pytest.raises(PermissionError):
                 with connect(settings["socket_path"]):
                     pass
-            client = AuthorityClient(auth_socket_dir / "rpc", authority_uid=AUTHORITY,
-                                     tenant_id="tenant-a", wait_seconds=15)
-            assert set(client.__dict__) == {"socket_path", "authority_uid", "tenant_id", "wait_seconds"}
-            result = client.run_once()
-            if result is None or result.job_id != job["job_id"]:
+            # Exec replaces the fork's controller memory; only endpoint/scope arguments remain.
+            application = Path(sys.executable).parents[2] / "code" / "backend"
+            completed = subprocess.run([sys.executable, "-B", "-m", "app.cli_dispatch",
+                "--socket", str(auth_socket_dir / "rpc"), "--authority-uid", str(AUTHORITY),
+                "--tenant", "tenant-a", "--wait-seconds", "15"], cwd=application,
+                env={"HOME": str(worker_home), "PATH": "/usr/bin:/bin", "LANG": "C.UTF-8"},
+                capture_output=True, timeout=20)
+            if completed.returncode != 0 or completed.stderr:
+                raise ProbeFailure("dispatcher_process_failed")
+            reply = json.loads(completed.stdout)
+            assert set(reply) == {"version", "ok", "tenant_id", "result"}
+            assert reply["version"] == 1 and reply["ok"] is True and reply["tenant_id"] == "tenant-a"
+            result = reply["result"]
+            if result is None or result["job_id"] != str(job["job_id"]):
                 raise ProbeFailure("dispatch_result_scope")
-            if result.state != ("succeeded" if proceed else "hold"):
-                raise ProbeFailure("dispatch_state_" + result.state + "_" + result.reason_code)
-            if result.capture_id is None or result.decision_id is None:
-                raise ProbeFailure("dispatch_unrecorded_" + result.reason_code)
+            if result["state"] != ("succeeded" if proceed else "hold"):
+                raise ProbeFailure("dispatch_state_" + result["state"] + "_" + result["reason_code"])
+            if result["capture_id"] is None or result["decision_id"] is None:
+                raise ProbeFailure("dispatch_unrecorded_" + result["reason_code"])
             evidence = store.artifact_root / ".evidence" / sha256(b"tenant-a").hexdigest()
             denied(evidence)
 
@@ -251,4 +261,4 @@ def test_distinct_uid_services_and_authenticated_roles(login_scope, stage):
             assert store.get_hold_report("tenant-a", job["job_id"]) is not None
         assert not settings["socket_path"].exists() and not (auth_socket_dir / "rpc").exists()
         print(f"Distinct UID service smoke passed: {stage}; separate SCRAM users, peer UIDs, "
-              "signed persistence and private-file denials. Fake CLI/test key; no G1/G4 acceptance.")
+              "fresh dispatcher exec, signed persistence and private-file denials. Fake CLI/test key; no G1/G4 acceptance.")

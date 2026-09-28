@@ -44,6 +44,9 @@ jobs:
           uv python install --no-cache --no-bin --install-dir "$uid_runtime/python" 3.12.13
           UV_PYTHON_INSTALL_DIR="$uid_runtime/python" UV_PROJECT_ENVIRONMENT="$uid_runtime/venv" \
             uv sync --locked --group dev --python 3.12.13 --link-mode copy
+          mkdir -p -- "$uid_runtime/code/backend" "$uid_runtime/code/contracts"
+          cp -R -- "$GITHUB_WORKSPACE/backend/app" "$uid_runtime/code/backend/app"
+          cp -- "$GITHUB_WORKSPACE/contracts/decision-v1.schema.json" "$uid_runtime/code/contracts/"
           chmod -R go-w,a+rX -- "$uid_runtime"
           "$uid_runtime/venv/bin/python" -c 'import sys; assert sys.version_info[:3] == (3, 12, 13)'
 

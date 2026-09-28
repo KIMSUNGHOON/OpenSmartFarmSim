@@ -9,7 +9,7 @@ CI installs the same locked Python 3.12.13/packages in a bounded public code-onl
 runtime under `/tmp/ossf-uid-runtime-RUN-ATTEMPT`, with others' write permission
 removed. Package copying avoids changing shared cache inode permissions. This
 runtime contains no credential/key files and is removed in always-run cleanup.
-Services exercise an actual date-parser import after dropping UID; controller
+Services exercise a date-parser operation after dropping UID; controller
 preloads alone are not enough to establish readable interpreter/library code.
 
 ## Tested boundary
@@ -37,12 +37,20 @@ existing evidence-missing hold. Root readback checks durable state, signed
 capture/decision references, process exit, foreign-tenant queue preservation and
 socket cleanup.
 
+The general dispatcher now launches the application [command v1](../contracts/cli-dispatch-v1.md)
+as a fresh exec from the pinned public runtime's read-only code/schema copy.
+Only socket/peer/tenant/wait arguments and HOME/PATH/LANG are supplied. Its
+address space no longer contains the controller's inherited credential/key
+memory. Authority and supervisor remain forks, so this change does not establish
+independent control of those services or production containment.
+
 Negative probes connect with socket group permission but an unapproved UID:
 the supervisor rejects the general worker, and authority rejects UID 11004.
 The ordinary dispatcher has no supervisor socket access, private credential/key
 access or content access. Authority cannot open the supervisor key; supervisor
 cannot open the authority credential file. Fixed error diagnostics contain
-exception class/errno only, excluding driver messages, prompts and raw outputs.
+exception class/errno, internal probe codes or validated WorkResult states/reasons,
+excluding driver messages, prompts and raw outputs.
 All test processes are bounded and reaped, and owned temporary files/DB roles
 are removed by the existing fixture teardown.
 
@@ -56,6 +64,9 @@ container, distinct CLI UID, readonly deployment mount, egress restriction,
 actual model call, operating-account authorization, immutable release identity,
 thermal release, G1 or G4 acceptance follows. Production isolation remains
 closed by the existing CliWorker constructor guard.
+
+The general command's fresh exec replaces only its own forked address space;
+the surrounding root probe and both trusted services retain the limitations above.
 
 ## Verification procedure
 
@@ -93,3 +104,11 @@ persistence and final hold. Research/collection readback still failed because
 the fixture referenced a nonexistent attestation `decision_id`. Readback now
 uses the durable decision list, compares its output hash with the signed final
 hash, and matches publication to that durable decision ID.
+
+The previous service version at commit `fe8df7f` passed [backend CI run
+36383044589](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36383044589):
+three UID service cases in 7.66 seconds, 1,190 ordinary tests in 247.19 seconds
+with two preexisting warnings, and the UID DAC smoke. The three fixed stage
+messages occurred at `2026-09-28T05:42:34Z`–`05:42:38Z`. This is the original
+forked-dispatcher scope; the new application command/fresh-exec change requires
+its own terminal hosted verification.

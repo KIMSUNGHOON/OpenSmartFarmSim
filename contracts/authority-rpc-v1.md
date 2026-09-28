@@ -80,6 +80,11 @@ dispatch status references, not a public assessment or G1 evidence packet.
 Rejection returns only `{"version":1,"ok":false,"code":"authority_rejected"}`.
 No DB exception, prompt, raw output or secret is returned.
 
+[The general dispatcher command](cli-dispatch-v1.md) exposes this same single
+exchange outside test code. It accepts only the trusted endpoint/peer/tenant/wait
+configuration and emits a validated status envelope or fixed rejection. An
+unresolved exchange never triggers an automatic second request.
+
 ## Waiting, cancellation and recovery
 
 The client waits for response readiness separately from reading its frame.
