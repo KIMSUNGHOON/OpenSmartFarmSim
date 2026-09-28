@@ -44,7 +44,7 @@ def scope(login_database, tmp_path):
         for kind, role in policy.roles.items():
             # Self-authored test credential, kept only in a private temporary passfile.
             password = uuid4().hex + uuid4().hex
-            passfile = tmp_path / (kind + ".pgpass")
+            passfile = tmp_path / ("planning-" + kind + ".pgpass")
             passfile.write_text(f"{login_database['host']}:{login_database['port']}:{login_database['database']}:{role}:{password}\n")
             passfile.chmod(0o600)
             with admin.connect() as conn:

@@ -103,3 +103,39 @@ clock/schema/tenant controls, actual CLI execution, release and G1/G4 remain
 pending. The module enters the code digest and requires a new independent
 release; immutable source manifests and older releases were preserved. This
 follow-up's hosted receipt must be verified separately.
+
+The RPC candidate's exact commit `476d023` subsequently passed
+[backend CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36392805279):
+**1327 ordinary tests, 2 warnings**, three existing distinct-UID CLI service
+smoke cases and content DAC. Its
+[Compose receipt](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36392805413)
+also passed. That UID receipt did not test the new planning process.
+
+## Foreground planning and authenticated downstream assembly — 2026-09-28
+
+The existing exact-model/effort CLI session implemented and reviewed
+[cli-plan-v1](../contracts/cli-plan-v1.md), with no nested/additional model call
+or agricultural/economic data adoption. ThermalRunStore now supports the
+authenticated existing job authority profile and audits its closed grants on
+each connection. Its four initial cases passed in **2.80 s**. The foreground
+planning command's initial **11 cases passed in 3.28 s**.
+
+The combined fresh planner/client integration exposed a test credential path
+collision: planning and job fixtures both wrote `authority.pgpass` in one
+pytest directory. Planning fixture filenames were separated; the role/identity
+gates were preserved. The final command/store/planning/role/context/publisher
+suite passed **105 cases in 30.35 s**, including **12 command cases and four
+new storage cases**. The fresh client uses planning reader and job authority
+logins, verifies actual/hypothetical receipts, stores contexts and queues review.
+After adding the command to the source inventory, the publisher/review checks
+passed **16 cases in 8.44 s** against that updated inventory.
+
+The hosted workflow additionally runs one explicit root planning UID probe,
+using fresh foreground planner/caller exec, private test files, three distinct
+UIDs, real SCRAM profiles and persisted fixture context/queue linkage. Local
+UID 1000 cannot execute the root/setuid acceptance; it was not run locally.
+The hosted terminal receipt is required. Root-controlled fixtures, registry
+assembly and test keys do not demonstrate independent operating custody,
+actual runtime Codex/model execution or release/G1/G4. The new command enters
+the closed code inventory and changed store bytes require new independent
+release evidence. Immutable manifests/releases were not rewritten.

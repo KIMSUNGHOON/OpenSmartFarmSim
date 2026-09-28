@@ -48,3 +48,7 @@ supports SIGTERM. Operator-controlled service assembly, independent key/UID
 custody, database tenant isolation, full filesystem/clock operations, actual
 CLI execution and independent thermal release still need deployment evidence.
 Software tests with shared OS identity/test keys do not supply that evidence.
+
+The [foreground command](cli-plan-v1.md) launches this server from an
+operator-controlled factory; its separate hosted UID probe tests the connection
+to authenticated downstream context storage and the collection review queue.
