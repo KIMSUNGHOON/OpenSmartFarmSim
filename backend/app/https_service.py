@@ -84,5 +84,3 @@ class HttpsApiService:
 
     def serve(self):
         self.server().run()
-
-
