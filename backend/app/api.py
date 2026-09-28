@@ -16,6 +16,7 @@ from .api_economics import RESULT_ID_PATTERN, project_economic_result
 from .api_break_even import PLAN_ID_PATTERN, BreakEvenRead, project_break_even_result
 from .api_thermal import RUN_ID_PATTERN, project_thermal_manifest, project_thermal_run
 from .api_job_run import read_job_run
+from .api_job_break_even_result import BreakEvenJobResultService, BREAK_EVEN_JOB_READ_SCOPES
 from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold, ThermalScenarioConflict, IDENTIFIER
 from .thermal_scenario_execution import SCENARIO_SCOPES
 from .thermal_publisher import ThermalPublishHold
@@ -52,7 +53,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                *, principal_provider, location_research_service=None, break_even_store=None,
                thermal_scenario_store=None, thermal_run_submission_service=None,
                market_user_source_service=None, economic_scenario_service=None,
-               economic_calculation_service=None, break_even_plan_service=None) -> FastAPI:
+               economic_calculation_service=None, break_even_plan_service=None,
+               break_even_job_result_service=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -90,6 +92,11 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             type(break_even_plan_service) is not BreakEvenPlanSubmissionService or
             break_even_plan_service.jobs is not job_store or break_even_plan_service.store is not break_even_store):
         raise ValueError('trusted break-even plan service required')
+    if break_even_job_result_service is not None and (
+            type(break_even_job_result_service) is not BreakEvenJobResultService or
+            break_even_job_result_service.jobs is not job_store or
+            break_even_job_result_service.store is not break_even_store):
+        raise ValueError('trusted break-even job result service required')
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
     location_scopes = ("location_create",)
     job_scopes = ("metadata",)
@@ -339,6 +346,25 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(403, 'forbidden', 'Resource access denied')
         except Exception:
             return _error(503, 'store_unavailable', 'Economic job result unavailable')
+
+    @app.get('/v1/jobs/{job_id}/break-even-result', response_model=BreakEvenRead,
+             responses=errors, operation_id='getJobBreakEvenResult',
+             openapi_extra=_access(BREAK_EVEN_JOB_READ_SCOPES))
+    def get_job_break_even_result(job_id: UUID):
+        tenant, denied = authorized_tenant(*BREAK_EVEN_JOB_READ_SCOPES)
+        if denied is not None:
+            return denied
+        try:
+            if break_even_job_result_service is None:
+                raise RuntimeError('break-even job result service unavailable')
+            result = break_even_job_result_service.read_job_result(tenant, job_id)
+            if result is None:
+                return _error(404, 'not_found', 'Break-even job result not found')
+            return result
+        except PermissionError:
+            return _error(403, 'forbidden', 'Resource access denied')
+        except Exception:
+            return _error(503, 'store_unavailable', 'Break-even job result unavailable')
 
     @app.post('/v1/break-even-plans', status_code=202, response_model=BreakEvenPlanAccepted,
               operation_id='submitBreakEvenPlan',

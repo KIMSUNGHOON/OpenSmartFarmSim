@@ -63,3 +63,21 @@ connected worker case alone took 3:23 locally, with eight more actual-source
 cases added. The job limit extends to 90 minutes to accommodate them. Full
 commands, distinct-UID/content checks and cleanup gates remain unchanged. The
 parent receipt is appended in its research document with this functional change.
+
+## Hosted CI observation for this revision
+
+Exact commit `09b7a166156ea05eeade6cc79ed34a18c5eb0c28` passed
+[Compose 36489658991](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36489658991).
+[Backend 36489658492](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36489658492)
+was **cancelled**, not accepted: the runner annotation states that the job
+exceeded its **1h30m0s** execution limit. The job ran from 21:59:36 to 23:29:52
+UTC on 2026-09-28; the ordinary test log reached **96%** without a terminal
+pytest summary. The earlier **4 UID service cases** passed in **18.82 s**, which
+does not replace the unfinished ordinary suite. The later UID content check was skipped; database and
+password cleanup succeeded. No full-suite pass is inferred from progress.
+
+The next functional lookup change includes a 120-minute limit, with all full
+commands, UID/content checks and cleanup retained. The combined head must
+complete its full gate; rerunning this unchanged 90-minute configuration would
+not repair the observed limit. This timeout is recorded alongside functional
+work rather than in a receipt-only commit. Software/domain/G0–G4 holds remain.

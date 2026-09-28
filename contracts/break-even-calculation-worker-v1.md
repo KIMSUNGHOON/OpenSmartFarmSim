@@ -42,6 +42,7 @@ uv run --locked --group dev python -m app.break_even_work \
 Factory/UUID validation precedes import; startup/execution errors are fixed JSON
 with exit 2/3. Exit 0 exposes only job/attempt/state/reason/plan metadata or null.
 The command invokes no model. Existing GET break-even results can replay the
-completed row. Verified job-to-result lookup, protected deployment, automatic
-trial assumptions, continuous-interval proof and full CLI/browser/G0–G4 evidence
-remain subsequent acceptance work. Fixtures prove software contracts only.
+completed row. [Verified job-to-result lookup](api-job-break-even-result-v1.md)
+connects that completed row to its input/publication/receipt. Protected deployment,
+automatic trial assumptions, continuous-interval proof and full CLI/browser/G0–G4
+evidence remain subsequent acceptance work. Fixtures prove software contracts only.

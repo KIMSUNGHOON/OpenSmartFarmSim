@@ -23,6 +23,7 @@ from .api_market_source import MarketUserSourceService, _MarketSources, _SOURCE_
 from .market_source_store import MarketSourceStore
 from .api_economic_scenario import EconomicScenarioService
 from .api_economic_calculation import EconomicCalculationService
+from .api_job_break_even_result import BreakEvenJobResultService
 from .break_even_plan_submission import BreakEvenPlanSubmissionService
 
 
@@ -114,6 +115,7 @@ class ApiRuntime:
             break_even = BreakEvenStore(config.dsn, config.policy.schema, candidates,
                 principal_provider=current_principal, runtime_identity=binding)
             break_even_plans = BreakEvenPlanSubmissionService(jobs, break_even) if source_admission is not None else None
+            break_even_job_results = BreakEvenJobResultService(jobs, break_even) if source_admission is not None else None
             scenarios = ThermalScenarioStore(thermal, holds) if config.policy.thermal_scenario_storage else None
             submission = None
             if dependencies.thermal_publisher_factory is not None:
@@ -126,7 +128,7 @@ class ApiRuntime:
                 break_even_store=break_even, thermal_scenario_store=scenarios,
                 thermal_run_submission_service=submission, market_user_source_service=source_admission,
                 economic_scenario_service=economic_scenarios, economic_calculation_service=economic_calculations,
-                break_even_plan_service=break_even_plans)
+                break_even_plan_service=break_even_plans, break_even_job_result_service=break_even_job_results)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):

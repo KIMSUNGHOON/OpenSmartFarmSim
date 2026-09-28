@@ -19,6 +19,9 @@ from test_http_identity import request
 
 
 OPERATIONS = {
+    ('/v1/jobs/{job_id}/break-even-result', 'get'): ('getJobBreakEvenResult',
+        ['metadata', 'artifact', 'break_even_read', 'market_source_read', 'market_candidate_read',
+         'decision_context_read', 'market_hold_context_read']),
     ('/v1/break-even-plans', 'post'): ('submitBreakEvenPlan',
         ['metadata', 'artifact', 'simulation_execute', 'break_even_read', 'break_even_write',
          'market_source_read', 'market_candidate_read', 'decision_context_read', 'market_hold_context_read']),

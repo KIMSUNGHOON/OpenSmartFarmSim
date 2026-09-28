@@ -1,6 +1,8 @@
 # 첫 구현 작업 목록
 
-**손익분기 수치 작업자 진행:** [작업자 계약](../contracts/break-even-calculation-worker-v1.md)은 서버가 접수한 불변 계획을 전체 재검증하고 기존 Decimal 격자 계산 결과·작업 완료를 한 트랜잭션에 저장한다. [구현 증거](../research/break-even-calculation-worker-implementation.md)는 실제 SCRAM 임대·취소·복구·롤백과 운영자 전경 실행의 소프트웨어 범위다. 검증된 작업별 결과 조회·자동 시험 가정·연속 구간 해 증명·CLI/브라우저/G1/G4 수용은 남아 기존 체크를 유지한다.
+**작업별 손익분기 완료 조회 진행:** [조회 계약](../contracts/api-job-break-even-result-v1.md)은 실제 완료 입력·영수증·게시·계획·재계산 결과를 대사해 기존 조건부 결과를 반환한다. [구현 증거](../research/api-job-break-even-result-implementation.md)는 합성 원천/키와 실제 SCRAM/Bearer의 소프트웨어 범위다. 자동 시험 가정·연속 해 증명·CLI/브라우저/G1/G4 수용은 남아 기존 체크를 유지한다.
+
+**손익분기 수치 작업자 진행:** [작업자 계약](../contracts/break-even-calculation-worker-v1.md)은 서버가 접수한 불변 계획을 전체 재검증하고 기존 Decimal 격자 계산 결과·작업 완료를 한 트랜잭션에 저장한다. [구현 증거](../research/break-even-calculation-worker-implementation.md)는 실제 SCRAM 임대·취소·복구·롤백과 운영자 전경 실행의 소프트웨어 범위다. 작업별 결과 조회 연결 이후에도 자동 시험 가정·연속 구간 해 증명·CLI/브라우저/G1/G4 수용은 남아 기존 체크를 유지한다.
 
 **손익분기 계획 HTTP 진행:** [접수 계약](../contracts/api-break-even-plan-v1.md)은 실제 저장된 시나리오의 권리·판본·고정 조건을 검증하고 서버가 만든 불변 계획을 simulation 의도로 저장한다. [증거](../research/api-break-even-plan-implementation.md)는 합성 원천/키와 실제 SCRAM/Bearer의 소프트웨어 범위다. 수치 작업자 연결 이후에도 자동 시험 가정 생성·연속 구간 해 증명·CLI/브라우저/G1/G4 수용은 남아 기존 체크를 유지한다.
 
