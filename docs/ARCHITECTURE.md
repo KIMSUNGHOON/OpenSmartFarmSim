@@ -145,3 +145,5 @@ stdin은 서버가 생성한 버전 고정 지시문과 `tenant_id/job_id`, 좌�
 [사용자 가정 원천 저장소 후보](../contracts/market-user-source-store-v1.md)는 기존 7종 입력을 실제 collection/simulation 작업 바이트에 결합해 불변 보관하고 기준 시나리오·충격 pin을 서버에서 생성한다. 명시적 v5 authority와 매 연결 SCRAM/전체 권한 감사, 별도 source 읽기·쓰기 범위를 요구한다. 가정 저장은 실제 원천 G0 승인이나 실행 완료 증거가 아니며 시장·경제 계산은 결정 시점과 권리·적용 범위를 다시 검사한다.
 
 [결정적 열 작업자 후보](../contracts/thermal-simulation-worker-v1.md)는 명시적 simulation 작업 ID를 소비하고 같은 authority 거래에서 검증된 Run·작업 완료·게시/시도 기록을 묶는다. 취소·만료·실패 시 부분 Run을 남기지 않으며 prepare 단계는 DB 결과를 쓰지 않는다. 운영자 factory의 전경 명령을 실제 Python 자식과 SCRAM으로 시험했지만 캡처·검토/키는 합성이고 실제 CLI·독립 release·전체 G1/G4는 미수용이다.
+
+[열 시나리오 의도 저장 후보](../contracts/thermal-scenario-store-v1.md)는 실제 스냅샷·서명 문맥·시장 보류를 참조하는 합성 열 Scenario 구성 요소를 판본별로 보관한다. 명시적 v6 프로필 아래 현재 권한과 참조·해시를 매번 검사하며 등록은 `registered_intent`다. 새 물리 계수나 작물/경제 계산을 만들지 않고 원본 fixture의 값을 고정한다. 완전한 농장 Scenario·Run 제출·실제 CLI/G1/G4는 후속이다.

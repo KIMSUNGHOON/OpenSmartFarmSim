@@ -63,3 +63,12 @@ simulation submission, collection/assessment orchestration, Compose application
 roles, browser/3D and full G1/G4 remain pending. Actual G0/G2/G3 evidence remains
 unavailable. Existing broad task checkboxes stay open. Hosted receipts follow
 the implementation commit and must match its exact head.
+
+## Hosted receipt for 913fe80
+
+[Backend run 36429077158](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36429077158)
+succeeded on exact head 913fe802b91d96b144a39f4c4ff293edd15ed385: PostgreSQL 18.6
+**1676 passed, 2 existing warnings in 744.47 s**, plus the separate-UID service
+suite **4 passed in 16.53 s** and successful distinct-UID content access/cleanup.
+[Compose run 36429077202](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36429077202)
+also succeeded on that head. These software receipts do not open G1/G4.

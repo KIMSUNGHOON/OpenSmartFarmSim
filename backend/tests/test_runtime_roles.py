@@ -45,6 +45,11 @@ def owned_scope(pg_store, policy):
             from app.runtime_roles import MARKET_SOURCE_TABLES
             install_market_source_schema(conn, pg_store.schema)
             tables += MARKET_SOURCE_TABLES
+        if getattr(policy, "thermal_scenario_storage", False):
+            from app.thermal_scenario_store import install_thermal_scenario_schema
+            from app.runtime_roles import THERMAL_SCENARIO_TABLES
+            install_thermal_scenario_schema(conn, pg_store.schema)
+            tables += THERMAL_SCENARIO_TABLES
         conn.execute(sql.SQL("ALTER SCHEMA {} OWNER TO {}").format(
             sql.Identifier(policy.schema), sql.Identifier(policy.owner)))
         for table in tables:

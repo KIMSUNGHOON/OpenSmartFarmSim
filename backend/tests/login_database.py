@@ -78,7 +78,10 @@ def login_scope(login_database, tmp_path, request):
                                     request.param.get("break_even_calculation") is True),
                                 market_source_storage=(
                                     type(getattr(request, "param", None)) is dict and
-                                    request.param.get("market_source_storage") is True))
+                                    request.param.get("market_source_storage") is True),
+                                thermal_scenario_storage=(
+                                    type(getattr(request, "param", None)) is dict and
+                                    request.param.get("thermal_scenario_storage") is True))
     try:
         with owned_scope(base, policy):
             with base.connect() as conn:

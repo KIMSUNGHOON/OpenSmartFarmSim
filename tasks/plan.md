@@ -24,6 +24,8 @@ flowchart LR
   thermal-g1-publisher --> market-hold-store
   thermal-engine --> thermal-decision-clock-contract --> thermal-g1-publisher --> api-flow
   decision-evidence-store --> thermal-g1-publisher
+  thermal-g1-publisher --> thermal-scenario-store
+  market-hold-store --> thermal-scenario-store --> api-flow
   cli-worker --> thermal-g1-publisher
   market-scenario --> api-flow
   economic-break-even --> api-flow
