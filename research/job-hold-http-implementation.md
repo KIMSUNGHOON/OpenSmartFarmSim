@@ -45,3 +45,11 @@ manifests/releases or published records were changed. Operating authentication
 and role assignment, per-job containment, actual runtime CLI, independently
 approved source/release and full browser/G1 evidence remain missing. Whitespace
 and changed-document links were checked separately; hosted CI is a later receipt.
+
+Exact commit `8b8a4b26d2d2162e78bc871fd6f98b79b445e72d` subsequently passed
+[backend CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36402630712):
+**1447 ordinary tests, 2 warnings** in 329.50 s, **four distinct-UID cases** in
+18.66 s, and content DAC. Its
+[Compose receipt](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36402630689)
+also passed. These exact-head receipts were inspected on 2026-09-28 and do not
+cover the later HTTP identity changes.

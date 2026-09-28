@@ -36,6 +36,7 @@ CODE_FILES = ("backend/app/thermal.py", "backend/app/thermal_units.py",
               "backend/app/cli_plan.py",
               "backend/app/orchestration.py",
               "backend/app/research_registry.py",
+              "backend/app/http_identity.py",
               "contracts/thermal-v1.schema.json", "contracts/decision-v1.schema.json")
 WEATHER_ID = "synthetic-weather-v1"
 THERMAL_ID = "synthetic-thermal-parameters-v1"
