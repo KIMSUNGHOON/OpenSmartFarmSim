@@ -42,10 +42,11 @@ class WorkResult:
 
 
 class CliWorker:
-    def __init__(self, store, contract: DecisionContract, *, cli_path: Path,
-                 codex_home: Path, child_env: dict[str, str] | None = None,
+    def __init__(self, store, contract: DecisionContract, *, cli_path: Path | None = None,
+                 codex_home: Path | None = None, child_env: dict[str, str] | None = None,
                  timeout_seconds: int = 600, lease_seconds: int = 660,
-                 synthetic_smoke: bool = False):
+                 synthetic_smoke: bool = False, supervisor_client=None,
+                 attestation_store=None):
         if synthetic_smoke is not True:
             raise ValueError("production CLI isolation is not yet attested")
         if (not isinstance(contract, DecisionContract) or
@@ -55,6 +56,21 @@ class CliWorker:
                 not 1 <= timeout_seconds <= 600 or lease_seconds <= timeout_seconds + 5 or
                 lease_seconds > 86400):
             raise ValueError("invalid process and lease bounds")
+        self.store, self.contract = store, contract
+        self.timeout_seconds, self.lease_seconds = timeout_seconds, lease_seconds
+        self.supervisor_client, self.attestation_store = supervisor_client, attestation_store
+        if supervisor_client is not None:
+            from .cli_supervisor_client import SupervisorClient
+            from .execution_attestation import ExecutionAttestationStore
+            if (not isinstance(supervisor_client, SupervisorClient) or
+                    not isinstance(attestation_store, ExecutionAttestationStore) or
+                    attestation_store.job_store is not store or
+                    cli_path is not None or codex_home is not None or child_env is not None):
+                raise ValueError("supervised worker needs a public-key store and no CLI credentials")
+            self.cli_path, self.codex_home, self.child_env = None, None, {}
+            return
+        if cli_path is None or codex_home is None or attestation_store is not None:
+            raise ValueError("local worker executable and credential home required")
         cli_path = Path(cli_path)
         codex_home = Path(codex_home)
         if (not cli_path.is_absolute() or not cli_path.is_file() or
@@ -208,10 +224,14 @@ class CliWorker:
                           code if closed else "lease_lost")
 
     def run_once(self) -> WorkResult | None:
-        lease = self.store.claim(self.lease_seconds, allowed_stages=STAGES)
+        lease = self.store.claim(self.lease_seconds, allowed_stages=STAGES,
+            tenant_id=self.supervisor_client.tenant_id if self.supervisor_client else None)
         if lease is None:
             return None
         try:
+            if self.supervisor_client:
+                with self.supervisor_client.session() as execution:
+                    return self._run_claimed(lease, execution)
             return self._run_claimed(lease)
         except Exception:
             try:
@@ -220,7 +240,7 @@ class CliWorker:
                 return WorkResult(lease["job_id"], lease["attempt"], "unclosed",
                                   "store_unavailable")
 
-    def _run_claimed(self, lease) -> WorkResult:
+    def _run_claimed(self, lease, execution=None) -> WorkResult:
         tenant, job_id, attempt, token = (lease["tenant_id"], lease["job_id"],
                                           lease["attempt"], lease["lease_token"])
         try:
@@ -230,7 +250,7 @@ class CliWorker:
             job = dict(lease, input_bytes=raw)
             value, authority = self.contract.input_context(job)
             prompt = self._prompt(job, value, authority)
-            version = self._version()
+            version = execution.version() if execution is not None else self._version()
         except ProposalHold as exc:
             return self._close_failure(lease, exc.code)
         except Exception:
@@ -255,6 +275,8 @@ class CliWorker:
             model=MODEL, reasoning_effort=EFFORT)
         if invocation is None:
             return self._close_failure(lease, "invocation_fenced")
+        if execution is not None:
+            return self._run_supervised(lease, job, execution)
 
         with tempfile.TemporaryDirectory(prefix="ossf-cli-") as tmp:
             root = Path(tmp)
@@ -370,30 +392,88 @@ class CliWorker:
                 return self._close_failure(lease, reason,
                                            kind="transient" if timed_out else "fatal",
                                            jsonl_id=jsonl_id)
-            if (capture is None or jsonl_row is None or
-                    jsonl_row["receipt_state"] != "retained" or final is None):
-                return self._close_failure(lease, "capture_unverified", jsonl_id=jsonl_id)
+            return self._finish_capture(lease, job, capture, jsonl_row, jsonl, final)
+
+    def _run_supervised(self, lease, job, execution):
+        tenant, job_id, attempt, token = (lease["tenant_id"], lease["job_id"],
+                                         lease["attempt"], lease["lease_token"])
+        observed_launch = execution.start(job_id, attempt)
+        launch = self.store.record_cli_launch(tenant, job_id, attempt, token,
+            argv=list(observed_launch.argv), process_id=observed_launch.process_id)
+        if launch is None:
+            return self._close_failure(lease, "invocation_fenced")
+        deadline, next_renew = time.monotonic() + self.timeout_seconds + 5, time.monotonic() + 5
+        while True:
+            observed = execution.poll()
+            if observed is not None:
+                break
+            now = time.monotonic()
+            if now >= deadline:
+                return self._close_failure(lease, "cli_timeout", kind="transient")
+            if now >= next_renew:
+                if not self.store.renew(tenant, job_id, attempt, token, self.lease_seconds):
+                    return self._close_failure(lease, "lease_lost")
+                next_renew = now + 5
+            time.sleep(0.05)
+        jsonl_row = self.store.append_evidence(tenant, job_id, attempt, token, kind="jsonl",
+            payload=observed.jsonl if observed.jsonl else None,
+            withhold_reason=None if observed.jsonl else "not_received", rights_ref="server_cli_jsonl")
+        jsonl_id = jsonl_row["evidence_id"] if jsonl_row else None
+        capture = None
+        if observed.final_output is not None:
+            capture = self.store.seal_cli_capture(tenant, job_id, attempt, token,
+                launch_id=launch["launch_id"], jsonl_evidence_id=jsonl_id,
+                final_output=observed.final_output, exit_code=observed.exit_code,
+                termination_reason=observed.termination_reason,
+                completed=observed.termination_reason == "completed")
+        if observed.termination_reason != "completed":
+            return self._close_failure(lease, observed.termination_reason,
+                kind="transient" if observed.termination_reason == "cli_timeout" else "fatal",
+                jsonl_id=jsonl_id)
+        return self._finish_capture(lease, job, capture, jsonl_row, observed.jsonl,
+                                    observed.final_output, execution)
+
+    def _finish_capture(self, lease, job, capture, jsonl_row, jsonl, final, execution=None):
+        tenant, job_id, attempt, token = (lease["tenant_id"], lease["job_id"],
+                                         lease["attempt"], lease["lease_token"])
+        jsonl_id = jsonl_row["evidence_id"] if jsonl_row else None
+        if (capture is None or jsonl_row is None or
+                jsonl_row["receipt_state"] != "retained" or final is None):
+            return self._close_failure(lease, "capture_unverified", jsonl_id=jsonl_id)
+        try:
+            _, terminal_final = self._allowed_jsonl(jsonl)
+            if terminal_final != final:
+                raise ProposalHold("final_jsonl_mismatch")
+            plan = self.contract.plan(job, final)
+        except (ProposalHold, ValueError, UnicodeError) as exc:
+            code = exc.code if isinstance(exc, ProposalHold) else "invalid_cli_output"
+            return self._close_failure(lease, code, jsonl_id=jsonl_id)
+        decision = self.store.record_decision(
+            tenant, job_id, attempt, token, final, plan.artifact)
+        if decision is None:
+            return self._close_failure(lease, "decision_unverified", jsonl_id=jsonl_id)
+        if execution is not None:
+            from .execution_verifier import ExecutionVerifier
             try:
-                _, terminal_final = self._allowed_jsonl(jsonl)
-                if terminal_final != final:
-                    raise ProposalHold("final_jsonl_mismatch")
-                plan = self.contract.plan(job, final)
-            except (ProposalHold, ValueError, UnicodeError) as exc:
-                code = exc.code if isinstance(exc, ProposalHold) else "invalid_cli_output"
-                return self._close_failure(lease, code, jsonl_id=jsonl_id)
-            decision = self.store.record_decision(
-                tenant, job_id, attempt, token, final, plan.artifact)
-            if decision is None:
-                return self._close_failure(lease, "decision_unverified", jsonl_id=jsonl_id)
-            if plan.disposition == "hold":
-                held = self.store.finish_validated_hold(
-                    tenant, job_id, attempt, token, decision, plan.artifact)
-                return WorkResult(job_id, attempt, "hold" if held else "unclosed",
-                                  "validated_hold" if held else "closure_fenced",
-                                  capture["capture_id"], decision)
-            published = self.store.publish(
-                tenant, job_id, attempt, token, decision, plan.artifact,
-                sha256(plan.artifact).hexdigest(), {"schema_version": "1"})
-            return WorkResult(job_id, attempt, "succeeded" if published else "unclosed",
-                              "validated_proposal" if published else "closure_fenced",
+                raw, signature = execution.issue(capture["capture_id"], decision)
+                self.attestation_store.put(raw, signature)
+                verifier = ExecutionVerifier(self.attestation_store,
+                    executable_sha256=self.supervisor_client.executable_sha256,
+                    environment_sha256=self.supervisor_client.environment_sha256)
+                if not verifier.verify_pending(tenant, job_id, attempt,
+                                               capture["capture_id"], decision):
+                    raise ValueError("signed execution differs from durable attempt")
+            except Exception:
+                return self._close_failure(lease, "execution_attestation_unverified", jsonl_id=jsonl_id)
+        if plan.disposition == "hold":
+            held = self.store.finish_validated_hold(
+                tenant, job_id, attempt, token, decision, plan.artifact)
+            return WorkResult(job_id, attempt, "hold" if held else "unclosed",
+                              "validated_hold" if held else "closure_fenced",
                               capture["capture_id"], decision)
+        published = self.store.publish(
+            tenant, job_id, attempt, token, decision, plan.artifact,
+            sha256(plan.artifact).hexdigest(), {"schema_version": "1"})
+        return WorkResult(job_id, attempt, "succeeded" if published else "unclosed",
+                          "validated_proposal" if published else "closure_fenced",
+                          capture["capture_id"], decision)

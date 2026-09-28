@@ -54,3 +54,31 @@ both invocation and launch records. It proposed an adversarial case where the
 job store retains prompt A but the child reads prompt B. This was a design
 review; the local fake-child regression is not an independently deployed
 observer or G1 execution proof.
+
+## Follow-up: worker/supervisor IPC and recovery
+
+On 2026-09-28 UTC, one private ephemeral `codex-cli 0.157.1` session used
+the same exact `gpt-6-sol`/`xhigh` command form. The prompt summarized the
+proposed bounded Unix socket protocol, configured UID/tenant scope, observer
+and signing ownership, DB capture order, and disconnect/retry semantics.
+It contained no repository files, farm/source data, credentials, or keys.
+The terminal usage was 14,199 input (11,776 cached), 2,924 output, and 2,588
+reasoning output tokens. The temporary credential, JSONL, and final file were
+removed after extracting the review. These are usage counts, not billed cost.
+
+The review identified five corrections adopted in the software candidate:
+
+1. Check signature/pins/bound IDs while the job is still active; the existing
+   thermal verifier separately requires a completed successful review.
+2. Recheck cancellation/lease at issuance, including cached replies, and in
+   the conditional terminal DB transition.
+3. Reserve one authorized tenant/job/attempt before spawning. UID identity
+   alone does not assign a job; a configured worker UID has its tenant scope.
+4. Cache by the live session and stable request identity. A partial frame or
+   broken connection cannot be retried as though the stream remained valid.
+5. Require version registration and launch to describe the same pinned binary,
+   and bound the serialized reply including base64/JSON overhead.
+
+The resulting [contract](../contracts/cli-execution-attestation-v1.md#local-supervisor-ipc-candidate)
+records the protocol and remaining same-UID/key/role/deployment limitations.
+This review and the subsequent fake-child tests do not pass G1 or G4.

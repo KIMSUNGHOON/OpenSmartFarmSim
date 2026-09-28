@@ -101,6 +101,8 @@ class ExecutionAttestationIssuer:
             pinned_capture, pinned_decision, raw, signature = self._issued
             if (capture_id, decision_id) != (pinned_capture, pinned_decision):
                 raise ValueError("supervisor attestation identity is immutable")
+            if not self.scope_live(allow_closed=True):
+                raise ValueError("supervisor attempt is no longer live")
             return raw, signature
         (tenant, job_id, attempt, observed_attempt_id,
          observed_input_sha, observed_stage) = self._scope
@@ -225,3 +227,18 @@ class ExecutionAttestationIssuer:
         signature = self.private_key.sign(DOMAIN + raw)
         self._issued = (capture_id, decision_id, raw, signature)
         return raw, signature
+
+    def scope_live(self, *, allow_closed=False):
+        if self._scope is None:
+            return False
+        tenant, job_id, attempt, _, input_sha, stage = self._scope
+        with self.job_store.connect() as conn:
+            job = conn.execute(sql.SQL("""
+                SELECT *, lease_until > clock_timestamp() AS lease_live
+                FROM {} WHERE tenant_id=%s AND job_id=%s
+            """).format(self.job_store._table("jobs")), (tenant, job_id)).fetchone()
+        return (job is not None and job["attempt_count"] == attempt and
+                job["input_sha256"] == input_sha and job["stage"] == stage and
+                not job["cancel_requested"] and (
+                    (job["state"] == ACTIVE_BY_STAGE[stage] and job["lease_live"]) or
+                    (allow_closed and job["state"] in {"succeeded", "hold"})))

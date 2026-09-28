@@ -15,7 +15,7 @@ capture stdout and final bytes, observe exit via the process wait operation,
 and sign only after the complete capture is durably stored. Its Ed25519 private
 key must be unavailable to the request process, general CLI worker, publisher,
 and database owner at runtime. The publisher needs only its pinned public key.
-The current `CliWorker` does not yet delegate launch to that supervisor and its
+The current `CliWorker` can delegate to the local IPC software candidate; its
 default production constructor remains closed. Same-process HMAC and internally
 consistent JSONL cannot prove that a separate process ran.
 
@@ -74,8 +74,8 @@ hashes the actual prompt/schema and binary bytes, observes the exit, and
 classifies bounded JSONL/final output. The schema bytes come from the pinned
 server contract, rather than the caller. Local tests run a fake child and check
 success, timeout, late polling, cleanup, and an observer in a separate local
-process. This core is not yet a separately deployed service and is not wired
-to the durable worker. It cannot pass G1 by itself.
+process. The IPC candidate below now connects this core to the durable worker.
+It cannot pass G1 by itself.
 
 `ExecutionAttestationIssuer` is the next software candidate. It owns an
 unstarted observer and a configured Ed25519 key, reads a live frozen AI-stage
@@ -102,8 +102,73 @@ before durable capture/decision storage, noncontract input before launch, and pl
 PID/JSONL that differ from the observed child. Research, collection review,
 assessment, validated hold, and Unicode executable paths are covered. This
 proves software issuance checks, not private-key isolation or actual model
-execution. No supervisor service, deployed key, role separation, or worker IPC
-has been accepted.
+execution. Deployed key and role separation have not been accepted.
+
+## Local supervisor IPC candidate
+
+[`SupervisorServer`](../backend/app/cli_supervisor_service.py) is a foreground,
+serial Linux Unix socket server with an operator-configured tenant and worker
+UID. [`SupervisorClient`](../backend/app/cli_supervisor_client.py) authenticates
+the configured supervisor UID and checks the returned tenant/binary/environment
+pins. Linux `SO_PEERCRED` exposes the connected peer's identity; it does not
+assign a particular job to a process or separate processes sharing a UID
+([Linux Unix sockets manual](https://man7.org/linux/man-pages/man7/unix.7.html)).
+The directory is supervisor-owned and not writable by group/others; the socket
+has mode `0660`, with cross-UID group membership left to deployment. The server
+refuses an existing socket instead of unlinking it. The Python socket API
+supports the framing and connection timeouts used here
+([Python documentation](https://docs.python.org/3/library/socket.html)).
+
+Each connection has one version handshake, one job/attempt, repeated `poll`,
+an `issue` request, and `stop`. Requests are version-1 strict JSON with a
+four-byte network-order length; duplicate keys, extra fields, arbitrary argv,
+prompt, environment, tenant, or key fields are rejected. Requests are limited
+to 4096 bytes. Serialized responses, including base64 overhead, are limited
+to 16 MiB; raw JSONL/final bytes retain their 10 MiB/1 MiB limits. A whole
+frame has a five-second deadline that partial reads cannot reset. The session
+deadline is the configured CLI limit plus 30 seconds. Error replies contain
+only a fixed code, without child stderr, DB details, paths, or secrets.
+
+The server loads a private owned regular 32-byte Ed25519 key file without
+following a final symlink. It chooses the observer settings and checks that
+the version handshake and actual launch agree with the pinned binary. It
+reserves `(schema, tenant, job, attempt)` with a session PostgreSQL advisory
+lock before spawning and rejects an existing launch row. Reservation is
+shared across server instances and released when that DB connection closes.
+Supervisor DB reads use a connection timeout and statement timeout and request
+read-only transactions. These settings do not establish deployed DB grants.
+The trusted contract and evidence readers must still be correctly scoped.
+
+A background monitor observes completion/output bounds and checks the same
+attempt, input/stage, live lease or valid closed state, and cancellation.
+Disconnect, framing errors, normal stop, session expiry, and graceful SIGTERM
+close/reap the child and remove temporary credentials. A hard supervisor crash
+or SIGKILL still requires an independently tested service/cgroup cleanup policy;
+that proof is absent. Observation is kept only in this session. Reconnection
+or restart cannot reconstruct it from JobStore or sign a previous capture.
+A repeat `issue` must retain capture, decision, and request UUIDs and recheck
+the live/closed scope before returning its cached signature. Partial frames
+close the client connection; retry on such a stream is not supported.
+
+The supervised `CliWorker` has no CLI executable, home, credential, or signing
+key configuration. It claims/recover-expires only its configured tenant, stores
+the frozen invocation, records the returned launch, renews its lease, and
+persists raw output/capture/validated decision. Before terminal closure it
+ingests the signed record and calls `ExecutionVerifier.verify_pending` to
+check signature, pins, actual byte/ID binding, validation receipt, live attempt,
+lease, and cancellation. The existing conditional JobStore transition checks
+lease/cancellation again. The thermal publisher continues to use the separate
+completed `collection_review` verifier and its release/planning-event gates.
+No thermal G1 publication is authorized by the pending check.
+
+The IPC tests use a **separate local supervisor process with the same OS UID,
+fake CLI, test key, synthetic authority, and owner DB access**. They cover all
+three AI stages, proceed/hold, child cleanup, wrong peer/tenant/binary metadata,
+simultaneous attempt reservation, absent/bad signatures, changed raw JSONL,
+and cancellation during cached issuance. This establishes the software path;
+it does not establish independent private-key control, least-privilege roles,
+immutable binary/image identity, actual model execution, or production service
+supervision. The synthetic-only worker guard and G1/G4 holds remain active.
 
 G1 remains HOLD until the separately controlled supervisor directly observes
 an actual CLI child, signs after durable capture with a private key outside
@@ -113,3 +178,10 @@ decision, publication, and execution-attestation rows. The publisher must
 verify that signed record, the separately issued thermal software release,
 and a server-authorized planning event. G4 additionally requires per-job
 isolation, restricted egress, deployment/account and operating evidence.
+
+Local verification on 2026-09-28 used PostgreSQL 16.15 and the locked backend:
+`OSSF_TEST_PG_DSN=… uv run --locked --group dev pytest -q` completed with
+**1,075 passed, 0 skipped**, including 34 new IPC/service/worker cases, and two
+preexisting Pydantic serializer warnings. No actual model invocation was used
+in these execution tests. One exact CLI call supplied the narrow architecture
+review above; it was not a signed execution or deployment acceptance run.

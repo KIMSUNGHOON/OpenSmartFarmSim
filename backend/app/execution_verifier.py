@@ -7,7 +7,9 @@ from pathlib import Path
 from psycopg import sql
 
 from .cli_worker import CliWorker
+from .cli_contracts import STAGES
 from .execution_attestation import HEX
+from .jobs import ACTIVE_BY_STAGE
 
 
 class ExecutionVerifier:
@@ -35,7 +37,15 @@ class ExecutionVerifier:
         except Exception:
             return False
 
-    def _verified(self, tenant, job_id, attempt, capture_id, snapshot_id, decision_id):
+    def verify_pending(self, tenant, job_id, attempt, capture_id, decision_id):
+        """Check signed execution before the conditional terminal transition."""
+        try:
+            return self._verified(tenant, job_id, attempt, capture_id,
+                                  None, decision_id, pending=True)
+        except Exception:
+            return False
+
+    def _verified(self, tenant, job_id, attempt, capture_id, snapshot_id, decision_id, *, pending=False):
         record = self.store.get(tenant, job_id, attempt)
         if (record is None or record.tenant_id != tenant or
                 str(record.job_id) != str(job_id) or record.attempt != attempt or
@@ -47,7 +57,8 @@ class ExecutionVerifier:
         table = self.store.job_store._table
         with self.store.job_store.connect() as conn:
             job = conn.execute(sql.SQL("""
-                SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s
+                SELECT *, lease_until > clock_timestamp() AS lease_live
+                FROM {} WHERE tenant_id=%s AND job_id=%s
             """).format(table("jobs")), (tenant, job_id)).fetchone()
             attempt_row = conn.execute(sql.SQL("""
                 SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s AND attempt=%s
@@ -71,10 +82,18 @@ class ExecutionVerifier:
                 conn, job, attempt, decision["output_sha256"])
             if capture is None:
                 return False
+            if pending and not self.store.job_store._verify_decision_final(
+                    conn, job, attempt, decision_id, decision["artifact_sha256"],
+                    decision["disposition"]):
+                return False
         input_value = json.loads(job["input_bytes"])
+        scope_ok = (job["stage"] in STAGES and job["state"] == ACTIVE_BY_STAGE[job["stage"]]
+                    and job["lease_live"] if pending else
+                    job["stage"] == "collection_review" and job["state"] == "succeeded"
+                    and input_value.get("snapshot_id") == snapshot_id)
         return bool(
-            job["stage"] == "collection_review" and job["state"] == "succeeded" and
-            input_value.get("snapshot_id") == snapshot_id and
+            scope_ok and job["attempt_count"] == attempt and not job["cancel_requested"] and
+            sha256(job["input_bytes"]).hexdigest() == job["input_sha256"] and
             record.input_sha256 == job["input_sha256"] and
             record.prompt_sha256 == invocation["prompt_sha256"] == launch["prompt_sha256"] and
             record.schema_sha256 == invocation["schema_sha256"] == launch["schema_sha256"] and

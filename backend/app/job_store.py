@@ -226,13 +226,14 @@ class JobStore:
             raise ValueError("allowed_stages must be a nonempty subset of job stages")
         return tuple(sorted(set(allowed_stages)))
 
-    def _recover_expired(self, conn, allowed_stages) -> int:
+    def _recover_expired(self, conn, allowed_stages, tenant_id=None) -> int:
             rows = conn.execute(sql.SQL("""
                 SELECT tenant_id, job_id, attempt_count, cancel_requested, max_attempts
                 FROM {} WHERE state IN ('researching','collecting','reviewing','simulating','assessing')
                     AND lease_until <= clock_timestamp() AND stage = ANY(%s)
+                    AND (%s::text IS NULL OR tenant_id = %s)
                 FOR UPDATE SKIP LOCKED
-            """).format(self._table("jobs")), (list(allowed_stages),)).fetchall()
+            """).format(self._table("jobs")), (list(allowed_stages), tenant_id, tenant_id)).fetchall()
             for row in rows:
                 target = ("canceled" if row["cancel_requested"] else
                           "failed" if row["attempt_count"] >= row["max_attempts"] else "queued")
@@ -256,21 +257,24 @@ class JobStore:
         with self.connect() as conn:
             return self._recover_expired(conn, self._allowed_stages(None))
 
-    def claim(self, lease_seconds: int, *, allowed_stages=None) -> dict | None:
+    def claim(self, lease_seconds: int, *, allowed_stages=None, tenant_id=None) -> dict | None:
         require_seconds(lease_seconds, "lease_seconds")
+        if tenant_id is not None and (type(tenant_id) is not str or not 1 <= len(tenant_id) <= 200):
+            raise ValueError("invalid claim tenant scope")
         stages = self._allowed_stages(allowed_stages)
         with self.connect() as conn:
-            self._recover_expired(conn, stages)
+            self._recover_expired(conn, stages, tenant_id)
             while True:
                 row = conn.execute(sql.SQL("""
-                    SELECT * FROM {} WHERE stage = ANY(%s) AND (
+                    SELECT * FROM {} WHERE stage = ANY(%s)
+                        AND (%s::text IS NULL OR tenant_id = %s) AND (
                         (state = 'queued' AND next_attempt_at <= clock_timestamp())
                         OR (state IN ('researching','collecting','reviewing','simulating','assessing')
                             AND lease_until <= clock_timestamp() AND NOT cancel_requested
                             AND attempt_count < max_attempts))
                     ORDER BY created_at, job_id
                     FOR UPDATE SKIP LOCKED LIMIT 1
-                """).format(self._table("jobs")), (list(stages),)).fetchone()
+                """).format(self._table("jobs")), (list(stages), tenant_id, tenant_id)).fetchone()
                 if row is None:
                     return None
                 try:
