@@ -40,6 +40,10 @@ AUTHORITY, SUPERVISOR, WORKER, ROGUE = 11001, 11002, 11003, 11004
 CONTENT_GROUP, SUPERVISOR_GROUP, DISPATCH_GROUP = 11010, 11011, 11012
 
 
+class ProbeFailure(AssertionError):
+    """Only internal probe codes and validated WorkResult states/reasons."""
+
+
 def directory(path, uid, gid, mode):
     path.mkdir(mode=mode)
     path.chmod(mode)
@@ -92,6 +96,8 @@ def child(uid, gid, groups, action, *, home):
         except BaseException as error:
             # Never include driver messages, passwords, paths, prompts or raw CLI output.
             detail = f"{type(error).__name__}:{getattr(error, 'errno', None)}"
+            if isinstance(error, ProbeFailure):
+                detail += ":" + str(error)
             os.write(write_fd, detail.encode("ascii")[:128])
             os._exit(1)
     os.close(write_fd)
@@ -205,8 +211,12 @@ def test_distinct_uid_services_and_authenticated_roles(login_scope, stage):
                                      tenant_id="tenant-a", wait_seconds=15)
             assert set(client.__dict__) == {"socket_path", "authority_uid", "tenant_id", "wait_seconds"}
             result = client.run_once()
-            assert result.job_id == job["job_id"] and result.state == ("succeeded" if proceed else "hold")
-            assert result.capture_id is not None and result.decision_id is not None
+            if result is None or result.job_id != job["job_id"]:
+                raise ProbeFailure("dispatch_result_scope")
+            if result.state != ("succeeded" if proceed else "hold"):
+                raise ProbeFailure("dispatch_state_" + result.state + "_" + result.reason_code)
+            if result.capture_id is None or result.decision_id is None:
+                raise ProbeFailure("dispatch_unrecorded_" + result.reason_code)
             evidence = store.artifact_root / ".evidence" / sha256(b"tenant-a").hexdigest()
             denied(evidence)
 
