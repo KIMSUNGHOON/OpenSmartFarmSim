@@ -107,7 +107,7 @@ jobs:
           uv run --no-sync python -c 'import os, psycopg; psycopg.connect(os.environ["OSSF_TEST_PG_DSN"]).close()'
           uid_runtime="/tmp/ossf-uid-runtime-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           sudo -- env OSSF_TEST_PG_DSN="$OSSF_TEST_PG_DSN" PGPASSFILE="$PGPASSFILE" \
-            "$uid_runtime/venv/bin/python" -m pytest -q -s tests/uid_service_smoke.py
+            "$uid_runtime/venv/bin/python" -B -m pytest -p no:cacheprovider -q -s tests/uid_service_smoke.py
           uv run --no-sync pytest -q -rs
 
       - name: Check content access with distinct Linux UIDs

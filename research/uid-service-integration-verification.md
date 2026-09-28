@@ -66,13 +66,15 @@ explicit test DSN and private admin passfile path to the root test controller:
 
 ```sh
 sudo -- env OSSF_TEST_PG_DSN="$OSSF_TEST_PG_DSN" PGPASSFILE="$PGPASSFILE" \
-  "$uid_runtime/venv/bin/python" -m pytest -q -s tests/uid_service_smoke.py
+  "$uid_runtime/venv/bin/python" -B -m pytest -p no:cacheprovider -q -s tests/uid_service_smoke.py
 ```
 
 The evidence is a terminal hosted result with three passing cases and the fixed
 `Distinct UID service smoke passed` stage messages. The local account cannot
 drop into these UIDs; only collection of the three cases and the existing
 same-UID real-SCRAM service regression (six passed) were run locally.
+Root pytest disables bytecode and its cache plugin so it does not create
+root-owned caches in the checkout used by the subsequent ordinary test runner.
 
 The first hosted attempt stopped at service startup with a RolePolicyHold.
 Inspection of the installed Psycopg 3.3.6 `ConnectionInfo.get_parameters` found
