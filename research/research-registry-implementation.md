@@ -40,3 +40,10 @@ independent release evidence. Existing manifests, releases, jobs and decisions
 were not rewritten. Protected operator pin/file assembly, source/vintage/right
 evidence, later signed planning, per-job containment, actual CLI invocation and
 the full UI/G1 path remain missing; field, forecast/ranking and G4 are not opened.
+
+Exact registry commit `69343fe` subsequently passed
+[backend CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36400358283):
+**1425 ordinary tests, 2 warnings**, **four distinct-UID cases in 15.96 s**, and
+content DAC. Its [Compose receipt](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36400358323)
+also passed. Terminal status and exact head were rechecked on 2026-09-28; those
+receipts do not cover the later hold HTTP or raw-reader authorization changes.

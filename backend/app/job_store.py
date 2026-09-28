@@ -1472,7 +1472,7 @@ class JobStore:
                                           "decision_id", "receipt_id", "hold_id", "recorded_at")}
 
     def read_hold_report(self, tenant_id, job_id):
-        if not self._has_scope(tenant_id, "artifact"):
+        if not self._has_scope(tenant_id, "artifact") or not self._has_scope(tenant_id, "auditor"):
             return None
         with self.connect() as conn:
             row = conn.execute(sql.SQL("""

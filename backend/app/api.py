@@ -12,7 +12,7 @@ from starlette.concurrency import run_in_threadpool
 from .api_contracts import (EconomicResultRead, ErrorEnvelope, JobStatus, MarketHoldStatus,
                             ThermalRunManifest, ThermalRunSeries, ThermalRunSummary,
                             public_job_status,
-                            public_market_hold, LocationAccepted)
+                            public_market_hold, LocationAccepted, JobHoldStatus, public_job_hold)
 from .api_economics import RESULT_ID_PATTERN, project_economic_result
 from .api_thermal import RUN_ID_PATTERN, project_thermal_manifest, project_thermal_run
 from .job_store import JobIntentConflict
@@ -129,6 +129,26 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return public_market_hold(row)
         except Exception:
             return _error(503, "store_unavailable", "Market hold report unavailable")
+
+    @app.get("/v1/jobs/{job_id}/hold-report", response_model=JobHoldStatus, responses=errors)
+    def get_job_hold_report(job_id: UUID):
+        tenant, denied = authorized_tenant("metadata", "artifact", "auditor")
+        if denied is not None:
+            return denied
+        try:
+            job = job_store.get_job(tenant, job_id)
+            if (job is None or job["tenant_id"] != tenant or job["state"] != "hold" or
+                    job.get("reason", {}).get("code") != "ai_validated_hold"):
+                return _error(404, "not_found", "Job hold report not found")
+            if job["job_id"] != job_id:
+                raise ValueError("job identity mismatch")
+            held = job_store.get_hold_report(tenant, job_id)
+            raw = job_store.read_hold_report(tenant, job_id)
+            if held is None or raw is None:
+                return _error(404, "not_found", "Job hold report not found")
+            return public_job_hold(job, held, raw)
+        except Exception:
+            return _error(503, "store_unavailable", "Job hold report unavailable")
 
     def displayed_run(run_id):
         tenant, denied = authorized_tenant("thermal_run_read")

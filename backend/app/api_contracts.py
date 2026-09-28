@@ -7,6 +7,7 @@ from uuid import UUID
 from pydantic import BaseModel, ConfigDict, Field
 
 from .jobs import require_reason_code
+from .job_store import JobStore
 
 
 class JobStatus(BaseModel):
@@ -30,6 +31,23 @@ class MarketHoldStatus(BaseModel):
     status: Literal["hold"]
     reasons: list[str]
     missing_evidence: list[str]
+
+
+PublicMissingEvidence = Literal["research_source_evidence", "signed_decision_context",
+                                "real_source_g0", "other_evidence"]
+PUBLIC_MISSING_EVIDENCE = frozenset({"research_source_evidence", "signed_decision_context", "real_source_g0"})
+
+
+class JobHoldStatus(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    job_id: UUID
+    stage: Literal["research", "collection_review", "assessment"]
+    hold_id: UUID
+    status: Literal["hold"]
+    recorded_at: datetime
+    reason_code: Literal["evidence_missing", "decision_held"]
+    missing_evidence: list[PublicMissingEvidence]
+    missing_evidence_count: int = Field(ge=0, le=50)
 
 
 class LocationAccepted(BaseModel):
@@ -211,4 +229,23 @@ def public_market_hold(row: dict) -> MarketHoldStatus:
     return MarketHoldStatus.model_validate({
         "hold_report_id": row["hold_report_id"], "status": row["status"],
         "reasons": row["reasons"], "missing_evidence": row["missing_evidence"],
+    })
+
+
+def public_job_hold(job, held, raw) -> JobHoldStatus:
+    if (job["state"] != "hold" or job["reason"] != {"code": "ai_validated_hold"} or
+            held["tenant_id"] != job["tenant_id"] or held["job_id"] != job["job_id"] or
+            held["attempt"] != job["attempt_count"]):
+        raise ValueError("inconsistent held job")
+    report = JobStore._parse_hold_report(raw)
+    categories = []
+    for code in report["missing_evidence"]:
+        category = code if code in PUBLIC_MISSING_EVIDENCE else "other_evidence"
+        if category not in categories:
+            categories.append(category)
+    return JobHoldStatus.model_validate({
+        "job_id": job["job_id"], "stage": job["stage"], "hold_id": held["hold_id"],
+        "status": "hold", "recorded_at": held["recorded_at"],
+        "reason_code": report["reason_code"], "missing_evidence": categories,
+        "missing_evidence_count": len(report["missing_evidence"]),
     })
