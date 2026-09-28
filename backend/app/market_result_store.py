@@ -55,6 +55,14 @@ def install_market_result_schema(conn, schema):
     """).format(namespace, namespace))
 
 
+class MarketResultDenied(ValueError):
+    pass
+
+
+class MarketResultConflict(ValueError):
+    pass
+
+
 class MarketResultStore:
     """Store server-calculated results; callers cannot submit result bytes."""
 
@@ -118,26 +126,36 @@ class MarketResultStore:
     def pin_market_result(self, scenario_id, revision):
         tenant = self._tenant("market_result_write")
         if tenant is None:
-            raise ValueError("market result write authority denied")
+            raise MarketResultDenied("market result write authority denied")
         result = MarketScenarioService(self._candidates).calculate_pinned(
             scenario_id, revision, tenant)
-        raw = encode_market_result(result)
         with self.connect() as conn:
-            conn.execute(sql.SQL("""
+            self._pin_in_transaction(conn, tenant, result)
+        return result
+
+    def _pin_in_transaction(self, conn, tenant, result):
+        if self._tenant("market_result_write") != tenant:
+            raise MarketResultDenied("market result write authority denied")
+        scenario_id = result.economic_result.scenario_id
+        revision = result.economic_result.scenario_revision
+        raw = encode_market_result(result)
+        conn.execute(sql.SQL("""
                 INSERT INTO {} (tenant_id, scenario_id, revision, candidate_id,
                     result_id, scenario_sha256, result_raw, result_sha256)
                 VALUES (%s,%s,%s,%s,%s,%s,%s,%s) ON CONFLICT DO NOTHING
             """).format(self._table("market_result_records")),
                 (tenant, scenario_id, revision, result.candidate_id, result.result_id,
                  result.economic_scenario_sha256, raw, _hash(raw)))
-            row = conn.execute(sql.SQL("""
+        row = conn.execute(sql.SQL("""
                 SELECT * FROM {} WHERE tenant_id=%s AND scenario_id=%s AND revision=%s
             """).format(self._table("market_result_records")),
                 (tenant, scenario_id, revision)).fetchone()
-            self._checked(conn, row)
-            if row["result_raw"] != raw:
-                raise ValueError("market result immutable pin conflict")
-        return result
+        self._checked(conn, row)
+        if row["result_raw"] != raw:
+            raise MarketResultConflict("market result immutable pin conflict")
+        if self._tenant("market_result_write") != tenant:
+            raise MarketResultDenied("market result write authority denied")
+        return row
 
     def get_market_result(self, scenario_id, revision):
         tenant = self._tenant("market_result_read")

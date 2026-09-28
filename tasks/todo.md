@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**조건부 경제 계산 작업자 진행:** [작업자/운영자 전경 실행 계약](../contracts/economic-calculation-worker-v1.md)은 고정 후보·시나리오/산식 판본을 실제 simulation 요청으로 받고 기존 Decimal 엔진으로 재계산한다. [소프트웨어 증거](../research/economic-calculation-worker-implementation.md)는 실제 임대·권한·결과/완료 원자성을 다룬다. HTTP 접수·작업/결과 조회 연결·전체 경제/손익분기 작업·CLI/평가·브라우저/G1/G4 수용은 남아 기존 체크를 유지한다.
+
 **조건부 경제 시나리오 HTTP 진행:** [등록 계약](../contracts/api-economic-scenario-v1.md)은 저장된 기준 입력·공통 충격을 검사하고 실제 요청·후보·수정 수치를 같은 거래로 저장한다. [구현 증거](../research/api-economic-scenario-implementation.md)는 합성 원천/키와 실제 SCRAM/Bearer의 소프트웨어 범위다. 결과 게시·경제 작업자·CLI/평가·브라우저/전체 G1 수용은 남아 기존 체크를 유지한다.
 
 2026-09-27 현재 **18개 완료, 18개 미완료**다. 각 작업은 한 번의 작업 세션에 다룰 수 있도록 제안했고, 지정 파일은 대체로 최대 다섯 개다. `decision-evidence-store`는 이전 작업의 시험을 새 검증 계약으로 이관해야 하므로 여섯 파일을 지정한다. `repo-bootstrap`의 잠금·설치·import 확인은 완료 증거이며, 앱 코드·시험·Compose가 필요한 아래 명령은 **후속 검증 절차**다. 해당 작업의 수용 증거를 기록한 뒤에만 체크한다. 외부 접근을 기다리는 상태는 완료가 아니다. 구현 전에 [기능 목록](../docs/IMPLEMENTATION_SLICE.md#6-범위-기능-목록과-구현-순서), [구현 순서](plan.md), [준비 현황](../docs/IMPLEMENTATION_READINESS.md)을 확인한다. 런타임 CLI의 정확한 모델·추론 강도는 전 과정에서 필수다.

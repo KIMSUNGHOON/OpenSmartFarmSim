@@ -44,3 +44,11 @@ Independent source/rights/release/custody, actual CLI, completed collection/
 economic workers, protected operator deployment, browser/full G1/G4 and
 G0/G2/G3 remain unaccepted. New code joins the closed digest and needs a fresh
 independently issued release.
+
+Hosted exact-head follow-up: commit 480447c0c82203557d872a9ddea1984dbcbb301c
+passed [backend CI 36454748826](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36454748826)
+with **1819 ordinary tests, 2 existing serialization warnings, 1385.59 s (23:05)**
+and **4 separate-UID service tests in 18.06 s**. Distinct Linux UID content access
+and database/password cleanup succeeded. The same head passed
+[Compose CI 36454748836](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36454748836).
+These receipts do not remove the source, CLI, release or full G1/G4 holds above.
