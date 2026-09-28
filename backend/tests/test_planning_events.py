@@ -37,9 +37,9 @@ def planning():
         conn.execute(sql.SQL("CREATE SCHEMA {}").format(sql.Identifier(schema)))
         install_planning_schema(conn, schema)
     key = Ed25519PrivateKey.generate()
-    authority = PlanningAuthority(store, "test-planning-v1", key)
+    authority = PlanningAuthority(store, "test-planning-v1", key, synthetic_smoke=True)
     public = key.public_key().public_bytes(Encoding.Raw, PublicFormat.Raw)
-    verifier = DecisionContextVerifier({"test-planning-v1": public}, store.read_event)
+    verifier = DecisionContextVerifier({"test-planning-v1": public}, store.read_event, synthetic_smoke=True)
     try:
         yield store, authority, verifier, key, public, principal
     finally:
@@ -64,7 +64,7 @@ def test_actual_time_comes_from_server_event_and_replays_after_restart(planning)
     assert before <= datetime.fromisoformat(context["decision_at_utc"].replace("Z", "+00:00")) <= after
     assert row["event_sha256"] == sha256(row["event_raw"]).hexdigest()
     fresh = PlanningEventStore(store.dsn, store.schema, principal_provider=lambda: principal)
-    replay = DecisionContextVerifier({"test-planning-v1": public}, fresh.read_event)
+    replay = DecisionContextVerifier({"test-planning-v1": public}, fresh.read_event, synthetic_smoke=True)
     expected = {name: context[name] for name in
                 ("authority_id", "planning_event_sha256", "decision_at_utc", "decision_time_kind")}
     assert verifier(raw, signature) == replay(raw, signature) == expected
@@ -134,11 +134,11 @@ def test_public_read_configuration_cannot_issue_and_foreign_digest_is_hidden(pla
     raw, signature = issue(authority)
     principal = {"authenticated": True, "tenant_id": "tenant-a", "scopes": ("planning_event_read",)}
     reader = PlanningEventStore(store.dsn, store.schema, principal_provider=lambda: principal)
-    verifier = DecisionContextVerifier({"test-planning-v1": public}, reader.read_event)
+    verifier = DecisionContextVerifier({"test-planning-v1": public}, reader.read_event, synthetic_smoke=True)
     assert verifier(raw, signature) is not None
     assert reader.read_event("tenant-b", json.loads(raw)["planning_event_sha256"]) is None
     with pytest.raises(PlanningHold, match="planning_issue_denied"):
-        issue(PlanningAuthority(reader, "test-planning-v1", Ed25519PrivateKey.generate()))
+        issue(PlanningAuthority(reader, "test-planning-v1", Ed25519PrivateKey.generate(), synthetic_smoke=True))
 
 
 @pytest.mark.parametrize("fault", ["signature", "unknown_key", "noncanonical", "duplicate_key", "missing_event",
@@ -160,7 +160,7 @@ def test_verifier_rejects_bad_signature_missing_or_changed_durable_binding(plann
     elif fault == "tenant": row["tenant_id"] = "tenant-b"
     elif fault == "context_id": row["decision_context_id"] = str(uuid4())
     else: row["recorded_at"] = datetime(2000, 1, 1, tzinfo=timezone.utc)
-    verifier = DecisionContextVerifier(keys, lambda tenant, digest: row)
+    verifier = DecisionContextVerifier(keys, lambda tenant, digest: row, synthetic_smoke=True)
     assert verifier(raw, signature) is None
 
 
@@ -178,7 +178,7 @@ def test_even_a_valid_signature_requires_matching_event_time_and_scope(planning,
     changed = _canonical(context)
     signature = key.sign(DOMAIN + changed).hex()
     row.update(context_raw=changed, context_sha256=sha256(changed).hexdigest(), context_signature=signature)
-    verifier = DecisionContextVerifier({"test-planning-v1": public}, lambda tenant, digest: row)
+    verifier = DecisionContextVerifier({"test-planning-v1": public}, lambda tenant, digest: row, synthetic_smoke=True)
     assert verifier(changed, signature) is None
 
 

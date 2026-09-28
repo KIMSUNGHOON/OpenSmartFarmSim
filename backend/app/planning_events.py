@@ -59,13 +59,23 @@ def install_planning_schema(conn, schema):
 
 
 class PlanningEventStore:
-    def __init__(self, dsn, schema, *, principal_provider):
+    def __init__(self, dsn, schema, *, principal_provider, runtime_identity=None):
         _need(type(dsn) is str and bool(dsn) and type(schema) is str and
               re.fullmatch(r"[a-z][a-z0-9_]{0,62}", schema) and callable(principal_provider),
               "planning_configuration_rejected")
+        if runtime_identity is not None:
+            from .planning_roles import PlanningLoginPolicy
+            _need(type(runtime_identity) is tuple and len(runtime_identity) == 2 and
+                  type(runtime_identity[0]) is PlanningLoginPolicy and runtime_identity[0].schema == schema and
+                  type(runtime_identity[1]) is str and runtime_identity[1] in runtime_identity[0].roles,
+                  "planning_configuration_rejected")
         self.dsn, self.schema, self.principal_provider = dsn, schema, principal_provider
+        self.runtime_identity = runtime_identity
 
     def connect(self):
+        if self.runtime_identity is not None:
+            from .planning_roles import connect_planning
+            return connect_planning(self.dsn, *self.runtime_identity)
         return psycopg.connect(self.dsn, row_factory=dict_row)
 
     def _table(self):
@@ -95,10 +105,12 @@ class PlanningEventStore:
 
 
 class PlanningAuthority:
-    def __init__(self, store, authority_id, private_key):
+    def __init__(self, store, authority_id, private_key, *, synthetic_smoke=False):
         _need(isinstance(store, PlanningEventStore) and type(authority_id) is str and
               re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,63}", authority_id) and
               isinstance(private_key, Ed25519PrivateKey), "planning_authority_rejected")
+        _need(synthetic_smoke is True or (store.runtime_identity is not None and
+              store.runtime_identity[1] == "authority"), "planning_writer_login_required")
         self.store, self.authority_id, self.private_key = store, authority_id, private_key
 
     def issue(self, tenant, snapshot_id, *, claim_mode, decision_time_kind, hypothetical_at=None):
@@ -140,11 +152,16 @@ class PlanningAuthority:
 class DecisionContextVerifier:
     """Only pinned public keys and a trusted read-only event reader, never a signing key."""
 
-    def __init__(self, public_keys, event_reader):
+    def __init__(self, public_keys, event_reader, *, synthetic_smoke=False):
         _need(type(public_keys) is dict and bool(public_keys) and callable(event_reader) and all(
             type(name) is str and re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,63}", name) and
             type(raw) is bytes and len(raw) == 32 for name, raw in public_keys.items()),
               "planning_verifier_rejected")
+        reader = getattr(event_reader, "__self__", None)
+        _need(synthetic_smoke is True or (type(reader) is PlanningEventStore and
+              reader.runtime_identity is not None and reader.runtime_identity[1] == "supervisor" and
+              getattr(event_reader, "__func__", None) is PlanningEventStore.read_event),
+              "planning_reader_login_required")
         self.public_keys = {name: Ed25519PublicKey.from_public_bytes(raw) for name, raw in public_keys.items()}
         self.event_reader = event_reader
 

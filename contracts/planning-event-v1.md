@@ -13,7 +13,8 @@ An operator installs a fresh `planning_events` table in a **separate schema**;
 the closed runtime role policies and existing project tables are unchanged.
 `PlanningEventStore` requires an explicit DSN/schema and trusted principal
 provider. `PlanningAuthority` is provisioned with the planning authority ID and
-an Ed25519 private key. Its `issue(tenant, snapshot_id, claim_mode=…,
+an Ed25519 private key and requires a writer-bound store under
+[planning-login-policy-v1](planning-login-policy-v1.md). Its `issue(tenant, snapshot_id, claim_mode=…,
 decision_time_kind=…, hypothetical_at=…)` requires authenticated matching-tenant
 `planning_event_issue`. Callers cannot supply raw event/context bytes, event ID,
 authority, issuance time or a purported actual decision timestamp.
@@ -46,7 +47,10 @@ uses its stored ID/bytes; a new issuance creates a new observed event.
 ## Independent read verification
 
 `DecisionContextVerifier` receives only a pinned authority-to-public-key map and
-a trusted event reader, not a signing key. `PlanningEventStore.read_event`
+a reader-bound store's exact `read_event` method, not a signing key.
+Owner stores, wrong login profiles and arbitrary readers are rejected by default;
+explicit `synthetic_smoke=True` enables software test doubles only.
+`PlanningEventStore.read_event`
 requires authenticated matching-tenant `planning_event_read` and returns no
 foreign/unauthorized/unknown row. The verifier validates canonical closed
 envelopes, Ed25519, exact stored context/signature/hash, raw event hash, the
@@ -70,12 +74,11 @@ actual/hypothetical distinction, timestamp override, authorization/tenant
 boundaries, changed signature/hash/record/clock/scope, valid-signature mismatches,
 immutable rows, database hash constraints and transaction rollback.
 
-Tests share an owner credential and test key control. Python principal checks
-and triggers do not constrain a privileged schema owner, TRUNCATE, direct SQL
-or signing outside this method. The installer grants no runtime roles. A real
-deployment still needs a separate non-login schema owner, scoped writer/read
-logins (writer INSERT excluding server-owned timestamp columns, no mutation/DDL),
-tenant controls, an independently controlled private key and clock/connection
-operations evidence. These accounts/keys and a product factory are not installed
-by this candidate. No real source/field/crop/economic evidence or G1/G4 acceptance
-follows from the tests.
+The original contract tests explicitly share an owner credential and test key.
+The separate login candidate now authenticates a scoped writer/reader pair,
+audits every connection and denies timestamp insertion, mutation and DDL through
+SQL grants. Its tests still share one OS UID and key control; they do not install
+operating accounts or independently control signing outside this method.
+A privileged owner can still alter the schema. Database tenant isolation,
+independent private-key custody, clock operations and a product factory remain
+unresolved. No real source/field/crop/economic evidence or G1/G4 acceptance follows.
