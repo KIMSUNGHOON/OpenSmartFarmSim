@@ -2,6 +2,7 @@
 
 from contextlib import contextmanager
 import copy
+from datetime import datetime
 from hashlib import sha256
 import json
 import os
@@ -179,12 +180,14 @@ def test_distinct_uid_services_and_authenticated_roles(login_scope, stage):
         foreign = store.submit("tenant-b", stage, decision_input(stage), uuid4().hex)
 
         def supervisor():
+            datetime.strptime("2026-01-03T00:00:00Z", "%Y-%m-%dT%H:%M:%SZ")
             denied(authority_home / "db.pgpass")
             configured = copy.copy(store)
             configured._dsn, configured.runtime_identity = dsns["supervisor"], (policy, "supervisor")
             SupervisorServer(configured, **settings).serve(max_sessions=2)
 
         def authority():
+            datetime.strptime("2026-01-03T00:00:00Z", "%Y-%m-%dT%H:%M:%SZ")
             denied(key)
             engine = engine_for(dsns["authority"], store.schema, store.artifact_root, policy,
                 settings["socket_path"], public, settings, proceed,

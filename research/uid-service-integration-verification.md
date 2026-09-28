@@ -5,6 +5,12 @@ It introduces no production policy, executable allowlist, credentials or release
 approval. The [explicit test file](../backend/tests/uid_service_smoke.py) is outside
 ordinary pytest discovery because it requires a disposable root controller.
 It must pass as a separate hosted invocation; collection is not execution proof.
+CI installs the same locked Python 3.12.13/packages in a bounded public code-only
+runtime under `/tmp/ossf-uid-runtime-RUN-ATTEMPT`, with others' write permission
+removed. Package copying avoids changing shared cache inode permissions. This
+runtime contains no credential/key files and is removed in always-run cleanup.
+Services exercise an actual date-parser import after dropping UID; controller
+preloads alone are not enough to establish readable interpreter/library code.
 
 ## Tested boundary
 
@@ -60,7 +66,7 @@ explicit test DSN and private admin passfile path to the root test controller:
 
 ```sh
 sudo -- env OSSF_TEST_PG_DSN="$OSSF_TEST_PG_DSN" PGPASSFILE="$PGPASSFILE" \
-  "$GITHUB_WORKSPACE/backend/.venv/bin/python" -m pytest -q -s tests/uid_service_smoke.py
+  "$uid_runtime/venv/bin/python" -m pytest -q -s tests/uid_service_smoke.py
 ```
 
 The evidence is a terminal hosted result with three passing cases and the fixed

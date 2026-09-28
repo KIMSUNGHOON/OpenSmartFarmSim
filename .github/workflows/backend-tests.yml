@@ -34,6 +34,19 @@ jobs:
           uv sync --locked --group dev --python 3.12.13
           uv run --no-sync python -c 'import sys; assert sys.version_info[:3] == (3, 12, 13)'
 
+      - name: Prepare readable runtime for UID service smoke
+        working-directory: backend
+        shell: bash
+        run: |
+          set -euo pipefail
+          uid_runtime="/tmp/ossf-uid-runtime-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          mkdir -m 755 -- "$uid_runtime"
+          uv python install --no-cache --no-bin --install-dir "$uid_runtime/python" 3.12.13
+          UV_PYTHON_INSTALL_DIR="$uid_runtime/python" UV_PROJECT_ENVIRONMENT="$uid_runtime/venv" \
+            uv sync --locked --group dev --python 3.12.13 --link-mode copy
+          chmod -R go-w,a+rX -- "$uid_runtime"
+          "$uid_runtime/venv/bin/python" -c 'import sys; assert sys.version_info[:3] == (3, 12, 13)'
+
       - name: Start disposable PostgreSQL
         shell: bash
         run: |
@@ -92,8 +105,9 @@ jobs:
           export OSSF_TEST_PG_DSN="host=127.0.0.1 port=$port dbname=ossf_ci user=ossf_ci"
 
           uv run --no-sync python -c 'import os, psycopg; psycopg.connect(os.environ["OSSF_TEST_PG_DSN"]).close()'
+          uid_runtime="/tmp/ossf-uid-runtime-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           sudo -- env OSSF_TEST_PG_DSN="$OSSF_TEST_PG_DSN" PGPASSFILE="$PGPASSFILE" \
-            "$GITHUB_WORKSPACE/backend/.venv/bin/python" -m pytest -q -s tests/uid_service_smoke.py
+            "$uid_runtime/venv/bin/python" -m pytest -q -s tests/uid_service_smoke.py
           uv run --no-sync pytest -q -rs
 
       - name: Check content access with distinct Linux UIDs
@@ -114,4 +128,6 @@ jobs:
             docker rm -fv "$db_container" >/dev/null 2>&1 || status=1
           fi
           rm -rf -- "$secret_dir" || status=1
+          uid_runtime="/tmp/ossf-uid-runtime-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          sudo -- rm -rf -- "$uid_runtime" || status=1
           exit "$status"
