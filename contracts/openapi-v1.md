@@ -1,7 +1,7 @@
 # Implemented API OpenAPI contract v1
 
 [openapi-v1.json](openapi-v1.json) is the deterministic OpenAPI 3.1.0 snapshot
-of the eight implemented operations. It is an internal software candidate.
+of the nine implemented operations. It is an internal software candidate.
 Future ingestion/Run/economic/assessment submissions and region listings are
 specified in ARCHITECTURE but are not advertised as available operations.
 
@@ -29,7 +29,7 @@ vendor field. Actual credential verification remains in PrincipalMiddleware and
 each store still enforces tenant/right access independently.
 
 Operation IDs are stable: registerLocation, getJob, getJobHold, getMarketHold,
-getRun, getRunSeries, getRunManifest, getEconomicResult. `LocationPoint` is a
+getRun, getRunSeries, getRunManifest, getEconomicResult, getBreakEvenResult. `LocationPoint` is a
 closed latitude/longitude object with coordinate bounds, matching the actual
 response. Registration's request is closed JSON with a 4096-byte maximum
 (`x-ossf-max-body-bytes`). Duplicate JSON keys and period ordering are runtime
@@ -53,3 +53,7 @@ Schema examples, synthetic Run constants and conditional/hold economic fields
 grant no G0–G4 evidence. Full authenticated operator assembly, remaining
 submissions, actual runtime CLI, independently approved sources/releases,
 browser/G1 and public G4 remain separate work.
+
+The [conditional break-even read](api-break-even-read-v1.md) uses a bounded
+`plan_id` query to support existing Unicode/slash IDs and preserves finite-grid
+status, decimal values and assessment hold. Existing operation IDs stay fixed.

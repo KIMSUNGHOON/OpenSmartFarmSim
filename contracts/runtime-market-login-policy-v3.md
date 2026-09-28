@@ -32,3 +32,7 @@ the profile does not replace them. Protected operating accounts, credential
 custody, DB TLS/HBA/RLS, real source repositories and independent release/G1/G4
 remain separate evidence. Synthetic SCRAM/software tests prove no production
 account separation or actual model invocation.
+
+The [optional break-even profile v4](runtime-break-even-login-policy-v4.md)
+adds a separately selected immutable plan/result table. V3 defaults and its
+three-table matrix/version remain unchanged.

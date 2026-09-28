@@ -11,6 +11,7 @@ from pydantic import TypeAdapter
 from .break_even import (BreakEvenPlan, BreakEvenRequest, BreakEvenResult,
                          BreakEvenService, canonical_request_sha256)
 from .economic_contracts import untrusted_data
+from .market_runtime import connect_market, validate_market_identity
 
 
 _RESULT = TypeAdapter(BreakEvenResult)
@@ -81,14 +82,18 @@ class _ProposedPlanRepository:
 class BreakEvenStore:
     """Read and write only through a trusted, tenant-scoped candidate source."""
 
-    def __init__(self, dsn, schema, source_repository, *, principal_provider):
+    def __init__(self, dsn, schema, source_repository, *, principal_provider, runtime_identity=None):
         if not callable(principal_provider):
             raise ValueError("break-even principal provider is required")
+        validate_market_identity(schema, runtime_identity, calculation=True, break_even=True)
+        self.runtime_identity = runtime_identity
         self.dsn, self.schema = dsn, schema
         self._source = source_repository
         self._principal_provider = principal_provider
 
     def connect(self):
+        if self.runtime_identity is not None:
+            return connect_market(self.dsn, self.runtime_identity)
         return psycopg.connect(self.dsn, row_factory=dict_row)
 
     def _table(self):
@@ -187,8 +192,17 @@ class BreakEvenStore:
         row = self._row(plan_id)
         if row is None:
             return None
+        return self._replayed(row)[1]
+
+    def get_break_even_read(self, tenant_id, plan_id):
+        if self._tenant("break_even_read") != tenant_id:
+            return None
+        row = self._row(plan_id)
+        return self._replayed(row) if row is not None else None
+
+    def _replayed(self, row):
         request, _, stored = self._checked(row)
         recalculated = BreakEvenService(self).scan(request, row["tenant_id"])
         if _canonical(_RESULT.dump_python(recalculated, mode="json")) != row["result_raw"]:
             raise ValueError("break-even replay result differs")
-        return stored
+        return request, stored

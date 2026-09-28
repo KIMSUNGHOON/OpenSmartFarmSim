@@ -15,12 +15,13 @@ CONTRACT_PATH = Path(__file__).resolve().parents[2]/"contracts"/"openapi-v1.json
 class _SchemaOnlyStores:
     def _refuse(self, *_args):
         raise RuntimeError("schema-only store cannot serve requests")
-    get_job = get_public_report = get_run = get_snapshot = get_economic_result = _refuse
+    get_job = get_public_report = get_run = get_snapshot = get_economic_result = get_break_even_read = _refuse
 
 
 def contract_document():
     stores = _SchemaOnlyStores()
-    return create_app(stores, stores, stores, stores, principal_provider=current_principal).openapi()
+    return create_app(stores, stores, stores, stores, principal_provider=current_principal,
+                      break_even_store=stores).openapi()
 
 
 def contract_bytes():

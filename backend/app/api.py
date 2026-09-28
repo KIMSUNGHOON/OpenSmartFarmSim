@@ -4,7 +4,7 @@ from uuid import UUID
 from typing import Annotated
 import json
 
-from fastapi import FastAPI, Path, Request
+from fastapi import FastAPI, Path, Query, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from starlette.concurrency import run_in_threadpool
@@ -14,6 +14,7 @@ from .api_contracts import (EconomicResultRead, ErrorEnvelope, JobStatus, Market
                             public_job_status,
                             public_market_hold, LocationAccepted, JobHoldStatus, public_job_hold)
 from .api_economics import RESULT_ID_PATTERN, project_economic_result
+from .api_break_even import PLAN_ID_PATTERN, BreakEvenRead, project_break_even_result
 from .api_thermal import RUN_ID_PATTERN, project_thermal_manifest, project_thermal_run
 from .job_store import JobIntentConflict
 from .orchestration import LocationRequest, LocationResearchService, ResearchRequestRejected
@@ -29,7 +30,7 @@ def _access(scopes):
 
 
 def create_app(job_store, market_hold_store, thermal_run_store, market_result_store,
-               *, principal_provider, location_research_service=None) -> FastAPI:
+               *, principal_provider, location_research_service=None, break_even_store=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -39,6 +40,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         raise ValueError("API trusted stores and principal provider are required")
     if location_research_service is not None and type(location_research_service) is not LocationResearchService:
         raise ValueError("trusted location research service required")
+    if break_even_store is not None and not callable(getattr(break_even_store, "get_break_even_read", None)):
+        raise ValueError("trusted break-even reader required")
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
     location_scopes = ("location_create",)
     job_scopes = ("metadata",)
@@ -47,6 +50,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
     run_scopes = ("thermal_run_read",)
     manifest_scopes = ("thermal_run_read", "thermal_snapshot_read")
     economic_scopes = ("market_result_read",)
+    break_even_scopes = ("break_even_read",)
 
     @app.exception_handler(RequestValidationError)
     async def invalid_request(_request, _error_detail):
@@ -223,6 +227,25 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return project_economic_result(result)
         except Exception:
             return _error(503, "store_unavailable", "Economic result unavailable")
+
+    @app.get("/v1/break-even-results", response_model=BreakEvenRead, responses=errors,
+             operation_id="getBreakEvenResult", openapi_extra=_access(break_even_scopes))
+    def get_break_even_result(plan_id: Annotated[str, Query(pattern=PLAN_ID_PATTERN, max_length=200)]):
+        tenant, denied = authorized_tenant(*break_even_scopes)
+        if denied is not None:
+            return denied
+        try:
+            if break_even_store is None:
+                raise ValueError("break-even reader unavailable")
+            held = break_even_store.get_break_even_read(tenant, plan_id)
+            if held is None:
+                return _error(404, "not_found", "Break-even result not found")
+            request, result = held
+            if request.plan_id != plan_id:
+                raise ValueError("break-even request identity differs")
+            return project_break_even_result(request, result)
+        except Exception:
+            return _error(503, "store_unavailable", "Break-even result unavailable")
 
     original_openapi = app.openapi
     def service_openapi():

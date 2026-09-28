@@ -70,3 +70,14 @@ thermal release and browser end-to-end flow remain incomplete. These tests do
 not authorize a MarketSnapshot, future crop/margin forecast, crop comparison,
 energy purchase, deployment or G0–G4 acceptance. Existing task checkboxes remain
 open where their complete acceptance evidence is missing.
+
+
+## Hosted exact-head verification receipt
+
+Commit `082090b37dd75a5a6f2de67817c7c3471deb3a2f` completed
+[backend CI 36412355472](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36412355472):
+**1,548 ordinary tests passed**, two existing Pydantic warnings, 377.08 s;
+**4 distinct-UID tests passed**, 18.51 s, plus the kernel content DAC check.
+[Compose CI 36412355294](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36412355294)
+passed. Both completed runs were rechecked against the exact commit. These
+receipts cover v3; later break-even changes require their own verification.

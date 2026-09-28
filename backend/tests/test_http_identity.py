@@ -33,7 +33,8 @@ def grant(raw=TOKEN_A, tenant="tenant-a", **changes):
         frozenset({"metadata", "location_create"}), NOW, NOW+timedelta(hours=1)), **changes)
 
 
-async def request(app, *, headers=None, scheme="https", path="/", method="GET", body=b"", wait=None):
+async def request(app, *, headers=None, scheme="https", path="/", method="GET", body=b"", wait=None,
+                  query=b"token=spoofed"):
     sent = []
     received = False
     async def receive():
@@ -47,7 +48,7 @@ async def request(app, *, headers=None, scheme="https", path="/", method="GET", 
     async def send(message):
         sent.append(message)
     await app({"type": "http", "asgi": {"version": "3.0"}, "method": method,
-        "path": path, "raw_path": path.encode(), "root_path": "", "query_string": b"token=spoofed",
+        "path": path, "raw_path": path.encode(), "root_path": "", "query_string": query,
         "headers": headers if headers is not None else [(b"authorization", b"Bearer "+TOKEN_A)],
         "scheme": scheme, "http_version": "1.1", "server": ("test", 443), "client": ("test", 1234),
         "state": {"principal": {"authenticated": True, "tenant_id": "foreign-tenant"}}}, receive, send)

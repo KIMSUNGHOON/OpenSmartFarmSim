@@ -35,6 +35,11 @@ def owned_scope(pg_store, policy):
             install_market_candidate_schema(conn, pg_store.schema)
             install_market_result_schema(conn, pg_store.schema)
             tables += MARKET_TABLES
+        if getattr(policy, "break_even_calculation", False):
+            from app.break_even_store import install_break_even_store_schema
+            from app.runtime_roles import BREAK_EVEN_TABLES
+            install_break_even_store_schema(conn, pg_store.schema)
+            tables += BREAK_EVEN_TABLES
         conn.execute(sql.SQL("ALTER SCHEMA {} OWNER TO {}").format(
             sql.Identifier(policy.schema), sql.Identifier(policy.owner)))
         for table in tables:

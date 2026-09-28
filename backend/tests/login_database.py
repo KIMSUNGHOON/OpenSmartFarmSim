@@ -72,7 +72,10 @@ def login_scope(login_database, tmp_path, request):
     policy = RuntimeLoginPolicy(schema, "login_owner_" + suffix, "login_" + suffix,
                                 database["database"], market_calculation=(
                                     type(getattr(request, "param", None)) is dict and
-                                    request.param.get("market_calculation") is True))
+                                    request.param.get("market_calculation") is True),
+                                break_even_calculation=(
+                                    type(getattr(request, "param", None)) is dict and
+                                    request.param.get("break_even_calculation") is True))
     try:
         with owned_scope(base, policy):
             with base.connect() as conn:

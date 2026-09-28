@@ -27,6 +27,7 @@ OPERATIONS = {
     ("/v1/runs/{run_id}/series", "get"): ("getRunSeries", ["thermal_run_read"]),
     ("/v1/runs/{run_id}/manifest", "get"): ("getRunManifest", ["thermal_run_read", "thermal_snapshot_read"]),
     ("/v1/economic-results/{result_id}", "get"): ("getEconomicResult", ["market_result_read"]),
+    ("/v1/break-even-results", "get"): ("getBreakEvenResult", ["break_even_read"]),
 }
 
 
@@ -96,16 +97,17 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
         def read(self, *_):
             self.calls += 1
             raise AssertionError("denied request reached storage")
-        get_job = get_public_report = get_run = get_snapshot = get_economic_result = read
+        get_job = get_public_report = get_run = get_snapshot = get_economic_result = get_break_even_read = read
     stores = Stores()
     principal = {"authenticated": True, "tenant_id": "tenant-a", "scopes": set()}
-    app = create_app(stores, stores, stores, stores, principal_provider=lambda: principal)
+    app = create_app(stores, stores, stores, stores, principal_provider=lambda: principal, break_even_store=stores)
     path = (path.replace("{job_id}", "00000000-0000-4000-8000-000000000001")
         .replace("{report_id}", "00000000-0000-4000-8000-000000000002")
         .replace("{run_id}", "synthetic-thermal-v1:"+"a"*64).replace("{result_id}", "b"*64))
     for missing in scopes:
         principal["scopes"] = set(scopes)-{missing}
-        status, body, _ = asyncio.run(request(app, path=path, method=method.upper()))
+        status, body, _ = asyncio.run(request(app, path=path, method=method.upper(),
+            query=b"plan_id=example" if path == "/v1/break-even-results" else b"token=spoofed"))
         assert status == 403 and body["error"]["code"] == "forbidden" and stores.calls == 0
 
 
@@ -113,7 +115,7 @@ def test_export_does_not_call_principal_or_operational_stores(monkeypatch):
     def forbidden(*_args, **_kwargs):
         raise AssertionError("schema export attempted operational access")
     monkeypatch.setattr(api_openapi, "current_principal", forbidden)
-    for name in ("get_job", "get_public_report", "get_run", "get_snapshot", "get_economic_result"):
+    for name in ("get_job", "get_public_report", "get_run", "get_snapshot", "get_economic_result", "get_break_even_read"):
         monkeypatch.setattr(api_openapi._SchemaOnlyStores, name, forbidden)
     assert api_openapi.contract_bytes() == api_openapi.CONTRACT_PATH.read_bytes()
 

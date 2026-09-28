@@ -1,6 +1,206 @@
 {
   "components": {
     "schemas": {
+      "BreakEvenRead": {
+        "additionalProperties": false,
+        "properties": {
+          "assessment_status": {
+            "const": "hold",
+            "title": "Assessment Status",
+            "type": "string"
+          },
+          "brackets": {
+            "items": {
+              "items": {
+                "type": "string"
+              },
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            "maxItems": 255,
+            "title": "Brackets",
+            "type": "array"
+          },
+          "decision_at_utc": {
+            "format": "date-time",
+            "title": "Decision At Utc",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "hold_reason_codes": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 100,
+            "title": "Hold Reason Codes",
+            "type": "array"
+          },
+          "input_origin": {
+            "const": "user",
+            "title": "Input Origin",
+            "type": "string"
+          },
+          "market_context_kind": {
+            "const": "unavailable",
+            "title": "Market Context Kind",
+            "type": "string"
+          },
+          "market_hold_report_id": {
+            "title": "Market Hold Report Id",
+            "type": "string"
+          },
+          "maximum": {
+            "title": "Maximum",
+            "type": "string"
+          },
+          "minimum": {
+            "title": "Minimum",
+            "type": "string"
+          },
+          "period_end": {
+            "format": "date",
+            "title": "Period End",
+            "type": "string"
+          },
+          "period_start": {
+            "format": "date",
+            "title": "Period Start",
+            "type": "string"
+          },
+          "plan_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "pattern": "^[^\\s\\x00-\\x1f](?:[^\\x00-\\x1f]*[^\\s\\x00-\\x1f])?$",
+            "title": "Plan Id",
+            "type": "string"
+          },
+          "scope": {
+            "const": "conditional_user_grid_only",
+            "title": "Scope",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "zero_on_grid",
+              "no_zero_on_grid",
+              "bracket_only",
+              "nonmonotone_on_grid",
+              "hold"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "step": {
+            "title": "Step",
+            "type": "string"
+          },
+          "target": {
+            "enum": [
+              "oi",
+              "operating_cash",
+              "cumulative_equity_cash"
+            ],
+            "title": "Target",
+            "type": "string"
+          },
+          "trials": {
+            "items": {
+              "$ref": "#/components/schemas/BreakEvenTrialRead"
+            },
+            "maxItems": 256,
+            "title": "Trials",
+            "type": "array"
+          },
+          "variable_unit": {
+            "enum": [
+              "kg",
+              "KRW/kg"
+            ],
+            "title": "Variable Unit",
+            "type": "string"
+          },
+          "zero_values": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 256,
+            "title": "Zero Values",
+            "type": "array"
+          }
+        },
+        "required": [
+          "plan_id",
+          "status",
+          "scope",
+          "assessment_status",
+          "input_origin",
+          "evidence_level",
+          "market_context_kind",
+          "market_hold_report_id",
+          "decision_at_utc",
+          "period_start",
+          "period_end",
+          "target",
+          "variable_unit",
+          "minimum",
+          "maximum",
+          "step",
+          "zero_values",
+          "brackets",
+          "trials",
+          "hold_reason_codes"
+        ],
+        "title": "BreakEvenRead",
+        "type": "object"
+      },
+      "BreakEvenTrialRead": {
+        "additionalProperties": false,
+        "properties": {
+          "cash_shortage_krw": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cash Shortage Krw"
+          },
+          "minimum_cash_balance_krw": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Minimum Cash Balance Krw"
+          },
+          "target_value_krw": {
+            "title": "Target Value Krw",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "value",
+          "target_value_krw",
+          "minimum_cash_balance_krw",
+          "cash_shortage_krw"
+        ],
+        "title": "BreakEvenTrialRead",
+        "type": "object"
+      },
       "EconomicAmounts": {
         "additionalProperties": false,
         "properties": {
@@ -1007,6 +1207,95 @@
   },
   "openapi": "3.1.0",
   "paths": {
+    "/v1/break-even-results": {
+      "get": {
+        "operationId": "getBreakEvenResult",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "plan_id",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[^\\s\\x00-\\x1f](?:[^\\x00-\\x1f]*[^\\s\\x00-\\x1f])?$",
+              "title": "Plan Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BreakEvenRead"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Break Even Result",
+        "x-ossf-required-scopes": [
+          "break_even_read"
+        ]
+      }
+    },
     "/v1/economic-results/{result_id}": {
       "get": {
         "operationId": "getEconomicResult",

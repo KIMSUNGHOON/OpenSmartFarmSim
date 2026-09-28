@@ -4,10 +4,11 @@ from .runtime_login import connect_runtime
 from .runtime_roles import RuntimeLoginPolicy, RolePolicyHold, audit_runtime_roles
 
 
-def validate_market_identity(schema, binding, *, calculation=False):
+def validate_market_identity(schema, binding, *, calculation=False, break_even=False):
     if binding is not None and (type(binding) is not tuple or len(binding) != 2 or
             type(binding[0]) is not RuntimeLoginPolicy or binding[0].schema != schema or
-            binding[1] != "authority" or (calculation and not binding[0].market_calculation)):
+            binding[1] != "authority" or (calculation and not binding[0].market_calculation) or
+            (break_even and not binding[0].break_even_calculation)):
         raise ValueError("market runtime identity rejected")
 
 
