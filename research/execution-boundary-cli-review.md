@@ -124,3 +124,28 @@ The implementation retains that helper; separate silent/partial-peer server
 regressions now verify bounded rejection without a claim and a later valid
 dispatch. No additional issue was listed by this narrow review. It is not
 independent login/key control, actual runtime model execution or G1/G4 proof.
+
+## Follow-up: authenticated runtime login increment
+
+On 2026-09-28 UTC, a private ephemeral exact `gpt-6-sol`/`xhigh` CLI session
+reviewed the proposed direct-login v2 profiles, forced libpq authentication,
+all store/read-proxy connection paths and real handshake test scope. The prompt
+contained architectural field/boundary summaries and official PostgreSQL facts,
+not credentials, farm/provider bytes or repository files. Its terminal usage
+was 80,291 input (67,712 cached), 3,523 output and 2,776 reasoning output tokens.
+These are reported usage, not billed cost or production account proof. A private
+receipt retained final review/usage outside the repository; temporary credentials
+and JSONL were removed.
+
+The review accepted fresh direct LOGIN profiles with zero memberships as the
+simpler scoped v2. It required fresh-only installation preserving separately
+provisioned passwords, forced effective libpq settings, identity inspection on
+every connection before project queries, fixed errors/close on rejection,
+conflicting-DSN and identity-laundering tests, login/grant drift, skipped-auth
+protocol rejection and three-stage spawned-service authentication.
+
+It explicitly required a direct authority SQL test: a credential holder can
+exercise its SQL rights outside the RPC/validators, and login memberships would
+not fix that custody boundary. The [implemented contract](../contracts/runtime-login-policy-v2.md)
+records that limit and approximate connection-limit semantics. Local/hosted
+test authentication is not independent OS/private-key control or G1/G4 proof.

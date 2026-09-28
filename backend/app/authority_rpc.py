@@ -12,7 +12,7 @@ from uuid import UUID
 
 from .cli_ipc import MAX_REQUEST, receive, request, require_peer, send
 from .cli_worker import CliWorker, WorkResult
-from .runtime_roles import RuntimeRolePolicy, RolePolicyHold, audit_runtime_roles
+from .runtime_roles import RuntimeRolePolicy, RuntimeLoginPolicy, RolePolicyHold, audit_runtime_roles
 
 
 STATES = frozenset({"succeeded", "hold", "failed", "canceled", "queued", "unclosed"})
@@ -104,6 +104,9 @@ class AuthorityServer:
 
     def _audit(self):
         with self.engine.store.connect() as conn:
+            if isinstance(self.role_policy, RuntimeLoginPolicy):
+                from .runtime_login import verify_runtime_identity
+                verify_runtime_identity(conn, self.role_policy, "authority")
             if conn.execute("SELECT current_user AS name").fetchone()["name"] != self.role_policy.roles["authority"]:
                 raise RolePolicyHold("authority_database_identity_required")
             audit_runtime_roles(conn, self.role_policy)

@@ -28,7 +28,7 @@ from app.cli_supervisor_service import _SupervisorReads
 from app.cli_worker import CliWorker
 from app.execution_attestation import ExecutionAttestationStore
 from app.job_store import JobStore
-from app.runtime_roles import RolePolicyHold
+from app.runtime_roles import RolePolicyHold, RuntimeLoginPolicy
 from test_cli_contracts import resolver
 from test_cli_supervisor_service import approved, running_server, connect
 from test_cli_worker import _worker
@@ -42,9 +42,11 @@ def engine_for(dsn, schema, artifacts, policy, supervisor, public, settings, pro
                *, restricted=True):
     contract = DecisionContract(approved if proceed else resolver)
     base = JobStore(dsn, schema, Path(artifacts), principal_provider=synthetic_principal)
+    login = isinstance(policy, RuntimeLoginPolicy)
     store = JobStore(dsn, schema, Path(artifacts), decision_validator=contract,
-        evidence_policy=cli_store(base).evidence_policy, principal_provider=synthetic_principal)
-    if restricted:
+        evidence_policy=cli_store(base).evidence_policy, principal_provider=synthetic_principal,
+        runtime_identity=(policy, "authority") if login else None)
+    if restricted and not login:
         def authority_connect():
             conn = psycopg.connect(dsn, row_factory=dict_row)
             conn.execute(sql.SQL("SET SESSION AUTHORIZATION {}").format(

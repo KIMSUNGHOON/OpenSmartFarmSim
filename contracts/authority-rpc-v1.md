@@ -35,8 +35,10 @@ Before listening and before each dispatch, a fresh DB connection must have
 `current_user` equal to the configured `authority` profile and pass the complete
 [effective role audit](runtime-role-policy-v1.md). This is an admission check,
 not a guarantee against privileged provisioner changes after that check. Version
-1 profiles remain NOLOGIN and reject memberships; actual authenticated service
-binding needs a later binding-aware audit.
+1 profiles remain NOLOGIN and reject memberships. With explicit
+[RuntimeLoginPolicy v2](runtime-login-policy-v2.md), the server also checks the
+original authenticated login, completed SCRAM exchange and current SQL identity.
+Real credential/OS UID/key custody remains unaccepted by these local tests.
 
 Each connection accepts exactly one request:
 

@@ -126,3 +126,5 @@ stdin은 서버가 생성한 버전 고정 지시문과 `tenant_id/job_id`, 좌�
 **배포 검증 문턱:** 실제 운영 주체의 인증으로 CLI가 `gpt-6-sol` `xhigh`를 실행하는지, 예상 수요의 지연·호출 제한·비용을 감당하는지, 해당 사용 방식의 계약/권한과 데이터 처리 조건이 맞는지 공식 자료 및 실제 계정에서 확인한다. 이는 [인증 방식 문서](https://developers.openai.com/codex/auth)와 [모델 페이지](https://developers.openai.com/api/docs/models/gpt-6-sol)만으로 특정 계정의 허용을 추정할 수 없기 때문이다. 미확인·불가이면 필수 런타임이 성립하지 않아 공개 서비스를 막는다.
 
 **현재 소프트웨어 후보:** [authority dispatcher RPC](../contracts/authority-rpc-v1.md)는 일반 작업자의 실행 요청만 받고, 신뢰 서버 내부의 기존 실행기가 고정 테넌트 임대·검증·영속 저장을 맡는다. 별도 감독자가 CLI 프로세스와 서명키를 소유한다. [DB 역할 정책](../contracts/runtime-role-policy-v1.md)은 일반 작업자에 직접 데이터 권한을 주지 않으며 서버는 시작/호출 전에 authority 역할과 유효 권한을 검사한다. 같은 OS UID·관리자 통제 SQL 시험과 fake CLI/시험키는 실제 로그인·계정·키/배포 분리나 G1/G4 증거가 아니다.
+
+후속 [로그인 정책 v2 후보](../contracts/runtime-login-policy-v2.md)는 별도 DB 사용자로 실제 SCRAM 인증을 마친 연결만 사용하며 최초 로그인/세션/현재 역할과 DB 범위를 대조한다. 관리자 연결에서 역할만 바꾸는 경로를 거부한다. DB 인증과 권한 검증은 실제 운영 UID·키/자격증명 소유권의 독립성을 증명하지 않는다. authority 자격증명 보유자는 RPC 밖에서도 허용된 SQL을 실행할 수 있으므로 그 소유권 통제와 G1/G4 배포 증거는 계속 필요하다.

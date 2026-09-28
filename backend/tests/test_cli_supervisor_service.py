@@ -35,12 +35,13 @@ def approved(job, value):
                    g3a_candidate_ids=original.candidate_ids, g3b_ok=True)
 
 
-def _serve(dsn, schema, artifacts, settings, proceed, max_sessions):
+def _serve(dsn, schema, artifacts, settings, proceed, max_sessions, runtime_identity=None):
     base = JobStore(dsn, schema, Path(artifacts), principal_provider=synthetic_principal)
     trusted = cli_store(base)
     store = JobStore(dsn, schema, Path(artifacts),
         decision_validator=DecisionContract(approved if proceed else resolver),
-        evidence_policy=trusted.evidence_policy, principal_provider=synthetic_principal)
+        evidence_policy=trusted.evidence_policy, principal_provider=synthetic_principal,
+        runtime_identity=runtime_identity)
     SupervisorServer(store, **settings).serve(max_sessions=max_sessions)
 
 
@@ -65,7 +66,8 @@ def running_server(store, worker, tmp_path, *, proceed=False, worker_uid=None, m
             environment_sha256=sha256(b"test-supervisor-environment").hexdigest(),
             child_env=worker.child_env, timeout_seconds=worker.timeout_seconds)
         process = multiprocessing.get_context("spawn").Process(target=_serve,
-            args=(store._dsn, store.schema, str(store.artifact_root), settings, proceed, max_sessions))
+            args=(store._dsn, store.schema, str(store.artifact_root), settings, proceed, max_sessions,
+                  store.runtime_identity))
         process.start()
         try:
             for _ in range(200):

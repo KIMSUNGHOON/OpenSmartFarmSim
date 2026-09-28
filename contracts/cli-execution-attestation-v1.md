@@ -188,6 +188,11 @@ engine inside a trusted server, leaving general dispatchers without DB/raw
 input access. Login/UID/key separation and deployment are not established by
 these administrator-controlled SQL and shared-UID process tests.
 
+The later [runtime login policy v2](runtime-login-policy-v2.md) exercises real
+SCRAM connections for the authority and supervisor under different database
+users. It does not separate their operating UID/secret custodian, observe an
+actual model under independently controlled accounts, or accept G1/G4.
+
 Local verification on 2026-09-28 used PostgreSQL 16.15 and the locked backend:
 `OSSF_TEST_PG_DSN=… uv run --locked --group dev pytest -q` completed with
 **1,075 passed, 0 skipped**, including 34 new IPC/service/worker cases, and two

@@ -19,10 +19,8 @@ from app.thermal_run_store import install_thermal_run_schema
 from test_jobs import pg_store
 
 
-@pytest.fixture
-def role_scope(pg_store):
-    suffix = uuid4().hex
-    policy = RuntimeRolePolicy(pg_store.schema, "ossf_owner_" + suffix, "ossf_" + suffix)
+@contextmanager
+def owned_scope(pg_store, policy):
     with pg_store.connect() as conn:
         original = conn.execute("SELECT current_user AS name").fetchone()["name"]
         conn.execute(sql.SQL("CREATE ROLE {} NOLOGIN").format(sql.Identifier(policy.owner)))
@@ -51,6 +49,14 @@ def role_scope(pg_store):
                 sql.Identifier(policy.owner), sql.Identifier(original)))
             conn.execute(sql.SQL("DROP OWNED BY {}").format(sql.Identifier(policy.owner)))
             conn.execute(sql.SQL("DROP ROLE {}").format(sql.Identifier(policy.owner)))
+
+
+@pytest.fixture
+def role_scope(pg_store):
+    suffix = uuid4().hex
+    policy = RuntimeRolePolicy(pg_store.schema, "ossf_owner_" + suffix, "ossf_" + suffix)
+    with owned_scope(pg_store, policy) as scope:
+        yield scope
 
 
 def installed(scope):

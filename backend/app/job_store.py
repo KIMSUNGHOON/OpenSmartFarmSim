@@ -46,7 +46,15 @@ class JobStore:
     def __init__(self, dsn: str | None, schema: str, artifact_root: Path,
                  *, decision_validator=None, evidence_policy=None,
                  principal_provider=None,
-                 allow_synthetic_invocation: bool = False):
+                 allow_synthetic_invocation: bool = False, runtime_identity=None):
+        if runtime_identity is not None:
+            from .runtime_roles import RuntimeLoginPolicy
+            if (type(runtime_identity) is not tuple or len(runtime_identity) != 2 or
+                    not isinstance(runtime_identity[0], RuntimeLoginPolicy) or
+                    runtime_identity[0].schema != schema or type(runtime_identity[1]) is not str or
+                    runtime_identity[1] not in runtime_identity[0].roles or
+                    type(dsn) is not str):
+                raise ValueError("fixed runtime login policy and scope required")
         self._dsn = dsn
         self.schema = schema
         self.artifact_root = Path(artifact_root)
@@ -54,8 +62,12 @@ class JobStore:
         self.evidence_policy = evidence_policy
         self.principal_provider = principal_provider
         self.allow_synthetic_invocation = allow_synthetic_invocation
+        self.runtime_identity = runtime_identity
 
     def connect(self) -> psycopg.Connection:
+        if self.runtime_identity is not None:
+            from .runtime_login import connect_runtime
+            return connect_runtime(self._dsn, *self.runtime_identity)
         if self._dsn is None:
             return connect_app()
         return psycopg.connect(self._dsn, row_factory=dict_row)

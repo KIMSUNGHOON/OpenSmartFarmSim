@@ -64,6 +64,12 @@ class _SupervisorReads:
         return getattr(self._store, name)
 
     def connect(self):
+        if self._store.runtime_identity is not None:
+            from .runtime_login import connect_runtime
+            policy, kind = self._store.runtime_identity
+            if kind != "supervisor":
+                raise ValueError("supervisor database identity required")
+            return connect_runtime(self._store._dsn, policy, kind)
         configured = conninfo_to_dict(self._store._dsn).get("options", "")
         return psycopg.connect(self._store._dsn, row_factory=dict_row,
             connect_timeout=3, options=configured + " -c statement_timeout=2000 -c default_transaction_read_only=on")
@@ -88,6 +94,10 @@ class SupervisorServer:
         self.cli_path, self.codex_home = Path(cli_path), Path(codex_home)
         self.child_env, self.timeout_seconds = child_env, timeout_seconds
         self.executable_sha256, self.environment_sha256 = executable_sha256, environment_sha256
+        if store.runtime_identity is not None:
+            from .runtime_roles import audit_runtime_roles
+            with self.store.connect() as conn:
+                audit_runtime_roles(conn, store.runtime_identity[0])
         # Validate trusted settings before listening or accepting requests.
         self._issuer()
 

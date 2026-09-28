@@ -1,4 +1,4 @@
-"""Owner-run, closed runtime grants. No login credentials or service binding."""
+"""Owner-run fresh runtime grants; optional login profiles never receive secrets."""
 
 from dataclasses import dataclass
 import re
@@ -41,6 +41,24 @@ class RuntimeRolePolicy:
     def roles(self):
         return {kind: self.prefix + "_" + kind for kind in
                 ("request", "worker", "supervisor", "authority")}
+
+
+@dataclass(frozen=True)
+class RuntimeLoginPolicy(RuntimeRolePolicy):
+    database: str
+    connection_limit: int = 8
+
+    def __post_init__(self):
+        super().__post_init__()
+        if (type(self.database) is not str or not NAME.fullmatch(self.database) or
+                type(self.connection_limit) is not int or not 1 <= self.connection_limit <= 32):
+            raise RolePolicyHold("invalid_login_policy_scope")
+
+
+def _database(conn, policy):
+    if isinstance(policy, RuntimeLoginPolicy):
+        if conn.execute("SELECT current_database() AS name").fetchone()["name"] != policy.database:
+            raise RolePolicyHold("runtime_database_scope_mismatch")
 
 
 def _scope(conn, policy, *, hardened=True):
@@ -90,16 +108,24 @@ def _allowed(kind, name, privilege):
 
 def audit_runtime_roles(conn, policy):
     """Validate effective rights, including PUBLIC/columns/inheritance, after commit."""
+    _database(conn, policy)
     scope, relations, routines = _scope(conn, policy)
+    login = isinstance(policy, RuntimeLoginPolicy)
     roles = conn.execute("""
         SELECT oid, rolname, rolsuper, rolcanlogin, rolcreaterole, rolcreatedb,
-            rolreplication, rolbypassrls FROM pg_roles WHERE rolname=ANY(%s)
+            rolreplication, rolbypassrls, rolinherit, rolconnlimit FROM pg_roles WHERE rolname=ANY(%s)
     """, (list(policy.roles.values()),)).fetchall()
     if (len(roles) != 4 or any(row[name] for row in roles for name in (
-            "rolsuper", "rolcanlogin", "rolcreaterole", "rolcreatedb", "rolreplication", "rolbypassrls")) or
+            "rolsuper", "rolcreaterole", "rolcreatedb", "rolreplication", "rolbypassrls")) or
+            any(row["rolcanlogin"] != login or
+                (login and (row["rolinherit"] or row["rolconnlimit"] != policy.connection_limit))
+                for row in roles) or
             conn.execute("SELECT 1 FROM pg_auth_members WHERE member=ANY(%s) OR roleid=ANY(%s)",
                          ([row["oid"] for row in roles], [row["oid"] for row in roles])).fetchone()):
         raise RolePolicyHold("runtime_role_attributes_or_membership")
+    if login and any(not conn.execute("SELECT has_database_privilege(%s,%s,'CONNECT') AS allowed",
+                    (role, policy.database)).fetchone()["allowed"] for role in policy.roles.values()):
+        raise RolePolicyHold("runtime_database_connect_required")
     approved = [scope["owner_oid"], *[row["oid"] for row in roles]]
     unexpected_acl = conn.execute("""
         SELECT 1 FROM pg_class c CROSS JOIN LATERAL aclexplode(c.relacl) a
@@ -168,20 +194,24 @@ def audit_runtime_roles(conn, policy):
     """, (scope["owner_oid"],) * 4 + (scope["schema_oid"], scope["owner_oid"])).fetchone()
     if bad_defaults:
         raise RolePolicyHold("uncontrolled_creator_defaults")
-    return {"policy_version": VERSION, "schema": policy.schema, "owner": policy.owner,
+    return {"policy_version": "runtime-login-policy-v2" if login else VERSION,
+            "schema": policy.schema, "owner": policy.owner,
             "roles": policy.roles, "tables": len(relations), "routines": len(routines)}
 
 
 def install_runtime_roles(conn, policy):
     """Atomic fresh-role installation by a trusted database provisioner."""
     with conn.transaction():
+        _database(conn, policy)
         scope, relations, _ = _scope(conn, policy, hardened=False)
         if conn.execute("SELECT 1 FROM pg_roles WHERE rolname=ANY(%s)",
                         (list(policy.roles.values()),)).fetchone():
             raise RolePolicyHold("runtime_roles_already_exist")
         for role in policy.roles.values():
-            conn.execute(sql.SQL("CREATE ROLE {} NOLOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS")
-                         .format(sql.Identifier(role)))
+            attributes = (sql.SQL("LOGIN NOINHERIT PASSWORD NULL CONNECTION LIMIT {}").format(
+                sql.Literal(policy.connection_limit)) if isinstance(policy, RuntimeLoginPolicy) else sql.SQL("NOLOGIN"))
+            conn.execute(sql.SQL("CREATE ROLE {} {} NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS")
+                         .format(sql.Identifier(role), attributes))
         namespace, owner = sql.Identifier(policy.schema), sql.Identifier(policy.owner)
         database = conn.execute("SELECT current_database() AS name").fetchone()["name"]
         conn.execute(sql.SQL("REVOKE CREATE ON DATABASE {} FROM PUBLIC").format(sql.Identifier(database)))
@@ -204,6 +234,9 @@ def install_runtime_roles(conn, policy):
                              .format(owner, scope_clause, sql.SQL(objects)))
         for kind, role in policy.roles.items():
             identifier = sql.Identifier(role)
+            if isinstance(policy, RuntimeLoginPolicy):
+                conn.execute(sql.SQL("GRANT CONNECT ON DATABASE {} TO {}").format(
+                    sql.Identifier(policy.database), identifier))
             conn.execute(sql.SQL("GRANT USAGE ON SCHEMA {} TO {}").format(namespace, identifier))
             selected = TABLES if kind == "authority" else tuple(sorted(SUPERVISOR_TABLES)) if kind == "supervisor" else ()
             for name in selected:

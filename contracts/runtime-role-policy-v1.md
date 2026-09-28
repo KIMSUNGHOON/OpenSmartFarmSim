@@ -40,6 +40,11 @@ Version 1 rejects memberships both into and out of these profiles. A future
 login binding needs a binding-aware policy/audit; attaching a login to these
 profiles is not accepted by this candidate's audit.
 
+The separate [runtime login policy v2](runtime-login-policy-v2.md) now offers
+fresh direct LOGIN profiles with zero memberships and forced authenticated
+connections. Passing its explicit `RuntimeLoginPolicy` is required; the v1
+policy and its NOLOGIN requirements remain unchanged.
+
 One transaction revokes `PUBLIC` project schema/table/column/sequence/routine
 rights and database `CREATE`. It revokes both global and schema-specific
 `PUBLIC` creator defaults for tables, sequences and functions for the dedicated
