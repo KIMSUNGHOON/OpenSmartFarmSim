@@ -34,3 +34,11 @@ Synthetic inputs/keys/callbacks prove software serialization/transactions only.
 Independent source/rights/release/custody, actual CLI, completed collection/
 economic execution, protected operator setup, browser/full G1/G4 and G0/G2/G3
 remain unaccepted. No broad checkbox or source/release record is promoted here.
+
+Hosted exact-head follow-up: commit fe885d2b586bca5957d5b08097640b4a0cc0710a
+passed [backend CI 36449185484](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36449185484)
+with **1798 ordinary tests, 2 existing serialization warnings, 1212.04 s (20:12)**
+and **4 separate-UID service tests in 18.78 s**. Distinct Linux UID content access
+and database/password cleanup also succeeded. The same commit passed
+[Compose CI 36449185324](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36449185324).
+These receipts cover software/CI only and do not remove the holds above.

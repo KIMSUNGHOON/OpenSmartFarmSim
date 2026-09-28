@@ -25,6 +25,11 @@ from .api_scenario import ThermalScenarioRequest, ThermalScenarioSummary, projec
 from .api_market_source import (MarketUserSourceRequest, MarketUserSourceSummary,
     MarketUserSourceService, SOURCE_SCOPES, market_user_source_schema)
 from .market_source_store import MarketSourceDenied, MarketSourceConflict
+from .api_economic_scenario import (EconomicScenarioService, EconomicScenarioRequest,
+    EconomicScenarioSummary, ECONOMIC_SCENARIO_SCOPES)
+from .api_market_source import _inline_schema
+from .market_candidate_store import MarketCandidateDenied, MarketCandidateConflict
+from .jobs import canonical_input_bytes
 from .job_store import JobIntentConflict
 from .orchestration import LocationRequest, LocationResearchService, ResearchRequestRejected
 
@@ -41,7 +46,7 @@ def _access(scopes):
 def create_app(job_store, market_hold_store, thermal_run_store, market_result_store,
                *, principal_provider, location_research_service=None, break_even_store=None,
                thermal_scenario_store=None, thermal_run_submission_service=None,
-               market_user_source_service=None) -> FastAPI:
+               market_user_source_service=None, economic_scenario_service=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -66,6 +71,10 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             type(market_user_source_service) is not MarketUserSourceService or
             market_user_source_service.jobs is not job_store):
         raise ValueError('trusted market user source service required')
+    if economic_scenario_service is not None and (
+            type(economic_scenario_service) is not EconomicScenarioService or
+            economic_scenario_service.jobs is not job_store):
+        raise ValueError('trusted economic scenario service required')
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
     location_scopes = ("location_create",)
     job_scopes = ("metadata",)
@@ -237,6 +246,36 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(422, 'invalid_request', 'Invalid request')
         except Exception:
             return _error(503, 'source_unavailable', 'User source registration unavailable')
+
+    @app.post('/v1/economic-scenarios', response_model=EconomicScenarioSummary,
+              operation_id='registerEconomicScenario',
+              responses={status: {'model': ErrorEnvelope} for status in (401, 403, 409, 413, 415, 422, 503)},
+              openapi_extra={**_access(ECONOMIC_SCENARIO_SCOPES), 'x-ossf-max-body-bytes': 4096,
+                  'requestBody': {'required': True, 'content': {
+                  'application/json': {'schema': _inline_schema(EconomicScenarioRequest)}}}})
+    async def post_economic_scenario(request: Request):
+        tenant, denied = authorized_tenant(*ECONOMIC_SCENARIO_SCOPES)
+        if denied is not None:
+            return denied
+        if economic_scenario_service is None:
+            return _error(503, 'economic_scenario_unavailable', 'Economic scenario registration unavailable')
+        try:
+            body = EconomicScenarioRequest.model_validate_json(
+                canonical_input_bytes(await read_json_request(request)))
+        except JsonRequestRejected as exc:
+            return _error(exc.status, exc.code, exc.message)
+        except (ValueError, UnicodeError, RecursionError):
+            return _error(422, 'invalid_request', 'Invalid request')
+        try:
+            return await run_in_threadpool(economic_scenario_service.submit, tenant, body)
+        except (PermissionError, MarketCandidateDenied):
+            return _error(403, 'forbidden', 'Resource access denied')
+        except (MarketCandidateConflict, JobIntentConflict):
+            return _error(409, 'economic_scenario_conflict', 'Economic scenario intent or version has different input')
+        except ValueError:
+            return _error(422, 'invalid_request', 'Invalid request')
+        except Exception:
+            return _error(503, 'economic_scenario_unavailable', 'Economic scenario registration unavailable')
 
     @app.get("/v1/jobs/{job_id}", response_model=JobStatus, responses=errors,
              operation_id="getJob", openapi_extra=_access(job_scopes))

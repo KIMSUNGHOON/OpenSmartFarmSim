@@ -23,6 +23,7 @@ from test_api_job_status import UnusedThermalRunStore, UnusedMarketResultStore
 from test_api_thermal_run import UnusedMarketHoldStore
 from test_http_identity import request
 from test_api_serve import tls_files
+from test_api_economic_scenario import economic_api
 
 pytestmark = pytest.mark.parametrize('login_scope', [{**PROFILE, 'break_even_calculation': True}], indirect=True)
 
@@ -170,3 +171,33 @@ def test_fresh_bearer_runtime_assembles_actual_source_intake(source_api, tls_fil
     assert status == 200 and registered['admission_kind'] == 'contract_valid_user_assumption'
     assert headers[b'cache-control'] == b'no-store' and current_principal() is None
     assert counts(jobs) == (1, 1)
+
+
+def test_fresh_bearer_runtime_registers_actual_conditional_scenario(economic_api, tls_files):
+    from datetime import datetime, timezone, timedelta
+    from app.api_runtime import ApiRuntime
+    from app.http_identity import BearerRegistry, BearerGrant, token_digest, current_principal
+    from app.api_economic_scenario import ECONOMIC_SCENARIO_SCOPES
+    from test_api_runtime import config, dependencies
+    _, jobs, candidates, _, _, req = economic_api
+    os.close(jobs._content_directory(create=True))
+    token = b'synthetic-economic-scenario-token-'+b'e'*32
+    now = datetime.now(timezone.utc)
+    registry = BearerRegistry((BearerGrant(token_digest(token), 'tenant-1', frozenset(ECONOMIC_SCENARIO_SCOPES),
+        now-timedelta(seconds=1), now+timedelta(minutes=5)),))
+    cert, key, _ = tls_files
+    factory = lambda *, principal_provider: MarketSourceStore(jobs._dsn, jobs.schema,
+        principal_provider=principal_provider, runtime_identity=jobs.runtime_identity)
+    runtime = ApiRuntime(config(policy=jobs.runtime_identity[0], dsn=jobs._dsn,
+        artifact_root=jobs.artifact_root, certificate=cert, private_key=key),
+        dependencies(bearer_registry=registry, market_source_factory=factory,
+            market_scope_resolver=candidates._source._holds._scope_resolver))
+    body = {'request': req, 'idempotency_key': 'economic-bearer'}
+    status, registered, headers = asyncio.run(request(runtime.service.app,
+        path='/v1/economic-scenarios', method='POST', body=json.dumps(body).encode(),
+        headers=[(b'authorization', b'Bearer '+token), (b'content-type', b'application/json'),
+            (b'x-tenant-id', b'foreign-tenant')]))
+    assert status == 200 and registered['registration_status'] == 'pinned_user_assumption'
+    assert registered['intent_job']['state'] == 'queued'
+    assert headers[b'cache-control'] == b'no-store' and current_principal() is None
+    assert candidates.get_market_candidate(registered['scenario_id'], registered['scenario_revision'])['candidate_id'] == registered['candidate_id']

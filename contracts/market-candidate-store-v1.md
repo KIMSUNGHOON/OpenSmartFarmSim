@@ -1,5 +1,13 @@
 # First-G1 market candidate pin store v1
 
+Subsequent [HTTP registration](api-economic-scenario-v1.md) uses the actual durable
+user-source store and signed hold/context view. The existing public pin method
+shares its validation/SQL with `_pin_in_transaction`, allowing the trusted actual
+JobStore transaction to include candidate/numeric rows and intent/event. Typed
+denial/conflict errors remain ValueError subtypes, and write scope is rechecked
+after insertion. The legacy deterministic scenario reference is not an actual
+execution UUID; registration keeps it distinct from the queued intent.
+
 Status: synthetic software storage candidate. `MarketScenarioService` remains limited to `MarketContext.kind=unavailable` and user-owned `origin=user`, `evidence_level=assumed` inputs. These records support conditional calculation with Assessment `hold`; they do not authorize a MarketSnapshot, a forecast, a verified farm price, or a crop ranking.
 
 The subsequent [user-assumption source store v1](market-user-source-store-v1.md)

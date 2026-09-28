@@ -14,6 +14,42 @@ from .market import UnavailableMarketContext
 from .provenance import FrozenContract
 from .runtime_roles import RuntimeLoginPolicy
 from .thermal_scenario_store import IDENTIFIER
+from .http_identity import current_principal
+
+
+_SOURCE_METHODS = frozenset({'tenant_is_authenticated', 'get_economic_scenario',
+    'get_economic_scenario_pin', 'get_economic_input', 'get_joint_shock', 'get_joint_shock_pin',
+    'get_input_rights', 'get_settlement_applicability', 'get_settlement_evidence', 'get_prior_batch_cost'})
+
+
+class _MarketSources:
+    def __init__(self, source, holds, *, principal_provider=current_principal):
+        if (not callable(principal_provider) or
+                any(not callable(getattr(source, name, None)) for name in _SOURCE_METHODS)):
+            raise ValueError('market source interface rejected')
+        self._source, self._holds = source, holds
+        self._principal_provider = principal_provider
+
+    def tenant_is_authenticated(self, tenant):
+        principal = self._principal_provider()
+        return bool(principal is not None and principal['tenant_id'] == tenant and
+                    self._source.tenant_is_authenticated(tenant) is True)
+
+    def get_market_hold_report(self, report_id):
+        return self._holds.get_market_hold_report(report_id)
+
+    def get_decision_context(self, tenant, snapshot_id, context_id):
+        return self._holds.get_decision_context(tenant, snapshot_id, context_id)
+
+    def __getattr__(self, name):
+        if name not in _SOURCE_METHODS:
+            raise AttributeError(name)
+        def scoped_read(*args):
+            principal = self._principal_provider()
+            if principal is None or not self.tenant_is_authenticated(principal['tenant_id']):
+                return None
+            return getattr(self._source, name)(*args)
+        return scoped_read
 
 
 SourceKind = Literal['economic_scenario', 'economic_input', 'joint_shock', 'input_rights',

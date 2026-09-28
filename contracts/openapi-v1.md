@@ -1,7 +1,7 @@
 # Implemented API OpenAPI contract v1
 
 [openapi-v1.json](openapi-v1.json) is the deterministic OpenAPI 3.1.0 snapshot
-of the fourteen implemented operations. It is an internal software candidate.
+of the fifteen implemented operations. It is an internal software candidate.
 Future ingestion/economic/assessment submissions and region listings are
 specified in ARCHITECTURE but are not advertised as available operations.
 
@@ -28,7 +28,7 @@ also permits role names in non-OAuth arrays; this contract chooses the explicit
 vendor field. Actual credential verification remains in PrincipalMiddleware and
 each store still enforces tenant/right access independently.
 
-Operation IDs are stable: registerLocation, registerMarketUserSource, registerThermalScenario, getThermalScenario,
+Operation IDs are stable: registerLocation, registerMarketUserSource, registerEconomicScenario, registerThermalScenario, getThermalScenario,
 submitThermalRun, getJob, getJobHold, getJobRun, getMarketHold,
 getRun, getRunSeries, getRunManifest, getEconomicResult, getBreakEvenResult. `LocationPoint` is a
 closed latitude/longitude object with coordinate bounds, matching the actual
@@ -78,3 +78,7 @@ bounded query IDs to preserve the existing slash/colon identifier grammar.
 [User-assumption intake](api-market-user-source-v1.md) adds seven closed request
 alternatives and a 65536-byte limit. Its acknowledgement keeps the intent queued
 and grants no source approval, calculation completion or forecast claim.
+
+[Conditional scenario registration](api-economic-scenario-v1.md) joins the actual
+intent and existing candidate/numeric pins in one transaction. Registration stays
+distinct from subsequent calculation, CLI execution and gate acceptance.

@@ -154,6 +154,14 @@ def install_market_candidate_schema(conn, schema):
         """).format(namespace, sql.Identifier(table), namespace))
 
 
+class MarketCandidateDenied(ValueError):
+    pass
+
+
+class MarketCandidateConflict(ValueError):
+    pass
+
+
 class MarketCandidateStore:
     """Persist derived candidates while trusted source readers resolve originals."""
 
@@ -318,10 +326,17 @@ class MarketCandidateStore:
         return deepcopy(value) if type(value) is dict and value.get("tenant_id") == tenant else None
 
     def pin_market_candidate(self, record_value, scenario_value, new_records):
+        if self._tenant("market_candidate_write") is None:
+            raise MarketCandidateDenied("market candidate write authority denied")
+        with self.connect() as conn:
+            self._pin_in_transaction(conn, record_value, scenario_value, new_records)
+        return True
+
+    def _pin_in_transaction(self, conn, record_value, scenario_value, new_records):
         scenario = EconomicScenario.model_validate(untrusted_data(scenario_value))
         tenant = scenario.tenant_id
         if self._tenant("market_candidate_write") != tenant:
-            raise ValueError("market candidate write authority denied")
+            raise MarketCandidateDenied("market candidate write authority denied")
         record = untrusted_data(record_value)
         scenario_sha = canonical_scenario_sha256(scenario)
         if (type(record) is not dict or
@@ -371,8 +386,7 @@ class MarketCandidateStore:
                                    for key, raw in sorted(additions.items())])
         if max(len(record_raw), len(scenario_raw), len(manifest_raw)) > 1048576:
             raise ValueError("market candidate bundle exceeds size limit")
-        with self.connect() as conn:
-            conn.execute(sql.SQL("""
+        conn.execute(sql.SQL("""
                 INSERT INTO {} (tenant_id, candidate_id, scenario_id, revision,
                     record_raw, record_sha256, scenario_raw, scenario_sha256,
                     inputs_manifest_raw, inputs_manifest_sha256)
@@ -382,27 +396,29 @@ class MarketCandidateStore:
                 (tenant, record["candidate_id"], scenario.scenario_id,
                  scenario.scenario_revision, record_raw, _hash(record_raw),
                  scenario_raw, _hash(scenario_raw), manifest_raw, _hash(manifest_raw)))
-            for key, raw in sorted(additions.items()):
-                if len(raw) > 16384:
-                    raise ValueError("market candidate numeric input exceeds size limit")
-                conn.execute(sql.SQL("""
+        for key, raw in sorted(additions.items()):
+            if len(raw) > 16384:
+                raise ValueError("market candidate numeric input exceeds size limit")
+            conn.execute(sql.SQL("""
                     INSERT INTO {} (tenant_id, input_id, revision, payload_raw, payload_sha256)
                     VALUES (%s,%s,%s,%s,%s) ON CONFLICT DO NOTHING
                 """).format(self._table("market_candidate_inputs")),
                     (tenant, *key, raw, _hash(raw)))
-                row = conn.execute(sql.SQL("""
+            row = conn.execute(sql.SQL("""
                     SELECT * FROM {} WHERE tenant_id=%s AND input_id=%s AND revision=%s
                 """).format(self._table("market_candidate_inputs")),
                     (tenant, *key)).fetchone()
-                if row["payload_raw"] != raw:
-                    raise ValueError("market candidate numeric revision conflict")
-            row = conn.execute(sql.SQL("""
+            if row["payload_raw"] != raw:
+                raise MarketCandidateConflict("market candidate numeric revision conflict")
+        row = conn.execute(sql.SQL("""
                 SELECT * FROM {} WHERE tenant_id=%s AND scenario_id=%s AND revision=%s
             """).format(self._table("market_candidate_pins")),
                 (tenant, scenario.scenario_id, scenario.scenario_revision)).fetchone()
-            if row is None or (row["record_raw"], row["scenario_raw"],
-                               row["inputs_manifest_raw"]) != (
-                    record_raw, scenario_raw, manifest_raw):
-                raise ValueError("market candidate immutable pin conflict")
-            self._checked_candidate(conn, row)
-        return True
+        if row is None or (row["record_raw"], row["scenario_raw"],
+                           row["inputs_manifest_raw"]) != (
+                record_raw, scenario_raw, manifest_raw):
+            raise MarketCandidateConflict("market candidate immutable pin conflict")
+        self._checked_candidate(conn, row)
+        if self._tenant("market_candidate_write") != tenant:
+            raise MarketCandidateDenied("market candidate write authority denied")
+        return row

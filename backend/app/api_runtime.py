@@ -19,13 +19,9 @@ from .runtime_roles import RuntimeLoginPolicy
 from .thermal_run_store import ThermalRunStore
 from .thermal_scenario_store import ThermalScenarioStore
 from .thermal_run_submission import ThermalRunSubmissionService
-from .api_market_source import MarketUserSourceService
+from .api_market_source import MarketUserSourceService, _MarketSources, _SOURCE_METHODS
 from .market_source_store import MarketSourceStore
-
-
-_SOURCE_METHODS = frozenset({'tenant_is_authenticated', 'get_economic_scenario',
-    'get_economic_scenario_pin', 'get_economic_input', 'get_joint_shock', 'get_joint_shock_pin',
-    'get_input_rights', 'get_settlement_applicability', 'get_settlement_evidence', 'get_prior_batch_cost'})
+from .api_economic_scenario import EconomicScenarioService
 
 
 @dataclass(frozen=True)
@@ -73,34 +69,6 @@ class ApiRuntimeDependencies:
             raise ValueError('API runtime dependencies rejected')
 
 
-class _MarketSources:
-    def __init__(self, source, holds):
-        if any(not callable(getattr(source, name, None)) for name in _SOURCE_METHODS):
-            raise ValueError('market source interface rejected')
-        self._source, self._holds = source, holds
-
-    def tenant_is_authenticated(self, tenant):
-        principal = current_principal()
-        return bool(principal is not None and principal['tenant_id'] == tenant and
-                    self._source.tenant_is_authenticated(tenant) is True)
-
-    def get_market_hold_report(self, report_id):
-        return self._holds.get_market_hold_report(report_id)
-
-    def get_decision_context(self, tenant, snapshot_id, context_id):
-        return self._holds.get_decision_context(tenant, snapshot_id, context_id)
-
-    def __getattr__(self, name):
-        if name not in _SOURCE_METHODS:
-            raise AttributeError(name)
-        def scoped_read(*args):
-            principal = current_principal()
-            if principal is None or not self.tenant_is_authenticated(principal['tenant_id']):
-                return None
-            return getattr(self._source, name)(*args)
-        return scoped_read
-
-
 @dataclass(frozen=True, init=False)
 class ApiRuntime:
     service: HttpsApiService = field(repr=False)
@@ -137,6 +105,7 @@ class ApiRuntime:
             source_admission = MarketUserSourceService(jobs, source) if type(source) is MarketSourceStore else None
             candidates = MarketCandidateStore(config.dsn, config.policy.schema, _MarketSources(source, holds),
                 principal_provider=current_principal, runtime_identity=binding)
+            economic_scenarios = EconomicScenarioService(jobs, candidates) if source_admission is not None else None
             results = MarketResultStore(config.dsn, config.policy.schema, candidates,
                 principal_provider=current_principal, runtime_identity=binding)
             break_even = BreakEvenStore(config.dsn, config.policy.schema, candidates,
@@ -151,7 +120,8 @@ class ApiRuntime:
             app = create_app(jobs, holds, thermal, results, principal_provider=current_principal,
                 location_research_service=LocationResearchService(jobs, dependencies.research_registry.scope_for_location),
                 break_even_store=break_even, thermal_scenario_store=scenarios,
-                thermal_run_submission_service=submission, market_user_source_service=source_admission)
+                thermal_run_submission_service=submission, market_user_source_service=source_admission,
+                economic_scenario_service=economic_scenarios)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):

@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**조건부 경제 시나리오 HTTP 진행:** [등록 계약](../contracts/api-economic-scenario-v1.md)은 저장된 기준 입력·공통 충격을 검사하고 실제 요청·후보·수정 수치를 같은 거래로 저장한다. [구현 증거](../research/api-economic-scenario-implementation.md)는 합성 원천/키와 실제 SCRAM/Bearer의 소프트웨어 범위다. 결과 게시·경제 작업자·CLI/평가·브라우저/전체 G1 수용은 남아 기존 체크를 유지한다.
+
 2026-09-27 현재 **18개 완료, 18개 미완료**다. 각 작업은 한 번의 작업 세션에 다룰 수 있도록 제안했고, 지정 파일은 대체로 최대 다섯 개다. `decision-evidence-store`는 이전 작업의 시험을 새 검증 계약으로 이관해야 하므로 여섯 파일을 지정한다. `repo-bootstrap`의 잠금·설치·import 확인은 완료 증거이며, 앱 코드·시험·Compose가 필요한 아래 명령은 **후속 검증 절차**다. 해당 작업의 수용 증거를 기록한 뒤에만 체크한다. 외부 접근을 기다리는 상태는 완료가 아니다. 구현 전에 [기능 목록](../docs/IMPLEMENTATION_SLICE.md#6-범위-기능-목록과-구현-순서), [구현 순서](plan.md), [준비 현황](../docs/IMPLEMENTATION_READINESS.md)을 확인한다. 런타임 CLI의 정확한 모델·추론 강도는 전 과정에서 필수다.
 
 - [x] **`repo-bootstrap`** — 선행: 없음. 예정 파일(5): `backend/pyproject.toml`, `backend/uv.lock`, `web/package.json`, `web/package-lock.json`, `.gitignore`. 설정·잠금 파일은 Git에 추적되고 `.gitignore`도 준비됐다. FastAPI `0.141.1`, Pydantic `2.13.5`, 개발용 pytest `9.1.1`과 React/ReactDOM `19.3.0`, Vite `8.3.1`, TypeScript `7.0.2`, Vitest `5.0.2`, React 타입 `19.3.0`을 고정했고 웹 검사·시험·빌드 스크립트를 정의했다. 수용 증거: 오프라인 캐시에서 `uv lock --check`, `uv sync --locked`, FastAPI/Pydantic import가 통과했고 `npm ci --strict-peer-deps`로 캐시의 43개 패키지를 설치했다. 이후 `node_modules`는 제거했다. 신규 온라인 의존성 설치나 앱 시험·자료형 검사·빌드 성공은 입증하지 않았다. 이 명령들은 해당 소스·시험을 만드는 후속 작업에서 확인한다.

@@ -475,6 +475,57 @@
         "title": "EconomicResultRead",
         "type": "object"
       },
+      "EconomicScenarioSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Candidate Id",
+            "type": "string"
+          },
+          "intent_job": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "registration_status": {
+            "const": "pinned_user_assumption",
+            "title": "Registration Status",
+            "type": "string"
+          },
+          "scenario_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "scenario_revision": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Scenario Revision",
+            "type": "string"
+          },
+          "scenario_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Scenario Sha256",
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "scenario_id",
+          "scenario_revision",
+          "scenario_sha256",
+          "registration_status",
+          "recorded_at",
+          "intent_job"
+        ],
+        "title": "EconomicScenarioSummary",
+        "type": "object"
+      },
       "ErrorDetail": {
         "additionalProperties": false,
         "properties": {
@@ -1483,6 +1534,226 @@
         "summary": "Get Economic Result",
         "x-ossf-required-scopes": [
           "market_result_read"
+        ]
+      }
+    },
+    "/v1/economic-scenarios": {
+      "post": {
+        "operationId": "registerEconomicScenario",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "idempotency_key": {
+                    "maxLength": 200,
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                    "title": "Idempotency Key",
+                    "type": "string"
+                  },
+                  "request": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "baseline": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "revision": {
+                            "title": "Revision",
+                            "type": "string"
+                          },
+                          "scenario_id": {
+                            "title": "Scenario Id",
+                            "type": "string"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "title": "Sha256",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "scenario_id",
+                          "revision",
+                          "sha256"
+                        ],
+                        "title": "BaselineRef",
+                        "type": "object"
+                      },
+                      "decision_at": {
+                        "format": "date-time",
+                        "title": "Decision At",
+                        "type": "string"
+                      },
+                      "market_context": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "hold_report_id": {
+                            "title": "Hold Report Id",
+                            "type": "string"
+                          },
+                          "kind": {
+                            "const": "unavailable",
+                            "title": "Kind",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "kind",
+                          "hold_report_id"
+                        ],
+                        "title": "UnavailableMarketContext",
+                        "type": "object"
+                      },
+                      "schema_version": {
+                        "const": "1",
+                        "title": "Schema Version",
+                        "type": "string"
+                      },
+                      "shock": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "revision": {
+                            "title": "Revision",
+                            "type": "string"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "title": "Sha256",
+                            "type": "string"
+                          },
+                          "shock_id": {
+                            "title": "Shock Id",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "shock_id",
+                          "revision",
+                          "sha256"
+                        ],
+                        "title": "ShockRef",
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "schema_version",
+                      "baseline",
+                      "shock",
+                      "decision_at",
+                      "market_context"
+                    ],
+                    "title": "MarketScenarioRequest",
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "request",
+                  "idempotency_key"
+                ],
+                "title": "EconomicScenarioRequest",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EconomicScenarioSummary"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Post Economic Scenario",
+        "x-ossf-max-body-bytes": 4096,
+        "x-ossf-required-scopes": [
+          "metadata",
+          "market_source_read",
+          "market_candidate_read",
+          "market_candidate_write",
+          "decision_context_read",
+          "market_hold_context_read"
         ]
       }
     },
