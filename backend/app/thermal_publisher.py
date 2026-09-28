@@ -27,6 +27,7 @@ CODE_FILES = ("backend/app/thermal.py", "backend/app/thermal_units.py",
               "backend/app/runtime_roles.py",
               "backend/app/authority_rpc.py",
               "backend/app/runtime_login.py",
+              "backend/app/content_access.py",
               "backend/app/execution_attestation.py", "backend/app/execution_verifier.py",
               "backend/app/thermal_review_contract.py",
               "contracts/thermal-v1.schema.json", "contracts/decision-v1.schema.json")

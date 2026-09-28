@@ -149,3 +149,25 @@ exercise its SQL rights outside the RPC/validators, and login memberships would
 not fix that custody boundary. The [implemented contract](../contracts/runtime-login-policy-v2.md)
 records that limit and approximate connection-limit semantics. Local/hosted
 test authentication is not independent OS/private-key control or G1/G4 proof.
+
+## Follow-up: shared content metadata and distinct-UID prerequisite
+
+On 2026-09-28 UTC, one private ephemeral exact `gpt-6-sol`/`xhigh` CLI session
+reviewed the proposed shared content policy and focused real-UID filesystem
+probe. The prompt summarized storage operations, metadata/UID/group/fsync
+boundaries and remaining G1/G4 limits, with no credentials or farm/provider
+bytes. Terminal usage was 14,358 input (11,776 cached), 2,292 output and 1,945
+reasoning output tokens. Temporary credential and JSONL files were removed;
+only a private final/usage receipt remained outside the repository. These are
+usage values, not billed cost.
+
+The review accepted this as a prerequisite subject to every directory/final
+file being checked through no-follow descriptors, effective UID/group writer
+admission, metadata fsync before linking, full existing-object validation,
+nonreplacement and limited cleanup. It required the real-UID probe to verify
+actual dropped identities and restricted its conclusion to tested DAC/storage
+behavior. The [implemented contract](../contracts/content-access-v1.md) follows
+those checks. Additional real named/default ACL tests found that unchanged
+mode bits did not establish the intended access; descriptor ACL checks now
+refuse that path. They are software/security evidence, not an independent
+service/model/deployment acceptance.

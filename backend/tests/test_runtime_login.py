@@ -17,6 +17,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app.cli_supervisor_service import _SupervisorReads
+from app.content_access import ContentAccess
 from app.job_store import JobStore
 from app.runtime_login import connect_runtime, verify_runtime_identity
 from app.runtime_roles import (RuntimeRolePolicy, RuntimeLoginPolicy, RolePolicyHold,
@@ -147,9 +148,12 @@ def test_fresh_login_roles_cannot_authenticate_before_separate_provisioning(logi
 
 
 @pytest.mark.parametrize("stage", ["research", "collection_review", "assessment"])
-def test_three_ai_stages_with_separately_authenticated_services(login_scope, tmp_path, stage):
+@pytest.mark.parametrize("shared_content", [False, True])
+def test_three_ai_stages_with_separately_authenticated_services(login_scope, tmp_path, stage, shared_content):
     base, policy, dsns = login_scope
     store, local = _worker(base, tmp_path, mode="valid_slow", authority=approved)
+    if shared_content:
+        store.content_access = ContentAccess(os.geteuid(), os.getegid())
     job = store.submit("tenant-a", stage, decision_input(stage), uuid4().hex)
     supervisor = copy.copy(store)
     supervisor._dsn, supervisor.runtime_identity = dsns["supervisor"], (policy, "supervisor")

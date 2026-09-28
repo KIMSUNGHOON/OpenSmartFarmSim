@@ -94,6 +94,12 @@ jobs:
           uv run --no-sync python -c 'import os, psycopg; psycopg.connect(os.environ["OSSF_TEST_PG_DSN"]).close()'
           uv run --no-sync pytest -q -rs
 
+      - name: Check content access with distinct Linux UIDs
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo -- "$GITHUB_WORKSPACE/backend/.venv/bin/python" "$GITHUB_WORKSPACE/scripts/check-content-uid-boundary.py"
+
       - name: Remove database and password files
         if: ${{ always() }}
         shell: bash

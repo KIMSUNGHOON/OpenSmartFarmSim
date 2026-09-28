@@ -39,13 +39,13 @@ from test_supervised_cli_worker import decision_input
 
 
 def engine_for(dsn, schema, artifacts, policy, supervisor, public, settings, proceed,
-               *, restricted=True):
+               *, restricted=True, content_access=None):
     contract = DecisionContract(approved if proceed else resolver)
     base = JobStore(dsn, schema, Path(artifacts), principal_provider=synthetic_principal)
     login = isinstance(policy, RuntimeLoginPolicy)
     store = JobStore(dsn, schema, Path(artifacts), decision_validator=contract,
         evidence_policy=cli_store(base).evidence_policy, principal_provider=synthetic_principal,
-        runtime_identity=(policy, "authority") if login else None)
+        runtime_identity=(policy, "authority") if login else None, content_access=content_access)
     if restricted and not login:
         def authority_connect():
             conn = psycopg.connect(dsn, row_factory=dict_row)
@@ -63,8 +63,9 @@ def engine_for(dsn, schema, artifacts, policy, supervisor, public, settings, pro
 
 
 def _serve(dsn, schema, artifacts, policy, supervisor, public, settings, proceed,
-           path, worker_uid, max_sessions):
-    engine = engine_for(dsn, schema, artifacts, policy, supervisor, public, settings, proceed)
+           path, worker_uid, max_sessions, content_access=None):
+    engine = engine_for(dsn, schema, artifacts, policy, supervisor, public, settings, proceed,
+                        content_access=content_access)
     AuthorityServer(engine, socket_path=path, worker_uid=worker_uid, tenant_id="tenant-a",
                     role_policy=policy).serve(max_sessions=max_sessions)
 
@@ -80,7 +81,7 @@ def running_authority(store, policy, server=None, *, proceed=False, worker_uid=N
         process = multiprocessing.get_context("spawn").Process(target=_serve,
             args=(store._dsn, store.schema, str(store.artifact_root), policy, supervisor,
                   public, settings, proceed, path,
-                  os.getuid() if worker_uid is None else worker_uid, max_sessions))
+                  os.getuid() if worker_uid is None else worker_uid, max_sessions, store.content_access))
         process.start()
         try:
             for _ in range(250):

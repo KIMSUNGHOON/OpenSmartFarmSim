@@ -40,6 +40,11 @@ not a guarantee against privileged provisioner changes after that check. Version
 original authenticated login, completed SCRAM exchange and current SQL identity.
 Real credential/OS UID/key custody remains unaccepted by these local tests.
 
+The optional [content access policy](content-access-v1.md) supports a configured
+read-only supervisor group without giving general dispatchers artifact access.
+Its focused distinct-UID filesystem probe does not establish complete service,
+database-secret or signing-key control for this RPC deployment.
+
 Each connection accepts exactly one request:
 
 ```json

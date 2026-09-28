@@ -46,7 +46,12 @@ class JobStore:
     def __init__(self, dsn: str | None, schema: str, artifact_root: Path,
                  *, decision_validator=None, evidence_policy=None,
                  principal_provider=None,
-                 allow_synthetic_invocation: bool = False, runtime_identity=None):
+                 allow_synthetic_invocation: bool = False, runtime_identity=None,
+                 content_access=None):
+        if content_access is not None:
+            from .content_access import ContentAccess
+            if not isinstance(content_access, ContentAccess):
+                raise ValueError("explicit content access policy required")
         if runtime_identity is not None:
             from .runtime_roles import RuntimeLoginPolicy
             if (type(runtime_identity) is not tuple or len(runtime_identity) != 2 or
@@ -63,6 +68,7 @@ class JobStore:
         self.principal_provider = principal_provider
         self.allow_synthetic_invocation = allow_synthetic_invocation
         self.runtime_identity = runtime_identity
+        self.content_access = content_access
 
     def connect(self) -> psycopg.Connection:
         if self.runtime_identity is not None:
@@ -1143,25 +1149,39 @@ class JobStore:
             """).format(self._table("ai_decisions")), (tenant_id, job_id)).fetchall()
 
     def _content_directory(self, tenant_id=None, *, create=False):
+        if create and self.content_access is not None:
+            self.content_access.require_writer()
         names = [self.artifact_root.name]
         if tenant_id is not None:
             names += [".evidence", sha256(tenant_id.encode()).hexdigest()]
         fd = _open_directory_nofollow(self.artifact_root.parent)
         try:
             for name in names:
+                created = False
                 if create:
                     try:
                         os.mkdir(name, mode=0o700, dir_fd=fd)
+                        created = True
                     except FileExistsError:
                         pass
                     os.fsync(fd)
                 child_fd = os.open(name, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW,
                                    dir_fd=fd)
-                info = os.fstat(child_fd)
-                if (not stat.S_ISDIR(info.st_mode) or info.st_uid != os.getuid()
-                        or info.st_mode & 0o077):
+                try:
+                    if self.content_access is not None:
+                        if created:
+                            self.content_access.prepare_new(child_fd, directory=True)
+                            os.fsync(child_fd)
+                            os.fsync(fd)
+                        self.content_access.validate(child_fd, directory=True)
+                    else:
+                        info = os.fstat(child_fd)
+                        if (not stat.S_ISDIR(info.st_mode) or info.st_uid != os.getuid()
+                                or info.st_mode & 0o077):
+                            raise ValueError("content directory must be private and owned by this process")
+                except BaseException:
                     os.close(child_fd)
-                    raise ValueError("content directory must be private and owned by this process")
+                    raise
                 os.close(fd)
                 fd = child_fd
             return fd
@@ -1169,12 +1189,13 @@ class JobStore:
             os.close(fd)
             raise
 
-    @staticmethod
-    def _read_content(directory_fd, digest, size):
+    def _read_content(self, directory_fd, digest, size):
         require_digest(digest)
-        fd = os.open(digest, os.O_RDONLY | os.O_NOFOLLOW, dir_fd=directory_fd)
+        fd = os.open(digest, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=directory_fd)
         with os.fdopen(fd, "rb") as stream:
             info = os.fstat(stream.fileno())
+            if self.content_access is not None:
+                self.content_access.validate(stream.fileno(), directory=False)
             if not stat.S_ISREG(info.st_mode) or info.st_size != size:
                 raise ValueError("committed content is corrupt")
             data = stream.read(size + 1)
@@ -1195,6 +1216,8 @@ class JobStore:
                 with os.fdopen(fd, "wb") as stream:
                     stream.write(payload)
                     stream.flush()
+                    if self.content_access is not None:
+                        self.content_access.prepare_new(stream.fileno(), directory=False)
                     os.fsync(stream.fileno())
                 try:
                     os.link(temp_name, expected_sha256, src_dir_fd=directory_fd,
@@ -1489,13 +1512,9 @@ class JobStore:
         if publication is None:
             return None
         digest = publication["artifact_sha256"]
-        root_fd = _open_directory_nofollow(self.artifact_root)
+        root_fd = self._content_directory()
         try:
-            fd = os.open(digest, os.O_RDONLY | os.O_NOFOLLOW, dir_fd=root_fd)
-            with os.fdopen(fd, "rb") as stream:
-                data = stream.read()
+            data = self._read_content(root_fd, digest, publication["artifact_size"])
         finally:
             os.close(root_fd)
-        if len(data) != publication["artifact_size"] or sha256(data).hexdigest() != digest:
-            raise ValueError("committed artifact is corrupt")
         return data
