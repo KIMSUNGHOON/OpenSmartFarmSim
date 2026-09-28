@@ -105,3 +105,12 @@ Pydantic serializer warnings remain. The full suite includes the three extra
 shared-store/real-SCRAM service cases. The UID smoke was not run locally because
 the local account has no noninteractive root access; its hosted result must be
 observed separately.
+
+The first hosted run passed all 1,190 backend tests but its UID writer failed.
+The probe's temporary ancestor granted search without read to the dropped UID;
+the store opens ancestors as read directory descriptors. A rootless permission
+reproduction confirmed that execute-only directories reject this open. The
+probe now grants read/search on its synthetic ancestor and reader group parent,
+while private fixture secret directories/files remain `0700`/`0600`. Fixed
+writer phase, exception class and errno diagnostics omit paths and payloads.
+This probe correction requires a new hosted result before DAC acceptance.

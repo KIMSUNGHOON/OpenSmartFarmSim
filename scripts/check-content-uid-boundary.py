@@ -71,23 +71,32 @@ def publish(root):
     pid = os.fork()
     if pid == 0:
         os.close(read_fd)
+        phase = "identity"
         try:
             os.environ.clear()
             drop(AUTHORITY, [READ_GROUP])
             assert os.getresuid() == (AUTHORITY,) * 3 and os.getresgid() == (AUTHORITY,) * 3
             assert os.getgroups() == [READ_GROUP]
+            phase = "store"
             store = JobStore(None, "unused", root / "artifacts",
                 content_access=ContentAccess(AUTHORITY, READ_GROUP))
+            phase = "evidence"
             store._durable_content(PAYLOAD, DIGEST, "tenant-a")
+            phase = "artifact"
             store._durable_content(PAYLOAD, DIGEST)
             os.write(write_fd, b"ok")
             os._exit(0)
-        except BaseException:
+        except BaseException as error:
+            # Fixed phase, exception class and errno only; never paths or payloads.
+            detail = f"{phase}:{type(error).__name__}:{getattr(error, 'errno', None)}"
+            os.write(write_fd, detail.encode("ascii")[:128])
             os._exit(1)
     os.close(write_fd)
     try:
         assert select.select([read_fd], [], [], 10)[0]
-        assert os.read(read_fd, 3) == b"ok"
+        response = os.read(read_fd, 128)
+        if response != b"ok":
+            raise ValueError("UID writer failed: " + response.decode("ascii"))
         for _ in range(100):
             done, status = os.waitpid(pid, os.WNOHANG)
             if done:
@@ -113,9 +122,10 @@ def main():
         raise ValueError("disposable probe UID is already assigned")
     with tempfile.TemporaryDirectory(prefix="ossf-content-uid-") as directory:
         root = Path(directory)
-        root.chmod(0o711)
+        # Descriptor traversal opens ancestors O_RDONLY, requiring read and search.
+        root.chmod(0o755)
         content = root / "content"
-        content.mkdir(mode=0o710)
+        content.mkdir(mode=0o750)
         os.chown(content, AUTHORITY, READ_GROUP)
         publish(content)
         artifacts = content / "artifacts"
