@@ -243,8 +243,10 @@ def test_distinct_uid_services_and_authenticated_roles(login_scope, stage):
         assert not Path(f"/proc/{record.process_id}").exists()
         assert state(store, "tenant-b", foreign) == "queued"
         assert store.get_job("tenant-a", job["job_id"])["state"] == ("succeeded" if proceed else "hold")
+        decisions = store.list_decisions("tenant-a", job["job_id"])
+        assert len(decisions) == 1 and decisions[0]["output_sha256"] == record.final_output_sha256
         if proceed:
-            assert store.get_publication("tenant-a", job["job_id"])["decision_id"] == record.decision_id
+            assert store.get_publication("tenant-a", job["job_id"])["decision_id"] == decisions[0]["decision_id"]
         else:
             assert store.get_hold_report("tenant-a", job["job_id"]) is not None
         assert not settings["socket_path"].exists() and not (auth_socket_dir / "rpc").exists()

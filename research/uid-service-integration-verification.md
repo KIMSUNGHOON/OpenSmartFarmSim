@@ -82,3 +82,12 @@ an explicit HOME resolves it. The fixture now supplies the appropriate private
 home without restoring inherited credentials or broad environment variables.
 It also uses the root controller's internal SQL helper to verify the foreign
 tenant queue, retaining the ordinary metadata API's tenant denial.
+
+Later hosted failures were narrowed using only the validated WorkResult state
+and reason. The generic worker setup failure disappeared with the public pinned
+runtime and UID-side date-parser operation; its masked underlying exception was
+not retained. The assessment path then passed actual service execution, signed
+persistence and final hold. Research/collection readback still failed because
+the fixture referenced a nonexistent attestation `decision_id`. Readback now
+uses the durable decision list, compares its output hash with the signed final
+hash, and matches publication to that durable decision ID.
