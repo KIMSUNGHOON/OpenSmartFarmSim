@@ -39,7 +39,7 @@ from test_supervised_cli_worker import decision_input
 
 
 def engine_for(dsn, schema, artifacts, policy, supervisor, public, settings, proceed,
-               *, restricted=True, content_access=None):
+               *, restricted=True, content_access=None, supervisor_uid=None):
     contract = DecisionContract(approved if proceed else resolver)
     base = JobStore(dsn, schema, Path(artifacts), principal_provider=synthetic_principal)
     login = isinstance(policy, RuntimeLoginPolicy)
@@ -54,7 +54,8 @@ def engine_for(dsn, schema, artifacts, policy, supervisor, public, settings, pro
             conn.commit()
             return conn
         store.connect = authority_connect
-    client = SupervisorClient(supervisor, supervisor_uid=os.getuid(), tenant_id="tenant-a",
+    client = SupervisorClient(supervisor,
+        supervisor_uid=os.getuid() if supervisor_uid is None else supervisor_uid, tenant_id="tenant-a",
         executable_sha256=settings["executable_sha256"],
         environment_sha256=settings["environment_sha256"])
     return CliWorker(store, contract, supervisor_client=client,

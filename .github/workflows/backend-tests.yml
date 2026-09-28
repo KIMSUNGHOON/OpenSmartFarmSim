@@ -92,6 +92,8 @@ jobs:
           export OSSF_TEST_PG_DSN="host=127.0.0.1 port=$port dbname=ossf_ci user=ossf_ci"
 
           uv run --no-sync python -c 'import os, psycopg; psycopg.connect(os.environ["OSSF_TEST_PG_DSN"]).close()'
+          sudo -- env OSSF_TEST_PG_DSN="$OSSF_TEST_PG_DSN" PGPASSFILE="$PGPASSFILE" \
+            "$GITHUB_WORKSPACE/backend/.venv/bin/python" -m pytest -q -s tests/uid_service_smoke.py
           uv run --no-sync pytest -q -rs
 
       - name: Check content access with distinct Linux UIDs

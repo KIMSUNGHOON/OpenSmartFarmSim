@@ -114,3 +114,11 @@ probe now grants read/search on its synthetic ancestor and reader group parent,
 while private fixture secret directories/files remain `0700`/`0600`. Fixed
 writer phase, exception class and errno diagnostics omit paths and payloads.
 This probe correction requires a new hosted result before DAC acceptance.
+
+That new result was observed at commit `8bf271d`: [backend CI run
+36380248808](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36380248808)
+passed **1,190 tests** in 252.98 seconds with the same two warnings, followed by
+the actual UID DAC smoke success at `2026-09-28T05:08:04Z`. This accepts the
+stated fixture filesystem scope. The follow-up [service integration smoke](../research/uid-service-integration-verification.md)
+combines these existing policies with the actual RPC/service UID paths; its
+separate hosted execution is required before making that additional claim.
