@@ -60,3 +60,13 @@ They prove software registration/queue/publication contracts only. Actual produc
 CLI, independent release/authority/custody, protected deployment, complete farm/
 economic Scenario, workflow assessment, 3D/browser/full G1/G4 and actual G0/G2/G3
 evidence remain unaccepted. No broad checkbox or gate is promoted here.
+
+## Hosted receipt for scenario registration
+
+Exact head 692de652dba0d7cb91effc1b3958d17b5c8add7f passed
+[Backend CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36442875041):
+**1777 ordinary tests, 2 existing warnings, 1113.18 s (18:33)** plus **4 separate-UID
+service tests, 18.63 s**. Distinct UID content access and DB/password cleanup
+succeeded. The same head passed
+[Compose CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36442875128).
+These are software fixtures, not independent CLI/gates or deployed acceptance.

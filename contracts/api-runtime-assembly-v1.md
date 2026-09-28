@@ -63,7 +63,7 @@ The factory/remaining dependencies are validated and all implemented stores
 are created: JobStore, ThermalRunStore, MarketHoldStore, MarketCandidateStore,
 MarketResultStore and BreakEvenStore. LocationResearchService uses the exact
 supplied immutable registry. PrincipalMiddleware supplies the same request
-identity to every store and the existing thirteen routes. No unused reader doubles
+identity to every store and the existing fourteen routes. No unused reader doubles
 or absent optional location/break-even service enter this assembly.
 
 The market source view independently checks the current tenant and source
@@ -99,6 +99,10 @@ independent release/execution configuration remains an operator responsibility.
 [Scenario registration/lookup](api-scenario-intent-v1.md) use the already
 assembled v6 Scenario store. Other policies leave these routes unavailable
 after authorization; no new default factory, migration or scope grant exists.
+
+[User-assumption intake](api-market-user-source-v1.md) is enabled only by an exact
+actual MarketSourceStore returned by the existing protected source factory and
+bound to this runtime's JobStore. Custom read repositories leave it unavailable.
 
 Synthetic source/key/credential tests exercise real SCRAM, a fresh Python API
 process, actual TLS/Bearer, signed hold replay, economic/grid reads and post-start

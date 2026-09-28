@@ -79,7 +79,8 @@ An operator may supply a factory returning this store through the existing
 [API assembly](api-runtime-assembly-v1.md) source interface. That assembly also
 requires break_even_calculation=True and current_principal; read principals need
 market_source_read as well as existing candidate/result/grid scopes. Source write
-is a server admission operation, not an HTTP endpoint in this slice. Protected
+is a server admission operation. Subsequent [HTTP intake](api-market-user-source-v1.md)
+binds all seven types to actual immutable intent bytes in one transaction. Protected
 configuration, owner provisioning and actual source submission orchestration
 remain separate work.
 

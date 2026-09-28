@@ -13,6 +13,16 @@ from .market_runtime import connect_market, validate_market_identity
 
 
 VERSION = 'market-user-source-v1'
+
+
+class MarketSourceDenied(ValueError):
+    pass
+
+
+class MarketSourceConflict(ValueError):
+    pass
+
+
 _KINDS = {
     'economic_scenario': (EconomicScenario, 'scenario_id', 'scenario_revision'),
     'economic_input': (OwnedEconomicRecord, 'input_id', 'revision'),
@@ -134,27 +144,35 @@ class MarketSourceStore:
 
     def adopt_job(self, tenant, kind, job_id):
         if not _name(tenant) or self._tenant('market_source_write') != tenant:
-            raise ValueError('market source admission denied')
+            raise MarketSourceDenied('market source admission denied')
+        with self.connect() as conn:
+            model, _ = self._adopt_in_transaction(conn, tenant, kind, job_id)
+        return model.model_dump(mode='python')
+
+    def _adopt_in_transaction(self, conn, tenant, kind, job_id):
+        if not _name(tenant) or self._tenant('market_source_write') != tenant:
+            raise MarketSourceDenied('market source admission denied')
         try:
             if type(job_id) is not str or str(UUID(job_id)) != job_id:
                 raise ValueError()
         except (ValueError, TypeError, AttributeError):
             raise ValueError('market source input rejected') from None
-        with self.connect() as conn:
-            raw = self._job_input(conn, tenant, job_id)
-            _, identity, revision = self._model(kind, tenant, raw)
-            conn.execute(sql.SQL("""
+        raw = self._job_input(conn, tenant, job_id)
+        _, identity, revision = self._model(kind, tenant, raw)
+        conn.execute(sql.SQL("""
                 INSERT INTO {} (tenant_id,kind,record_id,revision,job_id,payload_raw,
                     payload_sha256,store_version,admission_kind,admitted_by)
                 VALUES (%s,%s,%s,%s,%s,%s,%s,%s,'contract_valid_user_assumption',current_user)
                 ON CONFLICT (tenant_id,kind,record_id,revision) DO NOTHING
             """).format(self._table('market_source_records')),
                 (tenant, kind, identity, revision, job_id, raw, sha256(raw).hexdigest(), VERSION))
-            row = self._select(conn, tenant, kind, identity, revision)
-            if row is None or row['payload_raw'] != raw:
-                raise ValueError('market source version conflict')
-            model = self._verified(conn, row)
-        return model.model_dump(mode='python')
+        row = self._select(conn, tenant, kind, identity, revision)
+        if row is None or row['payload_raw'] != raw:
+            raise MarketSourceConflict('market source version conflict')
+        model = self._verified(conn, row)
+        if self._tenant('market_source_write') != tenant:
+            raise MarketSourceDenied('market source admission denied')
+        return model, row
 
     def _select(self, conn, tenant, kind, identity, revision):
         return conn.execute(sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND kind=%s AND record_id=%s AND revision=%s')

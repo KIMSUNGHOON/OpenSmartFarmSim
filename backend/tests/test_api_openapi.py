@@ -19,6 +19,8 @@ from test_http_identity import request
 
 
 OPERATIONS = {
+    ('/v1/market-user-sources', 'post'): ('registerMarketUserSource',
+        ['market_source_write', 'market_source_read', 'metadata']),
     ('/v1/scenarios', 'post'): ('registerThermalScenario', ['thermal_scenario_write',
         'thermal_scenario_read', 'thermal_snapshot_read', 'decision_context_read', 'market_hold_context_read']),
     ('/v1/scenarios', 'get'): ('getThermalScenario', ['thermal_scenario_read',

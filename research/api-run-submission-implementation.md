@@ -61,3 +61,13 @@ protected deployed operator factory, full farm/economic Scenario, collection and
 assessment workflow, actual browser/full G1/G4 and real G0/G2/G3 evidence remain
 unaccepted. ASGI Bearer tests are not real HTTPS/process or browser proof.
 No broad task checkbox or fixture/source/release evidence is upgraded here.
+
+## Hosted receipt for the submission commit
+
+Exact head 4e2c115931d02ac640ded0c821a171ee1f493347 passed
+[Backend CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36441188080):
+**1749 ordinary tests, 2 existing warnings, 898.17 s (14:58)** plus **4 separate-UID
+service tests, 15.83 s**. Distinct UID content access and DB/password cleanup
+succeeded. The same head passed
+[Compose CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36441188095).
+These are software fixtures, not actual CLI, independent gates or deployment.

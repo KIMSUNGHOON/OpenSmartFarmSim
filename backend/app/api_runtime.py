@@ -19,6 +19,8 @@ from .runtime_roles import RuntimeLoginPolicy
 from .thermal_run_store import ThermalRunStore
 from .thermal_scenario_store import ThermalScenarioStore
 from .thermal_run_submission import ThermalRunSubmissionService
+from .api_market_source import MarketUserSourceService
+from .market_source_store import MarketSourceStore
 
 
 _SOURCE_METHODS = frozenset({'tenant_is_authenticated', 'get_economic_scenario',
@@ -132,6 +134,7 @@ class ApiRuntime:
                 scope_resolver=dependencies.market_scope_resolver, signing_key=config.market_hold_key,
                 principal_provider=current_principal, runtime_identity=binding)
             source = dependencies.market_source_factory(principal_provider=current_principal)
+            source_admission = MarketUserSourceService(jobs, source) if type(source) is MarketSourceStore else None
             candidates = MarketCandidateStore(config.dsn, config.policy.schema, _MarketSources(source, holds),
                 principal_provider=current_principal, runtime_identity=binding)
             results = MarketResultStore(config.dsn, config.policy.schema, candidates,
@@ -148,7 +151,7 @@ class ApiRuntime:
             app = create_app(jobs, holds, thermal, results, principal_provider=current_principal,
                 location_research_service=LocationResearchService(jobs, dependencies.research_registry.scope_for_location),
                 break_even_store=break_even, thermal_scenario_store=scenarios,
-                thermal_run_submission_service=submission)
+                thermal_run_submission_service=submission, market_user_source_service=source_admission)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):

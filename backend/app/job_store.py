@@ -210,7 +210,8 @@ class JobStore:
         return data
 
     def submit(self, tenant_id: str, stage: str, input_value: object,
-               idempotency_key: str, *, max_attempts: int = 3, commit_guard=None) -> dict:
+               idempotency_key: str, *, max_attempts: int = 3, commit_guard=None,
+               admission_action=None) -> dict:
         require_name(tenant_id, "tenant_id")
         require_name(idempotency_key, "idempotency_key")
         if stage not in ACTIVE_BY_STAGE:
@@ -218,6 +219,8 @@ class JobStore:
         require_seconds(max_attempts, "max_attempts", 1, 3)
         if commit_guard is not None and not callable(commit_guard):
             raise ValueError("job submission guard invalid")
+        if admission_action is not None and not callable(admission_action):
+            raise ValueError("job admission action invalid")
         input_bytes = canonical_input_bytes(input_value)
         digest = sha256(input_bytes).hexdigest()
         job_id = uuid4()
@@ -242,6 +245,8 @@ class JobStore:
                 self._event(conn, tenant_id, job_id, "submitted")
             if row is None or self._verified_input(row) != input_bytes:
                 raise JobIntentConflict("idempotency key conflicts with a different input")
+            if admission_action is not None:
+                admission_action(conn, row)
             if commit_guard is not None:
                 commit_guard()
         return self._public_job(row)

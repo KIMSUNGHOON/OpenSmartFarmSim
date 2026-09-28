@@ -22,6 +22,9 @@ from .thermal_publisher import ThermalPublishHold
 from .thermal_run_submission import ThermalRunRequest, ThermalRunSubmissionService, SUBMISSION_SCOPES
 from .api_json import read_json_request, JsonRequestRejected
 from .api_scenario import ThermalScenarioRequest, ThermalScenarioSummary, project_scenario, scenario_request_schema
+from .api_market_source import (MarketUserSourceRequest, MarketUserSourceSummary,
+    MarketUserSourceService, SOURCE_SCOPES, market_user_source_schema)
+from .market_source_store import MarketSourceDenied, MarketSourceConflict
 from .job_store import JobIntentConflict
 from .orchestration import LocationRequest, LocationResearchService, ResearchRequestRejected
 
@@ -37,7 +40,8 @@ def _access(scopes):
 
 def create_app(job_store, market_hold_store, thermal_run_store, market_result_store,
                *, principal_provider, location_research_service=None, break_even_store=None,
-               thermal_scenario_store=None, thermal_run_submission_service=None) -> FastAPI:
+               thermal_scenario_store=None, thermal_run_submission_service=None,
+               market_user_source_service=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -58,6 +62,10 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             thermal_run_submission_service.scenarios is not thermal_scenario_store or
             thermal_run_submission_service.publisher.run_store is not thermal_run_store):
         raise ValueError("trusted thermal submission service required")
+    if market_user_source_service is not None and (
+            type(market_user_source_service) is not MarketUserSourceService or
+            market_user_source_service.jobs is not job_store):
+        raise ValueError('trusted market user source service required')
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
     location_scopes = ("location_create",)
     job_scopes = ("metadata",)
@@ -200,6 +208,35 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return project_scenario(record)
         except Exception:
             return _error(503, 'scenario_unavailable', 'Scenario lookup unavailable')
+
+    @app.post('/v1/market-user-sources', response_model=MarketUserSourceSummary,
+              operation_id='registerMarketUserSource',
+              responses={status: {'model': ErrorEnvelope} for status in (401, 403, 409, 413, 415, 422, 503)},
+              openapi_extra={**_access(SOURCE_SCOPES), 'x-ossf-max-body-bytes': 65536,
+                  'requestBody': {'required': True, 'content': {
+                  'application/json': {'schema': market_user_source_schema()}}}})
+    async def post_market_user_source(request: Request):
+        tenant, denied = authorized_tenant(*SOURCE_SCOPES)
+        if denied is not None:
+            return denied
+        if market_user_source_service is None:
+            return _error(503, 'source_unavailable', 'User source registration unavailable')
+        try:
+            body = MarketUserSourceRequest.model_validate(await read_json_request(request, max_bytes=65536))
+        except JsonRequestRejected as exc:
+            return _error(exc.status, exc.code, exc.message)
+        except (ValueError, UnicodeError, RecursionError):
+            return _error(422, 'invalid_request', 'Invalid request')
+        try:
+            return await run_in_threadpool(market_user_source_service.submit, tenant, body)
+        except (PermissionError, MarketSourceDenied):
+            return _error(403, 'forbidden', 'Resource access denied')
+        except (MarketSourceConflict, JobIntentConflict):
+            return _error(409, 'source_conflict', 'User source intent or version has different input')
+        except ValueError:
+            return _error(422, 'invalid_request', 'Invalid request')
+        except Exception:
+            return _error(503, 'source_unavailable', 'User source registration unavailable')
 
     @app.get("/v1/jobs/{job_id}", response_model=JobStatus, responses=errors,
              operation_id="getJob", openapi_extra=_access(job_scopes))
