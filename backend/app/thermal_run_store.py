@@ -200,17 +200,36 @@ class ThermalRunStore:
     """Server-only raw snapshot and accepted Run store with scoped reads."""
 
     def __init__(self, dsn, schema, *, gate_key, release_verifier, principal_provider,
-                 context_verifier=None):
+                 context_verifier=None, runtime_identity=None):
         if (type(gate_key) is not bytes or len(gate_key) < 32 or
                 not callable(principal_provider)):
             raise ValueError("thermal store needs a gate key and principal provider")
+        if runtime_identity is not None:
+            from .runtime_roles import RuntimeLoginPolicy
+            if (type(runtime_identity) is not tuple or len(runtime_identity) != 2 or
+                    type(runtime_identity[0]) is not RuntimeLoginPolicy or runtime_identity[0].schema != schema or
+                    runtime_identity[1] != "authority"):
+                raise ValueError("thermal store requires the authority login profile")
         self.dsn, self.schema = dsn, schema
+        self.runtime_identity = runtime_identity
         self._gate_key = gate_key
         self._release_verifier = release_verifier
         self._context_verifier = context_verifier
         self._principal_provider = principal_provider
 
     def connect(self):
+        if self.runtime_identity is not None:
+            from .runtime_login import connect_runtime
+            from .runtime_roles import audit_runtime_roles
+            policy, kind = self.runtime_identity
+            conn = connect_runtime(self.dsn, policy, kind)
+            try:
+                audit_runtime_roles(conn, policy)
+                conn.commit()
+                return conn
+            except Exception:
+                conn.close()
+                raise ThermalStoreHold("LOGIN_HOLD: runtime grants rejected") from None
         return psycopg.connect(self.dsn, row_factory=dict_row)
 
     def _table(self, name):
