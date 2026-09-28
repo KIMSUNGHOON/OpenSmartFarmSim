@@ -2,17 +2,21 @@
 
 from uuid import UUID
 from typing import Annotated
+import json
 
-from fastapi import FastAPI, Path
+from fastapi import FastAPI, Path, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from starlette.concurrency import run_in_threadpool
 
 from .api_contracts import (EconomicResultRead, ErrorEnvelope, JobStatus, MarketHoldStatus,
                             ThermalRunManifest, ThermalRunSeries, ThermalRunSummary,
                             public_job_status,
-                            public_market_hold)
+                            public_market_hold, LocationAccepted)
 from .api_economics import RESULT_ID_PATTERN, project_economic_result
 from .api_thermal import RUN_ID_PATTERN, project_thermal_manifest, project_thermal_run
+from .job_store import JobIntentConflict
+from .orchestration import LocationRequest, LocationResearchService, ResearchRequestRejected
 
 
 def _error(status: int, code: str, message: str) -> JSONResponse:
@@ -21,7 +25,7 @@ def _error(status: int, code: str, message: str) -> JSONResponse:
 
 
 def create_app(job_store, market_hold_store, thermal_run_store, market_result_store,
-               *, principal_provider) -> FastAPI:
+               *, principal_provider, location_research_service=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -29,6 +33,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             not callable(getattr(thermal_run_store, "get_snapshot", None)) or
             not callable(getattr(market_result_store, "get_economic_result", None))):
         raise ValueError("API trusted stores and principal provider are required")
+    if location_research_service is not None and type(location_research_service) is not LocationResearchService:
+        raise ValueError("trusted location research service required")
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
 
     @app.exception_handler(RequestValidationError)
@@ -51,6 +57,49 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         return principal["tenant_id"], None
 
     errors = {status: {"model": ErrorEnvelope} for status in (401, 403, 404, 422, 503)}
+
+    @app.post("/v1/locations", status_code=202, response_model=LocationAccepted,
+              responses={status: {"model": ErrorEnvelope} for status in (401, 403, 409, 413, 415, 422, 503)},
+              openapi_extra={"requestBody": {"required": True, "content": {
+                  "application/json": {"schema": LocationRequest.model_json_schema()}}}})
+    async def post_location(request: Request):
+        tenant, denied = authorized_tenant("location_create")
+        if denied is not None:
+            return denied
+        if location_research_service is None:
+            return _error(503, "research_unavailable", "Research submission unavailable")
+        if request.headers.get("content-type", "").split(";", 1)[0].strip().lower() != "application/json":
+            return _error(415, "unsupported_media_type", "JSON request required")
+        raw = bytearray()
+        async for chunk in request.stream():
+            if len(raw)+len(chunk) > 4096:
+                return _error(413, "request_too_large", "Request too large")
+            raw.extend(chunk)
+        def unique_pairs(items):
+            value = {}
+            for key, item in items:
+                if key in value:
+                    raise ValueError("duplicate request key")
+                value[key] = item
+            return value
+        try:
+            value = json.loads(raw.decode("utf-8"), object_pairs_hook=unique_pairs,
+                parse_constant=lambda _: (_ for _ in ()).throw(ValueError()))
+            body = LocationRequest.model_validate(value)
+        except (ValueError, UnicodeError, RecursionError):
+            return _error(422, "invalid_request", "Invalid request")
+        try:
+            location, point, row = await run_in_threadpool(location_research_service.submit, tenant, body)
+            return LocationAccepted(location_id=location, point=point, spatial_support="pending_research",
+                                    research_job=public_job_status(row))
+        except PermissionError:
+            return _error(403, "forbidden", "Resource access denied")
+        except ResearchRequestRejected:
+            return _error(422, "unsupported_request", "Research request unsupported")
+        except JobIntentConflict:
+            return _error(409, "intent_conflict", "Intent already has a different request")
+        except Exception:
+            return _error(503, "research_unavailable", "Research submission unavailable")
 
     @app.get("/v1/jobs/{job_id}", response_model=JobStatus, responses=errors)
     def get_job(job_id: UUID):

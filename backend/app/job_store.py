@@ -42,6 +42,10 @@ def _open_directory_nofollow(path: Path) -> int:
         raise
 
 
+class JobIntentConflict(ValueError):
+    """An existing tenant/stage intent has different immutable input bytes."""
+
+
 class JobStore:
     def __init__(self, dsn: str | None, schema: str, artifact_root: Path,
                  *, decision_validator=None, evidence_policy=None,
@@ -222,7 +226,7 @@ class JobStore:
             else:
                 self._event(conn, tenant_id, job_id, "submitted")
             if row is None or self._verified_input(row) != input_bytes:
-                raise ValueError("idempotency key conflicts with a different input")
+                raise JobIntentConflict("idempotency key conflicts with a different input")
         return self._public_job(row)
 
     def get_job(self, tenant_id: str, job_id) -> dict | None:

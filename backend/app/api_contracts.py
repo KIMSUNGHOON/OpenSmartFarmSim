@@ -32,6 +32,14 @@ class MarketHoldStatus(BaseModel):
     missing_evidence: list[str]
 
 
+class LocationAccepted(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    location_id: str = Field(pattern=r"^location-v1-[0-9a-f]{64}$")
+    point: dict[str, float]
+    spatial_support: Literal["pending_research"]
+    research_job: JobStatus
+
+
 class ThermalRunSummary(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 

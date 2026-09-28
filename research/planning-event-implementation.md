@@ -139,3 +139,11 @@ assembly and test keys do not demonstrate independent operating custody,
 actual runtime Codex/model execution or release/G1/G4. The new command enters
 the closed code inventory and changed store bytes require new independent
 release evidence. Immutable manifests/releases were not rewritten.
+
+The foreground candidate's exact commit `f9d7fbd` subsequently passed
+[backend CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36395059043):
+**1343 ordinary tests, 2 warnings**, **four distinct-UID smoke cases in 18.76 s**
+including the new planning process, and content DAC. Its
+[Compose receipt](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36395058998)
+also passed. These receipts were checked on 2026-09-28 and do not cover the
+later CLI precision or HTTP admission changes.
