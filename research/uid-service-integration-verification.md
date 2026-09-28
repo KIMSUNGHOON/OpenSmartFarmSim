@@ -41,8 +41,14 @@ The general dispatcher now launches the application [command v1](../contracts/cl
 as a fresh exec from the pinned public runtime's read-only code/schema copy.
 Only socket/peer/tenant/wait arguments and HOME/PATH/LANG are supplied. Its
 address space no longer contains the controller's inherited credential/key
-memory. Authority and supervisor remain forks, so this change does not establish
-independent control of those services or production containment.
+memory. The supervisor now also launches the application
+[foreground command](../contracts/cli-supervise-v1.md) as a fresh exec, using a
+test-only factory/code copy and a supervisor-owned fixture configuration file.
+Only that file path, the public test import path and HOME/PATH/LANG are in its
+explicit environment. The fresh process reconstructs its scoped settings and
+reads only its own DB passfile/key. Authority remains a controller fork, and
+the root controller still owns all fixtures; independent service/secret control
+and production containment remain unproved.
 
 Negative probes connect with socket group permission but an unapproved UID:
 the supervisor rejects the general worker, and authority rejects UID 11004.
@@ -57,16 +63,17 @@ are removed by the existing fixture teardown.
 ## Limits
 
 This is software integration evidence under actual Linux UIDs and authenticated
-test database users. It is not independent secret custody: trusted forks inherit
-controller memory, and the controller owns every fixture credential/key. The
+test database users. It is not independent secret custody: the authority fork
+inherits controller memory, and the controller owns every fixture credential/key. The
 fake executable shares the supervisor UID and can read its files. No per-job
 container, distinct CLI UID, readonly deployment mount, egress restriction,
 actual model call, operating-account authorization, immutable release identity,
 thermal release, G1 or G4 acceptance follows. Production isolation remains
 closed by the existing CliWorker constructor guard.
 
-The general command's fresh exec replaces only its own forked address space;
-the surrounding root probe and both trusted services retain the limitations above.
+The general and supervisor commands' fresh exec replace their inherited address
+spaces. The surrounding root probe and authority retain controller memory;
+the fake CLI still shares the supervisor's UID and private-file access.
 
 ## Verification procedure
 

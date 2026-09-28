@@ -59,5 +59,6 @@ read-only copy of application code/schema. The child receives only scope
 arguments and HOME/PATH/LANG; exec replaces the controller fork's memory. Its
 real UID is admitted by the existing authority peer check. The surrounding
 probe also denies private credential/key, supervisor socket and content access.
-Authority/supervisor still run controller forks with a fake CLI/test key, so
+Authority still runs a controller fork, and the supervisor's new foreground
+command uses a test-only factory with a fake CLI/test key, so
 independent service/secret control, real model execution and G1/G4 remain unproved.

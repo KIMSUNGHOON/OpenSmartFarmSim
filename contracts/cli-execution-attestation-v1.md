@@ -106,6 +106,11 @@ execution. Deployed key and role separation have not been accepted.
 
 ## Local supervisor IPC candidate
 
+The [foreground supervisor command](cli-supervise-v1.md) can construct this
+existing server from an operator-controlled application factory. It does not
+provision secrets, approve data or attest a deployment. Hosted tests use a
+separate test-only factory and fake CLI/key.
+
 [`SupervisorServer`](../backend/app/cli_supervisor_service.py) is a foreground,
 serial Linux Unix socket server with an operator-configured tenant and worker
 UID. [`SupervisorClient`](../backend/app/cli_supervisor_client.py) authenticates

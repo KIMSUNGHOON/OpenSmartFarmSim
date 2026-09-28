@@ -1,5 +1,27 @@
 # Independent CLI execution boundary review
 
+## Current-session implementation note: foreground service command
+
+On 2026-09-28, the existing Codex CLI 0.157.1 session
+`01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc` implemented the
+[foreground supervisor entrypoint](../contracts/cli-supervise-v1.md). The local
+session metadata identifies `codex-tui`/`vscode`; its current turn context records
+model `gpt-6-sol`, effort `xhigh`. No nested CLI or separate reviewer/model call
+was launched. This is an implementation judgment in the required configured
+session, not an independent review or runtime child-execution receipt.
+
+The bounded decision was to import a zero-argument operator-controlled factory
+returning the existing concrete SupervisorServer, preserve its constructors and
+protocol, suppress startup/service exception details, and move the hosted
+supervisor probe through direct exec. The factory/import path has full service
+privileges and must be provisioner-controlled. A test-only factory reconstructs
+synthetic authority from the existing fixture resolver; it is outside app code
+and is not a production data/gate authority. Ten subprocess/socket lifecycle
+tests passed locally; the separate actual-UID hosted execution remains its own
+verification requirement. Authority/controller memory, fake CLI sharing the
+supervisor UID, immutable deployment identity, real model/thermal release and
+G1/G4 acceptance remain unresolved.
+
 On 2026-09-27 UTC, a local `codex-cli 0.157.1` session reviewed the narrow
 execution-attestation problem. It ran from a private temporary directory with
 a copied private credential and no repository or source data in the prompt.

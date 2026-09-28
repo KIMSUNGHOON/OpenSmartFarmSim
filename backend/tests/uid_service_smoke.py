@@ -1,7 +1,7 @@
 """Explicit root-only service smoke. Fake CLI/test key; not G1/G4 or custody proof."""
 
 from contextlib import contextmanager
-import copy
+from dataclasses import asdict
 from datetime import datetime
 from hashlib import sha256
 import json
@@ -25,7 +25,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.authority_rpc import AuthorityClient, AuthorityServer, AuthorityDispatchError
 from app.cli_ipc import MAX_REQUEST, receive
-from app.cli_supervisor_service import SupervisorServer
 from app.content_access import ContentAccess
 from app.execution_attestation import ExecutionAttestationStore
 # Preload the connector before UID drop; the Python installation is controller-owned.
@@ -116,10 +115,10 @@ def child(uid, gid, groups, action, *, home):
         os.close(read_fd)
 
 
-def finished(handle):
+def finished(handle, *, executed=False):
     assert select.select([handle[1]], [], [], 15)[0], "UID service deadline"
     response = os.read(handle[1], 128)
-    assert response == b"ok", "UID service failed: " + response.decode("ascii")
+    assert response == (b"" if executed else b"ok"), "UID service failed: " + response.decode("ascii")
     assert reap(handle, 2) == 0
 
 
@@ -177,15 +176,23 @@ def test_distinct_uid_services_and_authenticated_roles(login_scope, stage):
             executable_sha256=sha256(local.cli_path.read_bytes()).hexdigest(),
             environment_sha256=sha256(b"synthetic-uid-test-environment").hexdigest(),
             child_env=local.child_env, timeout_seconds=10)
+        configuration = private_file(sup_home / "service-fixture.json", json.dumps(dict(
+            policy=asdict(policy), dsn=dsns["supervisor"], artifact_root=str(store.artifact_root),
+            content_access=asdict(store.content_access), proceed=proceed,
+            settings={name: str(value) if isinstance(value, Path) else value
+                      for name, value in settings.items()})).encode(), SUPERVISOR, SUPERVISOR_GROUP)
+        application = Path(sys.executable).parents[2] / "code" / "backend"
         job = store.submit("tenant-a", stage, decision_input(stage), uuid4().hex)
         foreign = store.submit("tenant-b", stage, decision_input(stage), uuid4().hex)
 
         def supervisor():
-            datetime.strptime("2026-01-03T00:00:00Z", "%Y-%m-%dT%H:%M:%SZ")
             denied(authority_home / "db.pgpass")
-            configured = copy.copy(store)
-            configured._dsn, configured.runtime_identity = dsns["supervisor"], (policy, "supervisor")
-            SupervisorServer(configured, **settings).serve(max_sessions=2)
+            os.chdir(application)
+            os.execve(sys.executable, [sys.executable, "-B", "-m", "app.cli_supervise",
+                "--factory", "uid_supervisor_factory:create", "--max-sessions", "2"],
+                {"HOME": str(sup_home), "PATH": "/usr/bin:/bin", "LANG": "C.UTF-8",
+                 "PYTHONPATH": str(application / "tests"),
+                 "OSSF_SUPERVISOR_FIXTURE_CONFIG": str(configuration)})
 
         def authority():
             datetime.strptime("2026-01-03T00:00:00Z", "%Y-%m-%dT%H:%M:%SZ")
@@ -212,7 +219,6 @@ def test_distinct_uid_services_and_authenticated_roles(login_scope, stage):
                 with connect(settings["socket_path"]):
                     pass
             # Exec replaces the fork's controller memory; only endpoint/scope arguments remain.
-            application = Path(sys.executable).parents[2] / "code" / "backend"
             completed = subprocess.run([sys.executable, "-B", "-m", "app.cli_dispatch",
                 "--socket", str(auth_socket_dir / "rpc"), "--authority-uid", str(AUTHORITY),
                 "--tenant", "tenant-a", "--wait-seconds", "15"], cwd=application,
@@ -245,7 +251,7 @@ def test_distinct_uid_services_and_authenticated_roles(login_scope, stage):
                 with child(WORKER, DISPATCH_GROUP, [], dispatch, home=worker_home) as worker:
                     finished(worker)
                 finished(auth)
-            finished(sup)
+            finished(sup, executed=True)
         identity = json.loads(marker.read_text())
         assert identity == {"uid": [SUPERVISOR] * 3, "gid": [SUPERVISOR_GROUP] * 3, "groups": [CONTENT_GROUP]}
         record = ExecutionAttestationStore(store, {"test-supervisor-v1": public}).get("tenant-a", job["job_id"], 1)
@@ -261,4 +267,5 @@ def test_distinct_uid_services_and_authenticated_roles(login_scope, stage):
             assert store.get_hold_report("tenant-a", job["job_id"]) is not None
         assert not settings["socket_path"].exists() and not (auth_socket_dir / "rpc").exists()
         print(f"Distinct UID service smoke passed: {stage}; separate SCRAM users, peer UIDs, "
-              "fresh dispatcher exec, signed persistence and private-file denials. Fake CLI/test key; no G1/G4 acceptance.")
+              "fresh supervisor and dispatcher exec, signed persistence and private-file denials. "
+              "Fake CLI/test key; no G1/G4 acceptance.")
