@@ -16,6 +16,7 @@ from uuid import UUID
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 import psycopg
 from psycopg import sql
+from psycopg.conninfo import conninfo_to_dict
 from psycopg.rows import dict_row
 
 from .cli_attestation_issuer import ExecutionAttestationIssuer
@@ -63,8 +64,9 @@ class _SupervisorReads:
         return getattr(self._store, name)
 
     def connect(self):
+        configured = conninfo_to_dict(self._store._dsn).get("options", "")
         return psycopg.connect(self._store._dsn, row_factory=dict_row,
-            connect_timeout=3, options="-c statement_timeout=2000 -c default_transaction_read_only=on")
+            connect_timeout=3, options=configured + " -c statement_timeout=2000 -c default_transaction_read_only=on")
 
 
 class SupervisorServer:

@@ -2,8 +2,9 @@
 
 Status: **software migration candidate**. This does not provision service logins,
 bind IPC identities to DB identities, deploy independent processes, or pass G1/G4.
-The current supervised worker still calls JobStore directly; these calls must
-move behind a trusted authority before using its restricted worker DB profile.
+The supervised execution engine calls JobStore inside the new
+[authority dispatcher candidate](authority-rpc-v1.md). General dispatchers use
+that RPC without a DB connection; deployed service binding is still unaccepted.
 
 [`runtime_roles.py`](../backend/app/runtime_roles.py) exposes an explicit
 `install_runtime_roles(conn, RuntimeRolePolicy(schema, owner, prefix))` and
@@ -25,7 +26,7 @@ installer does not transfer ownership, create passwords, or select an account.
 | Profile | Project data rights | State/data mutation |
 | --- | --- | --- |
 | `request` | Schema `USAGE`; no base table/column/routine access | None; future public projections/trusted submission RPC required |
-| `worker` | Schema `USAGE`; no base table/column/routine access | None; future authority RPC required |
+| `worker` | Schema `USAGE`; no base table/column/routine access | None; scoped authority dispatcher RPC candidate |
 | `supervisor` | `SELECT` on jobs, attempts, evidence/authorization, invocation, launch, capture, receipt, decision | None |
 | `authority` | `SELECT` on the 18 explicitly named job, execution, thermal, and market hold tables | `INSERT` on those tables, `UPDATE` on jobs only |
 
@@ -74,9 +75,10 @@ permissions after a rejected repeat installation. A fake-child issuance flow
 performs durable writes as `authority` and issuer reads as `supervisor` for all
 three AI stages. The test key and filesystem remain under one OS user.
 
-Remaining integration: a scoped authority service owns JobStore mutation and
-attestation ingestion; request/worker processes invoke that service with frozen
-tenant/job/attempt capabilities. Independent service logins must have audited
+The scoped authority candidate now owns JobStore mutation and attestation
+ingestion; a fixed UID/tenant dispatcher requests the next eligible job without
+job/input/lease fields. Request submission/public projections remain future
+integration. Independent service logins must have audited
 attributes, memberships, object/default rights, and authentication restrictions;
 per-tenant access, independent key/UID control, actual model execution,
 immutable image/binary identity, thermal release/planning evidence, and process

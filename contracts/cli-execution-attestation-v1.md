@@ -182,10 +182,11 @@ isolation, restricted egress, deployment/account and operating evidence.
 The subsequent [runtime role policy candidate](runtime-role-policy-v1.md)
 provides explicit closed request/worker profiles, supervisor reads and authority
 writes with effective privilege audits. Its fake-child test uses restricted SQL
-identities for durable mutation and issuer reads. The IPC worker's direct
-JobStore calls still need a trusted authority RPC before using the worker
-profile. Login/UID/key separation and deployment are not established by that
-administrator-controlled SQL test.
+identities for durable mutation and issuer reads. The subsequent
+[authority RPC candidate](authority-rpc-v1.md) places that supervised execution
+engine inside a trusted server, leaving general dispatchers without DB/raw
+input access. Login/UID/key separation and deployment are not established by
+these administrator-controlled SQL and shared-UID process tests.
 
 Local verification on 2026-09-28 used PostgreSQL 16.15 and the locked backend:
 `OSSF_TEST_PG_DSN=… uv run --locked --group dev pytest -q` completed with

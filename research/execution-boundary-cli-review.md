@@ -103,3 +103,24 @@ flows, stale-installer preservation, and transaction rollback tests. The
 [role policy](../contracts/runtime-role-policy-v1.md) implements that candidate
 with a dedicated owner and fresh profiles. Real login/service binding and
 independent deployment remain unaccepted.
+
+## Follow-up: implemented authority dispatcher
+
+On 2026-09-28 UTC, a private ephemeral exact `gpt-6-sol`/`xhigh` CLI session
+reviewed the new authority module's source and a bounded description of the
+existing validators, SQL audit, supervisor and synthetic-only guard. No farm,
+provider, credential or key bytes were supplied. The terminal `turn.completed`
+reported 15,587 input (11,776 cached), 2,223 output and 2,070 reasoning output
+tokens. A private local receipt retained only final review/usage, outside the
+repository; temporary credentials/JSONL were removed. These are usage values,
+not billed cost or production account proof.
+
+The review flagged a potentially unbounded silent/partial request on the serial
+server and requested an absolute whole-frame deadline and a subsequent valid
+dispatch test. Its premise that `receive(conn, MAX_REQUEST)` blocks indefinitely
+was contradicted by the existing shared helper: `cli_ipc.receive` already sets
+one absolute five-second deadline and never resets it on partial reads.
+The implementation retains that helper; separate silent/partial-peer server
+regressions now verify bounded rejection without a claim and a later valid
+dispatch. No additional issue was listed by this narrow review. It is not
+independent login/key control, actual runtime model execution or G1/G4 proof.
