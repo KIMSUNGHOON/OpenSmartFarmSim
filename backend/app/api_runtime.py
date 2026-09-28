@@ -22,6 +22,7 @@ from .thermal_run_submission import ThermalRunSubmissionService
 from .api_market_source import MarketUserSourceService, _MarketSources, _SOURCE_METHODS
 from .market_source_store import MarketSourceStore
 from .api_economic_scenario import EconomicScenarioService
+from .api_economic_calculation import EconomicCalculationService
 
 
 @dataclass(frozen=True)
@@ -108,6 +109,7 @@ class ApiRuntime:
             economic_scenarios = EconomicScenarioService(jobs, candidates) if source_admission is not None else None
             results = MarketResultStore(config.dsn, config.policy.schema, candidates,
                 principal_provider=current_principal, runtime_identity=binding)
+            economic_calculations = EconomicCalculationService(jobs, results) if source_admission is not None else None
             break_even = BreakEvenStore(config.dsn, config.policy.schema, candidates,
                 principal_provider=current_principal, runtime_identity=binding)
             scenarios = ThermalScenarioStore(thermal, holds) if config.policy.thermal_scenario_storage else None
@@ -121,7 +123,7 @@ class ApiRuntime:
                 location_research_service=LocationResearchService(jobs, dependencies.research_registry.scope_for_location),
                 break_even_store=break_even, thermal_scenario_store=scenarios,
                 thermal_run_submission_service=submission, market_user_source_service=source_admission,
-                economic_scenario_service=economic_scenarios)
+                economic_scenario_service=economic_scenarios, economic_calculation_service=economic_calculations)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):

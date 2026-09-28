@@ -42,3 +42,15 @@ operator deployment and browser/full G1/G4 remain pending, as do G0/G2/G3.
 Synthetic inputs/keys and process tests are software evidence only. New worker/
 command code joins the closed digest and requires a fresh independent release.
 No broad task checkbox or approved data/release record is promoted here.
+
+## Exact commit hosted verification
+
+Commit b898f3cff60f435c63b84f4e151927a22ac88b50 completed
+[backend CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36460811990)
+with **1834 passed, 2 existing warnings in 2429.33 s (40:29)** and **4 separate
+UID service tests in 18.78 s**. Both warnings are the existing model-copy cases
+in test_g0_authority.py. Content access across distinct UIDs and database/password
+cleanup steps also succeeded.
+[Compose CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36460812069)
+succeeded on the same exact commit. These are software checks, not G1/G4 proof.
+The HTTP follow-up is recorded in [its evidence](api-economic-calculation-implementation.md).

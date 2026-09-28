@@ -6,8 +6,9 @@ No farm performance, forecast, ranking or G1/G4 acceptance is granted.
 An operator submits an actual simulation JobStore intent with input_version
 economic-calculation-input-v1, scenario_id/revision/hash, candidate_id and the
 literal existing economic-ledger-v9-sales-settlement formula_version. No result
-bytes, numbers or gate proposals are accepted as worker input. HTTP submission
-and job-to-economic-result lookup are subsequent api-flow work.
+bytes, numbers or gate proposals are accepted as worker input. The
+[HTTP calculation contract](api-economic-calculation-v1.md) now connects
+submission and job-to-economic-result lookup; full orchestration remains pending.
 
 EconomicCalculationWorker targets one UUID and authenticated tenant. It requires
 metadata, artifact, simulation_execute, market_source_read, market_candidate_read,

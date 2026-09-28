@@ -19,6 +19,12 @@ from test_http_identity import request
 
 
 OPERATIONS = {
+    ('/v1/economic-results', 'post'): ('submitEconomicCalculation',
+        ['metadata', 'artifact', 'simulation_execute', 'market_source_read', 'market_candidate_read',
+         'market_result_read', 'market_result_write', 'decision_context_read', 'market_hold_context_read']),
+    ('/v1/jobs/{job_id}/economic-result', 'get'): ('getJobEconomicResult',
+        ['metadata', 'artifact', 'market_source_read', 'market_candidate_read', 'market_result_read',
+         'decision_context_read', 'market_hold_context_read']),
     ('/v1/economic-scenarios', 'post'): ('registerEconomicScenario',
         ['metadata', 'market_source_read', 'market_candidate_read', 'market_candidate_write',
          'decision_context_read', 'market_hold_context_read']),
