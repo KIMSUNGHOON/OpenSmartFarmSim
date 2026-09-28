@@ -5,7 +5,7 @@ input references never grant source rights, gate status, or publication authorit
 """
 
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -23,7 +23,7 @@ _VALIDATOR = Draft202012Validator(DECISION_SCHEMA)
 STAGES = frozenset({"research", "collection_review", "assessment"})
 _ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}\Z")
 _DIGEST = re.compile(r"[0-9a-f]{64}\Z")
-_UTC = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z\Z")
+_UTC = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?Z\Z")
 _COMMON = frozenset({"input_version", "tenant_id", "candidate_ids", "evidence_refs",
                      "decision_context_id", "decision_at_utc", "claim_mode",
                      "decision_time_kind"})
@@ -81,7 +81,7 @@ def _utc(value):
     if type(value) is not str or not _UTC.fullmatch(value):
         raise ProposalHold("invalid_utc")
     try:
-        return datetime.strptime(value, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+        return datetime.fromisoformat(value[:-1] + "+00:00")
     except ValueError as exc:
         raise ProposalHold("invalid_utc") from exc
 
@@ -198,7 +198,7 @@ class DecisionPlan:
 
 
 class DecisionContract:
-    VERSION = "decision-server-v1"
+    VERSION = "decision-server-v2"
 
     def __init__(self, authority_resolver: Callable, *, input_parser=None):
         if not callable(authority_resolver):

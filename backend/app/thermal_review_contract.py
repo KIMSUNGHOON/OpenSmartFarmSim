@@ -6,7 +6,7 @@ from .thermal_publisher import collection_review_input, collection_review_propos
 
 
 class ThermalReviewContract(DecisionContract):
-    VERSION = "thermal-review-server-v1"
+    VERSION = "thermal-review-server-v2"
     BINDING_FIELDS = frozenset({"snapshot_id", "manifest_sha256", "weather_sha256",
                                 "thermal_sha256", "context_sha256"})
     INPUT_FIELDS = BINDING_FIELDS | frozenset({
