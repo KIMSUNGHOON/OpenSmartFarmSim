@@ -62,3 +62,44 @@ independent release or G1/G4 claim was demonstrated. The preceding core's
 [hosted backend receipt](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36388752655)
 recorded 1264 ordinary tests and three distinct-UID smoke cases; that receipt
 does not cover this follow-up. Its new hosted receipt must be checked separately.
+
+The authenticated-login follow-up's exact commit `21550a5` subsequently passed
+[backend CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36391103128):
+**1299 ordinary tests, 2 warnings**, three distinct-UID service smoke cases and
+the content DAC check. Its
+[Compose receipt](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36391103107)
+also passed. These receipts do not cover the later RPC candidate below.
+
+## Separate planning issuance RPC — 2026-09-28
+
+The same exact CLI model/effort implemented and reviewed
+[planning-rpc-v1](../contracts/planning-rpc-v1.md), using the existing bounded
+Linux IPC and authenticated planning profiles. No additional/nested Codex call
+or real source collection was used. The server requires a writer-bound planning
+authority, fixed tenant/OS peer, protected socket directory and trusted matching
+snapshot resolver. The client requires the exact reader-bound verifier and
+checks signed durable context bytes against its original request.
+
+The first local suite passed **26 cases in 10.28 s**. After rejecting an
+owner-backed smoke verifier and adding live writer-grant drift rejection,
+the final RPC/login/publisher/review suite passed **79 cases in 22.49 s**,
+including **28 RPC cases**. A fresh spawned Python process issued a context
+against a real immutable fixture snapshot; the public reader verified it,
+the existing context store persisted it, and JobStore queued the exact
+collection review input with its existing intent replay behavior.
+
+Checks cover actual/historical hypothetical requests, unknown/foreign snapshot,
+both peer directions, ten malformed wire cases, seven changed reply/signed
+scope cases, fixed error output, socket permissions/SIGTERM/preservation,
+default owner rejection and privilege drift after listening. An injected lost
+success reply left exactly one committed/verifiable event and an unresolved
+client result, without retry. Issuance and downstream writes remain separate
+transactions; no HTTP intent recovery or automatic safe retry is claimed.
+
+The tests share OS identity, controller credentials and test keys. The spawned
+process test is not independent operating custody or an actual runtime model
+invocation. Operator service factories, deployment identities/keys, independent
+clock/schema/tenant controls, actual CLI execution, release and G1/G4 remain
+pending. The module enters the code digest and requires a new independent
+release; immutable source manifests and older releases were preserved. This
+follow-up's hosted receipt must be verified separately.

@@ -32,6 +32,7 @@ CODE_FILES = ("backend/app/thermal.py", "backend/app/thermal_units.py",
               "backend/app/thermal_review_contract.py",
               "backend/app/planning_events.py",
               "backend/app/planning_roles.py",
+              "backend/app/planning_rpc.py",
               "contracts/thermal-v1.schema.json", "contracts/decision-v1.schema.json")
 WEATHER_ID = "synthetic-weather-v1"
 THERMAL_ID = "synthetic-thermal-parameters-v1"

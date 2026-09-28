@@ -59,6 +59,11 @@ actual event, D must equal the server observation. Missing, changed, noncanonica
 or untrusted evidence returns `None`, preserving the existing context HOLD.
 Success returns exactly the four fields required by the existing context reader.
 
+[Planning RPC v1](planning-rpc-v1.md) supplies a bounded Unix-socket issuance
+boundary for a separate key-holding process. Its client uses only the reader
+login/public verifier and checks the durable event plus exact requested scope.
+Issuance has no automatic retry or cross-store transaction guarantee.
+
 The verifier connects directly to `ThermalRunStore.context_verifier`. The same
 verified context can bind a signed Market hold; it neither creates a fake
 MarketSnapshot nor clears `market_g0_not_evaluated`. The planning module is in
