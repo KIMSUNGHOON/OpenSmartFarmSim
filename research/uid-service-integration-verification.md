@@ -9,8 +9,8 @@ CI installs the same locked Python 3.12.13/packages in a bounded public code-onl
 runtime under `/tmp/ossf-uid-runtime-RUN-ATTEMPT`, with others' write permission
 removed. Package copying avoids changing shared cache inode permissions. This
 runtime contains no credential/key files and is removed in always-run cleanup.
-Services exercise a date-parser operation after dropping UID; controller
-preloads alone are not enough to establish readable interpreter/library code.
+Fresh service commands parse actual invocation/output records after dropping
+UID; controller preloads alone do not establish readable interpreter/library code.
 
 ## Tested boundary
 
@@ -46,8 +46,13 @@ memory. The supervisor now also launches the application
 test-only factory/code copy and a supervisor-owned fixture configuration file.
 Only that file path, the public test import path and HOME/PATH/LANG are in its
 explicit environment. The fresh process reconstructs its scoped settings and
-reads only its own DB passfile/key. Authority remains a controller fork, and
-the root controller still owns all fixtures; independent service/secret control
+reads only its own DB passfile/key. Authority also launches its
+[foreground command](../contracts/cli-authority-v1.md) through direct exec. Its
+private fixture configuration contains scoped settings, its own DB passfile
+reference and public verification key. The two service commands receive their individual
+configuration/import paths with HOME/PATH/LANG; their exec replaces inherited
+controller memory and preserves the directly supervised PID for cleanup.
+The root controller still owns all fixtures; independent service/secret control
 and production containment remain unproved.
 
 Negative probes connect with socket group permission but an unapproved UID:
@@ -63,17 +68,17 @@ are removed by the existing fixture teardown.
 ## Limits
 
 This is software integration evidence under actual Linux UIDs and authenticated
-test database users. It is not independent secret custody: the authority fork
-inherits controller memory, and the controller owns every fixture credential/key. The
+test database users. It is not independent secret custody: the root controller
+owns every fixture credential/key. The
 fake executable shares the supervisor UID and can read its files. No per-job
 container, distinct CLI UID, readonly deployment mount, egress restriction,
 actual model call, operating-account authorization, immutable release identity,
 thermal release, G1 or G4 acceptance follows. Production isolation remains
 closed by the existing CliWorker constructor guard.
 
-The general and supervisor commands' fresh exec replace their inherited address
-spaces. The surrounding root probe and authority retain controller memory;
-the fake CLI still shares the supervisor's UID and private-file access.
+All three service commands' fresh exec replace their inherited address spaces.
+The surrounding root probe retains every fixture secret, and the fake CLI
+still shares the supervisor's UID and private-file access.
 
 ## Verification procedure
 

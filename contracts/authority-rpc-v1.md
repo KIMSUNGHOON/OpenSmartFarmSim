@@ -1,5 +1,9 @@
 # Authority dispatcher RPC v1
 
+The [foreground authority command](cli-authority-v1.md) exposes this existing
+server through an operator-controlled application factory. It does not supply
+a production bootstrap or change the synthetic-only worker guard.
+
 Status: **synthetic software candidate**. This connects the validated pipeline
 to restricted SQL profiles in local process tests. It does not provision logins,
 separate operating accounts/keys, attest deployment, or pass G1/G4. The existing
@@ -48,8 +52,8 @@ database-secret or signing-key control for this RPC deployment.
 The [explicit hosted service smoke](../research/uid-service-integration-verification.md)
 combines these contracts with separate real/effective/saved service UIDs,
 existing socket groups and authenticated test DB profiles. It also exercises
-peer rejection despite socket group permission. Its fake CLI/test key and
-controller forks do not prove independent custody or actual model/deployment
+peer rejection despite socket group permission. Its fake CLI/test key,
+test-only factories and controller-owned fixtures do not prove independent custody or actual model/deployment
 acceptance; ordinary test collection alone is not execution evidence.
 
 Each connection accepts exactly one request:

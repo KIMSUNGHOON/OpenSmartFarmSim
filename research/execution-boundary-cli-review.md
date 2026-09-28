@@ -2,6 +2,19 @@
 
 ## Current-session implementation note: foreground service command
 
+Follow-up on 2026-09-28 in the same configured session: the
+[authority command](../contracts/cli-authority-v1.md) uses the same privileged
+factory contract and the existing AuthorityServer. Its test-only assembly
+receives the public key and its own SCRAM passfile reference, not the private
+supervisor key. Thirteen focused tests passed locally, including three actual
+authenticated stage flows, idle SIGTERM cleanup and fixed wrong-role/startup/
+service errors. The hosted probe now directly execs both trusted service
+commands, avoiding inherited controller memory and keeping their original
+supervised PIDs. This removes the previous authority-fork limitation within
+that probe; root fixture custody, the fake CLI's shared supervisor UID,
+per-job deployment/model/thermal release and G1/G4 proof remain absent. No
+nested CLI or independent review/model call was performed.
+
 On 2026-09-28, the existing Codex CLI 0.157.1 session
 `01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc` implemented the
 [foreground supervisor entrypoint](../contracts/cli-supervise-v1.md). The local

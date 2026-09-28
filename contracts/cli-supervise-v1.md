@@ -48,7 +48,7 @@ uses a [test-only factory](../backend/tests/uid_supervisor_factory.py) in the
 read-only public runtime. It reconstructs the existing synthetic contract and
 LOGIN v2/content settings from a supervisor-owned fixture configuration, then
 executes this command after dropping UID. The fixture is not a production
-bootstrap or a source/claim approval. Authority still runs as a controller
-fork, and the fake CLI still shares the supervisor UID/key access. Actual model
+bootstrap or a source/claim approval. Authority also uses its own
+[foreground command](cli-authority-v1.md), and the fake CLI still shares the supervisor UID/key access. Actual model
 execution, independent custody, per-job containment, thermal release and G1/G4
 acceptance remain unproved.
