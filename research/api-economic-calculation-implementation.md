@@ -59,3 +59,14 @@ execution and independent isolation/custody/release, and actual G0/G2/G3/G4
 evidence. Synthetic source records, keys and software tests cannot establish
 farm performance, future margin or crop ranking. New service code joins the
 closed implementation digest and needs a fresh independent release.
+
+## Exact commit hosted verification
+
+Commit d1c09ff7151f28a94e17363cb990253700837098 completed
+[backend CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36468981109)
+with **1845 passed, 2 existing warnings in 3071.20 s (51:11)** and **4 separate
+UID service tests in 19.27 s**. Both warnings are the existing model-copy cases
+in test_g0_authority.py. Distinct-UID content access and database/password cleanup
+steps also succeeded.
+[Compose CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36468981112)
+succeeded on the same exact commit. These checks do not grant G1/G4 acceptance.

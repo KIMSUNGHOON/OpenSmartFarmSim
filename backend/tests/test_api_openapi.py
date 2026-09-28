@@ -19,6 +19,9 @@ from test_http_identity import request
 
 
 OPERATIONS = {
+    ('/v1/break-even-plans', 'post'): ('submitBreakEvenPlan',
+        ['metadata', 'artifact', 'simulation_execute', 'break_even_read', 'break_even_write',
+         'market_source_read', 'market_candidate_read', 'decision_context_read', 'market_hold_context_read']),
     ('/v1/economic-results', 'post'): ('submitEconomicCalculation',
         ['metadata', 'artifact', 'simulation_execute', 'market_source_read', 'market_candidate_read',
          'market_result_read', 'market_result_write', 'decision_context_read', 'market_hold_context_read']),

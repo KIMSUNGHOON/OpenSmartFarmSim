@@ -32,6 +32,8 @@ from .market_candidate_store import MarketCandidateDenied, MarketCandidateConfli
 from .api_economic_calculation import (EconomicCalculationService, EconomicCalculationRequest,
     EconomicCalculationHold, ECONOMIC_JOB_READ_SCOPES)
 from .economic_calculation_worker import CALCULATION_SCOPES
+from .break_even_plan_submission import (BreakEvenPlanSubmissionService, BreakEvenPlanSubmission,
+    BreakEvenPlanAccepted, PLAN_SUBMISSION_SCOPES)
 from .jobs import canonical_input_bytes
 from .job_store import JobIntentConflict
 from .orchestration import LocationRequest, LocationResearchService, ResearchRequestRejected
@@ -50,7 +52,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                *, principal_provider, location_research_service=None, break_even_store=None,
                thermal_scenario_store=None, thermal_run_submission_service=None,
                market_user_source_service=None, economic_scenario_service=None,
-               economic_calculation_service=None) -> FastAPI:
+               economic_calculation_service=None, break_even_plan_service=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -84,6 +86,10 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             economic_calculation_service.jobs is not job_store or
             economic_calculation_service.results is not market_result_store):
         raise ValueError('trusted economic calculation service required')
+    if break_even_plan_service is not None and (
+            type(break_even_plan_service) is not BreakEvenPlanSubmissionService or
+            break_even_plan_service.jobs is not job_store or break_even_plan_service.store is not break_even_store):
+        raise ValueError('trusted break-even plan service required')
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
     location_scopes = ("location_create",)
     job_scopes = ("metadata",)
@@ -333,6 +339,36 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(403, 'forbidden', 'Resource access denied')
         except Exception:
             return _error(503, 'store_unavailable', 'Economic job result unavailable')
+
+    @app.post('/v1/break-even-plans', status_code=202, response_model=BreakEvenPlanAccepted,
+              operation_id='submitBreakEvenPlan',
+              responses={status: {'model': ErrorEnvelope} for status in (401, 403, 409, 413, 415, 422, 503)},
+              openapi_extra={**_access(PLAN_SUBMISSION_SCOPES), 'x-ossf-max-body-bytes': 65536,
+                  'requestBody': {'required': True, 'content': {'application/json': {
+                  'schema': _inline_schema(BreakEvenPlanSubmission)}}}})
+    async def post_break_even_plan(request: Request):
+        tenant, denied = authorized_tenant(*PLAN_SUBMISSION_SCOPES)
+        if denied is not None:
+            return denied
+        if break_even_plan_service is None:
+            return _error(503, 'break_even_plan_unavailable', 'Break-even plan admission unavailable')
+        try:
+            body = BreakEvenPlanSubmission.model_validate_json(
+                canonical_input_bytes(await read_json_request(request, max_bytes=65536)))
+        except JsonRequestRejected as exc:
+            return _error(exc.status, exc.code, exc.message)
+        except (ValueError, UnicodeError, RecursionError):
+            return _error(422, 'invalid_request', 'Invalid request')
+        try:
+            return await run_in_threadpool(break_even_plan_service.submit, tenant, body)
+        except PermissionError:
+            return _error(403, 'forbidden', 'Resource access denied')
+        except JobIntentConflict:
+            return _error(409, 'intent_conflict', 'Intent already has a different request')
+        except ValueError:
+            return _error(422, 'invalid_request', 'Invalid request')
+        except Exception:
+            return _error(503, 'break_even_plan_unavailable', 'Break-even plan admission unavailable')
 
     @app.get("/v1/jobs/{job_id}", response_model=JobStatus, responses=errors,
              operation_id="getJob", openapi_extra=_access(job_scopes))

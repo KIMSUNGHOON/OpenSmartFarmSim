@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**손익분기 계획 HTTP 진행:** [접수 계약](../contracts/api-break-even-plan-v1.md)은 실제 저장된 시나리오의 권리·판본·고정 조건을 검증하고 서버가 만든 불변 계획을 simulation 의도로 저장한다. [증거](../research/api-break-even-plan-implementation.md)는 합성 원천/키와 실제 SCRAM/Bearer의 소프트웨어 범위다. 결과/작업자·자동 시험 가정 생성·연속 구간 해 증명·CLI/브라우저/G1/G4 수용은 남아 기존 체크를 유지한다.
+
 **조건부 경제 계산 HTTP 진행:** [접수·완료 조회 계약](../contracts/api-economic-calculation-v1.md)은 실제 simulation 요청을 접수하고 불변 입력·게시 영수증·저장 원장을 대사해 기존 안전 결과를 반환한다. [구현 증거](../research/api-economic-calculation-implementation.md)는 합성 입력/키와 실제 SCRAM/Bearer의 소프트웨어 범위다. 전체 경제/손익분기·CLI/평가·브라우저/G1/G4 수용은 남아 기존 체크를 유지한다.
 
 **조건부 경제 계산 작업자 진행:** [작업자/운영자 전경 실행 계약](../contracts/economic-calculation-worker-v1.md)은 고정 후보·시나리오/산식 판본을 실제 simulation 요청으로 받고 기존 Decimal 엔진으로 재계산한다. [소프트웨어 증거](../research/economic-calculation-worker-implementation.md)는 실제 임대·권한·결과/완료 원자성을 다룬다. 전체 경제/손익분기 작업·CLI/평가·브라우저/G1/G4 수용은 남아 기존 체크를 유지한다.

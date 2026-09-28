@@ -621,7 +621,7 @@ class MarketScenarioService:
                          record["binding_manifest_sha256"], record["immutable_job_input_ref"],
                          parsed.market_context)
 
-    def calculate_pinned(self, scenario_id: str, revision: str, authenticated_tenant_id: str):
+    def validate_pinned(self, scenario_id: str, revision: str, authenticated_tenant_id: str):
         self._owned(authenticated_tenant_id)
         stored = _load(self._repository, "get_market_candidate", scenario_id, revision)
         if not isinstance(stored, dict) or stored.get("tenant_id") != authenticated_tenant_id:
@@ -636,6 +636,10 @@ class MarketScenarioService:
             "scenario_revision", revision))
         if canonical_scenario_sha256(actual) != expected["economic_scenario_sha256"]:
             raise ValueError("derived economic scenario changed")
+        return request, actual, expected
+
+    def calculate_pinned(self, scenario_id: str, revision: str, authenticated_tenant_id: str):
+        request, actual, expected = self.validate_pinned(scenario_id, revision, authenticated_tenant_id)
         ledger = EconomicLedger(self._repository).calculate(actual)
         result_id = _hash({"candidate": expected["candidate_id"],
                            "shock": expected["shock_sha256"],
