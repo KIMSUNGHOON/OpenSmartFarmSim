@@ -16,7 +16,7 @@ logging and source/model invocation during initialization.
 ## Configuration and dependencies
 
 `ApiRuntimeConfig` requires an exact RuntimeLoginPolicy with both explicit market
-and break-even flags (v4), a nonempty DSN, absolute artifact/certificate/key Paths
+and break-even flags (v4, or optional v5 source storage), a nonempty DSN, absolute artifact/certificate/key Paths
 with no parent traversal, and separate thermal-gate/market-hold byte key fields
 of 32–4096 bytes. Optional exact ContentAccess permits existing explicit group
 read; None requires private artifact metadata. Host/port retain the HTTPS
@@ -39,12 +39,19 @@ The source is still responsible for durable immutable source evidence, tenant
 ownership, rights, times/vintages, applicability and QC. Interface presence is
 not source approval or independent verifier custody.
 
+The optional [v5 user-assumption source store](market-user-source-store-v1.md)
+implements this reader interface with actual immutable job input bindings. A
+factory may construct it with the supplied principal_provider and explicit v5
+authority configuration; the assembly still requires both calculation flags.
+Its read principals also need market_source_read. This option supplies user
+assumption persistence; external source approval/provisioning remains pending.
+
 ## Assembly and reads
 
 Assembly first verifies the existing artifact root using the store's nofollow
 path/descriptor and metadata checks. Explicit ContentAccess must admit the
 writer UID/group. A real authority connection checks SCRAM identity and the full
-effective v4 grant matrix before the source factory is called or listening starts.
+effective selected-profile grant matrix before the source factory is called or listening starts.
 The factory/remaining dependencies are validated and all implemented stores
 are created: JobStore, ThermalRunStore, MarketHoldStore, MarketCandidateStore,
 MarketResultStore and BreakEvenStore. LocationResearchService uses the exact

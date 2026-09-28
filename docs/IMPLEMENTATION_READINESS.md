@@ -30,3 +30,5 @@
 **정적 Compose 검사 보완:** [공식 standalone 배포본](https://github.com/docker/compose/releases/tag/v5.5.1) `v5.5.1` Linux x86_64를 게시된 SHA-256과 대조해 사용자 로컬 경로에 설치했다. 이 저장소의 `compose.yaml` 기본·`app` 프로필은 임시 외부 비밀 파일을 사용한 `docker-compose config -q`에서 통과했다. 이는 [Docker가 레거시로 분류하는 독립 실행형 설치](https://docs.docker.com/compose/install/standalone/)이며 Docker Engine·소켓을 제공하지 않는다. [Docker rootless 설치 조건](https://docs.docker.com/engine/security/rootless/)은 root 소유 setuid `newuidmap/newgidmap`을 요구한다. 현재 호스트의 사용자 권한만으로 그 조건을 충족할 수 없다. [C0 Actions 실행](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36303540834)에서 의존성 이미지 빌드와 PostgreSQL 18.6 기동·영속성은 검증됐다. 전체 앱 서비스 실행과 복구는 아직 미검증이다.
 
 사용자에게 농업 과학의 전문 판단을 요구하지 않는다. 출처와 분야 조사는 전문 Codex CLI 조사가 맡는다. 사용자는 자기 농장의 선호나 관리하는 기록만 동의·접근 조건에 따라 제공한다. 협력 기관이나 제공자 승인을 기다리는 상태는 **외부 증거 대기**로 표시하며 코드 작업 완료로 처리하지 않는다. 측정 근거와 사전 등록된 시험 없이는 수치 수용 비율이나 모델 정확도 주장을 정하지 않는다.
+
+**사용자 가정 자료의 지속성 보완 후보:** [7종 원천 저장 계약](../contracts/market-user-source-store-v1.md)에 따라 불변 작업 입력·판본·해시·실제 로그인에 결합한 저장/재생을 구현했다. [구현 증거](../research/market-user-source-implementation.md)는 합성 시험 범위를 기록한다. 실제 제공자 자료·권리/QC 검토, 보호된 운영 설정·입력 오케스트레이션·CLI/전체 G1/G4는 계속 보류다.

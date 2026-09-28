@@ -40,6 +40,11 @@ def owned_scope(pg_store, policy):
             from app.runtime_roles import BREAK_EVEN_TABLES
             install_break_even_store_schema(conn, pg_store.schema)
             tables += BREAK_EVEN_TABLES
+        if getattr(policy, "market_source_storage", False):
+            from app.market_source_store import install_market_source_schema
+            from app.runtime_roles import MARKET_SOURCE_TABLES
+            install_market_source_schema(conn, pg_store.schema)
+            tables += MARKET_SOURCE_TABLES
         conn.execute(sql.SQL("ALTER SCHEMA {} OWNER TO {}").format(
             sql.Identifier(policy.schema), sql.Identifier(policy.owner)))
         for table in tables:

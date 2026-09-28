@@ -18,6 +18,7 @@ TABLES = JOB_TABLES + ("execution_attestations", "thermal_input_snapshots",
                       "decision_contexts", "thermal_g1_runs")
 MARKET_TABLES = ("market_candidate_pins", "market_candidate_inputs", "market_result_records")
 BREAK_EVEN_TABLES = ("break_even_plan_results",)
+MARKET_SOURCE_TABLES = ("market_source_records",)
 SUPERVISOR_TABLES = frozenset({"jobs", "job_attempts", "evidence_authorizations",
     "attempt_evidence", "attempt_invocations", "attempt_cli_launches",
     "attempt_cli_captures", "validation_receipts", "ai_decisions"})
@@ -51,6 +52,7 @@ class RuntimeLoginPolicy(RuntimeRolePolicy):
     connection_limit: int = 8
     market_calculation: bool = field(default=False, kw_only=True)
     break_even_calculation: bool = field(default=False, kw_only=True)
+    market_source_storage: bool = field(default=False, kw_only=True)
 
     def __post_init__(self):
         super().__post_init__()
@@ -58,7 +60,8 @@ class RuntimeLoginPolicy(RuntimeRolePolicy):
                 type(self.connection_limit) is not int or not 1 <= self.connection_limit <= 32 or
                 type(self.market_calculation) is not bool or
                 type(self.break_even_calculation) is not bool or
-                (self.break_even_calculation and not self.market_calculation)):
+                type(self.market_source_storage) is not bool or
+                ((self.break_even_calculation or self.market_source_storage) and not self.market_calculation)):
             raise RolePolicyHold("invalid_login_policy_scope")
 
 
@@ -66,7 +69,8 @@ def _tables(policy):
     if not isinstance(policy, RuntimeLoginPolicy):
         return TABLES
     return (TABLES + (MARKET_TABLES if policy.market_calculation else ()) +
-            (BREAK_EVEN_TABLES if policy.break_even_calculation else ()))
+            (BREAK_EVEN_TABLES if policy.break_even_calculation else ()) +
+            (MARKET_SOURCE_TABLES if policy.market_source_storage else ()))
 
 
 def _database(conn, policy):
@@ -208,7 +212,8 @@ def audit_runtime_roles(conn, policy):
     """, (scope["owner_oid"],) * 4 + (scope["schema_oid"], scope["owner_oid"])).fetchone()
     if bad_defaults:
         raise RolePolicyHold("uncontrolled_creator_defaults")
-    return {"policy_version": ("runtime-break-even-login-policy-v4" if policy.break_even_calculation else
+    return {"policy_version": ("runtime-market-source-login-policy-v5" if policy.market_source_storage else
+                               "runtime-break-even-login-policy-v4" if policy.break_even_calculation else
                                "runtime-market-login-policy-v3" if policy.market_calculation else
                                "runtime-login-policy-v2") if login else VERSION,
             "schema": policy.schema, "owner": policy.owner,

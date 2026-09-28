@@ -34,6 +34,8 @@ def _validate_input_fields(value: object) -> None:
         for key, nested in value.items():
             if not isinstance(key, str):
                 raise ValueError("input field names must be strings")
+            if key == "raw_sha256" and type(nested) is str and re.fullmatch(r"[0-9a-f]{64}", nested):
+                continue
             normalized = re.sub(r"[^a-z0-9]", "", key.casefold())
             if (normalized in _BLOCKED_INPUT_KEYS or normalized.startswith("raw")
                 or any(marker in normalized for marker in (

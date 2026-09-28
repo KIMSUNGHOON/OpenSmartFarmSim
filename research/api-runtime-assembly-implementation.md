@@ -55,6 +55,15 @@ receipts. The prior break-even commit's exact-head CI receipt is recorded in
 [its evidence](break-even-read-implementation.md). New hosted verification is
 required for this assembly commit.
 
+## Hosted receipts
+
+Exact assembly commit `a9f231d2832a91e70eaa8d52cb11fb3b933c473b` passed hosted
+[backend CI 36417363521](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36417363521):
+**1598 ordinary tests, 2 existing warnings, 379.59 s**, then **4 distinct-UID
+cases in 14.26 s** and kernel DAC. Exact-head
+[Compose CI 36417363517](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36417363517)
+also passed. These receipts describe that commit, not later source-store code.
+
 ## Remaining holds
 
 Production source repositories and protected operator configuration provisioning,
