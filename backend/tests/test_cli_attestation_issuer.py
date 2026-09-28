@@ -1,6 +1,7 @@
 """A test key signs only a process the observer ran and the store sealed."""
 
 from dataclasses import replace
+from copy import copy
 from hashlib import sha256
 from pathlib import Path
 import sys
@@ -28,14 +29,18 @@ from test_jobs import pg_store
 def _completed_observation(pg_store, tmp_path, *, misrecorded_pid=False,
                            misrecorded_jsonl=False, misrecorded_input_kind=None,
                            stage="collection_review", proceed=True,
-                           sign_before_closure=False):
+                           sign_before_closure=False, store_connect=None,
+                           issuer_connect=None, install_attestation=True):
     def approved(job, value):
         original = resolver(job, value)
         return replace(original, allow_proceed=True, missing_evidence=()) if proceed else original
 
     store, worker = _worker(pg_store, tmp_path, mode="valid_slow", authority=approved)
-    with store.connect() as conn:
-        install_execution_attestation_schema(conn, store.schema)
+    if install_attestation:
+        with store.connect() as conn:
+            install_execution_attestation_schema(conn, store.schema)
+    if store_connect is not None:
+        store.connect = store_connect
     review_input = input_for(stage)
     review_input.update(decision_context_id="issuer-context-a",
                         decision_at_utc="2026-01-03T00:00:00Z",
@@ -69,7 +74,10 @@ def _completed_observation(pg_store, tmp_path, *, misrecorded_pid=False,
         child_env=worker.child_env, timeout_seconds=5)
     private = Ed25519PrivateKey.generate()
     environment_sha = sha256(b"test-supervisor-image-and-lock").hexdigest()
-    issuer = ExecutionAttestationIssuer(store, observer, private, "test-supervisor-v1",
+    issuer_store = copy(store)
+    if issuer_connect is not None:
+        issuer_store.connect = issuer_connect
+    issuer = ExecutionAttestationIssuer(issuer_store, observer, private, "test-supervisor-v1",
         executable_sha256=sha256(worker.cli_path.read_bytes()).hexdigest(),
         environment_sha256=environment_sha)
     launch_observation = issuer.start(tenant, job_id, attempt)

@@ -82,3 +82,24 @@ The review identified five corrections adopted in the software candidate:
 The resulting [contract](../contracts/cli-execution-attestation-v1.md#local-supervisor-ipc-candidate)
 records the protocol and remaining same-UID/key/role/deployment limitations.
 This review and the subsequent fake-child tests do not pass G1 or G4.
+
+## Follow-up: closed PostgreSQL runtime grant increment
+
+On 2026-09-28 UTC, a private ephemeral exact `gpt-6-sol`/`xhigh` CLI session
+reviewed a narrow grant matrix: fresh non-login request/worker/supervisor/
+authority roles, schema ownership outside runtime, no untrusted base-table
+writes, restricted issuer reads and validated authority writes. The prompt
+explicitly stated that current worker DB mutations still require authority RPC
+and that no deployment/G1 claim was proposed. No source/farm data, secrets, or
+repository files were supplied. Terminal usage was 14,124 input (11,776 cached),
+1,358 output, and 1,034 reasoning output tokens; temporary files were removed.
+
+The CLI accepted the bounded migration increment subject to column ACL cleanup,
+global plus schema creator defaults, effective membership/login rights,
+database/schema CREATE restrictions, reachable outside-schema definer checks,
+and explicit sequence requirements. It required a post-commit catalog/effective
+privilege audit, actual negative SQL access checks, positive authority/issuer
+flows, stale-installer preservation, and transaction rollback tests. The
+[role policy](../contracts/runtime-role-policy-v1.md) implements that candidate
+with a dedicated owner and fresh profiles. Real login/service binding and
+independent deployment remain unaccepted.

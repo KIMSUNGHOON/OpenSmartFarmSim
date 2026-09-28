@@ -179,6 +179,14 @@ verify that signed record, the separately issued thermal software release,
 and a server-authorized planning event. G4 additionally requires per-job
 isolation, restricted egress, deployment/account and operating evidence.
 
+The subsequent [runtime role policy candidate](runtime-role-policy-v1.md)
+provides explicit closed request/worker profiles, supervisor reads and authority
+writes with effective privilege audits. Its fake-child test uses restricted SQL
+identities for durable mutation and issuer reads. The IPC worker's direct
+JobStore calls still need a trusted authority RPC before using the worker
+profile. Login/UID/key separation and deployment are not established by that
+administrator-controlled SQL test.
+
 Local verification on 2026-09-28 used PostgreSQL 16.15 and the locked backend:
 `OSSF_TEST_PG_DSN=… uv run --locked --group dev pytest -q` completed with
 **1,075 passed, 0 skipped**, including 34 new IPC/service/worker cases, and two
