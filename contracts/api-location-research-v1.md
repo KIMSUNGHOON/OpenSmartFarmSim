@@ -17,6 +17,10 @@ goal, returning immutable allowed provider IDs and the catalog's raw SHA-256.
 Unregistered scope is rejected; valid coordinates alone prove no source coverage,
 station representativeness, source right or agricultural suitability.
 
+The concrete [ResearchRegistry](research-registry-v1.md) can supply this lookup
+and the initial CLI authority from the same operator-pinned immutable facts.
+Later evidence-bearing research needs its own verified context/source authority.
+
 The service uses the existing authenticated job authority and grant audit, then
 queues canonical `research_input_v1`. The provider catalog hash is a candidate
 reference `research-registry-sha256:<hash>`; provider selection remains restricted

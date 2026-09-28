@@ -43,3 +43,10 @@ assembly, request authentication, operating account, isolated CLI invocation,
 provider collection, later signed planning, UI and independent release remain
 missing. These fixtures do not establish G0, G1 completion, field/forecast/ranking
 validation or deployment G4.
+
+The admission/precision changes at exact commit `3fd4f66` subsequently passed
+[backend CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36398488128):
+**1390 ordinary tests, 2 warnings**, **four distinct-UID cases in 18.53 s** and
+content DAC. Its [Compose receipt](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36398488142)
+also passed. Their terminal status and exact head were rechecked on 2026-09-28;
+these receipts do not cover the later research registry module.
