@@ -7,7 +7,7 @@ from pathlib import Path
 from psycopg import sql
 
 from .cli_worker import CliWorker
-from .execution_attestation import HEX, _canonical
+from .execution_attestation import HEX
 
 
 class ExecutionVerifier:
@@ -86,7 +86,8 @@ class ExecutionVerifier:
             invocation["execution_kind"] == "codex_cli" and
             (invocation["model"], invocation["reasoning_effort"]) ==
                 ("gpt-6-sol", "xhigh") and
-            sha256(_canonical(record.argv)).hexdigest() == launch["args_sha256"] and
+            sha256(self.store.job_store._canonical_report(record.argv)).hexdigest() ==
+                launch["args_sha256"] and
             record.jsonl_sha256 == capture["jsonl_sha256"] and
             record.final_output_sha256 == capture["final_output_sha256"] ==
                 decision["output_sha256"] and

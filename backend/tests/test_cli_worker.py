@@ -47,6 +47,8 @@ pathlib.Path(SCHEMA_DIGEST_MARKER).write_text(sha256(schema).hexdigest())
 context = json.loads(prompt.split(b'\\n')[-2])
 if MODE == 'timeout':
     time.sleep(30)
+if MODE == 'valid_slow':
+    time.sleep(1)
 if MODE == 'leader_exit_child':
     child = subprocess.Popen([sys.executable, '-c',
         'import signal,time; signal.signal(signal.SIGTERM, signal.SIG_IGN); time.sleep(30)'])

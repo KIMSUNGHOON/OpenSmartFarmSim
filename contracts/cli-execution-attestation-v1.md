@@ -43,6 +43,8 @@ executable/environment digests, actual prompt/schema hashes against both the
 invocation and launch rows, final and JSONL hashes, usage, process ID and
 chronology against the existing durable JobStore capture. It also calls the
 JobStore's raw invocation-input and capture validators before it returns true.
+The argv digest uses the existing JobStore JSON encoding, including its
+Unicode escaping; the signed record retains canonical UTF-8 JSON.
 A valid-looking
 JobStore capture without the signed record returns false. The thermal publisher
 already accepts this callable verifier interface, but the production supervisor
@@ -72,9 +74,36 @@ hashes the actual prompt/schema and binary bytes, observes the exit, and
 classifies bounded JSONL/final output. The schema bytes come from the pinned
 server contract, rather than the caller. Local tests run a fake child and check
 success, timeout, late polling, cleanup, and an observer in a separate local
-process. This core is not yet a
-separately deployed service, does not hold the signing key, and is not wired
-to the durable worker. It cannot issue an execution attestation or pass G1.
+process. This core is not yet a separately deployed service and is not wired
+to the durable worker. It cannot pass G1 by itself.
+
+`ExecutionAttestationIssuer` is the next software candidate. It owns an
+unstarted observer and a configured Ed25519 key, reads a live frozen AI-stage
+invocation, rederives the exact prompt through the trusted server contract,
+and refuses changed prompt/schema bytes or an unpinned executable before
+launch. It binds the observer to that tenant/job/attempt and input hash before
+the child runs. After completion it rereads the durable raw JSONL/final bytes,
+capture, validation receipt, and decision. Only exact matches can be signed.
+Signing can precede terminal publication or validated hold closure so that a
+failure before signing does not strand an already-completed job. The thermal
+public-key verifier still requires the matching successful job state before
+publication. Execution evidence by itself does not approve the decision or
+close a job. The same completion
+returns the same signed bytes on an in-process retry; another capture or
+decision cannot reuse the observation. The environment digest is configured
+by the intended supervisor deployment; the test digest is not an observed
+production image or runtime identity.
+The prelaunch hash check alone does not prove that executable bytes cannot
+change between checking and execution; deployment identity remains unverified.
+
+PostgreSQL tests use a fake child and a **same-process test key**, then ingest
+the result with the public-key store and thermal verifier. They reject signing
+before durable capture/decision storage, noncontract input before launch, and plausible stored
+PID/JSONL that differ from the observed child. Research, collection review,
+assessment, validated hold, and Unicode executable paths are covered. This
+proves software issuance checks, not private-key isolation or actual model
+execution. No supervisor service, deployed key, role separation, or worker IPC
+has been accepted.
 
 G1 remains HOLD until the separately controlled supervisor directly observes
 an actual CLI child, signs after durable capture with a private key outside
