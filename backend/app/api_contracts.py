@@ -50,10 +50,16 @@ class JobHoldStatus(BaseModel):
     missing_evidence_count: int = Field(ge=0, le=50)
 
 
+class LocationPoint(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True, strict=True)
+    latitude: float = Field(ge=-90, le=90)
+    longitude: float = Field(ge=-180, le=180)
+
+
 class LocationAccepted(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
     location_id: str = Field(pattern=r"^location-v1-[0-9a-f]{64}$")
-    point: dict[str, float]
+    point: LocationPoint
     spatial_support: Literal["pending_research"]
     research_job: JobStatus
 

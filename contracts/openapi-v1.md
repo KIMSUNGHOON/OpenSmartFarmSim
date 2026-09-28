@@ -1,0 +1,55 @@
+# Implemented API OpenAPI contract v1
+
+[openapi-v1.json](openapi-v1.json) is the deterministic OpenAPI 3.1.0 snapshot
+of the eight implemented operations. It is an internal software candidate.
+Future ingestion/Run/economic/assessment submissions and region listings are
+specified in ARCHITECTURE but are not advertised as available operations.
+
+Generate/check with locked dependencies from `backend`:
+
+```sh
+uv run --locked --group dev python -m app.api_openapi --write
+uv run --locked --group dev python -m app.api_openapi --check
+```
+
+Generation constructs the real API routes with schema-only dependencies that
+refuse reads. It requires no credential, database connection, collection or
+model call. The committed pretty/sorted JSON bytes must match regeneration;
+tests catch drift in methods, schemas, operation IDs, statuses and auth metadata.
+Changes require reviewing the generated diff and client compatibility before
+updating the snapshot. This document does not authorize a deployed application.
+
+All documented operations require HTTP Bearer over HTTPS. `ServiceBearer`
+describes an opaque service credential, not JWT, OAuth or token issuance.
+`x-ossf-required-scopes` lists the AND requirements from the same immutable local
+tuple used by the runtime route check. We use empty arrays for the HTTP Bearer
+security requirement and the vendor field for server scope names. OpenAPI 3.1
+also permits role names in non-OAuth arrays; this contract chooses the explicit
+vendor field. Actual credential verification remains in PrincipalMiddleware and
+each store still enforces tenant/right access independently.
+
+Operation IDs are stable: registerLocation, getJob, getJobHold, getMarketHold,
+getRun, getRunSeries, getRunManifest, getEconomicResult. `LocationPoint` is a
+closed latitude/longitude object with coordinate bounds, matching the actual
+response. Registration's request is closed JSON with a 4096-byte maximum
+(`x-ossf-max-body-bytes`). Duplicate JSON keys and period ordering are runtime
+checks beyond JSON Schema. All documented error responses use ErrorEnvelope.
+
+Example body (synthetic software-contract coordinates; no approved source scope):
+
+```json
+{"latitude":37.5,"longitude":127.0,"period_start_utc":"2026-01-01T00:00:00Z","period_end_utc":"2026-01-02T00:00:00Z","goal_id":"historical-thermal-replay","idempotency_key":"one-region-intent"}
+```
+
+Only a matching approved operator registry admits it. A `202` is queued
+research, not an actual model execution, data adoption or recommendation.
+Authentication failure is `401` with Bearer challenge and this fixed body:
+
+```json
+{"error":{"code":"unauthenticated","message":"Authentication required"}}
+```
+
+Schema examples, synthetic Run constants and conditional/hold economic fields
+grant no G0–G4 evidence. Full authenticated operator assembly, remaining
+submissions, actual runtime CLI, independently approved sources/releases,
+browser/G1 and public G4 remain separate work.

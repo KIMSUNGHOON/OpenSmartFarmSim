@@ -24,6 +24,10 @@ def _error(status: int, code: str, message: str) -> JSONResponse:
                         content={"error": {"code": code, "message": message}})
 
 
+def _access(scopes):
+    return {"security": [{"ServiceBearer": []}], "x-ossf-required-scopes": list(scopes)}
+
+
 def create_app(job_store, market_hold_store, thermal_run_store, market_result_store,
                *, principal_provider, location_research_service=None) -> FastAPI:
     if (not callable(principal_provider) or
@@ -36,6 +40,13 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
     if location_research_service is not None and type(location_research_service) is not LocationResearchService:
         raise ValueError("trusted location research service required")
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
+    location_scopes = ("location_create",)
+    job_scopes = ("metadata",)
+    job_hold_scopes = ("metadata", "artifact", "auditor")
+    market_hold_scopes = ("market_hold_read",)
+    run_scopes = ("thermal_run_read",)
+    manifest_scopes = ("thermal_run_read", "thermal_snapshot_read")
+    economic_scopes = ("market_result_read",)
 
     @app.exception_handler(RequestValidationError)
     async def invalid_request(_request, _error_detail):
@@ -59,11 +70,13 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
     errors = {status: {"model": ErrorEnvelope} for status in (401, 403, 404, 422, 503)}
 
     @app.post("/v1/locations", status_code=202, response_model=LocationAccepted,
+              operation_id="registerLocation",
               responses={status: {"model": ErrorEnvelope} for status in (401, 403, 409, 413, 415, 422, 503)},
-              openapi_extra={"requestBody": {"required": True, "content": {
+              openapi_extra={**_access(location_scopes), "x-ossf-max-body-bytes": 4096,
+                  "requestBody": {"required": True, "content": {
                   "application/json": {"schema": LocationRequest.model_json_schema()}}}})
     async def post_location(request: Request):
-        tenant, denied = authorized_tenant("location_create")
+        tenant, denied = authorized_tenant(*location_scopes)
         if denied is not None:
             return denied
         if location_research_service is None:
@@ -101,9 +114,10 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         except Exception:
             return _error(503, "research_unavailable", "Research submission unavailable")
 
-    @app.get("/v1/jobs/{job_id}", response_model=JobStatus, responses=errors)
+    @app.get("/v1/jobs/{job_id}", response_model=JobStatus, responses=errors,
+             operation_id="getJob", openapi_extra=_access(job_scopes))
     def get_job(job_id: UUID):
-        tenant, denied = authorized_tenant("metadata")
+        tenant, denied = authorized_tenant(*job_scopes)
         if denied is not None:
             return denied
         try:
@@ -117,9 +131,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(503, "store_unavailable", "Job status unavailable")
 
     @app.get("/v1/market-hold-reports/{report_id}", response_model=MarketHoldStatus,
-             responses=errors)
+             responses=errors, operation_id="getMarketHold", openapi_extra=_access(market_hold_scopes))
     def get_market_hold_report(report_id: UUID):
-        tenant, denied = authorized_tenant("market_hold_read")
+        tenant, denied = authorized_tenant(*market_hold_scopes)
         if denied is not None:
             return denied
         try:
@@ -130,9 +144,10 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         except Exception:
             return _error(503, "store_unavailable", "Market hold report unavailable")
 
-    @app.get("/v1/jobs/{job_id}/hold-report", response_model=JobHoldStatus, responses=errors)
+    @app.get("/v1/jobs/{job_id}/hold-report", response_model=JobHoldStatus, responses=errors,
+             operation_id="getJobHold", openapi_extra=_access(job_hold_scopes))
     def get_job_hold_report(job_id: UUID):
-        tenant, denied = authorized_tenant("metadata", "artifact", "auditor")
+        tenant, denied = authorized_tenant(*job_hold_scopes)
         if denied is not None:
             return denied
         try:
@@ -151,7 +166,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(503, "store_unavailable", "Job hold report unavailable")
 
     def displayed_run(run_id):
-        tenant, denied = authorized_tenant("thermal_run_read")
+        tenant, denied = authorized_tenant(*run_scopes)
         if denied is not None:
             return denied
         try:
@@ -164,20 +179,22 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
 
     RunId = Annotated[str, Path(pattern=RUN_ID_PATTERN)]
 
-    @app.get("/v1/runs/{run_id}", response_model=ThermalRunSummary, responses=errors)
+    @app.get("/v1/runs/{run_id}", response_model=ThermalRunSummary, responses=errors,
+             operation_id="getRun", openapi_extra=_access(run_scopes))
     def get_run(run_id: RunId):
         result = displayed_run(run_id)
         return result if isinstance(result, JSONResponse) else result[0]
 
-    @app.get("/v1/runs/{run_id}/series", response_model=ThermalRunSeries, responses=errors)
+    @app.get("/v1/runs/{run_id}/series", response_model=ThermalRunSeries, responses=errors,
+             operation_id="getRunSeries", openapi_extra=_access(run_scopes))
     def get_run_series(run_id: RunId):
         result = displayed_run(run_id)
         return result if isinstance(result, JSONResponse) else result[1]
 
     @app.get("/v1/runs/{run_id}/manifest", response_model=ThermalRunManifest,
-             responses=errors)
+             responses=errors, operation_id="getRunManifest", openapi_extra=_access(manifest_scopes))
     def get_run_manifest(run_id: RunId):
-        tenant, denied = authorized_tenant("thermal_run_read", "thermal_snapshot_read")
+        tenant, denied = authorized_tenant(*manifest_scopes)
         if denied is not None:
             return denied
         try:
@@ -192,9 +209,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(503, "store_unavailable", "Run manifest unavailable")
 
     @app.get("/v1/economic-results/{result_id}", response_model=EconomicResultRead,
-             responses=errors)
+             responses=errors, operation_id="getEconomicResult", openapi_extra=_access(economic_scopes))
     def get_economic_result(result_id: Annotated[str, Path(pattern=RESULT_ID_PATTERN)]):
-        tenant, denied = authorized_tenant("market_result_read")
+        tenant, denied = authorized_tenant(*economic_scopes)
         if denied is not None:
             return denied
         try:
@@ -207,4 +224,12 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         except Exception:
             return _error(503, "store_unavailable", "Economic result unavailable")
 
+    original_openapi = app.openapi
+    def service_openapi():
+        schema = original_openapi()
+        schema["components"]["securitySchemes"] = {"ServiceBearer": {
+            "type": "http", "scheme": "bearer",
+            "description": "Opaque server-issued service credential over HTTPS. Tenant and scopes are server-owned."}}
+        return schema
+    app.openapi = service_openapi
     return app

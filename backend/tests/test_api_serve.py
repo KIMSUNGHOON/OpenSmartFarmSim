@@ -206,7 +206,9 @@ def build():
                 assert time.monotonic() < deadline, "synthetic HTTPS service did not become ready"
                 time.sleep(0.05)
         assert first[0] == 401 and first[2]["strict-transport-security"] and "server" not in first[2]
-        assert call(authenticated=True)[0] == 200
+        published_contract = call(authenticated=True)
+        assert published_contract[0] == 200
+        assert published_contract[1] == json.loads((ROOT.parent/"contracts"/"openapi-v1.json").read_bytes())
         accepted = call("POST", "/v1/locations", BODY, True)
         assert accepted[0] == 202
         job = accepted[1]["research_job"]["job_id"]

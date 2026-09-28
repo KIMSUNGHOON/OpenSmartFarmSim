@@ -71,3 +71,11 @@ revocation, shared limits/deadlines, safe attributed audit, Compose application
 wiring and real runtime Codex isolation/execution remain pending. Actual source
 and independent release, UI/full G1, field/forecast/comparison and G4 evidence
 are not supplied by these synthetic software tests.
+
+Final HTTPS head `1e57fed6829806f2dccb3f08a1a1a163dd3f4f49` passed
+[backend CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36407964370):
+**1511 ordinary tests, 2 warnings** in 298.61 s, **four distinct-UID cases** in
+15.77 s and content DAC. Its
+[Compose CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36407964447)
+passed in 31 s. Terminal exact-head states were rechecked on 2026-09-28;
+these receipts precede the OpenAPI/auth metadata and point schema changes.

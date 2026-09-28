@@ -57,6 +57,8 @@ flowchart LR
 
 [OpenAPI 3.1](https://spec.openapis.org/oas/v3.1.0)로 요청·응답·오류 스키마를 관리한다. 아래는 첫 계약의 경계이며 필드 상세 스키마는 구현 전에 예시 요청/응답과 함께 확정한다.
 
+[버전 관리 OpenAPI 후보](../contracts/openapi-v1.md)는 현재 구현된 여덟 경로의 형식·안정 operation ID·Bearer 인증·권한을 고정한다. 기존 후보 경로의 JSON 재생성을 검사하며, 아래 표의 후속 제출 경로가 구현됐다는 뜻은 아니다.
+
 [서비스 Bearer 인증 후보](../contracts/http-identity-v1.md)는 서버가 고정한 테넌트·권한·유효기간을 요청 문맥에 묶는다. API와 요청용 저장소는 같은 `current_principal` 공급자를 사용한다. [HTTPS 시작 후보](../contracts/api-https-service-v1.md)는 운영자 factory의 인증된 앱을 로컬 TLS로 실행한다. 공개 HTTPS·프록시 신뢰·계정 발급/회수·브라우저 로그인·운영 조립은 별도 검증 전까지 보류다.
 
 | 경로 | 요청과 결과 |

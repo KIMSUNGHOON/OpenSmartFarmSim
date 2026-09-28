@@ -1,0 +1,1787 @@
+{
+  "components": {
+    "schemas": {
+      "EconomicAmounts": {
+        "additionalProperties": false,
+        "properties": {
+          "business_cash_krw": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Business Cash Krw"
+          },
+          "cash_shortage_krw": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cash Shortage Krw"
+          },
+          "depreciation_krw": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Depreciation Krw"
+          },
+          "equity_cash_krw": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Equity Cash Krw"
+          },
+          "fixed_cost_krw": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fixed Cost Krw"
+          },
+          "gross_sales_krw": {
+            "title": "Gross Sales Krw",
+            "type": "string"
+          },
+          "management_operating_income_krw": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Management Operating Income Krw"
+          },
+          "minimum_cash_balance_krw": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Minimum Cash Balance Krw"
+          },
+          "operating_cash_krw": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Operating Cash Krw"
+          },
+          "revenue_krw": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revenue Krw"
+          },
+          "variable_cost_krw": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Variable Cost Krw"
+          }
+        },
+        "required": [
+          "gross_sales_krw",
+          "revenue_krw",
+          "variable_cost_krw",
+          "fixed_cost_krw",
+          "depreciation_krw",
+          "management_operating_income_krw",
+          "operating_cash_krw",
+          "business_cash_krw",
+          "equity_cash_krw",
+          "minimum_cash_balance_krw",
+          "cash_shortage_krw"
+        ],
+        "title": "EconomicAmounts",
+        "type": "object"
+      },
+      "EconomicQuantities": {
+        "additionalProperties": false,
+        "properties": {
+          "harvest_kg": {
+            "title": "Harvest Kg",
+            "type": "string"
+          },
+          "net_sold_kg": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Net Sold Kg"
+          },
+          "packout_kg": {
+            "title": "Packout Kg",
+            "type": "string"
+          },
+          "recognized_kg": {
+            "title": "Recognized Kg",
+            "type": "string"
+          }
+        },
+        "required": [
+          "harvest_kg",
+          "packout_kg",
+          "recognized_kg",
+          "net_sold_kg"
+        ],
+        "title": "EconomicQuantities",
+        "type": "object"
+      },
+      "EconomicResultRead": {
+        "additionalProperties": false,
+        "properties": {
+          "amounts": {
+            "$ref": "#/components/schemas/EconomicAmounts"
+          },
+          "assessment_status": {
+            "const": "hold",
+            "title": "Assessment Status",
+            "type": "string"
+          },
+          "calculation_status": {
+            "enum": [
+              "conditional_user_assumption",
+              "hold"
+            ],
+            "title": "Calculation Status",
+            "type": "string"
+          },
+          "decision_at_utc": {
+            "format": "date-time",
+            "title": "Decision At Utc",
+            "type": "string"
+          },
+          "economic_result_id": {
+            "title": "Economic Result Id",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "formula_version": {
+            "title": "Formula Version",
+            "type": "string"
+          },
+          "hold_reason_codes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Hold Reason Codes",
+            "type": "array"
+          },
+          "input_origin": {
+            "const": "user",
+            "title": "Input Origin",
+            "type": "string"
+          },
+          "market_context_kind": {
+            "const": "unavailable",
+            "title": "Market Context Kind",
+            "type": "string"
+          },
+          "market_hold_report_id": {
+            "format": "uuid",
+            "title": "Market Hold Report Id",
+            "type": "string"
+          },
+          "market_scenario_result_id": {
+            "title": "Market Scenario Result Id",
+            "type": "string"
+          },
+          "quantities": {
+            "$ref": "#/components/schemas/EconomicQuantities"
+          },
+          "sales_totals_status": {
+            "enum": [
+              "inventory_reconciled",
+              "unverified_input_arithmetic"
+            ],
+            "title": "Sales Totals Status",
+            "type": "string"
+          },
+          "scenario_id": {
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "scenario_revision": {
+            "title": "Scenario Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "economic_result_id",
+          "market_scenario_result_id",
+          "scenario_id",
+          "scenario_revision",
+          "decision_at_utc",
+          "formula_version",
+          "market_context_kind",
+          "market_hold_report_id",
+          "calculation_status",
+          "assessment_status",
+          "sales_totals_status",
+          "input_origin",
+          "evidence_level",
+          "quantities",
+          "amounts",
+          "hold_reason_codes"
+        ],
+        "title": "EconomicResultRead",
+        "type": "object"
+      },
+      "ErrorDetail": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "ErrorDetail",
+        "type": "object"
+      },
+      "ErrorEnvelope": {
+        "additionalProperties": false,
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ErrorDetail"
+          }
+        },
+        "required": [
+          "error"
+        ],
+        "title": "ErrorEnvelope",
+        "type": "object"
+      },
+      "JobHoldStatus": {
+        "additionalProperties": false,
+        "properties": {
+          "hold_id": {
+            "format": "uuid",
+            "title": "Hold Id",
+            "type": "string"
+          },
+          "job_id": {
+            "format": "uuid",
+            "title": "Job Id",
+            "type": "string"
+          },
+          "missing_evidence": {
+            "items": {
+              "enum": [
+                "research_source_evidence",
+                "signed_decision_context",
+                "real_source_g0",
+                "other_evidence"
+              ],
+              "type": "string"
+            },
+            "title": "Missing Evidence",
+            "type": "array"
+          },
+          "missing_evidence_count": {
+            "maximum": 50.0,
+            "minimum": 0.0,
+            "title": "Missing Evidence Count",
+            "type": "integer"
+          },
+          "reason_code": {
+            "enum": [
+              "evidence_missing",
+              "decision_held"
+            ],
+            "title": "Reason Code",
+            "type": "string"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "stage": {
+            "enum": [
+              "research",
+              "collection_review",
+              "assessment"
+            ],
+            "title": "Stage",
+            "type": "string"
+          },
+          "status": {
+            "const": "hold",
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "job_id",
+          "stage",
+          "hold_id",
+          "status",
+          "recorded_at",
+          "reason_code",
+          "missing_evidence",
+          "missing_evidence_count"
+        ],
+        "title": "JobHoldStatus",
+        "type": "object"
+      },
+      "JobStatus": {
+        "additionalProperties": false,
+        "properties": {
+          "attempt_count": {
+            "minimum": 0.0,
+            "title": "Attempt Count",
+            "type": "integer"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "job_id": {
+            "format": "uuid",
+            "title": "Job Id",
+            "type": "string"
+          },
+          "max_attempts": {
+            "maximum": 3.0,
+            "minimum": 1.0,
+            "title": "Max Attempts",
+            "type": "integer"
+          },
+          "reason_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason Code"
+          },
+          "stage": {
+            "enum": [
+              "research",
+              "collection",
+              "collection_review",
+              "simulation",
+              "assessment"
+            ],
+            "title": "Stage",
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "queued",
+              "researching",
+              "collecting",
+              "reviewing",
+              "simulating",
+              "assessing",
+              "succeeded",
+              "hold",
+              "failed",
+              "canceled"
+            ],
+            "title": "State",
+            "type": "string"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "job_id",
+          "stage",
+          "state",
+          "attempt_count",
+          "max_attempts",
+          "created_at",
+          "updated_at",
+          "reason_code"
+        ],
+        "title": "JobStatus",
+        "type": "object"
+      },
+      "LocationAccepted": {
+        "additionalProperties": false,
+        "properties": {
+          "location_id": {
+            "pattern": "^location-v1-[0-9a-f]{64}$",
+            "title": "Location Id",
+            "type": "string"
+          },
+          "point": {
+            "$ref": "#/components/schemas/LocationPoint"
+          },
+          "research_job": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "spatial_support": {
+            "const": "pending_research",
+            "title": "Spatial Support",
+            "type": "string"
+          }
+        },
+        "required": [
+          "location_id",
+          "point",
+          "spatial_support",
+          "research_job"
+        ],
+        "title": "LocationAccepted",
+        "type": "object"
+      },
+      "LocationPoint": {
+        "additionalProperties": false,
+        "properties": {
+          "latitude": {
+            "maximum": 90.0,
+            "minimum": -90.0,
+            "title": "Latitude",
+            "type": "number"
+          },
+          "longitude": {
+            "maximum": 180.0,
+            "minimum": -180.0,
+            "title": "Longitude",
+            "type": "number"
+          }
+        },
+        "required": [
+          "latitude",
+          "longitude"
+        ],
+        "title": "LocationPoint",
+        "type": "object"
+      },
+      "MarketHoldStatus": {
+        "additionalProperties": false,
+        "properties": {
+          "hold_report_id": {
+            "format": "uuid",
+            "title": "Hold Report Id",
+            "type": "string"
+          },
+          "missing_evidence": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Missing Evidence",
+            "type": "array"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Reasons",
+            "type": "array"
+          },
+          "status": {
+            "const": "hold",
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hold_report_id",
+          "status",
+          "reasons",
+          "missing_evidence"
+        ],
+        "title": "MarketHoldStatus",
+        "type": "object"
+      },
+      "ThermalLawReference": {
+        "additionalProperties": false,
+        "properties": {
+          "available_at_utc": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Available At Utc"
+          },
+          "display_conditions": {
+            "title": "Display Conditions",
+            "type": "string"
+          },
+          "display_right": {
+            "const": "allowed_with_conditions",
+            "title": "Display Right",
+            "type": "string"
+          },
+          "product_id": {
+            "title": "Product Id",
+            "type": "string"
+          },
+          "publication_time_status": {
+            "title": "Publication Time Status",
+            "type": "string"
+          },
+          "published_at_utc": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Published At Utc"
+          },
+          "raw_pdf_sha256": {
+            "title": "Raw Pdf Sha256",
+            "type": "string"
+          },
+          "retrieved_at_utc": {
+            "format": "date-time",
+            "title": "Retrieved At Utc",
+            "type": "string"
+          },
+          "rights_status": {
+            "title": "Rights Status",
+            "type": "string"
+          },
+          "source_url": {
+            "title": "Source Url",
+            "type": "string"
+          },
+          "version_status": {
+            "title": "Version Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "product_id",
+          "source_url",
+          "raw_pdf_sha256",
+          "published_at_utc",
+          "available_at_utc",
+          "retrieved_at_utc",
+          "publication_time_status",
+          "version_status",
+          "rights_status",
+          "display_right",
+          "display_conditions"
+        ],
+        "title": "ThermalLawReference",
+        "type": "object"
+      },
+      "ThermalManifestSource": {
+        "additionalProperties": false,
+        "properties": {
+          "available_at_utc": {
+            "format": "date-time",
+            "title": "Available At Utc",
+            "type": "string"
+          },
+          "display_right": {
+            "const": "allowed",
+            "title": "Display Right",
+            "type": "string"
+          },
+          "fixture_id": {
+            "title": "Fixture Id",
+            "type": "string"
+          },
+          "observed_end_utc": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Observed End Utc"
+          },
+          "observed_start_utc": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Observed Start Utc"
+          },
+          "product_id": {
+            "title": "Product Id",
+            "type": "string"
+          },
+          "qc_status": {
+            "const": "self_checked_synthetic",
+            "title": "Qc Status",
+            "type": "string"
+          },
+          "raw_sha256": {
+            "title": "Raw Sha256",
+            "type": "string"
+          },
+          "retrieved_at_utc": {
+            "format": "date-time",
+            "title": "Retrieved At Utc",
+            "type": "string"
+          },
+          "review_status": {
+            "const": "self_reviewed_synthetic",
+            "title": "Review Status",
+            "type": "string"
+          },
+          "revision_id": {
+            "title": "Revision Id",
+            "type": "string"
+          },
+          "source_locator": {
+            "title": "Source Locator",
+            "type": "string"
+          },
+          "synthetic": {
+            "const": true,
+            "title": "Synthetic",
+            "type": "boolean"
+          },
+          "vintage_id": {
+            "title": "Vintage Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "fixture_id",
+          "product_id",
+          "source_locator",
+          "raw_sha256",
+          "vintage_id",
+          "revision_id",
+          "available_at_utc",
+          "retrieved_at_utc",
+          "observed_start_utc",
+          "observed_end_utc",
+          "qc_status",
+          "review_status",
+          "display_right",
+          "synthetic"
+        ],
+        "title": "ThermalManifestSource",
+        "type": "object"
+      },
+      "ThermalRunManifest": {
+        "additionalProperties": false,
+        "properties": {
+          "code_sha256": {
+            "title": "Code Sha256",
+            "type": "string"
+          },
+          "environment_sha256": {
+            "title": "Environment Sha256",
+            "type": "string"
+          },
+          "excluded_fixture_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Excluded Fixture Ids",
+            "type": "array"
+          },
+          "law_reference": {
+            "$ref": "#/components/schemas/ThermalLawReference"
+          },
+          "manifest_sha256": {
+            "title": "Manifest Sha256",
+            "type": "string"
+          },
+          "release_sha256": {
+            "title": "Release Sha256",
+            "type": "string"
+          },
+          "run_id": {
+            "title": "Run Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "source_unresolved_at_creation": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Source Unresolved At Creation",
+            "type": "array"
+          },
+          "synthetic": {
+            "const": true,
+            "title": "Synthetic",
+            "type": "boolean"
+          },
+          "temporal_provenance": {
+            "const": "ex_post_replay",
+            "title": "Temporal Provenance",
+            "type": "string"
+          },
+          "trace_sha256": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Trace Sha256",
+            "type": "array"
+          },
+          "used_sources": {
+            "items": {
+              "$ref": "#/components/schemas/ThermalManifestSource"
+            },
+            "title": "Used Sources",
+            "type": "array"
+          }
+        },
+        "required": [
+          "run_id",
+          "synthetic",
+          "temporal_provenance",
+          "snapshot_id",
+          "manifest_sha256",
+          "code_sha256",
+          "environment_sha256",
+          "release_sha256",
+          "trace_sha256",
+          "source_unresolved_at_creation",
+          "used_sources",
+          "excluded_fixture_ids",
+          "law_reference"
+        ],
+        "title": "ThermalRunManifest",
+        "type": "object"
+      },
+      "ThermalRunSeries": {
+        "additionalProperties": false,
+        "properties": {
+          "points": {
+            "items": {
+              "$ref": "#/components/schemas/ThermalSeriesPoint"
+            },
+            "title": "Points",
+            "type": "array"
+          },
+          "run_id": {
+            "title": "Run Id",
+            "type": "string"
+          },
+          "temporal_provenance": {
+            "const": "ex_post_replay",
+            "title": "Temporal Provenance",
+            "type": "string"
+          }
+        },
+        "required": [
+          "run_id",
+          "temporal_provenance",
+          "points"
+        ],
+        "title": "ThermalRunSeries",
+        "type": "object"
+      },
+      "ThermalRunSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "decision_at_utc": {
+            "format": "date-time",
+            "title": "Decision At Utc",
+            "type": "string"
+          },
+          "end_utc": {
+            "format": "date-time",
+            "title": "End Utc",
+            "type": "string"
+          },
+          "engine_version": {
+            "const": "thermal-euler-v1",
+            "title": "Engine Version",
+            "type": "string"
+          },
+          "manifest_sha256": {
+            "title": "Manifest Sha256",
+            "type": "string"
+          },
+          "model_version": {
+            "const": "thermal-v1",
+            "title": "Model Version",
+            "type": "string"
+          },
+          "parameter_set_version": {
+            "const": "synthetic-thermal-parameters-v1",
+            "title": "Parameter Set Version",
+            "type": "string"
+          },
+          "point_count": {
+            "minimum": 1.0,
+            "title": "Point Count",
+            "type": "integer"
+          },
+          "review_at_utc": {
+            "format": "date-time",
+            "title": "Review At Utc",
+            "type": "string"
+          },
+          "run_id": {
+            "title": "Run Id",
+            "type": "string"
+          },
+          "start_utc": {
+            "format": "date-time",
+            "title": "Start Utc",
+            "type": "string"
+          },
+          "status": {
+            "const": "accepted",
+            "title": "Status",
+            "type": "string"
+          },
+          "synthetic": {
+            "const": true,
+            "title": "Synthetic",
+            "type": "boolean"
+          },
+          "temporal_provenance": {
+            "const": "ex_post_replay",
+            "title": "Temporal Provenance",
+            "type": "string"
+          },
+          "trace_sha256": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Trace Sha256",
+            "type": "array"
+          },
+          "unit_registry_version": {
+            "const": "thermal-si-nws-v1",
+            "title": "Unit Registry Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "run_id",
+          "status",
+          "synthetic",
+          "temporal_provenance",
+          "decision_at_utc",
+          "review_at_utc",
+          "start_utc",
+          "end_utc",
+          "model_version",
+          "parameter_set_version",
+          "engine_version",
+          "unit_registry_version",
+          "manifest_sha256",
+          "trace_sha256",
+          "point_count"
+        ],
+        "title": "ThermalRunSummary",
+        "type": "object"
+      },
+      "ThermalSeriesPoint": {
+        "additionalProperties": false,
+        "properties": {
+          "at_utc": {
+            "format": "date-time",
+            "title": "At Utc",
+            "type": "string"
+          },
+          "delivered_heat_energy_kwh_th": {
+            "title": "Delivered Heat Energy Kwh Th",
+            "type": "number"
+          },
+          "heat_delivered_w_th": {
+            "title": "Heat Delivered W Th",
+            "type": "number"
+          },
+          "heat_demand_w_th": {
+            "title": "Heat Demand W Th",
+            "type": "number"
+          },
+          "humidity_ratio_kg_v_per_kg_da": {
+            "title": "Humidity Ratio Kg V Per Kg Da",
+            "type": "number"
+          },
+          "relative_humidity_fraction": {
+            "title": "Relative Humidity Fraction",
+            "type": "number"
+          },
+          "temperature_k": {
+            "title": "Temperature K",
+            "type": "number"
+          }
+        },
+        "required": [
+          "at_utc",
+          "temperature_k",
+          "humidity_ratio_kg_v_per_kg_da",
+          "relative_humidity_fraction",
+          "heat_demand_w_th",
+          "heat_delivered_w_th",
+          "delivered_heat_energy_kwh_th"
+        ],
+        "title": "ThermalSeriesPoint",
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "ServiceBearer": {
+        "description": "Opaque server-issued service credential over HTTPS. Tenant and scopes are server-owned.",
+        "scheme": "bearer",
+        "type": "http"
+      }
+    }
+  },
+  "info": {
+    "title": "OpenSmartFarmSim",
+    "version": "1"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/v1/economic-results/{result_id}": {
+      "get": {
+        "operationId": "getEconomicResult",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "result_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-f]{64}$",
+              "title": "Result Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EconomicResultRead"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Economic Result",
+        "x-ossf-required-scopes": [
+          "market_result_read"
+        ]
+      }
+    },
+    "/v1/jobs/{job_id}": {
+      "get": {
+        "operationId": "getJob",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobStatus"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Job",
+        "x-ossf-required-scopes": [
+          "metadata"
+        ]
+      }
+    },
+    "/v1/jobs/{job_id}/hold-report": {
+      "get": {
+        "operationId": "getJobHold",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobHoldStatus"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Job Hold Report",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "artifact",
+          "auditor"
+        ]
+      }
+    },
+    "/v1/locations": {
+      "post": {
+        "operationId": "registerLocation",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "goal_id": {
+                    "maxLength": 200,
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                    "title": "Goal Id",
+                    "type": "string"
+                  },
+                  "idempotency_key": {
+                    "maxLength": 200,
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                    "title": "Idempotency Key",
+                    "type": "string"
+                  },
+                  "latitude": {
+                    "maximum": 90.0,
+                    "minimum": -90.0,
+                    "title": "Latitude",
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "maximum": 180.0,
+                    "minimum": -180.0,
+                    "title": "Longitude",
+                    "type": "number"
+                  },
+                  "period_end_utc": {
+                    "format": "date-time",
+                    "maxLength": 27,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+                    "title": "Period End Utc",
+                    "type": "string"
+                  },
+                  "period_start_utc": {
+                    "format": "date-time",
+                    "maxLength": 27,
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+                    "title": "Period Start Utc",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "latitude",
+                  "longitude",
+                  "period_start_utc",
+                  "period_end_utc",
+                  "goal_id",
+                  "idempotency_key"
+                ],
+                "title": "LocationRequest",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationAccepted"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Post Location",
+        "x-ossf-max-body-bytes": 4096,
+        "x-ossf-required-scopes": [
+          "location_create"
+        ]
+      }
+    },
+    "/v1/market-hold-reports/{report_id}": {
+      "get": {
+        "operationId": "getMarketHold",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "report_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Report Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketHoldStatus"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Market Hold Report",
+        "x-ossf-required-scopes": [
+          "market_hold_read"
+        ]
+      }
+    },
+    "/v1/runs/{run_id}": {
+      "get": {
+        "operationId": "getRun",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "pattern": "^synthetic-thermal-v1:[0-9a-f]{64}$",
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThermalRunSummary"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Run",
+        "x-ossf-required-scopes": [
+          "thermal_run_read"
+        ]
+      }
+    },
+    "/v1/runs/{run_id}/manifest": {
+      "get": {
+        "operationId": "getRunManifest",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "pattern": "^synthetic-thermal-v1:[0-9a-f]{64}$",
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThermalRunManifest"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Run Manifest",
+        "x-ossf-required-scopes": [
+          "thermal_run_read",
+          "thermal_snapshot_read"
+        ]
+      }
+    },
+    "/v1/runs/{run_id}/series": {
+      "get": {
+        "operationId": "getRunSeries",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "pattern": "^synthetic-thermal-v1:[0-9a-f]{64}$",
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThermalRunSeries"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Run Series",
+        "x-ossf-required-scopes": [
+          "thermal_run_read"
+        ]
+      }
+    }
+  }
+}
