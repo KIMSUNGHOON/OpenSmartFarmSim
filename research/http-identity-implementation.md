@@ -50,3 +50,11 @@ termination, revocation/rotation, safe access logging, request attribution,
 shared limits, operating accounts and browser sessions remain pending.
 The module is a composable service adapter; it does not constitute a deployed
 authentication system or complete api-flow/G1/G4.
+
+Exact identity commit `6713a12b74e34883ef5829399813b6c81ef850ac` passed
+[backend CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36405879698):
+**1480 ordinary tests, 2 warnings** in 330.32 s, **four distinct-UID cases** in
+18.91 s and content DAC. Its
+[Compose CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36405879887)
+also passed. Terminal exact-head states were rechecked on 2026-09-28. Those
+receipts precede the later HTTPS transport and dependency changes.

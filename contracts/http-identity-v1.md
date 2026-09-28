@@ -43,6 +43,7 @@ permit interactive Swagger assets; OpenAPI JSON remains available to authorized
 callers. Middleware does not log credentials or request bodies. It grants no
 SQL role, source right, data approval or G0–G4 permission.
 
-HTTPS server startup, protected credential loading/rotation, shared limits,
+[Loopback HTTPS startup](api-https-service-v1.md) has a separate transport adapter.
+Public HTTPS deployment, protected credential loading/rotation, shared limits,
 safe access logging, request attribution, actual operating accounts, browser
 sessions and G4 remain pending. This contract does not establish a deployment.
