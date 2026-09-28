@@ -4,6 +4,12 @@ Status: implemented synthetic software publisher contract; actual G1 remains HOL
 
 ## Trusted inputs and review
 
+The [planning-event software candidate](planning-event-v1.md) now produces
+immutable server-observed actual or explicitly hypothetical events and a public-key
+DecisionContext verifier. Its test key/shared owner connection is not deployed
+planning authority, and it does not clear execution, source or independent release
+holds. Its exact implementation bytes are included in the code digest below.
+
 `ThermalRunStore.put_snapshot` stores complete raw manifest, weather, and thermal fixture bytes under a tenant-scoped content ID, `thermal-snapshot-v1:` plus SHA-256 of a canonical JSON list of their three raw SHA-256 hashes. Its PostgreSQL rows check each raw hash and reject UPDATE or DELETE. Raw source files, rights, QC, URLs, fixture revision, null observation fields, applicability, and source-review limits are not replaced with a normalized copy. The server requires the published manifest-v2 SHA `c84e3774bcfaa8904d3d96a5d00876ade6b6890271c8f614ef5e5f20ca79566f` and its embedded byte-length and SHA pins for both fixture files. A submitted snapshot is storage only, never source approval.
 
 A server-authorized `decision-context-v1` record is immutable and keyed by tenant, snapshot ID, and context ID. `decision_contexts` stores canonical signed bytes, raw SHA-256, authority ID, and a planning-event SHA-256. `context_verifier` must independently verify the authority signature and the planning event's exact D and actual/hypothetical kind; a caller-supplied historical timestamp is insufficient. The generic tenant/snapshot resolver can also serve market/API gates, which retain their own D-time availability rules. The thermal publisher additionally resolves the exact thermal snapshot bytes. Without the independent verifier, context creation, publication, and later reads HOLD.
@@ -19,7 +25,7 @@ JobStore launch/capture fields alone do **not** prove that an actual Codex CLI p
 1. `NO_ENGINE_OPERATION_ORDER_REVIEW`
 2. `NO_SERVER_INPUT_LINKAGE_REVIEW`
 
-The code digest hashes exact bytes of `thermal.py`, `thermal_units.py`, `thermal_publisher.py`, `thermal_run_store.py`, `thermal_review_contract.py`, `job_store.py`, `jobs.py`, `db.py`, `cli_contracts.py`, `cli_worker.py`, `cli_supervisor.py`, `cli_attestation_issuer.py`, `cli_ipc.py`, `cli_supervisor_service.py`, `cli_supervisor_client.py`, `runtime_roles.py`, `authority_rpc.py`, `runtime_login.py`, `content_access.py`, `execution_attestation.py`, `execution_verifier.py`, `thermal-v1.schema.json`, and `decision-v1.schema.json`, then hashes their sorted canonical path/digest map. A code, lock, manifest, fixture or schema change requires new review and release bytes. Release evidence must substantiate independent binary64 operation-order, bounds, source-rights, and raw-pointer checks; a signed string or test fixture alone is not such a review. Current manifest v2 retains both hold labels to preserve its history. The release bytes are stored with each Run and authorize only their pinned snapshot and implementation; all other original holds remain.
+The code digest hashes exact bytes of `thermal.py`, `thermal_units.py`, `thermal_publisher.py`, `thermal_run_store.py`, `thermal_review_contract.py`, `planning_events.py`, `job_store.py`, `jobs.py`, `db.py`, `cli_contracts.py`, `cli_worker.py`, `cli_supervisor.py`, `cli_attestation_issuer.py`, `cli_ipc.py`, `cli_supervisor_service.py`, `cli_supervisor_client.py`, `runtime_roles.py`, `authority_rpc.py`, `runtime_login.py`, `content_access.py`, `execution_attestation.py`, `execution_verifier.py`, `thermal-v1.schema.json`, and `decision-v1.schema.json`, then hashes their sorted canonical path/digest map. A code, lock, manifest, fixture or schema change requires new review and release bytes. Release evidence must substantiate independent binary64 operation-order, bounds, source-rights, and raw-pointer checks; a signed string or test fixture alone is not such a review. Current manifest v2 retains both hold labels to preserve its history. The release bytes are stored with each Run and authorize only their pinned snapshot and implementation; all other original holds remain.
 
 ## Server checks and accepted bytes
 
