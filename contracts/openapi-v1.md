@@ -1,8 +1,8 @@
 # Implemented API OpenAPI contract v1
 
 [openapi-v1.json](openapi-v1.json) is the deterministic OpenAPI 3.1.0 snapshot
-of the ten implemented operations. It is an internal software candidate.
-Future ingestion/Run/economic/assessment submissions and region listings are
+of the eleven implemented operations. It is an internal software candidate.
+Future ingestion/economic/assessment submissions and region listings are
 specified in ARCHITECTURE but are not advertised as available operations.
 
 Generate/check with locked dependencies from `backend`:
@@ -28,7 +28,7 @@ also permits role names in non-OAuth arrays; this contract chooses the explicit
 vendor field. Actual credential verification remains in PrincipalMiddleware and
 each store still enforces tenant/right access independently.
 
-Operation IDs are stable: registerLocation, getJob, getJobHold, getJobRun, getMarketHold,
+Operation IDs are stable: registerLocation, submitThermalRun, getJob, getJobHold, getJobRun, getMarketHold,
 getRun, getRunSeries, getRunManifest, getEconomicResult, getBreakEvenResult. `LocationPoint` is a
 closed latitude/longitude object with coordinate bounds, matching the actual
 response. Registration's request is closed JSON with a 4096-byte maximum
@@ -64,4 +64,8 @@ the existing public ThermalRunSummary, with no new response fields.
 
 Its x-ossf-conditional-scopes declares the additional four reference scopes for
 scenario-bound result v2. Existing operation IDs, response schemas and v1 scope
-requirements are unchanged. No Run submission operation is advertised yet.
+requirements are unchanged.
+
+The [thermal submission](api-run-submission-v1.md) operation advertises a closed
+4096-byte v2 request and explicit AND scopes. Its 202 is existing JobStatus;
+the operator must configure the actual admission publisher or it returns 503.

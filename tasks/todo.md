@@ -78,6 +78,8 @@
 
 **API 연결 진행:** [완료 열 작업의 Run 조회](../contracts/api-job-run-v1.md)가 작업 게시/영수증·입력 해시와 실제 Run을 대사해 기존 공개 요약을 반환한다. [구현 증거](../research/api-job-run-implementation.md)는 합성 검토와 실제 SCRAM/인증된 조립의 소프트웨어 범위다. 실제 CLI·제출/오케스트레이션·브라우저 G1은 남아 api-flow 체크를 유지한다.
 
+**열 HTTP 접수 진행:** [접수 계약](../contracts/api-run-submission-v1.md)은 실제 저장 판본·완료 검토·권리/QC·독립 실행/해제를 검사한 뒤 같은 v2 작업을 멱등 등록하고 거래 안에서 현재 Scope/핀을 재검사한다. [구현 증거](../research/api-run-submission-implementation.md)는 합성 검토/키와 실제 SCRAM/Bearer 연결의 범위다. 실제 CLI·전체 농장/경제 Scenario·조사/수집/평가 오케스트레이션·브라우저/G1/G4는 남아 체크를 유지한다.
+
 - [ ] **`thermal-scenario-store`** — 선행: `thermal-g1-publisher`, `market-hold-store`; 후속: `api-flow`. [계약/명시적 로그인 v6](../contracts/thermal-scenario-store-v1.md)에 따라 합성 열 Scenario의 스냅샷·모델·문맥·시장 보류 참조를 불변 판본으로 저장하고 현재 권한/핀을 재검사한다. [소프트웨어 증거](../research/thermal-scenario-store-implementation.md)는 등록·재조회·충돌·권한 변동·참조 보류와 기존 프로필 회귀를 다룬다. 완전한 농장/경제 Scenario와 제출·작업자/Run 연결·독립 운영 권한의 수용까지 체크는 유지한다.
 
   - [시나리오 실행 연결 증거](../research/thermal-scenario-execution-implementation.md): 입력/영수증 v2가 실제 저장된 판본과 Run을 결합하고 게시 전후 Scope 철회·문맥/핀 불일치는 결과를 공개하지 않는다. 명시적 v6 조립과 Bearer 조회는 같은 실제 SCRAM 저장소를 읽는다. 합성 캡처/키 시험이며 전체 농장 Scenario·HTTP 접수·실제 CLI/독립 release·브라우저/G1/G4는 남아 체크를 유지한다.

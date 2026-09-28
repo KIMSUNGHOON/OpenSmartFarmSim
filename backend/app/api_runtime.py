@@ -18,6 +18,7 @@ from .research_registry import ResearchRegistry
 from .runtime_roles import RuntimeLoginPolicy
 from .thermal_run_store import ThermalRunStore
 from .thermal_scenario_store import ThermalScenarioStore
+from .thermal_run_submission import ThermalRunSubmissionService
 
 
 _SOURCE_METHODS = frozenset({'tenant_is_authenticated', 'get_economic_scenario',
@@ -59,12 +60,14 @@ class ApiRuntimeDependencies:
     release_verifier: object = field(repr=False)
     market_scope_resolver: object = field(repr=False)
     market_source_factory: object = field(repr=False)
+    thermal_publisher_factory: object = field(default=None, repr=False)
 
     def __post_init__(self):
         if (type(self.research_registry) is not ResearchRegistry or
                 type(self.bearer_registry) is not BearerRegistry or
                 any(not callable(value) for value in (self.context_verifier, self.release_verifier,
-                    self.market_scope_resolver, self.market_source_factory))):
+                    self.market_scope_resolver, self.market_source_factory)) or
+                (self.thermal_publisher_factory is not None and not callable(self.thermal_publisher_factory))):
             raise ValueError('API runtime dependencies rejected')
 
 
@@ -136,9 +139,16 @@ class ApiRuntime:
             break_even = BreakEvenStore(config.dsn, config.policy.schema, candidates,
                 principal_provider=current_principal, runtime_identity=binding)
             scenarios = ThermalScenarioStore(thermal, holds) if config.policy.thermal_scenario_storage else None
+            submission = None
+            if dependencies.thermal_publisher_factory is not None:
+                if scenarios is None:
+                    raise ValueError()
+                publisher = dependencies.thermal_publisher_factory(run_store=thermal, job_store=jobs)
+                submission = ThermalRunSubmissionService(publisher, scenarios)
             app = create_app(jobs, holds, thermal, results, principal_provider=current_principal,
                 location_research_service=LocationResearchService(jobs, dependencies.research_registry.scope_for_location),
-                break_even_store=break_even, thermal_scenario_store=scenarios)
+                break_even_store=break_even, thermal_scenario_store=scenarios,
+                thermal_run_submission_service=submission)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):

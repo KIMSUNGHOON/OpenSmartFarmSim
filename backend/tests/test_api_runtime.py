@@ -82,7 +82,7 @@ def test_config_hides_private_values_and_is_frozen():
 
 @pytest.mark.parametrize('changes', [dict(research_registry=None), dict(bearer_registry=None),
     dict(context_verifier=None), dict(release_verifier=None), dict(market_scope_resolver=None),
-    dict(market_source_factory=None)])
+    dict(market_source_factory=None), dict(thermal_publisher_factory=True)])
 def test_missing_dependencies_are_rejected(changes):
     with pytest.raises(ValueError, match='^API runtime dependencies rejected$'): dependencies(**changes)
 

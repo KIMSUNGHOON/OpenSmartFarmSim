@@ -2,7 +2,9 @@
 
 Status: internal software candidate. This stores the thermal component of a
 future product Scenario; it does not implement the complete farm/economic plan,
-Run submission or G1/G4 acceptance.
+Run submission or G1/G4 acceptance by itself. Subsequent
+[HTTP thermal admission](api-run-submission-v1.md) binds it to an actual queued
+v2 job after publisher evidence checks; complete farm/economic plans are pending.
 
 [ThermalScenario](../backend/app/thermal_scenario_store.py) and its
 [closed schema](thermal-scenario-v1.schema.json) identify a tenant/scenario/revision,

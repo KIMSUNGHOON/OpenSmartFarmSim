@@ -17,8 +17,10 @@ from .api_economics import RESULT_ID_PATTERN, project_economic_result
 from .api_break_even import PLAN_ID_PATTERN, BreakEvenRead, project_break_even_result
 from .api_thermal import RUN_ID_PATTERN, project_thermal_manifest, project_thermal_run
 from .api_job_run import read_job_run
-from .thermal_scenario_store import ThermalScenarioStore
+from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold
 from .thermal_scenario_execution import SCENARIO_SCOPES
+from .thermal_publisher import ThermalPublishHold
+from .thermal_run_submission import ThermalRunRequest, ThermalRunSubmissionService, SUBMISSION_SCOPES
 from .job_store import JobIntentConflict
 from .orchestration import LocationRequest, LocationResearchService, ResearchRequestRejected
 
@@ -34,7 +36,7 @@ def _access(scopes):
 
 def create_app(job_store, market_hold_store, thermal_run_store, market_result_store,
                *, principal_provider, location_research_service=None, break_even_store=None,
-               thermal_scenario_store=None) -> FastAPI:
+               thermal_scenario_store=None, thermal_run_submission_service=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -49,6 +51,12 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
     if thermal_scenario_store is not None and (type(thermal_scenario_store) is not ThermalScenarioStore or
                                               thermal_scenario_store.runs is not thermal_run_store):
         raise ValueError("trusted thermal scenario reader required")
+    if thermal_run_submission_service is not None and (
+            type(thermal_run_submission_service) is not ThermalRunSubmissionService or
+            thermal_run_submission_service.jobs is not job_store or
+            thermal_run_submission_service.scenarios is not thermal_scenario_store or
+            thermal_run_submission_service.publisher.run_store is not thermal_run_store):
+        raise ValueError("trusted thermal submission service required")
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
     location_scopes = ("location_create",)
     job_scopes = ("metadata",)
@@ -125,6 +133,49 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(409, "intent_conflict", "Intent already has a different request")
         except Exception:
             return _error(503, "research_unavailable", "Research submission unavailable")
+
+    @app.post("/v1/runs", status_code=202, response_model=JobStatus, operation_id="submitThermalRun",
+              responses={status: {"model": ErrorEnvelope} for status in (401, 403, 409, 413, 415, 422, 503)},
+              openapi_extra={**_access(SUBMISSION_SCOPES), "x-ossf-max-body-bytes": 4096,
+                  "requestBody": {"required": True, "content": {
+                  "application/json": {"schema": ThermalRunRequest.model_json_schema()}}}})
+    async def post_run(request: Request):
+        tenant, denied = authorized_tenant(*SUBMISSION_SCOPES)
+        if denied is not None:
+            return denied
+        if thermal_run_submission_service is None:
+            return _error(503, "simulation_unavailable", "Simulation submission unavailable")
+        if request.headers.get("content-type", "").split(";", 1)[0].strip().lower() != "application/json":
+            return _error(415, "unsupported_media_type", "JSON request required")
+        raw = bytearray()
+        async for chunk in request.stream():
+            if len(raw)+len(chunk) > 4096:
+                return _error(413, "request_too_large", "Request too large")
+            raw.extend(chunk)
+        def unique_pairs(items):
+            value = {}
+            for key, item in items:
+                if key in value:
+                    raise ValueError("duplicate request key")
+                value[key] = item
+            return value
+        try:
+            value = json.loads(raw.decode("utf-8"), object_pairs_hook=unique_pairs,
+                parse_constant=lambda _: (_ for _ in ()).throw(ValueError()))
+            body = ThermalRunRequest.model_validate(value)
+        except (ValueError, UnicodeError, RecursionError):
+            return _error(422, "invalid_request", "Invalid request")
+        try:
+            row = await run_in_threadpool(thermal_run_submission_service.submit, tenant, body)
+            return public_job_status(row)
+        except PermissionError:
+            return _error(403, "forbidden", "Resource access denied")
+        except (ThermalScenarioHold, ThermalPublishHold):
+            return _error(422, "simulation_hold", "Simulation evidence unavailable")
+        except JobIntentConflict:
+            return _error(409, "intent_conflict", "Intent already has a different request")
+        except Exception:
+            return _error(503, "simulation_unavailable", "Simulation submission unavailable")
 
     @app.get("/v1/jobs/{job_id}", response_model=JobStatus, responses=errors,
              operation_id="getJob", openapi_extra=_access(job_scopes))

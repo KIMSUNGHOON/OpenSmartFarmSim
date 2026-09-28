@@ -47,6 +47,7 @@ CODE_FILES = ("backend/app/thermal.py", "backend/app/thermal_units.py",
               "backend/app/api_job_run.py",
               "backend/app/thermal_scenario_store.py",
               "backend/app/thermal_scenario_execution.py",
+              "backend/app/thermal_run_submission.py",
               "contracts/thermal-scenario-v1.schema.json",
               "backend/app/market_source_store.py",
               "backend/app/thermal_simulation_worker.py",
@@ -656,7 +657,7 @@ class ThermalG1Publisher:
         _need(len(rows) == 1, "RELEASE_HOLD: source record missing")
         return rows[0]
 
-    def prepare(self, tenant, review_job_id, snapshot_id):
+    def _validated_inputs(self, tenant, review_job_id, snapshot_id):
         try:
             snapshot = self.run_store.get_snapshot(tenant, snapshot_id)
             _need(snapshot is not None, "PIN_HOLD: no tenant-scoped snapshot")
@@ -672,6 +673,27 @@ class ThermalG1Publisher:
             code_sha, env_sha = runtime_digests(self.root)
             release_raw, release_signature = self._release(tenant, snapshot_id, snapshot,
                                                           context, review_at, code_sha, env_sha)
+            return (snapshot, context, decision_id, review_time, capture_id, manifest,
+                    weather, thermal, code_sha, env_sha, release_raw, release_signature)
+        except Exception as exc:
+            if isinstance(exc, ThermalPublishHold):
+                raise
+            raise ThermalPublishHold("G1_HOLD: source, trace or publication failed") from exc
+
+    def validate_submission(self, tenant, review_job_id, snapshot_id):
+        """Check admission evidence without calculating, publishing or granting G1."""
+        snapshot, context, *_ = self._validated_inputs(tenant, review_job_id, snapshot_id)
+        return {"tenant_id": tenant, "snapshot_id": snapshot_id,
+                "decision_context_id": context["decision_context_id"],
+                "context_sha256": context["context_sha256"],
+                "manifest_sha256": snapshot["manifest_sha256"]}
+
+    def prepare(self, tenant, review_job_id, snapshot_id):
+        try:
+            (snapshot, context, decision_id, review_time, capture_id, manifest,
+             weather, thermal, code_sha, env_sha, release_raw, release_signature) = self._validated_inputs(
+                tenant, review_job_id, snapshot_id)
+            review_at = _utc(review_time)
             clock = {"decision_id": decision_id, "decision_at_utc": context["decision_at_utc"],
                      "input_snapshot_id": snapshot_id,
                      "decision_context_id": context["decision_context_id"],

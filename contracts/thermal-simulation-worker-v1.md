@@ -41,7 +41,7 @@ automatically. An idle/completed/nonmatching target returns None. Retry creates
 a new attempt under existing limits and repeats all publisher checks.
 
 Actual process isolation, independent execution/release/custody, orchestrated
-review/assessment, HTTP simulation submission, Compose/operator scheduling,
+review/assessment, full workflow submission, Compose/operator scheduling,
 browser/full G1/G4 and external G0/G2/G3 remain pending. Synthetic captures and
 controller-owned keys can test atomicity only, never attest real CLI or gates.
 
@@ -88,5 +88,7 @@ not a complete farm/economic Scenario or an extra gate approval.
 Default constructor/input v1 behavior and receipt shape are retained. The
 operator opts into v6 and supplies the real Scenario store in its protected
 factory. Current synthetic software tests grant no actual CLI, independent
-release, production configuration or G1/G4 acceptance. HTTP submission and
-complete workflow remain subsequent work.
+release, production configuration or G1/G4 acceptance. The complete workflow
+remains subsequent work. The
+[HTTP thermal admission](api-run-submission-v1.md) now queues the same v2 input
+after actual current evidence checks; worker execution still repeats all checks.

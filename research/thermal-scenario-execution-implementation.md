@@ -68,3 +68,15 @@ Compose application roles, browser/3D and full G1/G4 remain pending. Actual
 G0/G2/G3 evidence remains missing. Changed code joins the closed digest and needs
 a fresh independent release. Task checkboxes stay open. Hosted receipts follow
 the implementation commit and must match its exact head.
+
+## Hosted receipt for the scenario-binding commit
+
+Exact head 14c23f55c0300d00cd8a95059118e1e90135f3f7 passed
+[Backend CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36438741326):
+**1719 ordinary tests, 2 existing warnings, 867.62 s (14:27)** and **4 separate-UID
+service tests, 18.76 s**. Distinct Linux UID content access and database/password
+cleanup steps also succeeded. The same head passed
+[Compose CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36438741335).
+These are software fixtures, not actual CLI, independent gates or deployment.
+The subsequent [HTTP thermal admission candidate](../contracts/api-run-submission-v1.md)
+addresses the thermal submission component; the full workflow remains pending.

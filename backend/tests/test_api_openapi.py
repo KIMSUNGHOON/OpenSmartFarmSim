@@ -19,6 +19,8 @@ from test_http_identity import request
 
 
 OPERATIONS = {
+    ("/v1/runs", "post"): ("submitThermalRun", ['thermal_run_submit', 'metadata', 'artifact',
+        'thermal_scenario_read', 'thermal_snapshot_read', 'decision_context_read', 'market_hold_context_read']),
     ("/v1/locations", "post"): ("registerLocation", ["location_create"]),
     ("/v1/jobs/{job_id}", "get"): ("getJob", ["metadata"]),
     ("/v1/jobs/{job_id}/hold-report", "get"): ("getJobHold", ["metadata", "artifact", "auditor"]),
@@ -56,6 +58,9 @@ def test_snapshot_matches_actual_routes_and_public_protocol():
     registration = operations[("/v1/locations", "post")]
     assert registration["x-ossf-max-body-bytes"] == 4096
     assert "202" in registration["responses"] and "200" not in registration["responses"]
+    submission = operations[("/v1/runs", "post")]
+    assert submission['x-ossf-max-body-bytes'] == 4096
+    assert '202' in submission['responses'] and '200' not in submission['responses']
     raw = api_openapi.contract_bytes()
     assert b"synthetic-service-a-" not in raw and b"tenant-a" not in raw
     assert b"token_sha256" not in raw and b"lease_token" not in raw
