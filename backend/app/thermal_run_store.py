@@ -446,56 +446,67 @@ class ThermalRunStore:
                                     release_signature, trace_raws)
         _need(report["tenant_id"] == tenant,
               "REPORT_HOLD: signed tenant differs from publication tenant")
-        hashes = tuple(map(_digest, trace_raws))
         with self.connect() as conn:
-            context_row = conn.execute(sql.SQL("""
-                SELECT * FROM {} WHERE tenant_id=%s AND snapshot_id=%s AND decision_context_id=%s
-            """).format(self._table("decision_contexts")),
-                (tenant, report["snapshot_id"], report["decision_context_id"])).fetchone()
-            _need(context_row is not None and
-                  _digest(context_row["context_raw"]) == report["context_sha256"],
-                  "CONTEXT_HOLD: trusted context record missing")
-            context = _context(context_row["context_raw"], context_row["context_signature"],
-                               self._context_verifier)
-            _need(context["tenant_id"] == tenant and
-                  context["snapshot_id"] == report["snapshot_id"] and
-                  all(context[key] == report[key] for key in
-                      ("decision_context_id", "decision_at_utc", "claim_mode",
-                       "decision_time_kind")) and
-                  context_row["recorded_at"] <= _time(report["review_at_utc"]) and
-                  context_row["recorded_at"] <=
-                      _time(_document(release_raw)["issued_at_utc"]) and
-                  _time(context["issued_at_utc"]) <= _time(report["review_at_utc"]),
-                  "CONTEXT_HOLD: report differs from signed context")
-            snapshot = conn.execute(sql.SQL("""
-                SELECT manifest_sha256, recorded_at FROM {} WHERE tenant_id = %s AND snapshot_id = %s
-            """).format(self._table("thermal_input_snapshots")),
-                (tenant, report["snapshot_id"])).fetchone()
-            _need(snapshot is not None and snapshot["manifest_sha256"] == report["manifest_sha256"] and
-                  snapshot["recorded_at"] <= _time(report["review_at_utc"]),
-                  "PIN_HOLD: missing or different immutable snapshot")
-            conn.execute(sql.SQL("""
-                INSERT INTO {} (tenant_id, run_id, snapshot_id, decision_context_id, manifest_sha256,
-                    trace0_raw, trace0_sha256, trace1_raw, trace1_sha256,
-                    release_raw, release_sha256, release_signature,
-                    report_raw, report_sha256, gate_signature)
-                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
-                ON CONFLICT DO NOTHING
-            """).format(self._table("thermal_g1_runs")),
-                (tenant, report["run_id"], report["snapshot_id"],
-                 report["decision_context_id"], report["manifest_sha256"],
-                 trace_raws[0], hashes[0], trace_raws[1], hashes[1],
-                 release_raw, _digest(release_raw), release_signature,
-                 report_raw, _digest(report_raw), gate_signature))
-            row = conn.execute(sql.SQL("""
-                SELECT * FROM {} WHERE tenant_id = %s AND run_id = %s
-            """).format(self._table("thermal_g1_runs")),
-                (tenant, report["run_id"])).fetchone()
-            _need(row is not None, "STORE_HOLD: publication row missing")
-            _need(row["trace0_raw"] == trace_raws[0] and row["trace1_raw"] == trace_raws[1] and
-                  row["report_raw"] == report_raw and row["gate_signature"] == gate_signature and
-                  row["release_raw"] == release_raw and row["release_signature"] == release_signature,
-                  "STORE_HOLD: conflicting immutable Run ID")
+            return self._publish_verified_in_transaction(conn, tenant, report_raw=report_raw,
+                gate_signature=gate_signature, release_raw=release_raw,
+                release_signature=release_signature, trace_raws=trace_raws)
+
+    def _publish_verified_in_transaction(self, conn, tenant, *, report_raw, gate_signature, release_raw,
+                         release_signature, trace_raws):
+        _need(self._scope(tenant, "thermal_run_publish"), "ACCESS_HOLD: Run publication denied")
+        report = self._check_packet(report_raw, gate_signature, release_raw,
+                                    release_signature, trace_raws)
+        _need(report["tenant_id"] == tenant,
+              "REPORT_HOLD: signed tenant differs from publication tenant")
+        hashes = tuple(map(_digest, trace_raws))
+        context_row = conn.execute(sql.SQL("""
+            SELECT * FROM {} WHERE tenant_id=%s AND snapshot_id=%s AND decision_context_id=%s
+        """).format(self._table("decision_contexts")),
+            (tenant, report["snapshot_id"], report["decision_context_id"])).fetchone()
+        _need(context_row is not None and
+              _digest(context_row["context_raw"]) == report["context_sha256"],
+              "CONTEXT_HOLD: trusted context record missing")
+        context = _context(context_row["context_raw"], context_row["context_signature"],
+                           self._context_verifier)
+        _need(context["tenant_id"] == tenant and
+              context["snapshot_id"] == report["snapshot_id"] and
+              all(context[key] == report[key] for key in
+                  ("decision_context_id", "decision_at_utc", "claim_mode",
+                   "decision_time_kind")) and
+              context_row["recorded_at"] <= _time(report["review_at_utc"]) and
+              context_row["recorded_at"] <=
+                  _time(_document(release_raw)["issued_at_utc"]) and
+              _time(context["issued_at_utc"]) <= _time(report["review_at_utc"]),
+              "CONTEXT_HOLD: report differs from signed context")
+        snapshot = conn.execute(sql.SQL("""
+            SELECT manifest_sha256, recorded_at FROM {} WHERE tenant_id = %s AND snapshot_id = %s
+        """).format(self._table("thermal_input_snapshots")),
+            (tenant, report["snapshot_id"])).fetchone()
+        _need(snapshot is not None and snapshot["manifest_sha256"] == report["manifest_sha256"] and
+              snapshot["recorded_at"] <= _time(report["review_at_utc"]),
+              "PIN_HOLD: missing or different immutable snapshot")
+        conn.execute(sql.SQL("""
+            INSERT INTO {} (tenant_id, run_id, snapshot_id, decision_context_id, manifest_sha256,
+                trace0_raw, trace0_sha256, trace1_raw, trace1_sha256,
+                release_raw, release_sha256, release_signature,
+                report_raw, report_sha256, gate_signature)
+            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+            ON CONFLICT DO NOTHING
+        """).format(self._table("thermal_g1_runs")),
+            (tenant, report["run_id"], report["snapshot_id"],
+             report["decision_context_id"], report["manifest_sha256"],
+             trace_raws[0], hashes[0], trace_raws[1], hashes[1],
+             release_raw, _digest(release_raw), release_signature,
+             report_raw, _digest(report_raw), gate_signature))
+        row = conn.execute(sql.SQL("""
+            SELECT * FROM {} WHERE tenant_id = %s AND run_id = %s
+        """).format(self._table("thermal_g1_runs")),
+            (tenant, report["run_id"])).fetchone()
+        _need(row is not None, "STORE_HOLD: publication row missing")
+        _need(row["trace0_raw"] == trace_raws[0] and row["trace1_raw"] == trace_raws[1] and
+              row["report_raw"] == report_raw and row["gate_signature"] == gate_signature and
+              row["release_raw"] == release_raw and row["release_signature"] == release_signature,
+              "STORE_HOLD: conflicting immutable Run ID")
         return {"run_id": report["run_id"], "trace_sha256": hashes,
                 "report_sha256": _digest(report_raw)}
 

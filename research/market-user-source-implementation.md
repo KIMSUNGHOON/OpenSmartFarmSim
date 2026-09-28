@@ -63,6 +63,13 @@ original API assembly exact-head receipts are in
 
 ## Remaining holds
 
+Exact source-store commit 88f467486f9a83cdfe040b714614e1d21b90a0aa passed
+[backend CI 36421366549](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36421366549):
+**1620 ordinary tests, 2 existing warnings, 689.91 s**, **4 UID cases in 16.31 s**,
+and the distinct Linux UID content-access step. Exact-head
+[Compose CI 36421366561](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36421366561)
+passed. These describe that commit, not the following thermal worker code.
+
 All records/keys/credentials are self-authored synthetic fixtures. Immutable job
 input proves submission, not completed collection or actual model invocation.
 External URL/product/observation/publication/retrieval/vintage/QC/reviewer evidence

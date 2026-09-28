@@ -142,3 +142,5 @@ stdin은 서버가 생성한 버전 고정 지시문과 `tenant_id/job_id`, 좌�
 [콘텐츠 접근 정책 후보](../contracts/content-access-v1.md)는 신뢰 설정으로 authority 소유 파일에 감독자 그룹의 읽기 권한을 줄 수 있다. 열린 디렉터리/파일의 소유 UID·그룹·정확한 모드·ACL과 내용 해시를 검사하며 기존 권한을 자동으로 넓히지 않는다. 공유 그룹은 해당 콘텐츠 루트 전체를 읽으므로 운영에서는 테넌트별 루트·UID/그룹·읽기 전용 마운트와 별도 비밀 소유권을 구성해야 한다. 실제 UID 파일 접근 시험도 전체 서비스·계정·모델 실행이나 G1/G4 수용을 뜻하지 않는다.
 
 [사용자 가정 원천 저장소 후보](../contracts/market-user-source-store-v1.md)는 기존 7종 입력을 실제 collection/simulation 작업 바이트에 결합해 불변 보관하고 기준 시나리오·충격 pin을 서버에서 생성한다. 명시적 v5 authority와 매 연결 SCRAM/전체 권한 감사, 별도 source 읽기·쓰기 범위를 요구한다. 가정 저장은 실제 원천 G0 승인이나 실행 완료 증거가 아니며 시장·경제 계산은 결정 시점과 권리·적용 범위를 다시 검사한다.
+
+[결정적 열 작업자 후보](../contracts/thermal-simulation-worker-v1.md)는 명시적 simulation 작업 ID를 소비하고 같은 authority 거래에서 검증된 Run·작업 완료·게시/시도 기록을 묶는다. 취소·만료·실패 시 부분 Run을 남기지 않으며 prepare 단계는 DB 결과를 쓰지 않는다. 운영자 factory의 전경 명령을 실제 Python 자식과 SCRAM으로 시험했지만 캡처·검토/키는 합성이고 실제 CLI·독립 release·전체 G1/G4는 미수용이다.

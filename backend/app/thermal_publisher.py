@@ -45,6 +45,8 @@ CODE_FILES = ("backend/app/thermal.py", "backend/app/thermal_units.py",
               "backend/app/api.py", "backend/app/api_contracts.py",
               "backend/app/api_runtime.py",
               "backend/app/market_source_store.py",
+              "backend/app/thermal_simulation_worker.py",
+              "backend/app/simulation_work.py",
               "contracts/thermal-v1.schema.json", "contracts/decision-v1.schema.json")
 WEATHER_ID = "synthetic-weather-v1"
 THERMAL_ID = "synthetic-thermal-parameters-v1"
@@ -650,7 +652,7 @@ class ThermalG1Publisher:
         _need(len(rows) == 1, "RELEASE_HOLD: source record missing")
         return rows[0]
 
-    def publish(self, tenant, review_job_id, snapshot_id):
+    def prepare(self, tenant, review_job_id, snapshot_id):
         try:
             snapshot = self.run_store.get_snapshot(tenant, snapshot_id)
             _need(snapshot is not None, "PIN_HOLD: no tenant-scoped snapshot")
@@ -734,9 +736,18 @@ class ThermalG1Publisher:
             gate_signature = hmac.new(self._gate_key,
                 b"thermal-g1-gate-v1\0" + report_raw + b"\0" +
                 hashes[0].encode() + hashes[1].encode(), sha256).hexdigest()
-            return self.run_store.publish_verified(tenant, report_raw=report_raw,
-                gate_signature=gate_signature, release_raw=release_raw,
-                release_signature=release_signature, trace_raws=(first_raw, second_raw))
+            return dict(report_raw=report_raw, gate_signature=gate_signature,
+                release_raw=release_raw, release_signature=release_signature,
+                trace_raws=(first_raw, second_raw))
+        except Exception as exc:
+            if isinstance(exc, ThermalPublishHold):
+                raise
+            raise ThermalPublishHold("G1_HOLD: source, trace or publication failed") from exc
+
+    def publish(self, tenant, review_job_id, snapshot_id):
+        try:
+            return self.run_store.publish_verified(tenant,
+                **self.prepare(tenant, review_job_id, snapshot_id))
         except Exception as exc:
             if isinstance(exc, ThermalPublishHold):
                 raise

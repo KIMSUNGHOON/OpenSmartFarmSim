@@ -41,9 +41,10 @@ def input_raws():
 
 
 @pytest.fixture
-def setup(pg_store, request):
-    with pg_store.connect() as conn:
-        install_thermal_run_schema(conn, pg_store.schema)
+def setup(pg_store, request, *, schema_installed=False):
+    if not schema_installed:
+        with pg_store.connect() as conn:
+            install_thermal_run_schema(conn, pg_store.schema)
     job_store = cli_store(pg_store)
     evidence_holder = {"raw": None}
     def verify_test_release(raw, signature):
@@ -145,6 +146,15 @@ def test_real_db_review_link_promotes_two_recarried_bytes_atomically(setup):
         count = conn.execute(sql.SQL("SELECT count(*) FROM {}.thermal_g1_runs")
             .format(sql.Identifier(runs.schema))).fetchone()["count"]
     assert count == 1
+
+
+def test_preparing_verified_packet_does_not_publish_a_run(setup):
+    publisher, runs, _, job, snapshot_id, _, _, _ = setup
+    packet = publisher.prepare('tenant-a', job['job_id'], snapshot_id)
+    report = json.loads(packet['report_raw'])
+    assert runs.get_run('tenant-a', report['run_id']) is None
+    receipt = runs.publish_verified('tenant-a', **packet)
+    assert receipt == publisher.publish('tenant-a', job['job_id'], snapshot_id)
 
 
 def test_no_release_or_self_author_review_holds_without_run(setup):
