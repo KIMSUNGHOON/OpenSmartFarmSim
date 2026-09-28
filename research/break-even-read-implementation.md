@@ -72,3 +72,16 @@ assembly, credential/key/UID custody, DB TLS/HBA/RLS, actual isolated Codex,
 independent economic and thermal release evidence, browser flow and G1/G4 remain
 incomplete. Finite-grid results do not meet the full continuous-root or independent
 validation acceptance of `economic-break-even`, so its checkbox remains open.
+
+
+## Hosted exact-head verification receipt
+
+Commit `e05e01d651a0e6554cdcec97e15344b09264d52f` completed
+[backend CI 36414646284](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36414646284):
+**1,567 ordinary tests passed**, two existing Pydantic warnings, 486.54 s;
+**4 distinct-UID cases passed**, 18.73 s, and the kernel content DAC check passed.
+[Compose CI 36414646270](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36414646270)
+passed. This full run includes the corrected fixture, all 18 new break-even/read
+cases and the additional documented-scope case. It closes the focused test's
+pending full-regression receipt, not production or G1/G3/G4 acceptance. Later
+API assembly changes need their own exact-head verification.

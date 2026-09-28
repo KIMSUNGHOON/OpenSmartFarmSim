@@ -121,3 +121,9 @@ Pydantic serializer warnings. The focused login suite passed all 25 cases.
 Lock, changed local link targets and whitespace checks also passed. The auxiliary
 database shut down and private password files were removed; the original local
 database authentication configuration was not modified.
+
+JobStore now has explicit `audit_runtime_grants=False`. True requires a login
+binding and audits effective grants on every connection before data queries.
+The [API assembly](api-runtime-assembly-v1.md) selects True; the default and
+v2 role matrix remain unchanged. Audit failure closes with fixed
+`runtime_grants_rejected`. This does not establish credential custody.

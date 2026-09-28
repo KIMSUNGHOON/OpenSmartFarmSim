@@ -41,3 +41,8 @@ Synthetic ephemeral certificates verify real TLS and HTTP software transport,
 not public CA trust, production certificates/accounts, independent model or
 release evidence, G1 or G4. Public/proxy binding, protected full application
 factory/config provisioning and Compose service wiring remain pending.
+
+[Implemented API assembly v1](api-runtime-assembly-v1.md) now constructs the
+request stores and existing routes without unused reader doubles. Operator
+configuration/custody, production sources/verifiers, public/Compose wiring and
+full G1/G4 remain pending.

@@ -51,7 +51,9 @@ class JobStore:
                  *, decision_validator=None, evidence_policy=None,
                  principal_provider=None,
                  allow_synthetic_invocation: bool = False, runtime_identity=None,
-                 content_access=None):
+                 content_access=None, audit_runtime_grants=False):
+        if type(audit_runtime_grants) is not bool or (audit_runtime_grants and runtime_identity is None):
+            raise ValueError("runtime grant audit requires explicit login binding")
         if content_access is not None:
             from .content_access import ContentAccess
             if not isinstance(content_access, ContentAccess):
@@ -73,11 +75,22 @@ class JobStore:
         self.allow_synthetic_invocation = allow_synthetic_invocation
         self.runtime_identity = runtime_identity
         self.content_access = content_access
+        self.audit_runtime_grants = audit_runtime_grants
 
     def connect(self) -> psycopg.Connection:
         if self.runtime_identity is not None:
             from .runtime_login import connect_runtime
-            return connect_runtime(self._dsn, *self.runtime_identity)
+            conn = connect_runtime(self._dsn, *self.runtime_identity)
+            if not self.audit_runtime_grants:
+                return conn
+            from .runtime_roles import RolePolicyHold, audit_runtime_roles
+            try:
+                audit_runtime_roles(conn, self.runtime_identity[0])
+                conn.commit()
+                return conn
+            except Exception:
+                conn.close()
+                raise RolePolicyHold("runtime_grants_rejected") from None
         if self._dsn is None:
             return connect_app()
         return psycopg.connect(self._dsn, row_factory=dict_row)
