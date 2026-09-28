@@ -4,6 +4,13 @@ Status: software assembly candidate. Production source repositories, protected
 operator configuration/custody, actual isolated Codex, independent release,
 remaining submissions and browser/G1/G4 acceptance remain pending.
 
+With explicit thermal_scenario_storage=True (v6 plus the existing market and
+break-even flags), ApiRuntime also assembles ThermalScenarioStore using the
+exact existing thermal/hold stores and current_principal. It supplies that
+reader to job Run discovery. The default field is None, preserving the six
+existing stores and v1 job behavior. No new caller-supplied factory, credential,
+raw-input endpoint or source authority is introduced by this optional read.
+
 `ApiRuntime(config, dependencies).service` is an exact `HttpsApiService` accepted
 by the existing `python -m app.api_serve --factory operator_module:build` entrypoint.
 The operator's build callable supplies the two frozen typed objects and returns

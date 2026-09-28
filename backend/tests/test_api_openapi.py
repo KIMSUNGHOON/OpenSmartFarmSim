@@ -49,6 +49,9 @@ def test_snapshot_matches_actual_routes_and_public_protocol():
             if int(status) >= 400:
                 assert response["content"]["application/json"]["schema"] == {"$ref": "#/components/schemas/ErrorEnvelope"}
     bearer = document["components"]["securitySchemes"]["ServiceBearer"]
+    assert operations[("/v1/jobs/{job_id}/run", "get")]["x-ossf-conditional-scopes"] == {
+        "thermal-simulation-result-v2": ['thermal_scenario_read', 'thermal_snapshot_read',
+            'decision_context_read', 'market_hold_context_read']}
     assert bearer["type"] == "http" and bearer["scheme"] == "bearer" and "bearerFormat" not in bearer
     registration = operations[("/v1/locations", "post")]
     assert registration["x-ossf-max-body-bytes"] == 4096

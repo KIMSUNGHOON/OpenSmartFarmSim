@@ -1645,6 +1645,14 @@
           }
         ],
         "summary": "Get Job Run",
+        "x-ossf-conditional-scopes": {
+          "thermal-simulation-result-v2": [
+            "thermal_scenario_read",
+            "thermal_snapshot_read",
+            "decision_context_read",
+            "market_hold_context_read"
+          ]
+        },
         "x-ossf-required-scopes": [
           "metadata",
           "artifact",

@@ -71,3 +71,14 @@ source/release versions and arithmetic are unchanged. New store/schema and
 policy code enter the closed runtime digest and require a fresh independent
 release. Broad task checkboxes remain open. Hosted verification follows the
 implementation commit and must match its exact head.
+
+## Hosted receipt for a36fce7
+
+[Backend run 36432950958](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36432950958)
+succeeded on exact head a36fce7c552715b44098b5157aec5eb679f574f1: PostgreSQL 18.6
+ordinary suite **1699 passed, 2 existing warnings in 969.97 s**;
+separate-UID service suite **4 passed in 18.87 s**, followed by successful
+distinct-UID content access and cleanup.
+[Compose run 36432950946](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36432950946)
+also succeeded on that head. These hosted software receipts do not approve
+source/farm data, actual CLI, independent custody or G1/G4.

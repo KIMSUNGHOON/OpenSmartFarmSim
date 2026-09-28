@@ -61,3 +61,7 @@ status, decimal values and assessment hold. Existing operation IDs stay fixed.
 The [thermal job Run read](api-job-run-v1.md) binds a completed simulation's
 publication and bounded receipt to the actual input and verified Run. It returns
 the existing public ThermalRunSummary, with no new response fields.
+
+Its x-ossf-conditional-scopes declares the additional four reference scopes for
+scenario-bound result v2. Existing operation IDs, response schemas and v1 scope
+requirements are unchanged. No Run submission operation is advertised yet.

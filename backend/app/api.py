@@ -17,6 +17,8 @@ from .api_economics import RESULT_ID_PATTERN, project_economic_result
 from .api_break_even import PLAN_ID_PATTERN, BreakEvenRead, project_break_even_result
 from .api_thermal import RUN_ID_PATTERN, project_thermal_manifest, project_thermal_run
 from .api_job_run import read_job_run
+from .thermal_scenario_store import ThermalScenarioStore
+from .thermal_scenario_execution import SCENARIO_SCOPES
 from .job_store import JobIntentConflict
 from .orchestration import LocationRequest, LocationResearchService, ResearchRequestRejected
 
@@ -31,7 +33,8 @@ def _access(scopes):
 
 
 def create_app(job_store, market_hold_store, thermal_run_store, market_result_store,
-               *, principal_provider, location_research_service=None, break_even_store=None) -> FastAPI:
+               *, principal_provider, location_research_service=None, break_even_store=None,
+               thermal_scenario_store=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -43,6 +46,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         raise ValueError("trusted location research service required")
     if break_even_store is not None and not callable(getattr(break_even_store, "get_break_even_read", None)):
         raise ValueError("trusted break-even reader required")
+    if thermal_scenario_store is not None and (type(thermal_scenario_store) is not ThermalScenarioStore or
+                                              thermal_scenario_store.runs is not thermal_run_store):
+        raise ValueError("trusted thermal scenario reader required")
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
     location_scopes = ("location_create",)
     job_scopes = ("metadata",)
@@ -172,13 +178,14 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(503, "store_unavailable", "Job hold report unavailable")
 
     @app.get("/v1/jobs/{job_id}/run", response_model=ThermalRunSummary, responses=errors,
-             operation_id="getJobRun", openapi_extra=_access(job_run_scopes))
+             operation_id="getJobRun", openapi_extra={**_access(job_run_scopes),
+                 "x-ossf-conditional-scopes": {"thermal-simulation-result-v2": list(SCENARIO_SCOPES)}})
     def get_job_run(job_id: UUID):
         tenant, denied = authorized_tenant(*job_run_scopes)
         if denied is not None:
             return denied
         try:
-            result = read_job_run(job_store, thermal_run_store, tenant, job_id)
+            result = read_job_run(job_store, thermal_run_store, tenant, job_id, thermal_scenario_store)
             if result is None:
                 return _error(404, "not_found", "Job Run not found")
             return result

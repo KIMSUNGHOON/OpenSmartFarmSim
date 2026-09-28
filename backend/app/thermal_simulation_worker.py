@@ -2,10 +2,10 @@
 
 from dataclasses import dataclass
 from hashlib import sha256
-from typing import Literal
+from typing import Annotated, Literal
 from uuid import UUID
 
-from pydantic import Field
+from pydantic import Field, TypeAdapter
 from psycopg import sql
 
 from .job_store import JobStore
@@ -14,6 +14,8 @@ from .provenance import FrozenContract
 from .runtime_roles import RuntimeLoginPolicy
 from .thermal_publisher import ThermalG1Publisher, ThermalPublishHold
 from .thermal_run_store import ThermalRunStore, ThermalStoreHold
+from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold, IDENTIFIER
+from .thermal_scenario_execution import scenario_execution_binding
 
 
 class SimulationInput(FrozenContract):
@@ -21,6 +23,17 @@ class SimulationInput(FrozenContract):
     snapshot_id: str = Field(min_length=84, max_length=84, pattern=r'^thermal-snapshot-v1:[0-9a-f]{64}$')
     review_job_id: str = Field(min_length=36, max_length=36,
         pattern=r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
+
+
+class ScenarioSimulationInput(SimulationInput):
+    input_version: Literal['thermal-simulation-input-v2']
+    scenario_id: str = Field(pattern=IDENTIFIER, max_length=200)
+    scenario_revision: str = Field(pattern=IDENTIFIER, max_length=200)
+    scenario_sha256: str = Field(pattern=r'^[0-9a-f]{64}$', min_length=64, max_length=64)
+
+
+SIMULATION_INPUT = TypeAdapter(Annotated[SimulationInput | ScenarioSimulationInput,
+                                         Field(discriminator='input_version')])
 
 
 @dataclass(frozen=True)
@@ -42,7 +55,7 @@ _HOLDS = frozenset({'ACCESS_HOLD', 'PIN_HOLD', 'REVIEW_HOLD', 'CONTEXT_HOLD',
 
 
 class ThermalSimulationWorker:
-    def __init__(self, publisher, *, tenant_id, lease_seconds=120):
+    def __init__(self, publisher, *, tenant_id, lease_seconds=120, scenario_store=None):
         try:
             require_name(tenant_id, 'tenant_id')
             require_seconds(lease_seconds, 'lease_seconds')
@@ -50,6 +63,7 @@ class ThermalSimulationWorker:
                 raise ValueError()
             self.publisher = publisher
             self.jobs, self.runs = publisher.job_store, publisher.run_store
+            self.scenario_store = scenario_store
             self._binding()
         except Exception:
             raise ValueError('simulation worker binding rejected') from None
@@ -68,6 +82,15 @@ class ThermalSimulationWorker:
                 not callable(self.jobs.principal_provider) or
                 self.runs._principal_provider is not self.jobs.principal_provider):
             raise ValueError('simulation worker binding rejected')
+        if self.scenario_store is not None:
+            if type(self.scenario_store) is not ThermalScenarioStore or self.scenario_store.runs is not self.runs:
+                raise ValueError('simulation worker binding rejected')
+            self.scenario_store._binding()
+
+    def _scenario(self, value, report=None):
+        if type(value) is ScenarioSimulationInput:
+            return scenario_execution_binding(self.scenario_store, self.runs, self.tenant_id, value, report)
+        return {}
 
     def _close(self, lease, kind, code):
         try:
@@ -107,11 +130,12 @@ class ThermalSimulationWorker:
             if raw is None:
                 raise _LeaseLost()
             try:
-                value = SimulationInput.model_validate_json(raw)
+                value = SIMULATION_INPUT.validate_json(raw)
                 if canonical_input_bytes(value.model_dump(mode='json')) != raw:
                     raise ValueError()
             except Exception:
                 return self._close(lease, 'fatal', 'simulation_input_rejected')
+            self._scenario(value)
             packet = self.publisher.prepare(self.tenant_id, value.review_job_id, value.snapshot_id)
             run_id = self._finish(lease, raw, value, packet)
             return SimulationResult(lease['job_id'], lease['attempt'], 'succeeded', 'completed', run_id)
@@ -123,6 +147,8 @@ class ThermalSimulationWorker:
             return self._close(lease, 'hold', 'thermal_'+code)
         except ThermalStoreHold:
             return self._close(lease, 'hold', 'thermal_g1_hold')
+        except ThermalScenarioHold:
+            return self._close(lease, 'hold', 'thermal_scenario_hold')
         except Exception:
             return self._close(lease, 'transient', 'simulation_runtime_failure')
 
@@ -132,12 +158,15 @@ class ThermalSimulationWorker:
         if (report['tenant_id'] != self.tenant_id or report['snapshot_id'] != value.snapshot_id or
                 report['review_job_id'] != value.review_job_id):
             raise ThermalStoreHold('REPORT_HOLD: simulation packet differs')
+        scenario = self._scenario(value, report)
         receipt = {'receipt_version': 'thermal-simulation-result-v1', 'status': 'accepted',
             'claim_scope': 'synthetic_thermal_replay_only', 'run_id': report['run_id'],
             'snapshot_id': value.snapshot_id, 'review_job_id': value.review_job_id,
             'decision_context_id': report['decision_context_id'], 'decision_id': report['decision_id'],
             'trace_sha256': [sha256(trace).hexdigest() for trace in packet['trace_raws']],
             'report_sha256': sha256(packet['report_raw']).hexdigest()}
+        if scenario:
+            receipt.update(receipt_version='thermal-simulation-result-v2', **scenario)
         artifact = canonical_input_bytes(receipt)
         digest = sha256(artifact).hexdigest()
         self.jobs._durable_artifact(artifact, digest)
@@ -148,12 +177,16 @@ class ThermalSimulationWorker:
                     job['cancel_requested'] or job['stage'] != 'simulation' or
                     self.jobs._verified_input(job) != raw):
                 raise _LeaseLost()
+            if self._scenario(value, report) != scenario:
+                raise ThermalScenarioHold('thermal scenario execution pins differ')
             stored = self.runs._publish_verified_in_transaction(conn, self.tenant_id, **packet)
             if stored != {'run_id': receipt['run_id'], 'trace_sha256': tuple(receipt['trace_sha256']),
                           'report_sha256': receipt['report_sha256']}:
                 raise ThermalStoreHold('STORE_HOLD: simulation receipt differs')
             if not self.jobs._has_scope(self.tenant_id, 'simulation_execute'):
                 raise _LeaseLost()
+            if self._scenario(value, report) != scenario:
+                raise ThermalScenarioHold('thermal scenario execution pins differ')
             updated = conn.execute(sql.SQL("""
                 UPDATE {} SET state='succeeded', reason=NULL, lease_token=NULL, lease_until=NULL,
                     updated_at=clock_timestamp()

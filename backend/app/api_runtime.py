@@ -17,6 +17,7 @@ from .orchestration import LocationResearchService
 from .research_registry import ResearchRegistry
 from .runtime_roles import RuntimeLoginPolicy
 from .thermal_run_store import ThermalRunStore
+from .thermal_scenario_store import ThermalScenarioStore
 
 
 _SOURCE_METHODS = frozenset({'tenant_is_authenticated', 'get_economic_scenario',
@@ -104,6 +105,7 @@ class ApiRuntime:
     market_candidates: MarketCandidateStore = field(repr=False)
     market_results: MarketResultStore = field(repr=False)
     break_even: BreakEvenStore = field(repr=False)
+    thermal_scenarios: ThermalScenarioStore | None = field(repr=False)
 
     def __init__(self, config, dependencies):
         try:
@@ -133,14 +135,15 @@ class ApiRuntime:
                 principal_provider=current_principal, runtime_identity=binding)
             break_even = BreakEvenStore(config.dsn, config.policy.schema, candidates,
                 principal_provider=current_principal, runtime_identity=binding)
+            scenarios = ThermalScenarioStore(thermal, holds) if config.policy.thermal_scenario_storage else None
             app = create_app(jobs, holds, thermal, results, principal_provider=current_principal,
                 location_research_service=LocationResearchService(jobs, dependencies.research_registry.scope_for_location),
-                break_even_store=break_even)
+                break_even_store=break_even, thermal_scenario_store=scenarios)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
             raise ValueError('API runtime assembly rejected') from None
         for name, value in (('service', service), ('jobs', jobs), ('thermal', thermal),
                 ('market_holds', holds), ('market_candidates', candidates),
-                ('market_results', results), ('break_even', break_even)):
+                ('market_results', results), ('break_even', break_even), ('thermal_scenarios', scenarios)):
             object.__setattr__(self, name, value)

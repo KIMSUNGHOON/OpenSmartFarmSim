@@ -60,3 +60,33 @@ The command accepts no raw input, tenant override, keys or owner provisioning.
 The real Python child test uses synthetic protected config/keys/captures and
 actual SCRAM, with no Codex credentials/environment or model call. It proves
 software process/DB completion, not independent custody or real CLI/G1/G4.
+
+## Scenario-bound input and receipt v2
+
+The closed input `thermal-simulation-input-v2` adds required scenario_id,
+scenario_revision and scenario_sha256 to the existing snapshot/review references.
+It accepts no coefficients or approval flags. The worker's optional exact
+ThermalScenarioStore must use its exact Run store and the same audited v6
+authority. Missing configuration or unmatched/unavailable records yields the
+fixed `thermal_scenario_hold`; it never falls back to v1 or omits the pins.
+
+The actual scenario/revision/hash and snapshot are read before calculation.
+After prepare, the packet's tenant/snapshot/context and manifest/context hashes
+must match that record. Current signed references and scopes are checked again
+inside the publication transaction before Run insertion and after insertion.
+Any failure rolls the transaction back before closing the job as hold. Existing
+live lease/cancel/input and final expiry guards still apply.
+
+`thermal-simulation-result-v2` preserves all existing receipt fields and adds
+scenario_id/revision/SHA-256 and the four scenario_pins. The receipt/job input
+hash binds this selection intent to the independently validated physical Run.
+Physical trace identity, arithmetic, signed gate report and source bytes remain
+unchanged: identical physical inputs/context/review may share a physical Run
+even when selection labels differ. These are thermal-component bindings,
+not a complete farm/economic Scenario or an extra gate approval.
+
+Default constructor/input v1 behavior and receipt shape are retained. The
+operator opts into v6 and supplies the real Scenario store in its protected
+factory. Current synthetic software tests grant no actual CLI, independent
+release, production configuration or G1/G4 acceptance. HTTP submission and
+complete workflow remain subsequent work.

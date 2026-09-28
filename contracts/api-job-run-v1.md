@@ -35,3 +35,20 @@ The read creates no job, result or model invocation. A 200 demonstrates the
 stored software replay only; it does not approve source G0, future economics,
 crop ranking or deployment. Simulation submission, actual orchestration and
 browser rendering remain separate tasks.
+
+## Scenario-bound receipt v2
+
+For thermal-simulation-result-v2, the route additionally requires
+thermal_scenario_read, thermal_snapshot_read, decision_context_read and
+market_hold_context_read. The OpenAPI x-ossf-conditional-scopes field declares
+these AND requirements for that receipt version. Denial is fixed 403 before
+Scenario/reference reads. Existing metadata/artifact/run scopes authorize the
+bounded receipt inspection that selects the version.
+
+The reader reconstructs input v2 including exact scenario ID/revision/hash,
+checks the actual immutable job/publication, reloads the actual Scenario with
+current signed references and matches its four pins/context to the verified
+Run and receipt. Missing configuration/record or changed pins yields fixed 503;
+it does not serve a legacy summary without the required binding. The returned
+ThermalRunSummary and existing v1 requirements stay unchanged; private scenario
+pins/review IDs are not added to the response.
