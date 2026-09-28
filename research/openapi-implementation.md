@@ -55,3 +55,14 @@ reviewed before regeneration. Remaining submissions, full protected operator
 assembly, actual CLI, source/independent release, browser/G1 and public G4 are
 still incomplete. Whitespace and changed-document local links are checked
 separately; hosted exact-head CI is a later receipt.
+
+
+## Hosted exact-head verification receipt
+
+Commit `c079c53871031b11586f1fc49c4aadbdf5c77295` completed
+[backend CI 36409914563](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36409914563):
+**1,530 ordinary tests passed**, two existing Pydantic warnings, 325.89 s;
+**4 distinct-UID tests passed**, 18.36 s, and the kernel DAC check passed.
+[Compose CI 36409914569](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36409914569)
+passed in 32 s. These receipts cover the OpenAPI commit. Subsequent market-login
+changes require their own checks; the receipts do not accept production or G1/G4.

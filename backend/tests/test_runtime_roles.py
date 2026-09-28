@@ -27,9 +27,17 @@ def owned_scope(pg_store, policy):
         install_execution_attestation_schema(conn, pg_store.schema)
         install_thermal_run_schema(conn, pg_store.schema)
         install_market_hold_schema(conn, pg_store.schema)
+        tables = TABLES
+        if getattr(policy, "market_calculation", False):
+            from app.market_candidate_store import install_market_candidate_schema
+            from app.market_result_store import install_market_result_schema
+            from app.runtime_roles import MARKET_TABLES
+            install_market_candidate_schema(conn, pg_store.schema)
+            install_market_result_schema(conn, pg_store.schema)
+            tables += MARKET_TABLES
         conn.execute(sql.SQL("ALTER SCHEMA {} OWNER TO {}").format(
             sql.Identifier(policy.schema), sql.Identifier(policy.owner)))
-        for table in TABLES:
+        for table in tables:
             conn.execute(sql.SQL("ALTER TABLE {}.{} OWNER TO {}").format(
                 sql.Identifier(policy.schema), sql.Identifier(table), sql.Identifier(policy.owner)))
         routines = conn.execute("""SELECT proname FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace

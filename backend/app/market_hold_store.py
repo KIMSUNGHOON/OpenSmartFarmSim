@@ -11,6 +11,8 @@ import psycopg
 from psycopg import sql
 from psycopg.rows import dict_row
 
+from .market_runtime import connect_market, validate_market_identity
+
 
 _NAME = re.compile(r"[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}\Z")
 _DIGEST = re.compile(r"[0-9a-f]{64}\Z")
@@ -71,11 +73,13 @@ class MarketHoldStore:
     """Configured server authority; API clients may supply only a report ID."""
 
     def __init__(self, dsn, schema, *, context_store, scope_resolver,
-                 principal_provider, signing_key):
+                 principal_provider, signing_key, runtime_identity=None):
         if (not callable(getattr(context_store, "get_decision_context", None)) or
                 not callable(scope_resolver) or not callable(principal_provider) or
                 type(signing_key) is not bytes or len(signing_key) < 32):
             raise ValueError("market hold needs trusted server dependencies")
+        validate_market_identity(schema, runtime_identity)
+        self.runtime_identity = runtime_identity
         self.dsn, self.schema = dsn, schema
         self._context_store = context_store
         self._scope_resolver = scope_resolver
@@ -83,6 +87,8 @@ class MarketHoldStore:
         self._key = signing_key
 
     def connect(self):
+        if self.runtime_identity is not None:
+            return connect_market(self.dsn, self.runtime_identity)
         return psycopg.connect(self.dsn, row_factory=dict_row)
 
     def _table(self):

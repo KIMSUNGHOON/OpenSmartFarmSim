@@ -70,7 +70,9 @@ def login_scope(login_database, tmp_path, request):
         install_schema(conn, schema)
     suffix = uuid4().hex
     policy = RuntimeLoginPolicy(schema, "login_owner_" + suffix, "login_" + suffix,
-                                database["database"])
+                                database["database"], market_calculation=(
+                                    type(getattr(request, "param", None)) is dict and
+                                    request.param.get("market_calculation") is True))
     try:
         with owned_scope(base, policy):
             with base.connect() as conn:

@@ -1,6 +1,6 @@
 """Owner-run fresh runtime grants; optional login profiles never receive secrets."""
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import re
 
 from psycopg import sql
@@ -16,6 +16,7 @@ JOB_TABLES = (
 )
 TABLES = JOB_TABLES + ("execution_attestations", "thermal_input_snapshots",
                       "decision_contexts", "thermal_g1_runs")
+MARKET_TABLES = ("market_candidate_pins", "market_candidate_inputs", "market_result_records")
 SUPERVISOR_TABLES = frozenset({"jobs", "job_attempts", "evidence_authorizations",
     "attempt_evidence", "attempt_invocations", "attempt_cli_launches",
     "attempt_cli_captures", "validation_receipts", "ai_decisions"})
@@ -47,12 +48,18 @@ class RuntimeRolePolicy:
 class RuntimeLoginPolicy(RuntimeRolePolicy):
     database: str
     connection_limit: int = 8
+    market_calculation: bool = field(default=False, kw_only=True)
 
     def __post_init__(self):
         super().__post_init__()
         if (type(self.database) is not str or not NAME.fullmatch(self.database) or
-                type(self.connection_limit) is not int or not 1 <= self.connection_limit <= 32):
+                type(self.connection_limit) is not int or not 1 <= self.connection_limit <= 32 or
+                type(self.market_calculation) is not bool):
             raise RolePolicyHold("invalid_login_policy_scope")
+
+
+def _tables(policy):
+    return TABLES + MARKET_TABLES if isinstance(policy, RuntimeLoginPolicy) and policy.market_calculation else TABLES
 
 
 def _database(conn, policy):
@@ -93,15 +100,15 @@ def _scope(conn, policy, *, hardened=True):
     """, (row["schema_oid"],)).fetchall()
     routines = conn.execute("SELECT oid, proowner, prosecdef FROM pg_proc WHERE pronamespace=%s",
                             (row["schema_oid"],)).fetchall()
-    if (not set(TABLES) <= {item["relname"] for item in relations if item["relkind"] == "r"} or
+    if (not set(_tables(policy)) <= {item["relname"] for item in relations if item["relkind"] == "r"} or
             any(item["relowner"] != row["owner_oid"] for item in relations) or
             any(item["proowner"] != row["owner_oid"] or item["prosecdef"] for item in routines)):
         raise RolePolicyHold("unexpected_project_objects_or_owners")
     return row, relations, routines
 
 
-def _allowed(kind, name, privilege):
-    if kind == "authority" and name in TABLES:
+def _allowed(policy, kind, name, privilege):
+    if kind == "authority" and name in _tables(policy):
         return privilege in {"SELECT", "INSERT"} or (name == "jobs" and privilege == "UPDATE")
     return kind == "supervisor" and name in SUPERVISOR_TABLES and privilege == "SELECT"
 
@@ -166,7 +173,7 @@ def audit_runtime_roles(conn, policy):
                     has_table_privilege(%s,%s,p || ' WITH GRANT OPTION') AS grantable
                 FROM unnest(%s::text[]) p
             """, (role, oid, role, oid, privileges)).fetchall()
-            if any(item["allowed"] != _allowed(kind, name, item["privilege"]) or item["grantable"]
+            if any(item["allowed"] != _allowed(policy, kind, name, item["privilege"]) or item["grantable"]
                    for item in values):
                 raise RolePolicyHold("runtime_table_grant_matrix")
             columns = conn.execute("""
@@ -175,7 +182,7 @@ def audit_runtime_roles(conn, policy):
                 FROM pg_attribute a CROSS JOIN unnest(ARRAY['SELECT','INSERT','UPDATE','REFERENCES']) p
                 WHERE a.attrelid=%s AND a.attnum>0 AND NOT a.attisdropped
             """, (role, role, oid)).fetchall()
-            if any(item["allowed"] != _allowed(kind, name, item["privilege"]) or item["grantable"]
+            if any(item["allowed"] != _allowed(policy, kind, name, item["privilege"]) or item["grantable"]
                    for item in columns):
                 raise RolePolicyHold("runtime_column_grant_matrix")
         if any(conn.execute("SELECT has_function_privilege(%s,%s,'EXECUTE') AS allowed",
@@ -194,7 +201,8 @@ def audit_runtime_roles(conn, policy):
     """, (scope["owner_oid"],) * 4 + (scope["schema_oid"], scope["owner_oid"])).fetchone()
     if bad_defaults:
         raise RolePolicyHold("uncontrolled_creator_defaults")
-    return {"policy_version": "runtime-login-policy-v2" if login else VERSION,
+    return {"policy_version": ("runtime-market-login-policy-v3" if policy.market_calculation else
+                               "runtime-login-policy-v2") if login else VERSION,
             "schema": policy.schema, "owner": policy.owner,
             "roles": policy.roles, "tables": len(relations), "routines": len(routines)}
 
@@ -238,7 +246,7 @@ def install_runtime_roles(conn, policy):
                 conn.execute(sql.SQL("GRANT CONNECT ON DATABASE {} TO {}").format(
                     sql.Identifier(policy.database), identifier))
             conn.execute(sql.SQL("GRANT USAGE ON SCHEMA {} TO {}").format(namespace, identifier))
-            selected = TABLES if kind == "authority" else tuple(sorted(SUPERVISOR_TABLES)) if kind == "supervisor" else ()
+            selected = _tables(policy) if kind == "authority" else tuple(sorted(SUPERVISOR_TABLES)) if kind == "supervisor" else ()
             for name in selected:
                 conn.execute(sql.SQL("GRANT {} ON TABLE {}.{} TO {}")
                     .format(sql.SQL("SELECT,INSERT" if kind == "authority" else "SELECT"),

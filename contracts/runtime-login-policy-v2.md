@@ -28,6 +28,10 @@ authentication. Its connection limit is approximate, not strict worker
 concurrency ([PostgreSQL 18 CREATE ROLE](https://www.postgresql.org/docs/18/sql-createrole.html)).
 The explicit limit is a candidate configuration, not measured production capacity.
 
+An explicit [market calculation profile v3](runtime-market-login-policy-v3.md)
+adds three immutable calculation tables. The default remains v2; existing roles
+are not upgraded automatically.
+
 ## Every runtime connection
 
 [`connect_runtime`](../backend/app/runtime_login.py) accepts trusted DSN/policy/

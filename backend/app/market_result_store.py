@@ -8,6 +8,7 @@ from psycopg.rows import dict_row
 
 from .market_result_codec import decode_market_result, encode_market_result
 from .market_scenario import MarketScenarioService
+from .market_runtime import connect_market, validate_market_identity
 
 
 def _hash(raw):
@@ -57,14 +58,18 @@ def install_market_result_schema(conn, schema):
 class MarketResultStore:
     """Store server-calculated results; callers cannot submit result bytes."""
 
-    def __init__(self, dsn, schema, candidate_repository, *, principal_provider):
+    def __init__(self, dsn, schema, candidate_repository, *, principal_provider, runtime_identity=None):
         if not callable(principal_provider):
             raise ValueError("market result principal provider is required")
+        validate_market_identity(schema, runtime_identity, calculation=True)
+        self.runtime_identity = runtime_identity
         self.dsn, self.schema = dsn, schema
         self._candidates = candidate_repository
         self._principal_provider = principal_provider
 
     def connect(self):
+        if self.runtime_identity is not None:
+            return connect_market(self.dsn, self.runtime_identity)
         return psycopg.connect(self.dsn, row_factory=dict_row)
 
     def _table(self, name):
