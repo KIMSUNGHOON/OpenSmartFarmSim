@@ -56,3 +56,14 @@ G1/G4 remain pending. New modules enter the closed code digest and require a fre
 independent release; existing immutable sources and releases are unchanged.
 Full hosted verification follows the implementation commit; whole G1 task
 checkboxes remain open. No dependency or economic/physical arithmetic changed.
+
+## Hosted receipt for fc5355b
+
+[Backend run 36426026833](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36426026833)
+completed successfully on exact head fc5355bf042de8bd413e9999c648fd8c0758e922:
+PostgreSQL 18.6 ordinary suite **1658 passed, 2 warnings in 908.38 s**;
+separate-UID service suite **4 passed in 19.46 s**, followed by successful
+distinct-Linux-UID content access and cleanup steps.
+[Compose run 36426026865](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36426026865)
+also succeeded on that head. These are hosted software receipts, not G1/G4
+approval; the two warnings are existing Pydantic serialization warnings.

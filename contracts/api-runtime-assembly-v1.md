@@ -56,7 +56,7 @@ The factory/remaining dependencies are validated and all implemented stores
 are created: JobStore, ThermalRunStore, MarketHoldStore, MarketCandidateStore,
 MarketResultStore and BreakEvenStore. LocationResearchService uses the exact
 supplied immutable registry. PrincipalMiddleware supplies the same request
-identity to every store and the existing nine routes. No unused reader doubles
+identity to every store and the existing ten routes. No unused reader doubles
 or absent optional location/break-even service enter this assembly.
 
 The market source view independently checks the current tenant and source

@@ -22,6 +22,7 @@ OPERATIONS = {
     ("/v1/locations", "post"): ("registerLocation", ["location_create"]),
     ("/v1/jobs/{job_id}", "get"): ("getJob", ["metadata"]),
     ("/v1/jobs/{job_id}/hold-report", "get"): ("getJobHold", ["metadata", "artifact", "auditor"]),
+    ("/v1/jobs/{job_id}/run", "get"): ("getJobRun", ["metadata", "artifact", "thermal_run_read"]),
     ("/v1/market-hold-reports/{report_id}", "get"): ("getMarketHold", ["market_hold_read"]),
     ("/v1/runs/{run_id}", "get"): ("getRun", ["thermal_run_read"]),
     ("/v1/runs/{run_id}/series", "get"): ("getRunSeries", ["thermal_run_read"]),

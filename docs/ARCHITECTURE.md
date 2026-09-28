@@ -57,7 +57,7 @@ flowchart LR
 
 [OpenAPI 3.1](https://spec.openapis.org/oas/v3.1.0)로 요청·응답·오류 스키마를 관리한다. 아래는 첫 계약의 경계이며 필드 상세 스키마는 구현 전에 예시 요청/응답과 함께 확정한다.
 
-[버전 관리 OpenAPI 후보](../contracts/openapi-v1.md)는 현재 구현된 여덟 경로의 형식·안정 operation ID·Bearer 인증·권한을 고정한다. 기존 후보 경로의 JSON 재생성을 검사하며, 아래 표의 후속 제출 경로가 구현됐다는 뜻은 아니다.
+[버전 관리 OpenAPI 후보](../contracts/openapi-v1.md)는 현재 구현된 열 경로의 형식·안정 operation ID·Bearer 인증·권한을 고정한다. 기존 후보 경로의 JSON 재생성을 검사하며, 아래 표의 후속 제출 경로가 구현됐다는 뜻은 아니다.
 
 [서비스 Bearer 인증 후보](../contracts/http-identity-v1.md)는 서버가 고정한 테넌트·권한·유효기간을 요청 문맥에 묶는다. API와 요청용 저장소는 같은 `current_principal` 공급자를 사용한다. [HTTPS 시작 후보](../contracts/api-https-service-v1.md)는 운영자 factory의 인증된 앱을 로컬 TLS로 실행한다. 공개 HTTPS·프록시 신뢰·계정 발급/회수·브라우저 로그인·운영 조립은 별도 검증 전까지 보류다.
 
@@ -69,6 +69,7 @@ flowchart LR
 | `GET /v1/jobs/{id}` | `queued/researching/collecting/reviewing/simulating/assessing/succeeded/hold/failed/canceled`, 단계, 진행시각, 재시도 가능 여부와 원인을 제공한다. `hold`는 근거·권한·예산·CLI 문제 등으로 더 진행하지 않는 정상적인 보류 상태이며 성공으로 표시하지 않는다. 시장 G0 보류에는 `hold_report_id`를 포함한다. 조건부 경제 계산 작업의 `succeeded`는 Assessment 통과를 뜻하지 않는다. |
 | `GET /v1/jobs/{id}/hold-report` | [검증된 작업 보류 조회](../contracts/api-job-hold-v1.md). 같은 테넌트의 metadata/artifact/auditor 권한 아래 저장된 AI 보류 사유·안전한 누락 근거 범주·개수·기록 시각을 제공한다. 비공개 식별자는 기타 근거로 묶고, CLI 장애 보류나 Market hold를 AI 검증 보고서로 만들지 않는다. |
 | `POST /v1/runs` | **고정 Snapshot ID**·Scenario ID/버전·모델 버전·멱등 키를 받는다. 권리·필수 입력·모델 적용 범위를 검사한 뒤 작업 ID를 돌려준다. |
+| `GET /v1/jobs/{id}/run` | [완료 열 작업의 Run 조회](../contracts/api-job-run-v1.md). 같은 테넌트의 metadata/artifact/thermal_run_read 권한 아래 불변 입력·완료 게시·영수증·검증된 Run의 해시와 결정 문맥을 대사하고 기존 공개 Run 요약만 반환한다. 미완료는 404, 불일치는 고정 503이며 원문이나 검토 ID를 반환하지 않는다. |
 | `GET /v1/runs/{id}`, `/series`, `/manifest` | 승인된 사용자에게 완료된 실행 메타데이터·시간별 상태·출처와 `temporal_provenance`를 읽기 전용으로 제공한다. 미완료 결과는 완성본처럼 노출하지 않는다. |
 | `POST /v1/economic-scenarios`, `POST /v1/economic-results`, `GET /v1/economic-results/{id}` | Scenario와 일치하는 `market_context`, 달력·시설·수확/판매 인정/반품/폐기/재고량·등급/경로·고정 가격/요금/견적 또는 사용자 가정 버전·비용 배분·수금/지급 시점과 멱등 키를 검사한다. `unavailable`인 첫 G1 내부 시범에서는 사용자 가정만 받아 `origin=user`·`evidence_level=assumed`를 결과에도 반환한다. `unavailable`인 후속 단계에서는 독립적인 접근·이용권, 농장·기간·채널·계약 조건의 적용성, 원장·정산 대사를 확인한 비공개 계약·정산·원장을 조건부 또는 해당 농장의 과거 계산에 받고 `measured/quoted` 등급을 유지한다. 서버는 누락/단위/권리/증거 등급을 기록하고 별도 산술 작업으로 **조건부** 손익·목표별 손익분기·월별 현금 잔액을 반환한다. 미확인 필수값은 0으로 채우지 않는다. 원장 검증 없이는 과거 실적이라 부르지 않는다. |
 | `GET /v1/break-even-results?plan_id=...` | 고정 계획의 테넌트·권한·불변 바이트를 검사하고 모든 격자 시험값의 전체 시장/경제 경로를 재계산한다. 세 목표·kg 또는 KRW/kg 단위·격자의 영점/구간/비단조/보류, 현금 부족과 사용자 가정/Assessment `hold`를 안전하게 투영한다. 연속 범위의 해나 미래 수익으로 승격하지 않는다. 계획/시험값 제출·생성은 후속 작업이다([조회 계약](../contracts/api-break-even-read-v1.md)). |
@@ -137,7 +138,7 @@ stdin은 서버가 생성한 버전 고정 지시문과 `tenant_id/job_id`, 좌�
 
 [시장 계산 로그인 프로필 v3 후보](../contracts/runtime-market-login-policy-v3.md)는 명시적 선택으로 후보·숫자 입력·결과의 불변 세 테이블에 authority 읽기/삽입만 허용한다. 보류·후보·결과 저장소는 묶인 실제 SCRAM 로그인과 전체 유효 권한을 매 연결에서 시장 조회 전에 검사한다. 기본 v2와 v1은 유지하며 기존 역할이나 기록을 자동 갱신하지 않는다. 합성 자료의 DB 인증·재계산 시험은 실제 시장 원천, 운영 자격증명 소유권이나 G1/G4 증거가 아니다.
 
-[구현된 API 조립 후보](../contracts/api-runtime-assembly-v1.md)는 명시적 v4 프로필과 보호된 운영자 의존성을 받아 기존 아홉 경로·TLS·Bearer·여섯 저장소를 같은 요청 인증에 연결한다. 시작 전에 기존 아티팩트 루트와 실제 SCRAM/유효 권한을 검사하고 작업 저장소도 매 연결에서 권한을 재검사한다. 시장 원천이 서명 보류·결정 문맥 권한을 대체할 수 없다. 시험용 원천/키의 실제 서비스 프로세스 시험은 운영 자료·설정/키 소유권·전체 Codex/Run/브라우저·G1/G4 수용이 아니다.
+[구현된 API 조립 후보](../contracts/api-runtime-assembly-v1.md)는 명시적 v4 프로필과 보호된 운영자 의존성을 받아 기존 열 경로·TLS·Bearer·여섯 저장소를 같은 요청 인증에 연결한다. 시작 전에 기존 아티팩트 루트와 실제 SCRAM/유효 권한을 검사하고 작업 저장소도 매 연결에서 권한을 재검사한다. 시장 원천이 서명 보류·결정 문맥 권한을 대체할 수 없다. 시험용 원천/키의 실제 서비스 프로세스 시험은 운영 자료·설정/키 소유권·전체 Codex/Run/브라우저·G1/G4 수용이 아니다.
 
 [콘텐츠 접근 정책 후보](../contracts/content-access-v1.md)는 신뢰 설정으로 authority 소유 파일에 감독자 그룹의 읽기 권한을 줄 수 있다. 열린 디렉터리/파일의 소유 UID·그룹·정확한 모드·ACL과 내용 해시를 검사하며 기존 권한을 자동으로 넓히지 않는다. 공유 그룹은 해당 콘텐츠 루트 전체를 읽으므로 운영에서는 테넌트별 루트·UID/그룹·읽기 전용 마운트와 별도 비밀 소유권을 구성해야 한다. 실제 UID 파일 접근 시험도 전체 서비스·계정·모델 실행이나 G1/G4 수용을 뜻하지 않는다.
 

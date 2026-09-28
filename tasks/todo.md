@@ -75,3 +75,5 @@
 **시장·경제 입력 저장 진행 후보:** [MarketSourceStore](../backend/app/market_source_store.py)가 기존 7종 사용자 가정을 실제 불변 작업 입력에 결합하고 기준/충격 pin을 생성한다. [저장·v5 계약](../contracts/market-user-source-store-v1.md), [시험](../backend/tests/test_market_source_store.py), [구현 증거](../research/market-user-source-implementation.md)를 참조한다. 실제 자료 승인·입력/계획 오케스트레이션·전체 CLI/브라우저/운영 수용은 남아 있어 market-scenario, economic-break-even, api-flow 체크는 변경하지 않았다.
 
 - [ ] **`thermal-simulation-worker`** — 선행: `durable-jobs`, `thermal-g1-publisher`, `cli-worker`; 후속: `api-flow`, `end-to-end-g1`. [작업자/전경 실행 계약](../contracts/thermal-simulation-worker-v1.md)에 따라 명시적 작업·테넌트·현재 권한/임대/불변 입력과 실제 승인 검토에 결합해 Run과 완료를 한 거래로 게시한다. 취소·만료·프로세스 실패/새 시도, 오류 비공개, 다른 모델 작업 미소비를 확인한다. [소프트웨어 진행 증거](../research/thermal-simulation-worker-implementation.md)는 SCRAM·합성 검토/키의 집중 177개와 실제 자식 정상/중단 후 복구를 확인했다. 실제 CLI·독립 검토/해제·운영 factory·전체 API/브라우저 G1 수용은 남아 체크를 유지한다.
+
+**API 연결 진행:** [완료 열 작업의 Run 조회](../contracts/api-job-run-v1.md)가 작업 게시/영수증·입력 해시와 실제 Run을 대사해 기존 공개 요약을 반환한다. [구현 증거](../research/api-job-run-implementation.md)는 합성 검토와 실제 SCRAM/인증된 조립의 소프트웨어 범위다. 실제 CLI·제출/오케스트레이션·브라우저 G1은 남아 api-flow 체크를 유지한다.

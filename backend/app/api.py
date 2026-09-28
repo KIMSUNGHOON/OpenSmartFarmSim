@@ -16,6 +16,7 @@ from .api_contracts import (EconomicResultRead, ErrorEnvelope, JobStatus, Market
 from .api_economics import RESULT_ID_PATTERN, project_economic_result
 from .api_break_even import PLAN_ID_PATTERN, BreakEvenRead, project_break_even_result
 from .api_thermal import RUN_ID_PATTERN, project_thermal_manifest, project_thermal_run
+from .api_job_run import read_job_run
 from .job_store import JobIntentConflict
 from .orchestration import LocationRequest, LocationResearchService, ResearchRequestRejected
 
@@ -46,6 +47,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
     location_scopes = ("location_create",)
     job_scopes = ("metadata",)
     job_hold_scopes = ("metadata", "artifact", "auditor")
+    job_run_scopes = ("metadata", "artifact", "thermal_run_read")
     market_hold_scopes = ("market_hold_read",)
     run_scopes = ("thermal_run_read",)
     manifest_scopes = ("thermal_run_read", "thermal_snapshot_read")
@@ -168,6 +170,22 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return public_job_hold(job, held, raw)
         except Exception:
             return _error(503, "store_unavailable", "Job hold report unavailable")
+
+    @app.get("/v1/jobs/{job_id}/run", response_model=ThermalRunSummary, responses=errors,
+             operation_id="getJobRun", openapi_extra=_access(job_run_scopes))
+    def get_job_run(job_id: UUID):
+        tenant, denied = authorized_tenant(*job_run_scopes)
+        if denied is not None:
+            return denied
+        try:
+            result = read_job_run(job_store, thermal_run_store, tenant, job_id)
+            if result is None:
+                return _error(404, "not_found", "Job Run not found")
+            return result
+        except PermissionError:
+            return _error(403, "forbidden", "Resource access denied")
+        except Exception:
+            return _error(503, "store_unavailable", "Job Run unavailable")
 
     def displayed_run(run_id):
         tenant, denied = authorized_tenant(*run_scopes)
