@@ -79,6 +79,14 @@ class _ProposedPlanRepository:
         return getattr(self._source, name)
 
 
+class BreakEvenDenied(ValueError):
+    pass
+
+
+class BreakEvenConflict(ValueError):
+    pass
+
+
 class BreakEvenStore:
     """Read and write only through a trusted, tenant-scoped candidate source."""
 
@@ -158,31 +166,40 @@ class BreakEvenStore:
         if (self._tenant("break_even_write") != plan.tenant_id or
                 plan.plan_id != request.plan_id or
                 plan.request_sha256 != canonical_request_sha256(request)):
-            raise ValueError("break-even plan write or request binding denied")
+            raise BreakEvenDenied("break-even plan write or request binding denied")
         result = BreakEvenService(_ProposedPlanRepository(self._source, plan)).scan(
             request, plan.tenant_id)
+        with self.connect() as conn:
+            self._pin_in_transaction(conn, request, plan, result)
+        return result
+
+    def _pin_in_transaction(self, conn, request, plan, result):
+        if (self._tenant("break_even_write") != plan.tenant_id or plan.plan_id != request.plan_id or
+                plan.request_sha256 != canonical_request_sha256(request)):
+            raise BreakEvenDenied("break-even plan write or request binding denied")
         request_raw = _canonical(request.model_dump(mode="json"))
         plan_raw = _canonical(plan.model_dump(mode="json"))
         result_raw = _canonical(_RESULT.dump_python(result, mode="json"))
         if (len(request_raw) > 16384 or len(plan_raw) > 1048576 or
                 len(result_raw) > 1048576):
             raise ValueError("break-even plan or result exceeds size limit")
-        with self.connect() as conn:
-            conn.execute(sql.SQL("""
+        conn.execute(sql.SQL("""
                 INSERT INTO {} (tenant_id, plan_id, request_raw, request_sha256,
                     plan_raw, plan_sha256, result_raw, result_sha256)
                 VALUES (%s,%s,%s,%s,%s,%s,%s,%s) ON CONFLICT DO NOTHING
             """).format(self._table()),
                 (plan.tenant_id, plan.plan_id, request_raw, _hash(request_raw),
                  plan_raw, _hash(plan_raw), result_raw, _hash(result_raw)))
-            row = conn.execute(sql.SQL("""
+        row = conn.execute(sql.SQL("""
                 SELECT * FROM {} WHERE tenant_id=%s AND plan_id=%s
             """).format(self._table()), (plan.tenant_id, plan.plan_id)).fetchone()
-            self._checked(row)
-            if ((row["request_raw"], row["plan_raw"], row["result_raw"]) !=
-                    (request_raw, plan_raw, result_raw)):
-                raise ValueError("break-even immutable plan conflict")
-        return result
+        self._checked(row)
+        if ((row["request_raw"], row["plan_raw"], row["result_raw"]) !=
+                (request_raw, plan_raw, result_raw)):
+            raise BreakEvenConflict("break-even immutable plan conflict")
+        if self._tenant("break_even_write") != plan.tenant_id:
+            raise BreakEvenDenied("break-even plan write or request binding denied")
+        return row
 
     def get_break_even_plan(self, plan_id):
         row = self._row(plan_id)

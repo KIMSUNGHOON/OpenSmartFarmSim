@@ -220,7 +220,11 @@ class BreakEvenService:
     def __init__(self, repository: object):
         self._repository = repository
 
-    def scan(self, request_value: object, authenticated_tenant_id: str) -> BreakEvenResult:
+    def scan(self, request_value: object, authenticated_tenant_id: str, *, check=None) -> BreakEvenResult:
+        if check is not None and not callable(check):
+            raise ValueError("break-even checkpoint invalid")
+        if check is not None:
+            check()
         request = BreakEvenRequest.model_validate(untrusted_data(request_value))
         if (_trusted(self._repository, "tenant_is_authenticated",
                      authenticated_tenant_id) is not True):
@@ -236,6 +240,8 @@ class BreakEvenService:
             raise ValueError("break-even plan repeats a scenario")
         observations = []
         for index, (value, ref) in enumerate(zip(values, plan.trials, strict=True)):
+            if check is not None:
+                check()
             if ref.ordinal != index or Decimal(ref.value) != value:
                 raise ValueError("break-even trial grid differs")
             result = MarketScenarioService(self._repository).calculate_pinned(
@@ -265,6 +271,8 @@ class BreakEvenService:
                                   request.collection_id) != plan.fixed_shock_sha256:
                 raise ValueError("break-even fixed joint shock changed")
             _sale_and_collection(request, scenario, value)
+            if check is not None:
+                check()
             ledger = result.economic_result
             target_value = ledger.target_values.get(request.target)
             if (result.calculation_status != "conditional_user_assumption" or

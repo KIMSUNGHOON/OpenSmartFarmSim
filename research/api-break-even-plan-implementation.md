@@ -53,3 +53,15 @@ proof, independent domain/release/CLI/isolation/custody and full browser/G1/G4
 remain pending. Actual G0/G2/G3 sources/measurements/future paired validation
 also remain missing. No broad checkbox or source/gate decision is promoted.
 The parent HTTP-economic CI receipt is appended in this functional change.
+
+## Hosted CI receipt for this revision
+
+Exact commit `168126c60535beba5874f027227155422b4e12ea` passed
+[Backend tests 36477802296](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36477802296):
+**1,854 passed**, 2 existing warnings, **4,015.14 s (1:06:55)**; all **4 distinct
+UID service tests** passed in **18.74 s**. Content access and database/password
+cleanup steps succeeded. [Compose 36477802149](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36477802149)
+also succeeded at that exact head. This terminal receipt is recorded alongside
+the subsequent functional worker change rather than as a receipt-only commit.
+The results accept the tested software contracts; the full domain, independent
+CLI/release/operating and G0–G4 holds above are unchanged.

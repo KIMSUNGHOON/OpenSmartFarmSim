@@ -696,20 +696,24 @@ class JobStore:
     def renew(self, tenant_id, job_id, attempt, token, lease_seconds: int) -> bool:
         require_seconds(lease_seconds, "lease_seconds")
         with self.connect() as conn:
-            row = self._locked_job(conn, tenant_id, job_id)
-            if not self._owns_live_lease(row, attempt, token) or row["cancel_requested"]:
-                return False
-            updated = conn.execute(sql.SQL("""
-                UPDATE {} SET lease_until = clock_timestamp() + %s * interval '1 second',
-                    updated_at = clock_timestamp()
-                WHERE tenant_id = %s AND job_id = %s AND attempt_count = %s
-                    AND lease_token = %s AND lease_until > clock_timestamp()
-            """).format(self._table("jobs")),
-                (lease_seconds, tenant_id, job_id, attempt, token))
-            if updated.rowcount != 1:
-                return False
-            self._event(conn, tenant_id, job_id, "lease_renewed", attempt)
-            return True
+            return self._renew_in_transaction(conn, tenant_id, job_id, attempt, token, lease_seconds)
+
+    def _renew_in_transaction(self, conn, tenant_id, job_id, attempt, token, lease_seconds):
+        require_seconds(lease_seconds, "lease_seconds")
+        row = self._locked_job(conn, tenant_id, job_id)
+        if not self._owns_live_lease(row, attempt, token) or row["cancel_requested"]:
+            return False
+        updated = conn.execute(sql.SQL("""
+            UPDATE {} SET lease_until = clock_timestamp() + %s * interval '1 second',
+                updated_at = clock_timestamp()
+            WHERE tenant_id = %s AND job_id = %s AND attempt_count = %s
+                AND lease_token = %s AND lease_until > clock_timestamp()
+        """).format(self._table("jobs")),
+            (lease_seconds, tenant_id, job_id, attempt, token))
+        if updated.rowcount != 1:
+            return False
+        self._event(conn, tenant_id, job_id, "lease_renewed", attempt)
+        return True
 
     def fail(self, tenant_id, job_id, attempt, token, kind, code,
              *, retry_delay_seconds: int = 1, exit_code=None,

@@ -81,7 +81,7 @@ class BreakEvenPlanSubmissionService:
         if not all(self.jobs._has_scope(tenant, scope) for scope in PLAN_SUBMISSION_SCOPES):
             raise PermissionError('break-even plan admission denied')
 
-    def _prepare(self, tenant, body):
+    def _prepare(self, tenant, body, *, check=None):
         values = _grid(body.request)
         if (len(values) != len(body.trials) or
                 len({(pin.scenario_id, pin.revision) for pin in body.trials}) != len(values)):
@@ -89,6 +89,8 @@ class BreakEvenPlanSubmissionService:
         refs, fixed_inputs, fixed_shock = [], None, None
         market = MarketScenarioService(self.store._source)
         for index, (value, pin) in enumerate(zip(values, body.trials, strict=True)):
+            if check is not None:
+                check()
             request, scenario, record = market.validate_pinned(pin.scenario_id, pin.revision, tenant)
             if (record['economic_scenario_sha256'] != pin.scenario_sha256 or request.baseline != body.request.baseline or
                     (scenario.tenant_id, scenario.decision_at, scenario.period_start, scenario.period_end,
@@ -106,6 +108,8 @@ class BreakEvenPlanSubmissionService:
                 raise ValueError('break-even fixed assumptions differ')
             refs.append(TrialRef(ordinal=index, value=str(value), scenario_id=pin.scenario_id,
                 revision=pin.revision, scenario_sha256=pin.scenario_sha256))
+            if check is not None:
+                check()
         plan = BreakEvenPlan(plan_id=body.request.plan_id, tenant_id=tenant,
             request_sha256=canonical_request_sha256(body.request), fixed_inputs_sha256=fixed_inputs,
             fixed_shock_sha256=fixed_shock, immutable=True, trials=tuple(refs))
