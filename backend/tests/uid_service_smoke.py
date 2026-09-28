@@ -29,7 +29,7 @@ from app.execution_attestation import ExecutionAttestationStore
 # Preload the connector before UID drop; the Python installation is controller-owned.
 from app.runtime_login import connect_runtime
 from login_database import login_database, login_scope
-from test_authority_rpc import engine_for
+from test_authority_rpc import engine_for, state
 from test_cli_contracts import resolver
 from test_cli_supervisor_service import approved, connect
 from test_cli_worker import _worker
@@ -73,13 +73,14 @@ def reap(handle, seconds):
 
 
 @contextmanager
-def child(uid, gid, groups, action):
+def child(uid, gid, groups, action, *, home):
     read_fd, write_fd = os.pipe()
     pid = os.fork()
     if pid == 0:
         os.close(read_fd)
         try:
             os.environ.clear()
+            os.environ.update(HOME=str(home), PATH="/usr/bin:/bin", LANG="C.UTF-8")
             os.setgroups(groups)
             os.setgid(gid)
             os.setuid(uid)
@@ -138,6 +139,8 @@ def test_distinct_uid_services_and_authenticated_roles(login_scope, stage):
         root.chmod(0o755)  # FD traversal requires read/search on synthetic ancestors.
         sup_home = directory(root / "supervisor", 0, 0, 0o700)
         authority_home = directory(root / "authority", AUTHORITY, DISPATCH_GROUP, 0o700)
+        worker_home = directory(root / "worker", WORKER, DISPATCH_GROUP, 0o700)
+        rogue_home = directory(root / "rogue", ROGUE, DISPATCH_GROUP, 0o700)
         content = directory(root / "content", AUTHORITY, CONTENT_GROUP, 0o750)
         sup_socket_dir = directory(root / "s", SUPERVISOR, SUPERVISOR_GROUP, 0o750)
         auth_socket_dir = directory(root / "a", AUTHORITY, DISPATCH_GROUP, 0o750)
@@ -207,15 +210,16 @@ def test_distinct_uid_services_and_authenticated_roles(login_scope, stage):
             evidence = store.artifact_root / ".evidence" / sha256(b"tenant-a").hexdigest()
             denied(evidence)
 
-        with child(SUPERVISOR, SUPERVISOR_GROUP, [CONTENT_GROUP], supervisor) as sup:
+        with child(SUPERVISOR, SUPERVISOR_GROUP, [CONTENT_GROUP], supervisor, home=sup_home) as sup:
             listening(settings["socket_path"], sup)
-            with child(WORKER, DISPATCH_GROUP, [SUPERVISOR_GROUP], wrong_supervisor_peer) as wrong:
+            with child(WORKER, DISPATCH_GROUP, [SUPERVISOR_GROUP], wrong_supervisor_peer, home=worker_home) as wrong:
                 finished(wrong)
-            with child(AUTHORITY, DISPATCH_GROUP, [CONTENT_GROUP, SUPERVISOR_GROUP], authority) as auth:
+            with child(AUTHORITY, DISPATCH_GROUP, [CONTENT_GROUP, SUPERVISOR_GROUP], authority,
+                       home=authority_home) as auth:
                 listening(auth_socket_dir / "rpc", auth)
-                with child(ROGUE, DISPATCH_GROUP, [], wrong_authority_peer) as wrong:
+                with child(ROGUE, DISPATCH_GROUP, [], wrong_authority_peer, home=rogue_home) as wrong:
                     finished(wrong)
-                with child(WORKER, DISPATCH_GROUP, [], dispatch) as worker:
+                with child(WORKER, DISPATCH_GROUP, [], dispatch, home=worker_home) as worker:
                     finished(worker)
                 finished(auth)
             finished(sup)
@@ -224,7 +228,7 @@ def test_distinct_uid_services_and_authenticated_roles(login_scope, stage):
         record = ExecutionAttestationStore(store, {"test-supervisor-v1": public}).get("tenant-a", job["job_id"], 1)
         assert record is not None and record.capture_id is not None and record.usage == {"input_tokens": 1, "output_tokens": 1}
         assert not Path(f"/proc/{record.process_id}").exists()
-        assert store.get_job("tenant-b", foreign["job_id"])["state"] == "queued"
+        assert state(store, "tenant-b", foreign) == "queued"
         assert store.get_job("tenant-a", job["job_id"])["state"] == ("succeeded" if proceed else "hold")
         if proceed:
             assert store.get_publication("tenant-a", job["job_id"])["decision_id"] == record.decision_id

@@ -16,7 +16,8 @@ It must pass as a separate hosted invocation; collection is not execution proof.
 
 The root controller creates no system users/groups and edits no operating
 configuration. It refuses assigned probe UIDs, drops and checks all UID/GID
-identities, clears the inherited process environment and uses existing forced
+identities, clears the inherited process environment, sets each private HOME
+with a fixed PATH/LANG, and uses existing forced
 SCRAM connections. The two service credential files and key remain in separately
 owned `0700` directories/`0600` files. Socket directories are owner-controlled
 `0750`; sockets use the existing `0660` policy and Linux peer checks. The
@@ -66,3 +67,12 @@ The evidence is a terminal hosted result with three passing cases and the fixed
 `Distinct UID service smoke passed` stage messages. The local account cannot
 drop into these UIDs; only collection of the three cases and the existing
 same-UID real-SCRAM service regression (six passed) were run locally.
+
+The first hosted attempt stopped at service startup with a RolePolicyHold.
+Inspection of the installed Psycopg 3.3.6 `ConnectionInfo.get_parameters` found
+that it calls `Path.home()` when computing default passfile values. A local
+reproduction with HOME absent and an unknown passwd UID raises RuntimeError;
+an explicit HOME resolves it. The fixture now supplies the appropriate private
+home without restoring inherited credentials or broad environment variables.
+It also uses the root controller's internal SQL helper to verify the foreign
+tenant queue, retaining the ordinary metadata API's tenant denial.
