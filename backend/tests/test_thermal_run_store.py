@@ -1,7 +1,7 @@
 """PostgreSQL publication checks for two synthetic thermal G1 trace bytes."""
 
 from concurrent.futures import ThreadPoolExecutor
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from hashlib import sha256
 import hmac
 import json
@@ -81,6 +81,11 @@ def stored_context(run_store, snapshot_id, *, tenant="tenant-a", mode="ex_post_r
     return context
 
 
+def review_at_for(context):
+    return (context["recorded_at"].astimezone(timezone.utc) + timedelta(seconds=1)).isoformat(
+        timespec="microseconds").replace("+00:00", "Z")
+
+
 def accepted_pair(snapshot_id, context):
     candidate = calculate_fixture(*raw_inputs(), decision_id=str(uuid4()),
                                   decision_at_utc=context["decision_at_utc"],
@@ -88,7 +93,7 @@ def accepted_pair(snapshot_id, context):
                                   decision_context_id=context["decision_context_id"],
                                   claim_mode=context["claim_mode"],
                                   decision_time_kind=context["decision_time_kind"],
-                                  review_at_utc="2026-09-28T00:00:00Z")
+                                  review_at_utc=review_at_for(context))
     first, second = (json.loads(raw) for raw in candidate)
     first["run_status"] = "accepted"
     first_raw = canonical(first)
@@ -123,7 +128,7 @@ def packet(snapshot_id, traces, context):
         "decision_time_kind": context["decision_time_kind"],
         "review_job_id": str(uuid4()), "review_capture_id": str(uuid4()),
         "decision_at_utc": context["decision_at_utc"],
-        "review_at_utc": "2026-09-28T00:00:00Z",
+        "review_at_utc": review_at_for(context),
         "manifest_sha256": sha256(raw_inputs()[0]).hexdigest(),
         "code_sha256": "a" * 64, "environment_sha256": "b" * 64,
         "release_sha256": sha256(release).hexdigest(), "trace_sha256": hashes,
@@ -247,8 +252,10 @@ def test_signed_packet_cannot_swap_context_or_review_clock(run_store):
     snapshot_id = run_store.put_snapshot("tenant-a", *raw_inputs())
     context = stored_context(run_store, snapshot_id)
     value = packet(snapshot_id, accepted_pair(snapshot_id, context), context)
+    later_review = (datetime.fromisoformat(review_at_for(context).replace("Z", "+00:00")) +
+                    timedelta(seconds=1)).isoformat().replace("+00:00", "Z")
     for key, replacement in (("decision_context_id", "other-context"),
-                             ("review_at_utc", "2026-09-28T00:00:01Z"),
+                             ("review_at_utc", later_review),
                              ("claim_mode", "ex_ante")):
         altered = json.loads(value["report_raw"])
         altered[key] = replacement
