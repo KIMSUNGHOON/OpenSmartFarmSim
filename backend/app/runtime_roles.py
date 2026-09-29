@@ -164,6 +164,8 @@ def audit_runtime_roles(conn, policy):
     privileges = ["SELECT", "INSERT", "UPDATE", "DELETE", "TRUNCATE", "REFERENCES", "TRIGGER"]
     if conn.info.server_version >= 170000:
         privileges.append("MAINTAIN")
+    table_names = {relation["oid"]: relation["relname"] for relation in relations
+                   if relation["relkind"] != "S"}
     for kind, role in policy.roles.items():
         rights = conn.execute("""
             SELECT has_schema_privilege(%s,%s,'USAGE') AS usage,
@@ -177,29 +179,28 @@ def audit_runtime_roles(conn, policy):
         if not rights["usage"] or rights["db_create"] or rights["ddl"] or rights["definer"]:
             raise RolePolicyHold("runtime_ddl_or_definer_escape")
         for relation in relations:
-            oid, name = relation["oid"], relation["relname"]
             if relation["relkind"] == "S":
                 if any(conn.execute("SELECT has_sequence_privilege(%s,%s,%s) AS allowed",
-                       (role, oid, privilege)).fetchone()["allowed"] for privilege in ("SELECT", "UPDATE", "USAGE")):
+                       (role, relation["oid"], privilege)).fetchone()["allowed"] for privilege in ("SELECT", "UPDATE", "USAGE")):
                     raise RolePolicyHold("runtime_sequence_privilege")
-                continue
-            values = conn.execute("""
-                SELECT p AS privilege, has_table_privilege(%s,%s,p) AS allowed,
-                    has_table_privilege(%s,%s,p || ' WITH GRANT OPTION') AS grantable
-                FROM unnest(%s::text[]) p
-            """, (role, oid, role, oid, privileges)).fetchall()
-            if any(item["allowed"] != _allowed(policy, kind, name, item["privilege"]) or item["grantable"]
-                   for item in values):
-                raise RolePolicyHold("runtime_table_grant_matrix")
-            columns = conn.execute("""
-                SELECT p AS privilege, has_column_privilege(%s,a.attrelid,a.attnum,p) AS allowed,
-                    has_column_privilege(%s,a.attrelid,a.attnum,p || ' WITH GRANT OPTION') AS grantable
-                FROM pg_attribute a CROSS JOIN unnest(ARRAY['SELECT','INSERT','UPDATE','REFERENCES']) p
-                WHERE a.attrelid=%s AND a.attnum>0 AND NOT a.attisdropped
-            """, (role, role, oid)).fetchall()
-            if any(item["allowed"] != _allowed(policy, kind, name, item["privilege"]) or item["grantable"]
-                   for item in columns):
-                raise RolePolicyHold("runtime_column_grant_matrix")
+        values = conn.execute("""
+            SELECT t.oid AS relation_oid, p AS privilege, has_table_privilege(%s,t.oid,p) AS allowed,
+                has_table_privilege(%s,t.oid,p || ' WITH GRANT OPTION') AS grantable
+            FROM unnest(%s::oid[]) t(oid) CROSS JOIN unnest(%s::text[]) p
+        """, (role, role, list(table_names), privileges)).fetchall()
+        if any(item["allowed"] != _allowed(policy, kind, table_names[item["relation_oid"]], item["privilege"])
+               or item["grantable"] for item in values):
+            raise RolePolicyHold("runtime_table_grant_matrix")
+        columns = conn.execute("""
+            SELECT a.attrelid AS relation_oid, p AS privilege,
+                has_column_privilege(%s,a.attrelid,a.attnum,p) AS allowed,
+                has_column_privilege(%s,a.attrelid,a.attnum,p || ' WITH GRANT OPTION') AS grantable
+            FROM pg_attribute a CROSS JOIN unnest(ARRAY['SELECT','INSERT','UPDATE','REFERENCES']) p
+            WHERE a.attrelid=ANY(%s::oid[]) AND a.attnum>0 AND NOT a.attisdropped
+        """, (role, role, list(table_names))).fetchall()
+        if any(item["allowed"] != _allowed(policy, kind, table_names[item["relation_oid"]], item["privilege"])
+               or item["grantable"] for item in columns):
+            raise RolePolicyHold("runtime_column_grant_matrix")
         if any(conn.execute("SELECT has_function_privilege(%s,%s,'EXECUTE') AS allowed",
                             (role, routine["oid"])).fetchone()["allowed"] for routine in routines):
             raise RolePolicyHold("runtime_routine_privilege")
