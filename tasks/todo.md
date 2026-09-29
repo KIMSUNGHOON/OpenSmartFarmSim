@@ -115,7 +115,7 @@
 
 **경제·시장 가정 HTTP 진행:** [7종 사용자 가정 접수](../contracts/api-market-user-source-v1.md)는 완전한 기존 모델/바이트를 검사하고 요청·원천 등록을 같은 거래로 묶는다. [구현 증거](../research/api-market-user-source-implementation.md)는 실제 SCRAM·새 Bearer 조립·중간 Scope/저장소 변경·충돌 롤백을 다룬다. 산술·수집 완료를 만들지 않으며 전체 CLI/경제 작업·브라우저/G1/G4는 남아 체크를 유지한다.
 
-- [ ] **`thermal-scenario-store`** — 선행: `thermal-g1-publisher`, `market-hold-store`; 후속: `api-flow`. [계약/명시적 로그인 v6](../contracts/thermal-scenario-store-v1.md)에 따라 합성 열 Scenario의 스냅샷·모델·문맥·시장 보류 참조를 불변 판본으로 저장하고 현재 권한/핀을 재검사한다. [소프트웨어 증거](../research/thermal-scenario-store-implementation.md)는 등록·재조회·충돌·권한 변동·참조 보류와 기존 프로필 회귀를 다룬다. 완전한 농장/경제 Scenario와 제출·작업자/Run 연결·독립 운영 권한의 수용까지 체크는 유지한다.
+- [ ] **`thermal-scenario-store`** — 선행: `thermal-g1-publisher`, `market-hold-store`; 후속: `api-flow`. [계약/명시적 로그인 v6](../contracts/thermal-scenario-store-v1.md)에 따라 합성 열 Scenario의 스냅샷·모델·문맥·시장 보류 참조를 불변 판본으로 저장하고 현재 권한/핀을 재검사한다. [소프트웨어 증거](../research/thermal-scenario-store-implementation.md)는 등록·재조회·충돌·권한 변동·참조 보류와 기존 프로필 회귀를 다룬다. 완전한 농장/경제 Scenario와 제출·작업자/Run 연결·독립 운영 권한의 수용까지 체크는 유지한다. [농장 재생 계획 접수 후보](../contracts/farm-replay-scenario-v1.md)는 실제 조사 입력·열/경제 판본을 공통 문맥과 불변 작업 입력으로 묶는다([증거](../research/farm-replay-scenario-implementation.md)). 전체 작성과 열/경제 작업·평가의 이 판본 참조는 계속 후속이다.
 
   - [시나리오 실행 연결 증거](../research/thermal-scenario-execution-implementation.md): 입력/영수증 v2가 실제 저장된 판본과 Run을 결합하고 게시 전후 Scope 철회·문맥/핀 불일치는 결과를 공개하지 않는다. 명시적 v6 조립과 Bearer 조회는 같은 실제 SCRAM 저장소를 읽는다. 합성 캡처/키 시험이며 전체 농장 Scenario·HTTP 접수·실제 CLI/독립 release·브라우저/G1/G4는 남아 체크를 유지한다.
 

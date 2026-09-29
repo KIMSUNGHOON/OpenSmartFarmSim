@@ -48,6 +48,9 @@ from .owned_research import OwnedResearchService, READ_SCOPES as OWNED_RESEARCH_
 from .api_assessment import CalculationAssessmentRequest
 from .calculation_assessment import (CalculationAssessmentService, CalculationAssessmentHold,
     ADMISSION_SCOPES as ASSESSMENT_SCOPES)
+from .farm_replay_scenario import (FarmReplayScenarioService, FarmReplayScenarioRequest,
+    FarmReplayScenarioSummary, FarmReplayScenarioHold,
+    READ_SCOPES as FARM_READ_SCOPES, WRITE_SCOPES as FARM_WRITE_SCOPES)
 
 
 def _error(status: int, code: str, message: str) -> JSONResponse:
@@ -65,7 +68,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                market_user_source_service=None, economic_scenario_service=None,
                economic_calculation_service=None, break_even_plan_service=None,
                break_even_job_result_service=None, collection_service=None,
-               owned_collection_review_service=None, assessment_service=None) -> FastAPI:
+               owned_collection_review_service=None, assessment_service=None,
+               farm_scenario_service=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -98,6 +102,12 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             type(economic_scenario_service) is not EconomicScenarioService or
             economic_scenario_service.jobs is not job_store):
         raise ValueError('trusted economic scenario service required')
+    if farm_scenario_service is not None and (
+            type(farm_scenario_service) is not FarmReplayScenarioService or
+            farm_scenario_service.jobs is not job_store or farm_scenario_service.thermal is not thermal_scenario_store or
+            job_store.principal_provider is not principal_provider or
+            farm_scenario_service.thermal.holds is not market_hold_store):
+        raise ValueError('trusted farm scenario service required')
     if economic_calculation_service is not None and (
             type(economic_calculation_service) is not EconomicCalculationService or
             economic_calculation_service.jobs is not job_store or
@@ -279,6 +289,56 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(409, "intent_conflict", "Intent already has a different request")
         except Exception:
             return _error(503, "simulation_unavailable", "Simulation submission unavailable")
+
+    @app.post('/v1/farm-scenarios', response_model=FarmReplayScenarioSummary, operation_id='registerFarmReplayScenario',
+              responses={status:{'model':ErrorEnvelope} for status in (401,403,409,413,415,422,503)},
+              openapi_extra={**_access(FARM_WRITE_SCOPES),'x-ossf-max-body-bytes':4096,
+                  'requestBody':{'required':True,'content':{'application/json':{
+                      'schema':_inline_schema(FarmReplayScenarioRequest)}}}})
+    async def post_farm_scenario(request: Request):
+        tenant, denied = authorized_tenant(*FARM_WRITE_SCOPES)
+        if denied is not None:
+            return denied
+        if farm_scenario_service is None:
+            return _error(503,'farm_scenario_unavailable','Farm scenario registration unavailable')
+        try:
+            body = FarmReplayScenarioRequest.model_validate_json(canonical_input_bytes(await read_json_request(request)))
+        except JsonRequestRejected as exc:
+            return _error(exc.status,exc.code,exc.message)
+        except (ValueError,UnicodeError,RecursionError):
+            return _error(422,'invalid_request','Invalid request')
+        try:
+            return await run_in_threadpool(farm_scenario_service.submit,tenant,body)
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except JobIntentConflict:
+            return _error(409,'scenario_conflict','Scenario version already has different input')
+        except FarmReplayScenarioHold:
+            return _error(422,'farm_scenario_hold','Farm scenario input unavailable')
+        except Exception:
+            return _error(503,'farm_scenario_unavailable','Farm scenario registration unavailable')
+
+    @app.get('/v1/farm-scenarios', response_model=FarmReplayScenarioSummary, operation_id='getFarmReplayScenario',
+             responses={status:{'model':ErrorEnvelope} for status in (401,403,404,422,503)},
+             openapi_extra=_access(FARM_READ_SCOPES))
+    async def get_farm_scenario(scenario_id: Annotated[str,Query(pattern=IDENTIFIER,max_length=200)],
+                                scenario_revision: Annotated[str,Query(pattern=IDENTIFIER,max_length=200)]):
+        tenant, denied = authorized_tenant(*FARM_READ_SCOPES)
+        if denied is not None:
+            return denied
+        if farm_scenario_service is None:
+            return _error(503,'farm_scenario_unavailable','Farm scenario read unavailable')
+        try:
+            row = await run_in_threadpool(farm_scenario_service.get,tenant,scenario_id,scenario_revision)
+            if row is None:
+                return _error(404,'not_found','Resource unavailable')
+            return row
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except FarmReplayScenarioHold:
+            return _error(422,'farm_scenario_hold','Farm scenario input unavailable')
+        except Exception:
+            return _error(503,'farm_scenario_unavailable','Farm scenario read unavailable')
 
     scenario_read_scopes = SCENARIO_SCOPES
     scenario_write_scopes = ('thermal_scenario_write',) + SCENARIO_SCOPES

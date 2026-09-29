@@ -19,6 +19,16 @@ from test_http_identity import request
 
 
 OPERATIONS = {
+    ('/v1/farm-scenarios','post'): ('registerFarmReplayScenario', ['farm_scenario_write',
+        'farm_scenario_read','metadata','artifact','thermal_scenario_read','thermal_snapshot_read',
+        'decision_context_read','market_hold_context_read','market_source_read','market_candidate_read']),
+    ('/v1/farm-scenarios','get'): ('getFarmReplayScenario', ['farm_scenario_read','metadata','artifact',
+        'thermal_scenario_read','thermal_snapshot_read','decision_context_read','market_hold_context_read',
+        'market_source_read','market_candidate_read']),
+    ('/v1/break-even-plans/receipt','get'): ('getBreakEvenPlanReceipt', ['metadata','artifact','break_even_read']),
+    ('/v1/jobs/{job_id}/economic-cash-flow','get'): ('getJobEconomicCashFlow',
+        ['metadata','artifact','market_source_read','market_candidate_read','market_result_read',
+         'decision_context_read','market_hold_context_read']),
     ('/v1/assessments', 'post'): ('submitCalculationAssessment', ['assessment_create',
         'metadata', 'artifact', 'market_source_read', 'market_candidate_read', 'market_result_read',
         'decision_context_read', 'market_hold_context_read', 'thermal_run_read', 'thermal_snapshot_read']),
@@ -150,7 +160,8 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
     for missing in scopes:
         principal["scopes"] = set(scopes)-{missing}
         status, body, _ = asyncio.run(request(app, path=path, method=method.upper(),
-            query=(b'scenario_id=example&scenario_revision=r1' if path == '/v1/scenarios'
+            query=(b'scenario_id=example&scenario_revision=r1' if path in ('/v1/scenarios','/v1/farm-scenarios')
+                else b'plan_id=example&submission_sha256='+b'a'*64 if path == '/v1/break-even-plans/receipt'
                 else b'kind=economic_input' if path == '/v1/market-user-sources'
                 else b'kind=economic_input&record_id=example&revision=r1' if path == '/v1/market-user-sources/record'
                 else b"plan_id=example" if path == "/v1/break-even-results" else b"token=spoofed")))

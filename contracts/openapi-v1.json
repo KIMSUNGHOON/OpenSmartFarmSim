@@ -248,6 +248,36 @@
         "title": "BreakEvenPlanAccepted",
         "type": "object"
       },
+      "BreakEvenPlanReceipt": {
+        "additionalProperties": false,
+        "properties": {
+          "intent_job": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "intent_status": {
+            "const": "stored",
+            "title": "Intent Status",
+            "type": "string"
+          },
+          "plan_id": {
+            "title": "Plan Id",
+            "type": "string"
+          },
+          "submission_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Submission Sha256",
+            "type": "string"
+          }
+        },
+        "required": [
+          "plan_id",
+          "submission_sha256",
+          "intent_status",
+          "intent_job"
+        ],
+        "title": "BreakEvenPlanReceipt",
+        "type": "object"
+      },
       "BreakEvenRead": {
         "additionalProperties": false,
         "properties": {
@@ -1010,6 +1040,178 @@
         "title": "EconomicAmounts",
         "type": "object"
       },
+      "EconomicCashPage": {
+        "additionalProperties": false,
+        "properties": {
+          "after_month": {
+            "anyOf": [
+              {
+                "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "After Month"
+          },
+          "assessment_status": {
+            "const": "hold",
+            "title": "Assessment Status",
+            "type": "string"
+          },
+          "calculation_status": {
+            "enum": [
+              "conditional_user_assumption",
+              "hold"
+            ],
+            "title": "Calculation Status",
+            "type": "string"
+          },
+          "calendar_timezone": {
+            "const": "Asia/Seoul",
+            "title": "Calendar Timezone",
+            "type": "string"
+          },
+          "decision_at_utc": {
+            "format": "date-time",
+            "title": "Decision At Utc",
+            "type": "string"
+          },
+          "economic_result_id": {
+            "title": "Economic Result Id",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "formula_version": {
+            "title": "Formula Version",
+            "type": "string"
+          },
+          "hold_reason_codes": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 100,
+            "title": "Hold Reason Codes",
+            "type": "array"
+          },
+          "input_origin": {
+            "const": "user",
+            "title": "Input Origin",
+            "type": "string"
+          },
+          "limit": {
+            "maximum": 24.0,
+            "minimum": 1.0,
+            "title": "Limit",
+            "type": "integer"
+          },
+          "market_context_kind": {
+            "const": "unavailable",
+            "title": "Market Context Kind",
+            "type": "string"
+          },
+          "market_hold_report_id": {
+            "format": "uuid",
+            "title": "Market Hold Report Id",
+            "type": "string"
+          },
+          "market_scenario_result_id": {
+            "title": "Market Scenario Result Id",
+            "type": "string"
+          },
+          "monthly_cash": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/MonthlyCashRead"
+                },
+                "maxItems": 24,
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Monthly Cash"
+          },
+          "next_month_cursor": {
+            "anyOf": [
+              {
+                "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Month Cursor"
+          },
+          "scenario_id": {
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "scenario_revision": {
+            "title": "Scenario Revision",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "economic-cash-page-v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "series_status": {
+            "enum": [
+              "available",
+              "unavailable"
+            ],
+            "title": "Series Status",
+            "type": "string"
+          },
+          "total_months": {
+            "anyOf": [
+              {
+                "maximum": 119988.0,
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Months"
+          }
+        },
+        "required": [
+          "schema_version",
+          "economic_result_id",
+          "market_scenario_result_id",
+          "scenario_id",
+          "scenario_revision",
+          "decision_at_utc",
+          "formula_version",
+          "market_context_kind",
+          "market_hold_report_id",
+          "calculation_status",
+          "assessment_status",
+          "input_origin",
+          "evidence_level",
+          "calendar_timezone",
+          "series_status",
+          "total_months",
+          "limit",
+          "after_month",
+          "next_month_cursor",
+          "monthly_cash",
+          "hold_reason_codes"
+        ],
+        "title": "EconomicCashPage",
+        "type": "object"
+      },
       "EconomicNumber": {
         "additionalProperties": false,
         "properties": {
@@ -1408,6 +1610,45 @@
           "error"
         ],
         "title": "ErrorEnvelope",
+        "type": "object"
+      },
+      "FarmReplayScenarioSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "intent_job": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "registration_status": {
+            "const": "registered_intent",
+            "title": "Registration Status",
+            "type": "string"
+          },
+          "scenario_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "scenario_revision": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Revision",
+            "type": "string"
+          },
+          "scenario_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Scenario Sha256",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "scenario_revision",
+          "scenario_sha256",
+          "registration_status",
+          "intent_job"
+        ],
+        "title": "FarmReplayScenarioSummary",
         "type": "object"
       },
       "Harvest": {
@@ -1968,6 +2209,52 @@
           "intent_job"
         ],
         "title": "MarketUserSourceSummary",
+        "type": "object"
+      },
+      "MonthlyCashRead": {
+        "additionalProperties": false,
+        "properties": {
+          "cash_shortage_krw": {
+            "title": "Cash Shortage Krw",
+            "type": "string"
+          },
+          "closing_balance_krw": {
+            "title": "Closing Balance Krw",
+            "type": "string"
+          },
+          "minimum_at_utc": {
+            "format": "date-time",
+            "title": "Minimum At Utc",
+            "type": "string"
+          },
+          "minimum_balance_krw": {
+            "title": "Minimum Balance Krw",
+            "type": "string"
+          },
+          "month": {
+            "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$",
+            "title": "Month",
+            "type": "string"
+          },
+          "net_cash_krw": {
+            "title": "Net Cash Krw",
+            "type": "string"
+          },
+          "opening_balance_krw": {
+            "title": "Opening Balance Krw",
+            "type": "string"
+          }
+        },
+        "required": [
+          "month",
+          "opening_balance_krw",
+          "net_cash_krw",
+          "closing_balance_krw",
+          "minimum_balance_krw",
+          "minimum_at_utc",
+          "cash_shortage_krw"
+        ],
+        "title": "MonthlyCashRead",
         "type": "object"
       },
       "OpeningLot": {
@@ -4406,6 +4693,118 @@
         ]
       }
     },
+    "/v1/break-even-plans/receipt": {
+      "get": {
+        "operationId": "getBreakEvenPlanReceipt",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "plan_id",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "minLength": 1,
+              "pattern": "^[^\\s\\x00-\\x1f](?:[^\\x00-\\x1f]*[^\\s\\x00-\\x1f])?$",
+              "title": "Plan Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "submission_sha256",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-f]{64}$",
+              "title": "Submission Sha256",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BreakEvenPlanReceipt"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Break Even Plan Receipt",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "artifact",
+          "break_even_read"
+        ]
+      }
+    },
     "/v1/break-even-results": {
       "get": {
         "operationId": "getBreakEvenResult",
@@ -5101,6 +5500,371 @@
         ]
       }
     },
+    "/v1/farm-scenarios": {
+      "get": {
+        "operationId": "getFarmReplayScenario",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "scenario_id",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Scenario Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "scenario_revision",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Scenario Revision",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FarmReplayScenarioSummary"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Farm Scenario",
+        "x-ossf-required-scopes": [
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_scenario_read",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read"
+        ]
+      },
+      "post": {
+        "operationId": "registerFarmReplayScenario",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "decision_at": {
+                    "format": "date-time",
+                    "title": "Decision At",
+                    "type": "string"
+                  },
+                  "economic": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "candidate_id": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Candidate Id",
+                        "type": "string"
+                      },
+                      "revision": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Revision",
+                        "type": "string"
+                      },
+                      "scenario_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Id",
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Sha256",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "scenario_id",
+                      "revision",
+                      "sha256",
+                      "candidate_id"
+                    ],
+                    "title": "EconomicPin",
+                    "type": "object"
+                  },
+                  "evidence_level": {
+                    "const": "assumed",
+                    "title": "Evidence Level",
+                    "type": "string"
+                  },
+                  "goal_id": {
+                    "const": "historical-thermal-replay",
+                    "title": "Goal Id",
+                    "type": "string"
+                  },
+                  "market_context": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "hold_report_id": {
+                        "title": "Hold Report Id",
+                        "type": "string"
+                      },
+                      "kind": {
+                        "const": "unavailable",
+                        "title": "Kind",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "hold_report_id"
+                    ],
+                    "title": "UnavailableMarketContext",
+                    "type": "object"
+                  },
+                  "origin": {
+                    "const": "user",
+                    "title": "Origin",
+                    "type": "string"
+                  },
+                  "research_job_id": {
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                    "title": "Research Job Id",
+                    "type": "string"
+                  },
+                  "scenario_id": {
+                    "maxLength": 200,
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                    "title": "Scenario Id",
+                    "type": "string"
+                  },
+                  "scenario_revision": {
+                    "maxLength": 200,
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                    "title": "Scenario Revision",
+                    "type": "string"
+                  },
+                  "schema_version": {
+                    "const": "farm-replay-scenario-v1",
+                    "title": "Schema Version",
+                    "type": "string"
+                  },
+                  "thermal": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "revision": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Revision",
+                        "type": "string"
+                      },
+                      "scenario_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Id",
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Sha256",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "scenario_id",
+                      "revision",
+                      "sha256"
+                    ],
+                    "title": "ScenarioPin",
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "schema_version",
+                  "scenario_id",
+                  "scenario_revision",
+                  "research_job_id",
+                  "thermal",
+                  "economic",
+                  "decision_at",
+                  "market_context",
+                  "goal_id",
+                  "origin",
+                  "evidence_level"
+                ],
+                "title": "FarmReplayScenarioRequest",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FarmReplayScenarioSummary"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Post Farm Scenario",
+        "x-ossf-max-body-bytes": 4096,
+        "x-ossf-required-scopes": [
+          "farm_scenario_write",
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_scenario_read",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read"
+        ]
+      }
+    },
     "/v1/ingestions": {
       "post": {
         "operationId": "submitOwnedIngestion",
@@ -5406,6 +6170,129 @@
           "break_even_read",
           "market_source_read",
           "market_candidate_read",
+          "decision_context_read",
+          "market_hold_context_read"
+        ]
+      }
+    },
+    "/v1/jobs/{job_id}/economic-cash-flow": {
+      "get": {
+        "operationId": "getJobEconomicCashFlow",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Job Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 12,
+              "maximum": 24,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after_month",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "After Month"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EconomicCashPage"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Job Economic Cash Flow",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "artifact",
+          "market_source_read",
+          "market_candidate_read",
+          "market_result_read",
           "decision_context_read",
           "market_hold_context_read"
         ]

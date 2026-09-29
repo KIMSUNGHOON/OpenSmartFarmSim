@@ -18,6 +18,7 @@ from .research_registry import ResearchRegistry
 from .runtime_roles import RuntimeLoginPolicy
 from .thermal_run_store import ThermalRunStore
 from .thermal_scenario_store import ThermalScenarioStore
+from .farm_replay_scenario import FarmReplayScenarioService
 from .thermal_run_submission import ThermalRunSubmissionService
 from .api_market_source import MarketUserSourceService, _MarketSources, _SOURCE_METHODS
 from .market_source_store import MarketSourceStore
@@ -96,6 +97,7 @@ class ApiRuntime:
     collection_reviews: OwnedCollectionReviewService | None = field(repr=False)
     research: LocationResearchService | OwnedResearchService = field(repr=False)
     assessments: CalculationAssessmentService | None = field(repr=False)
+    farm_scenarios: FarmReplayScenarioService | None = field(repr=False)
 
     def __init__(self, config, dependencies):
         try:
@@ -139,6 +141,9 @@ class ApiRuntime:
                 dependencies.owned_fixture_registry, dependencies.owned_research_contexts)
                 if dependencies.owned_research_contexts is not None else
                 LocationResearchService(jobs, dependencies.research_registry.scope_for_location))
+            farm_scenarios = (FarmReplayScenarioService(jobs, scenarios, candidates, dependencies.research_registry,
+                research if type(research) is OwnedResearchService else None)
+                if scenarios is not None and source_admission is not None else None)
             submission = None
             if dependencies.thermal_publisher_factory is not None:
                 if scenarios is None:
@@ -152,7 +157,7 @@ class ApiRuntime:
                 economic_scenario_service=economic_scenarios, economic_calculation_service=economic_calculations,
                 break_even_plan_service=break_even_plans, break_even_job_result_service=break_even_job_results,
                 collection_service=collections, owned_collection_review_service=collection_reviews,
-                assessment_service=assessments)
+                assessment_service=assessments, farm_scenario_service=farm_scenarios)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -161,5 +166,5 @@ class ApiRuntime:
                 ('market_holds', holds), ('market_candidates', candidates),
                 ('market_results', results), ('break_even', break_even), ('thermal_scenarios', scenarios),
                 ('collections', collections), ('collection_reviews', collection_reviews), ('research', research),
-                ('assessments', assessments)):
+                ('assessments', assessments), ('farm_scenarios', farm_scenarios)):
             object.__setattr__(self, name, value)
