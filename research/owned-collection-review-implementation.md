@@ -93,6 +93,24 @@ access checks and cleanup are retained. All **152 local Markdown targets** in ch
 locked dependency check passed. A separate staged whitespace gate is required
 before commit. Hosted CI for this functional head remains subsequent evidence.
 
+## Hosted receipt for the completed connection
+
+Functional head a9774ebbde703ab431de053537aa43cb56b7b852 was checked directly.
+[Backend run 36520223880](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36520223880)
+completed successfully: **1,893 ordinary cases**, two existing Pydantic
+serializer warnings, **4,823.78s (1:20:23)**; **four distinct-UID service cases
+passed in 15.63s**. Content-access UID checks and database/password/runtime
+cleanup steps completed successfully. The backend job ran from
+2026-09-29T04:07:52Z to 2026-09-29T05:29:04Z.
+[Compose run 36520223841](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36520223841)
+also completed successfully at that exact head. The two warnings arise from
+the existing malformed nested G0 policy serializer cases. Full logs were
+inspected at /tmp/ossf-owned-collection-review-backend-ci.log.
+
+This receipt proves that connection's hosted software checks. Later functional
+heads require their own CI, and actual CLI/independent planning, G0 adoption,
+browser/3D and G1–G4 acceptance remain pending.
+
 ## Remaining acceptance
 
 Initial ResearchRegistry remains held. Running operator factories still need

@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**공유 CLI 계약 연결 진행:** [라우팅 계약](../contracts/cli-contract-router-v1.md)은 실제 단계·입력 판본·바이트 해시로 기존 서버 계약을 선택하고 검증기 판본·보류/게시 결과를 보존한다. [구현 증거](../research/cli-contract-router-implementation.md)는 실제 SCRAM 큐와 가짜 CLI의 소프트웨어 범위다. 미등록 입력은 호출 전에 보류하며 실제 모델·독립 운영 조립·전체 API/브라우저/G1/G4 수용은 남아 기존 체크를 유지한다.
+
 **수집 원본 → 검토 연결 진행:** [연결 계약](../contracts/owned-collection-review-v1.md)은 실제 완료 수집 기록·조사 증거·서명 문맥을 다시 검사하고 스냅샷 후보와 새 검토 입력을 같은 거래로 저장한다. [구현 증거](../research/owned-collection-review-implementation.md)는 가짜 CLI와 합성 서명 키의 소프트웨어 범위다. 실제 CLI/독립 실행·해제·스냅샷 채택·전체 브라우저/G1/G4 수용까지 기존 체크를 유지한다.
 
 **원본 수집 작업자 진행:** [수집 계약](../contracts/owned-fixture-collection-v1.md)은 완료 조사 결정·출력/검사 증거와 고정 원본을 재검증해 collection 의도를 등록하고 원본 기록·완료를 같은 거래로 게시한다. [구현 증거](../research/owned-fixture-collection-implementation.md)는 직접 작성한 합성 원본·가짜 CLI·실제 SCRAM/전경 프로세스의 소프트웨어 범위다. 실제 CLI·독립 격리/해제·수집 검토/스냅샷·브라우저/G0–G4 수용은 남아 체크를 유지한다.

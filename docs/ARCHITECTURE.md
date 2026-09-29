@@ -158,6 +158,10 @@ stdin은 서버가 생성한 버전 고정 지시문과 `tenant_id/job_id`, 좌�
 
 [시나리오 작업 연결 후보](../contracts/thermal-simulation-worker-v1.md#scenario-bound-input-and-receipt-v2)는 입력/영수증 v2에 실제 판본 해시와 원천 핀을 결합한다. 계산 전·게시 거래 안에서 현재 문맥/권한을 재검사하며 실패는 Run을 되돌리고 보류한다. v6 API 조립은 같은 저장소를 [작업 Run 조회](../contracts/api-job-run-v1.md#scenario-bound-receipt-v2)에 공급하고 네 참조 권한을 추가 검사한다. 물리 trace와 기존 v1은 유지하며 전체 농장 Scenario·HTTP 제출·실제 CLI/G1/G4는 아직 미수용이다.
 
+## 공유 CLI 계약 선택 구현 후보
+
+[공유 CLI 계약 선택 후보](../contracts/cli-contract-router-v1.md)는 보호된 서버 조립의 같은 검증기를 작업자와 JobStore에 설치하고, 실제 단계·입력 판본·바이트 해시로 기존 계약을 선택한다. 조사·수집 결합 검토·기존 열 검토·평가가 한 큐에 있을 때 각 계약의 검증기 판본·게시/보류 결과를 보존한다. 미등록 판본은 호출 전 보류다. [소프트웨어 증거](../research/cli-contract-router-implementation.md)는 가짜 실행기의 범위이며 실제 CLI·독립 운영 조립·전체 API/브라우저 및 G1/G4 수용은 남는다.
+
 ## 원본 수집 작업자 구현 후보
 
 [고정 합성 원본 수집 계약](../contracts/owned-fixture-collection-v1.md)은 실제 authority JobStore의 완료 조사 결정·보관된 최종 출력/검사/호출 증거를 대사하고, 기존 manifest v2와 직접 작성한 세 원본만 수집한다. 작업 입력에는 식별자·해시·결정 문맥만 저장하고 원본 UTF-8와 선언 메타데이터는 별도 불변 수집 기록으로 보관한다. 실제 임대·원본 재검사·현재 Scope/저장소 결합·완료/게시/시도 종료를 거래로 묶는다. 운영자 전경 명령은 메타데이터만 출력한다. [구현 증거](../research/owned-fixture-collection-implementation.md)는 가짜 CLI·합성 키와 실제 SCRAM/별도 Python 프로세스의 소프트웨어 계약 시험이다. 수집 성공은 G0/G1 통과나 실제 Codex 실행 증거가 아니며 Assessment는 hold다. 기본 ResearchRegistry의 보류, 실제 제공자 승인·검토/스냅샷·독립 격리/해제·전체 운영 수용은 유지한다.

@@ -19,7 +19,7 @@ HEX = re.compile(r"^[0-9a-f]{64}$")
 CODE_FILES = ("backend/app/thermal.py", "backend/app/thermal_units.py",
               "backend/app/thermal_publisher.py", "backend/app/thermal_run_store.py",
               "backend/app/job_store.py", "backend/app/jobs.py", "backend/app/db.py",
-              "backend/app/cli_contracts.py", "backend/app/cli_worker.py",
+              "backend/app/cli_contracts.py", "backend/app/cli_contract_router.py", "backend/app/cli_worker.py",
               "backend/app/cli_supervisor.py",
               "backend/app/cli_attestation_issuer.py",
               "backend/app/cli_ipc.py", "backend/app/cli_supervisor_service.py",
