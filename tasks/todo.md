@@ -151,6 +151,10 @@
 전 시점 일치 및 재계산을 확인했다
 ([검증 기록](../research/farm-thermal-candidate-implementation.md)).
 결과는 게시 전 후보이므로 위 체크와 G1·3D 수용은 그대로 둔다.
+[작성 입력 검토 접수 후보](../contracts/farm-authored-review-v1.md)는 현재 등록·권한과
+두 궤적 해시를 검토 작업의 불변 입력·서버 CLI 판단 계약에 연결한다
+([실제 SCRAM 검증](../research/farm-authored-review-implementation.md)).
+제품 CLI 라우팅·독립 해제·Run 게시가 남아 전체 작업 체크는 유지한다.
 
 `economic-break-even`/`api-flow`의 후속 코드 수용에는 큰 격자의 전체 완료 검증을 비동기 접수·작업 조회·결과 읽기로 분리하는 경로가 포함된다. 현재 동기 읽기는 원천·권리와 원장 전체를 재검사하므로 2개 시험의 성공이나 HTTP 바이트 제한을 256개 시험의 처리량 증거로 쓰지 않는다. 기존 30초 요청 제한 아래 재확인·취소·권리 철회·최대 격자 부하를 검증하고, 준비 전 운영 성능을 보류한다.
 
