@@ -3,8 +3,9 @@ import type { JobStatus } from './api';
 import { SOURCE_FIELDS } from './source-fields';
 
 export type SourceKind='economic_input'|'economic_scenario'|'joint_shock';
+export type SourceType=SourceKind|'input_rights';
 export type Cursor={record_id:string;revision:string};
-export type SourceMeta=Cursor & {kind:SourceKind;payload_sha256:string;recorded_at:string;
+export type SourceMeta<K extends SourceType=SourceKind>=Cursor & {kind:K;payload_sha256:string;recorded_at:string;
   admission_kind:'contract_valid_user_assumption'};
 export type SourcePage={kind:SourceKind;items:SourceMeta[];next_cursor:Cursor|null};
 export const UNITS=['kg','KRW','KRW/kg','month','KRW/month','kWh_e','KRW/kWh_e','L','KRW/L','day'] as const;
@@ -13,10 +14,26 @@ export type NumericInput={value:string;unit:typeof UNITS[number];input_id:string
   scope_start:string;scope_end:string};
 export type NumericRecord=SourceMeta & {kind:'economic_input';input:NumericInput};
 export type NumericIntent={kind:'economic_input';input:NumericInput;idempotency_key:string};
-export type SourceSaved=SourceMeta & {intent_job:JobStatus};
+export type SourceSaved<K extends SourceType=SourceKind>=SourceMeta<K> & {intent_job:JobStatus};
 export type Baseline=SourceMeta & {kind:'economic_scenario';decision_at:string;
   market_context:{kind:'unavailable';hold_report_id:string};period_start:string;period_end:string};
 export type Shock=SourceMeta & {kind:'joint_shock';decision_at:string;baseline_sha256:string};
+export type EconomicNumber=Omit<NumericInput,'scope_start'|'scope_end'>;
+export type Rights={use:'allowed';display:'allowed';redistribute:'allowed'|'denied'};
+export type Edit={event_group:string;event_id:string;field:string;number:EconomicNumber|null;time:string|null;reference:string|null};
+export type Driver={kind:'demand'|'supply'|'macro';record_id:string;revision:string;origin:'user';evidence_level:'assumed';
+  available_at:string;effective_start:string;effective_end:string;rights:Rights;hypothesis:string;source_ref:string;
+  causal_status:'unvalidated_user_hypothesis';changes:Edit[]};
+export type ContractCap={record_id:string;revision:string;contract_id:string;sale_ids:string[];grade:string;channel:string;
+  accepted_kg:EconomicNumber;origin:'user';evidence_level:'assumed';available_at:string;effective_start:string;effective_end:string;rights:Rights};
+export type JointInput={schema_version:'1';shock_id:string;revision:string;baseline_sha256:string;decision_at:string;
+  effective_start:string;effective_end:string;available_at:string;origin:'user';evidence_level:'assumed';rights:Rights;
+  drivers:Driver[];contract_caps:ContractCap[];settlement_bindings:{binding_id:string;revision:string;sha256:string}[]};
+export type JointRecord=Shock & {input:JointInput};
+export type InputRights={input_id:string;revision:string;raw_sha256:string;origin:'user';evidence_level:'assumed';rights:Rights;
+  available_at:string;effective_start:string;effective_end:string;immutable:true};
+export type RightsIntent={kind:'input_rights';input:InputRights;idempotency_key:string};
+export type JointIntent={kind:'joint_shock';input:JointInput;idempotency_key:string};
 export type Candidate={candidate_id:string;scenario_id:string;scenario_revision:string;scenario_sha256:string;
   registration_status:'pinned_user_assumption';recorded_at:string;intent_job:JobStatus};
 export type ScenarioIntent={request:{schema_version:'1';baseline:{scenario_id:string;revision:string;sha256:string};
@@ -49,7 +66,7 @@ function utc(value:unknown):value is string {return date(value) && /(?:Z|\+00:00
 export function decimal(value:unknown,max=64):value is string {
   return typeof value==='string' && value.length<=max && /^(?:0|[1-9]\d*)(?:\.\d+)?$/.test(value);
 }
-function metadata(value:unknown,kind:SourceKind):SourceMeta {
+function metadata<K extends SourceType>(value:unknown,kind:K):SourceMeta<K> {
   need(object(value));
   need(value.kind===kind && name(value.record_id) && name(value.revision) && hash(value.payload_sha256)
     && date(value.recorded_at) && value.admission_kind==='contract_valid_user_assumption');
@@ -58,15 +75,59 @@ function metadata(value:unknown,kind:SourceKind):SourceMeta {
 }
 function cursor(value:unknown):Cursor {need(object(value));closed(value,['record_id','revision']);
   need(name(value.record_id) && name(value.revision));return {record_id:value.record_id,revision:value.revision};}
-function numeric(value:unknown):NumericInput {
-  need(object(value));closed(value,NUMBER);
+function number(value:unknown):EconomicNumber {
+  need(object(value));closed(value,NUMBER.slice(0,9));
   need(decimal(value.value) && member(value.unit,UNITS) && name(value.input_id) && name(value.revision)
     && value.origin==='user' && value.evidence_level==='assumed' && name(value.assumption_scope,65536)
-    && name(value.source_ref,65536) && utc(value.available_at) && day(value.scope_start) && day(value.scope_end)
-    && value.scope_start<=value.scope_end);
-  return {value:value.value,unit:value.unit,input_id:value.input_id,revision:value.revision,origin:value.origin,
-    evidence_level:value.evidence_level,assumption_scope:value.assumption_scope,source_ref:value.source_ref,
-    available_at:value.available_at,scope_start:value.scope_start,scope_end:value.scope_end};
+    && name(value.source_ref,65536) && utc(value.available_at));
+  return value as EconomicNumber;
+}
+function numeric(value:unknown):NumericInput {
+  need(object(value));closed(value,NUMBER);
+  number(Object.fromEntries(NUMBER.slice(0,9).map(key=>[key,value[key]])));
+  need(day(value.scope_start) && day(value.scope_end) && value.scope_start<=value.scope_end);
+  return value as NumericInput;
+}
+function rights(value:unknown):Rights {
+  need(object(value));closed(value,['use','display','redistribute']);
+  need(value.use==='allowed' && value.display==='allowed' && member(value.redistribute,['allowed','denied'] as const));
+  return value as Rights;
+}
+function scope(value:Record<string,unknown>) {
+  need(value.origin==='user' && value.evidence_level==='assumed' && utc(value.available_at)
+    && day(value.effective_start) && day(value.effective_end) && value.effective_start<=value.effective_end);
+  rights(value.rights);
+}
+function joint(value:unknown):JointInput {
+  need(object(value));closed(value,SOURCE_FIELDS.joint_shock);scope(value);
+  need(value.schema_version==='1' && name(value.shock_id) && name(value.revision) && hash(value.baseline_sha256)
+    && utc(value.decision_at) && Array.isArray(value.drivers) && Array.isArray(value.contract_caps) && Array.isArray(value.settlement_bindings));
+  for(const driver of value.drivers) {
+    need(object(driver));closed(driver,['kind','record_id','revision','origin','evidence_level','available_at','effective_start',
+      'effective_end','rights','hypothesis','source_ref','causal_status','changes']);scope(driver);
+    need(member(driver.kind,['demand','supply','macro'] as const) && name(driver.record_id) && name(driver.revision)
+      && typeof driver.hypothesis==='string' && driver.hypothesis.trim().length>0 && name(driver.source_ref,65536)
+      && driver.causal_status==='unvalidated_user_hypothesis' && Array.isArray(driver.changes));
+    for(const edit of driver.changes) {
+      need(object(edit));closed(edit,['event_group','event_id','field','number','time','reference']);
+      need(name(edit.event_group) && name(edit.event_id) && name(edit.field)
+        && [edit.number,edit.time,edit.reference].filter(v=>v!==null).length===1);
+      if(edit.number!==null)number(edit.number);
+      if(edit.time!==null)need(utc(edit.time));
+      if(edit.reference!==null)need(name(edit.reference,65536));
+    }
+  }
+  for(const cap of value.contract_caps) {
+    need(object(cap));closed(cap,['record_id','revision','contract_id','sale_ids','grade','channel','accepted_kg','origin',
+      'evidence_level','available_at','effective_start','effective_end','rights']);scope(cap);number(cap.accepted_kg);
+    need(name(cap.record_id) && name(cap.revision) && name(cap.contract_id) && name(cap.grade) && name(cap.channel)
+      && Array.isArray(cap.sale_ids) && cap.sale_ids.length>0 && cap.sale_ids.every(id=>name(id)));
+  }
+  for(const binding of value.settlement_bindings) {
+    need(object(binding));closed(binding,['binding_id','revision','sha256']);
+    need(name(binding.binding_id) && name(binding.revision) && hash(binding.sha256));
+  }
+  return value as JointInput;
 }
 export function createEconomicApi(request:Request,job:(value:unknown)=>JobStatus) {
   async function record(kind:SourceKind,ref:Cursor) {
@@ -76,6 +137,12 @@ export function createEconomicApi(request:Request,job:(value:unknown)=>JobStatus
     const meta=metadata(raw,kind);need(meta.record_id===ref.record_id && meta.revision===ref.revision && object(raw.input));
     closed(raw.input,SOURCE_FIELDS[kind]);
     return {meta,input:raw.input};
+  }
+  async function saveSource<K extends SourceType>(intent:{kind:K;input:unknown;idempotency_key:string},id:string,revision:string):Promise<SourceSaved<K>> {
+    const raw=await request('/v1/market-user-sources','POST',intent,200);
+    need(object(raw));closed(raw,[...META,'intent_job']);const result=metadata(raw,intent.kind);
+    need(result.record_id===id && result.revision===revision);
+    const intent_job=job(raw.intent_job);need(intent_job.stage==='collection');return {...result,intent_job};
   }
   return {
     async sources(kind:SourceKind,after?:Cursor):Promise<SourcePage> {
@@ -95,10 +162,20 @@ export function createEconomicApi(request:Request,job:(value:unknown)=>JobStatus
     },
     async saveNumeric(intent:NumericIntent):Promise<SourceSaved> {
       numeric(intent.input);
-      const raw=await request('/v1/market-user-sources','POST',intent,200);
-      need(object(raw));closed(raw,[...META,'intent_job']);const result=metadata(raw,'economic_input');
-      need(result.record_id===intent.input.input_id && result.revision===intent.input.revision);
-      const intent_job=job(raw.intent_job);need(intent_job.stage==='collection');return {...result,intent_job};
+      return saveSource(intent,intent.input.input_id,intent.input.revision);
+    },
+    async saveRights(intent:RightsIntent):Promise<SourceSaved<'input_rights'>> {
+      const input=intent.input;need(object(input));closed(input,SOURCE_FIELDS.input_rights);scope(input);
+      need(name(input.input_id) && name(input.revision) && hash(input.raw_sha256) && input.immutable===true);
+      return saveSource(intent,input.input_id,input.revision);
+    },
+    async saveJoint(intent:JointIntent):Promise<SourceSaved<'joint_shock'>> {
+      joint(intent.input);return saveSource(intent,intent.input.shock_id,intent.input.revision);
+    },
+    async joint(ref:Cursor):Promise<JointRecord> {
+      const {meta,input}=await record('joint_shock',ref);const value=joint(input);
+      need(value.shock_id===meta.record_id && value.revision===meta.revision);
+      return {...meta,kind:'joint_shock',decision_at:value.decision_at,baseline_sha256:value.baseline_sha256,input:value};
     },
     async baseline(ref:Cursor):Promise<Baseline> {
       const {meta,input}=await record('economic_scenario',ref);

@@ -1,6 +1,10 @@
 // Explicit self-authored synthetic inputs over actual TLS and PostgreSQL.
 import {chromium,expect} from '@playwright/test';
 import {createInterface} from 'node:readline';
+const amend=process.argv[3]==='amend';
+const exact=amend ? '55.0000000001' : '9007199254740993.0000000001';
+const knownDate=amend ? '2026-09-27' : '2026-09-29';
+let shockRevision=null;
 const browser=await chromium.launch();
 const context=await browser.newContext({ignoreHTTPSErrors:true});
 const page=await context.newPage();const errors=[];
@@ -27,29 +31,43 @@ try {
   await page.getByRole('button',{name:'03 경제 가정·계산'}).click();
   const numbers=page.getByRole('region',{name:'숫자 가정',exact:true});
   await numbers.getByRole('button',{name:'목록 조회'}).click();
-  await numbers.locator('li button').first().click();
-  await page.getByLabel(/^새 가정값/).fill('9007199254740993.0000000001');
-  await page.getByLabel('가정을 알게 된 날짜 (UTC)').fill('2026-09-29');
+  if(amend)await numbers.locator('li button').filter({has:page.getByText('production-paid',{exact:true})}).click();
+  else await numbers.locator('li button').first().click();
+  await page.getByLabel(/^새 가정값/).fill(exact);
+  await page.getByLabel('가정을 알게 된 날짜 (UTC)').fill(knownDate);
   await page.getByLabel('가정을 알게 된 시각 (UTC)').fill('08:00');
   const registration=page.waitForResponse(response=>response.url().endsWith('/v1/market-user-sources') && response.request().method()==='POST');
   await page.getByRole('button',{name:'새 가정 판본 등록'}).click();
   const registered=await registration;
   expect(registered.status()).toBe(200);
   const savedInput=registered.request().postDataJSON().input;
-  expect(savedInput.available_at).toBe('2026-09-29T08:00:00Z');
-  expect(savedInput.value).toBe('9007199254740993.0000000001');
+  expect(savedInput.available_at).toBe(knownDate+'T08:00:00Z');
+  expect(savedInput.value).toBe(exact);
   await expect(page.getByText('새 가정 판본 접수됨',{exact:true})).toBeVisible();
   for(const name of ['기준 원장','수급·거시 공동 가정']) {
     const picker=page.getByRole('region',{name,exact:true});
     await picker.getByRole('button',{name:'목록 조회'}).click();
     await picker.locator('li button').first().click();
   }
+  if(amend) {
+    await expect(page.getByRole('button',{name:'새 숫자의 적용 위치 확인'})).toBeEnabled();
+    await page.getByRole('button',{name:'새 숫자의 적용 위치 확인'}).click();
+    const location=page.getByLabel('적용할 숫자 위치');await expect(location).toBeVisible();
+    const target=await location.locator('option').evaluateAll(options=>options.find(option=>option.textContent.includes('변동비 / production / 지급액'))?.value);
+    expect(target).toBeTruthy();await location.selectOption(target);await page.getByRole('checkbox').check();
+    const shockWrite=page.waitForResponse(response=>response.url().endsWith('/v1/market-user-sources') && response.request().method()==='POST'
+      && response.request().postDataJSON().kind==='joint_shock');
+    await page.getByRole('button',{name:'권리·공동 가정 판본 등록·선택'}).click();
+    const response=await shockWrite;expect(response.status()).toBe(200);shockRevision=response.request().postDataJSON().input.revision;
+    await expect(page.getByText('새 숫자를 참조하는 공동 가정 판본이 선택되었습니다.',{exact:false})).toBeVisible({timeout:45000});
+    expect(shockRevision).not.toBe('r1');
+  }
   await page.getByRole('button',{name:'선택한 가정으로 계산 요청'}).click();
   await expect.poll(async()=>await page.getByText('계산 작업: 대기 중',{exact:true}).isVisible() || await page.getByRole('alert').isVisible(),{timeout:120000}).toBe(true);
   expect(await page.getByRole('alert').allTextContents()).toEqual([]);
   await page.getByText('계산 작업 식별자',{exact:true}).click();
   const jobId=await page.locator('.economic-job-reference code').innerText();
-  process.stdout.write(JSON.stringify({stage:'queued',job_id:jobId,source_id:savedInput.input_id,source_revision:savedInput.revision,network})+'\n');
+  process.stdout.write(JSON.stringify({stage:'queued',job_id:jobId,source_id:savedInput.input_id,source_revision:savedInput.revision,shock_revision:shockRevision,network})+'\n');
   const input=createInterface({input:process.stdin});const timer=setTimeout(()=>input.close(),180000);
   let expected;
   for await(const line of input){expected=JSON.parse(line);break;}

@@ -2,7 +2,9 @@ import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { ApiError, type createApi, type JobStatus } from './api';
 import { decimal, type SourceKind, type SourceMeta, type SourcePage, type NumericRecord, type NumericIntent,
   type SourceSaved, type Baseline, type Shock, type Candidate, type ScenarioIntent, type CalculationIntent,
-  type EconomicResult } from './economic-api';
+  type EconomicResult, type JointRecord, type RightsIntent, type JointIntent } from './economic-api';
+
+import {amendJoint,numericSlots} from './joint-amendment';
 
 type Client=ReturnType<typeof createApi>;
 const names:Record<SourceKind,string>={economic_input:'숫자 가정',economic_scenario:'기준 원장',joint_shock:'수급·거시 공동 가정'};
@@ -11,7 +13,17 @@ const errors:Record<string,string>={auth_required:'접근 토큰을 확인해 �
   intent_conflict:'같은 요청에 다른 입력이 이미 등록되어 있습니다.',response_rejected:'서버 응답을 확인할 수 없어 표시를 보류했습니다.',
   too_large:'입력이 서버의 크기 한도를 넘었습니다.',server_unavailable:'접수 여부를 확인하지 못했습니다. 같은 요청을 다시 확인해 주세요.',
   network_unresolved:'응답을 받지 못했습니다. 같은 요청을 다시 확인해 주세요.',invalid_assumption:'가정값과 알게 된 UTC 날짜·시각을 확인해 주세요.',
+  rights_required:'이 숫자의 소유·이용·표시 권한을 명시적으로 확인해 주세요.',
+  amendment_mismatch:'입력 ID·단위·새 판본·적용 기간·결정 시각 또는 선택 위치가 맞지 않습니다.',
   assumption_mismatch:'공동 가정이 선택한 기준 원장·결정 시각과 맞지 않습니다.'};
+const driverNames={demand:'수요·판매',supply:'공급·생산',macro:'거시·비용'};
+const groupNames:Record<string,string>={harvests:'수확',packouts:'판매 가능량',culls:'선별 제외량',cull_disposals:'선별 제외 폐기',
+  disposals:'폐기',sales:'판매',collections:'수금',returns:'반품',discounts:'할인',setoffs:'상계',variable_costs:'변동비',fixed_costs:'고정비'};
+const fieldNames:Record<string,string>={quantity:'수량',price:'판매 단가',amount:'금액',refund:'환불액',unit_cost:'단위 원가',payment:'지급액'};
+function slotLabel(item:ReturnType<typeof numericSlots>[number]) {
+  return [driverNames[item.driver.kind],groupNames[item.edit.event_group] ?? item.edit.event_group,
+    item.edit.event_id,fieldNames[item.edit.field] ?? item.edit.field].join(' / ');
+}
 function money(value:string|null) {
   if(value===null) return '미확인';
   const [whole,fraction]=value.split('.');
@@ -26,11 +38,15 @@ export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|nu
   const [candidate,setCandidate]=useState<Candidate|null>(null);const [job,setJob]=useState<JobStatus|null>(null);
   const [result,setResult]=useState<EconomicResult|null>(null);const [busy,setBusy]=useState(false);
   const [error,setError]=useState<ApiError|null>(null);const [unresolved,setUnresolved]=useState(false);
+  const [draft,setDraft]=useState<JointRecord|null>(null);const [replacement,setReplacement]=useState<NumericRecord|null>(null);
+  const [slot,setSlot]=useState('');const [consent,setConsent]=useState(false);
+  const [applied,setApplied]=useState<SourceSaved<'joint_shock'>|null>(null);
+  const amendment=useRef<{rights:RightsIntent;shock:JointIntent;rightsSaved:SourceSaved<'input_rights'>|null;shockSaved:SourceSaved<'joint_shock'>|null}|null>(null);
   const sourceIntent=useRef<NumericIntent|null>(null);
   const flow=useRef<{scenario:ScenarioIntent;candidate:Candidate|null;calculation:CalculationIntent|null}|null>(null);
   const pending=useRef(false);const inFlight=useRef(false);const epoch=useRef(0);
   useEffect(()=>{
-    epoch.current++;sourceIntent.current=null;flow.current=null;pending.current=false;onPending(false);
+    epoch.current++;amendment.current=null;setDraft(null);setReplacement(null);setSlot('');setConsent(false);setApplied(null);sourceIntent.current=null;flow.current=null;pending.current=false;onPending(false);
     setPages({});setNumeric(null);setSaved(null);setBaseline(null);setShock(null);setCandidate(null);setJob(null);
     setResult(null);setValue('');setKnownDate('');setKnownTime('');setError(null);setUnresolved(false);
   },[api,onPending]);
@@ -54,8 +70,10 @@ export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|nu
       if(current())setPages(old=>({...old,[kind]:response}));
     });
   }
+  function clearAmendment() {amendment.current=null;setDraft(null);setReplacement(null);setSlot('');setConsent(false);setApplied(null);setError(null);}
   function choose(kind:SourceKind,ref:SourceMeta) {
     void perform(async (client,current)=>{
+      clearAmendment();
       if(kind==='economic_input') {
         const response=await client.numeric(ref);if(!current())return;
         setNumeric(response);setValue(response.input.value);setKnownDate('');setKnownTime('');setSaved(null);sourceIntent.current=null;
@@ -78,6 +96,36 @@ export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|nu
       pending.current=true;setUnresolved(true);
       const response=await client.saveNumeric(sourceIntent.current);
       if(current()) {setSaved(response);pending.current=false;setUnresolved(false);}
+    });
+  }
+  function loadAmendment() {
+    if(!saved || !shock)return;
+    void perform(async (client,current)=>{
+      const [number,joint]=await Promise.all([client.numeric(saved),client.joint(shock)]);
+      if(number.payload_sha256!==saved.payload_sha256 || joint.payload_sha256!==shock.payload_sha256)
+        throw new ApiError('response_rejected');
+      if(current()){setReplacement(number);setDraft(joint);setSlot('');setConsent(false);}
+    });
+  }
+  function apply(event:FormEvent<HTMLFormElement>) {
+    event.preventDefault();if(!draft || !replacement || !baseline)return;
+    void perform(async (client,current)=>{
+      if(!amendment.current) {
+        const intents=await amendJoint(draft,baseline,replacement.input,slot,consent);if(!current())return;
+        amendment.current={...intents,rightsSaved:null,shockSaved:null};
+      }
+      const pinned=amendment.current;
+      if(!pinned.shockSaved) {pending.current=true;setUnresolved(true);}
+      if(!pinned.rightsSaved) {
+        const accepted=await client.saveRights(pinned.rights);if(!current())return;pinned.rightsSaved=accepted;
+      }
+      if(!pinned.shockSaved) {
+        const accepted=await client.saveJoint(pinned.shock);if(!current())return;pinned.shockSaved=accepted;
+      }
+      pending.current=false;setUnresolved(false);
+      const selected=await client.shock(pinned.shockSaved);if(!current())return;
+      if(selected.payload_sha256!==pinned.shockSaved.payload_sha256)throw new ApiError('response_rejected');
+      setShock(selected);setApplied(pinned.shockSaved);
     });
   }
   function calculate() {
@@ -117,7 +165,7 @@ export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|nu
       }
     });
   }
-  const disabled=busy || blocked;const selectionLocked=disabled || unresolved || flow.current!==null;
+  const disabled=busy || blocked;const selectionLocked=disabled || unresolved || flow.current!==null || amendment.current!==null;
   function picker(kind:SourceKind) {
     const data=pages[kind];return <section className="source-picker" aria-label={names[kind]}>
       <div className="picker-heading"><h3>{names[kind]}</h3><button type="button" className="button secondary" disabled={selectionLocked}
@@ -152,19 +200,43 @@ export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|nu
             <label>가정을 알게 된 시각 (UTC)<input type="time" value={knownTime} required step="60"
               readOnly={!!sourceIntent.current} onChange={event=>setKnownTime(event.target.value)}/></label></div>
           <p className="muted">결정 시점 뒤에 알게 된 정보는 과거 판단의 입력으로 쓸 수 없습니다.</p>
-          <button className="button primary" disabled={disabled || !!flow.current || !!saved}>
+          <button className="button primary" disabled={disabled || !!flow.current || !!amendment.current || !!saved}>
             {sourceIntent.current ? '같은 가정 요청 다시 확인' : '새 가정 판본 등록'}</button>
           {saved && <div className="notice" role="status"><strong>새 가정 판본 접수됨</strong><p>{saved.revision}</p>
-            <p>등록한 숫자는 선택 원장에 아직 반영되지 않았습니다. 이 판본을 참조하는 원장을 별도로 등록·검토해야 계산에 사용할 수 있습니다.</p></div>}
-          {sourceIntent.current && !unresolved && <button type="button" className="button secondary" disabled={disabled}
-            onClick={()=>{sourceIntent.current=null;setSaved(null);setError(null);}}>새 수정 시작</button>}
+            <p>{applied ? '새 숫자를 참조하는 공동 가정 판본을 선택했습니다. 서버 계산 요청은 아래에서 별도로 진행합니다.' : '등록한 숫자는 아직 계산에 적용되지 않았습니다. 기준 원장·공동 가정을 선택하고 적용 위치와 권리를 확인하세요.'}</p></div>}
+          {sourceIntent.current && !unresolved && <button type="button" className="button secondary" disabled={disabled || !!amendment.current || !!flow.current}
+            onClick={()=>{clearAmendment();sourceIntent.current=null;setSaved(null);setError(null);}}>새 수정 시작</button>}
         </form>}
         <div className="scenario-pickers">{picker('economic_scenario')}{picker('joint_shock')}</div>
         {baseline && <p className="selected-source">선택 원장: <strong>{baseline.record_id} / {baseline.revision}</strong><br/>
           원장 기간: {baseline.period_start} ~ {baseline.period_end}<br/>결정 시각: {baseline.decision_at}</p>}
         {shock && <p className="selected-source">선택 공동 가정: <strong>{shock.record_id} / {shock.revision}</strong></p>}
-        <p className="muted">위에 선택한 원장·공동 가정의 고정 판본으로 계산합니다. 새 숫자는 원장·권리 연결을 확인한 뒤 사용할 수 있습니다.</p>
-        <div className="economic-actions"><button className="button primary" disabled={disabled || !baseline || !shock || unresolved && !flow.current}
+        {saved && baseline && shock && !flow.current && <section className="amendment-panel" aria-label="새 숫자 적용">
+          <h3>새 숫자를 공동 가정에 적용</h3>
+          <p>기존 숫자 변경 위치를 직접 선택합니다. 기준 원장과 정산 증거는 유지하며 서버가 새 연결을 검증합니다.</p>
+          {!amendment.current && <button className="button secondary" disabled={disabled || unresolved} onClick={loadAmendment}>새 숫자의 적용 위치 확인</button>}
+          {draft && replacement && <form className="assumption-form" onSubmit={apply}>
+            <label>적용할 숫자 위치<select required value={slot} disabled={disabled || !!amendment.current} onChange={event=>setSlot(event.target.value)}>
+              <option value="">위치를 선택하세요</option>{numericSlots(draft,replacement.input).map(item=><option key={item.key} value={item.key}>
+                {slotLabel(item)}</option>)}
+            </select></label>
+            {numericSlots(draft,replacement.input).length===0 && <p className="notice">입력 ID·단위가 맞는 새 숫자 변경 위치가 없습니다.</p>}
+            {numericSlots(draft,replacement.input).filter(item=>item.key===slot).map(item=><div key={item.key} className="amendment-preview">
+              <p>공동 가정 근거: {item.driver.hypothesis}</p>
+              <p>기존 값: {item.edit.number!.value} {item.edit.number!.unit}<br/>새 값: {replacement.input.value} {replacement.input.unit}</p>
+              <p>새 숫자 판본: {replacement.revision}<br/>알게 된 시각: {replacement.input.available_at}<br/>
+                적용 기간: {replacement.input.scope_start} ~ {replacement.input.scope_end}</p>
+            </div>)}
+            <label className="rights-checkbox"><input type="checkbox" required checked={consent} disabled={disabled || !!amendment.current}
+              onChange={event=>setConsent(event.target.checked)}/><span>이 숫자는 제가 소유한 가정이며 이 서비스에서 이용·표시할 권한이 있습니다. 재배포는 허용하지 않습니다.</span></label>
+            <button className="button primary" disabled={disabled || !!applied || !slot || !consent}>
+              {applied ? '적용 판본 선택됨' : amendment.current ? '같은 적용 요청 다시 확인' : '권리·공동 가정 판본 등록·선택'}</button>
+          </form>}
+          {applied && <p role="status" className="notice">새 숫자를 참조하는 공동 가정 판본이 선택되었습니다. 계산 완료·자료 승인 또는 작물 평가를 뜻하지 않습니다.</p>}
+          {amendment.current && !unresolved && <button className="button secondary" disabled={disabled} onClick={clearAmendment}>적용 요청 다시 작성</button>}
+        </section>}
+        <p className="muted">위에 선택한 원장·공동 가정의 고정 판본으로 계산합니다. 새 숫자는 위의 적용 절차를 완료해야 이 계산에 사용됩니다.</p>
+        <div className="economic-actions"><button className="button primary" disabled={disabled || !baseline || !shock || unresolved && !flow.current || !!amendment.current && !applied}
           onClick={calculate}>{flow.current ? '같은 계산 요청 다시 확인' : '선택한 가정으로 계산 요청'}</button>
           {flow.current && !unresolved && <button className="button secondary" disabled={disabled} onClick={()=>{
             flow.current=null;setCandidate(null);setJob(null);setResult(null);setError(null);}}>새 계산 선택</button>}</div>

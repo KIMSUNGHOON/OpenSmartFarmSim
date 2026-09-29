@@ -50,6 +50,7 @@ export const SOURCE_FIELDS = {
     "opening_operating_payable",
     "zero_declarations"
   ],
+  "input_rights": ["input_id","revision","raw_sha256","origin","evidence_level","rights","available_at","effective_start","effective_end","immutable"],
   "joint_shock": [
     "schema_version",
     "shock_id",

@@ -128,3 +128,16 @@ independent release/reviewer evidence, 3D/replay and whole synthetic G1 remain
 required. Real provider rights/QC/vintages and field/future/paired/operating
 evidence for G0/G2/G3a/G3b/G4 are absent. Task checkboxes and the active goal
 remain unchanged.
+
+## Subsequent CI receipt for 311619c
+
+At the next functional increment on 2026-09-29, the exact head
+`311619c00e3313d00b2c6ea151a9783c8bb17925` was rechecked: [Web tests run
+36551103208](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36551103208)
+and [C0 Compose run
+36551103299](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36551103299)
+are completed/success. [Backend run
+36551103212](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36551103212)
+is still in_progress at this observation. It was not restarted or cancelled
+because of elapsed time; no full-backend success is claimed for that head.
+These are workflow receipts, not new source, field, whole G1 or operating gates.

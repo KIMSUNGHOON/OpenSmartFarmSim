@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { createApi, ApiError } from './api';
 import { SOURCE_FIELDS } from './source-fields';
-import type { Candidate, NumericIntent, NumericInput } from './economic-api';
+import type { Candidate, NumericIntent, NumericInput, RightsIntent, JointInput } from './economic-api';
 
 const time='2026-09-29T08:00:00Z';const id='11111111-1111-4111-8111-111111111111';
 const meta={kind:'economic_input',record_id:'수량/#?',revision:'r1',payload_sha256:'a'.repeat(64),
@@ -60,4 +60,32 @@ describe('economic HTTP boundaries',()=>{
     await expect(api({...raw,scenario_id:'wrong'}).economicResult(id,candidate,context)).rejects.toBeInstanceOf(ApiError);
     await expect(api({...raw,amounts:{...raw.amounts,revenue_krw:10}}).economicResult(id,candidate,context)).rejects.toBeInstanceOf(ApiError);
   });
+  it('registers complete rights using only the matching collection receipt',async ()=>{
+    const intent:RightsIntent={kind:'input_rights',input:{input_id:number.input_id,revision:number.revision,raw_sha256:'b'.repeat(64),
+      origin:'user',evidence_level:'assumed',rights:{use:'allowed',display:'allowed',redistribute:'denied'},available_at:time,
+      effective_start:number.scope_start,effective_end:number.scope_end,immutable:true},idempotency_key:'rights'};
+    const receipt={...meta,kind:'input_rights',intent_job:job};
+    await expect(api(receipt).saveRights({...intent,input:null as unknown as RightsIntent['input']})).rejects.toBeInstanceOf(ApiError);
+    expect((await api(receipt).saveRights(intent)).kind).toBe('input_rights');
+    await expect(api({...receipt,kind:'economic_input'}).saveRights(intent)).rejects.toBeInstanceOf(ApiError);
+    await expect(api({...receipt,intent_job:{...job,stage:'simulation'}}).saveRights(intent)).rejects.toBeInstanceOf(ApiError);
+    await expect(api(receipt).saveRights({...intent,input:{...intent.input,tenant_id:'foreign'} as RightsIntent['input']})).rejects.toBeInstanceOf(ApiError);
+  });
+  it('reads complete canonical joint edits and refuses unknown nested fields',async ()=>{
+    const {scope_start:_,scope_end:__,...inline}=number;
+    const input:JointInput={schema_version:'1',shock_id:'joint',revision:'r1',baseline_sha256:'b'.repeat(64),decision_at:time,
+      effective_start:number.scope_start,effective_end:number.scope_end,available_at:time,origin:'user',evidence_level:'assumed',
+      rights:{use:'allowed',display:'allowed',redistribute:'denied'},drivers:[{kind:'macro',record_id:'macro',revision:'r1',origin:'user',
+        evidence_level:'assumed',available_at:time,effective_start:number.scope_start,effective_end:number.scope_end,
+        rights:{use:'allowed',display:'allowed',redistribute:'denied'},hypothesis:'Self-authored test',source_ref:'test',
+        causal_status:'unvalidated_user_hypothesis',changes:[{event_group:'variable_costs',event_id:'production',field:'quantity',number:inline,time:null,reference:null}]}],
+      contract_caps:[],settlement_bindings:[]};
+    const receipt={...meta,kind:'joint_shock',record_id:'joint',input};
+    const joint=await api(receipt).joint({record_id:'joint',revision:'r1'});expect(joint.input).toEqual(input);
+    for(const change of [{number:{...inline,value:42}},{time:time},{tenant_id:'foreign'}]) {
+      const altered=structuredClone(input);Object.assign(altered.drivers[0]!.changes[0]!,change);
+      await expect(api({...receipt,input:altered}).joint({record_id:'joint',revision:'r1'})).rejects.toBeInstanceOf(ApiError);
+    }
+  });
+
 });

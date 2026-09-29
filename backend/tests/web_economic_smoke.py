@@ -28,8 +28,9 @@ from web_shell_smoke import frontend, WEB
 TOKEN=b'synthetic-economic-browser-'+b'e'*32
 
 
+@pytest.mark.parametrize('apply_revision', [False,True])
 @pytest.mark.parametrize('login_scope', [{**PROFILE,'break_even_calculation':True}], indirect=True)
-def test_browser_real_https_assumption_revision_and_conditional_result(economic_api, tls_files):
+def test_browser_real_https_assumption_revision_and_conditional_result(economic_api, tls_files, apply_revision):
     _, jobs, candidates, principal, _, _=economic_api
     principal['scopes'].update(CALCULATION_SCOPES)
     os.close(jobs._content_directory(create=True))
@@ -55,7 +56,7 @@ def test_browser_real_https_assumption_revision_and_conditional_result(economic_
         api_port=server.servers[0].sockets[0].getsockname()[1]
         with frontend(f'https://127.0.0.1:{api_port}',cert,key) as (port,_):
             env={name:os.environ[name] for name in ('PATH','HOME','LANG','PLAYWRIGHT_BROWSERS_PATH') if name in os.environ}
-            browser=subprocess.Popen(['node','e2e/real-economic-smoke.mjs',f'https://127.0.0.1:{port}'],
+            browser=subprocess.Popen(['node','e2e/real-economic-smoke.mjs',f'https://127.0.0.1:{port}', 'amend' if apply_revision else 'registration'],
                 cwd=WEB,env=env,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
             deadline=time.monotonic()+150
             while not select.select([browser.stdout],[],[],30)[0]:
@@ -67,13 +68,31 @@ def test_browser_real_https_assumption_revision_and_conditional_result(economic_
             print('Actual economic browser admission:',json.dumps(queued['network']))
             sources=factory(principal_provider=jobs.principal_provider)
             saved=sources.get_user_source('tenant-1','economic_input',queued['source_id'],queued['source_revision'])
-            assert saved['input']['value']=='9007199254740993.0000000001'
-            assert saved['input']['available_at']=='2026-09-29T08:00:00Z'
+            assert saved['input']['value']==('55.0000000001' if apply_revision else '9007199254740993.0000000001')
+            assert saved['input']['available_at']==('2026-09-27T08:00:00Z' if apply_revision else '2026-09-29T08:00:00Z')
+            if apply_revision:
+                from app.economic_contracts import EconomicNumber
+                from app.market_scenario import _hash
+                number={key:value for key,value in saved['input'].items() if key not in ('tenant_id','scope_start','scope_end')}
+                expected=_hash(EconomicNumber.model_validate_json(json.dumps(number)).model_dump(mode='python'))
+                rights=sources.get_input_rights(queued['source_id'],queued['source_revision'])
+                assert rights['raw_sha256']==expected and rights['rights']['redistribute']=='denied'
+                shock=sources.get_joint_shock('joint-1',queued['shock_revision'])
+                original=sources.get_joint_shock('joint-1','r1')
+                assert shock['settlement_bindings']==original['settlement_bindings']
+                assert shock['drivers'][0:2]==original['drivers'][0:2]
             outcome=worker.run_once(queued['job_id']);assert outcome.state=='succeeded'
             print('Actual economic worker completed')
             with jobs.connect() as conn:
                 job=jobs._locked_job(conn,'tenant-1',UUID(queued['job_id']))
                 immutable=json.loads(jobs._verified_input(job))
+            if apply_revision:
+                derived=candidates.get_economic_scenario(immutable['scenario_id'],immutable['scenario_revision'])
+                cost=next(row for row in derived['variable_costs'] if row['id']=='production')
+                assert cost['payment']['value']=='55.0000000001' and cost['payment']['revision']==queued['source_revision']
+                original_edit=next(edit for driver in original['drivers'] for edit in driver['changes']
+                    if edit['event_group']=='variable_costs' and edit['event_id']=='production' and edit['field']=='payment')
+                assert original_edit['number']['value']=='60' and original_edit['number']['revision']=='r2'
             stored=results.get_market_result(immutable['scenario_id'],immutable['scenario_revision'])
             projection=project_economic_result(stored).model_dump(mode='json')
             browser.stdin.write(json.dumps(projection)+'\n');browser.stdin.flush()

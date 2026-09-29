@@ -10,7 +10,7 @@ inputs, baseline ledgers, and joint supply/demand/macro assumptions through the
 [stored-source reads](api-market-user-source-read-v1.md). No record is selected
 automatically. Pages preserve the server cursor; empty, unavailable, denied, and
 invalid responses expose no invented data. The browser's root field sets derive
-from the three existing server models and have a backend drift check.
+from the four existing server models and have a backend drift check.
 
 A numeric edit retains the selected input's unit, scope, origin and evidence
 labels. Its decimal is a string, with explicit UTC knowledge date/time. A new
@@ -18,11 +18,47 @@ revision, source reference and idempotency key are pinned before the first
 [source intake](api-market-user-source-v1.md). UTC is serialized in the canonical
 whole-second form required by intake. `200` means a new assumption was registered,
 not reviewed, applied to a ledger, or calculated. The original version is never
-mutated. This screen does not yet create the new baseline/rights versions needed
-to use that edited number in calculations; it says so next to registration and
-selection. It supplies no crop outputs, coefficients, tariffs, or missing costs.
+mutated. The user can then explicitly apply the saved number through a new joint-shock
+revision as described below. General baseline/farm/settlement authoring remains
+required. It supplies no crop outputs, coefficients, tariffs, or missing costs.
 
-Calculation uses the explicitly selected existing baseline and joint shock.
+## Applying a saved numeric revision
+
+After selecting a baseline and joint shock, the user requests the actual saved
+numeric record and complete canonical joint shock. Their source hashes must
+match the selected receipts. The screen offers only existing numeric edit slots
+with the same input ID/unit and a different revision; there is no selected
+slot or ownership declaration by default. It previews the existing and new
+string values, driver hypothesis, knowledge time and applicability period.
+
+The user declares ownership and permission to use/display the assumption;
+redistribution is denied. The browser hashes the EconomicNumber's nine canonical
+fields, excluding tenant and owned scope fields, to bind a new `input_rights`
+record. This is identity bookkeeping, not farm arithmetic or G0 approval.
+Knowledge time must be no later than the pinned decision, with microsecond
+precision; applicability must cover the baseline period. The existing joint
+and edited driver must also satisfy these bounds. The joint must retain all
+three nonempty demand/supply/macro drivers.
+
+The browser clones the selected complete joint, changes only the explicitly
+selected numeric edit, gives the joint and edited driver new revisions, denies
+redistribution on both, and preserves their later knowledge times. Other edits,
+input references, hypotheses, caps and settlement bindings are retained. The
+baseline is unchanged. The deterministic scenario server still validates all
+rights, inventory, decision/scope and settlement applicability. If an edit
+invalidates a settlement path, existing evidence is insufficient: the screen
+does not manufacture replacement evidence or approve that scenario.
+
+Two intake bodies/keys are pinned once: rights `200`, then joint `200`. An
+acknowledged phase is not posted again after the following reply is lost.
+After both acknowledgements, the exact new joint is read and selected; a
+failed read retries only that read. Unknown writes freeze selection, editing
+and authentication. Known rejection permits deliberate rewriting. Explicit
+calculation is a separate action, and no amounts appear before its real result.
+This increment does not create arbitrary event rows, baseline ledgers,
+settlement evidence, monthly series or break-even inputs.
+
+Calculation uses the explicitly selected baseline and joint shock revision.
 Their baseline hash and decision timestamp must match. The closed
 [scenario registration](api-economic-scenario-v1.md) request is pinned first;
 only its validated `200` candidate permits pinning the subsequent

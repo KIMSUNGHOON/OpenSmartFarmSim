@@ -76,3 +76,13 @@ records the scope and remaining holds.
 The self-hosted font is pinned as `@fontsource-variable/noto-sans-kr@5.3.0`.
 Its original [OFL notice](public/licenses/noto-sans-kr-OFL.txt) is copied to
 the static build's `/licenses/noto-sans-kr-OFL.txt`.
+
+## Apply a saved assumption
+
+The economic screen can explicitly select an existing numeric edit slot, confirm
+ownership/use/display rights with redistribution denied, register the rights and
+a new joint-shock revision, and select that exact revision for calculation.
+Knowledge time and applicability must cover the pinned decision/period. The
+server still rejects invalid rights, units, conservation and settlement paths.
+General baseline/event/settlement authoring is pending. See the
+[implementation evidence](../research/web-joint-amendment-implementation.md).
