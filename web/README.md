@@ -5,12 +5,15 @@ its real server job/hold status. The third screen lists exact stored economic
 assumptions, registers a numeric revision and admits/reads a selected conditional
 ledger calculation, including a manually requested monthly cash table. A
 break-even section selects existing sale/collection and saved trial revisions,
-admits a finite plan and reads its completed result. Full farm input,
+admits a finite plan and reads its completed result. The fourth screen replays
+a completed synthetic thermal Run in Three.js, a chart, an HTML table and six
+text values with one selected stored timestamp. Full farm input,
 baseline/event/settlement authoring, automatic trial assumptions, durable
-reload recovery, map, replay and production hosting are pending. See the
+reload recovery, map, full replay acceptance and production hosting are pending. See the
 [location contract](../contracts/web-location-shell-v1.md) and
 [economic contract](../contracts/web-economic-workspace-v1.md) and
-[break-even contract](../contracts/web-break-even-workspace-v1.md).
+[break-even contract](../contracts/web-break-even-workspace-v1.md) and
+[thermal replay contract](../contracts/web-thermal-replay-v1.md).
 
 ## Software checks
 
@@ -64,6 +67,19 @@ After locked backend installation and Chromium installation, set
 uv run --locked --group dev pytest -q -s tests/web_shell_smoke.py tests/web_economic_smoke.py tests/web_break_even_smoke.py
 ```
 
+The completed thermal replay has a separate explicit smoke:
+
+```bash
+uv run --locked --group dev pytest -q -s tests/web_thermal_replay_smoke.py
+```
+
+It completes an owned farm thermal job, projects the verified immutable Run,
+and compares the first/last stored points and six numeric fields with the
+actual HTTPS browser scene, chart and HTML table. It captures desktop/tablet/
+phone screens in pytest's temporary directory. Its CLI and release authorities
+are synthetic software fixtures. It does not establish product CLI execution,
+independent G1 or production readiness.
+
 This explicit smoke creates disposable SCRAM roles, an actual API, Vite HTTPS
 proxy and an isolated Chromium context. It checks queued admission, persisted
 fake-CLI hold, repeated intent with one stored job and rejection of an
@@ -80,6 +96,24 @@ records the scope and remaining holds.
 The self-hosted font is pinned as `@fontsource-variable/noto-sans-kr@5.3.0`.
 Its original [OFL notice](public/licenses/noto-sans-kr-OFL.txt) is copied to
 the static build's `/licenses/noto-sans-kr-OFL.txt`.
+
+## Open a completed thermal replay
+
+With the assembled API connected, choose **04 3D 열 재생**, enter an owned
+completed thermal job UUID, then choose **저장된 Run 조회**. The API must permit
+the job/Run/snapshot and, for a farm v3 job, the current farm selection reads.
+This screen reads existing results; it does not submit a new simulation or
+invent a demo Run. Expand **완료된 열 작업 선택** to change or reread the record.
+Use the slider, previous/next minute, table timestamp buttons or optional
+automatic playback. Temperature color and the heat bar are relative to this
+Run, with explicit legends. The geometry is conceptual and has no measured
+farm dimensions. All six values remain available when WebGL fails.
+
+Three.js `0.186.1`, ECharts `6.1.0` and Three types `0.186.0` are locked.
+Original notices for Three, ECharts, its d3 material, zrender and tslib are
+served from `public/licenses/`. No crop, equipment or stock 3D asset is shipped.
+See the [verification record](../research/web-thermal-replay-implementation.md)
+for browser checks, screenshots and remaining holds.
 
 ## Apply a saved assumption
 

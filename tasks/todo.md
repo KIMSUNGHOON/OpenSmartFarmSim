@@ -1,6 +1,8 @@
 # 첫 구현 작업 목록
 
-**농장 경제 실행 연결 진행:** [경제 실행 계약](../contracts/farm-economic-execution-v1.md)은 경제 입력/영수증 v2가 같은 계획과 실제 완료 열 작업을 참조하도록 한다([검증 기록](../research/farm-economic-execution-implementation.md)). 다음 부분 구현은 [첫 내부 3D 열 재생 뷰어](../contracts/web-thermal-replay-v1.md)이며, [우선순위](plan.md)에 따라 공통 Assessment에 앞서 저장된 Run을 장면·그래프·표로 확인한다. 전체 작성·실제 CLI/독립 G1/G4와 기존 작업 체크는 유지한다.
+**첫 내부 3D 열 재생 부분 구현 (2026-09-30):** [재생 계약](../contracts/web-thermal-replay-v1.md)에 따라 실제 장면·그래프·표·여섯 수치의 저장 시각을 연결했다([검증 기록](../research/web-thermal-replay-implementation.md)). 다음은 같은 농장 계획의 열·경제 완료 기록을 공통 Assessment에 연결하는 부분 작업이다. 전체 `web-shell` 선행·`web-replay`/G1/G4 수용은 남아 기존 체크를 유지한다.
+
+**농장 경제 실행 연결 진행:** [경제 실행 계약](../contracts/farm-economic-execution-v1.md)은 경제 입력/영수증 v2가 같은 계획과 실제 완료 열 작업을 참조하도록 한다([검증 기록](../research/farm-economic-execution-implementation.md)). [첫 내부 3D 열 재생 뷰어](../contracts/web-thermal-replay-v1.md)도 부분 구현했으며, [우선순위](plan.md)에 따라 공통 Assessment에 앞서 저장된 Run을 장면·그래프·표로 확인한다. 전체 작성·실제 CLI/독립 G1/G4와 기존 작업 체크는 유지한다.
 
 **농장 계획 열 실행 연결 진행:** [열 실행 계약](../contracts/farm-thermal-execution-v1.md)은 접수·작업자·작업별 Run 조회의 입력/영수증 v3가 같은 등록 계획과 완료 조사/수집/검토를 참조하도록 한다. [검증 기록](../research/farm-thermal-execution-implementation.md)은 실제 SCRAM·HTTPS와 가짜 CLI/합성 키의 소프트웨어 범위다. 공통 평가·3D·실제 CLI와 독립 전체 G1/G4 수용은 남아 기존 체크를 유지한다.
 

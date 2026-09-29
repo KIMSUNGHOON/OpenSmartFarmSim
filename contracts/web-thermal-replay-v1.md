@@ -1,7 +1,9 @@
 # First internal thermal replay viewer v1
 
-Status: next implementation candidate, prioritized after farm economic execution
-by the user's request on 2026-09-29. This document is a scope, not acceptance
+Status: internal implementation candidate, prioritized after farm economic execution
+by the user's request on 2026-09-29. See the
+[implementation evidence](../research/web-thermal-replay-implementation.md).
+This document is a scope, not acceptance
 evidence for web-replay, whole G1 or a production service.
 
 ## Input and display

@@ -2,6 +2,7 @@ import { ApiError, need, object, member, date, uuid, closed } from './api-valida
 export { ApiError } from './api-validation';
 import { createEconomicApi } from './economic-api';
 import { createBreakEvenApi } from './break-even-api';
+import { createThermalApi } from './thermal-api';
 export const STAGES = ['research','collection','collection_review','simulation','assessment'] as const;
 export const STATES = ['queued','researching','collecting','reviewing','simulating','assessing',
   'succeeded','hold','failed','canceled'] as const;
@@ -90,6 +91,7 @@ export function createApi(token:string, fetcher:typeof fetch = fetch) {
     } finally { clearTimeout(timer); }
   }
   return {
+    ...createThermalApi(request),
     ...createEconomicApi(request, decodeJob),
     ...createBreakEvenApi(request, decodeJob),
     async location(intent:LocationIntent) { return decodeLocation(await request('/v1/locations','POST',intent),intent); },
