@@ -14,3 +14,5 @@ Status: implementation sequence, 2026-09-30. Scope follows
 Build order: farm-inputs → farm-authoring-storage → farm-authoring-execution →
 farm-authoring-web. Provider contract: [farm-inputs](contracts/farm-inputs-v1.md).
 The larger existing G1 tasks remain open until the whole path is accepted.
+The storage module currently has an internal immutable registration candidate;
+authored snapshot review/release and worker binding are its next dependency.
