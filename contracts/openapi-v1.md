@@ -1,8 +1,8 @@
 # Implemented API OpenAPI contract v1
 
 [openapi-v1.json](openapi-v1.json) is the deterministic OpenAPI 3.1.0 snapshot
-of the eighteen implemented operations. It is an internal software candidate.
-Future ingestion/assessment submissions and region listings are
+of the twenty-one implemented operations. It is an internal software candidate.
+Future provider ingestion/assessment submissions and region listings are
 specified in ARCHITECTURE but are not advertised as available operations.
 
 Generate/check with locked dependencies from `backend`:
@@ -29,7 +29,7 @@ vendor field. Actual credential verification remains in PrincipalMiddleware and
 each store still enforces tenant/right access independently.
 
 Operation IDs are stable: registerLocation, registerMarketUserSource, registerEconomicScenario, registerThermalScenario, getThermalScenario,
-submitThermalRun, submitEconomicCalculation, submitBreakEvenPlan, getJob, getJobHold, getJobRun, getJobEconomicResult, getMarketHold,
+submitThermalRun, submitOwnedIngestion, submitOwnedCollectionReview, submitEconomicCalculation, submitBreakEvenPlan, getJob, getJobHold, getJobRun, getJobEconomicResult, getJobBreakEvenResult, getMarketHold,
 getRun, getRunSeries, getRunManifest, getEconomicResult, getBreakEvenResult. `LocationPoint` is a
 closed latitude/longitude object with coordinate bounds, matching the actual
 response. Registration's request is closed JSON with a 4096-byte maximum
@@ -82,3 +82,8 @@ and grants no source approval, calculation completion or forecast claim.
 [Conditional scenario registration](api-economic-scenario-v1.md) joins the actual
 intent and existing candidate/numeric pins in one transaction. Registration stays
 distinct from subsequent calculation, CLI execution and gate acceptance.
+
+[Owned ingestion/review](api-owned-collection-v1.md) accept only actual parent
+UUID and idempotency key. Their 202 responses are existing JobStatus; original
+sources, signed contexts and candidate snapshots remain protected. Missing
+operator services return 503, and gate acceptance remains pending.

@@ -22,6 +22,13 @@ logging and source/model invocation during initialization.
 
 ## Configuration and dependencies
 
+Optional exact OwnedFixtureRegistry in ApiRuntimeDependencies enables
+[owned ingestion and review](api-owned-collection-v1.md). Assembly binds both
+services to the same existing jobs/thermal stores and current_principal and exposes
+collections/collection_reviews. The default is None and authenticated/scoped
+calls return 503. This option grants no source approval, model execution or gate
+acceptance; operating collection/CLI workers and independent evidence remain needed.
+
 `ApiRuntimeConfig` requires an exact RuntimeLoginPolicy with both explicit market
 and break-even flags (v4, or optional v5 source storage), a nonempty DSN, absolute artifact/certificate/key Paths
 with no parent traversal, and separate thermal-gate/market-hold byte key fields

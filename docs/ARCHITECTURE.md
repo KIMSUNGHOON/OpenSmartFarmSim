@@ -64,7 +64,7 @@ flowchart LR
 | 경로 | 요청과 결과 |
 | --- | --- |
 | `GET /v1/regions`, `POST /v1/locations` | 선택 가능한 지역 목록 또는 사용자 좌표 등록. 등록 시 **필수 Codex 조사 작업**을 큐에 넣고 지원·공간 해상도·대표점 여부와 작업 ID를 돌려준다. |
-| `POST /v1/ingestions` | 좌표/기간/용도(`historical` 또는 후속 `forecast`)와 멱등 키를 받는다. 새 자료 요청은 해당 조건의 Codex 조사·계획 결정을 선행한다. `202`와 작업 ID를 반환하고, 승인된 수집 계획·권리·자료 검증 후 Snapshot ID를 만든다. |
+| `POST /v1/ingestions`, `POST /v1/collection-reviews` | [현재 합성 원본 접수 후보](../contracts/api-owned-collection-v1.md)는 완료 조사/수집 UUID와 멱등 키를 받는다. 좌표·기간·원본·서명 문맥은 서버의 실제 부모 기록에서 읽고 검토 입력과 스냅샷 후보를 함께 저장한다. `202 JobStatus`는 자료 승인이나 G0/G1 통과가 아니다. 실제 제공자의 좌표/기간/용도(`historical` 또는 후속 `forecast`) 요청은 해당 조건의 Codex 조사·계획과 권리·자료 검증을 선행해야 한다. |
 | `POST /v1/market-snapshots`, `GET /v1/market-snapshots/{id}`, `GET /v1/market-hold-reports/{id}` | 결정시각·후보·수확/판매 기간·허용 제공자 요청과 멱등 키를 받아 조사·수집/검토 작업을 큐에 넣는다. 서버가 `available_at ≤ decision_at`, 판본·권리·단위·채널과 시장 G0를 검사한 불변 `snapshot_id`만 게시한다. G0 보류 시 `hold_report_id`와 사유·누락 증거를 반환하고 MarketSnapshot은 만들지 않는다. 읽기는 테넌트 권한과 자료별 표시권을 적용한다. |
 | `GET /v1/jobs/{id}` | `queued/researching/collecting/reviewing/simulating/assessing/succeeded/hold/failed/canceled`, 단계, 진행시각, 재시도 가능 여부와 원인을 제공한다. `hold`는 근거·권한·예산·CLI 문제 등으로 더 진행하지 않는 정상적인 보류 상태이며 성공으로 표시하지 않는다. 시장 G0 보류에는 `hold_report_id`를 포함한다. 조건부 경제 계산 작업의 `succeeded`는 Assessment 통과를 뜻하지 않는다. |
 | `GET /v1/jobs/{id}/hold-report` | [검증된 작업 보류 조회](../contracts/api-job-hold-v1.md). 같은 테넌트의 metadata/artifact/auditor 권한 아래 저장된 AI 보류 사유·안전한 누락 근거 범주·개수·기록 시각을 제공한다. 비공개 식별자는 기타 근거로 묶고, CLI 장애 보류나 Market hold를 AI 검증 보고서로 만들지 않는다. |

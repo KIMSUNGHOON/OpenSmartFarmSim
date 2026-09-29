@@ -25,6 +25,9 @@ from .api_economic_scenario import EconomicScenarioService
 from .api_economic_calculation import EconomicCalculationService
 from .api_job_break_even_result import BreakEvenJobResultService
 from .break_even_plan_submission import BreakEvenPlanSubmissionService
+from .owned_fixture_registry import OwnedFixtureRegistry
+from .owned_fixture_collection import CollectionService
+from .owned_collection_review import OwnedCollectionReviewService
 
 
 @dataclass(frozen=True)
@@ -62,13 +65,15 @@ class ApiRuntimeDependencies:
     market_scope_resolver: object = field(repr=False)
     market_source_factory: object = field(repr=False)
     thermal_publisher_factory: object = field(default=None, repr=False)
+    owned_fixture_registry: OwnedFixtureRegistry | None = field(default=None, repr=False)
 
     def __post_init__(self):
         if (type(self.research_registry) is not ResearchRegistry or
                 type(self.bearer_registry) is not BearerRegistry or
                 any(not callable(value) for value in (self.context_verifier, self.release_verifier,
                     self.market_scope_resolver, self.market_source_factory)) or
-                (self.thermal_publisher_factory is not None and not callable(self.thermal_publisher_factory))):
+                (self.thermal_publisher_factory is not None and not callable(self.thermal_publisher_factory)) or
+                (self.owned_fixture_registry is not None and type(self.owned_fixture_registry) is not OwnedFixtureRegistry)):
             raise ValueError('API runtime dependencies rejected')
 
 
@@ -82,6 +87,8 @@ class ApiRuntime:
     market_results: MarketResultStore = field(repr=False)
     break_even: BreakEvenStore = field(repr=False)
     thermal_scenarios: ThermalScenarioStore | None = field(repr=False)
+    collections: CollectionService | None = field(repr=False)
+    collection_reviews: OwnedCollectionReviewService | None = field(repr=False)
 
     def __init__(self, config, dependencies):
         try:
@@ -117,6 +124,9 @@ class ApiRuntime:
             break_even_plans = BreakEvenPlanSubmissionService(jobs, break_even) if source_admission is not None else None
             break_even_job_results = BreakEvenJobResultService(jobs, break_even) if source_admission is not None else None
             scenarios = ThermalScenarioStore(thermal, holds) if config.policy.thermal_scenario_storage else None
+            collections = (CollectionService(jobs, dependencies.owned_fixture_registry)
+                if dependencies.owned_fixture_registry is not None else None)
+            collection_reviews = OwnedCollectionReviewService(collections, thermal) if collections is not None else None
             submission = None
             if dependencies.thermal_publisher_factory is not None:
                 if scenarios is None:
@@ -128,12 +138,14 @@ class ApiRuntime:
                 break_even_store=break_even, thermal_scenario_store=scenarios,
                 thermal_run_submission_service=submission, market_user_source_service=source_admission,
                 economic_scenario_service=economic_scenarios, economic_calculation_service=economic_calculations,
-                break_even_plan_service=break_even_plans, break_even_job_result_service=break_even_job_results)
+                break_even_plan_service=break_even_plans, break_even_job_result_service=break_even_job_results,
+                collection_service=collections, owned_collection_review_service=collection_reviews)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
             raise ValueError('API runtime assembly rejected') from None
         for name, value in (('service', service), ('jobs', jobs), ('thermal', thermal),
                 ('market_holds', holds), ('market_candidates', candidates),
-                ('market_results', results), ('break_even', break_even), ('thermal_scenarios', scenarios)):
+                ('market_results', results), ('break_even', break_even), ('thermal_scenarios', scenarios),
+                ('collections', collections), ('collection_reviews', collection_reviews)):
             object.__setattr__(self, name, value)

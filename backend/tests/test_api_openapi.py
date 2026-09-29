@@ -19,6 +19,10 @@ from test_http_identity import request
 
 
 OPERATIONS = {
+    ('/v1/ingestions', 'post'): ('submitOwnedIngestion', ['metadata', 'artifact', 'collection_execute']),
+    ('/v1/collection-reviews', 'post'): ('submitOwnedCollectionReview',
+        ['metadata', 'artifact', 'collection_read', 'collection_review_create',
+         'thermal_snapshot_read', 'thermal_snapshot_write', 'decision_context_read']),
     ('/v1/jobs/{job_id}/break-even-result', 'get'): ('getJobBreakEvenResult',
         ['metadata', 'artifact', 'break_even_read', 'market_source_read', 'market_candidate_read',
          'decision_context_read', 'market_hold_context_read']),

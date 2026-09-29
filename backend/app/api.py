@@ -38,6 +38,9 @@ from .break_even_plan_submission import (BreakEvenPlanSubmissionService, BreakEv
 from .jobs import canonical_input_bytes
 from .job_store import JobIntentConflict
 from .orchestration import LocationRequest, LocationResearchService, ResearchRequestRejected
+from .api_owned_collection import OwnedIngestionRequest, OwnedReviewRequest
+from .owned_fixture_collection import CollectionService, CollectionHold, COLLECTION_SCOPES
+from .owned_collection_review import OwnedCollectionReviewService, CollectionReviewHold, REVIEW_SCOPES
 
 
 def _error(status: int, code: str, message: str) -> JSONResponse:
@@ -54,7 +57,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                thermal_scenario_store=None, thermal_run_submission_service=None,
                market_user_source_service=None, economic_scenario_service=None,
                economic_calculation_service=None, break_even_plan_service=None,
-               break_even_job_result_service=None) -> FastAPI:
+               break_even_job_result_service=None, collection_service=None,
+               owned_collection_review_service=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -97,6 +101,14 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             break_even_job_result_service.jobs is not job_store or
             break_even_job_result_service.store is not break_even_store):
         raise ValueError('trusted break-even job result service required')
+    if collection_service is not None and (type(collection_service) is not CollectionService or
+            collection_service.jobs is not job_store or job_store.principal_provider is not principal_provider):
+        raise ValueError('trusted collection service required')
+    if owned_collection_review_service is not None and (
+            type(owned_collection_review_service) is not OwnedCollectionReviewService or
+            owned_collection_review_service.collection is not collection_service or
+            owned_collection_review_service.runs is not thermal_run_store):
+        raise ValueError('trusted collection review service required')
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
     location_scopes = ("location_create",)
     job_scopes = ("metadata",)
@@ -159,6 +171,65 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(409, "intent_conflict", "Intent already has a different request")
         except Exception:
             return _error(503, "research_unavailable", "Research submission unavailable")
+
+    @app.post('/v1/ingestions', status_code=202, response_model=JobStatus, operation_id='submitOwnedIngestion',
+              responses={status: {'model': ErrorEnvelope} for status in (401, 403, 409, 413, 415, 422, 503)},
+              openapi_extra={**_access(COLLECTION_SCOPES), 'x-ossf-max-body-bytes':4096,
+                  'requestBody': {'required':True, 'content': {'application/json': {
+                  'schema':OwnedIngestionRequest.model_json_schema()}}}})
+    async def post_owned_ingestion(request: Request):
+        tenant, denied = authorized_tenant(*COLLECTION_SCOPES)
+        if denied is not None:
+            return denied
+        if collection_service is None:
+            return _error(503, 'collection_unavailable', 'Collection unavailable')
+        try:
+            body = OwnedIngestionRequest.model_validate_json(canonical_input_bytes(await read_json_request(request)))
+        except JsonRequestRejected as exc:
+            return _error(exc.status, exc.code, exc.message)
+        except (ValueError, UnicodeError, RecursionError):
+            return _error(422, 'invalid_request', 'Invalid request')
+        try:
+            row = await run_in_threadpool(collection_service.submit, tenant, body.research_job_id, body.idempotency_key)
+            return public_job_status(row)
+        except PermissionError:
+            return _error(403, 'forbidden', 'Resource access denied')
+        except CollectionHold:
+            return _error(422, 'collection_hold', 'Collection input unavailable')
+        except JobIntentConflict:
+            return _error(409, 'intent_conflict', 'Intent already has a different request')
+        except Exception:
+            return _error(503, 'collection_unavailable', 'Collection unavailable')
+
+    @app.post('/v1/collection-reviews', status_code=202, response_model=JobStatus, operation_id='submitOwnedCollectionReview',
+              responses={status: {'model': ErrorEnvelope} for status in (401, 403, 409, 413, 415, 422, 503)},
+              openapi_extra={**_access(REVIEW_SCOPES), 'x-ossf-max-body-bytes':4096,
+                  'requestBody': {'required':True, 'content': {'application/json': {
+                  'schema':OwnedReviewRequest.model_json_schema()}}}})
+    async def post_owned_collection_review(request: Request):
+        tenant, denied = authorized_tenant(*REVIEW_SCOPES)
+        if denied is not None:
+            return denied
+        if owned_collection_review_service is None:
+            return _error(503, 'collection_review_unavailable', 'Collection review unavailable')
+        try:
+            body = OwnedReviewRequest.model_validate_json(canonical_input_bytes(await read_json_request(request)))
+        except JsonRequestRejected as exc:
+            return _error(exc.status, exc.code, exc.message)
+        except (ValueError, UnicodeError, RecursionError):
+            return _error(422, 'invalid_request', 'Invalid request')
+        try:
+            row = await run_in_threadpool(owned_collection_review_service.submit,
+                tenant, body.collection_job_id, body.idempotency_key)
+            return public_job_status(row)
+        except PermissionError:
+            return _error(403, 'forbidden', 'Resource access denied')
+        except CollectionReviewHold:
+            return _error(422, 'collection_review_hold', 'Collection review input unavailable')
+        except JobIntentConflict:
+            return _error(409, 'intent_conflict', 'Intent already has a different request')
+        except Exception:
+            return _error(503, 'collection_review_unavailable', 'Collection review unavailable')
 
     @app.post("/v1/runs", status_code=202, response_model=JobStatus, operation_id="submitThermalRun",
               responses={status: {"model": ErrorEnvelope} for status in (401, 403, 409, 413, 415, 422, 503)},

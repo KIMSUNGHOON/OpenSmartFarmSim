@@ -4,6 +4,7 @@ from hashlib import sha256
 import json
 
 from .cli_contracts import DecisionContract, DecisionPlan, ProposalHold
+from .job_store import JobIntentConflict
 from .jobs import canonical_input_bytes, require_name
 from .owned_fixture_collection import CollectionService
 from .thermal_publisher import collection_review_input, collection_review_proposal, CONTEXT_FIELDS
@@ -16,6 +17,10 @@ COLLECTION_FIELDS = frozenset({'collection_job_id', 'collection_attempt',
     'collection_input_sha256', 'collection_record_sha256'})
 REVIEW_SCOPES = ('metadata', 'artifact', 'collection_read', 'collection_review_create',
     'thermal_snapshot_read', 'thermal_snapshot_write', 'decision_context_read')
+
+
+class CollectionReviewHold(ValueError):
+    pass
 
 
 class OwnedCollectionReviewService:
@@ -76,7 +81,7 @@ class OwnedCollectionReviewService:
         except PermissionError:
             raise
         except Exception:
-            raise ValueError('collection review inputs unavailable') from None
+            raise CollectionReviewHold('collection review inputs unavailable') from None
         finally:
             guard()
 
@@ -102,7 +107,7 @@ class OwnedCollectionReviewService:
         try:
             return self.collection.jobs.submit(tenant, 'collection_review', value, key,
                 admission_prepare=stage, commit_guard=verify)
-        except PermissionError:
+        except (PermissionError, JobIntentConflict):
             raise
         except Exception:
             raise ValueError('collection review admission unavailable') from None
