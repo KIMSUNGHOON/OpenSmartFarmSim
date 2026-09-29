@@ -15,4 +15,7 @@ Build order: farm-inputs → farm-authoring-storage → farm-authoring-execution
 farm-authoring-web. Provider contract: [farm-inputs](contracts/farm-inputs-v1.md).
 The larger existing G1 tasks remain open until the whole path is accepted.
 The storage module currently has an internal immutable registration candidate;
-authored snapshot review/release and worker binding are its next dependency.
+its [unpublished numerical trajectory candidate](contracts/farm-thermal-candidate-v1.md)
+is reproducible from that registration. Authored snapshot review/release and
+worker binding are its next dependency. The viewer still reads only accepted
+Run records.

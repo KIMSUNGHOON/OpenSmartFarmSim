@@ -16,6 +16,8 @@
 
 [농장 경제 실행 후보](contracts/farm-economic-execution-v1.md)는 같은 계획과 실제 완료 열 작업을 경제 입력/영수증 v2에 연결하고, 금액·월별 현금 조회에서도 현재 연결을 검사합니다([검증 기록](research/farm-economic-execution-implementation.md)). 전체 평가·열과 구매 에너지/비용의 물리적 결합·실제 CLI와 독립 G1/G4 수용은 남아 있습니다. [첫 내부 3D 열 재생 뷰어](contracts/web-thermal-replay-v1.md)를 구현했습니다. 저장된 합성 계산의 온도·습도·모델 열수요/공급열을 같은 시각의 장면·그래프·표로 확인합니다([검증 기록](research/web-thermal-replay-implementation.md)). 실제 서버 Run 연결과 WebGL 장애 시 HTML 대체를 시험하는 내부 후보이며, 작물 생장·수확 예측과 전체 G1/G4 수용은 남아 있습니다. [공통 Assessment 연결 후보](contracts/farm-calculation-assessment-v1.md)도 구현했습니다. 실제 HTTPS 접수·재요청과 가짜 CLI 보류 조회, 혼합 거부·거래 롤백·기존 경로 호환 시험을 확인했습니다([진행 기록](research/farm-calculation-assessment-implementation.md)). 전체 농장 입력 작성의 [첫 제공자](contracts/farm-inputs-v1.md)를 구현했습니다. 명시적 시설·제어값을 실제 열 수식 입력으로 변환하고 재배 면적·달력과 경제 배치/날짜 범위를 검사합니다([검증 기록](research/farm-inputs-implementation.md)). [내부 영속 등록 후보](contracts/farm-authoring-storage-v1.md)는 실제 조사·문맥·경제 후보와 사용자 권리 선언, 작성한 계산 입력을 변경 불가 판본으로 묶습니다([검증 기록](research/farm-authoring-storage-implementation.md)). 작성된 스냅샷의 독립 검토·해제, 실제 작업자 실행, 공개 API와 전체 작성 화면 연결은 다음 단계입니다.
 
+[작성 입력 열 궤적 후보](contracts/farm-thermal-candidate-v1.md)는 저장된 농장 판본에서 120개의 온도·습도·공급열 계산 시점을 재현합니다([검증 기록](research/farm-thermal-candidate-implementation.md)). 내부 계산 결과이며 승인 Run과 3D 게시 대상은 아닙니다. 새 스냅샷의 독립 검토·해제와 작업자·화면 연결이 필요합니다.
+
 ## 문서 읽는 순서
 
 1. [입문 안내](docs/DOMAIN_PRIMER.md): 농업과 시뮬레이션의 기본 개념
