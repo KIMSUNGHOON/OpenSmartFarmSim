@@ -11,9 +11,9 @@ from uuid import UUID
 from psycopg import sql
 from pydantic import Field
 
-from .cli_contracts import parse_stage_input
+from .cli_contracts import parse_stage_input, _utc
 from .job_store import JobStore
-from .jobs import canonical_input_bytes, require_name, require_seconds
+from .jobs import canonical_input_bytes, require_name, require_seconds, require_digest
 from .owned_fixture_registry import OwnedFixtureRegistry, collection_record_bytes
 from .provenance import FrozenContract
 from .runtime_roles import RuntimeLoginPolicy
@@ -21,6 +21,7 @@ from .thermal_publisher import runtime_digests
 
 
 COLLECTION_SCOPES = ('metadata', 'artifact', 'collection_execute')
+COLLECTION_READ_SCOPES = ('metadata', 'artifact', 'collection_read')
 UUID_PATTERN = r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
 SHA_PATTERN = r'^[0-9a-f]{64}$'
 
@@ -71,12 +72,66 @@ class CollectionService:
             jobs._dsn, jobs.schema, jobs.artifact_root, jobs.runtime_identity,
             jobs.principal_provider, jobs.content_access)
 
-    def _guard(self, tenant, pointers):
+    def _guard(self, tenant, pointers, scopes=COLLECTION_SCOPES):
         self._binding()
         if self._pointers() != pointers:
             raise RuntimeError('collection binding changed')
-        if not all(self.jobs._has_scope(tenant, scope) for scope in COLLECTION_SCOPES):
+        if not all(self.jobs._has_scope(tenant, scope) for scope in scopes):
             raise PermissionError('collection access denied')
+
+    def read_record(self, tenant, job_id):
+        pointers = self._pointers()
+        guard = lambda: self._guard(tenant, pointers, COLLECTION_READ_SCOPES)
+        guard()
+        try:
+            if type(job_id) is not str or str(UUID(job_id)) != job_id:
+                raise CollectionHold()
+            with self.jobs.connect() as conn:
+                job = self.jobs._locked_job(conn, tenant, job_id)
+                if job is None or job['stage'] != 'collection' or job['state'] != 'succeeded':
+                    raise CollectionHold()
+                raw_input = self.jobs._verified_input(job)
+            value = CollectionInput.model_validate_json(raw_input)
+            if canonical_input_bytes(value.model_dump(mode='json')) != raw_input:
+                raise CollectionHold()
+            prepared, bundle = self._prepare(tenant, value.research_job_id)
+            if canonical_input_bytes(prepared.model_dump(mode='json')) != raw_input:
+                raise CollectionHold()
+            publication = self.jobs.get_publication(tenant, job['job_id'])
+            if (publication is None or type(publication['artifact_size']) is not int or
+                    not 1 <= publication['artifact_size'] <= 131072):
+                raise CollectionHold()
+            raw = self.jobs.read_artifact(tenant, job['job_id'])
+            if type(raw) is not bytes or not 1 <= len(raw) <= 131072:
+                raise CollectionHold()
+            record = json.loads(raw)
+            if type(record) is not dict or collection_record_bytes(record) != raw:
+                raise CollectionHold()
+            for key in ('code_sha256', 'environment_sha256'):
+                require_digest(record.get(key))
+            retrieved = _utc(record.get('retrieved_at_utc'))
+            expected = {'record_version': 'owned-fixture-collection-record-v1',
+                'claim_scope': 'software_fixture_only', 'assessment_status': 'hold',
+                'g0_status': 'not_accepted', 'g1_status': 'not_accepted',
+                **value.model_dump(mode='json'), 'sources': bundle['sources'], 'qc': bundle['qc'],
+                **{key: record[key] for key in ('retrieved_at_utc', 'code_sha256', 'environment_sha256')}}
+            digest = sha256(raw).hexdigest()
+            manifest = {'schema_version': '1', 'job_id': str(job['job_id']), 'stage': 'collection',
+                'input_sha256': job['input_sha256'], 'attempt': job['attempt_count'], 'artifact_sha256': digest}
+            if (record != expected or publication['tenant_id'] != tenant or
+                    publication['job_id'] != job['job_id'] or publication['decision_id'] is not None or
+                    publication['attempt'] != job['attempt_count'] or
+                    publication['artifact_sha256'] != digest or publication['artifact_size'] != len(raw) or
+                    canonical_input_bytes(publication['manifest']) != canonical_input_bytes(manifest) or
+                    not job['created_at'] <= retrieved <= publication['published_at']):
+                raise CollectionHold()
+            return record
+        except PermissionError:
+            raise
+        except Exception:
+            raise CollectionHold('collected record unavailable') from None
+        finally:
+            guard()
 
     def _prepare(self, tenant, research_job_id):
         try:

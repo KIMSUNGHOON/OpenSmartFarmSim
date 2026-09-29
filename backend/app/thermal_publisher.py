@@ -55,6 +55,7 @@ CODE_FILES = ("backend/app/thermal.py", "backend/app/thermal_units.py",
               "backend/app/api_job_break_even_result.py",
               "backend/app/owned_fixture_registry.py", "backend/app/owned_fixture_collection.py",
               "backend/app/collection_work.py",
+              "backend/app/owned_collection_review.py",
               "backend/app/api_runtime.py",
               "backend/app/api_job_run.py",
               "backend/app/thermal_scenario_store.py",
@@ -491,13 +492,14 @@ class ThermalG1Publisher:
     """The only intended path from candidate bytes to an accepted synthetic Run."""
 
     def __init__(self, run_store, job_store, release_resolver, *, root, gate_key,
-                 release_verifier=None, execution_verifier=None):
+                 release_verifier=None, execution_verifier=None, collection_review_service=None):
         _need(callable(release_resolver) and type(gate_key) is bytes and len(gate_key) >= 32,
               "ACCESS_HOLD: missing trusted release/gate configuration")
         self.run_store, self.job_store = run_store, job_store
         self.release_resolver = release_resolver
         self.release_verifier = release_verifier
         self.execution_verifier = execution_verifier
+        self.collection_review_service = collection_review_service
         self.root = Path(root)
         _need(self.root.resolve() == Path(__file__).resolve().parents[2],
               "PIN_HOLD: runtime digest root differs from loaded publisher")
@@ -518,9 +520,17 @@ class ThermalG1Publisher:
             _need(context is not None and context["tenant_id"] == tenant and
                   context["snapshot_id"] == snapshot["snapshot_id"],
                   "CONTEXT_HOLD: no trusted tenant/snapshot decision context")
-            _need(job["input_bytes"] ==
-                  _json(collection_review_input(snapshot, context)) and
-                  _hash(job["input_bytes"]) == job["input_sha256"],
+            if submitted.get('input_version') == 'owned-collection-review-input-v1':
+                from .owned_collection_review import OwnedCollectionReviewService
+                service = self.collection_review_service
+                _need(type(service) is OwnedCollectionReviewService and service.runs is self.run_store and
+                      service.collection.jobs is self.job_store,
+                      'REVIEW_HOLD: collection review service unavailable')
+                service.verify_input(job, submitted)
+            else:
+                _need(job["input_bytes"] == _json(collection_review_input(snapshot, context)),
+                      "REVIEW_HOLD: no exact completed collection review")
+            _need(_hash(job["input_bytes"]) == job["input_sha256"],
                   "REVIEW_HOLD: no exact completed collection review")
             publication = conn.execute(sql.SQL("SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s")
                                        .format(table("job_publications")), (tenant, job_id)).fetchone()
@@ -563,6 +573,11 @@ class ThermalG1Publisher:
         _need(artifact == _json(collection_review_proposal(snapshot, context)) and
               _hash(artifact) == publication["artifact_sha256"],
               "REVIEW_HOLD: review proposal does not bind snapshot")
+        if submitted.get('input_version') == 'owned-collection-review-input-v1':
+            _need(service is self.collection_review_service and service.runs is self.run_store and
+                  service.collection.jobs is self.job_store,
+                  'REVIEW_HOLD: collection review service changed')
+            service.verify_input(job, submitted)
         return context, str(decision["decision_id"]), _iso(decision["recorded_at"]), str(capture["capture_id"])
 
     def _checked_snapshot(self, tenant, snapshot_id, decision_at, review_at, claim_mode):

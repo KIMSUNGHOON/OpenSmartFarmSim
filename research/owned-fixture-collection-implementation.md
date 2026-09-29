@@ -89,3 +89,16 @@ adoption, actual provider rights/QC/vintages, independent CLI/isolation/custody/
 release, complete API/browser flow and G0–G4 remain required. No broad task or
 gate checkbox was promoted. A collected fixture is not agricultural validity,
 crop growth, purchased energy, future profit or a crop ranking.
+
+## Parent head terminal hosted CI receipt
+
+The functional head `60f26c1943f212dc30a660e9afbd65c0cb50711d` completed
+[backend run 36510201367](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36510201367)
+on 2026-09-29 UTC: **1883 passed, 2 existing Pydantic serializer warnings in
+6796.56 s (1:53:16)**. The four separate distinct-UID service cases passed in
+**19.18 s**. The distinct-UID content access, DB/password cleanup and post steps
+also succeeded. [Compose run 36510201257](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36510201257)
+completed successfully for that exact head. The warnings are the existing
+intentional malformed-policy cases. This receipt is included with the next
+functional collection-to-review increment and does not prove its later head
+or any G0–G4 gate.

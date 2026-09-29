@@ -248,23 +248,29 @@ class ThermalRunStore:
 
     def put_snapshot(self, tenant, manifest_raw, weather_raw, thermal_raw):
         _need(self._scope(tenant, "thermal_snapshot_write"), "ACCESS_HOLD: snapshot write denied")
+        _need(all(type(raw) is bytes and 1 <= len(raw) <= 1048576 for raw in
+                  (manifest_raw, weather_raw, thermal_raw)), "INPUT_HOLD: invalid snapshot bytes")
+        with self.connect() as conn:
+            return self._pin_snapshot_in_transaction(conn, tenant, manifest_raw, weather_raw, thermal_raw)
+
+    def _pin_snapshot_in_transaction(self, conn, tenant, manifest_raw, weather_raw, thermal_raw):
+        _need(self._scope(tenant, "thermal_snapshot_write"), "ACCESS_HOLD: snapshot write denied")
         raws = (manifest_raw, weather_raw, thermal_raw)
         _need(all(type(raw) is bytes and 1 <= len(raw) <= 1048576 for raw in raws),
               "INPUT_HOLD: invalid snapshot bytes")
         snapshot_id = snapshot_id_for(*raws)
         hashes = tuple(map(_digest, raws))
-        with self.connect() as conn:
-            conn.execute(sql.SQL("""
+        conn.execute(sql.SQL("""
                 INSERT INTO {} (tenant_id, snapshot_id, manifest_raw, weather_raw, thermal_raw,
                     manifest_sha256, weather_sha256, thermal_sha256)
                 VALUES (%s,%s,%s,%s,%s,%s,%s,%s) ON CONFLICT DO NOTHING
             """).format(self._table("thermal_input_snapshots")),
                 (tenant, snapshot_id, *raws, *hashes))
-            row = conn.execute(sql.SQL("""
+        row = conn.execute(sql.SQL("""
                 SELECT * FROM {} WHERE tenant_id = %s AND snapshot_id = %s
             """).format(self._table("thermal_input_snapshots")),
                 (tenant, snapshot_id)).fetchone()
-            _need(row is not None and tuple(row[key] for key in
+        _need(row is not None and tuple(row[key] for key in
                 ("manifest_raw", "weather_raw", "thermal_raw")) == raws,
                 "PIN_HOLD: snapshot ID collision or changed bytes")
         return snapshot_id

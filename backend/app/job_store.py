@@ -211,7 +211,7 @@ class JobStore:
 
     def submit(self, tenant_id: str, stage: str, input_value: object,
                idempotency_key: str, *, max_attempts: int = 3, commit_guard=None,
-               admission_action=None) -> dict:
+               admission_action=None, admission_prepare=None) -> dict:
         require_name(tenant_id, "tenant_id")
         require_name(idempotency_key, "idempotency_key")
         if stage not in ACTIVE_BY_STAGE:
@@ -221,10 +221,14 @@ class JobStore:
             raise ValueError("job submission guard invalid")
         if admission_action is not None and not callable(admission_action):
             raise ValueError("job admission action invalid")
+        if admission_prepare is not None and not callable(admission_prepare):
+            raise ValueError("job admission preparation invalid")
         input_bytes = canonical_input_bytes(input_value)
         digest = sha256(input_bytes).hexdigest()
         job_id = uuid4()
         with self.connect() as conn:
+            if admission_prepare is not None:
+                admission_prepare(conn)
             row = conn.execute(sql.SQL("""
                 INSERT INTO {} (tenant_id, job_id, stage, input_sha256, input_bytes,
                                 idempotency_key, state, max_attempts)
