@@ -65,15 +65,15 @@ type Request=(path:string,method?:string,body?:unknown,expected?:number,maxBytes
 const META=['kind','record_id','revision','payload_sha256','recorded_at','admission_kind'] as const;
 const NUMBER=['value','unit','input_id','revision','origin','evidence_level','assumption_scope','source_ref',
   'available_at','scope_start','scope_end'] as const;
-function name(value:unknown,max=200):value is string {
+export function name(value:unknown,max=200):value is string {
   return typeof value==='string' && value.length>0 && Array.from(value).length<=max
     && value.trim()===value && !/[\u0000-\u001f]/.test(value);
 }
-function hash(value:unknown):value is string {return typeof value==='string' && /^[0-9a-f]{64}$/.test(value);}
-function day(value:unknown):value is string {
+export function hash(value:unknown):value is string {return typeof value==='string' && /^[0-9a-f]{64}$/.test(value);}
+export function day(value:unknown):value is string {
   return typeof value==='string' && /^\d{4}-\d\d-\d\d$/.test(value) && date(value+'T00:00:00Z');
 }
-function utc(value:unknown):value is string {return date(value) && /(?:Z|\+00:00)$/.test(value);}
+export function utc(value:unknown):value is string {return date(value) && /(?:Z|\+00:00)$/.test(value);}
 export function decimal(value:unknown,max=64):value is string {
   return typeof value==='string' && value.length<=max && /^(?:0|[1-9]\d*)(?:\.\d+)?$/.test(value);
 }

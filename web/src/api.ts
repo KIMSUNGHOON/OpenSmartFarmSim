@@ -1,6 +1,7 @@
 import { ApiError, need, object, member, date, uuid, closed } from './api-validation';
 export { ApiError } from './api-validation';
 import { createEconomicApi } from './economic-api';
+import { createBreakEvenApi } from './break-even-api';
 export const STAGES = ['research','collection','collection_review','simulation','assessment'] as const;
 export const STATES = ['queued','researching','collecting','reviewing','simulating','assessing',
   'succeeded','hold','failed','canceled'] as const;
@@ -90,6 +91,7 @@ export function createApi(token:string, fetcher:typeof fetch = fetch) {
   }
   return {
     ...createEconomicApi(request, decodeJob),
+    ...createBreakEvenApi(request, decodeJob),
     async location(intent:LocationIntent) { return decodeLocation(await request('/v1/locations','POST',intent),intent); },
     async job(id:string) {
       need(uuid(id)); const result=decodeJob(await request('/v1/jobs/'+id)); need(result.job_id === id); return result;
