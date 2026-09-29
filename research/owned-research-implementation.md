@@ -76,6 +76,22 @@ suite, distinct-UID, browser, real provider or actual model smoke was run. Full
 hosted checks are required at this functional head. No broad task/gate checkbox
 was promoted.
 
+## Hosted verification of the owned research head
+
+GitHub Actions backend run
+[36529401843](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36529401843)
+completed successfully for exact head
+`db310e7dd6f9e9fbd19f977111cadb4814e67ec3`. Its PostgreSQL 18.6 ordinary test,
+distinct-UID/content-access step and database/password/runtime cleanup all
+finished successfully. The corresponding
+[Compose run 36529401899](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36529401899)
+also succeeded at the same head. This receipt covers that head, not later
+assessment or shared-contract changes. The ordinary suite recorded **1935
+passed, 2 warnings in 4905.40s (1:21:45)**. Both warnings came from existing
+malformed G0 authority fixtures serialized through Pydantic, with no skipped or
+failed tests. Before that suite, the distinct-UID service/planning probe recorded
+**4 passed in 17.63s**. The job ran from 2026-09-29T06:06:39Z to 07:29:27Z.
+
 ## Remaining acceptance
 
 Actual exact-model product CLI, independently protected factory/planning/

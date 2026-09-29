@@ -2,6 +2,10 @@
 
 Status: software connection candidate; actual product CLI and G1/G4 acceptance remain pending.
 
+[Shared owned service assembly](owned-cli-contracts-v1.md) additionally binds the
+three implemented service contracts to one actual jobs/runs/registry chain and
+checks their captured binding around each delegated operation.
+
 The protected operator assembly installs the same CliContractRouter object on
 JobStore.decision_validator and CliWorker.contract. Its copied, read-only route
 map registers exact (stage, input_version) pairs to existing DecisionContract
