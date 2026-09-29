@@ -3,21 +3,28 @@
 Status: software assembly candidate. Actual isolated product CLI, independent
 operator custody/review/release, full browser flow and G1/G4 remain pending.
 
-`OwnedCliContractRouter(research, reviews, assessments, review_authority)` accepts
+`OwnedCliContractRouter(research, reviews, assessments, review_authority,
+authored_review=None)` accepts
 the exact implemented OwnedResearchService, OwnedCollectionReviewService and
 CalculationAssessmentService classes. All three must use the same JobStore and
 ThermalRunStore; research and collection must also use the same OwnedFixtureRegistry.
 Each service's existing protected runtime binding is checked during construction.
 The review authority is an explicit trusted operator callback, not a request,
 model output or automatic approval supplied by this assembly.
+When installed, the optional exact `FarmAuthoredReviewService` must share that
+JobStore, signed context/thermal store, owned research, candidate source and
+farm Assessment selection. The fifth route does not alter the existing ones.
 
 | Stage | Input version | Existing validator |
 | --- | --- | --- |
 | research | research_input_v1 | DecisionContract with actual owned research authority |
 | collection_review | owned-collection-review-input-v1 | OwnedCollectionReviewContract with actual service and explicit review authority |
+| collection_review | farm-authored-review-input-v1 (optional) | FarmAuthoredReviewContract with exact owned authored registration and full trajectory |
 | assessment | calculation-assessment-input-v1 | CalculationAssessmentContract; explicit hold |
+| assessment | calculation-assessment-input-v2 | CalculationAssessmentContract; explicit farm hold |
 
-The copied read-only registration contains only these three pairs. Other input
+The copied read-only registration contains the four mandatory pairs and
+optional authored review pair. Other input
 versions retain the router's `decision_contract_unregistered` hold; there is no
 legacy or generic fallback. Callers requiring other versions can still configure
 the existing general CliContractRouter explicitly.
@@ -48,4 +55,5 @@ independent release, source G0, field accuracy or crop recommendations.
 See [implementation evidence](../research/owned-cli-contracts-implementation.md),
 [general routing](cli-contract-router-v1.md), [owned research](owned-research-v1.md),
 [collection review](owned-collection-review-v1.md) and
+[authored review](farm-authored-review-v1.md) and
 [held calculation assessment](calculation-assessment-v1.md).
