@@ -25,3 +25,9 @@ server CLI proposal contract. Independent release and Run publication remain
 open. The shared CLI router now has an optional exact
 authored-review route; operator runtime assembly and actual CLI execution
 remain open.
+The [completed review verifier](contracts/farm-authored-review-completion-v1.md)
+checks stored CLI capture and signed process evidence. The
+[release verifier candidate](contracts/farm-authored-release-v1.md) prepares
+the exact current code/input dossier and checks a separate reviewer's signed
+evidence packet. An independently issued release, durable approval, published
+authored Run and web projection are still required.

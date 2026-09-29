@@ -143,6 +143,11 @@ G3a/G3b 없이도 조건부 서비스에 대한 G4 평가는 가능하다. 그 �
 ([시험 기록](../research/farm-authored-review-completion-implementation.md)).
 다음 독립 스냅샷 해제는 이 증명을 소비해야 하며, 제품 CLI 호출과 승인 Run·3D는
 별도로 검증한다.
+[작성 입력 해제 검증 후보](../contracts/farm-authored-release-v1.md)는 현재 완료
+증명·서버 코드/잠금 판본과 별도 검토자 서명/보고서 원문을 대사한다
+([시험 기록](../research/farm-authored-release-implementation.md)).
+외부 검토자가 실제로 발급한 해제를 영속 보존하고 동일 패킷을 승인 Run 작업자가
+다시 검사하는 경로가 다음 선행 조건이다. 합성 키의 통과를 G1로 세지 않는다.
 저장된 완료 Run의 3D·그래프·표를 먼저 확인하는 부분 슬라이스이며,
 공통 Assessment와 전체 농장 입력 작성·실제 CLI/독립 G1의 기존 의존성 및
 `web-shell`/`web-replay` 수용 체크는 유지한다. 실제 작물 생장·수확의 3D는

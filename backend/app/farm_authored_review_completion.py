@@ -33,8 +33,17 @@ class AuthoredReviewCompletion:
     review_job_id: str
     review_input_sha256: str
     registration_sha256: str
+    farm_sha256: str
+    numeric_input_sha256: str
+    rights_declaration_sha256: str
+    binding_sha256: str
     base_snapshot_id: str
+    base_source_sha256: str
+    decision_context_id: str
     context_sha256: str
+    decision_at_utc: str
+    claim_mode: str
+    decision_time_kind: str
     candidate_id: str
     code_sha256: str
     trace_sha256: tuple[str, str]
@@ -134,13 +143,29 @@ class AuthoredReviewCompletionVerifier:
                       final_job['input_sha256'] == job['input_sha256'] and
                       not final_job['cancel_requested'])
             _need(self.review.verify_input(final_job, value) == value)
-            return AuthoredReviewCompletion(tenant, str(review_job_id),
-                job['input_sha256'], value['registration_sha256'],
-                value['base_snapshot_id'], value['context_sha256'],
-                value['candidate_id'], value['code_sha256'],
-                tuple(value['trace_sha256']), artifact_sha256,
-                str(decision['decision_id']), str(capture['capture_id']),
-                attempt, _iso(decision['recorded_at']))
+            return AuthoredReviewCompletion(
+                tenant_id=tenant, review_job_id=str(review_job_id),
+                review_input_sha256=job['input_sha256'],
+                registration_sha256=value['registration_sha256'],
+                farm_sha256=value['farm_sha256'],
+                numeric_input_sha256=value['numeric_input_sha256'],
+                rights_declaration_sha256=value['rights_declaration_sha256'],
+                binding_sha256=value['binding_sha256'],
+                base_snapshot_id=value['base_snapshot_id'],
+                base_source_sha256=value['base_source_sha256'],
+                decision_context_id=value['decision_context_id'],
+                context_sha256=value['context_sha256'],
+                decision_at_utc=value['decision_at_utc'],
+                claim_mode=value['claim_mode'],
+                decision_time_kind=value['decision_time_kind'],
+                candidate_id=value['candidate_id'],
+                code_sha256=value['code_sha256'],
+                trace_sha256=tuple(value['trace_sha256']),
+                artifact_sha256=artifact_sha256,
+                decision_id=str(decision['decision_id']),
+                capture_id=str(capture['capture_id']),
+                attempt=attempt,
+                decision_recorded_at_utc=_iso(decision['recorded_at']))
         except Exception:
             raise AuthoredReviewCompletionHold(
                 'authored CLI review completion unavailable') from None
