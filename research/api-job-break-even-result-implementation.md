@@ -39,7 +39,7 @@ manifest fields (**1 failed in 78.15 s**): publish accepts only schema_version
 and generates job/hash/attempt fields itself. Both fixture calls were corrected
 to the existing contracts; the second focused retry passed **1 in 78.36 s
 (1:18)**, 4 cases deselected. Thus **82 unique cases** passed across four terminal
-runs: 5 new lookup HTTP cases and 77 existing protocol/runtime regressions.
+runs: 5 new lookup HTTP cases, 1 new OpenAPI scope case and 76 existing protocol/runtime regressions.
 Receipt/publication/plan faults, post-replay scope/rebinding and fresh Bearer/
 grant-drift cases passed. Hosted CI for this functional follow-up has not run.
 
@@ -67,3 +67,16 @@ execution/release/isolation/custody or protected deployment. No broad checkbox
 or G0–G4 gate decision is promoted. Automatic trial assumptions, continuous-
 interval proof, full CLI orchestration, browser flow and independent domain/
 operating evidence remain subsequent acceptance work.
+
+## Parent head terminal hosted CI receipt
+
+The functional head `d3d93043689a891e4d58f450ad82f878a13c6295` completed
+[backend run 36498554109](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36498554109)
+on 2026-09-29 UTC: **1869 passed, 2 existing Pydantic serializer warnings in
+6726.57 s (1:52:06)**. The separate four distinct-UID service cases passed in
+**18.90 s**. UID content access, DB/password cleanup and post steps succeeded.
+[Compose run 36498554148](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36498554148)
+also completed successfully for that exact head. The warnings come from the
+existing intentional malformed-policy cases in test_g0_authority. This receipt
+is recorded with the following functional collection increment and is not
+evidence for that later head or any G0–G4 acceptance.
