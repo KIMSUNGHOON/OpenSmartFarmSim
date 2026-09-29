@@ -77,3 +77,7 @@ product research/review/assessment, independently protected factories and
 planning/isolation/custody/release, adopted snapshots, complete farm/economic
 orchestration, browser/3D and G0–G4 evidence remain needed. This API option has
 owned-fixture software scope; a real provider adapter remains separate work.
+
+## Hosted receipt for the collection HTTP head
+
+The [backend run 36527887920](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36527887920) succeeded at exact head `b2af211bee0034c3d07f3a3fb33c6c436a3d2475`, with **1924 passed, 2 existing malformed-G0 serializer warnings in 6755.74s (1:52:35)**. Separate actual-UID service/planning smoke recorded **4 passed in 18.62s**; DAC checking and database/password/runtime cleanup passed. The job ran `2026-09-29T05:48:11Z`–`07:41:37Z`. [Compose run 36527887950](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36527887950) also succeeded at that head. This covers collection HTTP software only, not later shared-contract, assessment or web changes, actual Codex, full G1 or G4.

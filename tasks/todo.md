@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**첫 웹 접수·조회 연결 진행:** [계약](../contracts/web-location-shell-v1.md)과 [검증](../research/web-location-shell-implementation.md)은 좌표/UTC 기간 요청·작업/보류 근거, 실제 TLS/SCRAM 브라우저와 가짜 CLI의 소프트웨어 범위다. 경제/시장 입력·카드, 지도, 3D·실제 모델·전체 G1/G4 수용이 남아 `web-shell` 및 기존 체크를 유지한다.
+
 **공유 CLI 계약 조립 진행:** [실제 세 서비스 구성](../contracts/owned-cli-contracts-v1.md)과 [집중 검증 기록](../research/owned-cli-contracts-implementation.md)은 같은 저장소/등록부를 확인하는 소프트웨어 범위다. 실제 CLI·독립 검토/해제·전체 G1 수용까지 기존 체크를 유지한다.
 
 **계산 완료 → 최종 보류 평가 연결 진행:** [평가 접수·검증 계약](../contracts/calculation-assessment-v1.md)은 실제 완료 열/경제 작업의 영수증·재계산·같은 서명 문맥을 다시 검사해 assessment 의도를 등록한다. 작물 프로필을 만들지 않으며 시장·공통 농장·현장·미래·대응 비교의 누락 사유를 기존 보류 조회로 제공한다. [구현 증거](../research/calculation-assessment-implementation.md)는 합성 키/가짜 CLI와 실제 SCRAM의 소프트웨어 범위다. 실제 CLI/독립 운영 조립·전체 농장/브라우저/G1/G4 수용까지 기존 체크를 유지한다.

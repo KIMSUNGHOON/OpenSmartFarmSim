@@ -175,3 +175,7 @@ stdin은 서버가 생성한 버전 고정 지시문과 `tenant_id/job_id`, 좌�
 [고정 합성 원본 수집 계약](../contracts/owned-fixture-collection-v1.md)은 실제 authority JobStore의 완료 조사 결정·보관된 최종 출력/검사/호출 증거를 대사하고, 기존 manifest v2와 직접 작성한 세 원본만 수집한다. 작업 입력에는 식별자·해시·결정 문맥만 저장하고 원본 UTF-8와 선언 메타데이터는 별도 불변 수집 기록으로 보관한다. 실제 임대·원본 재검사·현재 Scope/저장소 결합·완료/게시/시도 종료를 거래로 묶는다. 운영자 전경 명령은 메타데이터만 출력한다. [구현 증거](../research/owned-fixture-collection-implementation.md)는 가짜 CLI·합성 키와 실제 SCRAM/별도 Python 프로세스의 소프트웨어 계약 시험이다. 수집 성공은 G0/G1 통과나 실제 Codex 실행 증거가 아니며 Assessment는 hold다. 기본 ResearchRegistry의 보류, 실제 제공자 승인·검토/스냅샷·독립 격리/해제·전체 운영 수용은 유지한다.
 
 [수집 기록 결합 검토 후보](../contracts/owned-collection-review-v1.md)는 완료 수집 입력·게시·기록과 원 조사 증거를 대사해 기존 스냅샷 후보를 만든다. 서버가 보관한 서명 문맥의 ID·결정시각·용도·실제/가상 표지가 같아야 하며 문맥을 새로 서명하거나 변경하지 않는다. JobStore의 보호된 admission_prepare는 같은 거래에서 원본 스냅샷을 작업 생성보다 먼저 기록하고 최종 검사 실패 시 둘 다 되돌린다. 새 검토 입력은 수집 작업/기록 해시를 추가하며 기존 제안 형식을 반환한다. 게시기는 설치된 실제 연결 서비스를 다시 검증하고 기존 CLI·독립 실행·release·물리 관문을 계속 요구한다. [구현 증거](../research/owned-collection-review-implementation.md)는 합성 키/가짜 CLI의 소프트웨어 시험이며 G0 채택·G1 Run은 계속 미수용이다.
+
+## 첫 웹 접수·조회 연결 후보
+
+[웹 계약](../contracts/web-location-shell-v1.md)은 고정 상대 API 경로와 페이지 메모리의 Bearer를 사용해 실제 작업 상태·보류 근거를 표시한다. 서버가 허용한 공개 DTO만 읽고 불명확한 접수의 재시도는 같은 입력/키를 보존한다. 운영자 개발 조립은 브라우저/상위 API 양쪽 HTTPS와 상위 인증서 검증을 요구한다. [실제 연결 증거](../research/web-location-shell-implementation.md)는 SCRAM·TLS·Chromium과 가짜 CLI의 합성 소프트웨어 범위다. 전체 입력/경제/시장/3D·실제 CLI·공개 로그인/호스팅·G1/G4는 남아 있다.

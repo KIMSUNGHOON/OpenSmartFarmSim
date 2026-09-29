@@ -57,3 +57,5 @@
 - **운영:** 단일 호스트·백업 저장소·TLS·도메인·경고 수신 담당자를 정한다. 호스팅 사업자를 선택하면 그 사업자의 계정·비용·서비스 약속을 따로 기록한다. 요청당 CLI 실제 청구액·자료/지도·계산·저장·지원비를 계측해 [서비스 자체의 마진](ECONOMICS.md#7-검증-관문과-출시-차단-조건)을 농장 손익과 별도 검토한다.
 
 HTTPS API 실행 후보는 Uvicorn `0.54.0`을 추가 고정했다([안정 릴리스](https://pypi.org/project/uvicorn/0.54.0/), BSD-3-Clause). [서버 계약](../contracts/api-https-service-v1.md)은 인증된 FastAPI 조립을 로컬 TLS로 실행한다. 잠금은 click `8.5.0`과 h11 `0.16.0`을 함께 기록하며 선택형 standard extras는 쓰지 않는다. 실제 공개 TLS·전체 운영 factory·Compose 기동·보안/라이선스 수용은 아직 별도다.
+
+첫 [웹 화면 후보](../contracts/web-location-shell-v1.md)는 Playwright Test `1.63.0`, Node 타입 `22.20.4`, 자체 호스팅 `@fontsource-variable/noto-sans-kr` `5.3.0`을 추가로 잠갔다. 글꼴의 원본 OFL-1.1 고지를 정적 결과에 복사하고 원격 글꼴 요청은 쓰지 않는다. Node `22.22.3`/npm `11.16.0`으로 TypeScript·Vitest·Vite 및 Chromium 연결을 검증했고, 새 웹 CI는 같은 도구와 잠금 설치를 사용한다. [검증 기록](../research/web-location-shell-implementation.md)은 실제 TLS/SCRAM 시험과 모의 응답 시험을 구분한다. 지도·3D·그래프 의존성은 아직 추가하지 않았고 전체 운영 스택/라이선스·G1/G4 수용은 남아 있다.
