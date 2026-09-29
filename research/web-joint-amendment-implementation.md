@@ -123,3 +123,21 @@ The bounded source reads and body limit remain unchanged. The local check is
 focused; the entire backend suite and operating load were not rerun locally.
 Local Markdown links and `git diff --check` passed. Backend hosted CI is reported
 by its actual state, without substituting the narrow TLS case for a full pass.
+
+## Hosted CI failure and synchronized browser regression
+
+For head `faf96bea5d8d72b3351bd81fe325406d95d0864f`, [Compose CI
+36554673971](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36554673971)
+passed in 31s. [Web CI
+36554674000](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36554674000)
+passed install/type/unit/build/audit but failed two pre-existing economic browser
+cases: the second keyboard refresh ran before the first queued-status read
+finished, so the still-disabled button ignored it. The five new amendment
+browser cases passed. A 200ms delayed, snapshotted job reply reproduced the same
+missing-result failure locally. The test now waits for the actual queued JSON
+response and re-enabled refresh control before transitioning its mock to
+succeeded. The delayed response remains as a regression condition. **All 11
+browser cases passed in 12.7s** after the fix. Product code, timeouts and retries
+are unchanged. [Backend CI
+36554674042](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36554674042)
+was revalidated in_progress; no full-suite pass was claimed or run restarted.

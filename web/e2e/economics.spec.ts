@@ -98,7 +98,11 @@ test(`lost ${lostPhase} after a saved numeric revision retries only the pending 
     if(lostPhase==='calculation' && calculationBodies.length===1){await route.abort();return;}
     await route.fulfill({status:202,json:calculation});
   });
-  await page.route('**/v1/jobs/'+id,async route=>route.fulfill({json:{...calculation,state:completed ? 'succeeded' : 'queued'}}));
+  await page.route('**/v1/jobs/'+id,async route=>{
+    const state=completed ? 'succeeded' : 'queued';
+    await new Promise(resolve=>setTimeout(resolve,200));
+    await route.fulfill({json:{...calculation,state}});
+  });
   await page.route('**/v1/jobs/'+id+'/economic-result',async route=>route.fulfill({json:result}));
   await connect(page);await fillNumber(page);await page.getByRole('button',{name:'새 가정 판본 등록'}).click();
   await expect(page.getByText('새 가정 판본 접수됨',{exact:true})).toBeVisible();
@@ -112,9 +116,13 @@ test(`lost ${lostPhase} after a saved numeric revision retries only the pending 
   expect(calculationBodies).toHaveLength(lostPhase==='calculation' ? 2 : 1);
   const repeated=lostPhase==='scenario' ? scenarioBodies : calculationBodies;expect(repeated[1]).toBe(repeated[0]);
   await expect(page.locator('.economic-totals')).toHaveCount(0);
-  await page.getByRole('button',{name:'계산 상태·결과 확인'}).click();
+  const refresh=page.getByRole('button',{name:'계산 상태·결과 확인'});
+  const queuedRead=page.waitForResponse(response=>new URL(response.url()).pathname==='/v1/jobs/'+id);
+  await refresh.click();
+  expect((await (await queuedRead).json()).state).toBe('queued');
+  await expect(refresh).toBeEnabled();
   await expect(page.locator('.economic-totals')).toHaveCount(0);
-  completed=true;await page.getByRole('button',{name:'계산 상태·결과 확인'}).press('Enter');
+  completed=true;await refresh.press('Enter');
   await expect(page.getByRole('heading',{name:'경제 결과의 평가 상태: 판단 보류',exact:true})).toBeVisible();
   await expect(page.locator('.economic-totals strong')).toHaveText(['9,007,199,254,740,993.0000000001 원','-9,007,199,254,740,993.0000000001 원','미확인']);
   for(const width of [320,768,1440]) {
