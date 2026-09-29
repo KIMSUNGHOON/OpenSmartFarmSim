@@ -56,7 +56,7 @@ failed read retries only that read. Unknown writes freeze selection, editing
 and authentication. Known rejection permits deliberate rewriting. Explicit
 calculation is a separate action, and no amounts appear before its real result.
 This increment does not create arbitrary event rows, baseline ledgers,
-settlement evidence, monthly series or break-even inputs.
+settlement evidence or break-even inputs.
 
 Calculation uses the explicitly selected baseline and joint shock revision.
 Their baseline hash and decision timestamp must match. The closed
@@ -87,7 +87,24 @@ server's other cost/cash totals. The result's assessment remains hold under
 unavailable market context. It is the economic DTO's assessment status, not a
 completed Codex crop assessment or evidence of final recommendation.
 
-Monthly/date series, break-even forms, baseline/rights/settlement authoring,
+## Monthly cash result
+
+After a verified completed result, a manual request reads its
+[monthly cash page](api-economic-cash-flow-v1.md). The client checks both result
+IDs, scenario/revision, decision/formula, market hold and all claim labels
+against that exact result before rendering. A result refresh, new calculation
+or connection reset clears the prior cash page. An unsuccessful read also
+removes stale rows. Pagination requests the last returned month as the cursor;
+the first-page button permits returning to the start without a new calculation.
+There is no automatic collection or calculation while reading cash.
+
+Available rows show opening, net, closing, minimum and shortage amounts as
+server decimal strings, with minimum-balance instants explicitly in UTC and
+month grouping in Asia/Seoul. Unavailable cash has null rows/count, no cursor,
+and “미확인”; it is never replaced with zeros. The bounded horizontal table
+region is focusable and uses native keyboard scrolling on narrow displays.
+
+Date/event series, break-even plan/trial forms, baseline/event/settlement authoring,
 source adoption, complete farm input, real CLI research/review/assessment,
 market-hold detail cards, maps/3D/replay and independent gate evidence are still
 required by the existing [plan](../tasks/plan.md). Synthetic mock/TLS tests prove

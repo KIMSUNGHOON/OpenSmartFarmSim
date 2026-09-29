@@ -16,6 +16,7 @@ import pytest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from app.api_runtime import ApiRuntime
 from app.api_economics import project_economic_result
+from app.api_economic_cash_flow import project_economic_cash_flow
 from app.economic_calculation_worker import EconomicCalculationWorker, CALCULATION_SCOPES
 from app.http_identity import BearerRegistry, BearerGrant, token_digest
 from app.market_source_store import MarketSourceStore
@@ -95,7 +96,8 @@ def test_browser_real_https_assumption_revision_and_conditional_result(economic_
                 assert original_edit['number']['value']=='60' and original_edit['number']['revision']=='r2'
             stored=results.get_market_result(immutable['scenario_id'],immutable['scenario_revision'])
             projection=project_economic_result(stored).model_dump(mode='json')
-            browser.stdin.write(json.dumps(projection)+'\n');browser.stdin.flush()
+            cash_projection=project_economic_cash_flow(stored).model_dump(mode='json')
+            browser.stdin.write(json.dumps({'economic':projection,'cash':cash_projection})+'\n');browser.stdin.flush()
             deadline=time.monotonic()+150
             while True:
                 try:

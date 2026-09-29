@@ -13,6 +13,7 @@ from .api_contracts import (EconomicResultRead, ErrorEnvelope, JobStatus, Market
                             public_job_status,
                             public_market_hold, LocationAccepted, JobHoldStatus, public_job_hold)
 from .api_economics import RESULT_ID_PATTERN, project_economic_result
+from .api_economic_cash_flow import EconomicCashPage, CashCursorRejected, MONTH_PATTERN
 from .api_break_even import PLAN_ID_PATTERN, BreakEvenRead, project_break_even_result
 from .api_thermal import RUN_ID_PATTERN, project_thermal_manifest, project_thermal_run
 from .api_job_run import read_job_run
@@ -479,6 +480,27 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(403, 'forbidden', 'Resource access denied')
         except Exception:
             return _error(503, 'store_unavailable', 'Economic job result unavailable')
+
+    @app.get('/v1/jobs/{job_id}/economic-cash-flow', response_model=EconomicCashPage,
+             responses=errors, operation_id='getJobEconomicCashFlow', openapi_extra=_access(ECONOMIC_JOB_READ_SCOPES))
+    def get_job_economic_cash_flow(job_id: UUID, limit: Annotated[int, Query(ge=1,le=24)]=12,
+                                  after_month: Annotated[str|None, Query(pattern=MONTH_PATTERN)]=None):
+        tenant, denied = authorized_tenant(*ECONOMIC_JOB_READ_SCOPES)
+        if denied is not None:
+            return denied
+        try:
+            if economic_calculation_service is None:
+                raise RuntimeError('economic calculation service unavailable')
+            result = economic_calculation_service.read_job_cash_flow(tenant,job_id,after_month=after_month,limit=limit)
+            if result is None:
+                return _error(404,'not_found','Economic job cash flow not found')
+            return result
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except CashCursorRejected:
+            return _error(422,'invalid_request','Invalid request')
+        except Exception:
+            return _error(503,'store_unavailable','Economic job cash flow unavailable')
 
     @app.get('/v1/jobs/{job_id}/break-even-result', response_model=BreakEvenRead,
              responses=errors, operation_id='getJobBreakEvenResult',

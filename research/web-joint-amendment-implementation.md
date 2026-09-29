@@ -106,8 +106,16 @@ at the top of the page; desktop 1440px and 320px/200% were visually inspected.
 
 ## Remaining scope
 
-General farm/facility and ledger/event inputs, settlement authoring, monthly
-cash/break-even screens, actual runtime CLI research/review/assessment, 3D/replay,
+The browser response-order issue in hosted Web run `36554674000` was fixed in
+`3c5cc88` by waiting for the actual queued status response before keyboard
+refresh. That commit's [Web run 36555028673](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36555028673)
+and [Compose run 36555028764](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36555028764)
+passed. Its [backend run 36555028693](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36555028693)
+was still in progress when inspected; it is not recorded as passed.
+Monthly cash display now has separate [implementation evidence](web-economic-cash-implementation.md).
+
+General farm/facility and ledger/event inputs, settlement authoring,
+break-even screens, actual runtime CLI research/review/assessment, 3D/replay,
 whole synthetic G1, independent source rights/measurements/future/comparison
 validation and G4 operating/cost/capacity proof remain required. No whole task
 was checked off. These self-authored synthetic records prove software behavior

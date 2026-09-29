@@ -12,10 +12,10 @@ function meta(kind:string,record_id:string) {
   return {kind,record_id,revision:'r1',payload_sha256:'a'.repeat(64),recorded_at:time,admission_kind:'contract_valid_user_assumption'};
 }
 const number={value:exact,unit:'KRW',input_id:recordId,revision:'r1',origin:'user',evidence_level:'assumed',
-  assumption_scope:'synthetic scope',source_ref:'self-authored test',available_at:time,scope_start:'2026-10-01',scope_end:'2026-10-31'};
+  assumption_scope:'synthetic scope',source_ref:'self-authored test',available_at:time,scope_start:'2026-10-01',scope_end:'2027-10-31'};
 // These mocks exercise browser projection/retry only. Actual source validation is covered by the TLS/PG integration.
 const baseline={...Object.fromEntries(SOURCE_FIELDS.economic_scenario.map(key=>[key,null])),scenario_id:'baseline',scenario_revision:'r1',
-  decision_at:time,period_start:'2026-10-01',period_end:'2026-10-31',market_context:{kind:'unavailable',hold_report_id:id}};
+  decision_at:time,period_start:'2026-10-01',period_end:'2027-10-31',market_context:{kind:'unavailable',hold_report_id:id}};
 const shock={...Object.fromEntries(SOURCE_FIELDS.joint_shock.map(key=>[key,null])),shock_id:'shock',revision:'r1',decision_at:time,baseline_sha256:'a'.repeat(64)};
 const candidate={candidate_id:'b'.repeat(64),scenario_id:'candidate',scenario_revision:'r2',scenario_sha256:'c'.repeat(64),
   registration_status:'pinned_user_assumption',recorded_at:time,intent_job:job};
@@ -104,6 +104,23 @@ test(`lost ${lostPhase} after a saved numeric revision retries only the pending 
     await route.fulfill({json:{...calculation,state}});
   });
   await page.route('**/v1/jobs/'+id+'/economic-result',async route=>route.fulfill({json:result}));
+  const cashQueries:string[]=[];
+  await page.route('**/v1/jobs/'+id+'/economic-cash-flow?*',async route=>{
+    const query=new URL(route.request().url()).searchParams;cashQueries.push(query.toString());
+    const after=query.get('after_month');
+    const rows=Array.from({length:13},(_,offset)=>{
+      const at=new Date(Date.UTC(2026,9+offset,1));const month=at.toISOString().slice(0,7);
+      return {month,opening_balance_krw:'-'+exact,net_cash_krw:'0',closing_balance_krw:'-'+exact,
+        minimum_balance_krw:'-'+exact,minimum_at_utc:new Date(at.getTime()-9*3600000).toISOString(),cash_shortage_krw:exact};
+    });
+    const common=Object.fromEntries(['economic_result_id','market_scenario_result_id','scenario_id','scenario_revision','decision_at_utc',
+      'formula_version','market_context_kind','market_hold_report_id','calculation_status','assessment_status','input_origin','evidence_level',
+      'hold_reason_codes'].map(key=>[key,result[key as keyof typeof result]]));
+    await route.fulfill({json:{...common,schema_version:'economic-cash-page-v1',calendar_timezone:'Asia/Seoul',limit:12,after_month:after,
+      series_status:lostPhase==='scenario' ? 'unavailable' : 'available',total_months:lostPhase==='scenario' ? null : 13,
+      monthly_cash:lostPhase==='scenario' ? null : after ? rows.slice(12) : rows.slice(0,12),
+      next_month_cursor:lostPhase==='scenario' || after ? null : '2027-09'}});
+  });
   await connect(page);await fillNumber(page);await page.getByRole('button',{name:'새 가정 판본 등록'}).click();
   await expect(page.getByText('새 가정 판본 접수됨',{exact:true})).toBeVisible();
   await choose(page,'기준 원장');await choose(page,'수급·거시 공동 가정');
@@ -125,20 +142,43 @@ test(`lost ${lostPhase} after a saved numeric revision retries only the pending 
   completed=true;await refresh.press('Enter');
   await expect(page.getByRole('heading',{name:'경제 결과의 평가 상태: 판단 보류',exact:true})).toBeVisible();
   await expect(page.locator('.economic-totals strong')).toHaveText(['9,007,199,254,740,993.0000000001 원','-9,007,199,254,740,993.0000000001 원','미확인']);
+  expect(cashQueries).toHaveLength(0);await expect(page.locator('.cash-table')).toHaveCount(0);
+  const cash=page.getByRole('region',{name:'월별 현금흐름',exact:true});
+  await cash.getByRole('button',{name:'월별 현금흐름 조회'}).press('Enter');
+  if(lostPhase==='scenario') {
+    await expect(cash.getByRole('status')).toContainText('미확인');await expect(cash.locator('table')).toHaveCount(0);
+  } else {
+    await expect(cash.locator('tbody tr')).toHaveCount(12);
+    const first=cash.locator('tbody tr').first();await expect(first.locator('th')).toHaveText('2026-10');
+    await expect(first.locator('td').first()).toHaveText('-9,007,199,254,740,993.0000000001 원');
+    await expect(first.locator('td').last()).toHaveText('2026-09-30T15:00:00.000Z');
+    await cash.getByRole('button',{name:'다음 월 기록'}).press('Enter');
+    await expect(cash.locator('tbody tr')).toHaveCount(1);await expect(cash.locator('tbody th')).toHaveText('2027-10');
+    expect(cashQueries[1]).toBe('limit=12&after_month=2027-09');
+    await expect(cash.getByRole('button',{name:'다음 월 기록'})).toHaveCount(0);
+  }
+
   for(const width of [320,768,1440]) {
     await page.setViewportSize({width,height:900});await page.evaluate(()=>document.fonts.ready);
     for(const size of ['16px','32px']) {
       await page.addStyleTag({content:':root{font-size:'+size+'}'});
       const overflow=await page.evaluate(()=>Array.from(document.querySelectorAll('main *')).filter(e=>
-        e.getBoundingClientRect().right>innerWidth+1).map(e=>({tag:e.tagName,class:e.className})).slice(0,8));
+        (!e.closest('.cash-table-scroll') || e.closest('.cash-table-scroll')===e) && e.getBoundingClientRect().right>innerWidth+1).map(e=>({tag:e.tagName,class:e.className})).slice(0,8));
       expect(overflow,`${width}px with ${size} root text`).toEqual([]);
       expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
       await expect(page.getByRole('button',{name:'계산 상태·결과 확인'})).toBeVisible();
+      if(lostPhase==='calculation') {
+        const table=cash.getByRole('region',{name:'월별 현금흐름 표 가로 스크롤'});
+        await table.evaluate(element=>{element.scrollLeft=0;});await table.focus();await page.keyboard.press('ArrowRight');
+        await expect.poll(()=>table.evaluate(element=>element.scrollLeft)).toBeGreaterThan(0);
+        await table.evaluate(element=>{element.scrollLeft=0;});
+      }
       const capture=process.env.OSSF_UI_CAPTURE_DIR;
       if(capture && lostPhase==='calculation') {
         await mkdir(capture,{recursive:true});
         await page.evaluate(()=>scrollTo(0,0));
         await page.screenshot({path:`${capture}/economics-${width}-${size}.png`,fullPage:true});
+        await cash.screenshot({path:`${capture}/cash-${width}-${size}.png`});
       }
     }
   }

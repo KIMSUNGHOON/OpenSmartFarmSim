@@ -7,6 +7,7 @@ import re
 from pydantic import Field
 
 from .api_economics import project_economic_result
+from .api_economic_cash_flow import project_economic_cash_flow
 from .economic_calculation_worker import (EconomicCalculationInput, EconomicCalculationWorker,
     CALCULATION_SCOPES, _InputHold)
 from .jobs import canonical_input_bytes
@@ -74,6 +75,13 @@ class EconomicCalculationService:
                                 commit_guard=final_guard)
 
     def read_job_result(self, tenant, job_id):
+        return self._read_job_result(tenant,job_id,project_economic_result)
+
+    def read_job_cash_flow(self, tenant, job_id, *, after_month=None, limit=12):
+        return self._read_job_result(tenant,job_id,lambda result:
+            project_economic_cash_flow(result,after_month=after_month,limit=limit))
+
+    def _read_job_result(self, tenant, job_id, project):
         worker = EconomicCalculationWorker(self.jobs, self.results, tenant_id=tenant)
         pointers = worker._pointers()
         def guard():
@@ -136,6 +144,7 @@ class EconomicCalculationService:
             'code_sha256': receipt['code_sha256'], 'environment_sha256': receipt['environment_sha256']}
         if receipt != expected:
             raise RuntimeError('economic completed receipt differs')
-        projected = project_economic_result(result)
-        guard()
-        return projected
+        try:
+            return project(result)
+        finally:
+            guard()

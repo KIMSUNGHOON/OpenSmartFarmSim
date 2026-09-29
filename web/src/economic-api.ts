@@ -50,6 +50,17 @@ export type EconomicResult={economic_result_id:string;market_scenario_result_id:
   assessment_status:'hold';sales_totals_status:'inventory_reconciled'|'unverified_input_arithmetic';input_origin:'user';
   evidence_level:'assumed';quantities:{harvest_kg:string;packout_kg:string;recognized_kg:string;net_sold_kg:string|null};
   amounts:Record<typeof AMOUNTS[number],string|null>;hold_reason_codes:string[]};
+export type MonthlyCash={month:string;opening_balance_krw:string;net_cash_krw:string;closing_balance_krw:string;
+  minimum_balance_krw:string;minimum_at_utc:string;cash_shortage_krw:string};
+export type CashPage=Pick<EconomicResult,'economic_result_id'|'market_scenario_result_id'|'scenario_id'|'scenario_revision'|
+  'decision_at_utc'|'formula_version'|'market_context_kind'|'market_hold_report_id'|'calculation_status'|'assessment_status'|
+  'input_origin'|'evidence_level'|'hold_reason_codes'> & {schema_version:'economic-cash-page-v1';calendar_timezone:'Asia/Seoul';
+  series_status:'available'|'unavailable';total_months:number|null;limit:12;after_month:string|null;next_month_cursor:string|null;
+  monthly_cash:MonthlyCash[]|null};
+const CASH_IDENTITY=['economic_result_id','market_scenario_result_id','scenario_id','scenario_revision','decision_at_utc',
+  'formula_version','market_context_kind','market_hold_report_id','calculation_status','assessment_status','input_origin','evidence_level'] as const;
+const CASH_AMOUNTS=['opening_balance_krw','net_cash_krw','closing_balance_krw','minimum_balance_krw','cash_shortage_krw'] as const;
+function month(value:unknown):value is string {return typeof value==='string' && /^\d{4}-(?:0[1-9]|1[0-2])$/.test(value) && day(value+'-01');}
 type Request=(path:string,method?:string,body?:unknown,expected?:number,maxBytes?:number)=>Promise<unknown>;
 const META=['kind','record_id','revision','payload_sha256','recorded_at','admission_kind'] as const;
 const NUMBER=['value','unit','input_id','revision','origin','evidence_level','assumption_scope','source_ref',
@@ -201,6 +212,32 @@ export function createEconomicApi(request:Request,job:(value:unknown)=>JobStatus
     },
     async calculate(intent:CalculationIntent) {
       const result=job(await request('/v1/economic-results','POST',intent));need(result.stage==='simulation');return result;
+    },
+    async economicCash(id:string,result:EconomicResult,after?:string):Promise<CashPage> {
+      need(uuid(id) && (after===undefined || month(after)));
+      const query=new URLSearchParams({limit:'12'});if(after!==undefined)query.set('after_month',after);
+      const raw=await request('/v1/jobs/'+id+'/economic-cash-flow?'+query);need(object(raw));
+      closed(raw,[...CASH_IDENTITY,'hold_reason_codes','schema_version','calendar_timezone','series_status','total_months',
+        'limit','after_month','next_month_cursor','monthly_cash']);
+      need(CASH_IDENTITY.every(key=>raw[key]===result[key]) && raw.schema_version==='economic-cash-page-v1'
+        && raw.calendar_timezone==='Asia/Seoul' && raw.limit===12 && raw.after_month===(after ?? null));
+      need(Array.isArray(raw.hold_reason_codes) && raw.hold_reason_codes.length<=100 && raw.hold_reason_codes.every(code=>
+        typeof code==='string' && /^[A-Z][A-Z0-9_]{0,79}$/.test(code)));
+      if(raw.series_status==='unavailable')need(raw.monthly_cash===null && raw.total_months===null && raw.next_month_cursor===null && after===undefined);
+      else {
+        need(raw.series_status==='available' && typeof raw.total_months==='number' && Number.isSafeInteger(raw.total_months)
+          && raw.total_months>=1 && raw.total_months<=119988 && Array.isArray(raw.monthly_cash)
+          && raw.monthly_cash.length<=12 && raw.monthly_cash.length<=raw.total_months && (after!==undefined || raw.monthly_cash.length>0));
+        let previous=after ?? '';
+        for(const row of raw.monthly_cash) {
+          need(object(row));closed(row,['month',...CASH_AMOUNTS,'minimum_at_utc']);
+          need(month(row.month) && row.month>previous && utc(row.minimum_at_utc));previous=row.month;
+          need(CASH_AMOUNTS.every(key=>typeof row[key]==='string' && row[key].length<=256 && /^-?(?:0|[1-9]\d*)(?:\.\d+)?$/.test(row[key]))
+            && decimal(row.cash_shortage_krw,256));
+        }
+        need(raw.next_month_cursor===null || month(raw.next_month_cursor) && raw.monthly_cash.length>0 && raw.next_month_cursor===previous);
+      }
+      return raw as CashPage;
     },
     async economicResult(id:string,candidate:Candidate,context:Pick<ScenarioIntent['request'],'decision_at'|'market_context'>):Promise<EconomicResult> {
       need(uuid(id));const raw=await request('/v1/jobs/'+id+'/economic-result');need(object(raw));

@@ -178,3 +178,55 @@ def test_read_rechecks_revocation_after_replay(calculation_api, monkeypatch):
         return result
     monkeypatch.setattr(service.results, 'get_market_result', rebind)
     assert get(app, accepted['job_id'])[0] == 503
+
+
+def cash(app,job_id,query=''):
+    return asyncio.run(request(app,path=f'/v1/jobs/{job_id}/economic-cash-flow',query=query.removeprefix('?').encode()))[:2]
+
+
+def test_monthly_cash_read_uses_actual_completion_and_reader_scopes(calculation_api,monkeypatch):
+    from app.api_economic_calculation import ECONOMIC_JOB_READ_SCOPES
+    app,service,worker,body,principal=calculation_api
+    status,accepted=post(app,body);assert status==202
+    job_id=accepted['job_id']
+    assert cash(app,job_id)[0]==404
+    assert worker.run_once(job_id).state=='succeeded'
+    principal['scopes'].difference_update({'simulation_execute','market_result_write','market_candidate_write'})
+    status,page=cash(app,job_id,'?limit=1');assert status==200
+    summary=get(app,job_id)[1]
+    assert page['economic_result_id']==summary['economic_result_id']
+    assert page['market_scenario_result_id']==summary['market_scenario_result_id']
+    assert page['schema_version']=='economic-cash-page-v1' and page['calendar_timezone']=='Asia/Seoul'
+    assert page['monthly_cash'][0]['month']=='2026-10' and page['series_status']=='available'
+    assert page['monthly_cash'][0]['minimum_at_utc'].endswith('Z')
+    assert page['assessment_status']=='hold' and page['input_origin']=='user' and page['evidence_level']=='assumed'
+    assert 'tenant_id' not in page and 'input_provenance' not in page
+    assert cash(app,job_id,'?after_month=2026-10')[1]['monthly_cash']==[]
+    assert cash(app,job_id,'?after_month=2027-01')==(422,{'error':{'code':'invalid_request','message':'Invalid request'}})
+    for query in ('?limit=0','?limit=25','?after_month=2026-13'):
+        assert cash(app,job_id,query)[0]==422
+    assert cash(app,'invalid')[0]==422
+    for scope in ECONOMIC_JOB_READ_SCOPES:
+        principal['scopes'].remove(scope);assert cash(app,job_id)[0]==403;principal['scopes'].add(scope)
+    principal['tenant_id']='tenant-2';assert cash(app,job_id)[0]==404
+    principal['tenant_id']='tenant-1';principal['authenticated']=False;assert cash(app,job_id)[0]==401
+    principal['authenticated']=True
+    import app.api_economic_calculation as module
+    def revoked_projection(*args,**kwargs):
+        principal['scopes'].remove('market_source_read')
+        from app.api_economic_cash_flow import CashCursorRejected
+        raise CashCursorRejected('private fixture detail')
+    monkeypatch.setattr(module,'project_economic_cash_flow',revoked_projection)
+    assert cash(app,job_id)==(403,{'error':{'code':'forbidden','message':'Resource access denied'}})
+
+
+def test_cash_read_missing_service_and_different_model_never_invents_rows(calculation_api):
+    app,service,_,_,_=calculation_api
+    view=service.results._candidates._source
+    unconfigured=create_app(service.jobs,view._holds,view._holds._context_store,service.results,
+        principal_provider=service.jobs.principal_provider)
+    assert cash(unconfigured,'00000000-0000-4000-8000-000000000001')[0]==503
+    job=service.jobs.submit('tenant-1','simulation',{'input_version':'other'},'cash-other-model')
+    assert cash(app,str(job['job_id']))[0]==404
+    scopes=app.openapi()['paths']['/v1/jobs/{job_id}/economic-cash-flow']['get']
+    assert scopes['operationId']=='getJobEconomicCashFlow' and '200' in scopes['responses']

@@ -3,8 +3,9 @@
 The current screen submits registered synthetic location research and reads
 its real server job/hold status. The third screen lists exact stored economic
 assumptions, registers a numeric revision and admits/reads a selected conditional
-ledger calculation. Full farm input, baseline/rights authoring, monthly series,
-break-even forms, map, replay and production hosting are pending. See the
+ledger calculation, including a manually requested monthly cash table. Full
+farm input, baseline/event/settlement authoring, break-even plan/trial forms,
+map, replay and production hosting are pending. See the
 [location contract](../contracts/web-location-shell-v1.md) and
 [economic contract](../contracts/web-economic-workspace-v1.md).
 
@@ -67,7 +68,7 @@ untrusted upstream certificate. Only the isolated synthetic browser fixture
 ignores its ephemeral browser-facing certificate error; the upstream and
 Python HTTPS checks verify certificates. Services and temporary database password files
 are cleaned up. The economic smoke also checks an exact decimal revision, actual scenario and
-calculation admission, worker completion, result display and identical retry
+calculation admission, worker completion, result and monthly cash display, and identical retry
 with one stored calculation job. Its data/keys are self-authored synthetic
 fixtures, and it invokes no CLI. These smokes are not yet part of hosted web CI
 or full G1. [Evidence](../research/web-economic-workspace-implementation.md)
@@ -86,3 +87,15 @@ Knowledge time and applicability must cover the pinned decision/period. The
 server still rejects invalid rights, units, conservation and settlement paths.
 General baseline/event/settlement authoring is pending. See the
 [implementation evidence](../research/web-joint-amendment-implementation.md).
+
+## Monthly cash
+
+After reading a completed economic result, request its monthly cash explicitly.
+The [cash API](../contracts/api-economic-cash-flow-v1.md) revalidates the same
+job proof, immutable inputs, current read scopes and ledger replay. Amounts
+remain exact server decimal strings; unavailable cash stays null/“미확인”.
+The table groups months in Asia/Seoul and labels minimum-balance instants as UTC.
+It shows at most 12 months per page with manual next/first-page requests and a
+keyboard-scrollable region. This is conditional user-assumption arithmetic;
+it is not a future margin forecast or farm validation. See the
+[cash implementation evidence](../research/web-economic-cash-implementation.md).

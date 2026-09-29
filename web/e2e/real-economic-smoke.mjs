@@ -76,9 +76,21 @@ try {
   await expect(page.getByRole('heading',{name:'경제 결과의 평가 상태: 판단 보류',exact:true})).toBeVisible({timeout:45000});
   const labels={revenue_krw:'매출',management_operating_income_krw:'관리용 영업이익',cash_shortage_krw:'현금 부족'};
   for(const [key,label] of Object.entries(labels)) {
-    const value=expected.amounts[key];const [whole,fraction]=(value ?? '').split('.');
+    const value=expected.economic.amounts[key];const [whole,fraction]=(value ?? '').split('.');
     const text=value===null ? '미확인' : whole.replace(/\B(?=(\d{3})+(?!\d))/g,',')+(fraction===undefined ? '' : '.'+fraction)+' 원';
     await expect(page.locator('.economic-totals>div').filter({has:page.getByRole('heading',{name:label,exact:true})}).locator('strong')).toHaveText(text);
+  }
+  const cash=page.getByRole('region',{name:'월별 현금흐름',exact:true});
+  await cash.getByRole('button',{name:'월별 현금흐름 조회'}).click();
+  if(expected.cash.series_status==='unavailable')await expect(cash.getByRole('status')).toContainText('미확인',{timeout:45000});
+  else {
+    await expect(cash.locator('tbody tr')).toHaveCount(expected.cash.monthly_cash.length,{timeout:45000});
+    for(const [index,row] of expected.cash.monthly_cash.entries()) {
+      const actual=cash.locator('tbody tr').nth(index);await expect(actual.locator('th')).toHaveText(row.month);
+      const fields=['opening_balance_krw','net_cash_krw','closing_balance_krw','minimum_balance_krw','cash_shortage_krw'];
+      const text=fields.map(key=>{const [whole,fraction]=row[key].split('.');return whole.replace(/\B(?=(\d{3})+(?!\d))/g,',')+(fraction===undefined ? '' : '.'+fraction)+' 원';});
+      await expect(actual.locator('td')).toHaveText([...text,row.minimum_at_utc]);
+    }
   }
   const repeat=page.waitForResponse(response=>response.url().endsWith('/v1/economic-results') && response.request().method()==='POST');
   await page.getByRole('button',{name:'같은 계산 요청 다시 확인'}).click();

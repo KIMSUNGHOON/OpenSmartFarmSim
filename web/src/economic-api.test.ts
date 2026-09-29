@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { createApi, ApiError } from './api';
 import { SOURCE_FIELDS } from './source-fields';
-import type { Candidate, NumericIntent, NumericInput, RightsIntent, JointInput } from './economic-api';
+import type { Candidate, NumericIntent, NumericInput, RightsIntent, JointInput, EconomicResult } from './economic-api';
 
 const time='2026-09-29T08:00:00Z';const id='11111111-1111-4111-8111-111111111111';
 const meta={kind:'economic_input',record_id:'수량/#?',revision:'r1',payload_sha256:'a'.repeat(64),
@@ -88,4 +88,30 @@ describe('economic HTTP boundaries',()=>{
     }
   });
 
+});
+
+
+it('binds cash pages to the exact completed result and preserves KST boundary UTC strings',async ()=>{
+  const context={economic_result_id:'a'.repeat(64),market_scenario_result_id:'b'.repeat(64),scenario_id:'derived',scenario_revision:'r2',
+    decision_at_utc:time,formula_version:'economic-ledger-v9-sales-settlement',market_context_kind:'unavailable',market_hold_report_id:id,
+    calculation_status:'hold',assessment_status:'hold',input_origin:'user',evidence_level:'assumed'} as const;
+  const completed:EconomicResult={...context,sales_totals_status:'unverified_input_arithmetic',
+    quantities:{harvest_kg:'0',packout_kg:'0',recognized_kg:'0',net_sold_kg:null},
+    amounts:{gross_sales_krw:null,revenue_krw:null,variable_cost_krw:null,fixed_cost_krw:null,depreciation_krw:null,
+      management_operating_income_krw:null,operating_cash_krw:null,business_cash_krw:null,equity_cash_krw:null,
+      minimum_cash_balance_krw:null,cash_shortage_krw:null},hold_reason_codes:[]};
+  const row={month:'2026-10',opening_balance_krw:'-9007199254740993.0000000001',net_cash_krw:'0',
+    closing_balance_krw:'-9007199254740993.0000000001',minimum_balance_krw:'-9007199254740993.0000000001',
+    minimum_at_utc:'2026-09-30T15:00:00Z',cash_shortage_krw:'9007199254740993.0000000001'};
+  const page={...context,schema_version:'economic-cash-page-v1',calendar_timezone:'Asia/Seoul',series_status:'available',total_months:1,
+    limit:12,after_month:null,next_month_cursor:null,monthly_cash:[row],hold_reason_codes:[]};
+  const read=await api(page,200,url=>expect(new URL(url,'https://test.invalid').searchParams.get('limit')).toBe('12')).economicCash(id,completed);
+  expect(read.monthly_cash![0]!.opening_balance_krw).toBe(row.opening_balance_krw);
+  expect(read.monthly_cash![0]!.minimum_at_utc).toBe(row.minimum_at_utc);
+  for(const changes of [{economic_result_id:'c'.repeat(64)},{market_hold_report_id:'22222222-2222-4222-8222-222222222222'},
+      {calendar_timezone:'UTC'},{next_month_cursor:'2026-11'},{monthly_cash:[{...row,net_cash_krw:0}]},
+      {monthly_cash:[{...row,month:'2026-13'}]},{monthly_cash:[row,row]},{tenant_id:'foreign'}]) {
+    await expect(api({...page,...changes}).economicCash(id,completed)).rejects.toBeInstanceOf(ApiError);
+  }
+  expect((await api({...page,series_status:'unavailable',total_months:null,monthly_cash:null}).economicCash(id,completed)).monthly_cash).toBeNull();
 });

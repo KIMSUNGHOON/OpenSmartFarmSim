@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { ApiError, type createApi, type JobStatus } from './api';
 import { decimal, type SourceKind, type SourceMeta, type SourcePage, type NumericRecord, type NumericIntent,
   type SourceSaved, type Baseline, type Shock, type Candidate, type ScenarioIntent, type CalculationIntent,
-  type EconomicResult, type JointRecord, type RightsIntent, type JointIntent } from './economic-api';
+  type EconomicResult, type CashPage, type JointRecord, type RightsIntent, type JointIntent } from './economic-api';
 
 import {amendJoint,numericSlots} from './joint-amendment';
 
@@ -36,7 +36,7 @@ export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|nu
   const [saved,setSaved]=useState<SourceSaved|null>(null);
   const [baseline,setBaseline]=useState<Baseline|null>(null);const [shock,setShock]=useState<Shock|null>(null);
   const [candidate,setCandidate]=useState<Candidate|null>(null);const [job,setJob]=useState<JobStatus|null>(null);
-  const [result,setResult]=useState<EconomicResult|null>(null);const [busy,setBusy]=useState(false);
+  const [result,setResult]=useState<EconomicResult|null>(null);const [cashPage,setCashPage]=useState<CashPage|null>(null);const [busy,setBusy]=useState(false);
   const [error,setError]=useState<ApiError|null>(null);const [unresolved,setUnresolved]=useState(false);
   const [draft,setDraft]=useState<JointRecord|null>(null);const [replacement,setReplacement]=useState<NumericRecord|null>(null);
   const [slot,setSlot]=useState('');const [consent,setConsent]=useState(false);
@@ -48,7 +48,7 @@ export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|nu
   useEffect(()=>{
     epoch.current++;amendment.current=null;setDraft(null);setReplacement(null);setSlot('');setConsent(false);setApplied(null);sourceIntent.current=null;flow.current=null;pending.current=false;onPending(false);
     setPages({});setNumeric(null);setSaved(null);setBaseline(null);setShock(null);setCandidate(null);setJob(null);
-    setResult(null);setValue('');setKnownDate('');setKnownTime('');setError(null);setUnresolved(false);
+    setResult(null);setCashPage(null);setValue('');setKnownDate('');setKnownTime('');setError(null);setUnresolved(false);
   },[api,onPending]);
   async function perform(action:(client:Client,current:()=>boolean)=>Promise<void>) {
     if(!api || inFlight.current || blocked) {if(!api)setError(new ApiError('auth_required'));return;}
@@ -150,19 +150,27 @@ export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|nu
         scenario_sha256:pinned.candidate.scenario_sha256,candidate_id:pinned.candidate.candidate_id,
         formula_version:'economic-ledger-v9-sales-settlement',idempotency_key:'web-economic-calculation-v1:'+crypto.randomUUID()};
       const response=await client.calculate(pinned.calculation);
-      if(current()){setJob(response);setResult(null);pending.current=false;setUnresolved(false);}
+      if(current()){setJob(response);setResult(null);setCashPage(null);pending.current=false;setUnresolved(false);}
     });
   }
   function refresh() {
     if(!job || !candidate || !flow.current)return;
     const context=flow.current.scenario.request;
     void perform(async (client,current)=>{
-      const status=await client.job(job.job_id);if(!current())return;setJob(status);setResult(null);
+      const status=await client.job(job.job_id);if(!current())return;setJob(status);setResult(null);setCashPage(null);
       if(status.stage!=='simulation')throw new ApiError('response_rejected');
       if(status.state==='succeeded') {
         const response=await client.economicResult(status.job_id,candidate,context);
         if(current())setResult(response);
       }
+    });
+  }
+  function loadCash(next=false) {
+    if(!job || !result)return;
+    const after=next ? cashPage?.next_month_cursor : undefined;if(next && !after)return;
+    void perform(async (client,current)=>{
+      setCashPage(null);
+      const response=await client.economicCash(job.job_id,result,after ?? undefined);if(current())setCashPage(response);
     });
   }
   const disabled=busy || blocked;const selectionLocked=disabled || unresolved || flow.current!==null || amendment.current!==null;
@@ -239,7 +247,7 @@ export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|nu
         <div className="economic-actions"><button className="button primary" disabled={disabled || !baseline || !shock || unresolved && !flow.current || !!amendment.current && !applied}
           onClick={calculate}>{flow.current ? '같은 계산 요청 다시 확인' : '선택한 가정으로 계산 요청'}</button>
           {flow.current && !unresolved && <button className="button secondary" disabled={disabled} onClick={()=>{
-            flow.current=null;setCandidate(null);setJob(null);setResult(null);setError(null);}}>새 계산 선택</button>}</div>
+            flow.current=null;setCandidate(null);setJob(null);setResult(null);setCashPage(null);setError(null);}}>새 계산 선택</button>}</div>
       </section>
       <div className="economic-results" id="viewport-1-d-results"><section className="panel"><p className="step-number">02 / 조건부 결과</p><h2>서버 원장 계산</h2>
         <p>서버가 완료된 작업의 입력·영수증·원장을 대사한 결과를 표시합니다.</p>
@@ -255,6 +263,24 @@ export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|nu
               <div key={key}><dt>{label}</dt><dd>{money(result.amounts[key])}</dd></div>)}</dl></details>
           <p className="muted">산식: {result.formula_version}<br/>결과 원장: {result.scenario_id} / {result.scenario_revision}</p>
         </> : <p className="empty-result">완료된 서버 결과를 아직 확인하지 않았습니다. 미확인 금액은 0원으로 표시하지 않습니다.</p>}
+        <section className="cash-panel" aria-label="월별 현금흐름">
+          <h3>월별 현금흐름</h3>
+          <p>월 구분은 한국 표준시입니다. 월중 최저 잔액이 언제 발생하는지도 확인합니다.</p>
+          <button className="button secondary" disabled={disabled || unresolved || !result || !job} onClick={()=>loadCash()}>월별 현금흐름 조회</button>
+          {cashPage ? cashPage.series_status==='unavailable' ? <p className="notice" role="status">월별 현금흐름: 미확인. 계산에 필요한 현금 기록을 확인해야 합니다.</p>
+            : <><p className="muted">전체 {cashPage.total_months}개월 중 현재 {cashPage.monthly_cash!.length}개월 표시 · 사용자 가정의 조건부 계산</p>
+              <div className="cash-table-scroll" tabIndex={0} role="region" aria-label="월별 현금흐름 표 가로 스크롤">
+                <table className="cash-table"><caption>월별 현금 잔액 · 금액 단위: 원(KRW) · 최저 잔액 시각: UTC</caption>
+                  <thead><tr>{['월','월초 잔액','현금 증감','월말 잔액','최저 잔액','현금 부족','최저 잔액 시각 (UTC)'].map(label=><th scope="col" key={label}>{label}</th>)}</tr></thead>
+                  <tbody>{cashPage.monthly_cash!.map(row=><tr key={row.month}><th scope="row">{row.month}</th>
+                    {(['opening_balance_krw','net_cash_krw','closing_balance_krw','minimum_balance_krw','cash_shortage_krw'] as const).map(key=><td key={key}>{money(row[key])}</td>)}
+                    <td>{row.minimum_at_utc}</td></tr>)}</tbody>
+                </table>
+              </div>
+              {cashPage.monthly_cash!.length===0 && <p>다음 월 기록이 없습니다.</p>}
+              {cashPage.next_month_cursor && <button className="button secondary" disabled={disabled || unresolved} onClick={()=>loadCash(true)}>다음 월 기록</button>}
+            </> : <p className="muted">완료된 서버 경제 결과를 확인한 뒤 월별 기록을 조회하세요. 미확인 현금을 0원으로 채우지 않습니다.</p>}
+        </section>
       </section><section className="panel" id="viewport-1-d-evaluation"><p className="step-number">03 / 평가 근거</p>
         <h2>{result ? '경제 결과의 평가 상태: 판단 보류' : '경제 결과의 평가 상태'}</h2>
         <p>{result ? '서버 결과의 시장 문맥은 자료 이용 불가이며 평가 상태는 보류입니다.' : '서버 경제 결과를 받으면 시장 문맥과 평가 상태를 확인합니다.'}</p>
