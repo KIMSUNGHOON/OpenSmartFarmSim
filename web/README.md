@@ -3,11 +3,14 @@
 The current screen submits registered synthetic location research and reads
 its real server job/hold status. The third screen lists exact stored economic
 assumptions, registers a numeric revision and admits/reads a selected conditional
-ledger calculation, including a manually requested monthly cash table. Full
-farm input, baseline/event/settlement authoring, break-even plan/trial forms,
-map, replay and production hosting are pending. See the
+ledger calculation, including a manually requested monthly cash table. A
+break-even section selects existing sale/collection and saved trial revisions,
+admits a finite plan and reads its completed result. Full farm input,
+baseline/event/settlement authoring, automatic trial assumptions, durable
+reload recovery, map, replay and production hosting are pending. See the
 [location contract](../contracts/web-location-shell-v1.md) and
-[economic contract](../contracts/web-economic-workspace-v1.md).
+[economic contract](../contracts/web-economic-workspace-v1.md) and
+[break-even contract](../contracts/web-break-even-workspace-v1.md).
 
 ## Software checks
 
@@ -58,7 +61,7 @@ After locked backend installation and Chromium installation, set
 `backend/`:
 
 ```bash
-uv run --locked --group dev pytest -q -s tests/web_shell_smoke.py tests/web_economic_smoke.py
+uv run --locked --group dev pytest -q -s tests/web_shell_smoke.py tests/web_economic_smoke.py tests/web_break_even_smoke.py
 ```
 
 This explicit smoke creates disposable SCRAM roles, an actual API, Vite HTTPS
@@ -99,3 +102,16 @@ It shows at most 12 months per page with manual next/first-page requests and a
 keyboard-scrollable region. This is conditional user-assumption arithmetic;
 it is not a future margin forecast or farm validation. See the
 [cash implementation evidence](../research/web-economic-cash-implementation.md).
+
+## Stored trial break-even plans
+
+Choose an owned baseline, actual sale/collection terms, a target, quantity or
+price, decimal range/step and 2–256 saved joint revisions in grid order. The
+server checks rights, settlement, each derived value and fixed assumptions;
+the browser does not generate or calculate trial assumptions. Unknown plan
+admission reads the [historical receipt](../contracts/api-break-even-plan-receipt-v1.md)
+with a canonical full-submission digest. Missing receipts keep the original
+write unresolved; never-stored-intent resubmission and reload recovery remain
+pending. Worker/result reads retain current source validation and full replay.
+Listed zeros and crossing intervals remain distinct; a crossing is not an
+exact continuous root. See the [verification record](../research/web-break-even-workspace-implementation.md).

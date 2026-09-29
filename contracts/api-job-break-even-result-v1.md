@@ -31,3 +31,8 @@ the service only with its actual source store; schema/read-only assembly keeps
 Synthetic fixtures verify software contracts only. Automatic trial assumptions,
 continuous-interval proof, independent G0–G4 evidence, actual CLI orchestration,
 protected deployment and browser completion remain separate acceptance work.
+
+The [stored-trial browser candidate](web-break-even-workspace-v1.md) now connects
+this read to explicit baseline/sale/collection/target/range and ordered saved
+joint revisions. Its [software verification](../research/web-break-even-workspace-implementation.md)
+does not complete the full farm/CLI/replay or gate acceptance above.

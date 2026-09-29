@@ -8,7 +8,7 @@
 
 ## 현재 내부 웹 구현
 
-[첫 웹 화면](web/README.md)은 등록된 합성 좌표·UTC 기간의 조사 요청, 실제 작업 상태와 보류 근거 조회를 구현한 후보입니다. [경제 화면](contracts/web-economic-workspace-v1.md)은 저장 가정 조회·새 숫자 판본 등록, 선택 원장/수급·거시 공동 가정의 계산 요청과 완료 서버 결과를 연결합니다. 새 숫자의 권리 확인·공동 가정 판본 등록·선택과 [월별 현금 조회](research/web-economic-cash-implementation.md)를 연결하는 후보를 추가했습니다. 일반 원장·정산 작성, 전체 농장 입력과 손익분기 계획·시험 시나리오 화면은 남아 있습니다. [검증 기록](research/web-location-shell-implementation.md)에는 실제 HTTPS API·PostgreSQL과 브라우저 연결 시험이 있습니다. 시험의 CLI는 직접 작성한 가짜 실행기이며 실제 모델·전체 농장/경제 입력·3D 재생·종단 간 G1·공개 운영 수용은 남아 있습니다.
+[첫 웹 화면](web/README.md)은 등록된 합성 좌표·UTC 기간의 조사 요청, 실제 작업 상태와 보류 근거 조회를 구현한 후보입니다. [경제 화면](contracts/web-economic-workspace-v1.md)은 저장 가정 조회·새 숫자 판본 등록, 선택 원장/수급·거시 공동 가정의 계산 요청과 완료 서버 결과를 연결합니다. 새 숫자의 권리 확인·공동 가정 판본 등록·선택과 [월별 현금 조회](research/web-economic-cash-implementation.md)를 연결하는 후보를 추가했습니다. [손익분기 화면 후보](contracts/web-break-even-workspace-v1.md)는 기존 판매·수금과 저장된 시험 판본을 선택하고 계획·완료 결과를 조회하며 응답 유실 시 저장 접수 기록을 확인합니다([검증 기록](research/web-break-even-workspace-implementation.md)). 일반 원장·정산 작성, 전체 농장 입력, 자동 시험 가정 생성과 새로고침 후 복구는 남아 있습니다. [첫 웹 검증 기록](research/web-location-shell-implementation.md)에는 실제 HTTPS API·PostgreSQL과 브라우저 연결 시험이 있습니다. 그 시험의 CLI는 직접 작성한 가짜 실행기이며 실제 모델·전체 농장/경제 입력·3D 재생·종단 간 G1·공개 운영 수용은 남아 있습니다.
 
 ## 문서 읽는 순서
 

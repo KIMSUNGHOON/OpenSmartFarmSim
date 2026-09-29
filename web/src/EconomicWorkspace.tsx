@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { useCallback, useEffect, useRef, useState, type FormEvent } from 'react';
 import { ApiError, type createApi, type JobStatus } from './api';
 import { decimal, type SourceKind, type SourceMeta, type SourcePage, type NumericRecord, type NumericIntent,
   type SourceSaved, type Baseline, type Shock, type Candidate, type ScenarioIntent, type CalculationIntent,
   type EconomicResult, type CashPage, type JointRecord, type RightsIntent, type JointIntent } from './economic-api';
 
 import {amendJoint,numericSlots} from './joint-amendment';
+import BreakEvenWorkspace from './BreakEvenWorkspace';
+import {money} from './economic-format';
 
 type Client=ReturnType<typeof createApi>;
 const names:Record<SourceKind,string>={economic_input:'숫자 가정',economic_scenario:'기준 원장',joint_shock:'수급·거시 공동 가정'};
@@ -24,11 +26,6 @@ function slotLabel(item:ReturnType<typeof numericSlots>[number]) {
   return [driverNames[item.driver.kind],groupNames[item.edit.event_group] ?? item.edit.event_group,
     item.edit.event_id,fieldNames[item.edit.field] ?? item.edit.field].join(' / ');
 }
-function money(value:string|null) {
-  if(value===null) return '미확인';
-  const [whole,fraction]=value.split('.');
-  return (whole ?? '').replace(/\B(?=(\d{3})+(?!\d))/g,',')+(fraction===undefined ? '' : '.'+fraction)+' 원';
-}
 export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|null;onPending:(value:boolean)=>void;blocked:boolean}) {
   const [pages,setPages]=useState<Partial<Record<SourceKind,SourcePage>>>({});
   const [numeric,setNumeric]=useState<NumericRecord|null>(null); const [value,setValue]=useState('');
@@ -45,13 +42,17 @@ export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|nu
   const sourceIntent=useRef<NumericIntent|null>(null);
   const flow=useRef<{scenario:ScenarioIntent;candidate:Candidate|null;calculation:CalculationIntent|null}|null>(null);
   const pending=useRef(false);const inFlight=useRef(false);const epoch=useRef(0);
+  const breakPending=useRef(false);const [breakLocked,setBreakLocked]=useState(false);
+  const trackBreak=useCallback((value:boolean)=>{
+    breakPending.current=value;setBreakLocked(value);onPending(value || pending.current || inFlight.current);
+  },[onPending]);
   useEffect(()=>{
     epoch.current++;amendment.current=null;setDraft(null);setReplacement(null);setSlot('');setConsent(false);setApplied(null);sourceIntent.current=null;flow.current=null;pending.current=false;onPending(false);
     setPages({});setNumeric(null);setSaved(null);setBaseline(null);setShock(null);setCandidate(null);setJob(null);
     setResult(null);setCashPage(null);setValue('');setKnownDate('');setKnownTime('');setError(null);setUnresolved(false);
   },[api,onPending]);
   async function perform(action:(client:Client,current:()=>boolean)=>Promise<void>) {
-    if(!api || inFlight.current || blocked) {if(!api)setError(new ApiError('auth_required'));return;}
+    if(!api || inFlight.current || blocked || breakPending.current) {if(!api)setError(new ApiError('auth_required'));return;}
     const version=epoch.current;inFlight.current=true;setBusy(true);onPending(true);setError(null);
     const current=()=>version===epoch.current;
     try {await action(api,current);}
@@ -61,7 +62,7 @@ export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|nu
         if(failure.status!==null && failure.status<500) pending.current=false;
         setUnresolved(pending.current);
       }
-    } finally {inFlight.current=false;if(current()){setBusy(false);onPending(pending.current);}}
+    } finally {inFlight.current=false;if(current()){setBusy(false);onPending(pending.current || breakPending.current);}}
   }
   function page(kind:SourceKind,next=false) {
     void perform(async (client,current)=>{
@@ -173,7 +174,7 @@ export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|nu
       const response=await client.economicCash(job.job_id,result,after ?? undefined);if(current())setCashPage(response);
     });
   }
-  const disabled=busy || blocked;const selectionLocked=disabled || unresolved || flow.current!==null || amendment.current!==null;
+  const disabled=busy || blocked || breakLocked;const selectionLocked=disabled || unresolved || flow.current!==null || amendment.current!==null;
   function picker(kind:SourceKind) {
     const data=pages[kind];return <section className="source-picker" aria-label={names[kind]}>
       <div className="picker-heading"><h3>{names[kind]}</h3><button type="button" className="button secondary" disabled={selectionLocked}
@@ -287,6 +288,6 @@ export default function EconomicWorkspace({api,onPending,blocked}:{api:Client|nu
         {result && <p>추가 확인이 필요한 계산 근거: {result.hold_reason_codes.length}개</p>}
         <p className="muted">작물 선택과 미래 사업성 판단에는 독립적인 현장 측정, 미래 검증, 같은 조건의 후보 비교가 필요합니다.</p>
       </section></div>
-    </div>
+    </div><BreakEvenWorkspace api={api} blocked={busy || blocked || unresolved} onPending={trackBreak}/>
   </div>;
 }
