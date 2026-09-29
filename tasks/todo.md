@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**농장 계획 열 실행 연결 진행:** [열 실행 계약](../contracts/farm-thermal-execution-v1.md)은 접수·작업자·작업별 Run 조회의 입력/영수증 v3가 같은 등록 계획과 완료 조사/수집/검토를 참조하도록 한다. [검증 기록](../research/farm-thermal-execution-implementation.md)은 실제 SCRAM·HTTPS와 가짜 CLI/합성 키의 소프트웨어 범위다. 경제 실행·공통 평가·3D·실제 CLI와 독립 전체 G1/G4 수용은 남아 기존 체크를 유지한다.
+
 **저장 경제 가정 조회 연결 진행:** [조회 계약](../contracts/api-market-user-source-read-v1.md)은 같은 사용자의 7종 입력 목록·지정 판본을 기존 최초 작업/원본 해시와 대사한다. [구현 증거](../research/market-user-source-read-implementation.md)는 실제 SCRAM·Bearer의 소프트웨어 범위다. 숫자·단위·null을 보존하며 경제/시장 입력 화면·실제 모델·전체 G1/G4 수용이 남아 기존 체크를 유지한다.
 
 **첫 웹 접수·조회 연결 진행:** [계약](../contracts/web-location-shell-v1.md)과 [검증](../research/web-location-shell-implementation.md)은 좌표/UTC 기간 요청·작업/보류 근거, 실제 TLS/SCRAM 브라우저와 가짜 CLI의 소프트웨어 범위다. 경제/시장 입력·카드, 지도, 3D·실제 모델·전체 G1/G4 수용이 남아 `web-shell` 및 기존 체크를 유지한다.

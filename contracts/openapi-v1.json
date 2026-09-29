@@ -6571,6 +6571,17 @@
             "thermal_snapshot_read",
             "decision_context_read",
             "market_hold_context_read"
+          ],
+          "thermal-simulation-result-v3": [
+            "farm_scenario_read",
+            "metadata",
+            "artifact",
+            "thermal_scenario_read",
+            "thermal_snapshot_read",
+            "decision_context_read",
+            "market_hold_context_read",
+            "market_source_read",
+            "market_candidate_read"
           ]
         },
         "x-ossf-required-scopes": [
@@ -12864,76 +12875,174 @@
           "content": {
             "application/json": {
               "schema": {
-                "additionalProperties": false,
-                "properties": {
-                  "idempotency_key": {
-                    "maxLength": 200,
-                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
-                    "title": "Idempotency Key",
-                    "type": "string"
+                "oneOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "idempotency_key": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Idempotency Key",
+                        "type": "string"
+                      },
+                      "input_version": {
+                        "const": "thermal-simulation-input-v2",
+                        "title": "Input Version",
+                        "type": "string"
+                      },
+                      "model_version": {
+                        "const": "thermal-v1",
+                        "title": "Model Version",
+                        "type": "string"
+                      },
+                      "parameter_set_version": {
+                        "const": "synthetic-thermal-parameters-v1",
+                        "title": "Parameter Set Version",
+                        "type": "string"
+                      },
+                      "review_job_id": {
+                        "maxLength": 36,
+                        "minLength": 36,
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                        "title": "Review Job Id",
+                        "type": "string"
+                      },
+                      "scenario_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Id",
+                        "type": "string"
+                      },
+                      "scenario_revision": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Revision",
+                        "type": "string"
+                      },
+                      "scenario_sha256": {
+                        "maxLength": 64,
+                        "minLength": 64,
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Scenario Sha256",
+                        "type": "string"
+                      },
+                      "snapshot_id": {
+                        "maxLength": 84,
+                        "minLength": 84,
+                        "pattern": "^thermal-snapshot-v1:[0-9a-f]{64}$",
+                        "title": "Snapshot Id",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "input_version",
+                      "snapshot_id",
+                      "review_job_id",
+                      "scenario_id",
+                      "scenario_revision",
+                      "scenario_sha256",
+                      "model_version",
+                      "parameter_set_version",
+                      "idempotency_key"
+                    ],
+                    "title": "ThermalRunRequest",
+                    "type": "object"
                   },
-                  "input_version": {
-                    "const": "thermal-simulation-input-v2",
-                    "title": "Input Version",
-                    "type": "string"
-                  },
-                  "model_version": {
-                    "const": "thermal-v1",
-                    "title": "Model Version",
-                    "type": "string"
-                  },
-                  "parameter_set_version": {
-                    "const": "synthetic-thermal-parameters-v1",
-                    "title": "Parameter Set Version",
-                    "type": "string"
-                  },
-                  "review_job_id": {
-                    "maxLength": 36,
-                    "minLength": 36,
-                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
-                    "title": "Review Job Id",
-                    "type": "string"
-                  },
-                  "scenario_id": {
-                    "maxLength": 200,
-                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
-                    "title": "Scenario Id",
-                    "type": "string"
-                  },
-                  "scenario_revision": {
-                    "maxLength": 200,
-                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
-                    "title": "Scenario Revision",
-                    "type": "string"
-                  },
-                  "scenario_sha256": {
-                    "maxLength": 64,
-                    "minLength": 64,
-                    "pattern": "^[0-9a-f]{64}$",
-                    "title": "Scenario Sha256",
-                    "type": "string"
-                  },
-                  "snapshot_id": {
-                    "maxLength": 84,
-                    "minLength": 84,
-                    "pattern": "^thermal-snapshot-v1:[0-9a-f]{64}$",
-                    "title": "Snapshot Id",
-                    "type": "string"
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "farm_scenario_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Farm Scenario Id",
+                        "type": "string"
+                      },
+                      "farm_scenario_revision": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Farm Scenario Revision",
+                        "type": "string"
+                      },
+                      "farm_scenario_sha256": {
+                        "maxLength": 64,
+                        "minLength": 64,
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Farm Scenario Sha256",
+                        "type": "string"
+                      },
+                      "idempotency_key": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Idempotency Key",
+                        "type": "string"
+                      },
+                      "input_version": {
+                        "const": "thermal-simulation-input-v3",
+                        "title": "Input Version",
+                        "type": "string"
+                      },
+                      "model_version": {
+                        "const": "thermal-v1",
+                        "title": "Model Version",
+                        "type": "string"
+                      },
+                      "parameter_set_version": {
+                        "const": "synthetic-thermal-parameters-v1",
+                        "title": "Parameter Set Version",
+                        "type": "string"
+                      },
+                      "review_job_id": {
+                        "maxLength": 36,
+                        "minLength": 36,
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                        "title": "Review Job Id",
+                        "type": "string"
+                      },
+                      "scenario_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Id",
+                        "type": "string"
+                      },
+                      "scenario_revision": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Revision",
+                        "type": "string"
+                      },
+                      "scenario_sha256": {
+                        "maxLength": 64,
+                        "minLength": 64,
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Scenario Sha256",
+                        "type": "string"
+                      },
+                      "snapshot_id": {
+                        "maxLength": 84,
+                        "minLength": 84,
+                        "pattern": "^thermal-snapshot-v1:[0-9a-f]{64}$",
+                        "title": "Snapshot Id",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "input_version",
+                      "snapshot_id",
+                      "review_job_id",
+                      "scenario_id",
+                      "scenario_revision",
+                      "scenario_sha256",
+                      "farm_scenario_id",
+                      "farm_scenario_revision",
+                      "farm_scenario_sha256",
+                      "model_version",
+                      "parameter_set_version",
+                      "idempotency_key"
+                    ],
+                    "title": "FarmThermalRunRequest",
+                    "type": "object"
                   }
-                },
-                "required": [
-                  "input_version",
-                  "snapshot_id",
-                  "review_job_id",
-                  "scenario_id",
-                  "scenario_revision",
-                  "scenario_sha256",
-                  "model_version",
-                  "parameter_set_version",
-                  "idempotency_key"
-                ],
-                "title": "ThermalRunRequest",
-                "type": "object"
+                ]
               }
             }
           },
@@ -13027,6 +13136,22 @@
           }
         ],
         "summary": "Post Run",
+        "x-ossf-conditional-scopes": {
+          "thermal-simulation-input-v3": [
+            "farm_scenario_read",
+            "metadata",
+            "artifact",
+            "thermal_scenario_read",
+            "thermal_snapshot_read",
+            "decision_context_read",
+            "market_hold_context_read",
+            "market_source_read",
+            "market_candidate_read",
+            "collection_read",
+            "collection_review_create",
+            "thermal_snapshot_write"
+          ]
+        },
         "x-ossf-max-body-bytes": 4096,
         "x-ossf-required-scopes": [
           "thermal_run_submit",

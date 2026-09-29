@@ -208,7 +208,7 @@ class FarmReplayScenarioService:
         finally:
             guard()
 
-    def get(self, tenant, scenario_id, revision):
+    def _read(self, tenant, scenario_id, revision):
         if not self.jobs._has_scope(tenant, 'metadata'):
             principal = self.jobs.principal_provider()
             if principal is None or principal.get('tenant_id') != tenant:
@@ -227,6 +227,16 @@ class FarmReplayScenarioService:
             if ((body.scenario_id, body.scenario_revision) != (scenario_id, revision) or
                     canonical_input_bytes(expected) != row['input_bytes']):
                 raise FarmReplayScenarioHold('farm scenario stored input differs')
-            return self._summary(row, body)
+            return row, body, expected['bindings']
         finally:
             guard()
+
+    def get(self, tenant, scenario_id, revision):
+        record = self._read(tenant, scenario_id, revision)
+        return self._summary(record[0],record[1]) if record is not None else None
+
+    def read_selection(self, tenant, scenario_id, revision, expected_sha256):
+        record = self._read(tenant,scenario_id,revision)
+        if record is None or record[0]['input_sha256'] != expected_sha256:
+            raise FarmReplayScenarioHold('farm scenario execution selection unavailable')
+        return {'request':record[1], 'bindings':record[2], 'scenario_sha256':record[0]['input_sha256']}

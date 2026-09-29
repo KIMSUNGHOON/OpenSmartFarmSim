@@ -16,6 +16,8 @@ from .thermal_publisher import ThermalG1Publisher, ThermalPublishHold
 from .thermal_run_store import ThermalRunStore, ThermalStoreHold
 from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold, IDENTIFIER
 from .thermal_scenario_execution import scenario_execution_binding
+from .farm_replay_scenario import FarmReplayScenarioService
+from .farm_thermal_execution import farm_thermal_execution_binding, FarmThermalHold
 
 
 class SimulationInput(FrozenContract):
@@ -32,7 +34,14 @@ class ScenarioSimulationInput(SimulationInput):
     scenario_sha256: str = Field(pattern=r'^[0-9a-f]{64}$', min_length=64, max_length=64)
 
 
-SIMULATION_INPUT = TypeAdapter(Annotated[SimulationInput | ScenarioSimulationInput,
+class FarmSimulationInput(ScenarioSimulationInput):
+    input_version: Literal['thermal-simulation-input-v3']
+    farm_scenario_id: str = Field(pattern=IDENTIFIER, max_length=200)
+    farm_scenario_revision: str = Field(pattern=IDENTIFIER, max_length=200)
+    farm_scenario_sha256: str = Field(pattern=r'^[0-9a-f]{64}$', min_length=64, max_length=64)
+
+
+SIMULATION_INPUT = TypeAdapter(Annotated[SimulationInput | ScenarioSimulationInput | FarmSimulationInput,
                                          Field(discriminator='input_version')])
 
 
@@ -55,7 +64,7 @@ _HOLDS = frozenset({'ACCESS_HOLD', 'PIN_HOLD', 'REVIEW_HOLD', 'CONTEXT_HOLD',
 
 
 class ThermalSimulationWorker:
-    def __init__(self, publisher, *, tenant_id, lease_seconds=120, scenario_store=None):
+    def __init__(self, publisher, *, tenant_id, lease_seconds=120, scenario_store=None, farm_scenario_service=None):
         try:
             require_name(tenant_id, 'tenant_id')
             require_seconds(lease_seconds, 'lease_seconds')
@@ -64,6 +73,7 @@ class ThermalSimulationWorker:
             self.publisher = publisher
             self.jobs, self.runs = publisher.job_store, publisher.run_store
             self.scenario_store = scenario_store
+            self.farm_scenario_service = farm_scenario_service
             self._binding()
         except Exception:
             raise ValueError('simulation worker binding rejected') from None
@@ -86,10 +96,21 @@ class ThermalSimulationWorker:
             if type(self.scenario_store) is not ThermalScenarioStore or self.scenario_store.runs is not self.runs:
                 raise ValueError('simulation worker binding rejected')
             self.scenario_store._binding()
+        if self.farm_scenario_service is not None:
+            farm=self.farm_scenario_service
+            if (type(farm) is not FarmReplayScenarioService or farm.jobs is not self.jobs or
+                    farm.thermal is not self.scenario_store):
+                raise ValueError('simulation farm binding rejected')
+            farm._binding()
 
     def _scenario(self, value, report=None):
-        if type(value) is ScenarioSimulationInput:
+        if type(value) in (ScenarioSimulationInput,FarmSimulationInput):
             return scenario_execution_binding(self.scenario_store, self.runs, self.tenant_id, value, report)
+        return {}
+
+    def _farm(self,value,report=None):
+        if type(value) is FarmSimulationInput:
+            return farm_thermal_execution_binding(self.farm_scenario_service,self.jobs,self.tenant_id,value,report)
         return {}
 
     def _close(self, lease, kind, code):
@@ -136,6 +157,7 @@ class ThermalSimulationWorker:
             except Exception:
                 return self._close(lease, 'fatal', 'simulation_input_rejected')
             self._scenario(value)
+            self._farm(value)
             packet = self.publisher.prepare(self.tenant_id, value.review_job_id, value.snapshot_id)
             run_id = self._finish(lease, raw, value, packet)
             return SimulationResult(lease['job_id'], lease['attempt'], 'succeeded', 'completed', run_id)
@@ -147,6 +169,8 @@ class ThermalSimulationWorker:
             return self._close(lease, 'hold', 'thermal_'+code)
         except ThermalStoreHold:
             return self._close(lease, 'hold', 'thermal_g1_hold')
+        except FarmThermalHold:
+            return self._close(lease, 'hold', 'thermal_farm_scenario_hold')
         except ThermalScenarioHold:
             return self._close(lease, 'hold', 'thermal_scenario_hold')
         except Exception:
@@ -159,6 +183,7 @@ class ThermalSimulationWorker:
                 report['review_job_id'] != value.review_job_id):
             raise ThermalStoreHold('REPORT_HOLD: simulation packet differs')
         scenario = self._scenario(value, report)
+        farm = self._farm(value,report)
         receipt = {'receipt_version': 'thermal-simulation-result-v1', 'status': 'accepted',
             'claim_scope': 'synthetic_thermal_replay_only', 'run_id': report['run_id'],
             'snapshot_id': value.snapshot_id, 'review_job_id': value.review_job_id,
@@ -167,6 +192,8 @@ class ThermalSimulationWorker:
             'report_sha256': sha256(packet['report_raw']).hexdigest()}
         if scenario:
             receipt.update(receipt_version='thermal-simulation-result-v2', **scenario)
+        if farm:
+            receipt.update(receipt_version='thermal-simulation-result-v3', **farm)
         artifact = canonical_input_bytes(receipt)
         digest = sha256(artifact).hexdigest()
         self.jobs._durable_artifact(artifact, digest)
@@ -179,6 +206,8 @@ class ThermalSimulationWorker:
                 raise _LeaseLost()
             if self._scenario(value, report) != scenario:
                 raise ThermalScenarioHold('thermal scenario execution pins differ')
+            if self._farm(value,report)!=farm:
+                raise FarmThermalHold('farm thermal execution pins differ')
             stored = self.runs._publish_verified_in_transaction(conn, self.tenant_id, **packet)
             if stored != {'run_id': receipt['run_id'], 'trace_sha256': tuple(receipt['trace_sha256']),
                           'report_sha256': receipt['report_sha256']}:
@@ -187,6 +216,8 @@ class ThermalSimulationWorker:
                 raise _LeaseLost()
             if self._scenario(value, report) != scenario:
                 raise ThermalScenarioHold('thermal scenario execution pins differ')
+            if self._farm(value,report)!=farm:
+                raise FarmThermalHold('farm thermal execution pins differ')
             updated = conn.execute(sql.SQL("""
                 UPDATE {} SET state='succeeded', reason=NULL, lease_token=NULL, lease_until=NULL,
                     updated_at=clock_timestamp()

@@ -149,7 +149,7 @@ class ApiRuntime:
                 if scenarios is None:
                     raise ValueError()
                 publisher = dependencies.thermal_publisher_factory(run_store=thermal, job_store=jobs)
-                submission = ThermalRunSubmissionService(publisher, scenarios)
+                submission = ThermalRunSubmissionService(publisher, scenarios, farm_scenarios)
             app = create_app(jobs, holds, thermal, results, principal_provider=current_principal,
                 location_research_service=research,
                 break_even_store=break_even, thermal_scenario_store=scenarios,

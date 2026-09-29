@@ -93,7 +93,9 @@ def test_snapshot_matches_actual_routes_and_public_protocol():
     bearer = document["components"]["securitySchemes"]["ServiceBearer"]
     assert operations[("/v1/jobs/{job_id}/run", "get")]["x-ossf-conditional-scopes"] == {
         "thermal-simulation-result-v2": ['thermal_scenario_read', 'thermal_snapshot_read',
-            'decision_context_read', 'market_hold_context_read']}
+            'decision_context_read', 'market_hold_context_read'],
+        'thermal-simulation-result-v3':['farm_scenario_read','metadata','artifact','thermal_scenario_read',
+            'thermal_snapshot_read','decision_context_read','market_hold_context_read','market_source_read','market_candidate_read']}
     assert operations[('/v1/assessments','post')]['x-ossf-conditional-scopes'] == {
         'thermal-simulation-result-v2':['thermal_scenario_read','thermal_snapshot_read',
             'decision_context_read','market_hold_context_read']}
@@ -103,6 +105,9 @@ def test_snapshot_matches_actual_routes_and_public_protocol():
     assert registration["x-ossf-max-body-bytes"] == 4096
     assert "202" in registration["responses"] and "200" not in registration["responses"]
     submission = operations[("/v1/runs", "post")]
+    assert submission['x-ossf-conditional-scopes'] == {'thermal-simulation-input-v3':
+        operations[("/v1/jobs/{job_id}/run", "get")]["x-ossf-conditional-scopes"]['thermal-simulation-result-v3'] +
+        ['collection_read','collection_review_create','thermal_snapshot_write']}
     assert submission['x-ossf-max-body-bytes'] == 4096
     assert '202' in submission['responses'] and '200' not in submission['responses']
     raw = api_openapi.contract_bytes()

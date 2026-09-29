@@ -116,4 +116,6 @@ G3a/G3b 없이도 조건부 서비스에 대한 G4 평가는 가능하다. 그 �
 
 ## 농장 재생 계획 접수 연결 후보
 
-[등록 계약](../contracts/farm-replay-scenario-v1.md)과 [증거](../research/farm-replay-scenario-implementation.md)는 기존 조사·열·경제 입력을 같은 결정 시각·시장 문맥과 불변 판본에 연결한다. 다음 `api-flow` 작업은 실제 열/경제 작업·Run·Assessment가 이 판본과 해시를 검사하도록 연결한다. `web-shell`의 전체 입력 작성과 `web-replay`의 3D/표 연결, 실제 CLI·전체 G1의 기존 선행 증거는 남아 있다. 기존 작업 체크와 관문은 유지한다.
+[열 실행 후보](../contracts/farm-thermal-execution-v1.md)는 동일한 계획 판본을 열 접수·작업자·완료 조회에 연결했다([집중 검증](../research/farm-thermal-execution-implementation.md)). 다음 `api-flow` 작업은 경제 입력/영수증과 평가에서 이 계획을 함께 검사하도록 연결한다. 이후 전체 입력 화면·3D와 실제 CLI/독립 G1의 기존 수용 절차를 진행한다.
+
+[등록 계약](../contracts/farm-replay-scenario-v1.md)과 [증거](../research/farm-replay-scenario-implementation.md)는 기존 조사·열·경제 입력을 같은 결정 시각·시장 문맥과 불변 판본에 연결한다. 다음 `api-flow` 작업은 실제 경제 작업과 공통 Assessment가 이 판본과 해시를 검사하도록 연결한다. `web-shell`의 전체 입력 작성과 `web-replay`의 3D/표 연결, 실제 CLI·전체 G1의 기존 선행 증거는 남아 있다. 기존 작업 체크와 관문은 유지한다.

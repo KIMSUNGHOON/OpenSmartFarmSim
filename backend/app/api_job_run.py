@@ -6,11 +6,13 @@ import re
 
 from .api_thermal import RUN_ID_PATTERN, project_thermal_run
 from .jobs import canonical_input_bytes
-from .thermal_simulation_worker import SimulationInput, ScenarioSimulationInput
+from .thermal_simulation_worker import SimulationInput, ScenarioSimulationInput, FarmSimulationInput
 from .thermal_scenario_execution import SCENARIO_SCOPES, scenario_execution_binding
+from .farm_replay_scenario import READ_SCOPES as FARM_READ_SCOPES
+from .farm_thermal_execution import farm_thermal_execution_binding
 
 
-def read_job_run(jobs, runs, tenant, job_id, scenario_store=None):
+def read_job_run(jobs, runs, tenant, job_id, scenario_store=None, farm_scenario_service=None):
     if not (jobs._has_scope(tenant, 'metadata') and jobs._has_scope(tenant, 'artifact') and
             runs._scope(tenant, 'thermal_run_read')):
         raise PermissionError('job Run access denied')
@@ -32,17 +34,23 @@ def read_job_run(jobs, runs, tenant, job_id, scenario_store=None):
     if type(receipt) is not dict or raw != canonical_input_bytes(receipt):
         raise ValueError('job Run receipt invalid')
     version = receipt.get('receipt_version')
-    if version not in ('thermal-simulation-result-v1', 'thermal-simulation-result-v2'):
+    if version not in ('thermal-simulation-result-v1', 'thermal-simulation-result-v2', 'thermal-simulation-result-v3'):
         return None
     run_id = receipt.get('run_id')
     if type(run_id) is not str or not re.fullmatch(RUN_ID_PATTERN, run_id):
         raise ValueError('job Run reference invalid')
     inputs = {'snapshot_id': receipt.get('snapshot_id'), 'review_job_id': receipt.get('review_job_id')}
-    if version == 'thermal-simulation-result-v2':
+    if version in ('thermal-simulation-result-v2', 'thermal-simulation-result-v3'):
         if not all(runs._scope(tenant, scope) for scope in SCENARIO_SCOPES):
             raise PermissionError('job Run scenario access denied')
-        value = ScenarioSimulationInput(input_version='thermal-simulation-input-v2', **inputs,
-            **{key: receipt.get(key) for key in ('scenario_id', 'scenario_revision', 'scenario_sha256')})
+        scenario = {key: receipt.get(key) for key in ('scenario_id', 'scenario_revision', 'scenario_sha256')}
+        if version == 'thermal-simulation-result-v3':
+            if not all(jobs._has_scope(tenant, scope) for scope in FARM_READ_SCOPES):
+                raise PermissionError('job Run farm access denied')
+            value = FarmSimulationInput(input_version='thermal-simulation-input-v3', **inputs, **scenario,
+                **{key: receipt.get(key) for key in ('farm_scenario_id', 'farm_scenario_revision', 'farm_scenario_sha256')})
+        else:
+            value = ScenarioSimulationInput(input_version='thermal-simulation-input-v2', **inputs, **scenario)
     else:
         value = SimulationInput(input_version='thermal-simulation-input-v1', **inputs)
     input_hash = sha256(canonical_input_bytes(value.model_dump(mode='json'))).hexdigest()
@@ -65,9 +73,11 @@ def read_job_run(jobs, runs, tenant, job_id, scenario_store=None):
         'decision_context_id': report['decision_context_id'], 'decision_id': report['decision_id'],
         'trace_sha256': [sha256(trace).hexdigest() for trace in stored['trace_raws']],
         'report_sha256': sha256(stored['report_raw']).hexdigest()}
-    if version == 'thermal-simulation-result-v2':
+    if version in ('thermal-simulation-result-v2', 'thermal-simulation-result-v3'):
         expected.update(receipt_version=version,
             **scenario_execution_binding(scenario_store, runs, tenant, value, report))
+    if version == 'thermal-simulation-result-v3':
+        expected.update(**farm_thermal_execution_binding(farm_scenario_service, jobs, tenant, value, report))
     if report['tenant_id'] != tenant or receipt != expected:
         raise ValueError('job Run report differs')
     return project_thermal_run(stored)[0]

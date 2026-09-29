@@ -6,7 +6,9 @@
 
 ## 구성과 경계
 
-[농장 재생 계획 등록 후보](../contracts/farm-replay-scenario-v1.md)는 `/v1/farm-scenarios`로 기존 조사·열·경제 입력을 불변 선택 의도로 묶는다. 실제 등록 좌표/기간, 현재 판본·권리·서명 문맥과 결정 시각·시장 문맥을 검사하며 실행이나 관문 승인을 만들지 않는다. 완전한 FarmScenario 작성과 열/경제 작업·Assessment의 이 판본 참조는 후속이다([소프트웨어 증거](../research/farm-replay-scenario-implementation.md)).
+[농장 계획 열 실행 후보](../contracts/farm-thermal-execution-v1.md)는 등록 판본을 열 입력/완료 영수증 v3에 연결한다. API·작업자·작업별 Run 조회는 같은 실제 농장 서비스와 현재 권한을 검사하며, 완료 조사→수집→검토가 해당 계획의 조사 작업에서 나왔는지 대사한다. 기존 수치 엔진과 공개 결과 형식은 유지하고 경제 실행·공통 평가의 결합은 후속이다([검증 기록](../research/farm-thermal-execution-implementation.md)).
+
+[농장 재생 계획 등록 후보](../contracts/farm-replay-scenario-v1.md)는 `/v1/farm-scenarios`로 기존 조사·열·경제 입력을 불변 선택 의도로 묶는다. 실제 등록 좌표/기간, 현재 판본·권리·서명 문맥과 결정 시각·시장 문맥을 검사하며 실행이나 관문 승인을 만들지 않는다. 완전한 FarmScenario 작성과 경제 작업·공통 Assessment의 이 판본 참조는 후속이다([소프트웨어 증거](../research/farm-replay-scenario-implementation.md)).
 
 ```mermaid
 flowchart LR

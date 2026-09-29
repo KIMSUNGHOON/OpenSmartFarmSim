@@ -21,7 +21,9 @@ from .api_job_break_even_result import BreakEvenJobResultService, BREAK_EVEN_JOB
 from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold, ThermalScenarioConflict, IDENTIFIER
 from .thermal_scenario_execution import SCENARIO_SCOPES
 from .thermal_publisher import ThermalPublishHold
-from .thermal_run_submission import ThermalRunRequest, ThermalRunSubmissionService, SUBMISSION_SCOPES
+from .thermal_run_submission import (RUN_REQUEST, run_request_schema, ThermalRunSubmissionService,
+    FarmThermalRunRequest, SUBMISSION_SCOPES, FARM_SUBMISSION_SCOPES)
+from .farm_thermal_execution import FarmThermalHold
 from .api_json import read_json_request, JsonRequestRejected
 from .api_scenario import ThermalScenarioRequest, ThermalScenarioSummary, project_scenario, scenario_request_schema
 from .api_market_source import (MarketUserSourceRequest, MarketUserSourceSummary,
@@ -92,7 +94,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             type(thermal_run_submission_service) is not ThermalRunSubmissionService or
             thermal_run_submission_service.jobs is not job_store or
             thermal_run_submission_service.scenarios is not thermal_scenario_store or
-            thermal_run_submission_service.publisher.run_store is not thermal_run_store):
+            thermal_run_submission_service.publisher.run_store is not thermal_run_store or
+            thermal_run_submission_service.farm_scenario_service is not farm_scenario_service):
         raise ValueError("trusted thermal submission service required")
     if market_user_source_service is not None and (
             type(market_user_source_service) is not MarketUserSourceService or
@@ -264,8 +267,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
     @app.post("/v1/runs", status_code=202, response_model=JobStatus, operation_id="submitThermalRun",
               responses={status: {"model": ErrorEnvelope} for status in (401, 403, 409, 413, 415, 422, 503)},
               openapi_extra={**_access(SUBMISSION_SCOPES), "x-ossf-max-body-bytes": 4096,
+                  'x-ossf-conditional-scopes':{'thermal-simulation-input-v3':list(FARM_SUBMISSION_SCOPES)},
                   "requestBody": {"required": True, "content": {
-                  "application/json": {"schema": ThermalRunRequest.model_json_schema()}}}})
+                  "application/json": {"schema": run_request_schema()}}}})
     async def post_run(request: Request):
         tenant, denied = authorized_tenant(*SUBMISSION_SCOPES)
         if denied is not None:
@@ -273,17 +277,21 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         if thermal_run_submission_service is None:
             return _error(503, "simulation_unavailable", "Simulation submission unavailable")
         try:
-            body = ThermalRunRequest.model_validate(await read_json_request(request))
+            body = RUN_REQUEST.validate_python(await read_json_request(request))
         except JsonRequestRejected as exc:
             return _error(exc.status, exc.code, exc.message)
         except (ValueError, UnicodeError, RecursionError):
             return _error(422, "invalid_request", "Invalid request")
         try:
+            if type(body) is FarmThermalRunRequest:
+                _, denied = authorized_tenant(*FARM_SUBMISSION_SCOPES)
+                if denied is not None:
+                    return denied
             row = await run_in_threadpool(thermal_run_submission_service.submit, tenant, body)
             return public_job_status(row)
         except PermissionError:
             return _error(403, "forbidden", "Resource access denied")
-        except (ThermalScenarioHold, ThermalPublishHold):
+        except (ThermalScenarioHold, ThermalPublishHold, FarmThermalHold):
             return _error(422, "simulation_hold", "Simulation evidence unavailable")
         except JobIntentConflict:
             return _error(409, "intent_conflict", "Intent already has a different request")
@@ -711,13 +719,15 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
 
     @app.get("/v1/jobs/{job_id}/run", response_model=ThermalRunSummary, responses=errors,
              operation_id="getJobRun", openapi_extra={**_access(job_run_scopes),
-                 "x-ossf-conditional-scopes": {"thermal-simulation-result-v2": list(SCENARIO_SCOPES)}})
+                 "x-ossf-conditional-scopes": {"thermal-simulation-result-v2": list(SCENARIO_SCOPES),
+                     'thermal-simulation-result-v3':list(FARM_READ_SCOPES)}})
     def get_job_run(job_id: UUID):
         tenant, denied = authorized_tenant(*job_run_scopes)
         if denied is not None:
             return denied
         try:
-            result = read_job_run(job_store, thermal_run_store, tenant, job_id, thermal_scenario_store)
+            result = read_job_run(job_store, thermal_run_store, tenant, job_id, thermal_scenario_store,
+                farm_scenario_service)
             if result is None:
                 return _error(404, "not_found", "Job Run not found")
             return result
