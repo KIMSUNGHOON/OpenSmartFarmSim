@@ -37,7 +37,7 @@ from .api_economic_calculation import (EconomicCalculationService, EconomicCalcu
     EconomicCalculationHold, ECONOMIC_JOB_READ_SCOPES)
 from .economic_calculation_worker import CALCULATION_SCOPES
 from .break_even_plan_submission import (BreakEvenPlanSubmissionService, BreakEvenPlanSubmission,
-    BreakEvenPlanAccepted, PLAN_SUBMISSION_SCOPES)
+    BreakEvenPlanAccepted, PLAN_SUBMISSION_SCOPES, BreakEvenPlanReceipt, PLAN_RECEIPT_SCOPES, PlanReceiptConflict)
 from .jobs import canonical_input_bytes
 from .job_store import JobIntentConflict
 from .orchestration import LocationRequest, LocationResearchService, ResearchRequestRejected
@@ -552,6 +552,21 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(422, 'assessment_hold', 'Completed calculation evidence unavailable')
         except Exception:
             return _error(503, 'assessment_unavailable', 'Assessment admission unavailable')
+
+    @app.get('/v1/break-even-plans/receipt',response_model=BreakEvenPlanReceipt,responses={**errors,409:{'model':ErrorEnvelope}},
+             operation_id='getBreakEvenPlanReceipt',openapi_extra=_access(PLAN_RECEIPT_SCOPES))
+    def get_break_even_plan_receipt(plan_id:Annotated[str,Query(pattern=PLAN_ID_PATTERN,min_length=1,max_length=200)],
+                                   submission_sha256:Annotated[str,Query(pattern=r'^[0-9a-f]{64}$')]):
+        tenant,denied=authorized_tenant(*PLAN_RECEIPT_SCOPES)
+        if denied is not None:return denied
+        try:
+            if break_even_plan_service is None:raise RuntimeError('break-even receipt service unavailable')
+            value=break_even_plan_service.read_receipt(tenant,plan_id,submission_sha256)
+            if value is None:return _error(404,'not_found','Break-even plan intent not found')
+            return value
+        except PermissionError:return _error(403,'forbidden','Resource access denied')
+        except PlanReceiptConflict:return _error(409,'intent_conflict','Intent already has a different request')
+        except Exception:return _error(503,'store_unavailable','Break-even plan receipt unavailable')
 
     @app.post('/v1/break-even-plans', status_code=202, response_model=BreakEvenPlanAccepted,
               operation_id='submitBreakEvenPlan',

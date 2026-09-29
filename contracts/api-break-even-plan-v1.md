@@ -41,5 +41,9 @@ results remains separate and cannot find these queued plans as completed results
 
 Trial source records/candidates must already be registered. Automatic generation
 of those economic assumptions from a declared response rule remains pending.
+The [stored intent receipt](api-break-even-plan-receipt-v1.md) permits recovery
+after an unknown POST response using the exact canonical ordered submission
+digest. It reads historical metadata without source reapproval or a new job;
+worker/result validation remains unchanged.
 The full economics contract's continuous-interval proof, independent domain/CLI
 validation, forecast/ranking and farm/G0/G2/G3/G4 evidence remain held.

@@ -4,6 +4,7 @@ from hashlib import sha256
 from typing import Literal
 
 from pydantic import Field
+from psycopg import sql
 
 from .api_contracts import JobStatus, public_job_status
 from .api_economic_scenario import EconomicScenarioService
@@ -19,6 +20,11 @@ from .thermal_scenario_store import IDENTIFIER
 PLAN_SUBMISSION_SCOPES = ('metadata', 'artifact', 'simulation_execute', 'break_even_read',
     'break_even_write', 'market_source_read', 'market_candidate_read',
     'decision_context_read', 'market_hold_context_read')
+PLAN_RECEIPT_SCOPES = ('metadata','artifact','break_even_read')
+
+
+class PlanReceiptConflict(ValueError):
+    pass
 
 
 class BreakEvenPlanRequest(BreakEvenRequest):
@@ -51,6 +57,13 @@ class BreakEvenPlanAccepted(FrozenContract):
     intent_job: JobStatus
 
 
+class BreakEvenPlanReceipt(FrozenContract):
+    plan_id: str
+    submission_sha256: Digest
+    intent_status: Literal['stored']
+    intent_job: JobStatus
+
+
 class BreakEvenPlanSubmissionService:
     def __init__(self, jobs, store):
         try:
@@ -80,6 +93,33 @@ class BreakEvenPlanSubmissionService:
     def _access(self, tenant):
         if not all(self.jobs._has_scope(tenant, scope) for scope in PLAN_SUBMISSION_SCOPES):
             raise PermissionError('break-even plan admission denied')
+
+    def read_receipt(self,tenant,plan_id,submission_sha256):
+        pointers=self._pointers()
+        def guard():
+            if not all(self.jobs._has_scope(tenant,scope) for scope in PLAN_RECEIPT_SCOPES):
+                raise PermissionError('break-even receipt access denied')
+            self._binding()
+            if self._pointers()!=pointers:
+                raise RuntimeError('break-even receipt binding changed')
+        guard()
+        try:
+            key='break-even-plan-v1:'+sha256(plan_id.encode('utf-8')).hexdigest()
+            with self.jobs.connect() as conn:
+                row=conn.execute(sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND stage=%s AND idempotency_key=%s FOR SHARE')
+                    .format(self.jobs._table('jobs')),(tenant,'simulation',key)).fetchone()
+                if row is None:return None
+                value=BreakEvenPlanInput.model_validate_json(self.jobs._verified_input(row))
+                if (value.request.plan_id!=plan_id or value.plan.plan_id!=plan_id or value.plan.tenant_id!=tenant
+                    or value.plan.request_sha256!=canonical_request_sha256(value.request)):
+                    raise RuntimeError('break-even receipt input identity differs')
+                reconstructed=BreakEvenPlanSubmission(request=value.request,trials=tuple(BreakEvenTrialPin(
+                    scenario_id=ref.scenario_id,revision=ref.revision,scenario_sha256=ref.scenario_sha256) for ref in value.plan.trials))
+                digest=sha256(canonical_input_bytes(reconstructed.model_dump(mode='json'))).hexdigest()
+                if digest!=submission_sha256:raise PlanReceiptConflict('break-even receipt intent differs')
+                return BreakEvenPlanReceipt(plan_id=plan_id,submission_sha256=digest,intent_status='stored',intent_job=public_job_status(row))
+        finally:
+            guard()
 
     def _prepare(self, tenant, body, *, check=None):
         values = _grid(body.request)
