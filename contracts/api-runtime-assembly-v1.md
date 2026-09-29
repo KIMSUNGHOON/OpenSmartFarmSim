@@ -25,7 +25,9 @@ logging and source/model invocation during initialization.
 An actual MarketSourceStore additionally enables the
 [joined held assessment](calculation-assessment-v1.md). The exposed `assessments`
 service uses the runtime's same jobs/thermal/results and optional scenario
-stores. This submits queued CLI intents; it does not configure an operating
+stores. With farm selection enabled it also uses the runtime's exact
+`farm_scenarios` service for the [farm assessment join](farm-calculation-assessment-v1.md).
+This submits queued CLI intents; it does not configure an operating
 CLI validator/worker or establish crop recommendations.
 
 Optional [owned research](owned-research-v1.md) additionally accepts a protected

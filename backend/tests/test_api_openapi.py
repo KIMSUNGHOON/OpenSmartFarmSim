@@ -98,7 +98,11 @@ def test_snapshot_matches_actual_routes_and_public_protocol():
             'thermal_snapshot_read','decision_context_read','market_hold_context_read','market_source_read','market_candidate_read']}
     assert operations[('/v1/assessments','post')]['x-ossf-conditional-scopes'] == {
         'thermal-simulation-result-v2':['thermal_scenario_read','thermal_snapshot_read',
-            'decision_context_read','market_hold_context_read']}
+            'decision_context_read','market_hold_context_read'],
+        **{version:['farm_scenario_read','metadata','artifact','thermal_scenario_read',
+            'thermal_snapshot_read','decision_context_read','market_hold_context_read','market_source_read',
+            'market_candidate_read','thermal_run_read']
+            for version in ('thermal-simulation-result-v3','economic-calculation-result-v2')}}
     assert bearer["type"] == "http" and bearer["scheme"] == "bearer" and "bearerFormat" not in bearer
     registration = operations[("/v1/locations", "post")]
     assert registration['x-ossf-conditional-scopes'] == {'owned-research':['metadata','decision_context_read']}

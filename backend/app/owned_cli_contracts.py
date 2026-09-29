@@ -1,6 +1,7 @@
 """Assemble the implemented owned routes over one protected service binding."""
 
-from .calculation_assessment import CalculationAssessmentService, CalculationAssessmentContract, INPUT_VERSION
+from .calculation_assessment import (CalculationAssessmentService, CalculationAssessmentContract,
+    INPUT_VERSION, FARM_INPUT_VERSION)
 from .cli_contract_router import CliContractRouter
 from .cli_contracts import DecisionContract, ProposalHold
 from .owned_collection_review import OwnedCollectionReviewService, OwnedCollectionReviewContract
@@ -9,7 +10,7 @@ from .owned_research import OwnedResearchService
 
 
 class OwnedCliContractRouter(CliContractRouter):
-    VERSION = 'owned-cli-contract-router-v1'
+    VERSION = 'owned-cli-contract-router-v2'
 
     def __init__(self, research, reviews, assessments, review_authority):
         try:
@@ -20,10 +21,12 @@ class OwnedCliContractRouter(CliContractRouter):
                 raise ValueError()
             self.research, self.reviews, self.assessments = research, reviews, assessments
             self._cohesion()
+            assessment_contract = CalculationAssessmentContract(assessments)
             super().__init__({
                 ('research', 'research_input_v1'):DecisionContract(research.authority_snapshot),
                 ('collection_review', REVIEW_INPUT_VERSION):OwnedCollectionReviewContract(reviews, review_authority),
-                ('assessment', INPUT_VERSION):CalculationAssessmentContract(assessments)})
+                ('assessment', INPUT_VERSION):assessment_contract,
+                ('assessment', FARM_INPUT_VERSION):assessment_contract})
             self._original = self._pointers()
         except Exception:
             raise ValueError('owned CLI contract assembly rejected') from None

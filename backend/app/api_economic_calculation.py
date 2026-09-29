@@ -1,6 +1,7 @@
 """Admission and verified completion lookup for deterministic economic jobs."""
 
 from hashlib import sha256
+from dataclasses import dataclass
 import json
 import re
 from typing import Annotated
@@ -11,9 +12,12 @@ from .api_economics import project_economic_result
 from .api_economic_cash_flow import project_economic_cash_flow
 from .economic_calculation_worker import (EconomicCalculationInput, EconomicCalculationWorker,
     FarmEconomicCalculationInput, ECONOMIC_INPUT, CALCULATION_SCOPES, _InputHold)
-from .farm_economic_execution import FARM_ECONOMIC_SCOPES, FarmEconomicHold
+from .farm_economic_execution import (FARM_ECONOMIC_SCOPES, FarmEconomicHold,
+    _farm_economic_execution_completion)
+from .api_job_run import VerifiedThermalCompletion
 from .jobs import canonical_input_bytes
 from .market_result_codec import encode_market_result
+from .market_scenario import MarketScenarioResult
 from .thermal_scenario_store import IDENTIFIER
 
 
@@ -40,6 +44,14 @@ def economic_request_schema():
 
 class EconomicCalculationHold(ValueError):
     pass
+
+
+@dataclass(frozen=True)
+class VerifiedEconomicCompletion:
+    value: EconomicCalculationInput
+    receipt: dict
+    result: MarketScenarioResult
+    thermal_completion: VerifiedThermalCompletion | None
 
 
 class EconomicCalculationService:
@@ -97,11 +109,14 @@ class EconomicCalculationService:
                                 commit_guard=final_guard)
 
     def read_job_result(self, tenant, job_id):
-        return self._read_job_result(tenant,job_id,project_economic_result)
+        return self._read_job_result(tenant,job_id,lambda completed: project_economic_result(completed.result))
+
+    def _read_job_completion(self, tenant, job_id):
+        return self._read_job_result(tenant,job_id,lambda completed: completed)
 
     def read_job_cash_flow(self, tenant, job_id, *, after_month=None, limit=12):
-        return self._read_job_result(tenant,job_id,lambda result:
-            project_economic_cash_flow(result,after_month=after_month,limit=limit))
+        return self._read_job_result(tenant,job_id,lambda completed:
+            project_economic_cash_flow(completed.result,after_month=after_month,limit=limit))
 
     def _read_job_result(self, tenant, job_id, project):
         worker = EconomicCalculationWorker(self.jobs, self.results, tenant_id=tenant,
@@ -170,11 +185,14 @@ class EconomicCalculationService:
             'result_sha256': sha256(encode_market_result(result)).hexdigest(),
             'calculation_status': result.calculation_status, 'assessment_status': result.assessment_status,
             'code_sha256': receipt['code_sha256'], 'environment_sha256': receipt['environment_sha256']}
+        thermal = None
         if type(value) is FarmEconomicCalculationInput:
-            expected.update(receipt_version='economic-calculation-result-v2', **worker._farm(value))
+            binding, thermal = _farm_economic_execution_completion(
+                self.farm_scenario_service, self.jobs, self.results, tenant, value)
+            expected.update(receipt_version='economic-calculation-result-v2', **binding)
         if receipt != expected:
             raise RuntimeError('economic completed receipt differs')
         try:
-            return project(result)
+            return project(VerifiedEconomicCompletion(value, receipt, result, thermal))
         finally:
             guard()

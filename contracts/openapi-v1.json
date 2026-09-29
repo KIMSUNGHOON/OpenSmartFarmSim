@@ -4338,11 +4338,35 @@
         ],
         "summary": "Post Assessment",
         "x-ossf-conditional-scopes": {
+          "economic-calculation-result-v2": [
+            "farm_scenario_read",
+            "metadata",
+            "artifact",
+            "thermal_scenario_read",
+            "thermal_snapshot_read",
+            "decision_context_read",
+            "market_hold_context_read",
+            "market_source_read",
+            "market_candidate_read",
+            "thermal_run_read"
+          ],
           "thermal-simulation-result-v2": [
             "thermal_scenario_read",
             "thermal_snapshot_read",
             "decision_context_read",
             "market_hold_context_read"
+          ],
+          "thermal-simulation-result-v3": [
+            "farm_scenario_read",
+            "metadata",
+            "artifact",
+            "thermal_scenario_read",
+            "thermal_snapshot_read",
+            "decision_context_read",
+            "market_hold_context_read",
+            "market_source_read",
+            "market_candidate_read",
+            "thermal_run_read"
           ]
         },
         "x-ossf-max-body-bytes": 4096,

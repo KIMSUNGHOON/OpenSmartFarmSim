@@ -132,7 +132,6 @@ class ApiRuntime:
             break_even_plans = BreakEvenPlanSubmissionService(jobs, break_even) if source_admission is not None else None
             break_even_job_results = BreakEvenJobResultService(jobs, break_even) if source_admission is not None else None
             scenarios = ThermalScenarioStore(thermal, holds) if config.policy.thermal_scenario_storage else None
-            assessments = CalculationAssessmentService(jobs, thermal, results, scenarios) if source_admission is not None else None
             collections = (CollectionService(jobs, dependencies.owned_fixture_registry)
                 if dependencies.owned_fixture_registry is not None else None)
             collection_reviews = OwnedCollectionReviewService(collections, thermal) if collections is not None else None
@@ -143,6 +142,8 @@ class ApiRuntime:
             farm_scenarios = (FarmReplayScenarioService(jobs, scenarios, candidates, dependencies.research_registry,
                 research if type(research) is OwnedResearchService else None)
                 if scenarios is not None and source_admission is not None else None)
+            assessments = (CalculationAssessmentService(jobs, thermal, results, scenarios, farm_scenarios)
+                if source_admission is not None else None)
             economic_calculations = (EconomicCalculationService(jobs, results, farm_scenarios)
                 if source_admission is not None else None)
             submission = None

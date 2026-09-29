@@ -201,8 +201,10 @@ def audit_runtime_roles(conn, policy):
         if any(item["allowed"] != _allowed(policy, kind, table_names[item["relation_oid"]], item["privilege"])
                or item["grantable"] for item in columns):
             raise RolePolicyHold("runtime_column_grant_matrix")
-        if any(conn.execute("SELECT has_function_privilege(%s,%s,'EXECUTE') AS allowed",
-                            (role, routine["oid"])).fetchone()["allowed"] for routine in routines):
+        if conn.execute("""
+            SELECT 1 FROM unnest(%s::oid[]) routine(oid)
+            WHERE has_function_privilege(%s,routine.oid,'EXECUTE') LIMIT 1
+        """, ([routine['oid'] for routine in routines], role)).fetchone():
             raise RolePolicyHold("runtime_routine_privilege")
     bad_defaults = conn.execute("""
         SELECT 1 FROM unnest(ARRAY['r','S','f']::"char"[]) k

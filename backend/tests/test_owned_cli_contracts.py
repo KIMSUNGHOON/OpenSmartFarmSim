@@ -87,7 +87,7 @@ def test_one_worker_routes_research_collection_review_and_held_assessment(routed
     assert json.loads(jobs.read_hold_report('tenant-1', assessed['job_id']))['missing_evidence'] == list(assessment.MISSING_EVIDENCE)
     assert jobs.get_publication('tenant-1', assessed['job_id']) is None
     for job, version in ((researched, 'decision-server-v2'),
-            (reviewed, 'owned-collection-review-server-v1'), (assessed, 'calculation-assessment-server-v1')):
+            (reviewed, 'owned-collection-review-server-v1'), (assessed, 'calculation-assessment-server-v2')):
         decision = jobs.list_decisions('tenant-1', job['job_id'])[0]
         report = json.loads(jobs.read_evidence('tenant-1', job['job_id'], decision['validation_evidence_id']))
         assert report['passed'] is True and report['validator_version'] == version

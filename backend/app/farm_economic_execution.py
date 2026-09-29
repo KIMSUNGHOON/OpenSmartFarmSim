@@ -17,6 +17,10 @@ class FarmEconomicHold(ValueError):
 
 
 def farm_economic_execution_binding(service, jobs, results, tenant, value):
+    return _farm_economic_execution_completion(service, jobs, results, tenant, value)[0]
+
+
+def _farm_economic_execution_completion(service, jobs, results, tenant, value):
     if (type(service) is not FarmReplayScenarioService or service.jobs is not jobs or
             service.candidates is not results._candidates or
             service.thermal.runs is not results._candidates._source._holds._context_store):
@@ -47,12 +51,13 @@ def farm_economic_execution_binding(service, jobs, results, tenant, value):
         receipt = canonical_input_bytes(completion.receipt)
         if type(receipt) is not bytes or not 1 <= len(receipt) <= 4096:
             raise ValueError()
-        return {'farm_scenario_id': value.farm_scenario_id,
+        binding = {'farm_scenario_id': value.farm_scenario_id,
             'farm_scenario_revision': value.farm_scenario_revision,
             'farm_scenario_sha256': selected['scenario_sha256'],
             'farm_bindings_sha256': sha256(canonical_input_bytes(selected['bindings'])).hexdigest(),
             'thermal_job_id': value.thermal_job_id, 'thermal_input_sha256': row['input_sha256'],
             'thermal_receipt_sha256': sha256(receipt).hexdigest(), 'thermal_run_id': completion.summary.run_id}
+        return binding, completion
     except PermissionError:
         raise
     except Exception:

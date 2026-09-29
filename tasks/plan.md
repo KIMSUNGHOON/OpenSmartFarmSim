@@ -118,8 +118,11 @@ G3a/G3b 없이도 조건부 서비스에 대한 G4 평가는 가능하다. 그 �
 
 사용자의 2026-09-29 우선순위에 따라 농장 경제 실행 연결 뒤
 [첫 내부 열 재생 뷰어](../contracts/web-thermal-replay-v1.md)를 부분 구현했다
-([검증 기록](../research/web-thermal-replay-implementation.md)). 다음 부분 작업은 같은
-농장 계획의 열·경제 완료 기록을 공통 Assessment에 연결하는 것이다.
+([검증 기록](../research/web-thermal-replay-implementation.md)). 같은 농장 계획의
+열·경제 완료 기록을 [공통 Assessment 연결 후보](../contracts/farm-calculation-assessment-v1.md)로
+묶었다([진행 기록](../research/farm-calculation-assessment-implementation.md)). 실제 HTTPS
+접수·재요청·가짜 CLI 보류 조회와 혼합 거부·거래 롤백·기존 경로 호환 시험을 확인했다.
+다음 부분 작업은 전체 농장 입력 작성이다.
 저장된 완료 Run의 3D·그래프·표를 먼저 확인하는 부분 슬라이스이며,
 공통 Assessment와 전체 농장 입력 작성·실제 CLI/독립 G1의 기존 의존성 및
 `web-shell`/`web-replay` 수용 체크는 유지한다. 실제 작물 생장·수확의 3D는

@@ -19,6 +19,7 @@ class VerifiedThermalCompletion:
     value: SimulationInput
     receipt: dict
     farm_selection: dict | None
+    stored: dict
 
 
 def read_job_run(jobs, runs, tenant, job_id, scenario_store=None, farm_scenario_service=None):
@@ -96,4 +97,4 @@ def read_job_run_completion(jobs, runs, tenant, job_id, scenario_store=None, far
         expected.update(**binding)
     if report['tenant_id'] != tenant or receipt != expected:
         raise ValueError('job Run report differs')
-    return VerifiedThermalCompletion(project_thermal_run(stored)[0], value, receipt, farm_selection)
+    return VerifiedThermalCompletion(project_thermal_run(stored)[0], value, receipt, farm_selection, stored)

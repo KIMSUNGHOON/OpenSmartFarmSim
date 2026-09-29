@@ -127,6 +127,12 @@
 
 ## 경제 웹 입력·계산 연결 후보 (2026-09-29)
 
+[농장 공통 평가 연결 후보](../contracts/farm-calculation-assessment-v1.md)는 같은 계획의
+실제 완료 열·경제 작업을 평가 입력 v2와 공유 CLI 보류에 연결한다
+([진행 기록](../research/farm-calculation-assessment-implementation.md)). 실제 HTTPS 연결을
+확인했으며 혼합 거부·거래 롤백·기존 경로 호환 시험도 통과했다. 다음 부분 작업은
+전체 농장 입력 작성이다. `api-flow`와 전체 농장/G1 수용 체크는 유지한다.
+
 `economic-break-even`/`api-flow`의 후속 코드 수용에는 큰 격자의 전체 완료 검증을 비동기 접수·작업 조회·결과 읽기로 분리하는 경로가 포함된다. 현재 동기 읽기는 원천·권리와 원장 전체를 재검사하므로 2개 시험의 성공이나 HTTP 바이트 제한을 256개 시험의 처리량 증거로 쓰지 않는다. 기존 30초 요청 제한 아래 재확인·취소·권리 철회·최대 격자 부하를 검증하고, 준비 전 운영 성능을 보류한다.
 
 [경제 화면 계약](../contracts/web-economic-workspace-v1.md)과 [검증 기록](../research/web-economic-workspace-implementation.md)은 사용자 소유 숫자 가정의 새 판본 등록, 실제 원장·공동 충격 선택, 시나리오/계산 접수와 완료 서버 금액·보류 조회를 연결한다. 금액은 서버 문자열/null을 그대로 표시하며 응답 유실은 같은 단계의 입력·키로 재확인한다. 새 숫자의 권리·공동 가정 판본 등록·선택 후보를 추가했다([기록](../research/web-joint-amendment-implementation.md)). [월별 현금 조회 후보](../contracts/api-economic-cash-flow-v1.md)는 같은 완료 증명·읽기 권한·원장 재계산을 검사하고 한국 월 구분·UTC 최저 잔액 시각을 표로 연결한다([검증 기록](../research/web-economic-cash-implementation.md)). [손익분기 화면 후보](../contracts/web-break-even-workspace-v1.md)는 실제 저장 판매·수금과 순서가 있는 공동 가정 판본을 계획·완료 결과에 연결하며, 응답 유실 시 고정 제출 해시로 저장 접수 기록을 조회한다([검증 기록](../research/web-break-even-workspace-implementation.md)). 일반 원장·정산 작성, 전체 농장 입력, 자동 시험 가정 생성·새로고침/미저장 접수 복구·실제 CLI·최종 작물 평가·3D/전체 G1과 독립 G0/G2/G3/G4 수용은 남아 있다. 기존 작업 체크와 관문을 해제하지 않는다.

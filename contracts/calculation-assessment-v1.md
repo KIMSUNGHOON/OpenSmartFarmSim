@@ -16,6 +16,11 @@ Optional ThermalScenarioStore must use those exact thermal/market-hold stores.
 ApiRuntime constructs this service when its source factory returns an actual
 MarketSourceStore and exposes it as `assessments`.
 
+The [farm extension](farm-calculation-assessment-v1.md) additionally accepts
+verified thermal v3/economic v2 parents using internal assessment input v2.
+Its conditional scopes, exact farm and thermal-job pins, and unchanged hold
+requirements are specified there. Legacy inputs retain the v1 fields below.
+
 OpenAPI declares those conditional scopes under parent receipt version
 `thermal-simulation-result-v2`, using the same SCENARIO_SCOPES tuple as the
 existing verified thermal completion path.
@@ -47,9 +52,9 @@ no admitted crop profiles or independent field/comparison evidence. A market
 stress scenario's numeric candidate ID is not promoted into a crop profile.
 No replacement `profile_id` is invented for the generic assessment input.
 
-The idempotency namespace is the input version plus SHA-256 of the caller's
+The idempotency namespace remains `calculation-assessment-input-v1` plus SHA-256 of the caller's
 key. Matching requests reuse the original job; another input under that key
-conflicts. Before commit, original store bindings, current scopes and the
+conflicts across both internal input versions. Before commit, original store bindings, current scopes and the
 complete prepared input are checked again; failure rolls back the new intent.
 
 ## CLI assessment and stored hold
@@ -62,7 +67,7 @@ invocation/output and validates the decision envelope. CLI input parsing and
 server authority lookup both recheck the stored parents and exact pins.
 The context/Run and parent completion times must precede the assessment job.
 
-This version always requires these ordered server-owned missing evidence codes:
+Both versions always require these ordered server-owned missing evidence codes:
 
 | Code | Missing acceptance |
 |---|---|
