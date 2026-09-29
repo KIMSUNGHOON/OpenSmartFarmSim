@@ -127,7 +127,6 @@ class ApiRuntime:
             economic_scenarios = EconomicScenarioService(jobs, candidates) if source_admission is not None else None
             results = MarketResultStore(config.dsn, config.policy.schema, candidates,
                 principal_provider=current_principal, runtime_identity=binding)
-            economic_calculations = EconomicCalculationService(jobs, results) if source_admission is not None else None
             break_even = BreakEvenStore(config.dsn, config.policy.schema, candidates,
                 principal_provider=current_principal, runtime_identity=binding)
             break_even_plans = BreakEvenPlanSubmissionService(jobs, break_even) if source_admission is not None else None
@@ -144,6 +143,8 @@ class ApiRuntime:
             farm_scenarios = (FarmReplayScenarioService(jobs, scenarios, candidates, dependencies.research_registry,
                 research if type(research) is OwnedResearchService else None)
                 if scenarios is not None and source_admission is not None else None)
+            economic_calculations = (EconomicCalculationService(jobs, results, farm_scenarios)
+                if source_admission is not None else None)
             submission = None
             if dependencies.thermal_publisher_factory is not None:
                 if scenarios is None:

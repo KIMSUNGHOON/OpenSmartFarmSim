@@ -1,6 +1,7 @@
 """Resolve an atomic thermal completion to its existing verified public Run."""
 
 from hashlib import sha256
+from dataclasses import dataclass
 import json
 import re
 
@@ -9,10 +10,23 @@ from .jobs import canonical_input_bytes
 from .thermal_simulation_worker import SimulationInput, ScenarioSimulationInput, FarmSimulationInput
 from .thermal_scenario_execution import SCENARIO_SCOPES, scenario_execution_binding
 from .farm_replay_scenario import READ_SCOPES as FARM_READ_SCOPES
-from .farm_thermal_execution import farm_thermal_execution_binding
+from .farm_thermal_execution import _farm_thermal_execution_selection
+
+
+@dataclass(frozen=True)
+class VerifiedThermalCompletion:
+    summary: object
+    value: SimulationInput
+    receipt: dict
+    farm_selection: dict | None
 
 
 def read_job_run(jobs, runs, tenant, job_id, scenario_store=None, farm_scenario_service=None):
+    completion = read_job_run_completion(jobs, runs, tenant, job_id, scenario_store, farm_scenario_service)
+    return completion.summary if completion is not None else None
+
+
+def read_job_run_completion(jobs, runs, tenant, job_id, scenario_store=None, farm_scenario_service=None):
     if not (jobs._has_scope(tenant, 'metadata') and jobs._has_scope(tenant, 'artifact') and
             runs._scope(tenant, 'thermal_run_read')):
         raise PermissionError('job Run access denied')
@@ -76,8 +90,10 @@ def read_job_run(jobs, runs, tenant, job_id, scenario_store=None, farm_scenario_
     if version in ('thermal-simulation-result-v2', 'thermal-simulation-result-v3'):
         expected.update(receipt_version=version,
             **scenario_execution_binding(scenario_store, runs, tenant, value, report))
+    farm_selection = None
     if version == 'thermal-simulation-result-v3':
-        expected.update(**farm_thermal_execution_binding(farm_scenario_service, jobs, tenant, value, report))
+        binding, farm_selection = _farm_thermal_execution_selection(farm_scenario_service, jobs, tenant, value, report)
+        expected.update(**binding)
     if report['tenant_id'] != tenant or receipt != expected:
         raise ValueError('job Run report differs')
-    return project_thermal_run(stored)[0]
+    return VerifiedThermalCompletion(project_thermal_run(stored)[0], value, receipt, farm_selection)

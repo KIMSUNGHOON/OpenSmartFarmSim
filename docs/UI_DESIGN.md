@@ -28,6 +28,17 @@
 
 [웹 접수·조회 계약](../contracts/web-location-shell-v1.md)에 따라 실제 서버의 좌표 접수·작업 상태·보류 근거를 표시한다. 두 화면의 원본 LayerDoc으로 12ui close를 수행했고, 실제 Chromium에서 원본과 가독성·반응형을 비교했다. 잘못 연결된 선택기와 금지된 예시 내용은 가져오지 않았으며 낮은 DOM 일치율을 정밀 일치 증거로 보고하지 않는다. Noto Sans KR은 OFL 고지와 함께 자체 호스팅한다. 좁은 화면의 날짜/시각 입력은 따로 표시하고, 정확히 두 시간인 UTC 기간을 같은 서버 계약으로 제출한다. [검증 기록](../research/web-location-shell-implementation.md)은 320/768/1440px·글자 200%·키보드 및 실제 TLS/SCRAM 연결을 다룬다. 경제·시장 입력/카드, 지도, 3D·그래프·표, 실제 CLI 및 전체 G1/G4 수용은 남아 있다.
 
+## 다음 부분 구현: 첫 3D 열 재생
+
+[첫 내부 재생 계약](../contracts/web-thermal-replay-v1.md)을 다음 단계로 진행한다.
+기존 12ui 확장 p3/slot c의 재생 시안을 실제 이미지로 다시 검토했다. 원본
+SHA-256은 `5d1fe99009a76203d68bec722e425d28479d9e8aa2dab330fd3daff4b20c1ca9`다.
+기존 밝은 화면의 장면·선택 시각 요약·그래프·표 배치를 출발점으로 삼으며,
+원본의 임의 좌표·숫자·광량·CO2·급수·환기량과 장식 다이얼은 가져오지 않는다.
+계산된 여섯 시계열 필드만 같은 선택 상태로 표시하고, 시설 형상은 실측
+규모나 설비 배치가 없는 개념도로 명시한다. 생성 온실 그림은 제품 자산으로
+배포하지 않는다. 이 검토는 디자인 준비이며 렌더러·브라우저 검증 증거가 아니다.
+
 ## 경제 웹 입력·계산 연결 후보 (2026-09-29)
 
 [경제 화면 계약](../contracts/web-economic-workspace-v1.md)과 [검증 기록](../research/web-economic-workspace-implementation.md)은 사용자 소유 숫자 가정의 새 판본 등록, 실제 원장·공동 충격 선택, 시나리오/계산 접수와 완료 서버 금액·보류 조회를 연결한다. 금액은 서버 문자열/null을 그대로 표시하며 응답 유실은 같은 단계의 입력·키로 재확인한다. 새 숫자의 권리·공동 가정 판본 등록·선택 후보를 추가했다([기록](../research/web-joint-amendment-implementation.md)). [월별 현금 조회 후보](../contracts/api-economic-cash-flow-v1.md)는 같은 완료 증명·읽기 권한·원장 재계산을 검사하고 한국 월 구분·UTC 최저 잔액 시각을 표로 연결한다([검증 기록](../research/web-economic-cash-implementation.md)). [손익분기 화면 후보](../contracts/web-break-even-workspace-v1.md)는 실제 저장 판매·수금과 순서가 있는 공동 가정 판본을 계획·완료 결과에 연결하며, 응답 유실 시 고정 제출 해시로 저장 접수 기록을 조회한다([검증 기록](../research/web-break-even-workspace-implementation.md)). 일반 원장·정산 작성, 전체 농장 입력, 자동 시험 가정 생성·새로고침/미저장 접수 복구·실제 CLI·최종 작물 평가·3D/전체 G1과 독립 G0/G2/G3/G4 수용은 남아 있다. 기존 작업 체크와 관문을 해제하지 않는다.

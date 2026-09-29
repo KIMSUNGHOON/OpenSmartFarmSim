@@ -1,6 +1,8 @@
 # 구현 준비 현황
 
-**농장 계획 열 실행 연결 후보 (2026-09-29):** [실행 계약](../contracts/farm-thermal-execution-v1.md)은 실제 계획 판본·원본 핀·완료 조사/수집/검토를 접수·계산·완료 조회에서 다시 검사한다. [집중 검증](../research/farm-thermal-execution-implementation.md)은 실제 SCRAM과 HTTPS/Bearer의 소프트웨어 범위다. CLI 실행기와 해제 키는 시험용이며, 경제 실행·공통 평가·열 비용 결합·3D와 실제 CLI/독립 G1/G4는 미수용이다.
+**농장 경제 실행 연결 후보 (2026-09-29):** [계약](../contracts/farm-economic-execution-v1.md)은 같은 등록 계획과 실제 완료 열 v3 작업을 경제 v2 접수·작업자·금액/월별 현금 조회에 연결한다. [검증 기록](../research/farm-economic-execution-implementation.md)은 실제 SCRAM·합성 권한의 완료/롤백 및 HTTPS 지연 수정과 집중 검증을 기록한다. 다음 부분 구현은 [첫 내부 3D 열 재생 뷰어](../contracts/web-thermal-replay-v1.md)이며, 공통 Assessment·전체 작성·열 비용 결합·실제 CLI/독립 G1/G4는 미수용이다.
+
+**농장 계획 열 실행 연결 후보 (2026-09-29):** [실행 계약](../contracts/farm-thermal-execution-v1.md)은 실제 계획 판본·원본 핀·완료 조사/수집/검토를 접수·계산·완료 조회에서 다시 검사한다. [집중 검증](../research/farm-thermal-execution-implementation.md)은 실제 SCRAM과 HTTPS/Bearer의 소프트웨어 범위다. CLI 실행기와 해제 키는 시험용이며, 공통 평가·열 비용 결합·3D와 실제 CLI/독립 G1/G4는 미수용이다.
 
 **농장 재생 계획 등록 후보 (2026-09-29):** [계약](../contracts/farm-replay-scenario-v1.md)에 따라 실제 조사 입력·등록부, 열 시나리오, 사용자 경제 후보를 판본별로 묶는 API를 추가했다. [증거](../research/farm-replay-scenario-implementation.md)는 실제 SCRAM 저장/재조회·권한 철회·불일치 거부와 HTTPS/Bearer 조립을 기록한다. 좌표는 `pending_research`이며 실제 기상의 공간 대표성, 전체 농장/정산 작성, 열과 비용의 결합, 후속 실행/평가·3D와 실제 CLI/독립 G1/G4는 미수용이다.
 

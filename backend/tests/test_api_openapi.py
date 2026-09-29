@@ -109,6 +109,11 @@ def test_snapshot_matches_actual_routes_and_public_protocol():
         operations[("/v1/jobs/{job_id}/run", "get")]["x-ossf-conditional-scopes"]['thermal-simulation-result-v3'] +
         ['collection_read','collection_review_create','thermal_snapshot_write']}
     assert submission['x-ossf-max-body-bytes'] == 4096
+    farm_economic_scopes = operations[("/v1/jobs/{job_id}/run", "get")]["x-ossf-conditional-scopes"]['thermal-simulation-result-v3'] + ['thermal_run_read']
+    for operation,version in ((('/v1/economic-results','post'),'economic-calculation-input-v2'),
+            (('/v1/jobs/{job_id}/economic-result','get'),'economic-calculation-input-v2'),
+            (('/v1/jobs/{job_id}/economic-cash-flow','get'),'economic-calculation-input-v2')):
+        assert operations[operation]['x-ossf-conditional-scopes'] == {version:farm_economic_scopes}
     assert '202' in submission['responses'] and '200' not in submission['responses']
     raw = api_openapi.contract_bytes()
     assert b"synthetic-service-a-" not in raw and b"tenant-a" not in raw

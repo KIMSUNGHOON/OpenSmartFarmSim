@@ -44,6 +44,10 @@ def _publication(jobs,tenant,row,*,maximum):
 
 
 def farm_thermal_execution_binding(service,jobs,tenant,value,report=None):
+    return _farm_thermal_execution_selection(service,jobs,tenant,value,report)[0]
+
+
+def _farm_thermal_execution_selection(service,jobs,tenant,value,report=None):
     if type(service) is not FarmReplayScenarioService or service.jobs is not jobs:
         raise FarmThermalHold('farm thermal binding unavailable')
     pointers=service._pointers()
@@ -85,9 +89,10 @@ def farm_thermal_execution_binding(service,jobs,tenant,value,report=None):
                 ('context_sha256',bindings['thermal_pins']['context_sha256']),
                 ('decision_context_id',bindings['decision_context_id']))):
             raise ValueError()
-        return {'farm_scenario_id':value.farm_scenario_id,'farm_scenario_revision':value.farm_scenario_revision,
+        binding={'farm_scenario_id':value.farm_scenario_id,'farm_scenario_revision':value.farm_scenario_revision,
             'farm_scenario_sha256':selected['scenario_sha256'],
             'farm_bindings_sha256':sha256(canonical_input_bytes(bindings)).hexdigest()}
+        return binding,selected
     except Exception:
         raise FarmThermalHold('farm thermal selection or lineage unavailable') from None
     finally:

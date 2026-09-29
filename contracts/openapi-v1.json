@@ -5033,58 +5033,142 @@
           "content": {
             "application/json": {
               "schema": {
-                "additionalProperties": false,
-                "properties": {
-                  "candidate_id": {
-                    "pattern": "^[0-9a-f]{64}$",
-                    "title": "Candidate Id",
-                    "type": "string"
+                "oneOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "candidate_id": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Candidate Id",
+                        "type": "string"
+                      },
+                      "formula_version": {
+                        "const": "economic-ledger-v9-sales-settlement",
+                        "title": "Formula Version",
+                        "type": "string"
+                      },
+                      "idempotency_key": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Idempotency Key",
+                        "type": "string"
+                      },
+                      "input_version": {
+                        "const": "economic-calculation-input-v1",
+                        "title": "Input Version",
+                        "type": "string"
+                      },
+                      "scenario_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Id",
+                        "type": "string"
+                      },
+                      "scenario_revision": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Revision",
+                        "type": "string"
+                      },
+                      "scenario_sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Scenario Sha256",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "input_version",
+                      "scenario_id",
+                      "scenario_revision",
+                      "scenario_sha256",
+                      "candidate_id",
+                      "formula_version",
+                      "idempotency_key"
+                    ],
+                    "title": "EconomicCalculationRequest",
+                    "type": "object"
                   },
-                  "formula_version": {
-                    "const": "economic-ledger-v9-sales-settlement",
-                    "title": "Formula Version",
-                    "type": "string"
-                  },
-                  "idempotency_key": {
-                    "maxLength": 200,
-                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
-                    "title": "Idempotency Key",
-                    "type": "string"
-                  },
-                  "input_version": {
-                    "const": "economic-calculation-input-v1",
-                    "title": "Input Version",
-                    "type": "string"
-                  },
-                  "scenario_id": {
-                    "maxLength": 200,
-                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
-                    "title": "Scenario Id",
-                    "type": "string"
-                  },
-                  "scenario_revision": {
-                    "maxLength": 200,
-                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
-                    "title": "Scenario Revision",
-                    "type": "string"
-                  },
-                  "scenario_sha256": {
-                    "pattern": "^[0-9a-f]{64}$",
-                    "title": "Scenario Sha256",
-                    "type": "string"
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "candidate_id": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Candidate Id",
+                        "type": "string"
+                      },
+                      "farm_scenario_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Farm Scenario Id",
+                        "type": "string"
+                      },
+                      "farm_scenario_revision": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Farm Scenario Revision",
+                        "type": "string"
+                      },
+                      "farm_scenario_sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Farm Scenario Sha256",
+                        "type": "string"
+                      },
+                      "formula_version": {
+                        "const": "economic-ledger-v9-sales-settlement",
+                        "title": "Formula Version",
+                        "type": "string"
+                      },
+                      "idempotency_key": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Idempotency Key",
+                        "type": "string"
+                      },
+                      "input_version": {
+                        "const": "economic-calculation-input-v2",
+                        "title": "Input Version",
+                        "type": "string"
+                      },
+                      "scenario_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Id",
+                        "type": "string"
+                      },
+                      "scenario_revision": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Revision",
+                        "type": "string"
+                      },
+                      "scenario_sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Scenario Sha256",
+                        "type": "string"
+                      },
+                      "thermal_job_id": {
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                        "title": "Thermal Job Id",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "input_version",
+                      "scenario_id",
+                      "scenario_revision",
+                      "scenario_sha256",
+                      "candidate_id",
+                      "formula_version",
+                      "farm_scenario_id",
+                      "farm_scenario_revision",
+                      "farm_scenario_sha256",
+                      "thermal_job_id",
+                      "idempotency_key"
+                    ],
+                    "title": "FarmEconomicCalculationRequest",
+                    "type": "object"
                   }
-                },
-                "required": [
-                  "input_version",
-                  "scenario_id",
-                  "scenario_revision",
-                  "scenario_sha256",
-                  "candidate_id",
-                  "formula_version",
-                  "idempotency_key"
-                ],
-                "title": "EconomicCalculationRequest",
-                "type": "object"
+                ]
               }
             }
           },
@@ -5178,6 +5262,20 @@
           }
         ],
         "summary": "Post Economic Calculation",
+        "x-ossf-conditional-scopes": {
+          "economic-calculation-input-v2": [
+            "farm_scenario_read",
+            "metadata",
+            "artifact",
+            "thermal_scenario_read",
+            "thermal_snapshot_read",
+            "decision_context_read",
+            "market_hold_context_read",
+            "market_source_read",
+            "market_candidate_read",
+            "thermal_run_read"
+          ]
+        },
         "x-ossf-max-body-bytes": 4096,
         "x-ossf-required-scopes": [
           "metadata",
@@ -6287,6 +6385,20 @@
           }
         ],
         "summary": "Get Job Economic Cash Flow",
+        "x-ossf-conditional-scopes": {
+          "economic-calculation-input-v2": [
+            "farm_scenario_read",
+            "metadata",
+            "artifact",
+            "thermal_scenario_read",
+            "thermal_snapshot_read",
+            "decision_context_read",
+            "market_hold_context_read",
+            "market_source_read",
+            "market_candidate_read",
+            "thermal_run_read"
+          ]
+        },
         "x-ossf-required-scopes": [
           "metadata",
           "artifact",
@@ -6381,6 +6493,20 @@
           }
         ],
         "summary": "Get Job Economic Result",
+        "x-ossf-conditional-scopes": {
+          "economic-calculation-input-v2": [
+            "farm_scenario_read",
+            "metadata",
+            "artifact",
+            "thermal_scenario_read",
+            "thermal_snapshot_read",
+            "decision_context_read",
+            "market_hold_context_read",
+            "market_source_read",
+            "market_candidate_read",
+            "thermal_run_read"
+          ]
+        },
         "x-ossf-required-scopes": [
           "metadata",
           "artifact",

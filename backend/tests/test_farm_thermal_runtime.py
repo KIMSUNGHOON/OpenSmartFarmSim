@@ -38,19 +38,8 @@ pytestmark=pytest.mark.parametrize('login_scope',[{'market_calculation':True,
     'market_source_storage':True,'thermal_scenario_storage':True,'break_even_calculation':True}],indirect=True)
 
 
-def test_actual_runtime_admits_farm_job_and_reads_atomic_completion(execution,tls_files):
-    farm,publisher,_,_,value,principal,*_=execution
+def assemble_farm_runtime(farm,publisher,tls_files,grants):
     cert,key,_=tls_files
-    now=datetime.now(timezone.utc)
-    token=b'synthetic-farm-run-'+b'f'*32
-    reader=b'synthetic-farm-run-reader-'+b'r'*32
-    other=b'synthetic-farm-run-other-'+b'o'*32
-    submit_scopes=set(SUBMISSION_SCOPES+READ_SCOPES+REVIEW_SCOPES+('thermal_run_read',))
-    grants=tuple(BearerGrant(token_digest(raw),tenant,frozenset(scopes),
-        now-timedelta(seconds=1),now+timedelta(minutes=20)) for raw,tenant,scopes in (
-            (token,'tenant-1',submit_scopes),
-            (reader,'tenant-1',(*READ_SCOPES,'thermal_run_read')),
-            (other,'tenant-other',submit_scopes)))
     jobs=farm.jobs
     registry=farm.owned_research.registry
     contexts={next(iter(farm.registry._scopes)):'context-1'}
@@ -78,13 +67,29 @@ def test_actual_runtime_admits_farm_job_and_reads_atomic_completion(execution,tl
         return ThermalG1Publisher(run_store,job_store,publisher.release_resolver,root=publisher.root,
             gate_key=GATE_KEY,release_verifier=publisher.release_verifier,
             execution_verifier=publisher.execution_verifier,collection_review_service=review)
-    runtime=ApiRuntime(config(policy=jobs.runtime_identity[0],dsn=jobs._dsn,artifact_root=jobs.artifact_root,
+    return ApiRuntime(config(policy=jobs.runtime_identity[0],dsn=jobs._dsn,artifact_root=jobs.artifact_root,
         certificate=cert,private_key=key,port=0,thermal_gate_key=GATE_KEY,
         market_hold_key=farm.thermal.holds._key),dependencies(research_registry=farm.registry,
         bearer_registry=BearerRegistry(grants),context_verifier=farm.thermal.runs._context_verifier,
         release_verifier=publisher.release_verifier,market_scope_resolver=farm.thermal.holds._scope_resolver,
         market_source_factory=source_factory,thermal_publisher_factory=publisher_factory,
         owned_fixture_registry=registry,owned_research_contexts=contexts))
+
+
+def test_actual_runtime_admits_farm_job_and_reads_atomic_completion(execution,tls_files):
+    farm,publisher,_,_,value,principal,*_=execution
+    cert,key,_=tls_files
+    now=datetime.now(timezone.utc)
+    token=b'synthetic-farm-run-'+b'f'*32
+    reader=b'synthetic-farm-run-reader-'+b'r'*32
+    other=b'synthetic-farm-run-other-'+b'o'*32
+    submit_scopes=set(SUBMISSION_SCOPES+READ_SCOPES+REVIEW_SCOPES+('thermal_run_read',))
+    grants=tuple(BearerGrant(token_digest(raw),tenant,frozenset(scopes),
+        now-timedelta(seconds=1),now+timedelta(minutes=20)) for raw,tenant,scopes in (
+            (token,'tenant-1',submit_scopes),
+            (reader,'tenant-1',(*READ_SCOPES,'thermal_run_read')),
+            (other,'tenant-other',submit_scopes)))
+    runtime=assemble_farm_runtime(farm,publisher,tls_files,grants)
     assert runtime.farm_scenarios.owned_research is runtime.research
     server=runtime.service.server()
     thread=threading.Thread(target=server.run,daemon=True);thread.start()
@@ -122,9 +127,9 @@ def test_actual_runtime_admits_farm_job_and_reads_atomic_completion(execution,tl
         status,summary=call(path,bearer=reader)
         assert status==200 and summary['run_id']==result.run_id
         assert call(path,bearer=other)[0]==404
-        receipt=json.loads(jobs.read_artifact('tenant-1',UUID(accepted['job_id'])))
+        receipt=json.loads(farm.jobs.read_artifact('tenant-1',UUID(accepted['job_id'])))
         assert receipt['farm_scenario_sha256']==value['farm_scenario_sha256']
     finally:
         server.should_exit=True;thread.join(timeout=15)
         assert not thread.is_alive()
-    print('farm_thermal_https_seconds='+json.dumps(timings))
+        print('farm_thermal_https_seconds='+json.dumps(timings))
