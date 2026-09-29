@@ -38,3 +38,7 @@
 **첫 웹 접수·조회 연결 후보:** [웹 계약](../contracts/web-location-shell-v1.md)과 [증거](../research/web-location-shell-implementation.md)에 따라 한국어 입력·작업/보류 화면, 고정 DTO 검증·동일 요청 재확인, 실제 TLS/SCRAM/Chromium 연결을 검증했다. 320/768/1440px·글자 200%와 키보드 시험이 통과했다. 시험 실행기는 가짜 CLI이며 완전한 농장/경제/시장 입력과 카드·지도·3D·실제 모델·전체 G1/G4는 남는다. 새 웹 CI의 정확한 head 결과는 별도 확인한다.
 
 **저장 경제 가정 조회 후보 (2026-09-29):** [조회 계약](../contracts/api-market-user-source-read-v1.md)과 [증거](../research/market-user-source-read-implementation.md)는 실제 SCRAM 저장소의 사용자 소유 목록·지정 판본, 최초 입력/해시 대사, 읽기 전용 Bearer를 다룬다. 금액/수량 문자열·단위·null을 그대로 읽으며 기록이나 산술 결과를 생성하지 않는다. 사용자 경제/시장 입력 화면, 실제 모델·독립 근거·전체 G1/G4 수용은 남아 있다.
+
+## 경제 웹 입력·계산 연결 후보 (2026-09-29)
+
+[경제 화면 계약](../contracts/web-economic-workspace-v1.md)과 [검증 기록](../research/web-economic-workspace-implementation.md)은 사용자 소유 숫자 가정의 새 판본 등록, 실제 원장·공동 충격 선택, 시나리오/계산 접수와 완료 서버 금액·보류 조회를 연결한다. 금액은 서버 문자열/null을 그대로 표시하며 응답 유실은 같은 단계의 입력·키로 재확인한다. 새 숫자를 참조하는 원장·권리/정산 작성, 전체 농장 입력, 월별·손익분기 화면·실제 CLI·최종 작물 평가·3D/전체 G1과 독립 G0/G2/G3/G4 수용은 남아 있다. 기존 작업 체크와 관문을 해제하지 않는다.

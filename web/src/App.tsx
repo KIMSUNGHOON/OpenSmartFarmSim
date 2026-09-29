@@ -1,6 +1,7 @@
 import { useRef, useState, type FormEvent } from 'react';
 import { createApi, ApiError, type Evidence, type JobHold, type JobStatus, type LocationAccepted,
   type LocationIntent, type State } from './api';
+import EconomicWorkspace from './EconomicWorkspace';
 
 const statusNames:Record<State,string>={queued:'대기 중',researching:'자료 조사 중',collecting:'원본 수집 중',
   reviewing:'자료 검토 중',simulating:'계산 중',assessing:'평가 중',succeeded:'작업 완료',hold:'판단 보류',
@@ -37,7 +38,8 @@ export default function App() {
   const [token,setToken]=useState(''); const [latitude,setLatitude]=useState('');
   const [longitude,setLongitude]=useState(''); const [startDate,setStartDate]=useState('');
   const [startTime,setStartTime]=useState('');
-  const [view,setView]=useState<'input'|'work'>('input'); const [busy,setBusy]=useState(false);
+  const [view,setView]=useState<'input'|'work'|'economic'>('input'); const [busy,setBusy]=useState(false);
+  const [financialLock,setFinancialLock]=useState(false);
   const [intent,setIntent]=useState<LocationIntent|null>(null); const pinned=useRef<LocationIntent|null>(null);
   const jobId=useRef<string|null>(null); const inFlight=useRef(false); const generation=useRef(0);
   const [accepted,setAccepted]=useState<LocationAccepted|null>(null);
@@ -92,25 +94,28 @@ export default function App() {
       <nav aria-label="주요 화면">
         <button aria-current={view==='input' ? 'page' : undefined} onClick={()=>setView('input')}>01 <span>입력 설정</span></button>
         <button aria-current={view==='work' ? 'page' : undefined} onClick={()=>setView('work')}>02 <span>작업과 근거</span></button>
+        <button aria-current={view==='economic' ? 'page' : undefined} onClick={()=>setView('economic')}>03 <span>경제 가정·계산</span></button>
       </nav><p className="sidebar-note">직접 작성한 합성 자료<br/>내부 계약 시험</p>
     </aside>
     <main id="main" tabIndex={-1}>
       <header className="page-header"><div><p className="eyebrow">OPEN SMART FARM SIMULATOR</p>
-        <h1>{view==='input' ? '시뮬레이션 입력 설정' : '작업 진행과 근거'}</h1>
-        <p>좌표와 기간을 지정하고, 자료 조사 상태와 판단에 필요한 근거를 확인하세요.</p></div>
+        <h1>{view==='input' ? '시뮬레이션 입력 설정' : view==='work' ? '작업 진행과 근거' : '경제 가정과 조건부 계산'}</h1>
+        <p>{view==='economic' ? '저장된 가정을 검토하고, 판본을 고정해 조건부 원장 계산을 확인하세요.' :
+          '좌표와 기간을 지정하고, 자료 조사 상태와 판단에 필요한 근거를 확인하세요.'}</p></div>
         <div className="scope-summary" aria-label="입력 요약"><span className="badge">합성 자료 시험</span>
-          <strong>온실 한 구역 · 두 시간</strong><span>실제 관측·미래 예측·작물 추천이 아닙니다.</span></div>
+          <strong>{view==='economic' ? '저장 원장 · 사용자 가정' : '온실 한 구역 · 두 시간'}</strong><span>실제 관측·미래 예측·작물 추천이 아닙니다.</span></div>
       </header>
       <details className="connection"><summary>내부 시험 연결</summary>
         <p>운영자가 발급한 접근 토큰을 입력하세요. 토큰은 저장하지 않으며, 페이지를 새로 열면 다시 연결해야 합니다.</p>
         <form onSubmit={connect}><label>접근 토큰<input type="password" value={token} onChange={e=>setToken(e.target.value)}
-          autoComplete="off" spellCheck={false} required disabled={busy}/></label>
-          <button className="button" disabled={busy}>연결 설정</button>
-          {api && <button type="button" className="button secondary" disabled={busy} onClick={()=>{reset();setApi(null);setToken('');setLatitude('');setLongitude('');setStartDate('');setStartTime('');}}>연결 해제</button>}
+          autoComplete="off" spellCheck={false} required disabled={busy || financialLock}/></label>
+          <button className="button" disabled={busy || financialLock}>연결 설정</button>
+          {api && <button type="button" className="button secondary" disabled={busy || financialLock} onClick={()=>{reset();setApi(null);setToken('');setLatitude('');setLongitude('');setStartDate('');setStartTime('');}}>연결 해제</button>}
         </form><p className="connection-state">{api ? '연결 정보 설정됨 · 권한은 서버가 요청마다 확인합니다.' : '접근 토큰을 설정해 주세요.'}</p>
       </details>
       {error && <div className="notice error" role="alert">{errorNames[error.code] ?? '요청을 확인할 수 없습니다.'}</div>}
-      {view==='input' ? <form onSubmit={submit} className="input-form">
+      <div hidden={view!=='economic'}><EconomicWorkspace api={api} onPending={setFinancialLock} blocked={busy}/></div>
+      {view==='economic' ? null : view==='input' ? <form onSubmit={submit} className="input-form">
         <section className="panel input-panel" id="viewport-1-a-coordinates"><div><p className="step-number">01 / 지역</p><h2>위도·경도 설정</h2>
           <p>한국 내 좌표를 입력하세요. 서버에 등록된 시범 범위만 접수됩니다.</p>
           <div className="field-row"><label>위도 (°N)<input type="number" min="-90" max="90" step="any" required value={latitude}
@@ -133,8 +138,8 @@ export default function App() {
           <p>한 구역의 온도·습도·설비 반응이 계산 대상입니다. 승인된 입력과 모델이 있어야 계산을 진행할 수 있습니다.</p></div>
           <div className="scope-detail"><span className="badge">검토 전</span><p>현재 화면에서는 자료 조사 접수와 작업·보류 근거를 확인합니다.</p></div></section>
         <div className="form-actions"><p>합성 시험만으로 현장 정확도나 작물의 우열을 판단하지 않습니다.</p>
-          <button type="button" className="button secondary" disabled={busy || !canReset} onClick={reset}>새 입력</button>
-          <button className="button primary" disabled={busy}>{busy ? '접수 확인 중…' : pinned.current ? '같은 요청 다시 확인' : '자료 조사 요청'}</button></div>
+          <button type="button" className="button secondary" disabled={busy || financialLock || !canReset} onClick={reset}>새 입력</button>
+          <button className="button primary" disabled={busy || financialLock}>{busy ? '접수 확인 중…' : pinned.current ? '같은 요청 다시 확인' : '자료 조사 요청'}</button></div>
       </form> : <div className="work-layout" id="viewport-1-b-progress">
         <section className="panel work-panel"><p className="step-number">현재 작업</p><h2>서버 작업 기록</h2>
           {job ? <><div className="job-status" role="status"><span className="status-dot"/><strong>{statusNames[job.state]}</strong></div>

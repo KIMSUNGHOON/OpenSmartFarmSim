@@ -118,3 +118,7 @@
 - [ ] **`thermal-scenario-store`** — 선행: `thermal-g1-publisher`, `market-hold-store`; 후속: `api-flow`. [계약/명시적 로그인 v6](../contracts/thermal-scenario-store-v1.md)에 따라 합성 열 Scenario의 스냅샷·모델·문맥·시장 보류 참조를 불변 판본으로 저장하고 현재 권한/핀을 재검사한다. [소프트웨어 증거](../research/thermal-scenario-store-implementation.md)는 등록·재조회·충돌·권한 변동·참조 보류와 기존 프로필 회귀를 다룬다. 완전한 농장/경제 Scenario와 제출·작업자/Run 연결·독립 운영 권한의 수용까지 체크는 유지한다.
 
   - [시나리오 실행 연결 증거](../research/thermal-scenario-execution-implementation.md): 입력/영수증 v2가 실제 저장된 판본과 Run을 결합하고 게시 전후 Scope 철회·문맥/핀 불일치는 결과를 공개하지 않는다. 명시적 v6 조립과 Bearer 조회는 같은 실제 SCRAM 저장소를 읽는다. 합성 캡처/키 시험이며 전체 농장 Scenario·HTTP 접수·실제 CLI/독립 release·브라우저/G1/G4는 남아 체크를 유지한다.
+
+## 경제 웹 입력·계산 연결 후보 (2026-09-29)
+
+[경제 화면 계약](../contracts/web-economic-workspace-v1.md)과 [검증 기록](../research/web-economic-workspace-implementation.md)은 사용자 소유 숫자 가정의 새 판본 등록, 실제 원장·공동 충격 선택, 시나리오/계산 접수와 완료 서버 금액·보류 조회를 연결한다. 금액은 서버 문자열/null을 그대로 표시하며 응답 유실은 같은 단계의 입력·키로 재확인한다. 새 숫자를 참조하는 원장·권리/정산 작성, 전체 농장 입력, 월별·손익분기 화면·실제 CLI·최종 작물 평가·3D/전체 G1과 독립 G0/G2/G3/G4 수용은 남아 있다. 기존 작업 체크와 관문을 해제하지 않는다.

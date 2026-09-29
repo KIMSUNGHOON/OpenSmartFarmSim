@@ -1,3 +1,6 @@
+import { ApiError, need, object, member, date, uuid, closed } from './api-validation';
+export { ApiError } from './api-validation';
+import { createEconomicApi } from './economic-api';
 export const STAGES = ['research','collection','collection_review','simulation','assessment'] as const;
 export const STATES = ['queued','researching','collecting','reviewing','simulating','assessing',
   'succeeded','hold','failed','canceled'] as const;
@@ -17,30 +20,8 @@ export type JobHold = { job_id:string; stage:'research'|'collection_review'|'ass
   status:'hold'; recorded_at:string; reason_code:'evidence_missing'|'decision_held';
   missing_evidence:Evidence[]; missing_evidence_count:number };
 
-export class ApiError extends Error {
-  constructor(public readonly code:string, public readonly status:number|null = null) {
-    super(code); this.name = 'ApiError';
-  }
-}
-const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 const CODE = /^[a-z][a-z0-9_]{0,79}$/;
-function need(value:unknown):asserts value { if (!value) throw new ApiError('response_rejected'); }
-function object(value:unknown):value is Record<string,unknown> {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
-function member<T extends string>(value:unknown, options:readonly T[]):value is T {
-  return typeof value === 'string' && options.some(option=>option===value);
-}
-function date(value:unknown):value is string {
-  return typeof value === 'string' && /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d{1,6})?(?:Z|[+-](?:[01]\d|2[0-3]):[0-5]\d)$/.test(value)
-    && Number.isFinite(Date.parse(value)) && Number(value.slice(0,4)) >= 1
-    && new Date(value.slice(0,19)+'Z').toISOString().slice(0,19) === value.slice(0,19);
-}
-function uuid(value:unknown):value is string { return typeof value === 'string' && UUID.test(value); }
 function integer(value:unknown):value is number { return typeof value === 'number' && Number.isSafeInteger(value); }
-function closed(value:Record<string,unknown>, keys:string[]) {
-  need(Object.keys(value).length === keys.length && keys.every(key=>Object.hasOwn(value,key)));
-}
 function decodeJob(value:unknown):JobStatus {
   need(object(value));
   closed(value,['job_id','stage','state','attempt_count','max_attempts','created_at','updated_at','reason_code']);
@@ -77,7 +58,7 @@ function decodeHold(value:unknown, jobId:string):JobHold {
 
 export function createApi(token:string, fetcher:typeof fetch = fetch) {
   if (!/^[\x21-\x7e]{20,512}$/.test(token)) throw new ApiError('auth_required');
-  async function request(path:string, method='GET', body?:LocationIntent):Promise<unknown> {
+  async function request(path:string, method='GET', body?:unknown, expected=method==='POST' ? 202 : 200, maxBytes=65_536):Promise<unknown> {
     const abort = new AbortController(); const timer = setTimeout(()=>abort.abort(),30_000);
     try {
       const response=await fetcher(path,{method,body:body ? JSON.stringify(body) : undefined,
@@ -88,14 +69,14 @@ export function createApi(token:string, fetcher:typeof fetch = fetch) {
           409:'intent_conflict',413:'too_large',422:'invalid_request'};
         throw new ApiError(codes[response.status] ?? 'server_unavailable',response.status);
       }
-      need(response.status === (method === 'POST' ? 202 : 200));
+      need(response.status === expected);
       need(response.headers.get('content-type')?.split(';')[0]?.trim() === 'application/json');
       const reader=response.body?.getReader(); need(reader);
       const chunks:Uint8Array[]=[]; let length=0;
       try {
         for (;;) {
           const {value,done}=await reader.read(); if (done) break;
-          length+=value.byteLength; need(length <= 65_536); chunks.push(value);
+          length+=value.byteLength; need(length <= maxBytes); chunks.push(value);
         }
       } finally { await reader.cancel().catch(()=>{}); reader.releaseLock(); }
       const bytes=new Uint8Array(length); let offset=0;
@@ -108,6 +89,7 @@ export function createApi(token:string, fetcher:typeof fetch = fetch) {
     } finally { clearTimeout(timer); }
   }
   return {
+    ...createEconomicApi(request, decodeJob),
     async location(intent:LocationIntent) { return decodeLocation(await request('/v1/locations','POST',intent),intent); },
     async job(id:string) {
       need(uuid(id)); const result=decodeJob(await request('/v1/jobs/'+id)); need(result.job_id === id); return result;

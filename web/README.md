@@ -1,9 +1,12 @@
 # Internal web shell
 
 The current screen submits registered synthetic location research and reads
-its real server job/hold status. Full farm/economics input, map, replay and
-production hosting are pending. See the
-[contract](../contracts/web-location-shell-v1.md).
+its real server job/hold status. The third screen lists exact stored economic
+assumptions, registers a numeric revision and admits/reads a selected conditional
+ledger calculation. Full farm input, baseline/rights authoring, monthly series,
+break-even forms, map, replay and production hosting are pending. See the
+[location contract](../contracts/web-location-shell-v1.md) and
+[economic contract](../contracts/web-economic-workspace-v1.md).
 
 ## Software checks
 
@@ -54,7 +57,7 @@ After locked backend installation and Chromium installation, set
 `backend/`:
 
 ```bash
-uv run --locked --group dev pytest -q -s tests/web_shell_smoke.py
+uv run --locked --group dev pytest -q -s tests/web_shell_smoke.py tests/web_economic_smoke.py
 ```
 
 This explicit smoke creates disposable SCRAM roles, an actual API, Vite HTTPS
@@ -63,7 +66,12 @@ fake-CLI hold, repeated intent with one stored job and rejection of an
 untrusted upstream certificate. Only the isolated synthetic browser fixture
 ignores its ephemeral browser-facing certificate error; the upstream and
 Python HTTPS checks verify certificates. Services and temporary database password files
-are cleaned up. This smoke is not yet part of hosted web CI or full G1.
+are cleaned up. The economic smoke also checks an exact decimal revision, actual scenario and
+calculation admission, worker completion, result display and identical retry
+with one stored calculation job. Its data/keys are self-authored synthetic
+fixtures, and it invokes no CLI. These smokes are not yet part of hosted web CI
+or full G1. [Evidence](../research/web-economic-workspace-implementation.md)
+records the scope and remaining holds.
 
 The self-hosted font is pinned as `@fontsource-variable/noto-sans-kr@5.3.0`.
 Its original [OFL notice](public/licenses/noto-sans-kr-OFL.txt) is copied to

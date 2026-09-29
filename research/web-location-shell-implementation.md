@@ -100,3 +100,15 @@ TLS/SCRAM smoke above remains local evidence, not a hosted test.
 also succeeded for that exact head. Backend run `36542677529` was still live
 when this receipt was recorded. These receipts confer no actual-model or gate
 acceptance.
+
+## Hosted receipt for stored-source read head
+
+Exact head `a4cd8c3c78ed62715017834c493b5ffc5d8269c6`:
+[web CI 36545970275](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36545970275)
+passed at `2026-09-29T08:57:48Z` (44 seconds), including unit/type/build, audit
+and Chromium checks.
+[Compose 36545970349](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36545970349)
+passed at `2026-09-29T08:57:40Z` (33 seconds), including database readiness,
+persistence and cleanup. Backend run `36545970279` remains in progress at this
+receipt. These are receipts for the prior committed source-read head, not the
+new economic workspace or a gate acceptance.
