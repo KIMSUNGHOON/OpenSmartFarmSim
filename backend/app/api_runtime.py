@@ -28,6 +28,7 @@ from .break_even_plan_submission import BreakEvenPlanSubmissionService
 from .owned_fixture_registry import OwnedFixtureRegistry
 from .owned_fixture_collection import CollectionService
 from .owned_collection_review import OwnedCollectionReviewService
+from .owned_research import OwnedResearchService
 
 
 @dataclass(frozen=True)
@@ -66,6 +67,7 @@ class ApiRuntimeDependencies:
     market_source_factory: object = field(repr=False)
     thermal_publisher_factory: object = field(default=None, repr=False)
     owned_fixture_registry: OwnedFixtureRegistry | None = field(default=None, repr=False)
+    owned_research_contexts: dict | None = field(default=None, repr=False)
 
     def __post_init__(self):
         if (type(self.research_registry) is not ResearchRegistry or
@@ -73,7 +75,9 @@ class ApiRuntimeDependencies:
                 any(not callable(value) for value in (self.context_verifier, self.release_verifier,
                     self.market_scope_resolver, self.market_source_factory)) or
                 (self.thermal_publisher_factory is not None and not callable(self.thermal_publisher_factory)) or
-                (self.owned_fixture_registry is not None and type(self.owned_fixture_registry) is not OwnedFixtureRegistry)):
+                (self.owned_fixture_registry is not None and type(self.owned_fixture_registry) is not OwnedFixtureRegistry) or
+                (self.owned_research_contexts is not None and
+                    (type(self.owned_research_contexts) is not dict or self.owned_fixture_registry is None))):
             raise ValueError('API runtime dependencies rejected')
 
 
@@ -89,6 +93,7 @@ class ApiRuntime:
     thermal_scenarios: ThermalScenarioStore | None = field(repr=False)
     collections: CollectionService | None = field(repr=False)
     collection_reviews: OwnedCollectionReviewService | None = field(repr=False)
+    research: LocationResearchService | OwnedResearchService = field(repr=False)
 
     def __init__(self, config, dependencies):
         try:
@@ -127,6 +132,10 @@ class ApiRuntime:
             collections = (CollectionService(jobs, dependencies.owned_fixture_registry)
                 if dependencies.owned_fixture_registry is not None else None)
             collection_reviews = OwnedCollectionReviewService(collections, thermal) if collections is not None else None
+            research = (OwnedResearchService(jobs, thermal, dependencies.research_registry,
+                dependencies.owned_fixture_registry, dependencies.owned_research_contexts)
+                if dependencies.owned_research_contexts is not None else
+                LocationResearchService(jobs, dependencies.research_registry.scope_for_location))
             submission = None
             if dependencies.thermal_publisher_factory is not None:
                 if scenarios is None:
@@ -134,7 +143,7 @@ class ApiRuntime:
                 publisher = dependencies.thermal_publisher_factory(run_store=thermal, job_store=jobs)
                 submission = ThermalRunSubmissionService(publisher, scenarios)
             app = create_app(jobs, holds, thermal, results, principal_provider=current_principal,
-                location_research_service=LocationResearchService(jobs, dependencies.research_registry.scope_for_location),
+                location_research_service=research,
                 break_even_store=break_even, thermal_scenario_store=scenarios,
                 thermal_run_submission_service=submission, market_user_source_service=source_admission,
                 economic_scenario_service=economic_scenarios, economic_calculation_service=economic_calculations,
@@ -147,5 +156,5 @@ class ApiRuntime:
         for name, value in (('service', service), ('jobs', jobs), ('thermal', thermal),
                 ('market_holds', holds), ('market_candidates', candidates),
                 ('market_results', results), ('break_even', break_even), ('thermal_scenarios', scenarios),
-                ('collections', collections), ('collection_reviews', collection_reviews)):
+                ('collections', collections), ('collection_reviews', collection_reviews), ('research', research)):
             object.__setattr__(self, name, value)

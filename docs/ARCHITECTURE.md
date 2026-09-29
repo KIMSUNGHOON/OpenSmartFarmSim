@@ -158,6 +158,10 @@ stdin은 서버가 생성한 버전 고정 지시문과 `tenant_id/job_id`, 좌�
 
 [시나리오 작업 연결 후보](../contracts/thermal-simulation-worker-v1.md#scenario-bound-input-and-receipt-v2)는 입력/영수증 v2에 실제 판본 해시와 원천 핀을 결합한다. 계산 전·게시 거래 안에서 현재 문맥/권한을 재검사하며 실패는 Run을 되돌리고 보류한다. v6 API 조립은 같은 저장소를 [작업 Run 조회](../contracts/api-job-run-v1.md#scenario-bound-receipt-v2)에 공급하고 네 참조 권한을 추가 검사한다. 물리 trace와 기존 v1은 유지하며 전체 농장 Scenario·HTTP 제출·실제 CLI/G1/G4는 아직 미수용이다.
 
+## 서명 문맥 조사 연결 구현 후보
+
+[합성 원본 조사 연결 후보](../contracts/owned-research-v1.md)는 기존 초기 보류를 유지하고, 운영자가 등록한 범위·고정 원본·이미 저장된 서명 문맥이 일치할 때만 절차적 수집 계획을 접수한다. 실제 원본/문맥 해시와 현재 권한을 반복 검증하며 과학적 주장·자료/모델 관문을 승인하지 않는다. [소프트웨어 증거](../research/owned-research-implementation.md)는 가짜 CLI/컨트롤러 키의 범위이며 실제 독립 계획·CLI·해제·전체 G1/G4 수용은 남는다.
+
 ## 공유 CLI 계약 선택 구현 후보
 
 [공유 CLI 계약 선택 후보](../contracts/cli-contract-router-v1.md)는 보호된 서버 조립의 같은 검증기를 작업자와 JobStore에 설치하고, 실제 단계·입력 판본·바이트 해시로 기존 계약을 선택한다. 조사·수집 결합 검토·기존 열 검토·평가가 한 큐에 있을 때 각 계약의 검증기 판본·게시/보류 결과를 보존한다. 미등록 판본은 호출 전 보류다. [소프트웨어 증거](../research/cli-contract-router-implementation.md)는 가짜 실행기의 범위이며 실제 CLI·독립 운영 조립·전체 API/브라우저 및 G1/G4 수용은 남는다.

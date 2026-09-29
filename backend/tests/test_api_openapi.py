@@ -81,6 +81,7 @@ def test_snapshot_matches_actual_routes_and_public_protocol():
             'decision_context_read', 'market_hold_context_read']}
     assert bearer["type"] == "http" and bearer["scheme"] == "bearer" and "bearerFormat" not in bearer
     registration = operations[("/v1/locations", "post")]
+    assert registration['x-ossf-conditional-scopes'] == {'owned-research':['metadata','decision_context_read']}
     assert registration["x-ossf-max-body-bytes"] == 4096
     assert "202" in registration["responses"] and "200" not in registration["responses"]
     submission = operations[("/v1/runs", "post")]

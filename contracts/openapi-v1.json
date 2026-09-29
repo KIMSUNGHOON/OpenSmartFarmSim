@@ -3174,6 +3174,12 @@
           }
         ],
         "summary": "Post Location",
+        "x-ossf-conditional-scopes": {
+          "owned-research": [
+            "metadata",
+            "decision_context_read"
+          ]
+        },
         "x-ossf-max-body-bytes": 4096,
         "x-ossf-required-scopes": [
           "location_create"

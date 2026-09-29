@@ -28,6 +28,11 @@ also permits role names in non-OAuth arrays; this contract chooses the explicit
 vendor field. Actual credential verification remains in PrincipalMiddleware and
 each store still enforces tenant/right access independently.
 
+Location registration's owned-research conditional scopes add metadata and
+decision_context_read when the protected [owned planning option](owned-research-v1.md)
+is installed. The original location scope/request/response and operation ID
+remain stable; the initial registry continues to hold.
+
 Operation IDs are stable: registerLocation, registerMarketUserSource, registerEconomicScenario, registerThermalScenario, getThermalScenario,
 submitThermalRun, submitOwnedIngestion, submitOwnedCollectionReview, submitEconomicCalculation, submitBreakEvenPlan, getJob, getJobHold, getJobRun, getJobEconomicResult, getJobBreakEvenResult, getMarketHold,
 getRun, getRunSeries, getRunManifest, getEconomicResult, getBreakEvenResult. `LocationPoint` is a

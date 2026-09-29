@@ -22,6 +22,12 @@ logging and source/model invocation during initialization.
 
 ## Configuration and dependencies
 
+Optional [owned research](owned-research-v1.md) additionally accepts a protected
+scope-to-stored-context-ID mapping with the owned registry. The resulting
+research service shares actual stores/current_principal and is exposed on runtime.
+No mapping retains initial held research. Existing requests/responses stay fixed;
+the owned option requires metadata/decision_context_read in addition to location_create.
+
 Optional exact OwnedFixtureRegistry in ApiRuntimeDependencies enables
 [owned ingestion and review](api-owned-collection-v1.md). Assembly binds both
 services to the same existing jobs/thermal stores and current_principal and exposes

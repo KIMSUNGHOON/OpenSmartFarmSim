@@ -41,6 +41,7 @@ from .orchestration import LocationRequest, LocationResearchService, ResearchReq
 from .api_owned_collection import OwnedIngestionRequest, OwnedReviewRequest
 from .owned_fixture_collection import CollectionService, CollectionHold, COLLECTION_SCOPES
 from .owned_collection_review import OwnedCollectionReviewService, CollectionReviewHold, REVIEW_SCOPES
+from .owned_research import OwnedResearchService, READ_SCOPES as OWNED_RESEARCH_READ_SCOPES, ADMISSION_SCOPES as OWNED_RESEARCH_SCOPES
 
 
 def _error(status: int, code: str, message: str) -> JSONResponse:
@@ -66,8 +67,12 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             not callable(getattr(thermal_run_store, "get_snapshot", None)) or
             not callable(getattr(market_result_store, "get_economic_result", None))):
         raise ValueError("API trusted stores and principal provider are required")
-    if location_research_service is not None and type(location_research_service) is not LocationResearchService:
+    if location_research_service is not None and type(location_research_service) not in (LocationResearchService, OwnedResearchService):
         raise ValueError("trusted location research service required")
+    if type(location_research_service) is OwnedResearchService and (
+            location_research_service.store is not job_store or location_research_service.runs is not thermal_run_store or
+            job_store.principal_provider is not principal_provider):
+        raise ValueError('trusted owned research service required')
     if break_even_store is not None and not callable(getattr(break_even_store, "get_break_even_read", None)):
         raise ValueError("trusted break-even reader required")
     if thermal_scenario_store is not None and (type(thermal_scenario_store) is not ThermalScenarioStore or
@@ -111,6 +116,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         raise ValueError('trusted collection review service required')
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
     location_scopes = ("location_create",)
+    location_admission_scopes = OWNED_RESEARCH_SCOPES if type(location_research_service) is OwnedResearchService else location_scopes
     job_scopes = ("metadata",)
     job_hold_scopes = ("metadata", "artifact", "auditor")
     job_run_scopes = ("metadata", "artifact", "thermal_run_read")
@@ -145,10 +151,11 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
               operation_id="registerLocation",
               responses={status: {"model": ErrorEnvelope} for status in (401, 403, 409, 413, 415, 422, 503)},
               openapi_extra={**_access(location_scopes), "x-ossf-max-body-bytes": 4096,
+                  'x-ossf-conditional-scopes':{'owned-research': list(OWNED_RESEARCH_READ_SCOPES)},
                   "requestBody": {"required": True, "content": {
                   "application/json": {"schema": LocationRequest.model_json_schema()}}}})
     async def post_location(request: Request):
-        tenant, denied = authorized_tenant(*location_scopes)
+        tenant, denied = authorized_tenant(*location_admission_scopes)
         if denied is not None:
             return denied
         if location_research_service is None:
