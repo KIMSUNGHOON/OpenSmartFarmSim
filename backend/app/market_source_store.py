@@ -178,6 +178,59 @@ class MarketSourceStore:
         return conn.execute(sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND kind=%s AND record_id=%s AND revision=%s')
             .format(self._table('market_source_records')), (tenant, kind, identity, revision)).fetchone()
 
+    def _source_read_access(self, tenant):
+        if not _name(tenant) or self._tenant('market_source_read') != tenant:
+            raise MarketSourceDenied('market source lookup denied')
+
+    def _source_metadata(self, conn, row, tenant, kind):
+        if (row['tenant_id'], row['kind']) != (tenant, kind):
+            raise ValueError('market source lookup rejected')
+        model = self._verified(conn, row)
+        metadata = {name: row[name] for name in ('kind', 'record_id', 'revision',
+            'payload_sha256', 'recorded_at', 'admission_kind')}
+        metadata['recorded_at'] = metadata['recorded_at'].isoformat()
+        return model, metadata
+
+    def get_user_source(self, tenant, kind, identity, revision):
+        self._source_read_access(tenant)
+        if type(kind) is not str or kind not in _KINDS or not _name(identity) or not _name(revision):
+            raise ValueError('market source lookup rejected')
+        with self.connect() as conn:
+            row = self._select(conn, tenant, kind, identity, revision)
+            if row is None:
+                self._source_read_access(tenant)
+                return None
+            if (row['record_id'], row['revision']) != (identity, revision):
+                raise ValueError('market source lookup rejected')
+            model, metadata = self._source_metadata(conn, row, tenant, kind)
+            result = metadata | {'input': model.model_dump(mode='json', exclude={'tenant_id'})}
+            self._source_read_access(tenant)
+        return result
+
+    def list_user_sources(self, tenant, kind, *, limit=20, after_record_id=None, after_revision=None):
+        self._source_read_access(tenant)
+        if (type(kind) is not str or kind not in _KINDS or type(limit) is not int or not 1 <= limit <= 50 or
+                (after_record_id is None) != (after_revision is None) or
+                (after_record_id is not None and
+                 (not _name(after_record_id) or not _name(after_revision)))):
+            raise ValueError('market source catalog rejected')
+        cursor = sql.SQL('')
+        args = [tenant, kind]
+        if after_record_id is not None:
+            cursor = sql.SQL(' AND (record_id COLLATE "C", revision COLLATE "C") > (%s,%s)')
+            args.extend((after_record_id, after_revision))
+        args.append(limit+1)
+        with self.connect() as conn:
+            rows = conn.execute(sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND kind=%s{} '
+                'ORDER BY record_id COLLATE "C", revision COLLATE "C" LIMIT %s')
+                .format(self._table('market_source_records'), cursor), args).fetchall()
+            items = [self._source_metadata(conn, row, tenant, kind)[1] for row in rows]
+            self._source_read_access(tenant)
+        next_cursor = None
+        if len(items) > limit:
+            next_cursor = {name: items[limit-1][name] for name in ('record_id', 'revision')}
+        return {'kind': kind, 'items': items[:limit], 'next_cursor': next_cursor}
+
     def _read(self, kind, identity, revision, *, pin=False):
         tenant = self._tenant('market_source_read')
         if tenant is None or not _name(identity) or not _name(revision):

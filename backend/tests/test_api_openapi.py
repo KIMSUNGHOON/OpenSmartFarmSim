@@ -43,6 +43,8 @@ OPERATIONS = {
          'decision_context_read', 'market_hold_context_read']),
     ('/v1/market-user-sources', 'post'): ('registerMarketUserSource',
         ['market_source_write', 'market_source_read', 'metadata']),
+    ('/v1/market-user-sources', 'get'): ('listMarketUserSources', ['market_source_read', 'metadata']),
+    ('/v1/market-user-sources/record', 'get'): ('getMarketUserSource', ['market_source_read', 'metadata']),
     ('/v1/scenarios', 'post'): ('registerThermalScenario', ['thermal_scenario_write',
         'thermal_scenario_read', 'thermal_snapshot_read', 'decision_context_read', 'market_hold_context_read']),
     ('/v1/scenarios', 'get'): ('getThermalScenario', ['thermal_scenario_read',
@@ -149,6 +151,8 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
         principal["scopes"] = set(scopes)-{missing}
         status, body, _ = asyncio.run(request(app, path=path, method=method.upper(),
             query=(b'scenario_id=example&scenario_revision=r1' if path == '/v1/scenarios'
+                else b'kind=economic_input' if path == '/v1/market-user-sources'
+                else b'kind=economic_input&record_id=example&revision=r1' if path == '/v1/market-user-sources/record'
                 else b"plan_id=example" if path == "/v1/break-even-results" else b"token=spoofed")))
         assert status == 403 and body["error"]["code"] == "forbidden" and stores.calls == 0
 

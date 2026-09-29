@@ -36,3 +36,5 @@
 **결정적 simulation 연결 후보:** [열 작업자](../contracts/thermal-simulation-worker-v1.md)는 실제 불변 작업·현재 임대/권한에 결합해 Run과 완료를 한 거래로 게시하며 전경 프로세스 실행을 제공한다. [증거](../research/thermal-simulation-worker-implementation.md)는 성공·보류·취소·만료·롤백·프로세스 중단 후 새 시도를 기록한다. 실제 Codex/독립 증거·HTTP 제출·워크플로/브라우저·운영 G1/G4는 남아 있다.
 
 **첫 웹 접수·조회 연결 후보:** [웹 계약](../contracts/web-location-shell-v1.md)과 [증거](../research/web-location-shell-implementation.md)에 따라 한국어 입력·작업/보류 화면, 고정 DTO 검증·동일 요청 재확인, 실제 TLS/SCRAM/Chromium 연결을 검증했다. 320/768/1440px·글자 200%와 키보드 시험이 통과했다. 시험 실행기는 가짜 CLI이며 완전한 농장/경제/시장 입력과 카드·지도·3D·실제 모델·전체 G1/G4는 남는다. 새 웹 CI의 정확한 head 결과는 별도 확인한다.
+
+**저장 경제 가정 조회 후보 (2026-09-29):** [조회 계약](../contracts/api-market-user-source-read-v1.md)과 [증거](../research/market-user-source-read-implementation.md)는 실제 SCRAM 저장소의 사용자 소유 목록·지정 판본, 최초 입력/해시 대사, 읽기 전용 Bearer를 다룬다. 금액/수량 문자열·단위·null을 그대로 읽으며 기록이나 산술 결과를 생성하지 않는다. 사용자 경제/시장 입력 화면, 실제 모델·독립 근거·전체 G1/G4 수용은 남아 있다.

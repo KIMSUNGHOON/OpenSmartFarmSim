@@ -87,3 +87,16 @@ head. This change did not run the full backend suite, public TLS/production
 hosting, actual-model flow, whole farm/calendar/economic orchestration, map/3D,
 independent reviewer/custody/release, provider G0, G2, G3a, G3b or G4. All
 corresponding task checkboxes and gates remain unchanged.
+
+## Hosted receipt for the web-shell head
+
+Head `ec8107bdc57404cc5f3633637efc20678fdaf9c0`:
+[web CI 36542677609](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36542677609)
+completed successfully at `2026-09-29T08:26:47Z` (45 seconds). Its hosted log
+confirms 23 unit tests, typecheck/build, 3 Chromium browser tests, and npm audit
+with zero vulnerabilities. The browser suite uses mocked responses; the actual
+TLS/SCRAM smoke above remains local evidence, not a hosted test.
+[Compose 36542677509](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36542677509)
+also succeeded for that exact head. Backend run `36542677529` was still live
+when this receipt was recorded. These receipts confer no actual-model or gate
+acceptance.

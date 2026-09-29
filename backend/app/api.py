@@ -24,7 +24,9 @@ from .thermal_run_submission import ThermalRunRequest, ThermalRunSubmissionServi
 from .api_json import read_json_request, JsonRequestRejected
 from .api_scenario import ThermalScenarioRequest, ThermalScenarioSummary, project_scenario, scenario_request_schema
 from .api_market_source import (MarketUserSourceRequest, MarketUserSourceSummary,
-    MarketUserSourceService, SOURCE_SCOPES, market_user_source_schema)
+    MarketUserSourceService, SOURCE_SCOPES, SOURCE_READ_SCOPES, market_user_source_schema,
+    SourceKind, MarketUserSourceRead, MarketUserSourcePage)
+from .provenance import Name
 from .market_source_store import MarketSourceDenied, MarketSourceConflict
 from .api_economic_scenario import (EconomicScenarioService, EconomicScenarioRequest,
     EconomicScenarioSummary, ECONOMIC_SCENARIO_SCOPES)
@@ -327,6 +329,49 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return project_scenario(record)
         except Exception:
             return _error(503, 'scenario_unavailable', 'Scenario lookup unavailable')
+
+    @app.get('/v1/market-user-sources', response_model=MarketUserSourcePage,
+             operation_id='listMarketUserSources', responses=errors,
+             openapi_extra=_access(SOURCE_READ_SCOPES))
+    def list_market_user_sources(kind: SourceKind,
+            limit: Annotated[int, Query(ge=1, le=50)] = 20,
+            after_record_id: Annotated[Name | None, Query(max_length=200)] = None,
+            after_revision: Annotated[Name | None, Query(max_length=200)] = None):
+        tenant, denied = authorized_tenant(*SOURCE_READ_SCOPES)
+        if denied is not None:
+            return denied
+        if market_user_source_service is None:
+            return _error(503, 'source_unavailable', 'User source lookup unavailable')
+        if (after_record_id is None) != (after_revision is None):
+            return _error(422, 'invalid_request', 'Invalid request')
+        try:
+            return market_user_source_service.list(tenant, kind, limit=limit,
+                after_record_id=after_record_id, after_revision=after_revision)
+        except (PermissionError, MarketSourceDenied):
+            return _error(403, 'forbidden', 'Resource access denied')
+        except Exception:
+            return _error(503, 'source_unavailable', 'User source lookup unavailable')
+
+    @app.get('/v1/market-user-sources/record', response_model=MarketUserSourceRead,
+             operation_id='getMarketUserSource', responses=errors,
+             openapi_extra=_access(SOURCE_READ_SCOPES))
+    def get_market_user_source(kind: SourceKind,
+            record_id: Annotated[Name, Query(max_length=200)],
+            revision: Annotated[Name, Query(max_length=200)]):
+        tenant, denied = authorized_tenant(*SOURCE_READ_SCOPES)
+        if denied is not None:
+            return denied
+        if market_user_source_service is None:
+            return _error(503, 'source_unavailable', 'User source lookup unavailable')
+        try:
+            result = market_user_source_service.get(tenant, kind, record_id, revision)
+            if result is None:
+                return _error(404, 'not_found', 'User source version not found')
+            return result
+        except (PermissionError, MarketSourceDenied):
+            return _error(403, 'forbidden', 'Resource access denied')
+        except Exception:
+            return _error(503, 'source_unavailable', 'User source lookup unavailable')
 
     @app.post('/v1/market-user-sources', response_model=MarketUserSourceSummary,
               operation_id='registerMarketUserSource',

@@ -1,7 +1,7 @@
 # Implemented API OpenAPI contract v1
 
 [openapi-v1.json](openapi-v1.json) is the deterministic OpenAPI 3.1.0 snapshot
-of the twenty-two implemented operations. It is an internal software candidate.
+of the twenty-four implemented operations. It is an internal software candidate.
 Future provider ingestion, validated crop assessments and region listings are
 specified in ARCHITECTURE but are not advertised as available operations.
 
@@ -33,7 +33,7 @@ decision_context_read when the protected [owned planning option](owned-research-
 is installed. The original location scope/request/response and operation ID
 remain stable; the initial registry continues to hold.
 
-Operation IDs are stable: registerLocation, registerMarketUserSource, registerEconomicScenario, registerThermalScenario, getThermalScenario,
+Operation IDs are stable: registerLocation, registerMarketUserSource, listMarketUserSources, getMarketUserSource, registerEconomicScenario, registerThermalScenario, getThermalScenario,
 submitThermalRun, submitOwnedIngestion, submitOwnedCollectionReview, submitCalculationAssessment, submitEconomicCalculation, submitBreakEvenPlan, getJob, getJobHold, getJobRun, getJobEconomicResult, getJobBreakEvenResult, getMarketHold,
 getRun, getRunSeries, getRunManifest, getEconomicResult, getBreakEvenResult. `LocationPoint` is a
 closed latitude/longitude object with coordinate bounds, matching the actual
@@ -83,6 +83,11 @@ bounded query IDs to preserve the existing slash/colon identifier grammar.
 [User-assumption intake](api-market-user-source-v1.md) adds seven closed request
 alternatives and a 65536-byte limit. Its acknowledgement keeps the intent queued
 and grants no source approval, calculation completion or forecast claim.
+
+[Stored-assumption reads](api-market-user-source-read-v1.md) add an owner-scoped
+bounded catalog and seven closed record responses. They preserve decimal
+strings and unknown inputs; write scope is unnecessary. Stored pins include
+the authenticated tenant, while response input removes that tenant.
 
 [Conditional scenario registration](api-economic-scenario-v1.md) joins the actual
 intent and existing candidate/numeric pins in one transaction. Registration stays

@@ -2,16 +2,17 @@
 
 from datetime import datetime
 from hashlib import sha256
-from typing import Any, Literal
+import json
+from typing import Annotated, Any, Literal, Union
 
-from pydantic import Field
+from pydantic import Field, TypeAdapter, create_model
 
 from .api_contracts import JobStatus, public_job_status
 from .job_store import JobStore
 from .jobs import canonical_input_bytes
 from .market_source_store import MarketSourceStore, _KINDS
 from .market import UnavailableMarketContext
-from .provenance import FrozenContract
+from .provenance import FrozenContract, Name, Digest
 from .runtime_roles import RuntimeLoginPolicy
 from .thermal_scenario_store import IDENTIFIER
 from .http_identity import current_principal
@@ -55,6 +56,7 @@ class _MarketSources:
 SourceKind = Literal['economic_scenario', 'economic_input', 'joint_shock', 'input_rights',
                      'settlement_applicability', 'settlement_evidence', 'prior_batch_cost']
 SOURCE_SCOPES = ('market_source_write', 'market_source_read', 'metadata')
+SOURCE_READ_SCOPES = ('market_source_read', 'metadata')
 
 
 class MarketUserSourceRequest(FrozenContract):
@@ -63,14 +65,61 @@ class MarketUserSourceRequest(FrozenContract):
     idempotency_key: str = Field(pattern=IDENTIFIER, max_length=200)
 
 
-class MarketUserSourceSummary(FrozenContract):
+class MarketUserSourceMetadata(FrozenContract):
     kind: SourceKind
-    record_id: str = Field(min_length=1, max_length=200)
-    revision: str = Field(min_length=1, max_length=200)
-    payload_sha256: str = Field(pattern=r'^[0-9a-f]{64}$')
+    record_id: Name = Field(min_length=1, max_length=200)
+    revision: Name = Field(min_length=1, max_length=200)
+    payload_sha256: Digest
     admission_kind: Literal['contract_valid_user_assumption']
     recorded_at: datetime
+
+
+class MarketUserSourceSummary(MarketUserSourceMetadata):
     intent_job: JobStatus
+
+
+class MarketUserSourceCursor(FrozenContract):
+    record_id: Name = Field(min_length=1, max_length=200)
+    revision: Name = Field(min_length=1, max_length=200)
+
+
+class MarketUserSourcePage(FrozenContract):
+    kind: SourceKind
+    items: tuple[MarketUserSourceMetadata, ...] = Field(max_length=50)
+    next_cursor: MarketUserSourceCursor | None
+
+
+def _source_read_variants():
+    variants = []
+    for kind, (model, _, _) in _KINDS.items():
+        fields = {}
+        for name, info in model.model_fields.items():
+            if name == 'tenant_id':
+                continue
+            data = info.asdict()
+            attributes = data['attributes']
+            attributes.pop('default', None)
+            attributes.pop('default_factory', None)
+            annotation = data['annotation']
+            if kind == 'economic_scenario' and name in ('market_context', 'scenario_market_context'):
+                annotation = UnavailableMarketContext
+                attributes.pop('discriminator', None)
+            fields[name] = (Annotated[annotation, *data['metadata'], Field(**attributes)], ...)
+        payload = create_model('UserSource'+model.__name__, __base__=FrozenContract, **fields)
+        variants.append(create_model(model.__name__+'SourceRead', __base__=MarketUserSourceMetadata,
+            kind=(Literal[kind], ...), input=(payload, ...)))
+    return tuple(variants)
+
+
+MarketUserSourceRead = Annotated[Union[_source_read_variants()], Field(discriminator='kind')]
+_SOURCE_READ_ADAPTER = TypeAdapter(MarketUserSourceRead)
+
+
+def _source_response_bytes(value):
+    raw = json.dumps(value, ensure_ascii=False, allow_nan=False, separators=(',', ':')).encode('utf-8')
+    if len(raw) > 131072:
+        raise RuntimeError('market source response rejected')
+    return raw
 
 
 def _inline_schema(model):
@@ -134,6 +183,28 @@ class MarketUserSourceService:
     def _access(self, tenant):
         if not all(self.jobs._has_scope(tenant, scope) for scope in SOURCE_SCOPES):
             raise PermissionError('market user source admission denied')
+
+    def _read_guard(self, tenant, jobs, sources):
+        if not all(self.jobs._has_scope(tenant, scope) for scope in SOURCE_READ_SCOPES):
+            raise PermissionError('market user source lookup denied')
+        self._binding()
+        if self.jobs is not jobs or self.sources is not sources:
+            raise RuntimeError('market user source binding rejected')
+
+    def get(self, tenant, kind, identity, revision):
+        jobs, sources = self.jobs, self.sources
+        self._read_guard(tenant, jobs, sources)
+        result = sources.get_user_source(tenant, kind, identity, revision)
+        self._read_guard(tenant, jobs, sources)
+        return None if result is None else _SOURCE_READ_ADAPTER.validate_json(_source_response_bytes(result))
+
+    def list(self, tenant, kind, *, limit=20, after_record_id=None, after_revision=None):
+        jobs, sources = self.jobs, self.sources
+        self._read_guard(tenant, jobs, sources)
+        result = sources.list_user_sources(tenant, kind, limit=limit,
+            after_record_id=after_record_id, after_revision=after_revision)
+        self._read_guard(tenant, jobs, sources)
+        return MarketUserSourcePage.model_validate_json(_source_response_bytes(result))
 
     def submit(self, tenant, body):
         self._access(tenant)

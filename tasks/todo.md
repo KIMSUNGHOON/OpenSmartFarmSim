@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**저장 경제 가정 조회 연결 진행:** [조회 계약](../contracts/api-market-user-source-read-v1.md)은 같은 사용자의 7종 입력 목록·지정 판본을 기존 최초 작업/원본 해시와 대사한다. [구현 증거](../research/market-user-source-read-implementation.md)는 실제 SCRAM·Bearer의 소프트웨어 범위다. 숫자·단위·null을 보존하며 경제/시장 입력 화면·실제 모델·전체 G1/G4 수용이 남아 기존 체크를 유지한다.
+
 **첫 웹 접수·조회 연결 진행:** [계약](../contracts/web-location-shell-v1.md)과 [검증](../research/web-location-shell-implementation.md)은 좌표/UTC 기간 요청·작업/보류 근거, 실제 TLS/SCRAM 브라우저와 가짜 CLI의 소프트웨어 범위다. 경제/시장 입력·카드, 지도, 3D·실제 모델·전체 G1/G4 수용이 남아 `web-shell` 및 기존 체크를 유지한다.
 
 **공유 CLI 계약 조립 진행:** [실제 세 서비스 구성](../contracts/owned-cli-contracts-v1.md)과 [집중 검증 기록](../research/owned-cli-contracts-implementation.md)은 같은 저장소/등록부를 확인하는 소프트웨어 범위다. 실제 CLI·독립 검토/해제·전체 G1 수용까지 기존 체크를 유지한다.

@@ -1,6 +1,210 @@
 {
   "components": {
     "schemas": {
+      "AmountEvent": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "asset_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Asset Id"
+          },
+          "at": {
+            "format": "date-time",
+            "title": "At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "loan_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Loan Id"
+          }
+        },
+        "required": [
+          "id",
+          "at",
+          "amount"
+        ],
+        "title": "AmountEvent",
+        "type": "object"
+      },
+      "ApplicabilitySourceRead": {
+        "additionalProperties": false,
+        "properties": {
+          "admission_kind": {
+            "const": "contract_valid_user_assumption",
+            "title": "Admission Kind",
+            "type": "string"
+          },
+          "input": {
+            "$ref": "#/components/schemas/UserSourceApplicability"
+          },
+          "kind": {
+            "const": "settlement_applicability",
+            "title": "Kind",
+            "type": "string"
+          },
+          "payload_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Payload Sha256",
+            "type": "string"
+          },
+          "record_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Record Id",
+            "type": "string"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "revision": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "record_id",
+          "revision",
+          "payload_sha256",
+          "admission_kind",
+          "recorded_at",
+          "input"
+        ],
+        "title": "ApplicabilitySourceRead",
+        "type": "object"
+      },
+      "AssetAccount": {
+        "additionalProperties": false,
+        "properties": {
+          "acquired_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Acquired At"
+          },
+          "acquisition_cost": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EconomicNumber"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "installed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Installed At"
+          },
+          "opening_accumulated_depreciation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EconomicNumber"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "opening_basis": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "residual_value": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EconomicNumber"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "useful_life_days": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EconomicNumber"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "opening_basis"
+        ],
+        "title": "AssetAccount",
+        "type": "object"
+      },
+      "BindingRef": {
+        "additionalProperties": false,
+        "properties": {
+          "binding_id": {
+            "title": "Binding Id",
+            "type": "string"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Sha256",
+            "type": "string"
+          }
+        },
+        "required": [
+          "binding_id",
+          "revision",
+          "sha256"
+        ],
+        "title": "BindingRef",
+        "type": "object"
+      },
       "BreakEvenPlanAccepted": {
         "additionalProperties": false,
         "properties": {
@@ -244,6 +448,434 @@
         "title": "BreakEvenTrialRead",
         "type": "object"
       },
+      "Collection": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "at": {
+            "format": "date-time",
+            "title": "At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "sale_id": {
+            "title": "Sale Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "sale_id",
+          "at",
+          "amount"
+        ],
+        "title": "Collection",
+        "type": "object"
+      },
+      "ContractCap": {
+        "additionalProperties": false,
+        "properties": {
+          "accepted_kg": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "available_at": {
+            "format": "date-time",
+            "title": "Available At",
+            "type": "string"
+          },
+          "channel": {
+            "title": "Channel",
+            "type": "string"
+          },
+          "contract_id": {
+            "title": "Contract Id",
+            "type": "string"
+          },
+          "effective_end": {
+            "format": "date",
+            "title": "Effective End",
+            "type": "string"
+          },
+          "effective_start": {
+            "format": "date",
+            "title": "Effective Start",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "grade": {
+            "title": "Grade",
+            "type": "string"
+          },
+          "origin": {
+            "const": "user",
+            "title": "Origin",
+            "type": "string"
+          },
+          "record_id": {
+            "title": "Record Id",
+            "type": "string"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "string"
+          },
+          "rights": {
+            "$ref": "#/components/schemas/Rights"
+          },
+          "sale_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Sale Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "record_id",
+          "revision",
+          "contract_id",
+          "sale_ids",
+          "grade",
+          "channel",
+          "accepted_kg",
+          "origin",
+          "evidence_level",
+          "available_at",
+          "effective_start",
+          "effective_end",
+          "rights"
+        ],
+        "title": "ContractCap",
+        "type": "object"
+      },
+      "Cost": {
+        "additionalProperties": false,
+        "properties": {
+          "batch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Batch Id"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "incurred_at": {
+            "format": "date-time",
+            "title": "Incurred At",
+            "type": "string"
+          },
+          "paid_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paid At"
+          },
+          "payment": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EconomicNumber"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "purpose": {
+            "enum": [
+              "production",
+              "sale",
+              "period"
+            ],
+            "title": "Purpose",
+            "type": "string"
+          },
+          "quantity": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "sale_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sale Id"
+          },
+          "unit_cost": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          }
+        },
+        "required": [
+          "id",
+          "purpose",
+          "batch_id",
+          "sale_id",
+          "incurred_at",
+          "quantity",
+          "unit_cost",
+          "paid_at",
+          "payment"
+        ],
+        "title": "Cost",
+        "type": "object"
+      },
+      "Cull": {
+        "additionalProperties": false,
+        "properties": {
+          "at": {
+            "format": "date-time",
+            "title": "At",
+            "type": "string"
+          },
+          "harvest_id": {
+            "title": "Harvest Id",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "quantity": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          }
+        },
+        "required": [
+          "id",
+          "harvest_id",
+          "at",
+          "quantity"
+        ],
+        "title": "Cull",
+        "type": "object"
+      },
+      "CullDisposal": {
+        "additionalProperties": false,
+        "properties": {
+          "at": {
+            "format": "date-time",
+            "title": "At",
+            "type": "string"
+          },
+          "cull_id": {
+            "title": "Cull Id",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "quantity": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          }
+        },
+        "required": [
+          "id",
+          "cull_id",
+          "at",
+          "quantity"
+        ],
+        "title": "CullDisposal",
+        "type": "object"
+      },
+      "DebtAccount": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "opening_principal": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          }
+        },
+        "required": [
+          "id",
+          "opening_principal"
+        ],
+        "title": "DebtAccount",
+        "type": "object"
+      },
+      "Discount": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "at": {
+            "format": "date-time",
+            "title": "At",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "sale_id": {
+            "title": "Sale Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "sale_id",
+          "at",
+          "amount"
+        ],
+        "title": "Discount",
+        "type": "object"
+      },
+      "Disposal": {
+        "additionalProperties": false,
+        "properties": {
+          "at": {
+            "format": "date-time",
+            "title": "At",
+            "type": "string"
+          },
+          "batch_id": {
+            "title": "Batch Id",
+            "type": "string"
+          },
+          "channel": {
+            "title": "Channel",
+            "type": "string"
+          },
+          "grade": {
+            "title": "Grade",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "quantity": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          }
+        },
+        "required": [
+          "id",
+          "batch_id",
+          "grade",
+          "channel",
+          "at",
+          "quantity"
+        ],
+        "title": "Disposal",
+        "type": "object"
+      },
+      "Driver": {
+        "additionalProperties": false,
+        "properties": {
+          "available_at": {
+            "format": "date-time",
+            "title": "Available At",
+            "type": "string"
+          },
+          "causal_status": {
+            "const": "unvalidated_user_hypothesis",
+            "title": "Causal Status",
+            "type": "string"
+          },
+          "changes": {
+            "items": {
+              "$ref": "#/components/schemas/Edit"
+            },
+            "title": "Changes",
+            "type": "array"
+          },
+          "effective_end": {
+            "format": "date",
+            "title": "Effective End",
+            "type": "string"
+          },
+          "effective_start": {
+            "format": "date",
+            "title": "Effective Start",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "hypothesis": {
+            "minLength": 1,
+            "title": "Hypothesis",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "demand",
+              "supply",
+              "macro"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "origin": {
+            "const": "user",
+            "title": "Origin",
+            "type": "string"
+          },
+          "record_id": {
+            "title": "Record Id",
+            "type": "string"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "string"
+          },
+          "rights": {
+            "$ref": "#/components/schemas/Rights"
+          },
+          "source_ref": {
+            "title": "Source Ref",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "record_id",
+          "revision",
+          "origin",
+          "evidence_level",
+          "available_at",
+          "effective_start",
+          "effective_end",
+          "rights",
+          "hypothesis",
+          "source_ref",
+          "causal_status",
+          "changes"
+        ],
+        "title": "Driver",
+        "type": "object"
+      },
       "EconomicAmounts": {
         "additionalProperties": false,
         "properties": {
@@ -376,6 +1008,75 @@
           "cash_shortage_krw"
         ],
         "title": "EconomicAmounts",
+        "type": "object"
+      },
+      "EconomicNumber": {
+        "additionalProperties": false,
+        "properties": {
+          "assumption_scope": {
+            "title": "Assumption Scope",
+            "type": "string"
+          },
+          "available_at": {
+            "format": "date-time",
+            "title": "Available At",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "input_id": {
+            "title": "Input Id",
+            "type": "string"
+          },
+          "origin": {
+            "const": "user",
+            "title": "Origin",
+            "type": "string"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "string"
+          },
+          "source_ref": {
+            "title": "Source Ref",
+            "type": "string"
+          },
+          "unit": {
+            "enum": [
+              "kg",
+              "KRW",
+              "KRW/kg",
+              "month",
+              "KRW/month",
+              "kWh_e",
+              "KRW/kWh_e",
+              "L",
+              "KRW/L",
+              "day"
+            ],
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "value",
+          "unit",
+          "input_id",
+          "revision",
+          "origin",
+          "evidence_level",
+          "assumption_scope",
+          "source_ref",
+          "available_at"
+        ],
+        "title": "EconomicNumber",
         "type": "object"
       },
       "EconomicQuantities": {
@@ -518,6 +1219,57 @@
         "title": "EconomicResultRead",
         "type": "object"
       },
+      "EconomicScenarioSourceRead": {
+        "additionalProperties": false,
+        "properties": {
+          "admission_kind": {
+            "const": "contract_valid_user_assumption",
+            "title": "Admission Kind",
+            "type": "string"
+          },
+          "input": {
+            "$ref": "#/components/schemas/UserSourceEconomicScenario"
+          },
+          "kind": {
+            "const": "economic_scenario",
+            "title": "Kind",
+            "type": "string"
+          },
+          "payload_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Payload Sha256",
+            "type": "string"
+          },
+          "record_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Record Id",
+            "type": "string"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "revision": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "record_id",
+          "revision",
+          "payload_sha256",
+          "admission_kind",
+          "recorded_at",
+          "input"
+        ],
+        "title": "EconomicScenarioSourceRead",
+        "type": "object"
+      },
       "EconomicScenarioSummary": {
         "additionalProperties": false,
         "properties": {
@@ -569,6 +1321,63 @@
         "title": "EconomicScenarioSummary",
         "type": "object"
       },
+      "Edit": {
+        "additionalProperties": false,
+        "properties": {
+          "event_group": {
+            "title": "Event Group",
+            "type": "string"
+          },
+          "event_id": {
+            "title": "Event Id",
+            "type": "string"
+          },
+          "field": {
+            "title": "Field",
+            "type": "string"
+          },
+          "number": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EconomicNumber"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reference": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference"
+          },
+          "time": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Time"
+          }
+        },
+        "required": [
+          "event_group",
+          "event_id",
+          "field"
+        ],
+        "title": "Edit",
+        "type": "object"
+      },
       "ErrorDetail": {
         "additionalProperties": false,
         "properties": {
@@ -599,6 +1408,86 @@
           "error"
         ],
         "title": "ErrorEnvelope",
+        "type": "object"
+      },
+      "Harvest": {
+        "additionalProperties": false,
+        "properties": {
+          "at": {
+            "format": "date-time",
+            "title": "At",
+            "type": "string"
+          },
+          "batch_id": {
+            "title": "Batch Id",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "quantity": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          }
+        },
+        "required": [
+          "id",
+          "batch_id",
+          "at",
+          "quantity"
+        ],
+        "title": "Harvest",
+        "type": "object"
+      },
+      "InputRightsSourceRead": {
+        "additionalProperties": false,
+        "properties": {
+          "admission_kind": {
+            "const": "contract_valid_user_assumption",
+            "title": "Admission Kind",
+            "type": "string"
+          },
+          "input": {
+            "$ref": "#/components/schemas/UserSourceInputRights"
+          },
+          "kind": {
+            "const": "input_rights",
+            "title": "Kind",
+            "type": "string"
+          },
+          "payload_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Payload Sha256",
+            "type": "string"
+          },
+          "record_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Record Id",
+            "type": "string"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "revision": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "record_id",
+          "revision",
+          "payload_sha256",
+          "admission_kind",
+          "recorded_at",
+          "input"
+        ],
+        "title": "InputRightsSourceRead",
         "type": "object"
       },
       "JobHoldStatus": {
@@ -761,6 +1650,57 @@
         "title": "JobStatus",
         "type": "object"
       },
+      "JointShockSourceRead": {
+        "additionalProperties": false,
+        "properties": {
+          "admission_kind": {
+            "const": "contract_valid_user_assumption",
+            "title": "Admission Kind",
+            "type": "string"
+          },
+          "input": {
+            "$ref": "#/components/schemas/UserSourceJointShock"
+          },
+          "kind": {
+            "const": "joint_shock",
+            "title": "Kind",
+            "type": "string"
+          },
+          "payload_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Payload Sha256",
+            "type": "string"
+          },
+          "record_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Record Id",
+            "type": "string"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "revision": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "record_id",
+          "revision",
+          "payload_sha256",
+          "admission_kind",
+          "recorded_at",
+          "input"
+        ],
+        "title": "JointShockSourceRead",
+        "type": "object"
+      },
       "LocationAccepted": {
         "additionalProperties": false,
         "properties": {
@@ -850,6 +1790,127 @@
         "title": "MarketHoldStatus",
         "type": "object"
       },
+      "MarketUserSourceCursor": {
+        "additionalProperties": false,
+        "properties": {
+          "record_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Record Id",
+            "type": "string"
+          },
+          "revision": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "record_id",
+          "revision"
+        ],
+        "title": "MarketUserSourceCursor",
+        "type": "object"
+      },
+      "MarketUserSourceMetadata": {
+        "additionalProperties": false,
+        "properties": {
+          "admission_kind": {
+            "const": "contract_valid_user_assumption",
+            "title": "Admission Kind",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "economic_scenario",
+              "economic_input",
+              "joint_shock",
+              "input_rights",
+              "settlement_applicability",
+              "settlement_evidence",
+              "prior_batch_cost"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "payload_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Payload Sha256",
+            "type": "string"
+          },
+          "record_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Record Id",
+            "type": "string"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "revision": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "record_id",
+          "revision",
+          "payload_sha256",
+          "admission_kind",
+          "recorded_at"
+        ],
+        "title": "MarketUserSourceMetadata",
+        "type": "object"
+      },
+      "MarketUserSourcePage": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/MarketUserSourceMetadata"
+            },
+            "maxItems": 50,
+            "title": "Items",
+            "type": "array"
+          },
+          "kind": {
+            "enum": [
+              "economic_scenario",
+              "economic_input",
+              "joint_shock",
+              "input_rights",
+              "settlement_applicability",
+              "settlement_evidence",
+              "prior_batch_cost"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MarketUserSourceCursor"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "kind",
+          "items",
+          "next_cursor"
+        ],
+        "title": "MarketUserSourcePage",
+        "type": "object"
+      },
       "MarketUserSourceSummary": {
         "additionalProperties": false,
         "properties": {
@@ -907,6 +1968,491 @@
           "intent_job"
         ],
         "title": "MarketUserSourceSummary",
+        "type": "object"
+      },
+      "OpeningLot": {
+        "additionalProperties": false,
+        "properties": {
+          "allocation_basis": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EconomicNumber"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "allocation_policy": {
+            "anyOf": [
+              {
+                "const": "proportional_saleable_kg_v1",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Allocation Policy"
+          },
+          "batch_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Batch Id"
+          },
+          "channel": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Channel"
+          },
+          "grade": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Grade"
+          },
+          "prior_cost_amount": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EconomicNumber"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "prior_cost_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prior Cost Ref"
+          },
+          "quantity": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          }
+        },
+        "required": [
+          "grade",
+          "batch_id",
+          "channel",
+          "prior_cost_ref",
+          "quantity"
+        ],
+        "title": "OpeningLot",
+        "type": "object"
+      },
+      "OwnedEconomicRecordSourceRead": {
+        "additionalProperties": false,
+        "properties": {
+          "admission_kind": {
+            "const": "contract_valid_user_assumption",
+            "title": "Admission Kind",
+            "type": "string"
+          },
+          "input": {
+            "$ref": "#/components/schemas/UserSourceOwnedEconomicRecord"
+          },
+          "kind": {
+            "const": "economic_input",
+            "title": "Kind",
+            "type": "string"
+          },
+          "payload_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Payload Sha256",
+            "type": "string"
+          },
+          "record_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Record Id",
+            "type": "string"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "revision": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "record_id",
+          "revision",
+          "payload_sha256",
+          "admission_kind",
+          "recorded_at",
+          "input"
+        ],
+        "title": "OwnedEconomicRecordSourceRead",
+        "type": "object"
+      },
+      "OwnedSettlementRecordSourceRead": {
+        "additionalProperties": false,
+        "properties": {
+          "admission_kind": {
+            "const": "contract_valid_user_assumption",
+            "title": "Admission Kind",
+            "type": "string"
+          },
+          "input": {
+            "$ref": "#/components/schemas/UserSourceOwnedSettlementRecord"
+          },
+          "kind": {
+            "const": "settlement_evidence",
+            "title": "Kind",
+            "type": "string"
+          },
+          "payload_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Payload Sha256",
+            "type": "string"
+          },
+          "record_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Record Id",
+            "type": "string"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "revision": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "record_id",
+          "revision",
+          "payload_sha256",
+          "admission_kind",
+          "recorded_at",
+          "input"
+        ],
+        "title": "OwnedSettlementRecordSourceRead",
+        "type": "object"
+      },
+      "Packout": {
+        "additionalProperties": false,
+        "properties": {
+          "at": {
+            "format": "date-time",
+            "title": "At",
+            "type": "string"
+          },
+          "batch_id": {
+            "title": "Batch Id",
+            "type": "string"
+          },
+          "channel": {
+            "title": "Channel",
+            "type": "string"
+          },
+          "grade": {
+            "title": "Grade",
+            "type": "string"
+          },
+          "harvest_id": {
+            "title": "Harvest Id",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "quantity": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          }
+        },
+        "required": [
+          "id",
+          "harvest_id",
+          "batch_id",
+          "grade",
+          "channel",
+          "at",
+          "quantity"
+        ],
+        "title": "Packout",
+        "type": "object"
+      },
+      "PriorBatchCostRecordSourceRead": {
+        "additionalProperties": false,
+        "properties": {
+          "admission_kind": {
+            "const": "contract_valid_user_assumption",
+            "title": "Admission Kind",
+            "type": "string"
+          },
+          "input": {
+            "$ref": "#/components/schemas/UserSourcePriorBatchCostRecord"
+          },
+          "kind": {
+            "const": "prior_batch_cost",
+            "title": "Kind",
+            "type": "string"
+          },
+          "payload_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Payload Sha256",
+            "type": "string"
+          },
+          "record_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Record Id",
+            "type": "string"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "revision": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "record_id",
+          "revision",
+          "payload_sha256",
+          "admission_kind",
+          "recorded_at",
+          "input"
+        ],
+        "title": "PriorBatchCostRecordSourceRead",
+        "type": "object"
+      },
+      "Return": {
+        "additionalProperties": false,
+        "properties": {
+          "at": {
+            "format": "date-time",
+            "title": "At",
+            "type": "string"
+          },
+          "disposition": {
+            "enum": [
+              "resaleable",
+              "disposed"
+            ],
+            "title": "Disposition",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "quantity": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "refund": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "refund_paid_at": {
+            "format": "date-time",
+            "title": "Refund Paid At",
+            "type": "string"
+          },
+          "sale_id": {
+            "title": "Sale Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "sale_id",
+          "at",
+          "quantity",
+          "disposition",
+          "refund",
+          "refund_paid_at"
+        ],
+        "title": "Return",
+        "type": "object"
+      },
+      "Rights": {
+        "additionalProperties": false,
+        "properties": {
+          "display": {
+            "const": "allowed",
+            "title": "Display",
+            "type": "string"
+          },
+          "redistribute": {
+            "enum": [
+              "allowed",
+              "denied"
+            ],
+            "title": "Redistribute",
+            "type": "string"
+          },
+          "use": {
+            "const": "allowed",
+            "title": "Use",
+            "type": "string"
+          }
+        },
+        "required": [
+          "use",
+          "display",
+          "redistribute"
+        ],
+        "title": "Rights",
+        "type": "object"
+      },
+      "Sale": {
+        "additionalProperties": false,
+        "properties": {
+          "batch_id": {
+            "title": "Batch Id",
+            "type": "string"
+          },
+          "channel": {
+            "title": "Channel",
+            "type": "string"
+          },
+          "delivery_at": {
+            "format": "date-time",
+            "title": "Delivery At",
+            "type": "string"
+          },
+          "dispatch_at": {
+            "format": "date-time",
+            "title": "Dispatch At",
+            "type": "string"
+          },
+          "grade": {
+            "title": "Grade",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "inspection_at": {
+            "format": "date-time",
+            "title": "Inspection At",
+            "type": "string"
+          },
+          "price": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "price_basis": {
+            "const": "gross_before_deductions",
+            "title": "Price Basis",
+            "type": "string"
+          },
+          "quantity": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "recognized_at": {
+            "format": "date-time",
+            "title": "Recognized At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "batch_id",
+          "grade",
+          "channel",
+          "dispatch_at",
+          "delivery_at",
+          "inspection_at",
+          "recognized_at",
+          "quantity",
+          "price",
+          "price_basis"
+        ],
+        "title": "Sale",
+        "type": "object"
+      },
+      "SettlementSetoff": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "at": {
+            "format": "date-time",
+            "title": "At",
+            "type": "string"
+          },
+          "cost_id": {
+            "title": "Cost Id",
+            "type": "string"
+          },
+          "evidence_revision": {
+            "title": "Evidence Revision",
+            "type": "string"
+          },
+          "evidence_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Evidence Sha256",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "sale_id": {
+            "title": "Sale Id",
+            "type": "string"
+          },
+          "settlement_ref": {
+            "title": "Settlement Ref",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "sale_id",
+          "cost_id",
+          "at",
+          "amount",
+          "settlement_ref",
+          "evidence_revision",
+          "evidence_sha256"
+        ],
+        "title": "SettlementSetoff",
         "type": "object"
       },
       "ThermalLawReference": {
@@ -1392,6 +2938,975 @@
           "delivered_heat_energy_kwh_th"
         ],
         "title": "ThermalSeriesPoint",
+        "type": "object"
+      },
+      "UnavailableMarketContext": {
+        "additionalProperties": false,
+        "properties": {
+          "hold_report_id": {
+            "title": "Hold Report Id",
+            "type": "string"
+          },
+          "kind": {
+            "const": "unavailable",
+            "title": "Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "hold_report_id"
+        ],
+        "title": "UnavailableMarketContext",
+        "type": "object"
+      },
+      "UserSourceApplicability": {
+        "additionalProperties": false,
+        "properties": {
+          "available_at": {
+            "format": "date-time",
+            "title": "Available At",
+            "type": "string"
+          },
+          "binding_id": {
+            "title": "Binding Id",
+            "type": "string"
+          },
+          "effective_end": {
+            "format": "date",
+            "title": "Effective End",
+            "type": "string"
+          },
+          "effective_start": {
+            "format": "date",
+            "title": "Effective Start",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "evidence_revision": {
+            "title": "Evidence Revision",
+            "type": "string"
+          },
+          "evidence_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Evidence Sha256",
+            "type": "string"
+          },
+          "immutable": {
+            "const": true,
+            "title": "Immutable",
+            "type": "boolean"
+          },
+          "origin": {
+            "const": "user",
+            "title": "Origin",
+            "type": "string"
+          },
+          "path_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Path Sha256",
+            "type": "string"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "string"
+          },
+          "rights": {
+            "$ref": "#/components/schemas/Rights"
+          },
+          "sale_id": {
+            "title": "Sale Id",
+            "type": "string"
+          },
+          "setoff_id": {
+            "title": "Setoff Id",
+            "type": "string"
+          },
+          "settlement_ref": {
+            "title": "Settlement Ref",
+            "type": "string"
+          }
+        },
+        "required": [
+          "binding_id",
+          "revision",
+          "setoff_id",
+          "sale_id",
+          "path_sha256",
+          "settlement_ref",
+          "evidence_revision",
+          "evidence_sha256",
+          "origin",
+          "evidence_level",
+          "available_at",
+          "effective_start",
+          "effective_end",
+          "rights",
+          "immutable"
+        ],
+        "title": "UserSourceApplicability",
+        "type": "object"
+      },
+      "UserSourceEconomicScenario": {
+        "additionalProperties": false,
+        "properties": {
+          "asset_disposals": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/AmountEvent"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Asset Disposals"
+          },
+          "assets": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/AssetAccount"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assets"
+          },
+          "capex": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/AmountEvent"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Capex"
+          },
+          "collections": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Collection"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Collections"
+          },
+          "cull_disposals": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/CullDisposal"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cull Disposals"
+          },
+          "culls": {
+            "items": {
+              "$ref": "#/components/schemas/Cull"
+            },
+            "title": "Culls",
+            "type": "array"
+          },
+          "debt_accounts": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/DebtAccount"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Debt Accounts"
+          },
+          "decision_at": {
+            "format": "date-time",
+            "title": "Decision At",
+            "type": "string"
+          },
+          "depreciation": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/AmountEvent"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Depreciation"
+          },
+          "discounts": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Discount"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Discounts"
+          },
+          "disposals": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Disposal"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Disposals"
+          },
+          "fixed_costs": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Cost"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fixed Costs"
+          },
+          "grants": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/AmountEvent"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Grants"
+          },
+          "harvests": {
+            "items": {
+              "$ref": "#/components/schemas/Harvest"
+            },
+            "title": "Harvests",
+            "type": "array"
+          },
+          "interest_payments": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/AmountEvent"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interest Payments"
+          },
+          "loan_draws": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/AmountEvent"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Loan Draws"
+          },
+          "market_context": {
+            "$ref": "#/components/schemas/UnavailableMarketContext"
+          },
+          "opening_cash": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EconomicNumber"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "opening_inventory": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/OpeningLot"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Opening Inventory"
+          },
+          "opening_operating_payable": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EconomicNumber"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "opening_receivable": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EconomicNumber"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "opening_refund_payable": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EconomicNumber"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "packouts": {
+            "items": {
+              "$ref": "#/components/schemas/Packout"
+            },
+            "title": "Packouts",
+            "type": "array"
+          },
+          "period_end": {
+            "format": "date",
+            "title": "Period End",
+            "type": "string"
+          },
+          "period_start": {
+            "format": "date",
+            "title": "Period Start",
+            "type": "string"
+          },
+          "principal_payments": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/AmountEvent"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Principal Payments"
+          },
+          "returns": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Return"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Returns"
+          },
+          "sales": {
+            "items": {
+              "$ref": "#/components/schemas/Sale"
+            },
+            "title": "Sales",
+            "type": "array"
+          },
+          "scenario_id": {
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "scenario_market_context": {
+            "$ref": "#/components/schemas/UnavailableMarketContext"
+          },
+          "scenario_revision": {
+            "title": "Scenario Revision",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "3",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "setoffs": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/SettlementSetoff"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Setoffs"
+          },
+          "taxes": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/AmountEvent"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Taxes"
+          },
+          "variable_costs": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Cost"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Variable Costs"
+          },
+          "zero_declarations": {
+            "items": {
+              "$ref": "#/components/schemas/ZeroDeclaration"
+            },
+            "title": "Zero Declarations",
+            "type": "array"
+          }
+        },
+        "required": [
+          "schema_version",
+          "scenario_id",
+          "scenario_revision",
+          "decision_at",
+          "period_start",
+          "period_end",
+          "scenario_market_context",
+          "market_context",
+          "harvests",
+          "packouts",
+          "culls",
+          "cull_disposals",
+          "opening_inventory",
+          "sales",
+          "collections",
+          "returns",
+          "discounts",
+          "setoffs",
+          "disposals",
+          "variable_costs",
+          "fixed_costs",
+          "depreciation",
+          "assets",
+          "grants",
+          "asset_disposals",
+          "taxes",
+          "capex",
+          "loan_draws",
+          "principal_payments",
+          "interest_payments",
+          "debt_accounts",
+          "opening_cash",
+          "opening_receivable",
+          "opening_refund_payable",
+          "opening_operating_payable",
+          "zero_declarations"
+        ],
+        "title": "UserSourceEconomicScenario",
+        "type": "object"
+      },
+      "UserSourceInputRights": {
+        "additionalProperties": false,
+        "properties": {
+          "available_at": {
+            "format": "date-time",
+            "title": "Available At",
+            "type": "string"
+          },
+          "effective_end": {
+            "format": "date",
+            "title": "Effective End",
+            "type": "string"
+          },
+          "effective_start": {
+            "format": "date",
+            "title": "Effective Start",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "immutable": {
+            "const": true,
+            "title": "Immutable",
+            "type": "boolean"
+          },
+          "input_id": {
+            "title": "Input Id",
+            "type": "string"
+          },
+          "origin": {
+            "const": "user",
+            "title": "Origin",
+            "type": "string"
+          },
+          "raw_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Raw Sha256",
+            "type": "string"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "string"
+          },
+          "rights": {
+            "$ref": "#/components/schemas/Rights"
+          }
+        },
+        "required": [
+          "input_id",
+          "revision",
+          "raw_sha256",
+          "origin",
+          "evidence_level",
+          "rights",
+          "available_at",
+          "effective_start",
+          "effective_end",
+          "immutable"
+        ],
+        "title": "UserSourceInputRights",
+        "type": "object"
+      },
+      "UserSourceJointShock": {
+        "additionalProperties": false,
+        "properties": {
+          "available_at": {
+            "format": "date-time",
+            "title": "Available At",
+            "type": "string"
+          },
+          "baseline_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Baseline Sha256",
+            "type": "string"
+          },
+          "contract_caps": {
+            "items": {
+              "$ref": "#/components/schemas/ContractCap"
+            },
+            "title": "Contract Caps",
+            "type": "array"
+          },
+          "decision_at": {
+            "format": "date-time",
+            "title": "Decision At",
+            "type": "string"
+          },
+          "drivers": {
+            "items": {
+              "$ref": "#/components/schemas/Driver"
+            },
+            "title": "Drivers",
+            "type": "array"
+          },
+          "effective_end": {
+            "format": "date",
+            "title": "Effective End",
+            "type": "string"
+          },
+          "effective_start": {
+            "format": "date",
+            "title": "Effective Start",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "origin": {
+            "const": "user",
+            "title": "Origin",
+            "type": "string"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "string"
+          },
+          "rights": {
+            "$ref": "#/components/schemas/Rights"
+          },
+          "schema_version": {
+            "const": "1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "settlement_bindings": {
+            "items": {
+              "$ref": "#/components/schemas/BindingRef"
+            },
+            "title": "Settlement Bindings",
+            "type": "array"
+          },
+          "shock_id": {
+            "title": "Shock Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "schema_version",
+          "shock_id",
+          "revision",
+          "baseline_sha256",
+          "decision_at",
+          "effective_start",
+          "effective_end",
+          "available_at",
+          "origin",
+          "evidence_level",
+          "rights",
+          "drivers",
+          "contract_caps",
+          "settlement_bindings"
+        ],
+        "title": "UserSourceJointShock",
+        "type": "object"
+      },
+      "UserSourceOwnedEconomicRecord": {
+        "additionalProperties": false,
+        "properties": {
+          "assumption_scope": {
+            "title": "Assumption Scope",
+            "type": "string"
+          },
+          "available_at": {
+            "format": "date-time",
+            "title": "Available At",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "input_id": {
+            "title": "Input Id",
+            "type": "string"
+          },
+          "origin": {
+            "const": "user",
+            "title": "Origin",
+            "type": "string"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "string"
+          },
+          "scope_end": {
+            "format": "date",
+            "title": "Scope End",
+            "type": "string"
+          },
+          "scope_start": {
+            "format": "date",
+            "title": "Scope Start",
+            "type": "string"
+          },
+          "source_ref": {
+            "title": "Source Ref",
+            "type": "string"
+          },
+          "unit": {
+            "enum": [
+              "kg",
+              "KRW",
+              "KRW/kg",
+              "month",
+              "KRW/month",
+              "kWh_e",
+              "KRW/kWh_e",
+              "L",
+              "KRW/L",
+              "day"
+            ],
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "value",
+          "unit",
+          "input_id",
+          "revision",
+          "origin",
+          "evidence_level",
+          "assumption_scope",
+          "source_ref",
+          "available_at",
+          "scope_start",
+          "scope_end"
+        ],
+        "title": "UserSourceOwnedEconomicRecord",
+        "type": "object"
+      },
+      "UserSourceOwnedSettlementRecord": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "at": {
+            "format": "date-time",
+            "title": "At",
+            "type": "string"
+          },
+          "available_at": {
+            "format": "date-time",
+            "title": "Available At",
+            "type": "string"
+          },
+          "cost_id": {
+            "title": "Cost Id",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "immutable": {
+            "const": true,
+            "title": "Immutable",
+            "type": "boolean"
+          },
+          "origin": {
+            "const": "user",
+            "title": "Origin",
+            "type": "string"
+          },
+          "raw_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Raw Sha256",
+            "type": "string"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "string"
+          },
+          "rights": {
+            "const": "conditional_g1_use",
+            "title": "Rights",
+            "type": "string"
+          },
+          "sale_id": {
+            "title": "Sale Id",
+            "type": "string"
+          },
+          "scope_end": {
+            "format": "date",
+            "title": "Scope End",
+            "type": "string"
+          },
+          "scope_start": {
+            "format": "date",
+            "title": "Scope Start",
+            "type": "string"
+          },
+          "settlement_ref": {
+            "title": "Settlement Ref",
+            "type": "string"
+          }
+        },
+        "required": [
+          "settlement_ref",
+          "revision",
+          "sale_id",
+          "cost_id",
+          "at",
+          "amount",
+          "origin",
+          "evidence_level",
+          "rights",
+          "immutable",
+          "available_at",
+          "scope_start",
+          "scope_end",
+          "raw_sha256"
+        ],
+        "title": "UserSourceOwnedSettlementRecord",
+        "type": "object"
+      },
+      "UserSourcePriorBatchCostRecord": {
+        "additionalProperties": false,
+        "properties": {
+          "allocation_basis_kg": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "allocation_policy": {
+            "const": "proportional_saleable_kg_v1",
+            "title": "Allocation Policy",
+            "type": "string"
+          },
+          "available_at": {
+            "format": "date-time",
+            "title": "Available At",
+            "type": "string"
+          },
+          "batch_id": {
+            "title": "Batch Id",
+            "type": "string"
+          },
+          "channel": {
+            "title": "Channel",
+            "type": "string"
+          },
+          "cost_amount": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "cost_ref": {
+            "title": "Cost Ref",
+            "type": "string"
+          },
+          "grade": {
+            "title": "Grade",
+            "type": "string"
+          },
+          "opening_quantity_kg": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          },
+          "rights": {
+            "const": "conditional_g1_use",
+            "title": "Rights",
+            "type": "string"
+          },
+          "scope_end": {
+            "format": "date",
+            "title": "Scope End",
+            "type": "string"
+          },
+          "scope_start": {
+            "format": "date",
+            "title": "Scope Start",
+            "type": "string"
+          }
+        },
+        "required": [
+          "cost_ref",
+          "batch_id",
+          "grade",
+          "channel",
+          "cost_amount",
+          "allocation_basis_kg",
+          "opening_quantity_kg",
+          "allocation_policy",
+          "rights",
+          "available_at",
+          "scope_start",
+          "scope_end"
+        ],
+        "title": "UserSourcePriorBatchCostRecord",
+        "type": "object"
+      },
+      "ZeroDeclaration": {
+        "additionalProperties": false,
+        "properties": {
+          "group": {
+            "enum": [
+              "cull_disposals",
+              "opening_inventory",
+              "collections",
+              "returns",
+              "discounts",
+              "setoffs",
+              "disposals",
+              "variable_costs",
+              "fixed_costs",
+              "depreciation",
+              "assets",
+              "grants",
+              "asset_disposals",
+              "taxes",
+              "capex",
+              "loan_draws",
+              "principal_payments",
+              "interest_payments",
+              "debt_accounts"
+            ],
+            "title": "Group",
+            "type": "string"
+          },
+          "zero": {
+            "$ref": "#/components/schemas/EconomicNumber"
+          }
+        },
+        "required": [
+          "group",
+          "zero"
+        ],
+        "title": "ZeroDeclaration",
         "type": "object"
       }
     },
@@ -3430,6 +5945,147 @@
       }
     },
     "/v1/market-user-sources": {
+      "get": {
+        "operationId": "listMarketUserSources",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "enum": [
+                "economic_scenario",
+                "economic_input",
+                "joint_shock",
+                "input_rights",
+                "settlement_applicability",
+                "settlement_evidence",
+                "prior_batch_cost"
+              ],
+              "title": "Kind",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 50,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after_record_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maxLength": 200,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "After Record Id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after_revision",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maxLength": 200,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "After Revision"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketUserSourcePage"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "List Market User Sources",
+        "x-ossf-required-scopes": [
+          "market_source_read",
+          "metadata"
+        ]
+      },
       "post": {
         "operationId": "registerMarketUserSource",
         "requestBody": {
@@ -9157,6 +11813,158 @@
         "x-ossf-max-body-bytes": 65536,
         "x-ossf-required-scopes": [
           "market_source_write",
+          "market_source_read",
+          "metadata"
+        ]
+      }
+    },
+    "/v1/market-user-sources/record": {
+      "get": {
+        "operationId": "getMarketUserSource",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "enum": [
+                "economic_scenario",
+                "economic_input",
+                "joint_shock",
+                "input_rights",
+                "settlement_applicability",
+                "settlement_evidence",
+                "prior_batch_cost"
+              ],
+              "title": "Kind",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "record_id",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "title": "Record Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "revision",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "title": "Revision",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "discriminator": {
+                    "mapping": {
+                      "economic_input": "#/components/schemas/OwnedEconomicRecordSourceRead",
+                      "economic_scenario": "#/components/schemas/EconomicScenarioSourceRead",
+                      "input_rights": "#/components/schemas/InputRightsSourceRead",
+                      "joint_shock": "#/components/schemas/JointShockSourceRead",
+                      "prior_batch_cost": "#/components/schemas/PriorBatchCostRecordSourceRead",
+                      "settlement_applicability": "#/components/schemas/ApplicabilitySourceRead",
+                      "settlement_evidence": "#/components/schemas/OwnedSettlementRecordSourceRead"
+                    },
+                    "propertyName": "kind"
+                  },
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/EconomicScenarioSourceRead"
+                    },
+                    {
+                      "$ref": "#/components/schemas/OwnedEconomicRecordSourceRead"
+                    },
+                    {
+                      "$ref": "#/components/schemas/JointShockSourceRead"
+                    },
+                    {
+                      "$ref": "#/components/schemas/InputRightsSourceRead"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ApplicabilitySourceRead"
+                    },
+                    {
+                      "$ref": "#/components/schemas/OwnedSettlementRecordSourceRead"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PriorBatchCostRecordSourceRead"
+                    }
+                  ],
+                  "title": "Response Getmarketusersource"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Market User Source",
+        "x-ossf-required-scopes": [
           "market_source_read",
           "metadata"
         ]
