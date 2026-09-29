@@ -30,6 +30,16 @@ class FarmAuthoredReviewHold(ValueError):
     pass
 
 
+def review_artifact(value, input_sha256):
+    return canonical_input_bytes({'schema_version': ARTIFACT_VERSION,
+        'input_sha256': input_sha256,
+        'registration_sha256': value['registration_sha256'],
+        'candidate_id': value['candidate_id'],
+        'trace_sha256': value['trace_sha256'],
+        'code_sha256': value['code_sha256'],
+        'context_sha256': value['context_sha256']})
+
+
 class FarmAuthoredReviewService:
     def __init__(self, authoring):
         if type(authoring) is not FarmAuthoringService:
@@ -172,11 +182,5 @@ class FarmAuthoredReviewContract(DecisionContract):
         if plan.disposition == 'hold':
             return plan
         value = self.service.verify_input(job, json.loads(job['input_bytes']))
-        artifact = {'schema_version': ARTIFACT_VERSION,
-            'input_sha256': job['input_sha256'],
-            'registration_sha256': value['registration_sha256'],
-            'candidate_id': value['candidate_id'],
-            'trace_sha256': value['trace_sha256'],
-            'code_sha256': value['code_sha256'],
-            'context_sha256': value['context_sha256']}
-        return DecisionPlan('proceed', canonical_input_bytes(artifact), plan.code)
+        return DecisionPlan('proceed', review_artifact(value, job['input_sha256']),
+                            plan.code)

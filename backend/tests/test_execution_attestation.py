@@ -23,6 +23,18 @@ from test_cli_worker import _worker
 from test_jobs import pg_store
 
 
+def test_authored_review_snapshot_field_is_exact():
+    assert ExecutionVerifier._snapshot_matches(
+        {'input_version':'farm-authored-review-input-v1',
+         'base_snapshot_id':'source-snapshot'}, 'source-snapshot')
+    assert not ExecutionVerifier._snapshot_matches(
+        {'input_version':'farm-authored-review-input-v1',
+         'snapshot_id':'source-snapshot'}, 'source-snapshot')
+    assert ExecutionVerifier._snapshot_matches(
+        {'input_version':'owned-collection-review-input-v1',
+         'snapshot_id':'source-snapshot'}, 'source-snapshot')
+
+
 def _completed(pg_store, tmp_path, *, misrecorded_kind=None):
     def approved(job, value):
         return replace(resolver(job, value), allow_proceed=True, missing_evidence=())
@@ -80,7 +92,7 @@ def _signed(store, worker, worked, rows, argv, *, private=None):
         job["created_at"], capture["sealed_at"])
     record = ExecutionAttestation(
         record_version="cli-execution-attestation-v1", key_id="test-observer-v1",
-        tenant_id="tenant-a", job_id=worked.job_id, attempt=worked.attempt,
+        tenant_id=job["tenant_id"], job_id=worked.job_id, attempt=worked.attempt,
         attempt_id=invocation["attempt_id"], nonce=uuid4(),
         input_sha256=job["input_sha256"],
         prompt_sha256=(Path(worker.cli_path).parent / "actual-prompt.sha256").read_text(),

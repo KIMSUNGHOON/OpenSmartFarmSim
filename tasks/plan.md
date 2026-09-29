@@ -138,6 +138,11 @@ G3a/G3b 없이도 조건부 서비스에 대한 G4 평가는 가능하다. 그 �
 입력으로 결합한다([실제 SCRAM 시험](../research/farm-authoring-storage-implementation.md)).
 다음에는 작성된 수치 입력을 독립 검토/해제하는 스냅샷 경계와 실제 작업자
 실행을 연결한다. 내부 등록만으로 전체 농장/G1 체크를 해제하지 않는다.
+[작성 입력 CLI 완료 검증 후보](../contracts/farm-authored-review-completion-v1.md)는
+저장 작업·결정·캡처·서명 실행 증거의 동일 입력을 확인한다
+([시험 기록](../research/farm-authored-review-completion-implementation.md)).
+다음 독립 스냅샷 해제는 이 증명을 소비해야 하며, 제품 CLI 호출과 승인 Run·3D는
+별도로 검증한다.
 저장된 완료 Run의 3D·그래프·표를 먼저 확인하는 부분 슬라이스이며,
 공통 Assessment와 전체 농장 입력 작성·실제 CLI/독립 G1의 기존 의존성 및
 `web-shell`/`web-replay` 수용 체크는 유지한다. 실제 작물 생장·수확의 3D는

@@ -156,6 +156,10 @@
 ([실제 SCRAM 검증](../research/farm-authored-review-implementation.md)).
 공유 CLI 라우터의 선택적 경로와 동일 저장소 결속을 검증했다. 운영 조립·실제
 제품 CLI 실행·독립 해제·Run 게시가 남아 전체 작업 체크는 유지한다.
+[완료 검증 후보](../contracts/farm-authored-review-completion-v1.md)는 실제 저장된
+작업·판단·캡처·서명 실행 증거를 대사한다
+([합성 CLI/키 검증](../research/farm-authored-review-completion-implementation.md)).
+실제 제품 CLI·독립 해제·Run/3D 연결과 기존 수용 체크는 유지한다.
 
 `economic-break-even`/`api-flow`의 후속 코드 수용에는 큰 격자의 전체 완료 검증을 비동기 접수·작업 조회·결과 읽기로 분리하는 경로가 포함된다. 현재 동기 읽기는 원천·권리와 원장 전체를 재검사하므로 2개 시험의 성공이나 HTTP 바이트 제한을 256개 시험의 처리량 증거로 쓰지 않는다. 기존 30초 요청 제한 아래 재확인·취소·권리 철회·최대 격자 부하를 검증하고, 준비 전 운영 성능을 보류한다.
 

@@ -8,7 +8,7 @@ from psycopg import sql
 
 from .cli_worker import CliWorker
 from .cli_contracts import STAGES
-from .execution_attestation import HEX
+from .execution_attestation import ExecutionAttestationStore, HEX
 from .jobs import ACTIVE_BY_STAGE
 
 
@@ -16,7 +16,8 @@ class ExecutionVerifier:
     """Fail closed unless signed process bytes match the durable decision chain."""
 
     def __init__(self, attestation_store, *, executable_sha256, environment_sha256):
-        if (type(executable_sha256) is not str or not HEX.fullmatch(executable_sha256) or
+        if (type(attestation_store) is not ExecutionAttestationStore or
+                type(executable_sha256) is not str or not HEX.fullmatch(executable_sha256) or
                 type(environment_sha256) is not str or
                 not HEX.fullmatch(environment_sha256)):
             raise ValueError("pinned executable and environment digests required")
@@ -29,6 +30,12 @@ class ExecutionVerifier:
         return (len(argv) == 21 and
                 all(Path(argv[index]).is_absolute() for index in (0, 15, 17, 19)) and
                 argv == CliWorker._argv(argv[0], argv[19], argv[15], argv[17]))
+
+    @staticmethod
+    def _snapshot_matches(value, snapshot_id):
+        if value.get('input_version') == 'farm-authored-review-input-v1':
+            return value.get('base_snapshot_id') == snapshot_id
+        return value.get('snapshot_id') == snapshot_id
 
     def __call__(self, tenant, job_id, attempt, capture_id, snapshot_id, decision_id):
         try:
@@ -90,7 +97,7 @@ class ExecutionVerifier:
         scope_ok = (job["stage"] in STAGES and job["state"] == ACTIVE_BY_STAGE[job["stage"]]
                     and job["lease_live"] if pending else
                     job["stage"] == "collection_review" and job["state"] == "succeeded"
-                    and input_value.get("snapshot_id") == snapshot_id)
+                    and self._snapshot_matches(input_value, snapshot_id))
         return bool(
             scope_ok and job["attempt_count"] == attempt and not job["cancel_requested"] and
             sha256(job["input_bytes"]).hexdigest() == job["input_sha256"] and

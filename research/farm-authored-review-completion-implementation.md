@@ -1,0 +1,9 @@
+# Authored review completion verification
+
+Date: 2026-09-30 KST. Internal software increment under the [completion contract](../contracts/farm-authored-review-completion-v1.md). This development session uses `gpt-6-sol` with `xhigh`; it did not launch another Codex CLI process recursively. The test child executable is a synthetic CLI double, not an actual product model invocation.
+
+The verifier follows a completed tenant-owned `collection_review` job through its original input, current registration and source rights, signed context, final decision/publication, exact server artifact, zero-exit CLI capture and signed independent process attestation. It binds the original snapshot ID and returns a stable digest of the resulting proof. A missing signature and a changed expected registration SHA-256 each hold. It produces no release or Run.
+
+The focused isolated local SCRAM PostgreSQL test command was `uv run --locked --group dev pytest -q tests/test_farm_authored_review.py -k completion_requires_signed_attestation` with the local test DSN. Result: **1 passed, 1 deselected in 222.58 s**. It ran an actual worker and durable job transitions with the synthetic executable, stored a synthetic Ed25519 attestation, and verified the completed proof. The direct authored snapshot-field check passed **1 in 0.34 s** in `test_execution_attestation.py`. These checks establish software binding and fail-closed behavior only; they do not prove actual model execution or independent production custody. This slow path is not a latency or load acceptance result.
+
+Next work: separate reviewer authority and authored snapshot release, then a publisher/worker to create an accepted authored Run and a web path to replay it. Actual product CLI capture and full G1/G4 evidence are still missing. G0 source adoption, G2 local physics and G3a/G3b crop/economic validation remain held independently.
