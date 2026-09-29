@@ -35,3 +35,22 @@ authored route still needs operator runtime assembly and actual product CLI
 capture, an independent reviewer and authored snapshot release, complete
 code/environment proof, worker transaction and 3D projection. G1 and
 G0/G2/G3/G4 remain held where their evidence is absent.
+
+## Shared CLI route increment
+
+The development session's `2026-09-29T22:52:25.972Z` `turn_context` again
+records `gpt-6-sol` with `xhigh`; no recursive CLI was launched.
+
+The optional `OwnedCliContractRouter` entry dispatches the authored review
+version to `FarmAuthoredReviewContract`. Its installation checks exact identity
+of owned research, source collection review, JobStore, signed context/thermal
+store, candidate source and farm Assessment selection. The existing routes
+remain the default when this service is absent; runtime swapping holds.
+
+The same actual isolated SCRAM test was rerun with a coherent review/Assessment
+assembly and router selection: **1 passed in 301.89 s**. It compared direct and
+routed proposal artifacts. The legacy invalid-router-configuration focus
+passed **2 in 0.63 s**. Neither check invoked the Codex executable; no
+operator runtime factory, independent CLI containment/release or accepted
+authored Run was installed. The five-minute fixture path requires asynchronous
+product admission and a separate latency/load assessment before web use.

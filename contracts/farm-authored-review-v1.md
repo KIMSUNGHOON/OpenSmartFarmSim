@@ -31,3 +31,13 @@ asserted, not independently proven. The fixed original publisher and accepted
 Run table remain untouched. A future authored release must verify an actual
 completed CLI review, separate reviewer authority and complete runtime
 code/environment custody before any published Run.
+
+The optional `OwnedCliContractRouter` route selects this contract by exact
+`collection_review` stage and `farm-authored-review-input-v1`. Installation
+requires the authored service, owned research, source collection review and
+farm Assessment to share the same JobStore, thermal/context store, registered
+source authority, candidate store and farm selection object. Replacing any
+installed service or its authority pointers holds the router. The existing
+review and assessment routes remain available when the authored route is not
+installed. Operator runtime assembly, actual CLI execution and independent
+process/release proof remain separate acceptance steps.

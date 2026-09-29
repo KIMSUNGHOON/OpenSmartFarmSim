@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**작성 입력 검토 접수 후보 (2026-09-30):** [계약](../contracts/farm-authored-review-v1.md)은 저장된 농장 판본·현재 원천/권한과 120단계 계산의 두 결과 해시를 변경 불가 `collection_review` 작업으로 묶는다([검증](../research/farm-authored-review-implementation.md)). 실제 CLI 라우팅·독립 해제·Run 게시·3D 연결과 전체 G1은 미수용이다.
+**작성 입력 검토 접수 후보 (2026-09-30):** [계약](../contracts/farm-authored-review-v1.md)은 저장된 농장 판본·현재 원천/권한과 120단계 계산의 두 결과 해시를 변경 불가 `collection_review` 작업으로 묶는다([검증](../research/farm-authored-review-implementation.md)). 공유 라우터의 선택 경로는 검증했지만 운영 조립·실제 제품 CLI·독립 해제·Run 게시·3D 연결과 전체 G1은 미수용이다.
 
 **첫 내부 3D 열 재생 후보 (2026-09-30):** [재생 계약](../contracts/web-thermal-replay-v1.md)은 완료된 Run의 120개 저장 시각을 실제 Three.js 장면·그래프·HTML 표·여섯 수치 요약으로 연결한다. [소프트웨어 검증 기록](../research/web-thermal-replay-implementation.md)은 키보드·반응형·WebGL 장애/복구와 실제 HTTPS/SCRAM 브라우저 연결을 구분한다. 전체 입력·공통 농장 Assessment·실제 CLI/독립 G1/G4 수용은 남아 있고 작물 생장·수확·미래 마진·순위를 검증한 결과가 아니다.
 

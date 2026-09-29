@@ -9,9 +9,14 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.cli_contracts import ProposalHold
+from app.calculation_assessment import CalculationAssessmentService
 from app.farm_authored_review import (FarmAuthoredReviewContract,
     FarmAuthoredReviewService, FarmAuthoredReviewHold, INPUT_VERSION)
 from app.jobs import canonical_input_bytes
+from app.market_result_store import MarketResultStore
+from app.owned_cli_contracts import OwnedCliContractRouter
+from app.owned_collection_review import OwnedCollectionReviewService
+from app.owned_fixture_collection import CollectionService
 from test_farm_authoring_storage import authoring, request
 from test_farm_replay_scenario import farm_setup
 from login_database import login_database, login_scope
@@ -54,6 +59,18 @@ def test_owned_authored_review_intent_and_cli_contract(authoring,login_scope,mon
     artifact=json.loads(plan.artifact)
     assert artifact['registration_sha256']==registration.scenario_sha256
     assert artifact['trace_sha256']==value['trace_sha256']
+    replay=author.replay
+    jobs=replay.jobs
+    runs=replay.thermal.runs
+    results=MarketResultStore(jobs._dsn,jobs.schema,replay.candidates,
+        principal_provider=jobs.principal_provider,runtime_identity=jobs.runtime_identity)
+    assessment=CalculationAssessmentService(jobs,runs,results,replay.thermal,replay)
+    owned_review=OwnedCollectionReviewService(
+        CollectionService(jobs,replay.owned_research.registry),runs)
+    router=OwnedCliContractRouter(replay.owned_research,owned_review,assessment,
+        lambda *_:None,review)
+    assert router.input_context(stored)[0]['candidate_ids']==[value['candidate_id']]
+    assert router.plan(stored,canonical_input_bytes(proposal)).artifact==plan.artifact
     assert author.replay.thermal.runs.get_run('tenant-1',value['candidate_id']) is None
     with pytest.raises(ProposalHold):
         contract.plan(stored,canonical_input_bytes({**proposal,'claims':[

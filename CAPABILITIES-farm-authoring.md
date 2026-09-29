@@ -21,5 +21,7 @@ worker binding are its next dependency. The viewer still reads only accepted
 Run records.
 An [owned authored review admission candidate](contracts/farm-authored-review-v1.md)
 now pins that full trajectory to an immutable `collection_review` intent and
-server CLI proposal contract. Runtime CLI routing, independent release and Run
-publication remain open.
+server CLI proposal contract. Independent release and Run publication remain
+open. The shared CLI router now has an optional exact
+authored-review route; operator runtime assembly and actual CLI execution
+remain open.
