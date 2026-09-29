@@ -41,7 +41,8 @@ def input_raws():
 
 
 @pytest.fixture
-def setup(pg_store, request, *, schema_installed=False):
+def setup(pg_store, request, *, schema_installed=False, tenant='tenant-a',
+          context_factory=stored_context, context_verifier=verify_test_context):
     if not schema_installed:
         with pg_store.connect() as conn:
             install_thermal_run_schema(conn, pg_store.schema)
@@ -56,25 +57,26 @@ def setup(pg_store, request, *, schema_installed=False):
                 "issued_at_utc": json.loads(raw)["issued_at_utc"]}
     run_store = ThermalRunStore(pg_store._dsn, pg_store.schema, gate_key=GATE_KEY,
         release_verifier=verify_test_release, principal_provider=lambda: {
-            "authenticated": True, "tenant_id": "tenant-a", "scopes": (
+            "authenticated": True, "tenant_id": tenant, "scopes": (
                 "thermal_snapshot_write", "thermal_snapshot_read", "thermal_run_publish",
                 "thermal_run_read", "decision_context_write", "decision_context_read")},
-        context_verifier=verify_test_context)
-    snapshot_id = run_store.put_snapshot("tenant-a", *input_raws())
-    snapshot = run_store.get_snapshot("tenant-a", snapshot_id)
-    context = stored_context(run_store, snapshot_id,
+        context_verifier=context_verifier)
+    snapshot_id = run_store.put_snapshot(tenant, *input_raws())
+    snapshot = run_store.get_snapshot(tenant, snapshot_id)
+    context = context_factory(run_store, snapshot_id,
+                             tenant=tenant,
                              mode=getattr(request, "param", "ex_post_replay"))
     reviewed_at = context["recorded_at"].astimezone(timezone.utc).isoformat(
         timespec="microseconds").replace("+00:00", "Z")
-    job = job_store.submit("tenant-a", "collection_review",
+    job = job_store.submit(tenant, "collection_review",
         collection_review_input(snapshot, context), "thermal-review-" + uuid4().hex)
     lease = job_store.claim(60, allowed_stages=("collection_review",))
     prepare_cli_capture(job_store, job, lease)
     proposal = collection_review_proposal(snapshot, context)
-    decision = job_store.record_decision("tenant-a", job["job_id"], lease["attempt"],
+    decision = job_store.record_decision(tenant, job["job_id"], lease["attempt"],
         lease["lease_token"], synthetic_decision_bytes(job), canonical(proposal))
     assert decision is not None
-    publication = job_store.publish("tenant-a", job["job_id"], lease["attempt"],
+    publication = job_store.publish(tenant, job["job_id"], lease["attempt"],
         lease["lease_token"], decision, canonical(proposal), sha256(canonical(proposal)).hexdigest(),
         {"schema_version": "1"})
     assert publication is not None

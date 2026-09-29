@@ -1,8 +1,8 @@
 # Implemented API OpenAPI contract v1
 
 [openapi-v1.json](openapi-v1.json) is the deterministic OpenAPI 3.1.0 snapshot
-of the twenty-one implemented operations. It is an internal software candidate.
-Future provider ingestion/assessment submissions and region listings are
+of the twenty-two implemented operations. It is an internal software candidate.
+Future provider ingestion, validated crop assessments and region listings are
 specified in ARCHITECTURE but are not advertised as available operations.
 
 Generate/check with locked dependencies from `backend`:
@@ -34,7 +34,7 @@ is installed. The original location scope/request/response and operation ID
 remain stable; the initial registry continues to hold.
 
 Operation IDs are stable: registerLocation, registerMarketUserSource, registerEconomicScenario, registerThermalScenario, getThermalScenario,
-submitThermalRun, submitOwnedIngestion, submitOwnedCollectionReview, submitEconomicCalculation, submitBreakEvenPlan, getJob, getJobHold, getJobRun, getJobEconomicResult, getJobBreakEvenResult, getMarketHold,
+submitThermalRun, submitOwnedIngestion, submitOwnedCollectionReview, submitCalculationAssessment, submitEconomicCalculation, submitBreakEvenPlan, getJob, getJobHold, getJobRun, getJobEconomicResult, getJobBreakEvenResult, getMarketHold,
 getRun, getRunSeries, getRunManifest, getEconomicResult, getBreakEvenResult. `LocationPoint` is a
 closed latitude/longitude object with coordinate bounds, matching the actual
 response. Registration's request is closed JSON with a 4096-byte maximum

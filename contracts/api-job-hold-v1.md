@@ -16,7 +16,8 @@ Stage is one of the three CLI stages. Reason is `evidence_missing` or
 `decision_held`, taken from the canonical report; it is distinct from job
 status's `ai_validated_hold`. Timestamp is report storage time, not planning D.
 Recognized public missing codes are `research_source_evidence`,
-`signed_decision_context` and `real_source_g0`. All other private identifiers
+`signed_decision_context`, `real_source_g0` and the six bounded categories in
+[joined calculation assessment](calculation-assessment-v1.md). All other private identifiers
 collapse to one `other_evidence` category. The count remains the original total
 (0–50); categories preserve first appearance without duplicates. No raw report,
 model reason, private identifier, credential, tenant, input/hash, attempt ID,

@@ -29,6 +29,7 @@ from .owned_fixture_registry import OwnedFixtureRegistry
 from .owned_fixture_collection import CollectionService
 from .owned_collection_review import OwnedCollectionReviewService
 from .owned_research import OwnedResearchService
+from .calculation_assessment import CalculationAssessmentService
 
 
 @dataclass(frozen=True)
@@ -94,6 +95,7 @@ class ApiRuntime:
     collections: CollectionService | None = field(repr=False)
     collection_reviews: OwnedCollectionReviewService | None = field(repr=False)
     research: LocationResearchService | OwnedResearchService = field(repr=False)
+    assessments: CalculationAssessmentService | None = field(repr=False)
 
     def __init__(self, config, dependencies):
         try:
@@ -129,6 +131,7 @@ class ApiRuntime:
             break_even_plans = BreakEvenPlanSubmissionService(jobs, break_even) if source_admission is not None else None
             break_even_job_results = BreakEvenJobResultService(jobs, break_even) if source_admission is not None else None
             scenarios = ThermalScenarioStore(thermal, holds) if config.policy.thermal_scenario_storage else None
+            assessments = CalculationAssessmentService(jobs, thermal, results, scenarios) if source_admission is not None else None
             collections = (CollectionService(jobs, dependencies.owned_fixture_registry)
                 if dependencies.owned_fixture_registry is not None else None)
             collection_reviews = OwnedCollectionReviewService(collections, thermal) if collections is not None else None
@@ -148,7 +151,8 @@ class ApiRuntime:
                 thermal_run_submission_service=submission, market_user_source_service=source_admission,
                 economic_scenario_service=economic_scenarios, economic_calculation_service=economic_calculations,
                 break_even_plan_service=break_even_plans, break_even_job_result_service=break_even_job_results,
-                collection_service=collections, owned_collection_review_service=collection_reviews)
+                collection_service=collections, owned_collection_review_service=collection_reviews,
+                assessment_service=assessments)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -156,5 +160,6 @@ class ApiRuntime:
         for name, value in (('service', service), ('jobs', jobs), ('thermal', thermal),
                 ('market_holds', holds), ('market_candidates', candidates),
                 ('market_results', results), ('break_even', break_even), ('thermal_scenarios', scenarios),
-                ('collections', collections), ('collection_reviews', collection_reviews), ('research', research)):
+                ('collections', collections), ('collection_reviews', collection_reviews), ('research', research),
+                ('assessments', assessments)):
             object.__setattr__(self, name, value)

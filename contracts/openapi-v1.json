@@ -620,6 +620,12 @@
                 "research_source_evidence",
                 "signed_decision_context",
                 "real_source_g0",
+                "market_source_g0",
+                "eligible_crop_candidates",
+                "farm_scenario_binding",
+                "local_measurements_g2",
+                "future_validation_g3a",
+                "paired_comparison_g3b",
                 "other_evidence"
               ],
               "type": "string"
@@ -1403,6 +1409,155 @@
   },
   "openapi": "3.1.0",
   "paths": {
+    "/v1/assessments": {
+      "post": {
+        "operationId": "submitCalculationAssessment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "economic_job_id": {
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                    "title": "Economic Job Id",
+                    "type": "string"
+                  },
+                  "idempotency_key": {
+                    "maxLength": 200,
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                    "title": "Idempotency Key",
+                    "type": "string"
+                  },
+                  "run_job_id": {
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                    "title": "Run Job Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "run_job_id",
+                  "economic_job_id",
+                  "idempotency_key"
+                ],
+                "title": "CalculationAssessmentRequest",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobStatus"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Post Assessment",
+        "x-ossf-conditional-scopes": {
+          "thermal-simulation-result-v2": [
+            "thermal_scenario_read",
+            "thermal_snapshot_read",
+            "decision_context_read",
+            "market_hold_context_read"
+          ]
+        },
+        "x-ossf-max-body-bytes": 4096,
+        "x-ossf-required-scopes": [
+          "assessment_create",
+          "metadata",
+          "artifact",
+          "market_source_read",
+          "market_candidate_read",
+          "market_result_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "thermal_run_read",
+          "thermal_snapshot_read"
+        ]
+      }
+    },
     "/v1/break-even-plans": {
       "post": {
         "operationId": "submitBreakEvenPlan",

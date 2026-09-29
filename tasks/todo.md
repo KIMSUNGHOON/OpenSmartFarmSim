@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**계산 완료 → 최종 보류 평가 연결 진행:** [평가 접수·검증 계약](../contracts/calculation-assessment-v1.md)은 실제 완료 열/경제 작업의 영수증·재계산·같은 서명 문맥을 다시 검사해 assessment 의도를 등록한다. 작물 프로필을 만들지 않으며 시장·공통 농장·현장·미래·대응 비교의 누락 사유를 기존 보류 조회로 제공한다. [구현 증거](../research/calculation-assessment-implementation.md)는 합성 키/가짜 CLI와 실제 SCRAM의 소프트웨어 범위다. 실제 CLI/독립 운영 조립·전체 농장/브라우저/G1/G4 수용까지 기존 체크를 유지한다.
+
 **서명 문맥에 결합한 조사 연결 진행:** [고정 원본 조사 계약](../contracts/owned-research-v1.md)은 실제 등록 범위·원본·저장된 문맥을 접수/CLI 검증에 결합하며 초기 등록부의 보류와 과학적 주장 제한을 유지한다. [구현 증거](../research/owned-research-implementation.md)는 가짜 CLI·컨트롤러 키·실제 SCRAM의 소프트웨어 범위다. 실제 모델·독립 계획/운영 조립·자료/모델 채택·전체 브라우저/G1/G4 수용은 남아 기존 체크를 유지한다.
 
 **수집·검토 HTTP 연결 진행:** [접수 계약](../contracts/api-owned-collection-v1.md)은 인증된 부모 UUID·멱등 키만 받아 기존 원본/문맥 검사와 원자 접수를 실행한다. [구현 증거](../research/api-owned-collection-implementation.md)는 합성 원천/키와 실제 SCRAM/Bearer의 소프트웨어 범위다. 실제 CLI·독립 운영 조립·자료 채택·전체 API/브라우저/G1/G4 수용은 남아 기존 체크를 유지한다.

@@ -34,8 +34,11 @@ class MarketHoldStatus(BaseModel):
 
 
 PublicMissingEvidence = Literal["research_source_evidence", "signed_decision_context",
-                                "real_source_g0", "other_evidence"]
-PUBLIC_MISSING_EVIDENCE = frozenset({"research_source_evidence", "signed_decision_context", "real_source_g0"})
+    "real_source_g0", "market_source_g0", "eligible_crop_candidates", "farm_scenario_binding",
+    "local_measurements_g2", "future_validation_g3a", "paired_comparison_g3b", "other_evidence"]
+PUBLIC_MISSING_EVIDENCE = frozenset({"research_source_evidence", "signed_decision_context", "real_source_g0",
+    "market_source_g0", "eligible_crop_candidates", "farm_scenario_binding",
+    "local_measurements_g2", "future_validation_g3a", "paired_comparison_g3b"})
 
 
 class JobHoldStatus(BaseModel):

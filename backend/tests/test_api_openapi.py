@@ -19,6 +19,9 @@ from test_http_identity import request
 
 
 OPERATIONS = {
+    ('/v1/assessments', 'post'): ('submitCalculationAssessment', ['assessment_create',
+        'metadata', 'artifact', 'market_source_read', 'market_candidate_read', 'market_result_read',
+        'decision_context_read', 'market_hold_context_read', 'thermal_run_read', 'thermal_snapshot_read']),
     ('/v1/ingestions', 'post'): ('submitOwnedIngestion', ['metadata', 'artifact', 'collection_execute']),
     ('/v1/collection-reviews', 'post'): ('submitOwnedCollectionReview',
         ['metadata', 'artifact', 'collection_read', 'collection_review_create',
@@ -79,6 +82,9 @@ def test_snapshot_matches_actual_routes_and_public_protocol():
     assert operations[("/v1/jobs/{job_id}/run", "get")]["x-ossf-conditional-scopes"] == {
         "thermal-simulation-result-v2": ['thermal_scenario_read', 'thermal_snapshot_read',
             'decision_context_read', 'market_hold_context_read']}
+    assert operations[('/v1/assessments','post')]['x-ossf-conditional-scopes'] == {
+        'thermal-simulation-result-v2':['thermal_scenario_read','thermal_snapshot_read',
+            'decision_context_read','market_hold_context_read']}
     assert bearer["type"] == "http" and bearer["scheme"] == "bearer" and "bearerFormat" not in bearer
     registration = operations[("/v1/locations", "post")]
     assert registration['x-ossf-conditional-scopes'] == {'owned-research':['metadata','decision_context_read']}

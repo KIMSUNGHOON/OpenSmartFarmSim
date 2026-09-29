@@ -42,6 +42,9 @@ from .api_owned_collection import OwnedIngestionRequest, OwnedReviewRequest
 from .owned_fixture_collection import CollectionService, CollectionHold, COLLECTION_SCOPES
 from .owned_collection_review import OwnedCollectionReviewService, CollectionReviewHold, REVIEW_SCOPES
 from .owned_research import OwnedResearchService, READ_SCOPES as OWNED_RESEARCH_READ_SCOPES, ADMISSION_SCOPES as OWNED_RESEARCH_SCOPES
+from .api_assessment import CalculationAssessmentRequest
+from .calculation_assessment import (CalculationAssessmentService, CalculationAssessmentHold,
+    ADMISSION_SCOPES as ASSESSMENT_SCOPES)
 
 
 def _error(status: int, code: str, message: str) -> JSONResponse:
@@ -59,7 +62,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                market_user_source_service=None, economic_scenario_service=None,
                economic_calculation_service=None, break_even_plan_service=None,
                break_even_job_result_service=None, collection_service=None,
-               owned_collection_review_service=None) -> FastAPI:
+               owned_collection_review_service=None, assessment_service=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -114,6 +117,13 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             owned_collection_review_service.collection is not collection_service or
             owned_collection_review_service.runs is not thermal_run_store):
         raise ValueError('trusted collection review service required')
+    if assessment_service is not None and (
+            type(assessment_service) is not CalculationAssessmentService or
+            assessment_service.jobs is not job_store or assessment_service.runs is not thermal_run_store or
+            assessment_service.results is not market_result_store or
+            assessment_service.scenario_store is not thermal_scenario_store or
+            job_store.principal_provider is not principal_provider):
+        raise ValueError('trusted calculation assessment service required')
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
     location_scopes = ("location_create",)
     location_admission_scopes = OWNED_RESEARCH_SCOPES if type(location_research_service) is OwnedResearchService else location_scopes
@@ -443,6 +453,38 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(403, 'forbidden', 'Resource access denied')
         except Exception:
             return _error(503, 'store_unavailable', 'Break-even job result unavailable')
+
+    @app.post('/v1/assessments', status_code=202, response_model=JobStatus,
+              operation_id='submitCalculationAssessment',
+              responses={status:{'model':ErrorEnvelope} for status in (401,403,409,413,415,422,503)},
+              openapi_extra={**_access(ASSESSMENT_SCOPES), 'x-ossf-max-body-bytes':4096,
+                  'x-ossf-conditional-scopes':{'thermal-simulation-result-v2':list(SCENARIO_SCOPES)},
+                  'requestBody':{'required':True, 'content':{'application/json':{
+                      'schema':CalculationAssessmentRequest.model_json_schema()}}}})
+    async def post_assessment(request: Request):
+        tenant, denied = authorized_tenant(*ASSESSMENT_SCOPES)
+        if denied is not None:
+            return denied
+        if assessment_service is None:
+            return _error(503, 'assessment_unavailable', 'Assessment admission unavailable')
+        try:
+            body = CalculationAssessmentRequest.model_validate(await read_json_request(request))
+        except JsonRequestRejected as exc:
+            return _error(exc.status, exc.code, exc.message)
+        except (ValueError, UnicodeError, RecursionError):
+            return _error(422, 'invalid_request', 'Invalid request')
+        try:
+            row = await run_in_threadpool(assessment_service.submit, tenant,
+                body.run_job_id, body.economic_job_id, body.idempotency_key)
+            return public_job_status(row)
+        except PermissionError:
+            return _error(403, 'forbidden', 'Resource access denied')
+        except JobIntentConflict:
+            return _error(409, 'intent_conflict', 'Intent already has a different request')
+        except CalculationAssessmentHold:
+            return _error(422, 'assessment_hold', 'Completed calculation evidence unavailable')
+        except Exception:
+            return _error(503, 'assessment_unavailable', 'Assessment admission unavailable')
 
     @app.post('/v1/break-even-plans', status_code=202, response_model=BreakEvenPlanAccepted,
               operation_id='submitBreakEvenPlan',

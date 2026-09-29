@@ -1,5 +1,18 @@
 # Shared CLI contract routing implementation
 
+## Hosted receipt
+
+Functional head f8cd4305efaeaf4dd47355a89462a532917ec928 was checked directly.
+[Backend run 36526712504](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36526712504)
+completed successfully: **1,908 ordinary cases**, two existing malformed G0
+Pydantic serializer warnings, **3,313.24s (0:55:13)**; **four distinct-UID
+service cases in 13.08s**. Content UID/DAC and database/password cleanup steps
+also succeeded. The backend job ran from 2026-09-29T05:33:22Z to
+2026-09-29T06:29:15Z. Compose run 36526712529 previously completed successfully
+at the same exact head. The full backend log was inspected at
+/tmp/ossf-cli-router-backend-ci.log. Later functional heads need their own CI;
+actual CLI/independent authority, full browser/G1/G4 remain pending.
+
 Status: software candidate, not product CLI/G1/G4 acceptance.
 
 ## Decision and scope
