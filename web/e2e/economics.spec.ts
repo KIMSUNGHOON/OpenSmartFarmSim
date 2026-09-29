@@ -169,8 +169,9 @@ test(`lost ${lostPhase} after a saved numeric revision retries only the pending 
       await expect(page.getByRole('button',{name:'계산 상태·결과 확인'})).toBeVisible();
       if(lostPhase==='calculation') {
         const table=cash.getByRole('region',{name:'월별 현금흐름 표 가로 스크롤'});
-        await table.evaluate(element=>{element.scrollLeft=0;});await table.focus();await page.keyboard.press('ArrowRight');
-        await expect.poll(()=>table.evaluate(element=>element.scrollLeft)).toBeGreaterThan(0);
+        await table.evaluate(element=>{element.scrollLeft=0;});await table.scrollIntoViewIfNeeded();await expect(table).toBeInViewport();
+        await table.focus();await expect(table).toBeFocused();await table.press('ArrowRight');
+        await expect.poll(()=>table.evaluate(element=>element.scrollLeft),{message:`cash table keyboard scroll at ${width}px/${size}`}).toBeGreaterThan(0);
         await table.evaluate(element=>{element.scrollLeft=0;});
       }
       const capture=process.env.OSSF_UI_CAPTURE_DIR;

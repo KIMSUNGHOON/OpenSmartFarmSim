@@ -114,7 +114,11 @@ for(const lost of ['trial','plan'] as const)test(`break-even lost ${lost} preser
       await page.addStyleTag({content:':root{font-size:'+size+'}'});
       expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
       const table=area.getByRole('region',{name:'손익분기 시험 표 가로 스크롤'});await table.evaluate(element=>{element.scrollLeft=0;});
-      if(await table.evaluate(element=>element.scrollWidth>element.clientWidth)) {await table.focus();await page.keyboard.press('ArrowRight');await expect.poll(()=>table.evaluate(element=>element.scrollLeft)).toBeGreaterThan(0);}
+      if(await table.evaluate(element=>element.scrollWidth>element.clientWidth)) {
+        await table.scrollIntoViewIfNeeded();await expect(table).toBeInViewport();
+        await table.focus();await expect(table).toBeFocused();await table.press('ArrowRight');
+        await expect.poll(()=>table.evaluate(element=>element.scrollLeft),{message:`break-even table keyboard scroll at ${width}px/${size}`}).toBeGreaterThan(0);
+      }
       const capture=process.env.OSSF_UI_CAPTURE_DIR;if(capture){await mkdir(capture,{recursive:true});await area.screenshot({path:`${capture}/break-even-${width}-${size}.png`});}
     }
   }

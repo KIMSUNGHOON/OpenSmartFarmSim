@@ -139,6 +139,28 @@ added. Review identified the synchronous replay latency and stale refresh
 banner, addressed above. Never-stored-intent/reload recovery and large-grid
 capacity remain explicit acceptance gaps rather than successful claims.
 
+## Hosted browser follow-up
+
+Exact head `ae8a4004c769fc263f00235ded0e6b7d9b0598be` passed
+[Compose run 36565677643](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36565677643).
+Its [Web run 36565677669](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36565677669)
+passed type/unit/build/audit steps but had **12 browser passed, 2 failed in
+31.0s**: the new break-even and existing monthly-cash keyboard scroll checks
+observed zero horizontal movement. This is not a green hosted Web result.
+
+On unchanged tests, `CI=true` repeated those two cases three times and reproduced
+**4 passed, 2 failed in 25.5s** locally. The test now brings the actual region
+into view, checks viewport intersection and actual focus, then sends the native
+ArrowRight through that locator. It still requires positive horizontal movement
+at the same 320/768/1440px and 16/32px text sizes. No scripted positive scroll,
+timeout extension, skipped assertion, product key handler or test retry was
+added. [Playwright's locator API](https://playwright.dev/docs/api/class-locator)
+documents the viewport/focus/key actions; missing action readiness is an
+inference consistent with the reproduction, not an independently proved browser
+engine cause. The focused `CI=true` repeat passed **6 in 16.9s** after the change.
+Full local `CI=true` browser verification passed **14 in 18.8s**. Hosted
+verification of the follow-up is reported for its own exact head separately.
+
 ## Design verification
 
 The existing approved economics D direction and its original LayerDoc were
