@@ -8,6 +8,8 @@
 
 ## 현재 내부 웹 구현
 
+[06 계산 평가 화면](contracts/web-calculation-assessment-v1.md)은 같은 조건의 완료 열·경제 작업을 서버에 접수하고, 저장된 평가 상태·보류 근거를 조회하거나 재연결 후 다시 엽니다([실제 HTTPS/SCRAM·브라우저 증거](research/web-calculation-assessment-implementation.md)). 현재 운영자 작업 식별자 입력 경로이며 일반 지역 흐름의 자동 연결, 작성 농장의 별도 Run 경제·평가 연결과 실제 제품 CLI·독립 G1 수용은 남아 있습니다.
+
 합성 3D 재생은 [로컬 데모 실행법](web/README.md#지금-3d를-직접-보기)에 따라 브라우저에서 직접 볼 수 있습니다. 이 화면은 실제 농장 계산·자료 조사·작물 추천의 시연이 아닙니다.
 
 [지역 조사→원본 수집→수집 입력 검토 화면 후보](research/web-owned-source-workflow-implementation.md)를 내부 웹에 연결했습니다. 실제 서버 작업 상태와 검토 보류를 단계별로 조회하지만, 합성 자료 작업 완료가 실제 원천 G0 승인이나 Run 게시를 뜻하지는 않습니다.

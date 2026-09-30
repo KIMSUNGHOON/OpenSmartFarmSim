@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**완료 계산의 웹 평가 연결 (2026-10-01):** [06 계산 평가](../contracts/web-calculation-assessment-v1.md)는 기존 열·경제 작업 ID를 서버 검증 접수에 연결하고, 저장된 보류 근거를 조회·재연결한다. 웹 단위 93개, 집중 Chromium 6개와 실제 HTTPS/PostgreSQL 16.15/SCRAM·시험용 CLI 연결 1개가 통과했다([기록](../research/web-calculation-assessment-implementation.md)). 운영자 식별자 입력 경로이며 일반 지역 흐름·작성 Run 경제/평가·실제 제품 CLI·독립 해제·G1은 후속이다. 전체 `web-shell`/`end-to-end-g1` 체크는 유지한다.
+
 **필수 모델 변경 (2026-10-01):** [명시적 DB 이전·되돌리기](../contracts/cli-model-policy-migration-v1.md), 새 실행 검증과 개발 설정을 변경했다([161개 집중 시험](../research/cli-model-migration-implementation.md)). 과거 완료 항목의 모델명은 실제 실행 이력이며 보존한다. 새 모델의 제품 CLI·독립 해제·G1/G4 수용 체크는 유지한다.
 
 **지역 조사→수집→입력 검토 웹 연결 진행 (2026-09-30):** 완료된 조사 작업의 ID로 기존 인증 원본 수집 API를 접수하고, 완료된 수집 ID로 기존 입력 검토 API를 접수하는 내부 화면 후보를 추가했다([계약](../contracts/web-owned-source-workflow-v1.md), [검증](../research/web-owned-source-workflow-implementation.md)). 단계별 실제 작업 상태와 검토 보류를 조회하며 응답 유실 때 같은 멱등 키를 유지한다. [저장 조사·수집·검토 이력](../research/owned-source-history-implementation.md)은 재연결 뒤 페이지별로 다시 찾는다. 실제 CLI·독립 출처/해제 증거, 자동 연결과 전체 `source-collection-worker`/`web-shell`/`end-to-end-g1` 수용은 남아 체크를 유지한다.

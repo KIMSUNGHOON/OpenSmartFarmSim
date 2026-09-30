@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**완료 계산의 웹 평가 후보 (2026-10-01):** [화면 계약](../contracts/web-calculation-assessment-v1.md)에 따라 완료 열·경제 작업을 접수하고 현재 상태·공개 보류 범주를 확인한다. 응답 유실 때 같은 요청을 유지하고, 저장 작업 ID로 새로고침 후 조회한다. 웹 단위 93개·집중 Chromium 6개, 실제 HTTPS/PostgreSQL 16.15/SCRAM·시험용 CLI 연결 1개가 통과했다([검증 기록](../research/web-calculation-assessment-implementation.md)). 작성 농장의 별도 Run 평가, 일반 지역 흐름의 자동 부모 선택·미확인 접수 복구·실제 제품 CLI·독립 해제와 G1은 남아 있다.
+
 **필수 모델 변경 (2026-10-01):** 개발·제품 런타임 모두 `gpt-6.1-sol`/`xhigh`로 변경한다([이전 계약](../contracts/cli-model-policy-migration-v1.md), [검증 기록](../research/cli-model-migration-implementation.md)). 현재 개발 세션은 해당 모델·강도로 실행 중이다. 아래 과거 `gpt-6-sol` 실행 결과는 당시 증거로 보존하며, 새 모델의 실제 제품 작업자 실행·독립 해제·배포 계정 비용 검증으로 인정하지 않는다.
 
 **작성 Run 저장 목록·웹 후보 (2026-09-30):** 소유 테넌트의 불변 Run ID·계산 작업 ID·기록 시각을 페이지별로 조회한다([계약](../contracts/api-authored-thermal-run-v1.md), [시험](../research/authored-run-catalog-implementation.md)). 내부 웹은 농장 선택 없이 목록을 다시 찾고 선택한 Run의 정확한 현재 조회 후 3D 화면으로 이동한다. 목록에는 현재 표시 검증이 필요하다고 명시하며, 정확한 Run 조회가 기존 해제·권리·게시 증거를 다시 검사한다. 합성 브라우저 검증 범위이며 실제 CLI·독립 G1은 남아 있다.

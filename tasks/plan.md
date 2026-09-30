@@ -4,7 +4,11 @@
 [모델 이전 계약](../contracts/cli-model-policy-migration-v1.md)과
 [161개 집중 시험 기록](../research/cli-model-migration-implementation.md)을 추가했다.
 기존 원본·서명·실제 과거 호출은 보존한다. 새 모델의 제품 CLI 호출과 독립 해제,
-전체 G1 수용은 후속이며, 진행 중이던 완료 열·경제 작업의 웹 평가 연결을 이어간다.
+전체 G1 수용은 후속이다. 완료 열·경제 작업의 [웹 평가 연결](../contracts/web-calculation-assessment-v1.md)은
+접수·저장 보류 조회·재연결을 구현했다([브라우저·실제 HTTPS/SCRAM 증거](../research/web-calculation-assessment-implementation.md)).
+다음에는 지역 조사부터 지원하는 농장·경제·평가 부모 선택을 잇고, 새 모델의 제품
+CLI와 독립 실행/해제·G1 증거를 확보한다. 작성 농장의 별도 Run 경제·평가 연결과
+미확인 접수의 새로고침 복구는 후속 경로다.
 
 작성 농장의 저장 Run 전체를 다시 찾는 [테넌트별 목록 API](../contracts/api-authored-thermal-run-v1.md)를
 추가했다([PostgreSQL·HTTPS 검증](../research/authored-run-catalog-implementation.md)).

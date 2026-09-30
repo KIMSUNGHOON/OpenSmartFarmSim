@@ -235,3 +235,20 @@ write unresolved; never-stored-intent resubmission and reload recovery remain
 pending. Worker/result reads retain current source validation and full replay.
 Listed zeros and crossing intervals remain distinct; a crossing is not an
 exact continuous root. See the [verification record](../research/web-break-even-workspace-implementation.md).
+
+## Join completed calculations for assessment
+
+Use **06 계산 평가** with an operator-assembled authenticated API. Supply the
+completed thermal and economic job IDs for the same supported calculation
+context. The server revalidates both parents; the browser does not create crop
+evidence or determine compatibility. Current assessments finish held, displaying
+the public missing evidence categories. Separate authored Run receipts are not
+supported by this join yet.
+
+An uncertain POST retains its parents and key for the same retry. Save the
+request record before reloading if the reply is lost. A known assessment job
+can be reopened using **저장 평가 조회** after reconnecting; read failures use GET
+retry and do not create another assessment. Tokens are not stored. General
+regional orchestration and unknown-admission reload recovery are still pending.
+See the [contract](../contracts/web-calculation-assessment-v1.md) and
+[verification record](../research/web-calculation-assessment-implementation.md).

@@ -24,6 +24,8 @@ export type JobHold = { job_id:string; stage:'research'|'collection_review'|'ass
   status:'hold'; recorded_at:string; reason_code:'evidence_missing'|'decision_held';
   missing_evidence:Evidence[]; missing_evidence_count:number };
 export type SourceIntent={parent_job_id:string;idempotency_key:string};
+export type CalculationAssessmentIntent={run_job_id:string;economic_job_id:string;idempotency_key:string};
+const ASSESSMENT_STATES=['queued','assessing','hold','failed','canceled'] as const;
 export type SourceResearch={job:JobStatus;point:{latitude:number;longitude:number};
   period_start_utc:string;period_end_utc:string;goal_id:string;current_authority:'available'|'hold'};
 export type SourceHistoryDetail={research:SourceResearch;collection:JobStatus|null;review:JobStatus|null};
@@ -45,6 +47,12 @@ function decodeJob(value:unknown):JobStatus {
   need(value.reason_code === null || typeof value.reason_code === 'string' && CODE.test(value.reason_code));
   return {job_id:value.job_id,stage:value.stage,state:value.state,attempt_count:value.attempt_count,
     max_attempts:value.max_attempts,created_at:value.created_at,updated_at:value.updated_at,reason_code:value.reason_code};
+}
+function decodeAssessmentJob(value:unknown,id?:string) {
+  const result=decodeJob(value);
+  need(result.stage==='assessment' && member(result.state,ASSESSMENT_STATES) &&
+    (!id || result.job_id===id));
+  return {...result,stage:result.stage,state:result.state};
 }
 function decodeLocation(value:unknown, intent:LocationIntent):LocationAccepted {
   need(object(value)); closed(value,['location_id','point','spatial_support','research_job']);
@@ -196,6 +204,20 @@ export function createApi(token:string, fetcher:typeof fetch = fetch) {
       const result=decodeJob(await request('/v1/collection-reviews','POST',{
         collection_job_id:intent.parent_job_id,idempotency_key:intent.idempotency_key}));
       need(result.stage==='collection_review');return result;
+    },
+    async assessCalculations(intent:CalculationAssessmentIntent) {
+      need(uuid(intent.run_job_id) && uuid(intent.economic_job_id) &&
+        /^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$/.test(intent.idempotency_key));
+      return decodeAssessmentJob(await request('/v1/assessments','POST',{
+        run_job_id:intent.run_job_id,economic_job_id:intent.economic_job_id,
+        idempotency_key:intent.idempotency_key}));
+    },
+    async assessmentJob(id:string) {
+      need(uuid(id));return decodeAssessmentJob(await request('/v1/jobs/'+id),id);
+    },
+    async assessmentHold(id:string) {
+      need(uuid(id));const result=decodeHold(await request('/v1/jobs/'+id+'/hold-report'),id);
+      need(result.stage==='assessment');return {...result,stage:result.stage};
     },
     async job(id:string) {
       need(uuid(id)); const result=decodeJob(await request('/v1/jobs/'+id)); need(result.job_id === id); return result;

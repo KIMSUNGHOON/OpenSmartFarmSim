@@ -110,7 +110,8 @@ jobs:
             tests/test_farm_authored_simulation.py
           uv run --no-sync pytest -q -s --tb=short --durations=5 \
             tests/test_authored_full_software_path.py \
-            tests/web_authored_thermal_replay_smoke.py
+            tests/web_authored_thermal_replay_smoke.py \
+            tests/web_assessment_smoke.py
 
       - name: Remove database and password files
         if: ${{ always() }}
