@@ -6,7 +6,7 @@ from uuid import UUID
 
 from .farm_authored_run import AuthoredRunPreparer, PreparedAuthoredRun
 from .farm_authored_run_store import AuthoredRunStore
-from .job_store import JobStore
+from .job_store import JobStore, JobIntentConflict
 from .jobs import canonical_input_bytes, require_name
 
 
@@ -93,5 +93,7 @@ class AuthoredSimulationService:
         try:
             return self.run_store.jobs.submit(tenant, 'simulation', value, key,
                                                commit_guard=verify)
+        except JobIntentConflict:
+            raise
         except Exception:
             raise AuthoredSimulationHold('authored simulation admission unavailable') from None

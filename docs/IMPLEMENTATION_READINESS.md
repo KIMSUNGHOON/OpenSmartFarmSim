@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**작성 Run 접수 HTTP 후보 (2026-09-30):** [계약](../contracts/api-authored-simulation-admission-v1.md)은 현재 해제·입력·최종 두 궤적을 재검사하는 인증 POST를 표준 런타임에 연결했다([로컬 검증](../research/api-authored-simulation-admission-implementation.md)). 실제 HTTPS/SCRAM 재접수는 CI 확인 대기 중이며, 신규 작업의 완료·게시·브라우저 전체 흐름과 제품 CLI·독립 G1은 남아 있다.
+
 **작성 입력 검토 HTTP 후보 (2026-09-30):** [계약](../contracts/api-farm-authored-review-v1.md)은 등록 입력의 인증된 검토 작업 접수와 표준 런타임 조립을 추가했다([로컬 검증](../research/api-farm-authored-review-implementation.md)). OpenAPI·권한 집중 검사는 통과했고 실제 SCRAM 접수는 CI 확인 대기 중이다. 제품 CLI 실행·독립 해제·Run 게시·전체 G1은 계속 보류다.
 
 **직접 열어 볼 수 있는 합성 3D 데모 (2026-09-30):** `web/`의 `npm run demo:3d`에서 로컬 전용 시험 응답과 기존 3D 재생 화면을 연결했다([캡처](../research/artifacts/local-synthetic-3d-demo.png), [브라우저 검증](../research/local-synthetic-3d-demo-implementation.md)). 실제 저장 Run의 표준 HTTPS 브라우저 시험, 사용자 농장 작성·자료 수집·제품 CLI·독립 G1/G4 수용과 구분한다.

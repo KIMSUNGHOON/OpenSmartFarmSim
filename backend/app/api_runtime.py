@@ -35,6 +35,7 @@ from .calculation_assessment import CalculationAssessmentService
 from .farm_authoring_storage import FarmAuthoringService
 from .farm_authored_review import FarmAuthoredReviewService
 from .farm_authored_run_store import AuthoredRunStore
+from .farm_authored_simulation import AuthoredSimulationService
 
 
 @dataclass(frozen=True)
@@ -111,6 +112,7 @@ class ApiRuntime:
     farm_authoring: FarmAuthoringService | None = field(repr=False)
     farm_reviews: FarmAuthoredReviewService | None = field(repr=False)
     authored_runs: AuthoredRunStore | None = field(repr=False)
+    authored_simulation: AuthoredSimulationService | None = field(repr=False)
 
     def __init__(self, config, dependencies):
         try:
@@ -190,6 +192,8 @@ class ApiRuntime:
                         not hmac.compare_digest(authored_runs.gate_key,
                             config.authored_run_gate_key)):
                     raise ValueError()
+            authored_simulation = (AuthoredSimulationService(authored_runs.preparer,authored_runs)
+                if authored_runs is not None else None)
             app = create_app(jobs, holds, thermal, results, principal_provider=current_principal,
                 location_research_service=research,
                 break_even_store=break_even, thermal_scenario_store=scenarios,
@@ -199,7 +203,8 @@ class ApiRuntime:
                 collection_service=collections, owned_collection_review_service=collection_reviews,
                 assessment_service=assessments, farm_scenario_service=farm_scenarios,
                 authored_run_store=authored_runs, farm_authoring_service=farm_authoring,
-                farm_authored_review_service=farm_reviews)
+                farm_authored_review_service=farm_reviews,
+                authored_simulation_service=authored_simulation)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -210,5 +215,5 @@ class ApiRuntime:
                 ('collections', collections), ('collection_reviews', collection_reviews), ('research', research),
                 ('assessments', assessments), ('farm_scenarios', farm_scenarios),
                 ('farm_authoring', farm_authoring), ('farm_reviews', farm_reviews),
-                ('authored_runs', authored_runs)):
+                ('authored_runs', authored_runs), ('authored_simulation', authored_simulation)):
             object.__setattr__(self, name, value)

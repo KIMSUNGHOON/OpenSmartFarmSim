@@ -42,5 +42,11 @@ The [targeted simulation worker](contracts/farm-authored-simulation-worker-v1.md
 now completes a synthetic-test authored Run and job atomically. A separate
 [authenticated read candidate](contracts/api-authored-thermal-run-v1.md)
 projects its completed 120-point trace under current rights and release checks.
-Actual product CLI and independent reviewer evidence, standard HTTPS assembly
-and authored browser 3D remain open.
+Actual product CLI and independent reviewer evidence, and acceptance of the
+stored-Run HTTPS/browser connection remain open.
+
+Authenticated farm input and review admission, optional authored simulation
+admission, and the internal 3D replay screen are now implemented as candidates.
+The local [synthetic demo](web/README.md#지금-3d를-직접-보기) runs with HTTP doubles;
+the stored-Run HTTPS/browser checks and actual product CLI/independent release
+remain separate acceptance evidence.

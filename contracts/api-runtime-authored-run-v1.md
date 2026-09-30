@@ -5,6 +5,10 @@ Status: optional internal read assembly candidate. This extends
 [authored Run read](api-authored-thermal-run-v1.md). No source or release is
 approved by construction.
 
+The same optional Run store now also supplies the exact
+`AuthoredSimulationService` for [authenticated admission](api-authored-simulation-admission-v1.md).
+Runtime assembly alone does not operate the simulation worker or publish a Run.
+
 An operator may configure `ApiRuntimeConfig.authored_run_gate_key` and
 `ApiRuntimeDependencies.authored_run_store_factory` together. The key is a
 separate 32–4096 byte server secret, omitted from repr. The factory receives

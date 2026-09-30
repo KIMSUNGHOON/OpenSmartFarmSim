@@ -37,7 +37,7 @@ PROFILE = [{'market_calculation': True, 'market_source_storage': True,
 @pytest.mark.parametrize('login_scope', PROFILE, indirect=True)
 def test_standard_https_reads_owned_authored_run_and_holds_stale_evidence(
         login_scope, tls_files, tmp_path):
-    jobs, _, packet, preparer, original_store, job, worker = _admit(login_scope, tmp_path)
+    jobs, proof, packet, preparer, original_store, job, worker = _admit(login_scope, tmp_path)
     assert worker.run_once(str(job['job_id'])).state == 'succeeded'
     cert, key, _ = tls_files
     now = datetime.now(timezone.utc)
@@ -46,7 +46,7 @@ def test_standard_https_reads_owned_authored_run_and_holds_stale_evidence(
     grants = tuple(BearerGrant(token_digest(raw), tenant, frozenset(scopes),
         now - timedelta(seconds=1), now + timedelta(minutes=10))
         for name, raw, tenant, scopes in (
-            ('owner', tokens['owner'], 'tenant-a', AUTHORED_READ_SCOPES),
+            ('owner', tokens['owner'], 'tenant-a', ('simulation_create',)+AUTHORED_READ_SCOPES),
             ('denied', tokens['denied'], 'tenant-a',
                 tuple(scope for scope in AUTHORED_READ_SCOPES if scope != 'authored_run_read')),
             ('foreign', tokens['foreign'], 'tenant-b', AUTHORED_READ_SCOPES)))
@@ -95,6 +95,7 @@ def test_standard_https_reads_owned_authored_run_and_holds_stale_evidence(
     assert runtime.farm_authoring.replay is runtime.farm_scenarios
     assert type(runtime.farm_reviews) is FarmAuthoredReviewService
     assert runtime.farm_reviews.authoring is runtime.farm_authoring
+    assert runtime.authored_simulation.run_store is runtime.authored_runs
     server = runtime.service.server()
     thread = threading.Thread(target=server.run, daemon=True)
     thread.start()
@@ -106,12 +107,15 @@ def test_standard_https_reads_owned_authored_run_and_holds_stale_evidence(
         port = server.servers[0].sockets[0].getsockname()[1]
         context = ssl.create_default_context(cafile=str(cert))
 
-        def call(path, bearer='owner'):
+        def call(path, bearer='owner', method='GET', body=None):
             conn = http.client.HTTPSConnection('127.0.0.1', port, timeout=30, context=context)
             try:
                 headers = {} if bearer is None else {
                     'Authorization': 'Bearer ' + tokens[bearer].decode()}
-                conn.request('GET', path, headers=headers)
+                if body is not None:
+                    headers['Content-Type']='application/json'
+                conn.request(method, path, body=json.dumps(body) if body is not None else None,
+                    headers=headers)
                 response = conn.getresponse()
                 assert response.getheader('cache-control') == 'no-store'
                 return response.status, json.loads(response.read())
@@ -131,9 +135,22 @@ def test_standard_https_reads_owned_authored_run_and_holds_stale_evidence(
         assert status == 200 and series['run_id'] == packet.run_id
         assert len(series['points']) == 120
         assert series['points'][-1]['at_utc'] == summary['end_utc']
+        submission={'schema_version':'authored-thermal-simulation-request-v1',
+            'review_job_id':proof.review_job_id,'scenario_id':'farm-1',
+            'scenario_revision':'r1','registration_sha256':proof.registration_sha256,
+            'idempotency_key':'authored-worker-test'}
+        assert call('/v1/authored-runs',bearer=None,method='POST',body=submission)[0]==401
+        assert call('/v1/authored-runs',bearer='denied',method='POST',body=submission)[0]==403
+        admitted_status,admitted=call('/v1/authored-runs',method='POST',body=submission)
+        assert admitted_status==202 and admitted['job_id']==str(job['job_id'])
+        assert admitted['state']=='succeeded'
+        assert call('/v1/authored-runs',method='POST',body=submission)==(202,admitted)
+        assert call('/v1/authored-runs',method='POST',body=submission |
+            {'registration_sha256':'a'*64})[0]==422
         preparer.prepare = lambda *_: None
         assert call(job_path)[0] == 503
         assert call(run_path)[0] == 503
+        assert call('/v1/authored-runs',method='POST',body=submission)[0]==422
     finally:
         server.should_exit = True
         thread.join(timeout=15)

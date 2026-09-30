@@ -64,6 +64,8 @@ from .farm_authoring_storage import (FarmAuthoringService, FarmAuthoringRequest,
 from .farm_authored_review import (FarmAuthoredReviewService, FarmAuthoredReviewHold,
     REVIEW_SCOPES as AUTHORED_REVIEW_SCOPES)
 from .api_farm_authored_review import FarmAuthoredReviewRequest
+from .farm_authored_simulation import AuthoredSimulationService, AuthoredSimulationHold
+from .api_authored_simulation import AuthoredSimulationRequest
 
 
 def _error(status: int, code: str, message: str) -> JSONResponse:
@@ -83,7 +85,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                break_even_job_result_service=None, collection_service=None,
                owned_collection_review_service=None, assessment_service=None,
                farm_scenario_service=None, authored_run_store=None,
-               farm_authoring_service=None, farm_authored_review_service=None) -> FastAPI:
+               farm_authoring_service=None, farm_authored_review_service=None,
+               authored_simulation_service=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -140,6 +143,13 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             farm_authored_review_service.authoring is not farm_authoring_service or
             farm_authoring_service is None):
         raise ValueError('trusted farm authored review service required')
+    if authored_simulation_service is not None and (
+            type(authored_simulation_service) is not AuthoredSimulationService or
+            authored_run_store is None or
+            authored_simulation_service.run_store is not authored_run_store or
+            authored_simulation_service.preparer is not authored_run_store.preparer or
+            authored_run_store.jobs is not job_store):
+        raise ValueError('trusted authored simulation service required')
     if economic_calculation_service is not None and (
             type(economic_calculation_service) is not EconomicCalculationService or
             economic_calculation_service.jobs is not job_store or
@@ -181,6 +191,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
     run_scopes = ("thermal_run_read",)
     manifest_scopes = ("thermal_run_read", "thermal_snapshot_read")
     authored_scopes = AUTHORED_READ_SCOPES
+    authored_submission_scopes = ('simulation_create',) + authored_scopes
     economic_scopes = ("market_result_read",)
     break_even_scopes = ("break_even_read",)
 
@@ -464,6 +475,39 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(422,'farm_review_hold','Farm review evidence unavailable')
         except Exception:
             return _error(503,'farm_review_unavailable','Farm review admission unavailable')
+
+    @app.post('/v1/authored-runs', status_code=202, response_model=JobStatus,
+              operation_id='submitAuthoredThermalRun',
+              responses={status:{'model':ErrorEnvelope} for status in (401,403,409,413,415,422,503)},
+              openapi_extra={**_access(authored_submission_scopes),'x-ossf-max-body-bytes':4096,
+                  'requestBody':{'required':True,'content':{'application/json':{
+                      'schema':_inline_schema(AuthoredSimulationRequest)}}}})
+    async def post_authored_run(request: Request):
+        tenant, denied = authorized_tenant(*authored_submission_scopes)
+        if denied is not None:
+            return denied
+        if authored_simulation_service is None:
+            return _error(503,'authored_simulation_unavailable','Authored simulation admission unavailable')
+        try:
+            body = AuthoredSimulationRequest.model_validate_json(canonical_input_bytes(
+                await read_json_request(request,max_bytes=4096)))
+        except JsonRequestRejected as exc:
+            return _error(exc.status,exc.code,exc.message)
+        except (ValueError,UnicodeError,RecursionError):
+            return _error(422,'invalid_request','Invalid request')
+        try:
+            row = await run_in_threadpool(authored_simulation_service.submit,tenant,
+                body.review_job_id,body.scenario_id,body.scenario_revision,
+                body.registration_sha256,body.idempotency_key)
+            return public_job_status(row)
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except JobIntentConflict:
+            return _error(409,'simulation_conflict','Simulation intent already has different input')
+        except AuthoredSimulationHold:
+            return _error(422,'authored_simulation_hold','Authored simulation evidence unavailable')
+        except Exception:
+            return _error(503,'authored_simulation_unavailable','Authored simulation admission unavailable')
 
     scenario_read_scopes = SCENARIO_SCOPES
     scenario_write_scopes = ('thermal_scenario_write',) + SCENARIO_SCOPES

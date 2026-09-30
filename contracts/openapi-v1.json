@@ -4564,6 +4564,168 @@
         ]
       }
     },
+    "/v1/authored-runs": {
+      "post": {
+        "operationId": "submitAuthoredThermalRun",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "idempotency_key": {
+                    "maxLength": 200,
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                    "title": "Idempotency Key",
+                    "type": "string"
+                  },
+                  "registration_sha256": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "title": "Registration Sha256",
+                    "type": "string"
+                  },
+                  "review_job_id": {
+                    "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                    "title": "Review Job Id",
+                    "type": "string"
+                  },
+                  "scenario_id": {
+                    "maxLength": 200,
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                    "title": "Scenario Id",
+                    "type": "string"
+                  },
+                  "scenario_revision": {
+                    "maxLength": 200,
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                    "title": "Scenario Revision",
+                    "type": "string"
+                  },
+                  "schema_version": {
+                    "const": "authored-thermal-simulation-request-v1",
+                    "title": "Schema Version",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "schema_version",
+                  "review_job_id",
+                  "scenario_id",
+                  "scenario_revision",
+                  "registration_sha256",
+                  "idempotency_key"
+                ],
+                "title": "AuthoredSimulationRequest",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobStatus"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Post Authored Run",
+        "x-ossf-max-body-bytes": 4096,
+        "x-ossf-required-scopes": [
+          "simulation_create",
+          "metadata",
+          "artifact",
+          "authored_run_read",
+          "authored_release_read",
+          "farm_scenario_read",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read"
+        ]
+      }
+    },
     "/v1/authored-runs/{run_id}": {
       "get": {
         "operationId": "getAuthoredRun",
