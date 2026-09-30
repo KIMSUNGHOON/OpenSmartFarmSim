@@ -87,3 +87,11 @@ The test now establishes its backend path like the existing standalone tests.
 Rechecking with `env -u PYTHONPATH` and the pytest executable, matching the CI
 entry point, gave **7 passed in 1.65 s** on PostgreSQL 16.15. Hosted PostgreSQL
 18 verification is still required; this result does not replace it.
+
+Hosted follow-up [36790057723](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36790057723)
+for `2474583` completed successfully on PostgreSQL 18.6: **82 passed in
+257.12 s**, including all seven migration cases; the subsequent existing
+authored software/browser pair gave **2 passed in 186.06 s**. Web and C0
+workflows also passed. The broad backend workflow remains a separate check.
+All CLI children in this hosted selection are test executables, not product
+model invocation or independent G1 execution authority.
