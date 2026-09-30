@@ -108,19 +108,27 @@ test('completed research advances through owned collection and review with stabl
 test('saved source jobs return after reload and revoked authority blocks a new stage',async ({page}) => {
   const collectionId='22222222-2222-4222-8222-222222222222';
   const reviewId='33333333-3333-4333-8333-333333333333';
+  const olderReviewId='44444444-4444-4444-8444-444444444444';
   const summary={job:{...queued,state:'succeeded'},point:{latitude:37.5,longitude:127},
     period_start_utc:'2026-10-15T08:00:00Z',period_end_utc:'2026-10-15T10:00:00Z',
     goal_id:'historical-thermal-replay',current_authority:'available'};
   const collection={...queued,job_id:collectionId,stage:'collection',state:'succeeded'};
   const review={...queued,job_id:reviewId,stage:'collection_review',state:'hold'};
+  const olderReview={...review,job_id:olderReviewId};
   await page.route('**/v1/source-history',route=>route.fulfill({json:{items:[summary],next_cursor:null}}));
   await page.route('**/v1/source-history/'+jobId,route=>route.fulfill({json:{
     research:summary,collection,review}}));
+  await page.route('**/v1/source-history/'+jobId+'/activity',route=>route.fulfill({json:{
+    research_job_id:jobId,items:[{kind:'review',job:review,collection_job:collection},
+      {kind:'review',job:olderReview,collection_job:collection},
+      {kind:'collection',job:collection,collection_job:null}],next_cursor:null}}));
   await page.route('**/v1/jobs/'+reviewId+'/hold-report',route=>route.fulfill({json:{
     job_id:reviewId,stage:'collection_review',hold_id:reviewId,status:'hold',
     recorded_at:queued.updated_at,reason_code:'evidence_missing',
     missing_evidence:['real_source_g0'],missing_evidence_count:1}}));
   await page.route('**/v1/jobs/'+reviewId,route=>route.fulfill({json:review}));
+  await page.route('**/v1/jobs/'+olderReviewId,route=>route.fulfill({json:olderReview}));
+  await page.route('**/v1/jobs/'+collectionId,route=>route.fulfill({json:collection}));
   await page.setViewportSize({width:390,height:844});
   await page.goto('/');
   await page.getByText('내부 시험 연결',{exact:true}).click();
@@ -133,6 +141,9 @@ test('saved source jobs return after reload and revoked authority blocks a new s
   await expect(page.getByText('작업 '+reviewId)).toBeVisible();
   await page.getByRole('button',{name:'검토 상태 확인'}).click();
   await expect(page.getByText('실제 원천의 권리와 품질')).toBeVisible();
+  await page.getByRole('button',{name:'저장된 시도 보기'}).click();
+  await page.locator('.source-history-results li button').filter({hasText:olderReviewId}).click();
+  await expect(page.locator('.source-workflow-steps').getByText('작업 '+olderReviewId)).toBeVisible();
   await page.reload();
   await page.getByText('내부 시험 연결',{exact:true}).click();
   await page.getByLabel('접근 토큰').fill(token);

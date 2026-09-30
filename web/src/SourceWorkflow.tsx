@@ -1,6 +1,6 @@
 import { useEffect,useRef,useState } from 'react';
 import { ApiError,type Evidence,type JobHold,type JobStatus,type SourceHistoryDetail,
-  type SourceHistoryPage,type createApi } from './api';
+  type SourceHistoryPage,type SourceActivityItem,type SourceActivityPage,type createApi } from './api';
 import './SourceWorkflow.css';
 
 type Api=ReturnType<typeof createApi>;
@@ -25,6 +25,8 @@ export default function SourceWorkflow({api,researchJob,restored,onRestore,block
   const [error,setError]=useState<string|null>(null);
   const [history,setHistory]=useState<SourceHistoryPage|null>(null);
   const [historyBusy,setHistoryBusy]=useState(false);
+  const [activity,setActivity]=useState<SourceActivityPage|null>(null);
+  const [activityBusy,setActivityBusy]=useState(false);
   const collectionKey=useRef<string|null>(null);
   const reviewKey=useRef<string|null>(null);
   const generation=useRef(0);
@@ -37,6 +39,7 @@ export default function SourceWorkflow({api,researchJob,restored,onRestore,block
     setHold(null);setBusy(null);setError(null);
   },[api,researchId,restored]);
   useEffect(()=>{setHistory(null);},[api]);
+  useEffect(()=>{setActivity(null);},[api,researchId]);
 
   async function loadHistory(more=false) {
     if(!api || historyBusy || blocked)return;
@@ -59,6 +62,35 @@ export default function SourceWorkflow({api,researchJob,restored,onRestore,block
       if(epoch===generation.current)onRestore(detail);
     } catch(value) {if(epoch===generation.current)failure(value);}
     finally {setHistoryBusy(false);}
+  }
+  async function loadActivity(more=false) {
+    if(!api || !researchId || activityBusy || blocked)return;
+    const epoch=generation.current;
+    setActivityBusy(true);setError(null);
+    try {
+      const page=await api.sourceActivity(researchId,more?activity?.next_cursor:undefined);
+      if(epoch===generation.current)setActivity(more && activity?{
+        research_job_id:researchId,items:[...activity.items,...page.items.filter(item=>
+          !activity.items.some(previous=>previous.job.job_id===item.job.job_id))],
+        next_cursor:page.next_cursor}:page);
+    } catch(value) {if(epoch===generation.current)failure(value);}
+    finally {setActivityBusy(false);}
+  }
+  async function selectActivity(item:SourceActivityItem) {
+    if(!api || !researchId || activityBusy || blocked)return;
+    const epoch=generation.current;
+    setActivityBusy(true);setError(null);
+    try {
+      const detail=await api.sourceHistoryDetail(researchId);
+      const selected=await api.job(item.job.job_id);
+      if(selected.stage!==(item.kind==='collection'?'collection':'collection_review'))
+        throw new ApiError('response_rejected');
+      const parent=item.kind==='review'?await api.job(item.collection_job.job_id):null;
+      if(parent && parent.stage!=='collection')throw new ApiError('response_rejected');
+      if(epoch===generation.current)onRestore({...detail,
+        collection:parent??selected,review:item.kind==='review'?selected:null});
+    } catch(value) {if(epoch===generation.current)failure(value);}
+    finally {setActivityBusy(false);}
   }
 
   function failure(value:unknown) {
@@ -171,6 +203,22 @@ export default function SourceWorkflow({api,researchJob,restored,onRestore,block
             onClick={()=>void submitReview()}>{busy==='review'?'접수 확인 중…':
               reviewKey.current?'같은 검토 요청 다시 확인':'수집 입력 검토 요청'}</button>}</li>
     </ol>
+    <div className="source-activity"><div><h3>이 조사에서 저장된 시도</h3>
+      <p>수집이나 검토를 여러 번 요청했다면 이전 작업도 다시 확인할 수 있습니다.</p></div>
+      <button type="button" className="button secondary" disabled={!api || activityBusy || blocked}
+        onClick={()=>void loadActivity()}>{activityBusy?'확인 중…':'저장된 시도 보기'}</button></div>
+    {activity && <div className="source-history-results" aria-live="polite">
+      {activity.items.length===0?<p>이 조사에 연결된 수집·검토 시도가 없습니다.</p>:
+        <ul>{activity.items.map(item=><li key={item.job.job_id}>
+          <button type="button" disabled={activityBusy || blocked}
+            onClick={()=>void selectActivity(item)}>
+            <strong>{item.kind==='collection'?'원본 수집':'수집 입력 검토'} · {labels[item.job.state]}</strong>
+            <span>{new Date(item.job.created_at).toLocaleString('ko-KR',{timeZone:'Asia/Seoul'})} KST</span>
+            <small>작업 {item.job.job_id}</small>
+          </button></li>)}</ul>}
+      {activity.next_cursor && <button type="button" className="button secondary"
+        disabled={activityBusy || blocked} onClick={()=>void loadActivity(true)}>이전 시도 더 보기</button>}
+    </div>}
     {hold && <div className="source-workflow-hold" role="status"><strong>검토 보류 근거</strong>
       <ul>{hold.missing_evidence.map(item=><li key={item}>{evidence[item]}</li>)}</ul></div>}
     <p className="muted">수집·검토 작업 완료는 실제 자료 G0 승인이나 시뮬레이션 Run 게시를 뜻하지 않습니다.</p>

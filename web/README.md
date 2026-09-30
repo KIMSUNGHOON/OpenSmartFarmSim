@@ -28,7 +28,8 @@ admit owned fixture ingestion and collection review through their existing
 server endpoints, then read both job statuses and a review hold. These stage
 IDs remain in page memory during a request. After a full refresh, reconnect and
 use **저장된 조사 보기** on the work screen to find the tenant's stored research
-job and its latest linked collection/review jobs. The lookup rechecks current
+job and its latest linked collection/review jobs. **저장된 시도 보기** pages
+through earlier collection/review jobs for that research. The lookup rechecks current
 research source/context authority and holds new admission if it has changed. This is
 an internal candidate path, with no G0 approval or Run publication. The third
 screen lists exact stored economic assumptions, registers a numeric revision

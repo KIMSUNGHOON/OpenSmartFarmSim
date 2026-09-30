@@ -46,6 +46,8 @@ def test_source_history_restores_owned_jobs_and_current_authority(research_setup
     status, detail = get(app, '/v1/source-history/' + str(root['job_id']))
     assert status == 200 and detail == {'research': item, 'collection': None, 'review': None}
     assert get(app, '/v1/source-history/' + str(uuid4()))[0] == 404
+    assert get(app, '/v1/source-history/' + str(root['job_id']) + '/activity')[1] == {
+        'research_job_id': str(root['job_id']), 'items': [], 'next_cursor': None}
     assert get(app, '/v1/source-history?before_job_id=' + str(root['job_id']))[0] == 422
     for scope in READ_SCOPES:
         principal['scopes'].remove(scope)
@@ -54,10 +56,12 @@ def test_source_history_restores_owned_jobs_and_current_authority(research_setup
     principal['tenant_id'] = 'other-tenant'
     assert get(app, '/v1/source-history')[1] == {'items': [], 'next_cursor': None}
     assert get(app, '/v1/source-history/' + str(root['job_id']))[0] == 404
+    assert get(app, '/v1/source-history/' + str(root['job_id']) + '/activity')[0] == 404
     principal['tenant_id'] = 'tenant-a'
     monkeypatch.setattr(service.runs, 'get_decision_context', lambda *_: None)
     assert get(app, '/v1/source-history')[1]['items'][0]['current_authority'] == 'hold'
     assert get(app, '/v1/source-history/' + str(root['job_id']))[1]['research']['current_authority'] == 'hold'
+    assert get(app, '/v1/source-history/' + str(root['job_id']) + '/activity')[0] == 200
 
 
 def test_source_history_restores_linked_collection_review_and_pages(research_setup, tmp_path):
@@ -91,13 +95,33 @@ def test_source_history_restores_linked_collection_review_and_pages(research_set
     assert CollectionWorker(collection, tenant_id='tenant-a').run_once(str(collected['job_id'])).state == 'succeeded'
     review = OwnedCollectionReviewService(collection, service.runs)
     reviewed = review.submit('tenant-a', str(collected['job_id']), 'history-review')
+    retried_review = review.submit('tenant-a', str(collected['job_id']), 'history-review-second')
     linked = app_for(service, collection, review)
     status, detail = get(linked, '/v1/source-history/' + str(first['job_id']))
     assert status == 200 and detail['collection']['job_id'] == str(collected['job_id'])
-    assert detail['review']['job_id'] == str(reviewed['job_id'])
+    assert detail['review']['job_id'] == str(retried_review['job_id'])
     assert detail['research']['job']['job_id'] == str(first['job_id'])
     assert 'input_bytes' not in json.dumps(detail) and 'raw_utf8' not in json.dumps(detail)
     assert get(linked, '/v1/source-history/' + str(second['job_id']))[1]['collection'] is None
+    path = '/v1/source-history/' + str(first['job_id']) + '/activity'
+    activity = []
+    cursor = None
+    for _ in range(3):
+        query = '?' + urlencode({'limit': 1, **({'before_created_at': cursor['created_at'],
+            'before_job_id': cursor['job_id']} if cursor else {})})
+        status, page = get(linked, path + query)
+        assert status == 200 and page['research_job_id'] == str(first['job_id'])
+        assert len(page['items']) == 1
+        activity.extend(page['items'])
+        cursor = page['next_cursor']
+    assert cursor is None
+    assert {item['job']['job_id'] for item in activity} == {
+        str(collected['job_id']), str(reviewed['job_id']), str(retried_review['job_id'])}
+    assert [item['kind'] for item in activity].count('review') == 2
+    assert all(item['collection_job']['job_id'] == str(collected['job_id'])
+        for item in activity if item['kind'] == 'review')
+    assert get(linked, path + '?before_job_id=' + str(reviewed['job_id']))[0] == 422
+    assert get(linked, '/v1/source-history/' + str(second['job_id']) + '/activity')[1]['items'] == []
     with service.store.connect() as conn:
         stored = service.store._locked_job(conn, 'tenant-a', collected['job_id'])
         forged = json.loads(service.store._verified_input(stored))
@@ -105,6 +129,7 @@ def test_source_history_restores_linked_collection_review_and_pages(research_set
     service.store.submit('tenant-a', 'collection', forged,
         COLLECTION_KEY + sha256(b'wrong-history-parent').hexdigest())
     assert get(linked, '/v1/source-history/' + str(first['job_id']))[0] == 422
+    assert get(linked, path)[0] == 422
 
 
 def test_source_history_requires_owned_research_runtime(research_setup):

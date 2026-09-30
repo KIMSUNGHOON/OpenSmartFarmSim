@@ -53,7 +53,8 @@ from .api_owned_collection import OwnedIngestionRequest, OwnedReviewRequest
 from .owned_fixture_collection import CollectionService, CollectionHold, COLLECTION_SCOPES
 from .owned_collection_review import OwnedCollectionReviewService, CollectionReviewHold, REVIEW_SCOPES
 from .owned_research import OwnedResearchService, READ_SCOPES as OWNED_RESEARCH_READ_SCOPES, ADMISSION_SCOPES as OWNED_RESEARCH_SCOPES
-from .owned_source_history import OwnedSourceHistoryService, SourceHistoryPage, SourceHistoryDetail, SourceHistoryHold
+from .owned_source_history import (OwnedSourceHistoryService, SourceHistoryPage,
+    SourceHistoryDetail, SourceActivityPage, SourceHistoryHold)
 from .api_assessment import CalculationAssessmentRequest
 from .calculation_assessment import (CalculationAssessmentService, CalculationAssessmentHold,
     ADMISSION_SCOPES as ASSESSMENT_SCOPES)
@@ -256,6 +257,33 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(503,'source_history_unavailable','Source history unavailable')
         try:
             result = await run_in_threadpool(source_history.get,tenant,research_job_id)
+            return result if result is not None else _error(404,'not_found','Resource unavailable')
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except (SourceHistoryHold,ValueError):
+            return _error(422,'source_history_hold','Source history evidence unavailable')
+        except Exception:
+            return _error(503,'source_history_unavailable','Source history unavailable')
+
+    @app.get('/v1/source-history/{research_job_id}/activity', response_model=SourceActivityPage,
+             operation_id='listOwnedSourceActivity', responses=errors,
+             openapi_extra=_access(OWNED_RESEARCH_READ_SCOPES))
+    async def list_owned_source_activity(
+            research_job_id: UUID,
+            limit: Annotated[int,Query(ge=1,le=50)] = 20,
+            before_created_at: datetime | None = None,
+            before_job_id: UUID | None = None):
+        tenant, denied = authorized_tenant(*OWNED_RESEARCH_READ_SCOPES)
+        if denied is not None:
+            return denied
+        if (before_created_at is None) != (before_job_id is None) or (
+                before_created_at is not None and before_created_at.tzinfo is None):
+            return _error(422,'invalid_request','Invalid request')
+        if source_history is None:
+            return _error(503,'source_history_unavailable','Source history unavailable')
+        try:
+            result = await run_in_threadpool(source_history.activity,tenant,research_job_id,
+                limit=limit,before_created_at=before_created_at,before_job_id=before_job_id)
             return result if result is not None else _error(404,'not_found','Resource unavailable')
         except PermissionError:
             return _error(403,'forbidden','Resource access denied')

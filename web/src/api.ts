@@ -28,6 +28,10 @@ export type SourceResearch={job:JobStatus;point:{latitude:number;longitude:numbe
   period_start_utc:string;period_end_utc:string;goal_id:string;current_authority:'available'|'hold'};
 export type SourceHistoryDetail={research:SourceResearch;collection:JobStatus|null;review:JobStatus|null};
 export type SourceHistoryPage={items:SourceResearch[];next_cursor:{created_at:string;job_id:string}|null};
+export type SourceActivityItem={kind:'collection';job:JobStatus;collection_job:null}|
+  {kind:'review';job:JobStatus;collection_job:JobStatus};
+export type SourceActivityPage={research_job_id:string;items:SourceActivityItem[];
+  next_cursor:SourceHistoryPage['next_cursor']};
 
 const CODE = /^[a-z][a-z0-9_]{0,79}$/;
 function integer(value:unknown):value is number { return typeof value === 'number' && Number.isSafeInteger(value); }
@@ -100,6 +104,31 @@ function decodeSourceHistoryDetail(value:unknown,id:string):SourceHistoryDetail 
     && (!review || !!collection));
   return {research,collection,review};
 }
+function decodeSourceActivity(value:unknown,id:string):SourceActivityPage {
+  need(object(value));closed(value,['research_job_id','items','next_cursor']);
+  need(value.research_job_id===id && Array.isArray(value.items) && value.items.length<=20);
+  const items:SourceActivityItem[]=value.items.map(entry=>{
+    need(object(entry));closed(entry,['kind','job','collection_job']);
+    const job=decodeJob(entry.job);
+    if(entry.kind==='collection'){
+      need(job.stage==='collection' && entry.collection_job===null);
+      return {kind:'collection',job,collection_job:null};
+    }
+    need(entry.kind==='review' && job.stage==='collection_review');
+    const parent=decodeJob(entry.collection_job);need(parent.stage==='collection');
+    return {kind:'review',job,collection_job:parent};
+  });
+  need(new Set(items.map(item=>item.job.job_id)).size===items.length);
+  let next_cursor:SourceActivityPage['next_cursor']=null;
+  if(value.next_cursor!==null){
+    need(object(value.next_cursor));closed(value.next_cursor,['created_at','job_id']);
+    need(date(value.next_cursor.created_at) && uuid(value.next_cursor.job_id) &&
+      items.length===20 && items[19]?.job.created_at===value.next_cursor.created_at &&
+      items[19]?.job.job_id===value.next_cursor.job_id);
+    next_cursor={created_at:value.next_cursor.created_at,job_id:value.next_cursor.job_id};
+  }
+  return {research_job_id:id,items,next_cursor};
+}
 
 export function createApi(token:string, fetcher:typeof fetch = fetch) {
   if (!/^[\x21-\x7e]{20,512}$/.test(token)) throw new ApiError('auth_required');
@@ -148,6 +177,13 @@ export function createApi(token:string, fetcher:typeof fetch = fetch) {
     },
     async sourceHistoryDetail(id:string) {
       need(uuid(id));return decodeSourceHistoryDetail(await request('/v1/source-history/'+id),id);
+    },
+    async sourceActivity(id:string,cursor?:SourceActivityPage['next_cursor']) {
+      need(uuid(id));
+      if(cursor)need(date(cursor.created_at) && uuid(cursor.job_id));
+      const query=cursor?'?'+new URLSearchParams({before_created_at:cursor.created_at,
+        before_job_id:cursor.job_id}).toString():'';
+      return decodeSourceActivity(await request('/v1/source-history/'+id+'/activity'+query),id);
     },
     async ingestSource(intent:SourceIntent) {
       need(uuid(intent.parent_job_id) && /^[\x21-\x7e]{1,200}$/.test(intent.idempotency_key));

@@ -3052,6 +3052,73 @@
         "title": "SettlementSetoff",
         "type": "object"
       },
+      "SourceActivityItem": {
+        "additionalProperties": false,
+        "properties": {
+          "collection_job": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/JobStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "job": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "kind": {
+            "enum": [
+              "collection",
+              "review"
+            ],
+            "title": "Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "job",
+          "collection_job"
+        ],
+        "title": "SourceActivityItem",
+        "type": "object"
+      },
+      "SourceActivityPage": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/SourceActivityItem"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SourceHistoryCursor"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "research_job_id": {
+            "format": "uuid",
+            "title": "Research Job Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "research_job_id",
+          "items",
+          "next_cursor"
+        ],
+        "title": "SourceActivityPage",
+        "type": "object"
+      },
       "SourceHistoryCursor": {
         "additionalProperties": false,
         "properties": {
@@ -17662,6 +17729,141 @@
           }
         ],
         "summary": "Read Owned Source History",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "decision_context_read"
+        ]
+      }
+    },
+    "/v1/source-history/{research_job_id}/activity": {
+      "get": {
+        "operationId": "listOwnedSourceActivity",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "research_job_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Research Job Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 50,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before_created_at",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Before Created At"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before_job_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Before Job Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceActivityPage"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "List Owned Source Activity",
         "x-ossf-required-scopes": [
           "metadata",
           "decision_context_read"

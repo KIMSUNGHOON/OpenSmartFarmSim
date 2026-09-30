@@ -71,6 +71,19 @@ test('saved source history validates scope, lineage shape and same-origin paths'
   await expect(invalid.sourceHistoryDetail(id)).rejects.toMatchObject({code:'response_rejected'});
 });
 
+test('saved source activity accepts only exact linked stage shapes',async () => {
+  const collection={...job,stage:'collection'};
+  const review={...job,job_id:'33333333-3333-4333-8333-333333333333',stage:'collection_review'};
+  const payload={research_job_id:id,items:[{kind:'review',job:review,collection_job:collection},
+    {kind:'collection',job:collection,collection_job:null}],next_cursor:null};
+  const fetcher=vi.fn<typeof fetch>().mockResolvedValueOnce(reply(payload))
+    .mockResolvedValueOnce(reply({...payload,items:[{kind:'review',job:review,collection_job:null}]}));
+  const api=createApi(token,fetcher);
+  expect((await api.sourceActivity(id)).items).toHaveLength(2);
+  expect(fetcher.mock.calls[0]?.[0]).toBe('/v1/source-history/'+id+'/activity');
+  await expect(api.sourceActivity(id)).rejects.toMatchObject({code:'response_rejected'});
+});
+
 test('real server timestamps preserve their explicit timezone and microseconds',async () => {
   const value={...job,created_at:'2026-09-29T17:09:21.652617+09:00',updated_at:'2026-09-29T17:09:21.652617+09:00'};
   expect(await createApi(token,vi.fn<typeof fetch>().mockResolvedValue(reply(value))).job(id)).toEqual(value);

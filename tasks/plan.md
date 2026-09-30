@@ -2,8 +2,8 @@
 
 저장 원천 작업의 [테넌트별 목록·연결 단건 조회](../contracts/api-owned-source-history-v1.md)를
 웹 작업 화면에 연결했다([검증](../research/owned-source-history-implementation.md)). 재연결 후
-조사와 최근 수집·검토 한 쌍을 다시 찾으며 현재 원천 권한을 재검사한다.
-전체 과거 시도와 실제 CLI·독립 G1/G0/G4 수용은 후속이다.
+조사와 최근 수집·검토 한 쌍을 다시 찾고 같은 조사의 이전 시도를 페이지별로
+복원하며 현재 원천·문맥을 재검사한다. 실제 CLI·독립 G1/G0/G4 수용은 후속이다.
 
 완료된 지역 조사에서 기존 원본 수집·수집 입력 검토 API를 차례로 접수하고
 상태/보류를 읽는 [내부 웹 후보](../contracts/web-owned-source-workflow-v1.md)를

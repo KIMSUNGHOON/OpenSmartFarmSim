@@ -99,3 +99,5 @@ operator services return 503, and gate acceptance remains pending.
 [Saved owned source history](api-owned-source-history-v1.md) adds bounded tenant
 research listing and exact linked collection/review lookup. Current source/context
 availability is rechecked on selection; historical completion grants no G0/G1 gate.
+The same research path also exposes a paged, lineage-checked activity list for
+earlier collection and review attempts.
