@@ -129,7 +129,9 @@ uv run --locked --group dev pytest -q -s tests/web_authored_thermal_replay_smoke
 ```
 
 It needs the same protected `OSSF_TEST_PG_DSN` and locked Chromium setup. The
-backend CI runs this authored smoke after its database tests. Its review,
+`Authored API PostgreSQL smoke` CI runs this authored smoke and the composite
+authored browser test after its focused database/API tests. The broad backend
+workflow excludes only that composite browser file; both checks remain in CI. Its review,
 release and CLI authorities are synthetic software fixtures, not G1 proof.
 
 The [composite authored path](../research/authored-full-software-path-implementation.md)
@@ -183,7 +185,7 @@ job, the current farm selection reads. The authored path additionally needs
 current farm registration, release, source-right and authored Run read scopes;
 its [standard HTTPS runtime option](../contracts/api-runtime-authored-run-v1.md)
 requires a protected operator factory. The authored browser path has response
-double checks and an explicit stored Run HTTPS browser smoke; whole backend CI
+double checks and an explicit stored Run HTTPS browser smoke; hosted CI
 acceptance and the actual product CLI path remain separate.
 This screen reads existing results; it does not submit a new simulation or
 invent a demo Run. Expand **완료된 열 작업 선택** to change or reread the record.

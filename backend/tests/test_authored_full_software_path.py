@@ -191,30 +191,30 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
                 'workflow': {'review_uuid': REVIEW_BROWSER_UUID,
                     'run_uuid': RUN_BROWSER_UUID}}) + '\n')
             browser.stdin.flush()
-            ready, _, _ = select.select([browser.stdout], [], [], 250)
-            assert ready, 'browser did not report farm registration'
-            registered = json.loads(browser.stdout.readline())
-            assert registered['event'] == 'farm_registered'
-            registration = author.get('tenant-1', 'farm-1', 'r1')
-            assert registration is not None
-            assert registered['scenario_sha256'] == registration.scenario_sha256
-            assert registration.registration_status == 'registered_unpublished_inputs'
-            def browser_event(expected):
+            def browser_event(expected, *, queued_job=False):
                 ready, _, _ = select.select([browser.stdout], [], [], 250)
                 assert ready, f'browser did not report {expected}'
                 line = browser.stdout.readline()
                 if not line:
                     _, browser_error = browser.communicate(timeout=5)
-                    pytest.fail(f'browser exited before {expected}: '
-                                + browser_error[-2500:])
+                    pytest.fail(f'browser exited before {expected} '
+                                f'(exit {browser.returncode}): '
+                                + browser_error.replace(token.decode(), '<redacted>')[-2500:])
                 value = json.loads(line)
                 assert value['event'] == expected
+                if not queued_job:
+                    return value
                 job_id = value['job_id']
                 assert str(UUID(job_id)) == job_id
                 assert jobs.get_job('tenant-1', job_id)['state'] == 'queued'
                 return job_id
 
-            review_id = browser_event('review_admitted')
+            registered = browser_event('farm_registered')
+            registration = author.get('tenant-1', 'farm-1', 'r1')
+            assert registration is not None
+            assert registered['scenario_sha256'] == registration.scenario_sha256
+            assert registration.registration_status == 'registered_unpublished_inputs'
+            review_id = browser_event('review_admitted', queued_job=True)
             lease = jobs.claim(cli_worker.lease_seconds, allowed_stages=('collection_review',),
                                tenant_id='tenant-1', job_id=review_id)
             reviewed = cli_worker._run_claimed(lease)
@@ -272,7 +272,7 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
             browser.stdin.write(json.dumps({'event': 'review_succeeded',
                 'job_id': review_id}) + '\n')
             browser.stdin.flush()
-            job_id = browser_event('run_admitted')
+            job_id = browser_event('run_admitted', queued_job=True)
             worker = AuthoredSimulationWorker(run_store, tenant_id='tenant-1')
             worked = worker.run_once(job_id)
             assert worked.state == 'succeeded'
