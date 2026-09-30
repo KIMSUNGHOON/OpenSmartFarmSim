@@ -47,7 +47,8 @@ def _fixture(tmp_path):
     completion.execution_verifier = execution
     proof = AuthoredReviewCompletion(
         tenant_id='tenant-1', review_job_id='11111111-1111-4111-8111-111111111111',
-        review_input_sha256='3' * 64, registration_sha256='4' * 64,
+        review_input_sha256='3' * 64, scenario_id='farm-1',
+        scenario_revision='r1', registration_sha256='4' * 64,
         farm_sha256='a' * 64, numeric_input_sha256='b' * 64,
         rights_declaration_sha256='c' * 64, binding_sha256='d' * 64,
         base_snapshot_id='base-snapshot', base_source_sha256='e' * 64,

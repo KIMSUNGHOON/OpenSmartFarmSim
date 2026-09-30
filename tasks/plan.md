@@ -151,7 +151,10 @@ G3a/G3b 없이도 조건부 서비스에 대한 G4 평가는 가능하다. 그 �
 [해제 패킷 저장 후보](../contracts/farm-authored-release-store-v1.md)는 서명
 바이트/보고서와 작업 연결을 변경 불가로 보존하고 권한 역할·현재 근거를 검사한다
 ([시험 기록](../research/farm-authored-release-store-implementation.md)).
-실제 외부 발급과 작성 Run 게시기/작업자의 원자 게시가 다음 경계다.
+[작성 Run 준비 후보](../contracts/farm-authored-run-preparation-v1.md)는 저장 해제와
+현재 농장 판본을 재확인해 최종 두 궤적·이어짐 해시·Run ID를 계산한다
+([시험 기록](../research/farm-authored-run-preparation-implementation.md)).
+실제 외부 발급과 작성 Run 게시기/작업자의 원자 게시, 별도 3D 조회가 다음 경계다.
 저장된 완료 Run의 3D·그래프·표를 먼저 확인하는 부분 슬라이스이며,
 공통 Assessment와 전체 농장 입력 작성·실제 CLI/독립 G1의 기존 의존성 및
 `web-shell`/`web-replay` 수용 체크는 유지한다. 실제 작물 생장·수확의 3D는

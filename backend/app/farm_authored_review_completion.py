@@ -32,6 +32,8 @@ class AuthoredReviewCompletion:
     tenant_id: str
     review_job_id: str
     review_input_sha256: str
+    scenario_id: str
+    scenario_revision: str
     registration_sha256: str
     farm_sha256: str
     numeric_input_sha256: str
@@ -146,6 +148,8 @@ class AuthoredReviewCompletionVerifier:
             return AuthoredReviewCompletion(
                 tenant_id=tenant, review_job_id=str(review_job_id),
                 review_input_sha256=job['input_sha256'],
+                scenario_id=value['scenario_id'],
+                scenario_revision=value['scenario_revision'],
                 registration_sha256=value['registration_sha256'],
                 farm_sha256=value['farm_sha256'],
                 numeric_input_sha256=value['numeric_input_sha256'],

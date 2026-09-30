@@ -163,6 +163,7 @@ def test_authored_review_completion_requires_signed_attestation(authoring,login_
     attestations.put(attestation_raw,signature)
     proof=completed.verify('tenant-1',first['job_id'],registration.scenario_sha256)
     assert proof.review_input_sha256==first['input_sha256']
+    assert (proof.scenario_id,proof.scenario_revision)==('farm-1','r1')
     assert proof.trace_sha256==tuple(value['trace_sha256']) and proof.proof_sha256
     with pytest.raises(AuthoredReviewCompletionHold):
         completed.verify('tenant-1',first['job_id'],'0'*64)

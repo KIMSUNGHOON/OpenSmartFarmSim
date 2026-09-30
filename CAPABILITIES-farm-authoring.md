@@ -34,3 +34,7 @@ authored Run and web projection are still required.
 The [immutable packet store](contracts/farm-authored-release-store-v1.md)
 persists synthetic-test signed bytes under a tenant/job key and revalidates them
 on read. Independent issuance and accepted authored Run publication remain open.
+The [Run preparation candidate](contracts/farm-authored-run-preparation-v1.md)
+rechecks that stored release and the current registered farm, then derives
+canonical final two-hour trace bytes and hashes. It has no publisher or authored
+3D projection; the original fixture viewer cannot consume it as an accepted Run.
