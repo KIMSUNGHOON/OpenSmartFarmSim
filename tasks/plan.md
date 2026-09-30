@@ -155,10 +155,11 @@ G3a/G3b 없이도 조건부 서비스에 대한 G4 평가는 가능하다. 그 �
 현재 농장 판본을 재확인해 최종 두 궤적·이어짐 해시·Run ID를 계산한다
 ([시험 기록](../research/farm-authored-run-preparation-implementation.md)).
 실제 외부 발급과 작성 Run 게시기/작업자의 원자 게시, 별도 3D 조회가 다음 경계다.
-[작성 Run 저장 스키마 후보](../contracts/farm-authored-run-store-v1.md)는
-별도 불변 테이블과 선택적 authority 전용 v8 권한을 마련했다
+[작성 Run 저장 후보](../contracts/farm-authored-run-store-v1.md)는
+별도 불변 테이블과 선택적 authority 전용 v8 권한을 마련하고
+합성 Run의 단독 커밋 거부·같은 거래 작업 완료·서명 재조회 경계를 시험했다
 ([시험 기록](../research/farm-authored-run-store-implementation.md)).
-저장·작업 완료를 한 거래로 묶는 게시기와 실제 행/조회 검증은 아직 남아 있다.
+실제 입력 접수·작업자가 이 거래를 호출하고 별도 API/3D로 조회하는 경로는 아직 남아 있다.
 저장된 완료 Run의 3D·그래프·표를 먼저 확인하는 부분 슬라이스이며,
 공통 Assessment와 전체 농장 입력 작성·실제 CLI/독립 G1의 기존 의존성 및
 `web-shell`/`web-replay` 수용 체크는 유지한다. 실제 작물 생장·수확의 3D는

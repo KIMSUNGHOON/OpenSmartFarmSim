@@ -149,17 +149,22 @@ class AuthoredRunPreparer:
     """Bind current owned farm, release custody and final trace bytes."""
 
     def __init__(self, authoring, release_store):
+        self.authoring = authoring
+        self.release_store = release_store
+        self._binding()
+
+    def _binding(self):
+        authoring, release_store = self.authoring, self.release_store
         if (type(authoring) is not FarmAuthoringService or
                 type(release_store) is not AuthoredReleaseStore or
                 release_store.verifier.completion.review.authoring is not authoring or
                 release_store.jobs is not authoring.replay.jobs):
             raise AuthoredRunHold('authored Run authority unavailable')
-        self.authoring = authoring
-        self.release_store = release_store
 
     def prepare(self, tenant, review_job_id, scenario_id, revision,
                 registration_sha256):
         try:
+            self._binding()
             release = self.release_store.get(tenant, review_job_id,
                                              registration_sha256)
             _need(release is not None)
@@ -172,6 +177,7 @@ class AuthoredRunPreparer:
             request = json.loads(release.request_raw)
             _need((code, environment) ==
                   (request['runtime_code_files'], request['runtime_environment_files']))
+            self._binding()
             return packet
         except Exception:
             raise AuthoredRunHold('authored thermal Run preparation unavailable') from None

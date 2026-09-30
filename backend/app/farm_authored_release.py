@@ -23,6 +23,7 @@ REQUIRED_CODE = frozenset({
     'backend/app/farm_authored_release.py',
     'backend/app/farm_authored_release_store.py',
     'backend/app/farm_authored_run.py',
+    'backend/app/farm_authored_run_store.py',
     'backend/app/farm_authored_review_completion.py',
     'backend/app/farm_authored_review.py',
     'backend/app/farm_authoring_storage.py',
