@@ -4,6 +4,7 @@ import json
 from hashlib import sha256
 from pathlib import Path
 import sys
+from types import ModuleType
 
 from psycopg import sql
 import pytest
@@ -13,6 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app.farm_authored_run import AuthoredRunHold
 from app.farm_authored_simulation import AuthoredSimulationService
 from app.farm_authored_simulation_worker import AuthoredSimulationWorker
+from app.simulation_work import main as simulation_main
 from test_farm_authored_run_store import _authored_store_setup
 from login_database import login_database, login_scope
 
@@ -60,6 +62,27 @@ def test_worker_commits_exact_run_receipt_and_job_once(login_scope, tmp_path):
         sha256(receipt_raw).hexdigest())
     assert [row['state'] for row in jobs.list_attempt_outcomes(
         'tenant-a', job['job_id'])] == ['succeeded']
+
+
+@pytest.mark.parametrize('login_scope', PROFILE, indirect=True)
+def test_foreground_command_completes_authored_job_in_postgres(
+        login_scope, tmp_path, monkeypatch, capsys):
+    jobs, _, packet, _, store, job, worker = _admit(login_scope, tmp_path)
+    module = ModuleType('synthetic_authored_authority_factory')
+    module.build = lambda: worker
+    monkeypatch.setitem(sys.modules, module.__name__, module)
+    job_id = str(job['job_id'])
+
+    assert simulation_main(['--factory', module.__name__+':build',
+                            '--job-id', job_id]) == 0
+    captured = capsys.readouterr()
+    assert captured.err == ''
+    output = json.loads(captured.out)
+    assert output['result']['job_id'] == job_id
+    assert output['result']['state'] == 'succeeded'
+    assert output['result']['run_id'] == packet.run_id
+    assert jobs.get_job('tenant-a', job['job_id'])['state'] == 'succeeded'
+    assert store.get_run('tenant-a', packet.run_id) is not None
 
 
 @pytest.mark.parametrize('login_scope', PROFILE, indirect=True)

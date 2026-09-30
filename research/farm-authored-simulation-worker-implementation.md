@@ -26,5 +26,10 @@ uv run --locked --group dev pytest -q tests/test_simulation_work.py
 This test uses a constructed worker at the command boundary. The earlier
 PostgreSQL worker tests cover transaction behavior separately; a protected
 operator factory and real external reviewer release were not supplied here.
+An additional PostgreSQL test now invokes this foreground command with a
+synthetic authority factory and asserts the same job's committed Run. The fast
+authored API CI includes both command and worker tests; its result on the new
+head is pending. Local execution skipped that test because no
+`OSSF_TEST_PG_DSN` was provided.
 The authenticated admission, command, Run read and browser path still need
 one actual end-to-end execution with product CLI and independent G1 evidence.

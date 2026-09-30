@@ -88,6 +88,8 @@ jobs:
           uv run --no-sync python -c 'import os, psycopg; psycopg.connect(os.environ["OSSF_TEST_PG_DSN"]).close()'
           uv run --no-sync python -m app.api_openapi --check
           uv run --no-sync pytest -q -rs -x \
+            tests/test_simulation_work.py \
+            tests/test_farm_authored_simulation_worker.py \
             tests/test_api_openapi.py \
             tests/test_api_authored_runtime.py \
             tests/test_api_farm_authoring.py \
