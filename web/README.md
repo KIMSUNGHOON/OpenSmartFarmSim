@@ -112,17 +112,19 @@ release and CLI authorities are synthetic software fixtures, not G1 proof.
 
 The [composite authored path](../research/authored-full-software-path-implementation.md)
 also registers an owned farm, runs its synthetic review/release and actual
-publication worker, then checks the registered version, idempotent retries of
-completed review and thermal jobs, and resulting Run in Chromium over HTTPS:
+publication worker, then checks the registered version, an idempotent retry of
+the completed review job, a new thermal job admitted by Chromium, its worker
+completion, and the resulting Run over HTTPS:
 
 ```bash
 uv run --locked --group dev pytest -q -s --tb=short tests/test_authored_full_software_path.py
 ```
 
 It uses the same protected PostgreSQL test setup. Registration and initial job
-admission happen in the backend test harness; the browser retries those completed
-jobs using their original keys before reading the stored Run. The 180-second
-timeout on these two browser admissions is provisional pending latency work.
+admission for the review happen in the backend test harness; the browser retries
+that completed review with its original key, then admits a fresh simulation job.
+The harness executes the deterministic worker and the browser reads its stored Run.
+The 180-second timeout on both browser admissions is provisional pending latency work.
 Its CLI and reviewer are synthetic test authorities.
 
 It completes an owned farm thermal job, projects the verified immutable Run,

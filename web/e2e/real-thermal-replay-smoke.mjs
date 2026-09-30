@@ -3,11 +3,12 @@ import {chromium,expect} from '@playwright/test';
 import {createInterface} from 'node:readline';
 import {mkdir} from 'node:fs/promises';
 const input=createInterface({input:process.stdin});
-let configuration;
-for await(const line of input){configuration=JSON.parse(line);break;}
-input.close();
+const inputLines=input[Symbol.asyncIterator]();
+const firstLine=await inputLines.next();
+const configuration=firstLine.done?null:JSON.parse(firstLine.value);
 if(!configuration)throw new Error('synthetic browser configuration required');
 if(configuration.kind!==undefined && configuration.kind!=='authored')throw new Error('replay kind rejected');
+if(!configuration.workflow)input.close();
 const authored=configuration.kind==='authored';
 const browser=await chromium.launch({args:['--enable-unsafe-swiftshader']});
 const context=await browser.newContext({ignoreHTTPSErrors:true,viewport:{width:1440,height:1000}});
@@ -75,7 +76,19 @@ try{
     }
     expect(runResponse.request().postDataJSON().idempotency_key)
       .toBe('run-'+configuration.workflow.run_uuid);
-    await expect(page.getByText(configuration.job_id,{exact:true})).toBeVisible();
+    await expect(page.locator('.authored-job-id code')).toHaveCount(2);
+    const jobId=await page.locator('.authored-job-id code').last().textContent();
+    expect(jobId).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
+    await expect(page.getByText(jobId,{exact:true})).toBeVisible();
+    process.stdout.write(JSON.stringify({event:'run_admitted',job_id:jobId})+'\n');
+    const workerLine=await inputLines.next();
+    if(workerLine.done)throw new Error('worker result missing');
+    const worker=JSON.parse(workerLine.value);
+    input.close();
+    if(worker.event!=='worker_succeeded' || worker.job_id!==jobId)
+      throw new Error('worker result does not match admitted job');
+    configuration.job_id=jobId;configuration.run_id=worker.run_id;
+    configuration.series=worker.series;
     await page.getByRole('button',{name:'상태 다시 확인'}).last().click();
     await expect(page.getByRole('button',{name:'3D 재생 열기'})).toBeEnabled();
     await page.getByRole('button',{name:'3D 재생 열기'}).click();

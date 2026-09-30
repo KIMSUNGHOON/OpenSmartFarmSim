@@ -8,10 +8,12 @@ import json
 from datetime import datetime, timedelta, timezone
 import os
 from pathlib import Path
+import select
 import subprocess
 import sys
 import threading
 import time
+from uuid import UUID
 
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 from psycopg import sql
@@ -32,7 +34,6 @@ from app.farm_authored_review import FarmAuthoredReviewService, REVIEW_SCOPES
 from app.farm_authored_review_completion import AuthoredReviewCompletionVerifier
 from app.farm_authored_run import AuthoredRunPreparer
 from app.farm_authored_run_store import AuthoredRunStore
-from app.farm_authored_simulation import AuthoredSimulationService
 from app.farm_authored_simulation_worker import AuthoredSimulationWorker
 from app.farm_authoring_storage import FarmAuthoringService
 from app.http_identity import BearerGrant, BearerRegistry, token_digest
@@ -154,28 +155,9 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
 
     preparer = AuthoredRunPreparer(author, release_store)
     run_store = AuthoredRunStore(preparer, b'synthetic-full-path-gate-' + b'0' * 32)
-    simulation = AuthoredSimulationService(preparer, run_store)
-    job = simulation.submit('tenant-1', proof.review_job_id, 'farm-1', 'r1',
-                             registration.scenario_sha256,
-                             'run-' + RUN_BROWSER_UUID)
-    worker = AuthoredSimulationWorker(run_store, tenant_id='tenant-1')
-    worked = worker.run_once(str(job['job_id']))
-    assert worked.state == 'succeeded'
-    assert worker.run_once(str(job['job_id'])) is None
-    run = run_store.get_run('tenant-1', worked.run_id)
-    assert run['run_id'] == worked.run_id
-    assert run['report']['review_job_id'] == proof.review_job_id
-    assert run['report']['release_sha256'] == release.release_sha256
-    traces = [json.loads(raw) for raw in run['trace_raws']]
-    assert len(traces) == 2 and all(len(trace['steps']) == 60 for trace in traces)
-    assert traces[0]['run_id'] == traces[1]['run_id'] == worked.run_id
-    assert traces[0]['interval']['end_utc'] == traces[1]['interval']['start_utc']
-    assert jobs.get_job('tenant-1', job['job_id'])['state'] == 'succeeded'
-    assert run_store.get_run('tenant-other', worked.run_id) is None
 
-    # Read the Run produced by this actual registration/review/worker chain
-    # through the standard authenticated HTTPS assembly and Chromium viewer.
-    _, series = project_authored_run(run)
+    # Let Chromium create the simulation job through the standard HTTPS API.
+    # The harness then runs the actual deterministic worker for that job.
     cert, key, _ = tls_files
     now = datetime.now(timezone.utc)
     token = b'synthetic-full-path-browser-' + b'x' * 32
@@ -187,11 +169,15 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
         runtime_identity=jobs.runtime_identity)
 
     def authored_factory(*, job_store, farm_scenario_service, gate_key):
-        preparer.authoring = FarmAuthoringService(farm_scenario_service)
-        completion.review = FarmAuthoredReviewService(preparer.authoring)
-        completion.jobs = job_store
-        preparer.release_store.jobs = job_store
-        return AuthoredRunStore(preparer, gate_key)
+        api_author = FarmAuthoringService(farm_scenario_service)
+        api_review = FarmAuthoredReviewService(api_author)
+        api_completion = AuthoredReviewCompletionVerifier(api_review, execution)
+        monkeypatch.setattr(api_completion, 'verify', lambda *_: proof)
+        api_release = AuthoredReleaseStore(AuthoredReleaseVerifier(
+            api_completion, ROOT,
+            {'reviewer-key': ('separate synthetic reviewer', _public(reviewer))},
+            lambda tenant, ref: artifacts.get(ref) if tenant == 'tenant-1' else None))
+        return AuthoredRunStore(AuthoredRunPreparer(api_author, api_release), gate_key)
 
     runtime = ApiRuntime(config(policy=jobs.runtime_identity[0], dsn=jobs._dsn,
         artifact_root=jobs.artifact_root, certificate=cert, private_key=key,
@@ -221,12 +207,41 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
                 cwd=WEB, env=env, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE, text=True)
             browser.stdin.write(json.dumps({'kind': 'authored', 'token': token.decode(),
-                'job_id': str(job['job_id']), 'run_id': worked.run_id,
                 'farm': {'scenario_id': 'farm-1', 'revision': 'r1',
                     'registration_sha256': registration.scenario_sha256},
                 'workflow': {'review_uuid': REVIEW_BROWSER_UUID,
                     'run_uuid': RUN_BROWSER_UUID,
-                    'review_job_id': proof.review_job_id},
+                    'review_job_id': proof.review_job_id}}) + '\n')
+            browser.stdin.flush()
+            ready, _, _ = select.select([browser.stdout], [], [], 250)
+            assert ready, 'browser did not admit a new simulation job'
+            first_output = browser.stdout.readline()
+            if not first_output:
+                _, browser_error = browser.communicate(timeout=5)
+                pytest.fail('browser exited before simulation admission: '
+                            + browser_error[-2500:])
+            admitted = json.loads(first_output)
+            assert admitted['event'] == 'run_admitted'
+            job_id = admitted['job_id']
+            assert str(UUID(job_id)) == job_id
+            assert jobs.get_job('tenant-1', job_id)['state'] == 'queued'
+            worker = AuthoredSimulationWorker(run_store, tenant_id='tenant-1')
+            worked = worker.run_once(job_id)
+            assert worked.state == 'succeeded'
+            assert worker.run_once(job_id) is None
+            run = run_store.get_run('tenant-1', worked.run_id)
+            assert run['run_id'] == worked.run_id
+            assert run['report']['review_job_id'] == proof.review_job_id
+            assert run['report']['release_sha256'] == release.release_sha256
+            traces = [json.loads(raw) for raw in run['trace_raws']]
+            assert len(traces) == 2 and all(len(trace['steps']) == 60 for trace in traces)
+            assert traces[0]['run_id'] == traces[1]['run_id'] == worked.run_id
+            assert traces[0]['interval']['end_utc'] == traces[1]['interval']['start_utc']
+            assert jobs.get_job('tenant-1', job_id)['state'] == 'succeeded'
+            assert run_store.get_run('tenant-other', worked.run_id) is None
+            _, series = project_authored_run(run)
+            browser.stdin.write(json.dumps({'event': 'worker_succeeded',
+                'job_id': job_id, 'run_id': worked.run_id,
                 'series': series.model_dump(mode='json')}) + '\n')
             browser.stdin.flush()
             output, error = browser.communicate(timeout=450)
