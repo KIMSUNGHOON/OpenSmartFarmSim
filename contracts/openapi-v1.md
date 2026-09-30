@@ -1,7 +1,7 @@
 # Implemented API OpenAPI contract v1
 
 [openapi-v1.json](openapi-v1.json) is the deterministic OpenAPI 3.1.0 snapshot
-of the twenty-four implemented operations. It is an internal software candidate.
+of the implemented operations. It is an internal software candidate.
 Future provider ingestion, validated crop assessments and region listings are
 specified in ARCHITECTURE but are not advertised as available operations.
 
@@ -33,9 +33,7 @@ decision_context_read when the protected [owned planning option](owned-research-
 is installed. The original location scope/request/response and operation ID
 remain stable; the initial registry continues to hold.
 
-Operation IDs are stable: registerLocation, registerMarketUserSource, listMarketUserSources, getMarketUserSource, registerEconomicScenario, registerThermalScenario, getThermalScenario,
-submitThermalRun, submitOwnedIngestion, submitOwnedCollectionReview, submitCalculationAssessment, submitEconomicCalculation, submitBreakEvenPlan, getJob, getJobHold, getJobRun, getJobEconomicResult, getJobBreakEvenResult, getMarketHold,
-getRun, getRunSeries, getRunManifest, getEconomicResult, getBreakEvenResult. `LocationPoint` is a
+Operation IDs are stable and listed with every path in the JSON snapshot. `LocationPoint` is a
 closed latitude/longitude object with coordinate bounds, matching the actual
 response. Registration's request is closed JSON with a 4096-byte maximum
 (`x-ossf-max-body-bytes`). Duplicate JSON keys and period ordering are runtime
@@ -97,3 +95,7 @@ distinct from subsequent calculation, CLI execution and gate acceptance.
 UUID and idempotency key. Their 202 responses are existing JobStatus; original
 sources, signed contexts and candidate snapshots remain protected. Missing
 operator services return 503, and gate acceptance remains pending.
+
+[Saved owned source history](api-owned-source-history-v1.md) adds bounded tenant
+research listing and exact linked collection/review lookup. Current source/context
+availability is rechecked on selection; historical completion grants no G0/G1 gate.

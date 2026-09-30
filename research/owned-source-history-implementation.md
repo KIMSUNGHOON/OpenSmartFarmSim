@@ -8,6 +8,7 @@
 | --- | --- |
 | `PYTHONPATH=. OSSF_TEST_PG_DSN=... .venv/bin/pytest -q tests/test_owned_source_history.py` (`backend/`) | 실제 로컬 PostgreSQL 16.15/SCRAM, 3건 통과. 테넌트 분리·목록 커서·권한 철회·저장 수집/검토 연결·잘못된 부모 해시 거부·미조립 API를 포함한다. CLI는 직접 작성한 가짜 실행기다. |
 | `PYTHONPATH=. OSSF_TEST_PG_DSN=... .venv/bin/pytest -q tests/test_owned_source_history.py tests/test_owned_research.py tests/test_api_owned_collection.py` (`backend/`) | 주변 조사·수집 API 회귀 포함 26건 통과. |
+| `PYTHONPATH=. .venv/bin/python -m app.api_openapi --check`; `PYTHONPATH=. OSSF_TEST_PG_DSN=... .venv/bin/pytest -q tests/test_api_openapi.py tests/test_owned_source_history.py` (`backend/`) | 추가 경로의 저장 OpenAPI 스냅샷 일치와 권한/응답 참조를 포함한 53건 통과. 첫 호스팅 스모크의 스냅샷 불일치를 확인해 [OpenAPI 계약](../contracts/openapi-v1.md)과 JSON을 갱신했다. |
 | `npm run typecheck`; `npm run test -- --run src/api.test.ts` (`web/`) | TypeScript 통과; API DTO/경로 검증 25건 통과. |
 | `OSSF_TEST_WEB_PORT=5187 npx --no-install playwright test e2e/shell.spec.ts --grep 'saved source jobs return after reload' --reporter=line` (`web/`) | Chromium 390px에서 토큰 재연결·새로고침 뒤 조사/수집/검토 이력 복구, 검토 보류 조회, 권한 철회 표시 1건 통과. |
 | `npm run test`; `npm run build`; `OSSF_TEST_WEB_PORT=5187 npm run test:browser` (`web/`) | 웹 단위 77건, 정적 빌드, Chromium 28건 통과. Vite는 기존 그래프·3D 청크 크기 경고를 출력했다. |

@@ -74,6 +74,8 @@ OPERATIONS = {
     ("/v1/runs", "post"): ("submitThermalRun", ['thermal_run_submit', 'metadata', 'artifact',
         'thermal_scenario_read', 'thermal_snapshot_read', 'decision_context_read', 'market_hold_context_read']),
     ("/v1/locations", "post"): ("registerLocation", ["location_create"]),
+    ("/v1/source-history", "get"): ("listOwnedSourceHistory", ["metadata", "decision_context_read"]),
+    ("/v1/source-history/{research_job_id}", "get"): ("readOwnedSourceHistory", ["metadata", "decision_context_read"]),
     ("/v1/jobs/{job_id}", "get"): ("getJob", ["metadata"]),
     ("/v1/jobs/{job_id}/hold-report", "get"): ("getJobHold", ["metadata", "artifact", "auditor"]),
     ("/v1/jobs/{job_id}/run", "get"): ("getJobRun", ["metadata", "artifact", "thermal_run_read"]),
@@ -186,6 +188,7 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
     principal = {"authenticated": True, "tenant_id": "tenant-a", "scopes": set()}
     app = create_app(stores, stores, stores, stores, principal_provider=lambda: principal, break_even_store=stores)
     path = (path.replace("{job_id}", "00000000-0000-4000-8000-000000000001")
+        .replace("{research_job_id}", "00000000-0000-4000-8000-000000000003")
         .replace("{report_id}", "00000000-0000-4000-8000-000000000002")
         .replace("{run_id}", ("authored-thermal-run-v1:" if '/authored-runs/' in path else
             "synthetic-thermal-v1:")+"a"*64).replace("{result_id}", "b"*64))

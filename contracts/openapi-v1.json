@@ -3052,6 +3052,133 @@
         "title": "SettlementSetoff",
         "type": "object"
       },
+      "SourceHistoryCursor": {
+        "additionalProperties": false,
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "job_id": {
+            "format": "uuid",
+            "title": "Job Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "created_at",
+          "job_id"
+        ],
+        "title": "SourceHistoryCursor",
+        "type": "object"
+      },
+      "SourceHistoryDetail": {
+        "additionalProperties": false,
+        "properties": {
+          "collection": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/JobStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "research": {
+            "$ref": "#/components/schemas/SourceResearchSummary"
+          },
+          "review": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/JobStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "research",
+          "collection",
+          "review"
+        ],
+        "title": "SourceHistoryDetail",
+        "type": "object"
+      },
+      "SourceHistoryPage": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/SourceResearchSummary"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SourceHistoryCursor"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items",
+          "next_cursor"
+        ],
+        "title": "SourceHistoryPage",
+        "type": "object"
+      },
+      "SourceResearchSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "current_authority": {
+            "enum": [
+              "available",
+              "hold"
+            ],
+            "title": "Current Authority",
+            "type": "string"
+          },
+          "goal_id": {
+            "title": "Goal Id",
+            "type": "string"
+          },
+          "job": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "period_end_utc": {
+            "format": "date-time",
+            "title": "Period End Utc",
+            "type": "string"
+          },
+          "period_start_utc": {
+            "format": "date-time",
+            "title": "Period Start Utc",
+            "type": "string"
+          },
+          "point": {
+            "$ref": "#/components/schemas/LocationPoint"
+          }
+        },
+        "required": [
+          "job",
+          "point",
+          "period_start_utc",
+          "period_end_utc",
+          "goal_id",
+          "current_authority"
+        ],
+        "title": "SourceResearchSummary",
+        "type": "object"
+      },
       "ThermalLawReference": {
         "additionalProperties": false,
         "properties": {
@@ -17324,6 +17451,220 @@
           "thermal_snapshot_read",
           "decision_context_read",
           "market_hold_context_read"
+        ]
+      }
+    },
+    "/v1/source-history": {
+      "get": {
+        "operationId": "listOwnedSourceHistory",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 50,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before_created_at",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Before Created At"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before_job_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Before Job Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceHistoryPage"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "List Owned Source History",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "decision_context_read"
+        ]
+      }
+    },
+    "/v1/source-history/{research_job_id}": {
+      "get": {
+        "operationId": "readOwnedSourceHistory",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "research_job_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Research Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceHistoryDetail"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Read Owned Source History",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "decision_context_read"
         ]
       }
     }
