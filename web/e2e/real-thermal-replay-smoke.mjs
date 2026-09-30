@@ -26,6 +26,22 @@ try{
   await page.getByLabel('접근 토큰').fill(configuration.token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await expect(page.getByLabel('접근 토큰')).toHaveValue('');
+  if(configuration.farm){
+    if(!authored)throw new Error('authored farm lookup requires authored replay');
+    await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
+    await page.getByLabel('시나리오 ID').fill(configuration.farm.scenario_id);
+    await page.getByLabel('판본',{exact:true}).fill(configuration.farm.revision);
+    const lookup=page.waitForResponse(response=>new URL(response.url()).pathname==='/v1/farm-authored-inputs');
+    await page.getByRole('button',{name:'등록 기록 확인'}).click();
+    const lookupResponse=await lookup;
+    if(lookupResponse.status()!==200){
+      const result=await lookupResponse.json();
+      throw new Error('authored farm lookup status '+lookupResponse.status()+' code '+result.code);
+    }
+    await expect(page.getByText('입력 등록됨 · 계산 전')).toBeVisible({timeout:60_000});
+    await expect(page.locator('.authored-facts code').first())
+      .toHaveText(configuration.farm.registration_sha256);
+  }
   await page.getByRole('button',{name:'05 3D 열 재생'}).click();
   if(authored)await page.getByRole('radio',{name:'작성한 농장 열 재생'}).check();
   await page.getByLabel('완료된 열 작업 ID').fill(configuration.job_id);
@@ -38,7 +54,7 @@ try{
     expect(response.headers()['cache-control']).toBe('no-store');
     network.push({path:new URL(response.url()).pathname,status:response.status()});
   }
-  expect(responses.length).toBe(authored?3:4);
+  expect(responses.length).toBe(authored?(configuration.farm?4:3):4);
   // Compare with the server projection of the verified immutable Run supplied by
   // the harness. The SDK releases response bodies after its bounded read.
   const series=configuration.series;

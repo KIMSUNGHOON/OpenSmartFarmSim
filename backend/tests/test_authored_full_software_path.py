@@ -5,8 +5,13 @@ cannot establish an independent G1 review or any agricultural claim.
 """
 
 import json
+from datetime import datetime, timedelta, timezone
+import os
 from pathlib import Path
+import subprocess
 import sys
+import threading
+import time
 
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 from psycopg import sql
@@ -15,6 +20,8 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.authored_thermal_candidate import calculate_authored_candidate
+from app.api_authored_thermal import AUTHORED_READ_SCOPES, project_authored_run
+from app.api_runtime import ApiRuntime
 from app.calculation_assessment import CalculationAssessmentService
 from app.cli_worker import CliWorker
 from app.execution_attestation import ExecutionAttestationStore
@@ -27,17 +34,24 @@ from app.farm_authored_run import AuthoredRunPreparer
 from app.farm_authored_run_store import AuthoredRunStore
 from app.farm_authored_simulation import AuthoredSimulationService
 from app.farm_authored_simulation_worker import AuthoredSimulationWorker
+from app.farm_authoring_storage import FarmAuthoringService
+from app.http_identity import BearerGrant, BearerRegistry, token_digest
+from app.market_source_store import MarketSourceStore
+from app.owned_fixture_registry import OwnedFixtureRegistry
 from app.market_result_store import MarketResultStore
 from app.owned_cli_contracts import OwnedCliContractRouter
 from app.owned_collection_review import OwnedCollectionReviewService
 from app.owned_fixture_collection import CollectionService
 from test_cli_worker import _fake_cli
+from test_api_runtime import config, dependencies
+from test_api_serve import tls_files
 from test_execution_attestation import _signed as signed_execution
 from test_farm_authoring_storage import authoring, request
 from test_farm_authored_release import _public, _signed as signed_release
 from test_farm_authored_review import self_authored_evidence_policy
 from test_farm_replay_scenario import farm_setup
 from login_database import login_database, login_scope
+from web_shell_smoke import WEB, frontend
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -50,7 +64,7 @@ PROFILE = {
 
 @pytest.mark.parametrize('login_scope', [PROFILE], indirect=True)
 def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
-        authoring, login_scope, tmp_path, monkeypatch):
+        authoring, login_scope, tls_files, tmp_path, monkeypatch):
     author, body, principal = authoring
     principal['scopes'].update({
         'collection_review_create', 'authored_release_write',
@@ -154,3 +168,71 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
     assert traces[0]['interval']['end_utc'] == traces[1]['interval']['start_utc']
     assert jobs.get_job('tenant-1', job['job_id'])['state'] == 'succeeded'
     assert run_store.get_run('tenant-other', worked.run_id) is None
+
+    # Read the Run produced by this actual registration/review/worker chain
+    # through the standard authenticated HTTPS assembly and Chromium viewer.
+    _, series = project_authored_run(run)
+    cert, key, _ = tls_files
+    now = datetime.now(timezone.utc)
+    token = b'synthetic-full-path-browser-' + b'x' * 32
+    grant = BearerGrant(token_digest(token), 'tenant-1', frozenset(AUTHORED_READ_SCOPES),
+        now - timedelta(seconds=1), now + timedelta(minutes=20))
+    source_factory = lambda *, principal_provider: MarketSourceStore(
+        jobs._dsn, jobs.schema, principal_provider=principal_provider,
+        runtime_identity=jobs.runtime_identity)
+
+    def authored_factory(*, job_store, farm_scenario_service, gate_key):
+        preparer.authoring = FarmAuthoringService(farm_scenario_service)
+        completion.review = FarmAuthoredReviewService(preparer.authoring)
+        completion.jobs = job_store
+        preparer.release_store.jobs = job_store
+        return AuthoredRunStore(preparer, gate_key)
+
+    runtime = ApiRuntime(config(policy=jobs.runtime_identity[0], dsn=jobs._dsn,
+        artifact_root=jobs.artifact_root, certificate=cert, private_key=key,
+        port=0, authored_run_gate_key=run_store.gate_key),
+        dependencies(research_registry=author.replay.registry,
+            bearer_registry=BearerRegistry((grant,)),
+            market_source_factory=source_factory,
+            market_scope_resolver=author.replay.thermal.holds._scope_resolver,
+            owned_fixture_registry=OwnedFixtureRegistry(ROOT),
+            owned_research_contexts={next(iter(author.replay.registry._scopes)): 'context-1'},
+            authored_run_store_factory=authored_factory))
+    server = runtime.service.server()
+    thread = threading.Thread(target=server.run, daemon=True)
+    thread.start()
+    browser = None
+    try:
+        deadline = time.monotonic() + 15
+        while not server.started:
+            assert thread.is_alive() and time.monotonic() < deadline
+            time.sleep(0.01)
+        api_port = server.servers[0].sockets[0].getsockname()[1]
+        with frontend(f'https://127.0.0.1:{api_port}', cert, key) as (web_port, _):
+            env = {name: os.environ[name] for name in
+                ('PATH', 'HOME', 'LANG', 'PLAYWRIGHT_BROWSERS_PATH') if name in os.environ}
+            browser = subprocess.Popen(['node', 'e2e/real-thermal-replay-smoke.mjs',
+                f'https://127.0.0.1:{web_port}', str(tmp_path / 'full-path-screens')],
+                cwd=WEB, env=env, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE, text=True)
+            browser.stdin.write(json.dumps({'kind': 'authored', 'token': token.decode(),
+                'job_id': str(job['job_id']), 'run_id': worked.run_id,
+                'farm': {'scenario_id': 'farm-1', 'revision': 'r1',
+                    'registration_sha256': registration.scenario_sha256},
+                'series': series.model_dump(mode='json')}) + '\n')
+            browser.stdin.flush()
+            output, error = browser.communicate(timeout=90)
+            assert browser.returncode == 0, error[-2500:]
+            report = json.loads(output)
+            assert report['stage'] == 'verified' and report['points'] == 120
+            assert len(report['network']) == 4
+            assert all(item['status'] == 200 for item in report['network'])
+            print('authored_full_browser=' + json.dumps(report))
+            print('authored_full_screens=' + str(tmp_path / 'full-path-screens'))
+    finally:
+        if browser is not None and browser.poll() is None:
+            browser.kill()
+            browser.communicate(timeout=5)
+        server.should_exit = True
+        thread.join(timeout=15)
+        assert not thread.is_alive()
