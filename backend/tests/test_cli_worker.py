@@ -110,7 +110,7 @@ def test_worker_claims_only_ai_stages_and_records_real_process_hold(pg_store, tm
     store.submit("tenant-a", "collection", {"fixture": "synthetic"}, uuid4().hex)
     job = _submit(store, "research")
     argv = worker._argv(worker.cli_path, tmp_path, tmp_path / "schema", tmp_path / "final")
-    assert argv[argv.index("-m") + 1] == "gpt-6-sol"
+    assert argv[argv.index("-m") + 1] == "gpt-6.1-sol"
     assert argv[argv.index("-c") + 1] == 'model_reasoning_effort="xhigh"'
     assert argv[argv.index("--sandbox") + 1] == "read-only"
     assert "--ignore-user-config" in argv and "--json" in argv
@@ -308,7 +308,7 @@ if os.environ.get("OSSF_REAL_CLI_SMOKE") == "1":
             assert store.read_hold_report("tenant-a", job["job_id"])
             invocation = store.get_invocation("tenant-a", job["job_id"], result.attempt)
             assert invocation["execution_kind"] == "codex_cli"
-            assert (invocation["model"], invocation["reasoning_effort"]) == ("gpt-6-sol", "xhigh")
+            assert (invocation["model"], invocation["reasoning_effort"]) == ("gpt-6.1-sol", "xhigh")
             with store.connect() as conn:
                 capture = conn.execute(sql.SQL("""
                     SELECT capture_id, jsonl_sha256, final_output_sha256, exit_code,

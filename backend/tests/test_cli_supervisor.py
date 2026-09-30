@@ -58,7 +58,7 @@ def test_supervisor_observes_exact_child_input_output_and_wait(tmp_path):
         assert launch.executable_sha256 == sha256(binary.read_bytes()).hexdigest()
         assert launch.prompt_sha256 == sha256(prompt).hexdigest()
         assert launch.schema_sha256 == sha256(SCHEMA_BYTES).hexdigest()
-        assert launch.argv[launch.argv.index("-m") + 1] == "gpt-6-sol"
+        assert launch.argv[launch.argv.index("-m") + 1] == "gpt-6.1-sol"
         assert launch.argv[launch.argv.index("-c") + 1] == 'model_reasoning_effort="xhigh"'
         assert launch.argv[launch.argv.index("--sandbox") + 1] == "read-only"
         for _ in range(100):

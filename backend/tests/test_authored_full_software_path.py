@@ -227,7 +227,7 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
                                  'attempt_cli_captures')}
             invocation = rows['attempt_invocations']
             assert (invocation['execution_kind'], invocation['model'],
-                    invocation['reasoning_effort']) == ('codex_cli', 'gpt-6-sol', 'xhigh')
+                    invocation['reasoning_effort']) == ('codex_cli', 'gpt-6.1-sol', 'xhigh')
             record, raw, signature, _, _, _ = signed_execution(
                 jobs, cli_worker, reviewed, rows, launch['argv'], private=observer,
                 observed_hashes=(invocation['prompt_sha256'], invocation['schema_sha256'])

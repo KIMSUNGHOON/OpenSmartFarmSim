@@ -2,7 +2,7 @@
 
 [초기 계산 평가 연결](../contracts/calculation-assessment-v1.md)은 실제 완료 열·경제 작업을 같은 서명 문맥·결정 시각에 결합해 `/v1/assessments`로 접수한다. CLI/서버가 영수증·저장 결과·해시를 반복 검사하며, 승인 작물/공통 농장·시장/현장/미래/대응 비교 근거가 없는 합성 경로는 보류와 누락 사유만 저장한다. 전체 FarmScenario·실제 CLI·독립 운영 조립·브라우저/G1/G4 수용은 [후속 증거](../research/calculation-assessment-implementation.md)와 별도다.
 
-상태: **설계 초안, 2026-09-27.** [제품 명세](PROJECT_SPEC.md)의 단계별 권고 범위와 [자료 기준선](RESEARCH_BASELINE.md)의 권리·품질 관문을 구현할 계약이다. 비용·마진 계산은 [경제 계약](ECONOMICS.md)을 따른다. [기술 스택](TECH_STACK.md)은 구현 선택이며 설치·운영 검증은 아직 하지 않았다. **개발 중 연구·설계와 배포 제품의 지역별 조사·수집 판단·추천 판단 모두 Codex CLI `gpt-6-sol` `xhigh`를 필수 사용한다.**
+상태: **설계 초안, 2026-09-27.** [제품 명세](PROJECT_SPEC.md)의 단계별 권고 범위와 [자료 기준선](RESEARCH_BASELINE.md)의 권리·품질 관문을 구현할 계약이다. 비용·마진 계산은 [경제 계약](ECONOMICS.md)을 따른다. [기술 스택](TECH_STACK.md)은 구현 선택이며 설치·운영 검증은 아직 하지 않았다. **개발 중 연구·설계와 배포 제품의 지역별 조사·수집 판단·추천 판단 모두 Codex CLI `gpt-6.1-sol` `xhigh`를 필수 사용한다.**
 
 ## 구성과 경계
 
@@ -53,7 +53,7 @@ flowchart LR
 | ForecastRun (후속 연구) | **승인된 `market_snapshot_id` 필수**·`decision_at`·예측 대상 수확/판매 기간, 학습 자료 판본 목록·특성 `feature_cutoff`(모두 결정 이전에 이용 가능), 고정 모델/계수·코드/환경 버전·난수 시드, 시장 참고가격의 거래 단계별 경로와 검증된 경우에만 연결한 등급/경로별 `H/P/S`·농가 가격·비용·수금의 공동 경로, 물량/현금 제약 검사·출력 해시. G3a 검증 범위·기준선·구간 보정 증거 ID가 없으면 예측으로 게시하지 않는다. 물리 Run 및 조건부 Economic result와 ID를 분리한다. |
 | Economic result | `market_context`·Economic scenario·가격/비용 버전·산식 버전·Run 참조와 `temporal_provenance`, 기간별 **판매 인정량 기준** 매출·반품 조정·미판매 재고와 그 생산원가·변동비·고정비·공헌이익·관리용 운영이익·영업 현금·사업/자기자본 현금흐름(KRW), 세 목표별 `KRW/kg`/kg 손익분기, 누락/미배분 비용, 반올림 전 계산값·입력별 `origin`/`evidence_level`·검증 상태. 원장이 바뀌면 새 결과 ID를 만든다. |
 | Assessment | Run 집합·각 Run의 `temporal_provenance`·`market_context`·ForecastRun(가용한 경우에만)·Economic result ID, 당시 후보 집합과 제외 이유, 목표 함수·자본/유동성/판로 제약, 불확실성 표본, **Run/후보별 G0~G3 재검사와 후보별 G3a와 후보 집합·목표별 G3b 대응 비교 증거 ID/적용 범위**, `conditional/pass/hold` 등급과 근거. 경제 입력의 출처·증거 등급·적용/검증 범위, **G3a 후보별 미래 마진과 G3b 비교 순위의 별도 상태**, 조건부 손익과 미래 예측/순위를 구분하는 표시 등급. 기존 평가가 바뀌면 새 Assessment를 만든다. |
-| AI decision | 테넌트·작업/요청 ID, 단계(`research/collection_review/assessment`); 가격·요금·원가의 출처 검토는 조사/수집 검토와 평가에 포함, 프롬프트/출력 스키마 버전, CLI 버전·모델 `gpt-6-sol`·강도 `xhigh`, 입력 해시, 출처·원문 해시·도구 호출/결과 해시, 구조화된 제안·근거·불확실성, 관문 검사 결과, 사용량·경과시간·종료 사유. 재판단은 새 ID다. |
+| AI decision | 테넌트·작업/요청 ID, 단계(`research/collection_review/assessment`); 가격·요금·원가의 출처 검토는 조사/수집 검토와 평가에 포함, 프롬프트/출력 스키마 버전, CLI 버전·모델 `gpt-6.1-sol`·강도 `xhigh`, 입력 해시, 출처·원문 해시·도구 호출/결과 해시, 구조화된 제안·근거·불확실성, 관문 검사 결과, 사용량·경과시간·종료 사유. 재판단은 새 ID다. |
 
 `MarketContext`는 `market_context = {kind: "available", snapshot_id: MarketSnapshot ID} | {kind: "unavailable", hold_report_id: Market hold report ID}`인 판별 유니온이다. 네 객체(Scenario·Economic scenario·Economic result·Assessment)는 정확히 한 변형과 그 ID만 가지며 다른 변형의 ID·`null`·임의 시장 ID를 거부한다. 참조한 객체 간 변형과 ID도 일치해야 한다. `unavailable`은 G0 보류 사유와 누락 증거를 보고서로 보존한다. 첫 G1 내부 시범에서는 경제 계산에 **사용자가 지정한 가정만** 받으며 각 경제 입력의 `origin=user`, `evidence_level=assumed`와 가정의 적용 범위를 결과까지 유지한다. 후속 단계에서는 비공개 농장 계약·정산·원장의 접근·이용권, 해당 농장·기간·채널·계약 조건의 적용성, 원장·정산 대사를 독립 확인한 뒤 조건부 또는 해당 농장의 과거 계산에 쓸 수 있고, `measured/quoted` 증거 등급을 유지한다. `unavailable`에서 이 증빙은 G0 승인 MarketSnapshot을 대신하지 못한다. 조건부·과거 계산 결과를 낼 수 있어도 Assessment는 `hold`로 끝나고, 공개 시장 근거 카드·자료 유래 시장 시나리오·전망·G3a 미래 예측·G3b 작물 순위는 만들지 않는다. 시장 근거 카드는 G0를 통과한 자료와 유효한 MarketSnapshot이 모두 있을 때만 게시한다.
 
@@ -118,7 +118,9 @@ WebGL을 쓰지 못하는 사용자도 지역 선택·실행·결과 판단을 �
 
 ## 필수 Codex CLI 런타임 작업자
 
-**확정 요구:** 프로젝트 조사·설계·검증에도, 제품 사용자가 지역을 선택한 뒤의 연구·수집 판단·작물 판단에도 Codex CLI의 **정확한 모델 `gpt-6-sol`, 추론 강도 `xhigh`**를 사용한다. 정적 규칙이나 일반 API 모델 호출로 이 필수 경로를 대체하지 않는다. [공식 모델 페이지](https://developers.openai.com/api/docs/models/gpt-6-sol)는 모델 ID와 `xhigh` 지원을 명시하고, [Codex 비대화형 문서](https://developers.openai.com/codex/non-interactive-mode)는 `codex exec`, JSONL, 출력 스키마와 자동화 인증을 설명한다. 현재 로컬 `codex-cli 0.157.1`의 `codex exec --help`에서도 `-m`, `-c`, `--json`, `--output-schema`, `-o`, `--ephemeral`, `--ignore-user-config`, 읽기 전용 샌드박스를 확인했다. 이 사실이 배포 계정의 모델 접근·상업적 사용 권한·가격·처리량을 보장하지는 않는다.
+2026-10-01 사용자 지시로 모델을 `gpt-6.1-sol`로 변경했다. 기존 DB의 [명시적 이전 계약](../contracts/cli-model-policy-migration-v1.md)은 과거 기록을 보존하며 새 실행과 현재 게시 검증에 새 모델을 요구한다. 과거 CLI 시험은 새 모델의 제품 실행·독립 해제 증거가 아니다.
+
+**확정 요구:** 프로젝트 조사·설계·검증에도, 제품 사용자가 지역을 선택한 뒤의 연구·수집 판단·작물 판단에도 Codex CLI의 **정확한 모델 `gpt-6.1-sol`, 추론 강도 `xhigh`**를 사용한다. 정적 규칙이나 일반 API 모델 호출로 이 필수 경로를 대체하지 않는다. [공식 모델 페이지](https://developers.openai.com/api/docs/models/gpt-6.1-sol)는 모델 ID와 `xhigh` 지원을 명시하고, [Codex 비대화형 문서](https://developers.openai.com/codex/non-interactive-mode)는 `codex exec`, JSONL, 출력 스키마와 자동화 인증을 설명한다. 현재 로컬 `codex-cli 0.157.1`의 `codex exec --help`에서도 `-m`, `-c`, `--json`, `--output-schema`, `-o`, `--ephemeral`, `--ignore-user-config`, 읽기 전용 샌드박스를 확인했다. 이 사실이 배포 계정의 모델 접근·상업적 사용 권한·가격·처리량을 보장하지는 않는다.
 
 | 트리거 | CLI가 실제로 판단할 내용 | 다음 단계 |
 | --- | --- | --- |
@@ -129,7 +131,7 @@ WebGL을 쓰지 못하는 사용자도 지역 선택·실행·결과 판단을 �
 **프로세스 호출 계약:** 별도 작업자는 사용자 문자열을 셸에 붙이지 않고 인자 배열로, 테넌트별 일회성 읽기 전용 작업 디렉터리에서 다음 형태로 실행한다. `CODEX_API_KEY`는 비밀 관리자에서 **해당 프로세스에만** 주입하며 명령행·로그에 넣지 않는다. [공식 자동화 인증 설명](https://developers.openai.com/codex/non-interactive-mode#authenticate-in-automation)에 따르되, 배포 계정 검증 전에는 인증 방식의 실제 가용성을 미확인으로 둔다.
 
 ```text
-codex --ask-for-approval never exec -m gpt-6-sol -c 'model_reasoning_effort="xhigh"' \
+codex --ask-for-approval never exec -m gpt-6.1-sol -c 'model_reasoning_effort="xhigh"' \
   --sandbox read-only --skip-git-repo-check \
   --ephemeral --json --output-schema /contracts/decision-v1.schema.json \
   --output-last-message /work/decision.json -C /work/input -
@@ -147,7 +149,7 @@ stdin은 서버가 생성한 버전 고정 지시문과 `tenant_id/job_id`, 좌�
 
 **감사·재현:** 입력 지시문 버전/해시, 사용한 출처의 원본 해시·URL·조회시각·권리, 실제 도구 호출과 결과 해시, CLI 버전, 모델/강도, 작업 시간·사용량, 구조화 출력, 서버 검증 결과와 평가별 G0~G3a/G3b 증거 ID 및 배포 G4 증거 ID를 불변 기록한다. 비밀과 불필요한 개인정보는 기록하지 않고 열람 권한·보존기간을 둔다. 고정 스냅샷·방정식·계수·적분 설정의 **수치 재실행**은 정해 둔 오차 안에서 반복 가능해야 한다. AI 판단은 확률적이므로 같은 입력 재호출이 같은 답이라는 약속을 하지 않는다. 이전 판단을 정확히 보여 주려면 저장된 decision ID를 조회하고, 새 CLI 호출은 새 시도 ID와 검사 결과를 남기고, 실제 출력이 검증됐을 때만 새 decision ID를 만든다.
 
-**배포 검증 문턱:** 실제 운영 주체의 인증으로 CLI가 `gpt-6-sol` `xhigh`를 실행하는지, 예상 수요의 지연·호출 제한·비용을 감당하는지, 해당 사용 방식의 계약/권한과 데이터 처리 조건이 맞는지 공식 자료 및 실제 계정에서 확인한다. 이는 [인증 방식 문서](https://developers.openai.com/codex/auth)와 [모델 페이지](https://developers.openai.com/api/docs/models/gpt-6-sol)만으로 특정 계정의 허용을 추정할 수 없기 때문이다. 미확인·불가이면 필수 런타임이 성립하지 않아 공개 서비스를 막는다.
+**배포 검증 문턱:** 실제 운영 주체의 인증으로 CLI가 `gpt-6.1-sol` `xhigh`를 실행하는지, 예상 수요의 지연·호출 제한·비용을 감당하는지, 해당 사용 방식의 계약/권한과 데이터 처리 조건이 맞는지 공식 자료 및 실제 계정에서 확인한다. 이는 [인증 방식 문서](https://developers.openai.com/codex/auth)와 [모델 페이지](https://developers.openai.com/api/docs/models/gpt-6.1-sol)만으로 특정 계정의 허용을 추정할 수 없기 때문이다. 미확인·불가이면 필수 런타임이 성립하지 않아 공개 서비스를 막는다.
 
 **현재 소프트웨어 후보:** [authority dispatcher RPC](../contracts/authority-rpc-v1.md)는 일반 작업자의 실행 요청만 받고, 신뢰 서버 내부의 기존 실행기가 고정 테넌트 임대·검증·영속 저장을 맡는다. 별도 감독자가 CLI 프로세스와 서명키를 소유한다. [DB 역할 정책](../contracts/runtime-role-policy-v1.md)은 일반 작업자에 직접 데이터 권한을 주지 않으며 서버는 시작/호출 전에 authority 역할과 유효 권한을 검사한다. 같은 OS UID·관리자 통제 SQL 시험과 fake CLI/시험키는 실제 로그인·계정·키/배포 분리나 G1/G4 증거가 아니다.
 

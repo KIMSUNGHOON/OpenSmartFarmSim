@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 설계 백서
 
-현재 자료는 [v0.2 PDF](OpenSmartFarmSim_White_Paper_v0.2.pdf)와 [LaTeX 원고](main.tex)입니다(2026-09-27, 설계 백서·미구현·미검증). 정식·계약 결정 당시의 농업 수급·미래 시장·거시 비용 근거와 조건부 시나리오, 결정 시점별 검증 계획을 포함합니다. 이 백서는 시장 예측 정확도, 미래 이익 또는 작물 순위의 검증 보고서가 아닙니다.
+현재 [LaTeX 원고 v0.3](main.tex)은 2026-10-01 필수 모델을 `gpt-6.1-sol`/`xhigh`로 변경한 설계 문서입니다. v0.3 PDF는 아직 빌드하지 않았습니다. 보존된 [v0.2 PDF](OpenSmartFarmSim_White_Paper_v0.2.pdf)와 [해당 LaTeX 원고](main_v0.2.tex)는 2026-09-27 당시 모델·명세를 기록합니다. 정식·계약 결정 당시의 농업 수급·미래 시장·거시 비용 근거와 조건부 시나리오, 결정 시점별 검증 계획을 포함합니다. 이 백서는 시장 예측 정확도, 미래 이익 또는 작물 순위의 검증 보고서가 아닙니다.
 
 보존된 v0.1 자료: [v0.1 PDF](OpenSmartFarmSim_White_Paper_v0.1.pdf) · [해당 LaTeX 원고](main_v0.1.tex). 아래의 기존 PDF 빌드·글꼴 확인 기록은 이 **v0.1 PDF**에만 해당하며 v0.2의 빌드 결과가 아닙니다.
 

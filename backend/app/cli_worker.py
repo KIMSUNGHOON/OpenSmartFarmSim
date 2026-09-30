@@ -25,7 +25,7 @@ from app.cli_contracts import (DecisionContract, ProposalHold, SCHEMA_BYTES,
 MAX_JSONL = 10 * 1024 * 1024
 MAX_FINAL = 1024 * 1024
 MAX_STDERR = 64 * 1024
-MODEL = "gpt-6-sol"
+MODEL = "gpt-6.1-sol"
 EFFORT = "xhigh"
 PROMPT_VERSION = "cli-worker-prompt-v1"
 SCHEMA_VERSION = "decision-v1"

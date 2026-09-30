@@ -61,7 +61,7 @@ if os.environ.get('OSSF_REAL_AUTHORED_CLI_SMOKE') == '1':
             worked.state, worked.reason_code)
         invocation = jobs.get_invocation('tenant-1', submitted['job_id'], worked.attempt)
         assert (invocation['execution_kind'], invocation['model'],
-                invocation['reasoning_effort']) == ('codex_cli', 'gpt-6-sol', 'xhigh')
+                invocation['reasoning_effort']) == ('codex_cli', 'gpt-6.1-sol', 'xhigh')
         with jobs.connect() as conn:
             capture = conn.execute(sql.SQL('''
                 SELECT jsonl_sha256, final_output_sha256, exit_code,

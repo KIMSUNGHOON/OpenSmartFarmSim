@@ -68,7 +68,7 @@ class ExecutionAttestationIssuer:
                     attempt_row["attempt_id"] != invocation["attempt_id"] or
                     invocation["execution_kind"] != "codex_cli" or
                     (invocation["model"], invocation["reasoning_effort"]) !=
-                        ("gpt-6-sol", "xhigh") or
+                        ("gpt-6.1-sol", "xhigh") or
                     sha256(job["input_bytes"]).hexdigest() != job["input_sha256"] or
                     not self.job_store._verified_invocation_inputs(conn, job, invocation)):
                 raise ValueError("trusted live invocation required")
@@ -176,7 +176,7 @@ class ExecutionAttestationIssuer:
                 launch["attempt_id"] == capture["attempt_id"],
             attempt_row["attempt_id"] == observed_attempt_id,
             invocation["execution_kind"] == "codex_cli",
-            invocation["model"] == "gpt-6-sol",
+            invocation["model"] == "gpt-6.1-sol",
             invocation["reasoning_effort"] == "xhigh",
             observed_launch.cli_version == invocation["cli_version"] == launch["cli_version"],
             observed_launch.prompt_sha256 == invocation["prompt_sha256"] ==

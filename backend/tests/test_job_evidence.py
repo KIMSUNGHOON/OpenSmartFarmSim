@@ -42,9 +42,9 @@ def prepare_cli_capture(store, job, lease, *, jsonl=None, exit_code=0,
         prompt_evidence_id=prompt["evidence_id"], schema_evidence_id=schema["evidence_id"],
         prompt_version="synthetic-v1", schema_version="synthetic-v1",
         execution_kind="codex_cli", cli_version="codex-cli 0.157.1",
-        model="gpt-6-sol", reasoning_effort="xhigh")
+        model="gpt-6.1-sol", reasoning_effort="xhigh")
     launch = store.record_cli_launch(tenant, job_id, attempt, token,
-        argv=["codex", "exec", "-m", "gpt-6-sol"], process_id=1234)
+        argv=["codex", "exec", "-m", "gpt-6.1-sol"], process_id=1234)
     assert launch is not None
     if jsonl is ...:
         jsonl = None
@@ -309,9 +309,10 @@ def test_runtime_invocation_requires_exact_model_effort_and_real_version(pg_stor
     args = dict(prompt_evidence_id=prompt["evidence_id"],
                 schema_evidence_id=schema["evidence_id"], prompt_version="v1",
                 schema_version="v1", execution_kind="codex_cli",
-                cli_version="codex-cli 0.157.1", model="gpt-6-sol",
+                cli_version="codex-cli 0.157.1", model="gpt-6.1-sol",
                 reasoning_effort="xhigh")
-    for override in ({"model": "other"}, {"reasoning_effort": "high"},
+    for override in ({"model": "other"}, {"model": "gpt-6-sol"},
+                     {"reasoning_effort": "high"},
                      {"cli_version": "unverified"}):
         with pytest.raises(ValueError):
             pg_store.register_invocation("tenant-a", job["job_id"], 1,
@@ -320,7 +321,7 @@ def test_runtime_invocation_requires_exact_model_effort_and_real_version(pg_stor
         lease["lease_token"], **args)
     manifest = pg_store.get_invocation("tenant-a", job["job_id"], 1)
     assert (manifest["model"], manifest["reasoning_effort"], manifest["cli_version"]) == (
-        "gpt-6-sol", "xhigh", "codex-cli 0.157.1")
+        "gpt-6.1-sol", "xhigh", "codex-cli 0.157.1")
     assert pg_store.get_invocation("tenant-b", job["job_id"], 1) is None
 
 

@@ -39,17 +39,17 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{OpenSmartFarmSim 설계 백서}
-\fancyhead[R]{v0.3 / 2026-10-01}
+\fancyhead[R]{v0.2 / 2026-09-27}
 \fancyfoot[C]{\thepage}
 
 \title{\textbf{OpenSmartFarmSim}\\[0.35em]\large 온실·시장 근거를 연결한 재배 선택과 조건부 사업성 평가 설계 백서}
 \author{OpenSmartFarmSim 프로젝트 설계 문서}
-\date{버전 0.3 \quad 2026년 10월 1일\\[0.3em]\status}
+\date{버전 0.2 \quad 2026년 9월 27일\\[0.3em]\status}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-본 백서는 대한민국의 한 좌표와 한 온실 구역에서 과거 기상으로 열·수증기 상태를 계산하고 3D·표로 재생하는 \emph{제안 설계}다. 작물 선택에는 시설 적합성뿐 아니라 정식·계약을 확정하기 \emph{전} 알려진 농업 수급, 향후 판매시장, 농장 비용의 근거가 필요하다. 따라서 결정 시각과 당시 발표 판본을 고정한 시장 스냅샷을 제안한다. 첫 내부 시범은 사용자 가정에 따른 조건부 손익·현금흐름·세 손익분기와 시장 민감도만 계산한다. 미래 수확·판매 인정량·농가 가격·현금 경로의 공동 전망과 후보 순위는 결정 시점별 독립 검증 전까지 잠근다. 런타임 Codex CLI \texttt{gpt-6.1-sol}/\texttt{xhigh}는 조사·판단을 맡고 수치 산술과 G0--G4 관문은 버전 고정 서버 코드가 맡는다. 이 문서는 시장 예측 정확도, 현장 성능 또는 출시 가능성을 입증하지 않는다.
+본 백서는 대한민국의 한 좌표와 한 온실 구역에서 과거 기상으로 열·수증기 상태를 계산하고 3D·표로 재생하는 \emph{제안 설계}다. 작물 선택에는 시설 적합성뿐 아니라 정식·계약을 확정하기 \emph{전} 알려진 농업 수급, 향후 판매시장, 농장 비용의 근거가 필요하다. 따라서 결정 시각과 당시 발표 판본을 고정한 시장 스냅샷을 제안한다. 첫 내부 시범은 사용자 가정에 따른 조건부 손익·현금흐름·세 손익분기와 시장 민감도만 계산한다. 미래 수확·판매 인정량·농가 가격·현금 경로의 공동 전망과 후보 순위는 결정 시점별 독립 검증 전까지 잠근다. 런타임 Codex CLI \texttt{gpt-6-sol}/\texttt{xhigh}는 조사·판단을 맡고 수치 산술과 G0--G4 관문은 버전 고정 서버 코드가 맡는다. 이 문서는 시장 예측 정확도, 현장 성능 또는 출시 가능성을 입증하지 않는다.
 \end{abstract}
 \noindent\textbf{핵심어:} 온실; 과거 기상 재현; 열·수증기 수지; 결정 시점 자료; 농업 수급·거시; 관리용 운영이익; 대응 검증; 판단 보류
 
@@ -74,7 +74,7 @@
   arr/.style={-{Stealth[length=2.2mm]},thick,draw=blue!55!black},
   node distance=0.48cm]
 \node[box] (ui) {\textbf{지역·시설·목표·결정 시각 입력}\\한 좌표·한 구역 / React·MapLibre};
-\node[box,below=of ui] (research) {\textbf{Codex CLI 조사와 수집 판단}\\출처·가격·권리·적용일 / \texttt{gpt-6.1-sol}, \texttt{xhigh}};
+\node[box,below=of ui] (research) {\textbf{Codex CLI 조사와 수집 판단}\\출처·가격·권리·적용일 / \texttt{gpt-6-sol}, \texttt{xhigh}};
 \node[box,below=of research] (snap) {\textbf{허용 자료 수집과 G0 검사}\\원본·권리 기록과 불변 입력 스냅샷};
 \node[box,below=of snap] (calc) {\textbf{버전 고정 계산과 G1 검사}\\열·수증기 상태 / 당시 시장 판본·조건부 경제 산술};
 \node[box,below=of calc] (replay) {\textbf{저장된 실행 결과 재생}\\3D·그래프와 동등한 표·설명};
@@ -297,7 +297,7 @@ $J$의 단위는 선택한 목표에 따라 KRW, kWh$_e$, L 등이므로 목적�
 API·검증 & FastAPI, Pydantic & 입력/출력 스키마, 권한, 작업 제출, 결과 게시; Pydantic 형 검사는 자료의 과학적 진실성 검사와 구별 \\
 수집·수치 & HTTPX, NumPy, SciPy, Pint & 허용 제공자 HTTPS 어댑터, 방정식 적분, 단위 검사; SciPy의 \texttt{solve\_ivp}는 후보 적분기\cite{scipy-ivp} \\
 금액·작업·객체 & Python \texttt{Decimal}, PostgreSQL \texttt{numeric}·작업표, 해시 고정 객체 파일 & 원화 산술·원장, 임대 큐, 원본/스냅샷/결과의 불변 참조와 권리 제어 \\
-조사·판단 & 격리된 Codex CLI \texttt{gpt-6.1-sol}/\texttt{xhigh} & 좌표·기간·목표별 근거 조사, 수집 계획·채택/보류, 완료 계산의 매 평가 판단 \\
+조사·판단 & 격리된 Codex CLI \texttt{gpt-6-sol}/\texttt{xhigh} & 좌표·기간·목표별 근거 조사, 수집 계획·채택/보류, 완료 계산의 매 평가 판단 \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -305,7 +305,7 @@ API·검증 & FastAPI, Pydantic & 입력/출력 스키마, 권한, 작업 제출
 AI 출력은 자료원·후보·근거 ID와 불확실성을 제안한다. 실제 수집은 서버가 허용한 제공자·변수·기간만 실행한다. 기상 방정식·계수, KRW 산술, G0--G3 통과 여부는 AI가 임의로 만들거나 덮어쓰지 못한다. LangChain의 모델 루프, LangGraph의 체크포인트, Deep Agents의 하위 작업 및 Hermes의 세션 기능은 첫 흐름에 필수로 확인된 요구가 없어 \emph{연기하거나 첫 출시에 사용하지 않는} 설계 결정이다. 이 판단은 각 프레임워크의 품질 우열이나 향후 불채택을 뜻하지 않는다. 작업표 하나의 상태 소유권, 장애 복구와 출처 감사에 실제 결핍이 드러날 때 해당 도구를 재평가한다.
 
 \subsection{Codex CLI의 세 번의 경계 작업}
-저장소 명세는 개발 중 조사·설계와 배포 제품의 실제 사용 중 모두 \textbf{Codex CLI의 정확한 모델 \texttt{gpt-6.1-sol}, 추론 강도 \texttt{xhigh}}를 필수로 정한다. 공식 OpenAI Docs는 해당 모델 ID와 \texttt{xhigh} 지원을 설명하고, 비대화형 \texttt{codex exec}의 JSONL 사건 및 최종 JSON Schema 출력을 설명한다\cite{openai-model,openai-exec}. 이것은 특정 배포 계정의 접근·계약·한도·실제 청구액을 보증하지 않는다. G4 전에 실제 운영 주체가 인증된 호출로 확인해야 한다.
+저장소 명세는 개발 중 조사·설계와 배포 제품의 실제 사용 중 모두 \textbf{Codex CLI의 정확한 모델 \texttt{gpt-6-sol}, 추론 강도 \texttt{xhigh}}를 필수로 정한다. 공식 OpenAI Docs는 해당 모델 ID와 \texttt{xhigh} 지원을 설명하고, 비대화형 \texttt{codex exec}의 JSONL 사건 및 최종 JSON Schema 출력을 설명한다\cite{openai-model,openai-exec}. 이것은 특정 배포 계정의 접근·계약·한도·실제 청구액을 보증하지 않는다. G4 전에 실제 운영 주체가 인증된 호출로 확인해야 한다.
 
 지역·기간·목표와 결정 시각이 확정될 때 CLI는 허용된 출처에서 관측소·변수·기간과 시장 수급·거시·가격·요금·원가의 발표 판본, 농장 계약 범위, 권리와 누락을 조사한다. 수집 후에는 일사 품질, 원본 해시, \texttt{available\_at}·단위·규격·유효기간을 검토해 채택·추가 조사·보류를 제안한다. 완료된 Run의 \emph{매 Assessment}에서는 후보·목표별 시장 가설과 근거, 불확실성, 제약 위반, 추천 또는 보류 사유를 새로 판단한다. 수치 미래 가격·판매량과 현금 산술은 검증된 버전의 모델·계산기만 산출하고 서버가 증거·관문을 검사한다. 단순히 이전 프로필의 ``통과'' 표식을 복사하지 않는다.
 
@@ -382,7 +382,7 @@ G4 & 실제 CLI 모델/강도 접근·계약·비용·한도, 격리·주입 방
 \bibitem{ias16} IFRS Foundation, \emph{IAS 16 Property, Plant and Equipment}, 개요. \url{https://www.ifrs.org/issued-standards/list-of-standards/ias-16-property-plant-and-equipment/} (열람 2026-09-27).
 \bibitem{fastapi-bg} FastAPI, \emph{Background Tasks}, 무거운 작업에 관한 주의. \url{https://fastapi.tiangolo.com/tutorial/background-tasks/} (열람 2026-09-27).
 \bibitem{scipy-ivp} SciPy, \emph{scipy.integrate.solve\_ivp} 공식 문서. \url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html} (열람 2026-09-27).
-\bibitem{openai-model} OpenAI, \emph{GPT-6.1 Sol Model}, 공식 OpenAI Docs. \url{https://developers.openai.com/api/docs/models/gpt-6.1-sol} (열람 2026-10-01).
+\bibitem{openai-model} OpenAI, \emph{GPT-6 Sol Model}, 공식 OpenAI Docs. \url{https://developers.openai.com/api/docs/models/gpt-6-sol} (열람 2026-09-27).
 \bibitem{openai-exec} OpenAI, \emph{Codex Non-interactive Mode}, 공식 OpenAI Docs. \url{https://learn.chatgpt.com/docs/non-interactive-mode} (열람 2026-09-27).
 \end{thebibliography}
 

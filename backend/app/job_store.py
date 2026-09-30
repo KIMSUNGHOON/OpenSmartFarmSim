@@ -399,7 +399,7 @@ class JobStore:
         if execution_kind == "codex_cli":
             if (not isinstance(cli_version, str) or
                     not re.fullmatch(r"codex-cli [0-9]+\.[0-9]+\.[0-9]+", cli_version)
-                    or model != "gpt-6-sol" or reasoning_effort != "xhigh"):
+                    or model != "gpt-6.1-sol" or reasoning_effort != "xhigh"):
                 raise ValueError("runtime invocation needs exact CLI model, effort, and version")
         elif execution_kind == "synthetic_fixture":
             if (self.allow_synthetic_invocation is not True or

@@ -171,6 +171,12 @@ def test_attestation_rejects_forgery_and_nonce_reuse(pg_store, tmp_path):
     unsafe_argv = list(record.argv)
     unsafe_argv[9] = "workspace-write"
     assert ExecutionVerifier._argv_ok(unsafe_argv) is False
+    previous_argv = list(record.argv)
+    previous_argv[previous_argv.index('-m') + 1] = 'gpt-6-sol'
+    assert ExecutionVerifier._argv_ok(previous_argv) is False
+    wrong_effort = list(record.argv)
+    wrong_effort[wrong_effort.index('-c') + 1] = 'model_reasoning_effort="high"'
+    assert ExecutionVerifier._argv_ok(wrong_effort) is False
     other_job = store.submit("tenant-a", "collection_review", input_for("collection_review"),
                              "nonce-reuse-" + uuid4().hex)
     other_lease = store.claim(60, allowed_stages=("collection_review",))

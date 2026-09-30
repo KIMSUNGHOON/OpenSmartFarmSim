@@ -563,7 +563,7 @@ class ThermalG1Publisher:
                   decision["artifact_sha256"] == publication["artifact_sha256"] and
                   decision["disposition"] == "proceed" and
                   invocation["execution_kind"] == "codex_cli" and
-                  invocation["model"] == "gpt-6-sol" and invocation["reasoning_effort"] == "xhigh" and
+                  invocation["model"] == "gpt-6.1-sol" and invocation["reasoning_effort"] == "xhigh" and
                   outcome["state"] == "succeeded" and outcome["exit_code"] == 0 and
                   outcome["decision_id"] == decision["decision_id"] and
                   self.job_store._verify_decision_final(conn, job, attempt,
@@ -670,7 +670,7 @@ class ThermalG1Publisher:
                              "snapshot_id", "context_sha256", *CONTEXT_FIELDS}
         _need(set(evidence) == evidence_required and
               evidence["review_version"] == "thermal-g1-review-evidence-v1" and
-              evidence["review_method"] == "codex_cli_gpt-6-sol_xhigh" and
+              evidence["review_method"] == "codex_cli_gpt-6.1-sol_xhigh" and
               evidence["reviewer"] == release["reviewer"] and
               evidence["reviewed_at_utc"] == release["reviewed_at_utc"] and
               evidence["issued_at_utc"] == release["issued_at_utc"] and

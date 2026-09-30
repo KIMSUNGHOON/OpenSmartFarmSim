@@ -56,6 +56,63 @@ def upgrade_job_intent_key(conn: psycopg.Connection, schema: str) -> None:
         """).format(table))
 
 
+def upgrade_cli_model_policy(conn: psycopg.Connection, schema: str) -> None:
+    """Owner-run model cutover; retain immutable historical invocation rows."""
+    _replace_cli_model_policy(conn, schema, "gpt-6-sol", "gpt-6.1-sol")
+
+
+def downgrade_cli_model_policy(conn: psycopg.Connection, schema: str) -> None:
+    """Restore the previous write policy without changing later audit records."""
+    _replace_cli_model_policy(conn, schema, "gpt-6.1-sol", "gpt-6-sol")
+
+
+def _replace_cli_model_policy(conn, schema, previous_model, target_model):
+    # PostgreSQL's stored expression for the known installed CHECK contract.
+    expression = (
+        "(((execution_kind = 'codex_cli'::text) AND "
+        "(cli_version ~ '^codex-cli [0-9]+[.][0-9]+[.][0-9]+$'::text) AND "
+        "(NOT (model IS DISTINCT FROM '{model}'::text)) AND "
+        "(NOT (reasoning_effort IS DISTINCT FROM 'xhigh'::text))) OR "
+        "((execution_kind = 'synthetic_fixture'::text) AND "
+        "(cli_version = 'synthetic_fixture'::text) AND "
+        "(model IS NULL) AND (reasoning_effort IS NULL)))"
+    )
+    table = sql.Identifier(schema, "attempt_invocations")
+    with conn.transaction():
+        conn.execute(sql.SQL("LOCK TABLE {} IN ACCESS EXCLUSIVE MODE").format(table))
+        policies = conn.execute("""
+            SELECT c.conname, pg_get_expr(c.conbin, c.conrelid) AS expression
+            FROM pg_constraint c
+            JOIN pg_class t ON t.oid = c.conrelid
+            JOIN pg_namespace n ON n.oid = t.relnamespace
+            WHERE n.nspname = %s AND t.relname = 'attempt_invocations'
+              AND c.contype = 'c' AND EXISTS (
+                  SELECT 1 FROM pg_attribute a WHERE a.attrelid = t.oid
+                    AND a.attnum = ANY(c.conkey)
+                    AND a.attname IN ('model', 'reasoning_effort'))
+        """, (schema,)).fetchall()
+        if (len(policies) != 1 or policies[0]["conname"] not in
+                ("attempt_invocations_check", "attempt_invocations_cli_policy")):
+            raise ValueError("CLI model migration requires the known invocation policy")
+        policy = policies[0]
+        if policy["expression"] == expression.format(model=target_model):
+            return
+        if policy["expression"] != expression.format(model=previous_model):
+            raise ValueError("CLI model migration requires the known invocation policy")
+        conn.execute(sql.SQL("ALTER TABLE {} DROP CONSTRAINT {}").format(
+            table, sql.Identifier(policy["conname"])))
+        conn.execute(sql.SQL("""
+            ALTER TABLE {} ADD CONSTRAINT attempt_invocations_cli_policy CHECK (
+                (execution_kind = 'codex_cli'
+                 AND cli_version ~ '^codex-cli [0-9]+[.][0-9]+[.][0-9]+$'
+                 AND model IS NOT DISTINCT FROM {}
+                 AND reasoning_effort IS NOT DISTINCT FROM 'xhigh')
+                OR (execution_kind = 'synthetic_fixture'
+                    AND cli_version = 'synthetic_fixture'
+                    AND model IS NULL AND reasoning_effort IS NULL)) NOT VALID
+        """).format(table, sql.Literal(target_model)))
+
+
 def install_market_hold_schema(conn: psycopg.Connection, schema: str) -> None:
     """Owner-run, additive installation after the shared decision-context table."""
     namespace = sql.Identifier(schema)
@@ -238,8 +295,9 @@ def install_schema(conn: psycopg.Connection, schema: str) -> None:
                 REFERENCES {}.attempt_evidence (tenant_id, job_id, attempt, evidence_id),
             FOREIGN KEY (tenant_id, job_id, attempt, schema_evidence_id)
                 REFERENCES {}.attempt_evidence (tenant_id, job_id, attempt, evidence_id),
-            CHECK ((execution_kind = 'codex_cli' AND cli_version ~ '^codex-cli [0-9]+[.][0-9]+[.][0-9]+$'
-                    AND model IS NOT DISTINCT FROM 'gpt-6-sol'
+            CONSTRAINT attempt_invocations_cli_policy CHECK (
+                (execution_kind = 'codex_cli' AND cli_version ~ '^codex-cli [0-9]+[.][0-9]+[.][0-9]+$'
+                    AND model IS NOT DISTINCT FROM 'gpt-6.1-sol'
                     AND reasoning_effort IS NOT DISTINCT FROM 'xhigh')
                 OR (execution_kind = 'synthetic_fixture' AND cli_version = 'synthetic_fixture'
                     AND model IS NULL AND reasoning_effort IS NULL))

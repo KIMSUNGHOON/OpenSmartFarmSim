@@ -101,6 +101,7 @@ jobs:
           uv run --no-sync python -c 'import os, psycopg; psycopg.connect(os.environ["OSSF_TEST_PG_DSN"]).close()'
           uv run --no-sync python -m app.api_openapi --check
           uv run --no-sync pytest -q -rs -x --tb=short --durations=10 \
+            tests/test_cli_model_migration.py \
             tests/test_simulation_work.py \
             tests/test_farm_authored_simulation_worker.py \
             tests/test_api_openapi.py \

@@ -111,7 +111,7 @@ class ExecutionVerifier:
             record.cli_version == launch["cli_version"] == invocation["cli_version"] and
             invocation["execution_kind"] == "codex_cli" and
             (invocation["model"], invocation["reasoning_effort"]) ==
-                ("gpt-6-sol", "xhigh") and
+                ("gpt-6.1-sol", "xhigh") and
             sha256(self.store.job_store._canonical_report(record.argv)).hexdigest() ==
                 launch["args_sha256"] and
             record.jsonl_sha256 == capture["jsonl_sha256"] and

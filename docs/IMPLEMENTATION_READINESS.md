@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**필수 모델 변경 (2026-10-01):** 개발·제품 런타임 모두 `gpt-6.1-sol`/`xhigh`로 변경한다([이전 계약](../contracts/cli-model-policy-migration-v1.md), [검증 기록](../research/cli-model-migration-implementation.md)). 현재 개발 세션은 해당 모델·강도로 실행 중이다. 아래 과거 `gpt-6-sol` 실행 결과는 당시 증거로 보존하며, 새 모델의 실제 제품 작업자 실행·독립 해제·배포 계정 비용 검증으로 인정하지 않는다.
+
 **작성 Run 저장 목록·웹 후보 (2026-09-30):** 소유 테넌트의 불변 Run ID·계산 작업 ID·기록 시각을 페이지별로 조회한다([계약](../contracts/api-authored-thermal-run-v1.md), [시험](../research/authored-run-catalog-implementation.md)). 내부 웹은 농장 선택 없이 목록을 다시 찾고 선택한 Run의 정확한 현재 조회 후 3D 화면으로 이동한다. 목록에는 현재 표시 검증이 필요하다고 명시하며, 정확한 Run 조회가 기존 해제·권리·게시 증거를 다시 검사한다. 합성 브라우저 검증 범위이며 실제 CLI·독립 G1은 남아 있다.
 
 **지역 조사→수집·검토 내부 화면 후보 (2026-09-30):** 기존 인증 `/v1/ingestions`와 `/v1/collection-reviews`를 완료된 부모 작업에 순서대로 연결하고 서버 상태·검토 보류를 표시한다([계약](../contracts/web-owned-source-workflow-v1.md), [검증](../research/web-owned-source-workflow-implementation.md)). [저장 작업 이력](../contracts/api-owned-source-history-v1.md)은 전체 새로고침 뒤 조사와 수집·검토 이전 시도를 다시 찾는다. 브라우저·PostgreSQL 합성 소프트웨어 범위이며 실제 CLI·독립 출처 승인, 자동 농장 입력 연결 및 G0/G1/G4는 보류한다.

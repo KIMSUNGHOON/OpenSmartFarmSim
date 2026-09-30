@@ -86,7 +86,7 @@ def setup(pg_store, request, *, schema_installed=False, tenant='tenant-a',
         "authority_id": "test-authority", "reviewer": "independent synthetic reviewer",
         "reviewed_at_utc": reviewed_at,
         "issued_at_utc": reviewed_at,
-        "review_method": "codex_cli_gpt-6-sol_xhigh",
+        "review_method": "codex_cli_gpt-6.1-sol_xhigh",
         "manifest_sha256": snapshot["manifest_sha256"],
         "weather_sha256": snapshot["weather_sha256"],
         "thermal_sha256": snapshot["thermal_sha256"],
@@ -185,6 +185,17 @@ def test_signed_release_cannot_clear_holds_when_review_evidence_bytes_change(set
     with pytest.raises(ThermalPublishHold, match="RELEASE_HOLD"):
         publisher.publish("tenant-a", job["job_id"], snapshot_id)
     assert runs.get_run("tenant-a", "none") is None
+
+
+def test_previous_model_review_method_holds_even_with_matching_evidence_hash(setup):
+    publisher, runs, _, job, snapshot_id, release, _, evidence_holder = setup
+    evidence = json.loads(evidence_holder['raw'])
+    evidence['review_method'] = 'codex_cli_gpt-6-sol_xhigh'
+    evidence_holder['raw'] = canonical(evidence)
+    release['review_evidence_sha256'] = sha256(evidence_holder['raw']).hexdigest()
+    with pytest.raises(ThermalPublishHold, match='RELEASE_HOLD'):
+        publisher.publish('tenant-a', job['job_id'], snapshot_id)
+    assert runs.get_run('tenant-a', 'none') is None
 
 
 def test_release_review_cannot_predate_signed_context(setup):

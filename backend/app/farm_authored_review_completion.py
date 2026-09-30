@@ -117,7 +117,7 @@ class AuthoredReviewCompletionVerifier:
                       job['attempt_count'] == attempt and
                       invocation['execution_kind'] == 'codex_cli' and
                       (invocation['model'], invocation['reasoning_effort']) ==
-                      ('gpt-6-sol', 'xhigh') and
+                      ('gpt-6.1-sol', 'xhigh') and
                       outcome['state'] == 'succeeded' and outcome['exit_code'] == 0 and
                       outcome['decision_id'] == decision['decision_id'] and
                       snapshot['recorded_at'] <= job['created_at'] <=

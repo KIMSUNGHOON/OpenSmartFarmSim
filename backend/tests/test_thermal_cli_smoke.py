@@ -50,7 +50,7 @@ if os.environ.get("OSSF_REAL_THERMAL_CLI_SMOKE") == "1":
         assert worked.capture_id and worked.decision_id
         invocation = store.get_invocation("tenant-a", job["job_id"], worked.attempt)
         assert (invocation["execution_kind"], invocation["model"],
-                invocation["reasoning_effort"]) == ("codex_cli", "gpt-6-sol", "xhigh")
+                invocation["reasoning_effort"]) == ("codex_cli", "gpt-6.1-sol", "xhigh")
         with store.connect() as conn:
             capture = conn.execute(sql.SQL("""
                 SELECT jsonl_sha256, final_output_sha256, exit_code,

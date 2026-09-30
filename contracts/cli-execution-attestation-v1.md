@@ -10,7 +10,7 @@ still used a mocked execution verifier and a test release.
 ## Trust boundary
 
 A separately controlled supervisor must own the Codex child process, choose
-and hash the executable, construct the exact `gpt-6-sol`/`xhigh` argument array,
+and hash the executable, construct the exact `gpt-6.1-sol`/`xhigh` argument array,
 capture stdout and final bytes, observe exit via the process wait operation,
 and sign only after the complete capture is durably stored. Its Ed25519 private
 key must be unavailable to the request process, general CLI worker, publisher,

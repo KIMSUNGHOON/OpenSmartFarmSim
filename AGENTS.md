@@ -11,7 +11,7 @@
 
 ## Judgment and evidence
 
-9. Substantive source research, agricultural or economic domain choices, and architecture judgments require Codex CLI with the exact model `gpt-6-sol` and reasoning effort `xhigh`.
+9. Substantive source research, agricultural or economic domain choices, and architecture judgments require Codex CLI with the exact model `gpt-6.1-sol` and reasoning effort `xhigh`.
 10. Product runtime research, collection review, and assessment also require that exact CLI model and effort; record actual invocation and output. An agent already running in that CLI session must not launch another CLI recursively.
 11. Treat CLI proposals as reviewable evidence, not approved data or gate decisions. A deterministic server validates sources, rights, schemas, scope, and G0–G4 gates.
 12. Record source URL/product ID, observation and publication times, `available_at`, retrieval time, vintage/revision, units, QC, raw hash, use/display/redistribution rights, and reviewer before adopting data.
