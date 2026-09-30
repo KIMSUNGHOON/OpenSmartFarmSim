@@ -1,7 +1,12 @@
 """Model write-policy cutover with synthetic, immutable invocation history."""
 
+from pathlib import Path
+import sys
+
 from psycopg import errors, sql
 import pytest
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.db import downgrade_cli_model_policy, upgrade_cli_model_policy
 from test_jobs import pg_store, submit

@@ -76,3 +76,14 @@ The prepared standalone smoke modes now inherit the target worker model and
 their assertions require it. Independent product execution, source rights and
 G0/G2/G3a/G3b/G4 evidence remain pending. Existing release/code pins must be
 reviewed again where the current code or model is part of authority.
+
+## Standalone test import correction
+
+Hosted authored API run [36789791052](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36789791052)
+failed during collection: the new migration test imported `app.db` before
+establishing the backend import path. The local `PYTHONPATH=.` setting masked
+this test setup error; no PostgreSQL migration had executed in that run.
+The test now establishes its backend path like the existing standalone tests.
+Rechecking with `env -u PYTHONPATH` and the pytest executable, matching the CI
+entry point, gave **7 passed in 1.65 s** on PostgreSQL 16.15. Hosted PostgreSQL
+18 verification is still required; this result does not replace it.
