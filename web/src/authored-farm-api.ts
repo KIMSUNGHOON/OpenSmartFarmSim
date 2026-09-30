@@ -13,6 +13,11 @@ export type AuthoredFarmSummary=Identity & {scenario_sha256:string;farm_sha256:s
   registration_status:'registered_unpublished_inputs';intent_job:JobStatus};
 export type AuthoredFarmCursor={created_at:string;job_id:string};
 export type AuthoredFarmPage={items:AuthoredFarmSummary[];next_cursor:AuthoredFarmCursor|null};
+export type AuthoredFarmActivity=
+  {kind:'review';job:JobStatus;review_job:null}|
+  {kind:'simulation';job:JobStatus;review_job:JobStatus};
+export type AuthoredFarmActivityPage=Identity & {registration_sha256:string;
+  items:AuthoredFarmActivity[];next_cursor:AuthoredFarmCursor|null};
 export type AuthoredReviewIntent=Identity & {registration_sha256:string;idempotency_key:string};
 export type AuthoredRunIntent=AuthoredReviewIntent & {review_job_id:string};
 
@@ -74,6 +79,44 @@ export function createAuthoredFarmApi(request:Request,decodeJob:(value:unknown)=
         next_cursor={created_at:raw.next_cursor.created_at,job_id:raw.next_cursor.job_id};
       }
       return {items,next_cursor};
+    },
+    async authoredFarmActivity(scenarioId:string,revision:string,registrationSha256:string,
+      cursor?:AuthoredFarmCursor):Promise<AuthoredFarmActivityPage> {
+      identity({scenario_id:scenarioId,scenario_revision:revision});
+      need(digest(registrationSha256));
+      if(cursor)need(date(cursor.created_at) && uuid(cursor.job_id));
+      const query=new URLSearchParams({scenario_id:scenarioId,scenario_revision:revision,
+        registration_sha256:registrationSha256,
+        ...(cursor ? {before_created_at:cursor.created_at,before_job_id:cursor.job_id} : {})});
+      const raw=await request('/v1/farm-authored-inputs/activity?'+query,'GET',undefined,200,65_536);
+      need(object(raw));closed(raw,['scenario_id','scenario_revision','registration_sha256',
+        'items','next_cursor']);
+      need(raw.scenario_id===scenarioId && raw.scenario_revision===revision
+        && raw.registration_sha256===registrationSha256
+        && Array.isArray(raw.items) && raw.items.length<=20);
+      const items:AuthoredFarmActivity[]=raw.items.map(value=>{
+        need(object(value));closed(value,['kind','job','review_job']);
+        const job=decodeJob(value.job);
+        if(value.kind==='review') {
+          need(job.stage==='collection_review' && value.review_job===null);
+          return {kind:'review',job,review_job:null};
+        }
+        need(value.kind==='simulation' && job.stage==='simulation');
+        const review=decodeJob(value.review_job);
+        need(review.stage==='collection_review' && review.job_id!==job.job_id);
+        return {kind:'simulation',job,review_job:review};
+      });
+      need(new Set(items.map(item=>item.job.job_id)).size===items.length);
+      let next_cursor:AuthoredFarmCursor|null=null;
+      if(raw.next_cursor!==null) {
+        need(object(raw.next_cursor));closed(raw.next_cursor,['created_at','job_id']);
+        need(date(raw.next_cursor.created_at) && uuid(raw.next_cursor.job_id)
+          && items.length===20 && items[19]?.job.created_at===raw.next_cursor.created_at
+          && items[19]?.job.job_id===raw.next_cursor.job_id);
+        next_cursor={created_at:raw.next_cursor.created_at,job_id:raw.next_cursor.job_id};
+      }
+      return {scenario_id:scenarioId,scenario_revision:revision,
+        registration_sha256:registrationSha256,items,next_cursor};
     },
     async submitAuthoredReview(value:AuthoredReviewIntent):Promise<JobStatus> {
       identity(value);

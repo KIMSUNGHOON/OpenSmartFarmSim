@@ -1735,6 +1735,87 @@
         "title": "ErrorEnvelope",
         "type": "object"
       },
+      "FarmAuthoringActivity": {
+        "additionalProperties": false,
+        "properties": {
+          "job": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "kind": {
+            "enum": [
+              "review",
+              "simulation"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "review_job": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/JobStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "kind",
+          "job",
+          "review_job"
+        ],
+        "title": "FarmAuthoringActivity",
+        "type": "object"
+      },
+      "FarmAuthoringActivityPage": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/FarmAuthoringActivity"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FarmAuthoringCursor"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "registration_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Registration Sha256",
+            "type": "string"
+          },
+          "scenario_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "scenario_revision": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "scenario_revision",
+          "registration_sha256",
+          "items",
+          "next_cursor"
+        ],
+        "title": "FarmAuthoringActivityPage",
+        "type": "object"
+      },
       "FarmAuthoringCursor": {
         "additionalProperties": false,
         "properties": {
@@ -8431,6 +8512,170 @@
         "x-ossf-max-body-bytes": 65536,
         "x-ossf-required-scopes": [
           "farm_scenario_write",
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read"
+        ]
+      }
+    },
+    "/v1/farm-authored-inputs/activity": {
+      "get": {
+        "operationId": "listFarmAuthoredActivity",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "scenario_id",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Scenario Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "scenario_revision",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Scenario Revision",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "registration_sha256",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "pattern": "^[0-9a-f]{64}$",
+              "title": "Registration Sha256",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 50,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before_created_at",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Before Created At"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before_job_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Before Job Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FarmAuthoringActivityPage"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "List Farm Authored Activity",
+        "x-ossf-required-scopes": [
           "farm_scenario_read",
           "metadata",
           "artifact",

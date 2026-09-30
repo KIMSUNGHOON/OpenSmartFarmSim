@@ -60,7 +60,7 @@ from .farm_replay_scenario import (FarmReplayScenarioService, FarmReplayScenario
     FarmReplayScenarioSummary, FarmReplayScenarioHold,
     READ_SCOPES as FARM_READ_SCOPES, WRITE_SCOPES as FARM_WRITE_SCOPES)
 from .farm_authoring_storage import (FarmAuthoringService, FarmAuthoringRequest,
-    FarmAuthoringSummary, FarmAuthoringPage, FarmAuthoringHold,
+    FarmAuthoringSummary, FarmAuthoringPage, FarmAuthoringActivityPage, FarmAuthoringHold,
     READ_SCOPES as FARM_AUTHORING_READ_SCOPES, WRITE_SCOPES as FARM_AUTHORING_WRITE_SCOPES)
 from .farm_authored_review import (FarmAuthoredReviewService, FarmAuthoredReviewHold,
     REVIEW_SCOPES as AUTHORED_REVIEW_SCOPES)
@@ -464,6 +464,39 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         try:
             return await run_in_threadpool(farm_authoring_service.list,tenant,limit=limit,
                 before_created_at=before_created_at,before_job_id=before_job_id)
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except FarmAuthoringHold:
+            return _error(422,'farm_authoring_hold','Farm authoring evidence unavailable')
+        except Exception:
+            return _error(503,'farm_authoring_unavailable','Farm authoring unavailable')
+
+    @app.get('/v1/farm-authored-inputs/activity', response_model=FarmAuthoringActivityPage,
+             operation_id='listFarmAuthoredActivity',
+             responses={status:{'model':ErrorEnvelope} for status in (401,403,404,422,503)},
+             openapi_extra=_access(FARM_AUTHORING_READ_SCOPES))
+    async def list_farm_authored_activity(
+            scenario_id: Annotated[str,Query(pattern=IDENTIFIER,max_length=200)],
+            scenario_revision: Annotated[str,Query(pattern=IDENTIFIER,max_length=200)],
+            registration_sha256: Annotated[str,Query(pattern=r'^[0-9a-f]{64}$',max_length=64)],
+            limit: Annotated[int,Query(ge=1,le=50)] = 20,
+            before_created_at: datetime | None = None,
+            before_job_id: UUID | None = None):
+        tenant, denied = authorized_tenant(*FARM_AUTHORING_READ_SCOPES)
+        if denied is not None:
+            return denied
+        if (before_created_at is None)!=(before_job_id is None) or (
+                before_created_at is not None and before_created_at.tzinfo is None):
+            return _error(422,'invalid_request','Invalid request')
+        if farm_authoring_service is None:
+            return _error(503,'farm_authoring_unavailable','Farm authoring unavailable')
+        try:
+            page=await run_in_threadpool(farm_authoring_service.activity,tenant,
+                scenario_id,scenario_revision,registration_sha256,limit=limit,
+                before_created_at=before_created_at,before_job_id=before_job_id)
+            if page is None:
+                return _error(404,'not_found','Resource unavailable')
+            return page
         except PermissionError:
             return _error(403,'forbidden','Resource access denied')
         except FarmAuthoringHold:

@@ -1,6 +1,6 @@
 import { useEffect,useRef,useState,type FormEvent } from 'react';
 import { ApiError,type Evidence,type JobHold,type JobStatus,type createApi } from './api';
-import type { AuthoredFarmCursor,AuthoredFarmSummary } from './authored-farm-api';
+import type { AuthoredFarmActivity,AuthoredFarmCursor,AuthoredFarmSummary } from './authored-farm-api';
 import AuthoredFarmComposer from './AuthoredFarmComposer';
 import './AuthoredFarmWorkspace.css';
 
@@ -78,6 +78,10 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
   const [catalogCursor,setCatalogCursor]=useState<AuthoredFarmCursor|null>(null);
   const [catalogBusy,setCatalogBusy]=useState(false);
   const [catalogError,setCatalogError]=useState<string|null>(null);
+  const [activity,setActivity]=useState<AuthoredFarmActivity[]|null>(null);
+  const [activityCursor,setActivityCursor]=useState<AuthoredFarmCursor|null>(null);
+  const [activityBusy,setActivityBusy]=useState(false);
+  const [activityError,setActivityError]=useState<string|null>(null);
   const [creating,setCreating]=useState(false);
   const [review,setReview]=useState<JobStatus|null>(null);
   const [run,setRun]=useState<JobStatus|null>(null);
@@ -85,13 +89,16 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
   const [busy,setBusy]=useState<Work|null>(null);
   const [error,setError]=useState<string|null>(null);
   const generation=useRef(0);
+  const activityRequest=useRef(0);
   const reviewKey=useRef<string|null>(null);
   const runKey=useRef<string|null>(null);
 
   useEffect(()=>{
     const epoch=++generation.current;
+    activityRequest.current++;
     setScenarioId('');setRevision('');setFarm(null);setCreating(false);setReview(null);setRun(null);
     setCatalog(null);setCatalogCursor(null);setCatalogBusy(false);setCatalogError(null);
+    setActivity(null);setActivityCursor(null);setActivityBusy(false);setActivityError(null);
     setReviewHold(null);setBusy(null);setError(null);reviewKey.current=null;
     runKey.current=null;
     const saved=lastFarm();
@@ -114,18 +121,24 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
 
   function reset() {
     forgetFarm();
-    generation.current++;setFarm(null);setCreating(false);setReview(null);setRun(null);setReviewHold(null);
+    generation.current++;activityRequest.current++;
+    setFarm(null);setCreating(false);setReview(null);setRun(null);setReviewHold(null);
     setScenarioId('');setRevision('');setBusy(null);setError(null);setCatalogBusy(false);
+    setActivity(null);setActivityCursor(null);setActivityBusy(false);setActivityError(null);
     reviewKey.current=null;runKey.current=null;
   }
   function failure(value:unknown) {
     const code=value instanceof ApiError ? value.code : 'network_unresolved';
     setError(errors[code] ?? '요청을 확인할 수 없습니다.');
   }
-  function acceptFarm(result:AuthoredFarmSummary) {
+  function acceptFarm(result:AuthoredFarmSummary,keepActivity=false) {
     rememberFarm(result);
     setScenarioId(result.scenario_id);setRevision(result.scenario_revision);setFarm(result);
     setReview(null);setRun(null);setReviewHold(null);
+    if(!keepActivity){
+      activityRequest.current++;setActivity(null);setActivityCursor(null);
+      setActivityBusy(false);setActivityError(null);
+    }
     reviewKey.current=null;runKey.current=null;
   }
   async function loadCatalog(next=false) {
@@ -153,6 +166,42 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
       if(epoch!==generation.current)return;
       if(result.scenario_sha256!==item.scenario_sha256)throw new ApiError('response_rejected');
       acceptFarm(result);
+    } catch(value) {if(epoch===generation.current)failure(value);}
+    finally {if(epoch===generation.current)setBusy(null);}
+  }
+  async function loadActivity(next=false) {
+    if(busy || activityBusy || !api || !farm)return;
+    const epoch=generation.current;
+    const request=++activityRequest.current;
+    const cursor=next ? activityCursor ?? undefined : undefined;
+    setActivityBusy(true);setActivityError(null);
+    try {
+      const page=await api.authoredFarmActivity(farm.scenario_id,farm.scenario_revision,
+        farm.scenario_sha256,cursor);
+      if(epoch!==generation.current || request!==activityRequest.current)return;
+      setActivity(previous=>next && previous ? [...previous,...page.items] : page.items);
+      setActivityCursor(page.next_cursor);
+    } catch(value) {
+      if(epoch!==generation.current || request!==activityRequest.current)return;
+      const code=value instanceof ApiError ? value.code : 'network_unresolved';
+      setActivityError(errors[code] ?? '저장된 작업 이력을 확인할 수 없습니다.');
+    } finally {if(epoch===generation.current && request===activityRequest.current)setActivityBusy(false);}
+  }
+  async function selectActivity(item:AuthoredFarmActivity) {
+    if(busy || activityBusy || !api || !farm)return;
+    const epoch=generation.current;
+    setBusy('lookup');setError(null);
+    try {
+      const current=await api.authoredFarm(farm.scenario_id,farm.scenario_revision);
+      if(current.scenario_sha256!==farm.scenario_sha256)throw new ApiError('response_rejected');
+      const status=await api.job(item.job.job_id);
+      if(status.stage!==(item.kind==='review'?'collection_review':'simulation'))
+        throw new ApiError('response_rejected');
+      const linked=item.kind==='simulation' ? await api.job(item.review_job.job_id) : null;
+      if(linked && linked.stage!=='collection_review')throw new ApiError('response_rejected');
+      if(epoch!==generation.current)return;
+      acceptFarm(current,true);
+      setReview(linked ?? status);setRun(item.kind==='simulation' ? status : null);
     } catch(value) {if(epoch===generation.current)failure(value);}
     finally {if(epoch===generation.current)setBusy(null);}
   }
@@ -252,6 +301,22 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
         {farm && <dl className="authored-facts"><div><dt>등록 상태</dt><dd>입력 등록됨 · 계산 전</dd></div>
           <div><dt>등록 해시</dt><dd><code>{farm.scenario_sha256}</code></dd></div>
           <div><dt>입력 작업</dt><dd><code>{farm.intent_job.job_id}</code></dd></div></dl>}
+        {farm && <section className="authored-catalog" aria-label="저장된 작업 이력">
+          <div className="authored-catalog-heading"><div><h4>저장된 작업 이력</h4>
+            <p className="muted">검토·계산 작업의 과거 기록입니다. 선택할 때 현재 판본과 작업 상태를 다시 확인합니다.</p></div>
+            <button type="button" className="button secondary" disabled={!api || !!busy || activityBusy}
+              onClick={()=>void loadActivity()}>{activityBusy?'이력 확인 중…':activity?'이력 새로고침':'작업 이력 보기'}</button></div>
+          {activityError && <p role="alert" className="notice error">{activityError}</p>}
+          {activity && (activity.length ? <><ul className="authored-catalog-list">
+            {activity.map(item=><li key={item.job.job_id}><button type="button"
+              disabled={!api || !!busy || activityBusy} onClick={()=>void selectActivity(item)}>
+              <span><strong>{item.kind==='review'?'입력 검토':'열 계산'}</strong> · <code>{item.job.job_id}</code></span>
+              <small>{stateName[item.job.state]} · {item.job.created_at}</small>
+            </button></li>)}</ul>
+            {activityCursor && <button type="button" className="button secondary"
+              disabled={!api || !!busy || activityBusy} onClick={()=>void loadActivity(true)}>이전 작업 더 보기</button>}
+          </> : <p className="muted">이 판본의 검토·계산 작업 기록이 없습니다.</p>)}
+        </section>}
         {!farm && !creating && <div className="authored-catalog">
           <div className="authored-catalog-heading"><div><h4>저장된 판본</h4>
             <p className="muted">현재 계정의 등록 기록입니다. 선택할 때 이용 권리와 입력을 다시 확인합니다.</p></div>

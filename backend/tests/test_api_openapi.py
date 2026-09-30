@@ -27,6 +27,7 @@ OPERATIONS = {
     ('/v1/farm-authored-inputs','post'): ('registerFarmAuthoredInputs',list(FARM_AUTHORING_WRITE_SCOPES)),
     ('/v1/farm-authored-inputs','get'): ('getFarmAuthoredInputs',list(FARM_AUTHORING_READ_SCOPES)),
     ('/v1/farm-authored-inputs/catalog','get'): ('listFarmAuthoredInputs',list(FARM_AUTHORING_READ_SCOPES)),
+    ('/v1/farm-authored-inputs/activity','get'): ('listFarmAuthoredActivity',list(FARM_AUTHORING_READ_SCOPES)),
     ('/v1/jobs/{job_id}/authored-run', 'get'): ('getJobAuthoredRun', list(AUTHORED_READ_SCOPES)),
     ('/v1/authored-runs/{run_id}', 'get'): ('getAuthoredRun', list(AUTHORED_READ_SCOPES)),
     ('/v1/authored-runs/{run_id}/series', 'get'): ('getAuthoredRunSeries', list(AUTHORED_READ_SCOPES)),
@@ -192,6 +193,8 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
         principal["scopes"] = set(scopes)-{missing}
         status, body, _ = asyncio.run(request(app, path=path, method=method.upper(),
             query=(b'scenario_id=example&scenario_revision=r1' if path in ('/v1/scenarios','/v1/farm-scenarios','/v1/farm-authored-inputs')
+                else b'scenario_id=example&scenario_revision=r1&registration_sha256='+b'a'*64
+                  if path == '/v1/farm-authored-inputs/activity'
                 else b'plan_id=example&submission_sha256='+b'a'*64 if path == '/v1/break-even-plans/receipt'
                 else b'kind=economic_input' if path == '/v1/market-user-sources'
                 else b'kind=economic_input&record_id=example&revision=r1' if path == '/v1/market-user-sources/record'

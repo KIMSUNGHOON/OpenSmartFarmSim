@@ -3,6 +3,7 @@
 from datetime import date, datetime, timezone
 from hashlib import sha256
 import json
+import re
 from typing import Literal, Self
 from uuid import UUID
 
@@ -90,6 +91,20 @@ class FarmAuthoringCursor(FrozenContract):
 
 class FarmAuthoringPage(FrozenContract):
     items: list[FarmAuthoringSummary]
+    next_cursor: FarmAuthoringCursor | None
+
+
+class FarmAuthoringActivity(FrozenContract):
+    kind: Literal['review','simulation']
+    job: JobStatus
+    review_job: JobStatus | None
+
+
+class FarmAuthoringActivityPage(FrozenContract):
+    scenario_id: Identifier
+    scenario_revision: Identifier
+    registration_sha256: Digest
+    items: list[FarmAuthoringActivity]
     next_cursor: FarmAuthoringCursor | None
 
 
@@ -312,6 +327,90 @@ class FarmAuthoringService:
             next_cursor=(FarmAuthoringCursor(created_at=rows[limit-1]['created_at'],
                 job_id=rows[limit-1]['job_id']) if len(rows)>limit else None)
             return FarmAuthoringPage(items=items[:limit],next_cursor=next_cursor)
+        finally:
+            guard()
+
+    def activity(self,tenant,scenario_id,revision,expected_sha256,*,limit=20,
+                 before_created_at=None,before_job_id=None):
+        """Project immutable authored job links; current use still requires admission/read checks."""
+        from .farm_authored_review import INPUT_VERSION as REVIEW_VERSION, INPUT_FIELDS as REVIEW_FIELDS
+        from .farm_authored_simulation import INPUT_VERSION as SIM_VERSION
+        if (type(limit) is not int or not 1 <= limit <= 50 or
+                (before_created_at is None)!=(before_job_id is None) or
+                (before_created_at is not None and
+                 (type(before_created_at) is not datetime or before_created_at.tzinfo is None or
+                  type(before_job_id) is not UUID))):
+            raise ValueError('authored farm activity cursor invalid')
+        pointers=self._pointers()
+        guard=lambda:self._guard(tenant,pointers,READ_SCOPES)
+        guard()
+        try:
+            registration=self._find(tenant,scenario_id,revision)
+            if registration is None:
+                return None
+            if registration['input_sha256']!=expected_sha256:
+                raise FarmAuthoringHold('authored farm activity registration differs')
+            jobs=self.replay.jobs
+            cursor=sql.SQL('')
+            args=[tenant,REVIEW_VERSION+':%',SIM_VERSION+':%',expected_sha256]
+            if before_created_at is not None:
+                cursor=sql.SQL(' AND (created_at, job_id) < (%s, %s)')
+                args.extend((before_created_at,before_job_id))
+            args.append(limit+1)
+            with jobs.connect() as conn:
+                rows=conn.execute(sql.SQL("SELECT * FROM {} WHERE tenant_id=%s AND "
+                    "((stage='collection_review' AND idempotency_key LIKE %s) OR "
+                    "(stage='simulation' AND idempotency_key LIKE %s)) AND "
+                    "convert_from(input_bytes,'UTF8')::jsonb->>'registration_sha256'=%s{} "
+                    'ORDER BY created_at DESC, job_id DESC LIMIT %s')
+                    .format(jobs._table('jobs'),cursor),args).fetchall()
+                items=[]
+                for row in rows:
+                    value=json.loads(jobs._verified_input(row))
+                    review=row['stage']=='collection_review'
+                    version=REVIEW_VERSION if review else SIM_VERSION
+                    expected_fields=(REVIEW_FIELDS if review else {'input_version','tenant_id',
+                        'review_job_id','scenario_id','scenario_revision','registration_sha256'})
+                    key=row['idempotency_key'].removeprefix(version+':')
+                    if (set(value)!=expected_fields or value.get('input_version')!=version or
+                            value.get('tenant_id')!=tenant or
+                            (value.get('scenario_id'),value.get('scenario_revision'),
+                             value.get('registration_sha256')) !=
+                            (scenario_id,revision,expected_sha256) or
+                            re.fullmatch(r'[0-9a-f]{64}',key) is None):
+                        raise FarmAuthoringHold('authored farm activity input differs')
+                    linked=None
+                    if not review:
+                        try:
+                            review_id=UUID(value['review_job_id'])
+                        except (KeyError,TypeError,ValueError):
+                            raise FarmAuthoringHold('authored farm activity review link unavailable') from None
+                        parent=conn.execute(sql.SQL("SELECT * FROM {} WHERE tenant_id=%s "
+                            "AND job_id=%s AND stage='collection_review'")
+                            .format(jobs._table('jobs')),(tenant,review_id)).fetchone()
+                        if parent is None:
+                            raise FarmAuthoringHold('authored farm activity review link unavailable')
+                        parent_value=json.loads(jobs._verified_input(parent))
+                        if (set(parent_value)!=REVIEW_FIELDS or
+                                parent_value.get('input_version')!=REVIEW_VERSION or
+                                parent_value.get('tenant_id')!=tenant or
+                                (parent_value.get('scenario_id'),
+                                 parent_value.get('scenario_revision'),
+                                 parent_value.get('registration_sha256'))!=
+                                (scenario_id,revision,expected_sha256)):
+                            raise FarmAuthoringHold('authored farm activity review link differs')
+                        linked=public_job_status(parent)
+                    items.append(FarmAuthoringActivity(kind='review' if review else 'simulation',
+                        job=public_job_status(row),review_job=linked))
+            guard()
+            again=self._find(tenant,scenario_id,revision)
+            if again is None or again['input_sha256']!=expected_sha256:
+                raise FarmAuthoringHold('authored farm activity registration changed')
+            next_cursor=(FarmAuthoringCursor(created_at=rows[limit-1]['created_at'],
+                job_id=rows[limit-1]['job_id']) if len(rows)>limit else None)
+            return FarmAuthoringActivityPage(scenario_id=scenario_id,
+                scenario_revision=revision,registration_sha256=expected_sha256,
+                items=items[:limit],next_cursor=next_cursor)
         finally:
             guard()
 

@@ -58,6 +58,25 @@ test('owned farm catalog pages contain only bounded server metadata',async()=>{
     .rejects.toMatchObject({code:'response_rejected'});
 });
 
+test('authored activity decodes linked jobs without accepting private fields',async()=>{
+  const review={...job('collection_review'),job_id:'33333333-3333-4333-8333-333333333333'};
+  const simulation={...job('simulation'),job_id:'44444444-4444-4444-8444-444444444444'};
+  const page={...identity,registration_sha256:digest,items:[
+    {kind:'simulation',job:simulation,review_job:review},
+    {kind:'review',job:review,review_job:null}],next_cursor:null};
+  const fetcher=vi.fn<typeof fetch>().mockResolvedValue(reply(page));
+  const result=await createApi(token,fetcher).authoredFarmActivity('farm-1','r1',digest);
+  expect(result.items.map(item=>item.job.job_id)).toEqual([simulation.job_id,review.job_id]);
+  expect(fetcher.mock.calls[0]?.[0]).toBe('/v1/farm-authored-inputs/activity?scenario_id=farm-1'
+    +'&scenario_revision=r1&registration_sha256='+digest);
+  await expect(createApi(token,vi.fn<typeof fetch>().mockResolvedValue(reply({
+    ...page,items:[{kind:'simulation',job:simulation,review_job:null}]})))
+    .authoredFarmActivity('farm-1','r1',digest)).rejects.toMatchObject({code:'response_rejected'});
+  await expect(createApi(token,vi.fn<typeof fetch>().mockResolvedValue(reply({
+    ...page,items:[{kind:'review',job:review,review_job:null,private_prompt:'hidden'}]})))
+    .authoredFarmActivity('farm-1','r1',digest)).rejects.toMatchObject({code:'response_rejected'});
+});
+
 test('review and simulation admit only the pinned revision and preserve retry keys',async()=>{
   const fetcher=vi.fn<typeof fetch>().mockResolvedValueOnce(reply(job('collection_review'),202))
     .mockResolvedValueOnce(reply(job('simulation'),202));

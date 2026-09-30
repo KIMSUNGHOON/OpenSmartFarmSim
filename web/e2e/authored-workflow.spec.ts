@@ -59,6 +59,47 @@ test('saved farm catalog opens a server rechecked registration',async({page})=>{
     '/v1/farm-authored-inputs','/v1/farm-authored-inputs']);
 });
 
+test('saved authored jobs reopen a completed server Run after reconnect',async({page})=>{
+  const calls:string[]=[];
+  const data=authoredResponses();
+  await page.route('**/v1/**',route=>{
+    const path=new URL(route.request().url()).pathname;
+    calls.push(route.request().method()+' '+path);
+    if(path==='/v1/farm-authored-inputs')return route.fulfill({json:registration});
+    if(path==='/v1/farm-authored-inputs/activity')return route.fulfill({json:{
+      scenario_id:'farm-1',scenario_revision:'r1',registration_sha256:digest,
+      items:[{kind:'simulation',job:job(authoredJobId,'simulation','succeeded'),
+        review_job:job(reviewId,'collection_review','succeeded')}],next_cursor:null}});
+    if(path==='/v1/jobs/'+authoredJobId)
+      return route.fulfill({json:job(authoredJobId,'simulation','succeeded')});
+    if(path==='/v1/jobs/'+reviewId)
+      return route.fulfill({json:job(reviewId,'collection_review','succeeded')});
+    if(path==='/v1/jobs/'+authoredJobId+'/authored-run' ||
+       path==='/v1/authored-runs/'+encodeURIComponent(authoredRunId))
+      return route.fulfill({json:data.summary});
+    if(path==='/v1/authored-runs/'+encodeURIComponent(authoredRunId)+'/series')
+      return route.fulfill({json:data.series});
+    throw new Error('unexpected API path '+path);
+  });
+  await connect(page);
+  await page.reload();
+  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.getByLabel('접근 토큰').fill(token);
+  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
+  await expect(page.getByText('입력 등록됨 · 계산 전')).toBeVisible();
+  await page.getByRole('button',{name:'작업 이력 보기'}).click();
+  await expect(page.locator('.authored-catalog-list button')).toHaveCount(1);
+  await page.setViewportSize({width:390,height:844});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+  await page.locator('.authored-catalog-list button').click();
+  await expect(page.getByRole('button',{name:'3D 재생 열기'})).toBeEnabled();
+  await page.getByRole('button',{name:'3D 재생 열기'}).click();
+  await page.getByRole('button',{name:'저장된 Run 조회'}).click();
+  await expect(page.locator('.replay-viewer')).toHaveAttribute('data-run-id',authoredRunId);
+  expect(calls.every(value=>value.startsWith('GET '))).toBe(true);
+});
+
 test('stored farm moves through review and simulation jobs into authored 3D',async({page})=>{
   const calls:{path:string;method:string;body:unknown}[]=[];
   const errors:string[]=[];

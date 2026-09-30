@@ -2,8 +2,10 @@
 
 import asyncio
 from copy import deepcopy
+from hashlib import sha256
 import json
-from urllib.parse import urlsplit
+from urllib.parse import urlencode, urlsplit
+from uuid import uuid4
 
 import pytest
 
@@ -102,7 +104,6 @@ def test_authored_farm_catalog_is_tenant_scoped_and_requires_selection_recheck(a
     cursor=page['next_cursor']
     assert cursor=={'created_at':page['items'][0]['intent_job']['created_at'],
                     'job_id':page['items'][0]['intent_job']['job_id']}
-    from urllib.parse import urlencode
     status,next_page=call(app,path=catalog+'?'+urlencode({
         'limit':1,'before_created_at':cursor['created_at'],'before_job_id':cursor['job_id']}))
     assert status==200 and next_page['next_cursor'] is None
@@ -119,6 +120,55 @@ def test_authored_farm_catalog_is_tenant_scoped_and_requires_selection_recheck(a
     monkeypatch.setattr(service,'_prepare',lambda *_: (_ for _ in ()).throw(FarmAuthoringHold('revoked')))
     assert call(app,path=catalog)[0]==200
     assert call(app,path='/v1/farm-authored-inputs?scenario_id=farm-1&scenario_revision=r1')[0]==422
+
+
+def test_authored_farm_activity_recovers_linked_review_and_simulation(authoring,monkeypatch):
+    service,body,principal=authoring
+    app=application(service)
+    registered=call(app,body=body)[1]
+    from app.farm_authored_review import FarmAuthoredReviewService, INPUT_VERSION as REVIEW_VERSION
+    from app.farm_authored_simulation import INPUT_VERSION as SIM_VERSION
+    prepared=FarmAuthoredReviewService(service).prepare('tenant-1','farm-1','r1',
+        registered['scenario_sha256'],read_only=True)
+    jobs=service.replay.jobs
+    review=jobs.submit('tenant-1','collection_review',prepared,
+        REVIEW_VERSION+':'+sha256(b'activity-review').hexdigest())
+    simulation={'input_version':SIM_VERSION,'tenant_id':'tenant-1',
+        'review_job_id':str(review['job_id']),'scenario_id':'farm-1',
+        'scenario_revision':'r1','registration_sha256':registered['scenario_sha256']}
+    run=jobs.submit('tenant-1','simulation',simulation,
+        SIM_VERSION+':'+sha256(b'activity-run').hexdigest())
+    activity='/v1/farm-authored-inputs/activity?'+urlencode({
+        'scenario_id':'farm-1','scenario_revision':'r1',
+        'registration_sha256':registered['scenario_sha256'],'limit':1})
+    status,page=call(app,path=activity)
+    assert status==200 and page['registration_sha256']==registered['scenario_sha256']
+    assert len(page['items'])==1 and page['items'][0]['kind']=='simulation'
+    assert page['items'][0]['job']['job_id']==str(run['job_id'])
+    assert page['items'][0]['review_job']['job_id']==str(review['job_id'])
+    assert 'input_bytes' not in json.dumps(page) and page['next_cursor'] is not None
+    status,older=call(app,path=activity+'&'+urlencode({
+        'before_created_at':page['next_cursor']['created_at'],
+        'before_job_id':page['next_cursor']['job_id']}))
+    assert status==200 and len(older['items'])==1 and older['items'][0]['kind']=='review'
+    assert older['items'][0]['job']['job_id']==str(review['job_id'])
+    assert older['items'][0]['review_job'] is None and older['next_cursor'] is None
+    assert call(app,path=activity+'&before_job_id='+str(run['job_id']))[0]==422
+    assert call(app,path=activity.replace(registered['scenario_sha256'],'a'*64))[0]==422
+    principal['tenant_id']='foreign'
+    assert call(app,path=activity)[0]==404
+    principal['tenant_id']='tenant-1'
+    for scope in READ_SCOPES:
+        principal['scopes'].remove(scope)
+        assert call(app,path=activity)[0]==403
+        principal['scopes'].add(scope)
+    monkeypatch.setattr(service,'_prepare',lambda *_: (_ for _ in ()).throw(FarmAuthoringHold('revoked')))
+    assert call(app,path=activity)[0]==200
+    assert call(app,path='/v1/farm-authored-inputs?scenario_id=farm-1&scenario_revision=r1')[0]==422
+    broken=simulation | {'review_job_id':str(uuid4())}
+    jobs.submit('tenant-1','simulation',broken,
+        SIM_VERSION+':'+sha256(b'activity-broken').hexdigest())
+    assert call(app,path=activity)[0]==422
 
 
 def test_authored_review_http_admission_is_queued_and_bound(authoring,monkeypatch):

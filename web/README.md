@@ -11,7 +11,7 @@ npm run demo:3d
 
 브라우저에서 `http://127.0.0.1:5173/demo/`를 열면 합성 3D 장면이
 자동으로 나타납니다. 이 데모는 서버 저장 내역을 만들거나 보여주지 않습니다.
-실제 API에 연결한 내부 작업 화면의 **저장된 판본 → 목록 보기**와는 별개입니다.
+실제 API에 연결한 내부 작업 화면의 **저장된 판본 → 목록 보기 → 작업 이력 보기**와는 별개입니다.
 120개 저장 시각,
 그래프와 표를 조작할 수 있습니다.
 이 명령은 loopback 전용 Vite 서버와 직접 작성한 합성 HTTP 응답만 실행합니다.
@@ -30,7 +30,7 @@ break-even section selects existing sale/collection and saved trial revisions,
 admits a finite plan and reads its completed result. The fourth screen can
 register an authored farm version from explicit user assumptions and already
 registered research, market hold and economic references. It can also look up
-an existing version, list the tenant's stored registrations, submit review and thermal work, read server job/hold status,
+an existing version, list the tenant's stored registrations and that version's review/simulation job history, submit review and thermal work, read server job/hold status,
 and open a completed stored Run. The form does not discover prerequisite records
 or issue an independent release. An uncertain registration is retried with the
 same frozen request. The last verified
@@ -41,7 +41,7 @@ either a fixed or a farm-authored synthetic thermal Run in Three.js, a chart, an
 text values with one selected stored timestamp. Automatic source research and
 nontechnical farm input,
 baseline/event/settlement authoring, automatic trial assumptions, durable
-job and Run history recovery, map, full replay
+general Run catalog, map, full replay
 acceptance and production hosting are pending. See the
 [location contract](../contracts/web-location-shell-v1.md) and
 [economic contract](../contracts/web-economic-workspace-v1.md) and
