@@ -5,6 +5,32 @@ import './AuthoredFarmWorkspace.css';
 
 type Api=ReturnType<typeof createApi>;
 type Work='lookup'|'review'|'review-status'|'run'|'run-status';
+const LAST_FARM_KEY='ossf.authored.last-farm.v1';
+const IDENTIFIER=/^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$/;
+const DIGEST=/^[0-9a-f]{64}$/;
+type SavedFarm={scenario_id:string;scenario_revision:string;scenario_sha256:string};
+function lastFarm():SavedFarm|null {
+  try {
+    const raw=sessionStorage.getItem(LAST_FARM_KEY);
+    if(!raw || raw.length>600)return null;
+    const value:unknown=JSON.parse(raw);
+    if(!value || typeof value!=='object' || Array.isArray(value))return null;
+    const fields=value as Record<string,unknown>;
+    if(Object.keys(fields).length!==3 || typeof fields.scenario_id!=='string'
+      || !IDENTIFIER.test(fields.scenario_id) || typeof fields.scenario_revision!=='string'
+      || !IDENTIFIER.test(fields.scenario_revision) || typeof fields.scenario_sha256!=='string'
+      || !DIGEST.test(fields.scenario_sha256))return null;
+    return fields as SavedFarm;
+  } catch {return null;}
+}
+function rememberFarm(value:AuthoredFarmSummary) {
+  try {sessionStorage.setItem(LAST_FARM_KEY,JSON.stringify({scenario_id:value.scenario_id,
+    scenario_revision:value.scenario_revision,scenario_sha256:value.scenario_sha256}));}
+  catch { /* Storage may be disabled; server lookup still works. */ }
+}
+function forgetFarm() {
+  try {sessionStorage.removeItem(LAST_FARM_KEY);} catch { /* Storage may be disabled. */ }
+}
 const stateName:Record<JobStatus['state'],string>={queued:'대기 중',researching:'조사 중',
   collecting:'수집 중',reviewing:'검토 중',simulating:'계산 중',assessing:'평가 중',
   succeeded:'완료',hold:'보류',failed:'실패',canceled:'취소'};
@@ -56,13 +82,34 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
   const reviewKey=useRef<string|null>(null);
   const runKey=useRef<string|null>(null);
 
-  useEffect(()=>{generation.current++;setFarm(null);setReview(null);setRun(null);
+  useEffect(()=>{
+    const epoch=++generation.current;
+    setScenarioId('');setRevision('');setFarm(null);setReview(null);setRun(null);
     setReviewHold(null);setBusy(null);setError(null);reviewKey.current=null;
-    runKey.current=null;},[api]);
+    runKey.current=null;
+    const saved=lastFarm();
+    if(!api || !saved)return;
+    setBusy('lookup');
+    void api.authoredFarm(saved.scenario_id,saved.scenario_revision).then(result=>{
+      if(epoch!==generation.current)return;
+      if(result.scenario_sha256!==saved.scenario_sha256)
+        throw new ApiError('response_rejected');
+      setScenarioId(result.scenario_id);setRevision(result.scenario_revision);setFarm(result);
+    }).catch(value=>{
+      if(epoch!==generation.current)return;
+      if(value instanceof ApiError && ['not_available','access_denied','invalid_request',
+        'response_rejected'].includes(value.code))forgetFarm();
+      else {setScenarioId(saved.scenario_id);setRevision(saved.scenario_revision);}
+      const code=value instanceof ApiError ? value.code : 'network_unresolved';
+      setError(errors[code] ?? '저장된 판본을 다시 확인할 수 없습니다.');
+    }).finally(()=>{if(epoch===generation.current)setBusy(null);});
+  },[api]);
 
   function reset() {
+    forgetFarm();
     generation.current++;setFarm(null);setReview(null);setRun(null);setReviewHold(null);
-    setBusy(null);setError(null);reviewKey.current=null;runKey.current=null;
+    setScenarioId('');setRevision('');setBusy(null);setError(null);
+    reviewKey.current=null;runKey.current=null;
   }
   function failure(value:unknown) {
     const code=value instanceof ApiError ? value.code : 'network_unresolved';
@@ -75,6 +122,7 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
     try {
       const result=await api.authoredFarm(scenarioId.trim(),revision.trim());
       if(epoch!==generation.current)return;
+      rememberFarm(result);
       setFarm(result);setReview(null);setRun(null);setReviewHold(null);
       reviewKey.current=null;runKey.current=null;
     } catch(value) {if(epoch===generation.current)failure(value);}

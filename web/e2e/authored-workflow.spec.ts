@@ -117,3 +117,59 @@ test('missing independent release stays a hold and retries preserve one intent k
   expect(keys).toHaveLength(2);
   expect(keys[0]).toBe(keys[1]);
 });
+
+test('last farm is rechecked on reconnect and cleared when access is revoked',async({page})=>{
+  let allowed=true;
+  let reads=0;
+  await page.route('**/v1/**',async route=>{
+    const request=route.request();
+    expect(request.headers().authorization).toBe('Bearer '+token);
+    expect(new URL(request.url()).pathname).toBe('/v1/farm-authored-inputs');
+    expect(request.method()).toBe('GET');
+    reads++;
+    return allowed ? route.fulfill({json:registration})
+      : route.fulfill({status:403,json:{code:'access_denied'}});
+  });
+  await connect(page);
+  const stored=await page.evaluate(()=>sessionStorage.getItem('ossf.authored.last-farm.v1'));
+  expect(JSON.parse(stored ?? 'null')).toEqual({scenario_id:'farm-1',
+    scenario_revision:'r1',scenario_sha256:digest});
+  expect(stored).not.toContain(token);
+
+  await page.reload();
+  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.getByLabel('접근 토큰').fill(token);
+  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
+  await expect(page.getByText('입력 등록됨 · 계산 전')).toBeVisible();
+  await expect(page.getByLabel('시나리오 ID')).toHaveValue('farm-1');
+  expect(reads).toBe(2);
+
+  await page.evaluate(key=>sessionStorage.setItem(key,JSON.stringify({scenario_id:'farm-1',
+    scenario_revision:'r1',scenario_sha256:'e'.repeat(64)})),'ossf.authored.last-farm.v1');
+  await page.reload();
+  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.getByLabel('접근 토큰').fill(token);
+  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
+  await expect(page.getByRole('alert')).toContainText('서버 응답의 판본');
+  await expect(page.getByText('입력 등록됨 · 계산 전')).toHaveCount(0);
+  expect(await page.evaluate(()=>sessionStorage.getItem('ossf.authored.last-farm.v1'))).toBeNull();
+  await page.getByLabel('시나리오 ID').fill('farm-1');
+  await page.getByLabel('판본',{exact:true}).fill('r1');
+  await page.getByRole('button',{name:'등록 기록 확인'}).click();
+  await expect(page.getByText('입력 등록됨 · 계산 전')).toBeVisible();
+  expect(reads).toBe(4);
+
+  allowed=false;
+  await page.reload();
+  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.getByLabel('접근 토큰').fill(token);
+  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
+  await expect(page.getByRole('alert')).toContainText('필요한 권한이 없습니다');
+  await expect(page.getByText('입력 등록됨 · 계산 전')).toHaveCount(0);
+  await expect.poll(()=>page.evaluate(()=>sessionStorage.getItem('ossf.authored.last-farm.v1')))
+    .toBeNull();
+  expect(reads).toBe(5);
+});

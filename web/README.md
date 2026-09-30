@@ -28,11 +28,15 @@ break-even section selects existing sale/collection and saved trial revisions,
 admits a finite plan and reads its completed result. The fourth screen looks up
 an already registered authored farm version, submits review and thermal work,
 reads server job/hold status, and opens a completed stored Run. It does not
-provide a farm authoring form or issue an independent release. The fifth screen replays
+provide a farm authoring form or issue an independent release. The last verified
+farm ID, revision and registration hash are kept in this browser tab only; after
+reconnection the server must authorize and confirm the exact version before it
+appears again. Tokens and review/simulation job IDs are not stored. The fifth screen replays
 either a fixed or a farm-authored synthetic thermal Run in Three.js, a chart, an HTML table and six
 text values with one selected stored timestamp. Full farm input,
 baseline/event/settlement authoring, automatic trial assumptions, durable
-reload recovery, map, full replay acceptance and production hosting are pending. See the
+job reload recovery, a server list of owned farm versions, map, full replay
+acceptance and production hosting are pending. See the
 [location contract](../contracts/web-location-shell-v1.md) and
 [economic contract](../contracts/web-economic-workspace-v1.md) and
 [break-even contract](../contracts/web-break-even-workspace-v1.md) and

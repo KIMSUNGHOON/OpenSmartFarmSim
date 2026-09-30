@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**작성 농장 웹 작업 연결 (2026-09-30):** 이미 등록된 판본의 조회·검토/계산 접수·상태/보류 확인·완료 Run 3D 이동을 구현하고 합성 HTTP Chromium 22개 및 웹 단위 시험 71개를 통과했다([기록](../research/authored-farm-web-workflow-implementation.md)). 브라우저에 전체 농장 작성 폼은 없고, 이 시험에는 실제 제품 CLI·독립 해제·PostgreSQL이 없다. 전체 G1과 `web-shell`/`web-replay`는 보류한다.
+**작성 농장 웹 작업 연결 (2026-09-30):** 이미 등록된 판본의 조회·검토/계산 접수·상태/보류 확인·완료 Run 3D 이동을 구현했다. 마지막으로 확인한 판본 ID·해시만 탭에 저장하고 재연결 때 인증 GET/해시를 재확인하며 접근 철회·변경은 복원하지 않는다([기록](../research/authored-farm-web-workflow-implementation.md)). 작성 흐름의 합성 HTTP Chromium 3개와 웹 단위 시험 71개가 통과했다. 브라우저에 전체 농장 작성 폼과 작업 재개는 없고, 이 화면의 시험에는 실제 제품 CLI·독립 해제·PostgreSQL이 없다. 전체 G1과 `web-shell`/`web-replay`는 보류한다.
 
 **작성 농장 → 저장 Run → 실제 HTTPS/Chromium 합성 연결 (2026-09-30):** 실제 PostgreSQL/SCRAM에서 미리 등록한 판본을 브라우저로 조회하고 **신규 검토·신규 계산 작업을 각각 접수**했다. 두 작업 사이에 하네스의 가짜 CLI 검토·합성 실행 서명·합성 독립 해제를 저장했고, 실제 계산 작업자가 Run을 원자 게시했다. 브라우저의 실제 HTTPS 8개 응답·120시점 3D/표 대조를 통과했다([검증](../research/authored-full-software-path-implementation.md)). 처음 검증한 완료 증명과 계산 후보를 후속 조립에서 고정했으므로 반복 재검증/철회의 단독 증거는 아니다. 실제 제품 CLI·독립 검토 발급·사용자 작성 폼/수집 입력·접수 지연 개선·전체 G1은 보류한다.
 
