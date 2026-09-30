@@ -79,7 +79,7 @@ def _completed(pg_store, tmp_path, *, misrecorded_kind=None):
     return store, worker, worked, rows, seen["argv"]
 
 
-def _signed(store, worker, worked, rows, argv, *, private=None):
+def _signed(store, worker, worked, rows, argv, *, private=None, observed_hashes=None):
     private = private or Ed25519PrivateKey.generate()
     public = private.public_key().public_bytes(Encoding.Raw, PublicFormat.Raw)
     job = rows["jobs"]
@@ -90,13 +90,16 @@ def _signed(store, worker, worked, rows, argv, *, private=None):
     env_sha = sha256(b"synthetic-test-environment").hexdigest()
     assert job["created_at"] <= capture["sealed_at"], (
         job["created_at"], capture["sealed_at"])
+    prompt_hash, schema_hash = observed_hashes or (
+        (Path(worker.cli_path).parent / "actual-prompt.sha256").read_text(),
+        (Path(worker.cli_path).parent / "actual-schema.sha256").read_text())
     record = ExecutionAttestation(
         record_version="cli-execution-attestation-v1", key_id="test-observer-v1",
         tenant_id=job["tenant_id"], job_id=worked.job_id, attempt=worked.attempt,
         attempt_id=invocation["attempt_id"], nonce=uuid4(),
         input_sha256=job["input_sha256"],
-        prompt_sha256=(Path(worker.cli_path).parent / "actual-prompt.sha256").read_text(),
-        schema_sha256=(Path(worker.cli_path).parent / "actual-schema.sha256").read_text(),
+        prompt_sha256=prompt_hash,
+        schema_sha256=schema_hash,
         cli_version=invocation["cli_version"],
         executable_sha256=binary_sha, argv=argv, environment_sha256=env_sha,
         launch_id=launch["launch_id"], capture_id=worked.capture_id,
@@ -114,6 +117,18 @@ def _signed(store, worker, worked, rows, argv, *, private=None):
     verifier = ExecutionVerifier(attestations, executable_sha256=binary_sha,
                                  environment_sha256=env_sha)
     return record, raw, signature, attestations, verifier, private
+
+
+def test_attestation_with_recorded_hashes_needs_no_fake_cli_sidecars(pg_store, tmp_path):
+    data = _completed(pg_store, tmp_path)
+    _, worker, _, rows, _ = data
+    for name in ("actual-prompt.sha256", "actual-schema.sha256"):
+        (Path(worker.cli_path).parent / name).unlink()
+    invocation = rows["attempt_invocations"]
+    record, *_ = _signed(*data, observed_hashes=(
+        invocation["prompt_sha256"], invocation["schema_sha256"]))
+    assert (record.prompt_sha256, record.schema_sha256) == (
+        invocation["prompt_sha256"], invocation["schema_sha256"])
 
 
 def test_signed_cli_completion_binds_exact_job_capture_and_decision(pg_store, tmp_path):

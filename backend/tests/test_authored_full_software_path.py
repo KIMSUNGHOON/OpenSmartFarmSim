@@ -1,7 +1,8 @@
-"""Synthetic software chain from an owned farm to an immutable thermal Run.
+"""Software chain from an owned farm to an immutable thermal Run.
 
-The CLI executable, observer and reviewer are test authorities. This test
-cannot establish an independent G1 review or any agricultural claim.
+The default CLI is a test executable. Opt-in uses actual Codex CLI, while the
+observer and reviewer remain test authorities. Neither mode establishes an
+independent G1 review or an agricultural claim.
 """
 
 import json
@@ -90,15 +91,22 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
     jobs.decision_validator = router
     jobs.evidence_policy = self_authored_evidence_policy
 
-    program = _fake_cli(tmp_path)
-    program.write_text(program.read_text().replace(
-        "['candidate-a'] if context['server_allows_proceed']",
-        "[context['input']['candidate_ids'][0]] if context['server_allows_proceed']"))
-    home = tmp_path / 'authored-cli-home'
-    home.mkdir(mode=0o700)
+    real_cli = os.environ.get('OSSF_REAL_AUTHORED_FULL_CLI_SMOKE') == '1'
+    if real_cli:
+        program = Path(os.environ['OSSF_REAL_CLI_PATH'])
+        home = Path(os.environ['OSSF_REAL_CODEX_HOME'])
+        child_env = None
+    else:
+        program = _fake_cli(tmp_path)
+        program.write_text(program.read_text().replace(
+            "['candidate-a'] if context['server_allows_proceed']",
+            "[context['input']['candidate_ids'][0]] if context['server_allows_proceed']"))
+        home = tmp_path / 'authored-cli-home'
+        home.mkdir(mode=0o700)
+        child_env = {'CODEX_API_KEY': 'synthetic-test-key'}
     cli_worker = CliWorker(jobs, router, cli_path=program, codex_home=home,
-        child_env={'CODEX_API_KEY': 'synthetic-test-key'}, timeout_seconds=10,
-        lease_seconds=300, synthetic_smoke=True)
+        child_env=child_env, timeout_seconds=600 if real_cli else 10,
+        lease_seconds=660 if real_cli else 300, synthetic_smoke=True)
     launch = {}
     original_launch = jobs.record_cli_launch
 
@@ -207,7 +215,7 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
                 return job_id
 
             review_id = browser_event('review_admitted')
-            lease = jobs.claim(300, allowed_stages=('collection_review',),
+            lease = jobs.claim(cli_worker.lease_seconds, allowed_stages=('collection_review',),
                                tenant_id='tenant-1', job_id=review_id)
             reviewed = cli_worker._run_claimed(lease)
             assert reviewed.state == 'succeeded'
@@ -217,8 +225,29 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
                         jobs._table(name)), ('tenant-1', review_id)).fetchone()
                     for name in ('jobs', 'attempt_invocations', 'attempt_cli_launches',
                                  'attempt_cli_captures')}
+            invocation = rows['attempt_invocations']
+            assert (invocation['execution_kind'], invocation['model'],
+                    invocation['reasoning_effort']) == ('codex_cli', 'gpt-6-sol', 'xhigh')
             record, raw, signature, _, _, _ = signed_execution(
-                jobs, cli_worker, reviewed, rows, launch['argv'], private=observer)
+                jobs, cli_worker, reviewed, rows, launch['argv'], private=observer,
+                observed_hashes=(invocation['prompt_sha256'], invocation['schema_sha256'])
+                    if real_cli else None)
+            if real_cli:
+                capture = rows['attempt_cli_captures']
+                assert (capture['exit_code'], capture['termination_reason']) == (0, 'completed')
+                assert capture['usage']['input_tokens'] > 0
+                print('authored_full_actual_cli=' + json.dumps({
+                    'review_job_id': review_id, 'attempt': reviewed.attempt,
+                    'decision_id': str(reviewed.decision_id),
+                    'capture_id': str(reviewed.capture_id),
+                    'cli_version': record.cli_version,
+                    'model': invocation['model'],
+                    'reasoning_effort': invocation['reasoning_effort'],
+                    'executable_sha256': record.executable_sha256,
+                    'environment_sha256': record.environment_sha256,
+                    'jsonl_sha256': capture['jsonl_sha256'],
+                    'final_output_sha256': capture['final_output_sha256'],
+                    'usage': capture['usage']}, sort_keys=True))
             attestations.put(raw, signature)
             proof = completion.verify('tenant-1', review_id,
                                       registration.scenario_sha256)

@@ -5,8 +5,9 @@ umask 077
 ossf_repo_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
 ossf_mode=${1:---check}
 if [[ "$ossf_mode" != "--check" && "$ossf_mode" != "--run" &&
-      "$ossf_mode" != "--thermal" && "$ossf_mode" != "--authored" ]]; then
-    printf 'usage: %s [--check|--run|--thermal|--authored]\n' "$0" >&2
+      "$ossf_mode" != "--thermal" && "$ossf_mode" != "--authored" &&
+      "$ossf_mode" != "--authored-full" ]]; then
+    printf 'usage: %s [--check|--run|--thermal|--authored|--authored-full]\n' "$0" >&2
     exit 2
 fi
 
@@ -70,6 +71,9 @@ if [[ "$ossf_mode" == "--thermal" ]]; then
 elif [[ "$ossf_mode" == "--authored" ]]; then
     ossf_smoke_flag=OSSF_REAL_AUTHORED_CLI_SMOKE
     ossf_smoke_test=tests/test_farm_authored_cli_smoke.py::test_real_cli_self_authored_farm_review
+elif [[ "$ossf_mode" == "--authored-full" ]]; then
+    ossf_smoke_flag=OSSF_REAL_AUTHORED_FULL_CLI_SMOKE
+    ossf_smoke_test=tests/test_authored_full_software_path.py::test_owned_farm_review_release_and_worker_publish_one_replayable_run
 else
     ossf_smoke_flag=OSSF_REAL_CLI_SMOKE
     ossf_smoke_test=tests/test_cli_worker.py::test_real_cli_three_stage_synthetic_hold

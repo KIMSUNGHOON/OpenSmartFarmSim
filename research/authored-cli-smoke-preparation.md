@@ -37,3 +37,31 @@ The actual model call, PostgreSQL test, independent execution attestation,
 separate reviewer release, authored Run publication and browser replay were
 not performed by these preparation checks. A model proposal is not an
 approved release; the server and separate reviewer must still validate it.
+
+## Opt-in real CLI to stored 3D path
+
+The authenticated browser registration → new review job → actual Codex CLI
+`gpt-6-sol`/`xhigh` review → synthetic observer and reviewer release →
+deterministic worker → stored Run HTTPS/Chromium replay is also prepared as
+`--authored-full` in the same wrapper. Run it only from a separate operator
+terminal after the development CLI session has ended:
+
+```bash
+OSSF_TEST_PG_DSN='<private disposable DSN>' bash scripts/run-cli-smoke.sh --check
+OSSF_TEST_PG_DSN='<private disposable DSN>' bash scripts/run-cli-smoke.sh --authored-full
+```
+
+The wrapper creates a private temporary CLI home and deletes it afterward.
+The test records the actual invocation model and effort, attempt, capture and
+decision IDs, CLI version and executable/environment digests, JSONL/final
+hashes and token usage without printing prompt,
+result bytes or credentials. The browser verifies the 120 stored timestamps
+against the HTTPS Run. This **has not been executed with actual CLI** in this
+session. Its observer and reviewer are still synthetic test authorities and
+the source, economic and farm inputs are self-authored fixtures; success would
+prove a wider software path, not independent G1 or product deployment.
+
+The default fake-CLI path still passed the complete local PostgreSQL
+16.15/SCRAM, HTTPS and Chromium test after this opt-in branch was added:
+`1 passed in 240.07s`. That result checks the unchanged default path and
+does not execute or validate the real CLI branch.

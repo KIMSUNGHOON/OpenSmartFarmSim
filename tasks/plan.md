@@ -7,6 +7,9 @@
 작성된 농장 입력의 실제 CLI 검토를 위한 별도 실행 스모크를
 [준비](../research/authored-cli-smoke-preparation.md)했다. 현재 CLI 세션 안에서
 다시 CLI를 실행하지 않았고, 실제 실행 결과와 독립 해제/전체 G1은 미확인이다.
+같은 문서의 `--authored-full` 선택 경로는 브라우저 작성 등록부터 실제 CLI 검토,
+합성 해제·작업자·저장 3D까지 한 시험으로 준비했다. 실제 CLI 호출·독립 해제
+결과는 아직 없으므로 `end-to-end-g1`은 보류한다.
 
 **초기 계산 평가 연결 진행:** [실제 완료 작업 결합](../contracts/calculation-assessment-v1.md)은 열·경제 영수증/재계산·같은 서명 문맥을 평가 의도로 고정한다. 공유 CLI 검증은 처음부터 보류와 누락 사유를 유지한다. [소프트웨어 증거](../research/calculation-assessment-implementation.md) 뒤에도 전체 농장/경제 시나리오·실제 CLI·독립 실행/해제·브라우저 G1과 후속 G0/G2/G3/G4 수용이 필요하다.
 
