@@ -1,6 +1,6 @@
 import { useEffect,useRef,useState,type FormEvent } from 'react';
 import { ApiError,type Evidence,type JobHold,type JobStatus,type createApi } from './api';
-import type { AuthoredFarmSummary } from './authored-farm-api';
+import type { AuthoredFarmCursor,AuthoredFarmSummary } from './authored-farm-api';
 import AuthoredFarmComposer from './AuthoredFarmComposer';
 import './AuthoredFarmWorkspace.css';
 
@@ -74,6 +74,10 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
   const [scenarioId,setScenarioId]=useState('');
   const [revision,setRevision]=useState('');
   const [farm,setFarm]=useState<AuthoredFarmSummary|null>(null);
+  const [catalog,setCatalog]=useState<AuthoredFarmSummary[]|null>(null);
+  const [catalogCursor,setCatalogCursor]=useState<AuthoredFarmCursor|null>(null);
+  const [catalogBusy,setCatalogBusy]=useState(false);
+  const [catalogError,setCatalogError]=useState<string|null>(null);
   const [creating,setCreating]=useState(false);
   const [review,setReview]=useState<JobStatus|null>(null);
   const [run,setRun]=useState<JobStatus|null>(null);
@@ -87,6 +91,7 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
   useEffect(()=>{
     const epoch=++generation.current;
     setScenarioId('');setRevision('');setFarm(null);setCreating(false);setReview(null);setRun(null);
+    setCatalog(null);setCatalogCursor(null);setCatalogBusy(false);setCatalogError(null);
     setReviewHold(null);setBusy(null);setError(null);reviewKey.current=null;
     runKey.current=null;
     const saved=lastFarm();
@@ -110,12 +115,46 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
   function reset() {
     forgetFarm();
     generation.current++;setFarm(null);setCreating(false);setReview(null);setRun(null);setReviewHold(null);
-    setScenarioId('');setRevision('');setBusy(null);setError(null);
+    setScenarioId('');setRevision('');setBusy(null);setError(null);setCatalogBusy(false);
     reviewKey.current=null;runKey.current=null;
   }
   function failure(value:unknown) {
     const code=value instanceof ApiError ? value.code : 'network_unresolved';
     setError(errors[code] ?? '요청을 확인할 수 없습니다.');
+  }
+  function acceptFarm(result:AuthoredFarmSummary) {
+    rememberFarm(result);
+    setScenarioId(result.scenario_id);setRevision(result.scenario_revision);setFarm(result);
+    setReview(null);setRun(null);setReviewHold(null);
+    reviewKey.current=null;runKey.current=null;
+  }
+  async function loadCatalog(next=false) {
+    if(catalogBusy || !api)return;
+    const epoch=generation.current;
+    const cursor=next ? catalogCursor ?? undefined : undefined;
+    setCatalogBusy(true);setCatalogError(null);
+    try {
+      const page=await api.authoredFarmCatalog(cursor);
+      if(epoch!==generation.current)return;
+      setCatalog(previous=>next && previous ? [...previous,...page.items] : page.items);
+      setCatalogCursor(page.next_cursor);
+    } catch(value) {
+      if(epoch!==generation.current)return;
+      const code=value instanceof ApiError ? value.code : 'network_unresolved';
+      setCatalogError(errors[code] ?? '등록 판본 목록을 확인할 수 없습니다.');
+    } finally {if(epoch===generation.current)setCatalogBusy(false);}
+  }
+  async function selectCatalog(item:AuthoredFarmSummary) {
+    if(busy || catalogBusy || !api)return;
+    const epoch=generation.current;
+    setBusy('lookup');setError(null);
+    try {
+      const result=await api.authoredFarm(item.scenario_id,item.scenario_revision);
+      if(epoch!==generation.current)return;
+      if(result.scenario_sha256!==item.scenario_sha256)throw new ApiError('response_rejected');
+      acceptFarm(result);
+    } catch(value) {if(epoch===generation.current)failure(value);}
+    finally {if(epoch===generation.current)setBusy(null);}
   }
   async function lookup(event:FormEvent<HTMLFormElement>) {
     event.preventDefault();if (busy || !api) {if(!api)setError('먼저 내부 시험 연결을 설정해 주세요.');return;}
@@ -124,17 +163,13 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
     try {
       const result=await api.authoredFarm(scenarioId.trim(),revision.trim());
       if(epoch!==generation.current)return;
-      rememberFarm(result);
-      setFarm(result);setReview(null);setRun(null);setReviewHold(null);
-      reviewKey.current=null;runKey.current=null;
+      acceptFarm(result);
     } catch(value) {if(epoch===generation.current)failure(value);}
     finally {if(epoch===generation.current)setBusy(null);}
   }
   function registered(result:AuthoredFarmSummary) {
     generation.current++;
-    rememberFarm(result);setScenarioId(result.scenario_id);setRevision(result.scenario_revision);
-    setFarm(result);setCreating(false);setReview(null);setRun(null);setReviewHold(null);
-    reviewKey.current=null;runKey.current=null;setError(null);setBusy(null);
+    acceptFarm(result);setCreating(false);setError(null);setBusy(null);setCatalogBusy(false);
   }
   async function submitReview() {
     if(busy || !api || !farm)return;
@@ -201,8 +236,8 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
     <div className="authored-columns"><div className="authored-main">
       <section className="panel"><p className="step-number">01 / 등록 판본</p><h3>{creating?'새 농장 입력 등록':'서버에 저장된 농장 찾기'}</h3>
         {!farm&&<div className="authored-mode"><button type="button" className="button secondary"
-          disabled={!!busy} aria-pressed={!creating} onClick={()=>setCreating(false)}>저장된 판본 찾기</button>
-          <button type="button" className="button secondary" disabled={!!busy} aria-pressed={creating}
+          disabled={!!busy || catalogBusy} aria-pressed={!creating} onClick={()=>setCreating(false)}>저장된 판본 찾기</button>
+          <button type="button" className="button secondary" disabled={!!busy || catalogBusy} aria-pressed={creating}
             onClick={()=>setCreating(true)}>새 입력 판본 작성</button></div>}
         {creating&&!farm?<AuthoredFarmComposer api={api} onRegistered={registered}/>:<>
         <p className="muted">등록 때 받은 시나리오 ID와 판본을 입력하세요. 조회와 등록은 현재 서버의 권리·입력 연결을 다시 검사합니다.</p>
@@ -217,6 +252,23 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
         {farm && <dl className="authored-facts"><div><dt>등록 상태</dt><dd>입력 등록됨 · 계산 전</dd></div>
           <div><dt>등록 해시</dt><dd><code>{farm.scenario_sha256}</code></dd></div>
           <div><dt>입력 작업</dt><dd><code>{farm.intent_job.job_id}</code></dd></div></dl>}
+        {!farm && !creating && <div className="authored-catalog">
+          <div className="authored-catalog-heading"><div><h4>저장된 판본</h4>
+            <p className="muted">현재 계정의 등록 기록입니다. 선택할 때 이용 권리와 입력을 다시 확인합니다.</p></div>
+            <button type="button" className="button secondary" disabled={!api || !!busy || catalogBusy}
+              onClick={()=>void loadCatalog()}>{catalogBusy?'목록 확인 중…':catalog?'목록 새로고침':'목록 보기'}</button></div>
+          {catalogError && <p role="alert" className="notice error">{catalogError}</p>}
+          {catalog && (catalog.length ? <><ul className="authored-catalog-list">
+            {catalog.map(item=><li key={item.intent_job.job_id}>
+              <button type="button" disabled={!api || !!busy || catalogBusy}
+                onClick={()=>void selectCatalog(item)}>
+                <span><strong>{item.scenario_id}</strong> · {item.scenario_revision}</span>
+                <small>등록 {item.intent_job.created_at}</small>
+              </button></li>)}</ul>
+            {catalogCursor && <button type="button" className="button secondary"
+              disabled={!api || !!busy || catalogBusy} onClick={()=>void loadCatalog(true)}>이전 판본 더 보기</button>}
+          </> : <p className="muted">현재 계정에 등록된 농장 판본이 없습니다.</p>)}
+        </div>}
         </>}
       </section>
       <section className="panel"><p className="step-number">02 / 작성 입력 검토</p>

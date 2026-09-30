@@ -26,6 +26,21 @@ no-store HTTPS error envelope, closed schemas and server-side source/tenant
 authority. The UI must not infer that an intent job is a completed CLI review,
 independent release or simulation Run.
 
+`GET /v1/farm-authored-inputs/catalog` lists the authenticated tenant's
+**historical registration metadata** in descending `(created_at, job_id)`
+order. `limit` is 1–50 (default 20); `before_created_at` and `before_job_id`
+must be supplied together as the previous page's `next_cursor`. The response
+contains only `FarmAuthoringSummary` items and the next cursor. The server
+checks the immutable job input hash, authoring version, tenant, identity key,
+and stored farm/numeric/rights digests before projection. It never returns
+the farm body, source records, rights declaration, credentials or CLI output.
+The same `READ_SCOPES` apply. A revoked source may leave its registration
+metadata visible to its owner: the catalog does **not** certify current use
+rights, independent release, a completed Run or G1. Opening an item always
+calls the existing single-version GET, which rechecks the current references
+and either returns the exact stored hash or holds. A foreign tenant sees no
+items. A malformed cursor returns 422; unavailable storage returns 503.
+
 The standard `ApiRuntime` may assemble an exact `FarmAuthoringService` only
 when its own `FarmReplayScenarioService` includes owned research. The API
 rejects a different job/farm binding. Existing runtimes without this service

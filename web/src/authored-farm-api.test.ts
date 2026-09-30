@@ -34,6 +34,30 @@ test('owned registration and exact lookup preserve identity and server proof',as
   }));
 });
 
+test('owned farm catalog pages contain only bounded server metadata',async()=>{
+  const entries=Array.from({length:20},(_,index)=>({...saved,
+    scenario_revision:'r'+(index+1),intent_job:{...saved.intent_job,
+      job_id:'00000000-0000-4000-8000-'+String(index+1).padStart(12,'0')}}));
+  const cursor={created_at:entries[19]!.intent_job.created_at,job_id:entries[19]!.intent_job.job_id};
+  const fetcher=vi.fn<typeof fetch>()
+    .mockResolvedValueOnce(reply({items:[saved],next_cursor:null}))
+    .mockResolvedValueOnce(reply({items:entries,next_cursor:cursor}));
+  const api=createApi(token,fetcher);
+  expect((await api.authoredFarmCatalog()).items).toEqual([saved]);
+  expect((await api.authoredFarmCatalog(cursor)).next_cursor).toEqual(cursor);
+  expect(fetcher.mock.calls.map(([path])=>path)).toEqual([
+    '/v1/farm-authored-inputs/catalog',
+    '/v1/farm-authored-inputs/catalog?before_created_at=2026-09-30T00%3A00%3A00Z&before_job_id='
+      +cursor.job_id,
+  ]);
+  await expect(api.authoredFarmCatalog({created_at:'bad',job_id:uuid}))
+    .rejects.toMatchObject({code:'response_rejected'});
+  expect(fetcher).toHaveBeenCalledTimes(2);
+  await expect(createApi(token,vi.fn<typeof fetch>().mockResolvedValue(reply({
+    items:[{...saved,private_input:'restricted'}],next_cursor:null}))).authoredFarmCatalog())
+    .rejects.toMatchObject({code:'response_rejected'});
+});
+
 test('review and simulation admit only the pinned revision and preserve retry keys',async()=>{
   const fetcher=vi.fn<typeof fetch>().mockResolvedValueOnce(reply(job('collection_review'),202))
     .mockResolvedValueOnce(reply(job('simulation'),202));

@@ -86,6 +86,41 @@ def test_unconfigured_authoring_is_unavailable(authoring):
     assert call(app,body=body)[0]==503
 
 
+def test_authored_farm_catalog_is_tenant_scoped_and_requires_selection_recheck(authoring,monkeypatch):
+    service,body,principal=authoring
+    app=application(service)
+    first=call(app,body=body)[1]
+    changed=deepcopy(body)
+    changed['farm']['scenario_revision']='r2'
+    changed['rights']['scenario_revision']='r2'
+    second=call(app,body=changed)[1]
+    catalog='/v1/farm-authored-inputs/catalog'
+    status,page=call(app,path=catalog+'?limit=1')
+    assert status==200 and len(page['items'])==1 and page['next_cursor'] is not None
+    assert set(page)=={'items','next_cursor'}
+    assert set(page['items'][0])==set(first)
+    cursor=page['next_cursor']
+    assert cursor=={'created_at':page['items'][0]['intent_job']['created_at'],
+                    'job_id':page['items'][0]['intent_job']['job_id']}
+    from urllib.parse import urlencode
+    status,next_page=call(app,path=catalog+'?'+urlencode({
+        'limit':1,'before_created_at':cursor['created_at'],'before_job_id':cursor['job_id']}))
+    assert status==200 and next_page['next_cursor'] is None
+    assert {item['scenario_sha256'] for item in page['items']+next_page['items']}=={
+        first['scenario_sha256'],second['scenario_sha256']}
+    assert call(app,path=catalog+'?before_job_id='+cursor['job_id'])[0]==422
+    for scope in READ_SCOPES:
+        principal['scopes'].remove(scope)
+        assert call(app,path=catalog)[0]==403
+        principal['scopes'].add(scope)
+    principal['tenant_id']='foreign'
+    assert call(app,path=catalog)==(200,{'items':[],'next_cursor':None})
+    principal['tenant_id']='tenant-1'
+    monkeypatch.setattr(service,'_prepare',lambda *_: (_ for _ in ()).throw(FarmAuthoringHold('revoked')))
+    assert call(app,path=catalog)[0]==200
+    assert call(app,path='/v1/farm-authored-inputs?scenario_id=farm-1&scenario_revision=r1')[0]==422
+
+
 def test_authored_review_http_admission_is_queued_and_bound(authoring,monkeypatch):
     service,body,principal=authoring
     principal['scopes'].add('collection_review_create')

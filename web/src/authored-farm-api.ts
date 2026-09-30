@@ -1,4 +1,4 @@
-import { closed,need,object,uuid } from './api-validation';
+import { closed,date,need,object,uuid } from './api-validation';
 import type { JobStatus } from './api';
 
 const IDENTIFIER=/^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$/;
@@ -11,6 +11,8 @@ export type AuthoredFarmRequest={schema_version:'farm-authoring-request-v1';
 export type AuthoredFarmSummary=Identity & {scenario_sha256:string;farm_sha256:string;
   numeric_input_sha256:string;rights_sha256:string;
   registration_status:'registered_unpublished_inputs';intent_job:JobStatus};
+export type AuthoredFarmCursor={created_at:string;job_id:string};
+export type AuthoredFarmPage={items:AuthoredFarmSummary[];next_cursor:AuthoredFarmCursor|null};
 export type AuthoredReviewIntent=Identity & {registration_sha256:string;idempotency_key:string};
 export type AuthoredRunIntent=AuthoredReviewIntent & {review_job_id:string};
 
@@ -23,11 +25,13 @@ function digest(value:unknown):value is string {
 function identity(value:Identity) {
   need(identifier(value.scenario_id) && identifier(value.scenario_revision));
 }
-function summary(value:unknown,expected:Identity,decodeJob:(value:unknown)=>JobStatus):AuthoredFarmSummary {
+function summary(value:unknown,expected:Identity|null,decodeJob:(value:unknown)=>JobStatus):AuthoredFarmSummary {
   need(object(value));
   closed(value,['scenario_id','scenario_revision','scenario_sha256','farm_sha256',
     'numeric_input_sha256','rights_sha256','registration_status','intent_job']);
-  need(value.scenario_id===expected.scenario_id && value.scenario_revision===expected.scenario_revision
+  need(identifier(value.scenario_id) && identifier(value.scenario_revision)
+    && (!expected || value.scenario_id===expected.scenario_id
+      && value.scenario_revision===expected.scenario_revision)
     && digest(value.scenario_sha256) && digest(value.farm_sha256)
     && digest(value.numeric_input_sha256) && digest(value.rights_sha256)
     && value.registration_status==='registered_unpublished_inputs');
@@ -51,6 +55,25 @@ export function createAuthoredFarmApi(request:Request,decodeJob:(value:unknown)=
       return summary(await request('/v1/farm-authored-inputs?scenario_id='
         +encodeURIComponent(scenarioId)+'&scenario_revision='+encodeURIComponent(revision)),
         {scenario_id:scenarioId,scenario_revision:revision},decodeJob);
+    },
+    async authoredFarmCatalog(cursor?:AuthoredFarmCursor):Promise<AuthoredFarmPage> {
+      if(cursor)need(date(cursor.created_at) && uuid(cursor.job_id));
+      const query=cursor ? '?'+new URLSearchParams({
+        before_created_at:cursor.created_at,before_job_id:cursor.job_id}) : '';
+      const raw=await request('/v1/farm-authored-inputs/catalog'+query,'GET',undefined,200,65_536);
+      need(object(raw));closed(raw,['items','next_cursor']);
+      need(Array.isArray(raw.items) && raw.items.length<=20);
+      const items=raw.items.map(value=>summary(value,null,decodeJob));
+      need(new Set(items.map(item=>item.intent_job.job_id)).size===items.length);
+      let next_cursor:AuthoredFarmCursor|null=null;
+      if(raw.next_cursor!==null) {
+        need(object(raw.next_cursor));closed(raw.next_cursor,['created_at','job_id']);
+        need(date(raw.next_cursor.created_at) && uuid(raw.next_cursor.job_id)
+          && items.length===20 && items[19]?.intent_job.created_at===raw.next_cursor.created_at
+          && items[19]?.intent_job.job_id===raw.next_cursor.job_id);
+        next_cursor={created_at:raw.next_cursor.created_at,job_id:raw.next_cursor.job_id};
+      }
+      return {items,next_cursor};
     },
     async submitAuthoredReview(value:AuthoredReviewIntent):Promise<JobStatus> {
       identity(value);

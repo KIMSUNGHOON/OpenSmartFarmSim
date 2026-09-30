@@ -26,6 +26,7 @@ OPERATIONS = {
     ('/v1/farm-authored-reviews','post'): ('submitFarmAuthoredReview',list(FARM_AUTHORED_REVIEW_SCOPES)),
     ('/v1/farm-authored-inputs','post'): ('registerFarmAuthoredInputs',list(FARM_AUTHORING_WRITE_SCOPES)),
     ('/v1/farm-authored-inputs','get'): ('getFarmAuthoredInputs',list(FARM_AUTHORING_READ_SCOPES)),
+    ('/v1/farm-authored-inputs/catalog','get'): ('listFarmAuthoredInputs',list(FARM_AUTHORING_READ_SCOPES)),
     ('/v1/jobs/{job_id}/authored-run', 'get'): ('getJobAuthoredRun', list(AUTHORED_READ_SCOPES)),
     ('/v1/authored-runs/{run_id}', 'get'): ('getAuthoredRun', list(AUTHORED_READ_SCOPES)),
     ('/v1/authored-runs/{run_id}/series', 'get'): ('getAuthoredRunSeries', list(AUTHORED_READ_SCOPES)),

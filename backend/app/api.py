@@ -1,5 +1,6 @@
 """Versioned HTTP application assembled with trusted server-side dependencies."""
 
+from datetime import datetime
 from uuid import UUID
 from typing import Annotated
 
@@ -59,7 +60,7 @@ from .farm_replay_scenario import (FarmReplayScenarioService, FarmReplayScenario
     FarmReplayScenarioSummary, FarmReplayScenarioHold,
     READ_SCOPES as FARM_READ_SCOPES, WRITE_SCOPES as FARM_WRITE_SCOPES)
 from .farm_authoring_storage import (FarmAuthoringService, FarmAuthoringRequest,
-    FarmAuthoringSummary, FarmAuthoringHold,
+    FarmAuthoringSummary, FarmAuthoringPage, FarmAuthoringHold,
     READ_SCOPES as FARM_AUTHORING_READ_SCOPES, WRITE_SCOPES as FARM_AUTHORING_WRITE_SCOPES)
 from .farm_authored_review import (FarmAuthoredReviewService, FarmAuthoredReviewHold,
     REVIEW_SCOPES as AUTHORED_REVIEW_SCOPES)
@@ -437,6 +438,32 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             if row is None:
                 return _error(404,'not_found','Resource unavailable')
             return row
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except FarmAuthoringHold:
+            return _error(422,'farm_authoring_hold','Farm authoring evidence unavailable')
+        except Exception:
+            return _error(503,'farm_authoring_unavailable','Farm authoring unavailable')
+
+    @app.get('/v1/farm-authored-inputs/catalog', response_model=FarmAuthoringPage,
+             operation_id='listFarmAuthoredInputs',
+             responses={status:{'model':ErrorEnvelope} for status in (401,403,422,503)},
+             openapi_extra=_access(FARM_AUTHORING_READ_SCOPES))
+    async def list_farm_authored_inputs(
+            limit: Annotated[int,Query(ge=1,le=50)] = 20,
+            before_created_at: datetime | None = None,
+            before_job_id: UUID | None = None):
+        tenant, denied = authorized_tenant(*FARM_AUTHORING_READ_SCOPES)
+        if denied is not None:
+            return denied
+        if (before_created_at is None) != (before_job_id is None) or (
+                before_created_at is not None and before_created_at.tzinfo is None):
+            return _error(422,'invalid_request','Invalid request')
+        if farm_authoring_service is None:
+            return _error(503,'farm_authoring_unavailable','Farm authoring unavailable')
+        try:
+            return await run_in_threadpool(farm_authoring_service.list,tenant,limit=limit,
+                before_created_at=before_created_at,before_job_id=before_job_id)
         except PermissionError:
             return _error(403,'forbidden','Resource access denied')
         except FarmAuthoringHold:

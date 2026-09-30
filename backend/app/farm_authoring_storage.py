@@ -4,6 +4,7 @@ from datetime import date, datetime, timezone
 from hashlib import sha256
 import json
 from typing import Literal, Self
+from uuid import UUID
 
 from pydantic import field_validator, model_validator
 from psycopg import sql
@@ -11,7 +12,7 @@ from psycopg import sql
 from .api_contracts import JobStatus, public_job_status
 from .economic_contracts import utc, untrusted_data
 from .farm_input_compiler import compile_farm_inputs
-from .farm_inputs import FarmInputs, Identifier, validate_economic_scope
+from .farm_inputs import FarmInputs, Identifier, canonical_farm_inputs, validate_economic_scope
 from .farm_replay_scenario import FarmReplayScenarioService, READ_SCOPES as REPLAY_SCOPES
 from .job_store import JobIntentConflict
 from .jobs import canonical_input_bytes
@@ -80,6 +81,16 @@ class FarmAuthoringSummary(FrozenContract):
     rights_sha256: Digest
     registration_status: Literal['registered_unpublished_inputs']
     intent_job: JobStatus
+
+
+class FarmAuthoringCursor(FrozenContract):
+    created_at: datetime
+    job_id: UUID
+
+
+class FarmAuthoringPage(FrozenContract):
+    items: list[FarmAuthoringSummary]
+    next_cursor: FarmAuthoringCursor | None
 
 
 class FarmAuthoringHold(ValueError):
@@ -248,6 +259,61 @@ class FarmAuthoringService:
     def get(self,tenant,scenario_id,revision):
         record=self._read(tenant,scenario_id,revision)
         return self._summary(record[0],record[1],record[2],record[3]) if record is not None else None
+
+    def list(self,tenant,*,limit=20,before_created_at=None,before_job_id=None):
+        """List owned registration metadata; selecting one still requires ``get``."""
+        if (type(limit) is not int or not 1 <= limit <= 50 or
+                (before_created_at is None) != (before_job_id is None) or
+                (before_created_at is not None and
+                 (type(before_created_at) is not datetime or before_created_at.tzinfo is None or
+                  type(before_job_id) is not UUID))):
+            raise ValueError('authored farm catalog cursor invalid')
+        pointers=self._pointers()
+        guard=lambda:self._guard(tenant,pointers,READ_SCOPES)
+        guard()
+        try:
+            cursor=sql.SQL('')
+            args=[tenant, INPUT_VERSION+':%']
+            if before_created_at is not None:
+                cursor=sql.SQL(' AND (created_at, job_id) < (%s, %s)')
+                args.extend((before_created_at,before_job_id))
+            args.append(limit+1)
+            jobs=self.replay.jobs
+            with jobs.connect() as conn:
+                rows=conn.execute(sql.SQL("SELECT * FROM {} WHERE tenant_id=%s AND stage='collection' "
+                    'AND idempotency_key LIKE %s{} ORDER BY created_at DESC, job_id DESC LIMIT %s')
+                    .format(jobs._table('jobs'),cursor),args).fetchall()
+                items=[]
+                for row in rows:
+                    value=json.loads(jobs._verified_input(row))
+                    if (set(value)!={'input_version','tenant_id','request','review_at_utc',
+                            'binding','numeric_input','farm_sha256','numeric_input_sha256',
+                            'rights_sha256'} or value.get('input_version')!=INPUT_VERSION or
+                            value.get('tenant_id')!=tenant):
+                        raise FarmAuthoringHold('authored farm catalog input unavailable')
+                    body=FarmAuthoringRequest.model_validate_json(
+                        canonical_input_bytes(value['request']))
+                    if (row['idempotency_key']!=self._key(body.farm.scenario_id,
+                            body.farm.scenario_revision) or
+                            value['farm_sha256']!=sha256(canonical_farm_inputs(body.farm)).hexdigest() or
+                            value['numeric_input_sha256']!=sha256(canonical_input_bytes(
+                                value['numeric_input'])).hexdigest() or
+                            value['rights_sha256']!=sha256(canonical_input_bytes(
+                                body.rights.model_dump(mode='json'))).hexdigest()):
+                        raise FarmAuthoringHold('authored farm catalog input differs')
+                    items.append(FarmAuthoringSummary(scenario_id=body.farm.scenario_id,
+                        scenario_revision=body.farm.scenario_revision,
+                        scenario_sha256=row['input_sha256'],farm_sha256=value['farm_sha256'],
+                        numeric_input_sha256=value['numeric_input_sha256'],
+                        rights_sha256=value['rights_sha256'],
+                        registration_status='registered_unpublished_inputs',
+                        intent_job=public_job_status(row)))
+            guard()
+            next_cursor=(FarmAuthoringCursor(created_at=rows[limit-1]['created_at'],
+                job_id=rows[limit-1]['job_id']) if len(rows)>limit else None)
+            return FarmAuthoringPage(items=items[:limit],next_cursor=next_cursor)
+        finally:
+            guard()
 
     def read_registration(self,tenant,scenario_id,revision,expected_sha256):
         record=self._read(tenant,scenario_id,revision)

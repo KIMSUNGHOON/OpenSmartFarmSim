@@ -26,6 +26,39 @@ async function connect(page:Page) {
   await expect(page.getByText('입력 등록됨 · 계산 전')).toBeVisible();
 }
 
+test('saved farm catalog opens a server rechecked registration',async({page})=>{
+  let allowed=true;
+  const paths:string[]=[];
+  await page.route('**/v1/**',route=>{
+    const path=new URL(route.request().url()).pathname;
+    paths.push(path);
+    if(path==='/v1/farm-authored-inputs/catalog')
+      return route.fulfill({json:{items:[registration],next_cursor:null}});
+    if(path==='/v1/farm-authored-inputs')
+      return allowed ? route.fulfill({json:registration})
+        : route.fulfill({status:422,json:{error:{code:'farm_authoring_hold',message:'Unavailable'}}});
+    throw new Error('unexpected API path '+path);
+  });
+  await page.goto('/');
+  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.getByLabel('접근 토큰').fill(token);
+  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
+  await page.getByRole('button',{name:'목록 보기'}).click();
+  await expect(page.locator('.authored-catalog-list button')).toHaveCount(1);
+  await page.setViewportSize({width:390,height:844});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+  allowed=false;
+  await page.locator('.authored-catalog-list button').click();
+  await expect(page.getByRole('alert')).toContainText('현재 입력·권리·해제 근거');
+  await expect(page.getByText('입력 등록됨 · 계산 전')).toHaveCount(0);
+  allowed=true;
+  await page.locator('.authored-catalog-list button').click();
+  await expect(page.getByText('입력 등록됨 · 계산 전')).toBeVisible();
+  expect(paths).toEqual(['/v1/farm-authored-inputs/catalog',
+    '/v1/farm-authored-inputs','/v1/farm-authored-inputs']);
+});
+
 test('stored farm moves through review and simulation jobs into authored 3D',async({page})=>{
   const calls:{path:string;method:string;body:unknown}[]=[];
   const errors:string[]=[];
