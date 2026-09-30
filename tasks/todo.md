@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**작성 입력 검토 API 진행 (2026-09-30):** [계약](../contracts/api-farm-authored-review-v1.md)은 등록 해시·현재 권한·두 열 궤적을 재확인해 인증된 검토 작업을 접수한다([로컬 증거](../research/api-farm-authored-review-implementation.md)). SCRAM CI와 실제 CLI/독립 해제/G1 수용 체크는 유지한다.
+
 **로컬 합성 3D 데모 제공 (2026-09-30):** [실행법](../web/README.md#지금-3d를-직접-보기)의 한 명령으로 직접 작성한 시험 응답을 3D·그래프·표에서 조작할 수 있다([브라우저 검증](../research/local-synthetic-3d-demo-implementation.md)). 실제 Run을 쓰는 전체 `web-replay`/G1/G4 체크는 유지한다.
 
 **작성 농장 입력 API 진행 (2026-09-30):** [계약](../contracts/api-farm-authoring-v1.md)의 인증 접수·재조회와 표준 런타임 조립을 추가했다. OpenAPI/권한 로컬 검사는 통과했고 실제 SCRAM 시험은 CI 확인 대기 중이다. 사용자가 직접 쓰는 작성 폼, 실제 제품 CLI와 독립 G1 수용 체크는 유지한다.

@@ -33,6 +33,7 @@ from .owned_collection_review import OwnedCollectionReviewService
 from .owned_research import OwnedResearchService
 from .calculation_assessment import CalculationAssessmentService
 from .farm_authoring_storage import FarmAuthoringService
+from .farm_authored_review import FarmAuthoredReviewService
 from .farm_authored_run_store import AuthoredRunStore
 
 
@@ -108,6 +109,7 @@ class ApiRuntime:
     assessments: CalculationAssessmentService | None = field(repr=False)
     farm_scenarios: FarmReplayScenarioService | None = field(repr=False)
     farm_authoring: FarmAuthoringService | None = field(repr=False)
+    farm_reviews: FarmAuthoredReviewService | None = field(repr=False)
     authored_runs: AuthoredRunStore | None = field(repr=False)
 
     def __init__(self, config, dependencies):
@@ -161,6 +163,7 @@ class ApiRuntime:
                 if scenarios is not None and source_admission is not None else None)
             farm_authoring = (FarmAuthoringService(farm_scenarios)
                 if farm_scenarios is not None and farm_scenarios.owned_research is not None else None)
+            farm_reviews = FarmAuthoredReviewService(farm_authoring) if farm_authoring is not None else None
             assessments = (CalculationAssessmentService(jobs, thermal, results, scenarios, farm_scenarios)
                 if source_admission is not None else None)
             economic_calculations = (EconomicCalculationService(jobs, results, farm_scenarios)
@@ -195,7 +198,8 @@ class ApiRuntime:
                 break_even_plan_service=break_even_plans, break_even_job_result_service=break_even_job_results,
                 collection_service=collections, owned_collection_review_service=collection_reviews,
                 assessment_service=assessments, farm_scenario_service=farm_scenarios,
-                authored_run_store=authored_runs, farm_authoring_service=farm_authoring)
+                authored_run_store=authored_runs, farm_authoring_service=farm_authoring,
+                farm_authored_review_service=farm_reviews)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -205,6 +209,6 @@ class ApiRuntime:
                 ('market_results', results), ('break_even', break_even), ('thermal_scenarios', scenarios),
                 ('collections', collections), ('collection_reviews', collection_reviews), ('research', research),
                 ('assessments', assessments), ('farm_scenarios', farm_scenarios),
-                ('farm_authoring', farm_authoring),
+                ('farm_authoring', farm_authoring), ('farm_reviews', farm_reviews),
                 ('authored_runs', authored_runs)):
             object.__setattr__(self, name, value)

@@ -16,11 +16,13 @@ from app.api import create_app
 from app.api_contracts import LocationPoint
 from app.api_authored_thermal import AUTHORED_READ_SCOPES
 from app.farm_authoring_storage import READ_SCOPES as FARM_AUTHORING_READ_SCOPES, WRITE_SCOPES as FARM_AUTHORING_WRITE_SCOPES
+from app.farm_authored_review import REVIEW_SCOPES as FARM_AUTHORED_REVIEW_SCOPES
 from app import api_openapi
 from test_http_identity import request
 
 
 OPERATIONS = {
+    ('/v1/farm-authored-reviews','post'): ('submitFarmAuthoredReview',list(FARM_AUTHORED_REVIEW_SCOPES)),
     ('/v1/farm-authored-inputs','post'): ('registerFarmAuthoredInputs',list(FARM_AUTHORING_WRITE_SCOPES)),
     ('/v1/farm-authored-inputs','get'): ('getFarmAuthoredInputs',list(FARM_AUTHORING_READ_SCOPES)),
     ('/v1/jobs/{job_id}/authored-run', 'get'): ('getJobAuthoredRun', list(AUTHORED_READ_SCOPES)),
@@ -121,6 +123,8 @@ def test_snapshot_matches_actual_routes_and_public_protocol():
         ['collection_read','collection_review_create','thermal_snapshot_write']}
     assert submission['x-ossf-max-body-bytes'] == 4096
     assert operations[('/v1/farm-authored-inputs','post')]['x-ossf-max-body-bytes'] == 65536
+    assert operations[('/v1/farm-authored-reviews','post')]['x-ossf-max-body-bytes'] == 4096
+    assert '202' in operations[('/v1/farm-authored-reviews','post')]['responses']
     farm_economic_scopes = operations[("/v1/jobs/{job_id}/run", "get")]["x-ossf-conditional-scopes"]['thermal-simulation-result-v3'] + ['thermal_run_read']
     for operation,version in ((('/v1/economic-results','post'),'economic-calculation-input-v2'),
             (('/v1/jobs/{job_id}/economic-result','get'),'economic-calculation-input-v2'),

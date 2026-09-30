@@ -17,6 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app.api_authored_thermal import AUTHORED_READ_SCOPES
 from app.api_runtime import ApiRuntime
 from app.farm_authoring_storage import FarmAuthoringService
+from app.farm_authored_review import FarmAuthoredReviewService
 from app.farm_authored_run_store import AuthoredRunStore
 from app.http_identity import BearerGrant, BearerRegistry, current_principal, token_digest
 from app.market_source_store import MarketSourceStore
@@ -92,6 +93,8 @@ def test_standard_https_reads_owned_authored_run_and_holds_stale_evidence(
     assert runtime.authored_runs.preparer.authoring.replay is runtime.farm_scenarios
     assert type(runtime.farm_authoring) is FarmAuthoringService
     assert runtime.farm_authoring.replay is runtime.farm_scenarios
+    assert type(runtime.farm_reviews) is FarmAuthoredReviewService
+    assert runtime.farm_reviews.authoring is runtime.farm_authoring
     server = runtime.service.server()
     thread = threading.Thread(target=server.run, daemon=True)
     thread.start()

@@ -61,6 +61,9 @@ from .farm_replay_scenario import (FarmReplayScenarioService, FarmReplayScenario
 from .farm_authoring_storage import (FarmAuthoringService, FarmAuthoringRequest,
     FarmAuthoringSummary, FarmAuthoringHold,
     READ_SCOPES as FARM_AUTHORING_READ_SCOPES, WRITE_SCOPES as FARM_AUTHORING_WRITE_SCOPES)
+from .farm_authored_review import (FarmAuthoredReviewService, FarmAuthoredReviewHold,
+    REVIEW_SCOPES as AUTHORED_REVIEW_SCOPES)
+from .api_farm_authored_review import FarmAuthoredReviewRequest
 
 
 def _error(status: int, code: str, message: str) -> JSONResponse:
@@ -80,7 +83,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                break_even_job_result_service=None, collection_service=None,
                owned_collection_review_service=None, assessment_service=None,
                farm_scenario_service=None, authored_run_store=None,
-               farm_authoring_service=None) -> FastAPI:
+               farm_authoring_service=None, farm_authored_review_service=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -132,6 +135,11 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             farm_scenario_service.owned_research is None or
             farm_scenario_service.jobs is not job_store):
         raise ValueError('trusted farm authoring service required')
+    if farm_authored_review_service is not None and (
+            type(farm_authored_review_service) is not FarmAuthoredReviewService or
+            farm_authored_review_service.authoring is not farm_authoring_service or
+            farm_authoring_service is None):
+        raise ValueError('trusted farm authored review service required')
     if economic_calculation_service is not None and (
             type(economic_calculation_service) is not EconomicCalculationService or
             economic_calculation_service.jobs is not job_store or
@@ -424,6 +432,38 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(422,'farm_authoring_hold','Farm authoring evidence unavailable')
         except Exception:
             return _error(503,'farm_authoring_unavailable','Farm authoring unavailable')
+
+    @app.post('/v1/farm-authored-reviews', status_code=202, response_model=JobStatus,
+              operation_id='submitFarmAuthoredReview',
+              responses={status:{'model':ErrorEnvelope} for status in (401,403,409,413,415,422,503)},
+              openapi_extra={**_access(AUTHORED_REVIEW_SCOPES),'x-ossf-max-body-bytes':4096,
+                  'requestBody':{'required':True,'content':{'application/json':{
+                      'schema':_inline_schema(FarmAuthoredReviewRequest)}}}})
+    async def post_farm_authored_review(request: Request):
+        tenant, denied = authorized_tenant(*AUTHORED_REVIEW_SCOPES)
+        if denied is not None:
+            return denied
+        if farm_authored_review_service is None:
+            return _error(503,'farm_review_unavailable','Farm review admission unavailable')
+        try:
+            body = FarmAuthoredReviewRequest.model_validate_json(canonical_input_bytes(
+                await read_json_request(request,max_bytes=4096)))
+        except JsonRequestRejected as exc:
+            return _error(exc.status,exc.code,exc.message)
+        except (ValueError,UnicodeError,RecursionError):
+            return _error(422,'invalid_request','Invalid request')
+        try:
+            row = await run_in_threadpool(farm_authored_review_service.submit,tenant,
+                body.scenario_id,body.scenario_revision,body.registration_sha256,body.idempotency_key)
+            return public_job_status(row)
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except JobIntentConflict:
+            return _error(409,'review_conflict','Review intent already has different input')
+        except FarmAuthoredReviewHold:
+            return _error(422,'farm_review_hold','Farm review evidence unavailable')
+        except Exception:
+            return _error(503,'farm_review_unavailable','Farm review admission unavailable')
 
     scenario_read_scopes = SCENARIO_SCOPES
     scenario_write_scopes = ('thermal_scenario_write',) + SCENARIO_SCOPES
