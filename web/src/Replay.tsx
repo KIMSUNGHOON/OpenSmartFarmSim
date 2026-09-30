@@ -17,8 +17,8 @@ const messages:Record<string,string>={auth_required:'먼저 내부 시험 연결
   response_rejected:'서버 기록의 연결·범위·시각을 확인할 수 없어 표시를 보류했습니다.',
   network_unresolved:'응답을 받지 못했습니다. 조회를 다시 시도해 주세요.',server_unavailable:'서버가 Run을 확인하지 못했습니다.'};
 
-export default function Replay({api,initialSelection}:{api:Api|null;
-  initialSelection?:{kind:ReplayKind;jobId:string}}) {
+export default function Replay({api,initialSelection,autoLoadInitialSelection=false}:{api:Api|null;
+  initialSelection?:{kind:ReplayKind;jobId:string};autoLoadInitialSelection?:boolean}) {
   const [jobId,setJobId]=useState(initialSelection?.jobId ?? ''),[busy,setBusy]=useState(false),[error,setError]=useState<ApiError|null>(null);
   const [kind,setKind]=useState<ReplayKind>(initialSelection?.kind ?? 'fixed');
   const [loaded,setLoaded]=useState<Loaded|null>(null),[index,setIndex]=useState(0);
@@ -32,6 +32,8 @@ export default function Replay({api,initialSelection}:{api:Api|null;
   useEffect(()=>{epoch.current++;setLoaded(null);setBusy(false);setError(null);setIndex(0);setPlaying(false);
     setJobId(initialSelection?.jobId ?? '');setKind(initialSelection?.kind ?? 'fixed');
     return ()=>{epoch.current++;};},[api]);
+  useEffect(()=>{if(autoLoadInitialSelection && api && initialSelection)
+    void loadRun(api,initialSelection.kind,initialSelection.jobId);},[api,autoLoadInitialSelection]);
   useEffect(()=>{const query=matchMedia('(prefers-reduced-motion: reduce)');
     const update=()=>{setReduced(query.matches);if(query.matches)setPlaying(false);};
     query.addEventListener('change',update);return ()=>query.removeEventListener('change',update);},[]);
@@ -46,22 +48,25 @@ export default function Replay({api,initialSelection}:{api:Api|null;
     epoch.current++;setKind(value);setLoaded(null);setBusy(false);setError(null);
     setPlaying(false);setIndex(0);setJobId('');
   }
-  async function load(event:FormEvent<HTMLFormElement>) {
-    event.preventDefault();if(busy)return;
-    if(!api){setError(new ApiError('auth_required'));return;}
-    const client=api,request=++epoch.current,selectedKind=kind;
+  async function loadRun(client:Api,selectedKind:ReplayKind,selectedJobId:string) {
+    const request=++epoch.current;
     setBusy(true);setLoaded(null);setError(null);setPlaying(false);setIndex(0);
     try {
       if(selectedKind==='authored') {
-        const value=await client.authoredThermalReplay(jobId.trim());
+        const value=await client.authoredThermalReplay(selectedJobId.trim());
         if(request===epoch.current)setLoaded({api:client,kind:selectedKind,data:value});
       } else {
-        const value=await client.thermalReplay(jobId.trim());
+        const value=await client.thermalReplay(selectedJobId.trim());
         if(request===epoch.current)setLoaded({api:client,kind:selectedKind,data:value});
       }
     }
     catch(cause){if(request===epoch.current)setError(cause instanceof ApiError ? cause : new ApiError('network_unresolved'));}
     finally {if(request===epoch.current)setBusy(false);}
+  }
+  function load(event:FormEvent<HTMLFormElement>) {
+    event.preventDefault();if(busy)return;
+    if(!api){setError(new ApiError('auth_required'));return;}
+    void loadRun(api,kind,jobId);
   }
   return <div className="replay-workspace">
     <section className="panel replay-admission"><h2>저장된 열 계산 열기</h2>

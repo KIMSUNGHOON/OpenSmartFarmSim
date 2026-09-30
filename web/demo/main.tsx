@@ -15,13 +15,14 @@ createRoot(root).render(<div className="app-shell">
     <p className="sidebar-note">자료는 화면 시험용 응답입니다.</p></aside>
   <main>
     <header className="page-header"><div><p className="eyebrow">OPEN SMART FARM SIMULATOR · LOCAL DEMO</p>
-      <h1>두 시간 온실 재생</h1><p>아래 <strong>저장된 Run 조회</strong>를 누르면 3D 장면과 120개 저장 시각을 볼 수 있습니다.</p></div>
+      <h1>두 시간 온실 재생</h1><p>합성 3D 장면을 자동으로 불러옵니다. 실제 저장 내역이 없어도 시연을 볼 수 있습니다.</p></div>
       <div className="scope-summary"><span className="badge">합성 응답 데모</span>
         <strong>온실 한 구역 · 두 시간</strong><span>실제 관측·농장 계산·작물 추천이 아닙니다.</span></div></header>
     <div className="notice"><strong>브라우저 소프트웨어 데모</strong>
       <p>표시 값은 직접 작성한 고정 시험 응답입니다. 실제 자료 수집, Codex CLI 검토, 독립 해제나 생산 서비스가 실행되지 않습니다.</p></div>
     <Suspense fallback={<p role="status">재생 화면 준비 중…</p>}>
-      <Replay api={api} initialSelection={{kind:'authored',jobId:authoredJobId}}/>
+      <Replay api={api} initialSelection={{kind:'authored',jobId:authoredJobId}}
+        autoLoadInitialSelection/>
     </Suspense>
   </main>
 </div>);
