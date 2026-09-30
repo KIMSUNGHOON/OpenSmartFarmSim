@@ -23,6 +23,7 @@ export type LocationAccepted = { location_id:string; point:{latitude:number;long
 export type JobHold = { job_id:string; stage:'research'|'collection_review'|'assessment'; hold_id:string;
   status:'hold'; recorded_at:string; reason_code:'evidence_missing'|'decision_held';
   missing_evidence:Evidence[]; missing_evidence_count:number };
+export type SourceIntent={parent_job_id:string;idempotency_key:string};
 
 const CODE = /^[a-z][a-z0-9_]{0,79}$/;
 function integer(value:unknown):value is number { return typeof value === 'number' && Number.isSafeInteger(value); }
@@ -100,6 +101,18 @@ export function createApi(token:string, fetcher:typeof fetch = fetch) {
     ...createEconomicApi(request, decodeJob),
     ...createBreakEvenApi(request, decodeJob),
     async location(intent:LocationIntent) { return decodeLocation(await request('/v1/locations','POST',intent),intent); },
+    async ingestSource(intent:SourceIntent) {
+      need(uuid(intent.parent_job_id) && /^[\x21-\x7e]{1,200}$/.test(intent.idempotency_key));
+      const result=decodeJob(await request('/v1/ingestions','POST',{
+        research_job_id:intent.parent_job_id,idempotency_key:intent.idempotency_key}));
+      need(result.stage==='collection');return result;
+    },
+    async reviewSource(intent:SourceIntent) {
+      need(uuid(intent.parent_job_id) && /^[\x21-\x7e]{1,200}$/.test(intent.idempotency_key));
+      const result=decodeJob(await request('/v1/collection-reviews','POST',{
+        collection_job_id:intent.parent_job_id,idempotency_key:intent.idempotency_key}));
+      need(result.stage==='collection_review');return result;
+    },
     async job(id:string) {
       need(uuid(id)); const result=decodeJob(await request('/v1/jobs/'+id)); need(result.job_id === id); return result;
     },

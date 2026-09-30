@@ -33,6 +33,25 @@ test('known job and bounded hold are decoded', async () => {
   expect(await api.hold(id)).toEqual(hold);
 });
 
+test('source collection and review use their fixed parent fields and reject foreign stages',async () => {
+  const collection={...job,stage:'collection'};
+  const review={...job,stage:'collection_review'};
+  const fetcher=vi.fn<typeof fetch>().mockResolvedValueOnce(reply(collection,202))
+    .mockResolvedValueOnce(reply(review,202)).mockResolvedValueOnce(reply(job,202));
+  const api=createApi(token,fetcher);
+  const source={parent_job_id:id,idempotency_key:'source-intent-1'};
+  expect(await api.ingestSource(source)).toEqual(collection);
+  expect(await api.reviewSource(source)).toEqual(review);
+  expect(JSON.parse(String(fetcher.mock.calls[0]?.[1]?.body))).toEqual({
+    research_job_id:id,idempotency_key:source.idempotency_key});
+  expect(JSON.parse(String(fetcher.mock.calls[1]?.[1]?.body))).toEqual({
+    collection_job_id:id,idempotency_key:source.idempotency_key});
+  await expect(api.ingestSource(source)).rejects.toMatchObject({code:'response_rejected'});
+  await expect(api.reviewSource({...source,parent_job_id:'../foreign'}))
+    .rejects.toMatchObject({code:'response_rejected'});
+  expect(fetcher).toHaveBeenCalledTimes(3);
+});
+
 test('real server timestamps preserve their explicit timezone and microseconds',async () => {
   const value={...job,created_at:'2026-09-29T17:09:21.652617+09:00',updated_at:'2026-09-29T17:09:21.652617+09:00'};
   expect(await createApi(token,vi.fn<typeof fetch>().mockResolvedValue(reply(value))).job(id)).toEqual(value);

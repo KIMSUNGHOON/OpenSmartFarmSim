@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**지역 조사→수집·검토 내부 화면 후보 (2026-09-30):** 기존 인증 `/v1/ingestions`와 `/v1/collection-reviews`를 완료된 부모 작업에 순서대로 연결하고 서버 상태·검토 보류를 표시한다([계약](../contracts/web-owned-source-workflow-v1.md), [검증](../research/web-owned-source-workflow-implementation.md)). 브라우저 합성 HTTP 흐름이며 전체 새로고침 후 원천 작업 이력, 실제 CLI·독립 출처 승인, 자동 농장 입력 연결 및 G0/G1/G4는 보류한다.
+
 **작성 입력 판본·작업 이력 후보 (2026-09-30):** 같은 계정의 불변 등록 판본을 서버에서 페이지별로 다시 찾고, 선택 시 단건 조회로 현재 입력·권리와 해시를 확인한다([목록 검증](../research/authored-farm-catalog-implementation.md)). 검토·계산 작업 이력도 해당 판본과 해시에 묶어 페이지별로 조회하고, 선택 시 현재 판본과 실제 작업 상태를 다시 확인한다([작업 이력 검증](../research/authored-farm-activity-implementation.md)). 두 목록은 과거 메타데이터이며 철회된 판본의 사용을 허가하지 않는다. 완료 Run 전체 목록, 실제 제품 CLI·독립 해제·전체 G1은 남아 있다.
 
 **작성 농장 웹 작업 연결 (2026-09-30):** 직접 작성한 농장 가정·권리 선언을 입력해 불변 판본으로 등록하거나 기존 판본을 조회한 뒤 검토/계산 접수·상태/보류 확인·완료 Run 3D 이동을 구현했다. 마지막으로 확인한 판본 ID·해시만 탭에 저장하고 재연결 때 인증 GET/해시를 재확인하며 접근 철회·변경은 복원하지 않는다([기록](../research/authored-farm-web-workflow-implementation.md)). 검토·계산 작업의 재연결 복구 후보는 위 이력 경로에 있다. 합성 HTTP Chromium 집중 4개와 웹 단위 시험 73개가 기존 화면 기준으로 통과했다. 작성 폼은 기존 조사·원본·시장 보류·경제 참조를 사용자가 알아야 하는 내부 도구이며 지역 선택만으로 자료를 발급하지 않는다. 새 작성 POST를 포함한 PostgreSQL 16.15/SCRAM·HTTPS·Chromium 전체 소프트웨어 경로도 로컬 1회 통과했고 호스팅 백엔드 CI는 확인 중이다. 일반 Run 목록·실제 제품 CLI·독립 해제와 전체 G1 및 `web-shell`/`web-replay` 수용은 보류한다.

@@ -23,8 +23,13 @@ PostgreSQL, 운영 토큰, 기상 수집, 제품 Codex CLI, 현장 자료는 사
 종료하려면 터미널에서 Ctrl-C를 누르세요.
 
 The current screen submits registered synthetic location research and reads
-its real server job/hold status. The third screen lists exact stored economic
-assumptions, registers a numeric revision and admits/reads a selected conditional
+its real server job/hold status. When research succeeds, the work screen can
+admit owned fixture ingestion and collection review through their existing
+server endpoints, then read both job statuses and a review hold. These stage
+IDs remain in page memory and a full refresh does not recover them. This is
+an internal candidate path, with no G0 approval or Run publication. The third
+screen lists exact stored economic assumptions, registers a numeric revision
+and admits/reads a selected conditional
 ledger calculation, including a manually requested monthly cash table. A
 break-even section selects existing sale/collection and saved trial revisions,
 admits a finite plan and reads its completed result. The fourth screen can
@@ -43,7 +48,8 @@ nontechnical farm input,
 baseline/event/settlement authoring, automatic trial assumptions, durable
 general Run catalog, map, full replay
 acceptance and production hosting are pending. See the
-[location contract](../contracts/web-location-shell-v1.md) and
+[location contract](../contracts/web-location-shell-v1.md),
+[owned source workflow](../contracts/web-owned-source-workflow-v1.md) and
 [economic contract](../contracts/web-economic-workspace-v1.md) and
 [break-even contract](../contracts/web-break-even-workspace-v1.md) and
 [thermal replay contract](../contracts/web-thermal-replay-v1.md) and

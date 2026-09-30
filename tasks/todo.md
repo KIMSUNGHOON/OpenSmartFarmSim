@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**지역 조사→수집→입력 검토 웹 연결 진행 (2026-09-30):** 완료된 조사 작업의 ID로 기존 인증 원본 수집 API를 접수하고, 완료된 수집 ID로 기존 입력 검토 API를 접수하는 내부 화면 후보를 추가했다([계약](../contracts/web-owned-source-workflow-v1.md), [검증](../research/web-owned-source-workflow-implementation.md)). 단계별 실제 작업 상태와 검토 보류를 조회하며 응답 유실 때 같은 멱등 키를 유지한다. 전체 새로고침 후 원천 작업 이력 복구, 실제 CLI·독립 출처/해제 증거, 자동 연결과 전체 `source-collection-worker`/`web-shell`/`end-to-end-g1` 수용은 남아 체크를 유지한다.
+
 **작성 농장 웹 작업 연결 진행 (2026-09-30):** 기존 판본 조회·검토/계산 접수·서버 상태 확인·완료 Run 3D 이동에 더해 직접 작성한 가정과 권리 선언의 불변 등록 폼을 연결했다([증거](../research/authored-farm-web-workflow-implementation.md)). 사용자별 등록 판본의 서버 목록·커서와 단건 권리 재검사 선택도 추가했다([목록 증거](../research/authored-farm-catalog-implementation.md)). 같은 판본의 검토·계산 작업 이력 후보와 재연결 뒤 현재 권리/상태 재확인도 연결했다([작업 이력 증거](../research/authored-farm-activity-implementation.md)). 선행 조사·원본·시장·경제 기록 발급을 자동화한 일반 사용자 흐름, 완료 Run 전체 목록·실제 CLI·독립 해제·전체 G1은 남아 `web-shell`/`web-replay`/`end-to-end-g1` 체크를 유지한다.
 
 **작성 농장 → 저장 Run → HTTPS/Chromium 합성 연결 진행 (2026-09-30):** 브라우저 작성 폼의 신규 등록 POST부터 신규 검토 작업 접수, 가짜 CLI 검토·합성 서명 해제, 신규 계산 작업 접수·실제 작업자 게시와 저장 Run 3D까지 로컬 PostgreSQL 16.15/SCRAM·HTTPS/Chromium 시험이 통과했다([증거](../research/authored-full-software-path-implementation.md)). 호스팅 백엔드 CI는 확인 중이다. 실제 CLI·독립 해제·사용자 원천 수집 입력·접수 지연 개선의 전체 G1 체크는 유지한다.

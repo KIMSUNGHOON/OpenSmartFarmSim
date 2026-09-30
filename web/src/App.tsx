@@ -3,6 +3,7 @@ import { createApi, ApiError, type Evidence, type JobHold, type JobStatus, type 
   type LocationIntent, type State } from './api';
 import EconomicWorkspace from './EconomicWorkspace';
 import AuthoredFarmWorkspace from './AuthoredFarmWorkspace';
+import SourceWorkflow from './SourceWorkflow';
 const Replay=lazy(()=>import('./Replay'));
 
 const statusNames:Record<State,string>={queued:'대기 중',researching:'자료 조사 중',collecting:'원본 수집 중',
@@ -184,6 +185,7 @@ export default function App() {
           <p className="muted">현재 상태나 합성 자료만으로 미래 수확·이익·작물 순위를 확정하지 않습니다.</p>
         </section>
       </div>}
+      <div hidden={view!=='work'}><SourceWorkflow api={api} researchJob={job}/></div>
       <footer>OpenSmartFarmSim · 직접 작성한 합성 자료를 위한 내부 시험 화면</footer>
     </main>
   </div>;

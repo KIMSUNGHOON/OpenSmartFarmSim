@@ -1,5 +1,10 @@
 # 구현 순서
 
+완료된 지역 조사에서 기존 원본 수집·수집 입력 검토 API를 차례로 접수하고
+상태/보류를 읽는 [내부 웹 후보](../contracts/web-owned-source-workflow-v1.md)를
+연결했다([검증](../research/web-owned-source-workflow-implementation.md)).
+이는 UI 연결이고 자동 수집·독립 해제·전체 G1 수용은 후속이다.
+
 작성 농장 입력의 [테넌트별 저장 판본 목록](../contracts/api-farm-authoring-v1.md)을
 기존 작업 저장소와 웹 조회에 연결했다([검증](../research/authored-farm-catalog-implementation.md)).
 [검토·계산 작업 이력 후보](../research/authored-farm-activity-implementation.md)도
