@@ -4,6 +4,8 @@ import hmac
 from psycopg import sql
 from hashlib import sha256
 import json
+from datetime import datetime
+import re
 from uuid import UUID
 
 from .farm_authored_run import AuthoredRunPreparer, PreparedAuthoredRun
@@ -76,6 +78,10 @@ def install_authored_run_schema(conn, schema):
                 '{{initial_state,humidity_ratio,previous_trace_sha256}}' = trace0_sha256) IS TRUE)
         )
     """).format(namespace, namespace, namespace))
+    conn.execute(sql.SQL('''
+        CREATE INDEX authored_thermal_runs_catalog_order
+        ON {}.authored_thermal_runs (tenant_id, recorded_at DESC, run_id DESC)
+    ''').format(namespace))
     conn.execute(sql.SQL("""
         CREATE FUNCTION {}.reject_authored_run_change()
         RETURNS trigger LANGUAGE plpgsql AS $$
@@ -320,3 +326,49 @@ class AuthoredRunStore:
                     'recorded_at': row['recorded_at']}
         except Exception:
             raise AuthoredRunStoreHold('authored Run read unavailable') from None
+
+    def list_refs(self, tenant, *, limit=20, before_recorded_at=None, before_run_id=None):
+        """Index stored Run identifiers; exact reads still validate current evidence."""
+        if (type(limit) is not int or not 1 <= limit <= 50 or
+                (before_recorded_at is None) != (before_run_id is None)):
+            raise ValueError('authored Run catalog cursor invalid')
+        if before_recorded_at is not None and (
+                type(before_recorded_at) is not datetime or
+                before_recorded_at.tzinfo is None or
+                type(before_run_id) is not str or
+                re.fullmatch(r'authored-thermal-run-v1:[0-9a-f]{64}',
+                    before_run_id) is None):
+            raise ValueError('authored Run catalog cursor invalid')
+        if not self.jobs._has_scope(tenant, 'authored_run_read'):
+            raise PermissionError('authored Run catalog denied')
+        try:
+            self.preparer._binding()
+        except Exception:
+            raise AuthoredRunStoreHold('authored Run catalog unavailable') from None
+        args = [tenant]
+        cursor = sql.SQL('')
+        if before_recorded_at is not None:
+            cursor = sql.SQL(' AND (recorded_at, run_id) < (%s, %s)')
+            args.extend((before_recorded_at, before_run_id))
+        args.append(limit + 1)
+        try:
+            with self.jobs.connect() as conn:
+                rows = conn.execute(sql.SQL('''
+                    SELECT run_id, simulation_job_id, recorded_at FROM {}
+                    WHERE tenant_id=%s{} ORDER BY recorded_at DESC, run_id DESC LIMIT %s
+                ''').format(self.jobs._table('authored_thermal_runs'), cursor), args).fetchall()
+            if not self.jobs._has_scope(tenant, 'authored_run_read'):
+                raise PermissionError('authored Run catalog denied')
+            items = [{'run_id': row['run_id'],
+                      'simulation_job_id': row['simulation_job_id'],
+                      'recorded_at': row['recorded_at'],
+                      'verification': 'requires_current_read'}
+                     for row in rows[:limit]]
+            next_cursor = ({'recorded_at': rows[limit-1]['recorded_at'],
+                            'run_id': rows[limit-1]['run_id']}
+                           if len(rows) > limit else None)
+            return {'items': items, 'next_cursor': next_cursor}
+        except PermissionError:
+            raise
+        except Exception:
+            raise AuthoredRunStoreHold('authored Run catalog unavailable') from None

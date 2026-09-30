@@ -78,6 +78,8 @@ OPERATIONS = {
     ("/v1/source-history/{research_job_id}", "get"): ("readOwnedSourceHistory", ["metadata", "decision_context_read"]),
     ("/v1/source-history/{research_job_id}/activity", "get"):
         ("listOwnedSourceActivity", ["metadata", "decision_context_read"]),
+    ("/v1/authored-runs/catalog", "get"):
+        ("listAuthoredRuns", list(AUTHORED_READ_SCOPES)),
     ("/v1/jobs/{job_id}", "get"): ("getJob", ["metadata"]),
     ("/v1/jobs/{job_id}/hold-report", "get"): ("getJobHold", ["metadata", "artifact", "auditor"]),
     ("/v1/jobs/{job_id}/run", "get"): ("getJobRun", ["metadata", "artifact", "thermal_run_read"]),

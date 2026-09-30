@@ -180,6 +180,88 @@
         "title": "AssetAccount",
         "type": "object"
       },
+      "AuthoredRunCatalogCursor": {
+        "additionalProperties": false,
+        "properties": {
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "run_id": {
+            "pattern": "^authored-thermal-run-v1:[0-9a-f]{64}$",
+            "title": "Run Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "recorded_at",
+          "run_id"
+        ],
+        "title": "AuthoredRunCatalogCursor",
+        "type": "object"
+      },
+      "AuthoredRunCatalogItem": {
+        "additionalProperties": false,
+        "properties": {
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "run_id": {
+            "pattern": "^authored-thermal-run-v1:[0-9a-f]{64}$",
+            "title": "Run Id",
+            "type": "string"
+          },
+          "simulation_job_id": {
+            "format": "uuid",
+            "title": "Simulation Job Id",
+            "type": "string"
+          },
+          "verification": {
+            "const": "requires_current_read",
+            "title": "Verification",
+            "type": "string"
+          }
+        },
+        "required": [
+          "run_id",
+          "simulation_job_id",
+          "recorded_at",
+          "verification"
+        ],
+        "title": "AuthoredRunCatalogItem",
+        "type": "object"
+      },
+      "AuthoredRunCatalogPage": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/AuthoredRunCatalogItem"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AuthoredRunCatalogCursor"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items",
+          "next_cursor"
+        ],
+        "title": "AuthoredRunCatalogPage",
+        "type": "object"
+      },
       "AuthoredThermalRunSummary": {
         "additionalProperties": false,
         "properties": {
@@ -5037,6 +5119,138 @@
         "x-ossf-max-body-bytes": 4096,
         "x-ossf-required-scopes": [
           "simulation_create",
+          "metadata",
+          "artifact",
+          "authored_run_read",
+          "authored_release_read",
+          "farm_scenario_read",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read"
+        ]
+      }
+    },
+    "/v1/authored-runs/catalog": {
+      "get": {
+        "operationId": "listAuthoredRuns",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 50,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before_recorded_at",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Before Recorded At"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before_run_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Before Run Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthoredRunCatalogPage"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "List Authored Runs",
+        "x-ossf-required-scopes": [
           "metadata",
           "artifact",
           "authored_run_read",

@@ -13,11 +13,22 @@ authored result. The authored ID has the form
 `authored-thermal-run-v1:<64 lowercase hex>` and is never passed through the
 fixed-fixture `/v1/runs` routes.
 
-All three reads require an authenticated owner with `metadata`, `artifact`,
+`GET /v1/authored-runs/catalog?limit=20&before_recorded_at=...&before_run_id=...`
+indexes the requesting tenant's **stored** authored Run identifiers in descending
+`(recorded_at, run_id)` order. The limit is 1–50 and both cursor fields must
+appear together. Each item contains only `run_id`, `simulation_job_id`,
+`recorded_at`, and `verification=requires_current_read`. It is a recovery index,
+not an assertion that the Run can currently be displayed. Missing or foreign
+records are absent; the list does not read trace bytes, grant a release or
+change a job. Selection must use one of the exact Run reads above, which checks
+current source rights and all publication evidence again. A stale result may
+remain in the index while the exact read returns an unavailable error.
+
+All four reads require an authenticated owner with `metadata`, `artifact`,
 `authored_run_read`, `authored_release_read`, and current authored farm read
 scopes. The server revalidates the stored job/publication/receipt, gate HMAC,
 exact trace bytes and their SHA-256s, signed release, source rights, farm
-registration and current code before projection. A missing or foreign result
+registration and current code before projecting an exact Run. A missing or foreign result
 returns 404, missing scope 403, invalid request 422, and stale or corrupt
 current evidence 503. Errors reveal no private source, release or trace text.
 

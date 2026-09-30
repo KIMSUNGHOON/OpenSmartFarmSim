@@ -124,6 +124,16 @@ def test_standard_https_reads_owned_authored_run_and_holds_stale_evidence(
 
         job_path = f"/v1/jobs/{job['job_id']}/authored-run"
         run_path = '/v1/authored-runs/' + packet.run_id
+        catalog_path = '/v1/authored-runs/catalog'
+        assert call(catalog_path,bearer=None)[0] == 401
+        assert call(catalog_path,bearer='denied')[0] == 403
+        assert call(catalog_path,bearer='foreign') == (200,{'items':[],'next_cursor':None})
+        status, catalog = call(catalog_path)
+        assert status == 200 and catalog['next_cursor'] is None
+        assert catalog['items'][0]['run_id'] == packet.run_id
+        assert catalog['items'][0]['simulation_job_id'] == str(job['job_id'])
+        assert catalog['items'][0]['verification'] == 'requires_current_read'
+        assert call(catalog_path+'?before_run_id='+packet.run_id)[0] == 422
         assert call(job_path, bearer=None)[0] == 401
         assert call(job_path, bearer='denied')[0] == 403
         assert call(job_path, bearer='foreign')[0] == 404
@@ -149,6 +159,7 @@ def test_standard_https_reads_owned_authored_run_and_holds_stale_evidence(
         assert call('/v1/authored-runs',method='POST',body=submission |
             {'registration_sha256':wrong_registration})[0]==422
         preparer.prepare = lambda *_: None
+        assert call(catalog_path)[1]['items'][0]['verification'] == 'requires_current_read'
         assert call(job_path)[0] == 503
         assert call(run_path)[0] == 503
         assert call('/v1/authored-runs',method='POST',body=submission)[0]==422

@@ -1,5 +1,10 @@
 # 구현 순서
 
+작성 농장의 저장 Run 전체를 다시 찾는 [테넌트별 목록 API](../contracts/api-authored-thermal-run-v1.md)를
+추가했다([PostgreSQL·HTTPS 검증](../research/authored-run-catalog-implementation.md)).
+목록은 현재 표시 승인 전의 식별자 인덱스이며, 정확한 Run 조회에서 해제·권리를
+재검사한다. 웹 목록 연결과 실제 CLI·독립 G1은 후속이다.
+
 저장 원천 작업의 [테넌트별 목록·연결 단건 조회](../contracts/api-owned-source-history-v1.md)를
 웹 작업 화면에 연결했다([검증](../research/owned-source-history-implementation.md)). 재연결 후
 조사와 최근 수집·검토 한 쌍을 다시 찾고 같은 조사의 이전 시도를 페이지별로

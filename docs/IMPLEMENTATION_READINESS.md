@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**작성 Run 저장 목록 API 후보 (2026-09-30):** 소유 테넌트의 불변 Run ID·계산 작업 ID·기록 시각을 페이지별로 조회한다([계약](../contracts/api-authored-thermal-run-v1.md), [시험](../research/authored-run-catalog-implementation.md)). 목록에는 현재 표시 검증이 필요하다고 명시하며, 정확한 Run 조회가 기존 해제·권리·게시 증거를 다시 검사한다. 웹 목록과 실제 CLI·독립 G1은 남아 있다.
+
 **지역 조사→수집·검토 내부 화면 후보 (2026-09-30):** 기존 인증 `/v1/ingestions`와 `/v1/collection-reviews`를 완료된 부모 작업에 순서대로 연결하고 서버 상태·검토 보류를 표시한다([계약](../contracts/web-owned-source-workflow-v1.md), [검증](../research/web-owned-source-workflow-implementation.md)). [저장 작업 이력](../contracts/api-owned-source-history-v1.md)은 전체 새로고침 뒤 조사와 수집·검토 이전 시도를 다시 찾는다. 브라우저·PostgreSQL 합성 소프트웨어 범위이며 실제 CLI·독립 출처 승인, 자동 농장 입력 연결 및 G0/G1/G4는 보류한다.
 
 **작성 입력 판본·작업 이력 후보 (2026-09-30):** 같은 계정의 불변 등록 판본을 서버에서 페이지별로 다시 찾고, 선택 시 단건 조회로 현재 입력·권리와 해시를 확인한다([목록 검증](../research/authored-farm-catalog-implementation.md)). 검토·계산 작업 이력도 해당 판본과 해시에 묶어 페이지별로 조회하고, 선택 시 현재 판본과 실제 작업 상태를 다시 확인한다([작업 이력 검증](../research/authored-farm-activity-implementation.md)). 두 목록은 과거 메타데이터이며 철회된 판본의 사용을 허가하지 않는다. 완료 Run 전체 목록, 실제 제품 CLI·독립 해제·전체 G1은 남아 있다.

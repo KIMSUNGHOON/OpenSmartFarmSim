@@ -166,6 +166,18 @@ def test_run_insert_requires_same_transaction_job_publication(login_scope, tmp_p
     assert stored['run_id'] == packet.run_id
     assert store.get_run('tenant-a', packet.run_id)['trace_raws'] == packet.trace_raws
     assert store.get_run('tenant-b', packet.run_id) is None
+    catalog = store.list_refs('tenant-a', limit=1)
+    assert catalog['next_cursor'] is None
+    assert catalog['items'] == [{
+        'run_id': packet.run_id, 'simulation_job_id': simulation['job_id'],
+        'recorded_at': catalog['items'][0]['recorded_at'],
+        'verification': 'requires_current_read'}]
+    with pytest.raises(PermissionError):
+        store.list_refs('tenant-b')
+    assert store.list_refs('tenant-a', before_recorded_at=catalog['items'][0]['recorded_at'],
+        before_run_id=packet.run_id)['items'] == []
+    with pytest.raises(ValueError):
+        store.list_refs('tenant-a', before_run_id=packet.run_id)
     wrong_gate = AuthoredRunStore(preparer, b'different-synthetic-gate-key-' + b'1' * 32)
     with pytest.raises(AuthoredRunStoreHold):
         wrong_gate.get_run('tenant-a', packet.run_id)
@@ -179,5 +191,9 @@ def test_run_insert_requires_same_transaction_job_publication(login_scope, tmp_p
         conn.execute(sql.SQL("UPDATE {} SET scenario_revision='r2'").format(
             jobs._table('authored_thermal_runs')))
     preparer.prepare = lambda *args: None
+    assert store.list_refs('tenant-a')['items'][0]['verification'] == 'requires_current_read'
     with pytest.raises(AuthoredRunStoreHold):
         store.get_run('tenant-a', packet.run_id)
+    preparer._binding = lambda: (_ for _ in ()).throw(ValueError('unavailable'))
+    with pytest.raises(AuthoredRunStoreHold):
+        store.list_refs('tenant-a')

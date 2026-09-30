@@ -18,8 +18,8 @@ from .api_economic_cash_flow import EconomicCashPage, CashCursorRejected, MONTH_
 from .api_break_even import PLAN_ID_PATTERN, BreakEvenRead, project_break_even_result
 from .api_thermal import RUN_ID_PATTERN, project_thermal_manifest, project_thermal_run
 from .api_authored_thermal import (AUTHORED_READ_SCOPES, AUTHORED_RUN_ID_PATTERN,
-    project_authored_run, read_authored_job_run)
-from .farm_authored_run_store import AuthoredRunStore
+    AuthoredRunCatalogPage, project_authored_run, read_authored_job_run)
+from .farm_authored_run_store import AuthoredRunStore, AuthoredRunStoreHold
 from .api_job_run import read_job_run
 from .api_job_break_even_result import BreakEvenJobResultService, BREAK_EVEN_JOB_READ_SCOPES
 from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold, ThermalScenarioConflict, IDENTIFIER
@@ -1113,6 +1113,34 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return result if result is not None else _error(404, 'not_found', 'Authored Run not found')
         except Exception:
             return _error(503, 'store_unavailable', 'Authored Run unavailable')
+
+    @app.get('/v1/authored-runs/catalog', response_model=AuthoredRunCatalogPage,
+             responses=errors, operation_id='listAuthoredRuns',
+             openapi_extra=_access(authored_scopes))
+    async def list_authored_runs(
+            limit: Annotated[int,Query(ge=1,le=50)] = 20,
+            before_recorded_at: datetime | None = None,
+            before_run_id: str | None = None):
+        tenant, denied = authorized_tenant(*authored_scopes)
+        if denied is not None:
+            return denied
+        if (before_recorded_at is None) != (before_run_id is None) or (
+                before_recorded_at is not None and before_recorded_at.tzinfo is None):
+            return _error(422,'invalid_request','Invalid request')
+        if authored_run_store is None:
+            return _error(503,'store_unavailable','Authored Run catalog unavailable')
+        try:
+            return await run_in_threadpool(authored_run_store.list_refs,tenant,
+                limit=limit,before_recorded_at=before_recorded_at,
+                before_run_id=before_run_id)
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except AuthoredRunStoreHold:
+            return _error(503,'store_unavailable','Authored Run catalog unavailable')
+        except ValueError:
+            return _error(422,'invalid_request','Invalid request')
+        except Exception:
+            return _error(503,'store_unavailable','Authored Run catalog unavailable')
 
     @app.get('/v1/authored-runs/{run_id}', response_model=AuthoredThermalRunSummary,
              responses=errors, operation_id='getAuthoredRun',

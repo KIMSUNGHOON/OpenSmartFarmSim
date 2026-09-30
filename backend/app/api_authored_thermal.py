@@ -4,6 +4,10 @@ from datetime import timedelta
 from hashlib import sha256
 import json
 import re
+from typing import Literal
+from uuid import UUID
+
+from pydantic import AwareDatetime, BaseModel, ConfigDict, Field
 
 from .api_contracts import ThermalRunSeries, ThermalSeriesPoint
 from .api_thermal import _number, _utc
@@ -20,6 +24,26 @@ _HOUR = timedelta(hours=1)
 AUTHORED_READ_SCOPES = tuple(dict.fromkeys((
     'metadata', 'artifact', 'authored_run_read', 'authored_release_read',
     *FARM_READ_SCOPES)))
+
+
+class AuthoredRunCatalogCursor(BaseModel):
+    model_config = ConfigDict(extra='forbid', frozen=True)
+    recorded_at: AwareDatetime
+    run_id: str = Field(pattern=AUTHORED_RUN_ID_PATTERN)
+
+
+class AuthoredRunCatalogItem(BaseModel):
+    model_config = ConfigDict(extra='forbid', frozen=True)
+    run_id: str = Field(pattern=AUTHORED_RUN_ID_PATTERN)
+    simulation_job_id: UUID
+    recorded_at: AwareDatetime
+    verification: Literal['requires_current_read']
+
+
+class AuthoredRunCatalogPage(BaseModel):
+    model_config = ConfigDict(extra='forbid', frozen=True)
+    items: list[AuthoredRunCatalogItem]
+    next_cursor: AuthoredRunCatalogCursor | None
 
 
 def _need(value):

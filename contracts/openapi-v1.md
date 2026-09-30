@@ -39,6 +39,10 @@ response. Registration's request is closed JSON with a 4096-byte maximum
 (`x-ossf-max-body-bytes`). Duplicate JSON keys and period ordering are runtime
 checks beyond JSON Schema. All documented error responses use ErrorEnvelope.
 
+The [authored Run catalog](api-authored-thermal-run-v1.md) lists tenant-owned
+stored Run identifiers with an explicit `requires_current_read` marker. Its
+exact Run read retains the existing rights, release and publication checks.
+
 Example body (synthetic software-contract coordinates; no approved source scope):
 
 ```json
