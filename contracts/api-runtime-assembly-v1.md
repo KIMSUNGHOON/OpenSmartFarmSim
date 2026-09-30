@@ -4,6 +4,11 @@ Status: software assembly candidate. Production source repositories, protected
 operator configuration/custody, actual isolated Codex, independent release,
 remaining submissions and browser/G1/G4 acceptance remain pending.
 
+The optional [authored thermal Run assembly](api-runtime-authored-run-v1.md)
+binds a trusted operator factory to this runtime's own jobs and farm services
+under the v8 login profile. Its configured key and factory must be supplied
+together. This adds no release or G1 approval.
+
 With explicit thermal_scenario_storage=True (v6 plus the existing market and
 break-even flags), ApiRuntime also assembles ThermalScenarioStore using the
 exact existing thermal/hold stores and current_principal. It supplies that

@@ -1,6 +1,7 @@
 """Operator assembly of implemented HTTPS routes and authenticated request stores."""
 
 from dataclasses import dataclass, field
+import hmac
 import os
 from pathlib import Path
 
@@ -31,6 +32,8 @@ from .owned_fixture_collection import CollectionService
 from .owned_collection_review import OwnedCollectionReviewService
 from .owned_research import OwnedResearchService
 from .calculation_assessment import CalculationAssessmentService
+from .farm_authoring_storage import FarmAuthoringService
+from .farm_authored_run_store import AuthoredRunStore
 
 
 @dataclass(frozen=True)
@@ -42,6 +45,7 @@ class ApiRuntimeConfig:
     private_key: Path = field(repr=False)
     thermal_gate_key: bytes = field(repr=False)
     market_hold_key: bytes = field(repr=False)
+    authored_run_gate_key: bytes | None = field(default=None, repr=False)
     content_access: ContentAccess | None = field(default=None, repr=False)
     host: str = '127.0.0.1'
     port: int = 8443
@@ -53,6 +57,9 @@ class ApiRuntimeConfig:
                     for path in (self.artifact_root, self.certificate, self.private_key)) or
                 any(type(key) is not bytes or not 32 <= len(key) <= 4096
                     for key in (self.thermal_gate_key, self.market_hold_key)) or
+                (self.authored_run_gate_key is not None and
+                    (type(self.authored_run_gate_key) is not bytes or
+                     not 32 <= len(self.authored_run_gate_key) <= 4096)) or
                 (self.content_access is not None and type(self.content_access) is not ContentAccess) or
                 type(self.host) is not str or self.host not in ('127.0.0.1', '::1') or
                 type(self.port) is not int or not 0 <= self.port <= 65535):
@@ -68,6 +75,7 @@ class ApiRuntimeDependencies:
     market_scope_resolver: object = field(repr=False)
     market_source_factory: object = field(repr=False)
     thermal_publisher_factory: object = field(default=None, repr=False)
+    authored_run_store_factory: object = field(default=None, repr=False)
     owned_fixture_registry: OwnedFixtureRegistry | None = field(default=None, repr=False)
     owned_research_contexts: dict | None = field(default=None, repr=False)
 
@@ -77,6 +85,7 @@ class ApiRuntimeDependencies:
                 any(not callable(value) for value in (self.context_verifier, self.release_verifier,
                     self.market_scope_resolver, self.market_source_factory)) or
                 (self.thermal_publisher_factory is not None and not callable(self.thermal_publisher_factory)) or
+                (self.authored_run_store_factory is not None and not callable(self.authored_run_store_factory)) or
                 (self.owned_fixture_registry is not None and type(self.owned_fixture_registry) is not OwnedFixtureRegistry) or
                 (self.owned_research_contexts is not None and
                     (type(self.owned_research_contexts) is not dict or self.owned_fixture_registry is None))):
@@ -98,10 +107,17 @@ class ApiRuntime:
     research: LocationResearchService | OwnedResearchService = field(repr=False)
     assessments: CalculationAssessmentService | None = field(repr=False)
     farm_scenarios: FarmReplayScenarioService | None = field(repr=False)
+    authored_runs: AuthoredRunStore | None = field(repr=False)
 
     def __init__(self, config, dependencies):
         try:
             if type(config) is not ApiRuntimeConfig or type(dependencies) is not ApiRuntimeDependencies:
+                raise ValueError()
+            authored_option = (config.authored_run_gate_key is not None or
+                dependencies.authored_run_store_factory is not None)
+            if authored_option and (not config.policy.authored_run_storage or
+                    config.authored_run_gate_key is None or
+                    dependencies.authored_run_store_factory is None):
                 raise ValueError()
             binding = config.policy, 'authority'
             jobs = JobStore(config.dsn, config.policy.schema, config.artifact_root,
@@ -152,6 +168,22 @@ class ApiRuntime:
                     raise ValueError()
                 publisher = dependencies.thermal_publisher_factory(run_store=thermal, job_store=jobs)
                 submission = ThermalRunSubmissionService(publisher, scenarios, farm_scenarios)
+            authored_runs = None
+            if authored_option:
+                if (farm_scenarios is None or type(research) is not OwnedResearchService or
+                        farm_scenarios.owned_research is not research):
+                    raise ValueError()
+                authored_runs = dependencies.authored_run_store_factory(
+                    job_store=jobs, farm_scenario_service=farm_scenarios,
+                    gate_key=config.authored_run_gate_key)
+                if (type(authored_runs) is not AuthoredRunStore or
+                        authored_runs.jobs is not jobs or
+                        type(authored_runs.preparer.authoring) is not FarmAuthoringService or
+                        authored_runs.preparer.authoring.replay is not farm_scenarios or
+                        authored_runs.preparer.release_store.jobs is not jobs or
+                        not hmac.compare_digest(authored_runs.gate_key,
+                            config.authored_run_gate_key)):
+                    raise ValueError()
             app = create_app(jobs, holds, thermal, results, principal_provider=current_principal,
                 location_research_service=research,
                 break_even_store=break_even, thermal_scenario_store=scenarios,
@@ -159,7 +191,8 @@ class ApiRuntime:
                 economic_scenario_service=economic_scenarios, economic_calculation_service=economic_calculations,
                 break_even_plan_service=break_even_plans, break_even_job_result_service=break_even_job_results,
                 collection_service=collections, owned_collection_review_service=collection_reviews,
-                assessment_service=assessments, farm_scenario_service=farm_scenarios)
+                assessment_service=assessments, farm_scenario_service=farm_scenarios,
+                authored_run_store=authored_runs)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -168,5 +201,6 @@ class ApiRuntime:
                 ('market_holds', holds), ('market_candidates', candidates),
                 ('market_results', results), ('break_even', break_even), ('thermal_scenarios', scenarios),
                 ('collections', collections), ('collection_reviews', collection_reviews), ('research', research),
-                ('assessments', assessments), ('farm_scenarios', farm_scenarios)):
+                ('assessments', assessments), ('farm_scenarios', farm_scenarios),
+                ('authored_runs', authored_runs)):
             object.__setattr__(self, name, value)

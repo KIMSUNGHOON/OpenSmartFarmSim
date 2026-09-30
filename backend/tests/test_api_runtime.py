@@ -68,7 +68,8 @@ def dependencies(source=None, **changes):
 @pytest.mark.parametrize('changes', [dict(policy=replace(policy(), break_even_calculation=False)),
     dict(dsn=''), dict(artifact_root=Path('relative')), dict(certificate=Path('relative')),
     dict(private_key=Path('/private/../key')), dict(thermal_gate_key=b'short'),
-    dict(market_hold_key='private string'), dict(host='0.0.0.0'), dict(port=True),
+    dict(market_hold_key='private string'), dict(authored_run_gate_key=b'short'),
+    dict(authored_run_gate_key='private string'), dict(host='0.0.0.0'), dict(port=True),
     dict(content_access=object())])
 def test_configuration_rejects_invalid_or_unbound_operating_values(changes):
     with pytest.raises(ValueError, match='^API runtime configuration rejected$'): config(**changes)
@@ -82,7 +83,8 @@ def test_config_hides_private_values_and_is_frozen():
 
 @pytest.mark.parametrize('changes', [dict(research_registry=None), dict(bearer_registry=None),
     dict(context_verifier=None), dict(release_verifier=None), dict(market_scope_resolver=None),
-    dict(market_source_factory=None), dict(thermal_publisher_factory=True), dict(owned_fixture_registry=object()),
+    dict(market_source_factory=None), dict(thermal_publisher_factory=True),
+    dict(authored_run_store_factory=True), dict(owned_fixture_registry=object()),
     dict(owned_research_contexts={})])
 def test_missing_dependencies_are_rejected(changes):
     with pytest.raises(ValueError, match='^API runtime dependencies rejected$'): dependencies(**changes)
@@ -93,6 +95,23 @@ def test_assembly_rejects_untyped_config_without_provider_calls():
     deps = dependencies(market_source_factory=lambda **_: calls.append('called'))
     with pytest.raises(ValueError, match='^API runtime assembly rejected$'): ApiRuntime(object(), deps)
     assert calls == [] and current_principal() is None
+
+
+@pytest.mark.parametrize('key,factory,profile', [
+    (b'synthetic-authored-gate-key-' + b'a' * 32, None, True),
+    (None, lambda **_: None, True),
+    (b'synthetic-authored-gate-key-' + b'a' * 32, lambda **_: None, False),
+])
+def test_authored_option_pair_and_profile_fail_before_source_factory(key, factory, profile):
+    calls = []
+    selected = replace(policy(), authored_release_storage=True,
+        authored_run_storage=True) if profile else policy()
+    cfg = config(policy=selected, authored_run_gate_key=key)
+    deps = dependencies(market_source_factory=lambda **_: calls.append('source'),
+        authored_run_store_factory=factory)
+    with pytest.raises(ValueError, match='^API runtime assembly rejected$'):
+        ApiRuntime(cfg, deps)
+    assert calls == []
 
 
 @pytest.mark.parametrize('login_scope', [{'market_calculation': True, 'break_even_calculation': True}], indirect=True)

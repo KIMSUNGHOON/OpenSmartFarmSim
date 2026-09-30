@@ -105,8 +105,9 @@ authored thermal replay, enter an owned completed thermal job UUID, then choose
 **저장된 Run 조회**. The API must permit the job/Run/snapshot and, for a farm v3
 job, the current farm selection reads. The authored path additionally needs
 current farm registration, release, source-right and authored Run read scopes;
-its standard HTTPS runtime assembly is pending, so the authored browser path
-has only response-double verification so far.
+its [standard HTTPS runtime option](../contracts/api-runtime-authored-run-v1.md)
+requires a protected operator factory. The authored browser path has only
+response-double verification until an end-to-end HTTPS browser smoke passes.
 This screen reads existing results; it does not submit a new simulation or
 invent a demo Run. Expand **완료된 열 작업 선택** to change or reread the record.
 Use the slider, previous/next minute, table timestamp buttons or optional
