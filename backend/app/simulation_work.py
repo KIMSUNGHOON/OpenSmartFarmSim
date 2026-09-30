@@ -8,6 +8,7 @@ import re
 import sys
 from uuid import UUID
 
+from .farm_authored_simulation_worker import AuthoredSimulationWorker
 from .thermal_simulation_worker import ThermalSimulationWorker
 
 
@@ -32,7 +33,7 @@ def main(argv=None):
             raise ValueError()
         module, attribute = args.factory.split(':')
         worker = getattr(importlib.import_module(module), attribute)()
-        if type(worker) is not ThermalSimulationWorker:
+        if type(worker) not in (ThermalSimulationWorker, AuthoredSimulationWorker):
             raise TypeError()
     except (Exception, SystemExit):
         _emit({'version': 1, 'ok': False, 'code': 'simulation_startup_rejected'}, sys.stderr)

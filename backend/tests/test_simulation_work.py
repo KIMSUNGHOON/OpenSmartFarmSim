@@ -8,6 +8,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app.simulation_work import main
+from app.farm_authored_simulation_worker import AuthoredSimulationWorker, AuthoredSimulationResult
 from app.thermal_simulation_worker import ThermalSimulationWorker, SimulationResult
 from uuid import UUID
 
@@ -28,6 +29,28 @@ def test_wrong_factory_object_is_rejected(monkeypatch, capsys):
     monkeypatch.setitem(sys.modules, module.__name__, module)
     assert main(['--factory', module.__name__+':build', '--job-id', '00000000-0000-0000-0000-000000000000']) == 2
     assert json.loads(capsys.readouterr().err)['code'] == 'simulation_startup_rejected'
+
+
+def test_authored_worker_runs_one_target_and_returns_its_run(monkeypatch, capsys):
+    worker = object.__new__(AuthoredSimulationWorker)
+    job_id = '00000000-0000-0000-0000-000000000001'
+    calls = []
+    def execute(target):
+        calls.append(target)
+        return AuthoredSimulationResult(UUID(target), 1, 'succeeded', 'completed',
+            'authored-thermal-run-v1:'+'a'*64)
+    worker.run_once = execute
+    module = ModuleType('synthetic_authored_sim_factory')
+    module.build = lambda: worker
+    monkeypatch.setitem(sys.modules, module.__name__, module)
+
+    assert main(['--factory', module.__name__+':build', '--job-id', job_id]) == 0
+    output = capsys.readouterr()
+    assert output.err == '' and calls == [job_id]
+    result = json.loads(output.out)
+    assert result == {'version': 1, 'ok': True, 'result': {
+        'job_id': job_id, 'attempt': 1, 'state': 'succeeded',
+        'reason_code': 'completed', 'run_id': 'authored-thermal-run-v1:'+'a'*64}}
 
 
 @pytest.mark.parametrize('fault', ['exception', 'unclosed'])

@@ -25,7 +25,9 @@ scopes and existing collection review scopes. That collision was fixed and
 the entire documented route scope table passed on rerun. The 13 skipped cases
 require a disposable PostgreSQL SCRAM database absent locally. The new
 database test covers scope/owner denial, transport rejection, queued
-admission, exact retry, conflict and current-evidence hold but has not yet
-passed in CI at this record's creation. No product Codex CLI execution,
+admission, exact retry, conflict and current-evidence hold. On exact head
+`cc181cb`, [authored API run 36660968888](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36660968888)
+passed **51 tests** against disposable PostgreSQL, including this test.
+No product Codex CLI execution,
 independent reviewer release, authored simulation worker call or G1 proof is
 claimed.

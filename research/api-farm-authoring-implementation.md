@@ -20,10 +20,12 @@ uv run --locked --group dev pytest -q tests/test_api_openapi.py tests/test_api_r
 75 passed, 11 skipped in 24.85s
 ```
 
-The skipped cases need `OSSF_TEST_PG_DSN` and an actual disposable PostgreSQL
-SCRAM login. The new database test covers authorized intake, exact retry,
+The skipped local cases need `OSSF_TEST_PG_DSN` and an actual disposable PostgreSQL
+SCRAM login. The database test covers authorized intake, exact retry,
 conflict, malformed/oversized/wrong-media requests, per-scope denial, foreign
-tenant isolation and a current-evidence hold. At this record's creation, that
-database test and HTTPS intake have not passed in CI. No browser authoring form
-or end-to-end farm Run submission is included. Product CLI execution,
+tenant isolation and a current-evidence hold. On exact head `cc181cb`,
+[authored API run 36660968888](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36660968888)
+passed **51 tests** against disposable PostgreSQL, including this database
+test. No browser authoring form or whole farm Run submission is included.
+Product CLI execution,
 independent release and G1/G2/G3/G4 remain on hold.

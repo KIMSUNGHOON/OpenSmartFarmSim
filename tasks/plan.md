@@ -175,7 +175,7 @@ G3a/G3b 없이도 조건부 서비스에 대한 G4 평가는 가능하다. 그 �
 합성 응답으로 실제 장면·그래프·표의 시각 일치를 확인했다
 ([시험](../research/web-authored-thermal-replay-implementation.md)).
 표준 HTTPS [작성 Run 조립 후보](../contracts/api-runtime-authored-run-v1.md)를
-추가했고 실제 저장 Run의 SCRAM/HTTPS/브라우저 검증을 CI에서 기다린다
+추가했고 실제 저장 Run의 SCRAM/HTTPS/브라우저 검증을 전체 백엔드 CI에서 기다린다
 ([명시 시험](../backend/tests/web_authored_thermal_replay_smoke.py)). 제품
 CLI·독립 해제/G1은 후속이다.
 저장된 완료 Run의 3D·그래프·표를 먼저 확인하는 부분 슬라이스이며,

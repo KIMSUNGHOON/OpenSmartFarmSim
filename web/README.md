@@ -135,8 +135,9 @@ authored thermal replay, enter an owned completed thermal job UUID, then choose
 job, the current farm selection reads. The authored path additionally needs
 current farm registration, release, source-right and authored Run read scopes;
 its [standard HTTPS runtime option](../contracts/api-runtime-authored-run-v1.md)
-requires a protected operator factory. The authored browser path has only
-response-double verification until an end-to-end HTTPS browser smoke passes.
+requires a protected operator factory. The authored browser path has response
+double checks and an explicit stored Run HTTPS browser smoke; whole backend CI
+acceptance and the actual product CLI path remain separate.
 This screen reads existing results; it does not submit a new simulation or
 invent a demo Run. Expand **완료된 열 작업 선택** to change or reread the record.
 Use the slider, previous/next minute, table timestamp buttons or optional

@@ -21,10 +21,11 @@ uv run --locked --group dev pytest -q tests/test_api_openapi.py tests/test_api_r
 77 passed, 11 skipped in 25.55s
 ```
 
-The skipped cases require disposable PostgreSQL SCRAM, unavailable locally.
-The standard HTTPS test now exercises an exact retry of an already completed
-synthetic authored job, scope denial and stale-preparation hold against the
-actual API and database. At this record's creation, that test is awaiting
-CI; no HTTPS/SCRAM result is claimed. The fixture uses fake CLI and signed
+The skipped local cases require disposable PostgreSQL SCRAM. The standard
+HTTPS test exercises an exact retry of an already completed synthetic authored
+job, scope denial and stale-preparation hold against the actual API and database.
+On exact head `cc181cb`, [authored API run 36660968888](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36660968888)
+passed **51 tests** against disposable PostgreSQL, including this HTTPS test.
+The fixture uses fake CLI and signed
 review authorities. Actual product CLI, independent review/release, a newly
 admitted job completed by the runtime worker, G1 and G4 remain unproven.

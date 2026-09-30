@@ -48,7 +48,8 @@ controller-owned keys can test atomicity only, never attest real CLI or gates.
 ## Foreground invocation
 
 `python -m app.simulation_work --factory operator_module:build --job-id UUID`
-loads a trusted operator factory returning the exact worker type, then executes
+loads a trusted operator factory returning the exact `ThermalSimulationWorker`
+type, then executes
 that single target. Arguments are validated before loading. Secrets belong in
 protected operator dependencies, not argv or repo defaults. Factory code must
 protect its own output and must not launch a model during initialization.
@@ -56,6 +57,9 @@ Startup errors return 2 with a fixed JSON code; execution errors/unclosed leases
 return 3 without automatic retry. A handled state or idle target returns 0 with
 the actual structured result; exit 0 alone is never a gate acceptance claim.
 The command accepts no raw input, tenant override, keys or owner provisioning.
+The same command also accepts the exact
+[`AuthoredSimulationWorker`](farm-authored-simulation-worker-v1.md) type for an
+authored thermal job; each worker itself rejects an unrelated input version.
 
 The real Python child test uses synthetic protected config/keys/captures and
 actual SCRAM, with no Codex credentials/environment or model call. It proves
