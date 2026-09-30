@@ -19,4 +19,4 @@
 
 ## 남은 수용 조건
 
-전체 농장 입력 작성 폼과 저장 후 복구 경로는 아직 없다. 등록은 기존 서비스/API 또는 운영자 절차로 먼저 해야 한다. 위 합성 HTTP 브라우저 시험은 실제 PostgreSQL, 독립 검토자, 실제 Codex CLI 실행을 사용하지 않았다. 별도의 [합성 서비스·브라우저 연결 시험](authored-full-software-path-implementation.md)은 실제 PostgreSQL/SCRAM과 HTTPS에서 등록 조회, 완료 검토·계산 작업의 동일 키 재접수, 저장 Run 3D를 확인했다. 그 시험의 CLI와 해제 권한은 합성 fixture이며 신규 작업의 브라우저 접수·완료 경로는 아직 확인하지 않았다. 두 접수 POST의 180초 브라우저 제한은 관측한 지연에 대한 임시 조치로, 운영 지연 수용은 보류다. 실제 CLI `gpt-6-sol`/`xhigh` 검토·출력 기록과 독립 해제, 재실행·복구, 권리·자료 확인이 갖춰질 때까지 `end-to-end-g1`, `web-shell`, `web-replay` 수용 체크와 G1은 보류한다. 생장·수확·구매 에너지·미래 마진·작물 순위는 이 화면의 출력이 아니다.
+전체 농장 입력 작성 폼과 저장 후 복구 경로는 아직 없다. 등록은 기존 서비스/API 또는 운영자 절차로 먼저 해야 한다. 위 합성 HTTP 브라우저 시험은 실제 PostgreSQL, 독립 검토자, 실제 Codex CLI 실행을 사용하지 않았다. 별도의 [합성 서비스·브라우저 연결 시험](authored-full-software-path-implementation.md)은 실제 PostgreSQL/SCRAM과 HTTPS에서 등록 조회, 신규 검토·계산 작업의 브라우저 접수와 하네스 작업자 완료, 저장 Run 3D를 확인했다. 그 시험의 CLI와 해제 권한은 합성 fixture다. 두 접수 POST의 180초 브라우저 제한은 관측한 지연에 대한 임시 조치로, 운영 지연 수용은 보류다. 실제 CLI `gpt-6-sol`/`xhigh` 검토·출력 기록과 독립 해제, 재실행·복구, 권리·자료 확인이 갖춰질 때까지 `end-to-end-g1`, `web-shell`, `web-replay` 수용 체크와 G1은 보류한다. 생장·수확·구매 에너지·미래 마진·작물 순위는 이 화면의 출력이 아니다.

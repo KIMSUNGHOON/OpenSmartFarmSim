@@ -2,7 +2,7 @@
 
 **작성 농장 웹 작업 연결 진행 (2026-09-30):** 이미 등록된 작성 농장 판본의 조회·검토/계산 접수·서버 상태 확인·완료 Run 3D 이동을 브라우저에 연결했다([증거](../research/authored-farm-web-workflow-implementation.md)). 합성 HTTP Chromium 22개와 웹 단위 시험 71개가 통과했다. 입력 작성 폼·실제 CLI·독립 해제·전체 G1은 남아 `web-shell`/`web-replay`/`end-to-end-g1` 체크를 유지한다.
 
-**작성 농장 → 저장 Run → HTTPS/Chromium 합성 연결 진행 (2026-09-30):** 등록부터 가짜 CLI 검토·합성 서명 해제·실제 작업자 게시와 재조회, 작성 판본 조회·완료 검토 작업 동일 키 재접수·브라우저 신규 계산 작업 접수/작업자 완료·저장 Run 3D까지 실제 PostgreSQL/SCRAM과 HTTPS/Chromium 한 시험에서 통과했다([증거](../research/authored-full-software-path-implementation.md)). 후속 재검증은 개별 시험에 의존하며 실제 CLI·독립 해제·작성 폼·브라우저 신규 검토 작업 완료·접수 지연 개선의 전체 G1 체크는 유지한다.
+**작성 농장 → 저장 Run → HTTPS/Chromium 합성 연결 진행 (2026-09-30):** 하네스가 미리 등록한 판본의 조회부터 브라우저 신규 검토 작업 접수, 가짜 CLI 검토·합성 서명 해제, 브라우저 신규 계산 작업 접수·실제 작업자 게시와 저장 Run 3D까지 실제 PostgreSQL/SCRAM과 HTTPS/Chromium 한 시험에서 통과했다([증거](../research/authored-full-software-path-implementation.md)). 후속 재검증은 개별 시험에 의존하며 실제 CLI·독립 해제·사용자 작성/수집 입력·접수 지연 개선의 전체 G1 체크는 유지한다.
 
 **작성 Run 접수 API 진행 (2026-09-30):** [계약](../contracts/api-authored-simulation-admission-v1.md)에 따라 현재 해제·농장 입력·최종 궤적을 확인한 후 인증된 작업 접수를 추가했다([로컬 검증](../research/api-authored-simulation-admission-implementation.md)). 실제 HTTPS/SCRAM CI와 신규 작업자 완료, 제품 CLI/독립 G1 수용 체크는 유지한다.
 

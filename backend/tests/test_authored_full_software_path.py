@@ -6,6 +6,7 @@ cannot establish an independent G1 review or any agricultural claim.
 
 import json
 from datetime import datetime, timedelta, timezone
+from hashlib import sha256
 import os
 from pathlib import Path
 import select
@@ -76,10 +77,8 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
     })
     registration = author.submit('tenant-1', request(body))
     review = FarmAuthoredReviewService(author)
-    review_job = review.submit('tenant-1', 'farm-1', 'r1',
-                               registration.scenario_sha256,
-                               'review-' + REVIEW_BROWSER_UUID)
     jobs = author.replay.jobs
+    jobs.artifact_root.mkdir(mode=0o700, exist_ok=True)
     runs = author.replay.thermal.runs
     results = MarketResultStore(jobs._dsn, jobs.schema, author.replay.candidates,
         principal_provider=jobs.principal_provider, runtime_identity=jobs.runtime_identity)
@@ -109,55 +108,25 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
         return original_launch(*args, **kwargs)
 
     monkeypatch.setattr(jobs, 'record_cli_launch', capture_launch)
-    lease = jobs.claim(300, allowed_stages=('collection_review',),
-                       tenant_id='tenant-1', job_id=str(review_job['job_id']))
-    reviewed = cli_worker._run_claimed(lease)
-    assert reviewed.state == 'succeeded'
-    with jobs.connect() as conn:
-        rows = {name: conn.execute(sql.SQL(
-            'SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s').format(
-                jobs._table(name)), ('tenant-1', review_job['job_id'])).fetchone()
-            for name in ('jobs', 'attempt_invocations', 'attempt_cli_launches',
-                         'attempt_cli_captures')}
-    record, attestation_raw, signature, observer_store, _, _ = signed_execution(
-        jobs, cli_worker, reviewed, rows, launch['argv'])
     base, _, _ = login_scope
-    attestations = ExecutionAttestationStore(base, observer_store.public_keys)
-    attestations.put(attestation_raw, signature)
+    observer = Ed25519PrivateKey.generate()
+    attestations = ExecutionAttestationStore(base, {'test-observer-v1': _public(observer)})
     execution = ExecutionVerifier(attestations,
-        executable_sha256=record.executable_sha256,
-        environment_sha256=record.environment_sha256)
+        executable_sha256=sha256(program.read_bytes()).hexdigest(),
+        environment_sha256=sha256(b'synthetic-test-environment').hexdigest())
     completion = AuthoredReviewCompletionVerifier(review, execution)
-    proof = completion.verify('tenant-1', review_job['job_id'],
-                              registration.scenario_sha256)
-    candidate = calculate_authored_candidate(author, 'tenant-1', 'farm-1', 'r1',
-                                             registration.scenario_sha256)
-    assert candidate.candidate_id == proof.candidate_id
-    assert candidate.trace_sha256 == proof.trace_sha256
-    # The real completion and candidate were checked above. Pin these immutable
-    # outputs while this test exercises the downstream service composition.
-    # Dedicated tests cover each service's current-state revalidation.
-    monkeypatch.setattr(completion, 'verify', lambda *_: proof)
-    monkeypatch.setattr('app.farm_authored_run.calculate_authored_candidate',
-                        lambda *_: candidate)
-
     reviewer = Ed25519PrivateKey.generate()
     artifacts = {f'evidence-{kind}': kind.encode() for kind in KINDS}
     release_verifier = AuthoredReleaseVerifier(completion, ROOT,
         {'reviewer-key': ('separate synthetic reviewer', _public(reviewer))},
         lambda tenant, ref: artifacts.get(ref) if tenant == 'tenant-1' else None)
     release_store = AuthoredReleaseStore(release_verifier)
-    signed = signed_release(release_verifier, proof, reviewer)
-    release = release_store.put('tenant-1', proof.review_job_id,
-                                registration.scenario_sha256, *signed)
-    assert release.release_sha256 == release_store.get(
-        'tenant-1', proof.review_job_id, registration.scenario_sha256).release_sha256
 
     preparer = AuthoredRunPreparer(author, release_store)
     run_store = AuthoredRunStore(preparer, b'synthetic-full-path-gate-' + b'0' * 32)
 
-    # Let Chromium create the simulation job through the standard HTTPS API.
-    # The harness then runs the actual deterministic worker for that job.
+    # Chromium creates both jobs; the harness completes them with synthetic
+    # reviewer authorities and the actual deterministic simulation worker.
     cert, key, _ = tls_files
     now = datetime.now(timezone.utc)
     token = b'synthetic-full-path-browser-' + b'x' * 32
@@ -168,11 +137,13 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
         jobs._dsn, jobs.schema, principal_provider=principal_provider,
         runtime_identity=jobs.runtime_identity)
 
+    api_completion_ref = {}
+
     def authored_factory(*, job_store, farm_scenario_service, gate_key):
         api_author = FarmAuthoringService(farm_scenario_service)
         api_review = FarmAuthoredReviewService(api_author)
         api_completion = AuthoredReviewCompletionVerifier(api_review, execution)
-        monkeypatch.setattr(api_completion, 'verify', lambda *_: proof)
+        api_completion_ref['verifier'] = api_completion
         api_release = AuthoredReleaseStore(AuthoredReleaseVerifier(
             api_completion, ROOT,
             {'reviewer-key': ('separate synthetic reviewer', _public(reviewer))},
@@ -210,21 +181,59 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
                 'farm': {'scenario_id': 'farm-1', 'revision': 'r1',
                     'registration_sha256': registration.scenario_sha256},
                 'workflow': {'review_uuid': REVIEW_BROWSER_UUID,
-                    'run_uuid': RUN_BROWSER_UUID,
-                    'review_job_id': proof.review_job_id}}) + '\n')
+                    'run_uuid': RUN_BROWSER_UUID}}) + '\n')
             browser.stdin.flush()
-            ready, _, _ = select.select([browser.stdout], [], [], 250)
-            assert ready, 'browser did not admit a new simulation job'
-            first_output = browser.stdout.readline()
-            if not first_output:
-                _, browser_error = browser.communicate(timeout=5)
-                pytest.fail('browser exited before simulation admission: '
-                            + browser_error[-2500:])
-            admitted = json.loads(first_output)
-            assert admitted['event'] == 'run_admitted'
-            job_id = admitted['job_id']
-            assert str(UUID(job_id)) == job_id
-            assert jobs.get_job('tenant-1', job_id)['state'] == 'queued'
+            def browser_event(expected):
+                ready, _, _ = select.select([browser.stdout], [], [], 250)
+                assert ready, f'browser did not report {expected}'
+                line = browser.stdout.readline()
+                if not line:
+                    _, browser_error = browser.communicate(timeout=5)
+                    pytest.fail(f'browser exited before {expected}: '
+                                + browser_error[-2500:])
+                value = json.loads(line)
+                assert value['event'] == expected
+                job_id = value['job_id']
+                assert str(UUID(job_id)) == job_id
+                assert jobs.get_job('tenant-1', job_id)['state'] == 'queued'
+                return job_id
+
+            review_id = browser_event('review_admitted')
+            lease = jobs.claim(300, allowed_stages=('collection_review',),
+                               tenant_id='tenant-1', job_id=review_id)
+            reviewed = cli_worker._run_claimed(lease)
+            assert reviewed.state == 'succeeded'
+            with jobs.connect() as conn:
+                rows = {name: conn.execute(sql.SQL(
+                    'SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s').format(
+                        jobs._table(name)), ('tenant-1', review_id)).fetchone()
+                    for name in ('jobs', 'attempt_invocations', 'attempt_cli_launches',
+                                 'attempt_cli_captures')}
+            record, raw, signature, _, _, _ = signed_execution(
+                jobs, cli_worker, reviewed, rows, launch['argv'], private=observer)
+            attestations.put(raw, signature)
+            proof = completion.verify('tenant-1', review_id,
+                                      registration.scenario_sha256)
+            candidate = calculate_authored_candidate(author, 'tenant-1', 'farm-1', 'r1',
+                                                     registration.scenario_sha256)
+            assert candidate.candidate_id == proof.candidate_id
+            assert candidate.trace_sha256 == proof.trace_sha256
+            # A separate test covers changed rights and input. Pin these verified
+            # immutable outputs during subsequent API composition.
+            monkeypatch.setattr(completion, 'verify', lambda *_: proof)
+            monkeypatch.setattr(api_completion_ref['verifier'], 'verify', lambda *_: proof)
+            monkeypatch.setattr('app.farm_authored_run.calculate_authored_candidate',
+                                lambda *_: candidate)
+            signed = signed_release(release_verifier, proof, reviewer)
+            release = release_store.put('tenant-1', review_id,
+                                        registration.scenario_sha256, *signed)
+            assert release.release_sha256 == release_store.get(
+                'tenant-1', review_id, registration.scenario_sha256).release_sha256
+            assert jobs.get_job('tenant-1', review_id)['state'] == 'succeeded'
+            browser.stdin.write(json.dumps({'event': 'review_succeeded',
+                'job_id': review_id}) + '\n')
+            browser.stdin.flush()
+            job_id = browser_event('run_admitted')
             worker = AuthoredSimulationWorker(run_store, tenant_id='tenant-1')
             worked = worker.run_once(job_id)
             assert worked.state == 'succeeded'

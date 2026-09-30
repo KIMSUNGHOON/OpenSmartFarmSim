@@ -63,7 +63,16 @@ try{
     }
     expect(reviewResponse.request().postDataJSON().idempotency_key)
       .toBe('review-'+configuration.workflow.review_uuid);
-    await expect(page.getByText(configuration.workflow.review_job_id,{exact:true})).toBeVisible();
+    await expect(page.locator('.authored-job-id code')).toHaveCount(1);
+    const reviewId=await page.locator('.authored-job-id code').first().textContent();
+    expect(reviewId).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
+    await expect(page.getByText(reviewId,{exact:true})).toBeVisible();
+    process.stdout.write(JSON.stringify({event:'review_admitted',job_id:reviewId})+'\n');
+    const reviewLine=await inputLines.next();
+    if(reviewLine.done)throw new Error('review result missing');
+    const reviewWorker=JSON.parse(reviewLine.value);
+    if(reviewWorker.event!=='review_succeeded' || reviewWorker.job_id!==reviewId)
+      throw new Error('review result does not match admitted job');
     await page.getByRole('button',{name:'상태 다시 확인'}).first().click();
     await expect(page.getByRole('button',{name:'열 계산 요청'})).toBeEnabled();
     const runReply=page.waitForResponse(response=>new URL(response.url()).pathname==='/v1/authored-runs'
