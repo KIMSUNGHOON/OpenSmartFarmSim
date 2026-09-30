@@ -55,6 +55,11 @@ def owned_scope(pg_store, policy):
             from app.runtime_roles import AUTHORED_RELEASE_TABLES
             install_authored_release_schema(conn, pg_store.schema)
             tables += AUTHORED_RELEASE_TABLES
+        if getattr(policy, "authored_run_storage", False):
+            from app.farm_authored_run_store import install_authored_run_schema
+            from app.runtime_roles import AUTHORED_RUN_TABLES
+            install_authored_run_schema(conn, pg_store.schema)
+            tables += AUTHORED_RUN_TABLES
         conn.execute(sql.SQL("ALTER SCHEMA {} OWNER TO {}").format(
             sql.Identifier(policy.schema), sql.Identifier(policy.owner)))
         for table in tables:

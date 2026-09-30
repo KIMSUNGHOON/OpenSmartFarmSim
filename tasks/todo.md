@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**작성 입력 Run 저장 경계 진행 (2026-09-30):** [저장 계약](../contracts/farm-authored-run-store-v1.md)의 불변 테이블과 선택적 v8 권한을 추가했다([SCRAM 시험](../research/farm-authored-run-store-implementation.md)). 아직 행을 게시하거나 조회하는 작업자는 없다. 원자 게시·작성 입력 3D·실제 CLI/독립 G1 체크는 유지한다.
+
 **작성 입력 Run 준비 진행 (2026-09-30):** [준비 계약](../contracts/farm-authored-run-preparation-v1.md)은 현재 저장 해제·농장 판본을 재검사하고 120단계의 최종 두 궤적·해시·식별자를 만든다([집중 시험](../research/farm-authored-run-preparation-implementation.md)). 게시·작성 입력 3D 연결, 실제 제품 CLI와 독립 해제/G1은 남아 있다. 기존 수용 체크는 유지한다.
 
 **첫 내부 3D 열 재생 부분 구현 (2026-09-30):** [재생 계약](../contracts/web-thermal-replay-v1.md)에 따라 실제 장면·그래프·표·여섯 수치의 저장 시각을 연결했다([검증 기록](../research/web-thermal-replay-implementation.md)). 다음은 같은 농장 계획의 열·경제 완료 기록을 공통 Assessment에 연결하는 부분 작업이다. 전체 `web-shell` 선행·`web-replay`/G1/G4 수용은 남아 기존 체크를 유지한다.
