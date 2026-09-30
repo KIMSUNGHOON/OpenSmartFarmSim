@@ -62,6 +62,12 @@ column rights/grant options, sequences, routines, and creator defaults.
 Missing global default ACL rows are evaluated with PostgreSQL's implicit
 defaults; restoring the normal PUBLIC function-execution default cannot evade
 the audit by removing the explicit catalog row.
+The column query checks current table rights and `has_any_column_privilege`
+together: allowed table rights must still cover all columns, denied rights must
+have no column grant, and any column grant option is rejected. The table check
+in that same query also catches revocation after the preceding table audit.
+This implements the existing closed matrix without caching permissions
+([PostgreSQL privilege inquiries](https://www.postgresql.org/docs/16/functions-info.html#FUNCTIONS-INFO-ACCESS-TABLE)).
 PostgreSQL 18's `MAINTAIN` is checked when supported; PostgreSQL 16 has no such
 privilege. A changed policy, new object or login binding requires an audit and
 explicit permission review. Effective rights include `PUBLIC` and role

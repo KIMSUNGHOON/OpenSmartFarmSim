@@ -163,3 +163,20 @@ G0 자료, 지역 선택 후 자동 수집, G1 승인이나 G2/G3/G4 증거가 �
 콘솔 오류 0개를 다시 확인했다. 완료 증명·계산 후보의 후속 재조회 고정,
 가짜 CLI·합성 해제라는 범위 제한은 같다. 호스팅 PostgreSQL 18.6의
 변경 후 시험 결과는 별도 확인이 필요하며 G1 수용은 보류한다.
+
+## 분리한 호스팅 CI 결과 확인 (2026-10-01)
+
+커밋 `bf53a36`의 [작성 API PostgreSQL 실행](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36721633457)은
+**75 passed in 333.39s**, 이어서 두 브라우저 시험은
+**2 passed in 251.58s**였다. 신규 등록→검토→계산→저장 Run의 첫·끝
+120시점 장면·그래프·표와 HTTPS 응답 8개를 대사했고 콘솔 오류는 0개였다.
+별도 저장 Run 재생 시험도 120시점과 콘솔 오류 0개를 확인했다.
+같은 커밋의 [전체 백엔드](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36721633374),
+[웹](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36721633379),
+[C0 Compose](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36721633560)
+워크플로도 성공 상태다.
+
+이 실행에서 앞선 브라우저 조기 종료는 재현되지 않았다. 원인이 증명되거나
+운영 지연이 수용됐다는 뜻은 아니다. 가짜 CLI·합성 권한·해제와 후속
+완료 증명/계산 후보 고정이라는 시험 경계는 유지하며 실제 CLI·독립 해제와
+전체 G1은 보류한다.

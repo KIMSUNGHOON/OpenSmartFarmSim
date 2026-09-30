@@ -193,7 +193,9 @@ def test_final_audit_failure_rolls_back_roles_and_acl_changes(role_scope, monkey
                             (policy.schema + ".jobs",)).fetchone() == before
 
 
-@pytest.mark.parametrize("fault", ["column", "membership", "grant_option", "defaults"])
+@pytest.mark.parametrize("fault", ["column", "membership", "grant_option", "defaults",
+                                 "role_column", "column_grant_option", "missing_table",
+                                 "unexpected_update"])
 def test_audit_rejects_privilege_drift(role_scope, fault):
     store, policy = role_scope
     installed(role_scope)
@@ -207,6 +209,18 @@ def test_audit_rejects_privilege_drift(role_scope, fault):
         elif fault == "grant_option":
             conn.execute(sql.SQL("GRANT INSERT ON TABLE {}.ai_decisions TO {} WITH GRANT OPTION")
                 .format(sql.Identifier(policy.schema), sql.Identifier(policy.roles["authority"])))
+        elif fault == "role_column":
+            conn.execute(sql.SQL("GRANT SELECT(input_bytes) ON TABLE {}.jobs TO {}")
+                .format(sql.Identifier(policy.schema), sql.Identifier(policy.roles["worker"])))
+        elif fault == "column_grant_option":
+            conn.execute(sql.SQL("GRANT INSERT(input_bytes) ON TABLE {}.jobs TO {} WITH GRANT OPTION")
+                .format(sql.Identifier(policy.schema), sql.Identifier(policy.roles["authority"])))
+        elif fault == "missing_table":
+            conn.execute(sql.SQL("REVOKE SELECT ON TABLE {}.jobs FROM {}")
+                .format(sql.Identifier(policy.schema), sql.Identifier(policy.roles["authority"])))
+        elif fault == "unexpected_update":
+            conn.execute(sql.SQL("GRANT UPDATE ON TABLE {}.ai_decisions TO {}")
+                .format(sql.Identifier(policy.schema), sql.Identifier(policy.roles["authority"])))
         else:
             conn.execute(sql.SQL("ALTER DEFAULT PRIVILEGES FOR ROLE {} GRANT EXECUTE ON FUNCTIONS TO PUBLIC")
                          .format(sql.Identifier(policy.owner)))
@@ -215,6 +229,36 @@ def test_audit_rejects_privilege_drift(role_scope, fault):
                 (policy.owner,)).fetchone() is None
     with store.connect() as conn, pytest.raises(RolePolicyHold):
         audit_runtime_roles(conn, policy)
+
+
+def test_table_read_revoked_between_table_and_column_checks_is_rejected(role_scope):
+    store, policy = role_scope
+    installed(role_scope)
+
+    class RevokeBeforeColumns:
+        def __init__(self, connection):
+            self.connection = connection
+            self.changed = False
+
+        def __getattr__(self, name):
+            return getattr(self.connection, name)
+
+        def execute(self, query, params=None):
+            if (not self.changed and params and params[0] == policy.roles['authority']
+                    and ('has_column_privilege' in str(query)
+                         or 'has_any_column_privilege' in str(query))):
+                self.changed = True
+                self.connection.execute(sql.SQL('REVOKE SELECT ON TABLE {}.jobs FROM {}')
+                    .format(sql.Identifier(policy.schema), sql.Identifier(policy.roles['authority'])))
+                self.connection.execute(sql.SQL('GRANT SELECT(input_bytes) ON TABLE {}.jobs TO {}')
+                    .format(sql.Identifier(policy.schema), sql.Identifier(policy.roles['authority'])))
+            return self.connection.execute(query, params)
+
+    with store.connect() as conn:
+        changed = RevokeBeforeColumns(conn)
+        with pytest.raises(RolePolicyHold, match='runtime_column_grant_matrix'):
+            audit_runtime_roles(changed, policy)
+        assert changed.changed
 
 
 @pytest.mark.parametrize("name", ["pg_bad", "bad-name", "a" * 64, "x;DROP SCHEMA public"])

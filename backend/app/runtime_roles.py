@@ -201,13 +201,15 @@ def audit_runtime_roles(conn, policy):
                or item["grantable"] for item in values):
             raise RolePolicyHold("runtime_table_grant_matrix")
         columns = conn.execute("""
-            SELECT a.attrelid AS relation_oid, p AS privilege,
-                has_column_privilege(%s,a.attrelid,a.attnum,p) AS allowed,
-                has_column_privilege(%s,a.attrelid,a.attnum,p || ' WITH GRANT OPTION') AS grantable
-            FROM pg_attribute a CROSS JOIN unnest(ARRAY['SELECT','INSERT','UPDATE','REFERENCES']) p
-            WHERE a.attrelid=ANY(%s::oid[]) AND a.attnum>0 AND NOT a.attisdropped
-        """, (role, role, list(table_names))).fetchall()
+            SELECT t.oid AS relation_oid, p AS privilege,
+                has_table_privilege(%s,t.oid,p) AS table_allowed,
+                has_any_column_privilege(%s,t.oid,p) AS allowed,
+                has_any_column_privilege(%s,t.oid,p || ' WITH GRANT OPTION') AS grantable
+            FROM unnest(%s::oid[]) t(oid)
+                CROSS JOIN unnest(ARRAY['SELECT','INSERT','UPDATE','REFERENCES']) p
+        """, (role, role, role, list(table_names))).fetchall()
         if any(item["allowed"] != _allowed(policy, kind, table_names[item["relation_oid"]], item["privilege"])
+               or item["table_allowed"] != item["allowed"]
                or item["grantable"] for item in columns):
             raise RolePolicyHold("runtime_column_grant_matrix")
         if conn.execute("""

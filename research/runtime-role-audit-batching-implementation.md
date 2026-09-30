@@ -56,3 +56,58 @@ The original runtime code digest already includes `runtime_roles.py`; new
 calculations therefore record the changed code without relaxing historical
 receipt/release boundaries. Full hosted PG18 tests and actual browser latency
 are separate verification. Large grids, operating load and G4 remain unproved.
+
+## Column audit follow-up (2026-10-01)
+
+The authored registration/re-read fixture was profiled with actual PostgreSQL
+16.15 SCRAM logins. Its unchanged baseline at `bf53a36` took **65.04s** under
+`cProfile`; **1,527** fresh role audits accounted for **48.380s** of cumulative
+time. This is a synthetic software fixture measurement, not a deployment SLA.
+
+The final column query uses `has_any_column_privilege` for each inspected table
+and each original column privilege. The closed table matrix still requires a
+whole-table grant wherever a privilege is allowed; that covers every live
+column. Any grant on a denied column remains an error, as does any grant option.
+The same column query also checks the **current table grant**, so a revocation
+between the earlier table query and the column query cannot be disguised by one
+remaining column grant. Permissions are neither cached nor assumed from an
+earlier query. Extra relations and the other audit predicates remain inspected.
+This equivalence within the existing closed matrix is an implementation
+inference from PostgreSQL's [privilege inquiry semantics](https://www.postgresql.org/docs/16/functions-info.html#FUNCTIONS-INFO-ACCESS-TABLE)
+and the following real grant tests.
+
+A new injected mid-audit revocation test first failed because the intermediate
+implementation accepted a remaining `input_bytes` column grant after revoking
+the whole-table read. The same-query table check corrected that failure. Added
+cases also reject a known-role column grant, column grant option, missing table
+grant and unexpected UPDATE grant.
+
+The original audit function from `bf53a36` and the final function were measured
+alternately three times against the **same** SCRAM connection and policy; their
+returned audit metadata matched. SQL statement counts were unchanged.
+
+| Variant | Three measurements (seconds) | Median | SQL statements |
+| --- | --- | --- | --- |
+| Baseline | 0.025126, 0.020334, 0.018879 | 0.020334 | 30, 30, 30 |
+| Final column inquiry with current table check | 0.013036, 0.011383, 0.012405 | 0.012405 | 30, 30, 30 |
+
+The median decreased by about **39%**, and the three sample ranges did not
+overlap. This measures audit cost only; end-user request latency is not inferred
+from this small fixture. The tracked runtime-role/login, farm authoring,
+round-trip budget, market-runtime and routine-revocation suites plus the
+temporary comparison test passed **93 cases in 145.67s**. The standalone tracked
+budget test measured 30 statements on each of three audits and a 0.013091s
+median. No new wall-clock threshold was added.
+
+### Attempt ledger
+
+| Attempt | Measurement | Decision |
+| --- | --- | --- |
+| Move the existing full privilege matrices into SQL filters | Same profiled fixture: 65.04s → 65.09s | Reverted; no measured improvement |
+| Use any-column inquiries without rechecking table rights in the column query | Same profiled fixture: 46.76s; injected revocation test failed | Replaced; correctness failure |
+| Use any-column inquiries and current table rights in the same query | Same-connection median: 0.020334s → 0.012405s; 93 tests passed | Retained |
+
+The final change still requires hosted PostgreSQL 18 CI verification. The
+different code digest is recorded for new calculations; historical receipts
+and releases are not rewritten. Actual product CLI, independent G1 release,
+operating load and G4 remain separate holds.
