@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**작성 농장 입력 HTTP 후보 (2026-09-30):** [계약](../contracts/api-farm-authoring-v1.md)은 기존 불변 입력 서비스를 인증 POST/GET과 표준 HTTPS 조립에 연결한다([로컬 검증 기록](../research/api-farm-authoring-implementation.md)). OpenAPI·권한 경계의 로컬 검사는 통과했으나, 실제 SCRAM 접수/재조회 시험은 CI 확인 대기 중이다. 브라우저 작성 폼·제품 CLI·독립 검토/해제·전체 G1은 계속 보류다.
+
 **작성 Run 인증 읽기 후보 (2026-09-30):** [계약](../contracts/api-authored-thermal-run-v1.md)은 완료 작업의 게시/입력 결속과 별도 작성 Run의 120시점 열 값을 내부 인증 API에서 읽는다([집중 시험](../research/api-authored-thermal-run-implementation.md)). 검토 근거의 읽기 재검사에서 불필요한 검토 생성 권한을 제거했다. 실제 제품 CLI·독립 해제, 표준 HTTPS 조립·브라우저 작성 3D와 전체 G1은 계속 보류다.
 
 **작성 입력 독립 해제·Run 준비 후보 (2026-09-30):** [접수 계약](../contracts/farm-authored-review-v1.md)은 저장된 농장 판본·현재 원천/권한과 120단계 계산의 두 결과 해시를 변경 불가 `collection_review` 작업으로 묶는다([검증](../research/farm-authored-review-implementation.md)). [완료 검증 계약](../contracts/farm-authored-review-completion-v1.md)은 저장된 결정·CLI 캡처와 서명 실행 증거를 대사한다([시험](../research/farm-authored-review-completion-implementation.md)). [해제 검증 계약](../contracts/farm-authored-release-v1.md)은 현재 코드/잠금·완료 증명과 별도 검토자 서명·보고서 원문을 검사한다([시험](../research/farm-authored-release-implementation.md)). [영속 저장 계약](../contracts/farm-authored-release-store-v1.md)은 합성 서명 패킷의 실제 SCRAM 보존·불변성과 선택적 권한 분리를 검증했다([시험](../research/farm-authored-release-store-implementation.md)). [Run 준비 계약](../contracts/farm-authored-run-preparation-v1.md)은 현재 해제·작성 입력을 재검사해 최종 두 궤적의 ID/해시/이어짐을 계산한다([시험](../research/farm-authored-run-preparation-implementation.md)). 준비 바이트는 미게시다. 운영 조립·실제 제품 CLI·독립 검토/해제 발급·원자 Run 게시·작성 입력 3D 연결과 전체 G1은 미수용이다.

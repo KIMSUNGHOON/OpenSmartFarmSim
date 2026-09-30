@@ -15,11 +15,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app.api import create_app
 from app.api_contracts import LocationPoint
 from app.api_authored_thermal import AUTHORED_READ_SCOPES
+from app.farm_authoring_storage import READ_SCOPES as FARM_AUTHORING_READ_SCOPES, WRITE_SCOPES as FARM_AUTHORING_WRITE_SCOPES
 from app import api_openapi
 from test_http_identity import request
 
 
 OPERATIONS = {
+    ('/v1/farm-authored-inputs','post'): ('registerFarmAuthoredInputs',list(FARM_AUTHORING_WRITE_SCOPES)),
+    ('/v1/farm-authored-inputs','get'): ('getFarmAuthoredInputs',list(FARM_AUTHORING_READ_SCOPES)),
     ('/v1/jobs/{job_id}/authored-run', 'get'): ('getJobAuthoredRun', list(AUTHORED_READ_SCOPES)),
     ('/v1/authored-runs/{run_id}', 'get'): ('getAuthoredRun', list(AUTHORED_READ_SCOPES)),
     ('/v1/authored-runs/{run_id}/series', 'get'): ('getAuthoredRunSeries', list(AUTHORED_READ_SCOPES)),
@@ -117,6 +120,7 @@ def test_snapshot_matches_actual_routes_and_public_protocol():
         operations[("/v1/jobs/{job_id}/run", "get")]["x-ossf-conditional-scopes"]['thermal-simulation-result-v3'] +
         ['collection_read','collection_review_create','thermal_snapshot_write']}
     assert submission['x-ossf-max-body-bytes'] == 4096
+    assert operations[('/v1/farm-authored-inputs','post')]['x-ossf-max-body-bytes'] == 65536
     farm_economic_scopes = operations[("/v1/jobs/{job_id}/run", "get")]["x-ossf-conditional-scopes"]['thermal-simulation-result-v3'] + ['thermal_run_read']
     for operation,version in ((('/v1/economic-results','post'),'economic-calculation-input-v2'),
             (('/v1/jobs/{job_id}/economic-result','get'),'economic-calculation-input-v2'),
@@ -179,7 +183,7 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
     for missing in scopes:
         principal["scopes"] = set(scopes)-{missing}
         status, body, _ = asyncio.run(request(app, path=path, method=method.upper(),
-            query=(b'scenario_id=example&scenario_revision=r1' if path in ('/v1/scenarios','/v1/farm-scenarios')
+            query=(b'scenario_id=example&scenario_revision=r1' if path in ('/v1/scenarios','/v1/farm-scenarios','/v1/farm-authored-inputs')
                 else b'plan_id=example&submission_sha256='+b'a'*64 if path == '/v1/break-even-plans/receipt'
                 else b'kind=economic_input' if path == '/v1/market-user-sources'
                 else b'kind=economic_input&record_id=example&revision=r1' if path == '/v1/market-user-sources/record'

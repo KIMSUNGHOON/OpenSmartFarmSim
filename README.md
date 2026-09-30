@@ -23,6 +23,7 @@
 [작성 simulation 접수 후보](contracts/farm-authored-simulation-v1.md)는 현재 작성 입력·서명 해제·최종 궤적을 다시 확인하고 동일 요청을 변경 불가 작업 하나로 등록합니다([시험 기록](research/farm-authored-simulation-implementation.md)).
 [작성 simulation 작업자 후보](contracts/farm-authored-simulation-worker-v1.md)는 임대한 작업의 Run·영수증·완료를 같은 거래에서 게시하고, 취소·만료·오류 때 부분 Run을 되돌립니다([SCRAM 시험](research/farm-authored-simulation-worker-implementation.md)). 현재 시험은 가짜 CLI와 합성 해제를 사용합니다. 작성 입력 API·3D와 실제 제품 CLI·독립 해제/G1은 남아 있습니다.
 [작성 Run 조회 API 후보](contracts/api-authored-thermal-run-v1.md)는 완료 작업과 별도 작성 Run ID를 인증된 요약·120시점 열 응답에 연결합니다([시험 기록](research/api-authored-thermal-run-implementation.md)). [작성 Run 3D 화면 후보](contracts/web-authored-thermal-replay-v1.md)는 브라우저의 실제 3D·그래프·표를 같은 저장 시점에 연결하고 합성 응답으로 확인했습니다([화면 캡처](research/artifacts/authored-thermal-replay-desktop.png), [검증 기록](research/web-authored-thermal-replay-implementation.md)). [표준 HTTPS 작성 Run 조립 후보](contracts/api-runtime-authored-run-v1.md)를 추가했으며 실제 저장 Run HTTPS 시험은 CI 확인 대기 중입니다. 브라우저와 표준 서버의 전체 연결·실제 제품 CLI·독립 해제/G1은 남아 있습니다.
+[작성 농장 입력 API 후보](contracts/api-farm-authoring-v1.md)는 기존 불변 입력 등록부에 인증된 등록·재조회 경로를 추가합니다. 합성 자료의 권리와 입력 연결을 현재 시점에 다시 검사하며, 등록 자체는 계산 완료나 작물 추천을 뜻하지 않습니다.
 
 ## 문서 읽는 순서
 

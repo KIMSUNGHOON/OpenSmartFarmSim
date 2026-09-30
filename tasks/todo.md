@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**작성 농장 입력 API 진행 (2026-09-30):** [계약](../contracts/api-farm-authoring-v1.md)의 인증 접수·재조회와 표준 런타임 조립을 추가했다. OpenAPI/권한 로컬 검사는 통과했고 실제 SCRAM 시험은 CI 확인 대기 중이다. 사용자가 직접 쓰는 작성 폼, 실제 제품 CLI와 독립 G1 수용 체크는 유지한다.
+
 **작성 Run 표준 HTTPS 조립 진행 (2026-09-30):** [조립 계약](../contracts/api-runtime-authored-run-v1.md)에 운영자 제공 저장소·별도 키를 기존 작업/농장 서비스에 묶는 선택 경로를 추가했다. 로컬 단위 검사는 통과했고 [실제 저장 Run→HTTPS→브라우저 명시 시험](../backend/tests/web_authored_thermal_replay_smoke.py)을 CI에 추가했다. SCRAM/HTTPS/브라우저 결과는 CI 확인 대기 중이며 제품 CLI·독립 G1 체크는 유지한다.
 
 **작성 3D 브라우저 연결 진행 (2026-09-30):** [화면 계약](../contracts/web-authored-thermal-replay-v1.md)은 작성 Run의 120시점을 실제 WebGL·그래프·표·요약에 연결했고 [합성 브라우저 시험](../research/web-authored-thermal-replay-implementation.md)을 통과했다. 표준 HTTPS 조립·실제 제품 CLI·독립 해제/G1·전체 `web-replay` 수용은 남아 체크를 유지한다.

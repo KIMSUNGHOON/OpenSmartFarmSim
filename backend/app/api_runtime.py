@@ -107,6 +107,7 @@ class ApiRuntime:
     research: LocationResearchService | OwnedResearchService = field(repr=False)
     assessments: CalculationAssessmentService | None = field(repr=False)
     farm_scenarios: FarmReplayScenarioService | None = field(repr=False)
+    farm_authoring: FarmAuthoringService | None = field(repr=False)
     authored_runs: AuthoredRunStore | None = field(repr=False)
 
     def __init__(self, config, dependencies):
@@ -158,6 +159,8 @@ class ApiRuntime:
             farm_scenarios = (FarmReplayScenarioService(jobs, scenarios, candidates, dependencies.research_registry,
                 research if type(research) is OwnedResearchService else None)
                 if scenarios is not None and source_admission is not None else None)
+            farm_authoring = (FarmAuthoringService(farm_scenarios)
+                if farm_scenarios is not None and farm_scenarios.owned_research is not None else None)
             assessments = (CalculationAssessmentService(jobs, thermal, results, scenarios, farm_scenarios)
                 if source_admission is not None else None)
             economic_calculations = (EconomicCalculationService(jobs, results, farm_scenarios)
@@ -192,7 +195,7 @@ class ApiRuntime:
                 break_even_plan_service=break_even_plans, break_even_job_result_service=break_even_job_results,
                 collection_service=collections, owned_collection_review_service=collection_reviews,
                 assessment_service=assessments, farm_scenario_service=farm_scenarios,
-                authored_run_store=authored_runs)
+                authored_run_store=authored_runs, farm_authoring_service=farm_authoring)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -202,5 +205,6 @@ class ApiRuntime:
                 ('market_results', results), ('break_even', break_even), ('thermal_scenarios', scenarios),
                 ('collections', collections), ('collection_reviews', collection_reviews), ('research', research),
                 ('assessments', assessments), ('farm_scenarios', farm_scenarios),
+                ('farm_authoring', farm_authoring),
                 ('authored_runs', authored_runs)):
             object.__setattr__(self, name, value)

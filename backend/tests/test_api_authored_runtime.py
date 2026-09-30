@@ -90,6 +90,8 @@ def test_standard_https_reads_owned_authored_run_and_holds_stale_evidence(
     assert seen == [(runtime.jobs, runtime.farm_scenarios)]
     assert runtime.authored_runs.jobs is runtime.jobs
     assert runtime.authored_runs.preparer.authoring.replay is runtime.farm_scenarios
+    assert type(runtime.farm_authoring) is FarmAuthoringService
+    assert runtime.farm_authoring.replay is runtime.farm_scenarios
     server = runtime.service.server()
     thread = threading.Thread(target=server.run, daemon=True)
     thread.start()

@@ -1735,6 +1735,63 @@
         "title": "ErrorEnvelope",
         "type": "object"
       },
+      "FarmAuthoringSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "farm_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Farm Sha256",
+            "type": "string"
+          },
+          "intent_job": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "numeric_input_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Numeric Input Sha256",
+            "type": "string"
+          },
+          "registration_status": {
+            "const": "registered_unpublished_inputs",
+            "title": "Registration Status",
+            "type": "string"
+          },
+          "rights_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Rights Sha256",
+            "type": "string"
+          },
+          "scenario_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "scenario_revision": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Revision",
+            "type": "string"
+          },
+          "scenario_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Scenario Sha256",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "scenario_revision",
+          "scenario_sha256",
+          "farm_sha256",
+          "numeric_input_sha256",
+          "rights_sha256",
+          "registration_status",
+          "intent_job"
+        ],
+        "title": "FarmAuthoringSummary",
+        "type": "object"
+      },
       "FarmReplayScenarioSummary": {
         "additionalProperties": false,
         "properties": {
@@ -5936,6 +5993,2241 @@
           "market_candidate_write",
           "decision_context_read",
           "market_hold_context_read"
+        ]
+      }
+    },
+    "/v1/farm-authored-inputs": {
+      "get": {
+        "operationId": "getFarmAuthoredInputs",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "scenario_id",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Scenario Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "scenario_revision",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Scenario Revision",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FarmAuthoringSummary"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Farm Authored Inputs",
+        "x-ossf-required-scopes": [
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read"
+        ]
+      },
+      "post": {
+        "operationId": "registerFarmAuthoredInputs",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "farm": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "constraints": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "capex_ceiling": {
+                            "anyOf": [
+                              {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "available_at": {
+                                    "format": "date-time",
+                                    "title": "Available At",
+                                    "type": "string"
+                                  },
+                                  "evidence_level": {
+                                    "const": "assumed",
+                                    "title": "Evidence Level",
+                                    "type": "string"
+                                  },
+                                  "input_id": {
+                                    "maxLength": 200,
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                    "title": "Input Id",
+                                    "type": "string"
+                                  },
+                                  "origin": {
+                                    "const": "user",
+                                    "title": "Origin",
+                                    "type": "string"
+                                  },
+                                  "revision": {
+                                    "maxLength": 200,
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                    "title": "Revision",
+                                    "type": "string"
+                                  },
+                                  "source_ref": {
+                                    "maxLength": 200,
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                    "title": "Source Ref",
+                                    "type": "string"
+                                  },
+                                  "unit": {
+                                    "enum": [
+                                      "m²",
+                                      "m³",
+                                      "J/K",
+                                      "kg_da",
+                                      "W/K",
+                                      "1",
+                                      "K",
+                                      "kg_v/kg_da",
+                                      "W_th",
+                                      "kg_da/s",
+                                      "kg_v/s",
+                                      "W",
+                                      "KRW"
+                                    ],
+                                    "title": "Unit",
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "maxLength": 64,
+                                    "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                    "title": "Value",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "input_id",
+                                  "revision",
+                                  "source_ref",
+                                  "origin",
+                                  "evidence_level",
+                                  "available_at",
+                                  "value",
+                                  "unit"
+                                ],
+                                "title": "FarmQuantity",
+                                "type": "object"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "minimum_cash": {
+                            "anyOf": [
+                              {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "available_at": {
+                                    "format": "date-time",
+                                    "title": "Available At",
+                                    "type": "string"
+                                  },
+                                  "evidence_level": {
+                                    "const": "assumed",
+                                    "title": "Evidence Level",
+                                    "type": "string"
+                                  },
+                                  "input_id": {
+                                    "maxLength": 200,
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                    "title": "Input Id",
+                                    "type": "string"
+                                  },
+                                  "origin": {
+                                    "const": "user",
+                                    "title": "Origin",
+                                    "type": "string"
+                                  },
+                                  "revision": {
+                                    "maxLength": 200,
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                    "title": "Revision",
+                                    "type": "string"
+                                  },
+                                  "source_ref": {
+                                    "maxLength": 200,
+                                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                    "title": "Source Ref",
+                                    "type": "string"
+                                  },
+                                  "unit": {
+                                    "enum": [
+                                      "m²",
+                                      "m³",
+                                      "J/K",
+                                      "kg_da",
+                                      "W/K",
+                                      "1",
+                                      "K",
+                                      "kg_v/kg_da",
+                                      "W_th",
+                                      "kg_da/s",
+                                      "kg_v/s",
+                                      "W",
+                                      "KRW"
+                                    ],
+                                    "title": "Unit",
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "maxLength": 64,
+                                    "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                    "title": "Value",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "input_id",
+                                  "revision",
+                                  "source_ref",
+                                  "origin",
+                                  "evidence_level",
+                                  "available_at",
+                                  "value",
+                                  "unit"
+                                ],
+                                "title": "FarmQuantity",
+                                "type": "object"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "capex_ceiling",
+                          "minimum_cash"
+                        ],
+                        "title": "FarmConstraints",
+                        "type": "object"
+                      },
+                      "crops": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "area": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "available_at": {
+                                  "format": "date-time",
+                                  "title": "Available At",
+                                  "type": "string"
+                                },
+                                "evidence_level": {
+                                  "const": "assumed",
+                                  "title": "Evidence Level",
+                                  "type": "string"
+                                },
+                                "input_id": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Input Id",
+                                  "type": "string"
+                                },
+                                "origin": {
+                                  "const": "user",
+                                  "title": "Origin",
+                                  "type": "string"
+                                },
+                                "revision": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Revision",
+                                  "type": "string"
+                                },
+                                "source_ref": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Source Ref",
+                                  "type": "string"
+                                },
+                                "unit": {
+                                  "enum": [
+                                    "m²",
+                                    "m³",
+                                    "J/K",
+                                    "kg_da",
+                                    "W/K",
+                                    "1",
+                                    "K",
+                                    "kg_v/kg_da",
+                                    "W_th",
+                                    "kg_da/s",
+                                    "kg_v/s",
+                                    "W",
+                                    "KRW"
+                                  ],
+                                  "title": "Unit",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "maxLength": 64,
+                                  "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                  "title": "Value",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "input_id",
+                                "revision",
+                                "source_ref",
+                                "origin",
+                                "evidence_level",
+                                "available_at",
+                                "value",
+                                "unit"
+                              ],
+                              "title": "FarmQuantity",
+                              "type": "object"
+                            },
+                            "batch_id": {
+                              "maxLength": 200,
+                              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                              "title": "Batch Id",
+                              "type": "string"
+                            },
+                            "channels": {
+                              "items": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "type": "string"
+                              },
+                              "maxItems": 32,
+                              "minItems": 1,
+                              "title": "Channels",
+                              "type": "array"
+                            },
+                            "collection_window": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "end": {
+                                  "format": "date-time",
+                                  "title": "End",
+                                  "type": "string"
+                                },
+                                "start": {
+                                  "format": "date-time",
+                                  "title": "Start",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "start",
+                                "end"
+                              ],
+                              "title": "Window",
+                              "type": "object"
+                            },
+                            "crop_id": {
+                              "maxLength": 200,
+                              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                              "title": "Crop Id",
+                              "type": "string"
+                            },
+                            "grades": {
+                              "items": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "type": "string"
+                              },
+                              "maxItems": 32,
+                              "minItems": 1,
+                              "title": "Grades",
+                              "type": "array"
+                            },
+                            "harvest_window": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "end": {
+                                  "format": "date-time",
+                                  "title": "End",
+                                  "type": "string"
+                                },
+                                "start": {
+                                  "format": "date-time",
+                                  "title": "Start",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "start",
+                                "end"
+                              ],
+                              "title": "Window",
+                              "type": "object"
+                            },
+                            "occupancy": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "end": {
+                                  "format": "date-time",
+                                  "title": "End",
+                                  "type": "string"
+                                },
+                                "start": {
+                                  "format": "date-time",
+                                  "title": "Start",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "start",
+                                "end"
+                              ],
+                              "title": "Window",
+                              "type": "object"
+                            },
+                            "profile_status": {
+                              "const": "unavailable",
+                              "title": "Profile Status",
+                              "type": "string"
+                            },
+                            "provenance": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "available_at": {
+                                  "format": "date-time",
+                                  "title": "Available At",
+                                  "type": "string"
+                                },
+                                "evidence_level": {
+                                  "const": "assumed",
+                                  "title": "Evidence Level",
+                                  "type": "string"
+                                },
+                                "input_id": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Input Id",
+                                  "type": "string"
+                                },
+                                "origin": {
+                                  "const": "user",
+                                  "title": "Origin",
+                                  "type": "string"
+                                },
+                                "revision": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Revision",
+                                  "type": "string"
+                                },
+                                "source_ref": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Source Ref",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "input_id",
+                                "revision",
+                                "source_ref",
+                                "origin",
+                                "evidence_level",
+                                "available_at"
+                              ],
+                              "title": "UserEvidence",
+                              "type": "object"
+                            },
+                            "release_at": {
+                              "format": "date-time",
+                              "title": "Release At",
+                              "type": "string"
+                            },
+                            "sales_window": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "end": {
+                                  "format": "date-time",
+                                  "title": "End",
+                                  "type": "string"
+                                },
+                                "start": {
+                                  "format": "date-time",
+                                  "title": "Start",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "start",
+                                "end"
+                              ],
+                              "title": "Window",
+                              "type": "object"
+                            },
+                            "species": {
+                              "maxLength": 200,
+                              "title": "Species",
+                              "type": "string"
+                            },
+                            "variety": {
+                              "maxLength": 200,
+                              "title": "Variety",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "crop_id",
+                            "batch_id",
+                            "species",
+                            "variety",
+                            "profile_status",
+                            "provenance",
+                            "area",
+                            "occupancy",
+                            "release_at",
+                            "harvest_window",
+                            "sales_window",
+                            "collection_window",
+                            "grades",
+                            "channels"
+                          ],
+                          "title": "Cultivation",
+                          "type": "object"
+                        },
+                        "maxItems": 32,
+                        "title": "Crops",
+                        "type": "array"
+                      },
+                      "decision_at": {
+                        "format": "date-time",
+                        "title": "Decision At",
+                        "type": "string"
+                      },
+                      "decision_context_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Decision Context Id",
+                        "type": "string"
+                      },
+                      "economic": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "candidate_id": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "title": "Candidate Id",
+                            "type": "string"
+                          },
+                          "revision": {
+                            "maxLength": 200,
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                            "title": "Revision",
+                            "type": "string"
+                          },
+                          "scenario_id": {
+                            "maxLength": 200,
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                            "title": "Scenario Id",
+                            "type": "string"
+                          },
+                          "sha256": {
+                            "pattern": "^[0-9a-f]{64}$",
+                            "title": "Sha256",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "scenario_id",
+                          "revision",
+                          "sha256",
+                          "candidate_id"
+                        ],
+                        "title": "FarmEconomicPin",
+                        "type": "object"
+                      },
+                      "facility": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "absorbed_solar_fraction": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "available_at": {
+                                "format": "date-time",
+                                "title": "Available At",
+                                "type": "string"
+                              },
+                              "evidence_level": {
+                                "const": "assumed",
+                                "title": "Evidence Level",
+                                "type": "string"
+                              },
+                              "input_id": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Input Id",
+                                "type": "string"
+                              },
+                              "origin": {
+                                "const": "user",
+                                "title": "Origin",
+                                "type": "string"
+                              },
+                              "revision": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Revision",
+                                "type": "string"
+                              },
+                              "source_ref": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Source Ref",
+                                "type": "string"
+                              },
+                              "unit": {
+                                "enum": [
+                                  "m²",
+                                  "m³",
+                                  "J/K",
+                                  "kg_da",
+                                  "W/K",
+                                  "1",
+                                  "K",
+                                  "kg_v/kg_da",
+                                  "W_th",
+                                  "kg_da/s",
+                                  "kg_v/s",
+                                  "W",
+                                  "KRW"
+                                ],
+                                "title": "Unit",
+                                "type": "string"
+                              },
+                              "value": {
+                                "maxLength": 64,
+                                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                "title": "Value",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "input_id",
+                              "revision",
+                              "source_ref",
+                              "origin",
+                              "evidence_level",
+                              "available_at",
+                              "value",
+                              "unit"
+                            ],
+                            "title": "FarmQuantity",
+                            "type": "object"
+                          },
+                          "cultivable_area": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "available_at": {
+                                "format": "date-time",
+                                "title": "Available At",
+                                "type": "string"
+                              },
+                              "evidence_level": {
+                                "const": "assumed",
+                                "title": "Evidence Level",
+                                "type": "string"
+                              },
+                              "input_id": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Input Id",
+                                "type": "string"
+                              },
+                              "origin": {
+                                "const": "user",
+                                "title": "Origin",
+                                "type": "string"
+                              },
+                              "revision": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Revision",
+                                "type": "string"
+                              },
+                              "source_ref": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Source Ref",
+                                "type": "string"
+                              },
+                              "unit": {
+                                "enum": [
+                                  "m²",
+                                  "m³",
+                                  "J/K",
+                                  "kg_da",
+                                  "W/K",
+                                  "1",
+                                  "K",
+                                  "kg_v/kg_da",
+                                  "W_th",
+                                  "kg_da/s",
+                                  "kg_v/s",
+                                  "W",
+                                  "KRW"
+                                ],
+                                "title": "Unit",
+                                "type": "string"
+                              },
+                              "value": {
+                                "maxLength": 64,
+                                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                "title": "Value",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "input_id",
+                              "revision",
+                              "source_ref",
+                              "origin",
+                              "evidence_level",
+                              "available_at",
+                              "value",
+                              "unit"
+                            ],
+                            "title": "FarmQuantity",
+                            "type": "object"
+                          },
+                          "decision_basis": {
+                            "enum": [
+                              "new_facility",
+                              "existing_facility_crop_change"
+                            ],
+                            "title": "Decision Basis",
+                            "type": "string"
+                          },
+                          "dry_air_mass": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "available_at": {
+                                "format": "date-time",
+                                "title": "Available At",
+                                "type": "string"
+                              },
+                              "evidence_level": {
+                                "const": "assumed",
+                                "title": "Evidence Level",
+                                "type": "string"
+                              },
+                              "input_id": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Input Id",
+                                "type": "string"
+                              },
+                              "origin": {
+                                "const": "user",
+                                "title": "Origin",
+                                "type": "string"
+                              },
+                              "revision": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Revision",
+                                "type": "string"
+                              },
+                              "source_ref": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Source Ref",
+                                "type": "string"
+                              },
+                              "unit": {
+                                "enum": [
+                                  "m²",
+                                  "m³",
+                                  "J/K",
+                                  "kg_da",
+                                  "W/K",
+                                  "1",
+                                  "K",
+                                  "kg_v/kg_da",
+                                  "W_th",
+                                  "kg_da/s",
+                                  "kg_v/s",
+                                  "W",
+                                  "KRW"
+                                ],
+                                "title": "Unit",
+                                "type": "string"
+                              },
+                              "value": {
+                                "maxLength": 64,
+                                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                "title": "Value",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "input_id",
+                              "revision",
+                              "source_ref",
+                              "origin",
+                              "evidence_level",
+                              "available_at",
+                              "value",
+                              "unit"
+                            ],
+                            "title": "FarmQuantity",
+                            "type": "object"
+                          },
+                          "effective_heat_capacity": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "available_at": {
+                                "format": "date-time",
+                                "title": "Available At",
+                                "type": "string"
+                              },
+                              "evidence_level": {
+                                "const": "assumed",
+                                "title": "Evidence Level",
+                                "type": "string"
+                              },
+                              "input_id": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Input Id",
+                                "type": "string"
+                              },
+                              "origin": {
+                                "const": "user",
+                                "title": "Origin",
+                                "type": "string"
+                              },
+                              "revision": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Revision",
+                                "type": "string"
+                              },
+                              "source_ref": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Source Ref",
+                                "type": "string"
+                              },
+                              "unit": {
+                                "enum": [
+                                  "m²",
+                                  "m³",
+                                  "J/K",
+                                  "kg_da",
+                                  "W/K",
+                                  "1",
+                                  "K",
+                                  "kg_v/kg_da",
+                                  "W_th",
+                                  "kg_da/s",
+                                  "kg_v/s",
+                                  "W",
+                                  "KRW"
+                                ],
+                                "title": "Unit",
+                                "type": "string"
+                              },
+                              "value": {
+                                "maxLength": 64,
+                                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                "title": "Value",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "input_id",
+                              "revision",
+                              "source_ref",
+                              "origin",
+                              "evidence_level",
+                              "available_at",
+                              "value",
+                              "unit"
+                            ],
+                            "title": "FarmQuantity",
+                            "type": "object"
+                          },
+                          "envelope_conductance": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "available_at": {
+                                "format": "date-time",
+                                "title": "Available At",
+                                "type": "string"
+                              },
+                              "evidence_level": {
+                                "const": "assumed",
+                                "title": "Evidence Level",
+                                "type": "string"
+                              },
+                              "input_id": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Input Id",
+                                "type": "string"
+                              },
+                              "origin": {
+                                "const": "user",
+                                "title": "Origin",
+                                "type": "string"
+                              },
+                              "revision": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Revision",
+                                "type": "string"
+                              },
+                              "source_ref": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Source Ref",
+                                "type": "string"
+                              },
+                              "unit": {
+                                "enum": [
+                                  "m²",
+                                  "m³",
+                                  "J/K",
+                                  "kg_da",
+                                  "W/K",
+                                  "1",
+                                  "K",
+                                  "kg_v/kg_da",
+                                  "W_th",
+                                  "kg_da/s",
+                                  "kg_v/s",
+                                  "W",
+                                  "KRW"
+                                ],
+                                "title": "Unit",
+                                "type": "string"
+                              },
+                              "value": {
+                                "maxLength": 64,
+                                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                "title": "Value",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "input_id",
+                              "revision",
+                              "source_ref",
+                              "origin",
+                              "evidence_level",
+                              "available_at",
+                              "value",
+                              "unit"
+                            ],
+                            "title": "FarmQuantity",
+                            "type": "object"
+                          },
+                          "facility_type": {
+                            "const": "single_zone_greenhouse",
+                            "title": "Facility Type",
+                            "type": "string"
+                          },
+                          "floor_area": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "available_at": {
+                                "format": "date-time",
+                                "title": "Available At",
+                                "type": "string"
+                              },
+                              "evidence_level": {
+                                "const": "assumed",
+                                "title": "Evidence Level",
+                                "type": "string"
+                              },
+                              "input_id": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Input Id",
+                                "type": "string"
+                              },
+                              "origin": {
+                                "const": "user",
+                                "title": "Origin",
+                                "type": "string"
+                              },
+                              "revision": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Revision",
+                                "type": "string"
+                              },
+                              "source_ref": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Source Ref",
+                                "type": "string"
+                              },
+                              "unit": {
+                                "enum": [
+                                  "m²",
+                                  "m³",
+                                  "J/K",
+                                  "kg_da",
+                                  "W/K",
+                                  "1",
+                                  "K",
+                                  "kg_v/kg_da",
+                                  "W_th",
+                                  "kg_da/s",
+                                  "kg_v/s",
+                                  "W",
+                                  "KRW"
+                                ],
+                                "title": "Unit",
+                                "type": "string"
+                              },
+                              "value": {
+                                "maxLength": 64,
+                                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                "title": "Value",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "input_id",
+                              "revision",
+                              "source_ref",
+                              "origin",
+                              "evidence_level",
+                              "available_at",
+                              "value",
+                              "unit"
+                            ],
+                            "title": "FarmQuantity",
+                            "type": "object"
+                          },
+                          "indoor_volume": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "available_at": {
+                                "format": "date-time",
+                                "title": "Available At",
+                                "type": "string"
+                              },
+                              "evidence_level": {
+                                "const": "assumed",
+                                "title": "Evidence Level",
+                                "type": "string"
+                              },
+                              "input_id": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Input Id",
+                                "type": "string"
+                              },
+                              "origin": {
+                                "const": "user",
+                                "title": "Origin",
+                                "type": "string"
+                              },
+                              "revision": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Revision",
+                                "type": "string"
+                              },
+                              "source_ref": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Source Ref",
+                                "type": "string"
+                              },
+                              "unit": {
+                                "enum": [
+                                  "m²",
+                                  "m³",
+                                  "J/K",
+                                  "kg_da",
+                                  "W/K",
+                                  "1",
+                                  "K",
+                                  "kg_v/kg_da",
+                                  "W_th",
+                                  "kg_da/s",
+                                  "kg_v/s",
+                                  "W",
+                                  "KRW"
+                                ],
+                                "title": "Unit",
+                                "type": "string"
+                              },
+                              "value": {
+                                "maxLength": 64,
+                                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                "title": "Value",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "input_id",
+                              "revision",
+                              "source_ref",
+                              "origin",
+                              "evidence_level",
+                              "available_at",
+                              "value",
+                              "unit"
+                            ],
+                            "title": "FarmQuantity",
+                            "type": "object"
+                          },
+                          "provenance": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "available_at": {
+                                "format": "date-time",
+                                "title": "Available At",
+                                "type": "string"
+                              },
+                              "evidence_level": {
+                                "const": "assumed",
+                                "title": "Evidence Level",
+                                "type": "string"
+                              },
+                              "input_id": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Input Id",
+                                "type": "string"
+                              },
+                              "origin": {
+                                "const": "user",
+                                "title": "Origin",
+                                "type": "string"
+                              },
+                              "revision": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Revision",
+                                "type": "string"
+                              },
+                              "source_ref": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Source Ref",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "input_id",
+                              "revision",
+                              "source_ref",
+                              "origin",
+                              "evidence_level",
+                              "available_at"
+                            ],
+                            "title": "UserEvidence",
+                            "type": "object"
+                          },
+                          "tenure": {
+                            "enum": [
+                              "owned",
+                              "leased",
+                              "unknown"
+                            ],
+                            "title": "Tenure",
+                            "type": "string"
+                          },
+                          "zone_id": {
+                            "maxLength": 200,
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                            "title": "Zone Id",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "zone_id",
+                          "facility_type",
+                          "tenure",
+                          "decision_basis",
+                          "provenance",
+                          "floor_area",
+                          "cultivable_area",
+                          "indoor_volume",
+                          "effective_heat_capacity",
+                          "dry_air_mass",
+                          "envelope_conductance",
+                          "absorbed_solar_fraction"
+                        ],
+                        "title": "FarmFacility",
+                        "type": "object"
+                      },
+                      "forcing": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "canopy_evaporation": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "available_at": {
+                                  "format": "date-time",
+                                  "title": "Available At",
+                                  "type": "string"
+                                },
+                                "evidence_level": {
+                                  "const": "assumed",
+                                  "title": "Evidence Level",
+                                  "type": "string"
+                                },
+                                "input_id": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Input Id",
+                                  "type": "string"
+                                },
+                                "origin": {
+                                  "const": "user",
+                                  "title": "Origin",
+                                  "type": "string"
+                                },
+                                "revision": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Revision",
+                                  "type": "string"
+                                },
+                                "source_ref": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Source Ref",
+                                  "type": "string"
+                                },
+                                "unit": {
+                                  "enum": [
+                                    "m²",
+                                    "m³",
+                                    "J/K",
+                                    "kg_da",
+                                    "W/K",
+                                    "1",
+                                    "K",
+                                    "kg_v/kg_da",
+                                    "W_th",
+                                    "kg_da/s",
+                                    "kg_v/s",
+                                    "W",
+                                    "KRW"
+                                  ],
+                                  "title": "Unit",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "maxLength": 64,
+                                  "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                  "title": "Value",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "input_id",
+                                "revision",
+                                "source_ref",
+                                "origin",
+                                "evidence_level",
+                                "available_at",
+                                "value",
+                                "unit"
+                              ],
+                              "title": "FarmQuantity",
+                              "type": "object"
+                            },
+                            "end": {
+                              "format": "date-time",
+                              "title": "End",
+                              "type": "string"
+                            },
+                            "ground_heat_flow": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "available_at": {
+                                  "format": "date-time",
+                                  "title": "Available At",
+                                  "type": "string"
+                                },
+                                "evidence_level": {
+                                  "const": "assumed",
+                                  "title": "Evidence Level",
+                                  "type": "string"
+                                },
+                                "input_id": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Input Id",
+                                  "type": "string"
+                                },
+                                "origin": {
+                                  "const": "user",
+                                  "title": "Origin",
+                                  "type": "string"
+                                },
+                                "revision": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Revision",
+                                  "type": "string"
+                                },
+                                "source_ref": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Source Ref",
+                                  "type": "string"
+                                },
+                                "unit": {
+                                  "enum": [
+                                    "m²",
+                                    "m³",
+                                    "J/K",
+                                    "kg_da",
+                                    "W/K",
+                                    "1",
+                                    "K",
+                                    "kg_v/kg_da",
+                                    "W_th",
+                                    "kg_da/s",
+                                    "kg_v/s",
+                                    "W",
+                                    "KRW"
+                                  ],
+                                  "title": "Unit",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "maxLength": 64,
+                                  "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                  "title": "Value",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "input_id",
+                                "revision",
+                                "source_ref",
+                                "origin",
+                                "evidence_level",
+                                "available_at",
+                                "value",
+                                "unit"
+                              ],
+                              "title": "FarmQuantity",
+                              "type": "object"
+                            },
+                            "start": {
+                              "format": "date-time",
+                              "title": "Start",
+                              "type": "string"
+                            },
+                            "ventilation_dry_air_flow": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "available_at": {
+                                  "format": "date-time",
+                                  "title": "Available At",
+                                  "type": "string"
+                                },
+                                "evidence_level": {
+                                  "const": "assumed",
+                                  "title": "Evidence Level",
+                                  "type": "string"
+                                },
+                                "input_id": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Input Id",
+                                  "type": "string"
+                                },
+                                "origin": {
+                                  "const": "user",
+                                  "title": "Origin",
+                                  "type": "string"
+                                },
+                                "revision": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Revision",
+                                  "type": "string"
+                                },
+                                "source_ref": {
+                                  "maxLength": 200,
+                                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                  "title": "Source Ref",
+                                  "type": "string"
+                                },
+                                "unit": {
+                                  "enum": [
+                                    "m²",
+                                    "m³",
+                                    "J/K",
+                                    "kg_da",
+                                    "W/K",
+                                    "1",
+                                    "K",
+                                    "kg_v/kg_da",
+                                    "W_th",
+                                    "kg_da/s",
+                                    "kg_v/s",
+                                    "W",
+                                    "KRW"
+                                  ],
+                                  "title": "Unit",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "maxLength": 64,
+                                  "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                  "title": "Value",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "input_id",
+                                "revision",
+                                "source_ref",
+                                "origin",
+                                "evidence_level",
+                                "available_at",
+                                "value",
+                                "unit"
+                              ],
+                              "title": "FarmQuantity",
+                              "type": "object"
+                            }
+                          },
+                          "required": [
+                            "start",
+                            "end",
+                            "ventilation_dry_air_flow",
+                            "canopy_evaporation",
+                            "ground_heat_flow"
+                          ],
+                          "title": "FarmForcing",
+                          "type": "object"
+                        },
+                        "maxItems": 32,
+                        "minItems": 1,
+                        "title": "Forcing",
+                        "type": "array"
+                      },
+                      "goal_id": {
+                        "const": "historical-thermal-replay",
+                        "title": "Goal Id",
+                        "type": "string"
+                      },
+                      "heater": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "available": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "available_at": {
+                                "format": "date-time",
+                                "title": "Available At",
+                                "type": "string"
+                              },
+                              "evidence_level": {
+                                "const": "assumed",
+                                "title": "Evidence Level",
+                                "type": "string"
+                              },
+                              "input_id": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Input Id",
+                                "type": "string"
+                              },
+                              "origin": {
+                                "const": "user",
+                                "title": "Origin",
+                                "type": "string"
+                              },
+                              "revision": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Revision",
+                                "type": "string"
+                              },
+                              "source_ref": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Source Ref",
+                                "type": "string"
+                              },
+                              "value": {
+                                "title": "Value",
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "input_id",
+                              "revision",
+                              "source_ref",
+                              "origin",
+                              "evidence_level",
+                              "available_at",
+                              "value"
+                            ],
+                            "title": "FarmSwitch",
+                            "type": "object"
+                          },
+                          "capacity": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "available_at": {
+                                "format": "date-time",
+                                "title": "Available At",
+                                "type": "string"
+                              },
+                              "evidence_level": {
+                                "const": "assumed",
+                                "title": "Evidence Level",
+                                "type": "string"
+                              },
+                              "input_id": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Input Id",
+                                "type": "string"
+                              },
+                              "origin": {
+                                "const": "user",
+                                "title": "Origin",
+                                "type": "string"
+                              },
+                              "revision": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Revision",
+                                "type": "string"
+                              },
+                              "source_ref": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Source Ref",
+                                "type": "string"
+                              },
+                              "unit": {
+                                "enum": [
+                                  "m²",
+                                  "m³",
+                                  "J/K",
+                                  "kg_da",
+                                  "W/K",
+                                  "1",
+                                  "K",
+                                  "kg_v/kg_da",
+                                  "W_th",
+                                  "kg_da/s",
+                                  "kg_v/s",
+                                  "W",
+                                  "KRW"
+                                ],
+                                "title": "Unit",
+                                "type": "string"
+                              },
+                              "value": {
+                                "maxLength": 64,
+                                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                "title": "Value",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "input_id",
+                              "revision",
+                              "source_ref",
+                              "origin",
+                              "evidence_level",
+                              "available_at",
+                              "value",
+                              "unit"
+                            ],
+                            "title": "FarmQuantity",
+                            "type": "object"
+                          },
+                          "capacity_basis": {
+                            "const": "delivered_thermal_power",
+                            "title": "Capacity Basis",
+                            "type": "string"
+                          },
+                          "control_version": {
+                            "const": "thermal-indirect-sensible-end-target-v1",
+                            "title": "Control Version",
+                            "type": "string"
+                          },
+                          "efficiency_status": {
+                            "const": "unavailable",
+                            "title": "Efficiency Status",
+                            "type": "string"
+                          },
+                          "metering_status": {
+                            "const": "unavailable",
+                            "title": "Metering Status",
+                            "type": "string"
+                          },
+                          "mode": {
+                            "const": "indirect_sensible",
+                            "title": "Mode",
+                            "type": "string"
+                          },
+                          "setpoint": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "available_at": {
+                                "format": "date-time",
+                                "title": "Available At",
+                                "type": "string"
+                              },
+                              "evidence_level": {
+                                "const": "assumed",
+                                "title": "Evidence Level",
+                                "type": "string"
+                              },
+                              "input_id": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Input Id",
+                                "type": "string"
+                              },
+                              "origin": {
+                                "const": "user",
+                                "title": "Origin",
+                                "type": "string"
+                              },
+                              "revision": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Revision",
+                                "type": "string"
+                              },
+                              "source_ref": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Source Ref",
+                                "type": "string"
+                              },
+                              "unit": {
+                                "enum": [
+                                  "m²",
+                                  "m³",
+                                  "J/K",
+                                  "kg_da",
+                                  "W/K",
+                                  "1",
+                                  "K",
+                                  "kg_v/kg_da",
+                                  "W_th",
+                                  "kg_da/s",
+                                  "kg_v/s",
+                                  "W",
+                                  "KRW"
+                                ],
+                                "title": "Unit",
+                                "type": "string"
+                              },
+                              "value": {
+                                "maxLength": 64,
+                                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                "title": "Value",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "input_id",
+                              "revision",
+                              "source_ref",
+                              "origin",
+                              "evidence_level",
+                              "available_at",
+                              "value",
+                              "unit"
+                            ],
+                            "title": "FarmQuantity",
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "mode",
+                          "capacity_basis",
+                          "control_version",
+                          "capacity",
+                          "setpoint",
+                          "available",
+                          "efficiency_status",
+                          "metering_status"
+                        ],
+                        "title": "FarmHeater",
+                        "type": "object"
+                      },
+                      "initial_state": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "humidity_ratio": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "available_at": {
+                                "format": "date-time",
+                                "title": "Available At",
+                                "type": "string"
+                              },
+                              "evidence_level": {
+                                "const": "assumed",
+                                "title": "Evidence Level",
+                                "type": "string"
+                              },
+                              "input_id": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Input Id",
+                                "type": "string"
+                              },
+                              "origin": {
+                                "const": "user",
+                                "title": "Origin",
+                                "type": "string"
+                              },
+                              "revision": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Revision",
+                                "type": "string"
+                              },
+                              "source_ref": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Source Ref",
+                                "type": "string"
+                              },
+                              "unit": {
+                                "enum": [
+                                  "m²",
+                                  "m³",
+                                  "J/K",
+                                  "kg_da",
+                                  "W/K",
+                                  "1",
+                                  "K",
+                                  "kg_v/kg_da",
+                                  "W_th",
+                                  "kg_da/s",
+                                  "kg_v/s",
+                                  "W",
+                                  "KRW"
+                                ],
+                                "title": "Unit",
+                                "type": "string"
+                              },
+                              "value": {
+                                "maxLength": 64,
+                                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                "title": "Value",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "input_id",
+                              "revision",
+                              "source_ref",
+                              "origin",
+                              "evidence_level",
+                              "available_at",
+                              "value",
+                              "unit"
+                            ],
+                            "title": "FarmQuantity",
+                            "type": "object"
+                          },
+                          "temperature": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "available_at": {
+                                "format": "date-time",
+                                "title": "Available At",
+                                "type": "string"
+                              },
+                              "evidence_level": {
+                                "const": "assumed",
+                                "title": "Evidence Level",
+                                "type": "string"
+                              },
+                              "input_id": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Input Id",
+                                "type": "string"
+                              },
+                              "origin": {
+                                "const": "user",
+                                "title": "Origin",
+                                "type": "string"
+                              },
+                              "revision": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Revision",
+                                "type": "string"
+                              },
+                              "source_ref": {
+                                "maxLength": 200,
+                                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                                "title": "Source Ref",
+                                "type": "string"
+                              },
+                              "unit": {
+                                "enum": [
+                                  "m²",
+                                  "m³",
+                                  "J/K",
+                                  "kg_da",
+                                  "W/K",
+                                  "1",
+                                  "K",
+                                  "kg_v/kg_da",
+                                  "W_th",
+                                  "kg_da/s",
+                                  "kg_v/s",
+                                  "W",
+                                  "KRW"
+                                ],
+                                "title": "Unit",
+                                "type": "string"
+                              },
+                              "value": {
+                                "maxLength": 64,
+                                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$",
+                                "title": "Value",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "input_id",
+                              "revision",
+                              "source_ref",
+                              "origin",
+                              "evidence_level",
+                              "available_at",
+                              "value",
+                              "unit"
+                            ],
+                            "title": "FarmQuantity",
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "temperature",
+                          "humidity_ratio"
+                        ],
+                        "title": "FarmInitialState",
+                        "type": "object"
+                      },
+                      "market_context": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "hold_report_id": {
+                            "title": "Hold Report Id",
+                            "type": "string"
+                          },
+                          "kind": {
+                            "const": "unavailable",
+                            "title": "Kind",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "kind",
+                          "hold_report_id"
+                        ],
+                        "title": "UnavailableMarketContext",
+                        "type": "object"
+                      },
+                      "objective": {
+                        "enum": [
+                          "conditional_operating_profit",
+                          "conditional_operating_margin",
+                          "minimum_cash"
+                        ],
+                        "title": "Objective",
+                        "type": "string"
+                      },
+                      "period_end": {
+                        "format": "date",
+                        "title": "Period End",
+                        "type": "string"
+                      },
+                      "period_start": {
+                        "format": "date",
+                        "title": "Period Start",
+                        "type": "string"
+                      },
+                      "research_job_id": {
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                        "title": "Research Job Id",
+                        "type": "string"
+                      },
+                      "scenario_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Id",
+                        "type": "string"
+                      },
+                      "scenario_revision": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Revision",
+                        "type": "string"
+                      },
+                      "schema_version": {
+                        "const": "farm-inputs-v1",
+                        "title": "Schema Version",
+                        "type": "string"
+                      },
+                      "snapshot_id": {
+                        "maxLength": 84,
+                        "pattern": "^thermal-snapshot-v1:[0-9a-f]{64}$",
+                        "title": "Snapshot Id",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schema_version",
+                      "scenario_id",
+                      "scenario_revision",
+                      "research_job_id",
+                      "snapshot_id",
+                      "decision_context_id",
+                      "decision_at",
+                      "market_context",
+                      "goal_id",
+                      "period_start",
+                      "period_end",
+                      "economic",
+                      "facility",
+                      "initial_state",
+                      "heater",
+                      "forcing",
+                      "crops",
+                      "objective",
+                      "constraints"
+                    ],
+                    "title": "FarmInputs",
+                    "type": "object"
+                  },
+                  "rights": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "access": {
+                        "title": "Access",
+                        "type": "boolean"
+                      },
+                      "available_at": {
+                        "format": "date-time",
+                        "title": "Available At",
+                        "type": "string"
+                      },
+                      "declaration_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Declaration Id",
+                        "type": "string"
+                      },
+                      "display": {
+                        "title": "Display",
+                        "type": "boolean"
+                      },
+                      "evidence_level": {
+                        "const": "assumed",
+                        "title": "Evidence Level",
+                        "type": "string"
+                      },
+                      "origin": {
+                        "const": "user",
+                        "title": "Origin",
+                        "type": "string"
+                      },
+                      "ownership_asserted": {
+                        "title": "Ownership Asserted",
+                        "type": "boolean"
+                      },
+                      "redistribute": {
+                        "title": "Redistribute",
+                        "type": "boolean"
+                      },
+                      "revision": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Revision",
+                        "type": "string"
+                      },
+                      "scenario_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Id",
+                        "type": "string"
+                      },
+                      "scenario_revision": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Revision",
+                        "type": "string"
+                      },
+                      "schema_version": {
+                        "const": "farm-assumption-rights-v1",
+                        "title": "Schema Version",
+                        "type": "string"
+                      },
+                      "scope_end": {
+                        "format": "date",
+                        "title": "Scope End",
+                        "type": "string"
+                      },
+                      "scope_start": {
+                        "format": "date",
+                        "title": "Scope Start",
+                        "type": "string"
+                      },
+                      "store": {
+                        "title": "Store",
+                        "type": "boolean"
+                      },
+                      "transform": {
+                        "title": "Transform",
+                        "type": "boolean"
+                      },
+                      "use": {
+                        "title": "Use",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "schema_version",
+                      "scenario_id",
+                      "scenario_revision",
+                      "declaration_id",
+                      "revision",
+                      "origin",
+                      "evidence_level",
+                      "ownership_asserted",
+                      "access",
+                      "store",
+                      "transform",
+                      "use",
+                      "display",
+                      "redistribute",
+                      "available_at",
+                      "scope_start",
+                      "scope_end"
+                    ],
+                    "title": "FarmAssumptionRights",
+                    "type": "object"
+                  },
+                  "schema_version": {
+                    "const": "farm-authoring-request-v1",
+                    "title": "Schema Version",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "schema_version",
+                  "farm",
+                  "rights"
+                ],
+                "title": "FarmAuthoringRequest",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FarmAuthoringSummary"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Post Farm Authored Inputs",
+        "x-ossf-max-body-bytes": 65536,
+        "x-ossf-required-scopes": [
+          "farm_scenario_write",
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read"
         ]
       }
     },
