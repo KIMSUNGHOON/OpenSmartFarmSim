@@ -1,5 +1,24 @@
 # Internal web shell
 
+## 지금 3D를 직접 보기
+
+`web/`에서 Node `22.22.3`, npm `11.16.0`으로 다음을 실행합니다.
+
+```bash
+npm ci --strict-peer-deps
+npm run demo:3d
+```
+
+브라우저에서 `http://127.0.0.1:5173/demo/`를 열고 **저장된 Run 조회**를
+누르세요. 3D 온실, 120개 저장 시각, 그래프와 표를 조작할 수 있습니다.
+이 명령은 loopback 전용 Vite 서버와 직접 작성한 합성 HTTP 응답만 실행합니다.
+PostgreSQL, 운영 토큰, 기상 수집, 제품 Codex CLI, 현장 자료는 사용하지 않습니다.
+화면 값은 브라우저 소프트웨어 데모이며 작물 성장·수확·사업성을 예측하지
+않습니다. `npm run build`의 일반 서비스 산출물에는 이 데모 페이지와 응답이
+포함되지 않습니다. [실제 브라우저 캡처](../research/artifacts/local-synthetic-3d-demo.png)와
+[검증 기록](../research/local-synthetic-3d-demo-implementation.md)이 있습니다.
+종료하려면 터미널에서 Ctrl-C를 누르세요.
+
 The current screen submits registered synthetic location research and reads
 its real server job/hold status. The third screen lists exact stored economic
 assumptions, registers a numeric revision and admits/reads a selected conditional

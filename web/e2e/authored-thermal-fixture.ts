@@ -1,5 +1,5 @@
 // HTTP doubles for authored replay software checks; no product CLI or G1 proof.
-import { thermalResponses } from './thermal-fixture';
+import { thermalResponses } from './thermal-fixture.ts';
 
 export const authoredJobId='44444444-4444-4444-8444-444444444444';
 export const authoredRunId='authored-thermal-run-v1:'+'e'.repeat(64);

@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**로컬 합성 3D 데모 제공 (2026-09-30):** [실행법](../web/README.md#지금-3d를-직접-보기)의 한 명령으로 직접 작성한 시험 응답을 3D·그래프·표에서 조작할 수 있다([브라우저 검증](../research/local-synthetic-3d-demo-implementation.md)). 실제 Run을 쓰는 전체 `web-replay`/G1/G4 체크는 유지한다.
+
 **작성 농장 입력 API 진행 (2026-09-30):** [계약](../contracts/api-farm-authoring-v1.md)의 인증 접수·재조회와 표준 런타임 조립을 추가했다. OpenAPI/권한 로컬 검사는 통과했고 실제 SCRAM 시험은 CI 확인 대기 중이다. 사용자가 직접 쓰는 작성 폼, 실제 제품 CLI와 독립 G1 수용 체크는 유지한다.
 
 **작성 Run 표준 HTTPS 조립 진행 (2026-09-30):** [조립 계약](../contracts/api-runtime-authored-run-v1.md)에 운영자 제공 저장소·별도 키를 기존 작업/농장 서비스에 묶는 선택 경로를 추가했다. 로컬 단위 검사는 통과했고 [실제 저장 Run→HTTPS→브라우저 명시 시험](../backend/tests/web_authored_thermal_replay_smoke.py)을 CI에 추가했다. SCRAM/HTTPS/브라우저 결과는 CI 확인 대기 중이며 제품 CLI·독립 G1 체크는 유지한다.

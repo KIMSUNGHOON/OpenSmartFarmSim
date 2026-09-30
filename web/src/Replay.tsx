@@ -17,9 +17,10 @@ const messages:Record<string,string>={auth_required:'먼저 내부 시험 연결
   response_rejected:'서버 기록의 연결·범위·시각을 확인할 수 없어 표시를 보류했습니다.',
   network_unresolved:'응답을 받지 못했습니다. 조회를 다시 시도해 주세요.',server_unavailable:'서버가 Run을 확인하지 못했습니다.'};
 
-export default function Replay({api}:{api:Api|null}) {
-  const [jobId,setJobId]=useState(''),[busy,setBusy]=useState(false),[error,setError]=useState<ApiError|null>(null);
-  const [kind,setKind]=useState<ReplayKind>('fixed');
+export default function Replay({api,initialSelection}:{api:Api|null;
+  initialSelection?:{kind:ReplayKind;jobId:string}}) {
+  const [jobId,setJobId]=useState(initialSelection?.jobId ?? ''),[busy,setBusy]=useState(false),[error,setError]=useState<ApiError|null>(null);
+  const [kind,setKind]=useState<ReplayKind>(initialSelection?.kind ?? 'fixed');
   const [loaded,setLoaded]=useState<Loaded|null>(null),[index,setIndex]=useState(0);
   const [playing,setPlaying]=useState(false),[reduced,setReduced]=useState(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);
   const epoch=useRef(0);
@@ -28,7 +29,8 @@ export default function Replay({api}:{api:Api|null}) {
   const range=useMemo<readonly [number,number]>(()=>data ? [Math.min(...data.series.points.map(row=>row.temperature_k)),
     Math.max(...data.series.points.map(row=>row.temperature_k))] : [0,0],[data]);
   const maximumHeat=useMemo(()=>data ? Math.max(...data.series.points.map(row=>row.heat_delivered_w_th)) : 0,[data]);
-  useEffect(()=>{epoch.current++;setLoaded(null);setBusy(false);setError(null);setIndex(0);setPlaying(false);setJobId('');setKind('fixed');
+  useEffect(()=>{epoch.current++;setLoaded(null);setBusy(false);setError(null);setIndex(0);setPlaying(false);
+    setJobId(initialSelection?.jobId ?? '');setKind(initialSelection?.kind ?? 'fixed');
     return ()=>{epoch.current++;};},[api]);
   useEffect(()=>{const query=matchMedia('(prefers-reduced-motion: reduce)');
     const update=()=>{setReduced(query.matches);if(query.matches)setPlaying(false);};

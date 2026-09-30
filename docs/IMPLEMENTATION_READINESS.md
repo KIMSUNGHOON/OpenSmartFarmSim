@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**직접 열어 볼 수 있는 합성 3D 데모 (2026-09-30):** `web/`의 `npm run demo:3d`에서 로컬 전용 시험 응답과 기존 3D 재생 화면을 연결했다([캡처](../research/artifacts/local-synthetic-3d-demo.png), [브라우저 검증](../research/local-synthetic-3d-demo-implementation.md)). 실제 저장 Run의 표준 HTTPS 브라우저 시험, 사용자 농장 작성·자료 수집·제품 CLI·독립 G1/G4 수용과 구분한다.
+
 **작성 농장 입력 HTTP 후보 (2026-09-30):** [계약](../contracts/api-farm-authoring-v1.md)은 기존 불변 입력 서비스를 인증 POST/GET과 표준 HTTPS 조립에 연결한다([로컬 검증 기록](../research/api-farm-authoring-implementation.md)). OpenAPI·권한 경계의 로컬 검사는 통과했으나, 실제 SCRAM 접수/재조회 시험은 CI 확인 대기 중이다. 브라우저 작성 폼·제품 CLI·독립 검토/해제·전체 G1은 계속 보류다.
 
 **작성 Run 인증 읽기 후보 (2026-09-30):** [계약](../contracts/api-authored-thermal-run-v1.md)은 완료 작업의 게시/입력 결속과 별도 작성 Run의 120시점 열 값을 내부 인증 API에서 읽는다([집중 시험](../research/api-authored-thermal-run-implementation.md)). 검토 근거의 읽기 재검사에서 불필요한 검토 생성 권한을 제거했다. 실제 제품 CLI·독립 해제, 표준 HTTPS 조립·브라우저 작성 3D와 전체 G1은 계속 보류다.
