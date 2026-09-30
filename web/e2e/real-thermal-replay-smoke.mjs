@@ -22,6 +22,72 @@ if(configuration.workflow){
   },configuration.workflow);
 }
 const page=await context.newPage();const errors=[],captureWarnings=[],network=[],responses=[];
+async function registerAuthoredFarm(document){
+  const farm=document.farm,rights=document.rights;
+  await page.getByRole('button',{name:'새 입력 판본 작성'}).click();
+  const fields={scenario_id:farm.scenario_id,scenario_revision:farm.scenario_revision,
+    research_job_id:farm.research_job_id,snapshot_id:farm.snapshot_id,
+    decision_context_id:farm.decision_context_id,decision_at:farm.decision_at,
+    market_hold_report_id:farm.market_context.hold_report_id,
+    period_start:farm.period_start,period_end:farm.period_end,
+    economic_scenario_id:farm.economic.scenario_id,economic_revision:farm.economic.revision,
+    economic_sha256:farm.economic.sha256,economic_candidate_id:farm.economic.candidate_id,
+    source_ref:farm.facility.floor_area.source_ref,
+    record_revision:farm.facility.floor_area.revision,
+    available_at:farm.facility.floor_area.available_at,zone_id:farm.facility.zone_id,
+    ...Object.fromEntries(['floor_area','cultivable_area','indoor_volume',
+      'effective_heat_capacity','dry_air_mass','envelope_conductance',
+      'absorbed_solar_fraction'].map(key=>[key,farm.facility[key].value])),
+    initial_temperature:farm.initial_state.temperature.value,
+    initial_humidity_ratio:farm.initial_state.humidity_ratio.value,
+    heater_capacity:farm.heater.capacity.value,heater_setpoint:farm.heater.setpoint.value,
+    declaration_id:rights.declaration_id,rights_revision:rights.revision};
+  for(const [key,value] of Object.entries(fields))
+    await page.locator(`.authored-composer input[name="${key}"]`).fill(String(value));
+  for(const [key,value] of Object.entries({tenure:farm.facility.tenure,
+    decision_basis:farm.facility.decision_basis,
+    heater_available:farm.heater.available.value?'yes':'no',objective:farm.objective,
+    capex_mode:farm.constraints.capex_ceiling?'known':'unknown',
+    cash_mode:farm.constraints.minimum_cash?'known':'unknown'}))
+    await page.locator(`.authored-composer select[name="${key}"]`).selectOption(value);
+  for(const [key,value] of Object.entries({capex_ceiling:farm.constraints.capex_ceiling?.value,
+    minimum_cash:farm.constraints.minimum_cash?.value}))
+    if(value!==undefined)await page.locator(`.authored-composer input[name="${key}"]`).fill(value);
+  for(let i=0;i<farm.forcing.length;i++){
+    if(i)await page.getByRole('button',{name:'원본 구간 추가'}).click();
+    const row=page.locator('.authored-repeat-row').nth(i),item=farm.forcing[i];
+    for(const [key,value] of Object.entries({start:item.start,end:item.end,
+      ventilation:item.ventilation_dry_air_flow.value,
+      canopy:item.canopy_evaporation.value,ground:item.ground_heat_flow.value}))
+      await row.locator(`input[name="${key}"]`).fill(value);
+  }
+  for(let i=0;i<farm.crops.length;i++){
+    await page.getByRole('button',{name:'작물 의도 추가'}).click();
+    const row=page.locator('.authored-repeat-row').nth(farm.forcing.length+i),item=farm.crops[i];
+    const cropFields={crop_id:item.crop_id,batch_id:item.batch_id,species:item.species,
+      variety:item.variety,area:item.area.value,
+      occupancy_start:item.occupancy.start,occupancy_end:item.occupancy.end,
+      release_at:item.release_at,harvest_start:item.harvest_window.start,
+      harvest_end:item.harvest_window.end,sales_start:item.sales_window.start,
+      sales_end:item.sales_window.end,collection_start:item.collection_window.start,
+      collection_end:item.collection_window.end,
+      grades:item.grades.join(','),channels:item.channels.join(',')};
+    for(const [key,value] of Object.entries(cropFields))
+      await row.locator(`input[name="${key}"]`).fill(value);
+  }
+  await page.locator('.authored-rights input').check();
+  await page.getByRole('button',{name:'입력 내용 검토'}).click();
+  await expect(page.getByRole('region',{name:'제출 전 확인'})).toBeVisible();
+  const reply=page.waitForResponse(response=>new URL(response.url()).pathname==='/v1/farm-authored-inputs'
+    && response.request().method()==='POST',{timeout:200_000});
+  await page.getByRole('button',{name:'불변 입력 판본 등록'}).click();
+  const response=await reply;
+  if(response.status()!==200)throw new Error('authored farm registration status '+response.status());
+  const result=await response.json();
+  await expect(page.getByText('입력 등록됨 · 계산 전')).toBeVisible({timeout:60_000});
+  await expect(page.locator('.authored-facts code').first()).toHaveText(result.scenario_sha256);
+  return result;
+}
 page.on('pageerror',error=>errors.push(error.message));
 page.on('console',message=>{
   const text=message.text().replaceAll(configuration.token,'<redacted>');
@@ -39,18 +105,25 @@ try{
   if(configuration.farm){
     if(!authored)throw new Error('authored farm lookup requires authored replay');
     await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
-    await page.getByLabel('시나리오 ID').fill(configuration.farm.scenario_id);
-    await page.getByLabel('판본',{exact:true}).fill(configuration.farm.revision);
-    const lookup=page.waitForResponse(response=>new URL(response.url()).pathname==='/v1/farm-authored-inputs');
-    await page.getByRole('button',{name:'등록 기록 확인'}).click();
-    const lookupResponse=await lookup;
-    if(lookupResponse.status()!==200){
-      const result=await lookupResponse.json();
-      throw new Error('authored farm lookup status '+lookupResponse.status()+' code '+result.code);
+    if(configuration.farm.document){
+      const result=await registerAuthoredFarm(configuration.farm.document);
+      configuration.farm.registration_sha256=result.scenario_sha256;
+      process.stdout.write(JSON.stringify({event:'farm_registered',
+        scenario_sha256:result.scenario_sha256})+'\n');
+    }else{
+      await page.getByLabel('시나리오 ID').fill(configuration.farm.scenario_id);
+      await page.getByLabel('판본',{exact:true}).fill(configuration.farm.revision);
+      const lookup=page.waitForResponse(response=>new URL(response.url()).pathname==='/v1/farm-authored-inputs');
+      await page.getByRole('button',{name:'등록 기록 확인'}).click();
+      const lookupResponse=await lookup;
+      if(lookupResponse.status()!==200){
+        const result=await lookupResponse.json();
+        throw new Error('authored farm lookup status '+lookupResponse.status()+' code '+result.code);
+      }
+      await expect(page.getByText('입력 등록됨 · 계산 전')).toBeVisible({timeout:60_000});
+      await expect(page.locator('.authored-facts code').first())
+        .toHaveText(configuration.farm.registration_sha256);
     }
-    await expect(page.getByText('입력 등록됨 · 계산 전')).toBeVisible({timeout:60_000});
-    await expect(page.locator('.authored-facts code').first())
-      .toHaveText(configuration.farm.registration_sha256);
   }
   if(configuration.workflow){
     const reviewReply=page.waitForResponse(response=>new URL(response.url()).pathname==='/v1/farm-authored-reviews'
@@ -112,7 +185,10 @@ try{
   await expect(page.locator('.replay-viewer')).toHaveAttribute('data-replay-kind',authored?'authored':'fixed');
   await expect(page.getByText('3D 준비됨',{exact:true})).toBeVisible();
   for(const response of responses){
-    expect(response.request().method()).toBe(response.status()===202?'POST':'GET');
+    const registeredFarm=response.status()===200 &&
+      new URL(response.url()).pathname==='/v1/farm-authored-inputs' &&
+      Boolean(configuration.farm?.document);
+    expect(response.request().method()).toBe(response.status()===202 || registeredFarm?'POST':'GET');
     expect([200,202]).toContain(response.status());
     expect(response.headers()['cache-control']).toBe('no-store');
     network.push({path:new URL(response.url()).pathname,status:response.status()});

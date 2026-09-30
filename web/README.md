@@ -25,15 +25,19 @@ its real server job/hold status. The third screen lists exact stored economic
 assumptions, registers a numeric revision and admits/reads a selected conditional
 ledger calculation, including a manually requested monthly cash table. A
 break-even section selects existing sale/collection and saved trial revisions,
-admits a finite plan and reads its completed result. The fourth screen looks up
-an already registered authored farm version, submits review and thermal work,
-reads server job/hold status, and opens a completed stored Run. It does not
-provide a farm authoring form or issue an independent release. The last verified
+admits a finite plan and reads its completed result. The fourth screen can
+register an authored farm version from explicit user assumptions and already
+registered research, market hold and economic references. It can also look up
+an existing version, submit review and thermal work, read server job/hold status,
+and open a completed stored Run. The form does not discover prerequisite records
+or issue an independent release. An uncertain registration is retried with the
+same frozen request. The last verified
 farm ID, revision and registration hash are kept in this browser tab only; after
 reconnection the server must authorize and confirm the exact version before it
 appears again. Tokens and review/simulation job IDs are not stored. The fifth screen replays
 either a fixed or a farm-authored synthetic thermal Run in Three.js, a chart, an HTML table and six
-text values with one selected stored timestamp. Full farm input,
+text values with one selected stored timestamp. Automatic source research and
+nontechnical farm input,
 baseline/event/settlement authoring, automatic trial assumptions, durable
 job reload recovery, a server list of owned farm versions, map, full replay
 acceptance and production hosting are pending. See the
@@ -123,8 +127,9 @@ jobs admitted by Chromium, their worker completions, and the resulting Run over 
 uv run --locked --group dev pytest -q -s --tb=short tests/test_authored_full_software_path.py
 ```
 
-It uses the same protected PostgreSQL test setup. Registration happens in the
-backend test harness. The browser admits a fresh review job; the harness executes
+It uses the same protected PostgreSQL test setup. The browser fills the authored
+form and submits registration over HTTPS. It then admits a fresh review job;
+the harness executes
 a fake CLI and stores synthetic observer/reviewer signatures. The browser then
 admits a fresh simulation job, the harness executes the deterministic worker,
 and the browser reads its stored Run.

@@ -1,6 +1,7 @@
 import { useEffect,useRef,useState,type FormEvent } from 'react';
 import { ApiError,type Evidence,type JobHold,type JobStatus,type createApi } from './api';
 import type { AuthoredFarmSummary } from './authored-farm-api';
+import AuthoredFarmComposer from './AuthoredFarmComposer';
 import './AuthoredFarmWorkspace.css';
 
 type Api=ReturnType<typeof createApi>;
@@ -73,6 +74,7 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
   const [scenarioId,setScenarioId]=useState('');
   const [revision,setRevision]=useState('');
   const [farm,setFarm]=useState<AuthoredFarmSummary|null>(null);
+  const [creating,setCreating]=useState(false);
   const [review,setReview]=useState<JobStatus|null>(null);
   const [run,setRun]=useState<JobStatus|null>(null);
   const [reviewHold,setReviewHold]=useState<JobHold|null>(null);
@@ -84,7 +86,7 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
 
   useEffect(()=>{
     const epoch=++generation.current;
-    setScenarioId('');setRevision('');setFarm(null);setReview(null);setRun(null);
+    setScenarioId('');setRevision('');setFarm(null);setCreating(false);setReview(null);setRun(null);
     setReviewHold(null);setBusy(null);setError(null);reviewKey.current=null;
     runKey.current=null;
     const saved=lastFarm();
@@ -107,7 +109,7 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
 
   function reset() {
     forgetFarm();
-    generation.current++;setFarm(null);setReview(null);setRun(null);setReviewHold(null);
+    generation.current++;setFarm(null);setCreating(false);setReview(null);setRun(null);setReviewHold(null);
     setScenarioId('');setRevision('');setBusy(null);setError(null);
     reviewKey.current=null;runKey.current=null;
   }
@@ -127,6 +129,12 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
       reviewKey.current=null;runKey.current=null;
     } catch(value) {if(epoch===generation.current)failure(value);}
     finally {if(epoch===generation.current)setBusy(null);}
+  }
+  function registered(result:AuthoredFarmSummary) {
+    generation.current++;
+    rememberFarm(result);setScenarioId(result.scenario_id);setRevision(result.scenario_revision);
+    setFarm(result);setCreating(false);setReview(null);setRun(null);setReviewHold(null);
+    reviewKey.current=null;runKey.current=null;setError(null);setBusy(null);
   }
   async function submitReview() {
     if(busy || !api || !farm)return;
@@ -184,15 +192,20 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
       <p>서버에 이미 등록된 농장 판본을 확인하고 검토·계산 작업을 접수합니다. 각 단계의 완료 여부는 서버 기록으로 확인합니다.</p></div>
       <span className="badge">합성 열 재생 범위</span></div>
     <ol className="authored-progress" aria-label="작업 단계">
-      <li className={farm?'done':''}>1. 등록 판본 확인</li>
+      <li className={farm?'done':creating?'active':''}>1. 입력 등록·확인</li>
       <li className={review?.state==='succeeded'?'done':review?'active':''}>2. 입력 검토</li>
       <li className={run?.state==='succeeded'?'done':run?'active':''}>3. 계산 작업</li>
       <li className={run?.state==='succeeded'?'active':''}>4. 3D 열기</li>
     </ol>
     {error && <div className="notice error" role="alert">{error}</div>}
     <div className="authored-columns"><div className="authored-main">
-      <section className="panel"><p className="step-number">01 / 등록 판본</p><h3>서버에 저장된 농장 찾기</h3>
-        <p className="muted">농장 수치와 권리를 이 화면이 추측하지 않습니다. 등록 때 받은 시나리오 ID와 판본을 입력하세요.</p>
+      <section className="panel"><p className="step-number">01 / 등록 판본</p><h3>{creating?'새 농장 입력 등록':'서버에 저장된 농장 찾기'}</h3>
+        {!farm&&<div className="authored-mode"><button type="button" className="button secondary"
+          disabled={!!busy} aria-pressed={!creating} onClick={()=>setCreating(false)}>저장된 판본 찾기</button>
+          <button type="button" className="button secondary" disabled={!!busy} aria-pressed={creating}
+            onClick={()=>setCreating(true)}>새 입력 판본 작성</button></div>}
+        {creating&&!farm?<AuthoredFarmComposer api={api} onRegistered={registered}/>:<>
+        <p className="muted">등록 때 받은 시나리오 ID와 판본을 입력하세요. 조회와 등록은 현재 서버의 권리·입력 연결을 다시 검사합니다.</p>
         <form onSubmit={lookup} className="authored-lookup"><label>시나리오 ID
           <input required maxLength={200} value={scenarioId} readOnly={!!farm || !!busy}
             onChange={event=>setScenarioId(event.target.value)} autoComplete="off"/></label>
@@ -204,6 +217,7 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
         {farm && <dl className="authored-facts"><div><dt>등록 상태</dt><dd>입력 등록됨 · 계산 전</dd></div>
           <div><dt>등록 해시</dt><dd><code>{farm.scenario_sha256}</code></dd></div>
           <div><dt>입력 작업</dt><dd><code>{farm.intent_job.job_id}</code></dd></div></dl>}
+        </>}
       </section>
       <section className="panel"><p className="step-number">02 / 작성 입력 검토</p>
         <h3>검토 작업 접수</h3><p className="muted">접수는 AI 판단 또는 독립 서명 해제가 아닙니다. 실제 작업자가 실행한 뒤 별도 검토 근거가 필요합니다.</p>

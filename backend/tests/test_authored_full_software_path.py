@@ -36,7 +36,7 @@ from app.farm_authored_review_completion import AuthoredReviewCompletionVerifier
 from app.farm_authored_run import AuthoredRunPreparer
 from app.farm_authored_run_store import AuthoredRunStore
 from app.farm_authored_simulation_worker import AuthoredSimulationWorker
-from app.farm_authoring_storage import FarmAuthoringService
+from app.farm_authoring_storage import FarmAuthoringService, WRITE_SCOPES
 from app.http_identity import BearerGrant, BearerRegistry, token_digest
 from app.market_source_store import MarketSourceStore
 from app.owned_fixture_registry import OwnedFixtureRegistry
@@ -48,7 +48,7 @@ from test_cli_worker import _fake_cli
 from test_api_runtime import config, dependencies
 from test_api_serve import tls_files
 from test_execution_attestation import _signed as signed_execution
-from test_farm_authoring_storage import authoring, request
+from test_farm_authoring_storage import authoring
 from test_farm_authored_release import _public, _signed as signed_release
 from test_farm_authored_review import self_authored_evidence_policy
 from test_farm_replay_scenario import farm_setup
@@ -75,7 +75,6 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
         'authored_release_read', 'simulation_create', 'simulation_execute',
         'authored_run_publish', 'authored_run_read',
     })
-    registration = author.submit('tenant-1', request(body))
     review = FarmAuthoredReviewService(author)
     jobs = author.replay.jobs
     jobs.artifact_root.mkdir(mode=0o700, exist_ok=True)
@@ -125,13 +124,14 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
     preparer = AuthoredRunPreparer(author, release_store)
     run_store = AuthoredRunStore(preparer, b'synthetic-full-path-gate-' + b'0' * 32)
 
-    # Chromium creates both jobs; the harness completes them with synthetic
+    # Chromium registers the authored farm and creates both jobs. The harness
+    # completes the jobs with synthetic
     # reviewer authorities and the actual deterministic simulation worker.
     cert, key, _ = tls_files
     now = datetime.now(timezone.utc)
     token = b'synthetic-full-path-browser-' + b'x' * 32
     grant = BearerGrant(token_digest(token), 'tenant-1', frozenset((*AUTHORED_READ_SCOPES,
-        *REVIEW_SCOPES, 'simulation_create')),
+        *WRITE_SCOPES, *REVIEW_SCOPES, 'simulation_create')),
         now - timedelta(seconds=1), now + timedelta(minutes=20))
     source_factory = lambda *, principal_provider: MarketSourceStore(
         jobs._dsn, jobs.schema, principal_provider=principal_provider,
@@ -179,10 +179,18 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
                 stderr=subprocess.PIPE, text=True)
             browser.stdin.write(json.dumps({'kind': 'authored', 'token': token.decode(),
                 'farm': {'scenario_id': 'farm-1', 'revision': 'r1',
-                    'registration_sha256': registration.scenario_sha256},
+                    'document': body},
                 'workflow': {'review_uuid': REVIEW_BROWSER_UUID,
                     'run_uuid': RUN_BROWSER_UUID}}) + '\n')
             browser.stdin.flush()
+            ready, _, _ = select.select([browser.stdout], [], [], 250)
+            assert ready, 'browser did not report farm registration'
+            registered = json.loads(browser.stdout.readline())
+            assert registered['event'] == 'farm_registered'
+            registration = author.get('tenant-1', 'farm-1', 'r1')
+            assert registration is not None
+            assert registered['scenario_sha256'] == registration.scenario_sha256
+            assert registration.registration_status == 'registered_unpublished_inputs'
             def browser_event(expected):
                 ready, _, _ = select.select([browser.stdout], [], [], 250)
                 assert ready, f'browser did not report {expected}'
