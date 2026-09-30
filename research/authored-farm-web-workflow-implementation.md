@@ -59,6 +59,8 @@ G0 승인·독립 검증이 아니다.
 e2e/authored-form.spec.ts e2e/authored-workflow.spec.ts`는 **4 passed**였고,
 첫 POST를 중단한 뒤 같은 바이트의 POST 재전송, 등록 후 요약·세션 식별자만
 보관, 휴대전화 가로 넘침 없음과 기존 작업 회귀를 확인했다. 합성 POST 요청은
-서버 Pydantic `FarmAuthoringRequest` 스키마도 통과했다. 이 결과는 실제 DB
-등록 성공을 뜻하지 않는다. 실제 SCRAM/HTTPS/Chromium 전체 경로 시험은
-CI에서 별도로 확인한다. 일반 사용자가 지역만 고르면 끝나는 화면은 아직 아니다.
+서버 Pydantic `FarmAuthoringRequest` 스키마도 통과했다. 이 합성 HTTP 시험
+자체는 실제 DB 등록 성공을 뜻하지 않는다. 별도
+[SCRAM/HTTPS/Chromium 통합 시험](authored-full-software-path-implementation.md)은
+새 폼 등록 POST부터 저장 Run 3D까지 로컬 1회 통과했다. 일반 사용자가
+지역만 고르면 끝나는 화면은 아직 아니다.

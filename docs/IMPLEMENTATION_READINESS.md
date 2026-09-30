@@ -1,8 +1,8 @@
 # 구현 준비 현황
 
-**작성 농장 웹 작업 연결 (2026-09-30):** 이미 등록된 판본의 조회·검토/계산 접수·상태/보류 확인·완료 Run 3D 이동을 구현했다. 마지막으로 확인한 판본 ID·해시만 탭에 저장하고 재연결 때 인증 GET/해시를 재확인하며 접근 철회·변경은 복원하지 않는다([기록](../research/authored-farm-web-workflow-implementation.md)). 작성 흐름의 합성 HTTP Chromium 3개와 웹 단위 시험 71개가 통과했다. 브라우저에 전체 농장 작성 폼과 작업 재개는 없고, 이 화면의 시험에는 실제 제품 CLI·독립 해제·PostgreSQL이 없다. 전체 G1과 `web-shell`/`web-replay`는 보류한다.
+**작성 농장 웹 작업 연결 (2026-09-30):** 직접 작성한 농장 가정·권리 선언을 입력해 불변 판본으로 등록하거나 기존 판본을 조회한 뒤 검토/계산 접수·상태/보류 확인·완료 Run 3D 이동을 구현했다. 마지막으로 확인한 판본 ID·해시만 탭에 저장하고 재연결 때 인증 GET/해시를 재확인하며 접근 철회·변경은 복원하지 않는다([기록](../research/authored-farm-web-workflow-implementation.md)). 합성 HTTP Chromium 집중 4개와 웹 단위 시험 73개가 통과했다. 작성 폼은 기존 조사·원본·시장 보류·경제 참조를 사용자가 알아야 하는 내부 도구이며 지역 선택만으로 자료를 발급하지 않는다. 새 작성 POST를 포함한 PostgreSQL 16.15/SCRAM·HTTPS·Chromium 전체 소프트웨어 경로도 로컬 1회 통과했고 호스팅 백엔드 CI는 확인 중이다. 작업 재개·실제 제품 CLI·독립 해제와 전체 G1 및 `web-shell`/`web-replay` 수용은 보류한다.
 
-**작성 농장 → 저장 Run → 실제 HTTPS/Chromium 합성 연결 (2026-09-30):** 실제 PostgreSQL/SCRAM에서 미리 등록한 판본을 브라우저로 조회하고 **신규 검토·신규 계산 작업을 각각 접수**했다. 두 작업 사이에 하네스의 가짜 CLI 검토·합성 실행 서명·합성 독립 해제를 저장했고, 실제 계산 작업자가 Run을 원자 게시했다. 브라우저의 실제 HTTPS 8개 응답·120시점 3D/표 대조를 통과했다([검증](../research/authored-full-software-path-implementation.md)). 처음 검증한 완료 증명과 계산 후보를 후속 조립에서 고정했으므로 반복 재검증/철회의 단독 증거는 아니다. 실제 제품 CLI·독립 검토 발급·사용자 작성 폼/수집 입력·접수 지연 개선·전체 G1은 보류한다.
+**작성 농장 → 저장 Run → 실제 HTTPS/Chromium 합성 연결 (2026-09-30):** 실제 PostgreSQL 16.15/SCRAM에서 브라우저가 작성 폼을 제출해 농장을 등록하고 **신규 검토·신규 계산 작업을 각각 접수**했다. 두 작업 사이에 하네스의 가짜 CLI 검토·합성 실행 서명·합성 독립 해제를 저장했고, 실제 계산 작업자가 Run을 원자 게시했다. 브라우저의 실제 HTTPS 8개 응답·120시점 3D/표 대조와 콘솔 오류 0개를 로컬 1회 통과했다([검증](../research/authored-full-software-path-implementation.md)). 처음 검증한 완료 증명과 계산 후보를 후속 조립에서 고정했으므로 반복 재검증/철회의 단독 증거는 아니다. 실제 제품 CLI·독립 검토 발급·원천 수집 입력·접수 지연 개선·전체 G1은 보류한다.
 
 **작성 Run 접수 HTTP 후보 (2026-09-30):** [계약](../contracts/api-authored-simulation-admission-v1.md)은 현재 해제·입력·최종 두 궤적을 재검사하는 인증 POST를 표준 런타임에 연결했다([검증](../research/api-authored-simulation-admission-implementation.md)). 작성형 API의 실제 HTTPS/SCRAM 집중 CI는 51개 시험을 통과했다. 신규 작업의 완료·게시·브라우저 전체 합성 흐름도 [별도 통합 시험](../research/authored-full-software-path-implementation.md)에서 확인했다. 제품 CLI·독립 G1은 남아 있다.
 
@@ -10,7 +10,7 @@
 
 **직접 열어 볼 수 있는 합성 3D 데모 (2026-09-30):** `web/`의 `npm run demo:3d`에서 로컬 전용 시험 응답과 기존 3D 재생 화면을 연결했다([캡처](../research/artifacts/local-synthetic-3d-demo.png), [브라우저 검증](../research/local-synthetic-3d-demo-implementation.md)). 실제 저장 Run의 표준 HTTPS 브라우저 시험, 사용자 농장 작성·자료 수집·제품 CLI·독립 G1/G4 수용과 구분한다.
 
-**작성 농장 입력 HTTP 후보 (2026-09-30):** [계약](../contracts/api-farm-authoring-v1.md)은 기존 불변 입력 서비스를 인증 POST/GET과 표준 HTTPS 조립에 연결한다([검증 기록](../research/api-farm-authoring-implementation.md)). OpenAPI·실제 SCRAM 집중 CI 51개 시험을 통과했다. 브라우저 작성 폼·제품 CLI·독립 검토/해제·전체 G1은 계속 보류다.
+**작성 농장 입력 HTTP 후보 (2026-09-30):** [계약](../contracts/api-farm-authoring-v1.md)은 기존 불변 입력 서비스를 인증 POST/GET과 표준 HTTPS 조립에 연결한다([검증 기록](../research/api-farm-authoring-implementation.md)). OpenAPI·실제 SCRAM 집중 CI 51개 시험을 통과했다. 브라우저 직접 입력 폼도 로컬 PostgreSQL/SCRAM·HTTPS 경로에서 등록 200과 서버 재조회로 확인했다. 제품 CLI·독립 검토/해제·전체 G1은 계속 보류다.
 
 **작성 Run 인증 읽기 후보 (2026-09-30):** [계약](../contracts/api-authored-thermal-run-v1.md)은 완료 작업의 게시/입력 결속과 별도 작성 Run의 120시점 열 값을 내부 인증 API에서 읽는다([집중 시험](../research/api-authored-thermal-run-implementation.md)). 검토 근거의 읽기 재검사에서 불필요한 검토 생성 권한을 제거했다. 실제 제품 CLI·독립 해제, 표준 HTTPS 조립·브라우저 작성 3D와 전체 G1은 계속 보류다.
 
