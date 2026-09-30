@@ -65,3 +65,12 @@ The default fake-CLI path still passed the complete local PostgreSQL
 16.15/SCRAM, HTTPS and Chromium test after this opt-in branch was added:
 `1 passed in 240.07s`. That result checks the unchanged default path and
 does not execute or validate the real CLI branch.
+
+The opt-in branch was separately rehearsed by deliberately supplying a
+test-owned executable that imitates the CLI JSONL protocol, with a dummy
+private `auth.json`. PostgreSQL 16.15/SCRAM, HTTPS and Chromium completed with
+`1 passed in 236.04s`; the synthetic attempt printed model/effort strings,
+digests, one input/output token and a 120-point browser report. This checks
+branch wiring and the test-authority receipt only. The executable digest in
+that rehearsal is **not** a Codex CLI binary digest, so it is not entered as
+actual CLI evidence or used to release G1.

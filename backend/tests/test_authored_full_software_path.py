@@ -236,10 +236,12 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
                 capture = rows['attempt_cli_captures']
                 assert (capture['exit_code'], capture['termination_reason']) == (0, 'completed')
                 assert capture['usage']['input_tokens'] > 0
-                print('authored_full_actual_cli=' + json.dumps({
+                print('authored_full_cli_attempt=' + json.dumps({
                     'review_job_id': review_id, 'attempt': reviewed.attempt,
                     'decision_id': str(reviewed.decision_id),
                     'capture_id': str(reviewed.capture_id),
+                    'observer_authority': 'synthetic_test_key',
+                    'reviewer_authority': 'synthetic_test_key',
                     'cli_version': record.cli_version,
                     'model': invocation['model'],
                     'reasoning_effort': invocation['reasoning_effort'],
