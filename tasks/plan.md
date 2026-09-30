@@ -160,6 +160,10 @@ G3a/G3b 없이도 조건부 서비스에 대한 G4 평가는 가능하다. 그 �
 합성 Run의 단독 커밋 거부·같은 거래 작업 완료·서명 재조회 경계를 시험했다
 ([시험 기록](../research/farm-authored-run-store-implementation.md)).
 실제 입력 접수·작업자가 이 거래를 호출하고 별도 API/3D로 조회하는 경로는 아직 남아 있다.
+[작성 simulation 접수 후보](../contracts/farm-authored-simulation-v1.md)는 현재
+작성 입력·해제·준비 패킷을 재검사해 멱등 작업을 등록한다
+([시험 기록](../research/farm-authored-simulation-implementation.md)).
+다음은 이 작업의 임대·원자 완료와 별도 API/3D 조회다.
 저장된 완료 Run의 3D·그래프·표를 먼저 확인하는 부분 슬라이스이며,
 공통 Assessment와 전체 농장 입력 작성·실제 CLI/독립 G1의 기존 의존성 및
 `web-shell`/`web-replay` 수용 체크는 유지한다. 실제 작물 생장·수확의 3D는

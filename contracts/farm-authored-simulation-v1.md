@@ -1,0 +1,7 @@
+# Authored thermal simulation intent v1
+
+Status: internal admission candidate after [signed authored Run preparation](farm-authored-run-preparation-v1.md) and [immutable Run storage](farm-authored-run-store-v1.md). Admission stores a queued job only; it does not publish a Run or accept G1.
+
+An authority caller with `simulation_create` submits tenant, canonical review-job UUID, authored scenario ID/revision, exact registration SHA-256 and an idempotency key. The service requires the same installed preparer and Run store. Before inserting an intent, it rereads the current signed release and registered farm, recalculates the 120-step candidate and verifies the prepared Run ID, report and two final trace hashes. It stores only canonical `authored-thermal-simulation-input-v1` pointers in a durable `simulation` job. An exact retry returns the same job; changed input under the same key conflicts. A commit guard repeats the complete preparation, so revoked rights, changed code/lock, changed review evidence or a changed packet during admission roll back the job.
+
+The job still needs a targeted worker to claim the lease, revalidate current evidence and complete the [Run storage transaction](farm-authored-run-store-v1.md). The existing fixed-fixture simulation worker must not consume this input version. [Synthetic SCRAM evidence](../research/farm-authored-simulation-implementation.md) verifies admission behavior only. Product CLI execution, genuine independent release, authored Run completion, API/3D projection and G1 remain held.

@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**작성 simulation 접수 진행 (2026-09-30):** [접수 계약](../contracts/farm-authored-simulation-v1.md)은 현재 입력·해제·Run 준비 패킷을 고정한 멱등 simulation 작업을 등록한다([SCRAM 시험](../research/farm-authored-simulation-implementation.md)). 실제 실행 작업자·조회·3D·제품 CLI/독립 G1 체크는 유지한다.
+
 **작성 입력 Run 저장 경계 진행 (2026-09-30):** [저장 계약](../contracts/farm-authored-run-store-v1.md)의 불변 테이블·선택적 v8 권한과 합성 행 게시·재조회, 단독 커밋 거부를 추가했다([SCRAM 시험](../research/farm-authored-run-store-implementation.md)). 실제 입력 접수·작업자는 아직 없다. 작성 입력 3D·실제 CLI/독립 G1 체크는 유지한다.
 
 **작성 입력 Run 준비 진행 (2026-09-30):** [준비 계약](../contracts/farm-authored-run-preparation-v1.md)은 현재 저장 해제·농장 판본을 재검사하고 120단계의 최종 두 궤적·해시·식별자를 만든다([집중 시험](../research/farm-authored-run-preparation-implementation.md)). 게시·작성 입력 3D 연결, 실제 제품 CLI와 독립 해제/G1은 남아 있다. 기존 수용 체크는 유지한다.

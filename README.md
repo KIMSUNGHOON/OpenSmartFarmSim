@@ -20,6 +20,7 @@
 [작성 입력 검토 접수 후보](contracts/farm-authored-review-v1.md)는 이 궤적의 입력·두 결과 해시를 기존 CLI 검토 작업에 묶습니다([검증 기록](research/farm-authored-review-implementation.md)). [완료 검증 후보](contracts/farm-authored-review-completion-v1.md)는 저장된 결정·캡처·서명 실행 증거를 대사합니다([시험 기록](research/farm-authored-review-completion-implementation.md)). [독립 해제 검증 후보](contracts/farm-authored-release-v1.md)는 현재 코드·입력과 별도 검토자의 서명·보고서 원문을 묶고, [영속 저장 후보](contracts/farm-authored-release-store-v1.md)가 패킷을 변경 불가하게 보존·재검사합니다([시험 기록](research/farm-authored-release-store-implementation.md)). 실제 제품 CLI 실행과 독립 해제 발급·Run 게시는 후속입니다.
 [작성 입력 Run 준비 후보](contracts/farm-authored-run-preparation-v1.md)는 유효한 저장 해제와 현재 농장 판본을 다시 확인한 뒤 120개 계산 시점의 최종 두 궤적·해시·Run ID를 준비합니다([시험 기록](research/farm-authored-run-preparation-implementation.md)). 이 바이트는 아직 게시되지 않았고 기존 3D 화면에서도 조회할 수 없습니다. 실제 작성 입력 3D에는 독립 해제·원자 게시·별도 조회/화면 연결이 더 필요합니다.
 [작성 Run 저장 후보](contracts/farm-authored-run-store-v1.md)는 별도 불변 테이블에서 합성 시험 행의 작업 완료와 원자 저장·재조회를 검사합니다([시험 기록](research/farm-authored-run-store-implementation.md)). 실제 작성 입력 작업자와 3D 연결, 제품 CLI·독립 해제/G1 증거는 남아 있습니다.
+[작성 simulation 접수 후보](contracts/farm-authored-simulation-v1.md)는 현재 작성 입력·서명 해제·최종 궤적을 다시 확인하고 동일 요청을 변경 불가 작업 하나로 등록합니다([시험 기록](research/farm-authored-simulation-implementation.md)). 실행 작업자와 작성 입력 3D는 후속입니다.
 
 ## 문서 읽는 순서
 
