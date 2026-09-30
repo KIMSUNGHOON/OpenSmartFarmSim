@@ -4,7 +4,9 @@
 
 **작성 입력 Run 영속 경계 후보 (2026-09-30):** [저장 계약](../contracts/farm-authored-run-store-v1.md)은 별도 불변 테이블과 권한을 명시적으로 설치한다. v8 SCRAM 권한, 합성 Run 행의 게시·재조회, 단독 행 커밋 거부 및 같은 거래의 작업 완료를 시험했다([기록](../research/farm-authored-run-store-implementation.md)). 시험의 준비 함수와 완료 증명은 합성 대역이며 실제 작업자·제품 CLI·독립 해제·3D는 아직 미구현이므로 G1은 계속 보류다.
 
-**작성 simulation 접수 후보 (2026-09-30):** [접수 계약](../contracts/farm-authored-simulation-v1.md)은 등록 판본·서명 해제·120단계 최종 패킷을 다시 확인해 같은 작업 하나를 등록하며 접수 중 증거가 바뀌면 롤백한다([시험](../research/farm-authored-simulation-implementation.md)). 실제 작업자·작성 Run API/3D·제품 CLI·독립 해제와 G1은 계속 보류다.
+**작성 simulation 접수 후보 (2026-09-30):** [접수 계약](../contracts/farm-authored-simulation-v1.md)은 등록 판본·서명 해제·120단계 최종 패킷을 다시 확인해 같은 작업 하나를 등록하며 접수 중 증거가 바뀌면 롤백한다([시험](../research/farm-authored-simulation-implementation.md)). 작성 Run API/3D·제품 CLI·독립 해제와 G1은 계속 보류다.
+
+**작성 simulation 작업자 후보 (2026-09-30):** [작업자 계약](../contracts/farm-authored-simulation-worker-v1.md)은 임대한 작성 작업을 현재 해제·입력으로 재검사하고 Run/영수증/완료를 한 거래에 묶는다([합성 SCRAM 시험](../research/farm-authored-simulation-worker-implementation.md)). 취소·권리/해제 변경·오류·임대 만료 때 부분 Run이 남지 않음을 확인했다. 실제 제품 CLI와 독립 해제·인증 API/3D·전체 G1은 아직 보류다.
 
 **첫 내부 3D 열 재생 후보 (2026-09-30):** [재생 계약](../contracts/web-thermal-replay-v1.md)은 완료된 Run의 120개 저장 시각을 실제 Three.js 장면·그래프·HTML 표·여섯 수치 요약으로 연결한다. [소프트웨어 검증 기록](../research/web-thermal-replay-implementation.md)은 키보드·반응형·WebGL 장애/복구와 실제 HTTPS/SCRAM 브라우저 연결을 구분한다. 전체 입력·공통 농장 Assessment·실제 CLI/독립 G1/G4 수용은 남아 있고 작물 생장·수확·미래 마진·순위를 검증한 결과가 아니다.
 

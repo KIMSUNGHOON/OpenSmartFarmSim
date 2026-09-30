@@ -38,3 +38,7 @@ The [Run preparation candidate](contracts/farm-authored-run-preparation-v1.md)
 rechecks that stored release and the current registered farm, then derives
 canonical final two-hour trace bytes and hashes. It has no publisher or authored
 3D projection; the original fixture viewer cannot consume it as an accepted Run.
+The [targeted simulation worker](contracts/farm-authored-simulation-worker-v1.md)
+now completes a synthetic-test authored Run and job atomically. Actual product
+CLI and independent reviewer evidence, an authenticated authored API and 3D
+projection remain open.

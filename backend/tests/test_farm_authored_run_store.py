@@ -50,10 +50,7 @@ def test_authored_run_table_has_only_authority_login(login_scope):
                 base._table('authored_thermal_runs')))
 
 
-@pytest.mark.parametrize('login_scope', [{
-    'authored_release_storage': True, 'authored_run_storage': True,
-}], indirect=True)
-def test_run_insert_requires_same_transaction_job_publication(login_scope, tmp_path):
+def _authored_store_setup(login_scope, tmp_path):
     base, policy, dsns = login_scope
     approved = lambda job, value: replace(resolver(job, value),
         allow_proceed=True, missing_evidence=())
@@ -103,6 +100,15 @@ def test_run_insert_requires_same_transaction_job_publication(login_scope, tmp_p
     preparer._binding = lambda: None
     preparer.prepare = lambda *args: packet
     store = AuthoredRunStore(preparer, b'synthetic-test-gate-key-' + b'0' * 32)
+    return base, jobs, proof, packet, preparer, store
+
+
+@pytest.mark.parametrize('login_scope', [{
+    'authored_release_storage': True, 'authored_run_storage': True,
+}], indirect=True)
+def test_run_insert_requires_same_transaction_job_publication(login_scope, tmp_path):
+    base, jobs, proof, packet, preparer, store = _authored_store_setup(
+        login_scope, tmp_path)
     simulation = jobs.submit('tenant-a', 'simulation', {
         'input_version': 'authored-thermal-simulation-input-v1',
         'tenant_id': 'tenant-a', 'scenario_id': 'farm-1',

@@ -1,6 +1,8 @@
 # 첫 구현 작업 목록
 
-**작성 simulation 접수 진행 (2026-09-30):** [접수 계약](../contracts/farm-authored-simulation-v1.md)은 현재 입력·해제·Run 준비 패킷을 고정한 멱등 simulation 작업을 등록한다([SCRAM 시험](../research/farm-authored-simulation-implementation.md)). 실제 실행 작업자·조회·3D·제품 CLI/독립 G1 체크는 유지한다.
+**작성 simulation 작업자 진행 (2026-09-30):** [작업자 계약](../contracts/farm-authored-simulation-worker-v1.md)은 실제 임대와 Run/영수증/완료의 원자 거래, 취소·해제 변경·오류·만료 롤백을 합성 SCRAM으로 시험했다([기록](../research/farm-authored-simulation-worker-implementation.md)). 작성 입력 API/3D·제품 CLI/독립 G1 체크는 유지한다.
+
+**작성 simulation 접수 진행 (2026-09-30):** [접수 계약](../contracts/farm-authored-simulation-v1.md)은 현재 입력·해제·Run 준비 패킷을 고정한 멱등 simulation 작업을 등록한다([SCRAM 시험](../research/farm-authored-simulation-implementation.md)). 별도 조회·3D·제품 CLI/독립 G1 체크는 유지한다.
 
 **작성 입력 Run 저장 경계 진행 (2026-09-30):** [저장 계약](../contracts/farm-authored-run-store-v1.md)의 불변 테이블·선택적 v8 권한과 합성 행 게시·재조회, 단독 커밋 거부를 추가했다([SCRAM 시험](../research/farm-authored-run-store-implementation.md)). 실제 입력 접수·작업자는 아직 없다. 작성 입력 3D·실제 CLI/독립 G1 체크는 유지한다.
 

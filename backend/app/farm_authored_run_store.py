@@ -134,13 +134,23 @@ class AuthoredRunStore:
                      scenario_id, revision, registration_sha256, packet):
         try:
             self.preparer._binding()
+            expected = self.preparer.prepare(tenant, review_job_id, scenario_id,
+                                              revision, registration_sha256)
+            _need(packet == expected)
+            return self._publication_from_packet(tenant, simulation_job_id,
+                attempt, review_job_id, scenario_id, revision,
+                registration_sha256, packet)
+        except Exception:
+            raise AuthoredRunStoreHold('authored Run publication unavailable') from None
+
+    def _publication_from_packet(self, tenant, simulation_job_id, attempt,
+                                 review_job_id, scenario_id, revision,
+                                 registration_sha256, packet):
+        try:
             _need(type(packet) is PreparedAuthoredRun and
                   type(attempt) is int and attempt > 0 and
                   str(UUID(str(simulation_job_id))) == str(simulation_job_id) and
                   str(UUID(str(review_job_id))) == str(review_job_id))
-            expected = self.preparer.prepare(tenant, review_job_id, scenario_id,
-                                              revision, registration_sha256)
-            _need(packet == expected)
             prepared = json.loads(packet.report_raw)
             _need(canonical_input_bytes(prepared) == packet.report_raw and
                   prepared['run_id'] == packet.run_id and
