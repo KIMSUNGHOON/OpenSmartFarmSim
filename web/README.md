@@ -24,7 +24,10 @@ its real server job/hold status. The third screen lists exact stored economic
 assumptions, registers a numeric revision and admits/reads a selected conditional
 ledger calculation, including a manually requested monthly cash table. A
 break-even section selects existing sale/collection and saved trial revisions,
-admits a finite plan and reads its completed result. The fourth screen replays
+admits a finite plan and reads its completed result. The fourth screen looks up
+an already registered authored farm version, submits review and thermal work,
+reads server job/hold status, and opens a completed stored Run. It does not
+provide a farm authoring form or issue an independent release. The fifth screen replays
 either a fixed or a farm-authored synthetic thermal Run in Three.js, a chart, an HTML table and six
 text values with one selected stored timestamp. Full farm input,
 baseline/event/settlement authoring, automatic trial assumptions, durable
@@ -51,7 +54,10 @@ npm run test:browser
 Run from `web/`. The browser suite starts its own loopback server on 5173 and
 refuses to reuse an existing service. Browser responses in that suite are
 explicit test doubles, not completed product CLI work. CI runs these checks
-with pinned actions/tools and `npm audit --audit-level=high`.
+with pinned actions/tools and `npm audit --audit-level=high`. Set
+`OSSF_TEST_WEB_PORT` to another available loopback port when 5173 serves the
+local 3D demo. The authored workflow's browser verification is recorded in
+[its implementation evidence](../research/authored-farm-web-workflow-implementation.md).
 
 ## Connect an operator-assembled API
 
@@ -129,7 +135,7 @@ the static build's `/licenses/noto-sans-kr-OFL.txt`.
 
 ## Open a completed thermal replay
 
-With the assembled API connected, choose **04 3D 열 재생**, select fixed or
+With the assembled API connected, choose **05 3D 열 재생**, select fixed or
 authored thermal replay, enter an owned completed thermal job UUID, then choose
 **저장된 Run 조회**. The API must permit the job/Run/snapshot and, for a farm v3
 job, the current farm selection reads. The authored path additionally needs

@@ -26,7 +26,7 @@ try{
   await page.getByLabel('접근 토큰').fill(configuration.token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await expect(page.getByLabel('접근 토큰')).toHaveValue('');
-  await page.getByRole('button',{name:'04 3D 열 재생'}).click();
+  await page.getByRole('button',{name:'05 3D 열 재생'}).click();
   if(authored)await page.getByRole('radio',{name:'작성한 농장 열 재생'}).check();
   await page.getByLabel('완료된 열 작업 ID').fill(configuration.job_id);
   await page.getByRole('button',{name:'저장된 Run 조회'}).click();

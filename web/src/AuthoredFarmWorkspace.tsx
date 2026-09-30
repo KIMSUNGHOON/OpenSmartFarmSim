@@ -1,0 +1,188 @@
+import { useEffect,useRef,useState,type FormEvent } from 'react';
+import { ApiError,type Evidence,type JobHold,type JobStatus,type createApi } from './api';
+import type { AuthoredFarmSummary } from './authored-farm-api';
+import './AuthoredFarmWorkspace.css';
+
+type Api=ReturnType<typeof createApi>;
+type Work='lookup'|'review'|'review-status'|'run'|'run-status';
+const stateName:Record<JobStatus['state'],string>={queued:'대기 중',researching:'조사 중',
+  collecting:'수집 중',reviewing:'검토 중',simulating:'계산 중',assessing:'평가 중',
+  succeeded:'완료',hold:'보류',failed:'실패',canceled:'취소'};
+const errors:Record<string,string>={auth_required:'먼저 내부 시험 연결을 설정해 주세요.',
+  access_denied:'이 판본이나 작업에 필요한 권한이 없습니다.',
+  not_available:'등록된 판본 또는 작업을 찾을 수 없습니다.',
+  invalid_request:'현재 입력·권리·해제 근거를 서버가 확인하지 못했습니다.',
+  intent_conflict:'같은 요청 식별자에 다른 입력이 등록되어 있습니다.',
+  server_unavailable:'서버가 접수 여부를 확인하지 못했습니다. 같은 버튼으로 재확인해 주세요.',
+  network_unresolved:'응답을 받지 못했습니다. 같은 버튼으로 저장된 접수를 다시 확인해 주세요.',
+  response_rejected:'서버 응답의 판본 또는 작업 연결을 확인할 수 없습니다.'};
+const evidenceName:Record<Evidence,string>={
+  research_source_evidence:'자료 출처와 이용 근거',
+  signed_decision_context:'결정 시각의 서명 근거',
+  real_source_g0:'권리와 품질을 확인한 원천 자료',
+  market_source_g0:'권리와 품질을 확인한 시장 자료',
+  eligible_crop_candidates:'재배 가능한 작물 후보',
+  farm_scenario_binding:'시설·재배·경제 조건을 묶은 입력',
+  local_measurements_g2:'독립적인 현장 측정',
+  future_validation_g3a:'미사용 기간의 수확·경제 검증',
+  paired_comparison_g3b:'같은 조건의 작물 대응 비교',
+  other_evidence:'추가 확인이 필요한 증거',
+};
+
+function JobCard({title,job,onRefresh,busy}:{title:string;job:JobStatus|null;
+  onRefresh:()=>void;busy:boolean}) {
+  return <section className="authored-job">
+    <div className="authored-job-title"><h3>{title}</h3><span className="authored-state">{job ? stateName[job.state] : '아직 접수 전'}</span></div>
+    {job ? <><p className="authored-job-id">작업 ID <code>{job.job_id}</code></p>
+      <p className="authored-job-meta">서버 갱신 {job.updated_at}</p>
+      {job.reason_code && <details className="authored-job-meta"><summary>기술 기록</summary>
+        <code>{job.reason_code}</code></details>}
+      <button type="button" className="button secondary" disabled={busy} onClick={onRefresh}>상태 다시 확인</button></>
+      : <p className="muted">등록된 판본을 확인한 뒤 작업을 접수할 수 있습니다.</p>}
+  </section>;
+}
+
+export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
+  onOpenReplay:(jobId:string)=>void}) {
+  const [scenarioId,setScenarioId]=useState('');
+  const [revision,setRevision]=useState('');
+  const [farm,setFarm]=useState<AuthoredFarmSummary|null>(null);
+  const [review,setReview]=useState<JobStatus|null>(null);
+  const [run,setRun]=useState<JobStatus|null>(null);
+  const [reviewHold,setReviewHold]=useState<JobHold|null>(null);
+  const [busy,setBusy]=useState<Work|null>(null);
+  const [error,setError]=useState<string|null>(null);
+  const generation=useRef(0);
+  const reviewKey=useRef<string|null>(null);
+  const runKey=useRef<string|null>(null);
+
+  useEffect(()=>{generation.current++;setFarm(null);setReview(null);setRun(null);
+    setReviewHold(null);setBusy(null);setError(null);reviewKey.current=null;
+    runKey.current=null;},[api]);
+
+  function reset() {
+    generation.current++;setFarm(null);setReview(null);setRun(null);setReviewHold(null);
+    setBusy(null);setError(null);reviewKey.current=null;runKey.current=null;
+  }
+  function failure(value:unknown) {
+    const code=value instanceof ApiError ? value.code : 'network_unresolved';
+    setError(errors[code] ?? '요청을 확인할 수 없습니다.');
+  }
+  async function lookup(event:FormEvent<HTMLFormElement>) {
+    event.preventDefault();if (busy || !api) {if(!api)setError('먼저 내부 시험 연결을 설정해 주세요.');return;}
+    const epoch=generation.current;
+    setBusy('lookup');setError(null);
+    try {
+      const result=await api.authoredFarm(scenarioId.trim(),revision.trim());
+      if(epoch!==generation.current)return;
+      setFarm(result);setReview(null);setRun(null);setReviewHold(null);
+      reviewKey.current=null;runKey.current=null;
+    } catch(value) {if(epoch===generation.current)failure(value);}
+    finally {if(epoch===generation.current)setBusy(null);}
+  }
+  async function submitReview() {
+    if(busy || !api || !farm)return;
+    const epoch=generation.current;
+    reviewKey.current ??= 'review-'+crypto.randomUUID();
+    setBusy('review');setError(null);
+    try {
+      const value=await api.submitAuthoredReview({scenario_id:farm.scenario_id,
+        scenario_revision:farm.scenario_revision,registration_sha256:farm.scenario_sha256,
+        idempotency_key:reviewKey.current});
+      if(epoch===generation.current){setReview(value);setReviewHold(null);}
+    } catch(value) {if(epoch===generation.current)failure(value);}
+    finally {if(epoch===generation.current)setBusy(null);}
+  }
+  async function refreshReview() {
+    if(busy || !api || !review)return;
+    const epoch=generation.current;
+    setBusy('review-status');setError(null);
+    try {
+      const value=await api.job(review.job_id);
+      if(value.stage!=='collection_review')throw new ApiError('response_rejected');
+      const hold=value.state==='hold' ? await api.hold(value.job_id) : null;
+      if(epoch===generation.current){setReview(value);setReviewHold(hold);}
+    } catch(value) {if(epoch===generation.current)failure(value);}
+    finally {if(epoch===generation.current)setBusy(null);}
+  }
+  async function submitRun() {
+    if(busy || !api || !farm || !review || review.state!=='succeeded')return;
+    const epoch=generation.current;
+    runKey.current ??= 'run-'+crypto.randomUUID();
+    setBusy('run');setError(null);
+    try {
+      const value=await api.submitAuthoredRun({scenario_id:farm.scenario_id,
+        scenario_revision:farm.scenario_revision,registration_sha256:farm.scenario_sha256,
+        review_job_id:review.job_id,idempotency_key:runKey.current});
+      if(epoch===generation.current)setRun(value);
+    } catch(value) {if(epoch===generation.current)failure(value);}
+    finally {if(epoch===generation.current)setBusy(null);}
+  }
+  async function refreshRun() {
+    if(busy || !api || !run)return;
+    const epoch=generation.current;
+    setBusy('run-status');setError(null);
+    try {
+      const value=await api.job(run.job_id);
+      if(value.stage!=='simulation')throw new ApiError('response_rejected');
+      if(epoch===generation.current)setRun(value);
+    } catch(value) {if(epoch===generation.current)failure(value);}
+    finally {if(epoch===generation.current)setBusy(null);}
+  }
+
+  return <section className="authored-workflow" aria-labelledby="authored-workflow-heading">
+    <div className="authored-intro"><div><p className="step-number">작성 농장 / 내부 작업</p>
+      <h2 id="authored-workflow-heading">등록 판본에서 3D 열 재생까지</h2>
+      <p>서버에 이미 등록된 농장 판본을 확인하고 검토·계산 작업을 접수합니다. 각 단계의 완료 여부는 서버 기록으로 확인합니다.</p></div>
+      <span className="badge">합성 열 재생 범위</span></div>
+    <ol className="authored-progress" aria-label="작업 단계">
+      <li className={farm?'done':''}>1. 등록 판본 확인</li>
+      <li className={review?.state==='succeeded'?'done':review?'active':''}>2. 입력 검토</li>
+      <li className={run?.state==='succeeded'?'done':run?'active':''}>3. 계산 작업</li>
+      <li className={run?.state==='succeeded'?'active':''}>4. 3D 열기</li>
+    </ol>
+    {error && <div className="notice error" role="alert">{error}</div>}
+    <div className="authored-columns"><div className="authored-main">
+      <section className="panel"><p className="step-number">01 / 등록 판본</p><h3>서버에 저장된 농장 찾기</h3>
+        <p className="muted">농장 수치와 권리를 이 화면이 추측하지 않습니다. 등록 때 받은 시나리오 ID와 판본을 입력하세요.</p>
+        <form onSubmit={lookup} className="authored-lookup"><label>시나리오 ID
+          <input required maxLength={200} value={scenarioId} readOnly={!!farm || !!busy}
+            onChange={event=>setScenarioId(event.target.value)} autoComplete="off"/></label>
+          <label>판본<input required maxLength={200} value={revision} readOnly={!!farm || !!busy}
+            onChange={event=>setRevision(event.target.value)} autoComplete="off"/></label>
+          <button className="button primary" disabled={!api || !!busy || !!farm}>등록 기록 확인</button>
+          {farm && <button type="button" className="button secondary" disabled={!!busy}
+            onClick={reset}>다른 판본</button>}</form>
+        {farm && <dl className="authored-facts"><div><dt>등록 상태</dt><dd>입력 등록됨 · 계산 전</dd></div>
+          <div><dt>등록 해시</dt><dd><code>{farm.scenario_sha256}</code></dd></div>
+          <div><dt>입력 작업</dt><dd><code>{farm.intent_job.job_id}</code></dd></div></dl>}
+      </section>
+      <section className="panel"><p className="step-number">02 / 작성 입력 검토</p>
+        <h3>검토 작업 접수</h3><p className="muted">접수는 AI 판단 또는 독립 서명 해제가 아닙니다. 실제 작업자가 실행한 뒤 별도 검토 근거가 필요합니다.</p>
+        <button className="button primary" type="button" disabled={!farm || !!busy || !!review}
+          onClick={submitReview}>입력 검토 요청</button>
+        <JobCard title="입력 검토 작업" job={review} onRefresh={refreshReview} busy={!!busy}/>
+        {reviewHold && <div className="authored-hold" role="status"><strong>검토 보류</strong>
+          <p>서버가 확인한 누락 근거 {reviewHold.missing_evidence_count}건입니다.</p>
+          <ul>{reviewHold.missing_evidence.map(item=><li key={item}>{evidenceName[item]}</li>)}</ul></div>}
+      </section>
+      <section className="panel"><p className="step-number">03 / 작성 열 계산</p>
+        <h3>해제 후 계산 작업 접수</h3><p className="muted">검토 작업이 완료되어도 독립 서명 해제가 저장되어야 접수됩니다. 해제 또는 현재 권리가 없으면 서버가 보류합니다.</p>
+        <button className="button primary" type="button" disabled={review?.state!=='succeeded' || !!busy || !!run}
+          onClick={submitRun}>열 계산 요청</button>
+        <JobCard title="열 계산 작업" job={run} onRefresh={refreshRun} busy={!!busy}/>
+      </section>
+    </div><aside className="authored-side" aria-label="결과 범위와 보류">
+      <section className="panel authored-result"><p className="step-number">04 / 결과</p><h3>3D 열 재생</h3>
+        <p>완료된 저장 Run의 온도·습도·모델 열수요를 120개 시점에서 확인합니다.</p>
+        <button className="button primary" type="button" disabled={run?.state!=='succeeded'}
+          onClick={()=>{if(run)onOpenReplay(run.job_id);}}>3D 재생 열기</button>
+        {run?.state!=='succeeded' && <p className="muted">계산 작업 완료 후 열 수 있습니다.</p>}</section>
+      <section className="panel authored-limits"><h3>현재 확인 범위</h3>
+        <ul><li>입력 등록과 작업 상태는 서버에서 확인합니다.</li>
+          <li>검토 완료와 독립 해제는 서로 다른 단계입니다.</li>
+          <li>합성 화면은 생장·수확·미래 마진·작물 순위를 예측하지 않습니다.</li></ul>
+      </section>
+    </aside></div>
+  </section>;
+}

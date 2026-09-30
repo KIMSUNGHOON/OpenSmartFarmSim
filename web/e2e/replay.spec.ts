@@ -13,7 +13,7 @@ async function routes(page:Page,data=thermalResponses()) {
 async function connect(page:Page) {
   await page.goto('/');await page.getByText('내부 시험 연결',{exact:true}).click();
   await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정'}).click();
-  await page.getByRole('button',{name:'04 3D 열 재생'}).click();
+  await page.getByRole('button',{name:'05 3D 열 재생'}).click();
 }
 async function load(page:Page) {
   await page.getByLabel('완료된 열 작업 ID').fill(thermalJobId);
@@ -114,7 +114,7 @@ test('new selection and connection changes discard previous and delayed results'
   await page.getByRole('button',{name:'저장된 Run 조회'}).click();
   await page.getByRole('button',{name:'연결 해제'}).click();release();
   await expect(page.locator('.replay-viewer')).toHaveCount(0);
-  await page.getByRole('button',{name:'04 3D 열 재생'}).click();
+  await page.getByRole('button',{name:'05 3D 열 재생'}).click();
   await expect(page.locator('.replay-viewer')).toHaveCount(0);
 });
 
