@@ -180,6 +180,129 @@
         "title": "AssetAccount",
         "type": "object"
       },
+      "AuthoredThermalRunSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "claim_scope": {
+            "const": "synthetic_thermal_replay_only",
+            "title": "Claim Scope",
+            "type": "string"
+          },
+          "decision_at_utc": {
+            "format": "date-time",
+            "title": "Decision At Utc",
+            "type": "string"
+          },
+          "end_utc": {
+            "format": "date-time",
+            "title": "End Utc",
+            "type": "string"
+          },
+          "engine_version": {
+            "const": "thermal-euler-v1",
+            "title": "Engine Version",
+            "type": "string"
+          },
+          "model_version": {
+            "const": "thermal-v1",
+            "title": "Model Version",
+            "type": "string"
+          },
+          "point_count": {
+            "const": 120,
+            "title": "Point Count",
+            "type": "integer"
+          },
+          "registration_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Registration Sha256",
+            "type": "string"
+          },
+          "release_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Release Sha256",
+            "type": "string"
+          },
+          "review_at_utc": {
+            "format": "date-time",
+            "title": "Review At Utc",
+            "type": "string"
+          },
+          "run_id": {
+            "pattern": "^authored-thermal-run-v1:[0-9a-f]{64}$",
+            "title": "Run Id",
+            "type": "string"
+          },
+          "scenario_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "scenario_revision": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Revision",
+            "type": "string"
+          },
+          "start_utc": {
+            "format": "date-time",
+            "title": "Start Utc",
+            "type": "string"
+          },
+          "status": {
+            "const": "accepted",
+            "title": "Status",
+            "type": "string"
+          },
+          "synthetic": {
+            "const": true,
+            "title": "Synthetic",
+            "type": "boolean"
+          },
+          "temporal_provenance": {
+            "const": "ex_post_replay",
+            "title": "Temporal Provenance",
+            "type": "string"
+          },
+          "trace_sha256": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 2,
+            "minItems": 2,
+            "title": "Trace Sha256",
+            "type": "array"
+          },
+          "unit_registry_version": {
+            "const": "thermal-si-nws-v1",
+            "title": "Unit Registry Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "run_id",
+          "status",
+          "synthetic",
+          "claim_scope",
+          "temporal_provenance",
+          "scenario_id",
+          "scenario_revision",
+          "registration_sha256",
+          "release_sha256",
+          "decision_at_utc",
+          "review_at_utc",
+          "start_utc",
+          "end_utc",
+          "model_version",
+          "engine_version",
+          "unit_registry_version",
+          "trace_sha256",
+          "point_count"
+        ],
+        "title": "AuthoredThermalRunSummary",
+        "type": "object"
+      },
       "BindingRef": {
         "additionalProperties": false,
         "properties": {
@@ -4384,6 +4507,200 @@
         ]
       }
     },
+    "/v1/authored-runs/{run_id}": {
+      "get": {
+        "operationId": "getAuthoredRun",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "pattern": "^authored-thermal-run-v1:[0-9a-f]{64}$",
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthoredThermalRunSummary"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Authored Run",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "artifact",
+          "authored_run_read",
+          "authored_release_read",
+          "farm_scenario_read",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read"
+        ]
+      }
+    },
+    "/v1/authored-runs/{run_id}/series": {
+      "get": {
+        "operationId": "getAuthoredRunSeries",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "pattern": "^authored-thermal-run-v1:[0-9a-f]{64}$",
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThermalRunSeries"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Authored Run Series",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "artifact",
+          "authored_run_read",
+          "authored_release_read",
+          "farm_scenario_read",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read"
+        ]
+      }
+    },
     "/v1/break-even-plans": {
       "post": {
         "operationId": "submitBreakEvenPlan",
@@ -6200,6 +6517,103 @@
         "summary": "Get Job",
         "x-ossf-required-scopes": [
           "metadata"
+        ]
+      }
+    },
+    "/v1/jobs/{job_id}/authored-run": {
+      "get": {
+        "operationId": "getJobAuthoredRun",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthoredThermalRunSummary"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Job Authored Run",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "artifact",
+          "authored_run_read",
+          "authored_release_read",
+          "farm_scenario_read",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read"
         ]
       }
     },

@@ -8,7 +8,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from starlette.concurrency import run_in_threadpool
 
-from .api_contracts import (EconomicResultRead, ErrorEnvelope, JobStatus, MarketHoldStatus,
+from .api_contracts import (AuthoredThermalRunSummary, EconomicResultRead, ErrorEnvelope, JobStatus, MarketHoldStatus,
                             ThermalRunManifest, ThermalRunSeries, ThermalRunSummary,
                             public_job_status,
                             public_market_hold, LocationAccepted, JobHoldStatus, public_job_hold)
@@ -16,6 +16,9 @@ from .api_economics import RESULT_ID_PATTERN, project_economic_result
 from .api_economic_cash_flow import EconomicCashPage, CashCursorRejected, MONTH_PATTERN
 from .api_break_even import PLAN_ID_PATTERN, BreakEvenRead, project_break_even_result
 from .api_thermal import RUN_ID_PATTERN, project_thermal_manifest, project_thermal_run
+from .api_authored_thermal import (AUTHORED_READ_SCOPES, AUTHORED_RUN_ID_PATTERN,
+    project_authored_run, read_authored_job_run)
+from .farm_authored_run_store import AuthoredRunStore
 from .api_job_run import read_job_run
 from .api_job_break_even_result import BreakEvenJobResultService, BREAK_EVEN_JOB_READ_SCOPES
 from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold, ThermalScenarioConflict, IDENTIFIER
@@ -73,7 +76,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                economic_calculation_service=None, break_even_plan_service=None,
                break_even_job_result_service=None, collection_service=None,
                owned_collection_review_service=None, assessment_service=None,
-               farm_scenario_service=None) -> FastAPI:
+               farm_scenario_service=None, authored_run_store=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -81,6 +84,11 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             not callable(getattr(thermal_run_store, "get_snapshot", None)) or
             not callable(getattr(market_result_store, "get_economic_result", None))):
         raise ValueError("API trusted stores and principal provider are required")
+    if authored_run_store is not None and (
+            type(authored_run_store) is not AuthoredRunStore or
+            authored_run_store.jobs is not job_store or
+            job_store.principal_provider is not principal_provider):
+        raise ValueError('trusted authored Run reader required')
     if location_research_service is not None and type(location_research_service) not in (LocationResearchService, OwnedResearchService):
         raise ValueError("trusted location research service required")
     if type(location_research_service) is OwnedResearchService and (
@@ -153,6 +161,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
     market_hold_scopes = ("market_hold_read",)
     run_scopes = ("thermal_run_read",)
     manifest_scopes = ("thermal_run_read", "thermal_snapshot_read")
+    authored_scopes = AUTHORED_READ_SCOPES
     economic_scopes = ("market_result_read",)
     break_even_scopes = ("break_even_read",)
 
@@ -790,6 +799,51 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return project_thermal_manifest(stored, snapshot)
         except Exception:
             return _error(503, "store_unavailable", "Run manifest unavailable")
+
+    AuthoredRunId = Annotated[str, Path(pattern=AUTHORED_RUN_ID_PATTERN)]
+
+    def displayed_authored_run(run_id):
+        tenant, denied = authorized_tenant(*authored_scopes)
+        if denied is not None:
+            return denied
+        if authored_run_store is None:
+            return _error(503, 'store_unavailable', 'Authored Run unavailable')
+        try:
+            stored = authored_run_store.get_run(tenant, run_id)
+            if stored is None:
+                return _error(404, 'not_found', 'Authored Run not found')
+            return project_authored_run(stored)
+        except Exception:
+            return _error(503, 'store_unavailable', 'Authored Run unavailable')
+
+    @app.get('/v1/jobs/{job_id}/authored-run', response_model=AuthoredThermalRunSummary,
+             responses=errors, operation_id='getJobAuthoredRun',
+             openapi_extra=_access(authored_scopes))
+    def get_job_authored_run(job_id: UUID):
+        tenant, denied = authorized_tenant(*authored_scopes)
+        if denied is not None:
+            return denied
+        if authored_run_store is None:
+            return _error(503, 'store_unavailable', 'Authored Run unavailable')
+        try:
+            result = read_authored_job_run(job_store, authored_run_store, tenant, job_id)
+            return result if result is not None else _error(404, 'not_found', 'Authored Run not found')
+        except Exception:
+            return _error(503, 'store_unavailable', 'Authored Run unavailable')
+
+    @app.get('/v1/authored-runs/{run_id}', response_model=AuthoredThermalRunSummary,
+             responses=errors, operation_id='getAuthoredRun',
+             openapi_extra=_access(authored_scopes))
+    def get_authored_run(run_id: AuthoredRunId):
+        result = displayed_authored_run(run_id)
+        return result if isinstance(result, JSONResponse) else result[0]
+
+    @app.get('/v1/authored-runs/{run_id}/series', response_model=ThermalRunSeries,
+             responses=errors, operation_id='getAuthoredRunSeries',
+             openapi_extra=_access(authored_scopes))
+    def get_authored_run_series(run_id: AuthoredRunId):
+        result = displayed_authored_run(run_id)
+        return result if isinstance(result, JSONResponse) else result[1]
 
     @app.get("/v1/economic-results/{result_id}", response_model=EconomicResultRead,
              responses=errors, operation_id="getEconomicResult", openapi_extra=_access(economic_scopes))

@@ -14,11 +14,15 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app.api import create_app
 from app.api_contracts import LocationPoint
+from app.api_authored_thermal import AUTHORED_READ_SCOPES
 from app import api_openapi
 from test_http_identity import request
 
 
 OPERATIONS = {
+    ('/v1/jobs/{job_id}/authored-run', 'get'): ('getJobAuthoredRun', list(AUTHORED_READ_SCOPES)),
+    ('/v1/authored-runs/{run_id}', 'get'): ('getAuthoredRun', list(AUTHORED_READ_SCOPES)),
+    ('/v1/authored-runs/{run_id}/series', 'get'): ('getAuthoredRunSeries', list(AUTHORED_READ_SCOPES)),
     ('/v1/farm-scenarios','post'): ('registerFarmReplayScenario', ['farm_scenario_write',
         'farm_scenario_read','metadata','artifact','thermal_scenario_read','thermal_snapshot_read',
         'decision_context_read','market_hold_context_read','market_source_read','market_candidate_read']),
@@ -170,7 +174,8 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
     app = create_app(stores, stores, stores, stores, principal_provider=lambda: principal, break_even_store=stores)
     path = (path.replace("{job_id}", "00000000-0000-4000-8000-000000000001")
         .replace("{report_id}", "00000000-0000-4000-8000-000000000002")
-        .replace("{run_id}", "synthetic-thermal-v1:"+"a"*64).replace("{result_id}", "b"*64))
+        .replace("{run_id}", ("authored-thermal-run-v1:" if '/authored-runs/' in path else
+            "synthetic-thermal-v1:")+"a"*64).replace("{result_id}", "b"*64))
     for missing in scopes:
         principal["scopes"] = set(scopes)-{missing}
         status, body, _ = asyncio.run(request(app, path=path, method=method.upper(),

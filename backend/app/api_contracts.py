@@ -107,6 +107,29 @@ class ThermalRunSeries(BaseModel):
     points: list[ThermalSeriesPoint]
 
 
+class AuthoredThermalRunSummary(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    run_id: str = Field(pattern=r'^authored-thermal-run-v1:[0-9a-f]{64}$')
+    status: Literal['accepted']
+    synthetic: Literal[True]
+    claim_scope: Literal['synthetic_thermal_replay_only']
+    temporal_provenance: Literal['ex_post_replay']
+    scenario_id: str = Field(pattern=r'^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$', max_length=200)
+    scenario_revision: str = Field(pattern=r'^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$', max_length=200)
+    registration_sha256: str = Field(pattern=r'^[0-9a-f]{64}$')
+    release_sha256: str = Field(pattern=r'^[0-9a-f]{64}$')
+    decision_at_utc: datetime
+    review_at_utc: datetime
+    start_utc: datetime
+    end_utc: datetime
+    model_version: Literal['thermal-v1']
+    engine_version: Literal['thermal-euler-v1']
+    unit_registry_version: Literal['thermal-si-nws-v1']
+    trace_sha256: list[str] = Field(min_length=2, max_length=2)
+    point_count: Literal[120]
+
+
 class ThermalManifestSource(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 

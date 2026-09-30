@@ -50,9 +50,10 @@ class FarmAuthoredReviewService:
     def _guard(self, tenant, pointers):
         self.authoring._guard(tenant, pointers, REVIEW_SCOPES)
 
-    def prepare(self, tenant, scenario_id, revision, expected_sha256):
+    def prepare(self, tenant, scenario_id, revision, expected_sha256, *, read_only=False):
         pointers = self.authoring._pointers()
-        guard = lambda: self._guard(tenant, pointers)
+        guard = (lambda: self.authoring._guard(tenant, pointers,
+            READ_SCOPES if read_only else REVIEW_SCOPES))
         guard()
         try:
             registration = self.authoring.read_registration(
@@ -136,7 +137,8 @@ class FarmAuthoredReviewService:
                     sha256(job['input_bytes']).hexdigest() != job.get('input_sha256')):
                 raise ValueError()
             current = self.prepare(job['tenant_id'], value['scenario_id'],
-                value['scenario_revision'], value['registration_sha256'])
+                value['scenario_revision'], value['registration_sha256'],
+                read_only=True)
             if current != value:
                 raise ValueError()
             return current

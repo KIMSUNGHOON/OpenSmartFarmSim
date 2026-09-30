@@ -85,6 +85,7 @@ def test_owned_authored_review_intent_and_cli_contract(authoring,login_scope,mon
         contract.plan(stored,canonical_input_bytes({**proposal,'claims':[
             {'claim':'crop prediction','uncertainty':'none','evidence_ids':[]}]}))
     principal['scopes'].remove('collection_review_create')
+    assert review.verify_input(stored,json.loads(stored['input_bytes']))==value
     with pytest.raises(PermissionError):
         review.submit('tenant-1','farm-1','r1',registration.scenario_sha256,'later')
     principal['scopes'].add('collection_review_create')

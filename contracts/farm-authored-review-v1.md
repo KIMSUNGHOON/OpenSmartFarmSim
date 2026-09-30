@@ -25,6 +25,11 @@ a hold. On `proceed` the artifact binds the exact review input, registration,
 candidate and both trace hashes. Actual CLI execution/capture verification
 remains a separate worker and independent release requirement.
 
+Rechecking an already stored review input uses current farm read scopes.
+Creating or retrying a review job still requires `collection_review_create`.
+This permits read-only verification during a later authored Run lookup without
+granting the reader review-submission authority.
+
 The review output cannot assert parameter accuracy, source ownership, G0/G2,
 crop growth, energy purchase, future margin or crop ranking. User rights remain
 asserted, not independently proven. The fixed original publisher and accepted
