@@ -6,14 +6,15 @@ assumptions, registers a numeric revision and admits/reads a selected conditiona
 ledger calculation, including a manually requested monthly cash table. A
 break-even section selects existing sale/collection and saved trial revisions,
 admits a finite plan and reads its completed result. The fourth screen replays
-a completed synthetic thermal Run in Three.js, a chart, an HTML table and six
+either a fixed or a farm-authored synthetic thermal Run in Three.js, a chart, an HTML table and six
 text values with one selected stored timestamp. Full farm input,
 baseline/event/settlement authoring, automatic trial assumptions, durable
 reload recovery, map, full replay acceptance and production hosting are pending. See the
 [location contract](../contracts/web-location-shell-v1.md) and
 [economic contract](../contracts/web-economic-workspace-v1.md) and
 [break-even contract](../contracts/web-break-even-workspace-v1.md) and
-[thermal replay contract](../contracts/web-thermal-replay-v1.md).
+[thermal replay contract](../contracts/web-thermal-replay-v1.md) and
+[authored replay contract](../contracts/web-authored-thermal-replay-v1.md).
 
 ## Software checks
 
@@ -99,9 +100,13 @@ the static build's `/licenses/noto-sans-kr-OFL.txt`.
 
 ## Open a completed thermal replay
 
-With the assembled API connected, choose **04 3D 열 재생**, enter an owned
-completed thermal job UUID, then choose **저장된 Run 조회**. The API must permit
-the job/Run/snapshot and, for a farm v3 job, the current farm selection reads.
+With the assembled API connected, choose **04 3D 열 재생**, select fixed or
+authored thermal replay, enter an owned completed thermal job UUID, then choose
+**저장된 Run 조회**. The API must permit the job/Run/snapshot and, for a farm v3
+job, the current farm selection reads. The authored path additionally needs
+current farm registration, release, source-right and authored Run read scopes;
+its standard HTTPS runtime assembly is pending, so the authored browser path
+has only response-double verification so far.
 This screen reads existing results; it does not submit a new simulation or
 invent a demo Run. Expand **완료된 열 작업 선택** to change or reread the record.
 Use the slider, previous/next minute, table timestamp buttons or optional
@@ -112,7 +117,8 @@ farm dimensions. All six values remain available when WebGL fails.
 Three.js `0.186.1`, ECharts `6.1.0` and Three types `0.186.0` are locked.
 Original notices for Three, ECharts, its d3 material, zrender and tslib are
 served from `public/licenses/`. No crop, equipment or stock 3D asset is shipped.
-See the [verification record](../research/web-thermal-replay-implementation.md)
+See the [fixed replay verification](../research/web-thermal-replay-implementation.md)
+and [authored replay verification](../research/web-authored-thermal-replay-implementation.md)
 for browser checks, screenshots and remaining holds.
 
 ## Apply a saved assumption

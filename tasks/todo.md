@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**작성 3D 브라우저 연결 진행 (2026-09-30):** [화면 계약](../contracts/web-authored-thermal-replay-v1.md)은 작성 Run의 120시점을 실제 WebGL·그래프·표·요약에 연결했고 [합성 브라우저 시험](../research/web-authored-thermal-replay-implementation.md)을 통과했다. 표준 HTTPS 조립·실제 제품 CLI·독립 해제/G1·전체 `web-replay` 수용은 남아 체크를 유지한다.
+
 **작성 simulation 작업자 진행 (2026-09-30):** [작업자 계약](../contracts/farm-authored-simulation-worker-v1.md)은 실제 임대와 Run/영수증/완료의 원자 거래, 취소·해제 변경·오류·만료 롤백을 합성 SCRAM으로 시험했다([기록](../research/farm-authored-simulation-worker-implementation.md)). 작성 입력 API/3D·제품 CLI/독립 G1 체크는 유지한다.
 
 **작성 Run API 진행 (2026-09-30):** [읽기 계약](../contracts/api-authored-thermal-run-v1.md)은 완료 작업·Run·120시점 응답을 인증된 내부 앱에 연결했다([시험](../research/api-authored-thermal-run-implementation.md)). 표준 HTTPS 조립·브라우저 작성 3D·실제 CLI/독립 G1 체크는 유지한다.

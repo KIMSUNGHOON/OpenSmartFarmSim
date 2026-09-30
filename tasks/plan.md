@@ -171,7 +171,10 @@ G3a/G3b 없이도 조건부 서비스에 대한 G4 평가는 가능하다. 그 �
 [작성 Run 읽기 후보](../contracts/api-authored-thermal-run-v1.md)는 작업·게시·영수증과
 별도 작성 Run의 120시점 요약을 인증 경계에 투영한다
 ([시험](../research/api-authored-thermal-run-implementation.md)).
-표준 HTTPS 조립과 작성 3D 브라우저 연결, 실제 제품 CLI·독립 해제/G1은 후속이다.
+작성 Run의 [3D 브라우저 연결 후보](../contracts/web-authored-thermal-replay-v1.md)는
+합성 응답으로 실제 장면·그래프·표의 시각 일치를 확인했다
+([시험](../research/web-authored-thermal-replay-implementation.md)).
+표준 HTTPS 조립과 실제 제품 CLI·독립 해제/G1은 후속이다.
 저장된 완료 Run의 3D·그래프·표를 먼저 확인하는 부분 슬라이스이며,
 공통 Assessment와 전체 농장 입력 작성·실제 CLI/독립 G1의 기존 의존성 및
 `web-shell`/`web-replay` 수용 체크는 유지한다. 실제 작물 생장·수확의 3D는

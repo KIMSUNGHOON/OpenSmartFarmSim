@@ -41,7 +41,7 @@ function summary(value:unknown):ThermalSummary {
     unit_registry_version:value.unit_registry_version,manifest_sha256:value.manifest_sha256,
     trace_sha256:value.trace_sha256,point_count:value.point_count};
 }
-function point(value:unknown):ThermalPoint {
+export function point(value:unknown):ThermalPoint {
   need(object(value));closed(value,['at_utc','temperature_k','humidity_ratio_kg_v_per_kg_da','relative_humidity_fraction',
     'heat_demand_w_th','heat_delivered_w_th','delivered_heat_energy_kwh_th']);
   need(utc(value.at_utc) && number(value.temperature_k) && number(value.humidity_ratio_kg_v_per_kg_da)
