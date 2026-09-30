@@ -1,5 +1,7 @@
 # 첫 구현 작업 목록
 
+**작성 농장 → 저장 Run 합성 연결 진행 (2026-09-30):** 등록부터 가짜 CLI 검토·합성 서명 해제·실제 작업자 게시와 재조회까지 실제 PostgreSQL/SCRAM 한 시험에서 통과했다([증거](../research/authored-full-software-path-implementation.md)). 후속 재검증은 개별 시험에 의존하며 실제 CLI·독립 해제·작성 폼/브라우저 전체 G1 체크는 유지한다.
+
 **작성 Run 접수 API 진행 (2026-09-30):** [계약](../contracts/api-authored-simulation-admission-v1.md)에 따라 현재 해제·농장 입력·최종 궤적을 확인한 후 인증된 작업 접수를 추가했다([로컬 검증](../research/api-authored-simulation-admission-implementation.md)). 실제 HTTPS/SCRAM CI와 신규 작업자 완료, 제품 CLI/독립 G1 수용 체크는 유지한다.
 
 **작성 입력 검토 API 진행 (2026-09-30):** [계약](../contracts/api-farm-authored-review-v1.md)은 등록 해시·현재 권한·두 열 궤적을 재확인해 인증된 검토 작업을 접수한다([로컬 증거](../research/api-farm-authored-review-implementation.md)). SCRAM CI와 실제 CLI/독립 해제/G1 수용 체크는 유지한다.

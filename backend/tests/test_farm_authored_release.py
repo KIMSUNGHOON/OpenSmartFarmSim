@@ -78,7 +78,11 @@ def _signed(service, proof, private):
         'method': 'Synthetic independent test inspection.',
         'evidence_refs': [{'id': f'evidence-{kind}',
             'sha256': sha256(kind.encode()).hexdigest()}]}) for kind in KINDS}
-    reviewed_at = _iso(datetime.now(timezone.utc) - timedelta(minutes=20))
+    now = datetime.now(timezone.utc)
+    completed_at = datetime.fromisoformat(
+        proof.decision_recorded_at_utc.replace('Z', '+00:00'))
+    reviewed_at_time = max(now - timedelta(minutes=20), completed_at)
+    reviewed_at = _iso(reviewed_at_time)
     evidence = canonical_input_bytes({
         'evidence_version': 'farm-authored-review-evidence-v1',
         'request_sha256': request_sha, 'key_id': 'reviewer-key',
@@ -90,7 +94,7 @@ def _signed(service, proof, private):
         'scope': 'synthetic_software_only', 'request_sha256': request_sha,
         'evidence_sha256': sha256(evidence).hexdigest(), 'key_id': 'reviewer-key',
         'reviewer': 'separate synthetic reviewer', 'reviewed_at_utc': reviewed_at,
-        'issued_at_utc': _iso(datetime.now(timezone.utc) - timedelta(minutes=10))})
+        'issued_at_utc': _iso(max(now - timedelta(minutes=10), reviewed_at_time))})
     return release, private.sign(DOMAIN + release), evidence, reports
 
 

@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**작성 농장 → 저장 Run 합성 서비스 연결 (2026-09-30):** 실제 PostgreSQL/SCRAM에서 등록·검토 작업·가짜 CLI와 합성 실행 서명·합성 독립 해제·실제 준비/작업자·원자 Run 게시/재조회를 한 시험으로 연결했다([검증](../research/authored-full-software-path-implementation.md)). 처음 검증한 완료 증명과 계산 후보를 후속 조립에서 고정했으므로 반복 재검증/철회의 단독 증거는 아니다. 실제 제품 CLI·독립 검토 발급·작성 폼→HTTPS→3D 한 흐름과 전체 G1은 보류한다.
+
 **작성 Run 접수 HTTP 후보 (2026-09-30):** [계약](../contracts/api-authored-simulation-admission-v1.md)은 현재 해제·입력·최종 두 궤적을 재검사하는 인증 POST를 표준 런타임에 연결했다([검증](../research/api-authored-simulation-admission-implementation.md)). 작성형 API의 실제 HTTPS/SCRAM 집중 CI는 51개 시험을 통과했다. 신규 작업의 완료·게시·브라우저 전체 흐름과 제품 CLI·독립 G1은 남아 있다.
 
 **작성 입력 검토 HTTP 후보 (2026-09-30):** [계약](../contracts/api-farm-authored-review-v1.md)은 등록 입력의 인증된 검토 작업 접수와 표준 런타임 조립을 추가했다([검증](../research/api-farm-authored-review-implementation.md)). OpenAPI·실제 SCRAM 집중 CI 51개 시험을 통과했다. 제품 CLI 실행·독립 해제·Run 게시·전체 G1은 계속 보류다.
