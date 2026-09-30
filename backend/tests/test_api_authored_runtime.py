@@ -145,8 +145,9 @@ def test_standard_https_reads_owned_authored_run_and_holds_stale_evidence(
         assert admitted_status==202 and admitted['job_id']==str(job['job_id'])
         assert admitted['state']=='succeeded'
         assert call('/v1/authored-runs',method='POST',body=submission)==(202,admitted)
+        wrong_registration=('0' if proof.registration_sha256 != '0'*64 else '1')*64
         assert call('/v1/authored-runs',method='POST',body=submission |
-            {'registration_sha256':'a'*64})[0]==422
+            {'registration_sha256':wrong_registration})[0]==422
         preparer.prepare = lambda *_: None
         assert call(job_path)[0] == 503
         assert call(run_path)[0] == 503
