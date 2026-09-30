@@ -11,4 +11,12 @@
 .source-workflow-steps .button{align-self:start}
 .source-workflow-hold{border-left:3px solid #a26044;background:#f8eee8;padding:14px 18px}
 .source-workflow-hold ul{margin:8px 0 0;padding-left:20px}
+.source-history{display:flex;align-items:center;justify-content:space-between;gap:18px;border-top:1px solid #dfddce;margin-top:22px;padding-top:20px}
+.source-history h3{margin:0 0 6px;font-size:1.05rem}.source-history p{margin:0;color:#43553d;font-size:.875rem}
+.source-history .button{flex:none}.source-history-results{margin-top:16px}
+.source-history-results ul{list-style:none;display:grid;gap:8px;margin:0 0 12px;padding:0}
+.source-history-results li{min-width:0}.source-history-results li button{display:grid;gap:5px;width:100%;padding:12px 14px;border:1px solid #d8e3d2;border-radius:10px;background:#fff;color:#183d27;text-align:left;font:inherit}
+.source-history-results li button:hover:not(:disabled),.source-history-results li button:focus-visible{border-color:#79a373;background:#edf3e8}
+.source-history-results li span,.source-history-results li small{font-size:.8125rem;color:#43553d;overflow-wrap:anywhere}
 @media(max-width:900px){.source-workflow-steps{grid-template-columns:1fr}.source-workflow-head{display:block}.source-workflow-head .badge{display:inline-block;margin-top:8px}}
+@media(max-width:650px){.source-history{display:block}.source-history .button{width:100%;margin-top:12px}}

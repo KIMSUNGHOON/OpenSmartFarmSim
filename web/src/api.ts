@@ -24,6 +24,10 @@ export type JobHold = { job_id:string; stage:'research'|'collection_review'|'ass
   status:'hold'; recorded_at:string; reason_code:'evidence_missing'|'decision_held';
   missing_evidence:Evidence[]; missing_evidence_count:number };
 export type SourceIntent={parent_job_id:string;idempotency_key:string};
+export type SourceResearch={job:JobStatus;point:{latitude:number;longitude:number};
+  period_start_utc:string;period_end_utc:string;goal_id:string;current_authority:'available'|'hold'};
+export type SourceHistoryDetail={research:SourceResearch;collection:JobStatus|null;review:JobStatus|null};
+export type SourceHistoryPage={items:SourceResearch[];next_cursor:{created_at:string;job_id:string}|null};
 
 const CODE = /^[a-z][a-z0-9_]{0,79}$/;
 function integer(value:unknown):value is number { return typeof value === 'number' && Number.isSafeInteger(value); }
@@ -59,6 +63,42 @@ function decodeHold(value:unknown, jobId:string):JobHold {
     && value.missing_evidence_count <= 50 && value.missing_evidence.length <= 50);
   return {job_id:jobId,stage:value.stage,hold_id:value.hold_id,status:value.status,recorded_at:value.recorded_at,
     reason_code:value.reason_code,missing_evidence:value.missing_evidence,missing_evidence_count:value.missing_evidence_count};
+}
+
+function decodeSourceResearch(value:unknown):SourceResearch {
+  need(object(value));closed(value,['job','point','period_start_utc','period_end_utc','goal_id','current_authority']);
+  const job=decodeJob(value.job);need(job.stage==='research');
+  need(object(value.point));closed(value.point,['latitude','longitude']);
+  need(typeof value.point.latitude==='number' && Number.isFinite(value.point.latitude) &&
+    Math.abs(value.point.latitude)<=90 && typeof value.point.longitude==='number' &&
+    Number.isFinite(value.point.longitude) && Math.abs(value.point.longitude)<=180);
+  need(date(value.period_start_utc) && date(value.period_end_utc) &&
+    typeof value.goal_id==='string' && value.goal_id.length>0 && value.goal_id.length<=200 &&
+    member(value.current_authority,['available','hold'] as const));
+  return {job,point:{latitude:value.point.latitude,longitude:value.point.longitude},
+    period_start_utc:value.period_start_utc,period_end_utc:value.period_end_utc,
+    goal_id:value.goal_id,current_authority:value.current_authority};
+}
+function decodeSourceHistoryPage(value:unknown):SourceHistoryPage {
+  need(object(value));closed(value,['items','next_cursor']);
+  need(Array.isArray(value.items) && value.items.length<=50);
+  const items=value.items.map(decodeSourceResearch);
+  let next_cursor:SourceHistoryPage['next_cursor']=null;
+  if(value.next_cursor!==null){
+    need(object(value.next_cursor));closed(value.next_cursor,['created_at','job_id']);
+    need(date(value.next_cursor.created_at) && uuid(value.next_cursor.job_id));
+    next_cursor={created_at:value.next_cursor.created_at,job_id:value.next_cursor.job_id};
+  }
+  return {items,next_cursor};
+}
+function decodeSourceHistoryDetail(value:unknown,id:string):SourceHistoryDetail {
+  need(object(value));closed(value,['research','collection','review']);
+  const research=decodeSourceResearch(value.research);need(research.job.job_id===id);
+  const collection=value.collection===null?null:decodeJob(value.collection);
+  const review=value.review===null?null:decodeJob(value.review);
+  need((!collection || collection.stage==='collection') && (!review || review.stage==='collection_review')
+    && (!review || !!collection));
+  return {research,collection,review};
 }
 
 export function createApi(token:string, fetcher:typeof fetch = fetch) {
@@ -101,6 +141,14 @@ export function createApi(token:string, fetcher:typeof fetch = fetch) {
     ...createEconomicApi(request, decodeJob),
     ...createBreakEvenApi(request, decodeJob),
     async location(intent:LocationIntent) { return decodeLocation(await request('/v1/locations','POST',intent),intent); },
+    async sourceHistory(cursor?:SourceHistoryPage['next_cursor']) {
+      const query=cursor?'?'+new URLSearchParams({before_created_at:cursor.created_at,
+        before_job_id:cursor.job_id}).toString():'';
+      return decodeSourceHistoryPage(await request('/v1/source-history'+query));
+    },
+    async sourceHistoryDetail(id:string) {
+      need(uuid(id));return decodeSourceHistoryDetail(await request('/v1/source-history/'+id),id);
+    },
     async ingestSource(intent:SourceIntent) {
       need(uuid(intent.parent_job_id) && /^[\x21-\x7e]{1,200}$/.test(intent.idempotency_key));
       const result=decodeJob(await request('/v1/ingestions','POST',{

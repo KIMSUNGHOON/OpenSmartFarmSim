@@ -52,6 +52,25 @@ test('source collection and review use their fixed parent fields and reject fore
   expect(fetcher).toHaveBeenCalledTimes(3);
 });
 
+test('saved source history validates scope, lineage shape and same-origin paths',async () => {
+  const summary={job,point:{latitude:37.5,longitude:127},period_start_utc:intent.period_start_utc,
+    period_end_utc:intent.period_end_utc,goal_id:intent.goal_id,current_authority:'available'};
+  const collection={...job,stage:'collection'};
+  const review={...job,stage:'collection_review'};
+  const cursor={created_at:job.created_at,job_id:id};
+  const fetcher=vi.fn<typeof fetch>().mockResolvedValueOnce(reply({items:[summary],next_cursor:cursor}))
+    .mockResolvedValueOnce(reply({research:summary,collection,review}));
+  const api=createApi(token,fetcher);
+  expect((await api.sourceHistory()).items[0]).toEqual(summary);
+  expect(await api.sourceHistoryDetail(id)).toEqual({research:summary,collection,review});
+  expect(fetcher.mock.calls[0]?.[0]).toBe('/v1/source-history');
+  expect(fetcher.mock.calls[1]?.[0]).toBe('/v1/source-history/'+id);
+  await expect(api.sourceHistoryDetail('../foreign')).rejects.toMatchObject({code:'response_rejected'});
+  const invalid=createApi(token,vi.fn<typeof fetch>().mockResolvedValue(reply({
+    research:summary,collection:null,review})));
+  await expect(invalid.sourceHistoryDetail(id)).rejects.toMatchObject({code:'response_rejected'});
+});
+
 test('real server timestamps preserve their explicit timezone and microseconds',async () => {
   const value={...job,created_at:'2026-09-29T17:09:21.652617+09:00',updated_at:'2026-09-29T17:09:21.652617+09:00'};
   expect(await createApi(token,vi.fn<typeof fetch>().mockResolvedValue(reply(value))).job(id)).toEqual(value);

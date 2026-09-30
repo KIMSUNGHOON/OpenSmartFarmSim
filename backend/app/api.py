@@ -53,6 +53,7 @@ from .api_owned_collection import OwnedIngestionRequest, OwnedReviewRequest
 from .owned_fixture_collection import CollectionService, CollectionHold, COLLECTION_SCOPES
 from .owned_collection_review import OwnedCollectionReviewService, CollectionReviewHold, REVIEW_SCOPES
 from .owned_research import OwnedResearchService, READ_SCOPES as OWNED_RESEARCH_READ_SCOPES, ADMISSION_SCOPES as OWNED_RESEARCH_SCOPES
+from .owned_source_history import OwnedSourceHistoryService, SourceHistoryPage, SourceHistoryDetail, SourceHistoryHold
 from .api_assessment import CalculationAssessmentRequest
 from .calculation_assessment import (CalculationAssessmentService, CalculationAssessmentHold,
     ADMISSION_SCOPES as ASSESSMENT_SCOPES)
@@ -185,6 +186,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
     location_scopes = ("location_create",)
     location_admission_scopes = OWNED_RESEARCH_SCOPES if type(location_research_service) is OwnedResearchService else location_scopes
+    source_history = (OwnedSourceHistoryService(location_research_service)
+        if type(location_research_service) is OwnedResearchService else None)
     job_scopes = ("metadata",)
     job_hold_scopes = ("metadata", "artifact", "auditor")
     job_run_scopes = ("metadata", "artifact", "thermal_run_read")
@@ -216,6 +219,50 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         return principal["tenant_id"], None
 
     errors = {status: {"model": ErrorEnvelope} for status in (401, 403, 404, 422, 503)}
+
+    @app.get('/v1/source-history', response_model=SourceHistoryPage,
+             operation_id='listOwnedSourceHistory', responses=errors,
+             openapi_extra=_access(OWNED_RESEARCH_READ_SCOPES))
+    async def list_owned_source_history(
+            limit: Annotated[int,Query(ge=1,le=50)] = 20,
+            before_created_at: datetime | None = None,
+            before_job_id: UUID | None = None):
+        tenant, denied = authorized_tenant(*OWNED_RESEARCH_READ_SCOPES)
+        if denied is not None:
+            return denied
+        if (before_created_at is None) != (before_job_id is None) or (
+                before_created_at is not None and before_created_at.tzinfo is None):
+            return _error(422,'invalid_request','Invalid request')
+        if source_history is None:
+            return _error(503,'source_history_unavailable','Source history unavailable')
+        try:
+            return await run_in_threadpool(source_history.list,tenant,limit=limit,
+                before_created_at=before_created_at,before_job_id=before_job_id)
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except (SourceHistoryHold,ValueError):
+            return _error(422,'source_history_hold','Source history evidence unavailable')
+        except Exception:
+            return _error(503,'source_history_unavailable','Source history unavailable')
+
+    @app.get('/v1/source-history/{research_job_id}', response_model=SourceHistoryDetail,
+             operation_id='readOwnedSourceHistory', responses=errors,
+             openapi_extra=_access(OWNED_RESEARCH_READ_SCOPES))
+    async def read_owned_source_history(research_job_id: UUID):
+        tenant, denied = authorized_tenant(*OWNED_RESEARCH_READ_SCOPES)
+        if denied is not None:
+            return denied
+        if source_history is None:
+            return _error(503,'source_history_unavailable','Source history unavailable')
+        try:
+            result = await run_in_threadpool(source_history.get,tenant,research_job_id)
+            return result if result is not None else _error(404,'not_found','Resource unavailable')
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except (SourceHistoryHold,ValueError):
+            return _error(422,'source_history_hold','Source history evidence unavailable')
+        except Exception:
+            return _error(503,'source_history_unavailable','Source history unavailable')
 
     @app.post("/v1/locations", status_code=202, response_model=LocationAccepted,
               operation_id="registerLocation",

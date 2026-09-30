@@ -1,6 +1,7 @@
 import { lazy,Suspense,useEffect,useRef,useState,type FormEvent } from 'react';
 import { createApi, ApiError, type Evidence, type JobHold, type JobStatus, type LocationAccepted,
   type LocationIntent, type State } from './api';
+import type { SourceHistoryDetail } from './api';
 import EconomicWorkspace from './EconomicWorkspace';
 import AuthoredFarmWorkspace from './AuthoredFarmWorkspace';
 import SourceWorkflow from './SourceWorkflow';
@@ -48,6 +49,7 @@ export default function App() {
   const [intent,setIntent]=useState<LocationIntent|null>(null); const pinned=useRef<LocationIntent|null>(null);
   const jobId=useRef<string|null>(null); const inFlight=useRef(false); const generation=useRef(0);
   const [accepted,setAccepted]=useState<LocationAccepted|null>(null);
+  const [restoredSource,setRestoredSource]=useState<SourceHistoryDetail|null>(null);
   const [job,setJob]=useState<JobStatus|null>(null); const [hold,setHold]=useState<JobHold|null>(null);
   const [error,setError]=useState<ApiError|null>(null);
   const [checked,setChecked]=useState<string|null>(null);
@@ -63,13 +65,14 @@ export default function App() {
   },[view]);
   function reset() {
     generation.current++; pinned.current=null; jobId.current=null;
-    setIntent(null);setAccepted(null);setJob(null);setHold(null);setError(null);setChecked(null);
+    setIntent(null);setAccepted(null);setRestoredSource(null);setJob(null);setHold(null);setError(null);setChecked(null);
     setReplaySelection(undefined);setView('input');
   }
   function connect(event:FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    try { const client=createApi(token);generation.current++;setApi(client);setToken('');
-      setAccepted(null);setJob(null);setHold(null);setError(null);setChecked(null);setReplaySelection(undefined); }
+    try { const client=createApi(token);generation.current++;pinned.current=null;jobId.current=null;
+      setApi(client);setToken('');setIntent(null);setView('input');
+      setAccepted(null);setRestoredSource(null);setJob(null);setHold(null);setError(null);setChecked(null);setReplaySelection(undefined); }
     catch(error) { setError(error instanceof ApiError ? error : new ApiError('auth_required')); }
   }
   async function submit(event:FormEvent<HTMLFormElement>) {
@@ -81,7 +84,7 @@ export default function App() {
       pinned.current=body;setIntent(body);
       const result=await api.location(body);
       if (epoch!==generation.current) return;
-      jobId.current=result.research_job.job_id;setAccepted(result);setJob(result.research_job);
+      jobId.current=result.research_job.job_id;setAccepted(result);setRestoredSource(null);setJob(result.research_job);
       setHold(null);setChecked(new Date().toISOString());setView('work');
     } catch(error) { if (epoch===generation.current) setError(error instanceof ApiError ? error : new ApiError('network_unresolved')); }
     finally {inFlight.current=false;if (epoch===generation.current) setBusy(false);}
@@ -181,11 +184,18 @@ export default function App() {
             <ul>{hold.missing_evidence.map(item=><li key={item}>{evidenceNames[item]}</li>)}</ul>
             <p className="muted">기록 시각: {timestamp(hold.recorded_at)}</p></>
             : <p>{job?.state==='hold' ? '서버가 작업을 보류했습니다. 열람 가능한 검증 보고서를 확인해 주세요.' : '검증된 보고서를 받으면 필요한 근거를 표시합니다.'}</p>}
-          {accepted && <div className="notice"><strong>지역 검토 전</strong><p>{accepted.point.latitude}° N · {accepted.point.longitude}° E</p></div>}
+          {(accepted || restoredSource) && <div className="notice"><strong>지역 검토 전</strong><p>
+            {(accepted?.point??restoredSource?.research.point)?.latitude}° N ·
+            {' '}{(accepted?.point??restoredSource?.research.point)?.longitude}° E</p></div>}
           <p className="muted">현재 상태나 합성 자료만으로 미래 수확·이익·작물 순위를 확정하지 않습니다.</p>
         </section>
       </div>}
-      <div hidden={view!=='work'}><SourceWorkflow api={api} researchJob={job}/></div>
+      <div hidden={view!=='work'}><SourceWorkflow api={api} researchJob={job}
+        restored={restoredSource} blocked={busy} onRestore={detail=>{
+          generation.current++;pinned.current=null;jobId.current=detail.research.job.job_id;
+          setIntent(null);setAccepted(null);setRestoredSource(detail);setJob(detail.research.job);
+          setHold(null);setError(null);setChecked(new Date().toISOString());setView('work');
+        }}/></div>
       <footer>OpenSmartFarmSim · 직접 작성한 합성 자료를 위한 내부 시험 화면</footer>
     </main>
   </div>;

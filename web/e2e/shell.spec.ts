@@ -105,6 +105,49 @@ test('completed research advances through owned collection and review with stabl
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
 
+test('saved source jobs return after reload and revoked authority blocks a new stage',async ({page}) => {
+  const collectionId='22222222-2222-4222-8222-222222222222';
+  const reviewId='33333333-3333-4333-8333-333333333333';
+  const summary={job:{...queued,state:'succeeded'},point:{latitude:37.5,longitude:127},
+    period_start_utc:'2026-10-15T08:00:00Z',period_end_utc:'2026-10-15T10:00:00Z',
+    goal_id:'historical-thermal-replay',current_authority:'available'};
+  const collection={...queued,job_id:collectionId,stage:'collection',state:'succeeded'};
+  const review={...queued,job_id:reviewId,stage:'collection_review',state:'hold'};
+  await page.route('**/v1/source-history',route=>route.fulfill({json:{items:[summary],next_cursor:null}}));
+  await page.route('**/v1/source-history/'+jobId,route=>route.fulfill({json:{
+    research:summary,collection,review}}));
+  await page.route('**/v1/jobs/'+reviewId+'/hold-report',route=>route.fulfill({json:{
+    job_id:reviewId,stage:'collection_review',hold_id:reviewId,status:'hold',
+    recorded_at:queued.updated_at,reason_code:'evidence_missing',
+    missing_evidence:['real_source_g0'],missing_evidence_count:1}}));
+  await page.route('**/v1/jobs/'+reviewId,route=>route.fulfill({json:review}));
+  await page.setViewportSize({width:390,height:844});
+  await page.goto('/');
+  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.getByLabel('접근 토큰').fill(token);
+  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'02 작업과 근거'}).click();
+  await page.getByRole('button',{name:'저장된 조사 보기'}).click();
+  await page.getByRole('button',{name:/37\.5° N · 127° E/}).click();
+  await expect(page.getByText('작업 '+collectionId)).toBeVisible();
+  await expect(page.getByText('작업 '+reviewId)).toBeVisible();
+  await page.getByRole('button',{name:'검토 상태 확인'}).click();
+  await expect(page.getByText('실제 원천의 권리와 품질')).toBeVisible();
+  await page.reload();
+  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.getByLabel('접근 토큰').fill(token);
+  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'02 작업과 근거'}).click();
+  await page.getByRole('button',{name:'저장된 조사 보기'}).click();
+  await page.getByRole('button',{name:/37\.5° N · 127° E/}).click();
+  await expect(page.getByText('작업 '+reviewId)).toBeVisible();
+  summary.current_authority='hold';
+  await page.getByRole('button',{name:'저장된 조사 보기'}).click();
+  await page.getByRole('button',{name:/37\.5° N · 127° E/}).click();
+  await expect(page.getByText('새 수집·검토 접수는 보류합니다.')).toBeVisible();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+
 test('input and work screens remain usable at 320px and with every text size doubled',async ({page}) => {
   for (const width of [320,768,1440]) {
     await page.setViewportSize({width,height:900});
