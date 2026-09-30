@@ -5,8 +5,8 @@ umask 077
 ossf_repo_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
 ossf_mode=${1:---check}
 if [[ "$ossf_mode" != "--check" && "$ossf_mode" != "--run" &&
-      "$ossf_mode" != "--thermal" ]]; then
-    printf 'usage: %s [--check|--run|--thermal]\n' "$0" >&2
+      "$ossf_mode" != "--thermal" && "$ossf_mode" != "--authored" ]]; then
+    printf 'usage: %s [--check|--run|--thermal|--authored]\n' "$0" >&2
     exit 2
 fi
 
@@ -67,6 +67,9 @@ install -m 600 -- "$ossf_auth_file" "$ossf_smoke_root/home/auth.json"
 if [[ "$ossf_mode" == "--thermal" ]]; then
     ossf_smoke_flag=OSSF_REAL_THERMAL_CLI_SMOKE
     ossf_smoke_test=tests/test_thermal_cli_smoke.py::test_real_cli_synthetic_thermal_review
+elif [[ "$ossf_mode" == "--authored" ]]; then
+    ossf_smoke_flag=OSSF_REAL_AUTHORED_CLI_SMOKE
+    ossf_smoke_test=tests/test_farm_authored_cli_smoke.py::test_real_cli_self_authored_farm_review
 else
     ossf_smoke_flag=OSSF_REAL_CLI_SMOKE
     ossf_smoke_test=tests/test_cli_worker.py::test_real_cli_three_stage_synthetic_hold

@@ -28,8 +28,9 @@ PostgreSQL worker tests cover transaction behavior separately; a protected
 operator factory and real external reviewer release were not supplied here.
 An additional PostgreSQL test now invokes this foreground command with a
 synthetic authority factory and asserts the same job's committed Run. The fast
-authored API CI includes both command and worker tests; its result on the new
-head is pending. Local execution skipped that test because no
-`OSSF_TEST_PG_DSN` was provided.
+authored API CI includes both command and worker tests. On exact head
+`51f6f7b`, [run 36662055525](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36662055525)
+passed **67 PostgreSQL tests in 201.49 s** with no skips. Local execution
+skipped the database tests because no `OSSF_TEST_PG_DSN` was provided.
 The authenticated admission, command, Run read and browser path still need
 one actual end-to-end execution with product CLI and independent G1 evidence.
