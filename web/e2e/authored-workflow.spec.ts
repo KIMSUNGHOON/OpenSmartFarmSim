@@ -59,6 +59,47 @@ test('saved farm catalog opens a server rechecked registration',async({page})=>{
     '/v1/farm-authored-inputs','/v1/farm-authored-inputs']);
 });
 
+test('stored 3D Runs reopen after exact current verification without a farm selection',async({page})=>{
+  const data=authoredResponses();
+  let current=false;
+  const calls:string[]=[];
+  await page.route('**/v1/**',route=>{
+    const path=new URL(route.request().url()).pathname;
+    calls.push(path);
+    if(path==='/v1/authored-runs/catalog')return route.fulfill({json:{items:[{
+      run_id:authoredRunId,simulation_job_id:authoredJobId,recorded_at:stamp,
+      verification:'requires_current_read'}],next_cursor:null}});
+    if(path==='/v1/jobs/'+authoredJobId+'/authored-run')return current
+      ? route.fulfill({json:data.summary})
+      : route.fulfill({status:503,json:{error:{code:'store_unavailable',message:'Unavailable'}}});
+    if(path==='/v1/authored-runs/'+encodeURIComponent(authoredRunId))
+      return route.fulfill({json:data.summary});
+    if(path==='/v1/authored-runs/'+encodeURIComponent(authoredRunId)+'/series')
+      return route.fulfill({json:data.series});
+    throw new Error('unexpected API path '+path);
+  });
+  await page.goto('/');
+  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.getByLabel('접근 토큰').fill(token);
+  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
+  await page.getByRole('button',{name:'저장 Run 보기'}).click();
+  const item=page.locator('.authored-run-index .authored-catalog-list button');
+  await expect(item).toHaveCount(1);
+  await page.setViewportSize({width:390,height:844});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+  await item.click();
+  await expect(page.locator('.authored-run-index [role="alert"]'))
+    .toContainText('3D 표시를 보류합니다');
+  await expect(page.getByRole('heading',{name:'작성 농장 실행',exact:true})).toBeVisible();
+  current=true;
+  await item.click();
+  await page.getByRole('button',{name:'저장된 Run 조회'}).click();
+  await expect(page.locator('.replay-viewer')).toHaveAttribute('data-run-id',authoredRunId);
+  expect(calls[0]).toBe('/v1/authored-runs/catalog');
+  expect(calls.filter(path=>path==='/v1/jobs/'+authoredJobId+'/authored-run')).toHaveLength(3);
+});
+
 test('saved authored jobs reopen a completed server Run after reconnect',async({page})=>{
   const calls:string[]=[];
   const data=authoredResponses();

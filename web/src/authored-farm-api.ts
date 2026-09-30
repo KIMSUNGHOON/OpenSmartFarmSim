@@ -3,6 +3,7 @@ import type { JobStatus } from './api';
 
 const IDENTIFIER=/^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$/;
 const DIGEST=/^[0-9a-f]{64}$/;
+const RUN=/^authored-thermal-run-v1:[0-9a-f]{64}$/;
 type Request=(path:string,method?:string,body?:unknown,expected?:number,maxBytes?:number,
   timeoutMs?:number)=>Promise<unknown>;
 type Identity={scenario_id:string;scenario_revision:string};
@@ -18,6 +19,10 @@ export type AuthoredFarmActivity=
   {kind:'simulation';job:JobStatus;review_job:JobStatus};
 export type AuthoredFarmActivityPage=Identity & {registration_sha256:string;
   items:AuthoredFarmActivity[];next_cursor:AuthoredFarmCursor|null};
+export type AuthoredRunRef={run_id:string;simulation_job_id:string;recorded_at:string;
+  verification:'requires_current_read'};
+export type AuthoredRunCursor={recorded_at:string;run_id:string};
+export type AuthoredRunCatalog={items:AuthoredRunRef[];next_cursor:AuthoredRunCursor|null};
 export type AuthoredReviewIntent=Identity & {registration_sha256:string;idempotency_key:string};
 export type AuthoredRunIntent=AuthoredReviewIntent & {review_job_id:string};
 
@@ -117,6 +122,32 @@ export function createAuthoredFarmApi(request:Request,decodeJob:(value:unknown)=
       }
       return {scenario_id:scenarioId,scenario_revision:revision,
         registration_sha256:registrationSha256,items,next_cursor};
+    },
+    async authoredRunCatalog(cursor?:AuthoredRunCursor):Promise<AuthoredRunCatalog> {
+      if(cursor)need(date(cursor.recorded_at) && RUN.test(cursor.run_id));
+      const query=cursor?'?'+new URLSearchParams({before_recorded_at:cursor.recorded_at,
+        before_run_id:cursor.run_id}):'';
+      const raw=await request('/v1/authored-runs/catalog'+query,'GET',undefined,200,65_536);
+      need(object(raw));closed(raw,['items','next_cursor']);
+      need(Array.isArray(raw.items) && raw.items.length<=20);
+      const items:AuthoredRunRef[]=raw.items.map(value=>{
+        need(object(value));closed(value,['run_id','simulation_job_id','recorded_at','verification']);
+        need(typeof value.run_id==='string' && RUN.test(value.run_id)
+          && uuid(value.simulation_job_id) && date(value.recorded_at)
+          && value.verification==='requires_current_read');
+        return value as AuthoredRunRef;
+      });
+      need(new Set(items.map(item=>item.run_id)).size===items.length);
+      let next_cursor:AuthoredRunCursor|null=null;
+      if(raw.next_cursor!==null) {
+        need(object(raw.next_cursor));closed(raw.next_cursor,['recorded_at','run_id']);
+        need(date(raw.next_cursor.recorded_at) && typeof raw.next_cursor.run_id==='string'
+          && RUN.test(raw.next_cursor.run_id) && items.length===20
+          && items[19]?.run_id===raw.next_cursor.run_id
+          && items[19]?.recorded_at===raw.next_cursor.recorded_at);
+        next_cursor={recorded_at:raw.next_cursor.recorded_at,run_id:raw.next_cursor.run_id};
+      }
+      return {items,next_cursor};
     },
     async submitAuthoredReview(value:AuthoredReviewIntent):Promise<JobStatus> {
       identity(value);

@@ -1,6 +1,7 @@
 import { useEffect,useRef,useState,type FormEvent } from 'react';
 import { ApiError,type Evidence,type JobHold,type JobStatus,type createApi } from './api';
-import type { AuthoredFarmActivity,AuthoredFarmCursor,AuthoredFarmSummary } from './authored-farm-api';
+import type { AuthoredFarmActivity,AuthoredFarmCursor,AuthoredFarmSummary,
+  AuthoredRunCursor,AuthoredRunRef } from './authored-farm-api';
 import AuthoredFarmComposer from './AuthoredFarmComposer';
 import './AuthoredFarmWorkspace.css';
 
@@ -82,6 +83,10 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
   const [activityCursor,setActivityCursor]=useState<AuthoredFarmCursor|null>(null);
   const [activityBusy,setActivityBusy]=useState(false);
   const [activityError,setActivityError]=useState<string|null>(null);
+  const [runCatalog,setRunCatalog]=useState<AuthoredRunRef[]|null>(null);
+  const [runCatalogCursor,setRunCatalogCursor]=useState<AuthoredRunCursor|null>(null);
+  const [runCatalogBusy,setRunCatalogBusy]=useState(false);
+  const [runCatalogError,setRunCatalogError]=useState<string|null>(null);
   const [creating,setCreating]=useState(false);
   const [review,setReview]=useState<JobStatus|null>(null);
   const [run,setRun]=useState<JobStatus|null>(null);
@@ -99,6 +104,7 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
     setScenarioId('');setRevision('');setFarm(null);setCreating(false);setReview(null);setRun(null);
     setCatalog(null);setCatalogCursor(null);setCatalogBusy(false);setCatalogError(null);
     setActivity(null);setActivityCursor(null);setActivityBusy(false);setActivityError(null);
+    setRunCatalog(null);setRunCatalogCursor(null);setRunCatalogBusy(false);setRunCatalogError(null);
     setReviewHold(null);setBusy(null);setError(null);reviewKey.current=null;
     runKey.current=null;
     const saved=lastFarm();
@@ -124,6 +130,7 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
     generation.current++;activityRequest.current++;
     setFarm(null);setCreating(false);setReview(null);setRun(null);setReviewHold(null);
     setScenarioId('');setRevision('');setBusy(null);setError(null);setCatalogBusy(false);
+    setRunCatalogBusy(false);
     setActivity(null);setActivityCursor(null);setActivityBusy(false);setActivityError(null);
     reviewKey.current=null;runKey.current=null;
   }
@@ -156,6 +163,37 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
       const code=value instanceof ApiError ? value.code : 'network_unresolved';
       setCatalogError(errors[code] ?? '등록 판본 목록을 확인할 수 없습니다.');
     } finally {if(epoch===generation.current)setCatalogBusy(false);}
+  }
+  async function loadRunCatalog(next=false) {
+    if(runCatalogBusy || busy || !api)return;
+    const epoch=generation.current;
+    setRunCatalogBusy(true);setRunCatalogError(null);
+    try {
+      const page=await api.authoredRunCatalog(next?runCatalogCursor??undefined:undefined);
+      if(epoch!==generation.current)return;
+      setRunCatalog(previous=>next && previous ? [...previous,...page.items] : page.items);
+      setRunCatalogCursor(page.next_cursor);
+    } catch(value) {
+      if(epoch!==generation.current)return;
+      const code=value instanceof ApiError?value.code:'network_unresolved';
+      setRunCatalogError(code==='access_denied'?(errors[code]??'목록 조회 권한이 없습니다.'):
+        '저장된 Run 목록을 확인할 수 없습니다. 연결과 서버 상태를 확인해 주세요.');
+    } finally {if(epoch===generation.current)setRunCatalogBusy(false);}
+  }
+  async function selectRunRef(item:AuthoredRunRef) {
+    if(runCatalogBusy || busy || !api)return;
+    const epoch=generation.current;
+    setRunCatalogBusy(true);setRunCatalogError(null);
+    try {
+      const summary=await api.authoredThermalSummary(item.simulation_job_id);
+      if(summary.run_id!==item.run_id)throw new ApiError('response_rejected');
+      if(epoch===generation.current)onOpenReplay(item.simulation_job_id);
+    } catch(value) {
+      if(epoch!==generation.current)return;
+      const code=value instanceof ApiError?value.code:'network_unresolved';
+      setRunCatalogError(code==='access_denied'?(errors[code]??'Run 조회 권한이 없습니다.'):
+        '현재 Run의 권리·해제·게시 근거를 확인할 수 없어 3D 표시를 보류합니다.');
+    } finally {if(epoch===generation.current)setRunCatalogBusy(false);}
   }
   async function selectCatalog(item:AuthoredFarmSummary) {
     if(busy || catalogBusy || !api)return;
@@ -219,6 +257,7 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
   function registered(result:AuthoredFarmSummary) {
     generation.current++;
     acceptFarm(result);setCreating(false);setError(null);setBusy(null);setCatalogBusy(false);
+    setRunCatalogBusy(false);
   }
   async function submitReview() {
     if(busy || !api || !farm)return;
@@ -283,6 +322,23 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
     </ol>
     {error && <div className="notice error" role="alert">{error}</div>}
     <div className="authored-columns"><div className="authored-main">
+      <section className="panel authored-run-index" aria-label="저장된 3D Run">
+        <p className="step-number">저장 결과</p><div className="authored-catalog-heading"><div>
+          <h3>내 3D Run 다시 열기</h3>
+          <p className="muted">저장된 Run의 식별자를 찾습니다. 열 때 현재 권리와 해제 근거를 다시 확인합니다.</p>
+        </div><button type="button" className="button secondary" disabled={!api || !!busy || runCatalogBusy}
+          onClick={()=>void loadRunCatalog()}>{runCatalogBusy?'목록 확인 중…':runCatalog?'목록 새로고침':'저장 Run 보기'}</button></div>
+        {runCatalogError && <p role="alert" className="notice error">{runCatalogError}</p>}
+        {runCatalog && (runCatalog.length?<><ul className="authored-catalog-list">
+          {runCatalog.map(item=><li key={item.run_id}><button type="button"
+            disabled={!api || !!busy || runCatalogBusy} onClick={()=>void selectRunRef(item)}>
+            <span><strong>저장된 열 Run</strong><small>{item.recorded_at}</small>
+              <code>{item.run_id}</code></span><span>3D 열기</span>
+          </button></li>)}</ul>
+          {runCatalogCursor && <button type="button" className="button secondary"
+            disabled={!api || !!busy || runCatalogBusy} onClick={()=>void loadRunCatalog(true)}>
+            이전 Run 더 보기</button>}</>:<p className="muted">현재 계정에 저장된 작성 Run이 없습니다.</p>)}
+      </section>
       <section className="panel"><p className="step-number">01 / 등록 판본</p><h3>{creating?'새 농장 입력 등록':'서버에 저장된 농장 찾기'}</h3>
         {!farm&&<div className="authored-mode"><button type="button" className="button secondary"
           disabled={!!busy || catalogBusy} aria-pressed={!creating} onClick={()=>setCreating(false)}>저장된 판본 찾기</button>

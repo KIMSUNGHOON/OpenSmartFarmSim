@@ -40,7 +40,9 @@ admits a finite plan and reads its completed result. The fourth screen can
 register an authored farm version from explicit user assumptions and already
 registered research, market hold and economic references. It can also look up
 an existing version, list the tenant's stored registrations and that version's review/simulation job history, submit review and thermal work, read server job/hold status,
-and open a completed stored Run. The form does not discover prerequisite records
+and open a completed stored Run. The same screen can list the account's completed Run IDs
+without selecting a farm; opening an item makes an exact current server read before 3D replay.
+The form does not discover prerequisite records
 or issue an independent release. An uncertain registration is retried with the
 same frozen request. The last verified
 farm ID, revision and registration hash are kept in this browser tab only; after
@@ -50,7 +52,7 @@ either a fixed or a farm-authored synthetic thermal Run in Three.js, a chart, an
 text values with one selected stored timestamp. Automatic source research and
 nontechnical farm input,
 baseline/event/settlement authoring, automatic trial assumptions, durable
-general Run catalog, map, full replay
+cross-category Run catalog, map, full replay
 acceptance and production hosting are pending. See the
 [location contract](../contracts/web-location-shell-v1.md),
 [owned source workflow](../contracts/web-owned-source-workflow-v1.md) and

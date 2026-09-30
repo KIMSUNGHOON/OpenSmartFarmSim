@@ -3,7 +3,8 @@
 작성 농장의 저장 Run 전체를 다시 찾는 [테넌트별 목록 API](../contracts/api-authored-thermal-run-v1.md)를
 추가했다([PostgreSQL·HTTPS 검증](../research/authored-run-catalog-implementation.md)).
 목록은 현재 표시 승인 전의 식별자 인덱스이며, 정확한 Run 조회에서 해제·권리를
-재검사한다. 웹 목록 연결과 실제 CLI·독립 G1은 후속이다.
+재검사한다. 내부 웹은 농장 선택 없이 목록을 찾고 현재 단건 조회 후 3D로 이동한다.
+실제 CLI·독립 G1은 후속이다.
 
 저장 원천 작업의 [테넌트별 목록·연결 단건 조회](../contracts/api-owned-source-history-v1.md)를
 웹 작업 화면에 연결했다([검증](../research/owned-source-history-implementation.md)). 재연결 후
@@ -19,7 +20,7 @@
 기존 작업 저장소와 웹 조회에 연결했다([검증](../research/authored-farm-catalog-implementation.md)).
 [검토·계산 작업 이력 후보](../research/authored-farm-activity-implementation.md)도
 같은 판본의 불변 작업 기록에서 복원한다. 선택 시 현재 권리/해시 단건 조회와
-실제 작업 상태를 다시 확인한다. 완료 Run 전체 목록, 실제 CLI와
+실제 작업 상태를 다시 확인한다. 완료 Run 전체 목록도 별도 조회한다. 실제 CLI와
 전체 `web-shell`/`end-to-end-g1` 수용은 후속이다.
 
 경제/시장 입력 화면은 [저장 가정 조회 계약](../contracts/api-market-user-source-read-v1.md)의 사용자 소유 목록·지정 판본을 사용해 기존 입력을 불러오고, 명시적 수정은 기존 접수 계약의 새 판본으로 등록한다. 조회는 원본/최초 작업과 대사하며 승인·최신 판본 선택·미래 수치를 만들지 않는다. [검증 증거](../research/market-user-source-read-implementation.md)는 소프트웨어 연결 범위이며 전체 `api-flow`/`web-shell`/G1 수용은 계속 남는다.

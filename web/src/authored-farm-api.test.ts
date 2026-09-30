@@ -77,6 +77,33 @@ test('authored activity decodes linked jobs without accepting private fields',as
     .authoredFarmActivity('farm-1','r1',digest)).rejects.toMatchObject({code:'response_rejected'});
 });
 
+test('stored authored Run references are a bounded index requiring exact read',async()=>{
+  const runId='authored-thermal-run-v1:'+digest;
+  const item={run_id:runId,simulation_job_id:uuid,
+    recorded_at:'2026-09-30T00:00:00Z',verification:'requires_current_read'};
+  const cursor={recorded_at:item.recorded_at,run_id:runId};
+  const fetcher=vi.fn<typeof fetch>().mockResolvedValueOnce(reply({items:[item],next_cursor:null}));
+  const api=createApi(token,fetcher);
+  expect((await api.authoredRunCatalog()).items).toEqual([item]);
+  expect(fetcher.mock.calls[0]?.[0]).toBe('/v1/authored-runs/catalog');
+  await expect(api.authoredRunCatalog({recorded_at:'bad',run_id:runId}))
+    .rejects.toMatchObject({code:'response_rejected'});
+  expect(fetcher).toHaveBeenCalledTimes(1);
+  await expect(createApi(token,vi.fn<typeof fetch>().mockResolvedValue(reply({
+    items:[{...item,verification:'accepted'}],next_cursor:null}))).authoredRunCatalog())
+    .rejects.toMatchObject({code:'response_rejected'});
+  await expect(createApi(token,vi.fn<typeof fetch>().mockResolvedValue(reply({
+    items:[{...item,raw_trace:'private'}],next_cursor:null}))).authoredRunCatalog())
+    .rejects.toMatchObject({code:'response_rejected'});
+  const twenty=Array.from({length:20},(_,index)=>({...item,
+    run_id:'authored-thermal-run-v1:'+index.toString(16).padStart(64,'0')}));
+  const last={recorded_at:item.recorded_at,run_id:twenty[19]!.run_id};
+  const paged=vi.fn<typeof fetch>().mockResolvedValue(reply({items:twenty,next_cursor:last}));
+  expect((await createApi(token,paged).authoredRunCatalog(cursor)).next_cursor).toEqual(last);
+  expect(paged.mock.calls[0]?.[0]).toBe('/v1/authored-runs/catalog?before_recorded_at='
+    +'2026-09-30T00%3A00%3A00Z&before_run_id='+encodeURIComponent(runId));
+});
+
 test('review and simulation admit only the pinned revision and preserve retry keys',async()=>{
   const fetcher=vi.fn<typeof fetch>().mockResolvedValueOnce(reply(job('collection_review'),202))
     .mockResolvedValueOnce(reply(job('simulation'),202));

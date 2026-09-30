@@ -37,9 +37,12 @@ function summary(value:unknown):AuthoredThermalSummary {
 }
 
 export function createAuthoredThermalApi(request:(path:string)=>Promise<unknown>) {
-  return {async authoredThermalReplay(jobId:string):Promise<AuthoredThermalReplay> {
+  async function authoredThermalSummary(jobId:string):Promise<AuthoredThermalSummary> {
     need(uuid(jobId));
-    const discovered=summary(await request('/v1/jobs/'+jobId+'/authored-run'));
+    return summary(await request('/v1/jobs/'+jobId+'/authored-run'));
+  }
+  return {authoredThermalSummary,async authoredThermalReplay(jobId:string):Promise<AuthoredThermalReplay> {
+    const discovered=await authoredThermalSummary(jobId);
     const base='/v1/authored-runs/'+encodeURIComponent(discovered.run_id);
     const [rawSummary,rawSeries]=await Promise.all([request(base),request(base+'/series')]);
     const pinned=summary(rawSummary);
