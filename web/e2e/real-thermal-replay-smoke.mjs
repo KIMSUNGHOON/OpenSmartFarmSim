@@ -11,6 +11,15 @@ if(configuration.kind!==undefined && configuration.kind!=='authored')throw new E
 const authored=configuration.kind==='authored';
 const browser=await chromium.launch({args:['--enable-unsafe-swiftshader']});
 const context=await browser.newContext({ignoreHTTPSErrors:true,viewport:{width:1440,height:1000}});
+if(configuration.workflow){
+  if(!authored || !configuration.farm)throw new Error('authored workflow requires farm lookup');
+  await context.addInitScript(({review_uuid,run_uuid})=>{
+    const ids=[review_uuid,run_uuid];let index=0;
+    Object.defineProperty(Crypto.prototype,'randomUUID',{configurable:true,
+      value:()=>{if(index>=ids.length)throw new Error('unexpected synthetic retry key');
+        return ids[index++];}});
+  },configuration.workflow);
+}
 const page=await context.newPage();const errors=[],captureWarnings=[],network=[],responses=[];
 page.on('pageerror',error=>errors.push(error.message));
 page.on('console',message=>{
@@ -42,19 +51,51 @@ try{
     await expect(page.locator('.authored-facts code').first())
       .toHaveText(configuration.farm.registration_sha256);
   }
-  await page.getByRole('button',{name:'05 3D 열 재생'}).click();
-  if(authored)await page.getByRole('radio',{name:'작성한 농장 열 재생'}).check();
-  await page.getByLabel('완료된 열 작업 ID').fill(configuration.job_id);
+  if(configuration.workflow){
+    const reviewReply=page.waitForResponse(response=>new URL(response.url()).pathname==='/v1/farm-authored-reviews'
+      && response.request().method()==='POST',{timeout:200_000});
+    await page.getByRole('button',{name:'입력 검토 요청'}).click();
+    const reviewResponse=await reviewReply;
+    if(reviewResponse.status()!==202){
+      const result=await reviewResponse.json();
+      throw new Error('authored review status '+reviewResponse.status()+' code '+result.error?.code);
+    }
+    expect(reviewResponse.request().postDataJSON().idempotency_key)
+      .toBe('review-'+configuration.workflow.review_uuid);
+    await expect(page.getByText(configuration.workflow.review_job_id,{exact:true})).toBeVisible();
+    await page.getByRole('button',{name:'상태 다시 확인'}).first().click();
+    await expect(page.getByRole('button',{name:'열 계산 요청'})).toBeEnabled();
+    const runReply=page.waitForResponse(response=>new URL(response.url()).pathname==='/v1/authored-runs'
+      && response.request().method()==='POST',{timeout:200_000});
+    await page.getByRole('button',{name:'열 계산 요청'}).click();
+    const runResponse=await runReply;
+    if(runResponse.status()!==202){
+      const result=await runResponse.json();
+      throw new Error('authored run status '+runResponse.status()+' code '+result.error?.code);
+    }
+    expect(runResponse.request().postDataJSON().idempotency_key)
+      .toBe('run-'+configuration.workflow.run_uuid);
+    await expect(page.getByText(configuration.job_id,{exact:true})).toBeVisible();
+    await page.getByRole('button',{name:'상태 다시 확인'}).last().click();
+    await expect(page.getByRole('button',{name:'3D 재생 열기'})).toBeEnabled();
+    await page.getByRole('button',{name:'3D 재생 열기'}).click();
+    await expect(page.getByLabel('완료된 열 작업 ID')).toHaveValue(configuration.job_id);
+  }else{
+    await page.getByRole('button',{name:'05 3D 열 재생'}).click();
+    if(authored)await page.getByRole('radio',{name:'작성한 농장 열 재생'}).check();
+    await page.getByLabel('완료된 열 작업 ID').fill(configuration.job_id);
+  }
   await page.getByRole('button',{name:'저장된 Run 조회'}).click();
   await expect(page.locator('.replay-viewer')).toHaveAttribute('data-run-id',configuration.run_id,{timeout:60_000});
   await expect(page.locator('.replay-viewer')).toHaveAttribute('data-replay-kind',authored?'authored':'fixed');
   await expect(page.getByText('3D 준비됨',{exact:true})).toBeVisible();
   for(const response of responses){
-    expect(response.request().method()).toBe('GET');expect(response.status()).toBe(200);
+    expect(response.request().method()).toBe(response.status()===202?'POST':'GET');
+    expect([200,202]).toContain(response.status());
     expect(response.headers()['cache-control']).toBe('no-store');
     network.push({path:new URL(response.url()).pathname,status:response.status()});
   }
-  expect(responses.length).toBe(authored?(configuration.farm?4:3):4);
+  expect(responses.length).toBe(configuration.workflow?8:authored?(configuration.farm?4:3):4);
   // Compare with the server projection of the verified immutable Run supplied by
   // the harness. The SDK releases response bodies after its bounded read.
   const series=configuration.series;

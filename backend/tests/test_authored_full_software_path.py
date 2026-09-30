@@ -28,7 +28,7 @@ from app.execution_attestation import ExecutionAttestationStore
 from app.execution_verifier import ExecutionVerifier
 from app.farm_authored_release import AuthoredReleaseVerifier, KINDS
 from app.farm_authored_release_store import AuthoredReleaseStore
-from app.farm_authored_review import FarmAuthoredReviewService
+from app.farm_authored_review import FarmAuthoredReviewService, REVIEW_SCOPES
 from app.farm_authored_review_completion import AuthoredReviewCompletionVerifier
 from app.farm_authored_run import AuthoredRunPreparer
 from app.farm_authored_run_store import AuthoredRunStore
@@ -55,6 +55,8 @@ from web_shell_smoke import WEB, frontend
 
 
 ROOT = Path(__file__).resolve().parents[2]
+REVIEW_BROWSER_UUID = '11111111-1111-4111-8111-111111111111'
+RUN_BROWSER_UUID = '22222222-2222-4222-8222-222222222222'
 PROFILE = {
     'market_calculation': True, 'market_source_storage': True,
     'thermal_scenario_storage': True, 'break_even_calculation': True,
@@ -74,7 +76,8 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
     registration = author.submit('tenant-1', request(body))
     review = FarmAuthoredReviewService(author)
     review_job = review.submit('tenant-1', 'farm-1', 'r1',
-                               registration.scenario_sha256, 'full-software-review')
+                               registration.scenario_sha256,
+                               'review-' + REVIEW_BROWSER_UUID)
     jobs = author.replay.jobs
     runs = author.replay.thermal.runs
     results = MarketResultStore(jobs._dsn, jobs.schema, author.replay.candidates,
@@ -153,7 +156,8 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
     run_store = AuthoredRunStore(preparer, b'synthetic-full-path-gate-' + b'0' * 32)
     simulation = AuthoredSimulationService(preparer, run_store)
     job = simulation.submit('tenant-1', proof.review_job_id, 'farm-1', 'r1',
-                             registration.scenario_sha256, 'full-software-run')
+                             registration.scenario_sha256,
+                             'run-' + RUN_BROWSER_UUID)
     worker = AuthoredSimulationWorker(run_store, tenant_id='tenant-1')
     worked = worker.run_once(str(job['job_id']))
     assert worked.state == 'succeeded'
@@ -175,7 +179,8 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
     cert, key, _ = tls_files
     now = datetime.now(timezone.utc)
     token = b'synthetic-full-path-browser-' + b'x' * 32
-    grant = BearerGrant(token_digest(token), 'tenant-1', frozenset(AUTHORED_READ_SCOPES),
+    grant = BearerGrant(token_digest(token), 'tenant-1', frozenset((*AUTHORED_READ_SCOPES,
+        *REVIEW_SCOPES, 'simulation_create')),
         now - timedelta(seconds=1), now + timedelta(minutes=20))
     source_factory = lambda *, principal_provider: MarketSourceStore(
         jobs._dsn, jobs.schema, principal_provider=principal_provider,
@@ -219,14 +224,18 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
                 'job_id': str(job['job_id']), 'run_id': worked.run_id,
                 'farm': {'scenario_id': 'farm-1', 'revision': 'r1',
                     'registration_sha256': registration.scenario_sha256},
+                'workflow': {'review_uuid': REVIEW_BROWSER_UUID,
+                    'run_uuid': RUN_BROWSER_UUID,
+                    'review_job_id': proof.review_job_id},
                 'series': series.model_dump(mode='json')}) + '\n')
             browser.stdin.flush()
-            output, error = browser.communicate(timeout=90)
-            assert browser.returncode == 0, error[-2500:]
+            output, error = browser.communicate(timeout=450)
+            assert browser.returncode == 0, error[:1800] + error[-1200:]
             report = json.loads(output)
             assert report['stage'] == 'verified' and report['points'] == 120
-            assert len(report['network']) == 4
-            assert all(item['status'] == 200 for item in report['network'])
+            assert len(report['network']) == 8
+            assert [item['status'] for item in report['network']].count(202) == 2
+            assert all(item['status'] in (200, 202) for item in report['network'])
             print('authored_full_browser=' + json.dumps(report))
             print('authored_full_screens=' + str(tmp_path / 'full-path-screens'))
     finally:

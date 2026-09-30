@@ -160,7 +160,7 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
       <section className="panel"><p className="step-number">02 / 작성 입력 검토</p>
         <h3>검토 작업 접수</h3><p className="muted">접수는 AI 판단 또는 독립 서명 해제가 아닙니다. 실제 작업자가 실행한 뒤 별도 검토 근거가 필요합니다.</p>
         <button className="button primary" type="button" disabled={!farm || !!busy || !!review}
-          onClick={submitReview}>입력 검토 요청</button>
+          onClick={submitReview}>{busy==='review' ? '검토 접수 확인 중…' : '입력 검토 요청'}</button>
         <JobCard title="입력 검토 작업" job={review} onRefresh={refreshReview} busy={!!busy}/>
         {reviewHold && <div className="authored-hold" role="status"><strong>검토 보류</strong>
           <p>서버가 확인한 누락 근거 {reviewHold.missing_evidence_count}건입니다.</p>
@@ -169,7 +169,7 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
       <section className="panel"><p className="step-number">03 / 작성 열 계산</p>
         <h3>해제 후 계산 작업 접수</h3><p className="muted">검토 작업이 완료되어도 독립 서명 해제가 저장되어야 접수됩니다. 해제 또는 현재 권리가 없으면 서버가 보류합니다.</p>
         <button className="button primary" type="button" disabled={review?.state!=='succeeded' || !!busy || !!run}
-          onClick={submitRun}>열 계산 요청</button>
+          onClick={submitRun}>{busy==='run' ? '계산 접수 확인 중…' : '열 계산 요청'}</button>
         <JobCard title="열 계산 작업" job={run} onRefresh={refreshRun} busy={!!busy}/>
       </section>
     </div><aside className="authored-side" aria-label="결과 범위와 보류">

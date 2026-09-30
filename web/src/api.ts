@@ -62,8 +62,9 @@ function decodeHold(value:unknown, jobId:string):JobHold {
 
 export function createApi(token:string, fetcher:typeof fetch = fetch) {
   if (!/^[\x21-\x7e]{20,512}$/.test(token)) throw new ApiError('auth_required');
-  async function request(path:string, method='GET', body?:unknown, expected=method==='POST' ? 202 : 200, maxBytes=65_536):Promise<unknown> {
-    const abort = new AbortController(); const timer = setTimeout(()=>abort.abort(),30_000);
+  async function request(path:string, method='GET', body?:unknown, expected=method==='POST' ? 202 : 200,
+    maxBytes=65_536, timeoutMs=30_000):Promise<unknown> {
+    const abort = new AbortController(); const timer = setTimeout(()=>abort.abort(),timeoutMs);
     try {
       const response=await fetcher(path,{method,body:body ? JSON.stringify(body) : undefined,
         headers:body ? {'content-type':'application/json',authorization:'Bearer '+token} : {authorization:'Bearer '+token},

@@ -3,7 +3,8 @@ import type { JobStatus } from './api';
 
 const IDENTIFIER=/^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$/;
 const DIGEST=/^[0-9a-f]{64}$/;
-type Request=(path:string,method?:string,body?:unknown,expected?:number,maxBytes?:number)=>Promise<unknown>;
+type Request=(path:string,method?:string,body?:unknown,expected?:number,maxBytes?:number,
+  timeoutMs?:number)=>Promise<unknown>;
 type Identity={scenario_id:string;scenario_revision:string};
 export type AuthoredFarmRequest={schema_version:'farm-authoring-request-v1';
   farm:Identity & Record<string,unknown>;rights:Identity & Record<string,unknown>};
@@ -57,7 +58,7 @@ export function createAuthoredFarmApi(request:Request,decodeJob:(value:unknown)=
       const job=decodeJob(await request('/v1/farm-authored-reviews','POST',{
         schema_version:'farm-authored-review-request-v1',scenario_id:value.scenario_id,
         scenario_revision:value.scenario_revision,registration_sha256:value.registration_sha256,
-        idempotency_key:value.idempotency_key}));
+        idempotency_key:value.idempotency_key},202,65_536,180_000));
       need(job.stage==='collection_review');
       return job;
     },
@@ -69,7 +70,7 @@ export function createAuthoredFarmApi(request:Request,decodeJob:(value:unknown)=
         schema_version:'authored-thermal-simulation-request-v1',
         review_job_id:value.review_job_id,scenario_id:value.scenario_id,
         scenario_revision:value.scenario_revision,registration_sha256:value.registration_sha256,
-        idempotency_key:value.idempotency_key}));
+        idempotency_key:value.idempotency_key},202,65_536,180_000));
       need(job.stage==='simulation');
       return job;
     },
