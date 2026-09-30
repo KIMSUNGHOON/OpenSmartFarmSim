@@ -50,6 +50,11 @@ def owned_scope(pg_store, policy):
             from app.runtime_roles import THERMAL_SCENARIO_TABLES
             install_thermal_scenario_schema(conn, pg_store.schema)
             tables += THERMAL_SCENARIO_TABLES
+        if getattr(policy, "authored_release_storage", False):
+            from app.farm_authored_release_store import install_authored_release_schema
+            from app.runtime_roles import AUTHORED_RELEASE_TABLES
+            install_authored_release_schema(conn, pg_store.schema)
+            tables += AUTHORED_RELEASE_TABLES
         conn.execute(sql.SQL("ALTER SCHEMA {} OWNER TO {}").format(
             sql.Identifier(policy.schema), sql.Identifier(policy.owner)))
         for table in tables:

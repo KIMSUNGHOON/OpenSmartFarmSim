@@ -148,6 +148,10 @@ G3a/G3b 없이도 조건부 서비스에 대한 G4 평가는 가능하다. 그 �
 ([시험 기록](../research/farm-authored-release-implementation.md)).
 외부 검토자가 실제로 발급한 해제를 영속 보존하고 동일 패킷을 승인 Run 작업자가
 다시 검사하는 경로가 다음 선행 조건이다. 합성 키의 통과를 G1로 세지 않는다.
+[해제 패킷 저장 후보](../contracts/farm-authored-release-store-v1.md)는 서명
+바이트/보고서와 작업 연결을 변경 불가로 보존하고 권한 역할·현재 근거를 검사한다
+([시험 기록](../research/farm-authored-release-store-implementation.md)).
+실제 외부 발급과 작성 Run 게시기/작업자의 원자 게시가 다음 경계다.
 저장된 완료 Run의 3D·그래프·표를 먼저 확인하는 부분 슬라이스이며,
 공통 Assessment와 전체 농장 입력 작성·실제 CLI/독립 G1의 기존 의존성 및
 `web-shell`/`web-replay` 수용 체크는 유지한다. 실제 작물 생장·수확의 3D는

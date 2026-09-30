@@ -81,7 +81,10 @@ def login_scope(login_database, tmp_path, request):
                                     request.param.get("market_source_storage") is True),
                                 thermal_scenario_storage=(
                                     type(getattr(request, "param", None)) is dict and
-                                    request.param.get("thermal_scenario_storage") is True))
+                                    request.param.get("thermal_scenario_storage") is True),
+                                authored_release_storage=(
+                                    type(getattr(request, "param", None)) is dict and
+                                    request.param.get("authored_release_storage") is True))
     try:
         with owned_scope(base, policy):
             with base.connect() as conn:

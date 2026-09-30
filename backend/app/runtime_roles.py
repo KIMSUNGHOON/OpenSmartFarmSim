@@ -20,6 +20,7 @@ MARKET_TABLES = ("market_candidate_pins", "market_candidate_inputs", "market_res
 BREAK_EVEN_TABLES = ("break_even_plan_results",)
 MARKET_SOURCE_TABLES = ("market_source_records",)
 THERMAL_SCENARIO_TABLES = ("thermal_scenarios",)
+AUTHORED_RELEASE_TABLES = ("authored_release_packets",)
 SUPERVISOR_TABLES = frozenset({"jobs", "job_attempts", "evidence_authorizations",
     "attempt_evidence", "attempt_invocations", "attempt_cli_launches",
     "attempt_cli_captures", "validation_receipts", "ai_decisions"})
@@ -55,6 +56,7 @@ class RuntimeLoginPolicy(RuntimeRolePolicy):
     break_even_calculation: bool = field(default=False, kw_only=True)
     market_source_storage: bool = field(default=False, kw_only=True)
     thermal_scenario_storage: bool = field(default=False, kw_only=True)
+    authored_release_storage: bool = field(default=False, kw_only=True)
 
     def __post_init__(self):
         super().__post_init__()
@@ -64,6 +66,7 @@ class RuntimeLoginPolicy(RuntimeRolePolicy):
                 type(self.break_even_calculation) is not bool or
                 type(self.market_source_storage) is not bool or
                 type(self.thermal_scenario_storage) is not bool or
+                type(self.authored_release_storage) is not bool or
                 ((self.break_even_calculation or self.market_source_storage) and not self.market_calculation)):
             raise RolePolicyHold("invalid_login_policy_scope")
 
@@ -74,7 +77,8 @@ def _tables(policy):
     return (TABLES + (MARKET_TABLES if policy.market_calculation else ()) +
             (BREAK_EVEN_TABLES if policy.break_even_calculation else ()) +
             (MARKET_SOURCE_TABLES if policy.market_source_storage else ()) +
-            (THERMAL_SCENARIO_TABLES if policy.thermal_scenario_storage else ()))
+            (THERMAL_SCENARIO_TABLES if policy.thermal_scenario_storage else ()) +
+            (AUTHORED_RELEASE_TABLES if policy.authored_release_storage else ()))
 
 
 def _database(conn, policy):
@@ -219,7 +223,8 @@ def audit_runtime_roles(conn, policy):
     """, (scope["owner_oid"],) * 4 + (scope["schema_oid"], scope["owner_oid"])).fetchone()
     if bad_defaults:
         raise RolePolicyHold("uncontrolled_creator_defaults")
-    return {"policy_version": ("runtime-thermal-scenario-login-policy-v6" if policy.thermal_scenario_storage else
+    return {"policy_version": ("runtime-authored-release-login-policy-v7" if policy.authored_release_storage else
+                               "runtime-thermal-scenario-login-policy-v6" if policy.thermal_scenario_storage else
                                "runtime-market-source-login-policy-v5" if policy.market_source_storage else
                                "runtime-break-even-login-policy-v4" if policy.break_even_calculation else
                                "runtime-market-login-policy-v3" if policy.market_calculation else

@@ -21,6 +21,7 @@ KEY_ID = re.compile(r'[A-Za-z0-9][A-Za-z0-9_.-]{0,63}\Z')
 KINDS = ('source_rights_qc', 'numeric_recalculation', 'runtime_custody')
 REQUIRED_CODE = frozenset({
     'backend/app/farm_authored_release.py',
+    'backend/app/farm_authored_release_store.py',
     'backend/app/farm_authored_review_completion.py',
     'backend/app/farm_authored_review.py',
     'backend/app/farm_authoring_storage.py',
@@ -114,7 +115,7 @@ class AuthoredReleaseVerifier:
         if (type(trusted_reviewers) is not dict or not trusted_reviewers or
                 any(type(key_id) is not str or not KEY_ID.fullmatch(key_id) or
                     type(pair) is not tuple or len(pair) != 2 or
-                    type(pair[0]) is not str or not pair[0] or
+                    type(pair[0]) is not str or not 1 <= len(pair[0]) <= 200 or
                     pair[0] == 'OpenSmartFarmSim fixture authors' or
                     type(pair[1]) is not bytes or len(pair[1]) != 32 or
                     key_id in execution_keys or pair[1] in execution_keys.values()

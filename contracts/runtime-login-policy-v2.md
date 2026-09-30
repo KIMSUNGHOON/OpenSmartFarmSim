@@ -31,6 +31,9 @@ The explicit limit is a candidate configuration, not measured production capacit
 An explicit [market calculation profile v3](runtime-market-login-policy-v3.md)
 adds three immutable calculation tables. The default remains v2; existing roles
 are not upgraded automatically.
+The optional [authored release packet profile](farm-authored-release-store-v1.md)
+adds one immutable reviewer-packet table to a fresh `RuntimeLoginPolicy` profile
+and leaves the request/worker/supervisor roles without base-table access.
 
 ## Every runtime connection
 

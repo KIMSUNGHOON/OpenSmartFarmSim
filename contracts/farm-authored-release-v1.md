@@ -8,4 +8,4 @@ An external reviewer must issue canonical `farm-authored-release-v1` bytes and a
 
 The returned `VerifiedAuthoredRelease` is an immutable packet for a later publisher to check and retain. The packet's structural and cryptographic checks do not establish that a human or independent process actually performed the three reviews. Production signer custody, reviewer independence, report provenance, real CLI execution, code/image equivalence and an atomic authored Run publisher must be evidenced separately. A test key or a signed `pass` string alone cannot clear G1. The scope is synthetic software replay only; G0/G2/G3 claims remain held.
 
-[Implementation and test record](../research/farm-authored-release-implementation.md).
+[Implementation and test record](../research/farm-authored-release-implementation.md). The subsequent [immutable packet store](farm-authored-release-store-v1.md) retains signed bytes and revalidates them on read.
