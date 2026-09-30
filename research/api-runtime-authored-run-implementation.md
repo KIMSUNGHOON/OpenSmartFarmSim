@@ -31,6 +31,15 @@ workflow has a PostgreSQL/SCRAM environment; its result for this commit must
 be checked before treating the integration as verified. No authored browser
 request against this standard HTTPS runtime was run here.
 
+An explicit [authored browser smoke](../backend/tests/web_authored_thermal_replay_smoke.py)
+now connects the stored Run through the standard TLS API and Vite HTTPS proxy
+to Chromium. It reuses the existing read-only browser comparator for 120
+points, scene/chart/table identity, narrow viewports, and console/network
+checks, selecting the authored mode and expecting three successful Run GETs.
+The backend workflow installs locked Node/Chromium dependencies and runs this
+smoke with its disposable PostgreSQL. It skipped locally for the same missing
+database setting; CI has not yet supplied passing evidence for this addition.
+
 Product CLI execution, actual independent release issuance, complete farm
 input authoring and G1/G4 are still holds. Real source G0, local G2 and future
 G3a/G3b need their separate evidence.

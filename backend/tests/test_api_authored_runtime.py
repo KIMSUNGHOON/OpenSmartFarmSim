@@ -78,6 +78,14 @@ def test_standard_https_reads_owned_authored_run_and_holds_stale_evidence(
     with pytest.raises(ValueError, match='^API runtime assembly rejected$'):
         ApiRuntime(runtime_config, replace(runtime_deps,
             authored_run_store_factory=lambda **_: original_store))
+    def wrong_key_factory(**kwargs):
+        result = authored_factory(**kwargs)
+        result.gate_key = b'synthetic-wrong-gate-key-' + b'z' * 32
+        return result
+    with pytest.raises(ValueError, match='^API runtime assembly rejected$'):
+        ApiRuntime(runtime_config, replace(runtime_deps,
+            authored_run_store_factory=wrong_key_factory))
+    seen.clear()
     runtime = ApiRuntime(runtime_config, runtime_deps)
     assert seen == [(runtime.jobs, runtime.farm_scenarios)]
     assert runtime.authored_runs.jobs is runtime.jobs

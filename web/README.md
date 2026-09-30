@@ -74,6 +74,16 @@ The completed thermal replay has a separate explicit smoke:
 uv run --locked --group dev pytest -q -s tests/web_thermal_replay_smoke.py
 ```
 
+The authored Run has a separate explicit stored-Run-to-browser smoke:
+
+```bash
+uv run --locked --group dev pytest -q -s tests/web_authored_thermal_replay_smoke.py
+```
+
+It needs the same protected `OSSF_TEST_PG_DSN` and locked Chromium setup. The
+backend CI runs this authored smoke after its database tests. Its review,
+release and CLI authorities are synthetic software fixtures, not G1 proof.
+
 It completes an owned farm thermal job, projects the verified immutable Run,
 and compares the first/last stored points and six numeric fields with the
 actual HTTPS browser scene, chart and HTML table. It captures desktop/tablet/

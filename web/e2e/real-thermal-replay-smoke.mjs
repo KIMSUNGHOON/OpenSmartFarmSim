@@ -7,6 +7,8 @@ let configuration;
 for await(const line of input){configuration=JSON.parse(line);break;}
 input.close();
 if(!configuration)throw new Error('synthetic browser configuration required');
+if(configuration.kind!==undefined && configuration.kind!=='authored')throw new Error('replay kind rejected');
+const authored=configuration.kind==='authored';
 const browser=await chromium.launch({args:['--enable-unsafe-swiftshader']});
 const context=await browser.newContext({ignoreHTTPSErrors:true,viewport:{width:1440,height:1000}});
 const page=await context.newPage();const errors=[],captureWarnings=[],network=[],responses=[];
@@ -25,16 +27,18 @@ try{
   await page.getByRole('button',{name:'연결 설정'}).click();
   await expect(page.getByLabel('접근 토큰')).toHaveValue('');
   await page.getByRole('button',{name:'04 3D 열 재생'}).click();
+  if(authored)await page.getByRole('radio',{name:'작성한 농장 열 재생'}).check();
   await page.getByLabel('완료된 열 작업 ID').fill(configuration.job_id);
   await page.getByRole('button',{name:'저장된 Run 조회'}).click();
   await expect(page.locator('.replay-viewer')).toHaveAttribute('data-run-id',configuration.run_id,{timeout:60_000});
+  await expect(page.locator('.replay-viewer')).toHaveAttribute('data-replay-kind',authored?'authored':'fixed');
   await expect(page.getByText('3D 준비됨',{exact:true})).toBeVisible();
   for(const response of responses){
     expect(response.request().method()).toBe('GET');expect(response.status()).toBe(200);
     expect(response.headers()['cache-control']).toBe('no-store');
     network.push({path:new URL(response.url()).pathname,status:response.status()});
   }
-  expect(responses.length).toBe(4);
+  expect(responses.length).toBe(authored?3:4);
   // Compare with the server projection of the verified immutable Run supplied by
   // the harness. The SDK releases response bodies after its bounded read.
   const series=configuration.series;

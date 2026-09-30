@@ -34,6 +34,19 @@ jobs:
           uv sync --locked --group dev --python 3.12.13
           uv run --no-sync python -c 'import sys; assert sys.version_info[:3] == (3, 12, 13)'
 
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22.22.3'
+
+      - name: Install locked browser smoke dependencies
+        working-directory: web
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --global npm@11.16.0
+          npm ci --strict-peer-deps
+          npx --no-install playwright install --with-deps chromium
+
       - name: Prepare readable runtime for UID service smoke
         working-directory: backend
         shell: bash
@@ -120,6 +133,7 @@ jobs:
             "$uid_runtime/venv/bin/python" -B -m pytest -p no:cacheprovider -q -s \
               tests/uid_service_smoke.py tests/uid_planning_smoke.py
           uv run --no-sync pytest -q -rs
+          uv run --no-sync pytest -q -s tests/web_authored_thermal_replay_smoke.py
 
       - name: Check content access with distinct Linux UIDs
         shell: bash
