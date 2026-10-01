@@ -2,6 +2,7 @@
 import {chromium,expect} from '@playwright/test';
 import {createInterface} from 'node:readline';
 import {mkdir} from 'node:fs/promises';
+import {observeApiBodies} from './observe-api-body.mjs';
 const input=createInterface({input:process.stdin});
 const inputLines=input[Symbol.asyncIterator]();
 const firstLine=await inputLines.next();
@@ -14,14 +15,114 @@ const browser=await chromium.launch({args:['--enable-unsafe-swiftshader']});
 const context=await browser.newContext({ignoreHTTPSErrors:true,viewport:{width:1440,height:1000}});
 if(configuration.workflow){
   if(!authored || !configuration.farm)throw new Error('authored workflow requires farm lookup');
-  await context.addInitScript(({review_uuid,run_uuid})=>{
-    const ids=[review_uuid,run_uuid];let index=0;
+  await context.addInitScript(({review_uuid,run_uuid,financial,money_uuid,assessment_uuid})=>{
+    const ids=financial?[review_uuid,run_uuid,money_uuid,assessment_uuid]:[review_uuid,run_uuid];let index=0;
     Object.defineProperty(Crypto.prototype,'randomUUID',{configurable:true,
       value:()=>{if(index>=ids.length)throw new Error('unexpected synthetic retry key');
         return ids[index++];}});
   },configuration.workflow);
 }
 const page=await context.newPage();const errors=[],captureWarnings=[],network=[],responses=[];
+const consumedBodies=[];
+if(configuration.workflow?.financial)await observeApiBodies(page,record=>consumedBodies.push(record));
+async function financialContinuation(){
+  const posts=[],requests=[],observationStart=consumedBodies.length;
+  const requested=request=>{if(new URL(request.url()).pathname.startsWith('/v1/')){
+    requests.push({path:new URL(request.url()).pathname,method:request.method()});
+    if(request.method()==='POST')posts.push({path:new URL(request.url()).pathname,body:request.postDataJSON()});
+  }};
+  page.on('request',requested);
+  async function reference(label){
+    const summary=page.getByText(label,{exact:true});await summary.click();
+    return (await summary.locator('..').locator('code').innerText()).trim();
+  }
+  async function workerResult(event,id){
+    const next=await inputLines.next();if(next.done)throw new Error(event+' result missing');
+    const value=JSON.parse(next.value);expect(value.event).toBe(event);expect(value.job_id).toBe(id);return value;
+  }
+  async function selectRun(){
+    await page.getByRole('button',{name:'07 작성 Run 경제·평가',exact:true}).click();
+    await page.getByRole('button',{name:'저장 Run 목록 조회',exact:true}).click();
+    await page.getByRole('button',{name:/저장된 합성 열 Run.*경제·평가 선택/}).click();
+    await expect(page.getByRole('button',{name:'같은 Run 3D 열기',exact:true})).toBeEnabled({timeout:90_000});
+  }
+  try{
+    await page.setViewportSize({width:1440,height:1000});await selectRun();
+    await expect(page.getByRole('button',{name:'선택 Run 경제 계산 요청',exact:true})).toBeEnabled();
+    await page.getByRole('button',{name:'선택 Run 경제 계산 요청',exact:true}).click();
+    await expect(page.getByText('경제 작업: 대기 중',{exact:true})).toBeVisible({timeout:90_000});
+    const money=await reference('경제 작업 ID');
+    const {idempotency_key,...submitted}=posts[0].body;
+    expect(posts[0].path).toBe('/v1/economic-results');expect(submitted).toEqual(configuration.financial);
+    expect(idempotency_key).toBe('web-authored-money-v1:'+configuration.workflow.money_uuid);
+    process.stdout.write(JSON.stringify({event:'economic_admitted',job_id:money})+'\n');
+    const expected=await workerResult('economic_succeeded',money);
+    await page.getByRole('button',{name:'경제 상태·결과 확인',exact:true}).click();
+    await expect(page.getByText('경제 작업: 작업 완료',{exact:true})).toBeVisible({timeout:90_000});
+    await page.getByText('조건부 비용·현금 합계',{exact:true}).click();
+    for(const field of ['revenue_krw','management_operating_income_krw','cash_shortage_krw',
+      'variable_cost_krw','fixed_cost_krw','depreciation_krw','operating_cash_krw','business_cash_krw','equity_cash_krw']){
+      const shown=await page.locator('[data-money-field="'+field+'"]').innerText();
+      expect(expected.amounts[field]===null?shown:shown.replaceAll(',','').replace(/ 원$/,''))
+        .toBe(expected.amounts[field]??'미확인');
+    }
+    await page.getByRole('button',{name:'작성 Run 월별 현금 조회',exact:true}).click();
+    const rows=expected.cash.monthly_cash;expect(rows.length).toBeGreaterThan(0);
+    await expect(page.getByRole('rowheader',{name:rows[0].month,exact:true})).toBeVisible({timeout:90_000});
+    await expect(page.locator('.cash-table tbody tr')).toHaveCount(rows.length);
+    for(const row of rows){
+      const cells=await page.getByRole('rowheader',{name:row.month,exact:true}).locator('..').locator('td').allInnerTexts();
+      expect(cells.map(value=>value.replaceAll(',','').replace(/ 원$/,''))).toEqual([
+        row.opening_balance_krw,row.net_cash_krw,row.closing_balance_krw,row.minimum_balance_krw,row.minimum_at_utc,row.cash_shortage_krw]);
+    }
+    await page.getByRole('button',{name:'작성 Run 평가 요청',exact:true}).click();
+    await expect(page.getByText('평가 작업: 대기 중',{exact:true})).toBeVisible({timeout:90_000});
+    const assessment=await reference('작성 평가 작업 ID');
+    expect(posts[1]).toEqual({path:'/v1/assessments',body:{run_job_id:configuration.job_id,economic_job_id:money,
+      idempotency_key:'web-authored-assessment-v1:'+configuration.workflow.assessment_uuid}});
+    process.stdout.write(JSON.stringify({event:'assessment_admitted',job_id:assessment})+'\n');
+    await workerResult('assessment_held',assessment);
+    await page.getByRole('button',{name:'작성 평가 상태 확인',exact:true}).click();
+    await expect(page.getByRole('heading',{name:'작성 Run 판단 보류 근거',exact:true})).toBeVisible({timeout:90_000});
+    await page.reload();
+    await page.getByText('내부 시험 연결',{exact:true}).click();await page.getByLabel('접근 토큰').fill(configuration.token);
+    await page.getByRole('button',{name:'연결 설정',exact:true}).click();await selectRun();
+    await page.getByRole('button',{name:/작성 평가 기록.*현재 기록 조회/}).click();
+    await expect(page.getByRole('heading',{name:'작성 Run 판단 보류 근거',exact:true})).toBeVisible({timeout:90_000});
+    expect(await reference('작성 평가 작업 ID')).toBe(assessment);
+    await expect(page.getByText('서버가 기록한 누락 근거 6개입니다.',{exact:true})).toBeVisible();
+    await page.screenshot({path:process.argv[3]+'/source-farm-financial.png',fullPage:true});
+    await page.getByRole('button',{name:'같은 Run 3D 열기',exact:true}).click();
+    await expect(page.locator('.replay-viewer')).toHaveAttribute('data-run-id',configuration.run_id,{timeout:90_000});
+    expect(Number(await page.locator('.zone-canvas').getAttribute('data-draw-calls'))).toBeGreaterThan(0);
+    const slider=page.getByRole('slider',{name:'저장 시각 선택'});await slider.focus();await slider.press('End');
+    const point=configuration.series.points[119];
+    await expect(page.locator('.zone-canvas')).toHaveAttribute('data-scene-at-utc',point.at_utc);
+    for(const selector of ['.replay-viewer','.zone-scene','.replay-summary','.replay-chart'])
+      await expect(page.locator(selector)).toHaveAttribute('data-selected-at',point.at_utc);
+    for(const metric of ['temperature_k','relative_humidity_fraction','humidity_ratio_kg_v_per_kg_da',
+      'heat_demand_w_th','heat_delivered_w_th','delivered_heat_energy_kwh_th']){
+      await expect(page.locator('.replay-summary [data-metric="'+metric+'"]')).toHaveAttribute('data-raw-value',String(point[metric]));
+      await expect(page.locator('.replay-table tr[aria-selected=true] [data-metric="'+metric+'"]')).toHaveAttribute('data-raw-value',String(point[metric]));
+    }
+    await expect.poll(()=>consumedBodies.length-observationStart,{timeout:30_000}).toBe(requests.length);
+    const checked=consumedBodies.slice(observationStart);expect(posts).toHaveLength(2);
+    const identity=value=>JSON.stringify([value.path,value.method]);
+    expect(checked.map(identity).sort()).toEqual(requests.map(identity).sort());
+    expect(checked.filter(value=>![200,202].includes(value.status)||value.cache!=='no-store'||
+      !Number.isFinite(value.body_seconds)||value.body_seconds<0||value.body_seconds>=30)).toEqual([]);
+    for(const path of ['/v1/authored-runs/catalog','/v1/jobs/'+configuration.job_id+'/authored-economic-input',
+      '/v1/jobs/'+configuration.job_id+'/authored-financial-history','/v1/economic-results','/v1/jobs/'+money,
+      '/v1/jobs/'+money+'/economic-result','/v1/jobs/'+money+'/economic-cash-flow','/v1/assessments',
+      '/v1/jobs/'+assessment,'/v1/jobs/'+assessment+'/hold-report','/v1/jobs/'+configuration.job_id+'/authored-run',
+      '/v1/authored-runs/'+encodeURIComponent(configuration.run_id)+'/series'])
+      expect(checked.some(value=>value.path===path)).toBe(true);
+    return {run_id:configuration.run_id,economic_job_id:money,assessment_job_id:assessment,
+      hold_count:6,cash_rows:rows.length,post_count:posts.length,network:checked,
+      body_observation:'client_reader_eof',
+      max_body_seconds:Math.max(...checked.map(value=>value.body_seconds))};
+  }finally{page.off('request',requested);}
+}
 async function registerAuthoredFarm(document){
   const farm=document.farm,rights=document.rights;
   await page.getByRole('button',{name:'새 입력 판본 작성'}).click();
@@ -183,11 +284,12 @@ try{
     const workerLine=await inputLines.next();
     if(workerLine.done)throw new Error('worker result missing');
     const worker=JSON.parse(workerLine.value);
-    input.close();
+    if(!configuration.workflow.financial)input.close();
     if(worker.event!=='worker_succeeded' || worker.job_id!==jobId)
       throw new Error('worker result does not match admitted job');
     configuration.job_id=jobId;configuration.run_id=worker.run_id;
     configuration.series=worker.series;
+    configuration.financial=worker.financial;
     await page.getByRole('button',{name:'상태 다시 확인'}).last().click();
     await expect(page.getByRole('button',{name:'3D 재생 열기'})).toBeEnabled();
     await page.getByRole('button',{name:'3D 재생 열기'}).click();
@@ -243,11 +345,13 @@ try{
     await page.screenshot({path:process.argv[3]+'/replay-'+width+'.png',fullPage:true});
   }
   expect(errors).toEqual([]);
+  const financial=configuration.workflow?.financial?await financialContinuation():null;
+  expect(errors).toEqual([]);
   process.stdout.write(JSON.stringify({stage:'verified',points:series.points.length,network,
-    console_errors:0,gpu_capture_warnings:captureWarnings.length})+'\n');
+    console_errors:0,gpu_capture_warnings:captureWarnings.length,...(financial?{financial}:{})})+'\n');
 }catch(error){
   await mkdir(process.argv[3],{recursive:true});
   await page.screenshot({path:process.argv[3]+'/failure.png',fullPage:true}).catch(()=>{});
   throw error;
-}finally{await context.close();await browser.close();}
+}finally{input.close();await context.close();await browser.close();}
 async function documentReady(){await page.evaluate(()=>document.fonts.ready);}

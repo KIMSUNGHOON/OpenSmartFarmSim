@@ -190,3 +190,14 @@ and missing asset adoption are not accepted. A fixture CLI and test execution/re
 prove software behavior only. Actual product CLI, independent execution custody
 and release/full G1, real-source G0, field G2, forecasting/comparison G3 and
 deployment G4 remain separate holds.
+
+## Later same-Run financial continuation
+
+The [subsequent local proof](source-farm-financial-continuation-implementation.md)
+extends the saved-source case through the newly registered Run's economic
+calculation, all monthly cash cells, six assessment holds, reload/reconnect and
+the same 3D Run. It passed one focused actual HTTPS/SCRAM browser case in
+442.43 s; 27 financial response bodies completed within the unchanged 30-second
+limit. This supersedes the missing local financial-continuation checkpoint
+above. Visual refinement, new hosted verification and actual product CLI/
+independent G1/G4 acceptance remain separate.

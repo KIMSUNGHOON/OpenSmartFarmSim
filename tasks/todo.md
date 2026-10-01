@@ -71,7 +71,10 @@
     선택 UI·조합 변경/복구는 [화면 연결 후보](../research/source-farm-web-implementation.md)에서
     집중 Chromium 14개로 확인했다. 실제 HTTPS/SCRAM 직접 입력·원천 선택의 신규 등록→Run→3D는
     2개가 통과했고 3개 화면 대조도 실행했다(낮은 일치율, 정밀 수용 아님).
-    같은 새 Run의 경제/평가 연속 검증과 화면 보완이 남아 체크는 유지한다.
+    [같은 새 Run의 경제/평가 연속 검증](../research/source-farm-financial-continuation-implementation.md)도
+    실제 HTTPS/SCRAM 1개가 통과했다. 서버 금액·월별 현금·보류 6개·재접속·동일 3D와
+    27개 전체 본문(최대 24.363초/기존 30초 제한)을 확인했다. 새 호스팅 검증과 화면 보완이
+    남아 체크는 유지한다.
 
 ## 전체 백엔드 CI 실행 경계 보완 (2026-10-01)
 

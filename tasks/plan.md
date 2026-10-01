@@ -28,8 +28,9 @@ farm-economic-candidate-selection → web-source-farm-authoring` 순서로
 typecheck/build가 통과했다. [화면 연결 후보](../research/source-farm-web-implementation.md)는
 저장된 완료 조사·수집과 경제 판본을 작성 폼에 연결하고 조합 변경·복구를 Chromium 14개로 확인했다.
 실제 HTTPS/SCRAM 신규 등록→검토/Run→3D의 직접 입력·원천 선택 2개도 통과했다.
-3개 화면 대조는 낮은 일치율로 정밀 수용을 주장하지 않는다. 같은 새 Run의 경제/평가까지
-한 경로로 연장하고 화면을 보완한 뒤 웹 작업을 체크한다.
+3개 화면 대조는 낮은 일치율로 정밀 수용을 주장하지 않는다.
+[같은 새 Run의 경제/평가 연속 검증](../research/source-farm-financial-continuation-implementation.md)은
+실제 HTTPS/SCRAM 1개가 통과했다. 새 호스팅 결과를 확인하고 화면을 보완한 뒤 웹 작업을 체크한다.
 기존 고정/농장 재생 경로,
 실제 제품 CLI·독립 해제·전체 G1 수용과 새 원천 코드의 호스팅 CI는 별도 관문으로 유지한다.
 

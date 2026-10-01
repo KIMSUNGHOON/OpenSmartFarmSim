@@ -11,6 +11,7 @@ from hashlib import sha256
 import os
 from pathlib import Path
 import select
+import signal
 import subprocess
 import sys
 import threading
@@ -26,10 +27,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app.authored_thermal_candidate import calculate_authored_candidate
 from app.api_authored_thermal import AUTHORED_READ_SCOPES, project_authored_run
 from app.api_runtime import ApiRuntime
-from app.calculation_assessment import CalculationAssessmentService
+from app.api_economic_calculation import EconomicCalculationService
+from app.authored_economic_execution import AUTHORED_ECONOMIC_SCOPES
+from app.authored_financial_selection import AuthoredFinancialSelectionService
+from app.calculation_assessment import CalculationAssessmentService, ADMISSION_SCOPES
 from app.cli_worker import CliWorker
 from app.execution_attestation import ExecutionAttestationStore
 from app.execution_verifier import ExecutionVerifier
+from app.economic_calculation_worker import CALCULATION_SCOPES
 from app.farm_authored_release import AuthoredReleaseVerifier, KINDS
 from app.farm_authored_release_store import AuthoredReleaseStore
 from app.farm_authored_review import FarmAuthoredReviewService, REVIEW_SCOPES
@@ -54,6 +59,8 @@ from test_farm_authoring_storage import authoring
 from test_farm_authored_release import _public, _signed as signed_release
 from test_farm_authored_review import self_authored_evidence_policy
 from test_farm_replay_scenario import farm_setup
+from test_authored_economic_execution import money_worker
+from test_authored_calculation_assessment import assessment_cli
 from login_database import login_database, login_scope
 from web_shell_smoke import WEB, frontend
 
@@ -61,6 +68,8 @@ from web_shell_smoke import WEB, frontend
 ROOT = Path(__file__).resolve().parents[2]
 REVIEW_BROWSER_UUID = '11111111-1111-4111-8111-111111111111'
 RUN_BROWSER_UUID = '22222222-2222-4222-8222-222222222222'
+MONEY_BROWSER_UUID = '33333333-3333-4333-8333-333333333333'
+ASSESSMENT_BROWSER_UUID = '44444444-4444-4444-8444-444444444444'
 PROFILE = {
     'market_calculation': True, 'market_source_storage': True,
     'thermal_scenario_storage': True, 'break_even_calculation': True,
@@ -148,6 +157,10 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
 
     preparer = AuthoredRunPreparer(author, release_store)
     run_store = AuthoredRunStore(preparer, b'synthetic-full-path-gate-' + b'0' * 32)
+    economic = None
+    if source_selection:
+        principal['scopes'].update((*AUTHORED_ECONOMIC_SCOPES, *CALCULATION_SCOPES, *ADMISSION_SCOPES))
+        economic = EconomicCalculationService(jobs, results, author.replay, run_store)
 
     # Chromium registers the authored farm and creates both jobs. The harness
     # completes the jobs with synthetic
@@ -155,8 +168,11 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
     cert, key, _ = tls_files
     now = datetime.now(timezone.utc)
     token = b'synthetic-full-path-browser-' + b'x' * 32
-    grant = BearerGrant(token_digest(token), 'tenant-1', frozenset((*AUTHORED_READ_SCOPES,
-        *WRITE_SCOPES, *REVIEW_SCOPES, *SOURCE_FARM_READ_SCOPES, 'auditor', 'simulation_create')),
+    browser_scopes = (*AUTHORED_READ_SCOPES, *WRITE_SCOPES, *REVIEW_SCOPES,
+        *SOURCE_FARM_READ_SCOPES, 'auditor', 'simulation_create')
+    if source_selection:
+        browser_scopes += (*AUTHORED_ECONOMIC_SCOPES, *CALCULATION_SCOPES, *ADMISSION_SCOPES)
+    grant = BearerGrant(token_digest(token), 'tenant-1', frozenset(browser_scopes),
         now - timedelta(seconds=1), now + timedelta(minutes=20))
     source_factory = lambda *, principal_provider: MarketSourceStore(
         jobs._dsn, jobs.schema, principal_provider=principal_provider,
@@ -201,12 +217,14 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
             browser = subprocess.Popen(['node', 'e2e/real-thermal-replay-smoke.mjs',
                 f'https://127.0.0.1:{web_port}', str(tmp_path / 'full-path-screens')],
                 cwd=WEB, env=env, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE, text=True)
+                stderr=subprocess.PIPE, text=True, start_new_session=True)
             browser.stdin.write(json.dumps({'kind': 'authored', 'token': token.decode(),
                 'farm': {'scenario_id': 'farm-1', 'revision': 'r1',
                     'document': body},
                 'workflow': {'review_uuid': REVIEW_BROWSER_UUID,
-                    'run_uuid': RUN_BROWSER_UUID}, 'source_selection': selected_source}) + '\n')
+                    'run_uuid': RUN_BROWSER_UUID, 'financial': source_selection,
+                    'money_uuid': MONEY_BROWSER_UUID, 'assessment_uuid': ASSESSMENT_BROWSER_UUID},
+                'source_selection': selected_source}) + '\n')
             browser.stdin.flush()
             def browser_event(expected, *, queued_job=False):
                 ready, _, _ = select.select([browser.stdout], [], [], 250)
@@ -235,7 +253,7 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
             lease = jobs.claim(cli_worker.lease_seconds, allowed_stages=('collection_review',),
                                tenant_id='tenant-1', job_id=review_id)
             reviewed = cli_worker._run_claimed(lease)
-            assert reviewed.state == 'succeeded'
+            assert reviewed.state == 'succeeded', reviewed.reason_code
             with jobs.connect() as conn:
                 rows = {name: conn.execute(sql.SQL(
                     'SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s').format(
@@ -305,10 +323,37 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
             assert jobs.get_job('tenant-1', job_id)['state'] == 'succeeded'
             assert run_store.get_run('tenant-other', worked.run_id) is None
             _, series = project_authored_run(run)
+            financial = None
+            if source_selection:
+                selected = AuthoredFinancialSelectionService(economic).read('tenant-1', UUID(job_id))
+                assert selected.thermal_run.run_id == worked.run_id
+                financial = selected.calculation_input.model_dump(mode='json')
             browser.stdin.write(json.dumps({'event': 'worker_succeeded',
                 'job_id': job_id, 'run_id': worked.run_id,
-                'series': series.model_dump(mode='json')}) + '\n')
+                'series': series.model_dump(mode='json'), 'financial': financial}) + '\n')
             browser.stdin.flush()
+            if source_selection:
+                money_id = browser_event('economic_admitted', queued_job=True)
+                assert money_worker(economic).run_once(money_id).state == 'succeeded'
+                receipt = json.loads(jobs.read_artifact('tenant-1', money_id))
+                assert receipt['thermal_job_id'] == job_id
+                assert receipt['thermal_run_id'] == worked.run_id
+                assert receipt['registration_sha256'] == registration.scenario_sha256
+                amounts = economic.read_job_result('tenant-1', UUID(money_id)).model_dump(mode='json')['amounts']
+                cash = economic.read_job_cash_flow('tenant-1', UUID(money_id)).model_dump(mode='json')
+                assert cash['next_month_cursor'] is None, 'this fixture must fit one complete cash page'
+                browser.stdin.write(json.dumps({'event': 'economic_succeeded', 'job_id': money_id,
+                    'amounts': amounts, 'cash': cash}) + '\n'); browser.stdin.flush()
+                assessment_id = browser_event('assessment_admitted', queued_job=True)
+                financial_assessment = CalculationAssessmentService(jobs, runs, results,
+                    author.replay.thermal, author.replay, run_store)
+                cli, _ = assessment_cli(financial_assessment, tmp_path)
+                lease = jobs.claim(300, tenant_id='tenant-1', job_id=assessment_id, allowed_stages=('assessment',))
+                held = cli._run_claimed(lease)
+                assert held.state == 'hold' and held.decision_id
+                assert jobs.get_publication('tenant-1', assessment_id) is None
+                browser.stdin.write(json.dumps({'event': 'assessment_held',
+                    'job_id': assessment_id}) + '\n'); browser.stdin.flush()
             output, error = browser.communicate(timeout=450)
             assert browser.returncode == 0, error[:1800] + error[-1200:]
             report = json.loads(output)
@@ -316,12 +361,22 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
             assert len(report['network']) == (14 if source_selection else 8)
             assert [item['status'] for item in report['network']].count(202) == 2
             assert all(item['status'] in (200, 202) for item in report['network'])
+            if source_selection:
+                assert report['financial']['economic_job_id'] == money_id
+                assert report['financial']['assessment_job_id'] == assessment_id
+                assert report['financial']['run_id'] == worked.run_id
+                assert report['financial']['hold_count'] == 6
+                assert report['financial']['cash_rows'] == len(cash['monthly_cash'])
             print('authored_full_browser=' + json.dumps(report))
             print('authored_full_screens=' + str(tmp_path / 'full-path-screens'))
     finally:
         if browser is not None and browser.poll() is None:
-            browser.kill()
-            browser.communicate(timeout=5)
+            os.killpg(browser.pid, signal.SIGTERM)
+            try:
+                browser.communicate(timeout=5)
+            except subprocess.TimeoutExpired:
+                os.killpg(browser.pid, signal.SIGKILL)
+                browser.communicate(timeout=5)
         server.should_exit = True
         thread.join(timeout=15)
         assert not thread.is_alive()
