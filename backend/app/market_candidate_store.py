@@ -272,11 +272,16 @@ class MarketCandidateStore:
         if tenant is None:
             return None
         with self.connect() as conn:
-            row = conn.execute(sql.SQL("""
-                SELECT * FROM {} WHERE tenant_id=%s AND scenario_id=%s AND revision=%s
-            """).format(self._table("market_candidate_pins")),
-                (tenant, scenario_id, revision)).fetchone()
-            return self._checked_candidate(conn, row) if row is not None else None
+            return self._candidate_in_transaction(conn, tenant, scenario_id, revision)
+
+    def _candidate_in_transaction(self, conn, tenant, scenario_id, revision):
+        if self._tenant("market_candidate_read") != tenant:
+            return None
+        row = conn.execute(sql.SQL("""
+            SELECT * FROM {} WHERE tenant_id=%s AND scenario_id=%s AND revision=%s
+        """).format(self._table("market_candidate_pins")),
+            (tenant, scenario_id, revision)).fetchone()
+        return self._checked_candidate(conn, row) if row is not None else None
 
     def get_market_candidate(self, scenario_id, revision):
         candidate = self._candidate(scenario_id, revision)
@@ -315,15 +320,21 @@ class MarketCandidateStore:
         if tenant is None:
             return None
         with self.connect() as conn:
-            row = conn.execute(sql.SQL("""
-                SELECT * FROM {} WHERE tenant_id=%s AND input_id=%s AND revision=%s
-            """).format(self._table("market_candidate_inputs")),
-                (tenant, input_id, revision)).fetchone()
-        if row is not None:
-            return self._checked_input(row)
+            value = self._input_in_transaction(conn, tenant, input_id, revision)
+        if value is not None:
+            return value
         raw = self._source.get_economic_input(input_id, revision)
         value = untrusted_data(raw) if raw is not None else None
         return deepcopy(value) if type(value) is dict and value.get("tenant_id") == tenant else None
+
+    def _input_in_transaction(self, conn, tenant, input_id, revision):
+        if self._tenant("market_candidate_read") != tenant:
+            return None
+        row = conn.execute(sql.SQL("""
+            SELECT * FROM {} WHERE tenant_id=%s AND input_id=%s AND revision=%s
+        """).format(self._table("market_candidate_inputs")),
+            (tenant, input_id, revision)).fetchone()
+        return self._checked_input(row) if row is not None else None
 
     def pin_market_candidate(self, record_value, scenario_value, new_records):
         if self._tenant("market_candidate_write") is None:

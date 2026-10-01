@@ -236,10 +236,16 @@ class MarketSourceStore:
         if tenant is None or not _name(identity) or not _name(revision):
             return None
         with self.connect() as conn:
-            row = self._select(conn, tenant, kind, identity, revision)
-            if row is None:
-                return None
-            model = self._verified(conn, row)
+            return self._read_in_transaction(conn, tenant, kind, identity, revision, pin=pin)
+
+    def _read_in_transaction(self, conn, tenant, kind, identity, revision, *, pin=False):
+        if (self._tenant('market_source_read') != tenant or kind not in _KINDS or
+                not _name(identity) or not _name(revision)):
+            return None
+        row = self._select(conn, tenant, kind, identity, revision)
+        if row is None:
+            return None
+        model = self._verified(conn, row)
         if pin and kind == 'economic_scenario':
             return OwnedScenarioPin(tenant_id=tenant, scenario_id=identity, scenario_revision=revision,
                 decision_at=model.decision_at, payload_sha256=row['payload_sha256'],

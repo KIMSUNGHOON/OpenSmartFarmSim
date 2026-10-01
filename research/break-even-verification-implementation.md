@@ -98,3 +98,21 @@ worker/result-read load and cancel/retry/withdrawal tests under the unchanged
 capacity test is not that proof. Hosted checks for this worker, actual product
 CLI, independent G1/release and G0/G2/G3a/G3b/G4 evidence remain pending. No task
 or claim gate is promoted by this implementation record.
+
+## Hosted surrounding-path follow-up at `1e4210b`
+
+[Authored 36863833095](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36863833095)
+completed successfully at `1e4210b375c4e6705d2af0e3dd7453c99fefcaf4` on PostgreSQL
+18.6. API/economics/assessment/HTTPS/financial-selection/browser/financial-browser
+gave **102/13/15/1/3/4/1** passing executions (**139** across the focused suites).
+The assessment HTTPS observed ten complete responses, maximum **17.763 s**.
+The financial browser observed 29 successful actual SDK reader EOF bodies,
+maximum **19.5443 s**, the same 120-point Run and zero console/page errors under
+the unchanged 30-second limit. Web **36863833016** and C0 **36863833062** also
+completed successfully at that exact revision.
+
+These surrounding suites do not execute the new break-even verification file.
+Its hosted cases remain in the separate full
+[backend 36863833139](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36863833139),
+which is still running. This is not hosted acceptance of the later local
+completed-evidence reader. All CLI children and signing keys remain synthetic.

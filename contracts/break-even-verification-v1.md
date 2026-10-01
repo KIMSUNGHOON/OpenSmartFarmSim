@@ -1,7 +1,8 @@
 # Break-even asynchronous verification v1
 
-Status: internal service/worker candidate. HTTP/web integration and bounded
-current-rights result reading remain subsequent implementation.
+Status: internal service/worker candidate. Internal current-dependency reading
+now has a [separate contract](break-even-verified-result-v1.md). HTTP/web/operator
+integration and actual maximum-grid load remain subsequent implementation.
 
 ## Admission
 
@@ -46,13 +47,13 @@ trial count and versions. The receipt contains no raw reference list or tenant
 ID. Generic job metadata/cancellation remain the existing protected operations.
 Evidence is historical full-grid software replay; Assessment remains hold.
 
-## Remaining reader and acceptance boundary
+## Completed reader and acceptance boundary
 
-There is no new HTTP admission endpoint or fast result reader in this slice.
+There is no new HTTP admission endpoint in this service/worker slice.
 An arbitrary manifest, receipt or evidence inventory supplied by a caller
-cannot authorize a result. A subsequent reader must resolve the actual completed
-verification Job/input/publication/receipt and tenant-private bytes, and verify
-parent/current rights/provider/code/dependency bindings before showing results.
+cannot authorize a result. The [internal completed-evidence reader](break-even-verified-result-v1.md)
+resolves the actual verification Job/input/publication/receipt and tenant-private
+bytes, and rechecks parent/current rights/provider/code/dependency bindings.
 Historical completion grants no indefinite source rights or G0–G4 approval.
 
 Actual 256-trial SCRAM worker/admission/result-read load, unchanged 30-second web
