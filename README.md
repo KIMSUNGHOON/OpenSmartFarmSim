@@ -12,7 +12,11 @@
 이미 저장된 원본 스냅샷과 서명 문맥을 검증한다([SCRAM 집중 4개](research/source-farm-selection-implementation.md)).
 같은 참조의 [인증 API](contracts/api-source-farm-selection-v1.md)와 표준 HTTPS 조립도
 [집중 66개](research/api-source-farm-selection-implementation.md)로 확인했다.
-조회는 새 입력이나 승인을 발급하지 않으며 경제 후보/농장 웹 선택은 다음 단계다.
+같은 원천 문맥의 [저장 경제 후보 목록/현재 선택](contracts/farm-economic-candidate-selection-v1.md)과
+[인증 API](contracts/api-farm-economic-candidate-selection-v1.md)도
+[SCRAM 5개](research/farm-economic-candidate-selection-implementation.md)와
+[집중 64개·실제 HTTPS 20개 전체 응답](research/api-farm-economic-candidate-selection-implementation.md)으로 확인했다.
+조회는 새 입력이나 승인을 발급하지 않으며 일반 농장 웹 선택 연결은 다음 단계다.
 
 [07 작성 Run 경제·평가](contracts/web-authored-economic-assessment-v1.md)는 저장 Run을 선택해
 같은 농장에 고정된 V3 경제 입력으로 계산을 요청하고, 서버 금액·월별 현금·보류 6개·같은 3D Run을 확인한다.

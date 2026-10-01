@@ -18,7 +18,11 @@ farm-economic-candidate-selection → web-source-farm-authoring` 순서로
 이미 저장된 원래 스냅샷/서명 문맥을 읽기 범위로 검증하며 조회 중 새 자료를 발급하지 않는다.
 [인증 HTTP/표준 조립](../contracts/api-source-farm-selection-v1.md)도
 [집중 66개·실제 HTTPS 12개 응답](../research/api-source-farm-selection-implementation.md)으로 확인했다.
-다음은 같은 원천 문맥의 기존 시장 보류/경제 후보 선택이며 웹 연결은 그 뒤다.
+같은 원천 문맥의 [저장 경제 후보 제공자](../contracts/farm-economic-candidate-selection-v1.md)도
+[SCRAM 5개](../research/farm-economic-candidate-selection-implementation.md)로 확인했다.
+[인증 목록/현재 선택 API](../contracts/api-farm-economic-candidate-selection-v1.md)는
+[집중 64개·HTTPS 20개 전체 응답](../research/api-farm-economic-candidate-selection-implementation.md)이 통과했다.
+다음은 이 선택을 일반 농장 작성 화면에 연결하는 단계다.
 기존 고정/농장 재생 경로,
 실제 제품 CLI·독립 해제·전체 G1 수용과 새 원천 코드의 호스팅 CI는 별도 관문으로 유지한다.
 

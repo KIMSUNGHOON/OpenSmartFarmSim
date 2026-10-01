@@ -6,7 +6,13 @@
 원본/숫자를 노출하지 않는 참조와 보류 표시를 반환한다.
 [인증 HTTP/표준 조립](../contracts/api-source-farm-selection-v1.md)은
 [집중 66개](../research/api-source-farm-selection-implementation.md)와 실제 HTTPS 12개 전체 응답
-(최대 0.582초/기존 30초 제한, 쓰기 범위 0개)으로 확인했다. 새 호스팅 CI·시장/경제 후보 선택·농장 웹,
+(최대 0.582초/기존 30초 제한, 쓰기 범위 0개)으로 확인했다.
+같은 원천 문맥의 [저장 경제 후보 제공자](../contracts/farm-economic-candidate-selection-v1.md)는
+[SCRAM 5개](../research/farm-economic-candidate-selection-implementation.md)와 실제 농장 등록 연결을 확인했다.
+[인증 목록/현재 선택 API](../contracts/api-farm-economic-candidate-selection-v1.md)의
+[집중 64개](../research/api-farm-economic-candidate-selection-implementation.md)도 통과했다.
+HTTPS 20개 전체 응답 최대 7.844초/기존 30초 제한, 페이지 복구·권리 철회·쓰기 범위 0개를 확인했다.
+새 호스팅 CI·농장 웹,
 실제 제품 CLI·독립 해제/전체 G1 수용은 후속이다.
 
 **작성 Run 경제·평가 웹 후보 (2026-10-01):** [07 화면](../contracts/web-authored-economic-assessment-v1.md)은

@@ -1,6 +1,6 @@
 """Versioned HTTP application assembled with trusted server-side dependencies."""
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from uuid import UUID
 from typing import Annotated
 
@@ -60,6 +60,9 @@ from .owned_source_history import (OwnedSourceHistoryService, SourceHistoryPage,
     SourceHistoryDetail, SourceActivityPage, SourceHistoryHold)
 from .source_farm_selection import (SourceFarmSelectionService, SourceFarmSelection,
     SourceFarmSelectionHold, READ_SCOPES as SOURCE_FARM_READ_SCOPES)
+from .farm_economic_candidate_selection import (FarmEconomicCandidateService,
+    FarmEconomicCandidatePage, FarmEconomicSelection, FarmEconomicCandidateHold,
+    READ_SCOPES as SOURCE_ECONOMIC_READ_SCOPES)
 from .api_assessment import CalculationAssessmentRequest
 from .calculation_assessment import (CalculationAssessmentService, CalculationAssessmentHold,
     ADMISSION_SCOPES as ASSESSMENT_SCOPES)
@@ -203,6 +206,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         if type(location_research_service) is OwnedResearchService else None)
     source_farm = (SourceFarmSelectionService(location_research_service, collection_service)
         if type(location_research_service) is OwnedResearchService and collection_service is not None else None)
+    source_economic = (FarmEconomicCandidateService(source_farm, economic_scenario_service)
+        if source_farm is not None and economic_scenario_service is not None else None)
     job_scopes = ("metadata",)
     job_hold_scopes = ("metadata", "artifact", "auditor")
     job_run_scopes = ("metadata", "artifact", "thermal_run_read")
@@ -297,6 +302,55 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(422,'source_farm_hold','Source farm reference evidence unavailable')
         except Exception:
             return _error(503,'source_farm_unavailable','Source farm references unavailable')
+
+    @app.get('/v1/source-history/{research_job_id}/collections/{collection_job_id}/economic-candidates',
+             response_model=FarmEconomicCandidatePage, operation_id='listSourceEconomicCandidates',
+             responses=errors, openapi_extra=_access(SOURCE_ECONOMIC_READ_SCOPES))
+    async def list_source_economic_candidates(
+            research_job_id: UUID, collection_job_id: UUID,
+            limit: Annotated[int,Query(ge=1,le=50)] = 20,
+            before_recorded_at: datetime | None = None,
+            before_candidate_id: Annotated[str | None,Query(pattern=r'^[0-9a-f]{64}$',max_length=64)] = None):
+        tenant, denied = authorized_tenant(*SOURCE_ECONOMIC_READ_SCOPES)
+        if denied is not None:
+            return denied
+        if (before_recorded_at is None) != (before_candidate_id is None) or (
+                before_recorded_at is not None and before_recorded_at.utcoffset() != timedelta(0)):
+            return _error(422,'invalid_request','Invalid request')
+        if source_economic is None:
+            return _error(503,'source_economic_unavailable','Source economic candidates unavailable')
+        try:
+            result = await run_in_threadpool(source_economic.list,tenant,research_job_id,collection_job_id,
+                limit=limit,before_recorded_at=before_recorded_at,before_candidate_id=before_candidate_id)
+            return result if result is not None else _error(404,'not_found','Resource unavailable')
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except FarmEconomicCandidateHold:
+            return _error(422,'source_economic_hold','Source economic candidate evidence unavailable')
+        except ValueError:
+            return _error(422,'invalid_request','Invalid request')
+        except Exception:
+            return _error(503,'source_economic_unavailable','Source economic candidates unavailable')
+
+    @app.get('/v1/source-history/{research_job_id}/collections/{collection_job_id}/economic-candidates/{candidate_id}',
+             response_model=FarmEconomicSelection, operation_id='getSourceEconomicCandidate',
+             responses=errors, openapi_extra=_access(SOURCE_ECONOMIC_READ_SCOPES))
+    async def get_source_economic_candidate(research_job_id: UUID, collection_job_id: UUID,
+            candidate_id: Annotated[str,Path(pattern=r'^[0-9a-f]{64}$',max_length=64)]):
+        tenant, denied = authorized_tenant(*SOURCE_ECONOMIC_READ_SCOPES)
+        if denied is not None:
+            return denied
+        if source_economic is None:
+            return _error(503,'source_economic_unavailable','Source economic candidates unavailable')
+        try:
+            result = await run_in_threadpool(source_economic.get,tenant,research_job_id,collection_job_id,candidate_id)
+            return result if result is not None else _error(404,'not_found','Resource unavailable')
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except (FarmEconomicCandidateHold,ValueError):
+            return _error(422,'source_economic_hold','Source economic candidate evidence unavailable')
+        except Exception:
+            return _error(503,'source_economic_unavailable','Source economic candidates unavailable')
 
     @app.get('/v1/source-history/{research_job_id}/activity', response_model=SourceActivityPage,
              operation_id='listOwnedSourceActivity', responses=errors,

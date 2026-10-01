@@ -1674,6 +1674,41 @@
         "title": "EconomicNumber",
         "type": "object"
       },
+      "EconomicPin": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Candidate Id",
+            "type": "string"
+          },
+          "revision": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Revision",
+            "type": "string"
+          },
+          "scenario_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Sha256",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "revision",
+          "sha256",
+          "candidate_id"
+        ],
+        "title": "EconomicPin",
+        "type": "object"
+      },
       "EconomicQuantities": {
         "additionalProperties": false,
         "properties": {
@@ -2190,6 +2225,146 @@
           "intent_job"
         ],
         "title": "FarmAuthoringSummary",
+        "type": "object"
+      },
+      "FarmEconomicCandidateCursor": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Candidate Id",
+            "type": "string"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "recorded_at",
+          "candidate_id"
+        ],
+        "title": "FarmEconomicCandidateCursor",
+        "type": "object"
+      },
+      "FarmEconomicCandidatePage": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/FarmEconomicCandidateSummary"
+            },
+            "maxItems": 50,
+            "title": "Items",
+            "type": "array"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FarmEconomicCandidateCursor"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "source": {
+            "$ref": "#/components/schemas/SourceFarmSelection"
+          },
+          "verification": {
+            "const": "requires_current_selection",
+            "title": "Verification",
+            "type": "string"
+          }
+        },
+        "required": [
+          "verification",
+          "source",
+          "items",
+          "next_cursor"
+        ],
+        "title": "FarmEconomicCandidatePage",
+        "type": "object"
+      },
+      "FarmEconomicCandidateSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "economic": {
+            "$ref": "#/components/schemas/EconomicPin"
+          },
+          "market_context": {
+            "$ref": "#/components/schemas/UnavailableMarketContext"
+          },
+          "period_end": {
+            "format": "date",
+            "title": "Period End",
+            "type": "string"
+          },
+          "period_start": {
+            "format": "date",
+            "title": "Period Start",
+            "type": "string"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "economic",
+          "market_context",
+          "period_start",
+          "period_end",
+          "recorded_at"
+        ],
+        "title": "FarmEconomicCandidateSummary",
+        "type": "object"
+      },
+      "FarmEconomicSelection": {
+        "additionalProperties": false,
+        "properties": {
+          "economic": {
+            "$ref": "#/components/schemas/EconomicPin"
+          },
+          "market_context": {
+            "$ref": "#/components/schemas/UnavailableMarketContext"
+          },
+          "period_end": {
+            "format": "date",
+            "title": "Period End",
+            "type": "string"
+          },
+          "period_start": {
+            "format": "date",
+            "title": "Period Start",
+            "type": "string"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/SourceFarmSelection"
+          },
+          "verification": {
+            "const": "requires_registration_recheck",
+            "title": "Verification",
+            "type": "string"
+          }
+        },
+        "required": [
+          "economic",
+          "market_context",
+          "period_start",
+          "period_end",
+          "recorded_at",
+          "verification",
+          "source"
+        ],
+        "title": "FarmEconomicSelection",
         "type": "object"
       },
       "FarmReplayScenarioSummary": {
@@ -18854,6 +19029,274 @@
         "x-ossf-required-scopes": [
           "metadata",
           "decision_context_read"
+        ]
+      }
+    },
+    "/v1/source-history/{research_job_id}/collections/{collection_job_id}/economic-candidates": {
+      "get": {
+        "operationId": "listSourceEconomicCandidates",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "research_job_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Research Job Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "collection_job_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Collection Job Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "maximum": 50,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before_recorded_at",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Before Recorded At"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before_candidate_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maxLength": 64,
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Before Candidate Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FarmEconomicCandidatePage"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "List Source Economic Candidates",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "artifact",
+          "collection_read",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_source_read",
+          "market_candidate_read",
+          "market_hold_context_read"
+        ]
+      }
+    },
+    "/v1/source-history/{research_job_id}/collections/{collection_job_id}/economic-candidates/{candidate_id}": {
+      "get": {
+        "operationId": "getSourceEconomicCandidate",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "research_job_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Research Job Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "collection_job_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Collection Job Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "candidate_id",
+            "required": true,
+            "schema": {
+              "maxLength": 64,
+              "pattern": "^[0-9a-f]{64}$",
+              "title": "Candidate Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FarmEconomicSelection"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Source Economic Candidate",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "artifact",
+          "collection_read",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_source_read",
+          "market_candidate_read",
+          "market_hold_context_read"
         ]
       }
     },

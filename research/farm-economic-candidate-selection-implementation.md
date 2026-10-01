@@ -58,8 +58,9 @@ type and validation location/type, never input bodies or credentials.
 
 ## Remaining work
 
-Authenticated candidate API and the farm web connection are next; the combined
-task remains unchecked until its API acceptance exists. Hosted PostgreSQL 18
+At this provider checkpoint the authenticated API and farm web connection were
+next. The [subsequent candidate API acceptance](api-farm-economic-candidate-selection-implementation.md)
+completes the provider/API software task; web authoring remains. Hosted PostgreSQL 18
 has not verified this provider yet. Fake CLI children and test signing keys
 exercise contracts only. Actual new-model product execution, independent
 release, full G1 and source/field/forecast/comparison/deployment gates remain held.
