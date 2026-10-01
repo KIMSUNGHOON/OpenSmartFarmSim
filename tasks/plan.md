@@ -30,7 +30,10 @@ typecheck/build가 통과했다. [화면 연결 후보](../research/source-farm-
 실제 HTTPS/SCRAM 신규 등록→검토/Run→3D의 직접 입력·원천 선택 2개도 통과했다.
 3개 화면 대조는 낮은 일치율로 정밀 수용을 주장하지 않는다.
 [같은 새 Run의 경제/평가 연속 검증](../research/source-farm-financial-continuation-implementation.md)은
-실제 HTTPS/SCRAM 1개가 통과했다. 새 호스팅 결과를 확인하고 화면을 보완한 뒤 웹 작업을 체크한다.
+실제 HTTPS/SCRAM 1개가 통과했다. 해당 판본의 호스팅 작성 7개 묶음·웹/C0도 통과했다.
+[화면 보완](../research/source-farm-layout-refinement-implementation.md)은 참조 상세 펼치기·나란한 요약과
+키보드 구역 이동을 집중 시험·세 상태/세 폭에서 확인했다. 낮은 디자인 일치율을 기록하고
+이번 UI 판본의 호스팅 증거를 확인한 뒤 웹 작업의 수용을 판단한다.
 기존 고정/농장 재생 경로,
 실제 제품 CLI·독립 해제·전체 G1 수용과 새 원천 코드의 호스팅 CI는 별도 관문으로 유지한다.
 

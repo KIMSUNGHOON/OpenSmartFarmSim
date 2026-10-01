@@ -22,7 +22,10 @@
 실제 HTTPS/SCRAM 신규 등록→검토/Run→3D의 두 경로도 통과했다.
 같은 새 Run의 서버 금액·월별 현금·평가 보류·재접속·동일 3D도
 [실제 HTTPS/SCRAM 집중 1개](research/source-farm-financial-continuation-implementation.md)로 확인했다.
-화면 대조는 낮은 일치율이며 화면 보완과 새 호스팅 검증은 남아 있다.
+같은 새 Run 연결의 호스팅 작성 7개 묶음·웹/C0도 통과했다.
+[화면 보완](research/source-farm-layout-refinement-implementation.md)은 참조 상세 펼치기,
+넓은 화면의 나란한 요약과 키보드 구역 이동을 확인했다.
+화면 대조는 낮은 일치율이며 정밀 디자인 수용과 이번 UI 판본의 호스팅 검증은 남아 있다.
 
 [07 작성 Run 경제·평가](contracts/web-authored-economic-assessment-v1.md)는 저장 Run을 선택해
 같은 농장에 고정된 V3 경제 입력으로 계산을 요청하고, 서버 금액·월별 현금·보류 6개·같은 3D Run을 확인한다.

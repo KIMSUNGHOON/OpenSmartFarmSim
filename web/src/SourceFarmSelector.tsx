@@ -5,6 +5,8 @@ import type { FarmEconomicCandidate,FarmEconomicPage,FarmEconomicSelection,
   SourceFarmSelection } from './source-farm-api';
 import './SourceFarmSelector.css';
 
+const sourceDocumentIcon=new URL('./assets/cutout-15-b6376be1ea78.png',import.meta.url).href;
+
 type Api=ReturnType<typeof createApi>;
 type Work='history'|'activity'|'source'|'economics'|'selection';
 const states:Record<SourceResearch['job']['state'],string>={queued:'대기 중',researching:'조사 중',
@@ -155,15 +157,19 @@ export default function SourceFarmSelector({api,locked,onSelection}:{api:Api|nul
           onClick={()=>void loadActivity()}>이전 수집·검토 더 보기</button>}
       </section></div>
     </>}
-    {source&&step!=='source'&&<>
+    {source&&step!=='source'&&<div className={step==='form'?'source-farm-pinned-columns':'source-farm-context'}>
       <section className="source-farm-summary" aria-label="선택한 원천 참조">
-        <div className="source-farm-heading"><h4>같은 원천에 묶인 참조</h4>
+        <div className="source-farm-heading"><h4><img src={sourceDocumentIcon} alt="" width={28} height={28}/>
+          같은 원천에 묶인 참조</h4>
           <button type="button" className="button secondary" disabled={disabled}
             onClick={()=>change('source')}>원천 다시 선택</button></div>
         <dl><div><dt>좌표</dt><dd>{source.point.latitude}, {source.point.longitude}</dd></div>
           <div><dt>원본 기간 · UTC</dt><dd>{source.period_start_utc} ~ {source.period_end_utc}</dd></div>
-          <div><dt>조사 / 수집</dt><dd><code>{source.research_job_id}</code><code>{source.collection_job_id}</code></dd></div>
           <div><dt>결정 시각 · UTC</dt><dd>{source.decision_at_utc} · {source.decision_time_kind==='hypothetical'?'가상 결정 시각':'실제 결정 시각'}</dd></div></dl>
+        <details className="source-farm-reference-details"><summary>조사·수집 식별자 상세</summary>
+          <dl><div><dt>조사</dt><dd><code>{source.research_job_id}</code></dd></div>
+            <div><dt>수집</dt><dd><code>{source.collection_job_id}</code></dd></div></dl>
+        </details>
         <p className="source-farm-hold">소프트웨어 시험용 · 사후 재현 · G0/G1 미수용 · 판단 보류</p>
       </section>
       {step==='economics'&&<section className="source-farm-card" aria-label="같은 원천의 경제 판본 선택">
@@ -192,6 +198,6 @@ export default function SourceFarmSelector({api,locked,onSelection}:{api:Api|nul
         <p>평가 날짜 {selection.period_start} ~ {selection.period_end} · 등록 시 현재 권리 재검사</p>
         <p className="muted">아래 참조는 읽기 전용입니다. 시설 수치·작성 출처·권리 선언은 직접 확인하세요.</p>
       </section>}
-    </>}
+    </div>}
   </section>;
 }

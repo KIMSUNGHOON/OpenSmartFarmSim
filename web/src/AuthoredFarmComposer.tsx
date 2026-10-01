@@ -1,4 +1,4 @@
-import { useEffect,useRef,useState,type FormEvent } from 'react';
+import { useEffect,useId,useRef,useState,type FormEvent } from 'react';
 import { ApiError,type createApi } from './api';
 import type { AuthoredFarmRequest,AuthoredFarmSummary } from './authored-farm-api';
 import { buildFarmAuthoringRequest,FarmDraftError,type FarmDraft,type Row } from './farm-authoring-input';
@@ -78,6 +78,7 @@ function SelectField({name,label,value,onChange,options,disabled}:{name:string;l
 
 export default function AuthoredFarmComposer({api,onRegistered,onPending}:{api:Api|null;
   onRegistered:(summary:AuthoredFarmSummary)=>void;onPending?:(pending:boolean)=>void}) {
+  const sectionId=useId();
   const [draft,setDraft]=useState<FarmDraft>({fields:{},forcing:[{}],crops:[],rightsConfirmed:false});
   const [preview,setPreview]=useState<AuthoredFarmRequest|null>(null);
   const [uncertain,setUncertain]=useState(false);
@@ -162,16 +163,20 @@ export default function AuthoredFarmComposer({api,onRegistered,onPending}:{api:A
     </div>
     {referenceMode==='saved'&&<SourceFarmSelector api={api} locked={locked} onSelection={selectReferences}/>}
     {ready&&<>
-    <div className="authored-composer-steps" aria-label="입력 구역">
-      <span>01 기준 판본</span><span>02 시설·제어</span><span>03 구간·재배</span><span>04 목표·권리</span>
-    </div>
-    <details className="authored-section" open><summary><span>01</span> 기준 판본과 공통 가정</summary>
+    <nav className="authored-composer-steps" aria-label="입력 구역">
+      <a href={'#'+sectionId+'-references'}>01 기준 판본</a><a href={'#'+sectionId+'-facility'}>02 시설·제어</a>
+      <a href={'#'+sectionId+'-cultivation'}>03 구간·재배</a><a href={'#'+sectionId+'-rights'}>04 목표·권리</a>
+    </nav>
+    <details className="authored-section" open><summary id={sectionId+'-references'}><span>01</span> 기준 판본과 공통 가정</summary>
       <p>{referenceMode==='saved'?'선택한 원천·경제 참조는 읽기 전용입니다. 새 농장 ID와 판본을 입력하세요.':
         '앞선 조사·시장 보류·경제 입력에서 실제로 발급받은 식별자를 입력합니다.'}
         {' '}서버가 등록 시 현재 권리와 판본을 다시 확인합니다.</p>
-      <div className={'authored-fields '+(selected?'source-farm-readonly':'')}>{references.map((spec,index)=><TextField key={spec.key} spec={spec}
-        value={f[spec.key]??''} onChange={value=>edit({[spec.key]:value})} disabled={locked}
-        readOnly={selected&&index>=2}/>)}</div>
+      <div className="authored-fields">{(selected?references.slice(0,2):references).map(spec=><TextField key={spec.key} spec={spec}
+        value={f[spec.key]??''} onChange={value=>edit({[spec.key]:value})} disabled={locked}/>)}</div>
+      {selected&&<details className="authored-reference-details"><summary>원천·경제 참조 상세 · 읽기 전용</summary>
+        <div className="authored-fields source-farm-readonly">{references.slice(2).map(spec=><TextField key={spec.key} spec={spec}
+          value={f[spec.key]??''} onChange={value=>edit({[spec.key]:value})} disabled={locked} readOnly/>)}</div>
+      </details>}
       <div className="authored-subsection"><h4>작성한 수치의 공통 출처</h4><p>아래 출처 참조와 시각을
         모든 사용자 가정 수치에 붙입니다. 이것은 실측이나 독립 승인이 아닙니다.</p>
         <div className="authored-fields">{[
@@ -181,7 +186,7 @@ export default function AuthoredFarmComposer({api,onRegistered,onPending}:{api:A
         ].map(spec=><TextField key={spec.key} spec={spec} value={f[spec.key]??''}
           onChange={value=>edit({[spec.key]:value})} disabled={locked}/>)}</div></div>
     </details>
-    <details className="authored-section" open><summary><span>02</span> 온실 시설과 열 제어</summary>
+    <details className="authored-section" open><summary id={sectionId+'-facility'}><span>02</span> 온실 시설과 열 제어</summary>
       <p>시설의 크기와 물리 값을 각각 입력합니다. 온실 면적에서 열용량이나 환기량을
         자동 추정하지 않습니다.</p>
       <div className="authored-fields"><SelectField name="tenure" label="시설 소유 상태" value={f.tenure??''}
@@ -198,7 +203,7 @@ export default function AuthoredFarmComposer({api,onRegistered,onPending}:{api:A
       <p className="authored-caveat">난방열은 모델의 공급열입니다. 실제 구매 전력·연료량은
         이 입력만으로 계산하지 않습니다.</p>
     </details>
-    <details className="authored-section" open><summary><span>03</span> 원본 구간과 재배 의도</summary>
+    <details className="authored-section" open><summary id={sectionId+'-cultivation'}><span>03</span> 원본 구간과 재배 의도</summary>
       <p>원본 날씨의 각 구간과 정확히 같은 UTC 시작·종료 시각을 한 줄씩 적습니다.
         현재 서버는 일치하지 않는 구간을 거부합니다.</p>
       <div className="authored-repeat">{draft.forcing.map((row,index)=><fieldset key={index}
@@ -222,7 +227,7 @@ export default function AuthoredFarmComposer({api,onRegistered,onPending}:{api:A
         <button type="button" className="button secondary" disabled={locked||draft.crops.length>=32}
           onClick={()=>addRow('crops')}>작물 의도 추가</button></div>
     </details>
-    <details className="authored-section" open><summary><span>04</span> 목표와 사용 권리</summary>
+    <details className="authored-section" open><summary id={sectionId+'-rights'}><span>04</span> 목표와 사용 권리</summary>
       <div className="authored-fields"><SelectField name="objective" label="조건부 평가 목표" value={f.objective??''}
         onChange={value=>edit({objective:value})} disabled={locked} options={[
           ['conditional_operating_profit','조건부 운영이익'],

@@ -153,6 +153,25 @@ test('source and economics are keyboard reachable without overflow at supported 
   await page.keyboard.press('Enter');await page.getByRole('button',{name:'경제 판본 조회',exact:true}).click();
   await page.screenshot({path:testInfo.outputPath('source-farm-economic-desktop.png'),fullPage:true});
   await page.getByRole('button',{name:'economic-1 r1 현재 참조 확인',exact:true}).click();
+  const sourceDetails=page.getByText('조사·수집 식별자 상세',{exact:true});
+  await sourceDetails.focus();await page.keyboard.press('Enter');
+  await expect(page.getByRole('region',{name:'선택한 원천 참조'}).getByText(source.research_job_id,{exact:true})).toBeVisible();
+  await sourceDetails.focus();await page.keyboard.press('Enter');
+  const referenceDetails=page.getByText('원천·경제 참조 상세 · 읽기 전용',{exact:true});
+  await referenceDetails.focus();await page.keyboard.press('Enter');
+  await expect(page.locator('input[name="decision_at"]')).toBeVisible();
+  await expect(page.locator('input[name="decision_at"]')).toHaveValue(source.decision_at_utc);
+  await expect(page.locator('input[name="decision_at"]')).toHaveAttribute('readonly','');
+  await referenceDetails.focus();await page.keyboard.press('Enter');
+  await expect(page.locator('input[name="scenario_id"]')).toBeVisible();
+  for(const [link,section] of [
+    ['01 기준 판본','01 기준 판본과 공통 가정'],['02 시설·제어','02 온실 시설과 열 제어'],
+    ['03 구간·재배','03 원본 구간과 재배 의도'],['04 목표·권리','04 목표와 사용 권리'],
+  ]) {
+    await page.getByRole('navigation',{name:'입력 구역',exact:true}).getByRole('link',{name:link,exact:true}).focus();
+    await page.keyboard.press('Enter');
+    await expect(page.getByText(section!,{exact:true})).toBeFocused();
+  }
   for(const width of [320,768,1024,1440]) {
     await page.setViewportSize({width,height:1000});
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
