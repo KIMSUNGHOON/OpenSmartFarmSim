@@ -25,7 +25,11 @@
 같은 새 Run 연결의 호스팅 작성 7개 묶음·웹/C0도 통과했다.
 [화면 보완](research/source-farm-layout-refinement-implementation.md)은 참조 상세 펼치기,
 넓은 화면의 나란한 요약과 키보드 구역 이동을 확인했다.
-화면 대조는 낮은 일치율이며 정밀 디자인 수용과 이번 UI 판본의 호스팅 검증은 남아 있다.
+`93e30a7`의 [최종 UI 소프트웨어 수용](research/source-farm-web-implementation.md#final-software-ui-acceptance-2026-10-01)은
+호스팅 웹 154/50개와 작성 브라우저 4개에서 저장 원천 선택→신규 농장 등록→경제/평가·동일 3D를 확인했다.
+본문 최대 26.3284초이며 낮은 디자인 일치율은 기록된 한계다. 별도 경제 브라우저 1개 실패와
+[후속 권한 감사 지연 보완](research/runtime-role-audit-batching-implementation.md#all-role-query-batching-follow-up-2026-10-01)은
+분리하여 검증한다. 새 감사 코드의 호스팅 검증과 실제 제품 CLI·독립 G1/G4 수용은 남아 있다.
 
 [07 작성 Run 경제·평가](contracts/web-authored-economic-assessment-v1.md)는 저장 Run을 선택해
 같은 농장에 고정된 V3 경제 입력으로 계산을 요청하고, 서버 금액·월별 현금·보류 6개·같은 3D Run을 확인한다.

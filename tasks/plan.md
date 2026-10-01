@@ -33,11 +33,19 @@ typecheck/build가 통과했다. [화면 연결 후보](../research/source-farm-
 실제 HTTPS/SCRAM 1개가 통과했다. 해당 판본의 호스팅 작성 7개 묶음·웹/C0도 통과했다.
 [화면 보완](../research/source-farm-layout-refinement-implementation.md)은 참조 상세 펼치기·나란한 요약과
 키보드 구역 이동을 집중 시험·세 상태/세 폭에서 확인했다. 낮은 디자인 일치율을 기록하고
-이번 UI 판본의 호스팅 증거를 확인한 뒤 웹 작업의 수용을 판단한다.
+`93e30a7`의 [최종 소프트웨어 수용](../research/source-farm-web-implementation.md#final-software-ui-acceptance-2026-10-01)은
+웹 154/50개와 작성 브라우저 4개에서 원천 선택→신규 농장 등록→경제/평가·동일 3D를 확인해 웹 작업을 체크했다.
+27개 전체 본문 최대 26.3284초이며 낮은 디자인 일치율은 기록된 한계다.
 [등록 응답 미확인 잠금](../research/source-farm-registration-lock-implementation.md)도
 연결 변경·다른 접수/부모 전환을 차단하고 동일 바이트 재확인/확정 거부의 해제를 집중 검증했다.
 기존 고정/농장 재생 경로,
 실제 제품 CLI·독립 해제·전체 G1 수용과 새 원천 코드의 호스팅 CI는 별도 관문으로 유지한다.
+
+같은 호스팅 작성 워크플로의 별도 경제 브라우저는 미확인 평가 접수에서 실패했다.
+[권한 감사 조회 보완](../research/runtime-role-audit-batching-implementation.md#all-role-query-batching-follow-up-2026-10-01)은
+모든 현재 권한 검사를 유지하고 로컬 보안 109개·실제 HTTPS/브라우저 1개를 확인했다.
+29개 전체 본문 최대 24.5048초이며 30초 제한은 그대로다. `runtime-role-audit-batching`의
+새 호스팅 검증과 함께 큰 손익분기 격자의 비동기 검증 경로를 이어 간다.
 
 앞선 전체 백엔드 CI는 [150분 실행 한도](../research/source-farm-web-implementation.md#hosted-ci-and-resource-checkpoint)로
 취소됐다. [분할 계약/후보](../contracts/backend-ci-partition-v1.md)는 기존 기본 수집 2,205개를

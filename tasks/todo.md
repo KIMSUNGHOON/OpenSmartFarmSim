@@ -60,7 +60,7 @@
     [집중 64개](../research/api-farm-economic-candidate-selection-implementation.md)가 통과했다.
     실제 HTTPS 20개 전체 응답 최대 7.844초/기존 30초 제한, 페이지 복구·권리 철회·쓰기 범위 0개를 확인했다.
     새 호스팅 CI·농장 웹·실제 제품 CLI·독립 해제/전체 G1은 후속이다.
-- [ ] **`web-source-farm-authoring`** (M) — 선행: `farm-economic-candidate-selection`.
+- [x] **`web-source-farm-authoring`** (M) — 선행: `farm-economic-candidate-selection`.
   [웹 연결 계약](../contracts/web-source-farm-authoring-v1.md)을 따른다.
   저장 조사·수집/검토와 경제 후보 선택을 농장 폼에 연결해 선행 식별자 직접 입력을 줄인다.
   원천/경제 조합 변경·응답 유실·재연결·계정 변경을 확인하며 명시적 농장 숫자/권리 선언을 받는다.
@@ -81,7 +81,20 @@
     [등록 응답 미확인 잠금 보완](../research/source-farm-registration-lock-implementation.md)은
     연결 변경과 다른 접수/부모 전환의 차단을 33개 집중 Chromium과 build/typecheck로 확인했다.
     검증되지 않은 성공은 동일 입력 재확인을 유지하고, 확정 거부는 입력 검토와 연결을 다시 허용한다.
-    이번 UI 판본의 호스팅 증거는 남아 체크를 유지한다.
+    `93e30a7`의 [최종 소프트웨어 수용](../research/source-farm-web-implementation.md#final-software-ui-acceptance-2026-10-01)은
+    호스팅 웹 154/50개와 작성 브라우저 4개에서 저장 원천 선택→신규 농장 등록→경제/평가·같은 3D를 확인했다.
+    본문 최대 26.3284초이며 낮은 디자인 일치율을 기록한다. 별도 경제 브라우저 1개 실패와
+    후속 권한 감사 지연 보완은 분리하여 검증하고 제품 CLI·독립 G1/G4 체크는 유지한다.
+
+## 런타임 권한 감사 지연 보완 (2026-10-01)
+
+- [ ] **`runtime-role-audit-batching`** (S) — 선행: 기존 SCRAM 권한 감사 계약과 `backend-ci-partition`.
+  [측정·구현 증거](../research/runtime-role-audit-batching-implementation.md#all-role-query-batching-follow-up-2026-10-01)를 따른다.
+  네 역할의 현재 권한 조회를 묶어 왕복을 줄이고 전체 역할/테이블/열/함수·grant option·중간 철회를 유지한다.
+  수용: 집중 보안·조회 예산과 실제 HTTPS/Chromium의 경제→평가 보류→복구→3D 및 호스팅 검증을 확인한다.
+  30초 전체 본문 제한을 올리거나 권한을 캐시하지 않는다. 로컬 서로 다른 보안 109개와 실제 브라우저 1개,
+  본문 29개·최대 24.5048초가 통과했다. 감사 451회 유지, SQL 실행 14,763→7,998과 예산 시험의 15회 조회를
+  확인했다. 새 호스팅 검증은 남아 체크를 유지하며 256개 손익분기 비동기 검증과 G1/G4 수용은 별도다.
 
 ## 전체 백엔드 CI 실행 경계 보완 (2026-10-01)
 

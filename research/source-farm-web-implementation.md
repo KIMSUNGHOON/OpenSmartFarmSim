@@ -201,3 +201,45 @@ the same 3D Run. It passed one focused actual HTTPS/SCRAM browser case in
 limit. This supersedes the missing local financial-continuation checkpoint
 above. Visual refinement, new hosted verification and actual product CLI/
 independent G1/G4 acceptance remain separate.
+
+## Final software UI acceptance (2026-10-01)
+
+The source-path task's later UI revision is exact commit
+`93e30a7676b335a45d2fbc2b466c715bce583647`. The
+[authored PostgreSQL workflow 36843547162](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36843547162)
+has terminal results. Its **authored-browser suite passed 4 cases in 851.68 s**,
+including the saved-source **new registration** path, new authored Run, server
+money and cash, six assessment holds, reload/reconnection and the same 3D Run.
+This is the final layout/registration-lock revision, rather than the earlier
+pre-layout evidence. Both initial paths reported 120 points, zero console/page
+errors and four recognized GPU capture warnings. The source path completed
+14 initial API responses and 27 actual client reader EOF financial bodies;
+the latter's maximum was **26.3284 s** within the unchanged 30-second limit.
+Its financial continuation made two admissions, displayed one complete cash
+month and recovered the same assessment and Run.
+
+[Web workflow 36843547345](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36843547345)
+passed **154 unit tests, 50 Chromium cases**, typecheck/build and zero audit
+findings on that exact commit.
+[C0 workflow 36843547161](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36843547161)
+also passed. The local client/selection/combination/recovery/keyboard/registration
+proofs, [layout refinement](source-farm-layout-refinement-implementation.md),
+adopted icon and three target-close runs complete the source-path software
+acceptance. Low visual overlap remains a recorded limitation; pixel/design
+precision is not claimed. Missing farm values stay empty and no crop, tariff,
+harvest, profit or gate approval is taken from a generated design.
+
+The same authored workflow **failed overall** because its separate
+financial-browser suite stopped on an unresolved assessment admission. The
+other six suites and all seven cleanup steps completed successfully. Its failed
+case is not included as passing acceptance, and the six-part full backend run
+is still separate. [Fresh grant audit batching and body diagnostics](runtime-role-audit-batching-implementation.md#all-role-query-batching-follow-up-2026-10-01)
+address the measured latency risk and have separate local evidence; hosted
+verification of that subsequent backend change remains pending.
+
+`web-source-farm-authoring` is now checked for this explicit software scope.
+The CLI/execution/release fixtures do not provide product model invocation,
+independent custody/release/full G1, actual source/field/future comparison or
+G4 evidence. Those holds remain. Hard reload of an unacknowledged page-memory
+registration still requires the existing server history and does not constitute
+durable unknown-intent recovery.

@@ -20,8 +20,12 @@ HTTPS 20개 전체 응답 최대 7.844초/기존 30초 제한, 페이지 복구�
 `5dc63f3`의 [전체 백엔드 2,205개·UID/cleanup/집계](../research/backend-ci-partition-implementation.md#hosted-acceptance-after-the-openapi-correction)도 통과했다.
 [화면 보완](../research/source-farm-layout-refinement-implementation.md)의 참조 상세·키보드 이동과
 [등록 미확인 잠금](../research/source-farm-registration-lock-implementation.md)은 집중 브라우저로 확인했다.
-화면 대조는 낮은 일치율이며 이번 UI 판본의 호스팅 증거와
-실제 제품 CLI·독립 해제/전체 G1 수용은 후속이다.
+`93e30a7`의 [최종 UI 소프트웨어 수용](../research/source-farm-web-implementation.md#final-software-ui-acceptance-2026-10-01)은
+호스팅 웹 154/50개와 작성 브라우저 4개에서 저장 원천 선택→신규 농장 등록→경제/평가·동일 3D를 확인했다.
+본문 최대 26.3284초이며 화면 대조의 낮은 일치율은 유지한다. 별도 경제 브라우저는 실패했고,
+[후속 권한 감사 보완](../research/runtime-role-audit-batching-implementation.md#all-role-query-batching-follow-up-2026-10-01)의
+로컬 보안 109개·실제 브라우저 1개는 통과했다(본문 최대 24.5048초/기존 30초 제한).
+새 감사 코드의 호스팅 검증과 실제 제품 CLI·독립 해제/전체 G1 수용은 후속이다.
 
 **작성 Run 경제·평가 웹 후보 (2026-10-01):** [07 화면](../contracts/web-authored-economic-assessment-v1.md)은
 저장 Run을 선택해 현재 서버의 V3 경제 입력으로 접수하고 금액·월별 현금·보류 근거와 같은 3D Run을 확인한다.

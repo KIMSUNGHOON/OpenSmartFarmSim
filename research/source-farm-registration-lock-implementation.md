@@ -74,3 +74,9 @@ A hard reload still discards an unacknowledged page-memory intent and must use
 the existing server history; this repair does not claim durable unknown-intent
 recovery. Product CLI, independent G1 and real-source/field/future/deployment
 gates remain held.
+
+[Final software UI acceptance](source-farm-web-implementation.md#final-software-ui-acceptance-2026-10-01)
+records the exact `93e30a7` hosted web suite (154 unit/50 Chromium) and the
+saved-source new registration→financial continuation→same 3D path. The
+separate financial-browser failure and later backend latency mitigation are
+recorded independently; unknown-intent hard reload and product gates stay held.

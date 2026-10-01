@@ -113,3 +113,9 @@ passed at `5dc63f3`, before this UI diff. Hosted checks for this later layout
 remain pending. `web-source-farm-authoring` stays unchecked until its final
 acceptance evidence exists. Product CLI, independent G1, real-source/field/
 future comparison and G4 evidence remain separate holds.
+
+The later [final software UI acceptance](source-farm-web-implementation.md#final-software-ui-acceptance-2026-10-01)
+records the exact `93e30a7` web and saved-source new-registration/financial/3D
+hosted proof. It supersedes the pending UI checkpoint above without changing
+the recorded low visual overlap or opening a product gate. The workflow's
+separate financial-browser failure and subsequent latency change are explicit.
