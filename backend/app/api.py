@@ -22,6 +22,7 @@ from .api_authored_thermal import (AUTHORED_READ_SCOPES, AUTHORED_RUN_ID_PATTERN
 from .farm_authored_run_store import AuthoredRunStore, AuthoredRunStoreHold
 from .api_job_run import read_job_run
 from .api_job_break_even_result import BreakEvenJobResultService, BREAK_EVEN_JOB_READ_SCOPES
+from .api_break_even_verification import install_verification_routes
 from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold, ThermalScenarioConflict, IDENTIFIER
 from .thermal_scenario_execution import SCENARIO_SCOPES
 from .thermal_publisher import ThermalPublishHold
@@ -93,7 +94,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                thermal_scenario_store=None, thermal_run_submission_service=None,
                market_user_source_service=None, economic_scenario_service=None,
                economic_calculation_service=None, break_even_plan_service=None,
-               break_even_job_result_service=None, collection_service=None,
+               break_even_job_result_service=None, break_even_verification_service=None,
+               break_even_verified_result_service=None, collection_service=None,
                owned_collection_review_service=None, assessment_service=None,
                farm_scenario_service=None, authored_run_store=None,
                farm_authoring_service=None, farm_authored_review_service=None,
@@ -239,6 +241,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         return principal["tenant_id"], None
 
     errors = {status: {"model": ErrorEnvelope} for status in (401, 403, 404, 422, 503)}
+    install_verification_routes(app, jobs=job_store, store=break_even_store,
+        admission=break_even_verification_service, results=break_even_verified_result_service,
+        authorized_tenant=authorized_tenant, error=_error, access=_access)
 
     @app.get('/v1/source-history', response_model=SourceHistoryPage,
              operation_id='listOwnedSourceHistory', responses=errors,

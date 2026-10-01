@@ -65,6 +65,12 @@ OPERATIONS = {
     ('/v1/jobs/{job_id}/break-even-result', 'get'): ('getJobBreakEvenResult',
         ['metadata', 'artifact', 'break_even_read', 'market_source_read', 'market_candidate_read',
          'decision_context_read', 'market_hold_context_read']),
+    ('/v1/break-even-verifications', 'post'): ('submitBreakEvenVerification',
+        ['metadata', 'artifact', 'break_even_read', 'market_source_read', 'market_candidate_read',
+         'decision_context_read', 'market_hold_context_read', 'simulation_execute']),
+    ('/v1/jobs/{job_id}/break-even-verified-result', 'get'): ('getJobBreakEvenVerifiedResult',
+        ['metadata', 'artifact', 'break_even_read', 'market_source_read', 'market_candidate_read',
+         'decision_context_read', 'market_hold_context_read']),
     ('/v1/break-even-plans', 'post'): ('submitBreakEvenPlan',
         ['metadata', 'artifact', 'simulation_execute', 'break_even_read', 'break_even_write',
          'market_source_read', 'market_candidate_read', 'decision_context_read', 'market_hold_context_read']),
@@ -151,6 +157,7 @@ def test_snapshot_matches_actual_routes_and_public_protocol():
     assert operations[('/v1/farm-authored-reviews','post')]['x-ossf-max-body-bytes'] == 4096
     assert '202' in operations[('/v1/farm-authored-reviews','post')]['responses']
     assert operations[('/v1/authored-runs','post')]['x-ossf-max-body-bytes'] == 4096
+    assert operations[('/v1/break-even-verifications','post')]['x-ossf-max-body-bytes'] == 4096
     assert '202' in operations[('/v1/authored-runs','post')]['responses']
     farm_economic_scopes = operations[("/v1/jobs/{job_id}/run", "get")]["x-ossf-conditional-scopes"]['thermal-simulation-result-v3'] + ['thermal_run_read']
     for operation,version in ((('/v1/economic-results','post'),'economic-calculation-input-v2'),

@@ -116,3 +116,27 @@ Its hosted cases remain in the separate full
 [backend 36863833139](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36863833139),
 which is still running. This is not hosted acceptance of the later local
 completed-evidence reader. All CLI children and signing keys remain synthetic.
+
+## Terminal hosted backend at `1e4210b`
+
+The same [backend 36863833139](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36863833139)
+has completed successfully on PostgreSQL 18.6 with **2,265 passed, 0 skipped**.
+All six partitions and the aggregate share inventory digest
+`fc0500de35d880a54d6a168c97f2651b0b8f602cedd6932a2c1681d2cfe48cc5`:
+
+| Partition | Passed | Seconds |
+| --- | ---: | ---: |
+| 0 | 512 | 2402.40 |
+| 1 | 375 | 915.42 |
+| 2 | 510 | 1868.62 |
+| 3 | 228 | 1325.15 |
+| 4 | 278 | 1060.75 |
+| 5 | 362 | 1055.36 |
+
+The separate Linux UID service/planning selection gave **4 passed in 18.02 s**;
+its content boundary and all six database/password cleanup steps also passed.
+Two deliberate legacy-model serialization warnings remain in partition 3. These
+software cases include the capacity, metadata and new verification tests; this
+is hosted proof of that exact implementation. The later completed-dependency
+reader and HTTP/operator edits remain separate, as do actual product CLI,
+independent execution/release/G1 and G0/G2/G3a/G3b/G4 evidence.

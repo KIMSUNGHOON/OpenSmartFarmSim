@@ -114,3 +114,14 @@ explicit upgrade/downgrade mapping; runtime invocation and current review
 authority use the target model. No recursive CLI or new product invocation was
 launched for this check. The existing goal description's original model name is
 historical text; the user's newer instruction and current AGENTS.md govern work.
+
+## Current development policy confirmation, 2026-10-02
+
+The current session's selected `turn_context` at `2026-10-01T22:47:01.921Z`
+records **`gpt-6.1-sol` / `xhigh`**. Both project and user TOML defaults parse
+to that pair. Runtime worker invocation, supervisor issuance, execution
+verification, authored review and current thermal review authority use it.
+Application references to the previous model are limited to the explicit
+historical-policy migration mapping. This check exported only the model/effort
+and selected event timestamp. Product execution, account access/cost and
+independent release/G1/G4 remain subject to the evidence requirements above.

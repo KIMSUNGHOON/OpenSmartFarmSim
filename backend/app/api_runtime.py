@@ -26,6 +26,8 @@ from .market_source_store import MarketSourceStore
 from .api_economic_scenario import EconomicScenarioService
 from .api_economic_calculation import EconomicCalculationService
 from .api_job_break_even_result import BreakEvenJobResultService
+from .break_even_verification import BreakEvenVerificationService
+from .break_even_verified_result import BreakEvenVerifiedResultService
 from .break_even_plan_submission import BreakEvenPlanSubmissionService
 from .owned_fixture_registry import OwnedFixtureRegistry
 from .owned_fixture_collection import CollectionService
@@ -153,6 +155,8 @@ class ApiRuntime:
                 principal_provider=current_principal, runtime_identity=binding)
             break_even_plans = BreakEvenPlanSubmissionService(jobs, break_even) if source_admission is not None else None
             break_even_job_results = BreakEvenJobResultService(jobs, break_even) if source_admission is not None else None
+            break_even_verification = BreakEvenVerificationService(jobs, break_even) if source_admission is not None else None
+            break_even_verified_results = BreakEvenVerifiedResultService(jobs, break_even) if source_admission is not None else None
             scenarios = ThermalScenarioStore(thermal, holds) if config.policy.thermal_scenario_storage else None
             collections = (CollectionService(jobs, dependencies.owned_fixture_registry)
                 if dependencies.owned_fixture_registry is not None else None)
@@ -201,6 +205,8 @@ class ApiRuntime:
                 thermal_run_submission_service=submission, market_user_source_service=source_admission,
                 economic_scenario_service=economic_scenarios, economic_calculation_service=economic_calculations,
                 break_even_plan_service=break_even_plans, break_even_job_result_service=break_even_job_results,
+                break_even_verification_service=break_even_verification,
+                break_even_verified_result_service=break_even_verified_results,
                 collection_service=collections, owned_collection_review_service=collection_reviews,
                 assessment_service=assessments, farm_scenario_service=farm_scenarios,
                 authored_run_store=authored_runs, farm_authoring_service=farm_authoring,

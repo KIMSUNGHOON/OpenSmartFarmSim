@@ -1,8 +1,10 @@
 # Break-even asynchronous verification v1
 
 Status: internal service/worker candidate. Internal current-dependency reading
-now has a [separate contract](break-even-verified-result-v1.md). HTTP/web/operator
-integration and actual maximum-grid load remain subsequent implementation.
+now has a [separate contract](break-even-verified-result-v1.md). The
+[HTTP/protected operator candidate](api-break-even-verification-v1.md) connects
+these services. Web integration and actual maximum-grid load remain subsequent
+implementation.
 
 ## Admission
 
@@ -49,7 +51,8 @@ Evidence is historical full-grid software replay; Assessment remains hold.
 
 ## Completed reader and acceptance boundary
 
-There is no new HTTP admission endpoint in this service/worker slice.
+The [HTTP contract](api-break-even-verification-v1.md) defines admission and
+completed reading through these services and a protected operator process.
 An arbitrary manifest, receipt or evidence inventory supplied by a caller
 cannot authorize a result. The [internal completed-evidence reader](break-even-verified-result-v1.md)
 resolves the actual verification Job/input/publication/receipt and tenant-private
@@ -58,5 +61,5 @@ Historical completion grants no indefinite source rights or G0–G4 approval.
 
 Actual 256-trial SCRAM worker/admission/result-read load, unchanged 30-second web
 deadline, retry/cancel/withdrawal under that load, protected operator deployment,
-HTTP/web integration and independent product CLI/G1/G4 are still required.
+web integration and independent product CLI/G1/G4 are still required.
 Synthetic fixture tests establish software contracts only.

@@ -1,7 +1,9 @@
 # Completed break-even verification result v1
 
-Status: internal service candidate. HTTP/web assembly, protected operator process
-and actual maximum-grid load acceptance remain subsequent work.
+Status: internal service candidate. Its
+[HTTP/protected operator assembly](api-break-even-verification-v1.md) has focused
+SCRAM/HTTPS software checks. Web and actual maximum-grid load acceptance remain
+subsequent work.
 
 ## Authority and result
 

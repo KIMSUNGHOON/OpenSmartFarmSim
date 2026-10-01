@@ -215,6 +215,8 @@ G3a/G3b 없이도 조건부 서비스에 대한 G4 평가는 가능하다. 그 �
 
 [내부 완료 결과 읽기](../contracts/break-even-verified-result-v1.md)는 실제 검증 게시 증거와 현재 부모·자료/권리 참조를 재확인해 재계산 없이 기존 조건부 결과를 반환한다([SCRAM 집중 11개](../research/break-even-verified-result-implementation.md)). 이제 보호된 운영자/HTTP·웹 연결과 최대 256개 실제 DB 부하·취소·재시도·철회, 30초 전체 응답 검증을 이어 간다. 기존 전체 작업/독립 CLI/G1/G4 수용은 유지한다.
 
+[HTTP·보호된 작업자 연결 후보](../contracts/api-break-even-verification-v1.md)는 실제 완료 계산의 비동기 재검증 접수·재접수와 완료 읽기를 표준 Bearer HTTPS에 연결했다([검증 기록](../research/api-break-even-verification-implementation.md)). 별도 Python 작업자가 게시한 2개 시험의 전체 HTTPS 응답도 확인했다. 다음 의존성은 SDK/웹 연결 → 실제 256개 SCRAM 전체 경로와 30초 응답·취소·재시도·철회 검증 → 보호된 운영 조립과 독립 CLI/G1/G4 수용이다.
+
 [경제 화면 계약](../contracts/web-economic-workspace-v1.md)과 [검증 기록](../research/web-economic-workspace-implementation.md)은 사용자 소유 숫자 가정의 새 판본 등록, 실제 원장·공동 충격 선택, 시나리오/계산 접수와 완료 서버 금액·보류 조회를 연결한다. 금액은 서버 문자열/null을 그대로 표시하며 응답 유실은 같은 단계의 입력·키로 재확인한다. 새 숫자의 권리·공동 가정 판본 등록·선택 후보를 추가했다([기록](../research/web-joint-amendment-implementation.md)). [월별 현금 조회 후보](../contracts/api-economic-cash-flow-v1.md)는 같은 완료 증명·읽기 권한·원장 재계산을 검사하고 한국 월 구분·UTC 최저 잔액 시각을 표로 연결한다([검증 기록](../research/web-economic-cash-implementation.md)). [손익분기 화면 후보](../contracts/web-break-even-workspace-v1.md)는 실제 저장 판매·수금과 순서가 있는 공동 가정 판본을 계획·완료 결과에 연결하며, 응답 유실 시 고정 제출 해시로 저장 접수 기록을 조회한다([검증 기록](../research/web-break-even-workspace-implementation.md)). 일반 원장·정산 작성, 전체 농장 입력, 자동 시험 가정 생성·새로고침/미저장 접수 복구·실제 CLI·최종 작물 평가·3D/전체 G1과 독립 G0/G2/G3/G4 수용은 남아 있다. 기존 작업 체크와 관문을 해제하지 않는다.
 
 ## 농장 재생 계획 접수 연결 후보
