@@ -95,3 +95,14 @@ authored software/browser pair gave **2 passed in 186.06 s**. Web and C0
 workflows also passed. The broad backend workflow remains a separate check.
 All CLI children in this hosted selection are test executables, not product
 model invocation or independent G1 execution authority.
+
+## Follow-up current-policy audit
+
+The ongoing development session's selected `turn_context` fields at
+`2026-10-01T07:51:30.351Z` again confirm `gpt-6.1-sol` / `xhigh`.
+Both project defaults and the user's existing CLI defaults select that pair.
+No private prompt, credentials or full configuration was exported. A remaining
+old-model reference in the **pending** `economic-break-even` independent audit
+requirement was corrected to the current model. Past completed reviews and
+their original model records remain unchanged. This check is not a new product
+CLI invocation or independent review.
