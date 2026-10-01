@@ -36,8 +36,10 @@ typecheck/build가 통과했다. [화면 연결 후보](../research/source-farm-
 앞선 전체 백엔드 CI는 [150분 실행 한도](../research/source-farm-web-implementation.md#hosted-ci-and-resource-checkpoint)로
 취소됐다. [분할 계약/후보](../contracts/backend-ci-partition-v1.md)는 기존 기본 수집 2,205개를
 6개 파일 묶음에 중복·누락 없이 배정하며 UID/cleanup과 집계 검사를 유지한다.
-[로컬/호스팅 증거](../research/backend-ci-partition-implementation.md)를 확인하고
-새 원천/웹 커밋을 함께 푸시한다. 이후 같은 새 Run의 경제/평가 연속 검증을 진행한다.
+[로컬/호스팅 증거](../research/backend-ci-partition-implementation.md)에서 전체 2,205개 실행,
+UID/cleanup과 같은 전체 해시를 확인했다. 기존 OpenAPI 기대값 1개의 실패를 집계가 거부했고,
+V3 계약에 맞춘 집중 수정 2개가 통과했다. 수정과 새 Run 연속 시험을 함께 푸시한 뒤
+전체 호스팅 성공을 확인한다.
 
 2026-10-01 사용자 지시로 개발·제품 실행 모델을 변경했다.
 [모델 이전 계약](../contracts/cli-model-policy-migration-v1.md)과

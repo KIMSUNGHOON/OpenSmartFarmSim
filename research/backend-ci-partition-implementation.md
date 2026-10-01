@@ -68,9 +68,73 @@ Local logs and full manifests are under
 
 ## Remaining verification
 
-An actual PostgreSQL 16.15 partition-four execution is in progress. It does not
-replace PostgreSQL 18.6 hosted execution. All six hosted partitions, UID content
+Actual PostgreSQL 16.15 partition four finished: **253 passed, 1,952 deselected,
+0 skipped in 1,257.51 s**. Deselected items are assigned to the other five
+partitions. Two preexisting Pydantic serializer warnings arise in intentionally
+malformed G0 authority fixtures; no warning filter was disabled. The manifest's
+full inventory matches the independently checked 2,205-node SHA-256 above.
+This does not replace PostgreSQL 18.6 hosted execution. All six hosted partitions, UID content
 check, cleanup and aggregate on the new commit must finish before checking
 `backend-ci-partition`. The source/farm web task still needs the same newly
 registered Run's economic/assessment continuation and visual refinement.
 Actual product CLI, independent release and full G1/G4 remain held.
+
+## Hosted checkpoint for the pushed candidate
+
+Commit `0fdecc229109c54b025edfc23f7d499650213fd3` includes the six previous
+source/client/web commits and the partition candidate. The draft PR remains
+unmerged. [Web run 36826449988](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36826449988)
+passed typecheck, **154 unit tests**, **49 Chromium tests**, build and audit
+(zero reported vulnerabilities).
+[C0 run 36826449844](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36826449844)
+also passed on this exact commit.
+
+[Authored PostgreSQL run 36826449848](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36826449848)
+finished successfully with all seven suites and their database/password cleanup:
+
+| Suite | Tests passed | Seconds |
+| --- | ---: | ---: |
+| API, including source and economic selection | 102 | 320.81 |
+| Economic inputs/execution | 13 | 615.38 |
+| Assessment parents/calculation | 15 | 993.08 |
+| Financial selection | 3 | 851.75 |
+| Assessment HTTPS | 1 | 388.80 |
+| Browser, including two farm registration paths | 4 | 555.16 |
+| Financial browser | 1 | 529.30 |
+
+All CLI children and signing authorities are test fixtures. This hosted browser
+proof predates the new same-Run financial continuation test; it verifies the
+already committed registration/Run/3D and separate financial paths only.
+The workflow zip was downloaded once to a private local task directory and
+summary lines were extracted; simultaneous `gh run view --log` requests for
+the same run produced shared-cache EOF/zip errors and were not used as evidence.
+
+[Broad backend run 36826449924](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36826449924)
+finished **failure**, with all six groups actually executed:
+
+| Partition | Passed | Failed | Deselected | Seconds |
+| --- | ---: | ---: | ---: | ---: |
+| 0 | 504 | 0 | 1,701 | 2,569.53 |
+| 1 | 323 | 0 | 1,882 | 1,455.60 |
+| 2 | 414 | 0 | 1,791 | 759.83 |
+| 3 | 422 | 0 | 1,783 | 1,320.20 |
+| 4 | 253 | 0 | 1,952 | 1,446.81 |
+| 5 | 288 | 1 | 1,916 | 813.91 |
+
+All six logs record the identical complete 2,205-node SHA-256 above. There are
+**2,204 passed, one failed, zero skipped** across the disjoint groups. Partition
+zero additionally passed the four explicit UID service/planning cases in
+18.78 s and the content UID boundary. Every database/password cleanup passed.
+The stable aggregate correctly failed when partition five failed, despite the
+matching inventory hashes; this does not satisfy full-suite acceptance.
+
+The failure was `test_http_request_is_closed_and_preserves_legacy_formula` in
+`test_farm_economic_contract.py`. Its old OpenAPI assertion required exactly
+two branches, whereas the already implemented [authored economic contract](../contracts/authored-economic-execution-v1.md)
+also requires the third closed V3 branch. The corrected assertion checks all
+three exact input versions, closed properties and the unchanged formula on
+every branch. No application behavior or test exclusion changed. The focused
+contract file passed **2 tests in 0.38 s** without a database. A new hosted
+commit must verify the correction before the partition task is checked.
+The complete log zip was downloaded once into the private local task directory;
+only summaries and the failure identity are retained here.

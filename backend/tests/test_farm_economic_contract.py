@@ -38,4 +38,8 @@ def test_http_request_is_closed_and_preserves_legacy_formula():
     assert ECONOMIC_REQUEST.validate_python(legacy).model_dump(mode='json')==legacy
     with pytest.raises(ValueError):ECONOMIC_REQUEST.validate_python(submitted|{'formula_version':'generated-money'})
     branches=economic_request_schema()['oneOf']
-    assert len(branches)==2 and all(branch['additionalProperties'] is False for branch in branches)
+    assert len(branches)==3 and all(branch['additionalProperties'] is False for branch in branches)
+    assert {branch['properties']['input_version']['const'] for branch in branches}=={
+        'economic-calculation-input-v1','economic-calculation-input-v2','economic-calculation-input-v3'}
+    assert all(branch['properties']['formula_version']['const']==submitted['formula_version']
+               for branch in branches)
