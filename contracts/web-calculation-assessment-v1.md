@@ -10,7 +10,9 @@ An operator provides the completed thermal calculation job ID and completed
 economic calculation job ID. The server verifies the actual same-context
 parent results and determines supported legacy/farm input versions. The web
 does not infer compatibility from job status or create replacement evidence.
-The separate authored thermal Run receipt is not supported by this join yet.
+The [authored V3 join](authored-calculation-assessment-v1.md) is now a server
+implementation candidate. Its dedicated web parent selection and authored
+economic/assessment browser integration remain subsequent acceptance work.
 Selecting those parents is an internal operator flow; a general user's regional
 research → farm → economics → assessment orchestration remains required.
 

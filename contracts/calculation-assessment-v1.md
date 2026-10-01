@@ -20,6 +20,10 @@ The [farm extension](farm-calculation-assessment-v1.md) additionally accepts
 verified thermal v3/economic v2 parents using internal assessment input v2.
 Its conditional scopes, exact farm and thermal-job pins, and unchanged hold
 requirements are specified there. Legacy inputs retain the v1 fields below.
+The [authored extension](authored-calculation-assessment-v1.md) uses assessment
+input V3 for authored thermal V1/economic V3, the actual configured authored
+store and a distinct V3 validator. Its release/registration/trace pins and
+conditional scopes are specified separately; the public POST body is unchanged.
 
 OpenAPI declares those conditional scopes under parent receipt version
 `thermal-simulation-result-v2`, using the same SCENARIO_SCOPES tuple as the
@@ -54,7 +58,7 @@ No replacement `profile_id` is invented for the generic assessment input.
 
 The idempotency namespace remains `calculation-assessment-input-v1` plus SHA-256 of the caller's
 key. Matching requests reuse the original job; another input under that key
-conflicts across both internal input versions. Before commit, original store bindings, current scopes and the
+conflicts across supported internal input versions. Before commit, original store bindings, current scopes and the
 complete prepared input are checked again; failure rolls back the new intent.
 
 ## CLI assessment and stored hold
@@ -67,7 +71,7 @@ invocation/output and validates the decision envelope. CLI input parsing and
 server authority lookup both recheck the stored parents and exact pins.
 The context/Run and parent completion times must precede the assessment job.
 
-Both versions always require these ordered server-owned missing evidence codes:
+All supported versions require these ordered server-owned missing evidence codes:
 
 | Code | Missing acceptance |
 |---|---|

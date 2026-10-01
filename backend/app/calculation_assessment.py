@@ -11,6 +11,9 @@ from .api_job_run import read_job_run_completion
 from .cli_contracts import AuthoritySnapshot, DecisionContract, ProposalHold, _id, _utc
 from .economic_calculation_worker import EconomicCalculationWorker
 from .farm_economic_execution import FARM_ECONOMIC_SCOPES
+from .authored_calculation_assessment import (AUTHORED_INPUT_VERSION, AUTHORED_FIELDS,
+    authored_assessment_parent)
+from .authored_economic_execution import AUTHORED_ECONOMIC_SCOPES
 from .jobs import canonical_input_bytes
 from .market_result_codec import encode_market_result
 from .owned_fixture_collection import UUID_PATTERN
@@ -30,6 +33,14 @@ BINDING_FIELDS = frozenset({'run_job_id', 'economic_job_id', 'run_id', 'economic
     'snapshot_id', 'context_sha256', 'market_hold_report_id', 'temporal_provenance'})
 
 
+def _extra_scopes(version):
+    if version == FARM_INPUT_VERSION:
+        return FARM_ECONOMIC_SCOPES
+    if version == AUTHORED_INPUT_VERSION:
+        return AUTHORED_ECONOMIC_SCOPES
+    return ()
+
+
 class CalculationAssessmentHold(ValueError):
     pass
 
@@ -38,12 +49,14 @@ class CalculationAssessmentService:
     MISSING_EVIDENCE = ('market_source_g0', 'eligible_crop_candidates', 'farm_scenario_binding',
         'local_measurements_g2', 'future_validation_g3a', 'paired_comparison_g3b')
 
-    def __init__(self, jobs, runs, results, scenario_store=None, farm_scenario_service=None):
+    def __init__(self, jobs, runs, results, scenario_store=None, farm_scenario_service=None,
+                 authored_run_store=None):
         self.jobs, self.runs, self.results, self.scenario_store = jobs, runs, results, scenario_store
         self.farm_scenario_service = farm_scenario_service
-        self.economic = EconomicCalculationService(jobs, results, farm_scenario_service)
+        self.authored_run_store = authored_run_store
+        self.economic = EconomicCalculationService(jobs, results, farm_scenario_service, authored_run_store)
         self._worker = EconomicCalculationWorker(jobs, results, tenant_id='binding-check',
-            farm_scenario_service=farm_scenario_service)
+            farm_scenario_service=farm_scenario_service, authored_run_store=authored_run_store)
         try:
             self._binding()
         except Exception:
@@ -56,6 +69,8 @@ class CalculationAssessmentService:
                 self.economic.jobs is not self.jobs or self.economic.results is not self.results or
                 self.economic.farm_scenario_service is not self.farm_scenario_service or
                 self._worker.farm_scenario_service is not self.farm_scenario_service or
+                self.economic.authored_run_store is not self.authored_run_store or
+                self._worker.authored_run_store is not self.authored_run_store or
                 type(self.runs) is not ThermalRunStore or holds._context_store is not self.runs or
                 not callable(self.runs._context_verifier)):
             raise RuntimeError('calculation assessment binding rejected')
@@ -98,23 +113,38 @@ class CalculationAssessmentService:
                    for row in parents):
                 raise ValueError()
             inputs = [json.loads(row['input_bytes']) for row in parents]
-            farm = inputs[0].get('input_version') == 'thermal-simulation-input-v3'
-            if farm != (inputs[1].get('input_version') == 'economic-calculation-input-v2'):
-                raise ValueError()
-            if farm:
-                scopes += FARM_ECONOMIC_SCOPES
-                guard()
+            version = {
+                ('thermal-simulation-input-v1', 'economic-calculation-input-v1'): INPUT_VERSION,
+                ('thermal-simulation-input-v2', 'economic-calculation-input-v1'): INPUT_VERSION,
+                ('thermal-simulation-input-v3', 'economic-calculation-input-v2'): FARM_INPUT_VERSION,
+                ('authored-thermal-simulation-input-v1', 'economic-calculation-input-v3'): AUTHORED_INPUT_VERSION,
+            }[(inputs[0].get('input_version'), inputs[1].get('input_version'))]
+            farm, authored = version == FARM_INPUT_VERSION, version == AUTHORED_INPUT_VERSION
+            scopes += _extra_scopes(version)
+            guard()
+            if farm or authored:
                 if inputs[1].get('thermal_job_id') != run_job_id:
                     raise ValueError()
+            if authored and self.authored_run_store is None:
+                raise ValueError()
             economic = self.economic._read_job_completion(tenant, UUID(economic_job_id))
-            thermal = (economic.thermal_completion if farm and economic is not None else
-                read_job_run_completion(self.jobs, self.runs, tenant, UUID(run_job_id), self.scenario_store))
-            if (thermal is None or economic is None or
-                    inputs[0] != thermal.value.model_dump(mode='json') or
-                    inputs[1] != economic.value.model_dump(mode='json')):
+            if economic is None or inputs[1] != economic.value.model_dump(mode='json'):
+                raise ValueError()
+            if authored:
+                thermal = economic.authored_completion
+                report, authored_pins = authored_assessment_parent(
+                    self.authored_run_store.preparer.authoring, tenant, run_job_id, economic)
+                thermal_input, run_id = thermal.value, thermal.summary['run_id']
+            else:
+                thermal = (economic.thermal_completion if farm else
+                    read_job_run_completion(self.jobs, self.runs, tenant, UUID(run_job_id), self.scenario_store))
+                if thermal is None:
+                    raise ValueError()
+                thermal_input, run_id = thermal.value.model_dump(mode='json'), thermal.summary.run_id
+                report = thermal.stored['report']
+            if inputs[0] != thermal_input:
                 raise ValueError()
             stored = thermal.stored
-            report = stored['report']
             result = economic.result
             public_economic = project_economic_result(result)
             holds = self.results._candidates._source._holds
@@ -132,9 +162,9 @@ class CalculationAssessmentService:
                     context['claim_mode'] != 'ex_post_replay' or
                     result.assessment_status != 'hold'):
                 raise ValueError()
-            value = {'input_version':FARM_INPUT_VERSION if farm else INPUT_VERSION, 'tenant_id':tenant,
+            value = {'input_version':version, 'tenant_id':tenant,
                 'run_job_id':run_job_id, 'economic_job_id':economic_job_id,
-                'run_id':thermal.summary.run_id, 'economic_result_id':result.economic_result.result_id,
+                'run_id':run_id, 'economic_result_id':result.economic_result.result_id,
                 'thermal_input_sha256':parents[0]['input_sha256'],
                 'economic_input_sha256':parents[1]['input_sha256'],
                 'thermal_receipt_sha256':sha256(canonical_input_bytes(thermal.receipt)).hexdigest(),
@@ -149,6 +179,8 @@ class CalculationAssessmentService:
                 if any(thermal.receipt[key] != economic.receipt[key] for key in FARM_FIELDS):
                     raise ValueError()
                 value.update({key:economic.receipt[key] for key in FARM_FIELDS})
+            if authored:
+                value.update(authored_pins)
             return value, max(context['recorded_at'], stored['recorded_at'],
                               *(row['updated_at'] for row in parents))
         except PermissionError:
@@ -163,7 +195,7 @@ class CalculationAssessmentService:
             raise ValueError('calculation assessment key rejected')
         pointers = self._pointers()
         value, _ = self.prepare(tenant, run_job_id, economic_job_id, scopes=ADMISSION_SCOPES)
-        scopes = ADMISSION_SCOPES + (FARM_ECONOMIC_SCOPES if value['input_version'] == FARM_INPUT_VERSION else ())
+        scopes = ADMISSION_SCOPES + _extra_scopes(value['input_version'])
         raw = canonical_input_bytes(value)
         def verify():
             self._guard(tenant, pointers, scopes)
@@ -175,7 +207,8 @@ class CalculationAssessmentService:
         return self.jobs.submit(tenant, 'assessment', value, key, commit_guard=verify)
 
     def verify_input(self, job, value):
-        if (type(value) is not dict or value.get('input_version') not in (INPUT_VERSION, FARM_INPUT_VERSION) or
+        if (type(value) is not dict or value.get('input_version') not in (
+                INPUT_VERSION, FARM_INPUT_VERSION, AUTHORED_INPUT_VERSION) or
                 job.get('stage') != 'assessment' or
                 canonical_input_bytes(value) != job.get('input_bytes') or
                 sha256(job['input_bytes']).hexdigest() != job.get('input_sha256')):
@@ -188,6 +221,7 @@ class CalculationAssessmentService:
 
 class CalculationAssessmentContract(DecisionContract):
     VERSION = 'calculation-assessment-server-v2'
+    SUPPORTED_INPUTS = (INPUT_VERSION, FARM_INPUT_VERSION)
 
     def __init__(self, service):
         if type(service) is not CalculationAssessmentService:
@@ -199,10 +233,14 @@ class CalculationAssessmentContract(DecisionContract):
         value = json.loads(job['input_bytes'])
         if value.get('input_version') == FARM_INPUT_VERSION:
             return BINDING_FIELDS | frozenset(FARM_FIELDS)
+        if value.get('input_version') == AUTHORED_INPUT_VERSION:
+            return BINDING_FIELDS | frozenset(AUTHORED_FIELDS)
         return BINDING_FIELDS
 
     def _parse(self, job, value):
         try:
+            if type(value) is not dict or value.get('input_version') not in self.SUPPORTED_INPUTS:
+                raise ValueError()
             return self.service.verify_input(job, value)
         except Exception:
             raise ProposalHold('calculation_assessment_hold') from None
@@ -213,3 +251,8 @@ class CalculationAssessmentContract(DecisionContract):
             frozenset(), {}, False, self.service.MISSING_EVIDENCE, {}, frozenset(), False,
             {key:current[key] for key in self.binding_fields(job)},
             **{key:current[key] for key in CONTEXT_FIELDS})
+
+
+class AuthoredCalculationAssessmentContract(CalculationAssessmentContract):
+    VERSION = 'calculation-assessment-server-v3'
+    SUPPORTED_INPUTS = (AUTHORED_INPUT_VERSION,)

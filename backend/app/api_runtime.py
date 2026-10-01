@@ -167,8 +167,6 @@ class ApiRuntime:
             farm_authoring = (FarmAuthoringService(farm_scenarios)
                 if farm_scenarios is not None and farm_scenarios.owned_research is not None else None)
             farm_reviews = FarmAuthoredReviewService(farm_authoring) if farm_authoring is not None else None
-            assessments = (CalculationAssessmentService(jobs, thermal, results, scenarios, farm_scenarios)
-                if source_admission is not None else None)
             submission = None
             if dependencies.thermal_publisher_factory is not None:
                 if scenarios is None:
@@ -194,6 +192,8 @@ class ApiRuntime:
             authored_simulation = (AuthoredSimulationService(authored_runs.preparer,authored_runs)
                 if authored_runs is not None else None)
             economic_calculations = (EconomicCalculationService(jobs, results, farm_scenarios,
+                authored_run_store=authored_runs) if source_admission is not None else None)
+            assessments = (CalculationAssessmentService(jobs, thermal, results, scenarios, farm_scenarios,
                 authored_run_store=authored_runs) if source_admission is not None else None)
             app = create_app(jobs, holds, thermal, results, principal_provider=current_principal,
                 location_research_service=research,

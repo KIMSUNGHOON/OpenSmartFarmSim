@@ -15,8 +15,13 @@ concurrency:
 
 jobs:
   authored-api:
+    name: authored-${{ matrix.suite }}
     runs-on: ubuntu-24.04
     timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [api, economics, assessment, assessment-https, browser]
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
@@ -38,10 +43,12 @@ jobs:
           uv sync --locked --group dev --python 3.12.13
 
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        if: matrix.suite == 'browser'
         with:
           node-version: '22.22.3'
 
       - name: Install locked browser smoke dependencies
+        if: matrix.suite == 'browser'
         working-directory: web
         shell: bash
         run: |
@@ -100,20 +107,39 @@ jobs:
           export OSSF_TEST_PG_DSN="host=127.0.0.1 port=$port dbname=ossf_ci user=ossf_ci"
           uv run --no-sync python -c 'import os, psycopg; psycopg.connect(os.environ["OSSF_TEST_PG_DSN"]).close()'
           uv run --no-sync python -m app.api_openapi --check
-          uv run --no-sync pytest -q -rs -x --tb=short --durations=10 \
-            tests/test_cli_model_migration.py \
-            tests/test_simulation_work.py \
-            tests/test_farm_authored_simulation_worker.py \
-            tests/test_api_openapi.py \
-            tests/test_authored_economic_input.py \
-            tests/test_authored_economic_execution.py \
-            tests/test_api_authored_runtime.py \
-            tests/test_api_farm_authoring.py \
-            tests/test_farm_authored_simulation.py
-          uv run --no-sync pytest -q -s --tb=short --durations=5 \
-            tests/test_authored_full_software_path.py \
-            tests/web_authored_thermal_replay_smoke.py \
-            tests/web_assessment_smoke.py
+          case '${{ matrix.suite }}' in
+            api)
+              uv run --no-sync pytest -q -rs -x --tb=short --durations=10 \
+                tests/test_cli_model_migration.py \
+                tests/test_simulation_work.py \
+                tests/test_farm_authored_simulation_worker.py \
+                tests/test_api_openapi.py \
+                tests/test_api_authored_runtime.py \
+                tests/test_api_farm_authoring.py \
+                tests/test_farm_authored_simulation.py
+              ;;
+            economics)
+              uv run --no-sync pytest -q -rs -x --tb=short --durations=10 \
+                tests/test_authored_economic_input.py \
+                tests/test_authored_economic_execution.py
+              ;;
+            assessment)
+              uv run --no-sync pytest -q -rs -s -x --tb=short --durations=10 \
+                tests/test_authored_assessment_parent.py \
+                tests/test_authored_calculation_assessment.py
+              ;;
+            assessment-https)
+              uv run --no-sync pytest -q -rs -s -x --tb=short --durations=10 \
+                tests/test_authored_assessment_https.py
+              ;;
+            browser)
+              uv run --no-sync pytest -q -s --tb=short --durations=5 \
+                tests/test_authored_full_software_path.py \
+                tests/web_authored_thermal_replay_smoke.py \
+                tests/web_assessment_smoke.py
+              ;;
+            *) exit 1 ;;
+          esac
 
       - name: Remove database and password files
         if: ${{ always() }}

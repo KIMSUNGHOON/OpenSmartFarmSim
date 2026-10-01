@@ -4924,6 +4924,18 @@
         ],
         "summary": "Post Assessment",
         "x-ossf-conditional-scopes": {
+          "authored-thermal-simulation-result-v1": [
+            "metadata",
+            "artifact",
+            "authored_run_read",
+            "authored_release_read",
+            "farm_scenario_read",
+            "thermal_snapshot_read",
+            "decision_context_read",
+            "market_hold_context_read",
+            "market_source_read",
+            "market_candidate_read"
+          ],
           "economic-calculation-result-v2": [
             "farm_scenario_read",
             "metadata",
@@ -4935,6 +4947,18 @@
             "market_source_read",
             "market_candidate_read",
             "thermal_run_read"
+          ],
+          "economic-calculation-result-v3": [
+            "metadata",
+            "artifact",
+            "authored_run_read",
+            "authored_release_read",
+            "farm_scenario_read",
+            "thermal_snapshot_read",
+            "decision_context_read",
+            "market_hold_context_read",
+            "market_source_read",
+            "market_candidate_read"
           ],
           "thermal-simulation-result-v2": [
             "thermal_scenario_read",

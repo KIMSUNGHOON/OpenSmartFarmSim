@@ -185,6 +185,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             assessment_service.results is not market_result_store or
             assessment_service.scenario_store is not thermal_scenario_store or
             assessment_service.farm_scenario_service is not farm_scenario_service or
+            (assessment_service.authored_run_store is not None and
+             assessment_service.authored_run_store is not authored_run_store) or
             job_store.principal_provider is not principal_provider):
         raise ValueError('trusted calculation assessment service required')
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
@@ -907,7 +909,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
               openapi_extra={**_access(ASSESSMENT_SCOPES), 'x-ossf-max-body-bytes':4096,
                   'x-ossf-conditional-scopes':{'thermal-simulation-result-v2':list(SCENARIO_SCOPES),
                       'thermal-simulation-result-v3':list(FARM_ECONOMIC_SCOPES),
-                      'economic-calculation-result-v2':list(FARM_ECONOMIC_SCOPES)},
+                      'economic-calculation-result-v2':list(FARM_ECONOMIC_SCOPES),
+                      'authored-thermal-simulation-result-v1':list(AUTHORED_ECONOMIC_SCOPES),
+                      'economic-calculation-result-v3':list(AUTHORED_ECONOMIC_SCOPES)},
                   'requestBody':{'required':True, 'content':{'application/json':{
                       'schema':CalculationAssessmentRequest.model_json_schema()}}}})
     async def post_assessment(request: Request):

@@ -49,7 +49,7 @@ def test_browser_assessment_admission_persisted_hold_and_reopen(pair,execution,t
             env={name:os.environ[name] for name in
                 ('PATH','HOME','LANG','PLAYWRIGHT_BROWSERS_PATH') if name in os.environ}
             browser=subprocess.Popen(['node','e2e/real-assessment-smoke.mjs',
-                f'https://127.0.0.1:{web_port}',parent['thermal_job_id'],economic_id],
+                f'https://127.0.0.1:{web_port}',parent['thermal_job_id'],economic_id,str(cli.lease_seconds)],
                 cwd=WEB,env=env,stdin=subprocess.PIPE,stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,text=True)
             assert select.select([browser.stdout],[],[],60)[0], 'browser admission observation timed out'
@@ -61,9 +61,19 @@ def test_browser_assessment_admission_persisted_hold_and_reopen(pair,execution,t
             queued=json.loads(line)
             assert queued['event']=='queued' and UUID(queued['job_id'])
             install_assessment(cli,service)
+            worker_started=time.monotonic()
             outcome=cli.run_once()
+            worker_seconds=time.monotonic()-worker_started
+            print('assessment_browser_worker_seconds='+json.dumps({
+                'elapsed':round(worker_seconds,3),'lease':cli.lease_seconds,
+                'http_timeout':30}))
             assert str(outcome.job_id)==queued['job_id'] and outcome.state=='hold' and outcome.decision_id
-            browser.stdin.write('hold-ready\n');browser.stdin.flush()
+            try:
+                browser.stdin.write('hold-ready\n');browser.stdin.flush()
+            except BrokenPipeError:
+                _,error=browser.communicate(timeout=5)
+                pytest.fail(f'browser exited while worker ran for {worker_seconds:.3f}s '+
+                    f'(exit {browser.returncode}): '+error.replace(token.decode(),'<redacted>')[-2500:])
             output,error=browser.communicate(timeout=100)
             assert browser.returncode==0,error.replace(token.decode(),'<redacted>')[-2500:]
             observed=json.loads(output)

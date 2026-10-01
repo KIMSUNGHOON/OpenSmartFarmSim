@@ -32,6 +32,12 @@ the legacy thermal contract retains its signed snapshot/context verification.
 The module is included in the existing implementation digest, so changed code
 requires fresh independent release evidence.
 
+The owned assembly also registers farm assessment input V2 and
+[authored assessment input V3](authored-calculation-assessment-v1.md).
+The former retains `calculation-assessment-server-v2`; the latter selects
+`calculation-assessment-server-v3` and requires the actual authored store.
+Missing authored authority holds that path without changing legacy admission.
+
 Tests use a real SCRAM PostgreSQL queue and fake executable/context keys. They
 check durable routing, publications, holds, retained validator reports and no
 invocation for an unknown version. Actual exact-model CLI, independent operator

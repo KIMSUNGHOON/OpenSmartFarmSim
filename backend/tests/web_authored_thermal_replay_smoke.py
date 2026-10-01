@@ -16,6 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app.api_authored_thermal import AUTHORED_READ_SCOPES, project_authored_run
 from app.api_runtime import ApiRuntime
 from app.farm_authoring_storage import FarmAuthoringService
+from app.farm_authored_review import FarmAuthoredReviewService
 from app.farm_authored_run_store import AuthoredRunStore
 from app.http_identity import BearerGrant, BearerRegistry, token_digest
 from app.market_source_store import MarketSourceStore
@@ -50,6 +51,9 @@ def test_authored_run_replays_through_real_https_and_webgl(login_scope, tls_file
     def authored_factory(*, job_store, farm_scenario_service, gate_key):
         preparer.authoring = FarmAuthoringService(farm_scenario_service)
         preparer.release_store.jobs = job_store
+        preparer.release_store.verifier.completion.review = FarmAuthoredReviewService(preparer.authoring)
+        preparer.release_store.verifier.completion.jobs = job_store
+        preparer.release_store.verifier.completion.runs = farm_scenario_service.thermal.runs
         return AuthoredRunStore(preparer, gate_key)
 
     runtime = ApiRuntime(config(policy=jobs.runtime_identity[0], dsn=jobs._dsn,

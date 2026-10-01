@@ -83,3 +83,15 @@ conversion still requires actual efficiency, metering and tariff evidence.
 Actual product CLI with the new model, independent release, G1 and subsequent
 G0/G2/G3a/G3b/G4 acceptance remain held. No crop growth, harvest, future margin,
 ranking or production claim is opened by this software connection.
+
+## Hosted follow-up, 2026-10-01
+
+[Run 36795417197](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36795417197)
+on commit `223e926f6b0a868c828bb2429b000e245570f6c2` completed its PostgreSQL 18
+server selection: **95 passed in 992.15 s**, including both authored economic
+modules. Its separate browser selection had one full authored workflow pass
+and two failures; it is not an overall CI pass. Diagnosis and corrected local
+results are recorded in the subsequent
+[authored assessment evidence](authored-calculation-assessment-implementation.md).
+The new commit's hosted workflow and actual product CLI/independent G1 remain
+separate acceptance requirements.

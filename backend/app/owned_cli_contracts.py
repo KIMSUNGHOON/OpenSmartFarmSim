@@ -1,7 +1,7 @@
 """Assemble the implemented owned routes over one protected service binding."""
 
 from .calculation_assessment import (CalculationAssessmentService, CalculationAssessmentContract,
-    INPUT_VERSION, FARM_INPUT_VERSION)
+    AuthoredCalculationAssessmentContract, INPUT_VERSION, FARM_INPUT_VERSION, AUTHORED_INPUT_VERSION)
 from .cli_contract_router import CliContractRouter
 from .cli_contracts import DecisionContract, ProposalHold
 from .farm_authored_review import (FarmAuthoredReviewService, FarmAuthoredReviewContract,
@@ -32,7 +32,8 @@ class OwnedCliContractRouter(CliContractRouter):
                 ('research', 'research_input_v1'):DecisionContract(research.authority_snapshot),
                 ('collection_review', REVIEW_INPUT_VERSION):OwnedCollectionReviewContract(reviews, review_authority),
                 ('assessment', INPUT_VERSION):assessment_contract,
-                ('assessment', FARM_INPUT_VERSION):assessment_contract}
+                ('assessment', FARM_INPUT_VERSION):assessment_contract,
+                ('assessment', AUTHORED_INPUT_VERSION):AuthoredCalculationAssessmentContract(assessments)}
             if authored_review is not None:
                 routes[('collection_review', FARM_REVIEW_INPUT_VERSION)] = \
                     FarmAuthoredReviewContract(authored_review)

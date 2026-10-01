@@ -8,10 +8,12 @@
   혼합/미완료/다른 테넌트/누락 제공자 거부 및 접수·게시 직후 변경 롤백을 확인했다.
   [집중 소프트웨어 증거](../research/authored-economic-execution-implementation.md): 서로 다른 시험 82개가 통과했다.
   호스팅 전체 CI·제품 CLI·독립 G1과 웹/평가 연결은 이 체크의 수용 범위 밖이다.
-- [ ] **`authored-calculation-assessment`** — 선행: `authored-economic-execution`.
-  작성 열 작업과 V3 경제 작업의 정확한 완료 입력/영수증/농장·해제·문맥 연결을
-  별도 평가 입력 판본으로 고정하고 기존 CLI 계약 라우터·보류 조회에 연결한다.
-  두 경로 혼합·다른 부모·현재 권리 철회·늦은 변경 롤백과 기존 평가 호환을 확인한다.
+- [x] **`authored-calculation-assessment`** — 선행: `authored-economic-execution`.
+  [평가 입력 V3](../contracts/authored-calculation-assessment-v1.md)에 작성 열·V3 경제 작업의
+  완료 입력/영수증/농장·해제·문맥을 고정하고 공유 CLI 라우터의 별도 검증기·보류 조회에 연결했다.
+  실제 SCRAM의 세 통합 사례·HTTPS 8개 응답, 혼합/다른 부모/변조/권리 철회/늦은 변경 롤백,
+  기존 평가 호환과 브라우저 회귀를 확인했다([서로 다른 집중 시험 83개](../research/authored-calculation-assessment-implementation.md)).
+  시험용 CLI·서명의 서버 소프트웨어 범위이며 새 호스팅 CI·작성 웹 부모 선택·제품 CLI·독립 G1은 후속이다.
 - [ ] **`web-authored-economic-assessment`** — 선행: `authored-calculation-assessment`.
   같은 계정의 작성 Run 선택에서 같은 경제 판본의 접수·조회와 평가로 이어지게 한다.
   식별자를 직접 알지 않아도 저장 부모를 선택하게 하며, 응답 유실·재연결·계정 변경,
@@ -19,7 +21,7 @@
 
 ## 기존 구현 진행 기록
 
-**완료 계산의 웹 평가 연결 (2026-10-01):** [06 계산 평가](../contracts/web-calculation-assessment-v1.md)는 기존 열·경제 작업 ID를 서버 검증 접수에 연결하고, 저장된 보류 근거를 조회·재연결한다. 웹 단위 93개, 집중 Chromium 6개와 실제 HTTPS/PostgreSQL 16.15/SCRAM·시험용 CLI 연결 1개가 통과했다([기록](../research/web-calculation-assessment-implementation.md)). 운영자 식별자 입력 경로이며 일반 지역 흐름·작성 Run 경제/평가·실제 제품 CLI·독립 해제·G1은 후속이다. 전체 `web-shell`/`end-to-end-g1` 체크는 유지한다.
+**완료 계산의 웹 평가 연결 (2026-10-01):** [06 계산 평가](../contracts/web-calculation-assessment-v1.md)는 기존 열·경제 작업 ID를 서버 검증 접수에 연결하고, 저장된 보류 근거를 조회·재연결한다. 웹 단위 93개, 집중 Chromium 6개와 실제 HTTPS/PostgreSQL 16.15/SCRAM·시험용 CLI 연결 1개가 통과했다([기록](../research/web-calculation-assessment-implementation.md)). 운영자 식별자 입력 경로이며 일반 지역 흐름·작성 Run 웹 경제/평가 부모 선택·실제 제품 CLI·독립 해제·G1은 후속이다. 전체 `web-shell`/`end-to-end-g1` 체크는 유지한다.
 
 **필수 모델 변경 (2026-10-01):** [명시적 DB 이전·되돌리기](../contracts/cli-model-policy-migration-v1.md), 새 실행 검증과 개발 설정을 변경했다([161개 집중 시험](../research/cli-model-migration-implementation.md)). 과거 완료 항목의 모델명은 실제 실행 이력이며 보존한다. 새 모델의 제품 CLI·독립 해제·G1/G4 수용 체크는 유지한다.
 

@@ -100,6 +100,7 @@ def test_standard_https_reads_owned_authored_run_and_holds_stale_evidence(
     assert runtime.farm_reviews.authoring is runtime.farm_authoring
     assert runtime.authored_simulation.run_store is runtime.authored_runs
     assert runtime.economic_calculations.authored_run_store is runtime.authored_runs
+    assert runtime.assessments.authored_run_store is runtime.authored_runs
     server = runtime.service.server()
     thread = threading.Thread(target=server.run, daemon=True)
     thread.start()

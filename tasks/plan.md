@@ -2,9 +2,10 @@
 
 작성 Run의 후속 연결은 `authored-economic-execution → authored-calculation-assessment →
 web-authored-economic-assessment` 순서로 검증한다([세부 작업](todo.md#작성-run-경제평가-연결-2026-10-01)).
-첫 단계는 [별도 경제 입력/영수증 V3](../contracts/authored-economic-execution-v1.md)와
-현재 작성 부모/경제 가정의 서버 결합이다. 뒤이어 평가의 완료 부모 결합을 확인하고,
-웹에서 같은 계정의 저장 부모를 선택하도록 잇는다. 기존 고정/농장 재생 경로와
+첫 단계인 [별도 경제 입력/영수증 V3](../contracts/authored-economic-execution-v1.md)와
+현재 작성 부모/경제 가정의 서버 결합 뒤에 [평가 입력 V3](../contracts/authored-calculation-assessment-v1.md)의
+완료 부모·해제·문맥 결합을 확인했다([SCRAM·HTTPS 증거](../research/authored-calculation-assessment-implementation.md)).
+다음은 웹에서 같은 계정의 저장 부모를 선택하도록 잇는 작업이다. 기존 고정/농장 재생 경로와
 전체 사용자 흐름 및 실제 CLI·독립 G1 수용은 각각 유지한다.
 
 2026-10-01 사용자 지시로 개발·제품 실행 모델을 변경했다.
@@ -14,7 +15,7 @@ web-authored-economic-assessment` 순서로 검증한다([세부 작업](todo.md
 전체 G1 수용은 후속이다. 완료 열·경제 작업의 [웹 평가 연결](../contracts/web-calculation-assessment-v1.md)은
 접수·저장 보류 조회·재연결을 구현했다([브라우저·실제 HTTPS/SCRAM 증거](../research/web-calculation-assessment-implementation.md)).
 다음에는 지역 조사부터 지원하는 농장·경제·평가 부모 선택을 잇고, 새 모델의 제품
-CLI와 독립 실행/해제·G1 증거를 확보한다. 작성 농장의 공통 평가·웹 경제 연결과
+CLI와 독립 실행/해제·G1 증거를 확보한다. 작성 농장의 웹 경제·평가 부모 선택과
 미확인 접수의 새로고침 복구는 후속 경로다.
 
 작성 농장의 저장 Run 전체를 다시 찾는 [테넌트별 목록 API](../contracts/api-authored-thermal-run-v1.md)를

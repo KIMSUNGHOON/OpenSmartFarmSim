@@ -2,7 +2,11 @@
 import { chromium,expect } from '@playwright/test';
 import { createInterface } from 'node:readline';
 
-const [origin,thermal,economic]=process.argv.slice(2);
+const [origin,thermal,economic,workerLease]=process.argv.slice(2);
+const workerWaitSeconds=Number(workerLease);
+if(!Number.isInteger(workerWaitSeconds)||workerWaitSeconds<1||workerWaitSeconds>300){
+  throw new Error('Expected a bounded synthetic worker lease.');
+}
 const token='synthetic-assessment-browser-'+'a'.repeat(32);
 const browser=await chromium.launch();
 const context=await browser.newContext({ignoreHTTPSErrors:true});
@@ -27,7 +31,7 @@ try {
   await expect(page.getByText('대기 중',{exact:true})).toBeVisible();
   process.stdout.write(JSON.stringify({event:'queued',job_id:job.job_id})+'\n');
   const input=createInterface({input:process.stdin});
-  const timeout=setTimeout(()=>input.close(),60_000);
+  const timeout=setTimeout(()=>input.close(),workerWaitSeconds*1000);
   let ready=false;
   for await(const line of input){ready=line==='hold-ready';break;}
   clearTimeout(timeout);input.close();expect(ready).toBe(true);
