@@ -106,3 +106,11 @@ old-model reference in the **pending** `economic-break-even` independent audit
 requirement was corrected to the current model. Past completed reviews and
 their original model records remain unchanged. This check is not a new product
 CLI invocation or independent review.
+
+The selected current development `turn_context` at `2026-10-01T12:19:09.029Z`
+again records `gpt-6.1-sol` / `xhigh`. Both TOML defaults parse to that exact
+pair. Remaining previous-model strings in application code occur only in the
+explicit upgrade/downgrade mapping; runtime invocation and current review
+authority use the target model. No recursive CLI or new product invocation was
+launched for this check. The existing goal description's original model name is
+historical text; the user's newer instruction and current AGENTS.md govern work.

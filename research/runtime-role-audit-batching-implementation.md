@@ -242,3 +242,43 @@ complete six-part inventory, with the separate Linux UID boundary **4 passed**.
 All six database/password cleanup steps succeeded. The aggregate correctly
 failed because partition 4 failed. This terminal result permits the next push;
 it is not hosted acceptance of `6748355` or the subsequent replay-evidence code.
+
+### Hosted follow-up at `7f49f52` (2026-10-01)
+
+The [authored workflow 36854374566](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36854374566)
+completed successfully on PostgreSQL 18.6 at exact revision
+`7f49f528fb03ef41af3057388934ecfa958f1860`. All seven suites and their
+database/password cleanup steps passed:
+
+| Suite | Passed | Seconds |
+| --- | ---: | ---: |
+| API | 102 | 469.56 |
+| Economics | 13 | 482.35 |
+| Assessment | 15 | 991.48 |
+| Assessment HTTPS | 1 | 344.88 |
+| Financial selection | 3 | 762.63 |
+| Authored browser | 4 | 815.31 |
+| Financial browser | 1 | 348.54 |
+
+These are **139 suite test executions**; overlapping focused suites are not
+claimed as 139 distinct inventory cases. The formerly failing assessment HTTPS
+case completed all **10 responses**, with a maximum **23.433 s**. The separate
+financial browser completed **29 actual SDK reader EOF bodies**, all successful
+and `no-store`, with maximum **17.0664 s** below the unchanged 30-second limit.
+It observed two POSTs, six hold items, the same 120-point Run, zero console/page
+errors and one recognized GPU readback warning. The source-selected new-farm
+browser continuation independently completed **27** successful `no-store`
+bodies, maximum **25.139 s**, with the same Run, two POSTs, six holds and one cash
+row. These are fixture observations, not production percentiles or load proof.
+
+[Web 36854374552](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36854374552)
+and [C0 36854374561](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36854374561)
+also completed successfully at that revision. The broad
+[backend 36854374556](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36854374556)
+remains a separate acceptance check: five partitions are successful and the last
+is still running when this entry is written. The local follow-up commits do not
+interrupt it. The earlier `93e30a7` failures above are retained.
+
+All CLI children and release keys in these suites are synthetic. Actual product
+CLI, independent G1/release and source/field/future-comparison/G4 evidence remain
+pending. This hosted result does not accept the new local asynchronous worker.
