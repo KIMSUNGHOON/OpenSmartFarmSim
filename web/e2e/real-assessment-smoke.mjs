@@ -12,10 +12,13 @@ const browser=await chromium.launch();
 const context=await browser.newContext({ignoreHTTPSErrors:true});
 const page=await context.newPage();
 const errors=[];const replies=[];let posts=0;
+let assessmentInput=null;
 page.on('pageerror',error=>errors.push(error.message));
 page.on('console',message=>{if(['error','warning'].includes(message.type()))errors.push(message.type());});
 page.on('response',response=>{if(response.url().includes('/v1/'))replies.push(response.status());});
-page.on('request',request=>{if(request.url().endsWith('/v1/assessments'))posts++;});
+page.on('request',request=>{if(request.url().endsWith('/v1/assessments')){
+  posts++;assessmentInput=request.postDataJSON();
+}});
 try {
   await page.goto(origin);
   await page.getByText('내부 시험 연결',{exact:true}).click();
@@ -27,8 +30,11 @@ try {
   const admitted=page.waitForResponse(response=>response.url().endsWith('/v1/assessments'));
   await page.getByRole('button',{name:'계산 평가 요청',exact:true}).press('Enter');
   const response=await admitted;expect(response.status()).toBe(202);
-  const job=await response.json();expect(job.stage).toBe('assessment');expect(job.state).toBe('queued');
   await expect(page.getByText('대기 중',{exact:true})).toBeVisible();
+  expect(assessmentInput.run_job_id).toBe(thermal);expect(assessmentInput.economic_job_id).toBe(economic);
+  expect(Object.keys(assessmentInput).sort()).toEqual(['economic_job_id','idempotency_key','run_job_id']);
+  const job={job_id:(await page.getByText('평가 작업 ID',{exact:true}).locator('..').locator('dd').innerText()).trim()};
+  expect(job.job_id).toMatch(/^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/);
   process.stdout.write(JSON.stringify({event:'queued',job_id:job.job_id})+'\n');
   const input=createInterface({input:process.stdin});
   const timeout=setTimeout(()=>input.close(),workerWaitSeconds*1000);

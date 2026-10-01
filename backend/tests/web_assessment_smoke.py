@@ -60,6 +60,8 @@ def test_browser_assessment_admission_persisted_hold_and_reopen(pair,execution,t
                             error.replace(token.decode(),'<redacted>')[-2500:])
             queued=json.loads(line)
             assert queued['event']=='queued' and UUID(queued['job_id'])
+            acknowledged=service.jobs.get_job('tenant-1',UUID(queued['job_id']))
+            assert acknowledged['stage']=='assessment' and acknowledged['state']=='queued'
             install_assessment(cli,service)
             worker_started=time.monotonic()
             outcome=cli.run_once()

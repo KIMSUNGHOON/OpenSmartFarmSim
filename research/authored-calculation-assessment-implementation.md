@@ -87,6 +87,30 @@ handling syntax were checked against [GitHub's official matrix
 documentation](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/run-job-variations)
 on 2026-10-01; no floating action versions or dependency changes were adopted.
 
+## Completed hosted follow-up and browser response correction
+
+[Run 36800474264](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36800474264)
+on `5bb55afadc9bc552ed46ed302279a9db623a98a6` completed with four successful
+server selections: API **82 passed in 288.72 s**, authored economics **13 in
+674.81 s**, authored assessment **15 in 1058.72 s**, and standard HTTPS **1 in
+317.10 s**. The HTTPS case had eight responses, six hold categories and a
+maximum response of **23.449 s** under the unchanged 30-second limit. The
+browser selection had two passes and one failure; the entire workflow failed.
+
+The captured assessment-browser stack showed `Network.getResponseBody` failing
+before CLI processing when the harness tried to read the browser response body
+again. The harness now checks the actual closed POST fields and 202 status,
+waits for the application's decoded queued state, reads its displayed job ID,
+and independently checks that exact owner's actual DB job is queued assessment.
+Subsequent persisted CLI hold, current reads, reload recovery and single-POST
+checks remain. No product timeout or response decoder was relaxed.
+
+The corrected actual HTTPS/SCRAM/Chromium case **passed in 165.51 s** locally:
+one POST, five HTTPS responses, six hold categories and zero console errors.
+The fake worker took **52.587 s** with its existing 300-second lease. New hosted
+confirmation is pending. The earlier BrokenPipe timing explanation above
+remains an inference; it is not the later captured protocol error.
+
 ## Review and practical limits
 
 Review covered correctness (whitelisted parent pairs, canonical bytes, context,
