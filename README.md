@@ -8,6 +8,10 @@
 
 ## 현재 내부 웹 구현
 
+[원천→농장 참조 제공자](contracts/source-farm-selection-v1.md)는 정확한 완료 조사·수집에서
+이미 저장된 원본 스냅샷과 서명 문맥을 검증한다([SCRAM 집중 4개](research/source-farm-selection-implementation.md)).
+조회는 새 입력이나 승인을 발급하지 않으며 인증 API·경제 후보/농장 웹 선택은 다음 단계다.
+
 [07 작성 Run 경제·평가](contracts/web-authored-economic-assessment-v1.md)는 저장 Run을 선택해
 같은 농장에 고정된 V3 경제 입력으로 계산을 요청하고, 서버 금액·월별 현금·보류 6개·같은 3D Run을 확인한다.
 재연결 후 저장 기록을 선택할 수 있으며 미확인 접수는 같은 요청으로 재확인한다

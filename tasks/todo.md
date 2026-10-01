@@ -32,6 +32,28 @@
   시험용 CLI·서명의 소프트웨어 범위다. 새 호스팅 CI, 일반 지역 흐름·제품 CLI·독립 G1/G4는 후속이며
   전체 `web-shell`/`end-to-end-g1` 체크는 유지한다.
 
+## 지역 원천에서 농장 작성 연결 (2026-10-01)
+
+- [x] **`source-farm-selection`** (M) — 선행: 소유 조사·수집/검토와 농장 입력 계약.
+  [원천 참조 계약](../contracts/source-farm-selection-v1.md)의 읽기 전용 제공자를 구현한다.
+  실제 SCRAM의 정확한 완료 부모/원문/현재 등록 범위·저장 스냅샷·서명 문맥을 대사하고,
+  다른 소유자/부모·미완료·변조·권리/포인터의 늦은 변경을 거부한다.
+  쓰기 범위 없이 읽기 성공과 추가 저장 없음, 보류 표시·원본/숫자 미노출을 확인한다.
+  [실제 SCRAM 집중 4개](../research/source-farm-selection-implementation.md)가 통과했다.
+  합성 CLI/서명의 제공자 소프트웨어 범위이며 HTTP·웹/실제 제품 CLI·독립 G1은 후속이다.
+- [ ] **`api-source-farm-selection`** (M) — 선행: `source-farm-selection`.
+  인증 GET·닫힌 OpenAPI·표준 런타임을 같은 authority 제공자에 연결한다.
+  Bearer/테넌트·권한·보류/미준비 응답과 기존 30초 제한 아래 실제 HTTPS/SCRAM을 확인한다.
+- [ ] **`farm-economic-candidate-selection`** (M) — 선행: `api-source-farm-selection`.
+  선택 원천과 같은 서명 문맥/기간/목표의 저장 경제 후보·기존 시장 보류를 찾는다.
+  이력 메타데이터와 현재 선택 검증을 나누고 다른 문맥·현재 권리 철회·페이지 경계를 확인한다.
+  새 요금/작물 수치·G0 승인·시장 보류를 조회 중 만들지 않는다.
+- [ ] **`web-source-farm-authoring`** (M) — 선행: `farm-economic-candidate-selection`.
+  저장 조사·수집/검토와 경제 후보 선택을 농장 폼에 연결해 선행 식별자 직접 입력을 줄인다.
+  원천/경제 조합 변경·응답 유실·재연결·계정 변경을 확인하며 명시적 농장 숫자/권리 선언을 받는다.
+  실제 HTTPS/SCRAM 브라우저에서 신규 등록→검토/작성 Run→경제/평가·같은 3D 연결을 검증한다.
+  시험용 CLI/해제는 소프트웨어 범위이고 실제 제품 CLI·독립 전체 G1 체크는 유지한다.
+
 ## 기존 구현 진행 기록
 
 **완료 계산의 웹 평가 연결 (2026-10-01):** [06 계산 평가](../contracts/web-calculation-assessment-v1.md)는 기존 열·경제 작업 ID를 서버 검증 접수에 연결하고, 저장된 보류 근거를 조회·재연결한다. 웹 단위 93개, 집중 Chromium 6개와 실제 HTTPS/PostgreSQL 16.15/SCRAM·시험용 CLI 연결 1개가 통과했다([기록](../research/web-calculation-assessment-implementation.md)). 운영자 식별자 입력 경로이며 일반 지역 흐름·작성 Run 웹 경제/평가 부모 선택·실제 제품 CLI·독립 해제·G1은 후속이다. 전체 `web-shell`/`end-to-end-g1` 체크는 유지한다.

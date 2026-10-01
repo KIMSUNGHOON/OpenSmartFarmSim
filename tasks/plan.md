@@ -10,7 +10,13 @@ authored-financial-selection → web-authored-economic-assessment` 순서로 검
 [07 작성 Run 경제·평가](../contracts/web-authored-economic-assessment-v1.md)에서 같은 계정의 저장 부모 선택,
 V3 경제 접수·금액/현금·보류·이력 복구와 같은 3D Run을 연결했다
 ([웹 단위 122·Chromium 19·실제 HTTPS/SCRAM 1개](../research/web-authored-economic-assessment-implementation.md)).
-다음은 일반 지역 조사/수집과 농장·경제 입력 선택을 잇는 단계다. 기존 고정/농장 재생 경로,
+다음은 `source-farm-selection → api-source-farm-selection →
+farm-economic-candidate-selection → web-source-farm-authoring` 순서로
+일반 지역 조사/수집과 농장·경제 입력 선택을 잇는다
+([세부 작업](todo.md#지역-원천에서-농장-작성-연결-2026-10-01)).
+첫 [원천 참조 제공자](../contracts/source-farm-selection-v1.md)는 정확한 완료 조사·수집과
+이미 저장된 원래 스냅샷/서명 문맥을 읽기 범위로 검증하며 조회 중 새 자료를 발급하지 않는다.
+기존 고정/농장 재생 경로,
 실제 제품 CLI·독립 해제·전체 G1 수용과 새 호스팅 CI는 별도 관문으로 유지한다.
 
 2026-10-01 사용자 지시로 개발·제품 실행 모델을 변경했다.
