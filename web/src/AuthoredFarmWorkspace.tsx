@@ -70,8 +70,8 @@ function JobCard({title,job,onRefresh,busy}:{title:string;job:JobStatus|null;
   </section>;
 }
 
-export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
-  onOpenReplay:(jobId:string)=>void}) {
+export default function AuthoredFarmWorkspace({api,onOpenReplay,onOpenFinancial,financialBlocked}:{api:Api|null;
+  onOpenReplay:(jobId:string)=>void;onOpenFinancial:(jobId:string)=>void;financialBlocked:boolean}) {
   const [scenarioId,setScenarioId]=useState('');
   const [revision,setRevision]=useState('');
   const [farm,setFarm]=useState<AuthoredFarmSummary|null>(null);
@@ -180,14 +180,15 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
         '저장된 Run 목록을 확인할 수 없습니다. 연결과 서버 상태를 확인해 주세요.');
     } finally {if(epoch===generation.current)setRunCatalogBusy(false);}
   }
-  async function selectRunRef(item:AuthoredRunRef) {
+  async function selectRunRef(item:AuthoredRunRef,financial=false) {
     if(runCatalogBusy || busy || !api)return;
+    if(financial && financialBlocked)return;
     const epoch=generation.current;
     setRunCatalogBusy(true);setRunCatalogError(null);
     try {
       const summary=await api.authoredThermalSummary(item.simulation_job_id);
       if(summary.run_id!==item.run_id)throw new ApiError('response_rejected');
-      if(epoch===generation.current)onOpenReplay(item.simulation_job_id);
+      if(epoch===generation.current)(financial?onOpenFinancial:onOpenReplay)(item.simulation_job_id);
     } catch(value) {
       if(epoch!==generation.current)return;
       const code=value instanceof ApiError?value.code:'network_unresolved';
@@ -334,7 +335,8 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
             disabled={!api || !!busy || runCatalogBusy} onClick={()=>void selectRunRef(item)}>
             <span><strong>저장된 열 Run</strong><small>{item.recorded_at}</small>
               <code>{item.run_id}</code></span><span>3D 열기</span>
-          </button></li>)}</ul>
+          </button><button type="button" className="button secondary" disabled={!api || !!busy || runCatalogBusy || financialBlocked}
+            onClick={()=>void selectRunRef(item,true)}>경제·평가 열기</button></li>)}</ul>
           {runCatalogCursor && <button type="button" className="button secondary"
             disabled={!api || !!busy || runCatalogBusy} onClick={()=>void loadRunCatalog(true)}>
             이전 Run 더 보기</button>}</>:<p className="muted">현재 계정에 저장된 작성 Run이 없습니다.</p>)}
@@ -412,6 +414,8 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay}:{api:Api|null;
         <p>완료된 저장 Run의 온도·습도·모델 열수요를 120개 시점에서 확인합니다.</p>
         <button className="button primary" type="button" disabled={run?.state!=='succeeded'}
           onClick={()=>{if(run)onOpenReplay(run.job_id);}}>3D 재생 열기</button>
+        <button className="button secondary" type="button" disabled={run?.state!=='succeeded' || financialBlocked}
+          onClick={()=>{if(run)onOpenFinancial(run.job_id);}}>완료 Run 경제·평가 열기</button>
         {run?.state!=='succeeded' && <p className="muted">계산 작업 완료 후 열 수 있습니다.</p>}</section>
       <section className="panel authored-limits"><h3>현재 확인 범위</h3>
         <ul><li>입력 등록과 작업 상태는 서버에서 확인합니다.</li>

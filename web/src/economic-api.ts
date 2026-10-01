@@ -140,6 +140,27 @@ function joint(value:unknown):JointInput {
   }
   return value as JointInput;
 }
+export function decodeEconomicResult(raw:unknown):EconomicResult {
+  need(object(raw));
+  closed(raw,['economic_result_id','market_scenario_result_id','scenario_id','scenario_revision','decision_at_utc',
+    'formula_version','market_context_kind','market_hold_report_id','calculation_status','assessment_status',
+    'sales_totals_status','input_origin','evidence_level','quantities','amounts','hold_reason_codes']);
+  need(hash(raw.economic_result_id) && hash(raw.market_scenario_result_id) && name(raw.scenario_id)
+    && name(raw.scenario_revision) && utc(raw.decision_at_utc)
+    && raw.formula_version==='economic-ledger-v9-sales-settlement' && raw.market_context_kind==='unavailable'
+    && uuid(raw.market_hold_report_id) && member(raw.calculation_status,['conditional_user_assumption','hold'] as const)
+    && raw.assessment_status==='hold' && member(raw.sales_totals_status,['inventory_reconciled','unverified_input_arithmetic'] as const)
+    && raw.input_origin==='user' && raw.evidence_level==='assumed' && object(raw.quantities) && object(raw.amounts));
+  closed(raw.quantities,['harvest_kg','packout_kg','recognized_kg','net_sold_kg']);closed(raw.amounts,AMOUNTS);
+  need(Object.values(raw.quantities).every(value=>value===null || decimal(value,256)) && raw.quantities.harvest_kg!==null
+    && raw.quantities.packout_kg!==null && raw.quantities.recognized_kg!==null);
+  need(Object.values(raw.amounts).every(value=>value===null || typeof value==='string' && value.length<=256
+    && /^-?(?:0|[1-9]\d*)(?:\.\d+)?$/.test(value)) && raw.amounts.gross_sales_krw!==null);
+  need(Array.isArray(raw.hold_reason_codes) && raw.hold_reason_codes.length<=100 && raw.hold_reason_codes.every(code=>
+    typeof code==='string' && /^[A-Z][A-Z0-9_]{0,79}$/.test(code)));
+  return raw as EconomicResult;
+}
+
 export function createEconomicApi(request:Request,job:(value:unknown)=>JobStatus) {
   async function record(kind:SourceKind,ref:Cursor) {
     need(name(ref.record_id) && name(ref.revision));
@@ -240,25 +261,10 @@ export function createEconomicApi(request:Request,job:(value:unknown)=>JobStatus
       return raw as CashPage;
     },
     async economicResult(id:string,candidate:Candidate,context:Pick<ScenarioIntent['request'],'decision_at'|'market_context'>):Promise<EconomicResult> {
-      need(uuid(id));const raw=await request('/v1/jobs/'+id+'/economic-result');need(object(raw));
-      closed(raw,['economic_result_id','market_scenario_result_id','scenario_id','scenario_revision','decision_at_utc',
-        'formula_version','market_context_kind','market_hold_report_id','calculation_status','assessment_status',
-        'sales_totals_status','input_origin','evidence_level','quantities','amounts','hold_reason_codes']);
-      need(hash(raw.economic_result_id) && hash(raw.market_scenario_result_id) && raw.scenario_id===candidate.scenario_id
-        && raw.scenario_revision===candidate.scenario_revision && utc(raw.decision_at_utc)
-        && raw.formula_version==='economic-ledger-v9-sales-settlement' && raw.market_context_kind==='unavailable'
-        && raw.decision_at_utc===context.decision_at && raw.market_hold_report_id===context.market_context.hold_report_id
-        && uuid(raw.market_hold_report_id) && member(raw.calculation_status,['conditional_user_assumption','hold'] as const)
-        && raw.assessment_status==='hold' && member(raw.sales_totals_status,['inventory_reconciled','unverified_input_arithmetic'] as const)
-        && raw.input_origin==='user' && raw.evidence_level==='assumed' && object(raw.quantities) && object(raw.amounts));
-      closed(raw.quantities,['harvest_kg','packout_kg','recognized_kg','net_sold_kg']);closed(raw.amounts,AMOUNTS);
-      need(Object.values(raw.quantities).every(value=>value===null || decimal(value,256)) && raw.quantities.harvest_kg!==null
-        && raw.quantities.packout_kg!==null && raw.quantities.recognized_kg!==null);
-      need(Object.values(raw.amounts).every(value=>value===null || typeof value==='string' && value.length<=256
-        && /^-?(?:0|[1-9]\d*)(?:\.\d+)?$/.test(value)) && raw.amounts.gross_sales_krw!==null);
-      need(Array.isArray(raw.hold_reason_codes) && raw.hold_reason_codes.length<=100 && raw.hold_reason_codes.every(code=>
-        typeof code==='string' && /^[A-Z][A-Z0-9_]{0,79}$/.test(code)));
-      return raw as EconomicResult;
+      need(uuid(id));const result=decodeEconomicResult(await request('/v1/jobs/'+id+'/economic-result'));
+      need(result.scenario_id===candidate.scenario_id && result.scenario_revision===candidate.scenario_revision
+        && result.decision_at_utc===context.decision_at && result.market_hold_report_id===context.market_context.hold_report_id);
+      return result;
     },
   };
 }

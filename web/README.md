@@ -22,6 +22,24 @@ PostgreSQL, 운영 토큰, 기상 수집, 제품 Codex CLI, 현장 자료는 사
 [검증 기록](../research/local-synthetic-3d-demo-implementation.md)이 있습니다.
 종료하려면 터미널에서 Ctrl-C를 누르세요.
 
+## 저장 Run의 비용과 평가 확인
+
+실제 내부 HTTPS API에 연결한 환경에서 사용합니다. 현재 계정의 완료 작성 Run과
+그 농장에 고정된 경제 판본·현재 열람 권한이 있어야 합니다.
+
+1. **07 작성 Run 경제·평가 → 저장 Run 목록 조회**에서 Run을 선택합니다.
+2. 저장 경제·평가 기록이 있으면 먼저 선택해 현재 결과를 조회합니다. 새 계산이 필요하면
+   **새 경제 요청 준비 → 선택 Run 경제 계산 요청**을 누릅니다.
+3. **경제 상태·결과 확인**으로 완료 서버 금액을 읽고 **작성 Run 월별 현금 조회**를 엽니다.
+4. **작성 Run 평가 요청 → 작성 평가 상태 확인**으로 보류 근거를 읽습니다.
+   **같은 Run 3D 열기**는 같은 저장 열 Run을 엽니다.
+
+04 작성 농장 화면의 완료 Run에서도 **경제·평가 열기**로 이동할 수 있습니다.
+재연결 뒤에는 목록에서 저장 기록을 다시 선택합니다. 응답 유실 때는 같은 요청의
+재확인 버튼을 사용합니다. 합성 3D 데모에는 이 경제 저장 기록이 없습니다.
+금액은 사용자 가정의 조건부 산술이며 검증된 미래 마진·작물 추천이 아닙니다.
+[검증 범위와 남은 보류](../research/web-authored-economic-assessment-implementation.md)를 확인하세요.
+
 The current screen submits registered synthetic location research and reads
 its real server job/hold status. When research succeeds, the work screen can
 admit owned fixture ingestion and collection review through their existing

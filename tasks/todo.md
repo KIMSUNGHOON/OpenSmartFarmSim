@@ -20,10 +20,17 @@
   실제 SCRAM의 선택·권한·혼합/외부/미완료/손상 거부·늦은 변경과 표준 HTTPS 30초 제한을 확인했다
   ([서로 다른 집중 시험 59개](../research/authored-financial-selection-implementation.md)).
   시험용 CLI·서명의 서버 소프트웨어 범위이며 작성 웹 선택·새 호스팅 CI·제품 CLI·독립 G1은 후속이다.
-- [ ] **`web-authored-economic-assessment`** — 선행: `authored-financial-selection`.
+- [x] **`web-authored-economic-assessment`** — 선행: `authored-financial-selection`.
   같은 계정의 작성 Run 선택에서 같은 경제 판본의 접수·조회와 평가로 이어지게 한다.
   식별자를 직접 알지 않아도 저장 부모를 선택하게 하며, 응답 유실·재연결·계정 변경,
   실제 HTTPS/SCRAM 브라우저의 조건부 금액/현금·보류와 3D 연결을 확인한다.
+  07 화면에서 현재 서버의 V3 입력을 고정하고 금액·월별 현금·보류 6개와 같은 Run의 3D를 연결했다.
+  저장 기록 선택·새 요청 준비, 유실 재요청·계정 변경·현재 거부를 확인했다.
+  [수용 증거](../research/web-authored-economic-assessment-implementation.md): 웹 단위 122개,
+  집중 Chromium 19개, 실제 PostgreSQL 16.15/SCRAM·HTTPS 브라우저 1개가 통과했다.
+  마지막 실제 연결은 29개 응답 헤더·최대 23.239초/요청 제한 30초이며 전체 본문 지연 측정은 아니다.
+  시험용 CLI·서명의 소프트웨어 범위다. 새 호스팅 CI, 일반 지역 흐름·제품 CLI·독립 G1/G4는 후속이며
+  전체 `web-shell`/`end-to-end-g1` 체크는 유지한다.
 
 ## 기존 구현 진행 기록
 

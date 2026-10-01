@@ -15,7 +15,7 @@ const IDENTIFIER=/^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$/;
 const DIGEST=/^[0-9a-f]{64}$/;
 function utc(value:unknown):value is string {return date(value) && value.endsWith('Z');}
 function digest(value:unknown):value is string {return typeof value==='string' && DIGEST.test(value);}
-function summary(value:unknown):AuthoredThermalSummary {
+export function decodeAuthoredThermalSummary(value:unknown):AuthoredThermalSummary {
   need(object(value));closed(value,['run_id','status','synthetic','claim_scope','temporal_provenance',
     'scenario_id','scenario_revision','registration_sha256','release_sha256','decision_at_utc',
     'review_at_utc','start_utc','end_utc','model_version','engine_version',
@@ -39,13 +39,13 @@ function summary(value:unknown):AuthoredThermalSummary {
 export function createAuthoredThermalApi(request:(path:string)=>Promise<unknown>) {
   async function authoredThermalSummary(jobId:string):Promise<AuthoredThermalSummary> {
     need(uuid(jobId));
-    return summary(await request('/v1/jobs/'+jobId+'/authored-run'));
+    return decodeAuthoredThermalSummary(await request('/v1/jobs/'+jobId+'/authored-run'));
   }
   return {authoredThermalSummary,async authoredThermalReplay(jobId:string):Promise<AuthoredThermalReplay> {
     const discovered=await authoredThermalSummary(jobId);
     const base='/v1/authored-runs/'+encodeURIComponent(discovered.run_id);
     const [rawSummary,rawSeries]=await Promise.all([request(base),request(base+'/series')]);
-    const pinned=summary(rawSummary);
+    const pinned=decodeAuthoredThermalSummary(rawSummary);
     need(JSON.stringify(pinned)===JSON.stringify(discovered));
     need(object(rawSeries));closed(rawSeries,['run_id','temporal_provenance','points']);
     need(rawSeries.run_id===pinned.run_id && rawSeries.temporal_provenance==='ex_post_replay'

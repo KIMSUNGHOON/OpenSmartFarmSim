@@ -1,5 +1,15 @@
 # 구현 준비 현황
 
+**작성 Run 경제·평가 웹 후보 (2026-10-01):** [07 화면](../contracts/web-authored-economic-assessment-v1.md)은
+저장 Run을 선택해 현재 서버의 V3 경제 입력으로 접수하고 금액·월별 현금·보류 근거와 같은 3D Run을 확인한다.
+저장 이력에서 현재 결과를 다시 읽으며 재연결 후에는 기록 선택 뒤 새 계산을 별도로 준비한다.
+웹 단위 122개·집중 Chromium 19개와 실제 PostgreSQL 16.15/SCRAM·HTTPS 브라우저 1개가 통과했다
+([검증 기록](../research/web-authored-economic-assessment-implementation.md)). 마지막 실제 연결은 POST 2개,
+응답 헤더 29개·최대 23.239초, 보류 6개·120시점 3D를 확인했다. 응답 헤더 지연은 전체 본문 지연 측정이 아니며
+제품의 전체 본문 제한은 기존 30초다. 12ui 대조는 낮은 일치율로 정밀 디자인 수용을 주장하지 않는다.
+시험용 CLI·서명의 소프트웨어 범위다. 일반 지역 조사/수집과 농장 작성의 자동 연결,
+새 호스팅 전체 CI·실제 제품 CLI·독립 해제·G1/G4는 남아 있다.
+
 **작성 Run 경제 입력·작업 이력 조회 후보 (2026-10-01):** [조회 계약](../contracts/authored-financial-selection-v1.md)은
 현재 작성 Run과 농장에 고정된 경제 입력 V3를 확인하고 같은 부모의 경제·평가 기록을 페이지별로 복원한다.
 실제 PostgreSQL 16.15/SCRAM의 선택·권한·손상/비표준 JSON 거부·권리 철회·늦은 변경과 OpenAPI,

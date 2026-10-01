@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [api, economics, assessment, financial-selection, assessment-https, browser]
+        suite: [api, economics, assessment, financial-selection, assessment-https, browser, financial-browser]
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
@@ -43,12 +43,12 @@ jobs:
           uv sync --locked --group dev --python 3.12.13
 
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
-        if: matrix.suite == 'browser'
+        if: matrix.suite == 'browser' || matrix.suite == 'financial-browser'
         with:
           node-version: '22.22.3'
 
       - name: Install locked browser smoke dependencies
-        if: matrix.suite == 'browser'
+        if: matrix.suite == 'browser' || matrix.suite == 'financial-browser'
         working-directory: web
         shell: bash
         run: |
@@ -141,6 +141,10 @@ jobs:
                 tests/test_authored_full_software_path.py \
                 tests/web_authored_thermal_replay_smoke.py \
                 tests/web_assessment_smoke.py
+              ;;
+            financial-browser)
+              uv run --no-sync pytest -q -s --tb=short --durations=5 \
+                tests/web_authored_financial_smoke.py
               ;;
             *) exit 1 ;;
           esac

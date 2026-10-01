@@ -59,3 +59,8 @@ footer{margin-top:24px;padding:16px 0;color:#43553d;font-size:0.8125rem}
 .break-even-workspace{margin-top:24px;min-width:0;overflow-wrap:anywhere}.break-even-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.break-even-inputs>div{min-width:0}.break-even-inputs select{width:100%;min-width:0}.break-even-trials{padding-left:24px}.break-even-trials>li{padding:12px 0;border-bottom:1px solid #dedccc}.break-even-workspace .field-row{grid-template-columns:repeat(3,minmax(0,1fr))}.break-even-workspace details{margin:12px 0}
 @media(max-width:1000px){.break-even-inputs{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:650px){.break-even-workspace .field-row{grid-template-columns:minmax(0,1fr)}}
+.authored-financial-workflow { display: grid; gap: 1rem; min-width: 0; }
+.authored-financial-workflow .economic-layout { align-items: start; }
+.authored-financial-workflow .economic-totals { grid-template-columns: 1fr; }
+.authored-financial-workflow .panel { min-width: 0; }
+.authored-financial-workflow code { overflow-wrap: anywhere; }

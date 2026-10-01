@@ -7,8 +7,11 @@ authored-financial-selection → web-authored-economic-assessment` 순서로 검
 완료 부모·해제·문맥 결합을 확인했다([SCRAM·HTTPS 증거](../research/authored-calculation-assessment-implementation.md)).
 [경제 입력·작업 이력 조회](../contracts/authored-financial-selection-v1.md)도 서버에서 현재 작성 부모에 고정했다
 ([집중 시험 59개](../research/authored-financial-selection-implementation.md)).
-다음은 웹에서 같은 계정의 저장 부모를 선택하도록 잇는 작업이다. 기존 고정/농장 재생 경로와
-전체 사용자 흐름 및 실제 CLI·독립 G1 수용은 각각 유지한다.
+[07 작성 Run 경제·평가](../contracts/web-authored-economic-assessment-v1.md)에서 같은 계정의 저장 부모 선택,
+V3 경제 접수·금액/현금·보류·이력 복구와 같은 3D Run을 연결했다
+([웹 단위 122·Chromium 19·실제 HTTPS/SCRAM 1개](../research/web-authored-economic-assessment-implementation.md)).
+다음은 일반 지역 조사/수집과 농장·경제 입력 선택을 잇는 단계다. 기존 고정/농장 재생 경로,
+실제 제품 CLI·독립 해제·전체 G1 수용과 새 호스팅 CI는 별도 관문으로 유지한다.
 
 2026-10-01 사용자 지시로 개발·제품 실행 모델을 변경했다.
 [모델 이전 계약](../contracts/cli-model-policy-migration-v1.md)과
@@ -17,8 +20,8 @@ authored-financial-selection → web-authored-economic-assessment` 순서로 검
 전체 G1 수용은 후속이다. 완료 열·경제 작업의 [웹 평가 연결](../contracts/web-calculation-assessment-v1.md)은
 접수·저장 보류 조회·재연결을 구현했다([브라우저·실제 HTTPS/SCRAM 증거](../research/web-calculation-assessment-implementation.md)).
 다음에는 지역 조사부터 지원하는 농장·경제·평가 부모 선택을 잇고, 새 모델의 제품
-CLI와 독립 실행/해제·G1 증거를 확보한다. 작성 농장의 웹 경제·평가 부모 선택과
-미확인 접수의 새로고침 복구는 후속 경로다.
+CLI와 독립 실행/해제·G1 증거를 확보한다. 작성 농장의 웹 경제·평가 부모 선택은 위 후보에 연결했고,
+하드 새로고침 때 미확인 접수의 의도를 저장·복구하는 기능은 후속 경로다.
 
 작성 농장의 저장 Run 전체를 다시 찾는 [테넌트별 목록 API](../contracts/api-authored-thermal-run-v1.md)를
 추가했다([PostgreSQL·HTTPS 검증](../research/authored-run-catalog-implementation.md)).

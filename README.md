@@ -8,21 +8,27 @@
 
 ## 현재 내부 웹 구현
 
+[07 작성 Run 경제·평가](contracts/web-authored-economic-assessment-v1.md)는 저장 Run을 선택해
+같은 농장에 고정된 V3 경제 입력으로 계산을 요청하고, 서버 금액·월별 현금·보류 6개·같은 3D Run을 확인한다.
+재연결 후 저장 기록을 선택할 수 있으며 미확인 접수는 같은 요청으로 재확인한다
+([웹 단위 122개·집중 Chromium 19개·실제 HTTPS/SCRAM 브라우저 1개](research/web-authored-economic-assessment-implementation.md)).
+시험용 CLI·서명의 소프트웨어 범위다. 일반 지역 흐름과 실제 제품 CLI·독립 G1/G4는 남아 있다.
+
 [작성 Run의 경제 입력·작업 이력 조회](contracts/authored-financial-selection-v1.md)는
 현재 농장에 고정된 경제 입력 V3와 같은 Run의 경제·평가 작업을 서버에서 다시 찾는 웹 선행 기능이다
 ([집중 시험 59개](research/authored-financial-selection-implementation.md)).
-이력 선택 뒤에는 실제 결과를 현재 권리로 다시 조회해야 한다. 웹 선택 화면과 작성 경제·평가 흐름은 다음 작업이다.
+이력 선택 뒤에는 실제 결과를 현재 권리로 다시 조회해야 한다. 위 07 화면이 이 조회와 작성 경제·평가를 연결한다.
 
 [작성 Run의 경제 실행 후보](contracts/authored-economic-execution-v1.md)는 현재 농장 판본과
 실제 완료 작성 Run을 별도 경제 입력/영수증 V3에 묶고 기존 금액·월별 현금 조회를 제공한다
 ([SCRAM·HTTPS/OpenAPI 검증](research/authored-economic-execution-implementation.md)).
-작성 Run의 공통 평가 서버 연결도 아래 후보에 추가했다. 웹 부모 선택과 실제 제품 CLI·독립 G1은 후속이다.
+작성 Run의 공통 평가 서버 연결도 아래 후보에 추가했다. 웹 부모 선택은 위 07 후보에 연결했고 실제 제품 CLI·독립 G1은 후속이다.
 
 [작성 Run 평가 연결 후보](contracts/authored-calculation-assessment-v1.md)는 실제 완료 작성 열·경제 작업을
 평가 입력 V3에 고정하고 별도 CLI 검증기로 기존 보류 6개를 저장·조회한다
 ([SCRAM·HTTPS 검증](research/authored-calculation-assessment-implementation.md)).
 현재 권리·해제·입력 해시와 부모의 문맥을 재검사하며 혼합·변조·늦은 변경을 거부한다.
-가짜 CLI와 시험 서명으로 확인한 서버 경로이며 실제 제품 CLI·독립 G1과 작성 부모의 웹 선택은 남아 있다.
+가짜 CLI와 시험 서명으로 확인한 서버 경로이며 실제 제품 CLI·독립 G1은 남아 있다.
 
 [06 계산 평가 화면](contracts/web-calculation-assessment-v1.md)은 같은 조건의 완료 열·경제 작업을 서버에 접수하고, 저장된 평가 상태·보류 근거를 조회하거나 재연결 후 다시 엽니다([실제 HTTPS/SCRAM·브라우저 증거](research/web-calculation-assessment-implementation.md)). 현재 운영자 작업 식별자 입력 경로이며 일반 지역 흐름의 자동 연결, 작성 농장의 웹 경제·평가 부모 선택과 실제 제품 CLI·독립 G1 수용은 남아 있습니다.
 

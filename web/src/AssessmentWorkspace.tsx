@@ -94,7 +94,7 @@ export default function AssessmentWorkspace({api,onPending,blocked}:{api:Api|nul
     <section className="panel" aria-labelledby="assessment-input-heading">
       <p className="step-number">06 / 계산 평가</p><h2 id="assessment-input-heading">완료 계산 연결</h2>
       <p>같은 조건으로 완료된 열·경제 계산을 서버에서 다시 확인하고, 작물 판단에 필요한 근거를 조회합니다.</p>
-      <p className="muted">운영자가 제공한 완료 작업 식별자를 입력하세요. 작성 농장의 별도 Run 평가는 아직 지원하지 않습니다.</p>
+      <p className="muted">운영자가 제공한 완료 작업 식별자를 입력하세요. 저장된 작성 Run은 07 작성 Run 경제·평가에서 선택할 수 있습니다.</p>
       <form className="assumption-form" onSubmit={event=>void request('submit',event)}>
         <label>완료 열 계산 작업 ID<input value={runId} onChange={event=>setRunId(event.target.value)}
           autoComplete="off" spellCheck={false} required readOnly={!!intent} disabled={disabled} /></label>

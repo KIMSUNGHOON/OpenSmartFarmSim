@@ -84,7 +84,7 @@ test('stored 3D Runs reopen after exact current verification without a farm sele
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
   await page.getByRole('button',{name:'저장 Run 보기'}).click();
-  const item=page.locator('.authored-run-index .authored-catalog-list button');
+  const item=page.getByRole('button',{name:/저장된 열 Run.*3D 열기/});
   await expect(item).toHaveCount(1);
   await page.setViewportSize({width:390,height:844});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);

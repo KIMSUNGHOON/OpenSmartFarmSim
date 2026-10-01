@@ -5,6 +5,7 @@ import { createBreakEvenApi } from './break-even-api';
 import { createThermalApi } from './thermal-api';
 import { createAuthoredThermalApi } from './authored-thermal-api';
 import { createAuthoredFarmApi } from './authored-farm-api';
+import { createAuthoredFinancialApi } from './authored-financial-api';
 export const STAGES = ['research','collection','collection_review','simulation','assessment'] as const;
 export const STATES = ['queued','researching','collecting','reviewing','simulating','assessing',
   'succeeded','hold','failed','canceled'] as const;
@@ -175,6 +176,7 @@ export function createApi(token:string, fetcher:typeof fetch = fetch) {
     ...createThermalApi(request),
     ...createAuthoredThermalApi(request),
     ...createAuthoredFarmApi(request,decodeJob),
+    ...createAuthoredFinancialApi(request,decodeJob),
     ...createEconomicApi(request, decodeJob),
     ...createBreakEvenApi(request, decodeJob),
     async location(intent:LocationIntent) { return decodeLocation(await request('/v1/locations','POST',intent),intent); },
