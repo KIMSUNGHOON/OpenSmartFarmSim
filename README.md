@@ -8,7 +8,12 @@
 
 ## 현재 내부 웹 구현
 
-[06 계산 평가 화면](contracts/web-calculation-assessment-v1.md)은 같은 조건의 완료 열·경제 작업을 서버에 접수하고, 저장된 평가 상태·보류 근거를 조회하거나 재연결 후 다시 엽니다([실제 HTTPS/SCRAM·브라우저 증거](research/web-calculation-assessment-implementation.md)). 현재 운영자 작업 식별자 입력 경로이며 일반 지역 흐름의 자동 연결, 작성 농장의 별도 Run 경제·평가 연결과 실제 제품 CLI·독립 G1 수용은 남아 있습니다.
+[작성 Run의 경제 실행 후보](contracts/authored-economic-execution-v1.md)는 현재 농장 판본과
+실제 완료 작성 Run을 별도 경제 입력/영수증 V3에 묶고 기존 금액·월별 현금 조회를 제공한다
+([SCRAM·HTTPS/OpenAPI 검증](research/authored-economic-execution-implementation.md)).
+현재 서버 연결이며 작성 Run의 공통 평가와 웹 부모 선택, 실제 제품 CLI·독립 G1은 후속이다.
+
+[06 계산 평가 화면](contracts/web-calculation-assessment-v1.md)은 같은 조건의 완료 열·경제 작업을 서버에 접수하고, 저장된 평가 상태·보류 근거를 조회하거나 재연결 후 다시 엽니다([실제 HTTPS/SCRAM·브라우저 증거](research/web-calculation-assessment-implementation.md)). 현재 운영자 작업 식별자 입력 경로이며 일반 지역 흐름의 자동 연결, 작성 농장의 공통 평가·웹 경제 연결과 실제 제품 CLI·독립 G1 수용은 남아 있습니다.
 
 합성 3D 재생은 [로컬 데모 실행법](web/README.md#지금-3d를-직접-보기)에 따라 브라우저에서 직접 볼 수 있습니다. 이 화면은 실제 농장 계산·자료 조사·작물 추천의 시연이 아닙니다.
 

@@ -108,6 +108,7 @@ class ApiRuntime:
     collection_reviews: OwnedCollectionReviewService | None = field(repr=False)
     research: LocationResearchService | OwnedResearchService = field(repr=False)
     assessments: CalculationAssessmentService | None = field(repr=False)
+    economic_calculations: EconomicCalculationService | None = field(repr=False)
     farm_scenarios: FarmReplayScenarioService | None = field(repr=False)
     farm_authoring: FarmAuthoringService | None = field(repr=False)
     farm_reviews: FarmAuthoredReviewService | None = field(repr=False)
@@ -168,8 +169,6 @@ class ApiRuntime:
             farm_reviews = FarmAuthoredReviewService(farm_authoring) if farm_authoring is not None else None
             assessments = (CalculationAssessmentService(jobs, thermal, results, scenarios, farm_scenarios)
                 if source_admission is not None else None)
-            economic_calculations = (EconomicCalculationService(jobs, results, farm_scenarios)
-                if source_admission is not None else None)
             submission = None
             if dependencies.thermal_publisher_factory is not None:
                 if scenarios is None:
@@ -194,6 +193,8 @@ class ApiRuntime:
                     raise ValueError()
             authored_simulation = (AuthoredSimulationService(authored_runs.preparer,authored_runs)
                 if authored_runs is not None else None)
+            economic_calculations = (EconomicCalculationService(jobs, results, farm_scenarios,
+                authored_run_store=authored_runs) if source_admission is not None else None)
             app = create_app(jobs, holds, thermal, results, principal_provider=current_principal,
                 location_research_service=research,
                 break_even_store=break_even, thermal_scenario_store=scenarios,
@@ -214,6 +215,7 @@ class ApiRuntime:
                 ('market_results', results), ('break_even', break_even), ('thermal_scenarios', scenarios),
                 ('collections', collections), ('collection_reviews', collection_reviews), ('research', research),
                 ('assessments', assessments), ('farm_scenarios', farm_scenarios),
+                ('economic_calculations', economic_calculations),
                 ('farm_authoring', farm_authoring), ('farm_reviews', farm_reviews),
                 ('authored_runs', authored_runs), ('authored_simulation', authored_simulation)):
             object.__setattr__(self, name, value)

@@ -20,6 +20,8 @@ from .thermal_publisher import runtime_digests
 from .thermal_scenario_store import IDENTIFIER
 from .farm_replay_scenario import FarmReplayScenarioService
 from .farm_economic_execution import farm_economic_execution_binding, FarmEconomicHold
+from .authored_economic_execution import (authored_economic_completion,
+    authored_economic_pointers, AuthoredEconomicHold)
 from .owned_fixture_collection import UUID_PATTERN
 
 
@@ -45,7 +47,16 @@ class FarmEconomicCalculationInput(EconomicCalculationInput):
     thermal_job_id: str = Field(pattern=UUID_PATTERN)
 
 
-ECONOMIC_INPUT = TypeAdapter(Annotated[EconomicCalculationInput | FarmEconomicCalculationInput,
+class AuthoredEconomicCalculationInput(EconomicCalculationInput):
+    input_version: Literal['economic-calculation-input-v3']
+    authored_scenario_id: str = Field(pattern=IDENTIFIER, max_length=200)
+    authored_scenario_revision: str = Field(pattern=IDENTIFIER, max_length=200)
+    registration_sha256: str = Field(pattern=r'^[0-9a-f]{64}$')
+    thermal_job_id: str = Field(pattern=UUID_PATTERN)
+
+
+ECONOMIC_INPUT = TypeAdapter(Annotated[EconomicCalculationInput | FarmEconomicCalculationInput |
+    AuthoredEconomicCalculationInput,
     Field(discriminator='input_version')])
 
 
@@ -67,7 +78,8 @@ class _InputHold(ValueError):
 
 
 class EconomicCalculationWorker:
-    def __init__(self, jobs, results, *, tenant_id, lease_seconds=300, farm_scenario_service=None):
+    def __init__(self, jobs, results, *, tenant_id, lease_seconds=300,
+                 farm_scenario_service=None, authored_run_store=None):
         try:
             require_name(tenant_id, 'tenant_id')
             require_seconds(lease_seconds, 'lease_seconds')
@@ -75,6 +87,7 @@ class EconomicCalculationWorker:
                 raise ValueError()
             self.jobs, self.results = jobs, results
             self.farm_scenario_service = farm_scenario_service
+            self.authored_run_store = authored_run_store
             self.authority = EconomicScenarioService(jobs, results._candidates)
             self._binding()
         except Exception:
@@ -96,18 +109,26 @@ class EconomicCalculationWorker:
                     farm.thermal.runs is not self.results._candidates._source._holds._context_store):
                 raise RuntimeError('economic farm binding rejected')
             farm._binding()
+        if self.authored_run_store is not None:
+            authored_economic_pointers(self.authored_run_store, self.jobs,
+                self.results, self.farm_scenario_service)
 
     def _pointers(self):
         candidate = self.results._candidates
         view = candidate._source
         farm = self.farm_scenario_service
         return (self.jobs, self.results, candidate, view, view._source, view._holds, view._holds._context_store,
-            farm, farm._pointers() if farm is not None else None)
+            farm, farm._pointers() if farm is not None else None,
+            authored_economic_pointers(self.authored_run_store, self.jobs, self.results, farm)
+                if self.authored_run_store is not None else None)
 
     def _farm(self, value):
         if type(value) is FarmEconomicCalculationInput:
             return farm_economic_execution_binding(self.farm_scenario_service, self.jobs,
                 self.results, self.tenant_id, value)
+        if type(value) is AuthoredEconomicCalculationInput:
+            return authored_economic_completion(self.authored_run_store, self.jobs,
+                self.results, self.farm_scenario_service, self.tenant_id, value)[0]
         return {}
 
     def _access(self):
@@ -169,7 +190,8 @@ class EconomicCalculationWorker:
                 return None
             candidate = json.loads(self.jobs._verified_input(job))
             if type(candidate) is not dict or candidate.get('input_version') not in (
-                    'economic-calculation-input-v1', 'economic-calculation-input-v2'):
+                    'economic-calculation-input-v1', 'economic-calculation-input-v2',
+                    'economic-calculation-input-v3'):
                 return None
         lease = self.jobs.claim(self.lease_seconds, tenant_id=self.tenant_id,
             allowed_stages=('simulation',), job_id=job_id)
@@ -195,6 +217,8 @@ class EconomicCalculationWorker:
             return self._lost(lease)
         except FarmEconomicHold:
             return self._close(lease, 'hold', 'economic_farm_scenario_hold')
+        except AuthoredEconomicHold:
+            return self._close(lease, 'hold', 'economic_authored_run_hold')
         except (_InputHold, PermissionError, MarketResultDenied):
             return self._close(lease, 'hold', 'economic_input_hold')
         except Exception:
@@ -211,7 +235,8 @@ class EconomicCalculationWorker:
             'result_sha256': sha256(encoded).hexdigest(), 'calculation_status': result.calculation_status,
             'assessment_status': result.assessment_status, 'code_sha256': digests[0], 'environment_sha256': digests[1]}
         if farm:
-            receipt.update(receipt_version='economic-calculation-result-v2', **farm)
+            receipt.update(receipt_version=('economic-calculation-result-v3'
+                if type(value) is AuthoredEconomicCalculationInput else 'economic-calculation-result-v2'), **farm)
         artifact = canonical_input_bytes(receipt)
         digest = sha256(artifact).hexdigest()
         self.jobs._durable_artifact(artifact, digest)

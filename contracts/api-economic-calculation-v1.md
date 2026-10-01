@@ -40,3 +40,14 @@ Standalone schema/read-only assembly retains fixed 503 for this optional service
 Succeeded denotes calculation procedure completion. Unknown amounts remain
 null and the engine's calculation_status and Assessment hold are preserved.
 Actual farm performance, forecast, ranking, CLI workflow and G1/G4 remain held.
+
+## Bound extensions
+
+[Farm replay V2](farm-economic-execution-v1.md) and
+[authored Run V3](authored-economic-execution-v1.md) extend the same endpoint
+with distinct required parent pins and conditional read scopes, including the
+completed money and cash reads. V3 uses the current authored registration and
+actual completed authored Run/release. Bound admission fingerprints those
+references before/at commit; the full Decimal result replay remains in the
+worker and completed reads. Neither variant may discard its parent pins or
+downgrade to V1. OpenAPI declares all three closed inputs and their scopes.

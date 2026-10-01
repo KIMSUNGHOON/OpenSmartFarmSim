@@ -11,10 +11,14 @@ from pydantic import Field, TypeAdapter
 from .api_economics import project_economic_result
 from .api_economic_cash_flow import project_economic_cash_flow
 from .economic_calculation_worker import (EconomicCalculationInput, EconomicCalculationWorker,
-    FarmEconomicCalculationInput, ECONOMIC_INPUT, CALCULATION_SCOPES, _InputHold)
+    FarmEconomicCalculationInput, AuthoredEconomicCalculationInput,
+    ECONOMIC_INPUT, CALCULATION_SCOPES, _InputHold)
 from .farm_economic_execution import (FARM_ECONOMIC_SCOPES, FarmEconomicHold,
     _farm_economic_execution_completion)
 from .api_job_run import VerifiedThermalCompletion
+from .api_authored_thermal import VerifiedAuthoredCompletion
+from .authored_economic_execution import (AUTHORED_ECONOMIC_SCOPES, AuthoredEconomicHold,
+    authored_economic_completion)
 from .jobs import canonical_input_bytes
 from .market_result_codec import encode_market_result
 from .market_scenario import MarketScenarioResult
@@ -33,13 +37,26 @@ class FarmEconomicCalculationRequest(FarmEconomicCalculationInput):
     idempotency_key: str = Field(pattern=IDENTIFIER, max_length=200)
 
 
-ECONOMIC_REQUEST = TypeAdapter(Annotated[EconomicCalculationRequest | FarmEconomicCalculationRequest,
+class AuthoredEconomicCalculationRequest(AuthoredEconomicCalculationInput):
+    idempotency_key: str = Field(pattern=IDENTIFIER, max_length=200)
+
+
+ECONOMIC_REQUEST = TypeAdapter(Annotated[EconomicCalculationRequest | FarmEconomicCalculationRequest |
+    AuthoredEconomicCalculationRequest,
     Field(discriminator='input_version')])
 
 
 def economic_request_schema():
     return {'oneOf': [model.model_json_schema() for model in
-        (EconomicCalculationRequest, FarmEconomicCalculationRequest)]}
+        (EconomicCalculationRequest, FarmEconomicCalculationRequest, AuthoredEconomicCalculationRequest)]}
+
+
+def additional_economic_scopes(value):
+    if value.input_version == 'economic-calculation-input-v2':
+        return FARM_ECONOMIC_SCOPES
+    if value.input_version == 'economic-calculation-input-v3':
+        return AUTHORED_ECONOMIC_SCOPES
+    return ()
 
 
 class EconomicCalculationHold(ValueError):
@@ -52,15 +69,17 @@ class VerifiedEconomicCompletion:
     receipt: dict
     result: MarketScenarioResult
     thermal_completion: VerifiedThermalCompletion | None
+    authored_completion: VerifiedAuthoredCompletion | None = None
 
 
 class EconomicCalculationService:
-    def __init__(self, jobs, results, farm_scenario_service=None):
+    def __init__(self, jobs, results, farm_scenario_service=None, authored_run_store=None):
         self.jobs, self.results = jobs, results
         self.farm_scenario_service = farm_scenario_service
+        self.authored_run_store = authored_run_store
         try:
             EconomicCalculationWorker(jobs, results, tenant_id='binding-check',
-                farm_scenario_service=farm_scenario_service)
+                farm_scenario_service=farm_scenario_service, authored_run_store=authored_run_store)
         except Exception:
             raise ValueError('economic calculation service binding rejected') from None
 
@@ -71,14 +90,16 @@ class EconomicCalculationService:
         if (self.jobs is not worker.jobs or self.results is not worker.results or
                 self.farm_scenario_service is not worker.farm_scenario_service or worker._pointers() != pointers):
             raise RuntimeError('economic calculation service binding changed')
+        if self.authored_run_store is not worker.authored_run_store:
+            raise RuntimeError('economic calculation authored store changed')
 
     @staticmethod
     def _prepare(worker, value):
         try:
-            if type(value) is FarmEconomicCalculationInput:
+            if type(value) in (FarmEconomicCalculationInput, AuthoredEconomicCalculationInput):
                 return canonical_input_bytes(worker._farm(value))
             return encode_market_result(worker._calculate(value))
-        except (_InputHold, FarmEconomicHold):
+        except (_InputHold, FarmEconomicHold, AuthoredEconomicHold):
             raise EconomicCalculationHold('economic calculation input unavailable') from None
         except ValueError:
             raise RuntimeError('economic calculation source unavailable') from None
@@ -86,9 +107,9 @@ class EconomicCalculationService:
     def submit(self, tenant, body):
         body = ECONOMIC_REQUEST.validate_python(body.model_dump(mode='json'))
         worker = EconomicCalculationWorker(self.jobs, self.results, tenant_id=tenant,
-            farm_scenario_service=self.farm_scenario_service)
+            farm_scenario_service=self.farm_scenario_service, authored_run_store=self.authored_run_store)
         pointers = worker._pointers()
-        scopes = CALCULATION_SCOPES + (FARM_ECONOMIC_SCOPES if type(body) is FarmEconomicCalculationRequest else ())
+        scopes = CALCULATION_SCOPES + additional_economic_scopes(body)
         def guard():
             self._guard(tenant, worker, pointers, scopes)
         guard()
@@ -120,7 +141,7 @@ class EconomicCalculationService:
 
     def _read_job_result(self, tenant, job_id, project):
         worker = EconomicCalculationWorker(self.jobs, self.results, tenant_id=tenant,
-            farm_scenario_service=self.farm_scenario_service)
+            farm_scenario_service=self.farm_scenario_service, authored_run_store=self.authored_run_store)
         pointers = worker._pointers()
         scopes = ECONOMIC_JOB_READ_SCOPES
         def guard():
@@ -138,12 +159,12 @@ class EconomicCalculationService:
         guard()
         data = json.loads(raw_input)
         if type(data) is not dict or data.get('input_version') not in (
-                'economic-calculation-input-v1', 'economic-calculation-input-v2'):
+                'economic-calculation-input-v1', 'economic-calculation-input-v2',
+                'economic-calculation-input-v3'):
             return None
         value = ECONOMIC_INPUT.validate_json(raw_input)
-        if type(value) is FarmEconomicCalculationInput:
-            scopes += FARM_ECONOMIC_SCOPES
-            guard()
+        scopes += additional_economic_scopes(value)
+        guard()
         if canonical_input_bytes(value.model_dump(mode='json')) != raw_input:
             raise RuntimeError('economic job input differs')
         publication = self.jobs.get_publication(tenant, job_id)
@@ -185,14 +206,18 @@ class EconomicCalculationService:
             'result_sha256': sha256(encode_market_result(result)).hexdigest(),
             'calculation_status': result.calculation_status, 'assessment_status': result.assessment_status,
             'code_sha256': receipt['code_sha256'], 'environment_sha256': receipt['environment_sha256']}
-        thermal = None
+        thermal = authored = None
         if type(value) is FarmEconomicCalculationInput:
             binding, thermal = _farm_economic_execution_completion(
                 self.farm_scenario_service, self.jobs, self.results, tenant, value)
             expected.update(receipt_version='economic-calculation-result-v2', **binding)
+        elif type(value) is AuthoredEconomicCalculationInput:
+            binding, authored = authored_economic_completion(self.authored_run_store,
+                self.jobs, self.results, self.farm_scenario_service, tenant, value)
+            expected.update(receipt_version='economic-calculation-result-v3', **binding)
         if receipt != expected:
             raise RuntimeError('economic completed receipt differs')
         try:
-            return project(VerifiedEconomicCompletion(value, receipt, result, thermal))
+            return project(VerifiedEconomicCompletion(value, receipt, result, thermal, authored))
         finally:
             guard()

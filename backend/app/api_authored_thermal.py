@@ -1,5 +1,6 @@
 """Bounded display projection of a currently verified authored thermal Run."""
 
+from dataclasses import dataclass
 from datetime import timedelta
 from hashlib import sha256
 import json
@@ -143,10 +144,20 @@ def project_authored_run(stored):
         raise ValueError('authored thermal display unavailable') from None
 
 
-def read_authored_job_run(jobs, runs, tenant, job_id):
+@dataclass(frozen=True)
+class VerifiedAuthoredCompletion:
+    value: dict
+    receipt: dict
+    stored: dict
+    summary: dict
+    input_sha256: str
+
+
+def read_authored_job_completion(jobs, runs, tenant, job_id):
     """Discover only the authored Run published by this exact completed job."""
     job = jobs.get_job(tenant, job_id)
-    if job is None or job['stage'] != 'simulation' or job['state'] != 'succeeded':
+    if (job is None or job['stage'] != 'simulation' or job['state'] != 'succeeded' or
+            job['cancel_requested']):
         return None
     publication = jobs.get_publication(tenant, job_id)
     if publication is None:
@@ -159,13 +170,26 @@ def read_authored_job_run(jobs, runs, tenant, job_id):
     if stored is None:
         raise ValueError('authored job Run unavailable')
     report = stored['report']
-    expected_input = canonical_input_bytes({
+    value = {
         'input_version': 'authored-thermal-simulation-input-v1',
         'tenant_id': tenant,
         'review_job_id': report['review_job_id'],
         'scenario_id': report['scenario_id'],
         'scenario_revision': report['scenario_revision'],
-        'registration_sha256': report['registration_sha256']})
+        'registration_sha256': report['registration_sha256']}
+    expected_input = canonical_input_bytes(value)
+    raw = jobs.read_artifact(tenant, job_id)
+    _need(type(raw) is bytes and 1 <= len(raw) <= 4096 and
+          type(publication.get('artifact_size')) is int and
+          publication['artifact_size'] == len(raw) and
+          sha256(raw).hexdigest() == publication['artifact_sha256'])
+    receipt = json.loads(raw)
+    _need(type(receipt) is dict and canonical_input_bytes(receipt) == raw)
+    with jobs.connect() as conn:
+        current = jobs._locked_job(conn, tenant, job_id)
+        _need(current is not None and current['state'] == 'succeeded' and
+              not current['cancel_requested'] and
+              jobs._verified_input(current) == expected_input)
     _need(report['simulation_job_id'] == str(job_id) and
           sha256(expected_input).hexdigest() == job['input_sha256'] and
           publication['tenant_id'] == tenant and
@@ -177,4 +201,10 @@ def read_authored_job_run(jobs, runs, tenant, job_id):
               'attempt': job['attempt_count'],
               'artifact_sha256': publication['artifact_sha256'],
               'run_id': run_id})
-    return project_authored_run(stored)[0]
+    return VerifiedAuthoredCompletion(value, receipt, stored,
+        project_authored_run(stored)[0], job['input_sha256'])
+
+
+def read_authored_job_run(jobs, runs, tenant, job_id):
+    completion = read_authored_job_completion(jobs, runs, tenant, job_id)
+    return completion.summary if completion is not None else None

@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app.api import create_app
 from app.api_contracts import LocationPoint
 from app.api_authored_thermal import AUTHORED_READ_SCOPES
+from app.authored_economic_execution import AUTHORED_ECONOMIC_SCOPES
 from app.farm_authoring_storage import READ_SCOPES as FARM_AUTHORING_READ_SCOPES, WRITE_SCOPES as FARM_AUTHORING_WRITE_SCOPES
 from app.farm_authored_review import REVIEW_SCOPES as FARM_AUTHORED_REVIEW_SCOPES
 from app import api_openapi
@@ -140,7 +141,8 @@ def test_snapshot_matches_actual_routes_and_public_protocol():
     for operation,version in ((('/v1/economic-results','post'),'economic-calculation-input-v2'),
             (('/v1/jobs/{job_id}/economic-result','get'),'economic-calculation-input-v2'),
             (('/v1/jobs/{job_id}/economic-cash-flow','get'),'economic-calculation-input-v2')):
-        assert operations[operation]['x-ossf-conditional-scopes'] == {version:farm_economic_scopes}
+        assert operations[operation]['x-ossf-conditional-scopes'] == {
+            version:farm_economic_scopes, 'economic-calculation-input-v3': list(AUTHORED_ECONOMIC_SCOPES)}
     assert '202' in submission['responses'] and '200' not in submission['responses']
     raw = api_openapi.contract_bytes()
     assert b"synthetic-service-a-" not in raw and b"tenant-a" not in raw

@@ -1,5 +1,24 @@
 # 첫 구현 작업 목록
 
+## 작성 Run 경제·평가 연결 (2026-10-01)
+
+- [x] **`authored-economic-execution`** — 선행: 저장 작성 Run과 현재 농장/경제 판본 제공자.
+  [입력/영수증 V3 계약](../contracts/authored-economic-execution-v1.md)의 접수·작업자·완료 금액/현금 조회와
+  표준 런타임 조립을 구현했다. 실제 SCRAM에서 완료 부모·현재 권리·같은 경제 후보·안정 재요청,
+  혼합/미완료/다른 테넌트/누락 제공자 거부 및 접수·게시 직후 변경 롤백을 확인했다.
+  [집중 소프트웨어 증거](../research/authored-economic-execution-implementation.md): 서로 다른 시험 82개가 통과했다.
+  호스팅 전체 CI·제품 CLI·독립 G1과 웹/평가 연결은 이 체크의 수용 범위 밖이다.
+- [ ] **`authored-calculation-assessment`** — 선행: `authored-economic-execution`.
+  작성 열 작업과 V3 경제 작업의 정확한 완료 입력/영수증/농장·해제·문맥 연결을
+  별도 평가 입력 판본으로 고정하고 기존 CLI 계약 라우터·보류 조회에 연결한다.
+  두 경로 혼합·다른 부모·현재 권리 철회·늦은 변경 롤백과 기존 평가 호환을 확인한다.
+- [ ] **`web-authored-economic-assessment`** — 선행: `authored-calculation-assessment`.
+  같은 계정의 작성 Run 선택에서 같은 경제 판본의 접수·조회와 평가로 이어지게 한다.
+  식별자를 직접 알지 않아도 저장 부모를 선택하게 하며, 응답 유실·재연결·계정 변경,
+  실제 HTTPS/SCRAM 브라우저의 조건부 금액/현금·보류와 3D 연결을 확인한다.
+
+## 기존 구현 진행 기록
+
 **완료 계산의 웹 평가 연결 (2026-10-01):** [06 계산 평가](../contracts/web-calculation-assessment-v1.md)는 기존 열·경제 작업 ID를 서버 검증 접수에 연결하고, 저장된 보류 근거를 조회·재연결한다. 웹 단위 93개, 집중 Chromium 6개와 실제 HTTPS/PostgreSQL 16.15/SCRAM·시험용 CLI 연결 1개가 통과했다([기록](../research/web-calculation-assessment-implementation.md)). 운영자 식별자 입력 경로이며 일반 지역 흐름·작성 Run 경제/평가·실제 제품 CLI·독립 해제·G1은 후속이다. 전체 `web-shell`/`end-to-end-g1` 체크는 유지한다.
 
 **필수 모델 변경 (2026-10-01):** [명시적 DB 이전·되돌리기](../contracts/cli-model-policy-migration-v1.md), 새 실행 검증과 개발 설정을 변경했다([161개 집중 시험](../research/cli-model-migration-implementation.md)). 과거 완료 항목의 모델명은 실제 실행 이력이며 보존한다. 새 모델의 제품 CLI·독립 해제·G1/G4 수용 체크는 유지한다.

@@ -40,10 +40,11 @@ from .api_economic_scenario import (EconomicScenarioService, EconomicScenarioReq
 from .api_market_source import _inline_schema
 from .market_candidate_store import MarketCandidateDenied, MarketCandidateConflict
 from .api_economic_calculation import (EconomicCalculationService, ECONOMIC_REQUEST,
-    FarmEconomicCalculationRequest, economic_request_schema,
+    additional_economic_scopes, economic_request_schema,
     EconomicCalculationHold, ECONOMIC_JOB_READ_SCOPES)
 from .farm_economic_execution import FARM_ECONOMIC_SCOPES
 from .economic_calculation_worker import CALCULATION_SCOPES
+from .authored_economic_execution import AUTHORED_ECONOMIC_SCOPES
 from .break_even_plan_submission import (BreakEvenPlanSubmissionService, BreakEvenPlanSubmission,
     BreakEvenPlanAccepted, PLAN_SUBMISSION_SCOPES, BreakEvenPlanReceipt, PLAN_RECEIPT_SCOPES, PlanReceiptConflict)
 from .jobs import canonical_input_bytes
@@ -157,7 +158,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             type(economic_calculation_service) is not EconomicCalculationService or
             economic_calculation_service.jobs is not job_store or
             economic_calculation_service.results is not market_result_store or
-            economic_calculation_service.farm_scenario_service is not farm_scenario_service):
+            economic_calculation_service.farm_scenario_service is not farm_scenario_service or
+            (economic_calculation_service.authored_run_store is not None and
+             economic_calculation_service.authored_run_store is not authored_run_store)):
         raise ValueError('trusted economic calculation service required')
     if break_even_plan_service is not None and (
             type(break_even_plan_service) is not BreakEvenPlanSubmissionService or
@@ -801,7 +804,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
               operation_id='submitEconomicCalculation',
               responses={status: {'model': ErrorEnvelope} for status in (401, 403, 409, 413, 415, 422, 503)},
               openapi_extra={**_access(CALCULATION_SCOPES), 'x-ossf-max-body-bytes': 4096,
-                  'x-ossf-conditional-scopes':{'economic-calculation-input-v2':list(FARM_ECONOMIC_SCOPES)},
+                  'x-ossf-conditional-scopes':{
+                      'economic-calculation-input-v2':list(FARM_ECONOMIC_SCOPES),
+                      'economic-calculation-input-v3':list(AUTHORED_ECONOMIC_SCOPES)},
                   'requestBody': {'required': True, 'content': {'application/json': {
                   'schema': economic_request_schema()}}}})
     async def post_economic_calculation(request: Request):
@@ -817,8 +822,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         except (ValueError, UnicodeError, RecursionError):
             return _error(422, 'invalid_request', 'Invalid request')
         try:
-            if type(body) is FarmEconomicCalculationRequest:
-                _, denied = authorized_tenant(*FARM_ECONOMIC_SCOPES)
+            extra_scopes = additional_economic_scopes(body)
+            if extra_scopes:
+                _, denied = authorized_tenant(*extra_scopes)
                 if denied is not None:
                     return denied
             return public_job_status(await run_in_threadpool(economic_calculation_service.submit, tenant, body))
@@ -833,7 +839,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
 
     @app.get('/v1/jobs/{job_id}/economic-result', response_model=EconomicResultRead,
              responses=errors, operation_id='getJobEconomicResult', openapi_extra={**_access(ECONOMIC_JOB_READ_SCOPES),
-                 'x-ossf-conditional-scopes':{'economic-calculation-input-v2':list(FARM_ECONOMIC_SCOPES)}})
+                 'x-ossf-conditional-scopes':{
+                     'economic-calculation-input-v2':list(FARM_ECONOMIC_SCOPES),
+                     'economic-calculation-input-v3':list(AUTHORED_ECONOMIC_SCOPES)}})
     def get_job_economic_result(job_id: UUID):
         tenant, denied = authorized_tenant(*ECONOMIC_JOB_READ_SCOPES)
         if denied is not None:
@@ -852,7 +860,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
 
     @app.get('/v1/jobs/{job_id}/economic-cash-flow', response_model=EconomicCashPage,
              responses=errors, operation_id='getJobEconomicCashFlow', openapi_extra={**_access(ECONOMIC_JOB_READ_SCOPES),
-                 'x-ossf-conditional-scopes':{'economic-calculation-input-v2':list(FARM_ECONOMIC_SCOPES)}})
+                 'x-ossf-conditional-scopes':{
+                     'economic-calculation-input-v2':list(FARM_ECONOMIC_SCOPES),
+                     'economic-calculation-input-v3':list(AUTHORED_ECONOMIC_SCOPES)}})
     def get_job_economic_cash_flow(job_id: UUID, limit: Annotated[int, Query(ge=1,le=24)]=12,
                                   after_month: Annotated[str|None, Query(pattern=MONTH_PATTERN)]=None):
         tenant, denied = authorized_tenant(*ECONOMIC_JOB_READ_SCOPES)

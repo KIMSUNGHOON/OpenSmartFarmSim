@@ -64,6 +64,9 @@ def test_standard_https_reads_owned_authored_run_and_holds_stale_evidence(
         seen.append((job_store, farm_scenario_service))
         preparer.authoring = FarmAuthoringService(farm_scenario_service)
         preparer.release_store.jobs = job_store
+        preparer.release_store.verifier.completion.review = FarmAuthoredReviewService(preparer.authoring)
+        preparer.release_store.verifier.completion.jobs = job_store
+        preparer.release_store.verifier.completion.runs = farm_scenario_service.thermal.runs
         return AuthoredRunStore(preparer, gate_key)
 
     runtime_config = config(policy=jobs.runtime_identity[0], dsn=jobs._dsn,
@@ -96,6 +99,7 @@ def test_standard_https_reads_owned_authored_run_and_holds_stale_evidence(
     assert type(runtime.farm_reviews) is FarmAuthoredReviewService
     assert runtime.farm_reviews.authoring is runtime.farm_authoring
     assert runtime.authored_simulation.run_store is runtime.authored_runs
+    assert runtime.economic_calculations.authored_run_store is runtime.authored_runs
     server = runtime.service.server()
     thread = threading.Thread(target=server.run, daemon=True)
     thread.start()

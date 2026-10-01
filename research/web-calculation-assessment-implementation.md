@@ -63,8 +63,15 @@ required future work. Unknown admission reload recovery is still pending.
   six persisted hold categories and zero browser errors. The browser uses the
   real API/DB and its unchanged 30-second request timeout; the CLI executable
   and authority fixtures are synthetic. No recommendation publication exists.
-  The hosted authored API workflow now explicitly runs this test; PostgreSQL
-  18/hosted proof for this change remains pending.
+  The hosted authored API workflow explicitly runs this test.
+- Hosted PostgreSQL 18.6 proof on exact head
+  `6426c9c7df10da5012177e00499357ee7a62f8bd` passed in
+  [run 36791942886](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36791942886):
+  **82 API/migration tests in 196.35 s**, followed by **3 actual HTTPS/browser
+  tests in 274.38 s**. The assessment test reported one POST, five HTTPS
+  responses, six holds and zero console errors. Web CI and C0 were also green;
+  the broad backend run was still active when inspected. This evidence uses
+  fake CLI and synthetic review authorities and does not accept G1.
 
 ## Remaining acceptance
 
