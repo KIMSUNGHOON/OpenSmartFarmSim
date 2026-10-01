@@ -2,7 +2,7 @@ import { test,expect } from '@playwright/test';
 import { source,candidate,research,selected,sourcePath,sourceToken,routeSourceFixture,
   openComposer,chooseSource,chooseEconomics,fillExplicitFarm } from './source-farm-fixture';
 
-test('exact saved source and economic pin reach registration with an identical uncertain retry',async({page})=>{
+test('exact saved source and economic pin reach registration with an identical uncertain retry',async({page},testInfo)=>{
   const calls:string[]=[];await routeSourceFixture(page);
   await page.route('**/v1/farm-authored-inputs',async route=>{
     expect(route.request().headers().authorization).toBe('Bearer '+sourceToken);
@@ -13,7 +13,12 @@ test('exact saved source and economic pin reach registration with an identical u
       registration_status:'registered_unpublished_inputs',intent_job:{...research.job,stage:'collection',
         job_id:'55555555-5555-4555-8555-555555555555',state:'queued',attempt_count:0}}});
   });
-  await openComposer(page);await chooseSource(page);await chooseEconomics(page);
+  await openComposer(page);
+  await page.getByRole('button',{name:'02 작업과 근거',exact:true}).click();
+  await page.getByRole('button',{name:'저장된 조사 보기',exact:true}).click();
+  await page.getByRole('button',{name:/35° N · 127° E/}).click();
+  await page.getByRole('button',{name:'04 작성 농장 실행',exact:true}).click();
+  await chooseSource(page);await chooseEconomics(page);
   await expect(page.getByRole('region',{name:'선택한 원천 참조'})).toContainText('G0/G1 미수용');
   await expect(page.locator('input[name="decision_at"]')).toHaveValue(source.decision_at_utc);
   await expect(page.locator('input[name="decision_at"]')).toHaveAttribute('readonly','');
@@ -23,10 +28,23 @@ test('exact saved source and economic pin reach registration with an identical u
   await page.getByRole('button',{name:'입력 내용 검토',exact:true}).click();
   await page.getByRole('button',{name:'불변 입력 판본 등록',exact:true}).click();
   await expect(page.getByRole('alert')).toContainText('같은 입력과 판본');
-  for(const name of ['원천 다시 선택','경제 판본 다시 선택','참조 직접 입력','저장된 판본 찾기'])
+  for(const name of ['원천 다시 선택','경제 판본 다시 선택','참조 직접 입력','저장된 판본 찾기',
+    '연결 설정','연결 해제'])
     await expect(page.getByRole('button',{name,exact:true})).toBeDisabled();
+  await page.getByRole('button',{name:'01 입력 설정',exact:true}).click();
+  await expect(page.getByRole('button',{name:'자료 조사 요청',exact:true})).toBeDisabled();
+  await expect(page.getByRole('button',{name:'새 입력',exact:true})).toBeDisabled();
+  await expect(page.getByRole('status').filter({hasText:'농장 입력의 등록 접수'})).toBeVisible();
+  await page.getByRole('button',{name:'02 작업과 근거',exact:true}).click();
+  for(const name of ['현재 상태 확인','저장된 조사 보기','수집 상태 확인','검토 상태 확인','저장된 시도 보기'])
+    await expect(page.getByRole('button',{name,exact:true})).toBeDisabled();
+  await expect(page.getByLabel('접근 토큰')).toHaveValue('');
+  await page.evaluate(()=>window.scrollTo(0,0));
+  await page.screenshot({path:testInfo.outputPath('source-farm-registration-lock.png')});
+  await page.getByRole('button',{name:'04 작성 농장 실행',exact:true}).click();
   await page.getByRole('button',{name:'같은 입력으로 등록 재확인',exact:true}).click();
   await expect(page.getByText('입력 등록됨 · 계산 전', {exact:true})).toBeVisible();
+  await expect(page.getByRole('button',{name:'연결 설정',exact:true})).toBeEnabled();
   expect(calls).toHaveLength(2);expect(calls[0]).toBe(calls[1]);
   const body=JSON.parse(calls[1]!);
   expect(body.farm.research_job_id).toBe(source.research_job_id);
@@ -37,6 +55,29 @@ test('exact saved source and economic pin reach registration with an identical u
   const storage=await page.evaluate(()=>({...sessionStorage,...localStorage}));
   expect(JSON.stringify(storage)).not.toContain(sourceToken);
   expect(JSON.stringify(storage)).not.toContain('1000000');
+});
+
+test('invalid farm registration acknowledgement stays pinned until a bounded refusal',async({page})=>{
+  const calls:string[]=[];await routeSourceFixture(page);
+  await page.route('**/v1/farm-authored-inputs',route=>{
+    calls.push(route.request().postData()??'');
+    return calls.length===1?route.fulfill({status:200,json:{unexpected:'not-an-acknowledgement'}}):
+      route.fulfill({status:422,json:{code:'invalid_request'}});
+  });
+  await openComposer(page);await chooseSource(page);await chooseEconomics(page);
+  await fillExplicitFarm(page);await page.locator('.authored-rights input').check();
+  await page.getByRole('button',{name:'입력 내용 검토',exact:true}).click();
+  await page.getByRole('button',{name:'불변 입력 판본 등록',exact:true}).click();
+  await expect(page.getByRole('alert')).toContainText('같은 입력과 판본');
+  await expect(page.getByRole('button',{name:'연결 설정',exact:true})).toBeDisabled();
+  await expect(page.locator('input[name="scenario_id"]')).toBeDisabled();
+  await page.getByRole('button',{name:'같은 입력으로 등록 재확인',exact:true}).click();
+  await expect(page.getByRole('alert')).toContainText('서버가 입력·현재 출처·권리를 확인하지 못했습니다');
+  await expect(page.getByRole('button',{name:'연결 설정',exact:true})).toBeEnabled();
+  await expect(page.locator('input[name="scenario_id"]')).toBeEditable();
+  await expect(page.getByRole('button',{name:'입력 내용 검토',exact:true})).toBeEnabled();
+  await expect(page.getByRole('region',{name:'제출 전 확인'})).toHaveCount(0);
+  expect(calls).toHaveLength(2);expect(calls[0]).toBe(calls[1]);
 });
 
 test('changing a source or economic choice removes preview and rights but preserves explicit physical inputs',async({page})=>{

@@ -50,6 +50,7 @@ export default function App() {
   const [financialLock,setFinancialLock]=useState(false);
   const [assessmentLock,setAssessmentLock]=useState(false);
   const [authoredFinancialLock,setAuthoredFinancialLock]=useState(false);
+  const [authoringLock,setAuthoringLock]=useState(false);
   const [financialSelection,setFinancialSelection]=useState<{jobId:string;key:string}|undefined>();
   const [intent,setIntent]=useState<LocationIntent|null>(null); const pinned=useRef<LocationIntent|null>(null);
   const jobId=useRef<string|null>(null); const inFlight=useRef(false); const generation=useRef(0);
@@ -58,6 +59,7 @@ export default function App() {
   const [job,setJob]=useState<JobStatus|null>(null); const [hold,setHold]=useState<JobHold|null>(null);
   const [error,setError]=useState<ApiError|null>(null);
   const [checked,setChecked]=useState<string|null>(null);
+  const connectionLocked=busy || financialLock || assessmentLock || authoredFinancialLock || authoringLock;
   useEffect(()=>{
     const reveal=()=>{
       const nav=navRef.current;
@@ -69,21 +71,21 @@ export default function App() {
     return()=>window.removeEventListener('resize',reveal);
   },[view]);
   function reset() {
-    if(busy || financialLock || assessmentLock || authoredFinancialLock)return;
+    if(connectionLocked)return;
     generation.current++; pinned.current=null; jobId.current=null;
     setIntent(null);setAccepted(null);setRestoredSource(null);setJob(null);setHold(null);setError(null);setChecked(null);
     setReplaySelection(undefined);setFinancialSelection(undefined);setView('input');
   }
   function connect(event:FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if(busy || financialLock || assessmentLock || authoredFinancialLock)return;
+    if(connectionLocked)return;
     try { const client=createApi(token);generation.current++;pinned.current=null;jobId.current=null;
       setApi(client);setToken('');setIntent(null);setView('input');
       setAccepted(null);setRestoredSource(null);setJob(null);setHold(null);setError(null);setChecked(null);setReplaySelection(undefined);setFinancialSelection(undefined); }
     catch(error) { setError(error instanceof ApiError ? error : new ApiError('auth_required')); }
   }
   async function submit(event:FormEvent<HTMLFormElement>) {
-    event.preventDefault(); if (inFlight.current) return;
+    event.preventDefault(); if (inFlight.current || authoringLock) return;
     if (!api) {setError(new ApiError('auth_required'));return;}
     const epoch=generation.current;inFlight.current=true;setBusy(true);setError(null);
     try {
@@ -97,7 +99,7 @@ export default function App() {
     finally {inFlight.current=false;if (epoch===generation.current) setBusy(false);}
   }
   async function refresh() {
-    if (!api || !jobId.current || inFlight.current) return;
+    if (!api || !jobId.current || inFlight.current || authoringLock) return;
     const epoch=generation.current;inFlight.current=true;setBusy(true);setError(null);
     try {
       const result=await api.job(jobId.current);
@@ -141,21 +143,23 @@ export default function App() {
       <details className="connection"><summary>내부 시험 연결</summary>
         <p>운영자가 발급한 접근 토큰을 입력하세요. 토큰은 저장하지 않으며, 페이지를 새로 열면 다시 연결해야 합니다.</p>
         <form onSubmit={connect}><label>접근 토큰<input type="password" value={token} onChange={e=>setToken(e.target.value)}
-          autoComplete="off" spellCheck={false} required disabled={busy || financialLock || assessmentLock || authoredFinancialLock}/></label>
-          <button className="button" disabled={busy || financialLock || assessmentLock || authoredFinancialLock}>연결 설정</button>
-          {api && <button type="button" className="button secondary" disabled={busy || financialLock || assessmentLock || authoredFinancialLock} onClick={()=>{reset();setApi(null);setToken('');setLatitude('');setLongitude('');setStartDate('');setStartTime('');}}>연결 해제</button>}
+          autoComplete="off" spellCheck={false} required disabled={connectionLocked}/></label>
+          <button className="button" disabled={connectionLocked}>연결 설정</button>
+          {api && <button type="button" className="button secondary" disabled={connectionLocked} onClick={()=>{reset();setApi(null);setToken('');setLatitude('');setLongitude('');setStartDate('');setStartTime('');}}>연결 해제</button>}
         </form><p className="connection-state">{api ? '연결 정보 설정됨 · 권한은 서버가 요청마다 확인합니다.' : '접근 토큰을 설정해 주세요.'}</p>
       </details>
       {error && <div className="notice error" role="alert">{errorNames[error.code] ?? '요청을 확인할 수 없습니다.'}</div>}
-      <div hidden={view!=='economic'}><EconomicWorkspace api={api} onPending={setFinancialLock} blocked={busy || assessmentLock || authoredFinancialLock}/></div>
-      <div hidden={view!=='assessment'}><AssessmentWorkspace api={api} onPending={setAssessmentLock} blocked={busy || financialLock || authoredFinancialLock}/></div>
+      {authoringLock && view!=='authored' && <p className="notice" role="status">
+        농장 입력의 등록 접수를 확인해야 합니다. 04 작성 농장 실행에서 같은 요청을 다시 확인하세요.</p>}
+      <div hidden={view!=='economic'}><EconomicWorkspace api={api} onPending={setFinancialLock} blocked={busy || assessmentLock || authoredFinancialLock || authoringLock}/></div>
+      <div hidden={view!=='assessment'}><AssessmentWorkspace api={api} onPending={setAssessmentLock} blocked={busy || financialLock || authoredFinancialLock || authoringLock}/></div>
       <div hidden={view!=='authored-financial'}><AuthoredFinancialWorkspace key={financialSelection?.key ?? 'financial'} api={api}
-        initialJobId={financialSelection?.jobId} onPending={setAuthoredFinancialLock} blocked={busy || financialLock || assessmentLock}
+        initialJobId={financialSelection?.jobId} onPending={setAuthoredFinancialLock} blocked={busy || financialLock || assessmentLock || authoringLock}
         onOpenReplay={jobId=>{setReplaySelection({kind:'authored',jobId,autoLoad:true});setView('replay');}}/></div>
-      <div hidden={view!=='authored'}><AuthoredFarmWorkspace api={api} onOpenReplay={jobId=>{
+      <div hidden={view!=='authored'}><AuthoredFarmWorkspace api={api} onPending={setAuthoringLock} onOpenReplay={jobId=>{
         setReplaySelection({kind:'authored',jobId});setView('replay');}}
-        financialBlocked={busy || financialLock || assessmentLock || authoredFinancialLock}
-        onOpenFinancial={jobId=>{if(busy || financialLock || assessmentLock || authoredFinancialLock)return;
+        financialBlocked={connectionLocked}
+        onOpenFinancial={jobId=>{if(connectionLocked)return;
           setFinancialSelection({jobId,key:crypto.randomUUID()});setView('authored-financial');}}/></div>
       {view==='replay' && <Suspense fallback={<p role="status">재생 화면 준비 중…</p>}><Replay api={api} initialSelection={replaySelection}
         autoLoadInitialSelection={replaySelection?.autoLoad ?? false}/></Suspense>}
@@ -182,8 +186,8 @@ export default function App() {
           <p>한 구역의 온도·습도·설비 반응이 계산 대상입니다. 승인된 입력과 모델이 있어야 계산을 진행할 수 있습니다.</p></div>
           <div className="scope-detail"><span className="badge">검토 전</span><p>현재 화면에서는 자료 조사 접수와 작업·보류 근거를 확인합니다.</p></div></section>
         <div className="form-actions"><p>합성 시험만으로 현장 정확도나 작물의 우열을 판단하지 않습니다.</p>
-          <button type="button" className="button secondary" disabled={busy || financialLock || assessmentLock || authoredFinancialLock || !canReset} onClick={reset}>새 입력</button>
-          <button className="button primary" disabled={busy || financialLock || assessmentLock || authoredFinancialLock}>{busy ? '접수 확인 중…' : pinned.current ? '같은 요청 다시 확인' : '자료 조사 요청'}</button></div>
+          <button type="button" className="button secondary" disabled={connectionLocked || !canReset} onClick={reset}>새 입력</button>
+          <button className="button primary" disabled={connectionLocked}>{busy ? '접수 확인 중…' : pinned.current ? '같은 요청 다시 확인' : '자료 조사 요청'}</button></div>
       </form> : <div className="work-layout" id="viewport-1-b-progress">
         <section className="panel work-panel"><p className="step-number">현재 작업</p><h2>서버 작업 기록</h2>
           {job ? <><div className="job-status" role="status"><span className="status-dot"/><strong>{statusNames[job.state]}</strong></div>
@@ -193,7 +197,7 @@ export default function App() {
               <div><dt>서버 기록 갱신</dt><dd>{timestamp(job.updated_at)}<small>서버 시각: {job.updated_at}</small></dd></div></dl>
             <p className="muted">작업 완료는 현장 정확도나 추천 승인과 별개입니다.</p>
           </> : <p>표시할 작업을 서버에서 아직 확인하지 않았습니다.</p>}
-          <button className="button primary" onClick={refresh} disabled={busy || !api || !jobId.current}>{busy ? '확인 중…' : '현재 상태 확인'}</button>
+          <button className="button primary" onClick={refresh} disabled={busy || authoringLock || !api || !jobId.current}>{busy ? '확인 중…' : '현재 상태 확인'}</button>
           {checked && <p className="muted">마지막 화면 확인: {timestamp(checked)}</p>}
           {job && <details className="job-reference"><summary>작업 식별자</summary><code>{job.job_id}</code></details>}
         </section>
@@ -210,7 +214,7 @@ export default function App() {
         </section>
       </div>}
       <div hidden={view!=='work'}><SourceWorkflow api={api} researchJob={job}
-        restored={restoredSource} blocked={busy} onRestore={detail=>{
+        restored={restoredSource} blocked={busy || authoringLock} onRestore={detail=>{
           generation.current++;pinned.current=null;jobId.current=detail.research.job.job_id;
           setIntent(null);setAccepted(null);setRestoredSource(detail);setJob(detail.research.job);
           setHold(null);setError(null);setChecked(new Date().toISOString());setView('work');

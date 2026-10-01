@@ -136,10 +136,11 @@ export default function AuthoredFarmComposer({api,onRegistered,onPending}:{api:A
     } catch(value) {
       if(!alive.current)return;
       const code=value instanceof ApiError?value.code:'network_unresolved';
-      if(code==='network_unresolved'||code==='server_unavailable') {
+      if(code==='network_unresolved'||code==='server_unavailable'||code==='response_rejected') {
         setUncertain(true);
         setError('응답이 불확실합니다. 같은 입력과 판본으로 저장 접수를 다시 확인하세요.');
       } else {
+        setUncertain(false);
         setPreview(null);
         setError(code==='intent_conflict'?'같은 판본에 다른 입력이 저장되어 있습니다. 새 판본을 선택하세요.':
           code==='access_denied'?'입력 등록 권한이 없습니다.':

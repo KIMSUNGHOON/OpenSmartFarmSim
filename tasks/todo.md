@@ -78,6 +78,9 @@
     [화면 보완](../research/source-farm-layout-refinement-implementation.md)은 참조 상세 펼치기·나란한 요약·
     키보드 구역 이동을 확인했다(집중 14개 중 마지막 변경은 영향 사례 1개 재확인, build/typecheck).
     세 상태·세 화면 폭 대조에 넘침/페이지 오류가 없지만 디자인 정밀 수용은 주장하지 않는다.
+    [등록 응답 미확인 잠금 보완](../research/source-farm-registration-lock-implementation.md)은
+    연결 변경과 다른 접수/부모 전환의 차단을 33개 집중 Chromium과 build/typecheck로 확인했다.
+    검증되지 않은 성공은 동일 입력 재확인을 유지하고, 확정 거부는 입력 검토와 연결을 다시 허용한다.
     이번 UI 판본의 호스팅 증거는 남아 체크를 유지한다.
 
 ## 전체 백엔드 CI 실행 경계 보완 (2026-10-01)

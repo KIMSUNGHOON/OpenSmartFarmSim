@@ -34,6 +34,8 @@ typecheck/build가 통과했다. [화면 연결 후보](../research/source-farm-
 [화면 보완](../research/source-farm-layout-refinement-implementation.md)은 참조 상세 펼치기·나란한 요약과
 키보드 구역 이동을 집중 시험·세 상태/세 폭에서 확인했다. 낮은 디자인 일치율을 기록하고
 이번 UI 판본의 호스팅 증거를 확인한 뒤 웹 작업의 수용을 판단한다.
+[등록 응답 미확인 잠금](../research/source-farm-registration-lock-implementation.md)도
+연결 변경·다른 접수/부모 전환을 차단하고 동일 바이트 재확인/확정 거부의 해제를 집중 검증했다.
 기존 고정/농장 재생 경로,
 실제 제품 CLI·독립 해제·전체 G1 수용과 새 원천 코드의 호스팅 CI는 별도 관문으로 유지한다.
 

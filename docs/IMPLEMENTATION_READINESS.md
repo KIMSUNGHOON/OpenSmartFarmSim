@@ -14,8 +14,13 @@
 HTTPS 20개 전체 응답 최대 7.844초/기존 30초 제한, 페이지 복구·권리 철회·쓰기 범위 0개를 확인했다.
 농장 작성의 [저장 원천·경제 선택 화면 후보](../research/source-farm-web-implementation.md)는
 집중 Chromium 14개로 조합 변경·권리 동의 취소·동일 입력 재확인·계정 변경을 확인했다.
-실제 HTTPS/SCRAM 신규 등록→검토/Run→3D의 두 경로도 통과했다. 화면 대조는 낮은 일치율이며
-같은 새 Run의 경제/평가 연속 검증과 화면 보완은 후속이다. 새 호스팅 CI와
+실제 HTTPS/SCRAM 신규 등록→검토/Run→3D의 두 경로도 통과했고,
+[같은 새 Run의 경제/평가 연속 검증](../research/source-farm-financial-continuation-implementation.md)은
+로컬 1개와 해당 판본의 호스팅 작성 7개 묶음·웹/C0를 확인했다.
+`5dc63f3`의 [전체 백엔드 2,205개·UID/cleanup/집계](../research/backend-ci-partition-implementation.md#hosted-acceptance-after-the-openapi-correction)도 통과했다.
+[화면 보완](../research/source-farm-layout-refinement-implementation.md)의 참조 상세·키보드 이동과
+[등록 미확인 잠금](../research/source-farm-registration-lock-implementation.md)은 집중 브라우저로 확인했다.
+화면 대조는 낮은 일치율이며 이번 UI 판본의 호스팅 증거와
 실제 제품 CLI·독립 해제/전체 G1 수용은 후속이다.
 
 **작성 Run 경제·평가 웹 후보 (2026-10-01):** [07 화면](../contracts/web-authored-economic-assessment-v1.md)은

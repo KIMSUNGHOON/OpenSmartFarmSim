@@ -103,7 +103,7 @@ export default function SourceWorkflow({api,researchJob,restored,onRestore,block
   }
   async function submitCollection() {
     if(!api || researchJob?.state!=='succeeded' || restored?.research.current_authority==='hold'
-      || busy || collection)return;
+      || busy || collection || blocked)return;
     const epoch=generation.current;
     collectionKey.current ??= 'web-owned-ingestion-'+crypto.randomUUID();
     setBusy('collection');setError(null);
@@ -115,7 +115,7 @@ export default function SourceWorkflow({api,researchJob,restored,onRestore,block
     finally {if(epoch===generation.current)setBusy(null);}
   }
   async function refreshCollection() {
-    if(!api || !collection || busy)return;
+    if(!api || !collection || busy || blocked)return;
     const epoch=generation.current;
     setBusy('collection-status');setError(null);
     try {
@@ -127,7 +127,7 @@ export default function SourceWorkflow({api,researchJob,restored,onRestore,block
   }
   async function submitReview() {
     if(!api || collection?.state!=='succeeded' || restored?.research.current_authority==='hold'
-      || busy || review)return;
+      || busy || review || blocked)return;
     const epoch=generation.current;
     reviewKey.current ??= 'web-owned-review-'+crypto.randomUUID();
     setBusy('review');setError(null);
@@ -139,7 +139,7 @@ export default function SourceWorkflow({api,researchJob,restored,onRestore,block
     finally {if(epoch===generation.current)setBusy(null);}
   }
   async function refreshReview() {
-    if(!api || !review || busy)return;
+    if(!api || !review || busy || blocked)return;
     const epoch=generation.current;
     setBusy('review-status');setError(null);
     try {
@@ -184,10 +184,10 @@ export default function SourceWorkflow({api,researchJob,restored,onRestore,block
         <strong>{collection?labels[collection.state]:'접수 전'}</strong>
         {collection && <small>작업 {collection.job_id}</small>}</div>
         {collection?<button type="button" className="button secondary"
-          disabled={!api || !!busy} onClick={()=>void refreshCollection()}>
+          disabled={!api || !!busy || blocked} onClick={()=>void refreshCollection()}>
           {busy==='collection-status'?'확인 중…':'수집 상태 확인'}</button>
           :<button type="button" className="button secondary"
-            disabled={!api || !!busy || researchJob.state!=='succeeded' ||
+            disabled={!api || !!busy || blocked || researchJob.state!=='succeeded' ||
               restored?.research.current_authority==='hold'}
             onClick={()=>void submitCollection()}>{busy==='collection'?'접수 확인 중…':
               collectionKey.current?'같은 수집 요청 다시 확인':'원본 수집 요청'}</button>}</li>
@@ -195,10 +195,10 @@ export default function SourceWorkflow({api,researchJob,restored,onRestore,block
         <strong>{review?labels[review.state]:'접수 전'}</strong>
         {review && <small>작업 {review.job_id}</small>}</div>
         {review?<button type="button" className="button secondary"
-          disabled={!api || !!busy} onClick={()=>void refreshReview()}>
+          disabled={!api || !!busy || blocked} onClick={()=>void refreshReview()}>
           {busy==='review-status'?'확인 중…':'검토 상태 확인'}</button>
           :<button type="button" className="button secondary"
-            disabled={!api || !!busy || collection?.state!=='succeeded' ||
+            disabled={!api || !!busy || blocked || collection?.state!=='succeeded' ||
               restored?.research.current_authority==='hold'}
             onClick={()=>void submitReview()}>{busy==='review'?'접수 확인 중…':
               reviewKey.current?'같은 검토 요청 다시 확인':'수집 입력 검토 요청'}</button>}</li>

@@ -70,8 +70,9 @@ function JobCard({title,job,onRefresh,busy}:{title:string;job:JobStatus|null;
   </section>;
 }
 
-export default function AuthoredFarmWorkspace({api,onOpenReplay,onOpenFinancial,financialBlocked}:{api:Api|null;
-  onOpenReplay:(jobId:string)=>void;onOpenFinancial:(jobId:string)=>void;financialBlocked:boolean}) {
+export default function AuthoredFarmWorkspace({api,onOpenReplay,onOpenFinancial,financialBlocked,onPending}:{api:Api|null;
+  onOpenReplay:(jobId:string)=>void;onOpenFinancial:(jobId:string)=>void;financialBlocked:boolean;
+  onPending:(pending:boolean)=>void}) {
   const [scenarioId,setScenarioId]=useState('');
   const [authoringPending,setAuthoringPending]=useState(false);
   const [revision,setRevision]=useState('');
@@ -98,6 +99,8 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay,onOpenFinancial,
   const activityRequest=useRef(0);
   const reviewKey=useRef<string|null>(null);
   const runKey=useRef<string|null>(null);
+
+  useEffect(()=>{onPending(authoringPending);return()=>onPending(false);},[authoringPending,onPending]);
 
   useEffect(()=>{
     const epoch=++generation.current;
