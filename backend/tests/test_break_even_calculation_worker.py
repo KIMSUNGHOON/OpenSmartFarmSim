@@ -115,6 +115,72 @@ def test_cancel_before_first_trial_does_not_publish(calculation_setup, monkeypat
     assert result_count(worker) == 0 and worker.jobs.get_publication('tenant-1', UUID(job_id)) is None
 
 
+def test_cancel_during_final_replay_does_not_wait_for_calculation_lock(calculation_setup, monkeypatch):
+    from concurrent.futures import ThreadPoolExecutor, TimeoutError
+    from threading import Event
+    from uuid import UUID
+    worker, job_id, _ = calculation_setup
+    original = worker._calculate
+    started, release = Event(), Event()
+    calls = []
+    def pause(value, check):
+        calls.append(True)
+        if len(calls) == 2:
+            started.set()
+            assert release.wait(15), 'owned replay barrier timed out'
+        return original(value, check)
+    monkeypatch.setattr(worker, '_calculate', pause)
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        execution = pool.submit(worker.run_once, job_id)
+        try:
+            assert started.wait(60), 'final replay did not start'
+            canceled = pool.submit(worker.jobs.cancel, 'tenant-1', UUID(job_id))
+            try:
+                accepted_while_paused = canceled.result(timeout=5)
+            except TimeoutError:
+                accepted_while_paused = False
+        finally:
+            release.set()
+        outcome = execution.result(timeout=30)
+        assert accepted_while_paused, 'cancellation blocked behind the full-grid replay'
+        assert outcome.state == 'canceled'
+    assert result_count(worker) == 0 and worker.jobs.get_publication('tenant-1', UUID(job_id)) is None
+
+
+@pytest.mark.parametrize('fault,state', [('hold_scope', 'hold'), ('provider', 'queued'), ('replay_bytes', 'hold')])
+def test_final_replay_cannot_publish_after_current_dependency_or_result_change(calculation_setup, monkeypatch, fault, state):
+    from dataclasses import replace
+    from uuid import UUID
+    from app.market_source_store import MarketSourceStore
+    worker, job_id, _ = calculation_setup
+    view = worker.store._source._source
+    with monkeypatch.context() as patch:
+        if fault == 'replay_bytes':
+            original = worker._calculate
+            calls = []
+            def changed(value, check):
+                result, reads = original(value, check)
+                calls.append(True)
+                if len(calls) == 2:result = replace(result, status='no_zero_on_grid')
+                return result, reads
+            patch.setattr(worker, '_calculate', changed)
+        else:
+            original = worker.jobs._durable_artifact
+            def change(*args):
+                original(*args)
+                if fault == 'hold_scope':
+                    scope = view._holds._scope_resolver()
+                    patch.setattr(view._holds, '_scope_resolver', lambda *_: scope | {'scope_version':'withdrawn'})
+                else:
+                    old = view._source
+                    patch.setattr(view, '_source', MarketSourceStore(old.dsn, old.schema,
+                        runtime_identity=old.runtime_identity, principal_provider=old._principal_provider))
+            patch.setattr(worker.jobs, '_durable_artifact', change)
+        outcome = worker.run_once(job_id)
+    assert outcome.state == state and outcome.plan_id is None
+    assert result_count(worker) == 0 and worker.jobs.get_publication('tenant-1', UUID(job_id)) is None
+
+
 def test_expired_attempt_recovers_and_completes(calculation_setup, monkeypatch):
     worker, job_id, _ = calculation_setup
     original = worker.jobs.read_input

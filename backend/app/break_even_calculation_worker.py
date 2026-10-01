@@ -9,6 +9,8 @@ from uuid import UUID
 from psycopg import sql
 
 from .break_even import BreakEvenService
+from .break_even_replay import ReplayReferences
+from .break_even_reference_read import recheck_replay_reads
 from .break_even_store import canonical_result_bytes, _ProposedPlanRepository, BreakEvenDenied
 from .break_even_plan_submission import (BreakEvenPlanSubmissionService, BreakEvenPlanInput,
     BreakEvenPlanSubmission, BreakEvenTrialPin)
@@ -80,8 +82,9 @@ class BreakEvenCalculationWorker:
             rebuilt = self.plans._prepare(self.tenant_id, body, check=check)
             if canonical_input_bytes(rebuilt.model_dump(mode='json')) != canonical_input_bytes(value.model_dump(mode='json')):
                 raise _InputHold()
-            return BreakEvenService(_ProposedPlanRepository(self.store._source, value.plan)).scan(
-                value.request, self.tenant_id, check=check)
+            references = ReplayReferences(_ProposedPlanRepository(self.store._source, value.plan), self.tenant_id)
+            result = BreakEvenService(references).scan(value.request, self.tenant_id, check=check)
+            return result, references.observed_reads()
         except (_LeaseLost, PermissionError):
             raise
         except ValueError as exc:
@@ -140,7 +143,7 @@ class BreakEvenCalculationWorker:
             except Exception:
                 return self._close(lease, 'fatal', 'break_even_input_rejected')
             check = lambda: self._pulse(lease, pointers, digests)
-            result = self._calculate(value, check)
+            result, _ = self._calculate(value, check)
             self._finish(lease, raw, value, result, pointers, digests)
             return BreakEvenCalculationOutcome(lease['job_id'], lease['attempt'], 'succeeded', 'completed', value.plan.plan_id)
         except _LeaseLost:
@@ -152,6 +155,9 @@ class BreakEvenCalculationWorker:
 
     def _finish(self, lease, raw, value, result, pointers, digests):
         encoded = _result_bytes(result)
+        replayed, reads = self._calculate(value, lambda: self._pulse(lease, pointers, digests))
+        if _result_bytes(replayed) != encoded:
+            raise _InputHold()
         receipt = {'receipt_version': 'break-even-calculation-result-v1', 'status': 'completed',
             'claim_scope': result.scope, 'plan_id': value.plan.plan_id,
             'request_sha256': value.plan.request_sha256,
@@ -171,8 +177,14 @@ class BreakEvenCalculationWorker:
             check()
             stored = self.store._pin_in_transaction(conn, value.request, value.plan, result)
             check()
-            if _result_bytes(self._calculate(value, check)) != stored['result_raw'] or stored['result_raw'] != encoded:
+            if stored['result_raw'] != encoded:
                 raise _InputHold()
+            try:
+                recheck_replay_reads(self.store, self.tenant_id, reads, check=check, plan_row=stored)
+            except ValueError as exc:
+                if exc.__cause__ is not None:
+                    raise RuntimeError('break-even source unavailable') from None
+                raise _InputHold() from None
             check()
             updated = conn.execute(sql.SQL("""
                 UPDATE {} SET state='succeeded', reason=NULL, lease_token=NULL, lease_until=NULL,

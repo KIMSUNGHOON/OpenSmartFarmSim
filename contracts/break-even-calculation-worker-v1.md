@@ -12,10 +12,22 @@ The worker verifies canonical leased bytes, rebuilds the server plan from curren
 actual scenario pins and compares the complete immutable input. Existing
 BreakEvenService then recalculates every full market/economic trial. Checkpoints
 around trial validation/calculation check scopes, identities, implementation and
-environment, renew a live lease and reject cancellation/expiry. Renewals during
-the final locked transaction use that same connection, avoiding a second
-connection waiting on its own job lock. A single trial exceeding its lease
-cannot be revived. Final replay retains existing grid/hold/null semantics.
+environment, renew a live lease and reject cancellation/expiry. Both full
+calculations run outside the final Job row lock and must have identical canonical
+result bytes. The second replay records fresh lookup descriptors; these are
+observations rather than independent release or approval evidence. A single trial
+exceeding its lease cannot be revived. Replay retains grid/hold/null semantics.
+
+After pinning the result inside the final transaction, the worker rechecks those
+observed dependencies through the actual source/candidate validators on one
+fresh audited connection. The plan descriptor uses the just-checked row returned
+by the transactional pin, whose uncommitted bytes cannot be read by a separate
+connection. Current tenant/scopes/provider bindings, canonical hashes, hold/
+context and final role audit remain required; the plan ID and hash must match.
+Renewals in this final transaction use its own Job connection. No numeric grid
+calculation runs while holding the Job row lock. Cancellation still serializes
+with the bounded final publication fence; actual maximum-grid latency is a
+separate measurement requirement.
 
 Request/plan/result rows, fenced succeeded state, publication/event/attempt
 outcome commit together. Current lease/input/cancel and full-result replay are

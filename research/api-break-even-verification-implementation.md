@@ -90,3 +90,31 @@ integration, automatic processing and protected deployment assembly, actual
 deadline, cancel/retry/source-rights withdrawal under that load, actual product
 CLI and independent execution/release/G1/G4 remain outstanding. G0/G2/G3a/G3b
 require their own evidence. The parent task checkboxes remain unchecked.
+
+## Hosted checks at 160118c
+
+The published revision `160118c7e085e4a665bae04a22f6f85437f1785b`
+has terminal successful [authored checks](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36937726965):
+seven suites, **141 test executions**, no skipped tests. API: **104 passed in
+498.07 s**; economics: **13 in 589.62 s**; assessment: **15 in 887.46 s**;
+assessment HTTPS: **1 in 332.54 s**; financial selection: **3 in 718.33 s**;
+authored browser: **4 in 578.27 s**; financial browser: **1 in 458.32 s**.
+All seven jobs and their database/password cleanup steps succeeded.
+The assessment HTTPS case completed 10 bodies with maximum **22.318 s**.
+The financial browser completed **29 actual SDK reader-EOF bodies**, maximum
+**22.36579999999999 s**, below its unchanged 30-second client budget, with
+zero console errors. These synthetic test executables and authority keys do
+not establish product CLI or independent release evidence.
+
+The same revision's [web checks](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36937726951)
+also succeeded: **154 unit tests across 11 files** and **50 Chromium cases**
+using one worker. [C0 checks](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36937726991)
+succeeded. These results precede the later SDK/web asynchronous verification
+commit and calculation publication-fence follow-up.
+
+The full [backend workflow](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36937726974)
+is still live at this observation: partitions 0–2 succeeded, 3–4 are running,
+and 5 is queued. The workflow's top-level `queued` status is not a terminal
+result. Its counts/inventory and complete cleanup acceptance will be recorded
+only after all partitions and the aggregate check finish. A new push is held
+to preserve this running workflow.

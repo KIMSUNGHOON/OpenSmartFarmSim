@@ -1,6 +1,6 @@
 """Recheck stored replay references through actual stores on one audited connection."""
 
-from .break_even_replay import BreakEvenReplayEvidence, _value_hash
+from .break_even_replay import BreakEvenReplayEvidence, ReplayRead, _MAX_READS, _value_hash
 from .market_candidate_store import MarketCandidateStore
 from .market_source_store import MarketSourceStore
 from .runtime_roles import audit_runtime_roles
@@ -38,21 +38,38 @@ def _candidate_value(candidates, source, conn, tenant, method, args):
 def recheck_replay_dependencies(store, evidence, *, check):
     if type(evidence) is not BreakEvenReplayEvidence or not callable(check):
         raise ValueError('break-even replay dependency check rejected')
+    recheck_replay_reads(store, evidence.tenant_id, evidence.reads, check=check)
+
+
+def recheck_replay_reads(store, tenant, reads, *, check, plan_row=None):
+    if (not callable(check) or type(reads) is not tuple or not 1 <= len(reads) <= _MAX_READS
+            or any(type(item) is not ReplayRead for item in reads)
+            or [(item.method, item.args) for item in reads] != sorted(set((item.method, item.args) for item in reads))):
+        raise ValueError('break-even replay observations rejected')
     candidates = store._source
     source = candidates._source._source
     if type(candidates) is not MarketCandidateStore or type(source) is not MarketSourceStore:
         raise ValueError('break-even replay dependency stores rejected')
-    tenant = evidence.tenant_id
+    plan_value = None
+    if plan_row is not None:
+        _, plan, _ = store._checked(plan_row)
+        if plan.tenant_id != tenant:
+            raise ValueError('break-even replay plan tenant differs')
+        plan_value = plan.model_dump(mode='json')
     check()
     with candidates.connect() as conn:
-        for item in evidence.reads:
+        for item in reads:
             check()
             if (store._tenant('break_even_read') != tenant or
                     candidates._tenant('market_candidate_read') != tenant or
                     source._tenant('market_source_read') != tenant):
                 raise PermissionError('break-even replay dependency access denied')
             method, args = item.method, item.args
-            if method in ('get_market_candidate', 'get_economic_scenario', 'get_economic_scenario_pin'):
+            if method == 'get_break_even_plan' and plan_value is not None:
+                if args != (plan_value['plan_id'],):
+                    raise ValueError('break-even replay plan identity differs')
+                value = plan_value
+            elif method in ('get_market_candidate', 'get_economic_scenario', 'get_economic_scenario_pin'):
                 value = _candidate_value(candidates, source, conn, tenant, method, args)
             elif method == 'get_economic_input':
                 value = candidates._input_in_transaction(conn, tenant, *args)

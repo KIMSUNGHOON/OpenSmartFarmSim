@@ -37,6 +37,10 @@ pytestmark = pytest.mark.parametrize('login_scope', [{**PROFILE, 'break_even_cal
 
 @pytest.fixture
 def plan_api(login_scope):
+    return build_plan_api(login_scope, [20, 32])
+
+
+def build_plan_api(login_scope, values, *, progress=None):
     from app.break_even_plan_submission import BreakEvenPlanSubmissionService
     base, policy, dsns = login_scope
     original, source, template, principal, scope = signed_market_assembly(
@@ -50,16 +54,21 @@ def plan_api(login_scope):
     signed = original()._source
     source.get_market_hold_report = signed.get_market_hold_report
     source.get_decision_context = signed.get_decision_context
-    _, raw_request = trial_plan([20, 32], case_factory=lambda: (source, template))
+    _, raw_request = trial_plan(values, case_factory=lambda: (source, template))
+    if progress is not None:progress('generated', len(values))
     requests = [value['request'] for value in source.candidates.values()]
     provider = lambda: principal
     kwargs = dict(runtime_identity=(policy, 'authority'), principal_provider=provider)
     jobs = JobStore(dsns['authority'], policy.schema, base.artifact_root, audit_runtime_grants=True, **kwargs)
     os.close(jobs._content_directory(create=True))
     sources = MarketSourceStore(dsns['authority'], policy.schema, **kwargs)
+    source_count = 0
     for kind, model in record_items(source):
         if kind == 'economic_scenario' and model.scenario_id != baseline.scenario_id: continue
         sources.adopt_job('tenant-1', kind, str(submit(base, model)['job_id']))
+        source_count += 1
+        if progress is not None and source_count % 64 == 0:progress('sources', source_count)
+    if progress is not None:progress('sources_complete', source_count)
     for name in ('scenarios', 'records', 'shocks', 'rights', 'bindings', 'settlements', 'prior_costs',
                  'pins', 'shock_pins', 'candidates'):
         getattr(source, name).clear()
@@ -76,6 +85,7 @@ def plan_api(login_scope):
         candidate = MarketScenarioService(candidates).build_candidate(req, 'tenant-1')
         pins.append({'scenario_id': candidate.scenario_id, 'revision': candidate.revision,
                      'scenario_sha256': candidate.economic_scenario_sha256})
+        if progress is not None and len(pins) % 16 == 0:progress('candidates', len(pins))
     store = BreakEvenStore(dsns['authority'], policy.schema, candidates, **kwargs)
     service = BreakEvenPlanSubmissionService(jobs, store)
     app = create_app(jobs, holds, contexts, UnusedMarketResultStore(), principal_provider=provider,

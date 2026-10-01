@@ -19,6 +19,13 @@ lookup or recheck invalidates that adapter permanently; a retry needs a new
 full replay. Canonicalization uses the existing market serializer, including
 date/time semantics and economic decimal strings.
 
+`observed_reads()` returns the frozen sorted descriptors of successful reads;
+it performs no recheck and cannot issue this full-grid evidence record or an
+approval. The calculation worker uses this snapshot only to require a fresh
+current-dependency comparison before atomic completion. An engine hold may have
+partial observations and retains its existing hold semantics. Stored completed
+full-grid evidence still requires the complete capture/recheck path below.
+
 Every unique dependency is read again from its current provider with checkpoints.
 Tenant access, store/principal/policy/DSN/schema binding, stored byte hashes and
 the actual runtime implementation/environment digests are checked. The caller

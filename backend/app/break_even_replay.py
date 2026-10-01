@@ -118,6 +118,12 @@ class ReplayReferences:
             self._failed = True
             raise
 
+    def observed_reads(self):
+        if self._failed or not self._reads:
+            raise ValueError('break-even replay observations unavailable')
+        return tuple(ReplayRead(method=method, args=args, value_sha256=digest)
+            for (method, args), digest in sorted(self._reads.items()))
+
     def _rechecked(self, check):
         if check is not None and not callable(check):
             raise ValueError('break-even replay checkpoint invalid')
