@@ -36,10 +36,14 @@ repeat source preparation or issue another POST. Missing, denied or inconsistent
 receipt reads keep the original write unresolved. Safe resubmission when no
 intent was stored remains unfinished. A receipt proves stored intent only;
 current execution/result validation remains separate.
-Read-only result refresh checks the actual simulation job and then the completed
-job result, with exact plan, decision, calendar, target, unit, bounds and market
-hold binding. Result bodies are bounded to 524288 bytes for up to 256 trials.
-Requests use the existing authenticated transport and 30-second deadline.
+The [asynchronous verification extension](web-break-even-verification-v1.md)
+checks the calculation status, accepts a deliberate verification request for its
+completed UUID, and refreshes the separate verification Job. Only its succeeded
+completed result can appear, with exact plan, decision, calendar, target, unit,
+bounds and market-hold binding. Unknown verification admission retains its parent
+and locks connection/editing until the same request is confirmed. Result bodies
+remain bounded to 524288 bytes for up to 256 trials; authenticated transport
+retains its 30-second deadline.
 
 Money and trial values are server strings; missing cash remains null/“미확인”.
 The result distinguishes zero at a listed point, no zero at listed points,
@@ -51,7 +55,7 @@ is generated. The bounded result table supports keyboard horizontal scrolling.
 
 Actual farm/baseline/event/settlement authoring, automatic trial assumptions,
 runtime CLI and independent release/domain/operating evidence, 3D/replay and
-whole G1 remain required by the existing plan. Large-grid asynchronous read
-validation and capacity/cancellation/revocation budgets also remain required;
+whole G1 remain required by the existing plan. Actual maximum-grid asynchronous
+load and capacity/cancellation/revocation budgets also remain required;
 bounded response bytes do not bound full replay work. Synthetic tests prove software
 contracts only.

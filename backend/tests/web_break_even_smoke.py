@@ -18,19 +18,21 @@ from app.api_runtime import ApiRuntime
 from app.api_break_even import project_break_even_result
 from app.break_even_calculation_worker import BreakEvenCalculationWorker
 from app.break_even import BreakEvenRequest
+from app.break_even_verified_result import BreakEvenVerifiedResultService
 from app.http_identity import BearerRegistry,BearerGrant,token_digest
 from app.market_source_store import MarketSourceStore
 from test_api_break_even_plan import plan_api,login_database,login_scope,PROFILE
 from test_api_runtime import config,dependencies
 from test_api_serve import tls_files
 from web_shell_smoke import frontend,WEB
+from test_api_break_even_verification import run_operator
 
 TOKEN=b'synthetic-break-even-browser-'+b'b'*32
 pytestmark=pytest.mark.parametrize('login_scope',[{**PROFILE,'break_even_calculation':True}],indirect=True)
 
 
-@pytest.mark.parametrize('lost_reply',[False,True],ids=['normal','lost_reply'])
-def test_browser_real_https_plan_worker_and_grid_result(plan_api,tls_files,lost_reply):
+@pytest.mark.parametrize('reply_loss',['none','plan','verification'])
+def test_browser_real_https_plan_workers_and_verified_grid_result(plan_api,tls_files,tmp_path,reply_loss):
     _,service,expected,principal=plan_api
     jobs=service.jobs;view=service.store._source._source
     principal['scopes'].update({'simulation_execute','break_even_read','break_even_write','market_candidate_write','market_source_write'})
@@ -49,7 +51,7 @@ def test_browser_real_https_plan_worker_and_grid_result(plan_api,tls_files,lost_
         with frontend(f'https://127.0.0.1:{api_port}',cert,key) as (port,_):
             env={name:os.environ[name] for name in ('PATH','HOME','LANG','PLAYWRIGHT_BROWSERS_PATH') if name in os.environ}
             command=['node','e2e/real-break-even-smoke.mjs',f'https://127.0.0.1:{port}']
-            if lost_reply:command.append('lose-plan-reply')
+            if reply_loss!='none':command.append('lose-'+reply_loss+'-reply')
             browser=subprocess.Popen(command,cwd=WEB,env=env,
                 stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
             deadline=time.monotonic()+180
@@ -73,6 +75,24 @@ def test_browser_real_https_plan_worker_and_grid_result(plan_api,tls_files,lost_
             projection=project_break_even_result(request,result).model_dump(mode='json')
             browser.stdin.write(json.dumps(projection)+'\n');browser.stdin.flush()
             deadline=time.monotonic()+180
+            while not select.select([browser.stdout],[],[],30)[0]:assert time.monotonic()<deadline,'browser verification admission timed out'
+            line=browser.stdout.readline()
+            if not line:
+                _,error=browser.communicate(timeout=5);pytest.fail('synthetic browser failed: '+error[-2500:])
+            verification=json.loads(line)
+            assert verification['stage']=='verification_queued' and verification['calculation_job_id']==admitted['job_id']
+            with jobs.connect() as conn:
+                verification_job=conn.execute(sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s')
+                    .format(jobs._table('jobs')),('tenant-1',UUID(verification['job_id']))).fetchone()
+            assert verification_job is not None
+            verification_input=json.loads(jobs._verified_input(verification_job))
+            assert verification_input['input_version']=='break-even-verification-input-v1'
+            assert verification_input['calculation_job_id']==admitted['job_id']
+            run_operator(service,principal,verification['job_id'],tmp_path)
+            actual_projection=BreakEvenVerifiedResultService(jobs,service.store).read_job_result('tenant-1',UUID(verification['job_id']))
+            assert actual_projection.model_dump(mode='json')==projection
+            browser.stdin.write(json.dumps({'verification':'completed'})+'\n');browser.stdin.flush()
+            deadline=time.monotonic()+180
             while True:
                 try:output,error=browser.communicate(timeout=45);break
                 except subprocess.TimeoutExpired:assert time.monotonic()<deadline,'browser grid verification timed out'
@@ -80,9 +100,18 @@ def test_browser_real_https_plan_worker_and_grid_result(plan_api,tls_files,lost_
             verified=json.loads(output)
             assert verified['stage']=='verified' and projection['status']=='bracket_only'
             print('Actual break-even browser result:',json.dumps(verified['network']),flush=True)
+            body_records=verified['api_body_consumption']
+            assert verified['client_timeout_seconds']==30 and verified['trial_count']==2
+            assert body_records and all(row['cache']=='no-store' and row['body_seconds']<30 for row in body_records)
+            print('break_even_verification_browser='+json.dumps({'reply_loss':reply_loss,'responses':len(body_records),
+                'max_body_seconds':max(row['body_seconds'] for row in body_records),'client_timeout_seconds':30,
+                'trial_count':2,'operator':'separate_python_process','assessment_status':'hold'}),flush=True)
             with jobs.connect() as conn:
                 count=conn.execute(sql.SQL('SELECT count(*) AS n FROM {} WHERE tenant_id=%s AND input_sha256=%s').format(jobs._table('jobs')),
                     ('tenant-1',job['input_sha256'])).fetchone()['n']
+                assert count==1
+                count=conn.execute(sql.SQL('SELECT count(*) AS n FROM {} WHERE tenant_id=%s AND input_sha256=%s').format(jobs._table('jobs')),
+                    ('tenant-1',verification_job['input_sha256'])).fetchone()['n']
                 assert count==1
             assert worker.run_once(admitted['job_id']) is None
     finally:

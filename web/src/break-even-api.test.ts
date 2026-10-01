@@ -67,12 +67,36 @@ const result={plan_id:'plan',status:'bracket_only',scope:'conditional_user_grid_
   target:'oi',variable_unit:'KRW/kg',minimum:'20',maximum:'32',step:'12',zero_values:[],brackets:[['20','32']],
   trials:[{value:'20',target_value_krw:'-9007199254740993.0000000001',minimum_cash_balance_krw:null,cash_shortage_krw:null},
     {value:'32',target_value_krw:'9007199254740993.0000000001',minimum_cash_balance_krw:'0',cash_shortage_krw:'0'}],hold_reason_codes:[]};
-it('binds completed grid results and preserves precise money, null cash and brackets',async ()=>{
-  const read=await api(result).breakEvenResult(id,submission);expect(read.trials[0]!.target_value_krw).toBe(result.trials[0]!.target_value_krw);
+it.each(['breakEvenResult','breakEvenVerifiedResult'] as const)('%s binds completed grid results and preserves precise money, null cash and brackets',async method=>{
+  const read=await api(result,path=>expect(path).toBe('/v1/jobs/'+id+'/'+(method==='breakEvenResult' ? 'break-even-result' : 'break-even-verified-result')))[method](id,submission);
+  expect(read.trials[0]!.target_value_krw).toBe(result.trials[0]!.target_value_krw);
   expect(read.trials[0]!.cash_shortage_krw).toBeNull();expect(read.brackets).toEqual([['20','32']]);
   for(const change of [{plan_id:'wrong'},{target:'operating_cash'},{market_hold_report_id:'22222222-2222-4222-8222-222222222222'},
     {scope:'forecast'},{trials:[{...result.trials[0],target_value_krw:0}]},{zero_values:['20']},{tenant_id:'foreign'}])
-    await expect(api({...result,...change}).breakEvenResult(id,submission)).rejects.toBeInstanceOf(ApiError);
+    await expect(api({...result,...change})[method](id,submission)).rejects.toBeInstanceOf(ApiError);
   const held={...result,status:'hold',trials:[],brackets:[],hold_reason_codes:['TARGET_UNRESOLVED']};
-  expect((await api(held).breakEvenResult(id,submission)).trials).toEqual([]);
+  expect((await api(held)[method](id,submission)).trials).toEqual([]);
+});
+
+const verificationId='22222222-2222-4222-8222-222222222222';
+it('admits verification with only its pinned parent and accepts an existing completed child',async ()=>{
+  const client=createApi('synthetic-token-abcdefghijklmnopqrstuvwxyz',async (url,options)=>{
+    expect(url).toBe('/v1/break-even-verifications');expect(options?.method).toBe('POST');
+    expect(JSON.parse(String(options?.body))).toEqual({calculation_job_id:id});
+    return new Response(JSON.stringify({...job,job_id:verificationId,state:'succeeded'}),
+      {status:202,headers:{'content-type':'application/json'}});
+  });
+  expect((await client.breakEvenVerification(id)).job_id).toBe(verificationId);
+});
+it.each([{...job},{...job,job_id:verificationId,stage:'research'},
+  {...job,job_id:verificationId,tenant_id:'foreign'}])('rejects a parent, other-stage or open verification response',async value=>{
+  const client=createApi('synthetic-token-abcdefghijklmnopqrstuvwxyz',async ()=>new Response(JSON.stringify(value),
+    {status:202,headers:{'content-type':'application/json'}}));
+  await expect(client.breakEvenVerification(id)).rejects.toBeInstanceOf(ApiError);
+});
+it('rejects an invalid verification parent before making a request',async ()=>{
+  let calls=0;
+  const client=createApi('synthetic-token-abcdefghijklmnopqrstuvwxyz',async ()=>{calls++;throw new Error('must not fetch');});
+  await expect(client.breakEvenVerification('invalid')).rejects.toBeInstanceOf(ApiError);
+  expect(calls).toBe(0);
 });

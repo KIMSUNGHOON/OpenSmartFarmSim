@@ -7,7 +7,8 @@ import {money} from './economic-format';
 
 type Client=ReturnType<typeof createApi>;
 type Flow={request:BreakEvenRequest;registrations:{intent:ScenarioIntent;candidate:Candidate|null}[];
-  submission:BreakEvenSubmission|null;planAttempted:boolean};
+  submission:BreakEvenSubmission|null;planAttempted:boolean;verificationParentId:string|null};
+type Unresolved='plan'|'verification'|null;
 const targets={oi:'관리용 영업이익',operating_cash:'영업 현금',cumulative_equity_cash:'투자·금융 포함 자기자본 누적 순현금'};
 const states:Record<string,string>={queued:'대기 중',simulating:'계산 중',succeeded:'작업 완료',hold:'계산 보류',failed:'실행 실패',canceled:'취소됨'};
 const explanations={zero_on_grid:'나열한 시험값에서 목표가 0인 점을 확인했습니다.',
@@ -27,12 +28,13 @@ export default function BreakEvenWorkspace({api,blocked,onPending}:{api:Client|n
   const [baseline,setBaseline]=useState<Baseline|null>(null),[sales,setSales]=useState<SaleTerms[]>([]),[saleKey,setSaleKey]=useState('');
   const [preview,setPreview]=useState<JointRecord|null>(null),[trials,setTrials]=useState<JointRecord[]>([]);
   const [target,setTarget]=useState(''),[variable,setVariable]=useState(''),[minimum,setMinimum]=useState(''),[maximum,setMaximum]=useState(''),[step,setStep]=useState('');
-  const [busy,setBusy]=useState(false),[error,setError]=useState<ApiError|null>(null),[unresolved,setUnresolved]=useState(false);
+  const [busy,setBusy]=useState(false),[error,setError]=useState<ApiError|null>(null),[unresolved,setUnresolved]=useState<Unresolved>(null);
   const [phase,setPhase]=useState(''),[job,setJob]=useState<JobStatus|null>(null),[result,setResult]=useState<BreakEvenResult|null>(null);
-  const flow=useRef<Flow|null>(null),pending=useRef(false),inFlight=useRef(false),epoch=useRef(0);
+  const [verificationJob,setVerificationJob]=useState<JobStatus|null>(null);
+  const flow=useRef<Flow|null>(null),pending=useRef<Unresolved>(null),inFlight=useRef(false),epoch=useRef(0);
   useEffect(()=>{
-    epoch.current++;flow.current=null;pending.current=false;onPending(false);setBaselinePage(null);setShockPage(null);setBaseline(null);setSales([]);setSaleKey('');
-    setPreview(null);setTrials([]);setTarget('');setVariable('');setMinimum('');setMaximum('');setStep('');setError(null);setUnresolved(false);setJob(null);setResult(null);setPhase('');
+    epoch.current++;flow.current=null;pending.current=null;onPending(false);setBaselinePage(null);setShockPage(null);setBaseline(null);setSales([]);setSaleKey('');
+    setPreview(null);setTrials([]);setTarget('');setVariable('');setMinimum('');setMaximum('');setStep('');setError(null);setUnresolved(null);setJob(null);setVerificationJob(null);setResult(null);setPhase('');
   },[api,onPending]);
   async function perform(action:(client:Client,current:()=>boolean)=>Promise<void>) {
     if(!api || blocked || inFlight.current){if(!api)setError(new ApiError('auth_required'));return;}
@@ -41,8 +43,8 @@ export default function BreakEvenWorkspace({api,blocked,onPending}:{api:Client|n
     catch(error) {if(current()){
       const failure=error instanceof ApiError ? error : new ApiError('network_unresolved');setError(failure);
       setPhase('요청 응답을 확인하지 못했습니다. 보류 사유를 확인하세요.');
-      if(failure.status!==null && failure.status<500)pending.current=false;setUnresolved(pending.current);
-    }} finally {inFlight.current=false;if(current()){setBusy(false);onPending(pending.current);}}
+      if(failure.status!==null && failure.status<500)pending.current=null;setUnresolved(pending.current);
+    }} finally {inFlight.current=false;if(current()){setBusy(false);onPending(pending.current!==null);}}
   }
   function catalog(kind:'economic_scenario'|'joint_shock',next=false) {
     void perform(async(client,current)=>{
@@ -67,7 +69,7 @@ export default function BreakEvenWorkspace({api,blocked,onPending}:{api:Client|n
     });
   }
   function submit(event:FormEvent<HTMLFormElement>) {
-    event.preventDefault();void perform(async(client,current)=>{
+    event.preventDefault();if(unresolved==='verification')return;void perform(async(client,current)=>{
       if(!flow.current) {
         const sale=sales.find(row=>JSON.stringify([row.sale_id,row.collection_id])===saleKey);
         if(!baseline || !sale || !member(target,TARGETS) || !member(variable,VARIABLES) || trials.length<2
@@ -76,11 +78,11 @@ export default function BreakEvenWorkspace({api,blocked,onPending}:{api:Client|n
           baseline:{scenario_id:baseline.record_id,revision:baseline.revision,sha256:baseline.payload_sha256},
           decision_at:baseline.decision_at,market_context:baseline.market_context,period_start:baseline.period_start,period_end:baseline.period_end,
           ...sale,target,variable,minimum,maximum,step};
-        flow.current={request,submission:null,planAttempted:false,registrations:trials.map(trial=>({candidate:null,intent:{request:{schema_version:'1',
+        flow.current={request,submission:null,planAttempted:false,verificationParentId:null,registrations:trials.map(trial=>({candidate:null,intent:{request:{schema_version:'1',
           baseline:request.baseline,decision_at:request.decision_at,market_context:request.market_context,
           shock:{shock_id:trial.record_id,revision:trial.revision,sha256:trial.payload_sha256}},idempotency_key:'web-break-even-scenario-v1:'+crypto.randomUUID()}}))};
       }
-      const pinned=flow.current;pending.current=true;setUnresolved(true);setResult(null);
+      const pinned=flow.current;pending.current='plan';setUnresolved('plan');setResult(null);
       for(const [index,registration] of pinned.registrations.entries()) {
         if(registration.candidate)continue;setPhase(`시험 ${index+1}/${pinned.registrations.length} 시나리오 접수 확인`);
         const candidate=await client.scenario(registration.intent);if(!current())return;registration.candidate=candidate;
@@ -98,16 +100,36 @@ export default function BreakEvenWorkspace({api,blocked,onPending}:{api:Client|n
         catch(error) {if(error instanceof ApiError && error.status!==null && error.status<500)pinned.planAttempted=false;throw error;}
       }
       if(!current())return;
-      setJob(accepted.intent_job);setPhase('계획 의도 저장됨 · 결과는 아직 확인하지 않았습니다.');pending.current=false;setUnresolved(false);
+      if(job && accepted.intent_job.job_id!==job.job_id)throw new ApiError('response_rejected');
+      setJob(accepted.intent_job);setPhase('계획 의도 저장됨 · 결과는 아직 확인하지 않았습니다.');pending.current=null;setUnresolved(null);
+    });
+  }
+  function verify() {
+    if(!job || job.state!=='succeeded' || !flow.current?.submission || verificationJob)return;
+    const pinned=flow.current;
+    void perform(async(client,current)=>{
+      if(pinned.verificationParentId===null)pinned.verificationParentId=job.job_id;
+      if(pinned.verificationParentId!==job.job_id)throw new ApiError('response_rejected');
+      pending.current='verification';setUnresolved('verification');setResult(null);setPhase('완료 계산의 결과 검증 접수 확인 중');
+      const accepted=await client.breakEvenVerification(pinned.verificationParentId);if(!current())return;
+      setVerificationJob(accepted);pending.current=null;setUnresolved(null);
+      setPhase('검증 의도 저장됨 · 검증 완료 결과는 아직 확인하지 않았습니다.');
     });
   }
   function refresh() {
     if(!job || !flow.current?.submission)return;const pinned=flow.current;
     void perform(async(client,current)=>{
-      setResult(null);setPhase('손익분기 작업 상태·결과 조회 중');const status=await client.job(job.job_id);if(!current())return;
-      if(status.stage!=='simulation')throw new ApiError('response_rejected');setJob(status);
-      if(status.state==='succeeded'){const response=await client.breakEvenResult(status.job_id,pinned.submission!);if(current()){setResult(response);setPhase('완료된 서버 손익분기 결과를 확인했습니다.');}}
-      else setPhase('작업 상태 조회됨 · 완료 결과는 아직 확인하지 않았습니다.');
+      setResult(null);setPhase('손익분기 작업 상태·결과 조회 중');const status=await client.job((verificationJob ?? job).job_id);if(!current())return;
+      if(status.stage!=='simulation')throw new ApiError('response_rejected');
+      if(verificationJob) {
+        setVerificationJob(status);
+        if(status.state==='succeeded') {
+          const response=await client.breakEvenVerifiedResult(status.job_id,pinned.submission!);
+          if(current()){setResult(response);setPhase('완료된 서버 손익분기 결과를 확인했습니다.');}
+        } else setPhase('검증 상태 조회됨 · 완료 결과는 아직 확인하지 않았습니다.');
+      } else {
+        setJob(status);setPhase(status.state==='succeeded' ? '계산이 완료되었습니다. 결과 검증을 요청하세요.' : '작업 상태 조회됨 · 완료 결과는 아직 확인하지 않았습니다.');
+      }
     });
   }
   const disabled=busy || blocked,locked=disabled || flow.current!==null;
@@ -122,7 +144,7 @@ export default function BreakEvenWorkspace({api,blocked,onPending}:{api:Client|n
   }
   return <section className="panel break-even-workspace" aria-label="손익분기 계획과 결과"><p className="step-number">04 / 조건부 손익분기</p>
     <h2>손익분기 계획과 시험 시나리오</h2><p>같은 판매·수금·고정 가정에서 수량 또는 단가를 바꾼 저장 판본을 비교합니다. 미래 이익이나 작물 순위가 아닙니다.</p>
-    {error && <p role="alert" className="notice error">{errors[error.code] ?? '요청을 확인할 수 없습니다.'}</p>}
+    {error && <p role="alert" className="notice error">{unresolved==='verification' ? '검증 접수 응답을 확인하지 못했습니다. 같은 계산 작업의 검증 요청을 다시 확인하세요.' : errors[error.code] ?? '요청을 확인할 수 없습니다.'}</p>}
     <div className="break-even-inputs"><div>{picker('economic_scenario','손익분기 기준 원장',baselinePage)}
       {baseline && <><p>선택 원장: <strong>{baseline.record_id} / {baseline.revision}</strong><br/>평가 기간: {baseline.period_start} ~ {baseline.period_end}<br/>결정 시각 (UTC): {baseline.decision_at}</p>
         <label>손익분기 판매·수금<select value={saleKey} disabled={locked} onChange={event=>setSaleKey(event.target.value)}>
@@ -140,11 +162,11 @@ export default function BreakEvenWorkspace({api,blocked,onPending}:{api:Client|n
         <div className="field-row">{([['최소 시험값',minimum,setMinimum],['최대 시험값',maximum,setMaximum],['시험값 증분',step,setStep]] as const).map(([label,value,set])=>
           <label key={label}>{label} ({variable || '단위 선택 필요'})<input type="text" inputMode="decimal" maxLength={64} required value={value} readOnly={locked} onChange={event=>set(event.target.value)}/></label>)}</div>
         <p className="muted">쉼표 없이 입력하세요. 0은 명시적 시험값입니다. 서버가 범위·증분과 2~256개 시험 판본의 일치를 검사합니다.</p>
-        <button className="button primary" disabled={disabled || !flow.current && (!baseline || !saleKey || trials.length<2 || !target || !variable)}>
+        <button className="button primary" disabled={disabled || unresolved==='verification' || !flow.current && (!baseline || !saleKey || trials.length<2 || !target || !variable)}>
           {flow.current ? '같은 손익분기 계획 요청 다시 확인' : '선택한 시험으로 손익분기 요청'}</button>
       </form>
       {flow.current && !unresolved && <button type="button" className="button secondary" disabled={disabled} onClick={()=>{
-        flow.current=null;setJob(null);setResult(null);setPhase('');setError(null);}}>새 손익분기 계획 작성</button>}
+        flow.current=null;setJob(null);setVerificationJob(null);setResult(null);setPhase('');setError(null);}}>새 손익분기 계획 작성</button>}
     </div><div>{picker('joint_shock','손익분기 시험 공동 가정',shockPage)}
       {preview && <div className="amendment-preview"><h3>검토할 공동 가정: {preview.record_id} / {preview.revision}</h3>
         <details><summary>저장된 변경 숫자와 가설</summary>{preview.input.drivers.map(driver=><div key={JSON.stringify([driver.kind,driver.record_id,driver.revision])}>
@@ -164,8 +186,12 @@ export default function BreakEvenWorkspace({api,blocked,onPending}:{api:Client|n
     </div></div>
     {phase && <p role="status" className="notice">{phase}</p>}
     {job && <><p role="status">손익분기 작업: {states[job.state] ?? '상태 확인 필요'}</p>
-      <button className="button secondary" disabled={disabled || unresolved} onClick={refresh}>손익분기 상태·결과 확인</button>
+      <button className="button secondary" disabled={disabled || unresolved!==null} onClick={refresh}>손익분기 상태·결과 확인</button>
       <details className="break-even-job-reference"><summary>손익분기 작업 식별자</summary><code>{job.job_id}</code></details></>}
+    {job?.state==='succeeded' && !verificationJob && <button className="button primary" disabled={disabled || unresolved==='plan'} onClick={verify}>
+      {flow.current?.verificationParentId ? '같은 손익분기 검증 요청 다시 확인' : '손익분기 결과 검증 요청'}</button>}
+    {verificationJob && <><p role="status">손익분기 검증: {verificationJob.state==='simulating' ? '검증 중' : states[verificationJob.state] ?? '상태 확인 필요'}</p>
+      <details className="break-even-verification-reference"><summary>손익분기 검증 작업 식별자</summary><code>{verificationJob.job_id}</code></details></>}
     {result ? <section aria-label="손익분기 서버 결과"><h3>손익분기 결과 · 평가 상태: 판단 보류</h3><p className="notice">{explanations[result.status]}</p>
       <p>사용자 가정의 조건부 시험 · 목표: {targets[result.target]} · 변수: {result.variable_unit}</p>
       {result.zero_values.length>0 && <p>나열한 시험의 0인 값: {result.zero_values.join(', ')} {result.variable_unit}</p>}

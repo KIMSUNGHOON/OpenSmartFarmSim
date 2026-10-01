@@ -5,6 +5,7 @@ import {SOURCE_FIELDS} from '../src/source-fields';
 import {submissionDigest,type BreakEvenSubmission} from '../src/break-even-api';
 
 const time='2026-09-27T08:00:00Z',id='11111111-1111-4111-8111-111111111111';
+const verificationId='22222222-2222-4222-8222-222222222222';
 const job={job_id:id,stage:'simulation',state:'queued',attempt_count:0,max_attempts:3,created_at:time,updated_at:time,reason_code:null};
 const collection={...job,stage:'collection'};
 const baselineId='기준 원장 '+('long-id-'.repeat(18));
@@ -41,8 +42,9 @@ async function setup(page:import('@playwright/test').Page,missing=false) {
   const picker=area.getByRole('region',{name:'손익분기 기준 원장',exact:true});await picker.getByRole('button',{name:'목록 조회'}).click();await picker.locator('li button').click();
   await expect(area.getByLabel('손익분기 판매·수금')).toBeVisible();return area;
 }
-for(const lost of ['trial','plan'] as const)test(`break-even lost ${lost} preserves exact acknowledged phases and actual result semantics`,async({page})=>{
-  const scenarioCalls:{body:Record<string,unknown>;key:string}[]=[];const plans:Record<string,unknown>[]=[];let aborted=false,completed=false,receiptReads=0,malformedResult=false;
+for(const lost of ['trial','plan','verification'] as const)test(`break-even lost ${lost} preserves exact acknowledged phases and actual result semantics`,async({page})=>{
+  const scenarioCalls:{body:Record<string,unknown>;key:string}[]=[];const plans:Record<string,unknown>[]=[];
+  const verificationRequests:unknown[]=[];let aborted=false,completed=false,receiptReads=0,malformedResult=false,verificationState='queued',resultReads=0,legacyReads=0;
   await page.route('**/v1/break-even-plans/receipt?*',async route=>{
     receiptReads++;const digest=await submissionDigest(plans[0] as unknown as BreakEvenSubmission);
     expect(new URL(route.request().url()).searchParams.get('submission_sha256')).toBe(digest);
@@ -64,7 +66,15 @@ for(const lost of ['trial','plan'] as const)test(`break-even lost ${lost} preser
       registration_status:'pinned_user_grid_intent',intent_job:job}});
   });
   await page.route('**/v1/jobs/'+id,async route=>route.fulfill({json:{...job,state:completed ? 'succeeded' : 'queued'}}));
-  await page.route('**/v1/jobs/'+id+'/break-even-result',async route=>{
+  await page.route('**/v1/break-even-verifications',async route=>{
+    const body=route.request().postDataJSON();verificationRequests.push(body);expect(body).toEqual({calculation_job_id:id});
+    if(lost==='verification' && !aborted){aborted=true;await route.abort();return;}
+    await route.fulfill({status:202,json:{...job,job_id:verificationId,state:verificationState}});
+  });
+  await page.route('**/v1/jobs/'+verificationId,async route=>route.fulfill({json:{...job,job_id:verificationId,state:verificationState}}));
+  await page.route('**/v1/jobs/*/break-even-result',async route=>{legacyReads++;await route.fulfill({status:503});});
+  await page.route('**/v1/jobs/'+verificationId+'/break-even-verified-result',async route=>{
+    resultReads++;
     const r=plans.at(-1)!.request as Record<string,unknown>;
     await route.fulfill({json:{plan_id:malformedResult ? 'different-plan' : r.plan_id,status:lost==='trial' ? 'bracket_only' : 'zero_on_grid',scope:'conditional_user_grid_only',assessment_status:'hold',
       input_origin:'user',evidence_level:'assumed',market_context_kind:'unavailable',market_hold_report_id:id,decision_at_utc:time,
@@ -81,21 +91,45 @@ for(const lost of ['trial','plan'] as const)test(`break-even lost ${lost} preser
   const picker=area.getByRole('region',{name:'손익분기 시험 공동 가정',exact:true});await picker.getByRole('button',{name:'목록 조회'}).click();
   for(const index of [0,1]) {await picker.locator('li button').nth(index).click();await area.getByRole('button',{name:'이 공동 가정을 시험에 추가'}).click();}
   await expect(area.locator('.break-even-trials li')).toHaveCount(2);
-  await area.getByRole('button',{name:'선택한 시험으로 손익분기 요청'}).press('Enter');await expect(area.getByRole('alert')).toContainText('같은 계획 요청');
-  await expect(area.getByLabel(/^최소 시험값/)).toHaveAttribute('readonly','');await expect(page.getByRole('button',{name:'연결 해제'})).toBeDisabled();
-  await expect(area.getByRole('button',{name:'새 손익분기 계획 작성'})).toHaveCount(0);await expect(area.locator('tbody')).toHaveCount(0);
-  await page.getByRole('button',{name:'02 작업과 근거'}).click();await page.getByRole('button',{name:'03 경제 가정·계산'}).click();
-  await area.getByRole('button',{name:'같은 손익분기 계획 요청 다시 확인'}).press('Enter');
-  if(lost==='plan') {
-    await expect(area.getByRole('alert')).toContainText('저장된 계획 접수를 아직 확인하지 못했습니다');
-    await expect(page.getByRole('button',{name:'연결 해제'})).toBeDisabled();await expect(area.getByRole('button',{name:'새 손익분기 계획 작성'})).toHaveCount(0);
+  await area.getByRole('button',{name:'선택한 시험으로 손익분기 요청'}).press('Enter');
+  if(lost!=='verification') {
+    await expect(area.getByRole('alert')).toContainText('같은 계획 요청');
+    await expect(area.getByLabel(/^최소 시험값/)).toHaveAttribute('readonly','');await expect(page.getByRole('button',{name:'연결 해제'})).toBeDisabled();
+    await expect(area.getByRole('button',{name:'새 손익분기 계획 작성'})).toHaveCount(0);await expect(area.locator('tbody')).toHaveCount(0);
+    await page.getByRole('button',{name:'02 작업과 근거'}).click();await page.getByRole('button',{name:'03 경제 가정·계산'}).click();
     await area.getByRole('button',{name:'같은 손익분기 계획 요청 다시 확인'}).press('Enter');
+    if(lost==='plan') {
+      await expect(area.getByRole('alert')).toContainText('저장된 계획 접수를 아직 확인하지 못했습니다');
+      await expect(page.getByRole('button',{name:'연결 해제'})).toBeDisabled();await expect(area.getByRole('button',{name:'새 손익분기 계획 작성'})).toHaveCount(0);
+      await area.getByRole('button',{name:'같은 손익분기 계획 요청 다시 확인'}).press('Enter');
+    }
   }
   await expect(area.getByText('손익분기 작업: 대기 중',{exact:true})).toBeVisible();
-  expect(scenarioCalls).toHaveLength(lost==='trial' ? 3 : 2);if(lost==='trial')expect(scenarioCalls[1]).toEqual(scenarioCalls[2]);else {expect(plans).toHaveLength(1);expect(receiptReads).toBe(2);}
+  expect(scenarioCalls).toHaveLength(lost==='trial' ? 3 : 2);if(lost==='trial')expect(scenarioCalls[1]).toEqual(scenarioCalls[2]);else {expect(plans).toHaveLength(1);expect(receiptReads).toBe(lost==='plan' ? 2 : 0);}
   const refresh=area.getByRole('button',{name:'손익분기 상태·결과 확인'}),queued=page.waitForResponse(response=>new URL(response.url()).pathname==='/v1/jobs/'+id);
   await refresh.click();await queued;await expect(refresh).toBeEnabled();await expect(area.locator('tbody')).toHaveCount(0);
-  completed=true;await refresh.press('Enter');await expect(area.getByRole('heading',{name:'손익분기 결과 · 평가 상태: 판단 보류'})).toBeVisible();
+  completed=true;await refresh.press('Enter');
+  await expect(area.getByRole('button',{name:'손익분기 결과 검증 요청',exact:true})).toBeVisible();
+  expect(verificationRequests).toHaveLength(0);expect(resultReads).toBe(0);await expect(area.locator('tbody')).toHaveCount(0);
+  await area.getByRole('button',{name:'손익분기 결과 검증 요청',exact:true}).press('Enter');
+  if(lost==='verification') {
+    await expect(area.getByRole('alert')).toContainText('같은 계산 작업');
+    await expect(page.getByRole('button',{name:'연결 해제'})).toBeDisabled();
+    await expect(area.getByRole('button',{name:'같은 손익분기 계획 요청 다시 확인'})).toBeDisabled();
+    await expect(area.getByRole('button',{name:'새 손익분기 계획 작성'})).toHaveCount(0);
+    await page.setViewportSize({width:320,height:900});await page.evaluate(()=>document.fonts.ready);
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+    const capture=process.env.OSSF_UI_CAPTURE_DIR;
+    if(capture){await mkdir(capture,{recursive:true});await area.screenshot({path:`${capture}/verification-unresolved-320.png`});}
+    await page.getByRole('button',{name:'02 작업과 근거'}).click();await page.getByRole('button',{name:'03 경제 가정·계산'}).click();
+    await area.getByRole('button',{name:'같은 손익분기 검증 요청 다시 확인'}).press('Enter');
+    expect(verificationRequests).toEqual([{calculation_job_id:id},{calculation_job_id:id}]);
+    expect(scenarioCalls).toHaveLength(2);expect(plans).toHaveLength(1);
+  }
+  await expect(area.getByText('손익분기 검증: 대기 중',{exact:true})).toBeVisible();
+  if(lost==='verification' && process.env.OSSF_UI_CAPTURE_DIR)await area.screenshot({path:`${process.env.OSSF_UI_CAPTURE_DIR}/verification-queued-320.png`});
+  await refresh.press('Enter');await expect(refresh).toBeEnabled();expect(resultReads).toBe(0);await expect(area.locator('tbody')).toHaveCount(0);
+  verificationState='succeeded';await refresh.press('Enter');await expect(area.getByRole('heading',{name:'손익분기 결과 · 평가 상태: 판단 보류'})).toBeVisible();
   await expect(area.getByText('완료된 서버 손익분기 결과를 확인했습니다.',{exact:true})).toBeVisible();
   const first=area.locator('tbody tr').first();await expect(first.locator('td')).toHaveText(['-9,007,199,254,740,993.0000000001 원','미확인','미확인']);
   if(lost==='trial'){await expect(area.getByText(/정확한 손익분기점이 아닙니다/)).toBeVisible();await expect(area.getByRole('list',{name:'교차 구간'})).toContainText('20 ~ 32');}
@@ -107,6 +141,11 @@ for(const lost of ['trial','plan'] as const)test(`break-even lost ${lost} preser
     await expect(area.getByText('요청 응답을 확인하지 못했습니다. 보류 사유를 확인하세요.',{exact:true})).toBeVisible();
     await expect(area.locator('tbody')).toHaveCount(0);
     await expect(area.getByRole('heading',{name:'손익분기 결과 · 평가 상태: 판단 보류'})).toHaveCount(0);
+  }
+  if(lost==='verification') {
+    verificationState='canceled';await refresh.press('Enter');await expect(refresh).toBeEnabled();
+    await expect(area.getByText('손익분기 검증: 취소됨',{exact:true})).toBeVisible();await expect(area.locator('tbody')).toHaveCount(0);
+    expect(resultReads).toBe(1);
   }
   if(lost==='trial')for(const width of [320,768,1440]) {
     await page.setViewportSize({width,height:900});await page.evaluate(()=>document.fonts.ready);
@@ -122,6 +161,7 @@ for(const lost of ['trial','plan'] as const)test(`break-even lost ${lost} preser
       const capture=process.env.OSSF_UI_CAPTURE_DIR;if(capture){await mkdir(capture,{recursive:true});await area.screenshot({path:`${capture}/break-even-${width}-${size}.png`});}
     }
   }
+  expect(legacyReads).toBe(0);
 });
 test('missing collection records cannot become zero cash or a fabricated sale selection',async({page})=>{
   const area=await setup(page,true);await expect(area.getByText('선택할 판매·수금 기록이 없습니다. 실제 원장 기록을 먼저 등록해야 합니다.',{exact:true})).toBeVisible();

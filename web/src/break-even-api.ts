@@ -45,6 +45,42 @@ function validateSubmission(value:BreakEvenSubmission) {
   need(new Set(value.trials.map(pin=>JSON.stringify([pin.scenario_id,pin.revision]))).size===value.trials.length);
 }
 export function createBreakEvenApi(request:Request,decodeJob:(value:unknown)=>JobStatus) {
+  async function readResult(id:string,body:BreakEvenSubmission,endpoint:'break-even-result'|'break-even-verified-result'):Promise<BreakEvenResult> {
+    validateSubmission(body);need(uuid(id));const raw=await request('/v1/jobs/'+id+'/'+endpoint,'GET',undefined,200,524288);need(object(raw));
+    closed(raw,['plan_id','status','scope','assessment_status','input_origin','evidence_level','market_context_kind','market_hold_report_id',
+      'decision_at_utc','period_start','period_end','target','variable_unit',...GRID,'zero_values','brackets','trials','hold_reason_codes']);
+    const r=body.request;
+    need(raw.plan_id===r.plan_id && raw.decision_at_utc===r.decision_at && raw.period_start===r.period_start && raw.period_end===r.period_end
+      && raw.target===r.target && raw.variable_unit===r.variable && raw.market_context_kind==='unavailable'
+      && raw.market_hold_report_id===r.market_context.hold_report_id && raw.scope==='conditional_user_grid_only'
+      && raw.assessment_status==='hold' && raw.input_origin==='user' && raw.evidence_level==='assumed'
+      && member(raw.status,['zero_on_grid','no_zero_on_grid','bracket_only','nonmonotone_on_grid','hold'] as const)
+      && GRID.every(key=>decimal(raw[key],256) && representation(raw[key])===representation(r[key])));
+    need(Array.isArray(raw.zero_values) && raw.zero_values.length<=256 && raw.zero_values.every(value=>decimal(value,256))
+      && Array.isArray(raw.brackets) && raw.brackets.length<=255 && raw.brackets.every(pair=>Array.isArray(pair)
+        && pair.length===2 && pair.every(value=>decimal(value,256))) && Array.isArray(raw.trials) && raw.trials.length<=256
+      && Array.isArray(raw.hold_reason_codes) && raw.hold_reason_codes.length<=100
+      && raw.hold_reason_codes.every(code=>typeof code==='string' && /^[A-Z][A-Z0-9_]{0,79}$/.test(code)));
+    if(raw.status==='hold')need(raw.trials.length===0 && raw.zero_values.length===0 && raw.brackets.length===0);
+    else {
+      need(raw.trials.length===body.trials.length);
+      const values:string[]=[];
+      for(const trial of raw.trials) {
+        need(object(trial));closed(trial,['value','target_value_krw','minimum_cash_balance_krw','cash_shortage_krw']);
+        need(decimal(trial.value,256) && money(trial.target_value_krw)
+          && (trial.minimum_cash_balance_krw===null || money(trial.minimum_cash_balance_krw))
+          && (trial.cash_shortage_krw===null || decimal(trial.cash_shortage_krw,256)));values.push(representation(trial.value));
+      }
+      need(new Set(values).size===values.length && values[0]===representation(r.minimum) && values.at(-1)===representation(r.maximum)
+        && raw.zero_values.every(value=>values.includes(representation(value)))
+        && raw.brackets.every(pair=>values.indexOf(representation(pair[0]))>=0
+          && values.indexOf(representation(pair[1]))===values.indexOf(representation(pair[0]))+1));
+      if(raw.status==='zero_on_grid')need(raw.zero_values.length>0);
+      if(raw.status==='bracket_only')need(raw.zero_values.length===0 && raw.brackets.length>0);
+      if(raw.status==='no_zero_on_grid')need(raw.zero_values.length===0 && raw.brackets.length===0);
+    }
+    return raw as BreakEvenResult;
+  }
   return {
     async breakEvenReceipt(body:BreakEvenSubmission):Promise<BreakEvenReceipt> {
       const digest=await submissionDigest(body);
@@ -91,42 +127,13 @@ export function createBreakEvenApi(request:Request,decodeJob:(value:unknown)=>Jo
         && raw.trial_count===body.trials.length && raw.registration_status==='pinned_user_grid_intent');
       const intent_job=decodeJob(raw.intent_job);need(intent_job.stage==='simulation');return {...raw,intent_job} as BreakEvenAccepted;
     },
-    async breakEvenResult(id:string,body:BreakEvenSubmission):Promise<BreakEvenResult> {
-      validateSubmission(body);need(uuid(id));const raw=await request('/v1/jobs/'+id+'/break-even-result','GET',undefined,200,524288);need(object(raw));
-      closed(raw,['plan_id','status','scope','assessment_status','input_origin','evidence_level','market_context_kind','market_hold_report_id',
-        'decision_at_utc','period_start','period_end','target','variable_unit',...GRID,'zero_values','brackets','trials','hold_reason_codes']);
-      const r=body.request;
-      need(raw.plan_id===r.plan_id && raw.decision_at_utc===r.decision_at && raw.period_start===r.period_start && raw.period_end===r.period_end
-        && raw.target===r.target && raw.variable_unit===r.variable && raw.market_context_kind==='unavailable'
-        && raw.market_hold_report_id===r.market_context.hold_report_id && raw.scope==='conditional_user_grid_only'
-        && raw.assessment_status==='hold' && raw.input_origin==='user' && raw.evidence_level==='assumed'
-        && member(raw.status,['zero_on_grid','no_zero_on_grid','bracket_only','nonmonotone_on_grid','hold'] as const)
-        && GRID.every(key=>decimal(raw[key],256) && representation(raw[key])===representation(r[key])));
-      need(Array.isArray(raw.zero_values) && raw.zero_values.length<=256 && raw.zero_values.every(value=>decimal(value,256))
-        && Array.isArray(raw.brackets) && raw.brackets.length<=255 && raw.brackets.every(pair=>Array.isArray(pair)
-          && pair.length===2 && pair.every(value=>decimal(value,256))) && Array.isArray(raw.trials) && raw.trials.length<=256
-        && Array.isArray(raw.hold_reason_codes) && raw.hold_reason_codes.length<=100
-        && raw.hold_reason_codes.every(code=>typeof code==='string' && /^[A-Z][A-Z0-9_]{0,79}$/.test(code)));
-      if(raw.status==='hold')need(raw.trials.length===0 && raw.zero_values.length===0 && raw.brackets.length===0);
-      else {
-        need(raw.trials.length===body.trials.length);
-        const values:string[]=[];
-        for(const trial of raw.trials) {
-          need(object(trial));closed(trial,['value','target_value_krw','minimum_cash_balance_krw','cash_shortage_krw']);
-          need(decimal(trial.value,256) && money(trial.target_value_krw)
-            && (trial.minimum_cash_balance_krw===null || money(trial.minimum_cash_balance_krw))
-            && (trial.cash_shortage_krw===null || decimal(trial.cash_shortage_krw,256)));values.push(representation(trial.value));
-        }
-        need(new Set(values).size===values.length && values[0]===representation(r.minimum) && values.at(-1)===representation(r.maximum)
-          && raw.zero_values.every(value=>values.includes(representation(value)))
-          && raw.brackets.every(pair=>values.indexOf(representation(pair[0]))>=0
-            && values.indexOf(representation(pair[1]))===values.indexOf(representation(pair[0]))+1));
-        if(raw.status==='zero_on_grid')need(raw.zero_values.length>0);
-        if(raw.status==='bracket_only')need(raw.zero_values.length===0 && raw.brackets.length>0);
-        if(raw.status==='no_zero_on_grid')need(raw.zero_values.length===0 && raw.brackets.length===0);
-      }
-      return raw as BreakEvenResult;
+    async breakEvenVerification(calculationJobId:string):Promise<JobStatus> {
+      need(uuid(calculationJobId));
+      const status=decodeJob(await request('/v1/break-even-verifications','POST',{calculation_job_id:calculationJobId},202));
+      need(status.stage==='simulation' && status.job_id!==calculationJobId);return status;
     },
+    breakEvenResult:(id:string,body:BreakEvenSubmission)=>readResult(id,body,'break-even-result'),
+    breakEvenVerifiedResult:(id:string,body:BreakEvenSubmission)=>readResult(id,body,'break-even-verified-result'),
   };
 }
 
