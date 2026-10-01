@@ -3,7 +3,10 @@
 **원천→농장 참조 제공자 (2026-10-01):** [읽기 계약](../contracts/source-farm-selection-v1.md)은
 정확한 완료 조사·수집의 현재 등록 범위와 이미 저장된 원본 스냅샷/서명 문맥을 확인한다.
 [SCRAM 집중 4개](../research/source-farm-selection-implementation.md)가 통과했으며 쓰기 범위 없이
-원본/숫자를 노출하지 않는 참조와 보류 표시를 반환한다. 인증 HTTP·시장/경제 후보 선택·농장 웹,
+원본/숫자를 노출하지 않는 참조와 보류 표시를 반환한다.
+[인증 HTTP/표준 조립](../contracts/api-source-farm-selection-v1.md)은
+[집중 66개](../research/api-source-farm-selection-implementation.md)와 실제 HTTPS 12개 전체 응답
+(최대 0.582초/기존 30초 제한, 쓰기 범위 0개)으로 확인했다. 새 호스팅 CI·시장/경제 후보 선택·농장 웹,
 실제 제품 CLI·독립 해제/전체 G1 수용은 후속이다.
 
 **작성 Run 경제·평가 웹 후보 (2026-10-01):** [07 화면](../contracts/web-authored-economic-assessment-v1.md)은

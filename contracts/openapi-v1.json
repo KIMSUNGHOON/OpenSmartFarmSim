@@ -3389,6 +3389,209 @@
         "title": "SourceActivityPage",
         "type": "object"
       },
+      "SourceFarmSelection": {
+        "additionalProperties": false,
+        "properties": {
+          "assessment_status": {
+            "const": "hold",
+            "title": "Assessment Status",
+            "type": "string"
+          },
+          "bundle_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Bundle Sha256",
+            "type": "string"
+          },
+          "claim_mode": {
+            "enum": [
+              "ex_ante",
+              "ex_post_replay"
+            ],
+            "title": "Claim Mode",
+            "type": "string"
+          },
+          "claim_scope": {
+            "const": "software_fixture_only",
+            "title": "Claim Scope",
+            "type": "string"
+          },
+          "collection_attempt": {
+            "minimum": 1.0,
+            "title": "Collection Attempt",
+            "type": "integer"
+          },
+          "collection_input_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Collection Input Sha256",
+            "type": "string"
+          },
+          "collection_job_id": {
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "title": "Collection Job Id",
+            "type": "string"
+          },
+          "collection_record_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Collection Record Sha256",
+            "type": "string"
+          },
+          "context_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Context Sha256",
+            "type": "string"
+          },
+          "decision_at_utc": {
+            "maxLength": 27,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Decision At Utc",
+            "type": "string"
+          },
+          "decision_context_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Decision Context Id",
+            "type": "string"
+          },
+          "decision_time_kind": {
+            "enum": [
+              "actual",
+              "hypothetical"
+            ],
+            "title": "Decision Time Kind",
+            "type": "string"
+          },
+          "g0_status": {
+            "const": "not_accepted",
+            "title": "G0 Status",
+            "type": "string"
+          },
+          "g1_status": {
+            "const": "not_accepted",
+            "title": "G1 Status",
+            "type": "string"
+          },
+          "goal_id": {
+            "const": "historical-thermal-replay",
+            "title": "Goal Id",
+            "type": "string"
+          },
+          "manifest_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Manifest Sha256",
+            "type": "string"
+          },
+          "period_end_utc": {
+            "maxLength": 27,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Period End Utc",
+            "type": "string"
+          },
+          "period_start_utc": {
+            "maxLength": 27,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Period Start Utc",
+            "type": "string"
+          },
+          "point": {
+            "$ref": "#/components/schemas/LocationPoint"
+          },
+          "provider_id": {
+            "const": "project-fixture:manifest-v2",
+            "title": "Provider Id",
+            "type": "string"
+          },
+          "registry_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Registry Sha256",
+            "type": "string"
+          },
+          "requires_registration_recheck": {
+            "const": true,
+            "title": "Requires Registration Recheck",
+            "type": "boolean"
+          },
+          "research_artifact_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Research Artifact Sha256",
+            "type": "string"
+          },
+          "research_attempt": {
+            "minimum": 1.0,
+            "title": "Research Attempt",
+            "type": "integer"
+          },
+          "research_decision_id": {
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "title": "Research Decision Id",
+            "type": "string"
+          },
+          "research_input_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Research Input Sha256",
+            "type": "string"
+          },
+          "research_job_id": {
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "title": "Research Job Id",
+            "type": "string"
+          },
+          "selection_version": {
+            "const": "owned-source-farm-selection-v1",
+            "title": "Selection Version",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "pattern": "^thermal-snapshot-v1:[0-9a-f]{64}$",
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "thermal_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Thermal Sha256",
+            "type": "string"
+          },
+          "weather_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Weather Sha256",
+            "type": "string"
+          }
+        },
+        "required": [
+          "selection_version",
+          "claim_scope",
+          "assessment_status",
+          "g0_status",
+          "g1_status",
+          "requires_registration_recheck",
+          "research_job_id",
+          "research_attempt",
+          "research_decision_id",
+          "research_input_sha256",
+          "research_artifact_sha256",
+          "collection_job_id",
+          "collection_attempt",
+          "collection_input_sha256",
+          "collection_record_sha256",
+          "point",
+          "period_start_utc",
+          "period_end_utc",
+          "goal_id",
+          "provider_id",
+          "registry_sha256",
+          "bundle_sha256",
+          "snapshot_id",
+          "manifest_sha256",
+          "weather_sha256",
+          "thermal_sha256",
+          "decision_context_id",
+          "context_sha256",
+          "decision_at_utc",
+          "claim_mode",
+          "decision_time_kind"
+        ],
+        "title": "SourceFarmSelection",
+        "type": "object"
+      },
       "SourceHistoryCursor": {
         "additionalProperties": false,
         "properties": {
@@ -18650,6 +18853,108 @@
         "summary": "List Owned Source Activity",
         "x-ossf-required-scopes": [
           "metadata",
+          "decision_context_read"
+        ]
+      }
+    },
+    "/v1/source-history/{research_job_id}/collections/{collection_job_id}/farm-input-references": {
+      "get": {
+        "operationId": "getSourceFarmReferences",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "research_job_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Research Job Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "collection_job_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Collection Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceFarmSelection"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Source Farm References",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "artifact",
+          "collection_read",
+          "thermal_snapshot_read",
           "decision_context_read"
         ]
       }

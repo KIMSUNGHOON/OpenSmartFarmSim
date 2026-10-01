@@ -16,8 +16,11 @@ farm-economic-candidate-selection → web-source-farm-authoring` 순서로
 ([세부 작업](todo.md#지역-원천에서-농장-작성-연결-2026-10-01)).
 첫 [원천 참조 제공자](../contracts/source-farm-selection-v1.md)는 정확한 완료 조사·수집과
 이미 저장된 원래 스냅샷/서명 문맥을 읽기 범위로 검증하며 조회 중 새 자료를 발급하지 않는다.
+[인증 HTTP/표준 조립](../contracts/api-source-farm-selection-v1.md)도
+[집중 66개·실제 HTTPS 12개 응답](../research/api-source-farm-selection-implementation.md)으로 확인했다.
+다음은 같은 원천 문맥의 기존 시장 보류/경제 후보 선택이며 웹 연결은 그 뒤다.
 기존 고정/농장 재생 경로,
-실제 제품 CLI·독립 해제·전체 G1 수용과 새 호스팅 CI는 별도 관문으로 유지한다.
+실제 제품 CLI·독립 해제·전체 G1 수용과 새 원천 코드의 호스팅 CI는 별도 관문으로 유지한다.
 
 2026-10-01 사용자 지시로 개발·제품 실행 모델을 변경했다.
 [모델 이전 계약](../contracts/cli-model-policy-migration-v1.md)과

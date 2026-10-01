@@ -17,6 +17,7 @@ from app.api_contracts import LocationPoint
 from app.api_authored_thermal import AUTHORED_READ_SCOPES
 from app.authored_economic_execution import AUTHORED_ECONOMIC_SCOPES
 from app.authored_financial_selection import READ_SCOPES as AUTHORED_FINANCIAL_READ_SCOPES
+from app.source_farm_selection import READ_SCOPES as SOURCE_FARM_READ_SCOPES
 from app.farm_authoring_storage import READ_SCOPES as FARM_AUTHORING_READ_SCOPES, WRITE_SCOPES as FARM_AUTHORING_WRITE_SCOPES
 from app.farm_authored_review import REVIEW_SCOPES as FARM_AUTHORED_REVIEW_SCOPES
 from app import api_openapi
@@ -24,6 +25,8 @@ from test_http_identity import request
 
 
 OPERATIONS = {
+    ('/v1/source-history/{research_job_id}/collections/{collection_job_id}/farm-input-references','get'):
+        ('getSourceFarmReferences',list(SOURCE_FARM_READ_SCOPES)),
     ('/v1/jobs/{job_id}/authored-economic-input','get'):
         ('getAuthoredEconomicSelection',list(AUTHORED_FINANCIAL_READ_SCOPES)),
     ('/v1/jobs/{job_id}/authored-financial-history','get'):
@@ -202,6 +205,7 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
     app = create_app(stores, stores, stores, stores, principal_provider=lambda: principal, break_even_store=stores)
     path = (path.replace("{job_id}", "00000000-0000-4000-8000-000000000001")
         .replace("{research_job_id}", "00000000-0000-4000-8000-000000000003")
+        .replace("{collection_job_id}", "00000000-0000-4000-8000-000000000004")
         .replace("{report_id}", "00000000-0000-4000-8000-000000000002")
         .replace("{run_id}", ("authored-thermal-run-v1:" if '/authored-runs/' in path else
             "synthetic-thermal-v1:")+"a"*64).replace("{result_id}", "b"*64))

@@ -29,7 +29,8 @@
   [수용 증거](../research/web-authored-economic-assessment-implementation.md): 웹 단위 122개,
   집중 Chromium 19개, 실제 PostgreSQL 16.15/SCRAM·HTTPS 브라우저 1개가 통과했다.
   마지막 실제 연결은 29개 응답 헤더·최대 23.239초/요청 제한 30초이며 전체 본문 지연 측정은 아니다.
-  시험용 CLI·서명의 소프트웨어 범위다. 새 호스팅 CI, 일반 지역 흐름·제품 CLI·독립 G1/G4는 후속이며
+  정확한 웹 커밋의 [호스팅 작성 7개 묶음·웹/C0 CI](../research/web-authored-economic-assessment-implementation.md#hosted-verification-of-the-web-commit)도 통과했다.
+  시험용 CLI·서명의 소프트웨어 범위다. 전체 백엔드 CI, 일반 지역 흐름·제품 CLI·독립 G1/G4는 후속이며
   전체 `web-shell`/`end-to-end-g1` 체크는 유지한다.
 
 ## 지역 원천에서 농장 작성 연결 (2026-10-01)
@@ -41,9 +42,13 @@
   쓰기 범위 없이 읽기 성공과 추가 저장 없음, 보류 표시·원본/숫자 미노출을 확인한다.
   [실제 SCRAM 집중 4개](../research/source-farm-selection-implementation.md)가 통과했다.
   합성 CLI/서명의 제공자 소프트웨어 범위이며 HTTP·웹/실제 제품 CLI·독립 G1은 후속이다.
-- [ ] **`api-source-farm-selection`** (M) — 선행: `source-farm-selection`.
+- [x] **`api-source-farm-selection`** (M) — 선행: `source-farm-selection`.
   인증 GET·닫힌 OpenAPI·표준 런타임을 같은 authority 제공자에 연결한다.
   Bearer/테넌트·권한·보류/미준비 응답과 기존 30초 제한 아래 실제 HTTPS/SCRAM을 확인한다.
+  [인증 API](../contracts/api-source-farm-selection-v1.md)와 표준 조립의
+  [집중 66개](../research/api-source-farm-selection-implementation.md)가 통과했다.
+  실제 HTTPS 12개 전체 응답 최대 0.582초, 쓰기 범위 0개와 저장 불변을 확인했다.
+  합성 CLI/서명의 소프트웨어 범위이며 새 호스팅 CI·시장/경제/웹·제품 CLI·독립 G1은 후속이다.
 - [ ] **`farm-economic-candidate-selection`** (M) — 선행: `api-source-farm-selection`.
   선택 원천과 같은 서명 문맥/기간/목표의 저장 경제 후보·기존 시장 보류를 찾는다.
   이력 메타데이터와 현재 선택 검증을 나누고 다른 문맥·현재 권리 철회·페이지 경계를 확인한다.

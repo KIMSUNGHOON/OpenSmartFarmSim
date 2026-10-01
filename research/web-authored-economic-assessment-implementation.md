@@ -156,8 +156,43 @@ Workflow YAML and embedded Bash parse, changed local links resolve, and
 was checked; baseline PostgreSQL and user processes were preserved.
 
 The full backend suite and local PostgreSQL 18 are not rerun for this web change.
-Hosted final-head results remain pending. Synthetic CLI executables, test keys
+The hosted authored/web/C0 results for the exact web commit are recorded below;
+the separate full backend run remains pending. Synthetic CLI executables, test keys
 and release fixtures prove software only. Actual product `gpt-6.1-sol` / `xhigh`,
 independent release/custody, general region/source/farm orchestration, original
 source rights and G0/G1/G2/G3a/G3b/G4 acceptance remain held. Future crop growth,
 harvest, purchased energy, future margin and crop ranking are not enabled.
+
+## Hosted verification of the web commit
+
+Exact pushed commit: `7f698e695d2ea5ba346d55f371fb916ed6a5c606`.
+[Authored PostgreSQL 18 CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36810716309)
+completed **success**, all seven matrix selections:
+
+| Selection | Passed | Duration |
+| --- | ---: | ---: |
+| API | 84 | 253.36 s |
+| Economics | 13 | 737.24 s |
+| Assessment | 15 | 765.93 s |
+| Financial selection | 3 | 852.17 s |
+| Assessment HTTPS | 1 | 283.74 s |
+| Existing browser | 3 | 312.31 s |
+| Financial browser | 1 | 420.15 s |
+
+The new financial browser verified two actual POSTs, six held categories,
+29 HTTPS response headers, exact money/cash values and the same 120-point
+WebGL Run. Maximum header latency **20.383 s**, client full-body deadline
+unchanged at 30 s, unexpected console errors/warnings zero, separately counted
+known GPU capture warnings one. Workers took 27.853 s (money) and 62.021 s
+(assessment). The hosted assessment HTTPS case verified ten full responses,
+maximum **18.861 s**. Existing browser assessment checked one POST, five HTTPS
+responses, six holds and zero console errors.
+
+[Web CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36810716356)
+and [C0 CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36810716303)
+also completed success. The exact-commit
+[full backend run](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36810716327)
+was still running at this observation; it is not reported as passing.
+These hosted results belong to the commit above, not later source/farm changes.
+They retain synthetic CLI/reviewer fixtures and do not accept product CLI,
+independent G1, real source or production claims.

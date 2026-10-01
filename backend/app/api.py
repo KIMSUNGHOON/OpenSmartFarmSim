@@ -58,6 +58,8 @@ from .owned_collection_review import OwnedCollectionReviewService, CollectionRev
 from .owned_research import OwnedResearchService, READ_SCOPES as OWNED_RESEARCH_READ_SCOPES, ADMISSION_SCOPES as OWNED_RESEARCH_SCOPES
 from .owned_source_history import (OwnedSourceHistoryService, SourceHistoryPage,
     SourceHistoryDetail, SourceActivityPage, SourceHistoryHold)
+from .source_farm_selection import (SourceFarmSelectionService, SourceFarmSelection,
+    SourceFarmSelectionHold, READ_SCOPES as SOURCE_FARM_READ_SCOPES)
 from .api_assessment import CalculationAssessmentRequest
 from .calculation_assessment import (CalculationAssessmentService, CalculationAssessmentHold,
     ADMISSION_SCOPES as ASSESSMENT_SCOPES)
@@ -199,6 +201,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
     location_admission_scopes = OWNED_RESEARCH_SCOPES if type(location_research_service) is OwnedResearchService else location_scopes
     source_history = (OwnedSourceHistoryService(location_research_service)
         if type(location_research_service) is OwnedResearchService else None)
+    source_farm = (SourceFarmSelectionService(location_research_service, collection_service)
+        if type(location_research_service) is OwnedResearchService and collection_service is not None else None)
     job_scopes = ("metadata",)
     job_hold_scopes = ("metadata", "artifact", "auditor")
     job_run_scopes = ("metadata", "artifact", "thermal_run_read")
@@ -274,6 +278,25 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(422,'source_history_hold','Source history evidence unavailable')
         except Exception:
             return _error(503,'source_history_unavailable','Source history unavailable')
+
+    @app.get('/v1/source-history/{research_job_id}/collections/{collection_job_id}/farm-input-references',
+             response_model=SourceFarmSelection, operation_id='getSourceFarmReferences',
+             responses=errors, openapi_extra=_access(SOURCE_FARM_READ_SCOPES))
+    async def get_source_farm_references(research_job_id: UUID, collection_job_id: UUID):
+        tenant, denied = authorized_tenant(*SOURCE_FARM_READ_SCOPES)
+        if denied is not None:
+            return denied
+        if source_farm is None:
+            return _error(503,'source_farm_unavailable','Source farm references unavailable')
+        try:
+            result = await run_in_threadpool(source_farm.get,tenant,research_job_id,collection_job_id)
+            return result if result is not None else _error(404,'not_found','Resource unavailable')
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except (SourceFarmSelectionHold,ValueError):
+            return _error(422,'source_farm_hold','Source farm reference evidence unavailable')
+        except Exception:
+            return _error(503,'source_farm_unavailable','Source farm references unavailable')
 
     @app.get('/v1/source-history/{research_job_id}/activity', response_model=SourceActivityPage,
              operation_id='listOwnedSourceActivity', responses=errors,
