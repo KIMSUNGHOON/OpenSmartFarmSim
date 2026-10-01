@@ -67,7 +67,14 @@ the complete default inventory; the existing authored full-path pair retains
 its separate workflow. Collection is not execution or hosted acceptance.
 Owned temporary PostgreSQL children stopped after the local suite. Baseline
 PostgreSQL and unrelated user services remain running.
-Local file/anchor checks passed **437 links** and whitespace checks passed.
+Local file/anchor checks passed **437 links**. Staged whitespace review detected
+an extra EOF blank line in each new application module; the earlier unstaged
+check had not included those untracked files. The follow-up removes only those
+two blank lines. Current code digest becomes
+`63473aa3494683d21bc493e9fb2cd56ad055cebea41090250de0fe9ccbba5b94`;
+environment and runtime behavior are unchanged. The 11-test digest above is the
+actual tested earlier format; no additional heavy test is claimed for this
+whitespace-only correction. Final staged whitespace checks pass.
 Review checked server custody/parent and exact receipt/evidence bindings, existing
 source resolution/validators, parameterized SQL, fresh scope/provider checks and
 the final full role audit. The ongoing development CLI's selected metadata at

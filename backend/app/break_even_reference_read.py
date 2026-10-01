@@ -69,4 +69,3 @@ def recheck_replay_dependencies(store, evidence, *, check):
             check()
         audit_runtime_roles(conn, candidates.runtime_identity[0])
         check()
-

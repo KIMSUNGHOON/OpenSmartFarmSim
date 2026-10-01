@@ -123,4 +123,3 @@ class BreakEvenVerifiedResultService:
             raise RuntimeError('break-even verification parent changed')
         check()
         return project_break_even_result(request, result)
-
