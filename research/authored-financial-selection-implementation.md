@@ -128,3 +128,18 @@ browser flow are still required by the existing task. Actual exact-model product
 CLI, independent custody/release and G0/G1/G2/G3a/G3b/G4 evidence remain held.
 Fake executable/reviewer fixtures prove software only. No crop growth, harvest,
 purchased energy, future margin or ranking is introduced.
+
+## Hosted follow-up on the final server commit
+
+Authored PostgreSQL 18.6 [run 36804814549](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36804814549)
+for `2ce5dca2c09096d4808c99c8a871822527a0c9d6` completed successfully:
+API **84 passed / 199.07 s**, economics **13 / 394.35 s**, assessment
+**15 / 1076.02 s**, financial selection **3 / 696.82 s**, HTTPS **1 / 395.85 s**
+and the existing three browser paths **3 / 310.81 s**. These are separate
+selections, not an additional distinct-test count. HTTPS observed ten responses,
+maximum **26.686 s** against the unchanged 30 s client timeout. The corrected
+assessment browser used one POST, five HTTPS responses, six holds, zero console
+errors and a **47.906 s** worker against its 300 s lease. The web and C0 workflows
+on this head also succeeded. Broad backend CI remains a separate observation.
+This hosted run verifies test executables and test signatures; it does not prove
+product model invocation, independent release or production history latency.

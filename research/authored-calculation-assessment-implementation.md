@@ -140,3 +140,11 @@ region/source/farm orchestration remain subsequent tasks. No new browser UI is
 implemented here. Actual product `gpt-6.1-sol`/`xhigh` execution, independent
 release and G0/G1/G2/G3a/G3b/G4 evidence remain held. Heat-to-purchased-energy
 costs, crop growth, harvest, future margin and ranking are not introduced.
+
+Hosted final-server follow-up: [36804814549](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36804814549)
+on `2ce5dca` passed all six selections, including **15 assessment cases in
+1076.02 s**, **one expanded HTTPS case in 395.85 s** and **three existing browser
+paths in 310.81 s**. The expanded HTTPS path includes financial selection/history
+and observed ten responses with maximum **26.686 s / 30 s**. The browser
+acknowledgment correction now passed with one assessment POST, six holds and
+zero console errors. These software fixtures retain the holds stated above.
