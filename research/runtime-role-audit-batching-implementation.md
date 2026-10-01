@@ -236,3 +236,9 @@ the persisted six-item hold. The CLI child and release keys remain synthetic.
 No timeout, assertion or request scope was widened. Hosted PostgreSQL 18
 verification of the new auditor is pending; other live partitions are not
 restarted or canceled merely because this partition failed.
+
+That older backend run has now finished: **2,204 passed, 1 failed** across the
+complete six-part inventory, with the separate Linux UID boundary **4 passed**.
+All six database/password cleanup steps succeeded. The aggregate correctly
+failed because partition 4 failed. This terminal result permits the next push;
+it is not hosted acceptance of `6748355` or the subsequent replay-evidence code.
