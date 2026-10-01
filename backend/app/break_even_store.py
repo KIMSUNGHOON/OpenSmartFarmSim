@@ -2,6 +2,7 @@
 
 from hashlib import sha256
 import json
+from pathlib import Path
 
 import psycopg
 from psycopg import sql
@@ -223,3 +224,55 @@ class BreakEvenStore:
         if _canonical(_RESULT.dump_python(recalculated, mode="json")) != row["result_raw"]:
             raise ValueError("break-even replay result differs")
         return request, stored
+
+    def capture_break_even_replay(self, tenant_id, plan_id, *, check=None):
+        from .break_even_replay import BreakEvenReplayEvidence, ReplayReferences
+        from .thermal_publisher import runtime_digests
+
+        if check is not None and not callable(check):
+            raise ValueError('break-even replay checkpoint invalid')
+        binding = (self._source, self._principal_provider, self.runtime_identity, self.dsn, self.schema)
+
+        def guard():
+            if check is not None:
+                check()
+            if binding != (self._source, self._principal_provider, self.runtime_identity, self.dsn, self.schema):
+                raise ValueError('break-even replay store binding changed')
+            if self._tenant('break_even_read') != tenant_id:
+                raise BreakEvenDenied('break-even replay access denied')
+
+        guard()
+        row = self._row(plan_id)
+        if row is None:
+            guard()
+            return None
+        request, plan, stored = self._checked(row)
+        root = Path(__file__).resolve().parents[2]
+        digests = runtime_digests(root)
+        references = ReplayReferences(self, tenant_id)
+        recalculated = BreakEvenService(references).scan(request, tenant_id, check=guard)
+        if _canonical(_RESULT.dump_python(recalculated, mode='json')) != row['result_raw']:
+            raise ValueError('break-even replay result differs')
+        if len(recalculated.trials) != len(plan.trials):
+            raise ValueError('break-even replay did not validate the complete grid')
+        reads = references.recheck(check=guard)
+        candidates = {item.args for item in reads if item.method == 'get_market_candidate'}
+        if candidates != {(item.scenario_id, item.revision) for item in plan.trials}:
+            raise ValueError('break-even replay candidate coverage differs')
+        current = self._row(plan_id)
+        self._checked(current)
+        if any(current[key] != row[key] for key in (
+                'tenant_id', 'plan_id', 'request_raw', 'plan_raw', 'result_raw')):
+            raise ValueError('break-even replay stored bytes changed')
+        evidence = BreakEvenReplayEvidence(
+            evidence_version='break-even-replay-evidence-v1',
+            verification='full_grid_replay_evidence_only', tenant_id=tenant_id, plan_id=plan_id,
+            request_sha256=row['request_sha256'], plan_sha256=row['plan_sha256'],
+            result_sha256=row['result_sha256'], code_sha256=digests[0],
+            environment_sha256=digests[1], trial_count=len(plan.trials), reads=reads)
+        if len(_canonical(evidence.model_dump(mode='json'))) > 1048576:
+            raise ValueError('break-even replay evidence exceeds size limit')
+        guard()
+        if runtime_digests(root) != digests:
+            raise ValueError('break-even replay implementation changed')
+        return request, stored, evidence
