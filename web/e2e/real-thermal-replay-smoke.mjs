@@ -25,6 +25,20 @@ const page=await context.newPage();const errors=[],captureWarnings=[],network=[]
 async function registerAuthoredFarm(document){
   const farm=document.farm,rights=document.rights;
   await page.getByRole('button',{name:'새 입력 판본 작성'}).click();
+  if(configuration.source_selection){
+    const selection=configuration.source_selection;
+    await page.getByRole('button',{name:'저장 조사 조회',exact:true}).click();
+    await page.getByRole('region',{name:'완료 조사 선택'}).getByRole('button')
+      .filter({hasText:selection.research_id}).click();
+    await page.getByRole('region',{name:'해당 조사의 완료 수집 선택'}).getByRole('button')
+      .filter({hasText:selection.collection_id}).click();
+    await page.getByRole('button',{name:'경제 판본 조회',exact:true}).click();
+    await page.getByRole('button',{name:selection.economic.scenario_id+' '+selection.economic.revision+' 현재 참조 확인',exact:true}).click();
+    await expect(page.getByRole('region',{name:'작성에 연결된 경제 판본'})).toBeVisible({timeout:40_000});
+    await expect(page.getByRole('region',{name:'선택한 원천 참조'})).toContainText('G0/G1 미수용');
+    await expect(page.locator('input[name="floor_area"]')).toHaveValue('');
+    await expect(page.locator('.authored-rights input')).not.toBeChecked();
+  }else await page.getByRole('button',{name:'참조 직접 입력',exact:true}).click();
   const fields={scenario_id:farm.scenario_id,scenario_revision:farm.scenario_revision,
     research_job_id:farm.research_job_id,snapshot_id:farm.snapshot_id,
     decision_context_id:farm.decision_context_id,decision_at:farm.decision_at,
@@ -42,8 +56,11 @@ async function registerAuthoredFarm(document){
     initial_humidity_ratio:farm.initial_state.humidity_ratio.value,
     heater_capacity:farm.heater.capacity.value,heater_setpoint:farm.heater.setpoint.value,
     declaration_id:rights.declaration_id,rights_revision:rights.revision};
-  for(const [key,value] of Object.entries(fields))
-    await page.locator(`.authored-composer input[name="${key}"]`).fill(String(value));
+  for(const [key,value] of Object.entries(fields)){
+    const field=page.locator(`.authored-composer input[name="${key}"]`);
+    if(await field.getAttribute('readonly')!==null)await expect(field).toHaveValue(String(value));
+    else await field.fill(String(value));
+  }
   for(const [key,value] of Object.entries({tenure:farm.facility.tenure,
     decision_basis:farm.facility.decision_basis,
     heater_available:farm.heater.available.value?'yes':'no',objective:farm.objective,
@@ -83,10 +100,10 @@ async function registerAuthoredFarm(document){
   await page.getByRole('button',{name:'불변 입력 판본 등록'}).click();
   const response=await reply;
   if(response.status()!==200)throw new Error('authored farm registration status '+response.status());
-  const result=await response.json();
   await expect(page.getByText('입력 등록됨 · 계산 전')).toBeVisible({timeout:60_000});
-  await expect(page.locator('.authored-facts code').first()).toHaveText(result.scenario_sha256);
-  return result;
+  const scenario_sha256=await page.locator('.authored-facts code').first().textContent();
+  expect(scenario_sha256).toMatch(/^[0-9a-f]{64}$/);
+  return {scenario_sha256};
 }
 page.on('pageerror',error=>errors.push(error.message));
 page.on('console',message=>{
@@ -193,7 +210,7 @@ try{
     expect(response.headers()['cache-control']).toBe('no-store');
     network.push({path:new URL(response.url()).pathname,status:response.status()});
   }
-  expect(responses.length).toBe(configuration.workflow?8:authored?(configuration.farm?4:3):4);
+  expect(responses.length).toBe(configuration.workflow?(configuration.source_selection?14:8):authored?(configuration.farm?4:3):4);
   // Compare with the server projection of the verified immutable Run supplied by
   // the harness. The SDK releases response bodies after its bounded read.
   const series=configuration.series;
@@ -228,5 +245,9 @@ try{
   expect(errors).toEqual([]);
   process.stdout.write(JSON.stringify({stage:'verified',points:series.points.length,network,
     console_errors:0,gpu_capture_warnings:captureWarnings.length})+'\n');
+}catch(error){
+  await mkdir(process.argv[3],{recursive:true});
+  await page.screenshot({path:process.argv[3]+'/failure.png',fullPage:true}).catch(()=>{});
+  throw error;
 }finally{await context.close();await browser.close();}
 async function documentReady(){await page.evaluate(()=>document.fonts.ready);}

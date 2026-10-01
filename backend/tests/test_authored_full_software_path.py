@@ -44,7 +44,8 @@ from app.owned_fixture_registry import OwnedFixtureRegistry
 from app.market_result_store import MarketResultStore
 from app.owned_cli_contracts import OwnedCliContractRouter
 from app.owned_collection_review import OwnedCollectionReviewService
-from app.owned_fixture_collection import CollectionService
+from app.owned_fixture_collection import CollectionService, CollectionWorker
+from app.farm_economic_candidate_selection import READ_SCOPES as SOURCE_FARM_READ_SCOPES
 from test_cli_worker import _fake_cli
 from test_api_runtime import config, dependencies
 from test_api_serve import tls_files
@@ -68,8 +69,11 @@ PROFILE = {
 
 
 @pytest.mark.parametrize('login_scope', [PROFILE], indirect=True)
+@pytest.mark.parametrize('source_selection', [False, pytest.param(True, marks=pytest.mark.skipif(
+    os.environ.get('OSSF_REAL_AUTHORED_FULL_CLI_SMOKE') == '1',
+    reason='saved-source fixture runs the synthetic CLI only'))], ids=['manual-references', 'saved-source-selection'])
 def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
-        authoring, login_scope, tls_files, tmp_path, monkeypatch):
+        authoring, login_scope, tls_files, tmp_path, monkeypatch, source_selection):
     author, body, principal = authoring
     principal['scopes'].update({
         'collection_review_create', 'authored_release_write',
@@ -115,6 +119,19 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
         return original_launch(*args, **kwargs)
 
     monkeypatch.setattr(jobs, 'record_cli_launch', capture_launch)
+    selected_source = None
+    if source_selection:
+        assert not real_cli, 'saved-source fixture must not recursively launch real Codex CLI'
+        principal['scopes'].update((*SOURCE_FARM_READ_SCOPES, 'collection_create', 'collection_execute'))
+        lease = jobs.claim(300, tenant_id='tenant-1',
+                           job_id=body['farm']['research_job_id'], allowed_stages=('research',))
+        assert lease is not None and cli_worker._run_claimed(lease).state == 'succeeded'
+        collection = owned_review.collection
+        child = collection.submit('tenant-1', body['farm']['research_job_id'], 'full-browser-source-selection')
+        assert CollectionWorker(collection, tenant_id='tenant-1').run_once(str(child['job_id'])).state == 'succeeded'
+        selected_source = {'research_id': body['farm']['research_job_id'],
+                           'collection_id': str(child['job_id']),
+                           'economic': body['farm']['economic']}
     base, _, _ = login_scope
     observer = Ed25519PrivateKey.generate()
     attestations = ExecutionAttestationStore(base, {'test-observer-v1': _public(observer)})
@@ -139,7 +156,7 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
     now = datetime.now(timezone.utc)
     token = b'synthetic-full-path-browser-' + b'x' * 32
     grant = BearerGrant(token_digest(token), 'tenant-1', frozenset((*AUTHORED_READ_SCOPES,
-        *WRITE_SCOPES, *REVIEW_SCOPES, 'simulation_create')),
+        *WRITE_SCOPES, *REVIEW_SCOPES, *SOURCE_FARM_READ_SCOPES, 'auditor', 'simulation_create')),
         now - timedelta(seconds=1), now + timedelta(minutes=20))
     source_factory = lambda *, principal_provider: MarketSourceStore(
         jobs._dsn, jobs.schema, principal_provider=principal_provider,
@@ -189,7 +206,7 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
                 'farm': {'scenario_id': 'farm-1', 'revision': 'r1',
                     'document': body},
                 'workflow': {'review_uuid': REVIEW_BROWSER_UUID,
-                    'run_uuid': RUN_BROWSER_UUID}}) + '\n')
+                    'run_uuid': RUN_BROWSER_UUID}, 'source_selection': selected_source}) + '\n')
             browser.stdin.flush()
             def browser_event(expected, *, queued_job=False):
                 ready, _, _ = select.select([browser.stdout], [], [], 250)
@@ -296,7 +313,7 @@ def test_owned_farm_review_release_and_worker_publish_one_replayable_run(
             assert browser.returncode == 0, error[:1800] + error[-1200:]
             report = json.loads(output)
             assert report['stage'] == 'verified' and report['points'] == 120
-            assert len(report['network']) == 8
+            assert len(report['network']) == (14 if source_selection else 8)
             assert [item['status'] for item in report['network']].count(202) == 2
             assert all(item['status'] in (200, 202) for item in report['network'])
             print('authored_full_browser=' + json.dumps(report))

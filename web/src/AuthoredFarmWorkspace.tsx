@@ -73,6 +73,7 @@ function JobCard({title,job,onRefresh,busy}:{title:string;job:JobStatus|null;
 export default function AuthoredFarmWorkspace({api,onOpenReplay,onOpenFinancial,financialBlocked}:{api:Api|null;
   onOpenReplay:(jobId:string)=>void;onOpenFinancial:(jobId:string)=>void;financialBlocked:boolean}) {
   const [scenarioId,setScenarioId]=useState('');
+  const [authoringPending,setAuthoringPending]=useState(false);
   const [revision,setRevision]=useState('');
   const [farm,setFarm]=useState<AuthoredFarmSummary|null>(null);
   const [catalog,setCatalog]=useState<AuthoredFarmSummary[]|null>(null);
@@ -310,6 +311,14 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay,onOpenFinancial,
     finally {if(epoch===generation.current)setBusy(null);}
   }
 
+  if(creating&&!farm)return <section className="authored-workflow panel" aria-label="새 농장 입력 등록">
+    {error&&<div className="notice error" role="alert">{error}</div>}
+    <div className="authored-mode"><button type="button" className="button secondary"
+      disabled={!!busy||catalogBusy||authoringPending} onClick={()=>setCreating(false)}>저장된 판본 찾기</button>
+      <button type="button" className="button secondary" aria-pressed="true"
+        disabled={!!busy||catalogBusy||authoringPending}>새 입력 판본 작성</button></div>
+    <AuthoredFarmComposer api={api} onRegistered={registered} onPending={setAuthoringPending}/>
+  </section>;
   return <section className="authored-workflow" aria-labelledby="authored-workflow-heading">
     <div className="authored-intro"><div><p className="step-number">작성 농장 / 내부 작업</p>
       <h2 id="authored-workflow-heading">등록 판본에서 3D 열 재생까지</h2>
@@ -346,7 +355,6 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay,onOpenFinancial,
           disabled={!!busy || catalogBusy} aria-pressed={!creating} onClick={()=>setCreating(false)}>저장된 판본 찾기</button>
           <button type="button" className="button secondary" disabled={!!busy || catalogBusy} aria-pressed={creating}
             onClick={()=>setCreating(true)}>새 입력 판본 작성</button></div>}
-        {creating&&!farm?<AuthoredFarmComposer api={api} onRegistered={registered}/>:<>
         <p className="muted">등록 때 받은 시나리오 ID와 판본을 입력하세요. 조회와 등록은 현재 서버의 권리·입력 연결을 다시 검사합니다.</p>
         <form onSubmit={lookup} className="authored-lookup"><label>시나리오 ID
           <input required maxLength={200} value={scenarioId} readOnly={!!farm || !!busy}
@@ -392,7 +400,6 @@ export default function AuthoredFarmWorkspace({api,onOpenReplay,onOpenFinancial,
               disabled={!api || !!busy || catalogBusy} onClick={()=>void loadCatalog(true)}>이전 판본 더 보기</button>}
           </> : <p className="muted">현재 계정에 등록된 농장 판본이 없습니다.</p>)}
         </div>}
-        </>}
       </section>
       <section className="panel"><p className="step-number">02 / 작성 입력 검토</p>
         <h3>검토 작업 접수</h3><p className="muted">접수는 AI 판단 또는 독립 서명 해제가 아닙니다. 실제 작업자가 실행한 뒤 별도 검토 근거가 필요합니다.</p>

@@ -25,9 +25,17 @@ farm-economic-candidate-selection → web-source-farm-authoring` 순서로
 다음은 이 선택을 일반 농장 작성 화면에 연결하는 단계다.
 [웹 연결 계약](../contracts/web-source-farm-authoring-v1.md)의 첫
 [브라우저 읽기/참조 제공자](../research/source-farm-client-implementation.md)는 집중 95개와
-typecheck/build가 통과했다. 선택 UI·원천/경제 변경·복구와 실제 HTTPS 전체 작성 흐름은 후속이다.
+typecheck/build가 통과했다. [화면 연결 후보](../research/source-farm-web-implementation.md)는
+저장된 완료 조사·수집과 경제 판본을 작성 폼에 연결하고 조합 변경·복구를 Chromium 14개로 확인했다.
+실제 HTTPS/SCRAM 신규 등록→검토/Run→3D의 직접 입력·원천 선택 2개도 통과했다.
+3개 화면 대조는 낮은 일치율로 정밀 수용을 주장하지 않는다. 같은 새 Run의 경제/평가까지
+한 경로로 연장하고 화면을 보완한 뒤 웹 작업을 체크한다.
 기존 고정/농장 재생 경로,
 실제 제품 CLI·독립 해제·전체 G1 수용과 새 원천 코드의 호스팅 CI는 별도 관문으로 유지한다.
+
+앞선 전체 백엔드 CI는 [150분 실행 한도](../research/source-farm-web-implementation.md#hosted-ci-and-resource-checkpoint)로
+취소됐다. 새 원천/웹 커밋을 함께 푸시하기 전에 `backend-ci-partition`으로 모든 시험의
+유한한 파일 묶음과 UID/cleanup 보존을 확인한다. 이후 같은 새 Run의 경제/평가 연속 검증을 진행한다.
 
 2026-10-01 사용자 지시로 개발·제품 실행 모델을 변경했다.
 [모델 이전 계약](../contracts/cli-model-policy-migration-v1.md)과

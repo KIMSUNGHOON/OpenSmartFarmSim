@@ -24,6 +24,7 @@ test('new authored farm is reviewed, retried byte-identically, and server confir
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
   await page.getByRole('button',{name:'새 입력 판본 작성'}).click();
+  await page.getByRole('button',{name:'참조 직접 입력',exact:true}).click();
   await page.setViewportSize({width:1440,height:900});
   await page.screenshot({path:testInfo.outputPath('authored-form-desktop.png')});
   await page.setViewportSize({width:390,height:844});
@@ -64,6 +65,12 @@ test('new authored farm is reviewed, retried byte-identically, and server confir
   await page.locator('.authored-rights input').check();
   await page.getByRole('button',{name:'입력 내용 검토'}).click();
   await expect(page.getByRole('region',{name:'제출 전 확인'})).toContainText('farm-browser');
+  await page.locator('input[name="economic_revision"]').fill('r2');
+  await expect(page.locator('.authored-rights input')).not.toBeChecked();
+  await expect(page.getByRole('region',{name:'제출 전 확인'})).toHaveCount(0);
+  await page.locator('input[name="economic_revision"]').fill('r1');
+  await page.locator('.authored-rights input').check();
+  await page.getByRole('button',{name:'입력 내용 검토'}).click();
   await page.getByRole('button',{name:'불변 입력 판본 등록'}).click();
   await expect(page.getByRole('alert')).toContainText('같은 입력과 판본');
   await expect(page.locator('.authored-composer input[name="floor_area"]')).toBeDisabled();

@@ -2,6 +2,8 @@ import { useEffect,useRef,useState,type FormEvent } from 'react';
 import { ApiError,type createApi } from './api';
 import type { AuthoredFarmRequest,AuthoredFarmSummary } from './authored-farm-api';
 import { buildFarmAuthoringRequest,FarmDraftError,type FarmDraft,type Row } from './farm-authoring-input';
+import SourceFarmSelector from './SourceFarmSelector';
+import { farmReferenceFields,type FarmEconomicSelection } from './source-farm-api';
 
 type Api=ReturnType<typeof createApi>;
 type FieldSpec={key:string;label:string;help?:string};
@@ -11,7 +13,7 @@ const references:FieldSpec[]=[
   {key:'research_job_id',label:'완료된 조사 작업 UUID'},
   {key:'snapshot_id',label:'원본 열 스냅샷 ID'},
   {key:'decision_context_id',label:'서명된 결정 문맥 ID'},
-  {key:'decision_at',label:'결정 시각 · UTC',help:'YYYY-MM-DDTHH:mm:ssZ'},
+  {key:'decision_at',label:'결정 시각 · UTC',help:'YYYY-MM-DDTHH:mm:ssZ · 소수점 여섯 자리까지 보존'},
   {key:'market_hold_report_id',label:'시장 자료 보류 보고서 ID'},
   {key:'period_start',label:'평가 시작일 · KST',help:'YYYY-MM-DD'},
   {key:'period_end',label:'평가 종료일 · KST',help:'YYYY-MM-DD'},
@@ -57,12 +59,12 @@ const cropFields:FieldSpec[]=[
   {key:'channels',label:'판매 경로 ID · 쉼표 구분'},
 ];
 
-function TextField({spec,value,onChange,disabled}:{spec:FieldSpec;value:string;
-  onChange:(value:string)=>void;disabled:boolean}) {
+function TextField({spec,value,onChange,disabled,readOnly=false}:{spec:FieldSpec;value:string;
+  onChange:(value:string)=>void;disabled:boolean;readOnly?:boolean}) {
   return <label className="authored-field">{spec.label}
     <input name={spec.key} value={value} onChange={event=>onChange(event.target.value)}
       maxLength={spec.key==='grades'||spec.key==='channels'?2000:200}
-      disabled={disabled} autoComplete="off" spellCheck={false}/>
+      disabled={disabled} readOnly={readOnly} autoComplete="off" spellCheck={false}/>
     {spec.help && <small>{spec.help}</small>}
   </label>;
 }
@@ -74,19 +76,35 @@ function SelectField({name,label,value,onChange,options,disabled}:{name:string;l
   </select></label>;
 }
 
-export default function AuthoredFarmComposer({api,onRegistered}:{api:Api|null;
-  onRegistered:(summary:AuthoredFarmSummary)=>void}) {
+export default function AuthoredFarmComposer({api,onRegistered,onPending}:{api:Api|null;
+  onRegistered:(summary:AuthoredFarmSummary)=>void;onPending?:(pending:boolean)=>void}) {
   const [draft,setDraft]=useState<FarmDraft>({fields:{},forcing:[{}],crops:[],rightsConfirmed:false});
   const [preview,setPreview]=useState<AuthoredFarmRequest|null>(null);
   const [uncertain,setUncertain]=useState(false);
   const [busy,setBusy]=useState(false);
   const [error,setError]=useState<string|null>(null);
+  const [referenceMode,setReferenceMode]=useState<'saved'|'manual'>('saved');
+  const [selected,setSelected]=useState(false);
   const alive=useRef(true);
   useEffect(()=>{alive.current=true;return ()=>{alive.current=false;};},[]);
   const locked=busy||uncertain;
+  useEffect(()=>{onPending?.(locked);return()=>onPending?.(false);},[locked,onPending]);
+  const ready=referenceMode==='manual'||selected;
+  function selectReferences(selection:FarmEconomicSelection|null) {
+    const fields=selection?farmReferenceFields(selection):
+      Object.fromEntries(references.slice(2).map(spec=>[spec.key,'']));
+    setDraft(current=>({...current,fields:{...current.fields,...fields},rightsConfirmed:false}));
+    setSelected(!!selection);setPreview(null);setError(null);
+  }
+  function changeReferenceMode(mode:'saved'|'manual') {
+    if(locked||mode===referenceMode)return;
+    selectReferences(null);setReferenceMode(mode);
+  }
   function edit(fields:Row) {
     if(locked)return;
-    setDraft(current=>({...current,fields:{...current.fields,...fields}}));setPreview(null);setError(null);
+    const changedReference=references.slice(2).some(spec=>Object.hasOwn(fields,spec.key));
+    setDraft(current=>({...current,fields:{...current.fields,...fields},
+      rightsConfirmed:changedReference?false:current.rightsConfirmed}));setPreview(null);setError(null);
   }
   function editRow(kind:'forcing'|'crops',index:number,key:string,value:string) {
     if(locked)return;
@@ -104,7 +122,7 @@ export default function AuthoredFarmComposer({api,onRegistered}:{api:Api|null;
     setPreview(null);setError(null);
   }
   function review(event:FormEvent<HTMLFormElement>) {
-    event.preventDefault();if(locked)return;
+    event.preventDefault();if(locked||!ready)return;
     try {setPreview(buildFarmAuthoringRequest(draft));setError(null);}
     catch(value) {setPreview(null);setError(value instanceof FarmDraftError?value.message:
       '입력을 확인할 수 없습니다.');}
@@ -136,14 +154,24 @@ export default function AuthoredFarmComposer({api,onRegistered}:{api:Api|null;
         저장 후 수정하려면 새 판본을 등록해야 합니다.</p></div>
       <span className="badge">입력 후보 · 검토 전</span></div>
     {error && <div className="notice error" role="alert">{error}</div>}
+    <div className="authored-mode" aria-label="기준 참조 선택 방식">
+      <button type="button" className="button secondary" disabled={locked}
+        aria-pressed={referenceMode==='saved'} onClick={()=>changeReferenceMode('saved')}>저장 원천에서 선택</button>
+      <button type="button" className="button secondary" disabled={locked}
+        aria-pressed={referenceMode==='manual'} onClick={()=>changeReferenceMode('manual')}>참조 직접 입력</button>
+    </div>
+    {referenceMode==='saved'&&<SourceFarmSelector api={api} locked={locked} onSelection={selectReferences}/>}
+    {ready&&<>
     <div className="authored-composer-steps" aria-label="입력 구역">
       <span>01 기준 판본</span><span>02 시설·제어</span><span>03 구간·재배</span><span>04 목표·권리</span>
     </div>
     <details className="authored-section" open><summary><span>01</span> 기준 판본과 공통 가정</summary>
-      <p>앞선 조사·시장 보류·경제 입력에서 실제로 발급받은 식별자를 입력합니다.
-        서버가 현재 권리와 판본을 다시 확인합니다.</p>
-      <div className="authored-fields">{references.map(spec=><TextField key={spec.key} spec={spec}
-        value={f[spec.key]??''} onChange={value=>edit({[spec.key]:value})} disabled={locked}/>)}</div>
+      <p>{referenceMode==='saved'?'선택한 원천·경제 참조는 읽기 전용입니다. 새 농장 ID와 판본을 입력하세요.':
+        '앞선 조사·시장 보류·경제 입력에서 실제로 발급받은 식별자를 입력합니다.'}
+        {' '}서버가 등록 시 현재 권리와 판본을 다시 확인합니다.</p>
+      <div className={'authored-fields '+(selected?'source-farm-readonly':'')}>{references.map((spec,index)=><TextField key={spec.key} spec={spec}
+        value={f[spec.key]??''} onChange={value=>edit({[spec.key]:value})} disabled={locked}
+        readOnly={selected&&index>=2}/>)}</div>
       <div className="authored-subsection"><h4>작성한 수치의 공통 출처</h4><p>아래 출처 참조와 시각을
         모든 사용자 가정 수치에 붙입니다. 이것은 실측이나 독립 승인이 아닙니다.</p>
         <div className="authored-fields">{[
@@ -236,5 +264,6 @@ export default function AuthoredFarmComposer({api,onRegistered}:{api:Api|null;
         onClick={register}>{busy?'등록 확인 중…':uncertain?'같은 입력으로 등록 재확인':'불변 입력 판본 등록'}</button>
       {uncertain&&<p className="muted">응답 유실 후에는 내용을 수정하지 않고 같은 판본·바이트로 재확인합니다.</p>}
     </section>}
+    </>}
   </form>;
 }

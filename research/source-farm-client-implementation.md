@@ -76,3 +76,8 @@ Existing [backend candidate API acceptance](api-farm-economic-candidate-selectio
 is separate evidence. All model children/signatures in those software tests are
 fixtures. Actual product CLI, independent release/full G1 and the other source,
 field, forecast, comparison and deployment gates remain held.
+
+Following checkpoint: the branch/export/prototype later completed and the
+[composer selection increment](source-farm-web-implementation.md) records its
+actual terminal design status and UI/recovery checks. This does not retroactively
+turn the transport checkpoint into browser or full-chain acceptance.

@@ -68,7 +68,19 @@
   시험용 CLI/해제는 소프트웨어 범위이고 실제 제품 CLI·독립 전체 G1 체크는 유지한다.
   - 첫 [브라우저 클라이언트](../research/source-farm-client-implementation.md)는
     원천/후보의 정확한 참조·검증 표시·페이지와 UTC 마이크로초를 확인했다(집중 95개·typecheck/build).
-    선택 UI·조합 변경/복구·실제 HTTPS 전체 작성 경로는 다음 증거가 필요하므로 체크는 유지한다.
+    선택 UI·조합 변경/복구는 [화면 연결 후보](../research/source-farm-web-implementation.md)에서
+    집중 Chromium 14개로 확인했다. 실제 HTTPS/SCRAM 직접 입력·원천 선택의 신규 등록→Run→3D는
+    2개가 통과했고 3개 화면 대조도 실행했다(낮은 일치율, 정밀 수용 아님).
+    같은 새 Run의 경제/평가 연속 검증과 화면 보완이 남아 체크는 유지한다.
+
+## 전체 백엔드 CI 실행 경계 보완 (2026-10-01)
+
+- [ ] **`backend-ci-partition`** (S) — 선행: 기존 `backend-smoke` 실행 구조.
+  [관측된 150분 시간 초과](../research/source-farm-web-implementation.md#hosted-ci-and-resource-checkpoint)를
+  근거로 전체 백엔드 시험을 유한한 파일 묶음으로 나눈다. 체크 목록과 파일 집합을 결정적으로 대사해
+  중복·누락/미분류가 없고 기존 전체 pytest/UID 검사·DB cleanup이 유지되는지 확인한다.
+  제한 시간을 올리거나 느린 시험을 제외하지 않는다. 로컬에서는 한 묶음씩, 호스팅에서는 제한된 병렬도로
+  검증한 뒤 전 묶음·UID 검사와 cleanup의 실제 호스팅 증거가 있을 때 체크한다.
 
 ## 기존 구현 진행 기록
 

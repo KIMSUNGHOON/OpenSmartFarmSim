@@ -16,7 +16,11 @@
 [인증 API](contracts/api-farm-economic-candidate-selection-v1.md)도
 [SCRAM 5개](research/farm-economic-candidate-selection-implementation.md)와
 [집중 64개·실제 HTTPS 20개 전체 응답](research/api-farm-economic-candidate-selection-implementation.md)으로 확인했다.
-조회는 새 입력이나 승인을 발급하지 않으며 일반 농장 웹 선택 연결은 다음 단계다.
+조회는 새 입력이나 승인을 발급하지 않는다. [농장 작성 화면 연결 후보](research/source-farm-web-implementation.md)는
+저장된 완료 조사·수집과 경제 판본을 선택하고 참조만 읽기 전용으로 옮긴다.
+조합 변경·동의 취소·응답 유실·재연결을 집중 Chromium 14개로 확인했으며
+실제 HTTPS/SCRAM 신규 등록→검토/Run→3D의 두 경로도 통과했다.
+화면 대조는 낮은 일치율이며 같은 새 Run의 경제/평가 연속 검증과 화면 보완은 남아 있다.
 
 [07 작성 Run 경제·평가](contracts/web-authored-economic-assessment-v1.md)는 저장 Run을 선택해
 같은 농장에 고정된 V3 경제 입력으로 계산을 요청하고, 서버 금액·월별 현금·보류 6개·같은 3D Run을 확인한다.
