@@ -218,3 +218,21 @@ verification still needs separate asynchronous admission/status/result reading,
 current-rights checks and cancellation/retry/load evidence. This query change
 does not implement that path or prove its throughput. Product CLI, independent
 execution/release/full G1, real source/field/future comparison and G4 stay held.
+
+### Subsequent HTTPS regression verification (2026-10-01)
+
+The still-running backend run [36843547270](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36843547270)
+at the older `93e30a7` revision reported partition 4 as failed: **252 passed,
+1 failed in 1506.32 s**. The failed
+`test_standard_https_admits_authored_pair_and_reads_persisted_cli_hold`
+repeated the assessment POST after the stored hold and raised an actual TLS read
+`TimeoutError`. This establishes a read timeout for that test; it does not recover
+the original exception from the separate financial-browser failure.
+
+With the all-role auditor from `6748355`, the unchanged focused HTTPS test passed
+**1 case in 311.17 s** on local PostgreSQL 16.15. Its existing assertions require
+all **10 complete responses below 30 s**, actual admission/idempotent reuse and
+the persisted six-item hold. The CLI child and release keys remain synthetic.
+No timeout, assertion or request scope was widened. Hosted PostgreSQL 18
+verification of the new auditor is pending; other live partitions are not
+restarted or canceled merely because this partition failed.
