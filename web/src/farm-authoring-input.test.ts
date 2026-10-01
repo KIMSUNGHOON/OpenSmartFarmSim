@@ -63,4 +63,16 @@ describe('authored farm request builder',()=>{
     const invalidUtc=draft();invalidUtc.fields.decision_at='2026-02-30T00:00:00Z';
     expect(()=>buildFarmAuthoringRequest(invalidUtc)).toThrow('YYYY-MM-DDTHH:mm:ssZ');
   });
+
+  it('preserves exact server decision and user input microseconds in the submitted bytes',()=>{
+    const precise=draft();precise.fields.decision_at='2026-09-28T00:00:00.123456Z';
+    precise.fields.available_at='2026-09-28T00:00:00.123455Z';
+    precise.forcing[0]!.start='2026-10-01T00:00:00.000001Z';
+    const request=buildFarmAuthoringRequest(precise);
+    expect(request.farm.decision_at).toBe(precise.fields.decision_at);
+    expect((request.farm.facility as any).floor_area.available_at).toBe(precise.fields.available_at);
+    expect((request.farm.forcing as any[])[0].start).toBe(precise.forcing[0]!.start);
+    precise.fields.decision_at='2026-09-28T00:00:00.1234567Z';
+    expect(()=>buildFarmAuthoringRequest(precise)).toThrow(FarmDraftError);
+  });
 });

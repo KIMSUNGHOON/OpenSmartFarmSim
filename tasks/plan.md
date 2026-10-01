@@ -23,6 +23,9 @@ farm-economic-candidate-selection → web-source-farm-authoring` 순서로
 [인증 목록/현재 선택 API](../contracts/api-farm-economic-candidate-selection-v1.md)는
 [집중 64개·HTTPS 20개 전체 응답](../research/api-farm-economic-candidate-selection-implementation.md)이 통과했다.
 다음은 이 선택을 일반 농장 작성 화면에 연결하는 단계다.
+[웹 연결 계약](../contracts/web-source-farm-authoring-v1.md)의 첫
+[브라우저 읽기/참조 제공자](../research/source-farm-client-implementation.md)는 집중 95개와
+typecheck/build가 통과했다. 선택 UI·원천/경제 변경·복구와 실제 HTTPS 전체 작성 흐름은 후속이다.
 기존 고정/농장 재생 경로,
 실제 제품 CLI·독립 해제·전체 G1 수용과 새 원천 코드의 호스팅 CI는 별도 관문으로 유지한다.
 

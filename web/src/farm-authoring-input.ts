@@ -1,4 +1,5 @@
 import type { AuthoredFarmRequest } from './authored-farm-api';
+import { date } from './api-validation';
 
 export type Row=Record<string,string>;
 export type FarmDraft={fields:Row;forcing:Row[];crops:Row[];rightsConfirmed:boolean};
@@ -7,7 +8,7 @@ const IDENTIFIER=/^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$/;
 const DIGEST=/^[0-9a-f]{64}$/;
 const DECIMAL=/^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?$/;
 const DAY=/^\d{4}-\d{2}-\d{2}$/;
-const UTC=/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/;
+const UTC=/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?Z$/;
 
 export class FarmDraftError extends Error {
   constructor(public readonly field:string, message:string) {super(message);}
@@ -42,10 +43,8 @@ function day(row:Row,key:string,label:string):string {
   return value;
 }
 function utc(row:Row,key:string,label:string):string {
-  const value=required(row,key,label,20);
-  const parsed=Date.parse(value);
-  if(!UTC.test(value) || Number.isNaN(parsed) ||
-      new Date(parsed).toISOString().slice(0,19)+'Z'!==value)
+  const value=required(row,key,label,27);
+  if(!UTC.test(value) || !date(value))
     throw new FarmDraftError(key,`${label}은 YYYY-MM-DDTHH:mm:ssZ 형식이어야 합니다.`);
   return value;
 }

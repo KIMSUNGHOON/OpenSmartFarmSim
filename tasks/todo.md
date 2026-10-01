@@ -61,10 +61,14 @@
     실제 HTTPS 20개 전체 응답 최대 7.844초/기존 30초 제한, 페이지 복구·권리 철회·쓰기 범위 0개를 확인했다.
     새 호스팅 CI·농장 웹·실제 제품 CLI·독립 해제/전체 G1은 후속이다.
 - [ ] **`web-source-farm-authoring`** (M) — 선행: `farm-economic-candidate-selection`.
+  [웹 연결 계약](../contracts/web-source-farm-authoring-v1.md)을 따른다.
   저장 조사·수집/검토와 경제 후보 선택을 농장 폼에 연결해 선행 식별자 직접 입력을 줄인다.
   원천/경제 조합 변경·응답 유실·재연결·계정 변경을 확인하며 명시적 농장 숫자/권리 선언을 받는다.
   실제 HTTPS/SCRAM 브라우저에서 신규 등록→검토/작성 Run→경제/평가·같은 3D 연결을 검증한다.
   시험용 CLI/해제는 소프트웨어 범위이고 실제 제품 CLI·독립 전체 G1 체크는 유지한다.
+  - 첫 [브라우저 클라이언트](../research/source-farm-client-implementation.md)는
+    원천/후보의 정확한 참조·검증 표시·페이지와 UTC 마이크로초를 확인했다(집중 95개·typecheck/build).
+    선택 UI·조합 변경/복구·실제 HTTPS 전체 작성 경로는 다음 증거가 필요하므로 체크는 유지한다.
 
 ## 기존 구현 진행 기록
 
