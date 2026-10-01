@@ -45,7 +45,7 @@ typecheck/build가 통과했다. [화면 연결 후보](../research/source-farm-
 [권한 감사 조회 보완](../research/runtime-role-audit-batching-implementation.md#all-role-query-batching-follow-up-2026-10-01)은
 모든 현재 권한 검사를 유지하고 로컬 보안 109개·실제 HTTPS/브라우저 1개를 확인했다.
 29개 전체 본문 최대 24.5048초이며 30초 제한은 그대로다. `runtime-role-audit-batching`의
-새 호스팅 검증과 함께 큰 손익분기 격자의 비동기 검증 경로를 이어 간다.
+`7f49f52`의 호스팅 전체 백엔드 2,253개·UID 4개, 작성 139회·웹/C0와 정리가 통과해 이 소프트웨어 보완을 체크했다. 큰 손익분기 격자의 비동기 검증 경로와 독립 G1/G4는 이어 간다.
 
 앞선 전체 백엔드 CI는 [150분 실행 한도](../research/source-farm-web-implementation.md#hosted-ci-and-resource-checkpoint)로
 취소됐다. [분할 계약/후보](../contracts/backend-ci-partition-v1.md)는 기존 기본 수집 2,205개를

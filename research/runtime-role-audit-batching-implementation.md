@@ -282,3 +282,30 @@ interrupt it. The earlier `93e30a7` failures above are retained.
 All CLI children and release keys in these suites are synthetic. Actual product
 CLI, independent G1/release and source/field/future-comparison/G4 evidence remain
 pending. This hosted result does not accept the new local asynchronous worker.
+
+### Terminal broad backend acceptance at `7f49f52`
+
+The same [backend run 36854374556](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36854374556)
+has now completed successfully on PostgreSQL 18.6. All six partitions and the
+aggregate passed with the identical full-inventory digest
+`95aa173ab03ce33c46e9012def51a47a214e880236b85324f20636636a56fe7e`:
+
+| Partition | Passed | Seconds |
+| --- | ---: | ---: |
+| 0 | 244 | 1850.68 |
+| 1 | 321 | 1051.09 |
+| 2 | 352 | 1094.96 |
+| 3 | 510 | 1719.27 |
+| 4 | 331 | 1349.77 |
+| 5 | 495 | 1424.14 |
+
+The exact default inventory totals **2,253 passed, 0 skipped**; deselected cases
+belong to the other groups. Partition zero additionally ran the separate
+Linux UID service/planning selection: **4 passed in 17.81 s**. Its content UID
+boundary step passed, and all six database/password cleanup steps passed. Two
+pytest warnings in partition zero remain diagnostic, not suppressed failures.
+
+Together with the focused policy/query-budget and actual HTTPS/Chromium results,
+this meets `runtime-role-audit-batching`'s software acceptance. The original
+failure records stay intact. This accepts that exact auditor revision, not the
+later local asynchronous code, operational throughput or independent G1/G4.

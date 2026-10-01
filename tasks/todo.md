@@ -88,13 +88,13 @@
 
 ## 런타임 권한 감사 지연 보완 (2026-10-01)
 
-- [ ] **`runtime-role-audit-batching`** (S) — 선행: 기존 SCRAM 권한 감사 계약과 `backend-ci-partition`.
+- [x] **`runtime-role-audit-batching`** (S) — 선행: 기존 SCRAM 권한 감사 계약과 `backend-ci-partition`.
   [측정·구현 증거](../research/runtime-role-audit-batching-implementation.md#all-role-query-batching-follow-up-2026-10-01)를 따른다.
   네 역할의 현재 권한 조회를 묶어 왕복을 줄이고 전체 역할/테이블/열/함수·grant option·중간 철회를 유지한다.
   수용: 집중 보안·조회 예산과 실제 HTTPS/Chromium의 경제→평가 보류→복구→3D 및 호스팅 검증을 확인한다.
   30초 전체 본문 제한을 올리거나 권한을 캐시하지 않는다. 로컬 서로 다른 보안 109개와 실제 브라우저 1개,
   본문 29개·최대 24.5048초가 통과했다. 감사 451회 유지, SQL 실행 14,763→7,998과 예산 시험의 15회 조회를
-  확인했다. 새 호스팅 검증은 남아 체크를 유지하며 256개 손익분기 비동기 검증과 G1/G4 수용은 별도다.
+  확인했다. `7f49f52`의 호스팅 PostgreSQL 18 전체 2,253개·UID 4개 및 작성 7개 묶음 139회·웹/C0와 정리가 통과했다([최종 증거](../research/runtime-role-audit-batching-implementation.md#terminal-broad-backend-acceptance-at-7f49f52)). 256개 손익분기 비동기 검증과 G1/G4 수용은 별도다.
 
 ## 전체 백엔드 CI 실행 경계 보완 (2026-10-01)
 
