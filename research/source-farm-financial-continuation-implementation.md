@@ -81,9 +81,43 @@ one heavy local suite at a time and `nice -n 10`:
 
 ## Remaining acceptance
 
-This completes the local same-new-Run financial continuation proof. Hosted
-verification of this extension is pending. `web-source-farm-authoring` still
-needs the separately recorded visual refinement; its checkbox remains unset.
+At the local checkpoint, the same-new-Run financial continuation passed and
+hosted verification was pending. The hosted follow-up below covers this
+extension. `web-source-farm-authoring` still needs the separately recorded
+visual refinement and verification of that later code; its checkbox remains unset.
 The test CLI and signing keys are fixtures. Actual product CLI execution,
 independent execution/release/full G1, real-source G0, field G2, future economic
 validation/comparison G3 and deployment G4 remain held.
+
+## Hosted verification of the continuation
+
+Exact commit `5dc63f34ef47ab34a6504404b768f76e7e1404dc`:
+[authored PostgreSQL workflow 36835133737](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36835133737)
+completed successfully. All seven suites used the pinned PostgreSQL 18.6
+image and every database/password cleanup step completed successfully.
+
+| Suite | Passed | Seconds |
+| --- | --- | --- |
+| Authored API | 102 | 516.40 |
+| Authored economics | 13 | 601.78 |
+| Authored assessment | 15 | 1,073.20 |
+| Assessment HTTPS | 1 | 294.96 |
+| Financial selection | 3 | 588.22 |
+| Authored browser | 4 | 877.97 |
+| Financial browser | 1 | 457.16 |
+
+The authored-browser report includes the saved-source **new registration**
+case with the new financial continuation. Its 27 financial response bodies
+completed via the actual client reader EOF, with two admissions, one complete
+cash month and six holds. The maximum body completion was **27.2783 seconds**,
+within the unchanged 30-second client deadline. Both initial 120-point replay
+reports had zero console/page errors and four recognized GPU capture warnings.
+The passing harness checks the recovered current assessment and same Run's
+3D metrics; this is fixture software evidence, not production latency proof.
+
+The exact commit's [web workflow 36835133514](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36835133514)
+also passed: **154 unit tests, 49 Chromium cases**, typecheck/build and zero
+audit findings. [C0 workflow 36835133484](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36835133484)
+completed successfully. These results precede the subsequent composer layout
+refinement and do not verify that later UI diff. The six-part broad backend
+workflow remains separate and was still running when this follow-up was recorded.
