@@ -138,3 +138,41 @@ contract file passed **2 tests in 0.38 s** without a database. A new hosted
 commit must verify the correction before the partition task is checked.
 The complete log zip was downloaded once into the private local task directory;
 only summaries and the failure identity are retained here.
+
+## Hosted acceptance after the OpenAPI correction
+
+Exact commit `5dc63f34ef47ab34a6504404b768f76e7e1404dc`,
+[backend run 36835133400](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36835133400),
+completed **success** at 2026-10-01T09:19:34Z. The six disjoint groups passed:
+
+| Partition | Passed | Deselected | Seconds |
+| --- | ---: | ---: | ---: |
+| 0 | 504 | 1,701 | 1,437.75 |
+| 1 | 323 | 1,882 | 1,462.74 |
+| 2 | 414 | 1,791 | 782.29 |
+| 3 | 422 | 1,783 | 1,548.43 |
+| 4 | 253 | 1,952 | 1,421.92 |
+| 5 | 289 | 1,916 | 766.42 |
+
+Each actual partition log records its selected count out of 2,205 and the same
+complete inventory SHA-256:
+`10b67d5c5e84c898a4cb3170e9b1802bbcdf3601a8610da3706e85bf654db86e`.
+The extracted counts were checked: all six indices are present, each passed
+plus deselected count equals 2,205, and the disjoint passed counts sum to
+**2,205 passed, zero failed, zero skipped**. Partition four reports two warnings.
+The prior OpenAPI failure is included in partition five and now passes.
+
+Partition zero's four additional explicit UID service/planning cases passed in
+13.35 s, and its distinct-UID content access check passed. The UID setup/content
+steps are deliberately confined to partition zero; their `skipped` step status
+in the other five groups is not a skipped pytest case. Every database/password
+cleanup step succeeded. The stable `backend` aggregate received all six exact
+inventory outputs, checked each partition and cleanup conclusion and succeeded.
+The workflow's finite partitions, concurrency cap, 150-minute per-job limit,
+existing test collection and mandatory authored-browser workflow were retained.
+
+This satisfies the CI-partition task's software acceptance at this exact commit.
+The [same-new-Run continuation evidence](source-farm-financial-continuation-implementation.md#hosted-verification-of-the-continuation)
+also records the successful authored seven-suite, web and C0 workflows for it.
+Later composer layout/registration-lock changes need their own hosted checks.
+No product model invocation, independent G1 or G4 gate is inferred from green CI.

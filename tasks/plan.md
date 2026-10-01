@@ -42,8 +42,10 @@ typecheck/build가 통과했다. [화면 연결 후보](../research/source-farm-
 6개 파일 묶음에 중복·누락 없이 배정하며 UID/cleanup과 집계 검사를 유지한다.
 [로컬/호스팅 증거](../research/backend-ci-partition-implementation.md)에서 전체 2,205개 실행,
 UID/cleanup과 같은 전체 해시를 확인했다. 기존 OpenAPI 기대값 1개의 실패를 집계가 거부했고,
-V3 계약에 맞춘 집중 수정 2개가 통과했다. 수정과 새 Run 연속 시험을 함께 푸시한 뒤
-전체 호스팅 성공을 확인한다.
+V3 계약에 맞춘 집중 수정 2개가 통과했다. `5dc63f3`의
+[후속 호스팅 수용](../research/backend-ci-partition-implementation.md#hosted-acceptance-after-the-openapi-correction)은
+전체 2,205개·전 묶음/UID/cleanup과 최종 집계가 통과하여 CI 분할 작업을 체크했다.
+후속 UI 판본의 호스팅 검증과 실제 제품 CLI·독립 G1/G4는 계속 별도 관문이다.
 
 2026-10-01 사용자 지시로 개발·제품 실행 모델을 변경했다.
 [모델 이전 계약](../contracts/cli-model-policy-migration-v1.md)과

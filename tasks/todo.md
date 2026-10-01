@@ -82,7 +82,7 @@
 
 ## 전체 백엔드 CI 실행 경계 보완 (2026-10-01)
 
-- [ ] **`backend-ci-partition`** (S) — 선행: 기존 `backend-ci` 실행 구조.
+- [x] **`backend-ci-partition`** (S) — 선행: 기존 `backend-ci` 실행 구조.
   [관측된 150분 시간 초과](../research/source-farm-web-implementation.md#hosted-ci-and-resource-checkpoint)를
   근거로 전체 백엔드 시험을 유한한 파일 묶음으로 나눈다. 체크 목록과 파일 집합을 결정적으로 대사해
   중복·누락/미분류가 없고 기존 전체 pytest/UID 검사·DB cleanup이 유지되는지 확인한다.
@@ -95,7 +95,9 @@
   로컬 PG16 묶음 4는 253개/건너뜀 0개가 통과했다. `0fdecc2`의 웹·C0와
   작성 PG18 7개 묶음도 통과했다. 전체 6개 묶음은 2,204개 통과/기존 OpenAPI 기대값 1개 실패였고,
   UID/cleanup은 통과했다. 집계는 실패를 정확히 거부했다. V1/V2/V3 닫힌 계약 기대값을
-  수정한 집중 2개가 통과했으며 새 호스팅 전체 성공 전까지 체크는 유지한다.
+  수정한 집중 2개가 통과했다. `5dc63f3`의 [호스팅 수용](../research/backend-ci-partition-implementation.md#hosted-acceptance-after-the-openapi-correction)은
+  전체 2,205개/건너뜀 0개·같은 수집 해시·별도 UID 4개·내용 접근·전 묶음 cleanup과 최종 집계가
+  통과했다. 이 체크는 CI 분할의 소프트웨어 범위이며 후속 UI 판본의 CI와 실제 제품 CLI·G1/G4는 별도다.
 
 ## 기존 구현 진행 기록
 
