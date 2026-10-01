@@ -33,4 +33,4 @@ def test_complete_effective_grant_audit_has_bounded_round_trips(login_scope):
             conn.commit()
             assert result['policy_version']=='runtime-market-source-login-policy-v5'
     print({'audit_queries':counts,'audit_median_seconds':round(median(elapsed),6)},flush=True)
-    assert max(counts)<=120
+    assert max(counts)<=24

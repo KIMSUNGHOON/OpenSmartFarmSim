@@ -3,6 +3,7 @@ import { chromium,expect } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 import { createInterface } from 'node:readline';
 import { once } from 'node:events';
+import { observeApiBodies } from './observe-api-body.mjs';
 
 const [origin,thermal,lease,expectedPath]=process.argv.slice(2);
 const workerLease=Number(lease);
@@ -12,7 +13,8 @@ const expected=JSON.parse(await readFile(expectedPath,'utf8'));
 const browser=await chromium.launch({args:['--enable-unsafe-swiftshader']});
 const context=await browser.newContext({ignoreHTTPSErrors:true});
 const page=await context.newPage();const input=createInterface({input:process.stdin});
-const errors=[],captureWarnings=[],posts=[],responses=[],started=new Map();
+const errors=[],captureWarnings=[],posts=[],responses=[],bodies=[],failed=[],started=new Map();
+await observeApiBodies(page,value=>bodies.push(value));
 page.on('pageerror',error=>errors.push(error.message));
 page.on('console',message=>{
   const text=message.text();
@@ -28,6 +30,10 @@ page.on('response',response=>{
   const request=response.request();
   if(started.has(request))responses.push({path:new URL(response.url()).pathname,status:response.status(),
     header_seconds:(performance.now()-started.get(request))/1000});
+});
+page.on('requestfailed',request=>{
+  if(started.has(request))failed.push({path:new URL(request.url()).pathname,method:request.method(),
+    elapsed_seconds:(performance.now()-started.get(request))/1000});
 });
 async function signal(name) {
   const stop=new AbortController(),timer=setTimeout(()=>stop.abort(),workerLease*1000);
@@ -103,7 +109,16 @@ try {
     '/v1/jobs/'+thermal+'/authored-run','/v1/authored-runs/'+encodeURIComponent(expected.run_id)+'/series'])
     expect(responses.some(value=>value.path===path)).toBe(true);
   expect(responses.every(value=>[200,202].includes(value.status) && value.header_seconds<30)).toBe(true);
+  expect(bodies).toHaveLength(responses.length);
+  expect(bodies.every(value=>[200,202].includes(value.status) && value.cache==='no-store' &&
+    Number.isFinite(value.body_seconds) && value.body_seconds>=0 && value.body_seconds<30)).toBe(true);
   process.stdout.write(JSON.stringify({event:'verified',post_count:posts.length,hold_count:6,
     https_responses:responses.length,max_response_header_seconds:Math.max(...responses.map(value=>value.header_seconds)),
+    body_observation:'client_reader_eof',body_completions:bodies.length,
+    max_body_seconds:Math.max(...bodies.map(value=>value.body_seconds)),
     client_timeout_seconds:30,console_errors:errors.length,gpu_capture_warnings:captureWarnings.length,point_count:120})+'\n');
+} catch(error) {
+  process.stderr.write('authored_financial_browser_failure='+JSON.stringify({posts:posts.map(value=>value.path),
+    bodies,failed})+'\n');
+  throw error;
 } finally {input.close();await context.close();await browser.close();}

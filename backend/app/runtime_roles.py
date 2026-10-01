@@ -154,8 +154,11 @@ def audit_runtime_roles(conn, policy):
             conn.execute("SELECT 1 FROM pg_auth_members WHERE member=ANY(%s) OR roleid=ANY(%s)",
                          ([row["oid"] for row in roles], [row["oid"] for row in roles])).fetchone()):
         raise RolePolicyHold("runtime_role_attributes_or_membership")
-    if login and any(not conn.execute("SELECT has_database_privilege(%s,%s,'CONNECT') AS allowed",
-                    (role, policy.database)).fetchone()["allowed"] for role in policy.roles.values()):
+    role_names = list(policy.roles.values())
+    if login and conn.execute("""
+        SELECT 1 FROM unnest(%s::name[]) profiles(role_name)
+        WHERE NOT has_database_privilege(role_name,%s,'CONNECT') LIMIT 1
+    """, (role_names, policy.database)).fetchone():
         raise RolePolicyHold("runtime_database_connect_required")
     approved = [scope["owner_oid"], *[row["oid"] for row in roles]]
     unexpected_acl = conn.execute("""
@@ -175,48 +178,56 @@ def audit_runtime_roles(conn, policy):
         privileges.append("MAINTAIN")
     table_names = {relation["oid"]: relation["relname"] for relation in relations
                    if relation["relkind"] != "S"}
-    for kind, role in policy.roles.items():
-        rights = conn.execute("""
-            SELECT has_schema_privilege(%s,%s,'USAGE') AS usage,
-                has_database_privilege(%s,current_database(),'CREATE') AS db_create,
-                EXISTS (SELECT 1 FROM pg_namespace WHERE nspname !~ '^pg_(toast_)?temp_'
-                    AND has_schema_privilege(%s,oid,'CREATE')) AS ddl,
-                EXISTS (SELECT 1 FROM pg_proc p WHERE p.prosecdef
-                    AND has_function_privilege(%s,p.oid,'EXECUTE')
-                    AND has_schema_privilege(%s,p.pronamespace,'USAGE')) AS definer
-        """, (role, scope["schema_oid"], role, role, role, role)).fetchone()
-        if not rights["usage"] or rights["db_create"] or rights["ddl"] or rights["definer"]:
-            raise RolePolicyHold("runtime_ddl_or_definer_escape")
-        for relation in relations:
-            if relation["relkind"] == "S":
-                if any(conn.execute("SELECT has_sequence_privilege(%s,%s,%s) AS allowed",
-                       (role, relation["oid"], privilege)).fetchone()["allowed"] for privilege in ("SELECT", "UPDATE", "USAGE")):
-                    raise RolePolicyHold("runtime_sequence_privilege")
-        values = conn.execute("""
-            SELECT t.oid AS relation_oid, p AS privilege, has_table_privilege(%s,t.oid,p) AS allowed,
-                has_table_privilege(%s,t.oid,p || ' WITH GRANT OPTION') AS grantable
-            FROM unnest(%s::oid[]) t(oid) CROSS JOIN unnest(%s::text[]) p
-        """, (role, role, list(table_names), privileges)).fetchall()
-        if any(item["allowed"] != _allowed(policy, kind, table_names[item["relation_oid"]], item["privilege"])
-               or item["grantable"] for item in values):
-            raise RolePolicyHold("runtime_table_grant_matrix")
-        columns = conn.execute("""
-            SELECT t.oid AS relation_oid, p AS privilege,
-                has_table_privilege(%s,t.oid,p) AS table_allowed,
-                has_any_column_privilege(%s,t.oid,p) AS allowed,
-                has_any_column_privilege(%s,t.oid,p || ' WITH GRANT OPTION') AS grantable
-            FROM unnest(%s::oid[]) t(oid)
-                CROSS JOIN unnest(ARRAY['SELECT','INSERT','UPDATE','REFERENCES']) p
-        """, (role, role, role, list(table_names))).fetchall()
-        if any(item["allowed"] != _allowed(policy, kind, table_names[item["relation_oid"]], item["privilege"])
-               or item["table_allowed"] != item["allowed"]
-               or item["grantable"] for item in columns):
-            raise RolePolicyHold("runtime_column_grant_matrix")
-        if conn.execute("""
-            SELECT 1 FROM unnest(%s::oid[]) routine(oid)
-            WHERE has_function_privilege(%s,routine.oid,'EXECUTE') LIMIT 1
-        """, ([routine['oid'] for routine in routines], role)).fetchone():
-            raise RolePolicyHold("runtime_routine_privilege")
+    role_kinds = {role: kind for kind, role in policy.roles.items()}
+    rights = conn.execute("""
+        SELECT role_name, has_schema_privilege(role_name,%s,'USAGE') AS usage,
+            has_database_privilege(role_name,current_database(),'CREATE') AS db_create,
+            EXISTS (SELECT 1 FROM pg_namespace WHERE nspname !~ '^pg_(toast_)?temp_'
+                AND has_schema_privilege(role_name,oid,'CREATE')) AS ddl,
+            EXISTS (SELECT 1 FROM pg_proc p WHERE p.prosecdef
+                AND has_function_privilege(role_name,p.oid,'EXECUTE')
+                AND has_schema_privilege(role_name,p.pronamespace,'USAGE')) AS definer
+        FROM unnest(%s::name[]) profiles(role_name)
+    """, (scope["schema_oid"], role_names)).fetchall()
+    if any(not row["usage"] or row["db_create"] or row["ddl"] or row["definer"] for row in rights):
+        raise RolePolicyHold("runtime_ddl_or_definer_escape")
+    sequence_ids = [relation["oid"] for relation in relations if relation["relkind"] == "S"]
+    if sequence_ids and conn.execute("""
+        SELECT 1 FROM unnest(%s::name[]) profiles(role_name)
+            CROSS JOIN unnest(%s::oid[]) sequences(oid)
+            CROSS JOIN unnest(ARRAY['SELECT','UPDATE','USAGE']) privileges(privilege)
+        WHERE has_sequence_privilege(role_name,sequences.oid,privilege) LIMIT 1
+    """, (role_names, sequence_ids)).fetchone():
+        raise RolePolicyHold("runtime_sequence_privilege")
+    values = conn.execute("""
+        SELECT role_name, t.oid AS relation_oid, p AS privilege,
+            has_table_privilege(role_name,t.oid,p) AS allowed,
+            has_table_privilege(role_name,t.oid,p || ' WITH GRANT OPTION') AS grantable
+        FROM unnest(%s::name[]) profiles(role_name)
+            CROSS JOIN unnest(%s::oid[]) t(oid) CROSS JOIN unnest(%s::text[]) p
+    """, (role_names, list(table_names), privileges)).fetchall()
+    if any(item["allowed"] != _allowed(policy, role_kinds[item["role_name"]],
+            table_names[item["relation_oid"]], item["privilege"]) or item["grantable"] for item in values):
+        raise RolePolicyHold("runtime_table_grant_matrix")
+    columns = conn.execute("""
+        SELECT role_name, t.oid AS relation_oid, p AS privilege,
+            has_table_privilege(role_name,t.oid,p) AS table_allowed,
+            has_any_column_privilege(role_name,t.oid,p) AS allowed,
+            has_any_column_privilege(role_name,t.oid,p || ' WITH GRANT OPTION') AS grantable
+        FROM unnest(%s::name[]) profiles(role_name)
+            CROSS JOIN unnest(%s::oid[]) t(oid)
+            CROSS JOIN unnest(ARRAY['SELECT','INSERT','UPDATE','REFERENCES']) p
+    """, (role_names, list(table_names))).fetchall()
+    if any(item["allowed"] != _allowed(policy, role_kinds[item["role_name"]],
+            table_names[item["relation_oid"]], item["privilege"])
+            or item["table_allowed"] != item["allowed"] or item["grantable"] for item in columns):
+        raise RolePolicyHold("runtime_column_grant_matrix")
+    if conn.execute("""
+        SELECT 1 FROM unnest(%s::name[]) profiles(role_name)
+            CROSS JOIN unnest(%s::oid[]) routine(oid)
+        WHERE has_function_privilege(role_name,routine.oid,'EXECUTE') LIMIT 1
+    """, (role_names, [routine['oid'] for routine in routines])).fetchone():
+        raise RolePolicyHold("runtime_routine_privilege")
     bad_defaults = conn.execute("""
         SELECT 1 FROM unnest(ARRAY['r','S','f']::"char"[]) k
             LEFT JOIN pg_default_acl d ON d.defaclrole=%s

@@ -130,3 +130,10 @@ binding and audits effective grants on every connection before data queries.
 The [API assembly](api-runtime-assembly-v1.md) selects True; the default and
 v2 role matrix remain unchanged. Audit failure closes with fixed
 `runtime_grants_rejected`. This does not establish credential custody.
+
+The auditor groups the four fixed roles in set queries for privilege inquiries.
+It still runs the complete current policy on every audited connection, including
+whole-table checks alongside column access and grant options. It introduces no
+rights cache or connection reuse. [Focused and browser evidence](../research/runtime-role-audit-batching-implementation.md#all-role-query-batching-follow-up-2026-10-01)
+records the SQL reduction and unchanged 30-second HTTP bound; hosted and
+production load acceptance remain separate.

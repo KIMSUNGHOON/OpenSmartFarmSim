@@ -100,7 +100,8 @@ def test_saved_authored_run_admits_money_and_assessment_recovers_and_replays(aut
                 line = browser.stdout.readline()
                 if not line:
                     _, error = browser.communicate(timeout=5)
-                    pytest.fail('browser exited: ' + error.replace(token.decode(), '<redacted>')[-2500:])
+                    safe = error.replace(token.decode(), '<redacted>')
+                    pytest.fail('browser exited: ' + safe[:12000] + '\n...\n' + safe[-2500:])
                 return json.loads(line)
 
             queued = event()
@@ -127,6 +128,8 @@ def test_saved_authored_run_admits_money_and_assessment_recovers_and_replays(aut
             assert verified['event'] == 'verified' and verified['post_count'] == 2
             assert verified['hold_count'] == 6 and verified['point_count'] == 120 and verified['console_errors'] == 0
             assert verified['client_timeout_seconds'] == 30 and verified['max_response_header_seconds'] < 30
+            assert verified['body_observation'] == 'client_reader_eof'
+            assert verified['body_completions'] == verified['https_responses'] and verified['max_body_seconds'] < 30
             _, error = browser.communicate(timeout=15)
             assert browser.returncode == 0, error.replace(token.decode(), '<redacted>')[-2500:]
             assert jobs.get_publication('tenant-1', assessment_id) is None

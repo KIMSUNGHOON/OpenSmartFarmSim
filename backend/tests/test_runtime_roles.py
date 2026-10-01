@@ -244,7 +244,8 @@ def test_table_read_revoked_between_table_and_column_checks_is_rejected(role_sco
             return getattr(self.connection, name)
 
         def execute(self, query, params=None):
-            if (not self.changed and params and params[0] == policy.roles['authority']
+            if (not self.changed and params and policy.roles['authority'] in
+                    (params[0] if isinstance(params[0], (list, tuple)) else (params[0],))
                     and ('has_column_privilege' in str(query)
                          or 'has_any_column_privilege' in str(query))):
                 self.changed = True
