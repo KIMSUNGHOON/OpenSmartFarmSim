@@ -34,8 +34,10 @@ typecheck/build가 통과했다. [화면 연결 후보](../research/source-farm-
 실제 제품 CLI·독립 해제·전체 G1 수용과 새 원천 코드의 호스팅 CI는 별도 관문으로 유지한다.
 
 앞선 전체 백엔드 CI는 [150분 실행 한도](../research/source-farm-web-implementation.md#hosted-ci-and-resource-checkpoint)로
-취소됐다. 새 원천/웹 커밋을 함께 푸시하기 전에 `backend-ci-partition`으로 모든 시험의
-유한한 파일 묶음과 UID/cleanup 보존을 확인한다. 이후 같은 새 Run의 경제/평가 연속 검증을 진행한다.
+취소됐다. [분할 계약/후보](../contracts/backend-ci-partition-v1.md)는 기존 기본 수집 2,205개를
+6개 파일 묶음에 중복·누락 없이 배정하며 UID/cleanup과 집계 검사를 유지한다.
+[로컬/호스팅 증거](../research/backend-ci-partition-implementation.md)를 확인하고
+새 원천/웹 커밋을 함께 푸시한다. 이후 같은 새 Run의 경제/평가 연속 검증을 진행한다.
 
 2026-10-01 사용자 지시로 개발·제품 실행 모델을 변경했다.
 [모델 이전 계약](../contracts/cli-model-policy-migration-v1.md)과

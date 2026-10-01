@@ -75,12 +75,17 @@
 
 ## 전체 백엔드 CI 실행 경계 보완 (2026-10-01)
 
-- [ ] **`backend-ci-partition`** (S) — 선행: 기존 `backend-smoke` 실행 구조.
+- [ ] **`backend-ci-partition`** (S) — 선행: 기존 `backend-ci` 실행 구조.
   [관측된 150분 시간 초과](../research/source-farm-web-implementation.md#hosted-ci-and-resource-checkpoint)를
   근거로 전체 백엔드 시험을 유한한 파일 묶음으로 나눈다. 체크 목록과 파일 집합을 결정적으로 대사해
   중복·누락/미분류가 없고 기존 전체 pytest/UID 검사·DB cleanup이 유지되는지 확인한다.
   제한 시간을 올리거나 느린 시험을 제외하지 않는다. 로컬에서는 한 묶음씩, 호스팅에서는 제한된 병렬도로
   검증한 뒤 전 묶음·UID 검사와 cleanup의 실제 호스팅 증거가 있을 때 체크한다.
+  진행: [분할 계약](../contracts/backend-ci-partition-v1.md)과
+  [검증 기록](../research/backend-ci-partition-implementation.md)을 추가했다.
+  실제 기본 수집 2,205개/132파일과 6개 분할의 합집합·동일 전체 해시를 대사했고
+  누락·중복은 0개다. 분할 도구 집중 시험 11개와 실패/누락을 거부하는 집계 프로그램을 확인했다.
+  실제 PostgreSQL 실행과 새 커밋의 전체 호스팅 수용은 후속이다.
 
 ## 기존 구현 진행 기록
 

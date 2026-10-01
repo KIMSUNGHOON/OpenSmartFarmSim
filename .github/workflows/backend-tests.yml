@@ -14,9 +14,24 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  backend:
+  backend_partitions:
+    name: backend-partition-${{ matrix.partition }}
     runs-on: ubuntu-24.04
     timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        partition: [0, 1, 2, 3, 4, 5]
+    env:
+      OSSF_CI_PARTITION: ${{ matrix.partition }}
+    outputs:
+      inventory_0: ${{ steps.partition.outputs.inventory_0 }}
+      inventory_1: ${{ steps.partition.outputs.inventory_1 }}
+      inventory_2: ${{ steps.partition.outputs.inventory_2 }}
+      inventory_3: ${{ steps.partition.outputs.inventory_3 }}
+      inventory_4: ${{ steps.partition.outputs.inventory_4 }}
+      inventory_5: ${{ steps.partition.outputs.inventory_5 }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
@@ -39,11 +54,12 @@ jobs:
           uv run --no-sync python -c 'import sys; assert sys.version_info[:3] == (3, 12, 13)'
 
       - name: Prepare readable runtime for UID service smoke
+        if: matrix.partition == 0
         working-directory: backend
         shell: bash
         run: |
           set -euo pipefail
-          uid_runtime="/tmp/ossf-uid-runtime-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          uid_runtime="/tmp/ossf-uid-runtime-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${OSSF_CI_PARTITION}"
           mkdir -m 755 -- "$uid_runtime"
           uv python install --no-cache --no-bin --install-dir "$uid_runtime/python" 3.12.13
           UV_PYTHON_INSTALL_DIR="$uid_runtime/python" UV_PROJECT_ENVIRONMENT="$uid_runtime/venv" \
@@ -67,7 +83,7 @@ jobs:
           set -euo pipefail
           db_image='postgres:18.6-bookworm@sha256:3725f4e2499eef5134592b3b4ab79a543ed7f8e533b05b5b637af926630f6650'
           grep -Fqx "    image: $db_image" compose.yaml
-          db_container="ossf-backend-pg-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          db_container="ossf-backend-pg-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${OSSF_CI_PARTITION}"
           secret_dir="${RUNNER_TEMP}/${db_container}"
           mkdir -m 700 -- "$secret_dir"
           umask 077
@@ -100,11 +116,12 @@ jobs:
           exit 1
 
       - name: Run backend tests against PostgreSQL
+        id: partition
         working-directory: backend
         shell: bash
         run: |
           set -euo pipefail
-          db_container="ossf-backend-pg-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          db_container="ossf-backend-pg-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${OSSF_CI_PARTITION}"
           secret_dir="${RUNNER_TEMP}/${db_container}"
           mapping="$(docker port "$db_container" 5432/tcp)"
           if [[ ! "$mapping" =~ ^127[.]0[.]0[.]1:([0-9]+)$ ]]; then
@@ -119,14 +136,17 @@ jobs:
           export OSSF_TEST_PG_DSN="host=127.0.0.1 port=$port dbname=ossf_ci user=ossf_ci"
 
           uv run --no-sync python -c 'import os, psycopg; psycopg.connect(os.environ["OSSF_TEST_PG_DSN"]).close()'
-          uid_runtime="/tmp/ossf-uid-runtime-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          sudo -- env OSSF_TEST_PG_DSN="$OSSF_TEST_PG_DSN" PGPASSFILE="$PGPASSFILE" \
-            "$uid_runtime/venv/bin/python" -B -m pytest -p no:cacheprovider -q -s \
-              tests/uid_service_smoke.py tests/uid_planning_smoke.py
-          uv run --no-sync pytest -q -rs --tb=short --durations=20 \
-            --ignore=tests/test_authored_full_software_path.py
+          if [[ "$OSSF_CI_PARTITION" == 0 ]]; then
+            uid_runtime="/tmp/ossf-uid-runtime-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${OSSF_CI_PARTITION}"
+            sudo -- env OSSF_TEST_PG_DSN="$OSSF_TEST_PG_DSN" PGPASSFILE="$PGPASSFILE" \
+              "$uid_runtime/venv/bin/python" -B -m pytest -p no:cacheprovider -q -s \
+                tests/uid_service_smoke.py tests/uid_planning_smoke.py
+          fi
+          uv run --no-sync python ../scripts/backend-ci-partitions.py "$OSSF_CI_PARTITION" \
+            --manifest "$RUNNER_TEMP/backend-partition-${OSSF_CI_PARTITION}.json"
 
       - name: Check content access with distinct Linux UIDs
+        if: matrix.partition == 0
         shell: bash
         run: |
           set -euo pipefail
@@ -137,13 +157,39 @@ jobs:
         shell: bash
         run: |
           set -u
-          db_container="ossf-backend-pg-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          db_container="ossf-backend-pg-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${OSSF_CI_PARTITION}"
           secret_dir="${RUNNER_TEMP}/${db_container}"
           status=0
           if docker container inspect "$db_container" >/dev/null 2>&1; then
             docker rm -fv "$db_container" >/dev/null 2>&1 || status=1
           fi
           rm -rf -- "$secret_dir" || status=1
-          uid_runtime="/tmp/ossf-uid-runtime-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          uid_runtime="/tmp/ossf-uid-runtime-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${OSSF_CI_PARTITION}"
           sudo -- rm -rf -- "$uid_runtime" || status=1
           exit "$status"
+
+  backend:
+    needs: backend_partitions
+    if: ${{ always() }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Require all partitions and identical complete inventories
+        env:
+          PARTITION_RESULT: ${{ needs.backend_partitions.result }}
+          PARTITION_OUTPUTS: ${{ toJSON(needs.backend_partitions.outputs) }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, re
+          if os.environ['PARTITION_RESULT'] != 'success':
+              raise SystemExit('One or more backend partitions did not succeed.')
+          outputs = json.loads(os.environ['PARTITION_OUTPUTS'])
+          if set(outputs) != {f'inventory_{i}' for i in range(6)}:
+              raise SystemExit('A backend partition inventory is missing.')
+          digests = set(outputs.values())
+          if len(digests) != 1 or not re.fullmatch(r'[0-9a-f]{64}', next(iter(digests))):
+              raise SystemExit('Backend partitions collected different inventories.')
+          print('All six backend partitions passed with the same complete inventory.')
+          PY
