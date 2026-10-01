@@ -1,5 +1,13 @@
 # 구현 준비 현황
 
+**작성 Run 경제 입력·작업 이력 조회 후보 (2026-10-01):** [조회 계약](../contracts/authored-financial-selection-v1.md)은
+현재 작성 Run과 농장에 고정된 경제 입력 V3를 확인하고 같은 부모의 경제·평가 기록을 페이지별로 복원한다.
+실제 PostgreSQL 16.15/SCRAM의 선택·권한·손상/비표준 JSON 거부·권리 철회·늦은 변경과 OpenAPI,
+표준 HTTPS의 10개 응답·기존 브라우저 회귀를 포함한 서로 다른 집중 시험 59개가 통과했다
+([검증 기록](../research/authored-financial-selection-implementation.md)). HTTP 최대 24.769초는 기존 30초 제한 안이며
+그 HTTPS 측정 뒤 추가한 바이트 검사도 실제 DB 두 사례로 다시 확인했다.
+이력은 결과 승인 증거가 아니며 현재 금액/현금·평가 조회가 필요하다. 작성 웹 선택·새 호스팅 CI·실제 제품 CLI·독립 G1/G4는 남아 있다.
+
 **작성 Run 평가 연결 후보 (2026-10-01):** [평가 입력 V3](../contracts/authored-calculation-assessment-v1.md)는
 완료 작성 열·경제 작업과 현재 농장/해제/문맥의 해시를 고정하고 공유 CLI 라우터의 별도 검증기에 연결한다.
 실제 PostgreSQL 16.15/SCRAM에서 세 통합 사례와 표준 HTTPS의 8개 응답·보류 6개를 확인했다

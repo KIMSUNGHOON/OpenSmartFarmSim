@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [api, economics, assessment, assessment-https, browser]
+        suite: [api, economics, assessment, financial-selection, assessment-https, browser]
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
@@ -131,6 +131,10 @@ jobs:
             assessment-https)
               uv run --no-sync pytest -q -rs -s -x --tb=short --durations=10 \
                 tests/test_authored_assessment_https.py
+              ;;
+            financial-selection)
+              uv run --no-sync pytest -q -rs -x --tb=short --durations=10 \
+                tests/test_authored_financial_selection.py
               ;;
             browser)
               uv run --no-sync pytest -q -s --tb=short --durations=5 \

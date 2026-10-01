@@ -16,6 +16,7 @@ from app.api import create_app
 from app.api_contracts import LocationPoint
 from app.api_authored_thermal import AUTHORED_READ_SCOPES
 from app.authored_economic_execution import AUTHORED_ECONOMIC_SCOPES
+from app.authored_financial_selection import READ_SCOPES as AUTHORED_FINANCIAL_READ_SCOPES
 from app.farm_authoring_storage import READ_SCOPES as FARM_AUTHORING_READ_SCOPES, WRITE_SCOPES as FARM_AUTHORING_WRITE_SCOPES
 from app.farm_authored_review import REVIEW_SCOPES as FARM_AUTHORED_REVIEW_SCOPES
 from app import api_openapi
@@ -23,6 +24,10 @@ from test_http_identity import request
 
 
 OPERATIONS = {
+    ('/v1/jobs/{job_id}/authored-economic-input','get'):
+        ('getAuthoredEconomicSelection',list(AUTHORED_FINANCIAL_READ_SCOPES)),
+    ('/v1/jobs/{job_id}/authored-financial-history','get'):
+        ('listAuthoredFinancialHistory',list(AUTHORED_FINANCIAL_READ_SCOPES)),
     ('/v1/authored-runs','post'): ('submitAuthoredThermalRun',['simulation_create',*AUTHORED_READ_SCOPES]),
     ('/v1/farm-authored-reviews','post'): ('submitFarmAuthoredReview',list(FARM_AUTHORED_REVIEW_SCOPES)),
     ('/v1/farm-authored-inputs','post'): ('registerFarmAuthoredInputs',list(FARM_AUTHORING_WRITE_SCOPES)),

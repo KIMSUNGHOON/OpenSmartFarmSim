@@ -43,6 +43,12 @@ The [authored Run catalog](api-authored-thermal-run-v1.md) lists tenant-owned
 stored Run identifiers with an explicit `requires_current_read` marker. Its
 exact Run read retains the existing rights, release and publication checks.
 
+The [authored financial selection/history](authored-financial-selection-v1.md)
+reads derive the current farm-pinned economic V3 input and recover that exact
+thermal parent's economic/assessment jobs. Selection requires admission recheck;
+history requires current result/status reads before display. The existing
+economic and assessment POST contracts still perform their own checks.
+
 Example body (synthetic software-contract coordinates; no approved source scope):
 
 ```json

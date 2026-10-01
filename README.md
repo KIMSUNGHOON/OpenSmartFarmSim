@@ -8,6 +8,11 @@
 
 ## 현재 내부 웹 구현
 
+[작성 Run의 경제 입력·작업 이력 조회](contracts/authored-financial-selection-v1.md)는
+현재 농장에 고정된 경제 입력 V3와 같은 Run의 경제·평가 작업을 서버에서 다시 찾는 웹 선행 기능이다
+([집중 시험 59개](research/authored-financial-selection-implementation.md)).
+이력 선택 뒤에는 실제 결과를 현재 권리로 다시 조회해야 한다. 웹 선택 화면과 작성 경제·평가 흐름은 다음 작업이다.
+
 [작성 Run의 경제 실행 후보](contracts/authored-economic-execution-v1.md)는 현재 농장 판본과
 실제 완료 작성 Run을 별도 경제 입력/영수증 V3에 묶고 기존 금액·월별 현금 조회를 제공한다
 ([SCRAM·HTTPS/OpenAPI 검증](research/authored-economic-execution-implementation.md)).

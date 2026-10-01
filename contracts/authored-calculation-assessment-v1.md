@@ -2,6 +2,10 @@
 
 Status: internal implementation candidate after authored economic execution.
 
+[Financial history](authored-financial-selection-v1.md) recovers this exact
+authored thermal parent's assessment intents and linked economic jobs. Its
+recovery metadata does not replace current assessment/status or result checks.
+
 The existing closed POST `/v1/assessments` still accepts only `run_job_id`,
 `economic_job_id` and `idempotency_key`. The server infers
 `calculation-assessment-input-v3` exclusively from the actual completed

@@ -45,6 +45,8 @@ from .api_economic_calculation import (EconomicCalculationService, ECONOMIC_REQU
 from .farm_economic_execution import FARM_ECONOMIC_SCOPES
 from .economic_calculation_worker import CALCULATION_SCOPES
 from .authored_economic_execution import AUTHORED_ECONOMIC_SCOPES
+from .authored_financial_selection import (AuthoredFinancialSelectionService,
+    AuthoredEconomicSelection, AuthoredFinancialHistory, READ_SCOPES as AUTHORED_FINANCIAL_READ_SCOPES)
 from .break_even_plan_submission import (BreakEvenPlanSubmissionService, BreakEvenPlanSubmission,
     BreakEvenPlanAccepted, PLAN_SUBMISSION_SCOPES, BreakEvenPlanReceipt, PLAN_RECEIPT_SCOPES, PlanReceiptConflict)
 from .jobs import canonical_input_bytes
@@ -190,6 +192,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             job_store.principal_provider is not principal_provider):
         raise ValueError('trusted calculation assessment service required')
     app = FastAPI(title="OpenSmartFarmSim", version="1", openapi_version="3.1.0")
+    authored_financial = (AuthoredFinancialSelectionService(economic_calculation_service)
+        if economic_calculation_service is not None and
+        economic_calculation_service.authored_run_store is not None else None)
     location_scopes = ("location_create",)
     location_admission_scopes = OWNED_RESEARCH_SCOPES if type(location_research_service) is OwnedResearchService else location_scopes
     source_history = (OwnedSourceHistoryService(location_research_service)
@@ -838,6 +843,52 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
             return _error(409, 'intent_conflict', 'Intent already has a different request')
         except Exception:
             return _error(503, 'economic_calculation_unavailable', 'Economic calculation unavailable')
+
+    @app.get('/v1/jobs/{job_id}/authored-economic-input', response_model=AuthoredEconomicSelection,
+             operation_id='getAuthoredEconomicSelection',
+             responses={status:{'model':ErrorEnvelope} for status in (401,403,404,422,503)},
+             openapi_extra=_access(AUTHORED_FINANCIAL_READ_SCOPES))
+    async def get_authored_economic_selection(job_id: UUID):
+        tenant, denied = authorized_tenant(*AUTHORED_FINANCIAL_READ_SCOPES)
+        if denied is not None:
+            return denied
+        if authored_financial is None:
+            return _error(503,'economic_calculation_unavailable','Economic calculation unavailable')
+        try:
+            result = await run_in_threadpool(authored_financial.read, tenant, job_id)
+            if result is None:
+                return _error(404,'not_found','Resource unavailable')
+            return result
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except Exception:
+            return _error(503,'economic_calculation_unavailable','Economic calculation unavailable')
+
+    @app.get('/v1/jobs/{job_id}/authored-financial-history', response_model=AuthoredFinancialHistory,
+             operation_id='listAuthoredFinancialHistory',
+             responses={status:{'model':ErrorEnvelope} for status in (401,403,404,422,503)},
+             openapi_extra=_access(AUTHORED_FINANCIAL_READ_SCOPES))
+    async def list_authored_financial_history(job_id: UUID,
+            limit: Annotated[int,Query(ge=1,le=50)] = 20,
+            before_created_at: datetime | None = None, before_job_id: UUID | None = None):
+        tenant, denied = authorized_tenant(*AUTHORED_FINANCIAL_READ_SCOPES)
+        if denied is not None:
+            return denied
+        if (before_created_at is None)!=(before_job_id is None) or (
+                before_created_at is not None and before_created_at.tzinfo is None):
+            return _error(422,'invalid_request','Invalid request')
+        if authored_financial is None:
+            return _error(503,'economic_calculation_unavailable','Economic calculation unavailable')
+        try:
+            result = await run_in_threadpool(authored_financial.history,tenant,job_id,limit=limit,
+                before_created_at=before_created_at,before_job_id=before_job_id)
+            if result is None:
+                return _error(404,'not_found','Resource unavailable')
+            return result
+        except PermissionError:
+            return _error(403,'forbidden','Resource access denied')
+        except Exception:
+            return _error(503,'economic_calculation_unavailable','Economic calculation unavailable')
 
     @app.get('/v1/jobs/{job_id}/economic-result', response_model=EconomicResultRead,
              responses=errors, operation_id='getJobEconomicResult', openapi_extra={**_access(ECONOMIC_JOB_READ_SCOPES),

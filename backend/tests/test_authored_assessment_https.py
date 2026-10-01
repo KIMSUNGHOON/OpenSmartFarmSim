@@ -123,9 +123,18 @@ def test_standard_https_admits_authored_pair_and_reads_persisted_cli_hold(
         status, report = call(base + '/hold-report')
         assert status == 200 and report['missing_evidence'] == list(service.MISSING_EVIDENCE)
         assert report['missing_evidence_count'] == 6
+        parent_base = '/v1/jobs/' + intent['run_job_id']
+        status, selected = call(parent_base + '/authored-economic-input')
+        assert status == 200 and selected['verification'] == 'requires_admission_recheck'
+        assert selected['calculation_input']['thermal_job_id'] == intent['run_job_id']
+        status, history = call(parent_base + '/authored-financial-history')
+        assert status == 200 and history['verification'] == 'requires_current_read'
+        assert history['run_id'] == selected['thermal_run']['run_id']
+        assert {item['job']['job_id'] for item in history['items']} == {
+            admitted['job_id'], intent['economic_job_id']}
         assert call('/v1/assessments', body=intent)[1]['state'] == 'hold'
         assert jobs.get_publication('tenant-1', admitted['job_id']) is None
-        assert len(responses) == 8 and all(elapsed < 30 for _, elapsed in responses)
+        assert len(responses) == 10 and all(elapsed < 30 for _, elapsed in responses)
         print('authored_assessment_https=' + json.dumps({'responses': len(responses),
             'hold_count': report['missing_evidence_count'],
             'max_response_seconds': round(max(elapsed for _, elapsed in responses), 3),

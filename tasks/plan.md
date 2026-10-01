@@ -1,10 +1,12 @@
 # 구현 순서
 
 작성 Run의 후속 연결은 `authored-economic-execution → authored-calculation-assessment →
-web-authored-economic-assessment` 순서로 검증한다([세부 작업](todo.md#작성-run-경제평가-연결-2026-10-01)).
+authored-financial-selection → web-authored-economic-assessment` 순서로 검증한다([세부 작업](todo.md#작성-run-경제평가-연결-2026-10-01)).
 첫 단계인 [별도 경제 입력/영수증 V3](../contracts/authored-economic-execution-v1.md)와
 현재 작성 부모/경제 가정의 서버 결합 뒤에 [평가 입력 V3](../contracts/authored-calculation-assessment-v1.md)의
 완료 부모·해제·문맥 결합을 확인했다([SCRAM·HTTPS 증거](../research/authored-calculation-assessment-implementation.md)).
+[경제 입력·작업 이력 조회](../contracts/authored-financial-selection-v1.md)도 서버에서 현재 작성 부모에 고정했다
+([집중 시험 59개](../research/authored-financial-selection-implementation.md)).
 다음은 웹에서 같은 계정의 저장 부모를 선택하도록 잇는 작업이다. 기존 고정/농장 재생 경로와
 전체 사용자 흐름 및 실제 CLI·독립 G1 수용은 각각 유지한다.
 

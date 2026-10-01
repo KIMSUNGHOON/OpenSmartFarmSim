@@ -4,6 +4,10 @@ Status: internal software candidate; implementation and acceptance evidence are
 recorded separately. This extends the conditional economic calculation path
 after an authored thermal Run has actually completed.
 
+[Financial selection/history](authored-financial-selection-v1.md) provides
+read-only discovery of the current farm-pinned V3 input and exact parent jobs.
+The later admission and completed result reads retain this contract's checks.
+
 ## Input and authority
 
 Closed `economic-calculation-input-v3` retains the V1 economic scenario ID,

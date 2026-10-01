@@ -14,7 +14,13 @@
   실제 SCRAM의 세 통합 사례·HTTPS 8개 응답, 혼합/다른 부모/변조/권리 철회/늦은 변경 롤백,
   기존 평가 호환과 브라우저 회귀를 확인했다([서로 다른 집중 시험 83개](../research/authored-calculation-assessment-implementation.md)).
   시험용 CLI·서명의 서버 소프트웨어 범위이며 새 호스팅 CI·작성 웹 부모 선택·제품 CLI·독립 G1은 후속이다.
-- [ ] **`web-authored-economic-assessment`** — 선행: `authored-calculation-assessment`.
+- [x] **`authored-financial-selection`** — 선행: `authored-calculation-assessment`.
+  [현재 작성 Run의 경제 입력·작업 이력 조회](../contracts/authored-financial-selection-v1.md)는 웹 부모 선택의 서버 선행 조건이다.
+  현재 농장에 고정된 경제 판본을 서버에서 확인하고 같은 Run의 경제·평가 기록을 페이지별로 복원한다.
+  실제 SCRAM의 선택·권한·혼합/외부/미완료/손상 거부·늦은 변경과 표준 HTTPS 30초 제한을 확인했다
+  ([서로 다른 집중 시험 59개](../research/authored-financial-selection-implementation.md)).
+  시험용 CLI·서명의 서버 소프트웨어 범위이며 작성 웹 선택·새 호스팅 CI·제품 CLI·독립 G1은 후속이다.
+- [ ] **`web-authored-economic-assessment`** — 선행: `authored-financial-selection`.
   같은 계정의 작성 Run 선택에서 같은 경제 판본의 접수·조회와 평가로 이어지게 한다.
   식별자를 직접 알지 않아도 저장 부모를 선택하게 하며, 응답 유실·재연결·계정 변경,
   실제 HTTPS/SCRAM 브라우저의 조건부 금액/현금·보류와 3D 연결을 확인한다.
