@@ -16,6 +16,7 @@ from .market_runtime import connect_market, validate_market_identity
 
 
 _RESULT = TypeAdapter(BreakEvenResult)
+MAX_RESULT_BYTES = 1048576
 _READ_METHODS = frozenset({
     "get_economic_scenario", "get_economic_scenario_pin", "get_economic_input",
     "get_joint_shock", "get_joint_shock_pin", "get_input_rights",
@@ -32,6 +33,13 @@ def _canonical(value):
 
 def _hash(raw):
     return sha256(raw).hexdigest()
+
+
+def canonical_result_bytes(result):
+    raw = _canonical(_RESULT.dump_python(result, mode='json'))
+    if len(raw) > MAX_RESULT_BYTES:
+        raise ValueError('break-even result exceeds size limit')
+    return raw
 
 
 def install_break_even_store_schema(conn, schema):
@@ -145,7 +153,7 @@ class BreakEvenStore:
         result = _RESULT.validate_json(row["result_raw"])
         if (row["request_raw"] != _canonical(request.model_dump(mode="json")) or
                 row["plan_raw"] != _canonical(plan.model_dump(mode="json")) or
-                row["result_raw"] != _canonical(_RESULT.dump_python(result, mode="json")) or
+                row["result_raw"] != canonical_result_bytes(result) or
                 (request.plan_id, plan.plan_id, plan.tenant_id, plan.request_sha256) !=
                 (row["plan_id"], row["plan_id"], row["tenant_id"], row["request_sha256"]) or
                 canonical_request_sha256(request) != row["request_sha256"]):
@@ -180,9 +188,9 @@ class BreakEvenStore:
             raise BreakEvenDenied("break-even plan write or request binding denied")
         request_raw = _canonical(request.model_dump(mode="json"))
         plan_raw = _canonical(plan.model_dump(mode="json"))
-        result_raw = _canonical(_RESULT.dump_python(result, mode="json"))
+        result_raw = canonical_result_bytes(result)
         if (len(request_raw) > 16384 or len(plan_raw) > 1048576 or
-                len(result_raw) > 1048576):
+                len(result_raw) > MAX_RESULT_BYTES):
             raise ValueError("break-even plan or result exceeds size limit")
         conn.execute(sql.SQL("""
                 INSERT INTO {} (tenant_id, plan_id, request_raw, request_sha256,
@@ -221,7 +229,7 @@ class BreakEvenStore:
     def _replayed(self, row):
         request, _, stored = self._checked(row)
         recalculated = BreakEvenService(self).scan(request, row["tenant_id"])
-        if _canonical(_RESULT.dump_python(recalculated, mode="json")) != row["result_raw"]:
+        if canonical_result_bytes(recalculated) != row["result_raw"]:
             raise ValueError("break-even replay result differs")
         return request, stored
 
@@ -251,7 +259,7 @@ class BreakEvenStore:
         digests = runtime_digests(root)
         references = ReplayReferences(self, tenant_id)
         recalculated = BreakEvenService(references).scan(request, tenant_id, check=guard)
-        if _canonical(_RESULT.dump_python(recalculated, mode='json')) != row['result_raw']:
+        if canonical_result_bytes(recalculated) != row['result_raw']:
             raise ValueError('break-even replay result differs')
         if len(recalculated.trials) != len(plan.trials):
             raise ValueError('break-even replay did not validate the complete grid')

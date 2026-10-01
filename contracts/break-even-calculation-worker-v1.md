@@ -26,6 +26,13 @@ implementation/environment digests. No numbers, source records or CLI decisions
 are placed in the receipt. Succeeded means procedure completion, including an
 engine hold; Assessment stays hold. No CLI invocation or usage is fabricated.
 
+Result encoding uses the existing 1 MiB stored-result bound rather than the
+64 KiB job-input codec. Request/input and bounded receipt limits are unchanged;
+small result bytes/digests remain identical. The
+[capacity correction](../research/break-even-capacity-implementation.md)
+includes a 256-trial synthetic result and PostgreSQL row replay, not large-grid
+SCRAM worker/HTTP throughput or asynchronous cancellation proof.
+
 Fixed input rejection/hold and bounded existing transient retry codes withhold
 private exception detail. Lease loss/cancellation cannot publish, and expired
 attempts recover through the existing targeted claim path. Final row locking

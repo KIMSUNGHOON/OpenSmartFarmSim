@@ -9,7 +9,7 @@ from uuid import UUID
 from psycopg import sql
 
 from .break_even import BreakEvenService
-from .break_even_store import _RESULT, _ProposedPlanRepository, BreakEvenDenied
+from .break_even_store import canonical_result_bytes, _ProposedPlanRepository, BreakEvenDenied
 from .break_even_plan_submission import (BreakEvenPlanSubmissionService, BreakEvenPlanInput,
     BreakEvenPlanSubmission, BreakEvenTrialPin)
 from .economics import FORMULA_VERSION
@@ -35,7 +35,7 @@ class _InputHold(ValueError):
 
 
 def _result_bytes(result):
-    return canonical_input_bytes(_RESULT.dump_python(result, mode='json'))
+    return canonical_result_bytes(result)
 
 
 class BreakEvenCalculationWorker:
