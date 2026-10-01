@@ -56,3 +56,8 @@ independent execution/release/G1 and production capacity are separate evidence.
 
 See [implementation evidence](../research/break-even-replay-evidence-implementation.md)
 and [existing completed-job read](api-job-break-even-result-v1.md).
+
+The subsequent [internal verification service/worker](break-even-verification-v1.md)
+now binds this server-produced record to the immutable parent/input and leased
+publication. Bounded current-rights reading, HTTP/web/operator assembly and actual
+256-trial load evidence remain pending.

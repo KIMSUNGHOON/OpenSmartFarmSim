@@ -36,3 +36,9 @@ The [stored-trial browser candidate](web-break-even-workspace-v1.md) now connect
 this read to explicit baseline/sale/collection/target/range and ordered saved
 joint revisions. Its [software verification](../research/web-break-even-workspace-implementation.md)
 does not complete the full farm/CLI/replay or gate acceptance above.
+
+The internal completion metadata verifier now also feeds the
+[asynchronous verification service/worker](break-even-verification-v1.md).
+Metadata checks actual completed bytes and explicitly requires replay; it contains
+no result numbers. This HTTP endpoint still performs full replay. No fast reader
+or new HTTP admission endpoint is added by that internal service.

@@ -3,6 +3,9 @@
 from hashlib import sha256
 import json
 import re
+from typing import Literal
+
+from pydantic import Field
 
 from .api_break_even import project_break_even_result
 from .break_even import canonical_request_sha256
@@ -10,10 +13,26 @@ from .break_even_calculation_worker import _result_bytes
 from .break_even_plan_submission import BreakEvenPlanInput, BreakEvenPlanSubmissionService
 from .economics import FORMULA_VERSION
 from .jobs import canonical_input_bytes
+from .owned_fixture_collection import UUID_PATTERN
+from .provenance import Digest, FrozenContract
 
 
 BREAK_EVEN_JOB_READ_SCOPES = ('metadata', 'artifact', 'break_even_read', 'market_source_read',
     'market_candidate_read', 'decision_context_read', 'market_hold_context_read')
+
+
+class BreakEvenCompletion(FrozenContract):
+    verification: Literal['completed_bytes_only_requires_replay']
+    calculation_job_id: str = Field(pattern=UUID_PATTERN)
+    calculation_attempt: int = Field(ge=1)
+    calculation_input_sha256: Digest
+    calculation_receipt_sha256: Digest
+    plan_id: str = Field(min_length=1, max_length=200)
+    request_sha256: Digest
+    plan_sha256: Digest
+    result_sha256: Digest
+    calculation_status: Literal['zero_on_grid', 'no_zero_on_grid', 'bracket_only', 'nonmonotone_on_grid', 'hold']
+    trial_count: int = Field(ge=2, le=256)
 
 
 class BreakEvenJobResultService:
@@ -32,7 +51,7 @@ class BreakEvenJobResultService:
                 self.plans._pointers() != pointers):
             raise RuntimeError('break-even job result binding changed')
 
-    def read_job_result(self, tenant, job_id):
+    def read_job_completion(self, tenant, job_id):
         pointers = self.plans._pointers()
         guard = lambda: self._guard(tenant, pointers)
         guard()
@@ -92,16 +111,41 @@ class BreakEvenJobResultService:
             plan = self.store.get_break_even_plan(value.plan.plan_id)
             if plan is None or canonical_input_bytes(plan) != canonical_input_bytes(value.plan.model_dump(mode='json')):
                 raise RuntimeError('break-even completed plan differs')
-            read = self.store.get_break_even_read(tenant, value.plan.plan_id)
+            row = self.store._row(value.plan.plan_id)
+            if row is None:
+                raise RuntimeError('break-even completed result missing')
+            stored_request, stored_plan, stored_result = self.store._checked(row)
+            if (stored_request.model_dump(mode='json') != value.request.model_dump(mode='json') or
+                    stored_plan != value.plan or
+                    row['result_sha256'] != receipt['result_sha256'] or
+                    stored_result.status != receipt['calculation_status']):
+                raise RuntimeError('break-even completed stored bytes differ')
+        finally:
+            guard()
+        return BreakEvenCompletion(verification='completed_bytes_only_requires_replay',
+            calculation_job_id=str(job_id), calculation_attempt=job['attempt_count'],
+            calculation_input_sha256=job['input_sha256'], calculation_receipt_sha256=digest,
+            plan_id=value.plan.plan_id, request_sha256=value.plan.request_sha256,
+            plan_sha256=receipt['plan_sha256'], result_sha256=receipt['result_sha256'],
+            calculation_status=receipt['calculation_status'], trial_count=len(value.plan.trials))
+
+    def read_job_result(self, tenant, job_id):
+        completion = self.read_job_completion(tenant, job_id)
+        if completion is None:
+            return None
+        pointers = self.plans._pointers()
+        guard = lambda: self._guard(tenant, pointers)
+        guard()
+        try:
+            read = self.store.get_break_even_read(tenant, completion.plan_id)
         finally:
             guard()
         if read is None:
             raise RuntimeError('break-even completed result missing')
         request, result = read
-        if (canonical_input_bytes(request.model_dump(mode='json')) !=
-                canonical_input_bytes(value.request.model_dump(mode='json')) or
-                sha256(_result_bytes(result)).hexdigest() != receipt['result_sha256'] or
-                result.status != receipt['calculation_status']):
+        if (canonical_request_sha256(request) != completion.request_sha256 or
+                sha256(_result_bytes(result)).hexdigest() != completion.result_sha256 or
+                result.status != completion.calculation_status):
             raise RuntimeError('break-even completed result differs')
         projected = project_break_even_result(request, result)
         guard()
