@@ -50,9 +50,12 @@
   실제 HTTPS 12개 전체 응답 최대 0.582초, 쓰기 범위 0개와 저장 불변을 확인했다.
   합성 CLI/서명의 소프트웨어 범위이며 새 호스팅 CI·시장/경제/웹·제품 CLI·독립 G1은 후속이다.
 - [ ] **`farm-economic-candidate-selection`** (M) — 선행: `api-source-farm-selection`.
+  [읽기 계약](../contracts/farm-economic-candidate-selection-v1.md)의 목록/현재 선택 제공자와 인증 API를 연결한다.
   선택 원천과 같은 서명 문맥/기간/목표의 저장 경제 후보·기존 시장 보류를 찾는다.
   이력 메타데이터와 현재 선택 검증을 나누고 다른 문맥·현재 권리 철회·페이지 경계를 확인한다.
   새 요금/작물 수치·G0 승인·시장 보류를 조회 중 만들지 않는다.
+  - 읽기 제공자의 [SCRAM 집중 5개](../research/farm-economic-candidate-selection-implementation.md)가 통과했다.
+    정확한 선택 참조로 실제 농장 등록까지 확인했고 인증 API 수용은 다음 단계다.
 - [ ] **`web-source-farm-authoring`** (M) — 선행: `farm-economic-candidate-selection`.
   저장 조사·수집/검토와 경제 후보 선택을 농장 폼에 연결해 선행 식별자 직접 입력을 줄인다.
   원천/경제 조합 변경·응답 유실·재연결·계정 변경을 확인하며 명시적 농장 숫자/권리 선언을 받는다.
