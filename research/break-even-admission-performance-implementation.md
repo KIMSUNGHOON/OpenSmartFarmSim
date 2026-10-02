@@ -375,3 +375,118 @@ maximum cancellation/lease recovery/source-rights withdrawal, automatic assembly
 hosted regression and actual product CLI/independent G1/G4 remain required.
 This acceptance concerns software contracts and performance; it does not release
 agricultural, future-margin or ranking claims.
+
+## Committed increment and protected maximum follow-up
+
+The accepted software increment is committed and pushed as
+`c3ff00ef6e5150904333b5475592ceb5f1071f18` on `chore/bootstrap-c0`; the preceding
+`8eef2a4` records terminal predecessor CI evidence. The actual 256-trial standard
+HTTPS/separate Python calculation and verification/current-reader test has now
+started alone at `nice -n 10` on the same fixed `258559bc...` runtime bytes.
+Its log is `/tmp/ossf-break-even-maximum-full-c3ff00e-20261002.log`. No protected
+maximum result is claimed while it runs. The ASGI maximum success above is not
+substituted for the forthcoming whole-response and worker measurements.
+
+Hosted runs for the exact commit are backend `36959130046`, authored workflows
+`36959130044`, web `36959130032` and C0 `36959130048`. The initial API observation
+reported backend queued, authored/web running and C0 completed successfully.
+Counts, complete test inventories and cleanup for the new revision are not yet
+accepted from that initial status observation. PR #1 remains a draft; no merge
+or public deployment is claimed.
+
+## Terminal web and C0 at c3ff00e
+
+The exact-commit web run `36959130032` completed successfully: **160 unit tests
+in 11 files**, **51 Chromium tests using one worker** (1.4 minutes), typecheck,
+production build and dependency audit at the configured high-severity threshold
+all passed. This is the
+existing browser/SDK suite, not the protected 256-trial capacity measurement.
+Its terminal log is `/tmp/ossf-ci-c3ff00e-web-20261002.log`.
+
+C0 run `36959130048` also completed successfully. Both Compose models validated,
+web/backend dependency images built, the pinned PostgreSQL 18.6 image became
+healthy, and the sentinel survived actual database-container recreation.
+The explicit containers/volumes/password-files removal step and all post-job
+steps succeeded. Its log is `/tmp/ossf-ci-c3ff00e-c0-20261002.log`.
+Backend and authored workflow counts/cleanup remain pending. These terminal
+results do not prove whole-app deployment, actual product CLI or independent
+G1/G4 acceptance.
+
+## Protected maximum stopped at fixture certificate expiry
+
+The first protected maximum run terminated with **1 failed in 975.72 seconds**.
+It registered all 1,630 sources and completed all 256 candidates at
+973.0538141840079 seconds, then the first HTTPS handshake failed with
+`SSLCertVerificationError: certificate has expired`. No plan response, queued
+calculation, verification or current-result measurement was reached. The log is
+`/tmp/ossf-break-even-maximum-full-c3ff00e-20261002.log`.
+
+The imported `test_api_serve.tls_files` fixture creates its certificate before
+the test body with ten minutes of validity. The unchanged maximum preparation
+takes over sixteen minutes, so that fixture is already expired before the first
+request and would also expire during long operators if merely issued after
+preparation. This is a demonstrated harness lifecycle failure, not evidence that
+the protected maximum request/worker path meets or exceeds its budget.
+
+The maximum harness now reissues only its owned synthetic certificate after
+data preparation. It retains the original key, subject/issuer and all extensions,
+including the loopback IP SAN, and has twelve hours of validity, matching the
+existing Bearer window and covering both two-hour operator watchdogs. Private-key
+permissions and default short-lived API fixtures are unchanged. Full certificate
+and hostname verification remain enabled; no HTTP/body/time budget is increased.
+An explicit regression advances the issuance clock beyond the original expiry
+without sleeping, checks coverage of both watchdogs plus overhead, and verifies
+key digest/identity/extensions/0600 preservation. The actual two-trial TLS path
+is also being rerun before retrying the unchanged 256-trial path.
+
+The first focused selection hit a collection error because the module-wide
+indirect login parameter also covered the new certificate-only test. That
+parameter is now attached to the two database integration tests; the certificate
+regression does not allocate PostgreSQL. The collection error is not acceptance
+evidence. Logs are `/tmp/ossf-break-even-full-tls-lifecycle-focused-20261002.log`
+and `/tmp/ossf-break-even-full-tls-lifecycle-focused-fixed-20261002.log`.
+Runtime application bytes remain `258559bc...`; only the explicit test harness
+and evidence record have changed, and protected maximum acceptance remains open.
+
+The corrected collection ran the actual two-trial protected path successfully,
+with ten whole response bodies (maximum 0.4473646589904092 seconds), calculation
+18.699908189009875 seconds and verification 15.042906101007247 seconds. The same
+selection's certificate assertion failed because `x509.Extensions` collection
+objects compare by identity. The assertion now compares their ordered extension
+values. The certificate-only regression gave **1 passed in 0.73 seconds** in
+`/tmp/ossf-break-even-full-tls-lifecycle-unit-green-20261002.log`; the combined
+selection is being rerun to produce a terminal green result before maximum retry.
+
+## Terminal authored workflow at c3ff00e
+
+The exact-commit authored run `36959130044` completed successfully. All seven
+actual database/password-file cleanup steps also completed successfully.
+The terminal log is `/tmp/ossf-ci-c3ff00e-authored-20261002.log`.
+
+| Selection | Passed executions | Seconds |
+| --- | ---: | ---: |
+| Authored API | 104 | 477.97 |
+| Authored economics | 13 | 595.52 |
+| Authored assessment | 15 | 899.11 |
+| Assessment HTTPS | 1 | 337.26 |
+| Financial selection | 3 | 466.81 |
+| Authored browser | 4 | 738.49 |
+| Financial browser | 1 | 484.17 |
+
+These **141 executions** cover the stated software selections and fake-CLI
+fixtures. They do not establish protected maximum throughput, actual product
+CLI, independent gate release or G1/G4. The full hosted backend remains pending.
+
+## TLS lifecycle correction verified
+
+The combined certificate lifecycle regression and actual two-trial protected
+path gave **2 passed in 49.25 seconds**. Ten complete actual HTTPS bodies took
+at most **0.4259001840255223 seconds**; calculation took 18.38600547501119 seconds
+and verification 15.065594307990978 seconds. The identity reuse, pending/result
+withholding, unauthenticated refusal and current hold-scope withdrawal checks
+also passed. The owned server/socket/database cleanup completed. The log is
+`/tmp/ossf-break-even-full-tls-lifecycle-focused-green-20261002.log`.
+This fixes the demonstrated fixture lifetime failure while retaining normal
+TLS/hostname verification and all existing limits. It is a prerequisite result,
+not protected maximum acceptance. The unchanged actual 256-trial generator and
+runtime bytes will now be retried with this corrected test lifecycle.

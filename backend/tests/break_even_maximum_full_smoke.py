@@ -2,6 +2,7 @@
 
 from dataclasses import asdict
 from datetime import datetime, timedelta, timezone
+from hashlib import sha256
 import http.client
 import json
 import os
@@ -14,6 +15,8 @@ import threading
 import time
 
 import pytest
+from cryptography import x509
+from cryptography.hazmat.primitives import hashes, serialization
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
@@ -26,7 +29,36 @@ from test_api_break_even_plan import build_plan_api, login_database, login_scope
 from test_api_runtime import config, dependencies
 from test_api_serve import tls_files
 
-pytestmark = pytest.mark.parametrize('login_scope', [{**PROFILE, 'break_even_calculation': True}], indirect=True)
+def _refresh_operator_tls(tls_files, now):
+    cert, private, key = tls_files
+    previous = x509.load_pem_x509_certificate(cert.read_bytes())
+    builder = (x509.CertificateBuilder().subject_name(previous.subject)
+        .issuer_name(previous.issuer).public_key(key.public_key())
+        .serial_number(x509.random_serial_number())
+        .not_valid_before(now - timedelta(minutes=1))
+        .not_valid_after(now + timedelta(hours=12)))
+    for extension in previous.extensions:
+        builder = builder.add_extension(extension.value, extension.critical)
+    certificate = builder.sign(key, hashes.SHA256())
+    cert.write_bytes(certificate.public_bytes(serialization.Encoding.PEM))
+    return cert, private, key
+
+
+def test_tls_material_survives_expired_setup_and_both_operator_watchdogs(tls_files):
+    cert, private, _ = tls_files
+    original = x509.load_pem_x509_certificate(cert.read_bytes())
+    private_digest = sha256(private.read_bytes()).digest()
+    after_setup = original.not_valid_after_utc + timedelta(minutes=10)
+    refreshed, _, _ = _refresh_operator_tls(tls_files, after_setup)
+    current = x509.load_pem_x509_certificate(refreshed.read_bytes())
+    assert original.not_valid_after_utc < after_setup
+    assert current.not_valid_before_utc <= after_setup
+    assert current.not_valid_after_utc > after_setup + timedelta(seconds=2 * 7200 + 600)
+    assert current.subject == original.subject and current.issuer == original.issuer
+    assert list(current.extensions) == list(original.extensions)
+    assert current.public_key().public_numbers() == original.public_key().public_numbers()
+    assert sha256(private.read_bytes()).digest() == private_digest
+    assert private.stat().st_mode & 0o777 == 0o600
 
 
 def _operator_configuration(service, principal, tmp_path):
@@ -88,7 +120,7 @@ def _exercise_path(login_scope, tls_files, tmp_path, values):
     registry = BearerRegistry((BearerGrant(token_digest(token), 'tenant-1',
         frozenset(PLAN_SUBMISSION_SCOPES) | frozenset(VERIFICATION_SCOPES),
         now - timedelta(seconds=1), now + timedelta(hours=12)),))
-    cert, key, _ = tls_files
+    cert, key, _ = _refresh_operator_tls(tls_files, now)
     jobs = service.jobs
     factory = lambda *, principal_provider: MarketSourceStore(jobs._dsn, jobs.schema,
         principal_provider=principal_provider, runtime_identity=jobs.runtime_identity)
@@ -177,9 +209,11 @@ def _exercise_path(login_scope, tls_files, tmp_path, values):
         assert not thread.is_alive(), 'owned HTTPS server did not stop'
 
 
+@pytest.mark.parametrize('login_scope', [{**PROFILE, 'break_even_calculation': True}], indirect=True)
 def test_two_trial_tls_operator_harness(login_scope, tls_files, tmp_path):
     _exercise_path(login_scope, tls_files, tmp_path, [20, 32])
 
 
+@pytest.mark.parametrize('login_scope', [{**PROFILE, 'break_even_calculation': True}], indirect=True)
 def test_actual_256_trial_tls_calculation_verification_and_current_read(login_scope, tls_files, tmp_path):
     _exercise_path(login_scope, tls_files, tmp_path, list(range(20, 276)))
