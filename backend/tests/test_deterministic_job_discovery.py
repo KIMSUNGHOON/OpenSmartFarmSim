@@ -255,6 +255,17 @@ def persisted_digest(base):
     return sha256(repr([sorted(map(repr, rows)) for rows in records]).encode()).hexdigest()
 
 
+def discovered_pass(discovery):
+    cursor, matches = None, []
+    for _ in range(10):
+        page = discovery.page(cursor=cursor)
+        matches.extend(page.jobs)
+        if page.next_cursor is None:
+            return tuple(matches)
+        cursor = page.next_cursor
+    pytest.fail('fixture unexpectedly exceeded 250 scanned rows')
+
+
 def test_scram_mixed_queue_pagination_is_read_only(scram_discovery):
     base, jobs, _, discovery = scram_discovery
     for _ in range(3):
@@ -349,16 +360,16 @@ def test_scram_discovery_delegates_recovery_and_competing_worker_publication(cal
     worker, jobs, results, initial, data, _ = calculation_setup
     version = 'economic-calculation-input-v1'
     discovery = DeterministicJobDiscovery(jobs, tenant_id='tenant-1', input_versions=frozenset({version}))
-    first, second = discovery.page(), discovery.page()
+    first, second = discovered_pass(discovery), discovered_pass(discovery)
     target = str(initial['job_id'])
-    assert [job.job_id for job in first.jobs] == [target] == [job.job_id for job in second.jobs]
+    assert [job.job_id for job in first] == [target] == [job.job_id for job in second]
     with ThreadPoolExecutor(max_workers=2) as pool:
         outcomes = list(pool.map(worker.run_once, [target, target]))
     completed = [value for value in outcomes if value is not None]
     assert len(completed) == 1 and completed[0].state == 'succeeded'
     assert jobs.get_publication('tenant-1', initial['job_id']) is not None
     assert len(jobs.list_attempt_outcomes('tenant-1', initial['job_id'])) == 1
-    assert discovery.page().jobs == ()
+    assert discovered_pass(discovery) == ()
     with results.connect() as conn:
         assert conn.execute(sql.SQL('SELECT count(*) AS n FROM {}')
                             .format(results._table('market_result_records'))).fetchone()['n'] == 1
@@ -366,17 +377,17 @@ def test_scram_discovery_delegates_recovery_and_competing_worker_publication(cal
         pending = jobs.submit('tenant-1', 'simulation', data, uuid4().hex, max_attempts=1)
         target = str(pending['job_id'])
         lease = jobs.claim(60, tenant_id='tenant-1', allowed_stages=('simulation',), job_id=target)
-        assert lease is not None and discovery.page().jobs == ()
+        assert lease is not None and discovered_pass(discovery) == ()
         if canceled: assert jobs.cancel('tenant-1', pending['job_id'])
         with jobs.connect() as conn:
             conn.execute(sql.SQL("UPDATE {} SET lease_until=clock_timestamp()-interval '1 second' WHERE job_id=%s")
                          .format(jobs._table('jobs')), (pending['job_id'],))
         before = persisted_digest(jobs)
-        assert [job.job_id for job in discovery.page().jobs] == [target]
+        assert [job.job_id for job in discovered_pass(discovery)] == [target]
         assert persisted_digest(jobs) == before
         assert worker.run_once(target) is None
         closed = jobs.get_job('tenant-1', pending['job_id'])
         assert closed['state'] == ('canceled' if canceled else 'failed') and closed['attempt_count'] == 1
         assert closed['reason']['code'] == ('cancel_lease_expired' if canceled else 'attempts_exhausted')
         assert len(jobs.list_attempt_outcomes('tenant-1', pending['job_id'])) == 1
-        assert jobs.get_publication('tenant-1', pending['job_id']) is None and discovery.page().jobs == ()
+        assert jobs.get_publication('tenant-1', pending['job_id']) is None and discovered_pass(discovery) == ()

@@ -1,6 +1,6 @@
 # Deterministic job discovery v1
 
-Status: operator implementation candidate; actual SCRAM acceptance is pending.
+Status: implemented; focused actual SCRAM software acceptance passed.
 This is a dependency of the planned foreground consumer, not a
 new HTTP route or a replacement for a worker's claim and validation.
 
@@ -122,7 +122,60 @@ the corresponding implementation changes.
 Command: `env -u PYTHONPATH -u OSSF_TEST_PG_DSN nice -n 10 /home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python -m pytest -q tests/test_deterministic_job_discovery.py -k 'not scram'`
 from the isolated worktree's `backend` directory. I/O is replaced only for these
 isolated cases; this is not authentication, SQL, race or publication acceptance.
-Five actual-SCRAM cases are prepared and have not been executed. The existing
-local maximum calculation/verification test owns the heavy execution slot;
-run these cases after it terminates. The task checkbox stays open until that
-required evidence exists. The main workspace application bytes remain frozen.
+The main workspace application bytes were kept frozen during the preceding
+maximum calculation/verification test. The actual SCRAM cases ran after that
+test terminated, using one local heavy execution slot.
+
+## Actual SCRAM software acceptance (2026-10-02)
+
+The full focused file passed **47 cases in 22.11 seconds**, including the five
+actual-SCRAM cases and all 42 isolated cases. The locked backend environment
+used local PostgreSQL 16.15, the existing disposable SCRAM fixture, explicit
+authority login/current role audits and synthetic inputs/keys. No real CLI was
+invoked. The following checks passed:
+
+- Owned/foreign/stage/version separation, unrelated-version cursor advancement,
+  future retry/live-lease/terminal exclusion and unchanged persisted jobs/events/
+  attempts/outcomes/publications through discovery.
+- Current tenant/scope/provider/login rejection, and actual grant drift both
+  during the final principal refresh and before the next page's connection audit.
+- Persisted hash and canonical-JSON corruption rejected the entire page with a
+  fixed reason and no mutation. Hash corruption was injected by the administrator
+  removing only the hash check in its disposable test schema.
+- Two discoveries of the same economic UUID followed by competing existing
+  workers produced one successful owner/outcome/result publication. Expired
+  canceled/exhausted jobs reached existing claim recovery, closed their old
+  attempts and acquired no new lease or publication.
+
+The first actual run had **46 passed and one failed in 13.00 seconds**: the
+economic fixture includes more than 25 older unrelated simulation inputs, so
+the test incorrectly expected a match in the first page. The test was corrected
+to follow the existing cursor, bounded to 250 scanned fixture rows per pass.
+Production discovery did not change for this correction. Logs are
+`/tmp/ossf-deterministic-job-discovery-scram-20261002.log` (failed expectation) and
+`/tmp/ossf-deterministic-job-discovery-scram-v2-20261002.log` (terminal success).
+
+Command: `env -u PYTHONPATH -u OSSF_REAL_CLI_SMOKE -u OSSF_REAL_AUTHORED_FULL_CLI_SMOKE OSSF_TEST_PG_DSN='<local baseline socket DSN>' OSSF_TEST_PG_BIN='<local PostgreSQL binary directory>' nice -n 10 /home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python -m pytest -q tests/test_deterministic_job_discovery.py`
+from the isolated worktree's `backend` directory. Its disposable cluster,
+roles/schema and password files were cleaned by the existing fixtures before
+terminal pytest success. This accepts discovery only. The foreground automatic
+consumer/application Compose, hosted regression for these added files, real
+product CLI/independent G1, scientific gates and G4 remain subsequent work.
+
+The accepted discovery implementation SHA-256 is
+`411dff0330ebd98b8d72d91a1ffe5108b0d7995191b3359d92bff8bbb288c884`;
+the focused test SHA-256 is
+`262f8816c94ab96001277bbf971251d76ad196b8fb8d1cb8aed3b05a9a42d5b8`.
+The locked environment digest is
+`e73e9ec049e80bfa4ad96afc33bfa25f5fddab60d60771284d6292178241beb3`.
+The existing calculation runtime digest covers its enumerated calculation
+files; these discovery bytes are recorded separately rather than silently
+claiming they are included in that digest.
+
+Self-review in actual Codex CLI session `01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc`
+(`gpt-6.1-sol`, `xhigh`; session metadata verified at `2026-10-02T06:15:31.814Z`)
+found no remaining required changes in this discovery slice: SQL identifiers
+and values use existing safe composition/parameters; the transaction is read
+only, its page is bounded, current login/grants/scopes are rechecked, and the
+existing canonical-input validator and worker claim/publication own their
+respective boundaries. No dependency, arithmetic or deployment change is added.
