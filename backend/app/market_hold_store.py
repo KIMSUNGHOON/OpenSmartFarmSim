@@ -109,9 +109,11 @@ class MarketHoldStore:
     def tenant_is_authenticated(self, tenant):
         return self._principal(tenant, "market_hold_context_read")
 
-    def _context(self, tenant, snapshot, context_id):
+    def _context(self, tenant, snapshot, context_id, *, conn=None):
         try:
-            value = self._context_store.get_decision_context(tenant, snapshot, context_id)
+            value = (self._context_store.get_decision_context(tenant, snapshot, context_id)
+                     if conn is None else self._context_store._decision_context_in_transaction(
+                         conn, tenant, snapshot, context_id))
         except Exception as exc:
             raise ValueError("trusted decision context unavailable") from exc
         _need(type(value) is dict and
@@ -134,7 +136,7 @@ class MarketHoldStore:
             "context_sha256": context["context_sha256"], "scope": scope,
             "evaluation_status": "not_evaluated"}))
 
-    def _verified(self, row):
+    def _verified(self, row, *, conn=None):
         _need(type(row["payload_raw"]) is bytes and
               _digest(row["payload_raw"]) == row["payload_sha256"] and
               hmac.compare_digest(self._signature(row["payload_raw"]), row["signature"]),
@@ -165,7 +167,7 @@ class MarketHoldStore:
               "market hold report binding mismatch")
         _time(payload["evaluated_at_utc"])
         context = self._context(row["tenant_id"], row["snapshot_id"],
-                                row["decision_context_id"])
+                                row["decision_context_id"], conn=conn)
         _need(all(payload[key] == context[key] for key in
                   ("decision_at_utc", "claim_mode", "decision_time_kind",
                    "context_sha256")), "market hold decision context changed")
@@ -219,16 +221,25 @@ class MarketHoldStore:
         _need(result["scope"] == scope, "market hold retry scope changed")
         return result
 
-    def _by_id(self, tenant, report_id):
+    def _report_row(self, conn, tenant, report_id):
+        return conn.execute(sql.SQL("""
+            SELECT * FROM {} WHERE tenant_id=%s AND hold_report_id=%s
+        """).format(self._table()), (tenant, report_id)).fetchone()
+
+    def _by_id(self, tenant, report_id, *, conn=None):
         if not _name(report_id):
             return None
-        with self.connect() as conn:
-            row = conn.execute(sql.SQL("""
-                SELECT * FROM {} WHERE tenant_id=%s AND hold_report_id=%s
-            """).format(self._table()), (tenant, report_id)).fetchone()
-        return self._verified(row) if row is not None else None
+        if conn is None:
+            with self.connect() as owned:
+                row = self._report_row(owned, tenant, report_id)
+        else:
+            row = self._report_row(conn, tenant, report_id)
+        return self._verified(row, conn=conn) if row is not None else None
 
     def get_market_hold_report(self, report_id):
+        return self._market_hold_report(report_id)
+
+    def _market_hold_report(self, report_id, *, conn=None):
         try:
             principal = self._principal_provider()
             tenant = principal.get("tenant_id") if isinstance(principal, dict) else None
@@ -236,7 +247,7 @@ class MarketHoldStore:
             return None
         if not self._principal(tenant, "market_hold_context_read"):
             return None
-        payload = self._by_id(tenant, report_id)
+        payload = self._by_id(tenant, report_id, conn=conn)
         if payload is None:
             return None
         try:
@@ -259,9 +270,12 @@ class MarketHoldStore:
                 "decision_time_kind": payload["decision_time_kind"]}
 
     def get_decision_context(self, tenant, snapshot_id, context_id):
+        return self._decision_context(tenant, snapshot_id, context_id)
+
+    def _decision_context(self, tenant, snapshot_id, context_id, *, conn=None):
         if not self._principal(tenant, "market_hold_context_read"):
             return None
-        return self._context(tenant, snapshot_id, context_id)
+        return self._context(tenant, snapshot_id, context_id, conn=conn)
 
     def get_public_report(self, tenant, report_id):
         if not self._principal(tenant, "market_hold_read"):

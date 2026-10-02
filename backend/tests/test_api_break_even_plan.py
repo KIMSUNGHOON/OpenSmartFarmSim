@@ -2,6 +2,7 @@
 
 import asyncio
 from copy import deepcopy
+from decimal import Decimal
 from hashlib import sha256
 import json
 import os
@@ -130,6 +131,182 @@ def test_server_plan_is_durable_replayable_and_idempotent(plan_api):
     assert 'tenant_id' not in accepted and 'trials' not in accepted and 'result' not in accepted
 
 
+def test_admission_bounds_connections_and_keeps_repeated_source_reads_fresh(plan_api, monkeypatch):
+    from collections import Counter
+    app, service, body, _ = plan_api
+    candidates = service.store._source
+    source = candidates._source._source
+    holds = candidates._source._holds
+    connections = Counter()
+    reads = Counter()
+    for name, store in [('candidates', candidates), ('source', source),
+                        ('holds', holds), ('contexts', holds._context_store)]:
+        original = store.connect
+        def counted(original=original, name=name):
+            connections[name] += 1
+            return original()
+        monkeypatch.setattr(store, 'connect', counted)
+    original_read = source._read_in_transaction
+    def observed(conn, *args, **kwargs):
+        reads[(args, kwargs.get('pin', False))] += 1
+        return original_read(conn, *args, **kwargs)
+    monkeypatch.setattr(source, '_read_in_transaction', observed)
+    status, accepted = post(app, body)
+    assert status == 202 and accepted['trial_count'] == 2
+    assert accepted['intent_job']['state'] == 'queued'
+    assert reads and sum(reads.values()) > len(reads)
+    assert connections['candidates'] <= 2 and connections['source'] == 0
+    assert connections['holds'] == 0 and connections['contexts'] == 0
+
+
+def test_candidate_manifest_reads_all_inputs_with_one_fresh_query_per_call(plan_api, monkeypatch):
+    import psycopg
+    _, service, body, _ = plan_api
+    store = service.store._source
+    pin = body['trials'][0]
+    queries = []
+    original = psycopg.Connection.execute
+    with store.connect() as conn:
+        table = store._table('market_candidate_inputs').as_string(conn)
+        def observed(connection, query, *args, **kwargs):
+            statement = query.as_string(connection) if isinstance(query, sql.Composable) else str(query)
+            if table in statement:
+                queries.append(True)
+            return original(connection, query, *args, **kwargs)
+        monkeypatch.setattr(psycopg.Connection, 'execute', observed)
+        first = store._candidate_in_transaction(conn, 'tenant-1', pin['scenario_id'], pin['revision'])
+        second = store._candidate_in_transaction(conn, 'tenant-1', pin['scenario_id'], pin['revision'])
+    assert first is not None and second == first
+    assert len(queries) == 2, 'each full manifest read requires one fresh bounded query'
+
+
+def test_source_and_job_bytes_use_one_fresh_query_per_read(plan_api, monkeypatch):
+    import psycopg
+    _, service, body, _ = plan_api
+    store = service.store._source._source._source
+    baseline = body['request']['baseline']
+    queries = []
+    original = psycopg.Connection.execute
+    with store.connect() as conn:
+        tables = [store._table(name).as_string(conn) for name in ('market_source_records', 'jobs')]
+        def observed(connection, query, *args, **kwargs):
+            statement = query.as_string(connection) if isinstance(query, sql.Composable) else str(query)
+            if any(table in statement for table in tables):
+                queries.append(True)
+            return original(connection, query, *args, **kwargs)
+        monkeypatch.setattr(psycopg.Connection, 'execute', observed)
+        args = ('tenant-1', 'economic_scenario', baseline['scenario_id'], baseline['revision'])
+        first = store._read_in_transaction(conn, *args)
+        second = store._read_in_transaction(conn, *args)
+    assert first is not None and first['scenario_id'] == baseline['scenario_id'] and second == first
+    assert len(queries) == 2, 'each source/job binding check requires one fresh joined query'
+
+
+def test_numeric_candidate_or_source_uses_one_fresh_query_per_read(plan_api, monkeypatch):
+    import psycopg
+    from app.break_even_reference_read import _reference_value
+    _, service, body, _ = plan_api
+    candidates = service.store._source
+    source = candidates._source._source
+    baseline = body['request']['baseline']
+    scenario = source.get_economic_scenario(baseline['scenario_id'], baseline['revision'])
+    pin = body['trials'][0]
+    derived = candidates.get_economic_scenario(pin['scenario_id'], pin['revision'])
+    keys = [(item['sales'][0]['price']['input_id'], item['sales'][0]['price']['revision'])
+            for item in (scenario, derived)]
+    assert keys[0] != keys[1]
+    queries = []
+    original = psycopg.Connection.execute
+    with candidates.connect() as conn:
+        expected = [_reference_value(service.store, candidates, source, conn,
+                    'tenant-1', 'get_economic_input', key) for key in keys]
+        assert all(value is not None for value in expected)
+        tables = [candidates._table('market_candidate_inputs').as_string(conn),
+                  source._table('market_source_records').as_string(conn),
+                  source._table('jobs').as_string(conn)]
+        def observed(connection, query, *args, **kwargs):
+            statement = query.as_string(connection) if isinstance(query, sql.Composable) else str(query)
+            if any(table in statement for table in tables):
+                queries.append(True)
+            return original(connection, query, *args, **kwargs)
+        monkeypatch.setattr(psycopg.Connection, 'execute', observed)
+        for key, value in zip(keys, expected):
+            for _ in range(2):
+                assert _reference_value(service.store, candidates, source, conn,
+                    'tenant-1', 'get_economic_input', key) == value
+    assert len(queries) == 4, 'each candidate/source input read requires one fresh query'
+
+
+def test_numeric_candidate_keeps_precedence_over_same_source_identity(plan_api, login_scope):
+    from app.break_even_reference_read import _reference_value
+    from app.economic_contracts import OwnedEconomicRecord
+    _, service, body, _ = plan_api
+    candidates = service.store._source
+    source = candidates._source._source
+    baseline = body['request']['baseline']
+    scenario = source.get_economic_scenario(baseline['scenario_id'], baseline['revision'])
+    ref = scenario['sales'][0]['price']
+    key = (ref['input_id'], ref['revision'])
+    original = source.get_economic_input(*key)
+    altered = deepcopy(original)
+    altered['value'] = str(Decimal(altered['value']) + 1)
+    shadow = OwnedEconomicRecord.model_validate(altered)
+    raw = canonical_input_bytes(shadow.model_dump(mode='json'))
+    base, _, _ = login_scope
+    with base.connect() as conn:
+        conn.execute(sql.SQL('''
+            INSERT INTO {} (tenant_id,input_id,revision,payload_raw,payload_sha256)
+            VALUES (%s,%s,%s,%s,%s)
+        ''').format(candidates._table('market_candidate_inputs')),
+            ('tenant-1', *key, raw, sha256(raw).hexdigest()))
+    with candidates.connect() as conn:
+        value = _reference_value(service.store, candidates, source, conn,
+            'tenant-1', 'get_economic_input', key)
+    assert value == shadow.model_dump(mode='python') and value != original
+    assert source.get_economic_input(*key) == original
+
+
+def test_numeric_source_fallback_rejects_changed_original_job(plan_api, login_scope):
+    from app.break_even_reference_read import _reference_value
+    _, service, body, _ = plan_api
+    candidates = service.store._source
+    source = candidates._source._source
+    baseline = body['request']['baseline']
+    scenario = source.get_economic_scenario(baseline['scenario_id'], baseline['revision'])
+    ref = scenario['sales'][0]['price']
+    key = (ref['input_id'], ref['revision'])
+    with candidates.connect() as conn:
+        assert _reference_value(service.store, candidates, source, conn,
+            'tenant-1', 'get_economic_input', key) is not None
+        row = source._select(conn, 'tenant-1', 'economic_input', *key)
+    base, _, _ = login_scope
+    with base.connect() as conn:
+        table = source._table('jobs')
+        conn.execute(sql.SQL('ALTER TABLE {} DISABLE TRIGGER ALL').format(table))
+        conn.execute(sql.SQL('UPDATE {} SET input_bytes=%s,input_sha256=%s WHERE job_id=%s')
+            .format(table), (b'{}', sha256(b'{}').hexdigest(), row['job_id']))
+        conn.execute(sql.SQL('ALTER TABLE {} ENABLE TRIGGER ALL').format(table))
+    with candidates.connect() as conn:
+        with pytest.raises(ValueError, match='^market source input rejected$'):
+            _reference_value(service.store, candidates, source, conn,
+                'tenant-1', 'get_economic_input', key)
+
+
+def test_each_access_check_reads_a_fresh_complete_principal_once(plan_api, monkeypatch):
+    _, service, _, principal = plan_api
+    reads = []
+    original = service.jobs._principal_scopes
+    def observed(tenant):
+        reads.append(tenant)
+        return original(tenant)
+    monkeypatch.setattr(service.jobs, '_principal_scopes', observed)
+    service._access('tenant-1')
+    principal['scopes'].remove('market_source_read')
+    with pytest.raises(PermissionError):
+        service._access('tenant-1')
+    assert reads == ['tenant-1', 'tenant-1']
+
+
 def test_scope_shape_and_pin_rejection_create_no_intent(plan_api):
     from app.break_even_plan_submission import PLAN_SUBMISSION_SCOPES
     app, service, body, principal = plan_api
@@ -155,6 +332,37 @@ def test_scope_shape_and_pin_rejection_create_no_intent(plan_api):
     assert post(app, body)[0] == 422
     principal['tenant_id'] = 'tenant-1'
     assert counts(service) == before
+
+
+@pytest.mark.parametrize('fault,status', [('scope', 403), ('hold_scope', 403),
+                                         ('context_scope', 403), ('role_grant', 503)])
+def test_preparation_window_rechecks_late_scope_and_database_policy(plan_api, login_scope, monkeypatch, fault, status):
+    app, service, body, principal = plan_api
+    base, policy, _ = login_scope
+    before = counts(service)
+    original = service._prepare_references
+    changed = []
+    def late_change(*args, **kwargs):
+        value = original(*args, **kwargs)
+        changed.append(True)
+        if fault != 'role_grant':
+            principal['scopes'].remove({'scope': 'market_source_read',
+                'hold_scope': 'market_hold_context_read',
+                'context_scope': 'decision_context_read'}[fault])
+        else:
+            with base.connect() as conn:
+                conn.execute(sql.SQL('GRANT SELECT ON {}.market_candidate_pins TO {}').format(
+                    sql.Identifier(policy.schema), sql.Identifier(policy.roles['worker'])))
+        return value
+    monkeypatch.setattr(service, '_prepare_references', late_change)
+    try:
+        assert post(app, body)[0] == status
+    finally:
+        if fault == 'role_grant':
+            with base.connect() as conn:
+                conn.execute(sql.SQL('REVOKE SELECT ON {}.market_candidate_pins FROM {}').format(
+                    sql.Identifier(policy.schema), sql.Identifier(policy.roles['worker'])))
+    assert changed and counts(service) == before
 
 
 def test_plan_id_conflict_does_not_replace_immutable_intent(plan_api):
@@ -190,14 +398,18 @@ def test_source_rebinding_during_preparation_creates_no_intent(plan_api, monkeyp
     before = counts(service)
     view = service.store._source._source
     old = view._source
-    original = old.get_joint_shock
-    def rebind(*args):
-        value = original(*args)
-        view._source = MarketSourceStore(old.dsn, old.schema,
-            runtime_identity=old.runtime_identity, principal_provider=old._principal_provider)
+    original = old._read_in_transaction
+    changed = []
+    def rebind(conn, *args, **kwargs):
+        value = original(conn, *args, **kwargs)
+        if args[1] == 'joint_shock':
+            changed.append(True)
+            view._source = MarketSourceStore(old.dsn, old.schema,
+                runtime_identity=old.runtime_identity, principal_provider=old._principal_provider)
         return value
-    monkeypatch.setattr(old, 'get_joint_shock', rebind)
+    monkeypatch.setattr(old, '_read_in_transaction', rebind)
     assert post(app, body)[0] == 503 and counts(service) == before
+    assert changed
 
 
 def test_fresh_bearer_runtime_admits_actual_plan(plan_api, tls_files):

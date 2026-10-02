@@ -318,10 +318,15 @@ class ThermalRunStore:
         if not self._scope(tenant, "decision_context_read"):
             return None
         with self.connect() as conn:
-            row = conn.execute(sql.SQL("""
-                SELECT * FROM {} WHERE tenant_id=%s AND snapshot_id=%s AND decision_context_id=%s
-            """).format(self._table("decision_contexts")),
-                (tenant, snapshot_id, context_id)).fetchone()
+            return self._decision_context_in_transaction(conn, tenant, snapshot_id, context_id)
+
+    def _decision_context_in_transaction(self, conn, tenant, snapshot_id, context_id):
+        if not self._scope(tenant, "decision_context_read"):
+            return None
+        row = conn.execute(sql.SQL("""
+            SELECT * FROM {} WHERE tenant_id=%s AND snapshot_id=%s AND decision_context_id=%s
+        """).format(self._table("decision_contexts")),
+            (tenant, snapshot_id, context_id)).fetchone()
         if row is None:
             return None
         context = _context(row["context_raw"], row["context_signature"], self._context_verifier)

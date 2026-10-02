@@ -105,6 +105,17 @@ CLI와 독립 실행/해제·G1 증거를 확보한다. 작성 농장의 웹 경
 
 상태: **2026-09-27 C0 기본 구조는 호스팅 시험으로 수용됐고, C1 계약과 G1 구현은 진행 중이다.** 제품 주장은 [제품 명세](../docs/PROJECT_SPEC.md), 객체·절차 계약은 [아키텍처](../docs/ARCHITECTURE.md), 소프트웨어는 [기술 스택](../docs/TECH_STACK.md), 금액 계산은 [경제 계약](../docs/ECONOMICS.md), 시장 자료의 시점은 [시장 명세](../docs/MARKET_INTELLIGENCE.md)를 따른다. [첫 구현 범위](../docs/IMPLEMENTATION_SLICE.md)는 초기 구현 경계를 정하고, [구현 준비 현황](../docs/IMPLEMENTATION_READINESS.md)은 확인된 공백을 기록한다. 체크 가능한 일은 [작업 목록](todo.md)에 있다. 작업 체크는 해당 작업의 증거만 뜻한다.
 
+최대 손익분기 처리량은 [접수 성능 작업](todo.md#최대-손익분기-접수-성능-2026-10-02)에서
+실제 256개 접수의 30초 초과 반례 → 연결 병목 프로파일 → 현재 권리/서명 회귀 →
+동일 최대 격자 재측정 순으로 확인한다. 접수 기준을 통과한 뒤 최대 계산·검증·
+완료 읽기의 보호된 TLS 전체 응답과 취소/재시도/철회 증거를 이어 간다.
+접수 성능 보완은 같은 256개 ASGI 접수 29.5103초와 집중 47개·작업자/현재 조회/
+두 시험값의 TLS 11개로 로컬 수용했다. 새 코드의 호스팅 회귀와 최대 보호된
+전체 경로 수용은 남아 있다([기록](../research/break-even-admission-performance-implementation.md#same-code-compatibility-and-local-performance-acceptance)).
+별도 [최대 HTTPS/계산/검증 시험 후보](../backend/tests/break_even_maximum_full_smoke.py)는
+먼저 두 시험값의 운영자/서버 연결을 확인하고, 최대 접수 기준 통과 뒤 같은 256개
+원천과 실제 별도 Python 작업자·현재 결과 읽기를 측정한다. 준비된 시험 코드는 실행 증거가 아니다.
+
 ## 작업 의존성
 
 ```mermaid

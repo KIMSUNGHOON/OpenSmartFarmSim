@@ -20,11 +20,25 @@ stores share the audited authority policy/schema/DSN/principal. The source and
 break-even policy flags are required. No grants or migrations are added.
 
 The existing versioned market path validates each pinned candidate's rights,
-baseline, shock, settlement bindings and derived scenario without calculating
-money. The server derives exact grid values and fixed input/shock hashes with
+baseline, shock, settlement bindings and derived scenario. Its existing baseline
+ledger checks execute deterministic economic arithmetic; admission exposes no
+calculated money. The server derives exact grid values and fixed input/shock hashes with
 the existing break-even functions, checks common scope/calendar/sale/collection
 and distinct trials, and assembles BreakEvenPlan. Source identities, current
 scopes and the entire prepared input are checked again at commit.
+
+The [admission performance candidate](../research/break-even-admission-performance-implementation.md)
+uses one audited authority connection per complete preparation, including current
+source, candidate, hold and signed context reads. Repeated references still execute
+their existing validators and queries. Each read checks current scopes and store
+bindings; successful preparation also repeats the full database role audit.
+Both complete preparations remain required. No rights or permission cache is used.
+The original actual 256-trial admission exceeded the unchanged 30-second HTTP
+work budget. The later unchanged maximum ASGI measurement passed at 29.5103
+seconds; this single component result has only 0.4897 seconds of budget remaining.
+The same-code focused/worker/current-reader and two-trial TLS checks passed.
+The protected 256-trial whole-response/worker path and hosted regression remain
+separate required evidence; small-grid profiling alone establishes neither.
 
 202 returns plan ID, request/plan hashes, trial count, pinned_user_grid_intent and
 actual JobStatus. The immutable simulation input contains input_version

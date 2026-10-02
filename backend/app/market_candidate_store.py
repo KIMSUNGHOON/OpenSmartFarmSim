@@ -258,12 +258,23 @@ class MarketCandidateStore:
             if key in seen:
                 raise ValueError("market candidate input manifest repeats an ID")
             seen.add(key)
-            input_row = conn.execute(sql.SQL("""
-                SELECT * FROM {} WHERE tenant_id=%s AND input_id=%s AND revision=%s
+        inputs = {}
+        if manifest:
+            input_rows = conn.execute(sql.SQL("""
+                SELECT * FROM {} WHERE tenant_id=%s AND (input_id, revision) IN
+                    (SELECT * FROM unnest(%s::text[], %s::text[]))
             """).format(self._table("market_candidate_inputs")),
-                (row["tenant_id"], *key)).fetchone()
+                (row["tenant_id"], [ref["input_id"] for ref in manifest],
+                 [ref["revision"] for ref in manifest])).fetchall()
+            inputs = {(value["input_id"], value["revision"]): value for value in input_rows}
+            if len(inputs) != len(input_rows):
+                raise ValueError("market candidate input manifest repeats an ID")
+        for ref in manifest:
+            key = (ref["input_id"], ref["revision"])
+            input_row = inputs.get(key)
             self._checked_input(input_row)
-            if input_row["payload_sha256"] != ref["sha256"]:
+            if ((input_row["tenant_id"], input_row["input_id"], input_row["revision"]) !=
+                    (row["tenant_id"], *key) or input_row["payload_sha256"] != ref["sha256"]):
                 raise ValueError("market candidate input manifest hash differs")
         return record, scenario.model_dump(mode="python")
 

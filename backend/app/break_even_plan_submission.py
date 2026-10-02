@@ -91,7 +91,8 @@ class BreakEvenPlanSubmissionService:
         return (self.jobs, self.store, candidates, view, view._source, view._holds, view._holds._context_store)
 
     def _access(self, tenant):
-        if not all(self.jobs._has_scope(tenant, scope) for scope in PLAN_SUBMISSION_SCOPES):
+        current = self.jobs._principal_scopes(tenant)
+        if not all(scope in current for scope in PLAN_SUBMISSION_SCOPES):
             raise PermissionError('break-even plan admission denied')
 
     def read_receipt(self,tenant,plan_id,submission_sha256):
@@ -122,12 +123,23 @@ class BreakEvenPlanSubmissionService:
             guard()
 
     def _prepare(self, tenant, body, *, check=None):
+        from .break_even_reference_read import current_market_references
+        pointers = self._pointers()
+        def references_check():
+            self._access(tenant)
+            self._binding()
+            if self._pointers() != pointers:
+                raise RuntimeError('break-even plan binding changed')
+        with current_market_references(self.store, tenant, check=references_check) as references:
+            return self._prepare_references(tenant, body, references, check=check)
+
+    def _prepare_references(self, tenant, body, references, *, check=None):
         values = _grid(body.request)
         if (len(values) != len(body.trials) or
                 len({(pin.scenario_id, pin.revision) for pin in body.trials}) != len(values)):
             raise ValueError('break-even grid or references differ')
         refs, fixed_inputs, fixed_shock = [], None, None
-        market = MarketScenarioService(self.store._source)
+        market = MarketScenarioService(references)
         for index, (value, pin) in enumerate(zip(values, body.trials, strict=True)):
             if check is not None:
                 check()
@@ -139,7 +151,7 @@ class BreakEvenPlanSubmissionService:
                 raise ValueError('break-even candidate scope differs')
             _sale_and_collection(body.request, scenario, value)
             inputs_hash = fixed_trial_sha256(scenario, body.request.variable, body.request.sale_id)
-            shock = self.store._source.get_joint_shock(request.shock.shock_id, request.shock.revision)
+            shock = references.get_joint_shock(request.shock.shock_id, request.shock.revision)
             shock_hash = fixed_shock_sha256(shock, body.request.variable,
                 body.request.sale_id, body.request.collection_id)
             if index == 0:

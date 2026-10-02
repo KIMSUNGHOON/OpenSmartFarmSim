@@ -127,18 +127,23 @@ class MarketSourceStore:
     def _job_input(self, conn, tenant, job_id):
         row = conn.execute(sql.SQL('SELECT stage,input_bytes,input_sha256 FROM {} WHERE tenant_id=%s AND job_id=%s')
             .format(self._table('jobs')), (tenant, job_id)).fetchone()
+        return self._checked_job_input(row)
+
+    @staticmethod
+    def _checked_job_input(row):
         if (row is None or row['stage'] not in ('collection', 'simulation') or
                 type(row['input_bytes']) is not bytes or sha256(row['input_bytes']).hexdigest() != row['input_sha256']):
             raise ValueError('market source input rejected')
         return row['input_bytes']
 
-    def _verified(self, conn, row):
+    def _verified(self, conn, row, *, job_row=None):
         model, identity, revision = self._model(row['kind'], row['tenant_id'], row['payload_raw'])
         if (row['store_version'] != VERSION or row['admission_kind'] != 'contract_valid_user_assumption' or
                 row['admitted_by'] != self.runtime_identity[0].roles['authority'] or
                 (identity, revision) != (row['record_id'], row['revision']) or
                 sha256(row['payload_raw']).hexdigest() != row['payload_sha256'] or
-                self._job_input(conn, row['tenant_id'], row['job_id']) != row['payload_raw']):
+                (self._job_input(conn, row['tenant_id'], row['job_id']) if job_row is None
+                 else self._checked_job_input(job_row)) != row['payload_raw']):
             raise ValueError('market source input rejected')
         return model
 
@@ -177,6 +182,18 @@ class MarketSourceStore:
     def _select(self, conn, tenant, kind, identity, revision):
         return conn.execute(sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND kind=%s AND record_id=%s AND revision=%s')
             .format(self._table('market_source_records')), (tenant, kind, identity, revision)).fetchone()
+
+    def _select_with_job(self, conn, tenant, kind, identity, revision):
+        return conn.execute(sql.SQL('''
+            SELECT source.*, job.stage AS source_job_stage,
+                job.input_bytes AS source_job_input_bytes,
+                job.input_sha256 AS source_job_input_sha256
+            FROM {} AS source LEFT JOIN {} AS job
+                ON job.tenant_id=source.tenant_id AND job.job_id=source.job_id
+            WHERE source.tenant_id=%s AND source.kind=%s
+                AND source.record_id=%s AND source.revision=%s
+        ''').format(self._table('market_source_records'), self._table('jobs')),
+            (tenant, kind, identity, revision)).fetchone()
 
     def _source_read_access(self, tenant):
         if not _name(tenant) or self._tenant('market_source_read') != tenant:
@@ -242,10 +259,12 @@ class MarketSourceStore:
         if (self._tenant('market_source_read') != tenant or kind not in _KINDS or
                 not _name(identity) or not _name(revision)):
             return None
-        row = self._select(conn, tenant, kind, identity, revision)
+        row = self._select_with_job(conn, tenant, kind, identity, revision)
         if row is None:
             return None
-        model = self._verified(conn, row)
+        job_row = {'stage': row['source_job_stage'], 'input_bytes': row['source_job_input_bytes'],
+            'input_sha256': row['source_job_input_sha256']}
+        model = self._verified(conn, row, job_row=job_row)
         if pin and kind == 'economic_scenario':
             return OwnedScenarioPin(tenant_id=tenant, scenario_id=identity, scenario_revision=revision,
                 decision_at=model.decision_at, payload_sha256=row['payload_sha256'],

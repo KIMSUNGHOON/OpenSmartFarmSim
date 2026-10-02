@@ -30,4 +30,14 @@ def test_actual_256_trial_admission_finishes_within_http_work_budget(login_scope
     assert status == 202 and accepted['trial_count'] == 256
     assert accepted['intent_job']['state'] == 'queued'
     assert service.store.get_break_even_read('tenant-1', accepted['plan_id']) is None
+    if elapsed >= 30:
+        import cProfile
+        from break_even_admission_profile import profile_summary
+        profile = cProfile.Profile()
+        diagnostic_start = time.perf_counter()
+        retry_status, retry_accepted = profile.runcall(post, app, body)
+        diagnostic_elapsed = time.perf_counter() - diagnostic_start
+        print('maximum_grid_slow_diagnostic=' + json.dumps(profile_summary(profile,
+            diagnostic_elapsed, status=retry_status, trial_count=256)), flush=True)
+        assert (retry_status, retry_accepted) == (status, accepted)
     assert elapsed < 30, 'maximum-grid admission exceeds the existing 30-second HTTP work budget'

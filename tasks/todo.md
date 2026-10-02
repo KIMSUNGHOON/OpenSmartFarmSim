@@ -115,6 +115,14 @@
   전체 2,205개/건너뜀 0개·같은 수집 해시·별도 UID 4개·내용 접근·전 묶음 cleanup과 최종 집계가
   통과했다. 이 체크는 CI 분할의 소프트웨어 범위이며 후속 UI 판본의 CI와 실제 제품 CLI·G1/G4는 별도다.
 
+## 최대 손익분기 접수 성능 (2026-10-02)
+
+커밋된 `6a264c6`의 [호스팅 전체 백엔드 수용](../research/break-even-calculation-fence-implementation.md#terminal-hosted-backend-at-6a264c6)은 PostgreSQL 18.6의 2,294개·별도 UID 4개와 동일 목록/정리를 확인했다. 후속 접수 성능 코드는 별도 판본이며 최대 격자 수용 체크는 열어 둔다.
+
+- [x] **`break-even-admission-performance`** — 선행: 기존 `api-flow`의 손익분기 계획 접수·실제 원천 저장 경로. 접수·참조 읽기·후보·원천·보류 보고서·서명 문맥의 여섯 모듈에서 연결과 조회 병목을 개선했다. [같은 코드의 로컬 수용](../research/break-even-admission-performance-implementation.md#same-code-compatibility-and-local-performance-acceptance)은 집중 47개, 동일 실제 256개 ASGI 접수 **29.5103초 < 30초**와 계산/취소/현재 결과 조회·두 시험값의 실제 TLS/별도 Python 작업자 11개를 확인했다. 전체 응답 10개 최대는 0.4551초다. 합성 소프트웨어 계약의 수용이며 새 코드의 호스팅 회귀, 보호된 최대 TLS 전체 응답·작업자 부하·취소/재시도/철회와 독립 CLI/G1/G4는 후속 수용을 계속 따른다.
+
+- [ ] **`break-even-maximum-protected-path`** — 선행: `break-even-admission-performance`의 실제 최대 접수 기준 통과, 기존 계산·비동기 검증 HTTP/운영자 조립. [명시적 시험 후보](../backend/tests/break_even_maximum_full_smoke.py)를 준비했다. 두 시험값의 HTTPS·별도 Python 계산/검증 작업자·현재 완료 읽기 조립은 1개 시험이 통과했고, 실제 전체 응답 10개 최대는 0.5009초다([기록](../research/break-even-admission-performance-implementation.md#two-trial-protected-harness-result)). 동일 256개 실제 SCRAM 자료에서 모든 HTTPS 전체 응답의 30초 기준·계산/검증 완료·동일 접수 재사용·현재 보류 문맥 변경 후 금액 비표시를 확인한 뒤 체크한다. 별도 최대 취소/임대 회복·원천 권리 철회·자동 운영 및 실제 제품 CLI/독립 관문 수용은 후속이다.
+
 ## 기존 구현 진행 기록
 
 **완료 계산의 웹 평가 연결 (2026-10-01):** [06 계산 평가](../contracts/web-calculation-assessment-v1.md)는 기존 열·경제 작업 ID를 서버 검증 접수에 연결하고, 저장된 보류 근거를 조회·재연결한다. 웹 단위 93개, 집중 Chromium 6개와 실제 HTTPS/PostgreSQL 16.15/SCRAM·시험용 CLI 연결 1개가 통과했다([기록](../research/web-calculation-assessment-implementation.md)). 운영자 식별자 입력 경로이며 일반 지역 흐름·작성 Run 웹 경제/평가 부모 선택·실제 제품 CLI·독립 해제·G1은 후속이다. 전체 `web-shell`/`end-to-end-g1` 체크는 유지한다.

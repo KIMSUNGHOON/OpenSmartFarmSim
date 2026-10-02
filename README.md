@@ -13,6 +13,9 @@
 검증 접수 응답을 잃으면 같은 계산 작업으로 재확인하며, 완료 전·취소·불일치에는
 금액을 표시하지 않습니다([검증 기록](research/web-break-even-verification-implementation.md)).
 최대 256개 실제 DB 부하·취소/재시도/권리 철회, 자동 운영 조립과 독립 CLI/G1/G4는 남아 있습니다.
+[접수 성능 보완](research/break-even-admission-performance-implementation.md)은
+같은 256개 ASGI 접수를 29.5103초로 확인했고, 집중 47개와 작업자·현재 결과 조회·
+두 시험값의 실제 TLS 11개가 통과했습니다. 최대 보호된 전체 경로와 새 코드의 호스팅 회귀는 후속 검증입니다.
 
 [원천→농장 참조 제공자](contracts/source-farm-selection-v1.md)는 정확한 완료 조사·수집에서
 이미 저장된 원본 스냅샷과 서명 문맥을 검증한다([SCRAM 집중 4개](research/source-farm-selection-implementation.md)).
