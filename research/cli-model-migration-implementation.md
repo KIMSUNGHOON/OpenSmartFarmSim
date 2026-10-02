@@ -131,3 +131,9 @@ Application references to the previous model are limited to the explicit
 historical-policy migration mapping. This check exported only the model/effort
 and selected event timestamp. Product execution, account access/cost and
 independent release/G1/G4 remain subject to the evidence requirements above.
+
+The selected current development `turn_context` at `2026-10-02T00:56:46.127Z`
+again records `gpt-6.1-sol` / `xhigh`. Both TOML defaults were parsed and asserted
+to match that exact pair. Only the chosen model, effort and event timestamp were
+printed. This confirmation did not launch another CLI or produce product
+execution evidence.

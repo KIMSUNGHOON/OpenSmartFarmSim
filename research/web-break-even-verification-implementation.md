@@ -113,3 +113,37 @@ HTTP/reader capacity, cancellation/retry/rights withdrawal budgets, automatic
 workers, protected deployment or reload recovery. Actual product CLI, independent
 execution/release/G1, source G0, local G2, future G3a, paired G3b and operating
 G4 remain separate evidence requirements. Parent task checkboxes remain unchecked.
+
+## Hosted web and authored follow-up at 6a264c6
+
+For exact commit `6a264c6bd20a7202e03bee139de97463410dfc19`, the
+[web workflow](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36946195030)
+completed successfully: **160 unit tests across 11 files** and **51 Chromium
+cases**. The [C0 workflow](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36946195056)
+also completed successfully.
+
+The [authored workflow](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36946195202)
+completed all seven PostgreSQL 18.6 selections and their database/password cleanup:
+
+| Selection | Passed | Suite seconds |
+| --- | ---: | ---: |
+| API | 104 | 355.21 |
+| Economics | 13 | 474.89 |
+| Assessment | 15 | 689.18 |
+| Assessment HTTPS | 1 | 321.20 |
+| Financial selection | 3 | 703.95 |
+| Authored browser | 4 | 731.73 |
+| Financial browser | 1 | 353.03 |
+
+These are **141 executions**, including the existing fake CLI/test authority
+paths. The earlier `160118c` broad backend run has since
+[completed successfully](api-break-even-verification-implementation.md#terminal-hosted-backend-at-160118c).
+The `6a264c6` [broad backend follow-up](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36946195060)
+is still live at this observation; its aggregate is not accepted yet.
+These hosted results do not cover the later uncommitted admission performance
+candidate or establish the actual 256-trial budget or independent product gates.
+
+The later [terminal 6a264c6 backend record](break-even-calculation-fence-implementation.md#terminal-hosted-backend-at-6a264c6)
+resolves that live observation: all six PostgreSQL 18.6 partitions/aggregate
+completed with **2,294 passed, 0 skipped**, separate Linux UID **4 passed** and
+successful cleanup. The later admission performance candidate is still separate.
