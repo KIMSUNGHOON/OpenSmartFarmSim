@@ -987,3 +987,69 @@ database/password cleanup and terminal steps. The actual log is
 CI results do not cover discovery's newly added files. The next push waits
 for this existing run's terminal evidence so it does not cancel its remaining
 regression work.
+
+## Terminal hosted regression at 82ee0cd (2026-10-02)
+
+Backend run [36969920769](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36969920769)
+completed successfully at the exact published
+`82ee0cd66f7ba595e50fcf1d513dbb9b0d9b8e4f` head. All six partitions and the
+final aggregation succeeded. Their actual log counts sum to **2,306 passed,
+zero skipped**, with the same complete 2,306-node inventory SHA-256
+`b9ff73078ad2b822966ae37c53a5b8ae7e37696cee83cf5a4e51fc265f11ad45`.
+
+| Partition | Passed | Seconds |
+| --- | --- | --- |
+| 0 | 299 | 1,051.49 |
+| 1 | 277 | 1,684.65 |
+| 2 | 375 | 1,070.35 |
+| 3 | 570 | 1,623.06 |
+| 4 | 306 | 1,311.62 |
+| 5 | 479 | 1,714.15 |
+
+The separate Linux UID cases passed **4 / 18.04 seconds**. Each partition's
+database/password removal succeeded; partition 0's owned UID preparation and
+content access succeeded, and the terminal jobs/post steps and aggregation
+were inspected. The asserted summary is
+`/tmp/ossf-ci-82ee0cd-backend-summary-20261002.json`, metadata is
+`/tmp/ossf-ci-82ee0cd-backend-terminal-20261002.json`. `gh run view --log`
+omitted partition 0 from `/tmp/ossf-ci-82ee0cd-backend-full-20261002.log`;
+the actual completed-job REST log already retrieved at
+`/tmp/ossf-ci-82ee0cd-backend-p0-20261002.log` supplied that partition and UID
+proof. The assertions required all six logs, rather than treating the partial
+aggregate download as complete evidence.
+
+Together with the previously recorded terminal authored 141, web 160/51 and
+C0 at this same head, this accepts the static lexical input-field optimization
+for its software scope. The protected local 256-trial path is also terminal.
+This CI head predates discovery and the automatic consumer additions, which
+require their own later hosted regression. Real product CLI, independent
+releases/G1, separate maximum faults/withdrawal and scientific/G4 gates remain open.
+
+## Automatic foreground consumer accepted locally (2026-10-02)
+
+Commit `3ff02b4` adds one explicitly configured existing deterministic worker
+per foreground process. It discovers owned economic/break-even calculation or
+verification jobs, follows bounded unrelated-version pages, dispatches
+sequentially and waits after each page. Existing workers retain exact-ID claims,
+current source/access checks, cancellation/recovery and atomic publication.
+The module loads the canonical factory type, uses signal wakeup descriptors
+without acquiring Event locks, restores prior signal/wakeup state and closes
+its owned descriptors. Public process output contains closed attempt metadata.
+
+The full focused file gave **37 passed in 130.07 seconds**. Actual separate
+Python/SCRAM processes completed economic work and the two-trial break-even
+calculation/verification/current read without UUID arguments; they also proved
+graceful SIGTERM, cancel without publication and kill/restart/expired-lease
+recovery with a single result and intact attempt history. The local idle sample
+gave CPU **0.03 seconds over 2.2 seconds**, three page reads at minimum
+**1.039364358 seconds** spacing, and SIGTERM exit **0.113946827 seconds**.
+Source details, failing evidence/fixes, immutable file/environment hashes and
+limits are in [the consumer contract](../contracts/deterministic-worker-loop-v1.md#software-acceptance-2026-10-02);
+the actual terminal log is `/tmp/ossf-deterministic-worker-loop-scram-v5-20261002.log`.
+
+The discovery cases also passed in the earlier combined selection; that
+selection had a consumer test argument failure and is not reported as fully
+green. Final consumer acceptance comes from its full 37-case v5 result.
+The new added files require hosted regression at the next pushed head.
+Protected operator files/application Compose, actual CLI and independent
+releases/G1, scientific gates and G4 remain subsequent tasks.

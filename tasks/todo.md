@@ -128,8 +128,8 @@
 ## 실제 앱 운영 조립 (2026-10-02)
 
 현행 `compose.yaml`과 두 Dockerfile은 의존성 이미지의 C0 골격이며 앱 역할은
-`/bin/false`로 종료한다. API는 운영자가 만든 factory를 요구하고, 경제·손익분기
-계산/검증 작업자는 명시적 작업 UUID 한 건을 실행한다. 다음 작업은 기존
+`/bin/false`로 종료한다. API는 운영자가 만든 factory를 요구한다. 신규 발견·소비
+연결은 기존 경제·손익분기 계산/검증 작업자의 임대 경로를 사용한다. 다음 작업은 기존
 `api-flow`/`end-to-end-g1`의 이 공백을 작은 단위로 구현한다.
 
 - [ ] **`protected-api-operator-config`** (M) — 선행: 기존 `api-runtime` 조립과 로그인/내용 접근 정책.
@@ -152,13 +152,18 @@
   집중 47개/22.11초로 읽기 전용 페이지 이동·현재 권한/역할·입력 손상 거부와 기존 작업자의
   경쟁/원자 게시·만료된 취소/소진 회복을 확인했다. 자동 전경 소비·새 파일의 호스팅 회귀,
   실제 제품 CLI/독립 G1/G4는 후속이다.
-- [ ] **`deterministic-worker-loop`** (M) — 선행: `deterministic-job-discovery`.
-  예정 파일(3): `backend/app/deterministic_work.py`, `backend/tests/test_deterministic_work.py`,
+- [x] **`deterministic-worker-loop`** (M) — 선행: `deterministic-job-discovery`.
+  구현 파일(3): `backend/app/deterministic_work.py`, `backend/tests/test_deterministic_work.py`,
   `contracts/deterministic-worker-loop-v1.md`. 보호된 factory가 만든 기존 작업자를 호출하는
   전경 소비 루프를 연결한다. 순차 실행·설정된 대기·종료 신호를 사용하고 HTTP 요청 안에서
   계산하거나 또 다른 CLI를 시작하지 않는다. 수용: 접수 뒤 수동 UUID 전달 없이 완료 조회,
   유휴 CPU/조회의 제한, 취소·프로세스 중단/재시작 뒤 기존 임대 회복과 부분 게시 없음.
   확인: 실제 별도 Python/SCRAM 프로세스 시험. CLI 조사/수집 검토/평가 연결은 별도로 유지한다.
+  [실제 프로세스 수용](../contracts/deterministic-worker-loop-v1.md#software-acceptance-2026-10-02)은
+  집중 37개/130.07초로 자동 경제·손익분기 계산/검증, 유휴 조회 간격·SIGTERM,
+  취소·강제 종료 뒤 임대 회복·단일 게시·현재 완료 조회와 자원 정리를 확인했다.
+  유휴 2.2초의 CPU는 0.03초, 최소 조회 간격 1.039초, 종료 0.114초였다.
+  신호 처리의 잠금 사용과 모듈 진입 형식 오류를 수정했으며 새 호스팅 회귀·운영 구성은 후속이다.
 - [ ] **`application-compose-runtime`** (M) — 선행: `protected-api-operator-config`,
   `deterministic-worker-loop`, 기존 수집/CLI 전경 서비스와 웹 빌드.
   예정 파일(5): `backend/Dockerfile`, `web/Dockerfile`, `.dockerignore`,
@@ -171,7 +176,8 @@
 
 **운영 조립 체크포인트:** 구성/발견/루프의 실제 프로세스 시험 뒤 앱 이미지 기동을 확인하고,
 같은 판본의 전체 CI가 끝난 뒤 `end-to-end-g1`의 실제 CLI·독립 증거와 브라우저 경로를 검증한다.
-현재 진행 중인 최대 손익분기 측정 동안 실행 코드를 바꾸지 않으며, 최대 처리량 수용은 별도로 유지한다.
+보호된 최대 손익분기 전체 경로는 75분 27초에 완료했다. 새 운영 구성·서비스 조립과
+별도 최대 취소/복구/원천 철회·동시 처리량 수용은 계속 구분해 검증한다.
 
 ## 기존 구현 진행 기록
 
