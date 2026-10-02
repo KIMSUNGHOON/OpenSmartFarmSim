@@ -41,7 +41,13 @@ task requirements use the new model. Completed research and actual past CLI
 records retain the model that produced them. The immutable thermal parameter
 fixture and its historical reviewer assertion are unchanged. White paper v0.2's
 exact original LaTeX is preserved as `main_v0.2.tex` and existing PDFs remain
-unchanged; current `main.tex` is v0.3 with the target policy. v0.3 PDF is not built.
+unchanged; current `main.tex` is v0.3 with the target policy. v0.3 PDF was not
+built in that migration increment.
+
+That original migration did not build the v0.3 PDF. The later
+[2026-10-02 PDF build record](../docs/whitepaper/v0.3-build.md) records its actual
+artifact/source hashes, checked Korean font selection and inspected pages;
+the original design scope and previous PDFs are preserved.
 
 ## Focused verification
 
