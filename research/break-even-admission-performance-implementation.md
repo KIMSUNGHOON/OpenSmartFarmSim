@@ -789,3 +789,201 @@ separate Python calculation operator. Maximum calculation, verification,
 current-result reading and withdrawal acceptance remain unproven until their
 terminal assertions and cleanup succeed. Application bytes remain frozen.
 The new runtime needs its own hosted regression; predecessor CI is not substituted.
+
+The locally accepted lexical change is committed as `04c517c`, followed by the
+operator assembly plan/discovery contract in `82ee0cd`. The authorized branch
+push succeeded at exact head `82ee0cd66f7ba595e50fcf1d513dbb9b0d9b8e4f`.
+The worktree was clean before push, and the live maximum application's
+`6ed29db3...` hash was rechecked unchanged. That process continues its calculation
+operator; committing/pushing did not edit its application bytes.
+
+The new exact-head hosted runs are backend **36969920769**, authored
+**36969920731**, web **36969920738** and C0 **36969920726**. Initial observations
+were backend queued and the other three in progress. None is yet terminal
+acceptance. These runs include the earlier certificate lifecycle fix; actual
+maximum operators/results, actual product CLI and independent gates remain open.
+
+## Terminal web and C0 at 82ee0cd
+
+On exact head `82ee0cd66f7ba595e50fcf1d513dbb9b0d9b8e4f`,
+[web run 36969920738](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36969920738)
+completed successfully with **160 unit cases in 11 files** and **51 Chromium
+cases with one worker in 1.4 minutes**. Type checking, production build,
+locked install and audit at the high-severity threshold also succeeded, as did
+all terminal/post steps. The log is `/tmp/ossf-ci-82ee0cd-web-20261002.log`.
+
+[C0 run 36969920726](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36969920726)
+also completed successfully: both Compose models/dependency builds, pinned
+PostgreSQL 18.6 health/`pg_isready`, replacement container and persisted sentinel
+passed. Its actual container/volume/password cleanup and all terminal/post
+steps succeeded. The log is `/tmp/ossf-ci-82ee0cd-c0-20261002.log`.
+
+Backend run 36969920769's overall status was `queued`, but its actual partition
+0 and 1 jobs were already `in_progress`; the remaining four were queued under
+the existing two-partition limit. Overall workflow text is not used to infer
+that active partition processes stopped. All seven authored jobs in run
+36969920731 were also in progress. Neither workflow has terminal acceptance yet.
+
+The local maximum's owned separate calculation process was verified live with
+its exact parent/factory and queried only for job metadata. Its first attempt
+was `simulating`, its lease was current, and the last renewal/update was
+2.289497 seconds earlier. No private configuration or raw input was exported.
+This proves live execution and current lease activity, not completed calculation
+or maximum-result acceptance. The same maximum session remains running.
+
+The exact-head authored HTTPS job `110721556403` became terminal success:
+**1 passed in 259.96 seconds**, with actual database/password cleanup success.
+Its completed-job REST log is
+`/tmp/ossf-ci-82ee0cd-authored-assessment-https-20261002.log`.
+This is one of seven authored selections, not acceptance of the whole workflow.
+The other authored jobs and full backend remain pending.
+
+The local owned calculation child was subsequently still live under its original
+pytest parent at `nice 10`, using about 77 MiB RSS. WSL reported zero swap usage,
+about 21 GiB available memory and 678 GiB free workspace filesystem space.
+These resource observations support continuing the existing single heavy local
+run; they are not deployment or completed maximum evidence.
+
+## Terminal authored regression at 82ee0cd
+
+[Authored run 36969920731](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36969920731)
+completed successfully on exact head
+`82ee0cd66f7ba595e50fcf1d513dbb9b0d9b8e4f`. All seven terminal selections and
+their actual database/password cleanup steps succeeded:
+
+| Selection | Passed | Seconds |
+| --- | ---: | ---: |
+| API | 104 | 486.69 |
+| Economics | 13 | 559.32 |
+| Assessment | 15 | 677.58 |
+| HTTPS assessment | 1 | 259.96 |
+| Financial selection | 3 | 760.93 |
+| Authored browser | 4 | 789.42 |
+| Financial browser | 1 | 485.48 |
+
+The **141 executions** were asserted from completed-job REST logs at
+`/tmp/ossf-ci-82ee0cd-authored-<selection>-20261002.log`, with step metadata
+`/tmp/ossf-ci-82ee0cd-authored-steps-20261002.json` and the asserted summary
+`/tmp/ossf-ci-82ee0cd-authored-summary-20261002.json`. These software/fake-CLI
+selections, same-head web 160/51 and C0 are accepted for their stated scopes.
+The full backend matrix is still pending, and the local actual maximum process
+continues its calculation. Neither authored success nor small-grid/standard
+admission samples replace maximum operators/results or actual CLI/independent
+G1/G4 evidence.
+
+## Partial backend at 82ee0cd
+
+Exact-head backend partition 0 (`110721556628`) completed successfully with
+**299 passed, 2,007 deselected and two warnings in 1,051.49 seconds**.
+Its complete collection is **2,306 cases**, inventory SHA-256
+`b9ff73078ad2b822966ae37c53a5b8ae7e37696cee83cf5a4e51fc265f11ad45`.
+The separate Linux UID selection gave **4 passed in 18.04 seconds**;
+owned runtime preparation, distinct-UID content access and actual
+database/password/runtime cleanup all succeeded. The completed-job log is
+`/tmp/ossf-ci-82ee0cd-backend-p0-20261002.log`.
+
+Partition 1 and the newly started partition 2 are in progress; 3–5 and the
+final aggregate are still pending. The inventory and cleanup must agree across
+all six terminal partitions before full backend acceptance. This first
+partition/UID result does not establish maximum operator completion.
+
+## Additional partition and maximum calculation progress (2026-10-02)
+
+At the same exact `82ee0cd66f7ba595e50fcf1d513dbb9b0d9b8e4f` head,
+backend partition 1 (`110721556545`) completed with **277 passed,
+2,029 deselected in 1,684.65 seconds** and partition 2 (`110721556664`)
+completed with **375 passed, 1,931 deselected in 1,070.35 seconds**.
+Both reported the same 2,306-node complete inventory and SHA-256
+`b9ff73078ad2b822966ae37c53a5b8ae7e37696cee83cf5a4e51fc265f11ad45`.
+Their terminal job/cleanup/post-step metadata and completed-job REST logs
+were inspected. Database/password-file removal succeeded. Logs are
+`/tmp/ossf-ci-82ee0cd-backend-p1-20261002.log` and
+`/tmp/ossf-ci-82ee0cd-backend-p2-20261002.log`; partial job metadata is
+`/tmp/ossf-ci-82ee0cd-backend-live-20261002.json`. Together partitions
+0–2 account for 951 passed cases, with 3–5/aggregation still pending.
+UID preparation/access checks are intentionally confined to partition 0;
+their skip steps in partitions 1–2 are not skipped test cases.
+
+The actual 256-trial protected local run in session `67775` completed its
+separate Python calculation operator in **2,258.1148612760007 seconds**,
+below the unchanged 7,200-second resource watchdog. The normal HTTPS
+calculation-complete response was **200 / 240 bytes / 0.04800109000643715
+seconds** through body EOF. Verification admission was **202 / 237 bytes /
+0.32838568699662574 seconds** and the pending verified-result read was
+**404 / 79 bytes / 0.046192275010980666 seconds**, with the same protected
+response checks and original 30-second client bound. The independent
+verification Python process is running; verified current result and terminal
+cleanup are not yet accepted. The log remains
+`/tmp/ossf-break-even-maximum-full-field-regex-20261002.log`.
+
+This is software-only synthetic calculation progress, not G1/real CLI,
+throughput, scientific, crop ranking or deployment evidence. Main application
+bytes remain frozen at `6ed29db3653a7c8e82b373941fde28f3d25d759fc22444428774495e9e5f1f9a`.
+The next discovery implementation is prepared in a separate worktree so it
+does not change these measured inputs. Its actual SCRAM acceptance waits for
+the local heavy test to terminate.
+
+## Terminal protected maximum path acceptance (2026-10-02)
+
+Session `67775` terminated with exit code 0: **1 passed in 4,527.33 seconds**
+(75 minutes 27 seconds). The same 256 actual trial inputs and 1,630 stored
+synthetic sources completed both separate Python operators, then the actual
+normal TLS/hostname/Bearer client read the entire verified result. Main runtime
+code/environment hashes remain `6ed29db3653a7c8e82b373941fde28f3d25d759fc22444428774495e9e5f1f9a`
+and `e73e9ec049e80bfa4ad96afc33bfa25f5fddab60d60771284d6292178241beb3`.
+The original client timeout/body EOF threshold remains 30 seconds; the response
+bound remains 524,288 bytes. All ten responses passed `Cache-Control: no-store`,
+normal certificate/hostname validation and full-body checks.
+
+| HTTPS response | Status | Body bytes | EOF seconds |
+| --- | --- | --- | --- |
+| Plan admission | 202 | 508 | 29.637331181002082 |
+| Identical plan reuse | 202 | 508 | 29.01403817400569 |
+| Queued calculation | 200 | 237 | 0.04302241298137233 |
+| Completed calculation | 200 | 240 | 0.04800109000643715 |
+| Verification admission | 202 | 237 | 0.32838568699662574 |
+| Verification pending | 404 | 79 | 0.046192275010980666 |
+| Verified result, all 256 trials | 200 | 25,382 | 3.7966569639975205 |
+| Identical verification reuse | 202 | 240 | 0.3100903250160627 |
+| Unauthenticated current result | 401 | 72 | 0.04494219200569205 |
+| Changed current hold scope | 503 | 89 | 3.393046076002065 |
+
+The calculation process took **2,258.1148612760007 seconds**; independent
+verification took **1,207.0974715680059 seconds**. Both respected their original
+7,200-second resource watchdogs. Repeated admission retained the same jobs;
+the completed result had the same plan and calculation parent, all 256 trials,
+`conditional_user_grid_only`, user inputs and assessment hold. The changed
+current hold scope exposed no trials. The normal server/socket shutdown and
+disposable DB/role/password-file teardown completed before pytest's terminal
+success; no owned calculation or verification process remained. Evidence:
+`/tmp/ossf-break-even-maximum-full-field-regex-20261002.log` and the explicit
+[harness](../backend/tests/break_even_maximum_full_smoke.py).
+
+This satisfies the local `break-even-maximum-protected-path` task's stated
+software boundary. The first admission has only **0.362668818997918 seconds**
+of margin in one local sample; neither p95, concurrent capacity nor production
+headroom is established. Separate maximum cancellation/lease recovery/source
+withdrawal, automatic consumer/application deployment, hosted backend completion,
+actual product CLI/independent G1 and scientific/deployment gates remain open.
+The released local heavy slot is now used for discovery's actual SCRAM checks.
+
+## Discovery acceptance and fourth backend partition (2026-10-02)
+
+The isolated discovery implementation completed **47 focused cases in 22.11
+seconds**, including actual SCRAM queue/corruption/current grant checks and
+competing existing economic workers with atomic publication and expired
+cancel/exhaustion recovery. Its three files and evidence were reviewed and
+cherry-picked into the working branch as `d2e8536` and `afc7acb` only after the
+maximum test terminated. Details and the separate discovery implementation/test
+hashes are in [its contract](../contracts/deterministic-job-discovery-v1.md#actual-scram-software-acceptance-2026-10-02).
+Automatic foreground consumption and application Compose remain separate tasks.
+
+At the prior published `82ee0cd` head, backend partition 3 (`110721556444`)
+also completed: **570 passed, 1,736 deselected in 1,623.06 seconds**.
+It reported the same 2,306-node collection/inventory digest and successful
+database/password cleanup and terminal steps. The actual log is
+`/tmp/ossf-ci-82ee0cd-backend-p3-20261002.log`. Partitions 0–3 account for
+1,521 passed cases; 4–5 and aggregation remain in progress. These prior-head
+CI results do not cover discovery's newly added files. The next push waits
+for this existing run's terminal evidence so it does not cancel its remaining
+regression work.
