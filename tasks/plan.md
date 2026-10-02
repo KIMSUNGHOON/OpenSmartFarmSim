@@ -201,6 +201,25 @@ flowchart LR
 이 소프트웨어 조립 뒤에도 실제 CLI 세 단계·독립 해제·같은 3D/브라우저와
 실패/재시작 증거를 갖춰야 `end-to-end-g1`을 체크한다. 기존 C0/G0~G4 범위를 바꾸지 않는다.
 
+### 사용자 요청에 따른 중단 지점 — 2026-10-02
+
+주간 한도 2% 안내에 따라 새 구현·시험·모델 호출을 멈추고 goal을 일시 정지한다.
+현재 요구 모델은 개발/제품 런타임 모두 `gpt-6.1-sol` / `xhigh`다.
+보호된 구성은 로컬 커밋 `bfc0ab0`, 수용 문서/상태는 `754fee7`에 보존했고,
+집중 45개/5.61초가 통과했다. 이 두 커밋은 아직 push하지 않았다.
+
+원격 `chore/bootstrap-c0`는 `c9bc689b138a8eee4292a6a041af26252defbc9b`다.
+[백엔드 실행 36978991443](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36978991443)은
+중단 확인 시 partition 0/2 성공, 1/3 실행 중, 4/5 대기였다. 같은 head의 웹 160/51,
+작성 141회/7묶음과 C0는 로그/정리를 확인했다. 호스팅 실행은 취소하지 않았다.
+소유한 로컬 API·시험·결정적 소비·임시 SCRAM 프로세스는 남아 있지 않았다.
+
+재개 시 먼저 해당 backend run의 실제 종결 상태·시험/UID/정리 로그와 로컬/원격 head를
+확인한다. 기존 회귀를 취소하지 않도록 처리한 뒤 미게시 커밋을 push하고 새 구성의
+호스팅 회귀를 확인한다. 다음 구현은 `application-compose-runtime`이다. 이번 턴에는
+Compose merge·이미지/프록시 자료와 기존 진입점을 읽었으며 앱 이미지·Compose·workflow
+코드는 아직 변경하지 않았다. 실제 제품 CLI·독립 해제/G1/G4 수용도 계속 미완료다.
+
 점선 선행 조건은 표시된 실제 원천 유래 공개 경로에만 적용된다. `market-source-g0`는 기존 출처·시장 계약, 영속 G0 승인 저장소와 CLI 작업자 뒤에서 병행할 수 있으며, 첫 합성 G1의 선행 조건이 아니다. 시장 자료에서 유래한 시나리오·근거 카드와 후속 미래 전망에는 해당 시장 G0가 필요하다.
 
 `repo-bootstrap`의 예정 파일은 `backend/pyproject.toml`, `backend/uv.lock`, `web/package.json`, `web/package-lock.json`, `.gitignore` 다섯 개다. `repo-bootstrap`의 잠금·설치 확인은 완료됐다. 후속 `compose-runtime`의 정적 골격 파일은 정확히 `compose.yaml`, `.env.example`, `backend/Dockerfile`, `web/Dockerfile`, `.dockerignore` 다섯 개다. Compose는 모듈형 백엔드의 web·API·수집·CLI·수치 계산 별도 서비스/작업자 역할과 PostgreSQL·영속 POSIX 아티팩트를 정의한다. `depends_on`의 시작 순서만 믿지 않고 PostgreSQL `pg_isready` 건강 검사와 `service_healthy` 조건을 쓴다. `.env.example`은 비밀값 없이 두고 실행 시 비밀 파일/관리자로 서비스별 최소 권한을 주입하며 PostgreSQL은 `POSTGRES_PASSWORD_FILE`을 쓴다. 비밀·제한된 원본 자료는 저장소와 빌드 문맥에서 제외한다. 실제 검증한 기반/배포 이미지의 버전·digest를 고정하고, PostgreSQL 18을 선택한다면 데이터 볼륨은 `/var/lib/postgresql`에 둔다. CLI 작업자에는 Docker 소켓을 마운트하지 않는다. `db-driver-bootstrap`은 Psycopg 잠금·로컬 연결과 JSON Schema 시험 의존성을 별도 확인해 `durable-jobs`의 다섯 파일 범위를 지킨다. `durable-jobs`는 작업 입력 복원과 게시 원자성을 다루고, `decision-evidence-store`는 실패·취소를 포함한 CLI 시도별 변경 불가 원문/JSONL 감사 보존을 별도로 검증한다. `cli-worker-store-bridge`는 단계별 임대, 검증된 보류의 열람 경로, 실행 사건 결합을 실제 CLI 작업자보다 먼저 검증한다. `g0-authority-store`는 형식 계약과 실제 서버 승인·보관 경계를 분리한다. 모듈형 Python 백엔드 하나에서 FastAPI, HTTPX 제공자 연결 도구, PostgreSQL 임대 작업, 제한된 **실제 Codex CLI `gpt-6.1-sol`/`xhigh` 작업자**, 결정적 NumPy/SciPy/Pint 열 모델, `Decimal` 농장 계산을 분리한다. React/TypeScript/Vite, MapLibre, Three.js, ECharts, HTML 표는 같은 API 기록을 읽는다. 이 계획은 LangChain, LangGraph, Deep Agents, Hermes 계층을 추가하지 않는다.
