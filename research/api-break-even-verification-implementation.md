@@ -118,3 +118,38 @@ and 5 is queued. The workflow's top-level `queued` status is not a terminal
 result. Its counts/inventory and complete cleanup acceptance will be recorded
 only after all partitions and the aggregate check finish. A new push is held
 to preserve this running workflow.
+
+## Terminal hosted backend at 160118c
+
+The same [backend workflow](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36937726974)
+is now terminal **success**. All six partitions and the inventory aggregate
+passed on the configured PostgreSQL 18.6 image. The complete default collection
+accounts for **2,290 passed, 0 skipped**; each partition reports the same
+inventory SHA-256
+`ac2822d13de6ab215a5902fef6490305425fe14397e258d333b1d3a35d073598`.
+Partition selection counts sum to 2,290 and their executed counts match them;
+the aggregate rejects missing or differing inventory outputs.
+
+| Partition | Passed | Test duration (s) |
+| --- | ---: | ---: |
+| 0 | 299 | 849.31 |
+| 1 | 277 | 2,018.64 |
+| 2 | 374 | 1,605.23 |
+| 3 | 555 | 1,560.32 |
+| 4 | 306 | 1,722.00 |
+| 5 | 479 | 1,765.89 |
+
+The separate Linux UID boundary selection passed **4 cases in 15.76 s**.
+All six database/password/owned UID-runtime cleanup steps succeeded. Partition
+0 records two existing Pydantic warnings; there are no failed or skipped cases.
+This completes the hosted software regression evidence for the completed
+reference reader and HTTP/protected verification operator at this exact head.
+The already terminal authored/web/C0 evidence for the same head is recorded
+above.
+
+This result does not cover later SDK/web commit `30851b6`, calculation-fence
+commit `2ef1005`, or the running 256-trial admission diagnostic. Their later
+code and capacity evidence remain distinct. No product CLI invocation,
+independent release, maximum-load acceptance or G0–G4 promotion is implied.
+The temporary push hold for this old workflow has ended; later changes require
+their own hosted checks.

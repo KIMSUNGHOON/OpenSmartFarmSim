@@ -329,6 +329,8 @@ SCRAM 권한 역할에서 합성 서명 바이트를 변경 불가로 보존하�
 
 [비동기 검증 HTTP·보호된 작업자 후보](../contracts/api-break-even-verification-v1.md)는 4 KiB의 실제 완료 계산 UUID 요청과 기존 결과 읽기 권한을 표준 HTTPS 조립에 연결했다. 작업자/OpenAPI 69개와 실제 SCRAM·HTTP/별도 Python 작업자 4개를 확인했다([기록](../research/api-break-even-verification-implementation.md)). 2개 시험의 HTTPS 전체 응답 5개 최대는 0.5033초이며 30초 제한을 유지했다. SDK/웹·실제 256개 부하·취소/재시도/권리 철회와 운영·독립 CLI/G1/G4는 후속이다. 전체 작업 체크는 유지한다.
 
+서버 판본 `160118c`의 [호스팅 전체 백엔드 수용 기록](../research/api-break-even-verification-implementation.md#terminal-hosted-backend-at-160118c)은 PostgreSQL 18.6의 6개 묶음·동일 전체 목록을 대사해 **2,290 passed, 0 skipped**와 별도 Linux UID **4 passed**, 모든 DB/비밀번호 정리 성공을 확인했다. 같은 판본의 작성 7개 묶음 141회·웹 154/50개·C0도 통과했다. 후속 웹·계산 잠금 수정과 실제 256개 부하는 별도 판본/검증이며 전체 작업 및 독립 관문 체크는 유지한다.
+
 [SDK·웹 비동기 검증 후보](../contracts/web-break-even-verification-v1.md)는 실제 계산 완료 뒤 검증 작업을 요청하고, 같은 부모의 미확인 접수와 별도 검증 상태·완료 결과를 연결했다. 웹 단위 160개·전체 Chromium 51개와 모바일 미확인/대기 상태를 확인했다([기록](../research/web-break-even-verification-implementation.md)). 실제 SCRAM·HTTPS/별도 Python 작업자의 브라우저 3개도 통과했고 SDK 전체 본문 44개 최대는 10.3936초다. 최대 256개 부하·30초 응답·취소/재시도/철회, 자동 운영자·독립 CLI/G1/G4의 기존 수용을 계속 확인한다. 전체 작업 체크는 유지한다.
 
 [계산 완료 잠금 보완 후보](../research/break-even-calculation-fence-implementation.md)는 최종 전체 재계산이 취소 요청을 막는 실제 DB 반례를 확인하고, 두 계산은 잠금 밖에서 수행하며 완료 거래는 관측 참조·현재 권리와 검사된 계획 행을 대사하도록 연결했다. 집중 취소 시험은 RED→GREEN이며 원자성·늦은 변경·기존 읽기·재생의 집중 회귀 45개가 통과했다. 실제 256개 접수·작업자·30초 조회·취소/재시도/철회, 자동 운영 조립과 독립 CLI/G1/G4의 기존 수용 체크는 유지한다.
