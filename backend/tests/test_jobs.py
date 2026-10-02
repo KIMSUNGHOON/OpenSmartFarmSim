@@ -174,6 +174,21 @@ def test_canonical_input_serializes_once_and_rejects_non_json(monkeypatch):
             canonical_input_bytes(value)
 
 
+def test_canonical_input_rechecks_nested_field_names_and_changed_raw_digest():
+    value = {"nested": [{"raw_sha256": "a" * 64, "source_url": "synthetic"}]}
+    assert canonical_input_bytes(value) == (
+        b'{"nested":[{"raw_sha256":"' + b'a' * 64 + b'","source_url":"synthetic"}]}')
+    value["nested"][0]["raw_sha256"] = "A" * 64
+    with pytest.raises(ValueError, match="input field"):
+        canonical_input_bytes(value)
+    for key in ("prefix-PASS.word-suffix", "source_raw_content", "an_API_KEY_reference",
+                "xBearerTokenY", "safe_authorization_note", "prior_CREDENTIAL_record"):
+        with pytest.raises(ValueError, match="input field"):
+            canonical_input_bytes({"nested": [{key: "synthetic"}]})
+    assert canonical_input_bytes({"supply": "synthetic", "scope_version": "r1"}) == (
+        b'{"scope_version":"r1","supply":"synthetic"}')
+
+
 def submit(store, tenant="tenant-a", stage="research", input_value=None, key="key-a", **kwargs):
     return store.submit(tenant, stage, input_value or {"fixture": "synthetic"}, key, **kwargs)
 

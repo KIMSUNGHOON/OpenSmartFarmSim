@@ -27,6 +27,11 @@ _BLOCKED_INPUT_KEYS = frozenset({
     "sourcedata", "sourcetext", "sourcecontent", "sourcepayload", "sourcebody",
     "providerresponse", "documenttext", "documentcontent", "responsebody", "httpbody",
 })
+_BLOCKED_INPUT_KEY_MARKERS = re.compile(
+    "password|secret|credential|apikey|accesskey|privatekey|accesstoken|"
+    "refreshtoken|authtoken|bearertoken|authorization|cookie|rawdata|"
+    "rawsource|rawpayload|rawrecord|rawcontent"
+)
 
 
 def _validate_input_fields(value: object) -> None:
@@ -38,12 +43,7 @@ def _validate_input_fields(value: object) -> None:
                 continue
             normalized = re.sub(r"[^a-z0-9]", "", key.casefold())
             if (normalized in _BLOCKED_INPUT_KEYS or normalized.startswith("raw")
-                or any(marker in normalized for marker in (
-                    "password", "secret", "credential", "apikey", "accesskey",
-                    "privatekey", "accesstoken", "refreshtoken", "authtoken",
-                    "bearertoken", "authorization", "cookie", "rawdata", "rawsource",
-                    "rawpayload", "rawrecord", "rawcontent",
-                ))):
+                or _BLOCKED_INPUT_KEY_MARKERS.search(normalized)):
                 raise ValueError("input field is not allowed")
             _validate_input_fields(nested)
     elif isinstance(value, list):

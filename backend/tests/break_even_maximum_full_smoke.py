@@ -1,6 +1,8 @@
 """Explicit TLS/operator capacity checks; synthetic software evidence only."""
 
 from dataclasses import asdict
+import asyncio
+import cProfile
 from datetime import datetime, timedelta, timezone
 from hashlib import sha256
 import http.client
@@ -28,6 +30,8 @@ from app.market_source_store import MarketSourceStore
 from test_api_break_even_plan import build_plan_api, login_database, login_scope, PROFILE
 from test_api_runtime import config, dependencies
 from test_api_serve import tls_files
+from test_http_identity import request
+from break_even_admission_profile import profile_summary
 
 def _refresh_operator_tls(tls_files, now):
     cert, private, key = tls_files
@@ -164,7 +168,26 @@ def _exercise_path(login_scope, tls_files, tmp_path, values):
         while not server.started:
             assert thread.is_alive() and time.monotonic() < deadline, 'HTTPS server did not start'
             time.sleep(0.02)
-        status, accepted = call('plan', '/v1/break-even-plans', 'POST', body)
+        try:
+            status, accepted = call('plan', '/v1/break-even-plans', 'POST', body)
+        except TimeoutError:
+            if count == 256:
+                server.should_exit = True
+                thread.join(timeout=45)
+                assert not thread.is_alive(), 'owned HTTPS server did not stop before diagnosis'
+                profile = cProfile.Profile()
+                started = time.perf_counter()
+                status, diagnostic, _ = profile.runcall(asyncio.run,
+                    request(runtime.service.app, path='/v1/break-even-plans', method='POST',
+                        headers=[(b'content-type', b'application/json'),
+                            (b'authorization', b'Bearer ' + token)],
+                        body=json.dumps(body).encode()))
+                elapsed = time.perf_counter() - started
+                assert status == 202 and diagnostic['trial_count'] == count
+                measured = profile_summary(profile, elapsed, status=status, trial_count=count)
+                measured['phase'] = 'diagnostic_asgi_retry_after_original_tls_timeout'
+                print('maximum_full_slow_diagnostic=' + json.dumps(measured), flush=True)
+            raise
         assert status == 202 and accepted['trial_count'] == count
         assert accepted['intent_job']['state'] == 'queued'
         assert service.store.get_break_even_read('tenant-1', accepted['plan_id']) is None

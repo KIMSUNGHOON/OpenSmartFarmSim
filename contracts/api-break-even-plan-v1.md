@@ -37,8 +37,20 @@ The original actual 256-trial admission exceeded the unchanged 30-second HTTP
 work budget. The later unchanged maximum ASGI measurement passed at 29.5103
 seconds; this single component result has only 0.4897 seconds of budget remaining.
 The same-code focused/worker/current-reader and two-trial TLS checks passed.
-The protected 256-trial whole-response/worker path and hosted regression remain
-separate required evidence; small-grid profiling alone establishes neither.
+The committed changes' hosted regression passed on `c3ff00e`: 2,305 backend
+cases, four distinct-UID cases, 141 authored executions, web 160/51 and C0.
+The protected 256-trial whole-response/worker path remains separate required
+evidence; the actual standard Bearer first request exceeded its 30-second
+timeout. The later grouped reference-access experiment also exceeded this budget
+and was reverted. Further admission changes require their own maximum measurement
+and hosted regression. Small-grid profiling does not establish maximum capacity.
+
+The later static credential/raw field matcher retained the canonical input rules
+and passed same-code focused 55 and compatibility/diagnostic 12 checks. Actual
+standard Bearer/TLS 256-trial admission then reached body EOF in 29.6373 seconds,
+and identical reuse in 29.0140 seconds. The initial response has only 0.3627 seconds
+under the fixed limit; this is a local admission sample. Its hosted regression
+and maximum calculation/verification/current-result path remain pending.
 
 202 returns plan ID, request/plan hashes, trial count, pinned_user_grid_intent and
 actual JobStatus. The immutable simulation input contains input_version

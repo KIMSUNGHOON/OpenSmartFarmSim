@@ -1,7 +1,9 @@
 # Break-even admission performance investigation
 
-Date: 2026-10-02 (Asia/Seoul). Status: local performance and compatibility accepted;
-hosted regression and the protected maximum path remain pending.
+Date: 2026-10-02 (Asia/Seoul). Status: committed local performance, compatibility
+and hosted regression accepted; the reference-access experiment was rejected.
+The lexical field-check change passed local protected maximum admission;
+its hosted regression and the protected maximum operator/result path remain pending.
 Development uses the current Codex CLI `gpt-6.1-sol` / `xhigh` session.
 The inputs and all database authority fixtures are synthetic software evidence.
 
@@ -490,3 +492,300 @@ This fixes the demonstrated fixture lifetime failure while retaining normal
 TLS/hostname verification and all existing limits. It is a prerequisite result,
 not protected maximum acceptance. The unchanged actual 256-trial generator and
 runtime bytes will now be retried with this corrected test lifecycle.
+
+The corrected harness is committed locally as
+`6cb750d5ac408cf579cb5f448c263695ec0b7655`; it has not been pushed while the
+existing runtime CI is still running. The actual maximum retry has started
+alone at `nice -n 10`, using the same 256 values, actual source/candidate builder,
+runtime `258559bc...` and unchanged HTTP/operator limits. Its log is
+`/tmp/ossf-break-even-maximum-full-tls-lifecycle-20261002.log`. Source registration
+has completed at 1,630 records; no protected maximum response/worker result is
+yet claimed. Backend partitions 0 and 1 are terminal success, 2 and 3 are running,
+and 4 and 5 remain queued at the latest actual status observation. Overall backend
+acceptance still requires all partitions, complete inventory, UID checks and cleanup.
+
+## Partial backend evidence at c3ff00e
+
+The GitHub CLI refused `run view --log` while the overall matrix was still
+running. The completed-job REST log endpoints succeeded, yielding actual
+terminal partition logs without restarting CI. The exact-commit observations are:
+
+| Partition | Passed | Deselected | Seconds | Other evidence |
+| --- | ---: | ---: | ---: | --- |
+| 0 | 299 | 2,006 | 1,124.67 | Two serializer warnings; separate Linux UID selection: 4 passed in 18.72 seconds |
+| 1 | 277 | 2,028 | 1,697.46 | No skipped cases in the terminal summary |
+
+Both report the complete **2,305-case collection** and inventory SHA-256
+`50af1ff371b313e43804dbf285caf7dcbdbe3637954299a48a690c2539934894`.
+Both actual database/password cleanup steps succeeded; partition 0's owned UID
+runtime preparation and distinct-UID smoke steps also succeeded. Logs:
+`/tmp/ossf-ci-c3ff00e-backend-p0-20261002.log` and
+`/tmp/ossf-ci-c3ff00e-backend-p1-20261002.log`.
+This is partial matrix evidence. Partitions 2–5 and the all-partition aggregate
+must still pass with the same complete inventory before full backend acceptance.
+
+## Corrected protected maximum: first request exceeded budget
+
+The corrected-certificate maximum attempt terminated with **1 failed in
+1,056.27 seconds**. All 256 actual candidates were prepared by
+1,023.0476925209805 seconds. Certificate verification succeeded, but the first
+plan response did not reach the client before the unchanged **30-second** read
+timeout; `getresponse()` failed with `TimeoutError`. No whole-body success,
+calculation, verification or completed-result capacity was reached. The log is
+`/tmp/ossf-break-even-maximum-full-tls-lifecycle-20261002.log`.
+
+The earlier 29.5103-second ASGI component result has insufficient evidence to
+establish protected maximum acceptance. The actual standard assembly uses the
+live `current_principal` provider, including current request activity and Bearer
+expiry checks on each access. The previous component profile used the mutable
+synthetic provider. A focused standard-assembly ASGI profiler has now been added
+to measure those actual identity/guard costs before changing runtime code; it
+retains the standard source/store assembly and exports only function counts and
+timings. Its scope is diagnostic ASGI, not a substitute TLS measurement.
+The log is `/tmp/ossf-break-even-standard-bearer-admission-profile-20261002.log`.
+The protected maximum checkbox remains open and no timeout is increased.
+
+## Standard Bearer diagnostic and grouped reference-access candidate
+
+The standard-assembly diagnostic gave **1 passed in 13.84 seconds**. Two-trial
+profiled admission took 0.6184087209985591 seconds and still executed 436 cursor
+calls. `current_principal` was called **7,053 times**, with 0.022756457 profiled
+cumulative seconds. Total reference-read time was 0.379268084 seconds versus
+0.310044161 seconds in its value-reading child; the difference includes the
+surrounding guards and overlaps other function costs. Small-grid timings do not
+measure protected maximum latency, and the difference from the earlier mutable
+provider profile is within variation. No individual identity-time cost is
+claimed to explain the entire maximum failure.
+
+Inspection found that each surrounding read guard recursively parses the same
+bound principal for break-even, candidate and source scopes. An actual SCRAM
+regression observed **eight provider reads instead of one** for a guard:
+**1 failed in 12.62 seconds**. Its log is
+`/tmp/ossf-break-even-reference-principal-group-red-20261002.log`.
+
+The candidate groups only those three access checks. Every guard checks the
+actual store/view/source identities, matching policy/schema/DSN and common
+provider, invokes that provider afresh, validates authenticated tenant/scopes
+and requires all three read scopes. Before/after guards and caller checks remain,
+as do each actual private record validator, fresh SQL query, both full admission
+preparations and final complete role audits. There is no permission/data/rights
+cache. The same helper also checks each final replay dependency. No formula,
+schema, grant, input budget or transport deadline is changed.
+
+The complete admission and standard-provider profiler selection is running in
+`/tmp/ossf-break-even-reference-principal-group-green-20261002.log`. This new
+runtime candidate is not covered by the predecessor `c3ff00e` CI and is not yet
+accepted. Current-access/provider/cancel/worker compatibility and unchanged
+protected maximum measurements remain required.
+
+The complete admission/standard-provider selection terminated successfully:
+**21 passed in 267.19 seconds**, including the one-fresh-principal regression,
+all required-scope denials, late source/hold/context scope loss, actual role
+grant drift, source replacement, original Job corruption, identity precedence,
+fresh query bounds and immutable intent/retry behavior. The standard-provider
+profile now records **2,237 `current_principal` calls** and
+0.009862096 cumulative seconds, versus 7,053/0.022756457 before grouping.
+Overall profiled component time is 0.6136255339952186 seconds, too close to the
+earlier small-grid result to establish protected maximum improvement.
+
+The new runtime code SHA-256 is
+`3f4619a1dbc480f5f858936fa0f5b2392f80f4a5d684ce1b220a1df5951c102c`;
+the environment remains
+`e73e9ec049e80bfa4ad96afc33bfa25f5fddab60d60771284d6292178241beb3`.
+The same-code worker/current-reader/two-trial TLS compatibility selection is
+running alone at `nice -n 10` in
+`/tmp/ossf-break-even-reference-principal-worker-reader-tls-20261002.log`.
+Runtime bytes are fixed for that selection. The candidate remains unaccepted
+until compatibility and the unchanged actual protected maximum budget are met.
+
+The same-code compatibility selection completed with **11 passed in
+468.77 seconds**, including atomic result/job publication, final-replay
+cancellation, late hold/provider/result refusal, arithmetic-disabled completed
+reading and current dependency/scope/bytes/grant withdrawal. The two-trial
+protected path's ten whole response bodies had maximum
+**0.48197452002204955 seconds**; calculation took 19.88697394100018 seconds and
+verification 16.508792156993877 seconds. The owned server/socket/database cleanup
+completed. Small-grid compatibility does not establish protected maximum capacity.
+
+The actual maximum is the remaining acceptance measurement for this candidate.
+If its unchanged first HTTPS plan request times out again, the explicit harness
+now stops its owned server and profiles the same standard assembly/intent/data
+through diagnostic ASGI before teardown. Only counts/functions/timings are
+exported. The original TLS timeout is still raised, no first-request or deadline
+assertion is relaxed, and the diagnostic is not treated as whole-body success.
+This avoids another expensive fixture preparation solely to diagnose a known
+maximum failure. No runtime source bytes changed after the compatibility result.
+
+The unchanged actual protected 256-trial measurement has restarted on fixed
+`3f4619a1...` application bytes, alone at `nice -n 10`. Its log is
+`/tmp/ossf-break-even-maximum-full-reference-group-20261002.log`. All 1,630 source
+records are registered and candidate generation remains live. No protected
+maximum response, operator completion or current-result acceptance is claimed
+while that process runs. This candidate has not been committed or pushed;
+the ongoing predecessor CI remains attached to `c3ff00e` rather than this code.
+
+## Terminal hosted regression at c3ff00e
+
+[Backend run 36959130046](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36959130046)
+terminated successfully on exact head
+`c3ff00ef6e5150904333b5475592ceb5f1071f18`. All six PostgreSQL 18.6
+partitions and the aggregate passed:
+
+| Partition | Passed | Deselected | Seconds | Warnings |
+| --- | ---: | ---: | ---: | ---: |
+| 0 | 299 | 2,006 | 1,124.67 | 2 serializer warnings |
+| 1 | 277 | 2,028 | 1,697.46 | 0 |
+| 2 | 374 | 1,931 | 1,479.25 | 0 |
+| 3 | 570 | 1,735 | 1,629.74 | 0 |
+| 4 | 306 | 1,999 | 1,538.60 | 0 |
+| 5 | 479 | 1,826 | 1,932.24 | 0 |
+
+The total is **2,305 passed, zero skipped**. All six complete collections have
+SHA-256 `50af1ff371b313e43804dbf285caf7dcbdbe3637954299a48a690c2539934894`;
+the aggregate explicitly accepted the identical inventory. Partition 0's
+separate Linux UID selection gave **4 passed in 18.72 seconds**, and its
+runtime preparation and content UID boundary check succeeded. All six actual
+database/password/owned-runtime cleanup steps and all terminal job statuses
+were checked. The full log is
+`/tmp/ossf-ci-c3ff00e-backend-full-20261002.log`, supplemented by the earlier
+partition 0/1 logs. The asserted partition summary and step metadata are
+`/tmp/ossf-ci-c3ff00e-backend-summary-20261002.json` and
+`/tmp/ossf-ci-c3ff00e-backend-steps-20261002.json`.
+
+Together with the already recorded 141 authored executions, web 160/51 and C0
+successes on this same head, this accepts the committed admission changes'
+hosted software regression. It does not cover the uncommitted `3f4619a1...`
+reference-access candidate, protected maximum capacity, actual product CLI,
+independent evidence release or scientific/production gates.
+
+## Reference-access experiment rejected at actual maximum
+
+The `3f4619a1...` protected measurement terminated with **1 failed in
+1,165.68 seconds**. All 256 candidates were prepared by 1,041.7191486230004
+seconds, but the original first HTTPS request exceeded its unchanged 30-second
+timeout. No successful maximum whole response or operator completion was reached.
+The owned server was stopped; the same standard assembly, input and database
+were then profiled diagnostically before the original timeout was raised.
+
+That diagnostic returned 202/256 in **80.94940907298587 profiled seconds**.
+It recorded 42,496 reference reads, 39,424 source validations and 45,648 cursor
+executions. Overlapping cumulative times include 59.7734 seconds in reference
+reads, 29.5330 in source transactional reads, 27.5250 in the existing baseline
+ledger checks, 20.6333 in source validation and 13.0150 in canonical input
+serialization. Canonical field validation visited 1,445,558 nodes in 11.4721
+cumulative seconds. These instrumented, overlapping times identify investigation
+targets; they are not TLS timings or independently additive costs.
+The log is `/tmp/ossf-break-even-maximum-full-reference-group-20261002.log`.
+
+The grouped principal helper and its helper-specific regression were removed
+because the required maximum improvement was not demonstrated. The runtime hash
+again equals the accepted committed
+`258559bc294e063d0258508d072b50aa4c4a57aa5704ba6ca89f5351454d4bf8`,
+with unchanged environment hash `e73e9ec0...`. The diagnostic standard-provider
+profiler and timeout profile export remain useful test instrumentation. No
+timeout, source validator, rights check, calculation or claim gate was relaxed.
+
+A fresh standard-provider baseline on those restored bytes gave **1 passed in
+15.72 seconds**, with profiled admission 0.8123810160032008 seconds and canonical
+serialization 0.101054819 seconds across 314 calls. Its log is
+`/tmp/ossf-break-even-standard-field-validation-baseline-20261002.log`.
+The next experiment targets repeated lexical checks of credential/raw field
+names, whose static rules can be matched directly without any record, rights
+or principal cache. It must retain all rejected keys, the exact `raw_sha256`
+exception, nested/non-JSON/size handling and identical canonical bytes, then
+pass the same protected maximum before acceptance.
+
+## Lexical field-check candidate
+
+The candidate replaces the 17 repeated substring tests with one compiled
+alternation of the exact same literal ASCII markers. Normalization, blocked
+exact keys, the `raw` prefix check, exact lowercase-hex `raw_sha256` exception,
+recursive traversal and canonical JSON encoding/size bounds are unchanged.
+There is no field-name, input, approval, rights or principal cache.
+
+Using the same 85 typed synthetic source documents, 400 repetitions per sample
+and three samples, 34,000 canonicalizations per sample changed from
+**1.8647374300053343 seconds median** (1.994416317989817,
+1.8548702879925258, 1.8647374300053343) to
+**1.218367074005073 seconds median** (1.218367074005073,
+1.2482614690088667, 1.21093604399357), a **34.66%** reduction in this diagnostic.
+Logs: `/tmp/ossf-canonical-field-baseline-20261002.log` and
+`/tmp/ossf-canonical-field-regex-candidate-20261002.log`.
+The repeatable diagnostic is [canonical_input_profile.py](../backend/tests/canonical_input_profile.py);
+expected bytes come from an independent canonical JSON encoding of the same
+documents. No field values, private records or credentials are exported.
+
+The existing canonical/non-JSON/size and raw-digest checks plus a regression for
+changed nested digest values, mixed case/punctuation, Unicode casefolding and
+embedded prohibited names gave **3 passed in 0.92 seconds**. Source/job/admission
+and standard-provider regression is running alone at `nice -n 10` in
+`/tmp/ossf-break-even-field-regex-focused-20261002.log`.
+The candidate code SHA-256 is
+`6ed29db3653a7c8e82b373941fde28f3d25d759fc22444428774495e9e5f1f9a`;
+the environment remains `e73e9ec0...`. The lexical diagnostic is insufficient
+for protected maximum acceptance. Existing API limits and all claim gates remain.
+
+The source/job/admission/standard-provider selection completed with **55 passed
+in 351.88 seconds**. The same standard-provider diagnostic admission took
+0.6417973320058081 seconds versus the restored baseline's 0.8123810160032008.
+This includes generic immutable job submission, all typed source families and
+integrity checks, the complete admission scope/binding/refusal/retry selection
+and the new nested credential/raw field regression. The earlier focused
+three-case check overlaps this collection and is not added to its count.
+
+The same-code atomic publication/final-replay cancellation/current dependency
+withdrawal/arithmetic-disabled reader/two-trial actual TLS selection, together
+with the reproducible lexical diagnostic, is now running alone in
+`/tmp/ossf-break-even-field-regex-worker-reader-tls-20261002.log`.
+No application bytes are being changed during those checks. Both this
+compatibility and the unchanged protected maximum remain required; no new
+acceptance checkbox has been completed.
+
+The same-code compatibility/diagnostic selection completed with **12 passed in
+445.05 seconds**. Ten actual two-trial HTTPS bodies took at most
+**0.4444843929959461 seconds**. Separate Python calculation took
+18.250444870995125 seconds and verification took 15.11679546200321 seconds.
+The current hold-scope change returned fixed 503 without trial amounts;
+identity reuse, pending withholding, unauthenticated refusal, atomic publication,
+final-replay cancellation and current dependency/scope/bytes/grant withdrawal
+passed. Owned server/socket/database cleanup completed. The repeatable lexical
+diagnostic also passed, with three samples 1.1875696860079188,
+1.2128624269971624 and 1.163602170010563 seconds (median
+1.1875696860079188); these remain synthetic diagnostic timings.
+
+After asserting the exact `6ed29db3...` code and `e73e9ec0...` environment hashes,
+the unchanged 256-trial protected full-path measurement started alone at
+`nice -n 10`. Its log is
+`/tmp/ossf-break-even-maximum-full-field-regex-20261002.log`. Source/candidate
+preparation, first-request and whole-body limits, both operator watchdogs and
+all current-result/refusal assertions are unchanged. The candidate remains
+uncommitted and unaccepted until that measurement demonstrates the required
+budget. The predecessor hosted CI does not cover this runtime change.
+
+## Protected maximum admission accepted locally
+
+The unchanged full-path measurement prepared 1,630 actual sources and 256
+candidates by 992.9793196629907 seconds. On exact `6ed29db3...` application
+bytes, the standard Bearer/TLS client received these complete bodies:
+
+| Request | Status | Bytes | Body EOF seconds |
+| --- | ---: | ---: | ---: |
+| Initial 256-trial plan | 202 | 508 | 29.637331181002082 |
+| Identical plan reuse | 202 | 508 | 29.01403817400569 |
+| Queued calculation status | 200 | 237 | 0.04302241298137233 |
+
+All have `Cache-Control: no-store`, normal certificate/hostname verification,
+the unchanged 30-second timeout and complete-body bound. The initial response
+has only **0.362668818997918 seconds** remaining under that limit. These single
+local samples prove this admission check; they do not establish a production
+latency distribution or additional capacity margin.
+
+Together with the same-code 55-case focused selection, 12-case worker/reader/
+TLS/diagnostic selection and unchanged canonical byte checks, this accepts the
+lexical field matcher for local protected admission. The grouped principal
+experiment remains reverted. The actual maximum process is still live in
+`/tmp/ossf-break-even-maximum-full-field-regex-20261002.log`, now running its
+separate Python calculation operator. Maximum calculation, verification,
+current-result reading and withdrawal acceptance remain unproven until their
+terminal assertions and cleanup succeed. Application bytes remain frozen.
+The new runtime needs its own hosted regression; predecessor CI is not substituted.
