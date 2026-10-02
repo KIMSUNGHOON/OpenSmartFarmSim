@@ -132,14 +132,19 @@
 연결은 기존 경제·손익분기 계산/검증 작업자의 임대 경로를 사용한다. 다음 작업은 기존
 `api-flow`/`end-to-end-g1`의 이 공백을 작은 단위로 구현한다.
 
-- [ ] **`protected-api-operator-config`** (M) — 선행: 기존 `api-runtime` 조립과 로그인/내용 접근 정책.
-  예정 파일(3): `backend/app/operator_config.py`, `backend/tests/test_operator_config.py`,
+- [x] **`protected-api-operator-config`** (M) — 선행: 기존 `api-runtime` 조립과 로그인/내용 접근 정책.
+  구현 파일(3): `backend/app/operator_config.py`, `backend/tests/test_operator_config.py`,
   `contracts/operator-config-v1.md`. 운영자 파일에서 명시적 정책·DB/아티팩트/TLS·Bearer와
   신뢰 의존성 참조를 읽어 기존 typed config/factory에 전달한다. HTTP·CLI 제안으로
   파일/모듈/키를 선택하지 못하며, 누락된 원천/검증기·독립 증거를 시험용 값으로 채우지 않는다.
   수용: 정상 사설 구성의 기존 HTTPS 조립, 잘못된 파일 소유/권한·경로·닫힌 스키마 거부,
   현재 역할/제공자 불일치의 고정 오류와 출력의 비밀 미포함. 확인: 해당 focused pytest와
   실제 SCRAM·HTTPS 시작/종료 시험. 실제 배포 자격증명 소유권과 G1/G4는 후속이다.
+  [로컬 소프트웨어 수용](../contracts/operator-config-v1.md#local-software-acceptance--2026-10-02)은
+  `bfc0ab0`의 집중 45개/5.61초로 닫힌 구성·실제 권한/경로·읽는 중 변경·핸들 정리,
+  실제 SCRAM 로그인/현재 역할/제공자 결합/TLS 오류 거부와 별도 표준 HTTPS/Bearer 기동·
+  접수/재조회·기동 후 권한 변경 503·종료/DB/비밀 정리를 확인했다.
+  소유 UID/ACL 반례는 검사 결과 stub이며 독립 자격증명 소유권·새 호스팅 회귀·앱 Compose는 후속이다.
 - [x] **`deterministic-job-discovery`** (M) — 선행: 실제 불변 작업 저장소·경제/손익분기 작업자.
   구현 파일(3): `backend/app/deterministic_job_discovery.py`,
   `backend/tests/test_deterministic_job_discovery.py`, `contracts/deterministic-job-discovery-v1.md`.

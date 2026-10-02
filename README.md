@@ -28,7 +28,12 @@
 실제 SCRAM을 포함한 집중 47개가 통과했습니다.
 [자동 전경 소비](contracts/deterministic-worker-loop-v1.md)도 별도 Python/SCRAM을 포함한
 37개 시험으로 경제·손익분기 계산/검증·종료·취소·강제 종료 뒤 회복을 확인했습니다.
-새 발견·소비 파일의 호스팅 회귀와 운영자 구성·앱 Compose 연결은 후속입니다.
+[보호된 운영자 구성](contracts/operator-config-v1.md)은 명시적 비밀 파일과 신뢰된
+의존성 factory를 기존 API에 전달합니다. 집중 45개로 파일/구성 검사, 실제 SCRAM·
+표준 HTTPS/Bearer 기동·접수/조회·기동 후 권한 변경 차단·종료/정리를 확인했습니다.
+발견·소비 판본 `c9bc689`의 호스팅 웹 160/51·작성 141회·C0는 통과했고
+전체 백엔드는 진행 중입니다. 새 구성 파일의 호스팅 회귀·앱 Compose 연결과 독립
+자격증명 소유권·제품 CLI/G1/G4는 후속입니다.
 
 [원천→농장 참조 제공자](contracts/source-farm-selection-v1.md)는 정확한 완료 조사·수집에서
 이미 저장된 원본 스냅샷과 서명 문맥을 검증한다([SCRAM 집중 4개](research/source-farm-selection-implementation.md)).
