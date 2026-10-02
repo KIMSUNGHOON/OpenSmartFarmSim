@@ -1,7 +1,7 @@
 # Deterministic job discovery v1
 
-Status: proposed operator interface; implementation and actual SCRAM acceptance
-are pending. This is a dependency of the planned foreground consumer, not a
+Status: operator implementation candidate; actual SCRAM acceptance is pending.
+This is a dependency of the planned foreground consumer, not a
 new HTTP route or a replacement for a worker's claim and validation.
 
 ## Existing boundary
@@ -14,7 +14,7 @@ different immutable `input_version` values before invoking the existing
 [JobStore claim](../backend/app/job_store.py). Selecting the oldest simulation
 job indiscriminately would repeatedly send unrelated input to the wrong worker.
 
-`DeterministicJobDiscovery(jobs, *, tenant_id, input_versions)` will accept an
+[`DeterministicJobDiscovery(jobs, *, tenant_id, input_versions)`](../backend/app/deterministic_job_discovery.py) accepts an
 exact JobStore with its explicit audited authority login binding and a fixed
 operator tenant. The selected versions are a nonempty immutable subset of:
 
@@ -41,6 +41,8 @@ record contains only the canonical UUID and the exact input version; it does not
 contain input bytes, monetary values, lease tokens, credentials or source data.
 The cursor consists of the last scanned row's aware UTC `created_at` and canonical
 UUID, using the existing `(created_at, job_id)` ordering.
+The concrete cursor is the frozen `DiscoveryCursor(created_at, job_id)`;
+database timestamps are normalized to UTC before constructing returned cursors.
 
 The SQL scan is tenant-bound and restricted to simulation jobs. It includes:
 
@@ -87,7 +89,7 @@ or separately authorized maintenance. Retry and processing limits are unchanged.
 
 ## Required acceptance
 
-The planned `backend/tests/test_deterministic_job_discovery.py` must use the
+[`backend/tests/test_deterministic_job_discovery.py`](../backend/tests/test_deterministic_job_discovery.py) must use the
 actual disposable SCRAM JobStore and prove:
 
 1. A mixed owned/foreign/stage/version queue returns only selected owned versions,
@@ -104,3 +106,23 @@ The test uses synthetic software inputs and records actual version/hash/cleanup
 evidence. It does not establish automatic CLI research, independent releases,
 protected maximum throughput, scientific gates or production deployment. The
 consumer/process and application Compose tasks supply subsequent evidence.
+
+## Candidate checks (2026-10-02)
+
+In the isolated `feat/deterministic-job-discovery` worktree based on `82ee0cd`,
+42 isolated cases passed in 0.76 seconds with the locked backend environment.
+They cover page/version/cursor bounds, unknown-version advancement, immutable
+record contents, original input hash/canonical/size validation, current scope
+and binding drift, and final role-audit ordering. The first collection failed
+because the new module did not exist; subsequent functional reproductions
+failed for final principal-induced binding drift and non-UTC DB timestamps
+(two cases), and for final grant-audit ordering (one case). All passed after
+the corresponding implementation changes.
+
+Command: `env -u PYTHONPATH -u OSSF_TEST_PG_DSN nice -n 10 /home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python -m pytest -q tests/test_deterministic_job_discovery.py -k 'not scram'`
+from the isolated worktree's `backend` directory. I/O is replaced only for these
+isolated cases; this is not authentication, SQL, race or publication acceptance.
+Five actual-SCRAM cases are prepared and have not been executed. The existing
+local maximum calculation/verification test owns the heavy execution slot;
+run these cases after it terminates. The task checkbox stays open until that
+required evidence exists. The main workspace application bytes remain frozen.
