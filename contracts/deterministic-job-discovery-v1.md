@@ -1,0 +1,106 @@
+# Deterministic job discovery v1
+
+Status: proposed operator interface; implementation and actual SCRAM acceptance
+are pending. This is a dependency of the planned foreground consumer, not a
+new HTTP route or a replacement for a worker's claim and validation.
+
+## Existing boundary
+
+[EconomicCalculationWorker](../backend/app/economic_calculation_worker.py),
+[BreakEvenCalculationWorker](../backend/app/break_even_calculation_worker.py) and
+[BreakEvenVerificationWorker](../backend/app/break_even_verification_worker.py)
+currently require an exact job UUID. All use the `simulation` stage, but inspect
+different immutable `input_version` values before invoking the existing
+[JobStore claim](../backend/app/job_store.py). Selecting the oldest simulation
+job indiscriminately would repeatedly send unrelated input to the wrong worker.
+
+`DeterministicJobDiscovery(jobs, *, tenant_id, input_versions)` will accept an
+exact JobStore with its explicit audited authority login binding and a fixed
+operator tenant. The selected versions are a nonempty immutable subset of:
+
+| Input version | Existing worker |
+| --- | --- |
+| `economic-calculation-input-v1` | EconomicCalculationWorker |
+| `economic-calculation-input-v2` | EconomicCalculationWorker with its farm binding |
+| `economic-calculation-input-v3` | EconomicCalculationWorker with its authored Run binding |
+| `break-even-calculation-input-v1` | BreakEvenCalculationWorker |
+| `break-even-verification-input-v1` | BreakEvenVerificationWorker |
+
+The consumer must bind the same jobs, tenant, principal and runtime policy as
+its configured worker. Discovery does not create these dependencies, migrate
+the database, infer missing farm/release bindings or call any CLI. Worker-specific
+scope and dependency checks still occur in that worker immediately before claim
+and through calculation/publication.
+
+## Bounded read interface
+
+`page(*, cursor=None, limit=25)` returns a frozen `DiscoveryPage` containing
+matching `DiscoveredJob` records, a count of scanned rows and the next cursor.
+The scan limit is an exact integer in 1–50 and excludes booleans. Each discovered
+record contains only the canonical UUID and the exact input version; it does not
+contain input bytes, monetary values, lease tokens, credentials or source data.
+The cursor consists of the last scanned row's aware UTC `created_at` and canonical
+UUID, using the existing `(created_at, job_id)` ordering.
+
+The SQL scan is tenant-bound and restricted to simulation jobs. It includes:
+
+- queued records whose `next_attempt_at` has arrived;
+- active simulation records whose lease has expired, including canceled or
+  exhausted attempts requiring the existing claim recovery to close them.
+
+Live leases, future retries and terminal jobs are excluded. Returned matches
+must have a selected version. The cursor advances over scanned unrelated versions
+as well as matching ones, so older thermal/other simulation inputs cannot starve
+this consumer. A full page supplies its last scanned cursor; a shorter page ends
+the scan. The consumer starts a new pass after its configured wait so jobs that
+become eligible behind a cursor are reconsidered. No unbounded scan is performed
+inside one page call; at most 50 existing 64-KiB inputs are read.
+
+Before choosing a version, each row's immutable input hash/size and canonical
+JSON object are checked using the existing job helpers. An integrity failure
+rejects the page with a fixed error; it is not interpreted as a supported input,
+an empty queue or a successful job. The worker owns full typed input, parent,
+source, current rights and domain validation. A syntactically recognizable version
+does not approve its schema or contents.
+
+The bound authenticated principal must currently have `metadata` and
+`simulation_execute` for the fixed tenant. These checks occur before and after
+the read. The actual selected-profile role audit also succeeds before returning
+the page. Scope/provider/login/grant drift rejects the page with fixed public
+errors and exposes no partial records. Operator-controlled SQL identifiers and
+parameterized cursor/version values retain the existing store boundary.
+
+## Claim, recovery and races
+
+Discovery acquires no processing lease and does not write jobs, events,
+publications, decisions or artifacts. Two consumers may discover the same UUID.
+The existing exact-ID `worker.run_once(uuid)` performs its current access/input
+checks and calls `JobStore.claim`; only that existing transaction decides ownership.
+An intervening claim, cancellation, completion or schedule change can make
+`run_once` return no work. A discovered row is an advisory candidate, not a promise.
+
+Expired canceled/exhausted jobs remain discoverable for their configured input
+version so the exact-ID claim can run its existing `_recover_expired` path,
+close the old attempt and decline a new lease. Discovery itself does not implement
+another recovery state machine. Unknown versions are left to their owning worker
+or separately authorized maintenance. Retry and processing limits are unchanged.
+
+## Required acceptance
+
+The planned `backend/tests/test_deterministic_job_discovery.py` must use the
+actual disposable SCRAM JobStore and prove:
+
+1. A mixed owned/foreign/stage/version queue returns only selected owned versions,
+   skips future retries/live leases/terminal jobs, and advances across pages of
+   older unrelated simulation inputs without modifying any persisted record.
+2. Hash/canonical-input corruption and current tenant/scope/provider/grant changes
+   are refused. Invalid limits/cursors/version selections are closed errors.
+   No raw input, key or lease data appears in records, errors or representations.
+3. Expired canceled/exhausted owned records reach existing recovery without a new
+   processing lease, and two discoveries followed by competing existing claims
+   preserve one owner and atomic publication.
+
+The test uses synthetic software inputs and records actual version/hash/cleanup
+evidence. It does not establish automatic CLI research, independent releases,
+protected maximum throughput, scientific gates or production deployment. The
+consumer/process and application Compose tasks supply subsequent evidence.

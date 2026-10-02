@@ -110,8 +110,15 @@ CLI와 독립 실행/해제·G1 증거를 확보한다. 작성 농장의 웹 경
 동일 최대 격자 재측정 순으로 확인한다. 접수 기준을 통과한 뒤 최대 계산·검증·
 완료 읽기의 보호된 TLS 전체 응답과 취소/재시도/철회 증거를 이어 간다.
 접수 성능 보완은 같은 256개 ASGI 접수 29.5103초와 집중 47개·작업자/현재 조회/
-두 시험값의 TLS 11개로 로컬 수용했다. 새 코드의 호스팅 회귀와 최대 보호된
-전체 경로 수용은 남아 있다([기록](../research/break-even-admission-performance-implementation.md#same-code-compatibility-and-local-performance-acceptance)).
+두 시험값의 TLS 11개로 로컬 수용했다. 같은 `c3ff00e`의 호스팅 백엔드
+2,305개·별도 UID 4개, 작성 141회·웹 160/51·C0도 통과했다
+([기록](../research/break-even-admission-performance-implementation.md#terminal-hosted-regression-at-c3ff00e)).
+표준 Bearer의 실제 최대 HTTPS 접수는 30초 시간 초과 반례가 있어,
+효과가 확인되지 않은 참조 권한 확인 묶음은 되돌렸다. 같은 최대 프로파일이
+관측한 입력 검증을 보완한 `04c517c`는 같은 256개 표준 인증 HTTPS 본문 EOF
+29.6373초·동일 재접수 29.0140초와 집중 55개·호환/진단 12개로 로컬 접수를 수용했다
+([기록](../research/break-even-admission-performance-implementation.md#protected-maximum-admission-accepted-locally)).
+최초 여유는 0.3627초이며 새 호스팅 회귀·최대 계산/검증/완료 조회는 계속 별도로 확인한다.
 별도 [최대 HTTPS/계산/검증 시험 후보](../backend/tests/break_even_maximum_full_smoke.py)는
 먼저 두 시험값의 운영자/서버 연결을 확인하고, 최대 접수 기준 통과 뒤 같은 256개
 원천과 실제 별도 Python 작업자·현재 결과 읽기를 측정한다. 준비된 시험 코드는 실행 증거가 아니다.
@@ -149,6 +156,11 @@ flowchart LR
   api-flow --> web-shell --> web-replay --> end-to-end-g1
   cli-worker --> end-to-end-g1
   compose-runtime --> end-to-end-g1
+  durable-jobs --> deterministic-job-discovery --> deterministic-worker-loop
+  durable-jobs --> protected-api-operator-config
+  protected-api-operator-config --> application-compose-runtime
+  deterministic-worker-loop --> application-compose-runtime
+  compose-runtime --> application-compose-runtime --> end-to-end-g1
   provenance-g0 --> g0-authority-store
   durable-jobs --> g0-authority-store
   g0-authority-store --> kma-g0
@@ -170,6 +182,20 @@ flowchart LR
   kma-g0 -.->|실제 원천 공개 시| g4-operations
   market-source-g0 -.->|시장 원천 유래 경로 공개 시| g4-operations
 ```
+
+### 앱 운영 조립의 관측된 공백
+
+2026-10-02 현재 두 Dockerfile의 실행은 `/bin/false`이며 `.dockerignore`는
+의존성 manifest만 포함한다. C0 체크는 DB/의존성 이미지의 수용이다.
+기존 `ApiRuntime`/전경 서비스는 사설 운영자 factory가 필요하고, 경제·손익분기
+작업자는 UUID 한 건을 요구하므로 새 접수가 자동 처리되는 배포를 아직 구성하지 않는다.
+
+[운영 조립 작업](todo.md#실제-앱-운영-조립-2026-10-02)은
+보호된 구성 읽기 → 소유 결정적 작업 발견 → 전경 소비 루프 → 앱 Compose 기동 순으로
+진행한다. 구성과 발견은 서로 독립이며, 발견/루프의 실제 SCRAM 프로세스 시험이
+앱 기동의 선행이다. CLI supervisor/수집 서비스는 기존 경계를 재사용한다.
+이 소프트웨어 조립 뒤에도 실제 CLI 세 단계·독립 해제·같은 3D/브라우저와
+실패/재시작 증거를 갖춰야 `end-to-end-g1`을 체크한다. 기존 C0/G0~G4 범위를 바꾸지 않는다.
 
 점선 선행 조건은 표시된 실제 원천 유래 공개 경로에만 적용된다. `market-source-g0`는 기존 출처·시장 계약, 영속 G0 승인 저장소와 CLI 작업자 뒤에서 병행할 수 있으며, 첫 합성 G1의 선행 조건이 아니다. 시장 자료에서 유래한 시나리오·근거 카드와 후속 미래 전망에는 해당 시장 G0가 필요하다.
 

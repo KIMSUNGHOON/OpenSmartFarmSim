@@ -117,11 +117,59 @@
 
 ## 최대 손익분기 접수 성능 (2026-10-02)
 
-커밋된 `6a264c6`의 [호스팅 전체 백엔드 수용](../research/break-even-calculation-fence-implementation.md#terminal-hosted-backend-at-6a264c6)은 PostgreSQL 18.6의 2,294개·별도 UID 4개와 동일 목록/정리를 확인했다. 후속 접수 성능 코드는 별도 판본이며 최대 격자 수용 체크는 열어 둔다.
+커밋된 `c3ff00e`의 [호스팅 전체 회귀 수용](../research/break-even-admission-performance-implementation.md#terminal-hosted-regression-at-c3ff00e)은 PostgreSQL 18.6의 2,305개·별도 UID 4개, 동일 목록/정리와 작성 141회·웹 160/51·C0를 확인했다. 후속 보호된 접수 개선안은 별도 판본이며 최대 격자 수용 체크는 열어 둔다.
 
-- [x] **`break-even-admission-performance`** — 선행: 기존 `api-flow`의 손익분기 계획 접수·실제 원천 저장 경로. 접수·참조 읽기·후보·원천·보류 보고서·서명 문맥의 여섯 모듈에서 연결과 조회 병목을 개선했다. [같은 코드의 로컬 수용](../research/break-even-admission-performance-implementation.md#same-code-compatibility-and-local-performance-acceptance)은 집중 47개, 동일 실제 256개 ASGI 접수 **29.5103초 < 30초**와 계산/취소/현재 결과 조회·두 시험값의 실제 TLS/별도 Python 작업자 11개를 확인했다. 전체 응답 10개 최대는 0.4551초다. 합성 소프트웨어 계약의 수용이며 새 코드의 호스팅 회귀, 보호된 최대 TLS 전체 응답·작업자 부하·취소/재시도/철회와 독립 CLI/G1/G4는 후속 수용을 계속 따른다.
+- [x] **`break-even-admission-performance`** — 선행: 기존 `api-flow`의 손익분기 계획 접수·실제 원천 저장 경로. 접수·참조 읽기·후보·원천·보류 보고서·서명 문맥의 여섯 모듈에서 연결과 조회 병목을 개선했다. [같은 코드의 로컬 수용](../research/break-even-admission-performance-implementation.md#same-code-compatibility-and-local-performance-acceptance)은 집중 47개, 동일 실제 256개 ASGI 접수 **29.5103초 < 30초**와 계산/취소/현재 결과 조회·두 시험값의 실제 TLS/별도 Python 작업자 11개를 확인했다. 전체 응답 10개 최대는 0.4551초다. 같은 판본의 호스팅 전체 회귀도 통과했다. 합성 소프트웨어 계약의 수용이며 보호된 최대 TLS 전체 응답·작업자 부하·취소/재시도/철회와 독립 CLI/G1/G4는 후속 수용을 계속 따른다.
 
 - [ ] **`break-even-maximum-protected-path`** — 선행: `break-even-admission-performance`의 실제 최대 접수 기준 통과, 기존 계산·비동기 검증 HTTP/운영자 조립. [명시적 시험 후보](../backend/tests/break_even_maximum_full_smoke.py)를 준비했다. 두 시험값의 HTTPS·별도 Python 계산/검증 작업자·현재 완료 읽기 조립은 1개 시험이 통과했고, 실제 전체 응답 10개 최대는 0.5009초다([기록](../research/break-even-admission-performance-implementation.md#two-trial-protected-harness-result)). 동일 256개 실제 SCRAM 자료에서 모든 HTTPS 전체 응답의 30초 기준·계산/검증 완료·동일 접수 재사용·현재 보류 문맥 변경 후 금액 비표시를 확인한 뒤 체크한다. 별도 최대 취소/임대 회복·원천 권리 철회·자동 운영 및 실제 제품 CLI/독립 관문 수용은 후속이다.
+
+- [x] **`break-even-protected-admission-headroom`** — 선행: 로컬 접수 성능 수용과 실제 최대 HTTPS 시간 초과 반례. 효과가 확인되지 않은 참조 권한 확인 묶음은 되돌렸다. `04c517c`의 정적 필드명 검사 보완은 기존 거부/직렬화 규칙을 유지하고 집중 55개·작업자/현재 권리/취소/두 시험값의 실제 TLS·진단 12개를 통과했다. [로컬 최대 보호된 접수 수용](../research/break-even-admission-performance-implementation.md#protected-maximum-admission-accepted-locally)은 같은 실제 256개 표준 Bearer HTTPS 본문 EOF 29.6373초·동일 재접수 29.0140초를 확인했다. 최초 여유는 0.3627초이며 단일 로컬 표본의 접수 수용이다. 새 호스팅 회귀·최대 계산/검증/읽기 전체 경로와 별도 복구/철회·독립 CLI/관문은 후속 수용을 따른다.
+
+## 실제 앱 운영 조립 (2026-10-02)
+
+현행 `compose.yaml`과 두 Dockerfile은 의존성 이미지의 C0 골격이며 앱 역할은
+`/bin/false`로 종료한다. API는 운영자가 만든 factory를 요구하고, 경제·손익분기
+계산/검증 작업자는 명시적 작업 UUID 한 건을 실행한다. 다음 작업은 기존
+`api-flow`/`end-to-end-g1`의 이 공백을 작은 단위로 구현한다.
+
+- [ ] **`protected-api-operator-config`** (M) — 선행: 기존 `api-runtime` 조립과 로그인/내용 접근 정책.
+  예정 파일(3): `backend/app/operator_config.py`, `backend/tests/test_operator_config.py`,
+  `contracts/operator-config-v1.md`. 운영자 파일에서 명시적 정책·DB/아티팩트/TLS·Bearer와
+  신뢰 의존성 참조를 읽어 기존 typed config/factory에 전달한다. HTTP·CLI 제안으로
+  파일/모듈/키를 선택하지 못하며, 누락된 원천/검증기·독립 증거를 시험용 값으로 채우지 않는다.
+  수용: 정상 사설 구성의 기존 HTTPS 조립, 잘못된 파일 소유/권한·경로·닫힌 스키마 거부,
+  현재 역할/제공자 불일치의 고정 오류와 출력의 비밀 미포함. 확인: 해당 focused pytest와
+  실제 SCRAM·HTTPS 시작/종료 시험. 실제 배포 자격증명 소유권과 G1/G4는 후속이다.
+- [ ] **`deterministic-job-discovery`** (M) — 선행: 실제 불변 작업 저장소·경제/손익분기 작업자.
+  예정 파일(3): `backend/app/deterministic_job_discovery.py`,
+  `backend/tests/test_deterministic_job_discovery.py`, `contracts/deterministic-job-discovery-v1.md`.
+  고정 테넌트의 처리 가능한 경제·손익분기 계산/검증 UUID를 제한된 조회로 찾는다.
+  같은 simulation 단계의 다른 입력을 잘못 임대하지 않으며, 실제 현재 권한·원본 입력 해시와
+  각 작업자의 기존 입력 판별을 유지한다. 발견은 작업 임대/완료나 자료 승인 자체가 아니다.
+  수용: 여러 종류·테넌트·미래 재시도·취소·손상/권한 철회의 실제 SCRAM 혼합 대기열에서
+  소유 대상만 발견하고, 두 소비자의 경쟁은 기존 claim/lease가 결정한다. 확인: focused pytest.
+  [계약 후보](../contracts/deterministic-job-discovery-v1.md)는 제한된 커서 조회·입력 버전 구분과
+  만료된 취소/소진 작업의 기존 회복 전달을 정의했다. 코드·실제 SCRAM 증거는 아직 없다.
+- [ ] **`deterministic-worker-loop`** (M) — 선행: `deterministic-job-discovery`.
+  예정 파일(3): `backend/app/deterministic_work.py`, `backend/tests/test_deterministic_work.py`,
+  `contracts/deterministic-worker-loop-v1.md`. 보호된 factory가 만든 기존 작업자를 호출하는
+  전경 소비 루프를 연결한다. 순차 실행·설정된 대기·종료 신호를 사용하고 HTTP 요청 안에서
+  계산하거나 또 다른 CLI를 시작하지 않는다. 수용: 접수 뒤 수동 UUID 전달 없이 완료 조회,
+  유휴 CPU/조회의 제한, 취소·프로세스 중단/재시작 뒤 기존 임대 회복과 부분 게시 없음.
+  확인: 실제 별도 Python/SCRAM 프로세스 시험. CLI 조사/수집 검토/평가 연결은 별도로 유지한다.
+- [ ] **`application-compose-runtime`** (M) — 선행: `protected-api-operator-config`,
+  `deterministic-worker-loop`, 기존 수집/CLI 전경 서비스와 웹 빌드.
+  예정 파일(5): `backend/Dockerfile`, `web/Dockerfile`, `.dockerignore`,
+  `compose.application.yaml`, `.github/workflows/application-runtime.yml`.
+  기존 C0 모델에 명시적 앱 실행 override를 더해 소스·웹 산출물과 기존 전경 진입점을
+  기동한다. 실제 프로세스/건강 확인·고정 이미지·서비스별 자격증명/UID·POSIX 아티팩트 연결,
+  WSL 자원 한도와 실패 후 정리를 검증한다. 수용: 빈 호스팅 환경에서 빌드/기동·접수/처리/
+  완료 재조회·재시작·비밀/볼륨 정리. fake CLI/시험 서명을 쓰는 시험은 소프트웨어 조립으로
+  기록하며 실제 세 단계 CLI·독립 해제/3D/G1과 production G4 체크를 대체하지 않는다.
+
+**운영 조립 체크포인트:** 구성/발견/루프의 실제 프로세스 시험 뒤 앱 이미지 기동을 확인하고,
+같은 판본의 전체 CI가 끝난 뒤 `end-to-end-g1`의 실제 CLI·독립 증거와 브라우저 경로를 검증한다.
+현재 진행 중인 최대 손익분기 측정 동안 실행 코드를 바꾸지 않으며, 최대 처리량 수용은 별도로 유지한다.
 
 ## 기존 구현 진행 기록
 
