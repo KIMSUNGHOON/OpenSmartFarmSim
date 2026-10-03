@@ -186,6 +186,9 @@ def main():
             'OSSF_SIMULATION_FACTORY': 'synthetic_operator:build', 'OSSF_WEB_PORT': '0',
             'OSSF_BACKEND_IMAGE': images['backend'], 'OSSF_WEB_IMAGE': images['web']})
         command(*compose, 'config', '--quiet')
+        model = json.loads(command(*compose, 'config', '--format', 'json').stdout)
+        for service in ('api', 'web', 'simulation'):
+            assert model['services'][service]['tmpfs'] == ['/tmp:rw,noexec,nosuid,size=32m,mode=1777']
         command(*compose, 'up', '--no-deps', '--wait', '--wait-timeout', '120', 'db')
         db_port = command(*compose, 'port', 'db', '5432').stdout.strip().rsplit(':', 1)[1]
         private(root / 'admin.pgpass', f'127.0.0.1:{db_port}:opensmartfarmsim:opensmartfarmsim_admin:{admin_password}\n')

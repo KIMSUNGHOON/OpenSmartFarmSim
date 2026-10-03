@@ -9,7 +9,7 @@ x-restricted-process: &restricted-process
   cap_drop: [ALL]
   security_opt: [no-new-privileges:true]
   pids_limit: 64
-  tmpfs: [/tmp:rw,noexec,nosuid,size=32m,mode=1777]
+  tmpfs: ['/tmp:rw,noexec,nosuid,size=32m,mode=1777']
   init: true
   restart: "no"
   stop_grace_period: 30s
