@@ -161,7 +161,7 @@ flowchart LR
   protected-api-operator-config --> application-images
   compose-runtime --> application-images --> application-services-ci
   deterministic-worker-loop --> application-services-ci
-  application-services-ci --> application-compose-runtime --> end-to-end-g1
+  application-services-ci --> application-source-consumers --> application-compose-runtime --> end-to-end-g1
   provenance-g0 --> g0-authority-store
   durable-jobs --> g0-authority-store
   g0-authority-store --> kma-g0
@@ -232,6 +232,22 @@ GREEN 집중 18개/7.31초, 여섯 목록의 동일 해시와 정확한 합집�
 이 수집 개수는 전체 시험 실행 수용이 아니다. 미게시 운영자 구성과 함께 수정본을
 게시하고 같은 head의 백엔드/UID/정리·집계 및 웹/작성/C0를 확인한다.
 이후 `application-compose-runtime`과 실제 CLI/독립 G1 경로를 이어간다.
+
+### 운영 이미지 수용과 서비스 연결 — 2026-10-03
+
+`4867c1f`의 실제 전체 백엔드 2,436개·별도 UID 4개, 동일 목록/집계·정리와
+웹 160/51·작성 141회·C0가 통과했다. 수집 개수와 실제 실행 개수를 분리해 기록했다.
+[앱 이미지](../research/application-images-implementation.md)는 Docker 디렉터리 제외
+반례 수정 뒤 두 앱 target·비특권/읽기 전용·정상 TLS/잘못된 상위 DNS 거부·정리를
+호스팅에서 수용했다. [Compose API/웹/자동 경제 후보](../contracts/application-compose-runtime-v1.md)는
+실제 기동·접수/자동 완료·현재 결과·재시작·권한 변경·정리를 검증한다.
+첫 기동 실패 뒤 정상화된 tmpfs가 YAML 쉼표로 다섯 경로에 분리된 반례를 수정했다.
+같은 저장 결과 재시작에서 재배정된 임시 포트를 다시 찾는 수정 뒤 `7e451a5`의
+실제 [서비스 CI](../research/application-compose-runtime-implementation.md)가 통과했다.
+API/웹/자동 경제·현재 결과·재시작·권한 변화·정리를 수용했다. 다음은
+`application-source-consumers`의 조사/수집 자동 소비와 별도 서비스 연결이다.
+`ci/application-runtime` 별도 게시로 기존 전체 회귀를 취소하지 않았다.
+수집/제품 CLI 운영 소비와 독립 자격증명/해제, 전체 G1/G4는 다음 별도 경계다.
 
 점선 선행 조건은 표시된 실제 원천 유래 공개 경로에만 적용된다. `market-source-g0`는 기존 출처·시장 계약, 영속 G0 승인 저장소와 CLI 작업자 뒤에서 병행할 수 있으며, 첫 합성 G1의 선행 조건이 아니다. 시장 자료에서 유래한 시나리오·근거 카드와 후속 미래 전망에는 해당 시장 G0가 필요하다.
 

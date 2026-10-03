@@ -1,7 +1,7 @@
 # Application images v1
 
-Status: image and isolated hosted-test candidates implemented; hosted build/start
-acceptance pending. Local web type checking and build passed on 2026-10-03;
+Status: isolated hosted build/start software acceptance passed
+([evidence](../research/application-images-implementation.md)). Local web type checking and build passed on 2026-10-03;
 the existing large chunk warning remains. Local WSL has no Docker Engine.
 
 ## Build targets

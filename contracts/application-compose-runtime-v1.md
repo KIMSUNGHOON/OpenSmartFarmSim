@@ -1,7 +1,8 @@
 # Application Compose runtime v1
 
-Status: API/web/deterministic service model candidate; hosted process acceptance
-pending. Collection/CLI service orchestration and independent credential custody
+Status: API/web/deterministic hosted software acceptance passed
+([evidence](../research/application-compose-runtime-implementation.md)).
+Collection/CLI service orchestration and independent credential custody
 remain open, so the umbrella application-runtime task is not complete.
 
 ## Explicit model and inputs

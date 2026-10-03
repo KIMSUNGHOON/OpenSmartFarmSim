@@ -177,20 +177,32 @@
   WSL 자원 한도와 실패 후 정리를 검증한다. 수용: 빈 호스팅 환경에서 빌드/기동·접수/처리/
   완료 재조회·재시작·비밀/볼륨 정리. fake CLI/시험 서명을 쓰는 시험은 소프트웨어 조립으로
   기록하며 실제 세 단계 CLI·독립 해제/3D/G1과 production G4 체크를 대체하지 않는다.
-  - [ ] **`application-images`** — 이미지 파일(5): `backend/Dockerfile`, `web/Dockerfile`,
+  - [x] **`application-images`** — 이미지 파일(5): `backend/Dockerfile`, `web/Dockerfile`,
     `.dockerignore`, `web/nginx.conf`, `contracts/application-images-v1.md`;
     수용 스크립트 `scripts/check-application-images.py`와 아래 공통 앱 workflow.
     기존 C0 의존성 target을 유지하고 별도 앱 target에 현재 소스/스키마·잠금/합성 fixture와
     정적 웹 산출물을 담는다. 웹은 고정 NGINX의 표준 TLS로 loopback API에 같은 출처로
     연결하며 API 인증서도 검사한다. 기본 UID·읽기 전용 운용·닫힌 기동과 빌드 입력 제외를
     확인하고 실제 hosted 이미지 빌드/기동 뒤에 체크한다. 코드·정적 bundle은 G1/G4 증거가 아니다.
-  - [ ] **`application-services-ci`** — 선행: `application-images`.
+    [실제 이미지 수용](../research/application-images-implementation.md)은 Docker 제외 반례 수정 후
+    두 앱 이미지·UID/읽기 전용·닫힌 기동·정상 TLS/잘못된 상위 DNS 거부·정리를 확인했다.
+  - [x] **`application-services-ci`** — 선행: `application-images`.
     파일(4): `compose.application.yaml`, `.github/workflows/application-runtime.yml`,
     `scripts/check-application-runtime.py`, `contracts/application-compose-runtime-v1.md`.
     신뢰된 운영자 구성/제공자를 별도 사설 경로로 주입하고 기존 API·전경 소비 진입점을
     실제 서비스로 연결한다. 고정 이미지·UID/자격증명/아티팩트·자원 상한을 검사하고
     호스팅의 정상 TLS/SCRAM 접수→자동 완료→현재 재조회·재시작·실패·정리로 수용한다.
     합성 권한/입력/키·시험용 CLI의 증거 범위와 독립 운영/G1/G4 보류를 기록한다.
+    [실제 서비스 수용](../research/application-compose-runtime-implementation.md)은 tmpfs/재시작 포트
+    반례 수정 뒤 표준 TLS/SCRAM 접수·자동 완료·현재 결과/동일 재시작·권한 변경 503과
+    실제 자원/UID/마운트·정리를 확인했다. API/경제는 같은 기존 writer 권한이며
+    조사/수집 자동 소비와 독립 자격증명/제품 CLI/G1/G4는 다음 항목이다.
+  - [ ] **`application-source-consumers`** — 선행: `application-services-ci`, 기존
+    보호된 authority/supervisor/dispatcher와 소유 원천 조사·수집 계약.
+    조사·검토·평가 RPC 소비와 수집 작업의 자동 발견/전경 소비를 작은 계약별로 구현하고,
+    실제 Compose에 명시적 서비스 UID·SCRAM/개인 비밀·socket/artifact 경계를 연결한다.
+    수용: 지역 접수→소유된 조사/수집/검토 진행·현재 보류 또는 완료 조회·재시작/권한 철회/
+    socket/임대 복구와 전체 정리. fake CLI 증거와 실제 모델 호출/독립 해제·G1/G4는 분리한다.
 
 **운영 조립 체크포인트:** 구성/발견/루프의 실제 프로세스 시험 뒤 앱 이미지 기동을 확인하고,
 같은 판본의 전체 CI가 끝난 뒤 `end-to-end-g1`의 실제 CLI·독립 증거와 브라우저 경로를 검증한다.
@@ -198,7 +210,8 @@
 별도 최대 취소/복구/원천 철회·동시 처리량 수용은 계속 구분해 검증한다.
 2026-10-03 재개 후 기존 CI 집계 실패의 [목록 안정화 수정](../research/backend-inventory-repeatability-implementation.md)을
 기록했다. 집중 18개와 기본 목록 2,436개의 여섯 동일 수집은 통과했고, 같은 head의
-전체 실행·집계 수용은 후속이다. 운영자 구성과 이 수정의 게시 후 기존 CI를 재확인한다.
+전체 실행·집계도 `4867c1f`에서 통과했다: 백엔드 2,436개·별도 UID 4개·
+모든 동일 목록/집계·정리, 작성 141회·웹 160/51·C0. 앱 서비스 조립과 실제 제품 CLI는 후속이다.
 
 ## 기존 구현 진행 기록
 

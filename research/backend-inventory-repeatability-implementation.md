@@ -1,6 +1,6 @@
 # Backend inventory repeatability — 2026-10-03
 
-Status: local software fix accepted; same-head hosted execution pending.
+Status: local fix and exact-head hosted software regression accepted.
 
 ## Observed failure
 
@@ -70,11 +70,36 @@ Pinned test SHA-256:
 | `backend/tests/test_deterministic_job_discovery.py` | `6a1790901e17d09753e94b864e835c5f09635d53bae797e4273d72ce863f023d` |
 | `backend/tests/test_backend_ci_partitions.py` | `0b58e262c426244883d0e0ffc387b7020dc899def3ea8a5edfde687801101dd4` |
 
+## Hosted acceptance — 2026-10-03
+
+At `4867c1f43b33e60ce7b6cd67f4315f925f77d89c`,
+[backend run 37081707992](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37081707992)
+passed all six partitions and the final aggregate. Actual job logs record
+`607, 426, 369, 350, 348, 336` passes: **2,436 completed default tests**, no pytest
+skips. All six inventories equal the local SHA-256 above. The final aggregate
+confirms all partitions passed with the same complete inventory.
+Partition 0 additionally passed the four distinct-UID service/planning tests and
+the separate content DAC check; each partition's DB/password cleanup completed.
+Two existing Pydantic serializer warnings in partition 2 remain visible.
+
+The same head's [web run](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37081707914)
+passed 160 unit and 51 browser tests. The
+[authored run](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37081707927)
+passed 141 executions across seven jobs (`104,13,15,3,1,4,1`) and their cleanup.
+The [C0 run](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37081708001)
+records actual pinned PostgreSQL 18.6 readiness, new DB container with persisted
+sentinel and successful container/volume/password cleanup. These accept the
+new discovery/consumer/operator-config software regression, not product CLI or
+independent gate evidence.
+
+`gh run view --log` returned empty for some successful runs. Direct GitHub job-log
+reads supplied actual evidence; metadata alone was not used as test counts.
+Local records are `/tmp/ossf-ci-backend-4867c1f-JOB-20261003.log`, corresponding
+web/authored/C0 logs and terminal JSON files. Checked summary:
+`/tmp/ossf-ci-4867c1f-and-images-summary-20261003.json`. Historical C9 failure
+and its unavailable aggregate log remain recorded above.
+
 ## Remaining acceptance
 
-Publish the pending protected-operator configuration together with this fix,
-then require all six hosted partitions, the complete matching inventory,
-aggregate job, UID checks and resource cleanup at that exact head. Until then,
-new discovery/consumer/configuration hosted regression remains unaccepted.
 Application images/Compose and real product CLI, independent releases and
 G0–G4 evidence remain their existing subsequent work.

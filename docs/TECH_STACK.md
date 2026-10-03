@@ -35,8 +35,12 @@
 후보다. OCI index 원문 해시와 Linux amd64를 확인했으며, 비특권 UID·읽기 전용
 구성·표준 상위 TLS 인증·같은 출처 API를 검증한다. NGINX의
 [공식 라이선스](https://nginx.org/LICENSE)는 BSD-2-Clause 조건이며 이미지의 OS/전이
-고지까지 운영 목록에서 확인해야 한다. 로컬 웹 빌드는 통과했지만 실제 Docker
-이미지 빌드/기동·API/작업자 Compose 연결과 전체 운영/G1/G4 수용은 아직 보류다.
+고지까지 운영 목록에서 확인해야 한다. 로컬 웹 빌드와
+[실제 hosted 이미지 수용](../research/application-images-implementation.md)은 통과했다.
+[API/웹/자동 경제 Compose 후보](../contracts/application-compose-runtime-v1.md)는
+자원 한도·명시적 private mount·loopback을 정의하며
+[실제 서비스 소프트웨어 수용](../research/application-compose-runtime-implementation.md)은 통과했다.
+수집/CLI 자동 운영 연결·독립 자격증명·전체 운영/G1/G4는 보류다.
 
 ## 에이전트 프레임워크 비교와 채택 문턱
 

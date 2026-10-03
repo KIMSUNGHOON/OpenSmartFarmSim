@@ -35,9 +35,14 @@
 전체 백엔드는 여섯 파트 성공 뒤 목록 해시 집계 실패로 수용을 보류했습니다.
 [시험 목록 안정화](research/backend-inventory-repeatability-implementation.md)는 수집 시 생성한
 UUID를 고정하고 새 전체 목록 회귀를 추가해 집중 18개와 여섯 동일 수집을 통과했습니다.
-2,436개는 수집 개수이며 새 호스팅 전체 실행을 확인해야 합니다.
-새 구성 파일의 호스팅 회귀·앱 Compose 연결과 독립
-자격증명 소유권·제품 CLI/G1/G4는 후속입니다.
+`4867c1f`의 실제 호스팅 백엔드 2,436개·별도 UID 4개와 모든 동일 목록/집계·정리,
+작성 141회·웹 160/51·C0도 통과했습니다. 구성·발견·전경 소비의 소프트웨어 회귀를 수용했습니다.
+[앱 이미지 수용](research/application-images-implementation.md)은 별도 target의 실제 Docker 빌드,
+비특권 UID·읽기 전용·닫힌 기동·표준 TLS/잘못된 상위 DNS 거부와 정리를 확인했습니다.
+[API·웹·자동 경제 작업자 Compose 후보](contracts/application-compose-runtime-v1.md)를 추가했고,
+실제 서비스의 TLS/SCRAM 접수→자동 완료→현재 결과→동일 재시작·권한 변경 차단과
+[정리도 통과했습니다](research/application-compose-runtime-implementation.md). 수집/CLI 운영 연결,
+독립 자격증명 소유권·실제 제품 CLI/G1/G4는 후속입니다.
 
 [원천→농장 참조 제공자](contracts/source-farm-selection-v1.md)는 정확한 완료 조사·수집에서
 이미 저장된 원본 스냅샷과 서명 문맥을 검증한다([SCRAM 집중 4개](research/source-farm-selection-implementation.md)).
