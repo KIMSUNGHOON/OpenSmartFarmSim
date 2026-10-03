@@ -220,6 +220,18 @@ flowchart LR
 Compose merge·이미지/프록시 자료와 기존 진입점을 읽었으며 앱 이미지·Compose·workflow
 코드는 아직 변경하지 않았다. 실제 제품 CLI·독립 해제/G1/G4 수용도 계속 미완료다.
 
+### 재개와 CI 집계 수정 — 2026-10-03
+
+goal의 active 상태와 clean `05a5f56`/원격 `c9bc689`를 확인하고 재개했다.
+기존 backend run `36978991443`은 여섯 파트 성공·최종 집계 실패로 종료됐다.
+발견 커서 반례의 수집 시 무작위 UUID가 시험 ID/해시를 바꾸는 결함을 로컬에서
+재현했고 `d9550f6`으로 입력·ID를 고정하고 실제 전체 목록 반복 수집 회귀를 추가했다.
+[수용 기록](../research/backend-inventory-repeatability-implementation.md): RED 1개,
+GREEN 집중 18개/7.31초, 여섯 목록의 동일 해시와 정확한 합집합 2,436개.
+이 수집 개수는 전체 시험 실행 수용이 아니다. 미게시 운영자 구성과 함께 수정본을
+게시하고 같은 head의 백엔드/UID/정리·집계 및 웹/작성/C0를 확인한다.
+이후 `application-compose-runtime`과 실제 CLI/독립 G1 경로를 이어간다.
+
 점선 선행 조건은 표시된 실제 원천 유래 공개 경로에만 적용된다. `market-source-g0`는 기존 출처·시장 계약, 영속 G0 승인 저장소와 CLI 작업자 뒤에서 병행할 수 있으며, 첫 합성 G1의 선행 조건이 아니다. 시장 자료에서 유래한 시나리오·근거 카드와 후속 미래 전망에는 해당 시장 G0가 필요하다.
 
 `repo-bootstrap`의 예정 파일은 `backend/pyproject.toml`, `backend/uv.lock`, `web/package.json`, `web/package-lock.json`, `.gitignore` 다섯 개다. `repo-bootstrap`의 잠금·설치 확인은 완료됐다. 후속 `compose-runtime`의 정적 골격 파일은 정확히 `compose.yaml`, `.env.example`, `backend/Dockerfile`, `web/Dockerfile`, `.dockerignore` 다섯 개다. Compose는 모듈형 백엔드의 web·API·수집·CLI·수치 계산 별도 서비스/작업자 역할과 PostgreSQL·영속 POSIX 아티팩트를 정의한다. `depends_on`의 시작 순서만 믿지 않고 PostgreSQL `pg_isready` 건강 검사와 `service_healthy` 조건을 쓴다. `.env.example`은 비밀값 없이 두고 실행 시 비밀 파일/관리자로 서비스별 최소 권한을 주입하며 PostgreSQL은 `POSTGRES_PASSWORD_FILE`을 쓴다. 비밀·제한된 원본 자료는 저장소와 빌드 문맥에서 제외한다. 실제 검증한 기반/배포 이미지의 버전·digest를 고정하고, PostgreSQL 18을 선택한다면 데이터 볼륨은 `/var/lib/postgresql`에 둔다. CLI 작업자에는 Docker 소켓을 마운트하지 않는다. `db-driver-bootstrap`은 Psycopg 잠금·로컬 연결과 JSON Schema 시험 의존성을 별도 확인해 `durable-jobs`의 다섯 파일 범위를 지킨다. `durable-jobs`는 작업 입력 복원과 게시 원자성을 다루고, `decision-evidence-store`는 실패·취소를 포함한 CLI 시도별 변경 불가 원문/JSONL 감사 보존을 별도로 검증한다. `cli-worker-store-bridge`는 단계별 임대, 검증된 보류의 열람 경로, 실행 사건 결합을 실제 CLI 작업자보다 먼저 검증한다. `g0-authority-store`는 형식 계약과 실제 서버 승인·보관 경계를 분리한다. 모듈형 Python 백엔드 하나에서 FastAPI, HTTPX 제공자 연결 도구, PostgreSQL 임대 작업, 제한된 **실제 Codex CLI `gpt-6.1-sol`/`xhigh` 작업자**, 결정적 NumPy/SciPy/Pint 열 모델, `Decimal` 농장 계산을 분리한다. React/TypeScript/Vite, MapLibre, Three.js, ECharts, HTML 표는 같은 API 기록을 읽는다. 이 계획은 LangChain, LangGraph, Deep Agents, Hermes 계층을 추가하지 않는다.
