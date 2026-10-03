@@ -95,7 +95,7 @@ def image_checks(directory, prefix, images):
     command('docker', 'build', '--quiet', '--file', '-', '--output',
             f'type=local,dest={exported}', str(context), input='FROM scratch\nCOPY . /context\n')
     for name in poison:
-        assert not (exported / 'context' / name).exists(), 'build_exclusion_failed'
+        assert not (exported / 'context' / name).exists(), f'build_exclusion_failed:{name}'
     assert (exported / 'context/backend/app/api_runtime.py').is_file()
     assert (exported / 'context/web/src/assets/cutout-15-b6376be1ea78.png').is_file()
     event('actual_build_context', excluded_probes=len(poison))
