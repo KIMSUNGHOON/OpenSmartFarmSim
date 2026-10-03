@@ -158,9 +158,10 @@ flowchart LR
   compose-runtime --> end-to-end-g1
   durable-jobs --> deterministic-job-discovery --> deterministic-worker-loop
   durable-jobs --> protected-api-operator-config
-  protected-api-operator-config --> application-compose-runtime
-  deterministic-worker-loop --> application-compose-runtime
-  compose-runtime --> application-compose-runtime --> end-to-end-g1
+  protected-api-operator-config --> application-images
+  compose-runtime --> application-images --> application-services-ci
+  deterministic-worker-loop --> application-services-ci
+  application-services-ci --> application-compose-runtime --> end-to-end-g1
   provenance-g0 --> g0-authority-store
   durable-jobs --> g0-authority-store
   g0-authority-store --> kma-g0

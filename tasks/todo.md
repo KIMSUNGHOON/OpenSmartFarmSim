@@ -171,13 +171,26 @@
   신호 처리의 잠금 사용과 모듈 진입 형식 오류를 수정했으며 새 호스팅 회귀·운영 구성은 후속이다.
 - [ ] **`application-compose-runtime`** (M) — 선행: `protected-api-operator-config`,
   `deterministic-worker-loop`, 기존 수집/CLI 전경 서비스와 웹 빌드.
-  예정 파일(5): `backend/Dockerfile`, `web/Dockerfile`, `.dockerignore`,
-  `compose.application.yaml`, `.github/workflows/application-runtime.yml`.
+  아래 이미지·서비스/CI 두 하위 작업을 순서대로 수용한다. 최종 경계는 그대로 유지한다.
   기존 C0 모델에 명시적 앱 실행 override를 더해 소스·웹 산출물과 기존 전경 진입점을
   기동한다. 실제 프로세스/건강 확인·고정 이미지·서비스별 자격증명/UID·POSIX 아티팩트 연결,
   WSL 자원 한도와 실패 후 정리를 검증한다. 수용: 빈 호스팅 환경에서 빌드/기동·접수/처리/
   완료 재조회·재시작·비밀/볼륨 정리. fake CLI/시험 서명을 쓰는 시험은 소프트웨어 조립으로
   기록하며 실제 세 단계 CLI·독립 해제/3D/G1과 production G4 체크를 대체하지 않는다.
+  - [ ] **`application-images`** — 이미지 파일(5): `backend/Dockerfile`, `web/Dockerfile`,
+    `.dockerignore`, `web/nginx.conf`, `contracts/application-images-v1.md`;
+    수용 스크립트 `scripts/check-application-images.py`와 아래 공통 앱 workflow.
+    기존 C0 의존성 target을 유지하고 별도 앱 target에 현재 소스/스키마·잠금/합성 fixture와
+    정적 웹 산출물을 담는다. 웹은 고정 NGINX의 표준 TLS로 loopback API에 같은 출처로
+    연결하며 API 인증서도 검사한다. 기본 UID·읽기 전용 운용·닫힌 기동과 빌드 입력 제외를
+    확인하고 실제 hosted 이미지 빌드/기동 뒤에 체크한다. 코드·정적 bundle은 G1/G4 증거가 아니다.
+  - [ ] **`application-services-ci`** — 선행: `application-images`.
+    파일(4): `compose.application.yaml`, `.github/workflows/application-runtime.yml`,
+    `scripts/check-application-runtime.py`, `contracts/application-compose-runtime-v1.md`.
+    신뢰된 운영자 구성/제공자를 별도 사설 경로로 주입하고 기존 API·전경 소비 진입점을
+    실제 서비스로 연결한다. 고정 이미지·UID/자격증명/아티팩트·자원 상한을 검사하고
+    호스팅의 정상 TLS/SCRAM 접수→자동 완료→현재 재조회·재시작·실패·정리로 수용한다.
+    합성 권한/입력/키·시험용 CLI의 증거 범위와 독립 운영/G1/G4 보류를 기록한다.
 
 **운영 조립 체크포인트:** 구성/발견/루프의 실제 프로세스 시험 뒤 앱 이미지 기동을 확인하고,
 같은 판본의 전체 CI가 끝난 뒤 `end-to-end-g1`의 실제 CLI·독립 증거와 브라우저 경로를 검증한다.

@@ -8,5 +8,20 @@ WORKDIR /app
 COPY backend/pyproject.toml backend/uv.lock ./
 RUN uv sync --locked --no-dev --no-install-project
 
-# No application entrypoint exists yet; profiled roles must fail closed.
+# C0 selects this dependency target explicitly.
 CMD ["/bin/false"]
+
+FROM python:3.12.13-slim-bookworm@sha256:4766d8b510c428e595d74b9cc5bbb2fae8e26316fffb4adc89908d79aacd58a2 AS backend-app
+
+ENV PATH="/app/.venv/bin:$PATH" \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+COPY --from=backend-deps /app/.venv /app/.venv
+WORKDIR /app/backend
+COPY backend/pyproject.toml backend/uv.lock ./
+COPY backend/app/ ./app/
+COPY contracts/*.json /app/contracts/
+COPY fixtures/*.json /app/fixtures/
+COPY LICENSE /app/LICENSE
+USER 11001:11010
+CMD ["python", "-m", "app.api_serve", "--factory", "app.operator_config:api_service"]
