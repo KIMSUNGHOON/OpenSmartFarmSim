@@ -256,6 +256,16 @@ print(json.dumps(records[-30:]))
                 return response.status, json.loads(raw)
             finally:
                 connection.close()
+        def web_ready():
+            deadline = time.monotonic() + 30
+            while True:
+                try:
+                    assert call('/openapi.json', authenticated=False)[0] == 401
+                    return
+                except (ConnectionRefusedError, ConnectionResetError, http.client.RemoteDisconnected):
+                    assert time.monotonic() < deadline, 'web_tls_readiness_timeout'
+                    time.sleep(0.25)
+        web_ready()
         assert call('/openapi.json', authenticated=False)[0] == 401
         assert call('/openapi.json')[1] == json.loads((ROOT / 'contracts/openapi-v1.json').read_bytes())
         body = data | {'idempotency_key': 'compose-economic-intake'}
@@ -278,6 +288,8 @@ print(json.dumps(records[-30:]))
         for service in ('api', 'web', 'simulation'):
             identity = command(*compose, 'ps', '--quiet', service).stdout.strip()
             info = json.loads(command('docker', 'inspect', identity).stdout)[0]
+            expected_user = '11002:11002' if service == 'web' else '11001:11010'
+            assert info['Config']['User'] == expected_user
             assert info['HostConfig']['ReadonlyRootfs'] and 'ALL' in info['HostConfig']['CapDrop']
             assert info['HostConfig']['PidsLimit'] == 64 and info['HostConfig']['Memory'] > 0
             assert info['HostConfig']['NanoCpus'] > 0
@@ -293,6 +305,8 @@ print(json.dumps(records[-30:]))
         command(*compose, 'stop', 'web', 'simulation', 'api')
         command(*compose, 'up', '--no-build', '--pull', 'never', '--wait', '--wait-timeout', '120',
                 'api', 'web', 'simulation')
+        port = int(command(*compose, 'port', 'api', '8444').stdout.strip().rsplit(':', 1)[1])
+        web_ready()
         assert call(result_route) == (200, first_result)
         event('restart_current_completed_result', unchanged=True)
         with base.connect() as connection:
