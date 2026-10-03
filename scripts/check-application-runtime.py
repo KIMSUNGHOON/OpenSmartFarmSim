@@ -206,8 +206,38 @@ def main():
         token = 'synthetic-' + secrets.token_hex(32)
         operator_files(root, policy, dsns, worker, principal, certs, token)
         command('sudo', 'chown', '-R', '11001:11010', str(root / 'artifacts'))
-        command(*compose, 'up', '--no-build', '--pull', 'never', '--wait', '--wait-timeout', '120',
-                'api', 'web', 'simulation')
+        startup = command(*compose, 'up', '--no-build', '--pull', 'never', '--wait', '--wait-timeout', '120',
+                          'api', 'web', 'simulation', check=False)
+        if startup.returncode:
+            for service in ('api', 'web', 'simulation'):
+                identity = command(*compose, 'ps', '--all', '--quiet', service).stdout.strip()
+                if identity:
+                    state = json.loads(command('docker', 'inspect', '--format', '{{json .State}}', identity).stdout)
+                    event('startup_state', service=service, status=state['Status'], exit_code=state['ExitCode'],
+                          health_status=state.get('Health', {}).get('Status'))
+            diagnostic = '''import json, sys
+records=[]
+def trace(frame,event,arg):
+    if event=='exception' and (frame.f_code.co_filename.startswith('/app/backend/app/') or
+                             frame.f_code.co_filename.startswith('/run/operator/api/plugins/')):
+        records.append({'file':frame.f_code.co_filename.rsplit('/',1)[-1],
+                        'line':frame.f_lineno,'exception':arg[0].__name__})
+    return trace
+sys.settrace(trace)
+try:
+    from app.operator_config import api_service
+    api_service()
+except BaseException:
+    pass
+finally:
+    sys.settrace(None)
+print(json.dumps(records[-30:]))
+'''
+            diagnostic_result = command(*compose, 'run', '--rm', '--no-deps', '--entrypoint', 'python',
+                                        'api', '-c', diagnostic, check=False)
+            if diagnostic_result.returncode == 0:
+                event('private_assembly_exception_locations', locations=json.loads(diagnostic_result.stdout))
+            raise RuntimeError('application_compose_startup_failed')
         port = int(command(*compose, 'port', 'api', '8444').stdout.strip().rsplit(':', 1)[1])
         ca = ssl.create_default_context(cafile=str(certs / 'ca.pem'))
         def call(path, body=None, *, authenticated=True):
