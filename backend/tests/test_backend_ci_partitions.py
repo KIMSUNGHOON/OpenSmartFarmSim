@@ -137,6 +137,20 @@ def test_collection_error_never_emits_a_valid_inventory(tmp_path):
     assert not Path(str(manifest) + ".summary").exists()
 
 
+def test_repository_default_inventory_is_repeatable(tmp_path):
+    env = {key: value for key, value in os.environ.items() if key not in {
+        "PYTEST_ADDOPTS", "PYTEST_PLUGINS", "PYTHONPATH", "GITHUB_OUTPUT", "GITHUB_STEP_SUMMARY",
+        "OSSF_REAL_CLI_SMOKE", "OSSF_REAL_AUTHORED_FULL_CLI_SMOKE"}}
+    inventories = []
+    for index in range(2):
+        manifest = tmp_path / f"repository-{index}.json"
+        result = subprocess.run([sys.executable, str(SCRIPT), "0", "--manifest", str(manifest),
+                                 "--collect-only"], env=env, capture_output=True, text=True, timeout=30)
+        assert result.returncode == 0, result.stdout + result.stderr
+        inventories.append(json.loads(manifest.read_text())["all_node_ids"])
+    assert inventories[0] == inventories[1], "The repository's default inventory changes between processes"
+
+
 @pytest.mark.parametrize("key", ["PYTEST_ADDOPTS", "PYTEST_PLUGINS"])
 def test_environment_options_cannot_silently_remove_tests(key, tmp_path):
     env = dict(os.environ)

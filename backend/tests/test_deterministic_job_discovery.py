@@ -7,7 +7,7 @@ from datetime import datetime, timedelta, timezone
 from hashlib import sha256
 from pathlib import Path
 import sys
-from uuid import uuid4
+from uuid import UUID, uuid4
 
 from psycopg import sql
 import pytest
@@ -24,6 +24,7 @@ from test_economic_calculation_worker import calculation_setup, economic_api, PR
 
 VERSION = 'break-even-calculation-input-v1'
 NOW = datetime(2026, 10, 2, tzinfo=timezone.utc)
+CURSOR_ID = 'abcdef01-2345-4678-9abc-def012345678'
 
 
 @pytest.fixture
@@ -125,11 +126,11 @@ def test_cursor_is_typed_and_empty_page_ends_pass(monkeypatch, isolated_jobs):
 
 
 @pytest.mark.parametrize('created_at,job_id', [
-    (NOW.replace(tzinfo=None), str(uuid4())),
-    (NOW.astimezone(timezone(timedelta(hours=9))), str(uuid4())),
-    ('2026-10-02', str(uuid4())), (NOW, uuid4()), (NOW, 'not-a-uuid'),
-    (NOW, str(uuid4()).upper()),
-])
+    (NOW.replace(tzinfo=None), CURSOR_ID),
+    (NOW.astimezone(timezone(timedelta(hours=9))), CURSOR_ID),
+    ('2026-10-02', CURSOR_ID), (NOW, UUID(CURSOR_ID)), (NOW, 'not-a-uuid'),
+    (NOW, CURSOR_ID.upper()),
+], ids=['naive-time', 'non-utc-time', 'string-time', 'uuid-object', 'invalid-uuid', 'uppercase-uuid'])
 def test_cursor_requires_utc_and_canonical_uuid(created_at, job_id):
     with pytest.raises(DiscoveryHold, match='^discovery_page_rejected$'):
         DiscoveryCursor(created_at, job_id)

@@ -179,3 +179,14 @@ and values use existing safe composition/parameters; the transaction is read
 only, its page is bounded, current login/grants/scopes are rechecked, and the
 existing canonical-input validator and worker claim/publication own their
 respective boundaries. No dependency, arithmetic or deployment change is added.
+
+## Collection identity correction — 2026-10-03
+
+The cursor counterexample test now uses a fixed synthetic UUID and descriptive
+IDs. Its earlier collection-time random string UUIDs made the hosted complete
+inventory differ across processes. The six invalid cursor cases still reject;
+discovery implementation bytes and the earlier SCRAM evidence are unchanged.
+[The correction record](../research/backend-inventory-repeatability-implementation.md)
+pins the new test hash, RED→GREEN 18 focused cases and six identical complete
+collections with exact partition union. Those collections do not replace
+completed hosted test execution; the same-head aggregate acceptance is pending.
