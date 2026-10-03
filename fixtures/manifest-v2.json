@@ -1,0 +1,213 @@
+{
+  "manifest_content_id_rule": "sha256:<lowercase SHA-256 of complete raw manifest bytes>; computed externally, never embedded here",
+  "claim_scope": "synthetic_g1_software_input_only",
+  "assessment_intent": "hold",
+  "author": "OpenSmartFarmSim fixture authors",
+  "market_context": {
+    "kind": "unavailable",
+    "hold_report_id": "market-hold-synthetic-v1"
+  },
+  "market_hold_report": {
+    "hold_report_id": "market-hold-synthetic-v1",
+    "decision_at_utc": "2026-09-28T00:00:00Z",
+    "status": "hold",
+    "reasons": [
+      "NO_APPROVED_MARKET_SNAPSHOT",
+      "SYNTHETIC_INPUT_ONLY"
+    ],
+    "missing_evidence": [
+      "G0_APPROVED_MARKET_SOURCE",
+      "INDEPENDENT_LOCAL_MEASUREMENTS",
+      "INDEPENDENT_FUTURE_ECONOMIC_VALIDATION",
+      "PAIRED_CANDIDATE_COMPARISON"
+    ],
+    "meaning": "Self-authored hold intent; no server-issued market source approval or Assessment result."
+  },
+  "manifest_id": "synthetic-fixture-manifest-v2",
+  "synthetic_input_review_id": "self-review-synthetic-fixtures-v2-author-declaration",
+  "generated_at_utc": "2026-09-27T09:04:00Z",
+  "published_at_utc": "2026-09-27T09:04:00Z",
+  "available_at_utc": "2026-09-27T09:04:00Z",
+  "retrieved_at_utc": "2026-09-27T09:04:00Z",
+  "files": [
+    {
+      "path": "fixtures/synthetic-weather-v1.json",
+      "source_locator": "fixtures/synthetic-weather-v1.json",
+      "product_id": "synthetic-weather-v1",
+      "fixture_id": "synthetic-weather-v1",
+      "synthetic": true,
+      "byte_length": 3295,
+      "sha256": "867cae5170ef49e768a9aeb0eb2315f69ab069b485e3b84ddc912c8e58cab5da",
+      "content_id": "sha256:867cae5170ef49e768a9aeb0eb2315f69ab069b485e3b84ddc912c8e58cab5da",
+      "author": "OpenSmartFarmSim fixture authors",
+      "method": "Self-authored algebraic sentinel input written for contract tests; no provider or farm data.",
+      "vintage_id": "synthetic-weather-v1-vintage-1",
+      "revision_id": "r1",
+      "generated_at_utc": "2026-09-27T07:41:39Z",
+      "published_at_utc": "2026-09-27T07:41:39Z",
+      "available_at_utc": "2026-09-27T07:41:39Z",
+      "retrieved_at_utc": "2026-09-27T07:41:39Z",
+      "observed_start_utc": null,
+      "observed_end_utc": null,
+      "observation_status": "hypothetical applicability interval, not observed weather",
+      "rights": {
+        "license": "Apache-2.0",
+        "holder": "OpenSmartFarmSim fixture authors",
+        "access": "allowed",
+        "store": "allowed",
+        "transform": "allowed",
+        "display": "allowed",
+        "redistribute": "allowed"
+      },
+      "qc": {
+        "status": "self_checked_synthetic",
+        "checks": [
+          "raw hash and byte length pinned",
+          "UTC and units declared",
+          "weather adjacency and explicit zero solar"
+        ]
+      },
+      "review": {
+        "review_id": "self-review-synthetic-fixtures-v2-author-declaration",
+        "reviewer": "OpenSmartFarmSim fixture authors",
+        "status": "self_reviewed_synthetic",
+        "scope": "v2 author self-redeclaration of unchanged v1 raw bytes; no independent review or server G0/G1 approval"
+      },
+      "variable_units": {
+        "T_o": "K",
+        "phi_o": "1",
+        "p_o": "Pa",
+        "solar_interval_energy": "J/m²"
+      },
+      "time_semantics": {
+        "interval": "[start_utc,end_utc), UTC, adjacent",
+        "solar_interval_energy": "interval_total_J_per_m2_not_instantaneous_W_per_m2",
+        "zero_solar": "explicit input, never gap fill"
+      },
+      "applicability_start_utc": "2026-10-15T08:00:00Z",
+      "applicability_end_utc": "2026-10-15T10:00:00Z"
+    },
+    {
+      "path": "fixtures/synthetic-economics-v1.json",
+      "source_locator": "fixtures/synthetic-economics-v1.json",
+      "product_id": "synthetic-economics-v1",
+      "fixture_id": "synthetic-economics-v1",
+      "synthetic": true,
+      "byte_length": 8538,
+      "sha256": "51d7241ff442fed1d8a8aafd16f4f15efa8b8e0e1cd2ec50f5954f53359c44e2",
+      "content_id": "sha256:51d7241ff442fed1d8a8aafd16f4f15efa8b8e0e1cd2ec50f5954f53359c44e2",
+      "author": "OpenSmartFarmSim fixture authors",
+      "method": "Self-authored algebraic sentinel input written for contract tests; no provider or farm data.",
+      "vintage_id": "synthetic-economics-v1-vintage-1",
+      "revision_id": "r1",
+      "generated_at_utc": "2026-09-27T07:41:39Z",
+      "published_at_utc": "2026-09-27T07:41:39Z",
+      "available_at_utc": "2026-09-27T07:41:39Z",
+      "retrieved_at_utc": "2026-09-27T07:41:39Z",
+      "observed_start_utc": null,
+      "observed_end_utc": null,
+      "observation_status": "not observed; user conditional event assumptions",
+      "rights": {
+        "license": "Apache-2.0",
+        "holder": "OpenSmartFarmSim fixture authors",
+        "access": "allowed",
+        "store": "allowed",
+        "transform": "allowed",
+        "display": "allowed",
+        "redistribute": "allowed"
+      },
+      "qc": {
+        "status": "self_checked_synthetic",
+        "checks": [
+          "raw hash and byte length pinned",
+          "UTC and units declared",
+          "quantity, inventory, and same-day event arithmetic"
+        ]
+      },
+      "review": {
+        "review_id": "self-review-synthetic-fixtures-v2-author-declaration",
+        "reviewer": "OpenSmartFarmSim fixture authors",
+        "status": "self_reviewed_synthetic",
+        "scope": "v2 author self-redeclaration of unchanged v1 raw bytes; no independent review or server G0/G1 approval"
+      },
+      "variable_units": {
+        "quantity": "kg",
+        "money": "KRW",
+        "unit_price": "KRW/kg"
+      },
+      "time_semantics": {
+        "event_timestamps": "UTC instants",
+        "accounting_timezone": "Asia/Seoul",
+        "sale_recognition": "dispatch, delivery, inspection, recognition on one KST day",
+        "collection_and_payment": "separate later UTC instants"
+      }
+    },
+    {
+      "path": "fixtures/synthetic-thermal-parameters-v1.json",
+      "source_locator": "fixtures/synthetic-thermal-parameters-v1.json",
+      "product_id": "synthetic-thermal-parameters-v1",
+      "fixture_id": "synthetic-thermal-parameters-v1",
+      "synthetic": true,
+      "byte_length": 23380,
+      "sha256": "a2254564e1c3f72290d65d40222e62a23e50407969d12e049a345582aa45f77f",
+      "content_id": "sha256:a2254564e1c3f72290d65d40222e62a23e50407969d12e049a345582aa45f77f",
+      "author": "OpenSmartFarmSim fixture authors",
+      "method": "Self-authored synthetic thermal input; NWS formula PDF identified by separate raw hash and official disclaimer; independent CLI source and conditional-rights review is bound to the former fixture and manifest bytes in law_source.reviewer.",
+      "vintage_id": "synthetic-thermal-parameters-v1-vintage-1",
+      "revision_id": "r3",
+      "generated_at_utc": "2026-09-27T09:04:00Z",
+      "published_at_utc": "2026-09-27T09:04:00Z",
+      "available_at_utc": "2026-09-27T09:04:00Z",
+      "retrieved_at_utc": "2026-09-27T09:04:00Z",
+      "observed_start_utc": null,
+      "observed_end_utc": null,
+      "observation_status": "not observed; synthetic facility, control and numerical assumptions",
+      "applicability_start_utc": "2026-10-15T08:00:00Z",
+      "applicability_end_utc": "2026-10-15T10:00:00Z",
+      "rights": {
+        "license": "Apache-2.0",
+        "holder": "OpenSmartFarmSim fixture authors",
+        "access": "allowed",
+        "store": "allowed",
+        "transform": "allowed",
+        "display": "allowed",
+        "redistribute": "allowed",
+        "scope": "self-authored fixture text only; excludes NWS PDF redistribution or relicensing"
+      },
+      "qc": {
+        "status": "self_checked_synthetic",
+        "checks": [
+          "raw hash and byte length pinned",
+          "schema-shaped sourced input sections",
+          "NWS formula and SI conversions registered separately",
+          "NWS-recomputed analytical bounds preregistered before engine"
+        ]
+      },
+      "review": {
+        "review_id": "self-review-synthetic-fixtures-v2-author-declaration",
+        "reviewer": "OpenSmartFarmSim fixture authors",
+        "status": "self_reviewed_synthetic",
+        "scope": "author declaration for synthetic fixture only; separate independent CLI source and conditional-rights review applies to former fixture and manifest bytes, not this revised metadata; no server G0/G1 or accepted thermal run"
+      },
+      "variable_units": {
+        "temperature": "K",
+        "humidity_ratio": "kg_v/kg_da",
+        "heat": "W_th",
+        "time": "s"
+      },
+      "time_semantics": {
+        "interval": "hypothetical [start_utc,end_utc) applicability; not observation",
+        "forcing": "constant only within each linked weather interval; no gap fill"
+      }
+    }
+  ],
+  "unresolved": [
+    "NO_REAL_SOURCE_G0",
+    "NO_ACCEPTED_THERMAL_RUN",
+    "NO_ENGINE_OPERATION_ORDER_REVIEW",
+    "NO_SERVER_INPUT_LINKAGE_REVIEW",
+    "NO_LOCAL_G2_MEASUREMENTS",
+    "NO_G3_CROP_ECONOMIC_VALIDATION",
+    "NO_G4_DEPLOYMENT_PROOF"
+  ]
+}

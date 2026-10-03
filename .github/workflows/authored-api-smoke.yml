@@ -1,0 +1,168 @@
+name: Authored API PostgreSQL smoke
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: authored-api-smoke-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  authored-api:
+    name: authored-${{ matrix.suite }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [api, economics, assessment, financial-selection, assessment-https, browser, financial-browser]
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: "0.11.14"
+          python-version: "3.12.13"
+          enable-cache: false
+
+      - name: Install locked backend
+        working-directory: backend
+        shell: bash
+        run: |
+          set -euo pipefail
+          uv python install 3.12.13
+          uv lock --check
+          uv sync --locked --group dev --python 3.12.13
+
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        if: matrix.suite == 'browser' || matrix.suite == 'financial-browser'
+        with:
+          node-version: '22.22.3'
+
+      - name: Install locked browser smoke dependencies
+        if: matrix.suite == 'browser' || matrix.suite == 'financial-browser'
+        working-directory: web
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --global npm@11.16.0
+          npm ci --strict-peer-deps
+          npx --no-install playwright install --with-deps chromium
+
+      - name: Start disposable PostgreSQL
+        shell: bash
+        run: |
+          set -euo pipefail
+          db_image='postgres:18.6-bookworm@sha256:3725f4e2499eef5134592b3b4ab79a543ed7f8e533b05b5b637af926630f6650'
+          db_container="ossf-authored-api-pg-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          secret_dir="${RUNNER_TEMP}/${db_container}"
+          mkdir -m 700 -- "$secret_dir"
+          umask 077
+          openssl rand -hex 32 > "$secret_dir/password"
+          cp -- "$secret_dir/password" "$secret_dir/container_password"
+          sudo chown 999:999 -- "$secret_dir/container_password"
+          docker run --detach --name "$db_container" \
+            --mount "type=bind,source=$secret_dir/container_password,target=/run/secrets/db_password,readonly" \
+            --env POSTGRES_PASSWORD_FILE=/run/secrets/db_password \
+            --env POSTGRES_USER=ossf_ci --env POSTGRES_DB=ossf_ci \
+            --publish 127.0.0.1::5432 \
+            --health-cmd='pg_isready -h 127.0.0.1 -U ossf_ci -d ossf_ci' \
+            --health-interval=2s --health-timeout=3s \
+            --health-start-period=10s --health-retries=30 \
+            "$db_image" >/dev/null
+          for _ in {1..60}; do
+            state="$(docker inspect --format '{{.State.Health.Status}}' "$db_container" 2>/dev/null || true)"
+            if [[ "$state" == healthy ]]; then exit 0; fi
+            if [[ "$state" == unhealthy ]]; then break; fi
+            sleep 2
+          done
+          printf 'PostgreSQL did not become healthy.\n' >&2
+          exit 1
+
+      - name: Verify authored APIs against PostgreSQL
+        working-directory: backend
+        shell: bash
+        run: |
+          set -euo pipefail
+          db_container="ossf-authored-api-pg-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          secret_dir="${RUNNER_TEMP}/${db_container}"
+          mapping="$(docker port "$db_container" 5432/tcp)"
+          if [[ ! "$mapping" =~ ^127[.]0[.]0[.]1:([0-9]+)$ ]]; then
+            printf 'Expected one loopback PostgreSQL port.\n' >&2
+            exit 1
+          fi
+          port="${BASH_REMATCH[1]}"
+          umask 077
+          printf '127.0.0.1:%s:ossf_ci:ossf_ci:%s\n' \
+            "$port" "$(cat -- "$secret_dir/password")" > "$secret_dir/pgpass"
+          export PGPASSFILE="$secret_dir/pgpass"
+          export OSSF_TEST_PG_DSN="host=127.0.0.1 port=$port dbname=ossf_ci user=ossf_ci"
+          uv run --no-sync python -c 'import os, psycopg; psycopg.connect(os.environ["OSSF_TEST_PG_DSN"]).close()'
+          uv run --no-sync python -m app.api_openapi --check
+          case '${{ matrix.suite }}' in
+            api)
+              uv run --no-sync pytest -q -rs -x --tb=short --durations=10 \
+                tests/test_cli_model_migration.py \
+                tests/test_simulation_work.py \
+                tests/test_farm_authored_simulation_worker.py \
+                tests/test_api_openapi.py \
+                tests/test_api_authored_runtime.py \
+                tests/test_api_farm_authoring.py \
+                tests/test_source_farm_selection.py \
+                tests/test_api_source_farm_selection.py \
+                tests/test_farm_economic_candidate_selection.py \
+                tests/test_api_farm_economic_candidate_selection.py \
+                tests/test_farm_authored_simulation.py
+              ;;
+            economics)
+              uv run --no-sync pytest -q -rs -x --tb=short --durations=10 \
+                tests/test_authored_economic_input.py \
+                tests/test_authored_economic_execution.py
+              ;;
+            assessment)
+              uv run --no-sync pytest -q -rs -s -x --tb=short --durations=10 \
+                tests/test_authored_assessment_parent.py \
+                tests/test_authored_calculation_assessment.py
+              ;;
+            assessment-https)
+              uv run --no-sync pytest -q -rs -s -x --tb=short --durations=10 \
+                tests/test_authored_assessment_https.py
+              ;;
+            financial-selection)
+              uv run --no-sync pytest -q -rs -x --tb=short --durations=10 \
+                tests/test_authored_financial_selection.py
+              ;;
+            browser)
+              uv run --no-sync pytest -q -s --tb=short --durations=5 \
+                tests/test_authored_full_software_path.py \
+                tests/web_authored_thermal_replay_smoke.py \
+                tests/web_assessment_smoke.py
+              ;;
+            financial-browser)
+              uv run --no-sync pytest -q -s --tb=short --durations=5 \
+                tests/web_authored_financial_smoke.py
+              ;;
+            *) exit 1 ;;
+          esac
+
+      - name: Remove database and password files
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          set -u
+          db_container="ossf-authored-api-pg-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          secret_dir="${RUNNER_TEMP}/${db_container}"
+          status=0
+          if docker container inspect "$db_container" >/dev/null 2>&1; then
+            docker rm -fv "$db_container" >/dev/null 2>&1 || status=1
+          fi
+          rm -rf -- "$secret_dir" || status=1
+          exit "$status"

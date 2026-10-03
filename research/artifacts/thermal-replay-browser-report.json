@@ -1,0 +1,34 @@
+{
+  "stage": "verified",
+  "points": 120,
+  "network": [
+    {
+      "path": "/v1/jobs/9ed3265c-941e-4c82-a48c-8a6769100171/run",
+      "status": 200
+    },
+    {
+      "path": "/v1/runs/synthetic-thermal-v1%3Ae1fc17019244f56087c5533cae8a864667bb148ca2c055a921a74933dc444bf7/series",
+      "status": 200
+    },
+    {
+      "path": "/v1/runs/synthetic-thermal-v1%3Ae1fc17019244f56087c5533cae8a864667bb148ca2c055a921a74933dc444bf7",
+      "status": 200
+    },
+    {
+      "path": "/v1/runs/synthetic-thermal-v1%3Ae1fc17019244f56087c5533cae8a864667bb148ca2c055a921a74933dc444bf7/manifest",
+      "status": 200
+    }
+  ],
+  "console_errors": 0,
+  "gpu_capture_warnings": 4,
+  "evidence_version": "web-thermal-replay-software-v1",
+  "authorities": "synthetic_test_fixtures",
+  "product_cli_invoked": false,
+  "agricultural_validation": false,
+  "pytest_seconds": 104.1,
+  "captures": {
+    "thermal-replay-scene-summary.png": "f147e5880fc0e3a48cc80c238e0cda14c4b9e31263ff2bc57a613ff7adb4625d",
+    "thermal-replay-desktop.png": "201cab5324b5fa3c36bd04fa222186d2046e680e9bd6d70fc9dc340653035f23",
+    "thermal-replay-mobile.png": "0bef99c85d88e7515a0770284a05945e96c06ef800c1fc7c92b31435a2a4ce1c"
+  }
+}

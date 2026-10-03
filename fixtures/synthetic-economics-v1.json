@@ -1,0 +1,252 @@
+{
+  "fixture_id": "synthetic-economics-v1",
+  "synthetic": true,
+  "claim_scope": "conditional_algebraic_sentinel_input_only",
+  "author_intent": "Every number is a self-authored user assumption for conservation and Decimal arithmetic; no crop, farm, contract, commercial price, or performance is represented.",
+  "decision_at_utc": "2026-09-28T00:00:00Z",
+  "accounting_timezone": "Asia/Seoul",
+  "accounting_day_kst": "2026-10-15",
+  "units": {
+    "quantity": "kg",
+    "money": "KRW",
+    "unit_price": "KRW/kg"
+  },
+  "market_context": {
+    "kind": "unavailable",
+    "hold_report_id": "market-hold-synthetic-v1"
+  },
+  "assessment_intent": "hold",
+  "baseline": {
+    "harvest_at_utc": "2026-10-15T00:00:00Z",
+    "packout_at_utc": "2026-10-15T00:30:00Z",
+    "disposal_at_utc": "2026-10-15T00:45:00Z",
+    "harvest": {
+      "value": "10",
+      "unit": "kg",
+      "origin": "user",
+      "evidence_level": "assumed",
+      "assumption_scope": "self-authored algebraic sentinel v1"
+    },
+    "saleable_packout": {
+      "value": "8",
+      "unit": "kg",
+      "origin": "user",
+      "evidence_level": "assumed",
+      "assumption_scope": "self-authored algebraic sentinel v1"
+    },
+    "unsaleable_cull": {
+      "value": "2",
+      "unit": "kg",
+      "origin": "user",
+      "evidence_level": "assumed",
+      "assumption_scope": "self-authored algebraic sentinel v1"
+    },
+    "cull_disposal": {
+      "value": "2",
+      "unit": "kg",
+      "origin": "user",
+      "evidence_level": "assumed",
+      "assumption_scope": "self-authored algebraic sentinel v1"
+    },
+    "opening_saleable_inventory": {
+      "value": "1",
+      "unit": "kg",
+      "origin": "user",
+      "evidence_level": "assumed",
+      "assumption_scope": "self-authored algebraic sentinel v1"
+    },
+    "closing_saleable_inventory": {
+      "value": "4",
+      "unit": "kg",
+      "origin": "user",
+      "evidence_level": "assumed",
+      "assumption_scope": "self-authored algebraic sentinel v1"
+    },
+    "sale": {
+      "grade": "sentinel_grade",
+      "channel": "sentinel_channel",
+      "dispatch_at_utc": "2026-10-15T01:00:00Z",
+      "delivery_at_utc": "2026-10-15T02:00:00Z",
+      "inspection_at_utc": "2026-10-15T03:00:00Z",
+      "recognized_at_utc": "2026-10-15T03:01:00Z",
+      "recognized_quantity": {
+        "value": "5",
+        "unit": "kg",
+        "origin": "user",
+        "evidence_level": "assumed",
+        "assumption_scope": "self-authored algebraic sentinel v1"
+      },
+      "farm_contract_price_before_deductions": {
+        "value": "100",
+        "unit": "KRW/kg",
+        "origin": "user",
+        "evidence_level": "assumed",
+        "assumption_scope": "self-authored algebraic sentinel v1"
+      },
+      "revenue_rule": "recognized_quantity_times_contract_price_only"
+    },
+    "collection": {
+      "collected_at_utc": "2026-10-20T00:00:00Z",
+      "amount": {
+        "value": "500",
+        "unit": "KRW",
+        "origin": "user",
+        "evidence_level": "assumed",
+        "assumption_scope": "self-authored algebraic sentinel v1"
+      }
+    },
+    "costs": [
+      {
+        "id": "sentinel_production_input",
+        "incurred_at_utc": "2026-10-15T00:00:00Z",
+        "paid_at_utc": "2026-10-21T00:00:00Z",
+        "quantity": {
+          "value": "10",
+          "unit": "kg",
+          "origin": "user",
+          "evidence_level": "assumed",
+          "assumption_scope": "self-authored algebraic sentinel v1"
+        },
+        "unit_cost": {
+          "value": "2",
+          "unit": "KRW/kg",
+          "origin": "user",
+          "evidence_level": "assumed",
+          "assumption_scope": "self-authored algebraic sentinel v1"
+        },
+        "payment_amount": {
+          "value": "20",
+          "unit": "KRW",
+          "origin": "user",
+          "evidence_level": "assumed",
+          "assumption_scope": "self-authored algebraic sentinel v1"
+        },
+        "scope": "All harvested units, including unsold inventory; incurred cost counts once."
+      },
+      {
+        "id": "sentinel_dispatch_service",
+        "incurred_at_utc": "2026-10-15T01:00:00Z",
+        "paid_at_utc": "2026-10-23T00:00:00Z",
+        "quantity": {
+          "value": "5",
+          "unit": "kg",
+          "origin": "user",
+          "evidence_level": "assumed",
+          "assumption_scope": "self-authored algebraic sentinel v1"
+        },
+        "unit_cost": {
+          "value": "1",
+          "unit": "KRW/kg",
+          "origin": "user",
+          "evidence_level": "assumed",
+          "assumption_scope": "self-authored algebraic sentinel v1"
+        },
+        "payment_amount": {
+          "value": "5",
+          "unit": "KRW",
+          "origin": "user",
+          "evidence_level": "assumed",
+          "assumption_scope": "self-authored algebraic sentinel v1"
+        },
+        "scope": "Recognized dispatched units only; separate from gross contract price."
+      }
+    ],
+    "returns_policy": "No return event in this single algebraic example; later ledger contract must model returns before other paths are supported."
+  },
+  "joint_stress": {
+    "id": "joint-user-stress-v1",
+    "application": "apply_demand_supply_macro_together_only",
+    "conditional_only": true,
+    "drivers": {
+      "demand": {
+        "assumption": "Hypothetical lower buyer absorption; no observed demand or probability.",
+        "consequence_ref": "sale_cap"
+      },
+      "supply": {
+        "assumption": "Hypothetical higher competing supply; direct user-selected farm contract price, no automatic passthrough.",
+        "consequence_ref": "farm_contract_price_before_deductions"
+      },
+      "macro": {
+        "assumption": "Hypothetical higher production input cost; direct user-selected unit cost, no index passthrough.",
+        "consequence_ref": "production_unit_cost"
+      }
+    },
+    "consequences": {
+      "sale_cap": {
+        "value": "4",
+        "unit": "kg",
+        "origin": "user",
+        "evidence_level": "assumed",
+        "assumption_scope": "self-authored algebraic sentinel v1"
+      },
+      "farm_contract_price_before_deductions": {
+        "value": "90",
+        "unit": "KRW/kg",
+        "origin": "user",
+        "evidence_level": "assumed",
+        "assumption_scope": "self-authored algebraic sentinel v1"
+      },
+      "production_unit_cost": {
+        "value": "3",
+        "unit": "KRW/kg",
+        "origin": "user",
+        "evidence_level": "assumed",
+        "assumption_scope": "self-authored algebraic sentinel v1"
+      },
+      "recognized_quantity": {
+        "value": "4",
+        "unit": "kg",
+        "origin": "user",
+        "evidence_level": "assumed",
+        "assumption_scope": "self-authored algebraic sentinel v1"
+      },
+      "closing_saleable_inventory": {
+        "value": "5",
+        "unit": "kg",
+        "origin": "user",
+        "evidence_level": "assumed",
+        "assumption_scope": "self-authored algebraic sentinel v1"
+      },
+      "collection_amount": {
+        "value": "360",
+        "unit": "KRW",
+        "origin": "user",
+        "evidence_level": "assumed",
+        "assumption_scope": "self-authored algebraic sentinel v1"
+      },
+      "production_payment_amount": {
+        "value": "30",
+        "unit": "KRW",
+        "origin": "user",
+        "evidence_level": "assumed",
+        "assumption_scope": "self-authored algebraic sentinel v1"
+      },
+      "dispatch_service_payment_amount": {
+        "value": "4",
+        "unit": "KRW",
+        "origin": "user",
+        "evidence_level": "assumed",
+        "assumption_scope": "self-authored algebraic sentinel v1"
+      }
+    },
+    "timing": "Explicit same-KST-day dispatch, delivery, inspection, and recognition; later separate collection and cost payment UTC instants.",
+    "collection_at_utc": "2026-10-22T00:00:00Z",
+    "cost_payment_timing": "Production and dispatch service payments use the explicit stressed amounts and dates; no cost or payment is counted twice.",
+    "no_probability": "No probability or empirical passthrough is assigned.",
+    "retains_baseline": [
+      "harvest",
+      "saleable_packout",
+      "unsaleable_cull",
+      "cull_disposal",
+      "opening_saleable_inventory",
+      "grade",
+      "channel"
+    ],
+    "dispatch_at_utc": "2026-10-15T01:00:00Z",
+    "delivery_at_utc": "2026-10-15T02:00:00Z",
+    "inspection_at_utc": "2026-10-15T03:00:00Z",
+    "recognized_at_utc": "2026-10-15T03:01:00Z",
+    "production_payment_at_utc": "2026-10-21T00:00:00Z",
+    "dispatch_payment_at_utc": "2026-10-23T00:00:00Z"
+  }
+}

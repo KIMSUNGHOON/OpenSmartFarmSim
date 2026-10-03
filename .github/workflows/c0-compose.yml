@@ -1,0 +1,107 @@
+name: C0 Compose verification
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compose:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Create ephemeral database passwords
+        shell: bash
+        run: |
+          set -euo pipefail
+          secret_dir="$RUNNER_TEMP/c0-compose-secrets-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          mkdir -m 700 -- "$secret_dir"
+          umask 077
+          openssl rand -hex 32 > "$secret_dir/admin"
+          openssl rand -hex 32 > "$secret_dir/app"
+          sudo chown 999:999 -- "$secret_dir/admin"
+          {
+            printf 'DB_ADMIN_PASSWORD_FILE=%s\n' "$secret_dir/admin"
+            printf 'DB_APP_PASSWORD_FILE=%s\n' "$secret_dir/app"
+          } >> "$GITHUB_ENV"
+
+      - name: Validate Compose and build dependency images
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf 'CI run: %s/%s/actions/runs/%s (attempt %s, commit %s)\n' \
+            "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" "$GITHUB_SHA"
+          docker version --format 'Docker client {{.Client.Version}}, engine {{.Server.Version}}'
+          docker compose version
+          docker compose config -q
+          docker compose --profile app config -q
+          docker compose --profile app build --quiet web api
+          printf 'Default and app Compose models valid; web and backend dependency images built.\n'
+
+      - name: Verify PostgreSQL readiness and named-volume persistence
+        shell: bash
+        run: |
+          set -euo pipefail
+          db_image="$(docker compose config --images | grep -E '^postgres:18[.]6-bookworm@sha256:[0-9a-f]{64}$')"
+          docker compose pull --quiet db
+          printf 'Pinned PostgreSQL image: %s\n' "$db_image"
+          docker image inspect "$db_image" --format 'Resolved image ID: {{.Id}}'
+
+          docker compose up --no-deps --wait --wait-timeout 120 db
+          before="$(docker compose ps -q db)"
+          if [[ -z "$before" ]] || [[ "$(docker inspect --format '{{.State.Health.Status}}' "$before")" != healthy ]]; then
+            printf 'DB did not become healthy before recreation.\n' >&2
+            exit 1
+          fi
+          docker compose exec -T db sh -ceu 'pg_isready -h 127.0.0.1 -U "$POSTGRES_USER" -d "$POSTGRES_DB"'
+          docker compose exec -T -u postgres db sh -ceu '
+            export PGPASSWORD="$(cat "$POSTGRES_PASSWORD_FILE")"
+            exec psql -X -h 127.0.0.1 -U "$POSTGRES_USER" -d "$POSTGRES_DB" -v ON_ERROR_STOP=1 -q
+          ' <<'SQL'
+          CREATE SCHEMA c0_ci;
+          CREATE TABLE c0_ci.sentinel (id integer PRIMARY KEY, marker text NOT NULL);
+          INSERT INTO c0_ci.sentinel VALUES (1, 'c0-persisted');
+          SQL
+
+          docker compose rm --stop --force db
+          docker compose up --no-deps --wait --wait-timeout 120 db
+          after="$(docker compose ps -q db)"
+          if [[ -z "$after" || "$after" == "$before" ]]; then
+            printf 'DB container was not recreated.\n' >&2
+            exit 1
+          fi
+          docker compose exec -T db sh -ceu 'pg_isready -h 127.0.0.1 -U "$POSTGRES_USER" -d "$POSTGRES_DB"'
+          actual="$(docker compose exec -T -u postgres db sh -ceu '
+            export PGPASSWORD="$(cat "$POSTGRES_PASSWORD_FILE")"
+            exec psql -X -h 127.0.0.1 -U "$POSTGRES_USER" -d "$POSTGRES_DB" -v ON_ERROR_STOP=1 -Atqc \
+              "SELECT marker FROM c0_ci.sentinel WHERE id = 1"
+          ')"
+          if [[ "$actual" != c0-persisted ]]; then
+            printf 'Sentinel row did not persist after DB recreation.\n' >&2
+            exit 1
+          fi
+          printf 'C0 DB check passed: healthy PostgreSQL, pg_isready, new container, persisted sentinel.\n'
+
+      - name: Remove containers, volumes, and password files
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          set -u
+          secret_dir="$RUNNER_TEMP/c0-compose-secrets-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          status=0
+          if [[ -f "$secret_dir/admin" && -f "$secret_dir/app" ]]; then
+            export DB_ADMIN_PASSWORD_FILE="$secret_dir/admin"
+            export DB_APP_PASSWORD_FILE="$secret_dir/app"
+            docker compose down --volumes --remove-orphans || status=1
+          fi
+          rm -rf -- "$secret_dir" || status=1
+          exit "$status"

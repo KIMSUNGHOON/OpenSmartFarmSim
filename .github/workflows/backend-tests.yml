@@ -1,0 +1,195 @@
+name: Backend tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backend-tests-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend_partitions:
+    name: backend-partition-${{ matrix.partition }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        partition: [0, 1, 2, 3, 4, 5]
+    env:
+      OSSF_CI_PARTITION: ${{ matrix.partition }}
+    outputs:
+      inventory_0: ${{ steps.partition.outputs.inventory_0 }}
+      inventory_1: ${{ steps.partition.outputs.inventory_1 }}
+      inventory_2: ${{ steps.partition.outputs.inventory_2 }}
+      inventory_3: ${{ steps.partition.outputs.inventory_3 }}
+      inventory_4: ${{ steps.partition.outputs.inventory_4 }}
+      inventory_5: ${{ steps.partition.outputs.inventory_5 }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: "0.11.14"
+          python-version: "3.12.13"
+          enable-cache: false
+
+      - name: Install locked backend
+        working-directory: backend
+        shell: bash
+        run: |
+          set -euo pipefail
+          uv python install 3.12.13
+          uv lock --check
+          uv sync --locked --group dev --python 3.12.13
+          uv run --no-sync python -c 'import sys; assert sys.version_info[:3] == (3, 12, 13)'
+
+      - name: Prepare readable runtime for UID service smoke
+        if: matrix.partition == 0
+        working-directory: backend
+        shell: bash
+        run: |
+          set -euo pipefail
+          uid_runtime="/tmp/ossf-uid-runtime-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${OSSF_CI_PARTITION}"
+          mkdir -m 755 -- "$uid_runtime"
+          uv python install --no-cache --no-bin --install-dir "$uid_runtime/python" 3.12.13
+          UV_PYTHON_INSTALL_DIR="$uid_runtime/python" UV_PROJECT_ENVIRONMENT="$uid_runtime/venv" \
+            uv sync --locked --group dev --python 3.12.13 --link-mode copy
+          mkdir -p -- "$uid_runtime/code/backend/tests" "$uid_runtime/code/contracts"
+          cp -R -- "$GITHUB_WORKSPACE/backend/app" "$uid_runtime/code/backend/app"
+          cp -- "$GITHUB_WORKSPACE/backend/tests/uid_supervisor_factory.py" \
+            "$GITHUB_WORKSPACE/backend/tests/uid_authority_factory.py" \
+            "$GITHUB_WORKSPACE/backend/tests/uid_planning_factory.py" \
+            "$GITHUB_WORKSPACE/backend/tests/uid_planning_client.py" \
+            "$GITHUB_WORKSPACE/backend/tests/test_job_evidence.py" \
+            "$GITHUB_WORKSPACE/backend/tests/test_jobs.py" \
+            "$GITHUB_WORKSPACE/backend/tests/test_cli_contracts.py" "$uid_runtime/code/backend/tests/"
+          cp -- "$GITHUB_WORKSPACE/contracts/decision-v1.schema.json" "$uid_runtime/code/contracts/"
+          chmod -R go-w,a+rX -- "$uid_runtime"
+          "$uid_runtime/venv/bin/python" -c 'import sys; assert sys.version_info[:3] == (3, 12, 13)'
+
+      - name: Start disposable PostgreSQL
+        shell: bash
+        run: |
+          set -euo pipefail
+          db_image='postgres:18.6-bookworm@sha256:3725f4e2499eef5134592b3b4ab79a543ed7f8e533b05b5b637af926630f6650'
+          grep -Fqx "    image: $db_image" compose.yaml
+          db_container="ossf-backend-pg-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${OSSF_CI_PARTITION}"
+          secret_dir="${RUNNER_TEMP}/${db_container}"
+          mkdir -m 700 -- "$secret_dir"
+          umask 077
+          openssl rand -hex 32 > "$secret_dir/password"
+          cp -- "$secret_dir/password" "$secret_dir/container_password"
+          sudo chown 999:999 -- "$secret_dir/container_password"
+
+          docker run --detach --name "$db_container" \
+            --mount "type=bind,source=$secret_dir/container_password,target=/run/secrets/db_password,readonly" \
+            --env POSTGRES_PASSWORD_FILE=/run/secrets/db_password \
+            --env POSTGRES_USER=ossf_ci \
+            --env POSTGRES_DB=ossf_ci \
+            --publish 127.0.0.1::5432 \
+            --health-cmd='pg_isready -h 127.0.0.1 -U ossf_ci -d ossf_ci' \
+            --health-interval=2s --health-timeout=3s \
+            --health-start-period=10s --health-retries=30 \
+            "$db_image" >/dev/null
+
+          for _ in {1..60}; do
+            state="$(docker inspect --format '{{.State.Health.Status}}' "$db_container" 2>/dev/null || true)"
+            if [[ "$state" == healthy ]]; then
+              exit 0
+            fi
+            if [[ "$state" == unhealthy ]]; then
+              break
+            fi
+            sleep 2
+          done
+          printf 'PostgreSQL did not become healthy.\n' >&2
+          exit 1
+
+      - name: Run backend tests against PostgreSQL
+        id: partition
+        working-directory: backend
+        shell: bash
+        run: |
+          set -euo pipefail
+          db_container="ossf-backend-pg-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${OSSF_CI_PARTITION}"
+          secret_dir="${RUNNER_TEMP}/${db_container}"
+          mapping="$(docker port "$db_container" 5432/tcp)"
+          if [[ ! "$mapping" =~ ^127[.]0[.]0[.]1:([0-9]+)$ ]]; then
+            printf 'Expected one loopback PostgreSQL port.\n' >&2
+            exit 1
+          fi
+          port="${BASH_REMATCH[1]}"
+          umask 077
+          printf '127.0.0.1:%s:ossf_ci:ossf_ci:%s\n' \
+            "$port" "$(cat -- "$secret_dir/password")" > "$secret_dir/pgpass"
+          export PGPASSFILE="$secret_dir/pgpass"
+          export OSSF_TEST_PG_DSN="host=127.0.0.1 port=$port dbname=ossf_ci user=ossf_ci"
+
+          uv run --no-sync python -c 'import os, psycopg; psycopg.connect(os.environ["OSSF_TEST_PG_DSN"]).close()'
+          if [[ "$OSSF_CI_PARTITION" == 0 ]]; then
+            uid_runtime="/tmp/ossf-uid-runtime-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${OSSF_CI_PARTITION}"
+            sudo -- env OSSF_TEST_PG_DSN="$OSSF_TEST_PG_DSN" PGPASSFILE="$PGPASSFILE" \
+              "$uid_runtime/venv/bin/python" -B -m pytest -p no:cacheprovider -q -s \
+                tests/uid_service_smoke.py tests/uid_planning_smoke.py
+          fi
+          uv run --no-sync python ../scripts/backend-ci-partitions.py "$OSSF_CI_PARTITION" \
+            --manifest "$RUNNER_TEMP/backend-partition-${OSSF_CI_PARTITION}.json"
+
+      - name: Check content access with distinct Linux UIDs
+        if: matrix.partition == 0
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo -- "$GITHUB_WORKSPACE/backend/.venv/bin/python" "$GITHUB_WORKSPACE/scripts/check-content-uid-boundary.py"
+
+      - name: Remove database and password files
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          set -u
+          db_container="ossf-backend-pg-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${OSSF_CI_PARTITION}"
+          secret_dir="${RUNNER_TEMP}/${db_container}"
+          status=0
+          if docker container inspect "$db_container" >/dev/null 2>&1; then
+            docker rm -fv "$db_container" >/dev/null 2>&1 || status=1
+          fi
+          rm -rf -- "$secret_dir" || status=1
+          uid_runtime="/tmp/ossf-uid-runtime-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${OSSF_CI_PARTITION}"
+          sudo -- rm -rf -- "$uid_runtime" || status=1
+          exit "$status"
+
+  backend:
+    needs: backend_partitions
+    if: ${{ always() }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Require all partitions and identical complete inventories
+        env:
+          PARTITION_RESULT: ${{ needs.backend_partitions.result }}
+          PARTITION_OUTPUTS: ${{ toJSON(needs.backend_partitions.outputs) }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, re
+          if os.environ['PARTITION_RESULT'] != 'success':
+              raise SystemExit('One or more backend partitions did not succeed.')
+          outputs = json.loads(os.environ['PARTITION_OUTPUTS'])
+          if set(outputs) != {f'inventory_{i}' for i in range(6)}:
+              raise SystemExit('A backend partition inventory is missing.')
+          digests = set(outputs.values())
+          if len(digests) != 1 or not re.fullmatch(r'[0-9a-f]{64}', next(iter(digests))):
+              raise SystemExit('Backend partitions collected different inventories.')
+          print('All six backend partitions passed with the same complete inventory.')
+          PY
