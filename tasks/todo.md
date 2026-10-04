@@ -153,21 +153,32 @@
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
   독립 24사례/8,592수치·세 수지·호흡 한 번·불변/hash·형태/범위/numeric hold.
   시간 적분/사건/전체 작기/자동 착과와 실제 수확·3D는 수용하지 않았다.
-- [ ] **`crop-fruit-cohort-image-inputs`** — 새 cohort 프로필의 필수 포장; 전체 기관 개발과 병행.
+- [x] **`crop-fruit-cohort-image-inputs`** — 새 cohort 프로필의 실제 hosted 수용.
   [.dockerignore/script/보고서](../research/crop-fruit-cohort-image-inputs-implementation.md) 3파일.
   정확한 profile 1개 허용·실제 context hash/새 cases 제외·읽기 전용 pinned loader·
-  UID/TLS/정리를 hosted에서 확인한 뒤 수용한다. 로컬 loader/AST만 통과했다.
+  UID/TLS/정리를 `784335d`/37224223039에서 실제 확인했다.
+  context 4회/17 probe·pinned hash, loader 1회·TLS 2경우·image/3 Compose 정리와 49개 event를 대사했다.
 - [x] **`crop-plant-cohort-rates`** — 전체 기관/과실 순간 수지의 로컬 수용; 적분 부모의 첫 작은 단계.
   [계약](../contracts/crop-plant-cohort-rates-v1.md)·제품 2파일·독립 생성기/참조.
   [실제 수용](../research/crop-plant-cohort-rates-implementation.md): 새 43개/기존 포함 444개·0.99초,
   독립 6사례/684수치·source/profile 호환·총 fruit 파생/기존 유지 호흡 교체·성장 단일 차감,
   전체 탄소/개수 수지·입력 불변/단위/형태/범위·numeric/empty/entry hold·재현/hash.
-- [ ] **`crop-fruit-cohort-integration`** — 다음 핵심; 순간 결합 뒤 전체 기관의 시간 적분/관리 사건.
+- [x] **`crop-fruit-cohort-integration`** — 짧은 연구 적분/관리 사건의 로컬 소프트웨어 수용.
   [고정 입력/수용 계약](../contracts/crop-plant-cohort-integration-v1.md)의 최대 24시간/128구간·
   512출력/10,000step·명시 RGR/S/W1·초기/같은 비율 N/C 관리 제거·RK4/누적 수지/manifest를 구현한다.
   독립 일정 forcing/해석해·간격 수렴, 동시 N/C 제거·누적 terminal/호흡·같은 재현,
-  시간/자원/영역/실패 hold를 검증한다. 사용자 산출물은 단위 있는 기관/구획 시계열과
-  두 수지/사건 journal이다. 전체 작기 처리/품종/초기 hold와 새 저장 판본 뒤 3D는 후속이다.
+  [수용](../research/crop-plant-cohort-integration-implementation.md): 새 44개/기존 포함 488개·6.52초,
+  독립 2사례/11시점/1,309수치·개수 해석해 250개·수렴 15.5733/15.9740배,
+  시간/자원/영역/실패·변경되는 caller solver 사본·재현/hash와 두 수지/사건을 통과했다.
+  합성 24시간/512출력/8,687step도 57.85초·42,124 KiB peak RSS·3,639,251 bytes로 확인했다.
+  사용자 산출물은 단위 있는 기관/구획 시계열·두 수지/사건 journal이다.
+  전체 작기 처리/품종/초기 hold와 새 저장 판본 뒤 3D는 후속이다.
+- [ ] **`crop-coupled-result-storage`** — 다음 핵심; 선행: 짧은 coupled 적분.
+  먼저 새 결과 v2의 model/profile/policy/code/solver·forcing/RGR/S/W1/관리·수지/hold와
+  최대 bytes/조회 페이지·현재 farm/program 권리의 계약을 정의한다.
+  계산은 HTTP 밖에서 완료·검증하고 불변 저장한다. 기존 v1 bytes/accepted Run을 변경하지 않는다.
+  수용: 실제 SCRAM·같은 저장 bytes/재시작, 입력/결과/판본 혼합·변조/철회 거부·원자 저장/정리.
+  새 조회 API·같은 시점 표/그래프/3D는 이후 별도 작은 검증으로 연결한다.
 - [ ] **`crop-fruit-startup-policy`** — 최종 전체 작기 모델의 필수 누락; 개발/국내 확보와 병행.
   빈 초기 tail/남은 양의 유입·생식기 이전/초기 N1·자동 착과/W1/RGR의 근거를 조사하고
   원/변형/명시 관리 입력을 분리한 판본으로 startup/초기 보존·독립 수치/실측 적용성을 검증한다.

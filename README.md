@@ -33,7 +33,10 @@
 [50구획의 문헌식 수요·순간 결합](research/crop-fruit-cohort-rates-implementation.md)도 새 86개/기존 포함
 401개·독립 8,592수치로 로컬 수용했습니다.
 [전체 기관의 순간 결합](research/crop-plant-cohort-rates-implementation.md)도 444개 집중 시험·
-독립 684수치로 로컬 수용했습니다. 다음은 [시간 적분과 관리 사건](contracts/crop-plant-cohort-integration-v1.md)입니다.
+독립 684수치로 로컬 수용했습니다.
+[과실/기관의 짧은 시간 적분·관리 사건](research/crop-plant-cohort-integration-implementation.md)도
+488개·독립 1,309수치/해석해 250개로 로컬 수용했습니다. 합성 24시간/512출력은
+57.85초·약 41 MiB로 완료했습니다. 다음은 새 불변 결과 저장/API·같은 시점 3D입니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
 별도 UID 4개와 CI 5개를 모두 통과했습니다. `d76410f`의 웹/C0/실제 앱 이미지·Compose CI도

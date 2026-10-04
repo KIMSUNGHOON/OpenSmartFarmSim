@@ -1,6 +1,6 @@
 # 기관·명시적 과실 구획의 짧은 연구 적분 — v1
 
-상태: **다음 구현의 입력/수용 계약; 적분 코드·실행 미수용**.
+상태: **짧은 적분/사건의 로컬 합성 연구 수용**.
 [순간 기관 결합](crop-plant-cohort-rates-v1.md)을 시간 전진하는 다음 작은 단계다.
 전체 작기 개발은 [작기 처리 작업](../tasks/todo.md)의 별도 의존성으로 유지한다.
 
@@ -12,7 +12,7 @@
 동일 입력의 현재 startup/원식 domain hold를 임의 기본값으로 해소하지 않는다.
 
 `integrate_plant_cohorts(*, initial_state, segments, events, output_times,
-growth_profile, cohort_profile, transport_profile, solver)`를 구현할 예정이다.
+growth_profile, cohort_profile, transport_profile, solver)`를 구현했다.
 
 - `initial_state`: 닫힌 input_id/origin/values. buffer/leaf/stem_root·두 온도 상태와
   정확한 50개 fruit_number/fruit_carbohydrate. 단위는 순간 계약과 같다.

@@ -12,11 +12,12 @@
 순수 제품 배분도 새 77개/기존 포함 315개로 로컬 수용했다.
 문헌식 수요·50구획 순간 결합도 새 86개/기존 포함 401개로 로컬 수용했다.
 전체 기관의 순간 결합도 새 43개/기존 포함 444개로 로컬 수용했다.
-다음은 `crop-fruit-cohort-integration`의 시간 적분·사건**이다.
+짧은 과실/기관 적분도 새 44개/기존 포함 488개로 로컬 수용했다.
+다음은 `crop-coupled-result-storage`의 새 불변 결과 계약/저장**이다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다. 새 순간 구획/기관 코드의 hosted 수용은 별도다.
-transport 프로필의 실제 hosted 포장도 수용했다. 새 cohort 프로필 포장은
-[한 파일 허용/기존 검사 보완](../research/crop-fruit-cohort-image-inputs-implementation.md)만 준비했고 실제 hosted 수용은 남았다.
+transport/cohort 프로필의 실제 hosted 포장도 수용했다
+([한 파일 허용/기존 검사와 실제 증거](../research/crop-fruit-cohort-image-inputs-implementation.md)).
 실제 참조 작기의 UTC/면적·수관/초기조건·관리 입력 채택과 재현은 보류다.
 운영 기반은 `d19f7c0`의 [완료 범위/전체 CI](../research/crop-priority-and-runtime-freeze-20261004.md)로
 고정한다. 결합 원천 Compose 시제품은 미수용 상태로 보류했다.
@@ -51,10 +52,14 @@ flowchart TD
   FA --> CR
   CR --> PC["crop-plant-cohort-rates: 전체 기관/순간 수지"]
   PC --> CI["crop-fruit-cohort-integration: 시간 적분·사건"]
+  CI --> CS["crop-coupled-result-storage: 새 불변 결과 v2"]
+  CS --> CA["coupled 조회 API: 재적분 없는 현재 결과"]
+  CA --> CV["coupled 표/그래프/3D: 같은 결과/시점"]
   FM --> ST["crop-fruit-startup-policy: 초기/자동/W1/RGR"]
   CI --> F["crop-fruit-cohorts → crop-harvest-conversion"]
   ST --> F
   V --> F
+  CV --> F
   F --> C["crop-climate-coupling"]
   C -. 수관/광 측정 미확보 시 검증된 변환 필요 .-> AQ
   C --> W["crop-water-nutrient"]
@@ -183,12 +188,18 @@ hold로 고정했다. 독립 참조 생성 코드를 추가해 버전/해시·by
 
 **전체 기관의 순간 결합도 수용했다**([444개/독립 684수치](../research/crop-plant-cohort-rates-implementation.md)).
 기존 source/profile 호환·fruit 합계 파생/유지 호흡 교체와 성장 단일 차감·전체 수지를 확인했다.
-**다음 핵심 한 단계는 `crop-fruit-cohort-integration`의 시간 적분·사건 구현**이다.
+**짧은 시간 적분/사건도 수용했다**([488개/1,309수치·해석해 250개](../research/crop-plant-cohort-integration-implementation.md)). 당시 계약/기준은 아래와 같다.
 [고정 계약](../contracts/crop-plant-cohort-integration-v1.md)에 최대 24시간/128구간·512출력/
 10,000step의 첫 연구 범위, RGR/S/W1/초기와 같은 비율 N/C 관리 제거·RK4/manifest를 정의했다.
 수용은 독립 Decimal/개수 해석해·간격 수렴과 누적 호흡/terminal, 사건/구간 경계·
 두 저장/외부 수지·같은 재현/시간/자원/실패 hold다. 시계열/두 수지·사건 journal을 확인한다.
 이후 전체 작기 처리와 새 저장 결과/API·같은 계산 시점의 3D를 연결한다.
+**다음 핵심은 `crop-coupled-result-storage`의 새 결과 v2 계약/저장**이다.
+24시간/512출력의 실제 57.85초/3,639,251 bytes를 근거로 계산을 HTTP 밖에서 끝내고,
+불변 입력/manifest·수지/hold와 정확한 farm/program 권리·최대 bytes/페이지를 정의한다.
+실제 SCRAM·같은 bytes/재시작·혼합/변조/철회 거부·원자 저장/정리 뒤 새 조회 API,
+재적분 없는 실제 30초 본문과 같은 결과/시점의 표·그래프·3D를 검증한다.
+기존 v1 결과나 accepted Run의 scope를 바꾸지 않는다.
 `crop-fruit-startup-policy`는 빈 초기 tail/양의 남은 유입과 생식기 이전·자동/초기
 근거를 별도 판본으로 해소하는 전체 작기 필수 경로다. 현 순간 부분을 최종 성공으로 줄이지 않는다.
 
@@ -245,7 +256,8 @@ image/TLS·UID/읽기 전용/정리는 `d76410f`의 실제 hosted 전체 성공�
 | 순수 제품 배분 | **로컬 완료** | 2파일·새 77개/기존 포함 315개·독립 600개 값/4개 hold·이진 수지/수치/불변/판본 |
 | 과실 수요/순간 결합 | **로컬 완료** | 새 86개/기존 포함 401개·독립 24사례/8,592수치·세 수지/호흡/hold |
 | 전체 기관 순간 수지 | **로컬 완료** | 새 43개/기존 포함 444개·독립 6사례/684수치·derived fruit/호흡·전체 탄소/개수/hold |
-| 짧은 기관/과실 적분 | **0.5~1집중 작업일** | 고정 24시간 계약·RGR/S/W1/paired 관리·독립 Decimal/개수 해석해·수렴/누적 수지/실패·재현 |
+| 짧은 기관/과실 적분 | **로컬 완료** | 488개·독립 1,309수치/해석해 250개·수렴/두 수지·512출력/8,687step/57.85초 |
+| 새 coupled 결과 저장/API·3D | **각 작은 계약 뒤 추정** | 최대 bytes/페이지·계산 HTTP 분리·SCRAM/현재 권리·같은 bytes/30초 조회·같은 결과/시점 장면 |
 | 초기/자동 착과 정책 | **추가 근거 뒤 추정** | 빈 초기 tail·원/수정 W1/RGR/seed/생식기 이전 정책의 독립 보존/실측 적용 |
 | 전체 작기 처리 계약 | **별도 설계 뒤 추정** | 실제 47,809 source 시점/현재 20,000 배열·100만 step 한도와 연속 상태/저장/재생·부하 계획 |
 | 과실 발달 구획 계산 | **문헌식/관리 계약 뒤 추정** | 독립 참조와 개수/기관 질량·사건 수지; 품종 적용성 미검증 유지 |
@@ -272,6 +284,12 @@ image/TLS·UID/읽기 전용/정리는 `d76410f`의 실제 hosted 전체 성공�
 순차 작업이면 **2026-10-05~06 KST에 로컬 수용을 시도하는 잠정치**다.
 이미지/전체 hosted 회귀·초기 정책/실제 전체 작기 수용은 이 날짜에 포함하지 않는다.
 추가 domain/numeric 반례가 나오면 고친 뒤 실적으로 추정을 갱신한다.
+위 짧은 적분의 잠정치는 **2026-10-05 KST 로컬 완료** 실적으로 대체한다.
+독립 참조/구현·snapshot 반례/첫 487개 집중은 약 18:26~18:56 UTC의 관측 범위다.
+기관 유지 호흡 underflow 반례와 최종 488개·현재 코드의 24시간 자원 검사는
+19:17:24 UTC에 기록한 최종 증거로 대체한다.
+이 실적은 보고·hosted/실제 자료 검증이나 전체 작기를 포함하지 않는다.
+다음 저장의 bytes/페이지·권리 계약과 실제 SCRAM 수용 범위를 확정한 뒤 새 날짜를 추정한다.
 수확·자원·경제 모듈은 문헌식·변환/품종 근거와 작은 착수 계약을 확보한 뒤 추정한다.
 독립 국내 농장/작기 자료는 현재 **0건**이며 동의·자료 범위·미사용 기간이
 정해지지 않아 G2/G3a·최종 추천/production 완료일을 정할 근거가 없다.

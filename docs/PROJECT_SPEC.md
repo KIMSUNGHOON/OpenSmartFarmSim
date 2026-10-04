@@ -117,7 +117,8 @@ UTC 상태/단위·모델/입력/저장 hash와 수치 hold만 반환한다. 로
 [문헌식 수요·구획 순간 결합](../research/crop-fruit-cohort-rates-implementation.md)도 401개 집중 시험과
 독립 8,592수치로 로컬 수용했다.
 [기관과 과실의 순간 수지 결합](../research/crop-plant-cohort-rates-implementation.md)도 444개 집중·684수치로 수용했다.
-전체 기관의 [시간 적분/사건](../contracts/crop-plant-cohort-integration-v1.md)·저장 새 판본은 후속이다.
+[짧은 시간 적분/사건](../research/crop-plant-cohort-integration-implementation.md)도 488개·독립 1,309수치/해석해 250개로 수용했다.
+새 결과 저장/API·같은 시점 3D와 실제 전체 작기 처리는 후속이다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
 전체 작기 생산 모델의 착수/게시 범위에 접근할 수 있다.
 

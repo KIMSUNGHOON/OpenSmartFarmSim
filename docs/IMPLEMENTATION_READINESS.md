@@ -29,7 +29,8 @@
 [문헌식 수요·50구획 순간 결합](../research/crop-fruit-cohort-rates-implementation.md)도 새 86개/기존 포함
 401개·독립 8,592수치로 로컬 수용했다.
 [전체 기관의 순간 결합](../research/crop-plant-cohort-rates-implementation.md)도 444개 집중·684수치로 수용했다.
-다음은 [짧은 시간 적분/관리 사건 계약](../contracts/crop-plant-cohort-integration-v1.md)의 구현이며
+[짧은 시간 적분/관리 사건](../research/crop-plant-cohort-integration-implementation.md)도 488개·1,309수치/해석해 250개로 수용했다.
+24시간/512출력은 57.85초·42,124 KiB로 확인했으며 다음은 계산 HTTP 분리·새 저장/API/3D다.
 자동 착과/빈 초기 작기·실제 품종은 보류한다.
 전체 작기 실행 계약/국내 확보를 병행한다. `d76410f`는 전체 backend 집계까지
 CI 5개 모두 성공했고 새 과실 판본의 hosted 검증은 별도다.

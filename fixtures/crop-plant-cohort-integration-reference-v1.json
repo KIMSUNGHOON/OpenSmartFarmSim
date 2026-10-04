@@ -1,0 +1,4125 @@
+{
+  "fixture_version": "crop-plant-cohort-integration-reference-v1",
+  "scope": "synthetic research integration; no actual cultivar/harvest/gate acceptance",
+  "method": "60-digit Decimal source equations, independent refined RK4 and constant-temperature S=0 Erlang number solution",
+  "input_sha256": {
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "research/crop-integration-reference.py": "a38b7a67e43cf9f590838bf915ab3e5048950b8be6ed35f70817e18b42a09ce7"
+  },
+  "generator_sha256": "9b880b9d06812f3cfa05bf1c5e47ef93811b548d2320136ce5ae813730d50a72",
+  "cases": [
+    {
+      "case_id": "synthetic-day-night-management-initial",
+      "program": {
+        "initial_state": {
+          "input_id": "synthetic-day-night-management-initial",
+          "origin": "synthetic",
+          "values": {
+            "buffer": {
+              "value": 10000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "leaf": {
+              "value": 100000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "stem_root": {
+              "value": 40000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "temperature_filtered_24h": {
+              "value": 20,
+              "unit": "degC"
+            },
+            "temperature_sum": {
+              "value": 500,
+              "unit": "degC_day"
+            },
+            "fruit_number": [
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              }
+            ],
+            "fruit_carbohydrate": [
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            ]
+          }
+        },
+        "segments": [
+          {
+            "start": "2026-01-01T00:00:00Z",
+            "end": "2026-01-01T00:02:30Z",
+            "forcing": {
+              "input_id": "synthetic-day-night-management-forcing-0",
+              "origin": "synthetic",
+              "values": {
+                "canopy_temperature": {
+                  "value": 20,
+                  "unit": "degC"
+                },
+                "par_above_canopy": {
+                  "value": 400,
+                  "unit": "umol_photons/m2_floor/s"
+                },
+                "co2": {
+                  "value": 800,
+                  "unit": "ppm"
+                }
+              }
+            },
+            "removals": {
+              "input_id": "synthetic-day-night-management-continuous-0",
+              "origin": "synthetic",
+              "values": {
+                "leaf": {
+                  "value": 0.01,
+                  "unit": "mg_CH2O/m2_floor/s"
+                },
+                "stem_root": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor/s"
+                }
+              }
+            },
+            "fruit_entry": {
+              "input_id": "synthetic-day-night-management-entry-0",
+              "origin": "synthetic",
+              "values": {
+                "fruit_number_inflow": {
+                  "value": 0.001,
+                  "unit": "fruits_equivalent/m2_floor/s"
+                },
+                "fruit_entry_carbohydrate": {
+                  "value": 1,
+                  "unit": "mg_CH2O/fruit_equivalent"
+                }
+              }
+            },
+            "relative_growth_rate": {
+              "input_id": "synthetic-day-night-management-RGR-0",
+              "origin": "synthetic",
+              "values": {
+                "fruit_relative_growth_rate": [
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "start": "2026-01-01T00:02:30Z",
+            "end": "2026-01-01T00:05:00Z",
+            "forcing": {
+              "input_id": "synthetic-day-night-management-forcing-1",
+              "origin": "synthetic",
+              "values": {
+                "canopy_temperature": {
+                  "value": 20,
+                  "unit": "degC"
+                },
+                "par_above_canopy": {
+                  "value": 0,
+                  "unit": "umol_photons/m2_floor/s"
+                },
+                "co2": {
+                  "value": 800,
+                  "unit": "ppm"
+                }
+              }
+            },
+            "removals": {
+              "input_id": "synthetic-day-night-management-continuous-1",
+              "origin": "synthetic",
+              "values": {
+                "leaf": {
+                  "value": 0.01,
+                  "unit": "mg_CH2O/m2_floor/s"
+                },
+                "stem_root": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor/s"
+                }
+              }
+            },
+            "fruit_entry": {
+              "input_id": "synthetic-day-night-management-entry-1",
+              "origin": "synthetic",
+              "values": {
+                "fruit_number_inflow": {
+                  "value": 0.001,
+                  "unit": "fruits_equivalent/m2_floor/s"
+                },
+                "fruit_entry_carbohydrate": {
+                  "value": 1,
+                  "unit": "mg_CH2O/fruit_equivalent"
+                }
+              }
+            },
+            "relative_growth_rate": {
+              "input_id": "synthetic-day-night-management-RGR-1",
+              "origin": "synthetic",
+              "values": {
+                "fruit_relative_growth_rate": [
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "events": [
+          {
+            "at": "2026-01-01T00:00:00Z",
+            "removals": {
+              "input_id": "synthetic-day-night-management-event-0",
+              "origin": "synthetic",
+              "values": {
+                "leaf": {
+                  "value": 10,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit_fraction": [
+                  {
+                    "value": 0.1,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "at": "2026-01-01T00:02:30Z",
+            "removals": {
+              "input_id": "synthetic-day-night-management-event-150",
+              "origin": "synthetic",
+              "values": {
+                "leaf": {
+                  "value": 100,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit_fraction": [
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0.25,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0.5,
+                    "unit": "1"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "at": "2026-01-01T00:05:00Z",
+            "removals": {
+              "input_id": "synthetic-day-night-management-event-300",
+              "origin": "synthetic",
+              "values": {
+                "leaf": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 10,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit_fraction": [
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0.1,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  },
+                  {
+                    "value": 0,
+                    "unit": "1"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "output_times": [
+          "2026-01-01T00:00:00Z",
+          "2026-01-01T00:01:00Z",
+          "2026-01-01T00:02:00Z",
+          "2026-01-01T00:03:00Z",
+          "2026-01-01T00:04:00Z",
+          "2026-01-01T00:05:00Z"
+        ],
+        "solver": {
+          "method": "rk4-fixed-v1",
+          "max_step_seconds": 10,
+          "max_steps": 10000,
+          "roundoff_rule": "64-ulp-per-operation-v1"
+        }
+      },
+      "expected": [
+        {
+          "at": "2026-01-01T00:00:00Z",
+          "state": {
+            "buffer": "10000",
+            "leaf": "99990",
+            "stem_root": "40000",
+            "temperature_filtered_24h": "20",
+            "temperature_sum": "500",
+            "fruit_number": [
+              "0.18",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2"
+            ],
+            "fruit_carbohydrate": [
+              "36.0",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40"
+            ]
+          },
+          "cumulative": {
+            "photosynthesis": "0",
+            "growth_respiration": "0",
+            "maintenance_leaf": "0",
+            "maintenance_stem_root": "0",
+            "maintenance_fruit": "0",
+            "removal_leaf": "0",
+            "removal_stem_root": "0",
+            "terminal_carbohydrate": "0",
+            "terminal_number": "0",
+            "entry_number": "0",
+            "event_carbohydrate": "14.0",
+            "event_number": "0.02"
+          },
+          "lai": "2.6597340",
+          "fruit_carbohydrate_total": "1996.0",
+          "carbon_residual": "0.0",
+          "number_residual": "0.00"
+        },
+        {
+          "at": "2026-01-01T00:01:00Z",
+          "state": {
+            "buffer": "10016.7057653965755028986798991976962325124560168806135015936",
+            "leaf": "99993.6000175218706545564844124411066295793998609634121625191",
+            "stem_root": "40004.1686080914532703673372660410541885091734475059263706402",
+            "temperature_filtered_24h": "20",
+            "temperature_sum": "500.013888888888888888888888888888888888888888888888888888920",
+            "fruit_number": [
+              "0.239858698493760058900540304177251397187051771724349351131026",
+              "0.200006685515892840823558369552211314603603857453361253557281",
+              "0.199999999990602713041546097858550510463387984462277579114268",
+              "0.199999999999744455832539525109492190362326722077980623355716",
+              "0.199999999999999931413346179494695000127330359665094713217530",
+              "0.199999999999999999988471001268021631904156595102214088871244",
+              "0.199999999999999999999998522695108816130714757815440850116043",
+              "0.199999999999999999999999999844683076108868783964779482118484",
+              "0.199999999999999999999999999999986064206790435544374176056742",
+              "0.199999999999999999999999999999999998905845242857948465535683",
+              "0.199999999999999999999999999999999999999923494159634531180263",
+              "0.199999999999999999999999999999999999999999995172822578945771",
+              "0.199999999999999999999999999999999999999999999999722321484769",
+              "0.199999999999999999999999999999999999999999999999999985315908",
+              "0.199999999999999999999999999999999999999999999999999999999282",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000"
+            ],
+            "fruit_carbohydrate": [
+              "36.0357570849606880664048822979471836460412876975874908794588",
+              "40.0075788592195671221431343435049180400186237458104423227844",
+              "40.0159885555810308489965678071555292336312123678473087597464",
+              "40.0238080728310187324013495549500189265225652442728453401240",
+              "40.0340039854014725436841590661119328202273631538317358774854",
+              "40.0469673258880424265907407981349643117548175636402842342140",
+              "40.0621749165233941637572152021134498197724103146939595852193",
+              "40.0800819229427669974708145069595861546809558896101805566430",
+              "40.1002605284196181884346897145877695185055034562506645410891",
+              "40.1222896377870375788997518486439836769931181845629614503873",
+              "40.1458338165500850614028685672630994075492658802238475451270",
+              "40.1696982165175439694830132257309064112230535906410319338043",
+              "40.1937855179105659762019314414927600004341554527709990709098",
+              "40.2172783931974619924705562955953854000122938607551512246399",
+              "40.2395552152221547922591993969453716425820209050750158192917",
+              "40.2602724211173009979018835905332362345373248031255731883585",
+              "40.2784024214914766420880520396082879519459585836750910596862",
+              "40.2941634891097746148476339498332609881715036431004513487421",
+              "40.3071612303220277979199925577688727025669139918659686747888",
+              "40.3172641905098903365544422431921387727523365422370361665897",
+              "40.3246464024343877450582315735877991309040222938549413199298",
+              "40.3287897174864338323480288804591127800513017797864076996268",
+              "40.3303874718781601054733159491758910502150753286221945025115",
+              "40.3294644937328269138054798885163055314320934976801228595814",
+              "40.3262411323868750313983745937462810335241545361393425139343",
+              "40.3211701853289021408257581313628661452169639520274596132335",
+              "40.3139393590396702140327542062476532108341131646452871448527",
+              "40.3053791608618355756413097530405482463704483548031801123784",
+              "40.2955901348760984295111657594784300904907903364715201805051",
+              "40.2848156975770613063328871951246648943902090949388380532154",
+              "40.2734884589758404911240216906217950904887475435866010130931",
+              "40.2612427026394532366201116061124221090744959992901190733433",
+              "40.2488299755451927723022176182048232681609979256573180154282",
+              "40.2362553149112402006746682361220476690302119668432942184712",
+              "40.2236563378031041137863502530039046902177003055478269352984",
+              "40.2113550863546845026044571324558725016825091909641789259342",
+              "40.1988757165984250184443438528699790568239188585377725917563",
+              "40.1868619966414794578431831810704164490292485651106216730463",
+              "40.1752174355418704400147741742689466084335218230155400390649",
+              "40.1639853579683091885843613402112705002526268366261156301694",
+              "40.1534017297451798193443007911485037066408337441710484065858",
+              "40.1429140444248800214290488599302861140023869053498492437613",
+              "40.1330975176294294714993864588198904479335857469776592546384",
+              "40.1237963454971023322023210317364984816960072370520952866413",
+              "40.1150027108181150913365438722149493019217608671053259227177",
+              "40.1069090286309542851998605645194303168170941592967891439856",
+              "40.0989267481851186378527291509121466929691101747430745308703",
+              "40.0916007391841826140174097248419889014606358843920132021306",
+              "40.0847509309784805603499513501013092666875405318245813050737",
+              "40.0783501223701921435988693590033396589102091762110544270769"
+            ]
+          },
+          "cumulative": {
+            "photosynthesis": "41.7182382622089415339079443375988367118503941597789337125090",
+            "growth_respiration": "5.46663540009024463877242122707588726714597061785126536138501",
+            "maintenance_leaf": "1.47179068550799360575321002204920671924227715430450372605997",
+            "maintenance_stem_root": "0.249431985873255569563618824982989239242533764716085172254918",
+            "maintenance_fruit": "0.00777175568242301282453535044872209198241887877493449569581899",
+            "removal_leaf": "0.600",
+            "removal_stem_root": "0.0",
+            "terminal_carbohydrate": "0.0269495676071923413234866062029521876228677413298977860175165",
+            "terminal_number": "0.000134616000000000000000000000000000000000000000000000000000000",
+            "entry_number": "0.0600",
+            "event_carbohydrate": "14.0",
+            "event_number": "0.02"
+          },
+          "lai": "2.65982976046608175941120248537093343634681203630162676352301",
+          "fruit_carbohydrate_total": "2005.42126785754840454316909462698202860558500065285021241795",
+          "carbon_residual": "-9.58E-56",
+          "number_residual": "0E-61"
+        },
+        {
+          "at": "2026-01-01T00:02:00Z",
+          "state": {
+            "buffer": "10033.4092531412534408107980446362991744319356454169806159597",
+            "leaf": "99997.1999820550636231447720352998721139983257385382541963609",
+            "stem_root": "40008.3371901897371635642953773385598373164081949538435923431",
+            "temperature_filtered_24h": "20",
+            "temperature_sum": "500.027777777777777777777777777777777777777777777777777777840",
+            "fruit_number": [
+              "0.299677120850789540371467444054634714620088440005445365198642",
+              "0.200053629117132766168867057783647188795148012467496311452565",
+              "0.200000018028040946497612232136482909488903407048155028316043",
+              "0.200000000004036207010747216790661296629423595416011745589748",
+              "0.200000000000000539952839526144905492495552977291579031519015",
+              "0.199999999999999999998490407556238926572977217682183664288813",
+              "0.199999999999999999999976123521631003387710366379806072518880",
+              "0.199999999999999999999999992013586944196857730900400950573402",
+              "0.199999999999999999999999999998211844483605220614756819210707",
+              "0.199999999999999999999999999999999679378755414677438440221068",
+              "0.199999999999999999999999999999999999950984213872970531479080",
+              "0.199999999999999999999999999999999999999993404440409914412799",
+              "0.199999999999999999999999999999999999999999999203433649522249",
+              "0.199999999999999999999999999999999999999999999999912484532009",
+              "0.199999999999999999999999999999999999999999999999999991165811",
+              "0.199999999999999999999999999999999999999999999999999999999179",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000"
+            ],
+            "fruit_carbohydrate": [
+              "36.0714901106404495073347216229980812399531579784024355994138",
+              "40.0151783259263213742918721341531597584897597921154517652569",
+              "40.0319718315093412172249300025795991880809580850877184811740",
+              "40.0476114325795016274380259937433236614384650298259375621006",
+              "40.0680018921395644661577462483700274497141668195580325164486",
+              "40.0939272326656323545786544972309523651911200528824616533006",
+              "40.1243410430644772413319682971185969312790631073039177690351",
+              "40.1601536326291364154322565871927979376863222250842894314352",
+              "40.2005097749679843366724144585160798682033867767122567198401",
+              "40.2445672519780204941635581281555094956254788007126626404514",
+              "40.2916558402783473198977944831464704931783600428223549105375",
+              "40.3393843066384788665782417888766954495897645287568483708109",
+              "40.3875592654244051164253190828222589476758372159990928892081",
+              "40.4345459504049355297807605229361530289366560211894843609511",
+              "40.4791009222739529483044495520784241583438271167838544634587",
+              "40.5205381326720188870057170628800422694391903337249096117051",
+              "40.5567990937170504196254745154918048519567812554945246657166",
+              "40.5883231095753244850899364319714748197864327562730009334411",
+              "40.6143207446505108481271996786114423668977179294999111836061",
+              "40.6345288442696752041638973126719416900393577896285162772000",
+              "40.6492968600165364421201207265311839212560822886091441428941",
+              "40.6575842668969475569493347012056528256447286106120529711878",
+              "40.6607814374145318599537690968973073198480875928522936848600",
+              "40.6589371515222949045805970387149623779085669359617578240757",
+              "40.6524919031729495968063380056366050863337323443692410845603",
+              "40.6423527113227090873521328190820576629357802419242220402399",
+              "40.6278908619347839252487804496972632829801638300565859956633",
+              "40.6107710801765173908821385527161251931151586555862882976470",
+              "40.5911936266097183961168169802622462651697195581028459036966",
+              "40.5696451685563988950844176805610555815352136331512232899333",
+              "40.5469921444205384503666598930719867147592526426033853809026",
+              "40.5224997041603779480603826779296802199070542509550053937327",
+              "40.4976740081657653034965016927590156919977468726896625550105",
+              "40.4725245043276029881334909821598308774097551983146317482970",
+              "40.4473262780525340073257187145898036189243146690957066725612",
+              "40.4227243277650648643923494512288023675402659706425486466657",
+              "40.3977644447804474007720682599874681225603309115659716376192",
+              "40.3737363631877757801737460761656063936079880065069944306048",
+              "40.3504467231761448487257598497063800967051387417026727634184",
+              "40.3279820332765343915464431052133298071780544355326011833368",
+              "40.3068148475344065914377321873206267536261972890090604228896",
+              "40.2858384636062911884935309185899866392037121535554649383532",
+              "40.2662046953974713629945476987169032975140809270446790937701",
+              "40.2476017893600307911562991198469953418912714731726670527202",
+              "40.2300139770935088061961610084326620295307396412907266867823",
+              "40.2138264769777749597432673340799010108773232336614299971018",
+              "40.1978611658484912472454634184800337208369900865883517279749",
+              "40.1832085121287659205778407976003384021366347107274413507132",
+              "40.1695084170257360895614937104969382812701791672857878900222",
+              "40.1567063510759896438204044960871453601417151283157092859016"
+            ]
+          },
+          "cumulative": {
+            "photosynthesis": "83.4345323849115895368998858142719844547625665576740964586596",
+            "growth_respiration": "10.9333417043896572248084402639478648407955230451950980641106",
+            "maintenance_leaf": "2.94363435969367317971569076647088788068666781632019058844395",
+            "maintenance_stem_root": "0.498889964915888309516114544696816778822521574982772228472034",
+            "maintenance_fruit": "0.0155800636976267122566995556326185945781824801553201128707590",
+            "removal_leaf": "1.200",
+            "removal_stem_root": "0.0",
+            "terminal_carbohydrate": "0.0539518731707472917982375634799403773583098725984949031420381",
+            "terminal_number": "0.000269232000000000000000000000000000000000000000000000000000000",
+            "entry_number": "0.1200",
+            "event_carbohydrate": "14.0",
+            "event_number": "0.02"
+          },
+          "lai": "2.65992551952266469237565093613897659823235546464511756162320",
+          "fruit_carbohydrate_total": "2014.84270903298976929893924584531273023585178285934381589821",
+          "carbon_residual": "3.798E-55",
+          "number_residual": "0E-61"
+        },
+        {
+          "at": "2026-01-01T00:03:00Z",
+          "state": {
+            "buffer": "10029.2535252623804068125673817124300214381702461951921232701",
+            "leaf": "99900.8006295533417228368623244178291716439997344053063077815",
+            "stem_root": "40012.5057462950137588363762146539756998134175417248709770382",
+            "temperature_filtered_24h": "20",
+            "temperature_sum": "500.041666666666666666666666666666666666666666666666666666760",
+            "fruit_number": [
+              "0.359455294171029317822690187574444913027759683220038398503880",
+              "0.200140776625103157361207699624167273050515446971323373728677",
+              "0.200000081169734510609336060623551176588282420256886837095302",
+              "0.200000000034121998183410673361356246464106303118458991305214",
+              "0.200000000000011013247420939792701922929841550555347675843681",
+              "0.200000000000000002775402300792681494478721759321494135414606",
+              "0.200000000000000000000532071706946696615380880333070854640306",
+              "0.200000000000000000000000066524432795392145730466115842363180",
+              "0.199999999999999999999999999999720609110841115629606386160866",
+              "0.199999999999999999999999999999996873480173267342786266896140",
+              "0.150016824168838318624300955789744710223487345591639349722446",
+              "0.199983178662005780847749822937396298056310180733071067410469",
+              "0.199999997169473455712743249475350830110627714172112335173124",
+              "0.199999999999682471532261856924889687785627600022500237739696",
+              "0.199999999999999973284742366157941887771468164568279421844968",
+              "0.199999999999999999998201849577744705122795965342856292546738",
+              "0.199999999999999999999999899141781053439310019056099015475811",
+              "0.199999999999999999999999999995151030423751797787203796420516",
+              "0.199999999999999999999999999999999796016495976787311820120468",
+              "0.199999999999999999999999999999999999992372415349651373178947",
+              "0.199999999999999999999999999999999999999999743303560231237614",
+              "0.199999999999999999999999999999999999999999999992146604135360",
+              "0.199999999999999999999999999999999999999999999999999779756500",
+              "0.199999999999999999999999999999999999999999999999999999994300",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.100033648337676637248601911579489422561962111875557071172301"
+            ],
+            "fruit_carbohydrate": [
+              "36.1071154174460628154294141387131774185014901731232844258867",
+              "40.0228375501821582207492528350471600738804938283121557136777",
+              "40.0480152958649933026561454565425758471097411129727885553969",
+              "40.0715075871252276448082868321033114808164340048774895034749",
+              "40.1022313123226707898336232864466563055259781925798818146347",
+              "40.1409775338244934170163039847515773633371440869041144967329",
+              "40.1867463306875155950044914245556760740348747453050270844423",
+              "40.2405409627763675886921409428188237281588840408076211253021",
+              "40.3011558483986837394533981241038233325254088329367955502702",
+              "40.3674297043796107137382396256250345561955305523247994108767",
+              "30.3318699160866696501736352210044311105186001979171418850364",
+              "40.5063413900709843660614336526686581759499097544701596143797",
+              "40.5821084301372894024734849349203166981663441538567347794085",
+              "40.6526861712003470291075638559686020935801910529977436778010",
+              "40.7197111721878085344876306600928878582904937177234380346841",
+              "40.7817601502445085437695580453997997630992972835463596194254",
+              "40.8363163216378457171722725031806275994703402206193002120411",
+              "40.8836744023937320544839802121443841916214065523807598588678",
+              "40.9227271873756401535300030918863038965656791667780109369727",
+              "40.9531842256415061462905829469215864450750989722371288261972",
+              "40.9751754897965594637152471989273052547244598347477926655214",
+              "40.9877146255885864534809260034465399349420871578275314957635",
+              "40.9925245887343076634181922299617177135062247148622283537693",
+              "40.9897572164590450310104501889078256860138829061940981958426",
+              "40.9801790980885841658216987487758541326512465538831497354937",
+              "40.9647575869917850210442810506039698621042368657881405670250",
+              "40.9431251541524322417480714720321032006811609580517023114115",
+              "40.9174168469929539338485155188173118844634664018256544737010",
+              "40.8880120969258471779555851126129545778957976190224007110643",
+              "40.8557466211239396386405949385459296651785482552979994003714",
+              "40.8215276571898980804072287282660480852880111966740648148318",
+              "40.7848275841554948779172657350181535179583937186622703743699",
+              "40.7475434525559504552377389169066510595049356113942655211758",
+              "40.7097681384034391909109622634407787855606002500844238158240",
+              "40.6720191515160851522515073551922143341688791131923750490463",
+              "40.6348723021361308787733065156753426340633494308790376698791",
+              "40.5974694186588970935701013615817558327648891412113407822654",
+              "40.5613827086261683162473736457474877801417966335498388610225",
+              "40.5264004649890752969492736937844263912925128701006360226353",
+              "40.4927565378524395594515463651093790254337594154394083923410",
+              "40.4607688647002834252814473565614224159118872614372152986245",
+              "40.4293491669659988028131152365811728214510977850578370392351",
+              "40.3998627244948955218243496837878475441469942220511758863794",
+              "40.3719200349897528394835650609637559638707617900213269430510",
+              "40.3456009866556150464121691011015919852960729487811746006609",
+              "40.3210932763954363281348756383970259507814353222693204860462",
+              "40.2972004799671516994110665610390176986283142986419100328229",
+              "40.2751959301253412134572153942702004616430342390490959173507",
+              "40.2546175395444959535947982865524007372667646579916561200163",
+              "20.1245156035102967549672562928570232055941168203969787671869"
+            ]
+          },
+          "cumulative": {
+            "photosynthesis": "104.291944396454900970199351571275451255384188297184990666779",
+            "growth_respiration": "16.4001189128983151194881423060886898255187080730552602102442",
+            "maintenance_leaf": "4.41479506879422164988352490400526136461052240794293374371319",
+            "maintenance_stem_root": "0.748373936965818974352131133558490109078868845449484781721396",
+            "maintenance_fruit": "0.0233920921533568518146360274842295141796222922014110934904694",
+            "removal_leaf": "1.800",
+            "removal_stem_root": "0.0",
+            "terminal_carbohydrate": "0.0742410367952495822709890948486087651956036867180689463063620",
+            "terminal_number": "0.000370199662323362751398088420510577438037888124442928827699876",
+            "entry_number": "0.1800",
+            "event_carbohydrate": "144.189083979841047603872839890694656625861282029391638371718",
+            "event_number": "0.169999999999999999999999999999999999919984920078439913291232"
+          },
+          "lai": "2.65736129674611888982746053782951425596573039293518114778699",
+          "fruit_carbohydrate_total": "1994.08203825827100270271116743036062215535205863705678543024",
+          "carbon_residual": "4.15E-55",
+          "number_residual": "3.2E-59"
+        },
+        {
+          "at": "2026-01-01T00:04:00Z",
+          "state": {
+            "buffer": "10004.2400518595720624467865064095320031476635569173220429880",
+            "leaf": "99904.4019600012361188618509092644183378595816969872005267048",
+            "stem_root": "40016.6742764074451344184299739776072941426482104522108020370",
+            "temperature_filtered_24h": "20",
+            "temperature_sum": "500.055555555555555555555555555555555555555555555555555555680",
+            "fruit_number": [
+              "0.419193245536185973717717886448005580687356349990083167871549",
+              "0.200268073915869824368594446167142714978061131150255194925498",
+              "0.200000216418461662991080491283334359807301442855079223366760",
+              "0.200000000129421569481999499374984705582907474838084455014794",
+              "0.200000000000060946007298177244874380229316136136850999287243",
+              "0.200000000000000023425805650814989451835818299261551831706210",
+              "0.200000000000000000007501831031688878697286678924183634044782",
+              "0.200000000000000000000002017183263777015751391146406644229183",
+              "0.200000000000000000000000000451635412984423142211825749482198",
+              "0.200000000000000000000000000000080728424831176586873053622974",
+              "0.150050455525260380135091703428230459867287970988912503519228",
+              "0.199949569940907413384991993365419316373893281594839501683298",
+              "0.199999974542401869471350873649606657731591445574742908547285",
+              "0.199999999991432499925151892579842405804544417885301066280631",
+              "0.199999999999997837520143605886773679903283462254485621781830",
+              "0.199999999999999999563343417891766642829841547301898464586490",
+              "0.199999999999999999999926523797275973449936661010702574900710",
+              "0.199999999999999999999999989402422464660919006092991319496394",
+              "0.199999999999999999999999999998662559264905081432742722696394",
+              "0.199999999999999999999999999999999849965908113333179841587473",
+              "0.199999999999999999999999999999999999984852259781963833270474",
+              "0.199999999999999999999999999999999999999998609685588927652306",
+              "0.199999999999999999999999999999999999999999999883025932372197",
+              "0.199999999999999999999999999999999999999999999999990915438087",
+              "0.199999999999999999999999999999999999999999999999999999344866",
+              "0.199999999999999999999999999999999999999999999999999999999959",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.100100911050520760270183406856460900060703089771912995049905"
+            ],
+            "fruit_carbohydrate": [
+              "36.1426329825033282504461050098674677363551587190809597548418",
+              "40.0305584917121538833617704446912946459467006250399725712141",
+              "40.0641189132614320032932391495460577398710372425171881989278",
+              "40.0954964579842872123615131482540620636040818557797616318030",
+              "40.1366921667301981791682810741111748161720335412786694200494",
+              "40.1881181193057044064851512715593920390539864511715556358779",
+              "40.2493904974587396305895690844058230461696294796771383581689",
+              "40.3212436817463699409526063657139069426476447027899529992770",
+              "40.4021984748175164210534526869708295108795952240503817515751",
+              "40.4908770262789686239739531439926610135223208392285173335161",
+              "30.4487896233020789288636590382989880704295156121683293490140",
+              "40.6705357036018264445944493643448942699269847906991106544452",
+              "40.7774290825491366958436076475588523934223932313653278325207",
+              "40.8716985420065216039849170257559538691919472967456681389299",
+              "40.9613862056990191366471830530236186680806058282292689625817",
+              "41.0439371842835761535005996004132731428086449965200584057477",
+              "41.1169533525213339888044233801576915737555718004413504858999",
+              "41.1802167317244246423564253709802687267165803873918362528871",
+              "41.2323799172167413322041067473919215388340858625243496583867",
+              "41.2732307651559928101770706590331720928396138068821529843627",
+              "41.3022807108886847105791569967483415261739303923002933134420",
+              "41.3191799916119029250404207861885735048581394274176420938257",
+              "41.3256162786805928384022906631600399404045021027134540629204",
+              "41.3219240620985288892736100336007321227030480250427712814421",
+              "41.3093032190630463806734921780914440048634301552193963909449",
+              "41.2883833018081391117281226560639841198917413856815368306642",
+              "41.2596415123343020839511750403031382938097430184445420098151",
+              "41.2253159044720325362285771784949584987684269949129921647235",
+              "41.1860450210516256940492116826965809557238952118272794593879",
+              "41.1431205140774501544549662791120432408688092781485232362285",
+              "41.0970937691950078228715244922970474773360311586597045685665",
+              "41.0482257517160018046584898891720497727424084908916353887135",
+              "40.9984378767455798932592494578275487412956060178251701781459",
+              "40.9479858174852095137634539640042057783508374033150631816475",
+              "40.8977353144508549812222129443106901328754533299772258656172",
+              "40.8477981194750603525971100699961067322881377680137993489007",
+              "40.7979901803184783621675006455670503631786737409595626984484",
+              "40.7498007185223449794614678726102684440505518760111066514092",
+              "40.7030783741659033910672947675146683449092477420053497412584",
+              "40.6583091147133893971988977471794660987966351856158391675540",
+              "40.6152631955835030979966483710621348941051421593778464902463",
+              "40.5734458066998232071425286758145904434758409679847192719402",
+              "40.5340713846934313872519460472557911111836056504783876681531",
+              "40.4967508840785043274294421876087536931327545002110364610627",
+              "40.4617638840220295023598154823517559568901139567034161563617",
+              "40.4287090806898395708387333542563686219570868782837766221769",
+              "40.3969444253337924971209160663153690712826775903432973722130",
+              "40.3675628423085666674828501949983307733785555166252728317361",
+              "40.3400781646002524973142953512388853503676922030697369417936",
+              "20.1776970813902575745025040292185690871513869401398217618409"
+            ]
+          },
+          "cumulative": {
+            "photosynthesis": "104.291944396454900970199351571275451255384188297184990666779",
+            "growth_respiration": "21.8669670256162956222365288579906865212722396135273483339389",
+            "maintenance_leaf": "5.88527282827847378713891039421159426296136751708652961477308",
+            "maintenance_stem_root": "0.997883901860969329204201335430758247543229266918062886005591",
+            "maintenance_fruit": "0.0312078297867277546151818835619334076083464509365367841566541",
+            "removal_leaf": "2.400",
+            "removal_stem_root": "0.0",
+            "terminal_carbohydrate": "0.0878043406845847053143111866973960432020217008097533555552733",
+            "terminal_number": "0.000437552949479239729816593143539099939296910228087004950095700",
+            "entry_number": "0.2400",
+            "event_carbohydrate": "144.189083979841047603872839890694656625861282029391638371718",
+            "event_number": "0.169999999999999999999999999999999999919984920078439913291232"
+          },
+          "lai": "2.65745709213603288076172523418643352778706487313985953401035",
+          "fruit_carbohydrate_total": "2003.51743622213348644074998837113079099704223736178174959121",
+          "carbon_residual": "3.69E-55",
+          "number_residual": "2.8E-59"
+        },
+        {
+          "at": "2026-01-01T00:05:00Z",
+          "state": {
+            "buffer": "9979.22624494437135584442086409522946485213767696968641952811",
+            "leaf": "99908.0032374411278635608288967080752454852354464323746278263",
+            "stem_root": "40010.8427805271933675346880545321683536460553928311372351427",
+            "temperature_filtered_24h": "20",
+            "temperature_sum": "500.069444444444444444444444444444444444444444444444444444600",
+            "fruit_number": [
+              "0.478891002009744068580735845007705992748269249335918140085482",
+              "0.180391920228118752892173673524370851213692415879426082986695",
+              "0.200000450722432651148775886636069116120576062039310734747074",
+              "0.200000000347478687743828797460613204414002595495326907474250",
+              "0.200000000000212537576296260602224508789295442194263905640548",
+              "0.200000000000000107246565591099143565109119441818437669216319",
+              "0.200000000000000000045810013156119291509154061293688211430907",
+              "0.200000000000000000000016852278932440184569832770459555209839",
+              "0.200000000000000000000000005397267381093181242521504530113392",
+              "0.200000000000000000000000000001512073537247019931610337201090",
+              "0.150084064252705471307373977758594331339787103196295817905329",
+              "0.199916006454918027496568921656382224148932561526388203186519",
+              "0.199999929332030845282434231337124649345075882028920600441281",
+              "0.199999999960362336101118924280628351245260194756221221282217",
+              "0.199999999999983325425739334748173229060736485752627722195671",
+              "0.199999999999999994388338779003875996339402870187034044010489",
+              "0.199999999999999999998426209611536634811570914797357037822400",
+              "0.199999999999999999999999621683274027614641707585618826931341",
+              "0.199999999999999999999999999920425805990626855589413929157673",
+              "0.199999999999999999999999999999985122278320078588030657341537",
+              "0.199999999999999999999999999999999997496525811175230986123667",
+              "0.199999999999999999999999999999999999999617036735401079298938",
+              "0.199999999999999999999999999999999999999999946298978357114767",
+              "0.199999999999999999999999999999999999999999999993049022788790",
+              "0.199999999999999999999999999999999999999999999999999164542267",
+              "0.199999999999999999999999999999999999999999999999999999906282",
+              "0.199999999999999999999999999999999999999999999999999999999999",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.100168128505410942614747955517187923493918595030814343509451"
+            ],
+            "fruit_carbohydrate": [
+              "36.1781264848653769946843907778953917577272358492072420673932",
+              "36.0344754977760322156056576237968802194133971336311824759828",
+              "40.0802172382039414956138522053839588174101144444963332084825",
+              "40.1194805015893112602978253354822410712712934205557128652854",
+              "40.1711468255886056397778013724461043645737555938000492820619",
+              "40.2352511228893348275208612777367192139224957112490276219457",
+              "40.3120254767081145439016884750922721794217417296431655496469",
+              "40.4019358501738107794916854628524512899497138680726350251209",
+              "40.5032294178570241841924418303584171076112914993794864313993",
+              "40.6143123210570576298215296724131976408792024304326944508320",
+              "30.5657406118879137163803041382233273929112401844134023462055",
+              "40.8346728906547357933847819332705916065973019591222023428590",
+              "40.9727326115725778795377572610388081214623495117739916030139",
+              "41.0906993070273725085146911999805540537195089681317108066250",
+              "41.2030519601699925191011297507097036537667308234379637303906",
+              "41.3061056898723220262140715273501082723810142977105504288188",
+              "41.3975835246786315896839414645765978085355762441672209112106",
+              "41.4767542321646505295048405582547093298751888363436886547589",
+              "41.5420299584621923795709371243045946218368915587053016753703",
+              "41.5932782197588583355233318532761954335160550136509576898426",
+              "41.6293877551018274088849289885258651090733997841110946728698",
+              "41.6506489955353226550961112618766597349107573972685406845972",
+              "41.6587134735081975698131811104614285985381566882382684387790",
+              "41.6540981110558383303129834641994436021735784437179429225615",
+              "41.6384375228192315634830930841117723713891074148139196222403",
+              "41.6120192213407858712138828613525042327723213588479853589899",
+              "41.5761689317268107354466152455762206268994923447793645067439",
+              "41.5332268625347825964812407848800261052754528262003838255230",
+              "41.4840904907014861863332920016512032892483694929042302255773",
+              "41.4305086841068508745277305513899865652689724434163747087883",
+              "41.3726733673171752232581007001068231985503639298622347267048",
+              "41.3116373327722365705409355042665248070894439413504535116215",
+              "41.2493456887774156865512081827569660218205542542540236944345",
+              "41.1862167496683941462529112221198319819283865408447037049309",
+              "41.1234654706448799508328056219388385035631718013310827546186",
+              "41.0607368262773901026443219014746943685188550578451159575633",
+              "40.9985232692752791207618288123600313383819806842798424601876",
+              "40.9382306094977522830121878181694103872066510264673889358977",
+              "40.8797676877501407750426736091115693531946025508833033428551",
+              "40.8238732715733369595005275928127158440004194741556090178795",
+              "40.7697680766495965789540818732963652480793378703502355868132",
+              "40.7175523047078401444511964373303014931461232523224714593813",
+              "40.6682893620744704739131648128118637332155443242383379208242",
+              "40.6215905212011576469173082913723676606116951732545313786335",
+              "40.5779354866865065452610109665160613217288694640745732153494",
+              "40.5363328035362894535184794205791316332718764140192793592269",
+              "40.4966956501515363116266337158910739845173021754811277080538",
+              "40.4599365532717670502593850809731298596863910838013115495809",
+              "40.4255451347857134210411943896946106685101731900890042088768",
+              "20.2309278749351907605183640417141840541332254818795759787716"
+            ]
+          },
+          "cumulative": {
+            "photosynthesis": "104.291944396454900970199351571275451255384188297184990666779",
+            "growth_respiration": "27.3338860425436759705575318459679719697455611037589391851465",
+            "maintenance_leaf": "7.35580359576537725038498766273114786067273388881706396749161",
+            "maintenance_stem_root": "1.24741985943926214983644487245978432865203184010681951817427",
+            "maintenance_fruit": "0.0390601058030912875591611770757618881591174114331540953836069",
+            "removal_leaf": "3.000",
+            "removal_stem_root": "0.0",
+            "terminal_carbohydrate": "0.101403456562796343763930857131203809887893368179908818473609",
+            "terminal_number": "0.000504951494589057385252044482812076506081404969185656490552578",
+            "entry_number": "0.3000",
+            "event_carbohydrate": "158.192914590705051183384579626672087761351659488683991980160",
+            "event_number": "0.190043546692013194765797074836041205610395188509487255845309"
+          },
+          "lai": "2.65755288611593400117071804865243480152990726287510116510018",
+          "fruit_carbohydrate_total": "2008.94919383294305984477490019376442965348667496300683060610",
+          "carbon_residual": "1.051E-54",
+          "number_residual": "1.62E-58"
+        }
+      ],
+      "reference_step_seconds": "0.5",
+      "refinement_max_abs": {
+        "state.buffer": "8.539696636533712659320470465807998120E-20",
+        "state.leaf": "5.093881280213940801464067598E-28",
+        "state.stem_root": "1.89960133488086895361904110E-29",
+        "state.temperature_filtered_24h": "0",
+        "state.temperature_sum": "3.00E-55",
+        "state.fruit_number": "2.21045652538492186589555483334034804871E-22",
+        "state.fruit_carbohydrate": "2.92647991955993031890355208163139072854E-20",
+        "cumulative.photosynthesis": "8.5396966364689776275767637524403755132E-20",
+        "cumulative.growth_respiration": "1.375512841809882701693256290E-31",
+        "cumulative.maintenance_leaf": "5.0938529735709611888998213445451E-28",
+        "cumulative.maintenance_stem_root": "1.899380841030290918908070308946E-29",
+        "cumulative.maintenance_fruit": "7.081686358298887232701821030237446962E-25",
+        "cumulative.removal_leaf": "0",
+        "cumulative.removal_stem_root": "0",
+        "cumulative.terminal_carbohydrate": "4.1156796622385841116961760314910371303E-23",
+        "cumulative.terminal_number": "2.0784131223272544693370165202790731301E-26",
+        "cumulative.entry_number": "0",
+        "cumulative.event_carbohydrate": "1.934355177102763836751770912444999996E-21",
+        "cumulative.event_number": "1.4755629407746853898812433209850850777E-23"
+      }
+    },
+    {
+      "case_id": "synthetic-night-convergence-initial",
+      "program": {
+        "initial_state": {
+          "input_id": "synthetic-night-convergence-initial",
+          "origin": "synthetic",
+          "values": {
+            "buffer": {
+              "value": 1000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "leaf": {
+              "value": 100000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "stem_root": {
+              "value": 40000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "temperature_filtered_24h": {
+              "value": 20,
+              "unit": "degC"
+            },
+            "temperature_sum": {
+              "value": 500,
+              "unit": "degC_day"
+            },
+            "fruit_number": [
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              },
+              {
+                "value": 0.2,
+                "unit": "fruits_equivalent/m2_floor"
+              }
+            ],
+            "fruit_carbohydrate": [
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              {
+                "value": 40,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            ]
+          }
+        },
+        "segments": [
+          {
+            "start": "2026-01-01T00:00:00Z",
+            "end": "2026-01-01T01:00:00Z",
+            "forcing": {
+              "input_id": "synthetic-night-convergence-forcing-0",
+              "origin": "synthetic",
+              "values": {
+                "canopy_temperature": {
+                  "value": 20,
+                  "unit": "degC"
+                },
+                "par_above_canopy": {
+                  "value": 0,
+                  "unit": "umol_photons/m2_floor/s"
+                },
+                "co2": {
+                  "value": 800,
+                  "unit": "ppm"
+                }
+              }
+            },
+            "removals": {
+              "input_id": "synthetic-night-convergence-continuous-0",
+              "origin": "synthetic",
+              "values": {
+                "leaf": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor/s"
+                },
+                "stem_root": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor/s"
+                }
+              }
+            },
+            "fruit_entry": {
+              "input_id": "synthetic-night-convergence-entry-0",
+              "origin": "synthetic",
+              "values": {
+                "fruit_number_inflow": {
+                  "value": 0,
+                  "unit": "fruits_equivalent/m2_floor/s"
+                },
+                "fruit_entry_carbohydrate": {
+                  "value": 0,
+                  "unit": "mg_CH2O/fruit_equivalent"
+                }
+              }
+            },
+            "relative_growth_rate": {
+              "input_id": "synthetic-night-convergence-RGR-0",
+              "origin": "synthetic",
+              "values": {
+                "fruit_relative_growth_rate": [
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 0.0,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 1e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 2e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 3e-06,
+                    "unit": "1/s"
+                  },
+                  {
+                    "value": 4e-06,
+                    "unit": "1/s"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "events": [],
+        "output_times": [
+          "2026-01-01T00:00:00Z",
+          "2026-01-01T00:15:00Z",
+          "2026-01-01T00:30:00Z",
+          "2026-01-01T00:45:00Z",
+          "2026-01-01T01:00:00Z"
+        ],
+        "solver": {
+          "method": "rk4-fixed-v1",
+          "max_step_seconds": 10,
+          "max_steps": 10000,
+          "roundoff_rule": "64-ulp-per-operation-v1"
+        }
+      },
+      "expected": [
+        {
+          "at": "2026-01-01T00:00:00Z",
+          "state": {
+            "buffer": "1000",
+            "leaf": "100000",
+            "stem_root": "40000",
+            "temperature_filtered_24h": "20",
+            "temperature_sum": "500",
+            "fruit_number": [
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2",
+              "0.2"
+            ],
+            "fruit_carbohydrate": [
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40",
+              "40"
+            ]
+          },
+          "cumulative": {
+            "photosynthesis": "0",
+            "growth_respiration": "0",
+            "maintenance_leaf": "0",
+            "maintenance_stem_root": "0",
+            "maintenance_fruit": "0",
+            "removal_leaf": "0",
+            "removal_stem_root": "0",
+            "terminal_carbohydrate": "0",
+            "terminal_number": "0",
+            "entry_number": "0",
+            "event_carbohydrate": "0",
+            "event_number": "0"
+          },
+          "lai": "2.6600000",
+          "fruit_carbohydrate_total": "2000",
+          "carbon_residual": "0",
+          "number_residual": "0.0"
+        },
+        {
+          "at": "2026-01-01T00:15:00Z",
+          "state": {
+            "buffer": "849.416008434825661277874343203054594177751739492500314736398",
+            "leaf": "100012.063088977643773763604201124864693297025899586062520761",
+            "stem_root": "40022.8534435529531759169044650624879167036033258037617153983",
+            "temperature_filtered_24h": "20",
+            "temperature_sum": "500.208333333333333333333333333333333333333333333333333332900",
+            "fruit_number": [
+              "0.197990919107238575148100622319085446600147933857242606524571",
+              "0.199989875024729077250509556780248292949853918292073062720155",
+              "0.199999965954096161054175358754835012701477581443858268433462",
+              "0.199999999914109853038005595275335835750605940183742030578528",
+              "0.199999999999826625597258681138971288686582914474827530457414",
+              "0.199999999999999708333080974093389484009851265269989066191158",
+              "0.199999999999999999579400540093151678587048076448187787865462",
+              "0.199999999999999999999469267455447043993532639818412975241110",
+              "0.199999999999999999999999404691068541601635583240881280076527",
+              "0.199999999999999999999999999399019399136820967994078091053271",
+              "0.199999999999999999999999999999448440367704109500273404133133",
+              "0.199999999999999999999999999999999535975354919193063290596004",
+              "0.199999999999999999999999999999999999639644185961716924780071",
+              "0.199999999999999999999999999999999999999740139331735671326390",
+              "0.199999999999999999999999999999999999999999825100343357478895",
+              "0.199999999999999999999999999999999999999999999889640229178648",
+              "0.199999999999999999999999999999999999999999999999934460144981",
+              "0.199999999999999999999999999999999999999999999999999963239788",
+              "0.199999999999999999999999999999999999999999999999999999980475",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000"
+            ],
+            "fruit_carbohydrate": [
+              "39.5981838214477150296201244638170893200295867714485213049129",
+              "40.0581649313033805253576650003728347627336287341466505366482",
+              "40.0949448200972912566916463780506315845385507749377720749081",
+              "40.1422560131971059310956358933942460432937387338420179458752",
+              "40.2039608848926799353068144790025399519736302721312335320244",
+              "40.2841843898059230140927261696050578125226075473985279410962",
+              "40.3746084900656770227200510503780463546266481373409085411582",
+              "40.4829222623795349957624148690406107405974217642828156717409",
+              "40.6051111040683929793856830286045966078626189244018349036741",
+              "40.7385310952001215210303362242519603748558403512875318189716",
+              "40.8829260871455415637275680461108059694376906842707804784723",
+              "41.0258414984503322433711823778613592969501254021280071660061",
+              "41.1716774262228383760113171716698311834817321621552267703303",
+              "41.3140360986356960249143116920721711339769034605555858644740",
+              "41.4490515065316819993517412988881220988536515271489470387910",
+              "41.5764379520329999441596611039138093697162854527852597038861",
+              "41.6846732648666655277591225980680989585373882842841793415344",
+              "41.7801378894167105327393818743868174742442251495368574904333",
+              "41.8589719093253564548689099909389549339862842227197850558664",
+              "41.9202759920296236190776004554660188853880792116529980648516",
+              "41.9669141747243218222602013184555092844303931353262597340118",
+              "41.9904085991205843100745311914975875487418606105356761772546",
+              "42.0000605675231272453670002689363251554044524443272030595165",
+              "41.9945395598806450148016561721927361324964727489706368305210",
+              "41.9750793308920041622568365985659974109515994009387912865452",
+              "41.9462344446179759335595516211771495246695128041260271386175",
+              "41.9007787125797662727679938261626131432211754099484730324243",
+              "41.8488449449176648974714265620992838669845653747288586649506",
+              "41.7895635329415680686105860821069751203450286733813649848446",
+              "41.7243097633849036615111305668160558722957246267476650336787",
+              "41.6575065256400480747792564942673162256966702879640076919876",
+              "41.5816363563738343255853696849160777390204083676650266332120",
+              "41.5063244226191980542556362199678137729288536490412306773298",
+              "41.4301316131775534253799269881287786412930310360837422485190",
+              "41.3537930731025412196247788944770585682031892962574758810658",
+              "41.2810479751390923763080877389439693643088113842605384513148",
+              "41.2037525758982163709825651928030293975290371868326463160966",
+              "41.1308395795928662829189844985881128872890549396388482808977",
+              "41.0602660386884513573952911162477637204374392151998583473118",
+              "40.9921962619019826328918499060716120423517133238682219469304",
+              "40.9298346435556053230852967736024149155532003881371342799261",
+              "40.8646109284213615071340281932780129821355036474742517925029",
+              "40.8050054162566612214390285173121889619898904331205604467377",
+              "40.7486263218319852870694639420180893018737653194837946030897",
+              "40.6953284752299779998312261426277599575886914571535593053801",
+              "40.6480417479120754456578035604454444662313996819819878880748",
+              "40.5980079855503312853409413042547025903339498473794949009828",
+              "40.5534938946389307275196920826096031412674243159136318580029",
+              "40.5119691892111431857909884829751728953061912676878967794267",
+              "40.4731716109103606739357200095577005367044372231662789478331"
+            ]
+          },
+          "cumulative": {
+            "photosynthesis": "0",
+            "growth_respiration": "32.9110142791959907092176593633026807625638010625168258945095",
+            "maintenance_leaf": "22.0802829902661602567704062381696204766822127720725319724657",
+            "maintenance_stem_root": "3.74244619047140426738733435713881192012720382257506251846436",
+            "maintenance_fruit": "0.118084905534311420882097056307891998834312405297519118925459",
+            "removal_leaf": "0",
+            "removal_stem_root": "0",
+            "terminal_carbohydrate": "0.406414965759475724708749477677332638221419989416925135786097",
+            "terminal_number": "0.00201924000000000000000000000000000000000000000000000000000000",
+            "entry_number": "0",
+            "event_carbohydrate": "0",
+            "event_number": "0"
+          },
+          "lai": "2.66032087816680532438211187174992140084170088892898926305224",
+          "fruit_carbohydrate_total": "2056.40921570335004666265074411699645802519008506579658446463",
+          "carbon_residual": "1.512E-55",
+          "number_residual": "4.000E-59"
+        },
+        {
+          "at": "2026-01-01T00:30:00Z",
+          "state": {
+            "buffer": "749.454813038351979045949612302783005461395096471698193944531",
+            "leaf": "100012.642149436430343837656717939241318013353249212929945451",
+            "stem_root": "40036.7607436416064016396099468321790835847638489575513149682",
+            "temperature_filtered_24h": "20",
+            "temperature_sum": "500.416666666666666666666666666666666666666666666666666665800",
+            "fruit_number": [
+              "0.196002020244645445515730593173250510169675307226353328513376",
+              "0.199959771438233424209759820019670527554106466660937104019896",
+              "0.199999729685834127160255674713682759413958420079300416357095",
+              "0.199999998636807077971669719141953575899970077823152370307078",
+              "0.199999999994498484524663351436479052335452701213764959853243",
+              "0.199999999999981494116199004372532726623086121276725054619229",
+              "0.199999999999999946636678350025767546730186103209502365063043",
+              "0.199999999999999999865346139543131525798330213385840559947946",
+              "0.199999999999999999999697958476824598224103717795137751016751",
+              "0.199999999999999999999999390217782258654154900069531322402590",
+              "0.199999999999999999999999998880810862812560597583186318644511",
+              "0.199999999999999999999999999998116984498412919976682965582398",
+              "0.199999999999999999999999999999997075509315422464950357113068",
+              "0.199999999999999999999999999999999995782371328728755002090534",
+              "0.199999999999999999999999999999999999994322875165718794172440",
+              "0.199999999999999999999999999999999999999992835858936643460318",
+              "0.199999999999999999999999999999999999999999991491079583138230",
+              "0.199999999999999999999999999999999999999999999990455257159693",
+              "0.199999999999999999999999999999999999999999999999989856788680",
+              "0.199999999999999999999999999999999999999999999999999989759724",
+              "0.199999999999999999999999999999999999999999999999999999990178",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000"
+            ],
+            "fruit_carbohydrate": [
+              "39.2004040489290891031461186346501020339350614452706657026729",
+              "40.0905685860835265715262896816919869521988830943056515961308",
+              "40.1565961858962814011328530615602376350443984672870031893791",
+              "40.2352320053729068034056945424721304079525988556458020722915",
+              "40.3377578399274330034635478850697576798288255902050956363162",
+              "40.4720632427197590466864048192705897137144428790531298650420",
+              "40.6214725387774364474523389670107895502401219346630218011044",
+              "40.8014557073121768857310700734079386800366216514539988292866",
+              "41.0046219123115242624981371041559143856575409158160820023900",
+              "41.2265055251130905903078954054153598868510945610954216372126",
+              "41.4677048723201919247582839589603218374295772059772964681561",
+              "41.7045305826468844484231175766526396945650267023060230222380",
+              "41.9470941501469988839319036081943720145309762245383150828989",
+              "42.1839949279064837321879666941585384872381645178371602655446",
+              "42.4087197461327570879067694195680164008792301233583790343411",
+              "42.6218563415825904310510314705088978200276143162764677824053",
+              "42.8011079946567082203691767408682374650670951469376290145787",
+              "42.9600139310566330905530684025850656762027636977065055681831",
+              "43.0913485362216628446723137308123698804769420461838547884646",
+              "43.1935279844798700051531974941543917228730878849524737846611",
+              "43.2724074282310155951224065947496315183124354728718309396364",
+              "43.3106723004504076271499096526526284960424487035361373346969",
+              "43.3268045481572293276778997316839087497669017617201628815109",
+              "43.3177666847492595716381920371968931821058071378922182737426",
+              "43.2855268366583724605252763473440753273609364172259787617768",
+              "43.2387559220713792673922212523161624012193651904748486096305",
+              "43.1622304961873988904139001228646892695088917300910046968657",
+              "43.0758169357777548231466676578191433665905188099924299552370",
+              "42.9772488312737692625648205289115475433251139255885242082848",
+              "42.8687332935107927000001607030928920235519310707810673359999",
+              "42.7587038298970689510805667791539603920290159130626929703449",
+              "42.6315157901419488457679872557605004088186490603076307901594",
+              "42.5061340459683301497503706351864851412611144136029248398406",
+              "42.3793622210280571866624139896986218941943281881009657762673",
+              "42.2523442065669492784108954733550200529636989253981660998789",
+              "42.1323488694269076709658868982417326718093650548615507927865",
+              "42.0027697581435255741582692506867068873069707914643996049616",
+              "41.8813427623944793854886727470674866535016578320727558497799",
+              "41.7638885086346391568726622839400230635078582958887414954978",
+              "41.6506021951310153720421858228411887781143298010436971705206",
+              "41.5478369127613263690447591827838126396949459616912234921481",
+              "41.4383509437402252435920218640504618007126614962884558568932",
+              "41.3390552356693872636944208259690094424206697204982853444580",
+              "41.2452101980890924554742295909442443598171026058255641443236",
+              "41.1564970071441894571477158048622372353054972214743536478799",
+              "41.0787910897617267895578539448542503982257873641590968669820",
+              "40.9945978146342377536418751051706196956659129055996297155736",
+              "40.9204147874841713854648288421073959134979762380693210811498",
+              "40.8512883291864742182416604065879098936525136398172194434228",
+              "40.7867056153414951228986800648534984011677139247836165601897"
+            ]
+          },
+          "cumulative": {
+            "photosynthesis": "0",
+            "growth_respiration": "54.7579997573947137401701115519154675141851927886981040688981",
+            "maintenance_leaf": "44.1618332649578187112806682768423556999678026657719253943498",
+            "maintenance_stem_root": "7.48656919947490392482549085192819909719149671638487916634773",
+            "maintenance_fruit": "0.238871874924896430588976165418298432893285334200809804356552",
+            "removal_leaf": "0",
+            "removal_stem_root": "0",
+            "terminal_carbohydrate": "0.816719729052310729971885411777876670047841017710355515384976",
+            "terminal_number": "0.00403848000000000000000000000000000000000000000000000000000000",
+            "entry_number": "0",
+            "event_carbohydrate": "0",
+            "event_number": "0"
+          },
+          "lai": "2.66033628117500904714608166869718381905915519642906393654900",
+          "fruit_carbohydrate_total": "2093.68030005780663193994659066791439552620218683505447168373",
+          "carbon_residual": "-2.662E-54",
+          "number_residual": "2.000E-59"
+        },
+        {
+          "at": "2026-01-01T00:45:00Z",
+          "state": {
+            "buffer": "677.446031398463043192850338396721378108241013818302333513950",
+            "leaf": "100006.881916697302588825558279981920230005225886853915552765",
+            "stem_root": "40045.7285234402789051809754262976320973970637360273675892339",
+            "temperature_filtered_24h": "20",
+            "temperature_sum": "500.624999999999999999999999999999999999999999999999999998700",
+            "fruit_number": [
+              "0.194033100675564669820044396150820292180788565236421882549603",
+              "0.199910091648686577878351914824930611636399262511271616056878",
+              "0.199999094563080827990567038718079713615396638433684540965269",
+              "0.199999993154305135218542384968316911532673900474385848418899",
+              "0.199999999958572674356522402158032388202598875520411297251088",
+              "0.199999999999791021913708642677532747374985733192801484609351",
+              "0.199999999999999096254012056136072230927252473587049162992239",
+              "0.199999999999999996579792586459257525286976999017897552624567",
+              "0.199999999999999999988493515978425703159387321639922364832667",
+              "0.199999999999999999999965158086614786506290636261385977803630",
+              "0.199999999999999999999999904084530515514110944329458102955286",
+              "0.199999999999999999999999999757951648811527875335849642538383",
+              "0.199999999999999999999999999999436147421554109278309745888309",
+              "0.199999999999999999999999999999998780297287388081300571229602",
+              "0.199999999999999999999999999999999997537438795883497854653990",
+              "0.199999999999999999999999999999999999995338799166568971226462",
+              "0.199999999999999999999999999999999999999991696043916120564770",
+              "0.199999999999999999999999999999999999999999986028172265064059",
+              "0.199999999999999999999999999999999999999999999977728772262045",
+              "0.199999999999999999999999999999999999999999999999966274219959",
+              "0.199999999999999999999999999999999999999999999999999951360050",
+              "0.199999999999999999999999999999999999999999999999999999933065",
+              "0.199999999999999999999999999999999999999999999999999999999951",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000"
+            ],
+            "fruit_carbohydrate": [
+              "38.8066201351129339640088792301640584361577130472843765099207",
+              "40.1069825487693928758235328027721441093018821524279321228551",
+              "40.1997625950972393344506762112068149818834280007302050728273",
+              "40.3009405150572122463780456325393714771028578447610873368711",
+              "40.4327388875808370634296078588796808337939368591155252290425",
+              "40.6066611860578743118323339495286419700036055332408713286306",
+              "40.7976988062231325460536810773744861348112496444916566135642",
+              "41.0290863557002970537460516094618456789253349463838235848561",
+              "41.2904543822958826628454170733871378662849762804318543063551",
+              "41.5759617031293325587434672287861633326614862437633738142291",
+              "41.8876678552885802366545296770541503413473623339331905467349",
+              "42.1913552618134345405562617221368114456359772116962538327872",
+              "42.5035142758505087593630144322439330651791686676306315858850",
+              "42.8085533772586449418091819311738672009811011677240960075573",
+              "43.0979755431974018386264720522784497547157928447786518004708",
+              "43.3738793080832631508471406492187030182382653637345363312439",
+              "43.6036232471606041220090828687762676282315432967997292949251",
+              "43.8082906014981444445585547269318297466167415667391084343897",
+              "43.9776010680671483206497984694944494606937521782014883493482",
+              "44.1093939988095500423773542150430835471634209342311655342732",
+              "44.2125858029712023332594430578006263996177921937408954232832",
+              "44.2608355315219367880746110767074148349666974882870333753601",
+              "44.2817023942516111676909295939411083122263867227056532944448",
+              "44.2702707906371186756568738748221199830453170751510431496781",
+              "44.2289565405311998848483351950558646169053604192504652459314",
+              "44.1703052618258521087185065129402797750677850667769158026935",
+              "44.0706796727442571549647367568782459630596174877216272508307",
+              "43.9594228209710889013404586468667763679862006939033069594869",
+              "43.8326174918796447947441632998840687373508528706475078577885",
+              "43.6929919971440507671397358586440901414338450776171017625967",
+              "43.5527613102993897421001147977963182366215425742918601497393",
+              "43.3878323767194899862625177599304776081491971699448901831561",
+              "43.2263105761768250343606893868420137505997698549095689661690",
+              "43.0631049281730727173005248390471042095291695638682743896365",
+              "42.8995776870720512218054640361502799846629649667807792318322",
+              "42.7464074984108719347388146914641261018769897073498847022097",
+              "42.5783725301138880198415305616736402274239786070804850392590",
+              "42.4218916911405445760557722346581360110179908434582579076520",
+              "42.2706373867114954719802801586708160209560177313328082556562",
+              "42.1247522213262054588354735476268018877791989402746452997211",
+              "41.9937003251311763718775182400586074402090770715834764971871",
+              "41.8515435187154635706831602500749228533714990038551760003723",
+              "41.7235406303180052129132478234690069627278366441896874577919",
+              "41.6026697483236122446930545730483523290831624396749653683252",
+              "41.4884131544105513003240702551549728567564733020312622529535",
+              "41.3895914439643659673868400864278859461776293111408547635865",
+              "41.2800223414982207566067007794169470125027569810416730328520",
+              "41.1843538326553620380571132977191102025803088352377140821541",
+              "41.0953101895088903099429094619765027504765193879352510657615",
+              "41.0121252138363108169498609095426501032594437187254482748185"
+            ]
+          },
+          "cumulative": {
+            "photosynthesis": "0",
+            "growth_respiration": "70.4957685612953532511885715957310164468882213781126924761827",
+            "maintenance_leaf": "66.2427464859344545979471909647203008444415938113056465664218",
+            "maintenance_stem_root": "11.2317405129794233804919931765931582121509331223836607725548",
+            "maintenance_fruit": "0.361520538044898142137584536634458667973389761721175419547487",
+            "removal_leaf": "0",
+            "removal_stem_root": "0",
+            "terminal_carbohydrate": "1.22970380466616308493408006730620266086424735828327857189077",
+            "terminal_number": "0.00605772000000000000000000000000000000000000000000000000000000",
+            "entry_number": "0",
+            "event_carbohydrate": "0",
+            "event_number": "0"
+          },
+          "lai": "2.66018305898414824886275985024751907811813900859031415370355",
+          "fruit_carbohydrate_total": "2120.38204856103517034391653498274115765715097786860807067970",
+          "carbon_residual": "-4.03E-55",
+          "number_residual": "1.3000E-58"
+        },
+        {
+          "at": "2026-01-01T01:00:00Z",
+          "state": {
+            "buffer": "622.070232714271486592498894997515629264210468774048755622360",
+            "leaf": "99997.3510446125618942141937487362753190656086876295631371605",
+            "stem_root": "40051.7571427117057830485132961933831481022105586070976229088",
+            "temperature_filtered_24h": "20",
+            "temperature_sum": "500.833333333333333333333333333333333333333333333333333331600",
+            "fruit_number": [
+              "0.192083959699912015348088350435504630592597584848395035266148",
+              "0.199841231995601022105512710094395837428485715040247983281660",
+              "0.199997869940704492805571459914672111901815587180011489538167",
+              "0.199999978538066297686737407429090126503854908662481880884625",
+              "0.199999999826886981941183447988219394166309307135016013462822",
+              "0.199999999998835935055078375097402065740604062557148898097361",
+              "0.199999999999993289068697347354505564453404313023470591707187",
+              "0.199999999999999966141607232428812831495915144280398625354753",
+              "0.199999999999999999848138988812918341648764600860963280139240",
+              "0.199999999999999999999386938110104148062549945699398544617722",
+              "0.199999999999999999999997749928381401625331636716047702718095",
+              "0.199999999999999999999999992429574013729354849260811374204243",
+              "0.199999999999999999999999999976487527331627427309090677994067",
+              "0.199999999999999999999999999999932188321107797065616037476590",
+              "0.199999999999999999999999999999999817460045226418284586318836",
+              "0.199999999999999999999999999999999999539328569371747827634601",
+              "0.199999999999999999999999999999999999998905784489855830813975",
+              "0.199999999999999999999999999999999999999997545308497230965226",
+              "0.199999999999999999999999999999999999999999994783069900623855",
+              "0.199999999999999999999999999999999999999999999989466780654059",
+              "0.199999999999999999999999999999999999999999999999979745489853",
+              "0.199999999999999999999999999999999999999999999999999962822350",
+              "0.199999999999999999999999999999999999999999999999999999934758",
+              "0.199999999999999999999999999999999999999999999999999999999941",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000",
+              "0.200000000000000000000000000000000000000000000000000000000000"
+            ],
+            "fruit_carbohydrate": [
+              "38.4167919399824030696176700871009261185195169696790070532291",
+              "40.1123381079337787011294958686236017150556908418890099562178",
+              "40.2318264649702619408987765962625504144592000137318654303207",
+              "40.3503818742980031865554860346465919392133072617007437342236",
+              "40.5045695330306252317713272416985303294235945951521752393902",
+              "40.7094772238659249927222190732442064663328511367655613668227",
+              "40.9318212693476183898811022429598367308476002557296225557080",
+              "41.2025306807740915852499241596540964162768901045717257759454",
+              "41.5085336620176416695306394902284827450450874671209958192405",
+              "41.8428722923363292437159078362446461466010390513859042630332",
+              "42.2094211036125427926561264581175061806071208100494527692928",
+              "42.5638875630948428371621852478301773570758789629002476485754",
+              "42.9294844441400515150907882956850255951525566731793480122143",
+              "43.2869501703444973950654988135129038146510157543133605942319",
+              "43.6261904269986328168162376976485339003333115333182403651188",
+              "43.9511892606808787383707692769935951802984496937391474840560",
+              "44.2192377604760226108378788021666469652392252176887526942344",
+              "44.4591469406815640472842840729037482823686166912402808317279",
+              "44.6578023227435886990368613260939579681709293093334936589796",
+              "44.8125213419091047468204566781638173158400227175811575425804",
+              "44.9353207618809913835346041442542084490887865251675624181130",
+              "44.9907357433357501618980932551453361403858983838275806850850",
+              "45.0153011394559681168270766552562309396679254242029561331371",
+              "45.0021561027999262357404573998698743425339616180987860583220",
+              "44.9539843639372563508927881936760302624588317994097171318044",
+              "44.8870600826416382793756669677622609908163923942021484004554",
+              "44.7691000784506316954171061698427264035139173138474394520535",
+              "44.6387314126028444913662848716622221768471512086685758258705",
+              "44.4902698932235887759728067817937406998056627235661859899781",
+              "44.3267712976818775894661642254381236202759102521239188137721",
+              "44.1640920645114276923144864716854025158813470582341710755788",
+              "43.9695198227598599769743906137222752702886290929938072979667",
+              "43.7801386963320997392017965571755521905439612726868555783673",
+              "43.5889170458142598103392491398091869237244492597802789290580",
+              "43.3973136252196129286048961176221969022757783699320706616677",
+              "43.2193399019390957926517473637004962374728288269489603726741",
+              "43.0210936744305172916966352378779555845798809448970044689519",
+              "42.8375573286989722896123687864004508247766123071639674030912",
+              "42.6602845109713214427845360605153569566455996075911020687196",
+              "42.4893072843046179037599073777909480029320473740515115196774",
+              "42.3371709072223741709149327620253270441620415281048203960140",
+              "42.1692569665665285909558294284663138169914785007509943025484",
+              "42.0190703176510515655146865534016071476299837783192327712411",
+              "41.8773829307400575935836896975704196265955694356060247484850",
+              "41.7434551755436144187547586039223380745883877732811017216040",
+              "41.6290435462001294052332844187551205014168917565222135228044",
+              "41.4993425081724972390375877539132932195236191113097536661079",
+              "41.3870462297409522323034468371515647180354219920928038338526",
+              "41.2826550953735393426088896900378722719657588901764133569331",
+              "41.1851400896168933415168678055135309105179980794328895297119"
+            ]
+          },
+          "cumulative": {
+            "photosynthesis": "0",
+            "growth_respiration": "82.5982750816300185249789423893100311628205403985476498007961",
+            "maintenance_leaf": "88.3219388952379058288050070859742551997846004269430237747740",
+            "maintenance_stem_root": "14.9776023364751138270857346576323097466221078790229656136981",
+            "maintenance_fruit": "0.485552283366775584351272613757409154644803246353219140768318",
+            "removal_leaf": "0",
+            "removal_stem_root": "0",
+            "terminal_carbohydrate": "1.64467838369272232050443208461455395664360537436268504621765",
+            "terminal_number": "0.00807696000000000000000000000000000000000000000000000000000000",
+            "entry_number": "0",
+            "event_carbohydrate": "0",
+            "event_number": "0"
+          },
+          "lai": "2.65992953778669414638609755371638492348714519109094637944847",
+          "fruit_carbohydrate_total": "2140.79353298105830005906867124153734434745462766406094092878",
+          "carbon_residual": "-2.746E-54",
+          "number_residual": "1.4000E-58"
+        }
+      ],
+      "reference_step_seconds": "1",
+      "refinement_max_abs": {
+        "state.buffer": "6.89840583282447871742169726210563095779828821E-13",
+        "state.leaf": "1.56405474171545279244662828555274413462236E-13",
+        "state.stem_root": "1.217936590866217309595928087870105944003254E-13",
+        "state.temperature_filtered_24h": "0",
+        "state.temperature_sum": "1.800E-54",
+        "state.fruit_number": "8.9671388605237182915080128771253424389E-23",
+        "state.fruit_carbohydrate": "9.1851861613108033354778491524127471472786968E-15",
+        "cumulative.photosynthesis": "0",
+        "cumulative.growth_respiration": "1.507662516257468754546579532592131331727201239E-13",
+        "cumulative.maintenance_leaf": "1.054028950773565923780034508571621677374525E-16",
+        "cumulative.maintenance_stem_root": "3.477183559567844322851717750761707338450785E-17",
+        "cumulative.maintenance_fruit": "4.6431291407923264479728410522309456682853468E-17",
+        "cumulative.removal_leaf": "0",
+        "cumulative.removal_stem_root": "0",
+        "cumulative.terminal_carbohydrate": "6.6930992434369062096904503885454457274609082E-17",
+        "cumulative.terminal_number": "0",
+        "cumulative.entry_number": "0",
+        "cumulative.event_carbohydrate": "0",
+        "cumulative.event_number": "0"
+      },
+      "analytic_number": [
+        {
+          "at": "2026-01-01T00:00:00Z",
+          "fruit_number": [
+            "0.2",
+            "0.2000000000000",
+            "0.2000000000000000000000000",
+            "0.2000000000000000000000000000000000000",
+            "0.2000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000",
+            "0.200000000000000000000000000000000000000000000000000000000000"
+          ]
+        },
+        {
+          "at": "2026-01-01T00:15:00Z",
+          "fruit_number": [
+            "0.197990919107238575148100358511199658715097675570960183890355",
+            "0.199989875024729077250510609350800432709417044723059712098949",
+            "0.199999965954096161054173786538063821376617768330476425727299",
+            "0.199999999914109853038006634594569837584838365645704825935343",
+            "0.199999999999826625597258427894706861595048724844358328178889",
+            "0.199999999999999708333080971485810230279411102010066617276759",
+            "0.199999999999999999579400540079910979917896278582123354614824",
+            "0.199999999999999999999469267455402374201967717730652897362182",
+            "0.199999999999999999999999404691068428728839072988644320358367",
+            "0.199999999999999999999999999399019398908807317274972735136684",
+            "0.199999999999999999999999999999448440367320416813769098030813",
+            "0.199999999999999999999999999999999535975354365900638515834362",
+            "0.199999999999999999999999999999999999639644185263702753419032",
+            "0.199999999999999999999999999999999999999740139330953012584840",
+            "0.199999999999999999999999999999999999999999825100342567732454",
+            "0.199999999999999999999999999999999999999999999889640228454233",
+            "0.199999999999999999999999999999999999999999999999934460144368",
+            "0.199999999999999999999999999999999999999999999999999963239778",
+            "0.199999999999999999999999999999999999999999999999999999980464",
+            "0.199999999999999999999999999999999999999999999999999999999988",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998",
+            "0.199999999999999999999999999999999999999999999999999999999998"
+          ]
+        },
+        {
+          "at": "2026-01-01T00:30:00Z",
+          "fruit_number": [
+            "0.196002020244645445515730070857592761361855789977245968307488",
+            "0.199959771438233424209761898740377617436378926830782509797940",
+            "0.199999729685834127160252582881047789900278527325083185428136",
+            "0.199999998636807077971671745577861812697098542756090224415668",
+            "0.199999999994498484524662870653071599565579169875987491049181",
+            "0.199999999999981494116198994251865332785651791518998653762535",
+            "0.199999999999999946636678349922224713215430623919876043529530",
+            "0.199999999999999999865346139542430165323057804790643397330264",
+            "0.199999999999999999999697958476821044894450061176520257669625",
+            "0.199999999999999999999999390217782244271856436842947610993482",
+            "0.199999999999999999999999998880810862764087270892948287762408",
+            "0.199999999999999999999999999998116984498272954701445672641098",
+            "0.199999999999999999999999999999997075509315068951590231190633",
+            "0.199999999999999999999999999999999995782371327935265971112484",
+            "0.199999999999999999999999999999999999994322875164116112113256",
+            "0.199999999999999999999999999999999999999992835858933701019066",
+            "0.199999999999999999999999999999999999999999991491079578186704",
+            "0.199999999999999999999999999999999999999999999990455257152005",
+            "0.199999999999999999999999999999999999999999999999989856788668",
+            "0.199999999999999999999999999999999999999999999999999989759705",
+            "0.199999999999999999999999999999999999999999999999999999990156",
+            "0.199999999999999999999999999999999999999999999999999999999993",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003",
+            "0.200000000000000000000000000000000000000000000000000000000003"
+          ]
+        },
+        {
+          "at": "2026-01-01T00:45:00Z",
+          "fruit_number": [
+            "0.194033100675564669820043620547641728768401651751291661274608",
+            "0.199910091648686577878354993752961030034376262020525833886290",
+            "0.199999094563080827990562478682194347128538561310826196966573",
+            "0.199999993154305135218545347891536872544584642716920927492304",
+            "0.199999999958572674356521718374620395548413756052240087706055",
+            "0.199999999999791021913708620593623180267384511748673717289265",
+            "0.199999999999999096254012055794714928224924348020504883894764",
+            "0.199999999999999996579792586455776612155951025318348167533741",
+            "0.199999999999999999988493515978399191270940187145598599543844",
+            "0.199999999999999999999965158086614625298693771670812028147731",
+            "0.199999999999999999999999904084530514698203073392837066093091",
+            "0.199999999999999999999999999757951648807990889523395041326210",
+            "0.199999999999999999999999999999436147421540699460699376183597",
+            "0.199999999999999999999999999999998780297287342904796840497195",
+            "0.199999999999999999999999999999999997537438795746555475529881",
+            "0.199999999999999999999999999999999999995338799166191668236084",
+            "0.199999999999999999999999999999999999999991696043915167785233",
+            "0.199999999999999999999999999999999999999999986028172262843377",
+            "0.199999999999999999999999999999999999999999999977728772257231",
+            "0.199999999999999999999999999999999999999999999999966274219917",
+            "0.199999999999999999999999999999999999999999999999999951360014",
+            "0.199999999999999999999999999999999999999999999999999999933035",
+            "0.199999999999999999999999999999999999999999999999999999999908",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995",
+            "0.199999999999999999999999999999999999999999999999999999999995"
+          ]
+        },
+        {
+          "at": "2026-01-01T01:00:00Z",
+          "fruit_number": [
+            "0.192083959699912015348087326686263388821277515097748048063093",
+            "0.199841231995601022105516763757022798526147043289467583434511",
+            "0.199997869940704492805565481922130400830671650750526060980545",
+            "0.199999978538066297686741257746581813329854239206323845781879",
+            "0.199999999826886981941182584614460639680728486455891271376790",
+            "0.199999999998835935055078337033919422246011443715956137490623",
+            "0.199999999999993289068697346564304315419701850244682182091462",
+            "0.199999999999999966141607232418030413681679114863193795743748",
+            "0.199999999999999999848138988812808608398315402292714504220625",
+            "0.199999999999999999999386938110103257113647892641668249543704",
+            "0.199999999999999999999997749928381395606591788597292692265117",
+            "0.199999999999999999999999992429574013694538137747237119719154",
+            "0.199999999999999999999999999976487527331451312390666342695309",
+            "0.199999999999999999999999999999932188321107005558000185809467",
+            "0.199999999999999999999999999999999817460045223217816196079996",
+            "0.199999999999999999999999999999999999539328569359986071920767",
+            "0.199999999999999999999999999999999999998905784489816215795883",
+            "0.199999999999999999999999999999999999999997545308497107819081",
+            "0.199999999999999999999999999999999999999999994783069900268424",
+            "0.199999999999999999999999999999999999999999999989466780653082",
+            "0.199999999999999999999999999999999999999999999999979745489829",
+            "0.199999999999999999999999999999999999999999999999999962822321",
+            "0.199999999999999999999999999999999999999999999999999999934727",
+            "0.199999999999999999999999999999999999999999999999999999999891",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001",
+            "0.200000000000000000000000000000000000000000000000000000000001"
+          ]
+        }
+      ]
+    }
+  ]
+}
