@@ -162,6 +162,7 @@ flowchart LR
   compose-runtime --> application-images --> application-services-ci
   deterministic-worker-loop --> application-services-ci
   application-services-ci --> cli-dispatch-loop --> application-source-consumers
+  application-services-ci --> collection-consumer --> application-source-consumers
   application-source-consumers --> application-compose-runtime --> end-to-end-g1
   provenance-g0 --> g0-authority-store
   durable-jobs --> g0-authority-store
@@ -253,7 +254,11 @@ API/웹/자동 경제·현재 결과·재시작·권한 변화·정리를 수용
 2026-10-04 [authority 전경 소비](../research/cli-dispatch-loop-implementation.md)는
 기존 RPC를 반복하며 응답 유실/불일치/미완결에는 추가 요청 없이 멈춘다.
 새19+기존17개 실제 Unix 소켓 시험과 신호 추출 후 기존37개 실제 SCRAM 회귀가
-통과했다. 새 hosted 회귀와 수집 작업의 자동 발견/소비, 별도 source 서비스 연결을 이어간다.
+통과했다. 같은 `7225546`의 [hosted 회귀](../research/runtime-consumers-hosted-regression-20261004.md)도
+백엔드2,455/별도UID4·작성141·웹160/51·C0/앱 서비스를 통과했다.
+[수집 자동 발견/소비](../research/collection-consumer-implementation.md)는 실제 SCRAM95개로
+자동 완료·취소/복구·부모 증거 훼손/권한 철회·정리를 수용했다. 별도 source Compose와
+실제 모델 호출·독립 해제/G1/G4 연결을 이어간다.
 
 점선 선행 조건은 표시된 실제 원천 유래 공개 경로에만 적용된다. `market-source-g0`는 기존 출처·시장 계약, 영속 G0 승인 저장소와 CLI 작업자 뒤에서 병행할 수 있으며, 첫 합성 G1의 선행 조건이 아니다. 시장 자료에서 유래한 시나리오·근거 카드와 후속 미래 전망에는 해당 시장 G0가 필요하다.
 

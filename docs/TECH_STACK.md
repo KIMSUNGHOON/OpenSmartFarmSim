@@ -40,6 +40,10 @@
 [API/웹/자동 경제 Compose 후보](../contracts/application-compose-runtime-v1.md)는
 자원 한도·명시적 private mount·loopback을 정의하며
 [실제 서비스 소프트웨어 수용](../research/application-compose-runtime-implementation.md)은 통과했다.
+[조사 RPC 전경 소비](../contracts/cli-dispatch-loop-v1.md)와
+[소유 수집 자동 소비](../contracts/collection-consumer-v1.md)는 기존 Python 실행기와
+SCRAM/Unix IPC를 사용하며 새 orchestration 프레임워크를 추가하지 않는다.
+두 소비자의 집중 실제 프로세스 수용 뒤 source Compose 연결을 진행한다.
 수집/CLI 자동 운영 연결·독립 자격증명·전체 운영/G1/G4는 보류다.
 
 ## 에이전트 프레임워크 비교와 채택 문턱

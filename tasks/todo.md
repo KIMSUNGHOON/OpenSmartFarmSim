@@ -213,6 +213,14 @@
       [로컬 수용](../research/cli-dispatch-loop-implementation.md): 새19+기존17개/5.95초,
       실제 반복 Unix RPC·불확실성 중단·신호/FD 정리와 기존37개/126.61초 실제 SCRAM 회귀.
       일반 계정 UID의 합성 소프트웨어 증거이며 hosted/source Compose·제품 CLI는 후속이다.
+    - [x] **`collection-consumer`** — 파일(4): `backend/app/deterministic_job_discovery.py`,
+      `backend/app/collection_consume.py`, `backend/tests/test_collection_consumer.py`,
+      `contracts/collection-consumer-v1.md`. 같은 계정의 처리 가능한 소유 수집만 발견하고
+      기존 임대/부모·원천 검증/원자 저장을 반복 호출한다. 고정 타입·권한·페이지/대기와
+      종료/복구를 유지한다. [실제 SCRAM 수용](../research/collection-consumer-implementation.md):
+      새34+기존47/14개, 합계95개/55.97초·무건너뜀; 자동 완료·취소·강제 종료 뒤 복구·
+      부모 증거 훼손 보류·권한 철회·신호/프로세스/DB 정리. 목록 회귀12개/6.48초도 통과.
+      source Compose/실제 모델/독립 해제·G1/G4는 후속이며 상위 체크를 유지한다.
 
 **운영 조립 체크포인트:** 구성/발견/루프의 실제 프로세스 시험 뒤 앱 이미지 기동을 확인하고,
 같은 판본의 전체 CI가 끝난 뒤 `end-to-end-g1`의 실제 CLI·독립 증거와 브라우저 경로를 검증한다.

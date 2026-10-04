@@ -1,4 +1,4 @@
-"""Bounded advisory discovery for explicitly configured deterministic workers."""
+"""Bounded advisory discovery with closed simulation and collection profiles."""
 
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
@@ -52,13 +52,23 @@ class DiscoveryPage:
 
 
 class DeterministicJobDiscovery:
+    def _profile(self):
+        if type(self) is DeterministicJobDiscovery:
+            return ('simulation', 'simulating', INPUT_VERSIONS,
+                    frozenset({'metadata', 'simulation_execute'}))
+        if type(self) is CollectionJobDiscovery:
+            return ('collection', 'collecting', frozenset({'owned-fixture-collection-input-v1'}),
+                    frozenset({'metadata', 'artifact', 'collection_execute'}))
+        raise DiscoveryHold('discovery_binding_rejected')
+
     def __init__(self, jobs, *, tenant_id, input_versions):
         try:
             require_name(tenant_id, 'tenant_id')
+            self._profile_bound = self._profile()
             if (type(tenant_id) is not str or type(jobs) is not JobStore or
                     type(input_versions) is not frozenset or not input_versions or
                     any(type(value) is not str for value in input_versions) or
-                    not input_versions <= INPUT_VERSIONS):
+                    not input_versions <= self._profile_bound[2]):
                 raise ValueError
             self.jobs = jobs
             self.tenant_id = tenant_id
@@ -71,8 +81,8 @@ class DeterministicJobDiscovery:
 
     def _binding(self):
         jobs, tenant, versions, dsn, schema, identity, provider = self._bound
-        if (self.jobs is not jobs or self.tenant_id != tenant or
-                self.input_versions != versions or type(jobs) is not JobStore or
+        if (self._profile() != self._profile_bound or self.jobs is not jobs or self.tenant_id != tenant or
+                type(self.input_versions) is not frozenset or self.input_versions != versions or type(jobs) is not JobStore or
                 type(dsn) is not str or not dsn or jobs._dsn != dsn or jobs.schema != schema or
                 type(identity) is not tuple or len(identity) != 2 or
                 type(identity[0]) is not RuntimeLoginPolicy or identity[1] != 'authority' or
@@ -85,7 +95,7 @@ class DeterministicJobDiscovery:
         self._binding()
         scopes = self.jobs._principal_scopes(self.tenant_id)
         self._binding()
-        if not {'metadata', 'simulation_execute'} <= scopes:
+        if not self._profile_bound[3] <= scopes:
             raise DiscoveryHold('discovery_access_rejected')
 
     @staticmethod
@@ -111,7 +121,8 @@ class DeterministicJobDiscovery:
         self._access()
         try:
             after = sql.SQL('')
-            params = [self.tenant_id]
+            stage, active = self._profile_bound[:2]
+            params = [self.tenant_id, stage, active]
             if cursor is not None:
                 after = sql.SQL('AND (created_at, job_id) > (%s, %s)')
                 params.extend((cursor.created_at, UUID(cursor.job_id)))
@@ -120,9 +131,9 @@ class DeterministicJobDiscovery:
                 conn.execute('SET TRANSACTION READ ONLY')
                 rows = conn.execute(sql.SQL("""
                     SELECT job_id, created_at, input_sha256, input_bytes FROM {}
-                    WHERE tenant_id = %s AND stage = 'simulation' AND (
+                    WHERE tenant_id = %s AND stage = %s AND (
                         (state = 'queued' AND next_attempt_at <= clock_timestamp()) OR
-                        (state = 'simulating' AND lease_until <= clock_timestamp())
+                        (state = %s AND lease_until <= clock_timestamp())
                     ) {} ORDER BY created_at, job_id LIMIT %s
                 """).format(self.jobs._table('jobs'), after), params).fetchall()
                 matches = []
@@ -143,3 +154,9 @@ class DeterministicJobDiscovery:
             raise
         except Exception:
             raise DiscoveryHold('discovery_read_rejected') from None
+
+
+class CollectionJobDiscovery(DeterministicJobDiscovery):
+    def __init__(self, jobs, *, tenant_id):
+        super().__init__(jobs, tenant_id=tenant_id,
+                         input_versions=frozenset({'owned-fixture-collection-input-v1'}))

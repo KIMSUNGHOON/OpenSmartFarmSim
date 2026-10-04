@@ -1,6 +1,6 @@
 # Authority dispatch loop — 2026-10-04
 
-Status: local RPC/process software acceptance passed; hosted regression and
+Status: local RPC/process and exact-head hosted software acceptance passed;
 application source-consumer assembly pending.
 
 The [contract](../contracts/cli-dispatch-loop-v1.md) adds a separate command
@@ -57,5 +57,9 @@ unchanged; these consumer bytes are pinned separately from calculation digests.
 
 This is synthetic software RPC evidence with the current local OS UID; it adds
 no actual CLI call, independent service custody/release or G1/G4 approval.
-Hosted role/UID/source-flow/Compose tests, collection automatic consumption and
-actual product research/review/assessment remain subsequent work.
+[Hosted regression at7225546](runtime-consumers-hosted-regression-20261004.md)
+passed2,455default backend cases, separate UID4/DAC, authored141, web160/51,
+C0 and actual application Compose/restart/current-grant/cleanup checks. The
+[collection consumer](collection-consumer-implementation.md) has later local
+acceptance. Source-consumer Compose and actual product research/review/assessment
+remain subsequent work.

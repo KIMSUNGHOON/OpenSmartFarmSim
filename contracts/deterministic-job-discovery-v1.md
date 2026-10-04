@@ -1,6 +1,10 @@
 # Deterministic job discovery v1
 
 Status: implemented; focused actual SCRAM software acceptance passed.
+The 2026-10-04 [collection extension](collection-consumer-v1.md) shares the
+bounded query through a separate closed profile; this public economic interface
+retains the simulation-only versions/scopes below. Its unchanged47-case
+regression passed again in the combined95-case actual SCRAM selection.
 This is a dependency of the planned foreground consumer, not a
 new HTTP route or a replacement for a worker's claim and validation.
 
