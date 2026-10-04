@@ -161,7 +161,8 @@ flowchart LR
   protected-api-operator-config --> application-images
   compose-runtime --> application-images --> application-services-ci
   deterministic-worker-loop --> application-services-ci
-  application-services-ci --> application-source-consumers --> application-compose-runtime --> end-to-end-g1
+  application-services-ci --> cli-dispatch-loop --> application-source-consumers
+  application-source-consumers --> application-compose-runtime --> end-to-end-g1
   provenance-g0 --> g0-authority-store
   durable-jobs --> g0-authority-store
   g0-authority-store --> kma-g0
@@ -248,6 +249,11 @@ API/웹/자동 경제·현재 결과·재시작·권한 변화·정리를 수용
 `application-source-consumers`의 조사/수집 자동 소비와 별도 서비스 연결이다.
 `ci/application-runtime` 별도 게시로 기존 전체 회귀를 취소하지 않았다.
 수집/제품 CLI 운영 소비와 독립 자격증명/해제, 전체 G1/G4는 다음 별도 경계다.
+
+2026-10-04 [authority 전경 소비](../research/cli-dispatch-loop-implementation.md)는
+기존 RPC를 반복하며 응답 유실/불일치/미완결에는 추가 요청 없이 멈춘다.
+새19+기존17개 실제 Unix 소켓 시험과 신호 추출 후 기존37개 실제 SCRAM 회귀가
+통과했다. 새 hosted 회귀와 수집 작업의 자동 발견/소비, 별도 source 서비스 연결을 이어간다.
 
 점선 선행 조건은 표시된 실제 원천 유래 공개 경로에만 적용된다. `market-source-g0`는 기존 출처·시장 계약, 영속 G0 승인 저장소와 CLI 작업자 뒤에서 병행할 수 있으며, 첫 합성 G1의 선행 조건이 아니다. 시장 자료에서 유래한 시나리오·근거 카드와 후속 미래 전망에는 해당 시장 G0가 필요하다.
 

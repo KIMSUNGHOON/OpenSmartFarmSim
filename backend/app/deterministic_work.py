@@ -3,13 +3,10 @@
 import argparse
 import importlib
 import json
-import os
 import re
-import select
 import signal
 import sys
 from threading import Event
-import time
 from uuid import UUID
 
 from .break_even_calculation_worker import BreakEvenCalculationWorker, BreakEvenCalculationOutcome
@@ -17,6 +14,7 @@ from .break_even_verification_worker import BreakEvenVerificationWorker, BreakEv
 from .deterministic_job_discovery import DeterministicJobDiscovery
 from .economic_calculation_worker import EconomicCalculationWorker, EconomicCalculationOutcome
 from .jobs import require_reason_code, require_seconds
+from .process_stop import SignalStop as _SignalStop
 
 
 WORKERS = {
@@ -104,35 +102,6 @@ class DeterministicWorkerLoop:
 class _Arguments(argparse.ArgumentParser):
     def error(self, _message):
         raise ValueError('deterministic configuration rejected')
-
-
-class _SignalStop(Event):
-    """Main-thread stop flag with a nonblocking signal wakeup pipe."""
-
-    def __init__(self):
-        super().__init__()
-        self.requested = False
-        self.reader, self.writer = os.pipe2(os.O_NONBLOCK | os.O_CLOEXEC)
-
-    def set(self):
-        self.requested = True
-
-    def is_set(self):
-        return self.requested
-
-    def wait(self, seconds):
-        deadline = time.monotonic() + seconds
-        while not self.requested:
-            remaining = deadline - time.monotonic()
-            if remaining <= 0:
-                break
-            if select.select([self.reader], [], [], remaining)[0]:
-                os.read(self.reader, 4096)
-        return self.requested
-
-    def close(self):
-        os.close(self.reader)
-        os.close(self.writer)
 
 
 def _emit(value, stream):

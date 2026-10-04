@@ -203,6 +203,16 @@
     실제 Compose에 명시적 서비스 UID·SCRAM/개인 비밀·socket/artifact 경계를 연결한다.
     수용: 지역 접수→소유된 조사/수집/검토 진행·현재 보류 또는 완료 조회·재시작/권한 철회/
     socket/임대 복구와 전체 정리. fake CLI 증거와 실제 모델 호출/독립 해제·G1/G4는 분리한다.
+    - [x] **`cli-dispatch-loop`** — 파일(5): `backend/app/cli_dispatch_loop.py`,
+      `backend/app/process_stop.py`, `backend/app/deterministic_work.py`,
+      `backend/tests/test_cli_dispatch_loop.py`, `contracts/cli-dispatch-loop-v1.md`.
+      고정 authority endpoint/UID/계정으로 기존 RPC를 반복 소비한다. 응답 유실·불일치·
+      미완결에는 다음 요청 없이 멈추고, 정상 대기·신호/FD 정리를 유지한다.
+      수용: 실제 별도 Unix RPC 프로세스·대기 간격·한 번의 실패 후 추가 요청 없음,
+      공통 신호 추출 뒤 기존 결정적 소비자의 실제 SCRAM 회귀. Compose/제품 CLI는 후속이다.
+      [로컬 수용](../research/cli-dispatch-loop-implementation.md): 새19+기존17개/5.95초,
+      실제 반복 Unix RPC·불확실성 중단·신호/FD 정리와 기존37개/126.61초 실제 SCRAM 회귀.
+      일반 계정 UID의 합성 소프트웨어 증거이며 hosted/source Compose·제품 CLI는 후속이다.
 
 **운영 조립 체크포인트:** 구성/발견/루프의 실제 프로세스 시험 뒤 앱 이미지 기동을 확인하고,
 같은 판본의 전체 CI가 끝난 뒤 `end-to-end-g1`의 실제 CLI·독립 증거와 브라우저 경로를 검증한다.

@@ -1,6 +1,8 @@
 # Deterministic foreground consumer v1
 
 Status: implemented; focused actual process/SCRAM software acceptance passed.
+The 2026-10-04 [shared signal extraction](../research/cli-dispatch-loop-implementation.md)
+retains the same mechanism and passed the37-case actual SCRAM regression again.
 This closes the manual job-UUID delivery gap for the existing deterministic
 economic, break-even calculation and break-even verification workers.
 
