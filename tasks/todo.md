@@ -157,11 +157,17 @@
   [.dockerignore/script/보고서](../research/crop-fruit-cohort-image-inputs-implementation.md) 3파일.
   정확한 profile 1개 허용·실제 context hash/새 cases 제외·읽기 전용 pinned loader·
   UID/TLS/정리를 hosted에서 확인한 뒤 수용한다. 로컬 loader/AST만 통과했다.
-- [ ] **`crop-fruit-cohort-integration`** — 다음 핵심; 순간 구획 뒤 전체 기관의 시간 적분/관리 사건.
-  먼저 source/profile 호환·fruit 합계 파생/기존 유지 호흡 교체·성장 호흡 단일 차감,
-  명시 RGR/S/W1/초기/관리의 시간 입력 계약·bounded RK4/누적 외부 수지/사건·manifest를 정의한다.
+- [x] **`crop-plant-cohort-rates`** — 전체 기관/과실 순간 수지의 로컬 수용; 적분 부모의 첫 작은 단계.
+  [계약](../contracts/crop-plant-cohort-rates-v1.md)·제품 2파일·독립 생성기/참조.
+  [실제 수용](../research/crop-plant-cohort-rates-implementation.md): 새 43개/기존 포함 444개·0.99초,
+  독립 6사례/684수치·source/profile 호환·총 fruit 파생/기존 유지 호흡 교체·성장 단일 차감,
+  전체 탄소/개수 수지·입력 불변/단위/형태/범위·numeric/empty/entry hold·재현/hash.
+- [ ] **`crop-fruit-cohort-integration`** — 다음 핵심; 순간 결합 뒤 전체 기관의 시간 적분/관리 사건.
+  [고정 입력/수용 계약](../contracts/crop-plant-cohort-integration-v1.md)의 최대 24시간/128구간·
+  512출력/10,000step·명시 RGR/S/W1·초기/같은 비율 N/C 관리 제거·RK4/누적 수지/manifest를 구현한다.
   독립 일정 forcing/해석해·간격 수렴, 동시 N/C 제거·누적 terminal/호흡·같은 재현,
-  품종/초기 hold와 새 저장 판본 뒤 3D를 검증한다.
+  시간/자원/영역/실패 hold를 검증한다. 사용자 산출물은 단위 있는 기관/구획 시계열과
+  두 수지/사건 journal이다. 전체 작기 처리/품종/초기 hold와 새 저장 판본 뒤 3D는 후속이다.
 - [ ] **`crop-fruit-startup-policy`** — 최종 전체 작기 모델의 필수 누락; 개발/국내 확보와 병행.
   빈 초기 tail/남은 양의 유입·생식기 이전/초기 N1·자동 착과/W1/RGR의 근거를 조사하고
   원/변형/명시 관리 입력을 분리한 판본으로 startup/초기 보존·독립 수치/실측 적용성을 검증한다.

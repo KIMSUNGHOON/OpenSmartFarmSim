@@ -5,7 +5,7 @@
 **현재 상태 (2026-10-05): 운영 기반 고정, 계산→저장→성장 연구 3D의 첫 소프트웨어 경로를 로컬 수용했습니다.**
 `d19f7c0`의 백엔드·웹·C0·앱 조립·작성 경로 CI 5개가 모두 통과했습니다
 ([완료 범위와 증거](research/crop-priority-and-runtime-freeze-20261004.md)).
-현재 3D는 저장된 열 계산의 재생입니다. [첫 작물 탄소 유량 kernel](research/crop-growth-rates-implementation.md)은
+현재 3D는 저장된 열 계산과 합성 생장 연구 결과의 재생입니다. [첫 작물 탄소 유량 kernel](research/crop-growth-rates-implementation.md)은
 로컬 집중 86개/0.12초·참조 수치 60개를 통과했습니다.
 [작은 수관의 원식 적용 정책](research/crop-photosynthesis-domain.md)까지 합쳐 최종 118개/0.18초를
 통과했고 [필수 프로필·고지 이미지](research/crop-rate-image-inputs-implementation.md)도 실제 Docker로 확인했습니다.
@@ -31,7 +31,9 @@
 수용했습니다. [순수 제품 배분](research/crop-fruit-allocation-implementation.md)도 새 77개/기존 포함
 315개·0.70초와 독립 600개 유입/4개 hold로 로컬 수용했습니다.
 [50구획의 문헌식 수요·순간 결합](research/crop-fruit-cohort-rates-implementation.md)도 새 86개/기존 포함
-401개·독립 8,592수치로 로컬 수용했습니다. 다음은 전체 기관의 시간 적분과 관리 사건입니다.
+401개·독립 8,592수치로 로컬 수용했습니다.
+[전체 기관의 순간 결합](research/crop-plant-cohort-rates-implementation.md)도 444개 집중 시험·
+독립 684수치로 로컬 수용했습니다. 다음은 [시간 적분과 관리 사건](contracts/crop-plant-cohort-integration-v1.md)입니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
 별도 UID 4개와 CI 5개를 모두 통과했습니다. `d76410f`의 웹/C0/실제 앱 이미지·Compose CI도
