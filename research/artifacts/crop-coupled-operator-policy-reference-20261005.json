@@ -1,0 +1,72 @@
+{
+  "evidence_version": "crop-coupled-operator-policy-local-v1",
+  "recorded_at_utc": "2026-10-04T20:51:12.760461+00:00",
+  "scope": "restore default-off crop storage policy compatibility in existing operator API; synthetic test providers; no G0-G4 acceptance",
+  "cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "verified_turn_context_at": "2026-10-04T19:45:00.834Z",
+    "recursive_cli": false
+  },
+  "failure": {
+    "head_sha": "bdcade9f5b74d4d7072f3beabd0ff2144461bbce",
+    "run_id": 37233284248,
+    "job_id": 111527290565,
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37233284248",
+    "stage": "Verify actual Compose API and automatic worker",
+    "api_exit_code": 2,
+    "diagnostic_location": "operator_config.py:98",
+    "cleanup_step_observed": true,
+    "log_sha256": "fbd0554b3b2795f787b81ba1fdfbe9e82ebf8004c761c7fb1a0f007e4e4a1659"
+  },
+  "cause": "RuntimeLoginPolicy serialization includes crop_coupled_result_storage:false; operator loader closed optional fields excluded the new default flag.",
+  "code_sha256": {
+    "backend/app/operator_config.py": "775fe7be63fdda8902b0833a2b099d50ae5339122051288242c6008226dd0e86",
+    "backend/tests/test_operator_config.py": "47891d31c6af83535048d8424c64ed2a15bff654d21ee774c713644bc60f2a3b"
+  },
+  "red": {
+    "exit_code": 1,
+    "failed": 2,
+    "passed": 1,
+    "assertion": "existing complete serialized policy and explicit false cannot load; omission already passes",
+    "log_sha256": "e308aaefaa0b950c967560d0f1538137f3756e6d0626cca7f3e0354badbabf9e"
+  },
+  "green": {
+    "passed": 99,
+    "skipped": 0,
+    "seconds": 30.01,
+    "new_cases": 7,
+    "runner": {
+      "started_at": "2026-10-04T20:48:41.602748+00:00",
+      "completed_at": "2026-10-04T20:49:13.633250+00:00",
+      "exit_code": 0,
+      "wall_seconds": 32.030506075010635,
+      "postgres": "16.15",
+      "python": "3.12.3",
+      "log_sha256": "6e9e0e057319ec6e40a70a95fbc3fc520370373ffeac4419ec12f19fd4ec4758",
+      "tests": [
+        "tests/test_operator_config.py",
+        "tests/test_api_runtime.py"
+      ],
+      "temporary_cluster_and_password_files_removed": true
+    },
+    "runner_sha256": "2fdd26128c6c6da9a9fc338d9d91b87843101e1005cc14158913885059227c81",
+    "actual_operator_tls_scram_test_passed": true
+  },
+  "behavior": {
+    "omitted": false,
+    "explicit_false": false,
+    "rejected_before_factory": [
+      true,
+      0,
+      1,
+      "false",
+      null
+    ],
+    "existing_v1_storage_option_unchanged": true,
+    "new_api_factory_or_routes_added": false,
+    "crop_physics_or_storage_bytes_changed": false
+  },
+  "hosted_reverification": "not started for fix at local proof recording; do not reuse predecessor hosted success"
+}

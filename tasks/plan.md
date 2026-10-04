@@ -24,6 +24,10 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 `784335d`의 [순간 구획/기관 결합 CI 5개](../research/artifacts/crop-fruit-cohort-plant-ci-20261005.json)도
 백엔드 2,969개·별도 UID 4개·여섯 동일 목록/정리·집계까지 실제 성공했다.
 새 시간 적분/artifact·v2 저장 코드의 hosted 수용은 별도다.
+`bdcade9`의 Application CI에서 새 기본 false policy의 기존 loader 허용 목록 누락으로
+실제 API 기동이 실패했다. [최소 policy 회귀 수정](../research/crop-coupled-operator-policy-implementation.md)은
+작물 저장 조회의 필수 선행이며 기존 loader/시험 두 파일에 한정했다.
+99개·실제 SCRAM/운영 TLS 로컬 통과 뒤 수정 판본 hosted Compose를 재확인한다.
 transport/cohort 프로필의 실제 hosted 포장도 수용했다
 ([한 파일 허용/기존 검사와 실제 증거](../research/crop-fruit-cohort-image-inputs-implementation.md)).
 실제 참조 작기의 UTC/면적·수관/초기조건·관리 입력 채택과 재현은 보류다.
@@ -62,7 +66,8 @@ flowchart TD
   PC --> CI["crop-fruit-cohort-integration: 시간 적분·사건"]
   CI --> AF["crop-coupled-artifact: 불변 입력/결과 파일"]
   AF --> CS["crop-coupled-result-storage: 새 불변 결과 v2"]
-  CS --> CA["coupled 조회 API: 재적분 없는 현재 결과"]
+  CS --> CP["crop-coupled-operator-policy: 기본 false 기동 회귀 복구"]
+  CP --> CA["coupled 조회 API: 재적분 없는 현재 결과"]
   CA --> CV["coupled 표/그래프/3D: 같은 결과/시점"]
   FM --> ST["crop-fruit-startup-policy: 초기/자동/W1/RGR"]
   CI --> F["crop-fruit-cohorts → crop-harvest-conversion"]

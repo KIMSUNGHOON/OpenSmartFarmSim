@@ -24,6 +24,8 @@ payload·result·artifact/input hash를 유지한다. 조회는 저장 값을 �
 display 권리·HMAC/custody가 필요하다. 기본 store 없음은 503이다. 새 optional
 store/factory와 명시적인 `crop_coupled_result_storage=true`는 함께 필요하고,
 같은 실제 farm service/JobStore/현재 principal에 묶는다.
+현재 기존 operator loader는 새 flag의 생략/false만 읽는다. 이 API의 store/factory
+구현 시 명시 true의 조립 검증과 loader 수용을 함께 추가하고 현재 거부 시험을 갱신한다.
 
 ## 공개 타입과 보류
 
