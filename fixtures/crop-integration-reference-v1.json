@@ -1,0 +1,692 @@
+{
+  "fixture_version": "crop-integration-reference-v1",
+  "scope": "synthetic software math; no cultivar measurements or gate acceptance",
+  "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+  "source_case_sha256": "f96b119c561981a459bdbd5dd82daaa6965b54f483174552b3867105cc01e0fc",
+  "generator_sha256": "a38b7a67e43cf9f590838bf915ab3e5048950b8be6ed35f70817e18b42a09ce7",
+  "reference_method": "60-digit Decimal original source RHS with independent RK4 at 0.25s; refinement checked against 0.5s; no product imports",
+  "refinement_max_absolute_difference_by_quantity": {
+    "state": {
+      "buffer": {
+        "value": "7.161820811881214103824151536648762E-22",
+        "unit": "mg_CH2O/m2_floor"
+      },
+      "leaf": {
+        "value": "3.103841485305812271985121915265298E-23",
+        "unit": "mg_CH2O/m2_floor"
+      },
+      "stem_root": {
+        "value": "2.430250500547264215802194519479841E-23",
+        "unit": "mg_CH2O/m2_floor"
+      },
+      "fruit": {
+        "value": "9.761998435642156140521767580254196E-24",
+        "unit": "mg_CH2O/m2_floor"
+      },
+      "temperature_filtered_24h": {
+        "value": "2.43227588492241542931346454658322E-26",
+        "unit": "degC"
+      },
+      "temperature_sum": {
+        "value": "1.53E-59",
+        "unit": "degC_day"
+      }
+    },
+    "cumulative": {
+      "photosynthesis": {
+        "value": "7.0615203462219805521186153098639129292E-22",
+        "unit": "mg_CH2O/m2_floor"
+      },
+      "growth_respiration": {
+        "value": "1.87258591437208941759139755736481215E-23",
+        "unit": "mg_CH2O/m2_floor"
+      },
+      "maintenance_leaf": {
+        "value": "3.11459363940030113622184016991616750E-25",
+        "unit": "mg_CH2O/m2_floor"
+      },
+      "maintenance_stem_root": {
+        "value": "1.173970161890768912099688531352926678E-25",
+        "unit": "mg_CH2O/m2_floor"
+      },
+      "maintenance_fruit": {
+        "value": "5.116970800180181544084731444860469038E-26",
+        "unit": "mg_CH2O/m2_floor"
+      },
+      "removal_leaf": {
+        "value": "0",
+        "unit": "mg_CH2O/m2_floor"
+      },
+      "removal_stem_root": {
+        "value": "0",
+        "unit": "mg_CH2O/m2_floor"
+      },
+      "removal_fruit": {
+        "value": "0",
+        "unit": "mg_CH2O/m2_floor"
+      }
+    }
+  },
+  "program": {
+    "initial_state": {
+      "input_id": "integration-synthetic-initial-v1",
+      "origin": "synthetic",
+      "values": {
+        "buffer": {
+          "value": 20000,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "leaf": {
+          "value": 4368,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "stem_root": {
+          "value": 1560,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "fruit": {
+          "value": 312,
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "temperature_filtered_24h": {
+          "value": 20.5,
+          "unit": "degC"
+        },
+        "temperature_sum": {
+          "value": 0,
+          "unit": "degC_day"
+        }
+      }
+    },
+    "segments": [
+      {
+        "start": "2026-01-01T00:00:00Z",
+        "end": "2026-01-01T00:02:00Z",
+        "forcing": {
+          "input_id": "integration-forcing-0",
+          "origin": "synthetic",
+          "values": {
+            "canopy_temperature": {
+              "value": 20,
+              "unit": "degC"
+            },
+            "par_above_canopy": {
+              "value": 1000,
+              "unit": "umol_photons/m2_floor/s"
+            },
+            "co2": {
+              "value": 800,
+              "unit": "ppm"
+            }
+          }
+        },
+        "removals": {
+          "input_id": "integration-continuous-removal-0",
+          "origin": "synthetic",
+          "values": {
+            "leaf": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            },
+            "stem_root": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            },
+            "fruit": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            }
+          }
+        }
+      },
+      {
+        "start": "2026-01-01T00:02:00Z",
+        "end": "2026-01-01T00:04:00Z",
+        "forcing": {
+          "input_id": "integration-forcing-1",
+          "origin": "synthetic",
+          "values": {
+            "canopy_temperature": {
+              "value": 23,
+              "unit": "degC"
+            },
+            "par_above_canopy": {
+              "value": 600,
+              "unit": "umol_photons/m2_floor/s"
+            },
+            "co2": {
+              "value": 800,
+              "unit": "ppm"
+            }
+          }
+        },
+        "removals": {
+          "input_id": "integration-continuous-removal-1",
+          "origin": "synthetic",
+          "values": {
+            "leaf": {
+              "value": 0.01,
+              "unit": "mg_CH2O/m2_floor/s"
+            },
+            "stem_root": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            },
+            "fruit": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            }
+          }
+        }
+      },
+      {
+        "start": "2026-01-01T00:04:00Z",
+        "end": "2026-01-01T00:05:00Z",
+        "forcing": {
+          "input_id": "integration-forcing-2",
+          "origin": "synthetic",
+          "values": {
+            "canopy_temperature": {
+              "value": 17,
+              "unit": "degC"
+            },
+            "par_above_canopy": {
+              "value": 0,
+              "unit": "umol_photons/m2_floor/s"
+            },
+            "co2": {
+              "value": 400,
+              "unit": "ppm"
+            }
+          }
+        },
+        "removals": {
+          "input_id": "integration-continuous-removal-2",
+          "origin": "synthetic",
+          "values": {
+            "leaf": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            },
+            "stem_root": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            },
+            "fruit": {
+              "value": 0.05,
+              "unit": "mg_CH2O/m2_floor/s"
+            }
+          }
+        }
+      }
+    ],
+    "events": [
+      {
+        "at": "2026-01-01T00:03:00Z",
+        "removals": {
+          "input_id": "integration-pulse-180",
+          "origin": "synthetic",
+          "values": {
+            "leaf": {
+              "value": 100,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "stem_root": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "fruit": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          }
+        }
+      },
+      {
+        "at": "2026-01-01T00:05:00Z",
+        "removals": {
+          "input_id": "integration-pulse-300",
+          "origin": "synthetic",
+          "values": {
+            "leaf": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "stem_root": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "fruit": {
+              "value": 20,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          }
+        }
+      }
+    ],
+    "output_times": [
+      "2026-01-01T00:00:00Z",
+      "2026-01-01T00:01:00Z",
+      "2026-01-01T00:02:00Z",
+      "2026-01-01T00:03:00Z",
+      "2026-01-01T00:04:00Z",
+      "2026-01-01T00:05:00Z"
+    ],
+    "solver": {
+      "method": "rk4-fixed-v1",
+      "max_step_seconds": 10,
+      "max_steps": 10000,
+      "roundoff_rule": "64-ulp-per-operation-v1"
+    }
+  },
+  "expected": [
+    {
+      "at": "2026-01-01T00:00:00Z",
+      "state": {
+        "buffer": "20000",
+        "leaf": "4368",
+        "stem_root": "1560",
+        "fruit": "312",
+        "temperature_filtered_24h": "20.5",
+        "temperature_sum": "0"
+      },
+      "cumulative": {
+        "photosynthesis": "0",
+        "growth_respiration": "0",
+        "maintenance_leaf": "0",
+        "maintenance_stem_root": "0",
+        "maintenance_fruit": "0",
+        "removal_leaf": "0",
+        "removal_stem_root": "0",
+        "removal_fruit": "0"
+      },
+      "lai": "0.1161888",
+      "carbon_residual": "0"
+    },
+    {
+      "at": "2026-01-01T00:01:00Z",
+      "state": {
+        "buffer": "19989.4718980553823585506401563030554848678317667579174842386",
+        "leaf": "4373.73506680680462206892478588254879479732964044386451919459",
+        "stem_root": "1564.50911083535397225687130842734995494311273876277628829471",
+        "fruit": "312.098085316977255114470322838554969431840577625574161645972",
+        "temperature_filtered_24h": "20.4996528983131460624873086877730488776413708202796825460592",
+        "temperature_sum": "0.0138888888888888888888888888888888888888888888888888888888908"
+      },
+      "cumulative": {
+        "photosynthesis": "2.89957719984378073264338047852794959923865517382183223300614",
+        "growth_respiration": "3.00713853472105439431870386845867056176901842653255846025660",
+        "maintenance_leaf": "0.0666032747915084377531073757066887726531309420050871667582633",
+        "maintenance_stem_root": "0.0100848071524872956988400053964217324527884220063524499088538",
+        "maintenance_fruit": "0.00158956866052261396615577745696449224899379314538078249483347",
+        "removal_leaf": "0.00",
+        "removal_stem_root": "0.00",
+        "removal_fruit": "0.00"
+      },
+      "lai": "0.116341352777061002947033399304475797941608968435806796210576",
+      "carbon_residual": "3.1240E-55"
+    },
+    {
+      "at": "2026-01-01T00:02:00Z",
+      "state": {
+        "buffer": "19978.9552039963172033489476861792295622776050701335552577536",
+        "leaf": "4379.46996211711011564975129912939390809838522825050121331190",
+        "stem_root": "1569.01812604242754020030714328399276311373981098800059443311",
+        "fruit": "312.196303208621829653169527988712742476722846371042465673315",
+        "temperature_filtered_24h": "20.4993060375854541586724124091681350267296440776073643746395",
+        "temperature_sum": "0.0277777777777777777777777777777777777777777777777777777777868"
+      },
+      "cumulative": {
+        "photosynthesis": "5.81053473815438382402415410399830525709962909307032492522144",
+        "growth_respiration": "6.01426896097934900881301355509688891738839910672435046301968",
+        "maintenance_leaf": "0.133292335266786157055856439098644096843451533325730040872159",
+        "maintenance_stem_root": "0.0201984783713096281531673693593301751751606330856561785653905",
+        "maintenance_fruit": "0.00317959906025017782646015911446610123966207683505707003152705",
+        "removal_leaf": "0.00",
+        "removal_stem_root": "0.00",
+        "removal_fruit": "0.00"
+      },
+      "lai": "0.116493900992315129076283384556841877955417047071463332274097",
+      "carbon_residual": "-8.3268E-55"
+    },
+    {
+      "at": "2026-01-01T00:03:00Z",
+      "state": {
+        "buffer": "19967.5513379548036328303801549935596873335908688281053759141",
+        "leaf": "4284.60494298247107772766705810307566325703669547715886544183",
+        "stem_root": "1573.52724531098110428728124208207265454724837109480091866828",
+        "fruit": "312.294543362867370428377983692718957561232888864256788121759",
+        "temperature_filtered_24h": "20.5010420277707732504218435156311823694478685011567225257883",
+        "temperature_sum": "0.0437500000000000000000000000000000000000000000000000000000028"
+      },
+      "cumulative": {
+        "photosynthesis": "7.83474268432370388604880533458579569487484280724494195108763",
+        "growth_respiration": "9.02149369506877214111350214036565828469686068188891086970438",
+        "maintenance_leaf": "0.200067426947703422945923596544839134680121149013761562638560",
+        "maintenance_stem_root": "0.0303417447766831353015015576317367894573597508493381563897413",
+        "maintenance_fruit": "0.00477020640735991298143916861659878693167696117098321523129489",
+        "removal_leaf": "100.6000",
+        "removal_stem_root": "0.00",
+        "removal_fruit": "0.00"
+      },
+      "lai": "0.113970491483333730667555943745541812642637176099692425820753",
+      "carbon_residual": "-1.124E-54"
+    },
+    {
+      "at": "2026-01-01T00:04:00Z",
+      "state": {
+        "buffer": "19956.0954436760276003270318782386661659908859069626350711923",
+        "leaf": "4289.74179009650285802800644048706441848634707408495436914904",
+        "stem_root": "1578.03666805177751441758089264648126616195893465416132849360",
+        "fruit": "312.392945151784458358030812173041377803796235349303294341580",
+        "temperature_filtered_24h": "20.5027768128258489698986043738102901993886109396222638877067",
+        "temperature_sum": "0.0597222222222222222222222222222222222222222222222222222222188"
+      },
+      "cumulative": {
+        "photosynthesis": "9.80811101858602421619455881155657733734056298402864036302083",
+        "growth_respiration": "12.0289823884831616109151967315959557500943131140543128852016",
+        "maintenance_leaf": "0.265404803771550678585272122529591044352279309969227190632018",
+        "maintenance_stem_root": "0.0405153442257092065010729652024886303752985166212623394789959",
+        "maintenance_fruit": "0.00636150601317158954299344697531346953052099232977476996495532",
+        "removal_leaf": "101.2000",
+        "removal_stem_root": "0.00",
+        "removal_fruit": "0.00"
+      },
+      "lai": "0.114107131616566976023544971316955913531736832170659786219364",
+      "carbon_residual": "-1.243E-54"
+    },
+    {
+      "at": "2026-01-01T00:05:00Z",
+      "state": {
+        "buffer": "19942.6662868169889132344612298004647526466733773522287891824",
+        "leaf": "4295.47846984228902813118312170137294840730795770791654073688",
+        "stem_root": "1582.54599486426988916693591499794909661631470604414284276046",
+        "fruit": "289.491426264686684161963062830989616992453360851599365214843",
+        "temperature_filtered_24h": "20.5003451733450395476568234209606364085300351923538898554200",
+        "temperature_sum": "0.0715277777777777777777777777777777777777777777777777777777708"
+      },
+      "cumulative": {
+        "photosynthesis": "9.80811101858602421619455881155657733734056298402864036302083",
+        "growth_respiration": "15.0364463367365012863456056325905720164658573289934069158416",
+        "maintenance_leaf": "0.330823456226108624696193894067811993636009259713857257815064",
+        "maintenance_stem_root": "0.0507178103629542008016571500784430644205945411692567301039461",
+        "maintenance_fruit": "0.00794562702594540980777280404333560006869989826458156328707107",
+        "removal_leaf": "101.2000",
+        "removal_stem_root": "0.00",
+        "removal_fruit": "23.0000"
+      },
+      "lai": "0.114259727297804888148289471037256520427634391675030579983601",
+      "carbon_residual": "-1.373E-54"
+    }
+  ],
+  "convergence_case": {
+    "reference_method": "60-digit Decimal original source RHS, independent RK4 at 0.5s with 1s refinement comparison",
+    "program": {
+      "initial_state": {
+        "input_id": "convergence-synthetic-night-state-v1",
+        "origin": "synthetic",
+        "values": {
+          "buffer": {
+            "value": 1000.0,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 100000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 40000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 100000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 1200,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "segments": [
+        {
+          "start": "2026-01-01T00:00:00Z",
+          "end": "2026-01-01T01:00:00Z",
+          "forcing": {
+            "input_id": "night-with-removal-forcing",
+            "origin": "synthetic",
+            "values": {
+              "canopy_temperature": {
+                "value": 23,
+                "unit": "degC"
+              },
+              "par_above_canopy": {
+                "value": 0,
+                "unit": "umol_photons/m2_floor/s"
+              },
+              "co2": {
+                "value": 400,
+                "unit": "ppm"
+              }
+            }
+          },
+          "removals": {
+            "input_id": "night-with-removal-removals",
+            "origin": "synthetic",
+            "values": {
+              "leaf": {
+                "value": 0.01,
+                "unit": "mg_CH2O/m2_floor/s"
+              },
+              "stem_root": {
+                "value": 0,
+                "unit": "mg_CH2O/m2_floor/s"
+              },
+              "fruit": {
+                "value": 0.05,
+                "unit": "mg_CH2O/m2_floor/s"
+              }
+            }
+          }
+        }
+      ],
+      "events": [],
+      "output_times": [
+        "2026-01-01T00:00:00Z",
+        "2026-01-01T00:15:00Z",
+        "2026-01-01T00:30:00Z",
+        "2026-01-01T00:45:00Z",
+        "2026-01-01T01:00:00Z"
+      ],
+      "solver": {
+        "method": "rk4-fixed-v1",
+        "max_step_seconds": 10,
+        "max_steps": 10000,
+        "roundoff_rule": "64-ulp-per-operation-v1"
+      }
+    },
+    "expected": [
+      {
+        "at": "2026-01-01T00:00:00Z",
+        "state": {
+          "buffer": "1000.0",
+          "leaf": "100000",
+          "stem_root": "40000",
+          "fruit": "100000",
+          "temperature_filtered_24h": "23",
+          "temperature_sum": "1200"
+        },
+        "cumulative": {
+          "photosynthesis": "0",
+          "growth_respiration": "0",
+          "maintenance_leaf": "0",
+          "maintenance_stem_root": "0",
+          "maintenance_fruit": "0",
+          "removal_leaf": "0",
+          "removal_stem_root": "0",
+          "removal_fruit": "0"
+        },
+        "lai": "2.6600000",
+        "carbon_residual": "0.0"
+      },
+      {
+        "at": "2026-01-01T00:15:00Z",
+        "state": {
+          "buffer": "790.739941822906258201704941532782498805471636343514685169123",
+          "leaf": "99995.1945303112115541341177435829189682262851036074361849606",
+          "stem_root": "40019.8331874567815806668630180405996112945174508564173911176",
+          "fruit": "100054.040603471209579695604362256279986243257164413078208337",
+          "temperature_filtered_24h": "23",
+          "temperature_sum": "1200.23958333333333333333333333333333333333333333333333333000"
+        },
+        "cumulative": {
+          "photosynthesis": "0.0",
+          "growth_respiration": "45.3127526134473395329738957418704251990592151501061053954338",
+          "maintenance_leaf": "27.1818452629105397229902285219825758200372244908140644167061",
+          "maintenance_stem_root": "4.60735772727141875867371812532369669945994155695648734943314",
+          "maintenance_fruit": "9.08978133426172928707209219824223771191226358167687326378425",
+          "removal_leaf": "9.000",
+          "removal_stem_root": "0.0",
+          "removal_fruit": "45.000"
+        },
+        "lai": "2.65987217450627822733996753197930564455481918375595780251995",
+        "carbon_residual": "1.0357E-53"
+      },
+      {
+        "at": "2026-01-01T00:30:00Z",
+        "state": {
+          "buffer": "672.272191806646554611176290159979061822824385582962223748886",
+          "leaf": "99976.7791268273974308823698517613220706308295693280025941399",
+          "stem_root": "40029.0606964948583094271483034437510849857805188892570960387",
+          "fruit": "100061.163888657742707314947513487963147887622411876981459284",
+          "temperature_filtered_24h": "23",
+          "temperature_sum": "1200.47916666666666666666666666666666666666666666666666666000"
+        },
+        "cumulative": {
+          "photosynthesis": "0.0",
+          "growth_respiration": "70.9655211420496529159407803478596525999124554759145863913576",
+          "maintenance_leaf": "54.3602566517113230876386629303908700426351762152390106732665",
+          "maintenance_stem_root": "9.21629695202640419159517115821478459144465132337320666322295",
+          "maintenance_fruit": "18.1820214675676175691834267105193274389508313082698230910149",
+          "removal_leaf": "18.000",
+          "removal_stem_root": "0.0",
+          "removal_fruit": "90.000"
+        },
+        "lai": "2.65938232477360877166147103805685116707878006654412486900412",
+        "carbon_residual": "3.0862E-53"
+      },
+      {
+        "at": "2026-01-01T00:45:00Z",
+        "state": {
+          "buffer": "593.163148582671490022732704838351983583665445645760759134681",
+          "leaf": "99952.4681964766342606555881998280428801518347223090091362509",
+          "stem_root": "40033.6905357017425303228786127880966346833444927616445965449",
+          "fruit": "100047.949845543983235320989957509428835180174940637866911971",
+          "temperature_filtered_24h": "23",
+          "temperature_sum": "1200.71874999999999999999999999999999999999999999999999999000"
+        },
+        "cumulative": {
+          "photosynthesis": "0.0",
+          "growth_respiration": "88.0956343470526913112029192344543141044723494410667980243781",
+          "maintenance_leaf": "81.5327641282335392749247606579638629477260476841999026857808",
+          "maintenance_stem_root": "13.8260020325755454124683248536349336257870543909603390535407",
+          "maintenance_fruit": "27.2738731871067076792145202900265557229949471294915563730557",
+          "removal_leaf": "27.000",
+          "removal_stem_root": "0.0",
+          "removal_fruit": "135.000"
+        },
+        "lai": "2.65873565402627847133343864611542594061203880361341964302427",
+        "carbon_residual": "3.8756E-53"
+      },
+      {
+        "at": "2026-01-01T01:00:00Z",
+        "state": {
+          "buffer": "534.609914367683111530956635338711097220487947112558013453614",
+          "leaf": "99925.0822007791242531341021301089501813923552446464405945157",
+          "stem_root": "40035.9191753402049297185155084542494951669468013106160175703",
+          "fruit": "100024.115783888525320627864683267741419869957440294380948868",
+          "temperature_filtered_24h": "23",
+          "temperature_sum": "1200.95833333333333333333333333333333333333333333333333332000"
+        },
+        "cumulative": {
+          "photosynthesis": "0.0",
+          "growth_respiration": "100.774633954221023694761738297544813228745967796807234987372",
+          "maintenance_leaf": "108.698206194957235680421977789069174996829884098640145642224",
+          "maintenance_stem_root": "18.4360890396059142001664282242076877046289831855521379240539",
+          "maintenance_fruit": "36.3639964356782114132108985195261304200477315550049070731332",
+          "removal_leaf": "36.000",
+          "removal_stem_root": "0.0",
+          "removal_fruit": "180.000"
+        },
+        "lai": "2.65800718654072470513336711666089807482503664950759531981412",
+        "carbon_residual": "3.3783E-53"
+      }
+    ],
+    "refinement_max_absolute_difference_by_quantity": {
+      "state": {
+        "buffer": {
+          "value": "2.22715325368422485275532412735457086561899618E-13",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "leaf": {
+          "value": "3.34126535873032628513113599246044893179135E-14",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "stem_root": {
+          "value": "2.60182507513708962806120069265306096596469E-14",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "fruit": {
+          "value": "1.15104779493678933901905249837635667343863E-13",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "temperature_filtered_24h": {
+          "value": "0",
+          "unit": "degC"
+        },
+        "temperature_sum": {
+          "value": "0",
+          "unit": "degC_day"
+        }
+      },
+      "cumulative": {
+        "photosynthesis": {
+          "value": "0",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "growth_respiration": {
+          "value": "4.82263288035775910508513818555487069306804055E-14",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "maintenance_leaf": {
+          "value": "1.89003385272682748827893247094499621393662E-17",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "maintenance_stem_root": {
+          "value": "6.23580409443237987321721119688341439784264E-18",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "maintenance_fruit": {
+          "value": "2.17699917254822839416991020184992496549455E-17",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "removal_leaf": {
+          "value": "0",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "removal_stem_root": {
+          "value": "0",
+          "unit": "mg_CH2O/m2_floor"
+        },
+        "removal_fruit": {
+          "value": "0",
+          "unit": "mg_CH2O/m2_floor"
+        }
+      }
+    }
+  }
+}
