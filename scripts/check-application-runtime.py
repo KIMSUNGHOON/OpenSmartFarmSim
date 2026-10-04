@@ -43,6 +43,7 @@ from pathlib import Path
 from app.operator_config import _private_bytes
 from app.api_runtime import ApiRuntimeDependencies
 from app.cli_contracts import _canonical
+from app.content_access import ContentAccess
 from app.http_identity import BearerRegistry, BearerGrant, current_principal, token_digest
 from app.research_registry import ResearchRegistry
 from app.owned_fixture_registry import OwnedFixtureRegistry
@@ -93,7 +94,8 @@ def build():
     provider = lambda: principal
     binding = (policy,'authority')
     jobs = JobStore(dsn, policy.schema, Path('/artifacts'), runtime_identity=binding,
-        audit_runtime_grants=True, principal_provider=provider)
+        audit_runtime_grants=True, principal_provider=provider,
+        content_access=ContentAccess(**value['content_access']) if value['content_access'] else None)
     contexts = ThermalRunStore(dsn,policy.schema,
         gate_key=_private_bytes(root/'thermal.key',minimum=32,maximum=4096),
         release_verifier=lambda *_:None,context_verifier=verify,
@@ -117,13 +119,14 @@ def private(path, value):
     path.chmod(0o600)
 
 
-def operator_files(root, policy, dsns, worker, principal, certificates, token, *, collection=False):
+def operator_files(root, policy, dsns, worker, principal, certificates, token, *, collection=False, authority=False):
     scopes = sorted(principal['scopes'] | {'auditor', 'market_hold_read'})
     catalog = research_document()
     catalog['registrations'][0]['tenant_id'] = 'tenant-1'
     now = datetime.now(timezone.utc)
     value = {'policy': asdict(policy), 'hold_scope': worker.results._candidates._source._holds._scope_resolver(),
-        'scopes': scopes, 'research_registry': catalog, 'collection_enabled': collection,
+        'scopes': scopes, 'research_registry': catalog, 'collection_enabled': collection or authority,
+        'content_access': {'owner_uid':11001,'reader_gid':11010} if authority else None,
         'not_before': (now - timedelta(seconds=1)).isoformat(),
         'expires_at': (now + timedelta(hours=1)).isoformat()}
     authority = conninfo_to_dict(dsns['authority'])
@@ -151,7 +154,7 @@ def operator_files(root, policy, dsns, worker, principal, certificates, token, *
                 'certificate': '/run/operator/api/cert.pem', 'private_key': '/run/operator/api/key.pem',
                 'thermal_gate_key_file': '/run/operator/api/thermal.key',
                 'market_hold_key_file': '/run/operator/api/market.key',
-                'authored_run_gate_key_file': None, 'content_access': None,
+                'authored_run_gate_key_file': None, 'content_access': value['content_access'],
                 'host': '127.0.0.1', 'port': 8443,
                 'dependencies_factory': 'synthetic_operator:dependencies_factory'}
             private(directory / 'operator.json', json.dumps(config))
@@ -161,7 +164,7 @@ def operator_files(root, policy, dsns, worker, principal, certificates, token, *
          (certificates / 'ca.pem', 'api-ca.pem')])
 
 
-def main(*, collection=False):
+def main(*, collection=False, authority=False):
     os.chdir(ROOT)
     prefix = 'ossf-app-' + uuid4().hex[:12]
     root = Path(tempfile.mkdtemp(prefix=prefix + '-'))
@@ -170,17 +173,25 @@ def main(*, collection=False):
         '-f', str(ROOT / 'compose.application.yaml')]
     if collection:
         compose.extend(['-f', str(ROOT / 'compose.collection.yaml')])
+    if authority:
+        compose.extend(['-f',str(ROOT/'compose.authority.yaml')])
     compose.extend(['-f', str(root / 'ci.json'), '--profile', 'runtime'])
-    services = ('api', 'web', 'simulation', 'collector') if collection else ('api', 'web', 'simulation')
+    services = ('api','web','simulation') + (('collector',) if collection else ()) + (
+        ('supervisor','authority','dispatcher') if authority else ())
     collection_tools = None
+    authority_tools = None
     previous = {key: os.environ.get(key) for key in ('OSSF_TEST_PG_DSN', 'DB_ADMIN_PASSWORD_FILE',
         'DB_APP_PASSWORD_FILE', 'OSSF_API_PRIVATE_DIR', 'OSSF_SIMULATION_PRIVATE_DIR',
         'OSSF_WEB_PRIVATE_DIR', 'OSSF_ARTIFACT_DIR', 'OSSF_SIMULATION_FACTORY',
         'OSSF_WEB_PORT', 'OSSF_BACKEND_IMAGE', 'OSSF_WEB_IMAGE',
-        'OSSF_COLLECTION_PRIVATE_DIR', 'OSSF_COLLECTION_FACTORY')}
+        'OSSF_COLLECTION_PRIVATE_DIR', 'OSSF_COLLECTION_FACTORY', 'OSSF_AUTHORITY_PRIVATE_DIR',
+        'OSSF_SUPERVISOR_PRIVATE_DIR','OSSF_AUTHORITY_FACTORY','OSSF_SUPERVISOR_FACTORY',
+        'OSSF_AUTHORITY_SOCKET_DIR','OSSF_SUPERVISOR_SOCKET_DIR','OSSF_RPC_TENANT')}
     try:
         if collection:
             collection_tools=runpy.run_path(str(ROOT/'scripts/application-collection-fixture.py'))
+        if authority:
+            authority_tools=runpy.run_path(str(ROOT/'scripts/application-authority-fixture.py'))
         IMAGE_TOOLS['image_checks'](root, prefix, images)
         certs = root / 'certificates'
         certs.mkdir(mode=0o700)
@@ -199,6 +210,13 @@ def main(*, collection=False):
         if collection:
             os.environ.update({'OSSF_COLLECTION_PRIVATE_DIR':str(root/'collection'),
                                'OSSF_COLLECTION_FACTORY':'synthetic_collection:build'})
+        if authority:
+            os.environ.update({'OSSF_AUTHORITY_PRIVATE_DIR':str(root/'authority'),
+                'OSSF_SUPERVISOR_PRIVATE_DIR':str(root/'supervisor'),
+                'OSSF_AUTHORITY_FACTORY':'synthetic_authority:authority',
+                'OSSF_SUPERVISOR_FACTORY':'synthetic_authority:supervisor',
+                'OSSF_AUTHORITY_SOCKET_DIR':str(root/'authority-socket'),
+                'OSSF_SUPERVISOR_SOCKET_DIR':str(root/'supervisor-socket'),'OSSF_RPC_TENANT':'tenant-1'})
         command(*compose, 'config', '--quiet')
         model = json.loads(command(*compose, 'config', '--format', 'json').stdout)
         for service in services:
@@ -222,9 +240,14 @@ def main(*, collection=False):
         assert jobs.cancel('tenant-1', unused_job['job_id'])
         ingestion = (collection_tools['prepare'](root,scope,principal,private=private,command=command)
                      if collection else None)
+        location=(authority_tools['prepare'](root,scope,principal,private=private,command=command)
+                  if authority else None)
         token = 'synthetic-' + secrets.token_hex(32)
-        operator_files(root, policy, dsns, worker, principal, certs, token, collection=collection)
-        command('sudo', 'chown', '-R', '11001:11010', str(root / 'artifacts'))
+        operator_files(root, policy, dsns, worker, principal, certs, token, collection=collection,authority=authority)
+        if authority:
+            authority_tools['share_artifacts'](root,command=command)
+        else:
+            command('sudo','chown','-R','11001:11010',str(root/'artifacts'))
         startup = command(*compose, 'up', '--no-build', '--pull', 'never', '--wait', '--wait-timeout', '120',
                           *services, check=False)
         if startup.returncode:
@@ -316,28 +339,60 @@ print(json.dumps(records[-30:]))
             assert call('/v1/ingestions',ingestion)[1]['job_id']==collected['job_id']
             assert current['attempt_count']==1
             event('automatic_owned_collection',assessment='hold',source_count=3,scope='software_fixture_only')
+        if authority:
+            status,regional=call('/v1/locations',location)
+            assert status==202
+            research_id=regional['research_job']['job_id']
+            research_route='/v1/jobs/'+research_id
+            deadline=time.monotonic()+120
+            while True:
+                status,research=call(research_route)
+                assert status==200 and research['state'] not in ('succeeded','failed','canceled')
+                if research['state']=='hold': break
+                assert time.monotonic()<deadline,'automatic_research_hold_timeout'
+                time.sleep(0.5)
+            status,held=call(research_route+'/hold-report')
+            assert status==200 and held['missing_evidence_count']==2
+            assert set(held['missing_evidence'])=={'research_source_evidence','signed_decision_context'}
+            persisted=authority_tools['assert_persisted'](research_id,command=command,compose=compose)
+            assert call('/v1/ingestions',{'research_job_id':research_id,'idempotency_key':'held-research-ingestion'})[0]==422
+            authority_tools['assert_denials'](compose,command=command)
+            event('automatic_scoped_research_hold',**persisted)
         for service in services:
             identity = command(*compose, 'ps', '--quiet', service).stdout.strip()
             info = json.loads(command('docker', 'inspect', identity).stdout)[0]
-            expected_user = '11002:11002' if service == 'web' else '11001:11010'
+            expected_user={'web':'11002:11002','supervisor':'11003:11020','dispatcher':'11004:11030'}.get(service,'11001:11010')
             assert info['Config']['User'] == expected_user
             assert info['HostConfig']['ReadonlyRootfs'] and 'ALL' in info['HostConfig']['CapDrop']
             assert info['HostConfig']['PidsLimit'] == 64 and info['HostConfig']['Memory'] > 0
             assert info['HostConfig']['NanoCpus'] > 0
             mounts = {item['Destination']: item for item in info['Mounts']}
-            private_mount = mounts[f'/run/operator/{service}']
-            assert not private_mount['RW']
+            if service!='dispatcher':
+                private_path='/run/operator/collection' if service=='collector' else f'/run/operator/{service}'
+                assert not mounts[private_path]['RW']
             if service == 'web':
                 assert '/artifacts' not in mounts and '/run/operator/api' not in mounts
             if service == 'collector':
                 assert '/run/operator/api' not in mounts and '/run/operator/simulation' not in mounts
                 assert mounts['/artifacts']['RW'] and info['HostConfig']['Memory']==256*1024*1024
                 assert info['HostConfig']['NanoCpus']==500000000
+            if service=='supervisor':
+                assert not mounts['/artifacts']['RW'] and '/run/operator/authority' not in mounts
+                assert mounts['/run/ipc/supervisor']['RW'] and '11010' in info['HostConfig']['GroupAdd']
+            if service=='authority':
+                assert not mounts['/run/ipc/supervisor']['RW'] and mounts['/run/ipc/authority']['RW']
+                assert '/run/operator/supervisor' not in mounts and '11020' in info['HostConfig']['GroupAdd']
+            if service=='dispatcher':
+                assert '/artifacts' not in mounts and not any(p.startswith('/run/operator') for p in mounts)
+                assert info['HostConfig']['NetworkMode']=='none' and not mounts['/run/ipc/authority']['RW']
             event('actual_compose_process', service=service, uid=info['Config']['User'],
                   readonly=True, memory_bytes=info['HostConfig']['Memory'],
                   nano_cpus=info['HostConfig']['NanoCpus'])
         event('tls_scram_automatic_economic_completion', assessment='hold', scope='software_fixture_only')
         command(*compose, 'stop', *reversed(services))
+        if authority:
+            for name in ('authority','supervisor'):
+                command('sudo','test','!','-e',str(root/(name+'-socket')/(name+'.sock')))
         command(*compose, 'up', '--no-build', '--pull', 'never', '--wait', '--wait-timeout', '120',
                 *services)
         port = int(command(*compose, 'port', 'api', '8444').stdout.strip().rsplit(':', 1)[1])
@@ -350,26 +405,33 @@ print(json.dumps(records[-30:]))
             collection_tools['withdraw_parent'](compose,ingestion['research_job_id'],command=command)
             assert call('/v1/ingestions',ingestion | {'idempotency_key':'revoked-parent'})[0]==422
             event('collection_restart_and_parent_withdrawal',unchanged=True,status=422)
+        if authority:
+            assert call(research_route)==(200,research)
+            assert call(research_route+'/hold-report')==(200,held)
+            assert authority_tools['assert_persisted'](research_id,command=command,compose=compose)==persisted
+            event('research_restart_current_hold',unchanged=True)
         with base.connect() as connection:
             connection.execute(sql.SQL('GRANT SELECT ON {}.jobs TO {}').format(
                 sql.Identifier(policy.schema), sql.Identifier(policy.roles['worker'])))
         assert call(result_route)[0] == 503
         event('current_grant_drift_refused', status=503)
-        if collection:
+        if collection or authority:
+            stopped_service='collector' if collection else 'dispatcher'
             deadline=time.monotonic()+15
             while True:
-                identity=command(*compose,'ps','--all','--quiet','collector').stdout.strip()
+                identity=command(*compose,'ps','--all','--quiet',stopped_service).stdout.strip()
                 state=json.loads(command('docker','inspect','--format','{{json .State}}',identity).stdout)
                 if state['Status']=='exited': break
-                assert time.monotonic()<deadline,'collector_grant_refusal_timeout'
+                assert time.monotonic()<deadline,'consumer_grant_refusal_timeout'
                 time.sleep(0.25)
             assert state['ExitCode']==3
-            logs=command(*compose,'logs','--no-log-prefix','collector')
+            logs=command(*compose,'logs','--no-log-prefix',stopped_service)
             raw=logs.stdout+logs.stderr
             assert len(raw)<65536
             events=[json.loads(line) for line in raw.splitlines() if line.startswith('{')]
-            assert {'version':1,'ok':False,'code':'collection_consumer_execution_unresolved'} in events
-            event('collector_current_grant_refused',exit_code=3)
+            code='collection_consumer_execution_unresolved' if collection else 'authority_dispatch_unresolved'
+            assert {'version':1,'ok':False,'code':code} in events
+            event(stopped_service+'_current_grant_refused',exit_code=3)
     finally:
         cleanup_ok = True
         if (root / 'ci.json').exists():
@@ -404,5 +466,8 @@ print(json.dumps(records[-30:]))
 
 if __name__ == '__main__':
     parser=argparse.ArgumentParser(description='Verify actual application Compose with synthetic inputs.')
-    parser.add_argument('--collection',action='store_true')
-    main(collection=parser.parse_args().collection)
+    group=parser.add_mutually_exclusive_group()
+    group.add_argument('--collection',action='store_true')
+    group.add_argument('--authority',action='store_true')
+    args=parser.parse_args()
+    main(collection=args.collection,authority=args.authority)

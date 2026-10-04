@@ -43,3 +43,8 @@ jobs:
           DOCKER_BUILDKIT: '1'
           UV_PYTHON_DOWNLOADS: '0'
         run: backend/.venv/bin/python scripts/check-application-runtime.py --collection
+      - name: Verify actual Compose scoped research authority
+        env:
+          DOCKER_BUILDKIT: '1'
+          UV_PYTHON_DOWNLOADS: '0'
+        run: backend/.venv/bin/python scripts/check-application-runtime.py --authority

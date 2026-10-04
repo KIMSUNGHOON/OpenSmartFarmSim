@@ -229,6 +229,14 @@
       수집 접수→자동 저장→현재 기록·재시작/동일 판본·부모 철회/권한 변화·UID/자원/정리.
       같은 writer 권한 공유와 fake CLI 범위를 기록하며 authority/supervisor Compose와
       실제 모델/독립 해제·G1/G4 체크를 대체하지 않는다.
+    - [ ] **`authority-services-ci`** — 선행: `cli-dispatch-loop`, `application-services-ci`.
+      파일(5): `compose.authority.yaml`, `scripts/check-application-runtime.py`,
+      `scripts/application-authority-fixture.py`, `.github/workflows/application-runtime.yml`,
+      `contracts/authority-compose-runtime-v1.md`. 고정 tenant·실제 별도 UID/SCRAM/소켓과
+      키/원문 경계를 연결해 지역 접수가 서버의 현재 보류로 자동 닫히게 한다.
+      수용: 실제 TLS 접수·서명/캡처/보류 조회·잘못된 peer/사설 파일 거부·소켓 정리/재시작·
+      권한 변경 후 dispatcher 중단·전체 정리. fake CLI와 controller 소유 키/계정 및
+      같은 supervisor UID의 자식이라는 한계를 보존한다. 제품 CLI/독립 custody/G1/G4는 후속이다.
 
 **운영 조립 체크포인트:** 구성/발견/루프의 실제 프로세스 시험 뒤 앱 이미지 기동을 확인하고,
 같은 판본의 전체 CI가 끝난 뒤 `end-to-end-g1`의 실제 CLI·독립 증거와 브라우저 경로를 검증한다.

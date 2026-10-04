@@ -161,7 +161,7 @@ flowchart LR
   protected-api-operator-config --> application-images
   compose-runtime --> application-images --> application-services-ci
   deterministic-worker-loop --> application-services-ci
-  application-services-ci --> cli-dispatch-loop --> application-source-consumers
+  application-services-ci --> cli-dispatch-loop --> authority-services-ci --> application-source-consumers
   application-services-ci --> collection-consumer --> collection-services-ci --> application-source-consumers
   application-source-consumers --> application-compose-runtime --> end-to-end-g1
   provenance-g0 --> g0-authority-store

@@ -1,0 +1,120 @@
+# Add after compose.application.yaml for explicitly scoped CLI RPC services.
+x-rpc-process: &rpc-process
+  profiles: [runtime]
+  build:
+    context: .
+    dockerfile: backend/Dockerfile
+    target: backend-app
+  image: ${OSSF_BACKEND_IMAGE:-opensmartfarmsim-backend:operator}
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  pids_limit: 64
+  tmpfs: ['/tmp:rw,noexec,nosuid,size=32m,mode=1777']
+  init: true
+  restart: 'no'
+  stop_grace_period: 30s
+  logging:
+    driver: local
+    options:
+      max-size: 5m
+      max-file: '2'
+
+services:
+  supervisor:
+    <<: *rpc-process
+    user: '11003:11020'
+    group_add: ['11010']
+    mem_limit: 512m
+    cpus: 0.5
+    command: [python, -m, app.cli_supervise, --factory, '${OSSF_SUPERVISOR_FACTORY:?set a trusted supervisor factory}']
+    environment:
+      PYTHONPATH: /run/operator/supervisor/plugins:/app/backend
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - type: bind
+        source: ${OSSF_SUPERVISOR_PRIVATE_DIR:?set a protected supervisor directory}
+        target: /run/operator/supervisor
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${OSSF_ARTIFACT_DIR:?set an existing shared artifact directory}
+        target: /artifacts
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${OSSF_SUPERVISOR_SOCKET_DIR:?set an existing supervisor socket directory}
+        target: /run/ipc/supervisor
+        bind:
+          create_host_path: false
+    healthcheck:
+      test: [CMD, python, -c, 'import os,stat; s=os.stat("/run/ipc/supervisor/supervisor.sock"); assert stat.S_ISSOCK(s.st_mode) and (s.st_uid,s.st_gid)==(11003,11020) and stat.S_IMODE(s.st_mode)==0o660']
+      interval: 2s
+      timeout: 3s
+      retries: 30
+      start_period: 5s
+
+  authority:
+    <<: *rpc-process
+    user: '11001:11010'
+    group_add: ['11020']
+    mem_limit: 768m
+    cpus: 0.5
+    command: [python, -m, app.cli_authority, --factory, '${OSSF_AUTHORITY_FACTORY:?set a trusted authority factory}']
+    environment:
+      PYTHONPATH: /run/operator/authority/plugins:/app/backend
+    depends_on:
+      supervisor:
+        condition: service_healthy
+    volumes:
+      - type: bind
+        source: ${OSSF_AUTHORITY_PRIVATE_DIR:?set a protected authority directory}
+        target: /run/operator/authority
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${OSSF_ARTIFACT_DIR:?set an existing shared artifact directory}
+        target: /artifacts
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${OSSF_SUPERVISOR_SOCKET_DIR:?set an existing supervisor socket directory}
+        target: /run/ipc/supervisor
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${OSSF_AUTHORITY_SOCKET_DIR:?set an existing authority socket directory}
+        target: /run/ipc/authority
+        bind:
+          create_host_path: false
+    healthcheck:
+      test: [CMD, python, -c, 'import os,stat; s=os.stat("/run/ipc/authority/authority.sock"); assert stat.S_ISSOCK(s.st_mode) and (s.st_uid,s.st_gid)==(11001,11030) and stat.S_IMODE(s.st_mode)==0o660']
+      interval: 2s
+      timeout: 3s
+      retries: 30
+      start_period: 5s
+
+  dispatcher:
+    <<: *rpc-process
+    user: '11004:11030'
+    mem_limit: 128m
+    cpus: 0.25
+    network_mode: none
+    command: [python, -m, app.cli_dispatch_loop, --socket, /run/ipc/authority/authority.sock,
+      --authority-uid, '11001', --tenant, '${OSSF_RPC_TENANT:?set the fixed authority tenant}']
+    depends_on:
+      authority:
+        condition: service_healthy
+    volumes:
+      - type: bind
+        source: ${OSSF_AUTHORITY_SOCKET_DIR:?set an existing authority socket directory}
+        target: /run/ipc/authority
+        read_only: true
+        bind:
+          create_host_path: false
