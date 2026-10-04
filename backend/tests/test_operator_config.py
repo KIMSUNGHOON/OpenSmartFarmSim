@@ -77,6 +77,30 @@ def test_reads_explicit_private_config_and_hides_secrets(monkeypatch, private_co
     assert 'private-test' not in repr(config) and 'synthetic-' not in repr(config)
 
 
+@pytest.mark.parametrize('crop_option', [None, False, True])
+def test_existing_policy_and_explicit_crop_option(monkeypatch, private_config, crop_option):
+    path, doc = private_config
+    if crop_option is None:
+        del doc['policy']['crop_result_storage']
+    else:
+        doc['policy']['crop_result_storage'] = crop_option
+    store(path, doc)
+    calls = isolated_assembly(monkeypatch)
+    load_api_runtime(path)
+    assert calls[0].policy.crop_result_storage is (crop_option is True)
+
+
+@pytest.mark.parametrize('crop_option', [0, 1, 'false', None])
+def test_crop_option_requires_explicit_boolean(monkeypatch, private_config, crop_option):
+    path, doc = private_config
+    doc['policy']['crop_result_storage'] = crop_option
+    store(path, doc)
+    monkeypatch.setattr('app.operator_config.importlib.import_module',
+        lambda *_: pytest.fail('invalid crop option imported factory'))
+    with pytest.raises(OperatorConfigHold, match='^operator_config_rejected$'):
+        load_api_runtime(path)
+
+
 @pytest.mark.parametrize('fault', ['extra','missing','version','policy_extra','policy_missing',
     'policy_bool','content_extra','content_bool','host','port_bool','relative','traversal','factory'])
 def test_closed_schema_rejects_before_factory(monkeypatch, private_config, fault):

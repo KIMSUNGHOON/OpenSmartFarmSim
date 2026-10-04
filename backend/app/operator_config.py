@@ -19,6 +19,7 @@ FIELDS = frozenset({'config_version', 'policy', 'dsn_file', 'artifact_root', 'ce
 POLICY_FIELDS = frozenset({'schema', 'owner', 'prefix', 'database', 'connection_limit',
     'market_calculation', 'break_even_calculation', 'market_source_storage',
     'thermal_scenario_storage', 'authored_release_storage', 'authored_run_storage'})
+OPTIONAL_POLICY_FIELDS = frozenset({'crop_result_storage'})
 
 
 class OperatorConfigHold(ValueError):
@@ -92,7 +93,8 @@ def load_api_runtime(config_path):
         value = json.loads(raw.decode('utf-8'), object_pairs_hook=_object, parse_constant=_constant)
         if (type(value) is not dict or value.keys() != FIELDS or
                 value['config_version'] != 'operator-api-config-v1' or
-                type(value['policy']) is not dict or value['policy'].keys() != POLICY_FIELDS):
+                type(value['policy']) is not dict or
+                not POLICY_FIELDS <= value['policy'].keys() <= POLICY_FIELDS | OPTIONAL_POLICY_FIELDS):
             raise ValueError
         reference = value['dependencies_factory']
         if type(reference) is not str or not re.fullmatch(

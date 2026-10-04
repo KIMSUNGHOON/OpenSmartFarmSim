@@ -36,6 +36,11 @@ UTF-8 JSON has exactly these fields, with no duplicates or non-JSON numbers:
 `policy` has exactly `schema`, `owner`, `prefix`, `database`, `connection_limit`,
 `market_calculation`, `break_even_calculation`, `market_source_storage`,
 `thermal_scenario_storage`, `authored_release_storage`, `authored_run_storage`.
+The additive `crop_result_storage` policy flag is optional and defaults to false
+when absent. When present it must be an exact boolean; no other optional policy
+fields are accepted. Existing operator files remain valid and do not acquire
+crop storage grants. A true flag requires the separately provisioned table and
+explicit runtime grants described in [crop result custody](crop-result-v1.md).
 No field is inferred from a filename or current DB state. Existing policy and
 ApiRuntimeConfig validators own flag combinations, names, identity and lengths.
 `content_access` uses the existing exact ContentAccess contract. Paths are

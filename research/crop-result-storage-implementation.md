@@ -103,3 +103,19 @@ UTC 시계열/단위·hold를 조회하고, 이후 `web-crop-replay`가 같은 �
 성장 3D를 연결한다. 저장 성공을 승인 Run·생과 kg·미래 생산/추천으로 표시하지 않는다.
 실제 Axiany 한 작기 forcing/초기기관/관리 QC와 국내 독립 농장 접근은 계속 별도다.
 국내 실제 동의/독립 작기 자료는 **0건**이며 G0–G4의 미수용 관문은 유지한다.
+
+## 후속 운영자 파일 회귀 수정 (2026-10-04)
+
+`b4a8d18`의 [앱 CI 37203066261](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37203066261)은
+API 기동 시 `operator_config.py:96`의 닫힌 policy 필드 검사로 실패했다.
+새 dataclass의 `asdict()`가 기본 false인 `crop_result_storage`도 내보내지만 기존
+운영자 검사에는 그 선택 필드가 없었다. 기존 직접 로컬 시험은 운영자 파일을
+거치지 않아 이 결합 회귀를 검증하지 못했다. 기존 정상 파일 시험으로 같은
+실패를 재현했다(1 failed/0.77초).
+
+운영자 계약에 해당 선택 boolean 한 개만 추가했다. 이전 11필드 파일의
+생략은 기본 false, 명시한 true/false는 그대로 전달하고 정수/문자열/null과 다른
+필드는 거부한다. 기존 필수 필드·비밀 파일·명시적 schema/권한 검사는 유지한다.
+같은 기존 세션 `gpt-6.1-sol / xhigh`에서 판단했고 재귀 CLI는 실행하지 않았다.
+운영자 비DB 경계 집중 46개/0.80초가 통과했다. 실제 SCRAM/HTTPS 6개 및 새
+hosted 앱 재수용은 후속 검증이며 이 기록만으로 전체 CI를 통과라 하지 않는다.
