@@ -1,6 +1,6 @@
 # 과실 구획의 필수 프로필 포장 — 2026-10-05 KST
 
-상태: **로컬 입력/정적 검사 통과; 실제 hosted 이미지 수용 전**.
+상태: **`784335d`의 실제 hosted 이미지 수용 완료**. 아래 로컬 검사는 첫 준비 상태다.
 
 [순간 구획 계산](crop-fruit-cohort-rates-implementation.md)의 고정 프로필은 기존
 Docker 허용 목록에서 제외된다. 실제 앱 이미지에서 이 계산을 사용하기 위한
@@ -25,3 +25,13 @@ context/loader event에도 검사한 공개 profile hash를 기록한다.
 context hash·cases 제외·읽기 전용 loader·UID/TLS/정리가 실제 성공한 뒤 체크한다.
 
 이 포장은 시간 적분·생과 수확·실제 품종의 수용이나 G0–G4 게시 관문을 열지 않는다.
+
+## 실제 hosted 수용
+
+[Application runtime verification 37224223039](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37224223039)은
+2026-10-04 18:29:50 UTC에 성공했다. [CI packet](artifacts/crop-fruit-cohort-image-reference-20261005.json)에
+실제 49개 event와 workflow/job·원 로그/해당 SHA의 파일 hash를 보존했다.
+실제 context 4회 모두 pinned cohort profile와 17개 제외 probe를 확인했다.
+읽기 전용 backend loader 1회·UID, TLS의 올바른 DNS 200/잘못된 DNS 502,
+첫 image/3 Compose 정리를 통과했다. 새 numeric cases 제외 assertion도 같은 SHA에서 실행됐다.
+그 SHA의 구획/기관 순간 코드까지 포장한 범위다. 후속 시간 적분이나 실제 G1/G4 수용은 아니다.
