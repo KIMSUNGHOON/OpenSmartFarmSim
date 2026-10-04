@@ -47,12 +47,16 @@
   [실제 수용](../research/crop-rate-image-inputs-implementation.md): `207e20e`의 hosted Docker
   build/context·읽기 전용 이미지 probe·프로필/고지 해시와 13개 제외 probe·모든 정리 통과.
   새 전체 backend CI·제품 CLI/G1/G4는 별도 미수용이다.
-- [ ] **`crop-growth-integration`** — 선행: `crop-growth-rates`, `crop-photosynthesis-domain`의 적용 정책.
-  예정 파일(3): `backend/app/crop_growth_integration.py`, `backend/tests/test_crop_growth_integration.py`,
-  `contracts/crop-growth-integration-v1.md`.
+- [x] **`crop-growth-integration`** — 선언된 입력/사건의 로컬 연구 적분 수용.
+  구현 파일(5): `backend/app/crop_growth_integration.py`, `backend/tests/test_crop_growth_integration.py`,
+  `contracts/crop-growth-integration-v1.md`, `research/crop-integration-reference.py`,
+  `fixtures/crop-integration-reference-v1.json`.
   수용: UTC 사건/초기조건·솔버/간격 고정, 기관/버퍼·LAI·온도 합·누적 호흡/제거,
   수지 잔차·양수성·수렴·동일 입력 재실행; 실패를 clipping으로 숨기지 않는다.
-  확인: 집중 pytest·독립 참조 적분. 참조 작기 재현은 `crop-input-audit` 뒤;
+  [수용 증거](../research/crop-growth-integration-implementation.md): 적분 28개와 기존 118개,
+  합계 146개/0.53초·60자리 독립 원식 2사례/11시점/165수치, 간격 반감 오차 감소
+  15.476/15.843·탄소 수지/사건/고갈·정확한 온도 합과 해시 재실행을 통과했다.
+  새 전체 hosted/DB·불변 저장·3D·제품 관문은 후속. 참조 작기 재현은 `crop-input-audit` 뒤;
   사용자 산출물은 상태 시계열/잔차 표이며 생과 수확/국내 예측이 아니다.
 - [ ] **`crop-result-storage`** — 선행: 적분 수용·기존 불변 저장/권리 제공자.
   예정 파일(3): `backend/app/crop_result_store.py`, `backend/tests/test_crop_result_store.py`,

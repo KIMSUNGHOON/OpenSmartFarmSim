@@ -1,0 +1,1521 @@
+{
+  "artifact_version": "crop-growth-integration-reference-v1",
+  "generated_at": "2026-10-04T11:11:34.809225+00:00",
+  "scope": "synthetic_software_math_only_no_G0_G1_G2_G3_G4_acceptance",
+  "cli": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "verified_turn_context_at": "2026-10-04T10:32:24.567Z",
+    "recursive_cli": false
+  },
+  "reference_fixture_sha256": "13ada290b00b2275f91ba3c5e8220ebdad76370a222e27bae57b29c9c5f1b408",
+  "reference_generator_sha256": "a38b7a67e43cf9f590838bf915ab3e5048950b8be6ed35f70817e18b42a09ce7",
+  "numerical_method_source": {
+    "source_id": "mit-es1803-s24-topic11",
+    "source_url": "https://ocw.mit.edu/courses/es-1803-differential-equations-spring-2024/mites_1803_s24_topic11.pdf",
+    "product_id": "MIT OCW ES.1803 Spring 2024 Topic 11 pp6-7",
+    "observed_period": null,
+    "published_at": null,
+    "publication_label": "Spring 2024; exact instant not established",
+    "available_at": null,
+    "retrieved_at": "2026-10-04T11:10:36.212054+00:00",
+    "vintage": "Spring 2024 course PDF",
+    "raw_sha256": "1f1c32058e4c9b50df35e15a608d36bf31807046b118eff52298b4832efeaa43",
+    "bytes": 186300,
+    "units": "numerical method only; no farm observations or coefficients",
+    "qc": "PDF signature and size checked; standard RK4 weights and step refinement read",
+    "rights": {
+      "use": "mathematical-method reference; implementation authored",
+      "display": "link and brief method facts",
+      "redistribution": "full PDF/text not redistributed"
+    },
+    "reviewer": "existing Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "status": "research_reference_not_G0_adoption"
+  },
+  "compared_quantities": 165,
+  "comparison_metrics_by_quantity": {
+    "state.buffer": {
+      "unit": "mg_CH2O/m2_floor",
+      "max_difference_to_rounded_reference": 2.377305463596713e-09,
+      "max_difference_to_exact_decimal_reference": "2.377350321317907579966600926E-9",
+      "max_representation_half_ulp": 1.8189894035458565e-12
+    },
+    "state.leaf": {
+      "unit": "mg_CH2O/m2_floor",
+      "max_difference_to_rounded_reference": 3.637978807091713e-10,
+      "max_difference_to_exact_decimal_reference": "3.601487594119521095302963513E-10",
+      "max_representation_half_ulp": 7.275957614183426e-12
+    },
+    "state.stem_root": {
+      "unit": "mg_CH2O/m2_floor",
+      "max_difference_to_rounded_reference": 2.6921043172478676e-10,
+      "max_difference_to_exact_decimal_reference": "2.696300808718738603017597320E-10",
+      "max_representation_half_ulp": 3.637978807091713e-12
+    },
+    "state.fruit": {
+      "unit": "mg_CH2O/m2_floor",
+      "max_difference_to_rounded_reference": 1.2223608791828156e-09,
+      "max_difference_to_exact_decimal_reference": "1.225090202532329327813189368E-9",
+      "max_representation_half_ulp": 7.275957614183426e-12
+    },
+    "state.temperature_filtered_24h": {
+      "unit": "degC",
+      "max_difference_to_rounded_reference": 7.105427357601002e-15,
+      "max_difference_to_exact_decimal_reference": "6.002940014987615345817674744E-15",
+      "max_representation_half_ulp": 1.7763568394002505e-15
+    },
+    "state.temperature_sum": {
+      "unit": "degC_day",
+      "max_difference_to_rounded_reference": 0.0,
+      "max_difference_to_exact_decimal_reference": "7.579122514774401982625325521E-14",
+      "max_representation_half_ulp": 1.1368683772161603e-13
+    },
+    "cumulative.photosynthesis": {
+      "unit": "mg_CH2O/m2_floor",
+      "max_difference_to_rounded_reference": 5.329070518200751e-15,
+      "max_difference_to_exact_decimal_reference": "5.912472473845999717367247790E-15",
+      "max_representation_half_ulp": 8.881784197001252e-16
+    },
+    "cumulative.growth_respiration": {
+      "unit": "mg_CH2O/m2_floor",
+      "max_difference_to_rounded_reference": 5.146461035110406e-10,
+      "max_difference_to_exact_decimal_reference": "5.146485675656401629203777061E-10",
+      "max_representation_half_ulp": 7.105427357601002e-15
+    },
+    "cumulative.maintenance_leaf": {
+      "unit": "mg_CH2O/m2_floor",
+      "max_difference_to_rounded_reference": 2.1316282072803006e-13,
+      "max_difference_to_exact_decimal_reference": "2.143854635180710604198060266E-13",
+      "max_representation_half_ulp": 7.105427357601002e-15
+    },
+    "cumulative.maintenance_stem_root": {
+      "unit": "mg_CH2O/m2_floor",
+      "max_difference_to_rounded_reference": 6.750155989720952e-14,
+      "max_difference_to_exact_decimal_reference": "6.750889686734973105099891790E-14",
+      "max_representation_half_ulp": 1.7763568394002505e-15
+    },
+    "cumulative.maintenance_fruit": {
+      "unit": "mg_CH2O/m2_floor",
+      "max_difference_to_rounded_reference": 2.4158453015843406e-13,
+      "max_difference_to_exact_decimal_reference": "2.430705634416903151733506915E-13",
+      "max_representation_half_ulp": 3.552713678800501e-15
+    },
+    "cumulative.removal_leaf": {
+      "unit": "mg_CH2O/m2_floor",
+      "max_difference_to_rounded_reference": 2.4158453015843406e-13,
+      "max_difference_to_exact_decimal_reference": "2.415845301584340631961822510E-13",
+      "max_representation_half_ulp": 7.105427357601002e-15
+    },
+    "cumulative.removal_stem_root": {
+      "unit": "mg_CH2O/m2_floor",
+      "max_difference_to_rounded_reference": 0.0,
+      "max_difference_to_exact_decimal_reference": "0",
+      "max_representation_half_ulp": 0.0
+    },
+    "cumulative.removal_fruit": {
+      "unit": "mg_CH2O/m2_floor",
+      "max_difference_to_rounded_reference": 2.842170943040401e-14,
+      "max_difference_to_exact_decimal_reference": "2.842170943040400743484497070E-14",
+      "max_representation_half_ulp": 1.4210854715202004e-14
+    },
+    "lai": {
+      "unit": "m2_leaf/m2_floor",
+      "max_difference_to_rounded_reference": 9.769962616701378e-15,
+      "max_difference_to_exact_decimal_reference": "9.666705741881405224998516764E-15",
+      "max_representation_half_ulp": 2.220446049250313e-16
+    }
+  },
+  "convergence_case": [
+    {
+      "max_step_seconds": 240,
+      "input_sha256": "8b73d044c39f242e6e736e3e1b934130b87948abb26bf822e2f47a193e47afde",
+      "result_sha256": "3c67d4a7285f7f158d118c987658930a6b2f028d5e6bb03ce56cce4f8932ed98",
+      "steps": 15,
+      "buffer_error": {
+        "value": 0.0002628069388492804,
+        "unit": "mg_CH2O/m2_floor"
+      }
+    },
+    {
+      "max_step_seconds": 120,
+      "input_sha256": "6dccb9bc3b140952d49c7a753855d35d1ce925a735a86023c55b756f20743177",
+      "result_sha256": "32c1b931b5a6aad9ef34fb1b7a2d8081622c9a5d73395e6478862743ffadca38",
+      "steps": 30,
+      "buffer_error": {
+        "value": 1.698124367521814e-05,
+        "unit": "mg_CH2O/m2_floor"
+      }
+    },
+    {
+      "max_step_seconds": 60,
+      "input_sha256": "ab3eaba9b051a482eea3fe878d3b891c79320a28ec31a307d7078f63f31458a6",
+      "result_sha256": "9288a850d6becc1fe919ec595235bc1f76be2ba195964fe1528a08d3338581cc",
+      "steps": 60,
+      "buffer_error": {
+        "value": 1.0718229077610886e-06,
+        "unit": "mg_CH2O/m2_floor"
+      }
+    }
+  ],
+  "curves": [
+    {
+      "case_id": "forcing-and-pulses",
+      "program": {
+        "initial_state": {
+          "input_id": "integration-synthetic-initial-v1",
+          "origin": "synthetic",
+          "values": {
+            "buffer": {
+              "value": 20000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "leaf": {
+              "value": 4368,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "stem_root": {
+              "value": 1560,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "fruit": {
+              "value": 312,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "temperature_filtered_24h": {
+              "value": 20.5,
+              "unit": "degC"
+            },
+            "temperature_sum": {
+              "value": 0,
+              "unit": "degC_day"
+            }
+          }
+        },
+        "segments": [
+          {
+            "start": "2026-01-01T00:00:00Z",
+            "end": "2026-01-01T00:02:00Z",
+            "forcing": {
+              "input_id": "integration-forcing-0",
+              "origin": "synthetic",
+              "values": {
+                "canopy_temperature": {
+                  "value": 20,
+                  "unit": "degC"
+                },
+                "par_above_canopy": {
+                  "value": 1000,
+                  "unit": "umol_photons/m2_floor/s"
+                },
+                "co2": {
+                  "value": 800,
+                  "unit": "ppm"
+                }
+              }
+            },
+            "removals": {
+              "input_id": "integration-continuous-removal-0",
+              "origin": "synthetic",
+              "values": {
+                "leaf": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor/s"
+                },
+                "stem_root": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor/s"
+                },
+                "fruit": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor/s"
+                }
+              }
+            }
+          },
+          {
+            "start": "2026-01-01T00:02:00Z",
+            "end": "2026-01-01T00:04:00Z",
+            "forcing": {
+              "input_id": "integration-forcing-1",
+              "origin": "synthetic",
+              "values": {
+                "canopy_temperature": {
+                  "value": 23,
+                  "unit": "degC"
+                },
+                "par_above_canopy": {
+                  "value": 600,
+                  "unit": "umol_photons/m2_floor/s"
+                },
+                "co2": {
+                  "value": 800,
+                  "unit": "ppm"
+                }
+              }
+            },
+            "removals": {
+              "input_id": "integration-continuous-removal-1",
+              "origin": "synthetic",
+              "values": {
+                "leaf": {
+                  "value": 0.01,
+                  "unit": "mg_CH2O/m2_floor/s"
+                },
+                "stem_root": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor/s"
+                },
+                "fruit": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor/s"
+                }
+              }
+            }
+          },
+          {
+            "start": "2026-01-01T00:04:00Z",
+            "end": "2026-01-01T00:05:00Z",
+            "forcing": {
+              "input_id": "integration-forcing-2",
+              "origin": "synthetic",
+              "values": {
+                "canopy_temperature": {
+                  "value": 17,
+                  "unit": "degC"
+                },
+                "par_above_canopy": {
+                  "value": 0,
+                  "unit": "umol_photons/m2_floor/s"
+                },
+                "co2": {
+                  "value": 400,
+                  "unit": "ppm"
+                }
+              }
+            },
+            "removals": {
+              "input_id": "integration-continuous-removal-2",
+              "origin": "synthetic",
+              "values": {
+                "leaf": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor/s"
+                },
+                "stem_root": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor/s"
+                },
+                "fruit": {
+                  "value": 0.05,
+                  "unit": "mg_CH2O/m2_floor/s"
+                }
+              }
+            }
+          }
+        ],
+        "events": [
+          {
+            "at": "2026-01-01T00:03:00Z",
+            "removals": {
+              "input_id": "integration-pulse-180",
+              "origin": "synthetic",
+              "values": {
+                "leaf": {
+                  "value": 100,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              }
+            }
+          },
+          {
+            "at": "2026-01-01T00:05:00Z",
+            "removals": {
+              "input_id": "integration-pulse-300",
+              "origin": "synthetic",
+              "values": {
+                "leaf": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 20,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              }
+            }
+          }
+        ],
+        "output_times": [
+          "2026-01-01T00:00:00Z",
+          "2026-01-01T00:01:00Z",
+          "2026-01-01T00:02:00Z",
+          "2026-01-01T00:03:00Z",
+          "2026-01-01T00:04:00Z",
+          "2026-01-01T00:05:00Z"
+        ],
+        "solver": {
+          "method": "rk4-fixed-v1",
+          "max_step_seconds": 10,
+          "max_steps": 10000,
+          "roundoff_rule": "64-ulp-per-operation-v1"
+        }
+      },
+      "result": {
+        "status": "completed",
+        "scope": "software_research_only",
+        "manifest": {
+          "integrator_version": "crop-rk4-research-v1",
+          "rate_model_version": "vanthoor-greenlight-carbon-rates-v1",
+          "domain_policy": "vanthoor-bounded-photosynthesis-v1",
+          "profile_id": "vanthoor-greenlight-reference-rates-v1",
+          "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+          "code_sha256": {
+            "integrator": "dbcff4fc502b562ebe148356abe88eceed86273d58feaa18ee91c9222fad2e8a",
+            "rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858"
+          },
+          "solver": {
+            "method": "rk4-fixed-v1",
+            "max_step_seconds": 10,
+            "max_steps": 10000,
+            "roundoff_rule": "64-ulp-per-operation-v1"
+          },
+          "time_rule": "UTC_POSIX_whole_seconds_v1",
+          "python_version": "3.12.3",
+          "convergence": "not_evaluated_for_this_program",
+          "temperature_sum_method": "analytic_piecewise_constant_fraction_v1",
+          "input_sha256": "93890f24bf2c1af734fee7c9b11b8628176f191ec9150c158d577914a2da9961",
+          "origins": [
+            "synthetic"
+          ],
+          "input_ids": [
+            "integration-synthetic-initial-v1",
+            "integration-forcing-0",
+            "integration-continuous-removal-0",
+            "integration-forcing-1",
+            "integration-continuous-removal-1",
+            "integration-forcing-2",
+            "integration-continuous-removal-2",
+            "integration-pulse-180",
+            "integration-pulse-300"
+          ]
+        },
+        "steps": 30,
+        "planned_steps": 30,
+        "samples": [
+          {
+            "at": "2026-01-01T00:00:00Z",
+            "state": {
+              "buffer": {
+                "value": 20000.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 4368.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 1560.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 312.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 20.5,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 0.0,
+                "unit": "degC_day"
+              }
+            },
+            "lai": {
+              "value": 0.1161888,
+              "unit": "m2_leaf/m2_floor"
+            },
+            "cumulative": {
+              "photosynthesis": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "growth_respiration": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_leaf": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_fruit": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_leaf": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_fruit": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            "carbon_residual": {
+              "value": 0.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "carbon_residual_budget": {
+              "value": 2.3283064365386963e-10,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          },
+          {
+            "at": "2026-01-01T00:01:00Z",
+            "state": {
+              "buffer": {
+                "value": 19989.47189805538,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 4373.735066806805,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 1564.509110835354,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 312.09808531697723,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 20.499652898313144,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 0.013888888888888888,
+                "unit": "degC_day"
+              }
+            },
+            "lai": {
+              "value": 0.11634135277706101,
+              "unit": "m2_leaf/m2_floor"
+            },
+            "cumulative": {
+              "photosynthesis": {
+                "value": 2.89957719984378,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "growth_respiration": {
+                "value": 3.0071385347210544,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_leaf": {
+                "value": 0.06660327479150845,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_stem_root": {
+                "value": 0.010084807152487297,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_fruit": {
+                "value": 0.0015895686605226138,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_leaf": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_fruit": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            "carbon_residual": {
+              "value": -1.4653276422110784e-12,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "carbon_residual_budget": {
+              "value": 1.6298145055770874e-09,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          },
+          {
+            "at": "2026-01-01T00:02:00Z",
+            "state": {
+              "buffer": {
+                "value": 19978.95520399632,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 4379.46996211711,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 1569.0181260424274,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 312.19630320862177,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 20.499306037585452,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 0.027777777777777776,
+                "unit": "degC_day"
+              }
+            },
+            "lai": {
+              "value": 0.11649390099231513,
+              "unit": "m2_leaf/m2_floor"
+            },
+            "cumulative": {
+              "photosynthesis": {
+                "value": 5.810534738154382,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "growth_respiration": {
+                "value": 6.014268960979349,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_leaf": {
+                "value": 0.13329233526678616,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_stem_root": {
+                "value": 0.020198478371309628,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_fruit": {
+                "value": 0.003179599060250177,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_leaf": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_fruit": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            "carbon_residual": {
+              "value": 2.845882383917253e-12,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "carbon_residual_budget": {
+              "value": 3.026798367500305e-09,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          },
+          {
+            "at": "2026-01-01T00:03:00Z",
+            "state": {
+              "buffer": {
+                "value": 19967.551337954807,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 4284.604942982472,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 1573.5272453109808,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 312.2945433628674,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 20.50104202777077,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 0.04375,
+                "unit": "degC_day"
+              }
+            },
+            "lai": {
+              "value": 0.11397049148333374,
+              "unit": "m2_leaf/m2_floor"
+            },
+            "cumulative": {
+              "photosynthesis": {
+                "value": 7.834742684323699,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "growth_respiration": {
+                "value": 9.021493695068772,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_leaf": {
+                "value": 0.2000674269477034,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_stem_root": {
+                "value": 0.030341744776683135,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_fruit": {
+                "value": 0.004770206407359913,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_leaf": {
+                "value": 100.6,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_fruit": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            "carbon_residual": {
+              "value": 3.086046175548862e-12,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "carbon_residual_budget": {
+              "value": 4.6566128730773926e-09,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          },
+          {
+            "at": "2026-01-01T00:04:00Z",
+            "state": {
+              "buffer": {
+                "value": 19956.09544367603,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 4289.741790096504,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 1578.036668051777,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 312.39294515178443,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 20.502776812825843,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 0.059722222222222225,
+                "unit": "degC_day"
+              }
+            },
+            "lai": {
+              "value": 0.11410713161656699,
+              "unit": "m2_leaf/m2_floor"
+            },
+            "cumulative": {
+              "photosynthesis": {
+                "value": 9.808111018586018,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "growth_respiration": {
+                "value": 12.02898238848316,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_leaf": {
+                "value": 0.2654048037715507,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_stem_root": {
+                "value": 0.0405153442257092,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_fruit": {
+                "value": 0.00636150601317159,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_leaf": {
+                "value": 101.19999999999996,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_fruit": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            "carbon_residual": {
+              "value": 2.1878800854358005e-12,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "carbon_residual_budget": {
+              "value": 6.05359673500061e-09,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          },
+          {
+            "at": "2026-01-01T00:05:00Z",
+            "state": {
+              "buffer": {
+                "value": 19942.66628681699,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 4295.47846984229,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 1582.5459948642695,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 289.4914262646866,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 20.500345173345035,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 0.07152777777777777,
+                "unit": "degC_day"
+              }
+            },
+            "lai": {
+              "value": 0.11425972729780491,
+              "unit": "m2_leaf/m2_floor"
+            },
+            "cumulative": {
+              "photosynthesis": {
+                "value": 9.808111018586018,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "growth_respiration": {
+                "value": 15.0364463367365,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_leaf": {
+                "value": 0.33082345622610865,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_stem_root": {
+                "value": 0.0507178103629542,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_fruit": {
+                "value": 0.00794562702594541,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_leaf": {
+                "value": 101.19999999999996,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_fruit": {
+                "value": 23.0,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            "carbon_residual": {
+              "value": 2.98853997104942e-12,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "carbon_residual_budget": {
+              "value": 7.683411240577698e-09,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          }
+        ],
+        "events": [
+          {
+            "at": "2026-01-01T00:03:00Z",
+            "input_id": "integration-pulse-180",
+            "removals": {
+              "leaf": {
+                "value": 100.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            "before": {
+              "buffer": {
+                "value": 19967.551337954807,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 4384.604942982472,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 1573.5272453109808,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 312.2945433628674,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 20.50104202777077,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 0.04375,
+                "unit": "degC_day"
+              }
+            },
+            "after": {
+              "buffer": {
+                "value": 19967.551337954807,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 4284.604942982472,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 1573.5272453109808,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 312.2945433628674,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 20.50104202777077,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 0.04375,
+                "unit": "degC_day"
+              }
+            }
+          },
+          {
+            "at": "2026-01-01T00:05:00Z",
+            "input_id": "integration-pulse-300",
+            "removals": {
+              "leaf": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 20.0,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            "before": {
+              "buffer": {
+                "value": 19942.66628681699,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 4295.47846984229,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 1582.5459948642695,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 309.4914262646866,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 20.500345173345035,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 0.07152777777777777,
+                "unit": "degC_day"
+              }
+            },
+            "after": {
+              "buffer": {
+                "value": 19942.66628681699,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 4295.47846984229,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 1582.5459948642695,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 289.4914262646866,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 20.500345173345035,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 0.07152777777777777,
+                "unit": "degC_day"
+              }
+            }
+          }
+        ],
+        "result_sha256": "1eca710e9ba97334de0ee9eeb2ffc3f73cd59f98d85e2f504b561db626b105d0"
+      }
+    },
+    {
+      "case_id": "night-buffer-inhibition",
+      "program": {
+        "initial_state": {
+          "input_id": "convergence-synthetic-night-state-v1",
+          "origin": "synthetic",
+          "values": {
+            "buffer": {
+              "value": 1000.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "leaf": {
+              "value": 100000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "stem_root": {
+              "value": 40000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "fruit": {
+              "value": 100000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "temperature_filtered_24h": {
+              "value": 23,
+              "unit": "degC"
+            },
+            "temperature_sum": {
+              "value": 1200,
+              "unit": "degC_day"
+            }
+          }
+        },
+        "segments": [
+          {
+            "start": "2026-01-01T00:00:00Z",
+            "end": "2026-01-01T01:00:00Z",
+            "forcing": {
+              "input_id": "night-with-removal-forcing",
+              "origin": "synthetic",
+              "values": {
+                "canopy_temperature": {
+                  "value": 23,
+                  "unit": "degC"
+                },
+                "par_above_canopy": {
+                  "value": 0,
+                  "unit": "umol_photons/m2_floor/s"
+                },
+                "co2": {
+                  "value": 400,
+                  "unit": "ppm"
+                }
+              }
+            },
+            "removals": {
+              "input_id": "night-with-removal-removals",
+              "origin": "synthetic",
+              "values": {
+                "leaf": {
+                  "value": 0.01,
+                  "unit": "mg_CH2O/m2_floor/s"
+                },
+                "stem_root": {
+                  "value": 0,
+                  "unit": "mg_CH2O/m2_floor/s"
+                },
+                "fruit": {
+                  "value": 0.05,
+                  "unit": "mg_CH2O/m2_floor/s"
+                }
+              }
+            }
+          }
+        ],
+        "events": [],
+        "output_times": [
+          "2026-01-01T00:00:00Z",
+          "2026-01-01T00:15:00Z",
+          "2026-01-01T00:30:00Z",
+          "2026-01-01T00:45:00Z",
+          "2026-01-01T01:00:00Z"
+        ],
+        "solver": {
+          "method": "rk4-fixed-v1",
+          "max_step_seconds": 10,
+          "max_steps": 10000,
+          "roundoff_rule": "64-ulp-per-operation-v1"
+        }
+      },
+      "result": {
+        "status": "completed",
+        "scope": "software_research_only",
+        "manifest": {
+          "integrator_version": "crop-rk4-research-v1",
+          "rate_model_version": "vanthoor-greenlight-carbon-rates-v1",
+          "domain_policy": "vanthoor-bounded-photosynthesis-v1",
+          "profile_id": "vanthoor-greenlight-reference-rates-v1",
+          "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+          "code_sha256": {
+            "integrator": "dbcff4fc502b562ebe148356abe88eceed86273d58feaa18ee91c9222fad2e8a",
+            "rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858"
+          },
+          "solver": {
+            "method": "rk4-fixed-v1",
+            "max_step_seconds": 10,
+            "max_steps": 10000,
+            "roundoff_rule": "64-ulp-per-operation-v1"
+          },
+          "time_rule": "UTC_POSIX_whole_seconds_v1",
+          "python_version": "3.12.3",
+          "convergence": "not_evaluated_for_this_program",
+          "temperature_sum_method": "analytic_piecewise_constant_fraction_v1",
+          "input_sha256": "708e6460d24a55e6e681e32117e0e2dd1f571c0c1d890efb0c1bcda786320a69",
+          "origins": [
+            "synthetic"
+          ],
+          "input_ids": [
+            "convergence-synthetic-night-state-v1",
+            "night-with-removal-forcing",
+            "night-with-removal-removals"
+          ]
+        },
+        "steps": 360,
+        "planned_steps": 360,
+        "samples": [
+          {
+            "at": "2026-01-01T00:00:00Z",
+            "state": {
+              "buffer": {
+                "value": 1000.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 100000.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 40000.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 100000.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 23.0,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 1200.0,
+                "unit": "degC_day"
+              }
+            },
+            "lai": {
+              "value": 2.66,
+              "unit": "m2_leaf/m2_floor"
+            },
+            "cumulative": {
+              "photosynthesis": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "growth_respiration": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_leaf": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_fruit": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_leaf": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_fruit": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            "carbon_residual": {
+              "value": 0.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "carbon_residual_budget": {
+              "value": 1.862645149230957e-09,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          },
+          {
+            "at": "2026-01-01T00:15:00Z",
+            "state": {
+              "buffer": {
+                "value": 790.7399418252836,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 99995.19453031085,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 40019.83318745651,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 100054.04060346998,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 23.0,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 1200.2395833333333,
+                "unit": "degC_day"
+              }
+            },
+            "lai": {
+              "value": 2.6598721745062686,
+              "unit": "m2_leaf/m2_floor"
+            },
+            "cumulative": {
+              "photosynthesis": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "growth_respiration": {
+                "value": 45.31275261293269,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_leaf": {
+                "value": 27.181845262910734,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_stem_root": {
+                "value": 4.607357727271485,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_fruit": {
+                "value": 9.089781334261964,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_leaf": {
+                "value": 8.999999999999984,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_fruit": {
+                "value": 45.00000000000001,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            "carbon_residual": {
+              "value": 8.319567257331073e-12,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "carbon_residual_budget": {
+              "value": 1.695007085800171e-07,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          },
+          {
+            "at": "2026-01-01T00:30:00Z",
+            "state": {
+              "buffer": {
+                "value": 672.2721918081934,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 99976.77912682718,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 40029.06069649468,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 100061.16388865694,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 23.0,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 1200.4791666666667,
+                "unit": "degC_day"
+              }
+            },
+            "lai": {
+              "value": 2.659382324773603,
+              "unit": "m2_leaf/m2_floor"
+            },
+            "cumulative": {
+              "photosynthesis": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "growth_respiration": {
+                "value": 70.96552114171489,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_leaf": {
+                "value": 54.36025665171152,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_stem_root": {
+                "value": 9.216296952026472,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_fruit": {
+                "value": 18.18202146756786,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_leaf": {
+                "value": 17.999999999999986,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_fruit": {
+                "value": 90.00000000000001,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            "carbon_residual": {
+              "value": 1.716671249596402e-11,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "carbon_residual_budget": {
+              "value": 3.371387720108032e-07,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          },
+          {
+            "at": "2026-01-01T00:45:00Z",
+            "state": {
+              "buffer": {
+                "value": 593.1631485837605,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 99952.46819647646,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 40033.690535701615,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 100047.9498455434,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 23.0,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 1200.71875,
+                "unit": "degC_day"
+              }
+            },
+            "lai": {
+              "value": 2.6587356540262737,
+              "unit": "m2_leaf/m2_floor"
+            },
+            "cumulative": {
+              "photosynthesis": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "growth_respiration": {
+                "value": 88.09563434681709,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_leaf": {
+                "value": 81.53276412823371,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_stem_root": {
+                "value": 13.826002032575598,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_fruit": {
+                "value": 27.273873187106922,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_leaf": {
+                "value": 27.000000000000114,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_fruit": {
+                "value": 135.00000000000003,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            "carbon_residual": {
+              "value": -3.7555736298600095e-11,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "carbon_residual_budget": {
+              "value": 5.047768354415894e-07,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          },
+          {
+            "at": "2026-01-01T01:00:00Z",
+            "state": {
+              "buffer": {
+                "value": 534.6099143685149,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "leaf": {
+                "value": 99925.08220077908,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "stem_root": {
+                "value": 40035.91917534012,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "fruit": {
+                "value": 100024.11578388802,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "temperature_filtered_24h": {
+                "value": 23.0,
+                "unit": "degC"
+              },
+              "temperature_sum": {
+                "value": 1200.9583333333333,
+                "unit": "degC_day"
+              }
+            },
+            "lai": {
+              "value": 2.6580071865407238,
+              "unit": "m2_leaf/m2_floor"
+            },
+            "cumulative": {
+              "photosynthesis": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "growth_respiration": {
+                "value": 100.77463395404114,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_leaf": {
+                "value": 108.69820619495745,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_stem_root": {
+                "value": 18.436089039605967,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "maintenance_fruit": {
+                "value": 36.363996435678395,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_leaf": {
+                "value": 36.00000000000024,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_stem_root": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "removal_fruit": {
+                "value": 180.00000000000003,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            "carbon_residual": {
+              "value": 1.743671873555286e-11,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "carbon_residual_budget": {
+              "value": 6.724148988723755e-07,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          }
+        ],
+        "events": [],
+        "result_sha256": "5c1eaaf71d73a9b03815f5b5d71638eeefc7a2ab29bbed60677142a2fbb94837"
+      }
+    }
+  ]
+}

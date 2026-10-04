@@ -140,7 +140,9 @@ Axiany/Maxifort 한 해외 작기 개발 참조다. 대한민국 온실의 최�
 첫 순수 계산 모듈은 [crop-growth-research-v1](../contracts/crop-growth-research-v1.md)에 둔다.
 유량 kernel은 [로컬 86개/참조 60수치](../research/crop-growth-rates-implementation.md)로 수용했다.
 [작은 수관 적용 정책](../contracts/crop-photosynthesis-domain-v1.md)은 기존 유량과 합쳐
-로컬 118개/0.18초로 수용했고 다음은 상태 적분이다.
+로컬 118개/0.18초로 수용했다.
+[시간 적분](../research/crop-growth-integration-implementation.md)까지 합쳐 로컬 146개/0.53초와
+독립 165수치·수렴/수지/사건을 수용했고 다음은 불변 연구 결과 저장이다.
 [필수 프로필/고지 이미지](../research/crop-rate-image-inputs-implementation.md)도 실제 hosted
 build/실행/정리를 통과했다. 새 전체 backend CI·실제 품종 입력 QC는 남아 있다.
 
@@ -149,7 +151,7 @@ build/실행/정리를 통과했다. 새 전체 backend CI·실제 품종 입력
 | 1 `crop-model-baseline` | 1차 모델·자료·품종 근거 조사 | 후보 비교, 한 품종/작기 개발 경계, 계수/단위/권리 등록부와 보류 목록. 등록만으로 G0 승인 아님 |
 | 2 `crop-growth-rates` | 필요한 문헌식/코드·매개변수의 버전/차원/권리 검토, 명시적 합성 forcing | 광 동화·분배·호흡·기관 변화율 표. 독립 참조값, 야간/잎 면적 0, 탄소 수지, 부적합 입력 거부 |
 | 2a `crop-photosynthesis-domain` | 원식/작은 수관의 특이점 확인 | 온도·LAI·CO₂의 원식 지원 영역과 초기조건 hold·독립 검증. 원식의 임의 clip/기본값 없음 |
-| 3 `crop-growth-integration` | rate kernel과 원식 적용 정책의 수용 | 잎 면적/기관 상태 시계열·manifest. 초기조건/UTC/관리 사건, 양수성·수지·수렴·재실행 확인. 개발 참조 재현은 forcing QC 뒤 |
+| 3 `crop-growth-integration` | rate kernel과 원식 적용 정책의 수용 | **로컬 소프트웨어 수용:** 잎 면적/기관 상태 시계열·manifest. 초기조건/UTC/관리 사건, 양수성·수지·수렴·재실행 확인. 실제 개발 참조 재현은 forcing QC 뒤 |
 | 4 `crop-result-storage`, `api-crop-replay` | 적분 수용, 기존 불변 저장/현재 권리·계정 제공자 | 저장 결과 ID·입출력 해시·보류·시계열 조회. 다른 농장/테넌트/모델 혼합·변조·철회 거부, 재시작 동일 조회 |
 | 5 `web-crop-replay` | 저장/API의 같은 상태 조회 | 같은 ID + timestamp의 잎 면적/기관량을 표·그래프·3D에서 확인. 모식 형태 표기, 키·착과수·숙기는 계산하지 않으면 표시하지 않음. WebGL 대체·키보드/시간 이동 시험 |
 | 6 `crop-fruit-cohorts`, `crop-harvest-conversion` | 단일 작기 관리 사건, 발달·개수·건물/생과중/품질 근거 | 수확 사건·생과 kg·등급과 제거/기관 수지. 평활 탄소 제거나 일반 과실중을 생과 수확으로 대체하지 않음 |

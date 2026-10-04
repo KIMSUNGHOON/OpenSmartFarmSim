@@ -9,7 +9,9 @@
 [작은 수관 적용 정책](../research/crop-photosynthesis-domain.md)은 기존 유량과 함께
 118개/0.18초로 수용했고 [프로필/원 고지 이미지 포함](../research/crop-rate-image-inputs-implementation.md)은
 실제 hosted Docker 실행/정리로 수용했다. 새 전체 backend CI는 아직 미확인이다.
-다음은 상태 적분이며,
+[시간 적분](../research/crop-growth-integration-implementation.md)은 적분 28개/기존 118개를
+합쳐 146개/0.53초·독립 165수치·수렴/수지/사건으로 로컬 수용했다.
+다음은 불변 연구 결과 저장이며,
 순서는 [수정 계획](../tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04)을 따른다.
 
 [단일 Axiany 작기 모델/권리 조사](../research/crop-tomato-model-baseline-20261004.md)와
