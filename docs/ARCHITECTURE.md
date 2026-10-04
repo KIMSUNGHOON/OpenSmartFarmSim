@@ -38,6 +38,11 @@ flowchart LR
 
 ## 도메인 데이터 계약
 
+[기관/50구획 저장 v2](../contracts/crop-result-v2.md)는 기존 farm/source·현재 program
+권리와 서버가 계산한 불변 artifact를 별도 표/명시 default false flag로 묶는다.
+계산은 HTTP 밖에서 수행한다. 다음 [페이지 조회](../contracts/api-crop-coupled-replay-v1.md)는
+같은 ID/hash/UTC를 읽고 API/3D에서 재계산하거나 G0–G4를 해제하지 않는다.
+
 [저장 작물 연구 조회](../contracts/api-crop-replay-v1.md)는 승인 Run과 구분된
 `crop-result-v1`의 같은 농장/현재 권리·불변 bytes를 읽는다. 기존 API/표준 runtime의
 명시적 선택 factory를 사용하며 조회 중 계산·자료 채택·관문 승격은 하지 않는다.

@@ -1,6 +1,6 @@
 # 기관/과실 구획의 농장 결합 연구 저장 — v2
 
-상태: **다음 구현의 계약; 실제 DB 저장은 미수용**.
+상태: **로컬 합성 연구의 실제 SCRAM 불변 저장 수용**, 2026-10-05 KST.
 선행은 [coupled artifact](crop-coupled-artifact-v1.md)의 로컬 수용이다.
 이 개발 CLI `gpt-6.1-sol / xhigh`에서 판단하며 재귀 CLI는 실행하지 않는다.
 [v1](crop-result-v1.md)과 G0–G4 관문을 유지한다.
@@ -14,7 +14,7 @@
 authority의 SELECT/INSERT만 허용하고 다른 role의 직접 접근과 UPDATE/DELETE/
 TRUNCATE를 거부한다. 새 큐/Compose/항상 켜진 서비스는 이 단계에 추가하지 않는다.
 
-예정 핵심 변경은 `backend/app/crop_coupled_result_store.py`,
+핵심 구현은 `backend/app/crop_coupled_result_store.py`,
 `backend/tests/test_crop_coupled_result_store.py`, `backend/app/runtime_roles.py`,
 실제 test provisioning의 `backend/tests/login_database.py`와
 `backend/tests/test_runtime_roles.py`다. 계약/실제 검증 보고서는 구현과 함께 보존한다.
@@ -50,7 +50,8 @@ put은 public artifact builder로 서버에서 계산한다. 이 **약 59초의 
 
 닫힌 `crop-result-v2` packet에 tenant·정확한 원 요청, registration job/hash·
 farm/source binding hash, crop/batch/zone/floor area/per_m2_floor·적용성,
-권리 정책 판본/저장 코드 hash와 **artifact 객체·그 canonical bytes hash**를 묶는다.
+권리 정책 판본/저장 코드 hash·재사용한 v1 farm/right 검사 코드 hash와
+**artifact 객체·그 canonical bytes hash**를 묶는다.
 `stored_unpublished_research`/`synthetic_crop_math_only`를 유지한다. artifact 원
 canonical bytes는 packet에서 같은 규칙으로 재생되며 두 raw 입력 hash를 혼용하지 않는다.
 Run/게시/검증 서명·실제 품종/생과 환산은 넣지 않는다.
@@ -75,7 +76,7 @@ HMAC와 행/packet·farm binding을 검증한 뒤 artifact reader로 현재 형�
 제한하고 실제 HTTPS 전체 본문 30초를 별도 검증한다. API 수용 뒤 같은 저장
 result ID·UTC sample·단위와 hold의 표/그래프/50구획 3D를 연결한다.
 
-## 다음 한 단계의 수용 기준
+## 이 저장 단계의 수용 기준
 
 1. 실제 SCRAM 연결에서 두 참조 사례와 numeric hold를 불변 저장하고 fresh store/
    별도 Python 프로세스·서비스 재시작에서도 동일 canonical artifact/packet/hash를 읽는다.
@@ -93,7 +94,11 @@ result ID·UTC sample·단위와 hold의 표/그래프/50구획 3D를 연결한�
 
 v1의 관측된 약 44분 계약/구현·SCRAM 검증과 새 artifact 검사를 근거로
 권리 결합/새 표·role/거래/실제 재시작·변조/정리의 네 묶음에 **집중 개발·검증
-2~4시간**을 잠정 배정한다. 하루 4시간 순차 작업이면 0.5~1작업일이며 로컬
-수용 시도는 2026-10-05~06 KST다. 실제 실패 진단 후 갱신하고 hosted 전체 CI는 별도 기록한다.
+2~4시간**을 잠정 배정했었다. 실제 로컬 수용은 2026-10-05 KST에 완료했다.
+19:45~20:25 UTC의 구현/권리·schema/실제 SCRAM 집중 관측 범위이며 보고와
+hosted 전체 CI는 별도다. 집중 564개/850.85초와 임시 DB/password 파일 정리를 확인했다.
+첫 실행의 시험 전용 600초 timeout 뒤 동일 전체 검증을 1,200초 예산으로 완료했다.
+기존 실제 API의 30초 본문 제한이나 제품 예산은 변경하지 않았다.
+실제 검증 증거는 [구현 보고서](../research/crop-coupled-result-storage-implementation.md)에 기록한다.
 국내 미사용 독립 자료 0건과 실제 reference 입력/품종·startup/cycle holds는 유지한다.
 자료 확보는 개발과 병행하며 전체 생산 예측/추천·production 완료 날짜를 이 추정으로 대신하지 않는다.

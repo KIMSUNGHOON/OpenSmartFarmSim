@@ -1,0 +1,370 @@
+{
+  "evidence_version": "crop-coupled-result-storage-local-v1",
+  "recorded_at_utc": "2026-10-04T20:31:59.978613+00:00",
+  "scope": "synthetic server-calculated artifact custody with real SCRAM; fake rights/source/CLI provider; not actual consent/G0/G1/field validation",
+  "cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "verified_turn_context_at": "2026-10-04T19:45:00.834Z",
+    "recursive_cli": false
+  },
+  "code_and_input_sha256": {
+    "backend/app/crop_coupled_result_store.py": "765184999e07b078a6f79b414c148497ee3543b889a40a65d091a4ab44080632",
+    "backend/tests/test_crop_coupled_result_store.py": "09dcf28064694acf3b4988d0d8f004cdeeade0377b7ed8b438affe464cbb5e2b",
+    "backend/app/runtime_roles.py": "8e2125608e4cce5ca3b95fc2343003252195624cbbfd018bbb05ab3ee9acf068",
+    "backend/tests/login_database.py": "9ef4100bb81de536b19040ba3968c76bb321e1bb2d0358f4655a46b53508ec59",
+    "backend/tests/test_runtime_roles.py": "cb185e825967d9afae255923d564fd96334e1135755c83e62c63f8d881d4e0ff",
+    "backend/app/crop_result_store.py": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+    "backend/app/crop_coupled_artifact.py": "4d239f24d43bf351f3c11c9e9d59fccff30a76ef0815659f22c60fbc8ec7d017",
+    "contracts/crop-result-v2.md": "ae736e825dd80cdd332accb2c9430ed083e9e8cc2cd40c992764c9fe47ea1195"
+  },
+  "red": {
+    "exit_code": 2,
+    "module_missing": true,
+    "log_sha256": "1a8c8cd0832b09a1c41a4e3dd4bb6db8da2036e1ad2c117f00c84f08aa1844d1"
+  },
+  "initial_run": {
+    "status": "test_runner_timeout_after_600_seconds",
+    "tests_seen_passed_before_interruption": 11,
+    "final_acceptance": false,
+    "log_sha256": "fba037695f9d42ee23be4b63a5ec614a28819573c737b9a7f5e0a3cfff7659bd",
+    "temporary_directories_removed_before_retry": true
+  },
+  "final_tests": {
+    "passed": 564,
+    "skipped": 0,
+    "seconds": 850.85,
+    "new_storage": 8,
+    "existing_storage": 8,
+    "farm_role_login_regression": 18,
+    "crop_math_artifact": 530,
+    "runner_budget_seconds": 1200,
+    "runner": {
+      "started_at": "2026-10-04T20:11:01.373870+00:00",
+      "completed_at": "2026-10-04T20:25:14.217635+00:00",
+      "exit_code": 0,
+      "wall_seconds": 852.8437663600198,
+      "postgres": "16.15",
+      "python": "3.12.3",
+      "log_sha256": "17a1522ba989eaf9f728f0cbce0e3d4cf6703132533932e42eda4197dd510baa",
+      "tests": [
+        "tests/test_crop_coupled_result_store.py",
+        "tests/test_crop_result_store.py",
+        "tests/test_farm_authoring_storage.py",
+        "tests/test_runtime_roles.py::test_general_roles_cannot_access_authoritative_tables",
+        "tests/test_runtime_roles.py::test_installer_removes_public_column_and_global_default_grants",
+        "tests/test_runtime_login.py::test_direct_authenticated_identity_and_idle_connection",
+        "tests/test_crop_coupled_artifact.py",
+        "tests/test_crop_plant_cohort_integration.py",
+        "tests/test_crop_plant_cohort_rates.py",
+        "tests/test_crop_fruit_cohorts.py",
+        "tests/test_crop_fruit_allocation.py",
+        "tests/test_crop_fruit_transport.py",
+        "tests/test_crop_growth_rates.py",
+        "tests/test_crop_photosynthesis_domain.py",
+        "tests/test_crop_growth_integration.py",
+        "-v"
+      ],
+      "temporary_cluster_and_password_files_removed": true
+    },
+    "runner_code_sha256": "3534273a9c359c27f63d2238c6e0370e052fc73404c5da0c7266ff342b49cf72"
+  },
+  "actual_stored_records": [
+    {
+      "case_index": 0,
+      "scope": "synthetic SCRAM custody software test; fake rights/source provider; not G0/G1",
+      "result_id": "crop-result-v2:b5307f652f947afb8f6c0076c1d75f7f1ca9f50dcee0ba5e9bb75269442622df",
+      "recorded_at_utc": "2026-10-04T20:11:29.784823Z",
+      "payload_sha256": "db3aae3617f33db5a247ce1e0378120cf5a195d063e9ef08747e222752d0f458",
+      "payload_bytes": 147711,
+      "artifact_sha256": "29be0c44153be049ac6bdd0b499c5559ced701e500b90e527da6df4f7d8d86b1",
+      "artifact_bytes": 131036,
+      "result_sha256": "7bf0220c46654d5bef2bec4e03143634bea29ccd5619f46994e9aeca2c23ff32",
+      "result_status": "completed",
+      "samples": 6,
+      "events": 3,
+      "binding": {
+        "crop": {
+          "area": {
+            "available_at": "2026-09-28T00:00:00Z",
+            "evidence_level": "assumed",
+            "input_id": "crop-area-1",
+            "origin": "user",
+            "revision": "r1",
+            "source_ref": "self-authored-contract-test",
+            "unit": "m²",
+            "value": "80"
+          },
+          "batch_id": "batch-1",
+          "channels": [
+            "direct"
+          ],
+          "collection_window": {
+            "end": "2026-10-24T00:00:00Z",
+            "start": "2026-10-15T00:00:00Z"
+          },
+          "crop_id": "crop-1",
+          "grades": [
+            "grade-1"
+          ],
+          "harvest_window": {
+            "end": "2026-10-16T00:00:00Z",
+            "start": "2026-10-14T00:00:00Z"
+          },
+          "occupancy": {
+            "end": "2026-10-25T00:00:00Z",
+            "start": "2026-10-01T00:00:00Z"
+          },
+          "profile_status": "unavailable",
+          "provenance": {
+            "available_at": "2026-09-28T00:00:00Z",
+            "evidence_level": "assumed",
+            "input_id": "crop-intent-1",
+            "origin": "user",
+            "revision": "r1",
+            "source_ref": "self-authored-contract-test"
+          },
+          "release_at": "2026-10-26T00:00:00Z",
+          "sales_window": {
+            "end": "2026-10-18T00:00:00Z",
+            "start": "2026-10-15T00:00:00Z"
+          },
+          "species": "synthetic-species-intent",
+          "variety": "unspecified-user-intent"
+        },
+        "farm_sha256": "0ab7c7624c488fbab4f0be2ed446319d9bd08091c3edb2bdd7fa7a185b2b68e3",
+        "floor_area": {
+          "available_at": "2026-09-28T00:00:00Z",
+          "evidence_level": "assumed",
+          "input_id": "floor_area",
+          "origin": "user",
+          "revision": "r1",
+          "source_ref": "self-authored-contract-test",
+          "unit": "m²",
+          "value": "100"
+        },
+        "normalization": "per_m2_floor",
+        "profile_applicability": "unvalidated_for_registered_crop",
+        "registration_job_id": "882e5200-12fa-46c3-9a0f-a0c4693de1e5",
+        "registration_sha256": "113dea994cc38461356ac1568241f0132c2c9f9a613a49b0f7a603a9320e48aa",
+        "source_binding_sha256": "4f295beca735bb4df0d1ae22467c78a537b634e2bdab7bf413df586d8c5d7516",
+        "zone_id": "zone-1"
+      },
+      "manifest": {
+        "code_sha256": {
+          "allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+          "cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+          "coupled": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+          "integrator": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+          "plant": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+          "transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3"
+        },
+        "convergence": "not_evaluated_for_this_program",
+        "input_ids": [
+          "synthetic-day-night-management-initial",
+          "synthetic-day-night-management-forcing-0",
+          "synthetic-day-night-management-continuous-0",
+          "synthetic-day-night-management-entry-0",
+          "synthetic-day-night-management-RGR-0",
+          "synthetic-day-night-management-forcing-1",
+          "synthetic-day-night-management-continuous-1",
+          "synthetic-day-night-management-entry-1",
+          "synthetic-day-night-management-RGR-1",
+          "synthetic-day-night-management-event-0",
+          "synthetic-day-night-management-event-150",
+          "synthetic-day-night-management-event-300"
+        ],
+        "input_sha256": "5617a91c352c31d6390fbfa3f5f08157f343ab9eab8f78916a2d8fb5f0eadebd",
+        "integrator_version": "crop-plant-cohort-rk4-research-v1",
+        "origins": [
+          "synthetic"
+        ],
+        "policy_sha256": "edbc67cfe59a61a1573ef5b1f189c548c47a74b996d4ef6221adc663c1cc306a",
+        "profile_sha256": {
+          "cohort_profile": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+          "growth_profile": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+          "transport_profile": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+        },
+        "python_version": "3.12.3",
+        "rate_model_version": "vanthoor-greenlight-explicit-entry-plant-rates-research-v1",
+        "research_assumptions": [
+          "leaf_stem_fixed_RGR_from_reference_profile_not_measured"
+        ],
+        "solver": {
+          "max_step_seconds": 10,
+          "max_steps": 10000,
+          "method": "rk4-fixed-v1",
+          "roundoff_rule": "64-ulp-per-operation-v1"
+        },
+        "temperature_sum_method": "analytic_piecewise_constant_fraction_v1",
+        "time_rule": "UTC_POSIX_whole_seconds_v1"
+      },
+      "rights_policy_version": "synthetic-crop-rights-test-v1",
+      "storage_code_sha256": "765184999e07b078a6f79b414c148497ee3543b889a40a65d091a4ab44080632",
+      "binding_code_sha256": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+      "actual_scram": true,
+      "same_fresh_process_bytes": true
+    },
+    {
+      "case_index": 1,
+      "scope": "synthetic SCRAM custody software test; fake rights/source provider; not G0/G1",
+      "result_id": "crop-result-v2:b40374959021802a384503bc2371a6aa8b8669f8f0beacefa42e5eb64bfdc3a1",
+      "recorded_at_utc": "2026-10-04T20:12:26.092529Z",
+      "payload_sha256": "630b94e8a6eb4eac51c050e3ad174803eae9caad076d6454328fdfcb26a74045",
+      "payload_bytes": 78412,
+      "artifact_sha256": "dc93b0cc7af5534bacf5e507650c4a29f215d996df5d628aa1cddd8516e216a4",
+      "artifact_bytes": 68300,
+      "result_sha256": "f1db643134974f39d828522fccab26c90d920cb4e37f537a90150b38c88db663",
+      "result_status": "completed",
+      "samples": 5,
+      "events": 0,
+      "binding": {
+        "crop": {
+          "area": {
+            "available_at": "2026-09-28T00:00:00Z",
+            "evidence_level": "assumed",
+            "input_id": "crop-area-1",
+            "origin": "user",
+            "revision": "r1",
+            "source_ref": "self-authored-contract-test",
+            "unit": "m²",
+            "value": "80"
+          },
+          "batch_id": "batch-1",
+          "channels": [
+            "direct"
+          ],
+          "collection_window": {
+            "end": "2026-10-24T00:00:00Z",
+            "start": "2026-10-15T00:00:00Z"
+          },
+          "crop_id": "crop-1",
+          "grades": [
+            "grade-1"
+          ],
+          "harvest_window": {
+            "end": "2026-10-16T00:00:00Z",
+            "start": "2026-10-14T00:00:00Z"
+          },
+          "occupancy": {
+            "end": "2026-10-25T00:00:00Z",
+            "start": "2026-10-01T00:00:00Z"
+          },
+          "profile_status": "unavailable",
+          "provenance": {
+            "available_at": "2026-09-28T00:00:00Z",
+            "evidence_level": "assumed",
+            "input_id": "crop-intent-1",
+            "origin": "user",
+            "revision": "r1",
+            "source_ref": "self-authored-contract-test"
+          },
+          "release_at": "2026-10-26T00:00:00Z",
+          "sales_window": {
+            "end": "2026-10-18T00:00:00Z",
+            "start": "2026-10-15T00:00:00Z"
+          },
+          "species": "synthetic-species-intent",
+          "variety": "unspecified-user-intent"
+        },
+        "farm_sha256": "3c54235674f47803f39cc7796be18600f48666dc001130a27108f50dec4bdf75",
+        "floor_area": {
+          "available_at": "2026-09-28T00:00:00Z",
+          "evidence_level": "assumed",
+          "input_id": "floor_area",
+          "origin": "user",
+          "revision": "r1",
+          "source_ref": "self-authored-contract-test",
+          "unit": "m²",
+          "value": "100"
+        },
+        "normalization": "per_m2_floor",
+        "profile_applicability": "unvalidated_for_registered_crop",
+        "registration_job_id": "0af35e7b-d27c-4c27-824e-4e7b90808eb5",
+        "registration_sha256": "cebe5eb05cc7b4a34b5e3052c4ab3a0d36c4b523e3b6b15763ecb2f278582315",
+        "source_binding_sha256": "f843fe7d1f37aef446c3634c1c8b1bf5a0fe6e3fe5aef55c4578d6723205c743",
+        "zone_id": "zone-1"
+      },
+      "manifest": {
+        "code_sha256": {
+          "allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+          "cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+          "coupled": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+          "integrator": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+          "plant": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+          "transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3"
+        },
+        "convergence": "not_evaluated_for_this_program",
+        "input_ids": [
+          "synthetic-night-convergence-initial",
+          "synthetic-night-convergence-forcing-0",
+          "synthetic-night-convergence-continuous-0",
+          "synthetic-night-convergence-entry-0",
+          "synthetic-night-convergence-RGR-0"
+        ],
+        "input_sha256": "ed77e7ca3eec925bf57d8b2675a00fca283e9d4a102cf7056828ebcc911626dc",
+        "integrator_version": "crop-plant-cohort-rk4-research-v1",
+        "origins": [
+          "synthetic"
+        ],
+        "policy_sha256": "edbc67cfe59a61a1573ef5b1f189c548c47a74b996d4ef6221adc663c1cc306a",
+        "profile_sha256": {
+          "cohort_profile": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+          "growth_profile": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+          "transport_profile": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+        },
+        "python_version": "3.12.3",
+        "rate_model_version": "vanthoor-greenlight-explicit-entry-plant-rates-research-v1",
+        "research_assumptions": [
+          "leaf_stem_fixed_RGR_from_reference_profile_not_measured"
+        ],
+        "solver": {
+          "max_step_seconds": 10,
+          "max_steps": 10000,
+          "method": "rk4-fixed-v1",
+          "roundoff_rule": "64-ulp-per-operation-v1"
+        },
+        "temperature_sum_method": "analytic_piecewise_constant_fraction_v1",
+        "time_rule": "UTC_POSIX_whole_seconds_v1"
+      },
+      "rights_policy_version": "synthetic-crop-rights-test-v1",
+      "storage_code_sha256": "765184999e07b078a6f79b414c148497ee3543b889a40a65d091a4ab44080632",
+      "binding_code_sha256": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+      "actual_scram": true,
+      "same_fresh_process_bytes": true
+    }
+  ],
+  "custody_cases": [
+    "numeric hold keeps only confirmed past",
+    "same and concurrent retries without reintegration",
+    "different request conflict and new revision",
+    "try-lock pending then exact retry",
+    "all READ scopes enforced",
+    "different tenant/farm denied",
+    "program/source withdrawal",
+    "post-calculation withdrawal",
+    "post-insert scope withdrawal rolls transaction back",
+    "pre-return withdrawal",
+    "other roles direct SELECT/INSERT denied",
+    "authority UPDATE/DELETE/TRUNCATE denied",
+    "owner UPDATE/DELETE trigger denied",
+    "real tenant registration FK enforced",
+    "real owner byte/hash corruption denied"
+  ],
+  "cleanup": {
+    "temporary_cluster_and_password_files_removed": true,
+    "remaining_temporary_directories": 0
+  },
+  "wsl_resource_policy": {
+    "nice": 10,
+    "simultaneous_pytest_processes": 1,
+    "temporary_postgres_shared_buffers": "32MB",
+    "max_connections": 24
+  },
+  "hosted_ci": "not_started_for_new_v2_storage",
+  "https_browser": "not_run_for_this_storage_slice",
+  "actual_runs": 0,
+  "domestic_independent_datasets": 0,
+  "gates_opened": []
+}

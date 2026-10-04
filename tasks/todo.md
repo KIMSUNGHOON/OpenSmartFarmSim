@@ -180,7 +180,7 @@
   24시간/512출력/8,687step을 실제 재계산해 앞선 결과와 동일함을 확인했다.
   3,683,992 bytes·계산/검사 59.1135초·읽기/검사 0.3055초·85,224 KiB RSS다.
   파일 hash는 권리/승인이 아니다. farm/DB/SCRAM·API/3D는 아직 수용하지 않았다.
-- [ ] **`crop-coupled-result-storage`** — 다음 핵심; 선행: 수용된 coupled artifact.
+- [x] **`crop-coupled-result-storage`** — 수용된 artifact의 farm 결합 로컬 SCRAM 저장.
   [고정할 다음 계약](../contracts/crop-result-v2.md): 2 MiB 요청/20 MiB packet·서버 계산은 HTTP 밖,
   새 표 한 개/명시 기본 false flag·현재 farm/crop/batch/source/program 권리·HMAC custody.
   먼저 새 결과 v2의 model/profile/policy/code/solver·forcing/RGR/S/W1/관리·수지/hold와
@@ -190,6 +190,17 @@
   이 근거로만 새 테이블/명시적 기본 false role flag를 추가하며 일반 운영 조립을 재개하지 않는다.
   수용: 실제 SCRAM·같은 저장 bytes/재시작, 입력/결과/판본 혼합·변조/철회 거부·원자 저장/정리.
   새 조회 API·같은 시점 표/그래프/3D는 이후 별도 작은 검증으로 연결한다.
+  [실제 수용](../research/crop-coupled-result-storage-implementation.md): 새 DB 8개/기존 저장 8개·
+  farm/role/login 18개·수식/artifact 530개, **564 passed / 850.85초**.
+  두 사례/hold·fresh store/별도 Python·정확한 artifact/packet·동시/동일/conflict/try-lock,
+  현재 권리/계산 후·commit/반환 전 철회와 rollback·실제 역할/trigger/FK·owner 변조 거부/정리.
+  시험 실행기 600초 timeout은 별도 기록했고 1,200초 안에 동일 전체 검증을 완료했다.
+- [ ] **`api-crop-coupled-replay`** — 다음 핵심; 선행: coupled 저장 v2 수용.
+  [계약](../contracts/api-crop-coupled-replay-v1.md): 같은 result ID/farm/hash·현재 권리의
+  읽기 전용 64 sample/8 event 페이지·2 MiB 본문 상한, 원 512시점/사건의 순서/전체성 유지.
+  수용: typed/OpenAPI·같은 저장 수치/단위/UTC·hold와 관리·페이지 누락/중복 없음,
+  재적분 없는 조회/혼합·변조·현재 권리 철회 거부·선택 factory·실제 HTTPS/SCRAM 전체 본문 30초/정리.
+  그 뒤 같은 저장 result ID/UTC의 50구획 표/그래프·연구 3D를 별도 장면 계약으로 연결한다.
 - [ ] **`crop-fruit-startup-policy`** — 최종 전체 작기 모델의 필수 누락; 개발/국내 확보와 병행.
   빈 초기 tail/남은 양의 유입·생식기 이전/초기 N1·자동 착과/W1/RGR의 근거를 조사하고
   원/변형/명시 관리 입력을 분리한 판본으로 startup/초기 보존·독립 수치/실측 적용성을 검증한다.

@@ -39,7 +39,10 @@
 57.85초·약 41 MiB로 완료했습니다.
 [새 저장 선행 artifact](research/crop-coupled-artifact-implementation.md)도 집중 530개·
 별도 Python/재적분 없는 읽기로 수용했습니다. 같은 512출력 파일은 3.68 MB,
-읽기/검사는 0.3055초였습니다. 다음은 farm/program 권리·실제 새 DB 저장 → API·같은 시점 3D입니다.
+읽기/검사는 0.3055초였습니다.
+[농장 결합 저장 v2](research/crop-coupled-result-storage-implementation.md)도 실제 SCRAM·
+564개/850.85초·동일 bytes/별도 Python·현재 권리/변조/철회/원자성·정리로 로컬 수용했습니다.
+다음은 새 페이지 조회 API → 같은 저장 ID/시점의 50구획 표·그래프·연구 3D입니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
 별도 UID 4개와 CI 5개를 모두 통과했습니다. `d76410f`의 웹/C0/실제 앱 이미지·Compose CI도
@@ -48,7 +51,9 @@
 통과해 [CI 5개 모두 성공](research/artifacts/crop-fruit-predecessor-ci-20261005.json)했습니다.
 `78b5d17`의 과실 이동/배분 판본도 [전체 CI 5개](research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)와
 백엔드 2,840개·별도 UID 4개·여섯 동일 목록/정리·집계를 통과했습니다.
-새 과실 코드 판본의 hosted 회귀/이미지 검증은 별도로 실행합니다.
+`784335d`의 순간 구획/기관 결합도 [전체 CI 5개](research/artifacts/crop-fruit-cohort-plant-ci-20261005.json),
+백엔드 2,969개·별도 UID 4개·여섯 동일 목록/정리·집계를 통과했습니다.
+새 시간 적분/artifact·v2 저장 판본의 hosted 회귀는 별도로 실행합니다.
 다음은 **방울토마토 한 품종·한 작기의 생장 계산 → 불변 저장/같은 시점 성장 3D →
 생과 생산량·자원·경제 연결**입니다. [수정 순서·잠정 작업량](tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04),
 [모델/계수/권리 조사](research/crop-tomato-model-baseline-20261004.md),

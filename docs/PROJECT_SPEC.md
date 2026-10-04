@@ -119,8 +119,10 @@ UTC 상태/단위·모델/입력/저장 hash와 수치 hold만 반환한다. 로
 [기관과 과실의 순간 수지 결합](../research/crop-plant-cohort-rates-implementation.md)도 444개 집중·684수치로 수용했다.
 [짧은 시간 적분/사건](../research/crop-plant-cohort-integration-implementation.md)도 488개·독립 1,309수치/해석해 250개로 수용했다.
 [새 저장 선행 artifact](../research/crop-coupled-artifact-implementation.md)도 530개 집중과
-512출력 파일/재적분 없는 읽기로 수용했다. farm/program 권리·실제 DB 저장/API·
-같은 시점 3D와 실제 전체 작기 처리는 후속이다.
+512출력 파일/재적분 없는 읽기로 수용했다.
+[농장 결합 v2 저장](../research/crop-coupled-result-storage-implementation.md)도 실제 SCRAM·
+564개·현재 권리/동일 bytes/변조/철회·원자성·정리로 로컬 수용했다.
+페이지 조회/API·같은 시점 50구획 3D와 실제 전체 작기 처리는 후속이다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
 전체 작기 생산 모델의 착수/게시 범위에 접근할 수 있다.
 
