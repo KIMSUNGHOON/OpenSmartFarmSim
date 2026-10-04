@@ -1,5 +1,6 @@
 """Hosted Compose/SCRAM proof using existing self-authored software fixtures."""
 
+import argparse
 from dataclasses import asdict
 from datetime import datetime, timedelta, timezone
 from hashlib import sha256
@@ -44,6 +45,7 @@ from app.api_runtime import ApiRuntimeDependencies
 from app.cli_contracts import _canonical
 from app.http_identity import BearerRegistry, BearerGrant, current_principal, token_digest
 from app.research_registry import ResearchRegistry
+from app.owned_fixture_registry import OwnedFixtureRegistry
 from app.runtime_roles import RuntimeLoginPolicy
 from app.job_store import JobStore
 from app.thermal_run_store import ThermalRunStore
@@ -75,6 +77,7 @@ def dependencies_factory(*, config):
     grant = BearerGrant(token_digest(token.encode()), 'tenant-1', frozenset(value['scopes']),
         datetime.fromisoformat(value['not_before']), datetime.fromisoformat(value['expires_at']))
     return ApiRuntimeDependencies(research_registry=ResearchRegistry(raw, sha256(raw).hexdigest()),
+        owned_fixture_registry=OwnedFixtureRegistry('/app') if value['collection_enabled'] else None,
         bearer_registry=BearerRegistry((grant,)), context_verifier=verify,
         release_verifier=lambda *_: None,
         market_scope_resolver=lambda *_: dict(value['hold_scope']),
@@ -114,13 +117,13 @@ def private(path, value):
     path.chmod(0o600)
 
 
-def operator_files(root, policy, dsns, worker, principal, certificates, token):
+def operator_files(root, policy, dsns, worker, principal, certificates, token, *, collection=False):
     scopes = sorted(principal['scopes'] | {'auditor', 'market_hold_read'})
     catalog = research_document()
     catalog['registrations'][0]['tenant_id'] = 'tenant-1'
     now = datetime.now(timezone.utc)
     value = {'policy': asdict(policy), 'hold_scope': worker.results._candidates._source._holds._scope_resolver(),
-        'scopes': scopes, 'research_registry': catalog,
+        'scopes': scopes, 'research_registry': catalog, 'collection_enabled': collection,
         'not_before': (now - timedelta(seconds=1)).isoformat(),
         'expires_at': (now + timedelta(hours=1)).isoformat()}
     authority = conninfo_to_dict(dsns['authority'])
@@ -158,18 +161,26 @@ def operator_files(root, policy, dsns, worker, principal, certificates, token):
          (certificates / 'ca.pem', 'api-ca.pem')])
 
 
-def main():
+def main(*, collection=False):
     os.chdir(ROOT)
     prefix = 'ossf-app-' + uuid4().hex[:12]
     root = Path(tempfile.mkdtemp(prefix=prefix + '-'))
     images, fixtures = {}, []
     compose = ['docker', 'compose', '--project-name', prefix, '-f', str(ROOT / 'compose.yaml'),
-        '-f', str(ROOT / 'compose.application.yaml'), '-f', str(root / 'ci.json'), '--profile', 'runtime']
+        '-f', str(ROOT / 'compose.application.yaml')]
+    if collection:
+        compose.extend(['-f', str(ROOT / 'compose.collection.yaml')])
+    compose.extend(['-f', str(root / 'ci.json'), '--profile', 'runtime'])
+    services = ('api', 'web', 'simulation', 'collector') if collection else ('api', 'web', 'simulation')
+    collection_tools = None
     previous = {key: os.environ.get(key) for key in ('OSSF_TEST_PG_DSN', 'DB_ADMIN_PASSWORD_FILE',
         'DB_APP_PASSWORD_FILE', 'OSSF_API_PRIVATE_DIR', 'OSSF_SIMULATION_PRIVATE_DIR',
         'OSSF_WEB_PRIVATE_DIR', 'OSSF_ARTIFACT_DIR', 'OSSF_SIMULATION_FACTORY',
-        'OSSF_WEB_PORT', 'OSSF_BACKEND_IMAGE', 'OSSF_WEB_IMAGE')}
+        'OSSF_WEB_PORT', 'OSSF_BACKEND_IMAGE', 'OSSF_WEB_IMAGE',
+        'OSSF_COLLECTION_PRIVATE_DIR', 'OSSF_COLLECTION_FACTORY')}
     try:
+        if collection:
+            collection_tools=runpy.run_path(str(ROOT/'scripts/application-collection-fixture.py'))
         IMAGE_TOOLS['image_checks'](root, prefix, images)
         certs = root / 'certificates'
         certs.mkdir(mode=0o700)
@@ -185,9 +196,12 @@ def main():
             'OSSF_WEB_PRIVATE_DIR': str(root / 'web'), 'OSSF_ARTIFACT_DIR': str(root / 'artifacts'),
             'OSSF_SIMULATION_FACTORY': 'synthetic_operator:build', 'OSSF_WEB_PORT': '0',
             'OSSF_BACKEND_IMAGE': images['backend'], 'OSSF_WEB_IMAGE': images['web']})
+        if collection:
+            os.environ.update({'OSSF_COLLECTION_PRIVATE_DIR':str(root/'collection'),
+                               'OSSF_COLLECTION_FACTORY':'synthetic_collection:build'})
         command(*compose, 'config', '--quiet')
         model = json.loads(command(*compose, 'config', '--format', 'json').stdout)
-        for service in ('api', 'web', 'simulation'):
+        for service in services:
             assert model['services'][service]['tmpfs'] == ['/tmp:rw,noexec,nosuid,size=32m,mode=1777']
         command(*compose, 'up', '--no-deps', '--wait', '--wait-timeout', '120', 'db')
         db_port = command(*compose, 'port', 'db', '5432').stdout.strip().rsplit(':', 1)[1]
@@ -206,13 +220,15 @@ def main():
         worker, jobs, results, unused_job, data, principal = calculation_setup.__wrapped__(economic_api.__wrapped__(scope))
         # Leave a canceled neighbor; the consumer must not execute it as the new HTTP job.
         assert jobs.cancel('tenant-1', unused_job['job_id'])
+        ingestion = (collection_tools['prepare'](root,scope,principal,private=private,command=command)
+                     if collection else None)
         token = 'synthetic-' + secrets.token_hex(32)
-        operator_files(root, policy, dsns, worker, principal, certs, token)
+        operator_files(root, policy, dsns, worker, principal, certs, token, collection=collection)
         command('sudo', 'chown', '-R', '11001:11010', str(root / 'artifacts'))
         startup = command(*compose, 'up', '--no-build', '--pull', 'never', '--wait', '--wait-timeout', '120',
-                          'api', 'web', 'simulation', check=False)
+                          *services, check=False)
         if startup.returncode:
-            for service in ('api', 'web', 'simulation'):
+            for service in services:
                 identity = command(*compose, 'ps', '--all', '--quiet', service).stdout.strip()
                 if identity:
                     state = json.loads(command('docker', 'inspect', '--format', '{{json .State}}', identity).stdout)
@@ -285,7 +301,22 @@ print(json.dumps(records[-30:]))
         assert status == 200 and first_result['assessment_status'] == 'hold'
         assert first_result['input_origin'] == 'user' and first_result['evidence_level'] == 'assumed'
         assert call('/v1/economic-results', body)[1]['job_id'] == accepted['job_id']
-        for service in ('api', 'web', 'simulation'):
+        if collection:
+            status,collected=call('/v1/ingestions',ingestion)
+            assert status==202 and collected['stage']=='collection'
+            collection_route='/v1/jobs/'+collected['job_id']
+            deadline=time.monotonic()+120
+            while True:
+                status,current=call(collection_route)
+                assert status==200 and current['state'] not in ('failed','hold','canceled')
+                if current['state']=='succeeded': break
+                assert time.monotonic()<deadline,'automatic_collection_timeout'
+                time.sleep(0.5)
+            collection_record=collection_tools['inspect_record'](compose,collected['job_id'],command=command)
+            assert call('/v1/ingestions',ingestion)[1]['job_id']==collected['job_id']
+            assert current['attempt_count']==1
+            event('automatic_owned_collection',assessment='hold',source_count=3,scope='software_fixture_only')
+        for service in services:
             identity = command(*compose, 'ps', '--quiet', service).stdout.strip()
             info = json.loads(command('docker', 'inspect', identity).stdout)[0]
             expected_user = '11002:11002' if service == 'web' else '11001:11010'
@@ -298,26 +329,51 @@ print(json.dumps(records[-30:]))
             assert not private_mount['RW']
             if service == 'web':
                 assert '/artifacts' not in mounts and '/run/operator/api' not in mounts
+            if service == 'collector':
+                assert '/run/operator/api' not in mounts and '/run/operator/simulation' not in mounts
+                assert mounts['/artifacts']['RW'] and info['HostConfig']['Memory']==256*1024*1024
+                assert info['HostConfig']['NanoCpus']==500000000
             event('actual_compose_process', service=service, uid=info['Config']['User'],
                   readonly=True, memory_bytes=info['HostConfig']['Memory'],
                   nano_cpus=info['HostConfig']['NanoCpus'])
         event('tls_scram_automatic_economic_completion', assessment='hold', scope='software_fixture_only')
-        command(*compose, 'stop', 'web', 'simulation', 'api')
+        command(*compose, 'stop', *reversed(services))
         command(*compose, 'up', '--no-build', '--pull', 'never', '--wait', '--wait-timeout', '120',
-                'api', 'web', 'simulation')
+                *services)
         port = int(command(*compose, 'port', 'api', '8444').stdout.strip().rsplit(':', 1)[1])
         web_ready()
         assert call(result_route) == (200, first_result)
         event('restart_current_completed_result', unchanged=True)
+        if collection:
+            assert call(collection_route)==(200,current)
+            assert collection_tools['inspect_record'](compose,collected['job_id'],command=command)==collection_record
+            collection_tools['withdraw_parent'](compose,ingestion['research_job_id'],command=command)
+            assert call('/v1/ingestions',ingestion | {'idempotency_key':'revoked-parent'})[0]==422
+            event('collection_restart_and_parent_withdrawal',unchanged=True,status=422)
         with base.connect() as connection:
             connection.execute(sql.SQL('GRANT SELECT ON {}.jobs TO {}').format(
                 sql.Identifier(policy.schema), sql.Identifier(policy.roles['worker'])))
         assert call(result_route)[0] == 503
         event('current_grant_drift_refused', status=503)
+        if collection:
+            deadline=time.monotonic()+15
+            while True:
+                identity=command(*compose,'ps','--all','--quiet','collector').stdout.strip()
+                state=json.loads(command('docker','inspect','--format','{{json .State}}',identity).stdout)
+                if state['Status']=='exited': break
+                assert time.monotonic()<deadline,'collector_grant_refusal_timeout'
+                time.sleep(0.25)
+            assert state['ExitCode']==3
+            logs=command(*compose,'logs','--no-log-prefix','collector')
+            raw=logs.stdout+logs.stderr
+            assert len(raw)<65536
+            events=[json.loads(line) for line in raw.splitlines() if line.startswith('{')]
+            assert {'version':1,'ok':False,'code':'collection_consumer_execution_unresolved'} in events
+            event('collector_current_grant_refused',exit_code=3)
     finally:
         cleanup_ok = True
         if (root / 'ci.json').exists():
-            cleanup_ok &= command(*compose, 'stop', 'web', 'simulation', 'api', check=False).returncode == 0
+            cleanup_ok &= command(*compose, 'stop', *reversed(services), check=False).returncode == 0
         # Services are stopped before fixture role/schema removal.
         for fixture in reversed(fixtures):
             try:
@@ -347,4 +403,6 @@ print(json.dumps(records[-30:]))
 
 
 if __name__ == '__main__':
-    main()
+    parser=argparse.ArgumentParser(description='Verify actual application Compose with synthetic inputs.')
+    parser.add_argument('--collection',action='store_true')
+    main(collection=parser.parse_args().collection)

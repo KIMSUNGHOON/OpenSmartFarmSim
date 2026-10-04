@@ -221,6 +221,14 @@
       새34+기존47/14개, 합계95개/55.97초·무건너뜀; 자동 완료·취소·강제 종료 뒤 복구·
       부모 증거 훼손 보류·권한 철회·신호/프로세스/DB 정리. 목록 회귀12개/6.48초도 통과.
       source Compose/실제 모델/독립 해제·G1/G4는 후속이며 상위 체크를 유지한다.
+    - [ ] **`collection-services-ci`** — 선행: `collection-consumer`, `application-services-ci`.
+      파일(5): `compose.collection.yaml`, `scripts/check-application-runtime.py`,
+      `scripts/application-collection-fixture.py`, `.github/workflows/application-runtime.yml`,
+      `contracts/collection-compose-runtime-v1.md`. 기존 collector를 실제 소비자로 교체하는
+      명시적 override와 사설 합성 부모 fixture를 연결한다. 수용: 실제 Docker/TLS/SCRAM
+      수집 접수→자동 저장→현재 기록·재시작/동일 판본·부모 철회/권한 변화·UID/자원/정리.
+      같은 writer 권한 공유와 fake CLI 범위를 기록하며 authority/supervisor Compose와
+      실제 모델/독립 해제·G1/G4 체크를 대체하지 않는다.
 
 **운영 조립 체크포인트:** 구성/발견/루프의 실제 프로세스 시험 뒤 앱 이미지 기동을 확인하고,
 같은 판본의 전체 CI가 끝난 뒤 `end-to-end-g1`의 실제 CLI·독립 증거와 브라우저 경로를 검증한다.
