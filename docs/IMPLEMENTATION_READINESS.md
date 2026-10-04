@@ -18,7 +18,9 @@
 실제 TLS/SCRAM 10개 전체 응답/변조·철회·정리로 로컬 수용했다.
 [계산 기반 성장 연구 3D](../research/web-crop-replay-implementation.md)도 웹 209개·
 집중 Chromium 10개·실제 저장/HTTPS/장면 대사 1개로 로컬 수용했다.
-다음은 실제 참조 작기의 채널·시각·면적·초기조건/관리 QC 감사이며,
+[실제 파일/채널 감사](../research/crop-forcing-audit.md)도 완료했다. 실제 입력 채택은
+시간대/면적·수관/초기기관·사건·형식/결측과 전체 작기 한도 때문에 보류다.
+다음은 `crop-fruit-model-spec`이며 전체 작기 실행 계약/국내 확보를 병행한다.
 순서는 [수정 계획](../tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04)을 따른다.
 
 [단일 Axiany 작기 모델/권리 조사](../research/crop-tomato-model-baseline-20261004.md)와

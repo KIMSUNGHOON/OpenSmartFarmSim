@@ -24,13 +24,16 @@
   [실제 수용](../research/crop-growth-rates-implementation.md): 86개/0.12초·60자리 Decimal
   참조 4사례/60수치·원문 52개 항목 대조. 전체 hosted/이미지·적분·G1/G2/G3/G4는 후속.
   사용자 산출물: 유량 표·검사 보고서. 국내 자료·G2·시장·전체 Compose가 착수를 막지 않는다.
-- [ ] **`crop-input-audit`** — kernel 개발과 병행.
-  예정 파일(3): `research/crop-forcing-audit.md`, `research/crop-forcing-register.json`,
+- [x] **`crop-input-audit`** — 파일/채널 감사 수용, 실제 입력 채택 보류; 모델 개발과 병행.
+  핵심 파일: `research/crop-forcing-audit.md`, `research/crop-forcing-register.json`,
   `contracts/crop-forcing-v1.md`.
   수용: 공개 archive 내 Reference303의 실제 채널/단위·UTC/DST·96m²/76.8m² 면적 기준·
   결측/QC·초기조건·밀도/적심/적엽/수확 사건을 대사하고 PAR/수관/CO₂ 누락은 보류.
-  고정 값/변환의 raw hash와 권리를 기록한다. 확인: 원문 메타데이터/실제 파일 대조;
-  실제 replay 입력 채택은 기존 G0 검사를 별도로 통과해야 한다.
+  고정 값/변환의 raw hash와 권리를 기록한다. [실제 수용](../research/crop-forcing-audit.md):
+  Reference 7 CSV/Weather 1 CSV·ReadMe/Economics 2 PDF와 파일/채널·결측/형식·시간/면적 대사.
+  `research/crop-forcing-audit.py`를 추가해 불변 8 CSV의 hash/줄 수·byte-identical 재검사를 확인했다.
+  시간대/62.5·76.8·96m²의 Reference 대응·수관/초기기관/사건·음수 CO₂/수확 날짜/품질 header는 hold.
+  실제 forcing/Run 0개. 실제 replay 입력 채택은 기존 G0 검사를 별도로 통과해야 한다.
 - [x] **`crop-photosynthesis-domain`** — 원식 지원 영역의 로컬 연구/계산 수용.
   구현 파일(3): `research/crop-photosynthesis-domain.md`, `contracts/crop-photosynthesis-domain-v1.md`,
   `backend/tests/test_crop_photosynthesis_domain.py`.
@@ -99,7 +102,19 @@
   fixture 이동/import, 자산 9개만 허용·17개 제외 probe/해시·production 데모 비포함 검사.
   로컬 COPY 모사 RED→GREEN/typecheck/build·이동 후 웹 단위 209개는 통과했다.
   수용: 기존 hosted 앱 CI의 실제 context/image/TLS·비특권/읽기 전용/정리. 확인 전 미체크.
-- [ ] **`crop-fruit-cohorts`** — 개발 선행: 성장 재생 수용·문헌 발달식/단위/권리와 명시적 관리 사건.
+- [ ] **`crop-fruit-model-spec`** — 다음 한 단계; 성장 연구 재생/모델 기준 조사 뒤.
+  예정 파일(3): `research/crop-fruit-cohorts-baseline.md`, `research/crop-fruit-source-register.json`,
+  `contracts/crop-fruit-cohorts-v1.md`.
+  수용: 원 과실 발달 구획/개수·질량·호흡/수확 경계식·필수 계수/초기조건/관리 사건의
+  단위/권리/hash·참조/품종 적용성·총 과실 저장소 결합, 독립 수치/보존/사건 검증 계획.
+  계수·생과 환산 미확인은 hold. 사용자 산출물은 근거표/구획 계약이며 농장 생산 예측이 아니다.
+- [ ] **`crop-cycle-capacity`** — 입력 감사/현재 적분 수용 뒤; 실제 참조 작기 재현의 필수 선행.
+  필요 근거: 실제 47,809시점/47,808 interval, 현재 배열 20,000개·step 100만;
+  166일/10초의 산술 1,434,240 step. 문헌 과실 모델 개발/국내 확보와 병행한다.
+  작은 실행 계약부터 분해: bounded forcing 처리·연속 상태/누적 수지/사건·불변 manifest/저장,
+  계산 해상도와 출력 시간/페이지의 분리·30초 응답/WSL 자원·재시작/동일 재현/실제 작기 부하.
+  수용 전 한도 증대/임의 forcing 축약으로 whole-cycle 완료를 주장하지 않는다.
+- [ ] **`crop-fruit-cohorts`** — 개발 선행: `crop-fruit-model-spec`·명시적 관리 사건.
   참조 계수의 순수 모듈 개발은 국내 자료 접근/G2를 기다리지 않는다.
   실제 Axiany 적용에는 `crop-input-audit`와 해당 품종/관리·발달 근거가 추가로 필요하다.
   예정 파일(3): `backend/app/crop_fruit_cohorts.py`, `backend/tests/test_crop_fruit_cohorts.py`,
@@ -128,7 +143,13 @@
   `contracts/crop-energy-v1.md`.
   수용: 공급열/미충족 열과 구매 전력/연료·보조 설비/CO₂ 분리, 효율/COP·단위/적용 범위;
   근거가 없으면 변환 보류. 확인: 집중 수지/경계 pytest·계량/청구 대조.
-- [ ] **`crop-economic-link`** — 선행: 생산량·자원 계산과 같은 배치/달력의 경제 입력.
+- [ ] **`crop-execution-link`** — 선행: 해당 작물/자원 모델·불변 결과 계약과 현재 farm/batch/zone 연결.
+  필요 근거: 현재 작물 v1은 내부 저장된 합성 연구 GET이며 사용자 계산 접수/소비·완료 결과 선택이 없음.
+  작은 접수/작업자/저장/조회/UI 단계로 나눠 기존 계정/작업 저장소와 worker를 재사용한다.
+  수용: 같은 농장/작물/배치·입력/모델/계수/UTC/현재 권리의 접수→실행→불변 결과 선택→3D,
+  취소/재시도/재시작·혼합/늦은 변경 거부와 end-to-end 검증. 실제 입력은 해당 G0/G1 필요.
+  연구 결과와 승인 Run을 구분하며 실제 제품 CLI/독립 해제·예측/추천 관문을 자동 승격하지 않음.
+- [ ] **`crop-economic-link`** — 선행: 생산량·자원 계산·`crop-execution-link`와 같은 배치/달력의 경제 입력.
   예정 파일(3): `backend/app/crop_economic_link.py`, `backend/tests/test_crop_economic_link.py`,
   `contracts/crop-economic-link-v1.md`.
   수용: 같은 입력/결과 해시의 H/P/S·등급/반품/폐기/재고·자원/원가와 기존 Decimal 손익/현금;

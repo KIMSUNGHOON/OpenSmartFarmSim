@@ -1,0 +1,2231 @@
+{
+  "register_version": "agc-reference-forcing-audit-v1",
+  "created_at_utc": "2026-10-04T14:56:59.254498+00:00",
+  "status": "file_channel_audit_accepted_actual_forcing_on_hold",
+  "cli": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "turn_context": "2026-10-04T13:25:16.916Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "recursive_invocation": false,
+    "product_runtime_or_independent_reviewer_evidence": false
+  },
+  "target": {
+    "cultivar": "Axiany",
+    "rootstock": "Maxifort",
+    "compartment": "Reference303",
+    "country": "Netherlands",
+    "planting_date": "2019-12-16",
+    "last_harvest_date": "2020-05-29",
+    "local_domestic_validation": false
+  },
+  "archive": {
+    "source_id": "agc-archive",
+    "source_url": "https://ndownloader.figshare.com/files/24757220",
+    "product_id": "10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+    "observed_period_local": "2019-12-16/2020-05-29",
+    "published_at": "2020-09-23T10:41:39Z",
+    "available_at": null,
+    "available_at_status": "not reconstructed for farm decision use; research only",
+    "retrieved_at": "2026-10-04T08:49:39.307459+00:00",
+    "vintage": "dataset-v2",
+    "raw_sha256": "b889e9ab1663fe3b8a90a3dab71d4340a6ecd49492532c43784cc82d799708ca",
+    "bytes": 8418715,
+    "units": "see parameter records / dataset per-channel audit pending",
+    "qc": "source bytes hashed; biological applicability not accepted; archive MD5 matches publisher",
+    "rights": {
+      "license": "CC0-1.0",
+      "use": "dataset use permitted by version-2 deposit metadata; file/channel QC pending",
+      "display": "dataset CC0 declaration confirmed; application display scope not adopted",
+      "redistribution": "CC0 declaration recorded; archive excluded from repository; contents/file-specific notices not inspected"
+    },
+    "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "status": "research_reference_not_G0_adoption",
+    "product_version": "2",
+    "format": "7z",
+    "entries": 52,
+    "file_entries": 45,
+    "directory_entries": 7,
+    "selected_entries": 10,
+    "selected_uncompressed_bytes": 22171390,
+    "original_unmodified": true
+  },
+  "files": [
+    {
+      "source_url": "https://ndownloader.figshare.com/files/24757220",
+      "product_id": "24757220#Economics.pdf",
+      "dataset_product_id": "10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+      "vintage": "dataset-v2",
+      "published_at": "2020-09-23T10:41:39Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:49:39.307459+00:00",
+      "path": "Economics.pdf",
+      "raw_sha256": "d4b76625c9defd59bc3389099567eafce95e4ed4af0e3f4abf34e35fbeaa95bf",
+      "bytes": 1180896,
+      "crc32": "6167C6EE",
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "rights": {
+        "license": "CC0-1.0_declared_for_dataset_v2",
+        "use": "research_inspection; no approved model input",
+        "display": "own QC aggregates and source references only",
+        "redistribution": "raw archive/CSV/PDF excluded from repository; PDF graphics/file-specific redistribution not adopted"
+      },
+      "status": "inspected_research_evidence_not_G0_adoption",
+      "observed_times": null,
+      "units": "document source, not numeric model input",
+      "qc": "PDF page/content-stream bounds; source tables inspected; unchanged raw hash",
+      "extraction_inventory_recorded_at": "2026-10-04T14:27:58.232657+00:00"
+    },
+    {
+      "source_url": "https://ndownloader.figshare.com/files/24757220",
+      "product_id": "24757220#ReadMe.pdf",
+      "dataset_product_id": "10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+      "vintage": "dataset-v2",
+      "published_at": "2020-09-23T10:41:39Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:49:39.307459+00:00",
+      "path": "ReadMe.pdf",
+      "raw_sha256": "e884cc347088bac498b730eaf442ccb9593c7aa84d4f85090b1fe2927646509c",
+      "bytes": 733072,
+      "crc32": "0C9A3070",
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "rights": {
+        "license": "CC0-1.0_declared_for_dataset_v2",
+        "use": "research_inspection; no approved model input",
+        "display": "own QC aggregates and source references only",
+        "redistribution": "raw archive/CSV/PDF excluded from repository; PDF graphics/file-specific redistribution not adopted"
+      },
+      "status": "inspected_research_evidence_not_G0_adoption",
+      "observed_times": null,
+      "units": "document source, not numeric model input",
+      "qc": "PDF page/content-stream bounds; source tables inspected; unchanged raw hash",
+      "extraction_inventory_recorded_at": "2026-10-04T14:27:58.232657+00:00"
+    },
+    {
+      "source_url": "https://ndownloader.figshare.com/files/24757220",
+      "product_id": "24757220#Reference/CropParameters.csv",
+      "dataset_product_id": "10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+      "vintage": "dataset-v2",
+      "published_at": "2020-09-23T10:41:39Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:49:39.307459+00:00",
+      "path": "Reference/CropParameters.csv",
+      "raw_sha256": "a7083f3355e2a61bc84510cd25e708ca2d833a69f45009e31be1e64010ecf392",
+      "bytes": 704,
+      "crc32": "9115B0B4",
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "rights": {
+        "license": "CC0-1.0_declared_for_dataset_v2",
+        "use": "research_inspection; no approved model input",
+        "display": "own QC aggregates and source references only",
+        "redistribution": "raw archive/CSV/PDF excluded from repository; PDF graphics/file-specific redistribution not adopted"
+      },
+      "status": "inspected_research_evidence_not_G0_adoption",
+      "observed_times": {
+        "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+        "minimum_raw": "43823",
+        "maximum_raw": "43978",
+        "duplicate_or_backward_deltas": {},
+        "delta_days_counts": {
+          "7": 21,
+          "8": 1
+        },
+        "naive_minimum_if_1899_12_30": "2019-12-24T00:00:00",
+        "naive_maximum_if_1899_12_30": "2020-05-27T00:00:00"
+      },
+      "units": {
+        "Stem_elong": "cm/week_10_sample_stems_mean",
+        "Stem_thick": "mm_10_sample_stems_mean",
+        "Cum_trusses": "count/stem_10_sample_stems_mean",
+        "stem_dens": "stems/m2_area_basis_unresolved",
+        "plant_dens": "plants/m2_area_basis_unresolved"
+      },
+      "readme_pages": [
+        10,
+        11
+      ],
+      "qc": {
+        "bytes": 704,
+        "raw_sha256": "a7083f3355e2a61bc84510cd25e708ca2d833a69f45009e31be1e64010ecf392",
+        "rows": 23,
+        "schema_valid_rows": 23,
+        "raw_header": [
+          "%Time",
+          "Stem_elong",
+          "Stem_thick",
+          "Cum_trusses",
+          "stem_dens ",
+          "plant_dens"
+        ],
+        "header": [
+          "Time",
+          "Stem_elong",
+          "Stem_thick",
+          "Cum_trusses",
+          "stem_dens",
+          "plant_dens"
+        ],
+        "columns": [
+          {
+            "name": "Time",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 23,
+            "minimum": 43823.0,
+            "maximum": 43978.0
+          },
+          {
+            "name": "Stem_elong",
+            "missing": 5,
+            "non_numeric": 0,
+            "finite": 18,
+            "minimum": 8.5,
+            "maximum": 39.0
+          },
+          {
+            "name": "Stem_thick",
+            "missing": 5,
+            "non_numeric": 0,
+            "finite": 18,
+            "minimum": 6.7,
+            "maximum": 12.0
+          },
+          {
+            "name": "Cum_trusses",
+            "missing": 5,
+            "non_numeric": 0,
+            "finite": 18,
+            "minimum": 1.2,
+            "maximum": 23.2
+          },
+          {
+            "name": "stem_dens",
+            "missing": 1,
+            "non_numeric": 0,
+            "finite": 22,
+            "minimum": 4.0,
+            "maximum": 8.0
+          },
+          {
+            "name": "plant_dens",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 23,
+            "minimum": 1.4,
+            "maximum": 1.4
+          }
+        ],
+        "column_count_mismatches": 0,
+        "malformed_examples": [],
+        "invalid_time_lines": [],
+        "time": {
+          "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+          "minimum_raw": "43823",
+          "maximum_raw": "43978",
+          "duplicate_or_backward_deltas": {},
+          "delta_days_counts": {
+            "7": 21,
+            "8": 1
+          },
+          "naive_minimum_if_1899_12_30": "2019-12-24T00:00:00",
+          "naive_maximum_if_1899_12_30": "2020-05-27T00:00:00"
+        },
+        "physical_counts": null,
+        "production_outside_2019_12_16_to_2020_05_29_lines": null
+      },
+      "extraction_inventory_recorded_at": "2026-10-04T14:27:58.232657+00:00"
+    },
+    {
+      "source_url": "https://ndownloader.figshare.com/files/24757220",
+      "product_id": "24757220#Reference/GreenhouseClimate.csv",
+      "dataset_product_id": "10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+      "vintage": "dataset-v2",
+      "published_at": "2020-09-23T10:41:39Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:49:39.307459+00:00",
+      "path": "Reference/GreenhouseClimate.csv",
+      "raw_sha256": "eb99daf5360315232d4fd7a58f64a7226188d10a650d873e13640606ce076ebc",
+      "bytes": 13977512,
+      "crc32": "2C6CF9FC",
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "rights": {
+        "license": "CC0-1.0_declared_for_dataset_v2",
+        "use": "research_inspection; no approved model input",
+        "display": "own QC aggregates and source references only",
+        "redistribution": "raw archive/CSV/PDF excluded from repository; PDF graphics/file-specific redistribution not adopted"
+      },
+      "status": "inspected_research_evidence_not_G0_adoption",
+      "observed_times": {
+        "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+        "minimum_raw": "43815.00000",
+        "maximum_raw": "43981.00000",
+        "duplicate_or_backward_deltas": {},
+        "delta_days_counts": {
+          "0.00347": 37184,
+          "0.00348": 10624
+        },
+        "naive_minimum_if_1899_12_30": "2019-12-16T00:00:00",
+        "naive_maximum_if_1899_12_30": "2020-05-30T00:00:00"
+      },
+      "units": {
+        "Tair": "degC_air_not_canopy",
+        "CO2air": "ppm",
+        "Rhair": "percent",
+        "Tot_PAR": "umol_photons/m2/s_processed_inside_not_verified_above_canopy",
+        "Tot_PAR_Lamps": "umol_photons/m2/s_processed_lamps",
+        "Cum_irr": "L/m2/day_daily_reset",
+        "co2_dos": "kg/ha/hour"
+      },
+      "readme_pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "qc": {
+        "bytes": 13977512,
+        "raw_sha256": "eb99daf5360315232d4fd7a58f64a7226188d10a650d873e13640606ce076ebc",
+        "rows": 47809,
+        "schema_valid_rows": 47809,
+        "raw_header": [
+          "%time",
+          "AssimLight",
+          "BlackScr",
+          "CO2air",
+          "Cum_irr",
+          "EC_drain_PC",
+          "EnScr",
+          "HumDef",
+          "PipeGrow",
+          "PipeLow",
+          "Rhair",
+          "Tair",
+          "Tot_PAR",
+          "Tot_PAR_Lamps",
+          "VentLee",
+          "Ventwind",
+          "assim_sp",
+          "assim_vip",
+          "co2_dos",
+          "co2_sp",
+          "co2_vip",
+          "dx_sp",
+          "dx_vip",
+          "int_blue_sp",
+          "int_blue_vip",
+          "int_farred_sp",
+          "int_farred_vip",
+          "int_red_sp",
+          "int_red_vip",
+          "int_white_sp",
+          "int_white_vip",
+          "pH_drain_PC",
+          "scr_blck_sp",
+          "scr_blck_vip",
+          "scr_enrg_sp",
+          "scr_enrg_vip",
+          "t_grow_min_sp",
+          "t_grow_min_vip",
+          "t_heat_sp",
+          "t_heat_vip",
+          "t_rail_min_sp",
+          "t_rail_min_vip",
+          "t_vent_sp",
+          "t_ventlee_vip",
+          "t_ventwind_vip",
+          "water_sup",
+          "water_sup_intervals_sp_min",
+          "water_sup_intervals_vip_min",
+          "window_pos_lee_sp",
+          "window_pos_lee_vip"
+        ],
+        "header": [
+          "time",
+          "AssimLight",
+          "BlackScr",
+          "CO2air",
+          "Cum_irr",
+          "EC_drain_PC",
+          "EnScr",
+          "HumDef",
+          "PipeGrow",
+          "PipeLow",
+          "Rhair",
+          "Tair",
+          "Tot_PAR",
+          "Tot_PAR_Lamps",
+          "VentLee",
+          "Ventwind",
+          "assim_sp",
+          "assim_vip",
+          "co2_dos",
+          "co2_sp",
+          "co2_vip",
+          "dx_sp",
+          "dx_vip",
+          "int_blue_sp",
+          "int_blue_vip",
+          "int_farred_sp",
+          "int_farred_vip",
+          "int_red_sp",
+          "int_red_vip",
+          "int_white_sp",
+          "int_white_vip",
+          "pH_drain_PC",
+          "scr_blck_sp",
+          "scr_blck_vip",
+          "scr_enrg_sp",
+          "scr_enrg_vip",
+          "t_grow_min_sp",
+          "t_grow_min_vip",
+          "t_heat_sp",
+          "t_heat_vip",
+          "t_rail_min_sp",
+          "t_rail_min_vip",
+          "t_vent_sp",
+          "t_ventlee_vip",
+          "t_ventwind_vip",
+          "water_sup",
+          "water_sup_intervals_sp_min",
+          "water_sup_intervals_vip_min",
+          "window_pos_lee_sp",
+          "window_pos_lee_vip"
+        ],
+        "columns": [
+          {
+            "name": "time",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 47809,
+            "minimum": 43815.0,
+            "maximum": 43981.0
+          },
+          {
+            "name": "AssimLight",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          {
+            "name": "BlackScr",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          {
+            "name": "CO2air",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": -499.0,
+            "maximum": 1224.0
+          },
+          {
+            "name": "Cum_irr",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 8.3
+          },
+          {
+            "name": "EC_drain_PC",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.1,
+            "maximum": 11.3
+          },
+          {
+            "name": "EnScr",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          {
+            "name": "HumDef",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.2,
+            "maximum": 32.1
+          },
+          {
+            "name": "PipeGrow",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 61.3
+          },
+          {
+            "name": "PipeLow",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 73.6
+          },
+          {
+            "name": "Rhair",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": -22.2,
+            "maximum": 99.2
+          },
+          {
+            "name": "Tair",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": -1.0,
+            "maximum": 34.3
+          },
+          {
+            "name": "Tot_PAR",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 1005.0
+          },
+          {
+            "name": "Tot_PAR_Lamps",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 47809,
+            "minimum": 0.0,
+            "maximum": 197.0
+          },
+          {
+            "name": "VentLee",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          {
+            "name": "Ventwind",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          {
+            "name": "assim_sp",
+            "missing": 1944,
+            "non_numeric": 0,
+            "finite": 45865,
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          {
+            "name": "assim_vip",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          {
+            "name": "co2_dos",
+            "missing": 2,
+            "non_numeric": 0,
+            "finite": 47807,
+            "minimum": 0.0,
+            "maximum": 0.015
+          },
+          {
+            "name": "co2_sp",
+            "missing": 1522,
+            "non_numeric": 0,
+            "finite": 46287,
+            "minimum": 300.0,
+            "maximum": 900.0
+          },
+          {
+            "name": "co2_vip",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 400.0,
+            "maximum": 900.0
+          },
+          {
+            "name": "dx_sp",
+            "missing": 1585,
+            "non_numeric": 0,
+            "finite": 46224,
+            "minimum": 2.2,
+            "maximum": 2.2
+          },
+          {
+            "name": "dx_vip",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 2.2,
+            "maximum": 2.2
+          },
+          {
+            "name": "int_blue_sp",
+            "missing": 198,
+            "non_numeric": 0,
+            "finite": 47611,
+            "minimum": 0.0,
+            "maximum": 1000.0
+          },
+          {
+            "name": "int_blue_vip",
+            "missing": 22397,
+            "non_numeric": 0,
+            "finite": 25412,
+            "minimum": 0.0,
+            "maximum": 1000.0
+          },
+          {
+            "name": "int_farred_sp",
+            "missing": 14,
+            "non_numeric": 0,
+            "finite": 47795,
+            "minimum": 0.0,
+            "maximum": 1000.0
+          },
+          {
+            "name": "int_farred_vip",
+            "missing": 22397,
+            "non_numeric": 0,
+            "finite": 25412,
+            "minimum": 0.0,
+            "maximum": 1000.0
+          },
+          {
+            "name": "int_red_sp",
+            "missing": 198,
+            "non_numeric": 0,
+            "finite": 47611,
+            "minimum": 0.0,
+            "maximum": 1000.0
+          },
+          {
+            "name": "int_red_vip",
+            "missing": 22397,
+            "non_numeric": 0,
+            "finite": 25412,
+            "minimum": 0.0,
+            "maximum": 1000.0
+          },
+          {
+            "name": "int_white_sp",
+            "missing": 14,
+            "non_numeric": 0,
+            "finite": 47795,
+            "minimum": 0.0,
+            "maximum": 1000.0
+          },
+          {
+            "name": "int_white_vip",
+            "missing": 22397,
+            "non_numeric": 0,
+            "finite": 25412,
+            "minimum": 0.0,
+            "maximum": 1000.0
+          },
+          {
+            "name": "pH_drain_PC",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 7.5
+          },
+          {
+            "name": "scr_blck_sp",
+            "missing": 1940,
+            "non_numeric": 0,
+            "finite": 45869,
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          {
+            "name": "scr_blck_vip",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 96.0,
+            "maximum": 96.0
+          },
+          {
+            "name": "scr_enrg_sp",
+            "missing": 1939,
+            "non_numeric": 0,
+            "finite": 45870,
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          {
+            "name": "scr_enrg_vip",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 80.0,
+            "maximum": 100.0
+          },
+          {
+            "name": "t_grow_min_sp",
+            "missing": 47809,
+            "non_numeric": 0,
+            "finite": 0,
+            "minimum": null,
+            "maximum": null
+          },
+          {
+            "name": "t_grow_min_vip",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 35.0
+          },
+          {
+            "name": "t_heat_sp",
+            "missing": 1946,
+            "non_numeric": 0,
+            "finite": 45863,
+            "minimum": 10.0,
+            "maximum": 27.5
+          },
+          {
+            "name": "t_heat_vip",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 10.0,
+            "maximum": 27.5
+          },
+          {
+            "name": "t_rail_min_sp",
+            "missing": 1617,
+            "non_numeric": 0,
+            "finite": 46192,
+            "minimum": 0.0,
+            "maximum": 32.0
+          },
+          {
+            "name": "t_rail_min_vip",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 32.0
+          },
+          {
+            "name": "t_vent_sp",
+            "missing": 1960,
+            "non_numeric": 0,
+            "finite": 45849,
+            "minimum": 12.5,
+            "maximum": 30.0
+          },
+          {
+            "name": "t_ventlee_vip",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 12.5,
+            "maximum": 30.0
+          },
+          {
+            "name": "t_ventwind_vip",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 14.0,
+            "maximum": 31.5
+          },
+          {
+            "name": "water_sup",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 94.0
+          },
+          {
+            "name": "water_sup_intervals_sp_min",
+            "missing": 41308,
+            "non_numeric": 0,
+            "finite": 6501,
+            "minimum": 20.0,
+            "maximum": 2000.0
+          },
+          {
+            "name": "water_sup_intervals_vip_min",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 20.0,
+            "maximum": 1000.0
+          },
+          {
+            "name": "window_pos_lee_sp",
+            "missing": 1960,
+            "non_numeric": 0,
+            "finite": 45849,
+            "minimum": 0.0,
+            "maximum": 10.0
+          },
+          {
+            "name": "window_pos_lee_vip",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 10.0
+          }
+        ],
+        "column_count_mismatches": 0,
+        "malformed_examples": [],
+        "invalid_time_lines": [],
+        "time": {
+          "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+          "minimum_raw": "43815.00000",
+          "maximum_raw": "43981.00000",
+          "duplicate_or_backward_deltas": {},
+          "delta_days_counts": {
+            "0.00347": 37184,
+            "0.00348": 10624
+          },
+          "naive_minimum_if_1899_12_30": "2019-12-16T00:00:00",
+          "naive_maximum_if_1899_12_30": "2020-05-30T00:00:00"
+        },
+        "physical_counts": {
+          "negative_co2": 2,
+          "relative_humidity_outside_0_100": 3,
+          "negative_PAR": 0,
+          "negative_Tair": 1,
+          "missing_CO2_Tair_PAR_joint": 71
+        },
+        "production_outside_2019_12_16_to_2020_05_29_lines": null
+      },
+      "extraction_inventory_recorded_at": "2026-10-04T14:27:58.232657+00:00"
+    },
+    {
+      "source_url": "https://ndownloader.figshare.com/files/24757220",
+      "product_id": "24757220#Reference/GrodanSens.csv",
+      "dataset_product_id": "10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+      "vintage": "dataset-v2",
+      "published_at": "2020-09-23T10:41:39Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:49:39.307459+00:00",
+      "path": "Reference/GrodanSens.csv",
+      "raw_sha256": "4cae5ee3d496e78c44e281850578d2fd447ed758579bc88c299926a5c9fecdff",
+      "bytes": 2342700,
+      "crc32": "DD564CE1",
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "rights": {
+        "license": "CC0-1.0_declared_for_dataset_v2",
+        "use": "research_inspection; no approved model input",
+        "display": "own QC aggregates and source references only",
+        "redistribution": "raw archive/CSV/PDF excluded from repository; PDF graphics/file-specific redistribution not adopted"
+      },
+      "status": "inspected_research_evidence_not_G0_adoption",
+      "observed_times": {
+        "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+        "minimum_raw": "43815.00000",
+        "maximum_raw": "43981.00000",
+        "duplicate_or_backward_deltas": {},
+        "delta_days_counts": {
+          "0.00347": 37184,
+          "0.00348": 10624
+        },
+        "naive_minimum_if_1899_12_30": "2019-12-16T00:00:00",
+        "naive_maximum_if_1899_12_30": "2020-05-30T00:00:00"
+      },
+      "units": {
+        "EC_slab1": "dS/m",
+        "EC_slab2": "dS/m",
+        "WC_slab1": "percent",
+        "WC_slab2": "percent",
+        "t_slab1": "degC_substrate",
+        "t_slab2": "degC_substrate"
+      },
+      "readme_pages": [
+        17
+      ],
+      "qc": {
+        "bytes": 2342700,
+        "raw_sha256": "4cae5ee3d496e78c44e281850578d2fd447ed758579bc88c299926a5c9fecdff",
+        "rows": 47809,
+        "schema_valid_rows": 47809,
+        "raw_header": [
+          "%time",
+          "EC_slab1",
+          "EC_slab2",
+          "WC_slab1",
+          "WC_slab2",
+          "t_slab1",
+          "t_slab2"
+        ],
+        "header": [
+          "time",
+          "EC_slab1",
+          "EC_slab2",
+          "WC_slab1",
+          "WC_slab2",
+          "t_slab1",
+          "t_slab2"
+        ],
+        "columns": [
+          {
+            "name": "time",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 47809,
+            "minimum": 43815.0,
+            "maximum": 43981.0
+          },
+          {
+            "name": "EC_slab1",
+            "missing": 2306,
+            "non_numeric": 0,
+            "finite": 45503,
+            "minimum": 4.5,
+            "maximum": 7.5
+          },
+          {
+            "name": "EC_slab2",
+            "missing": 2306,
+            "non_numeric": 0,
+            "finite": 45503,
+            "minimum": 4.2,
+            "maximum": 8.1
+          },
+          {
+            "name": "WC_slab1",
+            "missing": 2306,
+            "non_numeric": 0,
+            "finite": 45503,
+            "minimum": 72.9,
+            "maximum": 99.5
+          },
+          {
+            "name": "WC_slab2",
+            "missing": 2306,
+            "non_numeric": 0,
+            "finite": 45503,
+            "minimum": 68.2,
+            "maximum": 98.6
+          },
+          {
+            "name": "t_slab1",
+            "missing": 2306,
+            "non_numeric": 0,
+            "finite": 45503,
+            "minimum": 16.4,
+            "maximum": 29.7
+          },
+          {
+            "name": "t_slab2",
+            "missing": 2306,
+            "non_numeric": 0,
+            "finite": 45503,
+            "minimum": 16.1,
+            "maximum": 29.4
+          }
+        ],
+        "column_count_mismatches": 0,
+        "malformed_examples": [],
+        "invalid_time_lines": [],
+        "time": {
+          "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+          "minimum_raw": "43815.00000",
+          "maximum_raw": "43981.00000",
+          "duplicate_or_backward_deltas": {},
+          "delta_days_counts": {
+            "0.00347": 37184,
+            "0.00348": 10624
+          },
+          "naive_minimum_if_1899_12_30": "2019-12-16T00:00:00",
+          "naive_maximum_if_1899_12_30": "2020-05-30T00:00:00"
+        },
+        "physical_counts": null,
+        "production_outside_2019_12_16_to_2020_05_29_lines": null
+      },
+      "extraction_inventory_recorded_at": "2026-10-04T14:27:58.232657+00:00"
+    },
+    {
+      "source_url": "https://ndownloader.figshare.com/files/24757220",
+      "product_id": "24757220#Reference/LabAnalysis.csv",
+      "dataset_product_id": "10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+      "vintage": "dataset-v2",
+      "published_at": "2020-09-23T10:41:39Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:49:39.307459+00:00",
+      "path": "Reference/LabAnalysis.csv",
+      "raw_sha256": "1a8d7dea1ba6db6b39046957581f03c9c246341d8d2ff973acee9129a2b31691",
+      "bytes": 2034,
+      "crc32": "6D031123",
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "rights": {
+        "license": "CC0-1.0_declared_for_dataset_v2",
+        "use": "research_inspection; no approved model input",
+        "display": "own QC aggregates and source references only",
+        "redistribution": "raw archive/CSV/PDF excluded from repository; PDF graphics/file-specific redistribution not adopted"
+      },
+      "status": "inspected_research_evidence_not_G0_adoption",
+      "observed_times": {
+        "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+        "minimum_raw": "43836",
+        "maximum_raw": "43963",
+        "duplicate_or_backward_deltas": {},
+        "delta_days_counts": {
+          "14": 3,
+          "15": 4,
+          "13": 1,
+          "12": 1
+        },
+        "naive_minimum_if_1899_12_30": "2020-01-06T00:00:00",
+        "naive_maximum_if_1899_12_30": "2020-05-12T00:00:00"
+      },
+      "units": {
+        "irr_PH,drain_PH": "dimensionless_pH",
+        "irr_EC,drain_EC": "dS/m",
+        "NH4,K,Na,Ca,Mg,Si,NO3,Cl,SO4,HCO3,PO4": "mmol/L",
+        "Fe,Mn,Zn,B,Cu,Mo": "umol/L"
+      },
+      "readme_pages": [
+        15,
+        16
+      ],
+      "qc": {
+        "bytes": 2034,
+        "raw_sha256": "1a8d7dea1ba6db6b39046957581f03c9c246341d8d2ff973acee9129a2b31691",
+        "rows": 10,
+        "schema_valid_rows": 10,
+        "raw_header": [
+          "%Time",
+          "irr_PH",
+          "irr_EC",
+          "irr_NH4",
+          "irr_K",
+          "irr_Na",
+          "irr_Ca",
+          "irr_Mg",
+          "irr_Si",
+          "irr_NO3",
+          "irr_Cl",
+          "irr_SO4",
+          "irr_HCO3",
+          "irr_PO4",
+          "irr_Fe",
+          "irr_Mn",
+          "irr_Zn",
+          "irr_B",
+          "irr_Cu",
+          "irr_Mo",
+          "drain_PH",
+          "drain_EC",
+          "drain_NH4",
+          "drain_K",
+          "drain_Na",
+          "drain_Ca",
+          "drain_Mg",
+          "drain_Si",
+          "drain_NO3",
+          "drain_Cl",
+          "drain_SO4",
+          "drain_HCO3",
+          "drain_PO4",
+          "drain_Fe",
+          "drain_Mn",
+          "drain_Zn",
+          "drain_B",
+          "drain_Cu",
+          "drain_Mo"
+        ],
+        "header": [
+          "Time",
+          "irr_PH",
+          "irr_EC",
+          "irr_NH4",
+          "irr_K",
+          "irr_Na",
+          "irr_Ca",
+          "irr_Mg",
+          "irr_Si",
+          "irr_NO3",
+          "irr_Cl",
+          "irr_SO4",
+          "irr_HCO3",
+          "irr_PO4",
+          "irr_Fe",
+          "irr_Mn",
+          "irr_Zn",
+          "irr_B",
+          "irr_Cu",
+          "irr_Mo",
+          "drain_PH",
+          "drain_EC",
+          "drain_NH4",
+          "drain_K",
+          "drain_Na",
+          "drain_Ca",
+          "drain_Mg",
+          "drain_Si",
+          "drain_NO3",
+          "drain_Cl",
+          "drain_SO4",
+          "drain_HCO3",
+          "drain_PO4",
+          "drain_Fe",
+          "drain_Mn",
+          "drain_Zn",
+          "drain_B",
+          "drain_Cu",
+          "drain_Mo"
+        ],
+        "columns": [
+          {
+            "name": "Time",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 43836.0,
+            "maximum": 43963.0
+          },
+          {
+            "name": "irr_PH",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 4.3,
+            "maximum": 5.7
+          },
+          {
+            "name": "irr_EC",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 3.3,
+            "maximum": 5.1
+          },
+          {
+            "name": "irr_NH4",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 0.09,
+            "maximum": 1.6
+          },
+          {
+            "name": "irr_K",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 11.7,
+            "maximum": 18.1
+          },
+          {
+            "name": "irr_Na",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 0.3,
+            "maximum": 0.5
+          },
+          {
+            "name": "irr_Ca",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 6.5,
+            "maximum": 11.8
+          },
+          {
+            "name": "irr_Mg",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 2.6,
+            "maximum": 5.0
+          },
+          {
+            "name": "irr_Si",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 0.009,
+            "maximum": 0.36
+          },
+          {
+            "name": "irr_NO3",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 16.2,
+            "maximum": 23.1
+          },
+          {
+            "name": "irr_Cl",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 2.8,
+            "maximum": 6.0
+          },
+          {
+            "name": "irr_SO4",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 5.1,
+            "maximum": 8.8
+          },
+          {
+            "name": "irr_HCO3",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 0.09,
+            "maximum": 0.4
+          },
+          {
+            "name": "irr_PO4",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 1.94,
+            "maximum": 2.7
+          },
+          {
+            "name": "irr_Fe",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 20.0,
+            "maximum": 42.0
+          },
+          {
+            "name": "irr_Mn",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 12.4,
+            "maximum": 26.0
+          },
+          {
+            "name": "irr_Zn",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 4.4,
+            "maximum": 10.0
+          },
+          {
+            "name": "irr_B",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 33.0,
+            "maximum": 51.0
+          },
+          {
+            "name": "irr_Cu",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 0.7,
+            "maximum": 1.1
+          },
+          {
+            "name": "irr_Mo",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 0.4,
+            "maximum": 0.6
+          },
+          {
+            "name": "drain_PH",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 4.3,
+            "maximum": 6.0
+          },
+          {
+            "name": "drain_EC",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 3.5,
+            "maximum": 6.5
+          },
+          {
+            "name": "drain_NH4",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 0.09,
+            "maximum": 0.3
+          },
+          {
+            "name": "drain_K",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 13.2,
+            "maximum": 24.1
+          },
+          {
+            "name": "drain_Na",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 0.3,
+            "maximum": 0.9
+          },
+          {
+            "name": "drain_Ca",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 8.2,
+            "maximum": 14.4
+          },
+          {
+            "name": "drain_Mg",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 3.9,
+            "maximum": 8.8
+          },
+          {
+            "name": "drain_Si",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 0.01,
+            "maximum": 0.5
+          },
+          {
+            "name": "drain_NO3",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 12.9,
+            "maximum": 36.1
+          },
+          {
+            "name": "drain_Cl",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 3.9,
+            "maximum": 10.7
+          },
+          {
+            "name": "drain_SO4",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 6.9,
+            "maximum": 17.4
+          },
+          {
+            "name": "drain_HCO3",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 0.09,
+            "maximum": 1.2
+          },
+          {
+            "name": "drain_PO4",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 2.0,
+            "maximum": 3.23
+          },
+          {
+            "name": "drain_Fe",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 23.2,
+            "maximum": 51.0
+          },
+          {
+            "name": "drain_Mn",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 6.4,
+            "maximum": 48.0
+          },
+          {
+            "name": "drain_Zn",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 5.7,
+            "maximum": 17.0
+          },
+          {
+            "name": "drain_B",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 48.0,
+            "maximum": 78.0
+          },
+          {
+            "name": "drain_Cu",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 0.7,
+            "maximum": 1.4
+          },
+          {
+            "name": "drain_Mo",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 10,
+            "minimum": 0.2,
+            "maximum": 0.9
+          }
+        ],
+        "column_count_mismatches": 0,
+        "malformed_examples": [],
+        "invalid_time_lines": [],
+        "time": {
+          "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+          "minimum_raw": "43836",
+          "maximum_raw": "43963",
+          "duplicate_or_backward_deltas": {},
+          "delta_days_counts": {
+            "14": 3,
+            "15": 4,
+            "13": 1,
+            "12": 1
+          },
+          "naive_minimum_if_1899_12_30": "2020-01-06T00:00:00",
+          "naive_maximum_if_1899_12_30": "2020-05-12T00:00:00"
+        },
+        "physical_counts": null,
+        "production_outside_2019_12_16_to_2020_05_29_lines": null
+      },
+      "extraction_inventory_recorded_at": "2026-10-04T14:27:58.232657+00:00"
+    },
+    {
+      "source_url": "https://ndownloader.figshare.com/files/24757220",
+      "product_id": "24757220#Reference/Production.csv",
+      "dataset_product_id": "10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+      "vintage": "dataset-v2",
+      "published_at": "2020-09-23T10:41:39Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:49:39.307459+00:00",
+      "path": "Reference/Production.csv",
+      "raw_sha256": "5124bacfd527a155c7fde61762a793a3192546253e9f442b42b7583ba3a69b65",
+      "bytes": 1086,
+      "crc32": "B725786D",
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "rights": {
+        "license": "CC0-1.0_declared_for_dataset_v2",
+        "use": "research_inspection; no approved model input",
+        "display": "own QC aggregates and source references only",
+        "redistribution": "raw archive/CSV/PDF excluded from repository; PDF graphics/file-specific redistribution not adopted"
+      },
+      "status": "inspected_research_evidence_not_G0_adoption",
+      "observed_times": {
+        "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+        "minimum_raw": "43510",
+        "maximum_raw": "43980",
+        "duplicate_or_backward_deltas": {},
+        "delta_days_counts": {
+          "370": 1,
+          "5": 13,
+          "4": 8,
+          "3": 1
+        },
+        "naive_minimum_if_1899_12_30": "2019-02-14T00:00:00",
+        "naive_maximum_if_1899_12_30": "2020-05-29T00:00:00"
+      },
+      "units": {
+        "ProdA": "kg/m2_production_area_62.5m2_reference_applicability_unresolved",
+        "ProdB": "kg/m2_production_area_62.5m2_reference_applicability_unresolved",
+        "avg_nr_harvested_trusses": "count/stem_mean_10_sample_stems",
+        "Truss development time": "days_10_sample_stems_mean",
+        "Nr_fruits_ClassA": "count_total_10_sample_stems",
+        "Weight_fruits_ClassA": "g_total_10_sample_stems",
+        "Nr_fruits_ClassB": "count_total_10_sample_stems",
+        "Weight_fruits_ClassB": "g_total_10_sample_stems"
+      },
+      "readme_pages": [
+        9
+      ],
+      "qc": {
+        "bytes": 1086,
+        "raw_sha256": "5124bacfd527a155c7fde61762a793a3192546253e9f442b42b7583ba3a69b65",
+        "rows": 24,
+        "schema_valid_rows": 24,
+        "raw_header": [
+          "%time",
+          "ProdA",
+          "ProdB",
+          "avg_nr_harvested_trusses",
+          "Truss development time ",
+          "Nr_fruits_ClassA",
+          "Weight_fruits_ClassA",
+          "Nr_fruits_ClassB",
+          "Weight_fruits_ClassB"
+        ],
+        "header": [
+          "time",
+          "ProdA",
+          "ProdB",
+          "avg_nr_harvested_trusses",
+          "Truss development time",
+          "Nr_fruits_ClassA",
+          "Weight_fruits_ClassA",
+          "Nr_fruits_ClassB",
+          "Weight_fruits_ClassB"
+        ],
+        "columns": [
+          {
+            "name": "time",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 24,
+            "minimum": 43510.0,
+            "maximum": 43980.0
+          },
+          {
+            "name": "ProdA",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 24,
+            "minimum": 0.17,
+            "maximum": 1.05
+          },
+          {
+            "name": "ProdB",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 24,
+            "minimum": 0.0,
+            "maximum": 0.0022
+          },
+          {
+            "name": "avg_nr_harvested_trusses",
+            "missing": 1,
+            "non_numeric": 0,
+            "finite": 23,
+            "minimum": 0.3,
+            "maximum": 2.5
+          },
+          {
+            "name": "Truss development time",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 24,
+            "minimum": 39.0,
+            "maximum": 54.0
+          },
+          {
+            "name": "Nr_fruits_ClassA",
+            "missing": 2,
+            "non_numeric": 0,
+            "finite": 22,
+            "minimum": 40.0,
+            "maximum": 313.0
+          },
+          {
+            "name": "Weight_fruits_ClassA",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 24,
+            "minimum": 361.0,
+            "maximum": 2810.0
+          },
+          {
+            "name": "Nr_fruits_ClassB",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 24,
+            "minimum": 0.0,
+            "maximum": 0.0
+          },
+          {
+            "name": "Weight_fruits_ClassB",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 24,
+            "minimum": 0.0,
+            "maximum": 0.0
+          }
+        ],
+        "column_count_mismatches": 0,
+        "malformed_examples": [],
+        "invalid_time_lines": [],
+        "time": {
+          "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+          "minimum_raw": "43510",
+          "maximum_raw": "43980",
+          "duplicate_or_backward_deltas": {},
+          "delta_days_counts": {
+            "370": 1,
+            "5": 13,
+            "4": 8,
+            "3": 1
+          },
+          "naive_minimum_if_1899_12_30": "2019-02-14T00:00:00",
+          "naive_maximum_if_1899_12_30": "2020-05-29T00:00:00"
+        },
+        "physical_counts": null,
+        "production_outside_2019_12_16_to_2020_05_29_lines": [
+          2
+        ]
+      },
+      "extraction_inventory_recorded_at": "2026-10-04T14:27:58.232657+00:00"
+    },
+    {
+      "source_url": "https://ndownloader.figshare.com/files/24757220",
+      "product_id": "24757220#Reference/Resources.csv",
+      "dataset_product_id": "10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+      "vintage": "dataset-v2",
+      "published_at": "2020-09-23T10:41:39Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:49:39.307459+00:00",
+      "path": "Reference/Resources.csv",
+      "raw_sha256": "b40ad7bebcbfdf501edb5fb193b8d2c5e453c17015377cc4285d6e107ee67dd6",
+      "bytes": 6367,
+      "crc32": "E0DF4E56",
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "rights": {
+        "license": "CC0-1.0_declared_for_dataset_v2",
+        "use": "research_inspection; no approved model input",
+        "display": "own QC aggregates and source references only",
+        "redistribution": "raw archive/CSV/PDF excluded from repository; PDF graphics/file-specific redistribution not adopted"
+      },
+      "status": "inspected_research_evidence_not_G0_adoption",
+      "observed_times": {
+        "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+        "minimum_raw": "43815",
+        "maximum_raw": "43980",
+        "duplicate_or_backward_deltas": {},
+        "delta_days_counts": {
+          "1": 165
+        },
+        "naive_minimum_if_1899_12_30": "2019-12-16T00:00:00",
+        "naive_maximum_if_1899_12_30": "2020-05-29T00:00:00"
+      },
+      "units": {
+        "Heat_cons": "MJ/m2/day_processed_pipe_heat",
+        "ElecHigh": "kWh/m2/day_processed_lighting",
+        "ElecLow": "kWh/m2/day_processed_lighting",
+        "CO2_cons": "kg/m2/day_processed_dosage",
+        "Irr": "L/m2/day",
+        "Drain": "L/m2/day"
+      },
+      "readme_pages": [
+        12,
+        13
+      ],
+      "qc": {
+        "bytes": 6367,
+        "raw_sha256": "b40ad7bebcbfdf501edb5fb193b8d2c5e453c17015377cc4285d6e107ee67dd6",
+        "rows": 166,
+        "schema_valid_rows": 166,
+        "raw_header": [
+          "%Time ",
+          "Heat_cons",
+          "ElecHigh",
+          "ElecLow",
+          "CO2_cons",
+          "Irr",
+          "Drain"
+        ],
+        "header": [
+          "Time",
+          "Heat_cons",
+          "ElecHigh",
+          "ElecLow",
+          "CO2_cons",
+          "Irr",
+          "Drain"
+        ],
+        "columns": [
+          {
+            "name": "Time",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 166,
+            "minimum": 43815.0,
+            "maximum": 43980.0
+          },
+          {
+            "name": "Heat_cons",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 166,
+            "minimum": 0.13,
+            "maximum": 5.96
+          },
+          {
+            "name": "ElecHigh",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 166,
+            "minimum": 0.0,
+            "maximum": 1.5
+          },
+          {
+            "name": "ElecLow",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 166,
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          {
+            "name": "CO2_cons",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 166,
+            "minimum": 0.009824111,
+            "maximum": 0.138481667
+          },
+          {
+            "name": "Irr",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 166,
+            "minimum": 0.0,
+            "maximum": 8.3
+          },
+          {
+            "name": "Drain",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 166,
+            "minimum": 0.0,
+            "maximum": 5.2
+          }
+        ],
+        "column_count_mismatches": 0,
+        "malformed_examples": [],
+        "invalid_time_lines": [],
+        "time": {
+          "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+          "minimum_raw": "43815",
+          "maximum_raw": "43980",
+          "duplicate_or_backward_deltas": {},
+          "delta_days_counts": {
+            "1": 165
+          },
+          "naive_minimum_if_1899_12_30": "2019-12-16T00:00:00",
+          "naive_maximum_if_1899_12_30": "2020-05-29T00:00:00"
+        },
+        "physical_counts": null,
+        "production_outside_2019_12_16_to_2020_05_29_lines": null
+      },
+      "extraction_inventory_recorded_at": "2026-10-04T14:27:58.232657+00:00"
+    },
+    {
+      "source_url": "https://ndownloader.figshare.com/files/24757220",
+      "product_id": "24757220#Reference/TomQuality.csv",
+      "dataset_product_id": "10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+      "vintage": "dataset-v2",
+      "published_at": "2020-09-23T10:41:39Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:49:39.307459+00:00",
+      "path": "Reference/TomQuality.csv",
+      "raw_sha256": "7f15759110c8df57efb376fa6f0808d076fbe143e436059f21b6df2243ac0978",
+      "bytes": 395,
+      "crc32": "9F53FB77",
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "rights": {
+        "license": "CC0-1.0_declared_for_dataset_v2",
+        "use": "research_inspection; no approved model input",
+        "display": "own QC aggregates and source references only",
+        "redistribution": "raw archive/CSV/PDF excluded from repository; PDF graphics/file-specific redistribution not adopted"
+      },
+      "status": "inspected_research_evidence_not_G0_adoption",
+      "observed_times": {
+        "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+        "minimum_raw": "43880",
+        "maximum_raw": "43980",
+        "duplicate_or_backward_deltas": {},
+        "delta_days_counts": {
+          "14": 6,
+          "16": 1
+        },
+        "naive_minimum_if_1899_12_30": "2020-02-19T00:00:00",
+        "naive_maximum_if_1899_12_30": "2020-05-29T00:00:00"
+      },
+      "units": {
+        "Weight": "g_sample_average_header_mapping_pending",
+        "DMC_fruit": "percent_sample_header_mapping_pending",
+        "TSS": "degBrix",
+        "Acid": "mmol_H3O_per_100g",
+        "Bite": "N_source_document_unit_not_calibration_reviewed",
+        "Flavour": "dimensionless_model_score_0_100",
+        "%Juice": "percent"
+      },
+      "readme_pages": [
+        14
+      ],
+      "qc": {
+        "bytes": 395,
+        "raw_sha256": "7f15759110c8df57efb376fa6f0808d076fbe143e436059f21b6df2243ac0978",
+        "rows": 8,
+        "schema_valid_rows": 0,
+        "raw_header": [
+          "%time",
+          "\tFlavour",
+          " \tTSS",
+          "\tAcid",
+          "\t%Juice",
+          "\tBite",
+          "\tWeight\tDMC_fruit"
+        ],
+        "header": [
+          "time",
+          "Flavour",
+          "TSS",
+          "Acid",
+          "%Juice",
+          "Bite",
+          "Weight\tDMC_fruit"
+        ],
+        "columns": [
+          {
+            "name": "time",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 0,
+            "minimum": null,
+            "maximum": null
+          },
+          {
+            "name": "Flavour",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 0,
+            "minimum": null,
+            "maximum": null
+          },
+          {
+            "name": "TSS",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 0,
+            "minimum": null,
+            "maximum": null
+          },
+          {
+            "name": "Acid",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 0,
+            "minimum": null,
+            "maximum": null
+          },
+          {
+            "name": "%Juice",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 0,
+            "minimum": null,
+            "maximum": null
+          },
+          {
+            "name": "Bite",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 0,
+            "minimum": null,
+            "maximum": null
+          },
+          {
+            "name": "Weight\tDMC_fruit",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 0,
+            "minimum": null,
+            "maximum": null
+          }
+        ],
+        "column_count_mismatches": 8,
+        "malformed_examples": [
+          {
+            "line": 2,
+            "columns": 8
+          },
+          {
+            "line": 3,
+            "columns": 8
+          },
+          {
+            "line": 4,
+            "columns": 8
+          },
+          {
+            "line": 5,
+            "columns": 8
+          },
+          {
+            "line": 6,
+            "columns": 8
+          },
+          {
+            "line": 7,
+            "columns": 8
+          },
+          {
+            "line": 8,
+            "columns": 8
+          },
+          {
+            "line": 9,
+            "columns": 8
+          }
+        ],
+        "invalid_time_lines": [],
+        "time": {
+          "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+          "minimum_raw": "43880",
+          "maximum_raw": "43980",
+          "duplicate_or_backward_deltas": {},
+          "delta_days_counts": {
+            "14": 6,
+            "16": 1
+          },
+          "naive_minimum_if_1899_12_30": "2020-02-19T00:00:00",
+          "naive_maximum_if_1899_12_30": "2020-05-29T00:00:00"
+        },
+        "physical_counts": null,
+        "production_outside_2019_12_16_to_2020_05_29_lines": null
+      },
+      "extraction_inventory_recorded_at": "2026-10-04T14:27:58.232657+00:00"
+    },
+    {
+      "source_url": "https://ndownloader.figshare.com/files/24757220",
+      "product_id": "24757220#Weather/Weather.csv",
+      "dataset_product_id": "10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+      "vintage": "dataset-v2",
+      "published_at": "2020-09-23T10:41:39Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:49:39.307459+00:00",
+      "path": "Weather/Weather.csv",
+      "raw_sha256": "a9d7446a17496cf9c018b8b8aa40424c54a2d224ae72952923f0256cad0f1e55",
+      "bytes": 3926624,
+      "crc32": "12DAF526",
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "rights": {
+        "license": "CC0-1.0_declared_for_dataset_v2",
+        "use": "research_inspection; no approved model input",
+        "display": "own QC aggregates and source references only",
+        "redistribution": "raw archive/CSV/PDF excluded from repository; PDF graphics/file-specific redistribution not adopted"
+      },
+      "status": "inspected_research_evidence_not_G0_adoption",
+      "observed_times": {
+        "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+        "minimum_raw": "43815",
+        "maximum_raw": "43981",
+        "duplicate_or_backward_deltas": {},
+        "delta_days_counts": {
+          "0.00347": 37184,
+          "0.00348": 10624
+        },
+        "naive_minimum_if_1899_12_30": "2019-12-16T00:00:00",
+        "naive_maximum_if_1899_12_30": "2020-05-30T00:00:00"
+      },
+      "units": {
+        "Tout": "degC",
+        "Rhout": "percent",
+        "Iglob": "W/m2",
+        "Windsp": "m/s",
+        "RadSum": "J/cm2",
+        "Winddir": "compass_scale_0_128",
+        "Rain": "0_dry_1_rain",
+        "PARout": "umol_photons/m2/s",
+        "Pyrgeo": "W/m2",
+        "AbsHumOut": "g/m3"
+      },
+      "readme_pages": [
+        2
+      ],
+      "qc": {
+        "bytes": 3926624,
+        "raw_sha256": "a9d7446a17496cf9c018b8b8aa40424c54a2d224ae72952923f0256cad0f1e55",
+        "rows": 47809,
+        "schema_valid_rows": 47809,
+        "raw_header": [
+          "%time",
+          "AbsHumOut",
+          "Iglob",
+          "PARout",
+          "Pyrgeo",
+          "RadSum",
+          "Rain",
+          "Rhout",
+          "Tout",
+          "Winddir",
+          "Windsp"
+        ],
+        "header": [
+          "time",
+          "AbsHumOut",
+          "Iglob",
+          "PARout",
+          "Pyrgeo",
+          "RadSum",
+          "Rain",
+          "Rhout",
+          "Tout",
+          "Winddir",
+          "Windsp"
+        ],
+        "columns": [
+          {
+            "name": "time",
+            "missing": 0,
+            "non_numeric": 0,
+            "finite": 47809,
+            "minimum": 43815.0,
+            "maximum": 43981.0
+          },
+          {
+            "name": "AbsHumOut",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.87909926,
+            "maximum": 12.42713358
+          },
+          {
+            "name": "Iglob",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 1505.0
+          },
+          {
+            "name": "PARout",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 2010.0
+          },
+          {
+            "name": "Pyrgeo",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": -136.0,
+            "maximum": 0.0
+          },
+          {
+            "name": "RadSum",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 2999.0
+          },
+          {
+            "name": "Rain",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          {
+            "name": "Rhout",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 10.100003,
+            "maximum": 99.7
+          },
+          {
+            "name": "Tout",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": -0.2,
+            "maximum": 27.29999993
+          },
+          {
+            "name": "Winddir",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 1.0,
+            "maximum": 128.0
+          },
+          {
+            "name": "Windsp",
+            "missing": 71,
+            "non_numeric": 0,
+            "finite": 47738,
+            "minimum": 0.0,
+            "maximum": 21.8999999
+          }
+        ],
+        "column_count_mismatches": 0,
+        "malformed_examples": [],
+        "invalid_time_lines": [],
+        "time": {
+          "representation": "Excel_serial; epoch_candidate_1899_12_30; timezone_unknown",
+          "minimum_raw": "43815",
+          "maximum_raw": "43981",
+          "duplicate_or_backward_deltas": {},
+          "delta_days_counts": {
+            "0.00347": 37184,
+            "0.00348": 10624
+          },
+          "naive_minimum_if_1899_12_30": "2019-12-16T00:00:00",
+          "naive_maximum_if_1899_12_30": "2020-05-30T00:00:00"
+        },
+        "physical_counts": null,
+        "production_outside_2019_12_16_to_2020_05_29_lines": null
+      },
+      "extraction_inventory_recorded_at": "2026-10-04T14:27:58.232657+00:00"
+    }
+  ],
+  "qc_execution": {
+    "inspector_version": "agc-reference-raw-qc-v1",
+    "code_path": "research/crop-forcing-audit.py",
+    "code_sha256": "aa6a62aa21f5126b52029e99e034167d5837dd4b9b6c457a716d9a57f3636938",
+    "output_sha256": "0d5c60f8c4dda4112ce4e57d8243bca74ec651b1fa98f9ba50800fe47bb152bf",
+    "two_runs_byte_identical": true,
+    "physical_line_counts_match": true,
+    "raw_hashes_match_archive_inventory": true,
+    "source_mutated": false,
+    "utc_forcing_created": false,
+    "model_runs_created": 0,
+    "source_output_overwrite_rejected": true
+  },
+  "time_policy": {
+    "provider_description": "Excel_timestamp_five_minutes",
+    "epoch": "1899-12-30_candidate_matches_trial_start_not_approved_UTC_transform",
+    "timezone": null,
+    "DST": null,
+    "sample_time_meaning": null,
+    "rounded_source_delta_seconds": [
+      "299.808",
+      "300.672"
+    ],
+    "rounding_to_UTC_whole_seconds": "not_approved"
+  },
+  "area_policy": {
+    "floor_m2": "96",
+    "paper_crop_growing_m2": "76.8",
+    "readme_growing_production_m2": "62.5",
+    "reference_denominator_mapping": "unresolved",
+    "automatic_conversion": false
+  },
+  "quality_header_proposal": {
+    "raw_header_columns": 7,
+    "row_columns": 8,
+    "affected_rows": 8,
+    "proposed_mapping_source": "ReadMe.pdf page14",
+    "proposed_8_columns": [
+      "time",
+      "Flavour",
+      "TSS",
+      "Acid",
+      "%Juice",
+      "Bite",
+      "Weight",
+      "DMC_fruit"
+    ],
+    "DMC_candidate_finite": 6,
+    "DMC_candidate_missing": 2,
+    "adopted": false,
+    "corrected_source_created": false
+  },
+  "capacity": {
+    "source_samples": 47809,
+    "source_intervals": 47808,
+    "source_days": 166,
+    "current_max_list": 20000,
+    "current_max_steps": 1000000,
+    "steps_if_10_seconds": 1434240,
+    "actual_whole_cycle_benchmark": false,
+    "needed_task": "crop-cycle-capacity",
+    "arithmetic": {
+      "serial_days": "166.00000",
+      "seconds_if_uniform_serial_clock": "14342400.00000",
+      "minimum_steps_if_uniform_clock_and_10_seconds": 1434240,
+      "actual_UTC_solver_plan": false,
+      "source_timezone_DST_and_extra_boundaries_unresolved": true
+    }
+  },
+  "holds": [
+    "UTC_epoch_timezone_DST_and_sample_semantics_unapproved",
+    "floor_crop_production_area_Reference_mapping_unresolved",
+    "computed_inside_PAR_not_verified_above_canopy_measurement",
+    "canopy_temperature_absent",
+    "initial_LAI_organ_buffer_temperature_states_absent",
+    "precise_pruning_topping_fruit_set_management_events_missing",
+    "CO2_negative_and_71_required_channel_missing_rows",
+    "Production_first_date_outside_trial",
+    "TomQuality_header_requires_reviewed_new_mapping_version",
+    "DMC_sample_conversion_variety_uncertainty_not_accepted",
+    "processed_resources_not_independent_energy_purchases",
+    "challenge_economics_not_domestic_full_margin",
+    "as_of_available_at_not_reconstructed",
+    "existing_v1_cannot_fit_full_5minute_cycle"
+  ],
+  "tools": {
+    "7zip": {
+      "url": "https://github.com/ip7z/7zip/releases/download/26.03/7z2603-linux-x64.tar.xz",
+      "sha256": "dc99eff5008f1ab79bd7084c68513701547a808a89502bf4133683535ab3c695",
+      "version": "26.03",
+      "temporary_only": true,
+      "project_dependency_added": false
+    },
+    "pdf_reader": "pypdf_6.19.0_ephemeral_uv_no_project_dependency",
+    "pdf_source_pages": {
+      "ReadMe": 17,
+      "Economics": 5
+    },
+    "thread_limit": 1,
+    "nice": 10
+  },
+  "gates": "not_assessed",
+  "independent_domestic_datasets": 0,
+  "next": "crop-fruit-model-spec"
+}
