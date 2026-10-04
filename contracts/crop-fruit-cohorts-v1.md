@@ -1,6 +1,8 @@
 # 과실 구획 연구 계약 — v1
 
-상태: **조사/개발 경계 수용, 계산 구현 전**.
+상태: **조사/개발 경계와 고립된 순간 이동의 로컬 소프트웨어 수용**.
+[92개 새 시험·기존 포함 238개·독립 참조 3,090수치](../research/crop-fruit-transport-implementation.md)를 확인했다.
+전체 배분/착과·적분/생과 생산량의 구현/수용은 후속이다.
 [원식과 보류](../research/crop-fruit-cohorts-baseline.md),
 [계수/권리 등록부](../research/crop-fruit-source-register.json)를 따른다.
 모델/설계 판단은 동일 `gpt-6.1-sol / xhigh` CLI에서 수행했다. 이 계약은
@@ -26,14 +28,19 @@ buffer 유입 F는 `sum(A_j)`와 같아야 하며 성장 호흡은 기존 buffer
 piecewise `h=1`, 온도 합이 원 onset 0을 초과한 범위다. 평활 gate나 생식기
 이전의 서로 다른 개수/질량 gate를 첫 계산에 섞지 않는다.
 
-예정 파일: `backend/app/crop_fruit_transport.py`,
+구현 파일: `backend/app/crop_fruit_transport.py`,
 `backend/tests/test_crop_fruit_transport.py`,
 `fixtures/crop-fruit-transport-reference-parameters-v1.json`,
 `fixtures/crop-fruit-transport-reference-cases-v1.json`.
+`research/crop-fruit-transport-reference.py`를 추가해 독립 Decimal 기대값의
+생성 코드/버전·해시와 byte-identical 재실행을 보존했다.
 
 입력은 origin/input ID가 명시된 상태와 고정 profile bytes다. 정확히 50개씩의
 N/C quantity 배열, `temperature_filtered_24h` °C, `temperature_sum` °C day를
-받는다. 수치 타입/단위·유한/비음수·범위를 검증하며 C_j>0,N_j=0은 일관성
+받는다. 각 quantity는 정확한 value/unit 객체이며 상태는 input_id/origin/values의
+닫힌 객체다. ID는 1–256문자, origin은 synthetic/reference_calculation/reference_observation이다.
+이 표시가 실제 관측이나 권리 승인을 입증하지 않는다.
+수치 타입/단위·유한/비음수·범위를 검증하며 C_j>0,N_j=0은 일관성
 hold다. 초기 상태를 자동 생성하지 않는다. 양수 온도 합의 선언은 생리/자료
 G0 승인을 뜻하지 않는다. 계수는 nDev=50, cDev1=−7.64e−9 s⁻¹,
 cDev2=1.16e−8 s⁻¹/°C의 고정 일반 참조 판본이다.
@@ -54,6 +61,13 @@ model/profile/input SHA-256·고정 `software_research_only` 범위다.
 명시적 hold다. clipping·기본 계수·자동 배열 복구·재정규화는 없다.
 새 `vanthoor-fruit-transport-research-v1` 판본을 사용하며 기존 rates/integration/
 crop-result-v1 해시·불변 입력/저장 결과를 변경하지 않는다. API·3D 연결은 후속이다.
+
+구현의 N/C 배열 이름은 fruit_number/fruit_carbohydrate다. 미분은 동일한
+`lambda*(이전 상태-현재 상태)`로 평가해 큰 edge 유량의 차감 손실을 줄인다.
+원식/계수를 변경한 것이 아니다. 수지 예산은 두 상태별로 `2*(50+1)*ulp(max(edge))`
+이며 50항의 차감/곱셈 반올림과 합계의 보수적인 예산이다. 양의 edge 또는
+0이 아닌 구획 차이가 표현 불가능하게 0으로 떨어지면 NUMERIC_HOLD다.
+유량/총량의 비유한·합계 overflow와 예산 밖 수지는 각각 hold로 남긴다.
 
 ### 순간 이동 수용 기준
 

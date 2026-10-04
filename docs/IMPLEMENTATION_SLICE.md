@@ -152,8 +152,9 @@ Axiany/Maxifort 한 해외 작기 개발 참조다. 대한민국 온실의 최�
 5분/6시점 합성 연구 범위이며 실제 참조 입력 채택/권리 연결은 남아 있다.
 [채널/시각/면적·초기조건/관리 입력 감사](../research/crop-forcing-audit.md)도 완료했다.
 실제 forcing/작기 재현은 보류이며 [과실 발달식/구획 계약](../research/crop-fruit-cohorts-baseline.md)도
-수용했다. 다음은 원식이 명확한 `crop-fruit-transport`의 순간 이동이며
-전체 착과/배분의 보존·초기/gate 정책은 따로 검토한다.
+수용했다. [원식이 명확한 순간 이동](../research/crop-fruit-transport-implementation.md)도
+새 92개/기존 포함 238개와 독립 3,090수치로 로컬 수용했다. 필수 프로필 포장과
+전체 착과/배분의 보존·초기/gate 정책은 다음 작은 단계다.
 실제 47,809시점과 현재 20,000 배열/100만 step 차이는 `crop-cycle-capacity`에서
 연속 상태·사건·저장/출력 시간과 부하/재현을 계약하는 필수 후속이다.
 [필수 프로필/고지 이미지](../research/crop-rate-image-inputs-implementation.md)도 실제 hosted

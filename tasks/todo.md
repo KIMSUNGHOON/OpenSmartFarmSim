@@ -112,13 +112,21 @@
   [수용](../research/crop-fruit-cohorts-baseline.md): 원 PDF hash/6페이지 식·표와 코드 부재 대사,
   21개 값/상수·단위, 9.36/9.37 보존 반례·W1/빈 sink/초기·gate hold와 독립 검증 계획.
   새 계산/Run 0개. 원 불일치 해결은 `crop-fruit-allocation-policy`에 따로 둔다.
-- [ ] **`crop-fruit-transport`** — 다음 작은 코드 단계; 과실 명세 뒤, 국내/G2·전체 배분 선행 아님.
-  예정 파일(4): `backend/app/crop_fruit_transport.py`, `backend/tests/test_crop_fruit_transport.py`,
+- [x] **`crop-fruit-transport`** — 고립된 순간 이동의 로컬 소프트웨어 수용; 국내/G2·전체 배분 선행 아님.
+  구현 파일(4): `backend/app/crop_fruit_transport.py`, `backend/tests/test_crop_fruit_transport.py`,
   `fixtures/crop-fruit-transport-reference-parameters-v1.json`,
   `fixtures/crop-fruit-transport-reference-cases-v1.json`.
   수용: 원 50구획·온도 계수/단위·piecewise h=1의 순간 dN/dC·마지막 연구 유출·hash,
   독립 Decimal 17/20/23°C·0/첫/다중 구획, 개수·탄소 telescoping 수지·불변/거부 검증.
   배분/착과/호흡·적분/생과 kg/실제 과실 3D는 다음 범위. 사용자 산출물은 유량표/검사 보고서.
+  [수용](../research/crop-fruit-transport-implementation.md): 새 92개/기존 포함 238개·0.71초,
+  15사례·독립 3,090수치·byte-identical 참조 재생성. 원문 3개 계수/단위·hash 대사.
+  독립 생성 코드를 추가했고 큰 유량 차감 3개 반례를 동등식으로 수정·미분 underflow도 hold.
+- [ ] **`crop-fruit-transport-image-inputs`** — 다음 필수 포장; 새 모듈의 고정 프로필이 현 허용 목록에 없음.
+  예정 변경(3): `.dockerignore`, `scripts/check-application-images.py`,
+  `research/crop-fruit-transport-image-inputs-implementation.md`.
+  수용: 프로필 한 파일만 허용·실제 context hash/새 cases 제외와 읽기 전용 image에서
+  ReferenceFruitTransportParameters 로딩; 기존 UID/TLS/전체 정리. hosted 통과 뒤 체크.
 - [ ] **`crop-fruit-allocation-policy`** — 이동 개발과 병행; 전체 과실 배분/착과 코드의 선행.
   수용: 원 9.36/9.37 보존 불일치·W1 Gompertz 경계/초기 seed·빈/고갈 sink·gate 판본,
   원/수정식 근거·별도 모델/프로필·독립 참조와 sum(A_j)=F/개수 보존·사건 정책.

@@ -21,7 +21,8 @@
 [실제 파일/채널 감사](../research/crop-forcing-audit.md)도 완료했다. 실제 입력 채택은
 시간대/면적·수관/초기기관·사건·형식/결측과 전체 작기 한도 때문에 보류다.
 [과실 구획 명세](../research/crop-fruit-cohorts-baseline.md)도 수용했다.
-다음은 `crop-fruit-transport`이며 원 배분식의 보존/초기·gate 정책,
+[과실 순간 이동](../research/crop-fruit-transport-implementation.md)도 새 92개/기존 포함
+238개·독립 3,090수치로 로컬 수용했다. 다음은 필수 프로필 포장과 원 배분식의 보존/초기·gate 정책,
 전체 작기 실행 계약/국내 확보를 병행한다. `d76410f` 웹/C0/실제 앱 CI는 통과했다.
 순서는 [수정 계획](../tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04)을 따른다.
 
