@@ -7,10 +7,13 @@
 ([완료 범위와 증거](research/crop-priority-and-runtime-freeze-20261004.md)).
 현재 3D는 저장된 열 계산의 재생입니다. [첫 작물 탄소 유량 kernel](research/crop-growth-rates-implementation.md)은
 로컬 집중 86개/0.12초·참조 수치 60개를 통과했습니다. 전체 작기 적분·생산량·성장 3D는 아직 없습니다.
+[작은 수관의 원식 적용 정책](research/crop-photosynthesis-domain.md)까지 합쳐 최종 118개/0.18초를
+통과했고 [필수 프로필·고지 이미지](research/crop-rate-image-inputs-implementation.md)도 실제 Docker로 확인했습니다.
+다음은 UTC 시계열 적분입니다. 새 전체 백엔드 CI는 확인 중입니다.
 다음은 **방울토마토 한 품종·한 작기의 생장 계산 → 불변 저장/같은 시점 성장 3D →
 생과 생산량·자원·경제 연결**입니다. [수정 순서·잠정 작업량](tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04),
 [모델/계수/권리 조사](research/crop-tomato-model-baseline-20261004.md),
-[다음 계산 모듈의 수용 기준](contracts/crop-growth-research-v1.md)을 기록했습니다.
+[다음 적분 단계의 수용 기준](tasks/plan.md#현재-수용과-다음-한-단계)을 기록했습니다.
 해외 Axiany 한 작기는 개발 참조이며 국내 독립 검증 자료는 아직 0건입니다.
 모델 개발과 국내 측정 자료 확보를 병행합니다.
 

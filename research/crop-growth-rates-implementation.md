@@ -77,7 +77,10 @@ RED는 `app.crop_growth_rates` 부재로 수집 오류였고, 최종 **86 passed
   독립 참조 시험부터 수식·입력 거부·불변 입력/해시·순수 모듈 경계와 반복 계산 비용을
   검토했고, 새 의존성이나 외부 호출은 없다.
 
-새 kernel의 전체 호스팅 회귀와 실제 Docker 이미지 수용은 아직 미확인이다.
+[후속 적용 영역 정책](crop-photosynthesis-domain.md)은 새 32개/기존 86개의 합계
+118개/0.18초로 수용했다. 새 kernel의 전체 호스팅 회귀는 아직 미확인이다.
+[실제 Docker 프로필/고지 패키징](crop-rate-image-inputs-implementation.md)은 `207e20e`의
+hosted 검사/로그·정리로 수용했다.
 로컬 Docker Engine이 없어 이미지를 기동하지 않았고, 기존 WSL PostgreSQL을
 사용하거나 추가 DB/장기 프로세스를 띄우지 않았다.
 
@@ -91,13 +94,13 @@ RED는 `app.crop_growth_rates` 부재로 수집 오류였고, 최종 **86 passed
 [고정 저자 구현](https://github.com/davkat1/GreenLight/blob/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/crop_vanthoor_2011_chapter_9_simplified.json).
 
 평활 분배가 빈 버퍼에서도 작은 유출을 만들어 음의 상태로 향할 수 있으므로
-`DEPLETED_STATE_HOLD`를 유지한다. 적분 전 **crop-photosynthesis-domain**에서 작은
-수관의 원식/대안과 적용 정책을 검토하고, 적분에는 고갈·관리 사건·수렴/수지의 별도
+`DEPLETED_STATE_HOLD`를 유지한다. **crop-photosynthesis-domain**에서 작은
+수관의 원식/대안을 검토해 지원 영역 유지/영역 밖 중단을 수용했고, 적분에는 고갈·관리 사건·수렴/수지의 별도
 수용을 둔다. 임의 clip으로 동작을 이어가거나 원 식을 조용히 바꾸지 않는다.
 
 기존 Docker 허용 목록이 새 프로필/라이선스를 제외하므로 **crop-rate-image-inputs**의
-최소 3파일 변경도 준비했다. 고정 프로필/원 고지의 포함·해시와 관련 없는 fixture/
-라이선스 제외를 실제 hosted build로 확인한다. 이 변경은 새 작물 코드의 필수 입력/
+최소 3파일 변경을 수용했다. 고정 프로필/원 고지의 포함·해시와 관련 없는 fixture/
+라이선스 제외를 실제 hosted build로 확인했다. 이 변경은 새 작물 코드의 필수 입력/
 재배포 고지 경로에 대한 보완이며 결합 원천 운영 조립을 재개한 것이 아니다.
 
 실제 Axiany forcing/초기조건/관리 QC·국내 자료 동의/독립 작기는 남아 있고 국내

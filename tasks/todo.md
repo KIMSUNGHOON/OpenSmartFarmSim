@@ -31,18 +31,22 @@
   결측/QC·초기조건·밀도/적심/적엽/수확 사건을 대사하고 PAR/수관/CO₂ 누락은 보류.
   고정 값/변환의 raw hash와 권리를 기록한다. 확인: 원문 메타데이터/실제 파일 대조;
   실제 replay 입력 채택은 기존 G0 검사를 별도로 통과해야 한다.
-- [ ] **`crop-photosynthesis-domain`** — 선행: 원식 Eq9.22/9.23의 작은 LAI 반례 확인.
-  예정 파일(3): `research/crop-photosynthesis-domain.md`, `contracts/crop-photosynthesis-domain-v1.md`,
+- [x] **`crop-photosynthesis-domain`** — 원식 지원 영역의 로컬 연구/계산 수용.
+  구현 파일(3): `research/crop-photosynthesis-domain.md`, `contracts/crop-photosynthesis-domain-v1.md`,
   `backend/tests/test_crop_photosynthesis_domain.py`.
   수용: LAI→0의 온도별 특이점/부호·원식과 가능한 대안의 근거·적용 범위/단위/검증 가능성,
   품종 초기에 사용할 영역 또는 명시적 hold를 기록. 식을 바꾸면 새 모델 판본/독립 재현 필요.
-  확인: 독립 수식/한계·작은 수관 사례와 근거 대조. 임의 clip/CO₂ 보상점 기본값 없음.
-- [ ] **`crop-rate-image-inputs`** — 선행: 유량 kernel의 로컬 수용.
+  [수용 결과](../research/crop-photosynthesis-domain.md#실제-수용과-다음-구현): 새 영역 32개와 기존
+  유량 86개를 합쳐 118개/0.18초. 독립 Decimal 대수·원식/초기조건 반례·A=0 경계 확인.
+  원식/프로필 유지, 임의 clip/CO₂ 보상점 기본값 없음. 실제 품종 초기조건 QC는 hold.
+- [x] **`crop-rate-image-inputs`** — 필요한 프로필/고지의 실제 이미지 수용.
   필요 근거: 현재 앱 이미지는 새 프로필/제3자 라이선스를 build context에서 제외한다.
   파일(3): `.dockerignore`, `backend/Dockerfile`, `scripts/check-application-images.py`.
   명시적 프로필 1개·라이선스 1개만 포함하고 실제 이미지에서 kernel import/프로필 해시·
   라이선스 해시를 확인한다. 관련 없는 fixture/라이선스 probe 제외를 기존 hosted 검사로 확인한다.
-  수용: 실제 Docker build/context·이미지 실행/정리 로그. 로컬 Docker 부재 시 미체크 유지.
+  [실제 수용](../research/crop-rate-image-inputs-implementation.md): `207e20e`의 hosted Docker
+  build/context·읽기 전용 이미지 probe·프로필/고지 해시와 13개 제외 probe·모든 정리 통과.
+  새 전체 backend CI·제품 CLI/G1/G4는 별도 미수용이다.
 - [ ] **`crop-growth-integration`** — 선행: `crop-growth-rates`, `crop-photosynthesis-domain`의 적용 정책.
   예정 파일(3): `backend/app/crop_growth_integration.py`, `backend/tests/test_crop_growth_integration.py`,
   `contracts/crop-growth-integration-v1.md`.
