@@ -25,12 +25,14 @@
 [과실 발달식/구획 계약](research/crop-fruit-cohorts-baseline.md)도 원식/21개 계수·상수와
 배분식 보존 문제·보류/검증 계획을 고정했습니다.
 [50구획 순간 이동](research/crop-fruit-transport-implementation.md)도 새 92개/기존 포함
-238개와 독립 3,090수치로 로컬 수용했습니다. 필수 프로필 포장은 최소 변경/로컬
-로드를 확인했고 hosted 이미지 수용은 대기 중입니다.
+238개와 독립 3,090수치로 로컬 수용했습니다. 필수 transport 프로필 포장도
+[실제 hosted context/읽기 전용 loader·정리](research/crop-fruit-transport-image-inputs-implementation.md)로 수용했습니다.
 [명시적 착과/진입 질량의 배분 정책](research/crop-fruit-allocation-policy.md)도 독립 대수/수치로
 수용했습니다. [순수 제품 배분](research/crop-fruit-allocation-implementation.md)도 새 77개/기존 포함
 315개·0.70초와 독립 600개 유입/4개 hold로 로컬 수용했습니다.
-다음은 고정 Gompertz 수요와 50구획의 순간 결합·적분이며 자동 착과/실제 품종은 보류합니다.
+[50구획의 문헌식 수요·순간 결합](research/crop-fruit-cohort-rates-implementation.md)도 새 86개/기존 포함
+401개·독립 8,592수치로 로컬 수용했습니다. 다음은 전체 기관의 시간 적분과 관리 사건입니다.
+자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
 별도 UID 4개와 CI 5개를 모두 통과했습니다. `d76410f`의 웹/C0/실제 앱 이미지·Compose CI도
 통과했고 작성 경로의 새 저장→HTTPS→3D 시험도 통과했습니다.

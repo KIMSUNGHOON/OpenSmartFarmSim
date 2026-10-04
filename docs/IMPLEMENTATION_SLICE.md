@@ -154,11 +154,13 @@ Axiany/Maxifort 한 해외 작기 개발 참조다. 대한민국 온실의 최�
 실제 forcing/작기 재현은 보류이며 [과실 발달식/구획 계약](../research/crop-fruit-cohorts-baseline.md)도
 수용했다. [원식이 명확한 순간 이동](../research/crop-fruit-transport-implementation.md)도
 새 92개/기존 포함 238개와 독립 3,090수치로 로컬 수용했다. 필수 프로필 포장은
-최소 변경/로컬 로드 뒤 hosted 이미지 수용을 기다린다.
+[실제 hosted context/읽기 전용 loader·정리](../research/crop-fruit-transport-image-inputs-implementation.md)로 수용했다.
 [명시적 착과/진입 질량 배분 정책](../research/crop-fruit-allocation-policy.md)은 독립 대수/수치로
 수용했다. [순수 제품 배분](../research/crop-fruit-allocation-implementation.md)도 새 77개/기존 포함
-315개·독립 600개 유입/4개 hold로 로컬 수용했다. 다음은 `crop-fruit-cohorts`의
-고정 Gompertz 수요와 순간 결합·적분이며 자동 착과/실제 품종은 보류한다.
+315개·독립 600개 유입/4개 hold로 로컬 수용했다.
+[문헌식 수요·구획 순간 결합](../research/crop-fruit-cohort-rates-implementation.md)도 새 86개/기존 포함
+401개·독립 8,592수치로 로컬 수용했다. 다음은 `crop-fruit-cohort-integration`의
+전체 기관/시간 적분·사건이며 자동 착과/빈 초기 작기·실제 품종은 보류한다.
 실제 47,809시점과 현재 20,000 배열/100만 step 차이는 `crop-cycle-capacity`에서
 연속 상태·사건·저장/출력 시간과 부하/재현을 계약하는 필수 후속이다.
 [필수 프로필/고지 이미지](../research/crop-rate-image-inputs-implementation.md)도 실제 hosted

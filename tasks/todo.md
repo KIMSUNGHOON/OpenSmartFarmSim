@@ -122,11 +122,13 @@
   [수용](../research/crop-fruit-transport-implementation.md): 새 92개/기존 포함 238개·0.71초,
   15사례·독립 3,090수치·byte-identical 참조 재생성. 원문 3개 계수/단위·hash 대사.
   독립 생성 코드를 추가했고 큰 유량 차감 3개 반례를 동등식으로 수정·미분 underflow도 hold.
-- [ ] **`crop-fruit-transport-image-inputs`** — 다음 필수 포장; 새 모듈의 고정 프로필이 현 허용 목록에 없음.
+- [x] **`crop-fruit-transport-image-inputs`** — 필수 transport 프로필의 실제 hosted 이미지 수용.
   예정 변경(3): `.dockerignore`, `scripts/check-application-images.py`,
   `research/crop-fruit-transport-image-inputs-implementation.md`.
   수용: 프로필 한 파일만 허용·실제 context hash/새 cases 제외와 읽기 전용 image에서
-  ReferenceFruitTransportParameters 로딩; 기존 UID/TLS/전체 정리. hosted 통과 뒤 체크.
+  ReferenceFruitTransportParameters 로딩; 기존 UID/TLS/전체 정리.
+  [실제 수용](../research/crop-fruit-transport-image-inputs-implementation.md): `78b5d17`의 context 4회/
+  17개 제외 probe·pinned profile, 읽기 전용 loader 1회·TLS 2경우와 image/3 Compose 정리 성공.
 - [x] **`crop-fruit-allocation-policy`** — 명시적 착과/진입 질량의 개발 정책 수용; 자동 착과/실제 품종 미채택.
   수용: 원 9.36/9.37 보존 불일치·W1 Gompertz 경계/초기 seed·빈/고갈 sink·gate 판본,
   원/수정식 근거·별도 모델/프로필·독립 참조와 sum(A_j)=F/개수 보존·사건 정책.
@@ -146,11 +148,25 @@
   작은 실행 계약부터 분해: bounded forcing 처리·연속 상태/누적 수지/사건·불변 manifest/저장,
   계산 해상도와 출력 시간/페이지의 분리·30초 응답/WSL 자원·재시작/동일 재현/실제 작기 부하.
   수용 전 한도 증대/임의 forcing 축약으로 whole-cycle 완료를 주장하지 않는다.
-- [ ] **`crop-fruit-cohorts`** — 개발 선행: `crop-fruit-transport`·`crop-fruit-allocation-rates`·고정 Gompertz 수요·명시적 관리 사건.
+- [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
+  [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
+  [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
+  독립 24사례/8,592수치·세 수지·호흡 한 번·불변/hash·형태/범위/numeric hold.
+  시간 적분/사건/전체 작기/자동 착과와 실제 수확·3D는 수용하지 않았다.
+- [ ] **`crop-fruit-cohort-integration`** — 다음 핵심; 순간 구획 뒤 전체 기관의 시간 적분/관리 사건.
+  먼저 source/profile 호환·fruit 합계 파생/기존 유지 호흡 교체·성장 호흡 단일 차감,
+  명시 RGR/S/W1/초기/관리의 시간 입력 계약·bounded RK4/누적 외부 수지/사건·manifest를 정의한다.
+  독립 일정 forcing/해석해·간격 수렴, 동시 N/C 제거·누적 terminal/호흡·같은 재현,
+  품종/초기 hold와 새 저장 판본 뒤 3D를 검증한다.
+- [ ] **`crop-fruit-startup-policy`** — 최종 전체 작기 모델의 필수 누락; 개발/국내 확보와 병행.
+  빈 초기 tail/남은 양의 유입·생식기 이전/초기 N1·자동 착과/W1/RGR의 근거를 조사하고
+  원/변형/명시 관리 입력을 분리한 판본으로 startup/초기 보존·독립 수치/실측 적용성을 검증한다.
+  현재 생식기 순간 수용으로 전체 작기 첫날/생산 예측을 열지 않는다.
+- [ ] **`crop-fruit-cohorts`** — 전체 구획의 부모 작업; 순간 수용만으로 완료하지 않는다. 개발 선행: `crop-fruit-transport`·`crop-fruit-allocation-rates`·고정 Gompertz 수요·명시적 관리 사건.
   참조 계수의 순수 모듈 개발은 국내 자료 접근/G2를 기다리지 않는다.
   실제 Axiany 적용에는 `crop-input-audit`와 해당 품종/관리·발달 근거가 추가로 필요하다.
   예정 파일(3): `backend/app/crop_fruit_cohorts.py`, `backend/tests/test_crop_fruit_cohorts.py`,
-  `contracts/crop-fruit-cohorts-v1.md`.
+  `contracts/crop-fruit-cohorts-v2.md`.
   수용: 착과/발달 구획·개수·적심/적엽 사건의 고정 입력/품종 적용 범위와 기관 수지.
   확인: 독립 참조·개수/질량 보존·사건 경계 pytest. 일반 토마토 계수로 Axiany 숙기 승인 없음.
 - [ ] **`crop-harvest-conversion`** — 선행: 과실 구획과 품종별 변환/수확 근거.
