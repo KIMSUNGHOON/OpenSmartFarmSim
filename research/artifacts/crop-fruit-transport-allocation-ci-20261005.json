@@ -1,0 +1,166 @@
+{
+  "evidence_version": "crop-fruit-transport-allocation-ci-v1",
+  "recorded_at_utc": "2026-10-04T18:22:15.150108+00:00",
+  "head_sha": "78b5d179019e68358b4732ba2220c0927a243f8b",
+  "scope": "transport and explicit-entry allocation regression plus prior stored crop UI; new cohort and whole-plant code not covered",
+  "workflow_runs": [
+    {
+      "conclusion": "success",
+      "databaseId": 37219136723,
+      "headSha": "78b5d179019e68358b4732ba2220c0927a243f8b",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37219136723",
+      "workflowName": "Web tests"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37219136687,
+      "headSha": "78b5d179019e68358b4732ba2220c0927a243f8b",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37219136687",
+      "workflowName": "Application runtime verification"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37219136664,
+      "headSha": "78b5d179019e68358b4732ba2220c0927a243f8b",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37219136664",
+      "workflowName": "C0 Compose verification"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37219136750,
+      "headSha": "78b5d179019e68358b4732ba2220c0927a243f8b",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37219136750",
+      "workflowName": "Authored API PostgreSQL smoke"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37219136715,
+      "headSha": "78b5d179019e68358b4732ba2220c0927a243f8b",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37219136715",
+      "workflowName": "Backend tests"
+    }
+  ],
+  "workflow_api_sha256": "6d8de3c1a57f3687a8df2dedc2852a72c45a8ab83de7af7db4f3c7b1b0b199ea",
+  "backend_jobs_api_sha256": "ec8c569e418c2361088fcf42bde3c859d4ad01bb340fd2db8ef499fa64476bab",
+  "backend": {
+    "passed_total": 2840,
+    "separate_uid_passed": 4,
+    "partition_pass_counts": {
+      "1": 311,
+      "3": 600,
+      "2": 375,
+      "0": 532,
+      "4": 382,
+      "5": 640
+    },
+    "inventory_sha256": "08f67d0350991797e5d033d9e54ced8cc2f4397aeb3955688f2dd94f0ba57c30",
+    "database_password_cleanup_jobs_passed": 6,
+    "job_logs_retrieval": "direct GitHub job log API for all six partitions and aggregate",
+    "jobs": [
+      {
+        "id": 111485713333,
+        "name": "backend-partition-1",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T17:04:40Z",
+        "completed_at": "2026-10-04T17:42:55Z",
+        "raw_log_bytes": 39069,
+        "raw_log_sha256": "65411adfb50c616d1791873840f7d4ebd26a46669527022435586dbcedb75aa1",
+        "partition": 1,
+        "passed": 311,
+        "inventory_sha256": "08f67d0350991797e5d033d9e54ced8cc2f4397aeb3955688f2dd94f0ba57c30",
+        "database_password_cleanup": "success"
+      },
+      {
+        "id": 111485713502,
+        "name": "backend-partition-3",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T17:42:58Z",
+        "completed_at": "2026-10-04T18:05:51Z",
+        "raw_log_bytes": 37627,
+        "raw_log_sha256": "8b29347639568039c813c17624db72dc058c02a1cb2e81c15adf7ac91762b19f",
+        "partition": 3,
+        "passed": 600,
+        "inventory_sha256": "08f67d0350991797e5d033d9e54ced8cc2f4397aeb3955688f2dd94f0ba57c30",
+        "database_password_cleanup": "success"
+      },
+      {
+        "id": 111485713516,
+        "name": "backend-partition-2",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T17:28:06Z",
+        "completed_at": "2026-10-04T17:46:01Z",
+        "raw_log_bytes": 37308,
+        "raw_log_sha256": "764e3f912abb1f91c6264a3aebe0c94893b13c43716fc74620d13d6fec987a60",
+        "partition": 2,
+        "passed": 375,
+        "inventory_sha256": "08f67d0350991797e5d033d9e54ced8cc2f4397aeb3955688f2dd94f0ba57c30",
+        "database_password_cleanup": "success"
+      },
+      {
+        "id": 111485713528,
+        "name": "backend-partition-0",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T17:04:41Z",
+        "completed_at": "2026-10-04T17:28:04Z",
+        "raw_log_bytes": 43985,
+        "raw_log_sha256": "a85ac827344cb94ad2005db06208ede79bd4fe4bf977da151af4c28b46c0da83",
+        "partition": 0,
+        "passed": 532,
+        "inventory_sha256": "08f67d0350991797e5d033d9e54ced8cc2f4397aeb3955688f2dd94f0ba57c30",
+        "database_password_cleanup": "success",
+        "separate_uid_passed": 4
+      },
+      {
+        "id": 111485713541,
+        "name": "backend-partition-4",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T17:46:04Z",
+        "completed_at": "2026-10-04T18:05:07Z",
+        "raw_log_bytes": 37246,
+        "raw_log_sha256": "075816141fc2e572ca6873f4c56e76cc18dd4441d1e5b61639fe67b6451e847b",
+        "partition": 4,
+        "passed": 382,
+        "inventory_sha256": "08f67d0350991797e5d033d9e54ced8cc2f4397aeb3955688f2dd94f0ba57c30",
+        "database_password_cleanup": "success"
+      },
+      {
+        "id": 111485713891,
+        "name": "backend-partition-5",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T18:05:10Z",
+        "completed_at": "2026-10-04T18:18:32Z",
+        "raw_log_bytes": 37719,
+        "raw_log_sha256": "9c2c1a83c6a4b8a1f8ca4204f6be9c8a03c00e2bd7b19a7c8d851721b5fd15b2",
+        "partition": 5,
+        "passed": 640,
+        "inventory_sha256": "08f67d0350991797e5d033d9e54ced8cc2f4397aeb3955688f2dd94f0ba57c30",
+        "database_password_cleanup": "success"
+      }
+    ],
+    "aggregate": {
+      "id": 111499591532,
+      "name": "backend",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-04T18:18:34Z",
+      "completed_at": "2026-10-04T18:18:37Z",
+      "raw_log_bytes": 3814,
+      "raw_log_sha256": "3acf6250e7a021bda4b312c138254cd1ed0be1263f40c23baefe2d19468e0f70"
+    }
+  },
+  "image_profile_evidence": "research/artifacts/crop-fruit-transport-image-reference-20261005.json",
+  "actual_runs": 0,
+  "domestic_independent_datasets": 0,
+  "gates_opened": []
+}

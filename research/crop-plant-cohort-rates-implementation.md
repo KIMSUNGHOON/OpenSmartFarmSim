@@ -78,3 +78,7 @@ env PYTHONPATH=. nice -n 10 .venv/bin/pytest -q \
 자원·경제는 남아 있다. 국내 독립 자료는 0건, actual forcing/Run 채택도 0개다.
 필수 cohort profile의 실제 hosted 이미지 수용과 이 새 코드의 전체 hosted 회귀는
 아직 확인 전이며, 기존 운영 기반의 완료 범위를 확대하지 않았다.
+
+선행 `78b5d17`은 [실제 CI 5개](artifacts/crop-fruit-transport-allocation-ci-20261005.json)·
+백엔드 2,840개/별도 UID 4개·여섯 같은 목록/DB·비밀 파일 정리/집계까지 성공했다.
+그 SHA에는 이 새 기관 결합 코드가 없으므로 검증 범위를 소급하지 않는다.

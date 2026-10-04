@@ -13,6 +13,8 @@
 문헌식 수요·50구획 순간 결합도 새 86개/기존 포함 401개로 로컬 수용했다.
 전체 기관의 순간 결합도 새 43개/기존 포함 444개로 로컬 수용했다.
 다음은 `crop-fruit-cohort-integration`의 시간 적분·사건**이다.
+선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
+여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다. 새 순간 구획/기관 코드의 hosted 수용은 별도다.
 transport 프로필의 실제 hosted 포장도 수용했다. 새 cohort 프로필 포장은
 [한 파일 허용/기존 검사 보완](../research/crop-fruit-cohort-image-inputs-implementation.md)만 준비했고 실제 hosted 수용은 남았다.
 실제 참조 작기의 UTC/면적·수관/초기조건·관리 입력 채택과 재현은 보류다.

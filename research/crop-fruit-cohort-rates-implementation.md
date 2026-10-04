@@ -93,3 +93,11 @@ RGR·초기 정책과 생식기 이전이 준비되지 않아 전체 작기 시�
 Docker Engine이 없으므로 실제 이미지는 기존 hosted workflow로 검증한다.
 선행 `78b5d17`은 웹/C0/앱 이미지·작성 CI가 성공했고 전체 backend는 진행 중이다.
 새 cohort 코드의 hosted 회귀는 아직 시작 전이다.
+
+### 선행 판본의 전체 CI 완료
+
+이후 `78b5d17`의 전체 backend도 2026-10-04 18:18:37 UTC에 성공했다.
+[CI packet](artifacts/crop-fruit-transport-allocation-ci-20261005.json)에 CI 5개와 실제
+백엔드 2,840개/별도 UID 4개·여섯 동일 목록/DB·비밀 파일 정리/집계를 기록했다.
+각 partition/aggregate의 direct job API 로그를 대사했다. 이 SHA는 transport/배분과
+이전 저장/웹의 회귀 증거이며 이 보고서의 새 cohort/기관 코드 수용 증거는 아니다.
