@@ -75,8 +75,17 @@ class FilePartition:
             with open(self.output, "a", encoding="utf-8") as stream:
                 stream.write(f"inventory_{self.index}={digest}\n")
         if self.summary:
+            summary = {
+                "schema_version": data["schema_version"],
+                "partition_count": PARTITION_COUNT,
+                "partition": self.index,
+                "inventory_sha256": digest,
+                "collected_count": len(nodes),
+                "selected_count": len(self.selected),
+            }
             with open(self.summary, "a", encoding="utf-8") as stream:
-                stream.write(f"## Backend partition {self.index}\n\n```json\n{raw}```\n")
+                stream.write(f"## Backend partition {self.index}\n\n```json\n"
+                             f"{json.dumps(summary, indent=2)}\n```\n")
         reporter = session.config.pluginmanager.get_plugin("terminalreporter")
         reporter.write_line(
             f"Partition {self.index}/{PARTITION_COUNT}: {len(self.selected)} of "

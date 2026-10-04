@@ -1,5 +1,6 @@
 """A CI partition must cover the default collection and preserve failures."""
 import importlib.util
+from hashlib import sha256
 import json
 import os
 from pathlib import Path
@@ -106,7 +107,17 @@ def test_real_collection_union_output_consistency_and_failure_propagation(tmp_pa
         digests.add(data["inventory_sha256"])
         assert Path(str(manifest) + ".output").read_text() == (
             f"inventory_{index}={data['inventory_sha256']}\n")
-        assert manifest.read_text() in Path(str(manifest) + ".summary").read_text()
+        summary = Path(str(manifest) + ".summary").read_text()
+        assert data["inventory_sha256"] in summary
+        assert json.loads(summary.split("```json\n", 1)[1].split("\n```", 1)[0]) == {
+            "schema_version": data["schema_version"],
+            "partition_count": 6,
+            "partition": index,
+            "inventory_sha256": data["inventory_sha256"],
+            "collected_count": len(nodes),
+            "selected_count": len(data["selected_node_ids"]),
+        }
+        assert "all_node_ids" not in summary
     assert sorted(groups) == sorted(nodes)
     assert len(groups) == len(set(groups))
     assert len(digests) == 1
@@ -135,6 +146,26 @@ def test_collection_error_never_emits_a_valid_inventory(tmp_path):
     assert not manifest.exists()
     assert not Path(str(manifest) + ".output").exists()
     assert not Path(str(manifest) + ".summary").exists()
+
+
+def test_large_inventory_remains_complete_with_bounded_summary(tmp_path):
+    cases = [f"{'x' * 450}-{index}" for index in range(1200)]
+    (tmp_path / "test_00.py").write_text(
+        f"import pytest\n@pytest.mark.parametrize('case', {cases!r})\n"
+        "def test_case(case):\n    pass\n")
+    for index in range(1, 6):
+        (tmp_path / f"test_{index:02}.py").write_text("def test_case():\n    pass\n")
+    result, manifest = child(tmp_path, 0, "collect")
+    assert result.returncode == 0, result.stderr
+    data = json.loads(manifest.read_bytes())
+    assert len(manifest.read_bytes()) > 1024 * 1024
+    assert len(data["all_node_ids"]) == 1205
+    assert len(data["selected_node_ids"]) == 1200
+    inventory = json.dumps(data["all_node_ids"], ensure_ascii=True, separators=(",", ":"))
+    assert data["inventory_sha256"] == sha256(inventory.encode()).hexdigest()
+    summary = Path(str(manifest) + ".summary").read_bytes()
+    assert len(summary) < 4096
+    assert data["inventory_sha256"].encode() in summary
 
 
 def test_repository_default_inventory_is_repeatable(tmp_path):
