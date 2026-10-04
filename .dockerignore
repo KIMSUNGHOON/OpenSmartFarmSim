@@ -1,6 +1,9 @@
 # Admit only declared application/build inputs; private/runtime data stays out.
 **
 !LICENSE
+!LICENSES/
+LICENSES/**
+!LICENSES/GreenLight-BSD-3-Clause-Clear.txt
 !backend/
 backend/**
 !backend/pyproject.toml
@@ -19,6 +22,7 @@ fixtures/**
 !fixtures/synthetic-weather-v1.json
 !fixtures/synthetic-thermal-parameters-v1.json
 !fixtures/synthetic-economics-v1.json
+!fixtures/crop-growth-reference-parameters-v1.json
 !web/
 web/**
 !web/package.json

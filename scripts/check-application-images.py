@@ -84,6 +84,7 @@ def image_checks(directory, prefix, images):
     poison = ['.env.image-probe', 'backend/app/private/probe.py',
               'backend/app/credentials/probe.py', 'backend/app/probe.key',
               'contracts/image-probe.json', 'fixtures/image-probe.json',
+              'LICENSES/image-probe.txt',
               'web/src/private/probe.ts', 'web/src/probe.pem',
               'web/public/licenses/private/probe.txt', 'web/node_modules/probe.js',
               'data/raw/probe.json', '.codex/probe.json']
@@ -97,6 +98,9 @@ def image_checks(directory, prefix, images):
     for name in poison:
         assert not (exported / 'context' / name).exists(), f'build_exclusion_failed:{name}'
     assert (exported / 'context/backend/app/api_runtime.py').is_file()
+    assert (exported / 'context/fixtures/crop-growth-reference-parameters-v1.json').is_file()
+    assert (exported / 'context/LICENSES/GreenLight-BSD-3-Clause-Clear.txt').is_file()
+    assert not (exported / 'context/fixtures/crop-growth-reference-cases-v1.json').exists()
     assert (exported / 'context/web/src/assets/cutout-15-b6376be1ea78.png').is_file()
     event('actual_build_context', excluded_probes=len(poison))
     for service in ('backend', 'web'):
@@ -122,7 +126,9 @@ def backend_checks(image, name, containers):
                                 ensure_ascii=False, allow_nan=False).encode()).hexdigest(),
                 digest(ROOT / 'backend/uv.lock')]
     probe = '''import importlib.util, json, os, pathlib, shutil
+from hashlib import sha256
 from app.api_runtime import ApiRuntime
+from app.crop_growth_rates import ReferenceParameters
 from app.deterministic_work import DeterministicWorkerLoop
 from app.thermal_publisher import runtime_digests
 assert (os.geteuid(), os.getegid()) == (11001, 11010)
@@ -132,6 +138,9 @@ assert not pathlib.Path('/app/backend/tests').exists()
 assert pathlib.Path('/app/.venv/bin/python').exists()
 assert pathlib.Path('/app/LICENSE').is_file()
 assert pathlib.Path('/app/fixtures/manifest-v2.json').is_file()
+crop_profile = ReferenceParameters(pathlib.Path('/app/fixtures/crop-growth-reference-parameters-v1.json').read_bytes())
+assert crop_profile.profile_id == 'vanthoor-greenlight-reference-rates-v1'
+assert sha256(pathlib.Path('/app/LICENSES/GreenLight-BSD-3-Clause-Clear.txt').read_bytes()).hexdigest() == '96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a'
 try:
     pathlib.Path('/app/backend/image-write-probe').write_text('probe')
 except OSError:

@@ -23,5 +23,6 @@ COPY backend/app/ ./app/
 COPY contracts/*.json /app/contracts/
 COPY fixtures/*.json /app/fixtures/
 COPY LICENSE /app/LICENSE
+COPY LICENSES/GreenLight-BSD-3-Clause-Clear.txt /app/LICENSES/GreenLight-BSD-3-Clause-Clear.txt
 USER 11001:11010
 CMD ["python", "-m", "app.api_serve", "--factory", "app.operator_config:api_service"]
