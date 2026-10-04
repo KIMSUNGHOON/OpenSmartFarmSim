@@ -34,7 +34,7 @@ def data():
 def store(value,root,kind):
     raw=_canonical(value['research_registry'])
     contract=DecisionContract(ResearchRegistry(raw,sha256(raw).hexdigest()).authority_snapshot)
-    def evidence(tenant,source,digest,use):
+    def evidence(tenant,source,use,kind,payload,digest):
         return dict(tenant_id=tenant,source_id='synthetic_cli_test',intended_use=use,
             payload_sha256=digest,rights_proof_id='synthetic_cli_test',rights_version='fixture-v1',
             policy_version='fixture-v1',classification='private',read_scope='auditor',

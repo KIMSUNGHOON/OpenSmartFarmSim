@@ -351,6 +351,8 @@ print(json.dumps(records[-30:]))
                 if research['state']=='hold': break
                 assert time.monotonic()<deadline,'automatic_research_hold_timeout'
                 time.sleep(0.5)
+            event('research_terminal_hold',reason_code=research['reason_code'])
+            assert research['reason_code']=='ai_validated_hold'
             status,held=call(research_route+'/hold-report')
             assert status==200 and held['missing_evidence_count']==2
             assert set(held['missing_evidence'])=={'research_source_evidence','signed_decision_context'}

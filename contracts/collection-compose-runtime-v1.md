@@ -1,6 +1,7 @@
 # Owned collection Compose runtime v1
 
-Status: specified; actual hosted runtime acceptance pending.
+Status: [actual hosted collector software acceptance passed](../research/collection-compose-runtime-implementation.md).
+Overall source-service workflow/authority acceptance remains pending.
 
 The additive `compose.collection.yaml` is used after `compose.yaml` and
 `compose.application.yaml`, with profile `runtime`. It replaces the C0 collector

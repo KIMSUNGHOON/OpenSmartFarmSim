@@ -2,6 +2,16 @@
 
 Status: specified; hosted software acceptance pending.
 
+The first `098d1d3` hosted stage closed the research job as hold but did not
+produce the expected validated public hold report. A local actual SCRAM
+regression reproduced `invocation_evidence_withheld`: the private fixture's
+evidence callback took four arguments instead of the existing six-argument
+storage contract. Correcting the fixture produced the original registry's
+two-missing-evidence validated hold (RED1/2.55s, GREEN1/2.51s). Production storage,
+rights gates and isolation guard are unchanged. Hosted signed/separate-UID
+acceptance remains pending; the corrected harness asserts the public reason
+`ai_validated_hold` before reading the hold report.
+
 The additive `compose.authority.yaml` follows the C0/application files, with
 profile runtime. It deploys the existing exact factory entrypoints:
 `app.cli_supervise`, `app.cli_authority` and `app.cli_dispatch_loop`. It provisions

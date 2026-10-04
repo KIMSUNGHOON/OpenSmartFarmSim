@@ -257,8 +257,11 @@ API/웹/자동 경제·현재 결과·재시작·권한 변화·정리를 수용
 통과했다. 같은 `7225546`의 [hosted 회귀](../research/runtime-consumers-hosted-regression-20261004.md)도
 백엔드2,455/별도UID4·작성141·웹160/51·C0/앱 서비스를 통과했다.
 [수집 자동 발견/소비](../research/collection-consumer-implementation.md)는 실제 SCRAM95개로
-자동 완료·취소/복구·부모 증거 훼손/권한 철회·정리를 수용했다. 별도 source Compose와
-실제 모델 호출·독립 해제/G1/G4 연결을 이어간다.
+자동 완료·취소/복구·부모 증거 훼손/권한 철회·정리를 수용했다.
+[`098d1d3`의 실제 수집 Compose 단계](../research/collection-compose-runtime-implementation.md)도
+표준 TLS/SCRAM 접수→자동 원본3개 저장·동일 재시작·부모 철회422·권한 변화503/exit3·
+UID/자원/마운트·정리를 통과했다. 뒤의 authority 단계 실패로 전체 workflow는 미수용이며,
+조사 RPC/실제 모델 호출·독립 해제/G1/G4 연결을 이어간다.
 
 점선 선행 조건은 표시된 실제 원천 유래 공개 경로에만 적용된다. `market-source-g0`는 기존 출처·시장 계약, 영속 G0 승인 저장소와 CLI 작업자 뒤에서 병행할 수 있으며, 첫 합성 G1의 선행 조건이 아니다. 시장 자료에서 유래한 시나리오·근거 카드와 후속 미래 전망에는 해당 시장 G0가 필요하다.
 

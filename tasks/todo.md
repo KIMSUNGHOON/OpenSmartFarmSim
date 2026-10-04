@@ -221,7 +221,7 @@
       새34+기존47/14개, 합계95개/55.97초·무건너뜀; 자동 완료·취소·강제 종료 뒤 복구·
       부모 증거 훼손 보류·권한 철회·신호/프로세스/DB 정리. 목록 회귀12개/6.48초도 통과.
       source Compose/실제 모델/독립 해제·G1/G4는 후속이며 상위 체크를 유지한다.
-    - [ ] **`collection-services-ci`** — 선행: `collection-consumer`, `application-services-ci`.
+    - [x] **`collection-services-ci`** — 선행: `collection-consumer`, `application-services-ci`.
       파일(5): `compose.collection.yaml`, `scripts/check-application-runtime.py`,
       `scripts/application-collection-fixture.py`, `.github/workflows/application-runtime.yml`,
       `contracts/collection-compose-runtime-v1.md`. 기존 collector를 실제 소비자로 교체하는
@@ -229,6 +229,9 @@
       수집 접수→자동 저장→현재 기록·재시작/동일 판본·부모 철회/권한 변화·UID/자원/정리.
       같은 writer 권한 공유와 fake CLI 범위를 기록하며 authority/supervisor Compose와
       실제 모델/독립 해제·G1/G4 체크를 대체하지 않는다.
+      [`098d1d3` 실제 수집 단계 수용](../research/collection-compose-runtime-implementation.md):
+      TLS/SCRAM 자동 원본3개 저장·동일 재시작/한 시도·부모 철회422·권한 변화503/소비자exit3·
+      실제 UID/메모리/CPU/사설 마운트와 전체 정리. 전체 workflow는 뒤의 authority 실패로 미수용이다.
     - [ ] **`authority-services-ci`** — 선행: `cli-dispatch-loop`, `application-services-ci`.
       파일(5): `compose.authority.yaml`, `scripts/check-application-runtime.py`,
       `scripts/application-authority-fixture.py`, `.github/workflows/application-runtime.yml`,
