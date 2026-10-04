@@ -224,9 +224,10 @@
       ([기록](../research/runtime-consumers-hosted-regression-20261004.md#collection-consumer-regression-at394ff78)).
       source Compose/실제 모델/독립 해제·G1/G4는 별도이며 상위 체크를 유지한다.
     - [x] **`collection-services-ci`** — 선행: `collection-consumer`, `application-services-ci`.
-      파일(5): `compose.collection.yaml`, `scripts/check-application-runtime.py`,
+      파일(6): `compose.collection.yaml`, `scripts/check-application-runtime.py`,
       `scripts/application-collection-fixture.py`, `.github/workflows/application-runtime.yml`,
-      `contracts/collection-compose-runtime-v1.md`. 기존 collector를 실제 소비자로 교체하는
+      `contracts/collection-compose-runtime-v1.md`, `backend/tests/test_application_collection_fixture.py`.
+      기존 collector를 실제 소비자로 교체하는
       명시적 override와 사설 합성 부모 fixture를 연결한다. 수용: 실제 Docker/TLS/SCRAM
       수집 접수→자동 저장→현재 기록·재시작/동일 판본·부모 철회/권한 변화·UID/자원/정리.
       같은 writer 권한 공유와 fake CLI 범위를 기록하며 authority/supervisor Compose와
@@ -234,14 +235,19 @@
       [`098d1d3` 실제 수집 단계 수용](../research/collection-compose-runtime-implementation.md):
       TLS/SCRAM 자동 원본3개 저장·동일 재시작/한 시도·부모 철회422·권한 변화503/소비자exit3·
       실제 UID/메모리/CPU/사설 마운트와 전체 정리. 전체 workflow는 뒤의 authority 실패로 미수용이다.
-    - [ ] **`authority-services-ci`** — 선행: `cli-dispatch-loop`, `application-services-ci`.
-      파일(5): `compose.authority.yaml`, `scripts/check-application-runtime.py`,
+    - [x] **`authority-services-ci`** — 선행: `cli-dispatch-loop`, `application-services-ci`.
+      파일(6): `compose.authority.yaml`, `scripts/check-application-runtime.py`,
       `scripts/application-authority-fixture.py`, `.github/workflows/application-runtime.yml`,
-      `contracts/authority-compose-runtime-v1.md`. 고정 tenant·실제 별도 UID/SCRAM/소켓과
+      `contracts/authority-compose-runtime-v1.md`, `backend/tests/test_application_authority_fixture.py`.
+      고정 tenant·실제 별도 UID/SCRAM/소켓과
       키/원문 경계를 연결해 지역 접수가 서버의 현재 보류로 자동 닫히게 한다.
       수용: 실제 TLS 접수·서명/캡처/보류 조회·잘못된 peer/사설 파일 거부·소켓 정리/재시작·
       권한 변경 후 dispatcher 중단·전체 정리. fake CLI와 controller 소유 키/계정 및
       같은 supervisor UID의 자식이라는 한계를 보존한다. 제품 CLI/독립 custody/G1/G4는 후속이다.
+      [`b8df8f9` 실제 수용](../research/authority-compose-runtime-implementation.md#corrected-actual-hosted-acceptance):
+      표준 TLS 지역 접수→자동 검증 보류/결정·캡처·서명 각1개와 공개 보고서·소유 수집 거부422·
+      사설 파일/잘못된 UID 거부·실제 자원/마운트·소켓 제거/동일 재시작·권한 변화503/dispatcher exit3·
+      모든 정리 통과. 합성 factory 집중1/3.96초도 통과했으며 전체 새 판본 회귀/결합 원천 경로는 후속이다.
 
 **운영 조립 체크포인트:** 구성/발견/루프의 실제 프로세스 시험 뒤 앱 이미지 기동을 확인하고,
 같은 판본의 전체 CI가 끝난 뒤 `end-to-end-g1`의 실제 CLI·독립 증거와 브라우저 경로를 검증한다.

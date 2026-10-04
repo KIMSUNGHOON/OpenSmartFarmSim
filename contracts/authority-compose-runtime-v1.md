@@ -1,6 +1,7 @@
 # Scoped authority/supervisor/dispatcher Compose v1
 
-Status: specified; hosted software acceptance pending.
+Status: [hosted regional hold software acceptance passed](../research/authority-compose-runtime-implementation.md#corrected-actual-hosted-acceptance)
+atb8df8f9. Combined owned-source orchestration/whole-head regression remain pending.
 Observed failures and focused fixes are in the
 [implementation record](../research/authority-compose-runtime-implementation.md).
 

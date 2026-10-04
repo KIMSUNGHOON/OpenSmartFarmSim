@@ -50,7 +50,9 @@ C0/앱 서비스 회귀를 통과했습니다. [수집 자동 소비](research/c
 같은 `394ff78`의 전체 hosted 백엔드2,489/별도UID4·작성141·웹160/51·C0/앱과 정리도 통과했습니다.
 [수집 Compose 단계](research/collection-compose-runtime-implementation.md)는 실제 TLS/SCRAM 자동 저장·
 동일 재시작·부모 증거 철회/권한 변경 차단·UID/자원과 정리를 통과했습니다.
-같은 workflow의 조사 RPC 단계는 실패 원인을 수정 중이며, 실제 모델·독립 해제/G1/G4는 후속입니다.
+[조사 RPC Compose 단계](research/authority-compose-runtime-implementation.md)는 `b8df8f9`에서
+지역 접수→자동 서명/검증 보류·접근 거부·소켓 정리/동일 재시작·권한 변경 후 중단과 정리를 통과했습니다.
+결합된 소유 원천 경로·새 전체 회귀, 실제 모델·독립 해제/G1/G4는 후속입니다.
 
 [원천→농장 참조 제공자](contracts/source-farm-selection-v1.md)는 정확한 완료 조사·수집에서
 이미 저장된 원본 스냅샷과 서명 문맥을 검증한다([SCRAM 집중 4개](research/source-farm-selection-implementation.md)).
