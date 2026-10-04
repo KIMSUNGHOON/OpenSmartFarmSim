@@ -1,0 +1,246 @@
+{
+  "evidence_version": "api-crop-coupled-replay-local-v1",
+  "recorded_at_utc": "2026-10-04T21:51:06.366239+00:00",
+  "scope": "synthetic research saved quantities with actual TLS/Bearer/SCRAM; fake source/rights/CLI providers; no G0-G4 acceptance",
+  "cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "verified_turn_context_at": "2026-10-04T20:56:04.192Z",
+    "recursive_cli": false
+  },
+  "current_sha256": {
+    "backend/app/api_crop_coupled_replay.py": "83d3eefd782206801fe645afc2e200bb621509b7c932b4a0544bbcb2bf31c582",
+    "backend/tests/test_api_crop_coupled_replay.py": "a73efcdfcfa166cbf569cc79fc04eb32495061b889b2ac322f77caeb2daf7a35",
+    "backend/app/api.py": "af290d496e9a7cbc5ac57f537ff8cecfbd575b4891683b2d0aedd87645eb6a44",
+    "backend/app/api_runtime.py": "9bdefc70fe9ee5cc333329e6cfaf57f881ec102553684ec4028977bc5e9b68a1",
+    "backend/app/operator_config.py": "85f71969f2e57d3c0796df01c698b973f13db43c7318cfc1f6ed83ccea23282d",
+    "backend/tests/test_operator_config.py": "42822d0ae854aaa91745163a154c3bee584dfdca51159b0819b86587dc79080f",
+    "backend/tests/test_api_openapi.py": "f40cfe683861920f5e2586bedcfd82841dabe981eaee25869730fb4c841b6c7c",
+    "contracts/openapi-v1.json": "bef15adfaa856e6759340c9ede5493e7683ba5607c4493b5328a39ac3353edd9"
+  },
+  "red": {
+    "module_missing": "app.api_crop_coupled_replay",
+    "exit_code": 2,
+    "log_sha256": "1125a1e91b203ac9be734d75ad8f6ec2d8a033b82f729fbe9d1a87c558329636"
+  },
+  "initial_unit": {
+    "passed": 25,
+    "seconds": 34.32,
+    "capacity_input_fraction_unit_corrected": "fraction -> 1; implementation contract unchanged"
+  },
+  "initial_focus": {
+    "passed": 204,
+    "failed": 2,
+    "seconds": 604.93,
+    "acceptance": false,
+    "causes": [
+      "final current source withdrawal raised FarmAuthoringHold and was classified as 503 instead of hold 422",
+      "new endpoint missing from exact OpenAPI expected operations"
+    ],
+    "log_sha256": "b24983942ac80b571a37a247477e281fd84b54fa3ce6d023455b80f0f5c03651"
+  },
+  "corrected_selectors": {
+    "passed": 2,
+    "seconds": 119.66,
+    "log_sha256": "10c33c3e8dabfdb7839d8ee2b75e3cf4635d496c386eb18dd6b36346e822ea92"
+  },
+  "final_coverage": {
+    "unique_nodes": 207,
+    "new_coupled_api": 29,
+    "by_file": {
+      "tests/test_api_crop_coupled_replay.py": 29,
+      "tests/test_api_crop_replay.py": 18,
+      "tests/test_operator_config.py": 59,
+      "tests/test_api_runtime.py": 40,
+      "tests/test_api_openapi.py": 61
+    },
+    "all_nodes_covered": true,
+    "single_monolithic_green_run": false,
+    "production_source_final_run": {
+      "passed": 206,
+      "failed": 1,
+      "seconds": 634.92,
+      "failed_node": "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key1]",
+      "cause": "scope fixture omitted valid crop-result-v2 ID prefix and four required farm query parameters; fixture-only correction",
+      "runner": {
+        "started_at": "2026-10-04T21:26:59.950971+00:00",
+        "completed_at": "2026-10-04T21:37:37.063187+00:00",
+        "exit_code": 1,
+        "wall_seconds": 637.1122179160011,
+        "postgres": "16.15",
+        "python": "3.12.3",
+        "log_sha256": "132a3869672aa1aef641bd8f06eaea6a7d3b7dda33f64d77d5565d8d26e8509c",
+        "tests": [
+          "tests/test_api_crop_coupled_replay.py",
+          "tests/test_api_crop_replay.py",
+          "tests/test_operator_config.py",
+          "tests/test_api_runtime.py",
+          "tests/test_api_openapi.py"
+        ],
+        "temporary_cluster_and_password_files_removed": true
+      }
+    },
+    "after_fixture_only_correction": {
+      "file": "tests/test_api_openapi.py",
+      "passed": 61,
+      "seconds": 48.58,
+      "production_source_unchanged": true,
+      "log_sha256": "9dd42b8a3a7bf66ae0a6a767a8f037f7c0911965f639cf1def2f13738b2134ef"
+    },
+    "complete_inventory_sha256": "9f396730cc5c5a9c4b248696517849751ed3b220032fd2a63e7500a7f7a85ce1",
+    "runner_sha256": "3daea6c370efdb88e1bd709d77b96c0d8b2e71818cf17c94db8487a11e8ba322"
+  },
+  "actual_https": {
+    "result_id": "crop-result-v2:ecdf447bea8b5cbd70f30b8807f4797f06513e00aae2a052c5a836ff8a9273cd",
+    "recorded_at_utc": "2026-10-04T21:31:22.076702Z",
+    "samples": 512,
+    "events": 128,
+    "sample_page_limit": 64,
+    "event_page_limit": 8,
+    "responses": 19,
+    "status_counts": {
+      "200": 13,
+      "401": 1,
+      "403": 1,
+      "404": 1,
+      "422": 3
+    },
+    "full_response_seconds": [
+      11.197496331995353,
+      0.0031022889888845384,
+      0.0024489490024279803,
+      0.024539540987461805,
+      10.93075936101377,
+      11.46040753700072,
+      10.990312756999629,
+      10.928263039997546,
+      10.89274275599746,
+      10.870835255977,
+      10.932331688003615,
+      10.917312158999266,
+      10.967912806983804,
+      3.947004307003226,
+      3.2386575500131585,
+      0.003335805988172069,
+      11.50833906402113,
+      11.38208887699875,
+      11.399583047023043
+    ],
+    "max_full_response_seconds": 11.50833906402113,
+    "body_bytes": [
+      647863,
+      72,
+      65,
+      73,
+      647863,
+      649718,
+      647734,
+      647655,
+      647594,
+      647531,
+      647567,
+      647630,
+      3483,
+      86,
+      86,
+      64,
+      647863,
+      647863,
+      647863
+    ],
+    "max_body_bytes": 649718,
+    "response_cap_bytes": 2097152,
+    "timeout_seconds": 30,
+    "https_servers_joined": 2,
+    "same_saved_identity_and_hashes_after_restart": true,
+    "all_sample_pages_equal_original": true,
+    "all_event_projection_pages_equal_original": true,
+    "manifest": {
+      "integrator_version": "crop-plant-cohort-rk4-research-v1",
+      "rate_model_version": "vanthoor-greenlight-explicit-entry-plant-rates-research-v1",
+      "profiles": {
+        "growth_profile": {
+          "profile_id": "vanthoor-greenlight-reference-rates-v1",
+          "sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca"
+        },
+        "cohort_profile": {
+          "profile_id": "vanthoor-explicit-entry-cohort-reference-v1",
+          "sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb"
+        },
+        "transport_profile": {
+          "profile_id": "vanthoor-fruit-transport-reference-v1",
+          "sha256": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+        }
+      },
+      "policy_sha256": "edbc67cfe59a61a1573ef5b1f189c548c47a74b996d4ef6221adc663c1cc306a",
+      "code_sha256": {
+        "integrator": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+        "coupled": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+        "plant": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+        "cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+        "allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+        "transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3"
+      },
+      "artifact_code_sha256": "4d239f24d43bf351f3c11c9e9d59fccff30a76ef0815659f22c60fbc8ec7d017",
+      "storage_code_sha256": "765184999e07b078a6f79b414c148497ee3543b889a40a65d091a4ab44080632",
+      "binding_code_sha256": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+      "input_sha256": "0ab77abed0f29f6d4d9d70f67fac08a1563a48c8c4a9154ea90dc0f2bbecfc99",
+      "raw_program_sha256": "c3d1f69a2cad470fc7b9a10ac0a86fe5545d348768381407e9cc401a881fe341",
+      "result_sha256": "ec34d539f39ee0639e74c89ba1e863571dc01c2e9812e2595397134b8181b10f",
+      "artifact_sha256": "56297b0abe3217120d09fa7585a55d85613d40a963bdb37c350993ceab4f9911",
+      "payload_sha256": "c04f325c6c57c3065aa02e32315ffd015e9626cbf6b4fa6f20d6c6f9636e6079",
+      "notice_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+      "solver": {
+        "method": "rk4-fixed-v1",
+        "max_step_seconds": 10,
+        "max_steps": 10000,
+        "roundoff_rule": "64-ulp-per-operation-v1"
+      },
+      "time_rule": "UTC_POSIX_whole_seconds_v1",
+      "python_version": "3.12.3",
+      "convergence": "not_evaluated_for_this_program",
+      "temperature_sum_method": "analytic_piecewise_constant_fraction_v1",
+      "research_assumptions": [
+        "leaf_stem_fixed_RGR_from_reference_profile_not_measured"
+      ]
+    },
+    "farm": {
+      "scenario_id": "farm-1",
+      "scenario_revision": "r1",
+      "registration_sha256": "e54f8115c049fffd30dc70a0e7c810d1c8b31f8839b1058cfd37f7cb57e07631",
+      "crop_id": "crop-1"
+    },
+    "batch_id": "batch-1",
+    "zone_id": "zone-1",
+    "farm_sha256": "0803cac1440f0fee6418ef245c9de1fa5e21e360db25f31a3633fb2bb462b472",
+    "source_binding_sha256": "831e4c0d5b807e1c48ec7d13f735e4e02798224b562a024bd508663c82b37f0e",
+    "no_reintegration": true,
+    "current_program_and_source_withdrawal_refused": true,
+    "private_log_sha256": "5efe977217dd6d8c5a27238476ad633340781bbb09d87fe30e00a1ad7c0d17f3",
+    "test_database_removed_no_live_fixture_id_claim": true
+  },
+  "resources": {
+    "pytest_execution_workers": 1,
+    "local_postgres_clusters": 1,
+    "postgres": "16.15",
+    "shared_buffers_mb": 32,
+    "max_connections": 24,
+    "nice": 10,
+    "temporary_cluster_and_password_files_removed": true,
+    "browser_started": false,
+    "new_docker_or_dependencies": false,
+    "inventory_collection_was_separate_python_process": true
+  },
+  "not_run": [
+    "new 50-cohort UI/browser",
+    "new code hosted full CI",
+    "actual reference cycle/independent field validation"
+  ],
+  "external_holds": [
+    "domestic consent/unseen independent datasets 0",
+    "actual forcing/Run 0",
+    "whole cycle capacity/startup/reference inputs/fresh harvest/resources/economics pending",
+    "G0-G4 remain unassessed"
+  ]
+}

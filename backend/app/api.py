@@ -24,6 +24,7 @@ from .api_job_run import read_job_run
 from .api_job_break_even_result import BreakEvenJobResultService, BREAK_EVEN_JOB_READ_SCOPES
 from .api_break_even_verification import install_verification_routes
 from .api_crop_replay import install_crop_routes
+from .api_crop_coupled_replay import install_coupled_crop_routes
 from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold, ThermalScenarioConflict, IDENTIFIER
 from .thermal_scenario_execution import SCENARIO_SCOPES
 from .thermal_publisher import ThermalPublishHold
@@ -100,7 +101,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                owned_collection_review_service=None, assessment_service=None,
                farm_scenario_service=None, authored_run_store=None,
                farm_authoring_service=None, farm_authored_review_service=None,
-               authored_simulation_service=None, crop_result_store=None) -> FastAPI:
+               authored_simulation_service=None, crop_result_store=None,
+               crop_coupled_result_store=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -248,6 +250,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
     install_crop_routes(app, jobs=job_store, farms=farm_authoring_service,
         store=crop_result_store, principal_provider=principal_provider,
         authorized_tenant=authorized_tenant, error=_error, access=_access)
+    install_coupled_crop_routes(app,jobs=job_store,farms=farm_authoring_service,
+        store=crop_coupled_result_store,principal_provider=principal_provider,
+        authorized_tenant=authorized_tenant,error=_error,access=_access)
 
     @app.get('/v1/source-history', response_model=SourceHistoryPage,
              operation_id='listOwnedSourceHistory', responses=errors,

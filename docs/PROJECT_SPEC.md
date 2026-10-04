@@ -122,7 +122,10 @@ UTC 상태/단위·모델/입력/저장 hash와 수치 hold만 반환한다. 로
 512출력 파일/재적분 없는 읽기로 수용했다.
 [농장 결합 v2 저장](../research/crop-coupled-result-storage-implementation.md)도 실제 SCRAM·
 564개·현재 권리/동일 bytes/변조/철회·원자성·정리로 로컬 수용했다.
-페이지 조회/API·같은 시점 50구획 3D와 실제 전체 작기 처리는 후속이다.
+[페이지 조회 API](../research/api-crop-coupled-replay-implementation.md)도 고유 207개 분할 검증·
+실제 HTTPS 19개·재적분 없는 최대 11.508339초/649,718 bytes·권리/재시작/정리로 로컬 수용했다.
+다음은 [같은 저장 ID/UTC의 50구획 연구 3D](../contracts/web-crop-coupled-replay-v1.md)이며
+실제 전체 작기 처리는 별도다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
 전체 작기 생산 모델의 착수/게시 범위에 접근할 수 있다.
 

@@ -90,7 +90,7 @@ def test_existing_policy_and_explicit_crop_option(monkeypatch, private_config, c
     assert calls[0].policy.crop_result_storage is (crop_option is True)
 
 
-@pytest.mark.parametrize('coupled_option', ['omit', False])
+@pytest.mark.parametrize('coupled_option', ['omit', False, True])
 def test_coupled_storage_default_policy_loads_existing_api(monkeypatch, private_config, coupled_option):
     path, doc = private_config
     if coupled_option == 'omit':
@@ -100,16 +100,16 @@ def test_coupled_storage_default_policy_loads_existing_api(monkeypatch, private_
     store(path, doc)
     calls = isolated_assembly(monkeypatch)
     load_api_runtime(path)
-    assert len(calls) == 1 and calls[0].policy.crop_coupled_result_storage is False
+    assert len(calls) == 1 and calls[0].policy.crop_coupled_result_storage is (coupled_option is True)
 
 
-@pytest.mark.parametrize('coupled_option', [True, 0, 1, 'false', None])
+@pytest.mark.parametrize('coupled_option', [0, 1, 'false', None])
 def test_coupled_storage_api_option_is_closed_before_factory(monkeypatch, private_config, coupled_option):
     path, doc = private_config
     doc['policy']['crop_coupled_result_storage'] = coupled_option
     store(path, doc)
     monkeypatch.setattr(operator_config.importlib, 'import_module',
-        lambda *_: pytest.fail('unimplemented coupled API option imported dependencies'))
+        lambda *_: pytest.fail('non-boolean coupled API option imported dependencies'))
     with pytest.raises(OperatorConfigHold, match='^operator_config_rejected$'):
         load_api_runtime(path)
 

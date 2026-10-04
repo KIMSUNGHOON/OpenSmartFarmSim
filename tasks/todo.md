@@ -202,12 +202,23 @@
   새 7개 포함 기존 operator/runtime 99개·실제 SCRAM/운영 TLS와 임시 자원 정리 통과.
   `d15cf92` [실제 hosted 수용](../research/artifacts/crop-coupled-operator-policy-ci-20261005.json):
   image/runtime 49개·실제 Compose API/작업자·collection/authority/세 정리 성공.
-- [ ] **`api-crop-coupled-replay`** — 다음 핵심; 선행: coupled 저장 v2·policy 회귀 복구 수용.
+- [x] **`api-crop-coupled-replay`** — 로컬 합성 연구 API 수용; 선행: coupled 저장 v2·policy 회귀 복구.
   [계약](../contracts/api-crop-coupled-replay-v1.md): 같은 result ID/farm/hash·현재 권리의
   읽기 전용 64 sample/8 event 페이지·2 MiB 본문 상한, 원 512시점/사건의 순서/전체성 유지.
   수용: typed/OpenAPI·같은 저장 수치/단위/UTC·hold와 관리·페이지 누락/중복 없음,
   재적분 없는 조회/혼합·변조·현재 권리 철회 거부·선택 factory·실제 HTTPS/SCRAM 전체 본문 30초/정리.
-  그 뒤 같은 저장 result ID/UTC의 50구획 표/그래프·연구 3D를 별도 장면 계약으로 연결한다.
+  [실제 수용](../research/api-crop-coupled-replay-implementation.md): 새 API 29개 포함 고유 207개
+  분할 검증(단일 GREEN 실행 아님)·512 sample/128 event·HTTPS 19개/두 runtime 재시작,
+  최대 11.508339초/649,718 bytes·현재 권리/실제 변조 거부·정리. 새 hosted/브라우저는 별도다.
+- [ ] **`web-crop-coupled-replay`** — 다음 핵심; 선행: `api-crop-coupled-replay` 로컬 수용.
+  [장면 계약](../contracts/web-crop-coupled-replay-v1.md): 같은 저장 ID/UTC의 512시점 페이지를
+  원 순서/수치로 조립하고 잎 triangle 면적·50개 C/N의 별도 단위 비교 도형에 연결한다.
+  먼저 decoder/페이지·수치 geometry의 작은 모듈/시험, 다음 기존 화면/표/그래프/장면,
+  마지막 실제 저장→HTTPS→브라우저 대사/증거를 순차 구현한다. 새 생물 계수는 넣지 않는다.
+  수용: hash/ID/등록/offset 혼합·누락/중복 거부, 취소/뒤늦은 응답·권리 철회 시 이전 장면 제거,
+  같은 시점의 표/그래프/도형 수치·0/큰값/소수 초 hold·빈 과거, 키보드/mobile/reduced motion,
+  WebGL 장애 대체·자원 해제와 실제 SCRAM/HTTPS/브라우저/서버·DB 정리.
+  실제 키/형태/숙기/생과 kg가 아니라 미검증 합성 연구 재생임을 화면에 표시한다.
 - [ ] **`crop-fruit-startup-policy`** — 최종 전체 작기 모델의 필수 누락; 개발/국내 확보와 병행.
   빈 초기 tail/남은 양의 유입·생식기 이전/초기 N1·자동 착과/W1/RGR의 근거를 조사하고
   원/변형/명시 관리 입력을 분리한 판본으로 startup/초기 보존·독립 수치/실측 적용성을 검증한다.

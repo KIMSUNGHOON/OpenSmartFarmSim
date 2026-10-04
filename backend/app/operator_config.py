@@ -94,8 +94,7 @@ def load_api_runtime(config_path):
         if (type(value) is not dict or value.keys() != FIELDS or
                 value['config_version'] != 'operator-api-config-v1' or
                 type(value['policy']) is not dict or
-                not POLICY_FIELDS <= value['policy'].keys() <= POLICY_FIELDS | OPTIONAL_POLICY_FIELDS or
-                value['policy'].get('crop_coupled_result_storage', False) is not False):
+                not POLICY_FIELDS <= value['policy'].keys() <= POLICY_FIELDS | OPTIONAL_POLICY_FIELDS):
             raise ValueError
         reference = value['dependencies_factory']
         if type(reference) is not str or not re.fullmatch(

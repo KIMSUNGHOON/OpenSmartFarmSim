@@ -42,7 +42,9 @@
 읽기/검사는 0.3055초였습니다.
 [농장 결합 저장 v2](research/crop-coupled-result-storage-implementation.md)도 실제 SCRAM·
 564개/850.85초·동일 bytes/별도 Python·현재 권리/변조/철회/원자성·정리로 로컬 수용했습니다.
-다음은 새 페이지 조회 API → 같은 저장 ID/시점의 50구획 표·그래프·연구 3D입니다.
+[새 페이지 조회 API](research/api-crop-coupled-replay-implementation.md)도 고유 207개 분할 검증·
+실제 HTTPS 19개·최대 11.508339초/649,718 bytes·현재 권리/재시작/정리로 로컬 수용했습니다.
+다음은 [같은 저장 ID/UTC의 50구획 표·그래프·연구 3D](contracts/web-crop-coupled-replay-v1.md)입니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
 별도 UID 4개와 CI 5개를 모두 통과했습니다. `d76410f`의 웹/C0/실제 앱 이미지·Compose CI도
@@ -54,6 +56,8 @@
 `784335d`의 순간 구획/기관 결합도 [전체 CI 5개](research/artifacts/crop-fruit-cohort-plant-ci-20261005.json),
 백엔드 2,969개·별도 UID 4개·여섯 동일 목록/정리·집계를 통과했습니다.
 새 시간 적분/artifact·v2 저장 판본의 hosted 회귀는 별도로 실행합니다.
+`d15cf92`의 Application image/runtime 49개·세 Compose 정리는 통과했으며
+새 API 로컬 수용은 전체 hosted/브라우저 수용과 구분합니다.
 다음은 **방울토마토 한 품종·한 작기의 생장 계산 → 불변 저장/같은 시점 성장 3D →
 생과 생산량·자원·경제 연결**입니다. [수정 순서·잠정 작업량](tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04),
 [모델/계수/권리 조사](research/crop-tomato-model-baseline-20261004.md),

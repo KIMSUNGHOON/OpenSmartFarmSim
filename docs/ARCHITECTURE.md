@@ -40,8 +40,12 @@ flowchart LR
 
 [기관/50구획 저장 v2](../contracts/crop-result-v2.md)는 기존 farm/source·현재 program
 권리와 서버가 계산한 불변 artifact를 별도 표/명시 default false flag로 묶는다.
-계산은 HTTP 밖에서 수행한다. 다음 [페이지 조회](../contracts/api-crop-coupled-replay-v1.md)는
-같은 ID/hash/UTC를 읽고 API/3D에서 재계산하거나 G0–G4를 해제하지 않는다.
+계산은 HTTP 밖에서 수행한다. [페이지 조회](../contracts/api-crop-coupled-replay-v1.md)는
+명시 flag/같은 service의 trusted factory로 조립하고 현재 권리/HMAC를 전후 검사한다.
+같은 ID/hash/UTC를 typed 64 sample/8 event·2 MiB 이하로 읽는다
+([로컬 수용](../research/api-crop-coupled-replay-implementation.md)).
+다음 [50구획 연구 3D](../contracts/web-crop-coupled-replay-v1.md)도 같은 저장 시점을 사용하며
+API/3D에서 재계산하거나 G0–G4를 해제하지 않는다.
 
 [저장 작물 연구 조회](../contracts/api-crop-replay-v1.md)는 승인 Run과 구분된
 `crop-result-v1`의 같은 농장/현재 권리·불변 bytes를 읽는다. 기존 API/표준 runtime의

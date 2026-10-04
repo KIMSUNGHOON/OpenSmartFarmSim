@@ -35,7 +35,9 @@
 같은 512출력 3,683,992 bytes·읽기/검사 0.3055초로 수용했다.
 [farm/program 결합 DB 저장](../research/crop-coupled-result-storage-implementation.md)도
 실제 SCRAM·564개/850.85초·현재 권리/동일 bytes/원자성/변조/철회와 정리로 수용했다.
-다음은 HTTP 밖의 계산을 재실행하지 않는 페이지 조회/API·같은 시점 50구획 3D다.
+[페이지 조회 API](../research/api-crop-coupled-replay-implementation.md)는 고유 207개 분할 검증·
+실제 HTTPS 19개·최대 11.508339초/649,718 bytes·현재 권리/재시작/정리로 로컬 수용했다.
+다음은 [같은 저장 ID/UTC의 50구획 연구 3D](../contracts/web-crop-coupled-replay-v1.md)다.
 자동 착과/빈 초기 작기·실제 품종은 보류한다.
 전체 작기 실행 계약/국내 확보를 병행한다. `d76410f`는 전체 backend 집계까지
 CI 5개 모두 성공했고 새 과실 판본의 hosted 검증은 별도다.

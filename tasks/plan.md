@@ -16,9 +16,13 @@
 새 저장 선행 artifact도 530개 집중·512출력/별도 Python·재적분 없는 읽기로 수용했다.
 coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현재 권리/
 원자성·변조/철회·정리를 **564개 집중**으로 로컬 수용했다.
-다음은 `api-crop-coupled-replay`의 페이지 조회**다.
-[다음 한 단계의 계약/수용 기준](../contracts/api-crop-coupled-replay-v1.md)은
-원 512출력의 누락/중복 없는 페이지·재적분 없는 현재 조회·실제 HTTPS/SCRAM 본문 30초다.
+페이지 조회 API도 새 29개 포함 **207개 고유 검증의 분할 수용**과 실제 HTTPS/SCRAM
+19개·512출력·두 runtime 재시작으로 로컬 수용했다. 최대 전체 본문은
+11.508339초/649,718 bytes이며 조회 중 재적분하지 않는다
+([실제 수용](../research/api-crop-coupled-replay-implementation.md)).
+다음은 `web-crop-coupled-replay`의 같은 저장 ID/UTC·50구획 연구 3D**다.
+[다음 한 단계의 계약/수용 기준](../contracts/web-crop-coupled-replay-v1.md)은
+페이지 전체성·원 수치/단위의 잎 면적/C/N 비교·hold/취소와 실제 저장→TLS→브라우저 대사다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
 `784335d`의 [순간 구획/기관 결합 CI 5개](../research/artifacts/crop-fruit-cohort-plant-ci-20261005.json)도
@@ -69,8 +73,8 @@ flowchart TD
   CI --> AF["crop-coupled-artifact: 불변 입력/결과 파일"]
   AF --> CS["crop-coupled-result-storage: 새 불변 결과 v2"]
   CS --> CP["crop-coupled-operator-policy: 기본 false 기동 회귀 복구"]
-  CP --> CA["coupled 조회 API: 재적분 없는 현재 결과"]
-  CA --> CV["coupled 표/그래프/3D: 같은 결과/시점"]
+  CP --> CA["api-crop-coupled-replay: 재적분 없는 현재 결과"]
+  CA --> CV["web-crop-coupled-replay: 같은 결과/시점"]
   FM --> ST["crop-fruit-startup-policy: 초기/자동/W1/RGR"]
   CI --> F["crop-fruit-cohorts → crop-harvest-conversion"]
   ST --> F
@@ -210,11 +214,12 @@ hold로 고정했다. 독립 참조 생성 코드를 추가해 버전/해시·by
 수용은 독립 Decimal/개수 해석해·간격 수렴과 누적 호흡/terminal, 사건/구간 경계·
 두 저장/외부 수지·같은 재현/시간/자원/실패 hold다. 시계열/두 수지·사건 journal을 확인한다.
 이후 전체 작기 처리와 새 저장 결과/API·같은 계산 시점의 3D를 연결한다.
-**다음 핵심은 `crop-coupled-result-storage`의 새 결과 v2 계약/저장**이다.
-24시간/512출력의 실제 57.85초/3,639,251 bytes를 근거로 계산을 HTTP 밖에서 끝내고,
-불변 입력/manifest·수지/hold와 정확한 farm/program 권리·최대 bytes/페이지를 정의한다.
-실제 SCRAM·같은 bytes/재시작·혼합/변조/철회 거부·원자 저장/정리 뒤 새 조회 API,
-재적분 없는 실제 30초 본문과 같은 결과/시점의 표·그래프·3D를 검증한다.
+**새 v2 저장/API는 로컬 수용했고 다음 핵심은 `web-crop-coupled-replay`**다.
+저장 564개/실제 SCRAM·API 207개 분할 검증/HTTPS 19개·최대 11.508339초의
+수용은 새 50구획 장면을 대신하지 않는다. 페이지 조립/수치 geometry → 기존 화면 연결 →
+실제 저장→HTTPS→브라우저의 세 작은 구현 경계로 진행한다.
+같은 ID/UTC의 원 수치·triangle 잎 면적/공통 scale의 C/N 비교, 혼합/권리 철회/
+취소/hold와 접근성·WebGL 대체/정리를 확인한다. [다음 계약](../contracts/web-crop-coupled-replay-v1.md)을 따른다.
 기존 v1 결과나 accepted Run의 scope를 바꾸지 않는다.
 `crop-fruit-startup-policy`는 빈 초기 tail/양의 남은 유입과 생식기 이전·자동/초기
 근거를 별도 판본으로 해소하는 전체 작기 필수 경로다. 현 순간 부분을 최종 성공으로 줄이지 않는다.
@@ -275,7 +280,8 @@ image/TLS·UID/읽기 전용/정리는 `d76410f`의 실제 hosted 전체 성공�
 | 짧은 기관/과실 적분 | **로컬 완료** | 488개·독립 1,309수치/해석해 250개·수렴/두 수지·512출력/8,687step/57.85초 |
 | coupled artifact | **로컬 완료** | 530개·두 사례/별도 Python/hold·512출력, 3,683,992 bytes·읽기 0.3055초·동일 계산 결과 |
 | coupled farm 결합 저장 v2 | **로컬 완료** | 564개/850.85초·SCRAM·두 사례/hold·별도 Python/같은 bytes·현재 권리/변조/철회·원자성·정리 |
-| 새 coupled 결과 저장/API·3D | **각 작은 계약 뒤 추정** | 최대 bytes/페이지·계산 HTTP 분리·SCRAM/현재 권리·같은 bytes/30초 조회·같은 결과/시점 장면 |
+| coupled 페이지 조회 API | **로컬 완료** | 207개 고유 분할 검증·실제 HTTPS 19개/512 sample/128 event·두 runtime 재시작·최대 11.508339초/649,718 bytes·현재 권리/정리 |
+| coupled 성장 연구 3D | **집중 개발·검증 2–4시간 잠정** | decoder/페이지·수치 geometry·기존 화면/접근성·실제 저장/TLS/브라우저. 같은 ID/UTC의 50개 C/N·잎 면적·보류 |
 | 초기/자동 착과 정책 | **추가 근거 뒤 추정** | 빈 초기 tail·원/수정 W1/RGR/seed/생식기 이전 정책의 독립 보존/실측 적용 |
 | 전체 작기 처리 계약 | **별도 설계 뒤 추정** | 실제 47,809 source 시점/현재 20,000 배열·100만 step 한도와 연속 상태/저장/재생·부하 계획 |
 | 과실 발달 구획 계산 | **문헌식/관리 계약 뒤 추정** | 독립 참조와 개수/기관 질량·사건 수지; 품종 적용성 미검증 유지 |
@@ -317,13 +323,17 @@ artifact의 실제 RED→첫 GREEN은 19:27~19:29 UTC, 512출력 자원 확인�
 이 저장 잠정치는 **2026-10-05 KST 로컬 완료**로 대체한다. 실제 CLI/구현은
 19:45 UTC부터, 첫 600초 시험 timeout/동일 전체 재검사와 정리는 20:25:14 UTC까지의
 관측 범위다. 최종 564개/850.85초·임시 DB/password 파일 정리를 확인했다.
-[조회/API 계약](../contracts/api-crop-coupled-replay-v1.md)은 512출력의 페이지/30초 실제 본문을 검증한다.
-projection/typed OpenAPI·선택 조립·현재 권리/페이지 경계·실제 TLS/SCRAM의 네 묶음에
-이전 API의 약 27분/316개·실제 본문 실적과 새 512출력/50배열을 근거로
-**집중 개발·검증 1~3시간**을 잠정 배정한다. 순차 작업의 로컬 수용 시도는
-2026-10-05~06 KST이며 실패 진단 뒤 실적으로 갱신한다.
-50구획 표/그래프/같은 시점 3D는 그 조회 수용 뒤 장면 계약으로 다시 추정한다.
-현재 artifact 읽기 0.3055초를 HTTPS/현재 권리/DB 전체 응답 실적으로 환산하지 않는다.
+[조회/API 계약](../contracts/api-crop-coupled-replay-v1.md)의 1~3시간 잠정치는
+**2026-10-05 KST 로컬 완료** 실적으로 대체한다. 실제 현재 CLI turn은
+20:56:04 UTC부터이며 실패 진단 뒤 최종 제품 코드 206 passed/fixture 1 failed는
+21:37:37 UTC에 완료했다. fixture 입력만 수정한 OpenAPI 전체 61개도 48.58초에 통과했다.
+합계는 **207개 고유 검증의 분할 수용**이다. 실제 HTTPS 19개/512시점 최대
+11.508339초/649,718 bytes·두 runtime 재시작/정리를 확인했다.
+다음 [50구획 연구 3D](../contracts/web-crop-coupled-replay-v1.md)는 decoder/페이지,
+수치 geometry, 기존 화면/접근성, 실제 저장→TLS→브라우저 대사의 네 묶음이다.
+기존 v1 웹 209개/Chromium 10개/실제 저장 장면 1개의 재사용과 새 50배열/페이지를
+근거로 **집중 개발·검증 2–4시간**, 로컬 수용 시도 **2026-10-05~06 KST**를 잠정 배정한다.
+전체 hosted·실제 작기/생과 생산 예측은 이 날짜에 포함하지 않는다.
 수확·자원·경제 모듈은 문헌식·변환/품종 근거와 작은 착수 계약을 확보한 뒤 추정한다.
 독립 국내 농장/작기 자료는 현재 **0건**이며 동의·자료 범위·미사용 기간이
 정해지지 않아 G2/G3a·최종 추천/production 완료일을 정할 근거가 없다.

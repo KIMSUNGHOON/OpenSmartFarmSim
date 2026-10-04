@@ -1,6 +1,8 @@
 # 저장 기관/50과실 구획의 페이지 조회 API — v1
 
-상태: **저장 v2 수용 뒤의 다음 계약; API 구현/실제 HTTPS 미수용**.
+상태: **로컬 합성 연구 API 수용; 새 hosted/브라우저·실제 작기 미수용**.
+[실제 수용](../research/api-crop-coupled-replay-implementation.md): 고유 207개 분할 검증,
+HTTPS 19개·최대 11.508339초/649,718 bytes·재시작/현재 권리·정리.
 선행은 [farm 결합 연구 저장](crop-result-v2.md)이다. 현재 CLI
 `gpt-6.1-sol / xhigh`에서 판단하며 재귀 CLI를 실행하지 않는다.
 
@@ -24,8 +26,8 @@ payload·result·artifact/input hash를 유지한다. 조회는 저장 값을 �
 display 권리·HMAC/custody가 필요하다. 기본 store 없음은 503이다. 새 optional
 store/factory와 명시적인 `crop_coupled_result_storage=true`는 함께 필요하고,
 같은 실제 farm service/JobStore/현재 principal에 묶는다.
-현재 기존 operator loader는 새 flag의 생략/false만 읽는다. 이 API의 store/factory
-구현 시 명시 true의 조립 검증과 loader 수용을 함께 추가하고 현재 거부 시험을 갱신한다.
+operator loader는 생략/정확한 bool만 읽는다. 명시 true에는 표준 runtime의 exact
+store/factory 조립이 필요하며 flag/factory 불일치·다른 service/store는 거부한다.
 
 ## 공개 타입과 보류
 
@@ -66,8 +68,9 @@ sample/event의 각 페이지는 offset/limit/total/next_offset을 가진다.
 형식 hold, 503 서비스 실패다. 예외 원문이나 credentials를 응답/로그에 넣지 않는다.
 큰 응답은 부분 JSON을 보내지 않고 hold로 끝낸다.
 
-예정 변경은 새 API/시험 각 한 파일과 기존 `api.py`, `api_runtime.py`의 선택
-store/factory 연결, 실제 TLS/SCRAM 시험 실행기/보고서다. existing v1 조회는 유지한다.
+구현은 새 API/시험 각 한 파일과 기존 `api.py`, `api_runtime.py`의 선택
+store/factory, operator loader·고정 OpenAPI/권한 시험의 연결이다.
+실제 TLS/SCRAM 시험 영수증을 기록했고 existing v1 조회는 유지한다.
 
 1. OpenAPI/typed 닫힌 계약·단위/50구획·UTC/페이지와 stored exact quantities를 대사한다.
 2. 512개 output을 모든 페이지에서 누락/중복 없이 같은 ID/hash/순서로 읽는다.
@@ -79,5 +82,5 @@ store/factory 연결, 실제 TLS/SCRAM 시험 실행기/보고서다. existing v
    로컬 artifact 읽기 0.3055초를 이 HTTP 검증으로 대신하지 않는다.
 5. 실제 검증·파일/hash와 남은 브라우저/전체 작기·실제 자료/G0–G4 의존성을 보고한다.
 
-이후 같은 저장 result ID·UTC의 표/그래프·50구획 연구 3D를 별도 장면 계약으로
+이후 같은 저장 result ID·UTC의 표/그래프·50구획 연구 3D를 [별도 장면 계약](web-crop-coupled-replay-v1.md)으로
 연결한다. 키/실제 잎 수·과실 색/숙기·수확은 그 근거/모델이 생기기 전까지 만들지 않는다.
