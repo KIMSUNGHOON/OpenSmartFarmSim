@@ -58,12 +58,18 @@
   15.476/15.843·탄소 수지/사건/고갈·정확한 온도 합과 해시 재실행을 통과했다.
   새 전체 hosted/DB·불변 저장·3D·제품 관문은 후속. 참조 작기 재현은 `crop-input-audit` 뒤;
   사용자 산출물은 상태 시계열/잔차 표이며 생과 수확/국내 예측이 아니다.
-- [ ] **`crop-result-storage`** — 선행: 적분 수용·기존 불변 저장/권리 제공자.
-  예정 파일(3): `backend/app/crop_result_store.py`, `backend/tests/test_crop_result_store.py`,
-  `contracts/crop-result-v1.md`.
+- [x] **`crop-result-storage`** — 로컬 합성 연구 결과의 불변 저장 수용.
+  핵심 파일(3): `backend/app/crop_result_store.py`, `backend/tests/test_crop_result_store.py`,
+  `contracts/crop-result-v1.md`. 새 결과 1표의 실제 SCRAM·권한 검사에 필요한 기본 꺼짐
+  옵션과 기존 `runtime_roles.py`/로그인·owner 시험 fixture만 추가 연결한다.
+  명시적 합성 연구 입력과 현재 farm/program 권리 제공자를 요구한다.
   수용: 연구 결과 ID·forcing/profile/model/solver·manifest/해시·claim scope/hold의 불변 저장,
   동일 판본/재시작 조회, 변조·다른 농장/테넌트 혼합 거부. 현재 accepted Run으로 자동 승격 없음.
-  확인: focused pytest와 필요한 실제 SCRAM 사례; 산출물 저장 manifest/결과 파일.
+  [실제 수용](../research/crop-result-storage-implementation.md): 저장 8개/기존 회귀 18개/
+  생장 146개, 합계 172개/434.49초·0 skipped. 실제 SCRAM·별도 프로세스 동일 bytes,
+  재시도/pending/해제·불변/외래키·실제 변조/현재 권리 철회/rollback·정리를 통과했다.
+  [저장 packet](../research/artifacts/crop-result-storage-reference-20261004.json)은 합성 시험이다.
+  실제 참조 입력의 감사/권리 연결·API/3D·전체 hosted/관문은 별도 미수용이다.
 - [ ] **`api-crop-replay`** — 선행: `crop-result-storage`.
   예정 파일(3): `backend/app/api_crop_replay.py`, `backend/tests/test_api_crop_replay.py`,
   `contracts/api-crop-replay-v1.md`.

@@ -34,6 +34,10 @@ are not upgraded automatically.
 The optional [authored release packet profile](farm-authored-release-store-v1.md)
 adds one immutable reviewer-packet table to a fresh `RuntimeLoginPolicy` profile
 and leaves the request/worker/supervisor roles without base-table access.
+The optional [crop research result profile](crop-result-v1.md) adds one immutable
+research table with `crop_result_storage=True` (default false). It uses the same
+SELECT/INSERT-only authority grant and current role audit; it grants no crop Run
+publication and does not upgrade existing roles.
 
 ## Every runtime connection
 

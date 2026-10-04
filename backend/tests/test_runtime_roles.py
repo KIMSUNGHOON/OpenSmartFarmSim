@@ -60,6 +60,11 @@ def owned_scope(pg_store, policy):
             from app.runtime_roles import AUTHORED_RUN_TABLES
             install_authored_run_schema(conn, pg_store.schema)
             tables += AUTHORED_RUN_TABLES
+        if getattr(policy, "crop_result_storage", False):
+            from app.crop_result_store import install_crop_result_schema
+            from app.runtime_roles import CROP_RESULT_TABLES
+            install_crop_result_schema(conn, pg_store.schema)
+            tables += CROP_RESULT_TABLES
         conn.execute(sql.SQL("ALTER SCHEMA {} OWNER TO {}").format(
             sql.Identifier(policy.schema), sql.Identifier(policy.owner)))
         for table in tables:

@@ -22,6 +22,7 @@ MARKET_SOURCE_TABLES = ("market_source_records",)
 THERMAL_SCENARIO_TABLES = ("thermal_scenarios",)
 AUTHORED_RELEASE_TABLES = ("authored_release_packets",)
 AUTHORED_RUN_TABLES = ("authored_thermal_runs",)
+CROP_RESULT_TABLES = ("crop_research_results",)
 SUPERVISOR_TABLES = frozenset({"jobs", "job_attempts", "evidence_authorizations",
     "attempt_evidence", "attempt_invocations", "attempt_cli_launches",
     "attempt_cli_captures", "validation_receipts", "ai_decisions"})
@@ -59,6 +60,7 @@ class RuntimeLoginPolicy(RuntimeRolePolicy):
     thermal_scenario_storage: bool = field(default=False, kw_only=True)
     authored_release_storage: bool = field(default=False, kw_only=True)
     authored_run_storage: bool = field(default=False, kw_only=True)
+    crop_result_storage: bool = field(default=False, kw_only=True)
 
     def __post_init__(self):
         super().__post_init__()
@@ -70,6 +72,7 @@ class RuntimeLoginPolicy(RuntimeRolePolicy):
                 type(self.thermal_scenario_storage) is not bool or
                 type(self.authored_release_storage) is not bool or
                 type(self.authored_run_storage) is not bool or
+                type(self.crop_result_storage) is not bool or
                 (self.authored_run_storage and not self.authored_release_storage) or
                 ((self.break_even_calculation or self.market_source_storage) and not self.market_calculation)):
             raise RolePolicyHold("invalid_login_policy_scope")
@@ -83,7 +86,8 @@ def _tables(policy):
             (MARKET_SOURCE_TABLES if policy.market_source_storage else ()) +
             (THERMAL_SCENARIO_TABLES if policy.thermal_scenario_storage else ()) +
             (AUTHORED_RELEASE_TABLES if policy.authored_release_storage else ()) +
-            (AUTHORED_RUN_TABLES if policy.authored_run_storage else ()))
+            (AUTHORED_RUN_TABLES if policy.authored_run_storage else ()) +
+            (CROP_RESULT_TABLES if policy.crop_result_storage else ()))
 
 
 def _database(conn, policy):
