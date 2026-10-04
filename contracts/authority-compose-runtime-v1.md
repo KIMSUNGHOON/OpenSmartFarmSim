@@ -12,6 +12,18 @@ rights gates and isolation guard are unchanged. Hosted signed/separate-UID
 acceptance remains pending; the corrected harness asserts the public reason
 `ai_validated_hold` before reading the hold report.
 
+The corrected `4083bd6` hosted stage produced that validated hold and both
+public missing-evidence categories, then failed its operator inspection.
+Actual SCRAM/supervisor regression reproduced `KeyError: disposition` because
+`list_decisions` is a restricted metadata projection. Inspection now reads the
+tenant/job/attempt-scoped immutable decision row directly, preserves the public
+projection and verifies the stored signature/capture relation. Its same signed
+local path passed1/3.85s after RED1/4.09s. A preceding instant fake child failed
+closed with `execution_attestation_unverified`; the fixture uses the existing
+`valid_slow` fake mode, as the separate supervised tests do. This is synthetic
+test timing, not a production timing or execution guarantee. Hosted acceptance
+remains pending.
+
 The additive `compose.authority.yaml` follows the C0/application files, with
 profile runtime. It deploys the existing exact factory entrypoints:
 `app.cli_supervise`, `app.cli_authority` and `app.cli_dispatch_loop`. It provisions

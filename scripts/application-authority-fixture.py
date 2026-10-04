@@ -71,7 +71,7 @@ def prepare(root,scope,principal,*,private,command):
     catalog=document();catalog['registrations'][0]['tenant_id']='tenant-1'
     key=Ed25519PrivateKey.generate()
     supervisor=root/'supervisor';supervisor.mkdir(mode=0o700)
-    fake=_fake_cli(supervisor)
+    fake=_fake_cli(supervisor,mode='valid_slow')
     text=fake.read_text().replace('#!/usr/bin/env python3','#!/app/.venv/bin/python')
     text=text.replace(str(supervisor/'actual-prompt.sha256'),'/tmp/actual-prompt.sha256')
     text=text.replace(str(supervisor/'actual-schema.sha256'),'/tmp/actual-schema.sha256')
@@ -121,18 +121,22 @@ from psycopg import sql
 value,root=data();jobs,_,_=store(value,root,'authority')
 from uuid import UUID
 identity=UUID(sys.argv[1]);decisions=jobs.list_decisions('tenant-1',identity)
-assert len(decisions)==1 and decisions[0]['disposition']=='hold'
+assert len(decisions)==1
 with jobs.connect() as conn:
-    captures=conn.execute(sql.SQL('SELECT count(*) AS n FROM {} WHERE job_id=%s').format(
-        jobs._table('attempt_cli_captures')),(identity,)).fetchone()['n']
-    observed=conn.execute(sql.SQL('SELECT count(*) AS n FROM {} WHERE job_id=%s').format(
-        jobs._table('execution_attestations')),(identity,)).fetchone()['n']
-    invocation=conn.execute(sql.SQL('SELECT model,reasoning_effort FROM {} WHERE job_id=%s AND attempt=1').format(
-        jobs._table('attempt_invocations')),(identity,)).fetchone()
+    decision=conn.execute(sql.SQL('SELECT disposition,capture_id,decision_id FROM {} WHERE tenant_id=%s AND job_id=%s AND attempt=1').format(
+        jobs._table('ai_decisions')),('tenant-1',identity)).fetchone()
+    captures=conn.execute(sql.SQL('SELECT count(*) AS n FROM {} WHERE tenant_id=%s AND job_id=%s').format(
+        jobs._table('attempt_cli_captures')),('tenant-1',identity)).fetchone()['n']
+    observed=conn.execute(sql.SQL('SELECT count(*) AS n FROM {} WHERE tenant_id=%s AND job_id=%s').format(
+        jobs._table('execution_attestations')),('tenant-1',identity)).fetchone()['n']
+    invocation=conn.execute(sql.SQL('SELECT model,reasoning_effort FROM {} WHERE tenant_id=%s AND job_id=%s AND attempt=1').format(
+        jobs._table('attempt_invocations')),('tenant-1',identity)).fetchone()
+assert decision is not None and decision['disposition']=='hold'
+assert decision['decision_id']==decisions[0]['decision_id']
 assert captures==observed==1
 from app.execution_attestation import ExecutionAttestationStore
 signed=ExecutionAttestationStore(jobs,{value['key_id']:bytes.fromhex(value['public_key'])}).get('tenant-1',identity,1)
-assert signed is not None and signed.capture_id==decisions[0]['capture_id']
+assert signed is not None and signed.capture_id==decision['capture_id']
 assert invocation=={'model':'gpt-6.1-sol','reasoning_effort':'xhigh'}
 print(json.dumps({'decisions':1,'captures':captures,'signed_executions':observed,'scope':'software_fixture_only'}))
 '''
