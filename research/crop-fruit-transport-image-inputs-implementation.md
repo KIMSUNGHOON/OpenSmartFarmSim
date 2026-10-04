@@ -1,7 +1,7 @@
 # 과실 순간 이동의 필수 프로필 포장 — 2026-10-05 KST
 
-상태: **최소 변경 구현·로컬 loader/정적 검사 완료; hosted 실제 이미지 수용 대기**.
-`crop-fruit-transport-image-inputs`를 완료로 체크하지 않는다.
+상태: **`78b5d17`의 실제 hosted 이미지 수용 완료**. 첫 변경의 로컬 검사와 실제
+수용은 아래에 구분한다.
 
 ## 구체적 기능 의존성과 변경
 
@@ -37,3 +37,13 @@
 context/hash·새 cases 제외·읽기 전용 loader·UID/TLS·image/세 Compose 정리 증거가
 모두 확인된 뒤 이 작업의 실제 수용과 checkbox를 갱신한다.
 이 패키징은 전체 작기·착과/배분·수확이나 G0–G4 관문을 열지 않는다.
+
+## 후속 실제 수용 — 2026-10-05 KST
+
+[Application runtime verification 37219136687](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37219136687)은
+2026-10-04 17:11:33 UTC에 성공했다. [실제 기계 판독 증거](artifacts/crop-fruit-transport-image-reference-20261005.json)에
+workflow/job·원 로그/파일 hash와 49개 검사 event를 기록했다.
+4개 실제 context 모두 pinned transport profile hash와 17개 제외 probe를 확인했고,
+1개 읽기 전용 backend loader·UID, 2개 TLS/프록시 경우와 첫 image/3개 Compose 정리를 통과했다.
+독립 numeric cases 제외 assertion도 실제 실행된 스크립트 판본에서 확인했다.
+이는 profile 한 파일의 수용이며 현재 로컬 cohort profile/전체 backend·작기나 G0–G4 수용은 아니다.
