@@ -8,6 +8,7 @@ import researchHold from './assets/crop-design/research-hold.png';
 import './CropReplay.css';
 const CropScene=lazy(()=>import('./CropScene'));
 const CropChart=lazy(()=>import('./CropChart'));
+const CoupledCropReplay=lazy(()=>import('./CoupledCropReplay'));
 type Api=ReturnType<typeof createApi>;
 const EMPTY:CropLookup={result_id:'',scenario_id:'',scenario_revision:'',registration_sha256:'',crop_id:''};
 const LABELS:Record<keyof CropLookup,string>={result_id:'저장 연구 결과 ID',scenario_id:'농장 시나리오 ID',
@@ -70,7 +71,15 @@ function CropEvents({data}:{data:CropReplay}){
   </details>;
 }
 
-export default function CropReplayView({api,initialSelection,autoLoadInitialSelection=false}:{api:Api|null;
+export default function CropReplayView(props:{api:Api|null;initialSelection?:CropLookup;autoLoadInitialSelection?:boolean}){
+  const [format,setFormat]=useState(props.initialSelection?.result_id.startsWith('crop-result-v2:')?'v2':'v1');
+  return <><label className="crop-format">저장 결과 판본<select value={format} onChange={e=>setFormat(e.target.value)}>
+    <option value="v1">v1 · 기관 탄소 연구</option><option value="v2">v2 · 기관과 50과실 구획 연결 연구</option></select></label>
+    {format==='v2'?<Suspense fallback={<p role="status">연결 연구 화면 준비 중…</p>}><CoupledCropReplay {...props}/></Suspense>:
+      <LegacyCropReplay {...props}/>}</>;
+}
+
+function LegacyCropReplay({api,initialSelection,autoLoadInitialSelection=false}:{api:Api|null;
   initialSelection?:CropLookup;autoLoadInitialSelection?:boolean}){
   const [lookup,setLookup]=useState<CropLookup>(initialSelection??EMPTY),[loaded,setLoaded]=useState<{api:Api;data:CropReplay}|null>(null);
   const [busy,setBusy]=useState(false),[error,setError]=useState<ApiError|null>(null),[index,setIndex]=useState(0);
