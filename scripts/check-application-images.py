@@ -105,9 +105,12 @@ def image_checks(directory, prefix, images):
     assert (exported / 'context/fixtures/crop-growth-reference-parameters-v1.json').is_file()
     fruit_profile = 'fixtures/crop-fruit-transport-reference-parameters-v1.json'
     assert digest(exported / 'context' / fruit_profile) == digest(ROOT / fruit_profile)
+    cohort_profile = 'fixtures/crop-fruit-cohort-reference-parameters-v1.json'
+    assert digest(exported / 'context' / cohort_profile) == digest(ROOT / cohort_profile)
     assert (exported / 'context/LICENSES/GreenLight-BSD-3-Clause-Clear.txt').is_file()
     assert not (exported / 'context/fixtures/crop-growth-reference-cases-v1.json').exists()
     assert not (exported / 'context/fixtures/crop-fruit-transport-reference-cases-v1.json').exists()
+    assert not (exported / 'context/fixtures/crop-fruit-cohort-reference-cases-v1.json').exists()
     assert (exported / 'context/web/src/assets/cutout-15-b6376be1ea78.png').is_file()
     for name in ['crop-research-leaf.png', 'crop-design/leaf.svg',
                  'crop-design/plant-seedling.svg', 'crop-design/clock.svg',
@@ -118,7 +121,8 @@ def image_checks(directory, prefix, images):
     assert digest(exported / 'context/web/e2e/crop-fixture.ts') == digest(ROOT / 'web/e2e/crop-fixture.ts')
     assert not (exported / 'context/web/demo').exists()
     event('actual_build_context', excluded_probes=len(poison),
-          fruit_transport_profile_sha256=digest(exported / 'context' / fruit_profile))
+          fruit_transport_profile_sha256=digest(exported / 'context' / fruit_profile),
+          fruit_cohort_profile_sha256=digest(exported / 'context' / cohort_profile))
     for service in ('backend', 'web'):
         image = f'{prefix}-{service}:test'
         images[service] = image
@@ -146,6 +150,7 @@ from hashlib import sha256
 from app.api_runtime import ApiRuntime
 from app.crop_growth_rates import ReferenceParameters
 from app.crop_fruit_transport import ReferenceFruitTransportParameters
+from app.crop_fruit_cohorts import ReferenceFruitCohortParameters
 from app.deterministic_work import DeterministicWorkerLoop
 from app.thermal_publisher import runtime_digests
 assert (os.geteuid(), os.getegid()) == (11001, 11010)
@@ -160,6 +165,9 @@ assert crop_profile.profile_id == 'vanthoor-greenlight-reference-rates-v1'
 fruit_profile = ReferenceFruitTransportParameters(pathlib.Path('/app/fixtures/crop-fruit-transport-reference-parameters-v1.json').read_bytes())
 assert fruit_profile.profile_id == 'vanthoor-fruit-transport-reference-v1'
 assert fruit_profile.stages == 50
+cohort_profile = ReferenceFruitCohortParameters(pathlib.Path('/app/fixtures/crop-fruit-cohort-reference-parameters-v1.json').read_bytes())
+assert cohort_profile.profile_id == 'vanthoor-explicit-entry-cohort-reference-v1'
+assert cohort_profile.stages == 50
 assert sha256(pathlib.Path('/app/LICENSES/GreenLight-BSD-3-Clause-Clear.txt').read_bytes()).hexdigest() == '96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a'
 try:
     pathlib.Path('/app/backend/image-write-probe').write_text('probe')
@@ -176,7 +184,8 @@ print(json.dumps(runtime_digests('/app')))
     assert rejected.returncode == 2 and not rejected.stdout
     assert json.loads(rejected.stderr) == {'version': 1, 'ok': False, 'code': 'api_startup_rejected'}
     event('backend_readonly_imports_and_closed_startup', code_sha256=expected[0],
-          environment_sha256=expected[1])
+          environment_sha256=expected[1],
+          fruit_cohort_profile_sha256=digest(ROOT / 'fixtures/crop-fruit-cohort-reference-parameters-v1.json'))
 
 
 def https(origin, context, path, headers=None):

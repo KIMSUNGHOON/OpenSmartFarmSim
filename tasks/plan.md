@@ -12,7 +12,8 @@
 순수 제품 배분도 새 77개/기존 포함 315개로 로컬 수용했다.
 문헌식 수요·50구획 순간 결합도 새 86개/기존 포함 401개로 로컬 수용했다.
 다음은 `crop-fruit-cohort-integration`의 전체 기관/시간 적분·사건**이다.
-transport 프로필의 실제 hosted 포장도 수용했고 새 cohort 프로필 포장은 최소 후속이다.
+transport 프로필의 실제 hosted 포장도 수용했다. 새 cohort 프로필 포장은
+[한 파일 허용/기존 검사 보완](../research/crop-fruit-cohort-image-inputs-implementation.md)만 준비했고 실제 hosted 수용은 남았다.
 실제 참조 작기의 UTC/면적·수관/초기조건·관리 입력 채택과 재현은 보류다.
 운영 기반은 `d19f7c0`의 [완료 범위/전체 CI](../research/crop-priority-and-runtime-freeze-20261004.md)로
 고정한다. 결합 원천 Compose 시제품은 미수용 상태로 보류했다.

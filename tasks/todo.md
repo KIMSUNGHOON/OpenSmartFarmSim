@@ -153,6 +153,10 @@
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
   독립 24사례/8,592수치·세 수지·호흡 한 번·불변/hash·형태/범위/numeric hold.
   시간 적분/사건/전체 작기/자동 착과와 실제 수확·3D는 수용하지 않았다.
+- [ ] **`crop-fruit-cohort-image-inputs`** — 새 cohort 프로필의 필수 포장; 전체 기관 개발과 병행.
+  [.dockerignore/script/보고서](../research/crop-fruit-cohort-image-inputs-implementation.md) 3파일.
+  정확한 profile 1개 허용·실제 context hash/새 cases 제외·읽기 전용 pinned loader·
+  UID/TLS/정리를 hosted에서 확인한 뒤 수용한다. 로컬 loader/AST만 통과했다.
 - [ ] **`crop-fruit-cohort-integration`** — 다음 핵심; 순간 구획 뒤 전체 기관의 시간 적분/관리 사건.
   먼저 source/profile 호환·fruit 합계 파생/기존 유지 호흡 교체·성장 호흡 단일 차감,
   명시 RGR/S/W1/초기/관리의 시간 입력 계약·bounded RK4/누적 외부 수지/사건·manifest를 정의한다.
