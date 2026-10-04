@@ -181,6 +181,8 @@
   3,683,992 bytes·계산/검사 59.1135초·읽기/검사 0.3055초·85,224 KiB RSS다.
   파일 hash는 권리/승인이 아니다. farm/DB/SCRAM·API/3D는 아직 수용하지 않았다.
 - [ ] **`crop-coupled-result-storage`** — 다음 핵심; 선행: 수용된 coupled artifact.
+  [고정할 다음 계약](../contracts/crop-result-v2.md): 2 MiB 요청/20 MiB packet·서버 계산은 HTTP 밖,
+  새 표 한 개/명시 기본 false flag·현재 farm/crop/batch/source/program 권리·HMAC custody.
   먼저 새 결과 v2의 model/profile/policy/code/solver·forcing/RGR/S/W1/관리·수지/hold와
   최대 bytes/조회 페이지·현재 farm/program 권리의 계약을 정의한다.
   계산은 HTTP 밖에서 완료·검증하고 불변 저장한다. 기존 v1 bytes/accepted Run을 변경하지 않는다.

@@ -15,6 +15,8 @@
 짧은 과실/기관 적분도 새 44개/기존 포함 488개로 로컬 수용했다.
 새 저장 선행 artifact도 530개 집중·512출력/별도 Python·재적분 없는 읽기로 수용했다.
 다음은 `crop-coupled-result-storage`의 farm/program 권리·실제 DB 저장**이다.
+[다음 한 단계의 계약/수용 기준](../contracts/crop-result-v2.md)은 새 표/명시 role flag·
+현재 권리·서버 계산/HTTP 분리·exact bytes·실제 SCRAM/원자성·변조/철회/정리다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다. 새 순간 구획/기관 코드의 hosted 수용은 별도다.
 transport/cohort 프로필의 실제 hosted 포장도 수용했다
