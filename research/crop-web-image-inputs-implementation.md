@@ -33,6 +33,16 @@ Docker COPY를 재현한 GREEN build는 1.28초에 통과했다. 개발 demo 폴
 정리가 통과한 뒤 기록한다. 로컬 파일 트리 모사를 실제 Docker 증거로 제시하지 않는다.
 계산 엔진/생장 값·데모 응답·G0–G4는 바꾸지 않았다.
 
+## 실제 context 반례와 후속 — 2026-10-05 KST
+
+`98d382a`의 [실제 앱 CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37213046526)는
+이미지 빌드 전에 `build_exclusion_failed:web/src/assets/crop-design/image-probe.svg`로
+실패했다. 기존 폴더 negation 뒤 자식 제외 규칙이 없어 미선언 파일까지 다시
+허용한 반례다. [Docker의 마지막 일치 규칙](https://docs.docker.com/build/concepts/context/#negating-matches)을
+확인해 해당 폴더의 `/**` 제외 한 줄을 정확한 자식 예외 앞에 추가했다.
+17개 probe를 유지하며 실제 hosted 재검사를 기다린다. 첫 로컬 COPY 모사는
+Docker의 ignore 매칭을 검사하지 않았으므로 context 수용 근거가 아니다.
+
 앞선 [성장 화면 증거](artifacts/web-crop-replay-reference-20261004.json)의 code hash는
 `0f3ce74`에 남긴 당시 경로/bytes다. 해당 JSON은 수정하지 않는다. 이 후속 판본에서
 경로와 import가 바뀐 파일은 새 기록의 hash로 대사한다.

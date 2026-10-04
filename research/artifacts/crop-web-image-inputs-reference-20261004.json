@@ -35,7 +35,7 @@
     "log_sha256": "48a47402b0ed604d68f8526678e7a0984714e2adaf4540705ce7d33a2233c637"
   },
   "code_sha256": {
-    ".dockerignore": "26db2971caa94a09b0c4be0f1d7432ec9425291aad1f246d5941a4ab55350362",
+    ".dockerignore": "9846f61a77602c0d51f38d066a7e1ae5b4f10f8fef89945201a545e6d9496b49",
     "scripts/check-application-images.py": "7edab46146804b5ee214ec8c0e4566f779de1affe7f9cc2e6671b6ef3614ee71",
     "web/e2e/crop-fixture.ts": "8ad46cd75d813dd5d436bda2bc4e2108a0ecca3c1eaf4c0da0a713f8b1978323",
     "web/vite.config.ts": "98f640404c56b966c39719458dcc5da6116f40c7f48d2dfc984052016c65dac8",
@@ -47,5 +47,14 @@
   "actual_local_Docker_run": false,
   "actual_hosted_image_verification": "pending",
   "new_dependency_or_runtime_service": false,
-  "gates": "not_assessed"
+  "gates": "not_assessed",
+  "follow_up_context_failure": {
+    "commit": "98d382a57897f1f312001b901401283944d7ab6f",
+    "run_id": 37213046526,
+    "log_sha256": "62262b6e7ee40eb31abb65160e84a24863f7b56fae02e92c9e66edf1b242c29f",
+    "failure": "build_exclusion_failed:web/src/assets/crop-design/image-probe.svg",
+    "cause": "directory negation re-included undeclared children; missing child exclusion before exact exceptions",
+    "fix": "exclude crop-design/** after permitting directory and before eight exact child exceptions",
+    "actual_hosted_retry": "pending"
+  }
 }
