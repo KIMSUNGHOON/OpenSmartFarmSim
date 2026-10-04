@@ -153,8 +153,10 @@ Axiany/Maxifort 한 해외 작기 개발 참조다. 대한민국 온실의 최�
 [채널/시각/면적·초기조건/관리 입력 감사](../research/crop-forcing-audit.md)도 완료했다.
 실제 forcing/작기 재현은 보류이며 [과실 발달식/구획 계약](../research/crop-fruit-cohorts-baseline.md)도
 수용했다. [원식이 명확한 순간 이동](../research/crop-fruit-transport-implementation.md)도
-새 92개/기존 포함 238개와 독립 3,090수치로 로컬 수용했다. 필수 프로필 포장과
-전체 착과/배분의 보존·초기/gate 정책은 다음 작은 단계다.
+새 92개/기존 포함 238개와 독립 3,090수치로 로컬 수용했다. 필수 프로필 포장은
+최소 변경/로컬 로드 뒤 hosted 이미지 수용을 기다린다.
+[명시적 착과/진입 질량 배분 정책](../research/crop-fruit-allocation-policy.md)은 독립 대수/수치로
+수용했다. 다음은 `crop-fruit-allocation-rates`의 제품 배분이며 자동 착과/실제 품종은 보류한다.
 실제 47,809시점과 현재 20,000 배열/100만 step 차이는 `crop-cycle-capacity`에서
 연속 상태·사건·저장/출력 시간과 부하/재현을 계약하는 필수 후속이다.
 [필수 프로필/고지 이미지](../research/crop-rate-image-inputs-implementation.md)도 실제 hosted
@@ -172,7 +174,7 @@ CI 5개도 통과했다. `d76410f`의 웹/C0/실제 앱 CI는 통과했다.
 | 3a `crop-cycle-capacity` | 적분 수용·실제 archive의 파일/시점 감사 | 개발: 현재 20,000 배열/100만 step·16/64MiB 입력/결과 경계와 연속 상태/수지·저장/출력·부하/재현 계약. 실제 한 작기 실행은 forcing/초기조건 채택 뒤 |
 | 4 `crop-result-storage`, `api-crop-replay` | 적분 수용, 기존 불변 저장/현재 권리·계정 제공자 | 저장 결과 ID·입출력 해시·보류·시계열 조회. 다른 농장/테넌트/모델 혼합·변조·철회 거부, 재시작 동일 조회 |
 | 5 `web-crop-replay` | 저장/API의 같은 상태 조회 | 같은 ID + timestamp의 잎 면적/기관량을 표·그래프·3D에서 확인. 모식 형태 표기, 키·착과수·숙기는 계산하지 않으면 표시하지 않음. WebGL 대체·키보드/시간 이동 시험 |
-| 6 `crop-fruit-transport` → `crop-fruit-cohorts` → `crop-harvest-conversion` | 개발: 고정 발달식/단위·순간 이동 수용, 원 배분의 보존/W1/초기/gate 정책과 명시적 관리 사건. 실제 작기 적용: 해당 품종/관리·초기조건 QC, 생과 환산: 품종별 건물/생과중/품질 근거 | 개수/탄소 이동·착과/배분/적분→수확 사건·생과 kg·등급과 제거/기관 수지. 평활 탄소 제거나 일반 과실중을 생과 수확으로 대체하지 않음 |
+| 6 `crop-fruit-transport`·`crop-fruit-allocation-rates` → `crop-fruit-cohorts` → `crop-harvest-conversion` | 개발: 고정 발달식/단위·순간 이동 수용, 원 배분의 보존/W1/초기/gate 정책과 명시적 관리 사건. 실제 작기 적용: 해당 품종/관리·초기조건 QC, 생과 환산: 품종별 건물/생과중/품질 근거 | 개수/탄소 이동·착과/배분/적분→수확 사건·생과 kg·등급과 제거/기관 수지. 평활 탄소 제거나 일반 과실중을 생과 수확으로 대체하지 않음 |
 | 7 `crop-climate-coupling`, `crop-water-nutrient`, `crop-energy-purchases` | 생장/생산 모델의 필요한 상태·계수/입력, 계량·변환 근거 | 수관/증산, 배지·급배액/재순환·성분, 열/구매 에너지의 각각 수지와 적용 범위. 기존 작물 효과 중복 차감 금지 |
 | 7a `crop-execution-link` | 해당 모델/입출력 계약과 같은 농장/작물/배치 연결. 실제 실행에는 해당 forcing/초기조건 G0/G1 | 사용자 접수→작업자→불변 결과 선택/3D·취소/재시작/현재 권리. 기존 작업/worker 재사용 |
 | 8 `crop-economic-link` | 생산 배치·자원 결과와 같은 기간의 판매/정산/비용 근거 | H/P/S·등급/재고·원가와 기존 Decimal 손익/현금의 결합·재실행/대사. 모델 수확의 출처 등급 유지, 미래 마진은 검증 전 hold |

@@ -8,7 +8,8 @@
 316개/194.11초·실제 HTTPS/SCRAM으로 수용했다. `web-crop-replay`도 웹 단위
 209개·집중 Chromium 10개·실제 SCRAM/HTTPS/장면 대사 1개로 로컬 수용했다.
 원천 감사·과실 구획 명세·50구획 순간 이동도 로컬 수용했다.
-다음은 필수 프로필 포장과 `crop-fruit-allocation-policy`**다.
+명시적 착과/진입 질량의 배분 정책도 독립 대수/수치로 수용했다.
+다음은 `crop-fruit-allocation-rates`와 필수 프로필의 hosted 이미지 수용**이다.
 실제 참조 작기의 UTC/면적·수관/초기조건·관리 입력 채택과 재현은 보류다.
 운영 기반은 `d19f7c0`의 [완료 범위/전체 CI](../research/crop-priority-and-runtime-freeze-20261004.md)로
 고정한다. 결합 원천 Compose 시제품은 미수용 상태로 보류했다.
@@ -39,7 +40,8 @@ flowchart TD
   FM --> FT["crop-fruit-transport: 고립된 순간 이동"]
   FM --> FP["crop-fruit-allocation-policy: 보존/초기/gate"]
   FT --> F["crop-fruit-cohorts → crop-harvest-conversion"]
-  FP --> F
+  FP --> FA["crop-fruit-allocation-rates: 순수 유입 계산"]
+  FA --> F
   V --> F
   F --> C["crop-climate-coupling"]
   C -. 수관/광 측정 미확보 시 검증된 변환 필요 .-> AQ
@@ -137,7 +139,10 @@ hold로 고정했다. 독립 참조 생성 코드를 추가해 버전/해시·by
 한 파일만 포함하고 실제 context/hash·cases 제외·읽기 전용 loader/정리를 확인한다.
 새 기능의 필수 입력 경로이며 추가 기반의 구체적 근거는 이 파일의 제외다.
 
-**다음 핵심 한 단계는 `crop-fruit-allocation-policy`**다. 수용 기준은 다음과 같다.
+**배분 정책의 조사/개발 수용**은 [별도 정책/원천 대사](../research/crop-fruit-allocation-policy.md)에
+기록했다. 원/epsilon 분모를 각각 4개 반례로 확인하고 명시적 S/W1의 보존 변형을
+독립 6개 정상/4개 hold·600개 유입 값으로 수용했다. 자동 착과/W1/초기 seed와
+실제 품종은 미채택이며 이것은 제품 배분 구현의 통과가 아니다. 당시 정책 수용 기준은 다음과 같다.
 
 1. 원 9.36/9.37의 탄소 보존 문제·W1 Gompertz 경계/초기 seed·빈 sink·gate의
    원 구현/추가 근거를 대사한다. 원식과 수정/가정을 분리하고 새 판본을 명시한다.
@@ -148,7 +153,13 @@ hold로 고정했다. 독립 참조 생성 코드를 추가해 버전/해시·by
 4. 다음 전체 과실 적분/사건에 필요한 buffer/기관/구획의 양과 이중 차감 방지,
    독립 참조·수렴/재현·저장 새 판본의 수용 절차를 연결한다.
 
-전체 `crop-fruit-cohorts`는 수용한 이동과 위 정책 뒤 적분/사건으로 연결한다.
+**다음 핵심 한 단계는 `crop-fruit-allocation-rates`**다. 계획 구현은
+`backend/app/crop_fruit_allocation.py`, `backend/tests/test_crop_fruit_allocation.py` 두 파일이다.
+수용 기준은 [개발 계약](../contracts/crop-fruit-allocation-v1.md)의 닫힌 입력/단위·길이/유한성,
+독립 600개 탄소/개수 유입과 4개 hold의 제품 대사, 두 수지/ULP·underflow/overflow
+거부·입력 불변/같은 hash/판본·반복이다. 새 생물 계수/자동 S/W1/실제 Run/3D는 만들지 않는다.
+전체 `crop-fruit-cohorts`는 수용한 이동과 위 제품 배분 뒤 고정 Gompertz 수요·
+기관/buffer·개수/탄소 적분과 명시적 관리 사건으로 연결한다.
 국내 측정 접근과 실제 입력 보류 해소, 전체 작기 처리 계약을 병행한다.
 
 추가 기반은 현재 Docker 허용 목록이 새 프로필/제3자 고지를 제외하는 실제 파일
@@ -198,6 +209,8 @@ image/TLS·UID/읽기 전용/정리는 `d76410f`의 실제 hosted 전체 성공�
 | 성장 3D 연결 | **로컬 완료** | 웹 209개·집중 Chromium 10개·실제 저장/HTTPS/장면 대사 1개, 5분 연구 범위 |
 | 과실 발달식/구획 계약 | **조사 완료·전체 배분/실제 채택 보류** | 원식/21개 값·단위/권리·보존/초기/gate hold·독립 검증 계획 |
 | 과실 순간 이동 계산 | **로컬 완료** | 새 92개/기존 포함 238개·독립 15사례/3,090수치·두 수지/수치 반례/hold |
+| 명시적 착과 배분 정책 | **개발 정책 수용** | 5개 원천 대사·독립 6개 정상/4개 hold·600개 유입; 자동 착과/실제 품종 미채택 |
+| 순수 제품 배분 | **0.5~1 집중 작업일·잠정** | 2파일·독립 600개 값/4개 hold·이진 수지/수치/불변/판본 검사 |
 | 전체 작기 처리 계약 | **별도 설계 뒤 추정** | 실제 47,809 source 시점/현재 20,000 배열·100만 step 한도와 연속 상태/저장/재생·부하 계획 |
 | 과실 발달 구획 계산 | **문헌식/관리 계약 뒤 추정** | 독립 참조와 개수/기관 질량·사건 수지; 품종 적용성 미검증 유지 |
 | 생과 수확·자원·경제 | **각 변환/계량 근거 뒤 추정** | 수확/등급·물/성분·구매 에너지·동일 배치 Decimal 대사 |

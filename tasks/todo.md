@@ -127,17 +127,24 @@
   `research/crop-fruit-transport-image-inputs-implementation.md`.
   수용: 프로필 한 파일만 허용·실제 context hash/새 cases 제외와 읽기 전용 image에서
   ReferenceFruitTransportParameters 로딩; 기존 UID/TLS/전체 정리. hosted 통과 뒤 체크.
-- [ ] **`crop-fruit-allocation-policy`** — 이동 개발과 병행; 전체 과실 배분/착과 코드의 선행.
+- [x] **`crop-fruit-allocation-policy`** — 명시적 착과/진입 질량의 개발 정책 수용; 자동 착과/실제 품종 미채택.
   수용: 원 9.36/9.37 보존 불일치·W1 Gompertz 경계/초기 seed·빈/고갈 sink·gate 판본,
   원/수정식 근거·별도 모델/프로필·독립 참조와 sum(A_j)=F/개수 보존·사건 정책.
   원식의 분모/계수를 조용히 수정하지 않는다. 실제 품종 입력/관문은 별도.
+  [수용](../research/crop-fruit-allocation-policy.md): 원/공개 구현/문서/권리의 5개 출처 대사,
+  원/epsilon 분모 각각 4개 반례. 명시적 S/W1·tail 분모의 별도 정책/제약·hold,
+  독립 6개 정상/4개 hold·600개 탄소/개수 유입과 byte-identical 재실행. 제품 계산은 후속.
+- [ ] **`crop-fruit-allocation-rates`** — 위 정책 뒤, 전체 구획 적분의 필수 선행.
+  예정 파일(2): `backend/app/crop_fruit_allocation.py`, `backend/tests/test_crop_fruit_allocation.py`.
+  수용: 독립 600개 유입/4개 hold·두 수지/단위, 닫힌 입력/형태·유한성/영역/
+  underflow/overflow·ULP 예산·입력 불변/hash/판본·같은 반복. 생물 계수/자동 착과/W1은 없음.
 - [ ] **`crop-cycle-capacity`** — 입력 감사/현재 적분 수용 뒤; 실제 참조 작기 재현의 필수 선행.
   필요 근거: 실제 47,809시점/47,808 interval, 현재 배열 20,000개·step 100만;
   166일/10초의 산술 1,434,240 step. 문헌 과실 모델 개발/국내 확보와 병행한다.
   작은 실행 계약부터 분해: bounded forcing 처리·연속 상태/누적 수지/사건·불변 manifest/저장,
   계산 해상도와 출력 시간/페이지의 분리·30초 응답/WSL 자원·재시작/동일 재현/실제 작기 부하.
   수용 전 한도 증대/임의 forcing 축약으로 whole-cycle 완료를 주장하지 않는다.
-- [ ] **`crop-fruit-cohorts`** — 개발 선행: `crop-fruit-transport`·`crop-fruit-allocation-policy`·명시적 관리 사건.
+- [ ] **`crop-fruit-cohorts`** — 개발 선행: `crop-fruit-transport`·`crop-fruit-allocation-rates`·고정 Gompertz 수요·명시적 관리 사건.
   참조 계수의 순수 모듈 개발은 국내 자료 접근/G2를 기다리지 않는다.
   실제 Axiany 적용에는 `crop-input-audit`와 해당 품종/관리·발달 근거가 추가로 필요하다.
   예정 파일(3): `backend/app/crop_fruit_cohorts.py`, `backend/tests/test_crop_fruit_cohorts.py`,
