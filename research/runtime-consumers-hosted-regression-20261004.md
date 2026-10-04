@@ -62,3 +62,50 @@ inputs and keys establish software contracts only. Actual product model calls,
 independent source/release/custody and G0–G4/crop/forecast/ranking acceptance remain
 held. The same exact-model CLI reviewer recorded these observations; no new
 recursive CLI or domain coefficients were introduced.
+
+## Collection consumer regression at394ff78
+
+Exact head `394ff78e761e1b5a7a4ce60139e2f66412d1dde9` also completed all five
+workflows successfully. This head adds the local accepted collector discovery/
+consumer; subsequent collection/authority Compose overrides are not in these
+regression bytes. Actual logs and terminal step metadata were inspected.
+
+| Workflow | Observed execution |
+| --- | --- |
+| [Backend37169813870](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37169813870) | 2,489 default cases, zero pytest skips; separate UID4 and content DAC; equal inventory/aggregation and all fixture cleanup passed |
+| [Authored37169813867](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37169813867) | Seven groups/141 executions (13/3/1/4/15/104/1), all required DB/password cleanup passed |
+| [Web37169813887](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37169813887) | 160 unit and51 Chromium cases passed |
+| [C037169813871](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37169813871) | Actual healthy/new PostgreSQL container, persisted sentinel and Compose cleanup passed |
+| [Application37169813875](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37169813875) | Image boundary, normal/wrong-name TLS200/502, baseline economic auto completion/current identical restart/grant503 and cleanup passed |
+
+Partition counts0–5 are440,325,624,513,283,304 (sum2,489). All six independently
+collected the same complete inventory SHA-256
+`d7d713004b723f8d0e5c420e7264363832f9ad45016e46b74b634c32117f217a`.
+Partition4 reported two Pydantic serialization warnings in existing G0 authority
+fixture tests; these were warnings, not skipped or failed executions. No
+scientific/source gates were adopted as a result.
+
+Partition IDs0–5:111340274598,111340274719,111340274644,111340274595,
+111340274582,111340274470; aggregation111352862926.
+Aggregate raw-log SHA-256
+`bcda44b2b96103498d96de78b573f9d7a8fec648e765b67f5d14b5265bc7f1a4`;
+UID/partition0 SHA-256
+`2774e535b719e69f8bf6f08da7e0d3cb7cc4a1da8777f204897a991d3b06cdea`.
+
+Authored IDs by table count order:111340274721,111340274427,111340274585,
+111340274545,111340274652,111340274693,111340274648.
+Web job111340274443 SHA-256
+`22b02fe2891543b1fd4736df39c4c93465cf9c6be10a5f3f494e35313acb328f`;
+C0 job111340274089 SHA-256
+`1af4415b57520c73f9a6a44d31fa091faee4a245b72ba4993e0bdda3f413e539`;
+app job111340274284 SHA-256
+`1b4dd1babc814e7e631f6fc5a2af62992946feaeaccd6149d1607e402bb5b4db`.
+Raw logs/terminal metadata are `/tmp/ossf-ci-*-394ff78-*-20261004.*`; the
+complete selected-count/hash/cleanup manifest is
+`/tmp/ossf-ci-394ff78-summary-20261004.json`.
+
+The later [collector Compose stage](collection-compose-runtime-implementation.md)
+has separate actual acceptance at098d1d3. Later authority candidate fixes and
+their new private factory regression require their own hosted proof. This
+full regression does not accept those later heads or actual product CLI,
+independent custody/release, G0–G4, crop forecasts or rankings.

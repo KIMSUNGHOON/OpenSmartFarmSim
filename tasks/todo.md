@@ -220,7 +220,9 @@
       종료/복구를 유지한다. [실제 SCRAM 수용](../research/collection-consumer-implementation.md):
       새34+기존47/14개, 합계95개/55.97초·무건너뜀; 자동 완료·취소·강제 종료 뒤 복구·
       부모 증거 훼손 보류·권한 철회·신호/프로세스/DB 정리. 목록 회귀12개/6.48초도 통과.
-      source Compose/실제 모델/독립 해제·G1/G4는 후속이며 상위 체크를 유지한다.
+      `394ff78` 전체 hosted2,489/무건너뜀·UID4·작성141·웹160/51·C0/앱과 정리도 통과했다
+      ([기록](../research/runtime-consumers-hosted-regression-20261004.md#collection-consumer-regression-at394ff78)).
+      source Compose/실제 모델/독립 해제·G1/G4는 별도이며 상위 체크를 유지한다.
     - [x] **`collection-services-ci`** — 선행: `collection-consumer`, `application-services-ci`.
       파일(5): `compose.collection.yaml`, `scripts/check-application-runtime.py`,
       `scripts/application-collection-fixture.py`, `.github/workflows/application-runtime.yml`,

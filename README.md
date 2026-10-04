@@ -47,6 +47,7 @@ UUID를 고정하고 새 전체 목록 회귀를 추가해 집중 18개와 여�
 기존 결정적 소비37개, `7225546`의 전체 호스팅 백엔드2,455/별도UID4·작성141·웹160/51·
 C0/앱 서비스 회귀를 통과했습니다. [수집 자동 소비](research/collection-consumer-implementation.md)도
 실제 SCRAM95개로 자동 완료·취소/복구·부모 증거 훼손/권한 철회·정리를 확인했습니다.
+같은 `394ff78`의 전체 hosted 백엔드2,489/별도UID4·작성141·웹160/51·C0/앱과 정리도 통과했습니다.
 [수집 Compose 단계](research/collection-compose-runtime-implementation.md)는 실제 TLS/SCRAM 자동 저장·
 동일 재시작·부모 증거 철회/권한 변경 차단·UID/자원과 정리를 통과했습니다.
 같은 workflow의 조사 RPC 단계는 실패 원인을 수정 중이며, 실제 모델·독립 해제/G1/G4는 후속입니다.

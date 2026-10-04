@@ -258,6 +258,8 @@ API/웹/자동 경제·현재 결과·재시작·권한 변화·정리를 수용
 백엔드2,455/별도UID4·작성141·웹160/51·C0/앱 서비스를 통과했다.
 [수집 자동 발견/소비](../research/collection-consumer-implementation.md)는 실제 SCRAM95개로
 자동 완료·취소/복구·부모 증거 훼손/권한 철회·정리를 수용했다.
+같은 `394ff78`의 [전체 hosted 회귀](../research/runtime-consumers-hosted-regression-20261004.md#collection-consumer-regression-at394ff78)는
+백엔드2,489/건너뜀0·별도UID4/동일 목록·작성141·웹160/51·C0/앱과 모든 정리를 통과했다.
 [`098d1d3`의 실제 수집 Compose 단계](../research/collection-compose-runtime-implementation.md)도
 표준 TLS/SCRAM 접수→자동 원본3개 저장·동일 재시작·부모 철회422·권한 변화503/exit3·
 UID/자원/마운트·정리를 통과했다. 뒤의 authority 단계 실패로 전체 workflow는 미수용이며,
