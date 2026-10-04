@@ -8,14 +8,17 @@
 [로컬 86개/0.12초와 독립 참조 대조](../research/crop-growth-rates-implementation.md)로 수용했다.
 [작은 수관 적용 정책](../research/crop-photosynthesis-domain.md)은 기존 유량과 함께
 118개/0.18초로 수용했고 [프로필/원 고지 이미지 포함](../research/crop-rate-image-inputs-implementation.md)은
-실제 hosted Docker 실행/정리로 수용했다. 새 전체 backend CI는 아직 미확인이다.
+실제 hosted Docker 실행/정리로 수용했다. `d251df9`의 전체 backend 2,671개·
+별도 UID 4개와 같은 판본 CI 5개도 통과했다. 새 성장 화면 변경의 hosted CI는 별도다.
 [시간 적분](../research/crop-growth-integration-implementation.md)은 적분 28개/기존 118개를
 합쳐 146개/0.53초·독립 165수치·수렴/수지/사건으로 로컬 수용했다.
 [불변 합성 연구 저장](../research/crop-result-storage-implementation.md)까지 집중
 172개/434.49초·실제 SCRAM/별도 프로세스·변조/철회/정리로 로컬 수용했다.
 [저장 조회 API](../research/api-crop-replay-implementation.md)도 집중 316개/194.11초·
 실제 TLS/SCRAM 10개 전체 응답/변조·철회·정리로 로컬 수용했다.
-다음은 같은 결과의 표·그래프·성장 3D이며,
+[계산 기반 성장 연구 3D](../research/web-crop-replay-implementation.md)도 웹 209개·
+집중 Chromium 10개·실제 저장/HTTPS/장면 대사 1개로 로컬 수용했다.
+다음은 실제 참조 작기의 채널·시각·면적·초기조건/관리 QC 감사이며,
 순서는 [수정 계획](../tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04)을 따른다.
 
 [단일 Axiany 작기 모델/권리 조사](../research/crop-tomato-model-baseline-20261004.md)와

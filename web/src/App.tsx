@@ -8,6 +8,7 @@ import SourceWorkflow from './SourceWorkflow';
 import AssessmentWorkspace from './AssessmentWorkspace';
 import AuthoredFinancialWorkspace from './AuthoredFinancialWorkspace';
 const Replay=lazy(()=>import('./Replay'));
+const CropReplay=lazy(()=>import('./CropReplay'));
 
 const statusNames:Record<State,string>={queued:'대기 중',researching:'자료 조사 중',collecting:'원본 수집 중',
   reviewing:'자료 검토 중',simulating:'계산 중',assessing:'평가 중',succeeded:'작업 완료',hold:'판단 보류',
@@ -44,7 +45,7 @@ export default function App() {
   const [token,setToken]=useState(''); const [latitude,setLatitude]=useState('');
   const [longitude,setLongitude]=useState(''); const [startDate,setStartDate]=useState('');
   const [startTime,setStartTime]=useState('');
-  const [view,setView]=useState<'input'|'work'|'economic'|'authored'|'replay'|'assessment'|'authored-financial'>('input'); const [busy,setBusy]=useState(false);
+  const [view,setView]=useState<'input'|'work'|'economic'|'authored'|'replay'|'assessment'|'authored-financial'|'crop-replay'>('input'); const [busy,setBusy]=useState(false);
   const [replaySelection,setReplaySelection]=useState<{kind:'authored';jobId:string;autoLoad?:true}|undefined>();
   const navRef=useRef<HTMLElement|null>(null);
   const [financialLock,setFinancialLock]=useState(false);
@@ -114,7 +115,7 @@ export default function App() {
     finally {inFlight.current=false;if (epoch===generation.current) setBusy(false);}
   }
   const canReset=!intent || !!job || !!error?.status && error.status<500;
-  return <div className="app-shell">
+  return <div className={'app-shell'+(view==='crop-replay'?' crop-shell':'')}>
     <a className="skip-link" href="#main">본문으로 이동</a>
     <aside className="sidebar" id="viewport-1-a-nav">
       <p className="brand">Open<br/>SmartFarmSim</p>
@@ -127,18 +128,19 @@ export default function App() {
         <button aria-current={view==='replay' ? 'page' : undefined} onClick={()=>setView('replay')}>05 <span>3D 열 재생</span></button>
         <button aria-current={view==='assessment' ? 'page' : undefined} onClick={()=>setView('assessment')}>06 <span>계산 평가</span></button>
         <button aria-current={view==='authored-financial' ? 'page' : undefined} onClick={()=>setView('authored-financial')}>07 <span>작성 Run 경제·평가</span></button>
+        <button aria-current={view==='crop-replay' ? 'page' : undefined} onClick={()=>setView('crop-replay')}>08 <span>성장 연구 3D</span></button>
       </nav><p className="sidebar-note">직접 작성한 합성 자료<br/>내부 계약 시험</p>
     </aside>
     <main id="main" tabIndex={-1}>
       <header className="page-header"><div><p className="eyebrow">OPEN SMART FARM SIMULATOR</p>
-        <h1>{view==='input' ? '시뮬레이션 입력 설정' : view==='work' ? '작업 진행과 근거' : view==='replay' ? '두 시간 온실 재생' : view==='authored' ? '작성 농장 실행' : view==='assessment' ? '계산 평가와 보류 근거' : view==='authored-financial' ? '작성 Run의 비용과 평가' : '경제 가정과 조건부 계산'}</h1>
-        <p>{view==='economic' ? '저장된 가정을 검토하고, 판본을 고정해 조건부 원장 계산을 확인하세요.' :
+        <h1>{view==='crop-replay'?'계산 기반 성장 연구 재생':view==='input' ? '시뮬레이션 입력 설정' : view==='work' ? '작업 진행과 근거' : view==='replay' ? '두 시간 온실 재생' : view==='authored' ? '작성 농장 실행' : view==='assessment' ? '계산 평가와 보류 근거' : view==='authored-financial' ? '작성 Run의 비용과 평가' : '경제 가정과 조건부 계산'}</h1>
+        <p>{view==='crop-replay'?'저장된 잎 면적과 기관 탄소량을 같은 UTC 시점의 3D 모식도·그래프·표에서 확인하세요.':view==='economic' ? '저장된 가정을 검토하고, 판본을 고정해 조건부 원장 계산을 확인하세요.' :
           view==='authored' ? '서버에 등록된 작성 농장 판본을 검토·계산 작업과 연결하세요.' :
           view==='assessment' ? '완료된 열·경제 계산을 연결하고, 작물 판단에 필요한 누락 근거를 확인하세요.' :
           view==='authored-financial' ? '저장 Run을 골라 같은 농장 가정의 조건부 금액·현금흐름과 보류 근거를 확인하세요.' :
           view==='replay' ? '저장된 합성 계산의 같은 시각을 3D·그래프·표에서 확인하세요.' : '좌표와 기간을 지정하고, 자료 조사 상태와 판단에 필요한 근거를 확인하세요.'}</p></div>
         <div className="scope-summary" aria-label="입력 요약"><span className="badge">합성 자료 시험</span>
-          <strong>{view==='economic' ? '저장 원장 · 사용자 가정' : view==='authored' ? '등록된 농장 · 작업 상태' : view==='assessment' ? '완료 계산 · 판단 보류' : view==='authored-financial' ? '같은 Run · 조건부 경제' : '온실 한 구역 · 두 시간'}</strong><span>실제 관측·미래 예측·작물 추천이 아닙니다.</span></div>
+          <strong>{view==='crop-replay'?'저장된 작물 탄소 계산':view==='economic' ? '저장 원장 · 사용자 가정' : view==='authored' ? '등록된 농장 · 작업 상태' : view==='assessment' ? '완료 계산 · 판단 보류' : view==='authored-financial' ? '같은 Run · 조건부 경제' : '온실 한 구역 · 두 시간'}</strong><span>실제 관측·미래 예측·작물 추천이 아닙니다.</span></div>
       </header>
       <details className="connection"><summary>내부 시험 연결</summary>
         <p>운영자가 발급한 접근 토큰을 입력하세요. 토큰은 저장하지 않으며, 페이지를 새로 열면 다시 연결해야 합니다.</p>
@@ -163,7 +165,8 @@ export default function App() {
           setFinancialSelection({jobId,key:crypto.randomUUID()});setView('authored-financial');}}/></div>
       {view==='replay' && <Suspense fallback={<p role="status">재생 화면 준비 중…</p>}><Replay api={api} initialSelection={replaySelection}
         autoLoadInitialSelection={replaySelection?.autoLoad ?? false}/></Suspense>}
-      {view==='economic' || view==='authored' || view==='replay' || view==='assessment' || view==='authored-financial' ? null : view==='input' ? <form onSubmit={submit} className="input-form">
+      {view==='crop-replay' && <Suspense fallback={<p role="status">성장 연구 화면 준비 중…</p>}><CropReplay api={api}/></Suspense>}
+      {view==='crop-replay' || view==='economic' || view==='authored' || view==='replay' || view==='assessment' || view==='authored-financial' ? null : view==='input' ? <form onSubmit={submit} className="input-form">
         <section className="panel input-panel" id="viewport-1-a-coordinates"><div><p className="step-number">01 / 지역</p><h2>위도·경도 설정</h2>
           <p>한국 내 좌표를 입력하세요. 서버에 등록된 시범 범위만 접수됩니다.</p>
           <div className="field-row"><label>위도 (°N)<input type="number" min="-90" max="90" step="any" required value={latitude}

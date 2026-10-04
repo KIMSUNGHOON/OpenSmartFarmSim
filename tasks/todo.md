@@ -81,14 +81,21 @@
   HTTPS 10개 전체 응답 최대 5.580219초/기존 30초·같은 6시점·현재 권리/DB 변조·정리.
   [실제 JSON 응답](../research/artifacts/api-crop-replay-reference-20261004.json)은 시험 DB 자료다.
   3D/실제 작기·전체 hosted/제품 CLI·G0–G4는 이 수용 범위 밖이다.
-- [ ] **`web-crop-replay`** — 선행: `api-crop-replay`.
-  예정 파일(4): `web/src/cropReplay.ts`, `web/src/cropReplay.test.ts`,
+- [x] **`web-crop-replay`** — 로컬 합성 연구 재생 수용, 선행: `api-crop-replay`.
+  핵심 파일: `web/src/cropReplay.ts`, `web/src/cropReplay.test.ts`,
   `web/e2e/crop-replay.spec.ts`, `contracts/web-crop-replay-v1.md`.
   수용: 같은 결과 ID/시점의 잎 면적·기관 상태를 표·그래프·3D에 연결;
   모식 형태·연구/합성·hold와 보간 표시, 미계산 키/잎수/착과수/숙기 애니메이션 없음.
   현재 거부·재연결·키보드·WebGL 대체와 저장 수치/장면 대사를 실제 브라우저로 확인.
-  확인: typecheck/build·집중 단위/Chromium; 사용자 산출물: 계산 기반 성장 연구 3D.
-- [ ] **`crop-fruit-cohorts`** — 선행: 성장 재생 수용·해당 품종의 관리/발달 근거.
+  실제 화면은 별도 `CropReplay`/`CropScene`/`CropChart`와 `cropGeometry` 모듈에 분리했다.
+  [수용](../research/web-crop-replay-implementation.md): 웹 단위 209개(작물 49개)·집중 Chromium
+  10개·실제 SCRAM→HTTPS→장면 대사 1개, typecheck/build·단위/UTC·권리/계정·정리 통과.
+  사용자 산출물: [계산 기반 성장 연구 3D](../research/artifacts/crop-replay-final-desktop.png)와
+  [로컬 실행법](../web/README.md#지금-3d를-직접-보기). 6시점/5분 합성 범위.
+  실제 작기 입력 QC/국내 검증·과실/생과 생산량·전체 hosted CI/제품 관문은 별도 미수용.
+- [ ] **`crop-fruit-cohorts`** — 개발 선행: 성장 재생 수용·문헌 발달식/단위/권리와 명시적 관리 사건.
+  참조 계수의 순수 모듈 개발은 국내 자료 접근/G2를 기다리지 않는다.
+  실제 Axiany 적용에는 `crop-input-audit`와 해당 품종/관리·발달 근거가 추가로 필요하다.
   예정 파일(3): `backend/app/crop_fruit_cohorts.py`, `backend/tests/test_crop_fruit_cohorts.py`,
   `contracts/crop-fruit-cohorts-v1.md`.
   수용: 착과/발달 구획·개수·적심/적엽 사건의 고정 입력/품종 적용 범위와 기관 수지.

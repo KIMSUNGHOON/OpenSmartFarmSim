@@ -124,7 +124,10 @@ SHA-256은 `b889e9ab1663fe3b8a90a3dab71d4340a6ecd49492532c43784cc82d799708ca`다
 
 후속 **`crop-growth-rates`의 작은 탄소 유량 모듈**과
 [작은 수관 적용 정책](crop-photosynthesis-domain.md)은 로컬 소프트웨어로 수용했다.
-다음은 상태 적분이다. 모델 전체의 임의 수확값이나 농장 예측을 만들지 않는다.
+[상태 적분](crop-growth-integration-implementation.md)·[불변 저장](crop-result-storage-implementation.md)·
+[조회 API](api-crop-replay-implementation.md)·[성장 연구 3D](web-crop-replay-implementation.md)도
+로컬 합성 연구 소프트웨어로 수용했다. 다음은 실제 참조 입력의 감사다.
+모델 전체의 임의 수확값이나 농장 예측을 만들지 않는다.
 고정식·단위·독립 수식 대조의 범위를 유지하고 탄소 수지·고갈·수렴·재실행을 확인한다.
 실제 Axiany 자료 감사와 독립 자료
 요청 패킷은 병행한다. [수정 순서/잠정 작업량](../tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04)을 따른다.

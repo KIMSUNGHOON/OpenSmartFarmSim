@@ -96,3 +96,10 @@ result ID는 `crop-result-v1:3289adab5b96bcdcdb01176edf5f3c61c6e3efd253caef9b7cb
 등록 농장 품종을 검증하지 않는다. 이후 같은 결과 ID/UTC sample을 사용하는
 `web-crop-replay`의 표·그래프·성장 3D가 다음 사용자 산출물이다. 계산하지 않은
 키/착과수/숙기/생과 kg/구매 에너지/미래 마진/추천을 표시하지 않는다.
+
+## 앞선 판본의 terminal hosted 수용 — 2026-10-04
+
+`d251df9`의 [전체 backend](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37205032293)는
+6분할 2,671개·별도 UID 4개·같은 전체 목록/마지막 집계와 모든 DB/비밀번호 정리를
+통과했다. 같은 판본의 웹·C0·앱 조립·작성 API도 성공했다. 저장/API 소프트웨어의
+전체 회귀 수용이며 뒤의 성장 화면 변경·실제 작기/품종·제품 관문은 별도다.

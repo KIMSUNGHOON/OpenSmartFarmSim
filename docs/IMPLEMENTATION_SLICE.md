@@ -147,9 +147,13 @@ Axiany/Maxifort 한 해외 작기 개발 참조다. 대한민국 온실의 최�
 172개/434.49초·실제 SCRAM/별도 프로세스/변조/철회/정리로 수용했다.
 [저장 조회 API](../research/api-crop-replay-implementation.md)도 집중 316개/194.11초,
 실제 HTTPS 10개·본문 최대 5.580219초·현재 권리/변조/정리로 수용했다.
-다음은 같은 계산 결과의 성장 3D이며 실제 참조 입력의 감사/권리 연결은 남아 있다.
+[같은 계산 결과의 성장 연구 3D](../research/web-crop-replay-implementation.md)도 웹 209개·
+집중 Chromium 10개·실제 SCRAM→HTTPS→도형/표/그래프 대사 1개로 로컬 수용했다.
+5분/6시점 합성 연구 범위이며 실제 참조 입력의 감사/권리 연결은 남아 있다.
+다음은 `crop-input-audit`의 채널/시각/면적·초기조건/관리 QC와 보류 보고서다.
 [필수 프로필/고지 이미지](../research/crop-rate-image-inputs-implementation.md)도 실제 hosted
-build/실행/정리를 통과했다. 새 전체 backend CI·실제 품종 입력 QC는 남아 있다.
+build/실행/정리를 통과했다. `d251df9`의 전체 backend 2,671개·별도 UID 4개와
+CI 5개도 통과했다. 새 성장 화면 판본의 hosted CI와 실제 품종 입력 QC는 별도다.
 
 | 순서·기능 ID | 착수에 필요한 것 | 사용자 산출물과 수용 기준 |
 | --- | --- | --- |
@@ -159,7 +163,7 @@ build/실행/정리를 통과했다. 새 전체 backend CI·실제 품종 입력
 | 3 `crop-growth-integration` | rate kernel과 원식 적용 정책의 수용 | **로컬 소프트웨어 수용:** 잎 면적/기관 상태 시계열·manifest. 초기조건/UTC/관리 사건, 양수성·수지·수렴·재실행 확인. 실제 개발 참조 재현은 forcing QC 뒤 |
 | 4 `crop-result-storage`, `api-crop-replay` | 적분 수용, 기존 불변 저장/현재 권리·계정 제공자 | 저장 결과 ID·입출력 해시·보류·시계열 조회. 다른 농장/테넌트/모델 혼합·변조·철회 거부, 재시작 동일 조회 |
 | 5 `web-crop-replay` | 저장/API의 같은 상태 조회 | 같은 ID + timestamp의 잎 면적/기관량을 표·그래프·3D에서 확인. 모식 형태 표기, 키·착과수·숙기는 계산하지 않으면 표시하지 않음. WebGL 대체·키보드/시간 이동 시험 |
-| 6 `crop-fruit-cohorts`, `crop-harvest-conversion` | 단일 작기 관리 사건, 발달·개수·건물/생과중/품질 근거 | 수확 사건·생과 kg·등급과 제거/기관 수지. 평활 탄소 제거나 일반 과실중을 생과 수확으로 대체하지 않음 |
+| 6 `crop-fruit-cohorts`, `crop-harvest-conversion` | 개발: 권리가 확인된 발달식/단위와 명시적 관리 사건. 실제 작기 적용: 해당 품종/관리·초기조건 QC, 생과 환산: 품종별 건물/생과중/품질 근거 | 수확 사건·생과 kg·등급과 제거/기관 수지. 평활 탄소 제거나 일반 과실중을 생과 수확으로 대체하지 않음 |
 | 7 `crop-climate-coupling`, `crop-water-nutrient`, `crop-energy-purchases` | 생장/생산 모델의 필요한 상태·계수/입력, 계량·변환 근거 | 수관/증산, 배지·급배액/재순환·성분, 열/구매 에너지의 각각 수지와 적용 범위. 기존 작물 효과 중복 차감 금지 |
 | 8 `crop-economic-link` | 생산 배치·자원 결과와 같은 기간의 판매/정산/비용 근거 | H/P/S·등급/재고·원가와 기존 Decimal 손익/현금의 결합·재실행/대사. 모델 수확의 출처 등급 유지, 미래 마진은 검증 전 hold |
 
