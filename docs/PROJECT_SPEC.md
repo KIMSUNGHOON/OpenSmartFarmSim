@@ -124,7 +124,10 @@ UTC 상태/단위·모델/입력/저장 hash와 수치 hold만 반환한다. 로
 564개·현재 권리/동일 bytes/변조/철회·원자성·정리로 로컬 수용했다.
 [페이지 조회 API](../research/api-crop-coupled-replay-implementation.md)도 고유 207개 분할 검증·
 실제 HTTPS 19개·재적분 없는 최대 11.508339초/649,718 bytes·권리/재시작/정리로 로컬 수용했다.
-다음은 [같은 저장 ID/UTC의 50구획 연구 3D](../contracts/web-crop-coupled-replay-v1.md)이며
+[같은 저장 ID/UTC의 50구획 연구 3D](../research/web-crop-coupled-replay-implementation.md)도
+단위 129개·Chromium 19개·실제 SCRAM/HTTPS/WebGL 1개로 로컬 수용했다.
+실제 완료 6시점/과거 hold 1시점/빈 hold·900개 C/N mesh·현재 권리/정리를 확인했다.
+512개 UI는 shape 검증이며 다음은 초기/자동 착과 정책·전체 작기와 생과 환산이다.
 실제 전체 작기 처리는 별도다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
 전체 작기 생산 모델의 착수/게시 범위에 접근할 수 있다.

@@ -168,7 +168,10 @@ Axiany/Maxifort 한 해외 작기 개발 참조다. 대한민국 온실의 최�
 실제 SCRAM·564개·같은 bytes/현재 권리·변조/철회/원자성·정리로 로컬 수용했다.
 [페이지 조회 API](../research/api-crop-coupled-replay-implementation.md)도 고유 207개 분할 검증·
 실제 HTTPS 19개·최대 11.508339초/649,718 bytes·현재 권리/재시작/정리로 로컬 수용했다.
-다음은 [같은 저장 ID/UTC의 50구획 연구 3D](../contracts/web-crop-coupled-replay-v1.md)이며
+[같은 저장 ID/UTC의 50구획 연구 3D](../research/web-crop-coupled-replay-implementation.md)도
+단위 129개·Chromium 19개·실제 SCRAM/HTTPS/WebGL 1개로 로컬 수용했다.
+실제 완료 6시점/과거 hold 1시점/빈 hold·900개 C/N mesh·권리/정리를 확인했다.
+다음은 [초기 정책 수용](../contracts/crop-fruit-startup-policy-v1.md)과 전체 작기/생과 환산이며
 자동 착과/빈 초기 작기·실제 품종과 전체 작기 처리의 수용은 남아 있다.
 `d15cf92`의 [시간 적분/artifact·v2 저장 전체 CI](../research/artifacts/crop-coupled-storage-ci-20261005.json)도
 3,070개·별도 UID 4개·같은 목록/여섯 DB·password 정리/집계를 통과했다.

@@ -222,7 +222,7 @@
   [작은 계약](../contracts/web-crop-coupled-geometry-v1.md)·[실제 수용](../research/web-crop-coupled-geometry-implementation.md):
   새 17개/기존 86개·103 passed·기록된 TLS 512시점/51,200 C/N·triangle 면적 대사 1개,
   타입/실제 CPU mesh/0/large/underflow·원자 갱신/정리. 실제 새 화면/WebGL/브라우저는 별도다.
-- [ ] **`web-crop-coupled-replay`** — 성장 연구 3D 부모; 선행: 새 API·페이지·수치 도형 수용.
+- [x] **`web-crop-coupled-replay`** — 성장 연구 3D 부모의 로컬 소프트웨어 수용; 선행: 새 API·페이지·수치 도형 수용.
   [장면 계약](../contracts/web-crop-coupled-replay-v1.md): 같은 저장 ID/UTC의 512시점 페이지를
   원 순서/수치로 조립하고 잎 triangle 면적·50개 C/N의 별도 단위 비교 도형에 연결한다.
   먼저 decoder/페이지·수치 geometry의 작은 모듈/시험, 다음 기존 화면/표/그래프/장면,
@@ -231,10 +231,17 @@
   같은 시점의 표/그래프/도형 수치·0/큰값/소수 초 hold·빈 과거, 키보드/mobile/reduced motion,
   WebGL 장애 대체·자원 해제와 실제 SCRAM/HTTPS/브라우저/서버·DB 정리.
   실제 키/형태/숙기/생과 kg가 아니라 미검증 합성 연구 재생임을 화면에 표시한다.
+  [수용 영수증/화면](../research/web-crop-coupled-replay-implementation.md): 단위 129개·Chromium
+  19개·실제 SCRAM/HTTPS/WebGL 1개, 실제 완료 6시점/과거 hold 1시점/빈 hold·900 C/N mesh·
+  잎 한 면 면적·현재 권리 422/403·3→3 저장 행/GET 재적분 금지/정리.
+  typecheck/build·기록 합성 데모 3상태도 통과. 512 UI는 shape 검증, pixel fidelity와 새 hosted는 미수용.
 - [ ] **`crop-fruit-startup-policy`** — 최종 전체 작기 모델의 필수 누락; 개발/국내 확보와 병행.
   빈 초기 tail/남은 양의 유입·생식기 이전/초기 N1·자동 착과/W1/RGR의 근거를 조사하고
   원/변형/명시 관리 입력을 분리한 판본으로 startup/초기 보존·독립 수치/실측 적용성을 검증한다.
   현재 생식기 순간 수용으로 전체 작기 첫날/생산 예측을 열지 않는다.
+  **다음 한 단계:** [정책 수용 계약](../contracts/crop-fruit-startup-policy-v1.md)의 원천/단위/권리·
+  초기 조건/빈 tail/생식기 이전/W1·S·RGR과 독립 보존·hold 사례를 먼저 기록한다.
+  연구/정책 집중 2–4시간 잠정; 새 자동 착과·수확 계수나 코드 수용을 뜻하지 않는다.
 - [ ] **`crop-fruit-cohorts`** — 전체 구획의 부모 작업; 순간 수용만으로 완료하지 않는다. 개발 선행: `crop-fruit-transport`·`crop-fruit-allocation-rates`·고정 Gompertz 수요·명시적 관리 사건.
   참조 계수의 순수 모듈 개발은 국내 자료 접근/G2를 기다리지 않는다.
   실제 Axiany 적용에는 `crop-input-audit`와 해당 품종/관리·발달 근거가 추가로 필요하다.

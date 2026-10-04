@@ -20,9 +20,10 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 19개·512출력·두 runtime 재시작으로 로컬 수용했다. 최대 전체 본문은
 11.508339초/649,718 bytes이며 조회 중 재적분하지 않는다
 ([실제 수용](../research/api-crop-coupled-replay-implementation.md)).
-다음은 `web-crop-coupled-replay`의 같은 저장 ID/UTC·50구획 연구 3D**다.
-[다음 한 단계의 계약/수용 기준](../contracts/web-crop-coupled-replay-v1.md)은
-페이지 전체성·원 수치/단위의 잎 면적/C/N 비교·hold/취소와 실제 저장→TLS→브라우저 대사다.
+**같은 저장 ID/UTC·50구획 연구 3D도 로컬 수용**했다.
+[단위 129개·Chromium 19개·실제 SCRAM/HTTPS/WebGL 1개](../research/web-crop-coupled-replay-implementation.md)로
+완료 6시점/과거 hold 1시점/빈 hold·900 C/N mesh·원 수치/단위/잎 면적·권리/정리를 확인했다.
+다음 한 단계는 [초기/자동 착과 정책의 원천·독립 사례 수용](../contracts/crop-fruit-startup-policy-v1.md)이다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
 `784335d`의 [순간 구획/기관 결합 CI 5개](../research/artifacts/crop-fruit-cohort-plant-ci-20261005.json)도
@@ -218,7 +219,7 @@ hold로 고정했다. 독립 참조 생성 코드를 추가해 버전/해시·by
 수용은 독립 Decimal/개수 해석해·간격 수렴과 누적 호흡/terminal, 사건/구간 경계·
 두 저장/외부 수지·같은 재현/시간/자원/실패 hold다. 시계열/두 수지·사건 journal을 확인한다.
 이후 전체 작기 처리와 새 저장 결과/API·같은 계산 시점의 3D를 연결한다.
-**새 v2 저장/API는 로컬 수용했고 다음 핵심은 `web-crop-coupled-replay`**다.
+**새 v2 저장/API와 `web-crop-coupled-replay`도 로컬 수용했다**. 아래는 당시 장면 개발 경계다.
 저장 564개/실제 SCRAM·API 207개 분할 검증/HTTPS 19개·최대 11.508339초의
 수용은 새 50구획 장면을 대신하지 않는다. 페이지 조립/수치 geometry → 기존 화면 연결 →
 실제 저장→HTTPS→브라우저의 세 작은 구현 경계로 진행한다.
@@ -287,8 +288,8 @@ image/TLS·UID/읽기 전용/정리는 `d76410f`의 실제 hosted 전체 성공�
 | coupled 페이지 조회 API | **로컬 완료** | 207개 고유 분할 검증·실제 HTTPS 19개/512 sample/128 event·두 runtime 재시작·최대 11.508339초/649,718 bytes·현재 권리/정리 |
 | coupled 웹 페이지 조립 | **로컬 완료** | 새 73개 포함 135개·기록 TLS bytes 대사 1개·512시점/50배열·취소/혼합·마이크로초 hold·typecheck/build. 새 화면/브라우저는 별도 |
 | coupled 수치 도형 | **로컬 완료** | 새 17개 포함 103개·기록 TLS 512시점/51,200개 C/N·triangle 면적의 CPU 대사 1개·0/large/underflow·해제 |
-| coupled 성장 연구 3D | **잔여 집중 1–3시간 잠정** | 기존 화면/접근성·디자인 정합·실제 저장/TLS/브라우저. 같은 ID/UTC의 50개 C/N·잎 면적·보류 |
-| 초기/자동 착과 정책 | **추가 근거 뒤 추정** | 빈 초기 tail·원/수정 W1/RGR/seed/생식기 이전 정책의 독립 보존/실측 적용 |
+| coupled 성장 연구 3D | **2026-10-05 KST 로컬 완료** | 단위 129개·Chromium 19개·실제 SCRAM/HTTPS/WebGL 1개·900 C/N mesh/잎 면적·권리/정리. 전체 작기/품종·pixel fidelity·새 hosted 미수용 |
+| 초기/자동 착과 정책 | **다음 연구/정책 집중 2–4시간 잠정** | 기존 고정 원천/배분 근거를 재사용해 빈 tail·W1/S/RGR·생식기 이전과 독립 보존/hold 사례 검토. 새 코드/품종 채택은 별도 |
 | 전체 작기 처리 계약 | **별도 설계 뒤 추정** | 실제 47,809 source 시점/현재 20,000 배열·100만 step 한도와 연속 상태/저장/재생·부하 계획 |
 | 과실 발달 구획 계산 | **문헌식/관리 계약 뒤 추정** | 독립 참조와 개수/기관 질량·사건 수지; 품종 적용성 미검증 유지 |
 | 생과 수확·자원·경제 | **각 변환/계량 근거 뒤 추정** | 수확/등급·물/성분·구매 에너지·동일 배치 Decimal 대사 |
@@ -758,3 +759,15 @@ CLI·독립 해제/G1은 후속이다.
 [열 실행 후보](../contracts/farm-thermal-execution-v1.md)는 동일한 계획 판본을 열 접수·작업자·완료 조회에 연결했다([집중 검증](../research/farm-thermal-execution-implementation.md)). [경제 실행 후보](../contracts/farm-economic-execution-v1.md)는 경제 입력/영수증과 금액/현금 조회가 이 계획과 실제 완료 열 작업을 함께 검사하도록 연결한다([검증 기록](../research/farm-economic-execution-implementation.md)). 첫 내부 3D 이후 공통 Assessment·전체 입력 화면과 실제 CLI/독립 G1의 기존 수용 절차를 진행한다.
 
 [등록 계약](../contracts/farm-replay-scenario-v1.md)과 [증거](../research/farm-replay-scenario-implementation.md)는 기존 조사·열·경제 입력을 같은 결정 시각·시장 문맥과 불변 판본에 연결한다. 후속 `api-flow`의 공통 Assessment 연결, `web-shell`의 전체 입력 작성과 `web-replay`의 전체 수용, 실제 CLI·전체 G1의 기존 선행 증거는 남아 있다. 기존 작업 체크와 관문은 유지한다.
+
+## 2026-10-05 성장 3D 수용과 다음 작은 단계
+
+위 장면의 잠정치는 [실제 로컬 완료](../research/web-crop-coupled-replay-implementation.md)로 대체한다.
+다음 `crop-fruit-startup-policy`는 [정책 수용 계약](../contracts/crop-fruit-startup-policy-v1.md)의
+원천/권리·단위/초기·빈 tail/생식기 이전/W1·S·RGR·독립 보존/hold 표를 만드는 단계다.
+기존 고정 원천/배분·짧은 적분 증거를 재사용하므로 집중 2–4시간, 기존 하루 4시간 가정 아래
+2026-10-05~06 KST 수용 시도를 잠정 배정한다. 근거가 부족한 자동 정책은 hold로 남긴다.
+정책 수용 뒤 필요한 순수 startup 모듈을 별도로 분해하고 전체 작기 처리/수확 변환을 이어간다.
+국내 독립 농장 자료 확보를 개발 선행으로 잠그지 않는다. 실제 품종/forcing/초기/관리 채택,
+생과·자원/경제·미래 추천 게시의 근거·G0–G4는 유지한다. 외부 작기/계량 자료가 0건인 현재
+생산 예측·추천의 완료 날짜는 산정하지 않는다. 운영 기반은 d19f7c0으로 고정한다.

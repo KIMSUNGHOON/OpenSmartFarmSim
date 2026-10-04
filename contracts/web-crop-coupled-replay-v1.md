@@ -1,12 +1,16 @@
 # 기관·50과실 구획의 같은 저장 시점 연구 3D — v1
 
-상태: **다음 장면 계약; 웹 구현/실제 브라우저 미수용**.
+상태: **2026-10-05 KST 로컬 소프트웨어 수용**.
 선행은 [coupled 조회 API](api-crop-coupled-replay-v1.md)와
 기존 [계산 기반 연구 3D](web-crop-replay-v1.md)다.
 현재 CLI `gpt-6.1-sol / xhigh`에서 설계하며 재귀 CLI를 실행하지 않는다.
 [첫 페이지 조립](web-crop-coupled-pages-v1.md)은 135개/기록 TLS bytes 대사 1개,
 [수치 도형](web-crop-coupled-geometry-v1.md)은 103개/기록 TLS CPU 대사 1개로 로컬 수용했다.
-다음은 화면/접근성·디자인 정합 → 실제 저장/TLS/브라우저다.
+[화면/실제 저장→TLS→브라우저 수용](../research/web-crop-coupled-replay-implementation.md)은
+집중 단위 129개·Chromium 19개·실제 SCRAM/HTTPS/WebGL 1개로 확인했다.
+실제 완료 6 sample/과거 hold 1 sample/빈 hold와 900개 C/N mesh를 대사했다.
+512개 UI는 shape 검증이며 실제 전체 작기/품종·생과 생산 예측 수용은 아니다.
+디자인은 원 수치/단위·기능을 보존한 적용이며 pixel fidelity는 수용하지 않았다.
 
 ## 읽기와 같은 결과의 결합
 

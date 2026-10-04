@@ -44,7 +44,12 @@
 564개/850.85초·동일 bytes/별도 Python·현재 권리/변조/철회/원자성·정리로 로컬 수용했습니다.
 [새 페이지 조회 API](research/api-crop-coupled-replay-implementation.md)도 고유 207개 분할 검증·
 실제 HTTPS 19개·최대 11.508339초/649,718 bytes·현재 권리/재시작/정리로 로컬 수용했습니다.
-다음은 [같은 저장 ID/UTC의 50구획 표·그래프·연구 3D](contracts/web-crop-coupled-replay-v1.md)입니다.
+[같은 저장 ID/UTC의 50구획 표·그래프·연구 3D](research/web-crop-coupled-replay-implementation.md)도
+단위 129개·Chromium 19개·실제 SCRAM/HTTPS/WebGL 1개로 로컬 수용했습니다.
+[기록 합성 데모의 3D·원값](research/artifacts/coupled-crop-replay-recorded-demo-geometry.png)과
+[실제 저장 경로의 화면](research/artifacts/coupled-crop-replay-desktop.png)을 확인할 수 있습니다.
+기록 데모는 운영 저장 목록이 아니며 실제 완료 6시점의 소프트웨어 검증입니다.
+다음은 [초기/자동 착과 정책](contracts/crop-fruit-startup-policy-v1.md)과 전체 작기·생과 환산입니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
 별도 UID 4개와 CI 5개를 모두 통과했습니다. `d76410f`의 웹/C0/실제 앱 이미지·Compose CI도
