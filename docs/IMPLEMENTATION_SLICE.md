@@ -138,6 +138,8 @@ MarketContext = Annotated[
 Axiany/Maxifort 한 해외 작기 개발 참조다. 대한민국 온실의 최종 대상 경계는 유지한다.
 모델 기준 후보와 권리/정정/검증 가능성은 [조사 결과](../research/crop-tomato-model-baseline-20261004.md),
 첫 순수 계산 모듈은 [crop-growth-research-v1](../contracts/crop-growth-research-v1.md)에 둔다.
+유량 kernel은 [로컬 86개/참조 60수치](../research/crop-growth-rates-implementation.md)로 수용했다.
+작은 수관의 원식 적용 검토 뒤 적분으로 진행하며 실제 이미지/전체 hosted 수용은 남아 있다.
 
 | 순서·기능 ID | 착수에 필요한 것 | 사용자 산출물과 수용 기준 |
 | --- | --- | --- |

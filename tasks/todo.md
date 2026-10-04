@@ -13,12 +13,16 @@
   수용: Vanthoor/축약 TOMGRO/TOMSIM의 구현·권리·검증 비교, Axiany/Maxifort 한 작기
   개발 경계와 일반 계수의 적용 한계, 단위 정정·raw hash·actual CLI model/effort,
   국내 독립 자료의 필수 채널·권리·분할과 hold. 네 요청 문서의 의존성/수용 기준·링크 대조를 통과했다([수용 기록](../research/crop-priority-and-runtime-freeze-20261004.md#이번-재정렬의-문서조사-수용)).
-- [ ] **`crop-growth-rates`** — **다음 코드 단계**, 선행: `crop-model-baseline`와 필요한 식/계수 검토.
-  예정 파일(3): `backend/app/crop_growth_rates.py`, `backend/tests/test_crop_growth_rates.py`,
-  `fixtures/crop-growth-reference-parameters-v1.json`.
+- [x] **`crop-growth-rates`** — 로컬 순수 유량 계산 수용, 선행: `crop-model-baseline`와 필요한 식/계수 검토.
+  구현 파일(5): `backend/app/crop_growth_rates.py`, `backend/tests/test_crop_growth_rates.py`,
+  `fixtures/crop-growth-reference-parameters-v1.json`, `fixtures/crop-growth-reference-cases-v1.json`,
+  `LICENSES/GreenLight-BSD-3-Clause-Clear.txt`.
   수용: 고정 식·단위·출처/권리의 광 동화·분배·호흡·기관 변화율, 야간/잎 면적 0,
-  독립 고정 참조값·탄소 항등식·부적합 입력 거부와 재현.
-  확인: `cd backend` 뒤 `nice -n 10 .venv/bin/pytest -q tests/test_crop_growth_rates.py`.
+  독립 고정 참조값·탄소 항등식·부적합 입력 거부와 재현. 원식의 작은 LAI/Gamma 영역과
+  고갈 저장소 거부를 기록하고 가능한 조건에서 잎 0 연속성을 시험한다.
+  확인: `cd backend` 뒤 `env PYTHONPATH=. nice -n 10 .venv/bin/pytest -q tests/test_crop_growth_rates.py`.
+  [실제 수용](../research/crop-growth-rates-implementation.md): 86개/0.12초·60자리 Decimal
+  참조 4사례/60수치·원문 52개 항목 대조. 전체 hosted/이미지·적분·G1/G2/G3/G4는 후속.
   사용자 산출물: 유량 표·검사 보고서. 국내 자료·G2·시장·전체 Compose가 착수를 막지 않는다.
 - [ ] **`crop-input-audit`** — kernel 개발과 병행.
   예정 파일(3): `research/crop-forcing-audit.md`, `research/crop-forcing-register.json`,
@@ -27,7 +31,19 @@
   결측/QC·초기조건·밀도/적심/적엽/수확 사건을 대사하고 PAR/수관/CO₂ 누락은 보류.
   고정 값/변환의 raw hash와 권리를 기록한다. 확인: 원문 메타데이터/실제 파일 대조;
   실제 replay 입력 채택은 기존 G0 검사를 별도로 통과해야 한다.
-- [ ] **`crop-growth-integration`** — 선행: `crop-growth-rates`.
+- [ ] **`crop-photosynthesis-domain`** — 선행: 원식 Eq9.22/9.23의 작은 LAI 반례 확인.
+  예정 파일(3): `research/crop-photosynthesis-domain.md`, `contracts/crop-photosynthesis-domain-v1.md`,
+  `backend/tests/test_crop_photosynthesis_domain.py`.
+  수용: LAI→0의 온도별 특이점/부호·원식과 가능한 대안의 근거·적용 범위/단위/검증 가능성,
+  품종 초기에 사용할 영역 또는 명시적 hold를 기록. 식을 바꾸면 새 모델 판본/독립 재현 필요.
+  확인: 독립 수식/한계·작은 수관 사례와 근거 대조. 임의 clip/CO₂ 보상점 기본값 없음.
+- [ ] **`crop-rate-image-inputs`** — 선행: 유량 kernel의 로컬 수용.
+  필요 근거: 현재 앱 이미지는 새 프로필/제3자 라이선스를 build context에서 제외한다.
+  파일(3): `.dockerignore`, `backend/Dockerfile`, `scripts/check-application-images.py`.
+  명시적 프로필 1개·라이선스 1개만 포함하고 실제 이미지에서 kernel import/프로필 해시·
+  라이선스 해시를 확인한다. 관련 없는 fixture/라이선스 probe 제외를 기존 hosted 검사로 확인한다.
+  수용: 실제 Docker build/context·이미지 실행/정리 로그. 로컬 Docker 부재 시 미체크 유지.
+- [ ] **`crop-growth-integration`** — 선행: `crop-growth-rates`, `crop-photosynthesis-domain`의 적용 정책.
   예정 파일(3): `backend/app/crop_growth_integration.py`, `backend/tests/test_crop_growth_integration.py`,
   `contracts/crop-growth-integration-v1.md`.
   수용: UTC 사건/초기조건·솔버/간격 고정, 기관/버퍼·LAI·온도 합·누적 호흡/제거,

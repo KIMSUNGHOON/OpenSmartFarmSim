@@ -1,0 +1,703 @@
+{
+  "artifact_version": "crop-carbon-rate-reference-software-check-v1",
+  "model_version": "vanthoor-greenlight-carbon-rates-v1",
+  "scope": "software_research_only; no agricultural prediction, Run approval, or independent field validation",
+  "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+  "code_sha256": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+  "cases_sha256": "f96b119c561981a459bdbd5dd82daaa6965b54f483174552b3867105cc01e0fc",
+  "independent_reference": "60-digit Decimal, published subtraction-root/smoothing expressions; no product function used to create expected values",
+  "comparison_count": 60,
+  "maximum_relative_difference_for_nonzero_reference": 1.3785169620255615e-14,
+  "cases": [
+    {
+      "case_id": "source-initial-day",
+      "origin": "synthetic",
+      "input_blocks": {
+        "state": {
+          "input_id": "source-initial-day-state",
+          "origin": "synthetic",
+          "values": {
+            "buffer": {
+              "value": 20000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "leaf": {
+              "value": 4368,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "stem_root": {
+              "value": 1560,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "fruit": {
+              "value": 312,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "temperature_filtered_24h": {
+              "value": 20.5,
+              "unit": "degC"
+            },
+            "temperature_sum": {
+              "value": 0,
+              "unit": "degC_day"
+            }
+          }
+        },
+        "forcing": {
+          "input_id": "source-initial-day-forcing",
+          "origin": "synthetic",
+          "values": {
+            "canopy_temperature": {
+              "value": 20,
+              "unit": "degC"
+            },
+            "par_above_canopy": {
+              "value": 1000,
+              "unit": "umol_photons/m2_floor/s"
+            },
+            "co2": {
+              "value": 800,
+              "unit": "ppm"
+            }
+          }
+        },
+        "removals": {
+          "input_id": "source-initial-day-removals",
+          "origin": "synthetic",
+          "values": {
+            "leaf": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            },
+            "stem_root": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            },
+            "fruit": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            }
+          }
+        }
+      },
+      "calculation": {
+        "model_version": "vanthoor-greenlight-carbon-rates-v1",
+        "profile_id": "vanthoor-greenlight-reference-rates-v1",
+        "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+        "input_sha256": "cfb6d86b25272fbcfe18fbeb7faf0e5cf10887e18c323d0067eecfad8f3a8046",
+        "scope": "software_research_only",
+        "lai": {
+          "value": 0.1161888,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.048231512373808155,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "growth_respiration": {
+          "value": 0.050119043565052604,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "allocation": {
+          "fruit": {
+            "value": 0.0016601404416808155,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "leaf": {
+            "value": 0.0966952159088296,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.07532048397108831,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "maintenance_respiration": {
+          "fruit": {
+            "value": 2.6488966951625206e-05,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "leaf": {
+            "value": 0.0011093396676809936,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.00016783957508141833,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "removals": {
+          "leaf": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "fruit": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "derivatives": {
+          "fruit": {
+            "value": 0.0016336514747291903,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "leaf": {
+            "value": 0.0955858762411486,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.0751526443960069,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "buffer": {
+            "value": -0.17556337151284318,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "temperature_filtered_24h": {
+            "value": -5.787037037037037e-06,
+            "unit": "degC/s"
+          },
+          "temperature_sum": {
+            "value": 0.0002314814814814815,
+            "unit": "degC_day/s"
+          }
+        },
+        "carbon_residual": {
+          "value": -4.7704895589362195e-18,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "carbon_residual_budget": {
+          "value": 3.552713678800501e-15,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "diagnostics": {
+          "compensation_point_ppm": 34.0,
+          "electron_transport": 16.523190364117127
+        }
+      }
+    },
+    {
+      "case_id": "night-with-removal",
+      "origin": "synthetic",
+      "input_blocks": {
+        "state": {
+          "input_id": "night-with-removal-state",
+          "origin": "synthetic",
+          "values": {
+            "buffer": {
+              "value": 5000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "leaf": {
+              "value": 100000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "stem_root": {
+              "value": 40000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "fruit": {
+              "value": 100000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "temperature_filtered_24h": {
+              "value": 23,
+              "unit": "degC"
+            },
+            "temperature_sum": {
+              "value": 1200,
+              "unit": "degC_day"
+            }
+          }
+        },
+        "forcing": {
+          "input_id": "night-with-removal-forcing",
+          "origin": "synthetic",
+          "values": {
+            "canopy_temperature": {
+              "value": 23,
+              "unit": "degC"
+            },
+            "par_above_canopy": {
+              "value": 0,
+              "unit": "umol_photons/m2_floor/s"
+            },
+            "co2": {
+              "value": 400,
+              "unit": "ppm"
+            }
+          }
+        },
+        "removals": {
+          "input_id": "night-with-removal-removals",
+          "origin": "synthetic",
+          "values": {
+            "leaf": {
+              "value": 0.01,
+              "unit": "mg_CH2O/m2_floor/s"
+            },
+            "stem_root": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            },
+            "fruit": {
+              "value": 0.05,
+              "unit": "mg_CH2O/m2_floor/s"
+            }
+          }
+        }
+      },
+      "calculation": {
+        "model_version": "vanthoor-greenlight-carbon-rates-v1",
+        "profile_id": "vanthoor-greenlight-reference-rates-v1",
+        "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+        "input_sha256": "ff0b177eb38bf56c73d01a4a2ca551b7884eed473f4330b7c22c47f88f23e8d4",
+        "scope": "software_research_only",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "growth_respiration": {
+          "value": 0.13922903214090876,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "allocation": {
+          "fruit": {
+            "value": 0.33224395832218867,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "leaf": {
+            "value": 0.09640779759061871,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.07509660022848194,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "maintenance_respiration": {
+          "fruit": {
+            "value": 0.010096432041007896,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "leaf": {
+            "value": 0.03020225791577362,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.005117846586304002,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "removals": {
+          "leaf": {
+            "value": 0.01,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "fruit": {
+            "value": 0.05,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "derivatives": {
+          "fruit": {
+            "value": 0.2721475262811808,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "leaf": {
+            "value": 0.05620553967484509,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.06997875364217794,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "buffer": {
+            "value": -0.6429773882821981,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "temperature_filtered_24h": {
+            "value": 0.0,
+            "unit": "degC/s"
+          },
+          "temperature_sum": {
+            "value": 0.0002662037037037037,
+            "unit": "degC_day/s"
+          }
+        },
+        "carbon_residual": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "carbon_residual_budget": {
+          "value": 3.552713678800501e-15,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "diagnostics": {
+          "compensation_point_ppm": null,
+          "electron_transport": 0.0
+        }
+      }
+    },
+    {
+      "case_id": "cool-canopy-day",
+      "origin": "synthetic",
+      "input_blocks": {
+        "state": {
+          "input_id": "cool-canopy-day-state",
+          "origin": "synthetic",
+          "values": {
+            "buffer": {
+              "value": 10000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "leaf": {
+              "value": 100000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "stem_root": {
+              "value": 40000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "fruit": {
+              "value": 50000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "temperature_filtered_24h": {
+              "value": 17,
+              "unit": "degC"
+            },
+            "temperature_sum": {
+              "value": 500,
+              "unit": "degC_day"
+            }
+          }
+        },
+        "forcing": {
+          "input_id": "cool-canopy-day-forcing",
+          "origin": "synthetic",
+          "values": {
+            "canopy_temperature": {
+              "value": 17,
+              "unit": "degC"
+            },
+            "par_above_canopy": {
+              "value": 400,
+              "unit": "umol_photons/m2_floor/s"
+            },
+            "co2": {
+              "value": 400,
+              "unit": "ppm"
+            }
+          }
+        },
+        "removals": {
+          "input_id": "cool-canopy-day-removals",
+          "origin": "synthetic",
+          "values": {
+            "leaf": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            },
+            "stem_root": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            },
+            "fruit": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            }
+          }
+        }
+      },
+      "calculation": {
+        "model_version": "vanthoor-greenlight-carbon-rates-v1",
+        "profile_id": "vanthoor-greenlight-reference-rates-v1",
+        "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+        "input_sha256": "26da8848a36945f522bf846853ff5583b7cfca3d1da8f91dd165761ad500d5c7",
+        "scope": "software_research_only",
+        "lai": {
+          "value": 2.66,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.5473591257684907,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "growth_respiration": {
+          "value": 0.07153363781415364,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "allocation": {
+          "fruit": {
+            "value": 0.12361255097616163,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "leaf": {
+            "value": 0.0742834766353699,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.057862918642288125,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "maintenance_respiration": {
+          "fruit": {
+            "value": 0.00333058048717271,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "leaf": {
+            "value": 0.019926059121533283,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.0033765195283750925,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "removals": {
+          "leaf": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "fruit": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "derivatives": {
+          "fruit": {
+            "value": 0.12028197048898892,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "leaf": {
+            "value": 0.05435741751383662,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.05448639911391303,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "buffer": {
+            "value": 0.22006654170051737,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "temperature_filtered_24h": {
+            "value": 0.0,
+            "unit": "degC/s"
+          },
+          "temperature_sum": {
+            "value": 0.00019675925925925926,
+            "unit": "degC_day/s"
+          }
+        },
+        "carbon_residual": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "carbon_residual_budget": {
+          "value": 3.552713678800501e-15,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "diagnostics": {
+          "compensation_point_ppm": 32.08270676691729,
+          "electron_transport": 117.516050996614
+        }
+      }
+    },
+    {
+      "case_id": "warm-canopy-day",
+      "origin": "synthetic",
+      "input_blocks": {
+        "state": {
+          "input_id": "warm-canopy-day-state",
+          "origin": "synthetic",
+          "values": {
+            "buffer": {
+              "value": 15000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "leaf": {
+              "value": 50000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "stem_root": {
+              "value": 20000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "fruit": {
+              "value": 10000,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            "temperature_filtered_24h": {
+              "value": 22,
+              "unit": "degC"
+            },
+            "temperature_sum": {
+              "value": 1500,
+              "unit": "degC_day"
+            }
+          }
+        },
+        "forcing": {
+          "input_id": "warm-canopy-day-forcing",
+          "origin": "synthetic",
+          "values": {
+            "canopy_temperature": {
+              "value": 23,
+              "unit": "degC"
+            },
+            "par_above_canopy": {
+              "value": 600,
+              "unit": "umol_photons/m2_floor/s"
+            },
+            "co2": {
+              "value": 800,
+              "unit": "ppm"
+            }
+          }
+        },
+        "removals": {
+          "input_id": "warm-canopy-day-removals",
+          "origin": "synthetic",
+          "values": {
+            "leaf": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            },
+            "stem_root": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            },
+            "fruit": {
+              "value": 0,
+              "unit": "mg_CH2O/m2_floor/s"
+            }
+          }
+        }
+      },
+      "calculation": {
+        "model_version": "vanthoor-greenlight-carbon-rates-v1",
+        "profile_id": "vanthoor-greenlight-reference-rates-v1",
+        "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+        "input_sha256": "64898d5c481c7ee2bfd4b1709433bff73a67e8105b2c0141f5daa3e761b0ef90",
+        "scope": "software_research_only",
+        "lai": {
+          "value": 1.33,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "photosynthesis": {
+          "value": 0.6638107538096066,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "growth_respiration": {
+          "value": 0.14555452337082514,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "allocation": {
+          "fruit": {
+            "value": 0.3473505056724875,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "leaf": {
+            "value": 0.10078154200264516,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.07850351692837623,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "maintenance_respiration": {
+          "fruit": {
+            "value": 0.0009420304191069672,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "leaf": {
+            "value": 0.014089851527160241,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.0023875598553228304,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "removals": {
+          "leaf": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "fruit": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "derivatives": {
+          "fruit": {
+            "value": 0.34640847525338053,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "leaf": {
+            "value": 0.08669169047548492,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0.07611595707305341,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "buffer": {
+            "value": -0.008379334164727387,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "temperature_filtered_24h": {
+            "value": 1.1574074074074073e-05,
+            "unit": "degC/s"
+          },
+          "temperature_sum": {
+            "value": 0.0002662037037037037,
+            "unit": "degC_day/s"
+          }
+        },
+        "carbon_residual": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "carbon_residual_budget": {
+          "value": 3.552713678800501e-15,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "diagnostics": {
+          "compensation_point_ppm": 37.83458646616541,
+          "electron_transport": 126.52566696230919
+        }
+      }
+    }
+  ],
+  "maximum_absolute_difference_by_unit": {
+    "m2_leaf/m2_floor": 1.4210854715202004e-16,
+    "mg_CH2O/m2_floor/s": 1.1551054276556835e-16,
+    "degC/s": 5.747275405073623e-22,
+    "degC_day/s": 1.5580386774976878e-20
+  }
+}

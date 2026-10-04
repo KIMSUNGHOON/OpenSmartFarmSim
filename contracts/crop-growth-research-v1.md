@@ -1,6 +1,8 @@
 # 작물 생장 연구 계산 v1
 
-상태: **첫 계산 모듈 명세, 2026-10-04. 아직 코드/작물 프로필 수용 전**.
+상태: **순수 유량 계산 로컬 소프트웨어 수용, 2026-10-04**.
+[86개 집중 시험/참조 결과](../research/crop-growth-rates-implementation.md)를 확인했다.
+품종 프로필·G0·전체 작기 적분·성장 3D·현장/미래 수용은 남아 있다.
 선행: [모델 조사](../research/crop-tomato-model-baseline-20261004.md), 기존 버전·권리 정책.
 모델/판정은 기존 `gpt-6.1-sol / xhigh` CLI 세션에서 검토한다. 정량 계산은
 명시적 버전 코드로 한다. 이 계약은 기존 [제품 관문](../docs/PROJECT_SPEC.md#6-검증과-수용-관문)을 유지한다.
@@ -25,10 +27,11 @@ Vanthoor 문헌식의 일반 매개변수에 대한 **연구 계산**이다. Axi
 
 ## 첫 모듈: crop-growth-rates
 
-예정 파일(3): `backend/app/crop_growth_rates.py`,
+구현 파일(5): `backend/app/crop_growth_rates.py`,
 `backend/tests/test_crop_growth_rates.py`,
-`fixtures/crop-growth-reference-parameters-v1.json`.
-아직 존재하지 않는 파일의 실행을 통과했다고 기록하지 않는다.
+`fixtures/crop-growth-reference-parameters-v1.json`,
+`fixtures/crop-growth-reference-cases-v1.json`, `LICENSES/GreenLight-BSD-3-Clause-Clear.txt`.
+현재 코드는 순간 유량만 계산하며 상태의 시간 적분/Run 게시를 하지 않는다.
 
 모듈은 고정된 광 동화·기관 분배·생장/유지 호흡 유량을 계산하며, 버퍼와
 기관의 순간 변화율을 함께 반환한다. 단위는 탄수화물 당량 mg CH₂O/m²와
@@ -38,26 +41,62 @@ mg CH₂O/m²/s로 고정한다. 잎 면적은 SLA에 의한 m² leaf/m² floor�
 
 탄소 유입 − 생장 호흡 − 유지 호흡 − 제거 유량이 저장소 합의 변화율과 같아야 한다.
 기관 간 이동은 외부 소비로 중복 차감하지 않는다. 잎 면적 0에서는 광 동화를
-명시적 극한으로 처리하고, 양의 잎 면적식과의 연속성을 시험한다. 생리 상태나
+아래 원식 적용 영역을 확인하며, 존재하는 극한과 양의 잎 면적식의 연속성을 시험한다. 생리 상태나
 출력을 임의로 0에 고정해 실패를 숨기지 않는다. 이진 실수는 물리 유량에 사용하고,
 금액을 만들 때는 후속 기존 Decimal 계약을 따른다.
 
 ```sh
 cd backend
-nice -n 10 .venv/bin/pytest -q tests/test_crop_growth_rates.py
+env PYTHONPATH=. nice -n 10 .venv/bin/pytest -q tests/test_crop_growth_rates.py
 ```
 
 ## 첫 모듈 수용 기준
 
 1. 필요한 모든 식/매개변수에 고정 원문·단위·권리·정정 이력이 있고, 런타임의
    LLM 텍스트·기본값 주입 없이 같은 입력을 재현한다.
-2. 광량 0/잎 면적 0의 광 동화 0, 유한한 호흡·유량, 문헌식의 독립 고정 참조값과
+2. 광량 0과 지원되는 잎 면적 0 조건의 광 동화 0, 유한한 호흡·유량, 문헌식의 독립 고정 참조값과
    기관 수지 항등식을 확인한다. 기대값은 구현 함수로 다시 만들지 않는다.
 3. 허용 구간의 온도·PAR·CO₂/초기 상태, 특이점·잘못된 단위/비유한·음수 및
    미확인 매개변수의 거부를 시험한다. 수치 오차 예산을 계산 정밀도/조건수에서
    정하고 생물학적 예측 정확도의 합격선과 혼동하지 않는다.
 4. CLI 실행 모델/effort·실제 검사 명령/결과·코드/입력 해시와 남은 hold를 기록한다.
    통과는 해당 rate kernel의 계산 계약 범위이며 전체 제품 G1은 아니다.
+
+## 원식 대조로 확인한 적용 영역 — 2026-10-04
+
+원 학위논문 p249~250 Eq9.22/9.23과 고정 코드는 canopy 보상점을
+`Gamma = cGamma * (20 + (Tcan - 20) / LAI)`로 정의한다. LAI→0에서
+Tcan≠20이면 유한한 연속 극한이 없다. 음의 Gamma 또는 stomatal CO₂보다 큰
+Gamma에서는 photorespiration/동화의 부호가 원 의도와 달라질 수 있다.
+이를 임의 상수/clip으로 바꾸거나 모든 온도에서 연속이라고 주장하지 않는다.
+
+첫 kernel은 양의 PAR에서 `0 <= Gamma <= etaCo2AirStom * co2`인 영역만 받는다.
+LAI=0, Tcan=20°C에서는 확인 가능한 극한으로 동화 0을 계산한다.
+LAI=0, Tcan≠20°C이고 양의 PAR이면 `COMPENSATION_POINT_HOLD`다.
+야간/PAR=0은 Gamma 평가 없이 동화 0이다. 이는 작은 수관의 식 수정/생리 검증을
+대신하지 않는다. `crop-photosynthesis-domain`에서 대안식/원식과 작은 수관의 적용성을
+적분 전에 검토한다. 미래 온도/품종의 적합성을 이 수치 영역으로 승인하지 않는다.
+
+평활 버퍼 분배는 버퍼 0에서도 작은 유량을 만든다. 첫 kernel은 0인 저장소에서
+외향 변화율이 발생하면 `DEPLETED_STATE_HOLD`로 거부하며 질량을 clip하지 않는다.
+장기 적분에는 사건·양수성/고갈 정책의 별도 수용이 필요하다.
+
+순간 수관 온도 10~34°C는 원 평활 억제의 끝값으로 정한 **연구 계산 영역**이며
+검증된 생리 범위가 아니다. 평활 수관 온도는 Eq9.28의 문헌 적용 구간 17~23°C다.
+PAR·CO₂·질량·온도 합은 유한/비음수(CO₂는 양수)이며 결과의 비유한/범위 위반은 거부한다.
+RGR `3e-6 s^-1`은 고정 구현의 참조 가정이고 실제 성장으로 추정한 값이 아니다.
+수확/적엽/줄기 제거의 각 유량은 호출자가 단위와 출처/판본을 명시한다.
+
+프로필은 고정 바이트 SHA-256과 원문/검토 단위를 검사한다. 입력의 수치는
+`{value, unit}`이며 상태/forcing/제거 블록의 `input_id`, `origin`을 함께 고정한다.
+출력은 model/profile/input 해시·`software_research_only` 범위, 광 동화·분배·호흡·
+기관 변화율·LAI·탄소 잔차다. 원천 `origin` 기록은 G0 승인 증거가 아니다.
+
+이진 실수 오차는 60자리 Decimal의 독립 문헌식 계산과 대조한다. 첫 일반 유량
+참조의 수치 오차 예산은 relative `5e-12`, absolute `5e-14 mg_CH2O/m2/s`다.
+이는 53비트 반올림에 안정형 근/지수 평가를 사용한 유량 계산의 수치 예산이며
+생물학적 정확도 기준이 아니다. 수지 잔차는 비교 항들의 ULP 규모로 검토하고
+큰 상쇄/비유한에서는 hold한다. 약한 광량에는 안정형 식과 별도 연속/비례 시험을 쓴다.
 
 ## 뒤따를 작은 단계와 사용자 산출물
 

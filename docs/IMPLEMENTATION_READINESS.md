@@ -4,7 +4,9 @@
 
 운영 기반은 `d19f7c0`의 [완료 범위/CI 5개 통과](../research/crop-priority-and-runtime-freeze-20261004.md)로
 고정했다. 후속 운영 조립은 핵심 작물 기능/관문에 필요한 증거가 있을 때 재개한다.
-다음 코드는 [생장 유량 모듈](../contracts/crop-growth-research-v1.md)이며,
+[생장 유량 모듈](../contracts/crop-growth-research-v1.md)은
+[로컬 86개/0.12초와 독립 참조 대조](../research/crop-growth-rates-implementation.md)로 수용했다.
+다음은 작은 수관 적용 정책 검토와 상태 적분이며,
 순서는 [수정 계획](../tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04)을 따른다.
 
 [단일 Axiany 작기 모델/권리 조사](../research/crop-tomato-model-baseline-20261004.md)와
