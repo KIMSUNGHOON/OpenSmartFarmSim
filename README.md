@@ -36,7 +36,10 @@
 독립 684수치로 로컬 수용했습니다.
 [과실/기관의 짧은 시간 적분·관리 사건](research/crop-plant-cohort-integration-implementation.md)도
 488개·독립 1,309수치/해석해 250개로 로컬 수용했습니다. 합성 24시간/512출력은
-57.85초·약 41 MiB로 완료했습니다. 다음은 새 불변 결과 저장/API·같은 시점 3D입니다.
+57.85초·약 41 MiB로 완료했습니다.
+[새 저장 선행 artifact](research/crop-coupled-artifact-implementation.md)도 집중 530개·
+별도 Python/재적분 없는 읽기로 수용했습니다. 같은 512출력 파일은 3.68 MB,
+읽기/검사는 0.3055초였습니다. 다음은 farm/program 권리·실제 새 DB 저장 → API·같은 시점 3D입니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
 별도 UID 4개와 CI 5개를 모두 통과했습니다. `d76410f`의 웹/C0/실제 앱 이미지·Compose CI도

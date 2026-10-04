@@ -162,7 +162,9 @@ Axiany/Maxifort 한 해외 작기 개발 참조다. 대한민국 온실의 최�
 401개·독립 8,592수치로 로컬 수용했다.
 [전체 기관의 순간 결합](../research/crop-plant-cohort-rates-implementation.md)도 444개 집중·684수치로 수용했다.
 [짧은 시간 적분/사건](../research/crop-plant-cohort-integration-implementation.md)도 488개·1,309수치/해석해 250개로 수용했다.
-다음은 새 불변 결과 저장/API·같은 시점 3D이며
+[새 저장 선행 artifact](../research/crop-coupled-artifact-implementation.md)도 530개·
+512출력/별도 Python·재적분 없는 읽기로 수용했다.
+다음은 farm/program 권리·새 불변 DB 저장/API·같은 시점 3D이며
 자동 착과/빈 초기 작기·실제 품종과 전체 작기 처리의 수용은 남아 있다.
 실제 47,809시점과 현재 20,000 배열/100만 step 차이는 `crop-cycle-capacity`에서
 연속 상태·사건·저장/출력 시간과 부하/재현을 계약하는 필수 후속이다.

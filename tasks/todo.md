@@ -173,10 +173,19 @@
   합성 24시간/512출력/8,687step도 57.85초·42,124 KiB peak RSS·3,639,251 bytes로 확인했다.
   사용자 산출물은 단위 있는 기관/구획 시계열·두 수지/사건 journal이다.
   전체 작기 처리/품종/초기 hold와 새 저장 판본 뒤 3D는 후속이다.
-- [ ] **`crop-coupled-result-storage`** — 다음 핵심; 선행: 짧은 coupled 적분.
+- [x] **`crop-coupled-artifact`** — 새 저장의 첫 자식; 계산 입력/결과·프로필의 불변 bytes.
+  [계약](../contracts/crop-coupled-artifact-v1.md)·제품/시험 각 한 파일.
+  [수용](../research/crop-coupled-artifact-implementation.md): 새 42개/기존 488개·530개 집중,
+  두 참조 사례·별도 Python·재적분 없는 읽기·hold/소수 초 trial·판본/단위/수지/사건 거부.
+  24시간/512출력/8,687step을 실제 재계산해 앞선 결과와 동일함을 확인했다.
+  3,683,992 bytes·계산/검사 59.1135초·읽기/검사 0.3055초·85,224 KiB RSS다.
+  파일 hash는 권리/승인이 아니다. farm/DB/SCRAM·API/3D는 아직 수용하지 않았다.
+- [ ] **`crop-coupled-result-storage`** — 다음 핵심; 선행: 수용된 coupled artifact.
   먼저 새 결과 v2의 model/profile/policy/code/solver·forcing/RGR/S/W1/관리·수지/hold와
   최대 bytes/조회 페이지·현재 farm/program 권리의 계약을 정의한다.
   계산은 HTTP 밖에서 완료·검증하고 불변 저장한다. 기존 v1 bytes/accepted Run을 변경하지 않는다.
+  현재 v1 테이블은 schema/result-id/scope와 단일 profile에 고정돼 새 artifact를 저장하지 못한다.
+  이 근거로만 새 테이블/명시적 기본 false role flag를 추가하며 일반 운영 조립을 재개하지 않는다.
   수용: 실제 SCRAM·같은 저장 bytes/재시작, 입력/결과/판본 혼합·변조/철회 거부·원자 저장/정리.
   새 조회 API·같은 시점 표/그래프/3D는 이후 별도 작은 검증으로 연결한다.
 - [ ] **`crop-fruit-startup-policy`** — 최종 전체 작기 모델의 필수 누락; 개발/국내 확보와 병행.

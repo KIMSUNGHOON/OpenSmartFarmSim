@@ -30,7 +30,10 @@
 401개·독립 8,592수치로 로컬 수용했다.
 [전체 기관의 순간 결합](../research/crop-plant-cohort-rates-implementation.md)도 444개 집중·684수치로 수용했다.
 [짧은 시간 적분/관리 사건](../research/crop-plant-cohort-integration-implementation.md)도 488개·1,309수치/해석해 250개로 수용했다.
-24시간/512출력은 57.85초·42,124 KiB로 확인했으며 다음은 계산 HTTP 분리·새 저장/API/3D다.
+24시간/512출력은 57.85초·42,124 KiB로 확인했다.
+[저장 선행 artifact](../research/crop-coupled-artifact-implementation.md)도 집중 530개,
+같은 512출력 3,683,992 bytes·읽기/검사 0.3055초로 수용했다.
+다음은 HTTP 밖의 계산·farm/program 권리·실제 새 DB 저장/API/3D다.
 자동 착과/빈 초기 작기·실제 품종은 보류한다.
 전체 작기 실행 계약/국내 확보를 병행한다. `d76410f`는 전체 backend 집계까지
 CI 5개 모두 성공했고 새 과실 판본의 hosted 검증은 별도다.
