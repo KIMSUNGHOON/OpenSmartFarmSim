@@ -8,6 +8,7 @@ from pathlib import Path
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 from cryptography.hazmat.primitives.serialization import Encoding, PublicFormat, PrivateFormat, NoEncryption
 from psycopg.conninfo import conninfo_to_dict, make_conninfo
+from app.owned_fixture_collection import COLLECTION_SCOPES
 
 from test_api_location_research import BODY
 from test_cli_worker import _fake_cli
@@ -68,6 +69,7 @@ def authority():
 def prepare(root,scope,principal,*,private,command):
     _,policy,dsns=scope
     principal['scopes'].update({'location_create','auditor'})
+    principal['scopes'].update(COLLECTION_SCOPES)
     catalog=document();catalog['registrations'][0]['tenant_id']='tenant-1'
     key=Ed25519PrivateKey.generate()
     supervisor=root/'supervisor';supervisor.mkdir(mode=0o700)
@@ -172,10 +174,9 @@ else:
         'dispatcher','-c',authority_probe)
     assert json.loads(result.stdout)=={'authority_peer':'denied'}
     supervisor_probe='''import json,socket
-from app.cli_ipc import receive,send,MAX_REQUEST,MAX_RESPONSE
+from app.cli_ipc import receive,MAX_RESPONSE
 with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as connection:
     connection.settimeout(5);connection.connect('/run/ipc/supervisor/supervisor.sock')
-    send(connection,{'version':1,'op':'version'},MAX_REQUEST)
     assert receive(connection,MAX_RESPONSE)=={'ok':False,'code':'supervisor_rejected'}
 print(json.dumps({'supervisor_peer':'denied'}))
 '''

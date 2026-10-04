@@ -15,12 +15,17 @@ import time
 from types import ModuleType, SimpleNamespace
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from app.api import create_app
 from app.cli_worker import CliWorker
 from app.cli_supervisor_client import SupervisorClient
 from app.cli_supervisor_service import SupervisorServer
 from app.execution_attestation import ExecutionAttestationStore
 from app.orchestration import LocationRequest, LocationResearchService
+from app.owned_fixture_collection import CollectionService
+from app.owned_fixture_registry import OwnedFixtureRegistry
 from login_database import login_database, login_scope
+from test_api_job_status import UnusedMarketHoldStore, UnusedThermalRunStore, UnusedMarketResultStore
+from test_api_owned_collection import post
 from test_cli_worker import _fake_cli
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -110,3 +115,8 @@ def test_private_authority_policy_retains_actual_invocation_and_registry_hold(lo
 
     assert fixture['assert_persisted'](str(job['job_id']), command=execute_inspection, compose=('local',)) == {
         'decisions': 1, 'captures': 1, 'signed_executions': 1, 'scope': 'software_fixture_only'}
+    app = create_app(jobs, UnusedMarketHoldStore(), UnusedThermalRunStore(), UnusedMarketResultStore(),
+        principal_provider=jobs.principal_provider, collection_service=CollectionService(jobs, OwnedFixtureRegistry(ROOT)))
+    status, response = post(app, 'ingestion', {'research_job_id': str(job['job_id']),
+                                            'idempotency_key': 'held-research-ingestion'})
+    assert status == 422 and response['error']['code'] == 'collection_hold'

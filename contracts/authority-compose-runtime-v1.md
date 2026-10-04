@@ -1,6 +1,8 @@
 # Scoped authority/supervisor/dispatcher Compose v1
 
 Status: specified; hosted software acceptance pending.
+Observed failures and focused fixes are in the
+[implementation record](../research/authority-compose-runtime-implementation.md).
 
 The first `098d1d3` hosted stage closed the research job as hold but did not
 produce the expected validated public hold report. A local actual SCRAM

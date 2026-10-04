@@ -357,7 +357,9 @@ print(json.dumps(records[-30:]))
             assert status==200 and held['missing_evidence_count']==2
             assert set(held['missing_evidence'])=={'research_source_evidence','signed_decision_context'}
             persisted=authority_tools['assert_persisted'](research_id,command=command,compose=compose)
-            assert call('/v1/ingestions',{'research_job_id':research_id,'idempotency_key':'held-research-ingestion'})[0]==422
+            denied_status,denied=call('/v1/ingestions',{'research_job_id':research_id,'idempotency_key':'held-research-ingestion'})
+            event('held_research_ingestion_refused',status=denied_status)
+            assert denied_status==422 and denied['error']['code']=='collection_hold'
             authority_tools['assert_denials'](compose,command=command)
             event('automatic_scoped_research_hold',**persisted)
         for service in services:
