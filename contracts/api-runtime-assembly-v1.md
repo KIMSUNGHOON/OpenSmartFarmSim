@@ -4,6 +4,15 @@ Status: software assembly candidate. Production source repositories, protected
 operator configuration/custody, actual isolated Codex, independent release,
 remaining submissions and browser/G1/G4 acceptance remain pending.
 
+Optional [crop research reads](api-crop-replay-v1.md) require both the explicit
+`crop_result_storage` login flag and `crop_result_store_factory`. The factory
+receives this runtime's `farm_authoring_service` and must return an exact
+CropResultStore bound to that service and the same audited JobStore. It owns
+the protected profile/notice/current rights/key dependencies. `crop_results`
+and the new authenticated route expose saved synthetic math only. Neither
+option provisions a table, grants rights, runs integration during reads, or
+approves a production Run. Without both options the existing default remains.
+
 The optional [authored thermal Run assembly](api-runtime-authored-run-v1.md)
 binds a trusted operator factory to this runtime's own jobs and farm services
 under the v8 login profile. Its configured key and factory must be supplied

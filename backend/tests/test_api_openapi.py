@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app.api import create_app
 from app.api_contracts import LocationPoint
 from app.api_authored_thermal import AUTHORED_READ_SCOPES
+from app.crop_result_store import READ_SCOPES as CROP_READ_SCOPES
 from app.authored_economic_execution import AUTHORED_ECONOMIC_SCOPES
 from app.authored_financial_selection import READ_SCOPES as AUTHORED_FINANCIAL_READ_SCOPES
 from app.source_farm_selection import READ_SCOPES as SOURCE_FARM_READ_SCOPES
@@ -26,6 +27,7 @@ from test_http_identity import request
 
 
 OPERATIONS = {
+    ('/v1/crop-research-results/{result_id}','get'): ('getCropResearchResult',list(CROP_READ_SCOPES)),
     ('/v1/source-history/{research_job_id}/collections/{collection_job_id}/economic-candidates','get'):
         ('listSourceEconomicCandidates',list(SOURCE_ECONOMIC_READ_SCOPES)),
     ('/v1/source-history/{research_job_id}/collections/{collection_job_id}/economic-candidates/{candidate_id}','get'):
@@ -221,11 +223,14 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
         .replace("{candidate_id}", "c"*64)
         .replace("{report_id}", "00000000-0000-4000-8000-000000000002")
         .replace("{run_id}", ("authored-thermal-run-v1:" if '/authored-runs/' in path else
-            "synthetic-thermal-v1:")+"a"*64).replace("{result_id}", "b"*64))
+            "synthetic-thermal-v1:")+"a"*64).replace("{result_id}",
+                ("crop-result-v1:" if '/crop-research-results/' in path else "")+"b"*64))
     for missing in scopes:
         principal["scopes"] = set(scopes)-{missing}
         status, body, _ = asyncio.run(request(app, path=path, method=method.upper(),
             query=(b'scenario_id=example&scenario_revision=r1' if path in ('/v1/scenarios','/v1/farm-scenarios','/v1/farm-authored-inputs')
+                else b'scenario_id=example&scenario_revision=r1&crop_id=crop-1&registration_sha256='+b'a'*64
+                  if path.startswith('/v1/crop-research-results/')
                 else b'scenario_id=example&scenario_revision=r1&registration_sha256='+b'a'*64
                   if path == '/v1/farm-authored-inputs/activity'
                 else b'plan_id=example&submission_sha256='+b'a'*64 if path == '/v1/break-even-plans/receipt'

@@ -145,7 +145,9 @@ Axiany/Maxifort 한 해외 작기 개발 참조다. 대한민국 온실의 최�
 독립 165수치·수렴/수지/사건을 수용했다.
 [불변 합성 연구 저장](../research/crop-result-storage-implementation.md)까지 로컬 집중
 172개/434.49초·실제 SCRAM/별도 프로세스/변조/철회/정리로 수용했다.
-다음은 조회 API이며 실제 참조 입력의 감사/권리 연결과 성장 3D는 남아 있다.
+[저장 조회 API](../research/api-crop-replay-implementation.md)도 집중 316개/194.11초,
+실제 HTTPS 10개·본문 최대 5.580219초·현재 권리/변조/정리로 수용했다.
+다음은 같은 계산 결과의 성장 3D이며 실제 참조 입력의 감사/권리 연결은 남아 있다.
 [필수 프로필/고지 이미지](../research/crop-rate-image-inputs-implementation.md)도 실제 hosted
 build/실행/정리를 통과했다. 새 전체 backend CI·실제 품종 입력 QC는 남아 있다.
 

@@ -38,6 +38,11 @@ flowchart LR
 
 ## 도메인 데이터 계약
 
+[저장 작물 연구 조회](../contracts/api-crop-replay-v1.md)는 승인 Run과 구분된
+`crop-result-v1`의 같은 농장/현재 권리·불변 bytes를 읽는다. 기존 API/표준 runtime의
+명시적 선택 factory를 사용하며 조회 중 계산·자료 채택·관문 승격은 하지 않는다.
+공개 typed 상태/UTC/단위/해시·수치 hold가 이후 같은 시점 성장 3D의 입력이다.
+
 | 객체 | 불변 핵심 필드와 관계 |
 | --- | --- |
 | Location | 소유자, WGS84 `longitude/latitude`, 표시명, 좌표 제공 방식, 공간 적용 범위. 좌표를 GeoJSON으로 교환하면 [RFC 7946의 경도·위도 순서](https://www.rfc-editor.org/rfc/rfc7946)를 따른다. |

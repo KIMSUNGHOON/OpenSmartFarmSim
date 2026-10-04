@@ -13,7 +13,9 @@
 합쳐 146개/0.53초·독립 165수치·수렴/수지/사건으로 로컬 수용했다.
 [불변 합성 연구 저장](../research/crop-result-storage-implementation.md)까지 집중
 172개/434.49초·실제 SCRAM/별도 프로세스·변조/철회/정리로 로컬 수용했다.
-다음은 저장 결과 조회 API이며,
+[저장 조회 API](../research/api-crop-replay-implementation.md)도 집중 316개/194.11초·
+실제 TLS/SCRAM 10개 전체 응답/변조·철회·정리로 로컬 수용했다.
+다음은 같은 결과의 표·그래프·성장 3D이며,
 순서는 [수정 계획](../tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04)을 따른다.
 
 [단일 Axiany 작기 모델/권리 조사](../research/crop-tomato-model-baseline-20261004.md)와

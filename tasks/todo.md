@@ -69,13 +69,18 @@
   생장 146개, 합계 172개/434.49초·0 skipped. 실제 SCRAM·별도 프로세스 동일 bytes,
   재시도/pending/해제·불변/외래키·실제 변조/현재 권리 철회/rollback·정리를 통과했다.
   [저장 packet](../research/artifacts/crop-result-storage-reference-20261004.json)은 합성 시험이다.
-  실제 참조 입력의 감사/권리 연결·API/3D·전체 hosted/관문은 별도 미수용이다.
-- [ ] **`api-crop-replay`** — 선행: `crop-result-storage`.
-  예정 파일(3): `backend/app/api_crop_replay.py`, `backend/tests/test_api_crop_replay.py`,
+  실제 참조 입력의 감사/권리 연결·3D·전체 hosted/관문은 별도 미수용이다.
+  조회 API의 로컬 수용은 아래 별도 작업에 기록한다.
+- [x] **`api-crop-replay`** — 로컬 합성 연구 조회 API 수용. 선행: `crop-result-storage`.
+  핵심 파일(3): `backend/app/api_crop_replay.py`, `backend/tests/test_api_crop_replay.py`,
   `contracts/api-crop-replay-v1.md`.
-  수용: 인증/현재 권리·정확한 연구 결과와 농장/Run 연결·단위/UTC·보류 범위의 조회;
+  기존 `api.py`/`api_runtime.py`의 선택 조립과 고정 OpenAPI/권한 회귀도 연결했다.
+  수용: 인증/현재 권리·정확한 연구 결과와 농장 연결·단위/UTC·보류 범위의 조회;
   다른 결과/모델/입력 혼합과 철회·변조 거부. 확인: OpenAPI/실제 HTTPS/SCRAM 집중 시험.
-  사용자 산출물: 저장 시점의 JSON/표 응답.
+  [실제 수용](../research/api-crop-replay-implementation.md): 316개/194.11초·GET 재적분 없음,
+  HTTPS 10개 전체 응답 최대 5.580219초/기존 30초·같은 6시점·현재 권리/DB 변조·정리.
+  [실제 JSON 응답](../research/artifacts/api-crop-replay-reference-20261004.json)은 시험 DB 자료다.
+  3D/실제 작기·전체 hosted/제품 CLI·G0–G4는 이 수용 범위 밖이다.
 - [ ] **`web-crop-replay`** — 선행: `api-crop-replay`.
   예정 파일(4): `web/src/cropReplay.ts`, `web/src/cropReplay.test.ts`,
   `web/e2e/crop-replay.spec.ts`, `contracts/web-crop-replay-v1.md`.
