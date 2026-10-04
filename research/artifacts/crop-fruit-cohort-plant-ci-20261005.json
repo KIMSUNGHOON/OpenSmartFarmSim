@@ -1,0 +1,244 @@
+{
+  "evidence_version": "crop-fruit-cohort-plant-rates-ci-v1",
+  "recorded_at_utc": "2026-10-04T20:02:39.266274+00:00",
+  "head_sha": "784335d6890fc3dcceef5adc279a79dd9e943a73",
+  "scope": "instantaneous 50-cohort demand/transport/allocation/maintenance and whole-plant coupling with pinned image profiles; newer bounded integration/artifact and farm-bound v2 custody not covered",
+  "workflow_runs": [
+    {
+      "conclusion": "success",
+      "databaseId": 37224223030,
+      "headSha": "784335d6890fc3dcceef5adc279a79dd9e943a73",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37224223030",
+      "workflowName": "C0 Compose verification"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37224223063,
+      "headSha": "784335d6890fc3dcceef5adc279a79dd9e943a73",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37224223063",
+      "workflowName": "Web tests"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37224223039,
+      "headSha": "784335d6890fc3dcceef5adc279a79dd9e943a73",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37224223039",
+      "workflowName": "Application runtime verification"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37224223007,
+      "headSha": "784335d6890fc3dcceef5adc279a79dd9e943a73",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37224223007",
+      "workflowName": "Authored API PostgreSQL smoke"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37224223008,
+      "headSha": "784335d6890fc3dcceef5adc279a79dd9e943a73",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37224223008",
+      "workflowName": "Backend tests"
+    }
+  ],
+  "workflow_api_sha256": "341bc09ca85687dd808083513f7e90c8aa6ed1912175579c3eca5612757b5f64",
+  "backend_jobs_api_sha256": "eeef9a73a54e8f66cbd2f3728013f35a78884c3bed06320f2fe85c45cd050e32",
+  "backend": {
+    "passed_total": 2969,
+    "separate_uid_passed": 4,
+    "partition_pass_counts": {
+      "2": 545,
+      "1": 607,
+      "5": 413,
+      "3": 499,
+      "4": 421,
+      "0": 484
+    },
+    "inventory_sha256": "fec31444e0e4f2f24f91c23dfe8856fafdd9ad8acb2b2093e54067940bb66039",
+    "database_password_cleanup_jobs_passed": 6,
+    "job_logs_retrieval": "direct GitHub job log API for all six partitions and aggregate",
+    "jobs": [
+      {
+        "id": 111500431410,
+        "name": "backend-partition-2",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T18:54:18Z",
+        "completed_at": "2026-10-04T19:22:37Z",
+        "raw_log_bytes": 37583,
+        "raw_log_sha256": "5f72554432446719b61646d9fbb20e1d427d02eb55a6659871dfebf4328a5cbc",
+        "partition": 2,
+        "passed": 545,
+        "reported_warnings": 0,
+        "inventory_sha256": "fec31444e0e4f2f24f91c23dfe8856fafdd9ad8acb2b2093e54067940bb66039",
+        "database_password_cleanup": "success",
+        "uid_steps": [
+          {
+            "name": "Prepare readable runtime for UID service smoke",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Check content access with distinct Linux UIDs",
+            "conclusion": "skipped"
+          }
+        ]
+      },
+      {
+        "id": 111500431539,
+        "name": "backend-partition-1",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T18:23:01Z",
+        "completed_at": "2026-10-04T18:54:14Z",
+        "raw_log_bytes": 37725,
+        "raw_log_sha256": "b8ace1bd2df2f5a921cbb732a10cc73006abe444001097e1e48d44c30de0f25b",
+        "partition": 1,
+        "passed": 607,
+        "reported_warnings": 0,
+        "inventory_sha256": "fec31444e0e4f2f24f91c23dfe8856fafdd9ad8acb2b2093e54067940bb66039",
+        "database_password_cleanup": "success",
+        "uid_steps": [
+          {
+            "name": "Prepare readable runtime for UID service smoke",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Check content access with distinct Linux UIDs",
+            "conclusion": "skipped"
+          }
+        ]
+      },
+      {
+        "id": 111500431575,
+        "name": "backend-partition-5",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T19:22:39Z",
+        "completed_at": "2026-10-04T19:54:01Z",
+        "raw_log_bytes": 37328,
+        "raw_log_sha256": "0e9b2dffba9936bd56b0e7c6f5d24709fa2778bba87944800fc2c16304ccd842",
+        "partition": 5,
+        "passed": 413,
+        "reported_warnings": 0,
+        "inventory_sha256": "fec31444e0e4f2f24f91c23dfe8856fafdd9ad8acb2b2093e54067940bb66039",
+        "database_password_cleanup": "success",
+        "uid_steps": [
+          {
+            "name": "Prepare readable runtime for UID service smoke",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Check content access with distinct Linux UIDs",
+            "conclusion": "skipped"
+          }
+        ]
+      },
+      {
+        "id": 111500431598,
+        "name": "backend-partition-3",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T18:54:33Z",
+        "completed_at": "2026-10-04T19:17:28Z",
+        "raw_log_bytes": 39131,
+        "raw_log_sha256": "0b1d108255165840f405667789178972caaf0f887bfc22959e96089d75095ea3",
+        "partition": 3,
+        "passed": 499,
+        "reported_warnings": 2,
+        "inventory_sha256": "fec31444e0e4f2f24f91c23dfe8856fafdd9ad8acb2b2093e54067940bb66039",
+        "database_password_cleanup": "success",
+        "uid_steps": [
+          {
+            "name": "Prepare readable runtime for UID service smoke",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Check content access with distinct Linux UIDs",
+            "conclusion": "skipped"
+          }
+        ]
+      },
+      {
+        "id": 111500431617,
+        "name": "backend-partition-4",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T19:17:31Z",
+        "completed_at": "2026-10-04T19:40:53Z",
+        "raw_log_bytes": 37289,
+        "raw_log_sha256": "5530e80192c5cc72e93c7e57f41be86c605a5c824097bc606ed4e949ddd05182",
+        "partition": 4,
+        "passed": 421,
+        "reported_warnings": 0,
+        "inventory_sha256": "fec31444e0e4f2f24f91c23dfe8856fafdd9ad8acb2b2093e54067940bb66039",
+        "database_password_cleanup": "success",
+        "uid_steps": [
+          {
+            "name": "Prepare readable runtime for UID service smoke",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Check content access with distinct Linux UIDs",
+            "conclusion": "skipped"
+          }
+        ]
+      },
+      {
+        "id": 111500431645,
+        "name": "backend-partition-0",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T18:23:02Z",
+        "completed_at": "2026-10-04T18:54:31Z",
+        "raw_log_bytes": 43872,
+        "raw_log_sha256": "231a2436717ccac751db1a5f088bb38cf803031c2a433744465cd17152225d51",
+        "partition": 0,
+        "passed": 484,
+        "reported_warnings": 0,
+        "inventory_sha256": "fec31444e0e4f2f24f91c23dfe8856fafdd9ad8acb2b2093e54067940bb66039",
+        "database_password_cleanup": "success",
+        "uid_steps": [
+          {
+            "name": "Prepare readable runtime for UID service smoke",
+            "conclusion": "success"
+          },
+          {
+            "name": "Check content access with distinct Linux UIDs",
+            "conclusion": "success"
+          }
+        ],
+        "separate_uid_passed": 4
+      },
+      {
+        "id": 111517547560,
+        "name": "backend",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T19:54:04Z",
+        "completed_at": "2026-10-04T19:54:07Z",
+        "raw_log_bytes": 3816,
+        "raw_log_sha256": "641fad0b7ff1670a3b4a21a609096527c6bec54d24099d5683e200b06da0f0ed"
+      }
+    ],
+    "aggregate": {
+      "id": 111517547560,
+      "name": "backend",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-04T19:54:04Z",
+      "completed_at": "2026-10-04T19:54:07Z",
+      "raw_log_bytes": 3816,
+      "raw_log_sha256": "641fad0b7ff1670a3b4a21a609096527c6bec54d24099d5683e200b06da0f0ed",
+      "six_identical_inventory_outputs": true,
+      "inventory_sha256": "fec31444e0e4f2f24f91c23dfe8856fafdd9ad8acb2b2093e54067940bb66039"
+    }
+  },
+  "image_profile_evidence": "research/artifacts/crop-fruit-cohort-image-reference-20261005.json",
+  "actual_runs": 0,
+  "domestic_independent_datasets": 0,
+  "gates_opened": []
+}

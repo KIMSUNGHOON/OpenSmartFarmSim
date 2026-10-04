@@ -97,6 +97,7 @@ compact 결과 JSON **3,639,251 bytes**다. 입력 program·코드/solver·결�
 실제 UTC/면적·수관/PAR·초기/관리/QC·품종/생과 환산·자원/경제의 근거는 보류다.
 국내 독립 자료와 actual forcing/Run은 0개, 열린 G0–G4 관문도 없다.
 
-선행 `784335d`의 앱 이미지/웹/C0/작성 CI는 성공했고 전체 backend는 확인 시점에 진행 중이다.
+선행 `784335d`는 19:54:08 UTC에 전체 CI 5개가 성공했다.
+[실제 backend 2,969개·별도 UID 4개/여섯 동일 목록·정리](artifacts/crop-fruit-cohort-plant-ci-20261005.json)를 확인했다.
 cohort profile의 실제 [이미지 수용](crop-fruit-cohort-image-inputs-implementation.md)은 완료했지만
 이 새 시간 integrator의 hosted 회귀는 아직 시작하지 않았다.
