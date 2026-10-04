@@ -134,10 +134,12 @@
   [수용](../research/crop-fruit-allocation-policy.md): 원/공개 구현/문서/권리의 5개 출처 대사,
   원/epsilon 분모 각각 4개 반례. 명시적 S/W1·tail 분모의 별도 정책/제약·hold,
   독립 6개 정상/4개 hold·600개 탄소/개수 유입과 byte-identical 재실행. 제품 계산은 후속.
-- [ ] **`crop-fruit-allocation-rates`** — 위 정책 뒤, 전체 구획 적분의 필수 선행.
-  예정 파일(2): `backend/app/crop_fruit_allocation.py`, `backend/tests/test_crop_fruit_allocation.py`.
+- [x] **`crop-fruit-allocation-rates`** — 순간 유입의 로컬 소프트웨어 수용; 실제 자동 착과/적분은 후속.
+  구현 파일(2): `backend/app/crop_fruit_allocation.py`, `backend/tests/test_crop_fruit_allocation.py`.
   수용: 독립 600개 유입/4개 hold·두 수지/단위, 닫힌 입력/형태·유한성/영역/
   underflow/overflow·ULP 예산·입력 불변/hash/판본·같은 반복. 생물 계수/자동 착과/W1은 없음.
+  [수용](../research/crop-fruit-allocation-implementation.md): 새 77개/기존 포함 315개·0.70초,
+  독립 600개 유입/4개 hold·두 수지/최대 상대 오차 5.5511e−17·같은 입력 hash/불변.
 - [ ] **`crop-cycle-capacity`** — 입력 감사/현재 적분 수용 뒤; 실제 참조 작기 재현의 필수 선행.
   필요 근거: 실제 47,809시점/47,808 interval, 현재 배열 20,000개·step 100만;
   166일/10초의 산술 1,434,240 step. 문헌 과실 모델 개발/국내 확보와 병행한다.

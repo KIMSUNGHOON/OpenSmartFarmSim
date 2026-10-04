@@ -24,8 +24,11 @@
 [과실 순간 이동](../research/crop-fruit-transport-implementation.md)도 새 92개/기존 포함
 238개·독립 3,090수치로 로컬 수용했다. 필수 프로필 포장은 로컬 구현·loader 확인/hosted 대기다.
 [명시적 착과/진입 질량 배분 정책](../research/crop-fruit-allocation-policy.md)은 독립 대수/수치로
-수용했다. 다음은 작은 제품 배분 계산이며 자동 착과/실제 품종은 보류한다.
-전체 작기 실행 계약/국내 확보를 병행한다. `d76410f` 웹/C0/실제 앱 CI는 통과했다.
+수용했다. [순수 제품 배분](../research/crop-fruit-allocation-implementation.md)도 새 77개/기존 포함
+315개·독립 600개 유입/4개 hold로 로컬 수용했다. 다음은 고정 Gompertz 수요와
+50구획의 결합/적분이며 자동 착과/실제 품종은 보류한다.
+전체 작기 실행 계약/국내 확보를 병행한다. `d76410f`는 전체 backend 집계까지
+CI 5개 모두 성공했고 새 과실 판본의 hosted 검증은 별도다.
 순서는 [수정 계획](../tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04)을 따른다.
 
 [단일 Axiany 작기 모델/권리 조사](../research/crop-tomato-model-baseline-20261004.md)와
