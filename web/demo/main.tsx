@@ -4,7 +4,7 @@ import { createApi } from '../src/api';
 import { authoredJobId } from '../e2e/authored-thermal-fixture';
 import '@fontsource-variable/noto-sans-kr';
 import '../src/App.css';
-import { cropReferenceSelection,cropHoldReferenceSelection } from './crop-reference';
+import { cropReferenceSelection,cropHoldReferenceSelection } from '../e2e/crop-fixture';
 
 const Replay=lazy(()=>import('../src/Replay'));
 const CropReplay=lazy(()=>import('../src/CropReplay'));

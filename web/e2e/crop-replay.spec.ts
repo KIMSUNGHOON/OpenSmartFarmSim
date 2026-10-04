@@ -1,5 +1,5 @@
 import { test,expect,type Page } from '@playwright/test';
-import { cropReferenceResponse,cropReferenceSelection } from '../demo/crop-reference';
+import { cropReferenceResponse,cropReferenceSelection } from './crop-fixture';
 import { decodeCropReplay,STORES } from '../src/cropReplay';
 
 const token='synthetic-crop-browser-token-only';

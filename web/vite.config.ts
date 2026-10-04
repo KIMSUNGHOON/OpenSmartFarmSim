@@ -2,7 +2,7 @@ import { defineConfig } from 'vitest/config';
 import { Agent } from 'node:https';
 import { readFileSync } from 'node:fs';
 import { authoredJobId, authoredRunId, authoredResponses } from './e2e/authored-thermal-fixture.ts';
-import { cropReferenceResponse,cropReferenceSelection,cropHoldReferenceResponse,cropHoldReferenceSelection } from './demo/crop-reference.ts';
+import { cropReferenceResponse,cropReferenceSelection,cropHoldReferenceResponse,cropHoldReferenceSelection } from './e2e/crop-fixture.ts';
 
 const upstream = process.env.OSSF_WEB_API_ORIGIN;
 const certificate = process.env.OSSF_WEB_TLS_CERT;

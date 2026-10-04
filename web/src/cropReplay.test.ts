@@ -1,7 +1,7 @@
 import { describe,it,expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { createApi,ApiError } from './api';
-import { cropReferenceResponse,cropReferenceSelection } from '../demo/crop-reference';
+import { cropReferenceResponse,cropReferenceSelection } from '../e2e/crop-fixture';
 import { decodeCropReplay,type CropLookup } from './cropReplay';
 
 function raw():Record<string,any>{return cropReferenceResponse() as Record<string,any>;}

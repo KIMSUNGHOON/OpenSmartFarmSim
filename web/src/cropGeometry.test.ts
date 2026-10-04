@@ -2,7 +2,7 @@ import { describe,it,expect } from 'vitest';
 import { MeshBasicMaterial,Vector3 } from 'three';
 import { createCanopy,maximumCarbon,carbonHeights } from './cropGeometry';
 import { decodeCropReplay,STORES } from './cropReplay';
-import { cropReferenceResponse,cropReferenceSelection } from '../demo/crop-reference';
+import { cropReferenceResponse,cropReferenceSelection } from '../e2e/crop-fixture';
 
 describe('schematic geometry represents saved quantities',()=>{
   it.each([0,0.000001,0.1161888,1,3,10,1e6])('measures actual triangle surface at LAI %s',lai=>{

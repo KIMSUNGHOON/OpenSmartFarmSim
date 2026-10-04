@@ -1,0 +1,51 @@
+{
+  "status": "local_red_green_accepted_actual_image_CI_pending",
+  "feature": "crop-web-image-inputs",
+  "development_cli": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "recursive_cli": false
+  },
+  "failure": {
+    "commit": "0f3ce74cfca9c38a874faacae85e9c4f5acdb8d1",
+    "run_id": 37209918683,
+    "log_sha256": "4551b9c9e5d1a01e2473c5167915ecece8f2b9bc604ffc81158dd43a28b88fca",
+    "cleanup": true
+  },
+  "local_red": {
+    "kind": "local_emulation_of_existing_Docker_COPY_and_asset_allowlist_not_actual_Docker",
+    "exit_code": 1,
+    "log_sha256": "7a051d150d703c425694e1950c76a4d29db6d863cd6306b91d0baf5ec7f17db1",
+    "temporary_tree_removed": true
+  },
+  "local_green": {
+    "kind": "local_emulation_of_declared_web_Docker_COPY_not_actual_Docker",
+    "exit_code": 0,
+    "wall_seconds": 1.2800066359923221,
+    "log_sha256": "bcde14fb450772acb0fb1a0df411d116272e2a9fc6b86cdfdea274bc4af44ea6",
+    "demo_directory_in_build": false,
+    "fixture_present_in_production_JS": false,
+    "temporary_tree_removed": true
+  },
+  "relocated_fixture_bytes_unchanged": true,
+  "fixture_sha256": "8ad46cd75d813dd5d436bda2bc4e2108a0ecca3c1eaf4c0da0a713f8b1978323",
+  "web_unit": {
+    "passed": 209,
+    "log_sha256": "48a47402b0ed604d68f8526678e7a0984714e2adaf4540705ce7d33a2233c637"
+  },
+  "code_sha256": {
+    ".dockerignore": "26db2971caa94a09b0c4be0f1d7432ec9425291aad1f246d5941a4ab55350362",
+    "scripts/check-application-images.py": "7edab46146804b5ee214ec8c0e4566f779de1affe7f9cc2e6671b6ef3614ee71",
+    "web/e2e/crop-fixture.ts": "8ad46cd75d813dd5d436bda2bc4e2108a0ecca3c1eaf4c0da0a713f8b1978323",
+    "web/vite.config.ts": "98f640404c56b966c39719458dcc5da6116f40c7f48d2dfc984052016c65dac8",
+    "web/demo/main.tsx": "de220fb07904b1011d7dfcec002a178c50b94e1ad6603cff6ab7393940f08850",
+    "web/e2e/crop-replay.spec.ts": "a560cdc0236367d463bc8eb09f116a3991b0fce5461b6354d7c4df1661e73465",
+    "web/src/cropReplay.test.ts": "05a7d7cd2f31fe2f73f193d349d5d7176bf2cc582a6ddae8e31a1fb3a2e10370",
+    "web/src/cropGeometry.test.ts": "78370420781c490475bbc1b1832ffd59a9e049ab100f8583820a4b8bcb7ec61d"
+  },
+  "actual_local_Docker_run": false,
+  "actual_hosted_image_verification": "pending",
+  "new_dependency_or_runtime_service": false,
+  "gates": "not_assessed"
+}

@@ -86,6 +86,10 @@ def image_checks(directory, prefix, images):
               'contracts/image-probe.json', 'fixtures/image-probe.json',
               'LICENSES/image-probe.txt',
               'web/src/private/probe.ts', 'web/src/probe.pem',
+              'web/src/assets/crop-design/private/probe.svg',
+              'web/src/assets/crop-design/image-probe.svg',
+              'web/src/assets/crop-design/image-probe.webp',
+              'web/demo/private/probe.ts',
               'web/public/licenses/private/probe.txt', 'web/node_modules/probe.js',
               'data/raw/probe.json', '.codex/probe.json']
     for name in poison:
@@ -102,6 +106,14 @@ def image_checks(directory, prefix, images):
     assert (exported / 'context/LICENSES/GreenLight-BSD-3-Clause-Clear.txt').is_file()
     assert not (exported / 'context/fixtures/crop-growth-reference-cases-v1.json').exists()
     assert (exported / 'context/web/src/assets/cutout-15-b6376be1ea78.png').is_file()
+    for name in ['crop-research-leaf.png', 'crop-design/leaf.svg',
+                 'crop-design/plant-seedling.svg', 'crop-design/clock.svg',
+                 'crop-design/line-chart.svg', 'crop-design/database.svg',
+                 'crop-design/magnifying-glass.svg', 'crop-design/research-hold.png',
+                 'crop-design/crop-research-clean-plate.webp']:
+        assert digest(exported / 'context/web/src/assets' / name) == digest(ROOT / 'web/src/assets' / name)
+    assert digest(exported / 'context/web/e2e/crop-fixture.ts') == digest(ROOT / 'web/e2e/crop-fixture.ts')
+    assert not (exported / 'context/web/demo').exists()
     event('actual_build_context', excluded_probes=len(poison))
     for service in ('backend', 'web'):
         image = f'{prefix}-{service}:test'
@@ -174,6 +186,8 @@ def web_checks(images, directory, prefix, containers):
         '--entrypoint', 'sh', images['web'], '-ceu',
         'if command -v node || command -v npm; then exit 1; fi; '
         'test ! -e /app/src; test ! -e /app/e2e; '
+        'test ! -e /usr/share/nginx/html/demo; '
+        'if grep -rqF --include="*.js" synthetic-demo-token-only /usr/share/nginx/html/assets; then exit 1; fi; '
         'test ! -e /usr/share/nginx/html/50x.html; '
         'if touch /usr/share/nginx/html/image-write-probe; then exit 1; fi')
     rejected = command(*run_options(prefix + '-missing-tls'), '--rm', '--network', 'none',

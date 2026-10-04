@@ -117,6 +117,13 @@ sample의 탄소량·LAI를 표·그래프·실제 잎 면적/기관 비교 막�
 `d251df9`의 전체 backend CI는 2,671개·별도 UID 4개, 같은 목록 해시와 정리를
 통과했고 같은 판본의 CI 5개 모두 성공했다. 새 성장 화면 변경의 hosted CI는 별도로 확인한다.
 
+`0f3ce74`의 웹/C0는 성공했지만 실제 앱 이미지 build가 실패했다.
+`web-crop-replay`의 fixture import/디자인 자산이 기존 COPY/허용 목록에 빠진
+근거로만 `crop-web-image-inputs`를 추가했다. 기존 e2e 경로로 같은 fixture를 옮기고
+9개 파일만 허용해 로컬 RED→GREEN을 확인했다. 실제 context/17개 제외 probe·
+image/TLS/정리는 기존 hosted 검사 통과 뒤 수용한다
+([진단·최소 변경](../research/crop-web-image-inputs-implementation.md)).
+
 ### 단계별 확인 지점
 
 1. **계산 확인:** kernel/적분의 독립 참조·수지·수렴과 고정 입력/매개변수 파일을 확인한 뒤 저장 단계로 간다. 참조 forcing 감사와 국내 자료 상태를 함께 보고한다.

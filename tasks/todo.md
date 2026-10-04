@@ -93,6 +93,12 @@
   사용자 산출물: [계산 기반 성장 연구 3D](../research/artifacts/crop-replay-final-desktop.png)와
   [로컬 실행법](../web/README.md#지금-3d를-직접-보기). 6시점/5분 합성 범위.
   실제 작기 입력 QC/국내 검증·과실/생과 생산량·전체 hosted CI/제품 관문은 별도 미수용.
+- [ ] **`crop-web-image-inputs`** — 실제 앱 이미지 실패 `0f3ce74`/37209918683의 최소 포장 보완.
+  핵심 필요: `web-crop-replay`의 fixture import/디자인 자산이 Docker COPY/허용 목록에서 빠짐.
+  [진단·로컬 수용](../research/crop-web-image-inputs-implementation.md): 기존 e2e 경로로 같은
+  fixture 이동/import, 자산 9개만 허용·17개 제외 probe/해시·production 데모 비포함 검사.
+  로컬 COPY 모사 RED→GREEN/typecheck/build·이동 후 웹 단위 209개는 통과했다.
+  수용: 기존 hosted 앱 CI의 실제 context/image/TLS·비특권/읽기 전용/정리. 확인 전 미체크.
 - [ ] **`crop-fruit-cohorts`** — 개발 선행: 성장 재생 수용·문헌 발달식/단위/권리와 명시적 관리 사건.
   참조 계수의 순수 모듈 개발은 국내 자료 접근/G2를 기다리지 않는다.
   실제 Axiany 적용에는 `crop-input-audit`와 해당 품종/관리·발달 근거가 추가로 필요하다.
