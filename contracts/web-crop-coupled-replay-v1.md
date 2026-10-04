@@ -4,6 +4,8 @@
 선행은 [coupled 조회 API](api-crop-coupled-replay-v1.md)와
 기존 [계산 기반 연구 3D](web-crop-replay-v1.md)다.
 현재 CLI `gpt-6.1-sol / xhigh`에서 설계하며 재귀 CLI를 실행하지 않는다.
+[첫 페이지 조립](web-crop-coupled-pages-v1.md)은 135개/기록 TLS bytes 대사 1개로
+로컬 수용했다. 다음은 수치 도형 → 화면/접근성 → 실제 저장/TLS/브라우저다.
 
 ## 읽기와 같은 결과의 결합
 

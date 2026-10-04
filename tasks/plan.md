@@ -74,7 +74,9 @@ flowchart TD
   AF --> CS["crop-coupled-result-storage: 새 불변 결과 v2"]
   CS --> CP["crop-coupled-operator-policy: 기본 false 기동 회귀 복구"]
   CP --> CA["api-crop-coupled-replay: 재적분 없는 현재 결과"]
-  CA --> CV["web-crop-coupled-replay: 같은 결과/시점"]
+  CA --> WP["web-crop-coupled-pages: 페이지 전체성·취소"]
+  WP --> WG["web-crop-coupled-geometry: 50개 C/N 수치 도형"]
+  WG --> CV["web-crop-coupled-replay: 같은 결과/시점"]
   FM --> ST["crop-fruit-startup-policy: 초기/자동/W1/RGR"]
   CI --> F["crop-fruit-cohorts → crop-harvest-conversion"]
   ST --> F
@@ -281,6 +283,7 @@ image/TLS·UID/읽기 전용/정리는 `d76410f`의 실제 hosted 전체 성공�
 | coupled artifact | **로컬 완료** | 530개·두 사례/별도 Python/hold·512출력, 3,683,992 bytes·읽기 0.3055초·동일 계산 결과 |
 | coupled farm 결합 저장 v2 | **로컬 완료** | 564개/850.85초·SCRAM·두 사례/hold·별도 Python/같은 bytes·현재 권리/변조/철회·원자성·정리 |
 | coupled 페이지 조회 API | **로컬 완료** | 207개 고유 분할 검증·실제 HTTPS 19개/512 sample/128 event·두 runtime 재시작·최대 11.508339초/649,718 bytes·현재 권리/정리 |
+| coupled 웹 페이지 조립 | **로컬 완료** | 새 73개 포함 135개·기록 TLS bytes 대사 1개·512시점/50배열·취소/혼합·마이크로초 hold·typecheck/build. 새 화면/브라우저는 별도 |
 | coupled 성장 연구 3D | **집중 개발·검증 2–4시간 잠정** | decoder/페이지·수치 geometry·기존 화면/접근성·실제 저장/TLS/브라우저. 같은 ID/UTC의 50개 C/N·잎 면적·보류 |
 | 초기/자동 착과 정책 | **추가 근거 뒤 추정** | 빈 초기 tail·원/수정 W1/RGR/seed/생식기 이전 정책의 독립 보존/실측 적용 |
 | 전체 작기 처리 계약 | **별도 설계 뒤 추정** | 실제 47,809 source 시점/현재 20,000 배열·100만 step 한도와 연속 상태/저장/재생·부하 계획 |
@@ -334,6 +337,9 @@ artifact의 실제 RED→첫 GREEN은 19:27~19:29 UTC, 512출력 자원 확인�
 기존 v1 웹 209개/Chromium 10개/실제 저장 장면 1개의 재사용과 새 50배열/페이지를
 근거로 **집중 개발·검증 2–4시간**, 로컬 수용 시도 **2026-10-05~06 KST**를 잠정 배정한다.
 전체 hosted·실제 작기/생과 생산 예측은 이 날짜에 포함하지 않는다.
+[페이지 조립](../research/web-crop-coupled-pages-implementation.md)은 2026-10-05 KST에
+135개/기록 TLS bytes 1개·타입/build로 로컬 수용했다. 잔여는 수치 geometry → 기존 화면/
+접근성 → 실제 저장/TLS/브라우저이며 부모 장면 수용은 미완료다.
 수확·자원·경제 모듈은 문헌식·변환/품종 근거와 작은 착수 계약을 확보한 뒤 추정한다.
 독립 국내 농장/작기 자료는 현재 **0건**이며 동의·자료 범위·미사용 기간이
 정해지지 않아 G2/G3a·최종 추천/production 완료일을 정할 근거가 없다.

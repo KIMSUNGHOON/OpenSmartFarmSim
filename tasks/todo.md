@@ -210,7 +210,16 @@
   [실제 수용](../research/api-crop-coupled-replay-implementation.md): 새 API 29개 포함 고유 207개
   분할 검증(단일 GREEN 실행 아님)·512 sample/128 event·HTTPS 19개/두 runtime 재시작,
   최대 11.508339초/649,718 bytes·현재 권리/실제 변조 거부·정리. 새 hosted/브라우저는 별도다.
-- [ ] **`web-crop-coupled-replay`** — 다음 핵심; 선행: `api-crop-coupled-replay` 로컬 수용.
+- [x] **`web-crop-coupled-pages`** — 성장 3D 부모의 첫 자식; 선행: 새 API 로컬 수용.
+  [작은 계약](../contracts/web-crop-coupled-pages-v1.md)·새 decoder/시험과 기존 request의 취소 연결.
+  [수용](../research/web-crop-coupled-pages-implementation.md): 새 73개/기존 62개·135 passed,
+  실제 기록 TLS bytes 대사 1개·512시점/50배열·페이지 전체성/혼합/단위/권리 거부,
+  소수 초 hold·취소/늦은 body/타이머/2 MiB/30초·typecheck/build. 새 브라우저/장면은 별도다.
+- [ ] **`web-crop-coupled-geometry`** — 다음 작은 자식; 선행: `web-crop-coupled-pages`.
+  새 geometry/시험 각 한 파일로 별도 단위의 50개 C/N 공통 scale·원 구획 순서를 구현한다.
+  기존 canopy의 triangle 면적을 재사용한다. 0·큰 값·underflow/잘못된 입력을 임의 최소
+  도형으로 숨기지 않고 대체한다. 실제 mesh 좌표/수치/재사용 geometry·dispose를 검사한다.
+- [ ] **`web-crop-coupled-replay`** — 성장 연구 3D 부모; 선행: 새 API·페이지·수치 도형 수용.
   [장면 계약](../contracts/web-crop-coupled-replay-v1.md): 같은 저장 ID/UTC의 512시점 페이지를
   원 순서/수치로 조립하고 잎 triangle 면적·50개 C/N의 별도 단위 비교 도형에 연결한다.
   먼저 decoder/페이지·수치 geometry의 작은 모듈/시험, 다음 기존 화면/표/그래프/장면,

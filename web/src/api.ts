@@ -8,6 +8,7 @@ import { createAuthoredFarmApi } from './authored-farm-api';
 import { createAuthoredFinancialApi } from './authored-financial-api';
 import { createSourceFarmApi } from './source-farm-api';
 import { createCropReplayApi } from './cropReplay';
+import { createCoupledCropReplayApi } from './coupledCropReplay';
 export const STAGES = ['research','collection','collection_review','simulation','assessment'] as const;
 export const STATES = ['queued','researching','collecting','reviewing','simulating','assessing',
   'succeeded','hold','failed','canceled'] as const;
@@ -144,12 +145,19 @@ function decodeSourceActivity(value:unknown,id:string):SourceActivityPage {
 export function createApi(token:string, fetcher:typeof fetch = fetch) {
   if (!/^[\x21-\x7e]{20,512}$/.test(token)) throw new ApiError('auth_required');
   async function request(path:string, method='GET', body?:unknown, expected=method==='POST' ? 202 : 200,
-    maxBytes=65_536, timeoutMs=30_000):Promise<unknown> {
+    maxBytes=65_536, timeoutMs=30_000, externalSignal?:AbortSignal):Promise<unknown> {
     const abort = new AbortController(); const timer = setTimeout(()=>abort.abort(),timeoutMs);
+    const cancel=()=>abort.abort();
+    externalSignal?.addEventListener('abort',cancel,{once:true});
     try {
+      if(externalSignal?.aborted)throw new ApiError('request_canceled');
       const response=await fetcher(path,{method,body:body ? JSON.stringify(body) : undefined,
         headers:body ? {'content-type':'application/json',authorization:'Bearer '+token} : {authorization:'Bearer '+token},
         credentials:'omit',redirect:'error',cache:'no-store',signal:abort.signal});
+      if(externalSignal?.aborted){
+        await response.body?.cancel().catch(()=>{});
+        throw new ApiError('request_canceled');
+      }
       if (!response.ok) {
         const codes:Record<number,string> = {401:'auth_required',403:'access_denied',404:'not_available',
           409:'intent_conflict',413:'too_large',422:'invalid_request'};
@@ -167,15 +175,18 @@ export function createApi(token:string, fetcher:typeof fetch = fetch) {
       } finally { await reader.cancel().catch(()=>{}); reader.releaseLock(); }
       const bytes=new Uint8Array(length); let offset=0;
       for (const chunk of chunks) { bytes.set(chunk,offset); offset+=chunk.byteLength; }
+      if(externalSignal?.aborted)throw new ApiError('request_canceled');
       try { return JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes)); }
       catch { throw new ApiError('response_rejected'); }
     } catch(error) {
+      if(externalSignal?.aborted)throw new ApiError('request_canceled');
       if (error instanceof ApiError) throw error;
       throw new ApiError('network_unresolved');
-    } finally { clearTimeout(timer); }
+    } finally { clearTimeout(timer);externalSignal?.removeEventListener('abort',cancel); }
   }
   return {
     ...createCropReplayApi(request),
+    ...createCoupledCropReplayApi(request),
     ...createThermalApi(request),
     ...createAuthoredThermalApi(request),
     ...createAuthoredFarmApi(request,decodeJob),
