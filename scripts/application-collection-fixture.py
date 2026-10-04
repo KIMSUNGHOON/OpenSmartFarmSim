@@ -42,8 +42,10 @@ def prepare(root, scope, principal, *, private, command):
     registry = OwnedFixtureRegistry(Path(__file__).resolve().parents[1])
     principal['scopes'].update({'collection_execute','collection_read','auditor'})
     def approved(job, value):
-        return replace(resolver(job,value),allow_proceed=True,missing_evidence=(),
-                       candidate_ids=frozenset({registry.provider_id}))
+        snapshot=resolver(job,value)
+        return replace(snapshot,allow_proceed=True,missing_evidence=(),
+            candidate_ids=frozenset({registry.provider_id}),
+            evidence={name:replace(grant,tenant_id=job['tenant_id']) for name,grant in snapshot.evidence.items()})
     contract = DecisionContract(approved)
     jobs = JobStore(dsns['authority'],policy.schema,base.artifact_root,
         decision_validator=contract,evidence_policy=cli_store(base).evidence_policy,
@@ -63,7 +65,7 @@ def prepare(root, scope, principal, *, private, command):
         'claim_mode':'ex_ante','decision_time_kind':'hypothetical'}
     parent = jobs.submit('tenant-1','research',value,'compose-synthetic-parent')
     result = worker.run_once()
-    assert result.state=='succeeded' and result.decision_id
+    assert result.job_id==parent['job_id'] and result.state=='succeeded' and result.decision_id, result
     directory = root/'collection'; directory.mkdir(mode=0o700)
     plugins = directory/'plugins'; plugins.mkdir(mode=0o700)
     private(plugins/'synthetic_collection.py',PLUGIN)
