@@ -215,10 +215,13 @@
   [수용](../research/web-crop-coupled-pages-implementation.md): 새 73개/기존 62개·135 passed,
   실제 기록 TLS bytes 대사 1개·512시점/50배열·페이지 전체성/혼합/단위/권리 거부,
   소수 초 hold·취소/늦은 body/타이머/2 MiB/30초·typecheck/build. 새 브라우저/장면은 별도다.
-- [ ] **`web-crop-coupled-geometry`** — 다음 작은 자식; 선행: `web-crop-coupled-pages`.
+- [x] **`web-crop-coupled-geometry`** — 작은 도형 자식의 로컬 수용; 선행: `web-crop-coupled-pages`.
   새 geometry/시험 각 한 파일로 별도 단위의 50개 C/N 공통 scale·원 구획 순서를 구현한다.
   기존 canopy의 triangle 면적을 재사용한다. 0·큰 값·underflow/잘못된 입력을 임의 최소
   도형으로 숨기지 않고 대체한다. 실제 mesh 좌표/수치/재사용 geometry·dispose를 검사한다.
+  [작은 계약](../contracts/web-crop-coupled-geometry-v1.md)·[실제 수용](../research/web-crop-coupled-geometry-implementation.md):
+  새 17개/기존 86개·103 passed·기록된 TLS 512시점/51,200 C/N·triangle 면적 대사 1개,
+  타입/실제 CPU mesh/0/large/underflow·원자 갱신/정리. 실제 새 화면/WebGL/브라우저는 별도다.
 - [ ] **`web-crop-coupled-replay`** — 성장 연구 3D 부모; 선행: 새 API·페이지·수치 도형 수용.
   [장면 계약](../contracts/web-crop-coupled-replay-v1.md): 같은 저장 ID/UTC의 512시점 페이지를
   원 순서/수치로 조립하고 잎 triangle 면적·50개 C/N의 별도 단위 비교 도형에 연결한다.
