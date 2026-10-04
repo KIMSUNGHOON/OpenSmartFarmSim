@@ -1,6 +1,6 @@
 # Coupled 저장 기본 정책의 운영 설정 회귀 수정
 
-상태: **99개 집중/실제 SCRAM·운영 TLS 로컬 통과; 수정 판본 hosted 재검증은 별도**.
+상태: **99개 집중/실제 SCRAM·운영 TLS 로컬 통과; `d15cf92` hosted Application 통과**.
 [실제 증거](artifacts/crop-coupled-operator-policy-reference-20261005.json)는 실패 판본/
 Actions run·로그 hash·RED/GREEN·코드와 임시 자원 정리를 기록한다.
 현재 실제 CLI `gpt-6.1-sol / xhigh`로 판단했고 재귀 CLI를 실행하지 않았다.
@@ -41,8 +41,13 @@ cd backend
 기동 뒤 grant drift 거부·기존 runtime 조립/HTTPS가 포함됐다.
 20:48:41–20:49:13 UTC에 실행/정리했다. DB shared buffers 32 MB·24 connections,
 `nice=10`을 유지했고 DB와 비밀번호 파일이 제거됐다.
-로컬 Docker Engine은 없으므로 실제 Compose의 수정 판본 수용은 새 hosted run이 필요하다.
+로컬 Docker Engine은 없으므로 실제 Compose는 hosted에서 검증했다.
 기존 564개 저장 수용을 반복하거나 이 99개로 대체하지 않았다.
+
+`d15cf92`의 [Application run 37233733437/실제 증거](artifacts/crop-coupled-operator-policy-ci-20261005.json)는
+20:58:39 UTC에 success로 종료했다. image/runtime 49개와 실제 API/자동 작업자·
+owned collection·scoped research의 세 Compose 단계가 모두 성공했다.
+세 번의 process/volume/credentials 정리도 확인했다. 전체 Backend의 완료는 별도다.
 
 ## 다음 핵심과 남은 관문
 

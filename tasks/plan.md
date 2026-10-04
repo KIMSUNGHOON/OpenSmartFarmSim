@@ -27,7 +27,9 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 `bdcade9`의 Application CI에서 새 기본 false policy의 기존 loader 허용 목록 누락으로
 실제 API 기동이 실패했다. [최소 policy 회귀 수정](../research/crop-coupled-operator-policy-implementation.md)은
 작물 저장 조회의 필수 선행이며 기존 loader/시험 두 파일에 한정했다.
-99개·실제 SCRAM/운영 TLS 로컬 통과 뒤 수정 판본 hosted Compose를 재확인한다.
+99개·실제 SCRAM/운영 TLS 로컬 통과 뒤 `d15cf92`의
+[hosted image/runtime 49개/세 Compose 정리](../research/artifacts/crop-coupled-operator-policy-ci-20261005.json)도
+수용했다. 전체 Backend는 이 Application 증거로 수용하지 않는다.
 transport/cohort 프로필의 실제 hosted 포장도 수용했다
 ([한 파일 허용/기존 검사와 실제 증거](../research/crop-fruit-cohort-image-inputs-implementation.md)).
 실제 참조 작기의 UTC/면적·수관/초기조건·관리 입력 채택과 재현은 보류다.

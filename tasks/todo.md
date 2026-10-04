@@ -195,12 +195,13 @@
   두 사례/hold·fresh store/별도 Python·정확한 artifact/packet·동시/동일/conflict/try-lock,
   현재 권리/계산 후·commit/반환 전 철회와 rollback·실제 역할/trigger/FK·owner 변조 거부/정리.
   시험 실행기 600초 timeout은 별도 기록했고 1,200초 안에 동일 전체 검증을 완료했다.
-- [ ] **`crop-coupled-operator-policy`** — 저장 v2 기본 policy가 기존 API 기동을 막는 회귀.
+- [x] **`crop-coupled-operator-policy`** — 저장 v2 기본 policy가 기존 API 기동을 막는 회귀.
   근거: `bdcade9` Application CI의 `operator_config.py:98` 거부/Compose API exit 2.
   최소 변경은 기존 loader/시험 각 한 파일; 생략/정확한 false 수용·미구현 활성화/비 bool 거부.
   [로컬 증거](../research/crop-coupled-operator-policy-implementation.md): RED 2실패/1통과 뒤
   새 7개 포함 기존 operator/runtime 99개·실제 SCRAM/운영 TLS와 임시 자원 정리 통과.
-  수정 판본 실제 hosted Compose API/작업자·collection/authority 성공 뒤 체크한다.
+  `d15cf92` [실제 hosted 수용](../research/artifacts/crop-coupled-operator-policy-ci-20261005.json):
+  image/runtime 49개·실제 Compose API/작업자·collection/authority/세 정리 성공.
 - [ ] **`api-crop-coupled-replay`** — 다음 핵심; 선행: coupled 저장 v2·policy 회귀 복구 수용.
   [계약](../contracts/api-crop-coupled-replay-v1.md): 같은 result ID/farm/hash·현재 권리의
   읽기 전용 64 sample/8 event 페이지·2 MiB 본문 상한, 원 512시점/사건의 순서/전체성 유지.
