@@ -1,6 +1,6 @@
 # 성장 화면 이미지 입력 보완 — 2026-10-04
 
-상태: **로컬 입력 재현·보완 통과, 실제 hosted 이미지 재검사 대기**.
+상태: **실제 hosted 이미지/Compose 소프트웨어 수용, 2026-10-05 KST**.
 필요한 핵심 기능은 `web-crop-replay`다. 기반 추가의 근거는
 `0f3ce74`의 [실제 앱 이미지 실패](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37209918683)다.
 동일 판본의 웹 CI와 C0는 성공했지만 앱 이미지는 `npm run build`에서 실패했다.
@@ -28,7 +28,7 @@ Docker COPY를 재현한 GREEN build는 1.28초에 통과했다. 개발 demo 폴
 이동 후 웹 단위 **209 passed**와 이미지 검사 Python 구문 검사를 통과했다.
 이 로컬 검사에서는 Docker Engine을 시작하지 않았다.
 
-실제 hosted 수용은 기존 앱 이미지 CI에서 실제 export context의 17개 제외 probe,
+실제 hosted 수용 기준은 기존 앱 이미지 CI에서 실제 export context의 17개 제외 probe,
 9개 자산/fixture hash·두 앱 image build·비특권/읽기 전용·표준 TLS/잘못된 DNS 거부·
 정리가 통과한 뒤 기록한다. 로컬 파일 트리 모사를 실제 Docker 증거로 제시하지 않는다.
 계산 엔진/생장 값·데모 응답·G0–G4는 바꾸지 않았다.
@@ -40,8 +40,15 @@ Docker COPY를 재현한 GREEN build는 1.28초에 통과했다. 개발 demo 폴
 실패했다. 기존 폴더 negation 뒤 자식 제외 규칙이 없어 미선언 파일까지 다시
 허용한 반례다. [Docker의 마지막 일치 규칙](https://docs.docker.com/build/concepts/context/#negating-matches)을
 확인해 해당 폴더의 `/**` 제외 한 줄을 정확한 자식 예외 앞에 추가했다.
-17개 probe를 유지하며 실제 hosted 재검사를 기다린다. 첫 로컬 COPY 모사는
+17개 probe를 유지했다. 첫 로컬 COPY 모사는
 Docker의 ignore 매칭을 검사하지 않았으므로 context 수용 근거가 아니다.
+
+`d76410f`의 [실제 앱 이미지/Compose CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37213151159)는
+2026-10-04T15:35:17Z에 전체 성공했다. 실제 context 17개 제외 probe와 9개 자산/
+fixture 해시, 두 image build·UID/읽기 전용·표준 TLS/잘못된 DNS의 200/502와
+정리를 확인했다. API/자동 작업자·수집·조사 Compose의 재시작/권한 변경 거부와
+3회 전체 정리도 성공했다. 실제 49개 event와 log hash를 새 증거 판본에 기록했다.
+WSL에서 Docker Engine을 시작하거나 새 런타임 서비스를 추가하지 않았다.
 
 앞선 [성장 화면 증거](artifacts/web-crop-replay-reference-20261004.json)의 code hash는
 `0f3ce74`에 남긴 당시 경로/bytes다. 해당 JSON은 수정하지 않는다. 이 후속 판본에서

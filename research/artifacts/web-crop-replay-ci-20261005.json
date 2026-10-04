@@ -1,0 +1,267 @@
+{
+  "evidence_version": "web-crop-replay-hosted-ci-v1",
+  "recorded_at_utc": "2026-10-04T15:51:02.128570+00:00",
+  "commit": "d76410fb2ee402f2c244222536b1189bfb536c6e",
+  "scope": "software_research_only; public synthetic 5-minute/6-sample calculation; not actual cultivar validation",
+  "web": {
+    "run_id": 37213151229,
+    "conclusion": "success",
+    "unit_passed": 209,
+    "browser_passed": 61,
+    "log_sha256": "df4cfbc1e7c24cc2778166fc6e5d139eb61b4b307b4358a057ba0a1b33ad5378"
+  },
+  "authored": {
+    "run_id": 37213151129,
+    "conclusion": "success",
+    "matrix_pass_counts": [
+      1,
+      1,
+      5,
+      13,
+      3,
+      105,
+      15
+    ],
+    "crop_browser_test_seconds_as_reported": 69.88,
+    "cleanup_all_matrix_database_passwords": "passed",
+    "log_sha256": "217e00940c4d1738f56ee6f54a8b1fefcd754c4b14e4c1cb2f89f2a614861fff",
+    "crop_browser_report": {
+      "stage": "verified",
+      "sample_count": 6,
+      "result_id": "crop-result-v1:88c728ced012ec5a7a77e04623ed46a0978a3081a25432d2bf3b41aaf094a09a",
+      "verified": [
+        {
+          "at": "2026-10-01T00:00:00Z",
+          "lai": 0.1161888,
+          "triangle_surface_area": 0.1161888,
+          "carbon": {
+            "leaf": 4368,
+            "stem_root": 1560,
+            "fruit": 312,
+            "buffer": 20000
+          },
+          "maximum_carbon": 20000,
+          "bar_heights": {
+            "leaf": 0.2184,
+            "stem_root": 0.078,
+            "fruit": 0.0156,
+            "buffer": 1
+          }
+        },
+        {
+          "at": "2026-10-01T00:01:00Z",
+          "lai": 0.11634135277706101,
+          "triangle_surface_area": 0.11634135277706102,
+          "carbon": {
+            "leaf": 4373.735066806805,
+            "stem_root": 1564.509110835354,
+            "fruit": 312.09808531697723,
+            "buffer": 19989.47189805538
+          },
+          "maximum_carbon": 20000,
+          "bar_heights": {
+            "leaf": 0.21868675334034024,
+            "stem_root": 0.0782254555417677,
+            "fruit": 0.015604904265848861,
+            "buffer": 0.999473594902769
+          }
+        },
+        {
+          "at": "2026-10-01T00:02:00Z",
+          "lai": 0.11649390099231513,
+          "triangle_surface_area": 0.11649390099231513,
+          "carbon": {
+            "leaf": 4379.46996211711,
+            "stem_root": 1569.0181260424274,
+            "fruit": 312.19630320862177,
+            "buffer": 19978.95520399632
+          },
+          "maximum_carbon": 20000,
+          "bar_heights": {
+            "leaf": 0.2189734981058555,
+            "stem_root": 0.07845090630212137,
+            "fruit": 0.01560981516043109,
+            "buffer": 0.998947760199816
+          }
+        },
+        {
+          "at": "2026-10-01T00:03:00Z",
+          "lai": 0.11397049148333374,
+          "triangle_surface_area": 0.11397049148333374,
+          "carbon": {
+            "leaf": 4284.604942982472,
+            "stem_root": 1573.5272453109808,
+            "fruit": 312.2945433628674,
+            "buffer": 19967.551337954807
+          },
+          "maximum_carbon": 20000,
+          "bar_heights": {
+            "leaf": 0.2142302471491236,
+            "stem_root": 0.07867636226554904,
+            "fruit": 0.01561472716814337,
+            "buffer": 0.9983775668977404
+          }
+        },
+        {
+          "at": "2026-10-01T00:04:00Z",
+          "lai": 0.11410713161656699,
+          "triangle_surface_area": 0.11410713161656696,
+          "carbon": {
+            "leaf": 4289.741790096504,
+            "stem_root": 1578.036668051777,
+            "fruit": 312.39294515178443,
+            "buffer": 19956.09544367603
+          },
+          "maximum_carbon": 20000,
+          "bar_heights": {
+            "leaf": 0.2144870895048252,
+            "stem_root": 0.07890183340258886,
+            "fruit": 0.015619647257589221,
+            "buffer": 0.9978047721838015
+          }
+        },
+        {
+          "at": "2026-10-01T00:05:00Z",
+          "lai": 0.11425972729780491,
+          "triangle_surface_area": 0.11425972729780495,
+          "carbon": {
+            "leaf": 4295.47846984229,
+            "stem_root": 1582.5459948642695,
+            "fruit": 289.4914262646866,
+            "buffer": 19942.66628681699
+          },
+          "maximum_carbon": 20000,
+          "bar_heights": {
+            "leaf": 0.2147739234921145,
+            "stem_root": 0.07912729974321348,
+            "fruit": 0.01447457131323433,
+            "buffer": 0.9971333143408496
+          }
+        },
+        {
+          "at": "2026-10-01T00:00:00Z",
+          "lai": 0.1161888,
+          "triangle_surface_area": 0.1161888,
+          "carbon": {
+            "leaf": 4368,
+            "stem_root": 1560,
+            "fruit": 312,
+            "buffer": 20000
+          },
+          "maximum_carbon": 20000,
+          "bar_heights": {
+            "leaf": 0.2184,
+            "stem_root": 0.078,
+            "fruit": 0.0156,
+            "buffer": 1
+          }
+        },
+        {
+          "at": "2026-10-01T00:05:00Z",
+          "lai": 0.11425972729780491,
+          "triangle_surface_area": 0.11425972729780495,
+          "carbon": {
+            "leaf": 4295.47846984229,
+            "stem_root": 1582.5459948642695,
+            "fruit": 289.4914262646866,
+            "buffer": 19942.66628681699
+          },
+          "maximum_carbon": 20000,
+          "bar_heights": {
+            "leaf": 0.2147739234921145,
+            "stem_root": 0.07912729974321348,
+            "fruit": 0.01447457131323433,
+            "buffer": 0.9971333143408496
+          }
+        }
+      ],
+      "network": [
+        {
+          "method": "GET",
+          "status": 200,
+          "cache": "no-store"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "cache": "no-store"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "cache": "no-store"
+        },
+        {
+          "method": "GET",
+          "status": 422,
+          "cache": "no-store"
+        },
+        {
+          "method": "GET",
+          "status": 403,
+          "cache": "no-store"
+        },
+        {
+          "method": "GET",
+          "status": 200,
+          "cache": "no-store"
+        }
+      ],
+      "consumed": [
+        {
+          "path": "/v1/crop-research-results/crop-result-v1%3A88c728ced012ec5a7a77e04623ed46a0978a3081a25432d2bf3b41aaf094a09a",
+          "method": "GET",
+          "status": 200,
+          "cache": "no-store",
+          "header_seconds": 6.862099999999977,
+          "body_seconds": 6.862800000000046
+        },
+        {
+          "path": "/v1/crop-research-results/crop-result-v1%3Ade7ac6555dfa211485cc543840be248b13dce3b062c4ba733429f0080ba0cb6e",
+          "method": "GET",
+          "status": 200,
+          "cache": "no-store",
+          "header_seconds": 6.909400000000023,
+          "body_seconds": 6.909800000000047
+        },
+        {
+          "path": "/v1/crop-research-results/crop-result-v1%3A88c728ced012ec5a7a77e04623ed46a0978a3081a25432d2bf3b41aaf094a09a",
+          "method": "GET",
+          "status": 200,
+          "cache": "no-store",
+          "header_seconds": 6.832,
+          "body_seconds": 6.8325
+        },
+        {
+          "path": "/v1/crop-research-results/crop-result-v1%3A88c728ced012ec5a7a77e04623ed46a0978a3081a25432d2bf3b41aaf094a09a",
+          "method": "GET",
+          "status": 200,
+          "cache": "no-store",
+          "header_seconds": 6.77720000000007,
+          "body_seconds": 6.777800000000046
+        }
+      ],
+      "errors": [],
+      "account_change": true,
+      "reconnected": true
+    }
+  },
+  "application": {
+    "run_id": 37213151159,
+    "conclusion": "success",
+    "evidence": "crop-web-image-inputs-reference-20261004.json"
+  },
+  "c0": {
+    "run_id": 37213151211,
+    "conclusion": "success"
+  },
+  "backend": {
+    "run_id": 37213151173,
+    "status_at_recording": "one_partition_complete_with_distinct_UIDs; two_running; remaining_queued; aggregate_pending",
+    "preceding_accepted_commit": "d251df9bc5b0bffc7dc236705da6fd6015ad79c2",
+    "preceding_full_passed": 2671,
+    "preceding_distinct_UID_passed": 4
+  },
+  "gates": "G0-G4 not assessed or advanced by these fixture CI tests",
+  "original_implementation_artifact": "web-crop-replay-reference-20261004.json; unchanged 0f3ce74 snapshot"
+}

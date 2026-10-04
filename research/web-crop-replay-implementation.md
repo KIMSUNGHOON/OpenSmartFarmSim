@@ -123,3 +123,21 @@ fixture를 자동 제공하지 않는다. [직접 실행 안내](../web/README.m
 모든 동일 전체 목록 hash와 DB/비밀번호 정리·마지막 집계를 확인했다.
 이는 생장 유량/적분·저장/API를 포함한 앞선 판본의 회귀이며 새 웹 3D 변경의
 hosted 수용을 대신하지 않는다. 새 commit의 CI는 push 뒤 따로 확인한다.
+
+## 성장 화면과 포장 판본의 hosted 수용 — 2026-10-05 KST
+
+`d76410f`의 [웹 CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37213151229)는
+typecheck/build·단위 209개와 브라우저 61개(한 worker)를 통과했다.
+[작성 경로 CI](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37213151129)의
+7개 묶음과 DB/비밀번호 정리도 모두 통과했다. 새 작물 브라우저 시험은 69.88초로
+실제 SCRAM/HTTPS 저장 결과의 6시점 잎 면적/기관 막대 대사와 현재 철회·계정 변경·
+재연결을 확인했다. 200/200/200/422/403/200·no-store와 브라우저 오류 0이었다.
+이는 해당 fixture 경로의 hosted 증거이며 새로운 품종/농장 검증이 아니다.
+[새 CI 판본 증거](artifacts/web-crop-replay-ci-20261005.json)는 실제 log hash와
+원 browser report를 보존한다. 앞선 구현 artifact의 경로/hash는 수정하지 않았다.
+
+[포장 보완](crop-web-image-inputs-implementation.md)의 실제 이미지/전체 Compose와
+C0도 성공했다. 새 전체 backend 집계는 아직 진행 중이며 앞선 2,671개 수용과
+구분한다. 입력 파일 감사와 [과실 구획 명세](crop-fruit-cohorts-baseline.md)는 이후
+완료했고 현재 다음 단계는 고립된 과실 순간 이동이다. 실제 Axiany/국내 자료의
+보류·G0–G4는 유지한다.

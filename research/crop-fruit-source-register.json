@@ -1,0 +1,476 @@
+{
+  "register_version": "crop-fruit-model-research-v1",
+  "created_at_utc": "2026-10-04T15:40:18.270322+00:00",
+  "status": "specification_and_source_review_only_no_model_or_G0_adoption",
+  "cli": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "verified_turn_context_at": "2026-10-04T15:24:47.653Z",
+    "recursive_cli": false
+  },
+  "sources": [
+    {
+      "source_id": "crop-model",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/crop_vanthoor_2011_chapter_9_simplified.json",
+      "product_id": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "observed_period_local": null,
+      "published_at": "2026-09-09T16:00:54Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:47:16.425493+00:00",
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "raw_sha256": "272a589edf0bb40d1a91b34e883f8e94b9adf747a576be4620c50296c03d7033",
+      "bytes": 26741,
+      "units": "mathematical reference; parameter units and source pages recorded below",
+      "qc": "pinned bytes hash verified; scoped equations/parameters reviewed; not cultivar or G0 adoption",
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "code reference/reuse under license; no patent rights granted",
+        "display": "retain author/copyright/conditions; no endorsement",
+        "redistribution": "retain copyright/conditions/disclaimer for reused source/binaries; product integration pending"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "publication_time_basis": "pinned commit timestamp, not independently reconstructed first public availability of this file",
+      "observed_times": null
+    },
+    {
+      "source_id": "model-readme",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/readme.txt",
+      "product_id": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "observed_period_local": null,
+      "published_at": "2026-09-09T16:00:54Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:47:17.151700+00:00",
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "raw_sha256": "9e5ca837f6be1524886550f2c00d0ddab0cf980fd4be778e7e8d3532f4239ad9",
+      "bytes": 2581,
+      "units": "mathematical reference; parameter units and source pages recorded below",
+      "qc": "pinned bytes hash verified; scoped equations/parameters reviewed; not cultivar or G0 adoption",
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "code reference/reuse under license; no patent rights granted",
+        "display": "retain author/copyright/conditions; no endorsement",
+        "redistribution": "retain copyright/conditions/disclaimer for reused source/binaries; product integration pending"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "publication_time_basis": "pinned commit timestamp, not independently reconstructed first public availability of this file",
+      "observed_times": null
+    },
+    {
+      "source_id": "greenlight-license",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/LICENSE.txt",
+      "product_id": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "observed_period_local": null,
+      "published_at": "2026-09-09T16:00:54Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:47:17.478320+00:00",
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "raw_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+      "bytes": 1716,
+      "units": "mathematical reference; parameter units and source pages recorded below",
+      "qc": "pinned bytes hash verified; scoped equations/parameters reviewed; not cultivar or G0 adoption",
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "code reference/reuse under license; no patent rights granted",
+        "display": "retain author/copyright/conditions; no endorsement",
+        "redistribution": "retain copyright/conditions/disclaimer for reused source/binaries; product integration pending"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "publication_time_basis": "pinned commit timestamp, not independently reconstructed first public availability of this file",
+      "observed_times": null
+    },
+    {
+      "source_id": "vanthoor-thesis",
+      "source_url": "https://edepot.wur.nl/170301",
+      "product_id": "10.18174/170301",
+      "observed_period_local": null,
+      "published_at": "2011-06-17",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:51:13.324303+00:00",
+      "vintage": "published article/thesis",
+      "raw_sha256": "965ecc5573290d0cc59b514e9766b301f9584d212545dec177efa66dd756ac38",
+      "bytes": 3423075,
+      "units": "mathematical reference; parameter units and source pages recorded below",
+      "qc": "pinned bytes hash verified; scoped equations/parameters reviewed; not cultivar or G0 adoption",
+      "rights": {
+        "license": "fulltext-redistribution-unconfirmed",
+        "use": "read and reference mathematical definitions; no fulltext incorporation",
+        "display": "citation/short contextual references only; fulltext/figures not adopted",
+        "redistribution": "unconfirmed; PDF excluded from repository"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "observed_times": null
+    }
+  ],
+  "parameters": [
+    {
+      "name": "nDev",
+      "raw_value": "50",
+      "unit": "1",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Table9.1 printed p267",
+      "status": "general_tomato_reference_candidate_not_Axiany_adoption",
+      "applicability": "assumption; fixed reference compartment count"
+    },
+    {
+      "name": "cDev1",
+      "raw_value": "-7.64e-9",
+      "unit": "1/s",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Table9.1 printed p266",
+      "status": "general_tomato_reference_candidate_not_Axiany_adoption",
+      "applicability": "De Koning coefficients as reproduced by Vanthoor; cultivar not calibrated"
+    },
+    {
+      "name": "cDev2",
+      "raw_value": "1.16e-8",
+      "unit": "1/s/degC",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Table9.1 printed p266",
+      "status": "general_tomato_reference_candidate_not_Axiany_adoption",
+      "applicability": "source Eq9.32 domain 17..27 degC; first joint research domain 17..23"
+    },
+    {
+      "name": "cSet1",
+      "raw_value": "-1.71e-7",
+      "unit": "fruits/plant/s",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Table9.1 printed p265",
+      "status": "general_tomato_reference_candidate_not_Axiany_adoption",
+      "applicability": "nine fruits per truss assumption; not Axiany"
+    },
+    {
+      "name": "cSet2",
+      "raw_value": "7.31e-7",
+      "unit": "fruits/plant/s/degC",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Table9.1 printed p266",
+      "status": "general_tomato_reference_candidate_not_Axiany_adoption",
+      "applicability": "nine fruits per truss assumption; not Axiany"
+    },
+    {
+      "name": "nPlants",
+      "raw_value": "2.5",
+      "unit": "plants/m2",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Table9.1 printed p267",
+      "status": "general_tomato_reference_candidate_not_Axiany_adoption",
+      "applicability": "original Dutch reference; not code initial 3.12 or AGC Reference 1.4/4..8 stems"
+    },
+    {
+      "name": "max_set_carbon_rate",
+      "raw_value": "0.1",
+      "unit": "mg_CH2O/m2/s",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Table9.1 printed p267",
+      "status": "general_tomato_reference_candidate_not_Axiany_adoption",
+      "applicability": "source assumption; full allocation held"
+    },
+    {
+      "name": "GMax",
+      "raw_value": "1e4",
+      "unit": "mg_CH2O/fruit",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Table9.1 printed p266",
+      "status": "general_tomato_reference_candidate_not_Axiany_adoption",
+      "applicability": "potential carbohydrate weight; no fresh fruit conversion"
+    },
+    {
+      "name": "fruit_maintenance",
+      "raw_value": "1.16e-7",
+      "unit": "1/s",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Table9.1 printed p266",
+      "status": "general_tomato_reference_candidate_not_Axiany_adoption",
+      "applicability": "same reference coefficient as current kernel"
+    },
+    {
+      "name": "fruit_growth_respiration",
+      "raw_value": "0.27",
+      "unit": "1",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Table9.1 printed p266",
+      "status": "general_tomato_reference_candidate_not_Axiany_adoption",
+      "applicability": "buffer growth respiration once; transport scope excludes respiration"
+    },
+    {
+      "name": "cRgr",
+      "raw_value": "2.85e6",
+      "unit": "s",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Table9.1 printed p266",
+      "status": "general_tomato_reference_candidate_not_Axiany_adoption",
+      "applicability": "printed source time dimension; not inverse seconds"
+    },
+    {
+      "name": "Q10",
+      "raw_value": "2",
+      "unit": "1",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Table9.1 printed p268",
+      "status": "general_tomato_reference_candidate_not_Axiany_adoption",
+      "applicability": "maintenance reference"
+    },
+    {
+      "name": "CH2O_to_DM",
+      "raw_value": "1",
+      "unit": "mg_DM/mg_CH2O",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Table9.1 printed p265",
+      "status": "general_tomato_reference_candidate_not_Axiany_adoption",
+      "applicability": "source no lignification assumption; not fresh kg"
+    },
+    {
+      "name": "Gompertz_M_intercept",
+      "raw_value": "-4.93",
+      "unit": "day",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Eq9.40 printed p255",
+      "status": "equation_constant_reference_only",
+      "applicability": "full coupled fruit model adoption pending"
+    },
+    {
+      "name": "Gompertz_M_slope",
+      "raw_value": "0.548",
+      "unit": "1",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Eq9.40 printed p255",
+      "status": "equation_constant_reference_only",
+      "applicability": "full coupled fruit model adoption pending"
+    },
+    {
+      "name": "Gompertz_B_intercept",
+      "raw_value": "2.44",
+      "unit": "day",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Eq9.41 printed p255",
+      "status": "equation_constant_reference_only",
+      "applicability": "full coupled fruit model adoption pending"
+    },
+    {
+      "name": "Gompertz_B_M_slope",
+      "raw_value": "0.403",
+      "unit": "1",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Eq9.41 printed p255",
+      "status": "equation_constant_reference_only",
+      "applicability": "full coupled fruit model adoption pending"
+    },
+    {
+      "name": "seconds_per_day",
+      "raw_value": "86400",
+      "unit": "s/day",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Eq9.39 printed p255",
+      "status": "equation_constant_reference_only",
+      "applicability": "full coupled fruit model adoption pending"
+    },
+    {
+      "name": "stage_age_midpoint",
+      "raw_value": "0.5",
+      "unit": "1",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Eq9.42 printed p256",
+      "status": "equation_constant_reference_only",
+      "applicability": "full coupled fruit model adoption pending"
+    },
+    {
+      "name": "generative_onset_temperature_sum",
+      "raw_value": "0",
+      "unit": "degC_day",
+      "source_id": "vanthoor-thesis",
+      "source_locator": "Section9.4 printed p245; Eq9.33 printed p254",
+      "status": "equation_constant_reference_only",
+      "applicability": "full coupled fruit model adoption pending"
+    },
+    {
+      "name": "RGR_current_simplified_reference",
+      "raw_value": "3e-6",
+      "unit": "1/s",
+      "source_id": "crop-model",
+      "source_locator": [
+        "Parameters",
+        "rgr"
+      ],
+      "status": "pinned_code_assumption_not_measured_growth",
+      "applicability": "no fruit cohort calibration implied"
+    }
+  ],
+  "review": {
+    "thesis_PDF_sha256_verified": true,
+    "PDF_pages_visually_reviewed": [
+      257,
+      258,
+      259,
+      269,
+      270,
+      271
+    ],
+    "printed_pages_for_equations": [
+      253,
+      254,
+      255
+    ],
+    "printed_table_pages_visually_reviewed": [
+      265,
+      266,
+      267
+    ],
+    "remaining_scope_text_reviewed_printed_pages": [
+      244,
+      245,
+      256,
+      268,
+      261,
+      262
+    ],
+    "renderer": "PyMuPDF_1.26.7_temporary_no_project_dependency",
+    "raw_or_rendered_fulltext_in_repository": false,
+    "current_web_PDF_access": "403; used pinned previously retrieved unchanged bytes",
+    "GreenLight_states_reviewed": [
+      "about",
+      "reference",
+      "cBuf",
+      "cFruit",
+      "cLeaf",
+      "lai",
+      "cStem",
+      "tCanSum",
+      "tCan24"
+    ],
+    "pinned_GreenLight_no_50_fruit_cohort_states": true,
+    "spec_documents_sha256": {
+      "research/crop-fruit-cohorts-baseline.md": "6abff1a41d5e3d5ccc00b620caf68cf9ed7fa0efce061bdc0d5121753974b325",
+      "contracts/crop-fruit-cohorts-v1.md": "96e7f0a807289c74392b5617160a5a312d61d8ad2aebfecc803691fa376b6855"
+    },
+    "repository_relative_links_checked": 1499,
+    "repository_relative_links_missing": 0
+  },
+  "equations": [
+    {
+      "ids": [
+        "9.2",
+        "9.3",
+        "9.7"
+      ],
+      "printed_pages": [
+        244,
+        245
+      ],
+      "scope": "cohort balance and continuous DM outflow; fresh harvest excluded"
+    },
+    {
+      "ids": [
+        "9.29",
+        "9.30",
+        "9.35",
+        "9.36",
+        "9.37"
+      ],
+      "printed_pages": [
+        253,
+        254,
+        255
+      ],
+      "scope": "automatic set/sink allocation held"
+    },
+    {
+      "ids": [
+        "9.31",
+        "9.32",
+        "9.33",
+        "9.34"
+      ],
+      "printed_pages": [
+        253,
+        254
+      ],
+      "scope": "first isolated post-onset h=1 transport; onset/vegetative/smooth variants held"
+    },
+    {
+      "ids": [
+        "9.38",
+        "9.39",
+        "9.40",
+        "9.41",
+        "9.42"
+      ],
+      "printed_pages": [
+        255,
+        256
+      ],
+      "scope": "Gompertz parameters identified; allocation/cultivar applicability pending"
+    },
+    {
+      "ids": [
+        "9.43",
+        "9.44",
+        "9.45"
+      ],
+      "printed_pages": [
+        256
+      ],
+      "scope": "buffer growth and cohort maintenance exactly once in later coupling"
+    }
+  ],
+  "holds": [
+    {
+      "id": "FRUIT_ALLOCATION_CONSERVATION_HOLD",
+      "basis": "printed Eq9.36 allocates j>=2 after A1, Eq9.37 denominator sums j>=1",
+      "symbolic_difference_from_F": "-(F-A1)*w1/sum(w_j)",
+      "correction_adopted": false,
+      "needed": "source implementation/clarification or explicitly reviewed new conservative variant plus independent reference"
+    },
+    {
+      "id": "FRUIT_INITIAL_WEIGHT_HOLD",
+      "basis": "Eq9.35 W1 described as Gompertz integral without specified bounds/initial baseline",
+      "needed": "fixed bounds and initial mass/seed definition"
+    },
+    {
+      "id": "FRUIT_EMPTY_SINK_HOLD",
+      "basis": "Eq9.37 denominator zero and allocation above/without supported sink not specified",
+      "needed": "explicit conservation/depletion policy"
+    },
+    {
+      "id": "FRUIT_GATE_VARIANT_HOLD",
+      "basis": "number Eq9.31 has h, mass Eq9.34 does not; Eq9.33 unit label inconsistent; smooth variant differs",
+      "needed": "source-scoped initial/onset and original/smooth version decisions"
+    },
+    {
+      "id": "FRUIT_CULTIVAR_INITIAL_MANAGEMENT_HOLD",
+      "basis": "Axiany cohort initial states/set/thinning/harvest and source area/time unresolved",
+      "needed": "rights/QC reviewed cultivar/management/area/time inputs"
+    },
+    {
+      "id": "FRESH_HARVEST_CONVERSION_HOLD",
+      "basis": "potential CH2O mass and source DM conversion are not fresh yield; AGC DMC header/coverage unadopted",
+      "needed": "cultivar/time/sample validated conversion and harvest/grade events"
+    }
+  ],
+  "next_implementation": {
+    "task": "crop-fruit-transport",
+    "model_version": "vanthoor-fruit-transport-research-v1",
+    "scope": "instantaneous_isolated_post_onset_compartment_transport_software_research_only",
+    "nDev": 50,
+    "filtered_temperature_research_domain_degC": [
+      17,
+      23
+    ],
+    "automatic_set_or_allocation": false,
+    "integration_or_fresh_harvest": false,
+    "verification": "independent Decimal fixed cases and telescoping number/carbohydrate balances; plan, not executed code"
+  },
+  "coupling_policy": "existing total fruit mass derived once from sum(C_j); growth respiration once at buffer; maintenance once by cohorts; new model/profile/result version",
+  "actual_model_runs_created": 0,
+  "runtime_prediction_created": false,
+  "independent_domestic_datasets": 0,
+  "gates": "G0-G4 unchanged; no gate evidence supplied by this research contract"
+}

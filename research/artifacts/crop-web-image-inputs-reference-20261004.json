@@ -1,5 +1,5 @@
 {
-  "status": "local_red_green_accepted_actual_image_CI_pending",
+  "status": "actual_hosted_image_and_compose_accepted",
   "feature": "crop-web-image-inputs",
   "development_cli": {
     "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
@@ -45,7 +45,297 @@
     "web/src/cropGeometry.test.ts": "78370420781c490475bbc1b1832ffd59a9e049ab100f8583820a4b8bcb7ec61d"
   },
   "actual_local_Docker_run": false,
-  "actual_hosted_image_verification": "pending",
+  "actual_hosted_image_verification": {
+    "commit": "d76410fb2ee402f2c244222536b1189bfb536c6e",
+    "run_id": 37213151159,
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37213151159",
+    "status": "completed",
+    "conclusion": "success",
+    "completed_at_utc": "2026-10-04T15:35:17Z",
+    "log_sha256": "c4f4aeadac9be9d70f43d42d9837f1f742d5ed07e17edcde69cad0659161d725",
+    "context_probes_excluded": 17,
+    "events": [
+      {
+        "check": "actual_build_context",
+        "excluded_probes": 17
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:bb20b76c44123b6b1ea45712d6c5ea46f33f2c3b3aa2ac92e832538b469e55c1",
+        "service": "backend",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:bf0f0ed47a4e6fa2456cd526f9ef1de9f93fb4d3326645fbe2d351b94e8583af",
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "backend_readonly_imports_and_closed_startup",
+        "code_sha256": "8550c76803d748539d422724f44ecd6a86afade67ab39c39d6cf0f5b853535e0",
+        "environment_sha256": "e73e9ec049e80bfa4ad96afc33bfa25f5fddab60d60771284d6292178241beb3"
+      },
+      {
+        "certificate": "api",
+        "check": "web_static_tls_and_fixture_proxy",
+        "proxy_status": 200
+      },
+      {
+        "certificate": "wrong-name",
+        "check": "web_static_tls_and_fixture_proxy",
+        "proxy_status": 502
+      },
+      {
+        "check": "cleanup",
+        "containers_removed": true,
+        "image_tags_removed": true,
+        "temporary_files_removed": true
+      },
+      {
+        "check": "actual_build_context",
+        "excluded_probes": 17
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:bb20b76c44123b6b1ea45712d6c5ea46f33f2c3b3aa2ac92e832538b469e55c1",
+        "service": "backend",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:bf0f0ed47a4e6fa2456cd526f9ef1de9f93fb4d3326645fbe2d351b94e8583af",
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "api",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 134217728,
+        "nano_cpus": 250000000,
+        "readonly": true,
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 1000000000,
+        "readonly": true,
+        "service": "simulation",
+        "uid": "11001:11010"
+      },
+      {
+        "assessment": "hold",
+        "check": "tls_scram_automatic_economic_completion",
+        "scope": "software_fixture_only"
+      },
+      {
+        "check": "restart_current_completed_result",
+        "unchanged": true
+      },
+      {
+        "check": "current_grant_drift_refused",
+        "status": 503
+      },
+      {
+        "check": "compose_cleanup",
+        "processes_volumes_credentials_removed": true
+      },
+      {
+        "check": "actual_build_context",
+        "excluded_probes": 17
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:bb20b76c44123b6b1ea45712d6c5ea46f33f2c3b3aa2ac92e832538b469e55c1",
+        "service": "backend",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:bf0f0ed47a4e6fa2456cd526f9ef1de9f93fb4d3326645fbe2d351b94e8583af",
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "assessment": "hold",
+        "check": "automatic_owned_collection",
+        "scope": "software_fixture_only",
+        "source_count": 3
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "api",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 134217728,
+        "nano_cpus": 250000000,
+        "readonly": true,
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 1000000000,
+        "readonly": true,
+        "service": "simulation",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 268435456,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "collector",
+        "uid": "11001:11010"
+      },
+      {
+        "assessment": "hold",
+        "check": "tls_scram_automatic_economic_completion",
+        "scope": "software_fixture_only"
+      },
+      {
+        "check": "restart_current_completed_result",
+        "unchanged": true
+      },
+      {
+        "check": "collection_restart_and_parent_withdrawal",
+        "status": 422,
+        "unchanged": true
+      },
+      {
+        "check": "current_grant_drift_refused",
+        "status": 503
+      },
+      {
+        "check": "collector_current_grant_refused",
+        "exit_code": 3
+      },
+      {
+        "check": "compose_cleanup",
+        "processes_volumes_credentials_removed": true
+      },
+      {
+        "check": "actual_build_context",
+        "excluded_probes": 17
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:bb20b76c44123b6b1ea45712d6c5ea46f33f2c3b3aa2ac92e832538b469e55c1",
+        "service": "backend",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:bf0f0ed47a4e6fa2456cd526f9ef1de9f93fb4d3326645fbe2d351b94e8583af",
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "research_terminal_hold",
+        "reason_code": "ai_validated_hold"
+      },
+      {
+        "check": "held_research_ingestion_refused",
+        "status": 422
+      },
+      {
+        "captures": 1,
+        "check": "automatic_scoped_research_hold",
+        "decisions": 1,
+        "scope": "software_fixture_only",
+        "signed_executions": 1
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "api",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 134217728,
+        "nano_cpus": 250000000,
+        "readonly": true,
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 1000000000,
+        "readonly": true,
+        "service": "simulation",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 536870912,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "supervisor",
+        "uid": "11003:11020"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "authority",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 134217728,
+        "nano_cpus": 250000000,
+        "readonly": true,
+        "service": "dispatcher",
+        "uid": "11004:11030"
+      },
+      {
+        "assessment": "hold",
+        "check": "tls_scram_automatic_economic_completion",
+        "scope": "software_fixture_only"
+      },
+      {
+        "check": "restart_current_completed_result",
+        "unchanged": true
+      },
+      {
+        "check": "research_restart_current_hold",
+        "unchanged": true
+      },
+      {
+        "check": "current_grant_drift_refused",
+        "status": 503
+      },
+      {
+        "check": "dispatcher_current_grant_refused",
+        "exit_code": 3
+      },
+      {
+        "check": "compose_cleanup",
+        "processes_volumes_credentials_removed": true
+      }
+    ],
+    "all_image_and_compose_cleanup_verified": true
+  },
   "new_dependency_or_runtime_service": false,
   "gates": "not_assessed",
   "follow_up_context_failure": {
@@ -55,6 +345,6 @@
     "failure": "build_exclusion_failed:web/src/assets/crop-design/image-probe.svg",
     "cause": "directory negation re-included undeclared children; missing child exclusion before exact exceptions",
     "fix": "exclude crop-design/** after permitting directory and before eight exact child exceptions",
-    "actual_hosted_retry": "pending"
+    "actual_hosted_retry": "passed on d76410f, run 37213151159"
   }
 }

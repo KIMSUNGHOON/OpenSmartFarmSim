@@ -96,25 +96,40 @@
   사용자 산출물: [계산 기반 성장 연구 3D](../research/artifacts/crop-replay-final-desktop.png)와
   [로컬 실행법](../web/README.md#지금-3d를-직접-보기). 6시점/5분 합성 범위.
   실제 작기 입력 QC/국내 검증·과실/생과 생산량·전체 hosted CI/제품 관문은 별도 미수용.
-- [ ] **`crop-web-image-inputs`** — 실제 앱 이미지 실패 `0f3ce74`/37209918683의 최소 포장 보완.
+- [x] **`crop-web-image-inputs`** — 실제 앱 이미지 실패 `0f3ce74`/37209918683의 최소 포장 보완.
   핵심 필요: `web-crop-replay`의 fixture import/디자인 자산이 Docker COPY/허용 목록에서 빠짐.
-  [진단·로컬 수용](../research/crop-web-image-inputs-implementation.md): 기존 e2e 경로로 같은
+  [진단·실제 이미지 수용](../research/crop-web-image-inputs-implementation.md): 기존 e2e 경로로 같은
   fixture 이동/import, 자산 9개만 허용·17개 제외 probe/해시·production 데모 비포함 검사.
   로컬 COPY 모사 RED→GREEN/typecheck/build·이동 후 웹 단위 209개는 통과했다.
-  수용: 기존 hosted 앱 CI의 실제 context/image/TLS·비특권/읽기 전용/정리. 확인 전 미체크.
-- [ ] **`crop-fruit-model-spec`** — 다음 한 단계; 성장 연구 재생/모델 기준 조사 뒤.
-  예정 파일(3): `research/crop-fruit-cohorts-baseline.md`, `research/crop-fruit-source-register.json`,
+  `98d382a`의 실제 미선언 SVG 제외 반례를 폴더 자식 제외 한 줄로 수정했다.
+  `d76410f`/37213151159의 실제 context 17 probe·image/TLS·UID/읽기 전용/전체 Compose·정리를 통과했다.
+- [x] **`crop-fruit-model-spec`** — 원식/계수·권리·보류와 작은 개발 계약 수용.
+  파일(3): `research/crop-fruit-cohorts-baseline.md`, `research/crop-fruit-source-register.json`,
   `contracts/crop-fruit-cohorts-v1.md`.
   수용: 원 과실 발달 구획/개수·질량·호흡/수확 경계식·필수 계수/초기조건/관리 사건의
   단위/권리/hash·참조/품종 적용성·총 과실 저장소 결합, 독립 수치/보존/사건 검증 계획.
   계수·생과 환산 미확인은 hold. 사용자 산출물은 근거표/구획 계약이며 농장 생산 예측이 아니다.
+  [수용](../research/crop-fruit-cohorts-baseline.md): 원 PDF hash/6페이지 식·표와 코드 부재 대사,
+  21개 값/상수·단위, 9.36/9.37 보존 반례·W1/빈 sink/초기·gate hold와 독립 검증 계획.
+  새 계산/Run 0개. 원 불일치 해결은 `crop-fruit-allocation-policy`에 따로 둔다.
+- [ ] **`crop-fruit-transport`** — 다음 작은 코드 단계; 과실 명세 뒤, 국내/G2·전체 배분 선행 아님.
+  예정 파일(4): `backend/app/crop_fruit_transport.py`, `backend/tests/test_crop_fruit_transport.py`,
+  `fixtures/crop-fruit-transport-reference-parameters-v1.json`,
+  `fixtures/crop-fruit-transport-reference-cases-v1.json`.
+  수용: 원 50구획·온도 계수/단위·piecewise h=1의 순간 dN/dC·마지막 연구 유출·hash,
+  독립 Decimal 17/20/23°C·0/첫/다중 구획, 개수·탄소 telescoping 수지·불변/거부 검증.
+  배분/착과/호흡·적분/생과 kg/실제 과실 3D는 다음 범위. 사용자 산출물은 유량표/검사 보고서.
+- [ ] **`crop-fruit-allocation-policy`** — 이동 개발과 병행; 전체 과실 배분/착과 코드의 선행.
+  수용: 원 9.36/9.37 보존 불일치·W1 Gompertz 경계/초기 seed·빈/고갈 sink·gate 판본,
+  원/수정식 근거·별도 모델/프로필·독립 참조와 sum(A_j)=F/개수 보존·사건 정책.
+  원식의 분모/계수를 조용히 수정하지 않는다. 실제 품종 입력/관문은 별도.
 - [ ] **`crop-cycle-capacity`** — 입력 감사/현재 적분 수용 뒤; 실제 참조 작기 재현의 필수 선행.
   필요 근거: 실제 47,809시점/47,808 interval, 현재 배열 20,000개·step 100만;
   166일/10초의 산술 1,434,240 step. 문헌 과실 모델 개발/국내 확보와 병행한다.
   작은 실행 계약부터 분해: bounded forcing 처리·연속 상태/누적 수지/사건·불변 manifest/저장,
   계산 해상도와 출력 시간/페이지의 분리·30초 응답/WSL 자원·재시작/동일 재현/실제 작기 부하.
   수용 전 한도 증대/임의 forcing 축약으로 whole-cycle 완료를 주장하지 않는다.
-- [ ] **`crop-fruit-cohorts`** — 개발 선행: `crop-fruit-model-spec`·명시적 관리 사건.
+- [ ] **`crop-fruit-cohorts`** — 개발 선행: `crop-fruit-transport`·`crop-fruit-allocation-policy`·명시적 관리 사건.
   참조 계수의 순수 모듈 개발은 국내 자료 접근/G2를 기다리지 않는다.
   실제 Axiany 적용에는 `crop-input-audit`와 해당 품종/관리·발달 근거가 추가로 필요하다.
   예정 파일(3): `backend/app/crop_fruit_cohorts.py`, `backend/tests/test_crop_fruit_cohorts.py`,

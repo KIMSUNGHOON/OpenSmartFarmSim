@@ -127,7 +127,8 @@ SHA-256은 `b889e9ab1663fe3b8a90a3dab71d4340a6ecd49492532c43784cc82d799708ca`다
 [상태 적분](crop-growth-integration-implementation.md)·[불변 저장](crop-result-storage-implementation.md)·
 [조회 API](api-crop-replay-implementation.md)·[성장 연구 3D](web-crop-replay-implementation.md)도
 로컬 합성 연구 소프트웨어로 수용했다. [실제 참조 입력 감사](crop-forcing-audit.md)도
-완료했으며 실제 입력/작기 채택은 보류다. 다음은 과실 발달식/구획 계약이다.
+완료했으며 실제 입력/작기 채택은 보류다. [과실 발달식/구획 계약](crop-fruit-cohorts-baseline.md)도
+수용했고 다음은 고립된 순간 이동이다. 전체 착과/배분의 보존/초기/gate 결정은 별도다.
 모델 전체의 임의 수확값이나 농장 예측을 만들지 않는다.
 고정식·단위·독립 수식 대조의 범위를 유지하고 탄소 수지·고갈·수렴·재실행을 확인한다.
 실제 Axiany 자료 감사와 독립 자료
