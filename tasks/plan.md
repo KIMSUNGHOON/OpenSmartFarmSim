@@ -1,5 +1,96 @@
 # 구현 순서
 
+## 작물 생산과 성장 3D 우선순위 (2026-10-04)
+
+최종 목표를 기준으로 다음 순서를 우선한다. 이 절의 현재 계획 뒤에 남긴 날짜별
+진행 기록은 당시 상태다. **현재 다음 코드 작업은 `crop-growth-rates`**다.
+운영 기반은 `d19f7c0`의 [완료 범위/전체 CI](../research/crop-priority-and-runtime-freeze-20261004.md)로
+고정한다. 결합 원천 Compose 시제품은 미수용 상태로 보류했다.
+`application-source-consumers`/`application-compose-runtime`와 전체 G1은 체크하지 않는다.
+추가 기반 작업에는 필요한 작물 기능 ID·관문·실패/누락 증거·최소 변경과 수용 기준을
+붙여 이 계획에 명시한다. 전체 CI의 재통과나 운영 기능 수 자체는 새 기반 작업의 이유가 아니다.
+
+### 구현과 검증 자료의 병행 경로
+
+```mermaid
+flowchart TD
+  B["crop-model-baseline: Axiany 한 작기 조사"] --> R["crop-growth-rates: 탄소 유량"]
+  B --> Q["crop-input-audit: forcing·초기조건·관리 사건 QC"]
+  B --> AP["crop-independent-data-protocol: 권리·분할 준비"]
+  AP --> A["crop-independent-data-access: 국내 실측 확보"]
+  R --> I["crop-growth-integration: 상태 적분"]
+  Q --> X["개발 참조 작기 재현"]
+  I --> X
+  I --> S["crop-result-storage: 불변 연구 결과"]
+  S --> API["api-crop-replay: 현재 권리/같은 결과 조회"]
+  API --> V["web-crop-replay: 표·그래프·성장 3D"]
+  V --> F["crop-fruit-cohorts → crop-harvest-conversion"]
+  F --> C["crop-climate-coupling"]
+  C --> W["crop-water-nutrient"]
+  C --> E["crop-energy-purchases"]
+  W --> M["crop-economic-link: H/P/S·자원·Decimal"]
+  E --> M
+  A --> G2["g2-evidence: 국내 독립 측정 비교"]
+  X --> G2
+  G2 --> G3A["crop-g3a-evidence: 미사용 미래 작기"]
+  F --> G3A
+  M --> EC["g3a-evidence: 시장/정산 포함 미래 경제 검증"]
+  G3A --> EC
+  G3A --> P["해당 범위 미래 작물 예측 게시"]
+  EC --> PAIR["g3b-evidence: 둘 이상 후보의 대응 자료"]
+  PAIR --> REC["crop-ranking 게시: 승인 범위 추천"]
+  V --> PUB["g4-operations: 실제 운영 증거 후 공개"]
+```
+
+기관 상태 적분의 합성 시험은 전체 자료 audit 전에도 가능하다. 실제 해외 작기
+재현에는 audit가 필요하며, 표·3D 연구 재생은 합성/참조·보류 상태를 분명히 표시한다.
+국내 농장 자료 확보에는 이 엔진·KMA·전체 서비스의 완료가 필요하지 않다.
+G2의 최종 판정에는 검증하는 해당 출력의 계산/재현 증거가 필요하다.
+물·구매 에너지 예측을 열 때는 그 모듈과 해당 실측도 G2/G3a 범위에 포함한다.
+
+미래 작물 생산과 시장·경제 전망의 범위를 분리한다. 시장 G0·ForecastRun은
+미래 가격/마진에 필요한 경로이고 탄소 계산이나 성장 3D 개발의 선행 조건이 아니다.
+한 후보의 미래 생산 검증으로 다른 후보나 “최적”을 열지 않는다. 비교 엔진의 hold/계산 개발과 G3b 자료 준비는 병행할 수 있고, 위 추천 노드는 게시 수용 조건이다. G0~G4의 정의와
+현재 권리·독립 검토/해제 요건은 [제품 명세](../docs/PROJECT_SPEC.md#6-검증과-수용-관문) 그대로다.
+
+### 다음 한 단계와 확인 방법
+
+[rate kernel 계약](../contracts/crop-growth-research-v1.md)의 세 파일을 대상으로
+광 동화·분배·생장/유지 호흡·기관 변화율을 구현한다. 필요한 계수/식/단위/권리의
+고정 참조를 만들고, 독립 수치 참조·야간/잎 면적 0·탄소 보존·부적합 입력 거부를
+집중 pytest로 확인한다. 사용자는 유량 표와 검사 결과·근거/보류를 확인한다.
+이 수용은 전체 작기 적분·수확 kg·생장 3D·전체 G1 또는 국내 예측 완료가 아니다.
+
+### 단계별 확인 지점
+
+1. **계산 확인:** kernel/적분의 독립 참조·수지·수렴과 고정 입력/매개변수 파일을 확인한 뒤 저장 단계로 간다. 참조 forcing 감사와 국내 자료 상태를 함께 보고한다.
+2. **성장 재생 확인:** 저장/API/웹의 같은 결과 ID·시각·단위, 실제 브라우저와 표 대체를 확인한 뒤 생산량 확장으로 간다. 계산한 잎 면적과 모식 형태의 경계를 화면에서 확인한다.
+3. **생산/사업성 확인:** 과실/수확·물/성분·구매 에너지 수지와 동일 배치 원장 대사를 통과한 범위만 연결한다. 외부 계량/품종 변환/정산·시장 판본 누락은 출력별 hold로 보고한다.
+
+### 일정 추정의 근거와 외부 의존성
+
+아직 성장 엔진 코드/수용 실적이 없으므로 아래는 **한 명의 순차 작업자, 하루의
+집중 개발·검증 시간 약 4시간**을 가정한 최초 작업량 추정이다. 관측된 처리 속도가
+아니며 첫 kernel 종료 후 실제 소요로 재산정한다. 자료 권리/단위 audit가 멈추면
+합성 연구 경로로 진행 상태를 표시하고 실제 자료 완료 날짜를 미루어 기록한다.
+
+| 묶음 | 계획 작업량 | 확인 가능한 산출물/조건 |
+| --- | --- | --- |
+| 필요한 식/계수와 forcing audit | 1~2 작업일 | 고정 계수와 채널/시각/면적·초기조건 QC. 전체 audit는 아래 개발과 병행 |
+| 유량 kernel | 2~3 작업일 | 독립 참조값·탄소 수지·입력 거부 시험 |
+| 상태 적분/참조 재현 | 3~4 작업일 | 계산 시계열/잔차·재실행·수렴. 실제 참조 재현은 QC 완료 시 |
+| 저장/API | 2~3 작업일 | 저장 ID·manifest·현재 권리/혼합 거부 |
+| 성장 3D 연결 | 2~4 작업일 | 같은 수치/시점의 표·그래프·잎 면적/기관 상태 3D |
+
+합계 **10~16 집중 작업일**이 첫 계산 기반 성장 3D 연구 재생의 잠정 범위다.
+2026-10-05부터 위 조건으로 매일 작업한다면 **10월 14~20일**에 해당하며,
+이는 예약된 실행 또는 확약 날짜가 아니다. 수확·자원·경제 모듈은 각 착수 계약과
+변환/품종 근거 확인 뒤 다시 추정한다. 독립 국내 농장/작기 자료 확보는 현재 **0건**,
+동의·자료 범위·미사용 작기 기간이 정해지지 않아 G2/G3a·최종 추천/production
+완료일은 정할 근거가 없다. 예측/추천 검증은 실제 자료와 작기 달력에 의해 결정된다.
+
+## 이전 구현 진행 기록
+
 작성 Run의 후속 연결은 `authored-economic-execution → authored-calculation-assessment →
 authored-financial-selection → web-authored-economic-assessment` 순서로 검증한다([세부 작업](todo.md#작성-run-경제평가-연결-2026-10-01)).
 첫 단계인 [별도 경제 입력/영수증 V3](../contracts/authored-economic-execution-v1.md)와
@@ -123,7 +214,7 @@ CLI와 독립 실행/해제·G1 증거를 확보한다. 작성 농장의 웹 경
 먼저 두 시험값의 운영자/서버 연결을 확인하고, 최대 접수 기준 통과 뒤 같은 256개
 원천과 실제 별도 Python 작업자·현재 결과 읽기를 측정한다. 준비된 시험 코드는 실행 증거가 아니다.
 
-## 작업 의존성
+## 기존 열·시장·운영 경로의 의존성
 
 ```mermaid
 flowchart LR
@@ -172,8 +263,9 @@ flowchart LR
   cli-worker --> kma-g0
   market-context --> market-source-g0
   cli-worker --> market-source-g0
-  kma-g0 --> g2-evidence
-  end-to-end-g1 --> g2-evidence
+  crop-independent-data-access --> g2-evidence
+  kma-g0 -.->|기상 입력을 검증 범위에 쓸 때| g2-evidence
+  end-to-end-g1 -.->|전체 경로 주장의 계산 증거| g2-evidence
   market-source-g0 --> forecast-engine
   g2-evidence --> forecast-engine
   market-scenario --> forecast-engine
@@ -186,7 +278,7 @@ flowchart LR
   market-source-g0 -.->|시장 원천 유래 경로 공개 시| g4-operations
 ```
 
-### 앱 운영 조립의 관측된 공백
+### 앱 운영 조립의 당시 관측 공백 — 2026-10-02 기록
 
 2026-10-02 현재 두 Dockerfile의 실행은 `/bin/false`이며 `.dockerignore`는
 의존성 manifest만 포함한다. C0 체크는 DB/의존성 이미지의 수용이다.

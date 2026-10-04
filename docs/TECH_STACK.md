@@ -43,8 +43,18 @@
 [조사 RPC 전경 소비](../contracts/cli-dispatch-loop-v1.md)와
 [소유 수집 자동 소비](../contracts/collection-consumer-v1.md)는 기존 Python 실행기와
 SCRAM/Unix IPC를 사용하며 새 orchestration 프레임워크를 추가하지 않는다.
-두 소비자의 집중 실제 프로세스 수용 뒤 source Compose 연결을 진행한다.
-수집/CLI 자동 운영 연결·독립 자격증명·전체 운영/G1/G4는 보류다.
+수집/조사 RPC 각각의 Compose 단계와 같은 `d19f7c0` 전체 CI는
+[고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)에서 수용했다.
+결합 원천 경로·독립 자격증명·실제 제품 CLI·전체 G1/G4는 보류다.
+
+### 작물 수치 모듈 — 2026-10-04
+
+다음 구현은 기존 Python 백엔드의 작은 결정적 수식 모듈이다.
+[Vanthoor/GreenLight 고정 참조와 권리](../research/crop-tomato-model-baseline-20261004.md)를
+사용하며 전체 GreenLight GUI/해석기·새 에이전트 orchestration 의존성을 추가하지 않았다.
+현재 Three.js·ECharts/HTML 표·API·불변 저장을 성장 재생에 재사용한다.
+새 솔버/라이브러리가 실제 수렴/성능 수용에 필요해지면 그 증거와 잠금·라이선스를
+검토하고 별도 작업으로 기록한다.
 
 ## 에이전트 프레임워크 비교와 채택 문턱
 

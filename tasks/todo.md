@@ -1,5 +1,117 @@
 # 첫 구현 작업 목록
 
+## 작물 생산·성장 3D 구현 (2026-10-04 현재 우선순위)
+
+순서·병행 경로·일정의 가정은 [현재 계획](plan.md#작물-생산과-성장-3d-우선순위-2026-10-04),
+관문은 [제품 명세](../docs/PROJECT_SPEC.md)를 따른다. 아래 후속 파일은 **예정 파일**이며
+큰 묶음은 착수 전에 3~5파일의 작은 계약으로 나눈다. 아직 없는 모듈의 수용을 체크하지 않는다.
+
+- [x] **`crop-model-baseline`** — 조사/설계 단계.
+  산출물: [모델·품종·검증 조사](../research/crop-tomato-model-baseline-20261004.md),
+  [원문/계수/권리 등록부](../research/crop-tomato-source-register-20261004.json),
+  [첫 계산 계약](../contracts/crop-growth-research-v1.md).
+  수용: Vanthoor/축약 TOMGRO/TOMSIM의 구현·권리·검증 비교, Axiany/Maxifort 한 작기
+  개발 경계와 일반 계수의 적용 한계, 단위 정정·raw hash·actual CLI model/effort,
+  국내 독립 자료의 필수 채널·권리·분할과 hold. 네 요청 문서의 의존성/수용 기준·링크 대조를 통과했다([수용 기록](../research/crop-priority-and-runtime-freeze-20261004.md#이번-재정렬의-문서조사-수용)).
+- [ ] **`crop-growth-rates`** — **다음 코드 단계**, 선행: `crop-model-baseline`와 필요한 식/계수 검토.
+  예정 파일(3): `backend/app/crop_growth_rates.py`, `backend/tests/test_crop_growth_rates.py`,
+  `fixtures/crop-growth-reference-parameters-v1.json`.
+  수용: 고정 식·단위·출처/권리의 광 동화·분배·호흡·기관 변화율, 야간/잎 면적 0,
+  독립 고정 참조값·탄소 항등식·부적합 입력 거부와 재현.
+  확인: `cd backend` 뒤 `nice -n 10 .venv/bin/pytest -q tests/test_crop_growth_rates.py`.
+  사용자 산출물: 유량 표·검사 보고서. 국내 자료·G2·시장·전체 Compose가 착수를 막지 않는다.
+- [ ] **`crop-input-audit`** — kernel 개발과 병행.
+  예정 파일(3): `research/crop-forcing-audit.md`, `research/crop-forcing-register.json`,
+  `contracts/crop-forcing-v1.md`.
+  수용: 공개 archive 내 Reference303의 실제 채널/단위·UTC/DST·96m²/76.8m² 면적 기준·
+  결측/QC·초기조건·밀도/적심/적엽/수확 사건을 대사하고 PAR/수관/CO₂ 누락은 보류.
+  고정 값/변환의 raw hash와 권리를 기록한다. 확인: 원문 메타데이터/실제 파일 대조;
+  실제 replay 입력 채택은 기존 G0 검사를 별도로 통과해야 한다.
+- [ ] **`crop-growth-integration`** — 선행: `crop-growth-rates`.
+  예정 파일(3): `backend/app/crop_growth_integration.py`, `backend/tests/test_crop_growth_integration.py`,
+  `contracts/crop-growth-integration-v1.md`.
+  수용: UTC 사건/초기조건·솔버/간격 고정, 기관/버퍼·LAI·온도 합·누적 호흡/제거,
+  수지 잔차·양수성·수렴·동일 입력 재실행; 실패를 clipping으로 숨기지 않는다.
+  확인: 집중 pytest·독립 참조 적분. 참조 작기 재현은 `crop-input-audit` 뒤;
+  사용자 산출물은 상태 시계열/잔차 표이며 생과 수확/국내 예측이 아니다.
+- [ ] **`crop-result-storage`** — 선행: 적분 수용·기존 불변 저장/권리 제공자.
+  예정 파일(3): `backend/app/crop_result_store.py`, `backend/tests/test_crop_result_store.py`,
+  `contracts/crop-result-v1.md`.
+  수용: 연구 결과 ID·forcing/profile/model/solver·manifest/해시·claim scope/hold의 불변 저장,
+  동일 판본/재시작 조회, 변조·다른 농장/테넌트 혼합 거부. 현재 accepted Run으로 자동 승격 없음.
+  확인: focused pytest와 필요한 실제 SCRAM 사례; 산출물 저장 manifest/결과 파일.
+- [ ] **`api-crop-replay`** — 선행: `crop-result-storage`.
+  예정 파일(3): `backend/app/api_crop_replay.py`, `backend/tests/test_api_crop_replay.py`,
+  `contracts/api-crop-replay-v1.md`.
+  수용: 인증/현재 권리·정확한 연구 결과와 농장/Run 연결·단위/UTC·보류 범위의 조회;
+  다른 결과/모델/입력 혼합과 철회·변조 거부. 확인: OpenAPI/실제 HTTPS/SCRAM 집중 시험.
+  사용자 산출물: 저장 시점의 JSON/표 응답.
+- [ ] **`web-crop-replay`** — 선행: `api-crop-replay`.
+  예정 파일(4): `web/src/cropReplay.ts`, `web/src/cropReplay.test.ts`,
+  `web/e2e/crop-replay.spec.ts`, `contracts/web-crop-replay-v1.md`.
+  수용: 같은 결과 ID/시점의 잎 면적·기관 상태를 표·그래프·3D에 연결;
+  모식 형태·연구/합성·hold와 보간 표시, 미계산 키/잎수/착과수/숙기 애니메이션 없음.
+  현재 거부·재연결·키보드·WebGL 대체와 저장 수치/장면 대사를 실제 브라우저로 확인.
+  확인: typecheck/build·집중 단위/Chromium; 사용자 산출물: 계산 기반 성장 연구 3D.
+- [ ] **`crop-fruit-cohorts`** — 선행: 성장 재생 수용·해당 품종의 관리/발달 근거.
+  예정 파일(3): `backend/app/crop_fruit_cohorts.py`, `backend/tests/test_crop_fruit_cohorts.py`,
+  `contracts/crop-fruit-cohorts-v1.md`.
+  수용: 착과/발달 구획·개수·적심/적엽 사건의 고정 입력/품종 적용 범위와 기관 수지.
+  확인: 독립 참조·개수/질량 보존·사건 경계 pytest. 일반 토마토 계수로 Axiany 숙기 승인 없음.
+- [ ] **`crop-harvest-conversion`** — 선행: 과실 구획과 품종별 변환/수확 근거.
+  예정 파일(3): `backend/app/crop_harvest.py`, `backend/tests/test_crop_harvest.py`,
+  `contracts/crop-harvest-v1.md`.
+  수용: 건물/생과중·밀도·수확 사건·등급/불량의 출처/단위, 제거·생과 kg/개수·누적 수지;
+  미확인 변환계수/수확/등급을 기본 비율로 채우지 않음. 확인: 집중 pytest/실측 대조.
+  사용자 산출물: 적용 범위/hold가 있는 생산량 시계열; 국내 미래 예측은 해당 G2/G3a 뒤.
+- [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.
+  예정 파일(3): `backend/app/crop_climate_coupling.py`, `backend/tests/test_crop_climate_coupling.py`,
+  `contracts/crop-climate-coupling-v1.md`.
+  수용: 기존 실내 기온과 수관/광/CO₂·LAI/증산 관계, 시간 간격과 피드백 수지;
+  기존 시나리오 작물 계수와 이중 반영 없음. 확인: 집중 열/수증기·탄소 수지/해상도 시험.
+  단방향 forcing 재생은 결합 생산 모델과 구별한다.
+- [ ] **`crop-water-nutrient`** — 선행: 작물/기후 결합·배지/급배액/성분 근거.
+  예정 파일(3): `backend/app/crop_water_nutrient.py`, `backend/tests/test_crop_water_nutrient.py`,
+  `contracts/crop-water-nutrient-v1.md`.
+  수용: 증산·급액·배액·재순환·구매 용수/성분 재고 수지와 적정 수분 가정의 범위;
+  실제 계량·처방/성분 없으면 소비/스트레스 예측 보류. 확인: 단위/수지·집중 pytest/실측 대조.
+- [ ] **`crop-energy-purchases`** — 선행: 작물/기후 결합·설비 효율/계량/운전 근거.
+  예정 파일(3): `backend/app/crop_energy.py`, `backend/tests/test_crop_energy.py`,
+  `contracts/crop-energy-v1.md`.
+  수용: 공급열/미충족 열과 구매 전력/연료·보조 설비/CO₂ 분리, 효율/COP·단위/적용 범위;
+  근거가 없으면 변환 보류. 확인: 집중 수지/경계 pytest·계량/청구 대조.
+- [ ] **`crop-economic-link`** — 선행: 생산량·자원 계산과 같은 배치/달력의 경제 입력.
+  예정 파일(3): `backend/app/crop_economic_link.py`, `backend/tests/test_crop_economic_link.py`,
+  `contracts/crop-economic-link-v1.md`.
+  수용: 같은 입력/결과 해시의 H/P/S·등급/반품/폐기/재고·자원/원가와 기존 Decimal 손익/현금;
+  모델 수확 출처 유지·생산원가 한 번 반영·현재 권리/MarketContext/시점 검사·누락 시 hold.
+  확인: 집중 pytest/원장 대사. 산출물 조건부 손익표; 미래 가격/마진은 경제 G3a 전 비공개.
+- [x] **`crop-independent-data-protocol`** — 모델 개발과 병행하는 확보 준비.
+  산출물(3): [프로토콜](../research/crop-independent-data-protocol.md),
+  [필수 자료/권리 양식](../research/crop-independent-data-checklist.md),
+  [실제 확보 상태](../research/crop-independent-data-status.json).
+  수용: 동의/사용·표시·공유/철회·CLI 처리 범위, 센서/품종·관리/생육/수확·자원/경제 채널,
+  보정/독립 작기 사전 분할과 as-of 절차, 확보 0건/검증 미통과의 명시. 링크/필수 필드 대조를 통과했다([수용 기록](../research/crop-priority-and-runtime-freeze-20261004.md#이번-재정렬의-문서조사-수용)).
+- [ ] **`crop-independent-data-access`** — 선행: 프로토콜; **외부 접근 의존성**, 현재 0건.
+  실제 계약 ID·권리/필드 범위와 사설 파일 해시/시각/QC·reserved 독립 작기를 상태 판본에 연결한다.
+  수용: 직접 동의받은 국내 품종/관리·측정 자료와 미사용 기간의 접근/이용 근거.
+  확인: 계약/동의·필수 채널·센서 오차·개발/보정/독립성 대조. 개인/제한 원문은 Git/프롬프트에 넣지 않음.
+  프로토콜 완료는 이 접근 완료가 아니다. 최종 G2 전 해당 계산 증거를 연결하며
+  KMA·전체 G1은 자료 획득 착수 조건이 아니다.
+- [ ] **`crop-g3a-evidence`** — 선행: 해당 작물 출력 G2·생산 모델·권리 있는 미사용 미래 작기.
+  예정 파일(3): `research/crop-g3a-protocol.md`, `research/crop-g3a-source-register.md`,
+  `backend/tests/test_crop_g3a_gate.py`.
+  수용: 결정 시각에 가능했던 입력만으로 사전 등록한 미래 수확/품질 검증,
+  단순 기준선 대비 오차/편향/범위·지역/품종/관리 적용성. 보정/개발 참조 재사용 금지.
+  확인: 독립 기간/시점/측정 대조와 관문 시험. 미래 경제는 별도 `g3a-evidence`, 추천은 G3b 필요.
+
+## 운영 기반 고정 (2026-10-04)
+
+`d19f7c0`의 [5개 CI/완료 범위](../research/crop-priority-and-runtime-freeze-20261004.md)를
+현재 기반으로 고정한다. 결합 원천 Compose/최대 동시 성능/독립 custody 등 후속 기반은
+핵심 작물 경로 또는 공개 관문에서 필요성이 입증될 때 재개한다. 아래 날짜별 수용 기록과
+상위 미완료 체크를 보존한다. 새로운 기반 작업으로 다음 작물 모듈의 착수를 대체하지 않는다.
+
 ## 작성 Run 경제·평가 연결 (2026-10-01)
 
 - [x] **`authored-economic-execution`** — 선행: 저장 작성 Run과 현재 농장/경제 판본 제공자.
@@ -247,7 +359,7 @@
       [`b8df8f9` 실제 수용](../research/authority-compose-runtime-implementation.md#corrected-actual-hosted-acceptance):
       표준 TLS 지역 접수→자동 검증 보류/결정·캡처·서명 각1개와 공개 보고서·소유 수집 거부422·
       사설 파일/잘못된 UID 거부·실제 자원/마운트·소켓 제거/동일 재시작·권한 변화503/dispatcher exit3·
-      모든 정리 통과. 합성 factory 집중1/3.96초도 통과했으며 전체 새 판본 회귀/결합 원천 경로는 후속이다.
+      모든 정리 통과. 합성 factory 집중1/3.96초도 통과했다. `d19f7c0`의 전체 새 판본 회귀는 위 고정 기록에서 수용했고 결합 원천 경로는 미수용/보류다.
 
 **운영 조립 체크포인트:** 구성/발견/루프의 실제 프로세스 시험 뒤 앱 이미지 기동을 확인하고,
 같은 판본의 전체 CI가 끝난 뒤 `end-to-end-g1`의 실제 CLI·독립 증거와 브라우저 경로를 검증한다.
@@ -393,7 +505,7 @@
 - [ ] **`end-to-end-g1`** — 선행: `web-replay`, `cli-worker`, `compose-runtime`. 예정 파일(4): `scripts/run-g1.sh`, `backend/tests/test_e2e_g1.py`, `web/e2e/flow.spec.ts`, `contracts/g1-evidence.md`. 수용: 실제 PostgreSQL/Compose 환경에서 구현된 web/API/수집·CLI·수치 작업자를 기동하고, 합성 자료 요청이 복구 가능한 작업과 실제 CLI 세 단계를 모두 거쳐 결정적 열·사용자 가정만의 수요·공급·거시 공동 충격·날짜별 조건부 경제 출력, 일치하는 3D·표, 최종 작물 선택 `hold`까지 완료된다. 작업자 실패·재시작 후 복구를 확인한다. `unavailable` MarketContext의 Market hold report를 유지하고 가짜 MarketSnapshot·자료 유래 전망·순위를 게시하지 않는다. 증거에 버전·해시·시도·재시작 동작을 기록한다. 모의 시험만으로 체크하지 않으며 결과는 합성 자료 G1 계약 추적 시험에 한정한다. 확인: `bash scripts/run-g1.sh`, 집중 pytest, 실제 스택의 Playwright 시험; 비밀을 제거한 증거를 보존한다.
 - [ ] **`kma-g0`** — 선행: `g0-authority-store`, `thermal-contract`, `cli-worker`. 예정 파일(5): `backend/app/kma_asos.py`, `backend/app/kma_semantics.py`, `backend/tests/test_kma_asos.py`, `backend/tests/test_kma_g0.py`, `contracts/kma-product-v1.md`. 수용: 허용된 HTTPX 연결 도구가 실제 연결 제품의 정확한 ID, 공식 관측소·기간 보유율, `SI` MJ/m²·`TM` KST 의미, 호출당 31일 분할, 제공자 QC와 프로젝트 QC의 구분, 변경 불가 원본 해시, 이용·저장·표시·재배포 권리를 기록한다. **외부 장애물:** 권리/운영 승인, 측정한 `SI` 보유율, 정확한 `SI` 적산 구간/`TM` 경계를 전문 CLI 조사로 입증해야 한다. 없으면 실제 자료는 `hold`한다. 확인: 단위·음수·구간 시험 후 권리가 확인된 시범 요청과 G0 기록; 그 전에 좌표·기간을 고르지 않는다.
 - [ ] **`market-source-g0`** — 선행: `g0-authority-store`, `market-context`, `cli-worker`. 예정 파일(5): `backend/app/market_sources.py`, `backend/app/market.py`, `backend/tests/test_market_sources.py`, `backend/tests/test_market_source_g0.py`, `contracts/market-source-v1.md`. 수용: 실제 승인한 시장 제품만 허용 목록 어댑터로 수집·정규화하고 정확한 원천 URL/제품 ID, 관측·발표·`available_at`·조회 시각, 원본 판본/개정과 변경 불가 원본 해시, 원 단위와 변환 버전, 제공자/프로젝트 QC, 검토자, 접근·이용·저장·가공·표시·재배포 권리를 기록한다. 품목·품종/등급·거래 단계/채널·지역·날짜/적용기간·단위가 요청과 맞는지 검사하고 `available_at <= decision_at`인 당시 판본만 해당 용도 G0에 채택한다. 통과하면 불변 MarketSnapshot과 `{kind: "available", snapshot_id}`를 게시하고, 권리·판본·품질·적합성이 불명확하면 Market hold report와 `{kind: "unavailable", hold_report_id}`만 게시한다. 시장 참고가격을 농가 실수취가로 둔갑시키지 않는다. **외부 장애물:** 연결할 제품은 아직 정하지 않았으며 정확한 제품별 권리·원본 판본/공표 지연·개정 이력을 CLI 조사와 제공자 근거로 확인해야 한다. 이 작업은 첫 합성 G1의 선행 조건이 아니지만 자료 유래 시나리오·실제 시장 근거 표시·후속 전망의 선행 조건이다. 확인: 권리/시각/등급·채널·단위 불일치와 개정 자료의 과거 유입을 거부하는 집중 시험, 승인된 제품의 권리 범위 내 시범 요청·원본 해시 재계산·G0 게시/보류 기록; 근거가 없으면 게시를 보류하고 체크하지 않는다.
-- [ ] **`g2-evidence`** — 선행: `kma-g0`, `end-to-end-g1`. 예정 파일(3): `research/g2-protocol.md`, `research/g2-source-register.md`, `backend/tests/test_g2_gate.py`. 수용: 독립 국내 온실 센서/보정 기간, 기후 비교, 주장할 공급열 또는 구매 에너지에 대응하는 계량만 사전 등록한다. 검사 전에 적용 범위와 손실 기준을 기록한다. **외부 장애물:** 협력 농장의 동의와 실측값. 확인: 출처 이용 허락, 미사용 기간 비교 보고서, 관문 시험; 증거가 생길 때까지 G2는 보류한다.
+- [ ] **`g2-evidence`** — 자료 획득/프로토콜은 `crop-independent-data-access`에서 모델 개발과 병행한다. 최종 판정 선행: 검증 대상 출력의 G0·계산/재현 G1 증거; `kma-g0`는 해당 기상 자료를 쓸 때, `end-to-end-g1`은 전체 경로를 주장할 때 요구한다. 예정 파일(3): `research/g2-protocol.md`, `research/g2-source-register.md`, `backend/tests/test_g2_gate.py`. 수용: 독립 국내 온실 센서/보정 기간, 기후 비교, 주장할 공급열 또는 구매 에너지에 대응하는 계량만 사전 등록한다. 검사 전에 적용 범위와 손실 기준을 기록한다. **외부 장애물:** 협력 농장의 동의와 실측값. 확인: 출처 이용 허락, 미사용 기간 비교 보고서, 관문 시험; 증거가 생길 때까지 G2는 보류한다.
 - [ ] **`forecast-engine`** — 선행: `market-source-g0`, `g2-evidence`, `market-scenario`. 예정 파일(5): `backend/app/forecast.py`, `backend/app/forecast_validation.py`, `backend/tests/test_forecast.py`, `backend/tests/test_forecast_asof.py`, `contracts/forecast-run-v1.schema.json`. 수용: 승인된 MarketSnapshot이 있는 `available` 문맥만 받고 `decision_at` 당시 이용 가능한 원본 판본/특성(`feature_cutoff`)으로 모델·매개변수·코드/환경·학습 자료·시드·출력 해시가 고정된 별도 ForecastRun을 만든다. 검증된 범위에서는 후보별 미래 수확 `H`, 등급/packout별 판매 가능 `P`, 계약·재고 제약 후 판매 인정 `S`, 농가 순수취가·비용·수금/지급·현금의 공동 경로를 버전 고정 산술로 계산하고, 자료·변환·현장 근거 또는 G3a 적용 증거가 없으면 예측 게시 대신 명시적 `hold`와 누락 증거를 남긴다. 독립 rolling-origin 계획은 매 `decision_at` 전에 이용 가능했던 판본만 학습·특성 선택·구간 보정에 쓰고 이후 정산·관측은 정답에만 쓰며, 시점 복원이 안 되는 회차는 제외한다. 사전 등록된 계절/직전값·당시 발행 전망 기준선과 판매 kg·등급·실수취가·비용·현금 부족의 오차/편향/구간 포함률을 독립 기간에서 비교하도록 한다. **외부 장애물:** 동의 받은 국내 농장의 수확·등급·정산·계약·비용·현금 기록과 결정 당시 판본·독립 기간이 아직 없다. 확인: 불가 문맥/미래 정보 유입 거부, 버전 재실행·수량/원장 보존·누락 시 보류 시험과 미사용 기간 검증 계획 검토; 엔진 완료만으로 미래 마진이나 G3a를 열지 않는다.
 - [ ] **`g3a-evidence`** — 선행: `forecast-engine`, `economic-ledger`, `market-context`. 예정 파일(3): `research/g3a-protocol.md`, `research/g3a-source-register.md`, `backend/tests/test_g3a_gate.py`. 수용: 동의를 받은 수확·등급·판매·반품·재고·정산·계약·비용·현금 기록과 `decision_at` 당시 판본으로 개별 후보의 사전 등록된 rolling-origin 시험과 기준선 비교를 **엔진 개발·보정에 쓰지 않은 독립 기간**에서 뒷받침한다. **외부 장애물:** 농장 기록·권리·독립 기간. 확인: 원장 대사, 시점 분리, 사전 손실 기준·오차/편향/구간 포함률 보고서, 관문 시험; 통과 전에는 미래 마진을 내지 않는다.
 - [ ] **`crop-ranking`** — 선행: `g3a-evidence`. 예정 파일(5): `backend/app/ranking.py`, `backend/app/ranking_validation.py`, `backend/tests/test_ranking.py`, `backend/tests/test_ranking_hold.py`, `contracts/ranking-v1.schema.json`. 수용: 이번 결정에 실제 가능한 후보 둘 이상을 같은 `decision_at`·지역·온실/관리·면적·평가 달력·시작 재고·목표·계약/판로·자원 제약으로 맞추고 같은 시장/기상 충격 아래 ForecastRun과 날짜별 관리용 이익·현금을 비교한다. 후보별 G0~G3a 적용 범위와 G3b 대응 증거를 매 평가에서 재검사하고 불확실성 구간의 겹침, 순위 역전, 관측 가능한 대응 결과의 후회/최악 손실, 미판매 기말 재고와 비용을 기록한다. 후보가 둘 미만이거나 범위·제약·대응 증거가 부족하거나 우열을 구별할 수 없으면 `hold`와 후보별 이유를 내며 G3b가 독립 대응 검증을 통과한 범위에서만 순위를 게시한다. **외부 장애물:** 개발·보정과 분리된 국내 후보 대응 시험구/작기 기록·권리·공통 목표의 반사실 결과가 아직 없다. 확인: 후보 한 개, 충격 불일치, 구간 겹침, G3b 누락의 보류 시험과 동일 달력/면적·후회 손실의 대응 자료 시험; 엔진 구현만으로 순위를 열지 않는다.

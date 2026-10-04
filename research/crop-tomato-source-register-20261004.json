@@ -1,0 +1,898 @@
+{
+  "register_version": "crop-tomato-research-register-v1",
+  "created_at_utc": "2026-10-04T08:55:31.834694+00:00",
+  "development_target": {
+    "species": "Solanum lycopersicum",
+    "cultivar": "Axiany",
+    "rootstock": "Maxifort",
+    "cycle": "2019-12-16/2020-05-29",
+    "compartment": "Reference (303), selected development case; file mapping/QC pending",
+    "location": "Bleiswijk, Netherlands",
+    "domestic_application": "hold"
+  },
+  "cli": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "verified_turn_context_at": "2026-10-04T04:53:25.507Z",
+    "recursive_cli": false
+  },
+  "sources": [
+    {
+      "source_id": "crop-model",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/crop_vanthoor_2011_chapter_9_simplified.json",
+      "product_id": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "observed_period_local": null,
+      "published_at": "2026-09-09T16:00:54Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:47:16.425493+00:00",
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "raw_sha256": "272a589edf0bb40d1a91b34e883f8e94b9adf747a576be4620c50296c03d7033",
+      "bytes": 26741,
+      "units": "see parameter records / dataset per-channel audit pending",
+      "qc": "source bytes hashed; scoped coefficient/data adoption pending",
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "code reference/reuse under license; no patent rights granted",
+        "display": "retain author/copyright/conditions; no endorsement",
+        "redistribution": "retain copyright/conditions/disclaimer for reused source/binaries; product integration pending"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "publication_time_basis": "pinned commit timestamp, not independently reconstructed first public availability of this file"
+    },
+    {
+      "source_id": "crop-standalone",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/extension_crop_vanthoor_2011_for_standalone.json",
+      "product_id": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "observed_period_local": null,
+      "published_at": "2026-09-09T16:00:54Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:47:16.666867+00:00",
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "raw_sha256": "74bf4f3ebc3100945de834433b210984c7a75c78c58218e5f7d5b4bd1c82ea49",
+      "bytes": 3895,
+      "units": "see parameter records / dataset per-channel audit pending",
+      "qc": "source bytes hashed; scoped coefficient/data adoption pending",
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "code reference/reuse under license; no patent rights granted",
+        "display": "retain author/copyright/conditions; no endorsement",
+        "redistribution": "retain copyright/conditions/disclaimer for reused source/binaries; product integration pending"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "publication_time_basis": "pinned commit timestamp, not independently reconstructed first public availability of this file"
+    },
+    {
+      "source_id": "model-readme",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/readme.txt",
+      "product_id": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "observed_period_local": null,
+      "published_at": "2026-09-09T16:00:54Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:47:17.151700+00:00",
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "raw_sha256": "9e5ca837f6be1524886550f2c00d0ddab0cf980fd4be778e7e8d3532f4239ad9",
+      "bytes": 2581,
+      "units": "see parameter records / dataset per-channel audit pending",
+      "qc": "source bytes hashed; scoped coefficient/data adoption pending",
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "code reference/reuse under license; no patent rights granted",
+        "display": "retain author/copyright/conditions; no endorsement",
+        "redistribution": "retain copyright/conditions/disclaimer for reused source/binaries; product integration pending"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "publication_time_basis": "pinned commit timestamp, not independently reconstructed first public availability of this file"
+    },
+    {
+      "source_id": "greenlight-license",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/LICENSE.txt",
+      "product_id": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "observed_period_local": null,
+      "published_at": "2026-09-09T16:00:54Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:47:17.478320+00:00",
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "raw_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+      "bytes": 1716,
+      "units": "see parameter records / dataset per-channel audit pending",
+      "qc": "source bytes hashed; scoped coefficient/data adoption pending",
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "code reference/reuse under license; no patent rights granted",
+        "display": "retain author/copyright/conditions; no endorsement",
+        "redistribution": "retain copyright/conditions/disclaimer for reused source/binaries; product integration pending"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "publication_time_basis": "pinned commit timestamp, not independently reconstructed first public availability of this file"
+    },
+    {
+      "source_id": "greenlight-pyproject",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/pyproject.toml",
+      "product_id": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "observed_period_local": null,
+      "published_at": "2026-09-09T16:00:54Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:47:17.719833+00:00",
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "raw_sha256": "bd2b790c105f2d4c4f6aaf266093b216fe2ead839d51f7cc3ae05e7c26c30ba8",
+      "bytes": 1388,
+      "units": "see parameter records / dataset per-channel audit pending",
+      "qc": "source bytes hashed; scoped coefficient/data adoption pending",
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "code reference/reuse under license; no patent rights granted",
+        "display": "retain author/copyright/conditions; no endorsement",
+        "redistribution": "retain copyright/conditions/disclaimer for reused source/binaries; product integration pending"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "publication_time_basis": "pinned commit timestamp, not independently reconstructed first public availability of this file"
+    },
+    {
+      "source_id": "figshare-metadata",
+      "source_url": "https://api.figshare.com/v2/articles/12764777",
+      "product_id": "10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+      "observed_period_local": null,
+      "published_at": "2020-09-23T10:41:39Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:46:18.584264+00:00",
+      "vintage": "dataset-v2",
+      "raw_sha256": "56d641d0da19c6750020a48ae92da642dc7a4aa82e3e857190643fb2f6741ce6",
+      "bytes": 8797,
+      "units": "see parameter records / dataset per-channel audit pending",
+      "qc": "source bytes hashed; scoped coefficient/data adoption pending",
+      "rights": {
+        "license": "CC0-1.0 declared for referenced dataset; metadata redistribution not separately reviewed",
+        "use": "license/vintage evidence for research; no dataset or metadata G0 adoption",
+        "display": "cite provider and DOI; no bulk metadata display adopted",
+        "redistribution": "API payload not included; dataset rights recorded separately"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "product_version": "2"
+    },
+    {
+      "source_id": "datacite",
+      "source_url": "https://api.datacite.org/dois/10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+      "product_id": "10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+      "observed_period_local": null,
+      "published_at": "2020-09-23T10:41:39Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:49:33.523675+00:00",
+      "vintage": "dataset-v2",
+      "raw_sha256": "580f57622ff3522bf97178780bbfaaed45dbdf4ed524868800620c82da0fbf12",
+      "bytes": 14796,
+      "units": "see parameter records / dataset per-channel audit pending",
+      "qc": "source bytes hashed; scoped coefficient/data adoption pending",
+      "rights": {
+        "license": "CC0-1.0 declared for referenced dataset; metadata redistribution not separately reviewed",
+        "use": "license/vintage evidence for research; no dataset or metadata G0 adoption",
+        "display": "cite provider and DOI; no bulk metadata display adopted",
+        "redistribution": "API payload not included; dataset rights recorded separately"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "product_version": "2"
+    },
+    {
+      "source_id": "agc-archive",
+      "source_url": "https://ndownloader.figshare.com/files/24757220",
+      "product_id": "10.4121/uuid:88d22c60-21b3-4ea8-90db-20249a5be2a7",
+      "observed_period_local": "2019-12-16/2020-05-29",
+      "published_at": "2020-09-23T10:41:39Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:49:39.307459+00:00",
+      "vintage": "dataset-v2",
+      "raw_sha256": "b889e9ab1663fe3b8a90a3dab71d4340a6ecd49492532c43784cc82d799708ca",
+      "bytes": 8418715,
+      "units": "see parameter records / dataset per-channel audit pending",
+      "qc": "source bytes hashed; biological applicability not accepted; archive MD5 matches publisher",
+      "rights": {
+        "license": "CC0-1.0",
+        "use": "dataset use permitted by version-2 deposit metadata; file/channel QC pending",
+        "display": "dataset CC0 declaration confirmed; application display scope not adopted",
+        "redistribution": "CC0 declaration recorded; archive excluded from repository; contents/file-specific notices not inspected"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "product_version": "2"
+    },
+    {
+      "source_id": "agc-paper",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7698269/",
+      "product_id": "10.3390/s20226430",
+      "observed_period_local": "2019-12-16/2020-05-29",
+      "published_at": "2020-11-11",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:49:34.622494+00:00",
+      "vintage": "published article/thesis",
+      "raw_sha256": "a67e101b95b7337806fd51413eb2687467c358ae7b94d824742f293d6791a6ca",
+      "bytes": 282743,
+      "units": "see parameter records / dataset per-channel audit pending",
+      "qc": "source bytes hashed; scoped coefficient/data adoption pending",
+      "rights": {
+        "license": "CC-BY-4.0",
+        "use": "research reference with author/source/license attribution",
+        "display": "attribution required; article figures/assets not adopted",
+        "redistribution": "per CC BY 4.0; article bytes not included in repository"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption"
+    },
+    {
+      "source_id": "vanthoor-thesis",
+      "source_url": "https://edepot.wur.nl/170301",
+      "product_id": "10.18174/170301",
+      "observed_period_local": null,
+      "published_at": "2011-06-17",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:51:13.324303+00:00",
+      "vintage": "published article/thesis",
+      "raw_sha256": "965ecc5573290d0cc59b514e9766b301f9584d212545dec177efa66dd756ac38",
+      "bytes": 3423075,
+      "units": "see parameter records / dataset per-channel audit pending",
+      "qc": "source bytes hashed; scoped coefficient/data adoption pending",
+      "rights": {
+        "license": "fulltext-redistribution-unconfirmed",
+        "use": "read and reference mathematical definitions; no fulltext incorporation",
+        "display": "citation/short contextual references only; fulltext/figures not adopted",
+        "redistribution": "unconfirmed; PDF excluded from repository"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption"
+    }
+  ],
+  "parameters": [
+    {
+      "symbol": "cLeafMax",
+      "source_id": "crop-model",
+      "json_path": [
+        "Model flows",
+        "Leaf pruning",
+        "cLeafMax"
+      ],
+      "value_expression": "laiMax / sla",
+      "source_unit": "mg{leaf} m**-2",
+      "reviewed_unit": "mg{leaf} m**-2",
+      "reference": "Vanthoor 2011, Equation 9.46",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "laiMax",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 2.2",
+        "laiMax"
+      ],
+      "value_expression": "3",
+      "source_unit": "m**2{leaf} m**-2{floor}",
+      "reviewed_unit": "m**2{leaf} m**-2{floor}",
+      "reference": "Vanthoor 2011, Table 2.2 (NL Specific)",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "alpha",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "alpha"
+      ],
+      "value_expression": "0.385",
+      "source_unit": "umol{e-} umol**-1{photons}",
+      "reviewed_unit": "umol{e-} umol**-1{photons}",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "theta",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "theta"
+      ],
+      "value_expression": "0.7",
+      "source_unit": "-",
+      "reviewed_unit": "-",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "etaCo2AirStom",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "etaCo2AirStom"
+      ],
+      "value_expression": "0.67",
+      "source_unit": "umol{co2} mol**-1{air}",
+      "reviewed_unit": "umol{co2} mol**-1{air}",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "cGamma",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "cGamma"
+      ],
+      "value_expression": "1.7",
+      "source_unit": "umol{co2} mol**-1{air} K**-1",
+      "reviewed_unit": "umol{co2} mol**-1{air} K**-1",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "cFruitM",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "cFruitM"
+      ],
+      "value_expression": "1.16e-7",
+      "source_unit": "mg mg**-1 s**-1",
+      "reviewed_unit": "mg mg**-1 s**-1",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "cFruitG",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "cFruitG"
+      ],
+      "value_expression": "0.27",
+      "source_unit": "-",
+      "reviewed_unit": "-",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "cLeafM",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "cLeafM"
+      ],
+      "value_expression": "3.47e-7",
+      "source_unit": "mg mg**-1 s**-1",
+      "reviewed_unit": "mg mg**-1 s**-1",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "cLeafG",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "cLeafG"
+      ],
+      "value_expression": "0.28",
+      "source_unit": "-",
+      "reviewed_unit": "-",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "cStemM",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "cStemM"
+      ],
+      "value_expression": "1.47e-7",
+      "source_unit": "mg mg**-1 s**-1",
+      "reviewed_unit": "mg mg**-1 s**-1",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "cStemG",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "cStemG"
+      ],
+      "value_expression": "0.3",
+      "source_unit": "-",
+      "reviewed_unit": "-",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "cRgr",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "cRgr"
+      ],
+      "value_expression": "2.85e6",
+      "source_unit": "s**-1",
+      "reviewed_unit": "s",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Unit label corrected from s^-1 to s using Vanthoor 2011 printed p256 Eq9.45 and p266 Table9.1; value unchanged.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "cBufMax",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "cBufMax"
+      ],
+      "value_expression": "20e3",
+      "source_unit": "mg m**-2",
+      "reviewed_unit": "mg m**-2",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "cBufMin",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "cBufMin"
+      ],
+      "value_expression": "1e3",
+      "source_unit": "mg m**-2",
+      "reviewed_unit": "mg m**-2",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "eJ",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "eJ"
+      ],
+      "value_expression": "37e3",
+      "source_unit": "J mol**-1",
+      "reviewed_unit": "J mol**-1",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "H",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "H"
+      ],
+      "value_expression": "22e4",
+      "source_unit": "J mol**-1",
+      "reviewed_unit": "J mol**-1",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "j25LeafMax",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "j25LeafMax"
+      ],
+      "value_expression": "210",
+      "source_unit": "umol{e-} m**-2{leaf} s**-1",
+      "reviewed_unit": "umol{e-} m**-2{leaf} s**-1",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "mCh2o",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "mCh2o"
+      ],
+      "value_expression": "30e-3",
+      "source_unit": "mg umol**-1",
+      "reviewed_unit": "mg umol**-1",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "rgFruit",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "rgFruit"
+      ],
+      "value_expression": "0.328",
+      "source_unit": "mg m**-2 s**-1",
+      "reviewed_unit": "mg m**-2 s**-1",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "rgLeaf",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "rgLeaf"
+      ],
+      "value_expression": "0.095",
+      "source_unit": "mg m**-2 s**-1",
+      "reviewed_unit": "mg m**-2 s**-1",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "rgStem",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "rgStem"
+      ],
+      "value_expression": "0.074",
+      "source_unit": "mg m**-2 s**-1",
+      "reviewed_unit": "mg m**-2 s**-1",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "S",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "S"
+      ],
+      "value_expression": "710",
+      "source_unit": "J mol**-1 K**-1",
+      "reviewed_unit": "J mol**-1 K**-1",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "sla",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "sla"
+      ],
+      "value_expression": "2.66e-5",
+      "source_unit": "m**2{leaf} mg**-1{leaf}",
+      "reviewed_unit": "m**2{leaf} mg**-1{leaf}",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "t25k",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "t25k"
+      ],
+      "value_expression": "298.15",
+      "source_unit": "K",
+      "reviewed_unit": "K",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "tEndSum",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "tEndSum"
+      ],
+      "value_expression": "1035",
+      "source_unit": "°C day",
+      "reviewed_unit": "°C day",
+      "reference": "Vanthoor 2011, Table 9.1. Note that the unit there is different than the one used here",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "q10m",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.1",
+        "q10m"
+      ],
+      "value_expression": "2",
+      "source_unit": "-",
+      "reviewed_unit": "-",
+      "reference": "Vanthoor 2011, Table 9.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "tCanMin",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.2",
+        "tCanMin"
+      ],
+      "value_expression": "10",
+      "source_unit": "°C",
+      "reviewed_unit": "°C",
+      "reference": "Vanthoor 2011, Table 9.2",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "tCanMax",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.2",
+        "tCanMax"
+      ],
+      "value_expression": "34",
+      "source_unit": "°C",
+      "reviewed_unit": "°C",
+      "reference": "Vanthoor 2011, Table 9.2",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "tCan24Min",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.2",
+        "tCan24Min"
+      ],
+      "value_expression": "15",
+      "source_unit": "°C",
+      "reviewed_unit": "°C",
+      "reference": "Vanthoor 2011, Table 9.2",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "tCan24Max",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "Table 9.2",
+        "tCan24Max"
+      ],
+      "value_expression": "24.5",
+      "source_unit": "°C",
+      "reviewed_unit": "°C",
+      "reference": "Vanthoor 2011, Table 9.2",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "rgr",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "rgr"
+      ],
+      "value_expression": "3e-6",
+      "source_unit": "{kg{dw grown} kg**-1{existing dw} s**-1}",
+      "reviewed_unit": "{kg{dw grown} kg**-1{existing dw} s**-1}",
+      "reference": "https://github.com/davkat1/GreenLight/blob/4ec6018e0aad2775ad11085d34f3886a7b7dd052/Code/createGreenLightModel/setGlParams.m",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "mCo2",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "mCo2"
+      ],
+      "value_expression": "44e-3",
+      "source_unit": "mg µmol**-1",
+      "reviewed_unit": "mg µmol**-1",
+      "reference": "https://github.com/davkat1/GreenLight/blob/4ec6018e0aad2775ad11085d34f3886a7b7dd052/Code/createGreenLightModel/setGlParams.m",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "R",
+      "source_id": "crop-model",
+      "json_path": [
+        "Parameters",
+        "R"
+      ],
+      "value_expression": "8314",
+      "source_unit": "J kmol**-1 K**-1",
+      "reviewed_unit": "J kmol**-1 K**-1",
+      "reference": "Vanthoor 2011, Table 8.1. Included here to allow for standalone running",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "cFruitMax",
+      "source_id": "crop-model",
+      "json_path": [
+        "Fruit harvesting",
+        "cFruitMax"
+      ],
+      "value_expression": "300e3",
+      "source_unit": "mg{fruit} m**-2",
+      "reviewed_unit": "mg{fruit} m**-2",
+      "reference": "Katzin 2021, pg. 246",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "k1Par",
+      "source_id": "crop-standalone",
+      "json_path": [
+        "Parameters",
+        "k1Par"
+      ],
+      "value_expression": "0.7",
+      "source_unit": "-",
+      "reviewed_unit": "-",
+      "reference": "Vanthoor 2011, Table 8.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "k2Par",
+      "source_id": "crop-standalone",
+      "json_path": [
+        "Parameters",
+        "k2Par"
+      ],
+      "value_expression": "0.7",
+      "source_unit": "-",
+      "reviewed_unit": "-",
+      "reference": "Vanthoor 2011, Table 8.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "rhoCanPar",
+      "source_id": "crop-standalone",
+      "json_path": [
+        "Parameters",
+        "rhoCanPar"
+      ],
+      "value_expression": "0.07",
+      "source_unit": "-",
+      "reviewed_unit": "-",
+      "reference": "Vanthoor 2011, Table 8.1",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    },
+    {
+      "symbol": "rhoFlrPar",
+      "source_id": "crop-standalone",
+      "json_path": [
+        "Parameters",
+        "rhoFlrPar"
+      ],
+      "value_expression": "0.65",
+      "source_unit": "-",
+      "reviewed_unit": "-",
+      "reference": "Vanthoor 2011, Table 8.2 (Netherlands)",
+      "review_note": "Generic literature/implementation value; no Axiany or Korean calibration.",
+      "scope": "reference_model_only",
+      "status": "not_adopted_crop_profile"
+    }
+  ],
+  "holds": [
+    "agc_archive_contents_not_yet_inspected",
+    "forcing_units_timezones_area_and_missingness_not_accepted",
+    "Axiany_initial_states_and_parameter_calibration_missing",
+    "independent_Korean_farm_data_and_rights_missing",
+    "fresh_weight_and_fruit_geometry_conversion_missing",
+    "production_observer_and_real_CLI_and_independent_release_missing"
+  ],
+  "first_party_public_sources_not_fetched_as_bytes": [
+    {
+      "url": "https://elibrary.asabe.org/abstract.asp?%3FJID=3&AID=13203&CID=t1999&T=1&i=1&v=42",
+      "doi": "10.13031/2013.13203",
+      "status": "publisher abstract reviewed; full equations/code rights not adopted"
+    },
+    {
+      "url": "https://research.wur.nl/en/publications/tomato-growth-and-yield-quantitative-analysis-and-synthesis/",
+      "doi": "10.18174/206832",
+      "status": "author institutional abstract reviewed; executable/source rights not adopted"
+    }
+  ]
+}

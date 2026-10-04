@@ -1,5 +1,19 @@
 # 구현 준비 현황
 
+## 현재 우선순위와 외부 의존성 — 2026-10-04
+
+운영 기반은 `d19f7c0`의 [완료 범위/CI 5개 통과](../research/crop-priority-and-runtime-freeze-20261004.md)로
+고정했다. 후속 운영 조립은 핵심 작물 기능/관문에 필요한 증거가 있을 때 재개한다.
+다음 코드는 [생장 유량 모듈](../contracts/crop-growth-research-v1.md)이며,
+순서는 [수정 계획](../tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04)을 따른다.
+
+[단일 Axiany 작기 모델/권리 조사](../research/crop-tomato-model-baseline-20261004.md)와
+독립 자료의 [권리·분할 프로토콜](../research/crop-independent-data-protocol.md)을 준비했다.
+일반 문헌 계수는 승인 품종 프로필이 아니고 실제 forcing/초기조건 QC는 남아 있다.
+[국내 동의/실측/독립 작기는 0건](../research/crop-independent-data-status.json)이다.
+계산 개발과 자료 확보는 병행한다. 실제 제품 CLI·독립 해제·전체 G1 및 현장/미래/추천·
+공개 운영 G2~G4는 각 증거가 없으면 hold다. 아래 날짜별 기록은 당시 확인 상태다.
+
 **원천→농장 참조 제공자 (2026-10-01):** [읽기 계약](../contracts/source-farm-selection-v1.md)은
 정확한 완료 조사·수집의 현재 등록 범위와 이미 저장된 원본 스냅샷/서명 문맥을 확인한다.
 [SCRAM 집중 4개](../research/source-farm-selection-implementation.md)가 통과했으며 쓰기 범위 없이
