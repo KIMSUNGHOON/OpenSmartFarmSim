@@ -99,9 +99,22 @@ farm/program 연결·SQL/거래 잠금·late 권리 검사·예산/오류 경계
 보존하며 계산 HTTP 분리/비재적분과 실제 HTTPS/SCRAM 30초 본문·현재 권리/정리를 수용한다.
 그 뒤 같은 저장 ID/UTC를 표·그래프/50구획 연구 3D에 연결한다.
 
-새 저장의 HTTP/브라우저·hosted 전체 CI는 아직 수용하지 않았다.
+당시에는 새 저장의 HTTP/브라우저·hosted 전체 CI를 수용하지 않았다.
 선행 `784335d`의 [CI 5개/2,969개·별도 UID 4개](artifacts/crop-fruit-cohort-plant-ci-20261005.json)는
 이전 순간 구획/기관 모델 판본의 실제 수용이다.
 전체 작기 capacity/startup·실제 품종/forcing QC·생과·자원/경제 연결은 남아 있다.
 국내 동의/독립 미래 자료 0개, actual forcing/Run 0개, G0–G4 열린 관문도 없다.
 현재 fake source/rights/CLI와 시험 키를 실제 자료 승인이나 독립 custody로 보고하지 않는다.
+
+## 후속 실제 hosted 수용 (2026-10-05 KST)
+
+`d15cf92`의 [CI 5개](artifacts/crop-coupled-storage-ci-20261005.json)가 모두 성공했다.
+Backend 3,070개·별도 UID smoke 4개, 여섯 분할의 같은 전체 목록
+`1c55d10dd915d579cfa4c652c3187b84fc429040e28f3fab9d1ba36edeac22d3`,
+여섯 DB/password 정리와 별도 집계 job까지 실제 로그/API로 대사했다.
+Application의 실제 이미지/runtime 49개·세 Compose 정리는
+[별도 증거](artifacts/crop-coupled-operator-policy-ci-20261005.json)에 있다.
+이 범위는 짧은 시간 적분/artifact·v2 저장·기본 false policy 회귀 복구다.
+이후 [새 API 로컬 수용](api-crop-coupled-replay-implementation.md)과 웹 페이지/수치 도형은
+새 head의 hosted/브라우저 검증이 필요하다. 기존 실행은 완료까지 보존했고 재시작하지 않았다.
+실제 품종/전체 작기·G0–G4 보류는 그대로다.

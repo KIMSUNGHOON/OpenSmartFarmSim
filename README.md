@@ -55,9 +55,10 @@
 백엔드 2,840개·별도 UID 4개·여섯 동일 목록/정리·집계를 통과했습니다.
 `784335d`의 순간 구획/기관 결합도 [전체 CI 5개](research/artifacts/crop-fruit-cohort-plant-ci-20261005.json),
 백엔드 2,969개·별도 UID 4개·여섯 동일 목록/정리·집계를 통과했습니다.
-새 시간 적분/artifact·v2 저장 판본의 hosted 회귀는 별도로 실행합니다.
-`d15cf92`의 Application image/runtime 49개·세 Compose 정리는 통과했으며
-새 API 로컬 수용은 전체 hosted/브라우저 수용과 구분합니다.
+`d15cf92`의 시간 적분/artifact·v2 저장/기본 policy 판본도 [전체 CI 5개](research/artifacts/crop-coupled-storage-ci-20261005.json),
+백엔드 3,070개·별도 UID 4개·여섯 동일 목록/정리·집계까지 통과했습니다.
+Application image/runtime 49개·세 Compose 정리도 통과했습니다.
+이후 새 API·웹 페이지/도형의 로컬 수용은 새 판본 hosted/브라우저 수용과 구분합니다.
 다음은 **방울토마토 한 품종·한 작기의 생장 계산 → 불변 저장/같은 시점 성장 3D →
 생과 생산량·자원·경제 연결**입니다. [수정 순서·잠정 작업량](tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04),
 [모델/계수/권리 조사](research/crop-tomato-model-baseline-20261004.md),

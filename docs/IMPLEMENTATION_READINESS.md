@@ -39,8 +39,10 @@
 실제 HTTPS 19개·최대 11.508339초/649,718 bytes·현재 권리/재시작/정리로 로컬 수용했다.
 다음은 [같은 저장 ID/UTC의 50구획 연구 3D](../contracts/web-crop-coupled-replay-v1.md)다.
 자동 착과/빈 초기 작기·실제 품종은 보류한다.
-전체 작기 실행 계약/국내 확보를 병행한다. `d76410f`는 전체 backend 집계까지
-CI 5개 모두 성공했고 새 과실 판본의 hosted 검증은 별도다.
+전체 작기 실행 계약/국내 확보를 병행한다. `d15cf92`의
+[시간 적분/artifact·v2 저장 CI 5개](../research/artifacts/crop-coupled-storage-ci-20261005.json)는
+3,070개·별도 UID 4개·동일 목록/여섯 정리·집계까지 통과했다.
+새 API·웹 페이지/도형 판본의 hosted와 새 장면/브라우저 수용은 별도다.
 순서는 [수정 계획](../tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04)을 따른다.
 
 [단일 Axiany 작기 모델/권리 조사](../research/crop-tomato-model-baseline-20261004.md)와

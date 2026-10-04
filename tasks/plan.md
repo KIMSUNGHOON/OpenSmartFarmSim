@@ -27,7 +27,9 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
 `784335d`의 [순간 구획/기관 결합 CI 5개](../research/artifacts/crop-fruit-cohort-plant-ci-20261005.json)도
 백엔드 2,969개·별도 UID 4개·여섯 동일 목록/정리·집계까지 실제 성공했다.
-새 시간 적분/artifact·v2 저장 코드의 hosted 수용은 별도다.
+`d15cf92`의 [시간 적분/artifact·v2 저장 CI 5개](../research/artifacts/crop-coupled-storage-ci-20261005.json)도
+백엔드 3,070개·별도 UID 4개·여섯 동일 목록/DB·password 정리·집계까지 실제 성공했다.
+이후 새 API·웹 페이지/도형 판본의 hosted 수용은 별도다.
 `bdcade9`의 Application CI에서 새 기본 false policy의 기존 loader 허용 목록 누락으로
 실제 API 기동이 실패했다. [최소 policy 회귀 수정](../research/crop-coupled-operator-policy-implementation.md)은
 작물 저장 조회의 필수 선행이며 기존 loader/시험 두 파일에 한정했다.

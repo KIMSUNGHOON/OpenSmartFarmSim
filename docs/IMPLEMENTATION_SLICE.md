@@ -170,6 +170,9 @@ Axiany/Maxifort 한 해외 작기 개발 참조다. 대한민국 온실의 최�
 실제 HTTPS 19개·최대 11.508339초/649,718 bytes·현재 권리/재시작/정리로 로컬 수용했다.
 다음은 [같은 저장 ID/UTC의 50구획 연구 3D](../contracts/web-crop-coupled-replay-v1.md)이며
 자동 착과/빈 초기 작기·실제 품종과 전체 작기 처리의 수용은 남아 있다.
+`d15cf92`의 [시간 적분/artifact·v2 저장 전체 CI](../research/artifacts/crop-coupled-storage-ci-20261005.json)도
+3,070개·별도 UID 4개·같은 목록/여섯 DB·password 정리/집계를 통과했다.
+새 API·웹 페이지/도형 판본은 이 이전 CI의 수용 범위 밖이다.
 실제 47,809시점과 현재 20,000 배열/100만 step 차이는 `crop-cycle-capacity`에서
 연속 상태·사건·저장/출력 시간과 부하/재현을 계약하는 필수 후속이다.
 [필수 프로필/고지 이미지](../research/crop-rate-image-inputs-implementation.md)도 실제 hosted
