@@ -1,0 +1,333 @@
+{
+  "profile_id": "vanthoor-greenlight-reference-rates-v1",
+  "scope": "reference_only_not_G0",
+  "model_basis": "Vanthoor Ch9 / GreenLight 7a7b368, smooth buffer/allocation, fixed RGR; no automatic pruning/harvest",
+  "license": "BSD-3-Clause-Clear",
+  "license_notice": "LICENSES/GreenLight-BSD-3-Clause-Clear.txt",
+  "sources": {
+    "crop-model": {
+      "raw_sha256": "272a589edf0bb40d1a91b34e883f8e94b9adf747a576be4620c50296c03d7033",
+      "pinned_commit": "7a7b36870135aa38bbe81e65590dcf5473786bdd"
+    },
+    "crop-standalone": {
+      "raw_sha256": "74bf4f3ebc3100945de834433b210984c7a75c78c58218e5f7d5b4bd1c82ea49",
+      "pinned_commit": "7a7b36870135aa38bbe81e65590dcf5473786bdd"
+    },
+    "original-thesis": {
+      "source_url": "https://edepot.wur.nl/170301",
+      "doi": "10.18174/170301",
+      "raw_sha256": "965ecc5573290d0cc59b514e9766b301f9584d212545dec177efa66dd756ac38",
+      "use": "equation reference only; fulltext not redistributed"
+    }
+  },
+  "review": {
+    "cli_model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "verified_turn_context_at": "2026-10-04T09:25:53.843Z",
+    "recursive_cli": false,
+    "unit_notes": [
+      "cRgr s from thesis Eq9.45/Table9.1; etaCo2AirStom dimensionless from Eq9.21",
+      "SLA/flow basis CH2O and m2_floor from Ch9; upstream flow m**2 annotation corrected",
+      "Filtered 24h temperature is first-order state, not exact rolling mean",
+      "Fixed RGR is a generic source-code assumption, not measured Axiany growth"
+    ]
+  },
+  "parameters": {
+    "alpha": {
+      "value": 0.385,
+      "unit": "umol{e-} umol**-1{photons}",
+      "basis": "crop-model#/Parameters/Table 9.1/alpha"
+    },
+    "theta": {
+      "value": 0.7,
+      "unit": "-",
+      "basis": "crop-model#/Parameters/Table 9.1/theta"
+    },
+    "etaCo2AirStom": {
+      "value": 0.67,
+      "unit": "1",
+      "basis": "crop-model#/Parameters/Table 9.1/etaCo2AirStom",
+      "source_unit": "umol{co2} mol**-1{air}"
+    },
+    "cGamma": {
+      "value": 1.7,
+      "unit": "umol{co2} mol**-1{air} K**-1",
+      "basis": "crop-model#/Parameters/Table 9.1/cGamma"
+    },
+    "cFruitM": {
+      "value": 1.16e-07,
+      "unit": "mg mg**-1 s**-1",
+      "basis": "crop-model#/Parameters/Table 9.1/cFruitM"
+    },
+    "cFruitG": {
+      "value": 0.27,
+      "unit": "-",
+      "basis": "crop-model#/Parameters/Table 9.1/cFruitG"
+    },
+    "cLeafM": {
+      "value": 3.47e-07,
+      "unit": "mg mg**-1 s**-1",
+      "basis": "crop-model#/Parameters/Table 9.1/cLeafM"
+    },
+    "cLeafG": {
+      "value": 0.28,
+      "unit": "-",
+      "basis": "crop-model#/Parameters/Table 9.1/cLeafG"
+    },
+    "cStemM": {
+      "value": 1.47e-07,
+      "unit": "mg mg**-1 s**-1",
+      "basis": "crop-model#/Parameters/Table 9.1/cStemM"
+    },
+    "cStemG": {
+      "value": 0.3,
+      "unit": "-",
+      "basis": "crop-model#/Parameters/Table 9.1/cStemG"
+    },
+    "cRgr": {
+      "value": 2850000.0,
+      "unit": "s",
+      "basis": "crop-model#/Parameters/Table 9.1/cRgr",
+      "source_unit": "s**-1"
+    },
+    "cBufMax": {
+      "value": 20000.0,
+      "unit": "mg m**-2",
+      "basis": "crop-model#/Parameters/Table 9.1/cBufMax"
+    },
+    "cBufMin": {
+      "value": 1000.0,
+      "unit": "mg m**-2",
+      "basis": "crop-model#/Parameters/Table 9.1/cBufMin"
+    },
+    "eJ": {
+      "value": 37000.0,
+      "unit": "J mol**-1",
+      "basis": "crop-model#/Parameters/Table 9.1/eJ"
+    },
+    "H": {
+      "value": 220000.0,
+      "unit": "J mol**-1",
+      "basis": "crop-model#/Parameters/Table 9.1/H"
+    },
+    "j25LeafMax": {
+      "value": 210.0,
+      "unit": "umol{e-} m**-2{leaf} s**-1",
+      "basis": "crop-model#/Parameters/Table 9.1/j25LeafMax"
+    },
+    "mCh2o": {
+      "value": 0.03,
+      "unit": "mg umol**-1",
+      "basis": "crop-model#/Parameters/Table 9.1/mCh2o"
+    },
+    "rgFruit": {
+      "value": 0.328,
+      "unit": "mg_CH2O/m2_floor/s",
+      "basis": "crop-model#/Parameters/Table 9.1/rgFruit",
+      "source_unit": "mg m**-2 s**-1"
+    },
+    "rgLeaf": {
+      "value": 0.095,
+      "unit": "mg_CH2O/m2_floor/s",
+      "basis": "crop-model#/Parameters/Table 9.1/rgLeaf",
+      "source_unit": "mg m**-2 s**-1"
+    },
+    "rgStem": {
+      "value": 0.074,
+      "unit": "mg_CH2O/m2_floor/s",
+      "basis": "crop-model#/Parameters/Table 9.1/rgStem",
+      "source_unit": "mg m**-2 s**-1"
+    },
+    "S": {
+      "value": 710.0,
+      "unit": "J mol**-1 K**-1",
+      "basis": "crop-model#/Parameters/Table 9.1/S"
+    },
+    "sla": {
+      "value": 2.66e-05,
+      "unit": "m2_leaf/mg_CH2O",
+      "basis": "crop-model#/Parameters/Table 9.1/sla",
+      "source_unit": "m**2{leaf} mg**-1{leaf}"
+    },
+    "t25k": {
+      "value": 298.15,
+      "unit": "K",
+      "basis": "crop-model#/Parameters/Table 9.1/t25k"
+    },
+    "tEndSum": {
+      "value": 1035.0,
+      "unit": "°C day",
+      "basis": "crop-model#/Parameters/Table 9.1/tEndSum"
+    },
+    "q10m": {
+      "value": 2.0,
+      "unit": "-",
+      "basis": "crop-model#/Parameters/Table 9.1/q10m"
+    },
+    "tCanMin": {
+      "value": 10.0,
+      "unit": "°C",
+      "basis": "crop-model#/Parameters/Table 9.2/tCanMin"
+    },
+    "tCanMax": {
+      "value": 34.0,
+      "unit": "°C",
+      "basis": "crop-model#/Parameters/Table 9.2/tCanMax"
+    },
+    "tCan24Min": {
+      "value": 15.0,
+      "unit": "°C",
+      "basis": "crop-model#/Parameters/Table 9.2/tCan24Min"
+    },
+    "tCan24Max": {
+      "value": 24.5,
+      "unit": "°C",
+      "basis": "crop-model#/Parameters/Table 9.2/tCan24Max"
+    },
+    "rgr": {
+      "value": 3e-06,
+      "unit": "{kg{dw grown} kg**-1{existing dw} s**-1}",
+      "basis": "crop-model#/Parameters/rgr"
+    },
+    "R": {
+      "value": 8314.0,
+      "unit": "J kmol**-1 K**-1",
+      "basis": "crop-model#/Parameters/R"
+    },
+    "k1Par": {
+      "value": 0.7,
+      "unit": "-",
+      "basis": "crop-standalone#/Parameters/k1Par"
+    },
+    "k2Par": {
+      "value": 0.7,
+      "unit": "-",
+      "basis": "crop-standalone#/Parameters/k2Par"
+    },
+    "rhoCanPar": {
+      "value": 0.07,
+      "unit": "-",
+      "basis": "crop-standalone#/Parameters/rhoCanPar"
+    },
+    "rhoFlrPar": {
+      "value": 0.65,
+      "unit": "-",
+      "basis": "crop-standalone#/Parameters/rhoFlrPar"
+    },
+    "gas_constant_scale": {
+      "value": 0.001,
+      "unit": "kmol/mol",
+      "basis": "crop-model#/Model flows/Canopy photosynthesis/Electron transport rate/jPot",
+      "inline_constant": true
+    },
+    "buffer_full_slope": {
+      "value": 0.0005,
+      "unit": "m2_floor/mg_CH2O",
+      "basis": "crop-model#/Model flows/Differential representation of conditional model statements/hAirBuf",
+      "inline_constant": true
+    },
+    "buffer_empty_slope": {
+      "value": 0.005,
+      "unit": "m2_floor/mg_CH2O",
+      "basis": "crop-model#/Model flows/Differential representation of conditional model statements/hBufOrg",
+      "inline_constant": true
+    },
+    "instant_low_slope": {
+      "value": 0.869,
+      "unit": "1/degC",
+      "basis": "crop-model#/Model flows/Differential representation of conditional model statements/hTCan",
+      "inline_constant": true
+    },
+    "instant_high_slope": {
+      "value": 0.5793,
+      "unit": "1/degC",
+      "basis": "crop-model#/Model flows/Differential representation of conditional model statements/hTCan",
+      "inline_constant": true
+    },
+    "filtered_low_slope": {
+      "value": 1.1587,
+      "unit": "1/degC",
+      "basis": "crop-model#/Model flows/Differential representation of conditional model statements/hTCan24",
+      "inline_constant": true
+    },
+    "filtered_high_slope": {
+      "value": 1.3904,
+      "unit": "1/degC",
+      "basis": "crop-model#/Model flows/Differential representation of conditional model statements/hTCan24",
+      "inline_constant": true
+    },
+    "development_smoothing_squared": {
+      "value": 0.0001,
+      "unit": "1",
+      "basis": "crop-model#/Model flows/Differential representation of conditional model statements/hTCanSum",
+      "inline_constant": true
+    },
+    "allocation_temperature_slope": {
+      "value": 0.047,
+      "unit": "1/degC",
+      "basis": "crop-model#/Model flows/Carbohydrate flow to plant organs/Temperature effect on structural carbon flow to organs/gTCan24",
+      "inline_constant": true
+    },
+    "allocation_temperature_intercept": {
+      "value": 0.06,
+      "unit": "1",
+      "basis": "crop-model#/Model flows/Carbohydrate flow to plant organs/Temperature effect on structural carbon flow to organs/gTCan24",
+      "inline_constant": true
+    },
+    "kelvin_offset": {
+      "value": 273.15,
+      "unit": "K",
+      "basis": "crop-model#/Model flows/Canopy photosynthesis/Electron transport rate/jPot",
+      "inline_constant": true
+    },
+    "compensation_pivot_c": {
+      "value": 20.0,
+      "unit": "degC",
+      "basis": "crop-model#/Model flows/Canopy photosynthesis/CO2 relationships in the photosynthetic tissue/gamma",
+      "inline_constant": true
+    },
+    "electron_per_fixed_co2": {
+      "value": 4.0,
+      "unit": "umol_e/umol_CO2",
+      "basis": "crop-model#/Model flows/Canopy photosynthesis/Net photosynthesis rate/p",
+      "inline_constant": true
+    },
+    "compensation_denominator_factor": {
+      "value": 2.0,
+      "unit": "1",
+      "basis": "crop-model#/Model flows/Canopy photosynthesis/Net photosynthesis rate/p",
+      "inline_constant": true
+    },
+    "maintenance_temperature_reference_c": {
+      "value": 25.0,
+      "unit": "degC",
+      "basis": "crop-model#/Model flows/Growth and maintenance respiration/mcLeafAir",
+      "inline_constant": true
+    },
+    "q10_temperature_interval_c": {
+      "value": 10.0,
+      "unit": "degC",
+      "basis": "crop-model#/Model flows/Growth and maintenance respiration/mcLeafAir",
+      "inline_constant": false,
+      "derived_constant": true,
+      "relation": "1 / 0.1: reciprocal of the source temperature exponent multiplier"
+    },
+    "seconds_per_day": {
+      "value": 86400.0,
+      "unit": "s/day",
+      "basis": "crop-model#/State variables of the model/tCan24",
+      "inline_constant": true
+    }
+  },
+  "domain": {
+    "filtered_temperature_c": [
+      17,
+      23
+    ],
+    "filtered_temperature_basis": "original-thesis printed p252 Eq9.28 (linear structural allocation relationship)",
+    "instant_temperature_basis": "crop-model tCanMin/tCanMax are calculation bounds, not validation limits",
+    "compensation_point_basis": "original-thesis printed p249-250 Eq9.22/9.23: 0<=Gamma<=stomatal CO2; zero-LAI daylight limit only at 20 C",
+    "depleted_storage_policy": "reject outward carbon derivative at exactly zero mass; no clipping"
+  }
+}
