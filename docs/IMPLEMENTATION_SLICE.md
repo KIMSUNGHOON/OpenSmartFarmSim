@@ -183,12 +183,16 @@ Axiany/Maxifort 한 해외 작기 개발 참조다. 대한민국 온실의 최�
 분할·실제 SCRAM/불변/정리로 로컬 수용했다.
 [새 저장 v3 custody](../research/crop-startup-result-storage-implementation.md)도 새18개/집중119개·
 실제 SCRAM/6프로그램/별도 Python·commit 전후 철회/정리로 로컬 수용했다.
-다음은 [페이지 조회 API](../contracts/api-crop-startup-replay-v1.md) → 같은 UTC 성장 3D 판본 수용 →
+[페이지 조회 API](../research/api-crop-startup-replay-implementation.md)도 새47개/고유252개 분할·
+실제 HTTPS/SCRAM19응답·최대14.248425초/700,084 bytes·정리로 로컬 수용했다.
+다음은 [응답 해석/순차 페이지 결합 → 같은 UTC 성장 3D](../contracts/web-crop-startup-replay-v1.md) 판본 수용 →
 전체 작기/생과 환산이다.
 자동 착과/빈 초기 작기·실제 품종과 전체 작기 처리의 수용은 남아 있다.
 `590fadc`의 [coupled 조회/3D·순수 startup adapter CI](../research/artifacts/crop-coupled-replay-startup-rates-ci-20261005.json)는
 전체5개·백엔드3,157개/별도UID4개·여섯 동일 목록/정리·집계를 통과했다.
-이후 기관 시작 RHS/적분/artifact는 새 hosted 판본에서 확인해야 한다.
+후속 `d105daa`의 [CI5개/백엔드3,370개·별도UID4개](../research/artifacts/crop-plant-startup-math-ci-20261005.json)도
+여섯 동일 목록/정리·집계로 기관 시작 RHS/적분/artifact까지 수용했다.
+새 저장까지의 `92cade3` CI는 확인 중이며 이번 페이지 API는 원격 수용 전이다.
 `d15cf92`의 [시간 적분/artifact·v2 저장 전체 CI](../research/artifacts/crop-coupled-storage-ci-20261005.json)도
 3,070개·별도 UID 4개·같은 목록/여섯 DB·password 정리/집계를 통과했다.
 새 API·웹 페이지/도형 판본은 이 이전 CI의 수용 범위 밖이다.

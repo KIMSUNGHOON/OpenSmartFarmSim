@@ -295,11 +295,19 @@
   기존 불변 저장·현재 권리/조회·동일 UTC 3D에 새 모델을 명시적으로 연결한다.
   판본 혼합·권리 철회·취소/hold·원 수치/mesh/단위 대사와 실제 SCRAM/TLS/브라우저·정리를
   단계별로 검증한다. 임의 초기 seed/착과 모양·생과 kg를 추가하지 않는다.
-  - [ ] **`crop-startup-api-replay`** — 선행: v3 custody의 실제 SCRAM 수용;
+  - [x] **`crop-startup-api-replay`** — 합성 연구 API 로컬 수용; 선행: v3 custody의 실제 SCRAM 수용;
     [새 페이지 API 계약](../contracts/api-crop-startup-replay-v1.md). 닫힌 typed/OpenAPI·같은 저장
     ID/hash/UTC·50 N/C/16누적/4진단·512출력/사건 페이지·현재 권리/변조/hold·GET 재적분 없음,
-    실제 HTTPS 최대 페이지 전체 본문30초/재시작·정리. 잠정2–3 집중시간; 새 3D와 별도 수용.
-  - [ ] **`crop-startup-web-replay`** — 선행: 새 API 수용/별도 화면 계약;
+    실제 HTTPS 최대 페이지 전체 본문30초/재시작·정리.
+    [실제 수용](../research/api-crop-startup-replay-implementation.md): 새47개/고유252개 분할·실제
+    HTTPS/SCRAM19응답·최대512/128·최대14.248425초/700,084 bytes·정리0개를 확인했다.
+    10월5일 KST 로컬 완료; 새 3D와 원격 수용은 별도다.
+  - [ ] **`crop-startup-web-pages`** — 선행: 위 API/새 [화면 계약](../contracts/web-crop-startup-replay-v1.md);
+    새 닫힌 decoder/순차 페이지 수집에서 v3 ID/farm/hash·50 N/C/16누적/4진단·단위/UTC,
+    최대512/128 전체성·혼합/누락/중복·취소·소수 초 hold/빈 과거/현재 거부를 검증한다.
+    기록된 실제 TLS 응답의 원값/hash 대사와 기존 v1/v2 회귀·typecheck/build 뒤 체크한다.
+    잠정0.5–1 집중시간이며 장면/브라우저 수용으로 쓰지 않는다.
+  - [ ] **`crop-startup-web-replay`** — 선행: 새 응답/페이지 수용과 위 화면 계약;
     같은 v3 result ID/UTC의 표·그래프·50구획 성장 3D와 원량/mesh 대사,
     빈 과거/hold·권리/취소·WebGL HTML 대체·실제 SCRAM/TLS/브라우저·정리 후 체크한다.
 - [ ] **`crop-fruit-cohorts`** — 전체 구획의 부모 작업; 순간 수용만으로 완료하지 않는다. 개발 선행: `crop-fruit-transport`·`crop-fruit-allocation-rates`·고정 Gompertz 수요·명시적 관리 사건.

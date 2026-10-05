@@ -1,6 +1,8 @@
 # 저장 시작 유보 모델의 페이지 조회 API — v1
 
-상태: **설계 계약; API 미수용**. 2026-10-05 KST.
+상태: **합성 연구 API 로컬 수용; 원격 CI 수용은 별도**. 2026-10-05 KST.
+구현 `7d4d310`의 [252개 고유 분할 검증/실제 HTTPS·SCRAM](../research/api-crop-startup-replay-implementation.md)과
+[파일/응답·정리 증거](../research/artifacts/api-crop-startup-replay-reference-20261005.json)를 확인한다.
 개발 선행은 [v3 farm custody](crop-result-v3.md)의 실제 SCRAM 수용이다.
 현재 Codex CLI `gpt-6.1-sol / xhigh`에서 판단하며 CLI를 재귀 실행하지 않는다.
 기존 [v2 조회](api-crop-coupled-replay-v1.md)와 저장 bytes/권한은 유지한다.
@@ -70,9 +72,9 @@ hold의 고정 reason code·solver UTC/phase·last_confirmed를 별도 진단으
 5. 실제 파일/시험/응답 hash와 미수용 사항을 기록한 뒤 API child만 체크한다.
    parent인 새 저장→같은 UTC 표/그래프/50구획 성장 3D는 실제 브라우저 수용 뒤 체크한다.
 
-사용자 산출물은 페이지 JSON·원값 대사와 HTTPS 영수증이다. 다음은 별도 화면 계약의
-같은 result ID/UTC 성장 3D다. 잠정 API 작업량은 typed/조립1–1.5시간,
-권리·페이지/실제 HTTPS·정리1–1.5시간으로 **2–3 집중시간**이다.
-이는 선행 v2의 207개 분할·19개 HTTPS/최대11.508339초 수용 경험에 근거한 추정이며
-custody 완료 시각·실제 실패/CI 대기로 갱신한다. 국내 독립 자료0건/actual forcing·Run0개,
+사용자 산출물은 페이지 JSON·원값 대사와 HTTPS 영수증이다. 새 API47개를 포함한
+252개 고유 시험을 분할 수용했으며 실제 HTTPS19개 전체 본문은 최대14.248425초/
+700,084 bytes였다. API는 10월5일 KST 로컬 완료다. 다음은
+[같은 result ID/UTC 성장 3D 계약](web-crop-startup-replay-v1.md)의 decoder/순차 페이지 결합,
+그 뒤 장면/표/그래프·실제 브라우저 수용이다. 국내 독립 자료0건/actual forcing·Run0개,
 전체 작기·생과 환산·자원/경제·G0–G4 수용과 실제 예측/추천 날짜는 별도다.

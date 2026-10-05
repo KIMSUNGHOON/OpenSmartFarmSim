@@ -40,10 +40,14 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 [v3 custody](../research/crop-startup-result-storage-implementation.md)도 새18개/집중119개·
 실제 SCRAM/6프로그램/별도 Python·현재 farm/program 권리·HMAC/원자성·변조/commit 전후
 철회·재적분 없는 읽기와 역할/schema/비밀번호0개·DB 종료로 10월5일 KST 로컬 수용했다.
-다음 한 단계는 [새 페이지 API](../contracts/api-crop-startup-replay-v1.md): 같은 저장 ID/hash/UTC의
-50 N/C·16누적/4진단·512출력/사건 페이지, 현재 권리/변조/hold·재적분 없음,
-실제 HTTPS/Bearer·SCRAM 최대 전체 본문30초/재시작·정리를 검증한다. 그 뒤 같은 UTC 성장 3D다.
-API 잠정2–3 집중시간/하루4시간 기준10월5–6일 KST며 hosted 대기는 별도다.
+[새 페이지 API](../research/api-crop-startup-replay-implementation.md)도 새47개/고유252개 분할·
+실제 HTTPS/Bearer·SCRAM19응답·최대512출력/128사건·최대14.248425초/700,084 bytes와
+현재 권리/변조/hold·재적분 없음·재시작/정리로 10월5일 KST 로컬 수용했다.
+다음 한 단계는 [새 응답 해석/순차 페이지 결합](../contracts/web-crop-startup-replay-v1.md):
+같은 v3 ID/farm/hash/UTC·50 N/C·16누적/4진단, 512/128 전체성·혼합/누락/취소·
+소수 초 hold/빈 과거/현재 거부를 원 응답과 대사한다. 그 뒤 같은 UTC 장면/표/그래프와 실제 브라우저다.
+decoder/pages0.5–1시간, 화면/도형·브라우저1–2시간, 실제 저장 경로/정리·보고0.5–1시간으로
+총2–4 집중시간/하루4시간 기준10월5–6일 KST를 추정하며 hosted 대기는 별도다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
@@ -58,7 +62,10 @@ API 잠정2–3 집중시간/하루4시간 기준10월5–6일 KST며 hosted 대
 호스팅 원인/전체 CI를 수용한 것은 아니며 다른 파트 실행을 유지했다.
 후속 `590fadc`는 [CI 5개 모두 성공](../research/artifacts/crop-coupled-replay-startup-rates-ci-20261005.json),
 백엔드3,157개·별도UID4개·여섯 동일 목록/정리·최종 집계로 수용했다.
-이 판본은 새 API/웹과 순수 startup adapter를 포함하며 이후 기관 시작 RHS/적분/artifact는 별도다.
+이 판본은 coupled API/웹과 순수 startup adapter를 포함한다.
+후속 `d105daa`도 [CI5개/백엔드3,370개·별도UID4개](../research/artifacts/crop-plant-startup-math-ci-20261005.json),
+여섯 동일 목록/정리·집계로 새 기관 시작 RHS/적분/artifact까지 수용했다.
+새 저장까지의 `92cade3` CI는 확인 중이며 이번 페이지 API의 원격 수용은 별도다.
 기존 HTTPS timeout의 원인을 확정한 것이 아니며 원 실패 기록과 30초 제한을 보존한다.
 `bdcade9`의 Application CI에서 새 기본 false policy의 기존 loader 허용 목록 누락으로
 실제 API 기동이 실패했다. [최소 policy 회귀 수정](../research/crop-coupled-operator-policy-implementation.md)은
@@ -116,7 +123,8 @@ flowchart TD
   SI --> SF["crop-startup-artifact: 새 bytes/재적분 없는 reader"]
   SF --> SS["crop-startup-result-storage: 표/명시 role → 현재 권리/custody"]
   SS --> SP["crop-startup-api-replay: 같은 저장 ID/UTC 페이지"]
-  SP --> SL["crop-startup-web-replay: 같은 UTC 표/그래프/성장 3D"]
+  SP --> SD["crop-startup-web-pages: 응답 해석/순차 페이지 결합"]
+  SD --> SL["crop-startup-web-replay: 같은 UTC 표/그래프/성장 3D"]
   CI --> F["crop-fruit-cohorts → crop-harvest-conversion"]
   SL --> F
   V --> F
@@ -810,10 +818,12 @@ CLI·독립 해제/G1은 후속이다.
 [새 짧은 적분](../research/crop-startup-integration-implementation.md)도 새56개/전체678개·
 독립6프로그램/23시점·실제24시간/512출력·전환/미세 구획 오차 기록으로 **10월5일 KST 로컬 완료**했다.
 기존 10월5–7일 목표를 실제 완료로 갱신한다. tail 불연속에서 4차 수렴을 가정하지 않는다.
-다음 [새 artifact 계약](../contracts/crop-startup-artifact-v1.md)은 packet/reader 1–2시간과
-검증/기록 1–2시간의 총2–4시간(0.5–1 집중일) 잠정이다.
-하루4시간 가정의 목표는 10월5–6일 KST이며 실제 완료/CI 상태로 수정한다.
-그 뒤 farm 저장·조회 페이지/API·동일 UTC 3D는 새 판본을 각각 계약/수용한다.
+[새 artifact/reader](../research/crop-startup-artifact-implementation.md)·
+[farm 저장 v3](../research/crop-startup-result-storage-implementation.md)·
+[페이지 API](../research/api-crop-startup-replay-implementation.md)도 10월5일 KST 로컬 수용했다.
+다음 [응답 해석/순차 페이지 결합·동일 UTC 3D](../contracts/web-crop-startup-replay-v1.md)는
+decoder/pages0.5–1시간, 화면/브라우저1–2시간, 실제 저장 경로/정리·보고0.5–1시간의
+총2–4 집중시간 잠정이다. 하루4시간 가정의 목표는 10월5–6일 KST이며 CI 대기는 별도다.
 전체 작기·생과/자원/경제는 후속이다.
 자동 착과·pre-onset/실제 초기 계수는 hold이며 전체 작기 처리/수확 변환을 이어간다.
 국내 독립 농장 자료 확보를 개발 선행으로 잠그지 않는다. 실제 품종/forcing/초기/관리 채택,

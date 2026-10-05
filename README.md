@@ -60,19 +60,23 @@
 새20개/184개 고유 분할·실제 SCRAM/불변 trigger·정리로 로컬 수용했습니다.
 [현재 농장/입력 권리·서버 계산/HMAC 저장과 재시작 조회](research/crop-startup-result-storage-implementation.md)도
 새18개/집중119개·실제 SCRAM/6프로그램/별도 Python·commit 전후 철회/정리로 로컬 수용했습니다.
-다음은 [같은 저장 ID/UTC의 새 페이지 조회 API](contracts/api-crop-startup-replay-v1.md), 그 뒤 성장 3D입니다.
-새 모델의 API/3D는 아직 수용 전입니다.
+[같은 저장 ID/UTC의 새 페이지 조회 API](research/api-crop-startup-replay-implementation.md)도
+새47개/고유252개 분할·실제 HTTPS/SCRAM19응답·최대14.248425초/700,084 bytes와 정리로 로컬 수용했습니다.
+다음은 [새 응답 해석/순차 페이지 결합 → 같은 UTC 성장 3D](contracts/web-crop-startup-replay-v1.md)입니다.
+새 모델의 화면/브라우저 수용은 남아 있습니다.
 자동 착과·생식기 이전/실제 초기 품종 계수는 보류입니다.
 `e70a7f2`의 [최종 CI](research/artifacts/crop-coupled-api-web-ci-hold-20261005.json)는
 기존 assessment HTTPS 30초 시간 초과 1개로 Backend 미수용이며 나머지 네 workflow는 성공했습니다.
 동일 테스트의 로컬 최대 22.118초 통과와 요약 크기 수정은 [별도 기록](research/backend-ci-summary-and-timeout-20261005.md)에 있습니다.
 후속 `590fadc`는 [CI 5개 모두 성공](research/artifacts/crop-coupled-replay-startup-rates-ci-20261005.json),
 백엔드 3,157개·별도 UID 4개·여섯 동일 목록/정리·집계까지 통과했습니다.
-새 기관 시작 RHS/적분/artifact의 로컬 커밋은 그 SHA에 포함되지 않아 별도 hosted 검증이 필요합니다.
+후속 `d105daa`도 [CI5개 모두 성공](research/artifacts/crop-plant-startup-math-ci-20261005.json),
+백엔드3,370개·별도UID4개·여섯 동일 목록/정리·집계로 새 기관 시작 RHS/적분/artifact까지 수용했습니다.
+새 저장까지의 `92cade3` CI는 확인 중이며 이번 페이지 API의 원격 수용은 별도입니다.
 [기록 합성 데모의 3D·원값](research/artifacts/coupled-crop-replay-recorded-demo-geometry.png)과
 [실제 저장 경로의 화면](research/artifacts/coupled-crop-replay-desktop.png)을 확인할 수 있습니다.
 기록 데모는 운영 저장 목록이 아니며 실제 완료 6시점의 소프트웨어 검증입니다.
-다음은 새 저장·동일 UTC 3D 판본과 전체 작기·생과 환산입니다.
+다음은 새 응답/동일 UTC 3D 판본과 전체 작기·생과 환산입니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
 별도 UID 4개와 CI 5개를 모두 통과했습니다. `d76410f`의 웹/C0/실제 앱 이미지·Compose CI도
