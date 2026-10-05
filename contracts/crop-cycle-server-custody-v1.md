@@ -2,7 +2,7 @@
 
 상태: **로컬 소프트웨어 수용**, `crop-cycle-server-custody`, 2026-10-05 KST.
 [구현/수정과 검증](../research/crop-cycle-server-custody-implementation.md),
-[불변 영수증](../research/artifacts/crop-cycle-server-custody-reference-20261005.json)을 확인한다.
+[불변 영수증 v2](../research/artifacts/crop-cycle-server-custody-reference-20261005-v2.json)을 확인한다.
 선행은 [현재 농장/root 결합](crop-cycle-farm-binding-v1.md),
 [실제 writer/복원](crop-cycle-artifact-v1.md), [명시 runtime 권한](crop-cycle-storage-v1.md)이다.
 [저장 부모/의존성](../tasks/plan.md)을 따르며 DB custody/API/client/성장3D는 후속이다.

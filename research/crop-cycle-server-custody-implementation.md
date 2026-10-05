@@ -2,10 +2,12 @@
 
 상태: **로컬 소프트웨어 수용**, 2026-10-05 KST. `crop-cycle-server-custody`.
 [계약](../contracts/crop-cycle-server-custody-v1.md),
-[불변 영수증](artifacts/crop-cycle-server-custody-reference-20261005.json),
+[불변 영수증 v2](artifacts/crop-cycle-server-custody-reference-20261005-v2.json),
 [독립 제어 흐름/별도 Python 참조 실행](crop-cycle-server-custody-reference.py)을 확인한다.
 현재 Codex CLI `gpt-6.1-sol / xhigh`, 설계10:50:09.576Z와 수용12:12:17.766Z의 turn_context/원 line SHA를 기록했다.
 재귀 CLI0회이며 제품 runtime CLI 실행/G0–G4 수용이 아니다.
+v2는 첫 영수증의 pending 문서 검사만 완료한다. 이전 농장 영수증의 commit key를 잘못 읽은
+검사 오류와 [원 v1](artifacts/crop-cycle-server-custody-reference-20261005.json)을 보존하며 계산/시험 증거를 바꾸지 않는다.
 
 ## 구현 범위
 
