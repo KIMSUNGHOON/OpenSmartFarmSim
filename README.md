@@ -84,8 +84,11 @@
 기록 데모는 운영 저장 목록이 아니며 실제 완료 6시점의 소프트웨어 검증입니다.
 새 동일 UTC 3D 판본은 로컬 수용했고 다음은 전체 작기 실행·생과 환산입니다.
 [전체 작기 실행 계약/원 격자 대사](research/crop-cycle-execution-contract.md)도 원 solver6프로그램/630걸음,
-30분할·2,783개 float64 round-trip과 chunk/clock 반례로 로컬 수용했습니다. 다음은 원 상태/누적량을
-실제 RHS로 중단·복원하는 순수 continuation입니다. 계약 대사를 새 driver/전체 작기 검증으로 표시하지 않습니다.
+30분할·2,783개 float64 round-trip과 chunk/clock 반례로 로컬 수용했습니다. 이어 원 상태/누적량을
+실제 RHS로 중단·복원하는 [순수 continuation](research/crop-cycle-continuation-implementation.md)도
+157개·30실제 분할/JSON 복원과 별도 Python6개·726float64 대사로 로컬 수용했습니다.
+다음은 bounded 원 입력 reader → 긴 입력의 실제 RHS 실행 연결 → 불변 결과/같은 UTC → 작기 부하입니다.
+짧은 실행 수용을 전체 작기 검증으로 표시하지 않습니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
 별도 UID 4개와 CI 5개를 모두 통과했습니다. `d76410f`의 웹/C0/실제 앱 이미지·Compose CI도

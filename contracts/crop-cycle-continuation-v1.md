@@ -1,6 +1,10 @@
 # 순수 작물 실행 중단·재시작 — v1
 
-상태: 구현/검증 중, 2026-10-05 KST. 상위는 [작기 실행 계약](crop-cycle-execution-v1.md)이다.
+상태: **실제 짧은 합성 RHS continuation의 로컬 수용**, 2026-10-05 KST.
+[157개 집중·30실제 분할/별도 Python6개 검증](../research/crop-cycle-continuation-implementation.md),
+[별도 복원 대사](../research/artifacts/crop-cycle-continuation-reference-20261005.json),
+[실제 CLI·수용 파일/초안 hash·검토](../research/artifacts/crop-cycle-continuation-implementation-reference-20261005.json).
+상위는 [작기 실행 계약](crop-cycle-execution-v1.md)이다.
 현재 CLI `gpt-6.1-sol / xhigh`에서 설계한다. 새 운영 service/의존성/농장 자료는 없다.
 현재 startup의 닫힌 짧은 입력과 정확한 세 profile만 받는다. 한도는 그대로128 forcing,
 128 event,512 output,10,000 RK4 step,1일이다. 긴 입력·전체 작기·G0–G4 수용은 별도다.

@@ -161,17 +161,24 @@
     [명세 수용](../research/crop-cycle-execution-contract.md): 원 solver6프로그램/630걸음·30분할 grouping,
     23벡터/2,783개 float64 round-trip·추가 경계/온도 prefix 반례·파일/CLI 검토로10월5일 KST 로컬 완료.
     이는 원 격자/표현과 실행 계약의 수용이며 새 모델의 실제 재시작은 다음 구현의 미수용 범위다.
-  - [ ] **`crop-cycle-continuation`** — 다음 한 단계; 선행: 위 실행 계약의 수용.
+  - [x] **`crop-cycle-continuation`** — 짧은 실제 RHS 중단/재시작의 로컬 수용; 선행: 위 실행 계약의 수용.
     예상3파일: `backend/app/crop_cycle_continuation.py`, `backend/tests/test_crop_cycle_continuation.py`,
     `contracts/crop-cycle-continuation-v1.md`. 우선 현재 짧은 입력/고정 실제 RHS로 새 provider를 검증한다.
     수용: 원121벡터/seed·16누적/clock·global counters·phase/cursor의 보호와 전역 격자·사건/output/hold 보존,
     기존6프로그램의 원값/단위/수지·별도 Python/JSON 복원·경계/t0/event+output/hold·변조/예산·입력 불변/hash.
     원 legacy 파일/모델/hash를 보존하고 새 code/manifest 판본을 고정한다. pytest 집중/회귀와 실제 별도
     프로세스 복원 증거 뒤 체크한다. 긴 입력/전체 작기나 실제 crop/prediction을 이 짧은 수용으로 대체하지 않는다.
-  - [ ] **`crop-cycle-input-stream`** — 선행: continuation 수용; bounded root/forcing·계산 anchor/event와
+    [실제 수용](../research/crop-cycle-continuation-implementation.md): 새101개/기존56개·총157개/70.91초,
+    6프로그램×5예산30실제 분할/JSON 복원, 별도 Python6개/726float64·원 상태/16누적/clock·사건/hold와
+    UTF-8/root 회귀 수정·정리. 1일/128 forcing·512 output·10,000 step을 그대로 유지한다.
+  - [ ] **`crop-cycle-input-stream`** — 다음 한 단계; 선행: continuation 수용; bounded root/forcing·계산 anchor/event와
     hash/index/cursor·정확한 clock의 분할 provider/검증을3–5파일 계약으로 구체화한다. 실제 source 형태 규모의
     자작 합성 입력·연속성/원량·권리/QC 거부·큰 입력·메모리·재시작을 확인한다. 실제 archive 채택은 별도다.
-  - [ ] **`crop-cycle-result-pages`** — 선행: continuation/input stream. 불변 파일/reader → farm/current rights
+  - [ ] **`crop-cycle-stream-execution`** — 선행: input stream/continuation 수용. bounded reader와 실제 RHS·전역
+    grid/seed/clock/counters·phase를 새 긴 실행 판본에서 연결한다. 실제 긴 합성 프로그램·분할/별도 Python
+    복원·수지/사건/hold·입력 불변/전역 budget·WSL 자원/정리를 검증한다. 현재 짧은 v1 한도/hash는 보존한다.
+    reader 수용을 이 실행 수용으로 표시하지 않는다. 파일/전역 budget·기간/날짜는 source provider 실적 뒤 고정한다.
+  - [ ] **`crop-cycle-result-pages`** — 선행: 실제 stream 실행 수용. 불변 파일/reader → farm/current rights
     custody/API → 같은 UTC 3D를 각각3–5파일 작업으로 먼저 분해한다. 원 출력/sequence·chain/변조/atomic·
     재시작/GET 재적분 없음·실제 SCRAM/TLS/browser·페이지30초/정리 뒤 체크한다.
   - [ ] **`crop-cycle-burden`** — 선행: 위 세 구현; 실제 RHS의 긴 합성 forcing/source 형태·부하/재현·중단/복원,

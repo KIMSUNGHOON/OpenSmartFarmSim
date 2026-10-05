@@ -192,7 +192,9 @@ typecheck/build·기록 TLS 원값 대사로 로컬 수용했다.
 v3 로그 비교 도형은 원값/영을 보존하며 기존 v2 선형 대체를 유지한다.
 `crop-cycle-execution-contract`의 [원 격자/표현 대사](../research/crop-cycle-execution-contract.md)도
 원 solver6프로그램/630걸음·30분할 grouping·2,783float64/정확한 clock 반례·후속 검증표로 로컬 수용했다.
-다음은 `crop-cycle-continuation` → bounded 입력/불변 결과·같은 UTC → 실제 RHS 작기 부하 → 생과 환산이다.
+[실제 순수 continuation](../research/crop-cycle-continuation-implementation.md)도157개·30실제 분할과
+별도 Python6개/726float64·원 상태/누적/clock·사건/hold 대사로 로컬 수용했다.
+다음은 bounded 원 입력 reader → 긴 실제 RHS 연결 → 불변 결과·같은 UTC → 작기 부하 → 생과 환산이다.
 새 모델의 실제 재시작을 grouping/serialization 시험으로 대체하지 않는다.
 이 화면은 실제 품종/전체 작기 생산 검증이 아니며 새 hosted/pixel fidelity도 별도다.
 자동 착과/빈 초기 작기·실제 품종과 전체 작기 처리의 수용은 남아 있다.
