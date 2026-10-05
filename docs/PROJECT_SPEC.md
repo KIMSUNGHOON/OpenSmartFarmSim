@@ -139,8 +139,10 @@ UTC 상태/단위·모델/입력/저장 hash와 수치 hold만 반환한다. 로
 79개 새/799개 집중·6프로그램의 기존 적분 결과와 동일·별도 Python/512출력 읽기로 수용했다.
 [v3 표/명시 role·설정](../research/crop-startup-storage-schema-implementation.md)도 새20개/184개 고유
 분할·실제 SCRAM/불변/정리로 로컬 수용했다. 표의 시험 행은 계산/승인 결과가 아니다.
-다음은 [농장 결합 저장 v3](../contracts/crop-result-v3.md)의 현재 권리/custody,
-조회 API/동일 UTC 3D, 전체 작기/생과 환산 순서다.
+[농장 결합 저장 v3](../research/crop-startup-result-storage-implementation.md)도 새18개/집중119개·
+실제 SCRAM/6프로그램/별도 Python·commit 전후 철회/정리로 로컬 수용했다.
+다음은 [같은 저장 ID/UTC 페이지 API](../contracts/api-crop-startup-replay-v1.md),
+동일 UTC 성장 3D, 전체 작기/생과 환산 순서다.
 실제 전체 작기 처리는 별도다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
 전체 작기 생산 모델의 착수/게시 범위에 접근할 수 있다.

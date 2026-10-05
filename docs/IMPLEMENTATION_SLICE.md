@@ -180,8 +180,11 @@ Axiany/Maxifort 한 해외 작기 개발 참조다. 대한민국 온실의 최�
 [새 불변 artifact/reader](../research/crop-startup-artifact-implementation.md)도
 79개 새/799개 집중·기존 6프로그램 결과와 동일·별도 Python/재적분 없는 512출력 읽기로 수용했다.
 [v3 표/명시 role·설정](../research/crop-startup-storage-schema-implementation.md)도 새20개/184개 고유
-분할·실제 SCRAM/불변/정리로 로컬 수용했다. 다음은 [새 저장 v3](../contracts/crop-result-v3.md)의 현재 권리/custody →
-조회 API/같은 UTC 3D 판본 수용 → 전체 작기/생과 환산이다.
+분할·실제 SCRAM/불변/정리로 로컬 수용했다.
+[새 저장 v3 custody](../research/crop-startup-result-storage-implementation.md)도 새18개/집중119개·
+실제 SCRAM/6프로그램/별도 Python·commit 전후 철회/정리로 로컬 수용했다.
+다음은 [페이지 조회 API](../contracts/api-crop-startup-replay-v1.md) → 같은 UTC 성장 3D 판본 수용 →
+전체 작기/생과 환산이다.
 자동 착과/빈 초기 작기·실제 품종과 전체 작기 처리의 수용은 남아 있다.
 `590fadc`의 [coupled 조회/3D·순수 startup adapter CI](../research/artifacts/crop-coupled-replay-startup-rates-ci-20261005.json)는
 전체5개·백엔드3,157개/별도UID4개·여섯 동일 목록/정리·집계를 통과했다.

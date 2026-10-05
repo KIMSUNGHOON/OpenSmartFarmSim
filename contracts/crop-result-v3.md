@@ -1,8 +1,9 @@
 # 시작 유보 모델의 농장 결합 연구 저장 — v3
 
-상태: **schema/role/config 구획 로컬 수용**, 2026-10-05 KST.
+상태: **schema/role/config와 custody 로컬 수용**, 2026-10-05 KST.
 [실제 SCRAM·분할 184개 검증](../research/crop-startup-storage-schema-implementation.md)을 확인한다.
-custody·API/새 3D는 미수용이다.
+[custody의 실제 SCRAM·119개 검증](../research/crop-startup-result-storage-implementation.md)을 확인한다.
+API/새 3D는 미수용이다.
 선행: [새 immutable artifact/reader 수용](../research/crop-startup-artifact-implementation.md).
 기존 [v1](crop-result-v1.md)/[v2](crop-result-v2.md)와 G0–G4를 보존한다.
 이 개발 CLI `gpt-6.1-sol / xhigh`에서 설계 판단하며 재귀 CLI는 실행하지 않는다.
@@ -19,7 +20,7 @@ custody·API/새 3D는 미수용이다.
    `backend/tests/login_database.py`, `backend/tests/test_runtime_roles.py`,
    `backend/tests/test_operator_config.py`에 한정한다. 표/불변 trigger·제약·명시 grant와
    기본 false/누락 필드 호환을 실제 SCRAM으로 검증한다. 아직 custody 수용은 아니다.
-2. **다음 한 단계 — custody:** 같은 새 store 모듈의 실제 `StartupCropResultStore`와
+2. **수용된 custody:** 같은 새 store 모듈의 실제 `StartupCropResultStore`와
    `backend/tests/test_crop_startup_result_store.py`를 연결한다. 아래의 계산/권리/HMAC·
    원자성/재시작/읽기를 실제 SCRAM으로 검증한 뒤에만 저장 작업을 체크한다.
 
@@ -48,6 +49,9 @@ UTC 범위, 선언 available_at ≤ decision_at·권리 정책을 계산 전후/
 profile 적용성은 계속 `unvalidated_for_registered_crop`다. 기존 principal READ/WRITE
 scopes와 `research_display`/`research_calculation` 목적 권리를 요구한다.
 공급자 교체·늦은 권리/scope 철회는 저장/반환을 보류하고 부분 row를 남기지 않는다.
+commit 직후에도 반환 전 현재 권리를 다시 검사한다. commit 전에 철회되면 거래를
+롤백한다. commit 뒤 철회되면 완전한 불변 기록을 삭제하지 않고 반환을 보류하며,
+권리가 회복되기 전까지 현재 검사를 통과하지 못한 결과를 표시하지 않는다.
 
 계산은 HTTP handler 밖에서 수행한다. 이미 완료된 동일 원 요청의 재시도는 재계산 없이
 읽고 다른 요청은 conflict, 잠긴 동일 intent는 pending이다. 새 정정은 새 revision이다.
@@ -94,8 +98,9 @@ HMAC·행/packet/현재 코드/권리·artifact reader를 대사한다. 적분�
 독립 재시작/철회·회귀/정리/보고 0.5–1.5시간. 하루4시간 기준 목표는
 **10월5–6일 KST**이며 실제 실패·CI/자료 상태로 수정한다. hosted 대기 시간은 별도다.
 schema는 10월5일 KST에 새20개/기존 포함184개 고유 분할·실제 SCRAM/정리로 수용했다.
-다음 custody는 계산/권리·packet, 원자성/철회·재시작/회귀, 정리/보고로
-잠정 **1.5–2.5 집중시간/10월5–6일 KST**를 둔다. 표의 수용만으로 저장 부모를 체크하지 않는다.
+custody도 10월5일 KST에 새18개/집중119개·실제 SCRAM/6프로그램/별도 Python·commit 전후
+철회/정리로 로컬 수용했다. schema만으로 부모를 체크하지 않고 두 구획의 증거를 대사했다.
+다음 [페이지 API](api-crop-startup-replay-v1.md)는 잠정 **2–3 집중시간/10월5–6일 KST**다.
 국내 독립 자료 0건·actual forcing/Run 0개, cultivar/초기/자동 S/W1/RGR·pre-onset·
 전체 작기/생과 환산의 외부 의존성과 G0–G4 holds는 유지한다. 자료 확보는 개발과 병행한다.
 예측/추천 완료 날짜를 이 소프트웨어 저장 추정으로 대신하지 않는다.

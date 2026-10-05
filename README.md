@@ -58,8 +58,10 @@
 실제 512출력 파일은 3,519,579 bytes·읽기/검증 0.286초입니다.
 [농장 결합 저장 v3의 표/명시 권한·설정](research/crop-startup-storage-schema-implementation.md)도
 새20개/184개 고유 분할·실제 SCRAM/불변 trigger·정리로 로컬 수용했습니다.
-다음은 [현재 농장/입력 권리·서버 계산/HMAC 저장과 재시작 조회](contracts/crop-result-v3.md)입니다.
-새 모델의 DB custody/API/3D는 아직 수용 전입니다.
+[현재 농장/입력 권리·서버 계산/HMAC 저장과 재시작 조회](research/crop-startup-result-storage-implementation.md)도
+새18개/집중119개·실제 SCRAM/6프로그램/별도 Python·commit 전후 철회/정리로 로컬 수용했습니다.
+다음은 [같은 저장 ID/UTC의 새 페이지 조회 API](contracts/api-crop-startup-replay-v1.md), 그 뒤 성장 3D입니다.
+새 모델의 API/3D는 아직 수용 전입니다.
 자동 착과·생식기 이전/실제 초기 품종 계수는 보류입니다.
 `e70a7f2`의 [최종 CI](research/artifacts/crop-coupled-api-web-ci-hold-20261005.json)는
 기존 assessment HTTPS 30초 시간 초과 1개로 Backend 미수용이며 나머지 네 workflow는 성공했습니다.

@@ -37,10 +37,13 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 [새 저장 v3의 schema/role/config](../research/crop-startup-storage-schema-implementation.md)도
 새20개/184개 고유 분할·실제 SCRAM의17개 잘못된 행/5개 grant 변화·owner 불변 trigger·
 정리0개/25개 원 pin 보존으로 로컬 수용했다.
-다음 한 단계는 [v3 custody](../contracts/crop-result-v3.md): 새 store/test 두 파일에서 현재 farm/
-crop/범위·원천/program 권리·서버 계산 bytes/HMAC·동일/동시 재시도·원자성/철회·
-재시작/변조·재적분 없는 읽기를 실제 SCRAM으로 검증한다. 그 뒤 조회 페이지/API·동일 UTC 3D다.
-custody 잠정1.5–2.5시간/하루4시간 기준10월5–6일 KST며 hosted 대기는 별도다.
+[v3 custody](../research/crop-startup-result-storage-implementation.md)도 새18개/집중119개·
+실제 SCRAM/6프로그램/별도 Python·현재 farm/program 권리·HMAC/원자성·변조/commit 전후
+철회·재적분 없는 읽기와 역할/schema/비밀번호0개·DB 종료로 10월5일 KST 로컬 수용했다.
+다음 한 단계는 [새 페이지 API](../contracts/api-crop-startup-replay-v1.md): 같은 저장 ID/hash/UTC의
+50 N/C·16누적/4진단·512출력/사건 페이지, 현재 권리/변조/hold·재적분 없음,
+실제 HTTPS/Bearer·SCRAM 최대 전체 본문30초/재시작·정리를 검증한다. 그 뒤 같은 UTC 성장 3D다.
+API 잠정2–3 집중시간/하루4시간 기준10월5–6일 KST며 hosted 대기는 별도다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
@@ -112,7 +115,8 @@ flowchart TD
   SC --> SI["crop-startup-integration: 새 짧은 적분/manifest"]
   SI --> SF["crop-startup-artifact: 새 bytes/재적분 없는 reader"]
   SF --> SS["crop-startup-result-storage: 표/명시 role → 현재 권리/custody"]
-  SS --> SL["crop-startup-replay-link: 새 API/같은 UTC 3D"]
+  SS --> SP["crop-startup-api-replay: 같은 저장 ID/UTC 페이지"]
+  SP --> SL["crop-startup-web-replay: 같은 UTC 표/그래프/성장 3D"]
   CI --> F["crop-fruit-cohorts → crop-harvest-conversion"]
   SL --> F
   V --> F

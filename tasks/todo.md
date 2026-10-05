@@ -276,7 +276,7 @@
   건너뜀0, 6프로그램 결과와 이전 적분의 동일·세 실제 hold·별도 Python/재적분 없는 reader·
   시점별 예산/확인 prefix·512출력 파일 3,519,579 bytes/읽기0.286초를 확인했다.
   사용자 산출물: 실제 immutable 파일 ID/hash·UTC 원 수치/hold. 10월5일 KST 완료다.
-- [ ] **`crop-startup-result-storage`** — 선행: 새 artifact의 로컬 수용;
+- [x] **`crop-startup-result-storage`** — 로컬 합성 연구 저장 수용; 선행: 새 artifact의 로컬 수용;
   [저장 v3 계약](../contracts/crop-result-v3.md). 기존 불변 v1/v2를 보존하고 새 farm/result ID·
   현재 source/program 권리·HMAC·원자성/철회/별도 Python·재적분 없는 읽기를 실제 SCRAM으로 검증한다.
   두 구획 모두 증거가 생긴 뒤 체크한다. 전체 잠정2–4시간/10월5–6일 KST, hosted 대기는 별도다.
@@ -285,13 +285,23 @@
     authority SELECT/INSERT·다른 role/수정 거부, 기존 role/config 회귀·DB/password 정리.
     [실제 수용](../research/crop-startup-storage-schema-implementation.md): 새20개/184개 고유 분할·
     실제 SCRAM/17개 잘못된 행·5개 grant 변화·owner trigger·불변 pin25개/정리0개를 확인했다.
-  - [ ] **다음 한 단계 — custody:** 새 store/test에서 원 요청과 현재 farm/crop/범위/권리·등록 참조를 묶고,
+  - [x] **custody 로컬 수용:** 새 store/test에서 원 요청과 현재 farm/crop/범위/권리·등록 참조를 묶고,
     builder 계산/hold·HMAC/변조/혼합 거부·동일/동시 재시도/rollback·별도 프로세스 읽기를 검증한다.
-    잠정1.5–2.5시간/10월5–6일 KST며 API/새 3D와 별도다.
+    [실제 수용](../research/crop-startup-result-storage-implementation.md): 새18개/집중119개·
+    6프로그램/같은 bytes·현재 code hash·HMAC/22개 서명된 내용 변조 거부·commit 전후 철회,
+    실제 SCRAM/별도 Python·DB/password 정리0개를 확인했다. 10월5일 KST 로컬 완료;
+    API/새 3D와 hosted 전체 수용은 별도다.
 - [ ] **`crop-startup-replay-link`** — 선행: 새 짧은 적분/manifest·artifact·새 저장 v3와 판본별 조회 계약.
   기존 불변 저장·현재 권리/조회·동일 UTC 3D에 새 모델을 명시적으로 연결한다.
   판본 혼합·권리 철회·취소/hold·원 수치/mesh/단위 대사와 실제 SCRAM/TLS/브라우저·정리를
   단계별로 검증한다. 임의 초기 seed/착과 모양·생과 kg를 추가하지 않는다.
+  - [ ] **`crop-startup-api-replay`** — 선행: v3 custody의 실제 SCRAM 수용;
+    [새 페이지 API 계약](../contracts/api-crop-startup-replay-v1.md). 닫힌 typed/OpenAPI·같은 저장
+    ID/hash/UTC·50 N/C/16누적/4진단·512출력/사건 페이지·현재 권리/변조/hold·GET 재적분 없음,
+    실제 HTTPS 최대 페이지 전체 본문30초/재시작·정리. 잠정2–3 집중시간; 새 3D와 별도 수용.
+  - [ ] **`crop-startup-web-replay`** — 선행: 새 API 수용/별도 화면 계약;
+    같은 v3 result ID/UTC의 표·그래프·50구획 성장 3D와 원량/mesh 대사,
+    빈 과거/hold·권리/취소·WebGL HTML 대체·실제 SCRAM/TLS/브라우저·정리 후 체크한다.
 - [ ] **`crop-fruit-cohorts`** — 전체 구획의 부모 작업; 순간 수용만으로 완료하지 않는다. 개발 선행: `crop-fruit-transport`·`crop-fruit-allocation-rates`·고정 Gompertz 수요·명시적 관리 사건.
   참조 계수의 순수 모듈 개발은 국내 자료 접근/G2를 기다리지 않는다.
   실제 Axiany 적용에는 `crop-input-audit`와 해당 품종/관리·발달 근거가 추가로 필요하다.
