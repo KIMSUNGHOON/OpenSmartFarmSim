@@ -45,3 +45,13 @@ fixture 174.68초/call 154.06초, 전체 331.2501초였다.
 
 최신 수정의 hosted 수용은 후속이다. 기존 운영 기반 고정 범위는 유지하고
 다음 초기·착과 정책의 원천/독립 계산 조사로 돌아간다.
+
+## 종료된 e70 CI 기록
+
+Backend는 2026-10-05T00:10:14Z에 **failure**로 끝났다.
+다섯 파트 성공/파트3 실패, 합계 3,099개 통과/1개 실패·별도 UID4 통과였다.
+전체 3,100개 목록 해시는 여섯 파트에서 같고 DB/password 정리도 모두 성공했다.
+집계 job도 실패했다. C0/Web/Application/Authored 네 workflow는 성공했다.
+[정확한 terminal 기록](artifacts/crop-coupled-api-web-ci-hold-20261005.json)은 실패를 보존한다.
+그 판본 뒤의 UI·startup·CI 요약 수정 수용은 새 정확한 SHA의 CI에서 별도로 확인한다.
+이전 실행은 취소/재시작하지 않았다.
