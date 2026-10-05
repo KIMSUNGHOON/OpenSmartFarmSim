@@ -1,6 +1,8 @@
 # 빈 과실 tail의 명시적 요청/실현 adapter — v1
 
-상태: **정책 조사 수용 후 다음 순수 계산 계약; 제품 구현 미수용**.
+상태: **순수 순간 연구 계산 로컬 수용; 기관/적분/저장/3D 결합 미수용**.
+수용: [56개 새/544개 집중·14개 결과/해시](../research/crop-fruit-startup-rates-implementation.md).
+다음은 [새 기관 순간 결합](crop-plant-startup-rates-v1.md)이다.
 선행: [시작 정책/독립 대수](../research/crop-fruit-startup-policy.md), 기존
 [명시적 배분](crop-fruit-allocation-v1.md)·고정 구획 profile.
 정책 ID는 `explicit-entry-empty-sink-deferral-research-v1`이며 새 모델/입력 hash에 묶인다.

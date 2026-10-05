@@ -25,8 +25,10 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 완료 6시점/과거 hold 1시점/빈 hold·900 C/N mesh·원 수치/단위/잎 면적·권리/정리를 확인했다.
 [초기/명시적 착과 정책 조사](../research/crop-fruit-startup-policy.md)는 8개 원천/hash·
 9개 독립 보존 사례/5개 hold·W1/RGR 대안/생식기 이전 반례로 수용했다.
-다음 한 단계는 [빈 tail의 요청/실현 순수 adapter](../contracts/crop-fruit-startup-rates-v1.md)다.
-그 후 새 기관/적분 판본에서 buffer 유보와 실제 생장 호흡을 함께 연결한다.
+[빈 tail의 요청/실현 순수 adapter](../research/crop-fruit-startup-rates-implementation.md)도
+새 56개/기존 포함 544개·14개 실제 출력/hold로 로컬 수용했다.
+다음 한 단계는 [새 기관 순간 결합](../contracts/crop-plant-startup-rates-v1.md)이며
+buffer 유보와 실제 생장 호흡을 함께 연결한다. 그 뒤 새 적분/저장·동일 UTC 3D로 이어간다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
@@ -90,9 +92,11 @@ flowchart TD
   WG --> CV["web-crop-coupled-replay: 같은 결과/시점"]
   FM --> ST["crop-fruit-startup-policy: 초기/자동/W1/RGR"]
   ST --> SA["crop-fruit-startup-rates: 요청/실현·빈 tail 유보"]
-  SA --> SC["새 기관/적분 판본: buffer/호흡 함께 연결"]
+  SA --> SC["crop-plant-startup-rates: buffer/호흡 함께 연결"]
+  SC --> SI["crop-startup-integration: 새 짧은 적분/manifest"]
+  SI --> SL["crop-startup-replay-link: 새 저장/같은 UTC 3D"]
   CI --> F["crop-fruit-cohorts → crop-harvest-conversion"]
-  SC --> F
+  SL --> F
   V --> F
   CV --> F
   F --> C["crop-climate-coupling"]
@@ -778,10 +782,11 @@ CLI·독립 해제/G1은 후속이다.
 위 장면의 잠정치는 [실제 로컬 완료](../research/web-crop-coupled-replay-implementation.md)로 대체한다.
 `crop-fruit-startup-policy`의 [원천/권리·단위/초기·빈 tail/생식기 이전/W1·S·RGR·
 독립 보존/hold 표](../research/crop-fruit-startup-policy.md)를 연구 범위로 수용했다.
-다음 [두 파일의 순수 요청/실현 adapter](../contracts/crop-fruit-startup-rates-v1.md)는
-독립 9개 배분·buffer/호흡 보존값과 5개 hold·실제 이진 수지/단위·불변/hash 회귀를 검사한다.
-0.5 집중일(하루 4시간 가정) 잠정이고, 그 뒤 새 기관/짧은 적분 결합은 0.5–1일로 분리한다.
-첫 adapter 검증 목표는 2026-10-05~06 KST로 잡고 실제 완료/CI 상태로 수정한다.
+[순수 adapter](../research/crop-fruit-startup-rates-implementation.md)는 새56개/전체544개·14개 실제
+출력/hold를 통과했다. 다음 [새 기관 순간 결합](../contracts/crop-plant-startup-rates-v1.md)은
+buffer/실현 호흡·기관/개수 수지를 독립 값과 대사하는 두 파일의 0.5 집중일 잠정이다.
+그 뒤 새 짧은 적분과 저장/동일 UTC 3D는 각각 계약/수용한다.
+기관 순간 결합의 검증 목표는 2026-10-05~06 KST(하루4시간 가정)로 잡고 실제 완료/CI 상태로 수정한다.
 자동 착과·pre-onset/실제 초기 계수는 hold이며 전체 작기 처리/수확 변환을 이어간다.
 국내 독립 농장 자료 확보를 개발 선행으로 잠그지 않는다. 실제 품종/forcing/초기/관리 채택,
 생과·자원/경제·미래 추천 게시의 근거·G0–G4는 유지한다. 외부 작기/계량 자료가 0건인 현재

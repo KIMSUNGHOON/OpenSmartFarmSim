@@ -243,13 +243,26 @@
   8개 raw hash, 9개 독립 보존/5개 hold·3개 미채택 대안·pre-onset C/N 반례,
   byte-identical 재생성/핀 대사. 명시적 빈 tail 유보 연구 변형을 수용했다.
   자동 착과·생식기 이전·실제 초기/품종/수확/G0–G4는 미수용이다.
-- [ ] **`crop-fruit-startup-rates`** — 다음 한 단계; 선행: 위 정책·기존 배분/고정 profile.
+- [x] **`crop-fruit-startup-rates`** — 선행: 위 정책·기존 배분/고정 profile.
   [순수 adapter 계약](../contracts/crop-fruit-startup-rates-v1.md)의 두 코드/시험 파일.
   수용: 요청/실현/유보·50개 C/N 유입, 실제 생장 호흡·필수 buffer 보정,
   독립 9개 값/5개 hold·유한/underflow/단위/입력 불변/hash·기존 집중 회귀.
-  사용자 산출물: 요청/실현/유보·호흡/보존 표. 0.5 집중일 잠정.
-  다음 새 whole-plant 판본은 buffer/호흡을 함께 연결한 뒤 짧은 적분/저장/3D로 이어간다.
+  [실제 수용](../research/crop-fruit-startup-rates-implementation.md): 새 56개/기존 포함
+  544개·6.89초·건너뜀0, 14개 실제 출력/hold와 원천/profile/독립 값/로그 hash.
+  사용자 산출물: 요청/실현/유보·호흡/보존 표. 기관/적분/저장/3D 결합은 미수용이다.
   국내 자료 확보가 순수 개발을 막지 않으며 실제 생산·예측 게시에는 해당 G0–G3가 필요하다.
+- [ ] **`crop-plant-startup-rates`** — 다음 한 단계; 위 adapter와 기존 기관/구획 순간 계산이 선행.
+  [두 파일 계약](../contracts/crop-plant-startup-rates-v1.md)의 새 모델에서
+  buffer 유보/실현 생장 호흡·구획 이동/유지 호흡을 함께 대사한다.
+  수용: 빈 초기/첫 명시적 진입/무진입·기존 판본 동등성, 독립 기관/개수 수지·
+  불일치/수치 hold·불변/hash와 기존 집중 회귀. 표/검증 기록을 확인한다. 0.5 집중일 잠정.
+- [ ] **`crop-startup-integration`** — 선행: 새 기관 순간 결합/같은 모델의 프로그램 계약.
+  새 판본의 짧은 적분/사건·누적 요청/실현/유보/호흡·기관/개수 잔차, 독립 참조·
+  간격 수렴·past-only hold·현 자원 한도를 작은 구획으로 수용한다. 기존 v1 결과는 보존한다.
+- [ ] **`crop-startup-replay-link`** — 선행: 새 짧은 적분/manifest와 판본별 저장/조회 계약.
+  기존 불변 저장·현재 권리/조회·동일 UTC 3D에 새 모델을 명시적으로 연결한다.
+  판본 혼합·권리 철회·취소/hold·원 수치/mesh/단위 대사와 실제 SCRAM/TLS/브라우저·정리를
+  단계별로 검증한다. 임의 초기 seed/착과 모양·생과 kg를 추가하지 않는다.
 - [ ] **`crop-fruit-cohorts`** — 전체 구획의 부모 작업; 순간 수용만으로 완료하지 않는다. 개발 선행: `crop-fruit-transport`·`crop-fruit-allocation-rates`·고정 Gompertz 수요·명시적 관리 사건.
   참조 계수의 순수 모듈 개발은 국내 자료 접근/G2를 기다리지 않는다.
   실제 Axiany 적용에는 `crop-input-audit`와 해당 품종/관리·발달 근거가 추가로 필요하다.
