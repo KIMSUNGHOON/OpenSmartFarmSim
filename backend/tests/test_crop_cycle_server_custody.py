@@ -317,3 +317,60 @@ with inputs.open_input_packet(r['input'],r['root_sha256'],**PROFILES) as reader:
         assert fresh.inspect().decode()==result['progress']
         assert fresh.page(fresh.inspect(),'samples',0,64)['records']==result['samples']
     finally:close_journal(fresh)
+
+
+@pytest.mark.parametrize('kind',['intents','root-bytes'])
+def test_other_intents_count_toward_root_budget_before_rhs(journal_setup,monkeypatch,kind):
+    journal=open_journal(journal_setup);calls=0;advance=engine.advance_chunk
+    def counted(*args,**kwargs):
+        nonlocal calls
+        calls+=1;return advance(*args,**kwargs)
+    monkeypatch.setattr(engine,'advance_chunk',counted);root=journal_setup[0]
+    total=128 if kind=='intents' else 2
+    for i in range(total):
+        where=root/sha256(('other-owned-intent-'+str(i)).encode()).hexdigest();where.mkdir(mode=0o700)
+        if kind=='root-bytes':
+            directory=where/'artifact';directory.mkdir(mode=0o700)
+            path=directory/('.blob-'+'0'*32+'.tmp')
+            with path.open('wb') as handle:handle.truncate(artifact.LIMITS['directory_bytes'])
+            path.chmod(0o600)
+    try:
+        with pytest.raises(custody.CycleCustodyHold):journal.advance(BUDGET)
+        assert calls==0
+    finally:close_journal(journal)
+
+
+def test_context_code_and_notice_change_cannot_sign_another_delta(journal_setup,monkeypatch):
+    journal=open_journal(journal_setup)
+    try:
+        monkeypatch.setattr(custody,'CODE_SHA256','0'*64)
+        with pytest.raises(custody.CycleCustodyHold):journal.advance(BUDGET)
+        monkeypatch.undo();journal.notice=b'foreign notice'
+        with pytest.raises(custody.CycleCustodyHold):journal.advance(BUDGET)
+    finally:close_journal(journal)
+
+
+@pytest.mark.parametrize('kind',['pre-onset','late-event'])
+def test_numeric_hold_signs_only_original_confirmed_past(tmp_path,kind,monkeypatch):
+    from app import crop_plant_startup_integration as original
+    p=program('full-removal-reentry' if kind=='late-event' else 'empty-entry')
+    if kind=='pre-onset':p['initial_state']['values']['temperature_sum']['value']=0
+    else:p['events'][1]['removals']['values']['leaf']['value']=1e6
+    expected=original.integrate_plant_startup(**p,**PROFILES);assert expected['status']=='hold'
+    reader,ctx=context(tmp_path/'input',p);root=tmp_path/'server';root.mkdir(mode=0o700)
+    request={'study_id':'own-study','revision':'r1','input':{'root_sha256':reader.root_sha256}}
+    raw=custody._canonical(request);binding=custody._canonical({'scope':'unregistered_synthetic_file_test','request':request})
+    where=root/custody._intent_id('own-tenant',request);where.mkdir(mode=0o700)
+    with reader:
+        journal=open_journal((root,where,ctx,raw,binding))
+        try:
+            while True:
+                progress=journal.advance({'max_steps':17,'max_transitions':31})
+                if json.loads(progress)['status']!='yielded':break
+            assert json.loads(progress)['status']=='hold' and json.loads(progress)['artifact_sha256']
+            monkeypatch.setattr(engine.short._Evaluator,'rhs',lambda *a:pytest.fail('hold replay ran RHS'))
+            for key in ('hold','last_confirmed'):
+                assert artifact._canonical(journal.writer._summary[key])==artifact._canonical(expected[key])
+            for kind,limit in (('samples',64),('events',8)):
+                assert artifact._canonical(journal.page(progress,kind,0,limit)['records'])==artifact._canonical(expected[kind])
+        finally:close_journal(journal)

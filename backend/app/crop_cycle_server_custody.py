@@ -438,6 +438,9 @@ class CycleServerCustody:
             if not write:_need(_exists(root,name))
             intent=_directory(root,name,create=write);intent_lock=_file(intent,'.intent-lock',lock=True)
             reader=self.input_resolver(request['input']['root_sha256'],**self.binding._profiles())
+            if isinstance(reader,inputs.InputPacket) and type(reader) is not inputs.InputPacket:
+                inputs.InputPacket.close(reader)
+                raise CycleCustodyHold('cycle execution custody unavailable')
             _need(type(reader) is inputs.InputPacket and not reader.closed)
             with reader:
                 _secure_input(reader)

@@ -82,7 +82,10 @@
 API/client/3D까지의 `1555610`도 [CI5개/백엔드3,456개·별도UID4개](research/artifacts/crop-startup-replay-ci-20261005.json),
 여섯 동일 목록/정리·집계까지 수용했습니다. 후속 `fe41e22`도
 [CI5개/백엔드3,709개·별도UID4개](research/artifacts/crop-cycle-stream-ci-20261005.json),
-여섯 동일 목록/정리·집계로 continuation/reader/긴 RHS까지 수용했습니다. cycle artifact/schema/roles의 hosted 수용은 다음 CI에서 확인합니다.
+여섯 동일 목록/정리·집계로 continuation/reader/긴 RHS까지 수용했습니다. 이어 `ff6eb3d`의
+[CI5개/백엔드3,862개·별도UID4개](research/artifacts/crop-cycle-artifact-schema-roles-ci-20261005.json)도
+여섯 동일 목록/정리·집계와 작성 경로 첫 시도7job까지 성공해 cycle artifact/schema/roles를 수용했습니다.
+농장 결합과 아래 서버 실행은 이 CI SHA 밖이며 후속 CI에서 확인합니다.
 [기록 합성 데모의 3D·원값](research/artifacts/coupled-crop-replay-recorded-demo-geometry.png)과
 [실제 저장 경로의 화면](research/artifacts/coupled-crop-replay-desktop.png)을 확인할 수 있습니다.
 기록 데모는 운영 저장 목록이 아니며 실제 완료 6시점의 소프트웨어 검증입니다.
@@ -106,7 +109,11 @@ API/client/3D까지의 `1555610`도 [CI5개/백엔드3,456개·별도UID4개](re
 [실제 서버 계산/서명된 progress](contracts/crop-cycle-server-custody-v1.md) → DB 게시로 나눕니다.
 첫3파일 [농장/root 결합](research/crop-cycle-farm-binding-implementation.md)은 고유54개 분할 검증·
 실제 SCRAM/현재 권리·입력 변경/Unicode 수정·별도 Python/정리로10월5일 로컬 수용했습니다.
-남은 서버 실행/서명3–5시간+DB custody2–3시간은5–8집중시간/10월5–8일 KST 잠정입니다.
+[실제 서버 계산/서명 저장](research/crop-cycle-server-custody-implementation.md)도 고유46개 분할 검증·
+실제 SCRAM/현재 권리·강제 종료4개·별도 Python121float64 복원·정리로10월5일 로컬 수용했습니다.
+25시간/11,400실제 걸음의27시점/5사건을 독립 제어 흐름과 대사했고 서명 저장은829,769bytes였습니다.
+이 긴 참조는 마지막 invalid reader 정리 수정 전 판본이며 실제 품종/전체 작기 검증은 아닙니다.
+남은 DB custody는2–3집중시간/10월5–7일 KST 잠정이며 CI/외부 자료 대기는 별도입니다.
 세 자식의 실제 수용 뒤 API/client → 같은 UTC3D → 작기 부하로 진행합니다.
 짧은 실행 수용을 전체 작기 검증으로 표시하지 않습니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.

@@ -171,13 +171,18 @@ typecheck/build·기록 TLS 원값 대사로 로컬 수용했다.
 [실제 서버 계산/서명된 progress](../contracts/crop-cycle-server-custody-v1.md) → DB 게시로 분해한다.
 첫 [농장/root 결합](../research/crop-cycle-farm-binding-implementation.md)은 고유54개 분할·실제 SCRAM/
 현재 권리·중간 입력 변경·별도 Python/정리로10월5일 로컬 수용했다.
-부모 수용은 남은 서버 실행/서명·DB 게시의 실제 증거 뒤다. 그다음 API/client → 같은 UTC3D →
+[실제 서버 계산/서명 저장](../research/crop-cycle-server-custody-implementation.md)도 고유46개 분할·
+실제 SCRAM/현재 권리·강제 종료4개·별도 Python 복원/정리로10월5일 로컬 수용했다.
+25시간/11,400실제 걸음·27시점/5사건을 독립 제어 흐름과 대사했다. 마지막 reader 정리 수정 전 참조 판본을 고정한다.
+부모 수용은 남은 DB 게시의 실제 증거 뒤다. 그다음 API/client → 같은 UTC3D →
 작기 부하 → 생과 환산을 [todo](../tasks/todo.md)의 작은 자식 순서로 진행한다. 각3–5파일 작업/검증은 [todo](../tasks/todo.md)를 따른다.
 startup API/client/3D까지 `1555610`의 [CI5개/백엔드3,456개·UID4개](../research/artifacts/crop-startup-replay-ci-20261005.json),
 동일 목록/정리·집계도 수용했다. 후속 `fe41e22`도
 [CI5개/백엔드3,709개·UID4개](../research/artifacts/crop-cycle-stream-ci-20261005.json),
 여섯 동일 목록/정리·집계로 continuation/reader/긴 RHS까지 수용했다.
-cycle artifact/schema/roles의 hosted·pixel fidelity·실제 품종은 별도다.
+이어 `ff6eb3d`의 [CI5개/백엔드3,862개·UID4개](../research/artifacts/crop-cycle-artifact-schema-roles-ci-20261005.json)도
+여섯 동일 목록/정리·집계로 cycle artifact/schema/roles까지 수용했다.
+농장 결합/서버 실행의 hosted·pixel fidelity·실제 품종은 별도다.
 실제 전체 작기 처리는 별도다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
 전체 작기 생산 모델의 착수/게시 범위에 접근할 수 있다.

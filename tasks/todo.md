@@ -231,17 +231,22 @@
         별도 Python 동일 binding·파일/FD/DB/비밀 정리와 RHS/row/Run0개.
         [고유54개 분할 검증/수정·영수증](../research/crop-cycle-farm-binding-implementation.md)과
         원44개 hash 보존으로10월5일 로컬 수용했다. 부모 저장/다음 custody는 미완료다.
-      - [ ] **`crop-cycle-server-custody`** — 선행 farm binding 수용;3–5파일의 실제 writer/서명된 progress.
-        [설계 후보/수용 조건](../contracts/crop-cycle-server-custody-v1.md)을 구현 전 닫힌 schema/budget으로 고정한다.
+      - [x] **`crop-cycle-server-custody`** — 선행 farm binding 수용;5 core파일의 실제 writer/서명된 progress.
+        [계약/수용 조건](../contracts/crop-cycle-server-custody-v1.md)의 닫힌 schema/budget을 고정했다.
         서버의 private root만 해석하고 frozen RHS로 계산하며 각 bounded advance의 현재 권리,
         intent/farm/input/header/code/HEAD·checkpoint를 domain HMAC에 묶는다.
         수용:6프로그램/긴 실제 RHS·같은 canonical 원량/UTC, 별도 Python·강제 종료/재시작,
-        서명/HEAD 교체·부적절한 외부/혼합 결과·권리 철회 거부·writer/FD/temp 정리. 잠정3–5시간.
+        서명/HEAD 교체·부적절한 외부/혼합 결과·권리 철회 거부·writer/FD/temp 정리.
+        [고유46개 분할/25시간 참조와 영수증](../research/crop-cycle-server-custody-implementation.md):
+        순수41개/실제 SCRAM5개·실제 반례4개/reader FD 반례 수정·강제 종료4개·별도 Python121float64/
+        같은27시점/5사건·서명 저장829,769bytes·정리/원46개 hash로10월5일 로컬 수용했다.
+        단일46 GREEN/실제 품종 수용이 아니며 긴 참조는 마지막 invalid reader 정리 수정 전 판본이다.
       - [ ] **`crop-cycle-db-custody`** — 선행 server custody 수용;3–5파일의 metadata/HMAC/atomic 게시.
         실제 SCRAM의 같은 farm/root·서버 실행 영수증·closed/code/header/고지·HMAC를 대사한다.
         수용: commit 전후 farm/source/input 권리 철회·교차 tenant/farm/root·혼합/부분 게시 거부,
         immutable retry/conflict·별도 프로세스 재적분 없는 읽기/복구·정리. 잠정2–3시간.
-      남은 서버3–5시간+DB2–3시간은5–8집중시간/10월5–8일 KST 잠정이며 CI/실제 자료 대기는 별도다.
+      남은 DB는 폐쇄 참조/HMAC1시간+실제 게시/철회/재시작·정리1–2시간의
+      2–3집중시간/10월5–7일 KST 잠정이며 하루4시간/CI·실제 자료 대기는 별도다.
       필요해진 lease/cancel은 기존 worker 계약에 대조하며 새 queue/service를 먼저 만들지 않는다.
     - [ ] **`api-crop-cycle-pages`** — 선행: custody 저장 수용. 같은 저장 ID의 순차 sample/event 페이지를
       3–5파일로 제공한다. 수용: 실제 Bearer/TLS/SCRAM·current rights·같은 UTC/원량/index·

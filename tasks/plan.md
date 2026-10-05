@@ -83,8 +83,12 @@ hold·263.879초/parent45.44MiB·정리로10월5일 KST 로컬 완료했다.
 첫 [농장/root 결합](../research/crop-cycle-farm-binding-implementation.md)은 고유54개 분할·실제 SCRAM/
 현재 권리·입력 변경/Unicode 수정·별도 Python/정리와 원44개 hash 보존으로10월5일 로컬 수용했다.
 예정120step의 preflight이며 실제 RHS/row/Run0개다. 기존 첫2–3시간 예상은 이 실적으로 대체한다.
-다음 서버 실행/진행3–5시간+DB custody2–3시간은 남은5–8집중시간,
-하루4시간/CI·자료 대기 제외10월5–8일 KST 잠정이다.
+[실제 서버 계산/서명 저장](../research/crop-cycle-server-custody-implementation.md)도 고유46개 분할·
+실제 SCRAM/현재 권리·강제 종료4개·별도 Python121float64 복원/정리로10월5일 로컬 수용했다.
+25시간/11,400실제 걸음의27시점/5사건·서명 저장829,769bytes를 대사했고 마지막 reader 정리 수정 전 참조 판본을 고정한다.
+기존 서버3–5시간은 이 실적으로 대체한다. 다음 DB custody는 폐쇄 참조/HMAC 준비1시간+
+실제 SCRAM 게시/철회/재시작·정리1–2시간의 **2–3집중시간/10월5–7일 KST 잠정**이다.
+하루4시간 기준이며 CI·자료 대기는 제외한다.
 저장 custody/API/client/3D·166일 실제 부하·생과 날짜는 해당 구현 실적/실제 입력 확보 뒤 갱신한다.
 [착수 코드 감사](../research/crop-cycle-execution-inspection-20261005.md)는 기관 단독v1의20,000 배열/
 100만 step과 현재 기관·과실/startup의128 forcing/128 event·512 output·10,000 step·1일을 구분한다.
@@ -937,5 +941,10 @@ pure artifact는 farm/current rights/HMAC/HTTP의 수용을 대신하지 않는�
 SHAfe41e22의 [CI 첫 시도 보류/재시도 기록](../research/artifacts/crop-cycle-stream-ci-hold-20261005.json)은
 authored-browser7passed/정리 성공 뒤25분 job deadline 취소와 같은 SHA 재시도를 분리한다.
 그 [재시도 terminal](../research/artifacts/crop-cycle-stream-authored-retry-ci-20261005.json)은
-7passed/1,207.46초·정리와 workflow 성공으로 수용했다. Backend 전체/집계는 새 대사가 필요하다.
+7passed/1,207.46초·정리와 workflow 성공으로 수용했다. 이후
+[동일 SHA 전체 수용](../research/artifacts/crop-cycle-stream-ci-20261005.json)으로 Backend3,709개/UID4개·여섯 동일 목록/정리·집계도 확인했다.
+후속 `ff6eb3d`의 [CI5개/Backend3,862개·UID4개](../research/artifacts/crop-cycle-artifact-schema-roles-ci-20261005.json)는
+작성 첫 시도7job와 여섯 동일 목록/정리·집계로 cycle artifact/schema/roles까지 수용했다.
+위 role/config 예정도 [실제 로컬 수용](../research/crop-cycle-storage-roles-implementation.md)으로 대체한다.
+농장 결합/서버 실행의 후속 CI는 별도이며 현재 다음 단계는 위 DB custody다.
 진행 중 CI를 후속 push로 취소하지 않는다.

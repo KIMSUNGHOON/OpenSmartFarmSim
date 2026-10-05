@@ -112,3 +112,32 @@ def test_foreign_tenant_wrong_expected_progress_and_changed_resolver_are_held(se
     with pytest.raises(custody.CycleCustodyHold):service.page('tenant-1',raw,progress+b' ','samples',0,1)
     monkeypatch.setattr(service.input_resolver,'version','changed-v2')
     with pytest.raises(custody.CycleCustodyHold):service.inspect('tenant-1',raw)
+
+
+def test_rejected_input_reader_subclass_releases_its_descriptor_without_rhs(server_setup,monkeypatch):
+    service,raw,_,_,_=server_setup
+    class UnsupportedReader(inputs.InputPacket):pass
+    def unsupported(self,root,**profiles):
+        return UnsupportedReader(self.directory,root,**profiles)
+    monkeypatch.setattr(OwnInputResolver,'__call__',unsupported)
+    before=len(os.listdir('/proc/self/fd'));calls=0;advance=engine.advance_chunk
+    def counted(*args,**kwargs):
+        nonlocal calls
+        calls+=1;return advance(*args,**kwargs)
+    monkeypatch.setattr(engine,'advance_chunk',counted)
+    with pytest.raises(custody.CycleCustodyHold):service.advance('tenant-1',raw,budget=BUDGET)
+    assert calls==0 and len(os.listdir('/proc/self/fd'))==before
+
+
+def test_real_root_lock_different_revision_conflict_and_current_source_withdrawal(server_setup,monkeypatch):
+    service,raw,_,_,_=server_setup
+    directory=custody._open_directory_nofollow(service.directory);lock=custody._file(directory,'.custody-lock',lock=True)
+    try:
+        with pytest.raises(custody.CycleCustodyPending):service.advance('tenant-1',raw,budget=BUDGET)
+    finally:os.close(lock);os.close(directory)
+    service.advance('tenant-1',raw,budget=BUDGET)
+    changed=json.loads(raw);changed['rights']['declaration_id']='other-declaration'
+    with pytest.raises(custody.CycleCustodyConflict):service.advance('tenant-1',_canonical(changed),budget=BUDGET)
+    source=service.binding.farms.replay.candidates._source._source
+    monkeypatch.setattr(source,'get_input_rights',lambda *_:None)
+    with pytest.raises(custody.CycleCustodyHold):service.inspect('tenant-1',raw)

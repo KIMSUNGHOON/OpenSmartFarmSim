@@ -1,6 +1,8 @@
-# Cycle 서버 계산과 서명된 진행 상태 — v1 설계 후보
+# Cycle 서버 계산과 서명된 진행 상태 — v1
 
-상태: **구현 중/미수용**, `crop-cycle-server-custody`, 2026-10-05 KST.
+상태: **로컬 소프트웨어 수용**, `crop-cycle-server-custody`, 2026-10-05 KST.
+[구현/수정과 검증](../research/crop-cycle-server-custody-implementation.md),
+[불변 영수증](../research/artifacts/crop-cycle-server-custody-reference-20261005.json)을 확인한다.
 선행은 [현재 농장/root 결합](crop-cycle-farm-binding-v1.md),
 [실제 writer/복원](crop-cycle-artifact-v1.md), [명시 runtime 권한](crop-cycle-storage-v1.md)이다.
 [저장 부모/의존성](../tasks/plan.md)을 따르며 DB custody/API/client/성장3D는 후속이다.
@@ -135,6 +137,9 @@ orphan/temp도 합산한다. advance 전에는 원 최대8MiB delta의2배+metad
    실제 farm provider 시험은 SCRAM을 사용하고 signed file만의 parser 시험은 pure focused로 수행한다.
 
 계약/adapter/proof1–2시간+actual writer/현재 권리/복원1–2시간+강제 종료/변조/정리1시간의
-잠정 **3–5집중시간**이다. 시작 날짜는 선행 binding 수용 뒤 갱신한다.
+기존 **3–5집중시간** 예상은10월5일 로컬 수용으로 대체한다.
+고유46개 분할·6원 프로그램·25시간/11,400실제 걸음·121float64/pending event의 별도 Python exec,
+네 실제 강제 종료/selected signed HEAD 복원·현재 권리/타입/예산/FD 정리를 확인했다.
+참조25h는 reader subtype 정리 수정 전 판본이며 원46개/수학/정상 writer 경로를 보존했다.
 이후 DB HMAC/commit 전후 권리·immutable retry는 별도2–3시간 잠정이며 실제 구현에서 갱신한다.
 권리 predicate·fixture key는 소프트웨어 증거이며 actual data/독립 국내 자료0개와 G0–G4 hold를 유지한다.
