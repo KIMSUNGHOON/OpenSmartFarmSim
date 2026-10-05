@@ -40,6 +40,7 @@ from .farm_authored_run_store import AuthoredRunStore
 from .farm_authored_simulation import AuthoredSimulationService
 from .crop_result_store import CropResultStore
 from .crop_coupled_result_store import CoupledCropResultStore
+from .crop_startup_result_store import StartupCropResultStore
 
 
 @dataclass(frozen=True)
@@ -86,6 +87,7 @@ class ApiRuntimeDependencies:
     owned_research_contexts: dict | None = field(default=None, repr=False)
     crop_result_store_factory: object = field(default=None, repr=False)
     crop_coupled_result_store_factory: object = field(default=None, repr=False)
+    crop_startup_result_store_factory: object = field(default=None, repr=False)
 
     def __post_init__(self):
         if (type(self.research_registry) is not ResearchRegistry or
@@ -96,6 +98,7 @@ class ApiRuntimeDependencies:
                 (self.authored_run_store_factory is not None and not callable(self.authored_run_store_factory)) or
                 (self.crop_result_store_factory is not None and not callable(self.crop_result_store_factory)) or
                 (self.crop_coupled_result_store_factory is not None and not callable(self.crop_coupled_result_store_factory)) or
+                (self.crop_startup_result_store_factory is not None and not callable(self.crop_startup_result_store_factory)) or
                 (self.owned_fixture_registry is not None and type(self.owned_fixture_registry) is not OwnedFixtureRegistry) or
                 (self.owned_research_contexts is not None and
                     (type(self.owned_research_contexts) is not dict or self.owned_fixture_registry is None))):
@@ -132,6 +135,8 @@ class ApiRuntime:
             if config.policy.crop_result_storage != (dependencies.crop_result_store_factory is not None):
                 raise ValueError()
             if config.policy.crop_coupled_result_storage != (dependencies.crop_coupled_result_store_factory is not None):
+                raise ValueError()
+            if config.policy.crop_startup_result_storage != (dependencies.crop_startup_result_store_factory is not None):
                 raise ValueError()
             authored_option = (config.authored_run_gate_key is not None or
                 dependencies.authored_run_store_factory is not None)
@@ -201,6 +206,15 @@ class ApiRuntime:
                         or coupled_crop_results.farms is not farm_authoring):
                     raise ValueError()
                 coupled_crop_results._guard_binding()
+            startup_crop_results = None
+            if dependencies.crop_startup_result_store_factory is not None:
+                if farm_authoring is None:
+                    raise ValueError()
+                startup_crop_results = dependencies.crop_startup_result_store_factory(farm_authoring_service=farm_authoring)
+                if (type(startup_crop_results) is not StartupCropResultStore or startup_crop_results.jobs is not jobs
+                        or startup_crop_results.farms is not farm_authoring):
+                    raise ValueError()
+                startup_crop_results._guard_binding()
             submission = None
             if dependencies.thermal_publisher_factory is not None:
                 if scenarios is None:
@@ -242,7 +256,7 @@ class ApiRuntime:
                 authored_run_store=authored_runs, farm_authoring_service=farm_authoring,
                 farm_authored_review_service=farm_reviews,
                 authored_simulation_service=authored_simulation, crop_result_store=crop_results,
-                crop_coupled_result_store=coupled_crop_results)
+                crop_coupled_result_store=coupled_crop_results, crop_startup_result_store=startup_crop_results)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -255,5 +269,6 @@ class ApiRuntime:
                 ('economic_calculations', economic_calculations),
                 ('farm_authoring', farm_authoring), ('farm_reviews', farm_reviews),
                 ('authored_runs', authored_runs), ('authored_simulation', authored_simulation),
-                ('crop_results', crop_results), ('coupled_crop_results', coupled_crop_results)):
+                ('crop_results', crop_results), ('coupled_crop_results', coupled_crop_results),
+                ('startup_crop_results', startup_crop_results)):
             object.__setattr__(self, name, value)
