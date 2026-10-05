@@ -228,3 +228,25 @@ def test_hold_can_preserve_empty_past_but_completed_requires_all_planned_steps(c
     with base.connect() as conn:owner(conn,policy);insert(conn,policy,hold)
     completed=with_payload({**row,'revision':'r2','result_id':'crop-cycle-result-v1:'+'7'*64,'steps':0})
     with base.connect() as conn,pytest.raises(errors.CheckViolation):owner(conn,policy);insert(conn,policy,completed)
+
+
+def test_valid_json_exact_metadata_byte_limit_roundtrips_and_one_byte_over_is_rejected(cycle_schema):
+    from app.crop_cycle_result_schema import MAX_METADATA_BYTES
+    base,policy,_,row=cycle_schema;packet=metadata(row);packet['binding']['padding']=''
+    packet['binding']['padding']='x'*(MAX_METADATA_BYTES-len(_canonical(packet)))
+    exact=with_payload(row,packet);assert len(exact['payload_raw'])==MAX_METADATA_BYTES
+    with base.connect() as conn:
+        owner(conn,policy);insert(conn,policy,exact)
+        assert bytes(conn.execute(sql.SQL('SELECT payload_raw FROM {}').format(target(policy))).fetchone()['payload_raw'])==exact['payload_raw']
+    packet['revision']='r2';packet['result_id']='crop-cycle-result-v1:'+'7'*64;packet['binding']['padding']+='x'
+    oversized=with_payload({**row,'revision':'r2','result_id':packet['result_id']},packet)
+    assert len(oversized['payload_raw'])==MAX_METADATA_BYTES+1
+    with base.connect() as conn,pytest.raises(errors.CheckViolation):owner(conn,policy);insert(conn,policy,oversized)
+    with base.connect() as conn:assert conn.execute(sql.SQL('SELECT count(*) AS n FROM {}').format(target(policy))).fetchone()['n']==1
+
+
+def test_empty_metadata_bytes_never_create_row(cycle_schema):
+    base,policy,_,row=cycle_schema
+    with base.connect() as conn,pytest.raises((errors.CheckViolation,errors.InvalidTextRepresentation)):
+        owner(conn,policy);insert(conn,policy,with_payload(row,raw=b''))
+    with base.connect() as conn:assert conn.execute(sql.SQL('SELECT count(*) AS n FROM {}').format(target(policy))).fetchone()['n']==0

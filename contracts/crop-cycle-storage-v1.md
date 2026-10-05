@@ -1,6 +1,8 @@
 # Cycle 연구 결과의 불변 저장 참조 — v1
 
-상태: **schema 구현 전 계약**, 2026-10-05 KST. 작업 `crop-cycle-storage-schema`.
+상태: **schema만 로컬 소프트웨어 수용**, 2026-10-05 KST. 작업 `crop-cycle-storage-schema`.
+[실제 SCRAM·수용/제한](../research/crop-cycle-storage-schema-implementation.md),
+[CLI·코드/초안·시험/정리 영수증](../research/artifacts/crop-cycle-storage-schema-reference-20261005.json)을 확인한다.
 [제품 범위/관문](../docs/PROJECT_SPEC.md), [저장/worker 경계](../docs/ARCHITECTURE.md),
 [POSIX 객체/DB metadata stack](../docs/TECH_STACK.md),
 [수용된 계산 결과 파일](crop-cycle-artifact-v1.md)을 따른다.
@@ -82,4 +84,9 @@ JSON 누락 추출과 CHECK의 null 허용을 고려해 metadata 조건에 `IS T
 
 계약0.5–1시간+installer/불변 제약1시간+SCRAM/잘못된 행·회귀/정리1–2시간의
 **2.5–4집중시간**, 하루4시간/CI 대기 제외 **10월5–6일 KST 잠정**이다.
+이 추정은10월5일 로컬 수용으로 대체한다. 고유74개의 분할 검증(72개/24.17초와
+정상 JSON128KiB/한 byte 초과·빈 bytes2개/1.10초), 실제 SCRAM/기본 네 role·불변/제약·
+rollback/기존 v3 보존·DB/role/schema/password 정리를 확인했다. 원 계산/저장42개 hash를 보존했다.
+schema fixture 행은 실제 농장 계산이나 파일 실재/HMAC/current rights 증거가 아니다.
+다음5파일 명시 role/config의 수용 기준·1.5–2.5시간 잠정치는 위 구현 보고서를 따른다.
 실제 채택/국내 독립 자료/actual crop Run0개이며 G0–G4·예측/추천 게시 조건과 날짜 보류를 유지한다.
