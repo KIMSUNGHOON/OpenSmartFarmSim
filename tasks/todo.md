@@ -242,6 +242,7 @@
         같은27시점/5사건·서명 저장829,769bytes·정리/원46개 hash로10월5일 로컬 수용했다.
         단일46 GREEN/실제 품종 수용이 아니며 긴 참조는 마지막 invalid reader 정리 수정 전 판본이다.
       - [ ] **`crop-cycle-db-custody`** — 선행 server custody 수용;3–5파일의 metadata/HMAC/atomic 게시.
+        [구현 전 닫힌 참조/게시·수용 계약](../contracts/crop-cycle-db-custody-v1.md)을 따른다.
         실제 SCRAM의 같은 farm/root·서버 실행 영수증·closed/code/header/고지·HMAC를 대사한다.
         수용: commit 전후 farm/source/input 권리 철회·교차 tenant/farm/root·혼합/부분 게시 거부,
         immutable retry/conflict·별도 프로세스 재적분 없는 읽기/복구·정리. 잠정2–3시간.
