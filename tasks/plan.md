@@ -86,18 +86,16 @@ hold·263.879초/parent45.44MiB·정리로10월5일 KST 로컬 완료했다.
 [실제 서버 계산/서명 저장](../research/crop-cycle-server-custody-implementation.md)도 고유46개 분할·
 실제 SCRAM/현재 권리·강제 종료4개·별도 Python121float64 복원/정리로10월5일 로컬 수용했다.
 25시간/11,400실제 걸음의27시점/5사건·서명 저장829,769bytes를 대사했고 마지막 reader 정리 수정 전 참조 판본을 고정한다.
-기존 서버3–5시간은 이 실적으로 대체한다. 다음 DB custody는 폐쇄 참조/HMAC 준비1시간+
-실제 SCRAM 게시/철회/재시작·정리1–2시간의 **2–3집중시간/10월5–7일 KST 잠정**이다.
-하루4시간 기준이며 CI·자료 대기는 제외한다.
-현재 [DB 후보/분할 검증](../research/crop-cycle-db-custody-implementation.md)은 기존74개 분할
-(순수61·실제 DB13개)을 통과했다. 재시작/fork·물리 변조·정리와 등록25시간의
+기존 서버3–5시간은 이 실적으로 대체한다. [DB custody](../research/crop-cycle-db-custody-implementation.md)도
+고유76개 분할(순수61·실제 DB15개)·원49개 보존/정리로10월6일 KST 로컬 수용했다.
+기존 DB2–3집중시간/10월5–7일 예상은 이 실적으로 대체한다. 재시작/fork·물리 변조·정리와 등록25시간의
 11,400걸음/27시점/5사건·7원 페이지·RHS0회·같은 DB 참조를 대사했다.
 등록25시간의 통합 검증은 첫 private runner의1800초 deadline으로 종료됐고 정리를 확인했다.
 권리/서명/파일 검사 비용의 기여도는 미측정이며 원인 추정과 실제 중간 걸음/시간을 구분한다.
 그25시간1개는 별도90분 이하 native 예산에서45분32초로 통과했고 정리를 확인했다.
 worker128전이/HTTP30초·G0–G4는 변경하지 않았다.
-API 계약 대조에서 발견한 DB summary의 원 header/context manifest 누락을 실제 정상/hold 회귀로 수정한다.
-실제 정상/hold 회귀까지 확인한 뒤 저장 child/parent를 수용한다.
+API 대조의 원 manifest 누락도 실제 정상/hold2실패 후 한 줄 수정했고, 최종3개 native 중
+새2개/기존 권리 철회1개 재확인을 구분했다. 저장 child/parent를 로컬 수용했다.
 그 뒤 [API 후보 계약](../contracts/api-crop-cycle-pages-v1.md)의 DTO/권한2–3시간+
 조립/실제 TLS/예산·정리2–3시간, **4–6집중시간/10월6–8일 KST 잠정**으로 진행한다.
 client2–3시간/장면·실제 브라우저4–6시간까지 새 긴 결과 연구3D는 총10–15집중시간/
@@ -109,7 +107,7 @@ client2–3시간/장면·실제 브라우저4–6시간까지 새 긴 결과 �
 현재 output 시각도 RK4 경계에 들어가므로, 화면 출력 선택을 바꾸어 계산 격자를 바꾸지 않도록
 새 계약에서 고정 계산 경계와 저장/표시 선택을 분리한다. 계약/원 격자 대사는 로컬 수용했고
 새 짧은 driver/실제 모델 재시작과 긴 입력 reader/25시간 실제 RHS 연결도 로컬 수용했고,
-그 결과의 불변 파일/reader까지 로컬 수용했고 농장 저장/3D·166일 실제 작기 부하는 미수용이다.
+그 결과의 불변 파일/reader와 현재 farm/서버/DB 저장까지 로컬 수용했고 새 cycle API/3D·166일 실제 작기 부하는 미수용이다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
@@ -963,5 +961,5 @@ authored-browser7passed/정리 성공 뒤25분 job deadline 취소와 같은 SHA
 작성 첫 시도7job와 여섯 동일 목록/DB·비밀 파일 정리·집계로 농장 결합/서버 실행까지 수용했다.
 DB 후보와 새 cycle API/client/3D는 이 SHA 밖이다.
 위 role/config 예정도 [실제 로컬 수용](../research/crop-cycle-storage-roles-implementation.md)으로 대체한다.
-농장 결합/서버 실행의 후속 CI는 별도이며 현재 다음 단계는 위 DB custody다.
+농장 결합/서버 실행의 후속 CI도 위0f2925f에서 수용했다. DB는 로컬 수용했고 다음은 같은 ID의 cycle API다.
 진행 중 CI를 후속 push로 취소하지 않는다.

@@ -1,6 +1,6 @@
 # 저장 cycle 결과의 원 시점 조회 API — v1 후보
 
-상태: **구현 전 후보·DB custody 수용 대기**, 2026-10-05 UTC.
+상태: **다음 구현 후보·DB custody 로컬 수용**, 2026-10-06 KST.
 작업 `api-crop-cycle-pages`. [DB 게시 계약](crop-cycle-db-custody-v1.md),
 [불변 파일](crop-cycle-artifact-v1.md), [기존 startup 공개 형식](api-crop-startup-replay-v1.md)을 따른다.
 현재 Codex CLI `gpt-6.1-sol / xhigh`에서 판단했다. 최초13:06:32.226Z 기록에 이어
@@ -63,7 +63,8 @@ farm은 원 요청의 닫힌4개 필드다. reference의 sample/event count와 o
 summary의 닫힌 status/manifest/hold는 원 terminal 증거에서 선택한다.
 실제 writer._summary는 status/steps/hold/last_confirmed 등의 commit metadata이며 manifest를
 저장하지 않는다. manifest는 검증된 원 header/context.manifest에서 읽어야 한다.
-현재 DB summary 함수의 manifest 누락 수정·실제 정상/hold 수용이 API 구현의 선행이다.
+DB summary의 최초 누락은 원 context.manifest를 함께 반환하도록 수정했고,
+실제 정상/hold·요약 중 권리 철회 검증까지 [저장 수용](../research/crop-cycle-db-custody-implementation.md)으로 확인했다.
 manifest는 cycle의 원 엔진/물리 프로그램/율 모델 판본, input/calculation/grid hash,
 planned_steps/boundary_count/grid page size, 실행3개/물리 코드9개/profile3개 hash,
 policy/allocation policy, solver/실제 Python/time/temperature-sum 규칙을 대사한다.

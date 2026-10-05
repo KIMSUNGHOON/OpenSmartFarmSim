@@ -1,13 +1,13 @@
-# Cycle 서명 결과의 불변 DB 게시 — v1 후보
+# Cycle 서명 결과의 불변 DB 게시 — v1
 
-상태: **구현 후보·집중 검증 중**, 2026-10-05 UTC. 작업 `crop-cycle-db-custody`.
+상태: **소프트웨어 범위 로컬 수용**, 2026-10-06 KST. 작업 `crop-cycle-db-custody`.
 [실행 범위와 남은 수용](../research/crop-cycle-db-custody-implementation.md)을 확인한다.
 선행 [서버 계산/서명 저장의 로컬 수용](../research/crop-cycle-server-custody-implementation.md),
 [불변 DB 표/명시 authority 권한](crop-cycle-storage-v1.md)을 연결한다.
 판단은 현재 Codex CLI `gpt-6.1-sol / xhigh`에서 수행했다.
 12:12:17.766Z turn_context의 원 line SHA는
 `9309fcc957e31594235bb0febf064b4091b49455cd05d052942706cf71b12236`이며 재귀 CLI0회다.
-원 계산/저장49개 파일을 보존한다. 이번 작업은 module/순수 test/SCRAM test/계약의4 core파일과 집중 검증 보고서/영수증이다.
+원 계산/저장49개 파일을 보존했다. 이번 작업은 module/순수 test/SCRAM test/요약 회귀 test/계약의5 core파일과 검증 보고서/영수증이다.
 
 ## 내부 인터페이스
 
@@ -25,8 +25,8 @@ rights policy와 module hash가 달라지면 hold다. 생성자가 표/권한을
   선택 HEAD·progress가 저장 시점과 다르면 hold다. metadata와 실제 페이지의 ID/hash/UTC를 바꾸지 않는다.
 - `summary(tenant, result_id, farm_ref)`는 원 terminal summary의 manifest·hold 사유·확인 과거를
   최대2MiB로 읽는다. 전후 현재 권리/선택 progress를 검사한다. 다음 typed API와3D가 보류를 설명할 근거다.
-  commit metadata와 검증된 원 header/context.manifest를 함께 읽는다. 현재 구현의 manifest 누락은
-  25시간 판본의 통과·정리 확인 뒤 실제 정상/hold 회귀로 수정할 미수용 항목이다.
+  commit metadata와 검증된 원 header/context.manifest를 함께 읽는다. 최초 누락은 실제 정상/hold2개
+  실패로 재현한 뒤 한 줄로 수정했고 정상/hold·기존 요약 중 권리 철회3개를 통과했다.
 
 record는 기존 내부 관례의 result_id/payload_raw/payload_sha256/recorded_at이다.
 원 binding/등록·정책을 포함하는 내부 packet은 공개 API 응답이 아니다.
@@ -112,7 +112,8 @@ Read Committed에서 DO NOTHING의 충돌 행이 INSERT snapshot에 보이지 �
    실제 페이지 크기/시간과 metadata·FD/lock/temp/DB/roles/password·WSL 순차 자식 RSS 정리를 기록한다.
    HTTP/TLS30초와166일 실제 부하 수용은 이 시험으로 대체하지 않는다.
 
-통과 전 parent crop-cycle-result-storage와 이번 checkbox는 열어 둔다.
+76개 고유 분할·수정 판본/원 참조·정리를 대사해 DB child와 parent crop-cycle-result-storage를 로컬 수용했다.
+단일 전체 backend/hosted·API/client/3D와 G0–G4는 이 수용 범위 밖이다.
 준비/닫힌 참조1시간+실제 SCRAM 게시/철회/재시작·정리1–2시간의
 **2–3집중시간/10월5–7일 KST 잠정**이다. 하루4시간 기준이며 CI/외부 자료 대기는 제외한다.
 뒤 API/client → 같은 ID/UTC 성장3D → 작기 부하 → 생과/자원/Decimal 경제 순서를 유지한다.

@@ -222,7 +222,7 @@
       [실제 수용](../research/crop-cycle-storage-roles-implementation.md): 새21개/고유236개 분할(234통과/시험 routine 오기2실패·80.98초,
       오기 두 곳만 수정 뒤2통과·1.16초), 실제 네 SCRAM/58 직접 SQL 거부·선택 INSERT/SELECT·
       일곱 drift·기본 false/config·기존 v3 bytes·정리0잔여/원44개 hash 보존. 10월5일 로컬 완료; hosted/실제 자료는 별도다.
-    - [ ] **`crop-cycle-result-storage`** — 부모, 선행 artifact/schema/명시 role 로컬 수용.
+    - [x] **`crop-cycle-result-storage`** — 부모, 선행 artifact/schema/명시 role 로컬 수용.
       아래 세 자식을 순서대로 검증한 뒤 현재 farm/input/실제 서버 계산·HMAC/게시 custody를 수용한다.
       기존 inline segments/20MiB 구조와 긴 root의 차이, SHA/ledger의 계산 인증 부족을 근거로 분해했다.
       - [x] **`crop-cycle-farm-binding`** — 3파일 module/test/[계약](../contracts/crop-cycle-farm-binding-v1.md).
@@ -230,7 +230,7 @@
         수용: closed canonical 요청·동일 root/프로필·현재 권리/availability/occupancy·중간 철회,
         별도 Python 동일 binding·파일/FD/DB/비밀 정리와 RHS/row/Run0개.
         [고유54개 분할 검증/수정·영수증](../research/crop-cycle-farm-binding-implementation.md)과
-        원44개 hash 보존으로10월5일 로컬 수용했다. 부모 저장/다음 custody는 미완료다.
+        원44개 hash 보존으로10월5일 로컬 수용했다. 당시 farm 결합만 수용했으며 서버/DB는 아래 별도 증거로 수용했다.
       - [x] **`crop-cycle-server-custody`** — 선행 farm binding 수용;5 core파일의 실제 writer/서명된 progress.
         [계약/수용 조건](../contracts/crop-cycle-server-custody-v1.md)의 닫힌 schema/budget을 고정했다.
         서버의 private root만 해석하고 frozen RHS로 계산하며 각 bounded advance의 현재 권리,
@@ -241,18 +241,16 @@
         순수41개/실제 SCRAM5개·실제 반례4개/reader FD 반례 수정·강제 종료4개·별도 Python121float64/
         같은27시점/5사건·서명 저장829,769bytes·정리/원46개 hash로10월5일 로컬 수용했다.
         단일46 GREEN/실제 품종 수용이 아니며 긴 참조는 마지막 invalid reader 정리 수정 전 판본이다.
-      - [ ] **`crop-cycle-db-custody`** — 선행 server custody 수용;3–5파일의 metadata/HMAC/atomic 게시.
+      - [x] **`crop-cycle-db-custody`** — 선행 server custody 수용;5 core파일의 metadata/HMAC/atomic 게시.
         [닫힌 참조/게시·수용 계약](../contracts/crop-cycle-db-custody-v1.md)을 따른다.
         실제 SCRAM의 같은 farm/root·서버 실행 영수증·closed/code/header/고지·HMAC를 대사한다.
         수용: commit 전후 farm/source/input 권리 철회·교차 tenant/farm/root·혼합/부분 게시 거부,
-        immutable retry/conflict·별도 프로세스 재적분 없는 읽기/복구·정리. 잠정2–3시간.
-        [구현 후보의 분할 실행](../research/crop-cycle-db-custody-implementation.md): 기존74개
-        (순수61·실제 경계9·물리 변조1·현재 짧은 재시작/fork2·등록25시간1)이 통과했다.
-        초기 판본2개/재실행은 중복으로 더하지 않는다. 등록25시간의 원값/DB·정리도 확인했다.
-        API 대조에서 발견한 DB summary의 원 header/context manifest 누락 수정·실제 정상/hold
-        회귀 뒤 완료로 표시한다. 실제 정상/hold 추가2개와 기존 판본의 근거를 구분한다.
-      남은 DB는 폐쇄 참조/HMAC1시간+실제 게시/철회/재시작·정리1–2시간의
-      2–3집중시간/10월5–7일 KST 잠정이며 하루4시간/CI·실제 자료 대기는 별도다.
+        immutable retry/conflict·별도 프로세스 재적분 없는 읽기/복구·정리.
+        [로컬 수용](../research/crop-cycle-db-custody-implementation.md): 고유76개 분할
+        (순수61·실제 DB15개)·25시간/11,400걸음/원27시점/5사건·7페이지/불변 retry·정리·원49개 보존.
+        요약 manifest2실패 후 한 줄 수정·새 정상/hold2개/기존 철회1개 재확인도 통과했다.
+        중복/초기1800초 보류·긴 수정 전 참조와 최종 판본을 구분해10월6일 KST 수용했다.
+        단일76 GREEN/hosted·API/3D·G0–G4 수용은 아니다. 기존 DB2–3시간 예상은 이 실적으로 대체한다.
       필요해진 lease/cancel은 기존 worker 계약에 대조하며 새 queue/service를 먼저 만들지 않는다.
     - [ ] **`api-crop-cycle-pages`** — 선행: custody 저장 수용. 같은 저장 ID의 순차 sample/event 페이지를
       [원 시점 조회 후보 계약](../contracts/api-crop-cycle-pages-v1.md)의 summary/page 분리와 한 읽기 context를 따른다.

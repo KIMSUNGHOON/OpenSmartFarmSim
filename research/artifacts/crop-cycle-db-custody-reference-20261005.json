@@ -1,0 +1,501 @@
+{
+  "schema_version": "crop-cycle-db-custody-reference-v1",
+  "recorded_at_utc": "2026-10-05T15:14:02.771693+00:00",
+  "local_acceptance_date_kst": "2026-10-06",
+  "scope": "synthetic_registered_crop_math_software_only",
+  "stage_status": "local_db_child_and_storage_parent_accepted",
+  "source_snapshot": "8c7e3d5502180f40c78d52c9cab136d9251ff216",
+  "file_sha256": {
+    "backend/app/crop_cycle_result_store.py": "c182ba1dad82f6363abc9d7ed7cb784e6e989da0c23862563d47f1a91ebf043e",
+    "backend/tests/test_crop_cycle_result_store.py": "feb34143d9056f9b3d2ee5bf8e06e3b0f1c2e4f82ff4e163c0bfc26a966fdfcb",
+    "backend/tests/test_crop_cycle_result_store_farms.py": "63e4ce69d0309ccc272475b116150a323adc29bc34b00b64fb22314ed6166210",
+    "backend/tests/test_crop_cycle_result_summary.py": "0183235fee7daffe0c52e424fb7094cc501fb7d38d5ed90095e9a4c1877c39d6"
+  },
+  "frozen49_sha256": {
+    "backend/app/crop_startup_artifact.py": "6d095d6b2c5cfff36cdfbf7b1f0b16d2acbe44e162c918a5ece637cda9c2f33a",
+    "backend/tests/test_crop_startup_artifact.py": "8c4e15afc6f113947cae2d32d4629f58ed15ea716737c29f08bd00bac998d6e6",
+    "backend/app/crop_coupled_artifact.py": "4d239f24d43bf351f3c11c9e9d59fccff30a76ef0815659f22c60fbc8ec7d017",
+    "backend/app/thermal_run_store.py": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+    "research/artifacts/crop-startup-integration-reference-20261005.json": "9b82831acb198a2b96c5c0620728ecf5b5ae245d2543b42580cfc00d253bb3b2",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "research/crop-integration-reference.py": "a38b7a67e43cf9f590838bf915ab3e5048950b8be6ed35f70817e18b42a09ce7",
+    "research/crop-plant-cohort-integration-reference.py": "9b880b9d06812f3cfa05bf1c5e47ef93811b548d2320136ce5ae813730d50a72",
+    "research/crop-fruit-startup-source-register.json": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+    "backend/app/crop_plant_startup_integration.py": "a48f2069d26024eeed5612e95bf59639f943fd6b98e789b21124a125c558656b",
+    "backend/tests/test_crop_plant_startup_integration.py": "38aa5e404124518eb9c44b9487c443de5a739ad4b1486e4eb74fe6709b637a86",
+    "research/crop-plant-startup-integration-reference.py": "c99cb9c2a83531a85183cfc9ccecc7401f95bd310bdc210cf4501d880458c44c",
+    "fixtures/crop-plant-startup-integration-reference-v1.json": "a94e4d88e02a5b29e2b1c20f0767cea6a326dccaa31278d5138667755b2f8026",
+    "fixtures/crop-fruit-transport-reference-parameters-v1.json": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070",
+    "backend/app/crop_plant_startup_rates.py": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_plant_cohort_integration.py": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+    "backend/app/crop_result_store.py": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+    "backend/app/crop_coupled_result_store.py": "765184999e07b078a6f79b414c148497ee3543b889a40a65d091a4ab44080632",
+    "backend/app/crop_startup_result_store.py": "d2e12ad750258b1b362261cb52b797de4bdcca02f84ecaaebafd9b74dab9b0af",
+    "backend/tests/test_crop_startup_result_store.py": "16e41c5a90a0838344f7e1ff185214ee4125bf52454dced3858725db210ae476",
+    "backend/app/api_crop_coupled_replay.py": "83d3eefd782206801fe645afc2e200bb621509b7c932b4a0544bbcb2bf31c582",
+    "backend/app/api_crop_startup_replay.py": "05b553e236dc3d5272829acd14f54910ef1a17400585cd7001e9992a048d7fac",
+    "backend/app/api.py": "b69837ec1793dfaf5d2d9e495d2b3d94b68209a2b462ae1113338fd25cf66fb8",
+    "backend/app/api_runtime.py": "40e183a1dfb95123f6c3c7659a974cd9717cc5f3d7ee2a78c38a8e07e5cf0d91",
+    "backend/tests/test_api_crop_startup_replay.py": "17bbfe9876eaa2488085b8cdbd3a7120299fa54bdcb05643c12c33cc37671fa2",
+    "backend/tests/test_api_openapi.py": "84d70344abe03be8bb825b475e1d78149833ce6ad6438d695784df8242529bcb",
+    "contracts/openapi-v1.json": "94bb9270ec8242aaa97fb8399b83286864ceb6e5a053173a652fd2691bceb510",
+    "backend/app/crop_cycle_continuation.py": "478f152a2395a451d9add64acf37e23ddc32a15273b14d0419869c1634596899",
+    "backend/tests/test_crop_cycle_continuation.py": "c0b0059e0816e88418ed761cbc1c5a085a23e262b4948c1f95dfd3f3ae3643a7",
+    "backend/app/crop_cycle_input_stream.py": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53",
+    "backend/tests/test_crop_cycle_input_stream.py": "dc5d9f86ebe74cb0d920939ab07381c7d729a0bc3abcffc165d702635ab4c23f",
+    "backend/app/crop_cycle_stream_execution.py": "4de399721cab82ab7f56e093b11b72682437e29bb3097e745b1e61d695d03aac",
+    "backend/tests/test_crop_cycle_stream_execution.py": "0a0800f6be8abb702ba2dcd461c00e9bf913a81c2c30ae2baabfc61b8447c3d1",
+    "backend/app/crop_cycle_artifact.py": "10bcf863ba40338f2efa7242d78c2cccd3020fbdca061951da6b7b1c5a7c51f7",
+    "backend/tests/test_crop_cycle_artifact.py": "f597dd2a952184553f7f8d68bd70c155886278c4c927291daa3d501f7294e971",
+    "backend/app/crop_cycle_result_schema.py": "94cfba00cec0d3026bc4afb133c70168e4294e5beb0b625530db8f83acce73c8",
+    "backend/tests/test_crop_cycle_result_schema.py": "81f58e8aedb2a491253aa58af8b4cd04a2304bfbe674daab0536d7b796b661d2",
+    "backend/app/crop_cycle_farm_binding.py": "4f245271487b1e55422386b42221aa8d24906d28f52403626c474c62f14568a9",
+    "backend/tests/test_crop_cycle_farm_binding.py": "d76b3be7fbbc7a76ca100538c936615df86cb6e664705810573a6dd65b97db12",
+    "backend/app/crop_cycle_server_custody.py": "85053b8dee2bf7c0a3675c92931ec9321e7e2804cf8ebb1593542212782d7683",
+    "backend/tests/test_crop_cycle_server_custody.py": "6ce4cd137cc559bd710c751da2b23307c4904daf863030d2f6280f18fea64249",
+    "backend/tests/test_crop_cycle_server_custody_farms.py": "02b653f610032c44634cba2aadf12b0ba22dd2fd39f3dacccc3cde3844debee0"
+  },
+  "previous_immutable_receipt_sha256": {
+    "research/artifacts/crop-cycle-db-custody-hold-20261005.json": "9757c00a5d7f7cdc8e2d48839c0c26dfe02a6c52d15bb14ee8f468ff98d0aaca",
+    "research/artifacts/crop-cycle-db-custody-progress-20261005.json": "2a21c3dbd2862c99e90a5e943ad9242f92728ab7cc6810384bbf0aad59537f93"
+  },
+  "previous_holds_and_progress_preserved": true,
+  "actual_cli_context": {
+    "timestamp": "2026-10-05T14:26:49.152Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "turn_context_line_sha256": "793bb59cb62be2a7b9061570b6b52c6140fd7a6f306af549e1cf64cd3395e8d8",
+    "recursive_cli_invocations": 0,
+    "scope": "development_api_candidate_contract_review",
+    "output_artifacts": [
+      "backend/app/crop_cycle_result_store.py",
+      "contracts/crop-cycle-db-custody-v1.md",
+      "contracts/api-crop-cycle-pages-v1.md",
+      "research/crop-cycle-db-custody-implementation.md"
+    ]
+  },
+  "recursive_cli_invocations": 0,
+  "development_context_not_product_runtime_cli_acceptance": true,
+  "initial_actual_metadata_red": {
+    "passed": 60,
+    "failed": 1,
+    "cause": "rehashed sample_count float3.0 accepted as integer3 by dict equality; canonical bytes fixed",
+    "log_sha256": "65786d121b335b5c1d2ccaea8361d8f7103c7debe37f88420e2c422a8a67a9a6",
+    "storage_code_sha256_before_fix": "f7cfc175c616b954fe0fd52f3aa0c2bba51752c1e6be5fe20e203b1a134f5ad9"
+  },
+  "manifest_actual_red": {
+    "failed": 2,
+    "pytest_seconds": 280.45,
+    "source_snapshot": "4c3fa6b07947c5e6880ab30ff83f2e9089eba60e",
+    "storage_code_sha256": "5c503da25445a8d497dadd3c51276d588191001cacdd33a0e6e164e87a25ba1d",
+    "cause": "real completed and hold summaries omitted immutable header/context manifest",
+    "runner": {
+      "scope": "synthetic_cycle_db_custody_software_only",
+      "started_at": "2026-10-05T14:49:19.726812+00:00",
+      "postgres_version": "postgres (PostgreSQL) 16.15",
+      "new_dependencies": 0,
+      "servers_started": 1,
+      "pytest_arguments": [
+        "tests/test_crop_cycle_result_summary.py"
+      ],
+      "effective_nice": 10,
+      "exit_code": 1,
+      "wall_seconds": 280.94438939599786,
+      "remaining_test_roles": 0,
+      "remaining_test_schemas": 0,
+      "remaining_test_password_files": 0,
+      "postgres_stopped": true,
+      "postgres_status_exit_code": 3,
+      "private_cluster_and_admin_password_files_removed": true,
+      "owned_servers_after": 0,
+      "peak_children_rss_mib": 125.75390625
+    },
+    "runner_sha256": "97ab74415a47fc1265959d1c52e555ec5848d095f799ce4fb2b29db0fc463ff0",
+    "log_sha256": "9eeba81b7411d11aaa485ad1ee89bf4e2d8d393b4cbb0b7c297f1e51be60b26e",
+    "regression_test_source_snapshot": "8c7e3d5502180f40c78d52c9cab136d9251ff216",
+    "regression_test_sha256": "0183235fee7daffe0c52e424fb7094cc501fb7d38d5ed90095e9a4c1877c39d6"
+  },
+  "one_line_manifest_fix": "deepcopy of original terminal commit metadata plus verified context.manifest; current-rights/progress guards retained",
+  "focused_split": {
+    "inventory_sha256": "acb63895dea33a1af8fd8afb4d2923895b8c0e8521f69f9f9fcc93c76237521b",
+    "unique_collected": 76,
+    "unique_passed": 76,
+    "pure_unique": 61,
+    "native_unique": 15,
+    "native_run_selected_nodes": {
+      "boundaries": [
+        "tests/test_crop_cycle_result_store_farms.py::test_actual_commit_boundary_rights_withdrawal_rolls_back_or_keeps_private_audit[after-commit-farm-login_scope0]",
+        "tests/test_crop_cycle_result_store_farms.py::test_actual_commit_boundary_rights_withdrawal_rolls_back_or_keeps_private_audit[after-commit-input-login_scope0]",
+        "tests/test_crop_cycle_result_store_farms.py::test_actual_commit_boundary_rights_withdrawal_rolls_back_or_keeps_private_audit[after-commit-source-login_scope0]",
+        "tests/test_crop_cycle_result_store_farms.py::test_actual_commit_boundary_rights_withdrawal_rolls_back_or_keeps_private_audit[before-commit-farm-login_scope0]",
+        "tests/test_crop_cycle_result_store_farms.py::test_actual_commit_boundary_rights_withdrawal_rolls_back_or_keeps_private_audit[before-commit-input-login_scope0]",
+        "tests/test_crop_cycle_result_store_farms.py::test_actual_commit_boundary_rights_withdrawal_rolls_back_or_keeps_private_audit[before-commit-source-login_scope0]",
+        "tests/test_crop_cycle_result_store_farms.py::test_actual_separate_connection_advisory_lock_is_pending_and_read_scope_withdrawal_denies[login_scope0]",
+        "tests/test_crop_cycle_result_store_farms.py::test_registered_numeric_hold_reads_original_reason_and_mid_summary_withdrawal_denies[login_scope0]",
+        "tests/test_crop_cycle_result_store_farms.py::test_valid_hmac_cannot_replace_selected_proof_or_db_authority_and_key[login_scope0]"
+      ],
+      "physical": [
+        "tests/test_crop_cycle_result_store_farms.py::test_persisted_db_and_file_tamper_current_flag_grants_and_fd_cleanup[login_scope0]"
+      ],
+      "current_short": [
+        "tests/test_crop_cycle_result_store_farms.py::test_missing_yielded_result_foreign_tenant_and_invalid_key_cannot_publish[login_scope0]",
+        "tests/test_crop_cycle_result_store_farms.py::test_short_publication_is_scram_immutable_and_restarted_reads_do_not_calculate[login_scope0]"
+      ],
+      "long": [
+        "tests/test_crop_cycle_result_store_farms.py::test_registered_25h_result_keeps_original_pages_and_immutable_db_reference[login_scope0]"
+      ],
+      "summary_green": [
+        "tests/test_crop_cycle_result_store_farms.py::test_registered_numeric_hold_reads_original_reason_and_mid_summary_withdrawal_denies[login_scope0]",
+        "tests/test_crop_cycle_result_summary.py::test_registered_summary_keeps_original_header_manifest_and_detached_copy[completed-login_scope0]",
+        "tests/test_crop_cycle_result_summary.py::test_registered_summary_keeps_original_header_manifest_and_detached_copy[hold-login_scope0]"
+      ]
+    },
+    "boundary_log_is_quiet_selection_reconstructed_from_actual_runner_arguments_and_preserved_snapshot": true,
+    "all_native_cleanup_verified": true,
+    "duplicate_native_hold_current_recheck_not_added": 1,
+    "single_full76_green": false,
+    "full_backend_green": false,
+    "native_python_version": "3.12.3",
+    "hosted_predecessor_python_version": "3.12.13"
+  },
+  "current_pure61": {
+    "passed": 61,
+    "pytest_seconds": 0.93,
+    "storage_code_sha256": "c182ba1dad82f6363abc9d7ed7cb784e6e989da0c23862563d47f1a91ebf043e",
+    "log_sha256": "2c910bd9207aa5b103082754bafaa019fb79508945d962d1c2bbffe381d19d13"
+  },
+  "native_runs": {
+    "boundaries9": {
+      "runner": {
+        "scope": "synthetic_cycle_db_custody_software_only",
+        "started_at": "2026-10-05T12:53:46.287994+00:00",
+        "postgres_version": "postgres (PostgreSQL) 16.15",
+        "new_dependencies": 0,
+        "servers_started": 1,
+        "pytest_arguments": [
+          "tests/test_crop_cycle_result_store_farms.py",
+          "-k",
+          "commit_boundary or separate_connection or numeric_hold or valid_hmac"
+        ],
+        "effective_nice": 10,
+        "exit_code": 0,
+        "wall_seconds": 1489.1497354159947,
+        "remaining_test_roles": 0,
+        "remaining_test_schemas": 0,
+        "remaining_test_password_files": 0,
+        "postgres_stopped": true,
+        "postgres_status_exit_code": 3,
+        "private_cluster_and_admin_password_files_removed": true,
+        "owned_servers_after": 0,
+        "peak_children_rss_mib": 125.1328125
+      },
+      "runner_sha256": "b26a8d999e3e0d7d734526dacc7793f494d2b928c2e1c67a9a83c31af5f1c20f",
+      "log_sha256": "cb7f9c91c4da163c870ddf7516741456c0e1c65ed38025459a3f88d51bf31ca9",
+      "storage_code_sha256": "5c503da25445a8d497dadd3c51276d588191001cacdd33a0e6e164e87a25ba1d",
+      "source_snapshot": "ad9d3b0b0feb3a7c4b27f68ef87fa52563d4eb57"
+    },
+    "physical1": {
+      "runner": {
+        "scope": "synthetic_cycle_db_custody_software_only",
+        "started_at": "2026-10-05T13:50:28.471120+00:00",
+        "postgres_version": "postgres (PostgreSQL) 16.15",
+        "new_dependencies": 0,
+        "servers_started": 1,
+        "pytest_arguments": [
+          "tests/test_crop_cycle_result_store_farms.py",
+          "-k",
+          "persisted_db"
+        ],
+        "effective_nice": 10,
+        "exit_code": 0,
+        "wall_seconds": 152.59412720799446,
+        "remaining_test_roles": 0,
+        "remaining_test_schemas": 0,
+        "remaining_test_password_files": 0,
+        "postgres_stopped": true,
+        "postgres_status_exit_code": 3,
+        "private_cluster_and_admin_password_files_removed": true,
+        "owned_servers_after": 0,
+        "peak_children_rss_mib": 125.94921875
+      },
+      "runner_sha256": "b126f683ff101b06ecd912c69be9e11098dd0006bd9b425b0ed6805117516d50",
+      "log_sha256": "7fd8431f54b62c6bde9d5863b39868431143c8c6c033d20fec3f54f9b8990066",
+      "storage_code_sha256": "5c503da25445a8d497dadd3c51276d588191001cacdd33a0e6e164e87a25ba1d",
+      "source_snapshot": "4c3fa6b07947c5e6880ab30ff83f2e9089eba60e"
+    },
+    "short2": {
+      "runner": {
+        "scope": "synthetic_cycle_db_custody_software_only",
+        "started_at": "2026-10-05T13:54:45.011635+00:00",
+        "postgres_version": "postgres (PostgreSQL) 16.15",
+        "new_dependencies": 0,
+        "servers_started": 1,
+        "pytest_arguments": [
+          "tests/test_crop_cycle_result_store_farms.py",
+          "-k",
+          "short_publication or missing_yielded"
+        ],
+        "effective_nice": 10,
+        "exit_code": 0,
+        "wall_seconds": 341.48806861095363,
+        "remaining_test_roles": 0,
+        "remaining_test_schemas": 0,
+        "remaining_test_password_files": 0,
+        "postgres_stopped": true,
+        "postgres_status_exit_code": 3,
+        "private_cluster_and_admin_password_files_removed": true,
+        "owned_servers_after": 0,
+        "peak_children_rss_mib": 125.9375
+      },
+      "runner_sha256": "5bc82fed5a119f16c01921714795beae0be12bb0871b000b04bed66887585fa3",
+      "log_sha256": "e7881f2623ef7a7d35370b0bf0a3ddf891d199dd796279979845dd8e6e068211",
+      "storage_code_sha256": "5c503da25445a8d497dadd3c51276d588191001cacdd33a0e6e164e87a25ba1d",
+      "source_snapshot": "4c3fa6b07947c5e6880ab30ff83f2e9089eba60e"
+    },
+    "registered25h1": {
+      "runner": {
+        "scope": "synthetic_cycle_db_custody_software_only",
+        "started_at": "2026-10-05T14:01:45.098935+00:00",
+        "postgres_version": "postgres (PostgreSQL) 16.15",
+        "new_dependencies": 0,
+        "servers_started": 1,
+        "pytest_arguments": [
+          "tests/test_crop_cycle_result_store_farms.py",
+          "-k",
+          "registered_25h"
+        ],
+        "effective_nice": 10,
+        "exit_code": 0,
+        "wall_seconds": 2732.6357475860277,
+        "remaining_test_roles": 0,
+        "remaining_test_schemas": 0,
+        "remaining_test_password_files": 0,
+        "postgres_stopped": true,
+        "postgres_status_exit_code": 3,
+        "private_cluster_and_admin_password_files_removed": true,
+        "owned_servers_after": 0,
+        "peak_children_rss_mib": 125.23828125
+      },
+      "runner_sha256": "f171957dd83e8485f2c7e2fd36786e3eef2b836987aa9bd6641e15461ca8fdc4",
+      "log_sha256": "a521a06f64e2d2ba7ed4ac4effb650fb247fda35a3c85e55a00f59f7d87704f7",
+      "storage_code_sha256": "5c503da25445a8d497dadd3c51276d588191001cacdd33a0e6e164e87a25ba1d",
+      "source_snapshot": "4c3fa6b07947c5e6880ab30ff83f2e9089eba60e"
+    },
+    "summary_green3": {
+      "runner": {
+        "scope": "synthetic_cycle_db_custody_software_only",
+        "started_at": "2026-10-05T14:56:15.844540+00:00",
+        "postgres_version": "postgres (PostgreSQL) 16.15",
+        "new_dependencies": 0,
+        "servers_started": 1,
+        "pytest_arguments": [
+          "tests/test_crop_cycle_result_summary.py",
+          "tests/test_crop_cycle_result_store_farms.py",
+          "-k",
+          "header_manifest or registered_numeric_hold"
+        ],
+        "effective_nice": 10,
+        "exit_code": 0,
+        "wall_seconds": 452.1424945080071,
+        "remaining_test_roles": 0,
+        "remaining_test_schemas": 0,
+        "remaining_test_password_files": 0,
+        "postgres_stopped": true,
+        "postgres_status_exit_code": 3,
+        "private_cluster_and_admin_password_files_removed": true,
+        "owned_servers_after": 0,
+        "peak_children_rss_mib": 123.375
+      },
+      "runner_sha256": "c561f99b8cf7be4aab7bb07f02db8001eaaf24c403245b131668d3fbce5acc98",
+      "log_sha256": "299dfed455dbe95dda9ba4d49d3235e288a7086be74641964b36d80f66dbc0e8",
+      "storage_code_sha256": "c182ba1dad82f6363abc9d7ed7cb784e6e989da0c23862563d47f1a91ebf043e",
+      "source_snapshot": "8c7e3d5502180f40c78d52c9cab136d9251ff216"
+    }
+  },
+  "registered25h_reference_before_manifest_fix": {
+    "scope": "registered_synthetic_25h_software_only",
+    "code_sha256": "5c503da25445a8d497dadd3c51276d588191001cacdd33a0e6e164e87a25ba1d",
+    "actual_steps": 11400,
+    "forcing_intervals": 300,
+    "samples": 27,
+    "events": 5,
+    "independent_control_flow_shares_frozen_rates": true,
+    "canonical_independent_samples_events_equal": true,
+    "actual_advances": 92,
+    "independent_seconds": 105.10120246297447,
+    "execution_seconds": 2342.1318962930236,
+    "publication_seconds": 54.96951391000766,
+    "reading_seconds": 135.60744404501747,
+    "pages": [
+      {
+        "kind": "samples",
+        "start": 0,
+        "records": 7,
+        "bytes": 59464
+      },
+      {
+        "kind": "samples",
+        "start": 7,
+        "records": 7,
+        "bytes": 59778
+      },
+      {
+        "kind": "samples",
+        "start": 14,
+        "records": 7,
+        "bytes": 61591
+      },
+      {
+        "kind": "samples",
+        "start": 21,
+        "records": 6,
+        "bytes": 52678
+      },
+      {
+        "kind": "events",
+        "start": 0,
+        "records": 2,
+        "bytes": 32645
+      },
+      {
+        "kind": "events",
+        "start": 2,
+        "records": 2,
+        "bytes": 32918
+      },
+      {
+        "kind": "events",
+        "start": 4,
+        "records": 1,
+        "bytes": 18145
+      }
+    ],
+    "page_seconds": [
+      19.321246067003813,
+      19.348028731998056,
+      19.419635954953264,
+      19.330958497012034,
+      19.3723956499598,
+      19.336552056018263,
+      19.45999165897956
+    ],
+    "payload_bytes": 6528,
+    "payload_sha256": "3c4285ae258d145f2efac8020532d008aa9fe61d50ef66ccab8103b6bcd12110",
+    "immutable_retry_and_fresh_service_exact": true,
+    "publication_and_reads_rhs_zero": true,
+    "research_rows": 1,
+    "actual_crop_runs": 0
+  },
+  "registered25h_reference_sha256": "d04e8eaa5c108ef131f8069b6e12d86ae7b679ec5f17371bc0ad3bfc52bb5b20",
+  "current_summary_manifest_reference": {
+    "completed": {
+      "scope": "registered_synthetic_software_only",
+      "code_sha256": "c182ba1dad82f6363abc9d7ed7cb784e6e989da0c23862563d47f1a91ebf043e",
+      "original_header_context_manifest_equal": true,
+      "original_terminal_metadata_equal": true,
+      "returned_copy_detached": true,
+      "summary_rhs_zero": true,
+      "summary_seconds": 18.01334725500783,
+      "manifest_sha256": "8981926686b618c2ec8f9a3677b2ee36ea4ad042591cf4de2eebfa07945960a0"
+    },
+    "hold": {
+      "scope": "registered_synthetic_software_only",
+      "code_sha256": "c182ba1dad82f6363abc9d7ed7cb784e6e989da0c23862563d47f1a91ebf043e",
+      "original_header_context_manifest_equal": true,
+      "original_terminal_metadata_equal": true,
+      "returned_copy_detached": true,
+      "summary_rhs_zero": true,
+      "summary_seconds": 17.19447324500652,
+      "manifest_sha256": "da54ce964738b29abcea457ae264ce77385474b4c78fa0ab9a4b6c0c3156975b"
+    }
+  },
+  "current_summary_manifest_reference_sha256": "4defc7931b1be1c9d1da2b1bec4228c4ec9674e9a5042522c3656a1ae70f661f",
+  "short_reference_before_manifest_fix": {
+    "scope": "synthetic_registered_farm_software_only",
+    "actual_scram": true,
+    "payload_bytes": 6515,
+    "payload_sha256": "ad0d23b77c89d887d1a0cbb2f3cb06f45d580e4ff88c00d64bb0e3def5b810e6",
+    "code_sha256": "5c503da25445a8d497dadd3c51276d588191001cacdd33a0e6e164e87a25ba1d",
+    "put_seconds": 52.96367258601822,
+    "get_seconds": 17.954383269010577,
+    "pages": {
+      "samples": {
+        "records": 3,
+        "bytes": 24324
+      },
+      "events": {
+        "records": 0,
+        "bytes": 59
+      }
+    },
+    "page_seconds": {
+      "samples": 17.832712385978084,
+      "events": 17.901815166987944
+    },
+    "immutable_retry_bytes_id_time": true,
+    "fresh_service_and_fork_process_exact": true,
+    "read_and_put_rhs_zero": true,
+    "research_row_count": 1,
+    "actual_crop_runs": 0
+  },
+  "pre_summary_reference_preserved_sha256": "e7902fc176cf3f49ee44ef6ea79c846bc15cff5a908e2612115b699e3fc594a9",
+  "limits_preserved": {
+    "worker_max_transitions": 128,
+    "http_seconds": 30,
+    "http_response_bytes": 2097152,
+    "native_private_process_deadline_seconds": 5400,
+    "native_process_deadline_not_http_or_worker_relaxation": true
+  },
+  "native_python_version": "3.12.3",
+  "native_postgresql_version": "16.15",
+  "hosted_predecessor_ci": "research/artifacts/crop-cycle-farm-server-ci-20261005.json",
+  "current_db_hosted_ci_acceptance": "pending next pushed head; predecessor excludes DB store",
+  "independent_domestic_farm_datasets": 0,
+  "actual_cultivar_input_adoptions": 0,
+  "actual_crop_runs_observed": 0,
+  "gates": "not_assessed; G0-G4 and production/forecast/ranking remain on hold",
+  "next_task": "api-crop-cycle-pages",
+  "local_markdown_and_receipt_verification": {
+    "local_markdown_links_and_anchors": 2157,
+    "all_exist": true,
+    "receipt_file_hashes_match": 13,
+    "frozen_source_hashes_match": 46,
+    "prior_farm_binding_snapshot_hashes_match": 12,
+    "followup_document_hashes_match": 2,
+    "implementation_dags": [
+      {
+        "edges": 83,
+        "acyclic": true
+      },
+      {
+        "edges": 89,
+        "acyclic": true
+      }
+    ],
+    "git_diff_check": "passed",
+    "new_receipt_source4_match": true,
+    "frozen49_match": true,
+    "previous_immutable_receipts2_match": true,
+    "five_native_source_snapshots_match": true,
+    "final_unique_node_inventory_match": true,
+    "current_cli_model_and_effort_verified": true
+  },
+  "raw_logs_and_credentials_private": true,
+  "documentation_followup_sha256": {
+    "README.md": "a0c956ec333bcbfb9f80955e53241cd968aa4c50f34b783844d834f2066a3733",
+    "docs/PROJECT_SPEC.md": "2d61a1fc91944ed39956a8c0119e672e86a01c516aaaea462e4e1f8b3ffd1a92",
+    "docs/IMPLEMENTATION_SLICE.md": "b036038b2098e7f51132d054cc664a84f89252c878aacbb4c7dbf3e9c18ef180",
+    "tasks/plan.md": "34cb6c472d600be87d9ef0890f8626aeb0e8f9fe2bf4db820c3d3aab8bf13098",
+    "tasks/todo.md": "383a63ca71efcece907df698fd36ae10172279a65982b7400daf866af9bee35b",
+    "contracts/crop-cycle-db-custody-v1.md": "e6428b295af6e5149014e1b42b33e97a52a208fe846ed88b8bdec0069119fdf8",
+    "contracts/api-crop-cycle-pages-v1.md": "fa60cbbb41165316c7ce54807bb6b4d1a8f1668572e462f91f52127b339fed9d",
+    "research/crop-cycle-db-custody-implementation.md": "f165c7b3844989600fa05a5e0a3508e511aabcabff80451fc5227ad6cf5fc7c4"
+  }
+}
