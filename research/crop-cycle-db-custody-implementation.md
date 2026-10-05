@@ -39,11 +39,14 @@ Python 동등성에서 같아지는 실제 반례다. 대응 artifact를 canonic
 | --- | --- | --- |
 | 순수 폐쇄 metadata | 61통과/0.93초 | 현재 summary 포함 module; 실제 농장/DB 미포함 |
 | 실제 SCRAM 짧은 게시/미생성·yielded 거부 | 2통과/344.15초 | summary 추가 전 code SHA76faa19f…; 현재 판본 전체 수용과 구분 |
+| 현재 판본 짧은 게시/재시작·fork/거부 | 2통과/340.99초 | 현재5c503da2… module; 동일 원 bytes/ID/시각·읽기/게시 RHS0·정리 |
 | 실제 commit 전후 철회·lock·hold·HMAC | 9통과/1,488.61초 | 현재 module; 시험 source는ad9d3b0; roles/schema/password/서버 정리 확인 |
 | 등록 농장25시간의 원 페이지 대사 | 대기 | 실제11,400걸음/독립 제어 흐름·DB 참조; 전체 실제 작기와 구분 |
 | 실제 DB/파일 변조·현재 flag/grants | 1통과/152.11초 | 실제 행3종/파일4종·FD 보존·연구 row1/실제 Run0·권한 복구/원 조회·정리 |
 
 고유 목록과 분할 실행을 대사한 뒤 수용한다. 단일 전체 backend GREEN으로 보고하지 않는다.
+현재 최종74개 목록 중61순수+9경계+1물리 변조+2현재 짧은 실행의 **고유73개 분할 통과**다.
+초기 판본2개와 순수 재실행은 중복으로 더하지 않는다. 등록25시간1개가 남아 있으며 부모 미수용이다.
 
 등록25시간 시험의 첫 private runner는30분의 process deadline을 사용했다.
 `2026-10-05T13:43:58Z`의 실제 관측은53commit/6,608확인 걸음이며 terminal 참조는 없었다.
@@ -71,6 +74,14 @@ PostgreSQL16.15·실제 loopback SCRAM authority로 같은 등록 농장의3시�
 event page18.375463초/59bytes다. 이 수치는 summary 추가 전76faa19f… module에 대응한다.
 HTTP/TLS30초의 증거가 아니며 한 응답에서 get와page를 별도로 호출하는 설계의 예산은
 후속 API에서 실제 측정해야 한다. API 단계에서 원 결과를 다시 적분해 응답을 만들지 않는다.
+
+현재5c503da2… 판본에서도 실제 SCRAM·동일 retry·새 service/fork·RHS0을 다시 확인했다.
+동일6,515bytes, put52.963673초/get17.954383초, sample17.832712초/24,324bytes·
+event17.901815초/59bytes다. current runner341.488069초/child RSS125.9375MiB와
+roles/schema/password0·PG종료·private cluster/admin password 삭제·owned server0을 확인했다.
+현재 관측을 초기 판본의 관측으로 덮어쓰지 않고 별도 근거로 보존했다.
+[현재 판본/73개 분할 진행 영수증](artifacts/crop-cycle-db-custody-progress-20261005.json)은
+등록25시간이 아직 미수용인 시점의 불변 기록이다.
 
 nice10·private cluster1개·연결32/shared16MiB/work1MiB/maintenance16MiB로 순차 실행했다.
 첫 runner344.699099초·sequential child 최대RSS125.21875MiB였다.

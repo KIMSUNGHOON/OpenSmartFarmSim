@@ -213,8 +213,9 @@ v3 로그 비교 도형은 원값/영을 보존하며 기존 v2 선형 대체를
 [실제 서버 계산/서명 저장](../research/crop-cycle-server-custody-implementation.md)도 고유46개 분할·
 실제 SCRAM/현재 권리·강제 종료4개·별도 Python 복원/정리로10월5일 로컬 수용했다.
 25시간/11,400실제 걸음·27시점/5사건·서명 저장829,769bytes를 확인했고 마지막 reader 정리 수정 전 참조 판본을 고정한다.
-현재 [DB 구현 후보](../research/crop-cycle-db-custody-implementation.md)는 순수61개·실제 경계9개를
-통과했다. 현재 판본 재시작/등록25시간·실제 변조/정리의 최종 수용은 남아 있다.
+현재 [DB 구현 후보](../research/crop-cycle-db-custody-implementation.md)는 고유73개 분할
+(순수61·실제 DB12개)을 통과했다. 현재 판본 재시작/fork·변조·정리는 확인했고,
+합성 등록 농장25시간 계산·DB 원값 대사의 최종 수용은 남아 있다.
 부모 수용은 그 DB 게시 증거 뒤다. 다음 [조회 API 후보](../contracts/api-crop-cycle-pages-v1.md)는
 요약/수치 페이지와 한 현재 권리 읽기 context·실제30초/2MiB를 검증한다. 그다음 client → 같은 UTC3D →
 작기 부하 → 생과 환산을 [todo](../tasks/todo.md)의 작은 자식 순서로 진행한다.

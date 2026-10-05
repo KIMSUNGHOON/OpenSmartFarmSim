@@ -1,0 +1,95 @@
+{
+  "schema_version": "crop-cycle-db-custody-progress-v1",
+  "recorded_at": "2026-10-05T14:12:16.123118+00:00",
+  "stage_status": "candidate_registered25h_acceptance_pending",
+  "source_snapshot": "7b55f09ad54f190ddba6201cfd4feb590776a08d",
+  "previous_hold_receipt": "research/artifacts/crop-cycle-db-custody-hold-20261005.json",
+  "previous_hold_receipt_sha256": "9757c00a5d7f7cdc8e2d48839c0c26dfe02a6c52d15bb14ee8f468ff98d0aaca",
+  "previous_hold_preserved": true,
+  "clarification": "Current short2 confirmation complete; initial native1800sec resource hold is retained, not superseded by success.",
+  "file_sha256": {
+    "backend/app/crop_cycle_result_store.py": "5c503da25445a8d497dadd3c51276d588191001cacdd33a0e6e164e87a25ba1d",
+    "backend/tests/test_crop_cycle_result_store.py": "feb34143d9056f9b3d2ee5bf8e06e3b0f1c2e4f82ff4e163c0bfc26a966fdfcb",
+    "backend/tests/test_crop_cycle_result_store_farms.py": "63e4ce69d0309ccc272475b116150a323adc29bc34b00b64fb22314ed6166210"
+  },
+  "current_short2": {
+    "passed": 2,
+    "pytest_seconds": 340.99,
+    "runner": {
+      "scope": "synthetic_cycle_db_custody_software_only",
+      "started_at": "2026-10-05T13:54:45.011635+00:00",
+      "postgres_version": "postgres (PostgreSQL) 16.15",
+      "new_dependencies": 0,
+      "servers_started": 1,
+      "pytest_arguments": [
+        "tests/test_crop_cycle_result_store_farms.py",
+        "-k",
+        "short_publication or missing_yielded"
+      ],
+      "effective_nice": 10,
+      "exit_code": 0,
+      "wall_seconds": 341.48806861095363,
+      "remaining_test_roles": 0,
+      "remaining_test_schemas": 0,
+      "remaining_test_password_files": 0,
+      "postgres_stopped": true,
+      "postgres_status_exit_code": 3,
+      "private_cluster_and_admin_password_files_removed": true,
+      "owned_servers_after": 0,
+      "peak_children_rss_mib": 125.9375
+    },
+    "reference": {
+      "scope": "synthetic_registered_farm_software_only",
+      "actual_scram": true,
+      "payload_bytes": 6515,
+      "payload_sha256": "ad0d23b77c89d887d1a0cbb2f3cb06f45d580e4ff88c00d64bb0e3def5b810e6",
+      "code_sha256": "5c503da25445a8d497dadd3c51276d588191001cacdd33a0e6e164e87a25ba1d",
+      "put_seconds": 52.96367258601822,
+      "get_seconds": 17.954383269010577,
+      "pages": {
+        "samples": {
+          "records": 3,
+          "bytes": 24324
+        },
+        "events": {
+          "records": 0,
+          "bytes": 59
+        }
+      },
+      "page_seconds": {
+        "samples": 17.832712385978084,
+        "events": 17.901815166987944
+      },
+      "immutable_retry_bytes_id_time": true,
+      "fresh_service_and_fork_process_exact": true,
+      "read_and_put_rhs_zero": true,
+      "research_row_count": 1,
+      "actual_crop_runs": 0
+    },
+    "log_sha256": "e7881f2623ef7a7d35370b0bf0a3ddf891d199dd796279979845dd8e6e068211"
+  },
+  "pre_summary_reference_preserved_sha256": "e7902fc176cf3f49ee44ef6ea79c846bc15cff5a908e2612115b699e3fc594a9",
+  "current_inventory": {
+    "unique": 74,
+    "passed_split": 73,
+    "split": {
+      "pure": 61,
+      "native_boundary": 9,
+      "native_physical": 1,
+      "native_current_short": 2
+    },
+    "pending_registered25h": 1,
+    "collection_sha256": "d108274a60c352a40eeff3d3d8ed9a3bb8bf7f90f07d4249b8a6d5141218ffe0",
+    "not_a_single74_green_or_full_backend_run": true
+  },
+  "pending_registered25h": {
+    "native_process_deadline_seconds": 5400,
+    "one_sequential_private_cluster": true,
+    "nice": 10,
+    "worker128_and_http30s_unchanged": true
+  },
+  "gate_changes": false,
+  "actual_cultivar_inputs": 0,
+  "independent_domestic_datasets": 0,
+  "actual_crop_runs": 0
+}
