@@ -102,8 +102,18 @@ def prepare_context(*, initial_state, segments, events, output_times, solver,
 
 def _require_context(context):
     _need(type(context) is CycleContext, 'CONTEXT_HOLD: prepared context required')
-    _need(context.manifest['code_sha256']['continuation'] == CODE_SHA256,
-          'CONTEXT_HOLD: changed continuation code')
+    manifest = context.manifest
+    _need(manifest['code_sha256']['continuation'] == CODE_SHA256
+          and manifest['physical_code_sha256'] == physical.CODE_HASHES
+          and manifest['policy_sha256'] == physical.startup.POLICY_SHA256
+          and manifest['allocation_policy_sha256'] == physical.allocation.POLICY_SHA256
+          and manifest['python_version'] == platform.python_version(),
+          'CONTEXT_HOLD: changed code/policy/environment')
+    _need(manifest['profile_sha256'] == {k:p.sha256 for k,p in (
+        ('growth_profile',context.growth_profile), ('cohort_profile',context.cohort_profile),
+        ('transport_profile',context.transport_profile))}, 'CONTEXT_HOLD: changed profiles')
+    _need(context.root_sha256 == _hash({'program':context.program,'manifest':manifest}),
+          'CONTEXT_HOLD: root mismatch')
 
 
 def _clock_record(context, active):
@@ -212,7 +222,7 @@ def restore_checkpoint(context, raw_bytes):
     def constant(value):
         raise CycleContinuationRejected('CHECKPOINT_HOLD: nonfinite JSON constant')
     try:
-        checkpoint = json.loads(raw_bytes, object_pairs_hook=pairs, parse_constant=constant)
+        checkpoint = json.loads(raw_bytes.decode('utf-8'), object_pairs_hook=pairs, parse_constant=constant)
     except (ValueError, RecursionError, UnicodeDecodeError) as exc:
         raise CycleContinuationRejected('CHECKPOINT_HOLD: invalid JSON') from exc
     _validate_checkpoint(context, checkpoint)
