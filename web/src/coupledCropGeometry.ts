@@ -2,7 +2,9 @@ import { BoxGeometry,Group,Mesh,type Material } from 'three';
 import { CARBON_UNIT } from './cropReplay';
 import { FRUIT_NUMBER_UNIT,type CoupledCropState,type CoupledCropSample } from './coupledCropReplay';
 
-export type CohortScales=Readonly<{carbon:number;number:number}>;
+type LogBounds=Readonly<{lower:number;upper:number}>;
+export type CohortScales=Readonly<{carbon:number;number:number;
+  logarithmic?:Readonly<{carbon:LogBounds|null;number:LogBounds|null}>}>;
 type Heights=Readonly<{carbon:readonly number[];number:readonly number[]}>;
 function need(value:unknown):asserts value {if(!value)throw new Error('crop_scene_unavailable');}
 function quantities(state:CoupledCropState){
@@ -20,19 +22,31 @@ export function coupledCohortScales(samples:readonly Pick<CoupledCropSample,'sta
   }
   return {carbon,number};
 }
+export function startupCohortScales(samples:readonly Pick<CoupledCropSample,'state'>[]){
+  const maxima=coupledCohortScales(samples),minimum={carbon:Infinity,number:Infinity};
+  for(const sample of samples)for(const [kind,key] of [['carbon','fruit_carbohydrate'],['number','fruit_number']] as const)
+    for(const q of sample.state[key])if(q.value>0)minimum[kind]=Math.min(minimum[kind],q.value);
+  const bound=(kind:'carbon'|'number'):LogBounds|null=>Number.isFinite(minimum[kind])?
+    {lower:Math.floor(Math.log10(minimum[kind]))-1,upper:Math.ceil(Math.log10(maxima[kind]))}:null;
+  return {...maxima,logarithmic:{carbon:bound('carbon'),number:bound('number')}};
+}
 export function coupledCohortHeights(state:CoupledCropState,scales:CohortScales):Heights{
   quantities(state);
-  function heights(values:readonly {value:number}[],maximum:number){
+  function heights(values:readonly {value:number}[],maximum:number,bounds?:LogBounds|null){
     need(Number.isFinite(maximum) && maximum>=0);
+    if(bounds===null)need(maximum===0);
+    else if(bounds!==undefined)need(maximum>0 && Number.isInteger(bounds.lower) && Number.isInteger(bounds.upper)
+      && bounds.lower>=-325 && bounds.upper<=309 && bounds.lower<bounds.upper && bounds.upper===Math.ceil(Math.log10(maximum)));
     return values.map(({value})=>{
       need(value<=maximum);
-      const height=maximum?value/maximum:0;
+      const height=value===0?0:bounds?(Math.log10(value)-bounds.lower)/(bounds.upper-bounds.lower):maximum?value/maximum:0;
       // GPU transform precision is a representation bound, not a crop threshold.
       need(Number.isFinite(height) && height>=0 && height<=1 && (value===0 || height>0 && Math.fround(height)>0));
       return height;
     });
   }
-  return {carbon:heights(state.fruit_carbohydrate,scales.carbon),number:heights(state.fruit_number,scales.number)};
+  return {carbon:heights(state.fruit_carbohydrate,scales.carbon,scales.logarithmic?.carbon),
+    number:heights(state.fruit_number,scales.number,scales.logarithmic?.number)};
 }
 export function createCohortDiagrams(carbonMaterial:Material,numberMaterial:Material){
   const group=new Group(),carbonGroup=new Group(),numberGroup=new Group(),geometry=new BoxGeometry(.07,1,.07);

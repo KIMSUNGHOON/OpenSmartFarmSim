@@ -89,6 +89,10 @@ export default function CoupledCropScene({sample,scales}:{sample:CoupledCropSamp
       <button className="button secondary" aria-label="연결 연구 기본 시점" disabled={!available} onClick={()=>view.current?.reset()}>기본 시점</button>
       <button className="button secondary" aria-label="연결 연구 오른쪽에서 보기" disabled={!available} onClick={()=>view.current?.rotate(1)}>오른쪽</button></div>
     <p className="crop-caption">왼쪽: 논리 바닥 1m²당 잎 한 면 {displayNumber(sample.lai.value)}m². 배치·지지선은 실제 키·잎수·재식밀도가 아닙니다.</p>
+    {scales.logarithmic && <p className="crop-caption startup-log-scale">3D 막대 높이는 전체 저장 시점의 로그 비교 척도입니다.
+      {(['carbon','number'] as const).map(kind=>{const b=scales.logarithmic![kind];return <span key={kind}> {kind==='carbon'?'C':'N'}:
+        {b?` 10^${b.lower} → 10^${b.upper}`:' 양수 없음'}. </span>;})}
+      영 값은 숨깁니다. 그래프·표는 원 단위와 원값을 유지합니다.</p>}
     <p className="crop-caption">중앙: 과실 탄소 C, 공통 최대 {displayNumber(scales.carbon)} {CARBON_UNIT}.
       오른쪽: 개수 상당량 N, 공통 최대 {displayNumber(scales.number)} {FRUIT_NUMBER_UNIT}. 각 10열×5행은 구획 1–50이며 열매 크기·개수·숙기·수확량을 뜻하지 않습니다.</p>
   </div>;
