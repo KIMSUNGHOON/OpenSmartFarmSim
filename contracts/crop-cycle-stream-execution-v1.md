@@ -1,6 +1,10 @@
 # 분할 입력의 실제 작물 연구 계산 — v1
 
-상태: **구현 전 계약**, 2026-10-05 KST. 작업 `crop-cycle-stream-execution`.
+상태: **실제 분할 입력/RHS 연구 실행의 로컬 수용**, 2026-10-05 KST.
+[144개 집중/25시간11,400걸음·별도 Python7개·검토](../research/crop-cycle-stream-execution-implementation.md),
+[실제 실행/복원](../research/artifacts/crop-cycle-stream-execution-reference-20261005.json),
+[CLI·최종 파일/초안·검증 영수증](../research/artifacts/crop-cycle-stream-execution-implementation-reference-20261005.json).
+작업 `crop-cycle-stream-execution`.
 현재 Codex CLI `gpt-6.1-sol / xhigh`의 실제 turn metadata를 기록한다. CLI를 재귀 실행하지 않는다.
 [원 실행 의미](crop-cycle-execution-v1.md), [짧은 continuation](crop-cycle-continuation-v1.md),
 [입력 packet](crop-cycle-input-stream-v1.md)의 수용된 코드와 한도/hash를 보존한다.
@@ -37,6 +41,8 @@ manifest는 실행/physical/rate 판본, input root/계산 hash, grid index hash
 continuation/reader/physical code hashes, 3개 profile hashes, 정책 hashes, solver,
 Python 판본, UTC/정확한 온도 clock 규칙을 포함한다. root는 이 manifest의 canonical SHA다.
 SHA는 진본·권한·현재 권리·과거 chain 승인 증거가 아니다.
+context는 이 모듈이 생성한 신뢰된 process 내부 객체다. Python 내부 필드/함수를 공격자가
+재작성할 수 있는 실행 환경의 인증 경계가 아니다. 외부 입력은 닫힌 packet/checkpoint를 검증한다.
 
 ## 새 checkpoint와 chunk
 
@@ -93,5 +99,7 @@ typed `CycleStreamExecutionRejected`는 잘못된 context/checkpoint/budget이�
 5. 원 코드/fixture/profile/short continuation/reader36개 hash 보존, 집중 회귀/검토,
    public receipt와 실제 CLI metadata·별도 프로세스 증거 뒤 task checkbox를 갱신한다.
 
-최초 예상은 kernel/reader2–3시간 + checkpoint/위치·예산3–4시간 + 대사/검토2–3시간의
-7–10집중시간이다. 완료 날짜는 실제 검증 뒤 갱신하며 농장 예측/추천 날짜로 사용하지 않는다.
+최초7–10집중시간/10월5–8일 예상은 **10월5일 KST 로컬 완료**의 실제 증거로 대체한다.
+다음 `crop-cycle-result-artifact`는 contract/budget1–2시간 + writer/reader2–3시간 +
+대사/변조·복원/검토2–3시간의5–8집중시간, 하루4시간/CI 대기 제외10월5–7일 KST 잠정이다.
+저장 custody/API/client/3D와166일 실제 부하·실제 품종/예측 날짜는 각각의 실적/자료 확보 뒤 갱신한다.
