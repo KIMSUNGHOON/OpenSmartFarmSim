@@ -2,6 +2,7 @@ from copy import deepcopy
 from dataclasses import replace
 from datetime import timedelta
 import json
+import importlib.util
 from pathlib import Path
 
 import pytest
@@ -302,3 +303,19 @@ def test_changed_unread_block_propagates_input_hash_rejection(tmp_path):
         (tmp_path/'packet'/(block['sha256']+'.json')).write_bytes(b'[]')
         with pytest.raises(inputs.CycleInputRejected,match='HASH_HOLD'):
             finish(ctx,10000,10000,cp)
+
+
+def test_independent_long_reference_control_flow_preserves_normalized_event_json_and_prefixes(tmp_path):
+    path = ROOT/'research/crop-cycle-stream-execution-reference.py'
+    spec = importlib.util.spec_from_file_location('cycle_stream_reference',path)
+    reference = importlib.util.module_from_spec(spec);spec.loader.exec_module(reference)
+    p = program('full-removal-reentry'); before = deepcopy(p)
+    expected,final = reference.independent_control_flow(p,PROFILES)
+    legacy = original.integrate_plant_startup(**p,**PROFILES)
+    with packet(tmp_path/'packet',p) as reader:
+        actual,_ = finish(engine.prepare_context(reader,**PROFILES),7,13)
+        for field in ('status','scope','samples','events','steps','planned_steps'):
+            assert engine._canonical(actual[field]) == engine._canonical(expected[field]) == engine._canonical(legacy[field])
+        for field in final:
+            assert engine._canonical(actual['checkpoint'][field]) == engine._canonical(final[field])
+    assert p == before
