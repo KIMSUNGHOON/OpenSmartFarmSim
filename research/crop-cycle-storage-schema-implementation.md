@@ -49,7 +49,8 @@ cd backend
 nice -n 10 .venv/bin/python -m pytest -q tests/test_crop_cycle_result_schema.py
 ```
 
-실제 로컬 PostgreSQL **16.15**, Python **3.12.13**/psycopg **3.3.6**/pytest **9.1.1**을 재사용했다.
+실제 로컬 PostgreSQL **16.15**, Python **3.12.3**/psycopg **3.3.6**/pytest **9.1.1**을 재사용했다.
+패키지 metadata를 직접 조회해 확인했으며 hosted의 Python3.12.13/PostgreSQL18.6과 구별한다.
 각 실행은 순차 private loopback/SCRAM cluster1개,32연결/16MB shared buffers/1MB work memory였다.
 첫 전체 과정24.542초/순차 자식 최대RSS84.73MiB, 추가 byte 과정1.427초/74.91MiB다.
 이 값은 WSL 전체 메모리나 DB/pytest 프로세스군 합계·production 처리량이 아니다.
