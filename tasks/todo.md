@@ -177,16 +177,47 @@
     [실제 수용](../research/crop-cycle-input-stream-implementation.md):64개/3.63초·48,000자작 합성 구간/
     48,003경계·독립 clock/grid·별도 Python 복원·전체79.848초/30.23MiB·113,276,558bytes/tempfile·FD 정리.
     예정1,440,002RK4걸음은 계획 산술이며 실제 RHS는 미실행이다. 실제 archive/농장/품종 입력은 미채택이다.
-  - [ ] **`crop-cycle-stream-execution`** — 다음 한 단계; 선행: input stream/continuation 수용. bounded reader와 실제 RHS·전역
+  - [x] **`crop-cycle-stream-execution`** — 실제 긴 연구 실행의 로컬 수용; 선행: input stream/continuation 수용. bounded reader와 실제 RHS·전역
     grid/seed/clock/counters·phase를 새 긴 실행 판본에서 연결한다. 실제 긴 합성 프로그램·분할/별도 Python
     복원·수지/사건/hold·입력 불변/전역 budget·WSL 자원/정리를 검증한다. 현재 짧은 v1 한도/hash는 보존한다.
     reader 수용을 이 실행 수용으로 표시하지 않는다. 파일/전역 budget·기간/날짜는 source provider 실적 뒤 고정한다.
     예상3파일: `backend/app/crop_cycle_stream_execution.py`, `backend/tests/test_crop_cycle_stream_execution.py`,
     `contracts/crop-cycle-stream-execution-v1.md`. 원6프로그램과 실제1일/10,000step 초과 합성 프로그램의
     RHS/전역 수지·JSON/별도 Python 복원·hold/확인 과거/원 grid를 검증한다. 큰 clock-only 입력을 crop 실행으로 사용하지 않는다.
+    [실제 수용](../research/crop-cycle-stream-execution-implementation.md): 새88개/기존56개·총144개/65.41초,
+    6프로그램×3예산·canonical 사건 정규화 회귀,25시간/300구간/11,400실제 걸음·별도 Python7개/
+    847float64·원 상태/누적/clock/수지/사건 hash·25시간 뒤 hold,263.879초/parent45.44MiB·정리.
+    실제166일/품종/원 입력 채택·저장/3D/G0–G4 수용으로 표시하지 않는다.
   - [ ] **`crop-cycle-result-pages`** — 선행: 실제 stream 실행 수용. 불변 파일/reader → farm/current rights
     custody/API → 같은 UTC 3D를 각각3–5파일 작업으로 먼저 분해한다. 원 출력/sequence·chain/변조/atomic·
     재시작/GET 재적분 없음·실제 SCRAM/TLS/browser·페이지30초/정리 뒤 체크한다.
+    아래 자식 작업의 증거가 모두 있을 때만 부모를 체크한다.
+    - [ ] **`crop-cycle-result-artifact`** — 다음 저장 구현; 선행: stream execution 수용. 예상3파일:
+      `backend/app/crop_cycle_artifact.py`, `backend/tests/test_crop_cycle_artifact.py`,
+      `contracts/crop-cycle-artifact-v1.md`. 새 cycle 판본의 bounded 불변 sample/event/checkpoint 분할과
+      index/root를 만든다. 원 input/context·code/profile/grid/seed·전역 counter/prefix/parent를 연결하고
+      completed/hold/확인 과거를 보존한다. 원량을 바꾸거나 GET/read에서 RHS를 실행하지 않는다.
+      수용: 원6프로그램과1일/10,000step 초과 자작 합성 결과의 저장/별도 Python 읽기·동일 UTC/원값,
+      새2MiB 이하 페이지의 유한 byte/record/전체 budget, hash/index/순서/중복/혼합 root 변조,
+      pending event/중간 commit·실패/부분 파일·재시작·atomic 게시/FD/tempfile 정리.
+      byte/record 상세 상한은 구현 계약과 실제 결과 크기로 고정한다. HMAC/current rights/DB/HTTP/3D는 후속이다.
+    - [ ] **`crop-cycle-storage-schema`** — 선행: artifact 수용. 새 cycle 참조/분할 저장 schema·명시 role와
+      current farm/source/program binding을3–5파일로 고정한다. 수용: 실제 SCRAM의 명시 role·불변/권한
+      거부·잘못된 root/counter·migration/정리. 기존 startup v3 표/reader/API의 의미/hash를 바꾸지 않는다.
+    - [ ] **`crop-cycle-result-storage`** — 선행: artifact/schema 수용. 현재 farm/source 권리와 reviewer·
+      decision/input/run manifest를 검증하고 HMAC/게시 atomicity를3–5파일로 연결한다.
+      수용: 실제 SCRAM의 같은 farm/root 결과·commit 전후 권리 철회·교차 farm/혼합 chunk/부분 게시 거부·
+      별도 프로세스 읽기/복구·lease/cancel 요구가 있으면 기존 worker 계약과의 대사·정리.
+    - [ ] **`api-crop-cycle-pages`** — 선행: custody 저장 수용. 같은 저장 ID의 순차 sample/event 페이지를
+      3–5파일로 제공한다. 수용: 실제 Bearer/TLS/SCRAM·current rights·같은 UTC/원량/index·
+      30초/2MiB/유한 page budget·취소/중복·과거만 있는 hold/빈 hold·GET RHS0회·정리.
+    - [ ] **`web-crop-cycle-pages`** — 선행: cycle API 수용. 새 판본 decoder/순차 페이지와 선택 UTC를
+      3–5파일로 연결한다. 수용: 기록된 실제 TLS 응답의 원량/순서·혼합 ID/판본/hash·오래된 요청/중복/
+      부분/권리 철회·hold 거부/보존, focused unit/typecheck/build. 기존 short decoder는 보존한다.
+    - [ ] **`web-crop-cycle-replay`** — 선행: cycle client 수용. 같은 저장 ID/UTC의 상태·누적량·수지와
+      성장 연구 3D를3–5파일로 연결한다. 수용: 실제 PG→TLS→WebGL·원 표/mesh·부분 페이지/hold,
+      타임라인 변경·권리 철회·GET 재적분0회/저사양·반응형·키보드/정리. 실제 품종의 키/크기/
+      수확·임의 애니메이션이나 새 G0–G4 통과로 표시하지 않는다.
   - [ ] **`crop-cycle-burden`** — 선행: 위 세 구현; 실제 RHS의 긴 합성 forcing/source 형태·부하/재현·중단/복원,
     원 수지/사건·불변 저장/조회·WSL 자원/정리를 검증한다. 실제 작업 분해/측정 뒤 global budget/날짜를 고정한다.
     원47,809시점/166일은 입력 형태이며 실제 품종/UTC/QC/초기/관리 채택 없이 crop 작기 수용으로 표시하지 않는다.
@@ -362,7 +393,8 @@
     [실제 수용](../research/web-crop-startup-replay-implementation.md): 웹383개·Chromium31개·실제 경로1개,
     고유 완료12시점/15번 화면·1,500 C/N mesh·16누적/4진단·같은 UTC/원량·최대본문9.485초,
     행5→5/GET 재적분 없음·서버/DB/password 정리0잔여. 10월5일 KST 로컬 완료;
-    새 hosted·pixel fidelity·실제 품종/전체 작기/생과·G0–G4는 별도 미수용이다.
+    이후 `1555610`의 [CI5개/백엔드3,456개·UID4개·동일 목록/정리·집계](../research/artifacts/crop-startup-replay-ci-20261005.json)도 수용했다.
+    후속 continuation/reader/긴 RHS hosted·pixel fidelity·실제 품종/전체 작기/생과·G0–G4는 별도 미수용이다.
 - [ ] **`crop-fruit-cohorts`** — 전체 구획의 부모 작업; 순간 수용만으로 완료하지 않는다. 개발 선행: `crop-fruit-transport`·`crop-fruit-allocation-rates`·고정 Gompertz 수요·명시적 관리 사건.
   참조 계수의 순수 모듈 개발은 국내 자료 접근/G2를 기다리지 않는다.
   실제 Axiany 적용에는 `crop-input-audit`와 해당 품종/관리·발달 근거가 추가로 필요하다.

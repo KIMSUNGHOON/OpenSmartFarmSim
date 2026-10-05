@@ -50,7 +50,7 @@ typecheck/build·기록 TLS 원값 대사로 10월5일 KST 로컬 수용했다.
 [같은 UTC 장면/표/그래프와 실제 브라우저](../research/web-crop-startup-replay-implementation.md)도
 웹383개·Chromium31개·실제 SCRAM/TLS/WebGL1개·고유12시점/15번 화면·1,500 C/N mesh로
 10월5일 KST 로컬 수용했다. 원량/16누적/4진단·영/극소·같은 UTC·권리/취소/hold와 정리를 확인했다.
-새 v3 로그 비교 축을 명시하며 기존 v2 선형/unsafe 대체를 유지한다. Pixel fidelity/새 hosted는 별도다.
+새 v3 로그 비교 축을 명시하며 기존 v2 선형/unsafe 대체를 유지한다. Pixel fidelity는 별도다.
 `crop-cycle-execution-contract`의 전역 걸음/상태·누적 수지/forcing/event/output cursor,
 불변 checkpoint/hash·현재 권리·hold/재시작과 계산/출력 분리를 현재 코드에 대조했다.
 chunk 경계로 새로운 RK4 격자를 만들지 않는 정책·독립 경계 대사/보류 목록과
@@ -63,17 +63,20 @@ phase/원 격자·사건/output/hold로10월5일 KST 로컬 완료했다. 기존
 [불변 입력 reader](../research/crop-cycle-input-stream-implementation.md)도64개·48,000자작 합성 구간/48,003경계·
 독립 clock/grid·별도 Python 복원·최대30.23MiB/정리로10월5일 KST 로컬 완료했다.
 예정1,440,002걸음의 산술을 실제 RHS 실행으로 표시하지 않는다. 기존4–6시간 예상은 이 수용으로 대체한다.
-다음 `crop-cycle-stream-execution`에서 reader를 실제 RHS/전역 continuation에 연결하는 별도 판본을
-수용한다. kernel/reader 연결2–3시간, global checkpoint/위치·budget/phase3–4시간,
-6프로그램/긴 합성·hold·별도 Python/검토·보고2–3시간의7–10 집중시간,
-하루4시간/CI 대기 제외 기준10월5–8일 KST 잠정이다.
-현재 짧은 v1/reader의 한도와 hash를 보존한다. reader 수용은 그 실제 실행의 수용이 아니다.
-긴 실행/저장·전체 작기/생과 날짜는 provider 실적·실제 입력 확보 뒤 추정한다.
+[별도 긴 실제 RHS 연결](../research/crop-cycle-stream-execution-implementation.md)도144개 집중·
+25시간/300구간/11,400실제 걸음·별도 Python7개/847float64·canonical 사건/hash·전역 수지/
+hold·263.879초/parent45.44MiB·정리로10월5일 KST 로컬 완료했다.
+첫 독립 참조의 사건 정규화 누락을 회귀로 수정했고 원38개 hash/짧은 한도를 보존했다.
+기존7–10시간/10월5–8일 예상은 이 수용으로 대체한다. 다음은 `crop-cycle-result-artifact`다.
+contract/budget1–2시간 + writer/reader2–3시간 + 대사/변조·복원/검토2–3시간의5–8집중시간,
+하루4시간/CI 대기 제외 기준10월5–7일 KST 잠정이다. 실제 원량/UTC·불변 분할/reader·atomic/정리 뒤 수용한다.
+저장 custody/API/client/3D·166일 실제 부하·생과 날짜는 artifact 실적/실제 입력 확보 뒤 갱신한다.
 [착수 코드 감사](../research/crop-cycle-execution-inspection-20261005.md)는 기관 단독v1의20,000 배열/
 100만 step과 현재 기관·과실/startup의128 forcing/128 event·512 output·10,000 step·1일을 구분한다.
 현재 output 시각도 RK4 경계에 들어가므로, 화면 출력 선택을 바꾸어 계산 격자를 바꾸지 않도록
 새 계약에서 고정 계산 경계와 저장/표시 선택을 분리한다. 계약/원 격자 대사는 로컬 수용했고
-새 짧은 driver/실제 모델 재시작과 긴 입력 reader도 로컬 수용했고 긴 실제 RHS·작기 부하는 미수용이다.
+새 짧은 driver/실제 모델 재시작과 긴 입력 reader/25시간 실제 RHS 연결도 로컬 수용했고,
+그 결과의 저장/3D·166일 실제 작기 부하는 미수용이다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
@@ -92,7 +95,9 @@ phase/원 격자·사건/output/hold로10월5일 KST 로컬 완료했다. 기존
 후속 `d105daa`도 [CI5개/백엔드3,370개·별도UID4개](../research/artifacts/crop-plant-startup-math-ci-20261005.json),
 여섯 동일 목록/정리·집계로 새 기관 시작 RHS/적분/artifact까지 수용했다.
 새 저장까지의 `92cade3`도 [CI5개/백엔드3,408개·별도UID4개](../research/artifacts/crop-startup-storage-ci-20261005.json)를
-여섯 동일 목록/정리·집계로 수용했다. 후속 API/client/3D의 원격 수용은 별도다.
+여섯 동일 목록/정리·집계로 수용했다. API/client/3D까지의 `1555610`도
+[CI5개/백엔드3,456개·별도UID4개](../research/artifacts/crop-startup-replay-ci-20261005.json),
+여섯 동일 목록/정리·집계로 수용했다. 후속 continuation/reader/긴 RHS의 원격 수용은 별도다.
 기존 HTTPS timeout의 원인을 확정한 것이 아니며 원 실패 기록과 30초 제한을 보존한다.
 `bdcade9`의 Application CI에서 새 기본 false policy의 기존 loader 허용 목록 누락으로
 실제 API 기동이 실패했다. [최소 policy 회귀 수정](../research/crop-coupled-operator-policy-implementation.md)은
@@ -152,7 +157,13 @@ flowchart TD
   CC --> CONT["crop-cycle-continuation: 원 상태/실제 RHS·재시작"]
   CONT --> STREAM["crop-cycle-input-stream: bounded 원 forcing/anchor/cursor"]
   STREAM --> EX["crop-cycle-stream-execution: 긴 원 입력/실제 RHS 연결"]
-  EX --> PAGES["crop-cycle-result-pages: 불변 chunk/현재 권리·같은 UTC"]
+  EX --> CART["crop-cycle-result-artifact: 불변 chunk/reader·원량"]
+  CART --> CSCH["crop-cycle-storage-schema: 새 참조·명시 role"]
+  CSCH --> CSTORE["crop-cycle-result-storage: 현재 권리·atomic custody"]
+  CSTORE --> CAPI["api-crop-cycle-pages: 같은 저장 ID/순차 조회"]
+  CAPI --> CWEB["web-crop-cycle-pages: 원값/선택 UTC"]
+  CWEB --> C3D["web-crop-cycle-replay: 실제 PG/TLS/WebGL"]
+  C3D --> PAGES["crop-cycle-result-pages: 자식 수용 뒤 부모 완료"]
   PAGES --> BURDEN["crop-cycle-burden: 긴 실제 RHS·부하/복원"]
   BURDEN --> CAP
   SI --> SF["crop-startup-artifact: 새 bytes/재적분 없는 reader"]
@@ -372,13 +383,14 @@ image/TLS·UID/읽기 전용/정리는 `d76410f`의 실제 hosted 전체 성공�
 | coupled 페이지 조회 API | **로컬 완료** | 207개 고유 분할 검증·실제 HTTPS 19개/512 sample/128 event·두 runtime 재시작·최대 11.508339초/649,718 bytes·현재 권리/정리 |
 | coupled 웹 페이지 조립 | **로컬 완료** | 새 73개 포함 135개·기록 TLS bytes 대사 1개·512시점/50배열·취소/혼합·마이크로초 hold·typecheck/build. 새 화면/브라우저는 별도 |
 | coupled 수치 도형 | **로컬 완료** | 새 17개 포함 103개·기록 TLS 512시점/51,200개 C/N·triangle 면적의 CPU 대사 1개·0/large/underflow·해제 |
-| coupled 성장 연구 3D | **2026-10-05 KST 로컬 완료** | 단위 129개·Chromium 19개·실제 SCRAM/HTTPS/WebGL 1개·900 C/N mesh/잎 면적·권리/정리. 전체 작기/품종·pixel fidelity·새 hosted 미수용 |
+| coupled 성장 연구 3D | **2026-10-05 KST 로컬/hosted 완료** | 단위129개·Chromium19개·실제SCRAM/HTTPS/WebGL1개·900 C/N mesh·권리/정리; 후속1555610의5CI도 성공. 전체 작기/품종·pixel fidelity 미수용 |
 | 초기/자동 착과 정책 | **다음 연구/정책 집중 2–4시간 잠정** | 기존 고정 원천/배분 근거를 재사용해 빈 tail·W1/S/RGR·생식기 이전과 독립 보존/hold 사례 검토. 새 코드/품종 채택은 별도 |
-| startup 성장 연구 3D | **2026-10-05 KST 로컬 완료** | 웹383개·Chromium31개·실제 경로1개·1,500 C/N mesh·16누적/4진단·권리/정리; 새 hosted/pixel fidelity·품종 미수용 |
+| startup 성장 연구 3D | **2026-10-05 KST 로컬/hosted 완료** | 웹383개·Chromium31개·실제 경로1개·1,500 C/N mesh·16누적/4진단·권리/정리;1555610의5CI·3,456backend+UID4/동일 목록/정리;pixel fidelity·품종 미수용 |
 | 전체 작기 실행 계약/작업 분해 | **2026-10-05 KST 로컬 완료** | 원 solver6프로그램/630걸음·30분할 grouping·2,783float64·추가 경계/정확한 clock 반례·후속 검증표; 실제 driver/작기 미수용 |
 | 순수 cycle continuation | **2026-10-05 KST 로컬 완료** | 157개·30실제 분할/JSON 복원·별도 Python6개/726float64·원 수지/사건/hold; 긴 실행/실제 품종 미수용 |
 | bounded cycle 입력 reader | **2026-10-05 KST 로컬 완료** | 64개·48,000자작 합성 구간/48,003경계·독립 clock/grid·별도 Python 복원/정리·30.23MiB; 실제 RHS 미실행 |
-| 긴 cycle RHS 실행 연결 | **7–10 집중시간/2026-10-05–08 KST 잠정** | kernel/reader 연결2–3시간+global checkpoint/위치·budget/phase3–4시간+6프로그램/긴 합성·hold·별도 Python/검토·보고2–3시간; 하루4시간/CI 대기 제외. reader 시험만으로 체크하지 않음 |
+| 긴 cycle RHS 실행 연결 | **2026-10-05 KST 로컬 완료** | 144개·25시간/11,400실제 걸음·별도 Python7개/847float64·canonical 사건/hash·원 수지/hold·정리; source166일/실제 품종은 미수용 |
+| cycle 불변 결과 artifact | **5–8집중시간/2026-10-05–07 KST 잠정** | contract/budget1–2시간+writer/reader2–3시간+대사/변조·복원/검토2–3시간; 하루4시간/CI 대기 제외. 원값/UTC·finite 분할·atomic/별도 Python·정리 뒤 수용 |
 | 전체 작기 처리 구현/부하 | **위 계약/분해 뒤 추정** | 순수 연속 실행 → 저장/출력/페이지 → 실제 작기 부하/재현; 실제 입력 채택과 품종 검증은 별도 |
 | 과실 발달 구획 계산 | **문헌식/관리 계약 뒤 추정** | 독립 참조와 개수/기관 질량·사건 수지; 품종 적용성 미검증 유지 |
 | 생과 수확·자원·경제 | **각 변환/계량 근거 뒤 추정** | 수확/등급·물/성분·구매 에너지·동일 배치 Decimal 대사 |
@@ -873,10 +885,17 @@ Chromium31개·실제 SCRAM/TLS/WebGL1개·고유12시점/1,500 C/N mesh·정리
 별도 Python6개/726float64·사건/hold·검토로10월5일 KST 로컬 완료했다.
 [bounded root/input reader](../research/crop-cycle-input-stream-implementation.md)도64개·48,000자작 합성 구간/
 48,003경계·독립 clock/grid·별도 Python 복원/정리로10월5일 KST 로컬 완료했다.
-다음 실제 RHS와 reader의 긴 실행 연결은 연결2–3시간+global checkpoint/위치·budget/phase3–4시간+
-6프로그램/긴 합성·hold·별도 Python/검토·보고2–3시간의7–10 집중시간,
-하루4시간/CI 대기 제외 기준10월5–8일 KST 잠정이다. 저장과 작기 부하 날짜는 실제 연결 실적 뒤 추정한다.
+[실제 긴 RHS 연결](../research/crop-cycle-stream-execution-implementation.md)도144개·25시간/11,400걸음·
+별도 Python7개/847float64·사건 정규화 회귀/원 수지·hold/정리로10월5일 KST 로컬 완료했다.
+다음 artifact는 contract/budget1–2시간+writer/reader2–3시간+대사/변조·복원/검토2–3시간의
+5–8집중시간, 하루4시간/CI 대기 제외10월5–7일 KST 잠정이다. custody/API/client/3D·166일 실제
+부하 날짜는 그 저장 크기/검증 실적 뒤 갱신한다.
 전체 작기·생과/자원/경제는 후속이다.
+cycle 저장/조회 부모는 [todo의 여섯 자식](todo.md)으로 분해했다. artifact → 저장 schema →
+현재 권리 custody → API → client → 같은 UTC 3D의 순서이며, 각3–5파일의 실제 증거 뒤 체크한다.
+다음 artifact는 원 input/context·checkpoint/누적량과 sample/event 분할의 불변 저장/reader,
+2MiB 이하 페이지·유한 전체 budget·원량/순서·별도 Python·atomic/변조·정리로 수용한다.
+pure artifact는 farm/current rights/HMAC/HTTP의 수용을 대신하지 않는다.
 자동 착과·pre-onset/실제 초기 계수는 hold이며 전체 작기 처리/수확 변환을 이어간다.
 국내 독립 농장 자료 확보를 개발 선행으로 잠그지 않는다. 실제 품종/forcing/초기/관리 채택,
 생과·자원/경제·미래 추천 게시의 근거·G0–G4는 유지한다. 외부 작기/계량 자료가 0건인 현재

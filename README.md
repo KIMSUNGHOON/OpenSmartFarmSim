@@ -68,7 +68,7 @@
 웹383개·Chromium31개·실제 SCRAM/TLS/WebGL1개·12완료 시점/1,500 C/N mesh·정리로 로컬 수용했습니다.
 [새 저장 모델의 화면](research/artifacts/startup-crop-desktop.png)을 확인할 수 있습니다.
 빈 초기/제거 후 재유입의 원값과 명시적 로그 비교 3D를 연결합니다. 전체 작기 실행 계약은 수용했고
-다음은 긴 실제 실행/저장·출력/부하 검증 → 생과 환산입니다. 실제 품종/생산 예측과 새 hosted/pixel fidelity는 별도입니다.
+다음은 긴 결과 저장/같은 UTC·작기 부하 → 생과 환산입니다. 실제 품종/생산 예측과 pixel fidelity는 별도입니다.
 자동 착과·생식기 이전/실제 초기 품종 계수는 보류입니다.
 `e70a7f2`의 [최종 CI](research/artifacts/crop-coupled-api-web-ci-hold-20261005.json)는
 기존 assessment HTTPS 30초 시간 초과 1개로 Backend 미수용이며 나머지 네 workflow는 성공했습니다.
@@ -78,7 +78,9 @@
 후속 `d105daa`도 [CI5개 모두 성공](research/artifacts/crop-plant-startup-math-ci-20261005.json),
 백엔드3,370개·별도UID4개·여섯 동일 목록/정리·집계로 새 기관 시작 RHS/적분/artifact까지 수용했습니다.
 새 저장까지의 `92cade3`도 [CI5개 모두 성공](research/artifacts/crop-startup-storage-ci-20261005.json),
-백엔드3,408개·별도UID4개·여섯 동일 목록/정리·집계로 수용했습니다. 후속 API/client/3D의 원격 수용은 별도입니다.
+백엔드3,408개·별도UID4개·여섯 동일 목록/정리·집계로 수용했습니다.
+API/client/3D까지의 `1555610`도 [CI5개/백엔드3,456개·별도UID4개](research/artifacts/crop-startup-replay-ci-20261005.json),
+여섯 동일 목록/정리·집계까지 수용했습니다. 후속 순수 continuation/reader/긴 RHS의 원격 수용은 별도입니다.
 [기록 합성 데모의 3D·원값](research/artifacts/coupled-crop-replay-recorded-demo-geometry.png)과
 [실제 저장 경로의 화면](research/artifacts/coupled-crop-replay-desktop.png)을 확인할 수 있습니다.
 기록 데모는 운영 저장 목록이 아니며 실제 완료 6시점의 소프트웨어 검증입니다.
@@ -89,7 +91,10 @@
 157개·30실제 분할/JSON 복원과 별도 Python6개·726float64 대사로 로컬 수용했습니다.
 [bounded 원 입력 reader](research/crop-cycle-input-stream-implementation.md)도64개·48,000자작 합성 구간/
 48,003경계·독립 clock/grid·별도 Python 복원/정리로 로컬 수용했습니다.
-다음은 긴 입력의 실제 RHS 실행 연결 → 불변 결과/같은 UTC → 작기 부하입니다.
+[긴 입력/실제 RHS 연결](research/crop-cycle-stream-execution-implementation.md)도144개 집중·
+25시간/11,400실제 걸음·별도 Python7개/847float64·사건 JSON/hash·원 수지/hold·정리로 로컬 수용했습니다.
+다음은 cycle 불변 artifact → 현재 권리 저장 → API/client → 같은 UTC3D → 작기 부하입니다.
+다음 artifact는5–8집중시간/10월5–7일 KST 잠정이며 실제 저장/변조·별도 Python·정리 뒤 수용합니다.
 짧은 실행 수용을 전체 작기 검증으로 표시하지 않습니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·

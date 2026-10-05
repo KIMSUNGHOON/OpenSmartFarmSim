@@ -196,16 +196,23 @@ v3 로그 비교 도형은 원값/영을 보존하며 기존 v2 선형 대체를
 별도 Python6개/726float64·원 상태/누적/clock·사건/hold 대사로 로컬 수용했다.
 [불변 분할 원 입력 reader](../research/crop-cycle-input-stream-implementation.md)도64개·48,000자작 합성 구간/
 48,003경계·독립 clock/grid·별도 Python 복원·30.23MiB/정리로 로컬 수용했다. 실제 RHS는 실행하지 않았다.
-다음은 긴 실제 RHS 연결 → 불변 결과·같은 UTC → 작기 부하 → 생과 환산이다.
+[긴 입력/실제 RHS 연결](../research/crop-cycle-stream-execution-implementation.md)도144개 집중·
+25시간/11,400실제 걸음·별도 Python7개/847float64·canonical 사건/hash·원 상태/수지/hold로 로컬 수용했다.
+긴 결과의 저장/웹 재생은 후속이다. 다음은3파일 `crop-cycle-result-artifact`의 bounded 불변 결과/
+reader다. 원6프로그램/긴 합성·같은 UTC/원값·≤2MiB 페이지·finite 전체 budget·순서/hash/변조·
+partial/atomic 게시·별도 Python·FD/tempfile 정리 뒤 수용한다. 이어 현재 권리 저장 → API/client →
+같은 UTC3D → 작기 부하 → 생과 환산을 [todo](../tasks/todo.md)의 작은 자식 순서로 진행한다.
 새 모델의 실제 재시작을 grouping/serialization 시험으로 대체하지 않는다.
-이 화면은 실제 품종/전체 작기 생산 검증이 아니며 새 hosted/pixel fidelity도 별도다.
+이 화면은 실제 품종/전체 작기 생산 검증이 아니며 pixel fidelity도 별도다.
 자동 착과/빈 초기 작기·실제 품종과 전체 작기 처리의 수용은 남아 있다.
 `590fadc`의 [coupled 조회/3D·순수 startup adapter CI](../research/artifacts/crop-coupled-replay-startup-rates-ci-20261005.json)는
 전체5개·백엔드3,157개/별도UID4개·여섯 동일 목록/정리·집계를 통과했다.
 후속 `d105daa`의 [CI5개/백엔드3,370개·별도UID4개](../research/artifacts/crop-plant-startup-math-ci-20261005.json)도
 여섯 동일 목록/정리·집계로 기관 시작 RHS/적분/artifact까지 수용했다.
 새 저장까지의 `92cade3`도 [CI5개/백엔드3,408개·별도UID4개](../research/artifacts/crop-startup-storage-ci-20261005.json)를
-여섯 동일 목록/정리·집계로 수용했다. 후속 API/client/3D의 원격 수용은 별도다.
+여섯 동일 목록/정리·집계로 수용했다. API/client/3D까지의 `1555610`도
+[CI5개/백엔드3,456개·별도UID4개](../research/artifacts/crop-startup-replay-ci-20261005.json),
+여섯 동일 목록/정리·집계로 수용했다. 후속 순수 continuation/reader/긴 RHS 원격 수용은 별도다.
 `d15cf92`의 [시간 적분/artifact·v2 저장 전체 CI](../research/artifacts/crop-coupled-storage-ci-20261005.json)도
 3,070개·별도 UID 4개·같은 목록/여섯 DB·password 정리/집계를 통과했다.
 새 API·웹 페이지/도형 판본은 이 이전 CI의 수용 범위 밖이다.
