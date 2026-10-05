@@ -75,6 +75,11 @@ def owned_scope(pg_store, policy):
             from app.runtime_roles import CROP_STARTUP_RESULT_TABLES
             install_startup_crop_result_schema(conn, pg_store.schema)
             tables += CROP_STARTUP_RESULT_TABLES
+        if getattr(policy, "crop_cycle_result_storage", False):
+            from app.crop_cycle_result_schema import install_cycle_crop_result_schema
+            from app.runtime_roles import CROP_CYCLE_RESULT_TABLES
+            install_cycle_crop_result_schema(conn, pg_store.schema)
+            tables += CROP_CYCLE_RESULT_TABLES
         conn.execute(sql.SQL("ALTER SCHEMA {} OWNER TO {}").format(
             sql.Identifier(policy.schema), sql.Identifier(policy.owner)))
         for table in tables:
@@ -481,3 +486,143 @@ def test_startup_schema_extra_privileges_fail_current_audit(schema_login_scope,d
             kind='worker' if drift=='worker_select' else 'authority'
             conn.execute(sql.SQL('GRANT {} ON {} TO {}').format(sql.SQL(privilege),target,sql.Identifier(policy.roles[kind])))
     with base.connect() as conn,pytest.raises(RolePolicyHold):audit_runtime_roles(conn,policy)
+
+
+def test_cycle_storage_default_exact_boolean_and_independent_table_selection():
+    from dataclasses import replace
+    from app.runtime_roles import RuntimeLoginPolicy, _tables
+    plain = RuntimeLoginPolicy('test', 'owner', 'runtime', 'postgres')
+    assert plain.crop_cycle_result_storage is False
+    assert _tables(plain) == TABLES
+    assert _tables(replace(plain, crop_cycle_result_storage=True)) == TABLES + ('crop_cycle_research_results',)
+    both = replace(plain, crop_startup_result_storage=True, crop_cycle_result_storage=True)
+    assert _tables(both) == TABLES + ('crop_startup_research_results', 'crop_cycle_research_results')
+    for value in (0, 1, 'false', None, [], {}):
+        with pytest.raises(RolePolicyHold):
+            replace(plain, crop_cycle_result_storage=value)
+
+
+def cycle_schema_helpers():
+    from test_crop_cycle_result_schema import fixture_row, insert, target, owner
+    return fixture_row, insert, target, owner
+
+
+@pytest.mark.parametrize('schema_login_scope', [{'crop_cycle_result_storage': True}], indirect=True)
+def test_cycle_profile_actual_scram_select_insert_only_and_owner_immutability(schema_login_scope, monkeypatch):
+    from app import crop_cycle_stream_execution as engine
+    from app.runtime_login import connect_runtime
+    from app.runtime_roles import _tables
+    def forbidden(*args, **kwargs):
+        pytest.fail('role provisioning must not execute crop equations')
+    monkeypatch.setattr(engine, 'advance_chunk', forbidden)
+    monkeypatch.setattr(engine.short._Evaluator, 'rhs', forbidden)
+    base, policy, dsns = schema_login_scope
+    assert policy.crop_cycle_result_storage is True
+    assert _tables(policy) == TABLES + ('crop_cycle_research_results',)
+    fixture_row, insert, target, owner = cycle_schema_helpers()
+    row = fixture_row(base, policy)
+    with connect_runtime(dsns['authority'], policy, 'authority') as conn:
+        assert conn.pgconn.used_password and conn.info.get_parameters()['require_auth'] == 'scram-sha-256'
+        insert(conn, policy, row)
+        actual = conn.execute(sql.SQL('SELECT * FROM {}').format(target(policy))).fetchone()
+        assert all((bytes(actual[k]) if k == 'payload_raw' else actual[k]) == v for k, v in row.items())
+        assert actual['recorded_at'].tzinfo is not None
+    for kind in policy.roles:
+        queries = [sql.SQL('UPDATE {} SET revision=revision').format(target(policy)),
+                   sql.SQL('DELETE FROM {}').format(target(policy)),
+                   sql.SQL('TRUNCATE {}').format(target(policy))]
+        if kind != 'authority':
+            queries += [sql.SQL('SELECT * FROM {} LIMIT 0').format(target(policy)),
+                        sql.SQL('INSERT INTO {} SELECT * FROM {} WHERE false').format(target(policy), target(policy))]
+        for query in queries:
+            with connect_runtime(dsns[kind], policy, kind) as conn, pytest.raises(errors.InsufficientPrivilege):
+                assert conn.pgconn.used_password
+                if kind == 'supervisor':
+                    conn.execute('SET TRANSACTION READ WRITE')
+                conn.execute(query)
+    for query in (sql.SQL('UPDATE {} SET revision=revision').format(target(policy)),
+                  sql.SQL('DELETE FROM {}').format(target(policy))):
+        with base.connect() as conn, pytest.raises(errors.RaiseException, match='immutable'):
+            owner(conn, policy)
+            conn.execute(query)
+    with base.connect() as conn:
+        assert bytes(conn.execute(sql.SQL('SELECT payload_raw FROM {}').format(target(policy))).fetchone()['payload_raw']) == row['payload_raw']
+        assert audit_runtime_roles(conn, policy)['tables'] >= len(TABLES) + 1
+        privileges = ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'TRUNCATE', 'REFERENCES', 'TRIGGER']
+        for kind, role in policy.roles.items():
+            for privilege in privileges:
+                granted = conn.execute('SELECT has_table_privilege(%s,%s,%s) AS allowed',
+                    (role, policy.schema + '.crop_cycle_research_results', privilege)).fetchone()['allowed']
+                assert granted is (kind == 'authority' and privilege in {'SELECT', 'INSERT'})
+            assert not conn.execute("SELECT has_function_privilege(%s,%s,'EXECUTE') AS allowed",
+                (role, policy.schema + '.reject_cycle_crop_result_change()')).fetchone()['allowed']
+
+
+@pytest.mark.parametrize('schema_login_scope', [True, {'crop_cycle_result_storage': False}],
+    ids=['missing', 'false'], indirect=True)
+def test_cycle_storage_missing_false_denies_new_table_without_changing_existing_profile(schema_login_scope):
+    from app.crop_cycle_result_schema import install_cycle_crop_result_schema
+    from app.runtime_login import connect_runtime
+    from app.runtime_roles import _tables
+    base, policy, dsns = schema_login_scope
+    assert policy.crop_cycle_result_storage is False and _tables(policy) == TABLES
+    _, _, target, owner = cycle_schema_helpers()
+    with base.connect() as conn:
+        owner(conn, policy)
+        install_cycle_crop_result_schema(conn, policy.schema)
+    with base.connect() as conn:
+        audit_runtime_roles(conn, policy)
+    for kind in policy.roles:
+        for query in (sql.SQL('SELECT * FROM {} LIMIT 0').format(target(policy)),
+                      sql.SQL('INSERT INTO {} SELECT * FROM {} WHERE false').format(target(policy), target(policy)),
+                      sql.SQL('UPDATE {} SET revision=revision').format(target(policy)),
+                      sql.SQL('DELETE FROM {}').format(target(policy)), sql.SQL('TRUNCATE {}').format(target(policy))):
+            with connect_runtime(dsns[kind], policy, kind) as conn, pytest.raises(errors.InsufficientPrivilege):
+                assert conn.pgconn.used_password
+                if kind == 'supervisor':
+                    conn.execute('SET TRANSACTION READ WRITE')
+                conn.execute(query)
+
+
+@pytest.mark.parametrize('schema_login_scope', [{'crop_cycle_result_storage': True}], indirect=True)
+@pytest.mark.parametrize('drift', ['worker_select', 'authority_update', 'public_select',
+    'authority_column', 'authority_missing', 'authority_grant_option', 'routine_execute'])
+def test_cycle_profile_drift_fails_whole_current_audit(schema_login_scope, drift):
+    base, policy, _ = schema_login_scope
+    _, _, target, _ = cycle_schema_helpers()
+    with base.connect() as conn:
+        if drift == 'public_select':
+            conn.execute(sql.SQL('GRANT SELECT ON {} TO PUBLIC').format(target(policy)))
+        elif drift == 'authority_missing':
+            conn.execute(sql.SQL('REVOKE SELECT ON {} FROM {}').format(target(policy), sql.Identifier(policy.roles['authority'])))
+        elif drift == 'routine_execute':
+            conn.execute(sql.SQL('GRANT EXECUTE ON FUNCTION {}.reject_cycle_crop_result_change() TO {}').format(
+                sql.Identifier(policy.schema), sql.Identifier(policy.roles['authority'])))
+        else:
+            privilege = {'worker_select': 'SELECT', 'authority_update': 'UPDATE',
+                         'authority_column': 'UPDATE (revision)', 'authority_grant_option': 'SELECT'}[drift]
+            kind = 'worker' if drift == 'worker_select' else 'authority'
+            suffix = sql.SQL(' WITH GRANT OPTION') if drift == 'authority_grant_option' else sql.SQL('')
+            conn.execute(sql.SQL('GRANT {} ON {} TO {}{}').format(sql.SQL(privilege), target(policy),
+                sql.Identifier(policy.roles[kind]), suffix))
+    with base.connect() as conn, pytest.raises(RolePolicyHold):
+        audit_runtime_roles(conn, policy)
+
+
+@pytest.mark.parametrize('schema_login_scope', [{'crop_startup_result_storage': True,
+    'crop_cycle_result_storage': True}], indirect=True)
+def test_cycle_selected_profile_preserves_existing_v3_bytes(schema_login_scope):
+    from app.runtime_login import connect_runtime
+    base, policy, dsns = schema_login_scope
+    fixture_row, insert, target, _ = cycle_schema_helpers()
+    old = startup_schema_row(base, policy)
+    new = fixture_row(base, policy)
+    with connect_runtime(dsns['authority'], policy, 'authority') as conn:
+        insert_startup_schema_row(conn, policy, old)
+        insert(conn, policy, new)
+    for _ in range(2):
+        with connect_runtime(dsns['authority'], policy, 'authority') as conn:
+            actual = conn.execute(sql.SQL('SELECT payload_raw FROM {}.crop_startup_research_results').format(
+                sql.Identifier(policy.schema))).fetchone()
+            assert bytes(actual['payload_raw']) == old['payload_raw']
+            assert bytes(conn.execute(sql.SQL('SELECT payload_raw FROM {}').format(target(policy))).fetchone()['payload_raw']) == new['payload_raw']

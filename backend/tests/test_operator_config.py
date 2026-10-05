@@ -387,3 +387,29 @@ def test_startup_option_is_boolean_before_dependency_import(monkeypatch, private
         lambda *_: pytest.fail('invalid startup flag imported dependencies'))
     with pytest.raises(OperatorConfigHold, match='^operator_config_rejected$'):
         load_api_runtime(path)
+
+
+@pytest.mark.parametrize('cycle_option', ['omit', False, True])
+def test_cycle_storage_option_preserves_existing_operator_config(monkeypatch, private_config, cycle_option):
+    path, doc = private_config
+    if cycle_option == 'omit':
+        doc['policy'].pop('crop_cycle_result_storage', None)
+    else:
+        doc['policy']['crop_cycle_result_storage'] = cycle_option
+    store(path, doc)
+    calls = isolated_assembly(monkeypatch)
+    load_api_runtime(path)
+    assert len(calls) == 1
+    assert calls[0].policy.crop_cycle_result_storage is (cycle_option is True)
+    assert calls[0].policy.crop_startup_result_storage is False
+
+
+@pytest.mark.parametrize('cycle_option', [0, 1, 'false', None, [], {}])
+def test_cycle_storage_invalid_type_rejected_before_dependency_import(monkeypatch, private_config, cycle_option):
+    path, doc = private_config
+    doc['policy']['crop_cycle_result_storage'] = cycle_option
+    store(path, doc)
+    monkeypatch.setattr(operator_config.importlib, 'import_module',
+        lambda *_: pytest.fail('invalid cycle flag imported dependencies'))
+    with pytest.raises(OperatorConfigHold, match='^operator_config_rejected$'):
+        load_api_runtime(path)

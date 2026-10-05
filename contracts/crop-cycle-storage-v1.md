@@ -1,6 +1,6 @@
 # Cycle 연구 결과의 불변 저장 참조 — v1
 
-상태: **schema만 로컬 소프트웨어 수용**, 2026-10-05 KST. 작업 `crop-cycle-storage-schema`.
+상태: **schema와 별도 명시 role/config의 로컬 소프트웨어 수용**, 2026-10-05 KST. 작업 `crop-cycle-storage-schema`.
 [실제 SCRAM·수용/제한](../research/crop-cycle-storage-schema-implementation.md),
 [CLI·코드/초안·시험/정리 영수증](../research/artifacts/crop-cycle-storage-schema-reference-20261005.json)을 확인한다.
 [제품 범위/관문](../docs/PROJECT_SPEC.md), [저장/worker 경계](../docs/ARCHITECTURE.md),
@@ -90,3 +90,24 @@ rollback/기존 v3 보존·DB/role/schema/password 정리를 확인했다. 원 �
 schema fixture 행은 실제 농장 계산이나 파일 실재/HMAC/current rights 증거가 아니다.
 다음5파일 명시 role/config의 수용 기준·1.5–2.5시간 잠정치는 위 구현 보고서를 따른다.
 실제 채택/국내 독립 자료/actual crop Run0개이며 G0–G4·예측/추천 게시 조건과 날짜 보류를 유지한다.
+
+## 별도 명시 로그인 프로필 — 로컬 수용
+
+`crop-cycle-storage-roles`는 runtime_roles/operator_config와 각 시험·login_database의5파일이다.
+새 keyword-only `crop_cycle_result_storage`는 exact bool이며 기본 false다.
+누락/false이면 기존 표 선택·권한·운영자 구성의 의미를 보존한다.
+true는 명시적으로 설치한 cycle 표를 같은 전용 owner 범위에 추가하고 authority의 SELECT/INSERT만
+허용한다. request/worker/supervisor의 모든 표 권한, authority의 UPDATE/DELETE/TRUNCATE/
+REFERENCES/TRIGGER·grant option과 새 routine EXECUTE는 허용하지 않는다.
+현재 전체 role 감사는 추가/누락 table/column/PUBLIC 권한과 routine·owner·로그인 범위도 계속 검사한다.
+기존 역할을 재설치하거나 설정을 읽는 것만으로 schema/grant/기록을 자동 갱신하지 않는다.
+flag는 crop/current rights/HMAC/file custody나 API를 활성화하는 승인 수단이 아니다.
+
+수용 전 조건은 실제 네 SCRAM identity의 직접 SQL 허용/거부, owner 불변성,
+누락/false/잘못된 타입·선택 true config, 과다/누락 grant와 기본 v3 호환·정리다.
+독립 파일/현재 farm/source/program 권리·HMAC 저장은 후속 `crop-cycle-result-storage`다.
+이 절은 위 schema 수용과 구분한다. [별도 구현/실제 SCRAM 수용](../research/crop-cycle-storage-roles-implementation.md)과
+[불변 영수증](../research/artifacts/crop-cycle-storage-roles-reference-20261005.json)을 확인한다.
+고유236개의 분할 검증(첫234통과/함수 이름 오기2실패·80.98초, 오기 두 곳만 수정 뒤2통과·1.16초),
+네 실제 SCRAM·일곱 권한 drift·기존 v3 bytes·DB/role/schema/password 정리로10월5일 로컬 수용했다.
+새21개를 포함하며 단일236 GREEN/전체 backend/hosted 수용으로 표시하지 않는다.
