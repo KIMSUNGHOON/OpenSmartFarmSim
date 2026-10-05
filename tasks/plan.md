@@ -74,9 +74,12 @@ hold·263.879초/parent45.44MiB·정리로10월5일 KST 로컬 완료했다.
 [cycle 불변 DB 참조 schema](../research/crop-cycle-storage-schema-implementation.md)도74개 고유 분할·
 실제 SCRAM/네 기본 role 거부·정상 JSON128KiB/초과·불변/제약/rollback·기존 v3/정리와
 원42개 hash 보존으로10월5일 KST 로컬 수용했다. 기존2.5–4시간/10월5–6일 예상은 이 실적으로 대체한다.
-다음 `crop-cycle-storage-roles`는5파일의 기본 false flag/선택 grant·operator config·실제 SCRAM/전체 감사·정리다.
-flag/grant/fixture0.5–1시간+config0.5시간+SCRAM/권한/회귀·정리0.5–1시간의
-1.5–2.5집중시간, 하루4시간/CI 대기 제외10월5–6일 KST 잠정이다.
+[명시 role/config](../research/crop-cycle-storage-roles-implementation.md)도 새21개/고유236개 분할·
+실제 네 SCRAM/선택 권한·일곱 drift·누락/false/v3 bytes·정리/원44개 hash로10월5일 로컬 수용했다.
+기존1.5–2.5시간/10월5–6일 예상은 이 실적으로 대체한다. 다음 `crop-cycle-result-storage`는
+실제 farm/현재 권리·bounded input/root와 파일/header/code/고지·HMAC·commit/철회/재시작을3–5파일로 연결한다.
+계약/provider 대사1–2시간+입력/결과 결합2–3시간+실제 SCRAM/철회/재시작·정리2–3시간의
+5–8집중시간, 하루4시간/CI·자료 대기 제외10월5–7일 KST 잠정이다.
 저장 custody/API/client/3D·166일 실제 부하·생과 날짜는 해당 구현 실적/실제 입력 확보 뒤 갱신한다.
 [착수 코드 감사](../research/crop-cycle-execution-inspection-20261005.md)는 기관 단독v1의20,000 배열/
 100만 step과 현재 기관·과실/startup의128 forcing/128 event·512 output·10,000 step·1일을 구분한다.
@@ -104,7 +107,9 @@ flag/grant/fixture0.5–1시간+config0.5시간+SCRAM/권한/회귀·정리0.5�
 새 저장까지의 `92cade3`도 [CI5개/백엔드3,408개·별도UID4개](../research/artifacts/crop-startup-storage-ci-20261005.json)를
 여섯 동일 목록/정리·집계로 수용했다. API/client/3D까지의 `1555610`도
 [CI5개/백엔드3,456개·별도UID4개](../research/artifacts/crop-startup-replay-ci-20261005.json),
-여섯 동일 목록/정리·집계로 수용했다. 후속 continuation/reader/긴 RHS의 원격 수용은 별도다.
+여섯 동일 목록/정리·집계로 수용했다. 후속 `fe41e22`도
+[CI5개/백엔드3,709개·별도UID4개](../research/artifacts/crop-cycle-stream-ci-20261005.json),
+여섯 동일 목록/정리·집계로 continuation/reader/긴 RHS까지 수용했다. cycle artifact/schema/roles의 hosted는 별도다.
 기존 HTTPS timeout의 원인을 확정한 것이 아니며 원 실패 기록과 30초 제한을 보존한다.
 `bdcade9`의 Application CI에서 새 기본 false policy의 기존 loader 허용 목록 누락으로
 실제 API 기동이 실패했다. [최소 policy 회귀 수정](../research/crop-coupled-operator-policy-implementation.md)은

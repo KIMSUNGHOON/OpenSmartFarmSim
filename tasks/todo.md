@@ -215,16 +215,20 @@
       실제 SCRAM/기본 네 role 거부·28종 column/17종 rehashed metadata·2종 FK/9종 malformed·정상 JSON128KiB/초과·
       owner 불변/중복/새 revision·부분 설치 rollback/기존 v3 row·DB/role/schema/password 정리0잔여·원42개 hash 보존.
       10월5일 KST 로컬 완료; 명시 flag/grant·실제 farm/file/current rights/HMAC와 hosted는 별도다.
-    - [ ] **`crop-cycle-storage-roles`** — 다음5파일(runtime_roles/operator_config와 각 시험·login_database); 선행: schema 수용.
+    - [x] **`crop-cycle-storage-roles`** — 로컬 수용5파일(runtime_roles/operator_config와 각 시험·login_database); 선행: schema 수용.
       기본 false의 새 명시 flag·선택 grant를 연결한다. 수용: 실제 SCRAM의 authority SELECT/INSERT만 허용,
       다른 role/UPDATE/DELETE/TRUNCATE·과다 grant/잘못된 타입 거부, 누락/false의 기존 grant/config 호환·정리.
       표만으로 runtime 저장·전체 부모를 수용하지 않는다. 새 서비스/queue는 선행이 아니다.
-      flag/grant/fixture0.5–1시간+operator config0.5시간+실제 SCRAM/회귀/정리0.5–1시간의
-      잠정1.5–2.5집중시간/10월5–6일 KST이며 hosted·실제 자료 확보 대기는 별도다.
-    - [ ] **`crop-cycle-result-storage`** — 선행: artifact/schema/명시 role 수용. 현재 farm/source 권리와 reviewer·
+      [실제 수용](../research/crop-cycle-storage-roles-implementation.md): 새21개/고유236개 분할(234통과/시험 routine 오기2실패·80.98초,
+      오기 두 곳만 수정 뒤2통과·1.16초), 실제 네 SCRAM/58 직접 SQL 거부·선택 INSERT/SELECT·
+      일곱 drift·기본 false/config·기존 v3 bytes·정리0잔여/원44개 hash 보존. 10월5일 로컬 완료; hosted/실제 자료는 별도다.
+    - [ ] **`crop-cycle-result-storage`** — 다음3–5파일, 선행 artifact/schema/명시 role 로컬 수용. 현재 farm/source 권리와 reviewer·
       decision/input/run manifest를 검증하고 HMAC/게시 atomicity를3–5파일로 연결한다.
       수용: 실제 SCRAM의 같은 farm/root 결과·commit 전후 권리 철회·교차 farm/혼합 chunk/부분 게시 거부·
       별도 프로세스 읽기/복구·lease/cancel 요구가 있으면 기존 worker 계약과의 대사·정리.
+      bounded input manifest의 period/forcing·현재 원천/프로그램 권리와 파일/header/code/고지를 대사한다.
+      계약/provider 대사1–2시간+입력/결과 결합2–3시간+SCRAM/철회/재시작·정리2–3시간의
+      잠정5–8집중시간/10월5–7일 KST이며 CI/실제 자료 대기는 별도다.
     - [ ] **`api-crop-cycle-pages`** — 선행: custody 저장 수용. 같은 저장 ID의 순차 sample/event 페이지를
       3–5파일로 제공한다. 수용: 실제 Bearer/TLS/SCRAM·current rights·같은 UTC/원량/index·
       30초/2MiB/유한 page budget·취소/중복·과거만 있는 hold/빈 hold·GET RHS0회·정리.

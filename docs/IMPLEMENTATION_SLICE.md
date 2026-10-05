@@ -204,8 +204,9 @@ v3 로그 비교 도형은 원값/영을 보존하며 기존 v2 선형 대체를
 [cycle 불변 DB 참조 schema](../research/crop-cycle-storage-schema-implementation.md)도74개 고유 분할·
 실제 SCRAM/기본 네 role 권한0·정상 JSON128KiB·불변/변조/rollback·기존 v3 보존/정리로 로컬 수용했다.
 직접 작성 metadata 행은 실제 파일/현재 권리/HMAC 검증 결과가 아니며 긴 결과의 농장/웹 재생은 후속이다.
-다음 별도5파일은 기본 false의 명시 role/config·선택 authority SELECT/INSERT·과다 grant/타입과
-누락/false 호환·실제 SCRAM/정리이며 그 뒤 현재 권리 저장 → API/client →
+[별도5파일 명시 role/config](../research/crop-cycle-storage-roles-implementation.md)도 새21개/고유236개 분할·
+기본 false/선택 authority SELECT·INSERT·일곱 drift·누락/false 호환·실제 네 SCRAM/v3 보존·정리로 로컬 수용했다.
+다음은 현재 권리 저장 → API/client →
 같은 UTC3D → 작기 부하 → 생과 환산을 [todo](../tasks/todo.md)의 작은 자식 순서로 진행한다.
 새 모델의 실제 재시작을 grouping/serialization 시험으로 대체하지 않는다.
 이 화면은 실제 품종/전체 작기 생산 검증이 아니며 pixel fidelity도 별도다.
@@ -217,7 +218,9 @@ v3 로그 비교 도형은 원값/영을 보존하며 기존 v2 선형 대체를
 새 저장까지의 `92cade3`도 [CI5개/백엔드3,408개·별도UID4개](../research/artifacts/crop-startup-storage-ci-20261005.json)를
 여섯 동일 목록/정리·집계로 수용했다. API/client/3D까지의 `1555610`도
 [CI5개/백엔드3,456개·별도UID4개](../research/artifacts/crop-startup-replay-ci-20261005.json),
-여섯 동일 목록/정리·집계로 수용했다. 후속 순수 continuation/reader/긴 RHS 원격 수용은 별도다.
+여섯 동일 목록/정리·집계로 수용했다. 후속 `fe41e22`도
+[CI5개/백엔드3,709개·별도UID4개](../research/artifacts/crop-cycle-stream-ci-20261005.json),
+여섯 동일 목록/정리·집계로 continuation/reader/긴 RHS까지 수용했다. cycle artifact/schema/roles의 hosted는 별도다.
 `d15cf92`의 [시간 적분/artifact·v2 저장 전체 CI](../research/artifacts/crop-coupled-storage-ci-20261005.json)도
 3,070개·별도 UID 4개·같은 목록/여섯 DB·password 정리/집계를 통과했다.
 새 API·웹 페이지/도형 판본은 이 이전 CI의 수용 범위 밖이다.

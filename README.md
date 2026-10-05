@@ -80,7 +80,9 @@
 새 저장까지의 `92cade3`도 [CI5개 모두 성공](research/artifacts/crop-startup-storage-ci-20261005.json),
 백엔드3,408개·별도UID4개·여섯 동일 목록/정리·집계로 수용했습니다.
 API/client/3D까지의 `1555610`도 [CI5개/백엔드3,456개·별도UID4개](research/artifacts/crop-startup-replay-ci-20261005.json),
-여섯 동일 목록/정리·집계까지 수용했습니다. 후속 순수 continuation/reader/긴 RHS의 원격 수용은 별도입니다.
+여섯 동일 목록/정리·집계까지 수용했습니다. 후속 `fe41e22`도
+[CI5개/백엔드3,709개·별도UID4개](research/artifacts/crop-cycle-stream-ci-20261005.json),
+여섯 동일 목록/정리·집계로 continuation/reader/긴 RHS까지 수용했습니다. cycle artifact/schema/roles의 hosted 수용은 다음 CI에서 확인합니다.
 [기록 합성 데모의 3D·원값](research/artifacts/coupled-crop-replay-recorded-demo-geometry.png)과
 [실제 저장 경로의 화면](research/artifacts/coupled-crop-replay-desktop.png)을 확인할 수 있습니다.
 기록 데모는 운영 저장 목록이 아니며 실제 완료 6시점의 소프트웨어 검증입니다.
@@ -98,8 +100,10 @@ API/client/3D까지의 `1555610`도 [CI5개/백엔드3,456개·별도UID4개](re
 10월5일 로컬 수용했습니다. 읽기0.388759초/RHS0회이며 긴 결과의 웹 연결은 후속입니다.
 [cycle 불변 DB 참조 schema](research/crop-cycle-storage-schema-implementation.md)도74개 고유 분할·
 실제 SCRAM/네 기본 role 거부·정상 JSON128KiB 경계·불변/변조/rollback·기존 v3/정리로10월5일 로컬 수용했습니다.
-다음은 명시 role/config → 현재 권리 저장 → API/client → 같은 UTC3D → 작기 부하입니다.
-다음 role/config는5파일/1.5–2.5집중시간·10월5–6일 KST 잠정이며 실제 SCRAM의 선택 권한/기본 호환·정리 뒤 수용합니다.
+[명시 role/config](research/crop-cycle-storage-roles-implementation.md)도 새21개/고유236개 분할 검증·
+실제 네 SCRAM/선택 SELECT·INSERT·일곱 권한 drift·기존 v3/기본 false·정리로10월5일 로컬 수용했습니다.
+다음은 현재 권리 저장 → API/client → 같은 UTC3D → 작기 부하입니다.
+다음 custody는3–5파일/5–8집중시간·10월5–7일 KST 잠정이며 실제 farm/input/root·HMAC와 철회/재시작/정리 뒤 수용합니다.
 짧은 실행 수용을 전체 작기 검증으로 표시하지 않습니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
