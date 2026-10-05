@@ -1,6 +1,7 @@
 # 빈 과실 요청 유보의 짧은 기관 적분 — v1
 
-상태: **다음 작은 구현의 계약; 시간 전진/저장/3D 미수용**.
+상태: **짧은 합성 연구 적분의 로컬 수용; 저장/3D 미수용**.
+[56개 새/678개 집중·독립 6프로그램/23시점·오차/자원 기록](../research/crop-startup-integration-implementation.md)을 확인한다.
 선행: [새 기관 순간 결합의 로컬 수용](../research/crop-plant-startup-rates-implementation.md).
 파일: `backend/app/crop_plant_startup_integration.py`,
 `backend/tests/test_crop_plant_startup_integration.py`.
@@ -14,6 +15,8 @@
 [기존 짧은 적분 계약](crop-plant-cohort-integration-v1.md)의 구조를 재사용한다.
 코드 공유는 변경 없는 순수 helper만 허용하며 전역 RHS/모델을 바꿔 실행하지 않는다.
 새 RHS는 `calculate_plant_startup_rates`다. S/W1/RGR는 매 구간의 명시 입력이다.
+호출은 `integrate_plant_startup(*, initial_state, segments, events, output_times,
+growth_profile, cohort_profile, transport_profile, solver)`다.
 초기 N/C는 0을 허용하지만 자동 착과·seed·pre-onset/실제 품종 적용은 허용하지 않는다.
 전체 작기·생과 kg·구매 자원이나 경제를 이 단계에 추가하지 않는다.
 

@@ -50,7 +50,10 @@
 [빈 과실 요청/실현 adapter](research/crop-fruit-startup-rates-implementation.md)를
 544개 집중 시험으로 로컬 수용했습니다. [새 기관 순간 결합](research/crop-plant-startup-rates-implementation.md)도
 78개 새/622개 집중·독립 22사례/4,796수치로 buffer/생장 호흡 동시 대사를 수용했습니다.
-다음은 [새 짧은 적분/누적 수지](contracts/crop-startup-integration-v1.md)입니다.
+[새 짧은 적분/누적 수지](research/crop-startup-integration-implementation.md)도
+56개 새/678개 집중·독립 6프로그램/23시점과 실제 24시간/512출력으로 로컬 수용했습니다.
+초기 전환/미세 구획의 수치 오차도 기록했습니다. 다음은
+[새 불변 artifact/reader](contracts/crop-startup-artifact-v1.md)입니다.
 자동 착과·생식기 이전/실제 초기 품종 계수는 보류입니다.
 `e70a7f2`의 [최종 CI](research/artifacts/crop-coupled-api-web-ci-hold-20261005.json)는
 기존 assessment HTTPS 30초 시간 초과 1개로 Backend 미수용이며 나머지 네 workflow는 성공했습니다.
@@ -58,7 +61,7 @@
 [기록 합성 데모의 3D·원값](research/artifacts/coupled-crop-replay-recorded-demo-geometry.png)과
 [실제 저장 경로의 화면](research/artifacts/coupled-crop-replay-desktop.png)을 확인할 수 있습니다.
 기록 데모는 운영 저장 목록이 아니며 실제 완료 6시점의 소프트웨어 검증입니다.
-다음은 새 짧은 적분/manifest, 새 저장/동일 UTC 3D 판본과 전체 작기·생과 환산입니다.
+다음은 새 artifact/저장·동일 UTC 3D 판본과 전체 작기·생과 환산입니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
 별도 UID 4개와 CI 5개를 모두 통과했습니다. `d76410f`의 웹/C0/실제 앱 이미지·Compose CI도

@@ -132,7 +132,10 @@ UTC 상태/단위·모델/입력/저장 hash와 수치 hold만 반환한다. 로
 [빈 tail 요청/실현 adapter](../research/crop-fruit-startup-rates-implementation.md)도
 56개 새/544개 집중으로 로컬 수용했다. [새 기관 순간 결합](../research/crop-plant-startup-rates-implementation.md)도
 78개 새/622개 집중·독립 22사례로 buffer/생장 호흡을 함께 대사했다.
-다음은 [새 짧은 적분/manifest](../contracts/crop-startup-integration-v1.md),
+[새 짧은 적분/manifest](../research/crop-startup-integration-implementation.md)도
+56개 새/678개 집중·독립 6프로그램/23시점과 합성 24시간/512출력으로 로컬 수용했다.
+초기 전환/극소 구획의 관측 오차는 실제 생산 정확도와 구별한다.
+다음은 [새 불변 artifact](../contracts/crop-startup-artifact-v1.md),
 새 저장·동일 UTC 3D, 전체 작기/생과 환산 순서다.
 실제 전체 작기 처리는 별도다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
