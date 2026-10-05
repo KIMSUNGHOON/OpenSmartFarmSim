@@ -234,7 +234,7 @@ class CycleCropResultStore:
                 if row is None:return None
                 expected=_canonical(packet['policies']['server_progress'])
                 journal._guard();_need(journal._progress()==expected)
-                value=deepcopy(journal.writer._summary)
+                value=deepcopy({**journal.writer._summary,'manifest':journal.context.manifest})
                 _need(type(value) is dict and 1<=len(_canonical(value))<=artifact.LIMITS['root_bytes'])
                 journal._guard();_need(journal._progress()==expected)
                 return value
