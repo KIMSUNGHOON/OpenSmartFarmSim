@@ -281,7 +281,10 @@
         1개/559.86초·21응답/최대27.871882초/18,718bytes와 재기동/철회/변조·정리를 통과했다.
         원3시점/사건0개이므로 nonempty event 및 긴25시간 HTTP 예산을 다음 실제 검증으로 남긴다.
     - [ ] **`web-crop-cycle-pages`** — 선행: cycle API 수용. 새 판본 decoder/순차 페이지와 선택 UTC를
-      3–5파일로 연결한다. 수용: 기록된 실제 TLS 응답의 원량/순서·혼합 ID/판본/hash·오래된 요청/중복/
+      [웹 조회 후보 계약](../contracts/web-crop-cycle-pages-v1.md)의5 core파일로 연결한다.
+      원량 helper 본문만 재사용하고 short 한도/끝점 조건을 가져오지 않는다. summary·페이지 getter/
+      순차 iterator로131,072 record를 한 페이지 단위 처리하며 출력0/선택 출력·byte next를 보존한다.
+      수용: 기록된 실제 TLS 응답의 원량/순서·혼합 ID/판본/hash·오래된 요청/중복/
       부분/권리 철회·hold 거부/보존, focused unit/typecheck/build. 기존 short decoder는 보존한다.
     - [ ] **`web-crop-cycle-replay`** — 선행: cycle client 수용. 같은 저장 ID/UTC의 상태·누적량·수지와
       성장 연구 3D를3–5파일로 연결한다. 수용: 실제 PG→TLS→WebGL·원 표/mesh·부분 페이지/hold,

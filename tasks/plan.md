@@ -104,6 +104,8 @@ API 대조의 원 manifest 누락도 실제 정상/hold2실패 후 한 줄 수�
 후검사/RHS0·import3순서·기존 OpenAPI 보존으로 로컬 수용했다. 실제 custody/권리·TLS는 다음 runtime이다.
 전체 [API 후보 계약](../contracts/api-crop-cycle-pages-v1.md)의 DTO/권한2–3시간+
 조립/실제 TLS/예산·정리2–3시간, **4–6집중시간/10월6–8일 KST 잠정**으로 진행한다.
+[client 후보](../contracts/web-crop-cycle-pages-v1.md)는 같은 summary/참조·한 페이지 단위 iterator와
+원량 helper를 연결하며 기존 short 한도/완료 끝점 조건은 가져오지 않는다. API 긴 수용 뒤 착수한다.
 client2–3시간/장면·실제 브라우저4–6시간까지 새 긴 결과 연구3D는 총10–15집중시간/
 10월6–10일 KST 잠정이다. 실제166일 부하·자료/품종·생과/자원/경제는 별도이며 CI와
 실측30초에서 발견되는 수정은 이 날짜를 갱신할 근거다. 기존 짧은 연구3D는 이미 수용했다.
