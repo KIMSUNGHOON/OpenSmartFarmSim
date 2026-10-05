@@ -120,6 +120,8 @@ function page(v:unknown,count:number,totalMax:number,limitMax:number):asserts v 
     && v.offset<=v.total && count===Math.min(v.limit,v.total-v.offset));
   const following=v.offset+count;need(v.next_offset===(following<v.total?following:null));
 }
+export { quantity as validateCropQuantity,state as validateCoupledCropState,
+  event as validateCoupledCropEvent,page as validateCoupledCropPagination };
 export function validCoupledCropLookup(v:CoupledCropLookup):boolean{
   return object(v) && typeof v.result_id==='string' && /^crop-result-v2:[0-9a-f]{64}$/.test(v.result_id)
     && name(v.scenario_id) && name(v.scenario_revision) && digest(v.registration_sha256) && name(v.crop_id);

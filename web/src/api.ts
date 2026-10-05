@@ -9,6 +9,7 @@ import { createAuthoredFinancialApi } from './authored-financial-api';
 import { createSourceFarmApi } from './source-farm-api';
 import { createCropReplayApi } from './cropReplay';
 import { createCoupledCropReplayApi } from './coupledCropReplay';
+import { createStartupCropReplayApi } from './startupCropReplay';
 export const STAGES = ['research','collection','collection_review','simulation','assessment'] as const;
 export const STATES = ['queued','researching','collecting','reviewing','simulating','assessing',
   'succeeded','hold','failed','canceled'] as const;
@@ -187,6 +188,7 @@ export function createApi(token:string, fetcher:typeof fetch = fetch) {
   return {
     ...createCropReplayApi(request),
     ...createCoupledCropReplayApi(request),
+    ...createStartupCropReplayApi(request),
     ...createThermalApi(request),
     ...createAuthoredThermalApi(request),
     ...createAuthoredFarmApi(request,decodeJob),
