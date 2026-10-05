@@ -192,7 +192,7 @@
     custody/API → 같은 UTC 3D를 각각3–5파일 작업으로 먼저 분해한다. 원 출력/sequence·chain/변조/atomic·
     재시작/GET 재적분 없음·실제 SCRAM/TLS/browser·페이지30초/정리 뒤 체크한다.
     아래 자식 작업의 증거가 모두 있을 때만 부모를 체크한다.
-    - [ ] **`crop-cycle-result-artifact`** — 다음 저장 구현; 선행: stream execution 수용. 예상3파일:
+    - [x] **`crop-cycle-result-artifact`** — 불변 파일/reader의 로컬 수용; 선행: stream execution 수용. 구현3파일:
       `backend/app/crop_cycle_artifact.py`, `backend/tests/test_crop_cycle_artifact.py`,
       `contracts/crop-cycle-artifact-v1.md`. 새 cycle 판본의 bounded 불변 sample/event/checkpoint 분할과
       index/root를 만든다. 원 input/context·code/profile/grid/seed·전역 counter/prefix/parent를 연결하고
@@ -201,10 +201,22 @@
       새2MiB 이하 페이지의 유한 byte/record/전체 budget, hash/index/순서/중복/혼합 root 변조,
       pending event/중간 commit·실패/부분 파일·재시작·atomic 게시/FD/tempfile 정리.
       byte/record 상세 상한은 구현 계약과 실제 결과 크기로 고정한다. HMAC/current rights/DB/HTTP/3D는 후속이다.
-    - [ ] **`crop-cycle-storage-schema`** — 선행: artifact 수용. 새 cycle 참조/분할 저장 schema·명시 role와
-      current farm/source/program binding을3–5파일로 고정한다. 수용: 실제 SCRAM의 명시 role·불변/권한
-      거부·잘못된 root/counter·migration/정리. 기존 startup v3 표/reader/API의 의미/hash를 바꾸지 않는다.
-    - [ ] **`crop-cycle-result-storage`** — 선행: artifact/schema 수용. 현재 farm/source 권리와 reviewer·
+      [실제 수용](../research/crop-cycle-artifact-implementation.md): 58개 고유 분할(57/55.36초+1/0.20초),
+      25시간/11,400실제 걸음·93commit/27sample/5event·755,868bytes/127파일,
+      별도 Python7개/847float64·실제 강제 종료2개/게시 전후 복구·읽기0.388759초/RHS0회·정리.
+      기존40개 hash 보존/변조·hold·budget 거부를 확인했다. 10월5일 KST 로컬 완료; DB/API/3D와 hosted는 별도다.
+    - [ ] **`crop-cycle-storage-schema`** — 다음3파일; 선행: artifact 수용.
+      `backend/app/crop_cycle_result_schema.py`, `backend/tests/test_crop_cycle_result_schema.py`,
+      `contracts/crop-cycle-storage-v1.md`. private POSIX 결과를 참조하는 새 불변 metadata/root 표를 만든다.
+      수용: 실제 SCRAM의 등록 외래키·판본/범위/bytes/hash·정수 step/record/commit/storage 한도·
+      중복/잘못된 root·metadata 혼합 거부, owner UPDATE/DELETE 거부·기본 runtime 네 role의 새 권한0,
+      명시 migration/기존 row 보존·DB/password 정리. 경로/원본을 공개하지 않으며 파일 실재/HMAC/current rights는 custody다.
+      기존 startup v3 표/reader/API의 의미/hash를 보존한다. 잠정2.5–4집중시간/10월5–6일 KST.
+    - [ ] **`crop-cycle-storage-roles`** — schema 뒤5파일(runtime_roles/operator_config와 각 시험·login_database).
+      기본 false의 새 명시 flag·선택 grant를 연결한다. 수용: 실제 SCRAM의 authority SELECT/INSERT만 허용,
+      다른 role/UPDATE/DELETE/TRUNCATE·과다 grant/잘못된 타입 거부, 누락/false의 기존 grant/config 호환·정리.
+      표만으로 runtime 저장·전체 부모를 수용하지 않는다. 새 서비스/queue는 선행이 아니다.
+    - [ ] **`crop-cycle-result-storage`** — 선행: artifact/schema/명시 role 수용. 현재 farm/source 권리와 reviewer·
       decision/input/run manifest를 검증하고 HMAC/게시 atomicity를3–5파일로 연결한다.
       수용: 실제 SCRAM의 같은 farm/root 결과·commit 전후 권리 철회·교차 farm/혼합 chunk/부분 게시 거부·
       별도 프로세스 읽기/복구·lease/cancel 요구가 있으면 기존 worker 계약과의 대사·정리.

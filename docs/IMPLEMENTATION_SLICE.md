@@ -198,9 +198,12 @@ v3 로그 비교 도형은 원값/영을 보존하며 기존 v2 선형 대체를
 48,003경계·독립 clock/grid·별도 Python 복원·30.23MiB/정리로 로컬 수용했다. 실제 RHS는 실행하지 않았다.
 [긴 입력/실제 RHS 연결](../research/crop-cycle-stream-execution-implementation.md)도144개 집중·
 25시간/11,400실제 걸음·별도 Python7개/847float64·canonical 사건/hash·원 상태/수지/hold로 로컬 수용했다.
-긴 결과의 저장/웹 재생은 후속이다. 다음은3파일 `crop-cycle-result-artifact`의 bounded 불변 결과/
-reader다. 원6프로그램/긴 합성·같은 UTC/원값·≤2MiB 페이지·finite 전체 budget·순서/hash/변조·
-partial/atomic 게시·별도 Python·FD/tempfile 정리 뒤 수용한다. 이어 현재 권리 저장 → API/client →
+[긴 결과의 불변 파일/reader](../research/crop-cycle-artifact-implementation.md)도58개 고유 분할 검증·
+25시간/11,400실제 걸음·755,868bytes·별도 Python7개/847float64·실제 강제 종료2개/복구·정리로 로컬 수용했다.
+읽기0.388759초/RHS0회이며 원6프로그램의 canonical 원량/UTC·수지/hold를 보존한다.
+긴 결과의 농장/웹 재생은 후속이다. 다음3파일 `crop-cycle-storage-schema`는 private POSIX 결과의
+DB 불변 metadata/root 참조·기본 runtime 권한0·실제 SCRAM/잘못된 행·정리 뒤 수용한다.
+명시 role/config는 다음 별도5파일이며 그 뒤 현재 권리 저장 → API/client →
 같은 UTC3D → 작기 부하 → 생과 환산을 [todo](../tasks/todo.md)의 작은 자식 순서로 진행한다.
 새 모델의 실제 재시작을 grouping/serialization 시험으로 대체하지 않는다.
 이 화면은 실제 품종/전체 작기 생산 검증이 아니며 pixel fidelity도 별도다.

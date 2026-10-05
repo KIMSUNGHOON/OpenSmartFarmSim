@@ -67,16 +67,21 @@ phase/원 격자·사건/output/hold로10월5일 KST 로컬 완료했다. 기존
 25시간/300구간/11,400실제 걸음·별도 Python7개/847float64·canonical 사건/hash·전역 수지/
 hold·263.879초/parent45.44MiB·정리로10월5일 KST 로컬 완료했다.
 첫 독립 참조의 사건 정규화 누락을 회귀로 수정했고 원38개 hash/짧은 한도를 보존했다.
-기존7–10시간/10월5–8일 예상은 이 수용으로 대체한다. 다음은 `crop-cycle-result-artifact`다.
-contract/budget1–2시간 + writer/reader2–3시간 + 대사/변조·복원/검토2–3시간의5–8집중시간,
-하루4시간/CI 대기 제외 기준10월5–7일 KST 잠정이다. 실제 원량/UTC·불변 분할/reader·atomic/정리 뒤 수용한다.
-저장 custody/API/client/3D·166일 실제 부하·생과 날짜는 artifact 실적/실제 입력 확보 뒤 갱신한다.
+기존7–10시간/10월5–8일 예상은 이 수용으로 대체한다.
+[cycle 불변 결과/reader](../research/crop-cycle-artifact-implementation.md)도58개 고유 분할·
+25시간/11,400실제 걸음·755,868bytes/127파일·별도 Python7개/847float64·실제 강제 종료2개/복구·
+읽기0.388759초/RHS0회·정리로10월5일 KST 로컬 수용했다. 기존5–8시간/10월5–7일 예상은 이 실적으로 대체한다.
+다음 `crop-cycle-storage-schema`는3파일의 불변 metadata/root 참조·등록 외래키/예산·
+owner 수정/기본 runtime 권한 거부·실제 SCRAM/정리다. 그다음 명시 role/config5파일을 별도 수용한다.
+schema는 계약0.5–1시간+installer/불변 제약1시간+SCRAM/잘못된 행·회귀/정리1–2시간의
+2.5–4집중시간, 하루4시간/CI 대기 제외10월5–6일 KST 잠정이다.
+저장 custody/API/client/3D·166일 실제 부하·생과 날짜는 해당 구현 실적/실제 입력 확보 뒤 갱신한다.
 [착수 코드 감사](../research/crop-cycle-execution-inspection-20261005.md)는 기관 단독v1의20,000 배열/
 100만 step과 현재 기관·과실/startup의128 forcing/128 event·512 output·10,000 step·1일을 구분한다.
 현재 output 시각도 RK4 경계에 들어가므로, 화면 출력 선택을 바꾸어 계산 격자를 바꾸지 않도록
 새 계약에서 고정 계산 경계와 저장/표시 선택을 분리한다. 계약/원 격자 대사는 로컬 수용했고
 새 짧은 driver/실제 모델 재시작과 긴 입력 reader/25시간 실제 RHS 연결도 로컬 수용했고,
-그 결과의 저장/3D·166일 실제 작기 부하는 미수용이다.
+그 결과의 불변 파일/reader까지 로컬 수용했고 농장 저장/3D·166일 실제 작기 부하는 미수용이다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
@@ -158,8 +163,9 @@ flowchart TD
   CONT --> STREAM["crop-cycle-input-stream: bounded 원 forcing/anchor/cursor"]
   STREAM --> EX["crop-cycle-stream-execution: 긴 원 입력/실제 RHS 연결"]
   EX --> CART["crop-cycle-result-artifact: 불변 chunk/reader·원량"]
-  CART --> CSCH["crop-cycle-storage-schema: 새 참조·명시 role"]
-  CSCH --> CSTORE["crop-cycle-result-storage: 현재 권리·atomic custody"]
+  CART --> CSCH["crop-cycle-storage-schema: 불변 metadata/root 참조"]
+  CSCH --> CROLE["crop-cycle-storage-roles: 명시 flag/grant·기본 false"]
+  CROLE --> CSTORE["crop-cycle-result-storage: 현재 권리·atomic custody"]
   CSTORE --> CAPI["api-crop-cycle-pages: 같은 저장 ID/순차 조회"]
   CAPI --> CWEB["web-crop-cycle-pages: 원값/선택 UTC"]
   CWEB --> C3D["web-crop-cycle-replay: 실제 PG/TLS/WebGL"]
@@ -390,7 +396,8 @@ image/TLS·UID/읽기 전용/정리는 `d76410f`의 실제 hosted 전체 성공�
 | 순수 cycle continuation | **2026-10-05 KST 로컬 완료** | 157개·30실제 분할/JSON 복원·별도 Python6개/726float64·원 수지/사건/hold; 긴 실행/실제 품종 미수용 |
 | bounded cycle 입력 reader | **2026-10-05 KST 로컬 완료** | 64개·48,000자작 합성 구간/48,003경계·독립 clock/grid·별도 Python 복원/정리·30.23MiB; 실제 RHS 미실행 |
 | 긴 cycle RHS 실행 연결 | **2026-10-05 KST 로컬 완료** | 144개·25시간/11,400실제 걸음·별도 Python7개/847float64·canonical 사건/hash·원 수지/hold·정리; source166일/실제 품종은 미수용 |
-| cycle 불변 결과 artifact | **5–8집중시간/2026-10-05–07 KST 잠정** | contract/budget1–2시간+writer/reader2–3시간+대사/변조·복원/검토2–3시간; 하루4시간/CI 대기 제외. 원값/UTC·finite 분할·atomic/별도 Python·정리 뒤 수용 |
+| cycle 불변 결과 artifact | **2026-10-05 KST 로컬 완료** | 58개 고유 분할·25시간/11,400실제 걸음·755,868bytes/127파일·별도 Python7개/847float64·실제 강제 종료2개/복구·읽기0.388759초/RHS0회·정리; 농장/웹·hosted 별도 |
+| cycle 저장 참조 schema | **2.5–4집중시간/2026-10-05–06 KST 잠정** | 3파일·private POSIX 결과/DB 불변 metadata/root·등록/정수 예산/변조/기본 runtime 권한0·실제 SCRAM·정리; 다음 명시 role/config 뒤 custody |
 | 전체 작기 처리 구현/부하 | **위 계약/분해 뒤 추정** | 순수 연속 실행 → 저장/출력/페이지 → 실제 작기 부하/재현; 실제 입력 채택과 품종 검증은 별도 |
 | 과실 발달 구획 계산 | **문헌식/관리 계약 뒤 추정** | 독립 참조와 개수/기관 질량·사건 수지; 품종 적용성 미검증 유지 |
 | 생과 수확·자원·경제 | **각 변환/계량 근거 뒤 추정** | 수확/등급·물/성분·구매 에너지·동일 배치 Decimal 대사 |
