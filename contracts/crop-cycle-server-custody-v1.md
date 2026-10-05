@@ -1,6 +1,6 @@
 # Cycle 서버 계산과 서명된 진행 상태 — v1 설계 후보
 
-상태: **설계 후보/미구현**, `crop-cycle-server-custody`, 2026-10-05 KST.
+상태: **구현 중/미수용**, `crop-cycle-server-custody`, 2026-10-05 KST.
 선행은 [현재 농장/root 결합](crop-cycle-farm-binding-v1.md),
 [실제 writer/복원](crop-cycle-artifact-v1.md), [명시 runtime 권한](crop-cycle-storage-v1.md)이다.
 [저장 부모/의존성](../tasks/plan.md)을 따르며 DB custody/API/client/성장3D는 후속이다.
@@ -27,6 +27,9 @@ resolver의 명시 판본/identity·원 입력 root/profiles/code/env/고지와 
 OS UID/키 소유권의 독립 운영 검증과 G4는 이번 로컬 계약에 포함하지 않는다.
 
 시작은 입력 preflight/현재 binding → 서명된 불변 intent → 실제 writer 초기 header다.
+기존 create_writer는 초기 HEAD를 instance 반환 전에 게시하므로 새 adapter는 정확한
+ArtifactWriter를 만들고 원 `_header`/`_put`/초기 checkpoint를 그대로 사용하되 최초 HEAD도
+proof-before-HEAD 경계로 게시한다. 실제 RHS/페이지/commit/finalize는 원 writer의 메서드다.
 advance는 기존 max_steps1..10,000/max_transitions1..128의 한 유한 호출과 동일 원 RK4 격자를 사용한다.
 각 호출 전후 현재 binding·코드/권리/intent를 확인한다. caller의 변경된 budget이 원 적분 격자를 바꾸지 않는다.
 completed/hold와 확인 과거, 불변 terminal root는 기존 writer/reader를 재사용한다.
@@ -41,7 +44,7 @@ HEAD와 별도 서명 pointer를 각각 덮어쓰는 두 파일만으로 crash a
 private adapter가 writer의 publish 경계를 감싸며 frozen artifact module은 변경하지 않는다.
 proof는 tenant/intent/request/binding/input/context/header/code/고지·previous HEAD/proof·새 HEAD를 domain HMAC에 묶는다.
 원 상태/벡터 전체를 서명 metadata에 복제하지 않고, HEAD→commit→checkpoint/page의 hash 체인을 대사한다.
-proof body의 canonical schema/세부 byte 상한과 domain 문자열은 구현 전에 고정하고 실제 크기로 검증한다.
+아래 닫힌 schema/상한을 구현 기준으로 고정하며 실제 크기/반례를 검증하기 전에는 수용하지 않는다.
 Python의 [HMAC와 compare_digest](https://docs.python.org/3.12/library/hmac.html)를 사용해
 공개 SHA와 비밀 키를 쓰는 인증 서명을 구분한다.
 [fsync/replace](https://docs.python.org/3.12/library/os.html#os.fsync)의 파일/디렉터리 동기화 순서는
@@ -59,8 +62,63 @@ intent/서명들은 내용 주소 파일과 no-overwrite를 사용하고 동시 
 명시 intent lock을 사용한다. 같은 intent/요청의 재시도는 실제 선택 HEAD에서 복원한다.
 다른 farm/input/권리/요청의 같은 study/revision은 conflict다. 정정은 새 revision이다.
 orphan proof/blob도 파일 수/bytes budget에 포함하고 새 RHS 실행 전에 한도를 검사한다.
-global proof/directory budget은 실제 metadata 크기와 artifact512MiB/16,384commit 한도를 근거로 시험 후 고정한다.
+root의 exclusive nonblocking flock으로 서로 다른 intent의 합산 예산도 직렬화한다.
+이는 [Linux flock의 열린 파일 description과 해제 규칙](https://man7.org/linux/man-pages/man2/flock.2.html)을 따른다.
+고정 writer에 전달하는 내부 경로는 이미 검증한 intent FD의 `/proc/self/fd/{fd}/artifact`다.
+[Linux descriptor 경로](https://man7.org/linux/man-pages/man5/proc_pid_fd.5.html)를 사용하며,
+요청/운영자 경로의 symlink 검사를 생략하지 않는다. Linux 로컬 파일시스템의 소프트웨어 경계다.
 별도 새 queue·대몬·서비스·DB migration은 필요하지 않다.
+
+## 닫힌 파일과 호출 계약
+
+`CycleServerCustody(binding,directory,*,input_resolver,integrity_key)`는 exact CycleFarmBinding,
+절대 private root와 최소32byte key·판본/identity가 고정된 resolver를 요구한다.
+resolver는 `(root_sha256,**profiles)`에서 실제 열린 exact InputPacket을 반환한다.
+입력 directory는 같은 EUID/0700/noACL, 원 files는 regular/단일 link/noACL이며
+기존 reader가 작성하는0400/0600/0644 mode만 허용한다. 서버 결과의 불변 files는0400,
+lock/temp는0600, directory는0700이다. 디스크 판본을 고정한 code/dependency hash도 대사한다.
+
+- `advance(tenant,request_raw,*,budget)`는 한 bounded 호출과 필요한 terminal finalize를 실행한다.
+  같은 완료 재시도는 계산하지 않는다. 충돌/잠금은 별도 오류이며 수정은 새 revision이다.
+- `inspect(tenant,request_raw)`는 서명과 현재 권리/원량을 읽는다. 신규 intent를 만들거나 RHS를 실행하지 않는다.
+- `page(tenant,request_raw,expected_progress_raw,kind,start=0,limit=None)`는 같은 완료/hold
+  progress의 원 sample/event 페이지를 반환한다. current rights와 expected bytes를 전후 대사한다.
+  미완료 결과를 완료로 만들지 않는다. DB/API의 공개 계약은 후속이다.
+
+canonical UTF-8 envelope는 `payload/signature`만 가지며 HMAC-SHA256을 compare_digest로 대사한다.
+intent domain은 `ossf-crop-cycle-server-intent-v1\\0`, HEAD proof는
+`ossf-crop-cycle-server-head-v1\\0`의 실제 NUL 종료 bytes다.
+intent 파일은 version/scope/tenant_id/intent_id/request_sha256/binding/context_sha256/
+header_sha256/notice_sha256/resolver_version/custody_code_sha256/dependency_sha256/limits의 닫힌 payload다.
+tenant/study/revision의 canonical hash로 intent_id를 만들고 경로에는 그64hex만 사용한다.
+binding이 원 request/root/farm/profile/권리를 포함하며 context/header가 실제 원 계산을 묶는다.
+intent envelope 자체의 SHA가 proof의 intent_sha256이다.
+
+proof payload는 version/intent_sha256/binding_sha256/head/parent/sequence/action만 가진다.
+head는 원 writer의5필드 HEAD다. parent는 null 또는 head_sha256/proof_sha256의 닫힌 쌍이다.
+action은 initialize/advance/finalize이고 sequence0은0commit/root-null/parent-null이다.
+advance는 commit_count+1/root-null, finalize는 같은 commit_count와 최초 terminal root를 묶는다.
+각 parent의 HEAD SHA/서명 bytes SHA와 sequence 감소1을 검증해 genesis까지 유한하게 확인한다.
+proof 파일명은 원 HEAD canonical SHA다. 선택하지 않은 orphan proof는 현재 상태를 바꾸지 않는다.
+초기 HEAD가 없으면 알려진 초기 header/HEAD와 그 temp만 있는 경우에만 같은0step을 복구하며
+알 수 없는 computed blob/proof가 있으면 hold다.
+
+progress bytes는 version/scope/intent_sha256/binding_sha256/input_root_sha256/context_sha256/
+custody_code_sha256/head_sha256/proof_sha256/header_sha256/artifact_sha256/status/commit_count/
+steps/planned_steps/counts/storage_bytes/file_count의 닫힌 metadata다.
+시계열 원량은 기존 artifact에서 읽으며 임의 시간/공개 filesystem path/비밀을 넣지 않는다.
+
+| 고정 한도 | 구현 기준 |
+| --- | --- |
+| intent envelope / proof envelope / progress | 192KiB / 8KiB / 128KiB |
+| proof directory | 128MiB, 32,770 files |
+| 한 intent 전체 | 640MiB, 98,310 files |
+| root 전체 | 1GiB, 131,072 files, 128 intents |
+| artifact / commit / 원 호출 | 원512MiB/65,536 files/16,384 commits, 10,000 steps/128 transitions |
+
+orphan/temp도 합산한다. advance 전에는 원 최대8MiB delta의2배+metadata4개+proof2개+HEAD16KiB와
+40file의 여유를 검사한다. finalize 전에는 최대2MiB root의2배+proof2개+HEAD16KiB/8file을 검사한다.
+예산 부족이면 새 RHS 전 hold이며 이 한도가 실제166일/동시 운영 처리량을 증명하지 않는다.
 
 ## 다음 한 단계의 수용 기준
 
