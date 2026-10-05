@@ -242,10 +242,13 @@
         같은27시점/5사건·서명 저장829,769bytes·정리/원46개 hash로10월5일 로컬 수용했다.
         단일46 GREEN/실제 품종 수용이 아니며 긴 참조는 마지막 invalid reader 정리 수정 전 판본이다.
       - [ ] **`crop-cycle-db-custody`** — 선행 server custody 수용;3–5파일의 metadata/HMAC/atomic 게시.
-        [구현 전 닫힌 참조/게시·수용 계약](../contracts/crop-cycle-db-custody-v1.md)을 따른다.
+        [닫힌 참조/게시·수용 계약](../contracts/crop-cycle-db-custody-v1.md)을 따른다.
         실제 SCRAM의 같은 farm/root·서버 실행 영수증·closed/code/header/고지·HMAC를 대사한다.
         수용: commit 전후 farm/source/input 권리 철회·교차 tenant/farm/root·혼합/부분 게시 거부,
         immutable retry/conflict·별도 프로세스 재적분 없는 읽기/복구·정리. 잠정2–3시간.
+        [구현 후보의 분할 실행](../research/crop-cycle-db-custody-implementation.md): 순수61개와
+        실제 경계9개는 통과했다. 초기 SCRAM2개는 summary 추가 전 판본이며,
+        현재 판본의 짧은 재시작/실제25시간·물리 변조·정리 확인 뒤에 완료로 표시한다.
       남은 DB는 폐쇄 참조/HMAC1시간+실제 게시/철회/재시작·정리1–2시간의
       2–3집중시간/10월5–7일 KST 잠정이며 하루4시간/CI·실제 자료 대기는 별도다.
       필요해진 lease/cancel은 기존 worker 계약에 대조하며 새 queue/service를 먼저 만들지 않는다.

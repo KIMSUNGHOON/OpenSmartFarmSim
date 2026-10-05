@@ -1,6 +1,7 @@
 # Cycle 서명 결과의 불변 DB 게시 — v1 후보
 
-상태: **구현 전 계약**, 2026-10-05 KST. 작업 `crop-cycle-db-custody`.
+상태: **구현 후보·집중 검증 중**, 2026-10-05 UTC. 작업 `crop-cycle-db-custody`.
+[실행 범위와 남은 수용](../research/crop-cycle-db-custody-implementation.md)을 확인한다.
 선행 [서버 계산/서명 저장의 로컬 수용](../research/crop-cycle-server-custody-implementation.md),
 [불변 DB 표/명시 authority 권한](crop-cycle-storage-v1.md)을 연결한다.
 판단은 현재 Codex CLI `gpt-6.1-sol / xhigh`에서 수행했다.

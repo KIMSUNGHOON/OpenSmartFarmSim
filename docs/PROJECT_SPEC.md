@@ -174,7 +174,10 @@ typecheck/build·기록 TLS 원값 대사로 로컬 수용했다.
 [실제 서버 계산/서명 저장](../research/crop-cycle-server-custody-implementation.md)도 고유46개 분할·
 실제 SCRAM/현재 권리·강제 종료4개·별도 Python 복원/정리로10월5일 로컬 수용했다.
 25시간/11,400실제 걸음·27시점/5사건을 독립 제어 흐름과 대사했다. 마지막 reader 정리 수정 전 참조 판본을 고정한다.
-부모 수용은 남은 DB 게시의 실제 증거 뒤다. 그다음 API/client → 같은 UTC3D →
+현재 [DB 구현 후보](../research/crop-cycle-db-custody-implementation.md)는 순수61개·실제 경계9개를
+통과했다. 현재 판본 재시작/등록25시간·실제 변조/정리의 최종 수용은 남아 있다.
+부모 수용은 그 DB 게시 증거 뒤다. 다음 [조회 API 후보](../contracts/api-crop-cycle-pages-v1.md)는
+요약/수치 페이지와 한 현재 권리 읽기 context·실제30초/2MiB를 검증한다. 그다음 client → 같은 UTC3D →
 작기 부하 → 생과 환산을 [todo](../tasks/todo.md)의 작은 자식 순서로 진행한다. 각3–5파일 작업/검증은 [todo](../tasks/todo.md)를 따른다.
 startup API/client/3D까지 `1555610`의 [CI5개/백엔드3,456개·UID4개](../research/artifacts/crop-startup-replay-ci-20261005.json),
 동일 목록/정리·집계도 수용했다. 후속 `fe41e22`도
