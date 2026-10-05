@@ -85,6 +85,15 @@ fruits_equivalent/m2_floor와 mg_CH2O/m2_floor를 생과 kg·실제 과실 개�
 
 ## 다음 한 단계의 수용 기준
 
+API는 `projection` → `route` → `runtime`의 작은 자식으로 구현한다.
+최초 판본의 투영 module/시험/이 계약3파일에서 원량과 닫힌 형식을 먼저 수용한다.
+route는 module/api.py/route 시험/기존 OpenAPI 시험/기계 snapshot의5파일,
+runtime은 api_runtime.py/조립 시험/실제 TLS 시험의3파일이다.
+현재 test_api_openapi.py의 정확한 전체 route 목록·기계 snapshot 동일성 검사가
+필수 갱신 범위이므로 한5파일 작업에 묶지 않는다. 자세한 선행·수용은 [todo](../tasks/todo.md)를 따른다.
+이 분해는 실제15:22:59.870Z의 같은 exact CLI turn_context 원 line SHA
+`64d6817d930e89560e9115aed2df48cbe9c1e0bdaeb18f5cc358e10ccbd73a78`에서 판단했다.
+
 1. 닫힌 DTO와 실제 저장 packet/summary/page의 ID/hash/UTC/모든 원량을 대사한다.
    잘못된 타입·nonfinite·추가 필드·잘못된 page/total·혼합 참조·미래 시점을 거부한다.
 2. 실제 Bearer/TLS/SCRAM 경로에서 summary와 순차 sample/event 전체 본문을 받는다.

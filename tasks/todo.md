@@ -254,8 +254,20 @@
       필요해진 lease/cancel은 기존 worker 계약에 대조하며 새 queue/service를 먼저 만들지 않는다.
     - [ ] **`api-crop-cycle-pages`** — 선행: custody 저장 수용. 같은 저장 ID의 순차 sample/event 페이지를
       [원 시점 조회 후보 계약](../contracts/api-crop-cycle-pages-v1.md)의 summary/page 분리와 한 읽기 context를 따른다.
-      3–5파일로 제공한다. 수용: 실제 Bearer/TLS/SCRAM·current rights·같은 UTC/원량/index·
+      아래3–5파일 자식으로 나눈다. 수용: 실제 Bearer/TLS/SCRAM·current rights·같은 UTC/원량/index·
       30초/2MiB/유한 page budget·취소/중복·과거만 있는 hold/빈 hold·GET RHS0회·정리.
+      - [ ] **`api-crop-cycle-projection`** — 선행: DB 저장 로컬 수용. 새 공개 DTO/투영 module·focused 시험·위 계약의3 core파일.
+        수용: 실제 불변 artifact의 short/25시간·completed/hold·빈 결과의 원 UTC/수치/단위와 닫힌 참조,
+        131,072 record/40,000,000 step 한도·64/8 page·원 next/count/byte 한도, 잘못된 타입/추가/혼합/
+        미래 시점 거부·private 필드 비노출·투영 RHS0회. 농장 권리/HTTP/부모는 후속이다.
+      - [ ] **`api-crop-cycle-route`** — 선행: 투영 수용. 같은 module의 읽기/route·api.py·route 시험·
+        test_api_openapi.py·openapi-v1.json의5 core파일. 수용: 한 server context·닫힌 query/본문 거부,
+        default503/인증·권리·DTO bytes 후 재검사·RHS0·기존 startup 보존·OpenAPI snapshot/권한 시험.
+        schema-only app의 동일 route 목록 검사와 실제 snapshot 갱신이 필요한 코드 근거로 분해했다.
+      - [ ] **`api-crop-cycle-runtime`** — 선행: route 수용. api_runtime.py·기동 조립 시험·실제 TLS 시험의3 core파일.
+        수용: flag/factory 짝·동일 principal/jobs/farm/exact store·실제 Bearer/TLS/SCRAM 원량/UTC/
+        응답30초/2MiB·hold/철회/변조·재연결·FD/lock/DB/비밀·WSL 자원 정리.
+        세 자식 수용 후 API parent만 체크하며 client/3D parent는 그대로 열어 둔다.
     - [ ] **`web-crop-cycle-pages`** — 선행: cycle API 수용. 새 판본 decoder/순차 페이지와 선택 UTC를
       3–5파일로 연결한다. 수용: 기록된 실제 TLS 응답의 원량/순서·혼합 ID/판본/hash·오래된 요청/중복/
       부분/권리 철회·hold 거부/보존, focused unit/typecheck/build. 기존 short decoder는 보존한다.
