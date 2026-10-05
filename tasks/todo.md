@@ -205,17 +205,22 @@
       25시간/11,400실제 걸음·93commit/27sample/5event·755,868bytes/127파일,
       별도 Python7개/847float64·실제 강제 종료2개/게시 전후 복구·읽기0.388759초/RHS0회·정리.
       기존40개 hash 보존/변조·hold·budget 거부를 확인했다. 10월5일 KST 로컬 완료; DB/API/3D와 hosted는 별도다.
-    - [ ] **`crop-cycle-storage-schema`** — 다음3파일; 선행: artifact 수용.
+    - [x] **`crop-cycle-storage-schema`** — schema만 로컬 수용; 선행: artifact 수용. 구현3파일:
       `backend/app/crop_cycle_result_schema.py`, `backend/tests/test_crop_cycle_result_schema.py`,
       `contracts/crop-cycle-storage-v1.md`. private POSIX 결과를 참조하는 새 불변 metadata/root 표를 만든다.
       수용: 실제 SCRAM의 등록 외래키·판본/범위/bytes/hash·정수 step/record/commit/storage 한도·
       중복/잘못된 root·metadata 혼합 거부, owner UPDATE/DELETE 거부·기본 runtime 네 role의 새 권한0,
       명시 migration/기존 row 보존·DB/password 정리. 경로/원본을 공개하지 않으며 파일 실재/HMAC/current rights는 custody다.
-      기존 startup v3 표/reader/API의 의미/hash를 보존한다. 잠정2.5–4집중시간/10월5–6일 KST.
-    - [ ] **`crop-cycle-storage-roles`** — schema 뒤5파일(runtime_roles/operator_config와 각 시험·login_database).
+      [실제 수용](../research/crop-cycle-storage-schema-implementation.md): 74개 고유 분할(72/24.17초+2/1.10초)·
+      실제 SCRAM/기본 네 role 거부·28종 column/17종 rehashed metadata·2종 FK/9종 malformed·정상 JSON128KiB/초과·
+      owner 불변/중복/새 revision·부분 설치 rollback/기존 v3 row·DB/role/schema/password 정리0잔여·원42개 hash 보존.
+      10월5일 KST 로컬 완료; 명시 flag/grant·실제 farm/file/current rights/HMAC와 hosted는 별도다.
+    - [ ] **`crop-cycle-storage-roles`** — 다음5파일(runtime_roles/operator_config와 각 시험·login_database); 선행: schema 수용.
       기본 false의 새 명시 flag·선택 grant를 연결한다. 수용: 실제 SCRAM의 authority SELECT/INSERT만 허용,
       다른 role/UPDATE/DELETE/TRUNCATE·과다 grant/잘못된 타입 거부, 누락/false의 기존 grant/config 호환·정리.
       표만으로 runtime 저장·전체 부모를 수용하지 않는다. 새 서비스/queue는 선행이 아니다.
+      flag/grant/fixture0.5–1시간+operator config0.5시간+실제 SCRAM/회귀/정리0.5–1시간의
+      잠정1.5–2.5집중시간/10월5–6일 KST이며 hosted·실제 자료 확보 대기는 별도다.
     - [ ] **`crop-cycle-result-storage`** — 선행: artifact/schema/명시 role 수용. 현재 farm/source 권리와 reviewer·
       decision/input/run manifest를 검증하고 HMAC/게시 atomicity를3–5파일로 연결한다.
       수용: 실제 SCRAM의 같은 farm/root 결과·commit 전후 권리 철회·교차 farm/혼합 chunk/부분 게시 거부·

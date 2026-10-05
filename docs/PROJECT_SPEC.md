@@ -162,7 +162,10 @@ typecheck/build·기록 TLS 원값 대사로 로컬 수용했다.
 [그 긴 결과의 불변 파일/reader](../research/crop-cycle-artifact-implementation.md)도58개 고유 분할 검증·
 25시간/11,400실제 걸음·755,868bytes·별도 Python7개/847float64·실제 강제 종료2개/복구로 로컬 수용했다.
 조회의 RHS/advance/원 적분은0회다. 긴 결과의 농장/웹 재생은 후속이다.
-다음은 cycle schema → 명시 role/config → 현재 권리 저장 → API/client →
+[cycle 불변 DB 참조 schema](../research/crop-cycle-storage-schema-implementation.md)도74개 고유 분할·
+실제 SCRAM/기본 네 role 거부·정상 JSON128KiB·불변/변조/rollback·기존 v3 보존/정리로 로컬 수용했다.
+시험의 직접 작성 metadata 행은 실제 파일/farm 연결·현재 권리/HMAC 검증을 대신하지 않는다.
+다음은 명시 role/config → 현재 권리 저장 → API/client →
 같은 UTC3D → 작기 부하 → 생과 환산이다. 각3–5파일 작업/검증은 [todo](../tasks/todo.md)를 따른다.
 startup API/client/3D까지 `1555610`의 [CI5개/백엔드3,456개·UID4개](../research/artifacts/crop-startup-replay-ci-20261005.json),
 동일 목록/정리·집계도 수용했다. 후속 continuation/reader/긴 RHS 원격 수용·pixel fidelity·실제 품종은 별도다.

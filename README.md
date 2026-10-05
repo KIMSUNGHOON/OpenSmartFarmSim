@@ -96,8 +96,10 @@ API/client/3D까지의 `1555610`도 [CI5개/백엔드3,456개·별도UID4개](re
 [cycle 불변 파일/reader](research/crop-cycle-artifact-implementation.md)도58개 고유 분할 검증·
 25시간/11,400실제 걸음·755,868bytes·별도 Python7개/847float64·실제 강제 종료2개/복구로
 10월5일 로컬 수용했습니다. 읽기0.388759초/RHS0회이며 긴 결과의 웹 연결은 후속입니다.
-다음은 cycle schema → 명시 role/config → 현재 권리 저장 → API/client → 같은 UTC3D → 작기 부하입니다.
-다음 schema는3파일/2.5–4집중시간·10월5–6일 KST 잠정이며 실제 SCRAM의 참조/불변/기본 권한 거부·정리 뒤 수용합니다.
+[cycle 불변 DB 참조 schema](research/crop-cycle-storage-schema-implementation.md)도74개 고유 분할·
+실제 SCRAM/네 기본 role 거부·정상 JSON128KiB 경계·불변/변조/rollback·기존 v3/정리로10월5일 로컬 수용했습니다.
+다음은 명시 role/config → 현재 권리 저장 → API/client → 같은 UTC3D → 작기 부하입니다.
+다음 role/config는5파일/1.5–2.5집중시간·10월5–6일 KST 잠정이며 실제 SCRAM의 선택 권한/기본 호환·정리 뒤 수용합니다.
 짧은 실행 수용을 전체 작기 검증으로 표시하지 않습니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
