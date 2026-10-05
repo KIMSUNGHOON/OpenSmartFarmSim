@@ -1,6 +1,8 @@
 # 시작 유보 모델의 같은 저장 UTC 성장 연구 3D — v1
 
-상태: **설계 계약; 새 화면 미수용**, 2026-10-05 KST.
+상태: **응답/순차 페이지 로컬 수용; 새 화면 미수용**, 2026-10-05 KST.
+[새77개/웹 전체376개·typecheck/build](../research/web-crop-startup-pages-implementation.md)와
+[기록 응답/파일·시험 증거](../research/artifacts/web-crop-startup-pages-reference-20261005.json)를 확인한다.
 선행은 [v3 페이지 API 수용](../research/api-crop-startup-replay-implementation.md)과
 기존 [coupled 수치 장면](web-crop-coupled-replay-v1.md)이다.
 현재 CLI `gpt-6.1-sol / xhigh`에서 판단하며 재귀 CLI를 실행하지 않는다.
@@ -13,7 +15,7 @@
 50 N/C/기관·온도/LAI·16누적/4진단·UTC/phase/status/hold/연구 범위를 검사한다.
 같은 ID/등록/첫 DB UTC·상태/기간·manifest와 단위/수량만 순차 페이지로 합친다.
 한 요청은 30초/2 MiB이며 최대512출력/128사건의 누락/중복/혼합·offset를 검사한다.
-완전한 sample을 확인한 뒤 공통 척도와 표/그래프/3D를 만든다.
+최대16회 순차 요청으로 sample/event를 모두 수집한 뒤 공통 척도와 표/그래프/3D를 만든다.
 loading/cancel·현재 권리 거부·새 ID/계정/재조회·늦은 응답에는 이전 숫자/장면을 지운다.
 
 표/그래프/장면은 **result ID + farm + manifest + saved sample.at** 하나를 읽는다.
@@ -32,12 +34,13 @@ last_confirmed는 별도 진단이며 정상 관리 후 sample로 추가하지 �
 
 ## 두 구획과 수용 기준
 
-1. **다음 한 단계 — decoder/페이지 결합:** 새 client 모듈/집중 시험과 필요한 기존 HTTP
+1. **로컬 수용 — decoder/페이지 결합:** 새 client 모듈/집중 시험과 필요한 기존 HTTP
    연결만 추가한다. v3 판본/같은 ID/hash/UTC·단위/50배열·16누적/4진단을 원 응답과 대사한다.
    최대512/128·빈 과거/소수 초 hold·형식/범위/혼합/누락/중복·현재 거부·계정 변경/늦은 응답/
-   취소와 기록된 실제 TLS bytes를 검증한다. 기존 v1/v2의 해석·조회는 보존한다.
+   취소와 기록된 실제 TLS 응답의 decoded JSON 원값을 검증한다. 원 wire bytes로 표시하지 않는다.
+   기존 v1/v2의 해석·조회는 보존한다.
    이는 새 장면이나 브라우저 전체 수용으로 표시하지 않는다.
-2. **화면/도형/실제 경로:** 기존 수치 geometry와 표/그래프를 같은 sample에 연결한다.
+2. **다음 한 단계 — 화면/도형/실제 경로:** 기존 수치 geometry와 표/그래프를 같은 sample에 연결한다.
    선택 LAI/50 C/N·구획 좌표/원량·0/큰 값/대체·정리, typecheck/build/단위·집중 Chromium,
    키보드/모바일/확대/움직임 줄이기·WebGL 불가/loss/restoration을 확인한다.
    실제 SCRAM 저장→표준 HTTPS→브라우저에서 빈 초기/제거 후 재유입·완료/과거/빈 hold,
@@ -47,7 +50,7 @@ last_confirmed는 별도 진단이며 정상 관리 후 sample로 추가하지 �
 첫 구획의 산출물은 검증된 시계열 객체와 decoder/페이지/TLS 원값 대사다.
 두 번째는 사용자가 볼 화면과 원값/mesh·실제 저장 경로 증거다.
 새 framework·agricultural coefficient·큐/상주 service는 이 화면의 개발 선행이 아니다.
-잠정 decoder/pages0.5–1시간, 화면/도형·브라우저1–2시간, 실제 경로/정리·보고0.5–1시간으로
-**2–4 집중시간/10월5–6일 KST**를 둔다(하루4시간, CI 대기 제외).
+decoder/pages는 10월5일 KST 로컬 완료다. 남은 화면/도형·브라우저1–2시간과 실제 경로/
+정리·보고0.5–1시간으로 **1.5–3 집중시간/10월5–6일 KST**를 둔다(하루4시간, CI 대기 제외).
 국내 독립 자료0건/actual forcing·crop Run0개·전체 작기/생과 환산/자원·경제·G0–G4와
 실제 예측/추천 날짜는 별도이며 개발과 자료 확보를 병행한다.

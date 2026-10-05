@@ -43,11 +43,15 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 [새 페이지 API](../research/api-crop-startup-replay-implementation.md)도 새47개/고유252개 분할·
 실제 HTTPS/Bearer·SCRAM19응답·최대512출력/128사건·최대14.248425초/700,084 bytes와
 현재 권리/변조/hold·재적분 없음·재시작/정리로 10월5일 KST 로컬 수용했다.
-다음 한 단계는 [새 응답 해석/순차 페이지 결합](../contracts/web-crop-startup-replay-v1.md):
+[새 응답/순차 페이지 결합](../research/web-crop-startup-pages-implementation.md)도 새77개/웹 전체376개·
+typecheck/build·기록 TLS 원값 대사로 10월5일 KST 로컬 수용했다.
 같은 v3 ID/farm/hash/UTC·50 N/C·16누적/4진단, 512/128 전체성·혼합/누락/취소·
-소수 초 hold/빈 과거/현재 거부를 원 응답과 대사한다. 그 뒤 같은 UTC 장면/표/그래프와 실제 브라우저다.
-decoder/pages0.5–1시간, 화면/도형·브라우저1–2시간, 실제 저장 경로/정리·보고0.5–1시간으로
-총2–4 집중시간/하루4시간 기준10월5–6일 KST를 추정하며 hosted 대기는 별도다.
+소수 초 hold/빈 과거/현재 거부를 검사해 최대16회 순차 요청 뒤 완전한 객체만 반환한다.
+다음 한 단계는 [같은 UTC 장면/표/그래프와 실제 브라우저](../contracts/web-crop-startup-replay-v1.md):
+저장 sample index·LAI 한 면 면적/50구획 C/N 도형·원량/mesh·빈 초기/재유입/hold,
+권리/취소·WebGL HTML 대체와 실제 SCRAM→TLS→브라우저·정리를 검증한다.
+화면/도형·브라우저1–2시간, 실제 저장 경로/정리·보고0.5–1시간으로
+총1.5–3 집중시간/하루4시간 기준10월5–6일 KST를 추정하며 hosted 대기는 별도다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
@@ -821,9 +825,11 @@ CLI·독립 해제/G1은 후속이다.
 [새 artifact/reader](../research/crop-startup-artifact-implementation.md)·
 [farm 저장 v3](../research/crop-startup-result-storage-implementation.md)·
 [페이지 API](../research/api-crop-startup-replay-implementation.md)도 10월5일 KST 로컬 수용했다.
-다음 [응답 해석/순차 페이지 결합·동일 UTC 3D](../contracts/web-crop-startup-replay-v1.md)는
-decoder/pages0.5–1시간, 화면/브라우저1–2시간, 실제 저장 경로/정리·보고0.5–1시간의
-총2–4 집중시간 잠정이다. 하루4시간 가정의 목표는 10월5–6일 KST이며 CI 대기는 별도다.
+[응답/순차 페이지 결합](../research/web-crop-startup-pages-implementation.md)도 새77개/웹 전체376개·
+typecheck/build로 10월5일 KST 로컬 완료했다.
+다음 [동일 UTC 3D/실제 브라우저](../contracts/web-crop-startup-replay-v1.md)는 화면/브라우저1–2시간,
+실제 저장 경로/정리·보고0.5–1시간의 총1.5–3 집중시간 잠정이다.
+하루4시간 가정의 목표는 10월5–6일 KST이며 CI 대기는 별도다.
 전체 작기·생과/자원/경제는 후속이다.
 자동 착과·pre-onset/실제 초기 계수는 hold이며 전체 작기 처리/수확 변환을 이어간다.
 국내 독립 농장 자료 확보를 개발 선행으로 잠그지 않는다. 실제 품종/forcing/초기/관리 채택,

@@ -143,7 +143,9 @@ UTC 상태/단위·모델/입력/저장 hash와 수치 hold만 반환한다. 로
 실제 SCRAM/6프로그램/별도 Python·commit 전후 철회/정리로 로컬 수용했다.
 [같은 저장 ID/UTC 페이지 API](../research/api-crop-startup-replay-implementation.md)도 새47개/고유252개
 분할·실제 HTTPS/SCRAM19응답·최대14.248425초/700,084 bytes·정리로 로컬 수용했다.
-다음은 [새 응답 해석/순차 페이지 결합 → 동일 UTC 성장 3D](../contracts/web-crop-startup-replay-v1.md),
+[새 응답/순차 페이지 결합](../research/web-crop-startup-pages-implementation.md)도 새77개/웹 전체376개·
+typecheck/build·기록 TLS 원값 대사로 로컬 수용했다.
+다음은 [동일 UTC 성장 3D/실제 브라우저](../contracts/web-crop-startup-replay-v1.md),
 전체 작기/생과 환산 순서다. 새 화면/브라우저와 API 원격 수용은 별도다.
 실제 전체 작기 처리는 별도다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
