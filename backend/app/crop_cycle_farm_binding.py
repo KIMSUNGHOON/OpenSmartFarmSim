@@ -6,6 +6,7 @@ from pathlib import Path
 
 from . import crop_cycle_input_stream as inputs
 from . import crop_result_store as previous
+from . import crop_startup_artifact as startup
 from .crop_result_store import READ_SCOPES,WRITE_SCOPES,_name
 from .farm_authoring_storage import FarmAuthoringService
 from .farm_inputs import KST,canonical_farm_inputs
@@ -53,8 +54,9 @@ class CycleFarmBinding:
             and policy.crop_cycle_result_storage is True and self.jobs.audit_runtime_grants is True
             and sha256(Path(__file__).read_bytes()).hexdigest()==CODE_SHA256
             and sha256(Path(previous.__file__).read_bytes()).hexdigest()==previous.STORAGE_CODE_SHA256
+            and sha256(Path(inputs.__file__).read_bytes()).hexdigest()==inputs.CODE_SHA256
             and type(self.notice_raw) is bytes and sha256(self.notice_raw).hexdigest()==previous.NOTICE_SHA256)
-        inputs._profiles(**self._profiles())
+        startup._profiles(self._profiles(),self.notice_raw)
 
     def _guard(self,tenant,write):
         self._binding()
@@ -85,6 +87,7 @@ class CycleFarmBinding:
         root=reader.manifest
         _need(reader.root_sha256==request['input']['root_sha256']
             and root['program_id']==request['input']['program_id'] and root['version']==inputs.VERSION
+            and _canonical(root)==reader._raw and reader._root==root
             and sha256(inputs._read(reader._fd,'root.json',inputs.MAX_ROOT_BYTES)).hexdigest()==reader.root_sha256)
         reader._validate_root(inputs._profiles(**self._profiles()))
         reader._cache.clear();reader._seen.clear();reader._referenced_bytes=len(reader._raw)
@@ -123,6 +126,7 @@ class CycleFarmBinding:
             _need(self.input_rights(tenant,declaration,source['root_sha256'],use) is True)
             _need(_canonical(declaration)==_canonical(request['rights']))
         self._guard(tenant,write)
+        _need(self._input(request,reader)==source)
         _need(self._registration(tenant,request,source)==registration)
         self._guard(tenant,write)
         binding={'version':VERSION,'scope':'synthetic_crop_math_only','tenant_id':tenant,'request':request,
