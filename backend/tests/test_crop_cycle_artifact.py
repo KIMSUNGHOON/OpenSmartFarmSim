@@ -338,6 +338,20 @@ def test_orphan_bytes_count_against_directory_budget_before_rhs(tmp_path,monkeyp
             assert writer.head_sha256==head
 
 
+def test_orphan_file_count_rejects_before_rhs_and_preserves_published_prefix(tmp_path,monkeypatch):
+    source,ctx=context(tmp_path/'inputs',program())
+    with source:
+        with artifact.create_writer(tmp_path/'artifact',ctx,notice_raw=NOTICE) as writer:
+            head=writer.head_sha256
+            monkeypatch.setitem(artifact.LIMITS,'files',len(os.listdir(tmp_path/'artifact')))
+            (tmp_path/'artifact'/'own-orphan.tmp').write_bytes(b'')
+            def unexpected(*args):raise AssertionError('full file budget must reject before RHS')
+            monkeypatch.setattr(engine,'advance_chunk',unexpected)
+            with pytest.raises(artifact.CycleArtifactRejected,match='file count'):writer.advance(BUDGET)
+            assert writer.head_sha256==head
+            assert writer._head()[1]==head
+
+
 def test_existing_directory_preserved_and_missing_resume_is_typed(tmp_path):
     source,ctx=context(tmp_path/'inputs',program())
     with source:

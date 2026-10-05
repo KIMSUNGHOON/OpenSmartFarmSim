@@ -1,6 +1,8 @@
 # 불변 cycle 계산 결과와 재적분 없는 reader — v1
 
-상태: **구현 전 계약**, 2026-10-05 KST. 작업 `crop-cycle-result-artifact`.
+상태: **불변 파일/reader의 로컬 소프트웨어 수용**, 2026-10-05 KST.
+작업 `crop-cycle-result-artifact`; [실제 수용/제한](../research/crop-cycle-artifact-implementation.md),
+[실제 RHS·별도 Python·강제 종료 증거](../research/artifacts/crop-cycle-artifact-reference-20261005.json)를 확인한다.
 [수용된 실제 stream 실행](crop-cycle-stream-execution-v1.md),
 [제품 관문](../docs/PROJECT_SPEC.md), [저장/worker 경계](../docs/ARCHITECTURE.md)를 따른다.
 현재 Codex CLI `gpt-6.1-sol / xhigh`로 설계/검토하며 CLI를 재귀 실행하지 않는다.
@@ -8,7 +10,7 @@
 
 ## 산출물과 범위
 
-예상3파일은 `backend/app/crop_cycle_artifact.py`,
+구현3파일은 `backend/app/crop_cycle_artifact.py`,
 `backend/tests/test_crop_cycle_artifact.py`, 이 계약이다.
 새 합성 연구 artifact의 sample/event/checkpoint commit·불변 index/root와 reader를 구현한다.
 writer만 HTTP 밖에서 실제 driver를 실행하며 reader는 RHS/적분을 실행하지 않는다.
@@ -16,7 +18,7 @@ scope는 `software_research_only`; 문헌 참조/합성 고지를 고정된 기�
 실제 입력/품종·전체 작기/생과/구매 자원·경제·G0–G4를 승인하지 않는다.
 독립 농장 자료 확보는 개발과 병행한다. 새 queue/service/dependency는 선행이 아니다.
 
-후속은 cycle schema → 현재 farm/source 권리/HMAC custody → API → client → 같은 UTC3D →
+후속은 cycle schema → 명시 role/config → 현재 farm/source 권리/HMAC custody → API → client → 같은 UTC3D →
 166일 실제 RHS 부하 → 생과/자원/경제다. 이 파일 저장은 DB 거래/현재 권리/worker lease·cancel의
 배포 수용을 대신하지 않는다. 취소/crash/파일 오류를 numeric hold로 위장하지 않는다.
 
@@ -72,6 +74,8 @@ HEAD 교체 이전의 장애는 이전 prefix에서 재시작한다. 페이지/c
 포함한다. 파일 정리는 생성한 임시 파일과 실패한 새 directory에 한정하며 기존 다른 directory를
 삭제하지 않는다. 하나의 filesystem에서 관측하는 atomic 게시와 fsync를 시험하며 실제 호스트
 전원 장애/배포 스토리지 durability·동시 DB 거래/lease는 별도다.
+HEAD 게시 과정의 예외는 writer를 닫는다. 교체 전후의 실제 HEAD를 새 handle로 검사한 뒤
+다시 시작해야 하며, 불확실한 게시를 오래된 메모리 상태로 재시도하지 않는다.
 
 ## reader 검증과 페이지
 
@@ -107,6 +111,12 @@ hold/last_confirmed다. `reader.page(kind,start,limit)`는 같은 불변 root의
 5. 집중 회귀/실제 process·RHS 증거, frozen source/input hashes, CLI metadata·검토/자원·영수증과
    local links 뒤 checkbox를 갱신한다. 이 과정에서 기존 진행 중 CI를 후속 push로 취소하지 않는다.
 
-최초 예상: contract/budget1–2시간 + writer/reader2–3시간 + 대사/변조·복원/검토2–3시간의
-5–8집중시간; 하루4시간/CI 대기 제외10월5–7일 KST 잠정. 실제 검증 뒤 갱신한다.
+최초5–8집중시간/10월5–7일 KST 예상은 **10월5일 로컬 수용**으로 대체한다.
+58개 고유 집중 검증의 분할 수용(57개/55.36초+파일 수 budget1개/0.20초),
+실제25시간/11,400걸음·27sample/5event·755,868bytes/127파일,
+별도 Python7개/847float64와 실제 강제 종료2개/게시 전후 복구를 확인했다.
+읽기/검증0.388759초·RHS/advance/원 적분0회, 관측 페이지 최대32,918bytes다.
+첫 실행 증거는 Git130ede3의 구현 중 계약/57개 시험 파일 hash를 고정한다.
+최종 계약/58개 시험 hash와 초안 대사는 별도 수용 영수증에 기록하며 첫 증거를 덮어쓰지 않는다.
+다음 schema는 아래 보고서의3파일/실제 SCRAM 수용 기준으로 진행한다.
 실제 품종/예측·추천 날짜는 독립 농장 자료0건인 현재 산정하지 않는다.
