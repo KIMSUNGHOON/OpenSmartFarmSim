@@ -1,6 +1,8 @@
 # 시작 유보 계산의 불변 저장 선행 artifact — v1
 
-상태: **다음 두 파일 계약; artifact/DB/API/새 3D 미수용**.
+상태: **합성 연구 artifact/reader 로컬 수용**, 2026-10-05 KST.
+실제 파일/검증은 [수용 기록](../research/crop-startup-artifact-implementation.md)에 있다.
+DB/API/새 3D는 미수용이다.
 선행: [새 짧은 적분의 로컬 수용](../research/crop-startup-integration-implementation.md).
 파일: `backend/app/crop_startup_artifact.py`, `backend/tests/test_crop_startup_artifact.py`.
 기존 artifact/model/코드/불변 bytes는 보존한다.

@@ -52,16 +52,22 @@
 78개 새/622개 집중·독립 22사례/4,796수치로 buffer/생장 호흡 동시 대사를 수용했습니다.
 [새 짧은 적분/누적 수지](research/crop-startup-integration-implementation.md)도
 56개 새/678개 집중·독립 6프로그램/23시점과 실제 24시간/512출력으로 로컬 수용했습니다.
-초기 전환/미세 구획의 수치 오차도 기록했습니다. 다음은
-[새 불변 artifact/reader](contracts/crop-startup-artifact-v1.md)입니다.
+초기 전환/미세 구획의 수치 오차도 기록했습니다.
+[새 불변 artifact/reader](research/crop-startup-artifact-implementation.md)도
+79개 새/799개 집중·6프로그램의 동일 결과·별도 Python/재적분 없는 읽기로 로컬 수용했습니다.
+실제 512출력 파일은 3,519,579 bytes·읽기/검증 0.286초입니다.
+다음은 [농장 결합 저장 v3의 표/명시 권한](contracts/crop-result-v3.md)과 custody 검증입니다.
 자동 착과·생식기 이전/실제 초기 품종 계수는 보류입니다.
 `e70a7f2`의 [최종 CI](research/artifacts/crop-coupled-api-web-ci-hold-20261005.json)는
 기존 assessment HTTPS 30초 시간 초과 1개로 Backend 미수용이며 나머지 네 workflow는 성공했습니다.
 동일 테스트의 로컬 최대 22.118초 통과와 요약 크기 수정은 [별도 기록](research/backend-ci-summary-and-timeout-20261005.md)에 있습니다.
+후속 `590fadc`는 [CI 5개 모두 성공](research/artifacts/crop-coupled-replay-startup-rates-ci-20261005.json),
+백엔드 3,157개·별도 UID 4개·여섯 동일 목록/정리·집계까지 통과했습니다.
+새 기관 시작 RHS/적분/artifact의 로컬 커밋은 그 SHA에 포함되지 않아 별도 hosted 검증이 필요합니다.
 [기록 합성 데모의 3D·원값](research/artifacts/coupled-crop-replay-recorded-demo-geometry.png)과
 [실제 저장 경로의 화면](research/artifacts/coupled-crop-replay-desktop.png)을 확인할 수 있습니다.
 기록 데모는 운영 저장 목록이 아니며 실제 완료 6시점의 소프트웨어 검증입니다.
-다음은 새 artifact/저장·동일 UTC 3D 판본과 전체 작기·생과 환산입니다.
+다음은 새 저장·동일 UTC 3D 판본과 전체 작기·생과 환산입니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
 별도 UID 4개와 CI 5개를 모두 통과했습니다. `d76410f`의 웹/C0/실제 앱 이미지·Compose CI도
@@ -75,7 +81,7 @@
 `d15cf92`의 시간 적분/artifact·v2 저장/기본 policy 판본도 [전체 CI 5개](research/artifacts/crop-coupled-storage-ci-20261005.json),
 백엔드 3,070개·별도 UID 4개·여섯 동일 목록/정리·집계까지 통과했습니다.
 Application image/runtime 49개·세 Compose 정리도 통과했습니다.
-이후 새 API·웹 페이지/도형의 로컬 수용은 새 판본 hosted/브라우저 수용과 구분합니다.
+API·웹 페이지/도형의 hosted 수용은 `590fadc`이며 이후 새 시작 모델/저장 판본 수용과 구분합니다.
 다음은 **방울토마토 한 품종·한 작기의 생장 계산 → 불변 저장/같은 시점 성장 3D →
 생과 생산량·자원·경제 연결**입니다. [수정 순서·잠정 작업량](tasks/plan.md#작물-생산과-성장-3d-우선순위-2026-10-04),
 [모델/계수/권리 조사](research/crop-tomato-model-baseline-20261004.md),

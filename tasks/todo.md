@@ -268,12 +268,24 @@
   건너뜀0, 독립6프로그램/23시점·2,829수치/550개수 해석해·기록한 수치 간격 반감 오차와
   24시간/512출력·7.95초/43.36 MiB를 확인했다. 원 v1과 겹치는2프로그램도 동일하다.
   사용자 산출물: UTC별 기관/50 N/C·누적 요청/실현/유보/호흡·보존/개별 오차 표.
-- [ ] **`crop-startup-artifact`** — 다음 한 단계; 선행: 새 짧은 적분/manifest.
+- [x] **`crop-startup-artifact`** — 합성 연구 파일의 로컬 수용; 선행: 새 짧은 적분/manifest.
   [두 파일 계약](../contracts/crop-startup-artifact-v1.md): 별도 immutable 판본의 canonical 원
   입력/result·코드/profile/정책·네 수지·사건/hold와 재적분 없는 reader를 검증한다.
   수용: 실제6프로그램/hold·별도 Python·입력/사본 격리·변조/혼합 거부·24시간/512출력 읽기·
-  집중 회귀/hash. 사용자 산출물: 파일 ID/hash·UTC 원 수치/hold. 0.5–1 집중일 잠정.
-- [ ] **`crop-startup-replay-link`** — 선행: 새 짧은 적분/manifest·새 artifact와 판본별 저장/조회 계약.
+  집중 회귀/hash. [실제 수용](../research/crop-startup-artifact-implementation.md): 새79개/전체799개·49.85초·
+  건너뜀0, 6프로그램 결과와 이전 적분의 동일·세 실제 hold·별도 Python/재적분 없는 reader·
+  시점별 예산/확인 prefix·512출력 파일 3,519,579 bytes/읽기0.286초를 확인했다.
+  사용자 산출물: 실제 immutable 파일 ID/hash·UTC 원 수치/hold. 10월5일 KST 완료다.
+- [ ] **`crop-startup-result-storage`** — 선행: 새 artifact의 로컬 수용;
+  [저장 v3 계약](../contracts/crop-result-v3.md). 기존 불변 v1/v2를 보존하고 새 farm/result ID·
+  현재 source/program 권리·HMAC·원자성/철회/별도 Python·재적분 없는 읽기를 실제 SCRAM으로 검증한다.
+  두 구획 모두 증거가 생긴 뒤 체크한다. 전체 잠정2–4시간/10월5–6일 KST, hosted 대기는 별도다.
+  - [ ] **다음 한 단계 — schema/role/config:** 새 표 installer와 명시 기본 false flag·선택 grant,
+    누락/false operator 호환·타입/과다 grant 거부, 실제 SCRAM의 외래키/bytes/판본·불변 trigger·
+    authority SELECT/INSERT·다른 role/수정 거부, 기존 role/config 회귀·DB/password 정리.
+  - [ ] **후속 custody:** 새 store/test에서 원 요청과 현재 farm/crop/범위/권리·등록 참조를 묶고,
+    builder 계산/hold·HMAC/변조/혼합 거부·동일/동시 재시도/rollback·별도 프로세스 읽기를 검증한다.
+- [ ] **`crop-startup-replay-link`** — 선행: 새 짧은 적분/manifest·artifact·새 저장 v3와 판본별 조회 계약.
   기존 불변 저장·현재 권리/조회·동일 UTC 3D에 새 모델을 명시적으로 연결한다.
   판본 혼합·권리 철회·취소/hold·원 수치/mesh/단위 대사와 실제 SCRAM/TLS/브라우저·정리를
   단계별로 검증한다. 임의 초기 seed/착과 모양·생과 kg를 추가하지 않는다.

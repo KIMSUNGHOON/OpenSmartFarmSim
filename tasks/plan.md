@@ -31,8 +31,14 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 새78개/전체622개·독립22사례/4,796수치·원 v1의6사례 값 동일로 로컬 수용했다.
 [새 짧은 적분/manifest](../research/crop-startup-integration-implementation.md)도
 새56개/전체678개·독립6프로그램/23시점·실제24시간/512출력과 전환/미세 구획의 오차 기록으로 수용했다.
-다음 한 단계는 [새 불변 artifact/reader](../contracts/crop-startup-artifact-v1.md)다.
-그 뒤 새 farm 저장·조회 페이지/API·동일 UTC 3D를 각각 계약/검증한다.
+[새 불변 artifact/reader](../research/crop-startup-artifact-implementation.md)도
+79개 새/799개 집중·6프로그램/23시점의 기존 적분 결과와 동일·별도 Python/재적분 없는 읽기로 수용했다.
+24시간/512출력 파일은 3,519,579 bytes·읽기/검증0.286초/과정 최대93.01 MiB다.
+다음 한 단계는 [새 저장 v3](../contracts/crop-result-v3.md)의 표/명시 role·기본 false/config 호환이다.
+실제 SCRAM의 불변/외래키/bytes 제약·authority SELECT/INSERT만 허용·다른 role/수정/과다 grant
+거부와 기존 역할/config 회귀·정리를 검증한다. 그 뒤 현재 권리/HMAC·원자성/동일 bytes/
+재시작 custody를 별도 구획으로 수용하고 조회 페이지/API·동일 UTC 3D를 각각 검증한다.
+저장 전체 잠정2–4시간/하루4시간 기준10월5–6일 KST며 hosted 대기는 별도다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
@@ -45,6 +51,10 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 531개 통과/1개 실패였다. [단독 로컬 재현/요약 크기 수정](../research/backend-ci-summary-and-timeout-20261005.md)은
 동일 제한 아래 10응답 최대 22.118초·13개 요약/목록 회귀를 통과했다.
 호스팅 원인/전체 CI를 수용한 것은 아니며 다른 파트 실행을 유지했다.
+후속 `590fadc`는 [CI 5개 모두 성공](../research/artifacts/crop-coupled-replay-startup-rates-ci-20261005.json),
+백엔드3,157개·별도UID4개·여섯 동일 목록/정리·최종 집계로 수용했다.
+이 판본은 새 API/웹과 순수 startup adapter를 포함하며 이후 기관 시작 RHS/적분/artifact는 별도다.
+기존 HTTPS timeout의 원인을 확정한 것이 아니며 원 실패 기록과 30초 제한을 보존한다.
 `bdcade9`의 Application CI에서 새 기본 false policy의 기존 loader 허용 목록 누락으로
 실제 API 기동이 실패했다. [최소 policy 회귀 수정](../research/crop-coupled-operator-policy-implementation.md)은
 작물 저장 조회의 필수 선행이며 기존 loader/시험 두 파일에 한정했다.
@@ -99,7 +109,8 @@ flowchart TD
   SA --> SC["crop-plant-startup-rates: buffer/호흡 함께 연결"]
   SC --> SI["crop-startup-integration: 새 짧은 적분/manifest"]
   SI --> SF["crop-startup-artifact: 새 bytes/재적분 없는 reader"]
-  SF --> SL["crop-startup-replay-link: 새 저장/API/같은 UTC 3D"]
+  SF --> SS["crop-startup-result-storage: 표/명시 role → 현재 권리/custody"]
+  SS --> SL["crop-startup-replay-link: 새 API/같은 UTC 3D"]
   CI --> F["crop-fruit-cohorts → crop-harvest-conversion"]
   SL --> F
   V --> F
