@@ -96,7 +96,11 @@ hold·263.879초/parent45.44MiB·정리로10월5일 KST 로컬 완료했다.
 worker128전이/HTTP30초·G0–G4는 변경하지 않았다.
 API 대조의 원 manifest 누락도 실제 정상/hold2실패 후 한 줄 수정했고, 최종3개 native 중
 새2개/기존 권리 철회1개 재확인을 구분했다. 저장 child/parent를 로컬 수용했다.
-그 뒤 [API 후보 계약](../contracts/api-crop-cycle-pages-v1.md)의 DTO/권한2–3시간+
+후속 `4bb6e53`의 [CI5개](../research/artifacts/crop-cycle-db-custody-ci-20261006.json)도 Backend4,038개·UID4개/
+여섯 동일 목록·정리·집계로 DB 저장까지 수용했다.
+[공개 투영](../research/crop-cycle-api-projection-implementation.md)은 고유43개 분할·실제25시간 원량/UTC·
+출력0/hold·RHS0회/원53개 hash로 로컬 수용했다. 다음은 인증 route → 실제 runtime/TLS다.
+전체 [API 후보 계약](../contracts/api-crop-cycle-pages-v1.md)의 DTO/권한2–3시간+
 조립/실제 TLS/예산·정리2–3시간, **4–6집중시간/10월6–8일 KST 잠정**으로 진행한다.
 client2–3시간/장면·실제 브라우저4–6시간까지 새 긴 결과 연구3D는 총10–15집중시간/
 10월6–10일 KST 잠정이다. 실제166일 부하·자료/품종·생과/자원/경제는 별도이며 CI와

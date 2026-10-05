@@ -6,7 +6,10 @@
 고유76개 분할 검증(순수61·실제 DB15개)과 정리·원49개 파일 보존으로 로컬 수용했습니다.
 합성 등록 농장25시간/11,400걸음·원27시점/5사건·7페이지와 재시작/fork·물리 변조를 대사했고,
 원 manifest 누락도 실제 정상/hold 실패2개로 재현·수정했습니다. 단일 전체 backend 검증은 아닙니다.
-다음은 [같은 원 시점 조회 API](contracts/api-crop-cycle-pages-v1.md) →
+`4bb6e53`의 [CI5개](research/artifacts/crop-cycle-db-custody-ci-20261006.json)도 Backend4,038개·별도UID4개와
+여섯 동일 목록/DB·비밀 정리·집계까지 성공했습니다. [공개 투영](research/crop-cycle-api-projection-implementation.md)도
+고유43개 분할·실제25시간의 원값/UTC·조회 RHS0회로 로컬 수용했습니다.
+다음은 [같은 원 시점 인증 조회 API](contracts/api-crop-cycle-pages-v1.md)의 route → 실제 runtime/TLS →
 client → 같은 UTC 성장 연구3D → 작기 부하 → 생과·자원·경제 순서입니다.
 현재 실제 품종/작기 입력과 국내 독립 검증 자료는0건이며 생산 예측·추천은 보류입니다.
 

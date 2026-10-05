@@ -250,16 +250,20 @@
         (순수61·실제 DB15개)·25시간/11,400걸음/원27시점/5사건·7페이지/불변 retry·정리·원49개 보존.
         요약 manifest2실패 후 한 줄 수정·새 정상/hold2개/기존 철회1개 재확인도 통과했다.
         중복/초기1800초 보류·긴 수정 전 참조와 최종 판본을 구분해10월6일 KST 수용했다.
-        단일76 GREEN/hosted·API/3D·G0–G4 수용은 아니다. 기존 DB2–3시간 예상은 이 실적으로 대체한다.
+        단일76 GREEN/API/3D·G0–G4 수용은 아니다. 기존 DB2–3시간 예상은 이 실적으로 대체한다.
+        `4bb6e53`의 [CI5개](../research/artifacts/crop-cycle-db-custody-ci-20261006.json)도 Backend4,038개·
+        별도UID4개/여섯 동일 목록·DB/비밀 정리·집계·작성 첫 시도7job로 저장 판본까지 수용했다.
       필요해진 lease/cancel은 기존 worker 계약에 대조하며 새 queue/service를 먼저 만들지 않는다.
     - [ ] **`api-crop-cycle-pages`** — 선행: custody 저장 수용. 같은 저장 ID의 순차 sample/event 페이지를
       [원 시점 조회 후보 계약](../contracts/api-crop-cycle-pages-v1.md)의 summary/page 분리와 한 읽기 context를 따른다.
       아래3–5파일 자식으로 나눈다. 수용: 실제 Bearer/TLS/SCRAM·current rights·같은 UTC/원량/index·
       30초/2MiB/유한 page budget·취소/중복·과거만 있는 hold/빈 hold·GET RHS0회·정리.
-      - [ ] **`api-crop-cycle-projection`** — 선행: DB 저장 로컬 수용. 새 공개 DTO/투영 module·focused 시험·위 계약의3 core파일.
+      - [x] **`api-crop-cycle-projection`** — 선행: DB 저장 로컬 수용. 새 공개 DTO/투영 module·focused 시험·위 계약의3 core파일.
         수용: 실제 불변 artifact의 short/25시간·completed/hold·빈 결과의 원 UTC/수치/단위와 닫힌 참조,
         131,072 record/40,000,000 step 한도·64/8 page·원 next/count/byte 한도, 잘못된 타입/추가/혼합/
         미래 시점 거부·private 필드 비노출·투영 RHS0회. 농장 권리/HTTP/부모는 후속이다.
+        [로컬 수용](../research/crop-cycle-api-projection-implementation.md): 고유43개 분할(짧은42/긴1), 실제25시간/
+        11,400걸음·원27시점/5사건·7page와 완료 출력0/hold·원53개 hash 보존. 합성 binding이며 HTTP/DB권리 수용은 아니다.
       - [ ] **`api-crop-cycle-route`** — 선행: 투영 수용. 같은 module의 읽기/route·api.py·route 시험·
         test_api_openapi.py·openapi-v1.json의5 core파일. 수용: 한 server context·닫힌 query/본문 거부,
         default503/인증·권리·DTO bytes 후 재검사·RHS0·기존 startup 보존·OpenAPI snapshot/권한 시험.
