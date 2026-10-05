@@ -192,7 +192,10 @@ startup API/client/3D까지 `1555610`의 [CI5개/백엔드3,456개·UID4개](../
 DB는 후속 `4bb6e53`의 [CI5개/Backend4,038개·UID4개](../research/artifacts/crop-cycle-db-custody-ci-20261006.json)에서
 여섯 동일 목록·DB/비밀 정리·집계까지 수용했다.
 [공개 투영](../research/crop-cycle-api-projection-implementation.md)도 고유43개 분할·실제25시간의 원량/UTC·
-출력0/hold·RHS0회로 로컬 수용했다. 다음은 인증 route → 실제 runtime/TLS → client → 같은 UTC3D다.
+출력0/hold·RHS0회로 로컬 수용했다.
+[인증 route](../research/crop-cycle-api-route-implementation.md)도 고유146개 분할·최종41개·원량·한 문맥/
+후검사·기존 OpenAPI 보존으로 로컬 수용했다. 실제 custody 권리·TLS와 긴 응답 예산은 아직 수용 전이다.
+다음은 실제 runtime/TLS → client → 같은 UTC3D다.
 새 cycle API 전체·3D·pixel fidelity·실제 품종은 이 CI SHA 밖이다.
 실제 전체 작기 처리는 별도다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
