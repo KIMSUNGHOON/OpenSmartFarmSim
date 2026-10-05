@@ -47,11 +47,16 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 typecheck/build·기록 TLS 원값 대사로 10월5일 KST 로컬 수용했다.
 같은 v3 ID/farm/hash/UTC·50 N/C·16누적/4진단, 512/128 전체성·혼합/누락/취소·
 소수 초 hold/빈 과거/현재 거부를 검사해 최대16회 순차 요청 뒤 완전한 객체만 반환한다.
-다음 한 단계는 [같은 UTC 장면/표/그래프와 실제 브라우저](../contracts/web-crop-startup-replay-v1.md):
-저장 sample index·LAI 한 면 면적/50구획 C/N 도형·원량/mesh·빈 초기/재유입/hold,
-권리/취소·WebGL HTML 대체와 실제 SCRAM→TLS→브라우저·정리를 검증한다.
-화면/도형·브라우저1–2시간, 실제 저장 경로/정리·보고0.5–1시간으로
-총1.5–3 집중시간/하루4시간 기준10월5–6일 KST를 추정하며 hosted 대기는 별도다.
+[같은 UTC 장면/표/그래프와 실제 브라우저](../research/web-crop-startup-replay-implementation.md)도
+웹383개·Chromium31개·실제 SCRAM/TLS/WebGL1개·고유12시점/15번 화면·1,500 C/N mesh로
+10월5일 KST 로컬 수용했다. 원량/16누적/4진단·영/극소·같은 UTC·권리/취소/hold와 정리를 확인했다.
+새 v3 로그 비교 축을 명시하며 기존 v2 선형/unsafe 대체를 유지한다. Pixel fidelity/새 hosted는 별도다.
+다음 한 단계는 `crop-cycle-execution-contract`: 전역 걸음/상태·누적 수지/forcing/event/output cursor,
+불변 checkpoint/hash·현재 권리·hold/재시작과 계산/출력 분리를 현재 코드에 대조한다.
+chunk 경계로 새로운 RK4 격자를 만들지 않는 정책·독립 경계 대사/보류 목록과
+순수 연속 실행 → 저장/페이지 → 실제 작기 부하의 후속 수용 기준을 작성한다.
+이 계약/분해2–4 집중시간, 하루4시간/CI 대기 제외 기준10월5–6일 KST 잠정이다.
+전체 작기/생과 날짜는 실제 입력 확보와 이 분해 뒤 추정한다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
@@ -124,13 +129,18 @@ flowchart TD
   ST --> SA["crop-fruit-startup-rates: 요청/실현·빈 tail 유보"]
   SA --> SC["crop-plant-startup-rates: buffer/호흡 함께 연결"]
   SC --> SI["crop-startup-integration: 새 짧은 적분/manifest"]
+  SI --> CC["crop-cycle-execution-contract: 전역 격자/연속 상태·재시작·출력"]
+  Q -. 원천 형태/현재 한도 .-> CC
+  CC --> CAP
   SI --> SF["crop-startup-artifact: 새 bytes/재적분 없는 reader"]
   SF --> SS["crop-startup-result-storage: 표/명시 role → 현재 권리/custody"]
   SS --> SP["crop-startup-api-replay: 같은 저장 ID/UTC 페이지"]
   SP --> SD["crop-startup-web-pages: 응답 해석/순차 페이지 결합"]
-  SD --> SL["crop-startup-web-replay: 같은 UTC 표/그래프/성장 3D"]
+  SD --> SG["crop-startup-web-geometry: 원값/영과 명시 로그 비교"]
+  SG --> SL["crop-startup-web-replay: 같은 UTC 표/그래프/성장 3D"]
   CI --> F["crop-fruit-cohorts → crop-harvest-conversion"]
   SL --> F
+  CAP --> F
   V --> F
   CV --> F
   F --> C["crop-climate-coupling"]
@@ -341,7 +351,9 @@ image/TLS·UID/읽기 전용/정리는 `d76410f`의 실제 hosted 전체 성공�
 | coupled 수치 도형 | **로컬 완료** | 새 17개 포함 103개·기록 TLS 512시점/51,200개 C/N·triangle 면적의 CPU 대사 1개·0/large/underflow·해제 |
 | coupled 성장 연구 3D | **2026-10-05 KST 로컬 완료** | 단위 129개·Chromium 19개·실제 SCRAM/HTTPS/WebGL 1개·900 C/N mesh/잎 면적·권리/정리. 전체 작기/품종·pixel fidelity·새 hosted 미수용 |
 | 초기/자동 착과 정책 | **다음 연구/정책 집중 2–4시간 잠정** | 기존 고정 원천/배분 근거를 재사용해 빈 tail·W1/S/RGR·생식기 이전과 독립 보존/hold 사례 검토. 새 코드/품종 채택은 별도 |
-| 전체 작기 처리 계약 | **별도 설계 뒤 추정** | 실제 47,809 source 시점/현재 20,000 배열·100만 step 한도와 연속 상태/저장/재생·부하 계획 |
+| startup 성장 연구 3D | **2026-10-05 KST 로컬 완료** | 웹383개·Chromium31개·실제 경로1개·1,500 C/N mesh·16누적/4진단·권리/정리; 새 hosted/pixel fidelity·품종 미수용 |
+| 전체 작기 실행 계약/작업 분해 | **2–4 집중시간/2026-10-05–06 KST 잠정** | 현재 코드/47,809 source 시점/20,000 배열·100만 step 대사, 전역 격자·연속 상태/수지·재시작/출력·권리와 독립 경계/부하 검토; 하루4시간/CI 대기 제외 |
+| 전체 작기 처리 구현/부하 | **위 계약/분해 뒤 추정** | 순수 연속 실행 → 저장/출력/페이지 → 실제 작기 부하/재현; 실제 입력 채택과 품종 검증은 별도 |
 | 과실 발달 구획 계산 | **문헌식/관리 계약 뒤 추정** | 독립 참조와 개수/기관 질량·사건 수지; 품종 적용성 미검증 유지 |
 | 생과 수확·자원·경제 | **각 변환/계량 근거 뒤 추정** | 수확/등급·물/성분·구매 에너지·동일 배치 Decimal 대사 |
 
@@ -827,9 +839,11 @@ CLI·독립 해제/G1은 후속이다.
 [페이지 API](../research/api-crop-startup-replay-implementation.md)도 10월5일 KST 로컬 수용했다.
 [응답/순차 페이지 결합](../research/web-crop-startup-pages-implementation.md)도 새77개/웹 전체376개·
 typecheck/build로 10월5일 KST 로컬 완료했다.
-다음 [동일 UTC 3D/실제 브라우저](../contracts/web-crop-startup-replay-v1.md)는 화면/브라우저1–2시간,
-실제 저장 경로/정리·보고0.5–1시간의 총1.5–3 집중시간 잠정이다.
-하루4시간 가정의 목표는 10월5–6일 KST이며 CI 대기는 별도다.
+[동일 UTC 3D/실제 브라우저](../research/web-crop-startup-replay-implementation.md)도 웹383개·
+Chromium31개·실제 SCRAM/TLS/WebGL1개·고유12시점/1,500 C/N mesh·정리로10월5일 KST 로컬 완료했다.
+기존1.5–3시간 잠정치는 실제 수용으로 대체한다. 다음 전체 작기 실행 계약/분해는
+코드 독해·독립 걸음/사건 대사·보류/부하 검토의2–4 집중시간, 하루4시간/CI 대기 제외 기준
+10월5–6일 KST 잠정이다. 구현/작기 부하 날짜는 이 분해 뒤 추정한다.
 전체 작기·생과/자원/경제는 후속이다.
 자동 착과·pre-onset/실제 초기 계수는 hold이며 전체 작기 처리/수확 변환을 이어간다.
 국내 독립 농장 자료 확보를 개발 선행으로 잠그지 않는다. 실제 품종/forcing/초기/관리 채택,

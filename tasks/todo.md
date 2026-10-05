@@ -148,6 +148,13 @@
   작은 실행 계약부터 분해: bounded forcing 처리·연속 상태/누적 수지/사건·불변 manifest/저장,
   계산 해상도와 출력 시간/페이지의 분리·30초 응답/WSL 자원·재시작/동일 재현/실제 작기 부하.
   수용 전 한도 증대/임의 forcing 축약으로 whole-cycle 완료를 주장하지 않는다.
+  - [ ] **`crop-cycle-execution-contract`** — 다음 한 단계; 선행: 수용된 startup 적분과 입력 감사의
+    source 형태/한도 관측. 국내 자료/G2는 개발 선행이 아니다. 실제 현재 코드의 전역 걸음 경계,
+    상태/16누적·forcing/event/output cursor·관리 사건·실패/hold·불변 checkpoint/hash/현재 권리를
+    대조한다. 분할/재시작으로 새 RK4 경계를 만들지 않는 정책과 출력 분리·WSL 부하 계획을
+    계약하고, 순수 연속 실행 → 저장/페이지 → 실제 작기 부하의 후속 작업/수용 기준을 분해한다.
+    수용 증거: 코드/원형 한도 표·독립 걸음/사건 경계 대사·해소/보류 목록·검토 기록.
+    이 계약 수용을 실제 작기 실행이나 품종 생산 정확도로 표시하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
@@ -291,7 +298,7 @@
     6프로그램/같은 bytes·현재 code hash·HMAC/22개 서명된 내용 변조 거부·commit 전후 철회,
     실제 SCRAM/별도 Python·DB/password 정리0개를 확인했다. 10월5일 KST 로컬 완료;
     API/새 3D와 hosted 전체 수용은 별도다.
-- [ ] **`crop-startup-replay-link`** — 선행: 새 짧은 적분/manifest·artifact·새 저장 v3와 판본별 조회 계약.
+- [x] **`crop-startup-replay-link`** — 합성 연구의 로컬 수용; 선행: 새 짧은 적분/manifest·artifact·새 저장 v3와 판본별 조회 계약.
   기존 불변 저장·현재 권리/조회·동일 UTC 3D에 새 모델을 명시적으로 연결한다.
   판본 혼합·권리 철회·취소/hold·원 수치/mesh/단위 대사와 실제 SCRAM/TLS/브라우저·정리를
   단계별로 검증한다. 임의 초기 seed/착과 모양·생과 kg를 추가하지 않는다.
@@ -310,9 +317,17 @@
     typecheck/build·실제 TLS decoded 원값/파일 hash, 최대16순차 요청/512sample·128event 전체성,
     현재 거부/취소·timers/listeners/stream 정리를 확인했다. 10월5일 KST 로컬 완료;
     장면/브라우저와 원격 수용은 별도다.
-  - [ ] **`crop-startup-web-replay`** — 선행: 새 응답/페이지 수용과 위 화면 계약;
+  - [x] **`crop-startup-web-geometry`** — v3 로그 비교 도형의 로컬 수용; 선행: 새 응답/페이지.
+    실제 빈 초기의 극소 양수/Float32 관측을 근거로, 고정 공통 C/N 로그 축·영 숨김·원값 보존,
+    극소/극대·50mesh/정리·기존 v2 선형/unsafe 대체를 새7개/기존 포함24개로 검증했다.
+    [실제 수용/증거](../research/web-crop-startup-replay-implementation.md). 임의 seed/작물 최소량은 없다.
+  - [x] **`crop-startup-web-replay`** — 합성 연구 화면의 로컬 수용; 선행: 새 응답/페이지·위 도형과 화면 계약;
     같은 v3 result ID/UTC의 표·그래프·50구획 성장 3D와 원량/mesh 대사,
     빈 과거/hold·권리/취소·WebGL HTML 대체·실제 SCRAM/TLS/브라우저·정리 후 체크한다.
+    [실제 수용](../research/web-crop-startup-replay-implementation.md): 웹383개·Chromium31개·실제 경로1개,
+    고유 완료12시점/15번 화면·1,500 C/N mesh·16누적/4진단·같은 UTC/원량·최대본문9.485초,
+    행5→5/GET 재적분 없음·서버/DB/password 정리0잔여. 10월5일 KST 로컬 완료;
+    새 hosted·pixel fidelity·실제 품종/전체 작기/생과·G0–G4는 별도 미수용이다.
 - [ ] **`crop-fruit-cohorts`** — 전체 구획의 부모 작업; 순간 수용만으로 완료하지 않는다. 개발 선행: `crop-fruit-transport`·`crop-fruit-allocation-rates`·고정 Gompertz 수요·명시적 관리 사건.
   참조 계수의 순수 모듈 개발은 국내 자료 접근/G2를 기다리지 않는다.
   실제 Axiany 적용에는 `crop-input-audit`와 해당 품종/관리·발달 근거가 추가로 필요하다.
