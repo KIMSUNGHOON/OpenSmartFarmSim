@@ -125,6 +125,8 @@ def write_input_packet(directory,*,initial_state,segments,events,anchors,outputs
             written.add(name)
     try:
         for kind,records in (('segments',segments),('events',events),('anchors',anchors),('outputs',outputs)):
+            try:iterator=iter(records)
+            except TypeError as exc:raise CycleInputRejected('INPUT_HOLD: iterable stream required') from exc
             count=0;blocks=[];batch=[];chain=_hash([]);prefix=None
             def flush():
                 raw=_canonical(batch);_need(len(raw)<=MAX_BLOCK_BYTES,'RESOURCE_HOLD: input block too large')
@@ -133,7 +135,7 @@ def write_input_packet(directory,*,initial_state,segments,events,anchors,outputs
                     'first_at':_time(kind,batch[0]),'last_at':_time(kind,batch[-1])}
                 if kind=='segments':descriptor['clock_prefix']=_fraction(prefix)
                 blocks.append(descriptor)
-            for record in records:
+            for record in iterator:
                 _need(count<MAX_RECORDS,'RESOURCE_HOLD: input record count exceeded')
                 value=_normalise(kind,record)
                 if kind=='segments':
@@ -193,6 +195,8 @@ class InputPacket:
             calculation={**self._root,'streams':{k:v for k,v in self._root['streams'].items() if k!='outputs'}}
             self.calculation_sha256=_hash(calculation)
             self._preflight()
+        except OSError as exc:
+            self.close();raise CycleInputRejected('STORAGE_HOLD: input directory unavailable') from exc
         except BaseException:
             self.close();raise
 
