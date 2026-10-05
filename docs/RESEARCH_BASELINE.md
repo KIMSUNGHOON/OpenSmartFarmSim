@@ -59,6 +59,11 @@ Vanthoor/GreenLight를 첫 탄소 계산의 참조로 선택했으며 일반 계
 필요한 수식/계수의 권리·차원/범위 검토와 합성 입력으로 개발을 시작하며 국내 자료
 접근·독립 G2/G3a 검증은 병행한다. 자료 확보 전에는 국내 미래 생산·경제를 게시하지 않는다.
 
+[국내 공개 목록 3개 검토](../research/crop-domestic-public-catalog-review-20261005.md)는
+AI Hub534, EPIS15090553, SmartFarmKorea 작기7581의 공식 식별자·표 설명·접근/권리 보류를
+기록한다. 공개 목록 조회이며 원자료 수신·품종 채택·독립 검증 자료 확보는 여전히0건이다.
+공개 역사적 자료와 향후 미사용 작기의 사전 검증을 구분하고 모델 개발과 병행한다.
+
 ## 모델 선택의 근거와 충돌 해결
 
 이전 연구 메모는 ‘온도만 계산하는 교육용 시연’, ‘열·수증기·CO₂와 관수·수확까지 계산’, ‘한 작물 조건부 평가’를 각각 제안했다. 이번 제품 목표에는 지역→자료→계산→3D→추천의 **완주 흐름**이 필요하지만, [WUR 온실 물리 모델](https://research.wur.nl/en/publications/a-validated-physical-model-of-greenhouse-climate/)과 [GreenLight 평가](https://research.wur.nl/en/publications/greenlight-an-open-source-model-for-greenhouses-with-supplemental/)가 보여주는 모델 요구와 검증 범위를 국내 농장에 곧바로 일반화할 수 없다. 따라서 **첫 모델은 단일 구역 열·수증기 수지**로 정했다. 다음 생육 계산은 위 2026-10-04 계약으로 개발하며, CO₂·배지 물·수확의 실제 적용/예측 주장은 해당 자료와 검증이 확보된 범위에서 연다. 온도만으로 종합 작물 적합도를 주장하지 않는다.
