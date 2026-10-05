@@ -19,7 +19,8 @@ FIELDS = frozenset({'config_version', 'policy', 'dsn_file', 'artifact_root', 'ce
 POLICY_FIELDS = frozenset({'schema', 'owner', 'prefix', 'database', 'connection_limit',
     'market_calculation', 'break_even_calculation', 'market_source_storage',
     'thermal_scenario_storage', 'authored_release_storage', 'authored_run_storage'})
-OPTIONAL_POLICY_FIELDS = frozenset({'crop_result_storage', 'crop_coupled_result_storage'})
+OPTIONAL_POLICY_FIELDS = frozenset({'crop_result_storage', 'crop_coupled_result_storage',
+                                    'crop_startup_result_storage'})
 
 
 class OperatorConfigHold(ValueError):

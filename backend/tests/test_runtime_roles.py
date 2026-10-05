@@ -70,6 +70,11 @@ def owned_scope(pg_store, policy):
             from app.runtime_roles import CROP_COUPLED_RESULT_TABLES
             install_coupled_crop_result_schema(conn, pg_store.schema)
             tables += CROP_COUPLED_RESULT_TABLES
+        if getattr(policy, "crop_startup_result_storage", False):
+            from app.crop_startup_result_store import install_startup_crop_result_schema
+            from app.runtime_roles import CROP_STARTUP_RESULT_TABLES
+            install_startup_crop_result_schema(conn, pg_store.schema)
+            tables += CROP_STARTUP_RESULT_TABLES
         conn.execute(sql.SQL("ALTER SCHEMA {} OWNER TO {}").format(
             sql.Identifier(policy.schema), sql.Identifier(policy.owner)))
         for table in tables:
@@ -325,3 +330,154 @@ def test_reachable_security_definer_outside_project_rejects_install(role_scope):
     finally:
         with store.connect() as conn:
             conn.execute(sql.SQL("DROP SCHEMA {} CASCADE").format(sql.Identifier(outside)))
+
+
+@pytest.fixture(scope='module')
+def schema_login_database():
+    # Local imports avoid a cycle: the shared login fixture provisions owned_scope.
+    from login_database import login_database
+    yield from login_database.__wrapped__()
+
+
+@pytest.fixture
+def schema_login_scope(schema_login_database, tmp_path, request):
+    from login_database import login_scope
+    yield from login_scope.__wrapped__(schema_login_database, tmp_path, request)
+
+
+def test_startup_storage_default_and_explicit_table_selection():
+    from dataclasses import replace
+    from app.runtime_roles import RuntimeLoginPolicy, _tables
+    plain = RuntimeLoginPolicy('test', 'owner', 'runtime', 'postgres')
+    assert plain.crop_startup_result_storage is False
+    assert _tables(plain)==TABLES
+    assert _tables(replace(plain, crop_startup_result_storage=True))==TABLES+('crop_startup_research_results',)
+    for value in (0, 1, 'false', None):
+        with pytest.raises(RolePolicyHold):replace(plain, crop_startup_result_storage=value)
+
+
+@pytest.mark.parametrize('schema', ['bad-name', 'x;DROP SCHEMA public', 'a'*64, None])
+def test_startup_schema_identifier_rejected_before_sql(schema):
+    from app.crop_startup_result_store import install_startup_crop_result_schema
+    with pytest.raises(ValueError):install_startup_crop_result_schema(None, schema)
+
+
+def startup_schema_row(base, policy):
+    from hashlib import sha256
+    from app.thermal_run_store import _canonical
+    job = base.submit('tenant-a', 'research', {'fixture':'synthetic_schema_only'}, uuid4().hex)
+    result_id = 'crop-result-v3:'+'1'*64
+    raw = _canonical({'schema_version':'crop-result-v3', 'status':'stored_unpublished_research',
+        'claim_scope':'synthetic_crop_math_only', 'result_id':result_id, 'fixture_kind':'schema_only'})
+    return {'tenant_id':'tenant-a', 'study_id':'schema-study', 'revision':'r1', 'result_id':result_id,
+        'scenario_id':'synthetic-schema-farm', 'scenario_revision':'r1', 'registration_job_id':job['job_id'],
+        'registration_sha256':'2'*64, 'payload_raw':raw, 'payload_sha256':sha256(raw).hexdigest(),
+        'integrity_signature':'3'*64, 'registered_by':policy.roles['authority']}
+
+
+def insert_startup_schema_row(conn, policy, row):
+    columns=list(row)
+    conn.execute(sql.SQL('INSERT INTO {}.crop_startup_research_results ({}) VALUES ({})').format(
+        sql.Identifier(policy.schema),sql.SQL(',').join(map(sql.Identifier,columns)),
+        sql.SQL(',').join(sql.Placeholder() for _ in columns)),tuple(row[k] for k in columns))
+
+
+@pytest.mark.parametrize('schema_login_scope', [{'crop_startup_result_storage':True}], indirect=True)
+def test_startup_schema_actual_scram_select_insert_only_and_immutable_owner(schema_login_scope):
+    from app.runtime_login import connect_runtime
+    from app.runtime_roles import _tables
+    base, policy, dsns = schema_login_scope
+    assert policy.crop_startup_result_storage is True
+    assert _tables(policy)==TABLES+('crop_startup_research_results',)
+    target=sql.SQL('{}.crop_startup_research_results').format(sql.Identifier(policy.schema))
+    row=startup_schema_row(base,policy)
+    with connect_runtime(dsns['authority'],policy,'authority') as conn:
+        assert conn.pgconn.used_password and conn.info.get_parameters()['require_auth']=='scram-sha-256'
+        insert_startup_schema_row(conn,policy,row)
+        actual=conn.execute(sql.SQL('SELECT * FROM {}').format(target)).fetchone()
+        assert all(actual[k]==v for k,v in row.items())
+        assert actual['recorded_at'].tzinfo is not None
+    for kind in ('request','worker','supervisor'):
+        for query in (sql.SQL('SELECT * FROM {} LIMIT 0').format(target),
+                      sql.SQL('INSERT INTO {} SELECT * FROM {} WHERE false').format(target,target)):
+            with connect_runtime(dsns[kind],policy,kind) as conn,pytest.raises(errors.InsufficientPrivilege):
+                if kind=='supervisor':conn.execute('SET TRANSACTION READ WRITE')
+                conn.execute(query)
+    for query in (sql.SQL('UPDATE {} SET revision=revision').format(target),
+                  sql.SQL('DELETE FROM {}').format(target),sql.SQL('TRUNCATE {}').format(target)):
+        with connect_runtime(dsns['authority'],policy,'authority') as conn,pytest.raises(errors.InsufficientPrivilege):
+            conn.execute(query)
+    for query in (sql.SQL('UPDATE {} SET revision=revision').format(target),sql.SQL('DELETE FROM {}').format(target)):
+        with base.connect() as conn,pytest.raises(errors.RaiseException,match='immutable'):
+            conn.execute(sql.SQL('SET LOCAL ROLE {}').format(sql.Identifier(policy.owner)))
+            conn.execute(query)
+    with base.connect() as conn:
+        assert conn.execute(sql.SQL('SELECT count(*) AS n FROM {}').format(target)).fetchone()['n']==1
+        assert audit_runtime_roles(conn,policy)['tables']>=len(TABLES)+1
+
+
+@pytest.mark.parametrize('schema_login_scope', [{'crop_startup_result_storage':True}], indirect=True)
+def test_startup_schema_constraints_and_tenant_parent_cannot_be_bypassed(schema_login_scope):
+    from hashlib import sha256
+    from app.thermal_run_store import _canonical
+    from app.runtime_login import connect_runtime
+    import json
+    base, policy, dsns = schema_login_scope
+    row=startup_schema_row(base,policy);packet=json.loads(row['payload_raw'])
+    oversized=_canonical({**packet,'padding':'x'*(20*1024*1024)})
+    variants=[({'tenant_id':''},errors.CheckViolation),({'study_id':''},errors.CheckViolation),
+        ({'revision':'r'*201},errors.CheckViolation),({'result_id':'crop-result-v2:'+'1'*64},errors.CheckViolation),
+        ({'payload_sha256':'0'*64},errors.CheckViolation),
+        ({'payload_raw':b''},(errors.CheckViolation,errors.DataError)),
+        ({'payload_raw':oversized,'payload_sha256':sha256(oversized).hexdigest()},errors.CheckViolation),
+        ({'integrity_signature':'bad'},errors.CheckViolation),
+        ({'registration_job_id':uuid4()},errors.ForeignKeyViolation),
+        ({'tenant_id':'tenant-other'},errors.ForeignKeyViolation)]
+    for changes,error in variants:
+        with connect_runtime(dsns['authority'],policy,'authority') as conn,pytest.raises(error):
+            insert_startup_schema_row(conn,policy,{**row,**changes})
+    for changes in ({'schema_version':'crop-result-v2'}, {'status':'approved'}, {'claim_scope':'prediction'},
+                    {'result_id':'crop-result-v3:'+'0'*64}):
+        raw=_canonical({**packet,**changes})
+        with connect_runtime(dsns['authority'],policy,'authority') as conn,pytest.raises(errors.CheckViolation):
+            insert_startup_schema_row(conn,policy,{**row,'payload_raw':raw,'payload_sha256':sha256(raw).hexdigest()})
+    with connect_runtime(dsns['authority'],policy,'authority') as conn:
+        insert_startup_schema_row(conn,policy,row)
+    fresh_id='crop-result-v3:'+'4'*64;fresh_raw=_canonical({**packet,'result_id':fresh_id})
+    for changes in ({}, {'revision':'r2'}, {'result_id':fresh_id,'payload_raw':fresh_raw,
+                                         'payload_sha256':sha256(fresh_raw).hexdigest()}):
+        with connect_runtime(dsns['authority'],policy,'authority') as conn,pytest.raises(errors.UniqueViolation):
+            insert_startup_schema_row(conn,policy,{**row,**changes})
+
+
+@pytest.mark.parametrize('schema_login_scope', [{'crop_startup_result_storage':False}], indirect=True)
+def test_startup_storage_false_has_no_grants_even_on_provisioned_table(schema_login_scope):
+    from app.crop_startup_result_store import install_startup_crop_result_schema
+    from app.runtime_login import connect_runtime
+    base,policy,dsns=schema_login_scope
+    assert policy.crop_startup_result_storage is False
+    with base.connect() as conn:
+        conn.execute(sql.SQL('SET LOCAL ROLE {}').format(sql.Identifier(policy.owner)))
+        install_startup_crop_result_schema(conn,policy.schema)
+    with base.connect() as conn:
+        audit_runtime_roles(conn,policy)
+    target=sql.SQL('{}.crop_startup_research_results').format(sql.Identifier(policy.schema))
+    for kind in policy.roles:
+        with connect_runtime(dsns[kind],policy,kind) as conn,pytest.raises(errors.InsufficientPrivilege):
+            conn.execute(sql.SQL('SELECT * FROM {} LIMIT 0').format(target))
+
+
+@pytest.mark.parametrize('schema_login_scope', [{'crop_startup_result_storage':True}], indirect=True)
+@pytest.mark.parametrize('drift', ['worker_select','authority_update','public_select','authority_column','authority_missing'])
+def test_startup_schema_extra_privileges_fail_current_audit(schema_login_scope,drift):
+    base,policy,_=schema_login_scope
+    target=sql.SQL('{}.crop_startup_research_results').format(sql.Identifier(policy.schema))
+    with base.connect() as conn:
+        if drift=='public_select':conn.execute(sql.SQL('GRANT SELECT ON {} TO PUBLIC').format(target))
+        elif drift=='authority_missing':
+            conn.execute(sql.SQL('REVOKE SELECT ON {} FROM {}').format(target,sql.Identifier(policy.roles['authority'])))
+        else:
+            privilege={'worker_select':'SELECT','authority_update':'UPDATE','authority_column':'UPDATE (revision)'}[drift]
+            kind='worker' if drift=='worker_select' else 'authority'
+            conn.execute(sql.SQL('GRANT {} ON {} TO {}').format(sql.SQL(privilege),target,sql.Identifier(policy.roles[kind])))
+    with base.connect() as conn,pytest.raises(RolePolicyHold):audit_runtime_roles(conn,policy)

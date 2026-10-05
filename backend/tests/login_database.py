@@ -93,7 +93,10 @@ def login_scope(login_database, tmp_path, request):
                                     request.param.get("crop_result_storage") is True),
                                 crop_coupled_result_storage=(
                                     type(getattr(request, "param", None)) is dict and
-                                    request.param.get("crop_coupled_result_storage") is True))
+                                    request.param.get("crop_coupled_result_storage") is True),
+                                crop_startup_result_storage=(
+                                    type(getattr(request, "param", None)) is dict and
+                                    request.param.get("crop_startup_result_storage") is True))
     try:
         with owned_scope(base, policy):
             with base.connect() as conn:

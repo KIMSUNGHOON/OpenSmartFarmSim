@@ -363,3 +363,27 @@ def dependencies_factory(*, config):
     assert process.returncode == -signal.SIGTERM and stdout == b''
     assert all(value not in stderr for value in (TOKEN, str(path).encode(), b'passfile',
         Path(doc['thermal_gate_key_file']).read_bytes(), Path(doc['market_hold_key_file']).read_bytes()))
+
+
+@pytest.mark.parametrize('startup_option', ['omit', False, True])
+def test_startup_option_preserves_old_operator_and_explicit_selection(monkeypatch, private_config, startup_option):
+    path, doc = private_config
+    if startup_option == 'omit':
+        doc['policy'].pop('crop_startup_result_storage', None)
+    else:
+        doc['policy']['crop_startup_result_storage'] = startup_option
+    store(path, doc)
+    calls = isolated_assembly(monkeypatch)
+    load_api_runtime(path)
+    assert len(calls)==1 and calls[0].policy.crop_startup_result_storage is (startup_option is True)
+
+
+@pytest.mark.parametrize('startup_option', [0, 1, 'false', None])
+def test_startup_option_is_boolean_before_dependency_import(monkeypatch, private_config, startup_option):
+    path, doc = private_config
+    doc['policy']['crop_startup_result_storage'] = startup_option
+    store(path, doc)
+    monkeypatch.setattr(operator_config.importlib, 'import_module',
+        lambda *_: pytest.fail('invalid startup flag imported dependencies'))
+    with pytest.raises(OperatorConfigHold, match='^operator_config_rejected$'):
+        load_api_runtime(path)
