@@ -1,6 +1,7 @@
 # 명시적 빈 과실 sink의 순간 요청/실현 계산
 
 날짜: 2026-10-05 KST. **순수 순간 연구 소프트웨어 로컬 수용**이다.
+구현 commit은 `1c560c5`이며 새 정확한 판본의 hosted CI는 별도로 확인한다.
 [계약](../contracts/crop-fruit-startup-rates-v1.md),
 [정책 조사/외부 보류](crop-fruit-startup-policy.md),
 [실제 출력/해시/시험 로그 증거](artifacts/crop-fruit-startup-rates-reference-20261005.json)를 함께 읽는다.
