@@ -167,7 +167,10 @@ typecheck/build·기록 TLS 원값 대사로 로컬 수용했다.
 시험의 직접 작성 metadata 행은 실제 파일/farm 연결·현재 권리/HMAC 검증을 대신하지 않는다.
 [명시 role/config](../research/crop-cycle-storage-roles-implementation.md)도 새21개/고유236개 분할·
 실제 네 SCRAM/선택 권한·일곱 drift·기존 v3/기본 false·정리로 로컬 수용했다.
-다음은 현재 권리 저장 → API/client → 같은 UTC3D → 작기 부하 → 생과 환산이다. 각3–5파일 작업/검증은 [todo](../tasks/todo.md)를 따른다.
+현재 권리 저장은 [농장/input root 결합](../contracts/crop-cycle-farm-binding-v1.md) →
+[실제 서버 계산/서명된 progress](../contracts/crop-cycle-server-custody-v1.md) → DB 게시로 분해한다.
+첫 결합은 구현 중이며 부모 수용은 세 자식의 실제 증거 뒤다. 그다음 API/client → 같은 UTC3D →
+작기 부하 → 생과 환산을 [todo](../tasks/todo.md)의 작은 자식 순서로 진행한다. 각3–5파일 작업/검증은 [todo](../tasks/todo.md)를 따른다.
 startup API/client/3D까지 `1555610`의 [CI5개/백엔드3,456개·UID4개](../research/artifacts/crop-startup-replay-ci-20261005.json),
 동일 목록/정리·집계도 수용했다. 후속 `fe41e22`도
 [CI5개/백엔드3,709개·UID4개](../research/artifacts/crop-cycle-stream-ci-20261005.json),

@@ -222,13 +222,25 @@
       [실제 수용](../research/crop-cycle-storage-roles-implementation.md): 새21개/고유236개 분할(234통과/시험 routine 오기2실패·80.98초,
       오기 두 곳만 수정 뒤2통과·1.16초), 실제 네 SCRAM/58 직접 SQL 거부·선택 INSERT/SELECT·
       일곱 drift·기본 false/config·기존 v3 bytes·정리0잔여/원44개 hash 보존. 10월5일 로컬 완료; hosted/실제 자료는 별도다.
-    - [ ] **`crop-cycle-result-storage`** — 다음3–5파일, 선행 artifact/schema/명시 role 로컬 수용. 현재 farm/source 권리와 reviewer·
-      decision/input/run manifest를 검증하고 HMAC/게시 atomicity를3–5파일로 연결한다.
-      수용: 실제 SCRAM의 같은 farm/root 결과·commit 전후 권리 철회·교차 farm/혼합 chunk/부분 게시 거부·
-      별도 프로세스 읽기/복구·lease/cancel 요구가 있으면 기존 worker 계약과의 대사·정리.
-      bounded input manifest의 period/forcing·현재 원천/프로그램 권리와 파일/header/code/고지를 대사한다.
-      계약/provider 대사1–2시간+입력/결과 결합2–3시간+SCRAM/철회/재시작·정리2–3시간의
-      잠정5–8집중시간/10월5–7일 KST이며 CI/실제 자료 대기는 별도다.
+    - [ ] **`crop-cycle-result-storage`** — 부모, 선행 artifact/schema/명시 role 로컬 수용.
+      아래 세 자식을 순서대로 검증한 뒤 현재 farm/input/실제 서버 계산·HMAC/게시 custody를 수용한다.
+      기존 inline segments/20MiB 구조와 긴 root의 차이, SHA/ledger의 계산 인증 부족을 근거로 분해했다.
+      - [ ] **`crop-cycle-farm-binding`** — 다음3파일 module/test/[계약](../contracts/crop-cycle-farm-binding-v1.md).
+        실제 SCRAM 등록 farm/crop/period/floor/source의 현재 권리와 preflight root 전용 선언을 결합한다.
+        수용: closed canonical 요청·동일 root/프로필·현재 권리/availability/occupancy·중간 철회,
+        별도 Python 동일 binding·파일/FD/DB/비밀 정리와 RHS/row/Run0개. 잠정2–3시간/10월5–6일 KST.
+      - [ ] **`crop-cycle-server-custody`** — 선행 farm binding 수용;3–5파일의 실제 writer/서명된 progress.
+        [설계 후보/수용 조건](../contracts/crop-cycle-server-custody-v1.md)을 구현 전 닫힌 schema/budget으로 고정한다.
+        서버의 private root만 해석하고 frozen RHS로 계산하며 각 bounded advance의 현재 권리,
+        intent/farm/input/header/code/HEAD·checkpoint를 domain HMAC에 묶는다.
+        수용:6프로그램/긴 실제 RHS·같은 canonical 원량/UTC, 별도 Python·강제 종료/재시작,
+        서명/HEAD 교체·부적절한 외부/혼합 결과·권리 철회 거부·writer/FD/temp 정리. 잠정3–5시간.
+      - [ ] **`crop-cycle-db-custody`** — 선행 server custody 수용;3–5파일의 metadata/HMAC/atomic 게시.
+        실제 SCRAM의 같은 farm/root·서버 실행 영수증·closed/code/header/고지·HMAC를 대사한다.
+        수용: commit 전후 farm/source/input 권리 철회·교차 tenant/farm/root·혼합/부분 게시 거부,
+        immutable retry/conflict·별도 프로세스 재적분 없는 읽기/복구·정리. 잠정2–3시간.
+      세 자식 합7–11집중시간/10월5–8일 KST 잠정이며 CI/실제 자료 대기는 별도다.
+      필요해진 lease/cancel은 기존 worker 계약에 대조하며 새 queue/service를 먼저 만들지 않는다.
     - [ ] **`api-crop-cycle-pages`** — 선행: custody 저장 수용. 같은 저장 ID의 순차 sample/event 페이지를
       3–5파일로 제공한다. 수용: 실제 Bearer/TLS/SCRAM·current rights·같은 UTC/원량/index·
       30초/2MiB/유한 page budget·취소/중복·과거만 있는 hold/빈 hold·GET RHS0회·정리.

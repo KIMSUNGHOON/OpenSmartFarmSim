@@ -206,8 +206,10 @@ v3 로그 비교 도형은 원값/영을 보존하며 기존 v2 선형 대체를
 직접 작성 metadata 행은 실제 파일/현재 권리/HMAC 검증 결과가 아니며 긴 결과의 농장/웹 재생은 후속이다.
 [별도5파일 명시 role/config](../research/crop-cycle-storage-roles-implementation.md)도 새21개/고유236개 분할·
 기본 false/선택 authority SELECT·INSERT·일곱 drift·누락/false 호환·실제 네 SCRAM/v3 보존·정리로 로컬 수용했다.
-다음은 현재 권리 저장 → API/client →
-같은 UTC3D → 작기 부하 → 생과 환산을 [todo](../tasks/todo.md)의 작은 자식 순서로 진행한다.
+현재 권리 저장은 [농장/input root 결합](../contracts/crop-cycle-farm-binding-v1.md) →
+[실제 서버 계산/서명된 progress](../contracts/crop-cycle-server-custody-v1.md) → DB 게시로 분해한다.
+첫 결합은 구현 중이며 부모 수용은 세 자식의 실제 증거 뒤다. 그다음 API/client → 같은 UTC3D →
+작기 부하 → 생과 환산을 [todo](../tasks/todo.md)의 작은 자식 순서로 진행한다.
 새 모델의 실제 재시작을 grouping/serialization 시험으로 대체하지 않는다.
 이 화면은 실제 품종/전체 작기 생산 검증이 아니며 pixel fidelity도 별도다.
 자동 착과/빈 초기 작기·실제 품종과 전체 작기 처리의 수용은 남아 있다.
