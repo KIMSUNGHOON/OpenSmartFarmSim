@@ -1,6 +1,7 @@
 # 빈 과실 요청 유보의 전체 기관 순간 결합 — v1
 
-상태: **다음 두 파일 구현 계약; 제품 결합/적분 미수용**.
+상태: **순간 제품 결합의 로컬 수용; 시간 적분 미수용**.
+[78개 새/622개 집중·독립 22사례/4,796수치의 수용 기록](../research/crop-plant-startup-rates-implementation.md)을 확인한다.
 선행: [startup 순간 계산](../research/crop-fruit-startup-rates-implementation.md),
 기존 plant/50구획 순간 계약·고정 profile과 연구 시작 정책.
 

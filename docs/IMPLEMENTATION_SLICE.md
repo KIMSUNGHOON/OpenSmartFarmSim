@@ -173,8 +173,10 @@ Axiany/Maxifort 한 해외 작기 개발 참조다. 대한민국 온실의 최�
 실제 완료 6시점/과거 hold 1시점/빈 hold·900개 C/N mesh·권리/정리를 확인했다.
 [초기/명시적 유입 정책](../research/crop-fruit-startup-policy.md)은 원천 8개·독립 9개 보존/5개 hold로 수용했다.
 [빈 tail 요청/실현 순수 adapter](../research/crop-fruit-startup-rates-implementation.md)도
-56개 새/544개 집중으로 로컬 수용했다. 다음은 [새 기관 순간 결합](../contracts/crop-plant-startup-rates-v1.md) →
-새 적분/저장·같은 UTC 3D 판본 수용 → 전체 작기/생과 환산이다.
+56개 새/544개 집중으로 로컬 수용했다. [새 기관 순간 결합](../research/crop-plant-startup-rates-implementation.md)도
+78개 새/622개 집중·독립 22사례로 수용했다. 다음은
+[새 짧은 적분/manifest](../contracts/crop-startup-integration-v1.md) →
+새 저장·같은 UTC 3D 판본 수용 → 전체 작기/생과 환산이다.
 자동 착과/빈 초기 작기·실제 품종과 전체 작기 처리의 수용은 남아 있다.
 `d15cf92`의 [시간 적분/artifact·v2 저장 전체 CI](../research/artifacts/crop-coupled-storage-ci-20261005.json)도
 3,070개·별도 UID 4개·같은 목록/여섯 DB·password 정리/집계를 통과했다.

@@ -27,8 +27,10 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 9개 독립 보존 사례/5개 hold·W1/RGR 대안/생식기 이전 반례로 수용했다.
 [빈 tail의 요청/실현 순수 adapter](../research/crop-fruit-startup-rates-implementation.md)도
 새 56개/기존 포함 544개·14개 실제 출력/hold로 로컬 수용했다.
-다음 한 단계는 [새 기관 순간 결합](../contracts/crop-plant-startup-rates-v1.md)이며
-buffer 유보와 실제 생장 호흡을 함께 연결한다. 그 뒤 새 적분/저장·동일 UTC 3D로 이어간다.
+[새 기관 순간 결합](../research/crop-plant-startup-rates-implementation.md)도
+새78개/전체622개·독립22사례/4,796수치·원 v1의6사례 값 동일로 로컬 수용했다.
+다음 한 단계는 [새 짧은 적분/manifest](../contracts/crop-startup-integration-v1.md)이며
+UTC별 기관/50구획과 누적 요청/실현/유보·호흡을 대사한다. 그 뒤 새 저장·동일 UTC 3D로 이어간다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
@@ -783,10 +785,13 @@ CLI·독립 해제/G1은 후속이다.
 `crop-fruit-startup-policy`의 [원천/권리·단위/초기·빈 tail/생식기 이전/W1·S·RGR·
 독립 보존/hold 표](../research/crop-fruit-startup-policy.md)를 연구 범위로 수용했다.
 [순수 adapter](../research/crop-fruit-startup-rates-implementation.md)는 새56개/전체544개·14개 실제
-출력/hold를 통과했다. 다음 [새 기관 순간 결합](../contracts/crop-plant-startup-rates-v1.md)은
-buffer/실현 호흡·기관/개수 수지를 독립 값과 대사하는 두 파일의 0.5 집중일 잠정이다.
-그 뒤 새 짧은 적분과 저장/동일 UTC 3D는 각각 계약/수용한다.
-기관 순간 결합의 검증 목표는 2026-10-05~06 KST(하루4시간 가정)로 잡고 실제 완료/CI 상태로 수정한다.
+출력/hold를 통과했다. [새 기관 순간 결합](../research/crop-plant-startup-rates-implementation.md)도
+새78개/전체622개·6.99초·독립22사례/4,796수치로 **10월5일 KST 로컬 완료**했다.
+다음 [새 짧은 적분 계약](../contracts/crop-startup-integration-v1.md)은
+RHS/manifest·사건 2–3시간, 독립 참조/수렴 1–3시간, 회귀/검토/기록 1–2시간의
+총 4–8시간(1–2 집중일) 잠정이다. 하루4시간 가정의 검증 목표는 10월5–7일 KST이며
+실제 완료/CI 상태로 수정한다. tail 불연속에서 4차 수렴을 가정하지 않는다.
+그 뒤 저장/동일 UTC 3D는 새 판본을 각각 계약/수용한다. 전체 작기·생과/자원/경제는 후속이다.
 자동 착과·pre-onset/실제 초기 계수는 hold이며 전체 작기 처리/수확 변환을 이어간다.
 국내 독립 농장 자료 확보를 개발 선행으로 잠그지 않는다. 실제 품종/forcing/초기/관리 채택,
 생과·자원/경제·미래 추천 게시의 근거·G0–G4는 유지한다. 외부 작기/계량 자료가 0건인 현재
