@@ -1,6 +1,8 @@
 # 시작 유보 모델의 농장 결합 연구 저장 — v3
 
-상태: **다음 저장 계약; schema/role·custody·API/새 3D 미수용**.
+상태: **schema/role/config 구획 로컬 수용**, 2026-10-05 KST.
+[실제 SCRAM·분할 184개 검증](../research/crop-startup-storage-schema-implementation.md)을 확인한다.
+custody·API/새 3D는 미수용이다.
 선행: [새 immutable artifact/reader 수용](../research/crop-startup-artifact-implementation.md).
 기존 [v1](crop-result-v1.md)/[v2](crop-result-v2.md)와 G0–G4를 보존한다.
 이 개발 CLI `gpt-6.1-sol / xhigh`에서 설계 판단하며 재귀 CLI는 실행하지 않는다.
@@ -12,12 +14,12 @@
 새 `crop_startup_research_results` 표와 기본 false의 명시적
 `crop_startup_result_storage` 로그인 flag를 둔다. 기존 기록·권한은 자동 갱신하지 않는다.
 
-1. **다음 한 단계 — schema/role:** `backend/app/crop_startup_result_store.py`의 실제 installer,
+1. **수용된 schema/role:** `backend/app/crop_startup_result_store.py`의 실제 installer,
    `backend/app/runtime_roles.py`, `backend/app/operator_config.py`와 기존
    `backend/tests/login_database.py`, `backend/tests/test_runtime_roles.py`,
    `backend/tests/test_operator_config.py`에 한정한다. 표/불변 trigger·제약·명시 grant와
    기본 false/누락 필드 호환을 실제 SCRAM으로 검증한다. 아직 custody 수용은 아니다.
-2. **후속 custody:** 같은 새 store 모듈의 실제 `StartupCropResultStore`와
+2. **다음 한 단계 — custody:** 같은 새 store 모듈의 실제 `StartupCropResultStore`와
    `backend/tests/test_crop_startup_result_store.py`를 연결한다. 아래의 계산/권리/HMAC·
    원자성/재시작/읽기를 실제 SCRAM으로 검증한 뒤에만 저장 작업을 체크한다.
 
@@ -91,6 +93,9 @@ HMAC·행/packet/현재 코드/권리·artifact reader를 대사한다. 적분�
 잠정 **2–4 집중시간**을 둔다: schema/role/config 0.5–1시간, custody 1–1.5시간,
 독립 재시작/철회·회귀/정리/보고 0.5–1.5시간. 하루4시간 기준 목표는
 **10월5–6일 KST**이며 실제 실패·CI/자료 상태로 수정한다. hosted 대기 시간은 별도다.
+schema는 10월5일 KST에 새20개/기존 포함184개 고유 분할·실제 SCRAM/정리로 수용했다.
+다음 custody는 계산/권리·packet, 원자성/철회·재시작/회귀, 정리/보고로
+잠정 **1.5–2.5 집중시간/10월5–6일 KST**를 둔다. 표의 수용만으로 저장 부모를 체크하지 않는다.
 국내 독립 자료 0건·actual forcing/Run 0개, cultivar/초기/자동 S/W1/RGR·pre-onset·
 전체 작기/생과 환산의 외부 의존성과 G0–G4 holds는 유지한다. 자료 확보는 개발과 병행한다.
 예측/추천 완료 날짜를 이 소프트웨어 저장 추정으로 대신하지 않는다.

@@ -34,11 +34,13 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 [새 불변 artifact/reader](../research/crop-startup-artifact-implementation.md)도
 79개 새/799개 집중·6프로그램/23시점의 기존 적분 결과와 동일·별도 Python/재적분 없는 읽기로 수용했다.
 24시간/512출력 파일은 3,519,579 bytes·읽기/검증0.286초/과정 최대93.01 MiB다.
-다음 한 단계는 [새 저장 v3](../contracts/crop-result-v3.md)의 표/명시 role·기본 false/config 호환이다.
-실제 SCRAM의 불변/외래키/bytes 제약·authority SELECT/INSERT만 허용·다른 role/수정/과다 grant
-거부와 기존 역할/config 회귀·정리를 검증한다. 그 뒤 현재 권리/HMAC·원자성/동일 bytes/
-재시작 custody를 별도 구획으로 수용하고 조회 페이지/API·동일 UTC 3D를 각각 검증한다.
-저장 전체 잠정2–4시간/하루4시간 기준10월5–6일 KST며 hosted 대기는 별도다.
+[새 저장 v3의 schema/role/config](../research/crop-startup-storage-schema-implementation.md)도
+새20개/184개 고유 분할·실제 SCRAM의17개 잘못된 행/5개 grant 변화·owner 불변 trigger·
+정리0개/25개 원 pin 보존으로 로컬 수용했다.
+다음 한 단계는 [v3 custody](../contracts/crop-result-v3.md): 새 store/test 두 파일에서 현재 farm/
+crop/범위·원천/program 권리·서버 계산 bytes/HMAC·동일/동시 재시도·원자성/철회·
+재시작/변조·재적분 없는 읽기를 실제 SCRAM으로 검증한다. 그 뒤 조회 페이지/API·동일 UTC 3D다.
+custody 잠정1.5–2.5시간/하루4시간 기준10월5–6일 KST며 hosted 대기는 별도다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.

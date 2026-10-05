@@ -280,11 +280,14 @@
   [저장 v3 계약](../contracts/crop-result-v3.md). 기존 불변 v1/v2를 보존하고 새 farm/result ID·
   현재 source/program 권리·HMAC·원자성/철회/별도 Python·재적분 없는 읽기를 실제 SCRAM으로 검증한다.
   두 구획 모두 증거가 생긴 뒤 체크한다. 전체 잠정2–4시간/10월5–6일 KST, hosted 대기는 별도다.
-  - [ ] **다음 한 단계 — schema/role/config:** 새 표 installer와 명시 기본 false flag·선택 grant,
+  - [x] **schema/role/config 로컬 수용:** 새 표 installer와 명시 기본 false flag·선택 grant,
     누락/false operator 호환·타입/과다 grant 거부, 실제 SCRAM의 외래키/bytes/판본·불변 trigger·
     authority SELECT/INSERT·다른 role/수정 거부, 기존 role/config 회귀·DB/password 정리.
-  - [ ] **후속 custody:** 새 store/test에서 원 요청과 현재 farm/crop/범위/권리·등록 참조를 묶고,
+    [실제 수용](../research/crop-startup-storage-schema-implementation.md): 새20개/184개 고유 분할·
+    실제 SCRAM/17개 잘못된 행·5개 grant 변화·owner trigger·불변 pin25개/정리0개를 확인했다.
+  - [ ] **다음 한 단계 — custody:** 새 store/test에서 원 요청과 현재 farm/crop/범위/권리·등록 참조를 묶고,
     builder 계산/hold·HMAC/변조/혼합 거부·동일/동시 재시도/rollback·별도 프로세스 읽기를 검증한다.
+    잠정1.5–2.5시간/10월5–6일 KST며 API/새 3D와 별도다.
 - [ ] **`crop-startup-replay-link`** — 선행: 새 짧은 적분/manifest·artifact·새 저장 v3와 판본별 조회 계약.
   기존 불변 저장·현재 권리/조회·동일 UTC 3D에 새 모델을 명시적으로 연결한다.
   판본 혼합·권리 철회·취소/hold·원 수치/mesh/단위 대사와 실제 SCRAM/TLS/브라우저·정리를
