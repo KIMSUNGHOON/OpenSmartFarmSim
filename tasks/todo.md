@@ -277,7 +277,9 @@
         세 자식 수용 후 API parent만 체크하며 client/3D parent는 그대로 열어 둔다.
         [진행 증거](../research/crop-cycle-api-runtime-progress-20261006.md): 순수47개·기존 옵션3개 통과.
         최초 실제 TLS1실패는 live grant 운영 오류503/시험 기대422 불일치이며 정리를 확인했다.
-        계약을 대조해 시험 기대를 수정했고 전체 짧은 TLS 재실행 중이다. 긴25시간 HTTP 예산은 미측정이다.
+        계약을 대조해 시험 기대를 수정했고 [짧은 TLS](../research/artifacts/crop-cycle-api-runtime-short-reference-20261006.json)는
+        1개/559.86초·21응답/최대27.871882초/18,718bytes와 재기동/철회/변조·정리를 통과했다.
+        원3시점/사건0개이므로 nonempty event 및 긴25시간 HTTP 예산을 다음 실제 검증으로 남긴다.
     - [ ] **`web-crop-cycle-pages`** — 선행: cycle API 수용. 새 판본 decoder/순차 페이지와 선택 UTC를
       3–5파일로 연결한다. 수용: 기록된 실제 TLS 응답의 원량/순서·혼합 ID/판본/hash·오래된 요청/중복/
       부분/권리 철회·hold 거부/보존, focused unit/typecheck/build. 기존 short decoder는 보존한다.

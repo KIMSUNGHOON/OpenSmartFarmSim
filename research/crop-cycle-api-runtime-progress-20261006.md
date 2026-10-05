@@ -16,8 +16,14 @@ extra worker SELECT grant의 live audit가 `RolePolicyHold`를 발생시켰고, 
 실패 실행의 runner wall496.476776초, child peak RSS152.292969MiB였으며 역할·schema·
 test password·owned server0, PostgreSQL 중지와 private cluster/admin password 삭제를 확인했다.
 실패 이후 아직 실행하지 못한 file/DB 변조·두 번째 기동·마지막 row/FD 검증을 통과로 보고하지 않는다.
-수정된 전체 짧은 통합 시험을 별도 임시 PostgreSQL/nice10에서 다시 실행 중이며,
-새 성공/실패 영수증을 만든다. 기존 실패 증거를 덮어쓰지 않는다.
+수정된 전체 짧은 통합 시험은 별도 임시 PostgreSQL/nice10에서 **1통과/559.86초**였다.
+[새 영수증](artifacts/crop-cycle-api-runtime-short-reference-20261006.json)에 실제21응답·
+최대27.871882초/18,718bytes·120걸음/원3시점/사건0개·정상/빈 hold와 서버2회 종료를 고정했다.
+file/DB HMAC 변조·현재 입력/source 철회·DTO 뒤 철회·live grant drift·재기동을 검증했다.
+child peak157.035156MiB, custody FD/역할/schema/test password/server0와 임시 PG 삭제를 확인했다.
+순수47개/기존 옵션3개와 합쳐 고유51개 분할이며 단일51 GREEN은 아니다.
+원 사건0개인 짧은 시험이므로 실제 nonempty event 페이지는 다음 긴 결과에서 검증한다.
+기존 실패 증거를 덮어쓰지 않았다.
 
 짧은 통합 시험 통과 뒤에도 실제 등록25시간 결과의 전체 HTTP30초/2MiB 예산은 별도로
 측정해야 한다. 그 수용 뒤 client → 같은 ID/UTC 성장 연구3D → 작기 부하 → 근거 있는

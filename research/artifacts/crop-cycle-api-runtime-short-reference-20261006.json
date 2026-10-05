@@ -1,0 +1,82 @@
+{
+  "evidence_version": "crop-cycle-api-runtime-short-reference-v1",
+  "recorded_at_utc": "2026-10-05T23:47:52.868848+00:00",
+  "snapshot_commit": "42523ec8b4c7966e6be592811ac7b8717635aa2f",
+  "scope": "Actual short SCRAM/Bearer/TLS factory and saved cycle-result integration. Long25h HTTP budget/runtime child/API parent remain unaccepted.",
+  "source_sha256": {
+    "backend/app/api_runtime.py": "d321de38cc241992cbdbaf703fda2d0bcf6c619f55cb233e557066804135ed83",
+    "backend/tests/test_api_crop_cycle_runtime.py": "b6e26d186a0f7f127b2efc4f4855686023bc5004eee403b94758c0fb18ef7c64",
+    "backend/tests/test_api_crop_cycle_tls.py": "8792e173bbf502152d80878486f1f2a38676db54417be7d00fc7ad9991cb9cde"
+  },
+  "cli": {
+    "timestamp": "2026-10-05T23:09:43.527Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "turn_context_line_sha256": "a980a103ab9c728f1c722c9656ec02fe10f5ed9f5eaa5a0d9aa235f486aa97ea",
+    "scope": "development_cycle_api_projection_acceptance_and_route_design",
+    "recursive_cli_invocations": 0
+  },
+  "verification": {
+    "pure_route_and_runtime": {
+      "passed": 47,
+      "seconds": 8.11,
+      "new_runtime": 6,
+      "prior_route": 41
+    },
+    "legacy_options_unique": 3,
+    "native": {
+      "passed": 1,
+      "seconds": 559.86,
+      "log_sha256": "f68e07fc36c1956125a3f869d40abff4d44a5a26f8229b967f3b31dde02c548c"
+    },
+    "single_all51_run": false,
+    "unique_focused_total": 51
+  },
+  "actual_tls": {
+    "responses": 21,
+    "max_response_seconds": 27.871881959028542,
+    "max_response_bytes": 18718,
+    "original_samples": 3,
+    "original_events": 0,
+    "steps": 120,
+    "server_restarts": 1,
+    "servers_joined": 2,
+    "custody_fds_after": 0,
+    "research_rows": 2,
+    "actual_crop_runs": 0,
+    "rhs_during_https": 0,
+    "own_raw_response_file_sha256": "06a5bfa24621d5fc30f873cc9f261c79d4984732202dc8514c926cfe1b29245d"
+  },
+  "native_cleanup": {
+    "scope": "synthetic_cycle_api_runtime_tls_software_only",
+    "started_at": "2026-10-05T23:38:07.350827+00:00",
+    "postgres_version": "postgres (PostgreSQL) 16.15",
+    "new_dependencies": 0,
+    "servers_started": 1,
+    "pytest_arguments": [
+      "tests/test_api_crop_cycle_tls.py"
+    ],
+    "effective_nice": 10,
+    "exit_code": 0,
+    "wall_seconds": 560.3704108069651,
+    "remaining_test_roles": 0,
+    "remaining_test_schemas": 0,
+    "remaining_test_password_files": 0,
+    "postgres_stopped": true,
+    "postgres_status_exit_code": 3,
+    "private_cluster_and_admin_password_files_removed": true,
+    "owned_servers_after": 0,
+    "peak_children_rss_mib": 157.03515625
+  },
+  "prior_failed_native": "research/artifacts/crop-cycle-api-runtime-tls-hold-20261006.json",
+  "actual25h_http_budget_accepted": false,
+  "remaining": [
+    "genuine registered25h full HTTP30sec/2MiB",
+    "runtime/API parent acceptance",
+    "client and same-ID UTC3D",
+    "whole-cycle burden",
+    "actual cultivar/forcing/initial/management and independent domestic datasets",
+    "fresh kg/resources/economics and G0-G4"
+  ],
+  "gates": "not_assessed"
+}
