@@ -1,6 +1,10 @@
 # 긴 합성 작기 입력의 불변 분할 reader — v1
 
-상태: 구현/검증 중, 2026-10-05 KST. 선행은 [실제 짧은 continuation](crop-cycle-continuation-v1.md),
+상태: **불변 분할 입력/원 clock·grid reader의 로컬 수용**, 2026-10-05 KST.
+[집중64개·48,000구간/별도 Python 검증](../research/crop-cycle-input-stream-implementation.md),
+[큰 입력/독립 대사](../research/artifacts/crop-cycle-input-stream-reference-20261005.json),
+[실제 CLI/현재 파일·초안·검토](../research/artifacts/crop-cycle-input-stream-implementation-reference-20261005.json).
+선행은 [실제 짧은 continuation](crop-cycle-continuation-v1.md),
 상위 의미는 [작기 실행 계약](crop-cycle-execution-v1.md)이다. 현재 실제 CLI `gpt-6.1-sol / xhigh`로
 설계한다. 입력 reader 수용은 긴 실제 RHS/농장 작기나 G0–G4 수용이 아니다.
 

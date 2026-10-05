@@ -155,7 +155,9 @@ typecheck/build·기록 TLS 원값 대사로 로컬 수용했다.
 30분할 grouping·2,783float64/정확한 clock 반례로 로컬 수용했다. 실제 재시작은 아래 별도 구현에서 검증했다.
 [순수 실제 RHS continuation](../research/crop-cycle-continuation-implementation.md)도157개·30실제 분할과
 별도 Python6개/726float64·원 상태/누적/clock·사건/hold 대사로 로컬 수용했다.
-다음은 bounded 원 입력 reader → 긴 실제 RHS 연결 → 불변 결과·같은 UTC → 작기 부하 → 생과 환산이다.
+[불변 분할 원 입력 reader](../research/crop-cycle-input-stream-implementation.md)도64개·48,000자작 합성 구간/
+48,003경계·독립 clock/grid·별도 Python 복원·30.23MiB/정리로 로컬 수용했다. 실제 RHS는 실행하지 않았다.
+다음은 긴 실제 RHS 연결 → 불변 결과·같은 UTC → 작기 부하 → 생과 환산이다.
 새 API/화면 원격 수용과 pixel fidelity·실제 품종은 별도다.
 실제 전체 작기 처리는 별도다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야

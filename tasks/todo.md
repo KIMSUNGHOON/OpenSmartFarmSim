@@ -171,13 +171,19 @@
     [실제 수용](../research/crop-cycle-continuation-implementation.md): 새101개/기존56개·총157개/70.91초,
     6프로그램×5예산30실제 분할/JSON 복원, 별도 Python6개/726float64·원 상태/16누적/clock·사건/hold와
     UTF-8/root 회귀 수정·정리. 1일/128 forcing·512 output·10,000 step을 그대로 유지한다.
-  - [ ] **`crop-cycle-input-stream`** — 다음 한 단계; 선행: continuation 수용; bounded root/forcing·계산 anchor/event와
+  - [x] **`crop-cycle-input-stream`** — 불변 분할 입력/원 clock·grid reader의 로컬 수용; 선행: continuation 수용; bounded root/forcing·계산 anchor/event와
     hash/index/cursor·정확한 clock의 분할 provider/검증을3–5파일 계약으로 구체화한다. 실제 source 형태 규모의
     자작 합성 입력·연속성/원량·권리/QC 거부·큰 입력·메모리·재시작을 확인한다. 실제 archive 채택은 별도다.
-  - [ ] **`crop-cycle-stream-execution`** — 선행: input stream/continuation 수용. bounded reader와 실제 RHS·전역
+    [실제 수용](../research/crop-cycle-input-stream-implementation.md):64개/3.63초·48,000자작 합성 구간/
+    48,003경계·독립 clock/grid·별도 Python 복원·전체79.848초/30.23MiB·113,276,558bytes/tempfile·FD 정리.
+    예정1,440,002RK4걸음은 계획 산술이며 실제 RHS는 미실행이다. 실제 archive/농장/품종 입력은 미채택이다.
+  - [ ] **`crop-cycle-stream-execution`** — 다음 한 단계; 선행: input stream/continuation 수용. bounded reader와 실제 RHS·전역
     grid/seed/clock/counters·phase를 새 긴 실행 판본에서 연결한다. 실제 긴 합성 프로그램·분할/별도 Python
     복원·수지/사건/hold·입력 불변/전역 budget·WSL 자원/정리를 검증한다. 현재 짧은 v1 한도/hash는 보존한다.
     reader 수용을 이 실행 수용으로 표시하지 않는다. 파일/전역 budget·기간/날짜는 source provider 실적 뒤 고정한다.
+    예상3파일: `backend/app/crop_cycle_stream_execution.py`, `backend/tests/test_crop_cycle_stream_execution.py`,
+    `contracts/crop-cycle-stream-execution-v1.md`. 원6프로그램과 실제1일/10,000step 초과 합성 프로그램의
+    RHS/전역 수지·JSON/별도 Python 복원·hold/확인 과거/원 grid를 검증한다. 큰 clock-only 입력을 crop 실행으로 사용하지 않는다.
   - [ ] **`crop-cycle-result-pages`** — 선행: 실제 stream 실행 수용. 불변 파일/reader → farm/current rights
     custody/API → 같은 UTC 3D를 각각3–5파일 작업으로 먼저 분해한다. 원 출력/sequence·chain/변조/atomic·
     재시작/GET 재적분 없음·실제 SCRAM/TLS/browser·페이지30초/정리 뒤 체크한다.

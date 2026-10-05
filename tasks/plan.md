@@ -60,18 +60,20 @@ chunk 경계로 새로운 RK4 격자를 만들지 않는 정책·독립 경계 �
 계약 대사는G0–G4 수용이 아니다. 이후 [실제 순수 continuation](../research/crop-cycle-continuation-implementation.md)도
 157개·30실제 분할과 별도 Python6개/726float64·원121벡터/seed/누적/clock·global counters·
 phase/원 격자·사건/output/hold로10월5일 KST 로컬 완료했다. 기존4–6시간 예상은 이 수용으로 대체한다.
-다음은 `crop-cycle-input-stream`: bounded immutable root/forcing·anchor/event reader의 원 hash/index·
-UTC/단위/연속성·exact clock/cursor·큰 자작 source 형태·메모리/복원·변조/권리/QC 거부를 확인한다.
-root/provider2–3시간, 독립 격자/clock·큰 입력/복원/실패 검증·보고2–3시간의4–6 집중시간,
-하루4시간/CI 대기 제외 기준10월5–7일 KST 잠정이다.
-이어서 `crop-cycle-stream-execution`에서 reader를 실제 RHS/전역 continuation에 연결하는 별도 판본을
-수용한다. 현재 짧은 v1의 한도를 올려 긴 실행을 만들지 않는다. reader 수용은 그 실행의 수용이 아니다.
+[불변 입력 reader](../research/crop-cycle-input-stream-implementation.md)도64개·48,000자작 합성 구간/48,003경계·
+독립 clock/grid·별도 Python 복원·최대30.23MiB/정리로10월5일 KST 로컬 완료했다.
+예정1,440,002걸음의 산술을 실제 RHS 실행으로 표시하지 않는다. 기존4–6시간 예상은 이 수용으로 대체한다.
+다음 `crop-cycle-stream-execution`에서 reader를 실제 RHS/전역 continuation에 연결하는 별도 판본을
+수용한다. kernel/reader 연결2–3시간, global checkpoint/위치·budget/phase3–4시간,
+6프로그램/긴 합성·hold·별도 Python/검토·보고2–3시간의7–10 집중시간,
+하루4시간/CI 대기 제외 기준10월5–8일 KST 잠정이다.
+현재 짧은 v1/reader의 한도와 hash를 보존한다. reader 수용은 그 실제 실행의 수용이 아니다.
 긴 실행/저장·전체 작기/생과 날짜는 provider 실적·실제 입력 확보 뒤 추정한다.
 [착수 코드 감사](../research/crop-cycle-execution-inspection-20261005.md)는 기관 단독v1의20,000 배열/
 100만 step과 현재 기관·과실/startup의128 forcing/128 event·512 output·10,000 step·1일을 구분한다.
 현재 output 시각도 RK4 경계에 들어가므로, 화면 출력 선택을 바꾸어 계산 격자를 바꾸지 않도록
 새 계약에서 고정 계산 경계와 저장/표시 선택을 분리한다. 계약/원 격자 대사는 로컬 수용했고
-새 짧은 driver/실제 모델 재시작도 로컬 수용했고 긴 입력·작기 부하는 미수용이다.
+새 짧은 driver/실제 모델 재시작과 긴 입력 reader도 로컬 수용했고 긴 실제 RHS·작기 부하는 미수용이다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
@@ -375,8 +377,8 @@ image/TLS·UID/읽기 전용/정리는 `d76410f`의 실제 hosted 전체 성공�
 | startup 성장 연구 3D | **2026-10-05 KST 로컬 완료** | 웹383개·Chromium31개·실제 경로1개·1,500 C/N mesh·16누적/4진단·권리/정리; 새 hosted/pixel fidelity·품종 미수용 |
 | 전체 작기 실행 계약/작업 분해 | **2026-10-05 KST 로컬 완료** | 원 solver6프로그램/630걸음·30분할 grouping·2,783float64·추가 경계/정확한 clock 반례·후속 검증표; 실제 driver/작기 미수용 |
 | 순수 cycle continuation | **2026-10-05 KST 로컬 완료** | 157개·30실제 분할/JSON 복원·별도 Python6개/726float64·원 수지/사건/hold; 긴 실행/실제 품종 미수용 |
-| bounded cycle 입력 reader | **4–6 집중시간/2026-10-05–07 KST 잠정** | root/provider2–3시간+독립 격자/clock·큰 자작 입력/복원/실패 검증·보고2–3시간; 하루4시간/CI 대기 제외. 실제 RHS 연결은 별도 단계 |
-| 긴 cycle RHS 실행 연결 | **reader 수용/구체적 budget 뒤 추정** | 불변 root/provider와 전역 상태/clock/counters·원 격자·실제 RHS 분할/복원·별도 새 판본; source reader 시험만으로 체크하지 않음 |
+| bounded cycle 입력 reader | **2026-10-05 KST 로컬 완료** | 64개·48,000자작 합성 구간/48,003경계·독립 clock/grid·별도 Python 복원/정리·30.23MiB; 실제 RHS 미실행 |
+| 긴 cycle RHS 실행 연결 | **7–10 집중시간/2026-10-05–08 KST 잠정** | kernel/reader 연결2–3시간+global checkpoint/위치·budget/phase3–4시간+6프로그램/긴 합성·hold·별도 Python/검토·보고2–3시간; 하루4시간/CI 대기 제외. reader 시험만으로 체크하지 않음 |
 | 전체 작기 처리 구현/부하 | **위 계약/분해 뒤 추정** | 순수 연속 실행 → 저장/출력/페이지 → 실제 작기 부하/재현; 실제 입력 채택과 품종 검증은 별도 |
 | 과실 발달 구획 계산 | **문헌식/관리 계약 뒤 추정** | 독립 참조와 개수/기관 질량·사건 수지; 품종 적용성 미검증 유지 |
 | 생과 수확·자원·경제 | **각 변환/계량 근거 뒤 추정** | 수확/등급·물/성분·구매 에너지·동일 배치 Decimal 대사 |
@@ -869,9 +871,11 @@ Chromium31개·실제 SCRAM/TLS/WebGL1개·고유12시점/1,500 C/N mesh·정리
 원6프로그램/630걸음·30분할/2,783float64·추가 경계/clock 반례와 검토로10월5일 KST 로컬 완료했다.
 [실제 continuation](../research/crop-cycle-continuation-implementation.md)도157개·30실제 분할/JSON 복원·
 별도 Python6개/726float64·사건/hold·검토로10월5일 KST 로컬 완료했다.
-다음 bounded root/input reader는 provider2–3시간+큰 형태/독립 clock·복원/실패·보고2–3시간의
-4–6 집중시간, 하루4시간/CI 대기 제외 기준10월5–7일 KST 잠정이다.
-그다음 실제 RHS와 reader의 긴 실행 연결을 별도 수용한다. 저장과 작기 부하 날짜는 provider 실적 뒤 추정한다.
+[bounded root/input reader](../research/crop-cycle-input-stream-implementation.md)도64개·48,000자작 합성 구간/
+48,003경계·독립 clock/grid·별도 Python 복원/정리로10월5일 KST 로컬 완료했다.
+다음 실제 RHS와 reader의 긴 실행 연결은 연결2–3시간+global checkpoint/위치·budget/phase3–4시간+
+6프로그램/긴 합성·hold·별도 Python/검토·보고2–3시간의7–10 집중시간,
+하루4시간/CI 대기 제외 기준10월5–8일 KST 잠정이다. 저장과 작기 부하 날짜는 실제 연결 실적 뒤 추정한다.
 전체 작기·생과/자원/경제는 후속이다.
 자동 착과·pre-onset/실제 초기 계수는 hold이며 전체 작기 처리/수확 변환을 이어간다.
 국내 독립 농장 자료 확보를 개발 선행으로 잠그지 않는다. 실제 품종/forcing/초기/관리 채택,

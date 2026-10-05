@@ -68,7 +68,7 @@
 웹383개·Chromium31개·실제 SCRAM/TLS/WebGL1개·12완료 시점/1,500 C/N mesh·정리로 로컬 수용했습니다.
 [새 저장 모델의 화면](research/artifacts/startup-crop-desktop.png)을 확인할 수 있습니다.
 빈 초기/제거 후 재유입의 원값과 명시적 로그 비교 3D를 연결합니다. 전체 작기 실행 계약은 수용했고
-다음은 연속 상태/저장·출력/부하 검증 → 생과 환산입니다. 실제 품종/생산 예측과 새 hosted/pixel fidelity는 별도입니다.
+다음은 긴 실제 실행/저장·출력/부하 검증 → 생과 환산입니다. 실제 품종/생산 예측과 새 hosted/pixel fidelity는 별도입니다.
 자동 착과·생식기 이전/실제 초기 품종 계수는 보류입니다.
 `e70a7f2`의 [최종 CI](research/artifacts/crop-coupled-api-web-ci-hold-20261005.json)는
 기존 assessment HTTPS 30초 시간 초과 1개로 Backend 미수용이며 나머지 네 workflow는 성공했습니다.
@@ -87,7 +87,9 @@
 30분할·2,783개 float64 round-trip과 chunk/clock 반례로 로컬 수용했습니다. 이어 원 상태/누적량을
 실제 RHS로 중단·복원하는 [순수 continuation](research/crop-cycle-continuation-implementation.md)도
 157개·30실제 분할/JSON 복원과 별도 Python6개·726float64 대사로 로컬 수용했습니다.
-다음은 bounded 원 입력 reader → 긴 입력의 실제 RHS 실행 연결 → 불변 결과/같은 UTC → 작기 부하입니다.
+[bounded 원 입력 reader](research/crop-cycle-input-stream-implementation.md)도64개·48,000자작 합성 구간/
+48,003경계·독립 clock/grid·별도 Python 복원/정리로 로컬 수용했습니다.
+다음은 긴 입력의 실제 RHS 실행 연결 → 불변 결과/같은 UTC → 작기 부하입니다.
 짧은 실행 수용을 전체 작기 검증으로 표시하지 않습니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
