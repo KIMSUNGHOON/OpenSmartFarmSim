@@ -80,8 +80,11 @@ hold·263.879초/parent45.44MiB·정리로10월5일 KST 로컬 완료했다.
 실제 farm/현재 권리·bounded input/root와 서버 계산/서명·DB 게시를 각3–5파일 자식으로 연결한다.
 기존 farm 검사의 inline segment 의존성과 파일 SHA만으로 계산 출처를 인증할 수 없는 근거로
 [농장/root 결합](../contracts/crop-cycle-farm-binding-v1.md) → 실제 서버 writer/서명된 progress → DB HMAC/atomic 게시로 나눈다.
-첫 결합2–3시간+서버 실행/진행3–5시간+DB custody2–3시간의7–11집중시간,
-하루4시간/CI·자료 대기 제외10월5–8일 KST 잠정이다. 기존 단일5–8시간은 이 실제 의존성 분해로 갱신한다.
+첫 [농장/root 결합](../research/crop-cycle-farm-binding-implementation.md)은 고유54개 분할·실제 SCRAM/
+현재 권리·입력 변경/Unicode 수정·별도 Python/정리와 원44개 hash 보존으로10월5일 로컬 수용했다.
+예정120step의 preflight이며 실제 RHS/row/Run0개다. 기존 첫2–3시간 예상은 이 실적으로 대체한다.
+다음 서버 실행/진행3–5시간+DB custody2–3시간은 남은5–8집중시간,
+하루4시간/CI·자료 대기 제외10월5–8일 KST 잠정이다.
 저장 custody/API/client/3D·166일 실제 부하·생과 날짜는 해당 구현 실적/실제 입력 확보 뒤 갱신한다.
 [착수 코드 감사](../research/crop-cycle-execution-inspection-20261005.md)는 기관 단독v1의20,000 배열/
 100만 step과 현재 기관·과실/startup의128 forcing/128 event·512 output·10,000 step·1일을 구분한다.

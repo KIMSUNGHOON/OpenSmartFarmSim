@@ -104,7 +104,9 @@ API/client/3D까지의 `1555610`도 [CI5개/백엔드3,456개·별도UID4개](re
 실제 네 SCRAM/선택 SELECT·INSERT·일곱 권한 drift·기존 v3/기본 false·정리로10월5일 로컬 수용했습니다.
 다음 현재 권리 저장은 [농장/input root 결합](contracts/crop-cycle-farm-binding-v1.md) →
 [실제 서버 계산/서명된 progress](contracts/crop-cycle-server-custody-v1.md) → DB 게시로 나눕니다.
-첫3파일 결합은 구현 중이며 각각2–3/3–5/2–3집중시간, 합7–11시간/10월5–8일 KST 잠정입니다.
+첫3파일 [농장/root 결합](research/crop-cycle-farm-binding-implementation.md)은 고유54개 분할 검증·
+실제 SCRAM/현재 권리·입력 변경/Unicode 수정·별도 Python/정리로10월5일 로컬 수용했습니다.
+남은 서버 실행/서명3–5시간+DB custody2–3시간은5–8집중시간/10월5–8일 KST 잠정입니다.
 세 자식의 실제 수용 뒤 API/client → 같은 UTC3D → 작기 부하로 진행합니다.
 짧은 실행 수용을 전체 작기 검증으로 표시하지 않습니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.

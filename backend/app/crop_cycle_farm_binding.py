@@ -87,7 +87,7 @@ class CycleFarmBinding:
         root=reader.manifest
         _need(reader.root_sha256==request['input']['root_sha256']
             and root['program_id']==request['input']['program_id'] and root['version']==inputs.VERSION
-            and _canonical(root)==reader._raw and reader._root==root
+            and inputs._canonical(root)==reader._raw and reader._root==root
             and sha256(inputs._read(reader._fd,'root.json',inputs.MAX_ROOT_BYTES)).hexdigest()==reader.root_sha256)
         reader._validate_root(inputs._profiles(**self._profiles()))
         reader._cache.clear();reader._seen.clear();reader._referenced_bytes=len(reader._raw)

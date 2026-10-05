@@ -20,7 +20,8 @@ farm/input root ID다. 서버가 검증한 원 입력을 실제 frozen writer로
 3–5파일의 새 server custody module/test/이 계약으로 구현한다.
 신뢰 constructor는 CycleFarmBinding, private root,32byte 이상 별도 integrity key,
 root 전용 input resolver를 고정한다. tenant/study/revision에 domain을 넣어 private intent 경로를 만든다.
-절대 POSIX 경로의 모든 parent/leaf·owner·0700·ACL·regular file/단일 link·NOFOLLOW를 검사하며
+절대 POSIX 경로의 모든 parent/leaf를 NOFOLLOW로 열고 private root/intent의 owner·0700·ACL,
+private 파일의 regular type/단일 link·정확한 mode를 검사하며
 request filesystem path나 원본/비밀을 공개 응답으로 넘기지 않는다.
 resolver의 명시 판본/identity·원 입력 root/profiles/code/env/고지와 farm/source/input 권리를 대사한다.
 OS UID/키 소유권의 독립 운영 검증과 G4는 이번 로컬 계약에 포함하지 않는다.

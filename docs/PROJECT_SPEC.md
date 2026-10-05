@@ -169,7 +169,9 @@ typecheck/build·기록 TLS 원값 대사로 로컬 수용했다.
 실제 네 SCRAM/선택 권한·일곱 drift·기존 v3/기본 false·정리로 로컬 수용했다.
 현재 권리 저장은 [농장/input root 결합](../contracts/crop-cycle-farm-binding-v1.md) →
 [실제 서버 계산/서명된 progress](../contracts/crop-cycle-server-custody-v1.md) → DB 게시로 분해한다.
-첫 결합은 구현 중이며 부모 수용은 세 자식의 실제 증거 뒤다. 그다음 API/client → 같은 UTC3D →
+첫 [농장/root 결합](../research/crop-cycle-farm-binding-implementation.md)은 고유54개 분할·실제 SCRAM/
+현재 권리·중간 입력 변경·별도 Python/정리로10월5일 로컬 수용했다.
+부모 수용은 남은 서버 실행/서명·DB 게시의 실제 증거 뒤다. 그다음 API/client → 같은 UTC3D →
 작기 부하 → 생과 환산을 [todo](../tasks/todo.md)의 작은 자식 순서로 진행한다. 각3–5파일 작업/검증은 [todo](../tasks/todo.md)를 따른다.
 startup API/client/3D까지 `1555610`의 [CI5개/백엔드3,456개·UID4개](../research/artifacts/crop-startup-replay-ci-20261005.json),
 동일 목록/정리·집계도 수용했다. 후속 `fe41e22`도

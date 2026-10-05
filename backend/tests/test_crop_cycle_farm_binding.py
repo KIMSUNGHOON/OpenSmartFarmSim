@@ -5,6 +5,7 @@ import json
 import multiprocessing
 import os
 from pathlib import Path
+from time import perf_counter
 
 from psycopg import sql
 import pytest
@@ -76,7 +77,8 @@ def counts(service):
 
 
 def test_actual_scram_registered_crop_and_input_binding_current_read_without_rows(binding_setup):
-    service,body,reader,_,rights,_=binding_setup;before=counts(service);raw=prepare(binding_setup)
+    service,body,reader,_,rights,_=binding_setup;before=counts(service)
+    started=perf_counter();raw=prepare(binding_setup);prepare_seconds=perf_counter()-started
     value=json.loads(raw);assert _canonical(value)==raw and len(raw)<=MAX_BINDING_BYTES
     assert value['version']=='crop-cycle-farm-binding-v1' and value['scope']=='synthetic_crop_math_only'
     assert value['tenant_id']=='tenant-1' and value['request']==body
@@ -89,12 +91,20 @@ def test_actual_scram_registered_crop_and_input_binding_current_read_without_row
     assert value['registration']['floor_area']['unit']=='m²' and value['registration']['zone_id']
     assert [c[-1] for c in rights.calls]==['research_calculation','research_display']
     rights.calls.clear()
+    started=perf_counter()
     assert service.current('tenant-1',_canonical(body),reader,raw)==raw
+    current_seconds=perf_counter()-started
     assert [c[-1] for c in rights.calls]==['research_display']
     assert counts(service)==before and before[2:]==(0,0)
     with service.jobs.connect() as conn:
         assert conn.pgconn.used_password and conn.info.get_parameters()['require_auth']=='scram-sha-256'
         audit_runtime_roles(conn,service.jobs.runtime_identity[0])
+    Path('/tmp/ossf-cycle-binding-reference-20261005.json').write_text(json.dumps({
+        'scope':'synthetic_farm_input_binding_only','actual_scram':True,'binding_bytes':len(raw),
+        'binding_sha256':sha256(raw).hexdigest(),'input_root_sha256':reader.root_sha256,
+        'prepare_seconds':prepare_seconds,'current_seconds':current_seconds,
+        'same_current_bytes':True,'counts_before_after_unchanged':before==counts(service),
+        'crop_rows_and_runs':list(before[2:]),'plan':reader.plan},indent=2)+'\n')
 
 
 @pytest.mark.parametrize('kind',['extra','missing','version','root','program','rights-version','rights-root',
@@ -247,3 +257,17 @@ def test_policy_callback_and_reader_memory_cannot_change_preflighted_input(bindi
         monkeypatch.setattr(rights.__class__,'__call__',changed)
     with pytest.raises(CycleFarmBindingHold):service.prepare('tenant-1',_canonical(body),reader)
     assert body==original_body
+
+
+def test_unicode_input_identifier_preserves_original_root_canonical_codec(login_scope,tmp_path):
+    p=shifted();p['initial_state']['input_id']='자작-초기조건'
+    anchors=p.pop('output_times');path=tmp_path/'unicode-input'
+    proof=inputs.write_input_packet(path,**p,anchors=anchors,outputs=anchors,**PROFILES,program_id='unicode-block-fixture')
+    service=object.__new__(CycleFarmBinding)
+    for key,value in PROFILES.items():setattr(service,key,value)
+    body={'input':{'root_sha256':proof['root_sha256'],'program_id':'unicode-block-fixture'}}
+    with inputs.open_input_packet(path,proof['root_sha256'],**PROFILES) as reader:
+        result=service._input(body,reader)
+        assert result['root_sha256']==proof['root_sha256']
+        assert inputs._canonical(reader.manifest)==(path/'root.json').read_bytes()
+        assert reader.manifest['initial_state']['input_id']=='자작-초기조건'

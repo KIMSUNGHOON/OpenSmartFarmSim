@@ -1,6 +1,8 @@
 # Cycle 원 입력과 현재 등록 농장의 결합 — v1
 
-상태: **구현 중**, `crop-cycle-farm-binding`, 2026-10-05 KST.
+상태: **로컬 소프트웨어 수용**, `crop-cycle-farm-binding`, 2026-10-05 KST.
+[구현/수정과 검증](../research/crop-cycle-farm-binding-implementation.md),
+[불변 영수증](../research/artifacts/crop-cycle-farm-binding-reference-20261005.json)을 확인한다.
 [제품 관문](../docs/PROJECT_SPEC.md), [농장 등록](farm-authoring-storage-v1.md),
 [원 입력 reader](crop-cycle-input-stream-v1.md), [불변 저장 schema/명시 role](crop-cycle-storage-v1.md)를 따른다.
 현재 Codex CLI `gpt-6.1-sol / xhigh`로 판단하며 같은 CLI 세션에서 재귀 실행하지 않는다.
@@ -47,7 +49,8 @@ reader 계약의 synthetic origin/256자 이하 원 block input_id 범위를 보
 rights.available_at≤farm.decision_at이며 floor 면적 단위/zone/crop/batch는 원 농장 값이다.
 관측된 profile_applicability는 `unvalidated_for_registered_crop`, normalization은 `per_m2_floor`다.
 prepare/write는 research_calculation와 research_display, read는 research_display를 현재 provider에 확인한다.
-callback 뒤 농장/source/scope를 다시 검사해 중간 철회를 검출한다.
+callback 뒤 입력 전체 preflight와 농장/source/scope를 다시 검사해 중간 변경/철회를 검출한다.
+원 root는 input reader의 canonical ASCII escape codec, 요청/binding은 UTF-8 codec을 사용한다.
 
 binding은 version/scope/tenant_id/request/registration/input/rights_policy_version/binding_code_sha256의
 닫힌 객체다. input은 root_sha256/calculation_sha256/program_id/period/plan/profile_sha256/normalization_sha256/
@@ -62,8 +65,13 @@ binding SHA는 crop 계산의 인증 서명이나 G0–G4 관문 증거가 아�
 4. rights callback 중간 철회·단계별 재접속/별도 Python 결합 일치·입력 파일 변조를 확인한다.
 5. RHS/advance/작물 row/Run0개와 원44개 hash·DB/role/schema/비밀번호/FD 정리를 확인한다.
 
-계약/기존 provider 대사0.5–1시간+module0.5–1시간+실제 SCRAM/철회/파일/재시작·정리1시간의
-**2–3집중시간**, 하루4시간/CI·자료 대기 제외 **10월5–6일 KST 잠정**이다.
+고유54개를 분할 수용했다. 최초49개는48통과/1실패였고 late-source의 잘못된 통과도 제외해
+47개만 유효하다. 실제 provider 오기/입력 변경을 수정한8개에서 중복2개를 제외하고,
+Unicode root codec 수정1개를 더했다. 단일54 GREEN/전체 backend 수용으로 표시하지 않는다.
+정상 binding3,496bytes·prepare5.560829초/current5.819576초, 동일 bytes와 별도 Python/FD 정리를 확인했다.
+원44개 hash를 보존했고 실제 RHS/row/Run0개다. 예정120step은 input preflight 산술이다.
+모든5개 native SCRAM 실행의 DB/비밀/process 정리 증거를 보존했다.
+기존 **2–3집중시간/10월5–6일 KST** 예상은 **10월5일 로컬 수용** 실적으로 대체한다.
 후속 server execution/서명된 progress는3–5시간, DB custody는2–3시간의 잠정치며
-기존 단일5–8시간을 세 자식 총7–11시간/10월5–8일 KST로 분해한다. 실제 수용 뒤 갱신한다.
+남은 두 자식은5–8집중시간/10월5–8일 KST 잠정이며 하루4시간/CI·자료 대기를 제외한다.
 실제 자료/국내 독립 측정0개·G0–G4 hold·예측/추천 게시 날짜 보류를 유지한다.
