@@ -2867,6 +2867,763 @@
         "title": "CullDisposal",
         "type": "object"
       },
+      "CycleCodeHashes": {
+        "additionalProperties": false,
+        "properties": {
+          "continuation": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Continuation",
+            "type": "string"
+          },
+          "input_stream": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Input Stream",
+            "type": "string"
+          },
+          "stream_execution": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Stream Execution",
+            "type": "string"
+          }
+        },
+        "required": [
+          "stream_execution",
+          "continuation",
+          "input_stream"
+        ],
+        "title": "CycleCodeHashes",
+        "type": "object"
+      },
+      "CycleCropManifest": {
+        "additionalProperties": false,
+        "properties": {
+          "allocation_policy_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Allocation Policy Sha256",
+            "type": "string"
+          },
+          "boundary_count": {
+            "maximum": 393216.0,
+            "minimum": 2.0,
+            "title": "Boundary Count",
+            "type": "integer"
+          },
+          "calculation_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Calculation Sha256",
+            "type": "string"
+          },
+          "code_sha256": {
+            "$ref": "#/components/schemas/CycleCodeHashes"
+          },
+          "engine_version": {
+            "const": "crop-cycle-stream-execution-research-v1",
+            "title": "Engine Version",
+            "type": "string"
+          },
+          "grid_index_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Grid Index Sha256",
+            "type": "string"
+          },
+          "grid_page_records": {
+            "const": 128,
+            "title": "Grid Page Records",
+            "type": "integer"
+          },
+          "input_root_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Input Root Sha256",
+            "type": "string"
+          },
+          "physical_code_sha256": {
+            "$ref": "#/components/schemas/StartupCodeHashes"
+          },
+          "physical_program_version": {
+            "const": "crop-plant-startup-program-v1",
+            "title": "Physical Program Version",
+            "type": "string"
+          },
+          "planned_steps": {
+            "maximum": 40000000.0,
+            "minimum": 1.0,
+            "title": "Planned Steps",
+            "type": "integer"
+          },
+          "policy_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Policy Sha256",
+            "type": "string"
+          },
+          "profile_sha256": {
+            "$ref": "#/components/schemas/CycleProfiles"
+          },
+          "python_version": {
+            "maxLength": 32,
+            "pattern": "^3\\.\\d+\\.\\d+$",
+            "title": "Python Version",
+            "type": "string"
+          },
+          "rate_model_version": {
+            "const": "explicit-entry-empty-sink-plant-rates-research-v1",
+            "title": "Rate Model Version",
+            "type": "string"
+          },
+          "scope": {
+            "const": "software_research_only",
+            "title": "Scope",
+            "type": "string"
+          },
+          "solver": {
+            "$ref": "#/components/schemas/CycleSolver"
+          },
+          "temperature_sum_method": {
+            "const": "analytic_piecewise_constant_fraction_v1",
+            "title": "Temperature Sum Method",
+            "type": "string"
+          },
+          "time_rule": {
+            "const": "UTC_POSIX_whole_seconds_v1",
+            "title": "Time Rule",
+            "type": "string"
+          }
+        },
+        "required": [
+          "engine_version",
+          "scope",
+          "physical_program_version",
+          "rate_model_version",
+          "input_root_sha256",
+          "calculation_sha256",
+          "grid_index_sha256",
+          "grid_page_records",
+          "planned_steps",
+          "boundary_count",
+          "code_sha256",
+          "physical_code_sha256",
+          "profile_sha256",
+          "policy_sha256",
+          "allocation_policy_sha256",
+          "solver",
+          "python_version",
+          "time_rule",
+          "temperature_sum_method"
+        ],
+        "title": "CycleCropManifest",
+        "type": "object"
+      },
+      "CycleCropReference": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_ref": {
+            "pattern": "^crop-cycle-artifact-v1:[0-9a-f]{64}$",
+            "title": "Artifact Ref",
+            "type": "string"
+          },
+          "artifact_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Artifact Sha256",
+            "type": "string"
+          },
+          "batch_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Batch Id",
+            "type": "string"
+          },
+          "binding_code_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Binding Code Sha256",
+            "type": "string"
+          },
+          "binding_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Binding Sha256",
+            "type": "string"
+          },
+          "calculation_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Calculation Sha256",
+            "type": "string"
+          },
+          "claim_scope": {
+            "const": "synthetic_crop_math_only",
+            "title": "Claim Scope",
+            "type": "string"
+          },
+          "commit_count": {
+            "maximum": 16384.0,
+            "minimum": 1.0,
+            "title": "Commit Count",
+            "type": "integer"
+          },
+          "context_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Context Sha256",
+            "type": "string"
+          },
+          "end_utc": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "End Utc",
+            "type": "string"
+          },
+          "event_count": {
+            "maximum": 131072.0,
+            "minimum": 0.0,
+            "title": "Event Count",
+            "type": "integer"
+          },
+          "farm_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Farm Sha256",
+            "type": "string"
+          },
+          "file_count": {
+            "maximum": 65536.0,
+            "minimum": 1.0,
+            "title": "File Count",
+            "type": "integer"
+          },
+          "floor_area": {
+            "$ref": "#/components/schemas/StartupFloorArea"
+          },
+          "gates": {
+            "const": "not_assessed",
+            "title": "Gates",
+            "type": "string"
+          },
+          "head_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Head Sha256",
+            "type": "string"
+          },
+          "header_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Header Sha256",
+            "type": "string"
+          },
+          "input_rights_version": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Input Rights Version",
+            "type": "string"
+          },
+          "input_root_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Input Root Sha256",
+            "type": "string"
+          },
+          "intent_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Intent Sha256",
+            "type": "string"
+          },
+          "normalization": {
+            "const": "per_m2_floor",
+            "title": "Normalization",
+            "type": "string"
+          },
+          "notice_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Notice Sha256",
+            "type": "string"
+          },
+          "payload_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Payload Sha256",
+            "type": "string"
+          },
+          "planned_steps": {
+            "maximum": 40000000.0,
+            "minimum": 1.0,
+            "title": "Planned Steps",
+            "type": "integer"
+          },
+          "profile_applicability": {
+            "const": "unvalidated_for_registered_crop",
+            "title": "Profile Applicability",
+            "type": "string"
+          },
+          "proof_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Proof Sha256",
+            "type": "string"
+          },
+          "resolver_version": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Resolver Version",
+            "type": "string"
+          },
+          "sample_count": {
+            "maximum": 131072.0,
+            "minimum": 0.0,
+            "title": "Sample Count",
+            "type": "integer"
+          },
+          "schema_code_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Schema Code Sha256",
+            "type": "string"
+          },
+          "scope": {
+            "const": "software_research_only",
+            "title": "Scope",
+            "type": "string"
+          },
+          "server_custody_code_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Server Custody Code Sha256",
+            "type": "string"
+          },
+          "server_dependency_sha256": {
+            "$ref": "#/components/schemas/CycleServerDependencies"
+          },
+          "source_binding_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Source Binding Sha256",
+            "type": "string"
+          },
+          "start_utc": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Start Utc",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "completed",
+              "hold"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "steps": {
+            "maximum": 40000000.0,
+            "minimum": 0.0,
+            "title": "Steps",
+            "type": "integer"
+          },
+          "storage_bytes": {
+            "maximum": 536870912.0,
+            "minimum": 1.0,
+            "title": "Storage Bytes",
+            "type": "integer"
+          },
+          "storage_code_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Storage Code Sha256",
+            "type": "string"
+          },
+          "storage_status": {
+            "const": "stored_unpublished_research",
+            "title": "Storage Status",
+            "type": "string"
+          },
+          "temporal_provenance": {
+            "const": "synthetic_research_program",
+            "title": "Temporal Provenance",
+            "type": "string"
+          },
+          "zone_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Zone Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "storage_status",
+          "claim_scope",
+          "scope",
+          "gates",
+          "temporal_provenance",
+          "batch_id",
+          "zone_id",
+          "floor_area",
+          "farm_sha256",
+          "source_binding_sha256",
+          "normalization",
+          "profile_applicability",
+          "start_utc",
+          "end_utc",
+          "artifact_ref",
+          "artifact_sha256",
+          "header_sha256",
+          "input_root_sha256",
+          "calculation_sha256",
+          "context_sha256",
+          "binding_sha256",
+          "intent_sha256",
+          "head_sha256",
+          "proof_sha256",
+          "payload_sha256",
+          "storage_code_sha256",
+          "server_custody_code_sha256",
+          "schema_code_sha256",
+          "server_dependency_sha256",
+          "binding_code_sha256",
+          "notice_sha256",
+          "input_rights_version",
+          "resolver_version",
+          "status",
+          "steps",
+          "planned_steps",
+          "sample_count",
+          "event_count",
+          "commit_count",
+          "storage_bytes",
+          "file_count"
+        ],
+        "title": "CycleCropReference",
+        "type": "object"
+      },
+      "CycleCropReplay": {
+        "additionalProperties": false,
+        "properties": {
+          "farm": {
+            "$ref": "#/components/schemas/CropResearchFarm"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "discriminator": {
+                  "mapping": {
+                    "events": "#/components/schemas/CycleEventPage",
+                    "samples": "#/components/schemas/CycleSamplePage"
+                  },
+                  "propertyName": "kind"
+                },
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CycleSamplePage"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CycleEventPage"
+                  }
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "reference": {
+            "$ref": "#/components/schemas/CycleCropReference"
+          },
+          "result_id": {
+            "pattern": "^crop-cycle-result-v1:[0-9a-f]{64}$",
+            "title": "Result Id",
+            "type": "string"
+          },
+          "revision": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Revision",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "crop-cycle-replay-v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "study_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Study Id",
+            "type": "string"
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CycleCropSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "schema_version",
+          "result_id",
+          "recorded_at",
+          "study_id",
+          "revision",
+          "farm",
+          "reference",
+          "summary",
+          "page"
+        ],
+        "title": "CycleCropReplay",
+        "type": "object"
+      },
+      "CycleCropSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "hold": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StartupCropHold"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "manifest": {
+            "$ref": "#/components/schemas/CycleCropManifest"
+          },
+          "status": {
+            "enum": [
+              "completed",
+              "hold"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "manifest",
+          "hold"
+        ],
+        "title": "CycleCropSummary",
+        "type": "object"
+      },
+      "CycleEventPage": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "const": "events",
+            "title": "Kind",
+            "type": "string"
+          },
+          "limit": {
+            "maximum": 8.0,
+            "minimum": 1.0,
+            "title": "Limit",
+            "type": "integer"
+          },
+          "next_offset": {
+            "anyOf": [
+              {
+                "maximum": 131072.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Offset"
+          },
+          "offset": {
+            "maximum": 131072.0,
+            "minimum": 0.0,
+            "title": "Offset",
+            "type": "integer"
+          },
+          "records": {
+            "items": {
+              "$ref": "#/components/schemas/CoupledCropEvent"
+            },
+            "maxItems": 8,
+            "title": "Records",
+            "type": "array"
+          },
+          "total": {
+            "maximum": 131072.0,
+            "minimum": 0.0,
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "next_offset",
+          "total",
+          "kind",
+          "records"
+        ],
+        "title": "CycleEventPage",
+        "type": "object"
+      },
+      "CycleProfiles": {
+        "additionalProperties": false,
+        "properties": {
+          "cohort_profile": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Cohort Profile",
+            "type": "string"
+          },
+          "growth_profile": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Growth Profile",
+            "type": "string"
+          },
+          "transport_profile": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Transport Profile",
+            "type": "string"
+          }
+        },
+        "required": [
+          "growth_profile",
+          "cohort_profile",
+          "transport_profile"
+        ],
+        "title": "CycleProfiles",
+        "type": "object"
+      },
+      "CycleSamplePage": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "const": "samples",
+            "title": "Kind",
+            "type": "string"
+          },
+          "limit": {
+            "maximum": 64.0,
+            "minimum": 1.0,
+            "title": "Limit",
+            "type": "integer"
+          },
+          "next_offset": {
+            "anyOf": [
+              {
+                "maximum": 131072.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Offset"
+          },
+          "offset": {
+            "maximum": 131072.0,
+            "minimum": 0.0,
+            "title": "Offset",
+            "type": "integer"
+          },
+          "records": {
+            "items": {
+              "$ref": "#/components/schemas/StartupCropSample"
+            },
+            "maxItems": 64,
+            "title": "Records",
+            "type": "array"
+          },
+          "total": {
+            "maximum": 131072.0,
+            "minimum": 0.0,
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "next_offset",
+          "total",
+          "kind",
+          "records"
+        ],
+        "title": "CycleSamplePage",
+        "type": "object"
+      },
+      "CycleServerDependencies": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Artifact",
+            "type": "string"
+          },
+          "directory_helper": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Directory Helper",
+            "type": "string"
+          },
+          "execution": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Execution",
+            "type": "string"
+          },
+          "farm_binding": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Farm Binding",
+            "type": "string"
+          },
+          "file_helper": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "File Helper",
+            "type": "string"
+          },
+          "input_stream": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Input Stream",
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact",
+          "farm_binding",
+          "input_stream",
+          "execution",
+          "directory_helper",
+          "file_helper"
+        ],
+        "title": "CycleServerDependencies",
+        "type": "object"
+      },
+      "CycleSolver": {
+        "additionalProperties": false,
+        "properties": {
+          "max_step_seconds": {
+            "maximum": 3600.0,
+            "minimum": 1.0,
+            "title": "Max Step Seconds",
+            "type": "integer"
+          },
+          "max_steps": {
+            "maximum": 40000000.0,
+            "minimum": 1.0,
+            "title": "Max Steps",
+            "type": "integer"
+          },
+          "method": {
+            "const": "rk4-fixed-v1",
+            "title": "Method",
+            "type": "string"
+          },
+          "roundoff_rule": {
+            "const": "64-ulp-per-operation-v1",
+            "title": "Roundoff Rule",
+            "type": "string"
+          }
+        },
+        "required": [
+          "method",
+          "max_step_seconds",
+          "max_steps",
+          "roundoff_rule"
+        ],
+        "title": "CycleSolver",
+        "type": "object"
+      },
       "DebtAccount": {
         "additionalProperties": false,
         "properties": {
@@ -9515,6 +10272,190 @@
           }
         ],
         "summary": "Get Coupled Crop",
+        "x-ossf-required-scopes": [
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read",
+          "crop_result_read"
+        ]
+      }
+    },
+    "/v1/crop-cycle-research-results/{result_id}": {
+      "get": {
+        "operationId": "getCycleCropResearchResult",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "result_id",
+            "required": true,
+            "schema": {
+              "pattern": "^crop-cycle-result-v1:[0-9a-f]{64}$",
+              "title": "Result Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "scenario_id",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Scenario Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "scenario_revision",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Scenario Revision",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "registration_sha256",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-f]{64}$",
+              "title": "Registration Sha256",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "crop_id",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Crop Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "view",
+            "required": false,
+            "schema": {
+              "default": "summary",
+              "enum": [
+                "summary",
+                "samples",
+                "events"
+              ],
+              "title": "View",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "maximum": 131072,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maximum": 64,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CycleCropReplay"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Cycle Crop",
         "x-ossf-required-scopes": [
           "farm_scenario_read",
           "metadata",

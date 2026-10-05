@@ -1,17 +1,23 @@
 """Bounded public projection after trusted cycle custody checked the original files."""
+from copy import deepcopy
 from datetime import datetime,timezone
 from hashlib import sha256
 from typing import Annotated,Literal
+import re
 
+from fastapi import Path,Query,Request,Response
 from pydantic import Field,model_validator
+from starlette.concurrency import run_in_threadpool
 
-from .api_crop_replay import _Public,Digest,Name,UtcStamp,CropResearchFarm
+from .api_contracts import ErrorEnvelope
+from .api_crop_replay import _Public,Digest,Name,UtcStamp,CropResearchFarm,NAME_PATTERN
 from .api_crop_startup_replay import StartupFloorArea,StartupCropSample,StartupCropHold,StartupCodeHashes
 from .api_crop_coupled_replay import CoupledCropEvent
-from . import crop_cycle_result_store as storage
+from .crop_result_store import READ_SCOPES
+from .crop_cycle_farm_binding import CycleFarmBindingHold
+from .farm_authoring_storage import FarmAuthoringHold
 from . import crop_cycle_stream_execution as engine
 from . import crop_cycle_artifact as artifact
-from . import crop_cycle_server_custody as server
 from .thermal_run_store import _canonical
 
 RESULT_ID_PATTERN=r'^crop-cycle-result-v1:[0-9a-f]{64}$'
@@ -19,7 +25,9 @@ MAX_RESPONSE_BYTES=2*1024*1024
 
 
 def _need(condition):
-    if not condition:raise server.CycleCustodyHold('cycle crop display unavailable')
+    if not condition:
+        from .crop_cycle_server_custody import CycleCustodyHold
+        raise CycleCustodyHold('cycle crop display unavailable')
 
 
 def _at(value):return datetime.fromisoformat(value.replace('Z','+00:00'))
@@ -205,6 +213,8 @@ def _public_bytes(projected):
 
 def project_cycle_result(record,terminal,*,view='summary',page=None,limit=None):
     """Whitelist original quantities; this function does not grant source or farm rights."""
+    from . import crop_cycle_result_store as storage
+    from . import crop_cycle_server_custody as server
     try:
         _need(type(record) is dict and set(record)=={'result_id','payload_raw','payload_sha256','recorded_at'}
             and type(record['payload_raw']) is bytes and sha256(record['payload_raw']).hexdigest()==record['payload_sha256']
@@ -287,3 +297,66 @@ def project_cycle_result(record,terminal,*,view='summary',page=None,limit=None):
         CycleCropReplay(**{**projected.model_dump(mode='python'),'summary':original_summary,'page':None})
         _public_bytes(projected);return projected
     except Exception:raise server.CycleCustodyHold('cycle crop display unavailable') from None
+
+
+def _read_cycle_response(store,tenant,result_id,farm_ref,view,offset,limit):
+    with store._read(tenant,result_id,farm_ref) as (row,packet,journal):
+        if row is None:return None
+        expected=_canonical(packet['policies']['server_progress'])
+        if view=='summary':
+            journal._guard();_need(journal._progress()==expected);page=None
+        else:page=journal.page(expected,view,offset,limit)
+        terminal=deepcopy({**journal.writer._summary,'manifest':journal.context.manifest})
+        projected=project_cycle_result(store._record(row),terminal,view=view,page=page,limit=limit)
+        raw=_public_bytes(projected)
+        store._current(tenant,_canonical(packet['binding']['request']),journal,expected)
+        return raw
+
+
+def install_cycle_crop_routes(app,*,jobs,farms,store,principal_provider,authorized_tenant,error,access):
+    if store is not None:
+        from . import crop_cycle_result_store as storage
+        if (type(store) is not storage.CycleCropResultStore or store.jobs is not jobs or farms is None
+                or store.server.binding.farms is not farms or store.server.binding.jobs is not jobs
+                or jobs.principal_provider is not principal_provider):
+            raise ValueError('trusted cycle crop reader required')
+        store._binding()
+
+    @app.get('/v1/crop-cycle-research-results/{result_id}',response_model=CycleCropReplay,
+        operation_id='getCycleCropResearchResult',openapi_extra=access(READ_SCOPES),
+        responses={s:{'model':ErrorEnvelope} for s in (401,403,404,422,503)})
+    async def get_cycle_crop(request:Request,result_id:Annotated[str,Path(pattern=RESULT_ID_PATTERN)],
+            scenario_id:Annotated[str,Query(pattern=NAME_PATTERN,max_length=200)],
+            scenario_revision:Annotated[str,Query(pattern=NAME_PATTERN,max_length=200)],
+            registration_sha256:Annotated[str,Query(pattern=r'^[0-9a-f]{64}$')],
+            crop_id:Annotated[str,Query(pattern=NAME_PATTERN,max_length=200)],
+            view:Literal['summary','samples','events']='summary',
+            offset:Annotated[int,Query(ge=0,le=131072)]=0,
+            limit:Annotated[int|None,Query(ge=1,le=64)]=None):
+        from .crop_cycle_server_custody import CycleCustodyHold
+        tenant,denied=authorized_tenant(*READ_SCOPES)
+        if denied is not None:return denied
+        pairs=list(request.query_params.multi_items());keys=[k for k,_ in pairs]
+        required={'scenario_id','scenario_revision','registration_sha256','crop_id'}
+        if (len(keys)!=len(set(keys)) or not required<=set(keys)<=required|{'view','offset','limit'}
+                or any(not re.fullmatch(r'0|[1-9][0-9]*',v) for k,v in pairs if k in ('offset','limit'))
+                or (view=='summary' and bool({'offset','limit'}&set(keys)))
+                or (view=='events' and limit is not None and limit>8)):
+            return error(422,'invalid_request','Invalid request')
+        async for chunk in request.stream():
+            if chunk:return error(422,'invalid_request','Invalid request')
+        if store is None:return error(503,'crop_research_unavailable','Crop research result unavailable')
+        if view!='summary' and limit is None:limit=64 if view=='samples' else 8
+        try:
+            raw=await run_in_threadpool(_read_cycle_response,store,tenant,result_id,
+                {'scenario_id':scenario_id,'scenario_revision':scenario_revision,
+                 'registration_sha256':registration_sha256,'crop_id':crop_id},view,offset,limit)
+            current,denied=authorized_tenant(*READ_SCOPES)
+            if denied is not None:return denied
+            if current!=tenant:return error(403,'forbidden','Resource access denied')
+            if raw is None:return error(404,'not_found','Crop research result not found')
+            return Response(raw,media_type='application/json')
+        except PermissionError:return error(403,'forbidden','Resource access denied')
+        except (CycleCustodyHold,CycleFarmBindingHold,FarmAuthoringHold):
+            return error(422,'crop_research_hold','Crop research evidence unavailable')
+        except Exception:return error(503,'crop_research_unavailable','Crop research result unavailable')
