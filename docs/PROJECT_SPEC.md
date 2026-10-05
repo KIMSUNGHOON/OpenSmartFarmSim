@@ -150,8 +150,11 @@ typecheck/build·기록 TLS 원값 대사로 로컬 수용했다.
 [동일 UTC 성장 3D/실제 브라우저](../research/web-crop-startup-replay-implementation.md)도
 웹383개·Chromium31개·실제 SCRAM/TLS/WebGL1개·고유12시점/1,500 C/N mesh·정리로 로컬 수용했다.
 빈 초기/전량 제거 후 재유입의 원값을 보존하고 v3 로그 비교 축을 명시한다.
-도형의 높이는 실제 키/과실 크기/생과 kg가 아니다. 다음은 전체 작기 실행 계약/연속 상태·부하 →
-생과 환산 순서다. 새 API/화면 원격 수용과 pixel fidelity·실제 품종은 별도다.
+도형의 높이는 실제 키/과실 크기/생과 kg가 아니다.
+[전체 작기 실행 명세/원 격자 대사](../research/crop-cycle-execution-contract.md)도 원 solver6프로그램/630걸음·
+30분할 grouping·2,783float64/정확한 clock 반례로 로컬 수용했다. 실제 새 driver 재시작 검증은 별도다.
+다음은 순수 continuation → bounded 입력/불변 결과·같은 UTC → 실제 RHS 작기 부하 → 생과 환산이다.
+새 API/화면 원격 수용과 pixel fidelity·실제 품종은 별도다.
 실제 전체 작기 처리는 별도다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
 전체 작기 생산 모델의 착수/게시 범위에 접근할 수 있다.

@@ -67,8 +67,8 @@
 [같은 UTC 표·그래프·성장 3D와 실제 브라우저 연결](research/web-crop-startup-replay-implementation.md)도
 웹383개·Chromium31개·실제 SCRAM/TLS/WebGL1개·12완료 시점/1,500 C/N mesh·정리로 로컬 수용했습니다.
 [새 저장 모델의 화면](research/artifacts/startup-crop-desktop.png)을 확인할 수 있습니다.
-빈 초기/제거 후 재유입의 원값과 명시적 로그 비교 3D를 연결합니다. 다음은 전체 작기 실행 계약과
-연속 상태/저장·출력/부하 검증 → 생과 환산입니다. 실제 품종/생산 예측과 새 hosted/pixel fidelity는 별도입니다.
+빈 초기/제거 후 재유입의 원값과 명시적 로그 비교 3D를 연결합니다. 전체 작기 실행 계약은 수용했고
+다음은 연속 상태/저장·출력/부하 검증 → 생과 환산입니다. 실제 품종/생산 예측과 새 hosted/pixel fidelity는 별도입니다.
 자동 착과·생식기 이전/실제 초기 품종 계수는 보류입니다.
 `e70a7f2`의 [최종 CI](research/artifacts/crop-coupled-api-web-ci-hold-20261005.json)는
 기존 assessment HTTPS 30초 시간 초과 1개로 Backend 미수용이며 나머지 네 workflow는 성공했습니다.
@@ -77,11 +77,15 @@
 백엔드 3,157개·별도 UID 4개·여섯 동일 목록/정리·집계까지 통과했습니다.
 후속 `d105daa`도 [CI5개 모두 성공](research/artifacts/crop-plant-startup-math-ci-20261005.json),
 백엔드3,370개·별도UID4개·여섯 동일 목록/정리·집계로 새 기관 시작 RHS/적분/artifact까지 수용했습니다.
-새 저장까지의 `92cade3` CI는 확인 중이며 이번 페이지 API의 원격 수용은 별도입니다.
+새 저장까지의 `92cade3`도 [CI5개 모두 성공](research/artifacts/crop-startup-storage-ci-20261005.json),
+백엔드3,408개·별도UID4개·여섯 동일 목록/정리·집계로 수용했습니다. 후속 API/client/3D의 원격 수용은 별도입니다.
 [기록 합성 데모의 3D·원값](research/artifacts/coupled-crop-replay-recorded-demo-geometry.png)과
 [실제 저장 경로의 화면](research/artifacts/coupled-crop-replay-desktop.png)을 확인할 수 있습니다.
 기록 데모는 운영 저장 목록이 아니며 실제 완료 6시점의 소프트웨어 검증입니다.
 새 동일 UTC 3D 판본은 로컬 수용했고 다음은 전체 작기 실행·생과 환산입니다.
+[전체 작기 실행 계약/원 격자 대사](research/crop-cycle-execution-contract.md)도 원 solver6프로그램/630걸음,
+30분할·2,783개 float64 round-trip과 chunk/clock 반례로 로컬 수용했습니다. 다음은 원 상태/누적량을
+실제 RHS로 중단·복원하는 순수 continuation입니다. 계약 대사를 새 driver/전체 작기 검증으로 표시하지 않습니다.
 자동 착과/초기 작기·실제 품종은 보류합니다.
 작기 처리 한도·국내 확보를 병행합니다. 앞선 `d251df9`는 전체 백엔드 2,671개·
 별도 UID 4개와 CI 5개를 모두 통과했습니다. `d76410f`의 웹/C0/실제 앱 이미지·Compose CI도

@@ -1,6 +1,10 @@
 # 전체 작기 연구 실행·연속 상태 계약 — v1
 
-상태: **명세 초안, 독립 경계 대사 전**, 2026-10-05 KST.
+상태: **실행 명세·원 격자/표현 독립 대사의 로컬 수용**, 2026-10-05 KST.
+[수용 범위/검토](../research/crop-cycle-execution-contract.md),
+[원 solver6프로그램·30분할·2,783수치 대사](../research/artifacts/crop-cycle-execution-reference-20261005.json),
+[현재 명세/CLI·draft snapshot·시험 증거](../research/artifacts/crop-cycle-execution-contract-reference-20261005.json)를 확인한다.
+새 모델 continuation·저장/전체 작기는 아직 미수용이다.
 작업 ID `crop-cycle-execution-contract`. 근거는 [현재 코드 감사](../research/crop-cycle-execution-inspection-20261005.md),
 [관문/품종 범위](../docs/PROJECT_SPEC.md), [불변 저장·worker 계약](../docs/ARCHITECTURE.md)이다.
 현재 CLI `gpt-6.1-sol / xhigh`에서 판단하고 CLI를 재귀 실행하지 않는다.
@@ -89,7 +93,9 @@ caller가 무한 입력/예산을 지정할 수 없도록 각 구현 계약에�
 
 `step-end`로 경계에 도착한 checkpoint는 재시작 시3–4를 정확히 한 번 처리한다.
 `boundary-committed`는 이미 적용한 사건/output을 다시 처리하지 않는다. 초기 t0의 사건도
-같은 규칙을 적용한다. 경계 검증/사건·output delta와 checkpoint의 durable commit은 후속
+같은 규칙을 적용한다. `initial-ready`는 정규화된 입력/원 계획의 시작 위치이며 아직 정상
+sample/last_confirmed가 아니다. t0 검증/관리 사건이 실패하면 과거 없이 hold한다.
+경계 검증/사건·output delta와 checkpoint의 durable commit은 후속
 저장 provider가 원자적으로 수행한다. 요청 취소나 crash를 수치 hold로 위장하지 않는다.
 
 ## stream·저장·권리 경계
@@ -152,6 +158,8 @@ nice -n 10 .venv/bin/python -m pytest -q tests/test_crop_cycle_continuation.py \
 - 코드/계수·단위/기존 manifest를 보존하고, 후속 작업의 dependency/파일·사용자 산출물·수용 기준과
   외부 자료0건/UTC·초기/관리·품종 보류, 실제 부하 전 미정 budget/완료 날짜를 plan/todo에 기록한다.
 
-현재의 계약/대사는2–4 집중시간 잠정, continuation은 실제 코드/시험 분해 뒤 다시 추정한다.
+계약/대사는2026-10-05 KST 로컬 수용했다. continuation은 context/kernel·step/checkpoint2–3시간,
+실제6프로그램/hold·변조·별도 복원/회귀·보고2–3시간으로4–6 집중시간 잠정이다.
+하루4시간·CI 대기 제외 기준10월5–7일 KST이며 긴 입력/저장·전체 작기 일정은 실제 실적 뒤 추정한다.
 actual forcing/독립 국내 자료·crop Run은0이다. 실제 생과·구매 자원·경제/예측/추천 게시는
 해당 출력의 독립 검증/G0–G4와 별도다. 소프트웨어 규모 시험을 실제 생산 정확도로 표시하지 않는다.

@@ -149,7 +149,7 @@
   작은 실행 계약부터 분해: bounded forcing 처리·연속 상태/누적 수지/사건·불변 manifest/저장,
   계산 해상도와 출력 시간/페이지의 분리·30초 응답/WSL 자원·재시작/동일 재현/실제 작기 부하.
   수용 전 한도 증대/임의 forcing 축약으로 whole-cycle 완료를 주장하지 않는다.
-  - [ ] **`crop-cycle-execution-contract`** — 다음 한 단계; 선행: 수용된 startup 적분과 입력 감사의
+  - [x] **`crop-cycle-execution-contract`** — 실행 명세/원 격자 대사의 로컬 수용; 선행: 수용된 startup 적분과 입력 감사의
     source 형태/한도 관측. 국내 자료/G2는 개발 선행이 아니다. 실제 현재 코드의 전역 걸음 경계,
     상태/16누적·forcing/event/output cursor·관리 사건·실패/hold·불변 checkpoint/hash/현재 권리를
     대조한다. 분할/재시작으로 새 RK4 경계를 만들지 않는 정책과 출력 분리·WSL 부하 계획을
@@ -158,7 +158,25 @@
     이 계약 수용을 실제 작기 실행이나 품종 생산 정확도로 표시하지 않는다.
     [착수 코드 감사](../research/crop-cycle-execution-inspection-20261005.md)에서 두 판본의 한도와
     출력 시각의 solver 경계 결합·원 seed/누적량·정확한 온도 clock·사건 처리 순서를 확인했다.
-    계약·독립 경계/재시작 검증과 후속 구현은 아직 미수용이다.
+    [명세 수용](../research/crop-cycle-execution-contract.md): 원 solver6프로그램/630걸음·30분할 grouping,
+    23벡터/2,783개 float64 round-trip·추가 경계/온도 prefix 반례·파일/CLI 검토로10월5일 KST 로컬 완료.
+    이는 원 격자/표현과 실행 계약의 수용이며 새 모델의 실제 재시작은 다음 구현의 미수용 범위다.
+  - [ ] **`crop-cycle-continuation`** — 다음 한 단계; 선행: 위 실행 계약의 수용.
+    예상3파일: `backend/app/crop_cycle_continuation.py`, `backend/tests/test_crop_cycle_continuation.py`,
+    `contracts/crop-cycle-continuation-v1.md`. 우선 현재 짧은 입력/고정 실제 RHS로 새 provider를 검증한다.
+    수용: 원121벡터/seed·16누적/clock·global counters·phase/cursor의 보호와 전역 격자·사건/output/hold 보존,
+    기존6프로그램의 원값/단위/수지·별도 Python/JSON 복원·경계/t0/event+output/hold·변조/예산·입력 불변/hash.
+    원 legacy 파일/모델/hash를 보존하고 새 code/manifest 판본을 고정한다. pytest 집중/회귀와 실제 별도
+    프로세스 복원 증거 뒤 체크한다. 긴 입력/전체 작기나 실제 crop/prediction을 이 짧은 수용으로 대체하지 않는다.
+  - [ ] **`crop-cycle-input-stream`** — 선행: continuation 수용; bounded root/forcing·계산 anchor/event와
+    hash/index/cursor·정확한 clock의 분할 provider/검증을3–5파일 계약으로 구체화한다. 실제 source 형태 규모의
+    자작 합성 입력·연속성/원량·권리/QC 거부·큰 입력·메모리·재시작을 확인한다. 실제 archive 채택은 별도다.
+  - [ ] **`crop-cycle-result-pages`** — 선행: continuation/input stream. 불변 파일/reader → farm/current rights
+    custody/API → 같은 UTC 3D를 각각3–5파일 작업으로 먼저 분해한다. 원 출력/sequence·chain/변조/atomic·
+    재시작/GET 재적분 없음·실제 SCRAM/TLS/browser·페이지30초/정리 뒤 체크한다.
+  - [ ] **`crop-cycle-burden`** — 선행: 위 세 구현; 실제 RHS의 긴 합성 forcing/source 형태·부하/재현·중단/복원,
+    원 수지/사건·불변 저장/조회·WSL 자원/정리를 검증한다. 실제 작업 분해/측정 뒤 global budget/날짜를 고정한다.
+    원47,809시점/166일은 입력 형태이며 실제 품종/UTC/QC/초기/관리 채택 없이 crop 작기 수용으로 표시하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
