@@ -1,0 +1,242 @@
+{
+  "evidence_version": "crop-plant-startup-math-ci-v1",
+  "recorded_at_utc": "2026-10-05T03:34:40.122445+00:00",
+  "head_sha": "d105daaf8ba0ec8c853e8407913ba0f55de1ce45",
+  "scope": "Startup plant RHS, short integration and immutable artifact, including existing coupled API/browser software regressions. New v3 schema/farm custody and startup API/3D are not in this SHA.",
+  "workflow_runs": [
+    {
+      "conclusion": "success",
+      "databaseId": 37253574186,
+      "headSha": "d105daaf8ba0ec8c853e8407913ba0f55de1ce45",
+      "name": "C0 Compose verification",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37253574186"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37253574016,
+      "headSha": "d105daaf8ba0ec8c853e8407913ba0f55de1ce45",
+      "name": "Authored API PostgreSQL smoke",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37253574016"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37253574116,
+      "headSha": "d105daaf8ba0ec8c853e8407913ba0f55de1ce45",
+      "name": "Application runtime verification",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37253574116"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37253573997,
+      "headSha": "d105daaf8ba0ec8c853e8407913ba0f55de1ce45",
+      "name": "Web tests",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37253573997"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37253573999,
+      "headSha": "d105daaf8ba0ec8c853e8407913ba0f55de1ce45",
+      "name": "Backend tests",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37253573999"
+    }
+  ],
+  "workflow_api_sha256": "80284b380008f99e7d346663564d4d9b5ec44b1c4e6145f96bc0c336cba06ddb",
+  "backend_jobs_api_sha256": "a647a488c6bd4cfb7839945a2ac84f1b771c473f72bcea9bff81a5d845b9be80",
+  "backend": {
+    "passed_total": 3370,
+    "separate_uid_passed": 4,
+    "skipped": 0,
+    "inventory_sha256": "11bbcba87f5324377accb2c3fd04b9859f94c49608b6c9bf1faad6c51adca6bd",
+    "partition_pass_counts": {
+      "2": 497,
+      "5": 512,
+      "4": 626,
+      "0": 448,
+      "1": 573,
+      "3": 714
+    },
+    "database_password_cleanup_jobs_passed": 6,
+    "aggregate_inventory_check": "success",
+    "jobs": [
+      {
+        "databaseId": 111585951431,
+        "name": "backend-partition-2",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-05T02:26:58Z",
+        "completedAt": "2026-10-05T02:55:32Z",
+        "raw_log_bytes": 66125,
+        "raw_log_sha256": "13d70f3ae604aa98b3e2ed47ac5b379db7a7fc9bdceea098ac98abcb5e54af2a",
+        "partition": 2,
+        "passed": 497,
+        "inventory_total": 3370,
+        "inventory_sha256": "11bbcba87f5324377accb2c3fd04b9859f94c49608b6c9bf1faad6c51adca6bd",
+        "reported_warnings": 0,
+        "database_password_cleanup": "success",
+        "uid_steps": [
+          {
+            "name": "Prepare readable runtime for UID service smoke",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Check content access with distinct Linux UIDs",
+            "conclusion": "skipped"
+          }
+        ]
+      },
+      {
+        "databaseId": 111585951588,
+        "name": "backend-partition-5",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-05T02:55:35Z",
+        "completedAt": "2026-10-05T03:25:28Z",
+        "raw_log_bytes": 68701,
+        "raw_log_sha256": "778d05bae2e3befe76fdf2c7af2192ef0f888d4aeeb310eb9ef745d2db492241",
+        "partition": 5,
+        "passed": 512,
+        "inventory_total": 3370,
+        "inventory_sha256": "11bbcba87f5324377accb2c3fd04b9859f94c49608b6c9bf1faad6c51adca6bd",
+        "reported_warnings": 2,
+        "database_password_cleanup": "success",
+        "uid_steps": [
+          {
+            "name": "Prepare readable runtime for UID service smoke",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Check content access with distinct Linux UIDs",
+            "conclusion": "skipped"
+          }
+        ]
+      },
+      {
+        "databaseId": 111585951602,
+        "name": "backend-partition-4",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-05T02:53:55Z",
+        "completedAt": "2026-10-05T03:30:46Z",
+        "raw_log_bytes": 66177,
+        "raw_log_sha256": "d3899f070d97c8600b35228bb3145d103119a12efc036571a831323d99c631f1",
+        "partition": 4,
+        "passed": 626,
+        "inventory_total": 3370,
+        "inventory_sha256": "11bbcba87f5324377accb2c3fd04b9859f94c49608b6c9bf1faad6c51adca6bd",
+        "reported_warnings": 0,
+        "database_password_cleanup": "success",
+        "uid_steps": [
+          {
+            "name": "Prepare readable runtime for UID service smoke",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Check content access with distinct Linux UIDs",
+            "conclusion": "skipped"
+          }
+        ]
+      },
+      {
+        "databaseId": 111585951607,
+        "name": "backend-partition-0",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-05T01:59:27Z",
+        "completedAt": "2026-10-05T02:26:55Z",
+        "raw_log_bytes": 44004,
+        "raw_log_sha256": "58e3bb9d48e736fd73911801e41cc6e7d5d267dc4704baa7812ed58846afabd5",
+        "partition": 0,
+        "passed": 448,
+        "inventory_total": 3370,
+        "inventory_sha256": "11bbcba87f5324377accb2c3fd04b9859f94c49608b6c9bf1faad6c51adca6bd",
+        "reported_warnings": 0,
+        "database_password_cleanup": "success",
+        "uid_steps": [
+          {
+            "name": "Prepare readable runtime for UID service smoke",
+            "conclusion": "success"
+          },
+          {
+            "name": "Check content access with distinct Linux UIDs",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "databaseId": 111585951617,
+        "name": "backend-partition-1",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-05T01:59:26Z",
+        "completedAt": "2026-10-05T02:33:00Z",
+        "raw_log_bytes": 66049,
+        "raw_log_sha256": "9258d91bcbad6852c03bc861958f21575be61fb1a7d2e49648905d851fefa42f",
+        "partition": 1,
+        "passed": 573,
+        "inventory_total": 3370,
+        "inventory_sha256": "11bbcba87f5324377accb2c3fd04b9859f94c49608b6c9bf1faad6c51adca6bd",
+        "reported_warnings": 0,
+        "database_password_cleanup": "success",
+        "uid_steps": [
+          {
+            "name": "Prepare readable runtime for UID service smoke",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Check content access with distinct Linux UIDs",
+            "conclusion": "skipped"
+          }
+        ]
+      },
+      {
+        "databaseId": 111585951618,
+        "name": "backend-partition-3",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-05T02:33:02Z",
+        "completedAt": "2026-10-05T02:53:52Z",
+        "raw_log_bytes": 66383,
+        "raw_log_sha256": "5b328d2ec7c8ca69251436dbf0366144ca5a855a4c2ee3e2e21e28690cfa2ad9",
+        "partition": 3,
+        "passed": 714,
+        "inventory_total": 3370,
+        "inventory_sha256": "11bbcba87f5324377accb2c3fd04b9859f94c49608b6c9bf1faad6c51adca6bd",
+        "reported_warnings": 0,
+        "database_password_cleanup": "success",
+        "uid_steps": [
+          {
+            "name": "Prepare readable runtime for UID service smoke",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Check content access with distinct Linux UIDs",
+            "conclusion": "skipped"
+          }
+        ]
+      },
+      {
+        "databaseId": 111604235830,
+        "name": "backend",
+        "status": "completed",
+        "conclusion": "success",
+        "startedAt": "2026-10-05T03:30:50Z",
+        "completedAt": "2026-10-05T03:30:54Z",
+        "raw_log_bytes": 6173,
+        "raw_log_sha256": "4bff1fb3ba83326e3c851c11d66cb3a4881f953fd898d149a662e5d574da0614",
+        "aggregate_inventory_check": "success",
+        "inventory_sha256": "11bbcba87f5324377accb2c3fd04b9859f94c49608b6c9bf1faad6c51adca6bd"
+      }
+    ]
+  },
+  "prior_failed_run_preserved": "research/artifacts/crop-coupled-api-web-ci-hold-20261005.json",
+  "prior_assessment_https_timeout_root_cause": "not_confirmed; unchanged 30-second test passed at this SHA",
+  "gates": "not_assessed; no actual runtime CLI or independent domestic data/G0-G4 acceptance",
+  "runtime_cli": "fake providers/test keys in software checks",
+  "resource_management": "Same remote run allowed to complete without cancellation; raw logs private; no local Docker or DB started.",
+  "log_retrieval_note": "gh run view --log returned no partition0 bytes; direct completed job111585951607 logs API retrieved full UID/inventory/pass output; no workflow restarted"
+}
