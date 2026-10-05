@@ -246,11 +246,11 @@
         실제 SCRAM의 같은 farm/root·서버 실행 영수증·closed/code/header/고지·HMAC를 대사한다.
         수용: commit 전후 farm/source/input 권리 철회·교차 tenant/farm/root·혼합/부분 게시 거부,
         immutable retry/conflict·별도 프로세스 재적분 없는 읽기/복구·정리. 잠정2–3시간.
-        [구현 후보의 분할 실행](../research/crop-cycle-db-custody-implementation.md): 고유73개
-        (순수61·실제 경계9·물리 변조1·현재 짧은 재시작/fork2)이 통과했다.
-        초기 판본2개/재실행은 중복으로 더하지 않는다. 등록25시간1개와 그 정리 확인,
+        [구현 후보의 분할 실행](../research/crop-cycle-db-custody-implementation.md): 기존74개
+        (순수61·실제 경계9·물리 변조1·현재 짧은 재시작/fork2·등록25시간1)이 통과했다.
+        초기 판본2개/재실행은 중복으로 더하지 않는다. 등록25시간의 원값/DB·정리도 확인했다.
         API 대조에서 발견한 DB summary의 원 header/context manifest 누락 수정·실제 정상/hold
-        회귀 뒤 완료로 표시한다. 실행 중인 검증 판본은 고정한다.
+        회귀 뒤 완료로 표시한다. 실제 정상/hold 추가2개와 기존 판본의 근거를 구분한다.
       남은 DB는 폐쇄 참조/HMAC1시간+실제 게시/철회/재시작·정리1–2시간의
       2–3집중시간/10월5–7일 KST 잠정이며 하루4시간/CI·실제 자료 대기는 별도다.
       필요해진 lease/cancel은 기존 worker 계약에 대조하며 새 queue/service를 먼저 만들지 않는다.

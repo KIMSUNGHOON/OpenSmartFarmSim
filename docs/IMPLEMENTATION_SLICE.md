@@ -213,9 +213,9 @@ v3 로그 비교 도형은 원값/영을 보존하며 기존 v2 선형 대체를
 [실제 서버 계산/서명 저장](../research/crop-cycle-server-custody-implementation.md)도 고유46개 분할·
 실제 SCRAM/현재 권리·강제 종료4개·별도 Python 복원/정리로10월5일 로컬 수용했다.
 25시간/11,400실제 걸음·27시점/5사건·서명 저장829,769bytes를 확인했고 마지막 reader 정리 수정 전 참조 판본을 고정한다.
-현재 [DB 구현 후보](../research/crop-cycle-db-custody-implementation.md)는 고유73개 분할
-(순수61·실제 DB12개)을 통과했다. 현재 판본 재시작/fork·변조·정리는 확인했고,
-합성 등록 농장25시간 계산·DB 원값 대사와 요약의 원 manifest 누락 수정·실제 정상/hold 회귀는 남아 있다.
+현재 [DB 구현 후보](../research/crop-cycle-db-custody-implementation.md)는 기존74개 분할
+(순수61·실제 DB13개)을 통과했다. 재시작/fork·변조·정리와 합성 등록 농장25시간/
+11,400걸음·원27시점/5사건·7페이지를 대사했다. 요약의 원 manifest 누락 수정·실제 정상/hold 회귀는 남아 있다.
 부모 수용은 그 DB 게시 증거 뒤다. 다음 [조회 API 후보](../contracts/api-crop-cycle-pages-v1.md)는
 요약/수치 페이지와 한 현재 권리 읽기 context·실제30초/2MiB를 검증한다. 그다음 client → 같은 UTC3D →
 작기 부하 → 생과 환산을 [todo](../tasks/todo.md)의 작은 자식 순서로 진행한다.
@@ -233,7 +233,9 @@ v3 로그 비교 도형은 원값/영을 보존하며 기존 v2 선형 대체를
 [CI5개/백엔드3,709개·별도UID4개](../research/artifacts/crop-cycle-stream-ci-20261005.json),
 여섯 동일 목록/정리·집계로 continuation/reader/긴 RHS까지 수용했다. 이어 `ff6eb3d`의
 [CI5개/백엔드3,862개·UID4개](../research/artifacts/crop-cycle-artifact-schema-roles-ci-20261005.json)도
-여섯 동일 목록/정리·집계로 cycle artifact/schema/roles까지 수용했다. 농장 결합/서버 실행의 hosted는 별도다.
+여섯 동일 목록/정리·집계로 cycle artifact/schema/roles까지 수용했다. 후속 `0f2925f`의
+[CI5개/백엔드3,962개·UID4개](../research/artifacts/crop-cycle-farm-server-ci-20261005.json)도
+여섯 동일 목록/정리·집계와 작성 첫 시도7job로 농장 결합/서버 실행까지 수용했다. DB 후보는 그 SHA 밖이다.
 `d15cf92`의 [시간 적분/artifact·v2 저장 전체 CI](../research/artifacts/crop-coupled-storage-ci-20261005.json)도
 3,070개·별도 UID 4개·같은 목록/여섯 DB·password 정리/집계를 통과했다.
 새 API·웹 페이지/도형 판본은 이 이전 CI의 수용 범위 밖이다.

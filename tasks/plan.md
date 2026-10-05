@@ -89,12 +89,14 @@ hold·263.879초/parent45.44MiB·정리로10월5일 KST 로컬 완료했다.
 기존 서버3–5시간은 이 실적으로 대체한다. 다음 DB custody는 폐쇄 참조/HMAC 준비1시간+
 실제 SCRAM 게시/철회/재시작·정리1–2시간의 **2–3집중시간/10월5–7일 KST 잠정**이다.
 하루4시간 기준이며 CI·자료 대기는 제외한다.
-현재 [DB 후보/분할 검증](../research/crop-cycle-db-custody-implementation.md)은 고유73개 분할
-(순수61·실제 DB12개)을 통과했다. 현재 판본 재시작/fork·물리 변조·정리는 확인했다.
+현재 [DB 후보/분할 검증](../research/crop-cycle-db-custody-implementation.md)은 기존74개 분할
+(순수61·실제 DB13개)을 통과했다. 재시작/fork·물리 변조·정리와 등록25시간의
+11,400걸음/27시점/5사건·7원 페이지·RHS0회·같은 DB 참조를 대사했다.
 등록25시간의 통합 검증은 첫 private runner의1800초 deadline으로 종료됐고 정리를 확인했다.
 권리/서명/파일 검사 비용의 기여도는 미측정이며 원인 추정과 실제 중간 걸음/시간을 구분한다.
-그25시간1개를 별도90분 이하 native 예산으로 검증 중이다. worker128전이/HTTP30초·G0–G4는 변경하지 않는다.
-API 계약 대조에서 발견한 DB summary의 원 header/context manifest 누락도 종료 후 수정한다.
+그25시간1개는 별도90분 이하 native 예산에서45분32초로 통과했고 정리를 확인했다.
+worker128전이/HTTP30초·G0–G4는 변경하지 않았다.
+API 계약 대조에서 발견한 DB summary의 원 header/context manifest 누락을 실제 정상/hold 회귀로 수정한다.
 실제 정상/hold 회귀까지 확인한 뒤 저장 child/parent를 수용한다.
 그 뒤 [API 후보 계약](../contracts/api-crop-cycle-pages-v1.md)의 DTO/권한2–3시간+
 조립/실제 TLS/예산·정리2–3시간, **4–6집중시간/10월6–8일 KST 잠정**으로 진행한다.
@@ -957,6 +959,9 @@ authored-browser7passed/정리 성공 뒤25분 job deadline 취소와 같은 SHA
 [동일 SHA 전체 수용](../research/artifacts/crop-cycle-stream-ci-20261005.json)으로 Backend3,709개/UID4개·여섯 동일 목록/정리·집계도 확인했다.
 후속 `ff6eb3d`의 [CI5개/Backend3,862개·UID4개](../research/artifacts/crop-cycle-artifact-schema-roles-ci-20261005.json)는
 작성 첫 시도7job와 여섯 동일 목록/정리·집계로 cycle artifact/schema/roles까지 수용했다.
+그 뒤 `0f2925f`의 [CI5개/Backend3,962개·UID4개](../research/artifacts/crop-cycle-farm-server-ci-20261005.json)도
+작성 첫 시도7job와 여섯 동일 목록/DB·비밀 파일 정리·집계로 농장 결합/서버 실행까지 수용했다.
+DB 후보와 새 cycle API/client/3D는 이 SHA 밖이다.
 위 role/config 예정도 [실제 로컬 수용](../research/crop-cycle-storage-roles-implementation.md)으로 대체한다.
 농장 결합/서버 실행의 후속 CI는 별도이며 현재 다음 단계는 위 DB custody다.
 진행 중 CI를 후속 push로 취소하지 않는다.

@@ -41,19 +41,34 @@ Python 동등성에서 같아지는 실제 반례다. 대응 artifact를 canonic
 | 실제 SCRAM 짧은 게시/미생성·yielded 거부 | 2통과/344.15초 | summary 추가 전 code SHA76faa19f…; 현재 판본 전체 수용과 구분 |
 | 현재 판본 짧은 게시/재시작·fork/거부 | 2통과/340.99초 | 현재5c503da2… module; 동일 원 bytes/ID/시각·읽기/게시 RHS0·정리 |
 | 실제 commit 전후 철회·lock·hold·HMAC | 9통과/1,488.61초 | 현재 module; 시험 source는ad9d3b0; roles/schema/password/서버 정리 확인 |
-| 등록 농장25시간의 원 페이지 대사 | 대기 | 실제11,400걸음/독립 제어 흐름·DB 참조; 전체 실제 작기와 구분 |
+| 등록 농장25시간의 원 페이지 대사 | 1통과/2,732.14초 | 현재5c503da2…/92advance/11,400걸음·독립 제어 흐름·7원 페이지·DB 참조·정리; 전체 실제 작기와 구분 |
 | 실제 DB/파일 변조·현재 flag/grants | 1통과/152.11초 | 실제 행3종/파일4종·FD 보존·연구 row1/실제 Run0·권한 복구/원 조회·정리 |
 
 고유 목록과 분할 실행을 대사한 뒤 수용한다. 단일 전체 backend GREEN으로 보고하지 않는다.
-현재74개 목록 중61순수+9경계+1물리 변조+2현재 짧은 실행의 **고유73개 분할 통과**다.
-초기 판본2개와 순수 재실행은 중복으로 더하지 않는다. 등록25시간1개가 실행 중이며 부모 미수용이다.
+기존74개 목록의61순수+9경계+1물리 변조+2현재 짧은 실행+등록25시간1개가 **분할 통과**했다.
+초기 판본2개와 순수 재실행은 중복으로 더하지 않는다. 아래 추가 요약 회귀가 남아 부모 미수용이다.
 
 14:26:49.152Z의 같은 exact CLI 세션에서 API 계약과 실제 writer 형식을 대조해 추가 누락을 찾았다.
 `writer._summary`는 원 commit metadata라 manifest가 없는데 현재 DB summary 함수는 그것만 복사한다.
 정상/hold 모두 검증된 원 header/context.manifest를 함께 제공해야 계약을 충족한다.
-실행 중인25시간 판본은 고정하고 종료 후 이 경로만 수정해 실제 정상/hold 회귀를 확인한다.
+25시간 판본을 고정해 통과·정리를 확인한 뒤 이 경로만 수정해 실제 정상/hold 추가2개 회귀를 확인한다.
 이 추가 검증 전에는74개 목록이 통과해도 DB child/parent 완료로 표시하지 않는다.
 이미 게시된 보류/진행 영수증은 당시73개 상태의 불변 기록으로 보존한다.
+
+## 통과한 등록25시간의 실제 DB 대사
+
+현재5c503da2… module에서300 forcing 구간·11,400계산 걸음·92advance의 terminal 결과를 게시했다.
+독립 제어 흐름은 같은 고정 rates를 공유하며 원27시점/5사건을 canonical bytes로 대사했다.
+sample4/event3의7개 원 페이지는18,145–61,591bytes, 각19.321246–19.459992초였다.
+이는 저장소 직접 조회의 측정이며 다음 API의 실제 Bearer/TLS30초 통과로 보고하지 않는다.
+불변 metadata6,528bytes·최초 ID/bytes/recorded_at retry·새 service를 확인했다.
+게시와 조회 RHS0회, private 연구 row1/실제 crop Run0개다.
+
+독립 계산105.101202초/서버 계산2,342.131896초/게시54.969514초/7페이지135.607444초였다.
+전체 runner2,732.635748초, child 최대RSS125.23828125MiB이며 PostgreSQL/WSL 전체 메모리 합계가 아니다.
+실제 roles/schema/runtime password0·PG종료 status3·private cluster/admin password 삭제·owned server0을 확인했다.
+초기1800초 보류를 성공 기록으로 바꾸지 않는다. 이 새 실행의 실제 process/worker/HTTP 상한도 구분한다.
+요약 manifest 수정 후 이 긴 실행이 수정 전5c503da2… 판본임을 최종 영수증에서 보존한다.
 
 등록25시간 시험의 첫 private runner는30분의 process deadline을 사용했다.
 `2026-10-05T13:43:58Z`의 실제 관측은53commit/6,608확인 걸음이며 terminal 참조는 없었다.

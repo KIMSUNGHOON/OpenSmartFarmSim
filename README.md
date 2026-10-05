@@ -3,8 +3,8 @@
 지역을 고르면 기상·시설·작물·시장 자료의 출처를 확인하고, 온실 시나리오를 계산해 3D로 재생하며, **평가한 작물 중 어떤 선택이 목표에 가장 맞는지** 근거와 불확실성을 설명하는 오픈소스 프로젝트입니다. 수확 시점의 수요·공급과 거시 비용 변화도 재배 결정의 조건으로 다룹니다.
 
 **진행 중 (2026-10-05 UTC):** [긴 결과 DB 후보](research/crop-cycle-db-custody-implementation.md)의
-고유73개 분할 검증(순수61·실제 DB12개)이 통과했습니다. 현재 판본 재시작/fork·물리 변조와
-정리는 확인했고, 합성 등록 농장의25시간 계산·DB 원값 대사는 진행 중입니다.
+기존74개 분할 검증(순수61·실제 DB13개)이 통과했습니다. 재시작/fork·물리 변조·정리와
+합성 등록 농장25시간/11,400걸음·원27시점/5사건·7페이지 대사를 확인했습니다.
 조회 계약 대조에서 발견한 요약의 원 manifest 누락 수정·실제 정상/hold 회귀도 저장 수용 전에 확인합니다.
 이후 [같은 원 시점 조회 API](contracts/api-crop-cycle-pages-v1.md) →
 client → 같은 UTC 성장 연구3D → 작기 부하 → 생과·자원·경제 순서입니다.
@@ -93,7 +93,9 @@ API/client/3D까지의 `1555610`도 [CI5개/백엔드3,456개·별도UID4개](re
 여섯 동일 목록/정리·집계로 continuation/reader/긴 RHS까지 수용했습니다. 이어 `ff6eb3d`의
 [CI5개/백엔드3,862개·별도UID4개](research/artifacts/crop-cycle-artifact-schema-roles-ci-20261005.json)도
 여섯 동일 목록/정리·집계와 작성 경로 첫 시도7job까지 성공해 cycle artifact/schema/roles를 수용했습니다.
-농장 결합과 아래 서버 실행은 이 CI SHA 밖이며 후속 CI에서 확인합니다.
+농장 결합과 아래 서버 실행은 이 CI SHA 밖이었습니다. 후속 `0f2925f`의
+[CI5개/백엔드3,962개·별도UID4개](research/artifacts/crop-cycle-farm-server-ci-20261005.json)도
+여섯 동일 목록/DB·비밀 파일 정리·집계와 작성 첫 시도7job를 통과했습니다. DB 후보는 이 SHA 밖입니다.
 [기록 합성 데모의 3D·원값](research/artifacts/coupled-crop-replay-recorded-demo-geometry.png)과
 [실제 저장 경로의 화면](research/artifacts/coupled-crop-replay-desktop.png)을 확인할 수 있습니다.
 기록 데모는 운영 저장 목록이 아니며 실제 완료 6시점의 소프트웨어 검증입니다.
