@@ -41,18 +41,24 @@ Python 동등성에서 같아지는 실제 반례다. 대응 artifact를 canonic
 | 실제 SCRAM 짧은 게시/미생성·yielded 거부 | 2통과/344.15초 | summary 추가 전 code SHA76faa19f…; 현재 판본 전체 수용과 구분 |
 | 실제 commit 전후 철회·lock·hold·HMAC | 9통과/1,488.61초 | 현재 module; 시험 source는ad9d3b0; roles/schema/password/서버 정리 확인 |
 | 등록 농장25시간의 원 페이지 대사 | 대기 | 실제11,400걸음/독립 제어 흐름·DB 참조; 전체 실제 작기와 구분 |
-| 실제 DB/파일 변조·현재 flag/grants | 대기 | 실제 저장 경로에서 반환 거부/FD·row/Run 확인 |
+| 실제 DB/파일 변조·현재 flag/grants | 1통과/152.11초 | 실제 행3종/파일4종·FD 보존·연구 row1/실제 Run0·권한 복구/원 조회·정리 |
 
 고유 목록과 분할 실행을 대사한 뒤 수용한다. 단일 전체 backend GREEN으로 보고하지 않는다.
 
 등록25시간 시험의 첫 private runner는30분의 process deadline을 사용했다.
 `2026-10-05T13:43:58Z`의 실제 관측은53commit/6,608확인 걸음이며 terminal 참조는 없었다.
-원11,400걸음/128전이씩의 서버·현재 farm/원천/입력 권리·서명/파일 통합 검사가
-초기 실행 예산을 넘길 전망이다. 현재 권리 검사 비용이 원인일 가능성은 이전 순수 실행과
+원11,400걸음/128전이씩의 서버·현재 farm/원천/입력 권리·서명/파일 통합 검사는
+초기1800초 private process deadline으로 **실제 TimeoutExpired/runner exit1**이 됐다.
+pytest가 완료하지 못했고 다음 물리 변조 사례도 실행되지 않았다. 이는 기능적 RED가 아니다.
+`13:50:28Z` 확인에서 private cluster/자격 파일은 삭제되고 해당 PG PID는 없었다.
+중단 전 roles/schema 수치는 수집되지 않았으므로 별도0 측정으로 보고하지 않는다.
+현재 권리 검사 비용이 원인일 가능성은 이전 순수 실행과
 코드 경로를 비교한 **추정**이며 세부 프로파일링으로 기여도를 측정하지 않았다.
 이 중간 관측은 성공/실제 작기/DB 게시 근거가 아니다. 실제 종료·정리를 기록한 뒤
 25시간과 물리 변조를 분리하고90분 이하의 별도 private native 검증 예산을 적용한다.
 원 worker128전이·HTTP30초·파일/DB 크기·G0–G4 기준은 유지한다.
+[분할 통과/첫 실행 보류 영수증](artifacts/crop-cycle-db-custody-hold-20261005.json)은
+이 시점의 후보 상태이며 후속 최종 수용 영수증으로 덮어쓰지 않는다.
 
 ## 이미 통과한 짧은 실제 PostgreSQL 실행
 
