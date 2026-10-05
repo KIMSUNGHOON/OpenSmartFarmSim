@@ -1,6 +1,6 @@
 # 저장 cycle 결과의 원 시점 조회 API — v1 후보
 
-상태: **다음 구현 후보·DB custody 로컬 수용**, 2026-10-06 KST.
+상태: **projection/route 로컬 수용·실제 runtime/TLS 수용 전**, 2026-10-06 KST.
 작업 `api-crop-cycle-pages`. [DB 게시 계약](crop-cycle-db-custody-v1.md),
 [불변 파일](crop-cycle-artifact-v1.md), [기존 startup 공개 형식](api-crop-startup-replay-v1.md)을 따른다.
 현재 Codex CLI `gpt-6.1-sol / xhigh`에서 판단했다. 최초13:06:32.226Z 기록에 이어
@@ -28,6 +28,12 @@ exact `CycleCropResultStore`와 동일 JobStore/FarmAuthoringService/principal, 
 optional factory가 필요하다. 다른 객체·flag/factory 불일치는 기동 시 거부한다.
 기본 비활성은503이며 기존 startup API의 기본 권한·bytes를 보존한다.
 새 worker·queue·schema/role 설치는 이 조회 경로의 선행이 아니다.
+
+인증 실패401, 요청 권한 거부403, 같은 tenant의 없는 결과404, 잘못된 요청/작물 근거 보류422,
+기본 비활성·운영 서비스 오류503을 따른다. live DB grant audit의 `RolePolicyHold`는
+작물 수치 hold와 다른 운영 설정 오류이며 고정503으로 거부한다. 현재 권리 오류나 운영 오류에서
+과거 payload를 반환하지 않는다. 최초 실제 TLS 시험의422 기대/503 관측과 자원 정리는
+[별도 실패 증거](../research/artifacts/crop-cycle-api-runtime-tls-hold-20261006.json)에 남겼다.
 
 ## 공개 형식과 정보 경계
 

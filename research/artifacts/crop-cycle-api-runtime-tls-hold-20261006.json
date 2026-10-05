@@ -1,0 +1,59 @@
+{
+  "evidence_version": "crop-cycle-api-runtime-tls-hold-v1",
+  "recorded_at_utc": "2026-10-05T23:38:07.143305+00:00",
+  "scope": "Initial actual short SCRAM/TLS test failed on role-drift status expectation. Runtime/API parent and long response budget not accepted.",
+  "source_sha256": {
+    "backend/app/api_runtime.py": "d321de38cc241992cbdbaf703fda2d0bcf6c619f55cb233e557066804135ed83",
+    "backend/tests/test_api_crop_cycle_runtime.py": "b6e26d186a0f7f127b2efc4f4855686023bc5004eee403b94758c0fb18ef7c64",
+    "backend/tests/test_api_crop_cycle_tls.py": "fd3d819da04063e667edfb51865d03bac5c4ce584e5ffa3208f898295507bbf5"
+  },
+  "cli": {
+    "timestamp": "2026-10-05T23:09:43.527Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "turn_context_line_sha256": "a980a103ab9c728f1c722c9656ec02fe10f5ed9f5eaa5a0d9aa235f486aa97ea",
+    "scope": "development_cycle_api_projection_acceptance_and_route_design",
+    "recursive_cli_invocations": 0
+  },
+  "failure": {
+    "pytest_failed": 1,
+    "pytest_seconds": 496.0,
+    "expected_http_status": 422,
+    "actual_http_status": 503,
+    "phase": "extra worker SELECT privilege denied by live grant audit",
+    "observed_exception_source": "JobStore.connect raises RolePolicyHold(runtime_grants_rejected), outside CycleCustodyHold; route generic runtime error gives fixed503",
+    "correction": "specific test must expect503 and crop_research_unavailable for this operational grant configuration error; domain/source hold remains422"
+  },
+  "native_verification": {
+    "scope": "synthetic_cycle_api_runtime_tls_software_only",
+    "started_at": "2026-10-05T23:27:54.920288+00:00",
+    "postgres_version": "postgres (PostgreSQL) 16.15",
+    "new_dependencies": 0,
+    "servers_started": 1,
+    "pytest_arguments": [
+      "tests/test_api_crop_cycle_tls.py"
+    ],
+    "effective_nice": 10,
+    "exit_code": 1,
+    "wall_seconds": 496.4767762160045,
+    "remaining_test_roles": 0,
+    "remaining_test_schemas": 0,
+    "remaining_test_password_files": 0,
+    "postgres_stopped": true,
+    "postgres_status_exit_code": 3,
+    "private_cluster_and_admin_password_files_removed": true,
+    "owned_servers_after": 0,
+    "peak_children_rss_mib": 152.29296875
+  },
+  "native_log_sha256": "7e879754b910eb56bee48378a6b568d6fbfa7023c93f7ed4a2988a758313be4d",
+  "remaining": [
+    "file and DB tamper assertions after failing grant case",
+    "restart2 and final HTTPS/FD/row check",
+    "actual25h HTTP30sec/2MiB",
+    "runtime/API acceptance",
+    "client/3D",
+    "actual input/independent farm data"
+  ],
+  "gates": "not_assessed",
+  "raw_log_private": true
+}
