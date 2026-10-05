@@ -1,0 +1,305 @@
+{
+  "register_version": "crop-fruit-startup-source-register-v1",
+  "created_at_utc": "2026-10-05T00:01:23.867858+00:00",
+  "status": "research policy evidence; no runtime or cultivar adoption",
+  "cli": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "verified_turn_context_at": "2026-10-04T23:47:34.729Z",
+    "turn_context_sha256": "656bbf3fd3ae71ab70812e6e7aefc32015fcef8895e8bfd4cd2cc7cd35e96c5e",
+    "recursive_cli": false
+  },
+  "upstream_registers": [
+    {
+      "path": "research/crop-fruit-source-register.json",
+      "sha256": "3ec6ea74342eb7bbf9c64dead4fb1ada2fe6e359de561569a5a719baad067b47"
+    },
+    {
+      "path": "research/crop-fruit-allocation-source-register.json",
+      "sha256": "edbc67cfe59a61a1573ef5b1f189c548c47a74b996d4ef6221adc663c1cc306a"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "vanthoor-thesis",
+      "source_url": "https://edepot.wur.nl/170301",
+      "product_id": "10.18174/170301",
+      "observed_period_local": null,
+      "published_at": "2011-06-17",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:51:13.324303+00:00",
+      "vintage": "published article/thesis",
+      "raw_sha256": "965ecc5573290d0cc59b514e9766b301f9584d212545dec177efa66dd756ac38",
+      "bytes": 3423075,
+      "units": "mathematical reference; parameter units and source pages recorded below",
+      "qc": "pinned bytes hash verified; scoped equations/parameters reviewed; not cultivar or G0 adoption",
+      "rights": {
+        "license": "fulltext-redistribution-unconfirmed",
+        "use": "read and reference mathematical definitions; no fulltext incorporation",
+        "display": "citation/short contextual references only; fulltext/figures not adopted",
+        "redistribution": "unconfirmed; PDF excluded from repository"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "observed_times": null,
+      "startup_review_at_utc": "2026-10-05T00:01:23.867858+00:00",
+      "startup_review": "pinned cache hash rechecked; original onset, W1, denominator, RGR assumptions reviewed; no cultivar/G0 adoption"
+    },
+    {
+      "source_id": "greenhouses-crop",
+      "source_url": "https://raw.githubusercontent.com/queraltab/Greenhouses-Library/89ae0e8097eb0751abce2013d304fa5f9c09b885/Greenhouses/Components/CropYield/TomatoYieldModel.mo",
+      "product_id": "queraltab/Greenhouses-Library@89ae0e8097eb0751abce2013d304fa5f9c09b885",
+      "observed_times": null,
+      "published_at": "2019-08-02T08:14:14Z",
+      "publication_time_basis": "pinned Git commit timestamp; not proof of first public availability",
+      "available_at": null,
+      "available_at_status": "first public availability not reconstructed; research only",
+      "retrieved_at": "2026-10-04T16:31:03.005705+00:00",
+      "vintage": "commit 89ae0e8097eb0751abce2013d304fa5f9c09b885",
+      "raw_sha256": "1126f1a82ee219322f26e45e21f2463a40f17756242ad894c6ba529da225b582",
+      "bytes": 20240,
+      "units": "model equations; CH2O, fruit counts, days/seconds; not actual cultivar observations",
+      "qc": "bounded raw download/hash verified; directly reviewed crop code/doc differences",
+      "rights": {
+        "license": "BSD-3-Clause; pinned root LICENSE reviewed",
+        "use": "read and cite modelling assumptions only; no product code or raw data adopted",
+        "display": "citation/short contextual references; no figures/raw fulltext displayed",
+        "redistribution": "per BSD conditions with notices; no source incorporation/redistribution performed"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "startup_review_at_utc": "2026-10-05T00:01:23.867858+00:00",
+      "startup_review": "pinned cache hash rechecked; original onset, W1, denominator, RGR assumptions reviewed; no cultivar/G0 adoption"
+    },
+    {
+      "source_id": "greenhouses-crop-doc",
+      "source_url": "https://raw.githubusercontent.com/queraltab/Greenhouses-Library/89ae0e8097eb0751abce2013d304fa5f9c09b885/docs/cropyield.rst",
+      "product_id": "queraltab/Greenhouses-Library@89ae0e8097eb0751abce2013d304fa5f9c09b885",
+      "observed_times": null,
+      "published_at": "2019-08-02T08:14:14Z",
+      "publication_time_basis": "pinned Git commit timestamp; not proof of first public availability",
+      "available_at": null,
+      "available_at_status": "first public availability not reconstructed; research only",
+      "retrieved_at": "2026-10-04T16:31:03.006725+00:00",
+      "vintage": "commit 89ae0e8097eb0751abce2013d304fa5f9c09b885",
+      "raw_sha256": "ec51e286b131d5d1b8b613071979d182793cadfc7ffbe70fb9ae183ff74b6f53",
+      "bytes": 25465,
+      "units": "model equations; CH2O, fruit counts, days/seconds; not actual cultivar observations",
+      "qc": "bounded raw download/hash verified; directly reviewed crop code/doc differences",
+      "rights": {
+        "license": "BSD-3-Clause; pinned root LICENSE reviewed",
+        "use": "read and cite modelling assumptions only; no product code or raw data adopted",
+        "display": "citation/short contextual references; no figures/raw fulltext displayed",
+        "redistribution": "per BSD conditions with notices; no source incorporation/redistribution performed"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "startup_review_at_utc": "2026-10-05T00:01:23.867858+00:00",
+      "startup_review": "pinned cache hash rechecked; original onset, W1, denominator, RGR assumptions reviewed; no cultivar/G0 adoption"
+    },
+    {
+      "source_id": "greenhouses-license",
+      "source_url": "https://raw.githubusercontent.com/queraltab/Greenhouses-Library/89ae0e8097eb0751abce2013d304fa5f9c09b885/LICENSE",
+      "product_id": "queraltab/Greenhouses-Library@89ae0e8097eb0751abce2013d304fa5f9c09b885",
+      "observed_times": null,
+      "published_at": "2019-08-02T08:14:14Z",
+      "publication_time_basis": "pinned Git commit timestamp; not proof of first public availability",
+      "available_at": null,
+      "available_at_status": "first public availability not reconstructed; research only",
+      "retrieved_at": "2026-10-04T16:31:03.282809+00:00",
+      "vintage": "commit 89ae0e8097eb0751abce2013d304fa5f9c09b885",
+      "raw_sha256": "f3a9d70ab44de41a84954ad795d9d76a6bd845af9f570080e0ca77b2dbf24dd5",
+      "bytes": 1495,
+      "units": "model equations; CH2O, fruit counts, days/seconds; not actual cultivar observations",
+      "qc": "bounded raw download/hash verified; directly reviewed crop code/doc differences",
+      "rights": {
+        "license": "BSD-3-Clause; pinned root LICENSE reviewed",
+        "use": "read and cite modelling assumptions only; no product code or raw data adopted",
+        "display": "citation/short contextual references; no figures/raw fulltext displayed",
+        "redistribution": "per BSD conditions with notices; no source incorporation/redistribution performed"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "startup_review_at_utc": "2026-10-05T00:01:23.867858+00:00",
+      "startup_review": "pinned cache hash rechecked; original onset, W1, denominator, RGR assumptions reviewed; no cultivar/G0 adoption"
+    },
+    {
+      "source_id": "crop-model",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/crop_vanthoor_2011_chapter_9_simplified.json",
+      "product_id": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "observed_period_local": null,
+      "published_at": "2026-09-09T16:00:54Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:47:16.425493+00:00",
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "raw_sha256": "272a589edf0bb40d1a91b34e883f8e94b9adf747a576be4620c50296c03d7033",
+      "bytes": 26741,
+      "units": "mathematical reference; parameter units and source pages recorded below",
+      "qc": "pinned bytes hash verified; scoped equations/parameters reviewed; not cultivar or G0 adoption",
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "code reference/reuse under license; no patent rights granted",
+        "display": "retain author/copyright/conditions; no endorsement",
+        "redistribution": "retain copyright/conditions/disclaimer for reused source/binaries; product integration pending"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "publication_time_basis": "pinned commit timestamp, not independently reconstructed first public availability of this file",
+      "observed_times": null,
+      "startup_review_at_utc": "2026-10-05T00:01:23.867858+00:00",
+      "startup_review": "pinned cache hash rechecked; original onset, W1, denominator, RGR assumptions reviewed; no cultivar/G0 adoption"
+    },
+    {
+      "source_id": "greenlight-license",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/LICENSE.txt",
+      "product_id": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "observed_period_local": null,
+      "published_at": "2026-09-09T16:00:54Z",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:47:17.478320+00:00",
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "raw_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+      "bytes": 1716,
+      "units": "mathematical reference; parameter units and source pages recorded below",
+      "qc": "pinned bytes hash verified; scoped equations/parameters reviewed; not cultivar or G0 adoption",
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "code reference/reuse under license; no patent rights granted",
+        "display": "retain author/copyright/conditions; no endorsement",
+        "redistribution": "retain copyright/conditions/disclaimer for reused source/binaries; product integration pending"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "publication_time_basis": "pinned commit timestamp, not independently reconstructed first public availability of this file",
+      "observed_times": null,
+      "startup_review_at_utc": "2026-10-05T00:01:23.867858+00:00",
+      "startup_review": "pinned cache hash rechecked; original onset, W1, denominator, RGR assumptions reviewed; no cultivar/G0 adoption"
+    },
+    {
+      "source_id": "de-koning-1994",
+      "source_url": "https://edepot.wur.nl/205947",
+      "product_id": "10.18174/205947",
+      "observed_times": null,
+      "observed_period_local": null,
+      "published_at": "1994-11-23",
+      "publication_time_basis": "author thesis front matter and WUR publication record; date only",
+      "available_at": null,
+      "available_at_status": "first public availability of these exact scanned bytes not reconstructed; research only",
+      "retrieved_at": "2026-10-04T23:57:24.935096+00:00",
+      "vintage": "WUR thesis scan/research portal retrieved 2026-10-05 KST; scan revision unknown",
+      "raw_sha256": "699212ee77083ab077b631afec902b946d00653b4fa3d97c893bb83c7138f52d",
+      "bytes": 8021488,
+      "units": "original fruit dry mass g, age after anthesis day; no CH2O/fresh-weight conversion adopted",
+      "qc": "bounded bytes/hash; PDF 246 pages extracted with cached PyMuPDF 1.27.2.3; PDF107/108/149/150/153 rendered and reviewed; landing date/DOI verified",
+      "rights": {
+        "license": "fulltext redistribution unconfirmed",
+        "use": "read and reference mathematical definitions only",
+        "display": "citations/short contextual references; no fulltext or figures",
+        "redistribution": "unconfirmed; raw PDF/HTML/renders excluded from repository"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption"
+    },
+    {
+      "source_id": "de-koning-landing",
+      "source_url": "https://research.wur.nl/en/publications/development-and-dry-matter-distribution-in-glasshouse-tomato-a-qu/",
+      "product_id": "10.18174/205947",
+      "observed_times": null,
+      "observed_period_local": null,
+      "published_at": "1994-11-23",
+      "publication_time_basis": "author thesis front matter and WUR publication record; date only",
+      "available_at": null,
+      "available_at_status": "first public availability of these exact scanned bytes not reconstructed; research only",
+      "retrieved_at": "2026-10-04T23:57:59.811088+00:00",
+      "vintage": "WUR thesis scan/research portal retrieved 2026-10-05 KST; scan revision unknown",
+      "raw_sha256": "f6e4fb558db75cd4f400665e2049d88d1ffdb1578a50d76e2e7ee511cef63c3d",
+      "bytes": 64738,
+      "units": "original fruit dry mass g, age after anthesis day; no CH2O/fresh-weight conversion adopted",
+      "qc": "first-party author record/date/DOI/abstract reviewed; raw bytes hashed",
+      "rights": {
+        "license": "fulltext redistribution unconfirmed",
+        "use": "read and reference mathematical definitions only",
+        "display": "citations/short contextual references; no fulltext or figures",
+        "redistribution": "unconfirmed; raw PDF/HTML/renders excluded from repository"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption"
+    }
+  ],
+  "required_inputs": [
+    {
+      "input": "initial_N_C",
+      "policy": "50 explicit N/C arrays",
+      "unit": "fruits_equivalent/m2_floor; mg_CH2O/m2_floor",
+      "basis_or_hold": "Vanthoor p254 requires positive N1 but supplies no numeric state; actual farm age distribution unknown",
+      "actual_cultivar_adopted": false
+    },
+    {
+      "input": "W1",
+      "policy": "explicit entry carbohydrate, positive when S>0",
+      "unit": "mg_CH2O/fruit_equivalent",
+      "basis_or_hold": "Vanthoor Eq9.35 gives Gompertz integration without bounds; do not equate plant elapsed time, anthesis age, set age",
+      "actual_cultivar_adopted": false
+    },
+    {
+      "input": "S",
+      "policy": "explicit inflow only",
+      "unit": "fruits_equivalent/m2_floor/s",
+      "basis_or_hold": "Eq9.29/9.30 assumed nine fruits/truss and generic density; Axiany auto coefficients not adopted",
+      "actual_cultivar_adopted": false
+    },
+    {
+      "input": "RGR",
+      "policy": "50 explicit nonnegative finite values",
+      "unit": "1/s",
+      "basis_or_hold": "Eq9.45 net RGR; GR/GMax and fixed 3e-6 are assumptions, not observed net RGR",
+      "actual_cultivar_adopted": false
+    },
+    {
+      "input": "onset",
+      "policy": "reference boundary 0, actual phenology unknown",
+      "unit": "degC_day",
+      "basis_or_hold": "Eq9.33 count gate and ungated9.34 carbon transport differ before onset",
+      "actual_cultivar_adopted": false
+    },
+    {
+      "input": "growth_respiration",
+      "policy": "existing 0.27 reference coefficient only",
+      "unit": "1",
+      "basis_or_hold": "Eq9.44; charge on realized fruit allocation in proposed deferral, not rejected demand",
+      "actual_cultivar_adopted": false
+    },
+    {
+      "input": "area_basis",
+      "policy": "explicit software floor basis; actual unknown",
+      "unit": "m2_floor",
+      "basis_or_hold": "Reference303 area mapping unresolved; no actual per-area outputs",
+      "actual_cultivar_adopted": false
+    },
+    {
+      "input": "management",
+      "policy": "measured named events/ages, no invented seed",
+      "unit": "UTC and source-defined quantities",
+      "basis_or_hold": "first flowering, fruit set, thinning, shoot/top removal and harvest need independent records",
+      "actual_cultivar_adopted": false
+    }
+  ],
+  "development_policy": {
+    "policy_id": "explicit-entry-empty-sink-deferral-research-v1",
+    "scope": "post-onset explicit inputs, instantaneous research adapter; product implementation pending",
+    "tail_denominator": "sum j=2..50; no epsilon",
+    "empty_tail": "realize A1=S*W1; retain F_requested-A1 and its avoided growth respiration in buffer via a new composition version",
+    "positive_tail": "preserve existing explicit-entry allocations",
+    "first_cohort_extra_growth": "not added; original structural limitation retained",
+    "pre_onset": "hold until separately reviewed count/carbon transport and phenology policy",
+    "automatic_set_entry_RGR": "not adopted",
+    "numeric_seed": "never generated"
+  },
+  "gates_opened": [],
+  "actual_crop_runs": 0,
+  "independent_domestic_datasets": 0
+}

@@ -23,7 +23,11 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 **같은 저장 ID/UTC·50구획 연구 3D도 로컬 수용**했다.
 [단위 129개·Chromium 19개·실제 SCRAM/HTTPS/WebGL 1개](../research/web-crop-coupled-replay-implementation.md)로
 완료 6시점/과거 hold 1시점/빈 hold·900 C/N mesh·원 수치/단위/잎 면적·권리/정리를 확인했다.
-다음 한 단계는 [초기/자동 착과 정책의 원천·독립 사례 수용](../contracts/crop-fruit-startup-policy-v1.md)이다.
+[초기/명시적 착과 정책 조사](../research/crop-fruit-startup-policy.md)는 8개 원천/hash·
+9개 독립 보존 사례/5개 hold·W1/RGR 대안/생식기 이전 반례로 수용했다.
+다음 한 단계는 [빈 tail의 요청/실현 순수 adapter](../contracts/crop-fruit-startup-rates-v1.md)다.
+그 후 새 기관/적분 판본에서 buffer 유보와 실제 생장 호흡을 함께 연결한다.
+자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
 `784335d`의 [순간 구획/기관 결합 CI 5개](../research/artifacts/crop-fruit-cohort-plant-ci-20261005.json)도
@@ -31,6 +35,10 @@ coupled 저장 v2도 실제 SCRAM·두 사례/hold·재시작/별도 Python·현
 `d15cf92`의 [시간 적분/artifact·v2 저장 CI 5개](../research/artifacts/crop-coupled-storage-ci-20261005.json)도
 백엔드 3,070개·별도 UID 4개·여섯 동일 목록/DB·password 정리·집계까지 실제 성공했다.
 이후 새 API·웹 페이지/도형 판본의 hosted 수용은 별도다.
+`e70a7f2`의 Backend 파트3은 기존 HTTPS assessment 30초 시간 초과로
+531개 통과/1개 실패였다. [단독 로컬 재현/요약 크기 수정](../research/backend-ci-summary-and-timeout-20261005.md)은
+동일 제한 아래 10응답 최대 22.118초·13개 요약/목록 회귀를 통과했다.
+호스팅 원인/전체 CI를 수용한 것은 아니며 다른 파트 실행을 유지했다.
 `bdcade9`의 Application CI에서 새 기본 false policy의 기존 loader 허용 목록 누락으로
 실제 API 기동이 실패했다. [최소 policy 회귀 수정](../research/crop-coupled-operator-policy-implementation.md)은
 작물 저장 조회의 필수 선행이며 기존 loader/시험 두 파일에 한정했다.
@@ -81,8 +89,10 @@ flowchart TD
   WP --> WG["web-crop-coupled-geometry: 50개 C/N 수치 도형"]
   WG --> CV["web-crop-coupled-replay: 같은 결과/시점"]
   FM --> ST["crop-fruit-startup-policy: 초기/자동/W1/RGR"]
+  ST --> SA["crop-fruit-startup-rates: 요청/실현·빈 tail 유보"]
+  SA --> SC["새 기관/적분 판본: buffer/호흡 함께 연결"]
   CI --> F["crop-fruit-cohorts → crop-harvest-conversion"]
-  ST --> F
+  SC --> F
   V --> F
   CV --> F
   F --> C["crop-climate-coupling"]
@@ -228,6 +238,9 @@ hold로 고정했다. 독립 참조 생성 코드를 추가해 버전/해시·by
 기존 v1 결과나 accepted Run의 scope를 바꾸지 않는다.
 `crop-fruit-startup-policy`는 빈 초기 tail/양의 남은 유입과 생식기 이전·자동/초기
 근거를 별도 판본으로 해소하는 전체 작기 필수 경로다. 현 순간 부분을 최종 성공으로 줄이지 않는다.
+이번 [정책 조사 수용](../research/crop-fruit-startup-policy.md)은 명시적 생식기 유입의
+빈 tail 유보를 새 판본으로 정의했다. 제품 순수 adapter → 새 기관 buffer/호흡 결합 →
+짧은 적분/불변 저장·동일 UTC 3D 판본을 각각 수용한다. pre-onset·자동/실제 입력은 별도 hold다.
 
 추가 기반은 현재 Docker 허용 목록이 새 프로필/제3자 고지를 제외하는 실제 파일
 공백에 한해 `crop-rate-image-inputs` 3파일로 보완했다. 해당 입력/라이선스 포함·해시와
@@ -763,11 +776,13 @@ CLI·독립 해제/G1은 후속이다.
 ## 2026-10-05 성장 3D 수용과 다음 작은 단계
 
 위 장면의 잠정치는 [실제 로컬 완료](../research/web-crop-coupled-replay-implementation.md)로 대체한다.
-다음 `crop-fruit-startup-policy`는 [정책 수용 계약](../contracts/crop-fruit-startup-policy-v1.md)의
-원천/권리·단위/초기·빈 tail/생식기 이전/W1·S·RGR·독립 보존/hold 표를 만드는 단계다.
-기존 고정 원천/배분·짧은 적분 증거를 재사용하므로 집중 2–4시간, 기존 하루 4시간 가정 아래
-2026-10-05~06 KST 수용 시도를 잠정 배정한다. 근거가 부족한 자동 정책은 hold로 남긴다.
-정책 수용 뒤 필요한 순수 startup 모듈을 별도로 분해하고 전체 작기 처리/수확 변환을 이어간다.
+`crop-fruit-startup-policy`의 [원천/권리·단위/초기·빈 tail/생식기 이전/W1·S·RGR·
+독립 보존/hold 표](../research/crop-fruit-startup-policy.md)를 연구 범위로 수용했다.
+다음 [두 파일의 순수 요청/실현 adapter](../contracts/crop-fruit-startup-rates-v1.md)는
+독립 9개 배분·buffer/호흡 보존값과 5개 hold·실제 이진 수지/단위·불변/hash 회귀를 검사한다.
+0.5 집중일(하루 4시간 가정) 잠정이고, 그 뒤 새 기관/짧은 적분 결합은 0.5–1일로 분리한다.
+첫 adapter 검증 목표는 2026-10-05~06 KST로 잡고 실제 완료/CI 상태로 수정한다.
+자동 착과·pre-onset/실제 초기 계수는 hold이며 전체 작기 처리/수확 변환을 이어간다.
 국내 독립 농장 자료 확보를 개발 선행으로 잠그지 않는다. 실제 품종/forcing/초기/관리 채택,
 생과·자원/경제·미래 추천 게시의 근거·G0–G4는 유지한다. 외부 작기/계량 자료가 0건인 현재
 생산 예측·추천의 완료 날짜는 산정하지 않는다. 운영 기반은 d19f7c0으로 고정한다.

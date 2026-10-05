@@ -1,6 +1,10 @@
 # 과실 구획 시작 조건·명시적 유입 정책 — v1
 
-상태: **다음 조사·판단 작업의 수용 계약; 정책·새 계수 미채택**.
+상태: **원천/명시적 유입 연구 정책·독립 대수 수용; 자동/품종 계수·제품 계산 미수용**.
+수용: [조사/범위/보류](../research/crop-fruit-startup-policy.md),
+[8개 원천/권리 등록부](../research/crop-fruit-startup-source-register.json),
+[9개 정상/5개 hold·3개 W1/RGR 대안·pre-onset 반례](../research/artifacts/crop-fruit-startup-policy-reference-20261005.json).
+다음은 [요청/실현 순수 adapter](crop-fruit-startup-rates-v1.md)다.
 선행은 [과실 모델](crop-fruit-cohorts-v2.md), 기존 배분 정책과
 [짧은 기관/구획 적분](crop-plant-cohort-integration-v1.md)이다.
 실제 농장 자료 접근과 병행하며, 개발/게시 경계는 PROJECT_SPEC을 따른다.

@@ -235,13 +235,21 @@
   19개·실제 SCRAM/HTTPS/WebGL 1개, 실제 완료 6시점/과거 hold 1시점/빈 hold·900 C/N mesh·
   잎 한 면 면적·현재 권리 422/403·3→3 저장 행/GET 재적분 금지/정리.
   typecheck/build·기록 합성 데모 3상태도 통과. 512 UI는 shape 검증, pixel fidelity와 새 hosted는 미수용.
-- [ ] **`crop-fruit-startup-policy`** — 최종 전체 작기 모델의 필수 누락; 개발/국내 확보와 병행.
+- [x] **`crop-fruit-startup-policy`** — 연구 정책/독립 대수 범위만 수용; 개발/국내 확보와 병행.
   빈 초기 tail/남은 양의 유입·생식기 이전/초기 N1·자동 착과/W1/RGR의 근거를 조사하고
   원/변형/명시 관리 입력을 분리한 판본으로 startup/초기 보존·독립 수치/실측 적용성을 검증한다.
   현재 생식기 순간 수용으로 전체 작기 첫날/생산 예측을 열지 않는다.
-  **다음 한 단계:** [정책 수용 계약](../contracts/crop-fruit-startup-policy-v1.md)의 원천/단위/권리·
-  초기 조건/빈 tail/생식기 이전/W1·S·RGR과 독립 보존·hold 사례를 먼저 기록한다.
-  연구/정책 집중 2–4시간 잠정; 새 자동 착과·수확 계수나 코드 수용을 뜻하지 않는다.
+  [원천/단위/권리·초기/W1·S·RGR 조사](../research/crop-fruit-startup-policy.md):
+  8개 raw hash, 9개 독립 보존/5개 hold·3개 미채택 대안·pre-onset C/N 반례,
+  byte-identical 재생성/핀 대사. 명시적 빈 tail 유보 연구 변형을 수용했다.
+  자동 착과·생식기 이전·실제 초기/품종/수확/G0–G4는 미수용이다.
+- [ ] **`crop-fruit-startup-rates`** — 다음 한 단계; 선행: 위 정책·기존 배분/고정 profile.
+  [순수 adapter 계약](../contracts/crop-fruit-startup-rates-v1.md)의 두 코드/시험 파일.
+  수용: 요청/실현/유보·50개 C/N 유입, 실제 생장 호흡·필수 buffer 보정,
+  독립 9개 값/5개 hold·유한/underflow/단위/입력 불변/hash·기존 집중 회귀.
+  사용자 산출물: 요청/실현/유보·호흡/보존 표. 0.5 집중일 잠정.
+  다음 새 whole-plant 판본은 buffer/호흡을 함께 연결한 뒤 짧은 적분/저장/3D로 이어간다.
+  국내 자료 확보가 순수 개발을 막지 않으며 실제 생산·예측 게시에는 해당 G0–G3가 필요하다.
 - [ ] **`crop-fruit-cohorts`** — 전체 구획의 부모 작업; 순간 수용만으로 완료하지 않는다. 개발 선행: `crop-fruit-transport`·`crop-fruit-allocation-rates`·고정 Gompertz 수요·명시적 관리 사건.
   참조 계수의 순수 모듈 개발은 국내 자료 접근/G2를 기다리지 않는다.
   실제 Axiany 적용에는 `crop-input-audit`와 해당 품종/관리·발달 근거가 추가로 필요하다.

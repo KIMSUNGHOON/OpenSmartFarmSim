@@ -171,11 +171,16 @@ Axiany/Maxifort 한 해외 작기 개발 참조다. 대한민국 온실의 최�
 [같은 저장 ID/UTC의 50구획 연구 3D](../research/web-crop-coupled-replay-implementation.md)도
 단위 129개·Chromium 19개·실제 SCRAM/HTTPS/WebGL 1개로 로컬 수용했다.
 실제 완료 6시점/과거 hold 1시점/빈 hold·900개 C/N mesh·권리/정리를 확인했다.
-다음은 [초기 정책 수용](../contracts/crop-fruit-startup-policy-v1.md)과 전체 작기/생과 환산이며
+[초기/명시적 유입 정책](../research/crop-fruit-startup-policy.md)은 원천 8개·독립 9개 보존/5개 hold로 수용했다.
+다음은 [빈 tail 요청/실현 순수 adapter](../contracts/crop-fruit-startup-rates-v1.md) →
+새 기관/적분 판본의 buffer/호흡 동시 연결 → 저장/같은 UTC 3D 판본 수용 → 전체 작기/생과 환산이다.
 자동 착과/빈 초기 작기·실제 품종과 전체 작기 처리의 수용은 남아 있다.
 `d15cf92`의 [시간 적분/artifact·v2 저장 전체 CI](../research/artifacts/crop-coupled-storage-ci-20261005.json)도
 3,070개·별도 UID 4개·같은 목록/여섯 DB·password 정리/집계를 통과했다.
 새 API·웹 페이지/도형 판본은 이 이전 CI의 수용 범위 밖이다.
+`e70a7f2`의 기존 assessment HTTPS 30초 시간 초과와
+[로컬 재현/요약 크기 수정](../research/backend-ci-summary-and-timeout-20261005.md)을 별도 기록했다.
+로컬 통과로 실패한 hosted 판본을 수용하지 않는다.
 실제 47,809시점과 현재 20,000 배열/100만 step 차이는 `crop-cycle-capacity`에서
 연속 상태·사건·저장/출력 시간과 부하/재현을 계약하는 필수 후속이다.
 [필수 프로필/고지 이미지](../research/crop-rate-image-inputs-implementation.md)도 실제 hosted

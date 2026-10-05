@@ -127,7 +127,10 @@ UTC 상태/단위·모델/입력/저장 hash와 수치 hold만 반환한다. 로
 [같은 저장 ID/UTC의 50구획 연구 3D](../research/web-crop-coupled-replay-implementation.md)도
 단위 129개·Chromium 19개·실제 SCRAM/HTTPS/WebGL 1개로 로컬 수용했다.
 실제 완료 6시점/과거 hold 1시점/빈 hold·900개 C/N mesh·현재 권리/정리를 확인했다.
-512개 UI는 shape 검증이며 다음은 초기/자동 착과 정책·전체 작기와 생과 환산이다.
+512개 UI는 shape 검증이다. [초기/명시적 유입 정책 조사](../research/crop-fruit-startup-policy.md)는
+원천 8개·독립 9개 보존/5개 hold로 수용했다. 다음은
+[빈 tail 요청/실현 adapter](../contracts/crop-fruit-startup-rates-v1.md), 새 기관/적분 판본의
+buffer/생장 호흡 동시 연결, 저장/동일 UTC 3D, 전체 작기/생과 환산 순서다.
 실제 전체 작기 처리는 별도다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
 전체 작기 생산 모델의 착수/게시 범위에 접근할 수 있다.
