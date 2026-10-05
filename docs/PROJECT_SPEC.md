@@ -98,8 +98,10 @@ UTC 상태/단위·모델/입력/저장 hash와 수치 hold만 반환한다. 로
 웹 209개·집중 Chromium 10개와 실제 SCRAM/HTTPS/장면 대사를 통과한 범위다.
 실제 한 작기 입력/QC·품종/생산 검증과 전체 제품 G1·G2–G4는 남아 있다.
 
-실제 Reference archive의 47,809시점은 현 연구 v1의 20,000 배열/100만 step
-한도를 넘는다. `crop-cycle-capacity`의 연속 상태·수지/사건·불변 입력·저장/조회와
+실제 Reference archive의 47,809시점은 기관 단독 연구 v1의20,000 배열/100만 step 한도를 넘는다.
+현재 기관·50과실 구획/startup 모델은128 forcing/128 event·512 output·10,000 step·1일 한도다
+([공유 입력 검사](../backend/app/crop_plant_cohort_integration.py)). 두 판본의 한도를 구분한다.
+`crop-cycle-capacity`의 연속 상태·수지/사건·불변 입력·저장/조회와
 자원/재현 검증이 실제 한 작기 재현의 선행이다. 출력 시간 선택을 forcing 해상도
 변경과 구분한다. 해당 계약은 과실 모델 개발과 국내 자료 확보에 병행한다.
 

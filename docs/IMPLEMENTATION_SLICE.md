@@ -204,7 +204,8 @@ v3 로그 비교 도형은 원값/영을 보존하며 기존 v2 선형 대체를
 `e70a7f2`의 기존 assessment HTTPS 30초 시간 초과와
 [로컬 재현/요약 크기 수정](../research/backend-ci-summary-and-timeout-20261005.md)을 별도 기록했다.
 로컬 통과로 실패한 hosted 판본을 수용하지 않는다.
-실제 47,809시점과 현재 20,000 배열/100만 step 차이는 `crop-cycle-capacity`에서
+실제47,809시점과 기관 단독 v1의20,000 배열/100만 step, 현재 기관·과실/startup의
+128 forcing/128 event·512 output·10,000 step·1일 한도의 차이는 `crop-cycle-capacity`에서
 연속 상태·사건·저장/출력 시간과 부하/재현을 계약하는 필수 후속이다.
 [필수 프로필/고지 이미지](../research/crop-rate-image-inputs-implementation.md)도 실제 hosted
 build/실행/정리를 통과했다. `d251df9`의 전체 backend 2,671개·별도 UID 4개와
@@ -218,7 +219,7 @@ CI 5개도 통과했다. `d76410f`의 웹/C0/실제 앱 CI는 통과했다.
 | 2 `crop-growth-rates` | 필요한 문헌식/코드·매개변수의 버전/차원/권리 검토, 명시적 합성 forcing | 광 동화·분배·호흡·기관 변화율 표. 독립 참조값, 야간/잎 면적 0, 탄소 수지, 부적합 입력 거부 |
 | 2a `crop-photosynthesis-domain` | 원식/작은 수관의 특이점 확인 | 온도·LAI·CO₂의 원식 지원 영역과 초기조건 hold·독립 검증. 원식의 임의 clip/기본값 없음 |
 | 3 `crop-growth-integration` | rate kernel과 원식 적용 정책의 수용 | **로컬 소프트웨어 수용:** 잎 면적/기관 상태 시계열·manifest. 초기조건/UTC/관리 사건, 양수성·수지·수렴·재실행 확인. 실제 개발 참조 재현은 forcing QC 뒤 |
-| 3a `crop-cycle-capacity` | 적분 수용·실제 archive의 파일/시점 감사 | 개발: 현재 20,000 배열/100만 step·16/64MiB 입력/결과 경계와 연속 상태/수지·저장/출력·부하/재현 계약. 실제 한 작기 실행은 forcing/초기조건 채택 뒤 |
+| 3a `crop-cycle-capacity` | 적분 수용·실제 archive의 파일/시점 감사 | 개발: 기관 단독v1의20,000 배열/100만 step·16/64MiB와 기관·과실/startup의128 forcing/128 event·512 output·10,000 step·1일을 구분한 연속 상태/수지·저장/출력·부하/재현 계약. 실제 한 작기 실행은 forcing/초기조건 채택 뒤 |
 | 4 `crop-result-storage`, `api-crop-replay` | 적분 수용, 기존 불변 저장/현재 권리·계정 제공자 | 저장 결과 ID·입출력 해시·보류·시계열 조회. 다른 농장/테넌트/모델 혼합·변조·철회 거부, 재시작 동일 조회 |
 | 5 `web-crop-replay` | 저장/API의 같은 상태 조회 | 같은 ID + timestamp의 잎 면적/기관량을 표·그래프·3D에서 확인. 모식 형태 표기, 키·착과수·숙기는 계산하지 않으면 표시하지 않음. WebGL 대체·키보드/시간 이동 시험 |
 | 6 `crop-fruit-transport`·`crop-fruit-allocation-rates` → `crop-fruit-cohorts` → `crop-harvest-conversion` | 개발: 고정 발달식/단위·순간 이동 수용, 원 배분의 보존/W1/초기/gate 정책과 명시적 관리 사건. 실제 작기 적용: 해당 품종/관리·초기조건 QC, 생과 환산: 품종별 건물/생과중/품질 근거 | 개수/탄소 이동·착과/배분/적분→수확 사건·생과 kg·등급과 제거/기관 수지. 평활 탄소 제거나 일반 과실중을 생과 수확으로 대체하지 않음 |

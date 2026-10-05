@@ -1,0 +1,67 @@
+{
+  "evidence_version": "crop-cycle-execution-inspection-v1",
+  "recorded_at": "2026-10-05T05:11:14.014053+00:00",
+  "scope": "source code observation and unresolved contract risks; no new solver or restart acceptance",
+  "cli": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "observed_turn_context_at": "2026-10-05T04:25:00.397Z",
+    "turn_context_line_sha256": "513596530cf9e9ab88bf16cb89546e09b181a15942f2ffe2ea03f94fdea2ec87",
+    "recursive_cli_invocations": 0,
+    "runtime_cli_accepted": false
+  },
+  "file_sha256": {
+    "backend/app/crop_growth_integration.py": "dbcff4fc502b562ebe148356abe88eceed86273d58feaa18ee91c9222fad2e8a",
+    "backend/app/crop_plant_cohort_integration.py": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+    "backend/app/crop_plant_startup_integration.py": "a48f2069d26024eeed5612e95bf59639f943fd6b98e789b21124a125c558656b",
+    "research/crop-forcing-audit.md": "171c02bb81e91986b1913e10c71885a012508744aa463b7b64216db482d3379c",
+    "research/crop-cycle-execution-inspection-20261005.md": "ec78f19ad7529e9b3411c35ce3e3c5799c0712aa8bddaa7bbfb9f688420f25e8"
+  },
+  "limits": {
+    "old_organ_v1": {
+      "segments": 20000,
+      "events": 20000,
+      "outputs": 20000,
+      "steps": 1000000
+    },
+    "current_coupled_and_startup": {
+      "segments": 128,
+      "events": 128,
+      "outputs": 512,
+      "steps": 10000,
+      "period_seconds": 86400,
+      "max_step_seconds": 3600
+    }
+  },
+  "observed_reference_shape": {
+    "points": 47809,
+    "intervals": 47808,
+    "candidate_days": 166,
+    "actual_adopted_utc_or_forcing": false
+  },
+  "step_shape_arithmetic": {
+    "duration_days": 166,
+    "step_seconds": 10,
+    "steps": 1434240,
+    "actual_cycle_performance": false
+  },
+  "state_components": 105,
+  "cumulative_components": 16,
+  "vector_components": 121,
+  "risks": [
+    "output and added chunk times can change RK4 boundaries",
+    "new initial_state resets original seed/cumulative/global counters and input identity",
+    "rounded temperature_sum does not preserve exact Fraction clock prefix",
+    "checkpoint phase/cursors must prevent repeated event or output"
+  ],
+  "not_run": [
+    "independent grid or restart proof",
+    "new execution contract/solver/checkpoint implementation",
+    "actual whole cycle burden"
+  ],
+  "accepted": false,
+  "actual_crop_runs": 0,
+  "independent_domestic_datasets": 0,
+  "g0_g4": "not accepted"
+}
