@@ -39,7 +39,7 @@ Python 동등성에서 같아지는 실제 반례다. 대응 artifact를 canonic
 | --- | --- | --- |
 | 순수 폐쇄 metadata | 61통과/0.93초 | 현재 summary 포함 module; 실제 농장/DB 미포함 |
 | 실제 SCRAM 짧은 게시/미생성·yielded 거부 | 2통과/344.15초 | summary 추가 전 code SHA76faa19f…; 현재 판본 전체 수용과 구분 |
-| 실제 commit 전후 철회·lock·hold·HMAC | 진행 중 | 현재 module; 종료/정리 확인 전 미수용 |
+| 실제 commit 전후 철회·lock·hold·HMAC | 9통과/1,488.61초 | 현재 module; 시험 source는ad9d3b0; roles/schema/password/서버 정리 확인 |
 | 등록 농장25시간의 원 페이지 대사 | 대기 | 실제11,400걸음/독립 제어 흐름·DB 참조; 전체 실제 작기와 구분 |
 | 실제 DB/파일 변조·현재 flag/grants | 대기 | 실제 저장 경로에서 반환 거부/FD·row/Run 확인 |
 

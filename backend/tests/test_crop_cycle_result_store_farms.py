@@ -239,3 +239,58 @@ def test_valid_hmac_cannot_replace_selected_proof_or_db_authority_and_key(server
     other=storage.CycleCropResultStore(server,integrity_key=b'other-own-db-fixture-HMAC-key-00001')
     with pytest.raises(custody.CycleCustodyHold):other.get('tenant-1',first['result_id'],farm)
     assert store.get('tenant-1',first['result_id'],farm)==first and counts(server.binding)[2:]==(1,0)
+
+
+def test_persisted_db_and_file_tamper_current_flag_grants_and_fd_cleanup(server_setup,login_scope,monkeypatch,tmp_path):
+    server,raw,_,_,_=server_setup;base,policy,_=login_scope
+    progress=json.loads(server.advance('tenant-1',raw,budget=BUDGET))
+    store=storage.CycleCropResultStore(server,integrity_key=DB_KEY);first=store.put('tenant-1',raw)
+    forbid_math(monkeypatch);farm=json.loads(raw)['farm'];target=store.jobs._table(storage.schema.TABLE)
+    original=store._find('tenant-1',result_id=first['result_id']);before_fd=len(os.listdir('/proc/self/fd'))
+    def overwrite(changes):
+        with base.connect() as conn:
+            conn.execute(sql.SQL('ALTER TABLE {} DISABLE TRIGGER cycle_crop_result_immutable').format(target))
+            conn.execute(sql.SQL('UPDATE {} SET {} WHERE tenant_id=%s AND result_id=%s').format(target,
+                sql.SQL(',').join(sql.SQL('{}=%s').format(sql.Identifier(k)) for k in changes)),
+                (*changes.values(),'tenant-1',first['result_id']))
+            conn.execute(sql.SQL('ALTER TABLE {} ENABLE TRIGGER cycle_crop_result_immutable').format(target))
+    for changes in ({'payload_raw':original['payload_raw']+b' ',
+                     'payload_sha256':sha256(original['payload_raw']+b' ').hexdigest()},
+                    {'integrity_signature':'0'*64},{'registered_by':policy.roles['worker']}):
+        try:
+            overwrite(changes)
+            with pytest.raises(custody.CycleCustodyHold):store.get('tenant-1',first['result_id'],farm)
+            assert len(os.listdir('/proc/self/fd'))==before_fd and counts(server.binding)[2:]==(1,0)
+        finally:overwrite({k:original[k] for k in changes})
+    where=server.directory/custody._intent_id('tenant-1',json.loads(raw))
+    paths=[where/'artifact'/'HEAD',where/'artifact'/(progress['header_sha256']+'.json'),
+        where/'proofs'/(progress['head_sha256']+'.json'),server.input_resolver.directory/'root.json']
+    for path in paths:
+        old=path.read_bytes();mode=path.stat().st_mode&0o777
+        if path.name=='HEAD':
+            head=json.loads(old);head['artifact_sha256']='0'*64;changed=_canonical(head)
+        else:changed=old+b' '
+        try:
+            path.chmod(0o600);path.write_bytes(changed);path.chmod(mode)
+            with pytest.raises(custody.CycleCustodyHold):store.get('tenant-1',first['result_id'],farm)
+            assert len(os.listdir('/proc/self/fd'))==before_fd and counts(server.binding)[2:]==(1,0)
+        finally:path.chmod(0o600);path.write_bytes(old);path.chmod(mode)
+    try:
+        with base.connect() as conn:conn.execute(sql.SQL('REVOKE SELECT ON {} FROM {}').format(target,sql.Identifier(policy.roles['authority'])))
+        with pytest.raises(custody.CycleCustodyHold):store.get('tenant-1',first['result_id'],farm)
+    finally:
+        with base.connect() as conn:conn.execute(sql.SQL('GRANT SELECT ON {} TO {}').format(target,sql.Identifier(policy.roles['authority'])))
+    from dataclasses import replace
+    identity=store.jobs.runtime_identity
+    try:
+        store.jobs.runtime_identity=(replace(policy,crop_cycle_result_storage=False),identity[1])
+        with pytest.raises(custody.CycleCustodyHold):store.get('tenant-1',first['result_id'],farm)
+    finally:store.jobs.runtime_identity=identity
+    for obj,attr,value in ((server,'directory',tmp_path),(server.input_resolver,'version','changed-v2')):
+        old=getattr(obj,attr)
+        try:
+            setattr(obj,attr,value)
+            with pytest.raises(custody.CycleCustodyHold):store.get('tenant-1',first['result_id'],farm)
+        finally:setattr(obj,attr,old)
+    assert store.get('tenant-1',first['result_id'],farm)==first
+    assert counts(server.binding)[2:]==(1,0) and len(os.listdir('/proc/self/fd'))==before_fd
