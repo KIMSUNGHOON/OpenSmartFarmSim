@@ -3,8 +3,10 @@
 상태: **구현 전 후보·DB custody 수용 대기**, 2026-10-05 UTC.
 작업 `api-crop-cycle-pages`. [DB 게시 계약](crop-cycle-db-custody-v1.md),
 [불변 파일](crop-cycle-artifact-v1.md), [기존 startup 공개 형식](api-crop-startup-replay-v1.md)을 따른다.
-현재 Codex CLI `gpt-6.1-sol / xhigh`에서 판단했다. 실제13:06:32.226Z turn_context 원 line SHA는
-`89ba5513a86c4de082d98d5a72822b35ec29eaec9df1e8ed2610376f4ca51ee0`이며 재귀 CLI0회다.
+현재 Codex CLI `gpt-6.1-sol / xhigh`에서 판단했다. 최초13:06:32.226Z 기록에 이어
+실제14:26:49.152Z turn_context 원 line SHA
+`793bb59cb62be2a7b9061570b6b52c6140fd7a6f306af549e1cf64cd3395e8d8`에서
+실제 저장 형식과 다시 대조했다. 재귀 CLI0회다.
 서버 저장의 현재 참조·권리 대사를 유지하고 긴 결과를 한 HTTP 응답에 모으지 않는다.
 
 ## 요청과 한 읽기 경로
@@ -42,7 +44,26 @@ storage bytes/file count를 제공한다. 현재 정책의 판본은 노출할 �
 `unvalidated_for_registered_crop`, `synthetic_research_program`, `gates=not_assessed`를 유지한다.
 tenant·HMAC/key·내부 job ID·파일 경로·원 forcing/초기 입력/권리 선언·계수/profile 원문을 내보내지 않는다.
 
-summary의 닫힌 status/manifest/hold는 원 terminal summary에서 선택한다.
+공개 reference의 출처와 닫힌 필드는 다음과 같다. 이름은 새 cycle 판본에만 적용한다.
+
+| 닫힌 필드 | 실제 출처·대사 |
+| --- | --- |
+| storage_status/claim_scope/scope/gates/temporal_provenance | packet의 저장·claim, 원 engine scope, 위 고정 연구 표시 |
+| batch_id/zone_id/floor_area/farm_sha256/source_binding_sha256/normalization/profile_applicability | 현재 binding.registration의 같은 crop/batch/zone·원 면적 문자열/단위·hash |
+| start_utc/end_utc | binding.input.period의 원 start/end |
+| artifact_ref/artifact_sha256/header_sha256/input_root_sha256/calculation_sha256/context_sha256/binding_sha256/intent_sha256/head_sha256/proof_sha256/payload_sha256 | 원 packet/progress/input과 실제 row bytes의 대응 hash; 선택된 journal progress도 전체 bytes가 같아야 함 |
+| storage_code_sha256/server_custody_code_sha256/schema_code_sha256/server_dependency_sha256/binding_code_sha256/notice_sha256 | 실제 고정 packet/code/binding/policies; server_dependency_sha256는 단일 digest가 아니라 artifact/farm_binding/input_stream/execution/directory_helper/file_helper의 닫힌6개 digest map |
+| input_rights_version/resolver_version | packet.policies의 고정 판본 이름; 선언 원문/사용자 개인정보 제외 |
+| status/steps/planned_steps/sample_count/event_count/commit_count/storage_bytes/file_count | packet.artifact와 같은 terminal progress; completed의 steps=planned_steps, 엄격한 정수·원 수용 상한 |
+
+farm은 원 요청의 닫힌4개 필드다. reference의 sample/event count와 offset/total은
+최대131,072이며 기존 short API의512/128 한도를 상속하지 않는다. planned/actual steps는
+원 cycle의최대40,000,000을 따르되 공개 API가 그 부하나 전체 작기를 수용했다고 표시하지 않는다.
+
+summary의 닫힌 status/manifest/hold는 원 terminal 증거에서 선택한다.
+실제 writer._summary는 status/steps/hold/last_confirmed 등의 commit metadata이며 manifest를
+저장하지 않는다. manifest는 검증된 원 header/context.manifest에서 읽어야 한다.
+현재 DB summary 함수의 manifest 누락 수정·실제 정상/hold 수용이 API 구현의 선행이다.
 manifest는 cycle의 원 엔진/물리 프로그램/율 모델 판본, input/calculation/grid hash,
 planned_steps/boundary_count/grid page size, 실행3개/물리 코드9개/profile3개 hash,
 policy/allocation policy, solver/실제 Python/time/temperature-sum 규칙을 대사한다.
@@ -51,6 +72,11 @@ hold는 고정 reason code·정확한 solver UTC/phase·last_confirmed를 보존
 실패 trial/확인 과거를 정상 sample 또는 장면 시점에 추가하지 않는다.
 
 page의 닫힌 kind/offset/limit/next_offset/total/records는 원 reader 순서와 count를 따른다.
+reader의 start/next를 offset/next_offset으로 옮기며 마지막 next=total만 null로 표시한다.
+원 byte budget 때문에 limit보다 적은 record가 나올 수 있으므로, nonempty page는
+1≤len(records)≤min(limit,total-offset), next=offset+len(records), 마지막 빈 page만 offset=total이다.
+page를 검증할 때도 같은 문맥의 원 terminal metadata를 확인해 hold 이후 sample/실패 trial을
+거부한다. page view에 summary를 복제하거나 다른 읽기 context를 열지 않는다.
 sample은 기존 startup의 기관·온도/50 N·50 C·LAI·16누적량/수지/diagnostics를 그대로 제공한다.
 event는 UTC·before/after/removed만 제공하고 원 input ID는 숨긴다.
 fruits_equivalent/m2_floor와 mg_CH2O/m2_floor를 생과 kg·실제 과실 개수로 환산하지 않는다.

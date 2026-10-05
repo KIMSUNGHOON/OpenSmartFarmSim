@@ -25,6 +25,8 @@ rights policy와 module hash가 달라지면 hold다. 생성자가 표/권한을
   선택 HEAD·progress가 저장 시점과 다르면 hold다. metadata와 실제 페이지의 ID/hash/UTC를 바꾸지 않는다.
 - `summary(tenant, result_id, farm_ref)`는 원 terminal summary의 manifest·hold 사유·확인 과거를
   최대2MiB로 읽는다. 전후 현재 권리/선택 progress를 검사한다. 다음 typed API와3D가 보류를 설명할 근거다.
+  commit metadata와 검증된 원 header/context.manifest를 함께 읽는다. 현재 구현의 manifest 누락은
+  실행 중인25시간 판본을 고정한 뒤 수정·실제 정상/hold 회귀로 확인할 미수용 항목이다.
 
 record는 기존 내부 관례의 result_id/payload_raw/payload_sha256/recorded_at이다.
 원 binding/등록·정책을 포함하는 내부 packet은 공개 API 응답이 아니다.

@@ -94,6 +94,8 @@ hold·263.879초/parent45.44MiB·정리로10월5일 KST 로컬 완료했다.
 등록25시간의 통합 검증은 첫 private runner의1800초 deadline으로 종료됐고 정리를 확인했다.
 권리/서명/파일 검사 비용의 기여도는 미측정이며 원인 추정과 실제 중간 걸음/시간을 구분한다.
 그25시간1개를 별도90분 이하 native 예산으로 검증 중이다. worker128전이/HTTP30초·G0–G4는 변경하지 않는다.
+API 계약 대조에서 발견한 DB summary의 원 header/context manifest 누락도 종료 후 수정한다.
+실제 정상/hold 회귀까지 확인한 뒤 저장 child/parent를 수용한다.
 그 뒤 [API 후보 계약](../contracts/api-crop-cycle-pages-v1.md)의 DTO/권한2–3시간+
 조립/실제 TLS/예산·정리2–3시간, **4–6집중시간/10월6–8일 KST 잠정**으로 진행한다.
 client2–3시간/장면·실제 브라우저4–6시간까지 새 긴 결과 연구3D는 총10–15집중시간/
