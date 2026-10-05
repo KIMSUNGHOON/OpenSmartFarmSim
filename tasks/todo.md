@@ -264,10 +264,13 @@
         미래 시점 거부·private 필드 비노출·투영 RHS0회. 농장 권리/HTTP/부모는 후속이다.
         [로컬 수용](../research/crop-cycle-api-projection-implementation.md): 고유43개 분할(짧은42/긴1), 실제25시간/
         11,400걸음·원27시점/5사건·7page와 완료 출력0/hold·원53개 hash 보존. 합성 binding이며 HTTP/DB권리 수용은 아니다.
-      - [ ] **`api-crop-cycle-route`** — 선행: 투영 수용. 같은 module의 읽기/route·api.py·route 시험·
+      - [x] **`api-crop-cycle-route`** — 선행: 투영 수용. 같은 module의 읽기/route·api.py·route 시험·
         test_api_openapi.py·openapi-v1.json의5 core파일. 수용: 한 server context·닫힌 query/본문 거부,
         default503/인증·권리·DTO bytes 후 재검사·RHS0·기존 startup 보존·OpenAPI snapshot/권한 시험.
         schema-only app의 동일 route 목록 검사와 실제 snapshot 갱신이 필요한 코드 근거로 분해했다.
+        [로컬 수용](../research/crop-cycle-api-route-implementation.md): 고유146개 분할·최종 route41개/7.76초,
+        실제 합성 원량·Bearer/철회·한 문맥/후검사/RHS0·새 Python import3순서·기존 OpenAPI 보존.
+        custody 내부 stub이며 실제 farm/DB/TLS·30초·부모는 다음 runtime 수용 전 보류다.
       - [ ] **`api-crop-cycle-runtime`** — 선행: route 수용. api_runtime.py·기동 조립 시험·실제 TLS 시험의3 core파일.
         수용: flag/factory 짝·동일 principal/jobs/farm/exact store·실제 Bearer/TLS/SCRAM 원량/UTC/
         응답30초/2MiB·hold/철회/변조·재연결·FD/lock/DB/비밀·WSL 자원 정리.
