@@ -907,3 +907,16 @@ pure artifact는 farm/current rights/HMAC/HTTP의 수용을 대신하지 않는�
 국내 독립 농장 자료 확보를 개발 선행으로 잠그지 않는다. 실제 품종/forcing/초기/관리 채택,
 생과·자원/경제·미래 추천 게시의 근거·G0–G4는 유지한다. 외부 작기/계량 자료가 0건인 현재
 생산 예측·추천의 완료 날짜는 산정하지 않는다. 운영 기반은 d19f7c0으로 고정한다.
+
+### 위 다음 단계 추정의 갱신 — cycle 파일 수용 (2026-10-05)
+
+위 artifact 예정은 [58개 고유 분할·실제25시간 저장/복구 수용](../research/crop-cycle-artifact-implementation.md)으로
+대체한다. 같은 원 UTC/값·27sample/5event·755,868bytes/127파일, 별도 Python7개/847float64와
+실제 강제 종료2개를 확인했고 조회의 RHS/advance/원 적분은0회다.
+저장/조회 부모는 현재 [todo](todo.md)의 **일곱 자식**: artifact → 불변 DB 참조 schema →
+명시 role/config → 현재 권리 custody → API → client → 같은 UTC3D다.
+다음 schema는3파일/실제 SCRAM·불변/등록/예산/기본 runtime 권한 거부·정리이며,
+집중2.5–4시간/10월5–6일 KST 잠정이다. 현재 모델/독립 농장 자료 관문을 유지한다.
+SHAfe41e22의 [CI 첫 시도 보류/재시도 기록](../research/artifacts/crop-cycle-stream-ci-hold-20261005.json)은
+authored-browser7passed/정리 성공 뒤25분 job deadline 취소와 같은 SHA 재시도를 분리한다.
+Backend 전체/집계와 재시도 terminal은 새 대사가 필요하다. 진행 중 CI를 후속 push로 취소하지 않는다.
