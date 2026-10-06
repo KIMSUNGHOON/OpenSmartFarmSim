@@ -1,0 +1,93 @@
+{
+  "evidence_version": "source-map-js-audit-fix-reference-v1",
+  "recorded_at_utc": "2026-10-06T02:54:19.455602+00:00",
+  "snapshot_commit": "e9c2431cad807be5b38748b906f8b36b5c57ecde",
+  "scope": "single dev-transitive lock patch required by actual hosted web audit failure; not new operational foundation or agricultural validation",
+  "cli": {
+    "timestamp": "2026-10-06T02:39:09.080Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "turn_context_line_sha256": "c827f44f3bd6a6b56b36648325643c2f570e3529178e39a0c52263d0a42734a9",
+    "hash_includes_trailing_newline": true,
+    "recursive_cli_invocations": 0,
+    "scope": "current development CLI; own implementation and five-axis review, not independent agricultural validation"
+  },
+  "source_sha256": {
+    "web/package-lock.json": "7c71e36d67b965ed054271db94f10f913f36cea362dd4e9e221722928c8cf731"
+  },
+  "before_lock_sha256": "01c9e63ac980e56351b950df9530ce02456d0a549f3db654223b079d8cb67681",
+  "changed_package_nodes": [
+    "node_modules/source-map-js"
+  ],
+  "version_before": "1.2.1",
+  "version_after": "1.2.2",
+  "integrity_after": "sha512-KGj/8Y43x35aZVDtt+J4mK1hoLGHULMYfSkODJNQjNDC3oW1PqPoxMwo0pLUsWM/UEGzON/NxeHywEfNXNP3Vw==",
+  "license_after": "BSD-3-Clause",
+  "dev_only": true,
+  "direct_dependency_or_scripts_added": false,
+  "command": "npm update source-map-js --package-lock-only --ignore-scripts --no-audit",
+  "failed_ci": {
+    "run_id": 37405273365,
+    "job_id": 112081328555,
+    "head_sha": "d61bcb3b0c89b28c7d409d2a58fb10d8508f942d",
+    "attempt": 1,
+    "conclusion": "failure",
+    "step": "npm audit --audit-level=high",
+    "typecheck_unit_build": "success",
+    "browser_step": "skipped"
+  },
+  "official_sources": [
+    {
+      "url": "https://github.com/advisories/GHSA-68fv-2mgg-jv7q",
+      "published_date": "2026-09-18",
+      "updated_date": "2026-10-05",
+      "observed_date": "2026-10-06",
+      "use": "factual advisory reference; no raw source redistribution"
+    },
+    {
+      "url": "https://github.com/7rulnik/source-map-js/releases/tag/v1.2.2",
+      "published_date": "2026-09-30",
+      "observed_date": "2026-10-06",
+      "use": "release and CSP/indexed-map behavior change reference"
+    },
+    {
+      "url": "https://registry.npmjs.org/source-map-js/1.2.2",
+      "observed_date": "2026-10-06",
+      "use": "version, BSD-3-Clause license and npm tarball integrity"
+    }
+  ],
+  "verification": {
+    "lock_node_diff_count": 1,
+    "install_exit_code": 0,
+    "install_scripts_executed": false,
+    "typecheck_build_exit_code": 0,
+    "vite_seconds": 0.85,
+    "full_web_before": 503,
+    "full_web_after": 503,
+    "after_seconds": 7.09,
+    "audit_exit_code": 0,
+    "audit_vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "client_source5_unchanged": true,
+    "new_browser_tests_run": false
+  },
+  "logs_sha256": {
+    "ci_failed_job": "6839560aedf00126158b1791b8ece8ab80755c5a17f8b20addb3ba9c80f62472",
+    "install": "1ab64e17f832ab2473576aedc1a9fca37cd47a85ef84c78ddd0684fc0da7158e",
+    "full_web_after": "e99c22aafcbd226df148675e198501f2e7397743d8b7529cd213882919456c6c",
+    "build_after": "8c7640dbbb972e2137503ffbd2265b06f6f64989ebbcf961ed7e017d0ddddf9b",
+    "full_web_before": "d6c5c8022ef7bd76324265a3f6c1d43604a668767f57660a70bfa4eea5ac5696"
+  },
+  "audit_raw_sha256": "c32046a8b893c175df89494e75e5e6d11d6ba45293c2fb3602c6efd6d1713211",
+  "hosted_patch_accepted": false,
+  "remaining": [
+    "exact-head hosted CI, new window/3D and actual browser path"
+  ],
+  "gates": "not_assessed"
+}
