@@ -255,7 +255,10 @@ v3 로그 비교 도형은 원값/영을 보존하며 기존 v2 선형 대체를
 runtime/API 부모와 [client](../research/web-crop-cycle-pages-implementation.md)는 로컬 수용했다.
 client 새120개·집중296개·웹 전체503개/타입·빌드·원23 공개 JSON/helper 보존을 확인했다.
 [범위 helper](../research/web-crop-cycle-window-implementation.md)도 새19개·웹 전체522개/타입·빌드·
-직렬 취소·원량 보존으로 로컬 수용했다. 다음은 같은 UTC3D 화면/실제 브라우저이며3D 부모는 계속 열어 둔다.
+직렬 취소·원량 보존으로 로컬 수용했다.
+[같은 UTC 화면 기능](../research/web-crop-cycle-view-implementation.md)도 기록 응답의Chromium16개·
+기존3개·웹522개/타입·빌드·원27시점/5사건·원량/mesh 대사로 로컬 수용했다.
+다음은 새 실제 PG/TLS/WebGL·생명주기/자원 검증이며3D 부모는 계속 열어 둔다.
 새 API 전체·웹 페이지/도형 판본은 이 CI의 수용 범위 밖이다.
 `e70a7f2`의 기존 assessment HTTPS 30초 시간 초과와
 [로컬 재현/요약 크기 수정](../research/backend-ci-summary-and-timeout-20261005.md)을 별도 기록했다.

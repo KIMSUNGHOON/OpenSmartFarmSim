@@ -130,21 +130,25 @@ client2–3시간·3D/실제 브라우저4–6시간을 남긴다. 긴 시험의
 웹503개/타입·빌드·audit0이며 실패한 SHA와 후속 hosted 수용은 구분한다.
 [범위 helper](../research/web-crop-cycle-window-implementation.md)도 새19개·웹 전체522개/
 타입·빌드·직렬 취소/전체 settlement·원값 보존으로 로컬 수용했다.
-다음 화면1–2시간 → 실제 PG/TLS/WebGL2–3시간의 **3–5집중시간**,
-하루4시간 기준 **10월6–8일 KST 잠정**이다. 화면/브라우저와 replay 부모는 아직 미수용이다.
+[화면 기능](../research/web-crop-cycle-view-implementation.md)도 기록 응답의Chromium16개·기존3개·
+웹522개/타입·빌드·원27시점/5사건·C/N2,700 mesh와 원49개/선행7개 보존으로 로컬 수용했다.
+남은 실제 PG/TLS/WebGL·생명주기/자원 검증은 **2–3집중시간**,
+하루4시간 기준 **10월6–8일 KST 잠정**이다. replay/browser 부모와 pixel fidelity는 아직 미수용이다.
 [3D 후보](../contracts/web-crop-cycle-replay-v1.md)는 전체 원 배열을 쌓지 않고 현재64/8 범위와
 같은 UTC·범위의 고정 비교 척도를 표시한다. window helper → 화면 → 실제 브라우저로 분해했으며
-모든 자식은 미구현이다. 실제27시점/5사건과 형식용 많은 범위 이동의 자원 실측을 구분한다.
-client2–3시간/장면·실제 브라우저4–6시간까지 새 긴 결과 연구3D는 총10–15집중시간/
-10월6–10일 KST 잠정이다. 실제166일 부하·자료/품종·생과/자원/경제는 별도이며 CI와
-실측30초에서 발견되는 수정은 이 날짜를 갱신할 근거다. 기존 짧은 연구3D는 이미 수용했다.
+window/화면은 로컬 수용했고 browser4 core파일 중 fixture/spec2개와 기록 응답 검사는 수용했다.
+남은 smoke/native2개와 전체 생명주기·실제 경로 뒤 browser/replay 부모를 체크한다.
+실제27시점/5사건과 형식용 많은 범위 이동의 자원 실측을 구분한다.
+최초10–15집중시간/10월6–10일 추정은 위 단계 실적으로 대체한다. 실제166일 부하·자료/품종·
+생과/자원/경제는 별도이며 CI와 실제 경로에서 발견되는 수정으로 일정을 갱신한다.
 저장 custody/API/client/3D·166일 실제 부하·생과 날짜는 해당 구현 실적/실제 입력 확보 뒤 갱신한다.
 [착수 코드 감사](../research/crop-cycle-execution-inspection-20261005.md)는 기관 단독v1의20,000 배열/
 100만 step과 현재 기관·과실/startup의128 forcing/128 event·512 output·10,000 step·1일을 구분한다.
 현재 output 시각도 RK4 경계에 들어가므로, 화면 출력 선택을 바꾸어 계산 격자를 바꾸지 않도록
 새 계약에서 고정 계산 경계와 저장/표시 선택을 분리한다. 계약/원 격자 대사는 로컬 수용했고
 새 짧은 driver/실제 모델 재시작과 긴 입력 reader/25시간 실제 RHS 연결도 로컬 수용했고,
-그 결과의 불변 파일/reader와 현재 farm/서버/DB 저장까지 로컬 수용했고 새 cycle API/3D·166일 실제 작기 부하는 미수용이다.
+그 결과의 불변 파일/reader·현재 farm/서버/DB 저장·새 cycle API와 기록 응답의 화면 기능까지 로컬 수용했다.
+새 실제 PG/TLS/WebGL·생명주기/자원과166일 실제 작기 부하는 미수용이다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.

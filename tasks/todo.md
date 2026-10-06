@@ -325,13 +325,18 @@
         [로컬 수용](../research/web-crop-cycle-window-implementation.md): 새19개·웹 전체522개/6.76초·
         타입/빌드·원 client5개/계산49개 hash 보존. 실제 요청 시작/settlement·동시1개/늦은 게시0,
         이전 원 배열 누적0·빈 출력/hold와 부분 범위를 확인했다. 화면/부모는 열어 둔다.
-      - [ ] **`web-crop-cycle-view`** — 선행 window 수용; 새 화면/CSS·App·기존 Scene/Chart 문구5 core파일.
+      - [x] **`web-crop-cycle-view`** — 선행 window 수용; 새 화면/CSS·기존 CropReplay 판본 선택·Scene/Chart 문구5 core파일.
         원 시점 표/누적/진단·LAI/C/N·현재 범위 척도/이전·다음·사건 조회를 연결한다.
         기존 v2/v3 의미를 보존하고 UI 디자인/브라우저 절차를 적용한다. 화면만으로 부모를 체크하지 않는다.
+        [로컬 화면 기능 수용](../research/web-crop-cycle-view-implementation.md): 새Chromium16개·기존3개·
+        웹522개/타입·빌드·원27시점/5사건·C/N2,700 mesh 대사·49 backend/선행7개 보존.
+        실제 DB/TLS/WebGL 전체 연결·생명주기/native RSS·pixel fidelity는 별도다.
       - [ ] **`web-crop-cycle-browser`** — 선행 view 수용; fixture/spec/실제 smoke/native4 core파일.
         실제 PG→TLS→WebGL의27시점/5사건·원량/UTC/mesh·GET RHS0/철회/hold와 정리,
         형식용 많은 범위 이동의 배열/renderer·타이머 해제·CPU throttle 반응/heap/RSS 실측을 확인한다.
         emulator/복제 fixture를 실제 저사양 기기나 작기 계산으로 표시하지 않는다.
+        fixture/spec2개와 기록 응답 Chromium16개는 위 화면 수용에 포함했고,
+        남은 smoke/native2개와 전체 생명주기/실제 경로 수용 뒤 이 자식·replay 부모를 체크한다.
   - [ ] **`crop-cycle-burden`** — 선행: 위 세 구현; 실제 RHS의 긴 합성 forcing/source 형태·부하/재현·중단/복원,
     원 수지/사건·불변 저장/조회·WSL 자원/정리를 검증한다. 실제 작업 분해/측정 뒤 global budget/날짜를 고정한다.
     원47,809시점/166일은 입력 형태이며 실제 품종/UTC/QC/초기/관리 채택 없이 crop 작기 수용으로 표시하지 않는다.

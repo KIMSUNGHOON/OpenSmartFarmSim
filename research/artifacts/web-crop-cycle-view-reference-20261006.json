@@ -1,0 +1,285 @@
+{
+  "evidence_version": "web-crop-cycle-view-reference-v1",
+  "recorded_at_utc": "2026-10-06T03:25:24.109591+00:00",
+  "snapshot_commit": "ac1ff7f1b9b7d9aae24330f1555a0d0d7b447d38",
+  "core_commit": "6f0a08395a0acf181b44661338f9c9601715b252",
+  "scope": "current-window UI with recorded own synthetic decoded TLS JSON and isolated Chromium, not fresh native PG/TLS/WebGL or farm validation",
+  "source_sha256": {
+    "web/src/CycleCropReplay.tsx": "4da9381b473a4593bb8b5ad9bdc9dbc0905195b284b94f3ce4ca306c3248dfb0",
+    "web/src/CycleCropReplay.css": "1f3a5fad4309dae6539223e261e5bae86fb772fbb393cb0e74c68d022fa00c13",
+    "web/src/CropReplay.tsx": "82f195008765156b2819fd5aa1bc9315e6184d7d0713b7ea569c36743eeb90d2",
+    "web/src/CoupledCropScene.tsx": "9fa60e5ffbe504ee0af7968c499ec9f6896b7d9ce619067bb8e9e4979db124e5",
+    "web/src/CoupledCropChart.tsx": "aaeca2fa86a194179fb891f8f19334d4d92955500cfaa2c6063b6af132fa808b",
+    "web/e2e/cycle-crop-fixture.ts": "8b01398e4da5b4645322cb510b129ace5df57f334dd9bad650e1e4ba4cdbdc0e",
+    "web/e2e/cycle-crop-replay.spec.ts": "030c983431af92b9aae7d0a8648202a2db1983ce8ed22b22acd11464690b590f"
+  },
+  "source_core_files": 5,
+  "browser_support_core_files": 2,
+  "cli": {
+    "timestamp": "2026-10-06T03:08:12.573Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "2978c044f873a0b9dc53cad1d65bb48a3028968da753333fd9ea402cbc10673d",
+    "hash_includes_trailing_newline": true,
+    "recursive_cli_invocations": 0,
+    "scope": "current development CLI and own five-axis review, not independent farm or product worker approval"
+  },
+  "predecessors_sha256": {
+    "research/artifacts/web-crop-cycle-pages-reference-20261006.json": "6f21bbbe5d6ee9250e6469ef163d648329030a69b578ce351e6984093fd61409",
+    "research/artifacts/web-crop-cycle-window-reference-20261006.json": "af3e2730d29005c9b1f70f463ed2891f808bd9a504819e24d5a1c0fc289a844a"
+  },
+  "actual_api_receipt": "research/artifacts/crop-cycle-api-runtime-long-reference-20261006.json",
+  "actual_api_receipt_sha256": "bfb1bfa735552417efae54e2465e1781124fe8a9658972fc05b86e2efcfdc8c8",
+  "verification": {
+    "web_unit_files": 19,
+    "web_unit_tests": 522,
+    "web_unit_seconds": 6.08,
+    "typecheck_exit_code": 0,
+    "build_exit_code": 0,
+    "vite_build_seconds": 0.645,
+    "final_cycle_chromium_tests": 16,
+    "final_cycle_chromium_reported_wall_minutes": 1.4,
+    "final_old_v1_v2_v3_chromium_tests": 3,
+    "old_chromium_seconds": 20.3,
+    "frozen_backend_files": 49,
+    "unchanged_client_and_window_files": 7,
+    "original_25h_samples": 27,
+    "original_events": 5,
+    "sample_page_counts": [
+      7,
+      7,
+      7,
+      6
+    ],
+    "event_page_counts": [
+      2,
+      2,
+      1
+    ],
+    "selected_frame_C_N_mesh_count": 100,
+    "original_selected_C_N_mesh_checks": 2700,
+    "original_cumulative_quantities_per_frame": 16,
+    "original_startup_diagnostics_per_frame": 4,
+    "sample_request_limit": 7,
+    "event_request_limit": 2,
+    "contract_maximum_limits": [
+      64,
+      8
+    ],
+    "new_native_backend_test_run": false,
+    "whole_pipeline_parent_accepted": false,
+    "pixel_fidelity_accepted": false,
+    "existing_chunk_warning_preserved": true
+  },
+  "checks": [
+    "full result_id/farm/reference plus original global index and UTC across table/chart/Scene",
+    "all original27 frames C/N arrays/units, LAI one-sided surface and100 meshes, current-window log scales and raw chart values",
+    "original5 events removed/before/after arrays and scalars; event read clears Scene and returns to actually visited sample offset",
+    "byte-short next and visited previous offsets, valid empty completed shape and actual empty hold without invented frames",
+    "shape-only fractional last_confirmed kept separate from original samples",
+    "403/404/422/503 and mixed reference clear numeric state; cancel/late full response, ID/account changes, current-page autoplay stop",
+    "mobile390px and200percent text enlargement, keyboard, reduced motion; actual WebGL context loss and restore",
+    "20 shape-only current windows, retained sample7/event0,100 C/N meshes and one canvas, DOM unmount"
+  ],
+  "shape_performance": {
+    "scope": "shape_only_fixture_CPU4x_emulation_not_real_low_end_device_or_whole_WSL_memory",
+    "windows": 20,
+    "selected_input_response_ms": [
+      442.27527500000724,
+      224.59789600000659,
+      230.24092599999858,
+      206.68511800000852,
+      200.03791299999284,
+      235.9245130000054,
+      194.77622800000245,
+      190.15980999999738,
+      205.11744200000248,
+      244.56947699999728,
+      187.6048359999986,
+      187.63366400000814,
+      220.84996800000954,
+      211.85693999999785,
+      185.33218700000725,
+      265.9334840000083,
+      188.14938099999563,
+      201.58733900000516,
+      211.4348880000034,
+      180.31535299999814
+    ],
+    "js_heap_used_bytes": [
+      35311696,
+      34980068,
+      48022740,
+      43640536,
+      47617372,
+      32642740,
+      35897892,
+      42336120,
+      59368224,
+      54966588,
+      50966976,
+      39209192,
+      58506560,
+      55966324,
+      44832484,
+      35398392,
+      52221292,
+      40793308,
+      60004236,
+      57409220
+    ],
+    "max_input_response_ms": 442.27527500000724,
+    "max_js_heap_used_bytes": 60004236
+  },
+  "shape_performance_sha256": "3a1b51fc1cf07056da8f20b415b3976383fdac0e7c0056edaee05c1f35bbb8fe",
+  "cleanup": {
+    "preview_server_port5190_closed": true,
+    "browser_test_vite_port5189_closed": true,
+    "temporary_preview_files_removed": 3,
+    "native_postgresql_or_farm_roles_created_this_slice": false,
+    "full_renderer_observer_listener_timer_native_RSS_audit_complete": false
+  },
+  "design": {
+    "skill": "12ui-design existing approved interface and four existing cutouts; original unchanged matching LayerDocs",
+    "kits": {
+      "main": {
+        "target_sha256": "5fa9acbd0f6eed724db74cb717ff8edba2aff7c4581eb6d83bec834a7484bb2f",
+        "improve_json_sha256": "f2f2a152748ffda12f651fff2b0edc5a735cdf34a59762ec833bb98c2f12b5aa",
+        "capture_sha256": "ebb82648ef4e4045112c61e21a323326f342ccad8176d73f865c68e17c4d5ae1",
+        "plan_sha256": "5c445432d45df30780317275df3e31fb0b259d641bf51bce6c6345a3ab657ab6",
+        "dom_coverage": 0.24705882352941178,
+        "gate": "emitted-low-overlap",
+        "purchases": 0,
+        "settled": true
+      },
+      "empty": {
+        "target_sha256": "3bbf597592f3b25661445e562edb508055b53c8c8f91d61ae67a7b5558f3b769",
+        "improve_json_sha256": "91ea76c1b77c81d66a0e7552b3d82b4e925ac5ba71248315042082d0054cd905",
+        "capture_sha256": "b0106491cdf079dc062999099ea3bac06d38ea44f4ca30f206bc955ac78628f4",
+        "plan_sha256": "94e4d58d6563a1146cf69506e15218463eb13e550843d8ac64d793e2836b4d70",
+        "dom_coverage": 0.1917808219178082,
+        "gate": "emitted-low-overlap",
+        "purchases": 0,
+        "settled": true
+      },
+      "past": {
+        "target_sha256": "ba34b0a30e6a77d3003d7c60c81a5f1ee99f906a27c7e1ea79a2e4c8ad0c0fa3",
+        "improve_json_sha256": "946b9753d42116135c1ea123d057108b40965a3865f659988f9a494743ce1927",
+        "capture_sha256": "dc0f9c78f6d77dfa4c0766e9d0660ada2978295f6479d5437bf0bf0902664ad6",
+        "plan_sha256": "2bf468e07d678aea8ff308f2fb9770242ba461505f54330f92e4c3602b69dae9",
+        "dom_coverage": 0.21176470588235294,
+        "gate": "emitted-low-overlap",
+        "purchases": 0,
+        "settled": true
+      }
+    },
+    "unsafe_token_or_raster_plan_applied": false,
+    "reason": "low-overlap matches map headings/inputs onto scientific diagrams and fake38percent progress; preserve truthful content and current controls; all four valid cutouts already used",
+    "preview_scope": "actual CycleCropReplay/Scene/Chart under temporary same-style preview shell with own recorded synthetic response, shape-only past hold; actual App Chromium screenshots separate",
+    "pixel_fidelity_accepted": false,
+    "new_fonts_assets_frameworks_or_purchases": 0
+  },
+  "initial_failures": [
+    {
+      "tests_passed": 14,
+      "tests_failed": 2,
+      "reason": "CSS zoom at200percent kept780px media-query layout while shrinking content: not a genuine browser zoom/reflow test; change to existing suite200percent text enlargement and label honestly. Other test used nonexistent01 region research button; correct to actual01 input settings.",
+      "correction_passed_tests": 2,
+      "correction_seconds": 24.1
+    },
+    {
+      "tests_passed": 18,
+      "tests_failed": 1,
+      "reason": "own source edit during browser run caused Vite HMR full navigation and removed scope; freeze final source and repeat cycle16 cleanly, no assertion or timeout relaxation"
+    }
+  ],
+  "logs_sha256": {
+    "initial_browser": "63b3d265682d856f2229a9e08f894028996fc53c0b3e9859d1de644789f34059",
+    "corrected_two": "ddfbadd2579d29824084d7518f16f8b7b7b4f9f80b99444d45f769ac5c9260ef",
+    "interrupted_by_source_edit": "420cfbd2e583e1b0398882f86da38af88289e0ac8357255637ea8146ce53bef5",
+    "final_cycle_browser": "e73339d1f1afcb6b549675fcee16e8de51b7891e73c8d3cce2c7a4f6af46f0b0",
+    "final_old_browser": "912558b43f2fc480d80a1f08a7712e1cb7a113ce95f3f7d19ee5135b2ce62d76",
+    "final_units": "95cbbe4a35d9845069acd34cc4ef94e1e24c1dd47edc52ef6e452e14a3911abc",
+    "final_build": "159b9e73606d0aa05e58eea6411232f67c3566b38f27a9223f2d3911f33a8734"
+  },
+  "screenshots": {
+    "research/artifacts/cycle-crop-desktop.png": {
+      "sha256": "0ba5ff08fa928389e39fca1e810eaad8839d78e350c1e52ec58d2a303af83897",
+      "bytes": 640171
+    },
+    "research/artifacts/cycle-crop-empty-hold.png": {
+      "sha256": "e3f8d8bba6084c94431da9b7d5c1ab1ddb2f5d8f9002b888dd95647b782bd94e",
+      "bytes": 311059
+    },
+    "research/artifacts/cycle-crop-mobile.png": {
+      "sha256": "61e5dcc6db4ec6f1e938dc508ac3784113cef1a46e68f5b88c443c14d5eabf35",
+      "bytes": 618723
+    },
+    "research/artifacts/cycle-crop-selected-window-preview.png": {
+      "sha256": "bbd2d93b2c8f043ba9d02a97d63da178e6307243dcbd654941163096b8da277f",
+      "bytes": 86485
+    },
+    "research/artifacts/cycle-crop-past-hold-shape.png": {
+      "sha256": "a7a7bd3f0adbc0274fa4e048365b4a946de9ad530cc0eba0c09de0d1527c0cf0",
+      "bytes": 1041367
+    }
+  },
+  "five_axis_review": {
+    "correctness": "same original values/UTC across19 browser cases and unchanged49 arithmetic/storage files",
+    "readability": "one194-line screen and15-line CSS, existing labels and explicit pages",
+    "architecture": "existing08 format selector, accepted window/client helpers and existing Scene/Chart with optional range label; no extra route or framework",
+    "security": "common Bearer/AbortSignal request and closed response decoder, server current rights at every read; no rights approval in browser",
+    "performance": "one current page and window scales, render-on-change Scene, within-window timer and cleanup, CPU4x observations only"
+  },
+  "ci_observation": {
+    "captured_at_utc": "2026-10-06T03:25:24.111453+00:00",
+    "head_sha": "d61bcb3b0c89b28c7d409d2a58fb10d8508f942d",
+    "run_id": 37405273500,
+    "status": "queued",
+    "conclusion": "",
+    "jobs": [
+      {
+        "name": "backend-partition-0",
+        "status": "in_progress",
+        "conclusion": ""
+      },
+      {
+        "name": "backend-partition-1",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "backend-partition-5",
+        "status": "queued",
+        "conclusion": ""
+      },
+      {
+        "name": "backend-partition-4",
+        "status": "queued",
+        "conclusion": ""
+      },
+      {
+        "name": "backend-partition-2",
+        "status": "in_progress",
+        "conclusion": ""
+      },
+      {
+        "name": "backend-partition-3",
+        "status": "queued",
+        "conclusion": ""
+      }
+    ],
+    "new_local_view_snapshot_hosted_accepted": false,
+    "push_waits_for_backend_terminal_to_preserve_current_run": true
+  },
+  "local_window_view_functional_accepted": true,
+  "gates": "not_assessed",
+  "actual_crop_runs": 0,
+  "domestic_independent_datasets": 0,
+  "remaining": [
+    "actual native PG/SCRAM store -> standard TLS -> new Chromium UI with current rights and RHS0",
+    "owned lifecycle observers/listeners/renderer/timer request cleanup and measured native child peakRSS",
+    "whole166day burden/recovery and actual cultivar/forcing/initial/management rights-qualified adoption",
+    "dry/fresh yield and H/P/S, resources, Decimal economics, independent G2/G3/G4, pixel fidelity"
+  ]
+}

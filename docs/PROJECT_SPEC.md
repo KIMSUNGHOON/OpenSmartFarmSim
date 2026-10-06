@@ -205,7 +205,10 @@ DB는 후속 `4bb6e53`의 [CI5개/Backend4,038개·UID4개](../research/artifact
 [client](../research/web-crop-cycle-pages-implementation.md)도 새120개·집중296개·웹 전체503개/
 타입/빌드·원23 공개 JSON/helper 보존으로 로컬 수용했다.
 [범위 helper](../research/web-crop-cycle-window-implementation.md)도 새19개·웹 전체522개/타입·빌드·
-직렬 취소·원량 보존으로 로컬 수용했다. 다음은 같은 UTC3D 화면/실제 브라우저다.
+직렬 취소·원량 보존으로 로컬 수용했다.
+[같은 UTC 화면 기능](../research/web-crop-cycle-view-implementation.md)도 기록 응답의Chromium16개·
+기존3개·웹522개/타입·빌드·원27시점/5사건·원49개/선행7개 보존으로 로컬 수용했다.
+다음은 새 실제 DB/TLS/WebGL 경로·생명주기/자원 검증이며 replay 부모는 계속 열어 둔다.
 새 cycle API 전체·3D·pixel fidelity·실제 품종은 이 CI SHA 밖이다.
 실제 전체 작기 처리는 별도다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야

@@ -22,7 +22,11 @@
 웹 전체503개·타입/빌드와 실제23 공개 JSON 보존으로 로컬 수용했습니다.
 [현재 범위 helper](research/web-crop-cycle-window-implementation.md)도 새19개·웹 전체522개·
 타입/빌드와 직렬 취소·원량 보존으로 로컬 수용했습니다.
-다음은 같은 UTC 성장 연구3D 화면/실제 브라우저 → 작기 부하 → 생과·자원·경제 순서입니다.
+[같은 UTC 화면 기능](research/web-crop-cycle-view-implementation.md)도 새Chromium16개·기존3개·
+웹522개/타입·빌드·원27시점/5사건·C/N2,700 mesh와 원49개/선행7개 보존으로 로컬 수용했습니다.
+[현재 범위 3D 화면](research/artifacts/cycle-crop-selected-window-preview.png)은 실제 컴포넌트를
+소유한 기록 합성 응답/검토용 shell에서 캡처했습니다. 새 실제 PG/TLS/WebGL 전체 연결과 pixel fidelity는 별도입니다.
+다음은 실제 경로·정리/자원 → 작기 부하 → 생과·자원·경제 순서입니다.
 현재 `d61bcb3`의 hosted 웹은 의존성 보안 감사에서 실패했습니다.
 [단일 잠금 수정](research/source-map-js-audit-fix-20261006.md)은 웹503개/타입·빌드·audit0으로
 로컬 수용했고 해당 판본의 hosted CI는 별도입니다.

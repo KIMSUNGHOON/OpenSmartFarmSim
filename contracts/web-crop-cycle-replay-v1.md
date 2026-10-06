@@ -1,9 +1,11 @@
 # 긴 작물 연구 결과의 같은 UTC 성장 3D — v1 후보
 
-상태: **범위 helper 로컬 수용·화면/실제3D 미수용**, 2026-10-06 KST. 선행은
+상태: **기록 합성 응답의 화면 기능 로컬 수용·새 실제DB/TLS/WebGL 경로 미수용**, 2026-10-06 KST. 선행은
 [cycle API](api-crop-cycle-pages-v1.md)와 [새 client](web-crop-cycle-pages-v1.md)의 실제 수용이다.
 [범위 helper](../research/web-crop-cycle-window-implementation.md)는 새19개·웹 전체522개/
-타입·빌드·원 client5개/계산49개 보존으로 로컬 수용했다. 화면/실제 브라우저와 부모는 별도다.
+타입·빌드·원 client5개/계산49개 보존으로 로컬 수용했다.
+[화면 기능](../research/web-crop-cycle-view-implementation.md)은 새Chromium16개·기존3개·웹522개/
+타입·빌드·원49개/선행7개 보존으로 로컬 수용했다. 새 실제 경로와 replay 부모·pixel fidelity는 별도다.
 현재 Codex CLI `gpt-6.1-sol / xhigh`의 turn_context
 `2026-10-06T00:06:54.191Z`, 원 line SHA
 `64f429fe2ffbde6de414f57f07bc72bbfb9f44131de1f5313de3b117e96e877c`에서
@@ -54,11 +56,14 @@ WebGL 실패/loss는 같은 원값의 표·그래프로 대체하며 복구 때 
    summary/reference·offset/next·hold/출력0·부분 표시/이전 실제 offset·선택 UTC를 검증한다.
    byte-short·혼합 참조·잘못된 순서·범위 변경/취소·직렬 요청/늦은 응답을 실제 기록 DTO로 시험한다.
    형식용 큰 total fixture는 생장 계산으로 보고하지 않는다. 같은 model/profile/원값은 불변이다.
-2. **`web-crop-cycle-view` — 새 화면/CSS·App 연결·기존 Scene/Chart의 범위 문구(5 core파일).**
+2. **`web-crop-cycle-view` — 새 화면/CSS·기존 CropReplay 판본 선택 연결·Scene/Chart의 범위 문구(5 core파일).**
    첫 조회와 현재 범위 선택·이전/다음·사건 범위, 같은 UTC·C/N/LAI·표/누적/진단,
    현재 범위 척도·빈 완료/과거·빈 hold·권리 오류를 연결한다. 기존 디자인/자산을 사용한다.
    `12ui-design`의 기존 화면 확장·원 시안 비교 절차와 브라우저 검증을 적용한다.
    functional 검증과 pixel fidelity는 별도로 보고한다. 이 구현만으로 replay 부모를 체크하지 않는다.
+   기존 `08 성장 연구3D`의 판본 선택에 cycle 항목을 추가하며 별도 route를 만들지 않는다.
+   기본 범위는 sample7/event2로 시작한다(계약 상한64/8은 유지).
+   기존 v1/v2/v3 선택·전체 범위 의미와 동작은 보존한다.
 3. **`web-crop-cycle-browser` — 공개 fixture·집중 browser spec·실제 smoke·native test(4 core파일).**
    실제 SCRAM 저장→표준 TLS→WebGL의 원27시점/5사건, 페이지 경계와 같은 ID/UTC/원량·
    C/N mesh/LAI 면적을 대사한다. GET RHS0회·현재 철회/계정 변경·hold/빈 출력·늦은 응답,
@@ -74,5 +79,5 @@ WebGL 실패/loss는 같은 원값의 표·그래프로 대체하며 복구 때 
 자원/정리 증거다. focused unit/typecheck/build·집중 Chromium·실제 native 경로가 필요하다.
 새 framework/상주 service/계수·농장 자료 확보는 이 합성 연구 화면 개발의 선행이 아니다.
 실제 품종/작기 입력·독립 국내 검증 자료0건과 생과/자원/경제·예측/추천의 외부 의존성은 유지한다.
-client와 범위 helper의 최초 예상은 실제 수용으로 대체한다. 남은 화면1–2시간/실제 경로2–3시간의
-3–5집중시간 추정은 해당 수용 실적으로 갱신한다.
+client/범위 helper/화면의 최초 예상은 실제 수용으로 대체한다. 남은 실제 경로/자원·정리의
+2–3집중시간 추정은 해당 수용 실적으로 갱신한다.
