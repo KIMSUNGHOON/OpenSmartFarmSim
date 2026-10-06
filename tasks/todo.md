@@ -382,6 +382,9 @@
       749블록/113,920,841bytes·0.485초/RHS0·FD4→4를 기록했다. cache 조건 미통제이며
       schema/QC/context/현재 권리/API는 제외했다. 코드 SHA에 묶인 판본·과거 재현을 보존한 수정과
       실제 전체 공개 경로 검증 전에는 이 checkbox를 체크하지 않는다.
+      [원 검사/context 비용 분해](../research/crop-cycle-input-validation-cost-observation-20261006.md)는
+      같은 원 context/계획을 대사했고 기준33.05초·계측44.70초/RHS0·FD4→4를 기록했다.
+      반복 JSON/정규화/canonical 검사가 집중 수정 대상이다. 현재 권리·QC/판본의 생략 승인은 아니다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
