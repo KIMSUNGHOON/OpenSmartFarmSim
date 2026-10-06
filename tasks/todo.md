@@ -319,9 +319,12 @@
       수용: 실제 PG→TLS→WebGL·원 표/mesh·부분 페이지/hold,
       타임라인 변경·권리 철회·GET 재적분0회/저사양·반응형·키보드/정리. 실제 품종의 키/크기/
       수확·임의 애니메이션이나 새 G0–G4 통과로 표시하지 않는다.
-      - [ ] **`web-crop-cycle-window`** — 선행 client 수용; 상태/범위 helper·집중 시험2 core파일.
+      - [x] **`web-crop-cycle-window`** — 선행 client 수용; 상태/범위 helper·집중 시험2 core파일.
         summary/reference·원 offset/byte next/이전 실제 offset·같은 UTC·출력0/hold,
         부분 표시·배열64/8·직렬 요청/취소/늦은 응답을 대사한다. 원량을 바꾸지 않는다.
+        [로컬 수용](../research/web-crop-cycle-window-implementation.md): 새19개·웹 전체522개/6.76초·
+        타입/빌드·원 client5개/계산49개 hash 보존. 실제 요청 시작/settlement·동시1개/늦은 게시0,
+        이전 원 배열 누적0·빈 출력/hold와 부분 범위를 확인했다. 화면/부모는 열어 둔다.
       - [ ] **`web-crop-cycle-view`** — 선행 window 수용; 새 화면/CSS·App·기존 Scene/Chart 문구5 core파일.
         원 시점 표/누적/진단·LAI/C/N·현재 범위 척도/이전·다음·사건 조회를 연결한다.
         기존 v2/v3 의미를 보존하고 UI 디자인/브라우저 절차를 적용한다. 화면만으로 부모를 체크하지 않는다.

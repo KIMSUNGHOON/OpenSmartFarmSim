@@ -1,7 +1,9 @@
 # 긴 작물 연구 결과의 같은 UTC 성장 3D — v1 후보
 
-상태: **설계 후보·미구현**, 2026-10-06 KST. 선행은
+상태: **범위 helper 로컬 수용·화면/실제3D 미수용**, 2026-10-06 KST. 선행은
 [cycle API](api-crop-cycle-pages-v1.md)와 [새 client](web-crop-cycle-pages-v1.md)의 실제 수용이다.
+[범위 helper](../research/web-crop-cycle-window-implementation.md)는 새19개·웹 전체522개/
+타입·빌드·원 client5개/계산49개 보존으로 로컬 수용했다. 화면/실제 브라우저와 부모는 별도다.
 현재 Codex CLI `gpt-6.1-sol / xhigh`의 turn_context
 `2026-10-06T00:06:54.191Z`, 원 line SHA
 `64f429fe2ffbde6de414f57f07bc72bbfb9f44131de1f5313de3b117e96e877c`에서
@@ -72,4 +74,5 @@ WebGL 실패/loss는 같은 원값의 표·그래프로 대체하며 복구 때 
 자원/정리 증거다. focused unit/typecheck/build·집중 Chromium·실제 native 경로가 필요하다.
 새 framework/상주 service/계수·농장 자료 확보는 이 합성 연구 화면 개발의 선행이 아니다.
 실제 품종/작기 입력·독립 국내 검증 자료0건과 생과/자원/경제·예측/추천의 외부 의존성은 유지한다.
-client2–3시간과 별도 화면/실제 경로4–6시간의 잠정 추정은 실제 수용 실적으로 갱신한다.
+client와 범위 helper의 최초 예상은 실제 수용으로 대체한다. 남은 화면1–2시간/실제 경로2–3시간의
+3–5집중시간 추정은 해당 수용 실적으로 갱신한다.
