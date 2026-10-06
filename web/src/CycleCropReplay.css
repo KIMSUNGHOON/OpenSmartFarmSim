@@ -1,0 +1,15 @@
+.cycle-range-header { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:12px; }
+.cycle-range-controls { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:16px; }
+.cycle-range-utc { overflow-wrap:anywhere; }
+.cycle-range-note { border-left:3px solid var(--green,#367744); padding-left:12px; }
+.cycle-range p { margin-bottom:8px; }
+.cycle-replay .startup-assumptions summary { cursor:pointer; font-weight:650; }
+.cycle-replay .startup-assumptions[open] summary { margin-bottom:12px; }
+.cycle-evidence pre { white-space:pre-wrap; overflow-wrap:anywhere; font-size:.78rem; }
+.cycle-events > article { padding:16px 0; border-top:1px solid #dce1d4; }
+.cycle-events summary { cursor:pointer; padding:10px 0; }
+.cycle-replay .cycle-range-controls .button { min-height:44px; }
+@media (max-width:640px) {
+  .cycle-range-header { display:block; }
+  .cycle-range-controls .button { flex:1 1 42%; }
+}

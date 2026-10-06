@@ -30,7 +30,7 @@ function Plot({option,raw}:{option:Record<string,unknown>;raw?:readonly number[]
   return <><div className="coupled-plot" ref={target} data-values={raw?JSON.stringify(raw):undefined} aria-hidden="true"/>
     {failed && <p role="status">그래프를 사용할 수 없습니다. 같은 값은 표에서 확인하세요.</p>}</>;
 }
-export default function CoupledCropChart({samples,sample,scales}:{samples:readonly CoupledCropSample[];sample:CoupledCropSample;scales:CohortScales}){
+export default function CoupledCropChart({samples,sample,scales,rangeLabel}:{samples:readonly CoupledCropSample[];sample:CoupledCropSample;scales:CohortScales;rangeLabel?:string}){
   const [metric,setMetric]=useState<Metric>('lai'),[cohort,setCohort]=useState(0);
   const selected=quantity(sample,metric,cohort),values=samples.map(row=>quantity(row,metric,cohort).value);
   const common={animation:false,textStyle:{fontFamily:'Noto Sans KR Variable, sans-serif'},
@@ -44,7 +44,7 @@ export default function CoupledCropChart({samples,sample,scales}:{samples:readon
           <Plot raw={raw} option={{...common,xAxis:{type:'category',data:Array.from({length:50},(_,i)=>String(i+1)),
             axisLabel:{interval:4}},yAxis:{type:'value',name:unit,min:0,...(scales[kind]>0?{max:scales[kind]}:{})},
             series:[{type:'bar',data:raw,itemStyle:{color},animation:false}]}}/>
-          <p className="crop-caption">{unit} · 전체 저장 시점의 공통 최대 {displayNumber(scales[kind])}</p></div>;
+          <p className="crop-caption">{unit} · {rangeLabel?'현재 읽은 범위':'전체 저장 시점'}의 공통 최대 {displayNumber(scales[kind])}</p></div>;
       })}</div></section>
     <section className="panel coupled-history" data-selected-at={sample.at} data-selected-value={selected.value} data-selected-unit={selected.unit}>
       <div className="crop-heading"><h2>시간에 따른 저장 계산값</h2><label>연결 연구 그래프 항목<select value={metric}
@@ -57,6 +57,7 @@ export default function CoupledCropChart({samples,sample,scales}:{samples:readon
           itemStyle:{color:'#367744'},markLine:{silent:true,symbol:['none','none'],
             label:{formatter:'선택 시점'},lineStyle:{color:'#aa8732',type:'dashed'},data:[{xAxis:sample.at}]}}]}}/>
       <p className="crop-caption">점선은 선택 UTC입니다. 선은 저장된 값의 연결이며 중간 상태를 계산하지 않습니다.</p>
+      {rangeLabel && <p className="crop-caption">{rangeLabel}. 이 시간 그래프는 현재 범위만 표시합니다.</p>}
     </section>
   </>;
 }

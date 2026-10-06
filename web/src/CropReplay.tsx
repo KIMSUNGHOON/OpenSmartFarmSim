@@ -9,6 +9,7 @@ import './CropReplay.css';
 const CropScene=lazy(()=>import('./CropScene'));
 const CropChart=lazy(()=>import('./CropChart'));
 const CoupledCropReplay=lazy(()=>import('./CoupledCropReplay'));
+const CycleCropReplay=lazy(()=>import('./CycleCropReplay'));
 type Api=ReturnType<typeof createApi>;
 const EMPTY:CropLookup={result_id:'',scenario_id:'',scenario_revision:'',registration_sha256:'',crop_id:''};
 const LABELS:Record<keyof CropLookup,string>={result_id:'저장 연구 결과 ID',scenario_id:'농장 시나리오 ID',
@@ -72,11 +73,13 @@ function CropEvents({data}:{data:CropReplay}){
 }
 
 export default function CropReplayView(props:{api:Api|null;initialSelection?:CropLookup;autoLoadInitialSelection?:boolean}){
-  const [format,setFormat]=useState(props.initialSelection?.result_id.startsWith('crop-result-v3:')?'v3':props.initialSelection?.result_id.startsWith('crop-result-v2:')?'v2':'v1');
+  const [format,setFormat]=useState(props.initialSelection?.result_id.startsWith('crop-cycle-result-v1:')?'cycle':props.initialSelection?.result_id.startsWith('crop-result-v3:')?'v3':props.initialSelection?.result_id.startsWith('crop-result-v2:')?'v2':'v1');
   return <><label className="crop-format">저장 결과 판본<select value={format} onChange={e=>setFormat(e.target.value)}>
     <option value="v1">v1 · 기관 탄소 연구</option><option value="v2">v2 · 기관과 50과실 구획 연결 연구</option>
-    <option value="v3">v3 · 명시 진입·빈 과실 유보 연구</option></select></label>
-    {format==='v2' || format==='v3'?<Suspense fallback={<p role="status">연결 연구 화면 준비 중…</p>}>
+    <option value="v3">v3 · 명시 진입·빈 과실 유보 연구</option>
+    <option value="cycle">cycle v1 · 긴 계산의 현재 저장 범위</option></select></label>
+    {format==='cycle'?<Suspense fallback={<p role="status">저장 범위 화면 준비 중…</p>}><CycleCropReplay {...props}/></Suspense>:
+    format==='v2' || format==='v3'?<Suspense fallback={<p role="status">연결 연구 화면 준비 중…</p>}>
       <CoupledCropReplay key={format} {...props} model={format==='v3'?'startup':'coupled'}/></Suspense>:
       <LegacyCropReplay {...props}/>}</>;
 }
