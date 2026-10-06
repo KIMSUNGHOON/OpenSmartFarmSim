@@ -287,9 +287,21 @@
       수용: 기록된 실제 TLS 응답의 원량/순서·혼합 ID/판본/hash·오래된 요청/중복/
       부분/권리 철회·hold 거부/보존, focused unit/typecheck/build. 기존 short decoder는 보존한다.
     - [ ] **`web-crop-cycle-replay`** — 선행: cycle client 수용. 같은 저장 ID/UTC의 상태·누적량·수지와
-      성장 연구 3D를3–5파일로 연결한다. 수용: 실제 PG→TLS→WebGL·원 표/mesh·부분 페이지/hold,
+      성장 연구 3D를 [현재 범위 표시 후보 계약](../contracts/web-crop-cycle-replay-v1.md)의 작은 자식으로 연결한다.
+      전체 원 배열을 쌓지 않고 sample64/event8 이하와 현재 범위의 고정 비교 척도를 표시한다.
+      수용: 실제 PG→TLS→WebGL·원 표/mesh·부분 페이지/hold,
       타임라인 변경·권리 철회·GET 재적분0회/저사양·반응형·키보드/정리. 실제 품종의 키/크기/
       수확·임의 애니메이션이나 새 G0–G4 통과로 표시하지 않는다.
+      - [ ] **`web-crop-cycle-window`** — 선행 client 수용; 상태/범위 helper·집중 시험2 core파일.
+        summary/reference·원 offset/byte next/이전 실제 offset·같은 UTC·출력0/hold,
+        부분 표시·배열64/8·직렬 요청/취소/늦은 응답을 대사한다. 원량을 바꾸지 않는다.
+      - [ ] **`web-crop-cycle-view`** — 선행 window 수용; 새 화면/CSS·App·기존 Scene/Chart 문구5 core파일.
+        원 시점 표/누적/진단·LAI/C/N·현재 범위 척도/이전·다음·사건 조회를 연결한다.
+        기존 v2/v3 의미를 보존하고 UI 디자인/브라우저 절차를 적용한다. 화면만으로 부모를 체크하지 않는다.
+      - [ ] **`web-crop-cycle-browser`** — 선행 view 수용; fixture/spec/실제 smoke/native4 core파일.
+        실제 PG→TLS→WebGL의27시점/5사건·원량/UTC/mesh·GET RHS0/철회/hold와 정리,
+        형식용 많은 범위 이동의 배열/renderer·타이머 해제·CPU throttle 반응/heap/RSS 실측을 확인한다.
+        emulator/복제 fixture를 실제 저사양 기기나 작기 계산으로 표시하지 않는다.
   - [ ] **`crop-cycle-burden`** — 선행: 위 세 구현; 실제 RHS의 긴 합성 forcing/source 형태·부하/재현·중단/복원,
     원 수지/사건·불변 저장/조회·WSL 자원/정리를 검증한다. 실제 작업 분해/측정 뒤 global budget/날짜를 고정한다.
     원47,809시점/166일은 입력 형태이며 실제 품종/UTC/QC/초기/관리 채택 없이 crop 작기 수용으로 표시하지 않는다.

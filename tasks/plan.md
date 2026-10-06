@@ -106,6 +106,9 @@ API 대조의 원 manifest 누락도 실제 정상/hold2실패 후 한 줄 수�
 조립/실제 TLS/예산·정리2–3시간, **4–6집중시간/10월6–8일 KST 잠정**으로 진행한다.
 [client 후보](../contracts/web-crop-cycle-pages-v1.md)는 같은 summary/참조·한 페이지 단위 iterator와
 원량 helper를 연결하며 기존 short 한도/완료 끝점 조건은 가져오지 않는다. API 긴 수용 뒤 착수한다.
+[3D 후보](../contracts/web-crop-cycle-replay-v1.md)는 전체 원 배열을 쌓지 않고 현재64/8 범위와
+같은 UTC·범위의 고정 비교 척도를 표시한다. window helper → 화면 → 실제 브라우저로 분해했으며
+모든 자식은 미구현이다. 실제27시점/5사건과 형식용 많은 범위 이동의 자원 실측을 구분한다.
 client2–3시간/장면·실제 브라우저4–6시간까지 새 긴 결과 연구3D는 총10–15집중시간/
 10월6–10일 KST 잠정이다. 실제166일 부하·자료/품종·생과/자원/경제는 별도이며 CI와
 실측30초에서 발견되는 수정은 이 날짜를 갱신할 근거다. 기존 짧은 연구3D는 이미 수용했다.
@@ -210,7 +213,10 @@ flowchart TD
   CROUTE --> CRT["api-crop-cycle-runtime: 동일 조립/실제 TLS"]
   CRT --> CAPI["api-crop-cycle-pages: 자식 수용 뒤 부모 완료"]
   CAPI --> CWEB["web-crop-cycle-pages: 원값/선택 UTC"]
-  CWEB --> C3D["web-crop-cycle-replay: 실제 PG/TLS/WebGL"]
+  CWEB --> CWND["web-crop-cycle-window: 현재 범위/같은 UTC·직렬 요청"]
+  CWND --> CVIEW["web-crop-cycle-view: 범위 척도·표/성장 연구3D"]
+  CVIEW --> CBR["web-crop-cycle-browser: 실제 PG/TLS/WebGL·자원"]
+  CBR --> C3D["web-crop-cycle-replay: 자식 수용 뒤 부모 완료"]
   C3D --> PAGES["crop-cycle-result-pages: 자식 수용 뒤 부모 완료"]
   PAGES --> BURDEN["crop-cycle-burden: 긴 실제 RHS·부하/복원"]
   BURDEN --> CAP
