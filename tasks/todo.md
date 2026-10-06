@@ -288,6 +288,11 @@
         종류/offset·부분 응답 시간은 미기록이며 정리를 확인했다. 만료 실패의 HTTP0개와 구별한다.
         원 페이지/재기동/30초 예산과 runtime/API 부모는 계속 미수용이다.
         다음은 custody/API 페이지 읽기 진단과 실패 직전 부분 근거 기록이며 HTTP 한도는 유지한다.
+        [소형 실제 SCRAM 비용 진단](../research/artifacts/crop-cycle-api-read-profile-20261006.json)은
+        별도1개/168.79초·원3시점/RHS0·정리로 완료했다. 등록/시장 검증10회가 page에서
+        연결 함수1,170회·권한 audit1,281회를 호출했다. prefix 주원인 가설은 지지되지 않았다.
+        다음 작은 수정은 시장 검증의 읽기 범위와 원천/권한·불변 pin/Decimal 보존 회귀이며,
+        프로파일 page33.219506초는 HTTP 수용으로 계산하지 않는다. 원25시간 검증은 남는다.
     - [ ] **`web-crop-cycle-pages`** — 선행: cycle API 수용. 새 판본 decoder/순차 페이지와 선택 UTC를
       [웹 조회 후보 계약](../contracts/web-crop-cycle-pages-v1.md)의5 core파일로 연결한다.
       원량 helper 본문만 재사용하고 short 한도/끝점 조건을 가져오지 않는다. summary·페이지 getter/
