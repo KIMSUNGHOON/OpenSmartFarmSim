@@ -39,6 +39,8 @@
 [runner/작은 재개 전략](research/crop-cycle-full-rhs-small-strategy-implementation.md)은 집중17개·
 실제 자작5시간61출력/2사건·별도 Python 재개·terminal RHS0/정리로 로컬 수용했습니다.
 다음 실제166일의 고정6시간 실험 예산은 완료 날짜가 아닙니다.
+[실제166일 시작 관측](research/artifacts/crop-cycle-full-rhs-started-reference-20261006.json)은 첫checkpoint 뒤
+같은 spec으로 재개한 실제16,086걸음 진행을 기록했습니다. 이 관측은 전체 완료 증거가 아닙니다.
 원 입력 반복 검증 비용의 개선과 실제 전체 실행/조회 수용 뒤 전체 날짜를 갱신합니다.
 `d61bcb3`의 [종료된 CI](research/crop-cycle-route-runtime-ci-hold-20261006.md)는
 Backend5분할 성공/1실패·집계 실패, 웹 감사 실패이며 C0/앱/작성 경로는 성공했습니다.

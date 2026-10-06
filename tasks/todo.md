@@ -371,6 +371,8 @@
       실제 자작5시간2,280걸음/61출력·2사건·별도 Python의 정확한 checkpoint 재개·terminal RHS0·정리.
       기존49/profile2파일을 보존했다. global wall6시간을 고정했으며 예산/날짜를 구분한다.
       실제166일 전체 종료/수지 검증 전에는 이 checkbox를 체크하지 않는다.
+      [실제 시작 관측](../research/artifacts/crop-cycle-full-rhs-started-reference-20261006.json)은 첫checkpoint/종료0·
+      같은 spec의 별도 Python 재개/실제 진행·고정 deadline을 기록했다. 관측 시각에 실행 중이다.
     - [ ] **`crop-cycle-burden-replay-restore`** — 선행 전체 RHS/저장 수용; 중단/복원·실제 page/화면3–4파일.
       같은 원 context/seed/누적/clock/sequence의 중단/복원을 연속 결과와 대사하고 전체 저장의
       시작/중간/끝·byte-short/관리 전후·같은 ID/UTC/30초2MiB·현재 권리/변조·DB/서버/비밀번호/FD 정리를 확인한다.
