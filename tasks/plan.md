@@ -143,6 +143,10 @@ window/화면은 로컬 수용했고 browser4 core파일 중 fixture/spec2개와
 [signed zero 기대값1실패/1666.57초·정리](../research/web-crop-cycle-native-signed-zero-hold-20261006.md)로
 미수용이다. 표현 수정 뒤 재검증은 실제28분 실적 기준 **추가 약30분**, 전체 수용 뒤 체크를 갱신한다.
 실제27시점/5사건과 형식용 많은 범위 이동의 자원 실측을 구분한다.
+후속 [실제 작기 부하 후보](../contracts/crop-cycle-burden-v1.md)는 profile → 전체166일 RHS → 저장 조회/중단 복원으로 분해한다.
+순수 budget1..10,000과 artifact transition≤128의 비용을 먼저 분리한다. 현재25시간을 source 형태8초 격자에
+단순 비례한4.79/52.84시간은 실제 전체 작기 측정이나 완료 날짜가 아니다. profile 구현/검증2–3집중시간 잠정이며
+전체 실행/복원 날짜는 실측/global budget 확정 뒤 갱신한다. 짧은/복제 fixture와 조기 hold로 전체 작기를 수용하지 않는다.
 최초10–15집중시간/10월6–10일 추정은 위 단계 실적으로 대체한다. 실제166일 부하·자료/품종·
 생과/자원/경제는 별도이며 CI와 실제 경로에서 발견되는 수정으로 일정을 갱신한다.
 저장 custody/API/client/3D·166일 실제 부하·생과 날짜는 해당 구현 실적/실제 입력 확보 뒤 갱신한다.
@@ -253,6 +257,10 @@ flowchart TD
   CBR --> C3D["web-crop-cycle-replay: 자식 수용 뒤 부모 완료"]
   C3D --> PAGES["crop-cycle-result-pages: 자식 수용 뒤 부모 완료"]
   PAGES --> BURDEN["crop-cycle-burden: 긴 실제 RHS·부하/복원"]
+  PAGES --> BPROF["crop-cycle-burden-profile: 비용/한도·원 격자"]
+  BPROF --> BFULL["crop-cycle-burden-full-rhs: 실제166일·모든 원 출력"]
+  BFULL --> BRESTORE["crop-cycle-burden-replay-restore: 같은 상태 복원·실제 조회"]
+  BRESTORE --> BURDEN
   BURDEN --> CAP
   SI --> SF["crop-startup-artifact: 새 bytes/재적분 없는 reader"]
   SF --> SS["crop-startup-result-storage: 표/명시 role → 현재 권리/custody"]

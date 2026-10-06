@@ -1,0 +1,135 @@
+{
+  "evidence_version": "crop-cycle-burden-planning-v1",
+  "recorded_at_utc": "2026-10-06T04:44:54.764450+00:00",
+  "status": "planning_candidate_only_not_implemented_or_full166day_accepted",
+  "source_snapshot_commit": "29c12d78e475adbba573bf96d74f54eedd41f140",
+  "cli": {
+    "actual_current_development_context": {
+      "timestamp": "2026-10-06T04:32:59.335Z",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "raw_line_sha256": "45f672591cf062f9a6c0fd94868ac4d330f65dee0519da7624cad28cab398d72"
+    },
+    "recursive_cli_invocations": 0,
+    "scope": "reviewable_development_design_not_product_worker_or_independent_farm_validation"
+  },
+  "source_sha256": {
+    "backend/app/crop_cycle_stream_execution.py": "4de399721cab82ab7f56e093b11b72682437e29bb3097e745b1e61d695d03aac",
+    "backend/app/crop_cycle_artifact.py": "10bcf863ba40338f2efa7242d78c2cccd3020fbdca061951da6b7b1c5a7c51f7",
+    "backend/app/crop_cycle_input_stream.py": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53",
+    "research/crop-cycle-stream-execution-reference.py": "b13b6224dadd4d69a94e6d9e2d3a820449e636cb57b621915c325dcb3e1f3f1b"
+  },
+  "prior_actual25h": {
+    "public_receipt": "research/artifacts/crop-cycle-api-runtime-long-reference-20261006.json",
+    "public_receipt_sha256": "bfb1bfa735552417efae54e2465e1781124fe8a9658972fc05b86e2efcfdc8c8",
+    "private_raw_sha256": "6b5adcdc85151836992116d09d196dc724fe2f376b67a486a9dbb99c33622169",
+    "actual_steps": 11400,
+    "advances": 92,
+    "pure_independent_control_flow_shares_rates_seconds": 108.31028117600363,
+    "farm_server_advance_seconds": 1193.6806372280116,
+    "scope": "different_layer_costs_not_full166day_or_independent_biology"
+  },
+  "observed_limits": {
+    "pure_chunk": {
+      "steps_min": 1,
+      "steps_max": 10000,
+      "transitions_min": 1,
+      "transitions_max": 10000
+    },
+    "artifact_chunk": {
+      "steps_min": 1,
+      "steps_max": 10000,
+      "transitions_min": 1,
+      "transitions_max": 128
+    },
+    "artifact": {
+      "commits": 16384,
+      "directory_bytes": 536870912,
+      "files": 65536,
+      "page_bytes": 2097152,
+      "page_records": 128,
+      "delta_bytes": 8388608,
+      "pages_per_commit": 16,
+      "metadata_bytes": 131072,
+      "root_bytes": 2097152
+    },
+    "input": {
+      "records": 131072,
+      "root_bytes": 1048576,
+      "block_bytes": 2097152,
+      "packet_bytes": 536870912,
+      "cursor_bytes": 65536,
+      "solver_max_steps": 40000000,
+      "max_period_days": 366
+    },
+    "public_response": {
+      "seconds": 30,
+      "bytes": 2097152,
+      "sample_limit": 64,
+      "event_limit": 8
+    }
+  },
+  "shape_arithmetic_only": {
+    "source_shape_points": 47809,
+    "intervals": 47808,
+    "interval_seconds": 300,
+    "max_step_seconds": 8,
+    "steps": 1816704,
+    "pure_linear_hours_decimal": "4.794535113391094021333333333333333333333",
+    "farm_server_linear_hours_decimal": "52.84026287462664682666666666666666666667",
+    "scope": "inference_uniform_own_shape_arithmetic_not_actual_full_cycle_measurement_deadline_safe_upper_bound_or_agricultural_step_accuracy",
+    "arithmetic": "intervals * ceil(interval_seconds / max_step_seconds); measured_seconds * shape_steps / prior_actual_steps / 3600"
+  },
+  "planned_tasks": [
+    {
+      "id": "crop-cycle-burden-profile",
+      "predecessors": [
+        "web-crop-cycle-browser",
+        "web-crop-cycle-replay",
+        "crop-cycle-result-pages"
+      ],
+      "core_file_bound": 3,
+      "acceptance": "separate_RHS_serialize_artifact_append_verify_current_rights_DB_page_costs_actual_steps_bytes_files_wall_CPU_child_RSS_FD_cleanup_same_grid_seed_clock_events_balances_across_quotas_restart",
+      "estimated_focused_hours": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "crop-cycle-burden-full-rhs",
+      "predecessors": [
+        "crop-cycle-burden-profile",
+        "any_observed_defect_focused_fix_acceptance"
+      ],
+      "core_file_bound": 3,
+      "acceptance": "continuous_actual_RHS_entire166day_fixed_own_input_original_selected_outputs_events_hash_balance_resource_rights_cleanup_no_early_hold_or_duplicated_rows_success"
+    },
+    {
+      "id": "crop-cycle-burden-replay-restore",
+      "predecessors": [
+        "crop-cycle-burden-full-rhs",
+        "full_result_storage_acceptance"
+      ],
+      "core_file_bound": [
+        3,
+        4
+      ],
+      "acceptance": "actual_interruption_same_context_seed_clock_cumulative_state_sequence_matches_continuous_complete_saved_begin_middle_end_byte_short_management_API_sameIDUTC3D_30s2MiB_rights_tamper_cleanup"
+    }
+  ],
+  "implementation_predecessors_at_recording": "native_PG_TLS_WebGL_second_run_live_not_accepted_yet",
+  "full_cycle_wall_budget": "not_fixed_until_profile_and_actual_planned_steps",
+  "full_cycle_completion_date": "not_estimated_before_measurement",
+  "dependency_policy": "independent_domestic_data_acquisition_parallel_to_model_development; fresh_mass_resource_Decimal_economics_after_cycle; gates_unchanged",
+  "actual_inputs_adopted": 0,
+  "actual_crop_runs": 0,
+  "domestic_independent_datasets": 0,
+  "gates": "not_assessed",
+  "full166day_accepted": false,
+  "remaining_external_dependencies": [
+    "actual_cultivar_forcing_initial_management_rights_QC",
+    "independent_domestic_same_cultivar_local_measurements",
+    "fresh_mass_grade_resource_and_economic_evidence",
+    "G0_G4_and_production_deployment"
+  ]
+}

@@ -344,6 +344,18 @@
   - [ ] **`crop-cycle-burden`** — 선행: 위 세 구현; 실제 RHS의 긴 합성 forcing/source 형태·부하/재현·중단/복원,
     원 수지/사건·불변 저장/조회·WSL 자원/정리를 검증한다. 실제 작업 분해/측정 뒤 global budget/날짜를 고정한다.
     원47,809시점/166일은 입력 형태이며 실제 품종/UTC/QC/초기/관리 채택 없이 crop 작기 수용으로 표시하지 않는다.
+    [부하 후보 계약](../contracts/crop-cycle-burden-v1.md)의 작은 자식으로 진행하며 수용 증거 뒤 부모를 체크한다.
+    - [ ] **`crop-cycle-burden-profile`** — 선행 result-pages 실제 수용; 측정 driver/검증/기록3 core파일.
+      예정: `research/crop-cycle-burden-profile.py`, `backend/tests/test_crop_cycle_burden_profile.py`, 위 계약 보완.
+      고정 입력/원 격자의 RHS·artifact·farm/current rights·DB·page 비용과 step/bytes/files·RSS/FD/정리를
+      분리한다. 다른 예산/재시작의 원량/clock/사건/수지를 대사하고 global budget 근거를 기록한다.
+      부분 측정을 전체166일 수용으로 표시하지 않는다. 구현/검증2–3집중시간 잠정.
+    - [ ] **`crop-cycle-burden-full-rhs`** — 선행 profile/관측 결함 수정 수용; source 형태 generator/runner·검증3파일.
+      고정된 전체166일을 실제 RHS·연속 상태로 계산해 모든 선택 출력/사건·hash·수지·한도/자원을 기록한다.
+      조기 hold/예산 종료·복제 fixture는 전체 작기 성공으로 표시하지 않는다. 자료 확보는 병행한다.
+    - [ ] **`crop-cycle-burden-replay-restore`** — 선행 전체 RHS/저장 수용; 중단/복원·실제 page/화면3–4파일.
+      같은 원 context/seed/누적/clock/sequence의 중단/복원을 연속 결과와 대사하고 전체 저장의
+      시작/중간/끝·byte-short/관리 전후·같은 ID/UTC/30초2MiB·현재 권리/변조·DB/서버/비밀번호/FD 정리를 확인한다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
