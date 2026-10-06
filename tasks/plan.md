@@ -109,6 +109,10 @@ API 대조의 원 manifest 누락도 실제 정상/hold2실패 후 한 줄 수�
 runtime의 추가 선행 수정으로 둔다. 기존 검사/Decimal 결과·변경 중 거부/정리 집중 검증 뒤
 원25시간 HTTPS를 다시 측정한다. 실패를 반영한 추가 작업은 설계/구현·집중 검증2–3시간과
 긴 실제 재시험1회이며, 아래 client/3D 날짜는 이 수용 시점에 다시 갱신한다.
+[읽기 범위 구현](../research/crop-cycle-market-read-scope-implementation.md)은 새14개·기존42개/
+고유56개 분할과 짧은21 TLS 최대12.764535초·현재 권리/변조/재기동/정리로 로컬 수용했다.
+이 수정의 예상2–3시간은 이 실적으로 대체한다. 다음 원25시간 검증1회와 runtime/API 수용 뒤
+client2–3시간·3D/실제 브라우저4–6시간을 남긴다. 긴 시험의 경과 시간은 아직 미관측이다.
 [client 후보](../contracts/web-crop-cycle-pages-v1.md)는 같은 summary/참조·한 페이지 단위 iterator와
 원량 helper를 연결하며 기존 short 한도/완료 끝점 조건은 가져오지 않는다. API 긴 수용 뒤 착수한다.
 [3D 후보](../contracts/web-crop-cycle-replay-v1.md)는 전체 원 배열을 쌓지 않고 현재64/8 범위와

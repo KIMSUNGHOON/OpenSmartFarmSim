@@ -1,0 +1,225 @@
+{
+  "evidence_version": "crop-cycle-market-read-scope-v1",
+  "recorded_at_utc": "2026-10-06T02:06:17.756920+00:00",
+  "snapshot_commit": "dfa1c2f6c2b0293fa7881cc7133835a268b520ed",
+  "implementation_commit": "505e498",
+  "HTTP_partial_metrics_test_commit": "dfa1c2f",
+  "contract": "contracts/crop-cycle-market-read-scope-v1.md",
+  "cli": {
+    "timestamp": "2026-10-06T01:48:53.123Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "line_sha256": "db0875c6f3dc967c19eeac6d15f1878ae193906553df4998457ab2b3d8c1b6bc",
+    "hash_includes_newline": true
+  },
+  "recursive_CLI_invocations": 0,
+  "source_sha256": {
+    "backend/app/market_scenario.py": "8a61ebdfa828e1d49c98225015b6a95a4bd33d379ff62f43e79b4b8df957ae22",
+    "backend/app/market_source_store.py": "017b4c4fef8c51b8f41a6ea3d734d9d5c35ae2b8cad129bd2de8e3d5c122d712",
+    "backend/app/market_candidate_store.py": "6421dabb5825a72167a3a2f26c83bb41591fd136e8886ee8a080f3ea38bafc57",
+    "backend/app/api_market_source.py": "78e46cfa2c13d2addcdf90bdc2713eaf151e56095087f1a69885c6923e559602",
+    "backend/tests/test_market_source_read_scope.py": "0cbda81bac87c0112be1939bb840b08c33d2990e2f6140c62e392127aa244466",
+    "backend/tests/test_api_crop_cycle_tls.py": "14ab8f5a6e3d9d8b4f138a451aca58ae1304aab43f25eeee57e27c377027aa55",
+    "backend/app/api_runtime.py": "d321de38cc241992cbdbaf703fda2d0bcf6c619f55cb233e557066804135ed83"
+  },
+  "original_pinned_validation_and_source_row_job_AST_bodies_unchanged": true,
+  "focused_current_unique_checks": 56,
+  "focused_current_checks_split": {
+    "new_read_scope": 14,
+    "existing_source_economic_and_actual_short_TLS": 42
+  },
+  "single_full_backend_suite_run": false,
+  "prior_supplemental_pure_suite": {
+    "passed": 84,
+    "seconds": 123.03,
+    "includes_one_original25h_projection_case": true,
+    "executed_before_final_nonempty_tenant_preflight": true,
+    "not_current56_additional_acceptance": true
+  },
+  "actual_short_TLS": {
+    "full_response_count": 21,
+    "max_seconds": 12.76453531399602,
+    "max_bytes": 18718,
+    "source_steps": 120,
+    "samples": 3,
+    "events": 0,
+    "https_servers_joined": 2,
+    "custody_fds_after": 0,
+    "raw_sha256": "9c9055f7814ad765697f7abe6a823625d03ac82ab955a61e48ab17a801e14dca",
+    "read_RHS": 0,
+    "rights_file_DB_tamper_restart_grant_drift": true
+  },
+  "new_read_scope_checks": [
+    "exact scoped/unscoped typed request/scenario/full pin and Decimal ledger equality",
+    "same source row/job verification count greater than20, one source connection rather than greater than20",
+    "current tenant/scope/authentication preflight and withdrawal",
+    "original job corruption committed between reads",
+    "role grant drift at entry and exit",
+    "READ COMMITTED READ ONLY",
+    "nested scope denial and exception cleanup",
+    "concurrent separate connections on same store",
+    "denied rights and recovery"
+  ],
+  "private_native_runs": [
+    {
+      "name": "red",
+      "summary": "1 failed in 1.17s",
+      "native": {
+        "scope": "actual_market_source_read_scope_red",
+        "started_at": "2026-10-06T01:52:56.524743+00:00",
+        "postgres_version": "postgres (PostgreSQL) 16.15",
+        "new_dependencies": 0,
+        "servers_started": 1,
+        "pytest_arguments": [
+          "tests/test_market_source_read_scope.py::test_source_scope_reuses_one_verified_connection_and_closes_it"
+        ],
+        "effective_nice": 10,
+        "exit_code": 1,
+        "wall_seconds": 1.62833255098667,
+        "remaining_test_roles": 0,
+        "remaining_test_schemas": 0,
+        "remaining_test_password_files": 0,
+        "postgres_stopped": true,
+        "postgres_status_exit_code": 3,
+        "private_cluster_and_admin_password_files_removed": true,
+        "owned_servers_after": 0,
+        "peak_children_rss_mib": 97.6875
+      },
+      "log_sha256": "5fe0ef399d02b0ea508f4cdc77baaf891240723cb8efea6e39b8263faa4addbd",
+      "verification_sha256": "2a49be83e3c309113139c00261e79de98b7e8f6ba818970f93cec25014f81639"
+    },
+    {
+      "name": "focused",
+      "summary": "11 passed in 21.52s",
+      "native": {
+        "scope": "actual_market_source_read_scope_focused",
+        "started_at": "2026-10-06T01:53:32.609968+00:00",
+        "postgres_version": "postgres (PostgreSQL) 16.15",
+        "new_dependencies": 0,
+        "servers_started": 1,
+        "pytest_arguments": [
+          "tests/test_market_source_read_scope.py"
+        ],
+        "effective_nice": 10,
+        "exit_code": 0,
+        "wall_seconds": 22.02615838701604,
+        "remaining_test_roles": 0,
+        "remaining_test_schemas": 0,
+        "remaining_test_password_files": 0,
+        "postgres_stopped": true,
+        "postgres_status_exit_code": 3,
+        "private_cluster_and_admin_password_files_removed": true,
+        "owned_servers_after": 0,
+        "peak_children_rss_mib": 107.125
+      },
+      "log_sha256": "1d27f1df9489197bc32924e16add3018786583ebfc42dc7529017eaa8b0757e2",
+      "verification_sha256": "fdb6fe5135cebd46729a6bc43bc34162d79462a8da936cafdb8ed8b9434f6623"
+    },
+    {
+      "name": "final",
+      "summary": "1 error in 0.89s",
+      "native": {
+        "scope": "actual_market_source_read_scope_final",
+        "started_at": "2026-10-06T01:55:23.496776+00:00",
+        "postgres_version": "postgres (PostgreSQL) 16.15",
+        "new_dependencies": 0,
+        "servers_started": 1,
+        "pytest_arguments": [
+          "tests/test_market_source_read_scope.py"
+        ],
+        "effective_nice": 10,
+        "exit_code": 2,
+        "wall_seconds": 1.3771117519936524,
+        "remaining_test_roles": 0,
+        "remaining_test_schemas": 0,
+        "remaining_test_password_files": 0,
+        "postgres_stopped": true,
+        "postgres_status_exit_code": 3,
+        "private_cluster_and_admin_password_files_removed": true,
+        "owned_servers_after": 0,
+        "peak_children_rss_mib": 104.22265625
+      },
+      "log_sha256": "1e69e236ea4d84da58768905b308ee6c18fda9dd2f96d84b329ffa3348514121",
+      "verification_sha256": "abb90fc5420628e54e39905c0e1447583a6778cdb90c5c55a7ab75381b5099ec"
+    },
+    {
+      "name": "final-green",
+      "summary": "14 passed in 22.67s",
+      "native": {
+        "scope": "actual_market_source_read_scope_final_green",
+        "started_at": "2026-10-06T01:56:01.197002+00:00",
+        "postgres_version": "postgres (PostgreSQL) 16.15",
+        "new_dependencies": 0,
+        "servers_started": 1,
+        "pytest_arguments": [
+          "tests/test_market_source_read_scope.py"
+        ],
+        "effective_nice": 10,
+        "exit_code": 0,
+        "wall_seconds": 23.18041639897274,
+        "remaining_test_roles": 0,
+        "remaining_test_schemas": 0,
+        "remaining_test_password_files": 0,
+        "postgres_stopped": true,
+        "postgres_status_exit_code": 3,
+        "private_cluster_and_admin_password_files_removed": true,
+        "owned_servers_after": 0,
+        "peak_children_rss_mib": 108.83203125
+      },
+      "log_sha256": "59b95f91ac02d44ee668bf63f82020430a2f3f17304aba8db9ec51544a46d2d4",
+      "verification_sha256": "d7fec812aab6a6e3576d53ced317cd4d048c7ae2c7e03efbc2f5da83cb64298e"
+    },
+    {
+      "name": "regression",
+      "summary": "42 passed, 1 deselected in 455.35s",
+      "native": {
+        "scope": "actual_market_source_read_scope_regression",
+        "started_at": "2026-10-06T01:56:47.138038+00:00",
+        "postgres_version": "postgres (PostgreSQL) 16.15",
+        "new_dependencies": 0,
+        "servers_started": 1,
+        "pytest_arguments": [
+          "tests/test_market_source_store.py",
+          "tests/test_api_economic_scenario.py",
+          "tests/test_api_crop_cycle_tls.py",
+          "-k",
+          "not registered_25h"
+        ],
+        "effective_nice": 10,
+        "exit_code": 0,
+        "wall_seconds": 456.0060401869705,
+        "remaining_test_roles": 0,
+        "remaining_test_schemas": 0,
+        "remaining_test_password_files": 0,
+        "postgres_stopped": true,
+        "postgres_status_exit_code": 3,
+        "private_cluster_and_admin_password_files_removed": true,
+        "owned_servers_after": 0,
+        "peak_children_rss_mib": 167.28125
+      },
+      "log_sha256": "131be358fc0c1f0ba36b7ed4f909a48720e645ab6b630603cbb2e20ec7b0b553",
+      "verification_sha256": "0e1a8ab5f9ea74f05bd8ea7367e8c5bf8da3e9c1f57aa46e4366fb23285ed0e7"
+    }
+  ],
+  "previous_original_short_metrics_preserved_and_restored": true,
+  "previous_short_receipt": "research/artifacts/crop-cycle-api-runtime-short-reference-20261006.json",
+  "bottleneck_receipt": "research/artifacts/crop-cycle-api-read-profile-20261006.json",
+  "remaining": [
+    "genuine registered25h whole HTTP30s/2MiB/pages/restart acceptance",
+    "client and same ID/UTC3D",
+    "actual whole-cycle load",
+    "fresh yield/resources/economics supported conversion",
+    "actual cultivar inputs and independent farm data"
+  ],
+  "long_HTTP_partial_metrics": {
+    "syntax_and_collection_checked": true,
+    "actual_long_helper_execution": false,
+    "short_original_test_body_preserved": true
+  },
+  "runtime_API_accepted": false,
+  "actual_crop_runs": 0,
+  "actual_crop_inputs_adopted": 0,
+  "domestic_independent_datasets": 0,
+  "gates": "not_assessed",
+  "production_CLI_or_G0_G4_acceptance": false
+}
