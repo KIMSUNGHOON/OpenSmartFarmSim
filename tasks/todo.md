@@ -378,6 +378,10 @@
       시작/중간/끝·byte-short/관리 전후·같은 ID/UTC/30초2MiB·현재 권리/변조·DB/서버/비밀번호/FD 정리를 확인한다.
       profile의 실제 전체 입력 재검증 비용은 원 hash/schema/QC/격자·현재 권리/변조 거부를 유지하는
       집중 수정으로 해결한 뒤 전체 공개 경로를 수용한다. 한도를 올리거나 원 출력을 줄이지 않는다.
+      [별도 원본 byte/hash 관측](../research/crop-cycle-input-byte-cost-observation-20261006.md)은
+      749블록/113,920,841bytes·0.485초/RHS0·FD4→4를 기록했다. cache 조건 미통제이며
+      schema/QC/context/현재 권리/API는 제외했다. 코드 SHA에 묶인 판본·과거 재현을 보존한 수정과
+      실제 전체 공개 경로 검증 전에는 이 checkbox를 체크하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

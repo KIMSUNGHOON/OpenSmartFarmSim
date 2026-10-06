@@ -159,6 +159,10 @@ full-rhs의 [실행 전략](../research/crop-cycle-full-rhs-small-strategy-imple
 실제166일 성공·완료 날짜로 표시하지 않는다. 전체 종료/수지 검증 전에는 full-rhs가 미완료다.
 전체 입력 열기/context31.073760초와 반복 확인 비용은 조회 단계의 추가 수정 근거다.
 원 byte/hash/schema/QC/격자·현재 권리·변조 거부를 보존하는 비용 개선을 전체 공개 수용 전에 확인한다.
+[원본 byte/hash 별도 관측](../research/crop-cycle-input-byte-cost-observation-20261006.md)은 같은 입력의
+749블록/113,920,841bytes·0.485초/RHS0·FD4→4다. cache 조건은 통제하지 않았으며
+schema/QC/context/현재 권리/API는 제외했다. reader 코드 SHA와 root/manifest 판본·과거 재현을
+보존할 수정과 실제 전체 조회 검증을 기다린다.
 전체 실행/복원 날짜는 해당 수정과 실제 종료 상태 뒤 갱신한다. 짧은/복제 fixture와 조기 hold로 전체 작기를 수용하지 않는다.
 최초10–15집중시간/10월6–10일 추정은 위 단계 실적으로 대체한다. 실제166일 부하·자료/품종·
 생과/자원/경제는 별도이며 CI와 실제 경로에서 발견되는 수정으로 일정을 갱신한다.
