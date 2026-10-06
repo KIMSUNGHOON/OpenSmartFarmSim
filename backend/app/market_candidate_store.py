@@ -6,6 +6,7 @@ and their numeric input revisions; it never approves a MarketSnapshot.
 """
 
 from copy import deepcopy
+from contextlib import contextmanager, nullcontext
 from hashlib import sha256
 import json
 import re
@@ -198,6 +199,16 @@ class MarketCandidateStore:
 
     def tenant_is_authenticated(self, tenant_id):
         return self._tenant("market_candidate_read") == tenant_id
+
+    @contextmanager
+    def read_scope(self, tenant):
+        if type(tenant) is not str or not tenant or self._tenant('market_candidate_read') != tenant:
+            raise MarketCandidateDenied('market candidate read authority denied')
+        source_scope = getattr(self._source, 'read_scope', None)
+        with source_scope(tenant) if callable(source_scope) else nullcontext():
+            yield
+            if self._tenant('market_candidate_read') != tenant:
+                raise MarketCandidateDenied('market candidate read authority denied')
 
     def __getattr__(self, name):
         if name in {"get_joint_shock", "get_joint_shock_pin", "get_input_rights",

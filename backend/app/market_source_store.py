@@ -2,6 +2,8 @@
 
 from hashlib import sha256
 from uuid import UUID
+from contextlib import contextmanager
+from contextvars import ContextVar
 
 from psycopg import sql
 
@@ -10,6 +12,7 @@ from .economic_contracts import (EconomicScenario, OwnedEconomicRecord,
 from .jobs import canonical_input_bytes, MAX_INPUT_BYTES
 from .market_scenario import JointShock, JointShockPin, InputRights, Applicability
 from .market_runtime import connect_market, validate_market_identity
+from .runtime_roles import audit_runtime_roles
 
 
 VERSION = 'market-user-source-v1'
@@ -83,9 +86,38 @@ class MarketSourceStore:
         self.dsn, self.schema = dsn, schema
         self.runtime_identity = runtime_identity
         self._principal_provider = principal_provider
+        self._scoped_reader = ContextVar('market_source_scoped_reader', default=None)
 
     def connect(self):
         return connect_market(self.dsn, self.runtime_identity)
+
+    @contextmanager
+    def read_scope(self, tenant):
+        if (not _name(tenant) or self._tenant('market_source_read') != tenant or
+                self._scoped_reader.get() is not None):
+            raise MarketSourceDenied('market source read scope denied')
+        with self.connect() as conn:
+            conn.execute('SET TRANSACTION ISOLATION LEVEL READ COMMITTED READ ONLY')
+            token = self._scoped_reader.set((conn, tenant))
+            try:
+                yield
+                if self._tenant('market_source_read') != tenant:
+                    raise MarketSourceDenied('market source read scope denied')
+                audit_runtime_roles(conn, self.runtime_identity[0])
+            finally:
+                self._scoped_reader.reset(token)
+
+    @contextmanager
+    def _read_context(self, tenant):
+        scoped = self._scoped_reader.get()
+        if scoped is None:
+            with self.connect() as conn:
+                yield conn
+        else:
+            conn, owner = scoped
+            if tenant != owner or self._tenant('market_source_read') != owner or conn.closed:
+                raise MarketSourceDenied('market source read scope denied')
+            yield conn
 
     def _table(self, name):
         return sql.SQL('{}.{}').format(sql.Identifier(self.schema), sql.Identifier(name))
@@ -252,7 +284,7 @@ class MarketSourceStore:
         tenant = self._tenant('market_source_read')
         if tenant is None or not _name(identity) or not _name(revision):
             return None
-        with self.connect() as conn:
+        with self._read_context(tenant) as conn:
             return self._read_in_transaction(conn, tenant, kind, identity, revision, pin=pin)
 
     def _read_in_transaction(self, conn, tenant, kind, identity, revision, *, pin=False):

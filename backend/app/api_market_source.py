@@ -2,6 +2,7 @@
 
 from datetime import datetime
 from hashlib import sha256
+from contextlib import nullcontext
 import json
 from typing import Annotated, Any, Literal, Union
 
@@ -35,6 +36,10 @@ class _MarketSources:
         principal = self._principal_provider()
         return bool(principal is not None and principal['tenant_id'] == tenant and
                     self._source.tenant_is_authenticated(tenant) is True)
+
+    def read_scope(self, tenant):
+        return (self._source.read_scope(tenant) if type(self._source) is MarketSourceStore
+                else nullcontext())
 
     def get_market_hold_report(self, report_id):
         return self._holds.get_market_hold_report(report_id)

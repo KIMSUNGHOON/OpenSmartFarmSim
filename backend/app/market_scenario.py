@@ -6,6 +6,7 @@ This module publishes no market snapshot, forecast, verified net price, or ranki
 """
 
 from copy import deepcopy
+from contextlib import nullcontext
 from dataclasses import dataclass
 from datetime import date, datetime
 from decimal import Decimal
@@ -622,6 +623,11 @@ class MarketScenarioService:
                          parsed.market_context)
 
     def validate_pinned(self, scenario_id: str, revision: str, authenticated_tenant_id: str):
+        read_scope = getattr(self._repository, 'read_scope', None)
+        with read_scope(authenticated_tenant_id) if callable(read_scope) else nullcontext():
+            return self._validate_pinned(scenario_id, revision, authenticated_tenant_id)
+
+    def _validate_pinned(self, scenario_id: str, revision: str, authenticated_tenant_id: str):
         self._owned(authenticated_tenant_id)
         stored = _load(self._repository, "get_market_candidate", scenario_id, revision)
         if not isinstance(stored, dict) or stored.get("tenant_id") != authenticated_tenant_id:
