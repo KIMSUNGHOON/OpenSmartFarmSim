@@ -74,6 +74,7 @@ function sample(v:unknown,confirmed=false):asserts v is StartupCropSample{
   need(object(v.startup_diagnostics));closed(v.startup_diagnostics,DIAGNOSTICS);
   for(const k of DIAGNOSTICS)quantity(v.startup_diagnostics[k],CARBON_UNIT,k.endsWith('residual'));
 }
+export { sample as validateStartupCropSample };
 function manifest(v:unknown){
   need(object(v));closed(v,['program_version','integrator_version','rate_model_version','profiles','code_sha256',...HASH_KEYS,
     'artifact_dependency_sha256','startup_transition','startup_balance_rule','startup_assumptions','solver',
