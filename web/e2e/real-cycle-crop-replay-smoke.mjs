@@ -146,7 +146,9 @@ async function lookup(data){
 }
 function bounds(samples,kind){
   const values=samples.flatMap(s=>s.state[kind==='carbon'?'fruit_carbohydrate':'fruit_number'].map(q=>q.value)).filter(v=>v>0);
-  return values.length?{lower:Math.floor(Math.log10(Math.min(...values)))-1,upper:Math.ceil(Math.log10(Math.max(...values)))}:null;
+  if(!values.length)return null;
+  const upper=Math.ceil(Math.log10(Math.max(...values)));
+  return {lower:Math.floor(Math.log10(Math.min(...values)))-1,upper:Object.is(upper,-0)?0:upper};
 }
 async function sample(data,index,offset){
   const row=data.samples[index],canvas=page.locator('.coupled-canvas');
@@ -278,5 +280,6 @@ try{
   process.stdout.write(JSON.stringify({stage:'verified',transport:config.transport??'native_PG_TLS',original_samples_verified:27,original_events_verified:5,verified,events_verified:eventsVerified,
     windows,shape_performance:{scope:'shape_only_repeated_rows_CPU4x_not_whole_cycle_or_actual_low_end_device',measurements:shapePerformance},
     network,errors,max_active_reads:final.max_active_reads,lifecycle,actual_account_change:true,reconnected:true})+'\n');
-}catch(error){await writeFile(screens+'/failure-lifecycle.json',JSON.stringify({scope:config.transport??'native_PG_TLS',lifecycle:await probe(),errors},null,2));throw error;
+}catch(error){await writeFile(screens+'/failure-lifecycle.json',JSON.stringify({scope:config.transport??'native_PG_TLS',lifecycle:await probe(),
+  network,verified,events_verified:eventsVerified,errors,whole_browser_accepted:false},null,2));throw error;
 }finally{await cdp.detach();await context.close();await browser.close();await lines.return?.();}
