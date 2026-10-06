@@ -123,8 +123,9 @@ client2–3시간·3D/실제 브라우저4–6시간을 남긴다. 긴 시험의
 원량 helper를 연결하며 기존 short 한도/완료 끝점 조건은 가져오지 않는다. API 긴 수용 뒤 착수한다.
 [client 실제 수용](../research/web-crop-cycle-pages-implementation.md)도 새120개·집중296개/6.22초·
 웹 전체503개/6.47초·타입/빌드·원23 공개 JSON/helper 보존으로 완료했다. 위 client 예상은
-이 실적으로 대체한다. 다음 window helper → 화면 → 실제 PG/TLS/WebGL은4–6집중시간,
-하루4시간 기준10월6–8일 KST 잠정이다. 실제 품종/작기·생과·자원/경제 날짜는 별도다.
+이 실적으로 대체한다. 이후 window helper → 화면 → 실제 PG/TLS/WebGL도 아래 실적으로
+로컬 완료했다. 이전4–6집중시간/10월6–8일 추정은 현재 일정이 아니다.
+실제 품종/작기·생과·자원/경제 날짜는 별도다.
 `d61bcb3`의 [종료된 CI](../research/crop-cycle-route-runtime-ci-hold-20261006.md)는
 backend5분할 성공/1실패·집계 실패, 웹 감사 실패이며 C0/앱/작성 경로는 성공했다.
 hosted 웹 high 감사 실패는
@@ -134,16 +135,18 @@ hosted 웹 high 감사 실패는
 타입·빌드·직렬 취소/전체 settlement·원값 보존으로 로컬 수용했다.
 [화면 기능](../research/web-crop-cycle-view-implementation.md)도 기록 응답의Chromium16개·기존3개·
 웹522개/타입·빌드·원27시점/5사건·C/N2,700 mesh와 원49개/선행7개 보존으로 로컬 수용했다.
-남은 실제 PG/TLS/WebGL·생명주기/자원 검증은 **2–3집중시간**,
-하루4시간 기준 **10월6–8일 KST 잠정**이다. replay/browser 부모와 pixel fidelity는 아직 미수용이다.
+[실제 PG/TLS/WebGL·자원/정리](../research/web-crop-cycle-native-implementation.md)도
+**1통과/2044.35초·2026-10-06 KST 로컬 완료**다. 원27시점/5사건·31frame·21 HTTPS
+최대20.484300초/64,791bytes·RHS0·현재 권리/계정 거부·정리를 확인했고
+replay/browser/result-pages 부모를 로컬 수용했다. 이전2–3시간/10월6–8일 추정은 이 실적으로 대체한다.
+pixel fidelity·실제 저사양 기기·실제166일/품종·hosted 수정 판본은 별도다.
 [3D 후보](../contracts/web-crop-cycle-replay-v1.md)는 전체 원 배열을 쌓지 않고 현재64/8 범위와
 같은 UTC·범위의 고정 비교 척도를 표시한다. window helper → 화면 → 실제 브라우저로 분해했으며
-window/화면은 로컬 수용했고 browser4 core파일 중 fixture/spec2개와 기록 응답 검사는 수용했다.
-남은 smoke/native2개와 전체 생명주기·실제 경로 뒤 browser/replay 부모를 체크한다.
+window/화면과 browser4 core파일의 fixture/spec·smoke/native 및 전체 생명주기·실제 경로를 수용했다.
 두 시험/장면 정리는 `348b162`에 구현했고 웹522개·Chromium16+기존5개와 형식용20범위의
 자원 정리를 확인했다. 실제 새25시간/11,400걸음 native는
 [signed zero 기대값1실패/1666.57초·정리](../research/web-crop-cycle-native-signed-zero-hold-20261006.md)로
-미수용이다. 표현 수정 뒤 재검증은 실제28분 실적 기준 **추가 약30분**, 전체 수용 뒤 체크를 갱신한다.
+첫 전체 실행은 미수용으로 보존한다. 표현 수정 뒤 재검증은 **실제34분4초/수용**이며 추가 약30분 추정을 대체한다.
 실제27시점/5사건과 형식용 많은 범위 이동의 자원 실측을 구분한다.
 후속 [실제 작기 부하 후보](../contracts/crop-cycle-burden-v1.md)는 profile → 전체166일 RHS → 저장 조회/중단 복원으로 분해한다.
 순수 budget1..10,000과 artifact transition≤128의 비용을 먼저 분리한다. 현재25시간을 source 형태8초 격자에
@@ -151,14 +154,15 @@ window/화면은 로컬 수용했고 browser4 core파일 중 fixture/spec2개와
 전체 실행/복원 날짜는 실측/global budget 확정 뒤 갱신한다. 짧은/복제 fixture와 조기 hold로 전체 작기를 수용하지 않는다.
 최초10–15집중시간/10월6–10일 추정은 위 단계 실적으로 대체한다. 실제166일 부하·자료/품종·
 생과/자원/경제는 별도이며 CI와 실제 경로에서 발견되는 수정으로 일정을 갱신한다.
-저장 custody/API/client/3D·166일 실제 부하·생과 날짜는 해당 구현 실적/실제 입력 확보 뒤 갱신한다.
+저장 custody/API/client/3D는 위 실적으로 로컬 완료했고166일 실제 부하·생과 날짜는
+해당 비용 측정/실제 입력 확보 뒤 갱신한다.
 [착수 코드 감사](../research/crop-cycle-execution-inspection-20261005.md)는 기관 단독v1의20,000 배열/
 100만 step과 현재 기관·과실/startup의128 forcing/128 event·512 output·10,000 step·1일을 구분한다.
 현재 output 시각도 RK4 경계에 들어가므로, 화면 출력 선택을 바꾸어 계산 격자를 바꾸지 않도록
 새 계약에서 고정 계산 경계와 저장/표시 선택을 분리한다. 계약/원 격자 대사는 로컬 수용했고
 새 짧은 driver/실제 모델 재시작과 긴 입력 reader/25시간 실제 RHS 연결도 로컬 수용했고,
 그 결과의 불변 파일/reader·현재 farm/서버/DB 저장·새 cycle API와 기록 응답의 화면 기능까지 로컬 수용했다.
-새 실제 PG/TLS/WebGL·생명주기/자원과166일 실제 작기 부하는 미수용이다.
+새 실제 PG/TLS/WebGL·생명주기/자원까지 로컬 수용했으며166일 실제 작기 부하는 미수용이다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
@@ -490,8 +494,10 @@ image/TLS·UID/읽기 전용/정리는 `d76410f`의 실제 hosted 전체 성공�
 | 긴 cycle RHS 실행 연결 | **2026-10-05 KST 로컬 완료** | 144개·25시간/11,400실제 걸음·별도 Python7개/847float64·canonical 사건/hash·원 수지/hold·정리; source166일/실제 품종은 미수용 |
 | cycle 불변 결과 artifact | **2026-10-05 KST 로컬 완료** | 58개 고유 분할·25시간/11,400실제 걸음·755,868bytes/127파일·별도 Python7개/847float64·실제 강제 종료2개/복구·읽기0.388759초/RHS0회·정리; 농장/웹·hosted 별도 |
 | cycle 저장 참조 schema | **2026-10-05 KST 로컬 완료** | 74개 고유 분할·실제 SCRAM/기본 네 role·정상 JSON128KiB/초과·불변/변조/rollback·기존 v3/정리·42pin; farm/file·HMAC/current rights/hosted는 별도 |
-| cycle 명시 role/config | **1.5–2.5집중시간/2026-10-05–06 KST 잠정** | 5파일·기본 false/선택 authority SELECT/INSERT·타입/과다 grant·누락/false 호환/전체 감사·실제 SCRAM·정리 |
-| 전체 작기 처리 구현/부하 | **위 계약/분해 뒤 추정** | 순수 연속 실행 → 저장/출력/페이지 → 실제 작기 부하/재현; 실제 입력 채택과 품종 검증은 별도 |
+| cycle 명시 role/config | **2026-10-05 KST 로컬 완료** | 새21개/고유236개 분할·네 SCRAM/선택 SELECT·INSERT·일곱 drift·기존 v3/default false·정리 |
+| cycle 현재 범위·실제 성장 연구 3D | **2026-10-06 KST 로컬 완료** | 웹522개·Chromium16+기존5개·실제PG/TLS/WebGL1개/2044.35초·원27/5·21 HTTPS 최대20.484300초/64,791bytes·RHS0·자원/정리; 수정 판본CI/품종/현장·pixel fidelity 별도 |
+| 전체 작기 비용 측정 | **2–3집중시간 잠정** | profile3 core파일·순수/저장/현재 권리/DB/page 비용과 다른 예산/복원 동일성·자원/정리·global budget 근거 |
+| 전체166일 실제 처리/복원 | **profile/한도 실측 뒤 추정** | 실제 연속 RHS → 완전 저장/조회·같은 상태 중단 복원; 짧은/복제 fixture·조기 hold로 전체 작기 수용 없음 |
 | 과실 발달 구획 계산 | **문헌식/관리 계약 뒤 추정** | 독립 참조와 개수/기관 질량·사건 수지; 품종 적용성 미검증 유지 |
 | 생과 수확·자원·경제 | **각 변환/계량 근거 뒤 추정** | 수확/등급·물/성분·구매 에너지·동일 배치 Decimal 대사 |
 

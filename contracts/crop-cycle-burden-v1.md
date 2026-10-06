@@ -2,7 +2,9 @@
 
 상태: **작업 분해·측정 후보, 구현/전체166일 수용 전**, 2026-10-06 KST.
 착수 선행은 `web-crop-cycle-browser`, `web-crop-cycle-replay`, `crop-cycle-result-pages`의
-실제 수용이다. 현재 native 재검증이 실행 중이며 해당 체크를 앞당기지 않는다.
+실제 수용이다. [native 재검증](../research/web-crop-cycle-native-implementation.md)은
+1통과/2044.35초·원27시점/5사건·실제21 HTTPS와 정리를 확인해 선행을 로컬 수용했다.
+이 부하 후보의 driver/전체166일은 아직 미구현이다.
 [stream 실행](crop-cycle-stream-execution-v1.md), [불변 artifact](crop-cycle-artifact-v1.md),
 [원천 감사](../research/crop-forcing-audit.md)를 따른다. 이 작업은 작물 모델 개발과
 국내 독립 자료 확보를 병행하는 기존 경로에 놓인다.

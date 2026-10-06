@@ -208,9 +208,14 @@ DB는 후속 `4bb6e53`의 [CI5개/Backend4,038개·UID4개](../research/artifact
 직렬 취소·원량 보존으로 로컬 수용했다.
 [같은 UTC 화면 기능](../research/web-crop-cycle-view-implementation.md)도 기록 응답의Chromium16개·
 기존3개·웹522개/타입·빌드·원27시점/5사건·원49개/선행7개 보존으로 로컬 수용했다.
-다음은 새 실제 DB/TLS/WebGL 경로·생명주기/자원 검증이며 replay 부모는 계속 열어 둔다.
-새 cycle API 전체·3D·pixel fidelity·실제 품종은 이 CI SHA 밖이다.
-실제 전체 작기 처리는 별도다.
+[새 실제 PG/TLS/WebGL](../research/web-crop-cycle-native-implementation.md)도1통과/2044.35초·
+원25시간/11,400걸음·27시점/5사건·21 HTTPS 최대20.484300초/64,791bytes·
+RHS0·현재 권리/계정 거부·자원/DB/서버 정리로 로컬 수용했다. 별도 CPU4배 형식20범위를
+대사했고 replay/result-pages 부모를 로컬 수용했다. 실제 저사양기기·pixel fidelity·품종은 별도다.
+[종료된 d61 CI](../research/crop-cycle-route-runtime-ci-hold-20261006.md)는 backend 한 분할/웹 감사 실패이며
+수정 판본 hosted 수용은 별도다. 다음 [작기 부하](../contracts/crop-cycle-burden-v1.md)는
+비용 측정 → 실제166일 RHS → 전체 저장 조회/중단 복원으로 진행한다.
+profile2–3집중시간 잠정, 전체 날짜는 비용/한도 실측 뒤 추정한다. 실제 전체 작기 처리는 미수용이다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
 전체 작기 생산 모델의 착수/게시 범위에 접근할 수 있다.
 

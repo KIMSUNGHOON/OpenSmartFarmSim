@@ -1,11 +1,15 @@
 # 긴 작물 연구 결과의 같은 UTC 성장 3D — v1 후보
 
-상태: **기록 합성 응답의 화면 기능 로컬 수용·새 실제DB/TLS/WebGL 경로 미수용**, 2026-10-06 KST. 선행은
+상태: **기록 응답 화면과 새 실제PG/TLS/WebGL 경로 로컬 수용·실제166일/품종·hosted/pixel fidelity는 별도**, 2026-10-06 KST. 선행은
 [cycle API](api-crop-cycle-pages-v1.md)와 [새 client](web-crop-cycle-pages-v1.md)의 실제 수용이다.
 [범위 helper](../research/web-crop-cycle-window-implementation.md)는 새19개·웹 전체522개/
 타입·빌드·원 client5개/계산49개 보존으로 로컬 수용했다.
 [화면 기능](../research/web-crop-cycle-view-implementation.md)은 새Chromium16개·기존3개·웹522개/
-타입·빌드·원49개/선행7개 보존으로 로컬 수용했다. 새 실제 경로와 replay 부모·pixel fidelity는 별도다.
+타입·빌드·원49개/선행7개 보존으로 로컬 수용했다.
+[새 실제 경로](../research/web-crop-cycle-native-implementation.md)도1통과/2044.35초·원27시점/5사건·
+21 HTTPS 최대20.484300초/64,791bytes·RHS0·권리/계정 거부·자원/DB/서버 정리로 수용했다.
+별도 CPU4배 형식20범위와 이전 장면/차트/타이머 해제도 확인해 replay/result-pages 부모를 로컬 수용했다.
+실제 저사양 기기·pixel fidelity·전체 작기/현장 관문은 별도다.
 현재 Codex CLI `gpt-6.1-sol / xhigh`의 turn_context
 `2026-10-06T00:06:54.191Z`, 원 line SHA
 `64f429fe2ffbde6de414f57f07bc72bbfb9f44131de1f5313de3b117e96e877c`에서
@@ -79,5 +83,5 @@ WebGL 실패/loss는 같은 원값의 표·그래프로 대체하며 복구 때 
 자원/정리 증거다. focused unit/typecheck/build·집중 Chromium·실제 native 경로가 필요하다.
 새 framework/상주 service/계수·농장 자료 확보는 이 합성 연구 화면 개발의 선행이 아니다.
 실제 품종/작기 입력·독립 국내 검증 자료0건과 생과/자원/경제·예측/추천의 외부 의존성은 유지한다.
-client/범위 helper/화면의 최초 예상은 실제 수용으로 대체한다. 남은 실제 경로/자원·정리의
-2–3집중시간 추정은 해당 수용 실적으로 갱신한다.
+client/범위 helper/화면과 실제 경로/자원·정리의 최초 예상은 위 수용 실적으로 대체한다.
+다음 [작기 부하](crop-cycle-burden-v1.md)의 profile2–3집중시간·전체 날짜 미정은 별도 계획이다.

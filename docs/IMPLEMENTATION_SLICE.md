@@ -258,8 +258,14 @@ client 새120개·집중296개·웹 전체503개/타입·빌드·원23 공개 JS
 직렬 취소·원량 보존으로 로컬 수용했다.
 [같은 UTC 화면 기능](../research/web-crop-cycle-view-implementation.md)도 기록 응답의Chromium16개·
 기존3개·웹522개/타입·빌드·원27시점/5사건·원량/mesh 대사로 로컬 수용했다.
-다음은 새 실제 PG/TLS/WebGL·생명주기/자원 검증이며3D 부모는 계속 열어 둔다.
-새 API 전체·웹 페이지/도형 판본은 이 CI의 수용 범위 밖이다.
+[새 실제 PG/TLS/WebGL](../research/web-crop-cycle-native-implementation.md)도1통과/2044.35초·
+원25시간/11,400걸음·27시점/5사건·21 HTTPS 최대20.484300초/64,791bytes·RHS0·
+현재 권리/계정 거부·자원/DB/서버 정리로 로컬 수용했다. 별도 CPU4배 형식20범위도 대사해
+3D/result-pages 부모를 로컬 수용했다. 실제 저사양기기·pixel fidelity·품종은 별도다.
+[종료된 d61 CI](../research/crop-cycle-route-runtime-ci-hold-20261006.md)는 backend 한 분할/웹 감사 실패이며
+수정 판본 hosted 수용은 별도다. 다음 [작기 부하](../contracts/crop-cycle-burden-v1.md)는
+비용 측정 → 실제166일 RHS → 전체 저장 조회/중단 복원으로 진행한다.
+profile2–3집중시간 잠정, 전체 날짜는 실측/global 예산 고정 뒤 추정한다.
 `e70a7f2`의 기존 assessment HTTPS 30초 시간 초과와
 [로컬 재현/요약 크기 수정](../research/backend-ci-summary-and-timeout-20261005.md)을 별도 기록했다.
 로컬 통과로 실패한 hosted 판본을 수용하지 않는다.

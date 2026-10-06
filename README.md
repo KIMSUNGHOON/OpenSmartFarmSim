@@ -25,11 +25,15 @@
 [같은 UTC 화면 기능](research/web-crop-cycle-view-implementation.md)도 새Chromium16개·기존3개·
 웹522개/타입·빌드·원27시점/5사건·C/N2,700 mesh와 원49개/선행7개 보존으로 로컬 수용했습니다.
 [현재 범위 3D 화면](research/artifacts/cycle-crop-selected-window-preview.png)은 실제 컴포넌트를
-소유한 기록 합성 응답/검토용 shell에서 캡처했습니다. 새 실제 PG/TLS/WebGL 전체 연결과 pixel fidelity는 별도입니다.
-다음은 실제 경로·정리/자원 → 작기 부하 → 생과·자원·경제 순서입니다.
-실제 새25시간/11,400걸음의 native 시험은
-[과거 보류 축의 signed zero 기대값1실패/정리](research/web-crop-cycle-native-signed-zero-hold-20261006.md)를
-기록했고 시험 표현 수정 뒤 재검증합니다. 전체 연결 수용은 아직 보류입니다.
+소유한 기록 합성 응답/검토용 shell에서 캡처했습니다. 이후 실제 경로의 증거는 아래에 있으며 pixel fidelity는 별도입니다.
+[새 실제 PG/TLS/WebGL 연결](research/web-crop-cycle-native-implementation.md)도
+1통과/2044.35초·원25시간/11,400걸음·27시점/5사건·31frame·21 HTTPS와 정리로 로컬 수용했습니다.
+전체 정상 본문 최대20.484300초/64,791bytes이며 조회 RHS0·실제 요청1개·현재 권리/계정 거부를 확인했습니다.
+[실제 데스크톱](research/artifacts/cycle-native-desktop.png)과 [모바일](research/artifacts/cycle-native-mobile.png)을 확인할 수 있습니다.
+과거/빈 보류·출력 없는 완료, 자원/DB/서버 정리와 별도 CPU4배 형식 시험20범위를 확인했습니다.
+이 소프트웨어 수용은 실제 품종·전체166일·pixel fidelity·현장/미래 검증과 구분합니다.
+다음 [작기 부하](contracts/crop-cycle-burden-v1.md)는 비용 측정 → 실제166일 RHS → 저장 조회/복원이며,
+그 뒤 생과·자원·경제 순서입니다. profile2–3집중시간 잠정, 전체 완료 날짜는 실측 뒤 갱신합니다.
 `d61bcb3`의 [종료된 CI](research/crop-cycle-route-runtime-ci-hold-20261006.md)는
 Backend5분할 성공/1실패·집계 실패, 웹 감사 실패이며 C0/앱/작성 경로는 성공했습니다.
 [백엔드 분할2의 기대값 불일치](research/market-candidate-read-authority-assertion-20261006.md)도

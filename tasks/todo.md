@@ -188,10 +188,13 @@
     6프로그램×3예산·canonical 사건 정규화 회귀,25시간/300구간/11,400실제 걸음·별도 Python7개/
     847float64·원 상태/누적/clock/수지/사건 hash·25시간 뒤 hold,263.879초/parent45.44MiB·정리.
     실제166일/품종/원 입력 채택·저장/3D/G0–G4 수용으로 표시하지 않는다.
-  - [ ] **`crop-cycle-result-pages`** — 선행: 실제 stream 실행 수용. 불변 파일/reader → farm/current rights
+  - [x] **`crop-cycle-result-pages`** — 선행: 실제 stream 실행 수용. 불변 파일/reader → farm/current rights
     custody/API → 같은 UTC 3D를 각각3–5파일 작업으로 먼저 분해한다. 원 출력/sequence·chain/변조/atomic·
     재시작/GET 재적분 없음·실제 SCRAM/TLS/browser·페이지30초/정리 뒤 체크한다.
     아래 자식 작업의 증거가 모두 있을 때만 부모를 체크한다.
+    [최종 실제 경로 수용](../research/web-crop-cycle-native-implementation.md): 자식 artifact/farm/server/DB/API/client/
+    window/view/browser 수용·새 실제25시간/11,400걸음·원27시점/5사건·21 HTTPS·RHS0·정리로 로컬 완료.
+    실제166일·품종/현장·hosted 수정 판본과 pixel fidelity는 별도다.
     - [x] **`crop-cycle-result-artifact`** — 불변 파일/reader의 로컬 수용; 선행: stream execution 수용. 구현3파일:
       `backend/app/crop_cycle_artifact.py`, `backend/tests/test_crop_cycle_artifact.py`,
       `contracts/crop-cycle-artifact-v1.md`. 새 cycle 판본의 bounded 불변 sample/event/checkpoint 분할과
@@ -313,12 +316,14 @@
       [로컬 수용](../research/web-crop-cycle-pages-implementation.md): 새120개·집중296개/6.22초·
       웹 전체503개/6.47초·타입/빌드·실제23 공개 응답 동일·원 helper 본문/49 backend hash 보존.
       화면/새 브라우저·3D와 hosted CI는 별도다.
-    - [ ] **`web-crop-cycle-replay`** — 선행: cycle client 수용. 같은 저장 ID/UTC의 상태·누적량·수지와
+    - [x] **`web-crop-cycle-replay`** — 선행: cycle client 수용. 같은 저장 ID/UTC의 상태·누적량·수지와
       성장 연구 3D를 [현재 범위 표시 후보 계약](../contracts/web-crop-cycle-replay-v1.md)의 작은 자식으로 연결한다.
       전체 원 배열을 쌓지 않고 sample64/event8 이하와 현재 범위의 고정 비교 척도를 표시한다.
       수용: 실제 PG→TLS→WebGL·원 표/mesh·부분 페이지/hold,
       타임라인 변경·권리 철회·GET 재적분0회/저사양·반응형·키보드/정리. 실제 품종의 키/크기/
       수확·임의 애니메이션이나 새 G0–G4 통과로 표시하지 않는다.
+      세 자식과 [새 실제 경로](../research/web-crop-cycle-native-implementation.md)의 증거를 모아 로컬 수용했다.
+      CPU4배 형식 시험은 관측 조건의 수용이며 실제 저사양 기기/G4·pixel fidelity는 별도다.
       - [x] **`web-crop-cycle-window`** — 선행 client 수용; 상태/범위 helper·집중 시험2 core파일.
         summary/reference·원 offset/byte next/이전 실제 offset·같은 UTC·출력0/hold,
         부분 표시·배열64/8·직렬 요청/취소/늦은 응답을 대사한다. 원량을 바꾸지 않는다.
@@ -331,7 +336,7 @@
         [로컬 화면 기능 수용](../research/web-crop-cycle-view-implementation.md): 새Chromium16개·기존3개·
         웹522개/타입·빌드·원27시점/5사건·C/N2,700 mesh 대사·49 backend/선행7개 보존.
         실제 DB/TLS/WebGL 전체 연결·생명주기/native RSS·pixel fidelity는 별도다.
-      - [ ] **`web-crop-cycle-browser`** — 선행 view 수용; fixture/spec/실제 smoke/native4 core파일.
+      - [x] **`web-crop-cycle-browser`** — 선행 view 수용; fixture/spec/실제 smoke/native4 core파일.
         실제 PG→TLS→WebGL의27시점/5사건·원량/UTC/mesh·GET RHS0/철회/hold와 정리,
         형식용 많은 범위 이동의 배열/renderer·타이머 해제·CPU throttle 반응/heap/RSS 실측을 확인한다.
         emulator/복제 fixture를 실제 저사양 기기나 작기 계산으로 표시하지 않는다.
@@ -340,7 +345,11 @@
         `348b162`의 두 시험/장면 정리는 구현했고 웹522개·Chromium16+기존5개와
         형식용20범위 자원 해제를 통과했다. 실제 새25시간/11,400걸음의 native1개는
         [signed zero 축 기대값 실패](../research/web-crop-cycle-native-signed-zero-hold-20261006.md)로
-        1실패/1666.57초·정리를 기록했다. 시험 표현 수정 뒤 실제 경로를 재검증하며 부모는 열어 둔다.
+        1실패/1666.57초·정리를 기록했다. 시험 표현 수정 뒤
+        [실제 경로](../research/web-crop-cycle-native-implementation.md)는1통과/2044.35초·원27/5·31frame·
+        21 HTTPS 최대20.484300초/64,791bytes·RHS0·권리/계정 거부·정리로 로컬 수용했다.
+        child RSS338.51171875MiB·CPU4배 형식20범위 입력반응256.520837ms/JS heap40,784,648bytes는
+        각각 관측 범위이며 WSL 전체/GPU driver/실제 저사양 기기 증거는 아니다. 부모도 로컬 수용했다.
   - [ ] **`crop-cycle-burden`** — 선행: 위 세 구현; 실제 RHS의 긴 합성 forcing/source 형태·부하/재현·중단/복원,
     원 수지/사건·불변 저장/조회·WSL 자원/정리를 검증한다. 실제 작업 분해/측정 뒤 global budget/날짜를 고정한다.
     원47,809시점/166일은 입력 형태이며 실제 품종/UTC/QC/초기/관리 채택 없이 crop 작기 수용으로 표시하지 않는다.
