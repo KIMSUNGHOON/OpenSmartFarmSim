@@ -1,11 +1,14 @@
 # 실제 전체 작기 부하·복원 — v1 후보
 
-상태: **비용 profile 로컬 수용, 실제 전체166일 RHS/저장 조회는 수용 전**, 2026-10-06 KST.
+상태: **비용 profile·작은 runner/재개 전략 로컬 수용, 실제 전체166일 RHS/저장 조회는 수용 전**, 2026-10-06 KST.
 착수 선행은 `web-crop-cycle-browser`, `web-crop-cycle-replay`, `crop-cycle-result-pages`의
 실제 수용이다. [native 재검증](../research/web-crop-cycle-native-implementation.md)은
 1통과/2044.35초·원27시점/5사건·실제21 HTTPS와 정리를 확인해 선행을 로컬 수용했다.
 [profile 수용](../research/crop-cycle-burden-profile-implementation.md)은 고유15개 분할·
-실제 SCRAM/별도 worker 복원·자작166일 input plan으로 확인했다. 실제 전체166일 계산은 미구현이다.
+실제 SCRAM/별도 worker 복원·자작166일 input plan으로 확인했다.
+[runner/작은 재개 전략](../research/crop-cycle-full-rhs-small-strategy-implementation.md)은 집중17개·
+자작5시간61출력/2사건·별도 Python의 정확한 checkpoint 재개·terminal RHS0·정리로 수용했다.
+실제 전체166일 종료/수지 검증은 미수용이다.
 [stream 실행](crop-cycle-stream-execution-v1.md), [불변 artifact](crop-cycle-artifact-v1.md),
 [원천 감사](../research/crop-forcing-audit.md)를 따른다. 이 작업은 작물 모델 개발과
 국내 독립 자료 확보를 병행하는 기존 경로에 놓인다.
@@ -38,7 +41,7 @@ artifact는16,384 commit·512MiB·65,536파일, 공개 응답은30초/2MiB와 sa
 | `crop-cycle-burden-full-rhs` | profile 수용 및 관측된 결함의 집중 수정 수용. source 형태 자작 입력 generator/runner·검증3파일 | 고정된 전체166일 입력을 실제 RHS로 끝까지 실행하고 모델/입력/원 격자·예정/실제 걸음·모든 저장 출력/사건 hash·전역 수지·peak/시간·현재 권리·정리를 기록한다. 실제 농장/품종 검증으로 보고하지 않는다. |
 | `crop-cycle-burden-replay-restore` | 전체 RHS와 저장 수용. 중단/복원 runner·실제 조회/화면 검증3–4파일 | 실제 중단 후 같은 원 context/seed/누적/clock/sequence를 복원해 연속 결과와 대사한다. 완전 저장 결과의 시작/중간/끝·실제 byte-short 경계·관리 전후·같은 ID/UTC의 공개 page/3D와30초/2MiB·권리 철회/변조·서버/DB/role/비밀번호/FD 정리를 확인한다. |
 
-profile의 예정 core파일은 `research/crop-cycle-burden-profile.py`,
+profile의 구현 core파일은 `research/crop-cycle-burden-profile.py`,
 `backend/tests/test_crop_cycle_burden_profile.py`, 이 계약의 측정 기록 형식 보완이다.
 순수/shape14개·native1개로 원행/상태·함수 원복·hold·128 transition 한도를 확인했다.
 자작5시간2,280걸음의 예산 비교·모든300초 출력61개, 실제 등록 농장120걸음/SCRAM/worker와
@@ -83,7 +86,9 @@ global wall/step/byte budget은 profile 증거와 원 planned_steps에서 고정
 관측된 위험이 해결된 뒤 세 자식의 증거를 모아 `crop-cycle-burden` 부모를 체크한다.
 profile의2–3집중시간 잠정은 실제 수용 기록으로 대체했다. 원166일 plan은1,816,704걸음/
 1,864,515transition이며 pure10000/10000의187chunk·artifact10000/128의14,567commit 계획이다.
-다음 자작 수치 실험의 global wall6시간은 계약/집중 검증 뒤 고정할 **실험 예산 후보**이며 날짜/상한이 아니다.
+다음 자작 수치 실험의 global wall6시간은 [실행 계약](crop-cycle-full-rhs-v1.md)/집중 검증에서
+고정한 **실험 예산**이며 날짜/완료 상한이 아니다. 자작 수치 실험의 성공과 등록 농장의
+전체 저장/현재 권리/API·3D 수용을 구분하고 두 범위의 증거를 부모 수용 전에 모은다.
 전체 입력 열기21.902006초+context9.171754초와 짧은 native의 반복 input/등록 확인이 관측됐다.
 전체 공개 조회 수용에는 byte/hash·검증·현재 권리/변조 거부를 유지하는 비용 개선이 추가로 필요하다.
 실제 전체 실행/복원 및 저장/조회 완료 날짜는 해당 수정과 실측 종료 상태 뒤 산정한다.
