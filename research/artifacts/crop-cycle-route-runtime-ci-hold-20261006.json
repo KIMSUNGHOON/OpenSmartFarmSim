@@ -1,0 +1,1449 @@
+{
+  "evidence_version": "crop-cycle-route-runtime-ci-hold-v1",
+  "recorded_at_utc": "2026-10-06T04:47:08.121582+00:00",
+  "snapshot_commit": "d61bcb3b0c89b28c7d409d2a58fb10d8508f942d",
+  "scope": "terminal_original_d61_route_runtime_scope_before_client_window_3D_and_local_CI_fixes",
+  "backend": {
+    "run_id": 37405273500,
+    "status": "completed",
+    "conclusion": "failure",
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273500",
+    "jobs": [
+      {
+        "completedAt": "2026-10-06T03:34:48Z",
+        "conclusion": "success",
+        "databaseId": 112081329121,
+        "name": "backend-partition-0",
+        "startedAt": "2026-10-06T02:41:06Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install locked backend",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Prepare readable runtime for UID service smoke",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Start disposable PostgreSQL",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run backend tests against PostgreSQL",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Check content access with distinct Linux UIDs",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Remove database and password files",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273500/job/112081329121"
+      },
+      {
+        "completedAt": "2026-10-06T03:13:20Z",
+        "conclusion": "success",
+        "databaseId": 112081329251,
+        "name": "backend-partition-1",
+        "startedAt": "2026-10-06T02:40:32Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install locked backend",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Prepare readable runtime for UID service smoke",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Start disposable PostgreSQL",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run backend tests against PostgreSQL",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Check content access with distinct Linux UIDs",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Remove database and password files",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273500/job/112081329251"
+      },
+      {
+        "completedAt": "2026-10-06T04:06:28Z",
+        "conclusion": "success",
+        "databaseId": 112081329258,
+        "name": "backend-partition-5",
+        "startedAt": "2026-10-06T03:47:11Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install locked backend",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Prepare readable runtime for UID service smoke",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Start disposable PostgreSQL",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run backend tests against PostgreSQL",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Check content access with distinct Linux UIDs",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Remove database and password files",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273500/job/112081329258"
+      },
+      {
+        "completedAt": "2026-10-06T04:36:56Z",
+        "conclusion": "success",
+        "databaseId": 112081329299,
+        "name": "backend-partition-4",
+        "startedAt": "2026-10-06T03:34:51Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install locked backend",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Prepare readable runtime for UID service smoke",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Start disposable PostgreSQL",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run backend tests against PostgreSQL",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Check content access with distinct Linux UIDs",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Remove database and password files",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273500/job/112081329299"
+      },
+      {
+        "completedAt": "2026-10-06T03:32:48Z",
+        "conclusion": "failure",
+        "databaseId": 112081329340,
+        "name": "backend-partition-2",
+        "startedAt": "2026-10-06T03:13:22Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install locked backend",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Prepare readable runtime for UID service smoke",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Start disposable PostgreSQL",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "failure",
+            "name": "Run backend tests against PostgreSQL",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Check content access with distinct Linux UIDs",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Remove database and password files",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273500/job/112081329340"
+      },
+      {
+        "completedAt": "2026-10-06T03:47:08Z",
+        "conclusion": "success",
+        "databaseId": 112081329420,
+        "name": "backend-partition-3",
+        "startedAt": "2026-10-06T03:32:51Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install locked backend",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Prepare readable runtime for UID service smoke",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Start disposable PostgreSQL",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run backend tests against PostgreSQL",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Check content access with distinct Linux UIDs",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Remove database and password files",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+            "number": 17,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+            "number": 18,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273500/job/112081329420"
+      },
+      {
+        "completedAt": "2026-10-06T04:37:03Z",
+        "conclusion": "failure",
+        "databaseId": 112110150634,
+        "name": "backend",
+        "startedAt": "2026-10-06T04:36:59Z",
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "failure",
+            "name": "Require all partitions and identical complete inventories",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 3,
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273500/job/112110150634"
+      }
+    ],
+    "partitions_succeeded": 5,
+    "partitions_failed": 1,
+    "terminal_summary_from_downloaded_log": {
+      "backend-partition-5": "540 passed, 3605 deselected in 1124.60s (0:18:44)",
+      "backend-partition-4": "503 passed, 3642 deselected, 2 warnings in 3692.23s (1:01:32)",
+      "backend-partition-3": "1048 passed, 3097 deselected in 825.21s (0:13:45)"
+    },
+    "downloaded_combined_log_contains_only_partitions": [
+      3,
+      4,
+      5
+    ],
+    "partial_log_is_not_all_backend_pass_evidence": true,
+    "raw_log_sha256": "f97accf49e2666eed939363c928132f665a973c4f6ced902e7d45401d6359925",
+    "aggregation": "rejected_because_one_partition_failed_before_success_acceptance"
+  },
+  "companion_workflows": [
+    {
+      "run_id": 37405273365,
+      "conclusion": "failure",
+      "headSha": "d61bcb3b0c89b28c7d409d2a58fb10d8508f942d",
+      "jobs": [
+        {
+          "completedAt": "2026-10-06T02:40:58Z",
+          "conclusion": "failure",
+          "databaseId": 112081328555,
+          "name": "web",
+          "startedAt": "2026-10-06T02:40:31Z",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm install --global npm@11.16.0",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm ci --strict-peer-deps",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run typecheck",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run test",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run build",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "failure",
+              "name": "Run npm audit --audit-level=high",
+              "number": 9,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Run npx --no-install playwright install --with-deps chromium",
+              "number": 10,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Run npm run test:browser",
+              "number": 11,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Post Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 21,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 22,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 23,
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273365/job/112081328555"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273365"
+    },
+    {
+      "run_id": 37405273383,
+      "conclusion": "success",
+      "headSha": "d61bcb3b0c89b28c7d409d2a58fb10d8508f942d",
+      "jobs": [
+        {
+          "completedAt": "2026-10-06T02:41:19Z",
+          "conclusion": "success",
+          "databaseId": 112081328595,
+          "name": "compose",
+          "startedAt": "2026-10-06T02:40:30Z",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@v6",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Create ephemeral database passwords",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Validate Compose and build dependency images",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify PostgreSQL readiness and named-volume persistence",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Remove containers, volumes, and password files",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@v6",
+              "number": 12,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 13,
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273383/job/112081328595"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273383"
+    },
+    {
+      "run_id": 37405273424,
+      "conclusion": "success",
+      "headSha": "d61bcb3b0c89b28c7d409d2a58fb10d8508f942d",
+      "jobs": [
+        {
+          "completedAt": "2026-10-06T02:44:51Z",
+          "conclusion": "success",
+          "databaseId": 112081329442,
+          "name": "images",
+          "startedAt": "2026-10-06T02:40:30Z",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Build and verify isolated application images",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Install locked host test harness",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify actual Compose API and automatic worker",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify actual Compose owned collection consumer",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify actual Compose scoped research authority",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 15,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 16,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 17,
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273424/job/112081329442"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273424"
+    },
+    {
+      "run_id": 37405273363,
+      "conclusion": "success",
+      "headSha": "d61bcb3b0c89b28c7d409d2a58fb10d8508f942d",
+      "jobs": [
+        {
+          "completedAt": "2026-10-06T02:42:51Z",
+          "conclusion": "success",
+          "databaseId": 112081328613,
+          "name": "authored-assessment-https",
+          "startedAt": "2026-10-06T02:40:30Z",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Install locked backend",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Install locked browser smoke dependencies",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Start disposable PostgreSQL",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify authored APIs against PostgreSQL",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Remove database and password files",
+              "number": 9,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 17,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 18,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 19,
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273363/job/112081328613"
+        },
+        {
+          "completedAt": "2026-10-06T02:53:33Z",
+          "conclusion": "success",
+          "databaseId": 112081328892,
+          "name": "authored-browser",
+          "startedAt": "2026-10-06T02:40:30Z",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Install locked backend",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Install locked browser smoke dependencies",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Start disposable PostgreSQL",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify authored APIs against PostgreSQL",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Remove database and password files",
+              "number": 9,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 16,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 17,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 18,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 19,
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273363/job/112081328892"
+        },
+        {
+          "completedAt": "2026-10-06T02:47:11Z",
+          "conclusion": "success",
+          "databaseId": 112081328916,
+          "name": "authored-assessment",
+          "startedAt": "2026-10-06T02:40:30Z",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Install locked backend",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Install locked browser smoke dependencies",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Start disposable PostgreSQL",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify authored APIs against PostgreSQL",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Remove database and password files",
+              "number": 9,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 17,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 18,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 19,
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273363/job/112081328916"
+        },
+        {
+          "completedAt": "2026-10-06T02:45:54Z",
+          "conclusion": "success",
+          "databaseId": 112081328933,
+          "name": "authored-financial-browser",
+          "startedAt": "2026-10-06T02:40:30Z",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Install locked backend",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Install locked browser smoke dependencies",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Start disposable PostgreSQL",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify authored APIs against PostgreSQL",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Remove database and password files",
+              "number": 9,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 16,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 17,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 18,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 19,
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273363/job/112081328933"
+        },
+        {
+          "completedAt": "2026-10-06T02:44:40Z",
+          "conclusion": "success",
+          "databaseId": 112081328985,
+          "name": "authored-economics",
+          "startedAt": "2026-10-06T02:40:30Z",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Install locked backend",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Install locked browser smoke dependencies",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Start disposable PostgreSQL",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify authored APIs against PostgreSQL",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Remove database and password files",
+              "number": 9,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 17,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 18,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 19,
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273363/job/112081328985"
+        },
+        {
+          "completedAt": "2026-10-06T02:47:09Z",
+          "conclusion": "success",
+          "databaseId": 112081328995,
+          "name": "authored-api",
+          "startedAt": "2026-10-06T02:40:30Z",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Install locked backend",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Install locked browser smoke dependencies",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Start disposable PostgreSQL",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify authored APIs against PostgreSQL",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Remove database and password files",
+              "number": 9,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 17,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 18,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 19,
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273363/job/112081328995"
+        },
+        {
+          "completedAt": "2026-10-06T02:47:22Z",
+          "conclusion": "success",
+          "databaseId": 112081329040,
+          "name": "authored-financial-selection",
+          "startedAt": "2026-10-06T02:40:30Z",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Install locked backend",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Install locked browser smoke dependencies",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Start disposable PostgreSQL",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Verify authored APIs against PostgreSQL",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Remove database and password files",
+              "number": 9,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+              "number": 17,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 18,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 19,
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273363/job/112081329040"
+        }
+      ],
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37405273363"
+    }
+  ],
+  "known_failures": [
+    {
+      "scope": "backend_partition2",
+      "test": "tests/test_market_candidate_store.py::test_tenant_scope_and_concurrent_retry_do_not_fork_candidate",
+      "reason": "old_test_expected_authenticated_but_product_raises_MarketCandidateDenied_market_candidate_read_authority_denied",
+      "local_fix": "f9c4bc9",
+      "local_native_tests_passed": 5,
+      "local_native_cleanup_verified": true,
+      "receipt": "research/artifacts/market-candidate-read-authority-assertion-reference-20261006.json"
+    },
+    {
+      "scope": "web",
+      "reason": "source-map-js1.2.1_high_audit_GHSA-68fv-2mgg-jv7q",
+      "local_fix": "e9c2431",
+      "replacement_locked_version": "1.2.2",
+      "local_audit_vulnerabilities": 0,
+      "receipt": "research/artifacts/source-map-js-audit-fix-reference-20261006.json"
+    }
+  ],
+  "local_fix_receipt_sha256": {
+    "research/artifacts/market-candidate-read-authority-assertion-reference-20261006.json": "5c4e6abebfd18712e37fd4fe8397c04a1261b32e285dba5b512f2d2966ad8ca5",
+    "research/artifacts/source-map-js-audit-fix-reference-20261006.json": "9c8db59438c205fef97d0a0594e20292a7cfa019311f46b94fba396dd00cc463"
+  },
+  "all_five_workflows_succeeded": false,
+  "current_local_head_hosted_accepted": false,
+  "no_CI_cancel_or_settings_change": true,
+  "foundation_freeze": "d19f7c0",
+  "gate_changes": false,
+  "actual_crop_runs": 0,
+  "domestic_independent_datasets": 0,
+  "gates": "not_assessed"
+}

@@ -30,7 +30,8 @@
 실제 새25시간/11,400걸음의 native 시험은
 [과거 보류 축의 signed zero 기대값1실패/정리](research/web-crop-cycle-native-signed-zero-hold-20261006.md)를
 기록했고 시험 표현 수정 뒤 재검증합니다. 전체 연결 수용은 아직 보류입니다.
-현재 `d61bcb3`의 hosted 웹은 의존성 보안 감사에서 실패했습니다.
+`d61bcb3`의 [종료된 CI](research/crop-cycle-route-runtime-ci-hold-20261006.md)는
+Backend5분할 성공/1실패·집계 실패, 웹 감사 실패이며 C0/앱/작성 경로는 성공했습니다.
 [백엔드 분할2의 기대값 불일치](research/market-candidate-read-authority-assertion-20261006.md)도
 재현해 시험만 수정했고 실제 PG5개/정리를 통과했습니다. 수정 판본 hosted CI는 별도입니다.
 [단일 잠금 수정](research/source-map-js-audit-fix-20261006.md)은 웹503개/타입·빌드·audit0으로

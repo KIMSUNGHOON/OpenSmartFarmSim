@@ -125,7 +125,9 @@ client2–3시간·3D/실제 브라우저4–6시간을 남긴다. 긴 시험의
 웹 전체503개/6.47초·타입/빌드·원23 공개 JSON/helper 보존으로 완료했다. 위 client 예상은
 이 실적으로 대체한다. 다음 window helper → 화면 → 실제 PG/TLS/WebGL은4–6집중시간,
 하루4시간 기준10월6–8일 KST 잠정이다. 실제 품종/작기·생과·자원/경제 날짜는 별도다.
-현재 `d61bcb3`의 hosted 웹 high 감사 실패는
+`d61bcb3`의 [종료된 CI](../research/crop-cycle-route-runtime-ci-hold-20261006.md)는
+backend5분할 성공/1실패·집계 실패, 웹 감사 실패이며 C0/앱/작성 경로는 성공했다.
+hosted 웹 high 감사 실패는
 [source-map-js 단일 잠금 보완](../research/source-map-js-audit-fix-20261006.md)으로 로컬 해소했다.
 웹503개/타입·빌드·audit0이며 실패한 SHA와 후속 hosted 수용은 구분한다.
 [범위 helper](../research/web-crop-cycle-window-implementation.md)도 새19개·웹 전체522개/
