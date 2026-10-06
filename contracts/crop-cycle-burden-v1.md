@@ -1,10 +1,11 @@
 # 실제 전체 작기 부하·복원 — v1 후보
 
-상태: **작업 분해·측정 후보, 구현/전체166일 수용 전**, 2026-10-06 KST.
+상태: **비용 profile 로컬 수용, 실제 전체166일 RHS/저장 조회는 수용 전**, 2026-10-06 KST.
 착수 선행은 `web-crop-cycle-browser`, `web-crop-cycle-replay`, `crop-cycle-result-pages`의
 실제 수용이다. [native 재검증](../research/web-crop-cycle-native-implementation.md)은
 1통과/2044.35초·원27시점/5사건·실제21 HTTPS와 정리를 확인해 선행을 로컬 수용했다.
-이 부하 후보의 driver/전체166일은 아직 미구현이다.
+[profile 수용](../research/crop-cycle-burden-profile-implementation.md)은 고유15개 분할·
+실제 SCRAM/별도 worker 복원·자작166일 input plan으로 확인했다. 실제 전체166일 계산은 미구현이다.
 [stream 실행](crop-cycle-stream-execution-v1.md), [불변 artifact](crop-cycle-artifact-v1.md),
 [원천 감사](../research/crop-forcing-audit.md)를 따른다. 이 작업은 작물 모델 개발과
 국내 독립 자료 확보를 병행하는 기존 경로에 놓인다.
@@ -39,7 +40,31 @@ artifact는16,384 commit·512MiB·65,536파일, 공개 응답은30초/2MiB와 sa
 
 profile의 예정 core파일은 `research/crop-cycle-burden-profile.py`,
 `backend/tests/test_crop_cycle_burden_profile.py`, 이 계약의 측정 기록 형식 보완이다.
-현재 driver/시험은 미구현이다. 기존 입력/저장 모듈을 호출하고 제품 계산식을 바꾸지 않는다.
+순수/shape14개·native1개로 원행/상태·함수 원복·hold·128 transition 한도를 확인했다.
+자작5시간2,280걸음의 예산 비교·모든300초 출력61개, 실제 등록 농장120걸음/SCRAM/worker와
+166일 input plan을 수용했다. [원 측정/소스/정리](../research/artifacts/crop-cycle-burden-profile-reference-20261006.json)를
+보존했다. 기존 입력/저장49파일과 제품 계산식은 그대로다. profile 수용으로 전체 부하 부모를 체크하지 않는다.
+
+### 측정 기록 형식
+
+`crop-cycle-burden-profile-v1`은 관측 UTC·실제 Python/nice와 driver SHA, input root·원 manifest,
+각 실제 budget/step·출력/사건 count·원행 SHA·전체 semantic checkpoint를 기록한다.
+checkpoint 비교에서는 chunk별로 달라지는 `checkpoint_sha256`/`parent_sha256`만 제외하고
+seed/121상태·원 UTC/phase·global counters·clock/root/격자·원 prefix는 보존한다.
+계산 경계/원값이 다른 실행을 같은 재현 결과로 묶지 않는다.
+
+`costs`의 각 이름은 호출 수·포함 wall/CPU초와 직접 관찰 자식 시간을 뺀 exclusive초를 가진다.
+포함 시간은 서로 중첩되므로 합산하지 않는다. wrapper/관찰 자체의 overhead와 준비된 context/cache,
+미관측 함수의 범위를 표시하고 같은 값의 비계측 기준 실행을 함께 둔다.
+JSON canonical 관찰은 driver가 열거한 module alias 범위이며 모든 JSON/시스템 I/O 비용이라고 표시하지 않는다.
+
+artifact는 실제 commit마다 원 step·byte/file 수·advance시간의 growth curve와 재개 횟수,
+전체 원 페이지 count/SHA·최대 byte·읽기 RHS 수를 기록한다. 첫 구간 뒤 writer를 닫고 같은
+원 HEAD로 재개하므로 누적 prefix 검증 비용을 측정한다. 많은 row/파일의 형식 fixture는 별도로 표시한다.
+process peak RSS는 해당 Python 프로세스의 Linux 관측값이며 추가 사용량이나 동시 child 합계가 아니다.
+등록 농장/current rights·DB/공개 페이지와 실제 worker는 부모/child별 costs·checkpoint·progress·
+exit/FD/PG/role/schema/password 정리를 기록한다. 공개 투영 함수의 시간은 실제 TLS latency가 아니다.
+166일 shape는 input plan/bytes/index만 기록하며 RHS0회·실제 계산 미수용을 명시한다.
 
 profile의 짧은 측정은 다음 예산을 정하는 근거이며 전체166일 수용의 대체물이 아니다.
 시험 조건·Python/PG/browser·CPU nice·관측 RSS 범위와 비동시 실행을 기록한다.
@@ -56,8 +81,12 @@ global wall/step/byte budget은 profile 증거와 원 planned_steps에서 고정
 
 사용자는 비용 분해/한도 표, 실제 실행/복원 receipt, 전체/현재 범위를 구분한 같은 UTC의 화면을 확인한다.
 관측된 위험이 해결된 뒤 세 자식의 증거를 모아 `crop-cycle-burden` 부모를 체크한다.
-profile 구현/집중 검증은 **2–3집중시간 잠정**이다. 실제 전체 실행/복원 및 저장/조회 완료 날짜는
-profile 수용과 global 예산 고정 전에는 추정하지 않는다. 추가 수정은 실제 결함 근거와 함께 산정한다.
+profile의2–3집중시간 잠정은 실제 수용 기록으로 대체했다. 원166일 plan은1,816,704걸음/
+1,864,515transition이며 pure10000/10000의187chunk·artifact10000/128의14,567commit 계획이다.
+다음 자작 수치 실험의 global wall6시간은 계약/집중 검증 뒤 고정할 **실험 예산 후보**이며 날짜/상한이 아니다.
+전체 입력 열기21.902006초+context9.171754초와 짧은 native의 반복 input/등록 확인이 관측됐다.
+전체 공개 조회 수용에는 byte/hash·검증·현재 권리/변조 거부를 유지하는 비용 개선이 추가로 필요하다.
+실제 전체 실행/복원 및 저장/조회 완료 날짜는 해당 수정과 실측 종료 상태 뒤 산정한다.
 
 실제 품종/작기 입력·국내 독립 검증 자료·crop Run은0건이다. source/검증 데이터 확보는 병행한다.
 생과 질량·자원 구매·Decimal 경제 연결은 이 작업 뒤의 별도 계약/자료 근거를 따른다.
