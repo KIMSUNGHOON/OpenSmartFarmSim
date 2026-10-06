@@ -27,6 +27,9 @@
 [현재 범위 3D 화면](research/artifacts/cycle-crop-selected-window-preview.png)은 실제 컴포넌트를
 소유한 기록 합성 응답/검토용 shell에서 캡처했습니다. 새 실제 PG/TLS/WebGL 전체 연결과 pixel fidelity는 별도입니다.
 다음은 실제 경로·정리/자원 → 작기 부하 → 생과·자원·경제 순서입니다.
+실제 새25시간/11,400걸음의 native 시험은
+[과거 보류 축의 signed zero 기대값1실패/정리](research/web-crop-cycle-native-signed-zero-hold-20261006.md)를
+기록했고 시험 표현 수정 뒤 재검증합니다. 전체 연결 수용은 아직 보류입니다.
 현재 `d61bcb3`의 hosted 웹은 의존성 보안 감사에서 실패했습니다.
 [백엔드 분할2의 기대값 불일치](research/market-candidate-read-authority-assertion-20261006.md)도
 재현해 시험만 수정했고 실제 PG5개/정리를 통과했습니다. 수정 판본 hosted CI는 별도입니다.

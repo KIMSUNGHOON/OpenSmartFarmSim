@@ -1,0 +1,70 @@
+{
+  "evidence_version": "web-crop-cycle-native-signed-zero-hold-v1",
+  "recorded_at_utc": "2026-10-06T04:25:44.671374+00:00",
+  "snapshot_commit": "348b162",
+  "scope": "actual_fresh_registered_synthetic_25h_native_browser_failure_not_whole_acceptance",
+  "source_sha256": {
+    "backend/tests/web_crop_cycle_replay_smoke.py": "30956ec66350d231d50ca423ddcb9ded57e476c72f1c72b07b69e98633d7a87a",
+    "web/e2e/real-cycle-crop-replay-smoke.mjs": "6e34975ab9e424b0389cc62880981dac5749133cad15d18dd3dc0d379aa1ca75",
+    "web/src/CoupledCropScene.tsx": "deffa71b24cd81c031b42cddf8485114e4f52d8ece4cc5e12c792d2f678d895e"
+  },
+  "cli": {
+    "timestamp": "2026-10-06T04:04:25.725Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "29b3436db969321db63328e1361c2dca2eba41415f01422722d470200f4b9554"
+  },
+  "result": {
+    "passed": 0,
+    "failed": 1,
+    "pytest_seconds": 1666.57,
+    "stage": "actual_past_hold_bounds_comparison",
+    "expected": {
+      "lower": -2,
+      "upper": "negative_zero"
+    },
+    "received": {
+      "lower": -2,
+      "upper": 0
+    },
+    "actual_cumulative_and_C_N_values_failure": false,
+    "whole_browser_accepted": false
+  },
+  "calculation_progress": {
+    "phase": "calculation",
+    "program": "long",
+    "advances": 92,
+    "status": "completed",
+    "steps": 11400,
+    "elapsed_seconds": 1436.610769615043,
+    "gates": "not_assessed"
+  },
+  "cleanup": {
+    "scope": "native_cycle_SCRAM_TLS_WebGL_software_only",
+    "started_at": "2026-10-06T03:55:11.069839+00:00",
+    "postgres_version": "postgres (PostgreSQL) 16.15",
+    "new_dependencies": 0,
+    "servers_started": 1,
+    "pytest_arguments": [
+      "tests/web_crop_cycle_replay_smoke.py",
+      "-s"
+    ],
+    "effective_nice": 10,
+    "exit_code": 1,
+    "wall_seconds": 1667.050931316975,
+    "remaining_test_roles": 0,
+    "remaining_test_schemas": 0,
+    "remaining_test_password_files": 0,
+    "postgres_stopped": true,
+    "postgres_status_exit_code": 3,
+    "private_cluster_and_admin_password_files_removed": true,
+    "owned_servers_after": 0,
+    "peak_children_rss_mib": 533.13671875
+  },
+  "log_sha256": "4c0a52e6d7db4818c605259f2fcb5a0ad81722d50e990b11cdda79225205b0bc",
+  "failure_diagnostic_screens_removed_with_private_cluster": true,
+  "gates": "not_assessed",
+  "actual_crop_runs": 0,
+  "domestic_independent_datasets": 0,
+  "recursive_cli_invocations": 0
+}

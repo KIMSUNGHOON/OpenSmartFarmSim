@@ -337,6 +337,10 @@
         emulator/복제 fixture를 실제 저사양 기기나 작기 계산으로 표시하지 않는다.
         fixture/spec2개와 기록 응답 Chromium16개는 위 화면 수용에 포함했고,
         남은 smoke/native2개와 전체 생명주기/실제 경로 수용 뒤 이 자식·replay 부모를 체크한다.
+        `348b162`의 두 시험/장면 정리는 구현했고 웹522개·Chromium16+기존5개와
+        형식용20범위 자원 해제를 통과했다. 실제 새25시간/11,400걸음의 native1개는
+        [signed zero 축 기대값 실패](../research/web-crop-cycle-native-signed-zero-hold-20261006.md)로
+        1실패/1666.57초·정리를 기록했다. 시험 표현 수정 뒤 실제 경로를 재검증하며 부모는 열어 둔다.
   - [ ] **`crop-cycle-burden`** — 선행: 위 세 구현; 실제 RHS의 긴 합성 forcing/source 형태·부하/재현·중단/복원,
     원 수지/사건·불변 저장/조회·WSL 자원/정리를 검증한다. 실제 작업 분해/측정 뒤 global budget/날짜를 고정한다.
     원47,809시점/166일은 입력 형태이며 실제 품종/UTC/QC/초기/관리 채택 없이 crop 작기 수용으로 표시하지 않는다.
