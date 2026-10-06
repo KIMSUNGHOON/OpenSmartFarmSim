@@ -28,6 +28,8 @@
 소유한 기록 합성 응답/검토용 shell에서 캡처했습니다. 새 실제 PG/TLS/WebGL 전체 연결과 pixel fidelity는 별도입니다.
 다음은 실제 경로·정리/자원 → 작기 부하 → 생과·자원·경제 순서입니다.
 현재 `d61bcb3`의 hosted 웹은 의존성 보안 감사에서 실패했습니다.
+[백엔드 분할2의 기대값 불일치](research/market-candidate-read-authority-assertion-20261006.md)도
+재현해 시험만 수정했고 실제 PG5개/정리를 통과했습니다. 수정 판본 hosted CI는 별도입니다.
 [단일 잠금 수정](research/source-map-js-audit-fix-20261006.md)은 웹503개/타입·빌드·audit0으로
 로컬 수용했고 해당 판본의 hosted CI는 별도입니다.
 현재 실제 품종/작기 입력과 국내 독립 검증 자료는0건이며 생산 예측·추천은 보류입니다.
