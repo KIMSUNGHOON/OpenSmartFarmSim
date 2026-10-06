@@ -385,6 +385,10 @@
       [원 검사/context 비용 분해](../research/crop-cycle-input-validation-cost-observation-20261006.md)는
       같은 원 context/계획을 대사했고 기준33.05초·계측44.70초/RHS0·FD4→4를 기록했다.
       반복 JSON/정규화/canonical 검사가 집중 수정 대상이다. 현재 권리·QC/판본의 생략 승인은 아니다.
+      [원 증명 재사용 실험](../research/crop-cycle-input-witness-experiment-20261006.md)은 집중16개·원 발행31.61초/
+      현재749블록 대사0.172/0.180초·같은 원 context/grid·RHS0/FD4→4를 확인했다.
+      연구용 JSON/HMAC뿐이며 제품 worker 발행/키·재시작·현재 권리/typed reader·판본/과거 재현과
+      실제 전체 API/3D 증거는 남는다. 실험으로 수용 checkbox를 변경하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

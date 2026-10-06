@@ -166,6 +166,10 @@ schema/QC/context/현재 권리/API는 제외했다. reader 코드 SHA와 root/m
 [세부 원 검사/context 관측](../research/crop-cycle-input-validation-cost-observation-20261006.md)은
 기준33.05초/계측44.70초·동일 원 context/계획·RHS0·FD4→4를 확인했다.
 반복 JSON·정규화·canonical 검사를 다음 집중 수정 대상으로 좁혔으며 현재 권리·QC와 판본을 유지한다.
+[원 검증 증명 대사 실험](../research/crop-cycle-input-witness-experiment-20261006.md)은 집중16개와
+원 발행31.61초/현재749블록 대사0.172·0.180초·동일 원 context/grid/RHS0/FD4→4를 확인했다.
+연구용 JSON/HMAC의 비용 근거이며 제품 발행/키·재시작·현재 권리/typed reader·판본/과거 재현과
+실제 전체 공개 조회 수용은 별도다. 전체166일 원 계산 종료 후 필요한 집중 제품 수정으로 진행한다.
 전체 실행/복원 날짜는 해당 수정과 실제 종료 상태 뒤 갱신한다. 짧은/복제 fixture와 조기 hold로 전체 작기를 수용하지 않는다.
 최초10–15집중시간/10월6–10일 추정은 위 단계 실적으로 대체한다. 실제166일 부하·자료/품종·
 생과/자원/경제는 별도이며 CI와 실제 경로에서 발견되는 수정으로 일정을 갱신한다.
