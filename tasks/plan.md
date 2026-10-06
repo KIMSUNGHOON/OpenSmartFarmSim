@@ -100,6 +100,8 @@ API 대조의 원 manifest 누락도 실제 정상/hold2실패 후 한 줄 수�
 여섯 동일 목록·정리·집계로 DB 저장까지 수용했다.
 [공개 투영](../research/crop-cycle-api-projection-implementation.md)은 고유43개 분할·실제25시간 원량/UTC·
 출력0/hold·RHS0회/원53개 hash로 로컬 수용했다.
+후속 `2c0f0e6`의 [CI5개/Backend4,081개·UID4개](../research/artifacts/crop-cycle-api-projection-ci-20261006.json)도
+여섯 동일 목록/DB·비밀 정리·집계와 작성 첫 시도7job로 공개 투영까지 수용했다.
 [인증 route](../research/crop-cycle-api-route-implementation.md)도 고유146개 분할·최종41개/원량·한 문맥/
 후검사/RHS0·import3순서·기존 OpenAPI 보존으로 로컬 수용했다. 실제 custody/권리·TLS는 다음 runtime이다.
 전체 [API 후보 계약](../contracts/api-crop-cycle-pages-v1.md)의 DTO/권한2–3시간+

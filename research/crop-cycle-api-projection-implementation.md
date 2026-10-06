@@ -48,6 +48,11 @@ TLS/SCRAM 검증이 아니며 G0–G4는 모두 미평가다. 순수 artifact �
 
 ## 판단 도구
 
+후속 `2c0f0e6`의 [CI5개](artifacts/crop-cycle-api-projection-ci-20261006.json)는
+Backend4,081개·별도 UID4개·여섯 동일 전체 목록·DB/비밀 정리·집계와 작성 첫 시도7job가
+모두 성공했다. DB 저장과 이 공개 투영의 hosted 증거이며 후속 인증 route/runtime·
+client/3D와 실제 작물 입력은 해당 SHA 밖이다. 취소/재실행/시간 한도 변경은 없었다.
+
 현재 Codex CLI `gpt-6.1-sol / xhigh`에서 판단했다. 실제 turn_context 시각
 `2026-10-05T23:09:43.527Z`, 원 line SHA
 `a980a103ab9c728f1c722c9656ec02fe10f5ed9f5eaa5a0d9aa235f486aa97ea`이며

@@ -9,7 +9,11 @@
 `4bb6e53`의 [CI5개](research/artifacts/crop-cycle-db-custody-ci-20261006.json)도 Backend4,038개·별도UID4개와
 여섯 동일 목록/DB·비밀 정리·집계까지 성공했습니다. [공개 투영](research/crop-cycle-api-projection-implementation.md)도
 고유43개 분할·실제25시간의 원값/UTC·조회 RHS0회로 로컬 수용했습니다.
+`2c0f0e6`의 [CI5개](research/artifacts/crop-cycle-api-projection-ci-20261006.json)도 Backend4,081개·UID4개,
+여섯 동일 목록/정리·집계와 작성 첫 시도7job까지 성공했습니다. 이 SHA는 공개 투영까지 포함합니다.
 [인증 route](research/crop-cycle-api-route-implementation.md)도 고유146개 분할·최종41개로 로컬 수용했습니다.
+후속 [원천 읽기 연결 수정](research/crop-cycle-market-read-scope-implementation.md)은 고유56개 분할·
+실제21 TLS 최대12.764535초로 수용했고, 원25시간 전체 HTTP 검증은 남아 있습니다.
 다음은 [같은 원 시점 조회 API](contracts/api-crop-cycle-pages-v1.md)의 실제 runtime/TLS →
 client → 같은 UTC 성장 연구3D → 작기 부하 → 생과·자원·경제 순서입니다.
 현재 실제 품종/작기 입력과 국내 독립 검증 자료는0건이며 생산 예측·추천은 보류입니다.

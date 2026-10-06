@@ -243,9 +243,14 @@ v3 로그 비교 도형은 원값/영을 보존하며 기존 v2 선형 대체를
 여섯 동일 목록·DB/비밀 정리·집계로 DB 저장까지 수용했다.
 [공개 투영](../research/crop-cycle-api-projection-implementation.md)은 고유43개 분할·실제25시간 원량/UTC·
 출력0/hold·RHS0회로 로컬 수용했다.
+후속 `2c0f0e6`의 [CI5개/Backend4,081개·UID4개](../research/artifacts/crop-cycle-api-projection-ci-20261006.json)도
+여섯 동일 목록/정리·집계와 작성 첫 시도7job로 공개 투영까지 수용했다.
 [인증 route](../research/crop-cycle-api-route-implementation.md)도 고유146개 분할·최종41개·원량·한 문맥/
 후검사·기존 OpenAPI 보존으로 로컬 수용했다. 실제 custody 권리·TLS와 긴 응답 예산은 아직 수용 전이다.
 다음은 실제 runtime/TLS → client → 같은 UTC3D다.
+실제 비용에 따른 [원천 읽기 범위 수정](../research/crop-cycle-market-read-scope-implementation.md)은
+고유56개 분할·같은21 짧은 TLS 최대12.764535초/권리·변조·재시작/정리로 로컬 수용했다.
+원25시간 전체 HTTP 예산과 runtime/API 부모는 미수용이다.
 새 API 전체·웹 페이지/도형 판본은 이 CI의 수용 범위 밖이다.
 `e70a7f2`의 기존 assessment HTTPS 30초 시간 초과와
 [로컬 재현/요약 크기 수정](../research/backend-ci-summary-and-timeout-20261005.md)을 별도 기록했다.
