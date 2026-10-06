@@ -1,10 +1,11 @@
 # 작기 결과 runtime의 진행 증거
 
-상태: **수용 전, 2026-10-06 KST**. 후보
+상태: **초기 진행/실패 이력, 2026-10-06 KST**. 현재는
+[최종 runtime/API 로컬 수용](api-crop-cycle-runtime-implementation.md)을 따른다. 초기 후보
 `42523ec8b4c7966e6be592811ac7b8717635aa2f`는 명시 cycle flag/factory 짝과
 같은 farm/jobs/principal의 exact store를 기존 runtime에 연결한다. 새 service/queue/schema는 없다.
 순수 설정6개·기존 route41개가8.11초에 통과했고 이전 세 crop factory 옵션 시험3개도 통과했다.
-실제 runtime/API 부모는 아직 완료로 표시하지 않는다.
+초기 판본의 단계별 상태를 아래에 보존한다.
 
 최초 실제 SCRAM/Bearer/TLS 시험은 **1실패/496.00초**였다.
 [고정 실패 증거](artifacts/crop-cycle-api-runtime-tls-hold-20261006.json)는 원 source hash,
@@ -67,7 +68,9 @@ DB 연결 함수1,170회/권한 audit1,281회/Connection.execute21,797회를 호
 부분 호출 계측 후보 `dfa1c2f`는 원 짧은 시험 본문을 보존하며 syntax/긴 node collect를
 확인했다. 원25시간 전체 HTTP 예산·runtime/API 부모와 긴 계측 실제 실행은 아직 미수용이다.
 
-짧은 통합 시험 통과 뒤에도 실제 등록25시간 결과의 전체 HTTP30초/2MiB 예산은 별도로
-측정해야 한다. 그 수용 뒤 client → 같은 ID/UTC 성장 연구3D → 작기 부하 → 근거 있는
+원천 읽기 보완 뒤 [최종 긴 검증](artifacts/crop-cycle-api-runtime-long-reference-20261006.json)은
+원25시간/11,400걸음·원27시점/5사건·전체11 TLS 응답·최대15.839875초/64,785bytes·
+재시작/RHS0/정리로1통과/1510.65초였다. source7와 math49/과거 interface4도 보존했다.
+이 최종 수용 뒤 client → 같은 ID/UTC 성장 연구3D → 작기 부하 → 근거 있는
 생과·자원·경제 순서로 진행한다. 실제 품종/작기 입력·국내 독립 검증 자료0건,
 실제 crop Run0건이며 G0–G4/생산 예측·추천은 미수용이다.

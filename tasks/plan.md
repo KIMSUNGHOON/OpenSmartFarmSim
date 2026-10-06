@@ -115,6 +115,10 @@ runtime의 추가 선행 수정으로 둔다. 기존 검사/Decimal 결과·변�
 고유56개 분할과 짧은21 TLS 최대12.764535초·현재 권리/변조/재기동/정리로 로컬 수용했다.
 이 수정의 예상2–3시간은 이 실적으로 대체한다. 다음 원25시간 검증1회와 runtime/API 수용 뒤
 client2–3시간·3D/실제 브라우저4–6시간을 남긴다. 긴 시험의 경과 시간은 아직 미관측이다.
+[실제 긴 runtime/API](../research/api-crop-cycle-runtime-implementation.md)는1통과/1510.65초·
+원25시간/11,400걸음/27시점/5사건·11 TLS 최대15.839875초/64,785bytes·재시작/RHS0/
+정리로 로컬 수용했다. 위 API 예상과 미관측 상태는 이 실적으로 대체한다. API parent만
+완료했으며 다음 client2–3집중시간 → 화면/실제 브라우저4–6시간이다. 실제 작기/생과/자료 관문은 별도다.
 [client 후보](../contracts/web-crop-cycle-pages-v1.md)는 같은 summary/참조·한 페이지 단위 iterator와
 원량 helper를 연결하며 기존 short 한도/완료 끝점 조건은 가져오지 않는다. API 긴 수용 뒤 착수한다.
 [3D 후보](../contracts/web-crop-cycle-replay-v1.md)는 전체 원 배열을 쌓지 않고 현재64/8 범위와

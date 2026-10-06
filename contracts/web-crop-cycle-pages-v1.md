@@ -1,7 +1,9 @@
 # 긴 작물 연구 결과의 웹 조회 계약 — v1 후보
 
-상태: **구현 준비 후보·cycle runtime 긴 HTTP 수용 전**, 2026-10-06 KST.
+상태: **API 로컬 수용·client 구현 전**, 2026-10-06 KST.
 작업 `web-crop-cycle-pages`; [API](api-crop-cycle-pages-v1.md) 전체 수용이 코드 착수의 선행이다.
+[실제 runtime/API 수용](../research/api-crop-cycle-runtime-implementation.md)의 원25시간 전체
+HTTPS11응답·재시작·정리로 선행을 충족했다. hosted CI와 client/3D 수용은 별도다.
 현재 실제 Codex CLI `gpt-6.1-sol / xhigh`에서 기존 decoder/실제 짧은 TLS/공개 DTO를 대조했다.
 turn_context `2026-10-05T23:53:08.250Z`, 원 line SHA
 `e38b9052100d7996209dfa1b5ab60c18236b6d3b47d740468fb432b9fac65a22`, 재귀 실행0회다.
@@ -61,6 +63,6 @@ offset/UTC를 대사한다. 요청은 한 번에 하나이며 같은 시점을 �
 4. focused unit/typecheck/build와 기존 startup 응답/페이지 의미 보존을 확인한다.
    한도용 재배열/복제 fixture는 형식 시험으로 표시하고 실제 긴 생장 계산으로 보고하지 않는다.
 
-API 긴 응답 예산 통과 전 구현을 착수하지 않는다. client2–3집중시간 추정은 실제 시험 실적으로
+API 긴 응답 예산을 통과했으므로 client 구현을 시작한다. client2–3집중시간 추정은 실제 시험 실적으로
 갱신한다. UI/실제 PG→TLS→WebGL은 별도4–6시간이며 client와 합쳐6–9집중시간이다.
 실제 전체 작기/품종/G0–G4 수용은 별도다.

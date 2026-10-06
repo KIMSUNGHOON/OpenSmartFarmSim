@@ -13,9 +13,13 @@
 여섯 동일 목록/정리·집계와 작성 첫 시도7job까지 성공했습니다. 이 SHA는 공개 투영까지 포함합니다.
 [인증 route](research/crop-cycle-api-route-implementation.md)도 고유146개 분할·최종41개로 로컬 수용했습니다.
 후속 [원천 읽기 연결 수정](research/crop-cycle-market-read-scope-implementation.md)은 고유56개 분할·
-실제21 TLS 최대12.764535초로 수용했고, 원25시간 전체 HTTP 검증은 남아 있습니다.
-다음은 [같은 원 시점 조회 API](contracts/api-crop-cycle-pages-v1.md)의 실제 runtime/TLS →
-client → 같은 UTC 성장 연구3D → 작기 부하 → 생과·자원·경제 순서입니다.
+실제21 TLS 최대12.764535초로 수용했습니다.
+[실제 runtime/API](research/api-crop-cycle-runtime-implementation.md)도 고유52개 분할 증거와
+원25시간의 전체 HTTPS11응답·27시점/5사건·재시작·RHS0회·정리로 로컬 수용했습니다.
+긴 응답 최대15.839875초/64,785bytes이며 기존30초/2MiB를 유지했습니다.
+이 route/runtime/연결 수정의 hosted CI는 별도입니다.
+다음은 [같은 원 시점 client](contracts/web-crop-cycle-pages-v1.md) →
+같은 UTC 성장 연구3D → 작기 부하 → 생과·자원·경제 순서입니다.
 현재 실제 품종/작기 입력과 국내 독립 검증 자료는0건이며 생산 예측·추천은 보류입니다.
 
 **현재 상태 (2026-10-05): 운영 기반 고정, 계산→저장→성장 연구 3D의 첫 소프트웨어 경로를 로컬 수용했습니다.**

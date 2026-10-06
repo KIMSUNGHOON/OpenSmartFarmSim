@@ -196,11 +196,13 @@ DB는 후속 `4bb6e53`의 [CI5개/Backend4,038개·UID4개](../research/artifact
 후속 `2c0f0e6`의 [CI5개/Backend4,081개·UID4개](../research/artifacts/crop-cycle-api-projection-ci-20261006.json)도
 여섯 동일 목록/정리·집계와 작성 첫 시도7job로 공개 투영까지 수용했다.
 [인증 route](../research/crop-cycle-api-route-implementation.md)도 고유146개 분할·최종41개·원량·한 문맥/
-후검사·기존 OpenAPI 보존으로 로컬 수용했다. 실제 custody 권리·TLS와 긴 응답 예산은 아직 수용 전이다.
-다음은 실제 runtime/TLS → client → 같은 UTC3D다.
+후검사·기존 OpenAPI 보존으로 로컬 수용했다.
 실제 응답 비용을 근거로 한 [원천 읽기 범위](../research/crop-cycle-market-read-scope-implementation.md)는
 고유56개 분할·같은21 짧은 TLS 최대12.764535초·현재 권리/변조/재시작/정리로 로컬 수용했다.
-원25시간 전체 HTTP/재시작은 계속 미수용이며 G0–G4와 산식은 유지한다.
+[실제 runtime/API](../research/api-crop-cycle-runtime-implementation.md)는 고유52개 분할 증거와
+원25시간의 전체 HTTPS11응답·27시점/5사건·재시작·RHS0회·정리로 로컬 수용했다.
+긴 응답 최대15.839875초/64,785bytes이며30초/2MiB와 G0–G4·산식은 유지한다.
+다음은 client → 같은 UTC3D다.
 새 cycle API 전체·3D·pixel fidelity·실제 품종은 이 CI SHA 밖이다.
 실제 전체 작기 처리는 별도다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야

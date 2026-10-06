@@ -254,7 +254,7 @@
         `4bb6e53`의 [CI5개](../research/artifacts/crop-cycle-db-custody-ci-20261006.json)도 Backend4,038개·
         별도UID4개/여섯 동일 목록·DB/비밀 정리·집계·작성 첫 시도7job로 저장 판본까지 수용했다.
       필요해진 lease/cancel은 기존 worker 계약에 대조하며 새 queue/service를 먼저 만들지 않는다.
-    - [ ] **`api-crop-cycle-pages`** — 선행: custody 저장 수용. 같은 저장 ID의 순차 sample/event 페이지를
+    - [x] **`api-crop-cycle-pages`** — 선행: custody 저장 수용. 같은 저장 ID의 순차 sample/event 페이지를
       [원 시점 조회 후보 계약](../contracts/api-crop-cycle-pages-v1.md)의 summary/page 분리와 한 읽기 context를 따른다.
       아래3–5파일 자식으로 나눈다. 수용: 실제 Bearer/TLS/SCRAM·current rights·같은 UTC/원량/index·
       30초/2MiB/유한 page budget·취소/중복·과거만 있는 hold/빈 hold·GET RHS0회·정리.
@@ -271,10 +271,13 @@
         [로컬 수용](../research/crop-cycle-api-route-implementation.md): 고유146개 분할·최종 route41개/7.76초,
         실제 합성 원량·Bearer/철회·한 문맥/후검사/RHS0·새 Python import3순서·기존 OpenAPI 보존.
         custody 내부 stub이며 실제 farm/DB/TLS·30초·부모는 다음 runtime 수용 전 보류다.
-      - [ ] **`api-crop-cycle-runtime`** — 선행: route 수용. api_runtime.py·기동 조립 시험·실제 TLS 시험의3 core파일.
+      - [x] **`api-crop-cycle-runtime`** — 선행: route 수용. api_runtime.py·기동 조립 시험·실제 TLS 시험의3 core파일.
         수용: flag/factory 짝·동일 principal/jobs/farm/exact store·실제 Bearer/TLS/SCRAM 원량/UTC/
         응답30초/2MiB·hold/철회/변조·재연결·FD/lock/DB/비밀·WSL 자원 정리.
         세 자식 수용 후 API parent만 체크하며 client/3D parent는 그대로 열어 둔다.
+        [최종 로컬 수용](../research/api-crop-cycle-runtime-implementation.md): 고유52개 분할과
+        별도 원천 보완56개. 원25시간/11,400걸음·27/5·11 TLS 최대15.839875초/64,785bytes·
+        재시작/RHS0/정리·원49개 보존으로1통과/1510.65초. 아래 미수용/실패 문구는 초기 이력이다.
         [진행 증거](../research/crop-cycle-api-runtime-progress-20261006.md): 순수47개·기존 옵션3개 통과.
         최초 실제 TLS1실패는 live grant 운영 오류503/시험 기대422 불일치이며 정리를 확인했다.
         계약을 대조해 시험 기대를 수정했고 [짧은 TLS](../research/artifacts/crop-cycle-api-runtime-short-reference-20261006.json)는
