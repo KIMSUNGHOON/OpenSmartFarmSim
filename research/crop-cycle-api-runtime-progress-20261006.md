@@ -37,6 +37,17 @@ PostgreSQL 중지·private cluster/admin password 삭제를 확인했다.
 발급한다. shared fixture·10분 유효기간·SSL 검증·HTTP30초/2MiB·worker128전이는 그대로다.
 제품 소스/계수·서버 저장 알고리즘을 변경하지 않았으며 수정된 실제 긴 시험의 완료 증거는 아직 없다.
 
+계산 뒤 TLS를 발급한 수정 판본의 같은 긴 시험은 **1실패/2789.54초(46분29초)**였다.
+[별도 HTTP 실패 증거](artifacts/crop-cycle-api-runtime-long-http-hold-20261006.json)는
+`c27d8c5`의 source3개와 실제 CLI·로그 해시, runner2790.037117초/child peak139.65625MiB를
+보존한다.11,400걸음과 DB put, 검증 TLS의 첫 summary/30초·2MiB/FD·27시점/5사건 수 확인을
+통과한 뒤 페이지 응답의 status line을 기다리다가 socket30초 읽기 시간 초과로 실패했다.
+실패 페이지 종류/offset·부분 응답 개수/시간/bytes는 기록되지 않아 특정 페이지로 단정하지 않는다.
+원 페이지 전체 대사와 재기동은 미완료이며 성공 전용 decoded JSON도 생성되지 않았다.
+역할/schema/test password/server0와 PostgreSQL 중지·private cluster/admin password 삭제는 확인했다.
+인증서 만료와 별개의 응답 예산 실패다. 기존30초/2MiB를 유지하고 custody/API 페이지 읽기 작업을
+진단하며, 다음 실제 시험에는 실패 직전 부분 호출 근거도 보존해야 한다.
+
 짧은 통합 시험 통과 뒤에도 실제 등록25시간 결과의 전체 HTTP30초/2MiB 예산은 별도로
 측정해야 한다. 그 수용 뒤 client → 같은 ID/UTC 성장 연구3D → 작기 부하 → 근거 있는
 생과·자원·경제 순서로 진행한다. 실제 품종/작기 입력·국내 독립 검증 자료0건,
