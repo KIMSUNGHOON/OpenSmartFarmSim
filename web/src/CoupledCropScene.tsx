@@ -1,4 +1,4 @@
-import { useEffect,useRef,useState } from 'react';
+import { useEffect,useLayoutEffect,useRef,useState } from 'react';
 import { Scene,PerspectiveCamera,WebGLRenderer,Color,Mesh,MeshStandardMaterial,BoxGeometry,
   HemisphereLight,DirectionalLight,Vector3,DoubleSide } from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -19,9 +19,10 @@ function createView(canvas:HTMLCanvasElement,scales:CohortScales,failed:()=>void
   let controls:OrbitControls|undefined,observer:ResizeObserver|undefined,pending:number|null=null,disposed=false;
   let canopy:ReturnType<typeof createCanopy>|undefined,diagrams:ReturnType<typeof createCohortDiagrams>|undefined;
   function dispose(){
-    if(disposed)return;disposed=true;observer?.disconnect();if(pending!==null)cancelAnimationFrame(pending);
-    controls?.removeEventListener('change',render);controls?.dispose();canopy?.dispose();diagrams?.dispose();
-    shapes.forEach(x=>x.dispose());materials.forEach(x=>x.dispose());renderer.dispose();clearEvidence(canvas);
+    if(!disposed){disposed=true;observer?.disconnect();if(pending!==null)cancelAnimationFrame(pending);
+      controls?.removeEventListener('change',render);controls?.dispose();canopy?.dispose();diagrams?.dispose();
+      shapes.forEach(x=>x.dispose());materials.forEach(x=>x.dispose());renderer.dispose();clearEvidence(canvas);}
+    if(!canvas.isConnected && !context!.isContextLost())renderer.forceContextLoss();
   }
   const scene=new Scene(),camera=new PerspectiveCamera(38,1,.02,40);
   function render(){
@@ -67,14 +68,16 @@ function createView(canvas:HTMLCanvasElement,scales:CohortScales,failed:()=>void
 export default function CoupledCropScene({sample,scales,rangeLabel}:{sample:CoupledCropSample;scales:CohortScales;rangeLabel?:string}){
   const canvas=useRef<HTMLCanvasElement>(null),view=useRef<View|null>(null),latest=useRef(sample);latest.current=sample;
   const [available,setAvailable]=useState<boolean|null>(null),[epoch,setEpoch]=useState(0);
+  // OrbitControls removes root listeners while its canvas is still attached.
+  useLayoutEffect(()=>()=>{view.current?.dispose();},[scales,epoch]);
   useEffect(()=>{
-    const target=canvas.current;if(!target)return;let active=true;
+    const target=canvas.current;if(!target)return;let active=true,owned:View|null=null;
     const fail=()=>{view.current?.dispose();view.current=null;clearEvidence(target);if(active)setAvailable(false);};
     const lost=(event:Event)=>{event.preventDefault();fail();},restored=()=>{if(active)setEpoch(n=>n+1);};
     target.addEventListener('webglcontextlost',lost);target.addEventListener('webglcontextrestored',restored);
-    try{view.current=createView(target,scales,fail);setAvailable(!!view.current);view.current?.update(latest.current);}catch{fail();}
+    try{owned=createView(target,scales,fail);view.current=owned;setAvailable(!!view.current);view.current?.update(latest.current);}catch{fail();}
     return()=>{active=false;target.removeEventListener('webglcontextlost',lost);target.removeEventListener('webglcontextrestored',restored);
-      view.current?.dispose();view.current=null;};
+      owned?.dispose();view.current=null;};
   },[scales,epoch]);
   useEffect(()=>{view.current?.update(sample);},[sample]);
   return <div className="coupled-scene" data-selected-at={sample.at}>
