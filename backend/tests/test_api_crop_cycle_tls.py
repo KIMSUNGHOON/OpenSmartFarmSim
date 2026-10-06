@@ -235,7 +235,7 @@ def test_registered_25h_runtime_full_http_original_pages_budget_and_restart(serv
     descriptor=jobs._content_directory(create=True);os.close(descriptor)
     def no_math(*a,**kw):pytest.fail('long HTTPS executed crop math')
     monkeypatch.setattr(engine,'advance_chunk',no_math);monkeypatch.setattr(engine.short._Evaluator,'rhs',no_math)
-    trust=ssl.create_default_context(cafile=str(cert));responses=[];joined=0;summary=None
+    trust=ssl.create_default_context(cafile=str(cert));responses=[];joined=0;summary=None;attempts=[]
     for restart in range(2):
         runtime=ApiRuntime(cfg,deps);https=runtime.service.server();thread=threading.Thread(target=https.run,daemon=True);thread.start()
         try:
@@ -246,13 +246,27 @@ def test_registered_25h_runtime_full_http_original_pages_budget_and_restart(serv
             def call(view='summary',**pages):
                 where='/v1/crop-cycle-research-results/'+record['result_id']+'?'+urlencode({**body['farm'],'view':view,**pages})
                 connection=http.client.HTTPSConnection('127.0.0.1',port,timeout=30,context=trust)
+                tick=time.monotonic()
+                attempt={'restart':restart,'view':view,**pages,'phase':'request','status':None,
+                    'bytes':None,'outcome':'failed','error_type':None}
                 try:
-                    tick=time.monotonic();connection.request('GET',where,headers={'Authorization':'Bearer '+token.decode()})
-                    response=connection.getresponse();raw_bytes=response.read();seconds=time.monotonic()-tick;value=json.loads(raw_bytes)
+                    connection.request('GET',where,headers={'Authorization':'Bearer '+token.decode()})
+                    attempt['phase']='headers';response=connection.getresponse();attempt['status']=response.status
+                    attempt['phase']='body';raw_bytes=response.read();seconds=time.monotonic()-tick
+                    attempt['bytes']=len(raw_bytes);attempt['phase']='decode';value=json.loads(raw_bytes)
                     assert response.status==200 and seconds<30 and len(raw_bytes)<=public.MAX_RESPONSE_BYTES
                     assert response.getheader('cache-control')=='no-store' and custody_fds([owned_root,directory])==0
+                    attempt.update(phase='verified',outcome='passed')
                     responses.append({'view':view,'seconds':seconds,'bytes':len(raw_bytes),'value':value});return value
-                finally:connection.close()
+                except BaseException as exc:
+                    attempt['error_type']=type(exc).__name__;raise
+                finally:
+                    connection.close();attempt['seconds']=time.monotonic()-tick;attempts.append(attempt)
+                    evidence=Path('/tmp/ossf-cycle-api-tls-long-http-progress-20261006.json')
+                    temporary=evidence.with_suffix('.tmp');temporary.write_text(json.dumps({
+                        'scope':'registered_synthetic_25h_HTTP_partial_diagnostic_only','attempts':attempts,
+                        'completed_verified_responses':len(responses),'whole25h_http_budget_accepted':False,
+                        'gates':'not_assessed'},indent=2)+'\n');temporary.chmod(0o600);temporary.replace(evidence)
             value=call()
             if restart:assert _canonical(value)==_canonical(summary)
             else:
