@@ -280,6 +280,10 @@
         계약을 대조해 시험 기대를 수정했고 [짧은 TLS](../research/artifacts/crop-cycle-api-runtime-short-reference-20261006.json)는
         1개/559.86초·21응답/최대27.871882초/18,718bytes와 재기동/철회/변조·정리를 통과했다.
         원3시점/사건0개이므로 nonempty event 및 긴25시간 HTTP 예산을 다음 실제 검증으로 남긴다.
+        [긴 시험 실패 증거](../research/artifacts/crop-cycle-api-runtime-long-tls-hold-20261006.json)는
+        11,400걸음/DB put 뒤 첫 SSL handshake의10분 시험 인증서 만료다.1실패/2616.58초와 정리를 보존했다.
+        기존 TLS fixture를 계산 이후 발급하는 수정 후보는 실제 긴 HTTP 재검증 완료 전이다.
+        HTTP 응답0개이므로 원 페이지/재기동/30초 예산과 runtime/API 부모는 계속 미수용이다.
     - [ ] **`web-crop-cycle-pages`** — 선행: cycle API 수용. 새 판본 decoder/순차 페이지와 선택 UTC를
       [웹 조회 후보 계약](../contracts/web-crop-cycle-pages-v1.md)의5 core파일로 연결한다.
       원량 helper 본문만 재사용하고 short 한도/끝점 조건을 가져오지 않는다. summary·페이지 getter/

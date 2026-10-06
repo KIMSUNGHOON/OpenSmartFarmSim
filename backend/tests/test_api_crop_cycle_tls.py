@@ -191,7 +191,7 @@ def test_real_runtime_tls_scram_original_pages_hold_restart_withdrawal_tamper_an
     },ensure_ascii=False,indent=2)+'\n')
 
 
-def test_registered_25h_runtime_full_http_original_pages_budget_and_restart(server_setup,tls_files,tmp_path,monkeypatch):
+def test_registered_25h_runtime_full_http_original_pages_budget_and_restart(server_setup,request,tmp_path,monkeypatch):
     import importlib.util
     base,raw,rights,_,_=server_setup
     root=Path(__file__).resolve().parents[2]
@@ -218,7 +218,8 @@ def test_registered_25h_runtime_full_http_original_pages_budget_and_restart(serv
     execution_seconds=time.monotonic()-tick
     assert progress['status']=='completed' and progress['steps']==11400
     store=storage.CycleCropResultStore(server,integrity_key=DB_KEY);record=store.put('tenant-1',raw)
-    jobs=store.jobs;replay=server.binding.farms.replay;research=replay.owned_research;cert,key,_=tls_files
+    jobs=store.jobs;replay=server.binding.farms.replay;research=replay.owned_research
+    cert,key,_=request.getfixturevalue('tls_files')
     now=datetime.now(timezone.utc);token=b'own-cycle-long-tls-'+b'd'*40
     grant=BearerGrant(token_digest(token),'tenant-1',frozenset(public.READ_SCOPES),now-timedelta(seconds=1),now+timedelta(hours=1))
     def sources(*,principal_provider):return MarketSourceStore(jobs._dsn,jobs.schema,principal_provider=principal_provider,runtime_identity=jobs.runtime_identity)

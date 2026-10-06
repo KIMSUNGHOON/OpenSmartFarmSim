@@ -25,6 +25,18 @@ child peak157.035156MiB, custody FD/역할/schema/test password/server0와 임�
 원 사건0개인 짧은 시험이므로 실제 nonempty event 페이지는 다음 긴 결과에서 검증한다.
 기존 실패 증거를 덮어쓰지 않았다.
 
+등록25시간의 첫 실제 긴 시험은 **1실패/2616.58초(43분36초)**였다.
+[새 고정 실패 증거](artifacts/crop-cycle-api-runtime-long-tls-hold-20261006.json)의
+`654929f`에서11,400걸음 completed와 DB put까지 진행했고, 첫 SSL handshake에서
+시험 인증서 만료로 실패했다. 공유 `tls_files`는10분 유효하며 계산 전에 발급됐다.
+HTTP header/body를 받기 전 실패라서 전체 응답0개, 원 페이지 대사·재기동·30초 예산은 미측정이다.
+독립 control flow 계산과 API 원값 대사 완료도 구분한다. worker/HTTP 예산 초과로 보고하지 않는다.
+runner2617.197402초/child peak126.394531MiB, 역할/schema/test password/server0와
+PostgreSQL 중지·private cluster/admin password 삭제를 확인했다.
+수정 후보는 같은 시험의 기존 TLS fixture를 계산·DB put 이후 `request.getfixturevalue`로
+발급한다. shared fixture·10분 유효기간·SSL 검증·HTTP30초/2MiB·worker128전이는 그대로다.
+제품 소스/계수·서버 저장 알고리즘을 변경하지 않았으며 수정된 실제 긴 시험의 완료 증거는 아직 없다.
+
 짧은 통합 시험 통과 뒤에도 실제 등록25시간 결과의 전체 HTTP30초/2MiB 예산은 별도로
 측정해야 한다. 그 수용 뒤 client → 같은 ID/UTC 성장 연구3D → 작기 부하 → 근거 있는
 생과·자원·경제 순서로 진행한다. 실제 품종/작기 입력·국내 독립 검증 자료0건,
