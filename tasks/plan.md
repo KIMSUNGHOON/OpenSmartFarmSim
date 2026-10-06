@@ -183,6 +183,10 @@ schema/QC/context/현재 권리/API는 제외했다. reader 코드 SHA와 root/m
 그 결과의 불변 파일/reader·현재 farm/서버/DB 저장·새 cycle API와 기록 응답의 화면 기능까지 로컬 수용했다.
 새 실제 PG/TLS/WebGL·생명주기/자원까지 로컬 수용했으며166일 실제 작기 부하는 미수용이다.
 자동 착과·pre-onset·실제 품종 초기/수확은 계속 hold다.
+route/runtime/client/3D·두 CI 수정을 포함한 `7a855a7`의
+[hosted5개](../research/crop-cycle-route-runtime-ci-success-20261006.md)도 Backend4,145개/별도UID4개·
+여섯 동일 목록/정리·집계와 웹522개/Chromium98개·타입/빌드·audit0으로 성공했다.
+후속 profile/full runner/입력 대사 실험·전체166일은 이 SHA 밖이며 해당 수용을 별도로 따른다.
 선행 `78b5d17`의 [CI 5개/백엔드 2,840개·별도 UID 4개](../research/artifacts/crop-fruit-transport-allocation-ci-20261005.json)도
 여섯 동일 목록/DB·비밀 파일 정리와 집계까지 통과했다.
 `784335d`의 [순간 구획/기관 결합 CI 5개](../research/artifacts/crop-fruit-cohort-plant-ci-20261005.json)도

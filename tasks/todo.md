@@ -194,7 +194,9 @@
     아래 자식 작업의 증거가 모두 있을 때만 부모를 체크한다.
     [최종 실제 경로 수용](../research/web-crop-cycle-native-implementation.md): 자식 artifact/farm/server/DB/API/client/
     window/view/browser 수용·새 실제25시간/11,400걸음·원27시점/5사건·21 HTTPS·RHS0·정리로 로컬 완료.
-    실제166일·품종/현장·hosted 수정 판본과 pixel fidelity는 별도다.
+    `7a855a7`의 [CI5개](../research/crop-cycle-route-runtime-ci-success-20261006.md)도 Backend4,145개/UID4개·
+    동일 목록/정리·집계와 웹522개/Chromium98개·타입/빌드/audit0으로 성공했다.
+    실제166일·품종/현장·후속 profile/full runner/실험과 pixel fidelity는 별도다.
     - [x] **`crop-cycle-result-artifact`** — 불변 파일/reader의 로컬 수용; 선행: stream execution 수용. 구현3파일:
       `backend/app/crop_cycle_artifact.py`, `backend/tests/test_crop_cycle_artifact.py`,
       `contracts/crop-cycle-artifact-v1.md`. 새 cycle 판본의 bounded 불변 sample/event/checkpoint 분할과

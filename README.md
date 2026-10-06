@@ -17,7 +17,9 @@
 [실제 runtime/API](research/api-crop-cycle-runtime-implementation.md)도 고유52개 분할 증거와
 원25시간의 전체 HTTPS11응답·27시점/5사건·재시작·RHS0회·정리로 로컬 수용했습니다.
 긴 응답 최대15.839875초/64,785bytes이며 기존30초/2MiB를 유지했습니다.
-이 route/runtime/연결 수정의 hosted CI는 별도입니다.
+이후 client/3D·두 CI 수정까지 포함한 `7a855a7`의
+[CI5개](research/crop-cycle-route-runtime-ci-success-20261006.md)도 Backend4,145개·UID4개·동일 목록/정리·집계,
+웹522개/Chromium98개·타입/빌드·audit0으로 성공했습니다. 후속 profile/full runner/실험은 이 SHA 밖입니다.
 [같은 원 시점 client](research/web-crop-cycle-pages-implementation.md)도 새120개·집중296개·
 웹 전체503개·타입/빌드와 실제23 공개 JSON 보존으로 로컬 수용했습니다.
 [현재 범위 helper](research/web-crop-cycle-window-implementation.md)도 새19개·웹 전체522개·
@@ -45,9 +47,9 @@
 `d61bcb3`의 [종료된 CI](research/crop-cycle-route-runtime-ci-hold-20261006.md)는
 Backend5분할 성공/1실패·집계 실패, 웹 감사 실패이며 C0/앱/작성 경로는 성공했습니다.
 [백엔드 분할2의 기대값 불일치](research/market-candidate-read-authority-assertion-20261006.md)도
-재현해 시험만 수정했고 실제 PG5개/정리를 통과했습니다. 수정 판본 hosted CI는 별도입니다.
+재현해 시험만 수정했고 실제 PG5개/정리를 통과했습니다. 후속 `7a855a7`의 hosted 결과는 위 기록에 있습니다.
 [단일 잠금 수정](research/source-map-js-audit-fix-20261006.md)은 웹503개/타입·빌드·audit0으로
-로컬 수용했고 해당 판본의 hosted CI는 별도입니다.
+로컬 수용했고 위 `7a855a7`의 hosted CI에서도 두 수정을 확인했습니다.
 현재 실제 품종/작기 입력과 국내 독립 검증 자료는0건이며 생산 예측·추천은 보류입니다.
 
 **현재 상태 (2026-10-05): 운영 기반 고정, 계산→저장→성장 연구 3D의 첫 소프트웨어 경로를 로컬 수용했습니다.**

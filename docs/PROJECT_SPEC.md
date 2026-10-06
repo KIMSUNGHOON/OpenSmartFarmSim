@@ -213,7 +213,9 @@ DB는 후속 `4bb6e53`의 [CI5개/Backend4,038개·UID4개](../research/artifact
 RHS0·현재 권리/계정 거부·자원/DB/서버 정리로 로컬 수용했다. 별도 CPU4배 형식20범위를
 대사했고 replay/result-pages 부모를 로컬 수용했다. 실제 저사양기기·pixel fidelity·품종은 별도다.
 [종료된 d61 CI](../research/crop-cycle-route-runtime-ci-hold-20261006.md)는 backend 한 분할/웹 감사 실패이며
-수정 판본 hosted 수용은 별도다. 다음 [작기 부하](../contracts/crop-cycle-burden-v1.md)는
+후속 `7a855a7`의 [CI5개](../research/crop-cycle-route-runtime-ci-success-20261006.md)는 Backend4,145개/UID4개·
+동일 목록/정리·집계와 웹522개/Chromium98개·타입/빌드/audit0으로 성공했다.
+profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [작기 부하](../contracts/crop-cycle-burden-v1.md)는
 비용 측정 → 실제166일 RHS → 전체 저장 조회/중단 복원으로 진행한다.
 [profile](../research/crop-cycle-burden-profile-implementation.md)은 고유15개 분할·실제 SCRAM/worker·
 166일 input plan1,816,704걸음/RHS0으로 로컬 수용했다.
