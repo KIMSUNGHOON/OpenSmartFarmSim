@@ -491,6 +491,9 @@
   수용: 착과/발달 구획·개수·적심/적엽 사건의 고정 입력/품종 적용 범위와 기관 수지.
   확인: 독립 참조·개수/질량 보존·사건 경계 pytest. 일반 토마토 계수로 Axiany 숙기 승인 없음.
 - [ ] **`crop-harvest-conversion`** — 선행: 과실 구획과 품종별 변환/수확 근거.
+  [환산 출처·차원 검토](../research/crop-harvest-conversion-baseline-20261006.md)는 완료했다.
+  실제 DMC/수확 사건·면적/밀도·등급·당시 판본은 보류다. cycle3D/부하 선행과
+  독립 국내 자료 확보를 유지하며 이 조사를 구현 수용으로 계산하지 않는다.
   예정 파일(3): `backend/app/crop_harvest.py`, `backend/tests/test_crop_harvest.py`,
   `contracts/crop-harvest-v1.md`.
   수용: 건물/생과중·밀도·수확 사건·등급/불량의 출처/단위, 제거·생과 kg/개수·누적 수지;
