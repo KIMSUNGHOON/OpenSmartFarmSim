@@ -1,9 +1,14 @@
 from copy import deepcopy
 from datetime import datetime
 from hashlib import sha256
+from functools import wraps
 import importlib.util
 import json
+import gc
 import os
+import subprocess
+import sys
+from types import SimpleNamespace
 from pathlib import Path
 
 import pytest
@@ -13,6 +18,22 @@ from app import crop_plant_startup_integration as original
 from test_crop_cycle_artifact import PROFILES, NOTICE, program
 
 ROOT=Path(__file__).resolve().parents[2]
+
+_ISOLATED_CHILD = 'OSSF_CROP_FULL_RHS_TEST_CHILD'
+
+
+def _in_fresh_process(test):
+    @wraps(test)
+    def run(*args, **kwargs):
+        if os.environ.get(_ISOLATED_CHILD) == '1':
+            return test(*args, **kwargs)
+        request = kwargs['request']
+        env = dict(os.environ, **{_ISOLATED_CHILD: '1'})
+        child = subprocess.run([sys.executable, '-m', 'pytest', '-q', request.node.nodeid],
+            cwd=Path.cwd(), env=env, capture_output=True, timeout=60)
+        assert child.returncode == 0, (child.stdout + child.stderr).decode(errors='replace')
+    return run
+
 
 
 @pytest.fixture(scope='module')
@@ -48,7 +69,8 @@ def expanded(raw):
 
 
 @pytest.mark.parametrize('name',['empty-entry','full-removal-reentry','positive-tail'])
-def test_retained_writer_and_restart_preserve_all_original_rows_state_and_no_rhs_read(driver,tmp_path,name,monkeypatch):
+@_in_fresh_process
+def test_retained_writer_and_restart_preserve_all_original_rows_state_and_no_rhs_read(request,driver,tmp_path,name,monkeypatch):
     raw=program(name);before=deepcopy(raw);expected=original.integrate_plant_startup(**expanded(raw),**PROFILES)
     path=tmp_path/'run';prepared=prepare(driver,path,raw);fd=len(os.listdir('/proc/self/fd'))
     paused=driver.execute(path,expected_spec_sha256=prepared['spec_sha256'],profiles=PROFILES,
@@ -69,7 +91,8 @@ def test_retained_writer_and_restart_preserve_all_original_rows_state_and_no_rhs
     assert retry['artifact_sha256']==final['artifact_sha256'] and retry['actual_rhs_calls']==0
 
 
-def test_global_deadline_does_not_reset_on_resume_or_create_terminal_future(driver,tmp_path,monkeypatch):
+@_in_fresh_process
+def test_global_deadline_does_not_reset_on_resume_or_create_terminal_future(request,driver,tmp_path,monkeypatch):
     path=tmp_path/'run';prepared=prepare(driver,path)
     paused=driver.execute(path,expected_spec_sha256=prepared['spec_sha256'],profiles=PROFILES,notice_raw=NOTICE,max_chunks=1)
     spec=json.loads((path/'experiment.json').read_bytes())
@@ -82,7 +105,8 @@ def test_global_deadline_does_not_reset_on_resume_or_create_terminal_future(driv
 
 
 @pytest.mark.parametrize('seconds',[0,True,21601,1.5])
-def test_invalid_global_budget_rejects_before_writing_or_rhs(driver,tmp_path,seconds):
+@_in_fresh_process
+def test_invalid_global_budget_rejects_before_writing_or_rhs(request,driver,tmp_path,seconds):
     path=tmp_path/'rejected'
     with pytest.raises(ValueError):
         driver.prepare_experiment(path,program=program(),intervals=2,interval_seconds=60,
@@ -90,7 +114,8 @@ def test_invalid_global_budget_rejects_before_writing_or_rhs(driver,tmp_path,sec
     assert not path.exists()
 
 
-def test_previous_peak_is_observed_but_does_not_pause_a_small_active_process(driver,tmp_path,monkeypatch):
+@_in_fresh_process
+def test_previous_peak_is_observed_but_does_not_pause_a_small_active_process(request,driver,tmp_path,monkeypatch):
     path=tmp_path/'run';prepared=prepare(driver,path)
     monkeypatch.setattr(driver,'peak_bytes',lambda:1024*1024*1024)
     result=driver.execute(path,expected_spec_sha256=prepared['spec_sha256'],profiles=PROFILES,notice_raw=NOTICE)
@@ -98,7 +123,8 @@ def test_previous_peak_is_observed_but_does_not_pause_a_small_active_process(dri
 
 
 @pytest.mark.parametrize('kind',['wall-budget','code','input'])
-def test_changed_manifest_or_input_is_denied_before_rhs_and_leaves_original_head(driver,tmp_path,monkeypatch,kind):
+@_in_fresh_process
+def test_changed_manifest_or_input_is_denied_before_rhs_and_leaves_original_head(request,driver,tmp_path,monkeypatch,kind):
     path=tmp_path/'run';prepared=prepare(driver,path);head=(path/'artifact'/'HEAD').read_bytes()
     expected=prepared['spec_sha256']
     if kind=='input':
@@ -117,7 +143,8 @@ def test_changed_manifest_or_input_is_denied_before_rhs_and_leaves_original_head
     assert (path/'artifact'/'HEAD').read_bytes()==head
 
 
-def test_numeric_hold_preserves_original_reason_confirmed_past_and_rows(driver,tmp_path):
+@_in_fresh_process
+def test_numeric_hold_preserves_original_reason_confirmed_past_and_rows(request,driver,tmp_path):
     raw=program('positive-tail');raw['segments'][0]['removals']['values']['leaf']['value']=1e9
     expected=original.integrate_plant_startup(**expanded(raw),**PROFILES)
     path=tmp_path/'run';prepared=prepare(driver,path,raw)
@@ -128,7 +155,8 @@ def test_numeric_hold_preserves_original_reason_confirmed_past_and_rows(driver,t
     assert result['full166day_math_completed'] is False
 
 
-def test_exception_after_actual_head_commit_is_restarted_without_new_initial_state(driver,tmp_path):
+@_in_fresh_process
+def test_exception_after_actual_head_commit_is_restarted_without_new_initial_state(request,driver,tmp_path):
     path=tmp_path/'run';prepared=prepare(driver,path);fd=len(os.listdir('/proc/self/fd'))
     def stop(value):raise RuntimeError('own operator interrupted after committed HEAD')
     with pytest.raises(RuntimeError,match='own operator interrupted'):
@@ -141,7 +169,8 @@ def test_exception_after_actual_head_commit_is_restarted_without_new_initial_sta
     assert final['samples_sha256']==digest(expected['samples'])
 
 
-def test_active_resident_budget_keeps_initial_checkpoint_without_rhs_or_future(driver,tmp_path,monkeypatch):
+@_in_fresh_process
+def test_active_resident_budget_keeps_initial_checkpoint_without_rhs_or_future(request,driver,tmp_path,monkeypatch):
     path=tmp_path/'run';prepared=prepare(driver,path);head=(path/'artifact'/'HEAD').read_bytes()
     monkeypatch.setattr(driver,'resident_bytes',lambda:257*1024*1024)
     monkeypatch.setattr(engine.short._Evaluator,'rhs',lambda *a,**k:pytest.fail('resident budget calculated'))
@@ -151,7 +180,8 @@ def test_active_resident_budget_keeps_initial_checkpoint_without_rhs_or_future(d
     assert result['committed_checkpoint']['phase']=='initial-ready' and (path/'artifact'/'HEAD').read_bytes()==head
 
 
-def test_physically_changed_commit_is_denied_before_restarted_rhs(driver,tmp_path,monkeypatch):
+@_in_fresh_process
+def test_physically_changed_commit_is_denied_before_restarted_rhs(request,driver,tmp_path,monkeypatch):
     path=tmp_path/'run';prepared=prepare(driver,path)
     driver.execute(path,expected_spec_sha256=prepared['spec_sha256'],profiles=PROFILES,notice_raw=NOTICE,max_chunks=1)
     head=(path/'artifact'/'HEAD').read_bytes();value=json.loads(head)
@@ -162,7 +192,8 @@ def test_physically_changed_commit_is_denied_before_restarted_rhs(driver,tmp_pat
     assert (path/'artifact'/'HEAD').read_bytes()==head
 
 
-def test_original_resource_rejection_after_commit_recovers_actual_head_and_never_becomes_numeric_hold(driver,tmp_path,monkeypatch):
+@_in_fresh_process
+def test_original_resource_rejection_after_commit_recovers_actual_head_and_never_becomes_numeric_hold(request,driver,tmp_path,monkeypatch):
     from app import crop_cycle_artifact as artifact
     path=tmp_path/'run';prepared=prepare(driver,path);advance=artifact.ArtifactWriter.advance
     def interrupted(writer,budget):
@@ -176,3 +207,20 @@ def test_original_resource_rejection_after_commit_recovers_actual_head_and_never
     assert result['artifact_sha256'] is None
     final=driver.execute(path,expected_spec_sha256=prepared['spec_sha256'],profiles=PROFILES,notice_raw=NOTICE)
     assert final['restored_checkpoint']==result['committed_checkpoint'] and final['status']=='completed'
+
+
+def test_suite_parent_above_native_budget_still_runs_real_bounded_child(driver,tmp_path,monkeypatch):
+    monkeypatch.delenv(_ISOLATED_CHILD, raising=False)
+    size = max(0, 270*1024*1024-driver.resident_bytes())
+    pressure = bytearray(size)
+    try:
+        for index in range(0, size, 4096):
+            pressure[index] = 1
+        assert driver.resident_bytes() > driver.MAX_PROCESS_RESIDENT_BYTES
+        node = str(Path(__file__).relative_to(Path.cwd()))+'::test_retained_writer_and_restart_preserve_all_original_rows_state_and_no_rhs_read[empty-entry]'
+        request = SimpleNamespace(node=SimpleNamespace(nodeid=node))
+        test_retained_writer_and_restart_preserve_all_original_rows_state_and_no_rhs_read(
+            request=request,driver=driver,tmp_path=tmp_path,name='empty-entry',monkeypatch=monkeypatch)
+    finally:
+        pressure.clear()
+        gc.collect()
