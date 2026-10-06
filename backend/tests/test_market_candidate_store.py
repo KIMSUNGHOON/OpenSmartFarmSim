@@ -13,7 +13,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from app.market_candidate_store import (MarketCandidateStore,
+from app.market_candidate_store import (MarketCandidateDenied, MarketCandidateStore,
                                         install_market_candidate_schema)
 from app.economic_contracts import EconomicScenario
 from app.economics import canonical_scenario_sha256
@@ -149,7 +149,7 @@ def test_tenant_scope_and_concurrent_retry_do_not_fork_candidate(saved_market):
                                           candidates[0].revision) is None
     assert factory().get_joint_shock("joint-1", "r1") is None
     assert factory().get_market_hold_report("hold-1") is None
-    with pytest.raises(ValueError, match="authenticated"):
+    with pytest.raises(MarketCandidateDenied, match="^market candidate read authority denied$"):
         MarketScenarioService(factory()).calculate_pinned(
             candidates[0].scenario_id, candidates[0].revision, "tenant-1")
     principal["tenant_id"] = "tenant-1"
