@@ -104,6 +104,11 @@ API 대조의 원 manifest 누락도 실제 정상/hold2실패 후 한 줄 수�
 후검사/RHS0·import3순서·기존 OpenAPI 보존으로 로컬 수용했다. 실제 custody/권리·TLS는 다음 runtime이다.
 전체 [API 후보 계약](../contracts/api-crop-cycle-pages-v1.md)의 DTO/권한2–3시간+
 조립/실제 TLS/예산·정리2–3시간, **4–6집중시간/10월6–8일 KST 잠정**으로 진행한다.
+[실제 긴 HTTP 실패와 비용 진단](../research/crop-cycle-api-runtime-progress-20261006.md)으로
+시장 원천 검증의 연결 반복이 확인되어 [좁은 읽기 범위](../contracts/crop-cycle-market-read-scope-v1.md)를
+runtime의 추가 선행 수정으로 둔다. 기존 검사/Decimal 결과·변경 중 거부/정리 집중 검증 뒤
+원25시간 HTTPS를 다시 측정한다. 실패를 반영한 추가 작업은 설계/구현·집중 검증2–3시간과
+긴 실제 재시험1회이며, 아래 client/3D 날짜는 이 수용 시점에 다시 갱신한다.
 [client 후보](../contracts/web-crop-cycle-pages-v1.md)는 같은 summary/참조·한 페이지 단위 iterator와
 원량 helper를 연결하며 기존 short 한도/완료 끝점 조건은 가져오지 않는다. API 긴 수용 뒤 착수한다.
 [3D 후보](../contracts/web-crop-cycle-replay-v1.md)는 전체 원 배열을 쌓지 않고 현재64/8 범위와
