@@ -169,7 +169,12 @@ schema/QC/context/현재 권리/API는 제외했다. reader 코드 SHA와 root/m
 [원 검증 증명 대사 실험](../research/crop-cycle-input-witness-experiment-20261006.md)은 집중16개와
 원 발행31.61초/현재749블록 대사0.172·0.180초·동일 원 context/grid/RHS0/FD4→4를 확인했다.
 연구용 JSON/HMAC의 비용 근거이며 제품 발행/키·재시작·현재 권리/typed reader·판본/과거 재현과
-실제 전체 공개 조회 수용은 별도다. 전체166일 원 계산 종료 후 필요한 집중 제품 수정으로 진행한다.
+실제 전체 공개 조회 수용은 별도다.
+[서버 영수증 primitive](../research/crop-cycle-input-evidence-implementation-20261006.md)는 집중33개·
+원 발행31.34초/별도 Python 재조회0.176초·현재749 blob/원 context/index·RHS0/FD4→4로 로컬 수용했다.
+원53 source를 바꾸지 않아 전체 RHS와 병행했다. 공식 typed reader/context의 판본/과거 재생과
+현재 farm/Scope·등록/권리·30초/2MiB/전체 API/3D는 별도다. 원 v1 private 객체 구성/새 code의 재표시로 우회하지 않는다.
+전체166일 원 계산 종료 후 필요한 집중 연결 수정으로 진행한다.
 전체 실행/복원 날짜는 해당 수정과 실제 종료 상태 뒤 갱신한다. 짧은/복제 fixture와 조기 hold로 전체 작기를 수용하지 않는다.
 최초10–15집중시간/10월6–10일 추정은 위 단계 실적으로 대체한다. 실제166일 부하·자료/품종·
 생과/자원/경제는 별도이며 CI와 실제 경로에서 발견되는 수정으로 일정을 갱신한다.
@@ -288,7 +293,9 @@ flowchart TD
   PAGES --> BURDEN["crop-cycle-burden: 긴 실제 RHS·부하/복원"]
   PAGES --> BPROF["crop-cycle-burden-profile: 비용/한도·원 격자"]
   BPROF --> BFULL["crop-cycle-burden-full-rhs: 실제166일·모든 원 출력"]
+  BPROF --> BINPUT["crop-cycle-input-evidence: 원 검사/현재 bytes·별도 키 재시작"]
   BFULL --> BRESTORE["crop-cycle-burden-replay-restore: 같은 상태 복원·실제 조회"]
+  BINPUT --> BRESTORE
   BRESTORE --> BURDEN
   BURDEN --> CAP
   SI --> SF["crop-startup-artifact: 새 bytes/재적분 없는 reader"]

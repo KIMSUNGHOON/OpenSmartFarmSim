@@ -391,6 +391,17 @@
       현재749블록 대사0.172/0.180초·같은 원 context/grid·RHS0/FD4→4를 확인했다.
       연구용 JSON/HMAC뿐이며 제품 worker 발행/키·재시작·현재 권리/typed reader·판본/과거 재현과
       실제 전체 API/3D 증거는 남는다. 실험으로 수용 checkbox를 변경하지 않는다.
+      - [x] **`crop-cycle-input-evidence`** — 선행 profile/원 검증 대사 실험; 전체 RHS와 병행할 독립3 core파일:
+        `backend/app/crop_cycle_input_evidence.py`, `backend/tests/test_crop_cycle_input_evidence.py`,
+        [영수증 계약](../contracts/crop-cycle-input-evidence-v1.md). 수용 범위는 서버 제공 키/ID의 입력 수학 검사
+        primitive이며 실제 농장/운영 발행자나 typed reader/API 수용은 아니다.
+        [로컬 증거](../research/crop-cycle-input-evidence-implementation-20261006.md): 최종33개/1.89초·실제 원 발행31.34초/
+        보존 키의 별도 Python 재조회0.176초·현재749 blob/113,920,841bytes·원 context/index·RHS0/FD4→4.
+        소유권/readonly byte 검사 → 원 전체 QC/context → 재대사 후만 발행하며 서명/판본/키·변조/파일 계약을 거부한다.
+        원53 source를 보존했고 첫 측정기 해시 형식 오류 종료1과 최종 종료0을 구분했다.
+        다음 공식 typed reader/context의 판본·과거 재생을 먼저 설계하고 현재 farm/Scope/등록/권리와
+        실제 전체30초/2MiB/API/3D·정리를 검증한다. 원 v1 private token/새 code 재표시로 우회하지 않는다.
+        이 primitive 수용으로 replay-restore/부하 부모·G0–G4/예측·추천을 체크하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

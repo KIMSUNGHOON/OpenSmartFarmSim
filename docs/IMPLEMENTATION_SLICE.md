@@ -274,6 +274,10 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 다음은 실제166일 RHS/안전한 재개이며6시간은 고정된 실험 예산이고 완료 날짜가 아니다.
 전체 공개 조회에는 관측된 원 입력 재검증 비용을 검증/권리 보존으로 개선해야 한다.
 전체 날짜는 해당 수정과 실제 종료·조회 예산 수용 뒤 추정한다.
+[서버 입력 검사 영수증](../research/crop-cycle-input-evidence-implementation-20261006.md)은33개 집중 시험·
+원 발행31.34초/별도 Python 재조회0.176초·현재 원 bytes/context·RHS0/FD 정리로 로컬 수용했다.
+원53 source를 바꾸지 않아 전체 RHS와 병행했다. 공식 typed reader/context의 판본/과거 재생과
+현재 farm/Scope/등록/권리·실제 전체 API/3D는 별도다. 영수증만으로 replay-restore/관문을 체크하지 않는다.
 `e70a7f2`의 기존 assessment HTTPS 30초 시간 초과와
 [로컬 재현/요약 크기 수정](../research/backend-ci-summary-and-timeout-20261005.md)을 별도 기록했다.
 로컬 통과로 실패한 hosted 판본을 수용하지 않는다.

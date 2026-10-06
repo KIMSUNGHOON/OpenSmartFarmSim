@@ -44,6 +44,9 @@
 [실제166일 시작 관측](research/artifacts/crop-cycle-full-rhs-started-reference-20261006.json)은 첫checkpoint 뒤
 같은 spec으로 재개한 실제16,086걸음 진행을 기록했습니다. 이 관측은 전체 완료 증거가 아닙니다.
 원 입력 반복 검증 비용의 개선과 실제 전체 실행/조회 수용 뒤 전체 날짜를 갱신합니다.
+[서버 입력 검사 영수증](research/crop-cycle-input-evidence-implementation-20261006.md)은 집중33개·
+원 발행31.34초/별도 Python 재조회0.176초·현재 원 bytes/context·RHS0/FD 정리로 로컬 수용했습니다.
+typed reader의 판본/과거 재생·현재 농장 권리·실제 전체 API/3D 연결은 남아 있습니다.
 `d61bcb3`의 [종료된 CI](research/crop-cycle-route-runtime-ci-hold-20261006.md)는
 Backend5분할 성공/1실패·집계 실패, 웹 감사 실패이며 C0/앱/작성 경로는 성공했습니다.
 [백엔드 분할2의 기대값 불일치](research/market-candidate-read-authority-assertion-20261006.md)도
