@@ -216,7 +216,10 @@ RHS0·현재 권리/계정 거부·자원/DB/서버 정리로 로컬 수용했�
 수정 판본 hosted 수용은 별도다. 다음 [작기 부하](../contracts/crop-cycle-burden-v1.md)는
 비용 측정 → 실제166일 RHS → 전체 저장 조회/중단 복원으로 진행한다.
 [profile](../research/crop-cycle-burden-profile-implementation.md)은 고유15개 분할·실제 SCRAM/worker·
-166일 input plan1,816,704걸음/RHS0으로 로컬 수용했다. 다음은 실제 RHS/안전한 재개와
+166일 input plan1,816,704걸음/RHS0으로 로컬 수용했다.
+이어 [runner/작은 재개 전략](../research/crop-cycle-full-rhs-small-strategy-implementation.md)은 집중17개·
+실제 자작5시간61출력/2사건·별도 Python 재개·terminal RHS0/정리로 로컬 수용했다.
+다음은 실제166일 RHS/안전한 재개와
 원 입력 재검증 비용 개선 뒤 완전 저장 조회/3D다. 전체 날짜는 실제 종료·조회 예산 수용 뒤 산정한다.
 실제 전체 작기 처리는 미수용이며6시간 수치 실험 예산 후보를 날짜로 표시하지 않는다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야

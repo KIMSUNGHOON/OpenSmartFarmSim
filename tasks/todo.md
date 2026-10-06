@@ -366,8 +366,11 @@
       고정된 전체166일을 실제 RHS·연속 상태로 계산해 모든 선택 출력/사건·hash·수지·한도/자원을 기록한다.
       조기 hold/예산 종료·복제 fixture는 전체 작기 성공으로 표시하지 않는다. 자료 확보는 병행한다.
       다음 core는 `research/crop-cycle-full-rhs-reference.py`, `backend/tests/test_crop_cycle_full_rhs_reference.py`,
-      `contracts/crop-cycle-full-rhs-v1.md`3파일 예정이다. 기존 writer와 고정 입력을 사용하며 실행 전략/원값·
-      안전한 중단 재개를 먼저 검증한다. global wall6시간 후보는 예산이며 날짜가 아니다.
+      [`contracts/crop-cycle-full-rhs-v1.md`](../contracts/crop-cycle-full-rhs-v1.md)3파일을 구현했다.
+      [작은 전략 로컬 수용](../research/crop-cycle-full-rhs-small-strategy-implementation.md): 집중17개/13.35초·
+      실제 자작5시간2,280걸음/61출력·2사건·별도 Python의 정확한 checkpoint 재개·terminal RHS0·정리.
+      기존49/profile2파일을 보존했다. global wall6시간을 고정했으며 예산/날짜를 구분한다.
+      실제166일 전체 종료/수지 검증 전에는 이 checkbox를 체크하지 않는다.
     - [ ] **`crop-cycle-burden-replay-restore`** — 선행 전체 RHS/저장 수용; 중단/복원·실제 page/화면3–4파일.
       같은 원 context/seed/누적/clock/sequence의 중단/복원을 연속 결과와 대사하고 전체 저장의
       시작/중간/끝·byte-short/관리 전후·같은 ID/UTC/30초2MiB·현재 권리/변조·DB/서버/비밀번호/FD 정리를 확인한다.

@@ -267,7 +267,9 @@ client 새120개·집중296개·웹 전체503개/타입·빌드·원23 공개 JS
 비용 측정 → 실제166일 RHS → 전체 저장 조회/중단 복원으로 진행한다.
 [profile](../research/crop-cycle-burden-profile-implementation.md)은 고유15개 분할·실제 SCRAM/worker·
 자작5시간/원61출력·166일 input plan1,816,704걸음/RHS0·정리로 로컬 수용했다.
-다음은 실제166일 RHS/안전한 재개이며6시간은 수치 실험 예산 후보다.
+이어 [runner/작은 재개 전략](../research/crop-cycle-full-rhs-small-strategy-implementation.md)은 집중17개·
+실제 자작5시간61출력/2사건·별도 Python 재개·terminal RHS0/정리로 로컬 수용했다.
+다음은 실제166일 RHS/안전한 재개이며6시간은 고정된 실험 예산이고 완료 날짜가 아니다.
 전체 공개 조회에는 관측된 원 입력 재검증 비용을 검증/권리 보존으로 개선해야 한다.
 전체 날짜는 해당 수정과 실제 종료·조회 예산 수용 뒤 추정한다.
 `e70a7f2`의 기존 assessment HTTPS 30초 시간 초과와

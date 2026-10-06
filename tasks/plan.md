@@ -153,8 +153,10 @@ window/화면과 browser4 core파일의 fixture/spec·smoke/native 및 전체 �
 단순 비례한4.79/52.84시간은 실제 전체 작기 측정이나 완료 날짜가 아니다.
 [profile 로컬 수용](../research/crop-cycle-burden-profile-implementation.md)은 순수/shape14개·실제 SCRAM/worker1개,
 5시간2,280걸음/원61출력과166일 input plan1,816,704걸음/RHS0·정리로 확인했다.
-다음 full-rhs는 기존 writer/원 입력의 실행 전략·중단 재개를3 core파일의 계약/집중 검증으로 고정한다.
-global wall6시간은 자작 수치 실험의 예산 후보다. 실제166일 성공·완료 날짜로 표시하지 않는다.
+full-rhs의 [실행 전략](../research/crop-cycle-full-rhs-small-strategy-implementation.md)을3 core파일의
+계약/집중17개·실제 자작5시간61출력/별도 Python 재개·정리로 로컬 수용했다.
+다음은 고정된 원 입력/격자로 실제166일을 실행한다. global wall6시간을 실험 예산으로 고정했으며
+실제166일 성공·완료 날짜로 표시하지 않는다. 전체 종료/수지 검증 전에는 full-rhs가 미완료다.
 전체 입력 열기/context31.073760초와 반복 확인 비용은 조회 단계의 추가 수정 근거다.
 원 byte/hash/schema/QC/격자·현재 권리·변조 거부를 보존하는 비용 개선을 전체 공개 수용 전에 확인한다.
 전체 실행/복원 날짜는 해당 수정과 실제 종료 상태 뒤 갱신한다. 짧은/복제 fixture와 조기 hold로 전체 작기를 수용하지 않는다.
