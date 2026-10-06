@@ -303,13 +303,16 @@
           scoped/unscoped 숫자/ledger 동일성과 원천 검증 수 보존. 이후 원25시간 TLS 재검증.
           [로컬 수용](../research/crop-cycle-market-read-scope-implementation.md): 새14개/22.67초·
           기존42개/455.35초, 고유56개 분할. 같은21 TLS 최대12.764535초/18,718bytes와
-          종료·철회·변조·grant drift·정리를 확인했다. runtime/API 부모는 계속 미수용이다.
-    - [ ] **`web-crop-cycle-pages`** — 선행: cycle API 수용. 새 판본 decoder/순차 페이지와 선택 UTC를
+          종료·철회·변조·grant drift·정리를 확인했다. 이후 원25시간 통과로 runtime/API 부모를 수용했다.
+    - [x] **`web-crop-cycle-pages`** — 선행: cycle API 수용. 새 판본 decoder/순차 페이지와 선택 UTC를
       [웹 조회 후보 계약](../contracts/web-crop-cycle-pages-v1.md)의5 core파일로 연결한다.
       원량 helper 본문만 재사용하고 short 한도/끝점 조건을 가져오지 않는다. summary·페이지 getter/
       순차 iterator로131,072 record를 한 페이지 단위 처리하며 출력0/선택 출력·byte next를 보존한다.
       수용: 기록된 실제 TLS 응답의 원량/순서·혼합 ID/판본/hash·오래된 요청/중복/
       부분/권리 철회·hold 거부/보존, focused unit/typecheck/build. 기존 short decoder는 보존한다.
+      [로컬 수용](../research/web-crop-cycle-pages-implementation.md): 새120개·집중296개/6.22초·
+      웹 전체503개/6.47초·타입/빌드·실제23 공개 응답 동일·원 helper 본문/49 backend hash 보존.
+      화면/새 브라우저·3D와 hosted CI는 별도다.
     - [ ] **`web-crop-cycle-replay`** — 선행: cycle client 수용. 같은 저장 ID/UTC의 상태·누적량·수지와
       성장 연구 3D를 [현재 범위 표시 후보 계약](../contracts/web-crop-cycle-replay-v1.md)의 작은 자식으로 연결한다.
       전체 원 배열을 쌓지 않고 sample64/event8 이하와 현재 범위의 고정 비교 척도를 표시한다.

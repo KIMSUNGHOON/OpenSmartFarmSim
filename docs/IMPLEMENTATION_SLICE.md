@@ -252,7 +252,9 @@ v3 로그 비교 도형은 원값/영을 보존하며 기존 v2 선형 대체를
 [실제 runtime/API](../research/api-crop-cycle-runtime-implementation.md)는 고유52개 분할 증거와
 원25시간의 전체 HTTPS11응답·27시점/5사건·재시작·RHS0회·정리로 로컬 수용했다.
 긴 응답 최대15.839875초/64,785bytes이며 기존30초/2MiB를 유지했다.
-runtime/API 부모만 완료이며 다음은 client → 같은 UTC3D다.
+runtime/API 부모와 [client](../research/web-crop-cycle-pages-implementation.md)는 로컬 수용했다.
+client 새120개·집중296개·웹 전체503개/타입·빌드·원23 공개 JSON/helper 보존을 확인했다.
+다음은 현재 범위 helper → 같은 UTC3D/실제 브라우저이며3D 부모는 계속 열어 둔다.
 새 API 전체·웹 페이지/도형 판본은 이 CI의 수용 범위 밖이다.
 `e70a7f2`의 기존 assessment HTTPS 30초 시간 초과와
 [로컬 재현/요약 크기 수정](../research/backend-ci-summary-and-timeout-20261005.md)을 별도 기록했다.

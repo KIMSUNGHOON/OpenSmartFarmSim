@@ -1,6 +1,9 @@
 # 저장 cycle 결과의 원 시점 조회 API — v1 후보
 
-상태: **projection/route 로컬 수용·실제 runtime/TLS 수용 전**, 2026-10-06 KST.
+상태: **projection/route/runtime 로컬 소프트웨어 수용**, 2026-10-06 KST.
+[최종 runtime/API 수용](../research/api-crop-cycle-runtime-implementation.md)은 원25시간 전체
+HTTPS11응답·최대15.839875초/64,785bytes·원27시점/5사건·재시작/RHS0/정리를 확인했다.
+아래 최초 예상은 이 실제 수용으로 대체하며 hosted CI·화면/실제3D 수용은 별도다.
 작업 `api-crop-cycle-pages`. [DB 게시 계약](crop-cycle-db-custody-v1.md),
 [불변 파일](crop-cycle-artifact-v1.md), [기존 startup 공개 형식](api-crop-startup-replay-v1.md)을 따른다.
 현재 Codex CLI `gpt-6.1-sol / xhigh`에서 판단했다. 최초13:06:32.226Z 기록에 이어
