@@ -189,3 +189,89 @@ def test_real_runtime_tls_scram_original_pages_hold_restart_withdrawal_tamper_an
         'https_servers_joined':joined,'custody_fds_after':0,'research_rows':2,'actual_crop_runs':0,
         'max_response_seconds':max(r['seconds'] for r in observed),'max_response_bytes':max(r['bytes'] for r in observed)
     },ensure_ascii=False,indent=2)+'\n')
+
+
+def test_registered_25h_runtime_full_http_original_pages_budget_and_restart(server_setup,tls_files,tmp_path,monkeypatch):
+    import importlib.util
+    base,raw,rights,_,_=server_setup
+    root=Path(__file__).resolve().parents[2]
+    spec=importlib.util.spec_from_file_location('cycle_http_independent_control',root/'research/crop-cycle-stream-execution-reference.py')
+    reference=importlib.util.module_from_spec(spec);spec.loader.exec_module(reference)
+    candidate=reference.long_program()
+    def stamp(value):return (datetime.fromisoformat(value.replace('Z','+00:00'))+timedelta(days=273)).isoformat().replace('+00:00','Z')
+    for segment in candidate['segments']:
+        for key in ('start','end'):segment[key]=stamp(segment[key])
+    for event in candidate['events']:event['at']=stamp(event['at'])
+    candidate['output_times']=[stamp(t) for t in candidate['output_times']]
+    tick=time.monotonic();expected,_=reference.independent_control_flow(candidate,PROFILES);independent_seconds=time.monotonic()-tick
+    anchors=candidate.pop('output_times');directory=tmp_path/'long-input'
+    packet=inputs.write_input_packet(directory,**candidate,anchors=anchors,outputs=anchors,**PROFILES,program_id='own-http-long-cycle')
+    body=json.loads(raw);body['input'].update(root_sha256=packet['root_sha256'],program_id='own-http-long-cycle')
+    body['rights']['input_root_sha256']=packet['root_sha256'];raw=_canonical(body)
+    owned_root=tmp_path/'long-custody';owned_root.mkdir(mode=0o700)
+    resolver=OwnInputResolver(directory,packet['root_sha256'])
+    server=custody.CycleServerCustody(base.binding,owned_root,input_resolver=resolver,integrity_key=KEY)
+    tick=time.monotonic();advances=0
+    while True:
+        progress=json.loads(server.advance('tenant-1',raw,budget=BUDGET));advances+=1
+        if progress['status']!='yielded':break
+    execution_seconds=time.monotonic()-tick
+    assert progress['status']=='completed' and progress['steps']==11400
+    store=storage.CycleCropResultStore(server,integrity_key=DB_KEY);record=store.put('tenant-1',raw)
+    jobs=store.jobs;replay=server.binding.farms.replay;research=replay.owned_research;cert,key,_=tls_files
+    now=datetime.now(timezone.utc);token=b'own-cycle-long-tls-'+b'd'*40
+    grant=BearerGrant(token_digest(token),'tenant-1',frozenset(public.READ_SCOPES),now-timedelta(seconds=1),now+timedelta(hours=1))
+    def sources(*,principal_provider):return MarketSourceStore(jobs._dsn,jobs.schema,principal_provider=principal_provider,runtime_identity=jobs.runtime_identity)
+    def crops(*,farm_authoring_service):
+        binding=CycleFarmBinding(farm_authoring_service,**PROFILES,notice_raw=NOTICE,input_rights=rights)
+        service=custody.CycleServerCustody(binding,owned_root,input_resolver=resolver,integrity_key=KEY)
+        return storage.CycleCropResultStore(service,integrity_key=DB_KEY)
+    cfg=config(policy=jobs.runtime_identity[0],dsn=jobs._dsn,artifact_root=jobs.artifact_root,certificate=cert,private_key=key,port=0)
+    deps=dependencies(research_registry=research.catalog,bearer_registry=BearerRegistry((grant,)),
+        owned_fixture_registry=research.registry,owned_research_contexts=dict(research._contexts),
+        context_verifier=context_verifier,market_scope_resolver=replay.thermal.holds._scope_resolver,
+        market_source_factory=sources,crop_cycle_result_store_factory=crops)
+    descriptor=jobs._content_directory(create=True);os.close(descriptor)
+    def no_math(*a,**kw):pytest.fail('long HTTPS executed crop math')
+    monkeypatch.setattr(engine,'advance_chunk',no_math);monkeypatch.setattr(engine.short._Evaluator,'rhs',no_math)
+    trust=ssl.create_default_context(cafile=str(cert));responses=[];joined=0;summary=None
+    for restart in range(2):
+        runtime=ApiRuntime(cfg,deps);https=runtime.service.server();thread=threading.Thread(target=https.run,daemon=True);thread.start()
+        try:
+            deadline=time.monotonic()+15
+            while not https.started:
+                assert thread.is_alive() and time.monotonic()<deadline;time.sleep(.01)
+            port=https.servers[0].sockets[0].getsockname()[1]
+            def call(view='summary',**pages):
+                where='/v1/crop-cycle-research-results/'+record['result_id']+'?'+urlencode({**body['farm'],'view':view,**pages})
+                connection=http.client.HTTPSConnection('127.0.0.1',port,timeout=30,context=trust)
+                try:
+                    tick=time.monotonic();connection.request('GET',where,headers={'Authorization':'Bearer '+token.decode()})
+                    response=connection.getresponse();raw_bytes=response.read();seconds=time.monotonic()-tick;value=json.loads(raw_bytes)
+                    assert response.status==200 and seconds<30 and len(raw_bytes)<=public.MAX_RESPONSE_BYTES
+                    assert response.getheader('cache-control')=='no-store' and custody_fds([owned_root,directory])==0
+                    responses.append({'view':view,'seconds':seconds,'bytes':len(raw_bytes),'value':value});return value
+                finally:connection.close()
+            value=call()
+            if restart:assert _canonical(value)==_canonical(summary)
+            else:
+                summary=value;assert value['reference']['steps']==11400 and value['reference']['sample_count']==27 and value['reference']['event_count']==5
+                for kind,limit in (('samples',7),('events',2)):
+                    rows=[];offset=0
+                    while True:
+                        value=call(kind,offset=offset,limit=limit);page=value['page'];rows.extend(page['records'])
+                        assert value['reference']==summary['reference']
+                        if page['next_offset'] is None:break
+                        offset=page['next_offset']
+                    source=expected[kind]
+                    if kind=='events':source=[{k:e[k] for k in ('at','before','after','removed')} for e in source]
+                    assert _canonical(rows)==_canonical(source)
+                    assert call(kind,offset=len(rows),limit=limit)['page']['records']==[]
+        finally:https.should_exit=True;thread.join(15);assert not thread.is_alive();joined+=1
+    assert joined==2 and current_principal() is None
+    Path('/tmp/ossf-cycle-api-tls-long-reference-20261006.json').write_text(json.dumps({
+        'scope':'registered_synthetic_25h_software_only','actual_tls_scram':True,'independent_control_flow_shares_frozen_rates':True,
+        'independent_seconds':independent_seconds,'execution_seconds':execution_seconds,'advances':advances,'actual_steps':11400,
+        'samples':27,'events':5,'full_responses':responses,'https_servers_joined':joined,'rhs_during_http':0,
+        'whole25h_http_budget_accepted':True,'max_response_seconds':max(r['seconds'] for r in responses),
+        'max_response_bytes':max(r['bytes'] for r in responses),'gates':'not_assessed'},ensure_ascii=False,indent=2)+'\n')
