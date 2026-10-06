@@ -46,10 +46,18 @@
 원 입력 반복 검증 비용의 개선과 실제 전체 실행/조회 수용 뒤 전체 날짜를 갱신합니다.
 [서버 입력 검사 영수증](research/crop-cycle-input-evidence-implementation-20261006.md)은 집중33개·
 원 발행31.34초/별도 Python 재조회0.176초·현재 원 bytes/context·RHS0/FD 정리로 로컬 수용했습니다.
-typed reader의 판본/과거 재생·현재 농장 권리·실제 전체 API/3D 연결은 남아 있습니다.
+결과 조회 타입·과거 재생 연결·현재 농장 권리·실제 전체 API/3D 연결은 남아 있습니다.
 [조회 전용 문맥](research/crop-cycle-input-read-context-implementation-20261006.md)은 집중15개·
 원47,811경계/같은 context·재시작14경계/3page·RHS0/FD 정리로 로컬 수용했습니다.
 열기0.380초/전체 경계 대사13.18초이며 원 계산과 조회 판본을 분리했습니다. 결과/농장 권리/API 연결은 다음입니다.
+[확정 과거 결과 비용](research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은
+실제8,175commit/26,831출력의 원 수지 검증73.71초와 같은 참조 bytes 대사1.03초를 기록했습니다.
+전체166일/HTTP 수용은 아닙니다. 다음 [결과 검증 영수증](contracts/crop-cycle-result-evidence-v1.md)은
+작은 terminal 사례에서 전체 RHS와 병행 개발하고, typed result reader → 현재 농장/원 server trace/API →
+실제 전체 저장/같은 UTC3D 순서로 연결합니다. 계약만 준비했으며 해당 구현과 부모는 미수용입니다.
+remote `8fe7dce`의 [종료 CI](research/crop-cycle-full-rhs-ci-hold-20261006.md)는
+다른4workflow 성공·Backend5분할 성공/1실패·집계 실패입니다. 원 RSS 제한을 보존한
+별도 시험 수정 `e310e27`은 로컬18개 통과이며 원166일 종료 전 main/hosted에는 반영하지 않았습니다.
 `d61bcb3`의 [종료된 CI](research/crop-cycle-route-runtime-ci-hold-20261006.md)는
 Backend5분할 성공/1실패·집계 실패, 웹 감사 실패이며 C0/앱/작성 경로는 성공했습니다.
 [백엔드 분할2의 기대값 불일치](research/market-candidate-read-authority-assertion-20261006.md)도

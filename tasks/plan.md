@@ -172,14 +172,25 @@ schema/QC/context/현재 권리/API는 제외했다. reader 코드 SHA와 root/m
 실제 전체 공개 조회 수용은 별도다.
 [서버 영수증 primitive](../research/crop-cycle-input-evidence-implementation-20261006.md)는 집중33개·
 원 발행31.34초/별도 Python 재조회0.176초·현재749 blob/원 context/index·RHS0/FD4→4로 로컬 수용했다.
-원53 source를 바꾸지 않아 전체 RHS와 병행했다. 공식 typed reader/context의 판본/과거 재생과
+원53 source를 바꾸지 않아 전체 RHS와 병행했다. 결과 조회 타입·과거 재생 연결과
 현재 farm/Scope·등록/권리·30초/2MiB/전체 API/3D는 별도다. 원 v1 private 객체 구성/새 code의 재표시로 우회하지 않는다.
-전체166일 원 계산 종료 후 필요한 집중 연결 수정으로 진행한다.
+독립 primitive 개발은 아래 착수 조건으로 병행하고, 실제 전체 결과/농장/API 연결 수용은 원166일 종료 증거 뒤 진행한다.
 [별도 입력 조회 문맥](../research/crop-cycle-input-read-context-implementation-20261006.md)은 집중15개·
 원47,811경계/step·같은 context/clock와 별도 Python14경계/3page·RHS0/FD 정리로 로컬 수용했다.
 문맥 열기0.380/재시작0.392초·전체 원 경계 대사13.18초·recheck0.182초다.
 원 계산 provenance와 조회 판본을 분리했고 v1 engine의 새 타입 거부를 확인했다.
 그 다음은 결과 검증·현재 farm/권리·API의 명시적 타입 연결이며 원 manifest/type gate를 우회하지 않는다.
+[확정 과거 결과 비용](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은
+원8,175commit/26,831출력의 수지 검증73.71초·같은 참조 bytes 대사1.03초를 확인했다.
+입력 개선만으로 반복 결과 검증을30초에 넣을 수 없으므로 [결과 영수증 primitive](../contracts/crop-cycle-result-evidence-v1.md)
+3 core파일을 다음 작은 작업으로 고정한다. 개발 착수는 기존 terminal artifact/입력 조회 수용과
+이 비용 근거이며 작은 완료/hold 사례에서 전체 RHS와 병행한다. 실제 전체 proof 크기/발행은
+원166일 종료 뒤 측정한다. 원 math/manifest와 새 조회 증명 판본을 분리하고 원 parser/수지 검증을
+발행 시 실제 실행한다. 다음 typed result reader → 현재 farm/Scope/등록/권리·원 server trace/API →
+실제 전체 저장/같은 ID/UTC3D 순서다. 순수 참조 proof를 농장 계산 이력으로 재표시하지 않는다.
+remote `8fe7dce`의 [CI 종료 보류](../research/crop-cycle-full-rhs-ci-hold-20261006.md)는
+Backend5분할 성공/분할2의8실패·집계 실패와 다른4workflow 성공이다. 원 RSS guard의 suite 부모
+조건을 재현한 별도 `e310e27` 수정은 로컬18개 통과이며 main/hosted 반영은 원166일 종료 뒤다.
 전체 실행/복원 날짜는 해당 수정과 실제 종료 상태 뒤 갱신한다. 짧은/복제 fixture와 조기 hold로 전체 작기를 수용하지 않는다.
 최초10–15집중시간/10월6–10일 추정은 위 단계 실적으로 대체한다. 실제166일 부하·자료/품종·
 생과/자원/경제는 별도이며 CI와 실제 경로에서 발견되는 수정으로 일정을 갱신한다.
@@ -301,7 +312,10 @@ flowchart TD
   BPROF --> BINPUT["crop-cycle-input-evidence: 원 검사/현재 bytes·별도 키 재시작"]
   BFULL --> BRESTORE["crop-cycle-burden-replay-restore: 같은 상태 복원·실제 조회"]
   BINPUT --> BRCTX["crop-cycle-input-read-context: 조회 타입/원 manifest·clock·격자"]
-  BRCTX --> BRESTORE
+  BRCTX --> BRESULT["crop-cycle-result-evidence: 원 terminal QC/현재 bytes·증명"]
+  BRESULT --> BRESULTCTX["crop-cycle-result-read-context: 원 summary/page·조회 타입"]
+  BRESULTCTX --> BQUERY["crop-cycle-current-query: 현재 farm/원 server trace/API"]
+  BQUERY --> BRESTORE
   BRESTORE --> BURDEN
   BURDEN --> CAP
   SI --> SF["crop-startup-artifact: 새 bytes/재적분 없는 reader"]

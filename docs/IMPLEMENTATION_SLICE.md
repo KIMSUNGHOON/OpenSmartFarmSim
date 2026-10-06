@@ -276,11 +276,17 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 전체 날짜는 해당 수정과 실제 종료·조회 예산 수용 뒤 추정한다.
 [서버 입력 검사 영수증](../research/crop-cycle-input-evidence-implementation-20261006.md)은33개 집중 시험·
 원 발행31.34초/별도 Python 재조회0.176초·현재 원 bytes/context·RHS0/FD 정리로 로컬 수용했다.
-원53 source를 바꾸지 않아 전체 RHS와 병행했다. 공식 typed reader/context의 판본/과거 재생과
+원53 source를 바꾸지 않아 전체 RHS와 병행했다. 결과 조회 타입·과거 재생 연결과
 현재 farm/Scope/등록/권리·실제 전체 API/3D는 별도다. 영수증만으로 replay-restore/관문을 체크하지 않는다.
 [별도 입력 조회 문맥](../research/crop-cycle-input-read-context-implementation-20261006.md)은15개 집중 시험·
 원47,811경계/같은 context/clock·재시작·RHS0/FD 정리로 로컬 수용했다.
 원 계산과 조회 판본을 분리했고 v1 engine의 새 타입 거부를 확인했다. 결과/현재 farm/권리/API 연결은 다음이다.
+[확정 과거 결과 비용](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은
+원8,175commit/26,831출력의 수지 검증73.71초·같은 참조16,354blob 대사1.03초를 확인했다.
+다음 [결과 영수증 primitive](../contracts/crop-cycle-result-evidence-v1.md)의3 core파일은 기존 terminal
+artifact/입력 조회 수용 뒤 작은 완료/hold 사례에서 전체 RHS와 병행 개발한다. typed result reader →
+현재 farm/Scope/권리·원 server trace/API → 실제 전체 저장/같은 UTC3D를 작은 후속으로 나눈다.
+원166일 종료 전에는 전체 result/부모를 수용하지 않으며 참조 결과를 농장 계산 이력으로 바꾸지 않는다.
 `e70a7f2`의 기존 assessment HTTPS 30초 시간 초과와
 [로컬 재현/요약 크기 수정](../research/backend-ci-summary-and-timeout-20261005.md)을 별도 기록했다.
 로컬 통과로 실패한 hosted 판본을 수용하지 않는다.

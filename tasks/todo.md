@@ -399,7 +399,7 @@
         보존 키의 별도 Python 재조회0.176초·현재749 blob/113,920,841bytes·원 context/index·RHS0/FD4→4.
         소유권/readonly byte 검사 → 원 전체 QC/context → 재대사 후만 발행하며 서명/판본/키·변조/파일 계약을 거부한다.
         원53 source를 보존했고 첫 측정기 해시 형식 오류 종료1과 최종 종료0을 구분했다.
-        다음 공식 typed reader/context의 판본·과거 재생을 먼저 설계하고 현재 farm/Scope/등록/권리와
+        후속 입력 조회 문맥은 아래 증거로 수용했다. 결과 조회 타입·과거 재생 연결·현재 farm/Scope/등록/권리와
         실제 전체30초/2MiB/API/3D·정리를 검증한다. 원 v1 private token/새 code 재표시로 우회하지 않는다.
         이 primitive 수용으로 replay-restore/부하 부모·G0–G4/예측·추천을 체크하지 않는다.
       - [x] **`crop-cycle-input-read-context`** — 선행 입력 영수증 primitive; 새 조회 module·집중 시험·
@@ -409,8 +409,28 @@
         실제166일 입력의 원47,811경계/plan1,816,704걸음·동일 context/index/clock·별도 Python14경계/3page·
         RHS0/FD4→4·cache4block/1grid/정리·source53/영수증3 core 보존.
         실제 열기0.380/재시작0.392초·전체 경계 대사13.18초/recheck0.182초와 v1 engine의 새 타입 거부를 확인했다.
-        다음은 원 전체 RHS 수용 뒤 결과 검증·현재 farm/Scope/등록/권리·API에 명시적으로 연결한다.
+        다음 결과 primitive는 기존 terminal artifact 수용을 선행으로 작은 사례에서 전체 RHS와 병행 개발한다.
+        실제 전체 결과·현재 farm/Scope/등록/권리·API 연결 수용은 원 전체 RHS 종료 증거를 기다린다.
         기존 manifest/type gate를 우회하지 않으며 부모·전체30초/2MiB/API/3D·관문 수용은 별도다.
+      - [ ] **`crop-cycle-result-evidence`** — 선행 terminal artifact/입력 조회 수용과
+        [결과 비용 관측](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md).
+        3 core파일: `backend/app/crop_cycle_result_evidence.py`, 집중 시험,
+        [결과 증명 계약](../contracts/crop-cycle-result-evidence-v1.md). 계약만 준비했으며 코드 미착수다.
+        작은 실제 완료/hold artifact의 원 전체 parser·수지 검사 뒤 현재 입력/결과 bytes를 전후 대사해
+        정확한 summary/index/context·inventory를 서버 제공 키로 증명한다. 조회는 모든 현재 bytes·판본/키를
+        확인하고 원 parser/RHS를 재실행하지 않는다. 다른 키·code·물리 변조/교체/파일 계약·한도 거부와
+        별도 Python의 같은 키 재시작·FD/비용을 검증한다. 원 전체 RHS와 병행 가능한 개발 수용이다.
+        실제166일 전체 증명 크기/발행·모든 참조 bytes/원 수지는 원 계산 종료 뒤 별도로 확인한다.
+        새 사설8MiB proof 후보는 원 artifact/HTTP 한도를 바꾸지 않는다. 실제 전체 크기 초과는 hold다.
+      - [ ] **`crop-cycle-result-read-context`** — 선행 결과 primitive 수용; 새 조회 module·시험·계약3 core파일.
+        원 summary/manifest·출력/관리·UTC/count/page를 보존하는 별도 조회 타입을 만든다.
+        실제 page SHA/파일 계약·공개 반환 전 현재 입력/결과 재대사·bounded cache/byte-short·hold 과거·
+        별도 Python/FD 정리를 원 reader와 대사한다. 원 v1 private token/객체 위조나 RHS를 허용하지 않는다.
+      - [ ] **`crop-cycle-current-query`** — 선행 typed result reader; 조회 authority/연결·집중 시험·계약3–4 core파일.
+        실제 원 농장 등록/result row·서명된 server custody trace를 현재 Scope/권리·입력/result 증명과
+        전후 결속한다. 원 math 판본·현재 조회 판본을 함께 보존하고 참조 proof를 server progress로 바꾸지 않는다.
+        현재 권리 철회·계정/등록/trace/물리 변조·재시작·공개30초/2MiB의 실제 PG/TLS/정리를 확인한다.
+        실제166일 전체 farm/API/3D와 부모 수용은 원 full-rhs 및 전체 연결 검증을 모두 요구한다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

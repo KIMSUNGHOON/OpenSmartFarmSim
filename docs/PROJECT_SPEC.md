@@ -225,11 +225,17 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 원 입력 재검증 비용 개선 뒤 완전 저장 조회/3D다. 전체 날짜는 실제 종료·조회 예산 수용 뒤 산정한다.
 [서버 입력 검사 영수증](../research/crop-cycle-input-evidence-implementation-20261006.md)은33개 집중 시험·
 원 발행31.34초/별도 Python 재조회0.176초·현재 원 bytes/context·RHS0/FD 정리로 로컬 수용했다.
-원53 source와 판본을 보존했으며 공식 typed reader/context의 판본/과거 재생·현재 farm/Scope/권리·
+원53 source와 판본을 보존했으며 결과 조회 타입·과거 재생 연결·현재 farm/Scope/권리·
 실제 전체 API/3D 수용은 남아 있다. 입력 수학 검사의 영수증으로 관문을 해제하지 않는다.
 [별도 입력 조회 문맥](../research/crop-cycle-input-read-context-implementation-20261006.md)은15개 집중 시험·
 원47,811경계/같은 context/clock·재시작·RHS0/FD 정리로 로컬 수용했다.
 원 계산 provenance와 조회 타입/코드를 분리했으며 결과 검증·현재 farm/권리·API 연결은 별도다.
+[확정 과거 결과 비용](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은
+원8,175commit/26,831출력의 수지 검증73.71초로 반복 결과 검증도30초 경로 전에 개선해야 함을 확인했다.
+[결과 검증 영수증](../contracts/crop-cycle-result-evidence-v1.md)은 기존 terminal artifact와 입력 조회를
+선행으로 작은 완료/hold 사례에서 전체 RHS와 병행 개발한다. 원 전체 검증 → 현재 bytes/요청 page를
+분리하며 실제 전체 결과·typed result reader·현재 farm/Scope/권리·원 server trace/API·같은 UTC3D의
+수용은 전체166일 실제 종료 증거와 별도로 확인한다. 참조 proof로 농장 계산 이력을 만들지 않는다.
 실제 전체 작기 처리는 미수용이며6시간 수치 실험 예산 후보를 날짜로 표시하지 않는다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
 전체 작기 생산 모델의 착수/게시 범위에 접근할 수 있다.

@@ -41,6 +41,15 @@ artifact는16,384 commit·512MiB·65,536파일, 공개 응답은30초/2MiB와 sa
 | `crop-cycle-burden-full-rhs` | profile 수용 및 관측된 결함의 집중 수정 수용. source 형태 자작 입력 generator/runner·검증3파일 | 고정된 전체166일 입력을 실제 RHS로 끝까지 실행하고 모델/입력/원 격자·예정/실제 걸음·모든 저장 출력/사건 hash·전역 수지·peak/시간·현재 권리·정리를 기록한다. 실제 농장/품종 검증으로 보고하지 않는다. |
 | `crop-cycle-burden-replay-restore` | 전체 RHS와 저장 수용. 중단/복원 runner·실제 조회/화면 검증3–4파일 | 실제 중단 후 같은 원 context/seed/누적/clock/sequence를 복원해 연속 결과와 대사한다. 완전 저장 결과의 시작/중간/끝·실제 byte-short 경계·관리 전후·같은 ID/UTC의 공개 page/3D와30초/2MiB·권리 철회/변조·서버/DB/role/비밀번호/FD 정리를 확인한다. |
 
+조회 연결 구현은 입력 영수증/조회 문맥 → [결과 영수증](crop-cycle-result-evidence-v1.md) →
+typed result reader → 현재 farm/Scope/등록/권리·원 server trace/API로 나눈다.
+[부분 결과 비용](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md)의 원8,175commit/
+26,831출력 검증73.71초는 입력 개선 외에 결과 검증의 분리가 필요함을 보여 준다.
+결과 primitive의 개발은 기존 terminal artifact·입력 조회 수용 뒤 작은 완료/hold 사례에서
+전체 RHS와 병행할 수 있다. 실제 전체 proof 크기/발행과 전체 farm/API/3D·복원 수용은
+원166일 종료 증거 뒤 확인한다. 순수 참조 proof로 원 farm/custody 계산 이력을 만들지 않는다.
+각 구현 자식과 위 실제 연결 검증의 증거가 모두 있어야 replay-restore/부하 부모를 수용한다.
+
 profile의 구현 core파일은 `research/crop-cycle-burden-profile.py`,
 `backend/tests/test_crop_cycle_burden_profile.py`, 이 계약의 측정 기록 형식 보완이다.
 순수/shape14개·native1개로 원행/상태·함수 원복·hold·128 transition 한도를 확인했다.
