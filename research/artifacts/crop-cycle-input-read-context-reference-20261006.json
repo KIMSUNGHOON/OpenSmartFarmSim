@@ -1,0 +1,215 @@
+{
+  "evidence_version": "crop-cycle-input-read-context-implementation-v1",
+  "recorded_at_utc": "2026-10-06T08:57:52.159479+00:00",
+  "scope": "Typed input read-only context preserving original math manifest; owned166 inputs. No original InputPacket/StreamContext constructed/injected, no result execution, farm/current rights/HTTP/3D release.",
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-06T08:37:53.288Z",
+    "raw_line_sha256": "dd6db62c9755be2e614d0f10a8bf67e39f1db2f98a5d2948ba719c35d7d9f2ad",
+    "recursive_cli_invocations": 0
+  },
+  "source_sha256": {
+    "backend/app/crop_cycle_input_read_context.py": "ac8f842affa6be6b1a71e015b33db54bc7cf41d2bee494ec692b39d2ea72fab3",
+    "backend/tests/test_crop_cycle_input_read_context.py": "91399f514db881f437052b354975a955ce8805a0c6c56cfdebbfca30c8671d34",
+    "contracts/crop-cycle-input-read-context-v1.md": "4f624dccaba492a2f5cfabca89ca42792900cb7c1caeec20967bcb410a957a85"
+  },
+  "dependency_sha256": {
+    "input_evidence": "948f064f6b35ffe6edea9d55e4cdb51c92f717aeebabad1e8b5b7f1b507cfc00",
+    "original_grid": "4de399721cab82ab7f56e093b11b72682437e29bb3097e745b1e61d695d03aac",
+    "original_input": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53"
+  },
+  "prior_input_evidence_receipt_sha256": "6520ac3af1fa02557a2ad2c421aed2378a926e2713fb6d615f737c5842f6d2f4",
+  "actual_processes": {
+    "full": {
+      "session_id": 21062,
+      "exit_code": 0,
+      "command": "nice -n 15 backend/.venv/bin/python /tmp/ossf-cycle-input-read-context-measure-20261006.py full"
+    },
+    "restart": {
+      "session_id": 83708,
+      "exit_code": 0,
+      "command": "nice -n 15 backend/.venv/bin/python /tmp/ossf-cycle-input-read-context-measure-20261006.py restart"
+    }
+  },
+  "focused_tests": {
+    "passed": 15,
+    "seconds": 1.99,
+    "session_id": 84330,
+    "exit_code": 0,
+    "command": "cd backend; nice -n 15 .venv/bin/python -m pytest tests/test_crop_cycle_input_read_context.py -q",
+    "RED_missing_module_session_id": 38118,
+    "RED_exit_code": 2,
+    "RED_errors": 1,
+    "RED_seconds": 0.9,
+    "whole_backend_web_browser_not_run_this_stage": true
+  },
+  "full": {
+    "FD_after": 4,
+    "FD_before": 4,
+    "RHS_calls": 0,
+    "all_boundaries_compared": 47811,
+    "all_boundary_scan": {
+      "cpu_seconds": 13.168220431000002,
+      "wall_seconds": 13.178337042045314
+    },
+    "boundary_count": 47811,
+    "context_record_sha256": "2704b2aa70c3b2d6539c2ed1d893024413ecfb9eb8840b8dde6c31e7f913cd37",
+    "event_indices": [
+      0,
+      2,
+      129,
+      130,
+      302
+    ],
+    "evidence_sha256": "fc0fb2e12e39d9de2ae2e3f8a94215f4cb3009cbb88deb5b0e758935105080a7",
+    "frozen53_and_prior_evidence_3core_unchanged": true,
+    "full_RHS_result_or_whole_farm_HTTP_3D_accepted": false,
+    "gates": "not_assessed",
+    "input_root_sha256": "ab24eda4d763d7fe3faff1ae3c7c2f84fbec030af71a494bf284fef1f2cdcd98",
+    "legacy_engine_rejected": true,
+    "max_grid_cache_pages": 1,
+    "max_reader_cache_blocks": 4,
+    "measurement_script_sha256": "7ad9f5305ac174f0d0ea548c1bb7df95cc05d7e23ef1342aa849d1755fcc3c5c",
+    "mode": "full",
+    "nice": 15,
+    "open": {
+      "cpu_seconds": 0.3775457320000015,
+      "wall_seconds": 0.3797969510196708
+    },
+    "original_boundary_page_comparisons": 3,
+    "original_context_record_exactly_matches": true,
+    "original_control": {
+      "cpu_seconds": 44.246945704999995,
+      "wall_seconds": 44.31737772497581
+    },
+    "original_control_boundary_sha256": "b4f285214300f83b62ae2f704a1695de8d85268cb4a230c56903d5f2b60987b6",
+    "planned_steps": 1816704,
+    "process_peak_rss_bytes": 93966336,
+    "read_identity": {
+      "dependency_sha256": {
+        "input_evidence": "948f064f6b35ffe6edea9d55e4cdb51c92f717aeebabad1e8b5b7f1b507cfc00",
+        "original_grid": "4de399721cab82ab7f56e093b11b72682437e29bb3097e745b1e61d695d03aac",
+        "original_input": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53"
+      },
+      "evidence_sha256": "fc0fb2e12e39d9de2ae2e3f8a94215f4cb3009cbb88deb5b0e758935105080a7",
+      "input_root_sha256": "ab24eda4d763d7fe3faff1ae3c7c2f84fbec030af71a494bf284fef1f2cdcd98",
+      "math_context_sha256": "d94147de8e2044b9a535657f89d76431dbcfbfc28a67748e6ecf687849940375",
+      "read_code_sha256": "ac8f842affa6be6b1a71e015b33db54bc7cf41d2bee494ec692b39d2ea72fab3",
+      "read_context_version": "crop-cycle-input-read-context-v1",
+      "scope": "synthetic_input_read_only"
+    },
+    "recheck": {
+      "cpu_seconds": 0.18236871299999535,
+      "wall_seconds": 0.1824005779926665
+    },
+    "recorded_at_utc": "2026-10-06T08:53:02.429017+00:00",
+    "retained_key_separate_process": false,
+    "selected_boundaries_and_clock_count": 14,
+    "selected_points_clock_pages": {
+      "cpu_seconds": 0.49420956400000193,
+      "wall_seconds": 0.49421731795882806
+    },
+    "source_sha256": {
+      "backend/app/crop_cycle_input_read_context.py": "ac8f842affa6be6b1a71e015b33db54bc7cf41d2bee494ec692b39d2ea72fab3",
+      "backend/tests/test_crop_cycle_input_read_context.py": "91399f514db881f437052b354975a955ce8805a0c6c56cfdebbfca30c8671d34",
+      "contracts/crop-cycle-input-read-context-v1.md": "4f624dccaba492a2f5cfabca89ca42792900cb7c1caeec20967bcb410a957a85"
+    },
+    "whole_process_until_record_cpu_seconds": 59.128075533,
+    "whole_process_until_record_wall_seconds": 59.21333225100534
+  },
+  "restart": {
+    "FD_after": 4,
+    "FD_before": 4,
+    "RHS_calls": 0,
+    "all_boundaries_compared": 0,
+    "all_boundary_scan": {
+      "cpu_seconds": 5.199999999927485e-06,
+      "wall_seconds": 6.470014341175556e-06
+    },
+    "boundary_count": 47811,
+    "context_record_sha256": "2704b2aa70c3b2d6539c2ed1d893024413ecfb9eb8840b8dde6c31e7f913cd37",
+    "event_indices": [
+      0,
+      2,
+      129,
+      130,
+      302
+    ],
+    "evidence_sha256": "fc0fb2e12e39d9de2ae2e3f8a94215f4cb3009cbb88deb5b0e758935105080a7",
+    "frozen53_and_prior_evidence_3core_unchanged": true,
+    "full_RHS_result_or_whole_farm_HTTP_3D_accepted": false,
+    "gates": "not_assessed",
+    "input_root_sha256": "ab24eda4d763d7fe3faff1ae3c7c2f84fbec030af71a494bf284fef1f2cdcd98",
+    "legacy_engine_rejected": true,
+    "max_grid_cache_pages": 0,
+    "max_reader_cache_blocks": 0,
+    "measurement_script_sha256": "7ad9f5305ac174f0d0ea548c1bb7df95cc05d7e23ef1342aa849d1755fcc3c5c",
+    "mode": "restart",
+    "nice": 15,
+    "open": {
+      "cpu_seconds": 0.39152612899999995,
+      "wall_seconds": 0.3915989359957166
+    },
+    "original_boundary_page_comparisons": 3,
+    "original_context_record_exactly_matches": true,
+    "original_control": null,
+    "original_control_boundary_sha256": "b4f285214300f83b62ae2f704a1695de8d85268cb4a230c56903d5f2b60987b6",
+    "planned_steps": 1816704,
+    "process_peak_rss_bytes": 89395200,
+    "read_identity": {
+      "dependency_sha256": {
+        "input_evidence": "948f064f6b35ffe6edea9d55e4cdb51c92f717aeebabad1e8b5b7f1b507cfc00",
+        "original_grid": "4de399721cab82ab7f56e093b11b72682437e29bb3097e745b1e61d695d03aac",
+        "original_input": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53"
+      },
+      "evidence_sha256": "fc0fb2e12e39d9de2ae2e3f8a94215f4cb3009cbb88deb5b0e758935105080a7",
+      "input_root_sha256": "ab24eda4d763d7fe3faff1ae3c7c2f84fbec030af71a494bf284fef1f2cdcd98",
+      "math_context_sha256": "d94147de8e2044b9a535657f89d76431dbcfbfc28a67748e6ecf687849940375",
+      "read_code_sha256": "ac8f842affa6be6b1a71e015b33db54bc7cf41d2bee494ec692b39d2ea72fab3",
+      "read_context_version": "crop-cycle-input-read-context-v1",
+      "scope": "synthetic_input_read_only"
+    },
+    "recheck": {
+      "cpu_seconds": 0.1825588119999999,
+      "wall_seconds": 0.1826095849974081
+    },
+    "recorded_at_utc": "2026-10-06T08:54:59.380818+00:00",
+    "retained_key_separate_process": true,
+    "selected_boundaries_and_clock_count": 14,
+    "selected_points_clock_pages": {
+      "cpu_seconds": 0.5563318149999998,
+      "wall_seconds": 0.5564114750013687
+    },
+    "source_sha256": {
+      "backend/app/crop_cycle_input_read_context.py": "ac8f842affa6be6b1a71e015b33db54bc7cf41d2bee494ec692b39d2ea72fab3",
+      "backend/tests/test_crop_cycle_input_read_context.py": "91399f514db881f437052b354975a955ce8805a0c6c56cfdebbfca30c8671d34",
+      "contracts/crop-cycle-input-read-context-v1.md": "4f624dccaba492a2f5cfabca89ca42792900cb7c1caeec20967bcb410a957a85"
+    },
+    "whole_process_until_record_cpu_seconds": 1.839538743,
+    "whole_process_until_record_wall_seconds": 1.8398111179703847
+  },
+  "measurement_script_sha256": "7ad9f5305ac174f0d0ea548c1bb7df95cc05d7e23ef1342aa849d1755fcc3c5c",
+  "private_observation_sha256": {
+    "full-observation.json": "facf61bfccfa3a4e85d6aff8cd04bfc7569c3c3ffdf1cb37bb3e0867b58938ef",
+    "restart-observation.json": "5de03e5eb1d84fde274ae680947ac1a396dcdce284fe60799344f09536a92f88",
+    "original-control.json": "ccdfaf32bfa8e7ba13abce8ceeca9f06575e3c9bdf1fd524e1b4714457efd82c",
+    "native-cli.json": "dd26b4a0a82c5363feacd388a5587d1731381ece650de97f4d94c86e409b2fff"
+  },
+  "logs_sha256": {
+    "RED": "8d6fc80e158ba747eea8e4d0426562857370822e445f660f32b9a25a13cd6941",
+    "focused15": "896da58e6ce2c064aa23e5943fb9214724fea90fc7c425e63d9a86985420248e",
+    "actual_full": "d9e797f23b6445e09d2dd3600799f20228d8f25bed54d90adc93f56e4dacf273",
+    "actual_restart": "5fa8a19a53f286da2fc0d1ed2c6357cf08f8f228d1a2634d90661332ac32de50"
+  },
+  "cache_scope": "OS cache uncontrolled; prior reads and original control warm it; separate Python restart is not cold-cache. Original full RHS nice10 remains live; observer nice15 one process at a time.",
+  "process_wall_scope": "From before app imports until record, includes control for full mode; excludes final record write/process exit/farm DB/API browser.",
+  "source53_and_prior_input_evidence3_unchanged": true,
+  "owned_PG_API_browser_servers": 0,
+  "v1_calculation_engine_admission": false,
+  "v1_farm_artifact_runtime_admission_or_result_reader_accepted": false,
+  "full166_RHS_result_or_gates_accepted": false,
+  "gates": "not_assessed",
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0
+}

@@ -175,6 +175,11 @@ schema/QC/context/현재 권리/API는 제외했다. reader 코드 SHA와 root/m
 원53 source를 바꾸지 않아 전체 RHS와 병행했다. 공식 typed reader/context의 판본/과거 재생과
 현재 farm/Scope·등록/권리·30초/2MiB/전체 API/3D는 별도다. 원 v1 private 객체 구성/새 code의 재표시로 우회하지 않는다.
 전체166일 원 계산 종료 후 필요한 집중 연결 수정으로 진행한다.
+[별도 입력 조회 문맥](../research/crop-cycle-input-read-context-implementation-20261006.md)은 집중15개·
+원47,811경계/step·같은 context/clock와 별도 Python14경계/3page·RHS0/FD 정리로 로컬 수용했다.
+문맥 열기0.380/재시작0.392초·전체 원 경계 대사13.18초·recheck0.182초다.
+원 계산 provenance와 조회 판본을 분리했고 v1 engine의 새 타입 거부를 확인했다.
+그 다음은 결과 검증·현재 farm/권리·API의 명시적 타입 연결이며 원 manifest/type gate를 우회하지 않는다.
 전체 실행/복원 날짜는 해당 수정과 실제 종료 상태 뒤 갱신한다. 짧은/복제 fixture와 조기 hold로 전체 작기를 수용하지 않는다.
 최초10–15집중시간/10월6–10일 추정은 위 단계 실적으로 대체한다. 실제166일 부하·자료/품종·
 생과/자원/경제는 별도이며 CI와 실제 경로에서 발견되는 수정으로 일정을 갱신한다.
@@ -295,7 +300,8 @@ flowchart TD
   BPROF --> BFULL["crop-cycle-burden-full-rhs: 실제166일·모든 원 출력"]
   BPROF --> BINPUT["crop-cycle-input-evidence: 원 검사/현재 bytes·별도 키 재시작"]
   BFULL --> BRESTORE["crop-cycle-burden-replay-restore: 같은 상태 복원·실제 조회"]
-  BINPUT --> BRESTORE
+  BINPUT --> BRCTX["crop-cycle-input-read-context: 조회 타입/원 manifest·clock·격자"]
+  BRCTX --> BRESTORE
   BRESTORE --> BURDEN
   BURDEN --> CAP
   SI --> SF["crop-startup-artifact: 새 bytes/재적분 없는 reader"]

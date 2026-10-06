@@ -402,6 +402,15 @@
         다음 공식 typed reader/context의 판본·과거 재생을 먼저 설계하고 현재 farm/Scope/등록/권리와
         실제 전체30초/2MiB/API/3D·정리를 검증한다. 원 v1 private token/새 code 재표시로 우회하지 않는다.
         이 primitive 수용으로 replay-restore/부하 부모·G0–G4/예측·추천을 체크하지 않는다.
+      - [x] **`crop-cycle-input-read-context`** — 선행 입력 영수증 primitive; 새 조회 module·집중 시험·
+        [조회 계약](../contracts/crop-cycle-input-read-context-v1.md)의3 core파일.
+        원 private token/객체에 주입하지 않고 별도 read-only 타입/코드와 원 계산 provenance를 보존한다.
+        [로컬 증거](../research/crop-cycle-input-read-context-implementation-20261006.md): 집중15개/1.99초·
+        실제166일 입력의 원47,811경계/plan1,816,704걸음·동일 context/index/clock·별도 Python14경계/3page·
+        RHS0/FD4→4·cache4block/1grid/정리·source53/영수증3 core 보존.
+        실제 열기0.380/재시작0.392초·전체 경계 대사13.18초/recheck0.182초와 v1 engine의 새 타입 거부를 확인했다.
+        다음은 원 전체 RHS 수용 뒤 결과 검증·현재 farm/Scope/등록/권리·API에 명시적으로 연결한다.
+        기존 manifest/type gate를 우회하지 않으며 부모·전체30초/2MiB/API/3D·관문 수용은 별도다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

@@ -278,6 +278,9 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 원 발행31.34초/별도 Python 재조회0.176초·현재 원 bytes/context·RHS0/FD 정리로 로컬 수용했다.
 원53 source를 바꾸지 않아 전체 RHS와 병행했다. 공식 typed reader/context의 판본/과거 재생과
 현재 farm/Scope/등록/권리·실제 전체 API/3D는 별도다. 영수증만으로 replay-restore/관문을 체크하지 않는다.
+[별도 입력 조회 문맥](../research/crop-cycle-input-read-context-implementation-20261006.md)은15개 집중 시험·
+원47,811경계/같은 context/clock·재시작·RHS0/FD 정리로 로컬 수용했다.
+원 계산과 조회 판본을 분리했고 v1 engine의 새 타입 거부를 확인했다. 결과/현재 farm/권리/API 연결은 다음이다.
 `e70a7f2`의 기존 assessment HTTPS 30초 시간 초과와
 [로컬 재현/요약 크기 수정](../research/backend-ci-summary-and-timeout-20261005.md)을 별도 기록했다.
 로컬 통과로 실패한 hosted 판본을 수용하지 않는다.
