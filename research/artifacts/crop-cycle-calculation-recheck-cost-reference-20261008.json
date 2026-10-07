@@ -1,0 +1,632 @@
+{
+  "base_commit": "cb104838b859fa64c4f0a4da755e8cce457ec7c5",
+  "ci_observation": {
+    "backend": {
+      "conclusion": "",
+      "headSha": "2a3e61571d0574a063577ec1edcfb75aa5f2d565",
+      "status": "queued",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37669114958"
+    },
+    "jobs": [
+      {
+        "conclusion": "",
+        "name": "backend-partition-2",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": "",
+        "name": "backend-partition-5",
+        "status": "queued"
+      },
+      {
+        "conclusion": "",
+        "name": "backend-partition-1",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": "",
+        "name": "backend-partition-4",
+        "status": "queued"
+      },
+      {
+        "conclusion": "",
+        "name": "backend-partition-3",
+        "status": "queued"
+      },
+      {
+        "conclusion": "failure",
+        "name": "backend-partition-0",
+        "status": "completed"
+      }
+    ],
+    "local_changes_not_hosted": true,
+    "observation_sha256": "500fe13a75aa628f50fd292b8c3dff7a55bf150f9b5c78c84b4c66d03ebd6d97",
+    "other_workflows": [
+      {
+        "conclusion": "",
+        "databaseId": 37669114958,
+        "headSha": "2a3e61571d0574a063577ec1edcfb75aa5f2d565",
+        "status": "queued",
+        "workflowName": "Backend tests"
+      },
+      {
+        "conclusion": "success",
+        "databaseId": 37669114805,
+        "headSha": "2a3e61571d0574a063577ec1edcfb75aa5f2d565",
+        "status": "completed",
+        "workflowName": "C0 Compose verification"
+      },
+      {
+        "conclusion": "success",
+        "databaseId": 37669115060,
+        "headSha": "2a3e61571d0574a063577ec1edcfb75aa5f2d565",
+        "status": "completed",
+        "workflowName": "Application runtime verification"
+      },
+      {
+        "conclusion": "success",
+        "databaseId": 37669114891,
+        "headSha": "2a3e61571d0574a063577ec1edcfb75aa5f2d565",
+        "status": "completed",
+        "workflowName": "Authored API PostgreSQL smoke"
+      },
+      {
+        "conclusion": "success",
+        "databaseId": 37669114930,
+        "headSha": "2a3e61571d0574a063577ec1edcfb75aa5f2d565",
+        "status": "completed",
+        "workflowName": "Web tests"
+      }
+    ],
+    "push_performed": false,
+    "recorded_at_utc": "2026-10-07T19:47:10.925565+00:00"
+  },
+  "cleanup": {
+    "farm_schema_and_role_cleanup": "executed fixture assertions passed; its JSON recorder was not enabled in the farm command",
+    "full_prefix_database": {
+      "passfiles_after": 0,
+      "roles_after": 0,
+      "schemas_after": 0,
+      "server_host_auth_methods": [
+        "scram-sha-256",
+        "scram-sha-256",
+        "scram-sha-256",
+        "scram-sha-256"
+      ]
+    },
+    "full_prefix_database_sha256": "ea7c673c5a290819e78fd912df61523a8f27ef5df2813e1ac945a535024dded7",
+    "owned_active_experiments": 0,
+    "terminal_process_observation_sha256": "22a15adedc1bae6b9f1a69bd422dc2dc608df114f370d28aab1a7414e06ccf19"
+  },
+  "commands": {
+    "farm-regression": {
+      "all_preserved_sources_unchanged": true,
+      "argv": [
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/test_crop_cycle_calculation_server_custody_farms.py",
+        "-q",
+        "-x",
+        "--tb=short",
+        "--basetemp",
+        "/tmp/ossf-recheck-oscj6qzx/pytest"
+      ],
+      "clusters": [
+        {
+          "directory": "/tmp/ossf-recheck-oscj6qzx/system/ossf-login-pg-rjy8o1zc/data",
+          "directory_exists_after": false,
+          "pid": 877266,
+          "same_PID_alive_after": false,
+          "start_ticks": "7240671"
+        }
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T19:42:22.256950+00:00",
+      "log_bytes": 111,
+      "log_sha256": "f5fa24459291eeca2e098a8055b616d9ae45919dd84c80c600879c28056ca61c",
+      "memory_scope": "sampled_current_descendants_RSS_sum_may_double_count_shared_pages_not_WSL_total_or_PSS",
+      "nice": 19,
+      "owned_remaining_processes": [],
+      "owned_temp_tree_removed": true,
+      "passed_cases": 12,
+      "passfiles_after": [],
+      "pins_sha256": "0e4b610b574824d9c5928fea59394dad18c8dc233db0de8b3ddca7aa3587e5f5",
+      "preserved_source_count": 262,
+      "result_sha256": "d01a3d489e92b8cbd086aa5ceb8cf9aa4605e6ce711e7f4c3a45df3578feb8fd",
+      "sampled_pytest_primary_max_RSS_bytes": 126291968,
+      "started_at_utc": "2026-10-07T19:38:29.089812+00:00",
+      "wall_budget_interrupt_sent": false,
+      "wall_seconds": 233.16467919299612
+    },
+    "guard-green": {
+      "all_preserved_sources_unchanged": true,
+      "argv": [
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/test_crop_cycle_calculation_recheck_cost.py",
+        "-q",
+        "-x",
+        "--tb=short",
+        "--basetemp",
+        "/tmp/ossf-recheck-hyjbc8yb/pytest"
+      ],
+      "clusters": [],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T19:34:29.693958+00:00",
+      "log_bytes": 99,
+      "log_sha256": "94f8745ebe03ae060696ec72b6f6e02f067e14e0f2a97d6c1dd16bb0a05dc92c",
+      "memory_scope": "sampled_current_descendants_RSS_sum_may_double_count_shared_pages_not_WSL_total_or_PSS",
+      "nice": 19,
+      "owned_remaining_processes": [],
+      "owned_temp_tree_removed": true,
+      "passed_cases": 11,
+      "passfiles_after": [],
+      "pins_sha256": "0e4b610b574824d9c5928fea59394dad18c8dc233db0de8b3ddca7aa3587e5f5",
+      "preserved_source_count": 262,
+      "result_sha256": "5d60b84da3136dc2641a1d054994fdbeb5645ef2d2c93eae255e0650fad20f3a",
+      "sampled_pytest_primary_max_RSS_bytes": 99356672,
+      "started_at_utc": "2026-10-07T19:34:25.129095+00:00",
+      "wall_budget_interrupt_sent": false,
+      "wall_seconds": 4.562907443993026
+    },
+    "guard-red": {
+      "all_preserved_sources_unchanged": true,
+      "argv": [
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/test_crop_cycle_calculation_recheck_cost.py",
+        "-k",
+        "guard_checks_current",
+        "-q",
+        "-x",
+        "--tb=short",
+        "--basetemp",
+        "/tmp/ossf-recheck-_3t9ilb5/pytest"
+      ],
+      "clusters": [],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend",
+      "exit_code": 1,
+      "finished_at_utc": "2026-10-07T19:33:29.511182+00:00",
+      "log_bytes": 917,
+      "log_sha256": "74d9887a05703401460d8a36a5be29a48a4e2615fe429406a68ec13024f457b2",
+      "memory_scope": "sampled_current_descendants_RSS_sum_may_double_count_shared_pages_not_WSL_total_or_PSS",
+      "nice": 19,
+      "owned_remaining_processes": [],
+      "owned_temp_tree_removed": true,
+      "passed_cases": 0,
+      "passfiles_after": [],
+      "pins_sha256": "483eabe1998e680b0de525b65ab14448b11d11b472b754a3e88d5349c4253021",
+      "preserved_source_count": 137,
+      "result_sha256": "cd0e413dbf929449f36c43e51fe1d8ebc934e340c93ee881bdae53d9be6a957e",
+      "sampled_pytest_primary_max_RSS_bytes": 96681984,
+      "started_at_utc": "2026-10-07T19:33:27.983117+00:00",
+      "wall_budget_interrupt_sent": false,
+      "wall_seconds": 1.5258034480066271
+    },
+    "guard-regression": {
+      "all_preserved_sources_unchanged": true,
+      "argv": [
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/test_crop_cycle_calculation_context.py",
+        "tests/test_crop_cycle_calculation_artifact.py",
+        "tests/test_crop_cycle_calculation_server_custody.py",
+        "-q",
+        "-x",
+        "--tb=short",
+        "--basetemp",
+        "/tmp/ossf-recheck-0yxwa__s/pytest"
+      ],
+      "clusters": [],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T19:38:15.294599+00:00",
+      "log_bytes": 272,
+      "log_sha256": "5c86ef54bde2780ed672be34cf9d8e44b2b9b954ab8d109107bcdfd4b8279681",
+      "memory_scope": "sampled_current_descendants_RSS_sum_may_double_count_shared_pages_not_WSL_total_or_PSS",
+      "nice": 19,
+      "owned_remaining_processes": [],
+      "owned_temp_tree_removed": true,
+      "passed_cases": 175,
+      "passfiles_after": [],
+      "pins_sha256": "0e4b610b574824d9c5928fea59394dad18c8dc233db0de8b3ddca7aa3587e5f5",
+      "preserved_source_count": 262,
+      "result_sha256": "ff14dc68a7d7af4a6aaa5ebd7cc24e7f53d18de6450cea8baf47a9d9d75f17cf",
+      "sampled_pytest_primary_max_RSS_bytes": 100790272,
+      "started_at_utc": "2026-10-07T19:34:54.700254+00:00",
+      "wall_budget_interrupt_sent": false,
+      "wall_seconds": 200.59218442600104
+    },
+    "recheck-prefix": {
+      "all_preserved_sources_unchanged": true,
+      "argv": [
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/crop_cycle_full_prefix_cost_smoke.py",
+        "-k",
+        "actual_full166",
+        "-q",
+        "-x",
+        "--tb=short",
+        "--basetemp",
+        "/tmp/ossf-recheck-znpueka8/pytest"
+      ],
+      "clusters": [
+        {
+          "directory": "/tmp/ossf-recheck-znpueka8/system/ossf-login-pg-n0e217ef/data",
+          "directory_exists_after": false,
+          "pid": 886386,
+          "same_PID_alive_after": false,
+          "start_ticks": "7264399"
+        }
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T19:43:41.513258+00:00",
+      "log_bytes": 123,
+      "log_sha256": "7fd5e26c211e034e3a336d5e0ec95e0ff408edfd25030af64077f3a36decaa55",
+      "memory_scope": "sampled_current_descendants_RSS_sum_may_double_count_shared_pages_not_WSL_total_or_PSS",
+      "nice": 19,
+      "owned_remaining_processes": [],
+      "owned_temp_tree_removed": true,
+      "passed_cases": 1,
+      "passfiles_after": [],
+      "pins_sha256": "0e4b610b574824d9c5928fea59394dad18c8dc233db0de8b3ddca7aa3587e5f5",
+      "preserved_source_count": 262,
+      "result_sha256": "5cc426886adfef6c7fe783b015467c5de8998dfe55c95ab0103cbf89116be2ac",
+      "sampled_pytest_primary_max_RSS_bytes": 208814080,
+      "started_at_utc": "2026-10-07T19:42:26.145772+00:00",
+      "wall_budget_interrupt_sent": false,
+      "wall_seconds": 75.36514790799993
+    }
+  },
+  "comparison": {
+    "advance_seconds_after": 29.55060026999854,
+    "advance_seconds_before": 30.737128644017503,
+    "all_owned_contexts_closed_caches_empty": true,
+    "baseline_profile_sha256": "124ea43fd3071c945a6fbdf282eb483781e519a02c36807e0c2b98f56ee99fda",
+    "checkpoint_sha256": "f9acf57f307c6d7d511790dc6d220f47f34f1b9e46b1b8f405972f14d609a1bc",
+    "current_profile_sha256": "e9724dc0091b2b6d0bd2a498fec22bc7a982c46c2b4fe10067d705c38384ed33",
+    "current_rights_and_principal_denied": true,
+    "current_verified_sha256": "8da21c5549537d4f7585a32d10cb30f21afdeec3446fb1b2e721d342865fd3b9",
+    "derived_input_files": 750,
+    "descriptors_before_after": [
+      12,
+      12
+    ],
+    "entire_checkpoint_equal_to_previous_registered_calculation": true,
+    "exact_same_context_sha256": "71c322fac5c814d4d01238b01761c565506d676c2da9a4df2994c03007483c6a",
+    "fresh_service_checkpoint_exact": true,
+    "growth_curve": [
+      {
+        "advance": 1,
+        "after_proof_calls": 33,
+        "after_wall_seconds": 12.118864941992797,
+        "before_proof_calls": 39,
+        "before_wall_seconds": 12.609170355004608,
+        "commit_count": 1,
+        "counts": {
+          "events": 2,
+          "samples": 4
+        },
+        "file_count": 6,
+        "planned_steps": 1816704,
+        "status": "yielded",
+        "steps": 123,
+        "storage_bytes": 79352
+      },
+      {
+        "advance": 2,
+        "after_proof_calls": 26,
+        "after_wall_seconds": 8.695337231009034,
+        "before_proof_calls": 30,
+        "before_wall_seconds": 9.075885598009336,
+        "commit_count": 2,
+        "counts": {
+          "events": 2,
+          "samples": 7
+        },
+        "file_count": 8,
+        "planned_steps": 1816704,
+        "status": "yielded",
+        "steps": 248,
+        "storage_bytes": 110617
+      },
+      {
+        "advance": 3,
+        "after_proof_calls": 26,
+        "after_wall_seconds": 8.736398096996709,
+        "before_proof_calls": 30,
+        "before_wall_seconds": 9.05207269100356,
+        "commit_count": 3,
+        "counts": {
+          "events": 2,
+          "samples": 10
+        },
+        "file_count": 10,
+        "planned_steps": 1816704,
+        "status": "yielded",
+        "steps": 373,
+        "storage_bytes": 141800
+      }
+    ],
+    "inputs_artifact_and_registered_DB_counts_preserved": true,
+    "matched_advance_only_costs_not_additive": {
+      "artifact.prefix_verify": {
+        "after": {
+          "calls": 5,
+          "cpu_seconds": 0.32986797199999884,
+          "exclusive_cpu_seconds": 0.06580162699999903,
+          "exclusive_wall_seconds": 0.0657635778770782,
+          "wall_seconds": 0.3298908700089669
+        },
+        "before": {
+          "calls": 5,
+          "cpu_seconds": 0.32648491799999846,
+          "exclusive_cpu_seconds": 0.06274633300000687,
+          "exclusive_wall_seconds": 0.06272179808001965,
+          "wall_seconds": 0.32651665300363675
+        }
+      },
+      "economics.calculate": {
+        "after": {
+          "calls": 36,
+          "cpu_seconds": 1.6289764569999985,
+          "exclusive_cpu_seconds": 1.2600152290000484,
+          "exclusive_wall_seconds": 2.750601842853939,
+          "wall_seconds": 3.2859060049668187
+        },
+        "before": {
+          "calls": 36,
+          "cpu_seconds": 1.6294371570000106,
+          "exclusive_cpu_seconds": 1.2587558430000438,
+          "exclusive_wall_seconds": 2.743480056131375,
+          "wall_seconds": 3.27861753597972
+        }
+      },
+      "economics.verified_arithmetic": {
+        "after": {
+          "calls": 36,
+          "cpu_seconds": 0.012514681999993726,
+          "exclusive_cpu_seconds": 0.012514681999993726,
+          "exclusive_wall_seconds": 0.012509037012932822,
+          "wall_seconds": 0.012509037012932822
+        },
+        "before": {
+          "calls": 36,
+          "cpu_seconds": 0.012778592999996619,
+          "exclusive_cpu_seconds": 0.012778592999996619,
+          "exclusive_wall_seconds": 0.012772715970641002,
+          "wall_seconds": 0.012772715970641002
+        }
+      },
+      "farm.current_rights": {
+        "after": {
+          "calls": 17,
+          "cpu_seconds": 10.725707837999998,
+          "exclusive_cpu_seconds": 0.05647607500002039,
+          "exclusive_wall_seconds": 0.0565817561437143,
+          "wall_seconds": 18.734347352045006
+        },
+        "before": {
+          "calls": 17,
+          "cpu_seconds": 10.583689736000007,
+          "exclusive_cpu_seconds": 0.05581541599998907,
+          "exclusive_wall_seconds": 0.055924030966707505,
+          "wall_seconds": 18.582510220003314
+        }
+      },
+      "farm.input_validate": {
+        "after": {
+          "calls": 36,
+          "cpu_seconds": 3.947619783999995,
+          "exclusive_cpu_seconds": 0.32675342699998744,
+          "exclusive_wall_seconds": 0.32671047799522057,
+          "wall_seconds": 3.9479400669661118
+        },
+        "before": {
+          "calls": 36,
+          "cpu_seconds": 3.883308302000012,
+          "exclusive_cpu_seconds": 0.36693610099998253,
+          "exclusive_wall_seconds": 0.3668747690971941,
+          "wall_seconds": 3.883471461071167
+        }
+      },
+      "farm.prepare": {
+        "after": {
+          "calls": 1,
+          "cpu_seconds": 0.6385364220000014,
+          "exclusive_cpu_seconds": 0.003460514000002135,
+          "exclusive_wall_seconds": 0.003465428002527915,
+          "wall_seconds": 1.1150526499986881
+        },
+        "before": {
+          "calls": 1,
+          "cpu_seconds": 0.6220850700000007,
+          "exclusive_cpu_seconds": 0.0034182549999997036,
+          "exclusive_wall_seconds": 0.0034249989985255525,
+          "wall_seconds": 1.1004176429996733
+        }
+      },
+      "farm.registration_read": {
+        "after": {
+          "calls": 36,
+          "cpu_seconds": 7.004402481000001,
+          "exclusive_cpu_seconds": 2.4685398949999993,
+          "exclusive_wall_seconds": 5.813592398946639,
+          "wall_seconds": 15.008316839986946
+        },
+        "before": {
+          "calls": 36,
+          "cpu_seconds": 6.917777929000017,
+          "exclusive_cpu_seconds": 2.4414042070000264,
+          "exclusive_wall_seconds": 5.79261442204006,
+          "wall_seconds": 14.923554468012298
+        }
+      },
+      "input.proof_verify": {
+        "after": {
+          "calls": 85,
+          "cpu_seconds": 8.359932874000009,
+          "exclusive_cpu_seconds": 8.359932874000009,
+          "exclusive_wall_seconds": 8.361493191041518,
+          "wall_seconds": 8.361493191041518
+        },
+        "before": {
+          "calls": 99,
+          "cpu_seconds": 9.454428951999995,
+          "exclusive_cpu_seconds": 9.454428951999995,
+          "exclusive_wall_seconds": 9.454934409979614,
+          "wall_seconds": 9.454934409979614
+        }
+      },
+      "market.validate_pinned": {
+        "after": {
+          "calls": 36,
+          "cpu_seconds": 4.535862586000002,
+          "exclusive_cpu_seconds": 2.4604214849999373,
+          "exclusive_wall_seconds": 5.302155173165374,
+          "wall_seconds": 9.194724441040307
+        },
+        "before": {
+          "calls": 36,
+          "cpu_seconds": 4.476373721999991,
+          "exclusive_cpu_seconds": 2.4050663439999447,
+          "exclusive_wall_seconds": 5.248061516787857,
+          "wall_seconds": 9.130940045972238
+        }
+      },
+      "rhs": {
+        "after": {
+          "calls": 1876,
+          "cpu_seconds": 3.4831626009999557,
+          "exclusive_cpu_seconds": 3.4831626009999557,
+          "exclusive_wall_seconds": 3.482150818075752,
+          "wall_seconds": 3.482150818075752
+        },
+        "before": {
+          "calls": 1876,
+          "cpu_seconds": 3.5318608009999863,
+          "exclusive_cpu_seconds": 3.5318608009999863,
+          "exclusive_wall_seconds": 3.5312178421445424,
+          "wall_seconds": 3.5312178421445424
+        }
+      }
+    },
+    "original_artifact_files": 29141,
+    "original_input_files": 750,
+    "original_stored_rows_and_checkpoint_values_equal_after_explicit_calendar_shift": true,
+    "read_rhs_calls": 0,
+    "row_counts_before_after": [
+      [
+        89,
+        89,
+        0,
+        0,
+        0
+      ],
+      [
+        89,
+        89,
+        0,
+        0,
+        0
+      ]
+    ],
+    "yielded_not_published": true
+  },
+  "guard_GREEN": {
+    "caller_functions": [
+      [
+        "verify",
+        "recheck",
+        "_secure_input",
+        "_guard",
+        "test_guard_checks_current_policy_once_and_whole_bytes_once",
+        "pytest_pyfunc_call"
+      ]
+    ],
+    "policy_calls": 1,
+    "scope": "unregistered_synthetic_exact_context_guard_only",
+    "whole_byte_calls": 1
+  },
+  "guard_RED": {
+    "caller_functions": [
+      [
+        "verify",
+        "recheck",
+        "_secure_input",
+        "_guard",
+        "test_guard_checks_current_policy_once_and_whole_bytes_once",
+        "pytest_pyfunc_call"
+      ],
+      [
+        "verify",
+        "recheck",
+        "_secure_input",
+        "_guard",
+        "test_guard_checks_current_policy_once_and_whole_bytes_once",
+        "pytest_pyfunc_call"
+      ]
+    ],
+    "policy_calls": 1,
+    "scope": "unregistered_synthetic_exact_context_guard_only",
+    "whole_byte_calls": 2
+  },
+  "holds": {
+    "actual_product_CLI_and_end_to_end_G1_pending": true,
+    "adopted_real_cultivar_inputs": 0,
+    "domestic_independent_validation_datasets": 0,
+    "forecast_and_ranking_publication": "hold",
+    "fresh_harvest_kg_resources_purchased_energy_crop_to_Decimal_economics_pending": true,
+    "gates": "not_assessed",
+    "latest_native_original_command_exit_record_missing": true,
+    "measured_farm_crop_Runs": 0,
+    "whole_cycle_prefix_cost_parent": true
+  },
+  "implementation": {
+    "after_sha256": "2fd04912072fe990b708a7796abbf6df9ba55da421f1c5bfda2d101bbafbc808",
+    "before_sha256": "c7fe972d9398953da2a69af2eaad9dc61366f96d6f0a539bec00034cc5f93763",
+    "caching_added": false,
+    "guard_delta": "first _secure_input replaced by exact context/code/profile check and existing directory FD security; current callback and following whole-byte check unchanged",
+    "new_services_or_schema": false,
+    "only_changed_function": [
+      "_Journal._guard"
+    ],
+    "review_sha256": "e5b4cf9365ff3f19138a9b8e7e4ca024712107339b410aab34126d871ef0367d",
+    "source": "backend/app/crop_cycle_calculation_server_custody.py",
+    "unchanged_function_count": 34,
+    "unchanged_product_sources": {
+      "backend/app/crop_cycle_calculation_artifact.py": true,
+      "backend/app/crop_cycle_calculation_context.py": true,
+      "backend/app/crop_cycle_calculation_farm_binding.py": true,
+      "backend/app/crop_cycle_input_evidence.py": true
+    }
+  },
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "proof_sha256": "615dea3847852656d49a08142aa47829620bfc0ebd86f76d6a072b303ad18881",
+    "recursive_cli_invocations": 0,
+    "thread_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-07T19:29:48.116Z",
+    "turn_context_line_sha256": "bdb6b96474fce66a4f26bde006cb3d409d86e8d0c9387ba87a2c18626b7ccba3"
+  },
+  "not_run": [
+    "whole_backend",
+    "hosted_verification_of_current_worktree",
+    "whole166_registered_terminal_DB_API_3D",
+    "new_browser_regression"
+  ],
+  "recorded_at_utc": "2026-10-07T19:47:11.824703+00:00",
+  "scope": "owned_synthetic_registered_first_three_advances_and_guard_regressions_only",
+  "unique_successful_cases_across_four_commands": 199,
+  "version": "crop-cycle-calculation-recheck-cost-reference-v1"
+}

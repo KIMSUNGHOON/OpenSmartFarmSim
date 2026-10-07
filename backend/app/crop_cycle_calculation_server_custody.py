@@ -262,7 +262,8 @@ class _Journal:
             if fd is not None:os.close(fd);setattr(self,key,None)
 
     def _guard(self):
-        _pins();_secure_input(self.context);_need(self.current()==self.binding_raw)
+        _pins();engine._require_context(self.context);_secure(self.context.reader._fd,directory=True)
+        _need(self.current()==self.binding_raw)
         _secure_input(self.context)
         _secure(self.root_fd,directory=True);_secure(self.intent_fd,directory=True)
         _same_directory(self.root_fd,self._identity,self.intent_fd)

@@ -714,12 +714,22 @@
           [10월8일 수용](../research/crop-cycle-candidate-read-scope-implementation-20261008.md): 새15개/원 회귀21개/실제 계산1개,
           고유37개 분할·연결38→1/원 검사·Decimal·철회/commit된 변조/감사·readonly/동시/정리,
           같은 첫3회60.421→30.737초·373걸음/10시점/2사건·원 상태/행·RHS0/FD12→12·135 source/정리·종료0.
-        - [ ] **`crop-cycle-calculation-recheck-cost`** — 다음 한 단계; 같은 입력의 반복 검증 비용.
+        - [x] **`crop-cycle-calculation-recheck-cost`** — 같은 입력의 반복 검증 비용.
           원 첫3회에서 입력 proof99회/9.455초를 관측했다. 기존 계측기로 호출자/검사 경계를 확인하고,
           현재 전체 bytes·code/authority/instance·늦은 입력 변조·현재 권리/계정·원 수치/조회 RHS0를
           보존하는 중복 검사 개선만 작은 계약으로 고정해 구현한다. 원 검증 음성 대조와
           같은 root/checkpoint/행·별도 복원·FD/PG/비밀 정리·실제 종료/비용이 수용 기준이다.
           메타데이터만의 무결성 확인이나 권리 캐시로 대체하지 않는다. 전체 작기 예산/누적 비용 부모는 별도다.
+          [10월8일 수용](../research/crop-cycle-calculation-recheck-cost-implementation-20261008.md): 새11개/기존175개/실제 농장12개/같은 계산1개,
+          고유199개 분할·guard 전체 검사2→1/현재 정책1회·같은 첫3회 입력 proof99→85회·30.737→29.551초,
+          체크포인트 전체/원량·늦은 변조/철회·fresh 복원/RHS0·262 source/FD12→12·실제 종료0/정리.
+        - [ ] **`crop-cycle-calculation-full-budget`** — 다음 한 단계; 개선 판본의 누적 비용과 전체 등록 실행 예산.
+          선행 위 recheck 자식. 기존 계측기·같은 전체 root/증명·최대32호출/20분 안에서 초기/증가 비용을 비교한다.
+          원32번째 checkpoint/확정 행·현재 권리·새 서비스 복원/RHS0·source/입력/기존 이력·PG/비밀/실제 종료/정리를 보존한다.
+          입력/권리·prefix 재검사/저장·RHS의 호출 구조와 남은 증가 비용을 분리해 전체 실행의 예산·중단/재개·수용 절차를 고정한다.
+          초기 비용의 단순 선형 외삽은 완료일이나 처리량 수용이 아니다. 실측으로 전체 실행이 예산 안에 들지 않으면
+          원 검사를 유지하는 필요한 작은 수정의 계약/검증을 먼저 고정한다. 예산 근거 전 전체 등록 장시간 계산을 시작하지 않는다.
+          이 자식만으로 prefix-cost 부모·전체166일 terminal/DB/API/3D·생산량/관문을 체크하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
