@@ -467,6 +467,10 @@
           마지막 권리 검토 철회의 실제1실패 수정·원3시점·재구성/fork·parser/QC/RHS0·FD/스키마/역할/비밀/PG 정리.
           이8개는 `04072f0`의 판본이며 이후 transport 예외 전파 변경은 아래 실제 TLS/권한 회귀로 확인했다.
           전체166일·부하는 별도다.
+          `2daa99f`의 CI 분할1은751본문 통과 뒤 앞선 수집 시험의 복사 비밀번호 잔존으로 종료 정리1오류였다.
+          [소유 시험 정리 수정](../research/application-collection-passfile-cleanup-20261007.md)은 실제 SCRAM의
+          동일 순서2개/75.53초·잔존 비밀/스키마/역할0으로 로컬 수용했다. 조회8개/정리 검사·원 수식은 그대로이며
+          수정의 hosted CI와 전체 backend 수용은 별도다.
         - [x] **`crop-cycle-query-runtime`** — 선행 authority; API route/create_app/runtime의 명시적
           조회 선택·집중 시험·계약. 기본 기존 경로를 유지하고 현재 조회 타입/원 store·농장 authority를 대사한다.
           실제 SCRAM/TLS의 원 모든 작은 시점/사건·전체 응답30초/2MiB·투영 후 철회·재시작·거부/정리를
