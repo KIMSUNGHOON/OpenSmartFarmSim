@@ -52,3 +52,11 @@ renderer/timer 정리를 검증한다. UI 착수 때 `12ui-design`/브라우저 
 SDK 수용 후 작은 웹 연결의 남은 예상은 위2–4 + native3–5, **5–9집중시간 잠정**이다.
 실제 실패/통과로 갱신하며 CI·전체166일 등록 prefix/복원·생과/자원/Decimal 경제와 자료 확보는 제외한다.
 실제 품종 입력·국내 독립 검증 자료·실제 농장 작물 Run0건, G0–G4/예측·추천·최종 날짜 보류는 유지한다.
+
+## 2026-10-08 window 자식 수용
+
+[실제 검증 기록](../research/web-crop-cycle-calculation-window-20261008.md): 새19개 포함 웹 전체719개·타입/빌드,
+원량/UTC·전체 검증 정보·닫힌 source/union·순차/취소/settlement와 원104 source/임시 정리로 수용했다.
+원 `open`을 유지했고 새 `openCalculation`을 추가했다. 새 HTTP/PG/브라우저·3D 실행은0이다.
+다음 [화면3파일](web-crop-cycle-calculation-view-v1.md) 뒤 실제 PG/TLS/WebGL을 검증한다.
+위 helper 추정은 실제 실적으로 대체하며 남은 작은 화면/native는4–7집중시간 잠정이다.

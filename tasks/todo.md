@@ -643,10 +643,12 @@
           원 code/evidence SHA 대응 반례 RED1실패/2통과 → GREEN3통과를 보존했다. 새 HTTP/브라우저/3D 실행은0이다.
         - [ ] **`crop-cycle-calculation-window-view`** — 선행 새 SDK; bounded typed 선택과 기존 연구 화면의 새 판본.
           현재 범위의 원 ID/UTC·C/N/LAI·표/그래프/3D와 변경/권리 실패 때 이전 상태/renderer/timer 정리.
-          - [ ] **`crop-cycle-calculation-window`** — [다음2 core파일 계약](../contracts/web-crop-cycle-calculation-window-v1.md).
+          - [x] **`crop-cycle-calculation-window`** — [2 core파일 계약](../contracts/web-crop-cycle-calculation-window-v1.md).
             원 window helper와 새 집중 시험; 원 `open`/새 `openCalculation`·닫힌 typed union·원 validation/UTC·
             64/8·원 next/이전 offset·변경/취소/철회/늦은 응답·단일 요청/settlement·원 회귀 뒤 이 자식만 수용한다.
-          - [ ] **`crop-cycle-calculation-view`** — 선행 위 helper; 기존 두 화면/집중 browser의 작은 계약을 착수 전 고정한다.
+            [10월8일 수용](../research/web-crop-cycle-calculation-window-20261008.md): 새19개 포함 웹 전체719개/13.70초·타입/빌드·
+            원량/UTC·전체 검증 정보·source 전환/취소·settlement·원104 source/정리. 새 HTTP/PG/브라우저/3D는0이다.
+          - [ ] **`crop-cycle-calculation-view`** — 선행 위 helper; [기존 두 화면/집중 browser3파일 계약](../contracts/web-crop-cycle-calculation-view-v1.md).
             명시 새 판본/원량·UTC·표/그래프/3D·현재 범위/검증 정보와 이전 장면/timer 정리; UI/browser skill 적용.
         - [ ] **`crop-cycle-calculation-native-browser`** — 선행 위 화면; 실제 소유 PG/보호 loader/TLS/WebGL.
           원량/UTC·관리 사건/hold·단일 요청/조회 RHS0·전체 본문 한도·계정/철회·접근성/복구·PG/비밀/서버 정리.

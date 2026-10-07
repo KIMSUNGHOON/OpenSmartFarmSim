@@ -5,7 +5,7 @@
 [운영 기반 고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)에 둔다.
 아래 초안 날짜는 최초 작성일이다. 현재 구현 순서는 §7과 [작업 계획](../tasks/plan.md)을 따른다.
 
-**2026-10-07 최신 연결:** [별도 계산 설정 로더](../research/crop-cycle-calculation-operator-loader-20261007.md)를
+**2026-10-08 최신 연결:** [별도 계산 설정 로더](../research/crop-cycle-calculation-operator-loader-20261007.md)를
 새57개/기존155개·고유212개 분할·실제 SCRAM/자원 정리로 로컬 수용했다.
 [인증 route/OpenAPI](../research/crop-cycle-calculation-route-openapi-20261007.md)도 새63개/회귀221개·고유284개 분할,
 원48 path/148 schema·78 source/원량·UTC·투영 뒤 철회로 ASGI 자식만 로컬 수용했다.
@@ -13,7 +13,9 @@
 26 전체 HTTPS 최대5.258614초/23,546bytes·원량/UTC·철회/변조·81 source/정리로 작은 API 부모까지 로컬 수용했다.
 [새 SDK](../research/web-crop-cycle-calculation-client-20261007.md)도 새178개 포함 웹 전체700개·타입/빌드·
 34 공개 JSON/원량·UTC·검증 정보/순차·취소·101 source 보존으로 수용했다.
-다음은 [현재 범위 선택/동일 UTC3D](../contracts/web-crop-cycle-calculation-window-v1.md)이며,
+[현재 범위 선택](../research/web-crop-cycle-calculation-window-20261008.md)도 새19개 포함 웹 전체719개·타입/빌드·
+원/새 source·원량/UTC·검증 정보·취소/settlement·104 source 보존으로 수용했다.
+다음은 [기존 화면3파일/동일 UTC3D](../contracts/web-crop-cycle-calculation-view-v1.md)이며,
 전체166일 등록 비용/복원·생과/자원/경제와 실제 자료 관문은 후속이다.
 
 상태: **검토용 초안, 2026-09-27.** 설계 선택은 구현 방향이며 과학적 검증 또는 production readiness를 뜻하지 않는다. 기획자는 농업·지역 조건·종자에 관한 배경지식이 없으므로 전문적인 수치의 선정과 근거 검토는 Codex CLI `gpt-6.1-sol` `xhigh`가 **연구·설계 단계와 배포 제품의 실제 사용 중 모두** 담당한다. 필요한 소프트웨어·역할·선택 이유는 [기술 스택](TECH_STACK.md), 프로세스·자료·판정 계약은 [아키텍처](ARCHITECTURE.md#필수-codex-cli-런타임-작업자)에 둔다. 사용자 선호가 필요한 항목만 마지막 절에 분리했다.

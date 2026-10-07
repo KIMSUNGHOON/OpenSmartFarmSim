@@ -2,7 +2,7 @@
 
 지역을 고르면 기상·시설·작물·시장 자료의 출처를 확인하고, 온실 시나리오를 계산해 3D로 재생하며, **평가한 작물 중 어떤 선택이 목표에 가장 맞는지** 근거와 불확실성을 설명하는 오픈소스 프로젝트입니다. 수확 시점의 수요·공급과 거시 비용 변화도 재배 결정의 조건으로 다룹니다.
 
-**진행 요약 (2026-10-07 KST):** 합성 생장 계산→실제 DB/HTTPS→같은 UTC3D의25시간 경로는 로컬 수용했고,
+**진행 요약 (2026-10-08 KST):** 합성 생장 계산→실제 DB/HTTPS→같은 UTC3D의25시간 경로는 로컬 수용했고,
 [새166일 전체 RHS](research/crop-cycle-full-rhs-durable-completed-20261007.md)는 종료0·1,816,704걸음·47,809시점/5사건·
 원 전체 수지/행 hash·55 source/체크포인트 복원·자원 정리로 로컬 수용했습니다. 전체 등록 농장 DB/API/3D는 후속입니다.
 생과 수확량·물/양분·구매 에너지·작물 결과와 손익의 연결은 남아 있습니다. 실제 품종 입력·국내 독립 검증 자료는
@@ -57,7 +57,9 @@ SQL 형식 시험 metadata를 저장한 단계입니다. 후속 [서명 결과 D
 26 HTTPS 전체 응답 최대5.258614초/23,546bytes·철회/변조·원량/UTC·FD11→11/81 source·정리로 로컬 수용했습니다.
 [새 웹 SDK](research/web-crop-cycle-calculation-client-20261007.md)도 새178개 포함 웹 전체700개·타입/빌드·
 34 공개 JSON/원량·UTC·검증 정보 대응·직렬 페이지/취소·원101 source 보존으로 로컬 수용했습니다.
-다음은 [현재 범위 선택2파일 → 화면/3D → 실제 WebGL](contracts/web-crop-cycle-calculation-window-v1.md)이며,
+[현재 범위 선택](research/web-crop-cycle-calculation-window-20261008.md)도 새19개 포함 웹 전체719개·타입/빌드·
+원/새 source·원량/UTC·검증 정보·취소/settlement·104 source 보존으로 로컬 수용했습니다.
+다음은 [기존 화면3파일 → 같은 UTC3D → 실제 WebGL](contracts/web-crop-cycle-calculation-view-v1.md)이며,
 새 경로의 동일 UTC3D·전체166일 등록 비용/복원과 hosted 수용은 별도입니다.
 [전체 원 결과 증명 관측](research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은6.11MB/8MiB·
 발행175.7초·별도 Python 검증1.59초·선택 page1.7–2.0초/정리를 확인했습니다. 농장/HTTP/3D 수용은 별도입니다.

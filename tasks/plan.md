@@ -331,6 +331,10 @@ CI·전체166일 등록 비용/복원·생과/자원/경제·실제 자료와 �
 SDK2–3시간 추정은 이 실적으로 대체한다. 다음 [범위 helper2파일 → 화면/집중 브라우저](../contracts/web-crop-cycle-calculation-window-v1.md)는
 각1–2시간으로 나누고, native3–5시간과 합한 **남은 작은 웹 연결5–9집중시간 잠정**으로 갱신한다.
 새 SDK의 실제 HTTP/PG/브라우저는0이며 위 실적을 새3D나 전체166일·품종/관문 수용으로 바꾸지 않는다.
+[현재 범위 helper 실제 수용](../research/web-crop-cycle-calculation-window-20261008.md)은 새19개 포함 웹 전체719개·타입/빌드·
+원/새 typed source·원량/UTC/전체 검증 정보·byte-short/이전 offset·취소/settlement·원104 source/정리다.
+helper1–2시간 추정은 이 실적으로 대체한다. 다음 [화면3파일/집중 browser1–2시간](../contracts/web-crop-cycle-calculation-view-v1.md)과
+native3–5시간의 **남은 작은 웹 연결4–7집중시간 잠정**이며 CI·전체166일/자료·경제·최종 날짜는 제외한다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
 선택 시작/중간/끝129시점/5사건·page 최대2.035086초와 source/FD/PID 정리를 확인했다.

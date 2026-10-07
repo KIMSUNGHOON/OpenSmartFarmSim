@@ -80,3 +80,10 @@ CI 대기·전체166일 등록 prefix 비용/저장·복원·실제 저사양 �
 [수용 기록](../research/web-crop-cycle-calculation-client-20261007.md)에 원 실패·명령/source/로그·정리를 둔다.
 SDK2–3시간 추정은 이 실적으로 대체한다. 다음 [현재 범위 helper2파일](web-crop-cycle-calculation-window-v1.md) →
 화면/집중 브라우저 → 실제 PG/TLS/WebGL의 남은5–9집중시간 잠정이며 전체 작기/자료 확보·최종 날짜와 구분한다.
+
+## Window 자식 로컬 수용 — 2026-10-08
+
+[범위 helper](../research/web-crop-cycle-calculation-window-20261008.md)는 새19개 포함 웹 전체719개·타입/빌드,
+원/새 source·전체 validation/원량/UTC·순차/취소/settlement·원104 source/정리로 수용했다.
+2번 window/view 자식의 helper만 완료했으며 [화면3파일](web-crop-cycle-calculation-view-v1.md)과 native는 남아 있다.
+작은 화면/native의 남은 예상은4–7집중시간 잠정이며 전체166일·자료/관문·최종 날짜는 포함하지 않는다.

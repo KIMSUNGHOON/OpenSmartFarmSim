@@ -4,14 +4,16 @@
 작물 생장·저장·성장 3D로 진행한다. 첫 작성 시점의 구현 현황은 아래에 남겨두며,
 현재 운영 완료 범위와 CI는 [고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)을 따른다.
 
-**2026-10-07 최신 경계:** [계산 설정 로더](../research/crop-cycle-calculation-operator-loader-20261007.md)의
+**2026-10-08 최신 경계:** [계산 설정 로더](../research/crop-cycle-calculation-operator-loader-20261007.md)의
 고유212개 분할·실제 SCRAM/정리로 명시 operator-runtime까지 로컬 수용했다.
 [인증 route/OpenAPI](../research/crop-cycle-calculation-route-openapi-20261007.md)도 고유284개 분할·ASGI/원 선언·78 source 보존으로 수용했다.
 [runtime/TLS](../research/crop-cycle-calculation-runtime-tls-20261007.md)도 고유337개 분할·실제 SCRAM/26 HTTPS·
 전체 본문 최대5.258614초/23,546bytes·원량/UTC/철회·81 source/정리로 작은 API 부모까지 로컬 수용했다.
 [새 SDK](../research/web-crop-cycle-calculation-client-20261007.md)도 새178개 포함 웹 전체700개·타입/빌드·
-원량/UTC·검증 정보·101 source 보존으로 수용했다. 다음은
-[현재 범위 선택2파일 → 화면/동일 UTC3D](../contracts/web-crop-cycle-calculation-window-v1.md)다.
+원량/UTC·검증 정보·101 source 보존으로 수용했다.
+[현재 범위 선택](../research/web-crop-cycle-calculation-window-20261008.md)도 새19개 포함 웹 전체719개·타입/빌드·
+원/새 source·검증 정보/UTC·취소/settlement·104 source 보존으로 수용했다.
+다음은 [기존 화면3파일/동일 UTC3D](../contracts/web-crop-cycle-calculation-view-v1.md)다.
 전체166일 등록 경로/복원과 생산/경제·자료 관문·hosted 수용은 별도다.
 
 상태: **내부 구현 계약·부분 구현, 2026-09-27.** C0 Compose, 출처/G0 형식·서버 승인 저장 계약·시장 문맥, 합성 열 매개변수·trace 계약과 `candidate` 엔진, 조건부 경제 원장·판매 정산, PostgreSQL 지속 작업·AI 시도 증거 저장 계약이 수용됐다. G0 독립 권리 증거의 실제 연결, CLI 증거 저장 브리지와 의도 멱등 제약은 수용됐다. 열 모델의 D/R 결정시각 분리·서명된 DecisionContext와 게시 소프트웨어 통합, CLI 작업자 후보, 사용자 가정의 공동 시장 시나리오가 구현됐다. 실제 제품 CLI 실행·독립 게시 권한, 영속 Market hold·전체 경로 손익분기, API·3D·G1 종단 간 경로는 아직 수용 전이다. 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
