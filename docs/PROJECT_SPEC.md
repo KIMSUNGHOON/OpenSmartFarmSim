@@ -232,10 +232,16 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 원 계산 provenance와 조회 타입/코드를 분리했으며 결과 검증·현재 farm/권리·API 연결은 별도다.
 [확정 과거 결과 비용](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은
 원8,175commit/26,831출력의 수지 검증73.71초로 반복 결과 검증도30초 경로 전에 개선해야 함을 확인했다.
-[결과 검증 영수증](../contracts/crop-cycle-result-evidence-v1.md)은 기존 terminal artifact와 입력 조회를
-선행으로 작은 완료/hold 사례에서 전체 RHS와 병행 개발한다. 원 전체 검증 → 현재 bytes/요청 page를
-분리하며 실제 전체 결과·typed result reader·현재 farm/Scope/권리·원 server trace/API·같은 UTC3D의
-수용은 전체166일 실제 종료 증거와 별도로 확인한다. 참조 proof로 농장 계산 이력을 만들지 않는다.
+[결과 검증 영수증](../research/crop-cycle-result-evidence-implementation-20261006.md)은 작은 완료/hold의
+원 QC·새41개/관련 고유89개·새5시간1,800걸음/61출력/3사건·별도 Python/FD 정리로 로컬 수용했다.
+원 QC 발행0.136초/별도 재조회0.013초는 작은 사례의 실측이다. 원 전체 검증과 현재 bytes를 분리했다.
+다음3 core파일의 typed result reader는 원 page 값/UTC/count·변조/파일 보안·bounded cache·
+반환 직전 현재 입력/결과 재대사를 검증한다. 현재 farm/Scope/권리·원 server trace/API →
+실제 전체 저장/같은 UTC3D로 이어지며 전체 결과/부모 수용은 원166일 종료와 실제 경로 증거를 기다린다.
+참조 proof로 농장 계산 이력을 만들지 않는다.
+10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)은 원81574 handle·실험/terminal
+보존 경로 부재를 확인했다. 원 최종 결과는 확인 불가이며 부분 관측을 전체 수용으로 바꾸지 않는다.
+작은 사례의 조회 개발은 계속하고 원 전체 수용은 복구 가능한 원 증거 또는 별도 판본의 새 실험 증거를 요구한다.
 실제 전체 작기 처리는 미수용이며6시간 수치 실험 예산 후보를 날짜로 표시하지 않는다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
 전체 작기 생산 모델의 착수/게시 범위에 접근할 수 있다.

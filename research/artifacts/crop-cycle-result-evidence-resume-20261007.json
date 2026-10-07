@@ -1,0 +1,42 @@
+{
+  "evidence_version": "crop-cycle-result-evidence-resume-verification-v1",
+  "observed_at_utc": "2026-10-07T02:01:38.535187+00:00",
+  "native_cli": {
+    "timestamp": "2026-10-07T01:57:57.942Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "2f2ce09f71ab416702b664816fc4ac532fba2f2a8e3c001241276dac216eae9a",
+    "recursive_cli_invocations": 0
+  },
+  "source_sha256": {
+    "backend/app/crop_cycle_result_evidence.py": "15cd4909f0ccb168cef4f8a00c53881f788e392e92cce6878c077e723d7705b9",
+    "backend/tests/test_crop_cycle_result_evidence.py": "b71a1ad684400a5fc8e0ae091cd3969060c7381e98a41137388af387d0810857",
+    "contracts/crop-cycle-result-evidence-v1.md": "3f7d5a8540071033f3059a9bdfadf87bee7d6ebe4596395ac90945c365502ea7"
+  },
+  "prior_acceptance_receipt_sha256": "b9f3fac42f03f4ba184911eecbae578cd6bf09270c3434339383ed376d9bd00f",
+  "focused_test_reverification": {
+    "session_id": 42759,
+    "exit_code": 0,
+    "unique_passed": 89,
+    "seconds": 57.36,
+    "composition": {
+      "result_evidence": 41,
+      "input_evidence": 33,
+      "input_read_context": 15
+    },
+    "command": "cd backend; nice -n 15 .venv/bin/python -m pytest tests/test_crop_cycle_input_evidence.py tests/test_crop_cycle_input_read_context.py tests/test_crop_cycle_result_evidence.py -q",
+    "log_sha256": "1b3538f9787f1d4177d356c17034d49ba713c61e9f5a51108e25e0bd15b40304",
+    "repeated_counts_not_summed": true
+  },
+  "prior_own5h_raw_inputs_retained_keys_and_measurements_currently_available": false,
+  "prior_own5h_measurement_rerun_or_reconstructed": false,
+  "prior_own5h_measurements_scope": "Historical versioned receipt only; no current original raw byte replay can be claimed after temporary state loss.",
+  "original53_pre_CI_fix_current_unchanged": true,
+  "current_missing_state_receipt_sha256": "44fc831434cab8e5f50b0cba758c8581333e56951b737f06aa5966b3145f442a",
+  "all_backend_web_browser_not_run_this_stage": true,
+  "whole166_API_3D_or_gates_accepted": false,
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "actual_crop_runs": 0,
+  "gates": "not_assessed"
+}

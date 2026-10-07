@@ -52,9 +52,12 @@
 열기0.380초/전체 경계 대사13.18초이며 원 계산과 조회 판본을 분리했습니다. 결과/농장 권리/API 연결은 다음입니다.
 [확정 과거 결과 비용](research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은
 실제8,175commit/26,831출력의 원 수지 검증73.71초와 같은 참조 bytes 대사1.03초를 기록했습니다.
-전체166일/HTTP 수용은 아닙니다. 다음 [결과 검증 영수증](contracts/crop-cycle-result-evidence-v1.md)은
-작은 terminal 사례에서 전체 RHS와 병행 개발하고, typed result reader → 현재 농장/원 server trace/API →
-실제 전체 저장/같은 UTC3D 순서로 연결합니다. 계약만 준비했으며 해당 구현과 부모는 미수용입니다.
+전체166일/HTTP 수용은 아닙니다. [결과 검증 영수증](research/crop-cycle-result-evidence-implementation-20261006.md)은
+새41개·관련 고유89개와 새5시간1,800걸음/61출력/3사건·별도 Python/FD 정리로 로컬 수용했습니다.
+원 QC 발행0.136초/별도 재조회0.013초는 이 작은 사례의 실측이며 전체166일 성능은 별도입니다.
+다음은3 core파일의 typed result reader입니다. 실제 page 원값/UTC·변조/파일 보안·bounded cache·
+반환 직전 현재 입력/결과 재대사를 검증하고 현재 농장/원 server trace/API → 전체 저장/같은 UTC3D로 연결합니다.
+원166일 실행과 병행하며 실제 전체 proof/부모는 미수용입니다.
 remote `8fe7dce`의 [종료 CI](research/crop-cycle-full-rhs-ci-hold-20261006.md)는
 다른4workflow 성공·Backend5분할 성공/1실패·집계 실패입니다. 원 RSS 제한을 보존한
 별도 시험 수정 `e310e27`은 로컬18개 통과이며 원166일 종료 전 main/hosted에는 반영하지 않았습니다.
@@ -65,6 +68,11 @@ Backend5분할 성공/1실패·집계 실패, 웹 감사 실패이며 C0/앱/작
 [단일 잠금 수정](research/source-map-js-audit-fix-20261006.md)은 웹503개/타입·빌드·audit0으로
 로컬 수용했고 위 `7a855a7`의 hosted CI에서도 두 수정을 확인했습니다.
 현재 실제 품종/작기 입력과 국내 독립 검증 자료는0건이며 생산 예측·추천은 보류입니다.
+
+**재개 확인 (2026-10-07 KST):** [원166일 실험의 세션·임시 보존 상태가 유실](research/crop-cycle-full-rhs-missing-state-20261007.md)되어
+최종 완료 여부를 확인할 수 없습니다. 기존 부분 관측을 완료로 바꾸거나 같은 실험을 재시작하지 않았습니다.
+결과 증명 관련89개는 현재 환경에서도 통과했고, 새 작업 증거는 재부팅 후에도 유지되는 사설 경로에 보존합니다.
+다음은 별도 결과 조회 타입이며 전체166일/복원·부하 수용은 계속 보류입니다.
 
 **현재 상태 (2026-10-05): 운영 기반 고정, 계산→저장→성장 연구 3D의 첫 소프트웨어 경로를 로컬 수용했습니다.**
 `d19f7c0`의 백엔드·웹·C0·앱 조립·작성 경로 CI 5개가 모두 통과했습니다

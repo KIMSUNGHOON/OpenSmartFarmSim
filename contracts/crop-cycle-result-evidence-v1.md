@@ -37,9 +37,11 @@ HEAD 및 소유한0byte writer-lock만 별도 파일 계약으로 허용한다.
 
 `verify(result_directory, artifact_sha256, input_directory, input_root_sha256, input_evidence_raw, evidence_raw)`는
 닫힌 canonical schema·판본/서명/issuer/key ID를 먼저 검사한다. 현재 source/profile/notice/Python·
-입력 authority/context, result 디렉터리 inode·HEAD/root·모든 참조 파일의 현재 bytes/SHA·정확한 inventory와
+입력 authority/context를 결과 검사 전후에 대사하고, input/result 디렉터리 inode·HEAD/root·모든 참조 파일의 현재 bytes/SHA·정확한 inventory와
 원 bytes/files 한도를 대사한다. 원 전체 parser/`prepare_context`/artifact 수지 검증을 다시 실행하지 않는다.
 성공 시 불변 `VerifiedResultEvidence`를 반환한다. summary/index/identity/context는 독립 JSON 사본이다.
+영수증은 발행한 input/result 디렉터리 inode에도 결속한다. 디렉터리를 옮기거나 복사하면 원 전체 검증으로
+새 영수증을 발행해야 하며 기존 계산 결과/manifest는 변경하지 않는다. 판본/환경/서명 거부는 데이터 읽기 전에 검사한다.
 
 파일은 기존 서버 소유 no-follow/0700·0400 regular/단일 링크·ACL/읽기 전후 metadata 규칙을 따른다.
 미래 변조나 키/프로세스 침해의 증명은 아니다. 후속 typed reader는 실제 page를 읽을 때 다시 SHA와

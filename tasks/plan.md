@@ -182,15 +182,22 @@ schema/QC/context/현재 권리/API는 제외했다. reader 코드 SHA와 root/m
 그 다음은 결과 검증·현재 farm/권리·API의 명시적 타입 연결이며 원 manifest/type gate를 우회하지 않는다.
 [확정 과거 결과 비용](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은
 원8,175commit/26,831출력의 수지 검증73.71초·같은 참조 bytes 대사1.03초를 확인했다.
-입력 개선만으로 반복 결과 검증을30초에 넣을 수 없으므로 [결과 영수증 primitive](../contracts/crop-cycle-result-evidence-v1.md)
-3 core파일을 다음 작은 작업으로 고정한다. 개발 착수는 기존 terminal artifact/입력 조회 수용과
-이 비용 근거이며 작은 완료/hold 사례에서 전체 RHS와 병행한다. 실제 전체 proof 크기/발행은
-원166일 종료 뒤 측정한다. 원 math/manifest와 새 조회 증명 판본을 분리하고 원 parser/수지 검증을
-발행 시 실제 실행한다. 다음 typed result reader → 현재 farm/Scope/등록/권리·원 server trace/API →
-실제 전체 저장/같은 ID/UTC3D 순서다. 순수 참조 proof를 농장 계산 이력으로 재표시하지 않는다.
+입력 개선만으로 반복 결과 검증을30초에 넣을 수 없어 [결과 영수증 primitive](../research/crop-cycle-result-evidence-implementation-20261006.md)를
+3 core파일로 구현했다. 새41개/관련 고유89개·새5시간1,800걸음/61출력/3사건·별도 Python/FD 정리로
+로컬 수용했다. 원 QC 발행0.136초/별도 재조회0.013초는 작은 사례의 실측이며 전체 성능은 별도다.
+원 math/manifest와 새 증명 판본을 분리하고 발행 시 원 parser/수지 검증을 실제 실행한다.
+다음 작은 작업은3 core파일의 typed result reader다. 원 page 값/UTC/count·물리 변조/파일 보안·
+bounded cache·반환 직전 현재 입력/결과 재대사를 원 reader와 확인한다. 개발은 원 전체 RHS와 병행한다.
+실제 전체 proof 크기/발행은 원166일 종료 뒤 측정한다. 현재 farm/Scope/등록/권리·원 server trace/API →
+실제 전체 저장/같은 ID/UTC3D 순서이며 순수 참조 proof를 농장 계산 이력으로 재표시하지 않는다.
+10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)은 원81574 handle·실험/terminal
+보존 경로 부재를 확인했다. 원 최종 상태는 확인 불가이고 같은 실험/예산을 재설정하지 않는다.
+새 사설 증거는 지속 저장 경로에 보존하고 작은 결과 조회 개발은 이어간다. 전체 수용은 원 증거 복구 또는
+별도 판본의 새 실험·실제 전체 저장/API/3D 증거를 요구한다. 원 실행 source 동결은 부재 확인으로 끝났다.
 remote `8fe7dce`의 [CI 종료 보류](../research/crop-cycle-full-rhs-ci-hold-20261006.md)는
 Backend5분할 성공/분할2의8실패·집계 실패와 다른4workflow 성공이다. 원 RSS guard의 suite 부모
 조건을 재현한 별도 `e310e27` 수정은 로컬18개 통과이며 main/hosted 반영은 원166일 종료 뒤다.
+부재를 확인한 현재에는 해당 보존 Git commit을 정상 적용하고 현재 집중/새 hosted 검증을 이어간다.
 전체 실행/복원 날짜는 해당 수정과 실제 종료 상태 뒤 갱신한다. 짧은/복제 fixture와 조기 hold로 전체 작기를 수용하지 않는다.
 최초10–15집중시간/10월6–10일 추정은 위 단계 실적으로 대체한다. 실제166일 부하·자료/품종·
 생과/자원/경제는 별도이며 CI와 실제 경로에서 발견되는 수정으로 일정을 갱신한다.

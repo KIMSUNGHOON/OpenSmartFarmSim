@@ -375,6 +375,9 @@
       실제166일 전체 종료/수지 검증 전에는 이 checkbox를 체크하지 않는다.
       [실제 시작 관측](../research/artifacts/crop-cycle-full-rhs-started-reference-20261006.json)은 첫checkpoint/종료0·
       같은 spec의 별도 Python 재개/실제 진행·고정 deadline을 기록했다. 관측 시각에 실행 중이다.
+      10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)에서 원handle·실험/terminal
+      보존 경로 부재를 확인했다. 원 최종 상태는 확인 불가이며 전체 수용은 보류한다. 같은 실험/예산을 재설정하지 않는다.
+      원 증거 복구 또는 별도 판본/지속 저장의 새 실험 증거와 전체 수지/조회 수용이 필요하다.
     - [ ] **`crop-cycle-burden-replay-restore`** — 선행 전체 RHS/저장 수용; 중단/복원·실제 page/화면3–4파일.
       같은 원 context/seed/누적/clock/sequence의 중단/복원을 연속 결과와 대사하고 전체 저장의
       시작/중간/끝·byte-short/관리 전후·같은 ID/UTC/30초2MiB·현재 권리/변조·DB/서버/비밀번호/FD 정리를 확인한다.
@@ -412,14 +415,18 @@
         다음 결과 primitive는 기존 terminal artifact 수용을 선행으로 작은 사례에서 전체 RHS와 병행 개발한다.
         실제 전체 결과·현재 farm/Scope/등록/권리·API 연결 수용은 원 전체 RHS 종료 증거를 기다린다.
         기존 manifest/type gate를 우회하지 않으며 부모·전체30초/2MiB/API/3D·관문 수용은 별도다.
-      - [ ] **`crop-cycle-result-evidence`** — 선행 terminal artifact/입력 조회 수용과
+      - [x] **`crop-cycle-result-evidence`** — 선행 terminal artifact/입력 조회 수용과
         [결과 비용 관측](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md).
         3 core파일: `backend/app/crop_cycle_result_evidence.py`, 집중 시험,
-        [결과 증명 계약](../contracts/crop-cycle-result-evidence-v1.md). 계약만 준비했으며 코드 미착수다.
+        [결과 증명 계약](../contracts/crop-cycle-result-evidence-v1.md).
         작은 실제 완료/hold artifact의 원 전체 parser·수지 검사 뒤 현재 입력/결과 bytes를 전후 대사해
         정확한 summary/index/context·inventory를 서버 제공 키로 증명한다. 조회는 모든 현재 bytes·판본/키를
         확인하고 원 parser/RHS를 재실행하지 않는다. 다른 키·code·물리 변조/교체/파일 계약·한도 거부와
         별도 Python의 같은 키 재시작·FD/비용을 검증한다. 원 전체 RHS와 병행 가능한 개발 수용이다.
+        [로컬 증거](../research/crop-cycle-result-evidence-implementation-20261006.md): 신규41개/55.28초·
+        관련 고유89개/56.46초·새 실제5시간1,800걸음/61출력/3사건·원 QC 발행0.136초/
+        별도 Python 재조회0.013초·원 checkpoint/manifest 보존·증명16,265bytes·RHS0/FD4→4.
+        인증 미상 판본/조회 중 입력 변조·같은 bytes 디렉터리 교체의 실제3실패 뒤 수정했고 원53 source를 보존했다.
         실제166일 전체 증명 크기/발행·모든 참조 bytes/원 수지는 원 계산 종료 뒤 별도로 확인한다.
         새 사설8MiB proof 후보는 원 artifact/HTTP 한도를 바꾸지 않는다. 실제 전체 크기 초과는 hold다.
       - [ ] **`crop-cycle-result-read-context`** — 선행 결과 primitive 수용; 새 조회 module·시험·계약3 core파일.

@@ -1,0 +1,188 @@
+{
+  "evidence_version": "crop-cycle-result-evidence-implementation-v1",
+  "recorded_at_utc": "2026-10-06T10:37:39.815347+00:00",
+  "scope": "Owned small actual terminal-result mathematical QC receipt and current byte verification only; no whole166 farm/result storage/rights/HTTP/3D or gate release.",
+  "base_commit": "26e1addf265a68217e3c5f94fe2a835a60afcce2",
+  "native_cli": {
+    "timestamp": "2026-10-06T10:05:50.264Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "a72b7bc3b737debdc1022a0ec55a4768f96b5c386c30b5fe33ee07313f63e4e8",
+    "recursive_cli_invocations": 0
+  },
+  "source_sha256": {
+    "backend/app/crop_cycle_result_evidence.py": "15cd4909f0ccb168cef4f8a00c53881f788e392e92cce6878c077e723d7705b9",
+    "backend/tests/test_crop_cycle_result_evidence.py": "b71a1ad684400a5fc8e0ae091cd3969060c7381e98a41137388af387d0810857",
+    "contracts/crop-cycle-result-evidence-v1.md": "3f7d5a8540071033f3059a9bdfadf87bee7d6ebe4596395ac90945c365502ea7"
+  },
+  "prior_evidence_receipt_sha256": {
+    "crop-cycle-input-evidence-reference-20261006.json": "6520ac3af1fa02557a2ad2c421aed2378a926e2713fb6d615f737c5842f6d2f4",
+    "crop-cycle-input-read-context-reference-20261006.json": "a21395cc30e18c2931028db4cd2341f21f6771d1f43b318451b88ed3fba97dbe",
+    "crop-cycle-result-prefix-read-cost-reference-20261006.json": "b106c048a397b75b37080d904fc4521a41ee0647ceb54636abda425b0c129214"
+  },
+  "tests": {
+    "missing_module_RED": {
+      "exit_code": 2,
+      "errors": 1,
+      "seconds": 0.16,
+      "handle_kind": "immediate_terminal"
+    },
+    "first38_GREEN": {
+      "session_id": 9986,
+      "exit_code": 0,
+      "passed": 38,
+      "seconds": 51.38
+    },
+    "current_data_three_RED": {
+      "session_id": 67955,
+      "exit_code": 1,
+      "failed": 3,
+      "deselected": 38,
+      "seconds": 5.16
+    },
+    "final41_GREEN": {
+      "session_id": 38870,
+      "exit_code": 0,
+      "passed": 41,
+      "seconds": 55.28,
+      "command": "cd backend; nice -n 15 .venv/bin/python -m pytest tests/test_crop_cycle_result_evidence.py -q"
+    },
+    "related89_GREEN": {
+      "session_id": 37427,
+      "exit_code": 0,
+      "unique_passed": 89,
+      "seconds": 56.46,
+      "composition": {
+        "result_evidence": 41,
+        "input_evidence": 33,
+        "input_read_context": 15
+      },
+      "command": "cd backend; nice -n 15 .venv/bin/python -m pytest tests/test_crop_cycle_input_evidence.py tests/test_crop_cycle_input_read_context.py tests/test_crop_cycle_result_evidence.py -q"
+    },
+    "repeated_tests_not_added_to_unique_count": true,
+    "whole_backend_web_browser_not_run_this_stage": true
+  },
+  "actual_processes": {
+    "issue": {
+      "session_id": 84699,
+      "exit_code": 0,
+      "command": "nice -n 15 backend/.venv/bin/python /tmp/ossf-cycle-result-evidence-native-small-measure-20261006.py issue"
+    },
+    "separate_verify": {
+      "handle_kind": "immediate_terminal",
+      "chunk_id": "c86b37",
+      "exit_code": 0,
+      "command": "nice -n 15 backend/.venv/bin/python /tmp/ossf-cycle-result-evidence-native-small-measure-20261006.py verify"
+    }
+  },
+  "issue": {
+    "CPU_seconds": 16.000876094,
+    "FD_before_after": [
+      4,
+      4
+    ],
+    "PID": 2951432,
+    "RHS_calls_during_receipt": 0,
+    "artifact_sha256": "15d0efeda0940f6ff2ba0ae4c038012f0b2c2772e4e90813ed6bc0248a65844a",
+    "core_sha256": {
+      "backend/app/crop_cycle_result_evidence.py": "15cd4909f0ccb168cef4f8a00c53881f788e392e92cce6878c077e723d7705b9",
+      "backend/tests/test_crop_cycle_result_evidence.py": "b71a1ad684400a5fc8e0ae091cd3969060c7381e98a41137388af387d0810857",
+      "contracts/crop-cycle-result-evidence-v1.md": "3f7d5a8540071033f3059a9bdfadf87bee7d6ebe4596395ac90945c365502ea7"
+    },
+    "counts": {
+      "events": 3,
+      "samples": 61
+    },
+    "current_farm_trace_or_rights_approved": false,
+    "input_evidence_issue_seconds": 0.01976984995417297,
+    "input_root_sha256": "7f346742c1c4e8cef2819d51a6610e93130c7dfa51f45b0804546dd083d76bbe",
+    "math_manifest_sha256": "3ca7d8d8f4a7293801d697ce833c0ec87e7dbba43d5412953c626cc529ca090a",
+    "mode": "issue",
+    "new_small_math_seconds": 15.916351450025104,
+    "nice": 15,
+    "observed_at_utc": "2026-10-06T10:31:27.061725+00:00",
+    "original53_and_new3core_unchanged": true,
+    "original_checkpoint_sha256": "233070663da110104aa328a4328c52feffd1035b062b7fe7ccda3a254d77088f",
+    "process_peak_RSS_bytes": 92327936,
+    "proof_bytes": 16265,
+    "proof_sha256": "f7db48a9eef42a34670642c8a5d7a15bf92c94d1293b1b17c9c8e03bdb19332b",
+    "referenced_result_blob_count": 33,
+    "referenced_result_bytes": 597278,
+    "result_evidence_issue_seconds": 0.13572745502460748,
+    "result_evidence_verify_seconds": 0.010199554031714797,
+    "scope": "new_owned5h_actual_math_receipt_only_not_full166_farm_or_HTTP",
+    "source_sha256": "ad7ab6d9285681c1c2f504dec3839fff3b9b39c8410329610afacc0365c67425",
+    "steps": 1800,
+    "whole166_or_HTTP_3D_accepted": false,
+    "whole_until_record_seconds": 16.179622940020636
+  },
+  "separate_verify": {
+    "CPU_seconds": 0.02795165700000002,
+    "FD_before_after": [
+      4,
+      4
+    ],
+    "PID": 2953214,
+    "RHS_calls_during_receipt": 0,
+    "artifact_sha256": "15d0efeda0940f6ff2ba0ae4c038012f0b2c2772e4e90813ed6bc0248a65844a",
+    "core_sha256": {
+      "backend/app/crop_cycle_result_evidence.py": "15cd4909f0ccb168cef4f8a00c53881f788e392e92cce6878c077e723d7705b9",
+      "backend/tests/test_crop_cycle_result_evidence.py": "b71a1ad684400a5fc8e0ae091cd3969060c7381e98a41137388af387d0810857",
+      "contracts/crop-cycle-result-evidence-v1.md": "3f7d5a8540071033f3059a9bdfadf87bee7d6ebe4596395ac90945c365502ea7"
+    },
+    "counts": {
+      "events": 3,
+      "samples": 61
+    },
+    "current_farm_trace_or_rights_approved": false,
+    "input_root_sha256": "7f346742c1c4e8cef2819d51a6610e93130c7dfa51f45b0804546dd083d76bbe",
+    "math_manifest_sha256": "3ca7d8d8f4a7293801d697ce833c0ec87e7dbba43d5412953c626cc529ca090a",
+    "mode": "verify",
+    "nice": 15,
+    "observed_at_utc": "2026-10-06T10:35:34.596289+00:00",
+    "original53_and_new3core_unchanged": true,
+    "original_checkpoint_sha256": "233070663da110104aa328a4328c52feffd1035b062b7fe7ccda3a254d77088f",
+    "process_peak_RSS_bytes": 86466560,
+    "proof_bytes": 16265,
+    "proof_sha256": "f7db48a9eef42a34670642c8a5d7a15bf92c94d1293b1b17c9c8e03bdb19332b",
+    "referenced_result_blob_count": 33,
+    "referenced_result_bytes": 597278,
+    "result_evidence_verify_seconds": 0.012836711015552282,
+    "scope": "new_owned5h_actual_math_receipt_only_not_full166_farm_or_HTTP",
+    "source_sha256": "ad7ab6d9285681c1c2f504dec3839fff3b9b39c8410329610afacc0365c67425",
+    "steps": 1800,
+    "whole166_or_HTTP_3D_accepted": false,
+    "whole_until_record_seconds": 0.029876632033847272
+  },
+  "measurement_script_sha256": "ad7ab6d9285681c1c2f504dec3839fff3b9b39c8410329610afacc0365c67425",
+  "private_observation_sha256": {
+    "issue-measurement.json": "abf11abc7d4c9ca85ccf1cc8731715f1d5faec5a74024da9c0b641268901754e",
+    "verify-measurement.json": "d20c6e57d6e2f571ba77ac5e81d9a5d6b9b8d24b7293fd695d11aa8e11387262"
+  },
+  "private_logs_sha256": {
+    "missing_module_RED": "410f5a0d32e5b3ab83d194418951fb0fa1341fbb0da009cc35885b2b25ada123",
+    "first38_GREEN": "d1e638edf5c9b8fd44980919e174f0f2033566242da2582c2ff58cb3f81e719a",
+    "current_data_three_RED": "c48dec60b94be5fcdf7d10fb4ca45ef6e0dea273c64f07aa4484fdc1cb4d620d",
+    "final41_GREEN": "563e05a84728141dd8475295b16fb0758243e1bcd07748929fc0a9921bfb692a",
+    "related89_GREEN": "123ddd07261cce9e52525a6e52b1fe382c957d6c80aed5655fa6ce4613124ae0",
+    "actual_issue": "acfe1d0fec5b176e45fb9009e9bb28d094bf8df37d3f49726a29951ff7484279",
+    "actual_separate_verify": "95928f1872b349d85e44317067ca8bc6b4a761caaedf884ca3eee854fa657113"
+  },
+  "frozen53_source_map_sha256": "035a579dc1d0ac3901ccf81301504c41e3d0652e94c394ab92db461f52f76c11",
+  "frozen53_current_unchanged": true,
+  "original_native81574_not_restarted_paused_cancelled_or_mutated": true,
+  "actual_small_math_scope": "New own five-hour positive-tail program, 10-second steps, 1800 actual steps, 61 outputs and three management events; not prior five-hour runner or actual166 acceptance.",
+  "verification_scope": "Original full terminal parser/context/QC actually runs during issue; verify checks signed facts and all current input/result bytes without original parser/QC or RHS. Original math manifest/checkpoint are preserved.",
+  "process_wall_scope": "From before app imports until observation record; excludes final record write/process exit/farm DB/API browser.",
+  "cache_scope": "Original nice10 actual166 remains concurrent; new observer nice15; OS cache uncontrolled; separate Python is not cold OS-cache or low-hardware evidence.",
+  "private_proof_bytes_limit": 8388608,
+  "original_artifact_and_public_limits_unchanged": true,
+  "whole166_proof_size_or_terminal_QC_accepted": false,
+  "typed_result_reader_current_farm_server_trace_HTTP_3D_accepted": false,
+  "rights_or_gate_approval": false,
+  "owned_PG_API_browser_servers": 0,
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "actual_crop_runs": 0,
+  "gates": "not_assessed"
+}
