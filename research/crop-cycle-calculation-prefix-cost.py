@@ -12,6 +12,7 @@ from time import perf_counter
 
 from app import crop_cycle_calculation_artifact as artifact
 from app import crop_cycle_calculation_context as engine
+from app import crop_cycle_calculation_prefix as prefix
 from app import crop_cycle_calculation_server_custody as custody
 from app.crop_cycle_calculation_farm_binding import CalculationFarmBinding
 from app.crop_cycle_calculation_result_store import CalculationCycleCropResultStore
@@ -21,7 +22,7 @@ from app.farm_authoring_storage import FarmAuthoringService
 from app.market_scenario import MarketScenarioService
 from app.market_source_store import MarketSourceStore
 
-VERSION = 'crop-cycle-calculation-prefix-cost-v1'
+VERSION = 'crop-cycle-calculation-prefix-cost-v2'
 _PROFILE_PATH = Path(__file__).with_name('crop-cycle-burden-profile.py')
 _SPEC = importlib.util.spec_from_file_location('existing_crop_burden_costs', _PROFILE_PATH)
 _PROFILE = importlib.util.module_from_spec(_SPEC)
@@ -36,6 +37,9 @@ def observation():
         (engine, '_canonical', 'json.canonical'), (artifact, '_canonical', 'json.canonical'),
         (InputEvidenceAuthority, 'verify', 'input.proof_verify'),
         (artifact._Files, '_load_prefix', 'artifact.prefix_verify'),
+        (prefix, 'read_authenticated', 'prefix.authenticated_read'),
+        (prefix, '_current_blob', 'prefix.current_blob'),
+        (prefix, 'validate_advance', 'prefix.new_delta_validate'),
         (artifact, '_validate_delta', 'artifact.delta_qc'),
         (artifact.ArtifactWriter, 'advance', 'artifact.advance'),
         (artifact.ArtifactWriter, '_put', 'artifact.blob_write'),
@@ -56,7 +60,17 @@ def observation():
         (CalculationCycleCropResultStore, '_find', 'db.lookup')]
     costs = Costs()
     with costs.observe(targets):
-        yield costs
+        observed_blob = prefix._current_blob
+        def counted_blob(*args, **kwargs):
+            raw = observed_blob(*args, **kwargs)
+            metric = costs.values['prefix.current_blob']
+            metric['successful_bytes'] = metric.get('successful_bytes', 0)+len(raw)
+            return raw
+        prefix._current_blob = counted_blob
+        try:
+            yield costs
+        finally:
+            prefix._current_blob = observed_blob
 
 
 def _limits(budget, max_advances, wall_budget_seconds):
@@ -130,6 +144,7 @@ def profile_registered_prefix(server, raw, *, tenant, budget, max_advances=32,
         'costs': costs.values, 'wall_seconds': perf_counter()-started,
         'descriptors_before': descriptors, 'descriptors_after': len(os.listdir('/proc/self/fd')),
         'process_peak_rss_bytes': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,
+        'cost_definition': 'v2 adds authenticated prefix/new delta/current blob wrappers; successful_bytes counts whole hashed reads including repeats; exclusive timings differ from v1 nesting',
         'effective_nice': os.getpriority(os.PRIO_PROCESS, 0),
         'measurement_scope': 'serial_process_lifetime_RSS_and_wrapper_overhead_inclusive_costs_not_additive'}
 

@@ -158,8 +158,14 @@ def test_actual_full166_registered_prefix_cost_and_original_checkpoint(
     assert report['read_rhs_calls'] == 0 and report['fresh_service_checkpoint_exact']
     assert report['descriptors_before'] == report['descriptors_after']
     for name in ('rhs','farm.registration_read','market.validate_pinned','economics.calculate',
-                 'economics.verified_arithmetic','market.source_read','artifact.prefix_verify'):
+                 'economics.verified_arithmetic','market.source_read','prefix.authenticated_read'):
         assert report['costs'][name]['calls'] > 0
+    assert report['costs'].get('artifact.prefix_verify', {}).get('calls', 0) == 0
+    assert report['costs']['artifact.delta_qc']['calls'] == 2*len(observed)
+    assert report['costs']['prefix.current_blob']['successful_bytes'] > 0
+    for row in observed:
+        assert row['costs']['artifact.delta_qc']['calls'] == 2
+        assert row['costs']['prefix.current_blob']['successful_bytes'] > 0
     immutable = tree(directory)
     with monkeypatch.context() as no_math:
         no_math.setattr(engine.short._Evaluator, 'rhs', lambda *a, **k: pytest.fail('full prefix read ran RHS'))

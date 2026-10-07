@@ -10,6 +10,7 @@ import stat
 from uuid import uuid4
 
 from . import crop_cycle_calculation_artifact as artifact
+from . import crop_cycle_calculation_prefix as prefix
 from . import crop_cycle_calculation_farm_binding as farms
 from . import crop_cycle_input_stream as inputs
 from . import crop_cycle_calculation_context as engine
@@ -20,13 +21,13 @@ from .crop_result_store import _name
 from .job_store import _open_directory_nofollow
 from .thermal_run_store import _canonical
 
-VERSION='crop-cycle-verified-server-custody-v1'
-INTENT_VERSION='crop-cycle-verified-server-intent-v1'
-PROOF_VERSION='crop-cycle-verified-server-head-v1'
+VERSION='crop-cycle-verified-server-custody-v2'
+INTENT_VERSION='crop-cycle-verified-server-intent-v2'
+PROOF_VERSION='crop-cycle-verified-server-head-v2'
 SCOPE='synthetic_crop_math_only'
-INTENT_DOMAIN=b'ossf-crop-cycle-verified-server-intent-v1\0'
-PROOF_DOMAIN=b'ossf-crop-cycle-verified-server-head-v1\0'
-IDENTITY_DOMAIN=b'ossf-crop-cycle-verified-server-identity-v1\0'
+INTENT_DOMAIN=b'ossf-crop-cycle-verified-server-intent-v2\0'
+PROOF_DOMAIN=b'ossf-crop-cycle-verified-server-head-v2\0'
+IDENTITY_DOMAIN=b'ossf-crop-cycle-verified-server-identity-v2\0'
 LIMITS={'intent_bytes':192*1024,'proof_bytes':8192,'progress_bytes':128*1024,
     'proof_directory_bytes':128*1024*1024,'proof_files':32770,
     'intent_directory_bytes':640*1024*1024,'intent_files':98310,
@@ -35,7 +36,7 @@ _LIMITS_RAW=_canonical(LIMITS)
 _DECLARATIONS_RAW=_canonical([VERSION,INTENT_VERSION,PROOF_VERSION,SCOPE,
     IDENTITY_DOMAIN.hex(),INTENT_DOMAIN.hex(),PROOF_DOMAIN.hex()])
 CODE_SHA256=sha256(Path(__file__).read_bytes()).hexdigest()
-_MODULES={'artifact':artifact,'farm_binding':farms,'input_stream':inputs,'execution':engine,
+_MODULES={'artifact':artifact,'prefix':prefix,'farm_binding':farms,'input_stream':inputs,'execution':engine,
     'directory_helper':job_store,'file_helper':operator_config,'input_read_context':read_inputs}
 DEPENDENCY_SHA256={k:sha256(Path(m.__file__).read_bytes()).hexdigest() for k,m in _MODULES.items()}
 
@@ -236,8 +237,15 @@ class _Journal:
             path='/proc/self/fd/'+str(intent_fd)+'/artifact'
             if _exists(self.artifact_fd,'HEAD'):
                 head=inputs._json(_read(self.artifact_fd,'HEAD',8192));head_sha=_head(head)
-                self._selected(head)
-                self.writer=artifact.open_writer(path,head_sha,context,notice_raw=notice_raw)
+                artifact._check(context,notice_raw)
+                self.writer=artifact.ArtifactWriter(path);self.writer._acquire()
+                locked,actual=self.writer._head();_need(locked==head and actual==head_sha)
+                snapshot,_=self._prefix(head)
+                hashes,cp,summary,_=prefix.unpack(snapshot,context,head)
+                self.writer.context=context;self.writer.notice=notice_raw
+                self.writer._head_value=head;self.writer.head_sha256=head_sha
+                self.writer._hashes=hashes;self.writer._checkpoint=cp;self.writer._summary=summary
+                artifact._check(context,notice_raw)
             else:
                 _need(create);self._initial_files()
                 self.writer=artifact.ArtifactWriter(path);self.writer._acquire()
@@ -294,18 +302,24 @@ class _Journal:
     def _proof(self,head):
         digest=_head(head);raw=_read(self.proof_fd,digest+'.json',LIMITS['proof_bytes'])
         payload=_checked(raw,self.key,PROOF_DOMAIN,LIMITS['proof_bytes'])
-        _need(set(payload)=={'version','intent_sha256','binding_sha256','head','parent','sequence','action'}
+        _need(set(payload)=={'version','intent_sha256','binding_sha256','head','parent','sequence','action','validation'}
             and payload['version']==PROOF_VERSION and payload['intent_sha256']==self.intent_sha256
             and payload['binding_sha256']==self.binding_sha256 and _head(payload['head'])==digest
             and type(payload['sequence']) is int and 0<=payload['sequence']<=artifact.LIMITS['commits']+1
             and payload['action'] in ('initialize','advance','finalize'))
+        prefix.check_claim(payload['validation'])
         parent=payload['parent']
         if payload['sequence']==0:
             _need(parent is None and payload['action']=='initialize' and head['commit_count']==0
                 and head['artifact_sha256'] is None and head['header_sha256']==self.header_sha256)
+            _need(payload['validation']['counts']=={'samples':0,'events':0}
+                and payload['validation']['summary_sha256'] is None
+                and inputs._digest(payload['validation']['checkpoint_sha256']))
         else:
             _need(type(parent) is dict and set(parent)=={'head_sha256','proof_sha256'}
                 and all(inputs._digest(v) for v in parent.values()) and payload['action']!='initialize')
+            _need(payload['validation']['summary_sha256'] is not None and head['commit_count']>=1
+                and payload['sequence']==head['commit_count']+(payload['action']=='finalize'))
         return payload,_hash(raw)
 
     def _selected(self,head):
@@ -322,12 +336,22 @@ class _Journal:
                 and previous['head']['artifact_sha256'] is None)
             if current['action']=='advance':
                 _need(current['head']['commit_count']==previous['head']['commit_count']+1 and current['head']['artifact_sha256'] is None)
+                _need(previous['validation']['checkpoint_sha256'] is not None
+                    and all(previous['validation']['counts'][k]<=current['validation']['counts'][k]
+                        <=previous['validation']['counts'][k]+128 for k in ('samples','events')))
             else:
                 _need(current['action']=='finalize' and current['head']['commit_count']==previous['head']['commit_count']
                     and current['head']['latest_commit_sha256']==previous['head']['latest_commit_sha256']
-                    and inputs._digest(current['head']['artifact_sha256']))
+                    and inputs._digest(current['head']['artifact_sha256'])
+                    and current['validation']==previous['validation'])
             current=previous
         raise CalculationCustodyHold('cycle execution custody unavailable')
+
+    def _prefix(self,head):
+        _,proof_sha=self._selected(head)
+        snapshot=prefix.read_authenticated(self.artifact_fd,self.context,self.notice,head,
+            proof=self._proof,read=_read)
+        return snapshot,proof_sha
 
     def _reserve(self,operation):
         sizes={kind:_usage(fd,kind) for kind,fd in (('root',self.root_fd),('intent',self.intent_fd),
@@ -346,7 +370,8 @@ class _Journal:
         old=None
         if _exists(self.artifact_fd,'HEAD'):
             old=inputs._json(_read(self.artifact_fd,'HEAD',8192))
-            previous,proof_sha=self._selected(old)
+            snapshot,proof_sha=self._prefix(old)
+            previous,_=self._proof(old)
             _need(_head(old)==self.writer.head_sha256)
             parent={'head_sha256':self.writer.head_sha256,'proof_sha256':proof_sha}
             sequence=previous['sequence']+1
@@ -354,21 +379,25 @@ class _Journal:
             _need(old['artifact_sha256'] is None and head['header_sha256']==old['header_sha256'])
             if action=='advance':_need(head['commit_count']==old['commit_count']+1)
             else:_need(head['commit_count']==old['commit_count'] and head['latest_commit_sha256']==old['latest_commit_sha256'])
+            validate=prefix.validate_advance if action=='advance' else prefix.validate_finalize
+            validation=validate(self.artifact_fd,self.context,self.notice,old,head,snapshot,read=_read)
         else:
             parent=None;sequence=0;action='initialize'
             _need(head['header_sha256']==self.header_sha256 and head['commit_count']==0 and head['artifact_sha256'] is None)
+            validation=prefix.initial_claim(self.artifact_fd,self.context,self.notice,head,read=_read)
         body={'version':PROOF_VERSION,'intent_sha256':self.intent_sha256,'binding_sha256':self.binding_sha256,
-            'head':head,'parent':parent,'sequence':sequence,'action':action}
+            'head':head,'parent':parent,'sequence':sequence,'action':action,'validation':validation}
         raw=_signed(body,self.key,PROOF_DOMAIN)
         _immutable(self.proof_fd,new_sha+'.json',raw,LIMITS['proof_bytes'],'.proof-')
         self._guard()
+        self._prefix(head)
         original(head)
 
     def _progress(self):
         _need(self.writer is not None and not self.writer.closed)
         head,actual=self.writer._head();_need(actual==self.writer.head_sha256)
-        _,proof_sha=self._selected(head)
-        _,_,summary,_,counts=artifact._wrap_validation(self.writer._load_prefix,self.context,self.notice,head)
+        snapshot,proof_sha=self._prefix(head)
+        _,_,summary,claim=prefix.unpack(snapshot,self.context,head);counts=claim['counts']
         size,count=_usage(self.artifact_fd,'artifact')
         value={'version':VERSION,'scope':SCOPE,'intent_sha256':self.intent_sha256,'binding_sha256':self.binding_sha256,
             'input_root_sha256':self.context.reader.root_sha256,'context_sha256':self.context.root_sha256,
@@ -389,6 +418,11 @@ class _Journal:
         try:
             artifact._budget(budget);self._guard()
             _need(self.writer is not None and not self.writer.closed)
+            head,actual=self.writer._head();_need(actual==self.writer.head_sha256)
+            snapshot,_=self._prefix(head)
+            hashes,cp,summary,_=prefix.unpack(snapshot,self.context,head)
+            _need(self.writer._hashes==hashes and _canonical(self.writer._checkpoint)==_canonical(cp)
+                and _canonical(self.writer._summary)==_canonical(summary))
             if self.writer._summary is None or self.writer._summary['status']=='yielded':
                 self._reserve('advance');self.writer.advance(budget)
             if self.writer._summary is not None and self.writer._summary['status'] in ('completed','hold'):
