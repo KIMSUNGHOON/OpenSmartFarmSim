@@ -437,3 +437,33 @@ def test_runtime_version_and_hmac_domains_are_pinned(journal_setup, monkeypatch,
         with pytest.raises(custody.CalculationCustodyHold): journal.advance(BUDGET)
         assert (journal_setup[1] / 'artifact' / 'HEAD').read_bytes() == before
     finally: close_journal(journal)
+
+
+def test_legacy_signed_history_coexists_without_reissue_or_byte_changes(journal_setup, tmp_path):
+    from app import crop_cycle_server_custody as legacy
+    from test_crop_cycle_artifact import context as legacy_context
+    from test_crop_cycle_server_custody import open_journal as legacy_open, close_journal as legacy_close
+    root = journal_setup[0]; before_fd = len(os.listdir('/proc/self/fd'))
+    reader, old_context = legacy_context(tmp_path / 'legacy-input', program())
+    request = {**json.loads(journal_setup[3]), 'input': {'root_sha256': reader.root_sha256}}
+    raw = custody._canonical(request); binding = custody._canonical({'scope': 'unregistered_synthetic_file_test', 'request': request})
+    old_where = root / legacy._intent_id('own-tenant', request); old_where.mkdir(mode=0o700)
+    assert old_where != journal_setup[1]
+    with reader:
+        old = legacy_open((root, old_where, old_context, raw, binding))
+        try: old_progress = json.loads(old.advance({'max_steps': 7, 'max_transitions': 11}))
+        finally: legacy_close(old)
+    def snapshot():
+        return {str(p.relative_to(old_where)): {'sha256': sha256(p.read_bytes()).hexdigest(), 'mode': p.stat().st_mode}
+                for p in old_where.rglob('*') if p.is_file()}
+    before = snapshot(); journal = open_journal(journal_setup)
+    try:
+        new_progress = json.loads(journal.advance(BUDGET))
+        usage = custody._usage(journal.root_fd, 'root')
+        assert new_progress['status'] == 'completed' and new_progress['version'] != old_progress['version']
+    finally: close_journal(journal)
+    assert snapshot() == before and len(os.listdir('/proc/self/fd')) == before_fd
+    save_reference('legacy-coexistence.json', {'old_version': old_progress['version'], 'new_version': new_progress['version'],
+        'same_tenant_study_revision': True, 'different_domain_intent_paths': True, 'old_files': len(before),
+        'old_file_SHA_and_modes_preserved': True, 'combined_root_usage': list(usage), 'FD_before_after': [before_fd, before_fd],
+        'old_partial_steps': old_progress['steps'], 'new_completed_steps': new_progress['steps']})
