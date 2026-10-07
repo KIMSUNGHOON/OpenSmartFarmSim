@@ -2,7 +2,8 @@
 
 2026-10-07 KST. native Codex CLI `gpt-6.1-sol / xhigh`; 재귀 CLI0회.
 선행 [별도 운영 설정 로더](crop-cycle-calculation-operator-loader-v1.md)의 로컬 수용 뒤,
-새 공개 투영과 현재 query를 실제 API/동일 UTC3D에 연결한다. 이 문서는 구현 수용이 아니다.
+새 공개 투영과 현재 query를 실제 API/동일 UTC3D에 연결한다.
+아래 수용 절은 route/OpenAPI 자식만의 로컬 소프트웨어 수용이며 실제 runtime/TLS는 후속이다.
 
 ## 요청·권한·응답
 
@@ -58,3 +59,18 @@ route/요청·ASGI·snapshot2–3집중시간 + 실제 설정 조립·SCRAM/TLS�
 **남은 작은 API 연결4–6집중시간 잠정**으로 갱신한다. 이전 route/TLS1–2시간은 이 분해로 대체한다.
 실제 TLS 응답 실패가 있으면 원 한도 안의 원인 수정과 재검증을 추가한다.
 CI 대기·전체166일/3D·생과/자원/경제·외부 자료 확보와 최종 제품 완료일은 포함하지 않는다.
+
+## route/OpenAPI 자식 로컬 수용 — 2026-10-07
+
+새 경로63개/8.77초와 경로/OpenAPI/runtime·설정 회귀221개/127.87초,
+**고유284개 분할 검증**으로1번 자식만 수용한다. 그 회귀에는 새 OpenAPI operation의 권한 사례도 포함된다.
+원 API의 AST는 새 import·기본 None인 두 읽기 인자·installer 호출을 제외하면 같다.
+기존48 path/148 schema와 나머지 선언은 같고 새 path1개/schema8개만 추가됐다.
+원 계산/저장/조회·loader/runtime·시험78 source SHA는 보존했다.
+실제 자작 수치 artifact의 원량/UTC·정상/관리 사건·확인 과거 hold60걸음/1시점/1사건·빈 hold와
+한 query 문맥·bytes 뒤 권리 철회/인증/tenant·고정 오류·strict query·세 별도 import/FD를 ASGI로 검증했다.
+route 시험의 farm/DB custody는 격리한 exact 타입 stub이다. 기존 회귀의 실제 SCRAM 조립과
+새 route의 실제 SCRAM/TLS를 혼동하지 않는다. 새 TLS 응답/브라우저 실행은0이다.
+[수용 기록](../research/crop-cycle-calculation-route-openapi-20261007.md)에 명령/source/로그/정리를 둔다.
+위 route2–3시간 잠정은 이 실적으로 대체한다. 다음2번 runtime/TLS3 core파일2–3집중시간 잠정이며
+실제 HTTP30초/2MiB·철회/정리 수용 전에는 API/transport 부모를 체크하지 않는다.
