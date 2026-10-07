@@ -544,8 +544,14 @@
           실제 중단4곳/fresh Python·등록 농장7→120걸음 재개·proof 뒤/페이지 뒤 철회·원량/이력·정리를 확인했다.
           advance26.843초/inspect7.915초는 작은 사례 실측이다. 새 DB row/Run0·DB/전체 작기/관문 부모는 미수용이다.
         - [ ] **`crop-cycle-calculation-db-custody`** — 선행 새 server custody와 기존 DB 계약.
-          새 판본의 SQL/역할·HMAC/metadata·현재 등록/권리·원자 게시/재시도·이전 이력 공존을3–4파일로 계약한다.
+          [현행 DB 계약](../contracts/crop-cycle-calculation-db-custody-v1.md): 구형 표/조회의 판본 제약 때문에
+          새 표·명시 role opt-in → 서명 결과 게시의 두 자식으로 분해한다. 기존 행/서명을 보존한다.
           실제 SCRAM의 작은 연속/재개·거부/롤백/정리 뒤 수용하며 전체 저장/HTTP/3D 부모는 별도다.
+          - [ ] **`crop-cycle-calculation-result-schema`** — 새 schema/role/test/계약4 core파일.
+            새 ID/ref·닫힌 metadata/column·FK/불변성·default deny/authority SELECT/INSERT만 허용,
+            실제 SCRAM의 원 행 공존·설치 rollback·whole grant audit·자원 정리 뒤 수용한다.
+          - [ ] **`crop-cycle-calculation-result-publication`** — 위 schema 수용 후 store/순수 test/SCRAM test/계약4 core파일.
+            새 exact context/binding·HMAC/원 progress·현재 권리/원자 게시·재시도/재개/조회 RHS0·원량/정리 뒤 수용한다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

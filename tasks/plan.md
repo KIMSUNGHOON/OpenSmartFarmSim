@@ -256,6 +256,11 @@ CI 대기·원166일/전체 등록 경로·독립 자료 확보 완료일은 이
 순수49개/55.87초+원 signed 이력 공존1개/2.19초·실제 SCRAM12개/423.51초, 고유62개 분할이며 제품 module은 동일하다.
 실제 중단4곳/fresh Python·등록 농장7→120걸음 재개·proof 뒤/페이지 뒤 철회·현재 권리/정리를 확인했다.
 다음 DB custody는 새 판본 SQL/role·HMAC/metadata·원자 게시/재조회·원 이력 공존을 대조해3–4 core파일로 계약한다.
+그 [현행 대조/개발 계약](../contracts/crop-cycle-calculation-db-custody-v1.md)은 구형 표의 ID/ref 제약과
+tenant/study/revision 조회를 보존하기 위해 새 표를 사용한다. 실제 의존성에 따라4 core파일씩의
+result-schema → result-publication 두 자식으로 진행하며 둘 수용 뒤 DB 부모를 체크한다.
+schema는1–2.5집중시간/10월7–8일 KST 잠정이며 SQL/role 이식·검토와 실제 SCRAM/기록을 포함한다.
+publication은 현재 binding/실제 port 대사 후 추정한다. 기존 전체166일/관문과 운영 기반 동결은 유지한다.
 서버 정상 advance26.843초/조회7.915초는 작은 사례 실측이며 전체166일/HTTP 날짜로 외삽하지 않는다.
 서비스의 재열기와 `_progress` 전체 prefix 검증은 큰 작기의 누적 비용 실측이 남아 있다.
 이는 기존 replay-restore 부하 수용에서 확인하며 작은 서버 자식 수용으로 전체 처리량을 승인하지 않는다.
@@ -411,7 +416,9 @@ flowchart TD
   BCALCCTX --> BCALCAUTH["crop-cycle-calculation-farm-authority: 현재 등록/권리"]
   BCALCAUTH --> BCALCSERVER["crop-cycle-calculation-server-custody: 계산/서명 이력"]
   BCALCART --> BCALCSERVER
-  BCALCSERVER --> BCALCDB["crop-cycle-calculation-db-custody: 새 판본 원자 게시"]
+  BCALCSERVER --> BCALCSCHEMA["crop-cycle-calculation-result-schema: 새 표/명시 role"]
+  BCALCSCHEMA --> BCALCPUT["crop-cycle-calculation-result-publication: 현재 권리/서명 게시"]
+  BCALCPUT --> BCALCDB["crop-cycle-calculation-db-custody: 두 자식 수용 뒤 부모"]
   BCALCDB --> BCALCBIND
   BCALCBIND --> BRESTORE
   BRESTORE --> BURDEN
