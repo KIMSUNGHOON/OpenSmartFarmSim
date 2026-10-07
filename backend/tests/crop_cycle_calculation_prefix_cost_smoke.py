@@ -233,6 +233,9 @@ def test_actual_25h_prefix_cost_keeps_yielded_checkpoint_and_original_confirmed_
         and response['page']['kind'] == kind for row in response['page']['records']] for kind in ('samples', 'events')}
     for rows in expected.values():
         for row in rows: row['at'] = stamp(row['at'])
+    for row, event in zip(expected['events'], program['events'], strict=True):
+        assert row['at'] == event['at']
+        row['input_id'] = event['removals']['input_id']
     server, raw, directory = build(program, 'long'); before = counts(binding); immutable_input = tree(directory)
     observed = []
     def sink(row):
