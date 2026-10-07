@@ -316,6 +316,9 @@ HEAD 전후 즉시 종료2개/복원·조회 RHS0·정리로 로컬 수용했다
 후속 [새 서버 계산/서명](../research/crop-cycle-calculation-server-custody-implementation-20261007.md)은 순수50개·실제 SCRAM12개,
 고유62개 분할·실제 중단4곳/fresh Python·현재 권리/원 이력 보존과 등록 농장7→120걸음 재개로 로컬 수용했다.
 다음은 DB 원자 게시이며 새 DB row/Run0·farm 연결 부모와 전체166일/DB/API/3D·관문 보류를 유지한다.
+[새 표/권한 자식](../research/crop-cycle-calculation-result-schema-implementation-20261007.md)은
+현재4 source 전후 대사·전체68개/22.68초·실제 SCRAM·원 행 공존·default deny/명시 권한·정리로 로컬 수용했다.
+SQL 형식 fixture와 signed 등록 계산 결과를 구분하며 다음은 새 store의 원자 게시/현재 조회다.
 새 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존해 병행한다.
 동결 소스 변경은 실제 실행 종료·증거 보존 뒤이며,
 첫 수용은 원 물리값/UTC·121상태/checkpoint·수지/hold·변조 거부와 별도 프로세스 복원이다.

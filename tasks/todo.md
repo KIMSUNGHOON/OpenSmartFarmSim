@@ -547,9 +547,13 @@
           [현행 DB 계약](../contracts/crop-cycle-calculation-db-custody-v1.md): 구형 표/조회의 판본 제약 때문에
           새 표·명시 role opt-in → 서명 결과 게시의 두 자식으로 분해한다. 기존 행/서명을 보존한다.
           실제 SCRAM의 작은 연속/재개·거부/롤백/정리 뒤 수용하며 전체 저장/HTTP/3D 부모는 별도다.
-          - [ ] **`crop-cycle-calculation-result-schema`** — 새 schema/role/test/계약4 core파일.
+          - [x] **`crop-cycle-calculation-result-schema`** — 새 schema/role/test/계약4 core파일.
             새 ID/ref·닫힌 metadata/column·FK/불변성·default deny/authority SELECT/INSERT만 허용,
             실제 SCRAM의 원 행 공존·설치 rollback·whole grant audit·자원 정리 뒤 수용한다.
+            [10월7일 로컬 수용](../research/crop-cycle-calculation-result-schema-implementation-20261007.md):
+            현재4 source 전후 대사·전체68개/22.68초(순수15/실제 DB53)·원 행 bytes/hash/time 보존·
+            default deny/명시 역할·제약/불변성/rollback과 네 PG 실행 정리를 확인했다.
+            SQL 형식 fixture만 저장했으며 실제 signed 결과/새 작물 Run0·DB 부모/전체 작기는 미수용이다.
           - [ ] **`crop-cycle-calculation-result-publication`** — 위 schema 수용 후 store/순수 test/SCRAM test/계약4 core파일.
             새 exact context/binding·HMAC/원 progress·현재 권리/원자 게시·재시도/재개/조회 RHS0·원량/정리 뒤 수용한다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.

@@ -123,6 +123,10 @@ API/3D에서 재계산하거나 G0–G4를 해제하지 않는다.
 proof fsync·현재 권리 재확인·HEAD 게시를 수행한다. inspect/page/완료 재시도는 현재 권리 아래 RHS0이다.
 [62개 분할 검증](../research/crop-cycle-calculation-server-custody-implementation-20261007.md)의 작은 소프트웨어 범위이며,
 새 DB 게시/공개 API/runtime 연결·전체166일/3D와 G0–G4는 후속이다. 원 판본 이력을 재발급하지 않는다.
+[새 DB 표/권한 수용](../research/crop-cycle-calculation-result-schema-implementation-20261007.md)은
+별도 `crop_cycle_verified_research_results`와 기본값False의 명시 role flag를 추가한다.
+전체68개(순수15/실제 SCRAM DB53)로 SQL 형식/원 행 공존·whole grant audit를 확인했다.
+signed 공식 결과의 put/get/page/summary와 operator-config/API runtime 연결은 후속이며 새 실제 작물 Run은0이다.
 
 ## 3D 재생 계약
 

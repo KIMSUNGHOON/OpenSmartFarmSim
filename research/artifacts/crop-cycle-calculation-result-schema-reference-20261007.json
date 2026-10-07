@@ -1,0 +1,281 @@
+{
+  "accepted_child": "crop-cycle-calculation-result-schema",
+  "actual_cultivar_inputs": 0,
+  "actual_validation": {
+    "accepted_final_phase": "schema-final-v3",
+    "actual_DB_cases": 53,
+    "actual_SCRAM": true,
+    "duplicate_passes_not_summed": true,
+    "final_whole_test_file": true,
+    "initial_direct_RED_was_skipped": "autouse database cleanup initially requested missing PG before assertion; narrowed fixture dependencies; not counted as behavior RED",
+    "initial_full_run": {
+      "failed": 5,
+      "passed": 63,
+      "product_source_changed_for_fix": false,
+      "reason": "test caught expected CHECK before transaction manager could rollback its savepoint"
+    },
+    "intermediate_full_green": {
+      "passed": 68,
+      "phase": "schema-final-v2",
+      "pytest_seconds": 22.84,
+      "summed_to_unique_count": false
+    },
+    "new_actual_crop_Runs": 0,
+    "new_kernel_RHS_calls": 0,
+    "normal_metadata": {
+      "actual_crop_Runs": 0,
+      "actual_scram": true,
+      "crop_RHS_calls": 0,
+      "original_bytes_hash_time_preserved": true,
+      "payload_bytes": 1063,
+      "payload_sha256": "4e115cff778bee2c39d4fe348595a6b009e51d31e35acbb8ca1b39c522267333",
+      "postgres_server_version": 160015,
+      "same_tenant_study_revision": true,
+      "schema_version": "crop-cycle-verified-result-v1",
+      "whole_role_audit_passed": true
+    },
+    "postgres_server_version": 160015,
+    "pure_policy_identifier_cases": 15,
+    "pytest_seconds": 22.68,
+    "red_policy": {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/test_crop_cycle_calculation_result_schema.py::test_new_storage_policy_is_explicit_and_defaults_to_false",
+        "-q",
+        "--tb=short"
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend",
+      "log_sha256": "a06a475473ec3563cf06f8ded4ddb421bce1e01c56e32e2099389d87b621761f",
+      "prior_direct_run": "1skipped due database_cleanup autouse; no assertion evaluated; fixture dependency narrowed before actual RED",
+      "returncode": 1,
+      "timestamp": "2026-10-07T10:16:34.924113+00:00"
+    },
+    "source_record_correction": {
+      "initial_recorded_paths": [
+        "backend/app/crop_cycle_calculation_server_custody.py",
+        "backend/tests/test_crop_cycle_calculation_server_custody.py",
+        "backend/tests/test_crop_cycle_calculation_result_schema.py",
+        "contracts/crop-cycle-calculation-server-custody-v1.md"
+      ],
+      "issue": "inherited private runner recorded old server module/test/contract instead of the schema/role/contract; actual current schema test argv and SHA were recorded",
+      "old_records_overwritten": false,
+      "resolution": "explicit correct four source paths with equal before/after hashes; actual PostgreSQL version recorded; all68 executed again as schema-final-v3"
+    },
+    "unique_passed": 68
+  },
+  "adopted_independent_domestic_datasets": 0,
+  "child_accepted": true,
+  "collection_only_inventory": {
+    "argv": [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "tests/test_crop_cycle_calculation_result_schema.py",
+      "--collect-only",
+      "-q"
+    ],
+    "collection_only": true,
+    "log_sha256": "6ecbf5bddf207adf307868ac2ba226e5a63ebfb4c625d05f1cdef8800064804b",
+    "returncode": 0,
+    "unique_ids": 68
+  },
+  "db_custody_parent_accepted": false,
+  "dependencies": {
+    "both_diagrams_acyclic": true,
+    "children": [
+      "crop-cycle-calculation-result-schema",
+      "crop-cycle-calculation-result-publication"
+    ],
+    "named_tasks": 156,
+    "operations_freeze": "d19f7c0"
+  },
+  "design_commit": "939425d",
+  "final_all_four_sources_equal_before_after_and_current": true,
+  "gates": "not_assessed",
+  "implementation_commit": "6185bd8fe5aaf66b2195cc4bedd1174cb582b03e",
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "record_sha256": "7603d8b2181dd96a4fb8f98141c1ab94fe296a84155a293f50f43c61ae300487",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T10:10:03.951Z"
+  },
+  "observed_at_utc": "2026-10-07T10:29:16.606911+00:00",
+  "original_full166_preservation_observation": {
+    "232554": {
+      "nice": 15,
+      "start_ticks": 2036021,
+      "state": "S"
+    },
+    "232555": {
+      "nice": 15,
+      "start_ticks": 2036038,
+      "state": "R"
+    },
+    "all_named_input_blob_hashes_match": true,
+    "input_bytes": 113920841,
+    "input_files_count": 750,
+    "input_root_sha256": "ab24eda4d763d7fe3faff1ae3c7c2f84fbec030af71a494bf284fef1f2cdcd98",
+    "observed_at_utc": "2026-10-07T10:26:04.331290+00:00",
+    "percent": 95.5684580426971,
+    "planned_steps": 1816704,
+    "source55_unchanged": true,
+    "spec_sha256": "d4e7de05249b55a2db3218c3e47c09ac1819ab15415b4021a44399ea76bcc310",
+    "steps": 1736196,
+    "supervision_sha256": "1952feae10039b2f955ee676b4ff3e7f79ce040420b3fa657f5ff3da03d9ecfc",
+    "terminal_receipt_present": false,
+    "terminal_result_present": false
+  },
+  "phases": {
+    "schema-final": {
+      "PG_clusters": [
+        {
+          "PID_exists_after": false,
+          "directory_exists_after": false,
+          "pid": 376742,
+          "start_ticks": "3884502"
+        }
+      ],
+      "command_record_sha256": "3c147d0b1d7b134017ab1fcf379f307ca2a29c4e6ccad24c7ae705ec3cb079e7",
+      "database_cleanup": {
+        "roles_after": 0,
+        "schemas_after": 0
+      },
+      "log_sha256": "fd123a1b4fc715c59345b8dd9f7d29cff83f7bcfaa4210553de7fe6ec48bd762",
+      "passfiles_after": 0,
+      "result_record_sha256": "8d098a5bde458747772ff01aa29e7a05a74e14b0ab014ba753d7bbec1e940b19",
+      "returncode": 1,
+      "sampled_test_primary_max_RSS_bytes": 106139648,
+      "temporary_test_tree_removed": true,
+      "wall_seconds": 23.0525161580008
+    },
+    "schema-final-v2": {
+      "PG_clusters": [
+        {
+          "PID_exists_after": false,
+          "directory_exists_after": false,
+          "pid": 377501,
+          "start_ticks": "3889343"
+        }
+      ],
+      "command_record_sha256": "d7cd5eb588751e33c0b568cb16e934eb6049230803a9276d3f5dc1817b5c10ec",
+      "database_cleanup": {
+        "roles_after": 0,
+        "schemas_after": 0
+      },
+      "log_sha256": "3044a088871ab17875cc7e0b7536521bc0d9d1873bff5ac62c654849307be206",
+      "passfiles_after": 0,
+      "result_record_sha256": "ca9a9a9219e01d481e312738b93a2b5f04f11ee806ecee20229437fba6d35dc8",
+      "returncode": 0,
+      "sampled_test_primary_max_RSS_bytes": 98619392,
+      "temporary_test_tree_removed": true,
+      "wall_seconds": 23.255002810001315
+    },
+    "schema-final-v3": {
+      "PG_clusters": [
+        {
+          "PID_exists_after": false,
+          "directory_exists_after": false,
+          "pid": 378423,
+          "start_ticks": "3903310"
+        }
+      ],
+      "command_record_sha256": "5f0408490acddf1ce8d67bf6e5c0447cd0ac77290d098af42c76533fde130237",
+      "database_cleanup": {
+        "roles_after": 0,
+        "schemas_after": 0
+      },
+      "log_sha256": "2b9ebe001d6dd4e714858a304de09f7041e7e5c8cfb1f65664c15075f18f1756",
+      "passfiles_after": 0,
+      "result_record_sha256": "fcb132d65c12f9f0dd2767c0b9ad2bb7a9af4cd590708e05c464732db57032a0",
+      "returncode": 0,
+      "sampled_test_primary_max_RSS_bytes": 98811904,
+      "temporary_test_tree_removed": true,
+      "wall_seconds": 23.254452731001948
+    },
+    "schema-smoke": {
+      "PG_clusters": [
+        {
+          "PID_exists_after": false,
+          "directory_exists_after": false,
+          "pid": 376495,
+          "start_ticks": "3875293"
+        }
+      ],
+      "command_record_sha256": "841f5b4240a9f6616053ec781f0b6bd58d6e391990998fd171274174bcacde08",
+      "database_cleanup": {
+        "roles_after": 0,
+        "schemas_after": 0
+      },
+      "log_sha256": "3d719a47d0b89d368e7a180def48166d83ae2bf8a97e0890ba316eb435451ec1",
+      "passfiles_after": 0,
+      "result_record_sha256": "2456edb19c564763dc851b55e7326cc9f9f5c331932d313c6b89bc4c798680db",
+      "returncode": 0,
+      "sampled_test_primary_max_RSS_bytes": 97107968,
+      "temporary_test_tree_removed": true,
+      "wall_seconds": 4.0092897249996895
+    }
+  },
+  "primary_reference_URLs": [
+    "https://www.postgresql.org/docs/18/ddl-constraints.html",
+    "https://www.postgresql.org/docs/18/sql-grant.html",
+    "https://www.postgresql.org/docs/18/sql-createtrigger.html"
+  ],
+  "registered_crop_execution_or_forecast_accepted": false,
+  "remaining": [
+    "signed official result put/get/page/summary with current farm rights and HMAC",
+    "production role migration/operator-config and API/runtime new-version wiring",
+    "full166 terminal and original QC/hash/invariants/restore/read evidence",
+    "whole registered cycle accumulated prefix/signature cost and sameUTC3D",
+    "fresh harvest mass and water/nutrients/purchased energy",
+    "crop result to Decimal economics",
+    "independent domestic crop/economic and candidate validation"
+  ],
+  "roles": {
+    "default": false,
+    "enabled_authority": [
+      "SELECT",
+      "INSERT"
+    ],
+    "exact_bool": true,
+    "flag": "crop_cycle_calculation_result_storage",
+    "fresh_install_verified": true,
+    "other_runtime_and_PUBLIC_new_privileges": 0,
+    "production_role_migration_or_operator_config_wiring": false,
+    "whole_effective_grant_audit": true
+  },
+  "runtime_roles_delta": {
+    "changed_functions": [
+      "RuntimeLoginPolicy.__post_init__",
+      "_tables"
+    ],
+    "new_kwonly_bool_field": 1,
+    "new_module_constant": 1,
+    "other_functions_changed": false
+  },
+  "schema": {
+    "artifact_keys": 11,
+    "artifact_version": "crop-cycle-verified-artifact-v1",
+    "columns": 25,
+    "existing_row_same_tenant_study_revision_bytes_hash_time_preserved": true,
+    "existing_rows_rewritten": false,
+    "existing_table_altered": false,
+    "farm_keys": 4,
+    "metadata_bytes_max": 131072,
+    "table": "crop_cycle_verified_research_results",
+    "top_level_keys": 13,
+    "version": "crop-cycle-verified-result-v1"
+  },
+  "schema_port": "original AST equivalent under explicit import/version/table/installer/trigger substitutions",
+  "schema_version": "crop-cycle-calculation-result-schema-reference-v1",
+  "scope": "synthetic_SQL_metadata_and_runtime_role_software_only",
+  "source_review_sha256": "94f9c7940fec03ed1963d47ad9a840cf3aa6a80f218e474156e738fa24f621d0",
+  "source_sha256": {
+    "backend/app/crop_cycle_calculation_result_schema.py": "92327d3a629337183f950b985484df9e00209ff551c4ebcfbdd978aa9cce060c",
+    "backend/app/runtime_roles.py": "be1dc60254bbe2238610ef52712a5bf76340d6ce0a5a2256072c90d85112c63f",
+    "backend/tests/test_crop_cycle_calculation_result_schema.py": "581ee3c082c014807cb91092d352615c9c954c56efe8c2a999f0cb7c8db27699",
+    "contracts/crop-cycle-calculation-db-custody-v1.md": "0ad7370a8c9f838977ef6e984e0d98bc9a94f29a047d2aed55de17812a9bbf01"
+  }
+}

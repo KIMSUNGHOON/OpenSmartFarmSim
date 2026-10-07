@@ -261,6 +261,10 @@ tenant/study/revision 조회를 보존하기 위해 새 표를 사용한다. 실
 result-schema → result-publication 두 자식으로 진행하며 둘 수용 뒤 DB 부모를 체크한다.
 schema는1–2.5집중시간/10월7–8일 KST 잠정이며 SQL/role 이식·검토와 실제 SCRAM/기록을 포함한다.
 publication은 현재 binding/실제 port 대사 후 추정한다. 기존 전체166일/관문과 운영 기반 동결은 유지한다.
+[schema 자식](../research/crop-cycle-calculation-result-schema-implementation-20261007.md)은10월7일
+현재4 source 전후 대사·전체68개/22.68초·실제 SCRAM16.15/원 행 공존·기본 거부/명시 권한·제약/정리로 수용했다.
+1–2.5집중시간 잠정 추정은 실제 수용으로 대체한다. 다음은 새 서명 결과 publication이며 SQL 형식 fixture를
+실제 등록 계산/HMAC 결과로 보고하지 않는다. operator-config/API runtime 새 판본 연결과 전체166일/3D는 후속이다.
 서버 정상 advance26.843초/조회7.915초는 작은 사례 실측이며 전체166일/HTTP 날짜로 외삽하지 않는다.
 서비스의 재열기와 `_progress` 전체 prefix 검증은 큰 작기의 누적 비용 실측이 남아 있다.
 이는 기존 replay-restore 부하 수용에서 확인하며 작은 서버 자식 수용으로 전체 처리량을 승인하지 않는다.
