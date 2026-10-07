@@ -304,6 +304,9 @@ query3–6시간 잠정은 이 실적으로 대체한다. 후속 [순수 공개 
 원 operator_config가 서명된 file helper인 근거로 원 파일을 보존하는 별도 loader를 계획한다.
 남은3–6집중시간 잠정이며 새 API/runtime의 실제 수용 뒤 client/3D 추정을 갱신한다.
 현재 앱 CI의 구형 config 필드 거부는 설정 생성 호환 보완으로 분리하며 원 loader/서명 이력을 보존한다.
+[로컬 호환 수정](../research/application-operator-policy-compatibility-20261007.md)은 고유125개 분할·실제 SCRAM/TLS·
+원 loader/70 source/원 시험 본문·자원 정리로 검증했다. 기존 CI 종료 뒤 hosted Compose 수용은 별도다.
+다음 명시 조립은 [runtime factory3파일](../contracts/crop-cycle-calculation-runtime-factory-v1.md) → 별도 loader → route로 나눈다.
 별도 등록 prefix/전체166일 비용·CI/자료 확보와 최종 제품 완료일은 이 추정에 포함하지 않는다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,

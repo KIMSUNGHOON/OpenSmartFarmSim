@@ -601,12 +601,20 @@
           첫 증거 이름 충돌2실패/관련3통과를 보존했으며 실제 API/등록 전체 작기/3D는 별도다.
         - [ ] **`crop-cycle-calculation-operator-runtime`** — 선행 위 순수 투영; 구체 계약 뒤 구현.
           서명 dependency인 원 operator_config/file helper를 보존하며 별도 명시 config/기본 false·exact factory/jobs/farm을 검사한다.
+          - [ ] **`crop-cycle-calculation-runtime-factory`** — [3 core파일 계약](../contracts/crop-cycle-calculation-runtime-factory-v1.md).
+            기본 None/flag 결속·same jobs/farm의 exact 새 store/query·연결 전 거부·실제 SCRAM/TLS 조립/FD·정리.
+            이 조립은 새 HTTP 응답 수용과 구분한다.
+          - [ ] **`crop-cycle-calculation-operator-loader`** — 선행 위 factory; 별도 작은 계약 뒤 구현.
+            원 loader/서명 이력을 보존하는 새 config 판본·보호 파일/닫힌 schema·명시 조립과 거부를 검증한다.
         - [ ] **`crop-cycle-calculation-api-transport`** — 선행 위 설정/runtime; 구체 계약 뒤 구현.
           새 인증 route/OpenAPI·원 응답 보존·실제 SCRAM/TLS 전체 본문30초/2MiB·투영 뒤 철회/정리 뒤 부모를 수용한다.
       - [ ] **`application-operator-policy-compatibility`** — 실제 앱 CI `353bffb`/37622257162의 config 필드 거부 보완.
         현재 설정 생성기의 `asdict(policy)`가 구형 loader에 없는 기본 false 필드를 내보낸다.
         서명 dependency인 원 loader를 보존하는 생성 부분의 작은 계약/집중 반례 뒤 실제 Compose로 확인한다.
         새 계산 flag 활성화를 조용히 버리지 않으며 CI 설정/한도 변경 없이 검증한다.
+        - [x] 로컬 생성/보호 loader·실제 SCRAM/TLS 회귀 — [고유125개 분할 검증](../research/application-operator-policy-compatibility-20261007.md).
+          새10개/기존115개·원 loader/70 source·원 시험 본문·PG/비밀번호/임시 tree 정리를 확인했다.
+        - [ ] 수정 판본의 기존 hosted 세 Compose 경로·정리 — WSL Docker 부재와 기존 CI 진행으로 보류.
       - [ ] **`crop-cycle-calculation-client-view`** — 선행 위 실제 API/runtime.
         새 result ID/manifest·원량/UTC를 보존하는 client/표/3D 선택을 연결하고 실제 PG/TLS/WebGL로 대사한다.
       - [ ] **`crop-cycle-calculation-prefix-cost`** — 선행 full-rhs와 작은 새 계산 농장 결속; 읽기 개발과 병행한다.
