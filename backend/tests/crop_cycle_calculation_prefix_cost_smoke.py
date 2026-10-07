@@ -64,7 +64,7 @@ def audit_native(login_database, tmp_path_factory):
 def registered_case(audit_native, authoring, tmp_path):
     farms, farm_body, principal = authoring
     registered = farms.submit('tenant-1', farm_request(farm_body))
-    principal['scopes'].update(READ_SCOPES | WRITE_SCOPES)
+    principal['scopes'].update(WRITE_SCOPES)
     input_authority = authority(); rights = SyntheticInputRights(); inputs = Inputs(); packets = {}
     binding = CalculationFarmBinding(farms, input_authority, input_rights=rights)
     farm = {'scenario_id': farm_body['farm']['scenario_id'], 'scenario_revision': farm_body['farm']['scenario_revision'],
