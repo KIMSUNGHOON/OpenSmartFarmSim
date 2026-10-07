@@ -1,0 +1,183 @@
+{
+  "version": "web-financial-history-keyboard-reference-v1",
+  "observed_at_utc": "2026-10-07T07:52:42.399930+00:00",
+  "scope": "owned_synthetic_browser_contract_only",
+  "source_head_before_fix": "34772e5",
+  "hosted_head": "4b0d559684090f609eb8b3943f4a3bb5d6f66b9a",
+  "hosted_failure": {
+    "run_id": 37587498493,
+    "job_id": 112680935707,
+    "conclusion": "failure",
+    "browser_passed": 97,
+    "browser_failed": 1,
+    "unit_passed": 522,
+    "audit_vulnerabilities": 0,
+    "log": {
+      "sha256": "489f64a8e7b537b01df500ae5bb692485f8d0e696121efa9111eaaab0ec4b0fe",
+      "bytes": 100491
+    },
+    "failed_assertion": "exact conditional revenue visible after refreshed history keyboard selection",
+    "timeout_ms": 5000
+  },
+  "cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "native_turn_timestamp": "2026-10-07T07:47:43.636Z",
+    "native_record_sha256_no_lf": "b5678947e2ef558c381d50feeb47e07ab4da6c840b46323f6825adca5c0a7d54",
+    "recursive_cli_launches": 0
+  },
+  "reproduction": {
+    "actual_exit_code": 1,
+    "failed": 1,
+    "synthetic_history_delay_ms": 500,
+    "body_seconds": 6.8,
+    "error_matches_hosted": true,
+    "raw_log": {
+      "sha256": "2d0aad460f7af0e7411969171e91a6ce7ade9fdde975df25d990fd9f9e9e2ea3",
+      "bytes": 2759
+    },
+    "source": {
+      "sha256": "ce3f1995482857244688dc7f16e3c8c880d6548391793655bda4ad33ac4798f7",
+      "bytes": 14168
+    }
+  },
+  "fix": {
+    "path": "web/e2e/authored-financial.spec.ts",
+    "source": {
+      "sha256": "c3e8b24577c2a7fcd5c03019364172e1c7b5540b8f266ed04c40c83ad71f5c03",
+      "bytes": 14239
+    },
+    "change": "wait for history selection button enabled before Enter; retain delayed synthetic history regression",
+    "product_source_changed": false,
+    "workflow_or_timeout_changed": false,
+    "exact_money_assertion_preserved": true,
+    "keyboard_activation_preserved": true
+  },
+  "verification": {
+    "actual_exit_code": 0,
+    "browser_passed": 7,
+    "browser_failed": 0,
+    "seconds": 13.7,
+    "raw_log": {
+      "sha256": "940b0b78961651e7f4924b76c52cae1f511ab12d1e3f4543512d30fbff064bc4",
+      "bytes": 1722
+    },
+    "tested_source": {
+      "sha256": "8ce6082e6e01de43a0960be5af893d335815d553a0b6f77f1dae868aad400f06",
+      "bytes": 14355
+    },
+    "source_difference": "only two screenshot paths point to private owned directory",
+    "typecheck_exit_code": 0,
+    "typecheck_log": {
+      "sha256": "0018bd6714cfd6b609561b2ed0719c894fc30580860b5831211f2629105f30a9",
+      "bytes": 56
+    },
+    "entire_browser_suite_rerun": false,
+    "modified_sha_hosted_ci_accepted": false
+  },
+  "review": {
+    "preserved": [
+      {
+        "path": "web/src/AuthoredFinancialWorkspace.tsx",
+        "sha256": "122b91bf8081bd246fe6cec3c9d9beaaaba316cf3e4f7c27f9accfe444544e19",
+        "same_as_head": true
+      },
+      {
+        "path": "web/playwright.config.ts",
+        "sha256": "d24619fbb5c5cc6c534a1d529d1547a348285dede6096b3db5933d665e341f13",
+        "same_as_head": true
+      },
+      {
+        "path": "web/package.json",
+        "sha256": "1554fbdaf7c8c9573163045fe6ebfbd0ce9d95268a023f29fd6e6106276b2925",
+        "same_as_head": true
+      },
+      {
+        "path": "web/package-lock.json",
+        "sha256": "7c71e36d67b965ed054271db94f10f913f36cea362dd4e9e221722928c8cf731",
+        "same_as_head": true
+      },
+      {
+        "path": ".github/workflows/web-tests.yml",
+        "sha256": "34c1a7312bc9313fa6e0de084d0493f625f025a77e898e14a83911da610e90c8",
+        "same_as_head": true
+      },
+      {
+        "path": "research/artifacts/authored-financial-desktop.png",
+        "sha256": "919c6a59e46e71daa726617666dc9b9e4c2fea2ec34d43ce94ac061fe110f850",
+        "same_as_head": true
+      },
+      {
+        "path": "research/artifacts/authored-financial-phone.png",
+        "sha256": "cc5edb54c6558f4863bc596e8fc60e25082bf6e14b425af7268999a11a411cdb",
+        "same_as_head": true
+      }
+    ],
+    "full166_pinned_sources_verified": 55,
+    "private_green_probe_equals_tracked_source_except_two_screenshot_paths": true,
+    "temporary_probe_removed": true
+  },
+  "cleanup": {
+    "owned_logged_process_ids_absent": [
+      297252,
+      297297,
+      297869
+    ],
+    "localhost_port_5187_free": true,
+    "probe_source_absent": true,
+    "private_screenshots_present": [
+      true,
+      true
+    ],
+    "resource_policy": "single browser worker; nice19; original calculation nice15 preserved",
+    "scope": "owned synthetic browser fixture only; no database or external data requests"
+  },
+  "current_hosted_observation": {
+    "observed_at_utc": "2026-10-07T07:52:42.399930+00:00",
+    "runs": [
+      {
+        "conclusion": "success",
+        "databaseId": 37587498452,
+        "status": "completed",
+        "updatedAt": "2026-10-07T07:28:51Z",
+        "workflowName": "C0 Compose verification"
+      },
+      {
+        "conclusion": "failure",
+        "databaseId": 37587498493,
+        "status": "completed",
+        "updatedAt": "2026-10-07T07:32:26Z",
+        "workflowName": "Web tests"
+      },
+      {
+        "conclusion": "",
+        "databaseId": 37587498500,
+        "status": "queued",
+        "updatedAt": "2026-10-07T07:28:09Z",
+        "workflowName": "Backend tests"
+      },
+      {
+        "conclusion": "success",
+        "databaseId": 37587498387,
+        "status": "completed",
+        "updatedAt": "2026-10-07T07:33:35Z",
+        "workflowName": "Application runtime verification"
+      },
+      {
+        "conclusion": "success",
+        "databaseId": 37587498348,
+        "status": "completed",
+        "updatedAt": "2026-10-07T07:39:20Z",
+        "workflowName": "Authored API PostgreSQL smoke"
+      }
+    ]
+  },
+  "holds": [
+    "whole Backend CI pending",
+    "modified browser test SHA hosted CI pending",
+    "full166 synthetic experiment terminal and conservation audit pending",
+    "actual cultivar inputs and independent domestic measurements remain zero"
+  ],
+  "gates": "not_assessed",
+  "actual_crop_runs_created": 0
+}

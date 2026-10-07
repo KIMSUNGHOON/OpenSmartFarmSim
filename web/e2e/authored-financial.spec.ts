@@ -4,15 +4,18 @@ import { financialResponses,economicId,assessmentId } from './authored-financial
 import { authoredJobId,authoredRunId,authoredResponses } from './authored-thermal-fixture';
 
 const token='synthetic-authored-financial-browser-token';
-async function install(page:Page) {
+async function install(page:Page,historyDelayMs=0) {
   const fixture=financialResponses(),posts:{path:string;body:string}[]=[];
-  await page.route('**/v1/**',route=>{
+  await page.route('**/v1/**',async route=>{
     const path=new URL(route.request().url()).pathname;
     if(route.request().headers().authorization==='Bearer '+token+'-foreign')
       return route.fulfill({status:403,json:{private:'another account'}});
     if(path==='/v1/authored-runs/catalog')return route.fulfill({json:fixture.catalog});
     if(path.endsWith('/authored-economic-input'))return route.fulfill({json:fixture.selected});
-    if(path.endsWith('/authored-financial-history'))return route.fulfill({json:fixture.history});
+    if(path.endsWith('/authored-financial-history')){
+      if(historyDelayMs)await new Promise<void>(resolve=>setTimeout(resolve,historyDelayMs));
+      return route.fulfill({json:fixture.history});
+    }
     if(path==='/v1/economic-results' || path==='/v1/assessments'){
       posts.push({path,body:route.request().postData()!});
       return route.fulfill({status:202,json:{...(path.endsWith('assessments')?fixture.assessment:fixture.economic),state:'queued',attempt_count:0,reason_code:null}});
@@ -41,6 +44,7 @@ async function select(page:Page) {
 }
 async function prepareNew(page:Page) {
   await expect(page.getByRole('button',{name:'선택 Run 경제 계산 요청',exact:true})).toBeDisabled();
+  await expect(page.getByRole('button',{name:/경제 계산 기록.*현재 기록 조회/})).toBeEnabled();
   await page.getByRole('button',{name:/경제 계산 기록.*현재 기록 조회/}).press('Enter');
   await expect(page.getByText('9,007,199,254,740,993.0000000001 원',{exact:true})).toBeVisible();
   await page.getByRole('button',{name:'새 경제 요청 준비',exact:true}).press('Enter');
@@ -55,7 +59,7 @@ async function money(page:Page) {
 }
 
 test('saved Run keyboard selection, exact conditional money, cash pages and held assessment',async({page})=>{
-  const {fixture,posts}=await install(page);const errors:string[]=[];
+  const {fixture,posts}=await install(page,500);const errors:string[]=[];
   page.on('pageerror',error=>errors.push(error.message));
   page.on('console',message=>{if(['error','warning'].includes(message.type()))errors.push(message.type());});
   await page.setViewportSize({width:1440,height:1000});await connect(page);await select(page);

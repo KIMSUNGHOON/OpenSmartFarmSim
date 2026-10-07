@@ -477,6 +477,9 @@
           source는 보존했으며 전체 backend 재실행과 수정의 hosted 수용은 별도다.
           `2daa99f`의 [종료 CI](../research/artifacts/crop-cycle-durable-ci-terminal-20261007.json)는 다른4workflow·
           Backend4분할 성공, 위2분할과 집계 실패다. 모든 기존 실행 종료를 확인한 뒤 수정의 정상 push/새 CI로 검증한다.
+          후속 `4b0d559`는 C0/앱/작성 경로 성공·Backend 실행 중이다. Web의97통과/1실패는
+          [경제 이력 키보드 대기](../research/web-financial-history-keyboard-20261007.md)를 재현해 시험만 수정했고
+          로컬 Chromium7개/타입을 통과했다. 현재 CI 전체 및 수정 판본 hosted 수용은 별도다.
         - [x] **`crop-cycle-query-runtime`** — 선행 authority; API route/create_app/runtime의 명시적
           조회 선택·집중 시험·계약. 기본 기존 경로를 유지하고 현재 조회 타입/원 store·농장 authority를 대사한다.
           실제 SCRAM/TLS의 원 모든 작은 시점/사건·전체 응답30초/2MiB·투영 후 철회·재시작·거부/정리를
