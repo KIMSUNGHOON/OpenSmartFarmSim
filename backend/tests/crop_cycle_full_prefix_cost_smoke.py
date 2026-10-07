@@ -148,7 +148,8 @@ def test_actual_full166_registered_prefix_cost_and_original_checkpoint(
     def sink(row):
         observed.append(row); save('full166-advance-'+str(len(observed))+'.json', row)
     report = driver.profile_registered_prefix(server, raw, tenant='tenant-1',
-        budget={'max_steps':10000,'max_transitions':128}, max_advances=32,
+        budget={'max_steps':10000,'max_transitions':128},
+        max_advances=int(os.environ.get('OSSF_FULL_PREFIX_MAX_ADVANCES','32')),
         wall_budget_seconds=900, on_advance=sink)
     save('full166-prefix-profile.json', report)
     assert report['growth_curve'] == observed and 1 <= len(observed) <= 32

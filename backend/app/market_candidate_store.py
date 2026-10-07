@@ -7,6 +7,7 @@ and their numeric input revisions; it never approves a MarketSnapshot.
 
 from copy import deepcopy
 from contextlib import contextmanager, nullcontext
+from contextvars import ContextVar
 from hashlib import sha256
 import json
 import re
@@ -20,6 +21,7 @@ from .economic_contracts import (EconomicScenario, OwnedEconomicRecord,
 from .economics import canonical_scenario_sha256
 from .market_scenario import MarketScenarioRequest, _json
 from .market_runtime import connect_market, validate_market_identity
+from .runtime_roles import audit_runtime_roles
 
 
 _DIGEST = re.compile(r"[0-9a-f]{64}\Z")
@@ -174,6 +176,7 @@ class MarketCandidateStore:
         self.dsn, self.schema = dsn, schema
         self._source = source_repository
         self._principal_provider = principal_provider
+        self._scoped_reader = ContextVar('market_candidate_scoped_reader', default=None)
 
     def connect(self):
         if self.runtime_identity is not None:
@@ -202,13 +205,34 @@ class MarketCandidateStore:
 
     @contextmanager
     def read_scope(self, tenant):
-        if type(tenant) is not str or not tenant or self._tenant('market_candidate_read') != tenant:
+        if (type(tenant) is not str or not tenant or self._tenant('market_candidate_read') != tenant
+                or self._scoped_reader.get() is not None):
             raise MarketCandidateDenied('market candidate read authority denied')
         source_scope = getattr(self._source, 'read_scope', None)
         with source_scope(tenant) if callable(source_scope) else nullcontext():
-            yield
-            if self._tenant('market_candidate_read') != tenant:
+            with self.connect() as conn:
+                conn.execute('SET TRANSACTION ISOLATION LEVEL READ COMMITTED READ ONLY')
+                token = self._scoped_reader.set((conn, tenant))
+                try:
+                    yield
+                    if self._tenant('market_candidate_read') != tenant:
+                        raise MarketCandidateDenied('market candidate read authority denied')
+                    if self.runtime_identity is not None:
+                        audit_runtime_roles(conn, self.runtime_identity[0])
+                finally:
+                    self._scoped_reader.reset(token)
+
+    @contextmanager
+    def _read_context(self, tenant):
+        scoped = self._scoped_reader.get()
+        if scoped is None:
+            with self.connect() as conn:
+                yield conn
+        else:
+            conn, owner = scoped
+            if tenant != owner or self._tenant('market_candidate_read') != owner or conn.closed:
                 raise MarketCandidateDenied('market candidate read authority denied')
+            yield conn
 
     def __getattr__(self, name):
         if name in {"get_joint_shock", "get_joint_shock_pin", "get_input_rights",
@@ -293,7 +317,7 @@ class MarketCandidateStore:
         tenant = self._tenant("market_candidate_read")
         if tenant is None:
             return None
-        with self.connect() as conn:
+        with self._read_context(tenant) as conn:
             return self._candidate_in_transaction(conn, tenant, scenario_id, revision)
 
     def _candidate_in_transaction(self, conn, tenant, scenario_id, revision):
@@ -341,7 +365,7 @@ class MarketCandidateStore:
         tenant = self._tenant("market_candidate_read")
         if tenant is None:
             return None
-        with self.connect() as conn:
+        with self._read_context(tenant) as conn:
             value = self._input_in_transaction(conn, tenant, input_id, revision)
         if value is not None:
             return value

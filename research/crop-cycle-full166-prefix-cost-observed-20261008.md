@@ -23,7 +23,7 @@ native Codex CLI `gpt-6.1-sol / xhigh`의 원/후속 turn_context를 확인했�
 원 완료 결과의 같은32번째 commit에서 읽은 모든 확정 행과121상태·seed·clock·cursor·누적이 같았다.
 시각은 명시적으로+273일 옮긴 뒤 비교했다. 새 서비스에서 같은 checkpoint를 복원하고 조회 RHS0을 확인했다.
 현재 입력 권리/계정 철회와 미완료 DB 게시를 거부했으며 읽기 전후 server 파일과 DB 행 수가 같다.
-원 입력750개·새 입력750개·원 결과29,141개와 실행 당시 소스129개의 bytes/mode/inode를 보존했다.
+원 입력750개·새 입력750개·원 결과29,141개의 bytes/mode/inode와 실행 당시 소스129개의 SHA를 보존했다.
 소스 보존의 파일 SHA와 입력/결과 보존 assertion은 원 실행 종료 시점의 증거다.
 
 FD12→12·모든 소유 context/cache 종료, schema/role/passfile0·실제 SCRAM HBA와

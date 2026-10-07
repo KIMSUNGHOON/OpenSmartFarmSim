@@ -27,7 +27,9 @@
 원750파일/네 stream·값/clock/격자 보존·73개 회귀·실제 SCRAM 농장/경제 달력·현재 권리/기간 거부·RHS0·종료0/정리로 수용했다.
 [같은 전체 입력의 초기32회 비용](../research/crop-cycle-full166-prefix-cost-observed-20261008.md)도
 3,990걸음·105시점/2사건·원 상태/행·현재 권리·129 source/정리·종료0으로 로컬 수용했다.
-다음은 [후보 읽기 연결 비용 개선](../contracts/crop-cycle-candidate-read-scope-v1.md)이며 전체 등록 계산/DB/API/3D는 후속이다.
+[후보 읽기 연결 개선](../research/crop-cycle-candidate-read-scope-implementation-20261008.md)도 고유37개 분할·
+연결38→1/원 검증·산술·같은 첫3회 원량/권리/정리로 로컬 수용했다.
+다음은 입력 증명 반복 검사 비용이며 전체 등록 계산/DB/API/3D는 후속이다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했으며 hosted 수용은 별도다.
 [기존 설정 호환의 hosted 세 Compose/정리](../research/artifacts/application-operator-policy-hosted-reference-20261008.json)는 수용했다.
 전체166일 등록 계산/복원과 생산/경제·자료 관문·hosted 수용은 별도다.

@@ -706,11 +706,20 @@
           105시점/2사건·원121상태/seed/clock/cursor·모든 확정 행·새 서비스/RHS0·권리/미완료 게시 거부,
           원 입력750/새750/원 결과29,141·129 source·FD12→12/정리·종료0/650.849초를 확인했다.
           경제 검증/계산338회·독점280.720초, 산술0.119초와 입력 proof97.986초를 분리했다.
-        - [ ] **`crop-cycle-candidate-read-scope`** — 다음 한 단계; 위 실측의 반복 후보 연결 비용을 줄인다.
+        - [x] **`crop-cycle-candidate-read-scope`** — 위 실측의 반복 후보 연결 비용을 줄인다.
           [좁은 계약](../contracts/crop-cycle-candidate-read-scope-v1.md)에 따라 실제 연결 수 RED →
           검증 호출별 후보1/원천1 연결·원 request/scenario/pin/Decimal/검사 수 보존 →
           현재 권리/commit된 변조/감사·readonly/동시/예외 정리 → 같은 작은 계산의 개선 비용을 검증한다.
           전체 작기 실행 예산과 누적 비용 부모는 이 자식만으로 수용하지 않는다.
+          [10월8일 수용](../research/crop-cycle-candidate-read-scope-implementation-20261008.md): 새15개/원 회귀21개/실제 계산1개,
+          고유37개 분할·연결38→1/원 검사·Decimal·철회/commit된 변조/감사·readonly/동시/정리,
+          같은 첫3회60.421→30.737초·373걸음/10시점/2사건·원 상태/행·RHS0/FD12→12·135 source/정리·종료0.
+        - [ ] **`crop-cycle-calculation-recheck-cost`** — 다음 한 단계; 같은 입력의 반복 검증 비용.
+          원 첫3회에서 입력 proof99회/9.455초를 관측했다. 기존 계측기로 호출자/검사 경계를 확인하고,
+          현재 전체 bytes·code/authority/instance·늦은 입력 변조·현재 권리/계정·원 수치/조회 RHS0를
+          보존하는 중복 검사 개선만 작은 계약으로 고정해 구현한다. 원 검증 음성 대조와
+          같은 root/checkpoint/행·별도 복원·FD/PG/비밀 정리·실제 종료/비용이 수용 기준이다.
+          메타데이터만의 무결성 확인이나 권리 캐시로 대체하지 않는다. 전체 작기 예산/누적 비용 부모는 별도다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

@@ -373,6 +373,11 @@ native3–5시간의 **남은 작은 웹 연결4–7집중시간 잠정**이며 
 초기/증가 표본 자식만 수용했다. 다음 [후보 읽기 범위](../contracts/crop-cycle-candidate-read-scope-v1.md)는
 실제 반복 연결 RED → 호출별1연결/원 검증·산술·권리/변조/감사/정리 → 같은 계산 개선 측정 순서다.
 경제 검증/계산 독점280.720초를 SQL 전용 비용으로 단정하지 않으며 입력 proof97.986초 등 남은 비용도 유지한다.
+[후보 읽기 연결 개선](../research/crop-cycle-candidate-read-scope-implementation-20261008.md)은 새15/원 회귀21/실제 계산1,
+고유37개 분할·연결38→1/원 검사·Decimal·첫3회60.421→30.737초/원량·권리/정리로 로컬 수용했다.
+다음 `crop-cycle-calculation-recheck-cost`는 입력 증명99회/9.455초의 호출 경계를 확인하고
+현재 bytes·늦은 변조/철회 거부를 보존하는 중복 검사 개선을 검증한다.
+전체166일 실행 예산은 남은 누적 비용 증거 뒤 고정하며 초기3회로 완료 시간을 외삽하지 않는다.
 실측에 필요한 개선과 전체 실행 예산 근거 전에는 prefix-cost 부모를 수용하지 않는다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증이며 전체 hosted 수용은 별도다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
@@ -553,7 +558,8 @@ flowchart TD
   BCALCSMALL --> BCALCCOST["crop-cycle-calculation-prefix-cost: 전체 등록 누적 비용"]
   BCALCREG --> BCALCFULLCOST["crop-cycle-calculation-full-prefix-cost: 같은 전체 입력의 증가 비용"]
   BCALCFULLCOST --> BCANDREAD["crop-cycle-candidate-read-scope: 후보 연결 재사용/원 검증"]
-  BCANDREAD --> BCALCCOST
+  BCANDREAD --> BRECHECK["crop-cycle-calculation-recheck-cost: 현재 입력 검사 의미/중복 비용"]
+  BRECHECK --> BCALCCOST
   BCALCCOST --> BRESTORE
   BRESTORE --> BURDEN
   BURDEN --> CAP
