@@ -666,6 +666,9 @@
       - [ ] **`crop-cycle-calculation-prefix-cost`** — 선행 full-rhs와 작은 새 계산 농장 결속; 읽기 개발과 병행한다.
         실제 등록 입력의 bounded advance/reopen·수지/서명·권리·저장 누적 비용을 분리하고 원 한도·원량을 유지한다.
         실측 결함의 작은 수정/검증과 전체 등록 실행 비용 증거 없이 replay-restore/부하 부모를 체크하지 않는다.
+        [3 core파일 측정 계약](../contracts/crop-cycle-calculation-prefix-cost-v1.md): 계측/원량 대사 → 실제 작은 SCRAM 기준선 →
+        25시간의 최대32호출 곡선 → 전체166일 입력의 실제 등록/누적 관측과 필요한 개선 순서다.
+        작은 표본은 전체 작기 수용이 아니며 새 native 실험과 PG/계산을 동시에 기동하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

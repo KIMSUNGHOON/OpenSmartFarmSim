@@ -347,6 +347,10 @@ native3–5시간의 **남은 작은 웹 연결4–7집중시간 잠정**이며 
 [새 native2파일 계약/실행 시작](../research/web-crop-cycle-calculation-native-started-20261008.md)은
 소유 기록 응답의 새/기존 연결·pytest 수집 후 실제 등록 세 사례/현재 조회 준비와25시간 부분 계산을 확인했다.
 같은 실제 실행의 HTTP/WebGL/종료·정리 증거가 다음이다. native/웹 부모와 전체166일 등록 부하는 미수용이다.
+[등록 누적 비용3파일 계약](../contracts/crop-cycle-calculation-prefix-cost-v1.md)은 기존 계측기를 재사용해
+원량 대사/작은 SCRAM 기준선 → bounded prefix 곡선 → 전체166일 입력의 실제 등록/누적 관측으로 분해했다.
+설계는 native와 독립적이지만 PG/계산 실험은 순차 실행한다. 작은 측정2.5–5집중시간 잠정은
+전체 입력 등록·성능 개선/전체 실행·자료/관문 완료 날짜와 구분한다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
 선택 시작/중간/끝129시점/5사건·page 최대2.035086초와 source/FD/PID 정리를 확인했다.
