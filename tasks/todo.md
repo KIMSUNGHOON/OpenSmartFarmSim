@@ -485,7 +485,9 @@
           원120걸음·3시점/3사건·22 HTTPS·최대6.306509초/21,514bytes·투영 후 철회/역할 거부·재시작/정리.
           구성/기존 route52개·호환137통과/9건너뜀·선행8개 포함 분할 고유198통과/9건너뜀이다.
           최종 예외 전파 회귀2개는 중복 합산하지 않으며 전체 backend/새 브라우저/hosted CI는 이번 범위가 아니다.
-      - [ ] **`crop-cycle-calculation-input-context`** — 선행 입력 검사 영수증/감독자 수용과 실제 실행 종료 후55개 소스 동결 해제.
+      - [ ] **`crop-cycle-calculation-input-context`** — 선행 입력 검사 영수증/감독자 수용.
+        신규 파일만 사용하는 순수 개발은 원55 source SHA·현재 입력/spec을 보존해 실행과 병행한다.
+        동결 소스 변경은 실제 실행 종료·증거 보존 뒤다.
         [계산 경로 직접 관측](../research/crop-cycle-farm-input-cost-observation-20261007.md)은 같은166일 입력의
         원 `_input` 두 호출22.05/22.22초·같은 root/plan·RHS0/FD 정리를 확인했다. 조회 개선과 별도인 계산 경로다.
         첫 변경 전에 계산 factory/판본·과거 입력/결과 보존 계약과 한 단계4개 이내 core파일을 확정한다.
@@ -496,7 +498,7 @@
         변조·잘못된 코드/프로필/키 거부·bounded cache/FD/활성 RSS/자원 정리.
         원 private token/캐시의 외부 주입과 조회 전용 타입의 계산 허용을 거부한다.
         코드/normalization/context 변경은 새 판본으로 기록하고 과거 원본·재생 증거를 유지한다.
-        전체 RHS 성공은 이 작은 개발의 추가 착수 조건이 아니며, 실행 중 소스는 종료/증거 보존 전 변경하지 않는다.
+        전체 RHS 성공은 이 작은 개발의 추가 착수 조건이 아니며, 실행 중 동결 소스는 종료/증거 보존 전 변경하지 않는다.
       - [ ] **`crop-cycle-calculation-artifact`** — 선행 위 계산 문맥의 작은 수용.
         [현재 감사](../research/crop-cycle-calculation-context-inspection-20261007.md)에서 기존 artifact가 원 exact context만
         받음을 확인했다. 새 판본의 writer/reader·checkpoint/manifest 경계를3–4개 core파일로 먼저 계약한다.

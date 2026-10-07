@@ -236,6 +236,8 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 요구함을 확인했다. [공식 계산 문맥/판본 계약](../contracts/crop-cycle-calculation-context-v1.md) → 새 판본 artifact
 → 현재 농장·권리/custody의 작은 작업으로 검증하며 실행 중 소스와 과거 결과 판본을 보존한다.
 전체 저장/조회·부하 수용은 기존 증거를 모두 요구한다.
+새 계산 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존하며 실행과 병행하고,
+동결 소스 변경은 실제 실행 종료·증거 보존 뒤 진행한다.
 [확정 과거 결과 비용](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은
 원8,175commit/26,831출력의 수지 검증73.71초로 반복 결과 검증도30초 경로 전에 개선해야 함을 확인했다.
 [결과 검증 영수증](../research/crop-cycle-result-evidence-implementation-20261006.md)은 작은 완료/hold의

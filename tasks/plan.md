@@ -220,7 +220,9 @@ child SIGKILL(-9)/원123걸음 checkpoint 재개·연속760걸음/21시점/2사�
 공식 factory/새 판본·원 물리값/UTC/checkpoint·수지/hold·변조 거부·별도 복원이다.
 새 판본 writer/reader의 불변 저장·별도 Python/QC·조회 RHS0을 확인한 뒤
 실제 SCRAM의 현재 계산/표시 권리·등록/Scope 전후 검사와 custody 결속을 검증한다.
-입력 증명/감독자 수용 뒤 착수할 수 있지만55개 소스 수정은 실제 실행 종료·증거 보존을 기다린다.
+입력 증명/감독자 수용 뒤 새 파일만 쓰는 순수 개발을 병행하며 원55 source SHA·현재 입력/spec을 보존한다.
+55개 동결 소스 수정은 실제 실행 종료·증거 보존을 기다린다. 원 helper의 고정 import와 새 전용 module 경계가
+이 병행의 근거이며 원 reader/engine에 새 token을 주입하지 않는다.
 전체 RHS 성공을 작은 개발의 추가 착수 조건으로 삼지 않으며, 전체 replay-restore 게시/부하 수용에는
 기존 전체 RHS와 실제 등록 계산·저장/API/동일 UTC3D 증거를 모두 유지한다.
 관측의44.28초 합을 실제 농장/HTTPS 지연이나 전체 작기 완료 날짜로 외삽하지 않는다.

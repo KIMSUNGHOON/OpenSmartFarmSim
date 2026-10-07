@@ -3,7 +3,8 @@
 2026-10-07 KST. **구현 전 계약**이며 계산·성능 수용 기록이 아니다.
 선행 [입력 증명](crop-cycle-input-evidence-v1.md), [원 실행 의미](crop-cycle-stream-execution-v1.md),
 [현재 코드 대조](../research/crop-cycle-calculation-context-inspection-20261007.md)를 따른다.
-작업은 `crop-cycle-calculation-input-context`이며 실제 실행 종료·증거 보존 뒤 착수한다.
+작업은 `crop-cycle-calculation-input-context`다. 아래 새 파일만으로 구현하고 원55개 source SHA와
+현재 입력/spec을 보존하는 순수 개발은 실행과 병행한다. 동결 소스 변경은 실제 종료·증거 보존 뒤다.
 현재55개 source 동결과 기존 전체 작기 부모의 수용 조건은 [계획](../tasks/plan.md)에 있다.
 
 ## 첫 변경의 경계
@@ -119,5 +120,5 @@ private helper의 중첩 호출마다 전체 검사를 되풀이하지 않도록
    예상 새 파일·닫힌 manifest/실제 helper 목록을 구현과 대조한 뒤 자식 작업만 체크한다.
 
 사용자 산출물은 원/새 물리값 비교·새 판본 복원·검사 비용/자원 보고서와 불변 receipt다.
-전체166일 성공은 이 작은 개발의 추가 착수 조건이 아니며 현재 실행의 실제 종료·증거 보존은 필요하다.
+전체166일 성공은 이 작은 개발의 추가 착수 조건이 아니다. 동결 소스 변경에는 현재 실행의 실제 종료·증거 보존이 필요하다.
 실제 품종/수확·독립 현장 검증·예측/추천과 관문은 [제품 명세](../docs/PROJECT_SPEC.md)를 따른다.
