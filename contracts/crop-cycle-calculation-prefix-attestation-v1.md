@@ -97,3 +97,10 @@ terminal result 증명 발행/게시의 기존 전체 물리 QC와 page 검사�
 
 전체 이력의 bytes/HMAC 순회 비용은 이 구현 뒤에도 남는다. 그 실제 비용과 현재 권리/계산·저장 비용을
 확인해 전체 실행 예산을 정한다. 현재 실제 품종/국내 독립 자료/측정 농장 작물 Run0과 관문 hold는 유지한다.
+
+10월8일 [최종 수정판 수용](../research/crop-cycle-calculation-prefix-attestation-implementation-20261008.md):
+재개 입력 검사와 HEAD 직전 권한 철회 두 반례를 RED로 확인·복원한 뒤
+집중87·실제 농장12·게시96·현재 조회12·같은32회1, 고유208개를 분할 검증했다.
+원 checkpoint 전체/행·현재 권리/복원·266 source/정리·실제 종료0,
+delta QC1,056→64회·advance304.344→290.225초·전체339.187초이며 입력 proof839회는 보존했다.
+이 자식만 수용하며 전체 wall 예산·166일 등록 DB/API/3D는 후속이다.

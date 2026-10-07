@@ -736,12 +736,19 @@
             같은 checkpoint 전체/원행·권리/미완료 게시 거부·fresh 복원/RHS0·263 source/FD12→12·정리·종료0/358.024초.
             두 개선 전과 같은32회 advance575.494→304.344초. 실제 delta QC2n/합1,056회와 코드 전체 순회를 대사했다.
             장시간 전체 등록 실행/전체 wall 예산은 다음 증명 경로와 실제 비용/재개 검증까지 보류한다.
-          - [ ] **`crop-cycle-calculation-prefix-attestation`** — 다음 한 단계; 과거 검증 증명의 명시 소비.
+          - [x] **`crop-cycle-calculation-prefix-attestation`** — 과거 검증 증명의 명시 소비.
             [6 core파일 계약](../contracts/crop-cycle-calculation-prefix-attestation-v1.md)에 따라 새 v2 private proof의
             실제 새 delta 검증 claim·현재 전체 bytes/서명 체인·닫힌 prefix reader를 먼저 검증하고 서버 재개/progress에 연결한다.
             원 context/farm/artifact·수식/격자와 terminal 전체 QC를 유지하며 v1 bytes/이력은 재분류하지 않는다.
             원량/6프로그램·fresh 복원/RHS0·재해시/권리/중단 반례·실제 SCRAM/게시/현재 조회·같은32회 비용/자원/종료가 수용 기준이다.
             증명 개발만으로 전체 실행 예산·prefix-cost/전체166일 DB/API/3D·생과/자원/경제/관문을 체크하지 않는다.
+            [10월8일 최종 수용](../research/crop-cycle-calculation-prefix-attestation-implementation-20261008.md):
+            재개 입력 검사·HEAD 직전 권한 철회 두 반례를 RED로 확인/복원하고
+            집중87+실제 농장12+게시96+현재 조회12+같은32회1, 고유208개 분할·실제 종료0.
+            원 checkpoint 전체/행·현재 권리/복원·266 source/FD12→12·정리·339.187초.
+            delta QC1,056→64회·advance304.344→290.225초이며 입력 proof839회는 보존했다.
+            수정 전329개·97개는 각각 당시 판본의 증거로 보존한다.
+            다음은 남은 현재 bytes/HMAC/metadata 순회와 계산 묶음 경계·전체 wall 예산이다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

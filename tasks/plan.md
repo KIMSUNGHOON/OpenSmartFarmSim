@@ -383,8 +383,11 @@ native3–5시간의 **남은 작은 웹 연결4–7집중시간 잠정**이며 
 [개선 판본32회](../research/crop-cycle-calculation-full-budget-observed-20261008.md)는 같은 checkpoint 전체/원행·실제 SCRAM·
 263 source/정리·종료0/358.024초, 두 개선 전 advance575.494→304.344초로 관측 자식만 수용했다.
 실제 delta QC2n/합1,056회와 과거 전체 순회를 확인했으므로 전체 wall 예산은 미고정이고 장시간 실행은 보류다.
-다음 [prefix 검증 증명](../contracts/crop-cycle-calculation-prefix-attestation-v1.md)은 실제 새 delta 검증의 명시 서명과
-현재 전체 bytes/서명 체인을 소비하는 새 재개/progress 경로를 검증한다. 기존 terminal 전체 QC와 원량/권리/복원을 유지한다.
+[prefix 검증 증명](../research/crop-cycle-calculation-prefix-attestation-implementation-20261008.md)은
+재개 입력/HEAD 직전 권한 철회 두 반례를 RED로 확인·복원하고 최종 수정판208개 분할·같은32회 원량/권리·266 source/정리·종료0으로 로컬 수용했다.
+delta QC1,056→64회·advance304.344→290.225초·전체339.187초이며 입력 검사839회는 보존했다.
+candidate 현재 bytes 검사 뒤 마지막 입력/권한 검사와 atomic HEAD 순서를 검증했다.
+기존 terminal 전체 QC와 원량/권리/복원은 유지했다. 다음은 현재 bytes/HMAC/metadata 순회의 증가 비용이다.
 전체166일 실행 예산은 남은 누적 비용 증거 뒤 고정하며 초기3회로 완료 시간을 외삽하지 않는다.
 실측에 필요한 개선과 전체 실행 예산 근거 전에는 prefix-cost 부모를 수용하지 않는다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증이며 전체 hosted 수용은 별도다.

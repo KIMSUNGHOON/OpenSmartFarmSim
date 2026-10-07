@@ -34,7 +34,11 @@
 [개선 판본32회](../research/crop-cycle-calculation-full-budget-observed-20261008.md)는 같은 checkpoint/원량·권리/복원·
 263 source/정리·종료0/358.024초로 관측 자식만 수용했다. 두 개선 전 advance575.494→304.344초다.
 과거 delta QC2n/합1,056회로 전체 등록 장시간 실행/wall 예산은 보류다.
-다음은 [prefix 검증 증명](../contracts/crop-cycle-calculation-prefix-attestation-v1.md)과 실제 비용/재개이며 전체166일 DB/API/3D는 후속이다.
+[prefix 검증 증명](../research/crop-cycle-calculation-prefix-attestation-implementation-20261008.md)은
+재개 입력/HEAD 직전 권한 철회 두 반례를 RED로 확인·복원하고 최종 수정판208개 분할·같은32회 원량/권리·266 source/정리·종료0으로 로컬 수용했다.
+delta QC1,056→64회·advance304.344→290.225초·전체339.187초이며 입력 검사839회는 보존했다.
+candidate 현재 bytes 검사 뒤 마지막 입력/권한 검사와 atomic HEAD 순서를 검증했다.
+다음은 현재 bytes/HMAC 순회의 증가 비용과 전체 wall 예산이며 전체166일 DB/API/3D는 후속이다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했으며 hosted 수용은 별도다.
 [기존 설정 호환의 hosted 세 Compose/정리](../research/artifacts/application-operator-policy-hosted-reference-20261008.json)는 수용했다.
 전체166일 등록 계산/복원과 생산/경제·자료 관문·hosted 수용은 별도다.
