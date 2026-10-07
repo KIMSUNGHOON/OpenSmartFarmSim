@@ -364,7 +364,7 @@
       자작5시간2,280걸음의 예산/원61출력 대사·166일 input plan1,816,704걸음/RHS0·FD/DB/비밀번호/PG 정리.
       원49파일 보존과 실제 CLI/코드/입력 hash를 기록했다. 전체 작기 성공은 아니다.
       전체 입력 열기/context31.073760초와 반복 확인 비용을 실제 근거로 다음 조회 수정에 반영한다.
-    - [ ] **`crop-cycle-burden-full-rhs`** — 선행 profile/관측 결함 수정 수용; source 형태 generator/runner·검증3파일.
+    - [x] **`crop-cycle-burden-full-rhs`** — 선행 profile/관측 결함 수정 수용; source 형태 generator/runner·검증3파일.
       고정된 전체166일을 실제 RHS·연속 상태로 계산해 모든 선택 출력/사건·hash·수지·한도/자원을 기록한다.
       조기 hold/예산 종료·복제 fixture는 전체 작기 성공으로 표시하지 않는다. 자료 확보는 병행한다.
       다음 core는 `research/crop-cycle-full-rhs-reference.py`, `backend/tests/test_crop_cycle_full_rhs_reference.py`,
@@ -372,11 +372,15 @@
       [작은 전략 로컬 수용](../research/crop-cycle-full-rhs-small-strategy-implementation.md): 집중17개/13.35초·
       실제 자작5시간2,280걸음/61출력·2사건·별도 Python의 정확한 checkpoint 재개·terminal RHS0·정리.
       기존49/profile2파일을 보존했다. global wall6시간을 고정했으며 예산/날짜를 구분한다.
-      실제166일 전체 종료/수지 검증 전에는 이 checkbox를 체크하지 않는다.
+      [10월7일 새 실험 로컬 수용](../research/crop-cycle-full-rhs-durable-completed-20261007.md):
+      실제 종료0·1,816,704걸음·47,809시점/5사건·원 전체 reader 수지/조회 RHS0·모든 행 hash,
+      첫123걸음과 복원121상태/seed/clock/cursor 전체 동일·고정6시간 내20,518.836401초를 확인했다.
+      입력750파일/113,920,841bytes·artifact29,141파일/466,898,203bytes와 원55 source를 모두 대사했고
+      worker/controller 종료·FD5→5·lock 해제를 확인했다. 전체 등록 farm/DB/API/3D·복원/부하 부모는 별도다.
       [실제 시작 관측](../research/artifacts/crop-cycle-full-rhs-started-reference-20261006.json)은 첫checkpoint/종료0·
       같은 spec의 별도 Python 재개/실제 진행·고정 deadline을 기록했다. 관측 시각에 실행 중이다.
       10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)에서 원handle·실험/terminal
-      보존 경로 부재를 확인했다. 원 최종 상태는 확인 불가이며 전체 수용은 보류한다. 같은 실험/예산을 재설정하지 않는다.
+      보존 경로 부재를 확인했다. 이 유실 실험의 최종 상태는 계속 확인 불가다. 같은 실험/예산을 재설정하지 않는다.
       원 증거 복구 또는 별도 판본/지속 저장의 새 실험 증거와 전체 수지/조회 수용이 필요하다.
       보존 CI 시험 격리 수정은 `4bf9af3`으로 정상 적용해 현재18개/24.30초를 통과했다
       ([통합 증거](../research/artifacts/crop-cycle-full-rhs-test-isolation-integration-20261007.json)). 이 결과로 전체166일을 체크하지 않는다.

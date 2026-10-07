@@ -330,6 +330,12 @@ SQL 형식 fixture와 signed 등록 계산 결과를 구분하며 다음은 새 
 [새 실제 시작 관측](../research/artifacts/crop-cycle-full-rhs-durable-started-reference-20261007.json)은
 첫123걸음/620RHS·정상 종료 뒤 같은 spec 재개·8,104걸음 진행을 기록했다. 전체 종료/수지는 계속 미수용이다.
 
+후속 [새166일 전체 RHS 완료](../research/crop-cycle-full-rhs-durable-completed-20261007.md)는10월7일
+종료0·1,816,704걸음·47,809시점/5사건·원 전체 reader 수지/행 SHA·조회 RHS0,
+원123걸음 체크포인트 전체/121상태·seed/clock/cursor·55 source/입력/결과 전수 대사·정리로 로컬 수용했다.
+준비 포함20,518.836401초로 원6시간 안이다. full-rhs 자식만 완료이며
+전체 등록 DB/API/동일 UTC3D·복원/부하 부모는 다음 실제 경로 수용을 기다린다.
+
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)에서 원81574 handle·실험/terminal
 보존 경로가 없어 최종 상태는 확인 불가다. 보호할 실행의 부재를 확인했고 원 결과/부모는 계속 보류한다.
 작은 terminal 조회 개발을 이어가며 전체 수용은 원 증거 복구 또는 별도 판본/지속 저장의 새 실험 증거를 요구한다.

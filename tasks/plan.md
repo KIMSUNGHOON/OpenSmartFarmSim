@@ -212,6 +212,13 @@ child SIGKILL(-9)/원123걸음 checkpoint 재개·연속760걸음/21시점/2사�
 첫123걸음/620RHS·실제 정상 종료 뒤 같은 spec 재개·8,104걸음 진행을 확인했다.
 새 고정 deadline은2026-10-07T11:07:36.678777Z이며 종료/전체 수지·복원/조회 수용은 별도로 확인한다.
 
+[새166일 실제 종료 수용](../research/crop-cycle-full-rhs-durable-completed-20261007.md)은10월7일19:49 KST다.
+종료0·1,816,704걸음·47,809시점/5사건·원 전체 수지/행 hash·조회 RHS0,
+첫123걸음과 복원121상태/seed/clock/cursor 전체 동일·55 source/입력/결과 전수 대사·정리를 확인했다.
+준비 포함20,518.836401초로 원6시간 안이며 원 유실 실험을 수용한 것은 아니다.
+full-rhs 자식만 완료다. 다음은 새 signed DB 게시 → 전체 등록 계산/저장 비용과 API/동일 UTC3D의
+replay-restore 수용이며 전체 부하/관문·수확/자원/경제·외부 자료 완료일은 계속 별도다.
+
 [계산 경로 직접 관측](../research/crop-cycle-farm-input-cost-observation-20261007.md)은 원 `_input`만
 같은166일 입력에서22.05/22.22초로 실행했다. 현재 조회 수용은 이 반복 계산 검사를 바꾸지 않았다.
 누락된 구현 의존성을 `crop-cycle-calculation-input-context` → `crop-cycle-calculation-artifact`

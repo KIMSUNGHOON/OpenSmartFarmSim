@@ -1,6 +1,6 @@
 # 실제 전체 작기 부하·복원 — v1 후보
 
-상태: **비용 profile·작은 runner/재개 전략 로컬 수용, 실제 전체166일 RHS/저장 조회는 수용 전**, 2026-10-06 KST.
+상태: **비용 profile·runner/재개 전략과 새 전체166일 RHS 로컬 수용, 전체 등록 저장/API/3D·복원/부하 부모는 미수용**, 2026-10-07 KST.
 착수 선행은 `web-crop-cycle-browser`, `web-crop-cycle-replay`, `crop-cycle-result-pages`의
 실제 수용이다. [native 재검증](../research/web-crop-cycle-native-implementation.md)은
 1통과/2044.35초·원27시점/5사건·실제21 HTTPS와 정리를 확인해 선행을 로컬 수용했다.
@@ -8,7 +8,9 @@
 실제 SCRAM/별도 worker 복원·자작166일 input plan으로 확인했다.
 [runner/작은 재개 전략](../research/crop-cycle-full-rhs-small-strategy-implementation.md)은 집중17개·
 자작5시간61출력/2사건·별도 Python의 정확한 checkpoint 재개·terminal RHS0·정리로 수용했다.
-실제 전체166일 종료/수지 검증은 미수용이다.
+[새166일 종료 수용](../research/crop-cycle-full-rhs-durable-completed-20261007.md)은 종료0·전체1,816,704걸음·
+47,809시점/5사건·원 전체 수지/행 hash·조회 RHS0·정확한 원123걸음 checkpoint 복원·55 source/자원 정리다.
+실제 등록 농장 전체 결과/현재 권리·HTTP/화면은 아래 replay-restore에서 별도로 수용한다.
 [stream 실행](crop-cycle-stream-execution-v1.md), [불변 artifact](crop-cycle-artifact-v1.md),
 [원천 감사](../research/crop-forcing-audit.md)를 따른다. 이 작업은 작물 모델 개발과
 국내 독립 자료 확보를 병행하는 기존 경로에 놓인다.

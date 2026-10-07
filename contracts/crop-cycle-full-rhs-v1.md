@@ -1,6 +1,9 @@
 # 자작 전체 작기 실제 RHS 실험 — v1 후보
 
-상태: **[runner17개·실제5시간 저장/별도 프로세스 재개 전략 로컬 수용](../research/crop-cycle-full-rhs-small-strategy-implementation.md), 실제166일 수용 전 후보**,2026-10-06 KST.
+상태: **[새166일 전체 실제 RHS 로컬 수용](../research/crop-cycle-full-rhs-durable-completed-20261007.md)**,2026-10-07 KST.
+소유 합성 입력·원 전체 수지/행·중단 체크포인트 복원·한도/정리를 확인한 full-rhs 범위다.
+등록 농장 전체 DB/API/같은 UTC3D와 부하 부모·관문은 별도다.
+선행 [runner17개·실제5시간 저장/별도 프로세스 재개 전략](../research/crop-cycle-full-rhs-small-strategy-implementation.md)도 보존한다.
 선행 [비용 profile](../research/crop-cycle-burden-profile-implementation.md)을 로컬 수용했다.
 [부하 부모](crop-cycle-burden-v1.md), [원 불변 writer](crop-cycle-artifact-v1.md)를 따른다.
 제품 관문·실제 농장/자료의 착수/게시 조건은 [명세](../docs/PROJECT_SPEC.md)에 있다.

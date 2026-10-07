@@ -280,6 +280,12 @@ child 강제 종료(-9)·같은 checkpoint 재개와 연속760걸음/21시점/2�
 [새 실험 시작 관측](../research/artifacts/crop-cycle-full-rhs-durable-started-reference-20261007.json)은
 원123걸음 중단/정상 종료 뒤 같은 spec 재개·8,104걸음 진행을 확인했다. 관측 당시 실행 중이며 전체 수용은 아니다.
 
+후속 [새166일 전체 RHS 수용](../research/crop-cycle-full-rhs-durable-completed-20261007.md)은10월7일
+실제 종료0·1,816,704걸음·47,809시점/5사건·원 전체 reader 수지/행 SHA·조회 RHS0와
+첫123걸음의 전체 체크포인트/121상태·seed/clock/cursor 복원,55 source/입력/결과 전수 대사·정리를 확인했다.
+원6시간 내20,518.836401초의 소유 합성 수치 실험이며 full-rhs 자식만 수용한다.
+전체 등록 농장 DB/API/같은 UTC3D·복원/부하와 실제 품종/예측·추천 관문은 아직 미수용이다.
+
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)은 원81574 handle·실험/terminal
 보존 경로 부재를 확인했다. 원 최종 결과는 확인 불가이며 부분 관측을 전체 수용으로 바꾸지 않는다.
 작은 사례의 조회 개발은 계속하고 원 전체 수용은 복구 가능한 원 증거 또는 별도 판본의 새 실험 증거를 요구한다.
