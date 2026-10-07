@@ -1,6 +1,7 @@
 # 검증 영수증을 소비하는 계산 문맥 — v1 구현 계약
 
-2026-10-07 KST. **구현 전 계약**이며 계산·성능 수용 기록이 아니다.
+2026-10-07 KST. 구현 계약이며 [로컬 수용 보고서](../research/crop-cycle-calculation-context-implementation-20261007.md)의
+작은 순수 계산 범위까지 확인했다. 전체 작기·농장/저장/API/3D 수용은 아니다.
 선행 [입력 증명](crop-cycle-input-evidence-v1.md), [원 실행 의미](crop-cycle-stream-execution-v1.md),
 [현재 코드 대조](../research/crop-cycle-calculation-context-inspection-20261007.md)를 따른다.
 작업은 `crop-cycle-calculation-input-context`다. 아래 새 파일만으로 구현하고 원55개 source SHA와
@@ -9,7 +10,7 @@
 
 ## 첫 변경의 경계
 
-첫 core는 아래4개 이내다. 첫 두 파일과 참조 코드는 아직 없는 예정 파일이다.
+첫 core는 아래4개다. 실제 구현·시험·별도 프로세스 참조를 수용 보고서에 결속한다.
 
 1. `backend/app/crop_cycle_calculation_context.py`: 공식 factory·전용 context와 순수 실행.
 2. `backend/tests/test_crop_cycle_calculation_context.py`: 연속/복원·거부·자원 검증.
@@ -19,6 +20,7 @@
 원 input stream·engine·영수증·조회·artifact·custody 파일 bytes는 보존한다.
 새 코드는 원 physical/continuation 함수와 고정된 격자·평가 helper를 명시적으로 사용한다.
 원 engine에서 사용하는 helper는 `_boundary`, `_evaluator`, `_clock_record`, `_seal`, `_confirmed`로 한정한다.
+직렬화/해시 helper `_canonical`, `_hash`도 원 구현을 명시적으로 재사용한다.
 새 계수나 수식·시간 격자를 만들지 않는다. 실행 제어와 checkpoint 검사는 새 context의
 정확한 형/판본을 검사하는 경계에 둔다. 원 engine private token을 가져오거나
 `object.__new__`/외부 cache 주입·런타임 monkeypatch로 원 타입을 만들지 않는다.
@@ -26,7 +28,7 @@
 
 ## 공식 인터페이스
 
-예정 module은 다음 public 연산만 제공한다. 서버 설정이 authority를 공급한다.
+module은 다음 public 연산을 제공한다. 서버 설정이 authority를 공급한다.
 
 ```python
 open_calculation_context(directory, input_root_sha256, evidence_raw, *, authority)
@@ -88,6 +90,9 @@ private helper의 중첩 호출마다 전체 검사를 되풀이하지 않도록
 새 실행 root는 별개다. 증명을 새 계산 결과·현재 농장 승인으로 재발급하지 않는다.
 원 결과/manifest/checkpoint bytes는 변환하지 않고 기존 조회 경로로 재생한다.
 원 checkpoint의 root/version만 바꾸는 복원·묵시 migration은 거부한다.
+여기서 checkpoint SHA는 정합성 검사이며 계산 출처의 인증이 아니다. 임의로 일관된 JSON을
+재작성할 수 있는 호출자를 신뢰하는 경계가 아니며, 실제 farm 게시에는 후속 server custody의
+계산 이력·서명이 필요하다. 이 순수 API는 원 server trace의 판본 변환을 제공하지 않는다.
 새 checkpoint는 새 판본에서 시작한 실행의 별도 프로세스 복원에만 사용한다.
 사용자에게 계산 engine 선택 옵션을 추가하지 않는다.
 

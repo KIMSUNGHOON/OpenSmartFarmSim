@@ -236,6 +236,10 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 요구함을 확인했다. [공식 계산 문맥/판본 계약](../contracts/crop-cycle-calculation-context-v1.md) → 새 판본 artifact
 → 현재 농장·권리/custody의 작은 작업으로 검증하며 실행 중 소스와 과거 결과 판본을 보존한다.
 전체 저장/조회·부하 수용은 기존 증거를 모두 요구한다.
+[새 순수 계산 경로](../research/crop-cycle-calculation-context-implementation-20261007.md)는90개 집중 시험·
+원/새 checkpoint/121상태·clock/counter·별도 Python4개·변조/자원 정리로 로컬 수용했다.
+같은166일 입력 factory0.386465초는RHS0의 입력 경로 관측이며 실제 농장/HTTP/전체 작기 처리량은 아니다.
+다음은 새 artifact 판본 → 현재 농장·권리/custody이며 원 전체 작기/저장/3D·관문 보류를 유지한다.
 새 계산 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존하며 실행과 병행하고,
 동결 소스 변경은 실제 실행 종료·증거 보존 뒤 진행한다.
 [확정 과거 결과 비용](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은

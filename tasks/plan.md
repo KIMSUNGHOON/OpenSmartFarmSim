@@ -223,6 +223,10 @@ child SIGKILL(-9)/원123걸음 checkpoint 재개·연속760걸음/21시점/2사�
 입력 증명/감독자 수용 뒤 새 파일만 쓰는 순수 개발을 병행하며 원55 source SHA·현재 입력/spec을 보존한다.
 55개 동결 소스 수정은 실제 실행 종료·증거 보존을 기다린다. 원 helper의 고정 import와 새 전용 module 경계가
 이 병행의 근거이며 원 reader/engine에 새 token을 주입하지 않는다.
+[순수 계산 경로 수용](../research/crop-cycle-calculation-context-implementation-20261007.md)은 새57개/기존33개·
+90통과/76.37초·원 checkpoint/clock/counter·별도 Python4개·입력 변조/정리·원55 source 보존을 확인했다.
+같은166일 입력의 factory0.386465초/RHS0와 작은120걸음603RHS의 자원을 별도 측정했다.
+다음은 새 artifact writer/reader이며 이 수용으로 farm/custody·전체166일/저장/API/3D 부모를 완료하지 않는다.
 전체 RHS 성공을 작은 개발의 추가 착수 조건으로 삼지 않으며, 전체 replay-restore 게시/부하 수용에는
 기존 전체 RHS와 실제 등록 계산·저장/API/동일 UTC3D 증거를 모두 유지한다.
 관측의44.28초 합을 실제 농장/HTTPS 지연이나 전체 작기 완료 날짜로 외삽하지 않는다.

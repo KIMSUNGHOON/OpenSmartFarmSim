@@ -488,14 +488,17 @@
           원120걸음·3시점/3사건·22 HTTPS·최대6.306509초/21,514bytes·투영 후 철회/역할 거부·재시작/정리.
           구성/기존 route52개·호환137통과/9건너뜀·선행8개 포함 분할 고유198통과/9건너뜀이다.
           최종 예외 전파 회귀2개는 중복 합산하지 않으며 전체 backend/새 브라우저/hosted CI는 이번 범위가 아니다.
-      - [ ] **`crop-cycle-calculation-input-context`** — 선행 입력 검사 영수증/감독자 수용.
+      - [x] **`crop-cycle-calculation-input-context`** — 선행 입력 검사 영수증/감독자 수용.
         신규 파일만 사용하는 순수 개발은 원55 source SHA·현재 입력/spec을 보존해 실행과 병행한다.
         동결 소스 변경은 실제 실행 종료·증거 보존 뒤다.
         [계산 경로 직접 관측](../research/crop-cycle-farm-input-cost-observation-20261007.md)은 같은166일 입력의
         원 `_input` 두 호출22.05/22.22초·같은 root/plan·RHS0/FD 정리를 확인했다. 조회 개선과 별도인 계산 경로다.
         첫 변경 전에 계산 factory/판본·과거 입력/결과 보존 계약과 한 단계4개 이내 core파일을 확정한다.
         [구현 계약](../contracts/crop-cycle-calculation-context-v1.md)에 전용 factory/실행 API·닫힌 provenance/새 판본,
-        원/새 정체성과 물리값 대사·진입/반환 전 현재 bytes·수용 matrix를 고정했다. 구현 수용은 아직 아니다.
+        원/새 정체성과 물리값 대사·진입/반환 전 현재 bytes·수용 matrix를 고정했다.
+        [로컬 수용](../research/crop-cycle-calculation-context-implementation-20261007.md): 새57개/기존33개·90통과/76.37초,
+        원 checkpoint/121상태·clock/counter와4개 별도 Python 복원·변조/정리·원55 source 보존을 확인했다.
+        같은166일 입력 factory0.386465초/RHS0·별도120걸음603RHS의 자원을 대사했다. 농장/저장/API·전체 부모는 별도다.
         수용: 최초 실제 전체 QC/context 검사의 서버 증명을 현재 원 bytes와 결속한 공식 계산 factory,
         원 물리값/UTC·121상태·seed/clock/counter/checkpoint·수지/hold와 별도 Python 복원 대사,
         변조·잘못된 코드/프로필/키 거부·bounded cache/FD/활성 RSS/자원 정리.

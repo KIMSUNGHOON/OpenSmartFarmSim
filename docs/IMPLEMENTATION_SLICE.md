@@ -304,6 +304,10 @@ SCRAM·철회/변조/재시작·정리다. 다음 API/runtime 연결의 TLS30초
 현재 조회 개선과 별개인 `_input` 반복 비용을 확인했다. [공식 계산 문맥 계약](../contracts/crop-cycle-calculation-context-v1.md)의
 4개 이내 core파일 → 새 판본 artifact → 현재 농장·권리/custody로 [작업 목록](../tasks/todo.md)을 나눈다.
 기존 artifact의 원 계산 타입 의존성은 [현재 코드 감사](../research/crop-cycle-calculation-context-inspection-20261007.md)에서 확인했다.
+[첫 계산 문맥 수용](../research/crop-cycle-calculation-context-implementation-20261007.md)은 새57개/기존33개·
+90통과/76.37초·원 checkpoint/121상태·clock/counter·별도 Python4개와 변조/FD/cache를 확인했다.
+큰 입력 factory0.386465초/RHS0·작은120걸음603RHS의 활성 RSS를 구분해 측정했고 원55 source를 보존했다.
+새 artifact writer/reader → 현재 farm/custody가 다음이며 전체166일/DB/API/3D 수용으로 바꾸지 않는다.
 새 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존해 병행한다.
 동결 소스 변경은 실제 실행 종료·증거 보존 뒤이며,
 첫 수용은 원 물리값/UTC·121상태/checkpoint·수지/hold·변조 거부와 별도 프로세스 복원이다.
