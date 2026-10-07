@@ -19,10 +19,12 @@
 원/새 source·검증 정보/UTC·취소/settlement·104 source/정리로 수용했다. 이 단계의 새 HTTP/브라우저/3D는0이다.
 [새 같은 UTC 화면](../research/web-crop-cycle-calculation-view-20261008.md)도 새 Chromium15개/기존47개·
 웹719개·타입/빌드·원27시점/5사건·113 source/정리로 합성 응답의 화면 부모까지 로컬 수용했다.
-새 실제 등록 PG/TLS/WebGL은 [2 core파일 구현 후 실행 중](../research/web-crop-cycle-calculation-native-started-20261008.md)이다.
-기록 응답의 새/기존 브라우저와 실제 세 사례 준비는 통과했지만 native와 전체 웹 부모는 아직 미수용이다.
+새 실제 등록 PG/TLS/WebGL은 [2 core파일 구현/시작](../research/web-crop-cycle-calculation-native-started-20261008.md) 후
+기록 응답의 새/기존 브라우저와 실제 세 사례 준비를 통과했다.
 [후속25시간 계산 완료 뒤 시험 TLS 만료 실패](../research/web-crop-cycle-calculation-native-tls-hold-20261008.md)를
-실제 Vite 검사로 진단하고 계산 후 발급으로 수정했다. 원118 source/DB/비밀/PG/프로세스 정리는 통과했고 수정 전체 실행은 진행 중이다.
+실제 Vite 검사로 진단하고 계산 후 발급으로 수정했다.
+[수정 실행의 실제 기능 검증](../research/web-crop-cycle-calculation-native-observed-20261008.md)은 시험 로그1통과·
+34frame·24 HTTPS·원118 source/별도 정리를 확인했다. 원 명령 종료 기록 누락으로 최종 native/웹 부모는 보류다.
 앱 CI의 구형 config 필드 거부는 [고유125개 분할·실제 SCRAM/TLS](../research/application-operator-policy-compatibility-20261007.md)로
 로컬 수정했으며 [수정 판본의 hosted 세 Compose/정리](../research/artifacts/application-operator-policy-hosted-reference-20261008.json)도
 10월8일 수용했다. 구형 판본 CI는

@@ -1,0 +1,213 @@
+{
+  "UTC_shift_days": 273,
+  "actual_process_terminal_observed": true,
+  "all_preserved_sources_unchanged": true,
+  "baseline_fixture_sha256": "a2d3e197b352bc51ab1dd66f520f38912032bb9a9e705733eb89919e47f4a80b",
+  "baseline_numeric_values_unchanged": true,
+  "browser_verified_sha256": "a182b642bab36a60774ecedbae745653520a59f299f67a3b415a9825199000cc",
+  "cleanup": {
+    "cleanup_observer_separate_from_lost_controller": true,
+    "database": {
+      "actual_host_auth_methods": [
+        "scram-sha-256",
+        "scram-sha-256",
+        "scram-sha-256",
+        "scram-sha-256"
+      ],
+      "passfiles_after": 0,
+      "roles_after": 0,
+      "schemas_after": 0
+    },
+    "live_process_references_to_owned_temp_tree": [],
+    "owned_postgresql_cluster_directories_after": [],
+    "owned_processes_remaining": [],
+    "owned_temp_tree_removed": true,
+    "sampled_RSS_final_receipt_available": false
+  },
+  "custody": {
+    "FD_targets_devices_inodes_identical": true,
+    "HTTPS_joined": true,
+    "actual_SCRAM": true,
+    "custody_fds_after": 0,
+    "frontend_stopped": true,
+    "input_config_custody_files_unchanged": true,
+    "protected_loader": true,
+    "rows_after": {
+      "crop_cycle_verified_research_results": 4,
+      "job_events": 89,
+      "jobs": 89,
+      "thermal_g1_runs": 0
+    },
+    "rows_before": {
+      "crop_cycle_verified_research_results": 4,
+      "job_events": 89,
+      "jobs": 89,
+      "thermal_g1_runs": 0
+    }
+  },
+  "execution": {
+    "empty": {
+      "advances": 1,
+      "input_evidence_sha256": "114aa84a206164be4aedcf05f574beb5e61837509e38745f7db6dd84f750781f",
+      "input_root_sha256": "1eba49b9b876156b65ea823a1692a81ba833c4e9838868257711024881076efb",
+      "result_evidence_sha256": "9d3f3db894b3f0670a1a1684eccda9ffc47dc0f2d22191570d947a0208b5597d",
+      "result_id": "crop-cycle-verified-result-v1:f25c7f9de4dcd5fb2a4399876c6d7ba65e0c3c3ea7236886d2e2b8f0a90ca253",
+      "seconds": 53.80858349900518,
+      "status": "hold",
+      "steps": 0
+    },
+    "empty_completed": {
+      "advances": 1,
+      "input_evidence_sha256": "3586e3740b883d95701c2fce852861546ea845a7d696e46df4d589a7ab799dfe",
+      "input_root_sha256": "b26007212c9c750ad2b15e303ab96bba9e42a54ea2bf2ff0b5167dfbb731926c",
+      "result_evidence_sha256": "bfc5bdef6041e6582aca08ef82d65d74a0a283609abd5035d74c36c5aea2e05f",
+      "result_id": "crop-cycle-verified-result-v1:856fbc863cecc732248288d2dab4b8eb8e8654d6508cdd1c110e6e5943edee39",
+      "seconds": 55.56445336199977,
+      "status": "completed",
+      "steps": 120
+    },
+    "long": {
+      "advances": 92,
+      "input_evidence_sha256": "c84f5dbc9cf4593871d15db7b2146e8263939a238bbb58e7941fd4acc7662cfc",
+      "input_root_sha256": "4e2fefb708113bd9b425071e4fe5ba81b9768c5bc18985e92686cb155cd61f74",
+      "result_evidence_sha256": "aedb57a2e4ecc4b1d34500ebe9784ede1ed4b60f7251e7e26ee5b25896fe31e9",
+      "result_id": "crop-cycle-verified-result-v1:c97c478c946bca4ba176ee2dc255079fedc4d9dc9270bab127a3b2f67034f6e5",
+      "seconds": 1351.419795406,
+      "status": "completed",
+      "steps": 11400
+    },
+    "past": {
+      "advances": 1,
+      "input_evidence_sha256": "5191c337037ec6696215e8f66df3688175034cfc40a8acd4e31c70433794aa4e",
+      "input_root_sha256": "1303aeff095934473e0d4d29a8cd2cd74dc1aeee3b08b6da3f1f9f07be618212",
+      "result_evidence_sha256": "1bee95d288a272c0919d23913ff8ee0715be8a892811ac384361787e146a35fb",
+      "result_id": "crop-cycle-verified-result-v1:7782e99e0e99d7fe63e85d58492d424a32d14b64f3c1a874b55d37a927d281fa",
+      "seconds": 53.756103110004915,
+      "status": "hold",
+      "steps": 0
+    }
+  },
+  "holds": {
+    "G0_G4": "not_assessed",
+    "actual_adopted_cultivar_inputs": 0,
+    "actual_measured_crop_Runs": 0,
+    "client_view_parent": "pending_formal_native_receipt",
+    "domestic_independent_validation_datasets": 0,
+    "forecast_and_ranking": "hold",
+    "formal_native_parent": "hold_missing_original_command_exit_record",
+    "fresh_harvest_resources_Decimal_link": "pending",
+    "full166_registered_restore_API_3D": "pending",
+    "pixel_fidelity": "not_accepted"
+  },
+  "missing_receipt_reason": "unavailable_after_controller_and_original_tool_handle_loss_not_inferred_from_test_log",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "native_context_line_sha256": "730b29335f3ea3df2a568a14cde608d605adb9e45fe0d28c71e7ebf292e27d1b",
+    "reasoning_effort": "xhigh",
+    "recursive_CLI_invocations": 0,
+    "timestamp": "2026-10-07T16:32:20.770Z"
+  },
+  "native_browser": {
+    "ASGI_active_after": 0,
+    "ASGI_max_active": 1,
+    "ASGI_max_bytes": 66841,
+    "ASGI_max_seconds": 5.509177547006402,
+    "ASGI_responses": 24,
+    "GL_cleanup_scope": "instrumented_current_scene_and_chart_GPU_DOM_observer_listener_crop_timer_RAF_request_cleanup_GC_eligibility_not_driver_memory",
+    "GPU_driver_bytes_measured": false,
+    "HTTP_200": 21,
+    "HTTP_403": 1,
+    "HTTP_422": 2,
+    "actual_WebGL_loss_restore": true,
+    "actual_account_change": true,
+    "browser_max_body_bytes": 66841,
+    "browser_max_body_seconds": 5.51689999999851,
+    "console_messages": [
+      {
+        "text": "[.WebGL-0x2df401f26200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "type": "warning"
+      },
+      {
+        "text": "[.WebGL-0x2df401f26200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "type": "warning"
+      },
+      {
+        "text": "[.WebGL-0x2df401f26200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "type": "warning"
+      },
+      {
+        "text": "[.WebGL-0x2df401f26200]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "type": "warning"
+      },
+      {
+        "text": "Failed to load resource: the server responded with a status of 422 ()",
+        "type": "error"
+      },
+      {
+        "text": "Failed to load resource: the server responded with a status of 403 ()",
+        "type": "error"
+      },
+      {
+        "text": "Failed to load resource: the server responded with a status of 422 ()",
+        "type": "error"
+      }
+    ],
+    "distinct_stored_sample_times": 27,
+    "format": "calculation-cycle",
+    "frame_visits": 34,
+    "lifecycle_transitions": 18,
+    "max_active_reads": 1,
+    "network_total": 24,
+    "original_events_verified": 5,
+    "original_samples_verified": 27,
+    "pageerrors": [],
+    "read_math_parser_QC_issue_publication_calls": 0,
+    "reconnected": true,
+    "reduced_motion_keyboard": true,
+    "result_tamper_protocol": true,
+    "successful_cache_control_no_store": true,
+    "successful_full_bodies_complete": true,
+    "transport": "native_PG_TLS",
+    "unmount_zero": true
+  },
+  "native_verified_sha256": "70c78b86abc16508b08f80db8ed1fca10f8c4499e4f7287b5f195d5c85721d42",
+  "observed_at_utc": "2026-10-07T17:27:32.663836+00:00",
+  "original_pytest_exit_code": null,
+  "outer_controller_exit_code": null,
+  "preserved_source_count": 118,
+  "pytest_reported_passed": 1,
+  "pytest_reported_seconds": 1665.51,
+  "pytest_terminal_log_sha256": "095b959b48dcc2c4602bc738e1379827290efefb2b2dcfff3c2d1a9ac211a3cf",
+  "same_calculation_restarted": false,
+  "scope": "registered_owned_synthetic_25h_protected_TLS_WebGL_not_farm_validation",
+  "screens": {
+    "research/artifacts/calculation-cycle-native-desktop.png": "2cd0c65a37687d32e7dd5308ba00b821bb9b015ef910c7ba1bb313e93f8d4451",
+    "research/artifacts/calculation-cycle-native-empty.png": "4f62f5394ae2389ab2c68a2e7375ae8d323adb2183f058b7e857d7e20621d1bf",
+    "research/artifacts/calculation-cycle-native-empty_completed.png": "1b16a333e69d9ee9ae3c68eea5e48819a3d0796f8bf25a1e29f83f240eee7fd8",
+    "research/artifacts/calculation-cycle-native-mobile.png": "5786d818c39f707b90615a18cdfee89027c8b834e50ffd63dab6c941e6c4b28b",
+    "research/artifacts/calculation-cycle-native-past.png": "5a5251d8bf07dc95d8f9018eda94b8097e6bf40aef6e52293168bc1c154b9a59"
+  },
+  "screens_visually_inspected": [
+    "research/artifacts/calculation-cycle-native-desktop.png",
+    "research/artifacts/calculation-cycle-native-mobile.png",
+    "research/artifacts/calculation-cycle-native-empty.png"
+  ],
+  "separate_terminal_cleanup_sha256": "f951dabed706e7c52995ae1a2ad44f12960a497ff9ea38216e3c5b8b2b26147c",
+  "source_sha256": {
+    "backend/tests/web_crop_cycle_calculation_replay_smoke.py": "04f908df850ddab3effc0f22344fe0261a61e0c160c3de7b7564ab151d6d8d02",
+    "contracts/web-crop-cycle-calculation-native-v1.md": "edd23a0ac5f67442b0565b4312d27f13503c5db6adf18a06594108a4609f1b4b",
+    "web/e2e/real-cycle-crop-replay-smoke.mjs": "138f3cd17f383a18084a9690dc3e562aacc490129505880d4ab65d4b0d695844"
+  },
+  "status": "actual_native_functional_checks_passed_formal_command_exit_receipt_hold",
+  "test_command": [
+    "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+    "-m",
+    "pytest",
+    "tests/web_crop_cycle_calculation_replay_smoke.py",
+    "-q",
+    "--tb=short",
+    "--basetemp",
+    "/tmp/ossf-cnative-1w3tn7q6/pytest"
+  ],
+  "version": "web-crop-cycle-calculation-native-observed-reference-v1"
+}

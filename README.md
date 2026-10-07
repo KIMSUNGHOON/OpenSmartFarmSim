@@ -5,8 +5,10 @@
 **진행 요약 (2026-10-08 KST):** 합성 생장 계산→실제 DB/HTTPS→같은 UTC3D의25시간 경로는 로컬 수용했고,
 [새 검증 조회의 화면](research/web-crop-cycle-calculation-view-20261008.md)도 Chromium 새15개/기존47개·웹719개·
 타입/빌드·원27시점/5사건으로 로컬 수용했습니다. [새 화면 캡처](research/artifacts/calculation-cycle-desktop.png)는
-소유 시험용 HTTP 응답의 실제 App입니다. [새 native의25시간 계산은 완료했지만 TLS 준비에서 통합 실패](research/web-crop-cycle-calculation-native-tls-hold-20261008.md)했습니다.
-시험 인증서의 발급 시점을 수정하고 실제 Vite 만료/정상 TLS 검사를 통과했습니다. 수정한 전체 시험은 실행 중이며 새 native는 아직 미수용입니다.
+소유 시험용 HTTP 응답의 실제 App입니다. [새 실제 DB/HTTPS/WebGL 기능 검증](research/web-crop-cycle-calculation-native-observed-20261008.md)은
+시험 로그1통과/27분45초·원27시점/5사건·34frame·24 HTTPS와 별도 정리를 확인했습니다.
+[실제 새 화면](research/artifacts/calculation-cycle-native-desktop.png)도 보존했습니다. 원 명령 종료 코드 기록이 유실돼
+최종 native 수용은 보류하며 같은 계산은 재시작하지 않았습니다. 실제 누적 비용 측정을 이어갑니다.
 `f2dc10f`의 C0/웹/작성 PG/앱은 성공했고 Backend는 진행 중입니다.
 [기존 세 Compose 경로와 정리](research/artifacts/application-operator-policy-hosted-reference-20261008.json)는 실제 로그로 수용했습니다.
 구형 CI는 [C0/웹/작성 PG 성공·앱/Backend 실패로 종료](research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json)했고,

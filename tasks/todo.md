@@ -665,7 +665,8 @@
           terminal/실제 HTTP/WebGL/정리까지 확인하기 전 이 자식과 웹 부모를 체크하지 않는다.
           [후속 종료/수정](../research/web-crop-cycle-calculation-native-tls-hold-20261008.md):25시간11,400걸음/27시점/5사건 뒤
           계산 전에 발급한10분 인증서 만료로1실패/정리. 실제 Vite 만료 거부/새 인증서200을 대사했고,
-          계산 후 발급으로 수정했다. 수정 전체 실행 중이며 native 수용은 아직 없다.
+          계산 후 발급으로 수정했다. [수정 실행 기능 검증](../research/web-crop-cycle-calculation-native-observed-20261008.md)은
+          시험 로그1통과·34frame·24 HTTPS·원118 source/별도 정리다. 원 명령 종료 코드 누락으로 최종 체크는 보류한다.
       - [ ] **`crop-cycle-calculation-prefix-cost`** — 선행 full-rhs와 작은 새 계산 농장 결속; 읽기 개발과 병행한다.
         실제 등록 입력의 bounded advance/reopen·수지/서명·권리·저장 누적 비용을 분리하고 원 한도·원량을 유지한다.
         실측 결함의 작은 수정/검증과 전체 등록 실행 비용 증거 없이 replay-restore/부하 부모를 체크하지 않는다.
@@ -673,7 +674,7 @@
         25시간의 최대32호출 곡선 → 전체166일 입력의 실제 등록/누적 관측과 필요한 개선 순서다.
         작은 표본은 전체 작기 수용이 아니며 새 native 실험과 PG/계산을 동시에 기동하지 않는다.
         [측정 코드 준비](../research/crop-cycle-calculation-prefix-cost-prepared-20261008.md): 경량17개·전체20개 수집,
-        실제 정상/hold 대사와32회 곡선3개는 native 종료/정리 후 실행한다. 전체166일 등록/누적 비용은 후속이다.
+        실제 정상/hold 대사와32회 곡선3개는 native 종료/정리 후 실행을 시작했다. 전체166일 등록/누적 비용은 후속이다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
