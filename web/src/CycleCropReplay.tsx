@@ -1,6 +1,7 @@
 import { lazy,Suspense,useEffect,useMemo,useRef,useState,type FormEvent } from 'react';
 import { ApiError,type createApi } from './api';
 import { validCycleCropLookup,type CycleCropLookup } from './cycleCropReplay';
+import { validCalculationCycleCropLookup } from './calculationCycleCropReplay';
 import { createCycleCropWindow,type CycleCropWindowState } from './cycleCropWindow';
 import { startupCohortScales } from './coupledCropGeometry';
 import { STARTUP_CUMULATIVE,type StartupCropSample,type StartupCropHold } from './startupCropReplay';
@@ -74,14 +75,14 @@ function SampleTable({samples,index,select}:{samples:readonly StartupCropSample[
         {(Object.keys(SAMPLE_LABELS) as (keyof typeof SAMPLE_LABELS)[]).map(key=><td key={key} data-metric={key} data-raw-value={row[key].value}><Quantity q={row[key]}/></td>)}
       </tr>)}</tbody></table></div></section>;
 }
-export default function CycleCropReplayView({api,initialSelection,autoLoadInitialSelection=false}:{api:Api|null;
-  initialSelection?:CycleCropLookup;autoLoadInitialSelection?:boolean}){
-  const initial=initialSelection?.result_id.startsWith('crop-cycle-result-v1:')?initialSelection:undefined;
+export default function CycleCropReplayView({api,initialSelection,autoLoadInitialSelection=false,sourceKind='original'}:{api:Api|null;
+  initialSelection?:CycleCropLookup;autoLoadInitialSelection?:boolean;sourceKind?:'original'|'calculation'}){
+  const initial=initialSelection?.result_id.startsWith(sourceKind==='calculation'?'crop-cycle-verified-result-v1:':'crop-cycle-result-v1:')?initialSelection:undefined;
   const [lookup,setLookup]=useState(initial??EMPTY),[localError,setLocalError]=useState<ApiError|null>(null);
-  const [playing,setPlaying]=useState(false),[reduced,setReduced]=useState(false),owner=useRef(api);
-  const [visible,setVisible]=useState<{client:Api|null;state:CycleCropWindowState}|null>(null);
-  const [window]=useState(()=>createCycleCropWindow(state=>setVisible({client:owner.current,state}),{sample_limit:7,event_limit:2}));
-  const state=visible?.client===api?visible.state:null,summary=state?.summary,range=state?.range;
+  const [playing,setPlaying]=useState(false),[reduced,setReduced]=useState(false),owner=useRef({api,sourceKind});
+  const [visible,setVisible]=useState<{api:Api|null;sourceKind:'original'|'calculation';state:CycleCropWindowState}|null>(null);
+  const [window]=useState(()=>createCycleCropWindow(state=>setVisible({...owner.current,state}),{sample_limit:7,event_limit:2}));
+  const state=visible?.api===api && visible.sourceKind===sourceKind?visible.state:null,summary=state?.summary,range=state?.range;
   const samples=state?.sample_page?.page.kind==='samples'?state.sample_page.page.records:NO_SAMPLES;
   const events=state?.event_page?.page.kind==='events'?state.event_page.page.records:null;
   const sample=state?.selected?.sample,index=state?.selected && range?state.selected.index-range.offset:0;
@@ -90,14 +91,15 @@ export default function CycleCropReplayView({api,initialSelection,autoLoadInitia
   const rangeLabel=range?`현재 읽은 범위 ${range.count?`${range.offset+1}–${range.offset+range.count}`:'0'} / ${range.total} · ${range.first_utc??'시점 없음'} → ${range.last_utc??'시점 없음'} UTC`:'';
   function clear(){setPlaying(false);setLocalError(null);void window.cancel();}
   function read(client:Api,selection:CycleCropLookup){
-    setPlaying(false);setLocalError(null);owner.current=client;
-    if(!validCycleCropLookup(selection)){void window.cancel();setLocalError(new ApiError('invalid_request'));return;}
-    void window.open(client,selection);
+    setPlaying(false);setLocalError(null);owner.current={api:client,sourceKind};
+    if(!(sourceKind==='calculation'?validCalculationCycleCropLookup(selection):validCycleCropLookup(selection))){
+      void window.cancel();setLocalError(new ApiError('invalid_request'));return;}
+    if(sourceKind==='calculation')void window.openCalculation(client,selection);else void window.open(client,selection);
   }
-  useEffect(()=>{owner.current=api;clear();setLookup(initial??EMPTY);
+  useEffect(()=>{owner.current={api,sourceKind};clear();setLookup(initial??EMPTY);
     if(api && initial && autoLoadInitialSelection)read(api,initial);
     return()=>{void window.cancel();};
-  },[api,initial,autoLoadInitialSelection,window]);
+  },[api,initial,autoLoadInitialSelection,sourceKind,window]);
   useEffect(()=>()=>{void window.dispose();},[window]);
   useEffect(()=>{const query=matchMedia('(prefers-reduced-motion: reduce)');
     const change=()=>{setReduced(query.matches);if(query.matches)setPlaying(false);};change();
@@ -114,7 +116,7 @@ export default function CycleCropReplayView({api,initialSelection,autoLoadInitia
   function submit(e:FormEvent){e.preventDefault();if(busy)return;
     if(!api){clear();setLocalError(new ApiError('auth_required'));return;}read(api,{...lookup});}
   return <div className="crop-replay coupled-replay startup-replay cycle-replay" aria-busy={busy} data-window-phase={state?.phase??'idle'}
-    data-retained-samples={samples.length} data-retained-events={events?.length??0}>
+    data-source-kind={sourceKind} data-retained-samples={samples.length} data-retained-events={events?.length??0}>
     <div className="crop-scope"><img src={researchLeaf} alt=""/><div><strong>합성 계산 · 품종 미검증</strong>
       <p>미게시 연구 결과 · <span>관문 미평가</span>. 실제 품종의 생과 생산량·예측·추천은 보류입니다.</p></div></div>
     <details className="panel startup-assumptions" aria-label="명시 진입 연구의 적용 범위"><summary>명시적 진입 · 초기 전환 미검증 · 합성 오차 약 8.52%</summary>
@@ -124,7 +126,7 @@ export default function CycleCropReplayView({api,initialSelection,autoLoadInitia
     <details className="panel crop-lookup" open={!summary}><summary>저장 연구 결과 조회</summary>
       <p>긴 계산의 결과 ID와 등록 농장 판본을 입력하세요. 서버가 매 조회의 현재 권리와 저장 기록을 확인합니다.</p>
       <form onSubmit={submit}><div className="crop-lookup-fields">{(Object.keys(LABELS) as (keyof CycleCropLookup)[]).map(key=><label key={key}>{LABELS[key]}
-        <input name={key} value={lookup[key]} maxLength={key==='result_id'?85:key==='registration_sha256'?64:200} required autoComplete="off" spellCheck={false}
+        <input name={key} value={lookup[key]} maxLength={key==='result_id'?(sourceKind==='calculation'?94:85):key==='registration_sha256'?64:200} required autoComplete="off" spellCheck={false}
           onChange={e=>{clear();setLookup(old=>({...old,[key]:e.target.value}));}}/></label>)}</div>
         <button className="button primary" disabled={busy}>{busy?'연구 기록 확인 중…':'저장 연구 조회'}</button></form></details>
     {error && <p className="notice error" role="alert">{MESSAGES[error.code]??'현재 연구 기록을 확인할 수 없습니다.'}</p>}
