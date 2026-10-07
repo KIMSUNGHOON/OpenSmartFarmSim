@@ -378,7 +378,7 @@ native3–5시간의 **남은 작은 웹 연결4–7집중시간 잠정**이며 
 [입력 재검사 개선](../research/crop-cycle-calculation-recheck-cost-implementation-20261008.md)은
 고유199개 분할·실제 SCRAM·guard 전체 검사2→1과 현재 정책1회,
 같은 첫3회99→85검사/30.737→29.551초·체크포인트 전체/원행·늦은 변조/철회·복원/RHS0·262 source/정리로 로컬 수용했다.
-다음 `crop-cycle-calculation-full-budget`은 개선 판본의 같은 전체 입력/최대32호출 증가 비용과
+다음 [crop-cycle-calculation-full-budget](../contracts/crop-cycle-calculation-full-budget-v1.md)은 개선 판본의 같은 전체 입력/최대32호출 증가 비용과
 남은 입력/권리·prefix 검증·저장/RHS 구조를 대사하고 전체 등록 실행의 예산·중단/재개·수용 절차를 고정한다.
 전체166일 실행 예산은 남은 누적 비용 증거 뒤 고정하며 초기3회로 완료 시간을 외삽하지 않는다.
 실측에 필요한 개선과 전체 실행 예산 근거 전에는 prefix-cost 부모를 수용하지 않는다.
