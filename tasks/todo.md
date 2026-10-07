@@ -766,6 +766,9 @@
   [부록 권리 후속](../research/crop-domestic-supplement-rights-20261007.md)은 저자 권리 출판물의 CC BY 기본
   적용 근거를 확인했다. 특정 파일의 credit/제3자 예외·개인정보·외부 서비스 범위는 미확인이며,
   다음은 해당 판본/SHA의 예외 고지 대사다. 조건부 CLI 판단을 자료/권리 관문 승인으로 쓰지 않는다.
+  [파일 내부 고지 후속](../research/crop-domestic-supplement-credits-20261007.md)은36개 XML/rels·문서 속성/
+  제한된 이미지 metadata에서 후보0개이며 부모 별도 재계산·원본 보존을 확인했다. 픽셀/OCR·외부 template와
+  원측정/schema·독립성·외부 서비스 범위는 남아 있다. 전체 이용 허가나 자료 채택으로 바꾸지 않는다.
   논문 요약·보정 오차로 자료 수신/독립성·수확별 DMC 채택을 대신하지 않으며 확보 수치는0건이다.
   [HR24 공식 품종명 대조](../research/crop-domestic-cultivar-hr24-identity-20261007.md)에서도 제품/등록 ID
   연결은 미확인이다. 원 명칭 대응 문서/시험 종자 식별 없이 다른 한국어 제품이나 대목을 지정하지 않는다.
