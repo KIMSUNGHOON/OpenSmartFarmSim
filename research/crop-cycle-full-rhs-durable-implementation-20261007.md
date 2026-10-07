@@ -52,6 +52,13 @@ nice15의 단일 계산 child에서 첫 checkpoint 뒤 실제 종료/같은 spec
 전체 RHS 종료 및 원 reader의 모든 행/수지 검증을 관찰한다. 실행 시작과 전체 완료는 구분한다.
 고정6시간은 실험 예산이며 전체 처리/제품 완료 날짜의 상한이 아니다.
 
+[새 실제 시작 관측](artifacts/crop-cycle-full-rhs-durable-started-reference-20261007.json)은
+준비98.665183초·새 spec `d4e7de05…`·원123걸음/620RHS·parent/worker 종료0 뒤,
+동일 spec의 별도 child에서8,104걸음 실제 진행을 확인했다. 실험 시작은
+2026-10-07T05:07:36.678777Z, 고정 마감은11:07:36.678777Z(20:07 KST)다.
+actual PID/시작 tick/boot ID·nice15·현재 배타 lock을 대사했고 관측 당시 terminal/종료 코드는 없다.
+최종 결과의 restored checkpoint 전체 대사와 원 전체 reader 검증은 종료 후 확인한다.
+
 `crop-cycle-full-rhs-durable`의 작은 감독자만 수용한다. `crop-cycle-burden-full-rhs`,
 전체 복원/부하와 실제 farm/DB/API/같은 ID·UTC3D는 별도 증거를 기다린다.
 참조 artifact를 원 농장 실행 이력으로 바꾸지 않는다. 실제 품종·독립 국내 농장 자료·실제 작물 Run0,

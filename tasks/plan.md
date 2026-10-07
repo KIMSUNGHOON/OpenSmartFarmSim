@@ -208,6 +208,9 @@ child SIGKILL(-9)/원123걸음 checkpoint 재개·연속760걸음/21시점/2사�
 원 spec SHA/마감·이전 결과 변조/동시 실행 거부와 FD/child/lock 정리를 확인했다.
 원 runner/작은 재개 전략 → 감독자 → 새166일 실제 RHS → 저장 조회/복원 순서다.
 조회 개발/독립 자료 확보는 이 계산 실험과 병행하며 원 유실 실험의 예산을 재설정하지 않는다.
+[새 실제 시작 관측](../research/artifacts/crop-cycle-full-rhs-durable-started-reference-20261007.json)은
+첫123걸음/620RHS·실제 정상 종료 뒤 같은 spec 재개·8,104걸음 진행을 확인했다.
+새 고정 deadline은2026-10-07T11:07:36.678777Z이며 종료/전체 수지·복원/조회 수용은 별도로 확인한다.
 
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)은 원81574 handle·실험/terminal
 보존 경로 부재를 확인했다. 원 최종 상태는 확인 불가이고 같은 실험/예산을 재설정하지 않는다.

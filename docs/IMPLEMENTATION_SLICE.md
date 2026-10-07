@@ -305,6 +305,8 @@ SCRAM·철회/변조/재시작·정리다. 다음 API/runtime 연결의 TLS30초
 실제5개/22.67초·child SIGKILL(-9)/같은 checkpoint 재개·연속760걸음/21시점/2사건·121상태 대사로 로컬 수용했다.
 원 spec SHA/마감·과거 결과 변조/동시 실행 거부·FD/child/lock 정리를 확인했다.
 이 작은 감독자 수용 뒤 새 판본/지속 저장의166일을 시작하며 전체 RHS/복원·부하는 종료 증거 뒤 수용한다.
+[새 실제 시작 관측](../research/artifacts/crop-cycle-full-rhs-durable-started-reference-20261007.json)은
+첫123걸음/620RHS·정상 종료 뒤 같은 spec 재개·8,104걸음 진행을 기록했다. 전체 종료/수지는 계속 미수용이다.
 
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)에서 원81574 handle·실험/terminal
 보존 경로가 없어 최종 상태는 확인 불가다. 보호할 실행의 부재를 확인했고 원 결과/부모는 계속 보류한다.

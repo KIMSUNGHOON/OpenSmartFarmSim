@@ -388,6 +388,9 @@
         child SIGKILL(-9) 뒤 같은123걸음 checkpoint 재개·연속760걸음/21시점/2사건·121상태 대사·
         terminal RHS0·FD5→5/child 종료/lock 해제. 원 spec 마감 변경·과거 결과 변조의 실제 실패2개를 수정했다.
         전체166일/복원·부하·실제 재부팅/감독자 SIGKILL 수용은 별도다.
+        [새 실험 시작 관측](../research/artifacts/crop-cycle-full-rhs-durable-started-reference-20261007.json):
+        준비98.665183초·첫123걸음/620RHS/종료0 뒤 같은 spec으로8,104걸음 진행·nice15/실제 child/lock 확인.
+        새 고정 마감은10월7일20:07 KST다. 관측 당시 실행 중이며 full-rhs/복원·부하 부모는 계속 미수용이다.
     - [ ] **`crop-cycle-burden-replay-restore`** — 선행 전체 RHS/저장 수용; 중단/복원·실제 page/화면3–4파일.
       같은 원 context/seed/누적/clock/sequence의 중단/복원을 연속 결과와 대사하고 전체 저장의
       시작/중간/끝·byte-short/관리 전후·같은 ID/UTC/30초2MiB·현재 권리/변조·DB/서버/비밀번호/FD 정리를 확인한다.

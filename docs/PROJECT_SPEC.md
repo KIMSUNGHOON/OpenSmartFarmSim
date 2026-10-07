@@ -254,6 +254,8 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 child 강제 종료(-9)·같은 checkpoint 재개와 연속760걸음/21시점/2사건·121상태 대사를 수용했다.
 원 spec SHA·deadline을 고정했고 원 수식/runner/한도는 보존했다. 새166일은 별도 판본/독립6시간 예산이며
 원 유실 실험의 재시작/예산 재설정이 아니다. 전체 RHS/복원·부하 수용과 관문은 계속 별도다.
+[새 실험 시작 관측](../research/artifacts/crop-cycle-full-rhs-durable-started-reference-20261007.json)은
+원123걸음 중단/정상 종료 뒤 같은 spec 재개·8,104걸음 진행을 확인했다. 관측 당시 실행 중이며 전체 수용은 아니다.
 
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)은 원81574 handle·실험/terminal
 보존 경로 부재를 확인했다. 원 최종 결과는 확인 불가이며 부분 관측을 전체 수용으로 바꾸지 않는다.
