@@ -4,7 +4,9 @@
 실제 SCRAM12개·정상/관리 사건/수치 hold·원량/UTC·철회/변조·fork·63 source/자원 정리로 로컬 수용했다.
 후속 [새 공개 투영](../research/crop-cycle-calculation-api-projection-implementation-20261007.md)도 새63개/구형42개·고유105개 분할·
 실제25시간/7페이지·원량/UTC·hold·RHS0·import/FD·67 source 보존으로 수용했다.
-다음은 [runtime factory](../contracts/crop-cycle-calculation-runtime-factory-v1.md) → 별도 설정 loader → 실제 API/동일 UTC3D다.
+[runtime factory](../research/crop-cycle-calculation-runtime-factory-20261007.md)도 새19개/기존136개·고유155개 분할,
+실제 SCRAM same jobs/farm·재구성/9거부·계산/게시0·원 입력/FD/import·73 source/정리로 수용했다.
+다음은 [별도 설정 loader](../contracts/crop-cycle-calculation-operator-loader-v1.md) → 실제 API/동일 UTC3D다.
 앱 CI의 구형 config 필드 거부는 [고유125개 분할·실제 SCRAM/TLS](../research/application-operator-policy-compatibility-20261007.md)로
 로컬 수정했으며 hosted Compose 수용은 별도다.
 전체166일 등록 비용·실제 품종 입력/국내 독립 자료0건과 G0–G4 보류는 유지한다. 아래 날짜별 기록은 당시 상태다.

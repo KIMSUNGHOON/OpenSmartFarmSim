@@ -601,10 +601,12 @@
           첫 증거 이름 충돌2실패/관련3통과를 보존했으며 실제 API/등록 전체 작기/3D는 별도다.
         - [ ] **`crop-cycle-calculation-operator-runtime`** — 선행 위 순수 투영; 구체 계약 뒤 구현.
           서명 dependency인 원 operator_config/file helper를 보존하며 별도 명시 config/기본 false·exact factory/jobs/farm을 검사한다.
-          - [ ] **`crop-cycle-calculation-runtime-factory`** — [3 core파일 계약](../contracts/crop-cycle-calculation-runtime-factory-v1.md).
+          - [x] **`crop-cycle-calculation-runtime-factory`** — [3 core파일 계약](../contracts/crop-cycle-calculation-runtime-factory-v1.md).
             기본 None/flag 결속·same jobs/farm의 exact 새 store/query·연결 전 거부·실제 SCRAM/TLS 조립/FD·정리.
             이 조립은 새 HTTP 응답 수용과 구분한다.
-          - [ ] **`crop-cycle-calculation-operator-loader`** — 선행 위 factory; 별도 작은 계약 뒤 구현.
+            [10월7일 수용](../research/crop-cycle-calculation-runtime-factory-20261007.md): 새19개/기존136개·고유155개 분할,
+            실제 SCRAM 동일 jobs/farm/principal 제공자·네 키·재구성/9거부·계산/게시0·원 입력/행0/FD·세 별도 import·73 source/정리.
+          - [ ] **`crop-cycle-calculation-operator-loader`** — 선행 위 factory; [3 core파일 계약](../contracts/crop-cycle-calculation-operator-loader-v1.md).
             원 loader/서명 이력을 보존하는 새 config 판본·보호 파일/닫힌 schema·명시 조립과 거부를 검증한다.
         - [ ] **`crop-cycle-calculation-api-transport`** — 선행 위 설정/runtime; 구체 계약 뒤 구현.
           새 인증 route/OpenAPI·원 응답 보존·실제 SCRAM/TLS 전체 본문30초/2MiB·투영 뒤 철회/정리 뒤 부모를 수용한다.

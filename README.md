@@ -44,10 +44,12 @@ SQL 형식 시험 metadata를 저장한 단계입니다. 후속 [서명 결과 D
 작은 내부 조회5.01–6.06초는 HTTP/전체166일 성능 수용이 아닙니다.
 [새 공개 투영](research/crop-cycle-calculation-api-projection-implementation-20261007.md)도 새63개/구형42개·고유105개 분할·
 실제25시간/7페이지·원량/UTC·hold·RHS0·import/FD·67 source 보존으로 로컬 수용했습니다.
-다음은 명시적 설정/factory·실제 API → 동일 UTC3D입니다. 최신 `353bffb` CI는 C0/웹/작성 PG 성공,
+[명시 runtime factory](research/crop-cycle-calculation-runtime-factory-20261007.md)도 새19개/기존136개·고유155개 분할,
+실제 SCRAM 같은 jobs/farm·재구성/9거부·계산/게시0·원 입력/FD/import·73 source/정리로 로컬 수용했습니다.
+다음은 별도 설정 loader·실제 API → 동일 UTC3D입니다. 최신 `353bffb` CI는 C0/웹/작성 PG 성공,
 앱 config 필드 거부/Backend 진행으로 관측했습니다. [설정 생성 호환 수정](research/application-operator-policy-compatibility-20261007.md)은
 고유125개 분할·실제 SCRAM/TLS·원 loader/70 source/정리로 로컬 검증했으며 hosted Compose는 후속입니다.
-다음 [새 runtime factory](contracts/crop-cycle-calculation-runtime-factory-v1.md)의 수용 기준을 고정했습니다. 새 투영의 hosted 수용도 별도입니다.
+다음 [별도 운영 설정 loader](contracts/crop-cycle-calculation-operator-loader-v1.md)의 수용 기준을 고정했습니다. 새 투영/runtime의 hosted 수용도 별도입니다.
 [전체 원 결과 증명 관측](research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은6.11MB/8MiB·
 발행175.7초·별도 Python 검증1.59초·선택 page1.7–2.0초/정리를 확인했습니다. 농장/HTTP/3D 수용은 별도입니다.
 `8d111f1`의 [종료 CI](research/artifacts/crop-cycle-calculation-current-query-ci-prepush-20261007.json)는 다른4workflow 성공이며 Backend5분할 성공·분할0/집계 실패입니다. 분할0은

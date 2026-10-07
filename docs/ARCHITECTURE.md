@@ -147,7 +147,9 @@ QC 발행은 HTTP 밖이며 조회에서 원 parser/context/QC/RHS를 재실행�
 [새 공개 투영](../research/crop-cycle-calculation-api-projection-implementation-20261007.md)은 공식 manifest/validation과 새 ID를 보존하며
 고유105개 분할·원량/UTC·hold·RHS0·import/67 source 보존으로 순수 자식을 수용했다. 현재 권한/HMAC 검사는 query의 책임이다.
 원 operator_config는 server 서명의 file helper dependency이므로 후속 명시 설정은 그 파일을 보존하는 별도 loader로 계획한다.
-공개 판본/runtime과 전체166일 비용/동일 UTC3D는 후속이다.
+[명시 runtime factory](../research/crop-cycle-calculation-runtime-factory-20261007.md)는 exact 새 store/query·same jobs/farm과
+flag 결속을 고유155개 분할/실제 SCRAM·계산/게시0·import/정리로 수용했다.
+별도 loader·새 route/실제 HTTPS와 전체166일 비용/동일 UTC3D는 후속이다.
 
 ## 3D 재생 계약
 
