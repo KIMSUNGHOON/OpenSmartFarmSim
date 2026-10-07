@@ -9,8 +9,10 @@
 새57개/기존155개·고유212개 분할·실제 SCRAM/자원 정리로 로컬 수용했다.
 [인증 route/OpenAPI](../research/crop-cycle-calculation-route-openapi-20261007.md)도 새63개/회귀221개·고유284개 분할,
 원48 path/148 schema·78 source/원량·UTC·투영 뒤 철회로 ASGI 자식만 로컬 수용했다.
-다음은 [runtime/실제 TLS](../contracts/api-crop-cycle-calculation-transport-v1.md)이며
-실제 새 HTTP/동일 UTC3D·전체166일 등록 비용·생과/자원/경제와 실제 자료 관문은 후속이다.
+[runtime/실제 TLS](../research/crop-cycle-calculation-runtime-tls-20261007.md)도 실제3개/runtime19개/회귀315개·고유337개 분할,
+26 전체 HTTPS 최대5.258614초/23,546bytes·원량/UTC·철회/변조·81 source/정리로 작은 API 부모까지 로컬 수용했다.
+다음은 [새 SDK/동일 UTC3D](../contracts/web-crop-cycle-calculation-replay-v1.md)이며,
+전체166일 등록 비용/복원·생과/자원/경제와 실제 자료 관문은 후속이다.
 
 상태: **검토용 초안, 2026-09-27.** 설계 선택은 구현 방향이며 과학적 검증 또는 production readiness를 뜻하지 않는다. 기획자는 농업·지역 조건·종자에 관한 배경지식이 없으므로 전문적인 수치의 선정과 근거 검토는 Codex CLI `gpt-6.1-sol` `xhigh`가 **연구·설계 단계와 배포 제품의 실제 사용 중 모두** 담당한다. 필요한 소프트웨어·역할·선택 이유는 [기술 스택](TECH_STACK.md), 프로세스·자료·판정 계약은 [아키텍처](ARCHITECTURE.md#필수-codex-cli-런타임-작업자)에 둔다. 사용자 선호가 필요한 항목만 마지막 절에 분리했다.
 

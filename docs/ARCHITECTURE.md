@@ -153,8 +153,11 @@ flag 결속을 고유155개 분할/실제 SCRAM·계산/게시0·import/정리�
 고유212개 분할/실제 SCRAM·파일/FD/75 source·정리로 operator-runtime까지 로컬 수용했다.
 [새 route/OpenAPI](../research/crop-cycle-calculation-route-openapi-20261007.md)도 한 current query 문맥의 투영/bytes 뒤
 현재 검사를 마치고 반환한다. 고유284개 분할·ASGI·원48 path/148 schema/78 source/정리로 자식만 수용했다.
-[runtime/실제 HTTPS](../contracts/api-crop-cycle-calculation-transport-v1.md)와
-전체166일 비용/동일 UTC3D는 후속이다.
+후속 [runtime/실제 HTTPS](../research/crop-cycle-calculation-runtime-tls-20261007.md)는 exact 새 store/query를
+`create_app`에 전달하고 실제 protected loader/SCRAM/26 HTTPS·고유337개 분할로 작은 API 부모까지 수용했다.
+원량/UTC·투영 후 철회·유효 HMAC 변조·live grant·비활성 거부와 기존30초/2MiB/81 source·정리를 확인했다.
+다음 [별도 새 SDK와 동일 UTC3D](../contracts/web-crop-cycle-calculation-replay-v1.md)는 verified ID/validation을 보존한다.
+전체166일 등록 비용/복원과 hosted·품종/관문 수용은 별도다.
 
 ## 3D 재생 계약
 

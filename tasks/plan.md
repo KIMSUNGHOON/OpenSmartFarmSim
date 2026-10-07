@@ -319,9 +319,12 @@ route5파일2–3집중시간 + runtime/TLS3파일2–3시간의 **남은 작은
 실제 API 수용 뒤 client/3D 추정을 갱신하며 전체166일 등록 비용·CI·생과/자원/경제·외부 자료와 최종 날짜는 제외한다.
 [route/OpenAPI 실제 수용](../research/crop-cycle-calculation-route-openapi-20261007.md)은 새63개/관련 회귀221개·고유284개 분할,
 ASGI 원량/UTC·한 query/투영 뒤 철회·hold·원48 path/148 schema/78 source·세 import/FD/정리다.
-위 route2–3시간 예상은 이 실적으로 대체한다. 남은 [runtime/TLS3 core파일](../contracts/api-crop-cycle-calculation-transport-v1.md)은
-명시 loader에서 새 store/query 전달·실제 SCRAM/TLS 전체 본문30초/2MiB·재기동/철회/변조·정리의 **2–3집중시간 잠정**이다.
-이 수용 뒤 API 부모를 체크하며 client/동일 UTC3D·전체166일 등록 비용·생과/자원/경제·실제 자료와 최종 날짜는 별도다.
+위 route2–3시간 예상은 이 실적으로 대체했다. 후속 [runtime/TLS3 core파일](../research/crop-cycle-calculation-runtime-tls-20261007.md)도
+실제3개/runtime19개/회귀315개·고유337개 분할·26 HTTPS 최대5.258614초/23,546bytes·
+철회/변조·원량/UTC·FD11→11/81 source·정리로 로컬 수용했다. 작은 API/transport 부모도 체크했다.
+runtime2–3시간 잠정은 이 실적으로 대체한다. 다음 [SDK4파일 → 현재 범위/3D → 실제 WebGL](../contracts/web-crop-cycle-calculation-replay-v1.md)은
+각2–3/2–4/3–5집중시간, 합7–12집중시간 잠정이다. 실제 실패/통과로 갱신하며
+CI·전체166일 등록 비용/복원·생과/자원/경제·실제 자료와 최종 제품 날짜는 포함하지 않는다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
 선택 시작/중간/끝129시점/5사건·page 최대2.035086초와 source/FD/PID 정리를 확인했다.
@@ -487,7 +490,10 @@ flowchart TD
   BCALCRCTX --> BCALCQUERY["crop-cycle-calculation-current-query: 현재 farm/DB/원 server trace"]
   BCALCBIND --> BCALCQUERY
   BCALCQUERY --> BCALCAPI["crop-cycle-calculation-api-runtime: 새 공개 판본/명시 조립·TLS"]
-  BCALCAPI --> BCALCWEB["crop-cycle-calculation-client-view: 같은 원 ID/UTC·표/3D"]
+  BCALCAPI --> BCALCCLIENT["crop-cycle-calculation-client: 새 SDK/validation·순차 페이지"]
+  BCALCCLIENT --> BCALCVIEW["crop-cycle-calculation-window-view: 같은 원 ID/UTC·현재 범위"]
+  BCALCVIEW --> BCALCNATIVE["crop-cycle-calculation-native-browser: 실제 PG/TLS/WebGL"]
+  BCALCNATIVE --> BCALCWEB["crop-cycle-calculation-client-view: 세 자식 수용 뒤 부모"]
   BCALCWEB --> BRESTORE
   BFULL --> BCALCCOST["crop-cycle-calculation-prefix-cost: 실제 등록 누적 비용"]
   BCALCBIND --> BCALCCOST

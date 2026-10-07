@@ -590,7 +590,7 @@
         [10월7일 수용](../research/crop-cycle-calculation-current-query-implementation-20261007.md): 실제 SCRAM12개/1,079.43초·
         정상120걸음/3시점·관리 사건3개·hold60걸음/1시점/1사건·원량/UTC·권리/유효 HMAC 변조·fork·63 source/정리.
         내부 조회5.01–6.06초이며 fresh exec/새 HTTP·전체166일/3D·관문은 별도다.
-      - [ ] **`crop-cycle-calculation-api-runtime`** — 선행 위 현재 query.
+      - [x] **`crop-cycle-calculation-api-runtime`** — 선행 위 현재 query.
         새 공개 판본/명시 operator-config·factory/route의 닫힌 형식을 작은 자식으로 계약한 뒤 구현한다.
         실제 HTTPS 전체 본문30초/2MiB·투영 후 철회·현재 인증/오류/기존 응답 회귀와 정리가 필요하다.
         - [x] **`crop-cycle-calculation-api-projection`** — 첫 선행은 위 현재 query.
@@ -611,15 +611,20 @@
             [10월7일 수용](../research/crop-cycle-calculation-operator-loader-20261007.md): 새57개/기존155개·고유212개 분할,
             실제 SCRAM/TLS 파일·명시 flag/재구성/env service·원 파일/FD·75 source·schema/role/passfile/PG 정리.
             첫 시험 속성명 오류/수정·원 loader 거부 RED를 보존했으며 실제 새 HTTP/3D·hosted는 별도다.
-        - [ ] **`crop-cycle-calculation-api-transport`** — 선행 위 설정/runtime; [새 조회 계약](../contracts/api-crop-cycle-calculation-transport-v1.md).
+        - [x] **`crop-cycle-calculation-api-transport`** — 선행 위 설정/runtime; [새 조회 계약](../contracts/api-crop-cycle-calculation-transport-v1.md).
           새 인증 route/OpenAPI·원 응답 보존·실제 SCRAM/TLS 전체 본문30초/2MiB·투영 뒤 철회/정리 뒤 부모를 수용한다.
           - [x] **`crop-cycle-calculation-route-openapi`** — 새 route/api.py/route 시험/OpenAPI 시험·snapshot5 core파일.
             exact 새 store/query·한 문맥·엄격한 요청/권한·원량/UTC/hold·투영 뒤 철회·기존 응답·lazy import/FD.
             [10월7일 수용](../research/crop-cycle-calculation-route-openapi-20261007.md): 새63개/경로·OpenAPI/runtime 회귀221개,
             고유284개 분할·ASGI 원량/UTC/validation/hold·투영 뒤 철회·원48 path/148 schema/78 source·세 import/FD/정리.
             custody는 격리한 exact 타입 stub이며 새 route의 실제 DB/TLS·hosted·브라우저 수용은 후속이다.
-          - [ ] **`crop-cycle-calculation-runtime-tls`** — 위 route 뒤 api_runtime/기존 runtime 시험/새 실제 TLS 시험3 core파일.
+          - [x] **`crop-cycle-calculation-runtime-tls`** — 위 route 뒤 api_runtime/기존 runtime 시험/새 실제 TLS 시험3 core파일.
             별도 보호 loader의 명시 조립·실제 SCRAM/TLS 정상/사건/확인 과거·빈 hold·재기동/철회/변조/운영 오류·RHS0/정리.
+            [10월7일 수용](../research/crop-cycle-calculation-runtime-tls-20261007.md): 실제3개/runtime19개/회귀315개·고유337개 분할,
+            원120걸음/3시점/3사건·확인 과거60걸음/1시점/1사건·빈 hold·26 HTTPS 최대5.258614초/23,546bytes·
+            현재 source/입력 권리·유효 HMAC 변조/live grant/비활성·FD11→11/81 source·PG/비밀/임시 정리.
+            첫 두 TLS 실패·실제 policy/pytest logging FD 원인도 보존했으며 같은 시험 프로세스의 HTTPS 재생성이다.
+            작은 API/transport 부모만 수용하며 전체166일/새3D·hosted·품종/관문은 별도다.
       - [ ] **`application-operator-policy-compatibility`** — 실제 앱 CI `353bffb`/37622257162의 config 필드 거부 보완.
         현재 설정 생성기의 `asdict(policy)`가 구형 loader에 없는 기본 false 필드를 내보낸다.
         서명 dependency인 원 loader를 보존하는 생성 부분의 작은 계약/집중 반례 뒤 실제 Compose로 확인한다.
@@ -628,7 +633,15 @@
           새10개/기존115개·원 loader/70 source·원 시험 본문·PG/비밀번호/임시 tree 정리를 확인했다.
         - [ ] 수정 판본의 기존 hosted 세 Compose 경로·정리 — WSL Docker 부재와 기존 CI 진행으로 보류.
       - [ ] **`crop-cycle-calculation-client-view`** — 선행 위 실제 API/runtime.
-        새 result ID/manifest·원량/UTC를 보존하는 client/표/3D 선택을 연결하고 실제 PG/TLS/WebGL로 대사한다.
+        [새 웹 계약](../contracts/web-crop-cycle-calculation-replay-v1.md)의 세 자식으로 나눠
+        새 result ID/manifest/validation·원량/UTC를 보존하는 client/표/3D 선택을 실제 PG/TLS/WebGL로 대사한다.
+        - [ ] **`crop-cycle-calculation-client`** — 선행 실제 API 수용; 새 SDK/집중 시험/api.ts/공개 fixture4 core파일.
+          실제 새 공개 DTO·검증 정보 대응·정상/과거·빈 hold·순차/byte-short/끝·취소/권리/혼합 거부,
+          기존30초/2MiB·단일 요청·unit/typecheck/build/원 SDK 회귀 뒤 이 자식만 체크한다.
+        - [ ] **`crop-cycle-calculation-window-view`** — 선행 새 SDK; bounded typed 선택과 기존 연구 화면의 새 판본.
+          현재 범위의 원 ID/UTC·C/N/LAI·표/그래프/3D와 변경/권리 실패 때 이전 상태/renderer/timer 정리.
+        - [ ] **`crop-cycle-calculation-native-browser`** — 선행 위 화면; 실제 소유 PG/보호 loader/TLS/WebGL.
+          원량/UTC·관리 사건/hold·단일 요청/조회 RHS0·전체 본문 한도·계정/철회·접근성/복구·PG/비밀/서버 정리.
       - [ ] **`crop-cycle-calculation-prefix-cost`** — 선행 full-rhs와 작은 새 계산 농장 결속; 읽기 개발과 병행한다.
         실제 등록 입력의 bounded advance/reopen·수지/서명·권리·저장 누적 비용을 분리하고 원 한도·원량을 유지한다.
         실측 결함의 작은 수정/검증과 전체 등록 실행 비용 증거 없이 replay-restore/부하 부모를 체크하지 않는다.

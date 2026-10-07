@@ -53,8 +53,10 @@ SQL 형식 시험 metadata를 저장한 단계입니다. 후속 [서명 결과 D
 실제 SCRAM/TLS 파일·명시 flag/재구성·원 파일/FD·75 source/정리로 로컬 수용했습니다.
 [인증 route/OpenAPI](research/crop-cycle-calculation-route-openapi-20261007.md)도 새63개/관련 회귀221개·고유284개 분할,
 원량/UTC·한 query/투영 뒤 철회·원48 path/148 schema·78 source 보존으로 로컬 수용했습니다.
-다음은 [runtime/실제 TLS](contracts/api-crop-cycle-calculation-transport-v1.md)입니다.
-새 경로는 현재 ASGI 수용이며 실제 DB/TLS·동일 UTC3D와 hosted 수용은 별도입니다.
+[runtime/실제 TLS](research/crop-cycle-calculation-runtime-tls-20261007.md)도 실제3개/runtime19개/회귀315개·고유337개 분할,
+26 HTTPS 전체 응답 최대5.258614초/23,546bytes·철회/변조·원량/UTC·FD11→11/81 source·정리로 로컬 수용했습니다.
+다음은 [새 SDK → 현재 범위/3D → 실제 WebGL](contracts/web-crop-cycle-calculation-replay-v1.md)이며,
+새 경로의 동일 UTC3D·전체166일 등록 비용/복원과 hosted 수용은 별도입니다.
 [전체 원 결과 증명 관측](research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은6.11MB/8MiB·
 발행175.7초·별도 Python 검증1.59초·선택 page1.7–2.0초/정리를 확인했습니다. 농장/HTTP/3D 수용은 별도입니다.
 `8d111f1`의 [종료 CI](research/artifacts/crop-cycle-calculation-current-query-ci-prepush-20261007.json)는 다른4workflow 성공이며 Backend5분할 성공·분할0/집계 실패입니다. 분할0은

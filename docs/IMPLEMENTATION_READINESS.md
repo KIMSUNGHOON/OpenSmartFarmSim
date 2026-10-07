@@ -10,7 +10,10 @@
 실제 SCRAM/TLS 파일·명시 flag/재구성·원 파일/FD·75 source/정리로 로컬 수용했다.
 [인증 route/OpenAPI](../research/crop-cycle-calculation-route-openapi-20261007.md)도 새63개/관련 회귀221개·고유284개 분할,
 원48 path/148 schema·78 source·한 query/투영 뒤 철회·원량/UTC/hold·세 import/FD/정리로 ASGI 자식만 수용했다.
-다음은 [runtime/실제 TLS](../contracts/api-crop-cycle-calculation-transport-v1.md) → 동일 UTC3D다.
+[runtime/실제 TLS](../research/crop-cycle-calculation-runtime-tls-20261007.md)도 실제3개/runtime19개/회귀315개·고유337개 분할,
+26 HTTPS 최대5.258614초/23,546bytes·원량/UTC·철회/변조·FD11→11/81 source·정리로 작은 API 부모까지 수용했다.
+첫 두 TLS 실패와 실제 source policy/pytest logging FD 원인 확인은 수용 기록에 보존했다.
+다음은 [SDK4파일 → 현재 범위/3D → 실제 WebGL](../contracts/web-crop-cycle-calculation-replay-v1.md)다.
 앱 CI의 구형 config 필드 거부는 [고유125개 분할·실제 SCRAM/TLS](../research/application-operator-policy-compatibility-20261007.md)로
 로컬 수정했으며 hosted Compose 수용은 별도다.
 전체166일 등록 비용·실제 품종 입력/국내 독립 자료0건과 G0–G4 보류는 유지한다. 아래 날짜별 기록은 당시 상태다.
