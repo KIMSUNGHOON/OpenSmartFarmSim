@@ -1,0 +1,62 @@
+{
+  "receipt_version": "crop-cycle-calculation-server-custody-ci-prepush-v1",
+  "observed_at": "2026-10-07T09:55:16.931381+00:00",
+  "head_sha": "4b0d559684090f609eb8b3943f4a3bb5d6f66b9a",
+  "source": "actual gh run list --commit and gh run view status/conclusion/jobs in native CLI",
+  "workflows": [
+    {
+      "name": "C0 Compose verification",
+      "id": 37587498452,
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-10-07T07:28:51Z",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37587498452"
+    },
+    {
+      "name": "Web tests",
+      "id": 37587498493,
+      "status": "completed",
+      "conclusion": "failure",
+      "updated_at": "2026-10-07T07:32:26Z",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37587498493"
+    },
+    {
+      "name": "Application runtime verification",
+      "id": 37587498387,
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-10-07T07:33:35Z",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37587498387"
+    },
+    {
+      "name": "Authored API PostgreSQL smoke",
+      "id": 37587498348,
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-10-07T07:39:20Z",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37587498348"
+    },
+    {
+      "name": "Backend tests",
+      "id": 37587498500,
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-10-07T09:37:47Z",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37587498500"
+    }
+  ],
+  "all_five_terminal": true,
+  "successes": 4,
+  "failures": 1,
+  "backend_six_partitions_and_aggregate_succeeded": true,
+  "all_five_succeeded": false,
+  "Web_local_fix_commit": "ae3ed1a099eaae0e81b87d97b2b7b0f47c32951d",
+  "Web_local_fix_focused_passed": 7,
+  "Web_fix_hosted_accepted": false,
+  "new_verified_calculation_farm_and_server_children_in_this_remote_SHA": false,
+  "operations_freeze_commit": "d19f7c0",
+  "pipeline_settings_changed": false,
+  "cancelled_or_rerun_by_this_turn": false,
+  "normal_push_can_follow_local_evidence_acceptance": true,
+  "gates": "not_assessed"
+}

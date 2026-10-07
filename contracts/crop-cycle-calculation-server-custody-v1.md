@@ -1,6 +1,7 @@
 # 검증 계산 판본의 서버 실행·서명 이력
 
-상태: 구현 전 계약, 2026-10-07 KST. 작업은 `crop-cycle-calculation-server-custody`다.
+상태: 2026-10-07 KST [로컬 소프트웨어 수용](../research/crop-cycle-calculation-server-custody-implementation-20261007.md).
+작업은 `crop-cycle-calculation-server-custody`다. 아래 본문은 실행 전 고정했고 수용 기록만 추가했다.
 선행은 [현재 농장 권한](crop-cycle-calculation-farm-binding-v1.md)과
 [새 불변 artifact](crop-cycle-calculation-artifact-v1.md)의 로컬 수용이다.
 [원 서버 custody](crop-cycle-server-custody-v1.md)의 파일·서명·예산 정책을 유지하되
@@ -91,3 +92,6 @@ root/intent의 nonblocking exclusive flock·owner0700/noACL/NOFOLLOW와 regular 
 현재 권한의12개/242.84초·prepare/current2.711/2.713초가 근거다.
 CI 대기·전체166일/실제 DB 게시·품종/독립 자료 확보 시간은 포함하지 않는다.
 실제 품종 입력·국내 독립 자료·actual crop Run0, G0–G4 `not_assessed`와 생산 예측/추천 hold를 유지한다.
+
+10월7일에 순수49개와 원 signed 이력 공존 추가1개·실제 SCRAM12개, 고유62개를 분할 수용했다.
+제품 module은 동일하며 DB 게시·farm 연결 부모·전체 작기/API/3D는 미수용이다. 실제 정리와 원55 source/입력/spec을 보존했다.

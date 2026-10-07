@@ -10,7 +10,8 @@
 [계획 fixture](research/planning-passfile-cleanup-20261007.md)에서 각각 로컬 수정·검증했고, 수정의 hosted 수용은 별도입니다.
 `2daa99f`의 [종료 CI](research/artifacts/crop-cycle-durable-ci-terminal-20261007.json)는 다른4workflow 성공,
 Backend4분할 성공·위 정리 오류2분할/집계 실패입니다. 전체 backend 수용으로 표시하지 않습니다.
-후속 `4b0d559`는 C0/앱/작성 경로 성공·Backend 실행 중이며 Web은 Chromium97통과/1실패입니다.
+후속 `4b0d559`의 [종료 상태](research/artifacts/crop-cycle-calculation-server-custody-ci-prepush-20261007.json)는
+C0/앱/작성 경로·Backend6분할/집계 성공이며 Web은 Chromium97통과/1실패입니다.
 [경제 이력 키보드 시험](research/web-financial-history-keyboard-20261007.md)은 같은 실패를 재현해
 대기 조건을 수정했고 로컬7개를 통과했습니다. 수정 판본 hosted 수용은 별도입니다.
 [새 계산 문맥](research/crop-cycle-calculation-context-implementation-20261007.md)은90개 집중 시험·
@@ -21,8 +22,10 @@ Backend4분할 성공·위 정리 오류2분할/집계 실패입니다. 전체 b
 조회 RHS0·원55 source 보존으로 로컬 수용했습니다.
 [새 농장 권한 결속](research/crop-cycle-calculation-farm-authority-implementation-20261007.md)은 실제 SCRAM 고유12개를
 분할 검증했고 현재 등록/권리·입력 변조 거부와 세 실행의 DB/역할/비밀/PG 정리를 확인했습니다.
-이 단계의 생장 계산/새 작물 row/Run은0입니다. 다음은 새 계산의 서버 서명 이력 → DB 원자 게시이며
-농장 연결 부모와 전체166일/저장/API/3D는 미수용입니다.
+이 권한 단계의 생장 계산/새 작물 row/Run은0입니다.
+후속 [새 서버 계산/서명](research/crop-cycle-calculation-server-custody-implementation-20261007.md)도 순수50개·실제 SCRAM12개,
+고유62개 분할·실제 중단4곳/fresh Python·등록 농장7→120걸음 재개·현재 권리/원 이력 보존으로 로컬 수용했습니다.
+다음은 새 판본의 DB 원자 게시이며 농장 연결 부모와 전체166일/저장/API/3D는 미수용입니다.
 
 **다음 구현 (2026-10-06 KST):** [긴 결과 DB 저장](research/crop-cycle-db-custody-implementation.md)을
 고유76개 분할 검증(순수61·실제 DB15개)과 정리·원49개 파일 보존으로 로컬 수용했습니다.

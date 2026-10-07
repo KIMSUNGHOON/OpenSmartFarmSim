@@ -116,6 +116,14 @@ API/3D에서 재계산하거나 G0–G4를 해제하지 않는다.
 
 기존 고정 경제 시나리오의 [조건부 계산 작업자 후보](../contracts/economic-calculation-worker-v1.md)는 실제 simulation 임대와 산식 판본/입력 핀을 확인하고 결과·작업 완료를 같은 거래로 저장한다. 영수증은 실제 `calculation_status`와 `assessment_status=hold`를 보존하며 프로그램 완료를 농장 수익 검증으로 표시하지 않는다. 운영자 전경 명령은 모델을 호출하지 않는다. [HTTP 계산 접수·완료 조회 후보](../contracts/api-economic-calculation-v1.md)는 불변 입력·현재 권한·전체 원장 재계산을 확인해 실제 202 요청을 만들고, 완료 영수증/게시/원장 해시를 대사한 기존 안전 결과만 반환한다. 전체 CLI/경제/브라우저 수용은 후속이다.
 
+## 검증 작물 계산의 서버 이력
+
+[새 계산 서버 계약](../contracts/crop-cycle-calculation-server-custody-v1.md)은 exact 공식 계산 문맥/현재 농장 권한과
+새 artifact를 `CalculationServerCustody`에 결속한다. 고정 resolver가 소유 문맥을 열고 실제 계산과
+proof fsync·현재 권리 재확인·HEAD 게시를 수행한다. inspect/page/완료 재시도는 현재 권리 아래 RHS0이다.
+[62개 분할 검증](../research/crop-cycle-calculation-server-custody-implementation-20261007.md)의 작은 소프트웨어 범위이며,
+새 DB 게시/공개 API/runtime 연결·전체166일/3D와 G0–G4는 후속이다. 원 판본 이력을 재발급하지 않는다.
+
 ## 3D 재생 계약
 
 지역 선택 지도와 온실 3D 장면은 별도 화면/자산으로 둔다. 온실 장면은 실제 시설 도면이 없는 경우 **개념적 단일 구역**임을 표시한다. 시각 슬라이더가 가리키는 `run_id + timestamp`의 실내 온도·습도, 난방·환기 상태, 모델의 난방 열수요/공급열(kWh_th)이 3D, 표, 그래프, 설명 문장에 모두 같은 값으로 나타나야 한다. 시간별 비용·매출 겹침은 Economic result의 해당 시점 입력(계량량·유효 가격/요금·판매 사건)과 산식이 **검증된 범위**에 있을 때만 `economic_result_id + timestamp`로 같은 표와 함께 보여 준다. 월별 조건부 손익을 시간별 실적처럼 보간하지 않는다. 공급열 용량의 의미가 불명확하면 공급열 숫자는 숨기고 이유를 표시한다. 계량 또는 검증된 효율/COP·보조 전력·연료 발열량이 없으면 전력(kWh_e)·연료(L/kg/kWh_fuel) 사용량과 비용·절감률은 계산값처럼 표시하지 않는다. 색과 움직임에는 단위·범례·기준을 붙인다. 보간 애니메이션은 시각 효과로 표시하고, **성장 모델이 존재하고 검증되기 전에는 식물이 자라는 애니메이션을 만들지 않는다.** 계산된 상태가 아닌 식물 키·수확·병해 모습은 재생하지 않는다.
