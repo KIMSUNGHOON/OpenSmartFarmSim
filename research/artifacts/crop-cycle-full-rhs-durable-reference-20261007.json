@@ -1,0 +1,110 @@
+{
+  "evidence_version": "crop-cycle-full-rhs-durable-reference-v2",
+  "observed_at_utc": "2026-10-07T05:04:29.733470+00:00",
+  "scope": "owned_synthetic_small_original_RHS_supervision_software_only",
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "4b285cc45fe2c9e22c6e68095db25eb15afa9b02347c3b57d5105bee7f5656ef",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T04:50:48.689Z"
+  },
+  "source_sha256": {
+    "research/crop-cycle-full-rhs-durable.py": "21fe374dc5e6037d5bfd8a9008aac05eab00daeb3ba0d81745a54bc4aac3cbb4",
+    "backend/tests/test_crop_cycle_full_rhs_durable.py": "0caf14ba7a3a386d0e6aa3454d13a6b321c16505036216141fa413714c174644",
+    "contracts/crop-cycle-full-rhs-durable-v2.md": "4c983bec5b7d6784d73c34141db748cfde87bbff22ede40262069c66fe3167fc"
+  },
+  "tests": {
+    "missing_module_RED": {
+      "exit_code": 1,
+      "seconds": 0.09,
+      "log_sha256": "a5becf7e47499eb4139664d3f9a2b466aa578143c2d560c7e16323ba7c1ed433",
+      "collection_errors": 1
+    },
+    "deadline_extension_RED": {
+      "exit_code": 1,
+      "seconds": 2.3,
+      "log_sha256": "c72299ee8b3535c745987b2bb97d154239675ae00ac2069b48d6bd744d70b09d",
+      "failed": 1
+    },
+    "previous_result_tamper_RED": {
+      "exit_code": 1,
+      "seconds": 2.37,
+      "log_sha256": "d066b3a9a45c437026724b90213b8d7d1ee8104a8322efbd680bbbcd74f59b90",
+      "failed": 1
+    },
+    "initial2_GREEN": {
+      "exit_code": 0,
+      "seconds": 2.69,
+      "log_sha256": "efd4db5aab30a12e78d6725b0edf0e64ee75fbdea7fb1ca3cb0ca00d5d29738d",
+      "passed": 2,
+      "accepted_final_source": false
+    },
+    "final5_GREEN": {
+      "exit_code": 0,
+      "seconds": 22.67,
+      "log_sha256": "bce35fc35e572aafd8b21d2c7237af8fe7b81d5c6f8bbc6df6469ebfbc5ac90a",
+      "passed": 5,
+      "session_id": 28465,
+      "pytest_arguments": [
+        "-m",
+        "pytest",
+        "tests/test_crop_cycle_full_rhs_durable.py",
+        "-q",
+        "--maxfail=1",
+        "--durations=5"
+      ],
+      "private_basetemp_omitted": true
+    }
+  },
+  "actual_SIGKILL_recovery": {
+    "failed_worker_returncode": -9,
+    "failed_result_available": false,
+    "restored_steps": 123,
+    "final_steps": 760,
+    "sample_count": 21,
+    "event_count": 2,
+    "recovery_rhs_calls": 3202,
+    "control_rhs_calls": 3822,
+    "recovery_wall_seconds": 6.5953664839980775,
+    "control_wall_seconds": 7.8682768319995375,
+    "samples_sha256": "0ddbf3071a0333660488b29c2e54be17fd3173353b766be87e41e8f917138108",
+    "events_sha256": "cd1299ee07efe92aa1474a02dba1974b145d73bbf00617ed8ec27dd9d7a2b61d",
+    "all121_final_state_components_match_control": true,
+    "same_original_spec_and_deadline": true,
+    "failed_receipt_sha256": "b8af10d98bbaec3e81af80e3b0a654bd21d2feefb314291da060b7e06bee19a5",
+    "recovered_receipt_sha256": "7e6ed4742bdded204c2d4ac3fecd745d5f0f9a28dba71d43d4d1ff9a9d7b0576",
+    "continuous_control_receipt_sha256": "33f1b882499ac5045d53876d2c8a21f2f3b0abc45de805406db486033730e730",
+    "all_owned_child_PIDs_gone": true,
+    "locks_reacquirable": true
+  },
+  "actual_pause_resume_terminal": {
+    "initial_steps": 123,
+    "final_steps": 152,
+    "samples": 5,
+    "events": 2,
+    "checkpoint_exact_match": true,
+    "terminal_rhs_calls": 0,
+    "terminal_read_rhs_calls": 0,
+    "worker_descriptors_before_after": [
+      5,
+      5
+    ],
+    "pause_receipt_sha256": "5375d792e29f6f2c5e69803028cf230c07c383a38469d9904d9cf8c1b1804bf0",
+    "final_receipt_sha256": "dd549f6f1bacb7c9f13c7f46bb99ff3d5ce6fd6eb778d8f811ec2232734e2ccd",
+    "terminal_receipt_sha256": "6f4a212eedab068c34bb40f42e3d7635f80a58b36efa4c8af107c36d84d44f90"
+  },
+  "original_math52_unchanged": true,
+  "prior_CI_test_isolation_change_only": [
+    "backend/tests/test_crop_cycle_full_rhs_reference.py"
+  ],
+  "original_runner_or_profile_changed": false,
+  "whole166_started_by_this_receipt": false,
+  "whole166_math_or_restore_burden_accepted": false,
+  "parent_controller_SIGKILL_or_actual_reboot_tested": false,
+  "full_backend_or_browser_tests_run": false,
+  "actual_crop_runs": 0,
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "gates": "not_assessed"
+}

@@ -203,6 +203,12 @@ schema/QC/context/현재 권리/API는 제외했다. reader 코드 SHA와 root/m
 현재 조회 부모는 작은 소프트웨어 범위까지 수용했다. 다음은 별도 판본/지속 저장의 전체166일 실험 설계·실행 →
 저장 조회/중단 복원 → 같은 ID/UTC3D이며 전체 작기/복원·부하 부모와 관문은 계속 보류한다.
 
+[지속 저장 감독자](../research/crop-cycle-full-rhs-durable-implementation-20261007.md)는 실제5개/22.67초·
+child SIGKILL(-9)/원123걸음 checkpoint 재개·연속760걸음/21시점/2사건·121상태 대사로 로컬 수용했다.
+원 spec SHA/마감·이전 결과 변조/동시 실행 거부와 FD/child/lock 정리를 확인했다.
+원 runner/작은 재개 전략 → 감독자 → 새166일 실제 RHS → 저장 조회/복원 순서다.
+조회 개발/독립 자료 확보는 이 계산 실험과 병행하며 원 유실 실험의 예산을 재설정하지 않는다.
+
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)은 원81574 handle·실험/terminal
 보존 경로 부재를 확인했다. 원 최종 상태는 확인 불가이고 같은 실험/예산을 재설정하지 않는다.
 새 사설 증거는 지속 저장 경로에 보존하고 작은 결과 조회 개발은 이어간다. 전체 수용은 원 증거 복구 또는
@@ -330,7 +336,9 @@ flowchart TD
   C3D --> PAGES["crop-cycle-result-pages: 자식 수용 뒤 부모 완료"]
   PAGES --> BURDEN["crop-cycle-burden: 긴 실제 RHS·부하/복원"]
   PAGES --> BPROF["crop-cycle-burden-profile: 비용/한도·원 격자"]
-  BPROF --> BFULL["crop-cycle-burden-full-rhs: 실제166일·모든 원 출력"]
+  BPROF --> BSMALL["원 runner·작은 재개 전략"]
+  BSMALL --> BDURABLE["crop-cycle-full-rhs-durable: 지속 저장/실제 종료·원 spec"]
+  BDURABLE --> BFULL["crop-cycle-burden-full-rhs: 실제166일·모든 원 출력"]
   BPROF --> BINPUT["crop-cycle-input-evidence: 원 검사/현재 bytes·별도 키 재시작"]
   BFULL --> BRESTORE["crop-cycle-burden-replay-restore: 같은 상태 복원·실제 조회"]
   BINPUT --> BRCTX["crop-cycle-input-read-context: 조회 타입/원 manifest·clock·격자"]

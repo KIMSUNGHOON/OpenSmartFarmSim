@@ -380,6 +380,14 @@
       원 증거 복구 또는 별도 판본/지속 저장의 새 실험 증거와 전체 수지/조회 수용이 필요하다.
       보존 CI 시험 격리 수정은 `4bf9af3`으로 정상 적용해 현재18개/24.30초를 통과했다
       ([통합 증거](../research/artifacts/crop-cycle-full-rhs-test-isolation-integration-20261007.json)). 이 결과로 전체166일을 체크하지 않는다.
+      - [x] **`crop-cycle-full-rhs-durable`** — 원 runner/작은 재개 전략 뒤의3 core파일:
+        `research/crop-cycle-full-rhs-durable.py`, `backend/tests/test_crop_cycle_full_rhs_durable.py`,
+        [v2 감독자 계약](../contracts/crop-cycle-full-rhs-durable-v2.md). 원 spec SHA/마감·실제 child 종료 코드/
+        로그/결과와 checkpoint 재개를 지속 저장하고 동시 실행·변조를 거부한다.
+        [로컬 수용](../research/crop-cycle-full-rhs-durable-implementation-20261007.md): 실제5개/22.67초·
+        child SIGKILL(-9) 뒤 같은123걸음 checkpoint 재개·연속760걸음/21시점/2사건·121상태 대사·
+        terminal RHS0·FD5→5/child 종료/lock 해제. 원 spec 마감 변경·과거 결과 변조의 실제 실패2개를 수정했다.
+        전체166일/복원·부하·실제 재부팅/감독자 SIGKILL 수용은 별도다.
     - [ ] **`crop-cycle-burden-replay-restore`** — 선행 전체 RHS/저장 수용; 중단/복원·실제 page/화면3–4파일.
       같은 원 context/seed/누적/clock/sequence의 중단/복원을 연속 결과와 대사하고 전체 저장의
       시작/중간/끝·byte-short/관리 전후·같은 ID/UTC/30초2MiB·현재 권리/변조·DB/서버/비밀번호/FD 정리를 확인한다.
