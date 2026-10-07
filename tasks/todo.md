@@ -593,13 +593,20 @@
       - [ ] **`crop-cycle-calculation-api-runtime`** — 선행 위 현재 query.
         새 공개 판본/명시 operator-config·factory/route의 닫힌 형식을 작은 자식으로 계약한 뒤 구현한다.
         실제 HTTPS 전체 본문30초/2MiB·투영 후 철회·현재 인증/오류/기존 응답 회귀와 정리가 필요하다.
-        - [ ] **`crop-cycle-calculation-api-projection`** — 첫 선행은 위 현재 query.
+        - [x] **`crop-cycle-calculation-api-projection`** — 첫 선행은 위 현재 query.
           [순수 공개 투영3 core파일 계약](../contracts/api-crop-cycle-calculation-projection-v1.md): 새 ID/공식 manifest·validation8/원량·UTC·hold,
           닫힌 JSON/비공개 필드·2MiB·원 투영 회귀·세 import 시작 순서. 실제 API 수용은 별도다.
+          [10월7일 수용](../research/crop-cycle-calculation-api-projection-implementation-20261007.md): 새63개/구형42개·고유105개 분할·
+          실제25시간11,400걸음/27시점/5사건·7페이지·원량/UTC·hold/혼합 거부·RHS0·import/FD·67 source 보존.
+          첫 증거 이름 충돌2실패/관련3통과를 보존했으며 실제 API/등록 전체 작기/3D는 별도다.
         - [ ] **`crop-cycle-calculation-operator-runtime`** — 선행 위 순수 투영; 구체 계약 뒤 구현.
           서명 dependency인 원 operator_config/file helper를 보존하며 별도 명시 config/기본 false·exact factory/jobs/farm을 검사한다.
         - [ ] **`crop-cycle-calculation-api-transport`** — 선행 위 설정/runtime; 구체 계약 뒤 구현.
           새 인증 route/OpenAPI·원 응답 보존·실제 SCRAM/TLS 전체 본문30초/2MiB·투영 뒤 철회/정리 뒤 부모를 수용한다.
+      - [ ] **`application-operator-policy-compatibility`** — 실제 앱 CI `353bffb`/37622257162의 config 필드 거부 보완.
+        현재 설정 생성기의 `asdict(policy)`가 구형 loader에 없는 기본 false 필드를 내보낸다.
+        서명 dependency인 원 loader를 보존하는 생성 부분의 작은 계약/집중 반례 뒤 실제 Compose로 확인한다.
+        새 계산 flag 활성화를 조용히 버리지 않으며 CI 설정/한도 변경 없이 검증한다.
       - [ ] **`crop-cycle-calculation-client-view`** — 선행 위 실제 API/runtime.
         새 result ID/manifest·원량/UTC를 보존하는 client/표/3D 선택을 연결하고 실제 PG/TLS/WebGL로 대사한다.
       - [ ] **`crop-cycle-calculation-prefix-cost`** — 선행 full-rhs와 작은 새 계산 농장 결속; 읽기 개발과 병행한다.

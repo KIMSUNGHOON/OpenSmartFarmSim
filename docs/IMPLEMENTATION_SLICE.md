@@ -333,7 +333,9 @@ API/runtime → client/동일 UTC3D와 독립 prefix 비용 측정으로 작업�
 원5시간 정상/hold·별도 Python2개/parser/context/QC/RHS0·원량/UTC·byte 경계/변조·FD/cache/PID로 수용했다.
 후속 [현재 farm/DB query](../research/crop-cycle-calculation-current-query-implementation-20261007.md)는 실제 SCRAM12개/1,079.43초·
 정상/관리 사건/수치 hold·원량/UTC·권리/변조·fork·63 source/FD/DB/비밀/PG 정리로 수용했다.
-다음은 [순수 공개 투영3 core파일](../contracts/api-crop-cycle-calculation-projection-v1.md) → 명시 설정/factory → 실제 TLS다.
+후속 [순수 공개 투영](../research/crop-cycle-calculation-api-projection-implementation-20261007.md)도 새63개/구형42개·
+고유105개 분할·실제25시간/7페이지·원량/UTC·세 hold·RHS0·import/FD·67 source 보존으로 수용했다.
+다음은 명시 설정/factory → 실제 TLS다. 새 API와 전체 등록166일/같은 UTC3D는 아직 미수용이다.
 원 input proof·validation9+8/부모 서명을 보존했고 query3–6시간 잠정은 위 실적으로 대체한다.
 전체166일 새 증명/등록/API/3D와 관문/전체 날짜는 별도다.
 새 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존해 병행한다.

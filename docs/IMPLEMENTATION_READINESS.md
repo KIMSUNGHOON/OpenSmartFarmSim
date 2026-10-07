@@ -2,7 +2,9 @@
 
 **새 계산 조회 진척 (2026-10-07):** [현재 농장/DB query](../research/crop-cycle-calculation-current-query-implementation-20261007.md)를
 실제 SCRAM12개·정상/관리 사건/수치 hold·원량/UTC·철회/변조·fork·63 source/자원 정리로 로컬 수용했다.
-다음은 [새 공개 투영](../contracts/api-crop-cycle-calculation-projection-v1.md) → 명시 설정/factory → 실제 API/동일 UTC3D다.
+후속 [새 공개 투영](../research/crop-cycle-calculation-api-projection-implementation-20261007.md)도 새63개/구형42개·고유105개 분할·
+실제25시간/7페이지·원량/UTC·hold·RHS0·import/FD·67 source 보존으로 수용했다.
+다음은 명시 설정/factory → 실제 API/동일 UTC3D다. 현재 앱 CI의 구형 config 필드 거부는 별도 보완이 필요하다.
 전체166일 등록 비용·실제 품종 입력/국내 독립 자료0건과 G0–G4 보류는 유지한다. 아래 날짜별 기록은 당시 상태다.
 
 ## 현재 우선순위와 외부 의존성 — 2026-10-04
