@@ -160,7 +160,10 @@ flag 결속을 고유155개 분할/실제 SCRAM·계산/게시0·import/정리�
 기존 sample/event/UTC·Bearer/한도 helper를 재사용한다. 새178개 포함 웹 전체700개·타입/빌드·원101 source로 수용했다.
 [현재 범위 선택](../research/web-crop-cycle-calculation-window-20261008.md)도 원/새 typed source와
 두 response의 닫힌 union을 보존하며 DTO를 구형으로 바꾸지 않는다. 새19개 포함 웹 전체719개·타입/빌드·
-원104 source/취소·settlement로 수용했다. [같은 UTC 화면3파일](../contracts/web-crop-cycle-calculation-view-v1.md)/native WebGL은 후속이다.
+원104 source/취소·settlement로 수용했다. [같은 UTC 화면3파일](../research/web-crop-cycle-calculation-view-20261008.md)도
+명시 source 선택·원/새 SDK 분리·첫 render의 API/source guard·원량/참조 보존으로 연결했다.
+Chromium 새15개/기존47개·웹719개·타입/빌드·113 source/정리로 합성 응답의 화면 부모까지 수용했다.
+새 실제 PG/TLS/native WebGL은 후속이다.
 전체166일 등록 비용/복원과 hosted·품종/관문 수용은 별도다.
 
 ## 3D 재생 계약

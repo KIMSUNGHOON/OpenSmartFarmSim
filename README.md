@@ -3,6 +3,11 @@
 지역을 고르면 기상·시설·작물·시장 자료의 출처를 확인하고, 온실 시나리오를 계산해 3D로 재생하며, **평가한 작물 중 어떤 선택이 목표에 가장 맞는지** 근거와 불확실성을 설명하는 오픈소스 프로젝트입니다. 수확 시점의 수요·공급과 거시 비용 변화도 재배 결정의 조건으로 다룹니다.
 
 **진행 요약 (2026-10-08 KST):** 합성 생장 계산→실제 DB/HTTPS→같은 UTC3D의25시간 경로는 로컬 수용했고,
+[새 검증 조회의 화면](research/web-crop-cycle-calculation-view-20261008.md)도 Chromium 새15개/기존47개·웹719개·
+타입/빌드·원27시점/5사건으로 로컬 수용했습니다. [새 화면 캡처](research/artifacts/calculation-cycle-desktop.png)는
+소유 시험용 HTTP 응답의 실제 App이며 새 실제 PG/TLS/WebGL 통합은 다음입니다.
+구형 CI는 [C0/웹/작성 PG 성공·앱/Backend 실패로 종료](research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json)했고,
+관련 설정 생성기/fixture의 로컬 수정·125개 분할 검증은 완료했습니다. 수정 판본의 hosted 수용은 별도입니다.
 [새166일 전체 RHS](research/crop-cycle-full-rhs-durable-completed-20261007.md)는 종료0·1,816,704걸음·47,809시점/5사건·
 원 전체 수지/행 hash·55 source/체크포인트 복원·자원 정리로 로컬 수용했습니다. 전체 등록 농장 DB/API/3D는 후속입니다.
 생과 수확량·물/양분·구매 에너지·작물 결과와 손익의 연결은 남아 있습니다. 실제 품종 입력·국내 독립 검증 자료는
@@ -46,8 +51,8 @@ SQL 형식 시험 metadata를 저장한 단계입니다. 후속 [서명 결과 D
 실제25시간/7페이지·원량/UTC·hold·RHS0·import/FD·67 source 보존으로 로컬 수용했습니다.
 [명시 runtime factory](research/crop-cycle-calculation-runtime-factory-20261007.md)도 새19개/기존136개·고유155개 분할,
 실제 SCRAM 같은 jobs/farm·재구성/9거부·계산/게시0·원 입력/FD/import·73 source/정리로 로컬 수용했습니다.
-다음은 별도 설정 loader·실제 API → 동일 UTC3D입니다. 최신 `353bffb` CI는 C0/웹/작성 PG 성공,
-앱 config 필드 거부/Backend 진행으로 관측했습니다. [설정 생성 호환 수정](research/application-operator-policy-compatibility-20261007.md)은
+별도 설정 loader·실제 API 뒤 동일 UTC3D를 연결합니다. `353bffb` CI는 C0/웹/작성 PG 성공,
+앱/Backend 설정 필드 거부로 종료했습니다. [설정 생성 호환 수정](research/application-operator-policy-compatibility-20261007.md)은
 고유125개 분할·실제 SCRAM/TLS·원 loader/70 source/정리로 로컬 검증했으며 hosted Compose는 후속입니다.
 [별도 운영 설정 loader](research/crop-cycle-calculation-operator-loader-20261007.md)도 새57개/기존155개·고유212개 분할,
 실제 SCRAM/TLS 파일·명시 flag/재구성·원 파일/FD·75 source/정리로 로컬 수용했습니다.
@@ -59,8 +64,9 @@ SQL 형식 시험 metadata를 저장한 단계입니다. 후속 [서명 결과 D
 34 공개 JSON/원량·UTC·검증 정보 대응·직렬 페이지/취소·원101 source 보존으로 로컬 수용했습니다.
 [현재 범위 선택](research/web-crop-cycle-calculation-window-20261008.md)도 새19개 포함 웹 전체719개·타입/빌드·
 원/새 source·원량/UTC·검증 정보·취소/settlement·104 source 보존으로 로컬 수용했습니다.
-다음은 [기존 화면3파일 → 같은 UTC3D → 실제 WebGL](contracts/web-crop-cycle-calculation-view-v1.md)이며,
-새 경로의 동일 UTC3D·전체166일 등록 비용/복원과 hosted 수용은 별도입니다.
+[같은 UTC 화면](research/web-crop-cycle-calculation-view-20261008.md)도 새 Chromium15개/기존47개·웹719개·
+타입/빌드·원27시점/5사건·113 source/정리로 합성 응답의 화면 연결까지 로컬 수용했습니다.
+다음은 새 실제 PG/TLS/WebGL이며 전체166일 등록 비용/복원과 hosted 수용은 별도입니다.
 [전체 원 결과 증명 관측](research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은6.11MB/8MiB·
 발행175.7초·별도 Python 검증1.59초·선택 page1.7–2.0초/정리를 확인했습니다. 농장/HTTP/3D 수용은 별도입니다.
 `8d111f1`의 [종료 CI](research/artifacts/crop-cycle-calculation-current-query-ci-prepush-20261007.json)는 다른4workflow 성공이며 Backend5분할 성공·분할0/집계 실패입니다. 분할0은

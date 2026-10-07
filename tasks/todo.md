@@ -631,7 +631,10 @@
         새 계산 flag 활성화를 조용히 버리지 않으며 CI 설정/한도 변경 없이 검증한다.
         - [x] 로컬 생성/보호 loader·실제 SCRAM/TLS 회귀 — [고유125개 분할 검증](../research/application-operator-policy-compatibility-20261007.md).
           새10개/기존115개·원 loader/70 source·원 시험 본문·PG/비밀번호/임시 tree 정리를 확인했다.
-        - [ ] 수정 판본의 기존 hosted 세 Compose 경로·정리 — WSL Docker 부재와 기존 CI 진행으로 보류.
+        - [ ] 수정 판본의 기존 hosted 세 Compose 경로·정리 — WSL Docker 부재·새 hosted 수용은 별도.
+          [구형 CI 종료](../research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json): C0/웹/작성 PG 성공·앱/Backend 실패.
+          Backend 분할5의21개 설정 실패도 위 생성기/fixture 수정에 포함되고 현재 세 source SHA가 수용 영수증과 같다.
+          이미 통과한 로컬125개를 반복하거나 원 CI/한도를 변경하지 않으며 정상 push 뒤 새 결과를 확인한다.
       - [ ] **`crop-cycle-calculation-client-view`** — 선행 위 실제 API/runtime.
         [새 웹 계약](../contracts/web-crop-cycle-calculation-replay-v1.md)의 세 자식으로 나눠
         새 result ID/manifest/validation·원량/UTC를 보존하는 client/표/3D 선택을 실제 PG/TLS/WebGL로 대사한다.
@@ -641,15 +644,18 @@
           [10월7일 수용](../research/web-crop-cycle-calculation-client-20261007.md): 새178개 포함 웹 전체700개/13.55초·타입/빌드·
           소유 수치 projection34 JSON/원량·UTC·검증 정보·순차/끝/취소·원101 source/사설 임시 정리.
           원 code/evidence SHA 대응 반례 RED1실패/2통과 → GREEN3통과를 보존했다. 새 HTTP/브라우저/3D 실행은0이다.
-        - [ ] **`crop-cycle-calculation-window-view`** — 선행 새 SDK; bounded typed 선택과 기존 연구 화면의 새 판본.
+        - [x] **`crop-cycle-calculation-window-view`** — 선행 새 SDK; bounded typed 선택과 기존 연구 화면의 새 판본.
           현재 범위의 원 ID/UTC·C/N/LAI·표/그래프/3D와 변경/권리 실패 때 이전 상태/renderer/timer 정리.
           - [x] **`crop-cycle-calculation-window`** — [2 core파일 계약](../contracts/web-crop-cycle-calculation-window-v1.md).
             원 window helper와 새 집중 시험; 원 `open`/새 `openCalculation`·닫힌 typed union·원 validation/UTC·
             64/8·원 next/이전 offset·변경/취소/철회/늦은 응답·단일 요청/settlement·원 회귀 뒤 이 자식만 수용한다.
             [10월8일 수용](../research/web-crop-cycle-calculation-window-20261008.md): 새19개 포함 웹 전체719개/13.70초·타입/빌드·
             원량/UTC·전체 검증 정보·source 전환/취소·settlement·원104 source/정리. 새 HTTP/PG/브라우저/3D는0이다.
-          - [ ] **`crop-cycle-calculation-view`** — 선행 위 helper; [기존 두 화면/집중 browser3파일 계약](../contracts/web-crop-cycle-calculation-view-v1.md).
+          - [x] **`crop-cycle-calculation-view`** — 선행 위 helper; [기존 두 화면/집중 browser3파일 계약](../contracts/web-crop-cycle-calculation-view-v1.md).
             명시 새 판본/원량·UTC·표/그래프/3D·현재 범위/검증 정보와 이전 장면/timer 정리; UI/browser skill 적용.
+            [10월8일 수용](../research/web-crop-cycle-calculation-view-20261008.md): 새 Chromium15개/기존47개·웹719개·타입/빌드·
+            원27시점/5사건·두 validation/원량/UTC·113 source·원 승인 LayerDoc close/정리. helper와 대사해 위 부모도 수용했다.
+            소유 시험용 HTTP이며 새 PG/TLS/native·전체 웹/166일·품종/관문과 pixel fidelity는 별도다.
         - [ ] **`crop-cycle-calculation-native-browser`** — 선행 위 화면; 실제 소유 PG/보호 loader/TLS/WebGL.
           원량/UTC·관리 사건/hold·단일 요청/조회 RHS0·전체 본문 한도·계정/철회·접근성/복구·PG/비밀/서버 정리.
       - [ ] **`crop-cycle-calculation-prefix-cost`** — 선행 full-rhs와 작은 새 계산 농장 결속; 읽기 개발과 병행한다.

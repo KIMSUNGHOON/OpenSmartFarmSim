@@ -1,0 +1,84 @@
+{
+  "evidence_version": "calculation-view-ci-terminal-v1",
+  "captured_at_utc": "2026-10-07T15:51:44.286999+00:00",
+  "head_sha": "353bffb2535d72f322298709a9f2b8eb291e7bba",
+  "workflows": [
+    {
+      "conclusion": "failure",
+      "databaseId": 37622257162,
+      "headSha": "353bffb2535d72f322298709a9f2b8eb291e7bba",
+      "status": "completed",
+      "updatedAt": "2026-10-07T12:38:34Z",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37622257162",
+      "workflowName": "Application runtime verification"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37622257072,
+      "headSha": "353bffb2535d72f322298709a9f2b8eb291e7bba",
+      "status": "completed",
+      "updatedAt": "2026-10-07T12:37:35Z",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37622257072",
+      "workflowName": "C0 Compose verification"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37622257109,
+      "headSha": "353bffb2535d72f322298709a9f2b8eb291e7bba",
+      "status": "completed",
+      "updatedAt": "2026-10-07T12:42:15Z",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37622257109",
+      "workflowName": "Web tests"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37622257021,
+      "headSha": "353bffb2535d72f322298709a9f2b8eb291e7bba",
+      "status": "completed",
+      "updatedAt": "2026-10-07T12:49:43Z",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37622257021",
+      "workflowName": "Authored API PostgreSQL smoke"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 37622257043,
+      "headSha": "353bffb2535d72f322298709a9f2b8eb291e7bba",
+      "status": "completed",
+      "updatedAt": "2026-10-07T15:17:00Z",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37622257043",
+      "workflowName": "Backend tests"
+    }
+  ],
+  "workflow_list_sha256": "ea73a210a795ae75a3cd0a543f2d104cb44ad5e8da02f21c26e425d0d480da40",
+  "failed_original_backend_log_sha256": "c6108559b912ffee45a948414b1d55b837e4959f41579c210cd9ddf1845e8c62",
+  "backend": {
+    "successful_partitions": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "failed_partition": 5,
+    "failed_tests": 21,
+    "passed_tests_in_failed_partition": 724,
+    "deselected_tests_in_failed_partition": 4096,
+    "failed_partition_test_seconds": 1874.06,
+    "aggregate": "failure",
+    "database_and_password_cleanup": "success"
+  },
+  "classification": "original loader rejected the new default-false serialized policy field in legacy test fixtures; current fixture and generator changes already exist in a7bd5b6 and match the accepted local evidence",
+  "local_compatibility_receipt": "research/artifacts/application-operator-policy-compatibility-reference-20261007.json",
+  "local_compatibility_receipt_sha256": "9dae2114e9a78f8843805c3dfeee30a40e4fc48641a6cf53702d4375545df104",
+  "already_verified_local_source_sha256": {
+    "backend/tests/test_operator_config.py": "6cbffa576258b79a150a82bb03162c7332c0e970285aaf45f6dc3fc6c431d3d8",
+    "backend/tests/test_application_operator_policy.py": "76b2598251071bf882eca9fec5f6750e06fe889e7b3983a201faba58fc3b92fe",
+    "scripts/check-application-runtime.py": "80c9fa2dff31b84a8f36af828101f352b85907bc1f0bb76961fa02e097493e7d"
+  },
+  "additional_backend_test_runs_this_slice": 0,
+  "local_UI_core_commit": "d94f5dc862cc80ee2dc76d23831c111547785f29",
+  "current_revision_hosted_accepted": false,
+  "normal_push": "pending documentation acceptance commit",
+  "CI_cancellation_or_rerun": 0,
+  "CI_settings_or_timeout_changes": 0
+}

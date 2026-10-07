@@ -15,7 +15,9 @@
 34 공개 JSON/원량·UTC·검증 정보/순차·취소·101 source 보존으로 수용했다.
 [현재 범위 선택](../research/web-crop-cycle-calculation-window-20261008.md)도 새19개 포함 웹 전체719개·타입/빌드·
 원/새 source·원량/UTC·검증 정보·취소/settlement·104 source 보존으로 수용했다.
-다음은 [기존 화면3파일/동일 UTC3D](../contracts/web-crop-cycle-calculation-view-v1.md)이며,
+[새 같은 UTC 화면](../research/web-crop-cycle-calculation-view-20261008.md)도 Chromium 새15개/기존47개·
+웹719개·타입/빌드·원27시점/5사건·113 source/정리로 합성 응답의 화면 연결까지 로컬 수용했다.
+다음은 새 실제 등록 PG/TLS/WebGL 연결이며,
 전체166일 등록 비용/복원·생과/자원/경제와 실제 자료 관문은 후속이다.
 
 상태: **검토용 초안, 2026-09-27.** 설계 선택은 구현 방향이며 과학적 검증 또는 production readiness를 뜻하지 않는다. 기획자는 농업·지역 조건·종자에 관한 배경지식이 없으므로 전문적인 수치의 선정과 근거 검토는 Codex CLI `gpt-6.1-sol` `xhigh`가 **연구·설계 단계와 배포 제품의 실제 사용 중 모두** 담당한다. 필요한 소프트웨어·역할·선택 이유는 [기술 스택](TECH_STACK.md), 프로세스·자료·판정 계약은 [아키텍처](ARCHITECTURE.md#필수-codex-cli-런타임-작업자)에 둔다. 사용자 선호가 필요한 항목만 마지막 절에 분리했다.

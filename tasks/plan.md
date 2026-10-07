@@ -335,6 +335,12 @@ SDK2–3시간 추정은 이 실적으로 대체한다. 다음 [범위 helper2�
 원/새 typed source·원량/UTC/전체 검증 정보·byte-short/이전 offset·취소/settlement·원104 source/정리다.
 helper1–2시간 추정은 이 실적으로 대체한다. 다음 [화면3파일/집중 browser1–2시간](../contracts/web-crop-cycle-calculation-view-v1.md)과
 native3–5시간의 **남은 작은 웹 연결4–7집중시간 잠정**이며 CI·전체166일/자료·경제·최종 날짜는 제외한다.
+[화면 실제 수용](../research/web-crop-cycle-calculation-view-20261008.md)은 새 Chromium15개/기존47개·웹719개·
+타입/빌드·원27시점/5사건·113 source/정리다. helper와 대사해 window/view 부모까지 완료했다.
+화면1–2시간 추정은 이 실적으로 대체하고 **새 실제 PG/TLS/WebGL의3–5집중시간 잠정**을 남긴다.
+시험용 HTTP 응답의 화면 수용이며 전체166일 등록/복원·생과/자원/경제·자료/관문·최종 날짜는 별도다.
+구형 CI는 [앱/Backend 실패로 종료](../research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json)했고,
+설정 생성기/fixture의 기존 로컬125개 분할 검증 source와 현재 SHA가 같다. 수정 판본 hosted 수용이 남아 있다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
 선택 시작/중간/끝129시점/5사건·page 최대2.035086초와 source/FD/PID 정리를 확인했다.

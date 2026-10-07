@@ -13,7 +13,9 @@
 원량/UTC·검증 정보·101 source 보존으로 수용했다.
 [현재 범위 선택](../research/web-crop-cycle-calculation-window-20261008.md)도 새19개 포함 웹 전체719개·타입/빌드·
 원/새 source·검증 정보/UTC·취소/settlement·104 source 보존으로 수용했다.
-다음은 [기존 화면3파일/동일 UTC3D](../contracts/web-crop-cycle-calculation-view-v1.md)다.
+[새 같은 UTC 화면](../research/web-crop-cycle-calculation-view-20261008.md)도 새 Chromium15개/기존47개·웹719개·
+타입/빌드·원27시점/5사건·113 source/정리로 합성 공개 응답의 화면 연결까지 로컬 수용했다.
+다음은 새 실제 등록 PG/TLS/WebGL 연결이다.
 전체166일 등록 경로/복원과 생산/경제·자료 관문·hosted 수용은 별도다.
 
 상태: **내부 구현 계약·부분 구현, 2026-09-27.** C0 Compose, 출처/G0 형식·서버 승인 저장 계약·시장 문맥, 합성 열 매개변수·trace 계약과 `candidate` 엔진, 조건부 경제 원장·판매 정산, PostgreSQL 지속 작업·AI 시도 증거 저장 계약이 수용됐다. G0 독립 권리 증거의 실제 연결, CLI 증거 저장 브리지와 의도 멱등 제약은 수용됐다. 열 모델의 D/R 결정시각 분리·서명된 DecisionContext와 게시 소프트웨어 통합, CLI 작업자 후보, 사용자 가정의 공동 시장 시나리오가 구현됐다. 실제 제품 CLI 실행·독립 게시 권한, 영속 Market hold·전체 경로 손익분기, API·3D·G1 종단 간 경로는 아직 수용 전이다. 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.

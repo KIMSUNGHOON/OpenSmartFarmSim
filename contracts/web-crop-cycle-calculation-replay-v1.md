@@ -87,3 +87,12 @@ SDK2–3시간 추정은 이 실적으로 대체한다. 다음 [현재 범위 he
 원/새 source·전체 validation/원량/UTC·순차/취소/settlement·원104 source/정리로 수용했다.
 2번 window/view 자식의 helper만 완료했으며 [화면3파일](web-crop-cycle-calculation-view-v1.md)과 native는 남아 있다.
 작은 화면/native의 남은 예상은4–7집중시간 잠정이며 전체166일·자료/관문·최종 날짜는 포함하지 않는다.
+
+## Window/view 부모 로컬 수용 — 2026-10-08
+
+[화면3 core파일](../research/web-crop-cycle-calculation-view-20261008.md)을 새 Chromium15개/기존47개·
+웹719개·타입/빌드, 원27시점/5사건·같은 UTC 표/그래프/3D·113 source 보존과 정리로 수용했다.
+선행 helper와 대사해2번 window/view 부모를 완료했다. 새 실제 PG/TLS/WebGL·전체 웹 부모는 미수용이다.
+소유 시험용 HTTP와 실제 경로를 구분하고 드라이버 경고·낮은 디자인 대응을 보존했다.
+다음은3번 native 연결이며3–5집중시간 잠정이다. 전체166일 등록 부하/복원·생과/자원/경제,
+외부 자료/관문·최종 제품 날짜는 별도다.

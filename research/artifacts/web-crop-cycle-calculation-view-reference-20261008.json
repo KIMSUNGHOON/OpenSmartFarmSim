@@ -1,0 +1,799 @@
+{
+  "evidence_version": "web-crop-cycle-calculation-view-reference-v1",
+  "recorded_at_utc": "2026-10-07T15:51:44.287844+00:00",
+  "core_commit": "d94f5dc862cc80ee2dc76d23831c111547785f29",
+  "task": "crop-cycle-calculation-view",
+  "scope": "owned synthetic recorded public responses in real Chromium/WebGL; no new native PostgreSQL/TLS calculation or independent farm validation",
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "native_turn_context_line_sha256": "593846af00556c82a77a7a7e4cf6c687242df0a88bf6ba87c016eb50d72c2e6c",
+    "reasoning_effort": "xhigh",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T15:20:36.898Z"
+  },
+  "source_sha256": {
+    "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+    "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6",
+    "web/e2e/calculation-cycle-crop-replay.spec.ts": "db6ced7c5fc87bba761093f9519fa7e6bfcb4888194cb6dcae9b92d82de9377f"
+  },
+  "core_files": 3,
+  "preserved_source_count": 113,
+  "preserved_source_sha256": {
+    "LICENSES/GreenLight-BSD-3-Clause-Clear.txt": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+    "backend/app/api.py": "bda74653ee8db803f5bb1660c8e2c0cbfc1437cc026d25e8cbbdfb588b151332",
+    "backend/app/api_crop_coupled_replay.py": "83d3eefd782206801fe645afc2e200bb621509b7c932b4a0544bbcb2bf31c582",
+    "backend/app/api_crop_cycle_calculation_replay.py": "43db235645057cf1f1981dc75528a655b758dff503f5fb986192680c807c658d",
+    "backend/app/api_crop_cycle_calculation_route.py": "9d70d5200217db8548da3be2113039cfb70b1f89681f667622eb36a25edd147c",
+    "backend/app/api_crop_cycle_replay.py": "df4e92802fa9322b025a920c7e2ab2af40731b091479079647cf1ec954d43b85",
+    "backend/app/api_crop_startup_replay.py": "05b553e236dc3d5272829acd14f54910ef1a17400585cd7001e9992a048d7fac",
+    "backend/app/api_runtime.py": "612f53cff5d761aa2e305389d1ba27d250a49a3d51ebf56f83b55ddbd85adf1e",
+    "backend/app/calculation_operator_config.py": "1f2ccdcb2ac10533fc9ab1361f22f82c8e38591e37fa04ecc253c1a6cbecbeb3",
+    "backend/app/crop_coupled_artifact.py": "4d239f24d43bf351f3c11c9e9d59fccff30a76ef0815659f22c60fbc8ec7d017",
+    "backend/app/crop_coupled_result_store.py": "765184999e07b078a6f79b414c148497ee3543b889a40a65d091a4ab44080632",
+    "backend/app/crop_cycle_artifact.py": "10bcf863ba40338f2efa7242d78c2cccd3020fbdca061951da6b7b1c5a7c51f7",
+    "backend/app/crop_cycle_calculation_current_query.py": "2189bbb94eaf35ab75007de1787d89d3ff1a28381ceaf8c3b9be86f1644fe9ec",
+    "backend/app/crop_cycle_calculation_result_evidence.py": "d891b74825585a53d4f9c24d9c44536f818a39964babca3b94660d2261d7d6b2",
+    "backend/app/crop_cycle_calculation_result_read_context.py": "21640d2d69b7f641af0a4ff2b517ffd90d9e56647761cfd1d9d215c5f20ad819",
+    "backend/app/crop_cycle_continuation.py": "478f152a2395a451d9add64acf37e23ddc32a15273b14d0419869c1634596899",
+    "backend/app/crop_cycle_current_query.py": "02413fccf1c0c65b3e608962e24bba1959c10c71f446528383e4b57979536736",
+    "backend/app/crop_cycle_farm_binding.py": "4f245271487b1e55422386b42221aa8d24906d28f52403626c474c62f14568a9",
+    "backend/app/crop_cycle_input_stream.py": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53",
+    "backend/app/crop_cycle_result_schema.py": "94cfba00cec0d3026bc4afb133c70168e4294e5beb0b625530db8f83acce73c8",
+    "backend/app/crop_cycle_result_store.py": "c182ba1dad82f6363abc9d7ed7cb784e6e989da0c23862563d47f1a91ebf043e",
+    "backend/app/crop_cycle_server_custody.py": "85053b8dee2bf7c0a3675c92931ec9321e7e2804cf8ebb1593542212782d7683",
+    "backend/app/crop_cycle_stream_execution.py": "4de399721cab82ab7f56e093b11b72682437e29bb3097e745b1e61d695d03aac",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_plant_cohort_integration.py": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_plant_startup_integration.py": "a48f2069d26024eeed5612e95bf59639f943fd6b98e789b21124a125c558656b",
+    "backend/app/crop_plant_startup_rates.py": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756",
+    "backend/app/crop_result_store.py": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+    "backend/app/crop_startup_artifact.py": "6d095d6b2c5cfff36cdfbf7b1f0b16d2acbe44e162c918a5ece637cda9c2f33a",
+    "backend/app/crop_startup_result_store.py": "d2e12ad750258b1b362261cb52b797de4bdcca02f84ecaaebafd9b74dab9b0af",
+    "backend/app/operator_config.py": "bb73a2de7dac4b4a0749c8822c5ab1abe27d94af086f2af92d763e3f36d8f80b",
+    "backend/app/thermal_run_store.py": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+    "backend/tests/test_api_crop_cycle_calculation_replay.py": "1e8766d82210f69b6825291ef3e4ffc8d5424f337e122937d44f88b541c6bc06",
+    "backend/tests/test_api_crop_cycle_calculation_route.py": "297e6a018a1c48a94926ca13eb996eb1581907bf61341b9e9ed41118e06ff2f1",
+    "backend/tests/test_api_crop_cycle_calculation_tls.py": "c99afe1742bf78f4e654fd23fe0761e9f22ae764772ebafc29b710ed87148a0e",
+    "backend/tests/test_api_crop_cycle_replay.py": "604af991733cf3264243b4feaece96bb84c639c0b8aa0a443e3412340c44b7c4",
+    "backend/tests/test_api_crop_cycle_route.py": "7874c0a6962f7699d70612ced52a63f7c2789086c05434f2bcc4bc2f3f5dd130",
+    "backend/tests/test_api_crop_startup_replay.py": "17bbfe9876eaa2488085b8cdbd3a7120299fa54bdcb05643c12c33cc37671fa2",
+    "backend/tests/test_api_openapi.py": "dcdbe08af635070935473b99fc36053ddf26773e095feedce835722cd3da583c",
+    "backend/tests/test_application_operator_policy.py": "76b2598251071bf882eca9fec5f6750e06fe889e7b3983a201faba58fc3b92fe",
+    "backend/tests/test_calculation_operator_config.py": "428bb19d63230fbc2fba6f4fbd4d6b165dcfb7df1d488c2f48b12f29fa601262",
+    "backend/tests/test_crop_cycle_artifact.py": "f597dd2a952184553f7f8d68bd70c155886278c4c927291daa3d501f7294e971",
+    "backend/tests/test_crop_cycle_burden_profile.py": "9543b1af756f7744e14041daec29cbe43278d8fa18f52123f32221da99b777f9",
+    "backend/tests/test_crop_cycle_calculation_current_query.py": "e4b44bc1342da9ddbf79c9a1949aef87dbe61e0d98f39c1eec6a5fc2fa5f9488",
+    "backend/tests/test_crop_cycle_calculation_result_evidence.py": "766ac39ad8a7892e6b2b078a8004b9f5aaa53f3feb426037a792e816c4b3ddc4",
+    "backend/tests/test_crop_cycle_calculation_result_read_context.py": "5ba9faad99ba879ff5b9c8020d96cd064c553e076fbf3d4e7f5d180efc3fa3e2",
+    "backend/tests/test_crop_cycle_calculation_runtime.py": "94a4f39ab7d7f0866155b81abe23d146e2e227f9e009c62e393a5d8341b74e74",
+    "backend/tests/test_crop_cycle_continuation.py": "c0b0059e0816e88418ed761cbc1c5a085a23e262b4948c1f95dfd3f3ae3643a7",
+    "backend/tests/test_crop_cycle_current_query.py": "da46bb914cd8b61ef445ce62fa0ec0bd0aad41a41576b2b5304f9bff6ae56af8",
+    "backend/tests/test_crop_cycle_farm_binding.py": "d76b3be7fbbc7a76ca100538c936615df86cb6e664705810573a6dd65b97db12",
+    "backend/tests/test_crop_cycle_input_stream.py": "dc5d9f86ebe74cb0d920939ab07381c7d729a0bc3abcffc165d702635ab4c23f",
+    "backend/tests/test_crop_cycle_result_schema.py": "81f58e8aedb2a491253aa58af8b4cd04a2304bfbe674daab0536d7b796b661d2",
+    "backend/tests/test_crop_cycle_result_store.py": "feb34143d9056f9b3d2ee5bf8e06e3b0f1c2e4f82ff4e163c0bfc26a966fdfcb",
+    "backend/tests/test_crop_cycle_result_store_farms.py": "63e4ce69d0309ccc272475b116150a323adc29bc34b00b64fb22314ed6166210",
+    "backend/tests/test_crop_cycle_result_summary.py": "0183235fee7daffe0c52e424fb7094cc501fb7d38d5ed90095e9a4c1877c39d6",
+    "backend/tests/test_crop_cycle_server_custody.py": "6ce4cd137cc559bd710c751da2b23307c4904daf863030d2f6280f18fea64249",
+    "backend/tests/test_crop_cycle_server_custody_farms.py": "02b653f610032c44634cba2aadf12b0ba22dd2fd39f3dacccc3cde3844debee0",
+    "backend/tests/test_crop_cycle_stream_execution.py": "0a0800f6be8abb702ba2dcd461c00e9bf913a81c2c30ae2baabfc61b8447c3d1",
+    "backend/tests/test_crop_plant_startup_integration.py": "38aa5e404124518eb9c44b9487c443de5a739ad4b1486e4eb74fe6709b637a86",
+    "backend/tests/test_crop_startup_artifact.py": "8c4e15afc6f113947cae2d32d4629f58ed15ea716737c29f08bd00bac998d6e6",
+    "backend/tests/test_crop_startup_result_store.py": "16e41c5a90a0838344f7e1ff185214ee4125bf52454dced3858725db210ae476",
+    "backend/tests/test_operator_config.py": "6cbffa576258b79a150a82bb03162c7332c0e970285aaf45f6dc3fc6c431d3d8",
+    "contracts/openapi-v1.json": "57c835db9cc331289a208ddcbf99b59837e05400824ce02c39b497e2741d9c1e",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "fixtures/crop-fruit-transport-reference-parameters-v1.json": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-plant-startup-integration-reference-v1.json": "a94e4d88e02a5b29e2b1c20f0767cea6a326dccaa31278d5138667755b2f8026",
+    "research/artifacts/crop-startup-integration-reference-20261005.json": "9b82831acb198a2b96c5c0620728ecf5b5ae245d2543b42580cfc00d253bb3b2",
+    "research/crop-cycle-burden-profile.py": "3aa54011758ba01e291579985f91a3b90b8580e54e3de0dec2b492b91c74d9fc",
+    "research/crop-cycle-calculation-result-evidence-reference.py": "021269ffac2e7760a24b1f949578d7fad093dd0f42328815708f0867102ece7a",
+    "research/crop-cycle-calculation-result-read-context-reference.py": "d1b3af5e447fa3d5fa0889a31eda5fbc37a010d1e734733ff4a2a6d7887236ed",
+    "research/crop-cycle-full-rhs-durable.py": "21fe374dc5e6037d5bfd8a9008aac05eab00daeb3ba0d81745a54bc4aac3cbb4",
+    "research/crop-cycle-full-rhs-reference.py": "31a7ecc2d1932ec92cabcefae5979b57f746363cdc49bcce3878835ae4a91f89",
+    "research/crop-cycle-stream-execution-reference.py": "b13b6224dadd4d69a94e6d9e2d3a820449e636cb57b621915c325dcb3e1f3f1b",
+    "research/crop-fruit-startup-source-register.json": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+    "research/crop-integration-reference.py": "a38b7a67e43cf9f590838bf915ab3e5048950b8be6ed35f70817e18b42a09ce7",
+    "research/crop-plant-cohort-integration-reference.py": "9b880b9d06812f3cfa05bf1c5e47ef93811b548d2320136ce5ae813730d50a72",
+    "research/crop-plant-startup-integration-reference.py": "c99cb9c2a83531a85183cfc9ccecc7401f95bd310bdc210cf4501d880458c44c",
+    "scripts/check-application-runtime.py": "80c9fa2dff31b84a8f36af828101f352b85907bc1f0bb76961fa02e097493e7d",
+    "web/e2e/calculation-cycle-crop-recorded-responses.json": "a2d3e197b352bc51ab1dd66f520f38912032bb9a9e705733eb89919e47f4a80b",
+    "web/e2e/coupled-crop-fixture.ts": "25afe22a09458a048f7ac1eb129cf0996736aa46eb803a9a14dd5e99f7e390b5",
+    "web/e2e/coupled-crop-replay.spec.ts": "554b9289f15aaff80738abcaa1c3172a401c8e6ca73de3bb7eaae60ecbc67185",
+    "web/e2e/crop-fixture.ts": "8ad46cd75d813dd5d436bda2bc4e2108a0ecca3c1eaf4c0da0a713f8b1978323",
+    "web/e2e/crop-replay.spec.ts": "a560cdc0236367d463bc8eb09f116a3991b0fce5461b6354d7c4df1661e73465",
+    "web/e2e/cycle-crop-fixture.ts": "8b01398e4da5b4645322cb510b129ace5df57f334dd9bad650e1e4ba4cdbdc0e",
+    "web/e2e/cycle-crop-replay.spec.ts": "030c983431af92b9aae7d0a8648202a2db1983ce8ed22b22acd11464690b590f",
+    "web/e2e/startup-crop-fixture.ts": "08dc36d7ef26853b653dd1c10213c0645f8b1b065fa3f352b0ea05311d1c0fde",
+    "web/e2e/startup-crop-replay.spec.ts": "370024bb19d2fa90058c4a2a0ea3713e3ebea8916e3a1767a7960e3702966ebd",
+    "web/package-lock.json": "7c71e36d67b965ed054271db94f10f913f36cea362dd4e9e221722928c8cf731",
+    "web/package.json": "1554fbdaf7c8c9573163045fe6ebfbd0ce9d95268a023f29fd6e6106276b2925",
+    "web/playwright.config.ts": "d24619fbb5c5cc6c534a1d529d1547a348285dede6096b3db5933d665e341f13",
+    "web/src/CoupledCropChart.tsx": "aaeca2fa86a194179fb891f8f19334d4d92955500cfaa2c6063b6af132fa808b",
+    "web/src/CoupledCropScene.tsx": "deffa71b24cd81c031b42cddf8485114e4f52d8ece4cc5e12c792d2f678d895e",
+    "web/src/CycleCropReplay.css": "1f3a5fad4309dae6539223e261e5bae86fb772fbb393cb0e74c68d022fa00c13",
+    "web/src/api.ts": "221128d955a0dab59821e4d8a64bfc642747143395350fb8baf6d1ecbcaf9974",
+    "web/src/calculationCycleCropReplay.test.ts": "4446364018ab8d9f00f83fe953ebe433aeb9b7790e60e5eabb0a75d3f5c74768",
+    "web/src/calculationCycleCropReplay.ts": "453ee2e81c8b3681467363e5abcd2ac6dd5299a7405dbbc79c865d959d398d5c",
+    "web/src/calculationCycleCropWindow.test.ts": "e1ad3cf6aa6f9cdfaf3165b1a975f25588c87bbdbf1bdf31902759ce3b66171e",
+    "web/src/coupledCropGeometry.ts": "787ec7cda3cda6146dcd14108a22614dd7bd643c1396cc2497c5ca35e9c6b642",
+    "web/src/coupledCropReplay.test.ts": "957b67a629d9cccbebc9128301db851ab76202faf3b4bd0d65d0c1576761c7be",
+    "web/src/coupledCropReplay.ts": "a73e52cb8c5cfa38e2da6d6fb9268fa7314980bd156fc31ccead163029a2e1a4",
+    "web/src/cycleCropReplay.test.ts": "69b217994f9895c3b4330aa7c84c0006c03126ad880519e63d47a4f70fd5b47b",
+    "web/src/cycleCropReplay.ts": "05b35cbf28e0b9b3df3495bc68e382c56cbe8311c820d1cf5dcaa7d470867308",
+    "web/src/cycleCropWindow.test.ts": "ed26ae4ada5fd1db433fa5bd0041a1593dacd2e4c33ff89787c809cc76dbbf2e",
+    "web/src/cycleCropWindow.ts": "af88f2428a4427345077a951eab195216fb7d5392582058dfca1c0e27f56736a",
+    "web/src/startupCropGeometry.test.ts": "6a5a7480181daffc68e7b4c38623e3de530967f994dadc7d20380120ea97b044",
+    "web/src/startupCropReplay.test.ts": "301d2ac30f7c3c717546fd84cd4eeb3d224fed32ef039152bad5166212d19d8e",
+    "web/src/startupCropReplay.ts": "6917bce223a2f768394b4fa872c70a2cd7183e0da63a050df43e001039a3626a"
+  },
+  "preserved_map_sha256": "74d68a2ee7ede239b617547efb6a8ea82147f0a8951e54c15a8339e808770763",
+  "predecessors_sha256": {
+    "research/artifacts/web-crop-cycle-calculation-client-reference-20261007.json": "fb8f6c1cd545f2a6eabd9f879cb1714ce2eb331abe25676720a2a803dc8feac0",
+    "research/artifacts/web-crop-cycle-calculation-window-reference-20261008.json": "5a76077469546914506caeebb722f69679b2805ec98b5bd53c2cca25fadfc429"
+  },
+  "fixture": {
+    "path": "web/e2e/calculation-cycle-crop-recorded-responses.json",
+    "sha256": "a2d3e197b352bc51ab1dd66f520f38912032bb9a9e705733eb89919e47f4a80b",
+    "bytes": 640855,
+    "public_JSON_entries": 34,
+    "new_numeric_calculations_this_slice": 0
+  },
+  "verification": {
+    "new_Chromium_tests": 15,
+    "original_Chromium_regression_tests": 47,
+    "distinct_Chromium_tests": 62,
+    "web_unit_tests_including_original_719": 719,
+    "web_unit_files": 21,
+    "web_unit_reported_seconds": 13.86,
+    "typecheck_exit_code": 0,
+    "build_exit_code": 0,
+    "original_UI_regression_final_UI_source_identical": true,
+    "regression_new_test_diff": "only unused type removal and explicit Window declaration; final focused15 rerun after this type-only correction",
+    "same_original_sample_count": 27,
+    "same_original_management_events": 5,
+    "sample_page_counts": [
+      7,
+      7,
+      7,
+      6
+    ],
+    "event_page_counts": [
+      2,
+      2,
+      1
+    ],
+    "raw_C_N_mesh_value_checks": 2700,
+    "same_original_global_index_UTC_ID_farm_reference_manifest_validation": true,
+    "sample_limit": 7,
+    "event_limit": 2,
+    "browser_console_and_read_state": {
+      "application_errors": [],
+      "driver_performance_warnings": [
+        "[.WebGL-0x2ebc00197400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "[.WebGL-0x2ebc00197400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+      ],
+      "read_state": {
+        "active": 0,
+        "peak": 1
+      },
+      "scope": "owned_synthetic_browser_software_driver_not_production_performance"
+    },
+    "actual_request_claim_scope": "instrumented real fetch and response-reader completion/cancel/error in owned routed browser; independent native HTTP server concurrency remains for next stage",
+    "new_native_PG_TLS_RHS_executions": 0,
+    "original_chunk_size_warning_preserved": true
+  },
+  "execution_receipts": {
+    "red": {
+      "argv": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "e2e/calculation-cycle-crop-replay.spec.ts",
+        "--workers=1",
+        "--output=/home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/calculation-view/red-evidence/test-results",
+        "--grep",
+        "explicit verified choice"
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/web",
+      "driver_sha256": "df7a099bc2110a970e5013cef3206a5a2d769551e3d5989a2e7ebcda6179e8cf",
+      "exit_code": 1,
+      "finished_at_utc": "2026-10-07T15:25:41.203333+00:00",
+      "log_sha256": "5ba6d113f5d37759a847f7461284e59e97ee2e5ce9cfae82d801a84fc5355f95",
+      "nice": 19,
+      "owned_temp_removed": true,
+      "preserved_source_count": 113,
+      "sampled_primary_RSS_bytes": 209981440,
+      "source_after": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "5679a6945df836aed9f5d03751aac933d91e8cd4175f400f1897961d81132856",
+        "web/src/CropReplay.tsx": "82f195008765156b2819fd5aa1bc9315e6184d7d0713b7ea569c36743eeb90d2",
+        "web/src/CycleCropReplay.tsx": "4da9381b473a4593bb8b5ad9bdc9dbc0905195b284b94f3ce4ca306c3248dfb0"
+      },
+      "source_before": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "5679a6945df836aed9f5d03751aac933d91e8cd4175f400f1897961d81132856",
+        "web/src/CropReplay.tsx": "82f195008765156b2819fd5aa1bc9315e6184d7d0713b7ea569c36743eeb90d2",
+        "web/src/CycleCropReplay.tsx": "4da9381b473a4593bb8b5ad9bdc9dbc0905195b284b94f3ce4ca306c3248dfb0"
+      },
+      "started_at_utc": "2026-10-07T15:25:32.979446+00:00",
+      "wall_seconds": 8.223455227001978
+    },
+    "red-verified": {
+      "argv": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "e2e/calculation-cycle-crop-replay.spec.ts",
+        "--workers=1",
+        "--output=/home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/calculation-view/red-verified-evidence/test-results",
+        "--grep",
+        "explicit verified choice"
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/web",
+      "driver_sha256": "96dfb6280da92e87b4b939b3ac3aa40b6268f38dd09b2298f6074b7ea92a94dc",
+      "exit_code": 1,
+      "finished_at_utc": "2026-10-07T15:26:49.098392+00:00",
+      "log_sha256": "e0b24f0c7274cc9d25d79eedb020760e17251a73ad1dfcd5f1feb18c9e0c3a36",
+      "nice": 19,
+      "owned_temp_removed": true,
+      "preserved_source_count": 113,
+      "sampled_primary_RSS_bytes": 208482304,
+      "source_after": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "35a684e2d80e1bcc24b40fff40e47db7132d1537a0dc0ef7ad5b7d35996522ca",
+        "web/src/CropReplay.tsx": "82f195008765156b2819fd5aa1bc9315e6184d7d0713b7ea569c36743eeb90d2",
+        "web/src/CycleCropReplay.tsx": "4da9381b473a4593bb8b5ad9bdc9dbc0905195b284b94f3ce4ca306c3248dfb0"
+      },
+      "source_before": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "35a684e2d80e1bcc24b40fff40e47db7132d1537a0dc0ef7ad5b7d35996522ca",
+        "web/src/CropReplay.tsx": "82f195008765156b2819fd5aa1bc9315e6184d7d0713b7ea569c36743eeb90d2",
+        "web/src/CycleCropReplay.tsx": "4da9381b473a4593bb8b5ad9bdc9dbc0905195b284b94f3ce4ca306c3248dfb0"
+      },
+      "started_at_utc": "2026-10-07T15:26:40.276495+00:00",
+      "wall_seconds": 8.821513121998578
+    },
+    "green": {
+      "argv": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "e2e/calculation-cycle-crop-replay.spec.ts",
+        "--workers=1",
+        "--output=/home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/calculation-view/green-evidence/test-results",
+        "--grep",
+        "explicit verified choice"
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/web",
+      "driver_sha256": "96dfb6280da92e87b4b939b3ac3aa40b6268f38dd09b2298f6074b7ea92a94dc",
+      "exit_code": 1,
+      "finished_at_utc": "2026-10-07T15:29:10.760964+00:00",
+      "log_sha256": "7dd51dd0953338a04726ac2cf7a8d2758f838015802c2d2dc51d36b53a5262f8",
+      "nice": 19,
+      "owned_temp_removed": true,
+      "preserved_source_count": 113,
+      "sampled_primary_RSS_bytes": 210370560,
+      "source_after": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "35a684e2d80e1bcc24b40fff40e47db7132d1537a0dc0ef7ad5b7d35996522ca",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "source_before": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "35a684e2d80e1bcc24b40fff40e47db7132d1537a0dc0ef7ad5b7d35996522ca",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "started_at_utc": "2026-10-07T15:27:38.407075+00:00",
+      "wall_seconds": 92.35348609599896
+    },
+    "green-final": {
+      "argv": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "e2e/calculation-cycle-crop-replay.spec.ts",
+        "--workers=1",
+        "--output=/home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/calculation-view/green-final-evidence/test-results",
+        "--grep",
+        "explicit verified choice"
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/web",
+      "driver_sha256": "09d72bf196a89d15e90f21636cae56b22bb197f0751bec2aa88b69d77fe52675",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T15:29:54.841996+00:00",
+      "log_sha256": "3b05c1703f3ec1803e7329da37d6b7610753da8de8ac58ce5ff9cf81782964f1",
+      "nice": 19,
+      "owned_temp_removed": true,
+      "preserved_source_count": 113,
+      "sampled_primary_RSS_bytes": 209952768,
+      "source_after": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "a59cf4210340dc231c448309cbaacf035298e91f79a89617f5057d5c88815af2",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "source_before": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "a59cf4210340dc231c448309cbaacf035298e91f79a89617f5057d5c88815af2",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "started_at_utc": "2026-10-07T15:29:49.425500+00:00",
+      "wall_seconds": 5.416076213994529
+    },
+    "focused": {
+      "argv": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "e2e/calculation-cycle-crop-replay.spec.ts",
+        "--workers=1",
+        "--output=/home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/calculation-view/focused-evidence/test-results"
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/web",
+      "driver_sha256": "09d72bf196a89d15e90f21636cae56b22bb197f0751bec2aa88b69d77fe52675",
+      "exit_code": 1,
+      "finished_at_utc": "2026-10-07T15:33:09.914414+00:00",
+      "log_sha256": "e784b9c087b9b233ac362bd45e112a7501f2e9834dc262dbb737dd42678a5e56",
+      "nice": 19,
+      "owned_temp_removed": true,
+      "preserved_source_count": 113,
+      "sampled_primary_RSS_bytes": 214110208,
+      "source_after": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "ab4a155ea2197e542b12973b5b74e970c94a4a4c96f97b84ea2420fd49a5aa1c",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "source_before": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "ab4a155ea2197e542b12973b5b74e970c94a4a4c96f97b84ea2420fd49a5aa1c",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "started_at_utc": "2026-10-07T15:32:23.435521+00:00",
+      "wall_seconds": 46.478429798000434
+    },
+    "focused-final": {
+      "argv": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "e2e/calculation-cycle-crop-replay.spec.ts",
+        "--workers=1",
+        "--output=/home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/calculation-view/focused-final-evidence/test-results"
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/web",
+      "driver_sha256": "b719e591a1ed7bb9123b1d1942804e1a8a76e449c91c018f20f58aeb0184fce0",
+      "exit_code": 1,
+      "finished_at_utc": "2026-10-07T15:35:43.718101+00:00",
+      "log_sha256": "5baf3b9931a145ee455bee20a83fddae359ceb5b724be4bfb2bbebd7b0e4d8fd",
+      "nice": 19,
+      "owned_temp_removed": true,
+      "preserved_source_count": 113,
+      "sampled_primary_RSS_bytes": 217374720,
+      "source_after": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "9d58c1135ecd9567378f36e0f0edd4caa4e9193c715668d70d20807994cd11d2",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "source_before": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "9d58c1135ecd9567378f36e0f0edd4caa4e9193c715668d70d20807994cd11d2",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "started_at_utc": "2026-10-07T15:34:46.823344+00:00",
+      "wall_seconds": 56.89434922899818
+    },
+    "focused-verified": {
+      "argv": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "e2e/calculation-cycle-crop-replay.spec.ts",
+        "--workers=1",
+        "--output=/home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/calculation-view/focused-verified-evidence/test-results"
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/web",
+      "driver_sha256": "46a68ef63ecd923e50b0cd5b0e6baa58fbcc57788064d563aff40d84ca6293f6",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T15:38:54.404609+00:00",
+      "log_sha256": "8fd0fc953bc81ede144b95928030d8b7c27cfec82b32e30b469e9437d5aad342",
+      "nice": 19,
+      "owned_temp_removed": true,
+      "preserved_source_count": 113,
+      "sampled_primary_RSS_bytes": 213901312,
+      "source_after": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "6830ba7cee73306d1615f0c5be297bf5a391fe3331654772cc6c5dc0132c3831",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "source_before": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "6830ba7cee73306d1615f0c5be297bf5a391fe3331654772cc6c5dc0132c3831",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "started_at_utc": "2026-10-07T15:38:03.718407+00:00",
+      "wall_seconds": 50.685714685001585
+    },
+    "regression": {
+      "argv": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "e2e/cycle-crop-replay.spec.ts",
+        "e2e/crop-replay.spec.ts",
+        "e2e/coupled-crop-replay.spec.ts",
+        "e2e/startup-crop-replay.spec.ts",
+        "--workers=1",
+        "--output=/home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/calculation-view/regression-evidence/test-results"
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/web",
+      "driver_sha256": "46a68ef63ecd923e50b0cd5b0e6baa58fbcc57788064d563aff40d84ca6293f6",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T15:45:39.991847+00:00",
+      "log_sha256": "17ab8a5a11e3a388abe11f5027e53713ffcf2e81ca9fc093ab5d4597e1b70eb6",
+      "nice": 19,
+      "owned_temp_removed": true,
+      "preserved_source_count": 113,
+      "sampled_primary_RSS_bytes": 285106176,
+      "source_after": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "6830ba7cee73306d1615f0c5be297bf5a391fe3331654772cc6c5dc0132c3831",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "source_before": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "6830ba7cee73306d1615f0c5be297bf5a391fe3331654772cc6c5dc0132c3831",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "started_at_utc": "2026-10-07T15:42:30.498254+00:00",
+      "wall_seconds": 189.4930795379987
+    },
+    "typecheck": {
+      "argv": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/web",
+      "driver_sha256": "46a68ef63ecd923e50b0cd5b0e6baa58fbcc57788064d563aff40d84ca6293f6",
+      "exit_code": 1,
+      "finished_at_utc": "2026-10-07T15:46:47.747381+00:00",
+      "log_sha256": "d4a159866192f7983267d2c96d62ad5cf78f0f79eb6a31ec0e3352f516b79cd1",
+      "nice": 19,
+      "owned_temp_removed": true,
+      "preserved_source_count": 113,
+      "sampled_primary_RSS_bytes": 67489792,
+      "source_after": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "6830ba7cee73306d1615f0c5be297bf5a391fe3331654772cc6c5dc0132c3831",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "source_before": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "6830ba7cee73306d1615f0c5be297bf5a391fe3331654772cc6c5dc0132c3831",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "started_at_utc": "2026-10-07T15:46:46.935817+00:00",
+      "wall_seconds": 0.8112144199985778
+    },
+    "typecheck-accepted": {
+      "argv": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/web",
+      "driver_sha256": "19634ed111f2a57c117b65b0b6e126f28f4bdf7af3113ac1c8c8e1753bf6caa0",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T15:47:25.350264+00:00",
+      "log_sha256": "0018bd6714cfd6b609561b2ed0719c894fc30580860b5831211f2629105f30a9",
+      "nice": 19,
+      "owned_temp_removed": true,
+      "preserved_source_count": 113,
+      "sampled_primary_RSS_bytes": 67141632,
+      "source_after": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "db6ced7c5fc87bba761093f9519fa7e6bfcb4888194cb6dcae9b92d82de9377f",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "source_before": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "db6ced7c5fc87bba761093f9519fa7e6bfcb4888194cb6dcae9b92d82de9377f",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "started_at_utc": "2026-10-07T15:47:24.539431+00:00",
+      "wall_seconds": 0.8104223310001544
+    },
+    "focused-accepted": {
+      "argv": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "e2e/calculation-cycle-crop-replay.spec.ts",
+        "--workers=1",
+        "--output=/home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/calculation-view/focused-accepted-evidence/test-results"
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/web",
+      "driver_sha256": "19634ed111f2a57c117b65b0b6e126f28f4bdf7af3113ac1c8c8e1753bf6caa0",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T15:48:24.286497+00:00",
+      "log_sha256": "6c92036bcb1428e7bdd2ea634743c4a0d6f669587d7a79ca280548bd00d63c1b",
+      "nice": 19,
+      "owned_temp_removed": true,
+      "preserved_source_count": 113,
+      "sampled_primary_RSS_bytes": 218148864,
+      "source_after": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "db6ced7c5fc87bba761093f9519fa7e6bfcb4888194cb6dcae9b92d82de9377f",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "source_before": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "db6ced7c5fc87bba761093f9519fa7e6bfcb4888194cb6dcae9b92d82de9377f",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "started_at_utc": "2026-10-07T15:47:33.998888+00:00",
+      "wall_seconds": 50.28715938900132
+    },
+    "web-full": {
+      "argv": [
+        "node",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "--maxWorkers=1",
+        "--no-file-parallelism"
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/web",
+      "driver_sha256": "19634ed111f2a57c117b65b0b6e126f28f4bdf7af3113ac1c8c8e1753bf6caa0",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T15:49:04.302883+00:00",
+      "log_sha256": "74c48ec46dd401c670aadaa99b4c0425c180846f93fb81961364ffb591b12d16",
+      "nice": 19,
+      "owned_temp_removed": true,
+      "preserved_source_count": 113,
+      "sampled_primary_RSS_bytes": 350056448,
+      "source_after": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "db6ced7c5fc87bba761093f9519fa7e6bfcb4888194cb6dcae9b92d82de9377f",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "source_before": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "db6ced7c5fc87bba761093f9519fa7e6bfcb4888194cb6dcae9b92d82de9377f",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "started_at_utc": "2026-10-07T15:48:49.871183+00:00",
+      "wall_seconds": 14.431216220000351
+    },
+    "build": {
+      "argv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/web",
+      "driver_sha256": "19634ed111f2a57c117b65b0b6e126f28f4bdf7af3113ac1c8c8e1753bf6caa0",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T15:49:18.171824+00:00",
+      "log_sha256": "600c480d50a7e48a771a8b2a9eb815d1c8187fbfd5b41c5314dc2d0de8e3947f",
+      "nice": 19,
+      "owned_temp_removed": true,
+      "preserved_source_count": 113,
+      "sampled_primary_RSS_bytes": 67547136,
+      "source_after": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "db6ced7c5fc87bba761093f9519fa7e6bfcb4888194cb6dcae9b92d82de9377f",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "source_before": {
+        "contracts/web-crop-cycle-calculation-view-v1.md": "2be3fb664bb9bdc4d57270884287266666e8b0f20ed950673083144c5fe46311",
+        "web/e2e/calculation-cycle-crop-replay.spec.ts": "db6ced7c5fc87bba761093f9519fa7e6bfcb4888194cb6dcae9b92d82de9377f",
+        "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+        "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6"
+      },
+      "started_at_utc": "2026-10-07T15:49:16.557594+00:00",
+      "wall_seconds": 1.6137900130052003
+    }
+  },
+  "initial_failures": [
+    "first RED used an incorrect option-descendant locator; corrected RED verifies the actual absent option",
+    "first GREEN exposed the test helper toggling a lazy-mounted lookup closed; helper now waits for explicit source and actual open state; timeout unchanged",
+    "focused cumulative assertion compared canonical JSON key order with semantic HTML order; sorted keys with exact raw string values now compared",
+    "software GL ReadPixels performance warnings retained and only their exact driver signature allowed in functional scope; no production performance acceptance",
+    "negative zero in JS scale output differs from JSON zero; compare the same serialized scales as DOM without altering quantities",
+    "Playwright request lifecycle observer reported peak2 on cancel; replaced with actual fetch/reader settlement instrumentation; old observation retained, native server concurrency unproved",
+    "typecheck found unused Dataset and unsafe Window assertion; removed unused alias and declared the owned instrumentation interface; final focused15 and typecheck passed",
+    "first design close used monorepo root as --repo and failed because root/src does not exist; corrected to owning web/ source; no new purchases"
+  ],
+  "design": {
+    "skill": "12ui-design",
+    "original_matching_LayerDocs_recovered": true,
+    "kits": {
+      "main": {
+        "target_sha256": "5fa9acbd0f6eed724db74cb717ff8edba2aff7c4581eb6d83bec834a7484bb2f",
+        "improve_json_sha256": "dbafd627a8aba972c6f03eb435e06d81cf38d13504137be03062c16ebfc6681f",
+        "capture_sha256": "1f12b3140411b7d38c64a88d75db43e2ce915e1bff06dca3aa65d5f441867285",
+        "plan_sha256": "aa934f021e7901320769c72aab52837aab7f144d7f968da0ae2114f989755a5b",
+        "dom_coverage": 0.288135593220339,
+        "gate": "emitted-low-overlap",
+        "settled": true,
+        "new_purchases": 0
+      },
+      "empty": {
+        "target_sha256": "3bbf597592f3b25661445e562edb508055b53c8c8f91d61ae67a7b5558f3b769",
+        "improve_json_sha256": "6b17cdee3449036ae153edb160c7e1fc988892d4561f9acbfa5607429f74ef33",
+        "capture_sha256": "970f5df7182a31b2581705e46e856fc487596208d76e857afd6d2714bfaafc44",
+        "plan_sha256": "db92acb1429677a18873626fdadf76bf2c28054d6171854b80fe3f726373f401",
+        "dom_coverage": 0.14893617021276595,
+        "gate": "emitted-low-overlap",
+        "settled": true,
+        "new_purchases": 0
+      },
+      "past": {
+        "target_sha256": "ba34b0a30e6a77d3003d7c60c81a5f1ee99f906a27c7e1ea79a2e4c8ad0c0fa3",
+        "improve_json_sha256": "2b2a537c7819533e268b150406a89f61d4d2067964419661b335097957ee1b49",
+        "capture_sha256": "c8ccf275288e6b8e0b6cad1aa6bdf35beacaa1f72436d1488d0f04b236ca2adb",
+        "plan_sha256": "1f012dda022089758ec199061d97c92fe8c27002f9904b70a148dc143007f68b",
+        "dom_coverage": 0.19696969696969696,
+        "gate": "emitted-low-overlap",
+        "settled": true,
+        "new_purchases": 0
+      }
+    },
+    "initial_selection_cases": [
+      {
+        "case": "long",
+        "automatic_format": "calculation-cycle",
+        "result_id": "crop-cycle-verified-result-v1:ea4d1d523d352b5354824638c1a74b781925c4b0884bd1f1684325d581c17978",
+        "selected_utc": "2026-01-01T00:00:00Z",
+        "retained_samples": "7",
+        "application_errors": [],
+        "driver_warnings": [
+          "[.WebGL-0x249c00193e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+          "[.WebGL-0x249c00193e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+        ],
+        "scope": "owned_synthetic_preview_initial_selection_not_native_HTTP"
+      },
+      {
+        "case": "empty",
+        "automatic_format": "calculation-cycle",
+        "result_id": "crop-cycle-verified-result-v1:3bc0718870fddc6ef2a9e0e932d1a3726f19be06707708068bbc0fd03a81d9fa",
+        "selected_utc": null,
+        "retained_samples": "0",
+        "application_errors": [],
+        "driver_warnings": [],
+        "scope": "owned_synthetic_preview_initial_selection_not_native_HTTP"
+      },
+      {
+        "case": "past",
+        "automatic_format": "calculation-cycle",
+        "result_id": "crop-cycle-verified-result-v1:5fa9fd97281fa5e8621d96e1949e30dd551674d575a57e4b5b1fe1ae6aba25b8",
+        "selected_utc": "2026-01-01T00:00:00Z",
+        "retained_samples": "1",
+        "application_errors": [],
+        "driver_warnings": [
+          "[.WebGL-0x249c001aba00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+          "[.WebGL-0x249c001aba00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+        ],
+        "scope": "owned_synthetic_preview_initial_selection_not_native_HTTP"
+      }
+    ],
+    "current_UI_source_identical_to_close": true,
+    "new_purchases": 0,
+    "new_assets_fonts_frameworks": 0,
+    "existing_four_cutouts_preserved": true,
+    "unsafe_plan_applied": false,
+    "reason": "low-overlap suggestions replace real inputs/units/scope with charts, fictional38percent progress or unrelated crop/observation claims; preserve actual raw content and existing approved assets",
+    "pixel_fidelity_accepted": false,
+    "initial_failed_close_receipt_sha256": "c289a38fcae3b358a2e101d17b89dae1524915cd2f9caaec9dc562fc8db9b709",
+    "final_close_receipt_sha256": "43e3d332f94e10cf14e779a6071ea558c616f6c3b3a2d223fa1fddea87903a9a"
+  },
+  "screenshots": {
+    "research/artifacts/calculation-cycle-desktop.png": {
+      "sha256": "53e94b10dc3634bc9664ed4437299996fcdaaa7007db2c2011f83f7ad7b698bd",
+      "bytes": 640984,
+      "same_bytes_as_visually_inspected_capture": true
+    },
+    "research/artifacts/calculation-cycle-mobile.png": {
+      "sha256": "89d77c399046e070ca5ee09ec4ba4ff2b5a124222c9dab5a690f04d055cb0aee",
+      "bytes": 590737,
+      "same_bytes_as_visually_inspected_capture": true
+    },
+    "research/artifacts/calculation-cycle-empty-hold.png": {
+      "sha256": "ab52626832526c6ee81910a3bcf9c7af76680e86967f4ea622eff47cc8b3e4c6",
+      "bytes": 245840,
+      "same_bytes_as_visually_inspected_capture": true
+    },
+    "research/artifacts/calculation-cycle-past-hold.png": {
+      "sha256": "0d99c305a4249b40d26e92d920ca90d45755fdcab0a399c62fe65bf51b08a4b6",
+      "bytes": 823025,
+      "same_bytes_as_visually_inspected_capture": true
+    }
+  },
+  "cleanup": {
+    "ports5189_5190_closed": true,
+    "temporary_preview_paths_removed": 2,
+    "owned_test_temp_trees_removed": true,
+    "original_test_capture_outputs_restored": {
+      "cycle-crop-desktop.png": {
+        "regression_capture_sha256": "07cd2e59bc3eda4d1c065fdc9bf5e364fa4cde60fc38ce744b1e53daeb4da8ee",
+        "restored_HEAD_sha256": "0ba5ff08fa928389e39fca1e810eaad8839d78e350c1e52ec58d2a303af83897",
+        "owned_test_output_restored": true
+      },
+      "cycle-crop-empty-hold.png": {
+        "regression_capture_sha256": "2aac424c9aba44ba56caedc0f6ef41e93bec1e9326856149dfa62e5d2a298d03",
+        "restored_HEAD_sha256": "e3f8d8bba6084c94431da9b7d5c1ab1ddb2f5d8f9002b888dd95647b782bd94e",
+        "owned_test_output_restored": true
+      },
+      "cycle-crop-past-hold-shape.png": {
+        "regression_capture_sha256": "7218e08abe6d7dc07094ea9b1abed068febab248f198df43d9944308a7c64931",
+        "restored_HEAD_sha256": "a7a7bd3f0adbc0274fa4e048365b4a946de9ad530cc0eba0c09de0d1527c0cf0",
+        "owned_test_output_restored": true
+      }
+    },
+    "new_database_or_credentials_created": false,
+    "all_local_exec_handles_consumed": true,
+    "whole_native_renderer_RSS_audit_complete": false
+  },
+  "five_axis_review": {
+    "source_sha256": {
+      "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+      "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6",
+      "web/e2e/calculation-cycle-crop-replay.spec.ts": "db6ced7c5fc87bba761093f9519fa7e6bfcb4888194cb6dcae9b92d82de9377f"
+    },
+    "preserved_source_count": 113,
+    "reviewer": "current_native_Codex_gpt-6.1-sol_xhigh_not_independent_farm_reviewer",
+    "correctness": "all original 27 UTC states/5 events and raw quantities in HTML/chart/Scene; final browser15, original47, unit719 and type/build; exact source equality verified",
+    "readability": "existing source selection and one reused screen, explicit closed source discriminator",
+    "architecture": "approved three core files only; existing typed SDK/window, Scene/chart/CSS and backend unchanged",
+    "security": "full validation and current-source/account identity guard; state cleared on errors/change/cancel, own fake Bearer only",
+    "performance": "sample7/event2 bounds and active fetch/reader peak1; driver warnings and actual low-end/native memory/performance still hold",
+    "no_new_native_PG_TLS_or_RHS": true,
+    "owned_ports_closed": [
+      5189,
+      5190
+    ],
+    "original_regression_changed_test_captures_restored": true
+  },
+  "CI_terminal_receipt": "research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json",
+  "CI_terminal_receipt_sha256": "02c52dc842d43136d1b6dc5b0efc3f2d0b410f49486a941692c241b8b5cb01d6",
+  "local_window_view_parent_accepted": true,
+  "local_client_view_parent_accepted": false,
+  "actual_adopted_cultivar_inputs": 0,
+  "domestic_independent_validation_datasets": 0,
+  "actual_measured_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "remaining": [
+    "actual protected registered calculation -> TLS -> new WebGL screen with current rights, read-only proof, HTTP concurrency and resource cleanup",
+    "full166day registered calculation cumulative cost/store/restore/API/3D",
+    "fresh harvest and H/P/S, water/nutrients/purchased energy, Decimal economics",
+    "actual cultivar/forcing/initial-management rights/QC, domestic independent G2/G3a/G3b evidence, product CLI and G4 deployment proof",
+    "hosted CI and pixel fidelity/actual low-end performance"
+  ]
+}
