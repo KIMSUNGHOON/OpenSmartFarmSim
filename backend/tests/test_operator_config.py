@@ -34,7 +34,9 @@ def private_config(tmp_path):
         path.write_bytes(value)
         path.chmod(0o600)
         return str(path)
-    doc = {'config_version':'operator-api-config-v1', 'policy':asdict(policy()),
+    legacy_policy = asdict(policy())
+    assert legacy_policy.pop('crop_cycle_calculation_result_storage') is False
+    doc = {'config_version':'operator-api-config-v1', 'policy':legacy_policy,
         'dsn_file':private('authority.dsn', b'dbname=private-test-db user=private-test-user'),
         'artifact_root':str(tmp_path/'artifacts'),
         'certificate':private('certificate.pem', b'synthetic-certificate'),
@@ -255,7 +257,9 @@ def configure_login(private_config, login_scope, tls_files, *, port=0):
     base, actual_policy, dsns = login_scope
     certificate, key, _ = tls_files
     base.artifact_root.mkdir(mode=0o700)
-    doc.update(policy=asdict(actual_policy), artifact_root=str(base.artifact_root),
+    legacy_policy = asdict(actual_policy)
+    assert legacy_policy.pop('crop_cycle_calculation_result_storage') is False
+    doc.update(policy=legacy_policy, artifact_root=str(base.artifact_root),
                certificate=str(certificate), private_key=str(key), port=port)
     Path(doc['dsn_file']).write_text(dsns['authority'])
     store(path, doc)

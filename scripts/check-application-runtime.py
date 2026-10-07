@@ -120,6 +120,9 @@ def private(path, value):
 
 
 def operator_files(root, policy, dsns, worker, principal, certificates, token, *, collection=False, authority=False):
+    api_policy = asdict(policy)
+    if api_policy.pop('crop_cycle_calculation_result_storage') is not False:
+        raise ValueError('unsupported_legacy_api_policy')
     scopes = sorted(principal['scopes'] | {'auditor', 'market_hold_read'})
     catalog = research_document()
     catalog['registrations'][0]['tenant_id'] = 'tenant-1'
@@ -149,7 +152,7 @@ def operator_files(root, policy, dsns, worker, principal, certificates, token, *
             private(directory / 'bearer', token)
             for source, target in [('api.pem', 'cert.pem'), ('api.key', 'key.pem'), ('ca.pem', 'api-ca.pem')]:
                 private(directory / target, (certificates / source).read_bytes())
-            config = {'config_version': 'operator-api-config-v1', 'policy': asdict(policy),
+            config = {'config_version': 'operator-api-config-v1', 'policy': api_policy,
                 'dsn_file': '/run/operator/api/authority.dsn', 'artifact_root': '/artifacts',
                 'certificate': '/run/operator/api/cert.pem', 'private_key': '/run/operator/api/key.pem',
                 'thermal_gate_key_file': '/run/operator/api/thermal.key',
