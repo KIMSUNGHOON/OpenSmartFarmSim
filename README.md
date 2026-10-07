@@ -34,6 +34,10 @@ SQL 형식 시험 metadata를 저장한 단계입니다. 후속 [서명 결과 D
 작은 DB·농장 연결 부모도 완료했습니다. get39.668745초 관측은 HTTP30초 미수용 근거이며,
 다음은 전체 등록 비용과 새 proof/현재 조회·공개 판본/API runtime·같은 UTC3D 연결입니다.
 [후속 구현 순서/다음 수용 기준](contracts/crop-cycle-calculation-query-v1.md)을 고정했습니다.
+[새 계산 결과 검증 증명](research/crop-cycle-calculation-result-evidence-implementation-20261007.md)은
+새79개/선행74개·고유153개 분할·자체5시간 정상61시점/3사건·hold60시점/2사건·
+별도 Python2개/parser/context/QC/RHS0·원55 source/FD/PID 정리로 로컬 수용했습니다.
+다음은 [새 조회 타입](contracts/crop-cycle-calculation-result-read-context-v1.md)과 농장/API/동일 UTC3D이며 전체166일 연결은 후속입니다.
 [전체 원 결과 증명 관측](research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은6.11MB/8MiB·
 발행175.7초·별도 Python 검증1.59초·선택 page1.7–2.0초/정리를 확인했습니다. 농장/HTTP/3D 수용은 별도입니다.
 현재 `8d111f1` CI는 다른4workflow 성공이며 Backend 분할0은

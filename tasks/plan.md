@@ -288,8 +288,12 @@ publication1.5–3.5집중시간 잠정은 이 실적으로 대체하며 전체 
 [새 조회 의존성 계약](../contracts/crop-cycle-calculation-query-v1.md)은 result evidence → read context →
 현재 farm/DB query → 공개 판본/operator-config/API runtime → client/같은 UTC3D의 누락된 구현 작업을 고정한다.
 별도 등록 prefix 비용 측정은 읽기 개발과 병행하며 두 경로 모두 전체 replay-restore 수용의 선행이다.
-다음 evidence는4 core파일·별도 증명 판본, 공식 context/원 QC 발행과 parser/QC/RHS0인 별도 Python 조회,
-정상/hold·변조·원량·한도/정리를 수용 기준으로 한다.2–4집중시간/10월7–8일 KST 잠정이며 전체 완료일은 아니다.
+[새 evidence 수용](../research/crop-cycle-calculation-result-evidence-implementation-20261007.md)은
+새79개/선행74개·고유153개 분할·자체5시간 정상61시점/3사건·hold60시점/2사건·
+별도 Python2개/parser/context/QC/RHS0와 원55 source/FD/PID 정리로 증명 자식만 완료했다.
+발행0.200342초/별도 검증0.016934초는 작은 정상 사례이며 전체166일/등록 조회 수용이 아니다.
+evidence2–4시간 잠정은 이 실적으로 대체한다. 다음 [조회 전용 타입4 core파일](../contracts/crop-cycle-calculation-result-read-context-v1.md)은
+원량/UTC·sample64/event8·2MiB·byte-short/변조·별도 Python/정리의2–3집중시간 잠정이며 전체 완료일은 아니다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
 선택 시작/중간/끝129시점/5사건·page 최대2.035086초와 source/FD/PID 정리를 확인했다.

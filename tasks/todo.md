@@ -570,11 +570,15 @@
             원 signed DB/11파일 공존·실제 DB3/파일4 변조·FD/PG/DB/비밀 정리를 확인했다.
             get7.898755초와 다른 실행39.668745초를 모두 기록했다. HTTP30초와 전체 registered prefix는 미수용이다.
             schema와 publication 두 자식을 갖춰 작은 DB 부모도 수용하며 새 실제 작물 Run/관문은0/미평가다.
-      - [ ] **`crop-cycle-calculation-result-evidence`** — 선행 새 artifact·작은 signed DB/농장 결속 수용.
+      - [x] **`crop-cycle-calculation-result-evidence`** — 선행 새 artifact·작은 signed DB/농장 결속 수용.
         [새 조회 계약](../contracts/crop-cycle-calculation-query-v1.md)의4 core파일·별도 판본으로 원 전체 수지 검증 증명과
         현재 bytes/inode/입력 proof·source 대사를 연결한다. 실제 작은 정상/hold·변조/판본 혼합 거부·
         별도 Python의 parser/context/QC/RHS0·원량/UTC/121상태·8MiB/FD/프로세스 정리 뒤 체크한다.
-      - [ ] **`crop-cycle-calculation-result-read-context`** — 선행 위 증명; 새 조회 module/test/계약3 core파일.
+        [10월7일 수용](../research/crop-cycle-calculation-result-evidence-implementation-20261007.md):
+        새79개/선행74개·고유153개 분할·자체5시간 정상61시점/3사건·hold60시점/2사건·
+        별도 Python2개/parser/context/QC/RHS0·원55 source/FD/PID 정리. 전체166일 새 proof/농장/HTTP/3D는 별도다.
+      - [ ] **`crop-cycle-calculation-result-read-context`** — 선행 위 증명;
+        [새 조회 module/test/참조/계약4 core파일](../contracts/crop-cycle-calculation-result-read-context-v1.md).
         원 manifest/context provenance와 bounded sample64/event8·2MiB, 현재 bytes·사본/변조/FD/cache를 검증한다.
       - [ ] **`crop-cycle-calculation-current-query`** — 선행 위 reader·새 signed DB/현재 농장 결속.
         새 현재 query/module/test/계약3 core파일로 실제 SCRAM farm/Scope/등록/입력 권리·DB HMAC·

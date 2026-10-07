@@ -326,7 +326,11 @@ get7.898755초와 다른 실행39.668745초는 내부 관측이며 HTTP30초 수
 전체 등록 prefix 비용·새 proof/현재 조회·공개 판본/operator-config/API runtime 연결·전체166일/3D는 후속이다.
 그 [누락된 조회 의존성](../contracts/crop-cycle-calculation-query-v1.md)을 evidence → reader → current query →
 API/runtime → client/동일 UTC3D와 독립 prefix 비용 측정으로 작업화했다.
-다음 evidence의4 core파일/수용 기준·2–4집중시간 잠정을 고정했으며 관문/전체 날짜와 구분한다.
+후속 [새 evidence](../research/crop-cycle-calculation-result-evidence-implementation-20261007.md)는
+새79개/선행74개·고유153개 분할·자체5시간 정상/hold·별도 Python2개/parser/context/QC/RHS0·
+원55 source/FD/PID 정리로 작은 자식을 수용했다. 다음 [reader4 core파일](../contracts/crop-cycle-calculation-result-read-context-v1.md)은
+원량/UTC·sample64/event8·2MiB·현재 bytes/변조·별도 Python/정리를 검증한다.
+reader2–3집중시간 잠정이며 전체166일 새 증명/등록/API/3D와 관문/전체 날짜는 별도다.
 새 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존해 병행한다.
 동결 소스 변경은 실제 실행 종료·증거 보존 뒤이며,
 첫 수용은 원 물리값/UTC·121상태/checkpoint·수지/hold·변조 거부와 별도 프로세스 복원이다.

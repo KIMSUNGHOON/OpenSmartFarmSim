@@ -137,6 +137,10 @@ exact 새 서버/context·9필드 binding과 별도 HMAC/ID/table을 결속한�
 [새 판본 조회 계약](../contracts/crop-cycle-calculation-query-v1.md)에 따라 현재 공식 계산 문맥/입력 proof와
 원 validated context를 구분한 증명 → 조회 타입 → 현재 farm/서명 → 공개 판본/runtime 순서로 연결한다.
 QC 발행은 HTTP 밖이며 조회에서 원 parser/context/QC/RHS를 재실행하지 않는다.
+[새 증명 수용](../research/crop-cycle-calculation-result-evidence-implementation-20261007.md)은
+원 header/commit summary/index SHA를 현재 snapshot에 결속하고 원 validated SHA와 새 calculation SHA를 구분한다.
+다음 [별도 조회 문맥](../contracts/crop-cycle-calculation-result-read-context-v1.md)은 새 증명 타입만 받으며
+농장/DB query·공개 판본/runtime과 전체166일 비용은 후속이다.
 
 ## 3D 재생 계약
 

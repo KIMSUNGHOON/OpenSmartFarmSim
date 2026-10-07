@@ -258,6 +258,11 @@ get7.898755초와 다른 실행39.668745초를 모두 기록했다. 전체 등�
 공개 판본/operator-config/API runtime 연결과 HTTP30초/2MiB·전체166일/동일 UTC3D는 후속이다.
 [새 조회 구현 순서](../contracts/crop-cycle-calculation-query-v1.md)는 result evidence → reader → 현재 query →
 공개 판본/runtime → client/동일 UTC3D다. 실제 등록 prefix 비용 측정은 독립 병행하며 전체 수용에는 둘 다 필요하다.
+[새 계산 결과 증명](../research/crop-cycle-calculation-result-evidence-implementation-20261007.md)은
+새79개/선행74개·고유153개 분할·자체5시간 정상/hold·별도 Python2개/parser/context/QC/RHS0·
+원55 source/FD/PID 정리로 작은 소프트웨어 자식을 수용했다. 전체166일 새 증명/농장/API/3D는 후속이다.
+다음 [조회 타입4 core파일 계약](../contracts/crop-cycle-calculation-result-read-context-v1.md)의
+원량/UTC·bounded page·현재 bytes/변조·별도 Python과 정리를 수용한다.
 [원166일 증명 실측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은6,111,094bytes/8MiB·
 별도 Python 검증1.589495초와 선택 page를 확인한 순수 관측이며 새 판본/농장·HTTP 증거는 아니다.
 새 계산 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존하며 실행과 병행하고,

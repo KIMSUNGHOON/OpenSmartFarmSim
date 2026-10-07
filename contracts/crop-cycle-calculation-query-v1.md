@@ -4,7 +4,7 @@
 뒤의 누락된 조회 의존성을 고정한다. native Codex CLI `gpt-6.1-sol / xhigh`에서 판단하며 재귀 CLI0회다.
 기존 [현재 조회 계약](crop-cycle-current-query-v1.md)의 권리/원 trace·전후 대사와
 [부하 계약](crop-cycle-burden-v1.md)의 원량·30초/2MiB·복원 조건을 유지한다.
-이 문서는 개발 계약이며 아래 작업과 전체 등록 작기/관문은 아직 미수용이다.
+새 증명 자식은 아래 실제 증거로 수용했으며 reader 이후와 전체 등록 작기/관문은 아직 미수용이다.
 [원166일 증명 실제 비용](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/기존8MiB·발행175.675297초·별도 Python 검증1.589495초와 선택 page/정리를 확인했다.
 원 판본의 순수 관측이며 새 계산 증명/농장·HTTP 수용을 대신하지 않는다.
@@ -26,7 +26,7 @@
 읽기 개선은 계산 단계의 반복 prefix 검사 비용을 해결했다고 주장할 수 없다.
 전체 replay-restore 수용에는 full-rhs, 등록 실행/비용과 저장·조회/동일 UTC3D의 실제 증거가 모두 필요하다.
 
-## 다음 한 단계: 새 결과 검증 증명
+## 수용한 단계: 새 결과 검증 증명
 
 core4파일은 `backend/app/crop_cycle_calculation_result_evidence.py`,
 `backend/tests/test_crop_cycle_calculation_result_evidence.py`,
@@ -52,6 +52,11 @@ key는 입력 증명 key와 다른32..4096bytes다. 농장 query 연결 시 DB/s
   `rights_or_gate_approval=False`다. 닫힌 payload·code/dependency/Python·단위/원 정규화 의미를 유지한다.
   증명은 키·경로·원 입력을 공개 API로 보내는 DTO가 아니다.
 
+현재 snapshot에는 실제 header/commit metadata에서 재구성한 summary/index의 `record_sha256`도 둔다.
+유효 HMAC여도 저장된 clock/121상태·확인 과거·페이지 목록과 다른 payload는 거부한다.
+이 metadata 대사는 해시를 확인한 bounded JSON을 읽는 경로이며 원 수지 QC·계산 context·RHS를 실행하지 않는다.
+추가 비용은 새 판본 전체 작기 조회의 성능 검증에 포함한다.
+
 ### 수용 기준
 
 1. 새 공식 artifact의 작은 정상/수치 hold·모든 원 시점/사건/manifest를 실제 검증하고 조회 RHS0을 확인한다.
@@ -64,8 +69,13 @@ key는 입력 증명 key와 다른32..4096bytes다. 농장 query 연결 시 DB/s
 5. driver는 자체 소유 합성 입력/새 계산 artifact를 사용한다. 순수 참조 결과는 farm DB 이력이 아니다.
    실제 source/CLI·호출/출력·크기/시간/RSS와 이전 bytes 보존을 기록한 뒤만 자식을 체크한다.
 
-코드 이식/문맥 대사·검토1–2집중시간과 시험/별도 프로세스/기록1–2시간의
-2–4집중시간/10월7–8일 KST 잠정이다. 전체 registered 작기·CI·외부 자료 완료일은 제외하며 실측으로 갱신한다.
+[10월7일 로컬 수용](../research/crop-cycle-calculation-result-evidence-implementation-20261007.md):
+새79개/선행74개·고유153개 분할, 자체5시간/1,800걸음 정상61시점/3사건·hold60시점/2사건,
+별도 Python2개·parser/context/QC/RHS0·원55 source/FD/PID 정리를 확인했다.
+발행0.200342초/별도 검증0.016934초는 작은 정상 사례이며 전체166일 비용은 별도다.
+증명의2–4집중시간 잠정은 이 수용으로 대체한다. 다음은
+[새 reader4 core파일/수용 기준](crop-cycle-calculation-result-read-context-v1.md)의2–3집중시간 잠정이다.
+전체 registered 작기·CI·외부 자료 완료일은 제외하며 실측으로 갱신한다.
 
 ## 후속 수용과 보류
 
