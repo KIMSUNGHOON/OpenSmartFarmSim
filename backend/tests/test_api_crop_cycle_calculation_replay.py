@@ -312,7 +312,7 @@ def test_public_byte_boundary_and_copy_preserve_the_entire_original_response(ori
 
 @pytest.mark.parametrize('first',['app.api_crop_cycle_calculation_replay','app.operator_config','app.api'])
 def test_three_fresh_import_orders_do_not_construct_calculation_or_authority(first):
-    code='''import importlib,json,os,sys
+    code='''import importlib,json,os,secrets,sys
 before=len(os.listdir('/proc/self/fd'))
 for name in [sys.argv[1],'app.api_crop_cycle_calculation_replay','app.operator_config','app.api']:importlib.import_module(name)
 print(json.dumps({'fd_before':before,'fd_after':len(os.listdir('/proc/self/fd')),'first':sys.argv[1]}))
@@ -321,4 +321,5 @@ print(json.dumps({'fd_before':before,'fd_after':len(os.listdir('/proc/self/fd'))
     assert child.returncode==0 and child.stderr==''
     value=json.loads(child.stdout);assert value['fd_before']==value['fd_after']
     save_reference('import-'+first.rsplit('.',1)[-1]+'.json',{'exit_code':child.returncode,**value,
-        'fresh_python_exec':True,'calculation_and_authority_construction_not_requested':True})
+        'fresh_python_exec':True,'stdlib_secrets_preinitialized':True,
+        'calculation_and_authority_construction_not_requested':True})

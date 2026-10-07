@@ -292,7 +292,7 @@ def save_reference(name, value):
 
 @pytest.mark.parametrize('first', ['app.api', 'app.api_crop_cycle_calculation_route', 'app.calculation_operator_config'])
 def test_fresh_python_keeps_new_calculation_modules_unloaded(first):
-    code = '''import importlib,json,os,sys
+    code = '''import importlib,json,os,secrets,sys
 before=len(os.listdir('/proc/self/fd'))
 importlib.import_module(sys.argv[1])
 from app.api_openapi import contract_document

@@ -21,7 +21,7 @@ from test_api_serve import tls_files
 from test_crop_cycle_calculation_result_store_farms import login_scope, original_login_scope
 from test_farm_authoring_storage import authoring
 from test_farm_replay_scenario import farm_setup
-from login_database import login_database
+from login_database import assert_host_scram, login_database
 
 VERSION='operator-calculation-api-config-v1'
 FLAG='crop_cycle_calculation_result_storage'
@@ -220,7 +220,7 @@ def save_reference(name, value):
 
 @pytest.mark.parametrize('first', ['app.calculation_operator_config', 'app.operator_config', 'app.api_runtime'])
 def test_fresh_python_import_orders_keep_calculation_modules_unloaded(first):
-    code = '''import importlib,json,os,sys
+    code = '''import importlib,json,os,secrets,sys
 before=len(os.listdir('/proc/self/fd'))
 for name in [sys.argv[1],'app.calculation_operator_config','app.operator_config','app.api_runtime','app.api_crop_cycle_calculation_replay']:importlib.import_module(name)
 forbidden=['app.crop_cycle_calculation_context','app.crop_cycle_calculation_result_store','app.crop_cycle_calculation_current_query']
@@ -239,12 +239,9 @@ def audit_database(login_database, tmp_path_factory):
     with psycopg.connect(login_database['admin']) as conn:
         schemas = conn.execute("SELECT count(*) FROM pg_namespace WHERE nspname ~ '^login_test_'").fetchone()[0]
         roles = conn.execute("SELECT count(*) FROM pg_roles WHERE rolname ~ '^login_(owner_|[0-9a-f]{32}_)'").fetchone()[0]
-        directory = Path(conn.execute('SHOW data_directory').fetchone()[0])
+        methods = assert_host_scram(conn)
     passfiles = list(tmp_path_factory.getbasetemp().rglob('*.pgpass'))
     assert schemas == roles == len(passfiles) == 0
-    methods = [line.split()[-1] for line in (directory/'pg_hba.conf').read_text().splitlines()
-               if line.strip().startswith('host')]
-    assert methods and set(methods) == {'scram-sha-256'}
     save_reference('database-cleanup.json', {'schemas_after': schemas, 'roles_after': roles,
         'passfiles_after': len(passfiles), 'actual_host_auth_methods': methods})
 

@@ -44,7 +44,7 @@ from test_crop_cycle_input_evidence import authority
 from test_crop_startup_result_store import shifted
 from test_farm_authoring_storage import authoring, request as farm_request
 from test_farm_replay_scenario import farm_setup
-from login_database import login_database
+from login_database import assert_host_scram, login_database
 
 SERVER_KEY = b'owned-calculation-https-server-' + b's' * 32
 DB_KEY = b'owned-calculation-https-db-' + b'd' * 32
@@ -69,11 +69,9 @@ def audit_cleanup(login_database, tmp_path_factory):
     with psycopg.connect(login_database['admin']) as conn:
         schemas = conn.execute("SELECT count(*) FROM pg_namespace WHERE nspname ~ '^login_test_'").fetchone()[0]
         roles = conn.execute("SELECT count(*) FROM pg_roles WHERE rolname ~ '^login_(owner_|[0-9a-f]{32}_)'").fetchone()[0]
-        directory = Path(conn.execute('SHOW data_directory').fetchone()[0])
+        methods = assert_host_scram(conn)
     passfiles = list(tmp_path_factory.getbasetemp().rglob('*.pgpass'))
-    methods = [line.split()[-1] for line in (directory/'pg_hba.conf').read_text().splitlines()
-               if line.strip().startswith('host')]
-    assert schemas == roles == len(passfiles) == 0 and methods and set(methods) == {'scram-sha-256'}
+    assert schemas == roles == len(passfiles) == 0
     save_reference('database-cleanup.json', {'schemas_after': schemas, 'roles_after': roles,
         'passfiles_after': len(passfiles), 'actual_host_auth_methods': methods})
 

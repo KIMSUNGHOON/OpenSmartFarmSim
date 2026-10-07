@@ -21,6 +21,14 @@ from test_jobs import synthetic_principal
 from test_runtime_roles import owned_scope
 
 
+def assert_host_scram(conn):
+    rows = conn.execute('SELECT type, auth_method, error FROM pg_catalog.pg_hba_file_rules').fetchall()
+    assert all(error is None for _, _, error in rows)
+    methods = [method for kind, method, _ in rows if kind is not None and kind.startswith('host')]
+    assert methods and set(methods) == {'scram-sha-256'}
+    return methods
+
+
 @pytest.fixture(scope="module")
 def login_database():
     dsn = os.environ.get("OSSF_TEST_PG_DSN")
