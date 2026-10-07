@@ -325,6 +325,12 @@ ASGI 원량/UTC·한 query/투영 뒤 철회·hold·원48 path/148 schema/78 sou
 runtime2–3시간 잠정은 이 실적으로 대체한다. 다음 [SDK4파일 → 현재 범위/3D → 실제 WebGL](../contracts/web-crop-cycle-calculation-replay-v1.md)은
 각2–3/2–4/3–5집중시간, 합7–12집중시간 잠정이다. 실제 실패/통과로 갱신하며
 CI·전체166일 등록 비용/복원·생과/자원/경제·실제 자료와 최종 제품 날짜는 포함하지 않는다.
+[SDK 실제 수용](../research/web-crop-cycle-calculation-client-20261007.md)은 새178개 포함 웹 전체700개·타입/빌드·
+34 공개 JSON/고정 SHA·원량/UTC·검증 정보 대응·순차/byte-short/끝·취소/권리·101 source/정리다.
+원 validation code/evidence SHA 대응 누락은 RED1실패/2통과 → GREEN3통과로 보완했다.
+SDK2–3시간 추정은 이 실적으로 대체한다. 다음 [범위 helper2파일 → 화면/집중 브라우저](../contracts/web-crop-cycle-calculation-window-v1.md)는
+각1–2시간으로 나누고, native3–5시간과 합한 **남은 작은 웹 연결5–9집중시간 잠정**으로 갱신한다.
+새 SDK의 실제 HTTP/PG/브라우저는0이며 위 실적을 새3D나 전체166일·품종/관문 수용으로 바꾸지 않는다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
 선택 시작/중간/끝129시점/5사건·page 최대2.035086초와 source/FD/PID 정리를 확인했다.
@@ -491,7 +497,9 @@ flowchart TD
   BCALCBIND --> BCALCQUERY
   BCALCQUERY --> BCALCAPI["crop-cycle-calculation-api-runtime: 새 공개 판본/명시 조립·TLS"]
   BCALCAPI --> BCALCCLIENT["crop-cycle-calculation-client: 새 SDK/validation·순차 페이지"]
-  BCALCCLIENT --> BCALCVIEW["crop-cycle-calculation-window-view: 같은 원 ID/UTC·현재 범위"]
+  BCALCCLIENT --> BCALCWHELP["crop-cycle-calculation-window: typed source·현재 범위"]
+  BCALCWHELP --> BCALCSCREEN["crop-cycle-calculation-view: 기존 화면의 명시 새 판본"]
+  BCALCSCREEN --> BCALCVIEW["crop-cycle-calculation-window-view: 두 자식 수용 뒤 부모"]
   BCALCVIEW --> BCALCNATIVE["crop-cycle-calculation-native-browser: 실제 PG/TLS/WebGL"]
   BCALCNATIVE --> BCALCWEB["crop-cycle-calculation-client-view: 세 자식 수용 뒤 부모"]
   BCALCWEB --> BRESTORE

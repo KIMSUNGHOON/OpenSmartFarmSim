@@ -156,7 +156,10 @@ flag 결속을 고유155개 분할/실제 SCRAM·계산/게시0·import/정리�
 후속 [runtime/실제 HTTPS](../research/crop-cycle-calculation-runtime-tls-20261007.md)는 exact 새 store/query를
 `create_app`에 전달하고 실제 protected loader/SCRAM/26 HTTPS·고유337개 분할로 작은 API 부모까지 수용했다.
 원량/UTC·투영 후 철회·유효 HMAC 변조·live grant·비활성 거부와 기존30초/2MiB/81 source·정리를 확인했다.
-다음 [별도 새 SDK와 동일 UTC3D](../contracts/web-crop-cycle-calculation-replay-v1.md)는 verified ID/validation을 보존한다.
+[별도 새 SDK](../research/web-crop-cycle-calculation-client-20261007.md)는 verified ID/validation을 보존하고
+기존 sample/event/UTC·Bearer/한도 helper를 재사용한다. 새178개 포함 웹 전체700개·타입/빌드·원101 source로 수용했다.
+다음 [현재 범위 선택](../contracts/web-crop-cycle-calculation-window-v1.md)은 원/새 typed source와
+두 response의 닫힌 union을 보존하며 DTO를 구형으로 바꾸지 않는다. 같은 UTC 화면/native WebGL은 후속이다.
 전체166일 등록 비용/복원과 hosted·품종/관문 수용은 별도다.
 
 ## 3D 재생 계약

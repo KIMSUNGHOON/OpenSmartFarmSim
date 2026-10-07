@@ -635,11 +635,19 @@
       - [ ] **`crop-cycle-calculation-client-view`** — 선행 위 실제 API/runtime.
         [새 웹 계약](../contracts/web-crop-cycle-calculation-replay-v1.md)의 세 자식으로 나눠
         새 result ID/manifest/validation·원량/UTC를 보존하는 client/표/3D 선택을 실제 PG/TLS/WebGL로 대사한다.
-        - [ ] **`crop-cycle-calculation-client`** — 선행 실제 API 수용; 새 SDK/집중 시험/api.ts/공개 fixture4 core파일.
+        - [x] **`crop-cycle-calculation-client`** — 선행 실제 API 수용; 새 SDK/집중 시험/api.ts/공개 fixture4 core파일.
           실제 새 공개 DTO·검증 정보 대응·정상/과거·빈 hold·순차/byte-short/끝·취소/권리/혼합 거부,
           기존30초/2MiB·단일 요청·unit/typecheck/build/원 SDK 회귀 뒤 이 자식만 체크한다.
+          [10월7일 수용](../research/web-crop-cycle-calculation-client-20261007.md): 새178개 포함 웹 전체700개/13.55초·타입/빌드·
+          소유 수치 projection34 JSON/원량·UTC·검증 정보·순차/끝/취소·원101 source/사설 임시 정리.
+          원 code/evidence SHA 대응 반례 RED1실패/2통과 → GREEN3통과를 보존했다. 새 HTTP/브라우저/3D 실행은0이다.
         - [ ] **`crop-cycle-calculation-window-view`** — 선행 새 SDK; bounded typed 선택과 기존 연구 화면의 새 판본.
           현재 범위의 원 ID/UTC·C/N/LAI·표/그래프/3D와 변경/권리 실패 때 이전 상태/renderer/timer 정리.
+          - [ ] **`crop-cycle-calculation-window`** — [다음2 core파일 계약](../contracts/web-crop-cycle-calculation-window-v1.md).
+            원 window helper와 새 집중 시험; 원 `open`/새 `openCalculation`·닫힌 typed union·원 validation/UTC·
+            64/8·원 next/이전 offset·변경/취소/철회/늦은 응답·단일 요청/settlement·원 회귀 뒤 이 자식만 수용한다.
+          - [ ] **`crop-cycle-calculation-view`** — 선행 위 helper; 기존 두 화면/집중 browser의 작은 계약을 착수 전 고정한다.
+            명시 새 판본/원량·UTC·표/그래프/3D·현재 범위/검증 정보와 이전 장면/timer 정리; UI/browser skill 적용.
         - [ ] **`crop-cycle-calculation-native-browser`** — 선행 위 화면; 실제 소유 PG/보호 loader/TLS/WebGL.
           원량/UTC·관리 사건/hold·단일 요청/조회 RHS0·전체 본문 한도·계정/철회·접근성/복구·PG/비밀/서버 정리.
       - [ ] **`crop-cycle-calculation-prefix-cost`** — 선행 full-rhs와 작은 새 계산 농장 결속; 읽기 개발과 병행한다.
