@@ -36,3 +36,12 @@ CI 시험 격리 수정을 정상 cherry-pick한 뒤 현재 bytes·집중 검증
 현재 CLI `gpt-6.1-sol / xhigh` 문맥은 `2026-10-07T01:57:57.942Z`, 원 줄 SHA256
 `2f2ce09f71ab416702b664816fc4ac532fba2f2a8e3c001241276dac216eae9a`다. 재귀 CLI0회.
 권리 확인된 실제 품종 입력·국내 독립 검증 자료0건·G0–G4 not_assessed·예측/추천 보류를 유지한다.
+
+## 보존 CI 수정의 현재 통합
+
+후속 `4bf9af3ec502e10d790140dd7f83fa4a37d8f885`는 e310의 정상 cherry-pick이다.
+현재18개/24.30초(session28492 종료0)·원10개 시험 본문/parameter marker와
+나머지52개 source 보존·문서/새 primitive9 core hash를 확인했다.
+[통합 receipt](artifacts/crop-cycle-full-rhs-test-isolation-integration-20261007.json)는 현재 집중 시험과
+원 결함 재현의 과거 증거를 구분한다. 원 수식/자원 한도·workflow/timeout을 변경하지 않았다.
+새 hosted 성공과 원166일 완료를 뜻하지 않는다. 검증된 커밋을 한 번의 정상 batch push로 전송한다.

@@ -293,6 +293,8 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)에서 원81574 handle·실험/terminal
 보존 경로가 없어 최종 상태는 확인 불가다. 보호할 실행의 부재를 확인했고 원 결과/부모는 계속 보류한다.
 작은 terminal 조회 개발을 이어가며 전체 수용은 원 증거 복구 또는 별도 판본/지속 저장의 새 실험 증거를 요구한다.
+보존 CI 시험 수정은 `4bf9af3`으로 정상 적용해 현재18개/24.30초를 통과했다
+([통합 증거](../research/artifacts/crop-cycle-full-rhs-test-isolation-integration-20261007.json)). 새 hosted 수용은 별도다.
 `e70a7f2`의 기존 assessment HTTPS 30초 시간 초과와
 [로컬 재현/요약 크기 수정](../research/backend-ci-summary-and-timeout-20261005.md)을 별도 기록했다.
 로컬 통과로 실패한 hosted 판본을 수용하지 않는다.

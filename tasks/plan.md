@@ -198,6 +198,8 @@ remote `8fe7dce`의 [CI 종료 보류](../research/crop-cycle-full-rhs-ci-hold-2
 Backend5분할 성공/분할2의8실패·집계 실패와 다른4workflow 성공이다. 원 RSS guard의 suite 부모
 조건을 재현한 별도 `e310e27` 수정은 로컬18개 통과이며 main/hosted 반영은 원166일 종료 뒤다.
 부재를 확인한 현재에는 해당 보존 Git commit을 정상 적용하고 현재 집중/새 hosted 검증을 이어간다.
+`4bf9af3`으로 정상 적용했고 현재18개/24.30초·원10개 시험 본문/marker·수학52 source 보존을 확인했다
+([통합 증거](../research/artifacts/crop-cycle-full-rhs-test-isolation-integration-20261007.json)). 새 hosted 성공은 별도 확인한다.
 전체 실행/복원 날짜는 해당 수정과 실제 종료 상태 뒤 갱신한다. 짧은/복제 fixture와 조기 hold로 전체 작기를 수용하지 않는다.
 최초10–15집중시간/10월6–10일 추정은 위 단계 실적으로 대체한다. 실제166일 부하·자료/품종·
 생과/자원/경제는 별도이며 CI와 실제 경로에서 발견되는 수정으로 일정을 갱신한다.

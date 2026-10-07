@@ -242,6 +242,8 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)은 원81574 handle·실험/terminal
 보존 경로 부재를 확인했다. 원 최종 결과는 확인 불가이며 부분 관측을 전체 수용으로 바꾸지 않는다.
 작은 사례의 조회 개발은 계속하고 원 전체 수용은 복구 가능한 원 증거 또는 별도 판본의 새 실험 증거를 요구한다.
+보존 CI 시험 수정은 `4bf9af3`으로 정상 적용해 현재18개/24.30초를 통과했다
+([통합 증거](../research/artifacts/crop-cycle-full-rhs-test-isolation-integration-20261007.json)). 원 수식/한도·새 hosted 수용은 구분한다.
 실제 전체 작기 처리는 미수용이며6시간 수치 실험 예산 후보를 날짜로 표시하지 않는다.
 빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
 전체 작기 생산 모델의 착수/게시 범위에 접근할 수 있다.

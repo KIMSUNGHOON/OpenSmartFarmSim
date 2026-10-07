@@ -378,6 +378,8 @@
       10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)에서 원handle·실험/terminal
       보존 경로 부재를 확인했다. 원 최종 상태는 확인 불가이며 전체 수용은 보류한다. 같은 실험/예산을 재설정하지 않는다.
       원 증거 복구 또는 별도 판본/지속 저장의 새 실험 증거와 전체 수지/조회 수용이 필요하다.
+      보존 CI 시험 격리 수정은 `4bf9af3`으로 정상 적용해 현재18개/24.30초를 통과했다
+      ([통합 증거](../research/artifacts/crop-cycle-full-rhs-test-isolation-integration-20261007.json)). 이 결과로 전체166일을 체크하지 않는다.
     - [ ] **`crop-cycle-burden-replay-restore`** — 선행 전체 RHS/저장 수용; 중단/복원·실제 page/화면3–4파일.
       같은 원 context/seed/누적/clock/sequence의 중단/복원을 연속 결과와 대사하고 전체 저장의
       시작/중간/끝·byte-short/관리 전후·같은 ID/UTC/30초2MiB·현재 권리/변조·DB/서버/비밀번호/FD 정리를 확인한다.
