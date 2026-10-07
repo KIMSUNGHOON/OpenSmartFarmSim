@@ -784,11 +784,22 @@
             첫 checkpoint 전체/원64commit·현재 권리/복사 root·block 거부·276 source/FD12→12·DB/비밀/PG 정리.
             두 advance50.212/47.349초·새 delta QC각2회·조회 RHS/QC0·현재 bytes 검사를 보존했다.
             이 관측만으로 전체166일 terminal/DB/API/3D·관문 부모를 체크하지 않는다.
-          - [ ] **`crop-cycle-calculation-full-capacity`** — 다음 단계; 선행: 등록 묶음 비용 수용.
+          - [x] **`crop-cycle-calculation-full-capacity`** — 로컬 RHS0 참조 용량/실험 예산 계약 수용; 선행: 등록 묶음 비용 수용.
             RHS0으로 전체 원 격자의 실효 묶음 수/출력·사건 경계와 참조 저장 용량·예약 공간을 대조한다.
             고정 byte/file/commit/proof 한도를 유지하고 참고 원량의 크기와 신규 실제 결과를 구분한다.
             현재 bytes/HMAC 증가 비용·기존 전체 실제 계산 비용과 함께 장시간 명령의 예산/감독·복원/정리를 고정한다.
             초기 구간 선형 외삽을 완료 날짜로 쓰지 않고, 증거 전 전체 등록 계산/게시/3D 부모를 체크하지 않는다.
+            [10월8일 수용](../research/crop-cycle-calculation-full-capacity-observed-20261008.md): 고유10개·원 종료0/45.811초,
+            전체47,811경계/456묶음·원47,809출력/5사건 hash·첫 두 실제 cursor·RHS0/FD12→12·279 source/정리.
+            참조459page/402,648,021bytes·metadata 상계/최대 예약 포함481,987,541bytes로512MiB 한도를 유지했다.
+            [후속 계약](../contracts/crop-cycle-calculation-full-registered-run-v1.md)은9시간 실험 상한을 고정한다.
+            신규 실제 저장량/장시간 실행·supervisor 구현 수용이 아니다.
+          - [ ] **`crop-cycle-calculation-registered-supervisor`** — 다음 단계; 선행: 전체 참조 용량/예산 계약 수용.
+            같은 [지속 실행 계약](../contracts/crop-cycle-calculation-full-registered-run-v1.md)에 따라 작은 실제 SCRAM 등록 계산을
+            지속 spec/원 명령/로그·PID 시작 identity/실제 종료로 보존하고 fresh Python에서 같은 DB/농장/전체 checkpoint를
+            RHS0 복원한 뒤 추가 계산한다. fork 수용과 구분한다. 실제 SIGKILL 후 같은 spec/deadline 재개·
+            연속 작은 제어 결과 대사·동시/변조/권리/취소·자원/불완료 게시 거부와 DB/비밀/PG 정리가 수용 기준이다.
+            이 구현을 검증하기 전9시간 전체 실행을 시작하지 않고 제품 CLI/lease·독립 G1을 수용하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

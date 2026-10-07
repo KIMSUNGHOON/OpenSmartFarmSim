@@ -400,12 +400,14 @@ RHS 전에 실효128원경계로 제한하고 독립 validator/실제 저장·�
 [등록 묶음 관측](../research/crop-cycle-calculation-registered-chunk-cost-observed-20261008.md)도 실제 SCRAM1통과·
 부모/fork 자식의 합8,192전이/7,980걸음·원64commit 결과와 같은210출력/4사건·현재 권리/변조 거부로 수용했다.
 두 advance50.212/47.349초·조회 RHS/QC0/현재 bytes·276 source·DB/비밀/PG/원 종료0/정리를 확인했다.
-다음은 RHS0의 전체 원 격자/묶음 수·참조 용량/예약 공간과 현재 bytes/HMAC 증가 비용을 대조해
-전체 등록 실행의 예산/감독·재개/정리 계약을 고정하는 단계다. 초기 두 구간으로 완료 날짜를 외삽하지 않는다.
-8초 RK4/300초 출력·현재 bytes/HMAC·입력/권리·최종 HEAD 경계와 별도 Python 복원을 유지하고,
-조밀한 출력/사건의 자원 경계와 실제 저장/재개 비용 증거 뒤 전체 등록 실행으로 진행한다.
-전체166일 실행 예산은 남은 누적 비용 증거 뒤 고정하며 초기3회로 완료 시간을 외삽하지 않는다.
-실측에 필요한 개선과 전체 실행 예산 근거 전에는 prefix-cost 부모를 수용하지 않는다.
+[전체 참조 용량](../research/crop-cycle-calculation-full-capacity-observed-20261008.md)도 고유10개·RHS0·456묶음/
+전체47,809출력/5사건·예약 포함481,987,541bytes/512MiB·279 source/종료0/정리로 수용했다.
+관측 당시 실행 예산은 미고정이었다. 전체 실제 순수20,518.836초와 남은 bytes/HMAC 순회를 검토한
+[후속 실행 계약](../contracts/crop-cycle-calculation-full-registered-run-v1.md)은9시간의 실험 상한과 RSS/중단/재개·정리를 고정한다.
+다음 `crop-cycle-calculation-registered-supervisor`는 작은 실제 SCRAM·지속 spec/원 종료·fresh Python의
+같은 DB/농장/전체 checkpoint 복원·추가 계산·SIGKILL/동시/권리/자원 반례를 먼저 검증한다.
+그 수용 뒤에만 새 전체 등록 실행으로 진행한다. 원8초RK4/300초 출력과 한도·현재 bytes/입력/권리를 유지한다.
+이 용량/계약이나 초기 구간으로 완료 날짜·전체 실행/DB/API/3D·prefix-cost 부모를 수용하지 않는다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증이며 전체 hosted 수용은 별도다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
