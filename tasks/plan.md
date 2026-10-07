@@ -391,10 +391,13 @@ candidate 현재 bytes 검사 뒤 마지막 입력/권한 검사와 atomic HEAD 
 [계산 묶음 경계 관측](../research/crop-cycle-calculation-chunk-feasibility-observed-20261008.md)은
 이미 지원하는 순수4,096전이와 고정128전이32호출의 비계보 checkpoint 전체/원105출력/2사건을 대사했다.
 실제1통과/종료0·순수37.853초·2page/954,171bytes·268 source/FD12→12·정리로 가능성 자식만 수용했다.
-artifact/서버128전이 거부는 그대로다. 새 prefix dependency의 공개 schema/SDK 누락은 실제 RED 뒤 수정했다.
+해당 가능성 시험에서는 artifact/서버128전이 제한을 유지했다. 새 prefix dependency의 공개 schema/SDK 누락은 실제 RED 뒤 수정했다.
 [공개 provenance 연결](../research/crop-cycle-calculation-prefix-api-bridge-implementation-20261008.md)도
 API193개/웹720개/Chromium15개·타입/빌드·새34 JSON/원량/UTC·270 source/종료0/정리로 로컬 수용했다.
-다음은128행/사건·기존 bytes 한도를 지키는 묶음 정책과 명시 서버 판본이다.
+[제한된 계산 묶음](../research/crop-cycle-calculation-bounded-chunks-implementation-20261008.md)은 요청4,096전이를
+RHS 전에 실효128원경계로 제한하고 독립 validator/실제 저장·복원과 명시 서버v3를 검증했다.
+고유177개·실제4,096전이/3,990걸음/원105출력·2사건·별도 Python 재개·274 source/종료0/정리로 수용했다.
+다음은 실제 등록 농장/SCRAM의 큰 묶음 두 번·재개/권리·비용을 관측하는 단계다.
 8초 RK4/300초 출력·현재 bytes/HMAC·입력/권리·최종 HEAD 경계와 별도 Python 복원을 유지하고,
 조밀한 출력/사건의 자원 경계와 실제 저장/재개 비용 증거 뒤 전체 등록 실행으로 진행한다.
 전체166일 실행 예산은 남은 누적 비용 증거 뒤 고정하며 초기3회로 완료 시간을 외삽하지 않는다.

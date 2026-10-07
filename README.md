@@ -30,7 +30,10 @@ candidate 현재 bytes 검사 뒤 마지막 입력/권한 검사와 atomic HEAD 
 비계보 checkpoint 전체·2page/954,171bytes·268 source/정리로 수용했습니다. 제품128전이 제한은 유지했습니다.
 [새 prefix 공개 연결](research/crop-cycle-calculation-prefix-api-bridge-implementation-20261008.md)도 실제 RED 뒤 수정·
 API193개/웹720개/Chromium15개·타입/빌드·새34 JSON/원량/UTC·270 source/종료0/정리로 로컬 수용했습니다.
-다음은 출력/사건128개·기존 bytes 한도를 지키는 계산 묶음 정책과 전체 실행 예산이며 전체166일 계산/DB/API/3D는 후속입니다.
+[제한된 계산 묶음](research/crop-cycle-calculation-bounded-chunks-implementation-20261008.md)도 고유177개·
+실제4,096전이 저장/3,990걸음/원105출력·2사건·별도 Python 재개·274 source/종료0/정리로 로컬 수용했습니다.
+요청4,096전이/실효128원경계·기존 bytes 한도·명시 서버v3이며 원 수식/격자/현재 권리를 유지합니다.
+다음은 실제 등록 농장/SCRAM의 큰 묶음 비용과 전체 실행 예산이며 전체166일 계산/DB/API/3D는 후속입니다.
 `f2dc10f`의 [CI 종료 상태](research/artifacts/full166-calendar-registration-ci-terminal-20261008.json)는
 C0/웹/작성 PG/앱 성공, Backend 분할0/4/5 성공·1/2/3/집계 실패입니다.
 [Python·원격 PG 시험 수정](research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했으며 hosted 수용은 별도입니다.

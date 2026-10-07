@@ -121,8 +121,16 @@ def _header(context,notice_raw):
 def _budget(value):
     _need(type(value) is dict and set(value)=={'max_steps','max_transitions'}
           and type(value['max_steps']) is int and 1<=value['max_steps']<=10000
-          and type(value['max_transitions']) is int and 1<=value['max_transitions']<=128,
+          and type(value['max_transitions']) is int and 1<=value['max_transitions']<=4096,
           'RESOURCE_HOLD: bounded artifact chunk budget required')
+
+
+def _chunk_budget(context,checkpoint,budget):
+    _budget(budget)
+    last=min(checkpoint['boundary_cursor']+LIMITS['page_records'],context.boundary_count)-1
+    remaining=engine._boundary(context,last)['steps']+last+1-checkpoint['sequence']
+    _need(remaining>0,'RESOURCE_HOLD: original boundary budget required')
+    return {**budget,'max_transitions':min(budget['max_transitions'],remaining)}
 
 
 def _vector(sample):
@@ -199,6 +207,7 @@ def _confirmed_checkpoint(context,old,meta,records,prefixes):
 
 def _validate_delta(context,old,meta,records,budget):
     _budget(budget);_need(type(meta) is dict,'ARTIFACT_HOLD: result object required')
+    _need(budget==_chunk_budget(context,old,budget),'RESOURCE_HOLD: effective original boundary budget required')
     held = meta.get('status')=='hold'
     keys = {'status','scope','steps','planned_steps','output_start','event_start','checkpoint'}
     _need(type(meta) is dict and set(meta)==keys|({'hold','last_confirmed'} if held else set())
@@ -207,7 +216,7 @@ def _validate_delta(context,old,meta,records,budget):
           and meta['output_start']==old['output_cursor'] and meta['event_start']==old['event_cursor']
           and type(meta['steps']) is int and old['steps']<=meta['steps']<=old['steps']+budget['max_steps']
           and meta['planned_steps']==context.planned_steps,'ARTIFACT_HOLD: execution delta position mismatch')
-    _need(all(type(v) is list and len(v)<=budget['max_transitions'] for v in records.values()),
+    _need(all(type(v) is list and len(v)<=min(budget['max_transitions'],LIMITS['page_records']) for v in records.values()),
           'RESOURCE_HOLD: bounded delta records required')
     prefixes = {'output_prefix_sha256':old['output_prefix_sha256'],'event_prefix_sha256':old['event_prefix_sha256'],
                 'output_cursor':old['output_cursor'],'event_cursor':old['event_cursor']}
@@ -416,6 +425,7 @@ class ArtifactWriter(_Files):
         _need(len(self._hashes)<LIMITS['commits'],'RESOURCE_HOLD: commit budget exceeded')
         head,head_hash=self._head();_need(head_hash==self.head_sha256,'ARTIFACT_HOLD: changed HEAD')
         self._usage()
+        budget=_chunk_budget(self.context,self._checkpoint,budget)
         result=engine.advance_chunk(self.context,self._checkpoint,budget)
         _need(result['manifest']==self.context.manifest,'ARTIFACT_HOLD: execution manifest mismatch')
         records={k:result[k] for k in ('samples','events')}

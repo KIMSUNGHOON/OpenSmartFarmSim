@@ -766,6 +766,19 @@
             새 실제 소유34 JSON/원 기록 보존·API/route/OpenAPI193개·웹720개·Chromium15개, 고유928개·타입/빌드 통과.
             원량/UTC·270 source/종료0/정리를 확인했다. 전체166일/실제 native/G0–G4는 별도다.
             다음은128행/사건·기존 bytes 한도와 현재 입력/권리를 유지하는 계산 묶음 정책이다.
+          - [x] **`crop-cycle-calculation-bounded-chunks`** — 로컬 합성 소프트웨어 수용; 선행: 가능성·prefix 공개 연결 수용.
+            [개발 계약](../contracts/crop-cycle-calculation-bounded-chunks-v1.md): 요청4,096전이/실효128원경계,
+            기존 행/bytes·8초RK4/300초출력·현재 입력/권리/HEAD·독립 QC와 명시 서버v3를 검증한다.
+            [10월8일 수용](../research/crop-cycle-calculation-bounded-chunks-implementation-20261008.md):
+            실제 writer RED1실패 뒤 새20개/기존155개/실제 저장1개/공개 투영1개, 고유177개를 통과했다.
+            실제4,096전이/3,990걸음·원105출력/2사건·별도 Python 재개·274 source/종료0/정리를 확인했다.
+            마지막 source pin 보강4개 재검사는 기존155개와 중복이다. 원 수식/격자/행/bytes·권리를 유지했다.
+            실제 등록 농장의 큰 묶음 비용·전체166일 저장/API/3D 부모는 별도다.
+          - [ ] **`crop-cycle-calculation-registered-chunk-cost`** — 다음 단계; 선행: 제한된 계산 묶음 수용.
+            실제 등록 농장/SCRAM에서 전체 입력의4,096전이 두 번과 별도 프로세스 재개를 관측한다.
+            원 전체 순수 값/행·현재 입력/권리 철회·v2 이력 보존·RHS/검증/bytes/HMAC 비용·
+            PID/source/DB/역할/비밀/PG 정리를 확인한다. 실제 비용 뒤 전체 실행 예산을 고정한다.
+            이 관측만으로 전체166일 terminal/DB/API/3D·관문 부모를 체크하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

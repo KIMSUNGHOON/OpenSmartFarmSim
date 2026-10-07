@@ -187,7 +187,7 @@ def test_head_publication_failure_closes_and_resumes_actual_prefix(tmp_path, whe
             assert reader.summary['status'] == 'completed'
 
 
-@pytest.mark.parametrize('budget', [{}, None, {'max_steps': True, 'max_transitions': 1}, {'max_steps': 1, 'max_transitions': 129}])
+@pytest.mark.parametrize('budget', [{}, None, {'max_steps': True, 'max_transitions': 1}, {'max_steps': 1, 'max_transitions': 4097}])
 def test_invalid_budget_rejects_before_rhs_and_closes_handle(tmp_path, budget, monkeypatch):
     ctx, _ = context(tmp_path)
     with ctx:

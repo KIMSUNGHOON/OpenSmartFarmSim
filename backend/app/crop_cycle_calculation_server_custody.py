@@ -21,13 +21,13 @@ from .crop_result_store import _name
 from .job_store import _open_directory_nofollow
 from .thermal_run_store import _canonical
 
-VERSION='crop-cycle-verified-server-custody-v2'
-INTENT_VERSION='crop-cycle-verified-server-intent-v2'
-PROOF_VERSION='crop-cycle-verified-server-head-v2'
+VERSION='crop-cycle-verified-server-custody-v3'
+INTENT_VERSION='crop-cycle-verified-server-intent-v3'
+PROOF_VERSION='crop-cycle-verified-server-head-v3'
 SCOPE='synthetic_crop_math_only'
-INTENT_DOMAIN=b'ossf-crop-cycle-verified-server-intent-v2\0'
-PROOF_DOMAIN=b'ossf-crop-cycle-verified-server-head-v2\0'
-IDENTITY_DOMAIN=b'ossf-crop-cycle-verified-server-identity-v2\0'
+INTENT_DOMAIN=b'ossf-crop-cycle-verified-server-intent-v3\0'
+PROOF_DOMAIN=b'ossf-crop-cycle-verified-server-head-v3\0'
+IDENTITY_DOMAIN=b'ossf-crop-cycle-verified-server-identity-v3\0'
 LIMITS={'intent_bytes':192*1024,'proof_bytes':8192,'progress_bytes':128*1024,
     'proof_directory_bytes':128*1024*1024,'proof_files':32770,
     'intent_directory_bytes':640*1024*1024,'intent_files':98310,
