@@ -487,13 +487,21 @@
         [계산 경로 직접 관측](../research/crop-cycle-farm-input-cost-observation-20261007.md)은 같은166일 입력의
         원 `_input` 두 호출22.05/22.22초·같은 root/plan·RHS0/FD 정리를 확인했다. 조회 개선과 별도인 계산 경로다.
         첫 변경 전에 계산 factory/판본·과거 입력/결과 보존 계약과 한 단계4개 이내 core파일을 확정한다.
+        [구현 계약](../contracts/crop-cycle-calculation-context-v1.md)에 전용 factory/실행 API·닫힌 provenance/새 판본,
+        원/새 정체성과 물리값 대사·진입/반환 전 현재 bytes·수용 matrix를 고정했다. 구현 수용은 아직 아니다.
         수용: 최초 실제 전체 QC/context 검사의 서버 증명을 현재 원 bytes와 결속한 공식 계산 factory,
         원 물리값/UTC·121상태·seed/clock/counter/checkpoint·수지/hold와 별도 Python 복원 대사,
         변조·잘못된 코드/프로필/키 거부·bounded cache/FD/활성 RSS/자원 정리.
         원 private token/캐시의 외부 주입과 조회 전용 타입의 계산 허용을 거부한다.
         코드/normalization/context 변경은 새 판본으로 기록하고 과거 원본·재생 증거를 유지한다.
         전체 RHS 성공은 이 작은 개발의 추가 착수 조건이 아니며, 실행 중 소스는 종료/증거 보존 전 변경하지 않는다.
-      - [ ] **`crop-cycle-calculation-farm-binding`** — 선행 계산 문맥의 작은 수용과 기존 농장/custody 계약.
+      - [ ] **`crop-cycle-calculation-artifact`** — 선행 위 계산 문맥의 작은 수용.
+        [현재 감사](../research/crop-cycle-calculation-context-inspection-20261007.md)에서 기존 artifact가 원 exact context만
+        받음을 확인했다. 새 판본의 writer/reader·checkpoint/manifest 경계를3–4개 core파일로 먼저 계약한다.
+        수용: 작은 연속/재개 결과의 불변 sample/event·UTC/121상태/수지·명시 판본/한도·원자 게시,
+        별도 Python 읽기/QC·변조/판본 혼합 거부·조회 RHS0·FD/파일 정리와 원 artifact/과거 bytes 보존.
+        이는 실제 전체166일·farm/DB/HTTPS/3D 수용이 아니며 해당 부모의 증거는 유지한다.
+      - [ ] **`crop-cycle-calculation-farm-binding`** — 선행 계산 문맥/새 판본 artifact의 작은 수용과 기존 농장/custody 계약.
         새 계산 판본의 현재 tenant/Scope·등록·입력 권리를 계산 전후와 저장 commit에 결속한다.
         수용: 실제 SCRAM의 작은 연속/중단 복원·원값/UTC·활성 RSS 및 현재 계산/표시 권리·등록/계정 철회,
         입력/DB/trace 변조·판본 혼합 거부·FD/DB/역할/비밀/PG 정리와 비용 분해.

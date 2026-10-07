@@ -214,9 +214,12 @@ child SIGKILL(-9)/원123걸음 checkpoint 재개·연속760걸음/21시점/2사�
 
 [계산 경로 직접 관측](../research/crop-cycle-farm-input-cost-observation-20261007.md)은 원 `_input`만
 같은166일 입력에서22.05/22.22초로 실행했다. 현재 조회 수용은 이 반복 계산 검사를 바꾸지 않았다.
-누락된 구현 의존성을 `crop-cycle-calculation-input-context` → `crop-cycle-calculation-farm-binding`으로 나눈다.
-첫 단계는 공식 계산 factory/새 판본·원 물리값/UTC/checkpoint·수지/hold·변조 거부·별도 복원이다.
-그 다음 실제 SCRAM의 현재 계산/표시 권리·등록/Scope 전후 검사와 원 custody 결속을 검증한다.
+누락된 구현 의존성을 `crop-cycle-calculation-input-context` → `crop-cycle-calculation-artifact`
+→ `crop-cycle-calculation-farm-binding`으로 나눈다. [현재 코드 감사](../research/crop-cycle-calculation-context-inspection-20261007.md)에서
+기존 artifact의 exact 원 context 의존성을 확인했다. 첫 단계는 [4개 이내 core파일 계약](../contracts/crop-cycle-calculation-context-v1.md)의
+공식 factory/새 판본·원 물리값/UTC/checkpoint·수지/hold·변조 거부·별도 복원이다.
+새 판본 writer/reader의 불변 저장·별도 Python/QC·조회 RHS0을 확인한 뒤
+실제 SCRAM의 현재 계산/표시 권리·등록/Scope 전후 검사와 custody 결속을 검증한다.
 입력 증명/감독자 수용 뒤 착수할 수 있지만55개 소스 수정은 실제 실행 종료·증거 보존을 기다린다.
 전체 RHS 성공을 작은 개발의 추가 착수 조건으로 삼지 않으며, 전체 replay-restore 게시/부하 수용에는
 기존 전체 RHS와 실제 등록 계산·저장/API/동일 UTC3D 증거를 모두 유지한다.
@@ -364,6 +367,8 @@ flowchart TD
   BINPUT --> BCALCCTX["crop-cycle-calculation-input-context: 공식 계산 factory/판본"]
   BDURABLE --> BCALCCTX
   BCALCCTX --> BCALCBIND["crop-cycle-calculation-farm-binding: 현재 권리·등록/custody"]
+  BCALCCTX --> BCALCART["crop-cycle-calculation-artifact: 새 판본 writer/reader·원량"]
+  BCALCART --> BCALCBIND
   BCALCBIND --> BRESTORE
   BRESTORE --> BURDEN
   BURDEN --> CAP
