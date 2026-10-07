@@ -1,0 +1,95 @@
+{
+  "actual_crop_runs": 0,
+  "ci": {
+    "bytes": 38396,
+    "deselected": 3797,
+    "file_count": 6,
+    "head": "2daa99ff825638ac7b95c714438f0f588a029b13",
+    "job_id": 112641108214,
+    "passed": 541,
+    "path_list_abbreviated": true,
+    "pytest_seconds": 1926.68,
+    "run_id": 37574780524,
+    "sha256": "5c3aaf094b57c00da9010be1b9b05f3cc41baf6a8550172c2d48e720a87f82af",
+    "teardown_errors": 1
+  },
+  "claim_scope": "software fixture cleanup only; no crop, gate or full hosted acceptance",
+  "diagnostic_limitations": [
+    "Initial ordered ast.walk SQL comparison failed because nesting changed traversal order; unchanged original cleanup subtree and SQL call multiset verified afterward.",
+    "Initial lookup of all CI passfile paths failed because pytest abbreviates its repr; local red records all six owned paths directly."
+  ],
+  "gate_status": "not_assessed",
+  "independent_domestic_datasets": 0,
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": null,
+    "record_sha256_no_lf": "8551030834537e675713314d739f9ffac895b862b46f983c08af4d9580fd38a8",
+    "timestamp": "2026-10-07T07:08:57.827Z"
+  },
+  "owner_after_sha256": "99498bc5b792d0c0c83e161ee7b2d54e882406b9baac5531973c47a362820a3f",
+  "owner_before_sha256": "5d3588d7fe79d5131a5b927c7d201c1feb8f5c46c8b8a5089a8372754702bfe7",
+  "owner_file": "backend/tests/test_planning_roles.py",
+  "private_evidence_sha256": {
+    "before.json": "16b6c5dac54b858c9ace389551b17e625e751c050cea0aabf40c0db004c3a426",
+    "green-command.json": "a1d1874fd16f9c53c260c5bdfd47fc29e122afdc52de5dafcc4c1c28d52187ab",
+    "green-query-cleanup.json": "70b38aada9d3b7bdf75f039619c2e78ed4e49423a9aaf0155ca2c7a43a1a8271",
+    "green-result.json": "80fb9129b4d0e75aa888017017b027fd72a184a39f7c3c8f0c7188a6171caa7f",
+    "hosted-and-green-review.json": "f7cef7150e7b050f341af41d33833db52fa5c493f9233f8770cbd477d9c5dba2",
+    "red-command.json": "d59593722d765f1847607e91fbb2ea0b903e5225df7584e88555a613df40e228",
+    "red-owned-secret-cleanup.json": "7b0c7e8f10816119d40a41467f3441c747056ac1d1e567d13a7ee161dca5926a",
+    "red-result.json": "df9f5c3824aa68bb99e103587a84a649119b9c0551097ba47b96bba100a9cf2a",
+    "run.py": "bf39b1116b13826a96120b7a2a6296a14c57a276791f6015c7c397251b4d6f5a",
+    "source-review.json": "1e3eda16e8b2646afb8088e1a6a46a79e108bd5d152e38286acaa729a9241662"
+  },
+  "product_inputs_adopted": 0,
+  "recorded_at_utc": "2026-10-07T07:14:32.555322+00:00",
+  "recursive_cli_invocations": 0,
+  "reference_version": "planning-passfile-cleanup-reference-v1",
+  "unchanged_source_sha256": {
+    "backend/tests/login_database.py": "4174c3309593dcbbfee1ec54ee91ead7927c901e28ccd826385fb8af115bcea8",
+    "backend/tests/test_cli_temporal_precision.py": "f452134fa2d03f13f4b0356b477e8d291f95d9eee932a545701bc2c589b45820",
+    "backend/tests/test_crop_cycle_current_query.py": "da46bb914cd8b61ef445ce62fa0ec0bd0aad41a41576b2b5304f9bff6ae56af8",
+    "backend/tests/test_crop_cycle_query_tls.py": "2a2d7dc9b2af27a623bbd9c8d82f250bd89fdec2c54e8916179be08518470a8b"
+  },
+  "verification": {
+    "database": "PostgreSQL 16.15, disposable; real runtime SCRAM",
+    "db_failure_injection_run": false,
+    "existing_test_bodies_unchanged": true,
+    "fixed_head_hosted_acceptance": false,
+    "green": {
+      "clusters_stopped_and_removed": 2,
+      "log_sha256": "34347112f8d7647cfa1cca225535b4b56c84367f72455d4c4fb4374ec7d8f2a0",
+      "passed": 4,
+      "passfiles_after": 0,
+      "pytest_seconds": 65.98,
+      "returncode": 0,
+      "roles_after": 0,
+      "schemas_after": 0,
+      "teardown_errors": 0,
+      "wrapper_seconds": 66.52905628900044
+    },
+    "live_experiment_source_pins_preserved": 55,
+    "local_tls_body_rerun": false,
+    "nice": 19,
+    "nodes": [
+      "tests/test_cli_temporal_precision.py::test_signed_server_microsecond_context_is_usable_without_truncation",
+      "tests/test_crop_cycle_current_query.py::test_source_withdrawal_inside_final_input_rights_review_cannot_return"
+    ],
+    "original_cleanup_sql_subtree_unchanged": true,
+    "query_and_tls_file_bytes_unchanged": true,
+    "red": {
+      "clusters_stopped_and_removed": 2,
+      "log_sha256": "5d0932168eed86abc34def3ad132ee1ba65e58a57391f20566a9f5f7459a7c20",
+      "owned_passfiles_after_explicit_cleanup": 0,
+      "passed": 4,
+      "passfiles_after": 6,
+      "pytest_seconds": 64.52,
+      "returncode": 1,
+      "teardown_errors": 1,
+      "wrapper_seconds": 65.12649335000242
+    },
+    "same_order_same_nodes": true,
+    "whole_backend_rerun": false
+  }
+}

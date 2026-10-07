@@ -37,6 +37,7 @@ def scope(login_database, tmp_path):
         conn.execute(sql.SQL("ALTER SCHEMA {} OWNER TO {}").format(sql.Identifier(policy.schema), sql.Identifier(policy.owner)))
         conn.execute(sql.SQL("ALTER TABLE {}.planning_events OWNER TO {}").format(sql.Identifier(policy.schema), sql.Identifier(policy.owner)))
         conn.execute(sql.SQL("ALTER FUNCTION {}.reject_planning_change() OWNER TO {}").format(sql.Identifier(policy.schema), sql.Identifier(policy.owner)))
+    passfiles = []
     try:
         with admin.connect() as conn:
             install_planning_roles(conn, policy)
@@ -45,6 +46,7 @@ def scope(login_database, tmp_path):
             # Self-authored test credential, kept only in a private temporary passfile.
             password = uuid4().hex + uuid4().hex
             passfile = tmp_path / ("planning-" + kind + ".pgpass")
+            passfiles.append(passfile)
             passfile.write_text(f"{login_database['host']}:{login_database['port']}:{login_database['database']}:{role}:{password}\n")
             passfile.chmod(0o600)
             with admin.connect() as conn:
@@ -59,15 +61,19 @@ def scope(login_database, tmp_path):
                     runtime_identity=(policy, kind)) for kind, dsn in dsns.items()}
         yield admin, policy, stores, dsns
     finally:
-        with admin.connect() as conn:
-            for role in policy.roles.values():
-                if conn.execute("SELECT 1 FROM pg_roles WHERE rolname=%s", (role,)).fetchone():
-                    conn.execute(sql.SQL("DROP OWNED BY {}").format(sql.Identifier(role)))
-                    conn.execute(sql.SQL("DROP ROLE {}").format(sql.Identifier(role)))
-            conn.execute(sql.SQL("REASSIGN OWNED BY {} TO {}").format(sql.Identifier(policy.owner), sql.Identifier(original)))
-            conn.execute(sql.SQL("DROP OWNED BY {}").format(sql.Identifier(policy.owner)))
-            conn.execute(sql.SQL("DROP ROLE {}").format(sql.Identifier(policy.owner)))
-            conn.execute(sql.SQL("DROP SCHEMA {} CASCADE").format(sql.Identifier(policy.schema)))
+        try:
+            with admin.connect() as conn:
+                for role in policy.roles.values():
+                    if conn.execute("SELECT 1 FROM pg_roles WHERE rolname=%s", (role,)).fetchone():
+                        conn.execute(sql.SQL("DROP OWNED BY {}").format(sql.Identifier(role)))
+                        conn.execute(sql.SQL("DROP ROLE {}").format(sql.Identifier(role)))
+                conn.execute(sql.SQL("REASSIGN OWNED BY {} TO {}").format(sql.Identifier(policy.owner), sql.Identifier(original)))
+                conn.execute(sql.SQL("DROP OWNED BY {}").format(sql.Identifier(policy.owner)))
+                conn.execute(sql.SQL("DROP ROLE {}").format(sql.Identifier(policy.owner)))
+                conn.execute(sql.SQL("DROP SCHEMA {} CASCADE").format(sql.Identifier(policy.schema)))
+        finally:
+            for passfile in passfiles:
+                passfile.unlink(missing_ok=True)
 
 
 def test_real_writer_and_readonly_login_verify_durable_context(scope):

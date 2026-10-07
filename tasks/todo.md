@@ -471,6 +471,10 @@
           [소유 시험 정리 수정](../research/application-collection-passfile-cleanup-20261007.md)은 실제 SCRAM의
           동일 순서2개/75.53초·잔존 비밀/스키마/역할0으로 로컬 수용했다. 조회8개/정리 검사·원 수식은 그대로이며
           수정의 hosted CI와 전체 backend 수용은 별도다.
+          같은 CI 분할4도541본문 통과 뒤 계획 로그인 fixture가 남긴6개 비밀번호 파일로 종료 정리1오류였다.
+          [소유 fixture 수정](../research/planning-passfile-cleanup-20261007.md)은 실제 SCRAM의 동일 순서
+          4통과/65.98초·전체 비밀/스키마/역할0·두 PG 정리로 로컬 수용했다. 기존 조회 검사/TLS·원55개
+          source는 보존했으며 전체 backend 재실행과 수정의 hosted 수용은 별도다.
         - [x] **`crop-cycle-query-runtime`** — 선행 authority; API route/create_app/runtime의 명시적
           조회 선택·집중 시험·계약. 기본 기존 경로를 유지하고 현재 조회 타입/원 store·농장 authority를 대사한다.
           실제 SCRAM/TLS의 원 모든 작은 시점/사건·전체 응답30초/2MiB·투영 후 철회·재시작·거부/정리를
