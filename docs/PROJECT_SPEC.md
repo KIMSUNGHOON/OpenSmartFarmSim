@@ -256,6 +256,10 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 원 이력 공존/변조/정리로 로컬 수용했다. 두 DB 자식과 authority/server 증거로 작은 DB·농장 연결 부모도 수용했다.
 get7.898755초와 다른 실행39.668745초를 모두 기록했다. 전체 등록 누적 비용·새 proof/현재 조회·
 공개 판본/operator-config/API runtime 연결과 HTTP30초/2MiB·전체166일/동일 UTC3D는 후속이다.
+[새 조회 구현 순서](../contracts/crop-cycle-calculation-query-v1.md)는 result evidence → reader → 현재 query →
+공개 판본/runtime → client/동일 UTC3D다. 실제 등록 prefix 비용 측정은 독립 병행하며 전체 수용에는 둘 다 필요하다.
+[원166일 증명 실측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은6,111,094bytes/8MiB·
+별도 Python 검증1.589495초와 선택 page를 확인한 순수 관측이며 새 판본/농장·HTTP 증거는 아니다.
 새 계산 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존하며 실행과 병행하고,
 동결 소스 변경은 실제 실행 종료·증거 보존 뒤 진행한다.
 [확정 과거 결과 비용](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은

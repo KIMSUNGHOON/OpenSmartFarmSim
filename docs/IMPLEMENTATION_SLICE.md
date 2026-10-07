@@ -324,6 +324,9 @@ SQL 형식 fixture와 signed 등록 계산 결과를 구분하며 다음은 새 
 현재 권리/원자 게시·원 signed 이력 공존/변조·정리로 작은 DB와 농장 연결 부모도 완료했다.
 get7.898755초와 다른 실행39.668745초는 내부 관측이며 HTTP30초 수용이 아니다.
 전체 등록 prefix 비용·새 proof/현재 조회·공개 판본/operator-config/API runtime 연결·전체166일/3D는 후속이다.
+그 [누락된 조회 의존성](../contracts/crop-cycle-calculation-query-v1.md)을 evidence → reader → current query →
+API/runtime → client/동일 UTC3D와 독립 prefix 비용 측정으로 작업화했다.
+다음 evidence의4 core파일/수용 기준·2–4집중시간 잠정을 고정했으며 관문/전체 날짜와 구분한다.
 새 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존해 병행한다.
 동결 소스 변경은 실제 실행 종료·증거 보존 뒤이며,
 첫 수용은 원 물리값/UTC·121상태/checkpoint·수지/hold·변조 거부와 별도 프로세스 복원이다.

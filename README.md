@@ -33,6 +33,9 @@ SQL 형식 시험 metadata를 저장한 단계입니다. 후속 [서명 결과 D
 순수81개·실제 SCRAM 고유15개, 고유96개 분할·원량/실제7→120재개·현재 권리/rollback·원 signed 이력 공존·정리로 수용했습니다.
 작은 DB·농장 연결 부모도 완료했습니다. get39.668745초 관측은 HTTP30초 미수용 근거이며,
 다음은 전체 등록 비용과 새 proof/현재 조회·공개 판본/API runtime·같은 UTC3D 연결입니다.
+[후속 구현 순서/다음 수용 기준](contracts/crop-cycle-calculation-query-v1.md)을 고정했습니다.
+[전체 원 결과 증명 관측](research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은6.11MB/8MiB·
+발행175.7초·별도 Python 검증1.59초·선택 page1.7–2.0초/정리를 확인했습니다. 농장/HTTP/3D 수용은 별도입니다.
 현재 `8d111f1` CI는 다른4workflow 성공이며 Backend 분할0은
 [권한 서버 시험의 복사 파일 정리](research/application-authority-passfile-cleanup-20261007.md) 실패입니다.
 같은 순서 실제 DB 재현2통과/1정리 오류 뒤 수정2통과·정리를 확인했고 수정 판본 hosted 수용은 별도입니다.

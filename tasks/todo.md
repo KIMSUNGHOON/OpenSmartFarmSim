@@ -570,6 +570,23 @@
             원 signed DB/11파일 공존·실제 DB3/파일4 변조·FD/PG/DB/비밀 정리를 확인했다.
             get7.898755초와 다른 실행39.668745초를 모두 기록했다. HTTP30초와 전체 registered prefix는 미수용이다.
             schema와 publication 두 자식을 갖춰 작은 DB 부모도 수용하며 새 실제 작물 Run/관문은0/미평가다.
+      - [ ] **`crop-cycle-calculation-result-evidence`** — 선행 새 artifact·작은 signed DB/농장 결속 수용.
+        [새 조회 계약](../contracts/crop-cycle-calculation-query-v1.md)의4 core파일·별도 판본으로 원 전체 수지 검증 증명과
+        현재 bytes/inode/입력 proof·source 대사를 연결한다. 실제 작은 정상/hold·변조/판본 혼합 거부·
+        별도 Python의 parser/context/QC/RHS0·원량/UTC/121상태·8MiB/FD/프로세스 정리 뒤 체크한다.
+      - [ ] **`crop-cycle-calculation-result-read-context`** — 선행 위 증명; 새 조회 module/test/계약3 core파일.
+        원 manifest/context provenance와 bounded sample64/event8·2MiB, 현재 bytes·사본/변조/FD/cache를 검증한다.
+      - [ ] **`crop-cycle-calculation-current-query`** — 선행 위 reader·새 signed DB/현재 농장 결속.
+        새 현재 query/module/test/계약3 core파일로 실제 SCRAM farm/Scope/등록/입력 권리·DB HMAC·
+        원 선택/전체 부모 server proof/HEAD를 전후 대사한다. 원 값/철회/변조/다른 판본과 정리 뒤 수용한다.
+      - [ ] **`crop-cycle-calculation-api-runtime`** — 선행 위 현재 query.
+        새 공개 판본/명시 operator-config·factory/route의 닫힌 형식을 작은 자식으로 계약한 뒤 구현한다.
+        실제 HTTPS 전체 본문30초/2MiB·투영 후 철회·현재 인증/오류/기존 응답 회귀와 정리가 필요하다.
+      - [ ] **`crop-cycle-calculation-client-view`** — 선행 위 실제 API/runtime.
+        새 result ID/manifest·원량/UTC를 보존하는 client/표/3D 선택을 연결하고 실제 PG/TLS/WebGL로 대사한다.
+      - [ ] **`crop-cycle-calculation-prefix-cost`** — 선행 full-rhs와 작은 새 계산 농장 결속; 읽기 개발과 병행한다.
+        실제 등록 입력의 bounded advance/reopen·수지/서명·권리·저장 누적 비용을 분리하고 원 한도·원량을 유지한다.
+        실측 결함의 작은 수정/검증과 전체 등록 실행 비용 증거 없이 replay-restore/부하 부모를 체크하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

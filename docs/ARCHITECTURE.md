@@ -134,6 +134,9 @@ exact 새 서버/context·9필드 binding과 별도 HMAC/ID/table을 결속한�
 구형 exact artifact/context/store·ID/manifest를 받으므로 새 판본 선택 연결이 필요하다.
 원 proof/서명/행을 바꾸지 않고 새 결과의 proof/현재 조회·projection/operator-config/API runtime을 검증한다.
 전체 등록 prefix/저장/API/같은 UTC3D와 관문은 별도다.
+[새 판본 조회 계약](../contracts/crop-cycle-calculation-query-v1.md)에 따라 현재 공식 계산 문맥/입력 proof와
+원 validated context를 구분한 증명 → 조회 타입 → 현재 farm/서명 → 공개 판본/runtime 순서로 연결한다.
+QC 발행은 HTTP 밖이며 조회에서 원 parser/context/QC/RHS를 재실행하지 않는다.
 
 ## 3D 재생 계약
 

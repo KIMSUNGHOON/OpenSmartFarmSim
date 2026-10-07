@@ -285,6 +285,15 @@ authority+server+DB로 작은 calculation-farm-binding 부모도 완료했다. �
 내부 get은7.898755초와 다른 실행39.668745초를 모두 관측했으며 HTTP30초 수용이 아니다.
 다음은 누적 비용 측정과 새 결과 proof/현재 조회·공개 판본/operator-config/API runtime 연결이다.
 publication1.5–3.5집중시간 잠정은 이 실적으로 대체하며 전체 완료일은 다음 실제 측정 뒤 갱신한다.
+[새 조회 의존성 계약](../contracts/crop-cycle-calculation-query-v1.md)은 result evidence → read context →
+현재 farm/DB query → 공개 판본/operator-config/API runtime → client/같은 UTC3D의 누락된 구현 작업을 고정한다.
+별도 등록 prefix 비용 측정은 읽기 개발과 병행하며 두 경로 모두 전체 replay-restore 수용의 선행이다.
+다음 evidence는4 core파일·별도 증명 판본, 공식 context/원 QC 발행과 parser/QC/RHS0인 별도 Python 조회,
+정상/hold·변조·원량·한도/정리를 수용 기준으로 한다.2–4집중시간/10월7–8일 KST 잠정이며 전체 완료일은 아니다.
+[실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
+6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
+선택 시작/중간/끝129시점/5사건·page 최대2.035086초와 source/FD/PID 정리를 확인했다.
+새 판본 증명·farm/DB/HTTP/3D·누적 계산 비용과 전체 부모는 이 관측으로 수용하지 않는다.
 전체 RHS 성공을 작은 개발의 추가 착수 조건으로 삼지 않으며, 전체 replay-restore 게시/부하 수용에는
 기존 전체 RHS와 실제 등록 계산·저장/API/동일 UTC3D 증거를 모두 유지한다.
 관측의44.28초 합을 실제 농장/HTTPS 지연이나 전체 작기 완료 날짜로 외삽하지 않는다.
@@ -441,6 +450,16 @@ flowchart TD
   BCALCPUT --> BCALCDB["crop-cycle-calculation-db-custody: 두 자식 수용 뒤 부모"]
   BCALCDB --> BCALCBIND
   BCALCBIND --> BRESTORE
+  BCALCBIND --> BCALCRE["crop-cycle-calculation-result-evidence: 새 context/artifact QC 증명"]
+  BCALCRE --> BCALCRCTX["crop-cycle-calculation-result-read-context: 새 원량/조회 타입"]
+  BCALCRCTX --> BCALCQUERY["crop-cycle-calculation-current-query: 현재 farm/DB/원 server trace"]
+  BCALCBIND --> BCALCQUERY
+  BCALCQUERY --> BCALCAPI["crop-cycle-calculation-api-runtime: 새 공개 판본/명시 조립·TLS"]
+  BCALCAPI --> BCALCWEB["crop-cycle-calculation-client-view: 같은 원 ID/UTC·표/3D"]
+  BCALCWEB --> BRESTORE
+  BFULL --> BCALCCOST["crop-cycle-calculation-prefix-cost: 실제 등록 누적 비용"]
+  BCALCBIND --> BCALCCOST
+  BCALCCOST --> BRESTORE
   BRESTORE --> BURDEN
   BURDEN --> CAP
   SI --> SF["crop-startup-artifact: 새 bytes/재적분 없는 reader"]
