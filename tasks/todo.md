@@ -625,16 +625,18 @@
             현재 source/입력 권리·유효 HMAC 변조/live grant/비활성·FD11→11/81 source·PG/비밀/임시 정리.
             첫 두 TLS 실패·실제 policy/pytest logging FD 원인도 보존했으며 같은 시험 프로세스의 HTTPS 재생성이다.
             작은 API/transport 부모만 수용하며 전체166일/새3D·hosted·품종/관문은 별도다.
-      - [ ] **`application-operator-policy-compatibility`** — 실제 앱 CI `353bffb`/37622257162의 config 필드 거부 보완.
+      - [x] **`application-operator-policy-compatibility`** — 실제 앱 CI `353bffb`/37622257162의 config 필드 거부 보완.
         현재 설정 생성기의 `asdict(policy)`가 구형 loader에 없는 기본 false 필드를 내보낸다.
         서명 dependency인 원 loader를 보존하는 생성 부분의 작은 계약/집중 반례 뒤 실제 Compose로 확인한다.
         새 계산 flag 활성화를 조용히 버리지 않으며 CI 설정/한도 변경 없이 검증한다.
         - [x] 로컬 생성/보호 loader·실제 SCRAM/TLS 회귀 — [고유125개 분할 검증](../research/application-operator-policy-compatibility-20261007.md).
           새10개/기존115개·원 loader/70 source·원 시험 본문·PG/비밀번호/임시 tree 정리를 확인했다.
-        - [ ] 수정 판본의 기존 hosted 세 Compose 경로·정리 — WSL Docker 부재·새 hosted 수용은 별도.
+        - [x] 수정 판본의 기존 hosted 세 Compose 경로·정리 — [10월8일 실제 hosted 영수증](../research/artifacts/application-operator-policy-hosted-reference-20261008.json).
+          `f2dc10f`/37647874843 성공·원 세 source SHA·42개 사건의 경제/수집/권한 경로·재시작/철회/정리 대사.
+          로컬 Docker/새 native/전체 Backend·G0–G4 수용은 별도다. 아래 구형 실패 기록은 보존한다.
           [구형 CI 종료](../research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json): C0/웹/작성 PG 성공·앱/Backend 실패.
           Backend 분할5의21개 설정 실패도 위 생성기/fixture 수정에 포함되고 현재 세 source SHA가 수용 영수증과 같다.
-          이미 통과한 로컬125개를 반복하거나 원 CI/한도를 변경하지 않으며 정상 push 뒤 새 결과를 확인한다.
+          로컬125개를 반복하거나 원 CI/한도를 변경하지 않고 정상 push 판본의 실제 hosted 증거로 수용했다.
       - [ ] **`crop-cycle-calculation-client-view`** — 선행 위 실제 API/runtime.
         [새 웹 계약](../contracts/web-crop-cycle-calculation-replay-v1.md)의 세 자식으로 나눠
         새 result ID/manifest/validation·원량/UTC를 보존하는 client/표/3D 선택을 실제 PG/TLS/WebGL로 대사한다.
@@ -658,6 +660,9 @@
             소유 시험용 HTTP이며 새 PG/TLS/native·전체 웹/166일·품종/관문과 pixel fidelity는 별도다.
         - [ ] **`crop-cycle-calculation-native-browser`** — 선행 위 화면; 실제 소유 PG/보호 loader/TLS/WebGL.
           원량/UTC·관리 사건/hold·단일 요청/조회 RHS0·전체 본문 한도·계정/철회·접근성/복구·PG/비밀/서버 정리.
+          [2 core파일 계약](../contracts/web-crop-cycle-calculation-native-v1.md)과 [실행 시작 기록](../research/web-crop-cycle-calculation-native-started-20261008.md).
+          기록 응답의 새/기존 브라우저·pytest 수집 통과, 실제 세 hold/출력0 준비 뒤25시간 계산 진행 중이다.
+          terminal/실제 HTTP/WebGL/정리까지 확인하기 전 이 자식과 웹 부모를 체크하지 않는다.
       - [ ] **`crop-cycle-calculation-prefix-cost`** — 선행 full-rhs와 작은 새 계산 농장 결속; 읽기 개발과 병행한다.
         실제 등록 입력의 bounded advance/reopen·수지/서명·권리·저장 누적 비용을 분리하고 원 한도·원량을 유지한다.
         실측 결함의 작은 수정/검증과 전체 등록 실행 비용 증거 없이 replay-restore/부하 부모를 체크하지 않는다.

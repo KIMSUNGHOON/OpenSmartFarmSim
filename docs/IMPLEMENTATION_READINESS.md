@@ -19,11 +19,13 @@
 원/새 source·검증 정보/UTC·취소/settlement·104 source/정리로 수용했다. 이 단계의 새 HTTP/브라우저/3D는0이다.
 [새 같은 UTC 화면](../research/web-crop-cycle-calculation-view-20261008.md)도 새 Chromium15개/기존47개·
 웹719개·타입/빌드·원27시점/5사건·113 source/정리로 합성 응답의 화면 부모까지 로컬 수용했다.
-새 실제 등록 PG/TLS/WebGL과 전체 웹 부모는 남아 있다.
+새 실제 등록 PG/TLS/WebGL은 [2 core파일 구현 후 실행 중](../research/web-crop-cycle-calculation-native-started-20261008.md)이다.
+기록 응답의 새/기존 브라우저와 실제 세 사례 준비는 통과했지만 native와 전체 웹 부모는 아직 미수용이다.
 앱 CI의 구형 config 필드 거부는 [고유125개 분할·실제 SCRAM/TLS](../research/application-operator-policy-compatibility-20261007.md)로
-로컬 수정했으며 hosted Compose 수용은 별도다. 구형 판본 CI는
+로컬 수정했으며 [수정 판본의 hosted 세 Compose/정리](../research/artifacts/application-operator-policy-hosted-reference-20261008.json)도
+10월8일 수용했다. 구형 판본 CI는
 [C0/웹/작성 PG 성공·앱/Backend 실패로 종료](../research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json)했다.
-Backend 분할5의 설정 fixture도 기존125개 검증 수정에 포함되며 현재 source SHA가 같다. 수정 판본 hosted 수용은 별도다.
+Backend 분할5의 설정 fixture도 기존125개 검증 수정에 포함되며 현재 source SHA가 같다. 최신 전체 Backend는 아직 진행 중이다.
 전체166일 등록 비용·실제 품종 입력/국내 독립 자료0건과 G0–G4 보류는 유지한다. 아래 날짜별 기록은 당시 상태다.
 
 ## 현재 우선순위와 외부 의존성 — 2026-10-04

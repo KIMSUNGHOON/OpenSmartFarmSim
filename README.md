@@ -5,7 +5,10 @@
 **진행 요약 (2026-10-08 KST):** 합성 생장 계산→실제 DB/HTTPS→같은 UTC3D의25시간 경로는 로컬 수용했고,
 [새 검증 조회의 화면](research/web-crop-cycle-calculation-view-20261008.md)도 Chromium 새15개/기존47개·웹719개·
 타입/빌드·원27시점/5사건으로 로컬 수용했습니다. [새 화면 캡처](research/artifacts/calculation-cycle-desktop.png)는
-소유 시험용 HTTP 응답의 실제 App이며 새 실제 PG/TLS/WebGL 통합은 다음입니다.
+소유 시험용 HTTP 응답의 실제 App입니다. [새 실제 PG/TLS/WebGL 통합은 실행 중](research/web-crop-cycle-calculation-native-started-20261008.md)이며
+준비된 hold/출력0 세 사례와25시간 계산의 부분 진행을 확인했습니다. 종료/수용 증거는 아직 없습니다.
+`f2dc10f`의 C0/웹/작성 PG/앱은 성공했고 Backend는 진행 중입니다.
+[기존 세 Compose 경로와 정리](research/artifacts/application-operator-policy-hosted-reference-20261008.json)는 실제 로그로 수용했습니다.
 구형 CI는 [C0/웹/작성 PG 성공·앱/Backend 실패로 종료](research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json)했고,
 관련 설정 생성기/fixture의 로컬 수정·125개 분할 검증은 완료했습니다. 수정 판본의 hosted 수용은 별도입니다.
 [새166일 전체 RHS](research/crop-cycle-full-rhs-durable-completed-20261007.md)는 종료0·1,816,704걸음·47,809시점/5사건·

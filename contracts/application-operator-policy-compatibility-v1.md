@@ -36,3 +36,10 @@ simulation fixture에는 원 policy를 보존한다. 기존 필드·config 판�
 [실제 보고서](../research/application-operator-policy-compatibility-20261007.md): 새10개/기존115개·고유125개 분할,
 실제 SCRAM/TLS·원 loader/70 source·기존 시험 본문 보존·PG PID/data/비밀번호/임시 tree 정리를 확인했다.
 첫 제품 반례와 새 시험 연결 오류 두 번을 구분해 보존했다. hosted Compose 수용은 아직 보류다.
+
+## Hosted 수용 — 2026-10-08
+
+[실제 terminal 로그 영수증](../research/artifacts/application-operator-policy-hosted-reference-20261008.json)에서
+`f2dc10f`/37647874843의 기존 세 Compose·42개 사건·재시작/현재 권한 거부·정리를 확인했다.
+원 수정 세 source의 hosted/현재 SHA가 같고 위 로컬 검증과 대사해 호환 부모를 완료한다.
+새 native·전체 Backend·작물 G1/G4 수용과 구분한다. 추가 CI 변경/취소/rerun/push는0회다.

@@ -340,7 +340,13 @@ native3–5시간의 **남은 작은 웹 연결4–7집중시간 잠정**이며 
 화면1–2시간 추정은 이 실적으로 대체하고 **새 실제 PG/TLS/WebGL의3–5집중시간 잠정**을 남긴다.
 시험용 HTTP 응답의 화면 수용이며 전체166일 등록/복원·생과/자원/경제·자료/관문·최종 날짜는 별도다.
 구형 CI는 [앱/Backend 실패로 종료](../research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json)했고,
-설정 생성기/fixture의 기존 로컬125개 분할 검증 source와 현재 SHA가 같다. 수정 판본 hosted 수용이 남아 있다.
+설정 생성기/fixture의 기존 로컬125개 분할 검증 source와 현재 SHA가 같다.
+[10월8일 hosted 수용](../research/artifacts/application-operator-policy-hosted-reference-20261008.json)은
+수정 판본 `f2dc10f`의 기존 세 Compose·42개 사건·재시작/철회/정리를 대사했고 호환 작업 부모를 완료했다.
+전체 Backend는 진행 중이며 새 수동 native의 hosted 수용은 아니다.
+[새 native2파일 계약/실행 시작](../research/web-crop-cycle-calculation-native-started-20261008.md)은
+소유 기록 응답의 새/기존 연결·pytest 수집 후 실제 등록 세 사례/현재 조회 준비와25시간 부분 계산을 확인했다.
+같은 실제 실행의 HTTP/WebGL/종료·정리 증거가 다음이다. native/웹 부모와 전체166일 등록 부하는 미수용이다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
 선택 시작/중간/끝129시점/5사건·page 최대2.035086초와 source/FD/PID 정리를 확인했다.

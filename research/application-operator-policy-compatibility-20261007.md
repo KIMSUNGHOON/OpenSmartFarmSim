@@ -1,4 +1,4 @@
-# 기존 앱 설정 생성 호환 — 로컬 검증, hosted 보류
+# 기존 앱 설정 생성 호환 — 로컬 검증과 hosted 수용
 
 2026-10-07 KST. 실제 앱 CI37622257162의 API 시작 실패를 설정 생성 경계에서 수정했다.
 [고정 영수증](artifacts/application-operator-policy-compatibility-reference-20261007.json)은 native
@@ -42,7 +42,7 @@ assembly/chown만 격리했으며 UID·실제 API/Compose 검증으로 세지 �
 원 loader를 포함한 **70 source SHA를 전후 보존**했고 정확성·가독성·경계·보안·비용을 검토했다.
 계약은 시험 뒤 로컬 검증 기록을 추가했으므로 영수증의 계약 SHA는 시험 당시 판본이다.
 
-## 남은 수용과 다음 작물 작업
+## 10월7일 당시 남은 수용과 다음 작물 작업
 
 현재 WSL에는 Docker가 없고 로컬 Compose 실행은0회다. 자동 설치하지 않았다.
 remote `353bffb`는 다른3workflow 성공·앱 실패이고 Backend의 두 분할이 실제 진행 중이다.
@@ -54,3 +54,13 @@ remote `353bffb`는 다른3workflow 성공·앱 실패이고 Backend의 두 분�
 이어 원 loader를 보존하는 별도 operator config → 인증 route/실제 TLS → 같은 UTC3D다.
 전체 등록166일 prefix/복원과 생과/자원·Decimal 경제 연결은 남아 있다.
 실제 품종 입력·국내 독립 자료·작물 Run0건과 G0–G4 `not_assessed`는 유지한다.
+
+## Hosted 수용 — 2026-10-08
+
+정상 push한 `f2dc10f`의 [Application 실행37647874843](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874843)이 성공했다.
+[별도 고정 영수증](artifacts/application-operator-policy-hosted-reference-20261008.json)은 실제 종료 로그의
+세 Compose 단계/42개 사건과 기존 세 수정 source의 hosted/현재 SHA 일치를 기록한다.
+경제 자동 완료, 소유 수집, scoped 조사 권한의 재시작·현재 권한 변화 거부·각 process/volume/credential 정리를 확인했다.
+이 증거와 위 로컬125개 분할 검증을 합쳐 설정 호환 부모만 완료한다.
+새 native/전체 Backend·작물 생산 정확도·실제 제품 CLI/G1/G4 수용은 아니다.
+추가 제품/CI 변경·취소/rerun·push는0회다. 진행 중인 Backend의 terminal과 새 작물 통합은 별도 확인한다.
