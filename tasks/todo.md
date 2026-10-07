@@ -661,8 +661,11 @@
         - [ ] **`crop-cycle-calculation-native-browser`** — 선행 위 화면; 실제 소유 PG/보호 loader/TLS/WebGL.
           원량/UTC·관리 사건/hold·단일 요청/조회 RHS0·전체 본문 한도·계정/철회·접근성/복구·PG/비밀/서버 정리.
           [2 core파일 계약](../contracts/web-crop-cycle-calculation-native-v1.md)과 [실행 시작 기록](../research/web-crop-cycle-calculation-native-started-20261008.md).
-          기록 응답의 새/기존 브라우저·pytest 수집 통과, 실제 세 hold/출력0 준비 뒤25시간 계산 진행 중이다.
+          시작 시 기록 응답의 새/기존 브라우저·pytest 수집과 실제 세 hold/출력0 준비를 통과했다.
           terminal/실제 HTTP/WebGL/정리까지 확인하기 전 이 자식과 웹 부모를 체크하지 않는다.
+          [후속 종료/수정](../research/web-crop-cycle-calculation-native-tls-hold-20261008.md):25시간11,400걸음/27시점/5사건 뒤
+          계산 전에 발급한10분 인증서 만료로1실패/정리. 실제 Vite 만료 거부/새 인증서200을 대사했고,
+          계산 후 발급으로 수정했다. 수정 전체 실행 중이며 native 수용은 아직 없다.
       - [ ] **`crop-cycle-calculation-prefix-cost`** — 선행 full-rhs와 작은 새 계산 농장 결속; 읽기 개발과 병행한다.
         실제 등록 입력의 bounded advance/reopen·수지/서명·권리·저장 누적 비용을 분리하고 원 한도·원량을 유지한다.
         실측 결함의 작은 수정/검증과 전체 등록 실행 비용 증거 없이 replay-restore/부하 부모를 체크하지 않는다.

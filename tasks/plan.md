@@ -347,6 +347,9 @@ native3–5시간의 **남은 작은 웹 연결4–7집중시간 잠정**이며 
 [새 native2파일 계약/실행 시작](../research/web-crop-cycle-calculation-native-started-20261008.md)은
 소유 기록 응답의 새/기존 연결·pytest 수집 후 실제 등록 세 사례/현재 조회 준비와25시간 부분 계산을 확인했다.
 같은 실제 실행의 HTTP/WebGL/종료·정리 증거가 다음이다. native/웹 부모와 전체166일 등록 부하는 미수용이다.
+[후속 실제 종료](../research/web-crop-cycle-calculation-native-tls-hold-20261008.md)는25시간11,400걸음/27시점/5사건을
+완료했지만 시험 인증서 만료로 브라우저 전 실패했다. 원118 source/PG/역할/비밀/프로세스 정리를 확인했다.
+실제 Vite 만료 거부/신규200을 재현해 계산 후 인증서 발급으로 수정했고 새 전체 시험을 실행 중이다.
 [등록 누적 비용3파일 계약](../contracts/crop-cycle-calculation-prefix-cost-v1.md)은 기존 계측기를 재사용해
 원량 대사/작은 SCRAM 기준선 → bounded prefix 곡선 → 전체166일 입력의 실제 등록/누적 관측으로 분해했다.
 설계는 native와 독립적이지만 PG/계산 실험은 순차 실행한다. 작은 측정2.5–5집중시간 잠정은

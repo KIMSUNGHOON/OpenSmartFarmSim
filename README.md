@@ -5,12 +5,12 @@
 **진행 요약 (2026-10-08 KST):** 합성 생장 계산→실제 DB/HTTPS→같은 UTC3D의25시간 경로는 로컬 수용했고,
 [새 검증 조회의 화면](research/web-crop-cycle-calculation-view-20261008.md)도 Chromium 새15개/기존47개·웹719개·
 타입/빌드·원27시점/5사건으로 로컬 수용했습니다. [새 화면 캡처](research/artifacts/calculation-cycle-desktop.png)는
-소유 시험용 HTTP 응답의 실제 App입니다. [새 실제 PG/TLS/WebGL 통합은 실행 중](research/web-crop-cycle-calculation-native-started-20261008.md)이며
-준비된 hold/출력0 세 사례와25시간 계산의 부분 진행을 확인했습니다. 종료/수용 증거는 아직 없습니다.
+소유 시험용 HTTP 응답의 실제 App입니다. [새 native의25시간 계산은 완료했지만 TLS 준비에서 통합 실패](research/web-crop-cycle-calculation-native-tls-hold-20261008.md)했습니다.
+시험 인증서의 발급 시점을 수정하고 실제 Vite 만료/정상 TLS 검사를 통과했습니다. 수정한 전체 시험은 실행 중이며 새 native는 아직 미수용입니다.
 `f2dc10f`의 C0/웹/작성 PG/앱은 성공했고 Backend는 진행 중입니다.
 [기존 세 Compose 경로와 정리](research/artifacts/application-operator-policy-hosted-reference-20261008.json)는 실제 로그로 수용했습니다.
 구형 CI는 [C0/웹/작성 PG 성공·앱/Backend 실패로 종료](research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json)했고,
-관련 설정 생성기/fixture의 로컬 수정·125개 분할 검증은 완료했습니다. 수정 판본의 hosted 수용은 별도입니다.
+관련 설정 생성기/fixture의 로컬 수정·125개 분할 검증과 기존 Compose의 hosted 수용은 완료했습니다. 전체 Backend 수용은 별도입니다.
 [새166일 전체 RHS](research/crop-cycle-full-rhs-durable-completed-20261007.md)는 종료0·1,816,704걸음·47,809시점/5사건·
 원 전체 수지/행 hash·55 source/체크포인트 복원·자원 정리로 로컬 수용했습니다. 전체 등록 농장 DB/API/3D는 후속입니다.
 생과 수확량·물/양분·구매 에너지·작물 결과와 손익의 연결은 남아 있습니다. 실제 품종 입력·국내 독립 검증 자료는

@@ -16,7 +16,9 @@
 [새 같은 UTC 화면](../research/web-crop-cycle-calculation-view-20261008.md)도 새 Chromium15개/기존47개·웹719개·
 타입/빌드·원27시점/5사건·113 source/정리로 합성 공개 응답의 화면 연결까지 로컬 수용했다.
 다음 새 실제 등록 PG/TLS/WebGL 연결은 [2파일 구현 후 실제 실행 중](../research/web-crop-cycle-calculation-native-started-20261008.md)이다.
-기록 응답의 새/기존 브라우저와 실제 세 사례 준비를 통과했지만 native 종료/수용은 아직 없다.
+시작 시 기록 응답의 새/기존 브라우저와 실제 세 사례 준비를 통과했다. native 성공 종료/수용은 아직 없다.
+[후속25시간 계산 완료/TLS 준비 실패](../research/web-crop-cycle-calculation-native-tls-hold-20261008.md)의
+원인과 정리를 확인해 인증서 발급 시점을 수정했다. 수정 전체 시험의 성공 종료/실제3D 수용은 아직 없다.
 [기존 설정 호환의 hosted 세 Compose/정리](../research/artifacts/application-operator-policy-hosted-reference-20261008.json)는 수용했다.
 전체166일 등록 경로/복원과 생산/경제·자료 관문·hosted 수용은 별도다.
 
