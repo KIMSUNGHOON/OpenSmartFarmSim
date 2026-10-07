@@ -238,6 +238,10 @@ CI 대기·원166일/전체 등록 경로·독립 자료 확보 완료일은 이
 실제 참조249.435초·저장758,946bytes/127파일은 이 작은 사례의 관측이다.
 다음은 현재 farm/Scope·계산/표시 권리·등록/custody의 작은 SCRAM 결속이며
 파일/의존성 감사 뒤 해당 단계의 작업 시간 추정을 갱신한다.
+[농장 연결 감사/첫 계약](../contracts/crop-cycle-calculation-farm-binding-v1.md)은 현재 exact 원 reader/binding/custody와
+원 artifact/result ID의 SQL 제약을 대사해 부모를 authority → server custody → DB custody로 나눴다.
+첫 authority는3 core파일·실제 SCRAM 현재 권리/등록·새 context/서버 proof·두 입력/권리 관측·
+별도 프로세스/정리이며1–3집중시간/10월7–8일 KST 잠정이다. 이 자식만으로 계산/서명/DB 부모를 수용하지 않는다.
 전체 RHS 성공을 작은 개발의 추가 착수 조건으로 삼지 않으며, 전체 replay-restore 게시/부하 수용에는
 기존 전체 RHS와 실제 등록 계산·저장/API/동일 UTC3D 증거를 모두 유지한다.
 관측의44.28초 합을 실제 농장/HTTPS 지연이나 전체 작기 완료 날짜로 외삽하지 않는다.
@@ -386,6 +390,11 @@ flowchart TD
   BCALCCTX --> BCALCBIND["crop-cycle-calculation-farm-binding: 현재 권리·등록/custody"]
   BCALCCTX --> BCALCART["crop-cycle-calculation-artifact: 새 판본 writer/reader·원량"]
   BCALCART --> BCALCBIND
+  BCALCCTX --> BCALCAUTH["crop-cycle-calculation-farm-authority: 현재 등록/권리"]
+  BCALCAUTH --> BCALCSERVER["crop-cycle-calculation-server-custody: 계산/서명 이력"]
+  BCALCART --> BCALCSERVER
+  BCALCSERVER --> BCALCDB["crop-cycle-calculation-db-custody: 새 판본 원자 게시"]
+  BCALCDB --> BCALCBIND
   BCALCBIND --> BRESTORE
   BRESTORE --> BURDEN
   BURDEN --> CAP

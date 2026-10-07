@@ -524,6 +524,18 @@
         입력/DB/trace 변조·판본 혼합 거부·FD/DB/역할/비밀/PG 정리와 비용 분해.
         새 코드가 과거 원 server trace를 재발급하지 않으며 순수 artifact를 등록 실행 이력으로 바꾸지 않는다.
         전체 registered 작기의 누적 proof/저장/조회 비용은 별도로 실측하고 replay-restore 부모에서 수용한다.
+        [현행 경계 대조/첫 계약](../contracts/crop-cycle-calculation-farm-binding-v1.md): exact 원 reader/binding/custody와
+        원 artifact/result ID의 SQL 제약 때문에 아래 세 자식으로 나눈다. 모두 실제 수용한 뒤 부모를 체크한다.
+        - [ ] **`crop-cycle-calculation-farm-authority`** — 3 core파일의 새 현재 결속.
+          실제 SCRAM의 등록 농장/원천·exact 새 context/서버 proof·기간/권리/provenance를 대사한다.
+          두 입력/권리 관측·RHS/새 작물 row0·거부/별도 프로세스·FD/DB/role/passfile/PG 정리 뒤 수용.
+          착수 추정1–3집중시간/10월7–8일 KST, 서버/DB/전체166일·자료 확보 시간 제외.
+        - [ ] **`crop-cycle-calculation-server-custody`** — 선행 위 authority·새 artifact.
+          실제 계산 전후·서명된 intent/HEAD/progress·중단 재개/원량/현재 권리·원 이력 보존을3–4파일로 계약한다.
+          실제 작은 계산/프로세스 중단·재시작·변조/철회·한도/정리 뒤 체크한다.
+        - [ ] **`crop-cycle-calculation-db-custody`** — 선행 새 server custody와 기존 DB 계약.
+          새 판본의 SQL/역할·HMAC/metadata·현재 등록/권리·원자 게시/재시도·이전 이력 공존을3–4파일로 계약한다.
+          실제 SCRAM의 작은 연속/재개·거부/롤백/정리 뒤 수용하며 전체 저장/HTTP/3D 부모는 별도다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
