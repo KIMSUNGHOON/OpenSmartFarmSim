@@ -26,6 +26,7 @@ CROP_RESULT_TABLES = ("crop_research_results",)
 CROP_COUPLED_RESULT_TABLES = ("crop_coupled_research_results",)
 CROP_STARTUP_RESULT_TABLES = ("crop_startup_research_results",)
 CROP_CYCLE_RESULT_TABLES = ("crop_cycle_research_results",)
+CROP_CYCLE_CALCULATION_RESULT_TABLES = ("crop_cycle_verified_research_results",)
 SUPERVISOR_TABLES = frozenset({"jobs", "job_attempts", "evidence_authorizations",
     "attempt_evidence", "attempt_invocations", "attempt_cli_launches",
     "attempt_cli_captures", "validation_receipts", "ai_decisions"})
@@ -67,6 +68,7 @@ class RuntimeLoginPolicy(RuntimeRolePolicy):
     crop_coupled_result_storage: bool = field(default=False, kw_only=True)
     crop_startup_result_storage: bool = field(default=False, kw_only=True)
     crop_cycle_result_storage: bool = field(default=False, kw_only=True)
+    crop_cycle_calculation_result_storage: bool = field(default=False, kw_only=True)
 
     def __post_init__(self):
         super().__post_init__()
@@ -82,6 +84,7 @@ class RuntimeLoginPolicy(RuntimeRolePolicy):
                 type(self.crop_coupled_result_storage) is not bool or
                 type(self.crop_startup_result_storage) is not bool or
                 type(self.crop_cycle_result_storage) is not bool or
+                type(self.crop_cycle_calculation_result_storage) is not bool or
                 (self.authored_run_storage and not self.authored_release_storage) or
                 ((self.break_even_calculation or self.market_source_storage) and not self.market_calculation)):
             raise RolePolicyHold("invalid_login_policy_scope")
@@ -99,7 +102,8 @@ def _tables(policy):
             (CROP_RESULT_TABLES if policy.crop_result_storage else ()) +
             (CROP_COUPLED_RESULT_TABLES if policy.crop_coupled_result_storage else ()) +
             (CROP_STARTUP_RESULT_TABLES if policy.crop_startup_result_storage else ()) +
-            (CROP_CYCLE_RESULT_TABLES if policy.crop_cycle_result_storage else ()))
+            (CROP_CYCLE_RESULT_TABLES if policy.crop_cycle_result_storage else ()) +
+            (CROP_CYCLE_CALCULATION_RESULT_TABLES if policy.crop_cycle_calculation_result_storage else ()))
 
 
 def _database(conn, policy):
