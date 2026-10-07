@@ -613,8 +613,11 @@
             첫 시험 속성명 오류/수정·원 loader 거부 RED를 보존했으며 실제 새 HTTP/3D·hosted는 별도다.
         - [ ] **`crop-cycle-calculation-api-transport`** — 선행 위 설정/runtime; [새 조회 계약](../contracts/api-crop-cycle-calculation-transport-v1.md).
           새 인증 route/OpenAPI·원 응답 보존·실제 SCRAM/TLS 전체 본문30초/2MiB·투영 뒤 철회/정리 뒤 부모를 수용한다.
-          - [ ] **`crop-cycle-calculation-route-openapi`** — 새 route/api.py/route 시험/OpenAPI 시험·snapshot5 core파일.
+          - [x] **`crop-cycle-calculation-route-openapi`** — 새 route/api.py/route 시험/OpenAPI 시험·snapshot5 core파일.
             exact 새 store/query·한 문맥·엄격한 요청/권한·원량/UTC/hold·투영 뒤 철회·기존 응답·lazy import/FD.
+            [10월7일 수용](../research/crop-cycle-calculation-route-openapi-20261007.md): 새63개/경로·OpenAPI/runtime 회귀221개,
+            고유284개 분할·ASGI 원량/UTC/validation/hold·투영 뒤 철회·원48 path/148 schema/78 source·세 import/FD/정리.
+            custody는 격리한 exact 타입 stub이며 새 route의 실제 DB/TLS·hosted·브라우저 수용은 후속이다.
           - [ ] **`crop-cycle-calculation-runtime-tls`** — 위 route 뒤 api_runtime/기존 runtime 시험/새 실제 TLS 시험3 core파일.
             별도 보호 loader의 명시 조립·실제 SCRAM/TLS 정상/사건/확인 과거·빈 hold·재기동/철회/변조/운영 오류·RHS0/정리.
       - [ ] **`application-operator-policy-compatibility`** — 실제 앱 CI `353bffb`/37622257162의 config 필드 거부 보완.

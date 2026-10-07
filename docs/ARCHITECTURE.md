@@ -151,7 +151,9 @@ QC 발행은 HTTP 밖이며 조회에서 원 parser/context/QC/RHS를 재실행�
 flag 결속을 고유155개 분할/실제 SCRAM·계산/게시0·import/정리로 수용했다.
 [별도 loader](../research/crop-cycle-calculation-operator-loader-20261007.md)도 원 helper를 재사용해 새 명시 판본을 읽으며
 고유212개 분할/실제 SCRAM·파일/FD/75 source·정리로 operator-runtime까지 로컬 수용했다.
-[새 route/OpenAPI → runtime/실제 HTTPS](../contracts/api-crop-cycle-calculation-transport-v1.md)와
+[새 route/OpenAPI](../research/crop-cycle-calculation-route-openapi-20261007.md)도 한 current query 문맥의 투영/bytes 뒤
+현재 검사를 마치고 반환한다. 고유284개 분할·ASGI·원48 path/148 schema/78 source/정리로 자식만 수용했다.
+[runtime/실제 HTTPS](../contracts/api-crop-cycle-calculation-transport-v1.md)와
 전체166일 비용/동일 UTC3D는 후속이다.
 
 ## 3D 재생 계약

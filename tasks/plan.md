@@ -317,6 +317,11 @@ query3–6시간 잠정은 이 실적으로 대체한다. 후속 [순수 공개 
 route5파일2–3집중시간 + runtime/TLS3파일2–3시간의 **남은 작은 API4–6집중시간 잠정**이다.
 전체 OpenAPI 목록/원 응답·실제 새 query/TLS를 별도 검증해야 하므로 이전 route/TLS1–2시간을 이 분해로 갱신한다.
 실제 API 수용 뒤 client/3D 추정을 갱신하며 전체166일 등록 비용·CI·생과/자원/경제·외부 자료와 최종 날짜는 제외한다.
+[route/OpenAPI 실제 수용](../research/crop-cycle-calculation-route-openapi-20261007.md)은 새63개/관련 회귀221개·고유284개 분할,
+ASGI 원량/UTC·한 query/투영 뒤 철회·hold·원48 path/148 schema/78 source·세 import/FD/정리다.
+위 route2–3시간 예상은 이 실적으로 대체한다. 남은 [runtime/TLS3 core파일](../contracts/api-crop-cycle-calculation-transport-v1.md)은
+명시 loader에서 새 store/query 전달·실제 SCRAM/TLS 전체 본문30초/2MiB·재기동/철회/변조·정리의 **2–3집중시간 잠정**이다.
+이 수용 뒤 API 부모를 체크하며 client/동일 UTC3D·전체166일 등록 비용·생과/자원/경제·실제 자료와 최종 날짜는 별도다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
 선택 시작/중간/끝129시점/5사건·page 최대2.035086초와 source/FD/PID 정리를 확인했다.
