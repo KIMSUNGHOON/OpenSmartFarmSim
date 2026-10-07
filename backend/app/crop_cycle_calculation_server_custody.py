@@ -389,8 +389,8 @@ class _Journal:
             'head':head,'parent':parent,'sequence':sequence,'action':action,'validation':validation}
         raw=_signed(body,self.key,PROOF_DOMAIN)
         _immutable(self.proof_fd,new_sha+'.json',raw,LIMITS['proof_bytes'],'.proof-')
-        self._guard()
         self._prefix(head)
+        self._guard()
         original(head)
 
     def _progress(self):

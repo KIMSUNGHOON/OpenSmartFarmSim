@@ -239,3 +239,28 @@ def test_resume_checks_current_input_after_authenticated_prefix_read(journal_set
         assert journal_setup[2].reader.closed and not journal_setup[2]._cache
     finally:
         if reopened is not None: close_journal(reopened)
+
+
+@pytest.mark.parametrize('change', ['root', 'block', 'rights'])
+def test_candidate_bytes_check_precedes_last_current_input_and_rights_fence(journal_setup, monkeypatch, change):
+    from test_crop_cycle_calculation_recheck_cost import change_input
+    journal = open_journal(journal_setup)
+    before = (journal_setup[1]/'artifact/HEAD').read_bytes()
+    original = journal._prefix; changed = []
+    def candidate(head):
+        value = original(head)
+        if head['commit_count'] == 1 and not changed:
+            changed.append(True)
+            if change == 'rights':
+                def denied(): raise PermissionError('own test current rights withdrawn')
+                journal.current = denied
+            else:
+                change_input(journal.context, change)
+        return value
+    monkeypatch.setattr(journal, '_prefix', candidate)
+    try:
+        with pytest.raises((custody.CalculationCustodyHold, PermissionError)):
+            journal.advance(SMALL)
+        assert changed and (journal_setup[1]/'artifact/HEAD').read_bytes() == before
+    finally:
+        close_journal(journal)
