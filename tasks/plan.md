@@ -357,8 +357,12 @@ native3–5시간의 **남은 작은 웹 연결4–7집중시간 잠정**이며 
 설계는 native와 독립적이지만 PG/계산 실험은 순차 실행한다. 작은 측정2.5–5집중시간 잠정은
 전체 입력 등록·성능 개선/전체 실행·자료/관문 완료 날짜와 구분한다.
 [계측 코드/수동 시험 준비](../research/crop-cycle-calculation-prefix-cost-prepared-20261008.md)는
-경량17개·전체20개 수집을 통과했다. 실제 작은 등록/곡선3개는 native 종료/정리 뒤 실행을 시작했으며,
-전체166일 농장/경제 기간 등록·누적 관측과 필요한 개선 전에는 prefix-cost 부모를 수용하지 않는다.
+경량17개·전체20개 수집을 통과했다. [실제 작은 누적 측정](../research/crop-cycle-calculation-prefix-cost-observed-20261008.md)은
+정상/hold와 수정한32회 시험을 분할 확인했다. 3,990걸음·확정9시점/2사건·원값/권리/새 서비스 복원·종료0/정리를 통과했다.
+다음 `crop-cycle-calculation-full-registration`은 원 전체 입력/권리와 실제 농장·경제 달력을 먼저 결속하고 RHS0으로 검증한다.
+시각 변환이 필요하면 다른 입력 root를 가진 명시 판본과 원량/간격 대사가 선행하며 원 root 실행으로 표시하지 않는다.
+전체166일 등록·누적 관측과 필요한 개선 전에는 prefix-cost 부모를 수용하지 않는다.
+[CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증이며 전체 hosted 수용은 별도다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
 선택 시작/중간/끝129시점/5사건·page 최대2.035086초와 source/FD/PID 정리를 확인했다.
@@ -531,8 +535,11 @@ flowchart TD
   BCALCVIEW --> BCALCNATIVE["crop-cycle-calculation-native-browser: 실제 PG/TLS/WebGL"]
   BCALCNATIVE --> BCALCWEB["crop-cycle-calculation-client-view: 세 자식 수용 뒤 부모"]
   BCALCWEB --> BRESTORE
-  BFULL --> BCALCCOST["crop-cycle-calculation-prefix-cost: 실제 등록 누적 비용"]
-  BCALCBIND --> BCALCCOST
+  BCALCBIND --> BCALCSMALL["crop-cycle-calculation-prefix-small: 작은 기준선/32회 관측"]
+  BFULL --> BCALCREG["crop-cycle-calculation-full-registration: 전체 입력·농장/경제 달력"]
+  BCALCBIND --> BCALCREG
+  BCALCSMALL --> BCALCCOST["crop-cycle-calculation-prefix-cost: 전체 등록 누적 비용"]
+  BCALCREG --> BCALCCOST
   BCALCCOST --> BRESTORE
   BRESTORE --> BURDEN
   BURDEN --> CAP

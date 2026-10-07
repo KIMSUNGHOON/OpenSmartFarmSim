@@ -29,7 +29,11 @@
 로컬 수정했으며 [수정 판본의 hosted 세 Compose/정리](../research/artifacts/application-operator-policy-hosted-reference-20261008.json)도
 10월8일 수용했다. 구형 판본 CI는
 [C0/웹/작성 PG 성공·앱/Backend 실패로 종료](../research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json)했다.
-Backend 분할5의 설정 fixture도 기존125개 검증 수정에 포함되며 현재 source SHA가 같다. 최신 전체 Backend는 아직 진행 중이다.
+Backend 분할5의 설정 fixture도 기존125개 검증 수정에 포함되며 현재 source SHA가 같다.
+최신 Backend는 분할1/2/3 실패·4/5 진행 중이다. [Python·원격 PG 시험 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은
+고유19개 집중 검증을 통과했으며 hosted 수용은 별도다.
+[작은 등록 누적 비용](../research/crop-cycle-calculation-prefix-cost-observed-20261008.md)은 정상/hold·수정한32회 시험을
+분할 확인했다. 3,990걸음·확정9시점/2사건·원값/복원·권리·종료0/정리이며 전체166일 등록 비용 부모는 미수용이다.
 전체166일 등록 비용·실제 품종 입력/국내 독립 자료0건과 G0–G4 보류는 유지한다. 아래 날짜별 기록은 당시 상태다.
 
 ## 현재 우선순위와 외부 의존성 — 2026-10-04

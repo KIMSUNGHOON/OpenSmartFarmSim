@@ -20,7 +20,10 @@
 [후속25시간 계산 완료/TLS 준비 실패](../research/web-crop-cycle-calculation-native-tls-hold-20261008.md)의
 원인과 정리를 확인해 인증서 발급 시점을 수정했다.
 [수정 실행의 기능 검증](../research/web-crop-cycle-calculation-native-observed-20261008.md)은 시험 로그1통과·
-34frame·24 HTTPS·별도 정리를 확인했다. 원 명령 종료 기록 누락으로 최종 native/웹 부모는 보류하며 실제 누적 비용 측정을 시작했다.
+34frame·24 HTTPS·별도 정리를 확인했다. 원 명령 종료 기록 누락으로 최종 native/웹 부모는 보류한다.
+[작은 등록 누적 비용](../research/crop-cycle-calculation-prefix-cost-observed-20261008.md)은 정상/hold·수정한32회 시험을
+분할 확인했다. 3,990걸음·확정9시점/2사건·원량/권리/복원·종료0/정리이며 전체166일 등록 비용 부모는 미수용이다.
+[CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했으며 hosted 수용은 별도다.
 [기존 설정 호환의 hosted 세 Compose/정리](../research/artifacts/application-operator-policy-hosted-reference-20261008.json)는 수용했다.
 전체166일 등록 경로/복원과 생산/경제·자료 관문·hosted 수용은 별도다.
 

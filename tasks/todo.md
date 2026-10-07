@@ -674,7 +674,19 @@
         25시간의 최대32호출 곡선 → 전체166일 입력의 실제 등록/누적 관측과 필요한 개선 순서다.
         작은 표본은 전체 작기 수용이 아니며 새 native 실험과 PG/계산을 동시에 기동하지 않는다.
         [측정 코드 준비](../research/crop-cycle-calculation-prefix-cost-prepared-20261008.md): 경량17개·전체20개 수집,
-        실제 정상/hold 대사와32회 곡선3개는 native 종료/정리 후 실행을 시작했다. 전체166일 등록/누적 비용은 후속이다.
+        후속 [실제 작은 측정](../research/crop-cycle-calculation-prefix-cost-observed-20261008.md)은 정상/hold와 수정한32회 시험을
+        분할 확인했다. 전체166일 등록/누적 비용은 후속이며 부모는 미수용이다.
+        - [x] **`crop-cycle-calculation-prefix-small`** — 정상120/hold60걸음의 원량·한/분할 호출·새 서비스 복원,
+          DB put/retry/read RHS0·현재 권리/계정 거부와 실제 SCRAM/정리를 분할 검증했다.
+          32회·3,990/11,400걸음·확정9시점/2사건의 원값/출처 ID·checkpoint/FD12→12·미완료 게시 거부,
+          수정 실행 종료0/494.61초와 원118 source/소유 자원 정리를 확인했다. 전체 작기/예측 수용이 아니다.
+        - [ ] **`crop-cycle-calculation-full-registration`** — 다음 한 단계; 원 전체 입력과 실제 농장·경제 기간의 결속.
+          원166일 root/clock/forcing/output/event·권리 판본과 농장 평가 기간/작물 점유·해제,
+          경제의 수확/판매/수금 달력·batch/grade/channel 대응을 고정한다. 새 실제 SCRAM 등록·불변 job/hash와
+          `read_registration`·현재 `CalculationFarmBinding.prepare/current`를 RHS0으로 확인한다.
+          원 입력/이력 보존·기간/권리 불일치 거부·FD/DB/비밀/PG 정리와 실제 명령 종료가 수용 기준이다.
+          필요한 시각 변환은 원root와 다른 새 판본 계약·원량/간격 대사가 선행한다. 기존 원root 실행으로 표시하지 않는다.
+          경제 fixture 수량은 명시 가정이며 모델 생과 생산량이 아니다. 이 단계 뒤 실제 전체 입력의 증가 prefix 비용을 측정한다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

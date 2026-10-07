@@ -8,8 +8,11 @@
 소유 시험용 HTTP 응답의 실제 App입니다. [새 실제 DB/HTTPS/WebGL 기능 검증](research/web-crop-cycle-calculation-native-observed-20261008.md)은
 시험 로그1통과/27분45초·원27시점/5사건·34frame·24 HTTPS와 별도 정리를 확인했습니다.
 [실제 새 화면](research/artifacts/calculation-cycle-native-desktop.png)도 보존했습니다. 원 명령 종료 코드 기록이 유실돼
-최종 native 수용은 보류하며 같은 계산은 재시작하지 않았습니다. 실제 누적 비용 측정을 이어갑니다.
-`f2dc10f`의 C0/웹/작성 PG/앱은 성공했고 Backend는 진행 중입니다.
+최종 native 수용은 보류하며 같은 계산은 재시작하지 않았습니다.
+[작은 등록 누적 비용](research/crop-cycle-calculation-prefix-cost-observed-20261008.md)은 정상/hold와 수정한32회 시험을
+분할 확인했습니다. 3,990걸음·확정9시점/2사건·원값/권리/복원·종료0/정리를 확인했고 전체166일 등록은 후속입니다.
+`f2dc10f`의 C0/웹/작성 PG/앱은 성공했고 Backend는 분할1/2/3 실패·4/5 진행 중입니다.
+[Python·원격 PG 시험 수정](research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했으며 hosted 수용은 별도입니다.
 [기존 세 Compose 경로와 정리](research/artifacts/application-operator-policy-hosted-reference-20261008.json)는 실제 로그로 수용했습니다.
 구형 CI는 [C0/웹/작성 PG 성공·앱/Backend 실패로 종료](research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json)했고,
 관련 설정 생성기/fixture의 로컬 수정·125개 분할 검증과 기존 Compose의 hosted 수용은 완료했습니다. 전체 Backend 수용은 별도입니다.
