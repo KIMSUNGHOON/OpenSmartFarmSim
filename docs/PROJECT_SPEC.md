@@ -237,11 +237,15 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 원 QC 발행0.136초/별도 재조회0.013초는 작은 사례의 실측이다. 원 전체 검증과 현재 bytes를 분리했다.
 [별도 결과 조회 타입](../research/crop-cycle-result-read-context-implementation-20261007.md)은 새36개/관련 고유125개·
 새5시간의 원61출력/3사건 전체·별도 Python/FD 정리로 로컬 수용했다. 원 page 값/UTC/count·
-현재 bytes/파일 보안·cache 한도·반환 전 재대사를 확인했다. 다음3–4 core파일의 현재 farm/Scope/권리·원 server trace/API →
+현재 bytes/파일 보안·cache 한도·반환 전 재대사를 확인했다. 다음은 [현재 농장 조회 계약](../contracts/crop-cycle-current-query-v1.md)의
+3 core파일 농장/DB/원 서명 결속 → 명시적 API/runtime 연결·실제 TLS →
 실제 전체 저장/같은 UTC3D로 이어지며 전체 결과/부모 수용은 원166일 종료와 실제 경로 증거를 기다린다.
 참조 proof로 농장 계산 이력을 만들지 않는다.
-다음 수용은 실제 원 농장 등록/result row·서명된 custody trace의 현재 권리/증명 전후 결속과
-작은 등록 농장 PG/TLS의 철회/변조/재시작·30초/2MiB·정리다. 새 조회 소프트웨어로 관문을 해제하지 않는다.
+첫 수용은 실제 원 농장 등록/result row·전체 부모 custody 서명의 현재 권리/증명 전후 결속과
+작은 등록 농장 SCRAM의 철회/변조/재시작·정리다. 이어 API/runtime의 명시적 구성과
+실제 TLS 전체 응답30초/2MiB·투영 후 철회를 확인해야 현재 조회 부모를 수용한다. 새 조회 소프트웨어로 관문을 해제하지 않는다.
+현재 [농장/DB 조회 결속](../research/crop-cycle-query-authority-implementation-20261007.md)은 실제 SCRAM8개/631.33초와 원120걸음·3시점/0사건·재시작/fork·철회/변조·FD/스키마/역할/비밀·PG 정리로 로컬 수용했다. 마지막 권리 검토 중 원천 철회를 반환하는 실제1실패를 수정했고, API/runtime TLS 및 현재 조회 부모는 아직 미수용이다.
+
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)은 원81574 handle·실험/terminal
 보존 경로 부재를 확인했다. 원 최종 결과는 확인 불가이며 부분 관측을 전체 수용으로 바꾸지 않는다.
 작은 사례의 조회 개발은 계속하고 원 전체 수용은 복구 가능한 원 증거 또는 별도 판본의 새 실험 증거를 요구한다.

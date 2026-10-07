@@ -1,0 +1,95 @@
+{
+  "evidence_version": "crop-cycle-query-authority-reference-v1",
+  "observed_at_utc": "2026-10-07T04:30:55.229621+00:00",
+  "scope": "synthetic_registered_farm_current_query_software_only",
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "c61d54759d994ccd488fbf59982be38fd9996ac6c579bea30f7e61e7bf6f05b8",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T04:12:04.905Z"
+  },
+  "source_sha256": {
+    "backend/app/crop_cycle_current_query.py": "6410b7b0d6c91103b67174dd544b760617f35df19f55e85e4ac9b9ab5654aab9",
+    "backend/tests/test_crop_cycle_current_query.py": "da46bb914cd8b61ef445ce62fa0ec0bd0aad41a41576b2b5304f9bff6ae56af8",
+    "contracts/crop-cycle-current-query-v1.md": "cc1fb8b8d97de959c49fabefc782d6a7db91d7e0852a6b5296cda3ca35eb24c9"
+  },
+  "tests": {
+    "missing_module_RED": {
+      "exit_code": 2,
+      "seconds": 0.13,
+      "log_sha256": "67e0f9bee30359b4f7c2faa60d676e60a2affe5eb322a1a74db2fa49d88df6aa"
+    },
+    "initial_interrupted_run": {
+      "session_id": 48492,
+      "exit_code": 1,
+      "accepted": false,
+      "reason": "Repeated PG provisioning replaced by grouped restored scenarios; own test and PG processes confirmed gone."
+    },
+    "grouped_fixture_error": {
+      "session_id": 76637,
+      "exit_code": 1,
+      "passed": 5,
+      "failed": 1,
+      "seconds": 418.17,
+      "log_sha256": "9939fdb632be5b11878570430acfaa26328e96e3b5603cbc73386b1860d3faf8",
+      "reason": "Existing SQL CHECK rejected artifact_status mutation before query. Corrected tamper uses registered_by; SQL limits unchanged."
+    },
+    "corrected_DB_fork2_GREEN": {
+      "session_id": 42945,
+      "exit_code": 0,
+      "passed": 2,
+      "seconds": 121.44,
+      "log_sha256": "edf08fc325d10e3ba809dd2793e12ebbf7d65766c8464f2f597a92e83afd9642"
+    },
+    "actual_final_source_review_race_RED": {
+      "session_id": 95697,
+      "exit_code": 1,
+      "failed": 1,
+      "seconds": 60.24,
+      "log_sha256": "e8913b9c6eb562f88ea99656c8e1cbe1ab3e2c62865fb8ea48b1977affba6aa1",
+      "reason": "Source withdrawal in the final input rights callback was returned; fixed by post-review registration and DB row comparison."
+    },
+    "final8_GREEN": {
+      "session_id": 93792,
+      "exit_code": 0,
+      "passed": 8,
+      "seconds": 631.33,
+      "log_sha256": "4d5ffc20d2b99fd8ea78ceb9d6869fa3a9257dc735cd0c65857f36ec3223309d",
+      "pytest_arguments": [
+        "-m",
+        "pytest",
+        "tests/test_crop_cycle_current_query.py",
+        "-q",
+        "--durations=8",
+        "--maxfail=1"
+      ],
+      "actual_SCRAM_PG_version": "16.15",
+      "repeated_counts_not_summed": true
+    }
+  },
+  "cleanup": {
+    "schemas_after": 0,
+    "roles_after": 0,
+    "passfiles_after": 0,
+    "pg_process_gone": true,
+    "pg_data_directory_gone": true,
+    "private_cleanup_reference_sha256": "6d3be5177741832d81d875557fd623e65356365dfaf7ff475c3d99474eaaf204"
+  },
+  "tested_small_result": {
+    "steps": 120,
+    "samples": 3,
+    "events": 0,
+    "nonempty_management_events_TLS_acceptance": false,
+    "parser_context_terminal_QC_or_RHS_calls_during_query": 0
+  },
+  "original_math52_unchanged": true,
+  "prior12_primitive_source_changes": false,
+  "original_db_farm_binding_and_server_custody_source_changes": false,
+  "API_runtime_TLS_or_current_query_parent_accepted": false,
+  "whole166_API_3D_or_burden_accepted": false,
+  "actual_crop_runs": 0,
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "gates": "not_assessed"
+}

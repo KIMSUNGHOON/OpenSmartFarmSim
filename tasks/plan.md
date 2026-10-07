@@ -189,10 +189,15 @@ schema/QC/context/현재 권리/API는 제외했다. reader 코드 SHA와 root/m
 [별도 결과 조회 타입](../research/crop-cycle-result-read-context-implementation-20261007.md)의3 core파일도
 새36개/관련 고유125개·새5시간의 원61출력/3사건 전체·별도 Python/FD 정리로 로컬 수용했다.
 원값/UTC·현재 bytes/파일 보안·cache 한도·반환 전 재대사를 원 reader와 확인했다.
-다음 작은 작업은3–4 core파일의 현재 farm/Scope/등록/권리·원 DB/custody trace 결속이다.
-작은 실제 등록 농장의 PG/TLS·권리 철회/계정/trace/물리 변조·재시작·30초/2MiB·정리를 확인한다.
+다음은 [현재 조회 계약](../contracts/crop-cycle-current-query-v1.md)에 따른3 core파일의
+`crop-cycle-query-authority`: 현재 farm/Scope/등록/권리·원 DB/전체 부모 custody 서명 결속과 실제 SCRAM 정리다.
+이어 `crop-cycle-query-runtime`: API/create_app/runtime의 명시적 선택 연결·집중 시험·실제 TLS의
+30초/2MiB·투영 후 철회·재시작·정리를 확인한다. 기존 math/store/custody source를 바꾸지 않는다.
+현재 조회 부모는 두 자식의 증거를 모두 요구한다.
 실제 전체 proof 크기/발행은 원166일 종료 뒤 측정한다. 현재 farm/Scope/등록/권리·원 server trace/API →
 실제 전체 저장/같은 ID/UTC3D 순서이며 순수 참조 proof를 농장 계산 이력으로 재표시하지 않는다.
+현재 [농장/DB 조회 결속](../research/crop-cycle-query-authority-implementation-20261007.md)은 실제 SCRAM8개/631.33초와 원120걸음·3시점/0사건·재시작/fork·철회/변조·FD/스키마/역할/비밀·PG 정리로 로컬 수용했다. 마지막 권리 검토 중 원천 철회를 반환하는 실제1실패를 수정했고, API/runtime TLS 및 현재 조회 부모는 아직 미수용이다.
+
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)은 원81574 handle·실험/terminal
 보존 경로 부재를 확인했다. 원 최종 상태는 확인 불가이고 같은 실험/예산을 재설정하지 않는다.
 새 사설 증거는 지속 저장 경로에 보존하고 작은 결과 조회 개발은 이어간다. 전체 수용은 원 증거 복구 또는
@@ -326,7 +331,9 @@ flowchart TD
   BINPUT --> BRCTX["crop-cycle-input-read-context: 조회 타입/원 manifest·clock·격자"]
   BRCTX --> BRESULT["crop-cycle-result-evidence: 원 terminal QC/현재 bytes·증명"]
   BRESULT --> BRESULTCTX["crop-cycle-result-read-context: 원 summary/page·조회 타입"]
-  BRESULTCTX --> BQUERY["crop-cycle-current-query: 현재 farm/원 server trace/API"]
+  BRESULTCTX --> BQAUTH["crop-cycle-query-authority: 현재 farm/DB·원 전체 서버 서명"]
+  BQAUTH --> BQAPI["crop-cycle-query-runtime: 명시적 API/runtime·TLS 예산"]
+  BQAPI --> BQUERY["crop-cycle-current-query: 두 자식 수용 뒤 부모"]
   BQUERY --> BRESTORE
   BRESTORE --> BURDEN
   BURDEN --> CAP
