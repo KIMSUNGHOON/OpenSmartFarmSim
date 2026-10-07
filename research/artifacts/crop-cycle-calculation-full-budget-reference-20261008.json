@@ -1,0 +1,1072 @@
+{
+  "CI": {
+    "conclusion": "",
+    "headSha": "2a3e61571d0574a063577ec1edcfb75aa5f2d565",
+    "jobs": [
+      {
+        "conclusion": "failure",
+        "name": "backend-partition-2",
+        "status": "completed"
+      },
+      {
+        "conclusion": "",
+        "name": "backend-partition-5",
+        "status": "queued"
+      },
+      {
+        "conclusion": "",
+        "name": "backend-partition-1",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": "",
+        "name": "backend-partition-4",
+        "status": "queued"
+      },
+      {
+        "conclusion": "",
+        "name": "backend-partition-3",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": "failure",
+        "name": "backend-partition-0",
+        "status": "completed"
+      }
+    ],
+    "other_four_workflows": "success on2a3e615",
+    "push_performed": false,
+    "recorded_at_utc": "2026-10-07T20:16:08.911973+00:00",
+    "status": "queued",
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37669114958"
+  },
+  "baseline_profile_sha256": "3269489d4709e9be64259cb2a7a89bb0880ceaf658f827616dc3f32c20f1049f",
+  "budget_decision": {
+    "basis": "observed2n checks, exact source traversal and full pure reference; full elapsed time is not inferred",
+    "conditional_delta_checks_if_unchanged_same_commit_count": 212212056,
+    "decision": "hold_current_naive_registered_full_run_pending_authenticated_incremental_prefix_validation",
+    "full_run_wall_budget": "not_fixed_until_incremental_path_and_its_actual_costs_and_recovery_are_verified",
+    "future_terminal_acceptance": [
+      "actual registered1816704steps/47809samples/5events",
+      "original121state/seed/clock/cursors/balances and exact stored rows",
+      "actual durable original exit0/fresh checkpoint resume/current rights and cancellation",
+      "whole DB publication/API/UTC3D separate acceptance",
+      "owned WSL resources/secret/source cleanup and immutable run evidence"
+    ],
+    "observed_delta_checks_per_advance": [
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28,
+      30,
+      32,
+      34,
+      36,
+      38,
+      40,
+      42,
+      44,
+      46,
+      48,
+      50,
+      52,
+      54,
+      56,
+      58,
+      60,
+      62,
+      64
+    ],
+    "observed_delta_checks_total": 1056,
+    "operation_count_formula_for_N_advances": "sum((n-1)+1+n,n=1..N)=N*(N+1)",
+    "recorded_at_utc": "2026-10-07T20:16:07.672791+00:00",
+    "reference_original_full_run_commits": 14567,
+    "required_next_step": "server-generated versioned validation attestation for each actual checked delta; full current byte/HMAC/rights checks on resume and progress; retain full physical QC for each new delta and terminal publication",
+    "scope": "algorithmic_operation_count_and_observed_32_prefix_only_not_elapsed_time_forecast",
+    "source_call_path": [
+      "CalculationServerCustody.advance->_open->_Journal.__init__->artifact.open_writer->_load_prefix(n-1)",
+      "_Journal.advance->ArtifactWriter.advance->_validate_delta(new_delta)",
+      "_Journal.advance->_progress->_load_prefix(n)"
+    ],
+    "source_files": {
+      "backend/app/crop_cycle_calculation_artifact.py": "e69024eee28ce3d20f9edd6aa84f2303a44fb1a93c7b0b4a67858b92c1bc2691",
+      "backend/app/crop_cycle_calculation_server_custody.py": "2fd04912072fe990b708a7796abbf6df9ba55da421f1c5bfda2d101bbafbc808"
+    },
+    "whole166_registered_run_started": false
+  },
+  "budget_decision_sha256": "8e02b8771c1f425e3ac10162055897baedb4a12aa800c2f43c2327f4f8f93476",
+  "command": {
+    "all_preserved_sources_unchanged": true,
+    "argv": [
+      "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+      "-m",
+      "pytest",
+      "tests/crop_cycle_full_prefix_cost_smoke.py",
+      "-k",
+      "actual_full166",
+      "-q",
+      "-x",
+      "--tb=short",
+      "--basetemp",
+      "/tmp/ossf-optimized-full32-tn5g_cy7/pytest"
+    ],
+    "clusters": [
+      {
+        "directory": "/tmp/ossf-optimized-full32-tn5g_cy7/system/ossf-login-pg-dd5of4r_/data",
+        "directory_exists_after": false,
+        "pid": 888448,
+        "same_PID_alive_after": false,
+        "start_ticks": "7352806"
+      }
+    ],
+    "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend",
+    "exit_code": 0,
+    "finished_at_utc": "2026-10-07T20:03:08.201554+00:00",
+    "log_sha256": "8de624f15f734bb34066519c3efed37cae5575086dcb443eefe6a48ab9a344ce",
+    "memory_scope": "sampled_current_descendants_RSS_sum_may_double_count_shared_pages_not_WSL_total_or_PSS",
+    "nice": 19,
+    "owned_remaining_processes": [],
+    "owned_temp_tree_removed": true,
+    "passfiles_after": [],
+    "preserved_source_count": 263,
+    "sampled_pytest_primary_max_RSS_bytes": 252862464,
+    "source_sha256": {
+      "backend/app/crop_cycle_calculation_server_custody.py": "2fd04912072fe990b708a7796abbf6df9ba55da421f1c5bfda2d101bbafbc808",
+      "backend/app/market_candidate_store.py": "eafad70cf2581e2579ce099cef63726912e77b5c09c0518823ee51d76c9a26e7",
+      "backend/tests/crop_cycle_calculation_prefix_cost_smoke.py": "875632dfdfb73bb6b7b4a69ec0773e0fc61989f1111f0cab8e10f33ce81556ae",
+      "backend/tests/crop_cycle_full_prefix_cost_smoke.py": "4c67d89605593be81637c0b18e940b6b105c976109dc5ba595139f61b0834d68",
+      "backend/tests/test_crop_cycle_calculation_recheck_cost.py": "80f6e68c12f478a27e5fe29be9f2cbd4a17ec52b0b3168e955f68a75e077a99f",
+      "contracts/crop-cycle-calculation-full-budget-v1.md": "37e37819893aa759e838f174c1d66734fd4fd02ae20a8421be97070c11af84a7",
+      "contracts/crop-cycle-calculation-full-prefix-cost-v1.md": "34e08ed34cdcaafa2f15ab0d3a3a563123387b1a5b21a78e89298997a07eb15f",
+      "contracts/crop-cycle-calculation-recheck-cost-v1.md": "de8785fe5e212cb3251b8a45d80a5e7fdbd0936d36c5139c3fdb3c13b184b39e",
+      "research/crop-cycle-calculation-prefix-cost.py": "07d4f90edfd78b468a482344bd569eb444036ddd1a7e3f7208a79c4b64894e96"
+    },
+    "started_at_utc": "2026-10-07T19:57:10.175618+00:00",
+    "wall_budget_interrupt_sent": false,
+    "wall_seconds": 358.02376210701186
+  },
+  "command_result_sha256": "a4fd6fc5d73717c004e0447689c4d801ca0455e3e350f50d51070db1563947aa",
+  "comparison": {
+    "DB_counts_before_after": [
+      [
+        89,
+        89,
+        0,
+        0,
+        0
+      ],
+      [
+        89,
+        89,
+        0,
+        0,
+        0
+      ]
+    ],
+    "advance_seconds_old": 575.4944577649876,
+    "advance_seconds_optimized": 304.34397456995794,
+    "context_sha256": "71c322fac5c814d4d01238b01761c565506d676c2da9a4df2994c03007483c6a",
+    "current_rights_and_principal_denied": true,
+    "derived_input_files": 750,
+    "entire_checkpoint_sha256": "751c8fa08c657aa2b5979e5f2466ab584418cade4568dd142b8640ba4d829beb",
+    "growth_curve": [
+      {
+        "advance": 1,
+        "commit_count": 1,
+        "counts": {
+          "events": 2,
+          "samples": 4
+        },
+        "delta_QC_calls": 2,
+        "file_count": 6,
+        "old_input_proof_calls": 39,
+        "old_wall_seconds": 25.801846772999852,
+        "optimized_input_proof_calls": 33,
+        "optimized_wall_seconds": 12.539280609998968,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.07502560700231697,
+        "status": "yielded",
+        "steps": 123,
+        "storage_bytes": 79352
+      },
+      {
+        "advance": 2,
+        "commit_count": 2,
+        "counts": {
+          "events": 2,
+          "samples": 7
+        },
+        "delta_QC_calls": 4,
+        "file_count": 8,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.274249489986687,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 8.935449398995843,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.1133438200049568,
+        "status": "yielded",
+        "steps": 248,
+        "storage_bytes": 110617
+      },
+      {
+        "advance": 3,
+        "commit_count": 3,
+        "counts": {
+          "events": 2,
+          "samples": 10
+        },
+        "delta_QC_calls": 6,
+        "file_count": 10,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.34534961299505,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.038003707988537,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.15133803398930468,
+        "status": "yielded",
+        "steps": 373,
+        "storage_bytes": 141800
+      },
+      {
+        "advance": 4,
+        "commit_count": 4,
+        "counts": {
+          "events": 2,
+          "samples": 14
+        },
+        "delta_QC_calls": 8,
+        "file_count": 12,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.388672981993295,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.06624735800142,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.18898481299402192,
+        "status": "yielded",
+        "steps": 497,
+        "storage_bytes": 181830
+      },
+      {
+        "advance": 5,
+        "commit_count": 5,
+        "counts": {
+          "events": 2,
+          "samples": 17
+        },
+        "delta_QC_calls": 10,
+        "file_count": 14,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.432776314992225,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.129205312987324,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.22443014601594768,
+        "status": "yielded",
+        "steps": 622,
+        "storage_bytes": 213014
+      },
+      {
+        "advance": 6,
+        "commit_count": 6,
+        "counts": {
+          "events": 2,
+          "samples": 20
+        },
+        "delta_QC_calls": 12,
+        "file_count": 16,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.578230550003354,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.14745692499855,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.25378511600138154,
+        "status": "yielded",
+        "steps": 747,
+        "storage_bytes": 244168
+      },
+      {
+        "advance": 7,
+        "commit_count": 7,
+        "counts": {
+          "events": 2,
+          "samples": 23
+        },
+        "delta_QC_calls": 14,
+        "file_count": 18,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.634084297009395,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.313582809991203,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.2949115860101301,
+        "status": "yielded",
+        "steps": 872,
+        "storage_bytes": 275285
+      },
+      {
+        "advance": 8,
+        "commit_count": 8,
+        "counts": {
+          "events": 2,
+          "samples": 27
+        },
+        "delta_QC_calls": 16,
+        "file_count": 20,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.66452553900308,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.269367658998817,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.3411295880068792,
+        "status": "yielded",
+        "steps": 996,
+        "storage_bytes": 315244
+      },
+      {
+        "advance": 9,
+        "commit_count": 9,
+        "counts": {
+          "events": 2,
+          "samples": 30
+        },
+        "delta_QC_calls": 18,
+        "file_count": 22,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.716062481995323,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.298392223005067,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.374516099007451,
+        "status": "yielded",
+        "steps": 1121,
+        "storage_bytes": 346360
+      },
+      {
+        "advance": 10,
+        "commit_count": 10,
+        "counts": {
+          "events": 2,
+          "samples": 33
+        },
+        "delta_QC_calls": 20,
+        "file_count": 24,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.80123737300164,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.535521009005606,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.42138377600349486,
+        "status": "yielded",
+        "steps": 1246,
+        "storage_bytes": 377497
+      },
+      {
+        "advance": 11,
+        "commit_count": 11,
+        "counts": {
+          "events": 2,
+          "samples": 37
+        },
+        "delta_QC_calls": 22,
+        "file_count": 26,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.85007166300784,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.230248563006171,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.4930577019840712,
+        "status": "yielded",
+        "steps": 1370,
+        "storage_bytes": 417391
+      },
+      {
+        "advance": 12,
+        "commit_count": 12,
+        "counts": {
+          "events": 2,
+          "samples": 40
+        },
+        "delta_QC_calls": 24,
+        "file_count": 28,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.817099092004355,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.099650217991439,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.4999557929986622,
+        "status": "yielded",
+        "steps": 1495,
+        "storage_bytes": 448544
+      },
+      {
+        "advance": 13,
+        "commit_count": 13,
+        "counts": {
+          "events": 2,
+          "samples": 43
+        },
+        "delta_QC_calls": 26,
+        "file_count": 30,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.849554932006868,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.2355415209895,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.545234333985718,
+        "status": "yielded",
+        "steps": 1620,
+        "storage_bytes": 479662
+      },
+      {
+        "advance": 14,
+        "commit_count": 14,
+        "counts": {
+          "events": 2,
+          "samples": 46
+        },
+        "delta_QC_calls": 28,
+        "file_count": 32,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.87914980200003,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.187216535996413,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.5769312420015922,
+        "status": "yielded",
+        "steps": 1745,
+        "storage_bytes": 510763
+      },
+      {
+        "advance": 15,
+        "commit_count": 15,
+        "counts": {
+          "events": 2,
+          "samples": 50
+        },
+        "delta_QC_calls": 30,
+        "file_count": 34,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 18.06866265500139,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.249911367005552,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.6213609410042409,
+        "status": "yielded",
+        "steps": 1869,
+        "storage_bytes": 550643
+      },
+      {
+        "advance": 16,
+        "commit_count": 16,
+        "counts": {
+          "events": 2,
+          "samples": 53
+        },
+        "delta_QC_calls": 32,
+        "file_count": 36,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 18.081915468996158,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.271323593013221,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.6606233519996749,
+        "status": "yielded",
+        "steps": 1994,
+        "storage_bytes": 581758
+      },
+      {
+        "advance": 17,
+        "commit_count": 17,
+        "counts": {
+          "events": 2,
+          "samples": 56
+        },
+        "delta_QC_calls": 34,
+        "file_count": 38,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 18.032363753998652,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.30251875599788,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.6909262029948877,
+        "status": "yielded",
+        "steps": 2119,
+        "storage_bytes": 612810
+      },
+      {
+        "advance": 18,
+        "commit_count": 18,
+        "counts": {
+          "events": 2,
+          "samples": 60
+        },
+        "delta_QC_calls": 36,
+        "file_count": 40,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 18.195900211008848,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.381355006989907,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.7277565149997827,
+        "status": "yielded",
+        "steps": 2243,
+        "storage_bytes": 652661
+      },
+      {
+        "advance": 19,
+        "commit_count": 19,
+        "counts": {
+          "events": 2,
+          "samples": 63
+        },
+        "delta_QC_calls": 38,
+        "file_count": 42,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 18.164824284991482,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.430472973996075,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.7807014559948584,
+        "status": "yielded",
+        "steps": 2368,
+        "storage_bytes": 683747
+      },
+      {
+        "advance": 20,
+        "commit_count": 20,
+        "counts": {
+          "events": 2,
+          "samples": 66
+        },
+        "delta_QC_calls": 40,
+        "file_count": 44,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.460474299005,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.406631692007068,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.8053260370070348,
+        "status": "yielded",
+        "steps": 2493,
+        "storage_bytes": 714804
+      },
+      {
+        "advance": 21,
+        "commit_count": 21,
+        "counts": {
+          "events": 2,
+          "samples": 69
+        },
+        "delta_QC_calls": 42,
+        "file_count": 46,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.463300479997997,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.43844318400079,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.8220830430072965,
+        "status": "yielded",
+        "steps": 2618,
+        "storage_bytes": 745894
+      },
+      {
+        "advance": 22,
+        "commit_count": 22,
+        "counts": {
+          "events": 2,
+          "samples": 73
+        },
+        "delta_QC_calls": 44,
+        "file_count": 48,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.603370489989175,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.473350726999342,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.8776722239999799,
+        "status": "yielded",
+        "steps": 2742,
+        "storage_bytes": 785704
+      },
+      {
+        "advance": 23,
+        "commit_count": 23,
+        "counts": {
+          "events": 2,
+          "samples": 76
+        },
+        "delta_QC_calls": 46,
+        "file_count": 50,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.515581921004923,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.60184334499354,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.9253197549987817,
+        "status": "yielded",
+        "steps": 2867,
+        "storage_bytes": 816754
+      },
+      {
+        "advance": 24,
+        "commit_count": 24,
+        "counts": {
+          "events": 2,
+          "samples": 79
+        },
+        "delta_QC_calls": 48,
+        "file_count": 52,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.679876114008948,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.563836707995506,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.9541609529987909,
+        "status": "yielded",
+        "steps": 2992,
+        "storage_bytes": 847801
+      },
+      {
+        "advance": 25,
+        "commit_count": 25,
+        "counts": {
+          "events": 2,
+          "samples": 83
+        },
+        "delta_QC_calls": 50,
+        "file_count": 54,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.59810664699762,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.728987234004308,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 0.9995045829855371,
+        "status": "yielded",
+        "steps": 3116,
+        "storage_bytes": 887647
+      },
+      {
+        "advance": 26,
+        "commit_count": 26,
+        "counts": {
+          "events": 2,
+          "samples": 86
+        },
+        "delta_QC_calls": 52,
+        "file_count": 56,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.718869032003568,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.66461870900821,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 1.076357685989933,
+        "status": "yielded",
+        "steps": 3241,
+        "storage_bytes": 918699
+      },
+      {
+        "advance": 27,
+        "commit_count": 27,
+        "counts": {
+          "events": 2,
+          "samples": 89
+        },
+        "delta_QC_calls": 54,
+        "file_count": 58,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.707558793990756,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.626453917997424,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 1.0650198590010405,
+        "status": "yielded",
+        "steps": 3366,
+        "storage_bytes": 949762
+      },
+      {
+        "advance": 28,
+        "commit_count": 28,
+        "counts": {
+          "events": 2,
+          "samples": 92
+        },
+        "delta_QC_calls": 56,
+        "file_count": 60,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.71410634199856,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.761258662998443,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 1.102332630995079,
+        "status": "yielded",
+        "steps": 3491,
+        "storage_bytes": 980782
+      },
+      {
+        "advance": 29,
+        "commit_count": 29,
+        "counts": {
+          "events": 2,
+          "samples": 96
+        },
+        "delta_QC_calls": 58,
+        "file_count": 62,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.813988092995714,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.753798024001298,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 1.1748501819965895,
+        "status": "yielded",
+        "steps": 3615,
+        "storage_bytes": 1020640
+      },
+      {
+        "advance": 30,
+        "commit_count": 30,
+        "counts": {
+          "events": 2,
+          "samples": 99
+        },
+        "delta_QC_calls": 60,
+        "file_count": 64,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.85123112500878,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.901939557006699,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 1.2296862219955074,
+        "status": "yielded",
+        "steps": 3740,
+        "storage_bytes": 1051662
+      },
+      {
+        "advance": 31,
+        "commit_count": 31,
+        "counts": {
+          "events": 2,
+          "samples": 102
+        },
+        "delta_QC_calls": 62,
+        "file_count": 66,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.937271889997646,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.904689614995732,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 1.2872720780142117,
+        "status": "yielded",
+        "steps": 3865,
+        "storage_bytes": 1082713
+      },
+      {
+        "advance": 32,
+        "commit_count": 32,
+        "counts": {
+          "events": 2,
+          "samples": 105
+        },
+        "delta_QC_calls": 64,
+        "file_count": 68,
+        "old_input_proof_calls": 30,
+        "old_wall_seconds": 17.85414526099339,
+        "optimized_input_proof_calls": 26,
+        "optimized_wall_seconds": 9.857377644992084,
+        "planned_steps": 1816704,
+        "prefix_read_inclusive_seconds": 1.2752366380009335,
+        "status": "yielded",
+        "steps": 3990,
+        "storage_bytes": 1113726
+      }
+    ],
+    "input_and_original_artifact_preserved": true,
+    "matched_advance_only_costs_not_additive": {
+      "artifact.delta_qc": {
+        "old": {
+          "calls": 1056,
+          "cpu_seconds": 20.16157666799943,
+          "exclusive_cpu_seconds": 17.15719400400184,
+          "exclusive_wall_seconds": 17.155346047351486,
+          "wall_seconds": 20.16738773419638
+        },
+        "optimized": {
+          "calls": 1056,
+          "cpu_seconds": 19.47289509399983,
+          "exclusive_cpu_seconds": 16.504591292001308,
+          "exclusive_wall_seconds": 16.500636314201984,
+          "wall_seconds": 19.475801445863908
+        }
+      },
+      "artifact.prefix_verify": {
+        "old": {
+          "calls": 63,
+          "cpu_seconds": 22.47299517300014,
+          "exclusive_cpu_seconds": 1.9489198310010671,
+          "exclusive_wall_seconds": 1.9483448129176395,
+          "wall_seconds": 22.479091819011956
+        },
+        "optimized": {
+          "calls": 63,
+          "cpu_seconds": 21.627209543000077,
+          "exclusive_cpu_seconds": 1.8273675450006834,
+          "exclusive_wall_seconds": 1.8268313347944058,
+          "wall_seconds": 21.63021801399009
+        }
+      },
+      "economics.calculate": {
+        "old": {
+          "calls": 326,
+          "cpu_seconds": 112.6173089619996,
+          "exclusive_cpu_seconds": 108.08769646999684,
+          "exclusive_wall_seconds": 271.03231780148053,
+          "wall_seconds": 277.5323435479804
+        },
+        "optimized": {
+          "calls": 326,
+          "cpu_seconds": 15.033304653000004,
+          "exclusive_cpu_seconds": 11.666778596999901,
+          "exclusive_wall_seconds": 25.51319584430894,
+          "wall_seconds": 30.33373132800625
+        }
+      },
+      "economics.verified_arithmetic": {
+        "old": {
+          "calls": 326,
+          "cpu_seconds": 0.11492566500017354,
+          "exclusive_cpu_seconds": 0.11492566500017354,
+          "exclusive_wall_seconds": 0.11489363998407498,
+          "wall_seconds": 0.11489363998407498
+        },
+        "optimized": {
+          "calls": 326,
+          "cpu_seconds": 0.1134416670001599,
+          "exclusive_cpu_seconds": 0.1134416670001599,
+          "exclusive_wall_seconds": 0.11335796691128053,
+          "wall_seconds": 0.11335796691128053
+        }
+      },
+      "farm.current_rights": {
+        "old": {
+          "calls": 162,
+          "cpu_seconds": 204.4726849359999,
+          "exclusive_cpu_seconds": 0.5401184999999824,
+          "exclusive_wall_seconds": 0.5412543361599091,
+          "wall_seconds": 437.9073170209158
+        },
+        "optimized": {
+          "calls": 162,
+          "cpu_seconds": 103.75904896499998,
+          "exclusive_cpu_seconds": 0.5393536530001803,
+          "exclusive_wall_seconds": 0.5403390141145792,
+          "wall_seconds": 181.8151351579436
+        }
+      },
+      "farm.registration_read": {
+        "old": {
+          "calls": 326,
+          "cpu_seconds": 166.4688618659999,
+          "exclusive_cpu_seconds": 22.778799214999864,
+          "exclusive_wall_seconds": 53.90392052505922,
+          "wall_seconds": 396.89386059794924
+        },
+        "optimized": {
+          "calls": 326,
+          "cpu_seconds": 64.54242322699989,
+          "exclusive_cpu_seconds": 22.78941137599969,
+          "exclusive_wall_seconds": 53.74130128284742,
+          "wall_seconds": 138.66809298594308
+        }
+      },
+      "input.proof_verify": {
+        "old": {
+          "calls": 969,
+          "cpu_seconds": 94.6675842219999,
+          "exclusive_cpu_seconds": 94.6675842219999,
+          "exclusive_wall_seconds": 94.68194317698362,
+          "wall_seconds": 94.68194317698362
+        },
+        "optimized": {
+          "calls": 839,
+          "cpu_seconds": 83.54825219700005,
+          "exclusive_cpu_seconds": 83.54825219700005,
+          "exclusive_wall_seconds": 83.55760745990847,
+          "wall_seconds": 83.55760745990847
+        }
+      },
+      "journal.file_usage": {
+        "old": {
+          "calls": 1126,
+          "cpu_seconds": 0.4822831599998487,
+          "exclusive_cpu_seconds": 0.22072093899953238,
+          "exclusive_wall_seconds": 0.22099785284081008,
+          "wall_seconds": 0.48246561363339424
+        },
+        "optimized": {
+          "calls": 1126,
+          "cpu_seconds": 0.4837547850001389,
+          "exclusive_cpu_seconds": 0.22106310099992044,
+          "exclusive_wall_seconds": 0.22104221404879354,
+          "wall_seconds": 0.4836079267843161
+        }
+      },
+      "market.validate_pinned": {
+        "old": {
+          "calls": 326,
+          "cpu_seconds": 143.69006265100003,
+          "exclusive_cpu_seconds": 26.917445645000335,
+          "exclusive_wall_seconds": 59.899325962222065,
+          "wall_seconds": 342.98994007289
+        },
+        "optimized": {
+          "calls": 326,
+          "cpu_seconds": 41.7530118510002,
+          "exclusive_cpu_seconds": 22.682748152000855,
+          "exclusive_wall_seconds": 49.147957812427194,
+          "wall_seconds": 84.92679170309566
+        }
+      },
+      "rhs": {
+        "old": {
+          "calls": 20056,
+          "cpu_seconds": 36.9810302750021,
+          "exclusive_cpu_seconds": 36.9810302750021,
+          "exclusive_wall_seconds": 36.958959698167746,
+          "wall_seconds": 36.958959698167746
+        },
+        "optimized": {
+          "calls": 20056,
+          "cpu_seconds": 36.721752358000884,
+          "exclusive_cpu_seconds": 36.721752358000884,
+          "exclusive_wall_seconds": 36.70122363640985,
+          "wall_seconds": 36.70122363640985
+        }
+      }
+    },
+    "original_artifact_files": 29141,
+    "original_checkpoint_excluded_provenance_fields": [
+      "version",
+      "root_sha256",
+      "checkpoint_sha256",
+      "parent_sha256",
+      "output_prefix_sha256",
+      "event_prefix_sha256"
+    ],
+    "original_input_files": 750,
+    "original_reference_calendar_shift_days": 273,
+    "original_rows_and_checkpoint_values_equal": true,
+    "whole_checkpoint_exact_previous_registered32": true,
+    "yielded_not_published": true
+  },
+  "current_first32": {
+    "budget": {
+      "max_steps": 10000,
+      "max_transitions": 128
+    },
+    "descriptors_after": 12,
+    "descriptors_before": 12,
+    "fresh_service_checkpoint_exact": true,
+    "last_progress": {
+      "artifact_sha256": null,
+      "binding_sha256": "cedc540f01f910653a045b6dbb4a47f99fd220b60fa49a549ecaa86dae969cfc",
+      "commit_count": 32,
+      "context_sha256": "71c322fac5c814d4d01238b01761c565506d676c2da9a4df2994c03007483c6a",
+      "counts": {
+        "events": 2,
+        "samples": 105
+      },
+      "custody_code_sha256": "2fd04912072fe990b708a7796abbf6df9ba55da421f1c5bfda2d101bbafbc808",
+      "file_count": 68,
+      "head_sha256": "6fbbe1844fbdec01c93df0282d197ccdcb9a2b5f85c25dc41954afced1691a89",
+      "header_sha256": "7d2ac6abffe2e8bb789a29fef8b42fc985f710c03c7fd08c9270a46f83a11db7",
+      "input_root_sha256": "05a58cc9092682f663bb3e2f827003f51ec8a778f746bb429126a663e841fc04",
+      "intent_sha256": "a9f5db904b7884997ac771bc4d16545232acd83c885c57e81c04cfda7c8de7e2",
+      "planned_steps": 1816704,
+      "proof_sha256": "af3cb27d0969aa1c8c9f75875e908e5645a7b4e422792613e9db1faa32d26b07",
+      "scope": "synthetic_crop_math_only",
+      "status": "yielded",
+      "steps": 3990,
+      "storage_bytes": 1113726,
+      "version": "crop-cycle-verified-server-custody-v1"
+    },
+    "max_advances": 32,
+    "read_rhs_calls": 0,
+    "stop_reason": "advance_limit",
+    "wall_budget_seconds": 900
+  },
+  "database_cleanup": {
+    "passfiles_after": 0,
+    "roles_after": 0,
+    "schemas_after": 0,
+    "server_host_auth_methods": [
+      "scram-sha-256",
+      "scram-sha-256",
+      "scram-sha-256",
+      "scram-sha-256"
+    ]
+  },
+  "database_cleanup_sha256": "ea7c673c5a290819e78fd912df61523a8f27ef5df2813e1ac945a535024dded7",
+  "head_at_execution": "8c479584772eaab683294e90dc42d34c6fc0a22d",
+  "holds": {
+    "actual_adopted_cultivar_inputs": 0,
+    "domestic_independent_validation_datasets": 0,
+    "gates": "not_assessed",
+    "harvest_resources_crop_to_economics_actual_CLI_end_to_end_pending": true,
+    "latest_native_original_command_exit_record_missing": true,
+    "measured_farm_crop_Runs": 0,
+    "whole166_registered_execution": "hold_current_quadratic_physical_rechecks",
+    "whole_cycle_prefix_cost_parent": true
+  },
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "proof_sha256": "69205eace1dbf3baf2932a0692820735e7dbffc10e6d5050d65528bcea9ce7a8",
+    "recursive_cli_invocations": 0,
+    "thread_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-07T20:00:46.159Z",
+    "turn_context_line_sha256": "e89f395ae76348c2fad25f3e8c2743a5adb6e693c390e165584590785afe7170"
+  },
+  "not_run": [
+    "new_product_code_or_browser_tests_in_this_observation",
+    "whole166_registered_terminal_DB_API_3D",
+    "hosted_of_four_local_commits",
+    "whole_Backend"
+  ],
+  "profile_sha256": "3ec61881e397f9ae6a705d53206809a79d88c0d084b22989a24c852d1512e99c",
+  "recorded_at_utc": "2026-10-07T20:16:08.914907+00:00",
+  "scope": "optimized_registered_whole_input_initial32_measurement_and_full_run_hold_decision",
+  "source_pins_sha256": "747ff63af2f10433e85aa44969d54cc5b1d6f1f50b41888ee9ee4a7f70313bde",
+  "terminal_audit": {
+    "actual_exit_code": 0,
+    "actual_farm_crop_Runs": 0,
+    "all_owned_resources_clean": true,
+    "completed_advances": 32,
+    "observed_handle": {
+      "controller_pid": 888423,
+      "controller_start_ticks": "7352623",
+      "pid": 888424,
+      "start_ticks": "7352627"
+    },
+    "process_states": {
+      "controller_pid": "absent",
+      "pid": "absent"
+    },
+    "recorded_at_utc": "2026-10-07T20:16:07.674721+00:00",
+    "same_entire_previous_registered_checkpoint": true,
+    "source_freeze_released_after_audit": true,
+    "source_pin_count": 263,
+    "source_pins_preserved": true
+  },
+  "terminal_audit_sha256": "c2de8aa3b7925e777a2cae07fda4cbd27f865113f2fa8d7bc83151669262fc30",
+  "verified_sha256": "b692a9fa9eaee0eefdf110d8104f2546ef036651c15597e022dd7b72717649de",
+  "version": "crop-cycle-calculation-full-budget-reference-v1"
+}

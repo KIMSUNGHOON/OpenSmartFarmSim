@@ -43,7 +43,10 @@ Backend 분할5의 설정 fixture도 기존125개 검증 수정에 포함되며 
 연결38→1/원 검증·산술·같은 첫3회60.421→30.737초·원량/권리/정리로 로컬 수용했다.
 [입력 재검사 개선](../research/crop-cycle-calculation-recheck-cost-implementation-20261008.md)도 고유199개 분할·
 같은 첫3회99→85검사/30.737→29.551초·체크포인트 전체/원량·늦은 변조/철회·복원/정리로 로컬 수용했다.
-개선 판본의 증가 비용/전체 등록 실행 예산 뒤 전체166일 계산/DB/API/3D를 검증한다.
+[개선 판본32회](../research/crop-cycle-calculation-full-budget-observed-20261008.md)는 같은 checkpoint/원량·권리/복원·
+263 source/정리·종료0/358.024초로 관측 자식만 수용했다. 두 개선 전 advance575.494→304.344초다.
+과거 delta QC2n/합1,056회로 전체 등록 장시간 실행/wall 예산을 보류했다.
+다음은 [prefix 검증 증명](../contracts/crop-cycle-calculation-prefix-attestation-v1.md)과 실제 비용/재개 검증이다.
 원 순수 실행의 재분류가 아니다.
 전체166일 등록 비용·실제 품종 입력/국내 독립 자료0건과 G0–G4 보류는 유지한다. 아래 날짜별 기록은 당시 상태다.
 

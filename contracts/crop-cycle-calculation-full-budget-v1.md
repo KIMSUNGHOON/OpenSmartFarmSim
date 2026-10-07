@@ -33,3 +33,9 @@
 
 산출물은 개선 판본의32회 관측 보고서·불변 영수증과 전체 등록 실행의 실행/보류 판단이다.
 생산량·자원·경제 연결과 실제 자료/예측·추천 관문은 [명세](../docs/PROJECT_SPEC.md)의 기존 조건을 따른다.
+
+10월8일 [32회 관측](../research/crop-cycle-calculation-full-budget-observed-20261008.md)은
+실제 종료0/358.024초·원 checkpoint/행·권리/복원·263 source/정리로 수용했다.
+2n delta QC/합1,056회와 전체 순회 비용을 확인해 현재 장시간 실행을 보류했다.
+[prefix 증명 개발](crop-cycle-calculation-prefix-attestation-v1.md)과 실제 비용/재개 검증 뒤 전체 wall 예산을 고정한다.
+32회 관측 자식만 완료하며 이 예산 작업과 누적 비용 부모는 미수용이다.

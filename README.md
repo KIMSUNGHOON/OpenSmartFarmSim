@@ -19,7 +19,10 @@
 연결38→1/검사·원량 보존·같은 첫3회60.421→30.737초·권리/정리로 로컬 수용했습니다.
 [입력 재검사 개선](research/crop-cycle-calculation-recheck-cost-implementation-20261008.md)도 고유199개 분할·
 같은 첫3회99→85검사/30.737→29.551초·체크포인트 전체/원량·변조/철회·복원/정리로 로컬 수용했습니다.
-다음은 개선 판본의 증가 비용과 전체 등록 실행 예산이며 전체166일 계산/DB/API/3D는 후속입니다.
+[개선 판본32회 관측](research/crop-cycle-calculation-full-budget-observed-20261008.md)도 같은 checkpoint/원량·권리/복원·
+263 source/정리·종료0/358.024초로 수용했습니다. 두 개선 전과 같은 advance575.494→304.344초입니다.
+과거 delta QC2n/합1,056회를 확인해 전체 등록 장시간 실행과 wall 예산을 보류했습니다.
+다음은 [prefix 검증 증명](contracts/crop-cycle-calculation-prefix-attestation-v1.md)이며 전체166일 계산/DB/API/3D는 후속입니다.
 `f2dc10f`의 [CI 종료 상태](research/artifacts/full166-calendar-registration-ci-terminal-20261008.json)는
 C0/웹/작성 PG/앱 성공, Backend 분할0/4/5 성공·1/2/3/집계 실패입니다.
 [Python·원격 PG 시험 수정](research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했으며 hosted 수용은 별도입니다.

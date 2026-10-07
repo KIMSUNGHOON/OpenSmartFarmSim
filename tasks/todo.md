@@ -723,7 +723,7 @@
           [10월8일 수용](../research/crop-cycle-calculation-recheck-cost-implementation-20261008.md): 새11개/기존175개/실제 농장12개/같은 계산1개,
           고유199개 분할·guard 전체 검사2→1/현재 정책1회·같은 첫3회 입력 proof99→85회·30.737→29.551초,
           체크포인트 전체/원량·늦은 변조/철회·fresh 복원/RHS0·262 source/FD12→12·실제 종료0/정리.
-        - [ ] **`crop-cycle-calculation-full-budget`** — 다음 한 단계; 개선 판본의 누적 비용과 전체 등록 실행 예산.
+        - [ ] **`crop-cycle-calculation-full-budget`** — 개선 판본의 누적 비용과 전체 등록 실행 예산.
           선행 위 recheck 자식. [관측/예산 계약](../contracts/crop-cycle-calculation-full-budget-v1.md)에 따라
           기존 계측기·같은 전체 root/증명·최대32호출/20분 안에서 초기/증가 비용을 비교한다.
           원32번째 checkpoint/확정 행·현재 권리·새 서비스 복원/RHS0·source/입력/기존 이력·PG/비밀/실제 종료/정리를 보존한다.
@@ -731,6 +731,17 @@
           초기 비용의 단순 선형 외삽은 완료일이나 처리량 수용이 아니다. 실측으로 전체 실행이 예산 안에 들지 않으면
           원 검사를 유지하는 필요한 작은 수정의 계약/검증을 먼저 고정한다. 예산 근거 전 전체 등록 장시간 계산을 시작하지 않는다.
           이 자식만으로 prefix-cost 부모·전체166일 terminal/DB/API/3D·생산량/관문을 체크하지 않는다.
+          - [x] **`crop-cycle-calculation-full-budget32`** — 개선 판본 실제32회와 전체 실행 보류 근거.
+            [10월8일 관측](../research/crop-cycle-calculation-full-budget-observed-20261008.md): 실제 SCRAM/32회·3,990걸음·105시점/2사건,
+            같은 checkpoint 전체/원행·권리/미완료 게시 거부·fresh 복원/RHS0·263 source/FD12→12·정리·종료0/358.024초.
+            두 개선 전과 같은32회 advance575.494→304.344초. 실제 delta QC2n/합1,056회와 코드 전체 순회를 대사했다.
+            장시간 전체 등록 실행/전체 wall 예산은 다음 증명 경로와 실제 비용/재개 검증까지 보류한다.
+          - [ ] **`crop-cycle-calculation-prefix-attestation`** — 다음 한 단계; 과거 검증 증명의 명시 소비.
+            [6 core파일 계약](../contracts/crop-cycle-calculation-prefix-attestation-v1.md)에 따라 새 v2 private proof의
+            실제 새 delta 검증 claim·현재 전체 bytes/서명 체인·닫힌 prefix reader를 먼저 검증하고 서버 재개/progress에 연결한다.
+            원 context/farm/artifact·수식/격자와 terminal 전체 QC를 유지하며 v1 bytes/이력은 재분류하지 않는다.
+            원량/6프로그램·fresh 복원/RHS0·재해시/권리/중단 반례·실제 SCRAM/게시/현재 조회·같은32회 비용/자원/종료가 수용 기준이다.
+            증명 개발만으로 전체 실행 예산·prefix-cost/전체166일 DB/API/3D·생과/자원/경제/관문을 체크하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

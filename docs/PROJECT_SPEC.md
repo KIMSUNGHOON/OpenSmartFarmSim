@@ -29,7 +29,10 @@
 연결38→1/원 검증·산술·첫3회 원량/권리/정리로 로컬 수용했다.
 [입력 재검사 개선](../research/crop-cycle-calculation-recheck-cost-implementation-20261008.md)도 고유199개 분할·
 같은 첫3회99→85검사/30.737→29.551초·체크포인트 전체/원량·늦은 변조/철회·복원/정리로 로컬 수용했다.
-다음은 개선 판본의 증가 비용과 전체 등록 실행 예산이며 전체166일 계산/DB/API/3D·생과/자원/경제 연결은 후속이다.
+[개선 판본32회](../research/crop-cycle-calculation-full-budget-observed-20261008.md)도 같은 checkpoint/원량·권리/복원·
+263 source/정리·종료0/358.024초로 관측 자식만 수용했다. 두 개선 전 advance575.494→304.344초다.
+과거 delta QC2n/합1,056회를 확인해 전체 등록 장시간 실행/wall 예산은 보류다.
+다음은 [prefix 검증 증명](../contracts/crop-cycle-calculation-prefix-attestation-v1.md)이며 전체166일 DB/API/3D·생과/자원/경제 연결은 후속이다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했고 hosted 수용은 별도다.
 누적 비용 부모·전체166일 등록 계산/복원·생과/자원/경제와 실제 자료 관문은 후속이다.
 
