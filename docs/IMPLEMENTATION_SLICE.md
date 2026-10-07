@@ -23,9 +23,12 @@
 34frame·24 HTTPS·별도 정리를 확인했다. 원 명령 종료 기록 누락으로 최종 native/웹 부모는 보류한다.
 [작은 등록 누적 비용](../research/crop-cycle-calculation-prefix-cost-observed-20261008.md)은 정상/hold·수정한32회 시험을
 분할 확인했다. 3,990걸음·확정9시점/2사건·원량/권리/복원·종료0/정리이며 전체166일 등록 비용 부모는 미수용이다.
+[전체166일의 별도 합성 달력 등록](../research/crop-cycle-full166-calendar-registration-20261008.md)은
+원750파일/네 stream·값/clock/격자 보존·73개 회귀·실제 SCRAM 농장/경제 달력·현재 권리/기간 거부·RHS0·종료0/정리로 수용했다.
+다음은 같은 새root의 초기/증가 prefix 비용이며 전체 등록 계산/DB/API/3D는 후속이다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했으며 hosted 수용은 별도다.
 [기존 설정 호환의 hosted 세 Compose/정리](../research/artifacts/application-operator-policy-hosted-reference-20261008.json)는 수용했다.
-전체166일 등록 경로/복원과 생산/경제·자료 관문·hosted 수용은 별도다.
+전체166일 등록 계산/복원과 생산/경제·자료 관문·hosted 수용은 별도다.
 
 상태: **내부 구현 계약·부분 구현, 2026-09-27.** C0 Compose, 출처/G0 형식·서버 승인 저장 계약·시장 문맥, 합성 열 매개변수·trace 계약과 `candidate` 엔진, 조건부 경제 원장·판매 정산, PostgreSQL 지속 작업·AI 시도 증거 저장 계약이 수용됐다. G0 독립 권리 증거의 실제 연결, CLI 증거 저장 브리지와 의도 멱등 제약은 수용됐다. 열 모델의 D/R 결정시각 분리·서명된 DecisionContext와 게시 소프트웨어 통합, CLI 작업자 후보, 사용자 가정의 공동 시장 시나리오가 구현됐다. 실제 제품 CLI 실행·독립 게시 권한, 영속 Market hold·전체 경로 손익분기, API·3D·G1 종단 간 경로는 아직 수용 전이다. 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
 

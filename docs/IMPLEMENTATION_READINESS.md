@@ -30,10 +30,13 @@
 10월8일 수용했다. 구형 판본 CI는
 [C0/웹/작성 PG 성공·앱/Backend 실패로 종료](../research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json)했다.
 Backend 분할5의 설정 fixture도 기존125개 검증 수정에 포함되며 현재 source SHA가 같다.
-최신 Backend는 분할1/2/3 실패·4/5 진행 중이다. [Python·원격 PG 시험 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은
+최신 Backend는 분할0/4 성공·1/2/3 실패·5 진행 중이다. [Python·원격 PG 시험 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은
 고유19개 집중 검증을 통과했으며 hosted 수용은 별도다.
 [작은 등록 누적 비용](../research/crop-cycle-calculation-prefix-cost-observed-20261008.md)은 정상/hold·수정한32회 시험을
 분할 확인했다. 3,990걸음·확정9시점/2사건·원값/복원·권리·종료0/정리이며 전체166일 등록 비용 부모는 미수용이다.
+[전체166일의 별도 합성 달력 등록](../research/crop-cycle-full166-calendar-registration-20261008.md)은
+원750파일/네 stream·값/clock/격자 보존·73개 회귀·실제 SCRAM 농장/경제 달력·현재 권리/기간 거부·RHS0·종료0/정리로 수용했다.
+같은 새root의 누적 계산 비용 뒤 전체 등록 계산/DB/API/3D를 검증한다. 원 순수 실행의 재분류가 아니다.
 전체166일 등록 비용·실제 품종 입력/국내 독립 자료0건과 G0–G4 보류는 유지한다. 아래 날짜별 기록은 당시 상태다.
 
 ## 현재 우선순위와 외부 의존성 — 2026-10-04

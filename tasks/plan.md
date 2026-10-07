@@ -359,12 +359,16 @@ native3–5시간의 **남은 작은 웹 연결4–7집중시간 잠정**이며 
 [계측 코드/수동 시험 준비](../research/crop-cycle-calculation-prefix-cost-prepared-20261008.md)는
 경량17개·전체20개 수집을 통과했다. [실제 작은 누적 측정](../research/crop-cycle-calculation-prefix-cost-observed-20261008.md)은
 정상/hold와 수정한32회 시험을 분할 확인했다. 3,990걸음·확정9시점/2사건·원값/권리/새 서비스 복원·종료0/정리를 통과했다.
-다음 `crop-cycle-calculation-full-registration`은 원 전체 입력/권리와 실제 농장·경제 달력을 먼저 결속하고 RHS0으로 검증한다.
+`crop-cycle-calculation-full-registration`은 원 전체 입력/권리와 실제 농장·경제 달력을 먼저 결속하고 RHS0으로 검증한다.
 [원 전체 입력 사전 검사](../research/crop-cycle-calculation-full-input-preflight-20261008.md)는 원750파일/47,809출력·
-같은 root·새 context·RHS0·종료0/32.051초·FD4→4·123 source 보존을 확인했다. 실제 농장 등록은 아직0회다.
-원 입력1~6월과 현재 작은 농장10~11월의 달력 대응을 먼저 해결한다.
-시각 변환이 필요하면 다른 입력 root를 가진 명시 판본과 원량/간격 대사가 선행하며 원 root 실행으로 표시하지 않는다.
-전체166일 등록·누적 관측과 필요한 개선 전에는 prefix-cost 부모를 수용하지 않는다.
+같은 root·새 context·RHS0·종료0/32.051초·FD4→4·123 source 보존을 확인했다. 당시 실제 농장 등록은0회였다.
+[명시 달력 판본/실제 등록 수용](../research/crop-cycle-full166-calendar-registration-20261008.md)은
+원750파일 보존·+273일/새root·전체 stream/clock/격자와73개 회귀, 실제 SCRAM 농장r1/r2·경제 달력,
+현재 prepare/current·기간/권리/계정 거부·RHS0·FD12→12·127 source/정리·종료0을 확인했다.
+새 합성 판본의 등록이며 원 순수 실행의 재분류나 전체166일 비용/계산 수용은 아니다.
+다음 `crop-cycle-calculation-full-prefix-cost`는 같은 새root/증명으로 초기/증가 prefix의 실제 비용·
+원 checkpoint/행·현재 권리·조회 RHS0·정리를 최대32호출/20분 범위에서 측정한다.
+실측에 필요한 개선과 전체 실행 예산 근거 전에는 prefix-cost 부모를 수용하지 않는다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증이며 전체 hosted 수용은 별도다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
@@ -542,7 +546,8 @@ flowchart TD
   BFULL --> BCALCREG["crop-cycle-calculation-full-registration: 전체 입력·농장/경제 달력"]
   BCALCBIND --> BCALCREG
   BCALCSMALL --> BCALCCOST["crop-cycle-calculation-prefix-cost: 전체 등록 누적 비용"]
-  BCALCREG --> BCALCCOST
+  BCALCREG --> BCALCFULLCOST["crop-cycle-calculation-full-prefix-cost: 같은 전체 입력의 증가 비용"]
+  BCALCFULLCOST --> BCALCCOST
   BCALCCOST --> BRESTORE
   BRESTORE --> BURDEN
   BURDEN --> CAP

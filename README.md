@@ -10,8 +10,11 @@
 [실제 새 화면](research/artifacts/calculation-cycle-native-desktop.png)도 보존했습니다. 원 명령 종료 코드 기록이 유실돼
 최종 native 수용은 보류하며 같은 계산은 재시작하지 않았습니다.
 [작은 등록 누적 비용](research/crop-cycle-calculation-prefix-cost-observed-20261008.md)은 정상/hold와 수정한32회 시험을
-분할 확인했습니다. 3,990걸음·확정9시점/2사건·원값/권리/복원·종료0/정리를 확인했고 전체166일 등록은 후속입니다.
-`f2dc10f`의 C0/웹/작성 PG/앱은 성공했고 Backend는 분할1/2/3 실패·4/5 진행 중입니다.
+분할 확인했습니다. 3,990걸음·확정9시점/2사건·원값/권리/복원·종료0/정리를 확인했습니다.
+[전체166일의 별도 합성 달력 등록](research/crop-cycle-full166-calendar-registration-20261008.md)도
+원750파일/전체 값·격자 보존·73개 회귀·실제 SCRAM 농장/경제 달력·현재 권리/기간 거부·RHS0·종료0/정리로 수용했습니다.
+다음은 같은 새root의 누적 계산 비용이며 전체 등록 계산/DB/API/3D는 후속입니다.
+`f2dc10f`의 C0/웹/작성 PG/앱은 성공했고 Backend는 분할0/4 성공·1/2/3 실패·5 진행 중입니다.
 [Python·원격 PG 시험 수정](research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했으며 hosted 수용은 별도입니다.
 [기존 세 Compose 경로와 정리](research/artifacts/application-operator-policy-hosted-reference-20261008.json)는 실제 로그로 수용했습니다.
 구형 CI는 [C0/웹/작성 PG 성공·앱/Backend 실패로 종료](research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json)했고,

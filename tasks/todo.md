@@ -680,7 +680,7 @@
           DB put/retry/read RHS0·현재 권리/계정 거부와 실제 SCRAM/정리를 분할 검증했다.
           32회·3,990/11,400걸음·확정9시점/2사건의 원값/출처 ID·checkpoint/FD12→12·미완료 게시 거부,
           수정 실행 종료0/494.61초와 원118 source/소유 자원 정리를 확인했다. 전체 작기/예측 수용이 아니다.
-        - [ ] **`crop-cycle-calculation-full-registration`** — 다음 한 단계; 원 전체 입력과 실제 농장·경제 기간의 결속.
+        - [x] **`crop-cycle-calculation-full-registration`** — 원 전체 입력과 실제 농장·경제 기간의 결속.
           원166일 root/clock/forcing/output/event·권리 판본과 농장 평가 기간/작물 점유·해제,
           경제의 수확/판매/수금 달력·batch/grade/channel 대응을 고정한다. 새 실제 SCRAM 등록·불변 job/hash와
           `read_registration`·현재 `CalculationFarmBinding.prepare/current`를 RHS0으로 확인한다.
@@ -688,8 +688,20 @@
           필요한 시각 변환은 원root와 다른 새 판본 계약·원량/간격 대사가 선행한다. 기존 원root 실행으로 표시하지 않는다.
           경제 fixture 수량은 명시 가정이며 모델 생과 생산량이 아니다. 이 단계 뒤 실제 전체 입력의 증가 prefix 비용을 측정한다.
           [첫 원 입력 검사](../research/crop-cycle-calculation-full-input-preflight-20261008.md)는 원750파일/47,809출력·같은root·
-          새 context/RHS0·종료0/32.051초·FD4→4·123 source 보존을 확인했다. 실제 농장 등록은 아직0회다.
-          원2026-01-01~06-16 UTC와 작은 농장10~11월의 달력 대응은 미해결이므로 이 작업은 미수용이다.
+          새 context/RHS0·종료0/32.051초·FD4→4·123 source 보존을 확인했다. 당시 실제 농장 등록은0회였다.
+          [별도 달력 계약](../contracts/crop-cycle-calendar-registration-v1.md)과
+          [10월8일 수용](../research/crop-cycle-full166-calendar-registration-20261008.md): 원750파일을 보존하고
+          +273일/새root·전체 네 stream/clock/격자·73개 회귀를 대사했다. 실제 SCRAM 농장r1→r2·경제 달력과
+          현재 prepare/current·원 기간/짧은 점유/권리/계정 거부·RHS0·FD12→12·127 source/정리·종료0을 확인했다.
+          새 합성 달력 등록의 수용이며 원 순수 실행의 재분류나 전체 등록 계산·생산/비용 수용이 아니다.
+        - [ ] **`crop-cycle-calculation-full-prefix-cost`** — 다음 한 단계; 위 새166일 root/증명을 재사용한다.
+          실제 SCRAM 전체 농장 결속의 초기/증가 prefix를 기존 계측기·최대32호출/20분 안에서 관측한다.
+          원8초 RK4/300초 격자·forcing/사건/121상태를 보존하고 각 commit의 걸음·bytes/files,
+          context/input proof·현재 농장/권리·RHS·prefix QC/저장·서명 비용을 분리한다.
+          새 서비스 checkpoint의 원 상태/seed/clock/cursor·확정 원행과 조회 RHS0, 현재 권리 거부,
+          source/입력/기존 이력·FD/PG/비밀 정리와 실제 명령 종료를 검증한다. yielded를 전체 완료로 표시하지 않는다.
+          실측이 입증한 결함만 별도 작은 수정/검증으로 해소하고 전체 실행 예산·부하 수용 조건을 정한다.
+          이 관측만으로 prefix-cost 부모나 전체166일 terminal/DB/API/3D를 체크하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
