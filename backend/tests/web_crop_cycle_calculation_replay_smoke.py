@@ -81,7 +81,7 @@ class HTTPObservation:
 
 
 def test_registered_verified_25h_protected_TLS_original_values_webgl_and_cleanup(
-        authoring, private_config, tls_files, tmp_path, monkeypatch):
+        authoring, private_config, tmp_path, monkeypatch, request):
     workspace = Path(__file__).resolve().parents[2]
     frozen = json.loads((workspace/'research/artifacts/web-crop-cycle-calculation-view-reference-20261008.json').read_text())
     for name, value in {**frozen['preserved_source_sha256'], **frozen['source_sha256']}.items():
@@ -178,7 +178,10 @@ def test_registered_verified_25h_protected_TLS_original_values_webgl_and_cleanup
     def legacy(*, farm_authoring_service):
         bound = CycleFarmBinding(farm_authoring_service, **PROFILES, notice_raw=NOTICE, input_rights=rights)
         return CycleCropResultStore(CycleServerCustody(bound, legacy_root, input_resolver=UnusedLegacy(), integrity_key=SERVER_KEY), integrity_key=DB_KEY)
-    certificate, private_key, _ = tls_files
+    certificate, private_key, _ = request.getfixturevalue('tls_files')
+    save('browser-TLS-issued.json', {'observed_at_utc': datetime.now(timezone.utc).isoformat(),
+        'after_calculation_steps': execution['long']['steps'],
+        'certificate_sha256': sha256(certificate.read_bytes()).hexdigest()})
     cfg = config(policy=jobs.runtime_identity[0], dsn=jobs._dsn, artifact_root=jobs.artifact_root,
         certificate=certificate, private_key=private_key, port=0)
     deps = dependencies(research_registry=research.catalog, bearer_registry=BearerRegistry(grants), owned_fixture_registry=research.registry,
@@ -242,6 +245,7 @@ def test_registered_verified_25h_protected_TLS_original_values_webgl_and_cleanup
             tampered['hmac_sha256'] = issuer._signature(tampered['payload']); entry['result_evidence_raw'] = _canonical(tampered)
             send({'stage': 'result_tampered'}); receive('tamper_hold_verified', 45)
             entry['result_evidence_raw'] = original_proof; send({'stage': 'result_restored'}); report = receive('verified', 120)
+            save('browser-verified-report.json', report)
             _, error = browser.communicate(timeout=15); assert browser.returncode == 0, error[-4000:]
             assert report['original_samples_verified'] == 27 and report['original_events_verified'] == 5
             assert report['max_active_reads'] == 1 and report['lifecycle']['unmount_zero'] and report['errors'] == []
