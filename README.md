@@ -33,7 +33,9 @@ API193개/웹720개/Chromium15개·타입/빌드·새34 JSON/원량/UTC·270 sou
 [제한된 계산 묶음](research/crop-cycle-calculation-bounded-chunks-implementation-20261008.md)도 고유177개·
 실제4,096전이 저장/3,990걸음/원105출력·2사건·별도 Python 재개·274 source/종료0/정리로 로컬 수용했습니다.
 요청4,096전이/실효128원경계·기존 bytes 한도·명시 서버v3이며 원 수식/격자/현재 권리를 유지합니다.
-다음은 실제 등록 농장/SCRAM의 큰 묶음 비용과 전체 실행 예산이며 전체166일 계산/DB/API/3D는 후속입니다.
+[등록 농장의 두 큰 묶음](research/crop-cycle-calculation-registered-chunk-cost-observed-20261008.md)도 실제 SCRAM1통과·
+8,192전이/7,980걸음·원210출력/4사건·fork 재개·현재 권리/복사 입력 변조 거부·276 source/종료0/정리로 수용했습니다.
+두 advance50.212/47.349초는 초기 구간 관측입니다. 다음은 전체 격자/참조 용량·실행 예산이며 전체166일 등록 계산/DB/API/3D는 후속입니다.
 `f2dc10f`의 [CI 종료 상태](research/artifacts/full166-calendar-registration-ci-terminal-20261008.json)는
 C0/웹/작성 PG/앱 성공, Backend 분할0/4/5 성공·1/2/3/집계 실패입니다.
 [Python·원격 PG 시험 수정](research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했으며 hosted 수용은 별도입니다.

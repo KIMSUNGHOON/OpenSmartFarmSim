@@ -774,11 +774,21 @@
             실제4,096전이/3,990걸음·원105출력/2사건·별도 Python 재개·274 source/종료0/정리를 확인했다.
             마지막 source pin 보강4개 재검사는 기존155개와 중복이다. 원 수식/격자/행/bytes·권리를 유지했다.
             실제 등록 농장의 큰 묶음 비용·전체166일 저장/API/3D 부모는 별도다.
-          - [ ] **`crop-cycle-calculation-registered-chunk-cost`** — 다음 단계; 선행: 제한된 계산 묶음 수용.
-            실제 등록 농장/SCRAM에서 전체 입력의4,096전이 두 번과 별도 프로세스 재개를 관측한다.
-            원 전체 순수 값/행·현재 입력/권리 철회·v2 이력 보존·RHS/검증/bytes/HMAC 비용·
+          - [x] **`crop-cycle-calculation-registered-chunk-cost`** — 로컬 실제 SCRAM 합성 관측 수용; 선행: 제한된 계산 묶음 수용.
+            [관측 계약](../contracts/crop-cycle-calculation-registered-chunk-cost-v1.md): 실제 등록 농장/SCRAM에서
+            전체 입력의4,096전이 두 번과 별도 fork 프로세스 재개를 관측한다. fresh exec 수용과 구분한다.
+            원 전체 순수 값/행·현재 입력/권리 철회·선행 증거 보존·RHS/검증/bytes/HMAC 비용·
             PID/source/DB/역할/비밀/PG 정리를 확인한다. 실제 비용 뒤 전체 실행 예산을 고정한다.
+            [10월8일 실제 수용](../research/crop-cycle-calculation-registered-chunk-cost-observed-20261008.md):
+            1통과/173.26초·원 종료0/174.001초·합8,192전이/7,980걸음·원210출력/4사건·fork 재개,
+            첫 checkpoint 전체/원64commit·현재 권리/복사 root·block 거부·276 source/FD12→12·DB/비밀/PG 정리.
+            두 advance50.212/47.349초·새 delta QC각2회·조회 RHS/QC0·현재 bytes 검사를 보존했다.
             이 관측만으로 전체166일 terminal/DB/API/3D·관문 부모를 체크하지 않는다.
+          - [ ] **`crop-cycle-calculation-full-capacity`** — 다음 단계; 선행: 등록 묶음 비용 수용.
+            RHS0으로 전체 원 격자의 실효 묶음 수/출력·사건 경계와 참조 저장 용량·예약 공간을 대조한다.
+            고정 byte/file/commit/proof 한도를 유지하고 참고 원량의 크기와 신규 실제 결과를 구분한다.
+            현재 bytes/HMAC 증가 비용·기존 전체 실제 계산 비용과 함께 장시간 명령의 예산/감독·복원/정리를 고정한다.
+            초기 구간 선형 외삽을 완료 날짜로 쓰지 않고, 증거 전 전체 등록 계산/게시/3D 부모를 체크하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
