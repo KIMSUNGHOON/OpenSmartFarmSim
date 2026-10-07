@@ -2,7 +2,7 @@
 
 2026-10-07 KST. native Codex CLI `gpt-6.1-sol / xhigh`에서 현재 코드를 대조했다.
 재귀 CLI0회다. 선행 [현재 농장 조회](crop-cycle-calculation-current-query-v1.md)의 실제 수용 뒤
-`crop-cycle-calculation-api-runtime` 부모를 아래 작은 순서로 구현한다. 이 계약은 구현 수용이 아니다.
+`crop-cycle-calculation-api-runtime` 부모를 아래 작은 순서로 구현한다. 순수 투영의 실제 수용은 아래에 기록한다.
 
 ## 현행 코드와 의존성
 
@@ -70,3 +70,13 @@ query 판본/code는 기존과 같은 이름의 응답 헤더로 표시한다.
 명시적 설정/factory·회귀2–4시간, route·실제 TLS1–2시간의 **총4–8집중시간 잠정**이다.
 각 자식의 실제 비용으로 갱신한다. CI 대기·전체166일 등록 prefix 비용/3D·외부 자료 확보는 제외한다.
 현재 실제 품종 입력·국내 독립 검증 자료·실제 작물 Run0건, G0–G4 `not_assessed`다.
+
+## 순수 투영 수용 — 2026-10-07
+
+[실제 보고서](../research/crop-cycle-calculation-api-projection-implementation-20261007.md)와
+[고정 영수증](../research/artifacts/crop-cycle-calculation-api-projection-reference-20261007.json):
+새 고유63개/구형42개·고유105개 분할 검증, 실제25시간11,400걸음/27시점/5사건·7페이지·
+원량/UTC·세 hold·parser/context/QC/RHS0·새 provenance 혼합 거부·byte 경계·별도 Python import/FD·67 source 보존.
+첫 전체 실행의 증거 이름 충돌2실패와 수정3통과를 구분해 보존했다. 제품 source는 같다.
+순수 투영 자식만 수용하며 설정/factory·실제 API/runtime·전체 등록 작기/3D와 관문은 후속이다.
+이후 작은 설정/factory와 route/TLS의 남은3–6집중시간 잠정은 해당 실제 수용 뒤 갱신한다.
