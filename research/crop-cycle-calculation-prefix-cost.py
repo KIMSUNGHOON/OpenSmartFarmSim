@@ -16,6 +16,10 @@ from app import crop_cycle_calculation_server_custody as custody
 from app.crop_cycle_calculation_farm_binding import CalculationFarmBinding
 from app.crop_cycle_calculation_result_store import CalculationCycleCropResultStore
 from app.crop_cycle_input_evidence import InputEvidenceAuthority
+from app.economics import EconomicLedger
+from app.farm_authoring_storage import FarmAuthoringService
+from app.market_scenario import MarketScenarioService
+from app.market_source_store import MarketSourceStore
 
 VERSION = 'crop-cycle-calculation-prefix-cost-v1'
 _PROFILE_PATH = Path(__file__).with_name('crop-cycle-burden-profile.py')
@@ -43,6 +47,11 @@ def observation():
         (CalculationFarmBinding, 'current', 'farm.current_rights'),
         (CalculationFarmBinding, '_input', 'farm.input_validate'),
         (CalculationFarmBinding, '_registration', 'farm.registration_validate'),
+        (FarmAuthoringService, 'read_registration', 'farm.registration_read'),
+        (MarketScenarioService, 'validate_pinned', 'market.validate_pinned'),
+        (EconomicLedger, 'calculate', 'economics.calculate'),
+        (EconomicLedger, '_calculate_verified', 'economics.verified_arithmetic'),
+        (MarketSourceStore, '_read_in_transaction', 'market.source_read'),
         (CalculationCycleCropResultStore, 'put', 'db.put'),
         (CalculationCycleCropResultStore, '_find', 'db.lookup')]
     costs = Costs()

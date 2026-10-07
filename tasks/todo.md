@@ -694,7 +694,7 @@
           +273일/새root·전체 네 stream/clock/격자·73개 회귀를 대사했다. 실제 SCRAM 농장r1→r2·경제 달력과
           현재 prepare/current·원 기간/짧은 점유/권리/계정 거부·RHS0·FD12→12·127 source/정리·종료0을 확인했다.
           새 합성 달력 등록의 수용이며 원 순수 실행의 재분류나 전체 등록 계산·생산/비용 수용이 아니다.
-        - [ ] **`crop-cycle-calculation-full-prefix-cost`** — 다음 한 단계; 위 새166일 root/증명을 재사용한다.
+        - [x] **`crop-cycle-calculation-full-prefix-cost`** — 위 새166일 root/증명의 초기/증가 표본.
           실제 SCRAM 전체 농장 결속의 초기/증가 prefix를 기존 계측기·최대32호출/20분 안에서 관측한다.
           원8초 RK4/300초 격자·forcing/사건/121상태를 보존하고 각 commit의 걸음·bytes/files,
           context/input proof·현재 농장/권리·RHS·prefix QC/저장·서명 비용을 분리한다.
@@ -702,6 +702,15 @@
           source/입력/기존 이력·FD/PG/비밀 정리와 실제 명령 종료를 검증한다. yielded를 전체 완료로 표시하지 않는다.
           실측이 입증한 결함만 별도 작은 수정/검증으로 해소하고 전체 실행 예산·부하 수용 조건을 정한다.
           이 관측만으로 prefix-cost 부모나 전체166일 terminal/DB/API/3D를 체크하지 않는다.
+          [10월8일 수용](../research/crop-cycle-full166-prefix-cost-observed-20261008.md): 실제 SCRAM32회·3,990걸음·
+          105시점/2사건·원121상태/seed/clock/cursor·모든 확정 행·새 서비스/RHS0·권리/미완료 게시 거부,
+          원 입력750/새750/원 결과29,141·129 source·FD12→12/정리·종료0/650.849초를 확인했다.
+          경제 검증/계산338회·독점280.720초, 산술0.119초와 입력 proof97.986초를 분리했다.
+        - [ ] **`crop-cycle-candidate-read-scope`** — 다음 한 단계; 위 실측의 반복 후보 연결 비용을 줄인다.
+          [좁은 계약](../contracts/crop-cycle-candidate-read-scope-v1.md)에 따라 실제 연결 수 RED →
+          검증 호출별 후보1/원천1 연결·원 request/scenario/pin/Decimal/검사 수 보존 →
+          현재 권리/commit된 변조/감사·readonly/동시/예외 정리 → 같은 작은 계산의 개선 비용을 검증한다.
+          전체 작기 실행 예산과 누적 비용 부모는 이 자식만으로 수용하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

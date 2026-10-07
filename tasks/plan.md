@@ -368,8 +368,11 @@ native3–5시간의 **남은 작은 웹 연결4–7집중시간 잠정**이며 
 새 합성 판본의 등록이며 원 순수 실행의 재분류나 전체166일 비용/계산 수용은 아니다.
 `f2dc10f`의 [종료 CI](../research/artifacts/full166-calendar-registration-ci-terminal-20261008.json)는
 다른4workflow 성공, Backend0/4/5 성공·1/2/3/집계 실패다. 기존19개 집중 검증 수정은 후속 판본이다.
-다음 `crop-cycle-calculation-full-prefix-cost`는 같은 새root/증명으로 초기/증가 prefix의 실제 비용·
-원 checkpoint/행·현재 권리·조회 RHS0·정리를 최대32호출/20분 범위에서 측정한다.
+[전체 입력의 초기32회 비용](../research/crop-cycle-full166-prefix-cost-observed-20261008.md)은 같은 새root/증명으로
+3,990걸음·105시점/2사건·원 checkpoint/행·현재 권리·조회 RHS0·129 source/정리·종료0/650.849초를 확인했다.
+초기/증가 표본 자식만 수용했다. 다음 [후보 읽기 범위](../contracts/crop-cycle-candidate-read-scope-v1.md)는
+실제 반복 연결 RED → 호출별1연결/원 검증·산술·권리/변조/감사/정리 → 같은 계산 개선 측정 순서다.
+경제 검증/계산 독점280.720초를 SQL 전용 비용으로 단정하지 않으며 입력 proof97.986초 등 남은 비용도 유지한다.
 실측에 필요한 개선과 전체 실행 예산 근거 전에는 prefix-cost 부모를 수용하지 않는다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증이며 전체 hosted 수용은 별도다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
@@ -549,7 +552,8 @@ flowchart TD
   BCALCBIND --> BCALCREG
   BCALCSMALL --> BCALCCOST["crop-cycle-calculation-prefix-cost: 전체 등록 누적 비용"]
   BCALCREG --> BCALCFULLCOST["crop-cycle-calculation-full-prefix-cost: 같은 전체 입력의 증가 비용"]
-  BCALCFULLCOST --> BCALCCOST
+  BCALCFULLCOST --> BCANDREAD["crop-cycle-candidate-read-scope: 후보 연결 재사용/원 검증"]
+  BCANDREAD --> BCALCCOST
   BCALCCOST --> BRESTORE
   BRESTORE --> BURDEN
   BURDEN --> CAP

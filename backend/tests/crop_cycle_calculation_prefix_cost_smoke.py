@@ -17,6 +17,10 @@ from app.crop_cycle_input_evidence import InputEvidenceAuthority
 from app import crop_cycle_calculation_server_custody as custody
 from app.crop_cycle_calculation_result_store import CalculationCycleCropResultStore
 from app.crop_result_store import READ_SCOPES, WRITE_SCOPES
+from app.economics import EconomicLedger
+from app.farm_authoring_storage import FarmAuthoringService
+from app.market_scenario import MarketScenarioService
+from app.market_source_store import MarketSourceStore
 from test_api_crop_cycle_calculation_tls import Inputs, SERVER_KEY, DB_KEY
 from test_crop_cycle_calculation_result_store_farms import login_scope, original_login_scope, counts
 from test_crop_cycle_artifact import PROFILES
@@ -106,7 +110,10 @@ def driver():
 def test_observer_restores_real_functions_after_error_and_keeps_nested_costs_separate(driver):
     targets = [(engine, 'open_calculation_context'), (InputEvidenceAuthority, 'verify'),
         (artifact._Files, '_load_prefix'), (CalculationFarmBinding, 'current'),
-        (engine.short._Evaluator, 'rhs'), (engine, '_canonical')]
+        (engine.short._Evaluator, 'rhs'), (engine, '_canonical'),
+        (FarmAuthoringService, 'read_registration'), (MarketScenarioService, 'validate_pinned'),
+        (EconomicLedger, 'calculate'), (EconomicLedger, '_calculate_verified'),
+        (MarketSourceStore, '_read_in_transaction')]
     original = [getattr(owner, name) for owner, name in targets]
     with pytest.raises(RuntimeError, match='own observation failure'):
         with driver.observation() as costs:
