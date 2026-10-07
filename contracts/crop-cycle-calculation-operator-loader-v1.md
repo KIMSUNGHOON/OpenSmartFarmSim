@@ -40,3 +40,18 @@ DSN/TLS/열·시장 key·선택 authored key·ContentAccess와 trusted `module:a
 원 loader45줄의 조립 재사용·닫힌 새 정책/거부·실제 SCRAM 검증을 근거로1–2집중시간 잠정이다.
 이어 route/실제 TLS1–2시간, 남은 작은 API 연결2–4집중시간 잠정이며 각 실제 수용 뒤 갱신한다.
 CI 대기·전체166일 등록 prefix/복원·3D·실제 품종/국내 독립 자료 확보와 최종 제품 완료일은 포함하지 않는다.
+
+## 로컬 구현 수용 — 2026-10-07
+
+새 로더 전체57개/15.45초와 기존 설정·API/runtime 회귀155개/44.99초,
+**고유212개 분할 검증**으로 이 자식과 명시 operator-runtime 부모를 로컬 수용한다.
+단일 전체 backend 수용이나 새 HTTP 응답 수용은 아니다.
+새 판본의 명시 false/true·정책/형식·보호 파일/ACL·실제 읽기 중 변경/FD·고정 오류·env와
+별도 Python 세 import 순서를 확인했다. 원 loader와 선행75 source SHA는 같다.
+실제 SCRAM/TLS 파일로 동일 jobs/farm/principal의 새 store/query와 네 독립 키·재구성·env service를 조립했다.
+parser/context/QC/RHS/advance/게시를 금지했으며 jobs88/events88·작물 결과0행·원 파일 SHA/mode/inode·FD12는 같다.
+host 인증4규칙은 SCRAM이고 소유 schema/role/passfile0·PG PID/data/임시 tree 정리를 확인했다.
+첫 실제 조립 시험의 잘못된 시험 속성명 `authority`를 `input_authority`로 고쳤고
+실패 로그와 정리·제품 source 불변을 보존했다. 원 설정 거부 RED도 별도 보존한다.
+자세한 명령/source/로그 SHA와 보류는 [수용 기록](../research/crop-cycle-calculation-operator-loader-20261007.md)에 둔다.
+다음은 [인증 route/OpenAPI → 실제 runtime/TLS](api-crop-cycle-calculation-transport-v1.md)다.
