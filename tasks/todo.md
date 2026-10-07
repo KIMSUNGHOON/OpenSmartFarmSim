@@ -687,6 +687,9 @@
           원 입력/이력 보존·기간/권리 불일치 거부·FD/DB/비밀/PG 정리와 실제 명령 종료가 수용 기준이다.
           필요한 시각 변환은 원root와 다른 새 판본 계약·원량/간격 대사가 선행한다. 기존 원root 실행으로 표시하지 않는다.
           경제 fixture 수량은 명시 가정이며 모델 생과 생산량이 아니다. 이 단계 뒤 실제 전체 입력의 증가 prefix 비용을 측정한다.
+          [첫 원 입력 검사](../research/crop-cycle-calculation-full-input-preflight-20261008.md)는 원750파일/47,809출력·같은root·
+          새 context/RHS0·종료0/32.051초·FD4→4·123 source 보존을 확인했다. 실제 농장 등록은 아직0회다.
+          원2026-01-01~06-16 UTC와 작은 농장10~11월의 달력 대응은 미해결이므로 이 작업은 미수용이다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
