@@ -72,8 +72,9 @@ def _pins(context,notice_raw):
 
 
 def _check(context,notice):
-    _pins(context,notice)
+    _need(type(context) is engine.CalculationContext,'CONTEXT_HOLD: exact calculation context required')
     context.recheck()
+    _pins(context,notice)
 
 
 def _operation(handle,fn,*args):
@@ -490,7 +491,7 @@ class ArtifactReader(_Files):
     def _page(self,kind,start=0,limit=None):
         self._open();maximum=64 if kind=='samples' else 8
         limit=maximum if limit is None else limit
-        _need(kind in self._index and type(start) is int and 0<=start<=self._counts[kind]
+        _need(type(kind) is str and kind in self._index and type(start) is int and 0<=start<=self._counts[kind]
               and type(limit) is int and 1<=limit<=maximum,'RESOURCE_HOLD: bounded page position/limit required')
         rows=[];index=self._index[kind];starts=[d['start'] for d in index];position=start;self._page_cache=None
         while position<min(start+limit,self._counts[kind]):
