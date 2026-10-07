@@ -12,6 +12,7 @@ jobs·farm service를 공유해야 한다. 잘못된 반환/교체는 assembly �
 새 경로는 조회 `open(...)` 안에서 기존 순수 공개 투영과 전체 JSON bytes를 준비한다.
 투영 뒤에도 현재 DB/권리/trace/입력/result를 확인한 후 문맥을 닫는다. 기존 상태 코드·닫힌 query·
 Scope·401/403/404/422/503·no-store와 전체 응답30초/2MiB를 유지한다.
+현재 DB 역할 감사 실패는 `RolePolicyHold`를 보존해503으로 응답하고 자료/권리 보류422와 구분한다.
 공개 JSON schema와 원 math provenance는 유지하며 새 조회 판본/code는
 `X-OSSF-Crop-Query-Version`, `X-OSSF-Crop-Query-Code-SHA256` 헤더로 표시한다.
 키·private 증명/경로·DB HMAC는 공개하지 않는다.

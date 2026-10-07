@@ -313,7 +313,17 @@ def _read_cycle_response(store,tenant,result_id,farm_ref,view,offset,limit):
         return raw
 
 
-def install_cycle_crop_routes(app,*,jobs,farms,store,principal_provider,authorized_tenant,error,access):
+def _read_current_cycle_response(query,tenant,result_id,farm_ref,view,offset,limit):
+    with query.open(tenant,result_id,farm_ref,kind=None if view=='summary' else view,
+            start=offset,limit=limit) as value:
+        if value is None:return None
+        projected=project_cycle_result(value['record'],value['terminal'],view=view,page=value['page'],limit=limit)
+        return _public_bytes(projected)
+
+
+def install_cycle_crop_routes(app,*,jobs,farms,store,principal_provider,authorized_tenant,error,access,
+        query=None):
+    from . import crop_cycle_current_query as current_query
     if store is not None:
         from . import crop_cycle_result_store as storage
         if (type(store) is not storage.CycleCropResultStore or store.jobs is not jobs or farms is None
@@ -321,6 +331,14 @@ def install_cycle_crop_routes(app,*,jobs,farms,store,principal_provider,authoriz
                 or jobs.principal_provider is not principal_provider):
             raise ValueError('trusted cycle crop reader required')
         store._binding()
+    if query is not None:
+        if type(query) is not current_query.CurrentCycleQuery or store is None or query.store is not store:
+            raise ValueError('trusted current cycle crop reader required')
+        query._binding()
+    reader=store if query is None else query
+    read_response=_read_cycle_response if query is None else _read_current_cycle_response
+    headers={} if query is None else {'X-OSSF-Crop-Query-Version':current_query.VERSION,
+        'X-OSSF-Crop-Query-Code-SHA256':current_query.CODE_SHA256}
 
     @app.get('/v1/crop-cycle-research-results/{result_id}',response_model=CycleCropReplay,
         operation_id='getCycleCropResearchResult',openapi_extra=access(READ_SCOPES),
@@ -348,15 +366,15 @@ def install_cycle_crop_routes(app,*,jobs,farms,store,principal_provider,authoriz
         if store is None:return error(503,'crop_research_unavailable','Crop research result unavailable')
         if view!='summary' and limit is None:limit=64 if view=='samples' else 8
         try:
-            raw=await run_in_threadpool(_read_cycle_response,store,tenant,result_id,
+            raw=await run_in_threadpool(read_response,reader,tenant,result_id,
                 {'scenario_id':scenario_id,'scenario_revision':scenario_revision,
                  'registration_sha256':registration_sha256,'crop_id':crop_id},view,offset,limit)
             current,denied=authorized_tenant(*READ_SCOPES)
             if denied is not None:return denied
             if current!=tenant:return error(403,'forbidden','Resource access denied')
             if raw is None:return error(404,'not_found','Crop research result not found')
-            return Response(raw,media_type='application/json')
+            return Response(raw,media_type='application/json',headers=headers)
         except PermissionError:return error(403,'forbidden','Resource access denied')
-        except (CycleCustodyHold,CycleFarmBindingHold,FarmAuthoringHold):
+        except (CycleCustodyHold,CycleFarmBindingHold,FarmAuthoringHold,current_query.CurrentCycleQueryHold):
             return error(422,'crop_research_hold','Crop research evidence unavailable')
         except Exception:return error(503,'crop_research_unavailable','Crop research result unavailable')

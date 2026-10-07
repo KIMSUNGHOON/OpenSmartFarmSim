@@ -7,6 +7,7 @@ from pathlib import Path
 
 from . import crop_cycle_result_store as storage
 from . import crop_cycle_result_read_context as results
+from .runtime_roles import RolePolicyHold
 from .thermal_run_store import _canonical
 
 VERSION='crop-cycle-current-query-v1'
@@ -182,7 +183,7 @@ class CurrentCycleQuery:
                     'original_proof_sha256':progress['proof_sha256'],'rights_or_gate_approval':False}
                 yield {'record':deepcopy(record),'terminal':deepcopy(terminal),'page':page,'identity':identity}
                 self._current(tenant,record,packet,farm_ref,reader,trace,source)
-        except PermissionError:raise
+        except (PermissionError,RolePolicyHold):raise
         except Exception:raise CurrentCycleQueryHold('current crop research query unavailable') from None
         finally:
             if trace is not None:trace.close()

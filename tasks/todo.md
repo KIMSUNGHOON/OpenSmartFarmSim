@@ -441,22 +441,29 @@
         최종 열기0.026초/summary·전체2page0.345초/recheck0.013초·최대483,532bytes·cache2page다.
         context 진입 실패의 FD 누수를 실제1실패로 재현·수정했고 원52/선행9 core source를 보존했다.
         원166일·현재 Farm/권리·원 server trace/DB/API/3D와 부모 수용은 별도다.
-      - [ ] **`crop-cycle-current-query`** — 선행 typed result reader; [현재 조회 계약](../contracts/crop-cycle-current-query-v1.md)의 두 자식 수용 뒤 완료.
+      - [x] **`crop-cycle-current-query`** — 선행 typed result reader; [현재 조회 계약](../contracts/crop-cycle-current-query-v1.md)의 두 자식 수용 뒤 완료.
         실제 원 농장 등록/result row·서명된 server custody trace를 현재 Scope/권리·입력/result 증명과
         전후 결속한다. 원 math 판본·현재 조회 판본을 함께 보존하고 참조 proof를 server progress로 바꾸지 않는다.
         현재 권리 철회·계정/등록/trace/물리 변조·재시작·공개30초/2MiB의 실제 PG/TLS/정리를 확인한다.
         실제166일 전체 farm/API/3D와 부모 수용은 원 full-rhs 및 전체 연결 검증을 모두 요구한다.
+        [작은 조회 범위 수용](../research/crop-cycle-query-runtime-implementation-20261007.md): 두 자식의 실제 SCRAM/TLS·
+        현재 권리/원 trace·재시작·30초/2MiB·정리 증거를 확보했다. 전체 작기/복원·부하 부모는 미수용이다.
         - [x] **`crop-cycle-query-authority`** — 새 현재 조회 module·실제 DB 시험·계약3 core파일.
           원 store/farm/custody 타입을 바꾸지 않고 원 등록/DB HMAC·intent/선택 및 전체 부모 proof를
           현재 입력/result QC·등록/Scope·원천/입력 권리에 전후 결속한다. 실제 SCRAM 원값/UTC·
           철회/DB/trace/물리 변조·재구성/별도 프로세스·parser/QC/RHS0/FD·DB/역할/비밀·PG 정리로 수용한다.
           [로컬 수용](../research/crop-cycle-query-authority-implementation-20261007.md): 최종 실제 SCRAM8개/631.33초·
           마지막 권리 검토 철회의 실제1실패 수정·원3시점·재구성/fork·parser/QC/RHS0·FD/스키마/역할/비밀/PG 정리.
-          관리 사건이 있는 실제 TLS와 현재 조회 부모/전체166일·부하는 별도다.
-        - [ ] **`crop-cycle-query-runtime`** — 선행 authority; API route/create_app/runtime의 명시적
+          이8개는 `04072f0`의 판본이며 이후 transport 예외 전파 변경은 아래 실제 TLS/권한 회귀로 확인했다.
+          전체166일·부하는 별도다.
+        - [x] **`crop-cycle-query-runtime`** — 선행 authority; API route/create_app/runtime의 명시적
           조회 선택·집중 시험·계약. 기본 기존 경로를 유지하고 현재 조회 타입/원 store·농장 authority를 대사한다.
           실제 SCRAM/TLS의 원 모든 작은 시점/사건·전체 응답30초/2MiB·투영 후 철회·재시작·거부/정리를
           확인한다. private proof/path/key와 새 code의 원 계산 재표시는 공개하지 않는다.
+          [로컬 수용](../research/crop-cycle-query-runtime-implementation-20261007.md): 실제 SCRAM/TLS1개/243.58초·
+          원120걸음·3시점/3사건·22 HTTPS·최대6.306509초/21,514bytes·투영 후 철회/역할 거부·재시작/정리.
+          구성/기존 route52개·호환137통과/9건너뜀·선행8개 포함 분할 고유198통과/9건너뜀이다.
+          최종 예외 전파 회귀2개는 중복 합산하지 않으며 전체 backend/새 브라우저/hosted CI는 이번 범위가 아니다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

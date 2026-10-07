@@ -105,7 +105,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                farm_authoring_service=None, farm_authored_review_service=None,
                authored_simulation_service=None, crop_result_store=None,
                crop_coupled_result_store=None, crop_startup_result_store=None,
-               crop_cycle_result_store=None) -> FastAPI:
+               crop_cycle_result_store=None, crop_cycle_current_query=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -261,7 +261,7 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         authorized_tenant=authorized_tenant,error=_error,access=_access)
     install_cycle_crop_routes(app,jobs=job_store,farms=farm_authoring_service,
         store=crop_cycle_result_store,principal_provider=principal_provider,
-        authorized_tenant=authorized_tenant,error=_error,access=_access)
+        authorized_tenant=authorized_tenant,error=_error,access=_access,query=crop_cycle_current_query)
 
     @app.get('/v1/source-history', response_model=SourceHistoryPage,
              operation_id='listOwnedSourceHistory', responses=errors,

@@ -89,6 +89,7 @@ class ApiRuntimeDependencies:
     crop_coupled_result_store_factory: object = field(default=None, repr=False)
     crop_startup_result_store_factory: object = field(default=None, repr=False)
     crop_cycle_result_store_factory: object = field(default=None, repr=False)
+    crop_cycle_current_query_factory: object = field(default=None, repr=False)
 
     def __post_init__(self):
         if (type(self.research_registry) is not ResearchRegistry or
@@ -101,6 +102,7 @@ class ApiRuntimeDependencies:
                 (self.crop_coupled_result_store_factory is not None and not callable(self.crop_coupled_result_store_factory)) or
                 (self.crop_startup_result_store_factory is not None and not callable(self.crop_startup_result_store_factory)) or
                 (self.crop_cycle_result_store_factory is not None and not callable(self.crop_cycle_result_store_factory)) or
+                (self.crop_cycle_current_query_factory is not None and not callable(self.crop_cycle_current_query_factory)) or
                 (self.owned_fixture_registry is not None and type(self.owned_fixture_registry) is not OwnedFixtureRegistry) or
                 (self.owned_research_contexts is not None and
                     (type(self.owned_research_contexts) is not dict or self.owned_fixture_registry is None))):
@@ -141,6 +143,8 @@ class ApiRuntime:
             if config.policy.crop_startup_result_storage != (dependencies.crop_startup_result_store_factory is not None):
                 raise ValueError()
             if config.policy.crop_cycle_result_storage != (dependencies.crop_cycle_result_store_factory is not None):
+                raise ValueError()
+            if dependencies.crop_cycle_current_query_factory is not None and dependencies.crop_cycle_result_store_factory is None:
                 raise ValueError()
             authored_option = (config.authored_run_gate_key is not None or
                 dependencies.authored_run_store_factory is not None)
@@ -231,6 +235,13 @@ class ApiRuntime:
                         or jobs.principal_provider is not current_principal):
                     raise ValueError()
                 cycle_crop_results._binding()
+            cycle_crop_query = None
+            if dependencies.crop_cycle_current_query_factory is not None:
+                from .crop_cycle_current_query import CurrentCycleQuery
+                cycle_crop_query = dependencies.crop_cycle_current_query_factory(result_store=cycle_crop_results)
+                if type(cycle_crop_query) is not CurrentCycleQuery or cycle_crop_query.store is not cycle_crop_results:
+                    raise ValueError()
+                cycle_crop_query._binding()
             submission = None
             if dependencies.thermal_publisher_factory is not None:
                 if scenarios is None:
@@ -273,7 +284,7 @@ class ApiRuntime:
                 farm_authored_review_service=farm_reviews,
                 authored_simulation_service=authored_simulation, crop_result_store=crop_results,
                 crop_coupled_result_store=coupled_crop_results, crop_startup_result_store=startup_crop_results,
-                crop_cycle_result_store=cycle_crop_results)
+                crop_cycle_result_store=cycle_crop_results,crop_cycle_current_query=cycle_crop_query)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -287,5 +298,6 @@ class ApiRuntime:
                 ('farm_authoring', farm_authoring), ('farm_reviews', farm_reviews),
                 ('authored_runs', authored_runs), ('authored_simulation', authored_simulation),
                 ('crop_results', crop_results), ('coupled_crop_results', coupled_crop_results),
-                ('startup_crop_results', startup_crop_results), ('cycle_crop_results', cycle_crop_results)):
+                ('startup_crop_results', startup_crop_results), ('cycle_crop_results', cycle_crop_results),
+                ('cycle_crop_query', cycle_crop_query)):
             object.__setattr__(self, name, value)

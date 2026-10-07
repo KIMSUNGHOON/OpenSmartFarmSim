@@ -196,7 +196,12 @@ schema/QC/context/현재 권리/API는 제외했다. reader 코드 SHA와 root/m
 현재 조회 부모는 두 자식의 증거를 모두 요구한다.
 실제 전체 proof 크기/발행은 원166일 종료 뒤 측정한다. 현재 farm/Scope/등록/권리·원 server trace/API →
 실제 전체 저장/같은 ID/UTC3D 순서이며 순수 참조 proof를 농장 계산 이력으로 재표시하지 않는다.
-현재 [농장/DB 조회 결속](../research/crop-cycle-query-authority-implementation-20261007.md)은 실제 SCRAM8개/631.33초와 원120걸음·3시점/0사건·재시작/fork·철회/변조·FD/스키마/역할/비밀·PG 정리로 로컬 수용했다. 마지막 권리 검토 중 원천 철회를 반환하는 실제1실패를 수정했고, API/runtime TLS 및 현재 조회 부모는 아직 미수용이다.
+현재 [농장/DB 조회 결속](../research/crop-cycle-query-authority-implementation-20261007.md)의 실제 SCRAM8개/631.33초와
+[API/runtime 연결](../research/crop-cycle-query-runtime-implementation-20261007.md)의 실제 SCRAM/TLS1개/243.58초를 로컬 수용했다.
+원120걸음·3시점/3관리 사건·22 HTTPS·재시작·투영 후 철회·trace/역할 거부·정리를 확인했다.
+최대6.306509초/21,514bytes·분할 고유198통과/9건너뜀이며 선행/최종 transport 코드 판본은 구분한다.
+현재 조회 부모는 작은 소프트웨어 범위까지 수용했다. 다음은 별도 판본/지속 저장의 전체166일 실험 설계·실행 →
+저장 조회/중단 복원 → 같은 ID/UTC3D이며 전체 작기/복원·부하 부모와 관문은 계속 보류한다.
 
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)은 원81574 handle·실험/terminal
 보존 경로 부재를 확인했다. 원 최종 상태는 확인 불가이고 같은 실험/예산을 재설정하지 않는다.

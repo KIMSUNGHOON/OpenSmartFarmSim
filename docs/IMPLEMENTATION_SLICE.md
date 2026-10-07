@@ -294,8 +294,12 @@ cache 한도·반환 전 재대사를 확인했다. 다음은 [현재 조회 계
 첫 수용은 원 등록/result row·전체 부모 custody 서명의 현재 권리/증명 전후 결속과 실제 작은 등록 농장의
 SCRAM·철회/변조/재시작·정리다. 다음 API/runtime 연결의 TLS30초/2MiB·투영 후 철회까지
 확인해야 현재 조회 부모를 수용한다. 순수 참조 결과를 server trace로 바꾸지 않는다.
-원166일 종료 전에는 전체 result/부모를 수용하지 않으며 참조 결과를 농장 계산 이력으로 바꾸지 않는다.
-현재 [농장/DB 조회 결속](../research/crop-cycle-query-authority-implementation-20261007.md)은 실제 SCRAM8개/631.33초와 원120걸음·3시점/0사건·재시작/fork·철회/변조·FD/스키마/역할/비밀·PG 정리로 로컬 수용했다. 마지막 권리 검토 중 원천 철회를 반환하는 실제1실패를 수정했고, API/runtime TLS 및 현재 조회 부모는 아직 미수용이다.
+전체166일 종료 전에는 전체 작기/복원·부하 부모를 수용하지 않으며 참조 결과를 농장 계산 이력으로 바꾸지 않는다.
+현재 [농장/DB 조회 결속](../research/crop-cycle-query-authority-implementation-20261007.md)의 실제 SCRAM8개/631.33초와
+[API/runtime 연결](../research/crop-cycle-query-runtime-implementation-20261007.md)의 실제 SCRAM/TLS1개/243.58초를 로컬 수용했다.
+원120걸음·3시점/3관리 사건·22 HTTPS·재시작·투영 후 철회·trace/역할 거부·정리를 확인했다.
+최대6.306509초/21,514bytes·분할 고유198통과/9건너뜀이며 코드 판본별 증거를 보존했다.
+현재 조회 부모의 작은 소프트웨어 범위까지 수용했다. 전체166일/복원·부하·새3D와 관문은 별도다.
 
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)에서 원81574 handle·실험/terminal
 보존 경로가 없어 최종 상태는 확인 불가다. 보호할 실행의 부재를 확인했고 원 결과/부모는 계속 보류한다.

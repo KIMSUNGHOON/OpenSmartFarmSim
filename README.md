@@ -77,9 +77,13 @@ Backend5분할 성공/1실패·집계 실패, 웹 감사 실패이며 C0/앱/작
 ([통합 증거](research/artifacts/crop-cycle-full-rhs-test-isolation-integration-20261007.json)). 새 hosted CI 성공은 별도 확인합니다.
 결과 조회 타입은 위36개/125개로 로컬 수용했습니다. 다음은 [현재 조회 계약](contracts/crop-cycle-current-query-v1.md)에 따라 농장/권리·원 DB/custody trace의
 3 core파일 결속을 실제 SCRAM에서 확인하고, 이어 API/runtime 연결의 TLS30초/2MiB·투영 후 철회를 검증합니다.
-두 수용이 끝나기 전 현재 조회 부모를 체크하지 않으며 전체166일/복원·부하는 계속 보류입니다.
+두 자식의 수용 범위는 작은 저장 조회 소프트웨어이며 전체166일/복원·부하는 계속 보류입니다.
 
-현재 [농장/DB 조회 결속](research/crop-cycle-query-authority-implementation-20261007.md)은 실제 SCRAM8개/631.33초와 원120걸음·3시점/0사건·재시작/fork·철회/변조·FD/스키마/역할/비밀·PG 정리로 로컬 수용했습니다. 마지막 권리 검토 중 원천 철회를 반환하는 실제1실패를 수정했고, API/runtime TLS 및 현재 조회 부모는 아직 미수용입니다.
+현재 [농장/DB 조회 결속](research/crop-cycle-query-authority-implementation-20261007.md)은 실제 SCRAM8개/631.33초로,
+후속 [API/runtime 연결](research/crop-cycle-query-runtime-implementation-20261007.md)은 실제 SCRAM/TLS1개/243.58초로 로컬 수용했습니다.
+원120걸음·3시점/3관리 사건·22 HTTPS 전체 응답·재시작·투영 후 철회·변조·역할 거부와 자원 정리를 확인했습니다.
+최대6.306509초/21,514bytes이며 분할 검증은 고유198통과·9건너뜀입니다. 선행8개와 최종 transport 변경의 판본은 보고서에서 구분합니다.
+현재 조회 부모의 작은 소프트웨어 범위까지 수용했고, 다음은 별도 판본/지속 저장의 전체166일 실험 → 저장 조회/중단 복원 → 같은 UTC3D입니다.
 
 **현재 상태 (2026-10-05): 운영 기반 고정, 계산→저장→성장 연구 3D의 첫 소프트웨어 경로를 로컬 수용했습니다.**
 `d19f7c0`의 백엔드·웹·C0·앱 조립·작성 경로 CI 5개가 모두 통과했습니다
