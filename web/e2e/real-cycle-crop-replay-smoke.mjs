@@ -6,14 +6,18 @@ const expect = assertions.configure({timeout:40_000});
 const lines = createInterface({input:process.stdin})[Symbol.asyncIterator]();
 async function next(){const line=await lines.next();if(line.done)throw new Error('native protocol ended');return JSON.parse(line.value);}
 const config=await next(),origin=process.argv[2],screens=process.argv[3];await mkdir(screens,{recursive:true});
+const calculation=config.format==='calculation-cycle',format=calculation?'calculation-cycle':'cycle';
+const resultPath=calculation?'/v1/crop-cycle-calculation-research-results/':'/v1/crop-cycle-research-results/';
+const capturePrefix=calculation?'calculation-cycle-native':'cycle-native';
 const browser=await chromium.launch({args:['--enable-unsafe-swiftshader']});
 const context=await browser.newContext({ignoreHTTPSErrors:true,viewport:{width:1536,height:1024}});
 const page=await context.newPage(),network=[],errors=[],windows=[],verified=[],eventsVerified=[];
 page.on('pageerror',e=>errors.push(e.message));
-let fixtureRights=true;
-if(config.transport==='own-recorded-response-fixture')await page.route('**/v1/crop-cycle-research-results/**',async route=>{
+const consoleMessages=[];page.on('console',message=>{if(['error','warning'].includes(message.type()))consoleMessages.push({type:message.type(),text:message.text()});});
+let fixtureRights=true,fixtureTampered=false;
+if(config.transport==='own-recorded-response-fixture')await page.route('**'+resultPath+'**',async route=>{
   const url=new URL(route.request().url()),data=Object.values(config.results).find(item=>decodeURIComponent(url.pathname).endsWith(item.summary.result_id));
-  const status=route.request().headers().authorization==='Bearer '+config.tokens.denied?403:fixtureRights?200:422;
+  const status=route.request().headers().authorization==='Bearer '+config.tokens.denied?403:fixtureRights && !fixtureTampered?200:422;
   if(status!==200)return route.fulfill({status,json:{error:{code:'own-fixture-denial',message:'own synthetic test'}}});
   if(!data)throw new Error('unknown own fixture result');
   const kind=url.searchParams.get('view');let value=data.summary;
@@ -24,7 +28,7 @@ if(config.transport==='own-recorded-response-fixture')await page.route('**/v1/cr
   return route.fulfill({json:value,headers:{'cache-control':'no-store'}});
 });
 await page.exposeFunction('__cycleReadSettled',item=>network.push(item));
-await page.addInitScript(()=>{
+await page.addInitScript(({resultPath})=>{
   // Weak references and integer counters avoid keeping disposed DOM/GPU objects alive.
   const objects=new WeakMap(),callbacks=new WeakMap();let serial=0;
   function id(map,value){if(!map.has(value))map.set(value,++serial);return map.get(value);}
@@ -88,7 +92,7 @@ await page.addInitScript(()=>{
   const fetch=globalThis.fetch.bind(globalThis);
   globalThis.fetch=async(...args)=>{
     const url=new URL(args[0] instanceof Request?args[0].url:String(args[0]),location.href);
-    if(!url.pathname.startsWith('/v1/crop-cycle-research-results/'))return fetch(...args);
+    if(!url.pathname.startsWith(resultPath))return fetch(...args);
     const began=performance.now(),item={view:url.searchParams.get('view'),offset:url.searchParams.get('offset'),limit:url.searchParams.get('limit'),
       method:args[1]?.method??'GET',status:null,cache:null,bytes:0,seconds:0,outcome:null};
     activeReads++;maxActiveReads=Math.max(maxActiveReads,activeReads);let settled=false;
@@ -122,7 +126,7 @@ await page.addInitScript(()=>{
       canvas_count:document.querySelectorAll('.cycle-replay .coupled-canvas').length,
       plot_count:document.querySelectorAll('.cycle-replay .coupled-plot').length};
   };
-});
+},{resultPath});
 const cdp=await context.newCDPSession(page);await cdp.send('Performance.enable');
 const labels={result_id:'저장 연구 결과 ID',scenario_id:'농장 시나리오 ID',scenario_revision:'농장 판본',registration_sha256:'등록 SHA-256',crop_id:'작물 ID'};
 const lifecycle={scope:'instrumented_current_scene_and_chart_GPU_DOM_observer_listener_crop_timer_RAF_request_cleanup_GC_eligibility_not_driver_memory',transitions:[]};
@@ -136,8 +140,8 @@ async function ready(data,offset=0){
 async function connect(token){
   if(!await page.getByLabel('접근 토큰').isVisible())await page.getByText('내부 시험 연결',{exact:true}).click();
   await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정',exact:true}).click();
-  await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();await page.getByLabel('저장 결과 판본').selectOption('cycle');
-  await expect(page.locator('.cycle-replay')).toBeVisible();
+  await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();await page.getByLabel('저장 결과 판본').selectOption(format);
+  await expect(page.locator('.cycle-replay')).toHaveAttribute('data-source-kind',calculation?'calculation':'original');
 }
 async function lookup(data){
   if(!await page.getByLabel(labels.result_id,{exact:true}).isVisible())await page.getByText('저장 연구 결과 조회',{exact:true}).click();
@@ -168,8 +172,9 @@ async function sample(data,index,offset){
   await page.locator('.crop-cumulative>summary').click();
   const raw=await page.locator('.crop-cumulative [data-cumulative],.crop-cumulative [data-startup-diagnostic],.crop-cumulative [data-balance]').evaluateAll(items=>items.map(e=>({
     key:e.dataset.cumulative??e.dataset.startupDiagnostic??e.dataset.balance,value:e.dataset.rawValue})));
-  expect(raw).toEqual([...Object.entries(row.cumulative),...Object.entries(row.startup_diagnostics),
-    ...['carbon_residual','carbon_residual_budget','number_residual','number_residual_budget'].map(k=>[k,row[k]])].map(([key,q])=>({key,value:String(q.value)})));
+  const expectedFlows=[...Object.entries(row.cumulative),...Object.entries(row.startup_diagnostics),
+    ...['carbon_residual','carbon_residual_budget','number_residual','number_residual_budget'].map(k=>[k,row[k]])].map(([key,q])=>({key,value:String(q.value)}));
+  expect(raw.sort((a,b)=>a.key.localeCompare(b.key))).toEqual(expectedFlows.sort((a,b)=>a.key.localeCompare(b.key)));
   await page.locator('.crop-cumulative>summary').click();await expect(canvas).toHaveAttribute('data-scene-at',row.at);
   const drawing=JSON.parse(await canvas.getAttribute('data-cohort-drawing'));
   const count=Number(await page.locator('.cycle-range').getAttribute('data-count')),current=data.samples.slice(offset,offset+count);
@@ -187,6 +192,7 @@ async function sample(data,index,offset){
   await expect(page.locator('.coupled-history')).toHaveAttribute('data-selected-value',String(row.lai.value));
   expect(JSON.parse(await page.locator('.coupled-history .coupled-plot').getAttribute('data-values'))).toEqual(current.map(s=>s.lai.value));
   await expect(page.locator('.coupled-history svg')).toBeVisible();
+  expect(JSON.parse(await page.locator('.cycle-evidence pre').textContent())).toEqual({farm:data.summary.farm,reference:data.summary.reference,manifest:data.summary.summary.manifest});
   const area=Number(await canvas.getAttribute('data-leaf-surface-area'));
   expect(Math.abs(area-row.lai.value)).toBeLessThanOrEqual(Math.max(1e-8,row.lai.value*1e-6));expect(Number(await canvas.getAttribute('data-draw-calls'))).toBeGreaterThan(0);
   verified.push({result_id:data.summary.result_id,index,offset,at:row.at,triangle_surface_area:area,C_N_mesh_values_verified:100});
@@ -217,9 +223,9 @@ try{
     if(offset<21)await page.getByRole('button',{name:'다음 저장 범위',exact:true}).click();
   }
   await expect(page.getByRole('button',{name:'다음 저장 범위',exact:true})).toBeDisabled();
-  await page.locator('.connection>summary').click();await page.screenshot({path:screens+'/cycle-native-desktop.png',fullPage:true});
+  await page.locator('.connection>summary').click();await page.screenshot({path:screens+'/'+capturePrefix+'-desktop.png',fullPage:true});
   await page.setViewportSize({width:390,height:844});await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  await page.screenshot({path:screens+'/cycle-native-mobile.png',fullPage:true});await page.setViewportSize({width:1536,height:1024});
+  await page.screenshot({path:screens+'/'+capturePrefix+'-mobile.png',fullPage:true});await page.setViewportSize({width:1536,height:1024});
   await page.getByRole('button',{name:'관리 사건 보기',exact:true}).click();
   for(const offset of [0,2,4]){
     await ready(data,offset);await expect(page.locator('.cycle-range')).toHaveAttribute('data-kind','events');
@@ -248,7 +254,7 @@ try{
       await page.locator('.coupled-hold summary').click();await expect(page.locator('[data-confirmed-cumulative]')).toHaveCount(16);
       await expect(page.locator('[data-confirmed-startup-diagnostic]')).toHaveCount(4);await bounded('actual-fractional-past-hold');
     }else{await expect(page.locator('.cycle-no-samples')).toBeVisible();await cleared('actual-'+name);}
-    await page.screenshot({path:screens+'/cycle-native-'+name+'.png',fullPage:true});
+    await page.screenshot({path:screens+'/'+capturePrefix+'-'+name+'.png',fullPage:true});
   }
   const shapePerformance=[];
   if(config.transport==='own-recorded-response-fixture' && config.results.many){
@@ -272,6 +278,23 @@ try{
   process.stdout.write(JSON.stringify({stage:'rights_hold_verified'})+'\n');expect((await next()).stage).toBe('rights_restored');fixtureRights=true;
   await connect(config.tokens.denied);await lookup(data);await expect(page.locator('.cycle-replay [role=alert]')).toContainText('조회 권한');await cleared('account-denied');
   await connect(config.tokens.owner);await lookup(data);await ready(data);await sample(data,0,0);await bounded('reconnected');
+  if(calculation){
+    process.stdout.write(JSON.stringify({stage:'tamper_ready'})+'\n');expect((await next()).stage).toBe('result_tampered');fixtureTampered=true;
+    await page.getByRole('button',{name:'현재 권리 다시 조회',exact:true}).click();
+    await expect(page.locator('.cycle-replay [role=alert]')).toContainText('현재 권리');await cleared('valid-HMAC-result-tamper-denied');
+    process.stdout.write(JSON.stringify({stage:'tamper_hold_verified'})+'\n');expect((await next()).stage).toBe('result_restored');fixtureTampered=false;
+    await lookup(data);await ready(data);await sample(data,0,0);
+    await page.locator('.coupled-canvas').evaluate(canvas=>{
+      globalThis.__nativeCycleLoss=canvas.getContext('webgl2').getExtension('WEBGL_lose_context');globalThis.__nativeCycleLoss.loseContext();
+    });
+    await expect(page.locator('.crop-scene-fallback')).toBeVisible();
+    const slider=page.getByRole('slider',{name:'저장 성장 시점 선택'});await slider.focus();await slider.press('ArrowRight');
+    await expect(page.locator('.coupled-readout')).toHaveAttribute('data-selected-at',data.samples[1].at);
+    await page.evaluate(()=>{globalThis.__nativeCycleLoss.restoreContext();delete globalThis.__nativeCycleLoss;});
+    await expect(page.locator('.crop-scene-fallback')).toHaveCount(0);await sample(data,1,0);await bounded('actual-WebGL-loss-restored-current-UTC');
+    await page.emulateMedia({reducedMotion:'reduce'});await expect(page.getByRole('button',{name:'성장 자동 재생'})).toBeDisabled();
+    await slider.focus();await slider.press('ArrowRight');await sample(data,2,0);await page.emulateMedia({reducedMotion:'no-preference'});
+  }
   // Exercise the real crop player timer before unmount; all data remain current original UTCs.
   await page.getByRole('button',{name:'성장 자동 재생'}).click();await page.getByRole('button',{name:'01 입력 설정',exact:true}).click();
   const final=await cleared('unmount',true);lifecycle.unmount_zero=final.listeners.length===0;
@@ -279,7 +302,8 @@ try{
   expect(await page.evaluate(()=>({local:localStorage.length,session:sessionStorage.length}))).toEqual({local:0,session:0});
   process.stdout.write(JSON.stringify({stage:'verified',transport:config.transport??'native_PG_TLS',original_samples_verified:27,original_events_verified:5,verified,events_verified:eventsVerified,
     windows,shape_performance:{scope:'shape_only_repeated_rows_CPU4x_not_whole_cycle_or_actual_low_end_device',measurements:shapePerformance},
-    network,errors,max_active_reads:final.max_active_reads,lifecycle,actual_account_change:true,reconnected:true})+'\n');
+    network,errors,console_messages:consoleMessages,max_active_reads:final.max_active_reads,lifecycle,actual_account_change:true,reconnected:true,
+    format,result_path:resultPath,actual_WebGL_loss_restore:calculation,reduced_motion_keyboard:calculation,result_tamper_protocol:calculation})+'\n');
 }catch(error){await writeFile(screens+'/failure-lifecycle.json',JSON.stringify({scope:config.transport??'native_PG_TLS',lifecycle:await probe(),
   network,verified,events_verified:eventsVerified,errors,whole_browser_accepted:false},null,2));throw error;
 }finally{await cdp.detach();await context.close();await browser.close();await lines.return?.();}
