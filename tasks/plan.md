@@ -366,6 +366,8 @@ native3–5시간의 **남은 작은 웹 연결4–7집중시간 잠정**이며 
 원750파일 보존·+273일/새root·전체 stream/clock/격자와73개 회귀, 실제 SCRAM 농장r1/r2·경제 달력,
 현재 prepare/current·기간/권리/계정 거부·RHS0·FD12→12·127 source/정리·종료0을 확인했다.
 새 합성 판본의 등록이며 원 순수 실행의 재분류나 전체166일 비용/계산 수용은 아니다.
+`f2dc10f`의 [종료 CI](../research/artifacts/full166-calendar-registration-ci-terminal-20261008.json)는
+다른4workflow 성공, Backend0/4/5 성공·1/2/3/집계 실패다. 기존19개 집중 검증 수정은 후속 판본이다.
 다음 `crop-cycle-calculation-full-prefix-cost`는 같은 새root/증명으로 초기/증가 prefix의 실제 비용·
 원 checkpoint/행·현재 권리·조회 RHS0·정리를 최대32호출/20분 범위에서 측정한다.
 실측에 필요한 개선과 전체 실행 예산 근거 전에는 prefix-cost 부모를 수용하지 않는다.

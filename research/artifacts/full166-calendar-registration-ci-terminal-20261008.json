@@ -1,0 +1,212 @@
+{
+  "all_workflows_terminal": true,
+  "backend_accepted": false,
+  "focused_fix_commit": "7ef976d",
+  "focused_fix_unique_tests": 19,
+  "head_sha": "f2dc10f4fd84780ed1fbb1ef8a2a9e51985fe19c",
+  "known_failures": "partitions1/2/3 fresh import FD baseline and remote PG HBA filesystem assumption; focused compatibility fixes committed locally, hosted acceptance pending",
+  "later_local_calendar_registration_commit": "33b12a8",
+  "later_local_changes_in_this_CI": false,
+  "observed_at_utc": "2026-10-07T18:43:56.603729+00:00",
+  "runs": [
+    {
+      "conclusion": "success",
+      "headSha": "f2dc10f4fd84780ed1fbb1ef8a2a9e51985fe19c",
+      "jobs": [
+        {
+          "completedAt": "2026-10-07T15:56:15Z",
+          "conclusion": "success",
+          "databaseId": 112883256528,
+          "name": "compose",
+          "startedAt": "2026-10-07T15:55:15Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874790/job/112883256528"
+        }
+      ],
+      "name": "C0 Compose verification",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874790"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "f2dc10f4fd84780ed1fbb1ef8a2a9e51985fe19c",
+      "jobs": [
+        {
+          "completedAt": "2026-10-07T16:00:51Z",
+          "conclusion": "success",
+          "databaseId": 112883257442,
+          "name": "images",
+          "startedAt": "2026-10-07T15:55:16Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874843/job/112883257442"
+        }
+      ],
+      "name": "Application runtime verification",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874843"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "f2dc10f4fd84780ed1fbb1ef8a2a9e51985fe19c",
+      "jobs": [
+        {
+          "completedAt": "2026-10-07T16:00:26Z",
+          "conclusion": "success",
+          "databaseId": 112883259495,
+          "name": "authored-economics",
+          "startedAt": "2026-10-07T15:55:16Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874805/job/112883259495"
+        },
+        {
+          "completedAt": "2026-10-07T15:58:31Z",
+          "conclusion": "success",
+          "databaseId": 112883259653,
+          "name": "authored-assessment-https",
+          "startedAt": "2026-10-07T15:55:15Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874805/job/112883259653"
+        },
+        {
+          "completedAt": "2026-10-07T16:01:25Z",
+          "conclusion": "success",
+          "databaseId": 112883259682,
+          "name": "authored-financial-selection",
+          "startedAt": "2026-10-07T15:55:16Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874805/job/112883259682"
+        },
+        {
+          "completedAt": "2026-10-07T16:03:10Z",
+          "conclusion": "success",
+          "databaseId": 112883259737,
+          "name": "authored-assessment",
+          "startedAt": "2026-10-07T15:55:16Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874805/job/112883259737"
+        },
+        {
+          "completedAt": "2026-10-07T15:59:09Z",
+          "conclusion": "success",
+          "databaseId": 112883259801,
+          "name": "authored-financial-browser",
+          "startedAt": "2026-10-07T15:55:16Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874805/job/112883259801"
+        },
+        {
+          "completedAt": "2026-10-07T16:02:40Z",
+          "conclusion": "success",
+          "databaseId": 112883259850,
+          "name": "authored-api",
+          "startedAt": "2026-10-07T15:55:16Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874805/job/112883259850"
+        },
+        {
+          "completedAt": "2026-10-07T16:08:26Z",
+          "conclusion": "success",
+          "databaseId": 112883260007,
+          "name": "authored-browser",
+          "startedAt": "2026-10-07T15:55:16Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874805/job/112883260007"
+        }
+      ],
+      "name": "Authored API PostgreSQL smoke",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874805"
+    },
+    {
+      "conclusion": "success",
+      "headSha": "f2dc10f4fd84780ed1fbb1ef8a2a9e51985fe19c",
+      "jobs": [
+        {
+          "completedAt": "2026-10-07T16:01:14Z",
+          "conclusion": "success",
+          "databaseId": 112883256111,
+          "name": "web",
+          "startedAt": "2026-10-07T15:55:15Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874856/job/112883256111"
+        }
+      ],
+      "name": "Web tests",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874856"
+    },
+    {
+      "conclusion": "failure",
+      "headSha": "f2dc10f4fd84780ed1fbb1ef8a2a9e51985fe19c",
+      "jobs": [
+        {
+          "completedAt": "2026-10-07T18:25:43Z",
+          "conclusion": "success",
+          "databaseId": 112883257563,
+          "name": "backend-partition-4",
+          "startedAt": "2026-10-07T17:51:59Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874807/job/112883257563"
+        },
+        {
+          "completedAt": "2026-10-07T17:51:56Z",
+          "conclusion": "failure",
+          "databaseId": 112883257866,
+          "name": "backend-partition-2",
+          "startedAt": "2026-10-07T16:19:03Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874807/job/112883257866"
+        },
+        {
+          "completedAt": "2026-10-07T18:42:31Z",
+          "conclusion": "success",
+          "databaseId": 112883257891,
+          "name": "backend-partition-5",
+          "startedAt": "2026-10-07T18:04:06Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874807/job/112883257891"
+        },
+        {
+          "completedAt": "2026-10-07T17:36:50Z",
+          "conclusion": "failure",
+          "databaseId": 112883257901,
+          "name": "backend-partition-1",
+          "startedAt": "2026-10-07T15:55:15Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874807/job/112883257901"
+        },
+        {
+          "completedAt": "2026-10-07T18:04:02Z",
+          "conclusion": "failure",
+          "databaseId": 112883258072,
+          "name": "backend-partition-3",
+          "startedAt": "2026-10-07T17:36:53Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874807/job/112883258072"
+        },
+        {
+          "completedAt": "2026-10-07T16:19:00Z",
+          "conclusion": "success",
+          "databaseId": 112883258216,
+          "name": "backend-partition-0",
+          "startedAt": "2026-10-07T15:55:15Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874807/job/112883258216"
+        },
+        {
+          "completedAt": "2026-10-07T18:42:37Z",
+          "conclusion": "failure",
+          "databaseId": 112955176910,
+          "name": "backend",
+          "startedAt": "2026-10-07T18:42:34Z",
+          "status": "completed",
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874807/job/112955176910"
+        }
+      ],
+      "name": "Backend tests",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874807"
+    }
+  ],
+  "schema_version": "hosted-ci-terminal-observation-v1"
+}

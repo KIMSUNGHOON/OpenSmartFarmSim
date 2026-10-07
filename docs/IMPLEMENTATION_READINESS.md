@@ -30,7 +30,8 @@
 10월8일 수용했다. 구형 판본 CI는
 [C0/웹/작성 PG 성공·앱/Backend 실패로 종료](../research/artifacts/crop-cycle-calculation-view-ci-terminal-20261008.json)했다.
 Backend 분할5의 설정 fixture도 기존125개 검증 수정에 포함되며 현재 source SHA가 같다.
-최신 Backend는 분할0/4 성공·1/2/3 실패·5 진행 중이다. [Python·원격 PG 시험 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은
+`f2dc10f`의 [CI 종료 상태](../research/artifacts/full166-calendar-registration-ci-terminal-20261008.json)는
+다른4workflow 성공, Backend 분할0/4/5 성공·1/2/3/집계 실패다. [Python·원격 PG 시험 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은
 고유19개 집중 검증을 통과했으며 hosted 수용은 별도다.
 [작은 등록 누적 비용](../research/crop-cycle-calculation-prefix-cost-observed-20261008.md)은 정상/hold·수정한32회 시험을
 분할 확인했다. 3,990걸음·확정9시점/2사건·원값/복원·권리·종료0/정리이며 전체166일 등록 비용 부모는 미수용이다.
