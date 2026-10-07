@@ -749,6 +749,16 @@
             delta QC1,056→64회·advance304.344→290.225초이며 입력 proof839회는 보존했다.
             수정 전329개·97개는 각각 당시 판본의 증거로 보존한다.
             다음은 남은 현재 bytes/HMAC/metadata 순회와 계산 묶음 경계·전체 wall 예산이다.
+          - [x] **`crop-cycle-calculation-chunk-feasibility`** — 선행: `crop-cycle-calculation-prefix-attestation`.
+            [2 core파일 관측 계약](../contracts/crop-cycle-calculation-chunk-feasibility-v1.md)에 따라 이미 지원하는 순수4,096전이 한 호출을
+            최종128전이32호출과 같은 경계에서 대사한다. 현재 artifact의128전이 거부는 유지한다.
+            수용: 원121상태/seed/clock/cursor/누적·prefix와 전체 해당 행/UTC·명시 달력 이동, 실제 page packer의
+            기존 bytes/행/page/metadata 한도, 원 입력/이력·고정 source·FD/cache·실제 종료/정리를 불변 receipt로 확인한다.
+            이 관측은 큰 artifact/서버 budget의 구현·전체 등록166일/DB/API/3D·미래 예측 수용이 아니다.
+            [10월8일 관측 수용](../research/crop-cycle-calculation-chunk-feasibility-observed-20261008.md):
+            실제1통과/종료0·4,096전이/3,990걸음·105출력/2사건·비계보 checkpoint 전체/원행 일치.
+            순수 context/start/advance37.853초·전체55.567초·2page/954,171bytes·268 source/FD12→12·정리.
+            다음은128행/사건·기존 byte 한도를 지키는 새 계산 묶음 정책과 서버의 명시 판본 구현이다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

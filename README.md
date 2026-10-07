@@ -26,6 +26,8 @@
 재개 입력/HEAD 직전 권한 철회 두 반례를 RED로 확인·복원하고 최종 수정판208개 분할·같은32회 원량/권리·266 source/정리·종료0으로 로컬 수용했습니다.
 delta QC1,056→64회·advance304.344→290.225초·전체339.187초이며 입력 검사839회는 보존했습니다.
 candidate 현재 bytes 검사 뒤 마지막 입력/권한 검사와 atomic HEAD 순서를 검증했습니다.
+[계산 묶음 가능성](research/crop-cycle-calculation-chunk-feasibility-observed-20261008.md)도 실제1통과/종료0·같은4,096전이/원105출력/2사건·
+비계보 checkpoint 전체·2page/954,171bytes·268 source/정리로 수용했습니다. 제품128전이 제한은 유지했습니다.
 다음은 현재 bytes/HMAC 순회의 증가 비용과 전체 실행 예산이며 전체166일 계산/DB/API/3D는 후속입니다.
 `f2dc10f`의 [CI 종료 상태](research/artifacts/full166-calendar-registration-ci-terminal-20261008.json)는
 C0/웹/작성 PG/앱 성공, Backend 분할0/4/5 성공·1/2/3/집계 실패입니다.
