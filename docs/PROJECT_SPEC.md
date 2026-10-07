@@ -239,7 +239,10 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 [새 순수 계산 경로](../research/crop-cycle-calculation-context-implementation-20261007.md)는90개 집중 시험·
 원/새 checkpoint/121상태·clock/counter·별도 Python4개·변조/자원 정리로 로컬 수용했다.
 같은166일 입력 factory0.386465초는RHS0의 입력 경로 관측이며 실제 농장/HTTP/전체 작기 처리량은 아니다.
-다음은 새 artifact 판본 → 현재 농장·권리/custody이며 원 전체 작기/저장/3D·관문 보류를 유지한다.
+[새 artifact 판본](../research/crop-cycle-calculation-artifact-implementation-20261007.md)도 새68개/선행90개·
+158통과·실제25시간/11,400걸음·27시점/5사건·별도 Python7개와 HEAD 전후 즉시 종료2개/복원으로 로컬 수용했다.
+원/순수 새 계산과 원량·UTC/checkpoint를 대사했고 조회 RHS0·현재 입력 검사·정리를 확인했다.
+다음은 현재 농장·권리/custody이며 원 전체 작기/저장/3D·관문 보류를 유지한다.
 새 계산 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존하며 실행과 병행하고,
 동결 소스 변경은 실제 실행 종료·증거 보존 뒤 진행한다.
 [확정 과거 결과 비용](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은

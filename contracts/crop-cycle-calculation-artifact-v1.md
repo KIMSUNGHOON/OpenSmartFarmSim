@@ -1,13 +1,14 @@
 # 새 계산 판본의 불변 결과 파일과 재개·조회 — v1
 
-2026-10-07 KST. **구현 전 계약**이다. 선행 [계산 문맥 수용](../research/crop-cycle-calculation-context-implementation-20261007.md),
+2026-10-07 KST. 구현 전 고정한 계약이며 [로컬 소프트웨어 수용](../research/crop-cycle-calculation-artifact-implementation-20261007.md)을 완료했다.
+선행 [계산 문맥 수용](../research/crop-cycle-calculation-context-implementation-20261007.md),
 [원 artifact 계약](crop-cycle-artifact-v1.md)과 [소스 대조](../research/artifacts/crop-cycle-calculation-artifact-inspection-20261007.json)를 따른다.
 작업은 `crop-cycle-calculation-artifact`이며 현재 farm/권리·server custody·DB/API/3D 연결은 다음 작업이다.
 원166일 실험/55 source SHA·입력/spec과 과거 결과를 보존한 신규 파일 개발을 병행한다.
 
 ## 변경 범위와 판본
 
-첫 core는 다음4개 이내다. 계약 외3개는 아직 없는 예정 파일이다.
+구현 core는 다음4개다.
 
 1. `backend/app/crop_cycle_calculation_artifact.py`: 새 writer/reader와 불변 파일·현재 입력 검사 경계.
 2. `backend/tests/test_crop_cycle_calculation_artifact.py`: 원량/원자 게시·재시작/조회·거부/정리 검증.
@@ -104,7 +105,11 @@ G0–G4·실제 품종 입력/국내 독립 자료0건·생과/자원/경제 후
 
 ## 잠정 작업 분해와 시간
 
-계약/정적 이식·현재 검사 경계 검토1–2집중시간, 집중/별도 Python·실제25시간 사례/중단·수정1–2집중시간으로
+착수 당시 계약/정적 이식·현재 검사 경계 검토1–2집중시간, 집중/별도 Python·실제25시간 사례/중단·수정1–2집중시간으로
 **총2–4집중시간,10월7–8일 KST 잠정**이다. 원 artifact475줄·기존58개 분할 검증(55.36초+0.20초)과25시간 참조236.264초,
 새 계산 경로90사례/76.37초가 분해의 근거다. 오류·실제 저장 비용을 관측하면 갱신한다.
 hosted CI 대기·원166일 종료/전체 farm/API/3D·독립 자료 확보의 완료일을 포함하지 않는다.
+
+10월7일에 이 자식의 최종68개/선행90개·총158통과와 별도 Python7개·실제25시간/11,400걸음·
+HEAD 전후 child 즉시 종료2개를 로컬 수용했다. 실제 참조 실행249.435초·저장758,946bytes/127파일은
+이 작은 합성 사례의 관측이다. 원166일/farm·DB/API/3D 및 생산 예측의 수용은 별도다.

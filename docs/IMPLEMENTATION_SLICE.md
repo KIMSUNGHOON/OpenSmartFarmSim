@@ -307,7 +307,10 @@ SCRAM·철회/변조/재시작·정리다. 다음 API/runtime 연결의 TLS30초
 [첫 계산 문맥 수용](../research/crop-cycle-calculation-context-implementation-20261007.md)은 새57개/기존33개·
 90통과/76.37초·원 checkpoint/121상태·clock/counter·별도 Python4개와 변조/FD/cache를 확인했다.
 큰 입력 factory0.386465초/RHS0·작은120걸음603RHS의 활성 RSS를 구분해 측정했고 원55 source를 보존했다.
-새 artifact writer/reader → 현재 farm/custody가 다음이며 전체166일/DB/API/3D 수용으로 바꾸지 않는다.
+[새 artifact writer/reader](../research/crop-cycle-calculation-artifact-implementation-20261007.md)도
+새68개/선행90개·158통과·실제25시간/11,400걸음·27시점/5사건·별도 Python7개·
+HEAD 전후 즉시 종료2개/복원·조회 RHS0·정리로 로컬 수용했다.
+현재 farm/custody가 다음이며 전체166일/DB/API/3D 수용으로 바꾸지 않는다.
 새 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존해 병행한다.
 동결 소스 변경은 실제 실행 종료·증거 보존 뒤이며,
 첫 수용은 원 물리값/UTC·121상태/checkpoint·수지/hold·변조 거부와 별도 프로세스 복원이다.

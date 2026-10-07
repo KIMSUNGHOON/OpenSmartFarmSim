@@ -505,12 +505,16 @@
         원 private token/캐시의 외부 주입과 조회 전용 타입의 계산 허용을 거부한다.
         코드/normalization/context 변경은 새 판본으로 기록하고 과거 원본·재생 증거를 유지한다.
         전체 RHS 성공은 이 작은 개발의 추가 착수 조건이 아니며, 실행 중 동결 소스는 종료/증거 보존 전 변경하지 않는다.
-      - [ ] **`crop-cycle-calculation-artifact`** — 선행 위 계산 문맥의 작은 수용.
+      - [x] **`crop-cycle-calculation-artifact`** — 선행 위 계산 문맥의 작은 수용.
         [현재 감사](../research/crop-cycle-calculation-context-inspection-20261007.md)에서 기존 artifact가 원 exact context만
         받음을 확인했다. 새 판본의 writer/reader·checkpoint/manifest 경계를3–4개 core파일로 먼저 계약한다.
         [첫 저장 계약](../contracts/crop-cycle-calculation-artifact-v1.md)은4개 이내 core파일·명시 새 판본과
         공개 전후/HEAD 전 검사·내부 checkpoint 대사·원 한도/원자 게시·실제25시간/별도 Python/중단 수용을 고정했다.
-        구현/시험 수용은 아직 아니다. 계약/이식·검토1–2시간+검증/수정1–2시간,2–4집중시간/10월7–8일 KST 잠정이다.
+        착수 추정은 계약/이식·검토1–2시간+검증/수정1–2시간,2–4집중시간/10월7–8일 KST 잠정이었다.
+        [10월7일 로컬 수용](../research/crop-cycle-calculation-artifact-implementation-20261007.md): 새68개/선행90개·
+        고유158통과/151.23초와 실제25시간/11,400걸음·27시점/5사건·별도 Python7개·
+        HEAD 전후 즉시 종료2개/복원·원/순수 새 계산의 원량/UTC/checkpoint·조회 RHS0·변조/정리·원55 source를 확인했다.
+        실제 참조249.435초·저장758,946bytes/127파일은 이 작은 합성 사례의 관측이다.
         수용: 작은 연속/재개 결과의 불변 sample/event·UTC/121상태/수지·명시 판본/한도·원자 게시,
         별도 Python 읽기/QC·변조/판본 혼합 거부·조회 RHS0·FD/파일 정리와 원 artifact/과거 bytes 보존.
         이는 실제 전체166일·farm/DB/HTTPS/3D 수용이 아니며 해당 부모의 증거는 유지한다.

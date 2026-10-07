@@ -226,12 +226,18 @@ child SIGKILL(-9)/원123걸음 checkpoint 재개·연속760걸음/21시점/2사�
 [순수 계산 경로 수용](../research/crop-cycle-calculation-context-implementation-20261007.md)은 새57개/기존33개·
 90통과/76.37초·원 checkpoint/clock/counter·별도 Python4개·입력 변조/정리·원55 source 보존을 확인했다.
 같은166일 입력의 factory0.386465초/RHS0와 작은120걸음603RHS의 자원을 별도 측정했다.
-다음은 새 artifact writer/reader이며 이 수용으로 farm/custody·전체166일/저장/API/3D 부모를 완료하지 않는다.
+이 계산 문맥 수용으로 farm/custody·전체166일/저장/API/3D 부모를 완료하지 않는다.
 [새 artifact 계약](../contracts/crop-cycle-calculation-artifact-v1.md)은4개 이내 core파일·별도 판본과
 진입/반환·HEAD 전 bytes 검사/실제25시간·별도 Python·실제 중단2개·조회 RHS0을 먼저 고정했다.
 원475줄/58개 분할 검증·236.264초 참조와 새90개/76.37초를 근거로
 계약/이식·검토1–2시간+검증/수정1–2시간,2–4집중시간/10월7–8일 KST 잠정이다.
 CI 대기·원166일/전체 등록 경로·독립 자료 확보 완료일은 이 추정에 포함하지 않는다.
+[새 artifact 로컬 수용](../research/crop-cycle-calculation-artifact-implementation-20261007.md)은10월7일에
+새68개/선행90개·158통과/151.23초와 실제25시간/11,400걸음·27시점/5사건·
+별도 Python7개·HEAD 전후 즉시 종료2개/복원·조회 RHS0·원55 source 보존을 확인했다.
+실제 참조249.435초·저장758,946bytes/127파일은 이 작은 사례의 관측이다.
+다음은 현재 farm/Scope·계산/표시 권리·등록/custody의 작은 SCRAM 결속이며
+파일/의존성 감사 뒤 해당 단계의 작업 시간 추정을 갱신한다.
 전체 RHS 성공을 작은 개발의 추가 착수 조건으로 삼지 않으며, 전체 replay-restore 게시/부하 수용에는
 기존 전체 RHS와 실제 등록 계산·저장/API/동일 UTC3D 증거를 모두 유지한다.
 관측의44.28초 합을 실제 농장/HTTPS 지연이나 전체 작기 완료 날짜로 외삽하지 않는다.
