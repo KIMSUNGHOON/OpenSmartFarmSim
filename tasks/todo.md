@@ -672,6 +672,8 @@
         [3 core파일 측정 계약](../contracts/crop-cycle-calculation-prefix-cost-v1.md): 계측/원량 대사 → 실제 작은 SCRAM 기준선 →
         25시간의 최대32호출 곡선 → 전체166일 입력의 실제 등록/누적 관측과 필요한 개선 순서다.
         작은 표본은 전체 작기 수용이 아니며 새 native 실험과 PG/계산을 동시에 기동하지 않는다.
+        [측정 코드 준비](../research/crop-cycle-calculation-prefix-cost-prepared-20261008.md): 경량17개·전체20개 수집,
+        실제 정상/hold 대사와32회 곡선3개는 native 종료/정리 후 실행한다. 전체166일 등록/누적 비용은 후속이다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

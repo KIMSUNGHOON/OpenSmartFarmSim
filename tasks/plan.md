@@ -354,6 +354,9 @@ native3–5시간의 **남은 작은 웹 연결4–7집중시간 잠정**이며 
 원량 대사/작은 SCRAM 기준선 → bounded prefix 곡선 → 전체166일 입력의 실제 등록/누적 관측으로 분해했다.
 설계는 native와 독립적이지만 PG/계산 실험은 순차 실행한다. 작은 측정2.5–5집중시간 잠정은
 전체 입력 등록·성능 개선/전체 실행·자료/관문 완료 날짜와 구분한다.
+[계측 코드/수동 시험 준비](../research/crop-cycle-calculation-prefix-cost-prepared-20261008.md)는
+경량17개·전체20개 수집을 통과했다. 실제 작은 등록/곡선3개는 native 종료/정리 뒤 실행하며,
+전체166일 농장/경제 기간 등록·누적 관측과 필요한 개선 전에는 prefix-cost 부모를 수용하지 않는다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
 선택 시작/중간/끝129시점/5사건·page 최대2.035086초와 source/FD/PID 정리를 확인했다.
