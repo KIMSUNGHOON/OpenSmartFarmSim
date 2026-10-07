@@ -653,6 +653,9 @@ HR17/HR24·2022/2023 실험 논문의 첨부 식별자를 확인했다. DOCX·�
 원행이 없으면 별도 공개 제품/제공 자료가 필요하다. 이 조사는 계산 개발과 병행하며
 품종/계수 채택·독립 자료 확보나 생과 환산의 선행 수용을 변경하지 않는다.
 
+[HR24 공식 품종명 대조](../research/crop-domestic-cultivar-hr24-identity-20261007.md)도 제품/등록 ID
+대응을 확인하지 못했다. 자료 접근과 별도로 원 시험 종자의 명칭·식별 대응 근거가 남아 있다.
+
 ## 이전 구현 진행 기록
 
 작성 Run의 후속 연결은 `authored-economic-execution → authored-calculation-assessment →
