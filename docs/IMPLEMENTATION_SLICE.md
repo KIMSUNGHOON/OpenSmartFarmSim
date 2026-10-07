@@ -286,9 +286,12 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 [결과 영수증 primitive](../research/crop-cycle-result-evidence-implementation-20261006.md)의3 core파일은
 새41개/관련 고유89개·원 작은 terminal QC·새5시간1,800걸음/61출력/3사건·별도 Python/FD 정리로 로컬 수용했다.
 원 QC 발행0.136초/별도 재조회0.013초는 작은 사례의 실측이며 전체166일 성능은 별도다.
-다음3 core파일의 typed result reader는 원 page 값/UTC/count·물리 변조/파일 보안·bounded cache·
-반환 직전 현재 입력/결과 재대사를 확인한다. 현재 farm/Scope/권리·원 server trace/API →
-실제 전체 저장/같은 UTC3D를 작은 후속으로 나눈다. 개발은 원 전체 RHS와 병행한다.
+[별도 결과 조회 타입](../research/crop-cycle-result-read-context-implementation-20261007.md)은 새36개/관련 고유125개·
+새5시간의 원61출력/3사건 전체·별도 Python/FD 정리로 로컬 수용했다. 원값/UTC·현재 bytes/파일 보안·
+cache 한도·반환 전 재대사를 확인했다. 다음3–4 core파일의 현재 farm/Scope/권리·원 server trace/API →
+실제 전체 저장/같은 UTC3D를 작은 후속으로 나눈다. 조회 개발은 작은 terminal 사례로 독립 진행한다.
+다음 수용은 원 등록/result row·서명된 custody trace의 현재 권리/증명 전후 결속과 실제 작은 등록 농장의
+PG/TLS·철회/변조/재시작·30초/2MiB·정리다. 순수 참조 결과를 server trace로 바꾸지 않는다.
 원166일 종료 전에는 전체 result/부모를 수용하지 않으며 참조 결과를 농장 계산 이력으로 바꾸지 않는다.
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)에서 원81574 handle·실험/terminal
 보존 경로가 없어 최종 상태는 확인 불가다. 보호할 실행의 부재를 확인했고 원 결과/부모는 계속 보류한다.

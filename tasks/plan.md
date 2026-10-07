@@ -186,8 +186,11 @@ schema/QC/context/현재 권리/API는 제외했다. reader 코드 SHA와 root/m
 3 core파일로 구현했다. 새41개/관련 고유89개·새5시간1,800걸음/61출력/3사건·별도 Python/FD 정리로
 로컬 수용했다. 원 QC 발행0.136초/별도 재조회0.013초는 작은 사례의 실측이며 전체 성능은 별도다.
 원 math/manifest와 새 증명 판본을 분리하고 발행 시 원 parser/수지 검증을 실제 실행한다.
-다음 작은 작업은3 core파일의 typed result reader다. 원 page 값/UTC/count·물리 변조/파일 보안·
-bounded cache·반환 직전 현재 입력/결과 재대사를 원 reader와 확인한다. 개발은 원 전체 RHS와 병행한다.
+[별도 결과 조회 타입](../research/crop-cycle-result-read-context-implementation-20261007.md)의3 core파일도
+새36개/관련 고유125개·새5시간의 원61출력/3사건 전체·별도 Python/FD 정리로 로컬 수용했다.
+원값/UTC·현재 bytes/파일 보안·cache 한도·반환 전 재대사를 원 reader와 확인했다.
+다음 작은 작업은3–4 core파일의 현재 farm/Scope/등록/권리·원 DB/custody trace 결속이다.
+작은 실제 등록 농장의 PG/TLS·권리 철회/계정/trace/물리 변조·재시작·30초/2MiB·정리를 확인한다.
 실제 전체 proof 크기/발행은 원166일 종료 뒤 측정한다. 현재 farm/Scope/등록/권리·원 server trace/API →
 실제 전체 저장/같은 ID/UTC3D 순서이며 순수 참조 proof를 농장 계산 이력으로 재표시하지 않는다.
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)은 원81574 handle·실험/terminal
@@ -196,8 +199,8 @@ bounded cache·반환 직전 현재 입력/결과 재대사를 원 reader와 확
 별도 판본의 새 실험·실제 전체 저장/API/3D 증거를 요구한다. 원 실행 source 동결은 부재 확인으로 끝났다.
 remote `8fe7dce`의 [CI 종료 보류](../research/crop-cycle-full-rhs-ci-hold-20261006.md)는
 Backend5분할 성공/분할2의8실패·집계 실패와 다른4workflow 성공이다. 원 RSS guard의 suite 부모
-조건을 재현한 별도 `e310e27` 수정은 로컬18개 통과이며 main/hosted 반영은 원166일 종료 뒤다.
-부재를 확인한 현재에는 해당 보존 Git commit을 정상 적용하고 현재 집중/새 hosted 검증을 이어간다.
+조건을 재현한 별도 `e310e27` 수정은 당시 로컬18개 통과였고 실행 중 source 보호로 main 반영을 유예했다.
+부재를 확인한 현재에는 해당 보존 Git commit을 정상 적용했고 현재 집중/새 hosted 검증을 이어간다.
 `4bf9af3`으로 정상 적용했고 현재18개/24.30초·원10개 시험 본문/marker·수학52 source 보존을 확인했다
 ([통합 증거](../research/artifacts/crop-cycle-full-rhs-test-isolation-integration-20261007.json)). 새 hosted 성공은 별도 확인한다.
 전체 실행/복원 날짜는 해당 수정과 실제 종료 상태 뒤 갱신한다. 짧은/복제 fixture와 조기 hold로 전체 작기를 수용하지 않는다.

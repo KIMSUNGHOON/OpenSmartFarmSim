@@ -431,10 +431,16 @@
         인증 미상 판본/조회 중 입력 변조·같은 bytes 디렉터리 교체의 실제3실패 뒤 수정했고 원53 source를 보존했다.
         실제166일 전체 증명 크기/발행·모든 참조 bytes/원 수지는 원 계산 종료 뒤 별도로 확인한다.
         새 사설8MiB proof 후보는 원 artifact/HTTP 한도를 바꾸지 않는다. 실제 전체 크기 초과는 hold다.
-      - [ ] **`crop-cycle-result-read-context`** — 선행 결과 primitive 수용; 새 조회 module·시험·계약3 core파일.
+      - [x] **`crop-cycle-result-read-context`** — 선행 결과 primitive 수용; 새 조회 module·시험·
+        [조회 계약](../contracts/crop-cycle-result-read-context-v1.md)3 core파일.
         원 summary/manifest·출력/관리·UTC/count/page를 보존하는 별도 조회 타입을 만든다.
         실제 page SHA/파일 계약·공개 반환 전 현재 입력/결과 재대사·bounded cache/byte-short·hold 과거·
         별도 Python/FD 정리를 원 reader와 대사한다. 원 v1 private token/객체 위조나 RHS를 허용하지 않는다.
+        [로컬 수용](../research/crop-cycle-result-read-context-implementation-20261007.md): 새36개/51.83초·
+        관련 고유125개/106.31초·새 지속 저장5시간1,800걸음의 원61출력/3사건 전체·별도 Python/FD4→4/RHS0.
+        최종 열기0.026초/summary·전체2page0.345초/recheck0.013초·최대483,532bytes·cache2page다.
+        context 진입 실패의 FD 누수를 실제1실패로 재현·수정했고 원52/선행9 core source를 보존했다.
+        원166일·현재 Farm/권리·원 server trace/DB/API/3D와 부모 수용은 별도다.
       - [ ] **`crop-cycle-current-query`** — 선행 typed result reader; 조회 authority/연결·집중 시험·계약3–4 core파일.
         실제 원 농장 등록/result row·서명된 server custody trace를 현재 Scope/권리·입력/result 증명과
         전후 결속한다. 원 math 판본·현재 조회 판본을 함께 보존하고 참조 proof를 server progress로 바꾸지 않는다.
