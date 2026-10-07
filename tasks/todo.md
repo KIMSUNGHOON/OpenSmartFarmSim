@@ -536,6 +536,8 @@
           최초1–3집중시간/10월7–8일 추정은10월7일 수용 실적으로 대체하며 부모/전체 작기/관문은 미수용이다.
         - [ ] **`crop-cycle-calculation-server-custody`** — 선행 위 authority·새 artifact.
           실제 계산 전후·서명된 intent/HEAD/progress·중단 재개/원량/현재 권리·원 이력 보존을3–4파일로 계약한다.
+          [새 서버 실행 계약](../contracts/crop-cycle-calculation-server-custody-v1.md)은4 core파일·명시 새 판본,
+          proof fsync 뒤 권리 재확인·실제 child 중단/별도 Python·원 고정 예산을 수용 기준으로 둔다.
           실제 작은 계산/프로세스 중단·재시작·변조/철회·한도/정리 뒤 체크한다.
         - [ ] **`crop-cycle-calculation-db-custody`** — 선행 새 server custody와 기존 DB 계약.
           새 판본의 SQL/역할·HMAC/metadata·현재 등록/권리·원자 게시/재시도·이전 이력 공존을3–4파일로 계약한다.
