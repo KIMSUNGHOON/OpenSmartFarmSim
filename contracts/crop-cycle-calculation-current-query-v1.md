@@ -3,7 +3,8 @@
 2026-10-07 KST. native Codex CLI `gpt-6.1-sol / xhigh`에서 판단하며 재귀 CLI0회다.
 선행 [조회 타입 계약](crop-cycle-calculation-result-read-context-v1.md)과
 [새 signed DB 수용](../research/crop-cycle-calculation-result-publication-implementation-20261007.md) 뒤
-`crop-cycle-calculation-current-query`를 구현한다. 이 계약과 아래 작업은 아직 미수용이다.
+`crop-cycle-calculation-current-query`를 구현했다. 아래 작은 조회 범위는
+[실제 SCRAM12개](../research/crop-cycle-calculation-current-query-implementation-20261007.md)로 로컬 수용했다.
 원 query/서명/행과 원55 source를 보존하고 새 exact 판본만 연결한다.
 
 ## 구현과 원 증거 결속
@@ -54,8 +55,11 @@ DB binding과 byte 대사한다. CalculationContext/private token을 생성하�
 5. 원 signed row/이력과55 source를 보존하고 실제 호출/출력·현재 source/CLI·query 비용을 기록한 뒤 자식만 체크한다.
    내부 get39.668745초 관측과 HTTP30초 미수용을 보존한다. 한도를 올리거나 출력을 줄여 통과하지 않는다.
 
-이식·새 validation/trace 검토1–2시간, 실제 SCRAM/철회·변조·프로세스/정리·기록2–4시간의
-**3–6집중시간 잠정**이다. 첫 실제 DB 사례의 비용을 보고 갱신하며 전체 제품 완료일이 아니다.
+기존 이식/검토·실제 시험의3–6집중시간 잠정은12통과/1,079.43초·종료0과 위 수용 기록으로 대체한다.
+정상120걸음/3시점·사건 포함120걸음/3시점/3사건·수치 hold60걸음/1시점/1사건,
+원량/UTC/검증 SHA·현재 철회/변조·fork·63 source/FD/PG/DB/비밀 정리를 확인했다.
+farm query fresh exec·새 HTTP/전체166일/3D는 수행하지 않았다. 다음은
+[새 공개 투영3 core파일](api-crop-cycle-calculation-projection-v1.md)과 명시적 설정/factory·실제 TLS다.
 별도 등록 prefix 누적 비용 측정은 읽기 개발과 병행한다. 전체166일/등록/HTTP30초·동일 UTC3D는 두 경로의 증거가 모두 필요하다.
 이후 수확/생과 → 물/양분·구매 에너지 → Decimal 경제로 연결한다.
 실제 품종 입력·국내 독립 검증 자료·실제 작물 Run은0건, G0–G4는 `not_assessed`다.
