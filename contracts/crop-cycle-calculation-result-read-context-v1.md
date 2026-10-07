@@ -2,7 +2,7 @@
 
 2026-10-07 KST. native Codex CLI `gpt-6.1-sol / xhigh`에서 판단하며 재귀 CLI0회다.
 선행 [새 결과 증명 수용](../research/crop-cycle-calculation-result-evidence-implementation-20261007.md) 뒤
-`crop-cycle-calculation-result-read-context`를 구현한다. 이 계약과 아래 수용 기준은 아직 미수용이다.
+`crop-cycle-calculation-result-read-context`를 아래 작은 소프트웨어 증거로 로컬 수용했다.
 농장/현재 권리·DB/서버 부모 서명과 공개 DTO/runtime/3D는 [후속 순서](crop-cycle-calculation-query-v1.md)에 남는다.
 
 ## 구현 경계
@@ -39,7 +39,11 @@ core4파일은 `backend/app/crop_cycle_calculation_result_read_context.py`,
 4. 같은 입력의 반복 조회에 RHS 재실행이 없고 실제 응답2MiB·원 sample64/event8·기존 파일 한도를 유지한다.
    이전 소스/행과 증거를 보존하고 시험/참조 명령·실제 출력·비용/자원·남은 보류를 기록한 뒤만 체크한다.
 
-이식/정리·계약 대사1시간, 실제 변조/별도 Python·원량/비용·검토/기록1–2시간의
-**2–3집중시간 잠정**이다. 전체166일 새 proof/등록 DB/API/WebGL 성능과 독립 농장 자료 확보 날짜는 제외한다.
+[10월7일 로컬 수용](../research/crop-cycle-calculation-result-read-context-implementation-20261007.md):
+새49개/선행115개·집중164개·원5시간 정상61시점/3사건·hold60시점/2사건과 실제 별도 Python2개,
+원량/UTC·byte-short/관리 전후·현재 HEAD/불변 선언·변조/FD/cache/PID·원58 source 보존을 확인했다.
+기존2–3집중시간 잠정은 이 수용으로 대체한다. 다음
+[현재 farm/DB query3 core파일](crop-cycle-calculation-current-query-v1.md)은3–6집중시간 잠정이다.
+전체166일 새 proof/등록 DB/API/WebGL 성능과 독립 농장 자료 확보 날짜는 제외한다.
 원 증명의 전체 metadata 대사 비용도 후속 전체 HTTP30초 수용에서 측정한다.
 실제 품종 입력·국내 독립 검증 자료·실제 작물 Run은0건, G0–G4는 `not_assessed`다.

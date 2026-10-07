@@ -37,7 +37,9 @@ SQL 형식 시험 metadata를 저장한 단계입니다. 후속 [서명 결과 D
 [새 계산 결과 검증 증명](research/crop-cycle-calculation-result-evidence-implementation-20261007.md)은
 새79개/선행74개·고유153개 분할·자체5시간 정상61시점/3사건·hold60시점/2사건·
 별도 Python2개/parser/context/QC/RHS0·원55 source/FD/PID 정리로 로컬 수용했습니다.
-다음은 [새 조회 타입](contracts/crop-cycle-calculation-result-read-context-v1.md)과 농장/API/동일 UTC3D이며 전체166일 연결은 후속입니다.
+[새 조회 타입](research/crop-cycle-calculation-result-read-context-implementation-20261007.md)도 새49개/선행115개·집중164개·
+원5시간 정상/hold·별도 Python2개/parser/context/QC/RHS0·원량/UTC·byte 경계/변조·원58 source/FD/cache/PID로 수용했습니다.
+다음은 [현재 농장/DB 조회](contracts/crop-cycle-calculation-current-query-v1.md)와 API/동일 UTC3D이며 전체166일 연결은 후속입니다.
 [전체 원 결과 증명 관측](research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은6.11MB/8MiB·
 발행175.7초·별도 Python 검증1.59초·선택 page1.7–2.0초/정리를 확인했습니다. 농장/HTTP/3D 수용은 별도입니다.
 현재 `8d111f1` CI는 다른4workflow 성공이며 Backend 분할0은

@@ -577,11 +577,15 @@
         [10월7일 수용](../research/crop-cycle-calculation-result-evidence-implementation-20261007.md):
         새79개/선행74개·고유153개 분할·자체5시간 정상61시점/3사건·hold60시점/2사건·
         별도 Python2개/parser/context/QC/RHS0·원55 source/FD/PID 정리. 전체166일 새 proof/농장/HTTP/3D는 별도다.
-      - [ ] **`crop-cycle-calculation-result-read-context`** — 선행 위 증명;
+      - [x] **`crop-cycle-calculation-result-read-context`** — 선행 위 증명;
         [새 조회 module/test/참조/계약4 core파일](../contracts/crop-cycle-calculation-result-read-context-v1.md).
         원 manifest/context provenance와 bounded sample64/event8·2MiB, 현재 bytes·사본/변조/FD/cache를 검증한다.
+        [10월7일 수용](../research/crop-cycle-calculation-result-read-context-implementation-20261007.md):
+        새49개/선행115개·집중164개·원5시간 정상61시점/3사건·hold60시점/2사건과 별도 Python2개,
+        parser/context/QC/RHS0·byte 경계/관리 전후·현재 HEAD/선언·변조/FD/cache/PID·원58 source 보존.
+        전체166일 새 proof/농장/HTTP/3D와 관문은 별도다.
       - [ ] **`crop-cycle-calculation-current-query`** — 선행 위 reader·새 signed DB/현재 농장 결속.
-        새 현재 query/module/test/계약3 core파일로 실제 SCRAM farm/Scope/등록/입력 권리·DB HMAC·
+        [새 query/module/test/계약3 core파일](../contracts/crop-cycle-calculation-current-query-v1.md)로 실제 SCRAM farm/Scope/등록/입력 권리·DB HMAC·
         원 선택/전체 부모 server proof/HEAD를 전후 대사한다. 원 값/철회/변조/다른 판본과 정리 뒤 수용한다.
       - [ ] **`crop-cycle-calculation-api-runtime`** — 선행 위 현재 query.
         새 공개 판본/명시 operator-config·factory/route의 닫힌 형식을 작은 자식으로 계약한 뒤 구현한다.
