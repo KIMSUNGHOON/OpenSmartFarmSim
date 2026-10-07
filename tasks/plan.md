@@ -212,6 +212,16 @@ child SIGKILL(-9)/원123걸음 checkpoint 재개·연속760걸음/21시점/2사�
 첫123걸음/620RHS·실제 정상 종료 뒤 같은 spec 재개·8,104걸음 진행을 확인했다.
 새 고정 deadline은2026-10-07T11:07:36.678777Z이며 종료/전체 수지·복원/조회 수용은 별도로 확인한다.
 
+[계산 경로 직접 관측](../research/crop-cycle-farm-input-cost-observation-20261007.md)은 원 `_input`만
+같은166일 입력에서22.05/22.22초로 실행했다. 현재 조회 수용은 이 반복 계산 검사를 바꾸지 않았다.
+누락된 구현 의존성을 `crop-cycle-calculation-input-context` → `crop-cycle-calculation-farm-binding`으로 나눈다.
+첫 단계는 공식 계산 factory/새 판본·원 물리값/UTC/checkpoint·수지/hold·변조 거부·별도 복원이다.
+그 다음 실제 SCRAM의 현재 계산/표시 권리·등록/Scope 전후 검사와 원 custody 결속을 검증한다.
+입력 증명/감독자 수용 뒤 착수할 수 있지만55개 소스 수정은 실제 실행 종료·증거 보존을 기다린다.
+전체 RHS 성공을 작은 개발의 추가 착수 조건으로 삼지 않으며, 전체 replay-restore 게시/부하 수용에는
+기존 전체 RHS와 실제 등록 계산·저장/API/동일 UTC3D 증거를 모두 유지한다.
+관측의44.28초 합을 실제 농장/HTTPS 지연이나 전체 작기 완료 날짜로 외삽하지 않는다.
+
 10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)은 원81574 handle·실험/terminal
 보존 경로 부재를 확인했다. 원 최종 상태는 확인 불가이고 같은 실험/예산을 재설정하지 않는다.
 새 사설 증거는 지속 저장 경로에 보존하고 작은 결과 조회 개발은 이어간다. 전체 수용은 원 증거 복구 또는
@@ -351,6 +361,10 @@ flowchart TD
   BQAUTH --> BQAPI["crop-cycle-query-runtime: 명시적 API/runtime·TLS 예산"]
   BQAPI --> BQUERY["crop-cycle-current-query: 두 자식 수용 뒤 부모"]
   BQUERY --> BRESTORE
+  BINPUT --> BCALCCTX["crop-cycle-calculation-input-context: 공식 계산 factory/판본"]
+  BDURABLE --> BCALCCTX
+  BCALCCTX --> BCALCBIND["crop-cycle-calculation-farm-binding: 현재 권리·등록/custody"]
+  BCALCBIND --> BRESTORE
   BRESTORE --> BURDEN
   BURDEN --> CAP
   SI --> SF["crop-startup-artifact: 새 bytes/재적분 없는 reader"]

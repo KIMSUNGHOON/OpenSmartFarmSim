@@ -230,6 +230,10 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 [별도 입력 조회 문맥](../research/crop-cycle-input-read-context-implementation-20261006.md)은15개 집중 시험·
 원47,811경계/같은 context/clock·재시작·RHS0/FD 정리로 로컬 수용했다.
 원 계산 provenance와 조회 타입/코드를 분리했으며 결과 검증·현재 farm/권리·API 연결은 별도다.
+[계산 경로의 별도 비용 관측](../research/crop-cycle-farm-input-cost-observation-20261007.md)은 원 `_input`
+두 호출22.05/22.22초를 확인했다. 조회 수용이 계산의 반복 검사를 개선한 것은 아니다.
+공식 계산 문맥/판본 → 현재 농장·권리/custody 연결을 [계획](../tasks/plan.md)의 두 작은 작업으로
+검증하며 실행 중 소스와 과거 결과 판본을 보존한다. 전체 저장/조회·부하 수용은 기존 증거를 모두 요구한다.
 [확정 과거 결과 비용](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은
 원8,175commit/26,831출력의 수지 검증73.71초로 반복 결과 검증도30초 경로 전에 개선해야 함을 확인했다.
 [결과 검증 영수증](../research/crop-cycle-result-evidence-implementation-20261006.md)은 작은 완료/hold의

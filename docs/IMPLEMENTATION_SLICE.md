@@ -300,6 +300,10 @@ SCRAM·철회/변조/재시작·정리다. 다음 API/runtime 연결의 TLS30초
 원120걸음·3시점/3관리 사건·22 HTTPS·재시작·투영 후 철회·trace/역할 거부·정리를 확인했다.
 최대6.306509초/21,514bytes·분할 고유198통과/9건너뜀이며 코드 판본별 증거를 보존했다.
 현재 조회 부모의 작은 소프트웨어 범위까지 수용했다. 전체166일/복원·부하·새3D와 관문은 별도다.
+[계산 경로의 원 입력 직접 관측](../research/crop-cycle-farm-input-cost-observation-20261007.md)은
+현재 조회 개선과 별개인 `_input` 반복 비용을 확인했다. [작업 목록](../tasks/todo.md)의 공식 계산 문맥/판본
+→ 현재 농장·권리/custody 두 자식으로 검증한다. 소스 변경은 실제 실행 종료·증거 보존 뒤이며,
+첫 수용은 원 물리값/UTC·121상태/checkpoint·수지/hold·변조 거부와 별도 프로세스 복원이다.
 
 다음 실험의 [지속 저장 감독자](../research/crop-cycle-full-rhs-durable-implementation-20261007.md)는
 실제5개/22.67초·child SIGKILL(-9)/같은 checkpoint 재개·연속760걸음/21시점/2사건·121상태 대사로 로컬 수용했다.

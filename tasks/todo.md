@@ -479,6 +479,22 @@
           원120걸음·3시점/3사건·22 HTTPS·최대6.306509초/21,514bytes·투영 후 철회/역할 거부·재시작/정리.
           구성/기존 route52개·호환137통과/9건너뜀·선행8개 포함 분할 고유198통과/9건너뜀이다.
           최종 예외 전파 회귀2개는 중복 합산하지 않으며 전체 backend/새 브라우저/hosted CI는 이번 범위가 아니다.
+      - [ ] **`crop-cycle-calculation-input-context`** — 선행 입력 검사 영수증/감독자 수용과 실제 실행 종료 후55개 소스 동결 해제.
+        [계산 경로 직접 관측](../research/crop-cycle-farm-input-cost-observation-20261007.md)은 같은166일 입력의
+        원 `_input` 두 호출22.05/22.22초·같은 root/plan·RHS0/FD 정리를 확인했다. 조회 개선과 별도인 계산 경로다.
+        첫 변경 전에 계산 factory/판본·과거 입력/결과 보존 계약과 한 단계4개 이내 core파일을 확정한다.
+        수용: 최초 실제 전체 QC/context 검사의 서버 증명을 현재 원 bytes와 결속한 공식 계산 factory,
+        원 물리값/UTC·121상태·seed/clock/counter/checkpoint·수지/hold와 별도 Python 복원 대사,
+        변조·잘못된 코드/프로필/키 거부·bounded cache/FD/활성 RSS/자원 정리.
+        원 private token/캐시의 외부 주입과 조회 전용 타입의 계산 허용을 거부한다.
+        코드/normalization/context 변경은 새 판본으로 기록하고 과거 원본·재생 증거를 유지한다.
+        전체 RHS 성공은 이 작은 개발의 추가 착수 조건이 아니며, 실행 중 소스는 종료/증거 보존 전 변경하지 않는다.
+      - [ ] **`crop-cycle-calculation-farm-binding`** — 선행 계산 문맥의 작은 수용과 기존 농장/custody 계약.
+        새 계산 판본의 현재 tenant/Scope·등록·입력 권리를 계산 전후와 저장 commit에 결속한다.
+        수용: 실제 SCRAM의 작은 연속/중단 복원·원값/UTC·활성 RSS 및 현재 계산/표시 권리·등록/계정 철회,
+        입력/DB/trace 변조·판본 혼합 거부·FD/DB/역할/비밀/PG 정리와 비용 분해.
+        새 코드가 과거 원 server trace를 재발급하지 않으며 순수 artifact를 등록 실행 이력으로 바꾸지 않는다.
+        전체 registered 작기의 누적 proof/저장/조회 비용은 별도로 실측하고 replay-restore 부모에서 수용한다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
