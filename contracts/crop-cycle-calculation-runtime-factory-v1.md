@@ -2,7 +2,7 @@
 
 2026-10-07 KST. native Codex CLI `gpt-6.1-sol / xhigh`; 재귀 CLI0회.
 선행 [순수 공개 투영](api-crop-cycle-calculation-projection-v1.md)은 로컬 수용했다.
-이 계약은 `crop-cycle-calculation-operator-runtime`의 첫 자식이며 구현 수용이 아니다.
+이 계약은 `crop-cycle-calculation-operator-runtime`의 첫 자식이며 실제 로컬 수용은 아래에 기록한다.
 
 ## 현행 경계와 범위
 
@@ -48,3 +48,12 @@ runtime은 `calculation_cycle_crop_results`와 `calculation_cycle_crop_query`로
 다음은 별도 operator loader/config → 인증 route/실제 HTTPS30초/2MiB → client/같은 UTC3D다.
 전체 등록 prefix/복원 검증과 실제 품종 입력·국내 독립 자료 확보는 별도 경로다.
 G0–G4 `not_assessed`, 실제 작물 입력/검증 자료/Run0건을 유지한다.
+
+## 로컬 수용 — 2026-10-07
+
+[실제 보고서](../research/crop-cycle-calculation-runtime-factory-20261007.md)와
+[고정 영수증](../research/artifacts/crop-cycle-calculation-runtime-factory-reference-20261007.json):
+새19개 단일/기존136개 단일·고유155개 분할, 실제 SCRAM 동일 jobs/farm/principal 제공자·네 독립 키·재구성과
+9개 혼합/변경 거부·parser/context/QC/RHS/advance/게시0·작물 행0·원 입력/FD·세 별도 import·73 source/정리를 확인했다.
+초기 시험 디렉터리 누락의 실제 실패/진단을 보존했다. 원 loader/source와 signed 이력은 유지했다.
+runtime factory 자식만 수용하며 별도 loader·새 HTTP/OpenAPI/TLS 응답·전체 작기/3D·관문은 후속이다.
