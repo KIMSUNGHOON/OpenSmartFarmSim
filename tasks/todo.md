@@ -508,6 +508,9 @@
       - [ ] **`crop-cycle-calculation-artifact`** — 선행 위 계산 문맥의 작은 수용.
         [현재 감사](../research/crop-cycle-calculation-context-inspection-20261007.md)에서 기존 artifact가 원 exact context만
         받음을 확인했다. 새 판본의 writer/reader·checkpoint/manifest 경계를3–4개 core파일로 먼저 계약한다.
+        [첫 저장 계약](../contracts/crop-cycle-calculation-artifact-v1.md)은4개 이내 core파일·명시 새 판본과
+        공개 전후/HEAD 전 검사·내부 checkpoint 대사·원 한도/원자 게시·실제25시간/별도 Python/중단 수용을 고정했다.
+        구현/시험 수용은 아직 아니다. 계약/이식·검토1–2시간+검증/수정1–2시간,2–4집중시간/10월7–8일 KST 잠정이다.
         수용: 작은 연속/재개 결과의 불변 sample/event·UTC/121상태/수지·명시 판본/한도·원자 게시,
         별도 Python 읽기/QC·변조/판본 혼합 거부·조회 RHS0·FD/파일 정리와 원 artifact/과거 bytes 보존.
         이는 실제 전체166일·farm/DB/HTTPS/3D 수용이 아니며 해당 부모의 증거는 유지한다.

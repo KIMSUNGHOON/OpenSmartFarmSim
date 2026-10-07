@@ -1,0 +1,95 @@
+{
+  "version": "crop-cycle-calculation-artifact-inspection-v1",
+  "observed_at_utc": "2026-10-07T08:19:11.874101+00:00",
+  "scope": "current_source_static_contract_design_only",
+  "source_artifact": {
+    "path": "backend/app/crop_cycle_artifact.py",
+    "sha256": "10bcf863ba40338f2efa7242d78c2cccd3020fbdca061951da6b7b1c5a7c51f7",
+    "lines": 475
+  },
+  "engine_calls": [
+    {
+      "scope": "_pins",
+      "name": "_require_context",
+      "line": 59
+    },
+    {
+      "scope": "_header",
+      "name": "start",
+      "line": 73
+    },
+    {
+      "scope": "_position",
+      "name": "_boundary",
+      "line": 94
+    },
+    {
+      "scope": "_position",
+      "name": "_boundary",
+      "line": 98
+    },
+    {
+      "scope": "_sample",
+      "name": "_evaluator",
+      "line": 109
+    },
+    {
+      "scope": "_event",
+      "name": "_evaluator",
+      "line": 124
+    },
+    {
+      "scope": "_confirmed_checkpoint",
+      "name": "_boundary",
+      "line": 143
+    },
+    {
+      "scope": "_confirmed_checkpoint",
+      "name": "_clock_record",
+      "line": 150
+    },
+    {
+      "scope": "_confirmed_checkpoint",
+      "name": "_seal",
+      "line": 151
+    },
+    {
+      "scope": "_confirmed_checkpoint",
+      "name": "checkpoint_bytes",
+      "line": 151
+    },
+    {
+      "scope": "_confirmed_checkpoint",
+      "name": "_confirmed",
+      "line": 152
+    },
+    {
+      "scope": "_validate_delta",
+      "name": "checkpoint_bytes",
+      "line": 205
+    },
+    {
+      "scope": "ArtifactWriter.advance",
+      "name": "advance_chunk",
+      "line": 372
+    }
+  ],
+  "current_source_requires_original_context": true,
+  "changing_engine_global_or_token_is_not_implementation": true,
+  "public_checkpoint_validation_inside_prefix_would_repeat_new_full_input_checks": true,
+  "decision": "new static versioned module; outer proof/byte boundaries and explicitly private local checkpoint helpers; count checks and preserve math/QC/atomicity",
+  "accepted_calculation_receipt_sha256": "056e56d604d9921516902a229cefac1fc773cdf0fe27885f72c0814fb7a1072d",
+  "prior_artifact_actual_reference_receipt_sha256": "46172b30baa2b499ab1a6238836abf3e01e30c668cddcefbd6062f2cea483ab8",
+  "native_cli": {
+    "timestamp": "2026-10-07T07:54:49.750Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "record_sha256_no_lf": "10f16ebf7885add82104d8948b75e6c01aa00abfbc4feaa3129de3ca2034381a",
+    "recursive_cli_launches": 0
+  },
+  "new_artifact_implemented": false,
+  "new_artifact_tests_run": false,
+  "full166_or_farm_DB_API_3D_accepted": false,
+  "original55_source_pins_verified": 55,
+  "gates": "not_assessed"
+}
