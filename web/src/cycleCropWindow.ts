@@ -1,28 +1,35 @@
 import { ApiError,need,object,closed } from './api-validation';
 import { validCycleCropLookup,type CycleCropLookup,type CycleCropSummaryResponse,type CycleCropPageResponse,
   type CycleCropDataPage,type createCycleCropReplayApi } from './cycleCropReplay';
+import { validCalculationCycleCropLookup,type CalculationCycleCropLookup,type CalculationCycleCropSummaryResponse,
+  type CalculationCycleCropPageResponse,type CalculationCycleCropDataPage,type createCalculationCycleCropReplayApi } from './calculationCycleCropReplay';
 import { type StartupCropSample } from './startupCropReplay';
 
 type Kind='samples'|'events';
 type Api=Pick<ReturnType<typeof createCycleCropReplayApi>,'cycleCropSummary'|'cycleCropPage'>;
-type Selection=Readonly<{result_id:string;farm:CycleCropSummaryResponse['farm'];
-  reference:CycleCropSummaryResponse['reference'];index:number;sample:StartupCropSample}>;
+type CalculationApi=Pick<ReturnType<typeof createCalculationCycleCropReplayApi>,'calculationCycleCropSummary'|'calculationCycleCropPage'>;
+type Summary=CycleCropSummaryResponse|CalculationCycleCropSummaryResponse;
+type Page=CycleCropPageResponse|CalculationCycleCropPageResponse;
+type Source=Readonly<{kind:'original';api:Api;lookup:CycleCropLookup}>
+  | Readonly<{kind:'calculation';api:CalculationApi;lookup:CalculationCycleCropLookup}>;
+type Selection=Readonly<{result_id:string;farm:Summary['farm'];
+  reference:Summary['reference'];index:number;sample:StartupCropSample}>;
 export type CycleCropRange=Readonly<{kind:Kind;offset:number;count:number;total:number;last_index:number|null;
   next_offset:number|null;first_utc:string|null;last_utc:string|null;partial:boolean}>;
 export type CycleCropWindowState=Readonly<{phase:'idle'|'loading'|'ready'|'error'|'disposed';
-  summary:CycleCropSummaryResponse|null;sample_page:CycleCropPageResponse|null;event_page:CycleCropPageResponse|null;
+  summary:Summary|null;sample_page:Page|null;event_page:Page|null;
   range:CycleCropRange|null;selected:Selection|null;can_previous:boolean;can_next:boolean;error:ApiError|null}>;
-type Context={api:Api;lookup:CycleCropLookup;offsets:Record<Kind,number[]>;cursor:Record<Kind,number>};
+type Context=Source & {offsets:Record<Kind,number[]>;cursor:Record<Kind,number>};
 function empty(phase:CycleCropWindowState['phase'],error:ApiError|null=null):CycleCropWindowState{
   return {phase,summary:null,sample_page:null,event_page:null,range:null,selected:null,can_previous:false,can_next:false,error};
 }
-export function cycleCropRange(page:CycleCropDataPage):CycleCropRange{
+export function cycleCropRange(page:CycleCropDataPage|CalculationCycleCropDataPage):CycleCropRange{
   const count=page.records.length;
   return {kind:page.kind,offset:page.offset,count,total:page.total,last_index:count?page.offset+count-1:null,
     next_offset:page.next_offset,first_utc:page.records[0]?.at??null,last_utc:page.records.at(-1)?.at??null,
     partial:page.offset!==0 || count!==page.total};
 }
-function selection(summary:CycleCropSummaryResponse,page:CycleCropPageResponse,index:number):Selection|null{
+function selection(summary:Summary,page:Page,index:number):Selection|null{
   if(page.page.kind!=='samples')return null;const sample=page.page.records[index];
   return sample?{result_id:summary.result_id,farm:summary.farm,reference:summary.reference,index:page.page.offset+index,sample}:null;
 }
@@ -36,16 +43,23 @@ export function createCycleCropWindow(changed:(state:CycleCropWindowState)=>void
   let controller:AbortController|null=null,pending:Promise<void>=Promise.resolve();
   const current=(version:number,signal:AbortSignal)=>!disposed && version===generation && !signal.aborted;
   function publish(next:CycleCropWindowState){state=next;changed(state);}
-  function load(ctx:Context,kind:Kind,offset:number,baseline:CycleCropSummaryResponse|null,commit:()=>void){
+  function load(ctx:Context,kind:Kind,offset:number,baseline:Summary|null,commit:()=>void){
     const version=++generation;controller?.abort();const owned=new AbortController();controller=owned;
     const prior=pending;state=empty('loading');
     const task=prior.catch(()=>{}).then(async()=>{
       if(!current(version,owned.signal))return;
       try{
-        const summary=baseline??await ctx.api.cycleCropSummary(ctx.lookup,owned.signal);
+        const summary=baseline??await (ctx.kind==='original'?ctx.api.cycleCropSummary(ctx.lookup,owned.signal)
+          :ctx.api.calculationCycleCropSummary(ctx.lookup,owned.signal));
         if(!current(version,owned.signal))return;
-        const page=await ctx.api.cycleCropPage(ctx.lookup,{kind,offset,limit:kind==='samples'?sampleLimit:eventLimit},
-          {signal:owned.signal,summary});
+        const query={kind,offset,limit:kind==='samples'?sampleLimit:eventLimit};let page:Page;
+        if(ctx.kind==='original'){
+          need(summary.schema_version==='crop-cycle-replay-v1');
+          page=await ctx.api.cycleCropPage(ctx.lookup,query,{signal:owned.signal,summary});
+        }else{
+          need(summary.schema_version==='crop-cycle-calculation-replay-v1');
+          page=await ctx.api.calculationCycleCropPage(ctx.lookup,query,{signal:owned.signal,summary});
+        }
         if(!current(version,owned.signal))return;
         commit();publish({phase:'ready',summary,sample_page:kind==='samples'?page:null,event_page:kind==='events'?page:null,
           range:cycleCropRange(page.page),selected:selection(summary,page,0),can_previous:ctx.cursor[kind]>0,
@@ -65,12 +79,19 @@ export function createCycleCropWindow(changed:(state:CycleCropWindowState)=>void
     need(!disposed && state.phase==='ready' && context && state.summary);
     const ctx=context;return load(ctx,kind,ctx.offsets[kind][ctx.cursor[kind]]!,state.summary,()=>{});
   }
+  function openSource(source:Source){
+    const ctx:Context={...source,offsets:{samples:[0],events:[0]},cursor:{samples:0,events:0}};
+    context=ctx;return load(ctx,'samples',0,null,()=>{});
+  }
   return {
     snapshot:()=>state,
     open(api:Api,lookup:CycleCropLookup){
       need(!disposed && validCycleCropLookup(lookup));
-      const ctx:Context={api,lookup:{...lookup},offsets:{samples:[0],events:[0]},cursor:{samples:0,events:0}};
-      context=ctx;return load(ctx,'samples',0,null,()=>{});
+      return openSource({kind:'original',api,lookup:{...lookup}});
+    },
+    openCalculation(api:CalculationApi,lookup:CalculationCycleCropLookup){
+      need(!disposed && validCalculationCycleCropLookup(lookup));
+      return openSource({kind:'calculation',api,lookup:{...lookup}});
     },
     showSamples:()=>show('samples'),showEvents:()=>show('events'),
     next(kind:Kind){
