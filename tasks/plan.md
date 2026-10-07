@@ -647,6 +647,12 @@ artifact의 실제 RED→첫 GREEN은 19:27~19:29 UTC, 512출력 자원 확인�
 독립 국내 농장/작기 자료는 현재 **0건**이며 동의·자료 범위·미사용 기간이
 정해지지 않아 G2/G3a·최종 추천/production 완료일을 정할 근거가 없다.
 
+10월7일 [국내 연구 온실 접근 후속](../research/crop-domestic-validation-access-followup-20261007.md)은
+HR17/HR24·2022/2023 실험 논문의 첨부 식별자를 확인했다. DOCX·동기화 원측정은 미확인이며,
+다음 자료 접근 검토의 대상은 `1730694/data-sheet/1` 판본1의 정상 공개 첨부와 파일별 권리다.
+원행이 없으면 별도 공개 제품/제공 자료가 필요하다. 이 조사는 계산 개발과 병행하며
+품종/계수 채택·독립 자료 확보나 생과 환산의 선행 수용을 변경하지 않는다.
+
 ## 이전 구현 진행 기록
 
 작성 Run의 후속 연결은 `authored-economic-execution → authored-calculation-assessment →
