@@ -264,6 +264,20 @@ def repack(record,packet):
     raw=_canonical(packet);record.update(result_id=packet['result_id'],payload_raw=raw,payload_sha256=sha256(raw).hexdigest())
 
 
+@pytest.mark.parametrize('fault', ['missing', 'changed', 'extra'])
+def test_rehashed_server_prefix_dependency_cannot_change_public_provenance(original, fault, monkeypatch):
+    record, terminal, _ = deepcopy(original)
+    packet = json.loads(record['payload_raw'])
+    dependencies = packet['code']['server_dependency_sha256']
+    if fault == 'missing': del dependencies['prefix']
+    elif fault == 'changed': dependencies['prefix'] = '0' * 64
+    else: dependencies['unknown'] = '0' * 64
+    repack(record, packet)
+    forbid_computation(monkeypatch)
+    with pytest.raises(server.CalculationCustodyHold):
+        project_calculation_cycle_result(record, terminal)
+
+
 @pytest.mark.parametrize('field',['context_sha256','evidence_sha256','validated_context_sha256','engine_version',
     'input_evidence_version','calculation_code_sha256','input_evidence_code_sha256','input_evidence_dependency_sha256'])
 def test_rehashed_DB_validation_mixing_never_becomes_public(original,field,monkeypatch):

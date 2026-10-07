@@ -391,7 +391,12 @@ candidate 현재 bytes 검사 뒤 마지막 입력/권한 검사와 atomic HEAD 
 [계산 묶음 경계 관측](../research/crop-cycle-calculation-chunk-feasibility-observed-20261008.md)은
 이미 지원하는 순수4,096전이와 고정128전이32호출의 비계보 checkpoint 전체/원105출력/2사건을 대사했다.
 실제1통과/종료0·순수37.853초·2page/954,171bytes·268 source/FD12→12·정리로 가능성 자식만 수용했다.
-artifact/서버128전이 거부는 그대로다. 다음은128행/사건·기존 bytes 한도를 지키는 묶음 정책과 새 서버 판본이다.
+artifact/서버128전이 거부는 그대로다. 새 prefix dependency의 공개 schema/SDK 누락은 실제 RED 뒤 수정했다.
+[공개 provenance 연결](../research/crop-cycle-calculation-prefix-api-bridge-implementation-20261008.md)도
+API193개/웹720개/Chromium15개·타입/빌드·새34 JSON/원량/UTC·270 source/종료0/정리로 로컬 수용했다.
+다음은128행/사건·기존 bytes 한도를 지키는 묶음 정책과 명시 서버 판본이다.
+8초 RK4/300초 출력·현재 bytes/HMAC·입력/권리·최종 HEAD 경계와 별도 Python 복원을 유지하고,
+조밀한 출력/사건의 자원 경계와 실제 저장/재개 비용 증거 뒤 전체 등록 실행으로 진행한다.
 전체166일 실행 예산은 남은 누적 비용 증거 뒤 고정하며 초기3회로 완료 시간을 외삽하지 않는다.
 실측에 필요한 개선과 전체 실행 예산 근거 전에는 prefix-cost 부모를 수용하지 않는다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증이며 전체 hosted 수용은 별도다.

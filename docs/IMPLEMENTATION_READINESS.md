@@ -52,7 +52,9 @@ delta QC1,056→64회·advance304.344→290.225초·전체339.187초이며 입�
 candidate 현재 bytes 검사 뒤 마지막 입력/권한 검사와 atomic HEAD 순서를 검증했다.
 [계산 묶음 가능성](../research/crop-cycle-calculation-chunk-feasibility-observed-20261008.md)도 실제1통과/종료0·같은4,096전이/원105출력/2사건·
 비계보 checkpoint 전체·2page/954,171bytes·268 source/정리로 수용했다. 제품128전이 제한은 유지했다.
-다음은 현재 bytes/HMAC 순회의 증가 비용과 전체 wall 예산이다.
+[새 prefix 공개 연결](../research/crop-cycle-calculation-prefix-api-bridge-implementation-20261008.md)도 실제 RED 뒤 수정·
+API193개/웹720개/Chromium15개·타입/빌드·새34 JSON/원량/UTC·270 source/종료0/정리로 로컬 수용했다.
+다음은 출력/사건128개·기존 bytes 한도를 지키는 계산 묶음 정책과 전체 wall 예산이다.
 원 순수 실행의 재분류가 아니다.
 전체166일 등록 비용·실제 품종 입력/국내 독립 자료0건과 G0–G4 보류는 유지한다. 아래 날짜별 기록은 당시 상태다.
 

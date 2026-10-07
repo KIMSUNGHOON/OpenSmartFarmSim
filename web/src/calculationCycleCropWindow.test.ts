@@ -7,7 +7,7 @@ import { createCycleCropReplayApi,decodeCycleCropResponse,validCycleCropLookup,t
 import { createCycleCropWindow } from './cycleCropWindow';
 
 type Case='long'|'short'|'past'|'empty'|'fractional'|'zero';
-const fixture:Record<Case,unknown[]>=JSON.parse(readFileSync(new URL('../e2e/calculation-cycle-crop-recorded-responses.json',import.meta.url),'utf8'));
+const fixture:Record<Case,unknown[]>=JSON.parse(readFileSync(new URL('../e2e/calculation-cycle-crop-prefix-recorded-responses.json',import.meta.url),'utf8'));
 function lookup(raw:unknown){
   need(object(raw) && object(raw.farm));const pick={...raw.farm,result_id:raw.result_id};
   need(validCalculationCycleCropLookup(pick));return pick;

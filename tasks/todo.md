@@ -758,7 +758,14 @@
             [10월8일 관측 수용](../research/crop-cycle-calculation-chunk-feasibility-observed-20261008.md):
             실제1통과/종료0·4,096전이/3,990걸음·105출력/2사건·비계보 checkpoint 전체/원행 일치.
             순수 context/start/advance37.853초·전체55.567초·2page/954,171bytes·268 source/FD12→12·정리.
-            다음은128행/사건·기존 byte 한도를 지키는 새 계산 묶음 정책과 서버의 명시 판본 구현이다.
+            큰 구간 구현 전에 아래 공개 provenance 연결을 먼저 수용한다.
+          - [x] **`crop-cycle-calculation-prefix-api-bridge`** — 로컬 합성 공개 연결 수용; 선행: `crop-cycle-calculation-prefix-attestation`.
+            [수정 계약](../contracts/crop-cycle-calculation-prefix-api-bridge-v1.md): 실제 서버의 prefix dependency를 필수 공개 schema/SDK에 연결한다.
+            실제 backend 투영1실패/SDK1실패를 RED로 확인했고 최소 수정 뒤 backend4개/SDK1개는 통과했다.
+            [10월8일 실제 수용](../research/crop-cycle-calculation-prefix-api-bridge-implementation-20261008.md):
+            새 실제 소유34 JSON/원 기록 보존·API/route/OpenAPI193개·웹720개·Chromium15개, 고유928개·타입/빌드 통과.
+            원량/UTC·270 source/종료0/정리를 확인했다. 전체166일/실제 native/G0–G4는 별도다.
+            다음은128행/사건·기존 bytes 한도와 현재 입력/권리를 유지하는 계산 묶음 정책이다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

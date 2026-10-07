@@ -11,7 +11,7 @@ const REFERENCE_LITERALS={storage_status:'stored_unpublished_research',claim_sco
 const REFERENCE_HASHES=['farm_sha256','source_binding_sha256','artifact_sha256','header_sha256','input_root_sha256',
   'calculation_sha256','context_sha256','binding_sha256','intent_sha256','head_sha256','proof_sha256','payload_sha256',
   'storage_code_sha256','server_custody_code_sha256','schema_code_sha256','binding_code_sha256','notice_sha256','runtime_roles_code_sha256'] as const;
-const SERVER_KEYS=['artifact','farm_binding','input_stream','execution','directory_helper','file_helper','input_read_context'] as const;
+const SERVER_KEYS=['artifact','prefix','farm_binding','input_stream','execution','directory_helper','file_helper','input_read_context'] as const;
 const PHYSICAL_KEYS=['integrator','coupled','startup','plant','cohorts','allocation','transport','legacy_helpers','original_rates'] as const;
 const PROFILE_KEYS=['growth_profile','cohort_profile','transport_profile'] as const;
 const CODE_KEYS=['stream_execution','continuation','input_stream'] as const;

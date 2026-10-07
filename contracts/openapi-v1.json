@@ -1529,6 +1529,11 @@
             "pattern": "^[0-9a-f]{64}$",
             "title": "Input Stream",
             "type": "string"
+          },
+          "prefix": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Prefix",
+            "type": "string"
           }
         },
         "required": [
@@ -1538,7 +1543,8 @@
           "execution",
           "directory_helper",
           "file_helper",
-          "input_read_context"
+          "input_read_context",
+          "prefix"
         ],
         "title": "CalculationServerDependencies",
         "type": "object"

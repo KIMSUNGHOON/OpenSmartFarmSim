@@ -8,7 +8,7 @@ import { startupCohortScales } from '../src/coupledCropGeometry';
 
 declare global { interface Window { __calculationReadState:()=>{active:number;peak:number}; } }
 type Case='long'|'short'|'past'|'empty'|'fractional'|'zero';
-const fixture:Record<Case,unknown[]>=JSON.parse(readFileSync(new URL('./calculation-cycle-crop-recorded-responses.json',import.meta.url),'utf8'));
+const fixture:Record<Case,unknown[]>=JSON.parse(readFileSync(new URL('./calculation-cycle-crop-prefix-recorded-responses.json',import.meta.url),'utf8'));
 function dataset(name:Case){
   const values=fixture[name].map(raw=>{need(object(raw) && object(raw.farm));
     const lookup={...raw.farm,result_id:raw.result_id};need(validCalculationCycleCropLookup(lookup));

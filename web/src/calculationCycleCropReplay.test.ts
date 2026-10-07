@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { ApiError,createApi } from './api';
 import { decodeCalculationCycleCropResponse,createCalculationCycleCropReplayApi,validCalculationCycleCropLookup,type CalculationCycleCropLookup } from './calculationCycleCropReplay';
 
-const bytes=readFileSync(new URL('../e2e/calculation-cycle-crop-recorded-responses.json',import.meta.url));
+const bytes=readFileSync(new URL('../e2e/calculation-cycle-crop-prefix-recorded-responses.json',import.meta.url));
 const fixture=JSON.parse(bytes.toString());
 const lookup=(p:Record<string,any>):CalculationCycleCropLookup=>({result_id:p.result_id,...p.farm});
 const first=fixture.long[0],selection=lookup(first);
@@ -22,8 +22,19 @@ function shapedPage(summary:Record<string,any>,kind:'samples'|'events',offset=0,
 }
 
 describe('cycle original public results',()=>{
+  it('requires the prefix dependency in the current closed map',()=>{
+    const p=structuredClone(first);p.reference.server_dependency_sha256.prefix='9'.repeat(64);
+    expect(decodeCalculationCycleCropResponse(p,lookup(p))).toEqual(p);
+    for(const fault of ['missing','invalid','extra']){
+      const changed=structuredClone(p),dependencies=changed.reference.server_dependency_sha256;
+      if(fault==='missing')delete dependencies.prefix;
+      if(fault==='invalid')dependencies.prefix='A'.repeat(64);
+      if(fault==='extra')dependencies.unknown='0'.repeat(64);
+      expect(()=>decodeCalculationCycleCropResponse(changed,lookup(changed))).toThrow(ApiError);
+    }
+  });
   it('keeps the new public provenance and actual original arrays unchanged',()=>{
-    expect(createHash('sha256').update(bytes).digest('hex')).toBe('a2d3e197b352bc51ab1dd66f520f38912032bb9a9e705733eb89919e47f4a80b');
+    expect(createHash('sha256').update(bytes).digest('hex')).toBe('6fb7f94c060b54b8dcc97e78d8eda3c543075f2670ab21447c7d7423cb46b006');
     expect(fixture.scope).toBe('owned_synthetic_public_projection_JSON_not_TLS_wire_live_history_or_measured_farm_data');
     for(const raw of [...fixture.short,...fixture.long,...fixture.past,...fixture.empty,...fixture.fractional,...fixture.zero])expect(decodeCalculationCycleCropResponse(raw,lookup(raw))).toEqual(raw);
     expect(first.reference.steps).toBe(11400);expect(first.reference.sample_count).toBe(27);

@@ -68,6 +68,7 @@ class CalculationCycleCropManifest(original.CycleCropManifest):
 
 class CalculationServerDependencies(original.CycleServerDependencies):
     input_read_context: Digest
+    prefix: Digest
 
 
 class CalculationCycleCropReference(original.CycleCropReference):
