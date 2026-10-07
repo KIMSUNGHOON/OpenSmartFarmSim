@@ -276,6 +276,15 @@ publication은 현재 binding/실제 port 대사 후 추정한다. 기존 전체
 서비스의 재열기와 `_progress` 전체 prefix 검증은 큰 작기의 누적 비용 실측이 남아 있다.
 이는 기존 replay-restore 부하 수용에서 확인하며 작은 서버 자식 수용으로 전체 처리량을 승인하지 않는다.
 새 계산 경로의 서명/DB 부모·전체166일/3D·실제 품종/독립 자료와 관문 보류는 유지한다.
+
+후속 [실제 서명 결과 DB 게시](../research/crop-cycle-calculation-result-publication-implementation-20261007.md)는
+10월7일 동일 제품 module의 순수81개·실제 SCRAM 고유15개, 고유96개 분할·실제7→120재개/원량·
+현재 권리/원자 게시·원 signed 이력 공존·변조·정리로 수용했다. schema+publication으로 DB 부모,
+authority+server+DB로 작은 calculation-farm-binding 부모도 완료했다. 위 부모 보류는 이 수용으로 갱신한다.
+전체 registered prefix/저장/API/3D·부하와 실제 품종/관문은 계속 미수용이다.
+내부 get은7.898755초와 다른 실행39.668745초를 모두 관측했으며 HTTP30초 수용이 아니다.
+다음은 누적 비용 측정과 새 결과 proof/현재 조회·공개 판본/operator-config/API runtime 연결이다.
+publication1.5–3.5집중시간 잠정은 이 실적으로 대체하며 전체 완료일은 다음 실제 측정 뒤 갱신한다.
 전체 RHS 성공을 작은 개발의 추가 착수 조건으로 삼지 않으며, 전체 replay-restore 게시/부하 수용에는
 기존 전체 RHS와 실제 등록 계산·저장/API/동일 UTC3D 증거를 모두 유지한다.
 관측의44.28초 합을 실제 농장/HTTPS 지연이나 전체 작기 완료 날짜로 외삽하지 않는다.

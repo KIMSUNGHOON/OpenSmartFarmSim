@@ -26,10 +26,16 @@ C0/앱/작성 경로·Backend6분할/집계 성공이며 Web은 Chromium97통과
 이 권한 단계의 생장 계산/새 작물 row/Run은0입니다.
 후속 [새 서버 계산/서명](research/crop-cycle-calculation-server-custody-implementation-20261007.md)도 순수50개·실제 SCRAM12개,
 고유62개 분할·실제 중단4곳/fresh Python·등록 농장7→120걸음 재개·현재 권리/원 이력 보존으로 로컬 수용했습니다.
-다음은 새 판본의 DB 원자 게시이며 농장 연결 부모와 전체166일/저장/API/3D는 미수용입니다.
+이 서버 자식 뒤의 새 DB 원자 게시도 아래 증거로 수용했으며 전체166일 등록 저장/API/3D는 후속입니다.
 [새 DB 표/권한](research/crop-cycle-calculation-result-schema-implementation-20261007.md)은 전체68개/22.68초·
 실제 SCRAM·원 행 보존·default deny/명시 authority 권한·제약/불변성/rollback·정리로 로컬 수용했습니다.
-SQL 형식 시험 metadata를 저장한 단계이며, 다음은 실제 signed 계산 결과의 원자 게시·현재 조회입니다.
+SQL 형식 시험 metadata를 저장한 단계입니다. 후속 [서명 결과 DB 게시](research/crop-cycle-calculation-result-publication-implementation-20261007.md)는
+순수81개·실제 SCRAM 고유15개, 고유96개 분할·원량/실제7→120재개·현재 권리/rollback·원 signed 이력 공존·정리로 수용했습니다.
+작은 DB·농장 연결 부모도 완료했습니다. get39.668745초 관측은 HTTP30초 미수용 근거이며,
+다음은 전체 등록 비용과 새 proof/현재 조회·공개 판본/API runtime·같은 UTC3D 연결입니다.
+현재 `8d111f1` CI는 다른4workflow 성공이며 Backend 분할0은
+[권한 서버 시험의 복사 파일 정리](research/application-authority-passfile-cleanup-20261007.md) 실패입니다.
+같은 순서 실제 DB 재현2통과/1정리 오류 뒤 수정2통과·정리를 확인했고 수정 판본 hosted 수용은 별도입니다.
 
 **다음 구현 (2026-10-06 KST):** [긴 결과 DB 저장](research/crop-cycle-db-custody-implementation.md)을
 고유76개 분할 검증(순수61·실제 DB15개)과 정리·원49개 파일 보존으로 로컬 수용했습니다.

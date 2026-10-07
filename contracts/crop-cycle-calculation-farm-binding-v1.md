@@ -5,6 +5,9 @@
 선행은 [계산 문맥](crop-cycle-calculation-context-v1.md),
 [불변 artifact](crop-cycle-calculation-artifact-v1.md), [원 농장 결속](crop-cycle-farm-binding-v1.md)의 수용이다.
 현재 작업 `crop-cycle-calculation-farm-binding`은 아래 세 자식의 실제 수용 뒤에만 완료한다.
+후속 [서명 결과 DB 게시 수용](../research/crop-cycle-calculation-result-publication-implementation-20261007.md)으로
+authority·server·DB 세 자식과 작은 부모를10월7일 로컬 수용했다.
+전체 등록 작기의 누적 비용·저장/API/3D·복원/부하와 G0–G4는 별도 수용이다.
 
 ## 분해 근거와 순서
 

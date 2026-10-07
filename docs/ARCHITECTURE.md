@@ -127,6 +127,13 @@ proof fsync·현재 권리 재확인·HEAD 게시를 수행한다. inspect/page/
 별도 `crop_cycle_verified_research_results`와 기본값False의 명시 role flag를 추가한다.
 전체68개(순수15/실제 SCRAM DB53)로 SQL 형식/원 행 공존·whole grant audit를 확인했다.
 signed 공식 결과의 put/get/page/summary와 operator-config/API runtime 연결은 후속이며 새 실제 작물 Run은0이다.
+후속 [새 signed DB store](../research/crop-cycle-calculation-result-publication-implementation-20261007.md)는
+exact 새 서버/context·9필드 binding과 별도 HMAC/ID/table을 결속한다. 실제 원자 put/retry·현재 get/page/summary,
+철회/rollback·원 signed 이력 공존과 고유96개 분할로 작은 DB·농장 연결 부모를 로컬 수용했다.
+일반 get39.668745초 관측도 보존하며 HTTP30초는 미수용이다. 기존 read evidence/current query와 공개 DTO는
+구형 exact artifact/context/store·ID/manifest를 받으므로 새 판본 선택 연결이 필요하다.
+원 proof/서명/행을 바꾸지 않고 새 결과의 proof/현재 조회·projection/operator-config/API runtime을 검증한다.
+전체 등록 prefix/저장/API/같은 UTC3D와 관문은 별도다.
 
 ## 3D 재생 계약
 

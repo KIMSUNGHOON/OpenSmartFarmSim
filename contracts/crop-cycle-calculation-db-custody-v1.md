@@ -1,6 +1,9 @@
 # 검증 계산 판본의 DB 저장 — v1 개발 계약
 
-2026-10-07 KST. `crop-cycle-calculation-db-custody`의 구현 계약이며 아직 미수용이다.
+2026-10-07 KST. `crop-cycle-calculation-db-custody`의 구현 계약이다.
+[schema](../research/crop-cycle-calculation-result-schema-implementation-20261007.md)와
+[서명 결과 게시](../research/crop-cycle-calculation-result-publication-implementation-20261007.md)를 실제 검증해 작은 DB 부모를 로컬 수용했다.
+전체 registered 작기의 저장/API/3D·부하와 G0–G4는 별도다.
 선행은 [새 서버 실행](crop-cycle-calculation-server-custody-v1.md)과
 [기존 DB 경계](crop-cycle-db-custody-v1.md)다. 현재 native Codex CLI
 `gpt-6.1-sol / xhigh`에서 판단했고 재귀 CLI 실행은0회다.
@@ -65,6 +68,10 @@ G0–G4의 수용은 각각 해당 증거를 요구한다. 새 queue/service/일
 원 server key와 다른32..4096bytes의 고정 DB HMAC key를 받는다. 새 flag와 현재 authority를 검사한다.
 기존 put/get/page/summary 내부 관례를 유지하고 공식 context 자체를 현재 binding 검사에 전달한다.
 조회 전용 타입·원 서버/DB packet을 새 결과로 받지 않는다.
+core는 `crop_cycle_calculation_result_store.py`, 순수/실제 SCRAM 시험2개와 이 계약이다.
+code packet은 storage/server/schema/server dependency와 runtime role source SHA의5필드이며,
+판본/namespace/ref/HMAC domain도 고정한다. binding input9개와 input_validation8개를 닫고
+context SHA·현재 계산/입력 proof 코드·dependency를 대사한 뒤 실제 current binding으로 다시 확인한다.
 
 - terminal인 원 signed progress만 put한다. 미생성/yielded는 hold다. 게시/조회 RHS는0이다.
 - canonical 최대128KiB packet, 닫힌9필드 binding과 input validation provenance,
@@ -85,8 +92,18 @@ G0–G4의 수용은 각각 해당 증거를 요구한다. 새 queue/service/일
 첫 자식은 SQL/role 이식·검토0.5–1.5집중시간, 실제 DB 검증/기록0.5–1시간의
 **1–2.5집중시간**으로 잠정 분해했다. 10월7–8일 KST 범위이며 실제 실행 결과로 갱신한다.
 두 번째 자식은 실제 code port/현재 binding 비용을 대사한 뒤 별도로 추정한다.
+원242줄 store와 현재 입력의 port를 확인한 후 publication은 구현/검토0.5–1.5시간,
+실제 SCRAM/거부·재개 검증0.5–1.5시간·기록0.5시간의1.5–3.5집중시간/10월7–8일 KST 잠정이다.
+작은 서버 advance26.843초/inspect7.915초는 관련 내부 경계 실측이며 전체 작기/HTTP 지연으로 외삽하지 않는다.
 CI 대기·전체166일·전체 등록 실행의 누적 prefix/서명 비용·외부 자료 확보는 이 추정에 포함하지 않는다.
 원166일 고정 마감은10월7일20:07 KST이며 완료 약속이 아니다.
+
+publication의1.5–3.5집중시간 잠정 추정은10월7일 로컬 수용으로 대체한다.
+현재 동일 제품 소스의 순수81개·실제 SCRAM 고유15개를 분할 검증했다.
+첫 실제 전체15개는14통과/재개 fixture1실패였고, 최초 경계만 처리한 전이 예산을 수정한
+해당 재개1개가 실제7→120걸음/원량·정리를 통과했다. 다른 시험 AST와 제품 소스는 그대로다.
+일반 get의 관측7.898755초와 다른 실행39.668745초를 모두 기록하며30초 HTTP 수용으로 표시하지 않는다.
+전체 등록 prefix 비용·새 조회/공개 판본·명시 operator-config/API runtime 연결은 다음 검증 대상이다.
 
 채택된 실제 품종 입력·국내 독립 자료는 각각0건이다. G0–G4는 미평가이며 생산 예측·미래 마진·추천은 보류다.
 전체 작기/복원·같은 UTC3D 뒤 수확 제거/생과 환산 → 물/양분·구매 에너지 → Decimal 경제 연결 순서를 유지한다.

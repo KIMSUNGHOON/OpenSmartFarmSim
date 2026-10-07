@@ -522,7 +522,7 @@
         수용: 작은 연속/재개 결과의 불변 sample/event·UTC/121상태/수지·명시 판본/한도·원자 게시,
         별도 Python 읽기/QC·변조/판본 혼합 거부·조회 RHS0·FD/파일 정리와 원 artifact/과거 bytes 보존.
         이는 실제 전체166일·farm/DB/HTTPS/3D 수용이 아니며 해당 부모의 증거는 유지한다.
-      - [ ] **`crop-cycle-calculation-farm-binding`** — 선행 계산 문맥/새 판본 artifact의 작은 수용과 기존 농장/custody 계약.
+      - [x] **`crop-cycle-calculation-farm-binding`** — 선행 계산 문맥/새 판본 artifact의 작은 수용과 기존 농장/custody 계약.
         새 계산 판본의 현재 tenant/Scope·등록·입력 권리를 계산 전후와 저장 commit에 결속한다.
         수용: 실제 SCRAM의 작은 연속/중단 복원·원값/UTC·활성 RSS 및 현재 계산/표시 권리·등록/계정 철회,
         입력/DB/trace 변조·판본 혼합 거부·FD/DB/역할/비밀/PG 정리와 비용 분해.
@@ -530,6 +530,9 @@
         전체 registered 작기의 누적 proof/저장/조회 비용은 별도로 실측하고 replay-restore 부모에서 수용한다.
         [현행 경계 대조/첫 계약](../contracts/crop-cycle-calculation-farm-binding-v1.md): exact 원 reader/binding/custody와
         원 artifact/result ID의 SQL 제약 때문에 아래 세 자식으로 나눈다. 모두 실제 수용한 뒤 부모를 체크한다.
+        [10월7일 세 자식 수용](../research/crop-cycle-calculation-result-publication-implementation-20261007.md):
+        authority·서버/서명·DB의 실제 SCRAM/권리·원량/재개/변조/정리 증거로 작은 부모를 수용했다.
+        전체 등록166일/복원·누적 비용·HTTP/3D와 관문은 이 checkbox의 수용 범위 밖이다.
         - [x] **`crop-cycle-calculation-farm-authority`** — 3 core파일의 새 현재 결속.
           실제 SCRAM의 등록 농장/원천·exact 새 context/서버 proof·기간/권리/provenance를 대사한다.
           두 입력/권리 관측·RHS/새 작물 row0·거부/별도 프로세스·FD/DB/role/passfile/PG 정리 뒤 수용.
@@ -547,7 +550,7 @@
           원 signed 이력 공존1개/2.19초·실제 SCRAM12개/423.51초, 고유62개 분할·동일 제품 module이다.
           실제 중단4곳/fresh Python·등록 농장7→120걸음 재개·proof 뒤/페이지 뒤 철회·원량/이력·정리를 확인했다.
           advance26.843초/inspect7.915초는 작은 사례 실측이다. 새 DB row/Run0·DB/전체 작기/관문 부모는 미수용이다.
-        - [ ] **`crop-cycle-calculation-db-custody`** — 선행 새 server custody와 기존 DB 계약.
+        - [x] **`crop-cycle-calculation-db-custody`** — 선행 새 server custody와 기존 DB 계약.
           [현행 DB 계약](../contracts/crop-cycle-calculation-db-custody-v1.md): 구형 표/조회의 판본 제약 때문에
           새 표·명시 role opt-in → 서명 결과 게시의 두 자식으로 분해한다. 기존 행/서명을 보존한다.
           실제 SCRAM의 작은 연속/재개·거부/롤백/정리 뒤 수용하며 전체 저장/HTTP/3D 부모는 별도다.
@@ -558,8 +561,15 @@
             현재4 source 전후 대사·전체68개/22.68초(순수15/실제 DB53)·원 행 bytes/hash/time 보존·
             default deny/명시 역할·제약/불변성/rollback과 네 PG 실행 정리를 확인했다.
             SQL 형식 fixture만 저장했으며 실제 signed 결과/새 작물 Run0·DB 부모/전체 작기는 미수용이다.
-          - [ ] **`crop-cycle-calculation-result-publication`** — 위 schema 수용 후 store/순수 test/SCRAM test/계약4 core파일.
+          - [x] **`crop-cycle-calculation-result-publication`** — 위 schema 수용 후 store/순수 test/SCRAM test/계약4 core파일.
             새 exact context/binding·HMAC/원 progress·현재 권리/원자 게시·재시도/재개/조회 RHS0·원량/정리 뒤 수용한다.
+            [10월7일 로컬 수용](../research/crop-cycle-calculation-result-publication-implementation-20261007.md):
+            동일 제품 module의 순수81개·실제 SCRAM 고유15개, 고유96개 분할 검증이다.
+            첫 실제 전체는14통과/재개 fixture1실패였고 전이 예산만 수정한 해당1개가 실제7→120걸음/원량을 통과했다.
+            다른 시험 AST·제품 소스 보존, actual INSERT 전후 철회6경우/rollback·fork/새 서비스 조회·
+            원 signed DB/11파일 공존·실제 DB3/파일4 변조·FD/PG/DB/비밀 정리를 확인했다.
+            get7.898755초와 다른 실행39.668745초를 모두 기록했다. HTTP30초와 전체 registered prefix는 미수용이다.
+            schema와 publication 두 자식을 갖춰 작은 DB 부모도 수용하며 새 실제 작물 Run/관문은0/미평가다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

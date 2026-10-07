@@ -251,6 +251,11 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 [새 결과 표/권한](../research/crop-cycle-calculation-result-schema-implementation-20261007.md)은
 전체68개/22.68초·실제 SCRAM·구형 행 보존/명시 권한·제약/정리로 로컬 수용했다.
 이 행은 SQL 형식 fixture이며 signed 계산 결과 게시·현재 조회는 다음 자식이다. 실제 작물 Run/자료는0건이다.
+후속 [새 signed 결과 DB 게시](../research/crop-cycle-calculation-result-publication-implementation-20261007.md)는
+순수81개·실제 SCRAM 고유15개, 고유96개 분할·실제7→120재개/원량·현재 권리/원자 게시·
+원 이력 공존/변조/정리로 로컬 수용했다. 두 DB 자식과 authority/server 증거로 작은 DB·농장 연결 부모도 수용했다.
+get7.898755초와 다른 실행39.668745초를 모두 기록했다. 전체 등록 누적 비용·새 proof/현재 조회·
+공개 판본/operator-config/API runtime 연결과 HTTP30초/2MiB·전체166일/동일 UTC3D는 후속이다.
 새 계산 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존하며 실행과 병행하고,
 동결 소스 변경은 실제 실행 종료·증거 보존 뒤 진행한다.
 [확정 과거 결과 비용](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은
