@@ -8,6 +8,8 @@
 아직0건이므로 생산 예측·추천은 보류입니다. 현재 CI 시험 정리 오류는
 [수집 시험](research/application-collection-passfile-cleanup-20261007.md)과
 [계획 fixture](research/planning-passfile-cleanup-20261007.md)에서 각각 로컬 수정·검증했고, 수정의 hosted 수용은 별도입니다.
+`2daa99f`의 [종료 CI](research/artifacts/crop-cycle-durable-ci-terminal-20261007.json)는 다른4workflow 성공,
+Backend4분할 성공·위 정리 오류2분할/집계 실패입니다. 전체 backend 수용으로 표시하지 않습니다.
 
 **다음 구현 (2026-10-06 KST):** [긴 결과 DB 저장](research/crop-cycle-db-custody-implementation.md)을
 고유76개 분할 검증(순수61·실제 DB15개)과 정리·원49개 파일 보존으로 로컬 수용했습니다.
@@ -106,7 +108,7 @@ Backend5분할 성공/1실패·집계 실패, 웹 감사 실패이며 C0/앱/작
 `2daa99f`의 Backend 분할1은751개 본문 통과 뒤 앞선 수집 시험의 복사 비밀번호 잔존으로
 종료 정리1오류가 발생했습니다. [소유 시험의 정리 수정](research/application-collection-passfile-cleanup-20261007.md)은
 동일 순서 실제 SCRAM2개/75.53초·전체 비밀/DB 정리로 로컬 수용했습니다.
-조회 검사·원 수식·pipeline은 보존했으며, 진행 중인 기존 CI와 수정의 hosted 수용은 별도입니다.
+조회 검사·원 수식·pipeline은 보존했으며, 종료된 기존 CI와 수정의 hosted 수용은 별도입니다.
 
 **현재 상태 (2026-10-05): 운영 기반 고정, 계산→저장→성장 연구 3D의 첫 소프트웨어 경로를 로컬 수용했습니다.**
 `d19f7c0`의 백엔드·웹·C0·앱 조립·작성 경로 CI 5개가 모두 통과했습니다
