@@ -311,6 +311,12 @@ query3–6시간 잠정은 이 실적으로 대체한다. 후속 [순수 공개 
 다음은 [별도 loader3파일](../contracts/crop-cycle-calculation-operator-loader-v1.md)1–2집중시간 → route/실제 TLS1–2시간이다.
 남은 작은 API 연결2–4집중시간 잠정이며 실제 API 수용 뒤 client/3D 추정을 갱신한다.
 별도 등록 prefix/전체166일 비용·CI/자료 확보와 최종 제품 완료일은 이 추정에 포함하지 않는다.
+[loader 실제 수용](../research/crop-cycle-calculation-operator-loader-20261007.md)은 새57개/기존155개·고유212개 분할,
+실제 SCRAM/TLS 파일·명시 flag/재구성/env service·원 파일/FD·75 source/정리로 위 loader 예상과 operator-runtime을 대체한다.
+다음 [인증 route/OpenAPI → runtime/실제 TLS](../contracts/api-crop-cycle-calculation-transport-v1.md)는
+route5파일2–3집중시간 + runtime/TLS3파일2–3시간의 **남은 작은 API4–6집중시간 잠정**이다.
+전체 OpenAPI 목록/원 응답·실제 새 query/TLS를 별도 검증해야 하므로 이전 route/TLS1–2시간을 이 분해로 갱신한다.
+실제 API 수용 뒤 client/3D 추정을 갱신하며 전체166일 등록 비용·CI·생과/자원/경제·외부 자료와 최종 날짜는 제외한다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
 선택 시작/중간/끝129시점/5사건·page 최대2.035086초와 source/FD/PID 정리를 확인했다.

@@ -149,7 +149,10 @@ QC 발행은 HTTP 밖이며 조회에서 원 parser/context/QC/RHS를 재실행�
 원 operator_config는 server 서명의 file helper dependency이므로 후속 명시 설정은 그 파일을 보존하는 별도 loader로 계획한다.
 [명시 runtime factory](../research/crop-cycle-calculation-runtime-factory-20261007.md)는 exact 새 store/query·same jobs/farm과
 flag 결속을 고유155개 분할/실제 SCRAM·계산/게시0·import/정리로 수용했다.
-별도 loader·새 route/실제 HTTPS와 전체166일 비용/동일 UTC3D는 후속이다.
+[별도 loader](../research/crop-cycle-calculation-operator-loader-20261007.md)도 원 helper를 재사용해 새 명시 판본을 읽으며
+고유212개 분할/실제 SCRAM·파일/FD/75 source·정리로 operator-runtime까지 로컬 수용했다.
+[새 route/OpenAPI → runtime/실제 HTTPS](../contracts/api-crop-cycle-calculation-transport-v1.md)와
+전체166일 비용/동일 UTC3D는 후속이다.
 
 ## 3D 재생 계약
 

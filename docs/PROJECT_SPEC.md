@@ -5,6 +5,11 @@
 [운영 기반 고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)에 둔다.
 아래 초안 날짜는 최초 작성일이다. 현재 구현 순서는 §7과 [작업 계획](../tasks/plan.md)을 따른다.
 
+**2026-10-07 최신 연결:** [별도 계산 설정 로더](../research/crop-cycle-calculation-operator-loader-20261007.md)를
+새57개/기존155개·고유212개 분할·실제 SCRAM/자원 정리로 로컬 수용했다.
+다음은 [새 인증 route/OpenAPI → runtime/실제 TLS](../contracts/api-crop-cycle-calculation-transport-v1.md)이며
+실제 새 HTTP/동일 UTC3D·전체166일 등록 비용·생과/자원/경제와 실제 자료 관문은 후속이다.
+
 상태: **검토용 초안, 2026-09-27.** 설계 선택은 구현 방향이며 과학적 검증 또는 production readiness를 뜻하지 않는다. 기획자는 농업·지역 조건·종자에 관한 배경지식이 없으므로 전문적인 수치의 선정과 근거 검토는 Codex CLI `gpt-6.1-sol` `xhigh`가 **연구·설계 단계와 배포 제품의 실제 사용 중 모두** 담당한다. 필요한 소프트웨어·역할·선택 이유는 [기술 스택](TECH_STACK.md), 프로세스·자료·판정 계약은 [아키텍처](ARCHITECTURE.md#필수-codex-cli-런타임-작업자)에 둔다. 사용자 선호가 필요한 항목만 마지막 절에 분리했다.
 
 ## 1. 목표와 첫 경계

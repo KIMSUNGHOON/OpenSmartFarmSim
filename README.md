@@ -49,7 +49,10 @@ SQL 형식 시험 metadata를 저장한 단계입니다. 후속 [서명 결과 D
 다음은 별도 설정 loader·실제 API → 동일 UTC3D입니다. 최신 `353bffb` CI는 C0/웹/작성 PG 성공,
 앱 config 필드 거부/Backend 진행으로 관측했습니다. [설정 생성 호환 수정](research/application-operator-policy-compatibility-20261007.md)은
 고유125개 분할·실제 SCRAM/TLS·원 loader/70 source/정리로 로컬 검증했으며 hosted Compose는 후속입니다.
-다음 [별도 운영 설정 loader](contracts/crop-cycle-calculation-operator-loader-v1.md)의 수용 기준을 고정했습니다. 새 투영/runtime의 hosted 수용도 별도입니다.
+[별도 운영 설정 loader](research/crop-cycle-calculation-operator-loader-20261007.md)도 새57개/기존155개·고유212개 분할,
+실제 SCRAM/TLS 파일·명시 flag/재구성·원 파일/FD·75 source/정리로 로컬 수용했습니다.
+다음은 [인증 route/OpenAPI → runtime/실제 TLS](contracts/api-crop-cycle-calculation-transport-v1.md)입니다.
+새 투영/runtime/loader의 hosted 수용과 실제 새 HTTP/동일 UTC3D는 별도입니다.
 [전체 원 결과 증명 관측](research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은6.11MB/8MiB·
 발행175.7초·별도 Python 검증1.59초·선택 page1.7–2.0초/정리를 확인했습니다. 농장/HTTP/3D 수용은 별도입니다.
 `8d111f1`의 [종료 CI](research/artifacts/crop-cycle-calculation-current-query-ci-prepush-20261007.json)는 다른4workflow 성공이며 Backend5분할 성공·분할0/집계 실패입니다. 분할0은
