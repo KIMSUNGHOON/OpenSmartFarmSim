@@ -142,8 +142,11 @@ QC 발행은 HTTP 밖이며 조회에서 원 parser/context/QC/RHS를 재실행�
 후속 [별도 조회 문맥](../contracts/crop-cycle-calculation-result-read-context-v1.md)도
 [집중164개/별도 Python](../research/crop-cycle-calculation-result-read-context-implementation-20261007.md)로 수용했다.
 새 증명 타입만 받고 원량/UTC·byte 경계·현재 HEAD/선언·반환 전 bytes 대사/정리를 유지한다.
-다음 [농장/DB query](../contracts/crop-cycle-calculation-current-query-v1.md)는 validation9+8·원 input proof와
-새 server의 전체 부모 서명을 결속한다. 공개 판본/runtime과 전체166일 비용은 후속이다.
+후속 [농장/DB query](../research/crop-cycle-calculation-current-query-implementation-20261007.md)는 validation9+8·원 input proof와
+새 server의 전체 부모 서명을 실제 SCRAM12개로 결속했다. 현재 철회/변조·fork·원량/UTC/정리의 작은 조회 수용이다.
+다음 [새 공개 투영 계약](../contracts/api-crop-cycle-calculation-projection-v1.md)은 공식 manifest/validation과 새 ID를 보존한다.
+원 operator_config는 server 서명의 file helper dependency이므로 후속 명시 설정은 그 파일을 보존하는 별도 loader로 계획한다.
+공개 판본/runtime과 전체166일 비용/동일 UTC3D는 후속이다.
 
 ## 3D 재생 계약
 

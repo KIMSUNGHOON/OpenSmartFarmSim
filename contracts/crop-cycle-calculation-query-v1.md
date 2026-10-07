@@ -4,7 +4,7 @@
 뒤의 누락된 조회 의존성을 고정한다. native Codex CLI `gpt-6.1-sol / xhigh`에서 판단하며 재귀 CLI0회다.
 기존 [현재 조회 계약](crop-cycle-current-query-v1.md)의 권리/원 trace·전후 대사와
 [부하 계약](crop-cycle-burden-v1.md)의 원량·30초/2MiB·복원 조건을 유지한다.
-새 증명과 reader 자식은 아래 실제 증거로 수용했으며 현재 query 이후와 전체 등록 작기/관문은 아직 미수용이다.
+새 증명·reader·현재 query 자식은 아래 실제 증거로 수용했으며 공개 API 이후와 전체 등록 작기/관문은 아직 미수용이다.
 [원166일 증명 실제 비용](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/기존8MiB·발행175.675297초·별도 Python 검증1.589495초와 선택 page/정리를 확인했다.
 원 판본의 순수 관측이며 새 계산 증명/농장·HTTP 수용을 대신하지 않는다.
@@ -77,12 +77,15 @@ key는 입력 증명 key와 다른32..4096bytes다. 농장 query 연결 시 DB/s
 [새 reader4 core파일](crop-cycle-calculation-result-read-context-v1.md)도
 [집중164개/별도 Python2개](../research/crop-cycle-calculation-result-read-context-implementation-20261007.md)와
 원58 source·원량/UTC/byte 경계·FD/cache/PID로 수용했다. reader2–3시간 잠정은 이 실적으로 대체한다.
-다음 [현재 farm/DB query3 core파일/수용 기준](crop-cycle-calculation-current-query-v1.md)은3–6집중시간 잠정이다.
+후속 [현재 farm/DB query](../research/crop-cycle-calculation-current-query-implementation-20261007.md)도 실제 SCRAM12개/1,079.43초·
+원량/UTC·정상/관리 사건/수치 hold·현재 철회/변조·fork·63 source/정리로 수용했다.
+query3–6시간 잠정은 이 실적으로 대체한다. 다음 [새 공개 투영3 core파일](api-crop-cycle-calculation-projection-v1.md)과
+명시 설정/factory·인증 route/실제 TLS는 총4–8집중시간 잠정이다.
 전체 registered 작기·CI·외부 자료 완료일은 제외하며 실측으로 갱신한다.
 
 ## 후속 수용과 보류
 
-current query·공개 DTO/runtime/client 각각은 선행 수용 뒤3–4 core파일로 계약을 구체화한다.
+공개 DTO/runtime/client 각각은 선행 수용 뒤3–4 core파일로 계약을 구체화한다.
 현재 API의 인증/오류 의미와 기존 응답을 보존하며, 원 result ID/engine/artifact provenance를 새 판본으로 명시한다.
 기존 경제·열·3D와 다른 테넌트/구형 이력의 회귀를 검증한다. raw proof/HMAC·경로·권리 원문은 노출하지 않는다.
 

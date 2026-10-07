@@ -584,12 +584,22 @@
         새49개/선행115개·집중164개·원5시간 정상61시점/3사건·hold60시점/2사건과 별도 Python2개,
         parser/context/QC/RHS0·byte 경계/관리 전후·현재 HEAD/선언·변조/FD/cache/PID·원58 source 보존.
         전체166일 새 proof/농장/HTTP/3D와 관문은 별도다.
-      - [ ] **`crop-cycle-calculation-current-query`** — 선행 위 reader·새 signed DB/현재 농장 결속.
+      - [x] **`crop-cycle-calculation-current-query`** — 선행 위 reader·새 signed DB/현재 농장 결속.
         [새 query/module/test/계약3 core파일](../contracts/crop-cycle-calculation-current-query-v1.md)로 실제 SCRAM farm/Scope/등록/입력 권리·DB HMAC·
         원 선택/전체 부모 server proof/HEAD를 전후 대사한다. 원 값/철회/변조/다른 판본과 정리 뒤 수용한다.
+        [10월7일 수용](../research/crop-cycle-calculation-current-query-implementation-20261007.md): 실제 SCRAM12개/1,079.43초·
+        정상120걸음/3시점·관리 사건3개·hold60걸음/1시점/1사건·원량/UTC·권리/유효 HMAC 변조·fork·63 source/정리.
+        내부 조회5.01–6.06초이며 fresh exec/새 HTTP·전체166일/3D·관문은 별도다.
       - [ ] **`crop-cycle-calculation-api-runtime`** — 선행 위 현재 query.
         새 공개 판본/명시 operator-config·factory/route의 닫힌 형식을 작은 자식으로 계약한 뒤 구현한다.
         실제 HTTPS 전체 본문30초/2MiB·투영 후 철회·현재 인증/오류/기존 응답 회귀와 정리가 필요하다.
+        - [ ] **`crop-cycle-calculation-api-projection`** — 첫 선행은 위 현재 query.
+          [순수 공개 투영3 core파일 계약](../contracts/api-crop-cycle-calculation-projection-v1.md): 새 ID/공식 manifest·validation8/원량·UTC·hold,
+          닫힌 JSON/비공개 필드·2MiB·원 투영 회귀·세 import 시작 순서. 실제 API 수용은 별도다.
+        - [ ] **`crop-cycle-calculation-operator-runtime`** — 선행 위 순수 투영; 구체 계약 뒤 구현.
+          서명 dependency인 원 operator_config/file helper를 보존하며 별도 명시 config/기본 false·exact factory/jobs/farm을 검사한다.
+        - [ ] **`crop-cycle-calculation-api-transport`** — 선행 위 설정/runtime; 구체 계약 뒤 구현.
+          새 인증 route/OpenAPI·원 응답 보존·실제 SCRAM/TLS 전체 본문30초/2MiB·투영 뒤 철회/정리 뒤 부모를 수용한다.
       - [ ] **`crop-cycle-calculation-client-view`** — 선행 위 실제 API/runtime.
         새 result ID/manifest·원량/UTC를 보존하는 client/표/3D 선택을 연결하고 실제 PG/TLS/WebGL로 대사한다.
       - [ ] **`crop-cycle-calculation-prefix-cost`** — 선행 full-rhs와 작은 새 계산 농장 결속; 읽기 개발과 병행한다.

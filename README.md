@@ -39,10 +39,13 @@ SQL 형식 시험 metadata를 저장한 단계입니다. 후속 [서명 결과 D
 별도 Python2개/parser/context/QC/RHS0·원55 source/FD/PID 정리로 로컬 수용했습니다.
 [새 조회 타입](research/crop-cycle-calculation-result-read-context-implementation-20261007.md)도 새49개/선행115개·집중164개·
 원5시간 정상/hold·별도 Python2개/parser/context/QC/RHS0·원량/UTC·byte 경계/변조·원58 source/FD/cache/PID로 수용했습니다.
-다음은 [현재 농장/DB 조회](contracts/crop-cycle-calculation-current-query-v1.md)와 API/동일 UTC3D이며 전체166일 연결은 후속입니다.
+[현재 농장/DB 조회](research/crop-cycle-calculation-current-query-implementation-20261007.md)도 실제 SCRAM12개/1,079.43초·
+원량/UTC·정상/관리 사건/수치 hold·철회/변조·fork·63 source/FD/DB/비밀/PG 정리로 로컬 수용했습니다.
+작은 내부 조회5.01–6.06초는 HTTP/전체166일 성능 수용이 아닙니다. 다음은
+[새 공개 투영](contracts/api-crop-cycle-calculation-projection-v1.md) → 명시적 설정/factory·실제 API → 동일 UTC3D입니다.
 [전체 원 결과 증명 관측](research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은6.11MB/8MiB·
 발행175.7초·별도 Python 검증1.59초·선택 page1.7–2.0초/정리를 확인했습니다. 농장/HTTP/3D 수용은 별도입니다.
-현재 `8d111f1` CI는 다른4workflow 성공이며 Backend 분할0은
+`8d111f1`의 [종료 CI](research/artifacts/crop-cycle-calculation-current-query-ci-prepush-20261007.json)는 다른4workflow 성공이며 Backend5분할 성공·분할0/집계 실패입니다. 분할0은
 [권한 서버 시험의 복사 파일 정리](research/application-authority-passfile-cleanup-20261007.md) 실패입니다.
 같은 순서 실제 DB 재현2통과/1정리 오류 뒤 수정2통과·정리를 확인했고 수정 판본 hosted 수용은 별도입니다.
 

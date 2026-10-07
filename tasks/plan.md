@@ -295,9 +295,14 @@ publication1.5–3.5집중시간 잠정은 이 실적으로 대체하며 전체 
 evidence2–4시간 잠정은 이 실적으로 대체한다. 후속 [조회 전용 타입4 core파일](../contracts/crop-cycle-calculation-result-read-context-v1.md)도
 [새49개/선행115개·집중164개](../research/crop-cycle-calculation-result-read-context-implementation-20261007.md)와
 원5시간 정상/hold·별도 Python2개·원량/UTC·sample64/event8·2MiB·byte-short/현재 HEAD/선언·FD/cache/PID로 수용했다.
-원58 source를 보존했고 reader2–3시간 잠정은 이 실적으로 대체한다. 다음
-[현재 farm/DB query3 core파일](../contracts/crop-cycle-calculation-current-query-v1.md)의 실제 SCRAM/validation9+8·
-원 부모 서명/현재 권리·변조/정리3–6집중시간 잠정이며 전체 완료일은 아니다.
+원58 source를 보존했고 reader2–3시간 잠정은 이 실적으로 대체한다.
+[현재 farm/DB query](../research/crop-cycle-calculation-current-query-implementation-20261007.md)도 실제 SCRAM12개/1,079.43초·
+validation9+8/원 부모 서명·현재 철회/변조·정상/관리 사건/수치 hold·fork·63 source/정리로 수용했다.
+query3–6시간 잠정은 이 실적으로 대체한다. 다음은 [순수 공개 투영3 core파일](../contracts/api-crop-cycle-calculation-projection-v1.md)
+1–2집중시간 → 명시적 설정/factory2–4시간 → 인증 route/실제 TLS1–2시간이다.
+원 operator_config가 서명된 file helper인 근거로 원 파일을 보존하는 별도 loader를 계획한다.
+총4–8집중시간 잠정이며 새 API/runtime의 실제 수용 뒤 client/3D 추정을 갱신한다.
+별도 등록 prefix/전체166일 비용·CI/자료 확보와 최종 제품 완료일은 이 추정에 포함하지 않는다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,
 선택 시작/중간/끝129시점/5사건·page 최대2.035086초와 source/FD/PID 정리를 확인했다.
