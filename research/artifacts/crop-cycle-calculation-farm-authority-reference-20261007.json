@@ -1,0 +1,285 @@
+{
+  "receipt_version": "crop-cycle-calculation-farm-authority-reference-v1",
+  "recorded_at": "2026-10-07T09:10:04.360052+00:00",
+  "scope": "local current registered farm authority software; owned synthetic data; no execution/result publication",
+  "reviewer": "current native Codex CLI gpt-6.1-sol / xhigh",
+  "native_cli": {
+    "timestamp": "2026-10-07T08:48:51.115Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "record_sha256": "df2ee5947c86c0298203052e5f95c8e24ebc9f268adc3ce7283f7217e901bc81",
+    "recursive_cli_invocations": 0
+  },
+  "recursive_cli_invocations": 0,
+  "base_commit": "3405f4fc5eaa170937494aa594244594640b52c6",
+  "source_sha256": {
+    "backend/app/crop_cycle_calculation_farm_binding.py": "44cee8b857492b75e5e484625157af235fa2122b60522308fb0db728f157fd61",
+    "backend/tests/test_crop_cycle_calculation_farm_binding.py": "fd8b45c25f0cf82f0a431a143cc923d005301276473f4a6449e6609d1a6fee89",
+    "contracts/crop-cycle-calculation-farm-binding-v1.md": "4f810ef4dc48f94338a63de61578fe7ddebb805a9f490343dd8161718c97cd4b"
+  },
+  "tests": {
+    "actual_SCRAM_phases": {
+      "initial3": {
+        "session_id": 32343,
+        "exit_code": 0,
+        "passed": 3,
+        "pytest_seconds": 76.29,
+        "log_sha256": "b004ab81decac5577480a8c94c4057229bf633433c2d5a891f1dfb3de4f71755",
+        "command_sha256": "7a52905733dbcd5bb27cb5eb8c01ec788c8a2de2b74f91a864013e95544519d4",
+        "cleanup_receipt_sha256": "45949ae777ee8fa8f2f7bee327ac61108e4d0b2869401a56f5ec32d1fe0c0536",
+        "source_sha256_at_execution": {
+          "backend/app/crop_cycle_calculation_farm_binding.py": "44cee8b857492b75e5e484625157af235fa2122b60522308fb0db728f157fd61",
+          "backend/tests/test_crop_cycle_calculation_farm_binding.py": "94f78554bd10a66470f4db52240e4f98726ef0c63702cfe8468c05589268360a",
+          "contracts/crop-cycle-calculation-farm-binding-v1.md": "412a135c12dd54825758fba39c3b875ef21c4d10e5b34ee57b604c1a7bf6bdf5"
+        },
+        "cleanup": {
+          "schemas_after": 0,
+          "roles_after": 0,
+          "passfiles_after": 0,
+          "PG": [
+            {
+              "pid": 326245,
+              "start_ticks": "3394500",
+              "directory_exists_after": false,
+              "PID_exists_after": false
+            }
+          ],
+          "temporary_test_tree_removed": true,
+          "database_cleanup_sha256": "9f95406d1ffd8a7acc814f853e188b8c43c599d4a76377ab7b186764a3b73145"
+        }
+      },
+      "final": {
+        "session_id": 30842,
+        "exit_code": 0,
+        "passed": 12,
+        "pytest_seconds": 242.84,
+        "log_sha256": "a28a69b6f40503aa7ceb2fc38c1b5e6a7932a65eb679d70574a2ee9f51e89db9",
+        "command_sha256": "7e634bf6c419fa2b0f9fb83cce3ed40d1e5f55b65a1e2f0ec3901b67def53113",
+        "cleanup_receipt_sha256": "0e198f5cc9896988cd71f76dc556b5b7f0b15e8319d96023dd5fa276367a5469",
+        "source_sha256_at_execution": {
+          "backend/app/crop_cycle_calculation_farm_binding.py": "44cee8b857492b75e5e484625157af235fa2122b60522308fb0db728f157fd61",
+          "backend/tests/test_crop_cycle_calculation_farm_binding.py": "f7bed3646b318d0ab03643260d0dc1b6a2e01b7436029dbf2f7b3efc574a0221",
+          "contracts/crop-cycle-calculation-farm-binding-v1.md": "9a72a32df86563adbf50c324e8bc5d433c62b0eb4a9c0e64944c6aa1753e18fc"
+        },
+        "cleanup": {
+          "schemas_after": 0,
+          "roles_after": 0,
+          "passfiles_after": 0,
+          "PG": [
+            {
+              "pid": 329328,
+              "start_ticks": "3411534",
+              "directory_exists_after": false,
+              "PID_exists_after": false
+            }
+          ],
+          "temporary_test_tree_removed": true,
+          "database_cleanup_sha256": "9f95406d1ffd8a7acc814f853e188b8c43c599d4a76377ab7b186764a3b73145"
+        }
+      },
+      "readonly": {
+        "session_id": 86335,
+        "exit_code": 0,
+        "passed": 1,
+        "pytest_seconds": 21.46,
+        "log_sha256": "195accfc36f25ce39242e93c8a23d9f3f2b9da70548c87db3fbe23bcc7b9acef",
+        "command_sha256": "83252bf33f991a5ea2819d0b7e0762a53157efad71e1b0d923012e49f822cfdd",
+        "cleanup_receipt_sha256": "445f99de22cad2cc3332e96480239f78933aa1178fb08df8929b3d29011fbf5c",
+        "source_sha256_at_execution": {
+          "backend/app/crop_cycle_calculation_farm_binding.py": "44cee8b857492b75e5e484625157af235fa2122b60522308fb0db728f157fd61",
+          "backend/tests/test_crop_cycle_calculation_farm_binding.py": "fd8b45c25f0cf82f0a431a143cc923d005301276473f4a6449e6609d1a6fee89",
+          "contracts/crop-cycle-calculation-farm-binding-v1.md": "9a72a32df86563adbf50c324e8bc5d433c62b0eb4a9c0e64944c6aa1753e18fc"
+        },
+        "cleanup": {
+          "schemas_after": 0,
+          "roles_after": 0,
+          "passfiles_after": 0,
+          "PG": [
+            {
+              "pid": 339730,
+              "start_ticks": "3440813",
+              "directory_exists_after": false,
+              "PID_exists_after": false
+            }
+          ],
+          "temporary_test_tree_removed": true,
+          "database_cleanup_sha256": "9f95406d1ffd8a7acc814f853e188b8c43c599d4a76377ab7b186764a3b73145"
+        }
+      }
+    },
+    "segmented_unique_passed": 12,
+    "inventory_sha256": "7b7e09940bd2b064aeb210974d25c98a27e111445e4465ad12dfd8080a0a3760",
+    "all_three_product_source_sha256_identical": true,
+    "only_extended_test_function": "test_fixed_authority_versions_expected_bytes_and_wrong_contexts",
+    "all_other_function_AST_equal": true,
+    "acceptance_review_sha256": "f869fe3aed1dbb79aa1d6a3971776567eb7e96eda1201ae61fbcab4242c20a81",
+    "pre_extension_full12_test_source_sha256": "f7bed3646b318d0ab03643260d0dc1b6a2e01b7436029dbf2f7b3efc574a0221",
+    "current_test_source_sha256": "fd8b45c25f0cf82f0a431a143cc923d005301276473f4a6449e6609d1a6fee89",
+    "single_whole12_run_on_current_test_file": false,
+    "repeat3_and_affected1_not_summed": true,
+    "missing_module_RED": {
+      "exit_code": 2,
+      "assertion_bodies_executed": false,
+      "log_sha256": "f68cac19bef4d6aa8efbcef80f3f37f24ab0cab71e223c629ea5594f6184d375"
+    }
+  },
+  "actual_normal": {
+    "private_reference_sha256": "7ee1c486610ac91d6a258108ec49095d6f118951390093196b88600de7730d53",
+    "observed": {
+      "RHS_or_advance_calls": 0,
+      "binding_bytes": 5654,
+      "binding_sha256": "a23ff113f79f90e85d1eddeda9eb09a5ed57d8ddba22a8cdd6463730e8f5328c",
+      "counts_before_after": [
+        [
+          89,
+          89,
+          0,
+          0
+        ],
+        [
+          89,
+          89,
+          0,
+          0
+        ]
+      ],
+      "current_seconds": 2.7134167820040602,
+      "prepare_seconds": 2.710977084003389,
+      "proof_checks_per_public_call": 2,
+      "read_rights_observations": 2,
+      "write_rights_observations": 4
+    },
+    "farm_registration_ref_is_current_and_floor_crop_batch_source_are_rechecked": true,
+    "exact_new_context_and_installed_input_authority_required": true,
+    "binding_is_crop_execution_signature_or_G0_approval": false
+  },
+  "actual_fork": {
+    "private_reference_sha256": "06c97e1c0566cc14dbed2a912a42aaa5e3e24035236313c779dcc8dca60302d5",
+    "observed": {
+      "FD": [
+        18,
+        18
+      ],
+      "actual_exit_code": 0,
+      "context_closed_and_caches_empty": true,
+      "fresh_exec": false,
+      "pid": 331990,
+      "same_binding_sha256": "8aa287721e42d8261f6369954af333fc062c198633a4ade99231f840d8ebc6c8"
+    },
+    "actual_child_PID_gone": true,
+    "fresh_python_exec": false,
+    "inherited_objects_and_FDs_not_excluded": true
+  },
+  "shared_helpers": {
+    "source_sha256": "44cee8b857492b75e5e484625157af235fa2122b60522308fb0db728f157fd61",
+    "dependency_sha256": {
+      "original_farm_helpers": "4f245271487b1e55422386b42221aa8d24906d28f52403626c474c62f14568a9",
+      "calculation_context": "3f9fc95d956ee9d4bee70e8bde8ee7e1c8653d864bc95d5a1864c78385a6b152",
+      "input_evidence": "948f064f6b35ffe6edea9d55e4cdb51c92f717aeebabad1e8b5b7f1b507cfc00"
+    },
+    "request_and_registration_helpers_same_function_objects": true,
+    "new_class_is_not_original_subclass_or_instance_forgery": true,
+    "current_input_and_rights_observation_design": [
+      2,
+      2
+    ],
+    "original55_sources_preserved": true,
+    "production_binding_limit_bytes": 131072,
+    "new_binding_top_keys": 9,
+    "original_input_keys": 8,
+    "input_validation_keys": 8
+  },
+  "shared_helpers_review_sha256": "5da9ee08dbc5142d76398a5df3e91cbdbd8c00c7687a1a499c5991a6108f7ac1",
+  "contract_acceptance_note_updated_after_actual_execution": {
+    "contract_at_execution_sha256": "9a72a32df86563adbf50c324e8bc5d433c62b0eb4a9c0e64944c6aa1753e18fc",
+    "current_contract_sha256": "4f810ef4dc48f94338a63de61578fe7ddebb805a9f490343dd8161718c97cd4b",
+    "executable_product_unchanged": true
+  },
+  "preserved_original": {
+    "source_count": 55,
+    "source_sha256": {
+      "LICENSES/GreenLight-BSD-3-Clause-Clear.txt": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+      "backend/app/api_crop_coupled_replay.py": "83d3eefd782206801fe645afc2e200bb621509b7c932b4a0544bbcb2bf31c582",
+      "backend/app/api_crop_startup_replay.py": "05b553e236dc3d5272829acd14f54910ef1a17400585cd7001e9992a048d7fac",
+      "backend/app/crop_coupled_artifact.py": "4d239f24d43bf351f3c11c9e9d59fccff30a76ef0815659f22c60fbc8ec7d017",
+      "backend/app/crop_coupled_result_store.py": "765184999e07b078a6f79b414c148497ee3543b889a40a65d091a4ab44080632",
+      "backend/app/crop_cycle_artifact.py": "10bcf863ba40338f2efa7242d78c2cccd3020fbdca061951da6b7b1c5a7c51f7",
+      "backend/app/crop_cycle_continuation.py": "478f152a2395a451d9add64acf37e23ddc32a15273b14d0419869c1634596899",
+      "backend/app/crop_cycle_farm_binding.py": "4f245271487b1e55422386b42221aa8d24906d28f52403626c474c62f14568a9",
+      "backend/app/crop_cycle_input_stream.py": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53",
+      "backend/app/crop_cycle_result_schema.py": "94cfba00cec0d3026bc4afb133c70168e4294e5beb0b625530db8f83acce73c8",
+      "backend/app/crop_cycle_result_store.py": "c182ba1dad82f6363abc9d7ed7cb784e6e989da0c23862563d47f1a91ebf043e",
+      "backend/app/crop_cycle_server_custody.py": "85053b8dee2bf7c0a3675c92931ec9321e7e2804cf8ebb1593542212782d7683",
+      "backend/app/crop_cycle_stream_execution.py": "4de399721cab82ab7f56e093b11b72682437e29bb3097e745b1e61d695d03aac",
+      "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+      "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+      "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+      "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+      "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+      "backend/app/crop_plant_cohort_integration.py": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+      "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+      "backend/app/crop_plant_startup_integration.py": "a48f2069d26024eeed5612e95bf59639f943fd6b98e789b21124a125c558656b",
+      "backend/app/crop_plant_startup_rates.py": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756",
+      "backend/app/crop_result_store.py": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+      "backend/app/crop_startup_artifact.py": "6d095d6b2c5cfff36cdfbf7b1f0b16d2acbe44e162c918a5ece637cda9c2f33a",
+      "backend/app/crop_startup_result_store.py": "d2e12ad750258b1b362261cb52b797de4bdcca02f84ecaaebafd9b74dab9b0af",
+      "backend/app/thermal_run_store.py": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+      "backend/tests/test_api_crop_startup_replay.py": "17bbfe9876eaa2488085b8cdbd3a7120299fa54bdcb05643c12c33cc37671fa2",
+      "backend/tests/test_crop_cycle_artifact.py": "f597dd2a952184553f7f8d68bd70c155886278c4c927291daa3d501f7294e971",
+      "backend/tests/test_crop_cycle_burden_profile.py": "9543b1af756f7744e14041daec29cbe43278d8fa18f52123f32221da99b777f9",
+      "backend/tests/test_crop_cycle_continuation.py": "c0b0059e0816e88418ed761cbc1c5a085a23e262b4948c1f95dfd3f3ae3643a7",
+      "backend/tests/test_crop_cycle_farm_binding.py": "d76b3be7fbbc7a76ca100538c936615df86cb6e664705810573a6dd65b97db12",
+      "backend/tests/test_crop_cycle_input_stream.py": "dc5d9f86ebe74cb0d920939ab07381c7d729a0bc3abcffc165d702635ab4c23f",
+      "backend/tests/test_crop_cycle_result_schema.py": "81f58e8aedb2a491253aa58af8b4cd04a2304bfbe674daab0536d7b796b661d2",
+      "backend/tests/test_crop_cycle_result_store.py": "feb34143d9056f9b3d2ee5bf8e06e3b0f1c2e4f82ff4e163c0bfc26a966fdfcb",
+      "backend/tests/test_crop_cycle_result_store_farms.py": "63e4ce69d0309ccc272475b116150a323adc29bc34b00b64fb22314ed6166210",
+      "backend/tests/test_crop_cycle_result_summary.py": "0183235fee7daffe0c52e424fb7094cc501fb7d38d5ed90095e9a4c1877c39d6",
+      "backend/tests/test_crop_cycle_server_custody.py": "6ce4cd137cc559bd710c751da2b23307c4904daf863030d2f6280f18fea64249",
+      "backend/tests/test_crop_cycle_server_custody_farms.py": "02b653f610032c44634cba2aadf12b0ba22dd2fd39f3dacccc3cde3844debee0",
+      "backend/tests/test_crop_cycle_stream_execution.py": "0a0800f6be8abb702ba2dcd461c00e9bf913a81c2c30ae2baabfc61b8447c3d1",
+      "backend/tests/test_crop_plant_startup_integration.py": "38aa5e404124518eb9c44b9487c443de5a739ad4b1486e4eb74fe6709b637a86",
+      "backend/tests/test_crop_startup_artifact.py": "8c4e15afc6f113947cae2d32d4629f58ed15ea716737c29f08bd00bac998d6e6",
+      "backend/tests/test_crop_startup_result_store.py": "16e41c5a90a0838344f7e1ff185214ee4125bf52454dced3858725db210ae476",
+      "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+      "fixtures/crop-fruit-transport-reference-parameters-v1.json": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070",
+      "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+      "fixtures/crop-plant-startup-integration-reference-v1.json": "a94e4d88e02a5b29e2b1c20f0767cea6a326dccaa31278d5138667755b2f8026",
+      "research/artifacts/crop-startup-integration-reference-20261005.json": "9b82831acb198a2b96c5c0620728ecf5b5ae245d2543b42580cfc00d253bb3b2",
+      "research/crop-cycle-burden-profile.py": "3aa54011758ba01e291579985f91a3b90b8580e54e3de0dec2b492b91c74d9fc",
+      "research/crop-cycle-full-rhs-durable.py": "21fe374dc5e6037d5bfd8a9008aac05eab00daeb3ba0d81745a54bc4aac3cbb4",
+      "research/crop-cycle-full-rhs-reference.py": "31a7ecc2d1932ec92cabcefae5979b57f746363cdc49bcce3878835ae4a91f89",
+      "research/crop-cycle-stream-execution-reference.py": "b13b6224dadd4d69a94e6d9e2d3a820449e636cb57b621915c325dcb3e1f3f1b",
+      "research/crop-fruit-startup-source-register.json": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+      "research/crop-integration-reference.py": "a38b7a67e43cf9f590838bf915ab3e5048950b8be6ed35f70817e18b42a09ce7",
+      "research/crop-plant-cohort-integration-reference.py": "9b880b9d06812f3cfa05bf1c5e47ef93811b548d2320136ce5ae813730d50a72",
+      "research/crop-plant-startup-integration-reference.py": "c99cb9c2a83531a85183cfc9ccecc7401f95bd310bdc210cf4501d880458c44c"
+    },
+    "input_files": 750,
+    "input_bytes": 113920841,
+    "all_named_input_blob_SHA_verified": true,
+    "input_root_sha256": "ab24eda4d763d7fe3faff1ae3c7c2f84fbec030af71a494bf284fef1f2cdcd98",
+    "spec_sha256": "d4e7de05249b55a2db3218c3e47c09ac1819ab15415b4021a44399ea76bcc310",
+    "supervision_sha256": "1952feae10039b2f955ee676b4ff3e7f79ce040420b3fa657f5ff3da03d9ecfc"
+  },
+  "acceptance": {
+    "only_task": "crop-cycle-calculation-farm-authority",
+    "local_current_authority_accepted": true,
+    "farm_binding_parent_accepted": false,
+    "server_execution_signature_DB_publication_accepted": false,
+    "whole166_DB_API_3D_accepted": false,
+    "hosted_CI_accepted": false,
+    "full_backend_suite_run": false,
+    "new_browser_test_run": false
+  },
+  "new_crop_rows_and_actual_runs": 0,
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "gates": "not_assessed",
+  "holds": [
+    "new version actual execution and server signatures/history",
+    "new version SQL/role/HMAC and atomic DB publication/current query",
+    "whole166 terminal/prefix/restart/burden and same UTC3D",
+    "fresh harvest/resource/crop-economic coupling",
+    "actual cultivar input adoption and independent local/future/paired-candidate validation"
+  ]
+}

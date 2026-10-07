@@ -526,10 +526,14 @@
         전체 registered 작기의 누적 proof/저장/조회 비용은 별도로 실측하고 replay-restore 부모에서 수용한다.
         [현행 경계 대조/첫 계약](../contracts/crop-cycle-calculation-farm-binding-v1.md): exact 원 reader/binding/custody와
         원 artifact/result ID의 SQL 제약 때문에 아래 세 자식으로 나눈다. 모두 실제 수용한 뒤 부모를 체크한다.
-        - [ ] **`crop-cycle-calculation-farm-authority`** — 3 core파일의 새 현재 결속.
+        - [x] **`crop-cycle-calculation-farm-authority`** — 3 core파일의 새 현재 결속.
           실제 SCRAM의 등록 농장/원천·exact 새 context/서버 proof·기간/권리/provenance를 대사한다.
           두 입력/권리 관측·RHS/새 작물 row0·거부/별도 프로세스·FD/DB/role/passfile/PG 정리 뒤 수용.
-          착수 추정1–3집중시간/10월7–8일 KST, 서버/DB/전체166일·자료 확보 시간 제외.
+          [10월7일 로컬 수용](../research/crop-cycle-calculation-farm-authority-implementation-20261007.md): 고유12개 분할·
+          12개/242.84초 뒤 조회 타입 거부를 보강한 해당1개/21.46초, 동일 제품 소스·다른 시험 함수 AST 보존.
+          현재 권리/변조 거부·fork 새 서비스/DB 재접속·RHS/새 작물 row/Run0·세 실행 정리를 확인했다.
+          prepare/current2.711/2.713초·5,654bytes는 작은 결속의 실측이다. fresh exec·서버 서명/DB 게시는 후속이다.
+          최초1–3집중시간/10월7–8일 추정은10월7일 수용 실적으로 대체하며 부모/전체 작기/관문은 미수용이다.
         - [ ] **`crop-cycle-calculation-server-custody`** — 선행 위 authority·새 artifact.
           실제 계산 전후·서명된 intent/HEAD/progress·중단 재개/원량/현재 권리·원 이력 보존을3–4파일로 계약한다.
           실제 작은 계산/프로세스 중단·재시작·변조/철회·한도/정리 뒤 체크한다.

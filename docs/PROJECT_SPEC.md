@@ -242,7 +242,10 @@ profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [�
 [새 artifact 판본](../research/crop-cycle-calculation-artifact-implementation-20261007.md)도 새68개/선행90개·
 158통과·실제25시간/11,400걸음·27시점/5사건·별도 Python7개와 HEAD 전후 즉시 종료2개/복원으로 로컬 수용했다.
 원/순수 새 계산과 원량·UTC/checkpoint를 대사했고 조회 RHS0·현재 입력 검사·정리를 확인했다.
-다음은 현재 농장·권리/custody이며 원 전체 작기/저장/3D·관문 보류를 유지한다.
+[새 농장 권한 결속](../research/crop-cycle-calculation-farm-authority-implementation-20261007.md)은 실제 SCRAM 고유12개를
+분할 수용했다. 현재 등록/권리·exact 계산 context/proof·입력 변조 거부와 세 실행의 정리를 확인했다.
+RHS/새 작물 row/Run0이며 서버 서명 이력·DB 게시는 미구현이다.
+다음은 서버 계산/서명 → DB 원자 게시이며 농장 연결 부모·전체 작기/저장/3D·관문 보류를 유지한다.
 새 계산 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존하며 실행과 병행하고,
 동결 소스 변경은 실제 실행 종료·증거 보존 뒤 진행한다.
 [확정 과거 결과 비용](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은

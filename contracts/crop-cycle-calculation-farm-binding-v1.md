@@ -1,6 +1,8 @@
 # 새 계산 판본의 현재 등록 농장·권한 결속
 
-2026-10-07 KST. 구현 전 계약이다. 선행은 [계산 문맥](crop-cycle-calculation-context-v1.md),
+2026-10-07 KST. 구현 전 고정한 계약이다. 첫 authority 자식은
+[로컬 소프트웨어 수용](../research/crop-cycle-calculation-farm-authority-implementation-20261007.md)을 완료했다.
+선행은 [계산 문맥](crop-cycle-calculation-context-v1.md),
 [불변 artifact](crop-cycle-calculation-artifact-v1.md), [원 농장 결속](crop-cycle-farm-binding-v1.md)의 수용이다.
 현재 작업 `crop-cycle-calculation-farm-binding`은 아래 세 자식의 실제 수용 뒤에만 완료한다.
 
@@ -49,7 +51,7 @@ caller의 context는 빌리며 정상 반환/권한 거부만으로 healthy cont
 원 `_request`/`_registration` helper를 명시적으로 재사용하고 원 소스 SHA를 dependency에 결속한다.
 실제 입력은 공식 factory가 검증한 새 context의 root/program/plan·단위/프로필/정규화/Python과
 현재 증명/모든 bytes를 진입/반환 경계에서 확인한다. 최초 parser/preflight/prepare를 반복하지 않는다.
-input에는 원9개 필드와 닫힌 `input_validation`8개를 추가한다:
+input에는 원8개 필드와 닫힌 `input_validation`8개를 추가한다:
 `context_sha256/evidence_sha256/validated_context_sha256/engine_version/input_evidence_version/`
 `calculation_code_sha256/input_evidence_code_sha256/input_evidence_dependency_sha256`.
 이 provenance는 농장 계산 출처의 인증 서명이나 자료/G0 승인 자체가 아니다.
@@ -82,3 +84,7 @@ binding은 `crop-cycle-verified-farm-binding-v1`/`synthetic_crop_math_only`의 c
 **총1–3집중시간/10월7–8일 KST 잠정**이다. 기존 원 결속54개 분할·정상5.56/5.82초와
 새 계산/저장158개/151.23초가 근거다. 서버/DB 자식과CI·전체166일·외부 자료 시간은 포함하지 않는다.
 실제 품종 입력/국내 독립 자료0건·G0–G4 `not_assessed`, 생산 예측·추천 보류를 유지한다.
+
+첫 자식은10월7일에 실제 SCRAM 고유12개를 분할 수용했다. 12개/242.84초 뒤 조회 타입 거부를
+추가한 해당1개/21.46초를 다시 통과했으며 제품 소스는 동일하다. fork 후 새 서비스/현재 DB 결속,
+RHS/새 작물 row/Run0·세 번의 PG/역할/비밀 정리를 확인했다. fresh exec·서버 서명·DB 게시는 후속이다.

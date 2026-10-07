@@ -18,7 +18,11 @@ Backend4분할 성공·위 정리 오류2분할/집계 실패입니다. 전체 b
 큰 입력 factory0.386465초는RHS0의 입력 경로 측정입니다.
 [새 불변 artifact](research/crop-cycle-calculation-artifact-implementation-20261007.md)도 새68개/선행90개·
 158통과와 실제25시간/11,400걸음·27시점/5사건·별도 Python7개·HEAD 전후 즉시 종료2개/복원·
-조회 RHS0·원55 source 보존으로 로컬 수용했습니다. 다음은 현재 농장/custody 결속이며 전체166일 부모는 미수용입니다.
+조회 RHS0·원55 source 보존으로 로컬 수용했습니다.
+[새 농장 권한 결속](research/crop-cycle-calculation-farm-authority-implementation-20261007.md)은 실제 SCRAM 고유12개를
+분할 검증했고 현재 등록/권리·입력 변조 거부와 세 실행의 DB/역할/비밀/PG 정리를 확인했습니다.
+이 단계의 생장 계산/새 작물 row/Run은0입니다. 다음은 새 계산의 서버 서명 이력 → DB 원자 게시이며
+농장 연결 부모와 전체166일/저장/API/3D는 미수용입니다.
 
 **다음 구현 (2026-10-06 KST):** [긴 결과 DB 저장](research/crop-cycle-db-custody-implementation.md)을
 고유76개 분할 검증(순수61·실제 DB15개)과 정리·원49개 파일 보존으로 로컬 수용했습니다.

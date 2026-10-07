@@ -242,6 +242,12 @@ CI 대기·원166일/전체 등록 경로·독립 자료 확보 완료일은 이
 원 artifact/result ID의 SQL 제약을 대사해 부모를 authority → server custody → DB custody로 나눴다.
 첫 authority는3 core파일·실제 SCRAM 현재 권리/등록·새 context/서버 proof·두 입력/권리 관측·
 별도 프로세스/정리이며1–3집중시간/10월7–8일 KST 잠정이다. 이 자식만으로 계산/서명/DB 부모를 수용하지 않는다.
+[첫 authority 로컬 수용](../research/crop-cycle-calculation-farm-authority-implementation-20261007.md)은10월7일 완료했다.
+고유12개 분할·실제 SCRAM 현재 등록/권리·fork 재접속과 세 실행의 DB/역할/비밀/PG 정리를 확인했다.
+제품 소스는12개/242.84초와 조회 타입 거부를 보강한 해당1개/21.46초 실행에서 동일하다. 합산하지 않는다.
+정상 prepare/current2.711/2.713초·5,654bytes는 작은 권한 결속의 실측이며 RHS/새 작물 row/Run0이다.
+다음 server custody → DB custody는 각각3–4파일 계약·실제 비용 대사 뒤 날짜를 갱신한다.
+새 계산 경로의 서명/DB 부모·전체166일/3D·실제 품종/독립 자료와 관문 보류는 유지한다.
 전체 RHS 성공을 작은 개발의 추가 착수 조건으로 삼지 않으며, 전체 replay-restore 게시/부하 수용에는
 기존 전체 RHS와 실제 등록 계산·저장/API/동일 UTC3D 증거를 모두 유지한다.
 관측의44.28초 합을 실제 농장/HTTPS 지연이나 전체 작기 완료 날짜로 외삽하지 않는다.

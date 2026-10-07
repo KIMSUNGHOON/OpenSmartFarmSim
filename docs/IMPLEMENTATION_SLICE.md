@@ -310,7 +310,10 @@ SCRAM·철회/변조/재시작·정리다. 다음 API/runtime 연결의 TLS30초
 [새 artifact writer/reader](../research/crop-cycle-calculation-artifact-implementation-20261007.md)도
 새68개/선행90개·158통과·실제25시간/11,400걸음·27시점/5사건·별도 Python7개·
 HEAD 전후 즉시 종료2개/복원·조회 RHS0·정리로 로컬 수용했다.
-현재 farm/custody가 다음이며 전체166일/DB/API/3D 수용으로 바꾸지 않는다.
+[새 현재 농장 권한 결속](../research/crop-cycle-calculation-farm-authority-implementation-20261007.md)은 실제 SCRAM 고유12개를
+분할 수용했다. 등록/provenance·현재 read/write 권리·입력/형/설정 변경 거부와 세 실행의 정리를 확인했다.
+RHS/새 작물 row/Run0이며 이 authority 자식만 완료했다. 다음은 서버 계산/서명 이력 → DB 원자 게시다.
+farm 연결 부모와 전체166일/DB/API/3D 수용은 별도다.
 새 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존해 병행한다.
 동결 소스 변경은 실제 실행 종료·증거 보존 뒤이며,
 첫 수용은 원 물리값/UTC·121상태/checkpoint·수지/hold·변조 거부와 별도 프로세스 복원이다.
