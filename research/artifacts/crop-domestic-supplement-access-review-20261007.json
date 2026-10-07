@@ -1,0 +1,79 @@
+{
+  "evidence_version": "crop-domestic-supplement-access-parent-review-v1",
+  "observed_at_utc": "2026-10-07T06:45:04.444357+00:00",
+  "baseline_commit": "3eb1d5925d5fd65c8ab9a21ac12421e34a4fd8c6",
+  "scope": "public publisher attachment access and document structure only",
+  "parent_native_cli": {
+    "timestamp": "2026-10-07T06:39:23.616Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256_with_LF": "e3a3635b7ad5cc951d1b1f2114e62869a11e2e11602425599dd1422e3b4df986",
+    "raw_line_sha256_without_LF": "5740302d934d43175bad3b85449bb0b0e9b06f2d825598bf812aafbf1ee0ef3c",
+    "recursive_cli_invocations": 0
+  },
+  "agent_native_cli_independently_verified": {
+    "timestamp": "2026-10-07T06:32:16.604Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "sha256_raw_line_including_trailing_LF": "a5e7e62c64c284d0ccd6af6d68926a78c65fbc7a8c8845d1ab07bca2aa83e6a3",
+    "sha256_raw_line_without_trailing_LF": "aa87054256822db955e8f9693147bf491253901b9ef781aa6ac1a755ccdd1b03"
+  },
+  "source_sha256": {
+    "research/crop-domestic-supplement-access-20261007.md": "01402c10b852014449ba04f1c86face96b55c1c653e66202c5cd4f7e09055241",
+    "research/crop-domestic-validation-access-followup-20261007.md": "16f307ddaf2656aaaa949fe74f365de0a570d7360d70c750d6e4c5408b3c85e1",
+    "research/crop-domestic-cultivar-hr24-catalog-followup-20261007.md": "5fe36d702f1258da8fa141d710820251007b38ef5a8c80f5c5f2e396397bb9fd",
+    "research/crop-independent-data-status.json": "a5c5400257e408a034137ff79e2a0f99ed3db293ef34b430389230352b0c5778"
+  },
+  "actual_review": {
+    "private_manifest_sha256": "ee8e615078ae9d4c301592338d5c79d0e6916ef3f8bd9a8b6f9490b394199504",
+    "private_files_hash_and_permission_checked": 23,
+    "parent_review_receipt_sha256": "1acbdaa99e502a36a90a6712a7ba19e95f81ebe603935fe277f1559797aa9447",
+    "normal_official_UI_API_attachment_chain_checked": true,
+    "attachment_request_URL": "https://public-pages-files-2025.frontiersin.org/articles/1730694/file/Data_Sheet_1.docx/1730694_data-sheet_1/1",
+    "attachment_final_URL": "https://public-pages-files-2025.frontiersin.org/articles/1730694/file/data_sheet_1.docx/1730694_data-sheet_1/1",
+    "attachment_sha256": "53d65c2d06d46a569e068f6290dc5ff5f6c2c3ac07c9fad573aca4eabad80df2",
+    "actual_attachment_bytes": 863123,
+    "format": "ZIP container with required Word OOXML parts and parseable document XML; not whole OOXML validation",
+    "zip_entries": 38,
+    "document_paragraphs": 358,
+    "tables": 6,
+    "table_rows_each": 8,
+    "table_cells_each_row": 7,
+    "media_entries": 2,
+    "embedded_packages_or_CSV_XLSX_XLS": 0,
+    "structure_counts_are_not_measurement_sample_counts": true,
+    "raw_rows_or_numeric_paragraph_text_exported": false,
+    "synchronized_raw_measurements_and_independence": "unconfirmed",
+    "file_specific_use_display_redistribution_external_CLI": "unconfirmed",
+    "observation_publication_available_at": "unconfirmed",
+    "Last_Modified_and_editing_timestamps_are_not_available_at": true,
+    "report_request_final_URL_difference_corrected": true,
+    "parent_inline_caption_assertion_corrected_then_full_verifier_passed": true
+  },
+  "verification": {
+    "private_evidence_and_native_context_and_document_structure": "passed",
+    "delivery_check_exit_code": 0,
+    "delivery_check_log_sha256": "d99ae2320dfc83ddde51fc37d208a20b57a43803115c105ad7657cd2035a680f",
+    "local_links_and_anchors": 2577,
+    "DAGs": [
+      {
+        "edges": 103,
+        "acyclic": true
+      },
+      {
+        "edges": 89,
+        "acyclic": true
+      }
+    ],
+    "prior_reports_status_and_existing_checkboxes_unchanged": true,
+    "full166_source_pins_unchanged": 55,
+    "program_tests_run": 0,
+    "new_network_retrievals_by_parent": 0
+  },
+  "next_access_dependency": "File-specific rights for this exact provider version/SHA, then limited column/time/unit review; independent raw farm cycle still not secured.",
+  "actual_crop_runs": 0,
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "parameter_values_adopted": 0,
+  "gates": "not_assessed"
+}
