@@ -167,8 +167,14 @@ def test_actual_scram_calculation_factories_same_farm_reconstruction_mixing_and_
             (storage.server.CalculationServerCustody,'advance'),(storage.CalculationCycleCropResultStore,'put'),
             (old_server.CycleServerCustody,'advance'),(old_store.CycleCropResultStore,'put')):
         monkeypatch.setattr(module,name,forbidden)
+    create_app=runtime.create_app;forwarded=[]
+    def capture_app(*args,**kwargs):
+        forwarded.append(kwargs);return create_app(*args,**kwargs)
+    monkeypatch.setattr(runtime,'create_app',capture_app)
     started=perf_counter();selected=runtime.ApiRuntime(cfg,deps);normal_seconds=perf_counter()-started
     current=selected.calculation_cycle_crop_results
+    assert forwarded[-1].get('crop_cycle_calculation_result_store') is current
+    assert forwarded[-1].get('crop_cycle_calculation_current_query') is selected.calculation_cycle_crop_query
     assert current.jobs is selected.jobs and current.server.binding.jobs is selected.jobs
     assert current.server.binding.farms is selected.farm_authoring
     assert selected.jobs.principal_provider is current_principal and selected.calculation_cycle_crop_query.store is current

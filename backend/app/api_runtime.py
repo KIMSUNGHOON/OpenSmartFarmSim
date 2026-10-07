@@ -316,7 +316,9 @@ class ApiRuntime:
                 farm_authored_review_service=farm_reviews,
                 authored_simulation_service=authored_simulation, crop_result_store=crop_results,
                 crop_coupled_result_store=coupled_crop_results, crop_startup_result_store=startup_crop_results,
-                crop_cycle_result_store=cycle_crop_results,crop_cycle_current_query=cycle_crop_query)
+                crop_cycle_result_store=cycle_crop_results,crop_cycle_current_query=cycle_crop_query,
+                crop_cycle_calculation_result_store=calculation_cycle_crop_results,
+                crop_cycle_calculation_current_query=calculation_cycle_crop_query)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
