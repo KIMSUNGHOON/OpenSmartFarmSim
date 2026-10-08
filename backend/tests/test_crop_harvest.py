@@ -1,4 +1,5 @@
 from copy import deepcopy
+from decimal import Decimal, localcontext
 from hashlib import sha256
 from math import fsum, inf, nan
 import json
@@ -235,6 +236,186 @@ def test_public_entry_rejects_arbitrary_rows_or_approval_objects():
             list(harvest.iter_removal_ledger(reader, 'tenant-1', SOURCE['result_id'], {}))
 
 
+def mass_values(carbon=12., count=3., eta=1.25, dmc=.125):
+    return harvest._mass_values(quantity(carbon, 'mg_CH2O/m2_floor'),
+        quantity(count, 'fruits_equivalent/m2_floor'), quantity(eta, 'mg_DM/mg_CH2O'),
+        quantity(dmc, 'kg_DM/kg_FW'))
+
+
+def test_explicit_mass_units_independent_values_and_inverse():
+    result = mass_values()
+    assert result['dry_matter'] == quantity(.000015, 'kg_DM/m2_floor')
+    assert result['fresh_matter'] == quantity(.00012, 'kg_FW/m2_floor')
+    assert result['fresh_mass_per_equivalent'] == quantity(.00004, 'kg_FW/fruit_equivalent')
+    with localcontext() as ctx:
+        ctx.prec = 80
+        inverse = Decimal(str(result['fresh_matter']['value'])) * Decimal('.125') * 1_000_000 / Decimal('1.25')
+    assert inverse == 12
+
+
+@pytest.mark.parametrize('carbon,count,eta,dmc', [(1e308, 1, 2, .5),
+    (1e-310, 1, 1e300, .25), (1e300, 1e300, 1e-300, .5), (4, .02, .8, .2)])
+def test_mass_extremes_round_from_exact_input_floats_against_decimal(carbon, count, eta, dmc):
+    result = mass_values(carbon, count, eta, dmc)
+    with localcontext() as ctx:
+        ctx.prec = 2200
+        c, n, e, d = (Decimal.from_float(float(v)) for v in (carbon, count, eta, dmc))
+        dry = c * e / 1_000_000;fresh = dry / d
+        expected = [float(dry), float(fresh), float(fresh / n)]
+    assert [result[key]['value'] for key in ('dry_matter', 'fresh_matter', 'fresh_mass_per_equivalent')] == expected
+
+
+@pytest.mark.parametrize('carbon,count,eta,dmc', [(1e-320, 1, 1, .1),
+    (1e308, 1, 1e308, .5), (1, 1, 1, 5e-324), (1, 5e-324, 1, .5),
+    (1e-300, 1e308, 1, .5), (1, 1, 0, .5), (1, 1, 1, 0),
+    (1, 1, 1, 1.01), (1, 1, True, .5), (1, 1, 1, nan), (-1, 1, 1, .5)])
+def test_mass_unrepresentable_or_invalid_values_hold(carbon, count, eta, dmc):
+    with pytest.raises(harvest.CropRemovalHold):mass_values(carbon, count, eta, dmc)
+
+
+def test_zero_mass_and_zero_equivalent_have_distinct_meanings():
+    assert mass_values(0, 1)['fresh_mass_per_equivalent']['value'] == 0
+    assert mass_values(1, 0)['fresh_mass_per_equivalent']['value'] is None
+    assert mass_values(0, 0)['dry_matter']['value'] == 0
+    with pytest.raises(harvest.CropRemovalHold):mass_values(0, 0, dmc=0)
+
+
+def test_mass_percent_and_other_area_or_quantity_units_are_not_substituted():
+    valid = [quantity(12, 'mg_CH2O/m2_floor'), quantity(3, 'fruits_equivalent/m2_floor'),
+             quantity(1.25, 'mg_DM/mg_CH2O'), quantity(.125, 'kg_DM/kg_FW')]
+    for index, unit in enumerate(['mg_CH2O/m2_crop', 'fruits', '1', '%']):
+        wrong = deepcopy(valid);wrong[index]['unit'] = unit
+        with pytest.raises(harvest.CropRemovalHold):harvest._mass_values(*wrong)
+
+
+def mass_profile(source, *, split=False):
+    first = {'segment_id': 'owned-first', 'start_at': '2026-10-01T00:00:00Z',
+             'end_at': '2026-10-01T00:15:00Z', 'eta': quantity(1., 'mg_DM/mg_CH2O'),
+             'dmc': quantity(.5, 'kg_DM/kg_FW')}
+    segments = [first]
+    if split:
+        first['end_at'] = '2026-10-01T00:05:00Z'
+        segments.append({**deepcopy(first), 'segment_id': 'owned-second',
+            'start_at': first['end_at'], 'end_at': '2026-10-01T00:15:00Z',
+            'dmc': quantity(.25, 'kg_DM/kg_FW')})
+    return {'version': 'crop-removal-mass-parameters-v1', 'parameter_id': 'owned-synthetic-mass',
+            'revision': 'r1', 'origin': 'synthetic', 'evidence_level': 'assumed',
+            'evidence_id': 'owned-algebra-fixture', 'available_at': '2026-09-30T00:00:00Z',
+            'source': deepcopy(source), 'population': {'population_id': 'owned-model-fruit',
+            'scope': 'all_model_fruit_cohorts', 'basis': 'm2_floor', 'basis_evidence_id': 'owned-model-floor'},
+            'policy': 'constant_per_original_interval', 'segments': segments}
+
+
+def test_mass_profile_boundaries_and_interval_sum_not_average_DMC():
+    removals = list(harvest._read_ledger(OwnedPages()))
+    raw = harvest._canonical(mass_profile(removals[0]['source'], split=True))
+    parameters = harvest._mass_parameters(raw)
+    rows = [harvest._mass_row(row, parameters) for row in removals]
+    assert [row['parameters']['segment']['segment_id'] for row in rows] == ['owned-first'] * 2 + ['owned-second'] * 4
+    assert fsum(row['dry_matter']['value'] for row in rows) == pytest.approx(.0000185)
+    assert fsum(row['fresh_matter']['value'] for row in rows) == pytest.approx(.000065)
+    assert all(row['parameters']['sha256'] == sha256(raw).hexdigest() for row in rows)
+    assert [row['removal'] for row in rows] == removals and len({row['row_id'] for row in rows}) == 6
+    assert harvest._mass_row(removals[0], parameters) == rows[0]
+    rows[0]['parameters']['segment']['dmc']['value'] = 1
+    assert parameters[0]['segments'][0]['dmc']['value'] == .5
+
+
+@pytest.mark.parametrize('change', ['eta-missing', 'dmc-missing', 'population-missing', 'basis-missing',
+    'wrong-area', 'wrong-population', 'real-origin', 'approved-evidence', 'empty-evidence',
+    'wrong-policy', 'missing-available', 'extra-approval', 'duplicate-segment', 'gap', 'overlap',
+    'reverse-time', 'percent', 'empty-segments', 'bad-hash'])
+def test_mass_profile_incomplete_or_unsupported_evidence_holds(change):
+    row = harvest._event_row({**SOURCE, 'source_status': 'completed'}, (0, event()))
+    profile = mass_profile(row['source'], split=True);segment = profile['segments'][0]
+    if change == 'eta-missing':del segment['eta']
+    elif change == 'dmc-missing':del segment['dmc']
+    elif change == 'population-missing':del profile['population']['population_id']
+    elif change == 'basis-missing':del profile['population']['basis_evidence_id']
+    elif change == 'wrong-area':profile['population']['basis'] = 'm2_crop'
+    elif change == 'wrong-population':profile['population']['scope'] = 'selected_grade'
+    elif change == 'real-origin':profile['origin'] = 'measured'
+    elif change == 'approved-evidence':profile['evidence_level'] = 'approved'
+    elif change == 'empty-evidence':profile['evidence_id'] = ''
+    elif change == 'wrong-policy':profile['policy'] = 'interpolate'
+    elif change == 'missing-available':del profile['available_at']
+    elif change == 'extra-approval':profile['approved'] = True
+    elif change == 'duplicate-segment':profile['segments'][1]['segment_id'] = segment['segment_id']
+    elif change == 'gap':profile['segments'][1]['start_at'] = '2026-10-01T00:06:00Z'
+    elif change == 'overlap':profile['segments'][1]['start_at'] = '2026-10-01T00:04:00Z'
+    elif change == 'reverse-time':segment['end_at'] = segment['start_at']
+    elif change == 'percent':segment['dmc']['unit'] = '%'
+    elif change == 'empty-segments':profile['segments'] = []
+    else:profile['source']['artifact_sha256'] = 'invalid'
+    with pytest.raises(harvest.CropRemovalHold):harvest._mass_parameters(harvest._canonical(profile))
+
+
+def test_mass_source_or_time_mismatch_and_unresolved_interval_holds():
+    removals = list(harvest._read_ledger(OwnedPages()));profile = mass_profile(removals[0]['source'], split=True)
+    bad = deepcopy(profile);bad['source']['result_id'] = 'different'
+    with pytest.raises(harvest.CropRemovalHold):harvest._mass_row(removals[0], harvest._mass_parameters(harvest._canonical(bad)))
+    profile['segments'][0]['end_at'] = profile['segments'][1]['start_at'] = '2026-10-01T00:07:00Z'
+    with pytest.raises(harvest.CropRemovalHold):harvest._mass_row(removals[3], harvest._mass_parameters(harvest._canonical(profile)))
+    profile['segments'] = [profile['segments'][1]]
+    with pytest.raises(harvest.CropRemovalHold):harvest._mass_row(removals[0], harvest._mass_parameters(harvest._canonical(profile)))
+
+
+def test_mass_parameter_bytes_are_canonical_bounded_and_reject_duplicate_keys():
+    for raw in (b'{"version":1,"version":2}', b'{}\n', b' ' * 262145, bytearray(b'{}')):
+        with pytest.raises(harvest.CropRemovalHold):harvest._mass_parameters(raw)
+
+
+def test_streamed_mass_and_separate_kind_totals_preserve_split_and_paging():
+    reader = OwnedPages();source = list(harvest._read_ledger(reader))[0]['source']
+    raw = harvest._canonical(mass_profile(source, split=True))
+    whole = list(harvest._read_mass(reader, raw, sample_page_size=1, event_page_size=1))
+    split = list(harvest._read_mass(reader, raw, last_sample=1))
+    split += list(harvest._read_mass(reader, raw, first_sample=1))
+    assert split == whole
+    result = harvest._mass_totals(iter(whole), harvest._mass_parameters(raw))
+    terminal = result['totals_by_kind']['model_terminal_outflow']
+    events = result['totals_by_kind']['explicit_fruit_removal']
+    assert terminal['rows'] == events['rows'] == 3
+    assert terminal['fresh_matter']['value'] == pytest.approx(.000030)
+    assert events['fresh_matter']['value'] == pytest.approx(.000035)
+    assert result['row_count'] == 6 and result['rights_or_gate_approval'] is False
+    assert result['row_chain_sha256'] == sha256(b''.join(harvest._canonical(row) + b'\n' for row in whole)).hexdigest()
+    held = OwnedPages(held=True);held_raw = harvest._canonical(mass_profile(harvest._source(held())))
+    assert all(row['removal']['source']['source_status'] == 'hold' for row in harvest._read_mass(held, held_raw))
+
+
+def test_empty_mass_window_still_verifies_source_and_requires_parameters():
+    reader = OwnedPages();profile = mass_profile(harvest._source(reader()))
+    assert list(harvest._read_mass(reader, harvest._canonical(profile), first_sample=1, last_sample=1)) == []
+    profile['source']['result_id'] = 'foreign'
+    with pytest.raises(harvest.CropRemovalHold):
+        list(harvest._read_mass(reader, harvest._canonical(profile), first_sample=1, last_sample=1))
+    with pytest.raises(harvest.CropRemovalHold):list(harvest._read_mass(reader, b'{}', first_sample=1, last_sample=1))
+
+
+def test_late_mass_read_withdrawal_cannot_return_a_completed_summary():
+    reader = OwnedPages();raw = harvest._canonical(mass_profile(harvest._source(reader())))
+    summaries = []
+    def withdrawn(**kwargs):
+        value = reader(**kwargs)
+        if not kwargs:
+            summaries.append(True)
+            if len(summaries) == 4:value['identity']['artifact_sha256'] = '9' * 64
+        return value
+    with pytest.raises(harvest.CropRemovalHold):
+        harvest._mass_totals(harvest._read_mass(withdrawn, raw), harvest._mass_parameters(raw))
+
+
+def test_mass_totals_overflow_holds_and_public_entry_rejects_arbitrary_approval():
+    reader = OwnedPages();raw = harvest._canonical(mass_profile(harvest._source(reader())))
+    rows = list(harvest._read_mass(reader, raw));rows[0]['fresh_matter']['value'] = 1e308
+    rows[2]['fresh_matter']['value'] = 1e308
+    with pytest.raises(harvest.CropRemovalHold):harvest._mass_totals(iter(rows), harvest._mass_parameters(raw))
+    for arbitrary in (reader, {'approved': True}, object()):
+        with pytest.raises(harvest.CropRemovalHold):
+            list(harvest.iter_removal_mass(arbitrary, 'tenant-1', SOURCE['result_id'], {}, raw))
+
+
 def save_native(name, value):
     target = os.environ.get('OSSF_REMOVAL_LEDGER_EVIDENCE')
     if target:
@@ -317,14 +498,46 @@ def test_actual_stored_current_rights_raw_values_UTC_RHS0_and_FD(stored_result, 
         assert row['source']['result_id'] == record['result_id']
         assert row['source']['payload_sha256'] == record['payload_sha256']
         assert row['rights_or_gate_approval'] is False
+    profile = mass_profile(rows[0]['source'], split=True)
+    profile['segments'][0]['end_at'] = profile['segments'][1]['start_at'] = '2026-10-01T00:01:00Z'
+    profile['segments'][1]['end_at'] = '2026-10-01T00:02:00Z'
+    parameter_raw = harvest._canonical(profile)
+    mass_call = lambda **kwargs: harvest.iter_removal_mass(service, 'tenant-1', record['result_id'], farm,
+                                                          parameter_raw, **kwargs)
+    summary_call = lambda: harvest.summarize_removal_mass(service, 'tenant-1', record['result_id'], farm, parameter_raw)
+    mass_rows = list(mass_call())
+    assert [row['removal'] for row in mass_rows] == rows
+    assert list(mass_call(last_sample=1)) + list(mass_call(first_sample=1)) == mass_rows
+    assert list(mass_call(sample_page_size=1, event_page_size=1)) == mass_rows
+    mass_summary = summary_call()
+    assert mass_summary['row_count'] == len(rows) == 6
+    assert [row['parameters']['segment']['segment_id'] for row in mass_rows] == ['owned-first'] * 2 + ['owned-second'] * 4
+    with localcontext() as ctx:
+        ctx.prec = 2200
+        for row, removal in zip(mass_rows, rows, strict=True):
+            c = Decimal.from_float(removal['carbohydrate']['value'])
+            n = Decimal.from_float(removal['number']['value'])
+            e = Decimal.from_float(row['parameters']['segment']['eta']['value'])
+            d = Decimal.from_float(row['parameters']['segment']['dmc']['value'])
+            dry = c * e / 1_000_000;fresh = dry / d
+            assert row['dry_matter']['value'] == float(dry) and row['fresh_matter']['value'] == float(fresh)
+            assert row['fresh_mass_per_equivalent']['value'] == (float(fresh / n) if n else None)
+        for kind, total in mass_summary['totals_by_kind'].items():
+            selected = [row for row in mass_rows if row['removal']['kind'] == kind]
+            assert total['rows'] == len(selected)
+            for key in ('dry_matter', 'fresh_matter'):
+                assert total[key]['value'] == float(sum((Decimal.from_float(row[key]['value']) for row in selected), Decimal(0)))
     scopes = set(principal['scopes']);tenant = principal['tenant_id']
     try:
         rights.allowed = False
         with pytest.raises(harvest.CropRemovalHold):list(call())
+        with pytest.raises(harvest.CropRemovalHold):summary_call()
         rights.allowed = True;principal['scopes'].remove('crop_result_read')
         with pytest.raises(PermissionError):list(call())
+        with pytest.raises(PermissionError):summary_call()
         principal['scopes'] = scopes;principal['tenant_id'] = 'foreign'
         with pytest.raises(PermissionError):list(call())
+        with pytest.raises(PermissionError):summary_call()
     finally:
         rights.allowed = True;principal['scopes'] = scopes;principal['tenant_id'] = tenant
     original_page = harvest.current_query.results.CalculationResultReadContext.page;withdrawals = []
@@ -332,10 +545,11 @@ def test_actual_stored_current_rights_raw_values_UTC_RHS0_and_FD(stored_result, 
         def withdrawn(self, *args, **kwargs):
             page = original_page(self, *args, **kwargs);rights.allowed = False;withdrawals.append(True);return page
         patch.setattr(harvest.current_query.results.CalculationResultReadContext, 'page', withdrawn)
-        try:
-            with pytest.raises(harvest.CropRemovalHold):next(call())
-        finally:rights.allowed = True
-    assert withdrawals == [True]
+        for action in (lambda: next(call()), summary_call):
+            try:
+                with pytest.raises(harvest.CropRemovalHold):action()
+            finally:rights.allowed = True
+    assert withdrawals == [True, True]
     assert len(os.listdir('/proc/self/fd')) == before and inventory() == files_before
     assert counts(service.store.server.binding) == db_before
     with service.store.jobs.connect() as conn:
@@ -344,6 +558,9 @@ def test_actual_stored_current_rights_raw_values_UTC_RHS0_and_FD(stored_result, 
         'actual_SCRAM': True, 'rows': rows, 'raw_sample_count': len(expected['samples']),
         'raw_event_count': len(expected['events']), 'original_samples': expected['samples'],
         'original_events': expected['events'], 'whole_split_and_one_row_pages_identical': True,
+        'mass_parameter_document': profile, 'mass_parameter_sha256': sha256(parameter_raw).hexdigest(),
+        'mass_rows': mass_rows, 'mass_summary': mass_summary, 'mass_split_and_one_row_pages_identical': True,
+        'mass_per_row_and_separate_totals_Decimal_checked': True,
         'initial_boundary_final_and_leaf_stem_only_events_verified': True,
         'current_rights_scope_account_and_after_page_denied': True, 'RHS_calls': 0,
         'FD_before_after': [before, len(os.listdir('/proc/self/fd'))],

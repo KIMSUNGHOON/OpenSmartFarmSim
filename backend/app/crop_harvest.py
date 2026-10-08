@@ -1,6 +1,7 @@
 """Fruit-only C/N removal from verified stored results, before mass conversion."""
 from copy import deepcopy
 from datetime import datetime
+from fractions import Fraction
 from hashlib import sha256
 from math import fsum, isfinite
 from pathlib import Path
@@ -114,6 +115,14 @@ def _same(value, original):
           and value['identity'] == original['identity'] and value['terminal'] == original['terminal'])
 
 
+def _source(original):
+    packet = current_query.inputs._json(original['record']['payload_raw'])
+    return {'result_id': original['record']['result_id'], 'payload_sha256': original['record']['payload_sha256'],
+            'input_root_sha256': packet['input_root_sha256'], 'artifact_sha256': packet['artifact']['sha256'],
+            'math_manifest_sha256': sha256(_canonical(original['terminal']['manifest'])).hexdigest(),
+            'source_status': original['terminal']['status']}
+
+
 def _pages(read, original, kind, total, start, stop, limit):
     position, previous = start, None
     while position < stop:
@@ -148,10 +157,7 @@ def _read_ledger(read, *, first_sample=0, last_sample=None, sample_page_size=64,
           and 0 <= first_sample <= last_sample < counts['samples'])
     _need(type(sample_page_size) is int and 1 <= sample_page_size <= 64
           and type(event_page_size) is int and 1 <= event_page_size <= 8)
-    source = {'result_id': original['record']['result_id'], 'payload_sha256': original['record']['payload_sha256'],
-              'input_root_sha256': packet['input_root_sha256'], 'artifact_sha256': packet['artifact']['sha256'],
-              'math_manifest_sha256': sha256(_canonical(terminal['manifest'])).hexdigest(),
-              'source_status': terminal['status']}
+    source = _source(original)
     samples = _pages(read, original, 'samples', counts['samples'], first_sample, last_sample + 1, sample_page_size)
     events = _pages(read, original, 'events', counts['events'], 0, counts['events'], event_page_size)
     previous = next(samples)
@@ -191,3 +197,150 @@ def iter_removal_ledger(query, tenant, result_id, farm_ref, *, first_sample=0, l
         raise
     except Exception:
         raise CropRemovalHold('crop removal ledger unavailable') from None
+
+
+def _float_quantity(value):
+    try:
+        result = float(value)
+        _need(isfinite(result) and result >= 0 and (value == 0 or result > 0))
+        return result
+    except OverflowError:
+        raise CropRemovalHold('crop removal mass unavailable') from None
+
+
+def _mass_values(carbohydrate, number, eta, dmc):
+    carbon = _amount(carbohydrate, MASS_UNIT)
+    count = _amount(number, NUMBER_UNIT)
+    factor = _amount(eta, 'mg_DM/mg_CH2O')
+    fraction = _amount(dmc, 'kg_DM/kg_FW')
+    _need(factor > 0 and 0 < fraction <= 1)
+    dry = Fraction(carbon) * Fraction(factor) / 1_000_000
+    fresh = dry / Fraction(fraction)
+    return {'dry_matter': {'value': _float_quantity(dry), 'unit': 'kg_DM/m2_floor'},
+            'fresh_matter': {'value': _float_quantity(fresh), 'unit': 'kg_FW/m2_floor'},
+            'fresh_mass_per_equivalent': {'value': _float_quantity(fresh / Fraction(count)) if count else None,
+                                          'unit': 'kg_FW/fruit_equivalent'}}
+
+
+def _mass_parameters(raw):
+    try:
+        _need(type(raw) is bytes and 0 < len(raw) <= 262144)
+        profile = current_query.inputs._json(raw)
+        _need(type(profile) is dict and _canonical(profile) == raw and set(profile) == {
+            'version', 'parameter_id', 'revision', 'origin', 'evidence_level', 'evidence_id',
+            'available_at', 'source', 'population', 'policy', 'segments'})
+        _need(profile['version'] == 'crop-removal-mass-parameters-v1'
+              and profile['origin'] == 'synthetic' and profile['evidence_level'] == 'assumed'
+              and profile['policy'] == 'constant_per_original_interval')
+        def identifier(value):
+            _need(type(value) is str and 0 < len(value) <= 128 and value.isprintable())
+        for key in ('parameter_id', 'revision', 'evidence_id'):identifier(profile[key])
+        _at(profile['available_at'])
+        source = profile['source']
+        _need(type(source) is dict and set(source) == {'result_id', 'payload_sha256',
+            'input_root_sha256', 'artifact_sha256', 'math_manifest_sha256', 'source_status'})
+        identifier(source['result_id'])
+        _need(source['source_status'] in ('completed', 'hold'))
+        for key in ('payload_sha256', 'input_root_sha256', 'artifact_sha256', 'math_manifest_sha256'):
+            _need(type(source[key]) is str and re.fullmatch('[0-9a-f]{64}', source[key]))
+        population = profile['population']
+        _need(type(population) is dict and set(population) == {'population_id', 'scope', 'basis', 'basis_evidence_id'}
+              and population['scope'] == 'all_model_fruit_cohorts' and population['basis'] == 'm2_floor')
+        identifier(population['population_id']);identifier(population['basis_evidence_id'])
+        segments = profile['segments'];previous = None;seen = set()
+        _need(type(segments) is list and 1 <= len(segments) <= 256)
+        for segment in segments:
+            _need(type(segment) is dict and set(segment) == {'segment_id', 'start_at', 'end_at', 'eta', 'dmc'})
+            identifier(segment['segment_id'])
+            _need(segment['segment_id'] not in seen and _at(segment['start_at']) < _at(segment['end_at']))
+            _need(previous is None or previous == segment['start_at'])
+            _mass_values({'value': 0, 'unit': MASS_UNIT}, {'value': 0, 'unit': NUMBER_UNIT},
+                         segment['eta'], segment['dmc'])
+            seen.add(segment['segment_id']);previous = segment['end_at']
+        return profile, sha256(raw).hexdigest()
+    except Exception:
+        raise CropRemovalHold('crop removal mass parameters unavailable') from None
+
+
+def _mass_row(removal, parameters):
+    profile, parameter_sha256 = parameters
+    _need(removal['source'] == profile['source'] and removal['schema_version'] == VERSION
+          and removal['code_sha256'] == CODE_SHA256 and removal['dependency_sha256'] == DEPENDENCY_SHA256
+          and removal['claim_scope'] == 'research_removal_math_only' and removal['rights_or_gate_approval'] is False)
+    start, end = removal['start_at'], removal['end_at']
+    _need(_at(start) <= _at(end))
+    segments = profile['segments'];matched = []
+    for i, segment in enumerate(segments):
+        if removal['kind'] == 'model_terminal_outflow':
+            applies = segment['start_at'] <= start < end <= segment['end_at']
+        else:
+            _need(removal['kind'] == 'explicit_fruit_removal' and start == end)
+            applies = segment['start_at'] <= start < segment['end_at'] or (i == len(segments)-1 and start == segment['end_at'])
+        if applies:matched.append(segment)
+    _need(len(matched) == 1)
+    segment = matched[0]
+    values = _mass_values(removal['carbohydrate'], removal['number'], segment['eta'], segment['dmc'])
+    identity = {'version': 'crop-removal-mass-v1', 'code_sha256': CODE_SHA256,
+                'dependency_sha256': DEPENDENCY_SHA256, 'removal_sha256': sha256(_canonical(removal)).hexdigest(),
+                'parameter_sha256': parameter_sha256, 'segment_id': segment['segment_id']}
+    declaration = {key: profile[key] for key in ('version', 'parameter_id', 'revision', 'origin',
+        'evidence_level', 'evidence_id', 'available_at', 'population', 'policy')}
+    declaration.update(sha256=parameter_sha256, segment=segment,
+                       rounding='nearest_float64_from_exact_input_floats_per_row')
+    return {**identity, 'schema_version': 'crop-removal-mass-v1',
+            'row_id': 'crop-removal-mass-v1:' + sha256(_canonical(identity)).hexdigest(),
+            'claim_scope': 'synthetic_removal_mass_math_only', 'rights_or_gate_approval': False,
+            'removal': deepcopy(removal), 'parameters': deepcopy(declaration), **values}
+
+
+def _read_mass(read, parameter_raw, **window):
+    parameters = _mass_parameters(parameter_raw)
+    original = read()
+    _need(_source(original) == parameters[0]['source'])
+    for removal in _read_ledger(read, **window):
+        _pins()
+        yield _mass_row(removal, parameters)
+    _pins()
+    _same(read(), original)
+
+
+def iter_removal_mass(query, tenant, result_id, farm_ref, parameter_raw, *, first_sample=0, last_sample=None,
+                      sample_page_size=64, event_page_size=8):
+    try:
+        _pins()
+        _need(type(query) is current_query.CalculationCurrentCycleQuery)
+        yield from _read_mass(lambda **kwargs: query.read(tenant, result_id, farm_ref, **kwargs), parameter_raw,
+                              first_sample=first_sample, last_sample=last_sample,
+                              sample_page_size=sample_page_size, event_page_size=event_page_size)
+    except PermissionError:
+        raise
+    except Exception:
+        raise CropRemovalHold('crop removal mass unavailable') from None
+
+
+def _mass_totals(rows, parameters):
+    groups = {kind: {'rows': 0, 'sums': [Fraction(0) for _ in range(4)]}
+              for kind in ('model_terminal_outflow', 'explicit_fruit_removal')}
+    units = (MASS_UNIT, NUMBER_UNIT, 'kg_DM/m2_floor', 'kg_FW/m2_floor')
+    profile, parameter_sha256 = parameters;chain = sha256();count = 0
+    for row in rows:
+        _need(row['parameter_sha256'] == parameter_sha256 and row['removal']['source'] == profile['source'])
+        group = groups[row['removal']['kind']];group['rows'] += 1;count += 1
+        amounts = (row['removal']['carbohydrate'], row['removal']['number'], row['dry_matter'], row['fresh_matter'])
+        for i, (amount, unit) in enumerate(zip(amounts, units, strict=True)):
+            group['sums'][i] += Fraction(_amount(amount, unit))
+        chain.update(_canonical(row));chain.update(b'\n')
+    totals = {}
+    for kind, group in groups.items():
+        totals[kind] = {'rows': group['rows'], **{key: {'value': _float_quantity(value), 'unit': unit}
+            for key, value, unit in zip(('carbohydrate', 'number', 'dry_matter', 'fresh_matter'), group['sums'], units, strict=True)}}
+    return {'schema_version': 'crop-removal-mass-summary-v1', 'code_sha256': CODE_SHA256,
+            'claim_scope': 'synthetic_removal_mass_math_only', 'rights_or_gate_approval': False,
+            'source': deepcopy(profile['source']), 'parameter_sha256': parameter_sha256,
+            'row_count': count, 'row_chain_sha256': chain.hexdigest(), 'totals_by_kind': totals,
+            'rounding': 'nearest_float64_of_exact_sum_of_rounded_rows'}
+
+
+def summarize_removal_mass(query, tenant, result_id, farm_ref, parameter_raw, **window):
+    return _mass_totals(iter_removal_mass(query, tenant, result_id, farm_ref, parameter_raw, **window),
+                        _mass_parameters(parameter_raw))

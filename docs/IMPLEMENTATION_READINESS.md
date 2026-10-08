@@ -1,9 +1,9 @@
 # 구현 준비 현황
 
-**최신 수용 — 2026-10-08 19:42 KST:** [과실 제거 원장](../research/crop-removal-ledger-implementation-20261008.md)을
-순수61개·실제 SCRAM1개/원 종료0·3표본/4사건·402 source/정리로 로컬 수용했다.
+**최신 수용 — 2026-10-08 20:02 KST:** [명시 합성 계수의 질량 환산](../research/crop-removal-mass-implementation-20261008.md)을
+순수105개·실제 SCRAM1개/원 종료0·6행/2계수 구간·독립 Decimal·404 source/정리로 로컬 수용했다.
 선행 [합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-다음은 명시 계수의 질량 환산이다. 실제 품종 입력/국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
+다음은 수확/적과/폐기 배정이다. 실제 계수/품종 입력·국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
 
 **새 계산 조회 진척 (2026-10-07):** [현재 농장/DB query](../research/crop-cycle-calculation-current-query-implementation-20261007.md)를
 실제 SCRAM12개·정상/관리 사건/수치 hold·원량/UTC·철회/변조·fork·63 source/자원 정리로 로컬 수용했다.
@@ -90,7 +90,7 @@ PG/controller 포함 RSS 합1,050,714,112bytes≤1GiB·397 source/정리로 수�
 준비부터26,127.555초·전체47,809행/5사건·121상태/수지 대사→같은 DB 게시→보호 HTTPS10개/대표14시점 WebGL·
 권리/계정 거부·398 source/자원 정리를 최종 감사했다. 표본 RSS 합1,070,809,088bytes≤1GiB이며 여유약2.8MiB다.
 원9시간 상한/수식/격자를 유지했고 감사 후 source freeze를 해제했다. 전체47,809프레임·실제 형상/품종/관문 수용은 아니다.
-[제거 원장](../research/crop-removal-ledger-implementation-20261008.md)은 로컬 수용했고 다음은 명시 질량 환산이다. 생과/자원/경제 연결·실제 품종 입력/국내 독립 자료0건과
+[제거 원장](../research/crop-removal-ledger-implementation-20261008.md)과 [합성 질량 환산](../research/crop-removal-mass-implementation-20261008.md)은 로컬 수용했고 다음은 수확 배정이다. 생과/자원/경제 연결·실제 품종 입력/국내 독립 자료0건과
 G0–G4 보류는 유지한다. 아래 날짜별 기록은 당시 상태다.
 
 ## 현재 우선순위와 외부 의존성 — 2026-10-04

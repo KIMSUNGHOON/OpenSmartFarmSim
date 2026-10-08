@@ -1,9 +1,11 @@
 # 구현 순서
 
-**최신 수용 — 2026-10-08 19:42 KST:** [과실 제거 원장](../research/crop-removal-ledger-implementation-20261008.md)을
-순수61개·실제 SCRAM1개/원 종료0·3표본/4사건·402 source/정리로 로컬 수용했다.
+**최신 수용 — 2026-10-08 20:02 KST:** [명시 합성 질량 환산](../research/crop-removal-mass-implementation-20261008.md)을
+순수105개·실제 SCRAM1개/원 종료0·6행/2구간·독립 Decimal·404 source/정리로 로컬 수용했다.
 선행 [합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-다음은 같은3 core파일의 `crop-removal-mass`다. [환산 계약](../contracts/crop-harvest-v1.md)에 따라 명시 계수·분모와 결측/numeric hold부터 검증한다.
+다음은 같은3 core파일의 `crop-harvest-events`다. [환산 계약](../contracts/crop-harvest-v1.md)에 따라 명시 배정·미배정 보존·이중 배정 금지부터 검증한다.
+그 뒤 `crop-harvest-replay`는 질량/배정의 불변 저장·현재 조회→HTTP/SDK→같은 UTC3D를 검증한다.
+이 경로는 기후/물·양분/구매 에너지 개발과 병행하며 실제 생산량/예측 게시 관문은 별도다.
 생과 환산·자원/경제·실제 입력/독립 검증·전체 제품 관문은 후속이며 아래 단계별 기록은 당시 상태다.
 
 ## 작물 생산과 성장 3D 우선순위 (2026-10-04)
@@ -442,7 +444,7 @@ PG/controller 포함 동시 RSS 합1,048,477,696bytes≤1GiB다. 일반 운영/�
 원 종료0/1통과·준비부터26,127.555초·전체47,809행/5사건·121상태/수지 대사→같은 DB 게시/API/대표14시점 WebGL·
 권리/계정 거부·398 source/정리로 로컬 수용했다. 원9시간 상한/수식/격자를 유지했고 최종 감사 뒤 source freeze를 해제했다.
 표본 RSS 합1,070,809,088bytes≤1GiB의 여유는약2.8MiB이며 지정 시험 설정의 수용이다.
-[제거 원장](../research/crop-removal-ledger-implementation-20261008.md)을 수용했고 다음은 명시 계수 환산→수확 의미 연결이다. 실제 계수/독립 자료 확보는 병행한다.
+[제거 원장](../research/crop-removal-ledger-implementation-20261008.md)과 [명시 합성 질량 환산](../research/crop-removal-mass-implementation-20261008.md)을 수용했고 다음은 수확 의미 연결이다. 실제 계수/독립 자료 확보는 병행한다.
 브라우저 대표 범위 수용을 전체 프레임 대사로 바꾸지 않으며 직접 범위 이동은 후속 사용성 과제다.
 원8초RK4/300초 출력과 한도·현재 bytes/입력/권리를 유지한다.
 전체 실행/DB/API/대표3D 수용은 위 실제 종료 증거를 따르며 용량/계약이나 초기 구간의 외삽으로 대체하지 않는다.
@@ -646,11 +648,16 @@ flowchart TD
   V --> F
   CV --> F
   F --> C["crop-climate-coupling"]
+  CI --> HMATH["crop-removal-mass → crop-harvest-events의 개발 수용"]
+  CAP --> HMATH
+  HMATH --> HR["crop-harvest-replay: 질량/배정 저장·API·같은 UTC3D"]
+  CV --> HR
   C -. 수관/광 측정 미확보 시 검증된 변환 필요 .-> AQ
   C --> W["crop-water-nutrient"]
   C --> E["crop-energy-purchases"]
   W --> L["crop-execution-link: 같은 farm/batch·계산/저장·결과 선택"]
   E --> L
+  HR --> L
   L --> M["crop-economic-link: H/P/S·자원·Decimal"]
   A --> G2["g2-evidence: 국내 독립 측정 비교"]
   I --> CALC["해당 입력/출력의 계산·재현 증거"]
@@ -928,7 +935,7 @@ artifact의 실제 RED→첫 GREEN은 19:27~19:29 UTC, 512출력 자원 확인�
 [생과 환산 v1 후보](../contracts/crop-harvest-v1.md)는 F 내부를 `crop-removal-ledger` →
 `crop-removal-mass` → `crop-harvest-events`로 나눈다. 전체 작기 부하/구획 선행과 F 부모를 유지하고
 첫 원 C/N 분리는 [10월8일 로컬 수용](../research/crop-removal-ledger-implementation-20261008.md)했다.
-다음은 명시 eta/DMC·구간/모집단/면적 분모의 환산과 결측/numeric hold이며,
+[명시 합성 eta/DMC 환산](../research/crop-removal-mass-implementation-20261008.md)도 로컬 수용했다. 다음은 수확/적과/폐기 배정이며,
 실제 계수/수확 근거의 확보·게시 조건은 바뀌지 않는다.
 독립 국내 농장/작기 자료는 현재 **0건**이며 동의·자료 범위·미사용 기간이
 정해지지 않아 G2/G3a·최종 추천/production 완료일을 정할 근거가 없다.

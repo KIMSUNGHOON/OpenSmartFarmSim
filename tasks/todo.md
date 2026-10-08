@@ -1068,12 +1068,23 @@
     사용자 산출물: 원 결과/사건 위치에 연결된 연구 제거 원장. 생과 kg·수확·판매는 생성하지 않는다.
     근거: 순수61개·실제 SCRAM1개/원 종료0·원3표본/4사건·전체/구간/한 행 페이지 일치·RHS0·FD13→13·402 source/root 정리.
     첫 native 사건0건의 부분 증거와 fixture collection 종료2도 별도 보존했다. 환산/수확 부모·실제 품종/독립 자료·관문은 미수용이다.
-  - [ ] **`crop-removal-mass`** — 선행 위 원장과 명시 eta/DMC·단위/모집단/구간·분모 근거의 개발 계약.
+  - [x] **`crop-removal-mass`** — 선행 위 원장과 명시 eta/DMC·단위/모집단/구간·분모 근거의 개발 계약.
     동일3 core파일에서 단계적으로 구현한다. 수용: 독립 차원/역환산·구간별 합산·계수/분모 결측·numeric hold와 원량 보존.
     합성 계수의 소프트웨어 시험과 실제 계수 채택을 분리하고, 실제 환산/게시 조건 미충족은 hold다.
+    [로컬 수용](../research/crop-removal-mass-implementation-20261008.md): 순수105개(기존 원장61/질량44)·실제 SCRAM1개/원 종료0·6행/2구간·독립 Decimal·구간/한 행 페이지·RHS0/FD13→13·404 source/root 정리.
+    실제 계수0건·전체 작기 질량/저장/API/3D·수확 사건/부모·생산 예측·관문 수용은 별도다.
   - [ ] **`crop-harvest-events`** — 선행 위 환산과 수확/적과/폐기·원 사건 대응 및 배정 정책 근거.
     수용: 원량 이중 배정 금지·미배정 보존·실측/모델 분리·일자/모집단/면적 대사; 실제 H/P/S 입력은 각 근거를 추가 확인한다.
     세 자식과 해당 실제 근거/검증이 모이기 전에는 부모를 체크하지 않는다.
+- [ ] **`crop-harvest-replay`** — 선행: `crop-removal-mass`, `crop-harvest-events`와 같은 작기의 검증된 현재 조회.
+  기후/물·양분/구매 에너지 완료와 독립적으로 착수한다. 첫 예정 파일(3):
+  `contracts/crop-harvest-replay-v1.md`, `backend/app/crop_harvest_replay.py`, `backend/tests/test_crop_harvest_replay.py`.
+  착수 시 계약/불변 파생 결과·현재 권리 조회 → HTTP/SDK → 같은 UTC 표/3D를3~5파일 자식으로 나눈다.
+  수용: 원 result/input/model·계수/배정 판본·UTC·미배정/hold를 저장과 화면까지 보존하고,
+  전체 작기 원 행/질량·별도 Python 복원·조회 RHS0·현재 권리/계정 거부·제한 페이지/응답/WSL 자원을 검증한다.
+  실제 DB/API/대표 WebGL에서 원 값·단위를 대사하고 전체 행 대사와 대표 화면 검사를 구분한다.
+  사용자 산출물: 같은 UTC의 출처/가정/보류가 있는 질량·배정 재생. 합성 계수/배정은 실제 수확 예측으로 표시하지 않는다.
+  실제 생산량 게시에는 부모의 실제 계수/수확 근거와 해당 G0/G1, 미래 예측에는 G2/G3a가 추가로 필요하다.
 - [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.
   예정 파일(3): `backend/app/crop_climate_coupling.py`, `backend/tests/test_crop_climate_coupling.py`,
   `contracts/crop-climate-coupling-v1.md`.

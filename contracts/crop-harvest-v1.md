@@ -1,14 +1,17 @@
 # 과실 제거 원장과 건물·생과 환산 — v1 후보
 
-2026-10-07 초안, 2026-10-08 원장 로컬 수용. [환산 조사](../research/crop-harvest-conversion-baseline-20261006.md)의
+2026-10-07 초안, 2026-10-08 원장·합성 질량 환산 로컬 수용. [환산 조사](../research/crop-harvest-conversion-baseline-20261006.md)의
 출처·차원 검토와 현재 저장 형식을 작은 작업으로 연결한다. 실제 환산계수·수확 의미의 수용 기록이 아니다.
 개발/게시 조건은 [명세 5.3](../docs/PROJECT_SPEC.md#53-개발-착수와-결과-게시),
 선행 순서는 [계획](../tasks/plan.md), 현장 자료는 [확보 상태](../research/crop-independent-data-status.json)를 따른다.
-원 cycle3D/전체 작기 경로의 수용 뒤 원장을 구현한다. 질량 환산·수확 의미 연결은 후속이다.
+원 cycle3D/전체 작기 경로의 수용 뒤 원장·합성 질량 환산을 구현했다. 실제 계수·수확 의미 연결은 후속이다.
 
 **2026-10-08 원장 수용:** [전체166일 연구 경로](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md) 뒤
 [순수61개·실제 SCRAM1개와 root 감사](../research/crop-removal-ledger-implementation-20261008.md)로
 원장 자식만 수용했다. 질량 환산·수확 의미와 부모 수용은 후속이다.
+
+**2026-10-08 합성 질량 수용:** [순수105개·실제 SCRAM1개와 독립 Decimal/root 감사](../research/crop-removal-mass-implementation-20261008.md)로
+명시 소유 합성 계수의 환산 자식을 수용했다. 실제 계수·전체 작기 질량/게시·수확 의미와 부모는 미수용이다.
 
 ## 제거 원장의 조회 경계
 
@@ -81,6 +84,30 @@ FW_kg_per_m2_floor = DM_kg_per_m2_floor / d_kg_DM_per_kg_FW
 정의하며 실제 개별 과중으로 표시하지 않는다. 비유한·overflow·양수 underflow·수지 불일치를
 0 또는 임의 비율로 보정하지 않는다. 물리량 float64와 기존 Decimal 금액 계산의 경계를 유지한다.
 
+### 질량 환산 개발 인터페이스
+
+`iter_removal_mass(query, tenant, result_id, farm_ref, parameter_raw, *, first_sample=0,
+last_sample=None, sample_page_size=64, event_page_size=8)`는 원장과 같은 현재 조회를 쓴다.
+`summarize_removal_mass`는 같은 인자에서 원 행을 모두 보관하지 않고 종류별 합계와 행 순서 hash를 만든다.
+terminal과 관리 제거의 합계는 따로 보존하며 이를 수확량으로 합쳐 게시하지 않는다.
+
+첫 입력은262,144bytes 이하의 canonical JSON `crop-removal-mass-parameters-v1`이다.
+현재 개발 경로는 `origin=synthetic`, `evidence_level=assumed`만 받는다. 실제 계수의 검토/권리 발급 경로가
+없는 상태에서 원천 계수나 클라이언트 승인 bool을 채택하지 않는다. 모든 출력은
+`synthetic_removal_mass_math_only`·`rights_or_gate_approval=false`다.
+
+필수 항목은 계수 ID/판본·근거 ID·`available_at`, 원장의 result/payload/input/artifact/math manifest/상태,
+모집단 ID·`all_model_fruit_cohorts`·`m2_floor`·분모 근거 ID, `constant_per_original_interval` 정책과
+최대256개의 연속·비중첩 구간이다. 각 구간은 고유 ID·UTC 시작/끝과 단위가 있는 eta/DMC를 갖는다.
+빈 창에서도 원본 대응과 현재 권리를 검사한다. `available_at` 보존은 결정 당시 가용성 승인이나 전망이 아니다.
+
+terminal 구간은 하나의 계수 구간에 전부 포함되어야 한다. 그 안에서 계수가 바뀌면 더 세밀한 원 제거
+근거가 없어 보류한다. 경계의 순간 사건은 새 구간을 쓰고 마지막 끝 사건은 마지막 구간을 쓴다.
+입력 float64를 정확한 유리수로 산술한 뒤 각 결과를 가장 가까운 float64로 한 번 반올림한다.
+합계는 반올림된 행들의 정확한 합을 마지막에 float64로 반올림한다. 원 C/N과 계수 원문 hash를 보존한다.
+양수 결과가0이 되거나 유한 범위를 넘으면 보류한다. N=0의 상당수당 과중은 `null`이며0으로 채우지 않는다.
+절대 kg·다른 면적 분모·등급·수확/판매는 이 인터페이스의 출력이 아니다.
+
 ## 실제 수확 의미와 배치 연결
 
 원 제거를 수확·적과·폐기·채취로 분류하려면 원 모집단/사건·시각·근거와 검토된 배정 정책이
@@ -92,7 +119,7 @@ FW_kg_per_m2_floor = DM_kg_per_m2_floor / d_kg_DM_per_kg_FW
 
 ## 첫 구현 한 단계의 수용 기준
 
-`crop-removal-ledger`는 원 C/N 분리만 구현한다. eta/DMC/FW·H/P/S는 다음 단계다.
+`crop-removal-ledger`는 원 C/N 분리만 구현한다. eta/DMC/FW는 둘째 자식이며 H/P/S는 별도 근거가 필요하다.
 
 1. 독립 소유 합성 예제에서 terminal 구간 차이와 사건50개 과실 C/N 합계를 각각 대사한다.
 2. 잎/줄기만 제거하는 사건의 과실 원장은0이고, 혼합 사건에도 과실 외 C가 들어가지 않는다.

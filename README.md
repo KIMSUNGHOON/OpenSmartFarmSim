@@ -2,10 +2,10 @@
 
 지역을 고르면 기상·시설·작물·시장 자료의 출처를 확인하고, 온실 시나리오를 계산해 3D로 재생하며, **평가한 작물 중 어떤 선택이 목표에 가장 맞는지** 근거와 불확실성을 설명하는 오픈소스 프로젝트입니다. 수확 시점의 수요·공급과 거시 비용 변화도 재배 결정의 조건으로 다룹니다.
 
-**최신 수용 — 2026-10-08 19:42 KST:** [과실 제거 원장](research/crop-removal-ledger-implementation-20261008.md)을
-순수61개·실제 SCRAM1개/원 종료0·3표본/4사건·402 source/정리로 로컬 수용했다.
+**최신 수용 — 2026-10-08 20:02 KST:** [명시 합성 계수의 질량 환산](research/crop-removal-mass-implementation-20261008.md)을
+순수105개·실제 SCRAM1개/원 종료0·6행/2계수 구간·독립 Decimal·404 source/정리로 로컬 수용했다.
 선행 [합성166일 DB/API/대표3D](research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-다음은 명시 계수의 질량 환산이다. 실제 품종 입력/국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
+다음은 수확/적과/폐기 배정이다. 실제 계수/품종 입력·국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
 
 **단계별 검증 기록(수용 당시 범위):** 합성 생장 계산→실제 DB/HTTPS→같은 UTC3D의25시간 경로는 로컬 수용했고,
 [새 검증 조회의 화면](research/web-crop-cycle-calculation-view-20261008.md)도 Chromium 새15개/기존47개·웹719개·
@@ -66,7 +66,7 @@ PG/controller 포함 RSS 합1,050,714,112bytes≤1GiB·397 source/정리로 수�
 준비부터26,127.555초·전체47,809행/5사건·121상태/수지 대사→같은 DB 게시→보호 HTTPS10개/대표14시점 WebGL·
 권리/계정 거부·398 source/자원 정리를 최종 감사했다. 표본 RSS 합1,070,809,088bytes≤1GiB이며 여유약2.8MiB다.
 원9시간 상한/수식/격자를 유지했고 감사 후 source freeze를 해제했다. 전체47,809프레임·실제 형상/품종/관문 수용은 아니다.
-[후속 제거 원장](research/crop-removal-ledger-implementation-20261008.md)도 로컬 수용했다. 다음은 명시 생과 환산→자원/경제 연결이며 실제 자료·예측/추천 hold는 유지한다.
+[제거 원장](research/crop-removal-ledger-implementation-20261008.md)과 [명시 합성 질량 환산](research/crop-removal-mass-implementation-20261008.md)도 로컬 수용했다. 다음은 수확 의미·작기 질량 게시→자원/경제 연결이며 실제 자료·예측/추천 hold는 유지한다.
 `f2dc10f`의 [CI 종료 상태](research/artifacts/full166-calendar-registration-ci-terminal-20261008.json)는
 C0/웹/작성 PG/앱 성공, Backend 분할0/4/5 성공·1/2/3/집계 실패입니다.
 [Python·원격 PG 시험 수정](research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했으며 hosted 수용은 별도입니다.
