@@ -1,12 +1,12 @@
 # 구현 준비 현황
 
-**최신 수용 — 2026-10-09 00:09:41 KST:** [등록 수확의 실제 SCRAM/HTTPS](../research/crop-harvest-runtime-tls-implementation-20261009.md)를
-새2개(실제 SCRAM/HTTPS1)/기존 route72개·집중74개·원 종료0·450 source/정리로 로컬 수용했다.
-기존 보호된 loader의 실제 module import·표준 ApiRuntime·같은 DB의 원6행/요약·분할을 확인했다.
-실제 HTTPS17개·최대 25.700초/59,463bytes·재구성 서버2개 종료·원 값/UTC/권리/계정/변조 거부를 검증했다.
-TLS 자식과 선행 자식을 합친 API/runtime 부모만 추가 완료했다. SDK·수확 표/3D·replay 부모는 미완료다.
+**최신 수용 — 2026-10-09 00:32 KST:** [등록 수확 결과 웹 SDK](../research/web-crop-harvest-client-implementation-20261009.md)를
+집중97개/웹 전체817개(기존720 포함)·타입/빌드·원 종료0·458 source/정리로 로컬 수용했다.
+실제 HTTPS 원 응답5개 SHA/길이·원6행/UTC/단위/정확 수량·합성/미배정·관측 비교/hold를 보존했다.
+공통 Bearer·30초/2MiB transport와 순차 페이지·전체성/취소/혼합 거부를 연결했다.
+SDK와 선행 API를 합친 HTTP/SDK 부모만 추가 완료했다. 수확 표/3D·replay 부모는 미완료다.
 선행 합성166일 생장 DB/API/대표3D는 유지한다. 새 수확 경로의 전체166일 질량 부하는 별도다.
-다음은 SDK의 닫힌 응답·정확 수량/provenance·순차 페이지/취소/혼합 거부→같은 UTC 표/3D다.
+다음은 같은 UTC의 수확 목적·미배정 표/기존 생장 수치3D→실제 DB/API/대표 WebGL의 작은 검증이다.
 그 뒤 기후/물·양분/구매 에너지→Decimal 경제 연결로 진행한다.
 실제 계수/품종 입력·농장 작물 Run·국내 독립 자료0건, G0–G4/생산/마진 예측·추천 보류는 유지한다.
 

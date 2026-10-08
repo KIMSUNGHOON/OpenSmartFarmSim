@@ -1107,7 +1107,7 @@
     - [x] **`crop-harvest-registered-query`** — 선행 등록. 서버 등록의 key/hash를 해석한 현재권리 summary/page·fresh Python 실제 DB 복원.
       수용: 서명/원본/계정/철회/페이지 뒤 변경·한도·RHS0·소유 자원/비밀 정리. 착수 시3~5파일로 분해한다.
       [로컬 수용](../research/crop-harvest-current-query-implementation-20261008.md): 계약/query/시험3 core파일·순수23개/실제 SCRAM1개·집중24개/원 종료0·같은6행/summary/전체·분할·표시 권리만 남긴 읽기·fresh Python 실제 DB2개/종료0·권리/변조/종료 검사·FD13→13/자식4→4·426 source/보호 파일19개/DB·PG 정리. 작은 page약23초이며 HTTP/전체 부하는 별도다.
-  - [ ] **`crop-harvest-http-sdk`** — 선행 현재 조회. 공개 DTO/투영→인증 route·runtime/실제 TLS→SDK로3~5파일 자식을 분해한다.
+  - [x] **`crop-harvest-http-sdk`** — 선행 현재 조회. 공개 DTO/투영→인증 route·runtime/실제 TLS→SDK로3~5파일 자식을 분해한다.
     수용: 원 result/UTC/단위/판본·가정/hold/미배정 보존·응답/페이지 한도·권한/철회·실제 HTTPS·타입/집중 시험.
     - [x] **`crop-harvest-public-projection`** — 첫3 core파일: `contracts/api-crop-harvest-projection-v1.md`, `backend/app/api_crop_harvest_replay.py`, `backend/tests/test_api_crop_harvest_replay.py`.
       수용: 닫힌 summary/page DTO·원 result/부모/source·계수/배정 판본·UTC/단위/정확 수량·미배정/hold·승인false·2MiB, unknown/mixed/비정상 수량 거부·원6행/전체·분할 동일·재계산0. HMAC/비밀/private 경로/권리 원문은 비공개다.
@@ -1129,8 +1129,9 @@
         [실제 TLS 계약](../contracts/crop-harvest-runtime-tls-v1.md)의3 core파일: 계약·`backend/tests/crop_harvest_tls_fixture.py`·`backend/tests/test_crop_harvest_runtime_tls.py`.
         30초/2MiB 유지·원 RHS/행 재생성0·투영 뒤 철회·실제 명령 종료를 기록한다. 전체166일 질량 조회 부하는 별도다.
         [로컬 수용](../research/crop-harvest-runtime-tls-implementation-20261009.md): 새2개(실제SCRAM/HTTPS1)/route72개·집중74개·원 종료0·원6행/요약/분할·HTTPS17개/최대25.700초/59,463bytes·계정/권리/종료 후 철회/만료/선택page·HEAD 변조 거부·서버2개 종료·FD11→11·450 source/정리. API/runtime 부모만 추가 수용했으며 SDK/표·3D/전체166일 질량 부하/관문은 후속이다.
-    - [ ] **`crop-harvest-client`** — 선행 실제 API. 착수 시 SDK/닫힌 검증·집중 시험을3~5파일로 나눈다.
+    - [x] **`crop-harvest-client`** — 선행 실제 API. 착수 시 SDK/닫힌 검증·집중 시험을3~5파일로 나눈다.
       수용: 서버 provenance/UTC/단위/정확 수량/미배정/hold·페이지 순서/전체성·취소/혼합 거부·타입/빌드·집중 시험. 화면은 후속 view다.
+      [SDK 계약](../contracts/web-crop-harvest-client-v1.md)의5 core파일·[로컬 수용](../research/web-crop-harvest-client-implementation-20261009.md): 집중97개/웹817개(기존720 포함)·타입/빌드·원 종료0·원HTTPS5응답 SHA/길이·6행/정확 수량/UTC·순차/취소/전역 판본 혼합 거부·반환 객체와 독립 경계·458 source/소유 정리. HTTP/SDK 부모만 추가 수용했으며 표·3D/전체166일 질량 부하/관문은 후속이다.
   - [ ] **`crop-harvest-view`** — 선행 SDK와 기존 cycle3D. 같은 UTC의 질량·목적·미배정 표를 저장 수치 모식도와 연결한다.
     수용: 실제 DB/API/대표 WebGL의 원 값·시각·단위·선택/취소/권리·WSL 자원/정리. 전체 행 대사와 대표 frame 검사를 구분한다.
     실제 형상·숙기·등급/판매를 추정하거나 합성 배정을 실제 수확으로 표시하지 않는다.
