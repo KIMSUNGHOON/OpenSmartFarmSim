@@ -5,9 +5,10 @@
 [운영 기반 고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)에 둔다.
 아래 초안 날짜는 최초 작성일이다. 현재 구현 순서는 §7과 [작업 계획](../tasks/plan.md)을 따른다.
 
-**최신 수용 — 2026-10-08 19:04 KST:** [합성166일의 같은 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)를
-원 종료0·전체47,809표본/5사건 대사·대표14시점 WebGL·398 source/정리로 로컬 수용했다.
-실제 품종 입력/국내 독립 자료는0건이며 생산·마진 예측/추천은 보류다. 다음은 과실 제거 원장이다.
+**최신 수용 — 2026-10-08 19:42 KST:** [과실 제거 원장](../research/crop-removal-ledger-implementation-20261008.md)을
+순수61개·실제 SCRAM1개/원 종료0·3표본/4사건·402 source/정리로 로컬 수용했다.
+선행 [합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
+다음은 명시 계수의 질량 환산이다. 실제 품종 입력/국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
 
 **2026-10-08 단계별 연결 기록:** [별도 계산 설정 로더](../research/crop-cycle-calculation-operator-loader-20261007.md)를
 새57개/기존155개·고유212개 분할·실제 SCRAM/자원 정리로 로컬 수용했다.
@@ -75,7 +76,7 @@ PG/controller 포함 RSS 합1,050,714,112bytes≤1GiB·397 source/정리로 수�
 준비부터26,127.555초·전체47,809행/5사건·121상태/수지 대사→같은 DB 게시→보호 HTTPS10개/대표14시점 WebGL·
 권리/계정 거부·398 source/자원 정리를 최종 감사했다. 표본 RSS 합1,070,809,088bytes≤1GiB이며 여유약2.8MiB다.
 원9시간 상한/수식/격자를 유지했고 감사 후 source freeze를 해제했다. 전체47,809프레임·실제 형상/품종/관문 수용은 아니다.
-다음은 과실 제거 원장→명시 생과 환산→자원/경제 연결이며 실제 자료·예측/추천 hold는 유지한다.
+[후속 제거 원장](../research/crop-removal-ledger-implementation-20261008.md)도 로컬 수용했다. 다음은 명시 생과 환산→자원/경제 연결이며 실제 자료·예측/추천 hold는 유지한다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했고 hosted 수용은 별도다.
 전체166일 연구 DB/API/대표3D는 위 종료 증거로 수용했다. 누적 비용 부모의 별도 잔여 기준·생과/자원/경제와 실제 자료 관문은 후속이다.
 

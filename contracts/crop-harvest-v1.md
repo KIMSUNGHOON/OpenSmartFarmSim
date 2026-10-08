@@ -1,10 +1,34 @@
 # 과실 제거 원장과 건물·생과 환산 — v1 후보
 
-2026-10-07 KST. **구현 전 계약 초안**이다. [환산 조사](../research/crop-harvest-conversion-baseline-20261006.md)의
-출처·차원 검토와 현재 저장 형식을 다음 작은 작업으로 연결한다. 계수·자료·구현 수용 기록이 아니다.
+2026-10-07 초안, 2026-10-08 원장 로컬 수용. [환산 조사](../research/crop-harvest-conversion-baseline-20261006.md)의
+출처·차원 검토와 현재 저장 형식을 작은 작업으로 연결한다. 실제 환산계수·수확 의미의 수용 기록이 아니다.
 개발/게시 조건은 [명세 5.3](../docs/PROJECT_SPEC.md#53-개발-착수와-결과-게시),
 선행 순서는 [계획](../tasks/plan.md), 현장 자료는 [확보 상태](../research/crop-independent-data-status.json)를 따른다.
-원 cycle3D/전체 작기 부하 수용 뒤 구현하며, 지금은 계약만 준비한다.
+원 cycle3D/전체 작기 경로의 수용 뒤 원장을 구현한다. 질량 환산·수확 의미 연결은 후속이다.
+
+**2026-10-08 원장 수용:** [전체166일 연구 경로](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md) 뒤
+[순수61개·실제 SCRAM1개와 root 감사](../research/crop-removal-ledger-implementation-20261008.md)로
+원장 자식만 수용했다. 질량 환산·수확 의미와 부모 수용은 후속이다.
+
+## 제거 원장의 조회 경계
+
+첫 공개 Python 진입점은 `iter_removal_ledger(query, tenant, result_id, farm_ref, *, first_sample=0,
+last_sample=None, sample_page_size=64, event_page_size=8)`다. 원장용 HTTP/DB 표나 계산 접수는 만들지 않는다.
+기존 `CalculationCurrentCycleQuery`의 현재 권리/원본 검사를 재사용하고, 직접 받은 행이나 승인 bool로 대체하지 않는다.
+각 페이지를 닫은 뒤 원 result/payload/input/artifact/math manifest와 조회 identity를 첫 조회와 대조한다.
+samples64/events8 이하를 순서대로 읽으며 전체 작기의 원 행을 list에 모으지 않는다.
+
+선택 구간은 원 sample의 전역 index `[a,b]`다. terminal 행은 인접한 각 sample 쌍의 누적 차이이고,
+관리 사건은 `(sample[a].at,sample[b].at]`에 포함한다. `a=0`일 때만 첫 시각 사건도 포함한다.
+따라서 `[0,k]`와 `[k,n]`을 합하면 경계 사건은 한 번이다. 같은 UTC에서는 terminal 행 뒤 관리 사건을 둔다.
+0길이 창은 첫 시각 사건을 제외하면 원장 행이 없다. 반복 조회는 같은 행 ID를 돌려주며,
+중복·누락/역순 page와 서로 다른 result/root가 섞인 읽기는 거부한다.
+
+각 행은 원 result/payload/input/artifact/math manifest hash와 adapter/code/dependency 판본,
+전역 sample 쌍 또는 event index·원 행 hash에 결속한다. 출력 행은 원 C/N 단위와 사건50개 과실 벡터를 보존한다.
+기존 공개 응답/Run을 바꾸거나 새 서버 계산 이력을 게시하지 않는다.
+원 상태가 `hold`이면 확인된 sample 범위만 읽고 원 상태를 유지하며, 그 뒤 index나 미계산 미래를 요청하면 거부한다.
+iterator는 페이지별 연구 행이다. 늦은 권리 철회나 오류로 완료되지 않은 읽기를 완결된 원장/승인 Run으로 게시하지 않는다.
 
 ## 원량과 사건을 먼저 구분한다
 
