@@ -830,7 +830,7 @@
               실제 SCRAM40→120걸음/원3출력·fresh 게시/재조회/재시도 RHS0·같은 result ID/원량/row1·
               계산 전/yielded/현재 권리·계정 거부·294 source/FD13→13·원 종료0/123.575초/정리.
               첫 계산 전 별도 무작위 DB key와 원 감독/계획/마감 선언을 결속하며 전체166일 수용은 별도다.
-            - [ ] **`crop-cycle-calculation-full-path-harness`** — 작은 기능·지정 자원 자식 수용/전체166일 구성·실행 대기; 선행: 작은 완료 게시 연결 수용.
+            - [ ] **`crop-cycle-calculation-full-path-harness`** — 작은 기능·지정 자원·구성 자식 수용/전체166일 실제 실행 대기; 선행: 작은 완료 게시 연결 수용.
               기존 현재 API/HTTPS/3D를 같은 DB/farm/artifact에 연결한 통합 실행 구성을 준비한다.
               수용: 작은 실제 계산→게시→현재 보호 API/HTTPS→대표 원 UTC/수치의 실제 WebGL 대사·
               조회 RHS0·현재 권리·원 명령/실제 종료·source/FD/DB/비밀/PG/서버/브라우저 정리.
@@ -849,13 +849,19 @@
                 실제 빌드/Nginx·1024×768/390×844 viewport·Node heap64/2MiB·명시 CDP GC2회에서
                 PG/controller 포함 동시 RSS 합1,048,477,696bytes≤1GiB·primary150,097,920bytes≤512MiB.
                 원600초/상한을 유지했고 앞선10실패/원 종료/정리를 보존했다. 일반 운영/전체 작기는 별도다.
-              - [ ] **`crop-cycle-calculation-full166-same-db-preparation`** — 다음 단계; 전체 실행 전 구성의 작은 검증.
-                준비 전 원 마감/한도를 고정하고 같은 source/input/farm/config/DB key·빌드/Nginx를 결속한다.
-                계산→원47,809행/5사건·121상태/수지의 bounded streaming 대사→게시→API/대표3D→정리를
-                하나의 DB 생명주기로 연결하며 작은 관리 사건 프로그램으로 먼저 원량/권리/실제 종료/자원을 검증한다.
-                원9시간에 준비/대사/연결/정리를 포함하고 원8초RK4/300초출력·primary512MiB/pipeline1GiB를 유지한다.
-                같은 DB를 후속 조회 전에 지우거나 관측 유실을 재계산으로 대체하지 않는다.
-                이 구성 수용과 후속 전체166일 실제 실행 수용은 별도다.
+              - [x] **`crop-cycle-calculation-full166-same-db-preparation`** — 전체 실행 전 구성의 작은 검증 수용.
+                [계약](../contracts/crop-cycle-calculation-full166-same-db-preparation-v1.md)·
+                [수용](../research/crop-cycle-calculation-full166-same-db-preparation-implementation-20261008.md): 고유13시험·
+                실제120걸음/원3시점·3사건/121상태·별도 대사0→게시0→같은 DB 보호 API/대표WebGL·권리/계정 거부·
+                원 종료0/준비부터102.476초·PG/controller 포함 RSS 합1,050,714,112bytes≤1GiB·397 source/정리.
+                준비 전 원 마감·계산 전 config/별도 DB key/원 참조를 결속했고 원166일 참조의 첫64/마지막1시점·
+                전체5사건/121상태 읽기도 RHS0으로 확인했다. 첫 fixture 누락의 실제 원1/게시71·정리/snapshot을 보존했다.
+                이 작은 구성 수용과 전체166일 실제 실행 수용은 별도다.
+              - [ ] **`crop-cycle-calculation-full166-same-db-execution`** — 다음 단계; 원9시간 별도 실제 전체 실행.
+                원8초RK4/300초출력·primary512MiB/pipeline1GiB·두 공간2GiB를 유지하며 준비부터 마감을 고정한다.
+                같은 DB/farm/input/config/source/키로 계산→새47,809행/5사건·121상태/수지의 원 전체 대사→
+                게시→현재 API/대표UTC3D→실제 종료/정리를 완료하고 새 저장량/원 명령/로그·불변 영수증을 감사한다.
+                대표 화면을 전체47,809프레임이나 실제 형상으로 재분류하지 않는다. 만료/강제 종료는 hold이며 자동 재시작하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

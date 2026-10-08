@@ -53,7 +53,11 @@ API193개/웹720개/Chromium15개·타입/빌드·새34 JSON/원량/UTC·270 sou
 고유2개·원 종료0/89.680초·원3시점/3사건·392 source/정리로 로컬 수용했다.
 실제 빌드/Nginx·지정 viewport/Node heap·명시 CDP GC2회에서 PG/controller 포함 동시 RSS 합
 1,048,477,696bytes≤1GiB다. 일반 운영 브라우저/전체 작기의 자원 수용으로 확대하지 않는다.
-다음은 같은 DB를 유지하는 전체166일 실행 구성의 준비/작은 검증이며 전체 실행은 아직 시작하지 않았다.
+[전체 실행 구성의 작은 수용](research/crop-cycle-calculation-full166-same-db-preparation-implementation-20261008.md)도
+고유13시험·실제 대사 자식0→게시 자식0→같은 DB/UTC3D·원 종료0/준비부터102.476초·
+PG/controller 포함 RSS 합1,050,714,112bytes≤1GiB·397 source/정리로 수용했다.
+원166일 참조의 첫64/마지막1시점·전체5사건/121상태 읽기도 RHS0으로 확인했다.
+다음은 별도 전체166일 등록 계산/원 전체 대사/DB/API/대표3D 실행이며 아직 시작하지 않았다.
 9시간은 후속 실험 상한이며 전체166일 DB/API/3D·생산/경제 연결은 후속입니다.
 `f2dc10f`의 [CI 종료 상태](research/artifacts/full166-calendar-registration-ci-terminal-20261008.json)는
 C0/웹/작성 PG/앱 성공, Backend 분할0/4/5 성공·1/2/3/집계 실패입니다.
