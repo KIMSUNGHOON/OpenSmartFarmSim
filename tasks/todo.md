@@ -1087,10 +1087,12 @@
   실제 DB/API/대표 WebGL에서 원 값·단위를 대사하고 전체 행 대사와 대표 화면 검사를 구분한다.
   사용자 산출물: 같은 UTC의 출처/가정/보류가 있는 질량·배정 재생. 합성 계수/배정은 실제 수확 예측으로 표시하지 않는다.
   실제 생산량 게시에는 부모의 실제 계수/수확 근거와 해당 G0/G1, 미래 예측에는 G2/G3a가 추가로 필요하다.
-  - [ ] **`crop-harvest-artifact`** — 첫 위3파일. 원 결과·계수/배정 원문 hash/판본·UTC·단위·미배정/hold를 불변 파생 artifact에 결속한다.
+  - [x] **`crop-harvest-artifact`** — 첫 위3파일. 원 결과·계수/배정 원문 hash/판본·UTC·단위·미배정/hold를 불변 파생 artifact에 결속한다.
     수용: 현재 검증 조회만 소비·bounded page/bytes·단일/분할 읽기 동일·원 행과 질량/배정 전체 대사·hash/atomic HEAD·중단 전후 복원·별도 Python/RHS0.
     권리 철회/원본 변경 뒤 게시를 거부하고 기존 artifact/수식을 보존한다. 작은 실제 현재 DB 조회/소유 WSL 자원 상한·정리 뒤 자식만 체크한다.
     사용자 산출물: 원 연구 결과에 연결된 질량/배정 artifact와 복원 보고서. 새 웹/실제 수확 예측 수용은 별도다.
+    [로컬 수용](../research/crop-harvest-artifact-implementation-20261008.md): 순수19개·6/132행·별도 Python2개/행 재생성0·실제 SIGKILL2개·소유 hold probe2사례·실제 SCRAM1개/원 종료0·6저장 행/권리·독립 Decimal/FD/원 파일/DB·411 source/정리.
+    별도 Python은 소유 읽기 fixture이며 fresh 실제 DB 권한 재구성·전체166일 질량 저장/API/3D/부모·관문 수용은 별도다.
   - [ ] **`crop-harvest-current-query`** — 선행 artifact. 서버 소유 등록과 현재 부모 결과/농장/계정/권리 검사를 결합한다.
     착수 시 등록과 조회를 각각3~5파일 작업으로 분해하고 기존 store/query 계약을 재사용한다.
     수용: 혼합 result/농장/계수/배정·변조/철회/다른 계정 거부·현재 권리 아래 제한 페이지/요약·재계산 없는 별도 프로세스 조회·실제 SCRAM/정리.

@@ -1,10 +1,10 @@
 # 구현 순서
 
-**최신 수용 — 2026-10-08 20:31 KST:** [합성 수확·적과·폐기·채취 배정](../research/crop-harvest-events-implementation-20261008.md)을
-순수148개·실제 SCRAM1개/원 종료0·6행/6규칙·독립 Decimal·406 source/정리로 로컬 수용했다.
+**최신 수용 — 2026-10-08 20:48 KST:** [질량·배정의 불변 저장](../research/crop-harvest-artifact-implementation-20261008.md)을
+순수19개·별도 Python/실제 SIGKILL·실제 SCRAM1개/원 종료0·6저장 행·411 source/정리로 로컬 수용했다.
 선행 [합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-다음은 `crop-harvest-replay`다. 불변 artifact→현재 권리 조회/서버 등록→HTTP/SDK→같은 UTC 표/3D를 작은 자식으로 검증한다.
-첫 `crop-harvest-artifact`는 같은 원 결과/질량·배정 원문과 bounded page·hash·atomic HEAD·별도 Python 복원을 검증한다.
+`crop-harvest-artifact` 자식을 수용했다. 다음은 서버 소유 등록→현재 권리 조회→HTTP/SDK→같은 UTC 표/3D다.
+서버 등록과 현재 query를 각각3~5파일 작업으로 나누고 기존 원 결과의 농장/권한/store 계약을 재사용한다.
 이 경로는 기후/물·양분/구매 에너지 개발과 병행하며 실제 생산량/예측 게시 관문은 별도다.
 생과 환산·자원/경제·실제 입력/독립 검증·전체 제품 관문은 후속이며 아래 단계별 기록은 당시 상태다.
 
