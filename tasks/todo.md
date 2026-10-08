@@ -1109,10 +1109,17 @@
       [로컬 수용](../research/crop-harvest-current-query-implementation-20261008.md): 계약/query/시험3 core파일·순수23개/실제 SCRAM1개·집중24개/원 종료0·같은6행/summary/전체·분할·표시 권리만 남긴 읽기·fresh Python 실제 DB2개/종료0·권리/변조/종료 검사·FD13→13/자식4→4·426 source/보호 파일19개/DB·PG 정리. 작은 page약23초이며 HTTP/전체 부하는 별도다.
   - [ ] **`crop-harvest-http-sdk`** — 선행 현재 조회. 공개 DTO/투영→인증 route·runtime/실제 TLS→SDK로3~5파일 자식을 분해한다.
     수용: 원 result/UTC/단위/판본·가정/hold/미배정 보존·응답/페이지 한도·권한/철회·실제 HTTPS·타입/집중 시험.
-    - [ ] **`crop-harvest-public-projection`** — 첫3 core파일: `contracts/api-crop-harvest-projection-v1.md`, `backend/app/api_crop_harvest_replay.py`, `backend/tests/test_api_crop_harvest_replay.py`.
+    - [x] **`crop-harvest-public-projection`** — 첫3 core파일: `contracts/api-crop-harvest-projection-v1.md`, `backend/app/api_crop_harvest_replay.py`, `backend/tests/test_api_crop_harvest_replay.py`.
       수용: 닫힌 summary/page DTO·원 result/부모/source·계수/배정 판본·UTC/단위/정확 수량·미배정/hold·승인false·2MiB, unknown/mixed/비정상 수량 거부·원6행/전체·분할 동일·재계산0. HMAC/비밀/private 경로/권리 원문은 비공개다.
+      [로컬 수용](../research/crop-harvest-public-projection-implementation-20261008.md): 새70개/선행query 순수23개·집중93개/원 종료0·원6행/summary/분할·빈 끝·owned hold probe·전체2MiB·별도 import DB/network0/FD4→4·431 source/정리. 새 DB/HTTP/3D0건이며 부모/관문은 별도다.
     - [ ] **`crop-harvest-api-runtime`** — 선행 투영. 착수 시 설정/factory·인증 route·실제 TLS를3~5파일 자식으로 나눈다.
       수용: exact reader/현재 같은 farm/계정·투영 뒤 철회·원 ID/UTC/수량 보존·실제 SCRAM/HTTPS30초·전체2MiB·권한/자원/정리. 작은 query약23초를 HTTP 수용으로 대체하지 않는다.
+      - [ ] **`crop-harvest-route-openapi`** — 첫3 core파일: `contracts/api-crop-harvest-route-v1.md`, `backend/app/api_crop_harvest_route.py`, `backend/tests/test_api_crop_harvest_route.py`.
+        수용: exact 현재 query/reader·기존 jobs/farm/principal·읽기 scope·닫힌 ID/farm/view/offset/limit·open 안의 투영/직렬화·종료 후 현재 계정·no-store·401/403/404/422/503·ASGI/OpenAPI. 실제 TLS는 후속이다.
+      - [ ] **`crop-harvest-runtime-factory`** — 선행 route. 착수 시 명시 operator 설정/factory·기존 App 조립과 집중 시험을3~5파일로 고정한다.
+        수용: 같은 DB/reader/원 query/farm·private key/DSN 소유권·default deny·명시 활성·새 프로세스 복원·기존 API/권한/이력 보존·비밀 정리.
+      - [ ] **`crop-harvest-runtime-tls`** — 선행 실제 factory/route. 작은 실제 SCRAM 부모·HTTPS의 summary/원6행·split/권리/계정·응답/WSL 자원·정리.
+        30초/2MiB 유지·원 RHS/행 재생성0·투영 뒤 철회·실제 명령 종료를 기록한다. 전체166일 질량 조회 부하는 별도다.
     - [ ] **`crop-harvest-client`** — 선행 실제 API. 착수 시 SDK/닫힌 검증·집중 시험을3~5파일로 나눈다.
       수용: 서버 provenance/UTC/단위/정확 수량/미배정/hold·페이지 순서/전체성·취소/혼합 거부·타입/빌드·집중 시험. 화면은 후속 view다.
   - [ ] **`crop-harvest-view`** — 선행 SDK와 기존 cycle3D. 같은 UTC의 질량·목적·미배정 표를 저장 수치 모식도와 연결한다.

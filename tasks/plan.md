@@ -1,13 +1,13 @@
 # 구현 순서
 
-**최신 수용 — 2026-10-08 22:04 KST:** [등록 수확의 현재 조회·fresh 실제 DB 복원](../research/crop-harvest-current-query-implementation-20261008.md)을
-순수23개/실제 SCRAM1개·집중24개·원 종료0·같은6행/summary/전체·분할·표시 권리만 남긴 읽기·fresh Python2개·426 source/정리로 수용했다.
-query 자식과 세 자식을 충족한 작은 `crop-harvest-current-query` 부모를 추가 체크했다. `crop-harvest-replay`는 미완료다.
-등록1건은 소유 합성 시험이며 실제 계수/품종 입력·농장 작물 Run0건이다. 선행 합성166일 DB/API/대표3D를 보존한다.
-다음 `crop-harvest-http-sdk`는 닫힌 DTO/투영(계약/module/시험3 core파일)→명시 runtime/인증 route·실제 TLS→SDK로 나눈다.
-투영은 원 ID/부모·UTC/단위·계수/배정 판본·정확 수량/미배정/hold·승인false·2MiB를 보존하고 비밀/private 경로는 공개하지 않는다.
-현재 작은 page22.950~23.019초는 내부 query 관측이다. HTTP30초 한도를 유지해 실제 TLS와 전체 질량 조회 비용을 별도 확인한다.
-그 뒤 같은 UTC 표/3D→기후/물·양분/구매 에너지→Decimal 경제 연결로 진행한다. 기후/자원 개발과 독립 자료 확보는 병행한다.
+**최신 수용 — 2026-10-08 22:24 KST:** [등록 수확의 닫힌 공개 응답](../research/crop-harvest-public-projection-implementation-20261008.md)을
+새70개/선행 query 순수23개·집중93개·원 종료0·원 저장6행/summary/전체·분할·hold probe·431 source/정리로 수용했다.
+새 DB/HTTP/3D 실행은0건이다. `crop-harvest-public-projection`만 추가 체크했으며 HTTP/SDK·replay 부모는 미완료다.
+선행 실제 DB 현재 조회와 합성166일 DB/API/대표3D를 보존한다. 실제 계수/품종 입력·농장 작물 Run0건이다.
+다음은 API runtime 부모의 인증 route/ASGI·OpenAPI 자식(계약/module/집중 시험3 core파일)이다.
+exact 현재 query/reader·jobs/farm/principal·읽기 scope·닫힌 요청·open 안의 투영/종료 뒤 권리·no-store/오류를 검증한다.
+그 뒤 명시 설정/factory·실제 SCRAM/HTTPS30초·2MiB→SDK→같은 UTC 표/3D→기후/물·양분/구매 에너지→Decimal 경제 연결로 진행한다.
+현재 작은 내부 query page약23초는 실제 HTTPS 수용이 아니다. 기후/자원 개발과 독립 자료 확보는 병행한다.
 국내 독립 자료0건·실제 생산량/예측/추천·전체 제품 관문은 후속이며 완료 날짜는 각 실측/외부 자료 확보 상태로 갱신한다.
 아래 단계별 기록은 당시 상태다.
 

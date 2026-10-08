@@ -4,13 +4,13 @@
 작물 생장·저장·성장 3D로 진행한다. 첫 작성 시점의 구현 현황은 아래에 남겨두며,
 현재 운영 완료 범위와 CI는 [고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)을 따른다.
 
-**최신 수용 — 2026-10-08 22:04 KST:** [등록 수확의 현재 조회·fresh 실제 DB 복원](../research/crop-harvest-current-query-implementation-20261008.md)을
-순수23개·실제 SCRAM1개/집중24개·원 종료0·같은6행/전체·분할·표시 권리만 남긴 조회·fresh Python2개/권리 거부·426 source/정리로 로컬 수용했다.
-선행 [합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-다음은 수확 결과의 닫힌 공개 DTO→인증 route/runtime·실제 TLS→SDK→같은 UTC 표/3D다.
-작은 현재 query page는약23초이며 HTTPS30초/전체166일 새 질량 조회 부하는 별도 검증한다.
-등록1건은 소유 합성 시험 자료이며 실제 계수/품종 입력·농장 작물 Run은0건이다.
-국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
+**최신 수용 — 2026-10-08 22:24 KST:** [등록 수확의 닫힌 공개 응답](../research/crop-harvest-public-projection-implementation-20261008.md)을
+새70개/선행 query 순수23개·집중93개·원 종료0·원 저장6행/summary/전체·분할·보류 probe·431 source/정리로 수용했다.
+이번 단계의 새 DB/HTTP/3D 실행은0건이다. 선행 [실제 DB 현재 조회](../research/crop-harvest-current-query-implementation-20261008.md)와
+[합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
+다음은 수확의 인증 route/ASGI·OpenAPI→명시 runtime/실제 TLS→SDK→같은 UTC 표/3D다.
+기존 작은 내부 query page약23초는 HTTPS30초/전체166일 새 질량 조회 부하의 수용이 아니다.
+실제 계수/품종 입력·농장 작물 Run은0건이다. 국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
 후속 `crop-harvest-replay`는 질량/배정의 저장·현재 조회→HTTP/SDK→같은 UTC3D를 작은 자식으로 검증한다.
 기후/물·양분/구매 에너지 개발과 병행하며 실제 생산량/예측 게시 관문은 유지한다.
 
