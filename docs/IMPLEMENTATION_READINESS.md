@@ -1,6 +1,16 @@
 # 구현 준비 현황
 
-**최신 수용 — 2026-10-09 02:22 KST:** [같은 실제 DB의 수확·생장3D](../research/crop-harvest-view-native-implementation-20261009.md)를
+**최신 수용 — 2026-10-09 02:48 KST:** [전체 수확 수량·용량 대사](../research/crop-harvest-full-capacity-implementation-20261009.md)를
+원78826 종료0·집중38개·전체 명령85.238초·1,474 source/원본/FD identity·소유 정리로 로컬 수용했다.
+원47,809시점/5사건에서47,813행을 RHS0으로 만들고 Decimal 독립 수량/반올림 수지와 단위·목적·미배정을 대사했다.
+748page/307,675,603bytes·root/HEAD/atomic 예약 상한311,878,099bytes≤512MiB,
+알려진 root95,883bytes·단일/소유 RSS106.55/125.51MiB다. 용량 자식만 완료했다.
+실제 전체 writer/DB/API/대표3D와 replay 부모는 미완료다. 다음은 정리된 DB/인증 자료의 실제 전체 부모 복원
+→같은 raw profile의 전체 writer/등록·fresh 현재권리→API/대표3D→기후·물/양분·구매 에너지→사용자 실행/Decimal 경제다.
+첫 복원은 보존 자료/검증 경로 재사용 조건의2–4집중시간 잠정이며 전체 실행 예산은 실제 복원 뒤 측정한다.
+실제 품종 입력·농장 작물 Run·국내 독립 자료0건, G0–G4/생산/미래 마진/추천 hold는 유지한다.
+
+**선행 수용 — 2026-10-09 02:22 KST:** [같은 실제 DB의 수확·생장3D](../research/crop-harvest-view-native-implementation-20261009.md)를
 원69379 종료0·2통과/226.498초·828 source/소유 정리로 로컬 수용했다.
 원6행/3시점·50 C/N/LAI·현재 권리/계정·취소/늦은 응답을 실제 SCRAM/보호 HTTPS/빌드 App/WebGL로 대사했다.
 metadata/시각/응답 대체0·조회 RHS/행 생성/게시0이며 완료200응답9개의 양쪽 bytes/SHA가 같다.

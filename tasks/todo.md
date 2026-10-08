@@ -1154,17 +1154,30 @@
       원6행/3sample/4event·50 C/N/LAI·키보드/모바일·현재 권리/복원·계정/취소·늦은 응답 제거.
       HTTP13개/완료200본문9개 양쪽 bytes/SHA·최대22.722초/32,659bytes·828 source·원 파일/DB/FD·소유 정리.
       지정 heap/GC/GPU thread·소유 RSS 합1,030,803,456bytes≤1GiB. 작은 view 부모만 완료하며 전체 질량/replay/관문은 별도다.
-  - [ ] **`crop-harvest-full-capacity`** — 선행 작은 view와 완료된 전체166일 원 생장 결과.
-    첫 예정3 core파일: `contracts/crop-harvest-full-capacity-v1.md`, `research/crop-harvest-full-capacity.py`, `backend/tests/test_crop_harvest_full_capacity.py`.
+  - [x] **`crop-harvest-full-capacity`** — 선행 작은 view와 완료된 전체166일 원 생장 결과.
+    구현3 core파일: `contracts/crop-harvest-full-capacity-v1.md`, `research/crop-harvest-full-capacity.py`, `backend/tests/test_crop_harvest_full_capacity.py`.
     수용: 원47,809sample/5event·hash/UTC를 bounded reader로 읽고 RHS0으로 전체 원 구간/사건의 질량·배정 행/순서·단위·정확 수량을 대사한다.
     leaf/stem과 과실 분리·미배정/합성 hold 유지, 독립 수량 수지와 page64행/2MiB·artifact512MiB/파일/예약 한도·WSL 자원/원본 정리를 확인한다.
     실제 전체 writer/DB/HTTP 실행으로 표시하지 않으며 초과/수치 불가는 근거와 hold로 남긴다.
     사용자 산출물: 전체 원 행 기준 용량·수량 대사 보고서와 후속 실제 실행 예산.
+    [로컬 수용](../research/crop-harvest-full-capacity-implementation-20261009.md): 원78826 종료0·집중38개/전체85.238초·47,813행 전부 독립 Decimal/원 UTC·hash 대사.
+    748page/307,675,603bytes·예약 상한311,878,099bytes≤512MiB·root 알려진 필드95,883bytes·목적/미배정/leaf-stem 분리·1,474 source/원본/FD identity·소유 정리.
+    순차 RSS 단일106.55MiB/소유 합125.51MiB. 실제 전체 writer/DB/HTTP/현재권리 복원은0회며 그 부모는 미완료다.
   - [ ] **`crop-harvest-full-mass-load`** — 선행 용량 수용과 기존 등록 query/API/작은 native.
     착수 시 전체 writer/등록·별도 Python 현재권리 복원·API/대표 WebGL을3~5 core파일 자식으로 나눈다.
     수용: 같은 원 전체 결과/계수·배정/UTC의 모든 행/질량·불변 저장/DB·RHS0 읽기·실제 현재권리/계정 거부와 원 명령 종료/소유 자원 정리.
     전체 행 대사와 대표 프레임 검증을 구분하고 관측된 용량/시간 안에서 수행한다. 실제 품종/미래 생산량으로 승격하지 않는다.
     두 전체 자식의 증거가 모인 뒤 `crop-harvest-replay` 부모를 평가한다.
+    - [ ] **`crop-harvest-full-parent-restore`** — 다음 한 단계. 기존 전체 입력/artifact와 작은 현재 query를 재사용한다.
+      첫 예정3 core파일: `contracts/crop-harvest-full-parent-restore-v1.md`, `research/crop-harvest-full-parent-restore.py`, `backend/tests/crop_harvest_full_parent_restore_smoke.py`.
+      근거: 원 전체 시험 DB/비밀 파일은 정리됐고 custody key는 무작위 생성했다. 보존된 인증/게시 metadata의 재사용 가능성부터 실제 확인한다.
+      수용: 원 입력/root/등록 농장/source와 같은 전체 부모의 실제 SCRAM/current query·별도 Python 조회·현재 권리 철회/복원·원 값/UTC/hash·RHS0/정리·원 종료.
+      인증 자료가 없으면 구형 서명/계보 검사 우회나 임의 DB 행 삽입 없이 명시적 재검증/복원 계약과 필요한 최소 제품 변경을 별도 자식으로 고정한다.
+      후속 전체 writer의 읽기/쓰기 실행 예산을 실측하며 원 capacity의85초를 실제 DB 시간으로 외삽하지 않는다. 첫 복원2–4집중시간/10월9일 KST 조건부 잠정.
+    - [ ] **`crop-harvest-full-writer-registry`** — 선행 실제 전체 부모 복원. 착수 시 실제 writer/등록·fresh reader와 집중 시험을3~5 core파일로 나눈다.
+      수용: capacity 영수증의 동일 raw profile/source/UTC·모든47,813행/748page의 hash/수량, 실제 root/공간·불변 registry·fresh Python 현재 권리/계정 거부·읽기 RHS0·원 종료/소유 정리.
+    - [ ] **`crop-harvest-full-api-native`** — 선행 전체 writer/registry. 착수 시 실제 보호 API/대표 WebGL과 수동 시험을3~5 core파일로 나눈다.
+      수용: 같은 전체 부모/수확의 모든 행 대사와 대표 frame 검사 분리, 실제 bytes/시간·권리/취소/계정·원 종료/WSL 정리. 전체 실행의 관측 예산을 유지한다.
 - [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.
   예정 파일(3): `backend/app/crop_climate_coupling.py`, `backend/tests/test_crop_climate_coupling.py`,
   `contracts/crop-climate-coupling-v1.md`.
