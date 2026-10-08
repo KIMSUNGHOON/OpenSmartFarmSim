@@ -4,7 +4,11 @@
 작물 생장·저장·성장 3D로 진행한다. 첫 작성 시점의 구현 현황은 아래에 남겨두며,
 현재 운영 완료 범위와 CI는 [고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)을 따른다.
 
-**2026-10-08 최신 경계:** [계산 설정 로더](../research/crop-cycle-calculation-operator-loader-20261007.md)의
+**최신 수용 — 2026-10-08 19:04 KST:** [합성166일의 같은 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)를
+원 종료0·전체47,809표본/5사건 대사·대표14시점 WebGL·398 source/정리로 로컬 수용했다.
+실제 품종 입력/국내 독립 자료는0건이며 생산·마진 예측/추천은 보류다. 다음은 과실 제거 원장이다.
+
+**2026-10-08 단계별 경계 기록:** [계산 설정 로더](../research/crop-cycle-calculation-operator-loader-20261007.md)의
 고유212개 분할·실제 SCRAM/정리로 명시 operator-runtime까지 로컬 수용했다.
 [인증 route/OpenAPI](../research/crop-cycle-calculation-route-openapi-20261007.md)도 고유284개 분할·ASGI/원 선언·78 source 보존으로 수용했다.
 [runtime/TLS](../research/crop-cycle-calculation-runtime-tls-20261007.md)도 고유337개 분할·실제 SCRAM/26 HTTPS·
@@ -69,14 +73,14 @@ API193개/웹720개/Chromium15개·타입/빌드·새34 JSON/원량/UTC·270 sou
 고유13시험·실제 대사 자식0→게시 자식0→같은 DB/UTC3D·원 종료0/준비부터102.476초·
 PG/controller 포함 RSS 합1,050,714,112bytes≤1GiB·397 source/정리로 수용했다.
 원166일 참조의 첫64/마지막1시점·전체5사건/121상태 읽기도 RHS0으로 확인했다.
-[별도 전체166일 등록 실행 시작](../research/crop-cycle-calculation-full166-same-db-started-20261008.md)을
-2026-10-08 11:41 KST에 기록했다. 실제 fresh Python worker/nice19·원 계획/입력·진행을 확인했다.
-같은 날20:41 KST는 준비/대사/게시/API/대표3D/정리를 포함한 원9시간 상한이며 완료 약속이 아니다.
-현재 실행을 관측하며 전체 수용은 실제 종료·원량/권리·자원 정리 후 판단한다.
-9시간은 후속 실험 상한이며 전체166일 DB/API/3D는 후속이다.
+[별도 전체166일 실행](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)은10월8일11:41→18:56 KST에 원 종료0/1통과로 완료했다.
+준비부터26,127.555초·전체47,809행/5사건·121상태/수지 대사→같은 DB 게시→보호 HTTPS10개/대표14시점 WebGL·
+권리/계정 거부·398 source/자원 정리를 최종 감사했다. 표본 RSS 합1,070,809,088bytes≤1GiB이며 여유약2.8MiB다.
+원9시간 상한/수식/격자를 유지했고 감사 후 source freeze를 해제했다. 전체47,809프레임·실제 형상/품종/관문 수용은 아니다.
+다음은 과실 제거 원장→명시 생과 환산→자원/경제 연결이며 실제 자료·예측/추천 hold는 유지한다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했으며 hosted 수용은 별도다.
 [기존 설정 호환의 hosted 세 Compose/정리](../research/artifacts/application-operator-policy-hosted-reference-20261008.json)는 수용했다.
-전체166일 등록 계산/복원과 생산/경제·자료 관문·hosted 수용은 별도다.
+전체166일 연구 DB/API/대표3D는 위 종료 증거로 수용했다. 생산/경제·자료 관문·hosted 수용은 별도다.
 
 상태: **내부 구현 계약·부분 구현, 2026-09-27.** C0 Compose, 출처/G0 형식·서버 승인 저장 계약·시장 문맥, 합성 열 매개변수·trace 계약과 `candidate` 엔진, 조건부 경제 원장·판매 정산, PostgreSQL 지속 작업·AI 시도 증거 저장 계약이 수용됐다. G0 독립 권리 증거의 실제 연결, CLI 증거 저장 브리지와 의도 멱등 제약은 수용됐다. 열 모델의 D/R 결정시각 분리·서명된 DecisionContext와 게시 소프트웨어 통합, CLI 작업자 후보, 사용자 가정의 공동 시장 시나리오가 구현됐다. 실제 제품 CLI 실행·독립 게시 권한, 영속 Market hold·전체 경로 손익분기, API·3D·G1 종단 간 경로는 아직 수용 전이다. 세부 기준은 [제품 명세](PROJECT_SPEC.md), [아키텍처](ARCHITECTURE.md), [경제 계약](ECONOMICS.md), [시장 자료의 시점](MARKET_INTELLIGENCE.md), [기술 스택](TECH_STACK.md)을 따른다. 실제 준비 상태는 [구현 준비 현황](IMPLEMENTATION_READINESS.md)에 기록한다.
 

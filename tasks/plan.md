@@ -1,5 +1,10 @@
 # 구현 순서
 
+**최신 수용 — 2026-10-08 19:04 KST:** [합성166일 같은 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)를
+원 종료0/전체47,809행·5사건·121상태/대표14시점 WebGL·398 source/정리로 로컬 수용했다.
+다음은 기존 [제거 원장 계약](../contracts/crop-harvest-v1.md)의 첫3 core파일이다.
+생과 환산·자원/경제·실제 입력/독립 검증·전체 제품 관문은 후속이며 아래 단계별 기록은 당시 상태다.
+
 ## 작물 생산과 성장 3D 우선순위 (2026-10-04)
 
 최종 목표를 기준으로 다음 순서를 우선한다. 이 절의 현재 계획 뒤에 남긴 날짜별
@@ -410,7 +415,7 @@ RHS 전에 실효128원경계로 제한하고 독립 validator/실제 저장·�
 [등록 감독 제어](../research/crop-cycle-calculation-registered-supervisor-control-implementation-20261008.md)도
 고유16개·실제 SCRAM40→60→80걸음/2출력·같은 spec/deadline·복원 RHS0·연속 제어 원량/UTC·
 native pause/cancel/실제-9·현재 권리·289 source/종료0/정리로 수용했다. 작은 감독자 부모도 로컬 수용했다.
-다음 `crop-cycle-calculation-full-registered-run`은 새 사설 준비/spec와 전체166일 runtime·등록 DB/farm·
+`crop-cycle-calculation-full-registered-run`의 개발 대상은 새 사설 준비/spec와 전체166일 runtime·등록 DB/farm·
 별도 DB 게시 key를 결속하고 원9시간 예산/자원 한도 안에서 실제 terminal·전체 원량/행/수지·달력 이동·
 DB 게시·현재 권리·원 종료/정리를 검증한다.
 [완료 결과 별도 게시](../research/crop-cycle-calculation-registered-terminal-publication-implementation-20261008.md)는
@@ -419,7 +424,7 @@ DB 게시·현재 권리·원 종료/정리를 검증한다.
 다음은 같은 DB/farm/artifact를 계산→게시→현재 API/HTTPS→동일 UTC3D까지 유지하는 통합 실행 구성이다.
 작은 실제 통합 경로를 먼저 검증하고, 전체 실행의 원량/수지 대사와 후속 조회/3D까지 끝낸 뒤 정리한다.
 각 단계의 수용은 별도 증거로 판단하며 원9시간 상한에 준비/검증/연결/정리를 포함한다.
-새 전체166일은 아직 시작하지 않았다. 외부 독립 농장 자료 확보는 이 개발과 병행한다.
+전체166일의 실제 수용은 아래10월8일 종료 기록을 따른다. 외부 독립 농장 자료 확보는 개발과 병행한다.
 [작은 같은 DB/보호 App/3D](../research/crop-cycle-calculation-registered-replay-harness-implementation-20261008.md)는
 고유2개·실제120걸음/3시점·3사건·fresh 게시·HTTPS8개/원값·권리/계정 거부·303 source/원 종료0/정리로
 기능 자식을 수용했다. 이전 descendant RSS 합1,583,595,520bytes 초과 뒤
@@ -432,13 +437,15 @@ PG/controller 포함 동시 RSS 합1,048,477,696bytes≤1GiB다. 일반 운영/�
 원 종료0/준비부터102.476초·PG/controller 포함 RSS 합1,050,714,112bytes≤1GiB·397 source/정리로 수용했다.
 준비 전 원 마감과 계산 전 source/input/farm/config/DB key·빌드/Nginx를 결속했다.
 원166일 참조의 첫64/마지막1시점·전체5사건/121상태 읽기도 RHS0으로 확인했다.
-다음은 별도 전체166일의 실제 등록 계산→bounded streaming 원47,809행/5사건·121상태/수지 대사→
-같은 DB 게시/API/대표3D/정리다. [별도 실제 실행 시작](../research/crop-cycle-calculation-full166-same-db-started-20261008.md)을
-2026-10-08 11:41 KST에 기록했고 실제 fresh Python worker/nice19·원 계획/입력·진행을 확인했다.
-준비/검증/연결/정리를 원9시간/20:41 KST 상한에 포함한다. 현재 원 handle을 관측하며 전체 수용은 종료/원량/권리/정리 후 판단한다.
+[별도 전체166일 완료](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는10월8일11:41→18:56 KST,
+원 종료0/1통과·준비부터26,127.555초·전체47,809행/5사건·121상태/수지 대사→같은 DB 게시/API/대표14시점 WebGL·
+권리/계정 거부·398 source/정리로 로컬 수용했다. 원9시간 상한/수식/격자를 유지했고 최종 감사 뒤 source freeze를 해제했다.
+표본 RSS 합1,070,809,088bytes≤1GiB의 여유는약2.8MiB이며 지정 시험 설정의 수용이다.
+다음은 제거 원장→명시 계수 환산→수확 의미 연결이다. 실제 계수/독립 자료 확보는 병행한다.
 브라우저 대표 범위 수용을 전체 프레임 대사로 바꾸지 않으며 직접 범위 이동은 후속 사용성 과제다.
 원8초RK4/300초 출력과 한도·현재 bytes/입력/권리를 유지한다.
-이 용량/계약이나 초기 구간으로 완료 날짜·전체 실행/DB/API/3D·prefix-cost 부모를 수용하지 않는다.
+전체 실행/DB/API/대표3D 수용은 위 실제 종료 증거를 따르며 용량/계약이나 초기 구간의 외삽으로 대체하지 않는다.
+prefix-cost 부모의 별도 잔여 기준·생산/경제·실제 자료/관문은 후속이다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증이며 전체 hosted 수용은 별도다.
 [실제 원166일 증명/별도 조회 관측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은
 6,111,094bytes/8MiB·원 QC 포함 발행175.675297초·별도 Python 검증1.589495초,

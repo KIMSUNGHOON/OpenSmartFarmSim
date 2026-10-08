@@ -816,7 +816,7 @@
               실제 SCRAM40→60→80걸음/2출력·같은 spec/deadline/연속 checkpoint/행/UTC·복원 RHS0,
               native pause/cancel/실제-9·상속 FLOCK·현재 권리/미완료 게시 거부·최종 설정/마감 RED→수정,
               289 source/FD13→13·원 명령 종료0/163.495초·DB/비밀/PG/임시 정리. 전체 작기/제품 CLI 수용은 별도다.
-          - [ ] **`crop-cycle-calculation-full-registered-run`** — 전체 실행 미착수; 선행: 작은 등록 감독자/아래 게시·통합 구성 수용.
+          - [x] **`crop-cycle-calculation-full-registered-run`** — 합성 전체 등록 실행 로컬 수용; 선행: 작은 등록 감독자/아래 게시·통합 구성 수용.
             [전체 실행 계약](../contracts/crop-cycle-calculation-full-registered-run-v1.md)의 새 사설 준비/spec·원9시간 마감과
             고정166일 입력·등록 DB/농장 runtime·별도 DB 게시 key를 결속한다. 현재 source/입력/권리·
             4,096전이/실효128경계·원 격자/bytes·RSS/중단/정리 한도를 유지하는 실제 새 전체 실행을 검증한다.
@@ -830,7 +830,7 @@
               실제 SCRAM40→120걸음/원3출력·fresh 게시/재조회/재시도 RHS0·같은 result ID/원량/row1·
               계산 전/yielded/현재 권리·계정 거부·294 source/FD13→13·원 종료0/123.575초/정리.
               첫 계산 전 별도 무작위 DB key와 원 감독/계획/마감 선언을 결속하며 전체166일 수용은 별도다.
-            - [ ] **`crop-cycle-calculation-full-path-harness`** — 작은 기능·지정 자원·구성 자식 수용/전체166일 실제 실행 대기; 선행: 작은 완료 게시 연결 수용.
+            - [x] **`crop-cycle-calculation-full-path-harness`** — 작은 구성과 합성 전체166일 같은 DB/대표3D 로컬 수용; 선행: 작은 완료 게시 연결 수용.
               기존 현재 API/HTTPS/3D를 같은 DB/farm/artifact에 연결한 통합 실행 구성을 준비한다.
               수용: 작은 실제 계산→게시→현재 보호 API/HTTPS→대표 원 UTC/수치의 실제 WebGL 대사·
               조회 RHS0·현재 권리·원 명령/실제 종료·source/FD/DB/비밀/PG/서버/브라우저 정리.
@@ -857,13 +857,19 @@
                 준비 전 원 마감·계산 전 config/별도 DB key/원 참조를 결속했고 원166일 참조의 첫64/마지막1시점·
                 전체5사건/121상태 읽기도 RHS0으로 확인했다. 첫 fixture 누락의 실제 원1/게시71·정리/snapshot을 보존했다.
                 이 작은 구성 수용과 전체166일 실제 실행 수용은 별도다.
-              - [ ] **`crop-cycle-calculation-full166-same-db-execution`** — 진행 중; 원9시간 별도 실제 전체 실행.
+              - [x] **`crop-cycle-calculation-full166-same-db-execution`** — 원9시간 안의 별도 합성 전체 실행/최종 감사 수용.
                 [실제 시작 관측](../research/crop-cycle-calculation-full166-same-db-started-20261008.md): 2026-10-08 11:41 KST,
                 fresh Python/nice19·원 계획/입력·실제 진행을 확인했다. 같은 날20:41 KST는 정리 포함 원 상한이며 완료 추정이 아니다.
                 원8초RK4/300초출력·primary512MiB/pipeline1GiB·두 공간2GiB를 유지하며 준비부터 마감을 고정한다.
                 같은 DB/farm/input/config/source/키로 계산→새47,809행/5사건·121상태/수지의 원 전체 대사→
                 게시→현재 API/대표UTC3D→실제 종료/정리를 완료하고 새 저장량/원 명령/로그·불변 영수증을 감사한다.
                 대표 화면을 전체47,809프레임이나 실제 형상으로 재분류하지 않는다. 만료/강제 종료는 hold이며 자동 재시작하지 않는다.
+                [실제 종료/감사](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md):10월8일18:56 KST,
+                원 도구15007 종료0/1통과·준비부터26,127.555초·실제1,816,704걸음/456commit·전체47,809행/5사건·
+                fresh 대사0→게시0→같은 DB/보호 HTTPS10개/대표14시점 WebGL·권리422/복원/계정403·RHS0·
+                398 source/입력/FD/DB/비밀/PG/API/웹/임시 정리. 전체 checkpoint121상태/clock/counter/수지 의미를 대사했다.
+                표본 pipeline RSS 합1,070,809,088bytes≤1GiB·여유약2.8MiB이며 root 감사 뒤 source freeze를 해제했다.
+                생과/자원/경제·실제 품종/독립 검증·제품 CLI/관문과 다른 미수용 부모를 자동 체크하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

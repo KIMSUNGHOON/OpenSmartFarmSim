@@ -2,7 +2,11 @@
 
 지역을 고르면 기상·시설·작물·시장 자료의 출처를 확인하고, 온실 시나리오를 계산해 3D로 재생하며, **평가한 작물 중 어떤 선택이 목표에 가장 맞는지** 근거와 불확실성을 설명하는 오픈소스 프로젝트입니다. 수확 시점의 수요·공급과 거시 비용 변화도 재배 결정의 조건으로 다룹니다.
 
-**진행 요약 (2026-10-08 KST):** 합성 생장 계산→실제 DB/HTTPS→같은 UTC3D의25시간 경로는 로컬 수용했고,
+**최신 수용 — 2026-10-08 19:04 KST:** [합성166일의 같은 DB/API/대표3D](research/crop-cycle-calculation-full166-same-db-completed-20261008.md)를
+원 종료0·전체47,809표본/5사건 대사·대표14시점 WebGL·398 source/정리로 로컬 수용했다.
+실제 품종 입력/국내 독립 자료는0건이며 생산·마진 예측/추천은 보류다. 다음은 과실 제거 원장이다.
+
+**단계별 검증 기록(수용 당시 범위):** 합성 생장 계산→실제 DB/HTTPS→같은 UTC3D의25시간 경로는 로컬 수용했고,
 [새 검증 조회의 화면](research/web-crop-cycle-calculation-view-20261008.md)도 Chromium 새15개/기존47개·웹719개·
 타입/빌드·원27시점/5사건으로 로컬 수용했습니다. [새 화면 캡처](research/artifacts/calculation-cycle-desktop.png)는
 소유 시험용 HTTP 응답의 실제 App입니다. [새 실제 DB/HTTPS/WebGL 기능 검증](research/web-crop-cycle-calculation-native-observed-20261008.md)은
@@ -57,11 +61,11 @@ API193개/웹720개/Chromium15개·타입/빌드·새34 JSON/원량/UTC·270 sou
 고유13시험·실제 대사 자식0→게시 자식0→같은 DB/UTC3D·원 종료0/준비부터102.476초·
 PG/controller 포함 RSS 합1,050,714,112bytes≤1GiB·397 source/정리로 수용했다.
 원166일 참조의 첫64/마지막1시점·전체5사건/121상태 읽기도 RHS0으로 확인했다.
-[별도 전체166일 등록 실행 시작](research/crop-cycle-calculation-full166-same-db-started-20261008.md)을
-2026-10-08 11:41 KST에 기록했다. 실제 fresh Python worker/nice19·원 계획/입력·진행을 확인했다.
-같은 날20:41 KST는 준비/대사/게시/API/대표3D/정리를 포함한 원9시간 상한이며 완료 약속이 아니다.
-현재 실행을 관측하며 전체 수용은 실제 종료·원량/권리·자원 정리 후 판단한다.
-9시간은 후속 실험 상한이며 전체166일 DB/API/3D·생산/경제 연결은 후속입니다.
+[별도 전체166일 실행](research/crop-cycle-calculation-full166-same-db-completed-20261008.md)은10월8일11:41→18:56 KST에 원 종료0/1통과로 완료했다.
+준비부터26,127.555초·전체47,809행/5사건·121상태/수지 대사→같은 DB 게시→보호 HTTPS10개/대표14시점 WebGL·
+권리/계정 거부·398 source/자원 정리를 최종 감사했다. 표본 RSS 합1,070,809,088bytes≤1GiB이며 여유약2.8MiB다.
+원9시간 상한/수식/격자를 유지했고 감사 후 source freeze를 해제했다. 전체47,809프레임·실제 형상/품종/관문 수용은 아니다.
+다음은 과실 제거 원장→명시 생과 환산→자원/경제 연결이며 실제 자료·예측/추천 hold는 유지한다.
 `f2dc10f`의 [CI 종료 상태](research/artifacts/full166-calendar-registration-ci-terminal-20261008.json)는
 C0/웹/작성 PG/앱 성공, Backend 분할0/4/5 성공·1/2/3/집계 실패입니다.
 [Python·원격 PG 시험 수정](research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했으며 hosted 수용은 별도입니다.
