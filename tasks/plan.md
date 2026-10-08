@@ -412,7 +412,14 @@ RHS 전에 실효128원경계로 제한하고 독립 validator/실제 저장·�
 native pause/cancel/실제-9·현재 권리·289 source/종료0/정리로 수용했다. 작은 감독자 부모도 로컬 수용했다.
 다음 `crop-cycle-calculation-full-registered-run`은 새 사설 준비/spec와 전체166일 runtime·등록 DB/farm·
 별도 DB 게시 key를 결속하고 원9시간 예산/자원 한도 안에서 실제 terminal·전체 원량/행/수지·달력 이동·
-DB 게시·현재 권리·원 종료/정리를 검증한다. 전체 API/같은 UTC3D는 그 뒤다.
+DB 게시·현재 권리·원 종료/정리를 검증한다.
+[완료 결과 별도 게시](../research/crop-cycle-calculation-registered-terminal-publication-implementation-20261008.md)는
+고유9개·실제 SCRAM40→120걸음/3출력·fresh 게시/재시도 RHS0/같은 row1·미완료/권한 거부·
+294 source/원 종료0/정리로 작은 자식을 수용했다. 임시 fixture DB는 teardown 시 지워지므로
+다음은 같은 DB/farm/artifact를 계산→게시→현재 API/HTTPS→동일 UTC3D까지 유지하는 통합 실행 구성이다.
+작은 실제 통합 경로를 먼저 검증하고, 전체 실행의 원량/수지 대사와 후속 조회/3D까지 끝낸 뒤 정리한다.
+각 단계의 수용은 별도 증거로 판단하며 원9시간 상한에 준비/검증/연결/정리를 포함한다.
+새 전체166일은 아직 시작하지 않았다. 외부 독립 농장 자료 확보는 이 개발과 병행한다.
 원8초RK4/300초 출력과 한도·현재 bytes/입력/권리를 유지한다.
 이 용량/계약이나 초기 구간으로 완료 날짜·전체 실행/DB/API/3D·prefix-cost 부모를 수용하지 않는다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증이며 전체 hosted 수용은 별도다.

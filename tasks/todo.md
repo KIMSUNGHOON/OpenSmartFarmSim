@@ -816,7 +816,7 @@
               실제 SCRAM40→60→80걸음/2출력·같은 spec/deadline/연속 checkpoint/행/UTC·복원 RHS0,
               native pause/cancel/실제-9·상속 FLOCK·현재 권리/미완료 게시 거부·최종 설정/마감 RED→수정,
               289 source/FD13→13·원 명령 종료0/163.495초·DB/비밀/PG/임시 정리. 전체 작기/제품 CLI 수용은 별도다.
-          - [ ] **`crop-cycle-calculation-full-registered-run`** — 다음 단계; 선행: 작은 등록 감독자 수용.
+          - [ ] **`crop-cycle-calculation-full-registered-run`** — 전체 실행 미착수; 선행: 작은 등록 감독자/아래 게시·통합 구성 수용.
             [전체 실행 계약](../contracts/crop-cycle-calculation-full-registered-run-v1.md)의 새 사설 준비/spec·원9시간 마감과
             고정166일 입력·등록 DB/농장 runtime·별도 DB 게시 key를 결속한다. 현재 source/입력/권리·
             4,096전이/실효128경계·원 격자/bytes·RSS/중단/정리 한도를 유지하는 실제 새 전체 실행을 검증한다.
@@ -824,6 +824,18 @@
             같은 등록 DB의 원자 게시/재조회·현재 권리/원 종료0·DB/비밀/PG/임시 정리와 불변 영수증.
             만료/강제 종료/결과 부재는 hold하며 같은 실행/마감을 초기화하지 않는다. 실제 저장량을 참조 상계와 구분한다.
             전체 API/동일 UTC3D·생과/자원/경제·G0–G4와 full-budget/prefix-cost 부모는 각 후속 증거 전 체크하지 않는다.
+            - [x] **`crop-cycle-calculation-registered-terminal-publication`** — 작은 완료 결과 게시 연결 수용.
+              [계약](../contracts/crop-cycle-calculation-registered-terminal-publication-v1.md)·
+              [수용](../research/crop-cycle-calculation-registered-terminal-publication-implementation-20261008.md): 고유9개·
+              실제 SCRAM40→120걸음/원3출력·fresh 게시/재조회/재시도 RHS0·같은 result ID/원량/row1·
+              계산 전/yielded/현재 권리·계정 거부·294 source/FD13→13·원 종료0/123.575초/정리.
+              첫 계산 전 별도 무작위 DB key와 원 감독/계획/마감 선언을 결속하며 전체166일 수용은 별도다.
+            - [ ] **`crop-cycle-calculation-full-path-harness`** — 다음 단계; 선행: 작은 완료 게시 연결 수용.
+              기존 현재 API/HTTPS/3D를 같은 DB/farm/artifact에 연결한 통합 실행 구성을 준비한다.
+              수용: 작은 실제 계산→게시→현재 보호 API/HTTPS→대표 원 UTC/수치의 실제 WebGL 대사·
+              조회 RHS0·현재 권리·원 명령/실제 종료·source/FD/DB/비밀/PG/서버/브라우저 정리.
+              이후 전체166일을 원9시간 상한 안에서 준비→계산→전체 원 행/수지 대사→게시→API/3D→정리한다.
+              같은 DB의 후속 단계 전에 teardown하거나 재계산으로 대체하지 않고 각 수용 범위를 실제 증거로 판단한다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

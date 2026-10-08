@@ -54,7 +54,11 @@ API193개/웹720개/Chromium15개·타입/빌드·새34 JSON/원량/UTC·270 sou
 실제 SCRAM40→80걸음/2출력·복원 RHS0·계산 전 SIGKILL-9/재개·권리/변조·284 source/종료0/정리로 수용했다.
 [등록 계산 감독](../research/crop-cycle-calculation-registered-supervisor-control-implementation-20261008.md)도 고유16개·
 실제 SCRAM40→60→80걸음/2출력·같은 마감/복원 RHS0·pause/cancel/실제-9·현재 권리·
-289 source/종료0/정리로 작은 감독자 부모를 로컬 수용했다. 다음은 새 전체166일 등록 계산/DB 게시다.
+289 source/종료0/정리로 작은 감독자 부모를 로컬 수용했다.
+[완료 결과 별도 DB 게시](../research/crop-cycle-calculation-registered-terminal-publication-implementation-20261008.md)도
+고유9개·실제 SCRAM40→120걸음/3출력·fresh 게시/재시도 RHS0/같은 row1·미완료/권한 거부·
+294 source/종료0/정리로 작은 연결을 수용했다. 다음은 같은 DB를 계산→게시→API/동일 UTC3D까지
+유지하는 통합 실행 구성/작은 검증이며 그 뒤 전체166일을 시작한다. 전체 실행은 아직 시작하지 않았다.
 9시간은 후속 실험 상한이며 전체166일 DB/API/3D는 후속이다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했으며 hosted 수용은 별도다.
 [기존 설정 호환의 hosted 세 Compose/정리](../research/artifacts/application-operator-policy-hosted-reference-20261008.json)는 수용했다.
