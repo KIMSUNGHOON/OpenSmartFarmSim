@@ -1140,9 +1140,13 @@
       집중34개/웹851개(기존817 포함)·타입/빌드·원86385 종료0·777 source/정리.
       같은 농장/부모/payload/input/artifact/manifest/상태·UTC와 원 위치를 대사하고 미대응 사건은 보간하지 않는다.
       형식 fixture 검증이며 실제 같은 DB/HTTP/화면/WebGL은0회다. view/replay 부모는 미완료다.
-    - [ ] **`crop-harvest-view-screen`** — 선행 결속·기존 cycle3D. 착수 시 화면/현재 범위·취소/집중 Chromium을3~5 core파일로 고정한다.
+    - [x] **`crop-harvest-view-screen`** — 선행 결속·기존 cycle3D. 착수 시 화면/현재 범위·취소/집중 Chromium을3~5 core파일로 고정한다.
       수용: 원 목적/미배정/관측 비교/단위·같은 UTC, 부분 범위/전체 합계 구분, 선택/계정 변경·권리 실패 시 이전 값 제거,
       늦은 응답 거부/settlement·HTML 대안·집중 브라우저. 형식 응답과 실제 같은 DB 증거를 구분한다.
+      [5 core 계약](../contracts/web-crop-harvest-view-screen-v1.md)·[로컬 수용](../research/web-crop-harvest-view-screen-implementation-20261009.md):
+      새 Chromium10개/기존15개(원27시점1개+나머지14개)·웹851개·타입/빌드·원13586/24832/30303 종료0·820 source/정리.
+      같은 UTC 실제 캔버스50구획 C/N·원 목적/수량/단위/분수/미배정·부분/전체·hold/권리/취소·모바일 대사.
+      합성 형식 응답의 실제 App 검증이며 새 공동 DB/백엔드 HTTPS는0회다. native/view/replay 부모는 미완료다.
     - [ ] **`crop-harvest-view-native`** — 선행 화면. 작은 같은 실제 DB/API/대표 WebGL의 원 수량/UTC·현재 권리/계정·WSL 자원/정리·원 명령 종료.
       전체166일 질량 부하는 별도 수용이며 합성 형상/배정을 실제 생산 예측으로 승격하지 않는다.
 - [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.

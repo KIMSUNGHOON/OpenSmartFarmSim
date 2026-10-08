@@ -4,7 +4,17 @@
 작물 생장·저장·성장 3D로 진행한다. 첫 작성 시점의 구현 현황은 아래에 남겨두며,
 현재 운영 완료 범위와 CI는 [고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)을 따른다.
 
-**최신 수용 — 2026-10-09 00:50 KST:** [저장 생장·수확 범위 결속](../research/web-crop-harvest-growth-binding-implementation-20261009.md)을
+**최신 수용 — 2026-10-09 01:32 KST:** [수확 표/기존 생장3D 화면](../research/web-crop-harvest-view-screen-implementation-20261009.md)을
+새 Chromium10개/기존15개(1+14분할)·웹851개·타입/빌드·원13586/24832/30303 종료0·820 source/정리로 로컬 수용했다.
+원 목적/단위/미배정·현재 부분 범위/전체 합계·합성 비교/hold를 유지하며 같은 UTC의 실제 캔버스 C/N도 대사했다.
+선택/계정/부모·권리 실패/취소/늦은 응답의 이전 값 제거와 모바일/키보드를 확인했다.
+소유 fixture의 metadata/시각을 맞춘 실제 App 검증이며 새 공동 DB/백엔드 HTTPS 증거는0회다.
+화면 자식만 완료했다. 실제 native/전체166일 질량 부하·view/replay 부모는 미완료다.
+다음은 작은 같은 실제 DB/API/대표 WebGL→전체 작기 질량 부하→기후/물·양분/구매 에너지→사용자 실행/Decimal 경제다.
+지정 시험 heap/viewport에서 소유 RSS 합1GiB/단일512MiB와 정리를 확인했으며 일반 운영 용량 수용은 아니다.
+실제 계수/품종 입력·농장 작물 Run·국내 독립 자료0건, G0–G4/생산/마진 예측·추천 보류는 유지한다.
+
+**선행 수용 — 2026-10-09 00:50 KST:** [저장 생장·수확 범위 결속](../research/web-crop-harvest-growth-binding-implementation-20261009.md)을
 집중34개/웹 전체851개(기존817 포함)·타입/빌드·원 도구86385 종료0·777 source/정리로 로컬 수용했다.
 같은 농장/부모/원 hash·상태·저장 UTC만 연결하며 대응 시점이 없는 사건은 보간하지 않는다.
 현재 범위와 전체 저장 합계·합성/hold를 구분한다. 새 실제 DB/HTTP/화면/WebGL 검증은0회다.
