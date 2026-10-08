@@ -1,13 +1,15 @@
 # 구현 순서
 
-**최신 수용 — 2026-10-08 21:35 KST:** [서버 수확 산술 등록](../research/crop-harvest-registration-implementation-20261008.md)을
-순수37개·실제 SCRAM1개/집중38개·원 종료0·6행 파일/서명 DB1건·계산 권리 철회 rollback/동일 재시도·421 source/정리로 로컬 수용했다.
+**최신 수용 — 2026-10-08 22:04 KST:** [등록 수확의 현재 조회·fresh 실제 DB 복원](../research/crop-harvest-current-query-implementation-20261008.md)을
+순수23개/실제 SCRAM1개·집중24개·원 종료0·같은6행/summary/전체·분할·표시 권리만 남긴 읽기·fresh Python2개·426 source/정리로 수용했다.
+query 자식과 세 자식을 충족한 작은 `crop-harvest-current-query` 부모를 추가 체크했다. `crop-harvest-replay`는 미완료다.
 등록1건은 소유 합성 시험이며 실제 계수/품종 입력·농장 작물 Run0건이다. 선행 합성166일 DB/API/대표3D를 보존한다.
-`crop-harvest-registration`만 추가 수용했다. 다음은 등록 현재 query·fresh Python 실제 DB 복원→HTTP/SDK→같은 UTC 표/3D다.
-후속 현재 query는 별도 reader 로그인·현재 읽기 scope/표시 권리 아래 서명 metadata의 key/hash를 해석하고 원 부모/농장·파일을 전후 검사하도록 구현한다.
-[등록 계약](../contracts/crop-harvest-registration-v1.md)의 후속3 core파일과 기존 현재 crop query/runtime 복원 계약을 재사용한다.
-이 경로는 기후/물·양분/구매 에너지 개발과 병행하며 실제 생산량/예측 게시 관문은 별도다.
-국내 독립 자료0건·자원/경제 연결·전체 제품 관문은 후속이며 아래 단계별 기록은 당시 상태다.
+다음 `crop-harvest-http-sdk`는 닫힌 DTO/투영(계약/module/시험3 core파일)→명시 runtime/인증 route·실제 TLS→SDK로 나눈다.
+투영은 원 ID/부모·UTC/단위·계수/배정 판본·정확 수량/미배정/hold·승인false·2MiB를 보존하고 비밀/private 경로는 공개하지 않는다.
+현재 작은 page22.950~23.019초는 내부 query 관측이다. HTTP30초 한도를 유지해 실제 TLS와 전체 질량 조회 비용을 별도 확인한다.
+그 뒤 같은 UTC 표/3D→기후/물·양분/구매 에너지→Decimal 경제 연결로 진행한다. 기후/자원 개발과 독립 자료 확보는 병행한다.
+국내 독립 자료0건·실제 생산량/예측/추천·전체 제품 관문은 후속이며 완료 날짜는 각 실측/외부 자료 확보 상태로 갱신한다.
+아래 단계별 기록은 당시 상태다.
 
 ## 작물 생산과 성장 3D 우선순위 (2026-10-04)
 

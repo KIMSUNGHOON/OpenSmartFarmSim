@@ -1,9 +1,10 @@
 # 구현 준비 현황
 
-**최신 수용 — 2026-10-08 21:35 KST:** [서버 수확 산술 등록](../research/crop-harvest-registration-implementation-20261008.md)을
-순수37개·실제 SCRAM1개/집중38개·원 종료0·6행 파일/서명 DB1건·계산 권리 철회 rollback/동일 재시도·421 source/정리로 로컬 수용했다.
+**최신 수용 — 2026-10-08 22:04 KST:** [등록 수확의 현재 조회·fresh 실제 DB 복원](../research/crop-harvest-current-query-implementation-20261008.md)을
+순수23개·실제 SCRAM1개/집중24개·원 종료0·같은6행/전체·분할·표시 권리만 남긴 조회·fresh Python2개/권리 거부·426 source/정리로 로컬 수용했다.
 선행 [합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-다음은 등록 결과의 현재 권리 조회·fresh Python 실제 DB 복원→HTTP/SDK→같은 UTC3D다.
+다음은 수확 결과의 닫힌 공개 DTO→인증 route/runtime·실제 TLS→SDK→같은 UTC 표/3D다.
+작은 현재 query page는약23초이며 HTTPS30초/전체166일 새 질량 조회 부하는 별도 검증한다.
 등록1건은 소유 합성 시험 자료이며 실제 계수/품종 입력·농장 작물 Run은0건이다.
 국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
 

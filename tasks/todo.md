@@ -1093,9 +1093,10 @@
     사용자 산출물: 원 연구 결과에 연결된 질량/배정 artifact와 복원 보고서. 새 웹/실제 수확 예측 수용은 별도다.
     [로컬 수용](../research/crop-harvest-artifact-implementation-20261008.md): 순수19개·6/132행·별도 Python2개/행 재생성0·실제 SIGKILL2개·소유 hold probe2사례·실제 SCRAM1개/원 종료0·6저장 행/권리·독립 Decimal/FD/원 파일/DB·411 source/정리.
     별도 Python은 소유 읽기 fixture이며 fresh 실제 DB 권한 재구성·전체166일 질량 저장/API/3D/부모·관문 수용은 별도다.
-  - [ ] **`crop-harvest-current-query`** — 선행 artifact. 서버 소유 등록과 현재 부모 결과/농장/계정/권리 검사를 결합한다.
+  - [x] **`crop-harvest-current-query`** — 선행 artifact. 서버 소유 등록과 현재 부모 결과/농장/계정/권리 검사를 결합한다.
     착수 시 등록과 조회를 각각3~5파일 작업으로 분해하고 기존 store/query 계약을 재사용한다.
     수용: 혼합 result/농장/계수/배정·변조/철회/다른 계정 거부·현재 권리 아래 제한 페이지/요약·재계산 없는 별도 프로세스 조회·실제 SCRAM/정리.
+    세 자식의 작은 실제 개발 경로를 수용했다. 전체166일 새 질량 조회·HTTP/SDK/3D·실제 생산량/관문은 별도다.
     [서버 등록 계약](../contracts/crop-harvest-current-query-v1.md)에 따라 아래 순서로 구현한다.
     - [x] **`crop-harvest-registry-schema`** — 계약/schema module/집중/native 시험3 core파일. 별도 namespace·owner·publisher/reader·불변 metadata 표/감사.
       수용: 실제 SCRAM·최소 권한/SQL 열/본문·hash/immutable/rollback·기존 원 result/역할/코드 보존·schema/role/passfile/PG 정리. SQL fixture를 실제 등록으로 표시하지 않는다.
@@ -1103,10 +1104,17 @@
     - [x] **`crop-harvest-registration`** — 선행 schema와 artifact. 서버가 원 결과/원문에서 파일 생성→현재 권리/서명→DB 최초 게시·재시도를 수행한다.
       수용: 임의 경로/hash 거부·원 부모/농장·두 원문/판본·파일/DB 일치·rollback/권리 철회·원 이력 보존. 착수 시3~5파일로 분해한다.
       [로컬 수용](../research/crop-harvest-registration-implementation-20261008.md): 계약/registry/시험3 core파일·순수37개/실제 SCRAM1개·집중38개/원 종료0·6행/서명 DB1건·계산 권리만 철회 rollback/동일 재시도·독립 HMAC/Decimal·FD13→13·원 부모/역할/파일·421 source/정리. 실제 품종/농장·현재 query/관문은 별도다.
-    - [ ] **`crop-harvest-registered-query`** — 선행 등록. 서버 등록의 key/hash를 해석한 현재권리 summary/page·fresh Python 실제 DB 복원.
+    - [x] **`crop-harvest-registered-query`** — 선행 등록. 서버 등록의 key/hash를 해석한 현재권리 summary/page·fresh Python 실제 DB 복원.
       수용: 서명/원본/계정/철회/페이지 뒤 변경·한도·RHS0·소유 자원/비밀 정리. 착수 시3~5파일로 분해한다.
-  - [ ] **`crop-harvest-http-sdk`** — 선행 현재 조회. 착수 시 공개 DTO/인증 route·runtime → SDK로3~5파일 자식을 분해한다.
+      [로컬 수용](../research/crop-harvest-current-query-implementation-20261008.md): 계약/query/시험3 core파일·순수23개/실제 SCRAM1개·집중24개/원 종료0·같은6행/summary/전체·분할·표시 권리만 남긴 읽기·fresh Python 실제 DB2개/종료0·권리/변조/종료 검사·FD13→13/자식4→4·426 source/보호 파일19개/DB·PG 정리. 작은 page약23초이며 HTTP/전체 부하는 별도다.
+  - [ ] **`crop-harvest-http-sdk`** — 선행 현재 조회. 공개 DTO/투영→인증 route·runtime/실제 TLS→SDK로3~5파일 자식을 분해한다.
     수용: 원 result/UTC/단위/판본·가정/hold/미배정 보존·응답/페이지 한도·권한/철회·실제 HTTPS·타입/집중 시험.
+    - [ ] **`crop-harvest-public-projection`** — 첫3 core파일: `contracts/api-crop-harvest-projection-v1.md`, `backend/app/api_crop_harvest_replay.py`, `backend/tests/test_api_crop_harvest_replay.py`.
+      수용: 닫힌 summary/page DTO·원 result/부모/source·계수/배정 판본·UTC/단위/정확 수량·미배정/hold·승인false·2MiB, unknown/mixed/비정상 수량 거부·원6행/전체·분할 동일·재계산0. HMAC/비밀/private 경로/권리 원문은 비공개다.
+    - [ ] **`crop-harvest-api-runtime`** — 선행 투영. 착수 시 설정/factory·인증 route·실제 TLS를3~5파일 자식으로 나눈다.
+      수용: exact reader/현재 같은 farm/계정·투영 뒤 철회·원 ID/UTC/수량 보존·실제 SCRAM/HTTPS30초·전체2MiB·권한/자원/정리. 작은 query약23초를 HTTP 수용으로 대체하지 않는다.
+    - [ ] **`crop-harvest-client`** — 선행 실제 API. 착수 시 SDK/닫힌 검증·집중 시험을3~5파일로 나눈다.
+      수용: 서버 provenance/UTC/단위/정확 수량/미배정/hold·페이지 순서/전체성·취소/혼합 거부·타입/빌드·집중 시험. 화면은 후속 view다.
   - [ ] **`crop-harvest-view`** — 선행 SDK와 기존 cycle3D. 같은 UTC의 질량·목적·미배정 표를 저장 수치 모식도와 연결한다.
     수용: 실제 DB/API/대표 WebGL의 원 값·시각·단위·선택/취소/권리·WSL 자원/정리. 전체 행 대사와 대표 frame 검사를 구분한다.
     실제 형상·숙기·등급/판매를 추정하거나 합성 배정을 실제 수확으로 표시하지 않는다.
