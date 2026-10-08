@@ -232,7 +232,7 @@ export function decodeHarvestReplayResponse(v:unknown,lookup:HarvestLookup):Harv
   return o as HarvestReplayResponse;
 }
 function shared(v:HarvestReplayResponse){const {summary:_summary,page:_page,...identity}=v;return identity;}
-function matched(s:HarvestSummaryResponse,p:HarvestPageResponse){same(shared(s),shared(p));
+export function matchHarvestReplayPage(s:HarvestSummaryResponse,p:HarvestPageResponse){same(shared(s),shared(p));
   const {rules,observations:_observations,...decl}=s.summary.allocation_parameters;
   for(const row of p.page.records){need(row.code_sha256===s.summary.code_sha256);same(row.allocation_parameters,decl);const r=row.mass.removal;
     const applies=rules.filter(rule=>rule.selector.kind==='model_terminal_outflow'?
@@ -252,7 +252,7 @@ export function createHarvestReplayApi(request:Request){let inFlight=false;
     const selected=options.summary,queryIdentity=stable(query),summaryIdentity=stable(selected);
     if(selected){need(decodeHarvestReplayResponse(selected,lookup).summary!==null&&query.offset<=selected.reference.row_count);}
     const value=await read(lookup,'records',options.signal,query);need(value.page!==null&&stable(query)===queryIdentity&&stable(selected)===summaryIdentity&&value.page.offset===query.offset&&value.page.limit===query.limit);
-    if(selected)matched(selected,value);return value;
+    if(selected)matchHarvestReplayPage(selected,value);return value;
   }
   async function* harvestPages(lookup:HarvestLookup,options:IterateOptions={}):AsyncGenerator<HarvestPageResponse,HarvestCompletion|undefined,void>{
     need(validHarvestLookup(lookup)&&object(options)&&Object.keys(options).every(k=>k==='signal'||k==='limit'||k==='onSummary'));

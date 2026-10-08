@@ -1135,6 +1135,16 @@
   - [ ] **`crop-harvest-view`** — 선행 SDK와 기존 cycle3D. 같은 UTC의 질량·목적·미배정 표를 저장 수치 모식도와 연결한다.
     수용: 실제 DB/API/대표 WebGL의 원 값·시각·단위·선택/취소/권리·WSL 자원/정리. 전체 행 대사와 대표 frame 검사를 구분한다.
     실제 형상·숙기·등급/판매를 추정하거나 합성 배정을 실제 수확으로 표시하지 않는다.
+    - [x] **`crop-harvest-growth-binding`** — 화면에 필요한 순수 결속 자식.
+      [5 core 계약](../contracts/web-crop-harvest-growth-binding-v1.md)·[로컬 수용](../research/web-crop-harvest-growth-binding-implementation-20261009.md):
+      집중34개/웹851개(기존817 포함)·타입/빌드·원86385 종료0·777 source/정리.
+      같은 농장/부모/payload/input/artifact/manifest/상태·UTC와 원 위치를 대사하고 미대응 사건은 보간하지 않는다.
+      형식 fixture 검증이며 실제 같은 DB/HTTP/화면/WebGL은0회다. view/replay 부모는 미완료다.
+    - [ ] **`crop-harvest-view-screen`** — 선행 결속·기존 cycle3D. 착수 시 화면/현재 범위·취소/집중 Chromium을3~5 core파일로 고정한다.
+      수용: 원 목적/미배정/관측 비교/단위·같은 UTC, 부분 범위/전체 합계 구분, 선택/계정 변경·권리 실패 시 이전 값 제거,
+      늦은 응답 거부/settlement·HTML 대안·집중 브라우저. 형식 응답과 실제 같은 DB 증거를 구분한다.
+    - [ ] **`crop-harvest-view-native`** — 선행 화면. 작은 같은 실제 DB/API/대표 WebGL의 원 수량/UTC·현재 권리/계정·WSL 자원/정리·원 명령 종료.
+      전체166일 질량 부하는 별도 수용이며 합성 형상/배정을 실제 생산 예측으로 승격하지 않는다.
 - [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.
   예정 파일(3): `backend/app/crop_climate_coupling.py`, `backend/tests/test_crop_climate_coupling.py`,
   `contracts/crop-climate-coupling-v1.md`.

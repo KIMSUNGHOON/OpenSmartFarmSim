@@ -181,7 +181,7 @@ function stable(v:unknown):string{
 }
 function shared(v:CalculationCycleCropResponse){const {summary:_summary,page:_page,...rest}=v;return rest;}
 function canceled(signal?:AbortSignal){if(signal?.aborted)throw new ApiError('request_canceled');}
-function matched(summary:CalculationCycleCropSummaryResponse,p:CalculationCycleCropPageResponse){
+export function matchCalculationCycleCropPage(summary:CalculationCycleCropSummaryResponse,p:CalculationCycleCropPageResponse){
   need(stable(shared(summary))===stable(shared(p)));
   if(summary.summary.hold!==null){const at=utcMicroseconds(summary.summary.hold.at);
     for(const row of p.page.records)need(p.page.kind==='samples'?utcMicroseconds(row.at)<at:utcMicroseconds(row.at)<=at);}
@@ -213,7 +213,7 @@ export function createCalculationCycleCropReplayApi(request:Request){
     const value=await read(lookup,query.kind,options.signal,query);need(value.page!==null);
     need(stable(query)===queryIdentity && stable(summary)===summaryIdentity && value.page.kind===query.kind
       && value.page.offset===query.offset && value.page.limit===query.limit);
-    if(summary)matched(summary,value);return value;
+    if(summary)matchCalculationCycleCropPage(summary,value);return value;
   }
   async function* calculationCycleCropPages(lookup:CalculationCycleCropLookup,kind:'samples'|'events',options:CalculationCycleCropIterationOptions={}):
     AsyncGenerator<CalculationCycleCropPageResponse,CalculationCycleCropCompletion|undefined,void>{
