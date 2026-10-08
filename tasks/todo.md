@@ -1132,7 +1132,7 @@
     - [x] **`crop-harvest-client`** — 선행 실제 API. 착수 시 SDK/닫힌 검증·집중 시험을3~5파일로 나눈다.
       수용: 서버 provenance/UTC/단위/정확 수량/미배정/hold·페이지 순서/전체성·취소/혼합 거부·타입/빌드·집중 시험. 화면은 후속 view다.
       [SDK 계약](../contracts/web-crop-harvest-client-v1.md)의5 core파일·[로컬 수용](../research/web-crop-harvest-client-implementation-20261009.md): 집중97개/웹817개(기존720 포함)·타입/빌드·원 종료0·원HTTPS5응답 SHA/길이·6행/정확 수량/UTC·순차/취소/전역 판본 혼합 거부·반환 객체와 독립 경계·458 source/소유 정리. HTTP/SDK 부모만 추가 수용했으며 표·3D/전체166일 질량 부하/관문은 후속이다.
-  - [ ] **`crop-harvest-view`** — 선행 SDK와 기존 cycle3D. 같은 UTC의 질량·목적·미배정 표를 저장 수치 모식도와 연결한다.
+  - [x] **`crop-harvest-view`** — 선행 SDK와 기존 cycle3D. 같은 UTC의 질량·목적·미배정 표를 저장 수치 모식도와 연결한다.
     수용: 실제 DB/API/대표 WebGL의 원 값·시각·단위·선택/취소/권리·WSL 자원/정리. 전체 행 대사와 대표 frame 검사를 구분한다.
     실제 형상·숙기·등급/판매를 추정하거나 합성 배정을 실제 수확으로 표시하지 않는다.
     - [x] **`crop-harvest-growth-binding`** — 화면에 필요한 순수 결속 자식.
@@ -1146,9 +1146,25 @@
       [5 core 계약](../contracts/web-crop-harvest-view-screen-v1.md)·[로컬 수용](../research/web-crop-harvest-view-screen-implementation-20261009.md):
       새 Chromium10개/기존15개(원27시점1개+나머지14개)·웹851개·타입/빌드·원13586/24832/30303 종료0·820 source/정리.
       같은 UTC 실제 캔버스50구획 C/N·원 목적/수량/단위/분수/미배정·부분/전체·hold/권리/취소·모바일 대사.
-      합성 형식 응답의 실제 App 검증이며 새 공동 DB/백엔드 HTTPS는0회다. native/view/replay 부모는 미완료다.
-    - [ ] **`crop-harvest-view-native`** — 선행 화면. 작은 같은 실제 DB/API/대표 WebGL의 원 수량/UTC·현재 권리/계정·WSL 자원/정리·원 명령 종료.
+      이 화면 단계는 합성 형식 응답의 실제 App 검증이며 공동 DB/백엔드 HTTPS는0회였다.
+      후속 아래 native 수용으로 작은 view 부모까지 완료했다. 전체 질량/replay 부모는 미완료다.
+    - [x] **`crop-harvest-view-native`** — 선행 화면. 작은 같은 실제 DB/API/대표 WebGL의 원 수량/UTC·현재 권리/계정·WSL 자원/정리·원 명령 종료.
       전체166일 질량 부하는 별도 수용이며 합성 형상/배정을 실제 생산 예측으로 승격하지 않는다.
+      [작은 실제 수용](../research/crop-harvest-view-native-implementation-20261009.md): 3 core파일·원69379 종료0·2통과/226.498초·같은 SCRAM/보호 HTTPS/실제 빌드 App/WebGL.
+      원6행/3sample/4event·50 C/N/LAI·키보드/모바일·현재 권리/복원·계정/취소·늦은 응답 제거.
+      HTTP13개/완료200본문9개 양쪽 bytes/SHA·최대22.722초/32,659bytes·828 source·원 파일/DB/FD·소유 정리.
+      지정 heap/GC/GPU thread·소유 RSS 합1,030,803,456bytes≤1GiB. 작은 view 부모만 완료하며 전체 질량/replay/관문은 별도다.
+  - [ ] **`crop-harvest-full-capacity`** — 선행 작은 view와 완료된 전체166일 원 생장 결과.
+    첫 예정3 core파일: `contracts/crop-harvest-full-capacity-v1.md`, `research/crop-harvest-full-capacity.py`, `backend/tests/test_crop_harvest_full_capacity.py`.
+    수용: 원47,809sample/5event·hash/UTC를 bounded reader로 읽고 RHS0으로 전체 원 구간/사건의 질량·배정 행/순서·단위·정확 수량을 대사한다.
+    leaf/stem과 과실 분리·미배정/합성 hold 유지, 독립 수량 수지와 page64행/2MiB·artifact512MiB/파일/예약 한도·WSL 자원/원본 정리를 확인한다.
+    실제 전체 writer/DB/HTTP 실행으로 표시하지 않으며 초과/수치 불가는 근거와 hold로 남긴다.
+    사용자 산출물: 전체 원 행 기준 용량·수량 대사 보고서와 후속 실제 실행 예산.
+  - [ ] **`crop-harvest-full-mass-load`** — 선행 용량 수용과 기존 등록 query/API/작은 native.
+    착수 시 전체 writer/등록·별도 Python 현재권리 복원·API/대표 WebGL을3~5 core파일 자식으로 나눈다.
+    수용: 같은 원 전체 결과/계수·배정/UTC의 모든 행/질량·불변 저장/DB·RHS0 읽기·실제 현재권리/계정 거부와 원 명령 종료/소유 자원 정리.
+    전체 행 대사와 대표 프레임 검증을 구분하고 관측된 용량/시간 안에서 수행한다. 실제 품종/미래 생산량으로 승격하지 않는다.
+    두 전체 자식의 증거가 모인 뒤 `crop-harvest-replay` 부모를 평가한다.
 - [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.
   예정 파일(3): `backend/app/crop_climate_coupling.py`, `backend/tests/test_crop_climate_coupling.py`,
   `contracts/crop-climate-coupling-v1.md`.
