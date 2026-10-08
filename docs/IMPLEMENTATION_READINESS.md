@@ -1,9 +1,10 @@
 # 구현 준비 현황
 
-**최신 수용 — 2026-10-08 20:02 KST:** [명시 합성 계수의 질량 환산](../research/crop-removal-mass-implementation-20261008.md)을
-순수105개·실제 SCRAM1개/원 종료0·6행/2계수 구간·독립 Decimal·404 source/정리로 로컬 수용했다.
+**최신 수용 — 2026-10-08 20:31 KST:** [합성 수확·적과·폐기·채취 배정](../research/crop-harvest-events-implementation-20261008.md)을
+순수148개·실제 SCRAM1개/원 종료0·6행/6규칙·독립 Decimal·406 source/정리로 로컬 수용했다.
 선행 [합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-다음은 수확/적과/폐기 배정이다. 실제 계수/품종 입력·국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
+다음은 질량/배정의 불변 저장·현재 조회→HTTP/SDK→같은 UTC3D다.
+실제 계수/품종 입력·국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
 
 **새 계산 조회 진척 (2026-10-07):** [현재 농장/DB query](../research/crop-cycle-calculation-current-query-implementation-20261007.md)를
 실제 SCRAM12개·정상/관리 사건/수치 hold·원량/UTC·철회/변조·fork·63 source/자원 정리로 로컬 수용했다.

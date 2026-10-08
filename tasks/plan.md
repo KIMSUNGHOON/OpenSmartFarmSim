@@ -1,10 +1,10 @@
 # 구현 순서
 
-**최신 수용 — 2026-10-08 20:02 KST:** [명시 합성 질량 환산](../research/crop-removal-mass-implementation-20261008.md)을
-순수105개·실제 SCRAM1개/원 종료0·6행/2구간·독립 Decimal·404 source/정리로 로컬 수용했다.
+**최신 수용 — 2026-10-08 20:31 KST:** [합성 수확·적과·폐기·채취 배정](../research/crop-harvest-events-implementation-20261008.md)을
+순수148개·실제 SCRAM1개/원 종료0·6행/6규칙·독립 Decimal·406 source/정리로 로컬 수용했다.
 선행 [합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-다음은 같은3 core파일의 `crop-harvest-events`다. [환산 계약](../contracts/crop-harvest-v1.md)에 따라 명시 배정·미배정 보존·이중 배정 금지부터 검증한다.
-그 뒤 `crop-harvest-replay`는 질량/배정의 불변 저장·현재 조회→HTTP/SDK→같은 UTC3D를 검증한다.
+다음은 `crop-harvest-replay`다. 불변 artifact→현재 권리 조회/서버 등록→HTTP/SDK→같은 UTC 표/3D를 작은 자식으로 검증한다.
+첫 `crop-harvest-artifact`는 같은 원 결과/질량·배정 원문과 bounded page·hash·atomic HEAD·별도 Python 복원을 검증한다.
 이 경로는 기후/물·양분/구매 에너지 개발과 병행하며 실제 생산량/예측 게시 관문은 별도다.
 생과 환산·자원/경제·실제 입력/독립 검증·전체 제품 관문은 후속이며 아래 단계별 기록은 당시 상태다.
 
@@ -648,7 +648,7 @@ flowchart TD
   V --> F
   CV --> F
   F --> C["crop-climate-coupling"]
-  CI --> HMATH["crop-removal-mass → crop-harvest-events의 개발 수용"]
+  CI --> HMATH["crop-removal-mass → crop-harvest-events 개발 수용 완료"]
   CAP --> HMATH
   HMATH --> HR["crop-harvest-replay: 질량/배정 저장·API·같은 UTC3D"]
   CV --> HR

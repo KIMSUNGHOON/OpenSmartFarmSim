@@ -1073,8 +1073,10 @@
     합성 계수의 소프트웨어 시험과 실제 계수 채택을 분리하고, 실제 환산/게시 조건 미충족은 hold다.
     [로컬 수용](../research/crop-removal-mass-implementation-20261008.md): 순수105개(기존 원장61/질량44)·실제 SCRAM1개/원 종료0·6행/2구간·독립 Decimal·구간/한 행 페이지·RHS0/FD13→13·404 source/root 정리.
     실제 계수0건·전체 작기 질량/저장/API/3D·수확 사건/부모·생산 예측·관문 수용은 별도다.
-  - [ ] **`crop-harvest-events`** — 선행 위 환산과 수확/적과/폐기·원 사건 대응 및 배정 정책 근거.
+  - [x] **`crop-harvest-events`** — 선행 위 환산과 명시 합성 배정 정책의 개발 수용. 실제 적용 근거는 보류다.
     수용: 원량 이중 배정 금지·미배정 보존·실측/모델 분리·일자/모집단/면적 대사; 실제 H/P/S 입력은 각 근거를 추가 확인한다.
+    [로컬 수용](../research/crop-harvest-events-implementation-20261008.md): 순수148개(원장61/질량44/배정43)·실제 SCRAM1개/원 종료0·6행/6규칙·네 목적 양수·관측 차이/미배정·독립 Decimal·전체/분할/한 행 페이지·권리/FD/406 source/정리.
+    첫 driver nice race 종료1·원 pytest exit 미확인/통제 SIGINT·정리는 보존했고, pre-exec 우선순위 수정 v2만 수용했다.
     세 자식과 해당 실제 근거/검증이 모이기 전에는 부모를 체크하지 않는다.
 - [ ] **`crop-harvest-replay`** — 선행: `crop-removal-mass`, `crop-harvest-events`와 같은 작기의 검증된 현재 조회.
   기후/물·양분/구매 에너지 완료와 독립적으로 착수한다. 첫 예정 파일(3):
@@ -1085,6 +1087,18 @@
   실제 DB/API/대표 WebGL에서 원 값·단위를 대사하고 전체 행 대사와 대표 화면 검사를 구분한다.
   사용자 산출물: 같은 UTC의 출처/가정/보류가 있는 질량·배정 재생. 합성 계수/배정은 실제 수확 예측으로 표시하지 않는다.
   실제 생산량 게시에는 부모의 실제 계수/수확 근거와 해당 G0/G1, 미래 예측에는 G2/G3a가 추가로 필요하다.
+  - [ ] **`crop-harvest-artifact`** — 첫 위3파일. 원 결과·계수/배정 원문 hash/판본·UTC·단위·미배정/hold를 불변 파생 artifact에 결속한다.
+    수용: 현재 검증 조회만 소비·bounded page/bytes·단일/분할 읽기 동일·원 행과 질량/배정 전체 대사·hash/atomic HEAD·중단 전후 복원·별도 Python/RHS0.
+    권리 철회/원본 변경 뒤 게시를 거부하고 기존 artifact/수식을 보존한다. 작은 실제 현재 DB 조회/소유 WSL 자원 상한·정리 뒤 자식만 체크한다.
+    사용자 산출물: 원 연구 결과에 연결된 질량/배정 artifact와 복원 보고서. 새 웹/실제 수확 예측 수용은 별도다.
+  - [ ] **`crop-harvest-current-query`** — 선행 artifact. 서버 소유 등록과 현재 부모 결과/농장/계정/권리 검사를 결합한다.
+    착수 시 등록과 조회를 각각3~5파일 작업으로 분해하고 기존 store/query 계약을 재사용한다.
+    수용: 혼합 result/농장/계수/배정·변조/철회/다른 계정 거부·현재 권리 아래 제한 페이지/요약·재계산 없는 별도 프로세스 조회·실제 SCRAM/정리.
+  - [ ] **`crop-harvest-http-sdk`** — 선행 현재 조회. 착수 시 공개 DTO/인증 route·runtime → SDK로3~5파일 자식을 분해한다.
+    수용: 원 result/UTC/단위/판본·가정/hold/미배정 보존·응답/페이지 한도·권한/철회·실제 HTTPS·타입/집중 시험.
+  - [ ] **`crop-harvest-view`** — 선행 SDK와 기존 cycle3D. 같은 UTC의 질량·목적·미배정 표를 저장 수치 모식도와 연결한다.
+    수용: 실제 DB/API/대표 WebGL의 원 값·시각·단위·선택/취소/권리·WSL 자원/정리. 전체 행 대사와 대표 frame 검사를 구분한다.
+    실제 형상·숙기·등급/판매를 추정하거나 합성 배정을 실제 수확으로 표시하지 않는다.
 - [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.
   예정 파일(3): `backend/app/crop_climate_coupling.py`, `backend/tests/test_crop_climate_coupling.py`,
   `contracts/crop-climate-coupling-v1.md`.

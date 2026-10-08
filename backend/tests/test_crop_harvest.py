@@ -1,5 +1,6 @@
 from copy import deepcopy
 from decimal import Decimal, localcontext
+from fractions import Fraction
 from hashlib import sha256
 from math import fsum, inf, nan
 import json
@@ -416,6 +417,218 @@ def test_mass_totals_overflow_holds_and_public_entry_rejects_arbitrary_approval(
             list(harvest.iter_removal_mass(arbitrary, 'tenant-1', SOURCE['result_id'], {}, raw))
 
 
+def test_allocation_decimal_fractions_and_exact_portions_conserve_original():
+    reader = OwnedPages();raw = harvest._canonical(mass_profile(harvest._source(reader())))
+    mass = next(harvest._read_mass(reader, raw))
+    weights = [harvest._allocation_fraction(quantity(value, '1')) for value in ('0.1', '0.9')]
+    assert sum(weights) == 1
+    portions = [harvest._portion(mass, weight) for weight in weights]
+    with localcontext() as ctx:
+        ctx.prec = 2200
+        for key, original in [('carbohydrate', mass['removal']['carbohydrate']),
+                              ('number', mass['removal']['number']),
+                              ('dry_matter', mass['dry_matter']), ('fresh_matter', mass['fresh_matter'])]:
+            exact = [Decimal(part[key]['exact']['numerator']) / Decimal(part[key]['exact']['denominator']) for part in portions]
+            assert sum(exact) == Decimal.from_float(original['value'])
+            assert exact[0] == Decimal.from_float(original['value']) * Decimal('.1')
+            assert [part[key]['value'] for part in portions] == [float(value) for value in exact]
+
+
+@pytest.mark.parametrize('value', ['0', '-.1', '1.01', 'nan', '1/2', '.5', '0.0000000000000000001', .5, True, None])
+def test_allocation_fraction_invalid_or_ambiguous_values_hold(value):
+    with pytest.raises(harvest.CropRemovalHold):harvest._allocation_fraction(quantity(value, '1'))
+
+
+def test_allocation_quantity_rounding_is_explicit_and_numeric_failures_hold():
+    value = harvest._rational_quantity(Fraction(-1, 10), 'kg_FW/m2_floor')
+    assert value['value'] == -.1 and value['exact'] == {'numerator': '-1', 'denominator': '10'}
+    for value in (Fraction(1, 10**400), Fraction(10**400)):
+        with pytest.raises(harvest.CropRemovalHold):harvest._rational_quantity(value, 'kg_FW/m2_floor')
+
+
+def allocation_profile(parameters, last_sample=3, last_event=2):
+    mass, digest = parameters
+    def rule(name, purpose, fraction, selector):
+        return {'assignment_id': name, 'purpose': purpose, 'fraction': quantity(fraction, '1'), 'selector': selector}
+    terminal = {'kind': 'model_terminal_outflow', 'first_sample': 0, 'last_sample': last_sample}
+    initial = {'kind': 'explicit_fruit_removal', 'event': 0}
+    return {'version': 'crop-harvest-allocation-v1', 'allocation_id': 'owned-allocation', 'revision': '1',
+        'origin': 'synthetic', 'evidence_level': 'assumed', 'evidence_id': 'owned-allocation-arithmetic',
+        'available_at': '2026-09-30T00:00:00Z', 'source': deepcopy(mass['source']),
+        'population': deepcopy(mass['population']), 'mass_parameter_sha256': digest,
+        'policy': 'proportional_original_population', 'rules': [
+            rule('terminal-harvest', 'harvest', '0.6', terminal),
+            rule('terminal-thinning', 'thinning', '0.2', {**terminal, 'last_sample': 1}),
+            rule('initial-harvest', 'harvest', '0.1', initial),
+            rule('initial-sampling', 'sampling', '0.2', initial),
+            rule('initial-thinning', 'thinning', '0.1', initial),
+            rule('last-disposal', 'disposal', '0.5', {'kind': 'explicit_fruit_removal', 'event': last_event})],
+        'observations': [{'observation_id': 'owned-observation', 'origin': 'synthetic', 'evidence_level': 'assumed',
+            'evidence_id': 'owned-comparison-fixture', 'available_at': '2026-10-02T00:00:00Z',
+            'start_at': mass['segments'][0]['start_at'], 'end_at': mass['segments'][-1]['end_at'],
+            'assignment_ids': ['terminal-harvest', 'initial-harvest'],
+            'fresh_matter': quantity(.000012, 'kg_FW/m2_floor')}]}
+
+
+def test_allocation_parameters_bind_population_mass_and_confirmed_source_positions():
+    reader = OwnedPages();parameters = harvest._mass_parameters(harvest._canonical(mass_profile(harvest._source(reader()))))
+    profile = allocation_profile(parameters);raw = harvest._canonical(profile)
+    assert harvest._allocation_parameters(raw, parameters) == (profile, sha256(raw).hexdigest())
+    harvest._allocation_scope(profile, reader())
+    # Adjacent ranges may each allocate 100%; they do not overlap an original interval.
+    profile['observations'] = [];profile['rules'] = profile['rules'][:2]
+    profile['rules'][0]['fraction']['value'] = '1';profile['rules'][0]['selector']['last_sample'] = 1
+    profile['rules'][1]['fraction']['value'] = '1';profile['rules'][1]['selector'].update(first_sample=1, last_sample=3)
+    harvest._allocation_parameters(harvest._canonical(profile), parameters)
+
+
+@pytest.mark.parametrize('change', ['terminal-overlap', 'event-overlap', 'duplicate-id', 'bad-purpose',
+    'bool-index', 'empty-range', 'bad-kind', 'source', 'population', 'mass-hash', 'real-profile', 'real-observation',
+    'bad-period', 'unknown-assignment', 'duplicate-observation-link', 'nonharvest-link', 'duplicate-observation',
+    'unknown-field', 'oversize-rules', 'oversize-observations', 'wrong-observed-unit', 'missing-evidence'])
+def test_allocation_invalid_binding_overlap_or_observation_holds(change):
+    reader = OwnedPages();parameters = harvest._mass_parameters(harvest._canonical(mass_profile(harvest._source(reader()))))
+    p = allocation_profile(parameters);rules = p['rules'];observation = p['observations'][0]
+    if change == 'terminal-overlap':rules[1]['fraction']['value'] = '0.5'
+    elif change == 'event-overlap':rules[2]['fraction']['value'] = '0.9'
+    elif change == 'duplicate-id':rules[1]['assignment_id'] = rules[0]['assignment_id']
+    elif change == 'bad-purpose':rules[0]['purpose'] = 'sales'
+    elif change == 'bool-index':rules[2]['selector']['event'] = True
+    elif change == 'empty-range':rules[0]['selector']['last_sample'] = 0
+    elif change == 'bad-kind':rules[0]['selector']['kind'] = 'harvest'
+    elif change == 'source':p['source']['artifact_sha256'] = '9' * 64
+    elif change == 'population':p['population']['basis'] = 'm2_canopy'
+    elif change == 'mass-hash':p['mass_parameter_sha256'] = '9' * 64
+    elif change == 'real-profile':p['origin'] = 'measured'
+    elif change == 'real-observation':observation['origin'] = 'measured'
+    elif change == 'bad-period':observation['start_at'] = '2026-10-03T00:00:00Z'
+    elif change == 'unknown-assignment':observation['assignment_ids'] = ['unknown']
+    elif change == 'duplicate-observation-link':observation['assignment_ids'].append('terminal-harvest')
+    elif change == 'nonharvest-link':observation['assignment_ids'].append('initial-sampling')
+    elif change == 'duplicate-observation':p['observations'].append(deepcopy(observation))
+    elif change == 'unknown-field':p['approved'] = True
+    elif change == 'oversize-rules':p['rules'] *= 50
+    elif change == 'oversize-observations':p['observations'] *= 65
+    elif change == 'wrong-observed-unit':observation['fresh_matter']['unit'] = 'kg'
+    else:observation['evidence_id'] = ''
+    with pytest.raises(harvest.CropRemovalHold):harvest._allocation_parameters(harvest._canonical(p), parameters)
+
+
+def assert_allocation_arithmetic(rows, summary, profile):
+    def exact(value):
+        return Decimal(value['exact']['numerator']) / Decimal(value['exact']['denominator'])
+    with localcontext() as ctx:
+        ctx.prec = 2200
+        for row in rows:
+            mass = row['mass'];original = {**mass['removal'], **{key: mass[key] for key in ('dry_matter', 'fresh_matter')}}
+            weights = [Decimal(part['fraction']['value']) for part in row['allocations']]
+            weights.append(Decimal(1) - sum(weights, Decimal(0)))
+            assert exact(row['unassigned']['fraction']) == weights[-1]
+            for key in ('carbohydrate', 'number', 'dry_matter', 'fresh_matter'):
+                portions = [part['quantities'][key] for part in row['allocations'] + [row['unassigned']]]
+                source = Decimal.from_float(original[key]['value'])
+                assert sum((exact(part) for part in portions), Decimal(0)) == source
+                for part, weight in zip(portions, weights, strict=True):
+                    assert exact(part) == source * weight and part['value'] == float(source * weight)
+                    assert part['unit'] == original[key]['unit']
+        for kind, purposes in summary['totals_by_kind_and_purpose'].items():
+            for purpose, total in purposes.items():
+                parts = [part for row in rows if row['mass']['removal']['kind'] == kind
+                         for part in row['allocations'] + [{'purpose': 'unassigned', **row['unassigned']}]
+                         if part['purpose'] == purpose]
+                assert total['rows'] == len(parts)
+                for key, quantity in total['quantities'].items():
+                    value = sum((exact(part['quantities'][key]) for part in parts), Decimal(0))
+                    assert exact(quantity) == value and quantity['value'] == float(value)
+        for comparison in summary['observation_comparisons']:
+            if comparison['status'] != 'compared_synthetic_fixture':continue
+            observation = comparison['observation']
+            model = sum((exact(part['quantities']['fresh_matter']) for row in rows for part in row['allocations']
+                         if part['assignment_id'] in observation['assignment_ids']), Decimal(0))
+            assert exact(comparison['modeled_fresh_matter']) == model
+            difference = Decimal.from_float(observation['fresh_matter']['value']) - model
+            assert exact(comparison['observed_minus_modeled']) == difference
+            assert comparison['observed_minus_modeled']['value'] == float(difference)
+    assert summary['row_count'] == len(rows)
+    assert summary['allocation_parameters'] == profile
+    assert summary['row_chain_sha256'] == sha256(b''.join(harvest._canonical(row) + b'\n' for row in rows)).hexdigest()
+
+
+def test_allocation_whole_split_pages_exact_conservation_and_separate_observation():
+    reader = OwnedPages();raw = harvest._canonical(mass_profile(harvest._source(reader()), split=True))
+    parameters = harvest._mass_parameters(raw);profile = allocation_profile(parameters);allocation = harvest._canonical(profile)
+    rows = list(harvest._read_allocations(reader, raw, allocation))
+    assert rows == list(harvest._read_allocations(reader, raw, allocation, last_sample=1)) + list(
+        harvest._read_allocations(reader, raw, allocation, first_sample=1))
+    assert rows == list(harvest._read_allocations(reader, raw, allocation, sample_page_size=1, event_page_size=1))
+    assert len({row['row_id'] for row in rows}) == len(rows) == 6
+    assert [row['mass'] for row in rows] == list(harvest._read_mass(reader, raw))
+    assert [part['assignment_id'] for part in rows[0]['allocations']] == ['initial-harvest', 'initial-sampling', 'initial-thinning']
+    assert [part['assignment_id'] for part in rows[1]['allocations']] == ['terminal-harvest', 'terminal-thinning']
+    assert rows[2]['allocations'] == [] and rows[2]['unassigned']['fraction']['value'] == 1
+    assert rows[-1]['allocations'][0]['purpose'] == 'disposal'
+    summary = harvest._allocation_totals(iter(rows), harvest._allocation_parameters(allocation, parameters))
+    assert_allocation_arithmetic(rows, summary, profile)
+    assert summary['observation_comparisons'][0]['status'] == 'compared_synthetic_fixture'
+    assert all(row['rights_or_gate_approval'] is False for row in rows)
+    assert all(row['claim_scope'] == 'synthetic_harvest_allocation_math_only' for row in rows)
+    assert all(limit <= (64 if kind == 'samples' else 8) for kind, _, limit in reader.calls if kind)
+
+
+@pytest.mark.parametrize('window', [{'last_sample': 1}, {'first_sample': 1}, {'first_sample': 1, 'last_sample': 1}])
+def test_observation_partial_window_is_explicit_not_split_or_added(window):
+    reader = OwnedPages();raw = harvest._canonical(mass_profile(harvest._source(reader())))
+    parameters = harvest._mass_parameters(raw);allocation = harvest._canonical(allocation_profile(parameters))
+    summary = harvest._allocation_totals(harvest._read_allocations(reader, raw, allocation, **window),
+                                         harvest._allocation_parameters(allocation, parameters))
+    comparison = summary['observation_comparisons'][0]
+    assert comparison['status'] == 'incomplete_selected_window'
+    assert comparison['modeled_fresh_matter'] is comparison['observed_minus_modeled'] is None
+    assert comparison['observation']['fresh_matter']['value'] == .000012
+
+
+def test_no_rules_preserves_every_amount_as_unassigned_and_hold_stays_hold():
+    reader = OwnedPages(held=True);raw = harvest._canonical(mass_profile(harvest._source(reader())))
+    parameters = harvest._mass_parameters(raw);profile = allocation_profile(parameters)
+    profile.update(rules=[], observations=[]);allocation = harvest._canonical(profile)
+    rows = list(harvest._read_allocations(reader, raw, allocation))
+    assert all(row['allocations'] == [] and row['unassigned']['fraction']['value'] == 1 for row in rows)
+    assert all(row['mass']['removal']['source']['source_status'] == 'hold' for row in rows)
+    summary = harvest._allocation_totals(iter(rows), harvest._allocation_parameters(allocation, parameters))
+    assert_allocation_arithmetic(rows, summary, profile)
+
+
+@pytest.mark.parametrize('kind', ['terminal', 'event'])
+def test_allocation_missing_future_selector_rejected_even_for_empty_window(kind):
+    reader = OwnedPages(held=True);raw = harvest._canonical(mass_profile(harvest._source(reader())))
+    parameters = harvest._mass_parameters(raw);profile = allocation_profile(parameters)
+    if kind == 'terminal':profile['rules'][0]['selector']['last_sample'] = 4
+    else:profile['rules'][-1]['selector']['event'] = 3
+    with pytest.raises(harvest.CropRemovalHold):
+        list(harvest._read_allocations(reader, raw, harvest._canonical(profile), first_sample=1, last_sample=1))
+
+
+def test_observation_period_mismatch_and_final_authority_withdrawal_hold_summary():
+    reader = OwnedPages();raw = harvest._canonical(mass_profile(harvest._source(reader())))
+    mass = harvest._mass_parameters(raw);profile = allocation_profile(mass)
+    profile['observations'][0]['start_at'] = '2026-10-01T00:01:00Z';allocation = harvest._canonical(profile)
+    with pytest.raises(harvest.CropRemovalHold):
+        harvest._allocation_totals(harvest._read_allocations(reader, raw, allocation), harvest._allocation_parameters(allocation, mass))
+    profile['observations'] = [];allocation = harvest._canonical(profile);summaries = []
+    def withdrawn(**kwargs):
+        value = reader(**kwargs)
+        if not kwargs:
+            summaries.append(True)
+            if len(summaries) == 6:value['identity']['artifact_sha256'] = '9' * 64
+        return value
+    with pytest.raises(harvest.CropRemovalHold):
+        harvest._allocation_totals(harvest._read_allocations(withdrawn, raw, allocation), harvest._allocation_parameters(allocation, mass))
+    assert len(summaries) == 6
+    for arbitrary in (reader, {'approved': True}, object()):
+        with pytest.raises(harvest.CropRemovalHold):
+            list(harvest.iter_harvest_allocations(arbitrary, 'tenant-1', SOURCE['result_id'], {}, raw, allocation))
+
+
 def save_native(name, value):
     target = os.environ.get('OSSF_REMOVAL_LEDGER_EVIDENCE')
     if target:
@@ -527,17 +740,37 @@ def test_actual_stored_current_rights_raw_values_UTC_RHS0_and_FD(stored_result, 
             assert total['rows'] == len(selected)
             for key in ('dry_matter', 'fresh_matter'):
                 assert total[key]['value'] == float(sum((Decimal.from_float(row[key]['value']) for row in selected), Decimal(0)))
+    allocation_parameters = allocation_profile(harvest._mass_parameters(parameter_raw), last_sample=2, last_event=3)
+    allocation_raw = harvest._canonical(allocation_parameters)
+    allocation_call = lambda **kwargs: harvest.iter_harvest_allocations(service, 'tenant-1', record['result_id'],
+                                                        farm, parameter_raw, allocation_raw, **kwargs)
+    allocation_summary_call = lambda: harvest.summarize_harvest_allocations(service, 'tenant-1', record['result_id'],
+                                                                           farm, parameter_raw, allocation_raw)
+    allocation_rows = list(allocation_call())
+    assert [row['mass'] for row in allocation_rows] == mass_rows
+    assert list(allocation_call(last_sample=1)) + list(allocation_call(first_sample=1)) == allocation_rows
+    assert list(allocation_call(sample_page_size=1, event_page_size=1)) == allocation_rows
+    allocation_summary = allocation_summary_call()
+    assert_allocation_arithmetic(allocation_rows, allocation_summary, allocation_parameters)
+    assert allocation_rows[3]['allocations'] == [] and allocation_rows[3]['unassigned']['fraction']['value'] == 1
+    assert allocation_rows[2]['allocations'] == [] and allocation_rows[2]['unassigned']['quantities']['fresh_matter']['value'] > 0
+    assert allocation_summary['observation_comparisons'][0]['status'] == 'compared_synthetic_fixture'
+    for purpose in ('harvest', 'thinning', 'disposal', 'sampling'):
+        assert allocation_summary['totals_by_kind_and_purpose']['explicit_fruit_removal'][purpose]['quantities']['fresh_matter']['value'] > 0
     scopes = set(principal['scopes']);tenant = principal['tenant_id']
     try:
         rights.allowed = False
         with pytest.raises(harvest.CropRemovalHold):list(call())
         with pytest.raises(harvest.CropRemovalHold):summary_call()
+        with pytest.raises(harvest.CropRemovalHold):allocation_summary_call()
         rights.allowed = True;principal['scopes'].remove('crop_result_read')
         with pytest.raises(PermissionError):list(call())
         with pytest.raises(PermissionError):summary_call()
+        with pytest.raises(PermissionError):allocation_summary_call()
         principal['scopes'] = scopes;principal['tenant_id'] = 'foreign'
         with pytest.raises(PermissionError):list(call())
         with pytest.raises(PermissionError):summary_call()
+        with pytest.raises(PermissionError):allocation_summary_call()
     finally:
         rights.allowed = True;principal['scopes'] = scopes;principal['tenant_id'] = tenant
     original_page = harvest.current_query.results.CalculationResultReadContext.page;withdrawals = []
@@ -545,11 +778,11 @@ def test_actual_stored_current_rights_raw_values_UTC_RHS0_and_FD(stored_result, 
         def withdrawn(self, *args, **kwargs):
             page = original_page(self, *args, **kwargs);rights.allowed = False;withdrawals.append(True);return page
         patch.setattr(harvest.current_query.results.CalculationResultReadContext, 'page', withdrawn)
-        for action in (lambda: next(call()), summary_call):
+        for action in (lambda: next(call()), summary_call, lambda: next(allocation_call()), allocation_summary_call):
             try:
                 with pytest.raises(harvest.CropRemovalHold):action()
             finally:rights.allowed = True
-    assert withdrawals == [True, True]
+    assert withdrawals == [True] * 4
     assert len(os.listdir('/proc/self/fd')) == before and inventory() == files_before
     assert counts(service.store.server.binding) == db_before
     with service.store.jobs.connect() as conn:
@@ -561,6 +794,12 @@ def test_actual_stored_current_rights_raw_values_UTC_RHS0_and_FD(stored_result, 
         'mass_parameter_document': profile, 'mass_parameter_sha256': sha256(parameter_raw).hexdigest(),
         'mass_rows': mass_rows, 'mass_summary': mass_summary, 'mass_split_and_one_row_pages_identical': True,
         'mass_per_row_and_separate_totals_Decimal_checked': True,
+        'allocation_parameter_document': allocation_parameters, 'allocation_parameter_sha256': sha256(allocation_raw).hexdigest(),
+        'allocation_rows': allocation_rows, 'allocation_summary': allocation_summary,
+        'allocation_split_and_one_row_pages_identical': True,
+        'allocation_four_quantities_conservation_and_observation_Decimal_checked': True,
+        'allocation_nonzero_four_purposes_unassigned_and_leaf_only_verified': True,
+        'allocation_current_rights_scope_account_and_after_page_denied': True,
         'initial_boundary_final_and_leaf_stem_only_events_verified': True,
         'current_rights_scope_account_and_after_page_denied': True, 'RHS_calls': 0,
         'FD_before_after': [before, len(os.listdir('/proc/self/fd'))],

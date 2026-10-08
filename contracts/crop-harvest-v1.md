@@ -1,10 +1,10 @@
 # 과실 제거 원장과 건물·생과 환산 — v1 후보
 
-2026-10-07 초안, 2026-10-08 원장·합성 질량 환산 로컬 수용. [환산 조사](../research/crop-harvest-conversion-baseline-20261006.md)의
+2026-10-07 초안, 2026-10-08 원장·합성 질량 환산·합성 배정 로컬 수용. [환산 조사](../research/crop-harvest-conversion-baseline-20261006.md)의
 출처·차원 검토와 현재 저장 형식을 작은 작업으로 연결한다. 실제 환산계수·수확 의미의 수용 기록이 아니다.
 개발/게시 조건은 [명세 5.3](../docs/PROJECT_SPEC.md#53-개발-착수와-결과-게시),
 선행 순서는 [계획](../tasks/plan.md), 현장 자료는 [확보 상태](../research/crop-independent-data-status.json)를 따른다.
-원 cycle3D/전체 작기 경로의 수용 뒤 원장·합성 질량 환산을 구현했다. 실제 계수·수확 의미 연결은 후속이다.
+원 cycle3D/전체 작기 경로의 수용 뒤 원장·합성 질량 환산·합성 배정을 구현했다. 실제 계수·수확 근거 채택은 후속이다.
 
 **2026-10-08 원장 수용:** [전체166일 연구 경로](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md) 뒤
 [순수61개·실제 SCRAM1개와 root 감사](../research/crop-removal-ledger-implementation-20261008.md)로
@@ -12,6 +12,9 @@
 
 **2026-10-08 합성 질량 수용:** [순수105개·실제 SCRAM1개와 독립 Decimal/root 감사](../research/crop-removal-mass-implementation-20261008.md)로
 명시 소유 합성 계수의 환산 자식을 수용했다. 실제 계수·전체 작기 질량/게시·수확 의미와 부모는 미수용이다.
+
+**2026-10-08 합성 배정 수용:** [순수148개·실제 SCRAM1개와 독립 Decimal/root 감사](../research/crop-harvest-events-implementation-20261008.md)로
+수확/적과/폐기/채취·미배정과 관측 비교의 개발 자식만 수용했다. 실제 수확/부모·저장/API/3D는 별도다.
 
 ## 제거 원장의 조회 경계
 
@@ -118,6 +121,42 @@ terminal 구간은 하나의 계수 구간에 전부 포함되어야 한다. 그
 후속 저장/API/3D는 원 result ID/UTC와 파생 판본을 연결하는 별도 작은 작업에서 검증한다.
 
 ## 첫 구현 한 단계의 수용 기준
+
+### 수확 배정 개발 인터페이스와 다음 수용 기준
+
+`crop-harvest-events`는 같은 현재 조회/질량 계수 원문과 canonical JSON
+`crop-harvest-allocation-v1`을 받는다. 입력은262,144bytes 이하, 규칙256개 이하,
+관측 비교 fixture64개 이하이며 `synthetic`/`assumed`만 허용한다. 실제 관측/권리 채택 경로는 별도다.
+배정 ID/판본·근거 ID·`available_at`, 동일 source/모집단/바닥면적 분모와 질량 계수 원문 hash,
+`proportional_original_population` 정책을 명시한다. 배정은 전체 모델 과실 구획에 같은 비율로 적용하며
+등급·선택적 크기·실제 과실 개수를 추론하지 않는다.
+
+각 규칙은 고유 `assignment_id`, `harvest`/`thinning`/`disposal`/`sampling` 목적,
+단위1의 양수 소수 문자열 비율(최대18자리 소수부)을 갖는다. selector는 terminal의
+`first_sample=a,last_sample=b`에 포함된 각 원 인접 구간 `[i,i+1]`(`a<=i<b`) 또는
+원 `event` index 하나다. source/artifact hash와 전역 위치로 원 제거에 결속하며, 모든 selector를
+확정된 원 sample/event 개수와 대조한다. 빈 선택 창에도 미래/존재하지 않는 참조를 거부한다.
+한 구간에 적용되는 규칙의 정확한 비율 합은1 이하이며 초과/중복 ID는 거부한다.
+규칙이 없거나 비율이 남으면 나머지를 `unassigned`로 보존한다. terminal을 기본 수확으로 배정하지 않는다.
+
+`iter_harvest_allocations(query, tenant, result_id, farm_ref, parameter_raw, allocation_raw, **window)`는
+원 질량 행과 원 UTC/위치/hash, 목적별 배정량·미배정량을 한 묶음으로 반환한다.
+원 구간을 실제 수확일로 바꾸지 않는다. C/N/건물/생과 네 양의 배정과 잔여 합은 정확한 유리수로
+원 float64 값과 같다. 각 값에 분자/분모와 반올림된 float64를 함께 보존하며 양수 underflow/overflow는 보류한다.
+전체 원 행을 모으지 않고 기존64 sample/8 event 이하의 페이지를 순회한다.
+
+`summarize_harvest_allocations`는 원 종류×목적별 합계와 미배정량·행 순서 hash를 반환한다.
+별도 관측 fixture는 고유 ID·근거/가용 시각·비교 시작/끝·단위가 있는 생과량과 연결된 수확 규칙 ID를 갖는다.
+같은 규칙을 관측에 중복 연결하거나 적과/폐기 규칙을 수확 관측에 연결하면 거부한다.
+관측값을 모델 배정량에 더하지 않고 `관측−모델` 차이만 비교한다. 규칙의 원 구간 전체가 선택되지 않으면
+`incomplete_selected_window`이며 관측을 임의 분할하지 않는다. 완전한 비교는 모든 원 구간이 관측 기간에
+포함되는지 검사한다. 관측 fixture는 실제 농장 측정이나 생산 검증이 아니다.
+
+다음 수용은 독립 Decimal 네 양 보존·목적/미배정·관측 차이와 전체/분할/한 행 페이지 일치,
+초기/끝/잘못된 원 참조·겹친 배정·출처/면적/시간 불일치 거부, 작은 실제 DB의 현재 권리/계정/페이지 뒤
+철회 거부·RHS0·FD/원 파일/DB 보존·소유 자원 정리다. 출력은
+`synthetic_harvest_allocation_math_only`·`rights_or_gate_approval=false`다.
+이 수용은 해당 자식의 개발 범위이며 실제 부모 생산량·H/P/S·G0–G4를 승인하지 않는다.
 
 `crop-removal-ledger`는 원 C/N 분리만 구현한다. eta/DMC/FW는 둘째 자식이며 H/P/S는 별도 근거가 필요하다.
 

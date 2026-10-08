@@ -344,3 +344,209 @@ def _mass_totals(rows, parameters):
 def summarize_removal_mass(query, tenant, result_id, farm_ref, parameter_raw, **window):
     return _mass_totals(iter_removal_mass(query, tenant, result_id, farm_ref, parameter_raw, **window),
                         _mass_parameters(parameter_raw))
+
+
+def _allocation_fraction(record):
+    _need(type(record) is dict and set(record) == {'value', 'unit'} and record['unit'] == '1')
+    value = record['value']
+    _need(type(value) is str and re.fullmatch(r'(?:0(?:\.\d{1,18})?|1(?:\.0{1,18})?)', value))
+    result = Fraction(value)
+    _need(0 < result <= 1)
+    return result
+
+
+def _rational_quantity(value, unit):
+    rounded = -_float_quantity(-value) if value < 0 else _float_quantity(value)
+    return {'value': rounded, 'unit': unit,
+            'exact': {'numerator': str(value.numerator), 'denominator': str(value.denominator)}}
+
+
+def _portion(mass, fraction):
+    amounts = {'carbohydrate': mass['removal']['carbohydrate'], 'number': mass['removal']['number'],
+               'dry_matter': mass['dry_matter'], 'fresh_matter': mass['fresh_matter']}
+    units = {'carbohydrate': MASS_UNIT, 'number': NUMBER_UNIT,
+             'dry_matter': 'kg_DM/m2_floor', 'fresh_matter': 'kg_FW/m2_floor'}
+    return {key: _rational_quantity(Fraction(_amount(amount, units[key])) * fraction, units[key])
+            for key, amount in amounts.items()}
+
+
+def _allocation_parameters(raw, parameters):
+    try:
+        _need(type(raw) is bytes and 0 < len(raw) <= 262144)
+        profile = current_query.inputs._json(raw);mass, mass_sha = parameters
+        _need(type(profile) is dict and _canonical(profile) == raw and set(profile) == {
+            'version', 'allocation_id', 'revision', 'origin', 'evidence_level', 'evidence_id',
+            'available_at', 'source', 'population', 'mass_parameter_sha256', 'policy', 'rules', 'observations'})
+        _need(profile['version'] == 'crop-harvest-allocation-v1' and profile['origin'] == 'synthetic'
+              and profile['evidence_level'] == 'assumed' and profile['policy'] == 'proportional_original_population'
+              and profile['source'] == mass['source'] and profile['population'] == mass['population']
+              and profile['mass_parameter_sha256'] == mass_sha)
+        def identifier(value):
+            _need(type(value) is str and 0 < len(value) <= 128 and value.isprintable())
+        for key in ('allocation_id', 'revision', 'evidence_id'):identifier(profile[key])
+        _at(profile['available_at']);rules = profile['rules'];observations = profile['observations']
+        _need(type(rules) is list and len(rules) <= 256 and type(observations) is list and len(observations) <= 64)
+        by_id = {};edges = {};events = {}
+        for rule in rules:
+            _need(type(rule) is dict and set(rule) == {'assignment_id', 'selector', 'purpose', 'fraction'})
+            identifier(rule['assignment_id']);_need(rule['assignment_id'] not in by_id)
+            _need(rule['purpose'] in ('harvest', 'thinning', 'disposal', 'sampling'))
+            weight = _allocation_fraction(rule['fraction']);selector = rule['selector']
+            _need(type(selector) is dict)
+            if selector['kind'] == 'model_terminal_outflow':
+                _need(set(selector) == {'kind', 'first_sample', 'last_sample'})
+                a, b = selector['first_sample'], selector['last_sample']
+                _need(type(a) is int and type(b) is int and 0 <= a < b)
+                edges[a] = edges.get(a, Fraction(0)) + weight
+                edges[b] = edges.get(b, Fraction(0)) - weight
+            else:
+                _need(set(selector) == {'kind', 'event'} and selector['kind'] == 'explicit_fruit_removal')
+                index = selector['event'];_need(type(index) is int and index >= 0)
+                events[index] = events.get(index, Fraction(0)) + weight
+                _need(events[index] <= 1)
+            by_id[rule['assignment_id']] = rule
+        running = Fraction(0)
+        for edge in sorted(edges):
+            running += edges[edge];_need(0 <= running <= 1)
+        _need(running == 0)
+        seen = set();linked = set()
+        for observation in observations:
+            _need(type(observation) is dict and set(observation) == {'observation_id', 'origin', 'evidence_level',
+                'evidence_id', 'available_at', 'start_at', 'end_at', 'assignment_ids', 'fresh_matter'})
+            for key in ('observation_id', 'evidence_id'):identifier(observation[key])
+            _need(observation['observation_id'] not in seen and observation['origin'] == 'synthetic'
+                  and observation['evidence_level'] == 'assumed')
+            _at(observation['available_at']);_need(_at(observation['start_at']) <= _at(observation['end_at']))
+            ids = observation['assignment_ids']
+            _need(type(ids) is list and 1 <= len(ids) <= 256)
+            for name in ids:
+                identifier(name)
+                _need(name in by_id and name not in linked and by_id[name]['purpose'] == 'harvest')
+                linked.add(name)
+            _amount(observation['fresh_matter'], 'kg_FW/m2_floor');seen.add(observation['observation_id'])
+        return profile, sha256(raw).hexdigest()
+    except Exception:
+        raise CropRemovalHold('crop harvest allocation parameters unavailable') from None
+
+
+def _allocation_scope(profile, original):
+    _need(profile['source'] == _source(original))
+    packet = current_query.inputs._json(original['record']['payload_raw'])
+    samples, events = packet['artifact']['sample_count'], packet['artifact']['event_count']
+    _need(type(samples) is int and samples > 0 and type(events) is int and events >= 0)
+    for rule in profile['rules']:
+        selector = rule['selector']
+        _need(selector['last_sample'] < samples if selector['kind'] == 'model_terminal_outflow'
+              else selector['event'] < events)
+
+
+def _allocation_row(mass, parameters):
+    profile, allocation_sha = parameters;removal = mass['removal']
+    _need(mass['schema_version'] == 'crop-removal-mass-v1' and mass['code_sha256'] == CODE_SHA256
+          and mass['dependency_sha256'] == DEPENDENCY_SHA256 and removal['source'] == profile['source']
+          and mass['parameter_sha256'] == profile['mass_parameter_sha256']
+          and mass['claim_scope'] == 'synthetic_removal_mass_math_only' and mass['rights_or_gate_approval'] is False)
+    allocations = [];assigned = Fraction(0)
+    for rule in profile['rules']:
+        selector = rule['selector']
+        if selector['kind'] != removal['kind']:continue
+        applies = (selector['first_sample'] <= removal['position']['samples'][0] < selector['last_sample']
+                   if selector['kind'] == 'model_terminal_outflow' else selector['event'] == removal['position']['event'])
+        if applies:
+            weight = _allocation_fraction(rule['fraction']);assigned += weight
+            allocations.append({'assignment_id': rule['assignment_id'], 'purpose': rule['purpose'],
+                                'fraction': deepcopy(rule['fraction']), 'quantities': _portion(mass, weight)})
+    _need(assigned <= 1)
+    identity = {'version': 'crop-harvest-allocation-result-v1', 'code_sha256': CODE_SHA256,
+                'dependency_sha256': dict(DEPENDENCY_SHA256), 'mass_row_sha256': sha256(_canonical(mass)).hexdigest(),
+                'allocation_sha256': allocation_sha}
+    declaration = {key: deepcopy(value) for key, value in profile.items() if key not in ('rules', 'observations')}
+    return {**identity, 'schema_version': identity['version'],
+            'row_id': identity['version'] + ':' + sha256(_canonical(identity)).hexdigest(),
+            'claim_scope': 'synthetic_harvest_allocation_math_only', 'rights_or_gate_approval': False,
+            'mass': deepcopy(mass), 'allocation_parameters': declaration, 'allocations': allocations,
+            'unassigned': {'fraction': _rational_quantity(1 - assigned, '1'),
+                           'quantities': _portion(mass, 1 - assigned)},
+            'rounding': 'nearest_float64_with_exact_rational_portions_of_stored_mass_row'}
+
+
+def _read_allocations(read, parameter_raw, allocation_raw, **window):
+    mass = _mass_parameters(parameter_raw);parameters = _allocation_parameters(allocation_raw, mass)
+    original = read();_allocation_scope(parameters[0], original)
+    for row in _read_mass(read, parameter_raw, **window):
+        _pins()
+        yield _allocation_row(row, parameters)
+    _pins()
+    _same(read(), original)
+
+
+def iter_harvest_allocations(query, tenant, result_id, farm_ref, parameter_raw, allocation_raw, *,
+                             first_sample=0, last_sample=None, sample_page_size=64, event_page_size=8):
+    try:
+        _pins()
+        _need(type(query) is current_query.CalculationCurrentCycleQuery)
+        yield from _read_allocations(lambda **kwargs: query.read(tenant, result_id, farm_ref, **kwargs),
+            parameter_raw, allocation_raw, first_sample=first_sample, last_sample=last_sample,
+            sample_page_size=sample_page_size, event_page_size=event_page_size)
+    except PermissionError:
+        raise
+    except Exception:
+        raise CropRemovalHold('crop harvest allocation unavailable') from None
+
+
+def _allocation_totals(rows, parameters):
+    profile, allocation_sha = parameters
+    units = {'carbohydrate': MASS_UNIT, 'number': NUMBER_UNIT,
+             'dry_matter': 'kg_DM/m2_floor', 'fresh_matter': 'kg_FW/m2_floor'}
+    kinds = ('model_terminal_outflow', 'explicit_fruit_removal')
+    purposes = ('harvest', 'thinning', 'disposal', 'sampling', 'unassigned')
+    groups = {kind: {purpose: {'rows': 0, 'sums': {key: Fraction(0) for key in units}}
+                     for purpose in purposes} for kind in kinds}
+    progress = {rule['assignment_id']: {'rows': 0, 'fresh': Fraction(0), 'start': None, 'end': None}
+                for rule in profile['rules']}
+    def exact(quantity):
+        return Fraction(int(quantity['exact']['numerator']), int(quantity['exact']['denominator']))
+    chain = sha256();count = 0
+    for row in rows:
+        _need(row['allocation_sha256'] == allocation_sha and row['mass']['removal']['source'] == profile['source'])
+        removal = row['mass']['removal'];kind = removal['kind'];count += 1
+        for part in row['allocations'] + [{'purpose': 'unassigned', **row['unassigned']}]:
+            group = groups[kind][part['purpose']];group['rows'] += 1
+            for key in units:group['sums'][key] += exact(part['quantities'][key])
+            if part['purpose'] != 'unassigned':
+                state = progress[part['assignment_id']];state['rows'] += 1
+                state['fresh'] += exact(part['quantities']['fresh_matter'])
+                state['start'] = min(state['start'] or removal['start_at'], removal['start_at'])
+                state['end'] = max(state['end'] or removal['end_at'], removal['end_at'])
+        chain.update(_canonical(row));chain.update(b'\n')
+    totals = {kind: {purpose: {'rows': group['rows'], 'quantities': {
+        key: _rational_quantity(value, units[key]) for key, value in group['sums'].items()}}
+        for purpose, group in by_purpose.items()} for kind, by_purpose in groups.items()}
+    by_id = {rule['assignment_id']: rule for rule in profile['rules']};comparisons = []
+    for observation in profile['observations']:
+        states = [progress[name] for name in observation['assignment_ids']]
+        def expected(name):
+            selector = by_id[name]['selector']
+            return selector['last_sample'] - selector['first_sample'] if selector['kind'] == kinds[0] else 1
+        complete = all(state['rows'] == expected(name) for name, state in zip(observation['assignment_ids'], states, strict=True))
+        model = difference = None
+        if complete:
+            _need(all(observation['start_at'] <= state['start'] <= state['end'] <= observation['end_at'] for state in states))
+            value = sum((state['fresh'] for state in states), Fraction(0))
+            model = _rational_quantity(value, 'kg_FW/m2_floor')
+            difference = _rational_quantity(Fraction(_amount(observation['fresh_matter'], 'kg_FW/m2_floor')) - value, 'kg_FW/m2_floor')
+        comparisons.append({'observation': deepcopy(observation),
+            'status': 'compared_synthetic_fixture' if complete else 'incomplete_selected_window',
+            'modeled_fresh_matter': model, 'observed_minus_modeled': difference})
+    return {'schema_version': 'crop-harvest-allocation-summary-v1', 'code_sha256': CODE_SHA256,
+        'claim_scope': 'synthetic_harvest_allocation_math_only', 'rights_or_gate_approval': False,
+        'source': deepcopy(profile['source']), 'allocation_sha256': allocation_sha,
+        'allocation_parameters': deepcopy(profile), 'row_count': count, 'row_chain_sha256': chain.hexdigest(),
+        'totals_by_kind_and_purpose': totals, 'observation_comparisons': comparisons,
+        'rounding': 'nearest_float64_with_exact_rational_sum_of_portions'}
+
+
+def summarize_harvest_allocations(query, tenant, result_id, farm_ref, parameter_raw, allocation_raw, **window):
+    parameters = _allocation_parameters(allocation_raw, _mass_parameters(parameter_raw))
+    return _allocation_totals(iter_harvest_allocations(query, tenant, result_id, farm_ref,
+                                                      parameter_raw, allocation_raw, **window), parameters)
