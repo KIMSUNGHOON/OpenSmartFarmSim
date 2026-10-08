@@ -4,16 +4,15 @@
 작물 생장·저장·성장 3D로 진행한다. 첫 작성 시점의 구현 현황은 아래에 남겨두며,
 현재 운영 완료 범위와 CI는 [고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)을 따른다.
 
-**최신 수용 — 2026-10-08 23:26 KST:** [등록 수확의 보호된 reader 설정·별도 Python 복원](../research/crop-harvest-protected-factory-implementation-20261008.md)을
-새45개(실제 SCRAM1 포함)/기존 loader 순수56개·집중101개·원 종료0·445 source/정리로 로컬 수용했다.
-기존 운영 설정 loader의 실제 module import·새 ApiRuntime으로 정상 Python2개/권한 거부1개를 확인했다.
-같은 DB/reader/원 query/jobs/farm/principal·보호 파일16개·원 DB counts/FD를 유지했다.
-선행 [명시 runtime·App 조립](../research/crop-harvest-runtime-assembly-implementation-20261008.md)과
-[합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-이번 작물/수확 row0건·새 HTTP/TLS/SDK/3D0건이다. runtime/factory 부모만 추가 완료했고 API/replay 부모는 미완료다.
-다음은 실제 SCRAM/HTTPS30초·2MiB→SDK→같은 UTC 표/3D→기후/물·양분/구매 에너지→Decimal 경제다.
-기존 내부 query page약23초는 HTTPS/전체 질량 조회 부하 수용이 아니다.
-실제 계수/품종 입력·농장 작물 Run·국내 독립 자료0건, 실제 생산/마진 예측·추천 보류는 유지한다.
+**최신 수용 — 2026-10-09 00:09:41 KST:** [등록 수확의 실제 SCRAM/HTTPS](../research/crop-harvest-runtime-tls-implementation-20261009.md)를
+새2개(실제 SCRAM/HTTPS1)/기존 route72개·집중74개·원 종료0·450 source/정리로 로컬 수용했다.
+기존 보호된 loader의 실제 module import·표준 ApiRuntime·같은 DB의 원6행/요약·분할을 확인했다.
+실제 HTTPS17개·최대 25.700초/59,463bytes·재구성 서버2개 종료·원 값/UTC/권리/계정/변조 거부를 검증했다.
+TLS 자식과 선행 자식을 합친 API/runtime 부모만 추가 완료했다. SDK·수확 표/3D·replay 부모는 미완료다.
+선행 합성166일 생장 DB/API/대표3D는 유지한다. 새 수확 경로의 전체166일 질량 부하는 별도다.
+다음은 SDK의 닫힌 응답·정확 수량/provenance·순차 페이지/취소/혼합 거부→같은 UTC 표/3D다.
+그 뒤 기후/물·양분/구매 에너지→Decimal 경제 연결로 진행한다.
+실제 계수/품종 입력·농장 작물 Run·국내 독립 자료0건, G0–G4/생산/마진 예측·추천 보류는 유지한다.
 
 **2026-10-08 단계별 경계 기록:** [계산 설정 로더](../research/crop-cycle-calculation-operator-loader-20261007.md)의
 고유212개 분할·실제 SCRAM/정리로 명시 operator-runtime까지 로컬 수용했다.
