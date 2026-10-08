@@ -1100,8 +1100,9 @@
     - [x] **`crop-harvest-registry-schema`** — 계약/schema module/집중/native 시험3 core파일. 별도 namespace·owner·publisher/reader·불변 metadata 표/감사.
       수용: 실제 SCRAM·최소 권한/SQL 열/본문·hash/immutable/rollback·기존 원 result/역할/코드 보존·schema/role/passfile/PG 정리. SQL fixture를 실제 등록으로 표시하지 않는다.
       [로컬 수용](../research/crop-harvest-registry-schema-implementation-20261008.md): 순수16개/실제 SCRAM1개·집중17개/원 종료0·SQL11종/권한·trigger10종 거부·FD13→13·원 result/역할/파일·416 source/정리. 실제 파생 등록/관문은 별도다.
-    - [ ] **`crop-harvest-registration`** — 선행 schema와 artifact. 서버가 원 결과/원문에서 파일 생성→현재 권리/서명→DB 최초 게시·재시도를 수행한다.
+    - [x] **`crop-harvest-registration`** — 선행 schema와 artifact. 서버가 원 결과/원문에서 파일 생성→현재 권리/서명→DB 최초 게시·재시도를 수행한다.
       수용: 임의 경로/hash 거부·원 부모/농장·두 원문/판본·파일/DB 일치·rollback/권리 철회·원 이력 보존. 착수 시3~5파일로 분해한다.
+      [로컬 수용](../research/crop-harvest-registration-implementation-20261008.md): 계약/registry/시험3 core파일·순수37개/실제 SCRAM1개·집중38개/원 종료0·6행/서명 DB1건·계산 권리만 철회 rollback/동일 재시도·독립 HMAC/Decimal·FD13→13·원 부모/역할/파일·421 source/정리. 실제 품종/농장·현재 query/관문은 별도다.
     - [ ] **`crop-harvest-registered-query`** — 선행 등록. 서버 등록의 key/hash를 해석한 현재권리 summary/page·fresh Python 실제 DB 복원.
       수용: 서명/원본/계정/철회/페이지 뒤 변경·한도·RHS0·소유 자원/비밀 정리. 착수 시3~5파일로 분해한다.
   - [ ] **`crop-harvest-http-sdk`** — 선행 현재 조회. 착수 시 공개 DTO/인증 route·runtime → SDK로3~5파일 자식을 분해한다.

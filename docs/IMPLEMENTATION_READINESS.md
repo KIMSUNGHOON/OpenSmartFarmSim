@@ -1,12 +1,11 @@
 # 구현 준비 현황
 
-**최신 수용 — 2026-10-08 21:14 KST:** [수확 결과 등록 스키마](../research/crop-harvest-registry-schema-implementation-20261008.md)를
-순수16개·실제 SCRAM1개/집중17개·원 종료0·SQL 거부11종/권한·trigger10종·416 source/정리로 로컬 수용했다.
-선행 [질량·배정 불변 저장](../research/crop-harvest-artifact-implementation-20261008.md)과
-[합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-다음은 실제 artifact의 서버 서명·DB 등록→현재 조회→HTTP/SDK→같은 UTC3D다.
-이번은 SQL 형식 fixture 단계이며 실제 파생 등록/작물 Run은0건이다.
-실제 계수/품종 입력·국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
+**최신 수용 — 2026-10-08 21:35 KST:** [서버 수확 산술 등록](../research/crop-harvest-registration-implementation-20261008.md)을
+순수37개·실제 SCRAM1개/집중38개·원 종료0·6행 파일/서명 DB1건·계산 권리 철회 rollback/동일 재시도·421 source/정리로 로컬 수용했다.
+선행 [합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
+다음은 등록 결과의 현재 권리 조회·fresh Python 실제 DB 복원→HTTP/SDK→같은 UTC3D다.
+등록1건은 소유 합성 시험 자료이며 실제 계수/품종 입력·농장 작물 Run은0건이다.
+국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
 
 **새 계산 조회 진척 (2026-10-07):** [현재 농장/DB query](../research/crop-cycle-calculation-current-query-implementation-20261007.md)를
 실제 SCRAM12개·정상/관리 사건/수치 hold·원량/UTC·철회/변조·fork·63 source/자원 정리로 로컬 수용했다.

@@ -1,13 +1,13 @@
 # 구현 순서
 
-**최신 수용 — 2026-10-08 21:14 KST:** [수확 결과 등록 스키마](../research/crop-harvest-registry-schema-implementation-20261008.md)를
-순수16개·실제 SCRAM1개/집중17개·원 종료0·SQL 거부11종/권한·trigger10종·416 source/정리로 로컬 수용했다.
-선행 질량·배정 불변 저장과 합성166일 DB/API/대표3D는 유지한다. SQL 형식 fixture이며 실제 파생 등록/작물 Run0건이다.
-`crop-harvest-registry-schema`만 추가 수용했다. 다음은 서버 파일 생성·서명 DB 등록→현재 권리 조회→HTTP/SDK→같은 UTC 표/3D다.
-[등록/조회 계약](../contracts/crop-harvest-current-query-v1.md)의 별도 namespace/역할로 기존 원 서명에 포함된 공통 role/code 판본을 보존한다.
-다음 등록은 registry 제공자·집중/native 시험·등록 계약3 core파일로 시작하고 현재 부모/농장·계산/표시 권리·최초 게시/재시도를 검증한다.
+**최신 수용 — 2026-10-08 21:35 KST:** [서버 수확 산술 등록](../research/crop-harvest-registration-implementation-20261008.md)을
+순수37개·실제 SCRAM1개/집중38개·원 종료0·6행 파일/서명 DB1건·계산 권리 철회 rollback/동일 재시도·421 source/정리로 로컬 수용했다.
+등록1건은 소유 합성 시험이며 실제 계수/품종 입력·농장 작물 Run0건이다. 선행 합성166일 DB/API/대표3D를 보존한다.
+`crop-harvest-registration`만 추가 수용했다. 다음은 등록 현재 query·fresh Python 실제 DB 복원→HTTP/SDK→같은 UTC 표/3D다.
+후속 현재 query는 별도 reader 로그인·현재 읽기 scope/표시 권리 아래 서명 metadata의 key/hash를 해석하고 원 부모/농장·파일을 전후 검사하도록 구현한다.
+[등록 계약](../contracts/crop-harvest-registration-v1.md)의 후속3 core파일과 기존 현재 crop query/runtime 복원 계약을 재사용한다.
 이 경로는 기후/물·양분/구매 에너지 개발과 병행하며 실제 생산량/예측 게시 관문은 별도다.
-실제 품종/계수·국내 독립 자료0건·자원/경제 연결·전체 제품 관문은 후속이며 아래 단계별 기록은 당시 상태다.
+국내 독립 자료0건·자원/경제 연결·전체 제품 관문은 후속이며 아래 단계별 기록은 당시 상태다.
 
 ## 작물 생산과 성장 3D 우선순위 (2026-10-04)
 
