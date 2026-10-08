@@ -830,12 +830,23 @@
               실제 SCRAM40→120걸음/원3출력·fresh 게시/재조회/재시도 RHS0·같은 result ID/원량/row1·
               계산 전/yielded/현재 권리·계정 거부·294 source/FD13→13·원 종료0/123.575초/정리.
               첫 계산 전 별도 무작위 DB key와 원 감독/계획/마감 선언을 결속하며 전체166일 수용은 별도다.
-            - [ ] **`crop-cycle-calculation-full-path-harness`** — 다음 단계; 선행: 작은 완료 게시 연결 수용.
+            - [ ] **`crop-cycle-calculation-full-path-harness`** — 작은 기능 자식 수용/전체 자원 보류; 선행: 작은 완료 게시 연결 수용.
               기존 현재 API/HTTPS/3D를 같은 DB/farm/artifact에 연결한 통합 실행 구성을 준비한다.
               수용: 작은 실제 계산→게시→현재 보호 API/HTTPS→대표 원 UTC/수치의 실제 WebGL 대사·
               조회 RHS0·현재 권리·원 명령/실제 종료·source/FD/DB/비밀/PG/서버/브라우저 정리.
               이후 전체166일을 원9시간 상한 안에서 준비→계산→전체 원 행/수지 대사→게시→API/3D→정리한다.
               같은 DB의 후속 단계 전에 teardown하거나 재계산으로 대체하지 않고 각 수용 범위를 실제 증거로 판단한다.
+              - [x] **`crop-cycle-calculation-registered-replay-functional`** — 작은 같은 DB 기능 경로 수용.
+                [계약](../contracts/crop-cycle-calculation-registered-replay-harness-v1.md)·
+                [수용](../research/crop-cycle-calculation-registered-replay-harness-implementation-20261008.md): 고유2개·
+                실제120걸음/원3시점·3사건·fresh 게시·보호 HTTPS8개/최대2.148초·현재 App/WebGL 원량/UTC·
+                입력 권리 철회/복원·계정 거부·조회 RHS0·303 source·원 종료0/86.111초·DB/비밀/PG/웹 정리.
+                첫 폼 race/둘째 stream 관측 실패의 원 종료/정리와 source snapshot을 보존했다. 전체166일/자원 수용은 별도다.
+              - [ ] **`crop-cycle-calculation-registered-replay-resource-budget`** — 다음 단계; 실제 브라우저 RSS 초과 근거.
+                같은 원 값/DB/보호 HTTPS/현재 App·권리/정리를 유지하며 production 빌드 서빙과 viewport 캡처를 검토한다.
+                실제 pipeline RSS를 PG까지 포함해 관측하고 원 primary512MiB/pipeline1GiB·원 명령600초를 만족해야 수용한다.
+                기존 descendant 합1,583,595,520bytes를 전체 상한 수용으로 표시하지 않고 상한을 늘리지 않는다.
+                수용 뒤 원9시간의 실제 전체166일 준비/streaming 원량 대사/게시/API/대표3D를 이어간다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,

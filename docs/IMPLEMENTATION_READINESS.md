@@ -69,8 +69,12 @@ API193개/웹720개/Chromium15개·타입/빌드·새34 JSON/원량/UTC·270 sou
 289 source/종료0/정리로 작은 감독자 부모를 로컬 수용했다.
 [완료 결과 별도 DB 게시](../research/crop-cycle-calculation-registered-terminal-publication-implementation-20261008.md)도
 고유9개·실제 SCRAM40→120걸음/3출력·fresh 게시/재시도 RHS0/같은 row1·미완료/권한 거부·
-294 source/종료0/정리로 작은 연결을 수용했다. 다음은 같은 DB를 계산→게시→API/동일 UTC3D까지
-유지하는 통합 실행 구성/작은 검증이며 그 뒤 전체166일을 시작한다. 전체 실행은 아직 시작하지 않았다.
+294 source/종료0/정리로 작은 연결을 수용했다.
+[같은 DB의 실제 App/3D](../research/crop-cycle-calculation-registered-replay-harness-implementation-20261008.md)도
+고유2개·실제120걸음/원3시점·3사건·보호 HTTPS8개/최대2.148초·현재 권리/계정 거부·
+303 source/원 종료0/정리로 작은 기능 경로를 수용했다.
+브라우저 포함 descendant RSS 합1.584GB가 전체1GiB 상한을 넘어 자원 수용은 보류한다.
+다음은 같은 경로의 자원 개선/실측이며 전체166일은 아직 시작하지 않았다.
 9시간은 후속 실험 상한이다.
 원 순수 실행의 재분류가 아니다.
 전체166일 등록 비용·실제 품종 입력/국내 독립 자료0건과 G0–G4 보류는 유지한다. 아래 날짜별 기록은 당시 상태다.
