@@ -404,8 +404,11 @@ RHS 전에 실효128원경계로 제한하고 독립 validator/실제 저장·�
 전체47,809출력/5사건·예약 포함481,987,541bytes/512MiB·279 source/종료0/정리로 수용했다.
 관측 당시 실행 예산은 미고정이었다. 전체 실제 순수20,518.836초와 남은 bytes/HMAC 순회를 검토한
 [후속 실행 계약](../contracts/crop-cycle-calculation-full-registered-run-v1.md)은9시간의 실험 상한과 RSS/중단/재개·정리를 고정한다.
-다음 `crop-cycle-calculation-registered-supervisor`는 작은 실제 SCRAM·지속 spec/원 종료·fresh Python의
-같은 DB/농장/전체 checkpoint 복원·추가 계산·SIGKILL/동시/권리/자원 반례를 먼저 검증한다.
+[같은 농장 fresh Python 자식](../research/crop-cycle-calculation-registered-runtime-implementation-20261008.md)은
+고유7개·실제 SCRAM40→80걸음/2출력·복원 RHS0·계산 전 SIGKILL-9와 재개/연속 제어 대사·
+현재 권리/고정 key 변조·284 source/종료0/정리로 수용했다. 새 소유 설정은 첫 계산 전에 발급한다.
+`crop-cycle-calculation-registered-supervisor` 부모는 미수용이다. 다음 control 자식에서 동일 config/DB 참조의
+지속 spec/고정 원 deadline·배타 실행·실제 종료/로그·취소/RSS/만료·변조와 같은 마감의 재개를 검증한다.
 그 수용 뒤에만 새 전체 등록 실행으로 진행한다. 원8초RK4/300초 출력과 한도·현재 bytes/입력/권리를 유지한다.
 이 용량/계약이나 초기 구간으로 완료 날짜·전체 실행/DB/API/3D·prefix-cost 부모를 수용하지 않는다.
 [CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증이며 전체 hosted 수용은 별도다.

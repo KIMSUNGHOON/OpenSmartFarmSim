@@ -62,7 +62,9 @@ API193개/웹720개/Chromium15개·타입/빌드·새34 JSON/원량/UTC·270 sou
 두 advance50.212/47.349초는 초기 구간 관측이다.
 [전체 참조 용량](../research/crop-cycle-calculation-full-capacity-observed-20261008.md)도 고유10개·RHS0·456묶음/
 전체47,809출력/5사건·예약 포함481,987,541bytes/512MiB·279 source/종료0/정리로 수용했다.
-다음은 작은 등록 감독자의 fresh Python 복원 검증이다.9시간은 후속 실험 상한이다.
+[같은 농장 별도 Python 복원](../research/crop-cycle-calculation-registered-runtime-implementation-20261008.md)도 고유7개·
+실제 SCRAM40→80걸음/2출력·복원 RHS0·계산 전 SIGKILL-9/재개·권리/변조·284 source/종료0/정리로 수용했다.
+다음은 지속 spec/deadline·배타/취소/RSS 감독이다.9시간은 후속 실험 상한이다.
 원 순수 실행의 재분류가 아니다.
 전체166일 등록 비용·실제 품종 입력/국내 독립 자료0건과 G0–G4 보류는 유지한다. 아래 날짜별 기록은 당시 상태다.
 

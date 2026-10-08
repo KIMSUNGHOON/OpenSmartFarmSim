@@ -794,12 +794,23 @@
             참조459page/402,648,021bytes·metadata 상계/최대 예약 포함481,987,541bytes로512MiB 한도를 유지했다.
             [후속 계약](../contracts/crop-cycle-calculation-full-registered-run-v1.md)은9시간 실험 상한을 고정한다.
             신규 실제 저장량/장시간 실행·supervisor 구현 수용이 아니다.
-          - [ ] **`crop-cycle-calculation-registered-supervisor`** — 다음 단계; 선행: 전체 참조 용량/예산 계약 수용.
+          - [ ] **`crop-cycle-calculation-registered-supervisor`** — 진행 중; 선행: 전체 참조 용량/예산 계약 수용.
             같은 [지속 실행 계약](../contracts/crop-cycle-calculation-full-registered-run-v1.md)에 따라 작은 실제 SCRAM 등록 계산을
             지속 spec/원 명령/로그·PID 시작 identity/실제 종료로 보존하고 fresh Python에서 같은 DB/농장/전체 checkpoint를
             RHS0 복원한 뒤 추가 계산한다. fork 수용과 구분한다. 실제 SIGKILL 후 같은 spec/deadline 재개·
             연속 작은 제어 결과 대사·동시/변조/권리/취소·자원/불완료 게시 거부와 DB/비밀/PG 정리가 수용 기준이다.
             이 구현을 검증하기 전9시간 전체 실행을 시작하지 않고 제품 CLI/lease·독립 G1을 수용하지 않는다.
+            - [x] **`crop-cycle-calculation-registered-runtime`** — 같은 DB/농장의 별도 Python 재구성 자식.
+              [좁은 계약](../contracts/crop-cycle-calculation-registered-runtime-v1.md)·
+              [수용 증거](../research/crop-cycle-calculation-registered-runtime-implementation-20261008.md): 고유7개,
+              실제 SCRAM40→80걸음/2출력·전체 checkpoint/행/UTC 연속 제어 일치·fresh exec 복원 RHS0,
+              계산 전 SIGKILL-9/재개·현재 입력/계정 거부·고정 key 변조/미완료 게시 거부·284 source/FD13→13/정리.
+              원 명령 종료0/80.481초이며0400 reader의 정상 대조 실패/수정 v1/v2 이력을 보존했다.
+              소유 시험 설정/권한 파일이며 제품 계정/원천 서비스·감독자/마감/전체166일 수용이 아니다.
+            - [ ] **`crop-cycle-calculation-registered-supervisor-control`** — 다음 단계; 선행: 별도 Python 등록 runtime 수용.
+              고정 config/DB/입력 참조·지속 spec/시작/deadline과 원 명령·PID/boot/start/로그/실제 종료를 보존한다.
+              실제 배타 실행·명시 중단/취소·벽시계/RSS 한도·source/spec/결과 변조 거부와 같은 마감 재개를 검증한다.
+              작은 실제 SCRAM runtime을 연결하고 자원/비밀/PG를 정리한 뒤에만 부모와9시간 실행 착수 조건을 평가한다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
