@@ -40,7 +40,10 @@ API193개/웹720개/Chromium15개·타입/빌드·새34 JSON/원량/UTC·270 sou
 전체47,809출력/5사건·예약 포함481,987,541bytes/512MiB·279 source/종료0/정리로 수용했습니다.
 [같은 농장 별도 Python 복원](research/crop-cycle-calculation-registered-runtime-implementation-20261008.md)도 고유7개·
 실제 SCRAM40→80걸음/2출력·복원 RHS0·계산 전 SIGKILL-9/재개·권리/변조·284 source/종료0/정리로 수용했습니다.
-다음은 지속 spec/deadline·배타/취소/RSS 감독입니다.9시간은 후속 실험 상한이며 전체166일 등록 계산/DB/API/3D는 후속입니다.
+[등록 계산 감독](research/crop-cycle-calculation-registered-supervisor-control-implementation-20261008.md)도 고유16개·
+실제 SCRAM40→60→80걸음/2출력·같은 마감/복원 RHS0·pause/cancel/실제-9·현재 권리·
+289 source/종료0/정리로 로컬 수용했습니다. 다음은 새 전체166일 등록 계산/DB 게시입니다.
+9시간은 후속 실험 상한이며 전체166일 DB/API/3D·생산/경제 연결은 후속입니다.
 `f2dc10f`의 [CI 종료 상태](research/artifacts/full166-calendar-registration-ci-terminal-20261008.json)는
 C0/웹/작성 PG/앱 성공, Backend 분할0/4/5 성공·1/2/3/집계 실패입니다.
 [Python·원격 PG 시험 수정](research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했으며 hosted 수용은 별도입니다.

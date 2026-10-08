@@ -794,12 +794,13 @@
             참조459page/402,648,021bytes·metadata 상계/최대 예약 포함481,987,541bytes로512MiB 한도를 유지했다.
             [후속 계약](../contracts/crop-cycle-calculation-full-registered-run-v1.md)은9시간 실험 상한을 고정한다.
             신규 실제 저장량/장시간 실행·supervisor 구현 수용이 아니다.
-          - [ ] **`crop-cycle-calculation-registered-supervisor`** — 진행 중; 선행: 전체 참조 용량/예산 계약 수용.
+          - [x] **`crop-cycle-calculation-registered-supervisor`** — 작은 등록 감독자 로컬 수용; 선행: 전체 참조 용량/예산 계약 수용.
             같은 [지속 실행 계약](../contracts/crop-cycle-calculation-full-registered-run-v1.md)에 따라 작은 실제 SCRAM 등록 계산을
             지속 spec/원 명령/로그·PID 시작 identity/실제 종료로 보존하고 fresh Python에서 같은 DB/농장/전체 checkpoint를
             RHS0 복원한 뒤 추가 계산한다. fork 수용과 구분한다. 실제 SIGKILL 후 같은 spec/deadline 재개·
             연속 작은 제어 결과 대사·동시/변조/권리/취소·자원/불완료 게시 거부와 DB/비밀/PG 정리가 수용 기준이다.
             이 구현을 검증하기 전9시간 전체 실행을 시작하지 않고 제품 CLI/lease·독립 G1을 수용하지 않는다.
+            선행 runtime7개와 아래 제어16개·실제 SCRAM/원 종료/최종 감사로 이 작은 부모를 수용했다.
             - [x] **`crop-cycle-calculation-registered-runtime`** — 같은 DB/농장의 별도 Python 재구성 자식.
               [좁은 계약](../contracts/crop-cycle-calculation-registered-runtime-v1.md)·
               [수용 증거](../research/crop-cycle-calculation-registered-runtime-implementation-20261008.md): 고유7개,
@@ -807,10 +808,22 @@
               계산 전 SIGKILL-9/재개·현재 입력/계정 거부·고정 key 변조/미완료 게시 거부·284 source/FD13→13/정리.
               원 명령 종료0/80.481초이며0400 reader의 정상 대조 실패/수정 v1/v2 이력을 보존했다.
               소유 시험 설정/권한 파일이며 제품 계정/원천 서비스·감독자/마감/전체166일 수용이 아니다.
-            - [ ] **`crop-cycle-calculation-registered-supervisor-control`** — 다음 단계; 선행: 별도 Python 등록 runtime 수용.
+            - [x] **`crop-cycle-calculation-registered-supervisor-control`** — 로컬 수용; 선행: 별도 Python 등록 runtime 수용.
               고정 config/DB/입력 참조·지속 spec/시작/deadline과 원 명령·PID/boot/start/로그/실제 종료를 보존한다.
               실제 배타 실행·명시 중단/취소·벽시계/RSS 한도·source/spec/결과 변조 거부와 같은 마감 재개를 검증한다.
               작은 실제 SCRAM runtime을 연결하고 자원/비밀/PG를 정리한 뒤에만 부모와9시간 실행 착수 조건을 평가한다.
+              [수용](../research/crop-cycle-calculation-registered-supervisor-control-implementation-20261008.md): 고유16개·
+              실제 SCRAM40→60→80걸음/2출력·같은 spec/deadline/연속 checkpoint/행/UTC·복원 RHS0,
+              native pause/cancel/실제-9·상속 FLOCK·현재 권리/미완료 게시 거부·최종 설정/마감 RED→수정,
+              289 source/FD13→13·원 명령 종료0/163.495초·DB/비밀/PG/임시 정리. 전체 작기/제품 CLI 수용은 별도다.
+          - [ ] **`crop-cycle-calculation-full-registered-run`** — 다음 단계; 선행: 작은 등록 감독자 수용.
+            [전체 실행 계약](../contracts/crop-cycle-calculation-full-registered-run-v1.md)의 새 사설 준비/spec·원9시간 마감과
+            고정166일 입력·등록 DB/농장 runtime·별도 DB 게시 key를 결속한다. 현재 source/입력/권리·
+            4,096전이/실효128경계·원 격자/bytes·RSS/중단/정리 한도를 유지하는 실제 새 전체 실행을 검증한다.
+            수용: 실제 terminal·원 전체121상태/47,809출력/5사건·수지/행 hash·명시+273일 달력 이동,
+            같은 등록 DB의 원자 게시/재조회·현재 권리/원 종료0·DB/비밀/PG/임시 정리와 불변 영수증.
+            만료/강제 종료/결과 부재는 hold하며 같은 실행/마감을 초기화하지 않는다. 실제 저장량을 참조 상계와 구분한다.
+            전체 API/동일 UTC3D·생과/자원/경제·G0–G4와 full-budget/prefix-cost 부모는 각 후속 증거 전 체크하지 않는다.
 - [x] **`crop-fruit-cohort-rates`** — 고정 문헌 수요·이동/배분/유지 호흡의 로컬 순간 결합.
   [v2 계약](../contracts/crop-fruit-cohorts-v2.md)·제품 2파일/고정 프로필·독립 참조/생성 코드.
   [수용](../research/crop-fruit-cohort-rates-implementation.md): 새 86개/기존 포함 401개·0.89초,
