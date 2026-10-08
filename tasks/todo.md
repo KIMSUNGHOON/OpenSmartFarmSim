@@ -857,7 +857,9 @@
                 준비 전 원 마감·계산 전 config/별도 DB key/원 참조를 결속했고 원166일 참조의 첫64/마지막1시점·
                 전체5사건/121상태 읽기도 RHS0으로 확인했다. 첫 fixture 누락의 실제 원1/게시71·정리/snapshot을 보존했다.
                 이 작은 구성 수용과 전체166일 실제 실행 수용은 별도다.
-              - [ ] **`crop-cycle-calculation-full166-same-db-execution`** — 다음 단계; 원9시간 별도 실제 전체 실행.
+              - [ ] **`crop-cycle-calculation-full166-same-db-execution`** — 진행 중; 원9시간 별도 실제 전체 실행.
+                [실제 시작 관측](../research/crop-cycle-calculation-full166-same-db-started-20261008.md): 2026-10-08 11:41 KST,
+                fresh Python/nice19·원 계획/입력·실제 진행을 확인했다. 같은 날20:41 KST는 정리 포함 원 상한이며 완료 추정이 아니다.
                 원8초RK4/300초출력·primary512MiB/pipeline1GiB·두 공간2GiB를 유지하며 준비부터 마감을 고정한다.
                 같은 DB/farm/input/config/source/키로 계산→새47,809행/5사건·121상태/수지의 원 전체 대사→
                 게시→현재 API/대표UTC3D→실제 종료/정리를 완료하고 새 저장량/원 명령/로그·불변 영수증을 감사한다.
