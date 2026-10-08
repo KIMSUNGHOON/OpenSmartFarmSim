@@ -1,6 +1,230 @@
 {
   "components": {
     "schemas": {
+      "Allocation": {
+        "additionalProperties": false,
+        "properties": {
+          "assignment_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Assignment Id",
+            "type": "string"
+          },
+          "fraction": {
+            "$ref": "#/components/schemas/AllocationFraction"
+          },
+          "purpose": {
+            "enum": [
+              "harvest",
+              "thinning",
+              "disposal",
+              "sampling"
+            ],
+            "title": "Purpose",
+            "type": "string"
+          },
+          "quantities": {
+            "$ref": "#/components/schemas/Quantities"
+          }
+        },
+        "required": [
+          "assignment_id",
+          "purpose",
+          "fraction",
+          "quantities"
+        ],
+        "title": "Allocation",
+        "type": "object"
+      },
+      "AllocationDeclaration": {
+        "additionalProperties": false,
+        "properties": {
+          "allocation_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Allocation Id",
+            "type": "string"
+          },
+          "available_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Available At",
+            "type": "string"
+          },
+          "evidence_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Evidence Id",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "mass_parameter_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Mass Parameter Sha256",
+            "type": "string"
+          },
+          "origin": {
+            "const": "synthetic",
+            "title": "Origin",
+            "type": "string"
+          },
+          "policy": {
+            "const": "proportional_original_population",
+            "title": "Policy",
+            "type": "string"
+          },
+          "population": {
+            "$ref": "#/components/schemas/Population"
+          },
+          "revision": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Revision",
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          },
+          "version": {
+            "const": "crop-harvest-allocation-v1",
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "allocation_id",
+          "revision",
+          "origin",
+          "evidence_level",
+          "evidence_id",
+          "available_at",
+          "source",
+          "population",
+          "mass_parameter_sha256",
+          "policy"
+        ],
+        "title": "AllocationDeclaration",
+        "type": "object"
+      },
+      "AllocationFraction": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "const": "1",
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "pattern": "^(?:0(?:\\.[0-9]{1,18})?|1(?:\\.0{1,18})?)$",
+            "title": "Value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "value",
+          "unit"
+        ],
+        "title": "AllocationFraction",
+        "type": "object"
+      },
+      "AllocationParameters": {
+        "additionalProperties": false,
+        "properties": {
+          "allocation_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Allocation Id",
+            "type": "string"
+          },
+          "available_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Available At",
+            "type": "string"
+          },
+          "evidence_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Evidence Id",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "mass_parameter_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Mass Parameter Sha256",
+            "type": "string"
+          },
+          "observations": {
+            "items": {
+              "$ref": "#/components/schemas/Observation"
+            },
+            "maxItems": 64,
+            "title": "Observations",
+            "type": "array"
+          },
+          "origin": {
+            "const": "synthetic",
+            "title": "Origin",
+            "type": "string"
+          },
+          "policy": {
+            "const": "proportional_original_population",
+            "title": "Policy",
+            "type": "string"
+          },
+          "population": {
+            "$ref": "#/components/schemas/Population"
+          },
+          "revision": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Revision",
+            "type": "string"
+          },
+          "rules": {
+            "items": {
+              "$ref": "#/components/schemas/Rule"
+            },
+            "maxItems": 256,
+            "title": "Rules",
+            "type": "array"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          },
+          "version": {
+            "const": "crop-harvest-allocation-v1",
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "allocation_id",
+          "revision",
+          "origin",
+          "evidence_level",
+          "evidence_id",
+          "available_at",
+          "source",
+          "population",
+          "mass_parameter_sha256",
+          "policy",
+          "rules",
+          "observations"
+        ],
+        "title": "AllocationParameters",
+        "type": "object"
+      },
       "AmountEvent": {
         "additionalProperties": false,
         "properties": {
@@ -1549,6 +1773,35 @@
         "title": "CalculationServerDependencies",
         "type": "object"
       },
+      "Cohorts": {
+        "additionalProperties": false,
+        "properties": {
+          "fruit_carbohydrate": {
+            "items": {
+              "$ref": "#/components/schemas/Quantity_Literal__mg_CH2O_m2_floor___"
+            },
+            "maxItems": 50,
+            "minItems": 50,
+            "title": "Fruit Carbohydrate",
+            "type": "array"
+          },
+          "fruit_number": {
+            "items": {
+              "$ref": "#/components/schemas/Quantity_Literal__fruits_equivalent_m2_floor___"
+            },
+            "maxItems": 50,
+            "minItems": 50,
+            "title": "Fruit Number",
+            "type": "array"
+          }
+        },
+        "required": [
+          "fruit_carbohydrate",
+          "fruit_number"
+        ],
+        "title": "Cohorts",
+        "type": "object"
+      },
       "Collection": {
         "additionalProperties": false,
         "properties": {
@@ -1576,6 +1829,50 @@
           "amount"
         ],
         "title": "Collection",
+        "type": "object"
+      },
+      "Comparison": {
+        "additionalProperties": false,
+        "properties": {
+          "modeled_fresh_matter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RationalQuantity_Literal__kg_FW_m2_floor___"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "observation": {
+            "$ref": "#/components/schemas/Observation"
+          },
+          "observed_minus_modeled": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SignedRationalQuantity_Literal__kg_FW_m2_floor___"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "enum": [
+              "compared_synthetic_fixture",
+              "incomplete_selected_window"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "observation",
+          "status",
+          "modeled_fresh_matter",
+          "observed_minus_modeled"
+        ],
+        "title": "Comparison",
         "type": "object"
       },
       "ContractCap": {
@@ -4320,6 +4617,27 @@
         "title": "DebtAccount",
         "type": "object"
       },
+      "Dependencies": {
+        "additionalProperties": false,
+        "properties": {
+          "canonical_json": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Canonical Json",
+            "type": "string"
+          },
+          "current_query": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Current Query",
+            "type": "string"
+          }
+        },
+        "required": [
+          "current_query",
+          "canonical_json"
+        ],
+        "title": "Dependencies",
+        "type": "object"
+      },
       "Discount": {
         "additionalProperties": false,
         "properties": {
@@ -5217,6 +5535,93 @@
         "title": "ErrorEnvelope",
         "type": "object"
       },
+      "EventPosition": {
+        "additionalProperties": false,
+        "properties": {
+          "event": {
+            "maximum": 262144.0,
+            "minimum": 0.0,
+            "title": "Event",
+            "type": "integer"
+          },
+          "event_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Event Sha256",
+            "type": "string"
+          },
+          "input_id": {
+            "maxLength": 2097152,
+            "minLength": 1,
+            "title": "Input Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "event",
+          "input_id",
+          "event_sha256"
+        ],
+        "title": "EventPosition",
+        "type": "object"
+      },
+      "EventSelector": {
+        "additionalProperties": false,
+        "properties": {
+          "event": {
+            "maximum": 262144.0,
+            "minimum": 0.0,
+            "title": "Event",
+            "type": "integer"
+          },
+          "kind": {
+            "const": "explicit_fruit_removal",
+            "title": "Kind",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "event"
+        ],
+        "title": "EventSelector",
+        "type": "object"
+      },
+      "Farm": {
+        "additionalProperties": false,
+        "properties": {
+          "crop_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Crop Id",
+            "type": "string"
+          },
+          "registration_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Registration Sha256",
+            "type": "string"
+          },
+          "scenario_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "scenario_revision": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "scenario_revision",
+          "registration_sha256",
+          "crop_id"
+        ],
+        "title": "Farm",
+        "type": "object"
+      },
       "FarmAuthoringActivity": {
         "additionalProperties": false,
         "properties": {
@@ -5612,6 +6017,284 @@
         "title": "Harvest",
         "type": "object"
       },
+      "HarvestPage": {
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "maximum": 64.0,
+            "minimum": 1.0,
+            "title": "Limit",
+            "type": "integer"
+          },
+          "next_offset": {
+            "anyOf": [
+              {
+                "maximum": 262144.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Offset"
+          },
+          "offset": {
+            "maximum": 262144.0,
+            "minimum": 0.0,
+            "title": "Offset",
+            "type": "integer"
+          },
+          "records": {
+            "items": {
+              "$ref": "#/components/schemas/HarvestRow"
+            },
+            "maxItems": 64,
+            "title": "Records",
+            "type": "array"
+          },
+          "total": {
+            "maximum": 262144.0,
+            "minimum": 0.0,
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offset",
+          "limit",
+          "total",
+          "next_offset",
+          "records"
+        ],
+        "title": "HarvestPage",
+        "type": "object"
+      },
+      "HarvestReplay": {
+        "additionalProperties": false,
+        "properties": {
+          "farm": {
+            "$ref": "#/components/schemas/Farm"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/HarvestPage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "reference": {
+            "$ref": "#/components/schemas/Reference"
+          },
+          "result_id": {
+            "pattern": "^crop-harvest-registered-result-v1:[0-9a-f]{64}$",
+            "title": "Result Id",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "crop-harvest-replay-v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/HarvestSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "schema_version",
+          "result_id",
+          "recorded_at",
+          "farm",
+          "reference",
+          "summary",
+          "page"
+        ],
+        "title": "HarvestReplay",
+        "type": "object"
+      },
+      "HarvestRow": {
+        "additionalProperties": false,
+        "properties": {
+          "allocation_parameters": {
+            "$ref": "#/components/schemas/AllocationDeclaration"
+          },
+          "allocation_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Allocation Sha256",
+            "type": "string"
+          },
+          "allocations": {
+            "items": {
+              "$ref": "#/components/schemas/Allocation"
+            },
+            "maxItems": 256,
+            "title": "Allocations",
+            "type": "array"
+          },
+          "claim_scope": {
+            "const": "synthetic_harvest_allocation_math_only",
+            "title": "Claim Scope",
+            "type": "string"
+          },
+          "code_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Code Sha256",
+            "type": "string"
+          },
+          "dependency_sha256": {
+            "$ref": "#/components/schemas/Dependencies"
+          },
+          "mass": {
+            "$ref": "#/components/schemas/Mass"
+          },
+          "mass_row_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Mass Row Sha256",
+            "type": "string"
+          },
+          "rights_or_gate_approval": {
+            "const": false,
+            "title": "Rights Or Gate Approval",
+            "type": "boolean"
+          },
+          "rounding": {
+            "const": "nearest_float64_with_exact_rational_portions_of_stored_mass_row",
+            "title": "Rounding",
+            "type": "string"
+          },
+          "row_id": {
+            "pattern": "^crop-harvest-allocation-result-v1:[0-9a-f]{64}$",
+            "title": "Row Id",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "crop-harvest-allocation-result-v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "unassigned": {
+            "$ref": "#/components/schemas/Unassigned"
+          },
+          "version": {
+            "const": "crop-harvest-allocation-result-v1",
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "code_sha256",
+          "dependency_sha256",
+          "mass_row_sha256",
+          "allocation_sha256",
+          "schema_version",
+          "row_id",
+          "claim_scope",
+          "rights_or_gate_approval",
+          "mass",
+          "allocation_parameters",
+          "allocations",
+          "unassigned",
+          "rounding"
+        ],
+        "title": "HarvestRow",
+        "type": "object"
+      },
+      "HarvestSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "allocation_parameters": {
+            "$ref": "#/components/schemas/AllocationParameters"
+          },
+          "allocation_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Allocation Sha256",
+            "type": "string"
+          },
+          "claim_scope": {
+            "const": "synthetic_harvest_allocation_math_only",
+            "title": "Claim Scope",
+            "type": "string"
+          },
+          "code_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Code Sha256",
+            "type": "string"
+          },
+          "observation_comparisons": {
+            "items": {
+              "$ref": "#/components/schemas/Comparison"
+            },
+            "maxItems": 64,
+            "title": "Observation Comparisons",
+            "type": "array"
+          },
+          "rights_or_gate_approval": {
+            "const": false,
+            "title": "Rights Or Gate Approval",
+            "type": "boolean"
+          },
+          "rounding": {
+            "const": "nearest_float64_with_exact_rational_sum_of_portions",
+            "title": "Rounding",
+            "type": "string"
+          },
+          "row_chain_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Row Chain Sha256",
+            "type": "string"
+          },
+          "row_count": {
+            "maximum": 262144.0,
+            "minimum": 0.0,
+            "title": "Row Count",
+            "type": "integer"
+          },
+          "schema_version": {
+            "const": "crop-harvest-allocation-summary-v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          },
+          "totals_by_kind_and_purpose": {
+            "$ref": "#/components/schemas/KindTotals"
+          }
+        },
+        "required": [
+          "schema_version",
+          "code_sha256",
+          "claim_scope",
+          "rights_or_gate_approval",
+          "source",
+          "allocation_sha256",
+          "allocation_parameters",
+          "row_count",
+          "row_chain_sha256",
+          "totals_by_kind_and_purpose",
+          "observation_comparisons",
+          "rounding"
+        ],
+        "title": "HarvestSummary",
+        "type": "object"
+      },
       "InputEvidenceDependencies": {
         "additionalProperties": false,
         "properties": {
@@ -5973,6 +6656,23 @@
         "title": "JointShockSourceRead",
         "type": "object"
       },
+      "KindTotals": {
+        "additionalProperties": false,
+        "properties": {
+          "explicit_fruit_removal": {
+            "$ref": "#/components/schemas/PurposeTotals"
+          },
+          "model_terminal_outflow": {
+            "$ref": "#/components/schemas/PurposeTotals"
+          }
+        },
+        "required": [
+          "model_terminal_outflow",
+          "explicit_fruit_removal"
+        ],
+        "title": "KindTotals",
+        "type": "object"
+      },
       "LocationAccepted": {
         "additionalProperties": false,
         "properties": {
@@ -6242,6 +6942,175 @@
         "title": "MarketUserSourceSummary",
         "type": "object"
       },
+      "Mass": {
+        "additionalProperties": false,
+        "properties": {
+          "claim_scope": {
+            "const": "synthetic_removal_mass_math_only",
+            "title": "Claim Scope",
+            "type": "string"
+          },
+          "code_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Code Sha256",
+            "type": "string"
+          },
+          "dependency_sha256": {
+            "$ref": "#/components/schemas/Dependencies"
+          },
+          "dry_matter": {
+            "$ref": "#/components/schemas/Quantity_Literal__kg_DM_m2_floor___"
+          },
+          "fresh_mass_per_equivalent": {
+            "$ref": "#/components/schemas/PerEquivalent"
+          },
+          "fresh_matter": {
+            "$ref": "#/components/schemas/Quantity_Literal__kg_FW_m2_floor___"
+          },
+          "parameter_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Parameter Sha256",
+            "type": "string"
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/MassParameters"
+          },
+          "removal": {
+            "$ref": "#/components/schemas/Removal"
+          },
+          "removal_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Removal Sha256",
+            "type": "string"
+          },
+          "rights_or_gate_approval": {
+            "const": false,
+            "title": "Rights Or Gate Approval",
+            "type": "boolean"
+          },
+          "row_id": {
+            "pattern": "^crop-removal-mass-v1:[0-9a-f]{64}$",
+            "title": "Row Id",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "crop-removal-mass-v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "segment_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Segment Id",
+            "type": "string"
+          },
+          "version": {
+            "const": "crop-removal-mass-v1",
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "code_sha256",
+          "dependency_sha256",
+          "removal_sha256",
+          "parameter_sha256",
+          "segment_id",
+          "schema_version",
+          "row_id",
+          "claim_scope",
+          "rights_or_gate_approval",
+          "removal",
+          "parameters",
+          "dry_matter",
+          "fresh_matter",
+          "fresh_mass_per_equivalent"
+        ],
+        "title": "Mass",
+        "type": "object"
+      },
+      "MassParameters": {
+        "additionalProperties": false,
+        "properties": {
+          "available_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Available At",
+            "type": "string"
+          },
+          "evidence_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Evidence Id",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "origin": {
+            "const": "synthetic",
+            "title": "Origin",
+            "type": "string"
+          },
+          "parameter_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Parameter Id",
+            "type": "string"
+          },
+          "policy": {
+            "const": "constant_per_original_interval",
+            "title": "Policy",
+            "type": "string"
+          },
+          "population": {
+            "$ref": "#/components/schemas/Population"
+          },
+          "revision": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Revision",
+            "type": "string"
+          },
+          "rounding": {
+            "const": "nearest_float64_from_exact_input_floats_per_row",
+            "title": "Rounding",
+            "type": "string"
+          },
+          "segment": {
+            "$ref": "#/components/schemas/Segment"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Sha256",
+            "type": "string"
+          },
+          "version": {
+            "const": "crop-removal-mass-parameters-v1",
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "parameter_id",
+          "revision",
+          "origin",
+          "evidence_level",
+          "evidence_id",
+          "available_at",
+          "population",
+          "policy",
+          "sha256",
+          "segment",
+          "rounding"
+        ],
+        "title": "MassParameters",
+        "type": "object"
+      },
       "MonthlyCashRead": {
         "additionalProperties": false,
         "properties": {
@@ -6286,6 +7155,78 @@
           "cash_shortage_krw"
         ],
         "title": "MonthlyCashRead",
+        "type": "object"
+      },
+      "Observation": {
+        "additionalProperties": false,
+        "properties": {
+          "assignment_ids": {
+            "items": {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 256,
+            "minItems": 1,
+            "title": "Assignment Ids",
+            "type": "array"
+          },
+          "available_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Available At",
+            "type": "string"
+          },
+          "end_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "End At",
+            "type": "string"
+          },
+          "evidence_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Evidence Id",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "fresh_matter": {
+            "$ref": "#/components/schemas/Quantity_Literal__kg_FW_m2_floor___"
+          },
+          "observation_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Observation Id",
+            "type": "string"
+          },
+          "origin": {
+            "const": "synthetic",
+            "title": "Origin",
+            "type": "string"
+          },
+          "start_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Start At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "observation_id",
+          "origin",
+          "evidence_level",
+          "evidence_id",
+          "available_at",
+          "start_at",
+          "end_at",
+          "assignment_ids",
+          "fresh_matter"
+        ],
+        "title": "Observation",
         "type": "object"
       },
       "OpeningLot": {
@@ -6527,6 +7468,71 @@
         "title": "Packout",
         "type": "object"
       },
+      "PerEquivalent": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "const": "kg_FW/fruit_equivalent",
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit"
+        ],
+        "title": "PerEquivalent",
+        "type": "object"
+      },
+      "Population": {
+        "additionalProperties": false,
+        "properties": {
+          "basis": {
+            "const": "m2_floor",
+            "title": "Basis",
+            "type": "string"
+          },
+          "basis_evidence_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Basis Evidence Id",
+            "type": "string"
+          },
+          "population_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Population Id",
+            "type": "string"
+          },
+          "scope": {
+            "const": "all_model_fruit_cohorts",
+            "title": "Scope",
+            "type": "string"
+          }
+        },
+        "required": [
+          "population_id",
+          "scope",
+          "basis",
+          "basis_evidence_id"
+        ],
+        "title": "Population",
+        "type": "object"
+      },
       "PriorBatchCostRecordSourceRead": {
         "additionalProperties": false,
         "properties": {
@@ -6576,6 +7582,660 @@
           "input"
         ],
         "title": "PriorBatchCostRecordSourceRead",
+        "type": "object"
+      },
+      "PurposeTotals": {
+        "additionalProperties": false,
+        "properties": {
+          "disposal": {
+            "$ref": "#/components/schemas/Total"
+          },
+          "harvest": {
+            "$ref": "#/components/schemas/Total"
+          },
+          "sampling": {
+            "$ref": "#/components/schemas/Total"
+          },
+          "thinning": {
+            "$ref": "#/components/schemas/Total"
+          },
+          "unassigned": {
+            "$ref": "#/components/schemas/Total"
+          }
+        },
+        "required": [
+          "harvest",
+          "thinning",
+          "disposal",
+          "sampling",
+          "unassigned"
+        ],
+        "title": "PurposeTotals",
+        "type": "object"
+      },
+      "Quantities": {
+        "additionalProperties": false,
+        "properties": {
+          "carbohydrate": {
+            "$ref": "#/components/schemas/RationalQuantity_Literal__mg_CH2O_m2_floor___"
+          },
+          "dry_matter": {
+            "$ref": "#/components/schemas/RationalQuantity_Literal__kg_DM_m2_floor___"
+          },
+          "fresh_matter": {
+            "$ref": "#/components/schemas/RationalQuantity_Literal__kg_FW_m2_floor___"
+          },
+          "number": {
+            "$ref": "#/components/schemas/RationalQuantity_Literal__fruits_equivalent_m2_floor___"
+          }
+        },
+        "required": [
+          "carbohydrate",
+          "number",
+          "dry_matter",
+          "fresh_matter"
+        ],
+        "title": "Quantities",
+        "type": "object"
+      },
+      "Quantity_Literal__fruits_equivalent_m2_floor___": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "const": "fruits_equivalent/m2_floor",
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit"
+        ],
+        "title": "Quantity[Literal['fruits_equivalent/m2_floor']]",
+        "type": "object"
+      },
+      "Quantity_Literal__kg_DM_kg_FW___": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "const": "kg_DM/kg_FW",
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit"
+        ],
+        "title": "Quantity[Literal['kg_DM/kg_FW']]",
+        "type": "object"
+      },
+      "Quantity_Literal__kg_DM_m2_floor___": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "const": "kg_DM/m2_floor",
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit"
+        ],
+        "title": "Quantity[Literal['kg_DM/m2_floor']]",
+        "type": "object"
+      },
+      "Quantity_Literal__kg_FW_m2_floor___": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "const": "kg_FW/m2_floor",
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit"
+        ],
+        "title": "Quantity[Literal['kg_FW/m2_floor']]",
+        "type": "object"
+      },
+      "Quantity_Literal__mg_CH2O_m2_floor___": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "const": "mg_CH2O/m2_floor",
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit"
+        ],
+        "title": "Quantity[Literal['mg_CH2O/m2_floor']]",
+        "type": "object"
+      },
+      "Quantity_Literal__mg_DM_mg_CH2O___": {
+        "additionalProperties": false,
+        "properties": {
+          "unit": {
+            "const": "mg_DM/mg_CH2O",
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit"
+        ],
+        "title": "Quantity[Literal['mg_DM/mg_CH2O']]",
+        "type": "object"
+      },
+      "QueryDependencies": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Artifact",
+            "type": "string"
+          },
+          "crop_query": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Crop Query",
+            "type": "string"
+          },
+          "registry": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Registry",
+            "type": "string"
+          }
+        },
+        "required": [
+          "registry",
+          "artifact",
+          "crop_query"
+        ],
+        "title": "QueryDependencies",
+        "type": "object"
+      },
+      "Rational": {
+        "additionalProperties": false,
+        "properties": {
+          "denominator": {
+            "maxLength": 2048,
+            "pattern": "^[1-9][0-9]*$",
+            "title": "Denominator",
+            "type": "string"
+          },
+          "numerator": {
+            "maxLength": 2048,
+            "pattern": "^(?:0|-?[1-9][0-9]*)$",
+            "title": "Numerator",
+            "type": "string"
+          }
+        },
+        "required": [
+          "numerator",
+          "denominator"
+        ],
+        "title": "Rational",
+        "type": "object"
+      },
+      "RationalQuantity_Literal__1___": {
+        "additionalProperties": false,
+        "properties": {
+          "exact": {
+            "$ref": "#/components/schemas/Rational"
+          },
+          "unit": {
+            "const": "1",
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit",
+          "exact"
+        ],
+        "title": "RationalQuantity[Literal['1']]",
+        "type": "object"
+      },
+      "RationalQuantity_Literal__fruits_equivalent_m2_floor___": {
+        "additionalProperties": false,
+        "properties": {
+          "exact": {
+            "$ref": "#/components/schemas/Rational"
+          },
+          "unit": {
+            "const": "fruits_equivalent/m2_floor",
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit",
+          "exact"
+        ],
+        "title": "RationalQuantity[Literal['fruits_equivalent/m2_floor']]",
+        "type": "object"
+      },
+      "RationalQuantity_Literal__kg_DM_m2_floor___": {
+        "additionalProperties": false,
+        "properties": {
+          "exact": {
+            "$ref": "#/components/schemas/Rational"
+          },
+          "unit": {
+            "const": "kg_DM/m2_floor",
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit",
+          "exact"
+        ],
+        "title": "RationalQuantity[Literal['kg_DM/m2_floor']]",
+        "type": "object"
+      },
+      "RationalQuantity_Literal__kg_FW_m2_floor___": {
+        "additionalProperties": false,
+        "properties": {
+          "exact": {
+            "$ref": "#/components/schemas/Rational"
+          },
+          "unit": {
+            "const": "kg_FW/m2_floor",
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit",
+          "exact"
+        ],
+        "title": "RationalQuantity[Literal['kg_FW/m2_floor']]",
+        "type": "object"
+      },
+      "RationalQuantity_Literal__mg_CH2O_m2_floor___": {
+        "additionalProperties": false,
+        "properties": {
+          "exact": {
+            "$ref": "#/components/schemas/Rational"
+          },
+          "unit": {
+            "const": "mg_CH2O/m2_floor",
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit",
+          "exact"
+        ],
+        "title": "RationalQuantity[Literal['mg_CH2O/m2_floor']]",
+        "type": "object"
+      },
+      "Reference": {
+        "additionalProperties": false,
+        "properties": {
+          "allocation_parameter_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Allocation Parameter Sha256",
+            "type": "string"
+          },
+          "artifact_code_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Artifact Code Sha256",
+            "type": "string"
+          },
+          "artifact_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Artifact Sha256",
+            "type": "string"
+          },
+          "claim_scope": {
+            "const": "synthetic_harvest_allocation_math_only",
+            "title": "Claim Scope",
+            "type": "string"
+          },
+          "gates": {
+            "const": "not_assessed",
+            "title": "Gates",
+            "type": "string"
+          },
+          "mass_parameter_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Mass Parameter Sha256",
+            "type": "string"
+          },
+          "parent_result_id": {
+            "pattern": "^crop-cycle-verified-result-v1:[0-9a-f]{64}$",
+            "title": "Parent Result Id",
+            "type": "string"
+          },
+          "payload_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Payload Sha256",
+            "type": "string"
+          },
+          "projection_code_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Projection Code Sha256",
+            "type": "string"
+          },
+          "publication_code_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Publication Code Sha256",
+            "type": "string"
+          },
+          "query_code_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Query Code Sha256",
+            "type": "string"
+          },
+          "query_dependency_sha256": {
+            "$ref": "#/components/schemas/QueryDependencies"
+          },
+          "query_version": {
+            "const": "crop-harvest-registered-current-query-v1",
+            "title": "Query Version",
+            "type": "string"
+          },
+          "registry_schema_code_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Registry Schema Code Sha256",
+            "type": "string"
+          },
+          "rights_or_gate_approval": {
+            "const": false,
+            "title": "Rights Or Gate Approval",
+            "type": "boolean"
+          },
+          "row_chain_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Row Chain Sha256",
+            "type": "string"
+          },
+          "row_count": {
+            "maximum": 262144.0,
+            "minimum": 0.0,
+            "title": "Row Count",
+            "type": "integer"
+          },
+          "scope": {
+            "const": "software_research_only",
+            "title": "Scope",
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          },
+          "storage_status": {
+            "const": "stored_unpublished_research",
+            "title": "Storage Status",
+            "type": "string"
+          },
+          "temporal_provenance": {
+            "const": "synthetic_research_program",
+            "title": "Temporal Provenance",
+            "type": "string"
+          }
+        },
+        "required": [
+          "storage_status",
+          "claim_scope",
+          "scope",
+          "gates",
+          "temporal_provenance",
+          "rights_or_gate_approval",
+          "parent_result_id",
+          "source",
+          "payload_sha256",
+          "artifact_sha256",
+          "row_count",
+          "row_chain_sha256",
+          "mass_parameter_sha256",
+          "allocation_parameter_sha256",
+          "publication_code_sha256",
+          "registry_schema_code_sha256",
+          "artifact_code_sha256",
+          "query_version",
+          "query_code_sha256",
+          "query_dependency_sha256",
+          "projection_code_sha256"
+        ],
+        "title": "Reference",
+        "type": "object"
+      },
+      "Removal": {
+        "additionalProperties": false,
+        "properties": {
+          "carbohydrate": {
+            "$ref": "#/components/schemas/Quantity_Literal__mg_CH2O_m2_floor___"
+          },
+          "claim_scope": {
+            "const": "research_removal_math_only",
+            "title": "Claim Scope",
+            "type": "string"
+          },
+          "code_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Code Sha256",
+            "type": "string"
+          },
+          "cohorts": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Cohorts"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "dependency_sha256": {
+            "$ref": "#/components/schemas/Dependencies"
+          },
+          "end_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "End At",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "model_terminal_outflow",
+              "explicit_fruit_removal"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "number": {
+            "$ref": "#/components/schemas/Quantity_Literal__fruits_equivalent_m2_floor___"
+          },
+          "position": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TerminalPosition"
+              },
+              {
+                "$ref": "#/components/schemas/EventPosition"
+              }
+            ],
+            "title": "Position"
+          },
+          "rights_or_gate_approval": {
+            "const": false,
+            "title": "Rights Or Gate Approval",
+            "type": "boolean"
+          },
+          "row_id": {
+            "pattern": "^crop-removal-ledger-v1:[0-9a-f]{64}$",
+            "title": "Row Id",
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "crop-removal-ledger-v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          },
+          "start_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Start At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "schema_version",
+          "code_sha256",
+          "dependency_sha256",
+          "claim_scope",
+          "rights_or_gate_approval",
+          "row_id",
+          "source",
+          "kind",
+          "position",
+          "start_at",
+          "end_at",
+          "carbohydrate",
+          "number",
+          "cohorts"
+        ],
+        "title": "Removal",
         "type": "object"
       },
       "Return": {
@@ -6656,6 +8316,49 @@
         "title": "Rights",
         "type": "object"
       },
+      "Rule": {
+        "additionalProperties": false,
+        "properties": {
+          "assignment_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Assignment Id",
+            "type": "string"
+          },
+          "fraction": {
+            "$ref": "#/components/schemas/AllocationFraction"
+          },
+          "purpose": {
+            "enum": [
+              "harvest",
+              "thinning",
+              "disposal",
+              "sampling"
+            ],
+            "title": "Purpose",
+            "type": "string"
+          },
+          "selector": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TerminalSelector"
+              },
+              {
+                "$ref": "#/components/schemas/EventSelector"
+              }
+            ],
+            "title": "Selector"
+          }
+        },
+        "required": [
+          "assignment_id",
+          "selector",
+          "purpose",
+          "fraction"
+        ],
+        "title": "Rule",
+        "type": "object"
+      },
       "Sale": {
         "additionalProperties": false,
         "properties": {
@@ -6723,6 +8426,44 @@
         "title": "Sale",
         "type": "object"
       },
+      "Segment": {
+        "additionalProperties": false,
+        "properties": {
+          "dmc": {
+            "$ref": "#/components/schemas/Quantity_Literal__kg_DM_kg_FW___"
+          },
+          "end_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "End At",
+            "type": "string"
+          },
+          "eta": {
+            "$ref": "#/components/schemas/Quantity_Literal__mg_DM_mg_CH2O___"
+          },
+          "segment_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Segment Id",
+            "type": "string"
+          },
+          "start_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Start At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "segment_id",
+          "start_at",
+          "end_at",
+          "eta",
+          "dmc"
+        ],
+        "title": "Segment",
+        "type": "object"
+      },
       "SettlementSetoff": {
         "additionalProperties": false,
         "properties": {
@@ -6771,6 +8512,85 @@
           "evidence_sha256"
         ],
         "title": "SettlementSetoff",
+        "type": "object"
+      },
+      "SignedRationalQuantity_Literal__kg_FW_m2_floor___": {
+        "additionalProperties": false,
+        "properties": {
+          "exact": {
+            "$ref": "#/components/schemas/Rational"
+          },
+          "unit": {
+            "const": "kg_FW/m2_floor",
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit",
+          "exact"
+        ],
+        "title": "SignedRationalQuantity[Literal['kg_FW/m2_floor']]",
+        "type": "object"
+      },
+      "Source": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Artifact Sha256",
+            "type": "string"
+          },
+          "input_root_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Input Root Sha256",
+            "type": "string"
+          },
+          "math_manifest_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Math Manifest Sha256",
+            "type": "string"
+          },
+          "payload_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Payload Sha256",
+            "type": "string"
+          },
+          "result_id": {
+            "pattern": "^crop-cycle-verified-result-v1:[0-9a-f]{64}$",
+            "title": "Result Id",
+            "type": "string"
+          },
+          "source_status": {
+            "enum": [
+              "completed",
+              "hold"
+            ],
+            "title": "Source Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "result_id",
+          "payload_sha256",
+          "input_root_sha256",
+          "artifact_sha256",
+          "math_manifest_sha256",
+          "source_status"
+        ],
+        "title": "Source",
         "type": "object"
       },
       "SourceActivityItem": {
@@ -7929,6 +9749,67 @@
         "title": "StartupFloorArea",
         "type": "object"
       },
+      "TerminalPosition": {
+        "additionalProperties": false,
+        "properties": {
+          "sample_sha256": {
+            "items": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "maxItems": 2,
+            "minItems": 2,
+            "title": "Sample Sha256",
+            "type": "array"
+          },
+          "samples": {
+            "items": {
+              "maximum": 262144.0,
+              "minimum": 0.0,
+              "type": "integer"
+            },
+            "maxItems": 2,
+            "minItems": 2,
+            "title": "Samples",
+            "type": "array"
+          }
+        },
+        "required": [
+          "samples",
+          "sample_sha256"
+        ],
+        "title": "TerminalPosition",
+        "type": "object"
+      },
+      "TerminalSelector": {
+        "additionalProperties": false,
+        "properties": {
+          "first_sample": {
+            "maximum": 262144.0,
+            "minimum": 0.0,
+            "title": "First Sample",
+            "type": "integer"
+          },
+          "kind": {
+            "const": "model_terminal_outflow",
+            "title": "Kind",
+            "type": "string"
+          },
+          "last_sample": {
+            "maximum": 262144.0,
+            "minimum": 0.0,
+            "title": "Last Sample",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "kind",
+          "first_sample",
+          "last_sample"
+        ],
+        "title": "TerminalSelector",
+        "type": "object"
+      },
       "ThermalLawReference": {
         "additionalProperties": false,
         "properties": {
@@ -8412,6 +10293,43 @@
           "delivered_heat_energy_kwh_th"
         ],
         "title": "ThermalSeriesPoint",
+        "type": "object"
+      },
+      "Total": {
+        "additionalProperties": false,
+        "properties": {
+          "quantities": {
+            "$ref": "#/components/schemas/Quantities"
+          },
+          "rows": {
+            "maximum": 67108864.0,
+            "minimum": 0.0,
+            "title": "Rows",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "rows",
+          "quantities"
+        ],
+        "title": "Total",
+        "type": "object"
+      },
+      "Unassigned": {
+        "additionalProperties": false,
+        "properties": {
+          "fraction": {
+            "$ref": "#/components/schemas/RationalQuantity_Literal__1___"
+          },
+          "quantities": {
+            "$ref": "#/components/schemas/Quantities"
+          }
+        },
+        "required": [
+          "fraction",
+          "quantities"
+        ],
+        "title": "Unassigned",
         "type": "object"
       },
       "UnavailableMarketContext": {
@@ -11417,6 +13335,189 @@
           }
         ],
         "summary": "Get Cycle Crop",
+        "x-ossf-required-scopes": [
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read",
+          "crop_result_read"
+        ]
+      }
+    },
+    "/v1/crop-harvest-research-results/{result_id}": {
+      "get": {
+        "operationId": "getHarvestResearchResult",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "result_id",
+            "required": true,
+            "schema": {
+              "pattern": "^crop-harvest-registered-result-v1:[0-9a-f]{64}$",
+              "title": "Result Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "scenario_id",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Scenario Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "scenario_revision",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Scenario Revision",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "registration_sha256",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-f]{64}$",
+              "title": "Registration Sha256",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "crop_id",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Crop Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "view",
+            "required": false,
+            "schema": {
+              "default": "summary",
+              "enum": [
+                "summary",
+                "records"
+              ],
+              "title": "View",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "maximum": 262144,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maximum": 64,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HarvestReplay"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Harvest",
         "x-ossf-required-scopes": [
           "farm_scenario_read",
           "metadata",

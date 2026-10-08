@@ -91,6 +91,7 @@ def assembly(source, monkeypatch, *, scopes=READ_SCOPES, tenant=None, clock=None
         return state['tenant_after_read'] or principal['tenant_id'], None
 
     base = create_app(jobs, jobs, jobs, jobs, principal_provider=current_principal, break_even_store=jobs)
+    base.router.routes[:] = [r for r in base.router.routes if getattr(r, 'path', None) != PATH + '{result_id}']
     kwargs = dict(jobs=jobs, farms=farms, query=None if disabled else query,
         principal_provider=current_principal, authorized_tenant=authorized, error=_error, access=_access)
     route.install_harvest_routes(base, **kwargs)
@@ -271,8 +272,11 @@ def test_offset_split_empty_and_out_of_range_preserve_positions(source, monkeypa
 def test_openapi_invalidates_cache_preserves_old_contract_and_declares_authenticated_bounds():
     stores = _SchemaOnlyStores(); base = create_app(stores, stores, stores, stores,
         principal_provider=current_principal, break_even_store=stores)
-    before = deepcopy(base.openapi()); static = CONTRACT_PATH.read_bytes()
-    assert contract_document() == before
+    declared = deepcopy(base.openapi()); static = CONTRACT_PATH.read_bytes()
+    assert contract_document() == declared
+    base.router.routes[:] = [r for r in base.router.routes if getattr(r, 'path', None) != PATH + '{result_id}']
+    base.openapi_schema = None
+    before = deepcopy(base.openapi())
     route.install_harvest_routes(base, jobs=stores, farms=None, query=None, principal_provider=current_principal,
         authorized_tenant=lambda *_: None, error=_error, access=_access)
     assert base.openapi_schema is None
@@ -280,7 +284,7 @@ def test_openapi_invalidates_cache_preserves_old_contract_and_declares_authentic
     assert set(doc['paths']) - set(before['paths']) == {PATH + '{result_id}'}
     assert all(doc['paths'][k] == v for k, v in before['paths'].items())
     assert all(doc['components']['schemas'][k] == v for k, v in before['components']['schemas'].items())
-    assert contract_document() == before and CONTRACT_PATH.read_bytes() == static
+    assert contract_document() == declared and CONTRACT_PATH.read_bytes() == static
     assert operation['operationId'] == 'getHarvestResearchResult'
     assert operation['security'] == [{'ServiceBearer': []}] and operation['x-ossf-required-scopes'] == list(READ_SCOPES)
     assert doc['components']['securitySchemes']['ServiceBearer']['scheme'] == 'bearer'

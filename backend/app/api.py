@@ -28,6 +28,7 @@ from .api_crop_coupled_replay import install_coupled_crop_routes
 from .api_crop_startup_replay import install_startup_crop_routes
 from .api_crop_cycle_replay import install_cycle_crop_routes
 from .api_crop_cycle_calculation_route import install_calculation_cycle_routes
+from .api_crop_harvest_route import install_harvest_routes
 from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold, ThermalScenarioConflict, IDENTIFIER
 from .thermal_scenario_execution import SCENARIO_SCOPES
 from .thermal_publisher import ThermalPublishHold
@@ -107,7 +108,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                authored_simulation_service=None, crop_result_store=None,
                crop_coupled_result_store=None, crop_startup_result_store=None,
                crop_cycle_result_store=None, crop_cycle_current_query=None,
-               crop_cycle_calculation_result_store=None, crop_cycle_calculation_current_query=None) -> FastAPI:
+               crop_cycle_calculation_result_store=None, crop_cycle_calculation_current_query=None,
+               crop_harvest_current_query=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -266,6 +268,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         authorized_tenant=authorized_tenant,error=_error,access=_access,query=crop_cycle_current_query)
     install_calculation_cycle_routes(app, jobs=job_store, farms=farm_authoring_service,
         store=crop_cycle_calculation_result_store, query=crop_cycle_calculation_current_query,
+        principal_provider=principal_provider, authorized_tenant=authorized_tenant, error=_error, access=_access)
+    install_harvest_routes(app, jobs=job_store, farms=farm_authoring_service, query=crop_harvest_current_query,
         principal_provider=principal_provider, authorized_tenant=authorized_tenant, error=_error, access=_access)
 
     @app.get('/v1/source-history', response_model=SourceHistoryPage,

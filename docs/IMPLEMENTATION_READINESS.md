@@ -1,12 +1,12 @@
 # 구현 준비 현황
 
-**최신 수용 — 2026-10-08 22:40 KST:** [등록 수확의 인증 route·OpenAPI](../research/crop-harvest-route-openapi-implementation-20261008.md)를
-새72개/선행 공개 투영70개·집중142개·원 종료0·원6행/summary/분할 bytes·조회 후 철회·기존49 path/156 schema·436 source/정리로 수용했다.
-이번 단계는 소유 Bearer ASGI/기록 DB 응답이며 새 실제 DB/TLS/3D 실행은0건이다.
-선행 [공개 응답](../research/crop-harvest-public-projection-implementation-20261008.md)과
+**최신 수용 — 2026-10-08 23:01 KST:** [등록 수확의 명시 runtime·기본 App 연결](../research/crop-harvest-runtime-assembly-implementation-20261008.md)을
+새17개(실제 SCRAM1 포함)/관련 회귀121개·집중138개·원 종료0·같은 reader/DB/query/farm·10거부·원 이력/입력·440 source/정리로 수용했다.
+기존49 path/156 schema를 보존한 새 표준50 path/201 schema다. 이번 실제 조립의 작물/수확 row0건·HTTP/TLS/3D0건이다.
+선행 [인증 route](../research/crop-harvest-route-openapi-implementation-20261008.md)와
 [합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-다음은 명시 runtime/factory·기존 App 조립→실제 SCRAM/HTTPS30초·2MiB→SDK→같은 UTC 표/3D다.
-기존 작은 내부 query page약23초는 HTTPS/전체166일 새 질량 조회 부하의 수용이 아니다.
+다음은 보호된 운영 설정의 실제 dependencies factory·별도 Python 복원→실제 SCRAM/HTTPS30초·2MiB→SDK→같은 UTC 표/3D다.
+같은 프로세스 재조립/import는 보호된 복원 수용이 아니다. 기존 내부 query page약23초는 HTTPS/전체 질량 조회 부하 수용이 아니다.
 실제 계수/품종 입력·농장 작물 Run은0건이다. 국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
 
 **새 계산 조회 진척 (2026-10-07):** [현재 농장/DB query](../research/crop-cycle-calculation-current-query-implementation-20261007.md)를

@@ -92,6 +92,7 @@ class ApiRuntimeDependencies:
     crop_cycle_current_query_factory: object = field(default=None, repr=False)
     crop_cycle_calculation_result_store_factory: object = field(default=None, repr=False)
     crop_cycle_calculation_current_query_factory: object = field(default=None, repr=False)
+    crop_harvest_current_query_factory: object = field(default=None, repr=False)
 
     def __post_init__(self):
         if (type(self.research_registry) is not ResearchRegistry or
@@ -107,6 +108,7 @@ class ApiRuntimeDependencies:
                 (self.crop_cycle_current_query_factory is not None and not callable(self.crop_cycle_current_query_factory)) or
                 (self.crop_cycle_calculation_result_store_factory is not None and not callable(self.crop_cycle_calculation_result_store_factory)) or
                 (self.crop_cycle_calculation_current_query_factory is not None and not callable(self.crop_cycle_calculation_current_query_factory)) or
+                (self.crop_harvest_current_query_factory is not None and not callable(self.crop_harvest_current_query_factory)) or
                 (self.owned_fixture_registry is not None and type(self.owned_fixture_registry) is not OwnedFixtureRegistry) or
                 (self.owned_research_contexts is not None and
                     (type(self.owned_research_contexts) is not dict or self.owned_fixture_registry is None))):
@@ -155,6 +157,8 @@ class ApiRuntime:
                     config.policy.crop_cycle_calculation_result_storage !=
                     (dependencies.crop_cycle_calculation_current_query_factory is not None) or
                     (config.policy.crop_cycle_calculation_result_storage and not config.policy.crop_cycle_result_storage)):
+                raise ValueError()
+            if dependencies.crop_harvest_current_query_factory is not None and not config.policy.crop_cycle_calculation_result_storage:
                 raise ValueError()
             authored_option = (config.authored_run_gate_key is not None or
                 dependencies.authored_run_store_factory is not None)
@@ -274,6 +278,27 @@ class ApiRuntime:
                         calculation_cycle_crop_query.store is not calculation_cycle_crop_results):
                     raise ValueError()
                 calculation_cycle_crop_query._binding()
+            harvest_crop_query = None
+            harvest_crop_results = None
+            if dependencies.crop_harvest_current_query_factory is not None:
+                from .crop_harvest_current_query import HarvestCurrentQuery
+                from .crop_harvest_registry import HarvestRegistry
+                harvest_crop_query = dependencies.crop_harvest_current_query_factory(
+                    calculation_current_query=calculation_cycle_crop_query)
+                if type(harvest_crop_query) is not HarvestCurrentQuery:
+                    raise ValueError()
+                harvest_crop_results = harvest_crop_query.store
+                if (type(harvest_crop_results) is not HarvestRegistry or
+                        harvest_crop_results.query is not calculation_cycle_crop_query or
+                        harvest_crop_results.role != harvest_crop_results.policy.reader or
+                        harvest_crop_results.policy.database != config.policy.database or
+                        harvest_crop_results.policy.schema == config.policy.schema):
+                    raise ValueError()
+                harvest_crop_query._binding()
+                with jobs.connect() as parent_connection, harvest_crop_results._connection() as reader_connection:
+                    if ((parent_connection.info.host, parent_connection.info.port, parent_connection.info.dbname) !=
+                            (reader_connection.info.host, reader_connection.info.port, reader_connection.info.dbname)):
+                        raise ValueError()
             submission = None
             if dependencies.thermal_publisher_factory is not None:
                 if scenarios is None:
@@ -318,7 +343,8 @@ class ApiRuntime:
                 crop_coupled_result_store=coupled_crop_results, crop_startup_result_store=startup_crop_results,
                 crop_cycle_result_store=cycle_crop_results,crop_cycle_current_query=cycle_crop_query,
                 crop_cycle_calculation_result_store=calculation_cycle_crop_results,
-                crop_cycle_calculation_current_query=calculation_cycle_crop_query)
+                crop_cycle_calculation_current_query=calculation_cycle_crop_query,
+                crop_harvest_current_query=harvest_crop_query)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -335,5 +361,6 @@ class ApiRuntime:
                 ('startup_crop_results', startup_crop_results), ('cycle_crop_results', cycle_crop_results),
                 ('cycle_crop_query', cycle_crop_query),
                 ('calculation_cycle_crop_results', calculation_cycle_crop_results),
-                ('calculation_cycle_crop_query', calculation_cycle_crop_query)):
+                ('calculation_cycle_crop_query', calculation_cycle_crop_query),
+                ('harvest_crop_results', harvest_crop_results), ('harvest_crop_query', harvest_crop_query)):
             object.__setattr__(self, name, value)

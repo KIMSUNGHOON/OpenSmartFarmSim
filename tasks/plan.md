@@ -1,11 +1,12 @@
 # 구현 순서
 
-**최신 수용 — 2026-10-08 22:40 KST:** [등록 수확의 인증 route·OpenAPI](../research/crop-harvest-route-openapi-implementation-20261008.md)를
-새72개/선행 공개 투영70개·집중142개·원 종료0·원6행/summary/분할 bytes·조회 후 철회·기존49 path/156 schema·436 source/정리로 수용했다.
-소유 Bearer ASGI/기록 DB 응답이며 새 실제 DB/TLS/3D0건이다. `crop-harvest-route-openapi`만 추가 체크했다.
-API runtime/SDK·replay 부모는 미완료다. 선행 실제 DB 현재 조회와 합성166일 DB/API/대표3D를 보존한다.
-다음은 명시 설정/factory·기존 App 조립의 같은 DB/reader/원 query/farm·private key/DSN,
-default deny/명시 활성·새 프로세스 복원·기존 계약/비밀 정리다. 착수 시3~5 core파일을 고정한다.
+**최신 수용 — 2026-10-08 23:01 KST:** [등록 수확의 명시 runtime·기본 App 연결](../research/crop-harvest-runtime-assembly-implementation-20261008.md)을
+새17개(실제 SCRAM1 포함)/관련 회귀121개·집중138개·원 종료0·같은 reader/DB/query/farm·10거부·원 이력/입력·440 source/정리로 수용했다.
+기존49 path/156 schema 보존·새 표준50 path/201 schema다. 실제 조립의 작물/수확 row0건·HTTP/TLS/3D0건이다.
+`crop-harvest-runtime-assembly`만 추가 체크했다. 보호된 설정/factory·별도 Python 복원, API/SDK/replay 부모는 미완료다.
+선행 실제 DB 현재 조회와 합성166일 DB/API/대표3D를 보존한다.
+다음은 기존 명시 loader 재사용·private config/key/DSN/소유권·실제 dependencies factory와 같은 DB/reader/원 query/farm의 별도 Python 복원이다.
+착수 시3~5 core파일로 고정하며 같은 프로세스 재조립/fresh import는 그 복원을 수용하지 않는다.
 그 뒤 실제 SCRAM/HTTPS30초·2MiB→SDK→같은 UTC 표/3D→기후/물·양분/구매 에너지→Decimal 경제 연결로 진행한다.
 현재 작은 내부 query page약23초는 실제 HTTPS 수용이 아니다. 기후/자원 개발과 독립 자료 확보는 병행한다.
 실제 계수/품종 입력·농장 작물 Run·국내 독립 자료0건, 실제 생산량/예측/추천·전체 제품 관문은 후속이다.
