@@ -7,6 +7,8 @@ import os
 from pathlib import Path
 
 import pytest
+from cryptography import x509
+from cryptography.hazmat.primitives import hashes,serialization
 
 from app.crop_result_store import READ_SCOPES,WRITE_SCOPES
 from app.thermal_run_store import _canonical
@@ -17,9 +19,23 @@ from crop_cycle_registered_terminal_publication_smoke import (module as publicat
     server_setup,bound_setup,login_scope,original_login_scope,authoring,farm_setup,login_database,
     audit_registration,save,tree,counts,POLICY)
 from test_operator_config import private_config
-from test_api_serve import tls_files
+from test_api_serve import tls_files as loopback_tls_files
 
 SCRIPT=Path(__file__).resolve().parents[2]/'research/crop-cycle-registered-replay.py'
+
+
+@pytest.fixture
+def tls_files(loopback_tls_files):
+    cert,private,key=loopback_tls_files
+    original=x509.load_pem_x509_certificate(cert.read_bytes())
+    names=list(original.extensions.get_extension_for_class(x509.SubjectAlternativeName).value)
+    certificate=(x509.CertificateBuilder().subject_name(original.subject).issuer_name(original.issuer)
+        .public_key(key.public_key()).serial_number(original.serial_number)
+        .not_valid_before(original.not_valid_before_utc).not_valid_after(original.not_valid_after_utc)
+        .add_extension(x509.SubjectAlternativeName([*names,x509.DNSName('localhost')]),False)
+        .sign(key,hashes.SHA256()))
+    cert.write_bytes(certificate.public_bytes(serialization.Encoding.PEM))
+    return cert,private,key
 
 
 def consumer():

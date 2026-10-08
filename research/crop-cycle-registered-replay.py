@@ -1,12 +1,17 @@
 """Keep a completed owned farm DB alive through its real protected replay UI."""
 from dataclasses import asdict
+from contextlib import contextmanager
 from datetime import datetime,timedelta,timezone
 from hashlib import sha256
 import json
+import http.client
 import os
 from pathlib import Path
 import secrets
 import select
+import signal
+import socket
+import ssl
 import subprocess
 import sys
 import threading
@@ -30,9 +35,75 @@ from test_api_runtime import config,dependencies
 from test_operator_config import store as store_config
 from crop_cycle_registered_runtime_smoke import files,rewrite,save,counts
 from web_crop_cycle_calculation_replay_smoke import HTTPObservation
-from web_shell_smoke import frontend,WEB
+from web_shell_smoke import WEB
 
-VERSION='owned-same-registered-DB-replay-harness-v1'
+VERSION='owned-same-registered-DB-replay-harness-v2'
+
+
+@contextmanager
+def production_frontend(origin,certificate,private_key,publisher,evidence_root):
+    manifest_path=Path(os.environ['OSSF_REGISTERED_REPLAY_BUILD_MANIFEST'])
+    manifest_raw=publisher.runtime.private_bytes(manifest_path)
+    assert sha256(manifest_raw).hexdigest()==os.environ['OSSF_REGISTERED_REPLAY_BUILD_SHA256']
+    manifest=json.loads(manifest_raw);directory=Path(manifest['directory'])
+    before=files(directory)
+    assert {name:item[0] for name,item in before.items()}==manifest['files']
+    assert manifest['command']['exit_code']==0
+    preparation_path=Path(os.environ['OSSF_REGISTERED_REPLAY_NGINX_PREPARATION'])
+    preparation_raw=publisher.runtime.private_bytes(preparation_path)
+    assert sha256(preparation_raw).hexdigest()==os.environ['OSSF_REGISTERED_REPLAY_NGINX_SHA256']
+    preparation=json.loads(preparation_raw);binary=Path(preparation['binary'])
+    assert preparation['nginx_version']=='1.30.5' and preparation['official_signature_valid']
+    assert sha256(binary.read_bytes()).hexdigest()==preparation['binary_sha256']
+    with socket.socket() as probe:
+        probe.bind(('127.0.0.1',0));port=probe.getsockname()[1]
+    frontend_root=Path(os.environ['TMPDIR'])/'registered-replay-nginx';frontend_root.mkdir(mode=0o700)
+    (frontend_root/'logs').mkdir(mode=0o700)
+    template=(WEB/'nginx.conf').read_text()
+    replacements={'/tmp/nginx.pid':str(frontend_root/'nginx.pid'),
+        '/etc/nginx/mime.types':str(binary.parents[1]/'conf/mime.types'),
+        'listen 8444 ssl;':f'listen 127.0.0.1:{port} ssl;',
+        '/run/operator/web/cert.pem':str(certificate),'/run/operator/web/key.pem':str(private_key),
+        '/run/operator/web/api-ca.pem':str(certificate),'/usr/share/nginx/html':str(directory),
+        'https://127.0.0.1:8443':origin}
+    for name in ('client','proxy','fastcgi','uwsgi','scgi'):
+        replacements['/tmp/'+name+'-temp']=str(frontend_root/(name+'-temp'))
+    for source,target in replacements.items():
+        assert source in template;template=template.replace(source,target)
+    nginx_config=frontend_root/'nginx.conf';publisher.runtime.write_private(nginx_config,template.encode())
+    env={name:os.environ[name] for name in ('PATH','HOME','LANG','TMPDIR') if name in os.environ}
+    argv=[str(binary),'-p',str(frontend_root)+'/', '-c',str(nginx_config),'-g','daemon off;']
+    log=evidence_root/'registered-replay-frontend.log';started=monotonic();receipt={}
+    with log.open('xb') as output:
+        os.fchmod(output.fileno(),0o600)
+        child=subprocess.Popen(argv,cwd=WEB,env=env,stdout=output,stderr=subprocess.STDOUT)
+        identity=publisher.supervisor.identity(child.pid)
+        try:
+            context=ssl.create_default_context(cafile=str(certificate));deadline=monotonic()+20
+            while monotonic()<deadline and child.poll() is None:
+                client=http.client.HTTPSConnection('127.0.0.1',port,timeout=1,context=context)
+                try:
+                    client.request('GET','/');response=client.getresponse();body=response.read()
+                    if response.status==200:
+                        assert body==(directory/'index.html').read_bytes();break
+                except (OSError,http.client.HTTPException):sleep(.1)
+                finally:client.close()
+            else:raise AssertionError('owned production build frontend did not start')
+            yield port,receipt
+        finally:
+            if child.poll() is None:
+                assert publisher.supervisor.identity(child.pid)==identity;child.send_signal(signal.SIGQUIT)
+                try:child.wait(timeout=10)
+                except subprocess.TimeoutExpired:
+                    assert publisher.supervisor.identity(child.pid)==identity;child.kill();child.wait(timeout=10)
+            output.flush();os.fsync(output.fileno());log.chmod(0o400)
+            receipt.update(argv=argv,worker=identity,actual_exit_code=child.returncode,
+                wall_seconds=monotonic()-started,log_sha256=sha256(log.read_bytes()).hexdigest(),
+                build_manifest_sha256=sha256(manifest_raw).hexdigest(),actual_built_index_verified=True,
+                nginx_preparation_sha256=sha256(preparation_raw).hexdigest(),
+                config_sha256=sha256(nginx_config.read_bytes()).hexdigest(),frontend='native-nginx-1.30.5')
+            save('registered-replay-frontend-command.json',receipt)
+    assert files(directory)==before
 
 
 def replay(publisher,declaration,digest,published,*,expected,private_config,request,monkeypatch,tmp_path):
@@ -120,9 +191,10 @@ def replay(publisher,declaration,digest,published,*,expected,private_config,requ
         deadline=monotonic()+15
         while not https.started:assert thread.is_alive() and monotonic()<deadline;sleep(.01)
         port=https.servers[0].sockets[0].getsockname()[1]
-        with frontend(f'https://127.0.0.1:{port}',certificate,private_key) as (web_port,_):
+        with production_frontend(f'https://127.0.0.1:{port}',certificate,private_key,publisher,evidence_root) as (web_port,frontend_receipt):
             env={name:os.environ[name] for name in ('PATH','HOME','LANG','PLAYWRIGHT_BROWSERS_PATH','TMPDIR') if name in os.environ}
-            argv=['node','e2e/registered-cycle-replay-smoke.mjs',f'https://127.0.0.1:{web_port}',str(evidence_root/'screens')]
+            argv=['node','--max-old-space-size=64','--max-semi-space-size=2',
+                'e2e/registered-cycle-replay-smoke.mjs',f'https://127.0.0.1:{web_port}',str(evidence_root/'screens')]
             with log.open('xb') as errors:
                 os.fchmod(errors.fileno(),0o600);started=monotonic()
                 browser=subprocess.Popen(argv,cwd=WEB,env=env,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=errors,text=True)
@@ -170,6 +242,7 @@ def replay(publisher,declaration,digest,published,*,expected,private_config,requ
     assert server.input_resolver.last.reader.closed and not server.input_resolver.last._cache
     return {'version':VERSION,'scope':'owned_same_registered_DB_protected_replay_only','browser':report,
         'browser_command':browser_receipt,'actual_same_DB':True,'actual_SCRAM':True,'protected_loader':True,
+        'frontend_command':frontend_receipt,'production_build_verified':True,
         'published_result_id':published['result_id'],'payload_sha256':published['payload_sha256'],
         'result_evidence_sha256':sha256(result_proof).hexdigest(),'read_RHS_calls':0,
         'HTTPS_responses':observed.responses,'server_peak_active_reads':observed.peak,

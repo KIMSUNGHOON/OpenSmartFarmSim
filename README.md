@@ -49,8 +49,11 @@ API193개/웹720개/Chromium15개·타입/빌드·새34 JSON/원량/UTC·270 sou
 [같은 DB의 실제 App/3D](research/crop-cycle-calculation-registered-replay-harness-implementation-20261008.md)도
 고유2개·실제120걸음/원3시점·3사건·보호 HTTPS8개/최대2.148초·현재 권리/계정 거부·
 303 source/원 종료0/정리로 작은 기능 경로를 수용했습니다. [현재 실제 화면](research/artifacts/registered-cycle-desktop.png)이 있습니다.
-브라우저 포함 descendant RSS 합1.584GB가 전체1GiB 상한을 넘어 자원 수용은 보류합니다.
-다음은 같은 경로의 자원 개선/실측이며 전체166일은 아직 시작하지 않았습니다.
+이전 descendant RSS 합1.584GB 초과 보류 뒤 [작은 자원 경로](research/crop-cycle-calculation-registered-replay-resource-implementation-20261008.md)를
+고유2개·원 종료0/89.680초·원3시점/3사건·392 source/정리로 로컬 수용했다.
+실제 빌드/Nginx·지정 viewport/Node heap·명시 CDP GC2회에서 PG/controller 포함 동시 RSS 합
+1,048,477,696bytes≤1GiB다. 일반 운영 브라우저/전체 작기의 자원 수용으로 확대하지 않는다.
+다음은 같은 DB를 유지하는 전체166일 실행 구성의 준비/작은 검증이며 전체 실행은 아직 시작하지 않았다.
 9시간은 후속 실험 상한이며 전체166일 DB/API/3D·생산/경제 연결은 후속입니다.
 `f2dc10f`의 [CI 종료 상태](research/artifacts/full166-calendar-registration-ci-terminal-20261008.json)는
 C0/웹/작성 PG/앱 성공, Backend 분할0/4/5 성공·1/2/3/집계 실패입니다.

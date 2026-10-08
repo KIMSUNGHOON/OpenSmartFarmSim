@@ -422,9 +422,15 @@ DB 게시·현재 권리·원 종료/정리를 검증한다.
 새 전체166일은 아직 시작하지 않았다. 외부 독립 농장 자료 확보는 이 개발과 병행한다.
 [작은 같은 DB/보호 App/3D](../research/crop-cycle-calculation-registered-replay-harness-implementation-20261008.md)는
 고유2개·실제120걸음/3시점·3사건·fresh 게시·HTTPS8개/원값·권리/계정 거부·303 source/원 종료0/정리로
-기능 자식만 수용했다. 실제 descendant RSS 합1,583,595,520bytes가 전체1GiB 상한을 넘으므로
-통합 구성 부모와 전체 장시간 착수는 보류한다. 같은 경로의 production 빌드 서빙/viewport 캡처를 검토하고
-PG를 포함한 actual pipeline RSS·같은 원량/권리/정리를 실측해 자원을 수용한 뒤 원9시간 전체 준비를 이어간다.
+기능 자식을 수용했다. 이전 descendant RSS 합1,583,595,520bytes 초과 뒤
+[작은 자원 자식](../research/crop-cycle-calculation-registered-replay-resource-implementation-20261008.md)도
+고유2개·원 종료0/89.680초·원3시점/3사건·392 source/정리로 수용했다.
+실제 빌드/Nginx·1024×768/390×844 viewport·Node heap64/2MiB·명시 CDP GC2회의 지정 설정에서
+PG/controller 포함 동시 RSS 합1,048,477,696bytes≤1GiB다. 일반 운영/전체 작기 수용은 별도다.
+다음은 전체166일을 같은 DB로 유지할 실행 구성의 준비다. 준비 전 원 마감을 고정하고 source/input/farm/config/DB key·
+빌드/Nginx 증거를 결속한다. bounded streaming으로 원47,809행/5사건·121상태/수지를 대사하고
+같은 DB의 게시/API/대표3D/정리까지 잇는 구성을 작은 관리 사건 프로그램으로 먼저 검증한다.
+그 뒤 별도 전체 실행을 시작하며 준비/검증/연결/정리를 원9시간에 포함한다. 전체166일은 아직 시작하지 않았다.
 브라우저 대표 범위 수용을 전체 프레임 대사로 바꾸지 않으며 직접 범위 이동은 후속 사용성 과제다.
 원8초RK4/300초 출력과 한도·현재 bytes/입력/권리를 유지한다.
 이 용량/계약이나 초기 구간으로 완료 날짜·전체 실행/DB/API/3D·prefix-cost 부모를 수용하지 않는다.

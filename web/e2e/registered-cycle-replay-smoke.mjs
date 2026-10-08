@@ -3,13 +3,25 @@ import {createInterface} from 'node:readline';
 import {mkdir,writeFile} from 'node:fs/promises';
 import {chromium,expect as assertions} from '@playwright/test';
 const expect=assertions.configure({timeout:40_000});
-const lines=createInterface({input:process.stdin})[Symbol.asyncIterator]();
+const input=createInterface({input:process.stdin}),lines=input[Symbol.asyncIterator]();
 async function next(){const line=await lines.next();if(line.done)throw new Error('owned replay protocol ended');return JSON.parse(line.value);}
 const config=await next(),data=config.data,origin=process.argv[2],screens=process.argv[3];
 await mkdir(screens,{recursive:true});
-const browser=await chromium.launch({args:['--enable-unsafe-swiftshader']});
-const context=await browser.newContext({ignoreHTTPSErrors:true,viewport:{width:1536,height:1024}});
+const browser=await chromium.launch({args:['--enable-unsafe-swiftshader','--no-zygote']});
+const context=await browser.newContext({ignoreHTTPSErrors:true,viewport:{width:1024,height:768}});
 const page=await context.newPage(),network=[],errors=[],consoleMessages=[],verified=[],events=[];
+const cdp=await context.newCDPSession(page),collections=[];
+await cdp.send('Performance.enable');
+async function collect(name){
+  const metrics=async()=>Object.fromEntries((await cdp.send('Performance.getMetrics')).metrics
+    .filter(m=>['JSHeapUsedSize','JSHeapTotalSize','Nodes','Documents'].includes(m.name)).map(m=>[m.name,m.value]));
+  const before=await metrics(),response=await cdp.send('HeapProfiler.collectGarbage'),after=await metrics();
+  collections.push({phase:name,method:'HeapProfiler.collectGarbage',response,before,after});
+  await writeFile(screens+'/registered-cycle-collections.json',JSON.stringify(collections),{mode:0o600});
+}
+const stage=async name=>writeFile(screens+'/registered-cycle-stage.json',JSON.stringify({stage:name,
+  samples_verified:new Set(verified.map(v=>v.index)).size,events_verified:events.length,network,
+  node_memory_bytes:process.memoryUsage()}),{mode:0o600});
 const path='/v1/crop-cycle-calculation-research-results/';
 page.on('pageerror',e=>errors.push(e.message));
 page.on('console',m=>{if(['error','warning'].includes(m.type()))consoleMessages.push({type:m.type(),text:m.text()});});
@@ -101,7 +113,11 @@ async function sample(index,offset,count){
 }
 async function cleared(){await expect(page.locator('.coupled-canvas,.coupled-plot')).toHaveCount(0);await idle();}
 try{
-  await page.goto(origin);await connect(config.tokens.owner);await lookup();
+  await page.goto(origin);
+  const scripts=await page.evaluate(()=>Array.from(document.scripts).map(script=>script.src).filter(Boolean));
+  expect(scripts.length).toBeGreaterThan(0);expect(scripts.every(src=>new URL(src).pathname.startsWith('/assets/'))).toBe(true);
+  await connect(config.tokens.owner);await lookup();
+  await stage('lookup_submitted');
   let offset=0;
   for(let window=0;window<2;window++){
     await ready('samples',offset);const count=Number(await page.locator('.cycle-range').getAttribute('data-count'));
@@ -114,12 +130,20 @@ try{
     if(!nextOffset||window===1)break;
     offset=Number(nextOffset);await page.getByRole('button',{name:'다음 저장 범위',exact:true}).click();
   }
-  await page.screenshot({path:screens+'/registered-cycle-desktop.png',fullPage:true,mask:[page.getByLabel('접근 토큰')]});
+  await stage('sample_values_verified_before_captures');
+  if(await page.locator('.connection').getAttribute('open')!==null)await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.locator('.coupled-scene').scrollIntoViewIfNeeded();
+  await page.screenshot({path:screens+'/registered-cycle-desktop.png',mask:[page.getByLabel('접근 토큰')]});
   await page.setViewportSize({width:390,height:844});
   await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  await page.screenshot({path:screens+'/registered-cycle-mobile.png',fullPage:true,mask:[page.getByLabel('접근 토큰')]});
-  await page.setViewportSize({width:1536,height:1024});
-  await page.getByRole('button',{name:'관리 사건 보기',exact:true}).click();offset=0;
+  await page.locator('.coupled-scene').scrollIntoViewIfNeeded();
+  await page.screenshot({path:screens+'/registered-cycle-mobile.png',mask:[page.getByLabel('접근 토큰')]});
+  await stage('viewport_captures_completed');
+  await page.setViewportSize({width:1024,height:768});
+  await collect('after_captures');
+  await sample(verified.at(-1).index,offset,Number(await page.locator('.cycle-range').getAttribute('data-count')));
+  await page.getByRole('button',{name:'관리 사건 보기',exact:true}).click();
+  await collect('after_scene_unmounted_for_events');offset=0;
   while(offset<data.events.length){
     await ready('events',offset);const articles=page.locator('.cycle-events article');
     const count=await articles.count();expect(count).toBeGreaterThan(0);expect(count).toBeLessThanOrEqual(2);
@@ -150,7 +174,9 @@ try{
   process.stdout.write(JSON.stringify({stage:'verified',samples_verified:new Set(verified.map(v=>v.index)).size,
     total_samples:data.summary.reference.sample_count,events_verified:events.length,total_events:data.summary.reference.event_count,
     verified,events,same_UTC_geometry:true,actual_WebGL:true,network,errors,console_messages:consoleMessages,
-    peak_active_reads:peak,current_rights_hold_and_restored:true,actual_account_denied:true,unmounted:true,
+    peak_active_reads:peak,current_rights_hold_and_restored:true,actual_account_denied:true,unmounted:true,production_scripts:scripts,
+    capture_scope:'desktop1024x768_mobile390x844_viewport_only',browser_launch_args:['--enable-unsafe-swiftshader','--no-zygote'],
+    owned_browser_collections:collections,
     coverage:'first_two_sample_windows_and_up_to_eight_events_not_all_frames'})+'\n');
 }catch(error){
   const observed=await page.evaluate(()=>({source:document.querySelector('.cycle-replay')?.dataset.sourceKind,
@@ -160,4 +186,4 @@ try{
   let message=String(error.stack??error);for(const token of Object.values(config.tokens))message=message.replaceAll(token,'[REDACTED_OWNED_TOKEN]');
   process.stderr.write(message+'\n');process.exitCode=1;
 }
-finally{await context.close();await browser.close();await lines.return?.();}
+finally{await context.close();await browser.close();input.close();process.stdin.destroy();}
