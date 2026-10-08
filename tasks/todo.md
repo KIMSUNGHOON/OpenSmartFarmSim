@@ -1114,8 +1114,9 @@
       [로컬 수용](../research/crop-harvest-public-projection-implementation-20261008.md): 새70개/선행query 순수23개·집중93개/원 종료0·원6행/summary/분할·빈 끝·owned hold probe·전체2MiB·별도 import DB/network0/FD4→4·431 source/정리. 새 DB/HTTP/3D0건이며 부모/관문은 별도다.
     - [ ] **`crop-harvest-api-runtime`** — 선행 투영. 착수 시 설정/factory·인증 route·실제 TLS를3~5파일 자식으로 나눈다.
       수용: exact reader/현재 같은 farm/계정·투영 뒤 철회·원 ID/UTC/수량 보존·실제 SCRAM/HTTPS30초·전체2MiB·권한/자원/정리. 작은 query약23초를 HTTP 수용으로 대체하지 않는다.
-      - [ ] **`crop-harvest-route-openapi`** — 첫3 core파일: `contracts/api-crop-harvest-route-v1.md`, `backend/app/api_crop_harvest_route.py`, `backend/tests/test_api_crop_harvest_route.py`.
+      - [x] **`crop-harvest-route-openapi`** — 첫3 core파일: `contracts/api-crop-harvest-route-v1.md`, `backend/app/api_crop_harvest_route.py`, `backend/tests/test_api_crop_harvest_route.py`.
         수용: exact 현재 query/reader·기존 jobs/farm/principal·읽기 scope·닫힌 ID/farm/view/offset/limit·open 안의 투영/직렬화·종료 후 현재 계정·no-store·401/403/404/422/503·ASGI/OpenAPI. 실제 TLS는 후속이다.
+        [로컬 수용](../research/crop-harvest-route-openapi-implementation-20261008.md): 새72개/선행투영70개·집중142개/원 종료0·원6행/summary/분할 bytes·한 context/조회 후 철회·기존49 path/156 schema·FD/436 source/정리. 새 실제 DB/TLS0건이며 App/runtime·부모는 후속이다.
       - [ ] **`crop-harvest-runtime-factory`** — 선행 route. 착수 시 명시 operator 설정/factory·기존 App 조립과 집중 시험을3~5파일로 고정한다.
         수용: 같은 DB/reader/원 query/farm·private key/DSN 소유권·default deny·명시 활성·새 프로세스 복원·기존 API/권한/이력 보존·비밀 정리.
       - [ ] **`crop-harvest-runtime-tls`** — 선행 실제 factory/route. 작은 실제 SCRAM 부모·HTTPS의 summary/원6행·split/권리/계정·응답/WSL 자원·정리.
