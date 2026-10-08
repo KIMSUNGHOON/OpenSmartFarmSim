@@ -5,10 +5,12 @@
 [운영 기반 고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)에 둔다.
 아래 초안 날짜는 최초 작성일이다. 현재 구현 순서는 §7과 [작업 계획](../tasks/plan.md)을 따른다.
 
-**최신 수용 — 2026-10-08 20:48 KST:** [질량·배정의 불변 저장](../research/crop-harvest-artifact-implementation-20261008.md)을
-순수19개·별도 Python/실제 SIGKILL·실제 SCRAM1개/원 종료0·6저장 행·411 source/정리로 로컬 수용했다.
-선행 [합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-다음은 질량/배정의 서버 소유 등록·현재 조회→HTTP/SDK→같은 UTC3D다.
+**최신 수용 — 2026-10-08 21:14 KST:** [수확 결과 등록 스키마](../research/crop-harvest-registry-schema-implementation-20261008.md)를
+순수16개·실제 SCRAM1개/집중17개·원 종료0·SQL 거부11종/권한·trigger10종·416 source/정리로 로컬 수용했다.
+선행 [질량·배정 불변 저장](../research/crop-harvest-artifact-implementation-20261008.md)과
+[합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
+다음은 실제 artifact의 서버 서명·DB 등록→현재 조회→HTTP/SDK→같은 UTC3D다.
+이번은 SQL 형식 fixture 단계이며 실제 파생 등록/작물 Run은0건이다.
 실제 계수/품종 입력·국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
 배정 뒤 질량/배정의 저장·API·같은 UTC3D는 `crop-harvest-replay`로 검증하며 기후/자원 개발과 병행한다.
 합성 재생과 실제 생산량·미래 예측의 게시 조건은 아래 관문과 [작업 목록](../tasks/todo.md)을 따른다.

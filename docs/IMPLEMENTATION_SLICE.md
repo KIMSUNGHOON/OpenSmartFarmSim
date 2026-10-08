@@ -4,10 +4,12 @@
 작물 생장·저장·성장 3D로 진행한다. 첫 작성 시점의 구현 현황은 아래에 남겨두며,
 현재 운영 완료 범위와 CI는 [고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)을 따른다.
 
-**최신 수용 — 2026-10-08 20:48 KST:** [질량·배정의 불변 저장](../research/crop-harvest-artifact-implementation-20261008.md)을
-순수19개·별도 Python/실제 SIGKILL·실제 SCRAM1개/원 종료0·6저장 행·411 source/정리로 로컬 수용했다.
-선행 [합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-다음은 질량/배정의 서버 소유 등록·현재 조회→HTTP/SDK→같은 UTC3D다.
+**최신 수용 — 2026-10-08 21:14 KST:** [수확 결과 등록 스키마](../research/crop-harvest-registry-schema-implementation-20261008.md)를
+순수16개·실제 SCRAM1개/집중17개·원 종료0·SQL 거부11종/권한·trigger10종·416 source/정리로 로컬 수용했다.
+선행 [질량·배정 불변 저장](../research/crop-harvest-artifact-implementation-20261008.md)과
+[합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
+다음은 실제 artifact의 서버 서명·DB 등록→현재 조회→HTTP/SDK→같은 UTC3D다.
+이번은 SQL 형식 fixture 단계이며 실제 파생 등록/작물 Run은0건이다.
 실제 계수/품종 입력·국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
 후속 `crop-harvest-replay`는 질량/배정의 저장·현재 조회→HTTP/SDK→같은 UTC3D를 작은 자식으로 검증한다.
 기후/물·양분/구매 에너지 개발과 병행하며 실제 생산량/예측 게시 관문은 유지한다.

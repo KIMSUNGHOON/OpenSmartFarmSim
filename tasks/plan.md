@@ -1,12 +1,13 @@
 # 구현 순서
 
-**최신 수용 — 2026-10-08 20:48 KST:** [질량·배정의 불변 저장](../research/crop-harvest-artifact-implementation-20261008.md)을
-순수19개·별도 Python/실제 SIGKILL·실제 SCRAM1개/원 종료0·6저장 행·411 source/정리로 로컬 수용했다.
-선행 [합성166일 DB/API/대표3D](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-`crop-harvest-artifact` 자식을 수용했다. 다음은 서버 소유 등록→현재 권리 조회→HTTP/SDK→같은 UTC 표/3D다.
-서버 등록과 현재 query를 각각3~5파일 작업으로 나누고 기존 원 결과의 농장/권한/store 계약을 재사용한다.
+**최신 수용 — 2026-10-08 21:14 KST:** [수확 결과 등록 스키마](../research/crop-harvest-registry-schema-implementation-20261008.md)를
+순수16개·실제 SCRAM1개/집중17개·원 종료0·SQL 거부11종/권한·trigger10종·416 source/정리로 로컬 수용했다.
+선행 질량·배정 불변 저장과 합성166일 DB/API/대표3D는 유지한다. SQL 형식 fixture이며 실제 파생 등록/작물 Run0건이다.
+`crop-harvest-registry-schema`만 추가 수용했다. 다음은 서버 파일 생성·서명 DB 등록→현재 권리 조회→HTTP/SDK→같은 UTC 표/3D다.
+[등록/조회 계약](../contracts/crop-harvest-current-query-v1.md)의 별도 namespace/역할로 기존 원 서명에 포함된 공통 role/code 판본을 보존한다.
+다음 등록은 registry 제공자·집중/native 시험·등록 계약3 core파일로 시작하고 현재 부모/농장·계산/표시 권리·최초 게시/재시도를 검증한다.
 이 경로는 기후/물·양분/구매 에너지 개발과 병행하며 실제 생산량/예측 게시 관문은 별도다.
-생과 환산·자원/경제·실제 입력/독립 검증·전체 제품 관문은 후속이며 아래 단계별 기록은 당시 상태다.
+실제 품종/계수·국내 독립 자료0건·자원/경제 연결·전체 제품 관문은 후속이며 아래 단계별 기록은 당시 상태다.
 
 ## 작물 생산과 성장 3D 우선순위 (2026-10-04)
 
