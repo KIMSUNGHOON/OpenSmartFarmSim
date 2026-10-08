@@ -2,14 +2,16 @@
 
 지역을 고르면 기상·시설·작물·시장 자료의 출처를 확인하고, 온실 시나리오를 계산해 3D로 재생하며, **평가한 작물 중 어떤 선택이 목표에 가장 맞는지** 근거와 불확실성을 설명하는 오픈소스 프로젝트입니다. 수확 시점의 수요·공급과 거시 비용 변화도 재배 결정의 조건으로 다룹니다.
 
-**최신 수용 — 2026-10-08 23:01 KST:** [등록 수확의 명시 runtime·기본 App 연결](research/crop-harvest-runtime-assembly-implementation-20261008.md)을
-새17개(실제 SCRAM1 포함)/관련 회귀121개·집중138개·원 종료0·같은 reader/DB/query/farm·10거부·원 이력/입력·440 source/정리로 수용했다.
-기존49 path/156 schema를 보존한 새 표준50 path/201 schema다. 이번 실제 조립의 작물/수확 row0건·HTTP/TLS/3D0건이다.
-선행 [인증 route](research/crop-harvest-route-openapi-implementation-20261008.md)와
+**최신 수용 — 2026-10-08 23:26 KST:** [등록 수확의 보호된 reader 설정·별도 Python 복원](research/crop-harvest-protected-factory-implementation-20261008.md)을
+새45개(실제 SCRAM1 포함)/기존 loader 순수56개·집중101개·원 종료0·445 source/정리로 로컬 수용했다.
+기존 운영 설정 loader의 실제 module import·새 ApiRuntime으로 정상 Python2개/권한 거부1개를 확인했다.
+같은 DB/reader/원 query/jobs/farm/principal·보호 파일16개·원 DB counts/FD를 유지했다.
+선행 [명시 runtime·App 조립](research/crop-harvest-runtime-assembly-implementation-20261008.md)과
 [합성166일 DB/API/대표3D](research/crop-cycle-calculation-full166-same-db-completed-20261008.md)는 유지한다.
-다음은 보호된 운영 설정의 실제 dependencies factory·별도 Python 복원→실제 SCRAM/HTTPS30초·2MiB→SDK→같은 UTC 표/3D다.
-같은 프로세스 재조립/import는 보호된 복원 수용이 아니다. 기존 내부 query page약23초는 HTTPS/전체 질량 조회 부하 수용이 아니다.
-실제 계수/품종 입력·농장 작물 Run은0건이다. 국내 독립 자료0건·생산/마진 예측·추천 보류는 유지한다.
+이번 작물/수확 row0건·새 HTTP/TLS/SDK/3D0건이다. runtime/factory 부모만 추가 완료했고 API/replay 부모는 미완료다.
+다음은 실제 SCRAM/HTTPS30초·2MiB→SDK→같은 UTC 표/3D→기후/물·양분/구매 에너지→Decimal 경제다.
+기존 내부 query page약23초는 HTTPS/전체 질량 조회 부하 수용이 아니다.
+실제 계수/품종 입력·농장 작물 Run·국내 독립 자료0건, 실제 생산/마진 예측·추천 보류는 유지한다.
 
 **단계별 검증 기록(수용 당시 범위):** 합성 생장 계산→실제 DB/HTTPS→같은 UTC3D의25시간 경로는 로컬 수용했고,
 [새 검증 조회의 화면](research/web-crop-cycle-calculation-view-20261008.md)도 Chromium 새15개/기존47개·웹719개·

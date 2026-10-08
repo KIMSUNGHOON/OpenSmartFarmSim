@@ -1117,13 +1117,14 @@
       - [x] **`crop-harvest-route-openapi`** — 첫3 core파일: `contracts/api-crop-harvest-route-v1.md`, `backend/app/api_crop_harvest_route.py`, `backend/tests/test_api_crop_harvest_route.py`.
         수용: exact 현재 query/reader·기존 jobs/farm/principal·읽기 scope·닫힌 ID/farm/view/offset/limit·open 안의 투영/직렬화·종료 후 현재 계정·no-store·401/403/404/422/503·ASGI/OpenAPI. 실제 TLS는 후속이다.
         [로컬 수용](../research/crop-harvest-route-openapi-implementation-20261008.md): 새72개/선행투영70개·집중142개/원 종료0·원6행/summary/분할 bytes·한 context/조회 후 철회·기존49 path/156 schema·FD/436 source/정리. 새 실제 DB/TLS0건이며 App/runtime·부모는 후속이다.
-      - [ ] **`crop-harvest-runtime-factory`** — 선행 route. 착수 시 명시 operator 설정/factory·기존 App 조립과 집중 시험을3~5파일로 고정한다.
+      - [x] **`crop-harvest-runtime-factory`** — 선행 route. 착수 시 명시 operator 설정/factory·기존 App 조립과 집중 시험을3~5파일로 고정한다.
         수용: 같은 DB/reader/원 query/farm·private key/DSN 소유권·default deny·명시 활성·새 프로세스 복원·기존 API/권한/이력 보존·비밀 정리.
         - [x] **`crop-harvest-runtime-assembly`** — [조립 계약](../contracts/crop-harvest-runtime-assembly-v1.md)의5 core파일과 생성 OpenAPI. 선행 route.
           수용: 명시 reader factory/default deny·같은 계산 query/jobs/farm/principal·실제 SCRAM 동일 host/port/DB·reader ACL·기존 App/OpenAPI·재조립·혼합/변경 거부·계산/게시0·원 이력/입력·FD/비밀/PG 정리.
           [로컬 수용](../research/crop-harvest-runtime-assembly-implementation-20261008.md): 새17개(실제SCRAM1)/관련121개·집중138개·원 종료0·10거부/독립 key5개·row0/FD12→12·기존49 path/156 schema·새50/201·440 source/정리. 보호된 별도 프로세스 복원·TLS/부모는 후속이다.
-        - [ ] **`crop-harvest-protected-factory`** — 선행 실제 assembly. 착수 시 보호된 운영 설정/dependencies factory·별도 Python 복원·집중 시험을3~5 core파일로 고정한다.
+        - [x] **`crop-harvest-protected-factory`** — 선행 실제 assembly. [보호된 reader 계약](../contracts/crop-harvest-protected-factory-v1.md)의3 core파일: 계약·`backend/app/crop_harvest_runtime_factory.py`·`backend/tests/test_crop_harvest_runtime_factory.py`.
           수용: 기존 명시 loader 재사용·private config/key/DSN/소유권·정확 같은 DB/query/reader의 새 프로세스 복원·잘못된 조립/default deny·원 자료/권한/비밀 정리. import만으로 복원 수용하지 않는다.
+          [로컬 수용](../research/crop-harvest-protected-factory-implementation-20261008.md): 새45개(실제SCRAM1)/기존 loader 순수56개·집중101개·원 종료0·실제 module import/새 ApiRuntime·정상 Python2/권한 거부1·같은 DB/reader/query/farm·보호 파일16개/FD12→12·445 source/정리. 선행 assembly와 합쳐 runtime/factory 부모만 수용했으며 HTTP/TLS/SDK/3D/API·replay/관문은 후속이다.
       - [ ] **`crop-harvest-runtime-tls`** — 선행 실제 factory/route. 작은 실제 SCRAM 부모·HTTPS의 summary/원6행·split/권리/계정·응답/WSL 자원·정리.
         30초/2MiB 유지·원 RHS/행 재생성0·투영 뒤 철회·실제 명령 종료를 기록한다. 전체166일 질량 조회 부하는 별도다.
     - [ ] **`crop-harvest-client`** — 선행 실제 API. 착수 시 SDK/닫힌 검증·집중 시험을3~5파일로 나눈다.
