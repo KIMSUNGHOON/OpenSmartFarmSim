@@ -4,6 +4,7 @@ from typing import Annotated, Literal
 
 from fastapi import Path, Query, Request, Response
 from starlette.concurrency import run_in_threadpool
+from starlette.requests import ClientDisconnect
 
 from . import api_crop_harvest_replay as public
 from .api_contracts import ErrorEnvelope
@@ -61,8 +62,11 @@ def install_harvest_routes(app, *, jobs, farms, query, principal_provider, autho
                 or any(not re.fullmatch(r'0|[1-9][0-9]*',value) for key,value in pairs if key in ('offset','limit'))
                 or view=='summary' and bool({'offset','limit'}&set(keys))):
             return error(422,'invalid_request','Invalid request')
-        async for chunk in request.stream():
-            if chunk:return error(422,'invalid_request','Invalid request')
+        try:
+            async for chunk in request.stream():
+                if chunk:return error(422,'invalid_request','Invalid request')
+        except ClientDisconnect:
+            return error(422,'invalid_request','Invalid request')
         if query is None:return error(503,'harvest_research_unavailable','Harvest research result unavailable')
         if view=='records' and limit is None:limit=64
         try:
