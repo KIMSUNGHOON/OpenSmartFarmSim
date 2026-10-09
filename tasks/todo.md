@@ -1175,8 +1175,14 @@
       1,480 source·FD13→13·전체81.287초/900초·raw307,294bytes/128MiB·단일/소유 RSS129.76/388.52MiB·소유 PG 종료.
       원38071의 unit 임시 잔여/controller 종료1을 정리하고 명시 임시 경로에서 반복 수용했다.
       수용된 비공개 backup/runtime/입력/artifact는 의도적으로 보존한다. 전체 부모/생산 관문 수용은 아니다.
+    - [x] **`crop-harvest-parent-production-small`** — [core3 계약](../contracts/crop-harvest-parent-production-v1.md)·[로컬 수용](../research/crop-harvest-parent-production-small-implementation-20261009.md).
+      원17264 종료0·집중11개/실제 DB1개·기존 정상 supervisor→fresh 모든 행/121상태 대사→정상 publisher→인증 보존.
+      작은120걸음/3sample/3관리event·원 DB 정리 후 현재 checkout에서 fresh 실제 SCRAM/current query·현재 권리/scope/tenant 거부·읽기 RHS0.
+      구형 source guard가 후속 API/웹6파일을 거부해 고정 dc7b852 worktree의 원392 hash를 유지·새 core 복사 hash 기록.
+      전체101.710초/600초·raw308,638bytes·단일/소유 RSS130.61/355.31MiB·1,400 source·PG/원 임시 정리·비공개 보존.
+      새 전체 계산/전체 부모·수확 writer/API/3D 수용은 별도다.
     - [ ] **`crop-harvest-full-parent-restore`** — 다음 한 단계. 원 DB/config/무작위 key 삭제로 단순 원 인증 복원은 불가.
-      선행 보존 자식을 기존 정상 producer에 결합하는 작은 구성부터3~5 core파일로 고정·수용한다.
+      선행 작은 정상 producer+보존 구성 수용 완료. 고정 dc7b852 source/새 core의 같은 구성으로 새 전체 계산을 실행한다.
       같은 모델/입력의 새 전체 계산 판본을 만들고 모든47,809sample/5event·121상태/수지·UTC를 원 결과와 대사한다.
       원 서명 우회/임의 행 삽입 없이 새 농장/source/결과 계보와 인증 자료를 보존한다.
       실제 SCRAM/current query·별도 Python 조회·현재 권리 철회/복원·계정 거부·읽기 RHS0·원 종료/소유 정리가 수용 기준이다.

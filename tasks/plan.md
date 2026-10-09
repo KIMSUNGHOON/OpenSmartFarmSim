@@ -1,6 +1,14 @@
 # 구현 순서
 
-**최신 수용 — 2026-10-09 09:00 KST:** [작은 부모 DB·인증 자료 보존](../research/crop-harvest-parent-backup-implementation-20261009.md)을
+**최신 수용 — 2026-10-09 09:10 KST:** [정상 producer와 인증 보존의 작은 구성](../research/crop-harvest-parent-production-small-implementation-20261009.md)을
+원17264 종료0·집중11개/실제 DB1개·원 DB 정리 후 현재 checkout의 fresh 복원으로 로컬 수용했다.
+고정 `dc7b852`의 원392 source guard를 유지하고 작은120걸음/3시점/3사건·121상태/수지를 fresh 대사한 뒤 정상 게시·인증 보존했다.
+전체101.710초/600초·raw308,638bytes·단일/소유 RSS130.61/355.31MiB·1,400 source·소유 정리를 확인했다. 작은 구성만 완료다.
+다음은 같은 원 모델/입력의 새 전체166일 계산·모든 원값/현재 query 복원→새 source/profile의 전체 수확 writer/등록→실제 API/대표3D다.
+전체는 준비부터9시간 상한·이전7시간15분 근거로7–9시간 잠정이며 실제 종료/정리 전에는 수용하지 않는다.
+그 뒤 기후/물·양분/구매 에너지→사용자 실행/Decimal 경제다. 실제 품종/농장 Run/국내 독립 자료0건·G0–G4/생산/마진/추천 hold를 유지한다.
+
+**선행 수용 — 2026-10-09 09:00 KST:** [작은 부모 DB·인증 자료 보존](../research/crop-harvest-parent-backup-implementation-20261009.md)을
 원90143 종료0·집중11개/실제 DB1개·원 DB 정리 후 fresh Python 복원으로 로컬 수용했다.
 원120걸음/3시점·서명/원량/UTC와 현재 권리·계정/변조 거부, 조회 RHS0·1,480 source·소유 정리를 확인했다.
 전체81.287초·raw backup307,294bytes·단일/소유 RSS129.76/388.52MiB다. 이 보존 자식만 완료했다.
@@ -705,7 +713,8 @@ flowchart TD
   HMATH --> HCAP["crop-harvest-full-capacity: 전체 수량/용량 대사 수용"]
   CAP --> HCAP
   HCAP --> HBACK["crop-harvest-parent-backup: 작은 실제 보존/복원 수용"]
-  HBACK --> HPARENT["crop-harvest-full-parent-restore: 새 전체 판본/현재 권리"]
+  HBACK --> HPROD["crop-harvest-parent-production-small: 정상 producer/보존 수용"]
+  HPROD --> HPARENT["crop-harvest-full-parent-restore: 새 전체 판본/현재 권리"]
   HPARENT --> HWRITE["crop-harvest-full-writer-registry: 전체 기록·fresh 권리 복원"]
   HWRITE --> HNATIVE["crop-harvest-full-api-native: 모든 행/대표 WebGL 분리"]
   HNATIVE --> HR
@@ -750,14 +759,13 @@ G2의 최종 판정에는 검증하는 해당 출력의 계산/재현 증거가 
 
 ### 현재 수용과 다음 한 단계
 
-**2026-10-09 09:00 KST 현재판:** [작은 DB·인증 자료 보존](../research/crop-harvest-parent-backup-implementation-20261009.md)을
-집중11개/실제 DB1개·원 DB 정리 후 fresh 복원·원90143 종료0으로 수용했다.
-원 전체의 무작위 서명 key/DB/config 삭제가 확인돼 파일만으로 같은 인증 문맥을 복원할 수 없다.
-작은 정상 producer+보존 구성→같은 모델/입력의 새 전체 계산 판본·원 수량/UTC 대사→현재 query 복원
-→새 source/profile 판본의 전체 writer/registry→실제 API/대표3D다.
-구형 서명 검사 우회·임의 행 삽입 없이 기존 producer를 재사용한다. 기존 수용 판본은 보존한다.
-첫 복원2–4시간 추정은 철회하며 이전 전체7시간15분 근거로 준비 검증 후7–9시간 실행·대사 잠정이다.
-writer/API 완료일은 새 부모와 실제 비용 관측 뒤 정한다. 기후/자원/Decimal 경제와 국내 독립 자료 병행·관문은 유지한다.
+**2026-10-09 09:10 KST 현재판:** [작은 정상 producer/인증 보존 구성](../research/crop-harvest-parent-production-small-implementation-20261009.md)을
+원17264 종료0·집중11개/실제 DB1개·120걸음/3sample/3event·121상태 대사/게시·원 DB 정리 후 현재 코드의 fresh 복원으로 수용했다.
+후속 API/웹6파일 변경을 구형 source guard가 거부해, 정상 producer는 고정 dc7b852 worktree의 원392 source를 유지한다.
+다음은 같은 원 모델/입력의 새 전체166일 계산 판본·원47,809sample/5event/121상태와 후보 hash 대사·정상 게시/인증 보존·현재 query 복원이다.
+원9시간 마감, 이전 전체7시간15분 근거로7–9시간 잠정이며 실제 시작/진행/원 종료를 분리 기록한다.
+그 뒤 새 source/profile의 전체 writer/registry→실제 API/대표3D→기후/자원/Decimal 경제다.
+구형 서명 우회/임의 행 삽입·기존 수용 판본 덮어쓰기를 금지하고 자료 확보 병행·관문/운영 기반 고정을 유지한다.
 아래 날짜별 서술은 각각의 수용 당시 범위와 계획을 보존한 이력이다.
 
 [rate kernel 계약](../contracts/crop-growth-research-v1.md)의 5개 구현 파일과

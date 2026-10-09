@@ -5,7 +5,15 @@
 [운영 기반 고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)에 둔다.
 아래 초안 날짜는 최초 작성일이다. 현재 구현 순서는 §7과 [작업 계획](../tasks/plan.md)을 따른다.
 
-**최신 수용 — 2026-10-09 09:00 KST:** [작은 부모 DB·인증 자료 보존](../research/crop-harvest-parent-backup-implementation-20261009.md)을
+**최신 수용 — 2026-10-09 09:10 KST:** [정상 producer와 인증 보존의 작은 구성](../research/crop-harvest-parent-production-small-implementation-20261009.md)을
+원17264 종료0·집중11개/실제 DB1개·원 DB 정리 후 현재 checkout의 fresh 복원으로 로컬 수용했다.
+고정 `dc7b852`의 원392 source guard를 유지하고 작은120걸음/3시점/3사건·121상태/수지를 fresh 대사한 뒤 정상 게시·인증 보존했다.
+전체101.710초/600초·raw308,638bytes·단일/소유 RSS130.61/355.31MiB·1,400 source·소유 정리를 확인했다. 작은 구성만 완료다.
+다음은 같은 원 모델/입력의 새 전체166일 계산·모든 원값/현재 query 복원→새 source/profile의 전체 수확 writer/등록→실제 API/대표3D다.
+전체는 준비부터9시간 상한·이전7시간15분 근거로7–9시간 잠정이며 실제 종료/정리 전에는 수용하지 않는다.
+그 뒤 기후/물·양분/구매 에너지→사용자 실행/Decimal 경제다. 실제 품종/농장 Run/국내 독립 자료0건·G0–G4/생산/마진/추천 hold를 유지한다.
+
+**선행 수용 — 2026-10-09 09:00 KST:** [작은 부모 DB·인증 자료 보존](../research/crop-harvest-parent-backup-implementation-20261009.md)을
 원90143 종료0·집중11개/실제 DB1개·원 DB 정리 후 fresh Python 복원으로 로컬 수용했다.
 원120걸음/3시점·서명/원량/UTC와 현재 권리·계정/변조 거부, 조회 RHS0·1,480 source·소유 정리를 확인했다.
 전체81.287초·raw backup307,294bytes·단일/소유 RSS129.76/388.52MiB다. 이 보존 자식만 완료했다.
