@@ -18,7 +18,9 @@
 [짧은 공동 적분](../research/crop-climate-joint-integration-implementation-20261010.md)도 새44/기존463=507개·
 독립798수치/60수렴 비율·원 종료/보존으로 수용했다. 사건 없는32초의108상태/22장부 범위다.
 실측 물성·대사열·전체 작기/온실·실제 생산 모델은 미완료다.
-[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 원자적 관리→
+[원자적 관리](../research/crop-climate-joint-management-implementation-20261010.md)도 새69/기존507=576개·
+독립3,728수치/60수렴 비율·원 실패 재현/수정·원 종료/보존으로 수용했다. 순수 사건/명시 시험 구성 범위다.
+[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 자동 구간/사건 구성→
 온실 경계·새 저장/같은 UTC3D다. 현재 UI·U3/관문 상태는 위와 같다.
 
 **당시 실행 상태 — 2026-10-09 17:46 KST:** [완료 전체 생장 부모의 실제 API·3D/사용자 기동](../research/crop-full-parent-api-view-preview-20261009.md)을 로컬 수용하고 `http://localhost:5173/`을 전환했다.
