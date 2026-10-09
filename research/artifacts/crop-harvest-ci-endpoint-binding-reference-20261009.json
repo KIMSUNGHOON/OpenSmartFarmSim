@@ -1,0 +1,110 @@
+{
+  "CI_original": {
+    "actual_numeric_port_endpoint_sha256": "a805b66d473fc7f7ffe41cc3e4e7c9832a6e5fb380837d30314709bebe71b5e7",
+    "expected_text_port_endpoint_sha256": "9992012170b5a077eece9aba44b8b47271da2296cf8f405870dd7de5b7b683f3",
+    "job_id": 113695105991,
+    "log_sha256": "a39c40196387b8a5c89590d944fa23443d9014e932576dc6a70548053f0bdd98",
+    "run_id": 37892105708,
+    "same_host_port_database_exact_hash_pair_reproduced": true
+  },
+  "G0_G4": "not_assessed",
+  "U3_realtime": false,
+  "actual_crop_Runs": 0,
+  "actual_endpoint_SCRAM_and_password_checks_preserved": true,
+  "cause": "TCP conninfo fixture supplies text port; authenticated conn.info.port is int; only expected reference port converted to int",
+  "code_commit": "6fcf6a0301f0c59d63541304ac8c30106f365b0b",
+  "core_sha256": {
+    "backend/tests/test_crop_harvest_runtime_factory.py": "b102064b97e1740419feff9a559778d50226da49cf93a01ee254eb975445990f",
+    "contracts/crop-harvest-ci-endpoint-binding-v1.md": "02f7d806540c586f5406c74f34275838053732a35e8f568190ebe2aa8dfa6373"
+  },
+  "counts_unchanged": true,
+  "distinct_existing_cases_passed": 61,
+  "focused_passed": 60,
+  "frontend_status": 200,
+  "full_writer_running_not_accepted": true,
+  "hosted_partition5_or_full_CI_accepted": false,
+  "independent_domestic_farm_datasets": 0,
+  "main_source_and_full_writer_source_and_preview_source_dist_preserved": true,
+  "native_cli": {
+    "effort": "xhigh",
+    "judgment": "Reproduce original hosted protected harvest factory endpoint assertion on actual TCP/SCRAM using Python3.12.13; normalize only expected numeric port, preserve authentication/endpoint/rights/signature/FD cleanup and live full writer/preview.",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "turn_event_sha256": "d4f3dadf4c706e00327276147ba508f267f1da05affb5eddbade892a014f66a9",
+    "turn_timestamp": "2026-10-09T10:03:26.256Z"
+  },
+  "native_environments": {
+    "green-local": {
+      "FD_before_after": [
+        12,
+        12
+      ],
+      "PG": "16.15",
+      "fixture_port_type": "int",
+      "python": "3.12.3"
+    },
+    "green-tcp": {
+      "FD_before_after": [
+        13,
+        13
+      ],
+      "PG": "16.15",
+      "fixture_port_type": "str",
+      "python": "3.12.13"
+    }
+  },
+  "native_target_passed_environment_count": 2,
+  "observed_at_utc": "2026-10-09T10:13:35.711885+00:00",
+  "original_parent_inputs_keys_controls_preserved": true,
+  "owned_PG_and_temporary_cleanup_complete": true,
+  "phases": {
+    "focused": {
+      "actual_exit_code": 0,
+      "log_sha256": "79eb20eb3e73ca31fc393343cc7f521a52c6f745ce78329cc67b8bc41a09022a",
+      "original_tool": 87796,
+      "wall_seconds": 9.78419972298434
+    },
+    "green-local": {
+      "actual_exit_code": 0,
+      "log_sha256": "d92385f2bc5dc45c151ce8fec65a2a2663bb237ce10c274baf6a45e886abd3bd",
+      "original_tool": 17664,
+      "wall_seconds": 16.956972726999084
+    },
+    "green-tcp": {
+      "actual_exit_code": 0,
+      "log_sha256": "22756742c4700bf7c5f2ada7c716a00fa76762a9383bcb31be933051ebfa7761",
+      "original_tool": 49894,
+      "wall_seconds": 16.694429120980203
+    },
+    "red-tcp": {
+      "actual_exit_code": 1,
+      "log_sha256": "4325165bcd638261de2d8ae33d2fbba298aa9b076580bad7f40411667b42d315",
+      "original_tool": 14421,
+      "wall_seconds": 15.887519768002676
+    }
+  },
+  "production_code_fixture_and_workflow_unchanged": true,
+  "resources": {
+    "PG_tree_samples": 168,
+    "RSS_samples": 224,
+    "combined_peak_RSS_bytes": 763723776,
+    "resource_scope": "controller/owned children/new PG, exact live preview and whole-writer controller/producer/PG trees; not all WSL",
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 136675328
+  },
+  "roles_schemas_passfiles_and_protected_files_after": 0,
+  "root_audit": {
+    "actual_tool_exit_code": 0,
+    "auxiliary_audit_first_attempt_exit_code": 1,
+    "first_attempt_reason": "absolute FD13 assumption in both Python distributions; corrected to each original native before==after, no product or native evidence change",
+    "first_attempt_receipt_sha256": "df56a82693a6978a8814cbd64864cf318c586a8f85198177adb32306b436773a",
+    "original_exec_chunk": "064692",
+    "receipt_sha256": "10f2e07f1c1dc6f6f41139a3f593f85468cb21469f0245cd965475d68e82123d"
+  },
+  "scope": "local_test_reference_fix_only_not_hosted_CI_or_harvest_API_acceptance",
+  "source_comparison": "test module differs only by expected int(login_database[port])",
+  "two_fresh_Pythons_and_private_denial_restore_each_native": true,
+  "version": "crop-harvest-ci-endpoint-binding-reference-v1",
+  "zero_actual_HTTP_TLS_tests": true,
+  "zero_new_crop_or_harvest_rows": true
+}

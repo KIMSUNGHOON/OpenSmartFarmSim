@@ -61,7 +61,15 @@
   `test_crop_harvest_runtime_factory.py:347`의 실제 protected operator/fresh Python endpoint SHA 불일치다.
   원 로그/hash와 실제/예상 endpoint 문맥을 대사해 필요한 작은 수정으로 좁힌다.
   구형 역할 정리 교착과 분리하며 endpoint/서명 검사를 생략하거나 단순 retry로 완료하지 않는다.
-  [현재 관측](../research/crop-cycle-calculation-query-facts-20261009.md), 원 API/권리/복원/소유 정리 회귀를 유지한다.
+  [원 실패 관측](../research/crop-cycle-calculation-query-facts-20261009.md), 원 API/권리/복원/소유 정리 회귀를 유지한다.
+  - [x] **`crop-harvest-ci-endpoint-reference`** — [core2 계약](../contracts/crop-harvest-ci-endpoint-binding-v1.md)·
+    [로컬 수용](../research/crop-harvest-ci-endpoint-binding-20261009.md), 6fcf6a0.
+    원 CI의 두 해시가 같은 endpoint의 int/str 포트로 정확히 재현됐다. 시험 예상 포트 한 줄만 정규화했다.
+    원14421 RED1→원49894 TCP/Python3.12.13 GREEN0·원17664 기존 local/Python3.12.3 GREEN0,
+    각 실제 SCRAM/fresh Python2개·private 거부/복원·원 counts/16파일·FD13→13/12→12를 보존했다.
+    원87796 집중60개/0·고유 기존61사례·별도 감사0, schema/role/passfile/소유 PG/임시 정리,
+    source1,615·진행 중 전체 writer/미리보기/원 입력 보존·RSS 합763,723,776bytes를 확인했다.
+    제품/공통 fixture/workflow는 유지했다. 상위 hosted 분할5/전체 CI 수용은 같은 수정판의 실제 회귀 뒤 판단한다.
 
 ## 최종 제품 UI 통합 (2026-10-09)
 
