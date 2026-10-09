@@ -38,9 +38,7 @@ def database_cleanup(login_database):
     save('database-cleanup.json', {'schemas': schemas, 'roles': roles})
 
 
-@pytest.fixture(scope='module')
-def original(tmp_path_factory, profiles):
-    path = tmp_path_factory.mktemp('owned-joint-projection')
+def owned_result(path, profiles):
     p = inputs.packet(path/'inputs', profiles, origin=inputs.reference.origin('2026-10-01T00:00:00.123456Z'))
     c = files.continuation; binding = p[2]; initial = c.start(binding._context); chunk = c.advance_chunk(binding._context, initial, 128)
     root = path/'artifact'; root.mkdir(mode=0o700)
@@ -49,13 +47,36 @@ def original(tmp_path_factory, profiles):
     with files.open_artifact(root, digest) as reader:
         terminal = {**reader.summary, 'manifest': binding._context.manifest, 'time_binding': binding.manifest}
         pages = {k: reader.page(k) for k in ('samples', 'events')}
+        head = deepcopy(reader._head_value); head_sha = reader.head_sha256; size, count = reader._usage()
     reference = json.loads((ROOT/'research/artifacts/crop-climate-joint-result-store-reference-20261010.json').read_bytes())
-    packet = reference['stages'][0]['evidence']['normal.json']['packet']
-    assert digest == packet['artifact']['sha256'] and binding._context.root_sha256 == packet['input']['context_sha256']
-    raw = public.storage._canonical(packet)
+    template = reference['stages'][0]['evidence']['normal.json']['packet']
+    farm_binding = deepcopy(template['binding']); source = farm_binding['input']
+    proof = inputs.issue(inputs.authority(p[3]), p); native = inputs.model._record(binding)
+    source.update(source_sha256=p[1], context_sha256=native['context_sha256'], time_binding_sha256=native['binding_sha256'],
+        evidence_sha256=sha256(proof).hexdigest(), initial_state_sha256=native['initial_state_sha256'],
+        model_identity=native['manifest']['identity'], review=p[3])
+    farm_binding['request']['input'].update({k: source[k] for k in
+        ('source_sha256', 'context_sha256', 'time_binding_sha256', 'evidence_sha256')})
+    farm_binding['request']['rights']['input_source_sha256'] = p[1]
+    binding_raw = public.storage._canonical(farm_binding)
+    progress = deepcopy(template['policies']['server_progress'])
+    progress.update({k: terminal[k] for k in ('context_sha256', 'status', 'counts', 'checkpoint', 'last_confirmed', 'hold', 'times')})
+    progress.update(source_sha256=p[1], time_binding_sha256=native['binding_sha256'], binding_sha256=sha256(binding_raw).hexdigest(),
+        artifact_sha256=digest, header_sha256=head['header_sha256'], head_sha256=head_sha,
+        commit_count=head['commit_count'], steps=terminal['last_confirmed']['step_index'],
+        planned_steps=native['manifest']['numerical']['step_count'], storage_bytes=size, file_count=count,
+        intent_sha256=sha256(b'owned-unregistered-pure-intent'+binding_raw).hexdigest(),
+        proof_sha256=sha256(b'owned-unregistered-pure-proof'+digest.encode()).hexdigest())
+    raw = public.storage._packet(binding_raw, public.storage._canonical(progress), template['policies']['resolver_version'])
+    packet = json.loads(raw)
     record = {'result_id': packet['result_id'], 'payload_raw': raw, 'payload_sha256': sha256(raw).hexdigest(),
         'recorded_at': datetime(2026, 10, 9, 20, 0, 0, 123456, tzinfo=timezone.utc)}
     return record, terminal, pages
+
+
+@pytest.fixture(scope='module')
+def original(tmp_path_factory, profiles):
+    return owned_result(tmp_path_factory.mktemp('owned-joint-projection'), profiles)
 
 
 def project(case, view='summary', *, page=None, limit=None):
@@ -102,7 +123,22 @@ def test_original_summary_all_108_states_ledgers_events_units_UTC_and_privacy(or
     assert original == before and all(n == 0 for n in calls.values()) and len(os.listdir('/proc/self/fd')) == fd
     save('original.json', {'responses': summaries, 'rows': {'samples': 3, 'events': 3},
         'all_original_108_states_and_ledgers_events_units_UTC': True, 'private_fields_absent': True,
-        'original_inputs_unchanged': True, 'calls': calls, 'FD_before_after': [fd, fd], 'authenticated_current_read': False})
+        'original_inputs_unchanged': True, 'calls': calls, 'FD_before_after': [fd, fd], 'authenticated_current_read': False,
+        'native_runtime_identity': terminal['manifest']['identity'], 'unregistered_farm_and_custody_type_fixture': True})
+
+
+def test_runtime_identity_preserved_without_fixed_historical_root(profiles, tmp_path, monkeypatch):
+    with monkeypatch.context() as patch:
+        patch.setattr(files.continuation.platform, 'python_version', lambda: '3.12.13')
+        case = owned_result(tmp_path, profiles)
+    calls = registered.producer.reference.forbid(monkeypatch)
+    for view in ('summary', 'samples', 'events'):
+        value = project(case, view)
+        assert value.reference.model.python_version == '3.12.13'
+        assert value.reference.input.context_sha256 == case[1]['context_sha256']
+    assert all(n == 0 for n in calls.values())
+    save('runtime-identity.json', {'simulated_python_identity': '3.12.13', 'actual_interpreter': sys.version.split()[0],
+        'fault_injection_only': True, 'authenticated_current_read': False, 'native_context_and_identity_preserved': True, 'calls': calls})
 
 
 @pytest.mark.parametrize('value', [True, False, 1, '1.0', None, float('nan'), float('inf'), -float('inf')])
