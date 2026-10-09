@@ -42,7 +42,10 @@ Tc를 crop/교환/T24/Tsum 미분에 공유한다.
 [짧은 공동 적분/원자 관리/자동 구간·사건](../research/crop-climate-joint-boundary-implementation-20261010.md)까지
 core12e6d7b·새72/기존576=648개·독립5,973수치/60수렴 비율로 수용했다.
 명시 상수 forcing의 짧은108상태 구간/사건 범위이며 전체 온실/작기는 미완료다.
-다음은 새 context/checkpoint의 분할 실행·fresh 복원→UTC·불변 저장/현재 권리 API·같은 시각3D다.
+[분할 실행/복원](../research/crop-climate-joint-continuation-implementation-20261010.md)도 core2eb3dfe·
+새138/기존648=786개·원56553/별도52404 실제0·독립5,973수치/60수렴 비율로 수용했다.
+9프로그램/여러 예산의 원 실행과 정확한 동일성·initial/t0/사건 전후/final fresh 복원과 과거 적분0을 확인했다.
+다음은 UTC 결속→불변 페이지 저장/현재 권리 API·같은 시각3D다.
 복사/CO₂·기공/온실 경계의 원식/단위 조사는 병행하며 자동 온실 예측의 선행 조건은 유지한다.
 사용자 접수/진행 상태 U3와 확정 prefix의 계산 중3D는 별도 수용한다.
 앞선 미리보기0.5–1.5집중시간 추정은 이번 실제 전환 증거로 대체한다. 다음 계산/API 준비일은 계약 분해 뒤 갱신한다.
@@ -1033,18 +1036,19 @@ flowchart TD
 | 원자적 관리 사건 | 부분 적엽/과실·줄기 제거와 U/C·탄소/개수/제거 열·출력 순서 | [2026-10-10 수용](../research/crop-climate-joint-management-implementation-20261010.md). 새69/기존507=576개·독립3,728수치/60수렴 비율; 순수 사건/명시 시험 구성 범위 |
 | 자동 구간/사건 구성 | 명시 격자·108상태/연속22장부/사건6합계·전역7수지·사건 후 출력/실패 prefix | [2026-10-10 수용](../research/crop-climate-joint-boundary-implementation-20261010.md). 새72/기존576=648개·9프로그램/독립5,973수치/60수렴 비율. 이전0.5–2집중시간 추정은 원20분 개발/검토·19.489초 회귀/24.856초 root로 갱신 |
 | 온실 경계/복사·CO₂·기공 | 명시 열/물/CO₂ 저장·출입과 PAR/흡수 복사 경로, 단위/근거·수지 | 고정 LAI 자식 뒤 병행 조사 가능; source 단위 불일치·실제 시설/계측 입력은 별도 hold |
-| 새 분할 실행/복원 | immutable context/seed·108상태/연속22·사건6/전역 수지·경계 cursor·source/수치 identity | 다음 `crop-climate-joint-continuation`. 계약/상태·실행/복원 검증/비용·기록4묶음1–3집중시간 잠정; 계속 작업/새 장애 없음 조건의10월10일 검토 목표 |
-| 새 UTC/입력 경계·저장·3D | 명시 UTC/강제 입력 경계→불변 결과/manifest→현재 권리 API→같은 시각 수치3D | 분할/복원 비용 실측 뒤 순차 갱신. 기존121상태/원 결과 보존; 온실 원식 조사는 병행 가능 |
+| 새 분할 실행/복원 | immutable context/seed·108상태/연속22·사건6/전역 수지·경계 cursor·source/수치 identity | [2026-10-10 수용](../research/crop-climate-joint-continuation-implementation-20261010.md). 새138/기존648=786개·독립5,973/60비율·fresh 남은8걸음/1사건; 약21분 개발/검토·66.565초 회귀/33.022초 root |
+| 새 UTC 결속 | 명시 origin/시각 정밀도·elapsed 원 격자/UTC를 새 identity에 결속·재계산0/원량 보존 | 다음 `crop-climate-joint-utc-binding` core3. 계약/매핑·identity/거부·보존 시험/기록4묶음1–2집중시간 잠정; 계속 작업/새 장애 없음 조건의10월10일 검토 목표 |
+| 새 입력 경계·저장·3D | forcing 변경 계약은 별도 수용; 명시 상수 입력 UTC→불변 페이지 결과/manifest→현재 권리 API→같은 시각 수치3D | 첫128경계 chunk4,995,778bytes로 HTTP2MiB 초과를 실측했다. writer/page·64sample/8event·읽기 RHS0 검증 뒤 수용. 기존121상태/원 결과 보존; 온실 원식 조사 병행 |
 
-고정 LAI 자식 수용일은2026-10-09, 가변 용량/공동 순간 RHS/짧은 적분/원자 관리/자동 구성은2026-10-10이다. 온실 경계와 연속 계산 비용 관측 전에는
+고정 LAI 자식 수용일은2026-10-09, 가변 용량/공동 순간 RHS/짧은 적분/원자 관리/자동 구성/분할 복원은2026-10-10이다. 온실 경계와 저장/API 비용 관측 전에는
 전체 결합/제품 완료일을 산정하지 않는다. 독립 계측 자료 확보는 그 개발과 병행한다.
 
-**다음 한 단계의 수용 기준:** `crop-climate-joint-continuation`의 분할 실행 context/checkpoint다.
-immutable seed/입력·현재108상태·연속22/사건6·전역7수지·event/output cursor와 코드/프로필/수치 정책을 결속한다.
-한 번 실행과 임의 분할의 상태/장부/처리 순서 동일성, fresh 직렬화/복원·변조/판본 혼합 거부,
-실패의 마지막 확정 경계/출력 prefix와 원본·FD/원 종료/WSL 자원·비용을 확인한다.
-현재 자동 실행/RK4/과실 수량 정책을 재사용하며 구간 처음부터 재적분하는 복원은 수용하지 않는다.
-처음에는 명시 상수 입력의 elapsed 격자로 검증한다. UTC/forcing 변경·온실 경계·저장/API/3D/U3·관문은 별도 후속 수용이다.
+**다음 한 단계의 수용 기준:** `crop-climate-joint-utc-binding`의 명시 UTC origin/시각 정밀도 결속이다.
+원 context/checkpoint·elapsed index/선택과 새 시간 변환 판본을 묶고 같은 경계의 sample/event/last_confirmed 시각을 대사한다.
+UTC/KST·처음/중간/마지막·hold 경계와 범위/모호한 시간대/정밀도 손실·origin/모델 혼합 거부를 검증한다.
+원108상태/22/6장부·prefix·동적 T24/Tsum/RK4 격자를 변경하지 않으며 수치 재계산0·원본/FD/원 종료/자원을 확인한다.
+그 뒤 writer/page·reader/복원과 현재 권리 API·같은 시각3D를 연결한다.
+명시 상수 입력의 UTC 결속이 forcing 변경/자동 온실/전체 작기의 수용을 뜻하지 않는다. 해당 경계·U3·관문은 후속 수용이다.
 G2의 최종 판정에는 검증하는 해당 출력의 계산/재현 증거가 필요하다.
 해외 Reference의 시간대/입력 보류가 국내 독립 자료 확보나 국내 해당 모델의
 검증을 자동으로 막지는 않는다. 독립 국내 입력/계산 증거가 있으면 그 범위로 검증한다.

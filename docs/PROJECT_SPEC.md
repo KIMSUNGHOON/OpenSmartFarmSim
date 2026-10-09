@@ -22,8 +22,10 @@
 독립3,728수치/60수렴 비율·원 실패 재현/수정·원 종료/보존으로 수용했다. 순수 사건/명시 시험 구성 범위다.
 [자동 구간/사건 실행](../research/crop-climate-joint-boundary-implementation-20261010.md)도 새72/기존576=648개·
 독립5,973수치/60수렴 비율·원 종료/보존으로 수용했다. 명시 상수 입력의 짧은 공동 구간/사건 범위다.
-[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 새 분할 실행/복원→
-UTC·저장/같은 시각3D며 온실 경계의 원식/단위 조사는 병행한다. 현재 UI·U3/관문 상태는 위와 같다.
+[분할 실행/복원](../research/crop-climate-joint-continuation-implementation-20261010.md)도 새138/기존648=786개·
+독립5,973수치/60수렴 비율·fresh 복원/원 종료·보존으로 수용했다.
+[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 UTC 결속→
+페이지 저장/현재 권리 API·같은 시각3D며 온실 경계의 원식/단위 조사는 병행한다. 현재 UI·U3/관문 상태는 위와 같다.
 
 **당시 실행 상태 — 2026-10-09 17:46 KST:** [완료 전체 생장 부모의 실제 API·3D/사용자 기동](../research/crop-full-parent-api-view-preview-20261009.md)을 로컬 수용하고 `http://localhost:5173/`을 전환했다.
 원7678 실제 도구0/119.766초·같은 실제 SCRAM/보호 HTTPS/제품 App·WebGL에서

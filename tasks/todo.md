@@ -1620,12 +1620,24 @@
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.
     새 continuation/context/checkpoint/불변 artifact→현재 권리 저장/API→같은 UTC3D로 나눈다.
     분할/재개/중단·관리/clock·원량/수지·읽기 재적분0·원 결과 보존을 통과해야 부모를 평가한다.
-    - [ ] **`crop-climate-joint-continuation`** — 다음 core3: `backend/app/crop_climate_joint_continuation.py`,
+    - [x] **`crop-climate-joint-continuation`** — core3: `backend/app/crop_climate_joint_continuation.py`,
       `backend/tests/test_crop_climate_joint_continuation.py`, `contracts/crop-climate-joint-continuation-v1.md`.
       immutable seed/입력·현재108상태·연속22/사건6/전역7수지·event/output cursor와 코드/프로필/수치 identity를 고정한다.
       한 번 실행 대 임의 분할·처음/중간/마지막 사건의 정확한 순서/상태·장부 동일성,
       fresh checkpoint 복원/변조·판본 혼합 거부·실패 prefix·원 종료/FD/자원·비용을 확인한다.
       원 경계부터 재적분하는 복원을 만들지 않는다. 명시 상수 입력의 elapsed 격자 범위며 UTC/forcing 변경/저장/API/3D는 후속이다.
+      [core2eb3dfe/로컬 수용](../research/crop-climate-joint-continuation-implementation-20261010.md): 새138/기존648=786개,
+      원56553/별도52404 실제0·9프로그램/여러 예산의 정확 동일성·fresh initial/t0/사건 전후/final 복원,
+      독립5,973수치/60수렴 비율(최소15.9560)·원20파일/9코드/원본2,148/source1,714·FD4→4/정리를 통과했다.
+      별도 fresh는 과거 적분0/남은8걸음·1사건만 실행했다. 최대 구성512선택/128사건5chunk 완료,
+      context255,217/checkpoint10,578bytes·단일/합 RSS147,255,296/365,334,528bytes다.
+      chunk4,995,778bytes는 HTTP2MiB를 넘으므로 후속 페이지 저장/API를 별도 검증한다. 새 UTC/저장/3D/U3/관문은 미완료다.
+    - [ ] **`crop-climate-joint-utc-binding`** — 다음 core3: `backend/app/crop_climate_joint_time.py`,
+      `backend/tests/test_crop_climate_joint_time.py`, `contracts/crop-climate-joint-time-binding-v1.md`.
+      명시 UTC origin/정밀도와 원 elapsed 격자·새 시간 변환 판본을 context/checkpoint·출력 identity에 결속한다.
+      같은 step_index의 sample/event/last_confirmed·처음/중간/마지막/hold 시각을 확인하고 원 상태/장부/prefix를 보존한다.
+      UTC/KST·범위/naive·모호한 시간대·표현 정밀도 손실/혼합 거부와 수치 재계산0·원 종료/FD/자원을 검증한다.
+      forcing 변경·온실/전체 작기·writer/권리 API/3D/U3는 후속 수용이다.
 - [ ] **`crop-water-nutrient`** — 선행: 작물/기후 결합·배지/급배액/성분 근거.
   예정 파일(3): `backend/app/crop_water_nutrient.py`, `backend/tests/test_crop_water_nutrient.py`,
   `contracts/crop-water-nutrient-v1.md`.
