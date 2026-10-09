@@ -5,6 +5,44 @@ import signal
 from typing import NamedTuple
 
 
+def _pidfd_backend():
+    opened = getattr(os, 'pidfd_open', None)
+    sent = getattr(signal, 'pidfd_send_signal', None)
+    if callable(opened) and callable(sent):
+        return opened, sent, False
+    import ctypes
+    try:
+        library = ctypes.CDLL(None, use_errno=True)
+        opened, sent = library.pidfd_open, library.pidfd_send_signal
+    except (OSError, AttributeError):
+        raise RuntimeError('Linux pidfd support is required') from None
+    opened.argtypes = [ctypes.c_int, ctypes.c_uint]
+    sent.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_void_p, ctypes.c_uint]
+    opened.restype = sent.restype = ctypes.c_int
+    return opened, sent, True
+
+
+def _pidfd_result(value):
+    if value < 0:
+        import ctypes
+        error = ctypes.get_errno()
+        raise OSError(error, os.strerror(error))
+    return value
+
+
+def _pidfd_open(pid):
+    opened, _, libc = _pidfd_backend()
+    return _pidfd_result(opened(pid, 0)) if libc else opened(pid)
+
+
+def _pidfd_send_signal(fd, signum):
+    _, sent, libc = _pidfd_backend()
+    if libc:
+        _pidfd_result(sent(fd, signum, None, 0))
+    else:
+        sent(fd, signum)
+
+
 class Identity(NamedTuple):
     pid: int
     start_ticks: int
@@ -58,8 +96,7 @@ def _tree(root, excluded=()):
 
 class OwnedProcessScope:
     def __init__(self, protected=()):
-        if not hasattr(os, 'pidfd_open') or not hasattr(signal, 'pidfd_send_signal'):
-            raise RuntimeError('Linux pidfd support is required')
+        _pidfd_backend()
         self.controller = identity(os.getpid())
         self._protected = set(protected)
         if any(not isinstance(item, Identity) or not live(item) for item in self._protected):
@@ -104,11 +141,11 @@ class OwnedProcessScope:
                 continue
             fd = None
             try:
-                fd = os.pidfd_open(target.pid)
+                fd = _pidfd_open(target.pid)
                 self._protection()
                 if target in self._protected or not live(target):
                     continue
-                signal.pidfd_send_signal(fd, signum)
+                _pidfd_send_signal(fd, signum)
                 sent.append(target)
             except ProcessLookupError:
                 pass
