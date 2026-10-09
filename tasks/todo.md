@@ -54,6 +54,11 @@
   [확인한 범위](../research/crop-cycle-calculation-query-facts-20261009.md): 모두 pidfd 지원 진입 실패이며
   같은 uv Python3.12.13의 두 Python 함수 부재를 확인했다. libc의 자기 pidfd/signal0·FD5→5는 통과했다.
   다음 작은 호환 수정은 원 pidfd/identity·보호 tree·close/실패 거부 시험을 유지한다.
+  - [ ] **`owned-research-shared-controller-test-isolation`** — 후속 Backend37918274666/921d0e7 분할1의
+    `test_cleanup_preserves_entire_protected_tree_and_stops_only_owned[normal/thread]`2실패.
+    다음3~5 core파일에서 같은 pytest controller의 선행 자식이 있는 실제 프로세스 조건을 재현해 원인을 확정한다.
+    수용: 기존 자식/PG·보호 가지를 종료하지 않고 지정 소유 가족만 실제 pidfd로 정리하며 strict sent-set/FD 검사를 유지한다.
+    검사 생략/허용 집합 확대/제품 ownership 범위 축소로 통과시키지 않는다. 원 명령 종료/소유 정리와 hosted 재검증을 구분한다.
   숫자 PID signal fallback·skip·감사 생략을 하지 않는다. 실행 중 고정 source의 기존 helper SHA와 보호 미리보기를 보존하고
   실제 두 Python 배포본의 소유 child·철회/실패/정리와 hosted 회귀 뒤만 체크한다.
   - [x] **`owned-research-pidfd-bindings`** — [core3 계약](../contracts/owned-research-pidfd-compatibility-v1.md)·
