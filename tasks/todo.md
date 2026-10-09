@@ -1350,13 +1350,16 @@
       구형 source guard가 후속 API/웹6파일을 거부해 고정 dc7b852 worktree의 원392 hash를 유지·새 core 복사 hash 기록.
       전체101.710초/600초·raw308,638bytes·단일/소유 RSS130.61/355.31MiB·1,400 source·PG/원 임시 정리·비공개 보존.
       새 전체 계산/전체 부모·수확 writer/API/3D 수용은 별도다.
-    - [ ] **`crop-harvest-full-parent-restore`** — 진행 중: 10월9일09:12 KST 시작·원 도구95086/종료 미정·18:12 상한.
-      [불변 시작 관측](../research/artifacts/crop-harvest-parent-full-started-reference-20261009.json). 원 DB/config/무작위 key 삭제로 단순 원 인증 복원은 불가.
+    - [ ] **`crop-harvest-full-parent-restore`** — 10월9일09:12 KST 시작·원95086 중단 실패/복구95915 진행 중·18:12 상한.
+      [불변 시작 관측](../research/artifacts/crop-harvest-parent-full-started-reference-20261009.json). 종전 전체 판본의 DB/config/무작위 key 삭제로 단순 원 인증 복원은 불가.
       선행 작은 정상 producer+보존 구성 수용 완료. 고정 dc7b852 source/새 core의 같은 구성으로 새 전체 계산을 실행한다.
       같은 모델/입력의 새 전체 계산 판본을 만들고 모든47,809sample/5event·121상태/수지·UTC를 원 결과와 대사한다.
       원 서명 우회/임의 행 삽입 없이 새 농장/source/결과 계보와 인증 자료를 보존한다.
       실제 SCRAM/current query·별도 Python 조회·현재 권리 철회/복원·계정 거부·읽기 RHS0·원 종료/소유 정리가 수용 기준이다.
       기존 수용 판본은 변경하지 않는다. 종전 복원2–4시간 추정 철회; 이전 전체7시간15분 근거로 준비 후7–9시간 잠정.
+      [후속 실행 사전 검사](../research/crop-parent-full-finish-preflight-20261009.md)는 원69801 종료0/1.136초·
+      원 선언/key/source와 현재 소유 PG를 확인했다. 파생/게시/backup0회이고 준비한 후속 명령은 미실행이다.
+      15:08 KST 실제95915 live/423commit·1,688,180걸음. 실제 종료0 뒤 모든 원값 대사/게시/현재 복원·감사로 수용한다.
     - [ ] **`crop-harvest-full-writer-registry`** — 선행 새 전체 부모 현재 조회. 실제 writer/등록·fresh reader와 집중 시험을3~5 core파일로 나눈다.
       - [x] **`crop-harvest-storage-preservation-small`** — [core4 계약](../contracts/crop-harvest-storage-preservation-v1.md).
         전체 부모 계산 대기 중 선행 수용한 작은 부모에서 정상 writer/registry→새 DB·수확 인증 보존→

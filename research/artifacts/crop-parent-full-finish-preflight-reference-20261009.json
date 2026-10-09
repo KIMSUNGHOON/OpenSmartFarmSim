@@ -1,0 +1,89 @@
+{
+  "version": "crop-parent-full-finish-preflight-reference-v1",
+  "observed_at": "2026-10-09T15:10:43.380063+09:00",
+  "status": "read_only_preflight_passed_full_finish_unexecuted_parent_not_accepted",
+  "native_Codex_CLI": {
+    "actual_effort": "xhigh",
+    "actual_model": "gpt-6.1-sol",
+    "judgment_scope": "Compose accepted original interrupted-parent recovery helper, original whole-result comparator, normal publisher and authenticated backup for the still-running full166 computation. This invocation verifies original lineage/source/owned PG read-only; finish is conditional on actual original compute exit0. No recursive CLI/domain coefficients/gate promotion.",
+    "recursive_invocations": 0,
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-09T05:59:39.568Z",
+    "turn_event_sha256": "0ccaf77298d34c2a4acb20dd0aa18c2159efa378d38358a2c4c383bcdb6d0f2e"
+  },
+  "original_exec_session_id": 69801,
+  "actual_controller_and_child_exit_code": 0,
+  "controller_receipt_sha256": "564b094788993db9852aa0981b3f35df8851c92b329f62d8ba5fc0723d09f7b7",
+  "preflight_receipt_sha256": "32ca214ff4f19adcb061c504a51a9fbc454312ec707168d8026567cf62218863",
+  "actual_command_redacted_paths": [
+    "nice",
+    "-n",
+    "19",
+    "<workspace>/backend/.venv/bin/python",
+    "<private-full-finish-stage>/finish.py",
+    "--preflight"
+  ],
+  "actual_stdout_log_sha256": "68ac1dc0845ef650ceee6c026ccd15fc8342afec780f43d97d783d21535f2e27",
+  "wall_seconds": 1.1358387490035966,
+  "checked_plan": {
+    "counts": {
+      "events": 5,
+      "samples": 47809
+    },
+    "steps": 1816704
+  },
+  "checked_original_execution_sha256": "d5d3744fad41788dc3ac47c085c70906a48f6862d2cf905d9be6fee817325e6f",
+  "original_interruption_sha256": "57eab08dd4bd33571b6bd361c12e2f6027d0d4b3967cc272376023eea72341ab",
+  "original_declared_key_plan_config_valid": true,
+  "original_source_pin_count": 397,
+  "current_source_count": 1573,
+  "helper_sources": {
+    "contracts/crop-parent-recovery-publication-v1.md": "6b2d81f714b8fceada6fd33ba626627a1dbcffd432106590824550b29cc2473d",
+    "research/crop-parent-recovery-publication.py": "a77f8f072840740aa1afe9cdfd3c75aaf132311caa0f1c18711182942c9edac6"
+  },
+  "source_binary_sha256": {
+    "initdb": "7171e4849a3a28badf6667b4c6636cd222eef950381c38cd7455f1067b0cdac2",
+    "pg_ctl": "e8331572ee0d809dd20748bf2bc43bcef026f8a83150c76d630a7fc1b0b34626",
+    "pg_dump": "6879677b2c1e19fb0de0e6120b50746b98fd9632f6e56b2f5fb41ce6305eeab4",
+    "pg_dumpall": "f6b9d24805f07829e6c43e0fd4fdbc30a010579ef8202205a5f9b23dcf014f2d",
+    "pg_restore": "d669c2d4acacc44948cb8ba5ecba5659fce636f28269815bb5cb0872e4166ddb",
+    "postgres": "756e0defcf3059f353cbac0c09822c52bd16be617af204e22d576c3dab3dea40",
+    "psql": "ae18886c5dc847cd9d92c898edf401f254b59e58129dee5e8a6879da83225f64"
+  },
+  "source_and_preview_preserved": true,
+  "owned_non_zombie_remaining": 0,
+  "remaining_child_count": 0,
+  "single_PID_peak_RSS_bytes": 128991232,
+  "combined_peak_RSS_bytes": 565530624,
+  "single_limit_bytes": 536870912,
+  "combined_limit_bytes": 1073741824,
+  "RSS_samples": 9,
+  "sample_interval_seconds": 0.1,
+  "RSS_scope": "controller/owned children plus protected full computation and user preview trees; shared pages may double count; not WSL total",
+  "original_preparation_deadline_ns": 1791537132785366154,
+  "recovery_deadline_ns": 1791537127294073421,
+  "deadline_not_extended": true,
+  "full_finish_scripts_private_sha256": {
+    "finish.py": "b5c733fb7fe09c96c021e58e4e5d565803ddbc2aca43242e3fa2ad2f2c0e57a3",
+    "current-read.py": "332d7ee26720c44f93984656ccb5f9aa61a61a4387b150973b89fb6bc0c839e5",
+    "stop-source.py": "affff0a19d847b6d25d502e8eca62ba8c614829205d1fe6518e3a572694ce0de",
+    "controller.py": "7dc9495a9ac5336a9347bcd925142fc4e8cdb2da2cd473155afa000ee7ad42e1"
+  },
+  "full_finish_condition": "actual original95915 tool exit0 and verified complete receipt before any derivation; original deadline maintained",
+  "full_finish_executed": false,
+  "derivation_comparison_publication_backup_calls": 0,
+  "full_compute_observation": {
+    "observed_at_KST": "2026-10-09T15:08:06.659619+09:00",
+    "original_exec_session_id": 95915,
+    "actual_handle_polled_live": true,
+    "confirmed_commits": 423,
+    "confirmed_steps": 1688180,
+    "planned_steps": 1816704,
+    "status": "yielded",
+    "percent": 92.93,
+    "completed_or_accepted": false
+  },
+  "actual_cultivar_farm_Runs": 0,
+  "independent_domestic_crop_datasets": 0,
+  "G0_G4_production_forecast_margin_ranking": "held"
+}
