@@ -1738,12 +1738,19 @@
       수용: 같은 custody 세션의 현재 농장/자료/계정·서명/원 bytes를 투영/직렬화 전후 확인한 인증 GET,
       summary/samples/events·2MiB·중복/여분 query/본문/연결 종료·404/권한/hold/미조립 거부와 실제 SCRAM/HTTPS·늦은 철회·조회 계산0/FD/원본 보존.
       API 비용을 실측한 뒤 후속 시간 추정을 갱신한다. 별도 queue/service를 추가하지 않는다.
-      - [ ] **`crop-climate-joint-current-query`** — 다음 core3: `backend/app/crop_climate_joint_current_query.py`,
+      - [x] **`crop-climate-joint-current-query`** — core3: `backend/app/crop_climate_joint_current_query.py`,
         `backend/tests/test_crop_climate_joint_current_query.py`, `contracts/crop-climate-joint-current-query-v1.md`.
         기존 store `_read`와 원 artifact reader를 재사용한다. 수용: 같은 custody 세션에서 원 DB/서명·페이지 소속·current 권리를 유지하며
         summary/samples/events를 투영/직렬화; late 철회/변조/다른 농장 거부·실제 SCRAM/fresh/원 bytes/조회 계산0·FD/소유 정리.
-        별도 authority/key/서비스를 만들지 않는다.1–2집중시간 잠정이며 원 API 조회 비용/새 계약 오류에 따라 갱신한다.
-      - [ ] **`crop-climate-joint-http-route`** — 위 current reader 뒤 core4: `backend/app/api_crop_climate_joint_route.py`,
+        별도 authority/key/서비스를 만들지 않는다.
+        [core475eb19/로컬 수용](../research/crop-climate-joint-current-query-implementation-20261010.md): 같은 core3/source1,763의7그룹/고유10개,
+        실제 SCRAM6개·원3응답 bytes/마이크로초 UTC·fresh exec2010462 같은 SHA·조회8종 계산0·정상/hold·투영 중/직렬화 뒤 철회,
+        늦은 DB lookup 변조/실제 원 페이지 파일 변조·한도/농장/tenant/조립/2MiB·원 종료/소유 정리를 통과했다.
+        원13634/18165/42040/40427/17507/5615/24651 실제0·합474.184초·FD4→4·원본2,148/UI 보존·PG/schema/role/passfile 정리,
+        .25초 단일/합 RSS137,621,504/600,657,920bytes다. 작은 조회4.8초이며 HTTP/전체 작기 성능은 미수용이다.
+        core3829a58은 앞선 projection fixture의 runtime identity 고정 root 문제만 수정했다. 원 재현1→순수39개/같은 재현1개 통과(중복 제외),
+        실제 Python3.12.13 실행은 아니며 type fixture의 HMAC/농장 인증·과거 결과 이관은 주장하지 않는다. 계산/운영 identity/기존 DB2검사 AST는 유지했다.
+      - [ ] **`crop-climate-joint-http-route`** — 다음 core4: `backend/app/api_crop_climate_joint_route.py`,
         `backend/app/api.py`, `backend/tests/test_api_crop_climate_joint_route.py`, `contracts/api-crop-climate-joint-route-v1.md`.
         수용: 동일 jobs/farm/principal 조립의 보호 GET·엄격 query/본문/조기 종료·현재 계정 재검사·no-store/2MiB와 실제 SCRAM/HTTPS,
         잘못된 조립/404/권한/hold/늦은 철회·원값/조회 계산0/정리.2–3집중시간 잠정; runtime True/브라우저/U3는 후속이다.

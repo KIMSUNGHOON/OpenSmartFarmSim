@@ -31,7 +31,8 @@
 
 **실시간 계산 상태 연결은 미완료다.** 이 부모는 계산이 완료됐고 재생 버튼은 저장된 계산 시간을 이동한다.
 계산 중 진행률·새 checkpoint를 자동으로 받지 않는다. 현재 선택한 작은 범위만 읽으며 중간 상태를 보간하지 않는다.
-최근 공동 작물·기후32초 모델은 [API 투영40개 검사](../research/crop-climate-joint-result-projection-implementation-20261010.md)까지 수용했다.
+최근 공동 작물·기후32초 모델은 [API 투영](../research/crop-climate-joint-result-projection-implementation-20261010.md)과
+[같은 세션 현재 조회10개 검사](../research/crop-climate-joint-current-query-implementation-20261010.md)까지 수용했다.
 그 모델의 current HTTP/runtime·같은 UTC3D는 후속이며 현재 화면의 결과가 자동 교체되지는 않는다.
 3D는 LAI·과실 구획의 수치 모식도다. 실제 작물 외형·품종 생산·생과 수확·마진 예측·추천이 아니다.
 지역부터 작물 생산·자원·경제까지 자동 연결한 최종 통합 UI/U1/U3도 미수용이다.

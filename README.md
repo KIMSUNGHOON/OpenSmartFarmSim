@@ -37,7 +37,9 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 새 접속 안내는 [web README](web/README.md#기존-제품-앱의-로컬-동시-기동--2026-10-09)의 run-v3다.
 [새 결과 API 투영](research/crop-climate-joint-result-projection-implementation-20261010.md)도 고유40개·원108상태/장부/UTC·fresh 동일 응답·
 실제 SCRAM completed/hold·조회 계산0·실패 감시 수정/원 종료/정리로 로컬 수용했다. HMAC/권리 승인은 current reader의 책임이다.
-32초 합성/명시 상수 입력 범위이며 새 공동 모델의 UI 연결은 없다. 다음은 같은 세션 current reader→HTTP/runtime→같은 UTC3D며 온실 경계 조사는 병행한다.
+[같은 세션 현재 조회](research/crop-climate-joint-current-query-implementation-20261010.md)도 고유10개·원 wire/fresh SCRAM·늦은 철회/변조·
+조회 계산0·원 종료/정리로 로컬 수용했다. 실행 환경 차이에 따른 순수 fixture의 고정 root 실패를 재현해 시험만 수정하고39개를 통과했다.
+32초 합성/명시 상수 입력 범위이며 새 공동 모델의 UI 연결은 없다. 다음은 보호 HTTP→명시 runtime→같은 UTC3D며 온실 경계 조사는 병행한다.
 전체 결합/실제 생산 모델·실시간 U3·품종/독립 자료·관문은 미완료다.
 
 **2026-10-09 최신 수용:** [전체 수확 저장·등록·복원](research/crop-harvest-full-writer-completed-20261009.md)을 완료했다.
