@@ -1501,12 +1501,23 @@
         기존 manifest는 원 frozen Python으로 검증하고 reader 한 파일만 다른 새 호환 관측을 보존했다.
         원 decoder/manifest/결과는 바꾸지 않았다. 이후 전체 API/대표 WebGL은 위 부모의 새 증거로 수용했으며
         현재 사용자 수확 미리보기와 U3는 미수용이다.
-    - [ ] **`crop-harvest-early-disconnect`** — 선행 실제 전체 view의 원75169 입구 지연/취소500 관측.
+    - [x] **`crop-harvest-early-disconnect`** — 선행 실제 전체 view의 원75169 입구 지연/취소500 관측.
       3~5 core파일의 원인 재현/처리 계약·실제 TLS 집중 검사로 분해한다.
       수용: 인증된 정상 GET의 본문 수신 전 연결 종료를 실제로 재현하고 서버500 없이 종료한다.
       부분/취소 요청은 계산·등록·증명/성공 결과를 만들지 않으며 현재 계정/권리·일반 정상/거부 응답과
       늦은 응답 정리를 유지한다. 원 명령 종료·실제 서버/FD/DB/원본/소유 정리·WSL 상한 뒤 체크한다.
       이 보완과 사용자 미리보기 전환 뒤 상위 mass-load/replay를 평가한다.
+      [core4/수용 기록](../research/crop-harvest-early-disconnect-20261009.md),d92ad73:
+      새3/집중149개·원89030/별도 root 실제0·같은 원 DB/TLS에서 실제500→422·미완료 query0,
+      정상 summary/첫64행의 원 wire·현재 Scope403/다른 계정404/표시권422·복원,
+      37.418초/7응답·원본2,148항목/DB/FD·조회 계산/생성/게시/proof0·WSL 상한/소유 정리를 확인했다.
+      원26424 종료0은 수정 전500 재현이며 수용 성공이 아니다. 현재 사용자 수확 미리보기/U3·상위 replay는 남았다.
+    - [ ] **`crop-harvest-full-user-preview`** — 선행 전체 writer/API/대표3D·조기 종료 보완.
+      수정된 고정 source와 원 저장 결과를 사용하는 소유 서비스·감독/전환·접속 안내를3~5 core파일로 준비한다.
+      수용: 같은 원 전체 생장/수확의 정상 보호 summary/첫·끝 page 원 bytes·현재 권한·frontend200,
+      수용된 빌드와 현재 웹 source/자산 일치·미리보기 안내·조회 재계산0·원본/FD를 확인한다.
+      기존 사용자 미리보기를 새 후보 확인까지 보존하고 정확한 소유 identity 아래 기존 서비스/PG를 정리한 뒤5173을 전환한다.
+      원 기동 handle/현재 live identity·WSL 상한을 기록한다. 토큰은 private 안내에만 두며 사용자 자동 선택/U3·실제 작물 관문은 별도다.
 - [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.
   예정 파일(3): `backend/app/crop_climate_coupling.py`, `backend/tests/test_crop_climate_coupling.py`,
   `contracts/crop-climate-coupling-v1.md`.
