@@ -28,8 +28,10 @@
 독립272시각/원5,076수치 보존·fresh/재계산0·원 종료/자원으로 로컬 수용했다.
 [불변 페이지 저장/fresh 조회](../research/crop-climate-joint-storage-implementation-20261010.md)도 새77/기존916=993개·
 원5,076수치/46시각 보존·reader 계산0·실제 HEAD 전후 중단/재개·원 종료/자원으로 로컬 수용했다.
-[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 새 입력 검증 증거→
-현재 농장/자료 권리·server custody/등록/API→같은 시각3D며 온실 경계 조사는 병행한다. 현재 UI·U3/관문 상태는 위와 같다.
+[새 원 입력 검증 증거](../research/crop-climate-joint-input-evidence-implementation-20261010.md)도 새82개·원9개 context/UTC·972초기 수치,
+fresh10개/철회10개·조회 계산0·원 종료/보존/자원으로 로컬 수용했다. 기존993개는 원 파일 pin을 유지하고 재실행하지 않았다.
+[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 현재 농장/자료 권리 결속→
+server custody/등록/API→같은 시각3D며 온실 경계 조사는 병행한다. 현재 UI·U3/관문 상태는 위와 같다.
 
 **당시 실행 상태 — 2026-10-09 17:46 KST:** [완료 전체 생장 부모의 실제 API·3D/사용자 기동](../research/crop-full-parent-api-view-preview-20261009.md)을 로컬 수용하고 `http://localhost:5173/`을 전환했다.
 원7678 실제 도구0/119.766초·같은 실제 SCRAM/보호 HTTPS/제품 App·WebGL에서

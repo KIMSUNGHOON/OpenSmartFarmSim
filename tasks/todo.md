@@ -1656,12 +1656,18 @@
       선행26파일/9코드/16oracle·원본2,148/source1,724·FD4→4/소유 정리·미리보기 보존을 통과했다.
       최대129sample/128event는19페이지·최대page657,049/조회657,237bytes·전체5,347,572bytes/26파일,
       단일/합 RSS147,255,296/406,417,408bytes다. 입력 evidence/현재 권리/API/3D/U3·관문은 미완료다.
-    - [ ] **`crop-climate-joint-input-evidence`** — 다음 core3: `backend/app/crop_climate_joint_input_evidence.py`,
+    - [x] **`crop-climate-joint-input-evidence`** — core3: `backend/app/crop_climate_joint_input_evidence.py`,
       `backend/tests/test_crop_climate_joint_input_evidence.py`, `contracts/crop-climate-joint-input-evidence-v1.md`.
       선행: 수용한 새 공동 context/UTC/페이지 저장과 source/profile/notice의 기존 검토. 이전 input packet/clock 전용 authority를 위장해 쓰지 않는다.
       원 context/seed·4프로필/notice·UTC/source bytes·정규화/QC·코드 판본과 검토/증거 ID를 명시 새 authority에 결속한다.
       현재 원 bytes·변조/seed/profile/time/code·철회/혼합·fresh/원본/FD/원 종료/자원을 확인한다.
       합성 input math 증거·실제 G0 자료 채택과 현재 farm/display 권리·독립 G2/G3를 구분하며 관문을 열지 않는다.
+      [core9a89a90/로컬 수용](../research/crop-climate-joint-input-evidence-implementation-20261010.md): 새82개·원80995/별도20815 실제0,
+      원9개 context/UTC·972초기 수치·원4프로필/notice·fresh PID1914997의10개/철회10개·조회8종 호출0을 확인했다.
+      발급은 초기 RHS1회이며 별도 original context setup과 구분한다. 반환 전 byte 변경 RED2개/수정·원 실패/source 보존,
+      선행29 core/9코드/16oracle·원본2,148/source1,729·FD4→4/소유 정리·미리보기 보존을 통과했다.
+      최대 source201,751/receipt263,531bytes·단일/합 RSS147,255,296/456,556,544bytes다.
+      기존993개 수치 회귀는 재실행하지 않았다. 현재 농장/자료 권리·custody/API/3D/U3·관문은 미완료다.
     - [ ] **`crop-climate-joint-farm-binding`** — 선행: 새 입력 evidence·현재 FarmAuthoringService/자료 권리 resolver.
       예정 core3: `backend/app/crop_climate_joint_farm_binding.py`, 해당 tests, `contracts/crop-climate-joint-farm-binding-v1.md`.
       현재 tenant/농장 판본·crop/batch/zone·재배 기간·원 source/context/UTC/evidence와 research 계산/표시권을 결속한다.
