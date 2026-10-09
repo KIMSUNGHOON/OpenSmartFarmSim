@@ -82,6 +82,7 @@ export default function HarvestReplay(props:Props){
     {state?.error&&<p role="alert" className="notice error">저장 수확 결과 ID를 확인해 주세요.</p>}
     {busy&&<div role="status" className="harvest-loading"><p>현재 권리와 저장 수확 범위를 확인합니다…</p>
       <button className="button secondary" onClick={cancel}>수확 조회 취소</button></div>}
+    {!state && !id && <p>이 생장 결과에 연결할 저장 수확 결과를 아직 선택하지 않았습니다. 생장 완료만으로 수확량을 표시하지 않습니다.</p>}
     {binding&&range&&<>
       <div className="harvest-range"><h3>현재 읽은 제거 행</h3><p><strong>{range.partial?'부분 범위':'전체 저장 범위'}</strong> ·
         현재 {range.count?`${range.offset+1}–${range.offset+range.count}`:'0'} / 전체 저장 {range.total}행</p></div>
