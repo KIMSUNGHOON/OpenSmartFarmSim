@@ -234,7 +234,9 @@ def operator_file(path, raw):
         stream.write(raw); stream.flush(); os.fsync(stream.fileno())
 
 
-def assemble(storage, saved, manifest_path, context, base, tokens, certificate, private_key, port):
+def assemble(storage, saved, manifest_path, context, base, tokens, certificate, private_key, port,
+             *, credential_lifetime=timedelta(hours=1)):
+    need(type(credential_lifetime) is timedelta and timedelta() < credential_lifetime <= timedelta(days=1))
     from app.api_runtime import ApiRuntime, ApiRuntimeConfig
     from app.runtime_roles import RuntimeLoginPolicy
     from app.http_identity import BearerGrant, BearerRegistry, token_digest
@@ -291,7 +293,7 @@ def assemble(storage, saved, manifest_path, context, base, tokens, certificate, 
     def sources(*, principal_provider):
         return MarketSourceStore(cfg.dsn, cfg.policy.schema, principal_provider=principal_provider, runtime_identity=(cfg.policy, 'authority'))
     catalog = ResearchRegistry(h.private_bytes(doc['registry_file']), doc['registry_sha256']); now = datetime.now(timezone.utc)
-    grants = tuple(BearerGrant(token_digest(tokens[name]), tenant, frozenset(scopes), now-timedelta(seconds=1), now+timedelta(hours=1))
+    grants = tuple(BearerGrant(token_digest(tokens[name]), tenant, frozenset(scopes), now-timedelta(seconds=1), now+credential_lifetime)
         for name, tenant, scopes in [('owner', 'tenant-1', READ_SCOPES), ('denied', 'tenant-1', READ_SCOPES[:-1]), ('foreign', 'tenant-foreign', READ_SCOPES)])
     deps = dependencies(research_registry=catalog, bearer_registry=BearerRegistry(grants),
         owned_fixture_registry=OwnedFixtureRegistry(Path(doc['owned_fixture_root'])),
