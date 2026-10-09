@@ -1,0 +1,518 @@
+{
+  "SDK_development_child_accepted": false,
+  "U1_UI_or_live_connection_accepted": false,
+  "actual_crop_Runs": 0,
+  "build_actual_exit": null,
+  "build_hold": "original producer and preview preserved; bounded build terminated when combined RSS crossed 1GiB; no successful build claimed",
+  "development_native_CLI_evidence": {
+    "actual_effort": "xhigh",
+    "actual_model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-09T03:12:05.031Z",
+    "turn_event_sha256": "30ae8324de424d487b2064c0f09cadbc1f9e7fbf0b3eb83aba355358621436ee"
+  },
+  "existing_web_passed": 851,
+  "focused_passed_before_additional_review": 96,
+  "gates": "not_assessed",
+  "implementation_base_commit": "8dd386dca7f6cc831ac43a9c83b56033bc2f46e3",
+  "independent_domestic_farm_datasets": 0,
+  "initial_failures": {
+    "additional_review_RED": {
+      "chunk_id": "cf390b",
+      "failed": 2,
+      "passed": 96,
+      "reason": "same result ID at different timestamps accepted; decoder now requires unique IDs",
+      "tests": 98
+    },
+    "first_focused": {
+      "failed": 9,
+      "passed": 87,
+      "reason": "test helper added limit:undefined for real default query; helper now omits absent optional key, actual recordings and SDK strict query unchanged",
+      "tests": 96,
+      "unhandled_errors": 3
+    },
+    "first_typecheck": "literal version inferred as string; corrected explicit base type"
+  },
+  "native_actual_HTTPS": {
+    "FD_before_after": [
+      12,
+      11
+    ],
+    "actual_exit_code": 0,
+    "body_checks": [
+      {
+        "body_sha256": "fb3e8408cd88fc891191c3d33f7907dc9c0b8ae47ebf6bef6b643c081fedab41",
+        "bytes": 4397,
+        "label": "growth_default",
+        "query": {
+          "crop_id": "crop-1",
+          "kind": "calculation_cycle_v1",
+          "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+          "scenario_id": "owned-harvest-parent-farm",
+          "scenario_revision": "r1"
+        },
+        "seconds": 5.038361337996321
+      },
+      {
+        "body_sha256": "6d0635abe0f2c3266bbe2214979a1328a07b31b192ceb054fff4bc2bacf03337",
+        "bytes": 8237,
+        "label": "growth_max",
+        "query": {
+          "crop_id": "crop-1",
+          "kind": "calculation_cycle_v1",
+          "limit": 20,
+          "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+          "scenario_id": "owned-harvest-parent-farm",
+          "scenario_revision": "r1"
+        },
+        "seconds": 6.409514981001848
+      },
+      {
+        "body_sha256": "bef616b11c4f86317dbb08b682bcd852a59ea14f012da330c58254a9b2765aae",
+        "bytes": 786,
+        "label": "growth_tail",
+        "query": {
+          "before_recorded_at": "2026-10-09T02:29:30.638070Z",
+          "before_result_id": "crop-cycle-verified-result-v1:c90424b1e8098b0217854101f7ff82fcc76e6c7731633de08de9ee4a6309664c",
+          "crop_id": "crop-1",
+          "kind": "calculation_cycle_v1",
+          "limit": 20,
+          "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+          "scenario_id": "owned-harvest-parent-farm",
+          "scenario_revision": "r1"
+        },
+        "seconds": 3.942495396011509
+      },
+      {
+        "body_sha256": "9235222378be09e345036a8d59c16438bbc8d1bcedd18a4e2dcc2d36c74b77a4",
+        "bytes": 764,
+        "label": "harvest",
+        "query": {
+          "crop_id": "crop-1",
+          "kind": "harvest_v1",
+          "limit": 20,
+          "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+          "scenario_id": "owned-harvest-parent-farm",
+          "scenario_revision": "r1"
+        },
+        "seconds": 3.985570780991111
+      },
+      {
+        "body_sha256": "8ccbff254759f28edb739dc8a6fb7d66e0b3e0359790f107efb007c2a060385d",
+        "bytes": 4391,
+        "label": "growth_tied_first",
+        "query": {
+          "crop_id": "crop-1",
+          "kind": "calculation_cycle_v1",
+          "limit": 10,
+          "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+          "scenario_id": "owned-harvest-parent-farm",
+          "scenario_revision": "r1"
+        },
+        "seconds": 5.008220293006161
+      },
+      {
+        "body_sha256": "a0ed54a0a5c06bc98924451350069d83d1270e12cc0abd54e7e35bfdf473aa80",
+        "bytes": 4393,
+        "label": "growth_tied_next",
+        "query": {
+          "before_recorded_at": "2026-10-09T03:04:15.443208Z",
+          "before_result_id": "crop-cycle-verified-result-v1:a1434e78f141f09bfdc09afb61117615fd2dfeeed57c42ed473e5bf43626274f",
+          "crop_id": "crop-1",
+          "kind": "calculation_cycle_v1",
+          "limit": 10,
+          "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+          "scenario_id": "owned-harvest-parent-farm",
+          "scenario_revision": "r1"
+        },
+        "seconds": 5.385748232976766
+      },
+      {
+        "body_sha256": "bef616b11c4f86317dbb08b682bcd852a59ea14f012da330c58254a9b2765aae",
+        "bytes": 786,
+        "label": "growth_tied_tail",
+        "query": {
+          "before_recorded_at": "2026-10-09T03:04:15.443208Z",
+          "before_result_id": "crop-cycle-verified-result-v1:02910d3db85c9f1d3f429a94d7530dd46aaf54c926e60731a25f52b6278f71f3",
+          "crop_id": "crop-1",
+          "kind": "calculation_cycle_v1",
+          "limit": 10,
+          "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+          "scenario_id": "owned-harvest-parent-farm",
+          "scenario_revision": "r1"
+        },
+        "seconds": 4.060577424999792
+      }
+    ],
+    "cleanup": {
+      "native_raw_responses_and_seed_retained": true,
+      "observed_at": "2026-10-09T12:16:11.642838+09:00",
+      "owned_PG_already_stopped": true,
+      "protected_frozen_main_files_match": true,
+      "removed": [
+        "owned_stopped_clone_data",
+        "authority.pgpass",
+        "harvest.pgpass"
+      ]
+    },
+    "completed_HTTP_responses": 14,
+    "new_file_descriptor_identities": 0,
+    "original_exec_session": 42058,
+    "read_phase_value_read_RHS_proof_publication_calls": 0,
+    "recorded_success_bodies": 7,
+    "source_entries_unchanged": 370,
+    "terminal": {
+      "RSS_samples": 421,
+      "actual_exit_code": 0,
+      "combined_peak_RSS_bytes": 844394496,
+      "forced_cleanup": [],
+      "log_sha256": "d2c54151e16812ec59c99e68f461e844b7c2ae3716f3ac962b34c20ab39ae809",
+      "owned_PG_remaining": [],
+      "protected_same": {
+        "1508356": true,
+        "1508384": true,
+        "1547003": true,
+        "1547022": true
+      },
+      "reason": null,
+      "sample_interval_seconds": 0.1,
+      "single_PID_peak_RSS_bytes": 148541440,
+      "source_count": 689,
+      "source_pins_preserved": true,
+      "source_scope": "backend_and_contracts_only",
+      "wall_limit_seconds": 1200,
+      "wall_seconds": 44.18331406801008
+    },
+    "terminal_sha256": "416127a7097f45a66dbe85d5bf9403f8fb71422f098227ff63eeeaea67920bbe"
+  },
+  "new_SDK_cases_covered_by_full_web": 98,
+  "new_browser_WebGL_or_UI_screen_calls": 0,
+  "observed_at": "2026-10-09T12:20:53.540667+09:00",
+  "original_producer_and_user_preview_observation": {
+    "checkpoints": [
+      {
+        "commit_count": 231,
+        "steps": 921913
+      }
+    ],
+    "observed_at": "2026-10-09T12:20:53.540667+09:00",
+    "original_full_same_process": true,
+    "preview_HTTP_status": 200,
+    "producer_completed_or_accepted": false,
+    "target_steps": 1816704
+  },
+  "runtime_product_CLI_invocations": 0,
+  "source_pins_identical_across_final_web_typecheck_and_build_attempts": true,
+  "status": "SDK_candidate_build_resource_hold",
+  "tested_core_sha256": {
+    "contracts/web-crop-result-catalog-client-v1.md": "6b103bb7a97d1400f7306e404b93c876474b41e24abce9cb5caf3b5b6c77efe0",
+    "web/e2e/crop-result-catalog-recorded-responses.json": "ba022a6beccea48520c25c910318b253933d18ddaa85a05ee2c89152b4353b77",
+    "web/src/api.ts": "948ad24de176672dfcdde0fcb6c8cc82ec04764c2bb17155765c7afd4c1d5439",
+    "web/src/cropResultCatalog.test.ts": "69f3d49d37aa3d43e23a156c1c1b73f67ba8a5a297d8f5c48312220e890c6364",
+    "web/src/cropResultCatalog.ts": "a6e50c452133f555ec0d0dcce5a1fa168b87673dc4133c59481afd3e9d2202b0"
+  },
+  "typecheck_actual_exit": 0,
+  "verification_original_tool_sessions": {
+    "run-v1": 92344,
+    "run-v2": 27687,
+    "run-v3": 55524,
+    "run-v4": 64577,
+    "run-v5": {
+      "chunk_id": "6c52fd",
+      "exit_code": 1
+    },
+    "run-v6": 8471
+  },
+  "verification_terminals": {
+    "run-v1": {
+      "RSS_samples": 23,
+      "RSS_scope": "controller and descendants plus original producer and user preview descendants, shared pages may double count; not WSL total",
+      "actual_exit_code": 1,
+      "combined_peak_RSS_bytes": 1073799168,
+      "commands": [
+        {
+          "actual_exit_code": -15,
+          "argv": [
+            "nice",
+            "-n",
+            "19",
+            "npm",
+            "test",
+            "--",
+            "--maxWorkers=1",
+            "--no-file-parallelism"
+          ],
+          "label": "web-full",
+          "log_sha256": "609058ecf9d547326e52ae238079f5727e874c6688c5eed7d42a2024168c5ba3",
+          "wall_seconds": 2.254462320008315
+        }
+      ],
+      "nice": 19,
+      "node_heap_limit_MiB": 256,
+      "preview_dist_unchanged": true,
+      "protected_same": {
+        "1508356": true,
+        "1508384": true,
+        "1547003": true,
+        "1547022": true
+      },
+      "reason": "combined_RSS_limit",
+      "remaining_child_PIDs": [],
+      "sample_interval_seconds": 0.1,
+      "single_PID_peak_RSS_bytes": 276701184,
+      "source_count": 1524,
+      "source_pins_preserved": true,
+      "wall_limit_seconds": 600,
+      "wall_seconds": 2.2552637020125985
+    },
+    "run-v2": {
+      "RSS_samples": 39,
+      "RSS_scope": "controller and descendants plus original producer and user preview descendants, shared pages may double count; not WSL total",
+      "actual_exit_code": 1,
+      "combined_peak_RSS_bytes": 1075879936,
+      "commands": [
+        {
+          "actual_exit_code": 143,
+          "argv": [
+            "nice",
+            "-n",
+            "19",
+            "node",
+            "node_modules/vitest/vitest.mjs",
+            "run",
+            "--maxWorkers=1",
+            "--no-file-parallelism"
+          ],
+          "label": "web-full",
+          "log_sha256": "75f276138620729c31cfdd38cc57f2669571c1a272d9b11b0b3002457f7dfddb",
+          "wall_seconds": 3.9084610249847174
+        }
+      ],
+      "nice": 19,
+      "node_heap_limit_MiB": 160,
+      "preview_dist_unchanged": true,
+      "protected_same": {
+        "1508356": true,
+        "1508384": true,
+        "1547003": true,
+        "1547022": true
+      },
+      "reason": "combined_RSS_limit",
+      "remaining_child_PIDs": [],
+      "sample_interval_seconds": 0.1,
+      "single_PID_peak_RSS_bytes": 287436800,
+      "source_count": 1524,
+      "source_pins_preserved": true,
+      "wall_limit_seconds": 600,
+      "wall_seconds": 3.9092868579900824
+    },
+    "run-v3": {
+      "RSS_samples": 168,
+      "RSS_scope": "controller and descendants plus original producer and user preview descendants, shared pages may double count; not WSL total",
+      "actual_exit_code": 1,
+      "combined_peak_RSS_bytes": 1104211968,
+      "commands": [
+        {
+          "actual_exit_code": 0,
+          "argv": [
+            "nice",
+            "-n",
+            "19",
+            "node",
+            "node_modules/vitest/vitest.mjs",
+            "run",
+            "--pool=threads",
+            "--maxWorkers=1",
+            "--no-file-parallelism"
+          ],
+          "label": "web-full",
+          "log_sha256": "cba9d646ba8a611cd23e0e6aba9b8d5448a7eff67b7f4ac1bdf9b9ebf5a12dfd",
+          "wall_seconds": 16.300780455989297
+        },
+        {
+          "actual_exit_code": -15,
+          "argv": [
+            "nice",
+            "-n",
+            "19",
+            "npm",
+            "run",
+            "build",
+            "--",
+            "--outDir",
+            "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261009-web-crop-result-catalog-sdk/run-v3/build"
+          ],
+          "label": "web-build",
+          "log_sha256": "94aef8c4ff7c249d0b334bd074685f14d5abab82733863a508143cf8c4dc42da",
+          "wall_seconds": 0.7283004229830112
+        }
+      ],
+      "nice": 19,
+      "node_heap_limit_MiB": 128,
+      "preview_dist_unchanged": true,
+      "protected_same": {
+        "1508356": true,
+        "1508384": true,
+        "1547003": true,
+        "1547022": true
+      },
+      "reason": "combined_RSS_limit",
+      "remaining_child_PIDs": [],
+      "sample_interval_seconds": 0.1,
+      "single_PID_peak_RSS_bytes": 446181376,
+      "source_count": 1524,
+      "source_pins_preserved": true,
+      "wall_limit_seconds": 600,
+      "wall_seconds": 17.030669691012008
+    },
+    "run-v4": {
+      "RSS_samples": 14,
+      "RSS_scope": "controller and descendants plus original producer and user preview descendants, shared pages may double count; not WSL total",
+      "actual_exit_code": 1,
+      "combined_peak_RSS_bytes": 1104916480,
+      "commands": [
+        {
+          "actual_exit_code": 0,
+          "argv": [
+            "nice",
+            "-n",
+            "19",
+            "node",
+            "node_modules/typescript/bin/tsc",
+            "--noEmit"
+          ],
+          "label": "typecheck",
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "wall_seconds": 0.6128722869907506
+        },
+        {
+          "actual_exit_code": -15,
+          "argv": [
+            "nice",
+            "-n",
+            "19",
+            "node",
+            "node_modules/vite/bin/vite.js",
+            "build",
+            "--outDir",
+            "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261009-web-crop-result-catalog-sdk/run-v4/build"
+          ],
+          "label": "web-build",
+          "log_sha256": "b8164ecb42b4d5b261b06696a2c15c5436ca21e6a7ce5c0f4c3b56f4cc623557",
+          "wall_seconds": 0.7509693089814391
+        }
+      ],
+      "nice": 19,
+      "node_heap_limit_MiB": 128,
+      "preview_dist_unchanged": true,
+      "protected_same": {
+        "1508356": true,
+        "1508384": true,
+        "1547003": true,
+        "1547022": true
+      },
+      "reason": "combined_RSS_limit",
+      "remaining_child_PIDs": [],
+      "sample_interval_seconds": 0.1,
+      "single_PID_peak_RSS_bytes": 555122688,
+      "source_count": 1524,
+      "source_pins_preserved": true,
+      "wall_limit_seconds": 600,
+      "wall_seconds": 1.3653803619963583
+    },
+    "run-v5": {
+      "RAYON_NUM_THREADS": 1,
+      "RSS_samples": 8,
+      "RSS_scope": "controller and descendants plus original producer and user preview descendants, shared pages may double count; not WSL total",
+      "actual_exit_code": 1,
+      "combined_peak_RSS_bytes": 1084084224,
+      "commands": [
+        {
+          "actual_exit_code": -15,
+          "argv": [
+            "nice",
+            "-n",
+            "19",
+            "node",
+            "node_modules/vite/bin/vite.js",
+            "build",
+            "--outDir",
+            "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261009-web-crop-result-catalog-sdk/run-v5/build"
+          ],
+          "label": "web-build",
+          "log_sha256": "5f7463c1baf3496edf1910c7a33c4310fbdaca849bbf03bc1b9fb8b686e67164",
+          "wall_seconds": 0.7497956760053057
+        }
+      ],
+      "nice": 19,
+      "node_heap_limit_MiB": 128,
+      "preview_dist_unchanged": true,
+      "protected_same": {
+        "1508356": true,
+        "1508384": true,
+        "1547003": true,
+        "1547022": true
+      },
+      "reason": "combined_RSS_limit",
+      "remaining_child_PIDs": [],
+      "sample_interval_seconds": 0.1,
+      "single_PID_peak_RSS_bytes": 533069824,
+      "source_count": 1524,
+      "source_pins_preserved": true,
+      "wall_limit_seconds": 600,
+      "wall_seconds": 0.7506226490077097
+    },
+    "run-v6": {
+      "MALLOC_ARENA_MAX": 2,
+      "RAYON_NUM_THREADS": 1,
+      "RSS_samples": 14,
+      "RSS_scope": "controller and descendants plus original producer and user preview descendants, shared pages may double count; not WSL total",
+      "actual_exit_code": 1,
+      "build_CPU_affinity": [
+        0
+      ],
+      "combined_peak_RSS_bytes": 1075720192,
+      "commands": [
+        {
+          "actual_exit_code": -15,
+          "argv": [
+            "nice",
+            "-n",
+            "19",
+            "taskset",
+            "-c",
+            "0",
+            "node",
+            "node_modules/vite/bin/vite.js",
+            "build",
+            "--outDir",
+            "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261009-web-crop-result-catalog-sdk/run-v6/build"
+          ],
+          "label": "web-build",
+          "log_sha256": "c664206efd10cb36ae21016403852f8c77c8941cf87da4f5a07263444801ae13",
+          "wall_seconds": 1.3579325010068715
+        }
+      ],
+      "nice": 19,
+      "node_heap_limit_MiB": 128,
+      "preview_dist_unchanged": true,
+      "protected_same": {
+        "1508356": true,
+        "1508384": true,
+        "1547003": true,
+        "1547022": true
+      },
+      "reason": "combined_RSS_limit",
+      "remaining_child_PIDs": [],
+      "sample_interval_seconds": 0.1,
+      "single_PID_peak_RSS_bytes": 524808192,
+      "source_count": 1524,
+      "source_pins_preserved": true,
+      "wall_limit_seconds": 600,
+      "wall_seconds": 1.3587735269975383
+    }
+  },
+  "web_full_passed": 949,
+  "web_test_actual_exit": 0
+}
