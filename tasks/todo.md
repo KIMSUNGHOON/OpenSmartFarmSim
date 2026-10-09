@@ -1469,11 +1469,13 @@
         원 저장 summary/page SHA·UTC/수량/단위/순서와 방출 bytes 대사·변경/비용 초과 거부·30초/2MiB 보존.
         root FD4→4·원본/미리보기/진행 중 전체 writer·소유 정리·512MiB/1GiB를 확인했다.
         새 실제 DB 서명/TLS/전체 HTTP·3D/U3 수용은 아니다. 전체 writer/fresh 이후 실제 보호 API 비용을 측정한다.
-      - [ ] **`crop-harvest-api-fixture-current-version`** — 위 준비에서 실제 관측한 기존 API 시험 자료 판본 불일치.
-        예정 core3: `backend/tests/test_api_crop_harvest_replay.py`, `backend/tests/test_api_crop_harvest_route.py`, 별도 판본 검증 계약.
-        원8784의 기존74실패는 과거 artifact code9b07f9df/현재eb62fd64 거부다. 과거 영수증/서명/해시를 수정하지 않는다.
-        현재 코드의 새 정상 자료와 과거 판본 거부·검증 범위를 명시해 기존 두 시험 파일을 확인한다.
-        이 자식과 전체 API/대표3D·hosted Backend는 실제 수용 전 체크하지 않는다.
+      - [x] **`crop-harvest-api-fixture-current-version`** — [core4 계약](../contracts/crop-harvest-api-fixture-current-version-v1.md)·
+        [로컬 수용](../research/crop-harvest-api-fixture-current-version-20261009.md),79cf1fb.
+        원89157 실제0·현재 정상 작은 계산/등록/SCRAM6행·fresh Python2개와 권리/변조·정리 검사를 통과했다.
+        새 원 값 영수증88055f22를 별도로 고정하고 과거3e845e6a의 원/서명/해시는 유지했다.
+        원9291 실제0·기존142/과거 거부3/HTTP 대사29=174개와 실제 DB1개=고유175개·별도 root081c42 실제0.
+        원량/UTC·판본 검사/30초·2MiB·읽기 RHS0/FD·DB·원본/미리보기/전체 writer·소유 정리·WSL 상한을 확인했다.
+        과거74실패의 로컬 자식만 해소했다. 전체 API/대표3D·U3·hosted Backend는 미수용이다.
 - [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.
   예정 파일(3): `backend/app/crop_climate_coupling.py`, `backend/tests/test_crop_climate_coupling.py`,
   `contracts/crop-climate-coupling-v1.md`.

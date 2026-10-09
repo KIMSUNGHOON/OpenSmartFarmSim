@@ -12,7 +12,8 @@ producer21:52:18 KST 마감과 후속 fresh900초는 감독 상한이다. 수확
 
 **수확 API 연결 준비:** [원 저장 결과와 HTTP 응답의 대사](research/crop-harvest-http-reconciliation-20261009.md)를
 새29/기존7=36개·원 종료0으로 확인했다. 현재 소유 합성/보호 ASGI 범위이며 전체 수확 HTTPS/3D·실시간 U3 수용은 아니다.
-같이 관측한 기존 API 시험 자료의 과거 코드 판본 거부74개는 별도 보완 작업으로 남겼다.
+같이 관측한 과거 코드 판본 거부74개는 [현재 실제 DB 값/과거 거부 검사](research/crop-harvest-api-fixture-current-version-20261009.md)로
+로컬 보완했다. 정상 SCRAM/fresh2Python·집중174개/실제 DB1개와 원 종료/정리를 통과했으며 hosted/전체 API 수용은 별도다.
 
 **UI 후보 검증:** 목록 선택의 선행 [동일 웹 소스 hosted 회귀](research/crop-ui-web-hosted-regression-20261009.md)는
 웹1,028개·Chromium140개/skip0·타입/일반 빌드/audit가 통과했다. U1의 원3상태 디자인·실제 공동 DB 선택 수용은 남았다.
