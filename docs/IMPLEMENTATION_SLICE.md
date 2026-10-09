@@ -10,9 +10,10 @@
 현재 권리·원 서명 metadata의 생장/수확 목록까지 로컬 수용했다.
 [보호 API/등록 비용 보완](../research/crop-result-catalog-api-implementation-20261009.md)도
 집중296개·실제 SCRAM/HTTPS14응답/생장21건·수확1건·최대20건6.483초·원 종료/정리로 로컬 수용했다.
-SDK·목록 선택·실제 브라우저와 진행 중인 전체 계산 연동은 미완료다.
-[SDK 후보의 웹949개/타입](../research/web-crop-result-catalog-client-implementation-20261009.md)은 통과했으나
-원 전체 계산/사용자 미리보기를 보존한 동시 자원 한도에서 빌드를 중단해 SDK 수용도 보류한다.
+[등록 작물 조회](../research/crop-result-farm-selection-implementation-20261009.md)도 집중348개/실제HTTPS22응답으로 로컬 수용했다.
+[두 SDK의 현재 웹1,011개/타입/빌드](../research/web-crop-farm-selection-client-implementation-20261009.md)는
+원66094 종료0/19.046초·원source/미리보기·소유 정리로 로컬 수용해 이전 빌드 자원 보류를 해소했다.
+목록 선택·실제 브라우저와 진행 중인 전체 계산 연동은 미완료다.
 
 **2026-10-04 개정:** 기존 열·경제 내부 경로의 계약을 보존하고 다음 구현은 §7의
 작물 생장·저장·성장 3D로 진행한다. 첫 작성 시점의 구현 현황은 아래에 남겨두며,

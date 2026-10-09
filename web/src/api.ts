@@ -14,6 +14,7 @@ import { createCycleCropReplayApi } from './cycleCropReplay';
 import { createCalculationCycleCropReplayApi } from './calculationCycleCropReplay';
 import { createHarvestReplayApi } from './harvestReplay';
 import { createCropResultCatalogApi } from './cropResultCatalog';
+import { createCropFarmSelectionApi } from './cropFarmSelection';
 export const STAGES = ['research','collection','collection_review','simulation','assessment'] as const;
 export const STATES = ['queued','researching','collecting','reviewing','simulating','assessing',
   'succeeded','hold','failed','canceled'] as const;
@@ -197,6 +198,7 @@ export function createApi(token:string, fetcher:typeof fetch = fetch) {
     ...createCalculationCycleCropReplayApi(request),
     ...createHarvestReplayApi(request),
     ...createCropResultCatalogApi(request),
+    ...createCropFarmSelectionApi(request),
     ...createThermalApi(request),
     ...createAuthoredThermalApi(request),
     ...createAuthoredFarmApi(request,decodeJob),

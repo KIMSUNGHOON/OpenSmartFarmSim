@@ -1,5 +1,9 @@
 # 저장 작물 결과 목록 SDK — 빌드 자원 보류
 
+**후속 현재 판본:** [등록 작물 SDK와 함께 전체1,011개·타입/빌드 종료0](web-crop-farm-selection-client-implementation-20261009.md)을
+확인해 두 SDK 자식만 로컬 수용했다. 아래12:20의 실패/원 source 영수증은 당시 기록으로 보존한다.
+화면·실시간·상위 U1은 미완료다.
+
 2026-10-09 12:20 KST. native Codex CLI `gpt-6.1-sol / xhigh`, 재귀 CLI0회.
 [원 실행 영수증](artifacts/web-crop-result-catalog-client-reference-20261009.json)에 판본·검사·실패·보존을 기록했다.
 SDK 후보를 구현했으며 **SDK 자식·목록 화면·실시간 연동은 아직 수용하지 않는다.**

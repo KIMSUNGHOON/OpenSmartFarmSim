@@ -68,9 +68,10 @@ U1은 [서버 목록 계약](../contracts/crop-result-catalog-v1.md)의 metadata
 최대20건6.483초/8,237bytes·원7187 종료0·370source/새FD0/소유 정리를 확인했다.
 다음 U1 자식은 SDK/기존 농장 목록에서 결과 선택→실제 DB/API/브라우저다. 실시간 U3는 미완료다.
 [SDK 후보](../research/web-crop-result-catalog-client-implementation-20261009.md)는 실제 HTTPS 원문7개와
-웹949개/타입 자식 종료0을 확인했으나 동시 자원 한도의 빌드 종료로 미수용이다.
-원 계산/미리보기와 기존 배포 파일을 유지한다. 유휴 자원 확보 뒤 같은 source의 남은 빌드→
-SDK 자식 수용→12ui-design 기반 저장 결과 선택 화면→실제 DB/API/브라우저 순서로 진행한다.
+웹949개/타입 자식 종료0을 확인했으나 당시 동시 자원 한도의 빌드 종료로 수용을 보류했다.
+후속 [등록 작물 SDK/현재 두 SDK 수용](../research/web-crop-farm-selection-client-implementation-20261009.md)은
+전체1,011개·타입/빌드·원66094 종료0/19.046초·source/미리보기/소유 정리로 이전 빌드 보류를 해소했다.
+원 계산/미리보기와 기존 배포 파일을 유지하며 다음은12ui-design 기반 저장 결과 선택 화면→실제 DB/API/브라우저다.
 기존 hosted Backend의 실제 수확 인증 감사 실패에 필요한
 [초기화 설정 후보](../research/ci-explicit-host-scram-candidate-20261009.md)는 로컬 A/B만 확인했으며
 새 head의 hosted 전체/UID/정리·집계 수용은 기다린다. 운영 기반 범위는 유지한다.
