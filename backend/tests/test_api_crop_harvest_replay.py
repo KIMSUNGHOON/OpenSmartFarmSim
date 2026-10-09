@@ -14,8 +14,10 @@ from app import crop_harvest_current_query as current
 from test_crop_harvest_current_query import forbid_all_reads_math
 from test_crop_harvest import save_native
 
-REFERENCE=Path(__file__).resolve().parents[2]/'research/artifacts/crop-harvest-api-current-values-20261009.json'
-REFERENCE_SHA='88055f2292ffd8feca17202b231b9ba7d39a2c035b31e3049fff1e39c7725e5c'
+REFERENCE=Path(__file__).resolve().parents[2]/'research/artifacts/crop-harvest-api-current-read-values-20261009.json'
+REFERENCE_SHA='0c931afc324c62d1b06ac90335903c0dbd473764fc48ab79f1fa56801f5294c0'
+PREVIOUS_READER_REFERENCE=REFERENCE.with_name('crop-harvest-api-current-values-20261009.json')
+PREVIOUS_READER_SHA='88055f2292ffd8feca17202b231b9ba7d39a2c035b31e3049fff1e39c7725e5c'
 HISTORICAL_REFERENCE=REFERENCE.with_name('crop-harvest-current-query-implementation-reference-20261008.json')
 HISTORICAL_REFERENCE_SHA='3e845e6add86acf1c5cb25b0c104a4df90c33aeb3554ea90164148d41f3f3cbe'
 
@@ -38,6 +40,14 @@ def historical_source():return recorded_source(HISTORICAL_REFERENCE,HISTORICAL_R
 
 
 def project(source):return public.project_harvest_result(source,view='records',limit=64)
+
+
+def test_previous_query_observation_is_historical_while_its_stored_packet_remains_valid():
+    source=recorded_source(PREVIOUS_READER_REFERENCE,PREVIOUS_READER_SHA);before=deepcopy(source)
+    packet=current.registry._decode(source['record']['payload_raw'])
+    assert packet['result_id']==source['record']['result_id']
+    with pytest.raises(public.HarvestProjectionHold):project(source)
+    assert source==before and sha256(PREVIOUS_READER_REFERENCE.read_bytes()).hexdigest()==PREVIOUS_READER_SHA
 
 
 @pytest.mark.parametrize('view',['summary','records'])

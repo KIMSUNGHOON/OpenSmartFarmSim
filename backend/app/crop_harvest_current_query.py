@@ -73,6 +73,33 @@ class HarvestCurrentQuery:
         if page is not None:_need(reader.page(page['start'],limit) == page)
         self._guard(tenant)
 
+    @contextmanager
+    def _parent_read(self, tenant, result_id, farm):
+        parent = self.store.query;active = True
+        try:
+            with parent.open(tenant,result_id,farm) as original:
+                _need(original is not None)
+                value = deepcopy(original);record = value['record'];packet = current.inputs._json(record['payload_raw'])
+                request = packet['binding']['request'];source = packet['binding']['input']
+                def read():
+                    _need(active);parent._binding();parent.store._guard(tenant)
+                    row = parent.store._find(tenant,result_id=result_id)
+                    _need(parent.store._record(row) == record
+                        and registry._canonical(parent.store._row(row,tenant,farm)) == registry._canonical(packet))
+                    binding = parent.store.server.binding
+                    registration = binding._registration(tenant,request,source)
+                    _need(registry._canonical(registration) == registry._canonical(packet['binding']['registration'])
+                        and binding.input_rights.policy_version == packet['policies']['input_rights_version']
+                        and parent.store.server.input_resolver.version == packet['policies']['resolver_version']
+                        and sha256(binding.notice_raw).hexdigest() == packet['policies']['notice_sha256'])
+                    declaration = deepcopy(request['rights'])
+                    _need(binding.input_rights(tenant,declaration,source['root_sha256'],'research_display') is True
+                        and registry._canonical(declaration) == registry._canonical(request['rights']))
+                    parent._binding();parent.store._guard(tenant)
+                    return deepcopy(value)
+                yield read
+        finally:active = False
+
     def read(self, tenant, result_id, farm_ref, *, start=0, limit=None):
         with self.open(tenant,result_id,farm_ref,start=start,limit=limit) as value:return value
 
@@ -84,8 +111,8 @@ class HarvestCurrentQuery:
             if row is None:
                 self._guard(tenant);yield None;self._guard(tenant);return
             packet = self.store._row(row,tenant,farm_ref);artifact = packet['artifact']
-            with replay.open_harvest_artifact(self.store.directory/artifact['key'],artifact['sha256'],
-                    self.store.query,tenant,packet['parent_result_id'],farm_ref) as reader:
+            with self._parent_read(tenant,packet['parent_result_id'],farm_ref) as read_parent, \
+                    replay._Reader(self.store.directory/artifact['key'],artifact['sha256'],read_parent) as reader:
                 root = reader._root
                 _need(root['source'] == packet['source'] and root['row_count'] == artifact['row_count']
                     and root['row_chain_sha256'] == artifact['row_chain_sha256']
