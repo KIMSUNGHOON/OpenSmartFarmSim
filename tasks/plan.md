@@ -100,8 +100,11 @@ U1은 [서버 목록 계약](../contracts/crop-result-catalog-v1.md)의 metadata
 선택과 HarvestReplay의 초기 수확 ID/같은 부모 연결도 포함한다. 이를 화면 계약의 작은 선행 자식으로 나눈다.
 실제 구현 뒤 원 승인 이미지에 대한12ui improve와 좁은 폭/키보드·취소/권리 검증을 마친다.
 기존 hosted Backend의 실제 수확 인증 감사 실패에 필요한
-[초기화 설정 후보](../research/ci-explicit-host-scram-candidate-20261009.md)는 로컬 A/B만 확인했으며
-새 head의 hosted 전체/UID/정리·집계 수용은 기다린다. 운영 기반 범위는 유지한다.
+[초기화 설정 후보](../research/ci-explicit-host-scram-candidate-20261009.md)는 로컬 A/B만 확인했다.
+[8dd386d 실제 종료](../research/crop-result-ci-terminal-20261009.md)는 Backend2/3 성공·0/1/4/5/집계 실패다.
+세 자식 import와 게시 선언 fixture의 역사적 source 의존을 먼저 재현/수정하며,
+역할 정리 교착/자원 감사는 별도 원인을 확인한다. 이 낮은 자원 작업은 전체 복구 계산과 병행할 수 있다.
+진행 중 frozen producer와 운영 기반 범위는 유지하고 새 hosted 전체/UID/정리 수용은 별도다.
 
 **진행 관측 — 2026-10-09 10:02 KST:** [새 전체 부모 실행](../research/artifacts/crop-harvest-parent-full-started-reference-20261009.json)을09:12 KST 시작했다.
 동일 원 모델/입력의 새166일 계산 판본이며10:02 KST 같은 프로세스의 확정 checkpoint는243,447걸음/commit61이다. 완료/수용은 아니다.

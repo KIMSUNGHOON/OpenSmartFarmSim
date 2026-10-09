@@ -1,0 +1,244 @@
+{
+  "version": "crop-result-ci-terminal-reference-v1",
+  "observed_at": "2026-10-09T14:15:18.776062+09:00",
+  "run_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37877099838",
+  "run_id": 37877099838,
+  "run_conclusion": "failure",
+  "remote_completed_at": "2026-10-09T05:04:56Z",
+  "jobs": [
+    {
+      "job_id": 113648229703,
+      "name": "backend-partition-2",
+      "conclusion": "success",
+      "started_at": "2026-10-09T03:37:56Z",
+      "completed_at": "2026-10-09T04:07:10Z",
+      "cleanup_steps": [
+        {
+          "name": "Check content access with distinct Linux UIDs",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Remove database and password files",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "job_id": 113648229874,
+      "name": "backend-partition-5",
+      "conclusion": "failure",
+      "started_at": "2026-10-09T04:39:45Z",
+      "completed_at": "2026-10-09T04:55:03Z",
+      "cleanup_steps": [
+        {
+          "name": "Check content access with distinct Linux UIDs",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Remove database and password files",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "job_id": 113648229901,
+      "name": "backend-partition-1",
+      "conclusion": "failure",
+      "started_at": "2026-10-09T02:59:06Z",
+      "completed_at": "2026-10-09T03:55:29Z",
+      "cleanup_steps": [
+        {
+          "name": "Check content access with distinct Linux UIDs",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Remove database and password files",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "job_id": 113648229905,
+      "name": "backend-partition-3",
+      "conclusion": "success",
+      "started_at": "2026-10-09T03:55:32Z",
+      "completed_at": "2026-10-09T04:39:43Z",
+      "cleanup_steps": [
+        {
+          "name": "Check content access with distinct Linux UIDs",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Remove database and password files",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "job_id": 113648229931,
+      "name": "backend-partition-0",
+      "conclusion": "failure",
+      "started_at": "2026-10-09T02:59:07Z",
+      "completed_at": "2026-10-09T03:37:54Z",
+      "cleanup_steps": [
+        {
+          "name": "Check content access with distinct Linux UIDs",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Remove database and password files",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "job_id": 113648230018,
+      "name": "backend-partition-4",
+      "conclusion": "failure",
+      "started_at": "2026-10-09T04:07:13Z",
+      "completed_at": "2026-10-09T05:04:46Z",
+      "cleanup_steps": [
+        {
+          "name": "Check content access with distinct Linux UIDs",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Remove database and password files",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "job_id": 113678679841,
+      "name": "backend",
+      "conclusion": "failure",
+      "started_at": "2026-10-09T05:04:51Z",
+      "completed_at": "2026-10-09T05:04:55Z",
+      "cleanup_steps": []
+    }
+  ],
+  "other_workflows": [
+    {
+      "conclusion": "success",
+      "databaseId": 37877099836,
+      "headSha": "8dd386dca7f6cc831ac43a9c83b56033bc2f46e3",
+      "status": "completed",
+      "workflowName": "C0 Compose verification"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37877099810,
+      "headSha": "8dd386dca7f6cc831ac43a9c83b56033bc2f46e3",
+      "status": "completed",
+      "workflowName": "Application runtime verification"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37877099866,
+      "headSha": "8dd386dca7f6cc831ac43a9c83b56033bc2f46e3",
+      "status": "completed",
+      "workflowName": "Authored API PostgreSQL smoke"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37877099808,
+      "headSha": "8dd386dca7f6cc831ac43a9c83b56033bc2f46e3",
+      "status": "completed",
+      "workflowName": "Web tests"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 37877099838,
+      "headSha": "8dd386dca7f6cc831ac43a9c83b56033bc2f46e3",
+      "status": "completed",
+      "workflowName": "Backend tests"
+    }
+  ],
+  "raw_private_log_sha256": {
+    "partition-0.private.log": "3724b0ac6acf025835bfd215a811d3480008b2bedc69c7669a3d9087f9c5d6d8",
+    "failed.private.log": "f898c916f574945cebc4f29a79a52648cf0fdde92327144ae55d43516e8e33a9",
+    "partition-1.private.log": "c39f2b8c2f84b9123bdb9080832283c3a290f90bba511b0af1e00d948c7178f7"
+  },
+  "metadata_sha256": "c45f4eecbbe14130ddbbb389b14614b0a8123d5e8f67bc51fbe9189f27ede7a8",
+  "actual_fetch_exit_codes": {
+    "log_failed": 0,
+    "run_metadata": 0,
+    "partition0_job_log": 0,
+    "partition1_job_log": 0,
+    "workflow_list": 0
+  },
+  "actual_tool_sessions": {
+    "log_failed": 87086,
+    "run_metadata": 20033,
+    "partition0_job_log": 47154,
+    "partition1_job_log": 7836
+  },
+  "native_Codex_CLI": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-09T05:00:37.158Z",
+    "actual_model": "gpt-6.1-sol",
+    "actual_effort": "xhigh",
+    "turn_event_sha256": "b0221cd96563ce20e789a64b97c8f728b47c97f9a11761b3b02c8e4d97181c2a",
+    "recursive_invocations": 0
+  },
+  "scope": "terminal CI triage in same exact native CLI turn; no hosted acceptance, fixture correction, runtime guard change or source adoption",
+  "failure_families": [
+    {
+      "jobs": [
+        0,
+        4,
+        5
+      ],
+      "class": "child_test_import_paths",
+      "missing_modules": [
+        "crop_harvest_tls_fixture",
+        "test_crop_harvest_current_query",
+        "test_crop_harvest_runtime_factory"
+      ],
+      "candidate_files": [
+        "backend/tests/test_crop_harvest_runtime_tls.py",
+        "backend/tests/test_crop_harvest_current_query.py",
+        "backend/tests/test_crop_harvest_runtime_factory.py"
+      ],
+      "fix_status": "unimplemented; reproduce with PYTHONPATH absent before isolated child-path correction"
+    },
+    {
+      "jobs": [
+        5
+      ],
+      "class": "declaration_unit_fixture_calls_historical_source_guard",
+      "location": "backend/tests/test_crop_cycle_registered_terminal_publication.py:32",
+      "exception": "ValueError: accepted supervision sources changed",
+      "fix_status": "unimplemented; isolate synthetic declaration fixture while independently preserving actual sources() changed-bytes rejection; do not rewrite old reference or production guard"
+    },
+    {
+      "jobs": [
+        5
+      ],
+      "class": "database_teardown_deadlock",
+      "location": "backend/tests/test_runtime_roles.py:101",
+      "exception": "psycopg.errors.DeadlockDetected",
+      "fix_status": "cause not confirmed; inspect concurrent transaction/lock lifetime and reproduce before any correction"
+    },
+    {
+      "jobs": [
+        1,
+        5
+      ],
+      "class": "login_schema_role_passfile_audit_nonzero",
+      "locations": [
+        "backend/tests/test_login_hba_audit.py:40",
+        "backend/tests/test_calculation_operator_config.py:244",
+        "backend/tests/test_crop_cycle_calculation_runtime.py:93"
+      ],
+      "fix_status": "cause not confirmed; separate partition1 audit from partition5 deadlock; preserve assertions and verify cleanup"
+    }
+  ],
+  "previous_host_scram_candidate_accepted": false,
+  "full_backend_and_UID_inventory_acceptance": false,
+  "current_local_candidate": "470341158dcc8ccda1d244a018f5eae072bab716",
+  "current_local_candidate_hosted_acceptance": false,
+  "frozen_full_producer_modified": false,
+  "runtime_or_workflow_changes_this_triage": false,
+  "head_sha": "8dd386dca7f6cc831ac43a9c83b56033bc2f46e3"
+}

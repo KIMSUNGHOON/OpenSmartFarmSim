@@ -19,6 +19,23 @@
   원 plan/key 정상 게시/인증 backup·source 정리/fresh 현재 query·원 종료/자원 감사를 완료해야 한다.
   선언/원 manifest 변경이나 source guard 완화로 대체하지 않는다.
 
+## 작물 회귀 CI의 관측 실패 (2026-10-09)
+
+[8dd386d의 실제 종료/원인 범위](../research/crop-result-ci-terminal-20261009.md)를 근거로 다음 작은 수정만 준비한다.
+운영 기반 고정과 진행 중 frozen producer는 유지한다. 전체 Backend/UID 수용은 미완료다.
+
+- [ ] **`crop-result-ci-child-imports`** — 세 수확 시험의 별도 Python import 실패.
+  `test_crop_harvest_current_query.py`, `test_crop_harvest_runtime_factory.py`, `test_crop_harvest_runtime_tls.py`와 작은 계약.
+  수용: `PYTHONPATH` 없는 조건의 원 실패 재현→명시 자식 경로로 fresh 원 프로세스 종료0,
+  실제 같은 DB/현재 권리·부족한 계정·조회 계산0·수치/FD/비밀/소유 자원 정리를 유지한다.
+- [ ] **`crop-result-ci-publication-fixture`** — 게시 선언 단위 fixture의 과거 source 의존.
+  원8개 setup 실패를 재현하고 합성 fixture를 격리한다. 실제 source guard의 변경 거부를 함께 검증하며
+  과거 영수증·제품 publisher/supervisor·원 frozen source를 바꾸지 않는다.
+- [ ] **`crop-result-ci-cleanup-audit`** — 분할5의 역할 정리 교착과 분할1/5의 자원 감사 실패.
+  원 연결/transaction·잔여 주체를 확인한 뒤 필요한 작은 수정으로 분해한다.
+  수용: 교착/누수 재현→동일 권한/정리 단언과 schema/role/passfile0·원 종료/FD/소유 자원 증거.
+  분할1과5를 같은 DB 사고로 취급하거나 assertion 생략·무조건 재시도로 완료하지 않는다.
+
 ## 최종 제품 UI 통합 (2026-10-09)
 
 [순서·잠정 작업량·날짜 조건](plan.md#최종-제품-ui-통합--2026-10-09-사용자-요청)을 따른다.
