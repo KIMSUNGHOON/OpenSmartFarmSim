@@ -10,6 +10,10 @@
 18:52:18 KST 시작해 durable JSON53개를 저장했다. 아직 DB 등록/독립 대사·fresh 수용 전이며 화면은 기존 완료 생장을 읽는다.
 producer21:52:18 KST 마감과 후속 fresh900초는 감독 상한이다. 수확 API/3D 검증 뒤 사용자 화면 연결을 평가한다.
 
+**수확 API 연결 준비:** [원 저장 결과와 HTTP 응답의 대사](research/crop-harvest-http-reconciliation-20261009.md)를
+새29/기존7=36개·원 종료0으로 확인했다. 현재 소유 합성/보호 ASGI 범위이며 전체 수확 HTTPS/3D·실시간 U3 수용은 아니다.
+같이 관측한 기존 API 시험 자료의 과거 코드 판본 거부74개는 별도 보완 작업으로 남겼다.
+
 **UI 후보 검증:** 목록 선택의 선행 [동일 웹 소스 hosted 회귀](research/crop-ui-web-hosted-regression-20261009.md)는
 웹1,028개·Chromium140개/skip0·타입/일반 빌드/audit가 통과했다. U1의 원3상태 디자인·실제 공동 DB 선택 수용은 남았다.
 이번 [전체 생장 연결/시점 이동](research/crop-full-parent-api-view-preview-20261009.md)은 별도 검증이며 기본 수동 조회를 안내한다.

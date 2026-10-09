@@ -1463,6 +1463,17 @@
       불변 registry·fresh Python 현재 권리/계정 거부·읽기 RHS0·원 종료/소유 정리를 확인한다. API/3D 비용은 별도 실측한다.
     - [ ] **`crop-harvest-full-api-native`** — 선행 전체 writer/registry. 착수 시 실제 보호 API/대표 WebGL과 수동 시험을3~5 core파일로 나눈다.
       수용: 같은 전체 부모/수확의 모든 행 대사와 대표 frame 검사 분리, 실제 bytes/시간·권리/취소/계정·원 종료/WSL 정리. 전체 실행의 관측 예산을 유지한다.
+      - [x] **`crop-harvest-http-reconciliation`** — [core3 계약](../contracts/crop-harvest-http-reconciliation-v1.md)·
+        [로컬 준비 수용](../research/crop-harvest-http-reconciliation-20261009.md), b4f2482.
+        원57894/별도 root9112c1 실제0·새29/기존7=36개·새 정상 writer 소유6행/보호 ASGI,
+        원 저장 summary/page SHA·UTC/수량/단위/순서와 방출 bytes 대사·변경/비용 초과 거부·30초/2MiB 보존.
+        root FD4→4·원본/미리보기/진행 중 전체 writer·소유 정리·512MiB/1GiB를 확인했다.
+        새 실제 DB 서명/TLS/전체 HTTP·3D/U3 수용은 아니다. 전체 writer/fresh 이후 실제 보호 API 비용을 측정한다.
+      - [ ] **`crop-harvest-api-fixture-current-version`** — 위 준비에서 실제 관측한 기존 API 시험 자료 판본 불일치.
+        예정 core3: `backend/tests/test_api_crop_harvest_replay.py`, `backend/tests/test_api_crop_harvest_route.py`, 별도 판본 검증 계약.
+        원8784의 기존74실패는 과거 artifact code9b07f9df/현재eb62fd64 거부다. 과거 영수증/서명/해시를 수정하지 않는다.
+        현재 코드의 새 정상 자료와 과거 판본 거부·검증 범위를 명시해 기존 두 시험 파일을 확인한다.
+        이 자식과 전체 API/대표3D·hosted Backend는 실제 수용 전 체크하지 않는다.
 - [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.
   예정 파일(3): `backend/app/crop_climate_coupling.py`, `backend/tests/test_crop_climate_coupling.py`,
   `contracts/crop-climate-coupling-v1.md`.
