@@ -79,6 +79,14 @@ AI Hub534, EPIS15090553, SmartFarmKorea 작기7581의 공식 식별자·표 설�
 2021 게시물에서 실제 받은 공개 규격 PDF는2022 제정 판본이다. 원 archive에 이를 전이하지 않는다.
 공개 문서 수신과 국내 농장 원자료 수신을 구분하며 확보/권리/G0·독립 관문은 그대로 보류다.
 
+[B 이용 범위 후속 검토](../research/crop-domestic-epis-rights-scope-20261009.md)는
+MAFRA 약관의 시행일·회원/일반 이용 문구, 공공데이터 공통 정책과 현행 제3조를 확인했다.
+무제한 제품 표기를 긍정적 근거로 유지하며 빈 제공자 칸이나 공통 정책만으로 금지/승인을 판정하지 않는다.
+제품/ZIP별 적용관계와 외부 처리 범위는 미해결이다. 다음 증거는 해당 제품과 네 지역 파일을
+특정한 공표기록 또는 권한 있는 설명이며 반복 카탈로그 조회로 대신하지 않는다.
+[native 문맥·13개 snapshot/receipt·출력 hash 재검사](../research/artifacts/crop-domestic-epis-rights-scope-review-20261009.json)를 남겼다.
+원자료 수신/채택·독립 국내 검증 자료는 계속0건이며 권리·법적 결론·관문 승인은 아니다.
+
 [새 국내 연구 온실 경로](../research/crop-domestic-validation-access-followup-20261007.md)는
 DOI `10.3389/fpls.2025.1730694`의 HR17/HR24·2022/2023 실험과 논문 CC BY 표시,
 첨부 `1730694/data-sheet/1` 판본1을 확인했다. 선행 PMC 요청은 DOCX 대신 HTML을 반환했다.
