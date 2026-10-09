@@ -1,0 +1,207 @@
+{
+  "version": "crop-ui-web-hosted-regression-reference-v1",
+  "scope": "fixed_UI_same_web_tree_hosted_software_regression_only",
+  "observed_at_utc": "2026-10-09T06:54:28.005857+00:00",
+  "hosted": {
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37895265205",
+    "run_id": 37895265205,
+    "head_sha": "58adcdde526d15c14f9ebb39063e751f9ca1c2b3",
+    "status": "completed",
+    "conclusion": "success",
+    "job_id": 113705071436,
+    "job_started_at_utc": "2026-10-09T06:46:10Z",
+    "job_completed_at_utc": "2026-10-09T06:52:54Z",
+    "steps": [
+      {
+        "conclusion": "success",
+        "name": "Set up job",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run npm install --global npm@11.16.0",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run npm ci --strict-peer-deps",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run npm run typecheck",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run npm run test",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run npm run build",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run npm audit --audit-level=high",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run npx --no-install playwright install --with-deps chromium",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run npm run test:browser",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Complete job",
+        "status": "completed"
+      }
+    ],
+    "unit_test_files_passed": 26,
+    "unit_tests_passed": 1028,
+    "browser_tests_passed": 140,
+    "browser_failures": 0,
+    "browser_skipped": 0,
+    "browser_workers": 1,
+    "browser_retries": 0,
+    "previous_973c57d_browser_passed_failed": [
+      132,
+      8
+    ],
+    "all_original_gates_preserved": true
+  },
+  "actual_original_tool_exits": {
+    "push_74458": 0,
+    "dispatch_27917": 0,
+    "watch_84660": 0,
+    "log_download_47829": 0,
+    "local_list_128_98041": 0
+  },
+  "source": {
+    "fixed_UI_head": "0f865d16ac5b4316fb286bb69a8977ae0219fdf0",
+    "root_frozen_head": "cb4a5fafc7ea3a9d8a430ecd88eac9ff2212191d",
+    "git_web_tree_oid": "2eba15eaa56c8699a3388f729676d802e56e81aa",
+    "verification_branch": "ci/catalog-web-20261009",
+    "verification_change_files": [
+      ".github/workflows/web-tests.yml"
+    ],
+    "verification_change": "Add workflow_dispatch only; no job/quality-gate change.",
+    "verification_workflow_sha256": "75b1f4f004e85f521fe5d92a93a5df5687ca7317fe826da037c22f2e3adbfa99"
+  },
+  "evidence_sha256": {
+    "hosted_terminal": "f0f587bb20cef464e9cd6ac02b415d43d7e0db19d9ca61b7d2ef5d368fe4c8f4",
+    "hosted_log": "ffdffce935156d4c46d9eed1b36fe884d1a2c3ccec14450f2b7ab006e6dc4aa7",
+    "hosted_log_bytes": 99396,
+    "started_receipt": "01503bdf2462434af6c31c962f90a344a4d135bf73c15d62bb6afbe0d2286ef7",
+    "download_receipt": "eb9e83ffc91ad78d458bbc1eecaef32ae9f3ea6bd6357463fbf405fbbcb23354"
+  },
+  "local_metadata_enumeration": {
+    "scope": "list_only; no local browser or web server started",
+    "actual_command": [
+      "nice",
+      "-n",
+      "19",
+      "node",
+      "--max-old-space-size=128",
+      "--max-semi-space-size=2",
+      "node_modules/@playwright/test/cli.js",
+      "test",
+      "--list",
+      "--reporter=json"
+    ],
+    "actual_exit_code": 0,
+    "wall_seconds": 1.7056354109954555,
+    "all_browser_tests": 140,
+    "file_counts": {
+      "assessment.spec.ts": 6,
+      "authored-financial.spec.ts": 7,
+      "authored-form.spec.ts": 1,
+      "authored-workflow.spec.ts": 6,
+      "break-even.spec.ts": 4,
+      "calculation-cycle-crop-replay.spec.ts": 15,
+      "coupled-crop-replay.spec.ts": 9,
+      "crop-replay.spec.ts": 10,
+      "crop-result-catalog.spec.ts": 8,
+      "cycle-crop-replay.spec.ts": 16,
+      "economics.spec.ts": 3,
+      "harvest-replay.spec.ts": 10,
+      "joint-amendment.spec.ts": 5,
+      "replay-authored.spec.ts": 2,
+      "replay.spec.ts": 4,
+      "selected-crop-replay.spec.ts": 9,
+      "shell.spec.ts": 5,
+      "source-farm.spec.ts": 8,
+      "startup-crop-replay.spec.ts": 12
+    },
+    "test_list_sha256": "bc9893decc8c7eea1fcd0712c747666b8609500dfa2d610b0b0371eb4fd5988c",
+    "single_peak_RSS_bytes": 203333632,
+    "combined_peak_RSS_bytes": 756117504,
+    "sample_interval_seconds": 0.05,
+    "samples": 29,
+    "protected_identities_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "prior_observations": {
+      "original72946_exit_code": 1,
+      "original72946_child_exit_not_retained": true,
+      "diagnostic22598_controller_exit_code": 0,
+      "same64MiB_list_child_exit_code": -6,
+      "same64MiB_list_cause": "V8 heap out of memory; not an executed browser assertion or CI failure",
+      "same64MiB_list_stderr_sha256": "bbe562f88be4248d447f5165d9f14ef17159ac0d81f76e83d7a9801dec56d527",
+      "resolution": "128MiB heap for metadata-only listing under existing single512MiB/combined1GiB observed limits; product heap/settings unchanged"
+    }
+  },
+  "planned_30_browser_criteria_included": {
+    "selected": 9,
+    "catalog": 8,
+    "harvest": 10,
+    "selected_original_growth_criteria": 3,
+    "whole_growth_file_in_full_suite": 15,
+    "four_file_tests_in_full_suite": 42
+  },
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "scope": "Existing web CI manual entry only, same fixed UI tree and all original quality gates; isolate Git worktree while whole crop comparison source is frozen.",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "turn_event_sha256": "d0cf261141ea16fd873f97ea5da247afa5da3867f8f955aeefadfcb11a3e046e",
+    "turn_timestamp": "2026-10-09T06:43:55.192Z"
+  },
+  "not_run_or_accepted": [
+    "No current candidate deployment to localhost:5173",
+    "Original approved desktop-loaded/desktop-empty/mobile-loaded improve and rendered alignment",
+    "Current actual joint DB/API/refresh/backend restart/native WebGL acceptance",
+    "Local browser resource/cleanup acceptance; metadata-only enumeration is not that acceptance",
+    "U1/U3 or full crop parent acceptance",
+    "Existing PR full Backend terminal success/UID matrix",
+    "G0-G4 or actual cultivar/farm forecasts"
+  ],
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed"
+}

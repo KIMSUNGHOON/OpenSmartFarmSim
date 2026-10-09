@@ -117,6 +117,9 @@
     [후보 증거](../research/web-crop-result-replay-selection-candidate-20261009.md): 타입/웹1,011개 자식0,
     일반 빌드 원43788 종료0. 동시 브라우저 자원 초과로 새9개/기존13개는 수용 대기다.
     전체 복구의 게시/보존·source 정리로 자원을 확보한 뒤 검증한다. 실제 목록/App 배포·상위 U1/U3는 미완료다.
+    후속 [같은 웹 소스 hosted 회귀](../research/crop-ui-web-hosted-regression-20261009.md)는
+    선택9/기존13 조건을 포함한 Chromium140개와 타입/웹1,028개·빌드/audit를 통과했다.
+    실제 공동 DB 연결에서 WSL 브라우저 자원·종료/소유 정리를 확인한 뒤 이 자식의 남은 수용을 판단한다.
   - [ ] **`web-crop-result-catalog`** — 선행 보호 API/두 SDK와 선택 전달 자식 수용. 기존 농장 목록/선택에서 SDK로 결과를 찾고
     같은 결과/농장·판본을 기존 생장3D/수확에 전달한다. 수동 ID 복사·token 저장 없이 재선택하며
     빈 목록/hold·현재 권리 실패·취소/늦은 응답·키보드/좁은 화면을 검증한다.
@@ -133,6 +136,9 @@
     목록 접근성 이름·부모 summary 검사 순서를 수정했고 수정판 브라우저/이미지·원 디자인/실제 DB 수용은 남았다.
     [수정판 실제 이미지/Compose](../research/crop-ui-application-runtime-hosted-20261009.md)는 별도37893449391/0f865d1 success다.
     원 PNG export·두 이미지·API/작업자/소비자/scope 검사를 통과했고 브라우저30개·원 디자인/실제 DB·상위 U1/U3는 남았다.
+    후속 [웹37895265205/58adcdd](../research/crop-ui-web-hosted-regression-20261009.md)는 같은 웹 tree의
+    Chromium140개(예정30개 포함)·타입/1,028단위·빌드/audit 통과다. 원3상태 improve/렌더 대조와
+    현재 실제 공동 DB/재시작·WSL 브라우저 자원/정리·화면 배포는 남아 있어 체크하지 않는다.
   - [ ] **`product-ui-result-catalog-native`** — 선행 API/웹. 실제 별도 DB/API/빌드 App에서
     저장 결과 선택→같은 UTC3D/수확·새로고침/백엔드 재시작·철회/계정과 WSL 자원을 확인한다.
     첫 두 판본 연결 뒤 기존 기관/구획/startup 판본의 검색/선택 범위를 대사하고 상위 U1을 판단한다.
