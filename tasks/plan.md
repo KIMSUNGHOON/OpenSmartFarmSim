@@ -105,6 +105,9 @@ U1은 [서버 목록 계약](../contracts/crop-result-catalog-v1.md)의 metadata
 세 자식 import와 게시 선언 fixture의 역사적 source 의존을 먼저 재현/수정하며,
 역할 정리 교착/자원 감사는 별도 원인을 확인한다. 이 낮은 자원 작업은 전체 복구 계산과 병행할 수 있다.
 진행 중 frozen producer와 운영 기반 범위는 유지하고 새 hosted 전체/UID/정리 수용은 별도다.
+선언 source 격리와 세 자식 import는 [고유13개·두 실제 소유 DB의 로컬 수용](../research/crop-result-ci-fixture-compatibility-20261009.md)을
+확인했다. 원83707 종료0/443.008초·PG2개 정리0·보호4/source/dist 보존이다.
+분할5 교착과 분할1/5 잔여 원인·수정 후 hosted18/Backend/UID는 별도 미완료다.
 
 **진행 관측 — 2026-10-09 10:02 KST:** [새 전체 부모 실행](../research/artifacts/crop-harvest-parent-full-started-reference-20261009.json)을09:12 KST 시작했다.
 동일 원 모델/입력의 새166일 계산 판본이며10:02 KST 같은 프로세스의 확정 checkpoint는243,447걸음/commit61이다. 완료/수용은 아니다.

@@ -1,0 +1,371 @@
+{
+  "CI_python_3_12_13_green": {
+    "RSS_samples": 21,
+    "actual_exit_code": 0,
+    "combined_peak_RSS_bytes": 686612480,
+    "commands": [
+      {
+        "actual_exit_code": 0,
+        "label": "focused",
+        "log_sha256": "8b9fa2386fafd98a954d6f62e87d495bf082edc64aca3d21863c5ce448c3504a",
+        "wall_seconds": 2.4612969720037654
+      }
+    ],
+    "core_source_snapshot_sha256": {
+      "backend/tests/test_crop_cycle_registered_terminal_publication.py": "f36e773bbcfbd48489d1b5d926bedd85d9fcd27daafdf898399c135a8e9cee51",
+      "backend/tests/test_crop_harvest_current_query.py": "96041e0bd5f0f2049aa5753e2dcedd8cca1d5094d2a33d27bae6ba82f7e52682",
+      "backend/tests/test_crop_harvest_runtime_factory.py": "d7b9966fdf32c343bf7ab8822b57a331f12728e802441a233505b620a3175a1c",
+      "backend/tests/test_crop_harvest_runtime_tls.py": "bfcf58de134c62d68189524b40c256014e2bda0d44548deeab9f908879f18464",
+      "contracts/crop-result-ci-fixture-compatibility-v1.md": "7a286eb3ebcda80579f6b8d283f20c67ae68fc81987d131de406e10cafbc0e7a"
+    },
+    "native_cli": {
+      "actual_effort": "xhigh",
+      "actual_model": "gpt-6.1-sol",
+      "judgment_scope": "Reproduce and correct hosted crop-result test-fixture source isolation and fresh child import environment. Current exact native CLI; no runtime source guards or agricultural assumptions changed.",
+      "recursive_invocations": 0,
+      "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "timestamp": "2026-10-09T05:24:44.485Z",
+      "turn_event_sha256": "e5ae31c8679d04d79b839ec1a04cb210e943672167e55413414e4ff88a522d5d"
+    },
+    "original_tool_handle": 16391,
+    "owned_non_zombie_remaining": [],
+    "preview_dist_unchanged": true,
+    "protected_process_count_preserved": 4,
+    "reason": null,
+    "sample_interval_seconds": 0.1,
+    "single_PID_peak_RSS_bytes": 128204800,
+    "source_count": 1558,
+    "source_pins_preserved": true,
+    "terminal_receipt_sha256": "a84f494d07da7e64c7f71e14bb377981548c4631d757493a745e080ce20c8454",
+    "wall_limit_seconds": 300,
+    "wall_seconds": 2.514312418992631
+  },
+  "G0_G4": "not_assessed",
+  "TLS_import": {
+    "ci-python-green-v1": {
+      "FD_before_after": [
+        5,
+        5
+      ],
+      "connection_calls": 0,
+      "original_child_exit_code": 0
+    },
+    "pure-green-v1": {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "connection_calls": 0,
+      "original_child_exit_code": 0
+    }
+  },
+  "UI_realtime_or_browser_accepted": false,
+  "accepted_local": true,
+  "actual_crop_Runs": 0,
+  "actual_native_PG_16_15_green": {
+    "PYTHONPATH_in_parent": false,
+    "RSS_samples": 2178,
+    "actual_exit_code": 0,
+    "combined_peak_RSS_bytes": 852099072,
+    "commands": [
+      {
+        "actual_exit_code": 0,
+        "label": "current-query",
+        "log_sha256": "371baa5c37be137751d7a32b24fd11128cd6d8adfc0644742147f017c2d7a7de",
+        "wall_seconds": 385.8758366719994
+      },
+      {
+        "actual_exit_code": 0,
+        "label": "runtime-factory",
+        "log_sha256": "c7f387b1e72991d5a0e62ce4411cc54dddb931bd2b32cc2344c22badca98cb6a",
+        "wall_seconds": 16.97810183800175
+      }
+    ],
+    "core_source_snapshot_sha256": {
+      "backend/tests/test_crop_cycle_registered_terminal_publication.py": "f36e773bbcfbd48489d1b5d926bedd85d9fcd27daafdf898399c135a8e9cee51",
+      "backend/tests/test_crop_harvest_current_query.py": "96041e0bd5f0f2049aa5753e2dcedd8cca1d5094d2a33d27bae6ba82f7e52682",
+      "backend/tests/test_crop_harvest_runtime_factory.py": "d7b9966fdf32c343bf7ab8822b57a331f12728e802441a233505b620a3175a1c",
+      "backend/tests/test_crop_harvest_runtime_tls.py": "bfcf58de134c62d68189524b40c256014e2bda0d44548deeab9f908879f18464",
+      "contracts/crop-result-ci-fixture-compatibility-v1.md": "7a286eb3ebcda80579f6b8d283f20c67ae68fc81987d131de406e10cafbc0e7a"
+    },
+    "explicit_fresh_PG_cleanup": [],
+    "fresh_PG_alive": [],
+    "fresh_PG_pidfiles_remaining": 0,
+    "native_cli": {
+      "actual_effort": "xhigh",
+      "actual_model": "gpt-6.1-sol",
+      "judgment_scope": "Reproduce and correct hosted crop-result test-fixture source isolation and fresh child import environment. Current exact native CLI; no runtime source guards or agricultural assumptions changed.",
+      "recursive_invocations": 0,
+      "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "timestamp": "2026-10-09T05:17:15.321Z",
+      "turn_event_sha256": "0271eb20f27cb09b6df4b416903e5af471cfa751ab4af4b50fd640942169e1c8"
+    },
+    "observed_fresh_PG_count": 2,
+    "original_tool_handle": 83707,
+    "owned_non_zombie_remaining": [],
+    "preview_dist_unchanged": true,
+    "protected_process_count_preserved": 4,
+    "reason": null,
+    "sample_interval_seconds": 0.1,
+    "single_PID_peak_RSS_bytes": 128991232,
+    "source_count": 1558,
+    "source_pins_preserved": true,
+    "terminal_receipt_sha256": "6c5edaedc149c6f8fd74b447ca572bb851b412fbc882c5506e14549800a4cc62",
+    "wall_limit_seconds": 600,
+    "wall_seconds": 443.00816111499444
+  },
+  "cleanup_checks": {
+    "current-query/evidence/database-cleanup.json": {
+      "actual_host_SCRAM": true,
+      "passfiles_after": 0,
+      "roles_after": 0,
+      "schemas_after": 0,
+      "sha256": "eea9f3d2f63619a176d8f959ad429cb764e16276aba5f88492531efe65ab7ae7"
+    },
+    "current-query/evidence/harvest-registry-cleanup.json": {
+      "passfiles_after": 0,
+      "roles_after": 0,
+      "schemas_after": 0,
+      "sha256": "a60140cd43396fa449f17ddd5eb07a102821320d805ad463206faf547d438bc0"
+    },
+    "runtime-factory/evidence/harvest-registry-cleanup.json": {
+      "passfiles_after": 0,
+      "roles_after": 0,
+      "schemas_after": 0,
+      "sha256": "a60140cd43396fa449f17ddd5eb07a102821320d805ad463206faf547d438bc0"
+    }
+  },
+  "core_source_sha256": {
+    "backend/tests/test_crop_cycle_registered_terminal_publication.py": "f36e773bbcfbd48489d1b5d926bedd85d9fcd27daafdf898399c135a8e9cee51",
+    "backend/tests/test_crop_harvest_current_query.py": "96041e0bd5f0f2049aa5753e2dcedd8cca1d5094d2a33d27bae6ba82f7e52682",
+    "backend/tests/test_crop_harvest_runtime_factory.py": "d7b9966fdf32c343bf7ab8822b57a331f12728e802441a233505b620a3175a1c",
+    "backend/tests/test_crop_harvest_runtime_tls.py": "bfcf58de134c62d68189524b40c256014e2bda0d44548deeab9f908879f18464",
+    "contracts/crop-result-ci-fixture-compatibility-v1.md": "7a286eb3ebcda80579f6b8d283f20c67ae68fc81987d131de406e10cafbc0e7a"
+  },
+  "current_query": {
+    "FD_before_after": [
+      13,
+      13
+    ],
+    "RHS_calls": 0,
+    "actual_reader_SCRAM": true,
+    "display_right_withdrawal_denied": true,
+    "evidence_sha256": "80ce019440985db054b4034d5ba2b83ded16eeb60dd93f5c07781d3d2b939cb5",
+    "fresh_child_FD_before_after": [
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "fresh_child_exits": [
+      0,
+      0
+    ],
+    "gates": "not_assessed",
+    "harvest_regeneration_calls": 0,
+    "new_proof_calls": 0,
+    "registration_calls_during_read": 0,
+    "rejected_cases": [
+      "read-scope",
+      "account",
+      "display-right",
+      "foreign-farm",
+      "range",
+      "signature",
+      "artifact-HEAD",
+      "artifact-root",
+      "artifact-page"
+    ],
+    "row_count": 6
+  },
+  "hosted_Backend_or_UID_accepted": false,
+  "local_python_3_12_3_green": {
+    "RSS_samples": 22,
+    "actual_exit_code": 0,
+    "combined_peak_RSS_bytes": 657567744,
+    "commands": [
+      {
+        "actual_exit_code": 0,
+        "label": "focused",
+        "log_sha256": "f4b763cef3bb50e260412e110fb797967e499f61df48e70a5306e4962dd3b6b1",
+        "wall_seconds": 2.54078463697806
+      }
+    ],
+    "core_source_snapshot_sha256": {
+      "backend/tests/test_crop_cycle_registered_terminal_publication.py": "f36e773bbcfbd48489d1b5d926bedd85d9fcd27daafdf898399c135a8e9cee51",
+      "backend/tests/test_crop_harvest_current_query.py": "96041e0bd5f0f2049aa5753e2dcedd8cca1d5094d2a33d27bae6ba82f7e52682",
+      "backend/tests/test_crop_harvest_runtime_factory.py": "d7b9966fdf32c343bf7ab8822b57a331f12728e802441a233505b620a3175a1c",
+      "backend/tests/test_crop_harvest_runtime_tls.py": "bfcf58de134c62d68189524b40c256014e2bda0d44548deeab9f908879f18464",
+      "contracts/crop-result-ci-fixture-compatibility-v1.md": "7a286eb3ebcda80579f6b8d283f20c67ae68fc81987d131de406e10cafbc0e7a"
+    },
+    "native_cli": {
+      "actual_effort": "xhigh",
+      "actual_model": "gpt-6.1-sol",
+      "judgment_scope": "Reproduce and correct hosted crop-result test-fixture source isolation and fresh child import environment. Current exact native CLI; no runtime source guards or agricultural assumptions changed.",
+      "recursive_invocations": 0,
+      "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "timestamp": "2026-10-09T05:17:15.321Z",
+      "turn_event_sha256": "0271eb20f27cb09b6df4b416903e5af471cfa751ab4af4b50fd640942169e1c8"
+    },
+    "original_tool_handle": 30681,
+    "owned_non_zombie_remaining": [],
+    "preview_dist_unchanged": true,
+    "protected_process_count_preserved": 4,
+    "reason": null,
+    "sample_interval_seconds": 0.1,
+    "single_PID_peak_RSS_bytes": 128204800,
+    "source_count": 1558,
+    "source_pins_preserved": true,
+    "terminal_receipt_sha256": "b4a81267f8cb2a7af1e7d9368c5b6277f044cde17cb98135dd320d0c57e53873",
+    "wall_limit_seconds": 300,
+    "wall_seconds": 2.5958971899817698
+  },
+  "native_cases": 2,
+  "observed_at": "2026-10-09T14:29:35+09:00",
+  "original_hosted_head": "8dd386dca7f6cc831ac43a9c83b56033bc2f46e3",
+  "original_hosted_run_id": 37877099838,
+  "original_import_failures": {
+    "PYTHONPATH_absent": true,
+    "cases": [
+      {
+        "exact_missing_module": true,
+        "module": "crop_harvest_tls_fixture",
+        "original_child_exit_code": 1
+      },
+      {
+        "exact_missing_module": true,
+        "module": "test_crop_harvest_current_query",
+        "original_child_exit_code": 1
+      },
+      {
+        "exact_missing_module": true,
+        "module": "test_crop_harvest_runtime_factory",
+        "original_child_exit_code": 1
+      }
+    ]
+  },
+  "original_red": {
+    "RSS_samples": 16,
+    "actual_exit_code": 1,
+    "combined_peak_RSS_bytes": 609816576,
+    "commands": [
+      {
+        "actual_exit_code": 1,
+        "label": "focused",
+        "log_sha256": "656de8481bad58f7866868c3ff1d412f72db29221ffc2eea18ca84f257b0d4e0",
+        "wall_seconds": 1.8389833609980997
+      }
+    ],
+    "core_source_snapshot_sha256": {
+      "backend/tests/test_crop_cycle_registered_terminal_publication.py": "ba58fb324c1fa318d1709d3bd0cd55a8b9346332d0ae5d0b78eab281678ec36b",
+      "backend/tests/test_crop_harvest_current_query.py": "5e4e098d29bd19938ff7b624a431280772474d5133dd0511f2a04fd8e281ec5d",
+      "backend/tests/test_crop_harvest_runtime_factory.py": "d75f60b7782ddeb07dab983a342e59bda4c59648c3ccded5712daa3d324d6f27",
+      "backend/tests/test_crop_harvest_runtime_tls.py": "96cfb30e10ee377bc188e90b05428bcb0e679363518baf7077320c89a5244835"
+    },
+    "native_cli": {
+      "actual_effort": "xhigh",
+      "actual_model": "gpt-6.1-sol",
+      "judgment_scope": "Reproduce and correct hosted crop-result test-fixture source isolation and fresh child import environment. Current exact native CLI; no runtime source guards or agricultural assumptions changed.",
+      "recursive_invocations": 0,
+      "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "timestamp": "2026-10-09T05:17:15.321Z",
+      "turn_event_sha256": "0271eb20f27cb09b6df4b416903e5af471cfa751ab4af4b50fd640942169e1c8"
+    },
+    "original_tool_handle": 89537,
+    "owned_non_zombie_remaining": [],
+    "preview_dist_unchanged": true,
+    "protected_process_count_preserved": 4,
+    "reason": null,
+    "sample_interval_seconds": 0.1,
+    "single_PID_peak_RSS_bytes": 128204800,
+    "source_count": 1557,
+    "source_pins_preserved": true,
+    "terminal_receipt_sha256": "273b480b88a046e4dacd0a57792a8f7cbe44700c28747375866599a113d19b87",
+    "wall_limit_seconds": 300,
+    "wall_seconds": 1.885007022996433
+  },
+  "original_three_import_probe": {
+    "RSS_samples": 1,
+    "actual_exit_code": 0,
+    "combined_peak_RSS_bytes": 480247808,
+    "commands": [
+      {
+        "actual_exit_code": 0,
+        "label": "original-imports",
+        "log_sha256": "fd618445481c8639ab220dbc0700ccb8a1054f1487256a5ab8a5ed41cbaa8799",
+        "wall_seconds": 0.11649380199378356
+      }
+    ],
+    "core_source_snapshot_sha256": {
+      "backend/tests/test_crop_cycle_registered_terminal_publication.py": "f36e773bbcfbd48489d1b5d926bedd85d9fcd27daafdf898399c135a8e9cee51",
+      "backend/tests/test_crop_harvest_current_query.py": "96041e0bd5f0f2049aa5753e2dcedd8cca1d5094d2a33d27bae6ba82f7e52682",
+      "backend/tests/test_crop_harvest_runtime_factory.py": "d7b9966fdf32c343bf7ab8822b57a331f12728e802441a233505b620a3175a1c",
+      "backend/tests/test_crop_harvest_runtime_tls.py": "bfcf58de134c62d68189524b40c256014e2bda0d44548deeab9f908879f18464",
+      "contracts/crop-result-ci-fixture-compatibility-v1.md": "7a286eb3ebcda80579f6b8d283f20c67ae68fc81987d131de406e10cafbc0e7a"
+    },
+    "native_cli": {
+      "actual_effort": "xhigh",
+      "actual_model": "gpt-6.1-sol",
+      "judgment_scope": "Reproduce and correct hosted crop-result test-fixture source isolation and fresh child import environment. Current exact native CLI; no runtime source guards or agricultural assumptions changed.",
+      "recursive_invocations": 0,
+      "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "timestamp": "2026-10-09T05:27:45.154Z",
+      "turn_event_sha256": "a9a8ce4246ebc276981b054e605542e5bdfba5fc09465762697a40e8469748f3"
+    },
+    "original_tool_handle": "exec chunk 28ef82",
+    "owned_non_zombie_remaining": [],
+    "preview_dist_unchanged": true,
+    "protected_process_count_preserved": 4,
+    "reason": null,
+    "sample_interval_seconds": 0.1,
+    "single_PID_peak_RSS_bytes": 128991232,
+    "source_count": 1558,
+    "source_pins_preserved": true,
+    "terminal_receipt_sha256": "8b5af3a0f383793b1a20046b1088f0d8d7e37334af3319955f9e26c2f82ea70c",
+    "wall_limit_seconds": 300,
+    "wall_seconds": 0.1571953310049139
+  },
+  "private_runner_setup_failure": {
+    "actual_exit_code": 1,
+    "cause": "Missing private evidence directory after product import/FD assertions passed. New private green stage creates the directory; no product source changes.",
+    "original_exec_handle": 38631,
+    "stage": "ci-python-red-v1",
+    "terminal_receipt_sha256": "ee4650900ca7fbb35dfcb0935a281f05ab7b103385b1e570a990e2a06c0281c8"
+  },
+  "pure_cases": 11,
+  "remaining": [
+    "hosted PostgreSQL18 regression",
+    "hosted full Backend and distinct Linux UID",
+    "partition5 DROP OWNED deadlock cause and regression",
+    "partition1/5 residual audit causes and regressions",
+    "full166 recovery comparison/publication/backup/restore",
+    "UI catalog integration/browser and U3 realtime execution linkage",
+    "actual cultivar/farm inputs and independent G0-G4 evidence"
+  ],
+  "runtime_factory": {
+    "FD_before_after": [
+      12,
+      12
+    ],
+    "actual_HTTP_TLS_tests": 0,
+    "actual_same_DB_SCRAM": true,
+    "counts_unchanged": true,
+    "current_private_config_denied": true,
+    "evidence_sha256": "b7e76b43f76e1a35b65fcea950d89f4c8ecaa3e9871b8aacc41e19b051e5abfc",
+    "fresh_child_exits": [
+      0,
+      0,
+      0
+    ],
+    "gates": "not_assessed",
+    "new_crop_or_harvest_rows": 0,
+    "normal_queries_have_zero_rows": true,
+    "protected_files_unchanged": true
+  },
+  "schema_version": "crop-result-ci-fixture-compatibility-reference-v1",
+  "unique_pytest_cases_passed": 13
+}

@@ -52,7 +52,12 @@ import crop_harvest_tls_fixture
 assert not calls and before==len(os.listdir('/proc/self/fd'))
 print(json.dumps({'connection_calls':0,'FD_before_after':[before,before]}))
 '''
-    child = subprocess.run([sys.executable, '-c', code], capture_output=True, text=True, timeout=30)
+    child_env = dict(os.environ)
+    child_env['PYTHONPATH'] = os.pathsep.join(
+        [str(Path(__file__).resolve().parents[1]), str(Path(__file__).resolve().parent)]
+        + ([child_env['PYTHONPATH']] if child_env.get('PYTHONPATH') else []))
+    child = subprocess.run([sys.executable, '-c', code], env=child_env,
+        capture_output=True, text=True, timeout=30)
     assert child.returncode == 0 and child.stderr == ''
     save_native('harvest-tls-import.json', {'original_child_exit_code': child.returncode, **json.loads(child.stdout)})
 

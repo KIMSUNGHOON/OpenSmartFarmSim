@@ -294,12 +294,17 @@ def test_actual_reader_display_only_tampering_and_fresh_same_DB(server_setup,nat
             replace_control(rights_path,rights);page_path.chmod(0o600);page_path.write_bytes(saved);page_path.chmod(0o400)
         assert len(os.listdir('/proc/self/fd'))==fd_before
     children=[]
+    child_env=dict(os.environ)
+    child_env['PYTHONPATH']=os.pathsep.join(
+        [str(Path(__file__).resolve().parents[1]),str(Path(__file__).resolve().parent)]
+        +([child_env['PYTHONPATH']] if child_env.get('PYTHONPATH') else []))
     for denied in (False,True):
         replace_control(rights_path,{**rights,'research_display':not denied})
         code='from test_crop_harvest_current_query import fresh_child; import sys; fresh_child(sys.argv[1],sys.argv[2],sys.argv[3]=="denied")'
         argv=[sys.executable,'-c',code,str(bundle_path),bundle_sha,'denied' if denied else 'normal']
         started=perf_counter()
-        child=subprocess.Popen(argv,cwd=Path(__file__).parents[1],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+        child=subprocess.Popen(argv,cwd=Path(__file__).parents[1],env=child_env,
+            stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
         try:stdout,stderr=child.communicate(timeout=120)
         except BaseException:
             child.kill();child.communicate();raise

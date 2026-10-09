@@ -21,16 +21,20 @@
 
 ## 작물 회귀 CI의 관측 실패 (2026-10-09)
 
-[8dd386d의 실제 종료/원인 범위](../research/crop-result-ci-terminal-20261009.md)를 근거로 다음 작은 수정만 준비한다.
+[8dd386d의 실제 종료/원인 범위](../research/crop-result-ci-terminal-20261009.md)를 근거로 다음 작은 수정만 진행한다.
 운영 기반 고정과 진행 중 frozen producer는 유지한다. 전체 Backend/UID 수용은 미완료다.
 
-- [ ] **`crop-result-ci-child-imports`** — 세 수확 시험의 별도 Python import 실패.
+- [x] **`crop-result-ci-child-imports`** — 세 수확 시험의 별도 Python import 실패.
   `test_crop_harvest_current_query.py`, `test_crop_harvest_runtime_factory.py`, `test_crop_harvest_runtime_tls.py`와 작은 계약.
   수용: `PYTHONPATH` 없는 조건의 원 실패 재현→명시 자식 경로로 fresh 원 프로세스 종료0,
   실제 같은 DB/현재 권리·부족한 계정·조회 계산0·수치/FD/비밀/소유 자원 정리를 유지한다.
-- [ ] **`crop-result-ci-publication-fixture`** — 게시 선언 단위 fixture의 과거 source 의존.
+  [로컬 수용](../research/crop-result-ci-fixture-compatibility-20261009.md): 세 원 import 부재 대조,
+  Python3.12.3/3.12.13 집중11개·실제 소유 SCRAM DB2개/원83707 종료0·fresh 정상/거부·정리0.
+  보호4/source/dist를 보존했다. hosted18/Backend/UID·UI 연결은 미수용이다.
+- [x] **`crop-result-ci-publication-fixture`** — 게시 선언 단위 fixture의 과거 source 의존.
   원8개 setup 실패를 재현하고 합성 fixture를 격리한다. 실제 source guard의 변경 거부를 함께 검증하며
   과거 영수증·제품 publisher/supervisor·원 frozen source를 바꾸지 않는다.
+  위 로컬 수용에서 원8개와 실제 hash 거부2개를 두 Python 환경으로 확인했다.
 - [ ] **`crop-result-ci-cleanup-audit`** — 분할5의 역할 정리 교착과 분할1/5의 자원 감사 실패.
   원 연결/transaction·잔여 주체를 확인한 뒤 필요한 작은 수정으로 분해한다.
   수용: 교착/누수 재현→동일 권한/정리 단언과 schema/role/passfile0·원 종료/FD/소유 자원 증거.

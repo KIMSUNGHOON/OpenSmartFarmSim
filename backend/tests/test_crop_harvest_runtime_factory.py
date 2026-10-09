@@ -318,10 +318,14 @@ def test_actual_protected_operator_fresh_python_same_DB_and_private_denial(
     monkeypatch.setenv('OSSF_OWNED_HARVEST_RESTORE_SHA256',bundle_sha)
     protected={p:(sha256(p.read_bytes()).hexdigest(),p.stat().st_mode,p.stat().st_ino) for p in files+[cert,tls_key]}
     fd=len(os.listdir('/proc/self/fd'));responses=[]
+    child_env=dict(os.environ)
+    child_env['PYTHONPATH']=os.pathsep.join(
+        [str(Path(__file__).resolve().parents[1]),str(Path(__file__).resolve().parent)]
+        +([child_env['PYTHONPATH']] if child_env.get('PYTHONPATH') else []))
     def run(denied=False):
         code='import json,sys;from test_crop_harvest_runtime_factory import owned_child;print(json.dumps(owned_child(sys.argv[1],sys.argv[2],sys.argv[3]=="denied"),sort_keys=True))'
         argv=[sys.executable,'-c',code,str(config_path),config_sha,'denied' if denied else 'normal']
-        started=perf_counter();child=subprocess.run(argv,capture_output=True,text=True,timeout=30)
+        started=perf_counter();child=subprocess.run(argv,env=child_env,capture_output=True,text=True,timeout=30)
         assert child.returncode==0 and child.stderr==''
         value=json.loads(child.stdout);assert value['pid']!=os.getpid()
         responses.append({'original_child_exit_code':child.returncode,'argv_sha256':sha256(json_raw(argv)).hexdigest(),
