@@ -1,0 +1,570 @@
+{
+  "G0_G4": "not_assessed",
+  "UI_API_new_result_store_connected": false,
+  "accepted_pytest_groups": 5,
+  "accepted_stage": "schema-v3",
+  "actual_farm_crop_Runs": 0,
+  "core_commit": "c07cf83c6f484a6640bb3070ecd2d1efd804570f",
+  "core_pins": {
+    "backend/app/crop_climate_joint_result_schema.py": "bc8df78920f620e268c7d4f7c53452e3f9fbdb72a1a5252d97503ecd592cea59",
+    "backend/tests/test_crop_climate_joint_result_schema.py": "58fe60aa4224198fdb5b5c0b73b714799d3777fffa2cba704fa1a13a7d357a2b",
+    "contracts/crop-climate-joint-result-schema-v1.md": "6e983804e787295243732effe990d71835f5db52843f00abf26b25160191ed35"
+  },
+  "decision_id": "joint-result-schema-20261010-c07cf83",
+  "external_holds": [
+    "actual cultivar parameter adoption",
+    "independent local farm measurements",
+    "source rights/G0",
+    "G2/G3a/G3b/G4"
+  ],
+  "fixture_scope": "Synthetic schema-only metadata and generic research job; dummy hashes/signature are not farm registration or signed calculation evidence",
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "new_product_runtime_CLI_invocations": 0,
+    "reasoning_effort": "xhigh",
+    "recursive_CLI_invocations": 0,
+    "reviewable_output": "core module, actual SQL tests and versioned contract; not data/gate approval",
+    "timestamp": "2026-10-09T19:42:50.735Z",
+    "turn_context_line_sha256": "8a3bcff9919d2ac8a8de28dcbb3a0289cccb51374bd2ed1914154d548b361cac"
+  },
+  "not_run": [
+    "previous 82/993 complete regressions",
+    "full 166 day producer",
+    "new result store or roles",
+    "new API or WebGL",
+    "product runtime CLI"
+  ],
+  "prior_custody_reference": {
+    "path": "research/artifacts/crop-climate-joint-server-custody-reference-20261010.json",
+    "sha256": "922975556694da737241d28a37a9bb4d93fded4dd5829dd5c8be01751ad2e44d"
+  },
+  "schema_version": "joint-crop-climate-result-v1",
+  "stages": {
+    "schema-v1": {
+      "actual_pytest_output": "1 passed, 4 setup errors; provisioner Unix-socket trust was incorrectly assumed to use a password",
+      "command_session": 3947,
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "identifiers.json": {
+          "rejected": 8
+        }
+      },
+      "original_tool": "446ad7",
+      "source_pins_sha256": "b18181887b736e753c99cd83f90c4c9899809fd1115dc892eea9eba40bf541ab",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 14,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 426049536,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "log_sha256": "29b3a6818232cc70858d0ea7711dc75e5c8bf32a01f7ea8a2376c8ebce0bb881",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956521,
+            "start_ticks": 24578453
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956523,
+            "start_ticks": 24578464
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956529,
+            "start_ticks": 24578513
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956530,
+            "start_ticks": 24578516
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956531,
+            "start_ticks": 24578516
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956533,
+            "start_ticks": 24578516
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956534,
+            "start_ticks": 24578516
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956535,
+            "start_ticks": 24578516
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956536,
+            "start_ticks": 24578524
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956546,
+            "start_ticks": 24578558
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956549,
+            "start_ticks": 24578580
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956559,
+            "start_ticks": 24578611
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956569,
+            "start_ticks": 24578633
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956579,
+            "start_ticks": 24578663
+          }
+        ],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 147255296,
+        "source_count": 1744,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 3.7569164680026006
+      },
+      "terminal_tool": "f8227d"
+    },
+    "schema-v2": {
+      "actual_pytest_output": ".....                                                                    [100%]\n5 passed in 4.18s\n",
+      "command_session": 30857,
+      "evidence": {
+        "bounds.json": {
+          "accepted_exact_upper_bounds": true,
+          "bad_payload_hash": 1,
+          "one_microsecond_over_horizon_rejected": true,
+          "raw_size_rejections": 2,
+          "rejected_columns": 108
+        },
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "identifiers.json": {
+          "rejected": 8
+        },
+        "identity.json": {
+          "duplicate_install_rejections": 1,
+          "foreign_key_rejections": 2,
+          "hold_zero_steps_accepted": true,
+          "immutable_rejections": 2,
+          "unchanged_payload_sha256": "0cfd8dd16820a96635d2027f7529009cfb6e9418ad13f337de65ddc8f6409df8",
+          "unique_rejections": 3
+        },
+        "raw.json": {
+          "duplicate_top_and_nested": true,
+          "individual_column_pins": 33,
+          "inserted_rows": 0,
+          "rehashed_rejections": 91
+        },
+        "roundtrip.json": {
+          "actual_crop_Runs": 0,
+          "all_column_count": 37,
+          "end_utc": "2026-10-01T00:00:32.123456Z",
+          "equation_calls": 0,
+          "payload_sha256": "a140d69eb959df70b727169fb8a9723d9587877c4beca8cee20deb9ed1d38ebd",
+          "raw_bytes": 1898,
+          "roles": 4,
+          "runtime_denials": 20,
+          "start_utc": "2026-10-01T00:00:00.123456Z"
+        },
+        "test_matching_raw_cannot_bypass_bounds_ids_sha_or_utc[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "test_rehashed_raw_closed_shape_duplicates_types_and_every_pin[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "test_scram_roundtrip_original_bytes_and_no_new_runtime_grants[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "test_unique_intent_tenant_fk_hold_and_immutable_reinstall[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        }
+      },
+      "original_tool": "11a9c9",
+      "source_pins_sha256": "210c3a45c05195082710f736adabdfc62612705518ffd493c48308c94566920a",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 18,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 429457408,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "log_sha256": "62adbc5f54dc2c62117138d69552205bd7d77f4c4705342ea61ca8e3aa431774",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956676,
+            "start_ticks": 24588508
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956678,
+            "start_ticks": 24588519
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956684,
+            "start_ticks": 24588568
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956685,
+            "start_ticks": 24588570
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956686,
+            "start_ticks": 24588570
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956688,
+            "start_ticks": 24588570
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956689,
+            "start_ticks": 24588570
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956690,
+            "start_ticks": 24588570
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956692,
+            "start_ticks": 24588589
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956703,
+            "start_ticks": 24588618
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956727,
+            "start_ticks": 24588641
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956736,
+            "start_ticks": 24588669
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956737,
+            "start_ticks": 24588674
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956742,
+            "start_ticks": 24588717
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956751,
+            "start_ticks": 24588746
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956759,
+            "start_ticks": 24588798
+          }
+        ],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 147255296,
+        "source_count": 1744,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 4.798044149007183
+      },
+      "terminal_tool": "819c6a"
+    },
+    "schema-v3": {
+      "actual_pytest_output": ".....                                                                    [100%]\n5 passed in 4.26s\n",
+      "command_session": 67605,
+      "evidence": {
+        "bounds.json": {
+          "accepted_exact_upper_bounds": true,
+          "bad_payload_hash": 1,
+          "one_microsecond_over_horizon_rejected": true,
+          "raw_size_rejections": 2,
+          "rejected_columns": 108
+        },
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "identifiers.json": {
+          "rejected": 8
+        },
+        "identity.json": {
+          "duplicate_install_rejections": 1,
+          "foreign_key_rejections": 2,
+          "hold_zero_steps_accepted": true,
+          "immutable_rejections": 2,
+          "partial_install_rollback": true,
+          "unchanged_payload_sha256": "103762a2b3bbd0c5b82f0eed35d3cc24fde7ecfa25064ab158fa941034410633",
+          "unique_rejections": 3
+        },
+        "raw.json": {
+          "duplicate_top_and_nested": true,
+          "individual_column_pins": 33,
+          "inserted_rows": 0,
+          "rehashed_rejections": 92
+        },
+        "roundtrip.json": {
+          "actual_crop_Runs": 0,
+          "all_column_count": 37,
+          "end_utc": "2026-10-01T00:00:32.123456Z",
+          "equation_calls": 0,
+          "payload_sha256": "07ca271d50e8bac946c5f49154784b3abe285309c193d9d43b369340d4c6ba09",
+          "raw_bytes": 131072,
+          "roles": 4,
+          "runtime_denials": 20,
+          "start_utc": "2026-10-01T00:00:00.123456Z"
+        },
+        "test_matching_raw_cannot_bypass_bounds_ids_sha_or_utc[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "test_rehashed_raw_closed_shape_duplicates_types_and_every_pin[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "test_scram_roundtrip_original_bytes_and_no_new_runtime_grants[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "test_unique_intent_tenant_fk_hold_and_immutable_reinstall[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        }
+      },
+      "original_tool": "65cb20",
+      "source_pins_sha256": "0181fe406186527de6f0bd6c9c9dd2e92d7002f23db46153b52b65ce19969ff8",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 19,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 428863488,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "log_sha256": "6559fb145de6a82e15bcb0620fd08dd0da93c28e36191bf9976e0c9c50bb3f40",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956841,
+            "start_ticks": 24595560
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956843,
+            "start_ticks": 24595571
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956849,
+            "start_ticks": 24595623
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956850,
+            "start_ticks": 24595625
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956851,
+            "start_ticks": 24595625
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956853,
+            "start_ticks": 24595625
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956854,
+            "start_ticks": 24595625
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956855,
+            "start_ticks": 24595626
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956856,
+            "start_ticks": 24595634
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956865,
+            "start_ticks": 24595662
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956891,
+            "start_ticks": 24595694
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956897,
+            "start_ticks": 24595722
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956902,
+            "start_ticks": 24595732
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956907,
+            "start_ticks": 24595773
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956913,
+            "start_ticks": 24595800
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956917,
+            "start_ticks": 24595809
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956923,
+            "start_ticks": 24595848
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1956941,
+            "start_ticks": 24595879
+          }
+        ],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 147255296,
+        "source_count": 1744,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 5.06779217600706
+      },
+      "terminal_tool": "e4fa9b"
+    }
+  },
+  "status": "locally_accepted_schema_only",
+  "table": "crop_climate_joint_research_results",
+  "version": "joint-crop-climate-result-schema-acceptance-v1"
+}

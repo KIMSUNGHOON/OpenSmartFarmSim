@@ -43,7 +43,9 @@ fresh exec/같은 binding·조회 계산0·마이크로초 UTC/종료1µs 초과
 [서버 서명 이력/재개](../research/crop-climate-joint-server-custody-implementation-20261010.md)도 실제 SCRAM4그룹·
 fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·원 종료/정리로 로컬 수용했다.
 자식 실행 경로 보완 후 부모 PYTHONPATH 없는12개 집중 검사를 통과했다.
-다음은 새 DB 계약→권한→결과 등록/API→같은 시각3D며 온실 경계 조사는 병행한다.
+[새 결과 DB 계약](../research/crop-climate-joint-result-schema-implementation-20261010.md)도 실제 SCRAM5그룹·
+원128KiB/컬럼·UTC·변조/중복/설치 rollback·기존2테이블 보존·원 종료/정리로 로컬 수용했다.
+다음은 명시 권한→결과 등록/API→같은 시각3D며 온실 경계 조사는 병행한다.
 전체 결합·실시간 U3·실제 자료/생산 관문은 미완료다.
 
 **2026-10-09 사용자 확인 화면과 최종 UI:** 기존 App의 실제 API/저장 결과 동시 기동을

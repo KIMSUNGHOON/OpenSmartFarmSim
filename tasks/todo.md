@@ -1692,10 +1692,15 @@
       새 공동 결과/원 evidence·서명/불변 페이지/UTC를 현재 tenant/farm에 원자 등록하고 fresh 현재 권리·원 bytes/이전 결과 공존을 검증한다.
       이후 현재 권리의2MiB API→같은 UTC 수치3D→사용자 실행/U3로 연결한다. 별도 queue/service 추가를 선행 조건으로 두지 않는다.
       아래3자식이 실제 수용된 뒤 부모를 평가한다. 이전 schema는 model/version/ref/scope를 고정하므로 새 tag/계약이 필요하다.
-      - [ ] **`crop-climate-joint-result-schema`** — 다음 core3: `backend/app/crop_climate_joint_result_schema.py`, 해당 tests,
+      - [x] **`crop-climate-joint-result-schema`** — core3: `backend/app/crop_climate_joint_result_schema.py`, 해당 tests,
         `contracts/crop-climate-joint-result-schema-v1.md`. 새 불변 metadata SQL·source/context/UTC/evidence/서명 참조·tenant/farm FK.
         수용: 실제 PG 정상 원 bytes/컬럼·닫힌/중복 JSON·SHA·unique intent·숫자/용량·수정/삭제 거부와 기존 결과 보존, 소유 정리/실제 종료.
-        role/게시/API를 이 자식에 포함하지 않는다. 기존96줄 계약 근거의1–2집중시간 잠정.
+        role/게시/API를 이 자식에 포함하지 않는다.
+        [로컬 수용](../research/crop-climate-joint-result-schema-implementation-20261010.md): 실제 provisioner/runtime SCRAM5그룹·원128KiB/37컬럼·UTC 보존,
+        컬럼108개/raw92개 거부·FK/고유 intent·수정/삭제/중복 설치·중간 실패 rollback·이전2테이블 보존을 통과했다.
+        원67605→e4fa9b 실제0/5.068초·schema/role/passfile/PG 정리·FD4→4·원본2,148/source1,744/UI 보존,
+        .25초 단일/합 RSS147,255,296/428,863,488bytes다. DB FK는 같은 tenant의 jobs 존재이며 실제 농장 검사는 후속 store다.
+        최초 Unix 소켓 trust를 SCRAM으로 잘못 가정한 fixture 오류를 수정했다. 이전82/993·전체166일/API/WebGL은 재실행하지 않았다.
       - [ ] **`crop-climate-joint-result-roles`** — 선행: 새 schema. 기존 역할/설치 경계를 대조해 명시 새 table grant의 변경 파일을 고정한다.
         수용: 기본 false·누락/false/true/잘못된 타입, authority와 다른 역할의 최소 grant·실제 SCRAM/audit·이전 권한/결과 공존.
         기존 runtime_roles321줄 근거의1–2집중시간 잠정. 새 서비스/queue를 만들지 않는다.
