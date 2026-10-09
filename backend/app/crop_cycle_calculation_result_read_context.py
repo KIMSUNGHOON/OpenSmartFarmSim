@@ -104,6 +104,20 @@ class CalculationResultReadContext:
             self.close()
             raise CalculationResultReadContextHold('crop result read context unavailable') from None
 
+    def facts(self):
+        try:
+            self._open()
+            value = {'summary': inputs._json(self._summary_raw),
+                     'context': inputs._json(self._context_raw),
+                     'identity': inputs._json(self._identity_raw)}
+            value['identity'].update(read_context_version=VERSION, read_code_sha256=CODE_SHA256,
+                                     read_dependency_sha256=dict(DEPENDENCY_SHA256))
+            self.recheck()
+            return value
+        except Exception:
+            self.close()
+            raise CalculationResultReadContextHold('crop result read context unavailable') from None
+
     @property
     def summary(self):
         return self._copy(self._summary_raw)
