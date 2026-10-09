@@ -50,7 +50,9 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 [서명 결과 등록/현재 조회](../research/crop-climate-joint-result-store-implementation-20261010.md)도 실제 SCRAM9개·
 별도 exec 원 bytes/UTC·조회 계산0·철회/rollback/충돌/기존2테이블 보존·원 종료/정리로 로컬 수용했다.
 기존 UI 종료 후 보존 원본으로 복구해 인증된 두 summary의 원 wire 일치를 확인했다. 새 공동 모델 UI/실시간 U3 수용은 아니다.
-다음은 닫힌 API 투영→현재 HTTP/runtime→같은 시각3D며 온실 경계 조사는 병행한다.
+[새 결과 API 투영](../research/crop-climate-joint-result-projection-implementation-20261010.md)도 고유40개·원108상태/장부/UTC·fresh 동일 응답·
+실제 SCRAM completed/hold·조회 계산0·원 종료/정리로 로컬 수용했다. HMAC/현재 권리/페이지 소속의 승인은 포함하지 않는다.
+다음은 같은 세션 current reader→HTTP/runtime→같은 시각3D며 온실 경계 조사는 병행한다.
 전체 결합·실시간 U3·실제 자료/생산 관문은 미완료다.
 
 **2026-10-09 사용자 확인 화면과 최종 UI:** 기존 App의 실제 API/저장 결과 동시 기동을

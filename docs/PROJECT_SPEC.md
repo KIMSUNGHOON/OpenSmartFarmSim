@@ -42,7 +42,9 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 [서명 결과 등록/현재 조회](../research/crop-climate-joint-result-store-implementation-20261010.md)도 실제 SCRAM9개·
 별도 exec 원 bytes/UTC·조회 계산0·철회/rollback/충돌/기존2테이블 보존·원 종료/정리로 로컬 수용했다.
 기존 UI 종료를 확인해 보존 원본으로 복구했고 인증된 생장/수확 summary가 원 wire와 일치했다. 새 접속 안내는 web README의 run-v3다.
-[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 닫힌 API 투영→현재 HTTP/runtime→
+[새 결과 API 투영](../research/crop-climate-joint-result-projection-implementation-20261010.md)도 고유40개·원108상태/장부/UTC·fresh 동일 응답·
+실제 SCRAM completed/hold·조회 계산0·원 종료/정리로 로컬 수용했다. HMAC/현재 권리/페이지 소속은 후속 current reader에서 검증한다.
+[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 같은 세션 current reader→HTTP/runtime→
 같은 시각3D며 온실 경계 조사는 병행한다. 새 공동 모델 UI·실시간 U3/관문은 미완료다.
 
 **당시 실행 상태 — 2026-10-09 17:46 KST:** [완료 전체 생장 부모의 실제 API·3D/사용자 기동](../research/crop-full-parent-api-view-preview-20261009.md)을 로컬 수용하고 `http://localhost:5173/`을 전환했다.

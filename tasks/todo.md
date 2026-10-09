@@ -1724,17 +1724,29 @@
         원64000/57435/48880/24586/94592/12534/44137 실제0·합548.478초·FD4→4·원본2,148/source1,753/복구 UI 보존,
         .25초 단일/합 RSS126,730,240/590,618,624bytes다. 약24분에는 UI 종료 확인/복구·집중 검사가 포함된다.
         기존233/82/993·전체166일/새 WebGL은 재실행하지 않았다. HTTP2MiB와3D·사용자 실행/U3는 후속이다.
-    - [ ] **`crop-climate-joint-result-projection`** — 다음 core3: `backend/app/api_crop_climate_joint_replay.py`,
+    - [x] **`crop-climate-joint-result-projection`** — core3: `backend/app/api_crop_climate_joint_replay.py`,
       `backend/tests/test_api_crop_climate_joint_replay.py`, `contracts/api-crop-climate-joint-replay-v1.md`.
       선행: 새 store의 원 metadata/terminal/page. 기존121상태 응답으로 새108상태를 위장하지 않는 닫힌 새 tag/DTO다.
       수용: 같은 source/context/root/crop/batch/zone·원108상태/22장부·사건·UTC/순서/단위·completed/hold/마지막 확정값 보존,
       code/profile/QC 판본·2MiB/페이지 한도·혼합/잘못된 숫자·추가 필드 거부·원 대사/조회 계산0; raw 입력/비밀/권리 내부 기록은 공개 필드에서 제외한다.
-      기존220줄 projection과 이번 원 packet/페이지 근거의2–4집중시간 잠정. 새 HTTP/runtime/브라우저는 이 자식의 수용이 아니다.
+      [cored6313fa/로컬 수용](../research/crop-climate-joint-result-projection-implementation-20261010.md): 같은 core3/source1,758에서 순수38/실제 SCRAM2=40개,
+      원3sample/3event·108상태/장부/마이크로초 UTC·fresh exec1997396 동일3응답·조회8종 계산0·completed/hold/실패 prefix·privacy/2MiB를 확인했다.
+      원43890/15699 실제0·4.150/117.071초·FD4→4·원본2,148/기존 UI 보존·PG/schema/role/passfile/소유 정리,
+      .25초 단일/합 RSS137,621,504/524,496,896bytes다. 첫 감시 ESRCH/시험 socket 소실 실패는 보존하고 private 감시 수정 뒤 같은 core를 재검증했다.
+      HMAC/현재 권리/페이지 인증은 포함하지 않는다. 새 HTTP/runtime/브라우저/U3는 미수용이다.
     - [ ] **`crop-climate-joint-current-http`** — 선행: 새 projection/store.
-      새 current reader/route·기존 API 연결/해당 tests/계약의 변경 경계는 착수 때 고정한다.
       수용: 같은 custody 세션의 현재 농장/자료/계정·서명/원 bytes를 투영/직렬화 전후 확인한 인증 GET,
       summary/samples/events·2MiB·중복/여분 query/본문/연결 종료·404/권한/hold/미조립 거부와 실제 SCRAM/HTTPS·늦은 철회·조회 계산0/FD/원본 보존.
       API 비용을 실측한 뒤 후속 시간 추정을 갱신한다. 별도 queue/service를 추가하지 않는다.
+      - [ ] **`crop-climate-joint-current-query`** — 다음 core3: `backend/app/crop_climate_joint_current_query.py`,
+        `backend/tests/test_crop_climate_joint_current_query.py`, `contracts/crop-climate-joint-current-query-v1.md`.
+        기존 store `_read`와 원 artifact reader를 재사용한다. 수용: 같은 custody 세션에서 원 DB/서명·페이지 소속·current 권리를 유지하며
+        summary/samples/events를 투영/직렬화; late 철회/변조/다른 농장 거부·실제 SCRAM/fresh/원 bytes/조회 계산0·FD/소유 정리.
+        별도 authority/key/서비스를 만들지 않는다.1–2집중시간 잠정이며 원 API 조회 비용/새 계약 오류에 따라 갱신한다.
+      - [ ] **`crop-climate-joint-http-route`** — 위 current reader 뒤 core4: `backend/app/api_crop_climate_joint_route.py`,
+        `backend/app/api.py`, `backend/tests/test_api_crop_climate_joint_route.py`, `contracts/api-crop-climate-joint-route-v1.md`.
+        수용: 동일 jobs/farm/principal 조립의 보호 GET·엄격 query/본문/조기 종료·현재 계정 재검사·no-store/2MiB와 실제 SCRAM/HTTPS,
+        잘못된 조립/404/권한/hold/늦은 철회·원값/조회 계산0/정리.2–3집중시간 잠정; runtime True/브라우저/U3는 후속이다.
     - [ ] **`crop-climate-joint-runtime-assembly`** — 선행: 새 current HTTP·원 input authority/farm/custody/store.
       기존 operator 판본의 새 flag 누락/False 호환을 유지하고 새 명시 True를 활성화하는 닫힌 판본/factory를 조립한다.
       수용: 같은 jobs/farm·정확한 타입/권리/모델/code pin·별도 key·명시 provisioned 권한·미조립/오조립 거부,

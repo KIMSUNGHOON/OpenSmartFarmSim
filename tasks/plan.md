@@ -1054,19 +1054,24 @@ flowchart TD
 | 새 결과 DB 계약 | 새 source/context/UTC/intent/HEAD/root metadata·기존 결과 공존 | [2026-10-10 수용](../research/crop-climate-joint-result-schema-implementation-20261010.md). 실제 SCRAM5그룹·원128KiB/37컬럼·33pin/UTC·컬럼108/raw92거부·중간 설치 rollback·이전2테이블 보존. 약10분 구현/검토·최종5.068초; 농장 FK는 tenant/jobs 존재이며 실제 등록/현재 권리는 후속 store |
 | 새 결과 명시 권한 | 새 schema; 기존 기본 grant·닫힌 operator 형식 보존 | [2026-10-10 수용](../research/crop-climate-joint-result-roles-implementation-20261010.md). 새7/기존226=233개·실제 SCRAM 누락/False/True·84권한씩·원 bytes/UTC·기존2테이블·drift12거부. 원 정상 설정3실패를 보완해 기존 로더132개 통과; core5/기존 설정은 새 flag 누락/False만 호환. 약12분·최종5.080/21.536/35.036초 |
 | 새 결과 등록/현재 조회 | 새 schema/역할·원 server custody/현재 권리 | [2026-10-10 수용](../research/crop-climate-joint-result-store-implementation-20261010.md). core2c0f305/310줄·실제 SCRAM7그룹/9개·fresh1973421 원 bytes/UTC·조회 계산0·철회/rollback/충돌/기존2테이블 원 행·종료/정리. 약24분에는 UI 복구·집중548.478초가 포함됨 |
-| 새 결과 API 투영 | 새 store의 원 metadata/terminal/page; 기존220줄 projection과 대조 | `crop-climate-joint-result-projection` core3. 새108상태/장부/사건/단위/UTC와 code/profile/QC·닫힌 tag/DTO·2MiB·혼합 거부·원 대사/계산0;2–4집중시간 잠정. 실제 품종/독립 자료 확보와 병행 가능 |
+| 새 결과 API 투영 | 새 store의 원 metadata/terminal/page; 닫힌108상태 tag/DTO | [2026-10-10 수용](../research/crop-climate-joint-result-projection-implementation-20261010.md). cored6313fa·고유40개·원량/UTC·fresh3응답 SHA·실제 SCRAM completed/hold·조회 계산0·원 종료/정리. HMAC/권리 승인은 포함하지 않음 |
+| 같은 세션 current reader | 기존 store `_read`/원 artifact reader 재사용·원 페이지 소속/현재 권리·직렬화 전후 검사 | `crop-climate-joint-current-query` core3·실제 SCRAM/fresh·late 철회/변조/원 bytes·계산0/정리;1–2집중시간 잠정 |
+| 보호 HTTP 연결 | 위 reader·원 jobs/farm/principal·엄격 GET | `crop-climate-joint-http-route` core4·실제 SCRAM/HTTPS·query/본문/조기 종료·late 철회/계정/원량/2MiB/정리;2–3집중시간 잠정 |
 | 새 현재 권리·API·3D | forcing 변경 계약은 별도 수용; 새 evidence→현재 농장/자료 권리→server custody/등록→API→같은 시각 수치3D | 기존 exact authority/context 타입으로 위장하지 않는다. 원 code/profile/QC·현재 권리/철회·페이지 응답2MiB/조회 RHS0·같은 UTC3D 수용 뒤 사용자 실행/U3로 연결. 기존121상태/원 결과 보존; 온실 원식 조사 병행 |
 
 고정 LAI 자식 수용일은2026-10-09, 가변 용량/공동 순간 RHS/짧은 적분/원자 관리/자동 구성/분할 복원/UTC/페이지 저장은2026-10-10이다. 온실 경계와 현재 권리/API 비용 관측 전에는
 전체 결합/제품 완료일을 산정하지 않는다. 독립 계측 자료 확보는 그 개발과 병행한다.
 
-**다음 한 단계의 수용 기준:** `crop-climate-joint-result-projection`의 원 수치/UTC에 대한 닫힌 API 투영이다.
-core3는 `backend/app/api_crop_climate_joint_replay.py`, 해당 tests, `contracts/api-crop-climate-joint-replay-v1.md`다.
-같은 farm/crop/batch/zone·원 source/context/UTC/root와 새108상태/22장부·사건/단위/순서·completed/hold/마지막 확정값을 원 저장 행과 대사한다.
-code/profile/QC·2MiB·잘못된 숫자/혼합/추가 필드 거부·조회 계산0을 확인하고 private 입력/권리 내부 기록을 공개 응답에 넣지 않는다.
-기존 operator 판본은 새 flag 누락/False만 호환한다. 투영→현재 reader/HTTP→새 명시 runtime 조립→같은 UTC 수치3D→사용자 실행/U3 순서이며
+**다음 한 단계의 수용 기준:** `crop-climate-joint-current-query`의 같은 custody 세션을 유지한 현재 조회다.
+core3는 `backend/app/crop_climate_joint_current_query.py`, 해당 tests, `contracts/crop-climate-joint-current-query-v1.md`다.
+기존 store `_read`/원 artifact reader로 원 DB/서명/페이지 소속·현재 farm/source/계정을 검증하고 그 세션 안에서 투영/직렬화한다.
+completed/hold·summary/samples/events·원108상태/장부/UTC를 보존하며 늦은 철회·변조·다른 농장을 반환 전에 거부한다.
+실제 SCRAM/fresh·조회 계산0·2MiB·FD/원본/기존 UI/소유 정리가 수용 기준이다. 별도 authority/key/서비스는 추가하지 않는다.
+기존 operator 판본은 새 flag 누락/False만 호환한다. 현재 reader→보호 HTTP→새 명시 runtime 조립→같은 UTC 수치3D→사용자 실행/U3 순서이며
 각 변경 경계/수용은 tasks/todo의 명시 자식으로 남긴다. 별도 queue/service는 선행 조건이 아니다.
-projection은 기존220줄/원 packet32,175bytes와 페이지 경계를 근거로2–4집중시간 잠정이며10/10 연속·새 계약 오류 없음 조건이다.
+투영의 초기2–4시간 추정은 native 최초 설계20:50Z부터 약24분의 개발/검토·실패 재검증 관측으로 갱신한다.
+후속 current reader1–2/HTTP2–3집중시간은 기존 reader/route와 원 store 검사를 근거로 하며10/10 연속·새 계약 오류 없음 조건이다.
+CI·전체 작기 부하·실제 자료 확보와 최종 UI/U3 완료 날짜는 포함하지 않는다.
 schema/역할/store3자식은 작은 합성 저장 부모로 수용했다. 이번 store의 약24분에는 UI 종료 확인/보존 복구와 실제9개 집중 검사가 포함된다.
 기존 UI의 인증된 원 두 summary/계산0을 재확인했고 새 run-v3 안내를 사용한다. 새 공동 모델 API/3D·전체 제품 완료일은 후속 실측과 외부 자료 확보 뒤 갱신한다.
 새 farm 결속에서 확인한0.974/0.935초는 작은 prepare/current 실측이며 전체 producer/API 비용이 아니다.
