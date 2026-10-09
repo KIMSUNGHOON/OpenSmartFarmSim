@@ -1581,8 +1581,10 @@
     총 turnover/단위/domain/numeric hold와 원본2,148/source1,686/FD/미리보기/정리를 통과했다.
     첫 시험 입력 가정 실패1개는 보존했고 실제 overflow 입력으로 고쳤다. 코드/사전 허용 오차 변경0이다.
     단일/합 RSS147,255,296/317,276,160bytes다. 순간 RHS만 수용하며 적분·온실/부모 결합·hosted·UI/U3는 미수용이다.
-  - [ ] **`crop-climate-joint-integration`** — 선행: 새 공동 RHS. 짧은 명시 작기 구간/사건의
+  - [x] **`crop-climate-joint-integration`** — 선행: 새 공동 RHS. 짧은 명시 작기 구간/사건의
     공동 stage·원량·온도/LAI·탄소/열/수증기/물질 경계 수지와 수렴·hold를 검증하고 비용을 실측한다.
+    [세 자식의 로컬 수용/범위](../research/crop-climate-joint-boundary-implementation-20261010.md): 명시 상수 forcing/RGR의
+    bounded 공동 구간/사건이며32초9프로그램·648개/독립5,973수치로 확인했다. 전체 작기·온실·새 저장/3D는 아래 별도 미완료다.
     - [x] **`crop-climate-joint-short-integration`** — [core5 계약](../contracts/crop-climate-joint-short-integration-v1.md): 새 계약/적분/시험/독립 참조/fixture.
       새108상태와 누적 장부, 초 단위 경계·명시 forcing/RGR sampling, signed U/비음수 상태를 구분한다.
       같은 stage RK4·동적 T24/Tsum, 독립 짧은 궤적/각 장부·dt반분·수치/domain hold와 마지막 확정 상태를 검증한다.
@@ -1600,18 +1602,28 @@
       원 초기 사건의 정밀도 실패 재현/과실 수량의 정확 유리수 보완·기존 기준 유지, signed U/온도 포함 사건5수지와
       구성 전역7수지·원본2,148/source1,700/FD/미리보기/정리를 통과했다. 단일/합 RSS147,255,296/328,740,864bytes다.
       순수 사건/명시 시험 구성만 수용하며 자동 구간/사건 실행·부모/온실·새 저장/3D/U3/hosted는 미완료다.
-    - [ ] **`crop-climate-joint-boundary-driver`** — 선행: 짧은 공동 적분과 원자 관리의 로컬 수용.
+    - [x] **`crop-climate-joint-boundary-driver`** — 선행: 짧은 공동 적분과 원자 관리의 로컬 수용.
       새 core5(계약/자동 구성/시험/독립 참조/fixture)로 명시 격자의 구간→관리→사건 후 출력을 연결한다.
       공동108상태·연속22장부와 사건6합계를 구분하고 초기/마지막·같은 경계·전역7수지·실패 prefix를 대사한다.
       기존 동적 RK4/과실 수량 정책을 보존하고 새 clock/입력/수치 identity·RHS 호출/원 종료·FD/WSL 비용을 기록한다.
       한 상수 forcing/RGR의 bounded 구성을 먼저 수용하며 새 UTC/checkpoint/강제 입력 변경·저장/API/3D는 후속이다.
       수용 뒤 부모 짧은 구간/사건을 평가한다. 실측 물성/품종·빈 과실 시간 수렴·관문을 자동 승격하지 않는다.
+      [core12e6d7b/로컬 수용](../research/crop-climate-joint-boundary-implementation-20261010.md): 새72/기존576=648개,
+      원87443/별도56154 실제0·9프로그램/27출력/10사건·독립5,973수치/60수렴 비율(최소15.9560),
+      전역7수지·순서/실패 prefix·512출력/128사건의 실제 상한·선행15파일/9코드·원본2,148/source1,707·FD/정리를 통과했다.
+      단일/합 RSS147,255,296/355,049,472bytes다. UTC/checkpoint/forcing 변경·새 저장/API/3D/U3/관문은 미완료다.
   - [ ] **`crop-climate-greenhouse-boundaries`** — 선행: 고정 LAI 동적 자식; 공동 RHS와 병행 조사 가능.
     복사/PAR·흡수 열, CO₂ 저장/출입·기공의 원문/계수·단위와 시설/제어 경계를 확정한다.
     원 sRsSlope 차원·현장/광/계측 미확인을 자동 보정하지 않는다. 명시 강제 입력 재생은 자동 온실 예측과 구별한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.
     새 continuation/context/checkpoint/불변 artifact→현재 권리 저장/API→같은 UTC3D로 나눈다.
     분할/재개/중단·관리/clock·원량/수지·읽기 재적분0·원 결과 보존을 통과해야 부모를 평가한다.
+    - [ ] **`crop-climate-joint-continuation`** — 다음 core3: `backend/app/crop_climate_joint_continuation.py`,
+      `backend/tests/test_crop_climate_joint_continuation.py`, `contracts/crop-climate-joint-continuation-v1.md`.
+      immutable seed/입력·현재108상태·연속22/사건6/전역7수지·event/output cursor와 코드/프로필/수치 identity를 고정한다.
+      한 번 실행 대 임의 분할·처음/중간/마지막 사건의 정확한 순서/상태·장부 동일성,
+      fresh checkpoint 복원/변조·판본 혼합 거부·실패 prefix·원 종료/FD/자원·비용을 확인한다.
+      원 경계부터 재적분하는 복원을 만들지 않는다. 명시 상수 입력의 elapsed 격자 범위며 UTC/forcing 변경/저장/API/3D는 후속이다.
 - [ ] **`crop-water-nutrient`** — 선행: 작물/기후 결합·배지/급배액/성분 근거.
   예정 파일(3): `backend/app/crop_water_nutrient.py`, `backend/tests/test_crop_water_nutrient.py`,
   `contracts/crop-water-nutrient-v1.md`.
