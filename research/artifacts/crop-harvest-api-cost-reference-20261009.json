@@ -1,0 +1,203 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_crop_Runs": 0,
+  "actual_cultivar_inputs": 0,
+  "all_owned_stopped_data_and_temps_removed": true,
+  "authenticated_backups_preserved": true,
+  "core_commit": "1ca079715b34efa0301e1ecdec952cc00e95493b",
+  "core_sha256": {
+    "backend/tests/test_crop_harvest_api_cost.py": "2a5f13ca6862959499b24882c9d6aa010a55048dc1b2bc7c41c9a9deea197971",
+    "contracts/crop-harvest-api-cost-v1.md": "cb8e87f405a1ff75aa9a7b97b5eb518f675ca5dbff6a607f1cd47aca913a8f0a",
+    "research/crop-harvest-api-cost.py": "85cb4f289d8785c1bb770af58544dad6f4139bc28429f8a855d145b19e5dc687"
+  },
+  "focused": {
+    "actual_exit_code": 0,
+    "passed": 40,
+    "same_final_core_source": true,
+    "seconds": 10.572873007011367,
+    "session_id": 42829,
+    "terminal_chunk": "c7849e"
+  },
+  "full_API_3D_accepted": false,
+  "full_actual_API": {
+    "DB_counts_unchanged": true,
+    "FD_before_after": [
+      3,
+      3
+    ],
+    "HTTPS_closed": true,
+    "accepted": false,
+    "actual_exit_code": 2,
+    "client_bytes": 0,
+    "client_seconds": 30.019468731014058,
+    "completed_success_responses": 0,
+    "diagnostic_completed": true,
+    "first_last_and_full_HTTP_denials_not_run": true,
+    "hold_reason": "request_timeout",
+    "label": "summary",
+    "original_sources_preserved": true,
+    "peak_active_reads": 1,
+    "read_RHS_harvest_generation_registration_proof_calls": 0,
+    "root_actual_exit_code": 0,
+    "root_session_id": 39119,
+    "root_terminal_chunk": "e2c3af",
+    "same_actual_SCRAM_DB": true,
+    "server_emissions": [
+      {
+        "bytes": 16519,
+        "complete": true,
+        "seconds": 34.61873185800505,
+        "sha256": "42d81bd2cc6c531b381da6ba0299532855af7ae66baf35ae764083adef46a53f",
+        "status": 200
+      }
+    ],
+    "session_id": 64849,
+    "source_entries": 2927,
+    "terminal_chunk": "278a9e",
+    "wall_seconds": 40.09199199700379
+  },
+  "full_writer_reference_sha256": "b47df6130e34a7db09cd963a60ef935f17cfaeb3ce5fc090cda0cd6518442969",
+  "independent_local_datasets": 0,
+  "limits": {
+    "bytes": 2097152,
+    "seconds": 30
+  },
+  "native_CLI": {
+    "effort": "xhigh",
+    "judgment": "Assemble normal protected harvest API against original authenticated preserved DB and exact frozen backend paths. Measure summary/first64/last1 from actual TLS wire and independent ASGI emission, retaining 30s/2MiB. Reject foreign/scope/current rights; never regenerate harvest or rerun growth. Validate small native path before full-load measurement; preserve live preview and original whole producer.",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "turn_event_sha256": "68745c8f47b5690a986f2b562b76e42f7ab5c8170750610a9eccbe9a886f1aee",
+    "turn_timestamp": "2026-10-09T11:19:33.360Z"
+  },
+  "observation_date": "2026-10-09",
+  "private_evidence_sha256": {
+    "focused-v5/terminal.private.json": "a25e6a95ca1d4f8a1bce653f6769fbfbb2e9fa43735a400f39516f9e828d1ab5",
+    "full-cost-v1/HTTPS/cost.private.json": "ce15aa28dae53aa9b596c7a5f3afcccf49fe2a9c4549d9b63fe9f13b48725c25",
+    "full-cost-v1/root-audit.private.json": "901314e48c8c9142ccab42bb1707d2790ec063585944f1c3f2d993ebf80a0cef",
+    "native-small-v3/HTTPS/cost.private.json": "53a444a5f7d752b643be1eee8837f48315c5dbf9f294b00aa2f8e0e3b93dc26c",
+    "root-audit.private.json": "fb303a5454703356b2e38460e0147b72d3f9b9e1b38f801006e23e18bec708d0"
+  },
+  "production_forecast_margin_ranking": "hold",
+  "realtime_U3_accepted": false,
+  "resources": {
+    "focused": {
+      "RSS_samples": 41,
+      "RSS_scope": "controller/owned children/new PG and exact protected preview and live full-writer controller/producer/PG trees; not whole WSL",
+      "combined_peak_RSS_bytes": 459722752,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 157351936
+    },
+    "full_API": {
+      "RSS_samples": 151,
+      "RSS_scope": "controller/owned children/new PG and exact protected preview and live full-writer controller/producer/PG trees; not whole WSL",
+      "combined_peak_RSS_bytes": 489226240,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 133447680
+    },
+    "small_API": {
+      "RSS_samples": 263,
+      "RSS_scope": "controller/owned children/new PG and exact protected preview and live full-writer controller/producer/PG trees; not whole WSL",
+      "combined_peak_RSS_bytes": 478060544,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 147599360
+    }
+  },
+  "schema_version": "crop-harvest-api-cost-reference-v1",
+  "scope": "owned_synthetic_only",
+  "small_actual_API": {
+    "DB_counts_unchanged": true,
+    "FD_before_after": [
+      3,
+      3
+    ],
+    "accepted": true,
+    "actual_exit_code": 0,
+    "measurement": {
+      "HTTPS": [
+        {
+          "G0_G4": "not_assessed",
+          "bytes": 12453,
+          "label": "summary",
+          "scope": "synthetic_research_only",
+          "seconds": 11.95197222501156,
+          "sha256": "47ea14fc64ca06f8c1033fdec2766529b5a7a47716169853721cd0a3f556da39",
+          "status": 200,
+          "stored_values_equal": true,
+          "version": "owned-harvest-http-reconciliation-v1"
+        },
+        {
+          "G0_G4": "not_assessed",
+          "bytes": 49835,
+          "label": "first",
+          "scope": "synthetic_research_only",
+          "seconds": 19.983117381983902,
+          "sha256": "7d8caa3948e26bdbe0b4887e8d305d47fa01ebbd145bd14551d695271e30acbe",
+          "status": 200,
+          "stored_values_equal": true,
+          "version": "owned-harvest-http-reconciliation-v1"
+        },
+        {
+          "G0_G4": "not_assessed",
+          "bytes": 13594,
+          "label": "last",
+          "scope": "synthetic_research_only",
+          "seconds": 19.88453397899866,
+          "sha256": "78732904090692922e5c2193cf8a2707b9e42c4974209080e7a2664af6370855",
+          "status": 200,
+          "stored_values_equal": true,
+          "version": "owned-harvest-http-reconciliation-v1"
+        },
+        {
+          "G0_G4": "not_assessed",
+          "bytes": 12453,
+          "label": "summary",
+          "scope": "synthetic_research_only",
+          "seconds": 12.02345483400859,
+          "sha256": "47ea14fc64ca06f8c1033fdec2766529b5a7a47716169853721cd0a3f556da39",
+          "status": 200,
+          "stored_values_equal": true,
+          "version": "owned-harvest-http-reconciliation-v1"
+        }
+      ],
+      "HTTPS_closed": true,
+      "HTTPS_denials": [
+        {
+          "bytes": 65,
+          "seconds": 0.0032756089931353927,
+          "sha256": "1ae0610a2bc3c4299f75db4623b6163cb075b5bd5fc5f919848892c95a2b84d2",
+          "status": 403,
+          "subject": "denied"
+        },
+        {
+          "bytes": 76,
+          "seconds": 0.05965413400554098,
+          "sha256": "f490581a2b5368661de0da12a8a679c160c6e6b9bf85b181831327ff4ba25339",
+          "status": 404,
+          "subject": "foreign"
+        },
+        {
+          "bytes": 92,
+          "seconds": 0.5738546939974185,
+          "sha256": "17375dd50200e11b83258c674cf23cb6f2ddd4641aeefa0df37f7bfe7bd1d072",
+          "status": 422,
+          "subject": "owner"
+        }
+      ],
+      "peak_active_reads": 1,
+      "shared_control_files_changed": false
+    },
+    "original_sources_preserved": true,
+    "read_RHS_harvest_generation_registration_proof_calls": 0,
+    "responses": 7,
+    "root_actual_exit_code": 0,
+    "root_session_id": 33791,
+    "root_terminal_chunk": "30daa0",
+    "row_count": 5,
+    "same_actual_SCRAM_DB": true,
+    "session_id": 77863,
+    "source_entries": 1195,
+    "terminal_chunk": "5eeea6",
+    "wall_seconds": 68.44426454900531
+  }
+}

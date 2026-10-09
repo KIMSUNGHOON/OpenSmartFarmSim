@@ -1418,7 +1418,12 @@
       같은 웹 tree·잠금의 빌드를 한도 안에서 재현하거나 실제 hosted 원 빌드/출처가 검증된 산출물을 확보한다.
       소스/동작/권리 검사와512MiB/1GiB 기준을 유지한다. 현재 압축 없는 미리보기의 원 수용과 구분하고
       기존 미리보기/전체 작기 계산을 반복하지 않는다. 일반 운영 용량·U1/U3를 완료 처리하지 않는다.
-    - [ ] **`crop-harvest-full-writer-registry`** — 선행 새 전체 부모 현재 조회. 실제 writer/등록·fresh reader와 집중 시험을3~5 core파일로 나눈다.
+    - [x] **`crop-harvest-full-writer-registry`** — 선행 새 전체 부모 현재 조회. 실제 writer/등록·fresh reader와 집중 시험을3~5 core파일로 나눈다.
+      [전체 로컬 수용](../research/crop-harvest-full-writer-completed-20261009.md): 고정c0cc687·같은 원96517 실제0,
+      producer5,919.306초/fresh211.753초·47,813행 독립 Decimal2200/원 UTC·수량/반올림 수지,
+      정상 등록/인증 backup·원 DB 정지 뒤 동일 record/첫64/끝1·현재 권리/tenant 거부·조회 RHS0을 확인했다.
+      별도 root3349 실제0·원본2,148/FD3→3·84,497,733bytes 정지 소유 data 정리·backup 재검사·미리보기/WSL 상한 보존.
+      전체 API/대표3D·실시간 U3는 이 체크에 포함하지 않는다. 다음 실행 관측은 당시 기록이다.
       [core3 실행 계약](../contracts/crop-harvest-full-writer-v1.md)·[19:00 실행 관측](../research/crop-harvest-full-writer-running-20261009.md):
       고정 c0cc687/원96517을18:52:18 KST 시작했다. 원93770 집중81개 종료0·원 전체 부모/새 profile 사전 검사 통과,
       480.404초의 durable JSON53개/22,904,596bytes이며 DB 등록/backup/전체 대사 미완료다.
@@ -1476,6 +1481,18 @@
         원9291 실제0·기존142/과거 거부3/HTTP 대사29=174개와 실제 DB1개=고유175개·별도 root081c42 실제0.
         원량/UTC·판본 검사/30초·2MiB·읽기 RHS0/FD·DB·원본/미리보기/전체 writer·소유 정리·WSL 상한을 확인했다.
         과거74실패의 로컬 자식만 해소했다. 전체 API/대표3D·U3·hosted Backend는 미수용이다.
+      - [x] **`crop-harvest-api-cost`** — [core3 계약](../contracts/crop-harvest-api-cost-v1.md)·
+        [작은 조립 수용/전체 실측 보류](../research/crop-harvest-api-cost-20261009.md),1ca0797.
+        원42829 실제0·집중40개, 원77863/별도 root33791 실제0·원5행/표준 ApiRuntime/실제 SCRAM·HTTPS7응답,
+        원 저장 summary/page·wire/ASGI SHA·scope/tenant/현재 표시권 거부·복원·읽기 RHS0/FD/정리를 확인했다.
+        전체는 원64849 진단2/별도 root39119 실제0·summary30.019초 timeout/서버34.619초로 보류했다.
+        한도/현재 권리·원본/backup·미리보기는 보존했다. 첫64/끝1·전체 HTTP 거부·대표3D/U3는 미수용이다.
+      - [ ] **`crop-harvest-current-read-cost`** — 선행 위 전체 timeout 실측과 보존된 전체 record.
+        요청 안 중복 부모 조회를 계측하고3~5 core파일의 검사 범위/판본 호환 계약으로 나눈다.
+        수용: 원 artifact/서명·최초 UTC/summary/첫64/끝1·원량 불변, 현재 권리/계정·끝 검사/변조 거부,
+        조회 RHS/수확 생성/등록/증명0, 같은 전체 보호 HTTPS 각30초/2MiB·wire/ASGI 대사·소유 정리/WSL 상한.
+        기존 manifest/decoder pin을 바꾸어 통과시키지 않으며 새 호환 증거는 별도로 보존한다.
+        현재 비용 경계가 통과한 뒤 전체 API/대표 WebGL·수동 확인 부모를 평가한다.
 - [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.
   예정 파일(3): `backend/app/crop_climate_coupling.py`, `backend/tests/test_crop_climate_coupling.py`,
   `contracts/crop-climate-coupling-v1.md`.

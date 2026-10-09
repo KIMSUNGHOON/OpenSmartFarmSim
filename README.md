@@ -6,7 +6,13 @@
 최종 통합 UI는 미완료이며 [U0–U5 작업·수용 기준·잠정 일정](tasks/plan.md#최종-제품-ui-통합--2026-10-09-사용자-요청)을 따른다.
 재생은 저장된 계산 시간의 이동이다. 계산 진행률·새 checkpoint의 실시간 U3와 전체 수확은 아직 연결하지 않았다.
 
-**2026-10-09 19:00 KST 계산 관측:** [정상 전체 수확 writer](research/crop-harvest-full-writer-running-20261009.md)를
+**2026-10-09 최신 수용:** [전체 수확 저장·등록·복원](research/crop-harvest-full-writer-completed-20261009.md)을 완료했다.
+원96517/별도 root3349 실제0·47,813행 Decimal 독립 대사·인증 backup·fresh 동일 결과/현재 권리·소유 정리를 통과했다.
+[보호 API 비용](research/crop-harvest-api-cost-20261009.md)은 집중40개/작은 실제 HTTPS7응답까지 수용했으나,
+전체 summary는30초 timeout(서버34.619초)으로 보류했다. 다음은 중복 부모 조회 비용 보완→전체 API/대표3D다.
+기존 화면은 완료 생장을 읽으며 전체 수확 화면·실시간 U3·실제 품종/독립 자료/관문 수용은 남아 있다.
+
+**당시 2026-10-09 19:00 KST 계산 관측:** [정상 전체 수확 writer](research/crop-harvest-full-writer-running-20261009.md)를
 18:52:18 KST 시작해 durable JSON53개를 저장했다. 아직 DB 등록/독립 대사·fresh 수용 전이며 화면은 기존 완료 생장을 읽는다.
 producer21:52:18 KST 마감과 후속 fresh900초는 감독 상한이다. 수확 API/3D 검증 뒤 사용자 화면 연결을 평가한다.
 
