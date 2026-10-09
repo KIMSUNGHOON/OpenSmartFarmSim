@@ -1,0 +1,180 @@
+{
+  "actual_cultivar_inputs_adopted": 0,
+  "actual_farm_crop_Runs": 0,
+  "actual_original_tool": {
+    "actual_exit_code": 0,
+    "session_id": 52100
+  },
+  "arithmetic": {
+    "all_stored_rows_checked": 5,
+    "artifact_bytes": 64297,
+    "artifact_bytes_identical_to_independent_run_v1": true,
+    "artifact_files": 4,
+    "independent_Decimal_precision": 2200,
+    "page_count": 1,
+    "reference_audit_sha256": "da4e93241ca97fde9a9afe2d78824430dfa0f31927c56eba7b111e8f131659b6",
+    "source_profile_bytes_identical": true,
+    "source_rows_match_accepted_original": true,
+    "stored_rows_regenerated_by_read_or_reference_audit": 0
+  },
+  "artifact": {
+    "key": "e9b24b4070225b1830d95ced24c726622c7923f6d84129d546f0f3eb87bc393c",
+    "row_chain_sha256": "46929618109e5ce2aff85740d15a856e56f32f8ed325e91d2ce22af1eaa0d9a0",
+    "row_count": 5,
+    "sha256": "b00b00bfecaffa632f26fbb4c2d80b943b812973fc716279df4c165f98ce91d7",
+    "writer_code_sha256": "9b07f9df541e9d23078dd8e5878ff7e75938ac2758df8a65061cfd1f527d447e"
+  },
+  "backup": {
+    "DB_roles_parent_and_harvest_keys_preserved": true,
+    "fresh_restored_DB_stopped": true,
+    "max_raw_bytes": 134217728,
+    "original_source_DB_stopped_before_fresh_restore": true,
+    "private_manifest_sha256": "0961b263fda3332d46ea266a28237656b85be1e24fea8a91298841e62776e3fa",
+    "private_material_retained_intentionally": true,
+    "raw_bytes": 330541
+  },
+  "commands": [
+    {
+      "actual_exit_code": 0,
+      "child_terminal": true,
+      "label": "unit",
+      "log_sha256": "37645ba98e29b08be2e245ab6cc01eab018dda9937c4db1d3c762c37cf83ff1a",
+      "reason": null,
+      "wall_seconds": 1.5273262679984327
+    },
+    {
+      "actual_exit_code": 0,
+      "child_terminal": true,
+      "label": "actual",
+      "log_sha256": "75e62d127041612d4b3255f503c6753fdcde93fc3d67041de0f9e44f0366166a",
+      "reason": null,
+      "wall_seconds": 247.42656212701695
+    }
+  ],
+  "current_query": {
+    "actual_host_SCRAM": true,
+    "current_rights_scope_tenant_denied_and_restored": true,
+    "guarded_RHS_row_generation_publication_proof_calls": 0,
+    "pages": {
+      "first": {
+        "count": 5,
+        "next": 5,
+        "rows_sha256": "46929618109e5ce2aff85740d15a856e56f32f8ed325e91d2ce22af1eaa0d9a0",
+        "start": 0,
+        "total": 5
+      },
+      "last": {
+        "count": 1,
+        "next": 5,
+        "rows_sha256": "60b098d6a8b4c0a1afe8dcbd0e5fd43040cacfd4ae2f03242472c3418dc271a3",
+        "start": 4,
+        "total": 5
+      }
+    },
+    "same_original_record_UTC_payload_first_recorded_at": true,
+    "summary_sha256": "0b9d170e593bcc920b60aab64f226a91e17ff540bb9ab9b6f803634bfb15ebf6"
+  },
+  "fresh_Python_actual_exit_code": 0,
+  "full_parent_running": {
+    "accepted": false,
+    "actual_PID": 1508360,
+    "actual_exit_code": null,
+    "commit_count": 61,
+    "original_deadline_KST": "2026-10-09T18:12:12.785366+09:00",
+    "same_process_start_confirmed": true,
+    "session_id": 95086,
+    "steps": 243447
+  },
+  "gates": {
+    "G0": "not_assessed",
+    "G1": "not_assessed",
+    "G2": "not_assessed",
+    "G3a": "not_assessed",
+    "G3b": "not_assessed",
+    "G4": "not_assessed"
+  },
+  "git_main_parent": "bb3dc3f3a03854a46dda3c64751a4df536f3c346",
+  "independent_domestic_farm_datasets": 0,
+  "manual_actual_DB_tests_passed": 1,
+  "native_Codex_CLI": {
+    "effort": "xhigh",
+    "event_sha256": "badaae16f0980f7d09476c2bb8763f52db0613d0dc2dddbe057bdee6b3ab0351",
+    "model": "gpt-6.1-sol",
+    "recursive_cli": false,
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-09T00:46:22.494Z"
+  },
+  "not_run": [
+    "full166_harvest_writer_registry",
+    "new_actual_API_WebGL",
+    "climate_resource_economics",
+    "full_backend_suite",
+    "push",
+    "new_hosted_CI",
+    "actual_crop_independent_validation"
+  ],
+  "observed_at": "2026-10-09T01:02:01.497528+00:00",
+  "original_record": {
+    "payload_sha256": "af9c8ade6e88ebe0f7447bdb7112598fb966399d974267c21b7775667025e913",
+    "recorded_at": "2026-10-09T09:58:36.190107+09:00",
+    "result_id": "crop-harvest-registered-result-v1:e9b24b4070225b1830d95ced24c726622c7923f6d84129d546f0f3eb87bc393c"
+  },
+  "preservation": {
+    "FD_before_after": [
+      12,
+      12
+    ],
+    "core_sha256": {
+      "backend/tests/crop_harvest_storage_preservation_smoke.py": "5c71873d68005996cc9b11b82484b0adf0e1fff5ddc0a0905a38a2f7cca55749",
+      "backend/tests/test_crop_harvest_storage_preservation.py": "51c8ec93b3e70c709644d62252dbf95084ce5ab42db2f9b9dd654f6cb78f8751",
+      "contracts/crop-harvest-storage-preservation-v1.md": "10df283be2a5f295609e7f32fcb8755e5713c7a6d474f7f257c57fc2458d9744",
+      "research/crop-harvest-storage-preservation.py": "135c9c615f3656c1ca6ff73215913954109cb54aa2078752a97b2522b732e337"
+    },
+    "original_backup_bytes_mode_inode": true,
+    "original_input_artifact_bytes_mode_inode": true,
+    "original_source_entries": 22,
+    "private_source_inventory_sha256": "b1cd45773a57954acbf275c1bbae5051bba063be92fbaffe18d9479573db9879",
+    "source_count": 1492,
+    "source_pins_preserved": true
+  },
+  "prior_functional_run": {
+    "actual_exit_code": 0,
+    "final_revision_adds_original_input_artifact_identity_and_FD_assertions": true,
+    "session_id": 51081
+  },
+  "production_forecast_margin_ranking": "hold",
+  "profiles": {
+    "allocation_sha256": "9b3532724f0c05a4463c33f62e50847c2cf83e5fc59190f2c698b3d49e02e085",
+    "evidence_level": "assumed",
+    "mass_sha256": "0801b72a22d235a36407499181b7128f5810b55921c69dcd0a89d19f1b170a38",
+    "origin": "synthetic",
+    "revision": "preserved-parent-synthetic-v1"
+  },
+  "recursive_CLI_calls": 0,
+  "resource": {
+    "PG_processes_seen": 2,
+    "RSS_samples": 2364,
+    "children_at_terminal": "",
+    "combined_owned_pipelines_peak_RSS_bytes": 735162368,
+    "concurrent_full_controller_same_process": true,
+    "original_wall_seconds": 900,
+    "owned_PG_remaining": [],
+    "sample_interval_seconds": 0.1,
+    "single_PID_peak_RSS_bytes": 137162752,
+    "source_temp_directory_absent": true,
+    "wall_seconds": 249.04982235998614
+  },
+  "resource_scope": "sampled storage pipeline plus concurrent owned full calculation; separate brief offline arithmetic observer excluded",
+  "scope": "owned_synthetic_small_storage_only",
+  "source": {
+    "artifact_sha256": "2b80a8c5ee587c6d82ba9c15fbea8e8430999c1be5cd1da5d268cbc1981e1b5c",
+    "input_root_sha256": "84e4d1eb755eae0e8d69516caeaeb5a276755b42bfc23558069af6dbd2ec3c59",
+    "math_manifest_sha256": "05fee90339cf35e9e3de1e89783067363704be8b314ad56d554c191c11f288e7",
+    "payload_sha256": "f17a37800ddce8852a60349619fb665fd1e55f887e73c857d253f8bad5ebbf74",
+    "result_id": "crop-cycle-verified-result-v1:22f888b5b2a7e8148e9cea2e438bb6937caea2986f4ca5d7dd63bbb06aafb91d",
+    "source_status": "completed"
+  },
+  "stopped_clone_and_unit_bytes_released": 168667270,
+  "unit_tests_passed": 10,
+  "version": "crop-harvest-storage-preservation-small-reference-v1"
+}

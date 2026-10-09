@@ -4,13 +4,21 @@
 작물 생장·저장·성장 3D로 진행한다. 첫 작성 시점의 구현 현황은 아래에 남겨두며,
 현재 운영 완료 범위와 CI는 [고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)을 따른다.
 
-**진행 관측 — 2026-10-09 09:14 KST:** [새 전체 부모 실행](../research/artifacts/crop-harvest-parent-full-started-reference-20261009.json)을09:12 KST 시작했다.
-동일 원 모델/입력의 새166일 계산 판본이며 현재 확정 checkpoint 7,980걸음/commit2이다. 완료/수용은 아니다.
+**진행 관측 — 2026-10-09 10:02 KST:** [새 전체 부모 실행](../research/artifacts/crop-harvest-parent-full-started-reference-20261009.json)을09:12 KST 시작했다.
+동일 원 모델/입력의 새166일 계산 판본이며10:02 KST 같은 프로세스의 확정 checkpoint는243,447걸음/commit61이다. 완료/수용은 아니다.
 원9시간 상한18:12 KST·이전 전체7시간15분 근거의16:12–18:12 종료 추정은 조건부다.
 모든 원 행/121상태 대사→정상 게시/인증 보존→원 DB 정리 후 fresh 복원·원 종료/자원 감사 뒤 전체 부모를 평가한다.
 수확 writer/API/3D와 기후/자원/경제·실제 자료 관문은 후속이다.
 
-**최신 수용 — 2026-10-09 09:10 KST:** [정상 producer와 인증 보존의 작은 구성](../research/crop-harvest-parent-production-small-implementation-20261009.md)을
+**최신 수용 — 2026-10-09 10:02 KST:** [새 부모의 작은 수확 저장·보존](../research/crop-harvest-storage-preservation-small-implementation-20261009.md)을
+원52100 종료0·집중10개/실제 DB1개·DB 정지 후 fresh 현재 조회로 로컬 수용했다.
+원5행/UTC·Decimal 독립 대사·서명/최초 시각·현재 권리/계정·조회 재계산0과 원 입력/artifact/FD·소유 정리를 확인했다.
+전체249.050초/900초·raw330,541bytes·동시 전체 계산 포함 RSS 합701.11MiB다. 작은 저장 자식만 완료했다.
+전체 부모는10:02 KST 같은 프로세스에서243,447걸음/commit61로 진행 중이며 원18:12 마감/수용 보류를 유지한다.
+다음은 전체 부모 최종 감사→전체 수확 writer/registry→실제 API/대표3D→기후/자원/Decimal 경제다.
+실제 품종/농장 Run/국내 독립 자료0건·G0–G4/생산/미래 마진/추천 hold와 운영 기반 고정을 유지한다.
+
+**선행 수용 — 2026-10-09 09:10 KST:** [정상 producer와 인증 보존의 작은 구성](../research/crop-harvest-parent-production-small-implementation-20261009.md)을
 원17264 종료0·집중11개/실제 DB1개·원 DB 정리 후 현재 checkout의 fresh 복원으로 로컬 수용했다.
 고정 `dc7b852`의 원392 source guard를 유지하고 작은120걸음/3시점/3사건·121상태/수지를 fresh 대사한 뒤 정상 게시·인증 보존했다.
 전체101.710초/600초·raw308,638bytes·단일/소유 RSS130.61/355.31MiB·1,400 source·소유 정리를 확인했다. 작은 구성만 완료다.

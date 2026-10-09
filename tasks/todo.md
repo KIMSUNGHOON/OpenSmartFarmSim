@@ -1189,6 +1189,14 @@
       실제 SCRAM/current query·별도 Python 조회·현재 권리 철회/복원·계정 거부·읽기 RHS0·원 종료/소유 정리가 수용 기준이다.
       기존 수용 판본은 변경하지 않는다. 종전 복원2–4시간 추정 철회; 이전 전체7시간15분 근거로 준비 후7–9시간 잠정.
     - [ ] **`crop-harvest-full-writer-registry`** — 선행 새 전체 부모 현재 조회. 실제 writer/등록·fresh reader와 집중 시험을3~5 core파일로 나눈다.
+      - [x] **`crop-harvest-storage-preservation-small`** — [core4 계약](../contracts/crop-harvest-storage-preservation-v1.md).
+        전체 부모 계산 대기 중 선행 수용한 작은 부모에서 정상 writer/registry→새 DB·수확 인증 보존→
+        원 DB 정지 뒤 fresh Python 현재 reader를 검증한다. 원 수량/UTC/최초 시각·권리/계정 거부·읽기 재계산0·
+        원 종료/WSL 정리가 기준이다. 전체 writer는 새 전체 부모 수용 뒤에만 실행하며 이 작은 증거로 체크하지 않는다.
+        [로컬 수용](../research/crop-harvest-storage-preservation-small-implementation-20261009.md): 원52100 종료0·집중10개/실제 DB1개·
+        5행/독립 Decimal·원 DB 정지 뒤 fresh 동일 record/UTC/서명·권리/계정·읽기 재계산0.
+        전체249.050초/900초·원 입력/artifact22항목/FD12→12·1,492 source·동시 전체 계산 포함 RSS 합701.11MiB·소유 정리.
+        raw330,541bytes/원 권위 비공개 보존. 전체 부모95086/전체 writer/API·품종·관문은 미수용이다.
       새 부모 source/profile의 명시 새 판본에서 원 계수/배정/수량·UTC를 대사하고 새 페이지/root hash와 공간을 기록한다.
       기존 capacity의 원47,813행/748page·원 수량과 비교하되 구형 source/raw/hash를 새 계보로 재사용하거나 덮어쓰지 않는다.
       불변 registry·fresh Python 현재 권리/계정 거부·읽기 RHS0·원 종료/소유 정리를 확인한다. API/3D 비용은 별도 실측한다.
