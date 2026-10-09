@@ -53,6 +53,15 @@ U1은 [서버 목록 계약](../contracts/crop-result-catalog-v1.md)의 metadata
 다음은 보호 API의 실제 시간/bytes·현재 주체 재확인이고, 다수 목록/동률의 실제 DB 경계도 확인한다.
 기존 화면과 진행 중인 전체 계산은 유지되며 새 목록/실시간 연동은 아직 UI에 연결되지 않았다.
 
+[보호 API와 필요한 등록 비용 보완](../research/crop-result-catalog-api-implementation-20261009.md)은
+최종 집중296개/OpenAPI·실제 SCRAM/HTTPS14응답·생장21건의20+1/동률·수확1건으로 로컬 수용했다.
+실제20건30초 초과를 단계별 동일 등록 검사 묶음으로 보완했고 원 조건/권리/응답 bytes를 보존했다.
+최대20건6.483초/8,237bytes·원7187 종료0·370source/새FD0/소유 정리를 확인했다.
+다음 U1 자식은 SDK/기존 농장 목록에서 결과 선택→실제 DB/API/브라우저다. 실시간 U3는 미완료다.
+기존 hosted Backend의 실제 수확 인증 감사 실패에 필요한
+[초기화 설정 후보](../research/ci-explicit-host-scram-candidate-20261009.md)는 로컬 A/B만 확인했으며
+새 head의 hosted 전체/UID/정리·집계 수용은 기다린다. 운영 기반 범위는 유지한다.
+
 **진행 관측 — 2026-10-09 10:02 KST:** [새 전체 부모 실행](../research/artifacts/crop-harvest-parent-full-started-reference-20261009.json)을09:12 KST 시작했다.
 동일 원 모델/입력의 새166일 계산 판본이며10:02 KST 같은 프로세스의 확정 checkpoint는243,447걸음/commit61이다. 완료/수용은 아니다.
 원9시간 상한18:12 KST·이전 전체7시간15분 근거의16:12–18:12 종료 추정은 조건부다.

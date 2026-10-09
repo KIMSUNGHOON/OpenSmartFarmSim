@@ -30,8 +30,17 @@
     [로컬 증거](../research/crop-result-catalog-metadata-implementation-20261009.md): 집중30개/원26744 종료0,
     실제 SCRAM1개/원48842 종료0·58.297초·두 kind 각1건/5.441·4.753초·60 source/FD12→12·소유 PG 정지,
     동시 전체/미리보기 포함 RSS810,688,512bytes다. 실제20항목 성능/보호 API·화면·상위 U1은 미수용이다.
-  - [ ] **`crop-result-catalog-api`** — 선행 metadata. 기존 현재 query와 같은 인증/런타임에서
+  - [x] **`crop-result-catalog-registration-cost`** — 실제20건의30초 초과에 필요한 metadata 비용 보완.
+    같은 tenant/farm/available_at/period의 등록 검사만 단계별로 묶고 원 함수 SHA·항목별 현재 권리를 유지한다.
+    [수용 증거](../research/crop-result-catalog-api-implementation-20261009.md): 추가 반례9개 RED→GREEN,
+    최종 집중296개·실제 같은21건의20+1 페이지·최대6.483초·원값/권리/370source/새FD0/정리다.
+    서로 다른20개 조건·일반 운영 용량은 미수용이다.
+  - [x] **`crop-result-catalog-api`** — 선행 metadata/필요한 비용 보완. 기존 현재 query와 같은 인증/런타임에서
     보호 GET/닫힌 query·typed response/OpenAPI·no-store·현재 주체 재확인·정해진 시간/bytes를 검증한다.
+    [로컬 증거](../research/crop-result-catalog-api-implementation-20261009.md): 집중296개/원19559 종료0,
+    실제 SCRAM/HTTPS 원7187 종료0·45.661초/상한1,200초·14응답·생장21건/수확1건,
+    최대20건6.483초/8,237bytes·조회 값/RHS/게시/증명0·370source/새FD0·소유 PG/HTTPS 종료다.
+    같은 저장 결과를 재사용했고 UI 목록/실시간·일반 운영 용량/새 hosted 전체 수용은 별도다.
   - [ ] **`web-crop-result-catalog`** — 선행 보호 API. 기존 농장 목록/선택에서 SDK로 결과를 찾고
     같은 결과/농장·판본을 기존 생장3D/수확에 전달한다. 수동 ID 복사·token 저장 없이 재선택하며
     빈 목록/hold·현재 권리 실패·취소/늦은 응답·키보드/좁은 화면을 검증한다.

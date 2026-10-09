@@ -260,8 +260,12 @@ def test_actual_numerical_hold_preserves_only_confirmed_past(tmp_path, monkeypat
 def test_create_app_forwards_explicit_new_readers(monkeypatch):
     jobs = _SchemaOnlyStores(); store = object(); query = object(); seen = []
     monkeypatch.setattr(api, 'install_calculation_cycle_routes', lambda *args, **kwargs: seen.append(kwargs))
+    catalogs = []
+    monkeypatch.setattr(api, 'install_catalog_routes', lambda *args, **kwargs: catalogs.append(kwargs))
     create_app(jobs, jobs, jobs, jobs, principal_provider=current_principal,
         crop_cycle_calculation_result_store=store, crop_cycle_calculation_current_query=query)
+    assert len(catalogs) == 1 and catalogs[0]['calculation_query'] is query
+    assert catalogs[0]['jobs'] is jobs and catalogs[0]['principal_provider'] is current_principal
     assert len(seen) == 1 and seen[0]['store'] is store and seen[0]['query'] is query
     assert seen[0]['jobs'] is jobs and seen[0]['principal_provider'] is current_principal
 

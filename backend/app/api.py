@@ -28,6 +28,7 @@ from .api_crop_coupled_replay import install_coupled_crop_routes
 from .api_crop_startup_replay import install_startup_crop_routes
 from .api_crop_cycle_replay import install_cycle_crop_routes
 from .api_crop_cycle_calculation_route import install_calculation_cycle_routes
+from .api_crop_result_catalog import install_catalog_routes
 from .api_crop_harvest_route import install_harvest_routes
 from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold, ThermalScenarioConflict, IDENTIFIER
 from .thermal_scenario_execution import SCENARIO_SCOPES
@@ -270,6 +271,9 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
         store=crop_cycle_calculation_result_store, query=crop_cycle_calculation_current_query,
         principal_provider=principal_provider, authorized_tenant=authorized_tenant, error=_error, access=_access)
     install_harvest_routes(app, jobs=job_store, farms=farm_authoring_service, query=crop_harvest_current_query,
+        principal_provider=principal_provider, authorized_tenant=authorized_tenant, error=_error, access=_access)
+    install_catalog_routes(app, jobs=job_store, farms=farm_authoring_service,
+        calculation_query=crop_cycle_calculation_current_query, harvest_query=crop_harvest_current_query,
         principal_provider=principal_provider, authorized_tenant=authorized_tenant, error=_error, access=_access)
 
     @app.get('/v1/source-history', response_model=SourceHistoryPage,

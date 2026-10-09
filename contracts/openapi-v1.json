@@ -5988,6 +5988,160 @@
         "title": "FarmReplayScenarioSummary",
         "type": "object"
       },
+      "GrowthCatalog": {
+        "additionalProperties": false,
+        "properties": {
+          "farm": {
+            "$ref": "#/components/schemas/Farm"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/GrowthItem"
+            },
+            "maxItems": 20,
+            "title": "Items",
+            "type": "array"
+          },
+          "kind": {
+            "const": "calculation_cycle_v1",
+            "title": "Kind",
+            "type": "string"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/GrowthCursor"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rights_or_gate_approval": {
+            "const": false,
+            "title": "Rights Or Gate Approval",
+            "type": "boolean"
+          },
+          "scope": {
+            "const": "stored_research_metadata_only",
+            "title": "Scope",
+            "type": "string"
+          },
+          "selection_validation_required": {
+            "const": true,
+            "title": "Selection Validation Required",
+            "type": "boolean"
+          },
+          "version": {
+            "const": "crop-research-result-catalog-v1",
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "scope",
+          "farm",
+          "selection_validation_required",
+          "rights_or_gate_approval",
+          "kind",
+          "items",
+          "next_cursor"
+        ],
+        "title": "GrowthCatalog",
+        "type": "object"
+      },
+      "GrowthCursor": {
+        "additionalProperties": false,
+        "properties": {
+          "recorded_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{6}Z$",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "result_id": {
+            "pattern": "^crop-cycle-verified-result-v1:[0-9a-f]{64}$",
+            "title": "Result Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "recorded_at",
+          "result_id"
+        ],
+        "title": "GrowthCursor",
+        "type": "object"
+      },
+      "GrowthItem": {
+        "additionalProperties": false,
+        "properties": {
+          "calculation_status": {
+            "enum": [
+              "completed",
+              "hold"
+            ],
+            "title": "Calculation Status",
+            "type": "string"
+          },
+          "claim_scope": {
+            "const": "synthetic_crop_math_only",
+            "title": "Claim Scope",
+            "type": "string"
+          },
+          "event_count": {
+            "maximum": 131072.0,
+            "minimum": 0.0,
+            "title": "Event Count",
+            "type": "integer"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{6}Z$",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "result_id": {
+            "pattern": "^crop-cycle-verified-result-v1:[0-9a-f]{64}$",
+            "title": "Result Id",
+            "type": "string"
+          },
+          "revision": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Revision",
+            "type": "string"
+          },
+          "sample_count": {
+            "maximum": 131072.0,
+            "minimum": 0.0,
+            "title": "Sample Count",
+            "type": "integer"
+          },
+          "study_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Study Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "result_id",
+          "recorded_at",
+          "calculation_status",
+          "claim_scope",
+          "study_id",
+          "revision",
+          "period",
+          "sample_count",
+          "event_count"
+        ],
+        "title": "GrowthItem",
+        "type": "object"
+      },
       "Harvest": {
         "additionalProperties": false,
         "properties": {
@@ -6015,6 +6169,141 @@
           "quantity"
         ],
         "title": "Harvest",
+        "type": "object"
+      },
+      "HarvestCatalog": {
+        "additionalProperties": false,
+        "properties": {
+          "farm": {
+            "$ref": "#/components/schemas/Farm"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/HarvestItem"
+            },
+            "maxItems": 20,
+            "title": "Items",
+            "type": "array"
+          },
+          "kind": {
+            "const": "harvest_v1",
+            "title": "Kind",
+            "type": "string"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/HarvestCursor"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rights_or_gate_approval": {
+            "const": false,
+            "title": "Rights Or Gate Approval",
+            "type": "boolean"
+          },
+          "scope": {
+            "const": "stored_research_metadata_only",
+            "title": "Scope",
+            "type": "string"
+          },
+          "selection_validation_required": {
+            "const": true,
+            "title": "Selection Validation Required",
+            "type": "boolean"
+          },
+          "version": {
+            "const": "crop-research-result-catalog-v1",
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "scope",
+          "farm",
+          "selection_validation_required",
+          "rights_or_gate_approval",
+          "kind",
+          "items",
+          "next_cursor"
+        ],
+        "title": "HarvestCatalog",
+        "type": "object"
+      },
+      "HarvestCursor": {
+        "additionalProperties": false,
+        "properties": {
+          "recorded_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{6}Z$",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "result_id": {
+            "pattern": "^crop-harvest-registered-result-v1:[0-9a-f]{64}$",
+            "title": "Result Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "recorded_at",
+          "result_id"
+        ],
+        "title": "HarvestCursor",
+        "type": "object"
+      },
+      "HarvestItem": {
+        "additionalProperties": false,
+        "properties": {
+          "calculation_status": {
+            "enum": [
+              "completed",
+              "hold"
+            ],
+            "title": "Calculation Status",
+            "type": "string"
+          },
+          "claim_scope": {
+            "const": "synthetic_harvest_allocation_math_only",
+            "title": "Claim Scope",
+            "type": "string"
+          },
+          "parent_result_id": {
+            "pattern": "^crop-cycle-verified-result-v1:[0-9a-f]{64}$",
+            "title": "Parent Result Id",
+            "type": "string"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{6}Z$",
+            "title": "Recorded At",
+            "type": "string"
+          },
+          "result_id": {
+            "pattern": "^crop-harvest-registered-result-v1:[0-9a-f]{64}$",
+            "title": "Result Id",
+            "type": "string"
+          },
+          "row_count": {
+            "maximum": 262144.0,
+            "minimum": 0.0,
+            "title": "Row Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "result_id",
+          "recorded_at",
+          "calculation_status",
+          "claim_scope",
+          "parent_result_id",
+          "row_count"
+        ],
+        "title": "HarvestItem",
         "type": "object"
       },
       "HarvestPage": {
@@ -7496,6 +7785,29 @@
           "unit"
         ],
         "title": "PerEquivalent",
+        "type": "object"
+      },
+      "Period": {
+        "additionalProperties": false,
+        "properties": {
+          "end": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "End",
+            "type": "string"
+          },
+          "start": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Start",
+            "type": "string"
+          }
+        },
+        "required": [
+          "start",
+          "end"
+        ],
+        "title": "Period",
         "type": "object"
       },
       "Population": {
@@ -13518,6 +13830,200 @@
           }
         ],
         "summary": "Get Harvest",
+        "x-ossf-required-scopes": [
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read",
+          "crop_result_read"
+        ]
+      }
+    },
+    "/v1/crop-research-result-catalog": {
+      "get": {
+        "operationId": "listCropResearchResults",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "enum": [
+                "calculation_cycle_v1",
+                "harvest_v1"
+              ],
+              "title": "Kind",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "scenario_id",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Scenario Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "scenario_revision",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Scenario Revision",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "registration_sha256",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-f]{64}$",
+              "title": "Registration Sha256",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "crop_id",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Crop Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 10,
+              "maximum": 20,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before_recorded_at",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maxLength": 27,
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{6}Z$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Before Recorded At"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before_result_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "maxLength": 110,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Before Result Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "discriminator": {
+                    "mapping": {
+                      "calculation_cycle_v1": "#/components/schemas/GrowthCatalog",
+                      "harvest_v1": "#/components/schemas/HarvestCatalog"
+                    },
+                    "propertyName": "kind"
+                  },
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/GrowthCatalog"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HarvestCatalog"
+                    }
+                  ],
+                  "title": "Response Listcropresearchresults"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "List Results",
         "x-ossf-required-scopes": [
           "farm_scenario_read",
           "metadata",

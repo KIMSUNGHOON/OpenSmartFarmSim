@@ -33,6 +33,7 @@ OPERATIONS = {
     ('/v1/crop-cycle-research-results/{result_id}','get'): ('getCycleCropResearchResult',list(CROP_READ_SCOPES)),
     ('/v1/crop-cycle-calculation-research-results/{result_id}','get'): ('getCalculationCycleCropResearchResult',list(CROP_READ_SCOPES)),
     ('/v1/crop-harvest-research-results/{result_id}','get'): ('getHarvestResearchResult',list(CROP_READ_SCOPES)),
+    ('/v1/crop-research-result-catalog','get'): ('listCropResearchResults',list(CROP_READ_SCOPES)),
     ('/v1/source-history/{research_job_id}/collections/{collection_job_id}/economic-candidates','get'):
         ('listSourceEconomicCandidates',list(SOURCE_ECONOMIC_READ_SCOPES)),
     ('/v1/source-history/{research_job_id}/collections/{collection_job_id}/economic-candidates/{candidate_id}','get'):
@@ -239,6 +240,8 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
         principal["scopes"] = set(scopes)-{missing}
         status, body, _ = asyncio.run(request(app, path=path, method=method.upper(),
             query=(b'scenario_id=example&scenario_revision=r1' if path in ('/v1/scenarios','/v1/farm-scenarios','/v1/farm-authored-inputs')
+                else b'kind=calculation_cycle_v1&scenario_id=example&scenario_revision=r1&crop_id=crop-1&registration_sha256='+b'a'*64
+                  if path == '/v1/crop-research-result-catalog'
                 else b'scenario_id=example&scenario_revision=r1&crop_id=crop-1&registration_sha256='+b'a'*64
                   if path.startswith(('/v1/crop-research-results/','/v1/crop-coupled-research-results/',
                                       '/v1/crop-startup-research-results/','/v1/crop-cycle-research-results/',
