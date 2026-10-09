@@ -94,6 +94,7 @@ jobs:
           docker run --detach --name "$db_container" \
             --mount "type=bind,source=$secret_dir/container_password,target=/run/secrets/db_password,readonly" \
             --env POSTGRES_PASSWORD_FILE=/run/secrets/db_password \
+            --env 'POSTGRES_INITDB_ARGS=--auth-host=scram-sha-256 --auth-local=trust' \
             --env POSTGRES_USER=ossf_ci \
             --env POSTGRES_DB=ossf_ci \
             --publish 127.0.0.1::5432 \
