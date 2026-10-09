@@ -1,0 +1,127 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted_local": true,
+  "actual_crop_Runs": 0,
+  "core_source_sha256": {
+    "backend/tests/test_crop_harvest_storage_preservation.py": "bb6168dd7356061d15d74ad7f1021ed26b0dec14f44445fea637f5b3323956f5",
+    "contracts/crop-harvest-storage-test-cleanup-v1.md": "f6669e8e7521b24a335bd25351261739408ae3e59a2ac0dbf5cb5588bccebb0d"
+  },
+  "failure_control_receipt_sha256": "b3397166a7bc784f5cf62d87e9d3e7736278fbef45a795c053b0238c766451f8",
+  "focused_pytest_passed": 17,
+  "global_audit_source_assertions_passed": [
+    "test_calculation_operator_config.audit_database schema/role/passfile0",
+    "test_crop_cycle_calculation_runtime.audit_database schema/role/passfile0",
+    "test_api_crop_cycle_calculation_tls.audit_cleanup schema/role/passfile0"
+  ],
+  "global_audit_values_scope": "Assertions in pinned unchanged test source executed through test_login_hba_audit; no separate JSON output emitted by those audits in this run.",
+  "green": {
+    "RSS_samples": 30,
+    "actual_exit_code": 0,
+    "combined_peak_RSS_bytes": 630591488,
+    "commands": [
+      {
+        "actual_exit_code": 0,
+        "label": "focused-sequence",
+        "log_sha256": "3ed614e966e0ff34c6f0e62a7171e94c77301f9207fa7cb9f9b8d518e6720a93",
+        "wall_seconds": 2.5786213119863532
+      },
+      {
+        "actual_exit_code": 0,
+        "label": "failure-control",
+        "log_sha256": "360176ca192d510ddb67688ff9aae00e13de0a3f411cadb40fa1f2b949f30122",
+        "wall_seconds": 0.9236624840123113
+      }
+    ],
+    "core_source_snapshot_sha256": {
+      "backend/tests/test_crop_harvest_storage_preservation.py": "bb6168dd7356061d15d74ad7f1021ed26b0dec14f44445fea637f5b3323956f5",
+      "contracts/crop-harvest-storage-test-cleanup-v1.md": "f6669e8e7521b24a335bd25351261739408ae3e59a2ac0dbf5cb5588bccebb0d"
+    },
+    "explicit_fresh_PG_cleanup": [],
+    "fresh_PG_alive": [],
+    "fresh_PG_pidfiles_remaining": 0,
+    "native_cli": {
+      "actual_effort": "xhigh",
+      "actual_model": "gpt-6.1-sol",
+      "judgment_scope": "Reproduce and correct the hosted partition1 leftover reader.pgpass from the harvest storage credential unit test. Preserve actual SCRAM/HBA/global cleanup assertions and protected full computation/preview. No recursive CLI.",
+      "recursive_invocations": 0,
+      "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "timestamp": "2026-10-09T05:27:45.154Z",
+      "turn_event_sha256": "a9a8ce4246ebc276981b054e605542e5bdfba5fc09465762697a40e8469748f3"
+    },
+    "observed_fresh_PG_count": 1,
+    "original_exec_handle": 86839,
+    "owned_non_zombie_remaining": [],
+    "preview_dist_unchanged": true,
+    "protected_process_count_preserved": 4,
+    "single_PID_peak_RSS_bytes": 128991232,
+    "source_count": 1561,
+    "source_pins_preserved": true,
+    "terminal_receipt_sha256": "b621eec5126132b840629bfc68a3b7b049f6a32ac3be6e337d4560958521c9bd",
+    "wall_limit_seconds": 120,
+    "wall_seconds": 3.650206783990143
+  },
+  "hosted_full_Backend_UID_or_partition5_fix_accepted": false,
+  "normal_basetemp_pgpass_files_after": 0,
+  "observed_at": "2026-10-09T14:34:14+09:00",
+  "original_failure_scope": "reader.pgpass left by test_registry_credentials_are_private_and_cannot_overwrite_existing_file; global calculation loader audit detected one passfile",
+  "original_hosted_run_id": 37877099838,
+  "original_partition1_log_sha256": "c39f2b8c2f84b9123bdb9080832283c3a290f90bba511b0af1e00d948c7178f7",
+  "post_creation_assertion_failure_control": {
+    "normal_and_failed_case_passfiles_after": [
+      0,
+      0
+    ],
+    "normal_unit_passed": true,
+    "post_creation_mode_assertion_failed": true,
+    "production_pgpass_implementation_changed": false
+  },
+  "production_pgpass_code_changed": false,
+  "red": {
+    "RSS_samples": 23,
+    "actual_exit_code": 1,
+    "combined_peak_RSS_bytes": 643862528,
+    "commands": [
+      {
+        "actual_exit_code": 1,
+        "label": "credential-HBA-sequence",
+        "log_sha256": "a29c261428c62677dbda5a2c56e1c117ce6f47ab855d09d95eb69484d3a87e5f",
+        "wall_seconds": 2.7338492239941843
+      }
+    ],
+    "core_source_snapshot_sha256": {
+      "backend/tests/test_crop_harvest_storage_preservation.py": "51c8ec93b3e70c709644d62252dbf95084ce5ab42db2f9b9dd654f6cb78f8751",
+      "contracts/crop-harvest-storage-test-cleanup-v1.md": "f6669e8e7521b24a335bd25351261739408ae3e59a2ac0dbf5cb5588bccebb0d"
+    },
+    "explicit_fresh_PG_cleanup": [],
+    "fresh_PG_alive": [],
+    "fresh_PG_pidfiles_remaining": 0,
+    "native_cli": {
+      "actual_effort": "xhigh",
+      "actual_model": "gpt-6.1-sol",
+      "judgment_scope": "Reproduce and correct the hosted partition1 leftover reader.pgpass from the harvest storage credential unit test. Preserve actual SCRAM/HBA/global cleanup assertions and protected full computation/preview. No recursive CLI.",
+      "recursive_invocations": 0,
+      "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "timestamp": "2026-10-09T05:27:45.154Z",
+      "turn_event_sha256": "a9a8ce4246ebc276981b054e605542e5bdfba5fc09465762697a40e8469748f3"
+    },
+    "observed_fresh_PG_count": 1,
+    "original_exec_handle": 82435,
+    "owned_non_zombie_remaining": [],
+    "preview_dist_unchanged": true,
+    "protected_process_count_preserved": 4,
+    "single_PID_peak_RSS_bytes": 128991232,
+    "source_count": 1561,
+    "source_pins_preserved": true,
+    "terminal_receipt_sha256": "11f899cc2255670777e219e65d4a509f4318914d26473fb2afc8d72af4e82ce1",
+    "wall_limit_seconds": 120,
+    "wall_seconds": 2.8973820400133263
+  },
+  "remaining": [
+    "partition5 role DROP OWNED deadlock and residual audit",
+    "hosted PostgreSQL18/full Backend and distinct Linux UID",
+    "full166 replay/publication/backup/restore",
+    "UI selection/browser and realtime U3",
+    "actual cultivar/farm inputs and independent G0-G4 evidence"
+  ],
+  "schema_version": "crop-harvest-storage-test-cleanup-reference-v1"
+}

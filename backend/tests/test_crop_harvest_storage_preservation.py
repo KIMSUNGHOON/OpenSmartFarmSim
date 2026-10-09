@@ -37,7 +37,11 @@ def test_reader_guard_prevents_new_harvest_rows_and_publication():
 
 
 def test_registry_credentials_are_private_and_cannot_overwrite_existing_file(tmp_path):
-    path = tmp_path/'reader.pgpass';storage.pgpass(path,b'owned-not-production')
-    assert path.stat().st_mode & 0o777 == 0o600
-    with pytest.raises(FileExistsError):storage.pgpass(path,b'changed')
-    assert path.read_bytes() == b'owned-not-production'
+    path = tmp_path/'reader.pgpass'
+    try:
+        storage.pgpass(path,b'owned-not-production')
+        assert path.stat().st_mode & 0o777 == 0o600
+        with pytest.raises(FileExistsError):storage.pgpass(path,b'changed')
+        assert path.read_bytes() == b'owned-not-production'
+    finally:
+        path.unlink(missing_ok=True)

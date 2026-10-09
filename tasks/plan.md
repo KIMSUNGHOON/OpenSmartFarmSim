@@ -108,6 +108,9 @@ U1은 [서버 목록 계약](../contracts/crop-result-catalog-v1.md)의 metadata
 선언 source 격리와 세 자식 import는 [고유13개·두 실제 소유 DB의 로컬 수용](../research/crop-result-ci-fixture-compatibility-20261009.md)을
 확인했다. 원83707 종료0/443.008초·PG2개 정리0·보호4/source/dist 보존이다.
 분할5 교착과 분할1/5 잔여 원인·수정 후 hosted18/Backend/UID는 별도 미완료다.
+분할1은 원 로그의 구체적인 `reader.pgpass` 경로와 같은 순서의 실제 SCRAM 재현으로
+[보존 단위 시험의 파일 누수](../research/crop-harvest-storage-test-cleanup-20261009.md)를 수정/로컬 수용했다.
+원86839 종료0·17개와 생성 후 단언 실패의 소유 파일 정리도 확인했다. 분할5 교착/잔여·hosted는 남아 있다.
 
 **진행 관측 — 2026-10-09 10:02 KST:** [새 전체 부모 실행](../research/artifacts/crop-harvest-parent-full-started-reference-20261009.json)을09:12 KST 시작했다.
 동일 원 모델/입력의 새166일 계산 판본이며10:02 KST 같은 프로세스의 확정 checkpoint는243,447걸음/commit61이다. 완료/수용은 아니다.

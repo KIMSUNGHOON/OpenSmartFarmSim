@@ -39,6 +39,12 @@
   원 연결/transaction·잔여 주체를 확인한 뒤 필요한 작은 수정으로 분해한다.
   수용: 교착/누수 재현→동일 권한/정리 단언과 schema/role/passfile0·원 종료/FD/소유 자원 증거.
   분할1과5를 같은 DB 사고로 취급하거나 assertion 생략·무조건 재시도로 완료하지 않는다.
+  - [x] **`crop-harvest-storage-credential-test-cleanup`** — 분할1의 단위 시험 `reader.pgpass` 잔여1.
+    [계약](../contracts/crop-harvest-storage-test-cleanup-v1.md)과 [로컬 수용](../research/crop-harvest-storage-test-cleanup-20261009.md).
+    같은 pytest/실제 소유 SCRAM의 원82435 종료1·잔여1→원86839 종료0/17개·세 기존 감사0,
+    생성 후 단언 실패 대조·소유 PG/파일 정리와 보호4/source/dist를 확인했다. 제품 저장 함수/감사는 보존했다.
+  - [ ] **`crop-result-ci-role-teardown`** — 분할5의 교착/잔여 주체를 실제 연결·transaction·lock 증거로
+    좁힌 뒤 재현/수정한다. 위 단위 시험 파일 정리를 이 문제나 hosted 전체 수용으로 표시하지 않는다.
 
 ## 최종 제품 UI 통합 (2026-10-09)
 
