@@ -49,7 +49,9 @@ core12e6d7b·새72/기존576=648개·독립5,973수치/60수렴 비율로 수용
 [새 원 입력 검증 증거](../research/crop-climate-joint-input-evidence-implementation-20261010.md)를 로컬 수용했다.
 이번 새82개·원9개 context/UTC·972초기 수치·fresh10개/철회10개·조회 계산0·원 종료/보존/자원을 확인했다.
 기존993개는 재실행하지 않고29선행 core·9코드·16oracle pin을 대사했다.
-다음은 현재 농장/자료 권리 결속→server custody/등록/API→같은 시각3D다.
+[현재 농장/자료 권리 결속](../research/crop-climate-joint-farm-binding-implementation-20261010.md)도 실제 SCRAM6검사 그룹·
+fresh exec/같은 binding·조회 계산0·마이크로초 UTC/종료1µs 초과 거부·현재 철회/정리·원 종료/자원으로 로컬 수용했다.
+다음은 서명된 계산 이력→DB 결과 등록/API→같은 시각3D다.
 복사/CO₂·기공/온실 경계의 원식/단위 조사는 병행하며 자동 온실 예측의 선행 조건은 유지한다.
 사용자 접수/진행 상태 U3와 확정 prefix의 계산 중3D는 별도 수용한다.
 앞선 미리보기0.5–1.5집중시간 추정은 이번 실제 전환 증거로 대체한다. 다음 계산/API 준비일은 계약 분해 뒤 갱신한다.
@@ -1044,19 +1046,20 @@ flowchart TD
 | 새 UTC 결속 | 명시 origin/시각 정밀도·elapsed 원 격자/UTC를 새 identity에 결속·재계산0/원량 보존 | [2026-10-10 수용](../research/crop-climate-joint-time-implementation-20261010.md). 새130/기존786=916개·독립272시각/원5,076수치·23선행 파일/원본 보존·fresh 수치 호출0. 최종80.356초/root7.207초 |
 | 새 불변 페이지 저장/fresh 읽기 | UTC binding·원 source/checkpoint와64sample/8event 페이지·불변 manifest·읽기 RHS0 | [2026-10-10 수용](../research/crop-climate-joint-storage-implementation-20261010.md). 새77/기존916=993개·원5,076수치/46시각·fresh 계산0·실제 HEAD 전후 SIGKILL/재개. 최대 페이지657,049/조회657,237bytes. 최종46.906/기존80.379/root15.409초 |
 | 새 입력 검증 증거 | 새108상태 context/seed·4프로필/notice·UTC/source bytes/QC와 명시 authority/검토 증거 | [2026-10-10 수용](../research/crop-climate-joint-input-evidence-implementation-20261010.md). 새82개·원9개 context/UTC·972초기 수치·fresh10개/철회10개·조회 계산0. 최종5.675/root2.611초·전후 byte 재검사 RED2개 수정/원 실패 보존. 기존993개 재실행 없이29 core/9코드/16oracle pin 보존 |
-| 새 현재 농장/자료 권리 결속 | 새 input evidence·현재 FarmAuthoringService/권리 resolver·등록 농장/crop/batch/zone/기간 | 다음 `crop-climate-joint-farm-binding` core3. 기존140줄/현재 resolver·계약0.5–1h, 구현1–2h, 실제 DB/fresh·현재 권리/혼합1–2h, 기록0.5–1h의3–6집중시간 잠정. 계속 작업/합성 경로·새 외부 자료 불필요 조건의10월10일 검토 목표 |
+| 새 현재 농장/자료 권리 결속 | 새 input evidence·현재 FarmAuthoringService/권리 resolver·등록 농장/crop/batch/zone/기간 | [2026-10-10 수용](../research/crop-climate-joint-farm-binding-implementation-20261010.md). 실제 SCRAM6그룹/3순차·fresh exec PID1920137/같은 binding·계산0. 원 초 단위 helper의 실패를 새 마이크로초 비교로 수정·끝1µs 초과 거부. 정상19.810/권리33.372/경계47.189초·원 종료/정리/보존 |
+| 새 서명 계산 이력 | 현재 farm/source 권리 결속·원108상태 producer/UTC·불변 저장·서버 key | 다음 `crop-climate-joint-server-custody` core3. 원 custody475/새 farm150/저장323줄·계약0.5–1h, 구현1–2h, 작은 실제 producer/HMAC·현재 철회/재시작1–2h, 기록0.5–1h의3–6집중시간 잠정. 기존 exact binding/reader/engine으로 위장하지 않는다 |
 | 새 현재 권리·API·3D | forcing 변경 계약은 별도 수용; 새 evidence→현재 농장/자료 권리→server custody/등록→API→같은 시각 수치3D | 기존 exact authority/context 타입으로 위장하지 않는다. 원 code/profile/QC·현재 권리/철회·페이지 응답2MiB/조회 RHS0·같은 UTC3D 수용 뒤 사용자 실행/U3로 연결. 기존121상태/원 결과 보존; 온실 원식 조사 병행 |
 
 고정 LAI 자식 수용일은2026-10-09, 가변 용량/공동 순간 RHS/짧은 적분/원자 관리/자동 구성/분할 복원/UTC/페이지 저장은2026-10-10이다. 온실 경계와 현재 권리/API 비용 관측 전에는
 전체 결합/제품 완료일을 산정하지 않는다. 독립 계측 자료 확보는 그 개발과 병행한다.
 
-**다음 한 단계의 수용 기준:** `crop-climate-joint-farm-binding`의 실제 등록/현재 권리 결속이다.
-현재 tenant/농장 판본·crop/batch/zone/재배 기간과 원 context/UTC/input evidence를 결속하고,
-현재 원 source 계산·표시권 및 검토 철회를 전후 확인한다. 새 authority의 current verify를 거치며 검증된 record를 무기한 cache하지 않는다.
-실제 등록 DB·다른 계정/기간/원본/모델 혼합·철회·fresh/FD/원 종료/자원을 검증한다.
-이전121상태 CalculationContext로 위장하지 않으며 등록 품종 의도를 검증된 실제 품종으로 표시하지 않는다.
-합성 input math 증거와 실제 G0 채택/현재 farm/display 권리의 승인을 구분한다. 독립 국내 자료 확보와 병행한다.
-그 뒤 server custody/등록/API→같은 UTC3D→사용자 실행/U3를 연결한다.
+**다음 한 단계의 수용 기준:** `crop-climate-joint-server-custody`의 작은 원 producer/서명 이력이다.
+현재 farm/source/검토 권리를 원 intent·분할 계산·HEAD/root의 전후에 적용하고 원 input/context/UTC/checkpoint/원량을 고정한다.
+새 domain HMAC으로 intent/확정 HEAD를 인증하고 다른 tenant/model/source·철회/변조·정상/hold·재시작/원 prefix,
+FD/정리/원 종료/WSL 자원을 실제 작은 producer에서 확인한다. 기존121상태 binding/reader/engine으로 위장하지 않는다.
+다음 새 DB 결과 등록/API→같은 UTC3D→사용자 실행/U3를 연결한다. DB/역할의 변경 범위는 현재 저장 제약 대조 뒤 고정한다.
+새 farm 결속에서 확인한0.974/0.935초는 작은 prepare/current 실측이며 전체 producer/API 비용이 아니다.
+합성 소프트웨어 검증과 실제 G0/현장/미래 게시를 구분하고 독립 국내 자료 확보와 병행한다.
 명시 상수 입력의 UTC/저장은 forcing 변경/자동 온실/전체 작기의 수용을 뜻하지 않는다. 해당 경계·U3·관문은 후속 수용이다.
 G2의 최종 판정에는 검증하는 해당 출력의 계산/재현 증거가 필요하다.
 해외 Reference의 시간대/입력 보류가 국내 독립 자료 확보나 국내 해당 모델의

@@ -1668,11 +1668,24 @@
       선행29 core/9코드/16oracle·원본2,148/source1,729·FD4→4/소유 정리·미리보기 보존을 통과했다.
       최대 source201,751/receipt263,531bytes·단일/합 RSS147,255,296/456,556,544bytes다.
       기존993개 수치 회귀는 재실행하지 않았다. 현재 농장/자료 권리·custody/API/3D/U3·관문은 미완료다.
-    - [ ] **`crop-climate-joint-farm-binding`** — 선행: 새 입력 evidence·현재 FarmAuthoringService/자료 권리 resolver.
+    - [x] **`crop-climate-joint-farm-binding`** — 선행: 새 입력 evidence·현재 FarmAuthoringService/자료 권리 resolver.
       예정 core3: `backend/app/crop_climate_joint_farm_binding.py`, 해당 tests, `contracts/crop-climate-joint-farm-binding-v1.md`.
       현재 tenant/농장 판본·crop/batch/zone·재배 기간·원 source/context/UTC/evidence와 research 계산/표시권을 결속한다.
       실제 등록/현재 권리·철회/다른 계정/기간/모델 혼합·fresh/원본/FD/종료를 검증한다. 등록 의도를 검증된 품종으로 표시하지 않는다.
-      이후 server custody/등록→API→같은 UTC3D→사용자 실행/U3를 작은 후속으로 나눈다.
+      [corec4b8e8e/로컬 수용](../research/crop-climate-joint-farm-binding-implementation-20261010.md): 실제 SCRAM6그룹/3순차·원82955/98468/55560·별도29818 실제0,
+      fresh exec PID1920137/같은 binding·현재 검토 철회·8종 계산 호출0·작물 행/Run0을 확인했다.
+      원 초 단위 UTC helper 실패를 보존하고 마이크로초 원 시각/종료1µs 초과 거부·현재 권리/혼합/callback을 통과했다.
+      정상 prepare0.974/current0.935초·binding6,580bytes·schema/role/passfile/PG 정리·FD4→4,
+      선행32 core/9코드/16oracle·원본2,148/source1,734·미리보기 보존·단일/합 RSS147,255,296/567,664,640bytes다.
+      이전82/993 수치·저장 회귀는 재실행하지 않았다. server custody/DB 등록/API/3D/U3·실제 자료/관문은 미완료다.
+    - [ ] **`crop-climate-joint-server-custody`** — 다음 core3: `backend/app/crop_climate_joint_server_custody.py`,
+      해당 tests, `contracts/crop-climate-joint-server-custody-v1.md`. 선행: 새 farm/input evidence·공동 producer/UTC/불변 저장.
+      원 intent/분할 계산/HEAD/root 전후 현재 farm/source/검토를 검사하고 별도 domain HMAC으로 intent/확정 HEAD를 인증한다.
+      원108상태/context/UTC/checkpoint/원량·작은 정상/hold·계정/source/검토/입력 철회·변조/혼합/재시작/원 prefix·FD/원본/정리/원 종료/자원을 확인한다.
+      원475줄 custody의 exact 이전 binding/reader/engine으로 위장하지 않는다. 새 DB 결과 등록/API/3D와 전체 작기는 후속이다.
+    - [ ] **`crop-climate-joint-result-registry`** — 선행: 새 서명 이력/현재 권리. 현재 저장 schema/역할·판본 제약을 대조해 core 경계를 고정한다.
+      새 공동 결과/원 evidence·서명/불변 페이지/UTC를 현재 tenant/farm에 원자 등록하고 fresh 현재 권리·원 bytes/이전 결과 공존을 검증한다.
+      이후 현재 권리의2MiB API→같은 UTC 수치3D→사용자 실행/U3로 연결한다. 별도 queue/service 추가를 선행 조건으로 두지 않는다.
 - [ ] **`crop-water-nutrient`** — 선행: 작물/기후 결합·배지/급배액/성분 근거.
   예정 파일(3): `backend/app/crop_water_nutrient.py`, `backend/tests/test_crop_water_nutrient.py`,
   `contracts/crop-water-nutrient-v1.md`.
