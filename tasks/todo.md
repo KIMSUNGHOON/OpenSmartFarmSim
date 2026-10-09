@@ -1541,8 +1541,7 @@
       기존37119 종료0/PG data 부재 뒤5173/8445로 전환했고 새24180은 의도적으로 live다. 정상 종료0을 주장하지 않는다.
       최종 브라우저 단일/합 RSS405,037,056/810,868,736bytes·소유 정리를 통과했다. 앞선 실패는 보존한다.
 - [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.
-  예정 파일(3): `backend/app/crop_climate_coupling.py`, `backend/tests/test_crop_climate_coupling.py`,
-  `contracts/crop-climate-coupling-v1.md`.
+  [결합 단계/첫 자식 계약](../contracts/crop-climate-coupling-v1.md)에 새 상태·단위·수치 경계를 고정했다.
   수용: 기존 실내 기온과 수관/광/CO₂·LAI/증산 관계, 시간 간격과 피드백 수지;
   기존 시나리오 작물 계수와 이중 반영 없음. 확인: 집중 열/수증기·탄소 수지/해상도 시험.
   단방향 forcing 재생은 결합 생산 모델과 구별한다.
@@ -1552,7 +1551,32 @@
     원문/Decimal 참조로 대사하고 단위/범위·변조·비유한/overflow/underflow를 거부한다.
     [수용 증거](../research/crop-canopy-exchange-implementation-20261009.md): 독립 5사례/35수치,
     집중35+기존195의 최종230통과·원25915 종료0/2.126초·max RSS56,823,808bytes·원6식/9계수/고지/
-    참조 bytes 재생·producer 고정3파일 동일. 동적 기공/수관 ODE·전체 기후/자원·실제 관문은 미완료다.
+    참조 bytes 재생·producer 고정3파일 동일. 당시 수용은 순간식만이며 후속 동적 자식은 아래와 같다.
+  - [x] **`crop-climate-interface-audit`** — [원문/현재 인터페이스 대조](../research/crop-climate-interface-audit-20261009.md).
+    aggregate C_eff/잠열 중복, 두 포화압·잠열 값, capVpAir 원 선언 차원,
+    온도합 Fraction clock/121상태 비호환·가변 열용량 누락을 확인했다.
+    실제 native CLI6.1-sol/xhigh·원 source/고지 SHA·기존12source핀을 대사했다. 자료/관문 채택은 없다.
+  - [x] **`crop-canopy-air-dynamics`** — 위 계약의 핵심5파일, 고정 양수 LAI의 수관·공기·수증기 질량.
+    [로컬 수용](../research/crop-canopy-air-dynamics-implementation-20261009.md): core ec18ea6·새56/기존230=286개,
+    원62863/별도2945 실제0·독립 Decimal RHS/60초 궤적·각 저장소 수지와 dt반분 수렴,
+    빈 수관/포화/stage/수치 정체 hold·원본2,148/source1,671/미리보기/FD/소유 정리를 통과했다.
+    관측 단일/합 RSS147,255,296/321,839,104bytes다. 새 hosted·crop 성장 피드백·API/3D/U3는 미수용이다.
+  - [ ] **`crop-climate-variable-canopy-energy`** — 다음 작은 단계; 위 동적 자식과 현재 crop LAI/관리식 검토.
+    예정3산출물: 정책 계약, 원문/물질 경계 검토, 독립 열용량/현열 사례.
+    수용: capLeaf*dLAI의 유입/유출 현열·기준온도·새 잎/적엽·빈 수관/재진입 규칙을
+    생장/호흡/관리와 대사한다. 보존하지 않은 항을 잔차0으로 보고하지 않는다. 실제 물성/온도 미확인은 hold.
+  - [ ] **`crop-climate-joint-rhs`** — 선행: 위 에너지 정책·기존 crop startup RHS/프로필과 새 모델 계약.
+    수용: 같은 trial의 leaf→LAI→교환과 Tcan→crop/T24/Tsum·모든 탄소/수증기/열 장부,
+    새 상태/입력/clock identity·단위/관리 순서/현재 domain hold를 독립 참조로 대사한다.
+    기존121상태 checkpoint나 상수 Tcan Fraction clock에 새 상태를 덧붙이지 않는다.
+  - [ ] **`crop-climate-joint-integration`** — 선행: 새 공동 RHS. 짧은 명시 작기 구간/사건의
+    공동 stage·원량·온도/LAI·탄소/열/수증기/물질 경계 수지와 수렴·hold를 검증하고 비용을 실측한다.
+  - [ ] **`crop-climate-greenhouse-boundaries`** — 선행: 고정 LAI 동적 자식; 공동 RHS와 병행 조사 가능.
+    복사/PAR·흡수 열, CO₂ 저장/출입·기공의 원문/계수·단위와 시설/제어 경계를 확정한다.
+    원 sRsSlope 차원·현장/광/계측 미확인을 자동 보정하지 않는다. 명시 강제 입력 재생은 자동 온실 예측과 구별한다.
+  - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.
+    새 continuation/context/checkpoint/불변 artifact→현재 권리 저장/API→같은 UTC3D로 나눈다.
+    분할/재개/중단·관리/clock·원량/수지·읽기 재적분0·원 결과 보존을 통과해야 부모를 평가한다.
 - [ ] **`crop-water-nutrient`** — 선행: 작물/기후 결합·배지/급배액/성분 근거.
   예정 파일(3): `backend/app/crop_water_nutrient.py`, `backend/tests/test_crop_water_nutrient.py`,
   `contracts/crop-water-nutrient-v1.md`.

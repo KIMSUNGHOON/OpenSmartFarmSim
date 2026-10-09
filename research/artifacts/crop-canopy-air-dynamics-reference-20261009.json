@@ -1,0 +1,599 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_cultivar_inputs": 0,
+  "actual_farm_crop_Runs": 0,
+  "core_and_research_sha256": {
+    "backend/app/crop_canopy_air_dynamics.py": "69dbb671d4a9e0cc611b3d26702c45fa88f9d1cb4e3edd85443270951671d052",
+    "backend/tests/test_crop_canopy_air_dynamics.py": "6e3ce3753ee850c0922e432befaacfd8d6057fb2da583e54d114930969445a46",
+    "contracts/crop-climate-coupling-v1.md": "31f31d0780999db50bface1e4a98456c9379d25235a1f946189793ca40c21d93",
+    "fixtures/crop-canopy-air-dynamics-reference-cases-v1.json": "b535ba5483d88c83cefaf1c439a713ba6794806d3ca8288dc9c6c270a5b69ebf",
+    "research/crop-canopy-air-dynamics-reference.py": "6c9e7c5d2698531133414b7817931dfe81dcc95e363ed20c2332dead4a1f95a6",
+    "research/crop-climate-interface-audit-20261009.md": "6edb36c87a66e705b37a0f98e17513476a45e9deafadbfb6c73ae9a9bb24810f"
+  },
+  "core_commit": "ec18ea64393b1c1f3f62ab1e0a551dbe0b630940",
+  "existing_unique_cases": 230,
+  "final_controller_wall_seconds": 2.348285764019238,
+  "final_pytest_seconds": 2.04,
+  "final_unique_cases": 286,
+  "hosted_new_child_accepted": false,
+  "independent_domestic_datasets": 0,
+  "independent_dt1_final_state_and_transfer_values_compared": 24,
+  "independent_source_RHS_values_compared": 36,
+  "max_abs_energy_residual_J_per_m2_floor": 1.0368239600211382e-10,
+  "max_abs_vapor_residual_kg_per_m2_floor": 2.6725583551767684e-17,
+  "native_CLI_review": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_CLI_invocations": 0,
+    "source": "actual_native_CLI_rollout_turn_context",
+    "timestamp": "2026-10-09T14:15:13.666Z",
+    "turn_context_line_sha256_LF_included": "809bf52d2cf604a3dc7e1a19444ef86e676ca7190df70c87619e96e9cb1f5ad6"
+  },
+  "new_packages_DB_API_or_scene": false,
+  "new_unique_cases": 56,
+  "oracle_fixture_bytes_reproduced": true,
+  "original_tools": [
+    {
+      "actual_exit": 0,
+      "cases": 24,
+      "phase": "RHS",
+      "session_id": 98246,
+      "terminal_chunk": "02ed70"
+    },
+    {
+      "actual_exit": 0,
+      "cases": 56,
+      "phase": "integration",
+      "session_id": 45222,
+      "terminal_chunk": "c9518d"
+    },
+    {
+      "actual_exit": 0,
+      "cases": 286,
+      "phase": "final_focus_and_regression",
+      "session_id": 62863,
+      "terminal_chunk": "9f373b"
+    },
+    {
+      "actual_exit": 0,
+      "phase": "separate_root",
+      "session_id": 2945,
+      "terminal_chunk": "39f304"
+    }
+  ],
+  "parent_crop_climate_coupling_accepted": false,
+  "preservation": {
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "existing_reviewed_code_and_profile_pins_unchanged": 12,
+    "final_source_files": 1671,
+    "live_preview_original_session": 24180,
+    "original_input_and_result_metadata_hash_entries_preserved": 2148,
+    "owned_non_zombie_remaining": 0,
+    "preview_frontend_status": 200,
+    "preview_protected_identities_live": true,
+    "preview_source_and_assets_unchanged": true,
+    "preview_source_commit": "7ff954b",
+    "separate_root_FD_before_after": [
+      4,
+      4
+    ]
+  },
+  "private_root_evidence_sha256": "30a834f5c627bd034ad7a463e2a7d0b7c70bcb260f94a9b0a15031c81c95c6cc",
+  "profile_sha256": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+  "realtime_UI_implemented": false,
+  "recorded_at_utc": "2026-10-09T14:36:43.352692+00:00",
+  "refinement_absolute_errors": {
+    "forced": {
+      "air_temperature": [
+        2.2767671836732006e-07,
+        1.3673279397607985e-08,
+        8.347598168256809e-10
+      ],
+      "air_vapor_mass": [
+        4.693283747747579e-10,
+        2.8160286602574303e-11,
+        1.7184448308782407e-12
+      ],
+      "canopy_temperature": [
+        9.344594751325985e-07,
+        5.609353337376888e-08,
+        3.4238105683925824e-09
+      ],
+      "latent_heat": [
+        0.0011498544809001032,
+        6.89927092025755e-05,
+        4.210252882330678e-06
+      ],
+      "sensible_heat": [
+        0.0010928482479357626,
+        6.56318024994107e-05,
+        4.006883045803988e-06
+      ],
+      "water_vapor": [
+        4.693283608969701e-10,
+        2.816028833729778e-11,
+        1.7184699843686424e-12
+      ]
+    },
+    "reverse": {
+      "air_temperature": [
+        1.7693064080503973e-07,
+        1.0589456422849253e-08,
+        6.454143886003294e-10
+      ],
+      "air_vapor_mass": [
+        6.642895816755257e-10,
+        3.980137053272159e-11,
+        2.4271556986477094e-12
+      ],
+      "canopy_temperature": [
+        1.0319902017386084e-06,
+        6.180944112088582e-08,
+        3.7685374820739526e-09
+      ],
+      "latent_heat": [
+        0.0016275094189950323,
+        9.751328525453573e-05,
+        5.946517376287375e-06
+      ],
+      "sensible_heat": [
+        0.0008492670690429804,
+        5.0829378324124264e-05,
+        3.097977241850458e-06
+      ],
+      "water_vapor": [
+        6.642895585820194e-10,
+        3.9801340825582066e-11,
+        2.4271499523761952e-12
+      ]
+    },
+    "warm": {
+      "air_temperature": [
+        2.3062286302888424e-07,
+        1.3884694283206045e-08,
+        8.487255342970457e-10
+      ],
+      "air_vapor_mass": [
+        3.7082471121552274e-10,
+        2.231424767185075e-11,
+        1.3636938800409837e-12
+      ],
+      "canopy_temperature": [
+        8.397959376793551e-07,
+        5.0548518260029596e-08,
+        3.0895286329268856e-09
+      ],
+      "latent_heat": [
+        0.0009085205401788699,
+        5.466990751301637e-05,
+        3.3410178730264306e-06
+      ],
+      "sensible_heat": [
+        0.001106989711360029,
+        6.664653857058056e-05,
+        4.073843186347403e-06
+      ],
+      "water_vapor": [
+        3.7082470948079926e-10,
+        2.2314247238169882e-11,
+        1.3636795685723069e-12
+      ]
+    }
+  },
+  "refinement_criteria": {
+    "cases": 3,
+    "dt_seconds": [
+      4,
+      2,
+      1
+    ],
+    "fields_per_case": 6,
+    "independent_Decimal_reference_dt_seconds": 0.25,
+    "observed_min_ratio": 16.359463362565144,
+    "required_min_ratio": 8
+  },
+  "sampled_resources": {
+    "combined_limit_bytes": 1073741824,
+    "combined_owned_plus_protected_peak_RSS_bytes": 321839104,
+    "interval_seconds": 0.25,
+    "scope": "explicit_owned_controller_descendants_plus_protected_preview_trees_not_all_WSL",
+    "single_PID_limit_bytes": 536870912,
+    "single_PID_peak_RSS_bytes": 147255296
+  },
+  "scope": "short_synthetic_fixed_LAI_canopy_air_vapor_dynamics_only",
+  "separate_root_wall_seconds": 0.8141779399884399,
+  "short_synthetic_results": [
+    {
+      "G0_G4": "not_assessed",
+      "balance_residuals": {
+        "air_sensible": {
+          "unit": "J/m2_floor",
+          "value": -3.3509195418446325e-11
+        },
+        "canopy_sensible": {
+          "unit": "J/m2_floor",
+          "value": 9.407585821463726e-12
+        },
+        "reduced_energy": {
+          "unit": "J/m2_floor",
+          "value": -5.2295945351943374e-11
+        },
+        "vapor_and_water_boundaries": {
+          "unit": "kg_water/m2_floor",
+          "value": -1.2576745200831851e-17
+        }
+      },
+      "calculation_sha256": "14acd4186d2c996fc832133e5302fcce0a95a30b80225160e61365f4004237d6",
+      "case_id": "warm",
+      "claim_scope": "synthetic_canopy_air_dynamics_only",
+      "final": {
+        "elapsed_seconds": 60.0,
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 17.984432967110116
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.04326319195857371
+          },
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 16.699958941402414
+          }
+        },
+        "step_index": 60
+      },
+      "initial": {
+        "elapsed_seconds": 0.0,
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 18.0
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.04
+          },
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 20.0
+          }
+        },
+        "step_index": 0
+      },
+      "input_sha256": "3faceaf6dc226a37fd9137bd01dc8fc4064578fba59be1c75adf2fa8d0d324a0",
+      "integrated_transfers": {
+        "air_external_sensible_heat": {
+          "unit": "J/m2_floor",
+          "value": 0.0
+        },
+        "air_external_vapor": {
+          "unit": "kg_water/m2_floor",
+          "value": 0.0
+        },
+        "air_external_vapor_latent": {
+          "unit": "J/m2_floor",
+          "value": 0.0
+        },
+        "canopy_external_heat": {
+          "unit": "J/m2_floor",
+          "value": 0.0
+        },
+        "canopy_to_air_sensible": {
+          "unit": "J/m2_floor",
+          "value": -74.72175787140773
+        },
+        "canopy_to_air_vapor": {
+          "unit": "kg_water/m2_floor",
+          "value": 0.0032631919585737247
+        },
+        "canopy_to_vapor_latent": {
+          "unit": "J/m2_floor",
+          "value": 7994.820298505623
+        },
+        "canopy_water_boundary": {
+          "unit": "kg_water/m2_floor",
+          "value": -0.0032631919585737247
+        }
+      },
+      "rhs_evaluations": 241,
+      "scope": "software_research_only"
+    },
+    {
+      "G0_G4": "not_assessed",
+      "balance_residuals": {
+        "air_sensible": {
+          "unit": "J/m2_floor",
+          "value": 6.821210263296962e-12
+        },
+        "canopy_sensible": {
+          "unit": "J/m2_floor",
+          "value": 5.002220859751105e-12
+        },
+        "reduced_energy": {
+          "unit": "J/m2_floor",
+          "value": 6.821210263296962e-12
+        },
+        "vapor_and_water_boundaries": {
+          "unit": "kg_water/m2_floor",
+          "value": -2.0599841277224584e-18
+        }
+      },
+      "calculation_sha256": "9ea56ddb7a211a7bfc34c3817bff82172937dbb855051d83e99c4a0191cacaae",
+      "case_id": "reverse",
+      "claim_scope": "synthetic_canopy_air_dynamics_only",
+      "final": {
+        "elapsed_seconds": 60.0,
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 24.236367969875214
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.07913711322159292
+          },
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 22.408127646540137
+          }
+        },
+        "step_index": 60
+      },
+      "initial": {
+        "elapsed_seconds": 0.0,
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 25.0
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.08
+          },
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 20.0
+          }
+        },
+        "step_index": 0
+      },
+      "input_sha256": "df36cf3f0df247f2f3bce19847bcdaccc2fe425227000274645c47ae83a8d623",
+      "integrated_transfers": {
+        "air_external_sensible_heat": {
+          "unit": "J/m2_floor",
+          "value": 0.0
+        },
+        "air_external_vapor": {
+          "unit": "kg_water/m2_floor",
+          "value": 0.0
+        },
+        "air_external_vapor_latent": {
+          "unit": "J/m2_floor",
+          "value": 0.0
+        },
+        "canopy_external_heat": {
+          "unit": "J/m2_floor",
+          "value": 0.0
+        },
+        "canopy_to_air_sensible": {
+          "unit": "J/m2_floor",
+          "value": -3665.433744598978
+        },
+        "canopy_to_air_vapor": {
+          "unit": "kg_water/m2_floor",
+          "value": -0.00086288677840708
+        },
+        "canopy_to_vapor_latent": {
+          "unit": "J/m2_floor",
+          "value": -2114.072607097346
+        },
+        "canopy_water_boundary": {
+          "unit": "kg_water/m2_floor",
+          "value": 0.00086288677840708
+        }
+      },
+      "rhs_evaluations": 241,
+      "scope": "software_research_only"
+    },
+    {
+      "G0_G4": "not_assessed",
+      "balance_residuals": {
+        "air_sensible": {
+          "unit": "J/m2_floor",
+          "value": -4.274625098332763e-11
+        },
+        "canopy_sensible": {
+          "unit": "J/m2_floor",
+          "value": 9.094947017729282e-12
+        },
+        "reduced_energy": {
+          "unit": "J/m2_floor",
+          "value": -3.54702933691442e-11
+        },
+        "vapor_and_water_boundaries": {
+          "unit": "kg_water/m2_floor",
+          "value": -1.734723475976807e-18
+        }
+      },
+      "calculation_sha256": "86be2febefcc88bdd1c7af4da1df308aa57a799396b41c23cbc34e5584e717ff",
+      "case_id": "isothermal",
+      "claim_scope": "synthetic_canopy_air_dynamics_only",
+      "final": {
+        "elapsed_seconds": 60.0,
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 19.62033438810967
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.04342815957482936
+          },
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 17.259751657809012
+          }
+        },
+        "step_index": 60
+      },
+      "initial": {
+        "elapsed_seconds": 0.0,
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 20.0
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.04
+          },
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 20.0
+          }
+        },
+        "step_index": 0
+      },
+      "input_sha256": "a54cc4fa97f5ae64942eb69940f5190150055a9158ebc98fa369e771cda0eb4f",
+      "integrated_transfers": {
+        "air_external_sensible_heat": {
+          "unit": "J/m2_floor",
+          "value": 0.0
+        },
+        "air_external_vapor": {
+          "unit": "kg_water/m2_floor",
+          "value": 0.0
+        },
+        "air_external_vapor_latent": {
+          "unit": "J/m2_floor",
+          "value": 0.0
+        },
+        "canopy_external_heat": {
+          "unit": "J/m2_floor",
+          "value": 0.0
+        },
+        "canopy_to_air_sensible": {
+          "unit": "J/m2_floor",
+          "value": -1822.3949370735481
+        },
+        "canopy_to_air_vapor": {
+          "unit": "kg_water/m2_floor",
+          "value": 0.0034281595748293595
+        },
+        "canopy_to_vapor_latent": {
+          "unit": "J/m2_floor",
+          "value": 8398.990958331928
+        },
+        "canopy_water_boundary": {
+          "unit": "kg_water/m2_floor",
+          "value": -0.0034281595748293595
+        }
+      },
+      "rhs_evaluations": 241,
+      "scope": "software_research_only"
+    },
+    {
+      "G0_G4": "not_assessed",
+      "balance_residuals": {
+        "air_sensible": {
+          "unit": "J/m2_floor",
+          "value": 3.0468072509393096e-11
+        },
+        "canopy_sensible": {
+          "unit": "J/m2_floor",
+          "value": 5.9117155615240335e-12
+        },
+        "reduced_energy": {
+          "unit": "J/m2_floor",
+          "value": 1.0368239600211382e-10
+        },
+        "vapor_and_water_boundaries": {
+          "unit": "kg_water/m2_floor",
+          "value": 2.6725583551767684e-17
+        }
+      },
+      "calculation_sha256": "a3ca5708928cb4c1ab1d49db78fca2b45a434fb032ee624eb1ab2e7d1265f0f4",
+      "case_id": "forced",
+      "claim_scope": "synthetic_canopy_air_dynamics_only",
+      "final": {
+        "elapsed_seconds": 60.0,
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 18.77235773053016
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.04481277243539454
+          },
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 19.73099601114113
+          }
+        },
+        "step_index": 60
+      },
+      "initial": {
+        "elapsed_seconds": 0.0,
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 18.0
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.04
+          },
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          }
+        },
+        "step_index": 0
+      },
+      "input_sha256": "b2827840912a36724867d90702dddcb55b04cd58594f26e03494adbd1ae52e02",
+      "integrated_transfers": {
+        "air_external_sensible_heat": {
+          "unit": "J/m2_floor",
+          "value": 1200.0
+        },
+        "air_external_vapor": {
+          "unit": "kg_water/m2_floor",
+          "value": -5.9999999999999995e-05
+        },
+        "air_external_vapor_latent": {
+          "unit": "J/m2_floor",
+          "value": -147.0
+        },
+        "canopy_external_heat": {
+          "unit": "J/m2_floor",
+          "value": 9000.0
+        },
+        "canopy_to_air_sensible": {
+          "unit": "J/m2_floor",
+          "value": 2507.317106544739
+        },
+        "canopy_to_air_vapor": {
+          "unit": "kg_water/m2_floor",
+          "value": 0.004872772435394513
+        },
+        "canopy_to_vapor_latent": {
+          "unit": "J/m2_floor",
+          "value": 11938.292466716555
+        },
+        "canopy_water_boundary": {
+          "unit": "kg_water/m2_floor",
+          "value": -0.004872772435394513
+        }
+      },
+      "rhs_evaluations": 241,
+      "scope": "software_research_only"
+    }
+  ],
+  "version": "crop-canopy-air-dynamics-local-acceptance-reference-v1"
+}

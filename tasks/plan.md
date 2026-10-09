@@ -29,8 +29,13 @@ summary8.823초/첫64행10.939초/끝1행10.780초로 이전 timeout을 해소�
 일반 압축 빌드의 WSL 한도 보완은 해당 재생 범위 밖의 별도 보류이며 원 수식을 재실행하지 않는다.
 
 **다음 계산 순서:** 기후/물·양분/구매 에너지 → 사용자 실행/Decimal 경제.
-첫 작은 단계는 수용된 순간 수관 교환과 기존 온실 열/수증기의 입력·시간격자·수지 대조,
-동적 결합 계약/검증 사례 확정이다. 사용자 접수/진행 상태 U3와 확정 prefix의 계산 중3D는 별도 수용한다.
+첫 [인터페이스 대조](../research/crop-climate-interface-audit-20261009.md)와
+[고정 LAI의 세 상태 동적 자식](../research/crop-canopy-air-dynamics-implementation-20261009.md)을 수용했다.
+core ec18ea6·새56/기존230=286개·원62863/별도2945 실제0,
+독립 Decimal·상태/누적 전달 수렴·원본/미리보기/WSL 한도를 확인했다.
+전체 작물 피드백은 아직 없다. 다음 작은 단계는 가변 LAI 열용량/적엽 현열 정책→새 공동 RHS/짧은 적분이다.
+복사/CO₂·기공/온실 경계와 새 continuation/저장·같은 UTC3D는 이어서 나눠 수용한다.
+사용자 접수/진행 상태 U3와 확정 prefix의 계산 중3D는 별도 수용한다.
 앞선 미리보기0.5–1.5집중시간 추정은 이번 실제 전환 증거로 대체한다. 다음 계산/API 준비일은 계약 분해 뒤 갱신한다.
 U1/U3·최종 통합 UI와 실제 품종/독립 자료/관문은 미수용이다.
 현재 사용자 화면은 완료 생장/수확을 조회한다. 실행 상태·새 checkpoint 자동 갱신은 없다. 아래 시각별 관측은 당시 기록이다.
@@ -42,7 +47,8 @@ U1/U3·최종 통합 UI와 실제 품종/독립 자료/관문은 미수용이다
 실제 tracker의 같은2실패→두 Python 배포본/일반·tracker 조건의 고유32개로 로컬 수용했다.
 제품 helper/기존 assertion AST·원본/미리보기/FD/소유 정리를 유지했다. 다음은 새 exact-commit hosted 재검증이며
 그동안 다음 작물/기후 결합의 입력·시간격자·수지 대조를 진행할 수 있다. 전체 CI 성공으로 미리 표시하지 않는다.
-실제 종료를 확인했으므로 진행 중 CI를 보존하기 위한 push 보류는 해제됐으며, 잔여 실패 보완은 별도다.
+이전921d 실제 종료를 확인한 뒤4b7fe6f를 push했다. 새37941890045의 분할0/1은 실제 진행 중이며
+다른4개 workflow는 success다. **새 exact-commit 회귀를 보존하기 위해 후속 local commit의 push를 대기**한다.
 
 [전체166일 합성 부모의 게시·보존·현재 복원](../research/crop-harvest-full-parent-restored-20261009.md)을 로컬 수용했다.
 원95915/36916 실제 도구0·별도 감사0: 모든47,809sample/5event·UTC/121상태 대사,
@@ -950,7 +956,13 @@ flowchart TD
   CV --> F
   F --> C["crop-climate-coupling"]
   B --> CE["crop-canopy-exchange: 순간 E/H/LE 순수 자식 수용"]
-  CE --> C
+  CE --> CAD["crop-canopy-air-dynamics: 고정 LAI 세 상태 동적 자식 수용"]
+  CAD --> CENERGY["가변 LAI/적엽 열용량·물질 현열 정책"]
+  CENERGY --> CJOINT["새 공동 crop/climate RHS·짧은 적분/동적 clocks"]
+  CJOINT --> CSTORE["새 continuation/저장·같은 UTC3D"]
+  CSTORE --> C
+  CAD --> CBOUNDARY["복사/CO2·기공/온실 경계 근거·계산"]
+  CBOUNDARY --> C
   CI --> HMATH["crop-removal-mass → crop-harvest-events 개발 수용 완료"]
   CAP --> HMATH
   HMATH --> HR["crop-harvest-replay: 질량/배정 저장·API·같은 UTC3D"]
@@ -998,9 +1010,19 @@ flowchart TD
 [수관·공기 순간 교환 자식](../research/crop-canopy-exchange-implementation-20261009.md)은
 고정 문헌식/단위·권리와 명시 합성 입력으로 전체 수확 registry/국내 자료 확보와 독립 개발해
 230개 집중/회귀·원 종료/자원으로 로컬 수용했다. 전체 `crop-climate-coupling`은 미완료다.
-후속은 독립 수관/공기 상태·열용량·복사/CO₂/기공 및 물/수증기 에너지의 새 결합 계약이다.
-원 열 v1의 잠열 중복과 빈 수관 열용량 특이점에 수용 기준을 먼저 둔다.
-그 통합은 전체 부모 감사/수확·저장·대표 3D 뒤에 진행하고 독립 계측 자료 확보는 병행한다.
+[새 결합 계약](../contracts/crop-climate-coupling-v1.md)의 고정 LAI 자식은2026-10-09 수용했다.
+수관·공기·수증기 질량을 공동 stage에서 적분하며 원 열 v1의 잠열 중복을 피하고 빈 수관은 명시 hold한다.
+부모 `crop-climate-coupling`은 미완료다. 후속 의존성과 사용자 산출물은 다음과 같다.
+
+| 작은 단계 | 사용자/검토자 산출물·수용 조건 | 일정 근거와 외부 의존성 |
+| --- | --- | --- |
+| 가변 LAI/적엽 에너지 정책 | 독립 물질 현열·Cdot 장부, 새 잎/제거 경계·빈 수관 규칙과 독립 사례 | 다음 작업. 기존 source/crop 식 검토로 착수 가능; 미확인 실제 물성은 hold |
+| 공동 RHS/짧은 적분 | 같은 stage의 현재 LAI/Tcan·T24/Tsum, 탄소/수증기/열 수지·수렴 | 위 정책 뒤. 새 profile/state/clock 경계를 고정해 작업량/날짜 산정; 기존60초 비용의 전체 외삽 금지 |
+| 온실 경계/복사·CO₂·기공 | 명시 열/물/CO₂ 저장·출입과 PAR/흡수 복사 경로, 단위/근거·수지 | 고정 LAI 자식 뒤 병행 조사 가능; source 단위 불일치·실제 시설/계측 입력은 별도 hold |
+| 새 연속 계산/저장·3D | 새 checkpoint/manifest·분할/재개 동일성→현재 권리 API→같은 UTC 수치3D | 짧은 공동 적분 뒤 비용 실측. 기존121상태/원 결과는 보존 |
+
+완료한 첫 자식의 실제 날짜는2026-10-09다. 다음 정책·RHS·경계 수용과 새 짧은 비용 관측 전에는
+전체 결합/제품 완료일을 산정하지 않는다. 독립 계측 자료 확보는 그 개발과 병행한다.
 G2의 최종 판정에는 검증하는 해당 출력의 계산/재현 증거가 필요하다.
 해외 Reference의 시간대/입력 보류가 국내 독립 자료 확보나 국내 해당 모델의
 검증을 자동으로 막지는 않는다. 독립 국내 입력/계산 증거가 있으면 그 범위로 검증한다.
