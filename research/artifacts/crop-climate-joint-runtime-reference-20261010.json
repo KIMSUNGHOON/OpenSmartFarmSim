@@ -1,0 +1,579 @@
+{
+  "G0_G4": "not_assessed",
+  "acceptance_scope": "owned synthetic 32-second protected reader runtime; no production or gate acceptance",
+  "actual_crop_Runs": 0,
+  "combined_peak_RSS_bytes": 510488576,
+  "core_commit": "5c022adc18e792340e9013e937bee05f4eabf384",
+  "core_sha256": {
+    "backend/app/api_runtime.py": "1f24967b5673e4dbae8d583ee70f973d0910b467eb768381463c6c6fa0bed6cb",
+    "backend/app/crop_climate_joint_operator_config.py": "40cd6378833d33f6d57bf072179e556b606a30ad048047185d8f1fe517106dad",
+    "backend/tests/test_crop_climate_joint_runtime.py": "907d71e85580a8966285974bd482b9a980c4b100e1e1f309ecd47e098bb81e4a",
+    "contracts/crop-climate-joint-runtime-v1.md": "8d4ff8ebfa855d4e58514b50e600545e9a3f424965aba382782bb827e9d854ba"
+  },
+  "failed_attempts": 0,
+  "guard_wall_seconds_sum": 453.6352729649807,
+  "hosted_CI_acceptance": false,
+  "independent_domestic_validation_datasets": 0,
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_cli": false,
+    "timestamp": "2026-10-09T22:39:00.025Z",
+    "turn_context_sha256": "6d2a06907ac91a0e536974e1893886e599ce7e09d090499e899809c24b36a683"
+  },
+  "new_tests": 62,
+  "not_rerun": [
+    "full166 calculation",
+    "joint numerical suites",
+    "fresh browser/WebGL",
+    "hosted CI"
+  ],
+  "observed_at": "2026-10-09T22:54:13.392286+00:00",
+  "operations_freeze": "d19f7c0",
+  "protected_user_UI": {
+    "completed_synthetic166_day_saved_growth_and_harvest": true,
+    "frontend": "http://localhost:5173/",
+    "frontend_status": 200,
+    "live_U3": false,
+    "new_joint_model_UI": false,
+    "original_source_entries": 2148,
+    "source_and_assets_preserved": true
+  },
+  "push_hold": true,
+  "regression_tests": 300,
+  "same_core_four_for_all_stages": true,
+  "single_PID_peak_RSS_bytes": 185724928,
+  "stages": [
+    {
+      "controller_sha256": "02543d5b2457006727a1e7675e405f7838ac3cf95e4e73b79a083e77ba58789c",
+      "evidence": {},
+      "evidence_sha256": {},
+      "name": "pure-v1",
+      "original_tool": "97b101",
+      "pytest_files": [
+        "tests/test_crop_climate_joint_runtime.py"
+      ],
+      "pytest_footer": "58 passed, 4 deselected in 3.36s",
+      "pytest_selection": "not native",
+      "session_id": 1824,
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 16,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 440631296,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "aaf232a998ee87fdeb5e0caaa001b6abfeed1f70cd5efc2cae1106235be55149",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 0,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 132378624,
+        "source_count": 1773,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 4.160834316979162
+      },
+      "terminal_sha256": "532d35b5466d619e9d903014e362d6b5ade64c00f780eff177e8dd1a49195eca",
+      "terminal_tool": "f2832b",
+      "unique_tests": 58
+    },
+    {
+      "controller_sha256": "02543d5b2457006727a1e7675e405f7838ac3cf95e4e73b79a083e77ba58789c",
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "runtime-completed.json": {
+          "FD": [
+            10,
+            10
+          ],
+          "actual_scram": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "original_wire_UTC": true,
+          "replies": {
+            "events": {
+              "bytes": 73566,
+              "seconds": 8.465694746002555,
+              "sha256": "84820befd8936554033ef6233231984b2c05bb94e0aa02474d0125d9754bf0c3"
+            },
+            "samples": {
+              "bytes": 35046,
+              "seconds": 5.053319216996897,
+              "sha256": "de476d9b93384325a1a6de96127a16747bfb213c97aafd16c72e2f37d957dd01"
+            },
+            "summary": {
+              "bytes": 18904,
+              "seconds": 4.8402231999789365,
+              "sha256": "f68ab3008a5d695c705c56c28955a3cca1c45c8a3613623b99b45fd81e15a395"
+            }
+          },
+          "same_jobs_farm_current_principal": true,
+          "three_distinct_keys": true,
+          "verified_TLS": true
+        }
+      },
+      "evidence_sha256": {
+        "database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "runtime-completed.json": "35a5c50fa41bda1e6e24cbcb95723abc6f5bd1bfdca5e0255a221a854fb444cb"
+      },
+      "name": "completed-v1",
+      "original_tool": "8af3a8",
+      "pytest_files": [
+        "tests/test_crop_climate_joint_runtime.py"
+      ],
+      "pytest_footer": "1 passed, 61 deselected in 79.49s (0:01:19)",
+      "pytest_selection": "native_verified_tls and None",
+      "session_id": 87697,
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 300,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 510488576,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "a3868ec671793caecae1103d38f8b1305303c2dd0877d9d3a59b915a7a78afe0",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 415,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143630336,
+        "source_count": 1773,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 82.47186060299282
+      },
+      "terminal_sha256": "6ac8bf6c3580a94999a19e4e582a2523778bd4b2b97bec0ed37aff2c4b4434b0",
+      "terminal_tool": "00a07d",
+      "unique_tests": 1
+    },
+    {
+      "controller_sha256": "02543d5b2457006727a1e7675e405f7838ac3cf95e4e73b79a083e77ba58789c",
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "runtime-hold.json": {
+          "FD": [
+            10,
+            10
+          ],
+          "actual_scram": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "original_wire_UTC": true,
+          "replies": {
+            "events": {
+              "bytes": 49736,
+              "seconds": 5.190386730013415,
+              "sha256": "61da8ce873d557e0e75ec4cc8dc6d03373a16c4b74d7c78071c1363aafba5328"
+            },
+            "samples": {
+              "bytes": 24764,
+              "seconds": 5.284803915012162,
+              "sha256": "216ae1222d28e17e4cdc0aa1ef1fbbfba3c9a60c1ac95859b467d526467fed6e"
+            },
+            "summary": {
+              "bytes": 18995,
+              "seconds": 5.077733116020681,
+              "sha256": "3c5728607c0dafb50cc74c93e33431cfc1f61f094e0a83a7358d23c9a3af32c3"
+            }
+          },
+          "same_jobs_farm_current_principal": true,
+          "three_distinct_keys": true,
+          "verified_TLS": true
+        }
+      },
+      "evidence_sha256": {
+        "database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "runtime-hold.json": "6ea05edc5d9f542e912de6e148bfb9a10745d7cde4dff81d3a992d8632d268a0"
+      },
+      "name": "hold-v1",
+      "original_tool": "577d7c",
+      "pytest_files": [
+        "tests/test_crop_climate_joint_runtime.py"
+      ],
+      "pytest_footer": "1 passed, 61 deselected in 78.67s (0:01:18)",
+      "pytest_selection": "native_verified_tls and not None",
+      "session_id": 82676,
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 298,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 503402496,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "eda6a3927d47afebd7142ad98c6b683250496ea00d1e6a37e3c499aac4ea8fc1",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 415,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143777792,
+        "source_count": 1773,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 81.7386533379904
+      },
+      "terminal_sha256": "54a6a07913080f0225ad0a60e49a7ba2c9d5c45fdf5dfbbdc520c558fd8827b2",
+      "terminal_tool": "b43390",
+      "unique_tests": 1
+    },
+    {
+      "controller_sha256": "02543d5b2457006727a1e7675e405f7838ac3cf95e4e73b79a083e77ba58789c",
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "runtime-misassembly.json": {
+          "FD": [
+            11,
+            11
+          ],
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "rebuilt_same_binding": true,
+          "rejected": [
+            "store-type",
+            "foreign-store",
+            "query-type",
+            "foreign-query",
+            "server_key-reused-input-key",
+            "db_key-reused-input-key",
+            "model-code-pin",
+            "changed-runtime-grant"
+          ]
+        }
+      },
+      "evidence_sha256": {
+        "database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "runtime-misassembly.json": "c87c959c628e39a113cd8b478054580cbb24685993e9e9c3fba6ffe3dcf30cee"
+      },
+      "name": "faults-v1",
+      "original_tool": "06dd4a",
+      "pytest_files": [
+        "tests/test_crop_climate_joint_runtime.py"
+      ],
+      "pytest_footer": "1 passed, 61 deselected in 63.23s (0:01:03)",
+      "pytest_selection": "native_runtime_rejects",
+      "session_id": 93830,
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 241,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 414621696,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "db5208fc462408cb5aee355a6c29b770e735b94ee5fa511edf37c6da0b3580ce",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 326,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 138563584,
+        "source_count": 1773,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 65.64072109101107
+      },
+      "terminal_sha256": "668d486aca2d0da0e1462da0f5d27df626a546477f1b4a0bebbf2bb4908a9ba6",
+      "terminal_tool": "374fa8",
+      "unique_tests": 1
+    },
+    {
+      "controller_sha256": "02543d5b2457006727a1e7675e405f7838ac3cf95e4e73b79a083e77ba58789c",
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "runtime-late-denial.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "rejected": [
+            {
+              "phase": "rights",
+              "status": 422
+            },
+            {
+              "phase": "account",
+              "status": 401
+            }
+          ]
+        }
+      },
+      "evidence_sha256": {
+        "database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "runtime-late-denial.json": "ae99afa49cb40685ba9d44571f1c3f3026f422013524db996f5a99038423c8ba"
+      },
+      "name": "late-v1",
+      "original_tool": "5bb525",
+      "pytest_files": [
+        "tests/test_crop_climate_joint_runtime.py"
+      ],
+      "pytest_footer": "1 passed, 61 deselected in 68.15s (0:01:08)",
+      "pytest_selection": "native_runtime_late",
+      "session_id": 97623,
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 260,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 411475968,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "6325ab8d80cafa664f370b0593886a6c354f5fbd00a6c4347149a57171d0835e",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 369,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 148844544,
+        "source_count": 1773,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 71.06153675998212
+      },
+      "terminal_sha256": "5f03645731e19fd85bc90edda4baf1654697ac3bdc806d45ab130ce6b88f981e",
+      "terminal_tool": "8bc920",
+      "unique_tests": 1
+    },
+    {
+      "controller_sha256": "af8f5e969c3a619698277e2a5c73560d4a8eae014fcd30cb8ea45b22e3028460",
+      "evidence": {
+        "import-api.json": {
+          "FD": 4,
+          "database_or_socket_connections": 0,
+          "first": "app.api",
+          "query_loaded": false
+        },
+        "import-api_crop_climate_joint_route.json": {
+          "FD": 4,
+          "database_or_socket_connections": 0,
+          "first": "app.api_crop_climate_joint_route",
+          "query_loaded": false
+        },
+        "import-operator_config.json": {
+          "FD": 4,
+          "database_or_socket_connections": 0,
+          "first": "app.operator_config",
+          "query_loaded": false
+        },
+        "loader/database-cleanup.json": {
+          "actual_host_auth_methods": [
+            "scram-sha-256",
+            "scram-sha-256",
+            "scram-sha-256",
+            "scram-sha-256"
+          ],
+          "passfiles_after": 0,
+          "roles_after": 0,
+          "schemas_after": 0
+        },
+        "loader/import-api_runtime.json": {
+          "exit_code": 0,
+          "fd_after": 4,
+          "fd_before": 4,
+          "first": "app.api_runtime",
+          "new_calculation_store_query_modules_loaded": false
+        },
+        "loader/import-calculation_operator_config.json": {
+          "exit_code": 0,
+          "fd_after": 4,
+          "fd_before": 4,
+          "first": "app.calculation_operator_config",
+          "new_calculation_store_query_modules_loaded": false
+        },
+        "loader/import-operator_config.json": {
+          "exit_code": 0,
+          "fd_after": 4,
+          "fd_before": 4,
+          "first": "app.operator_config",
+          "new_calculation_store_query_modules_loaded": false
+        },
+        "loader/scram-assembly.json": {
+          "actual_scram": true,
+          "counts_after": {
+            "crop_cycle_research_results": 0,
+            "crop_cycle_verified_research_results": 0,
+            "job_events": 88,
+            "jobs": 88
+          },
+          "counts_before": {
+            "crop_cycle_research_results": 0,
+            "crop_cycle_verified_research_results": 0,
+            "job_events": 88,
+            "jobs": 88
+          },
+          "environment_entrypoint_assembled_service": true,
+          "fd_after": 12,
+          "fd_before": 12,
+          "four_independent_keys": true,
+          "input_proof_sha256": "a9c387cd51241a6f301273d01f6fd32b0caaf3b529028fbd7547ddaf125f2a71",
+          "normal_assembly_seconds": 0.21622377700987272,
+          "parser_context_QC_RHS_advance_publication_forbidden": true,
+          "private_files_and_inputs_unchanged": true,
+          "reconstructed_same_bindings": true,
+          "same_jobs_farm_current_principal": true
+        },
+        "openapi.json": {
+          "closed_joint_response": true,
+          "existing_operations_equal": true,
+          "paths": 53,
+          "schemas": 256
+        }
+      },
+      "evidence_sha256": {
+        "import-api.json": "48645fca176fabd100968ed6dafe34771a4b559288c92e034cf1ef3522106858",
+        "import-api_crop_climate_joint_route.json": "107d83a220c89640fb9b0caa9ca3199c75d0b3665f1e33c67884e6306f78ea47",
+        "import-operator_config.json": "1f04ef17d290c7397a69fa3ac78928f21dfa09c8d1633873b04d21ef48cbce0d",
+        "loader/database-cleanup.json": "148e0632d7ffbbc9d246773d0e9cd7bf9eafc1716e6b963936ba1398a4cc5de9",
+        "loader/import-api_runtime.json": "5bd69eb32360a7c55dbf5d483b6f664843ed73190c401fa0bd7ac59c598d6491",
+        "loader/import-calculation_operator_config.json": "0a2dfffc167ef732667dc1e62d8aae35a5cde33645cbde619029fe631ac05daf",
+        "loader/import-operator_config.json": "1ec18cf8b974d001762a3f9c921b6bcd81751aa691b732e0209d34bb3b63bb84",
+        "loader/scram-assembly.json": "857a97ecb4ec556500b5a7cdbc2c90977930fe4b19e5b8a3113fb2bfe741540d",
+        "openapi.json": "50bc93d937ea4183f9ba3047d7efdbbe47a870b6aa62f30e7313c5fa1633472e"
+      },
+      "name": "regression-v1",
+      "original_tool": "1cf88f",
+      "pytest_files": [
+        "tests/test_api_runtime.py",
+        "tests/test_operator_config.py",
+        "tests/test_calculation_operator_config.py",
+        "tests/test_api_crop_climate_joint_route.py",
+        "tests/test_api_openapi.py"
+      ],
+      "pytest_footer": "300 passed, 12 deselected in 145.38s (0:02:25)",
+      "pytest_selection": "(not actual_scram and not native) or actual_scram_protected_loader_assembly",
+      "session_id": 16843,
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 560,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 477745152,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "47624673f7019ba8a634f23b3a7b354fa2f2862d0157528cc5fb7ebaeaa7a662",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 128,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 185724928,
+        "source_count": 1773,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 148.5616668560251
+      },
+      "terminal_sha256": "949c8560c9ba521698eb351ab585b5dd27d42a8873ea45121a85ebbac60592a5",
+      "terminal_tool": "86e4da",
+      "unique_tests": 300
+    }
+  ],
+  "unique_tests": 362,
+  "version": "crop-climate-joint-runtime-reference-v1"
+}

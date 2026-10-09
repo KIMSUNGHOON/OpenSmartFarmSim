@@ -1762,13 +1762,24 @@
         최종10그룹 원 종료0·700.767초·단일/합 RSS241,807,360/594,550,784bytes다.
         전체373회 중 selector 중복2회는 제외했다. 초기 FD3실패와 오류 경로 계정5실패를 추적·수정했고 원 실패는 보존했다.
         작은 HTTPS4.84–4.88초다. runtime True/브라우저/U3·전체 작기/hosted 수용은 후속이다.
-    - [ ] **`crop-climate-joint-runtime-assembly`** — 다음. 선행: 새 current HTTP·원 input authority/farm/custody/store.
+    - [x] **`crop-climate-joint-runtime-assembly`** — 선행: 새 current HTTP·원 input authority/farm/custody/store.
       기존 operator 판본의 새 flag 누락/False 호환을 유지하고 새 명시 True를 활성화하는 닫힌 판본/factory를 조립한다.
       수용: 같은 jobs/farm·정확한 타입/권리/모델/code pin·별도 key·명시 provisioned 권한·미조립/오조립 거부,
       실제 공유 DB/TLS로 원 결과를 읽고 재계산/새 행/자동 관문 승격이 없음. 자격증명은 private에 보존한다.
-      착수 때 기존 runtime/config/factory 검사를 대조해 변경 경계를 고정한다.2–4집중시간 잠정이며 registry/CI·웹/외부 자료 대기는 제외한다.
-    - [ ] **`crop-climate-joint-numerical-3d`** — 선행: 새 typed HTTP/runtime, 기존 저장 결과 선택/3D 경로.
-      새 typed client/view/동일 시각 adapter와 tests/계약의 변경 경계는 착수 때 고정한다.
+      착수 때 기존 runtime/config/factory 검사를 대조해 core4를 고정했다. 종전2–4집중시간 추정은 아래 실측으로 갱신했다.
+      [로컬 수용](../research/crop-climate-joint-runtime-implementation-20261010.md): core5c022ad/4파일·새62/회귀300=고유362개,
+      새 닫힌 판본/명시 True·기존 누락/False·같은 jobs/farm/principal/별도3키·실제 SCRAM/TLS 정상/hold6원 응답·UTC,
+      오조립/키/코드/grant8거부·늦은 권리422/계정401·계산/새 행0·FD/원본2,148/UI/소유 정리를 확인했다.
+      원6그룹 종료0·453.635초·단일/합 RSS185,724,928/510,488,576bytes다. 특정 결과 권리는 기동 승인 대신 현재 조회에서 검사한다.
+      core/검증은 native22:39→22:53Z 약14분이며 기록/commit은 별도다. 전체 작기/새 웹/U3/hosted·관문은 미수용이다.
+    - [ ] **`crop-climate-joint-web-client`** — 다음. 선행: 새 보호 HTTP/runtime·원 공개 DTO.
+      예정: `web/src/jointCropClimateReplay.ts`, 기존 `web/src/api.ts`, 집중 test/별도 계약·소유 공개 fixture.
+      착수 때 기존242줄 SDK/379줄 검사와 새447줄 projection을 대조해 정확한 파일 경계를 고정한다.
+      수용: 원108상태/22장부·사건·마이크로초 UTC/hold·result/farm/identity 결속과 페이지64/8·2MiB,
+      현재 scope/취소/늦은 응답·잘못된 판본/단위/시간/값 거부·기존 SDK 공존·타입/집중 검사·실제 원 wire 대사.
+      화면/계산 중 prefix/U3를 완료 처리하지 않는다.2–4집중시간 잠정이며 실제 DTO/fixture 범위 확정 뒤 갱신한다.
+    - [ ] **`crop-climate-joint-numerical-3d`** — 선행: 위 typed client/runtime, 기존 저장 결과 선택/3D 경로.
+      수용된 typed client를 재사용한다. 새 view/동일 시각 adapter와 tests/계약의 변경 경계는 착수 때 고정한다.
       수용: 새108상태의 원 leaf/LAI·과실50 C/N·계산된 수관/공기 온도와 장부·사건/UTC를 같은 선택/표/그래프/WebGL에서 대사,
       원 행/시각 이동·hold/결측/권리 철회·잘못된 판본·늦은 응답 정리와 기존121상태/전체166일 보기 공존·WSL 한도/원본 보존.
       임의 생장/기후 애니메이션이나 실제 품종 외형/생산 예측으로 제시하지 않는다. 실시간 확정 prefix/U3는 `crop-execution-link`의 후속 수용이다.

@@ -46,7 +46,7 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 [새 결과 DB 계약](../research/crop-climate-joint-result-schema-implementation-20261010.md)도 실제 SCRAM5그룹·
 원128KiB/컬럼·UTC·변조/중복/설치 rollback·기존2테이블 보존·원 종료/정리로 로컬 수용했다.
 [새 명시 권한](../research/crop-climate-joint-result-roles-implementation-20261010.md)도 새7/기존226=233개·실제 SCRAM/audit·
-기존 설정의 누락/False 호환·원 종료/보존/정리로 로컬 수용했다. 새 True operator/API 조립은 후속이다.
+기존 설정의 누락/False 호환·원 종료/보존/정리로 로컬 수용했다.
 [서명 결과 등록/현재 조회](../research/crop-climate-joint-result-store-implementation-20261010.md)도 실제 SCRAM9개·
 별도 exec 원 bytes/UTC·조회 계산0·철회/rollback/충돌/기존2테이블 보존·원 종료/정리로 로컬 수용했다.
 기존 UI 종료 후 보존 원본으로 복구해 인증된 두 summary의 원 wire 일치를 확인했다. 새 공동 모델 UI/실시간 U3 수용은 아니다.
@@ -56,7 +56,9 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 조회 계산0·원 종료/정리로 로컬 수용했다. 순수 fixture의 runtime identity 차이도 재현/수정해39개를 통과했고 운영 identity 검사는 유지했다.
 [보호 HTTP](../research/crop-climate-joint-http-route-implementation-20261010.md)도 고유371개(새72/투영39/회귀260)·
 실제 SCRAM/검증된 HTTPS·원 bytes/UTC·늦은 철회/취소·계산0·기존 계약/화면/원본 보존으로 로컬 수용했다.
-다음은 명시 runtime→같은 시각3D며 온실 경계 조사는 병행한다.
+[명시 서버 조립](../research/crop-climate-joint-runtime-implementation-20261010.md)도 새62/회귀300=고유362개·실제 SCRAM/TLS
+원6응답·오조립/권한/늦은 철회·계산0·기존 UI/원본/소유 정리로 로컬 수용했다.
+다음은 typed 웹 client→같은 시각3D며 온실 경계 조사는 병행한다.
 전체 결합·실시간 U3·실제 자료/생산 관문은 미완료다.
 
 **2026-10-09 사용자 확인 화면과 최종 UI:** 기존 App의 실제 API/저장 결과 동시 기동을
