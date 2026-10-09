@@ -23,7 +23,13 @@ summary snapshot8→6/sample9→7이며 현재 farm4/DB 연결345는 유지했�
 `localhost:5173`에서 원 시점 번호/마지막 시점으로 이동한다. 수확 미등록과 실시간 U3 미완료를 표시한다.
 window40개/타입·압축을 끈 제품 빌드는 통과했으며 일반 압축 빌드의 단일 RSS 실패는 별도 보류다.
 이전1–3집중시간 추정의 화면 연결 자식은 완료됐고 전체 수확·U1/U3·최종 제품 완료일을 뜻하지 않는다.
-이후 **현재 검증 조회의 남은 반복 비용 개선 → 정상 전체 수확 writer/registry·독립 Decimal 대사
+**18:12 KST 추가:** [수확 내부 전체 행 검사](../research/crop-harvest-row-verification-20261009.md)를 e2eeb8c에서 로컬 수용했다.
+집중70개/실제 SCRAM1개·고유71개·원74739/48655 도구0, 작은3page의 검사 본체 부모 조회6→2와
+전체 blob/행 SHA·논리적 응답2MiB·권리 철회/rollback·원본/미리보기/FD·소유 정리·WSL 상한을 확인했다.
+전체748page의1,496→2는 호출 구조의 계산이며 전체 wall 실측은 아니다. writer의 생장748page 읽기 비용은 남았다.
+다음 `crop-harvest-full-writer-prefix-cost`에서 정상 writer 처음2page·통제 중단/HEAD·DB 미게시를 실제 대사한다.
+보존 자료/측정 경로 재사용 조건으로 계약·준비·부분 실측은1–2집중시간 잠정이며, 전체 예산/완료일은 그 실측 뒤 정한다.
+이후 **실제 정상 writer 부분 비용 → 정상 전체 수확 writer/registry·독립 Decimal 대사
 → 수확 인증 보존/fresh reader → 수확 보호 API/대표3D → 기후/물·양분/구매 에너지 → 사용자 실행/Decimal 경제**를 진행한다.
 전체 RHS는 재실행하지 않는다. 기존 작은900초 예산만 늘려 전체 writer를 시작하지 않으며 남은 비용을 실측한다.
 

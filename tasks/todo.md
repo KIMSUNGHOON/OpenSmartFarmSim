@@ -1410,6 +1410,19 @@
         단일/관측 합 RSS130,433,024/441,176,064bytes·fresh PG 소유 data 정리·보호 미리보기 보존.
         전체 writer는 실행하지 않았다. 다음은 반복 전체 검사의 호출/횟수와 거부 경계를 좁힌 작은 비용 개선 계약/시험이다.
         현재 권리/서명·원본 변조 거부를 유지하고 실제 비용으로 전체 writer 예산을 정한다.
+      - [x] **`crop-harvest-row-verification`** — [core4 계약](../contracts/crop-harvest-row-verification-v1.md)·
+        [내부 전체 행 검사 로컬 수용](../research/crop-harvest-row-verification-20261009.md), e2eeb8c.
+        원74739/48655 도구0·집중70개/실제 SCRAM1개·고유71개, 최종 같은 core4 source.
+        3page의 원 행 SHA/count·부모 조회6→2·현재 전후 guard/전체 blob·논리적64행 응답2MiB 보존,
+        끝 권리/계정·파일 변경 거부·INSERT 뒤 철회 rollback/동일 재시도·FD13→13·schema/role/passfile/PG0.
+        source1,602/기존 전체 생장 미리보기 source/dist/원 identity·frontend200·소유 임시 정리,
+        최종 native 단일/관측 합 RSS125,083,648/497,868,800bytes. 두 RED와 중간 판본 증거도 남긴다.
+        전체748page의1,496→2는 호출 구조의 계산이며 전체 wall 실측/전체 writer 수용은 아니다.
+      - [ ] **`crop-harvest-full-writer-prefix-cost`** — 선행 위 내부 검사와 보존된 전체 부모.
+        정상 writer 처음2page의 실제 부분 실행을3~5 core파일 계약/시험으로 고정한다.
+        새 source/profile 원문·원 계수/배정/수량/UTC·현재 권리·조회 RHS0와 실제 부분 비용,
+        통제 중단의 HEAD/DB 미게시·원본/미리보기/FD·소유 PG/임시 정리가 수용 기준이다.
+        이 실측으로 전체 writer/registry의 wall 예산을 정한다. 전체 실행/독립 Decimal/보존·API/3D는 체크하지 않는다.
       - [x] **`crop-harvest-storage-preservation-small`** — [core4 계약](../contracts/crop-harvest-storage-preservation-v1.md).
         전체 부모 계산 대기 중 선행 수용한 작은 부모에서 정상 writer/registry→새 DB·수확 인증 보존→
         원 DB 정지 뒤 fresh Python 현재 reader를 검증한다. 원 수량/UTC/최초 시각·권리/계정 거부·읽기 재계산0·
