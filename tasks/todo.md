@@ -50,11 +50,11 @@
     원8dd와 같은 세 관련 source·CI Python3.12.13/소유 PG16.15에서1통과/종료0·PG/자원 정리0이다.
     재현/원인/수정 증거가 아니며 hosted18의 실제 lock·transaction 또는 충실한 재현을 더 확보해야 한다.
 
-- [ ] **`crop-result-ci-pidfd-compatibility`** — 원 Backend37892105708 분할3/113695106113의10실패·1,073통과.
+- [x] **`crop-result-ci-pidfd-compatibility`** — 원 Backend37892105708 분할3/113695106113의10실패·1,073통과.
   [확인한 범위](../research/crop-cycle-calculation-query-facts-20261009.md): 모두 pidfd 지원 진입 실패이며
   같은 uv Python3.12.13의 두 Python 함수 부재를 확인했다. libc의 자기 pidfd/signal0·FD5→5는 통과했다.
   다음 작은 호환 수정은 원 pidfd/identity·보호 tree·close/실패 거부 시험을 유지한다.
-  - [ ] **`owned-research-shared-controller-test-isolation`** — 후속 Backend37918274666/921d0e7 분할1의
+  - [x] **`owned-research-shared-controller-test-isolation`** — 후속 Backend37918274666/921d0e7 분할1의
     `test_cleanup_preserves_entire_protected_tree_and_stops_only_owned[normal/thread]`2실패.
     다음3~5 core파일에서 같은 pytest controller의 선행 자식이 있는 실제 프로세스 조건을 재현해 원인을 확정한다.
     수용: 기존 자식/PG·보호 가지를 종료하지 않고 지정 소유 가족만 실제 pidfd로 정리하며 strict sent-set/FD 검사를 유지한다.
@@ -62,7 +62,8 @@
     [bba1167 로컬 수용](../research/owned-research-shared-controller-20261009.md): 실제 uv3.12.13 tracker의 원95993 종료1/같은2실패,
     원48295/95789/15059/36281 실제0·두 배포본/일반·tracker의 고유32개·선행 일반/thread 가족 보존이다.
     기존16 test 함수 assertion AST/제품 helper SHA·원본2,148/서비스FD8→8/root4→4·미리보기/소유 정리를 확인했다.
-    로컬 자식만 수용했다. 새 exact-commit hosted 분할1/전체 회귀 뒤 부모를 체크한다.
+    [4b7fe6f hosted 수용](../research/backend-4b7fe6f-hosted-acceptance-20261010.md): 분할1의859개/전체6,068개·6inventory/5workflow success를 확인했다.
+    위 로컬 재현/보존과 결합해 부모 pidfd/시험 격리까지 수용했다. 후속 작물 변경의 hosted 회귀는 별도다.
   숫자 PID signal fallback·skip·감사 생략을 하지 않는다. 실행 중 고정 source의 기존 helper SHA와 보호 미리보기를 보존하고
   실제 두 Python 배포본의 소유 child·철회/실패/정리와 hosted 회귀 뒤만 체크한다.
   - [x] **`owned-research-pidfd-bindings`** — [core3 계약](../contracts/owned-research-pidfd-compatibility-v1.md)·
@@ -73,7 +74,7 @@
     source1,618·원본/미리보기/전체 writer 고정 helper 보존·RSS 합599,834,624bytes다.
     main helper0337a287…와 실행 중 고정 helper5839d2ab…를 구분한다. 상위 hosted 분할3/전체 CI는 미수용이다.
 
-- [ ] **`crop-result-ci-harvest-endpoint-binding`** — 원 Backend37892105708 분할5/113695105991의1실패·907통과.
+- [x] **`crop-result-ci-harvest-endpoint-binding`** — 원 Backend37892105708 분할5/113695105991의1실패·907통과.
   `test_crop_harvest_runtime_factory.py:347`의 실제 protected operator/fresh Python endpoint SHA 불일치다.
   원 로그/hash와 실제/예상 endpoint 문맥을 대사해 필요한 작은 수정으로 좁힌다.
   구형 역할 정리 교착과 분리하며 endpoint/서명 검사를 생략하거나 단순 retry로 완료하지 않는다.
@@ -85,7 +86,8 @@
     각 실제 SCRAM/fresh Python2개·private 거부/복원·원 counts/16파일·FD13→13/12→12를 보존했다.
     원87796 집중60개/0·고유 기존61사례·별도 감사0, schema/role/passfile/소유 PG/임시 정리,
     source1,615·진행 중 전체 writer/미리보기/원 입력 보존·RSS 합763,723,776bytes를 확인했다.
-    제품/공통 fixture/workflow는 유지했다. 상위 hosted 분할5/전체 CI 수용은 같은 수정판의 실제 회귀 뒤 판단한다.
+    제품/공통 fixture/workflow는 유지했다. [4b7fe6f hosted 수용](../research/backend-4b7fe6f-hosted-acceptance-20261010.md)의
+    분할5/971개·전체6,068개/5workflow success와 결합해 이 부모까지 수용했다. 구형 role 교착 원인/수정은 미입증이다.
 
 ## 최종 제품 UI 통합 (2026-10-09)
 

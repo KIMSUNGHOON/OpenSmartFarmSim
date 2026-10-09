@@ -54,10 +54,12 @@ U1/U3·최종 통합 UI와 실제 품종/독립 자료/관문은 미수용이다
 로컬 관측 판본 보완을 hosted 통과로 대신하지 않는다.
 [선행 자식/시험 격리 보완](../research/owned-research-shared-controller-20261009.md)은bba1167에서
 실제 tracker의 같은2실패→두 Python 배포본/일반·tracker 조건의 고유32개로 로컬 수용했다.
-제품 helper/기존 assertion AST·원본/미리보기/FD/소유 정리를 유지했다. 다음은 새 exact-commit hosted 재검증이며
-그동안 다음 작물/기후 결합의 입력·시간격자·수지 대조를 진행할 수 있다. 전체 CI 성공으로 미리 표시하지 않는다.
-이전921d 실제 종료를 확인한 뒤4b7fe6f를 push했다. 새37941890045의 분할0/1은 실제 진행 중이며
-다른4개 workflow는 success다. **새 exact-commit 회귀를 보존하기 위해 후속 local commit의 push를 대기**한다.
+제품 helper/기존 assertion AST·원본/미리보기/FD/소유 정리를 유지했다.
+이전921d 실제 종료 뒤 push한4b7fe6f의 [hosted 회귀](../research/backend-4b7fe6f-hosted-acceptance-20261010.md)는
+10월10일01:28:19 KST Backend37941890045의 분할0–5/집계 success·고유6,068개/같은6inventory와
+5workflow success로 종료했다. 로컬 pidfd/시험 격리·endpoint의 해당 부모를 수용했다.
+구형 role 교착 원인/수정은 별도 미완료이며 새 기반 작업은 추가하지 않는다.
+후속 작물/기후 변경은 별도 hosted 회귀가 필요하다. 원 종료가 확인돼 후속 local commit의 push 대기를 해제한다.
 
 [전체166일 합성 부모의 게시·보존·현재 복원](../research/crop-harvest-full-parent-restored-20261009.md)을 로컬 수용했다.
 원95915/36916 실제 도구0·별도 감사0: 모든47,809sample/5event·UTC/121상태 대사,
