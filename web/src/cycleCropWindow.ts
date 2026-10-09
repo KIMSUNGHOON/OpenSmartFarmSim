@@ -94,6 +94,15 @@ export function createCycleCropWindow(changed:(state:CycleCropWindowState)=>void
       return openSource({kind:'calculation',api,lookup:{...lookup}});
     },
     showSamples:()=>show('samples'),showEvents:()=>show('events'),
+    seekSample(index:number){
+      need(!disposed && state.phase==='ready' && context && state.summary);
+      need(Number.isSafeInteger(index) && index>=0 && index<state.summary.reference.sample_count);
+      const ctx=context,summary=state.summary;
+      return load(ctx,'samples',index,summary,()=>{
+        ctx.offsets.samples=ctx.offsets.samples.slice(0,ctx.cursor.samples+1);
+        if(ctx.offsets.samples.at(-1)!==index){ctx.offsets.samples.push(index);ctx.cursor.samples++;}
+      });
+    },
     next(kind:Kind){
       const {ctx,summary,page}=active(kind),offset=page.page.next_offset;need(offset!==null);
       return load(ctx,kind,offset,summary,()=>{

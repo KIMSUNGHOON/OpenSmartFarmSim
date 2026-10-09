@@ -81,7 +81,7 @@ export default function CycleCropReplayView({api,initialSelection,autoLoadInitia
   const initial=initialSelection?.result_id.startsWith(sourceKind==='calculation'?'crop-cycle-verified-result-v1:':'crop-cycle-result-v1:')?initialSelection:undefined;
   const [lookup,setLookup]=useState(initial??EMPTY),[localError,setLocalError]=useState<ApiError|null>(null);
   const [playing,setPlaying]=useState(false),[reduced,setReduced]=useState(false),owner=useRef({api,sourceKind});
-  const viewerTarget=useRef<HTMLDivElement|null>(null);
+  const viewerTarget=useRef<HTMLDivElement|null>(null),sampleNumber=useRef<HTMLInputElement|null>(null);
   const [visible,setVisible]=useState<{api:Api|null;sourceKind:'original'|'calculation';state:CycleCropWindowState}|null>(null);
   const [window]=useState(()=>createCycleCropWindow(state=>setVisible({...owner.current,state}),{sample_limit:7,event_limit:2}));
   const state=visible?.api===api && visible.sourceKind===sourceKind?visible.state:null,summary=state?.summary,range=state?.range;
@@ -150,6 +150,16 @@ export default function CycleCropReplayView({api,initialSelection,autoLoadInitia
           <button className="button secondary" disabled={range.kind==='events'} onClick={()=>{setPlaying(false);void window.showEvents();}}>관리 사건 보기</button>
           <button className="button secondary" onClick={()=>{if(api)read(api,{...lookup});}}>현재 권리 다시 조회</button>
           {sourceKind==='calculation'&&<a className="button secondary" href="#crop-harvest">저장 수확 배정 보기</a>}</div>
+        {summary.reference.sample_count>0 && <form className="cycle-range-controls" onSubmit={event=>{
+          event.preventDefault();if(!sampleNumber.current)return;
+          setPlaying(false);void window.seekSample(sampleNumber.current.valueAsNumber-1);
+        }}><label>원 저장 시점 번호<input ref={sampleNumber} type="number" min={1} max={summary.reference.sample_count}
+          step={1} required defaultValue={1} disabled={busy}/></label>
+          <button className="button secondary" disabled={busy}>저장 시점으로 이동</button>
+          <button type="button" className="button secondary" disabled={busy} onClick={()=>{
+            setPlaying(false);void window.seekSample(summary.reference.sample_count-1);
+          }}>마지막 저장 시점</button></form>}
+        <p className="crop-caption">번호는 원본 저장 순서입니다. 이동한 시점부터 작은 범위만 읽으며 저장 시점 사이의 값을 보간하지 않습니다.</p>
       </section>
       {sample && <div className="coupled-viewer" ref={viewerTarget} tabIndex={-1} aria-label="선택된 저장 생장 시점"
         data-result-id={summary.result_id} data-selected-at={sample.at} data-selected-index={state!.selected!.index}

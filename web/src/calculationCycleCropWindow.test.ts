@@ -87,6 +87,36 @@ describe('verified calculation current window',()=>{
     expect(()=>window.previous('events')).toThrow(ApiError);expect(r.calls).toHaveLength(calls);
     expect(r.calls.slice(2).map(u=>u.searchParams.get('offset'))).toEqual(['7','14','7','0','2','4','2','7','14','21']);
   });
+  it('seeks an original sample directly from events, preserving identity and bounded history',async()=>{
+    const r=calculation(),window=createCycleCropWindow(()=>{},{sample_limit:7,event_limit:2});
+    await window.openCalculation(r.api,r.lookup);await window.showEvents();
+    await window.seekSample(21);const result=window.snapshot();
+    expect(result.range).toMatchObject({kind:'samples',offset:21,count:6,total:27,next_offset:null});
+    expect(result.summary).toEqual(r.summary);expect(result.selected?.index).toBe(21);
+    expect(result.selected?.sample).toEqual(r.rows.find(row=>row.page?.kind==='samples'&&row.page.offset===21)?.page?.records[0]);
+    expect(result.event_page).toBeNull();expect(r.calls.at(-1)?.searchParams.get('limit')).toBe('7');
+    await window.previous('samples');expect(window.snapshot().selected?.index).toBe(0);
+    await window.seekSample(7);await window.seekSample(7);await window.previous('samples');
+    expect(window.snapshot().selected?.index).toBe(0);
+    const calls=r.calls.length;
+    for(const index of [-1,27,0.5,NaN,Infinity])expect(()=>window.seekSample(index)).toThrow(ApiError);
+    expect(r.calls).toHaveLength(calls);expect(window.snapshot().summary).toEqual(r.summary);
+  });
+  it('clears selected quantities on a seek rights refusal and suppresses a canceled late seek',async()=>{
+    let fail=false,block=false,release!:()=>void,entered!:()=>void;
+    const waiting=new Promise<void>(resolve=>{release=resolve;}),started=new Promise<void>(resolve=>{entered=resolve;});
+    const r=calculation('long',{delay:async u=>{if(block&&u.searchParams.get('offset')==='21'){entered();await waiting;}},
+      change:value=>{if(fail)throw new ApiError('forbidden',403);return value;}});
+    const window=createCycleCropWindow(()=>{});await window.openCalculation(r.api,r.lookup);fail=true;
+    const denied=window.seekSample(21);expect(window.snapshot().selected).toBeNull();await denied;
+    expect(window.snapshot()).toMatchObject({phase:'error',summary:null,sample_page:null,event_page:null,selected:null});
+    expect(window.snapshot().error?.code).toBe('forbidden');
+    fail=false;await window.openCalculation(r.api,r.lookup);block=true;
+    const seeking=window.seekSample(21);await started;const settling=window.cancel();
+    expect(window.snapshot()).toMatchObject({phase:'idle',summary:null,selected:null});
+    release();await Promise.all([seeking,settling]);expect(window.snapshot().phase).toBe('idle');
+    expect(window.snapshot().selected).toBeNull();expect(()=>window.seekSample(0)).toThrow(ApiError);
+  });
   it.each(['validation','recorded','rights','server'] as const)('clears old quantities and provenance on %s refusal',async fault=>{
     let fail=false;const r=calculation('long',{change:value=>{
       if(!fail)return value;
