@@ -1,0 +1,90 @@
+{
+  "applicability": "unvalidated_for_cultivar_or_farm",
+  "domain": {
+    "air_capacity_density": "explicit_positive_no_altitude_or_dynamic_density_substitution",
+    "basis": "project_synthetic_window_aligned_with_crop_carbon_tests_not_source_accuracy_domain",
+    "canopy_vapor_resistance": "explicit_positive_no_stomatal_closure",
+    "temperature_degC": [
+      10,
+      34
+    ]
+  },
+  "formulas": {
+    "/Canopy transpiration/mvCanAir": "vecCanAir * (satVp(tCan) - vpAir)",
+    "/Canopy transpiration/vecCanAir": "2 * rhoAirCap * cPAir * lai / (L * gammaPsych * (rB + rS))",
+    "/Heat fluxes/Convection and conduction/Table 8.4/hCanAir": "sensible(2 * alfaLeafAir * lai, tCan, tAir)",
+    "/Heat fluxes/Convection and conduction/sensible(hec, t1, t2)": "abs(hec) * (t1 - t2)",
+    "/Heat fluxes/Latent heat fluxes/lCanAir": "L * mvCanAir",
+    "/Vapour fluxes/satVp(temp)": "610.78 * exp(17.2694 *temp / (temp + 238.3))"
+  },
+  "notice_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+  "parameters": {
+    "air_heat_capacity": {
+      "source_literal": "1e3",
+      "source_pointer": "/Parameters/Table 8.1/cPAir",
+      "source_unit": "J K**-1 kg**-1",
+      "unit": "J/kg_air/K",
+      "value": 1000.0
+    },
+    "boundary_resistance": {
+      "source_literal": "275",
+      "source_pointer": "/Parameters/Table 8.1/rB",
+      "source_unit": "s m**-1",
+      "unit": "s/m",
+      "value": 275.0
+    },
+    "latent_heat": {
+      "source_literal": "2.45e6",
+      "source_pointer": "/Parameters/Table 8.1/L",
+      "source_unit": "J kg**-1{water}",
+      "unit": "J/kg_water",
+      "value": 2450000.0
+    },
+    "leaf_air_heat_transfer": {
+      "source_literal": "5",
+      "source_pointer": "/Parameters/Table 8.1/alfaLeafAir",
+      "source_unit": "W m**-2 K**-1",
+      "unit": "W/m2_leaf/K",
+      "value": 5.0
+    },
+    "leaf_surface_factor": {
+      "source_literal": "2",
+      "source_pointer": "/Canopy transpiration/vecCanAir",
+      "unit": "1",
+      "value": 2
+    },
+    "psychrometric_constant": {
+      "source_literal": "65.8",
+      "source_pointer": "/Parameters/Table 8.1/gammaPsych",
+      "source_unit": "Pa K**-1",
+      "unit": "Pa/K",
+      "value": 65.8
+    },
+    "saturation_denominator_offset": {
+      "source_literal": "238.3",
+      "source_pointer": "/Vapour fluxes/satVp(temp)",
+      "unit": "degC_interval",
+      "value": 238.3
+    },
+    "saturation_exponent_factor": {
+      "source_literal": "17.2694",
+      "source_pointer": "/Vapour fluxes/satVp(temp)",
+      "unit": "1",
+      "value": 17.2694
+    },
+    "saturation_pressure_coefficient": {
+      "source_literal": "610.78",
+      "source_pointer": "/Vapour fluxes/satVp(temp)",
+      "unit": "Pa",
+      "value": 610.78
+    }
+  },
+  "profile_id": "greenlight-canopy-exchange-reference-v1",
+  "scope": "software_research_only",
+  "source_sha256": "c0fb7a025533f15b80cb6cd60aafdc19be9fe42df6b8183cf97b83fc086138b3",
+  "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/greenhouse_vanthoor_2011_chapter_8.json",
+  "source_vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+  "unit_interpretation": {
+    "leaf_air_heat_transfer": "source m^-2 interpreted as leaf area using leaf description and LAI leaf/floor; source unit has no leaf marker"
+  }
+}

@@ -547,6 +547,7 @@ CI 5개도 통과했다. `d76410f`의 웹/C0/실제 앱 CI는 통과했다.
 | 5 `web-crop-replay` | 저장/API의 같은 상태 조회 | 같은 ID + timestamp의 잎 면적/기관량을 표·그래프·3D에서 확인. 모식 형태 표기, 키·착과수·숙기는 계산하지 않으면 표시하지 않음. WebGL 대체·키보드/시간 이동 시험 |
 | 6 `crop-fruit-transport`·`crop-fruit-allocation-rates` → `crop-fruit-cohorts` → `crop-harvest-conversion` | 개발: 고정 발달식/단위·순간 이동 수용, 원 배분의 보존/W1/초기/gate 정책과 명시적 관리 사건. 실제 작기 적용: 해당 품종/관리·초기조건 QC, 생과 환산: 품종별 건물/생과중/품질 근거 | 개수/탄소 이동·착과/배분/적분→수확 사건·생과 kg·등급과 제거/기관 수지. 평활 탄소 제거나 일반 과실중을 생과 수확으로 대체하지 않음 |
 | 7 `crop-climate-coupling`, `crop-water-nutrient`, `crop-energy-purchases` | 생장/생산 모델의 필요한 상태·계수/입력, 계량·변환 근거 | 수관/증산, 배지·급배액/재순환·성분, 열/구매 에너지의 각각 수지와 적용 범위. 기존 작물 효과 중복 차감 금지 |
+| 7의 순수 자식 `crop-canopy-exchange` | 고정 원식/단위·권리·명시 합성 forcing; 전체 수확/국내 자료와 독립 개발 | [로컬 수용](../research/crop-canopy-exchange-implementation-20261009.md): 순간 E/H/LE·국소 부호·독립 참조/230시험. 동적 상태/기후 결합·구매 자원·경제 미수용 |
 | 7a `crop-execution-link` | 해당 모델/입출력 계약과 같은 농장/작물/배치 연결. 실제 실행에는 해당 forcing/초기조건 G0/G1 | 사용자 접수→작업자→불변 결과 선택/3D·취소/재시작/현재 권리. 기존 작업/worker 재사용 |
 | 8 `crop-economic-link` | 생산 배치·자원 결과와 같은 기간의 판매/정산/비용 근거 | H/P/S·등급/재고·원가와 기존 Decimal 손익/현금의 결합·재실행/대사. 모델 수확의 출처 등급 유지, 미래 마진은 검증 전 hold |
 

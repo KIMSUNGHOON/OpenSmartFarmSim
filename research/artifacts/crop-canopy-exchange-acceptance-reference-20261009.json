@@ -1,0 +1,57 @@
+{
+  "G0_G4": "not_assessed",
+  "child_max_rss_bytes": 56823808,
+  "command": [
+    "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "--tb=short",
+    "backend/tests/test_crop_canopy_exchange.py",
+    "backend/tests/test_crop_growth_rates.py",
+    "backend/tests/test_crop_growth_integration.py",
+    "backend/tests/test_thermal.py",
+    "backend/tests/test_thermal_parameter_fixture.py",
+    "--basetemp=/tmp/ossf-canopy-exchange-acceptance-20261009"
+  ],
+  "contract_finalization": "status and acceptance link added after tests; equation, input and numerical acceptance definitions unchanged",
+  "exit_code": 0,
+  "finalized_contract_sha256": "f86893ea05b24206330c06b20b198fb4b1c0e1861392e5ca1b5505a4c25c79b7",
+  "holds": [
+    "dynamic climate/state coupling",
+    "actual cultivar/farm inputs and independent local validation",
+    "production/resources/economic prediction and recommendation",
+    "live full-producer UI progress integration"
+  ],
+  "nice": 19,
+  "observed_at": "2026-10-09T01:46:53.545965+00:00",
+  "oracle_bytes_identical": true,
+  "oracle_decimal_precision": 80,
+  "oracle_regeneration_exit": 0,
+  "original_exec_session_id": 25915,
+  "producer_frozen_files_unchanged": [
+    "contracts/crop-harvest-parent-production-v1.md",
+    "research/crop-harvest-parent-production.py",
+    "backend/tests/crop_harvest_parent_production_smoke.py"
+  ],
+  "pytest_summary": "230 passed in 1.85s",
+  "resource_scope": "local unit/regression process; excludes ongoing full producer and separate UI services; no general capacity claim",
+  "source_formulas_checked": 6,
+  "source_parameters_checked": 9,
+  "status": "local_pure_math_only",
+  "tested_snapshot_sha256": {
+    "backend/app/crop_canopy_exchange.py": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+    "backend/tests/crop_harvest_parent_production_smoke.py": "be0151eb194aa39b092dfe29888623192ce7672edf7ead24b5e755b51e33aeb5",
+    "backend/tests/test_crop_canopy_exchange.py": "9b9dc3e16e5fba781f23ba95f6bf54d6a7c42af1db4b40c49f9ee5d47298f42c",
+    "contracts/crop-canopy-exchange-v1.md": "cfdc6961b454c7f399e528f12d65f2ab14d3b16bdbd16a52818cffcbfc5afc7b",
+    "contracts/crop-harvest-parent-production-v1.md": "61de7328edc88be9be618dd0459b17c2e1b1dd713f305cf88d97f9c92fd6378f",
+    "fixtures/crop-canopy-exchange-reference-cases-v1.json": "63c8abcc3f652e0023d72cff078d2bb30395ec39cb4f1123d096f8446a802022",
+    "fixtures/crop-canopy-exchange-reference-parameters-v1.json": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+    "research/crop-canopy-exchange-baseline-20261009.md": "ecd4a1705bb1271763a69cab4d7c003a0bb2cf6ea6531867d08d9cb49f4516b4",
+    "research/crop-canopy-exchange-reference.py": "8ea01d00433db13f5f2b67931438488ea9c952a62d6898c1edcf984b4cf9de42",
+    "research/crop-canopy-exchange-source-register-20261009.json": "4f1f1c17671eb4631fb5c1761e1efd1927a89f987603bd95536d7a349c714bdc",
+    "research/crop-harvest-parent-production.py": "87096fd690ff777dca150213294c5c62d6e757ccf853ca5b41eea3e1a397db34"
+  },
+  "version": "crop-canopy-exchange-local-acceptance-v1",
+  "wall_seconds": 2.1257920440111775
+}

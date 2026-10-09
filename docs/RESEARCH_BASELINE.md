@@ -59,6 +59,12 @@ Vanthoor/GreenLight를 첫 탄소 계산의 참조로 선택했으며 일반 계
 필요한 수식/계수의 권리·차원/범위 검토와 합성 입력으로 개발을 시작하며 국내 자료
 접근·독립 G2/G3a 검증은 병행한다. 자료 확보 전에는 국내 미래 생산·경제를 게시하지 않는다.
 
+[수관·공기 교환식 추가 검토](../research/crop-canopy-exchange-baseline-20261009.md)는
+같은 고정 GreenLight의 6식·9계수/식 상수·원 단위/해석과 권리를 기록했다.
+[순수 순간 계산](../research/crop-canopy-exchange-implementation-20261009.md)은 독립 Decimal 참조와
+230개 집중/회귀로 로컬 수용했다. 동적 기공·수관/공기 상태·급액/구매 자원 결합과
+국내 검증은 미완료이며 실제 의사결정 자료의 공개/가용 시각 hold도 유지한다.
+
 [국내 공개 목록 3개 검토](../research/crop-domestic-public-catalog-review-20261005.md)는
 AI Hub534, EPIS15090553, SmartFarmKorea 작기7581의 공식 식별자·표 설명·접근/권리 보류를
 기록한다. 공개 목록 조회이며 원자료 수신·품종 채택·독립 검증 자료 확보는 여전히0건이다.
