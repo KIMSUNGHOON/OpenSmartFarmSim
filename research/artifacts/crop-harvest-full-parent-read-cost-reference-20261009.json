@@ -1,0 +1,146 @@
+{
+  "version": "crop-harvest-full-parent-read-cost-reference-v1",
+  "scope": "five_bounded_actual_full166_current_query_calls_only",
+  "observed_at_utc": "2026-10-09T07:33:39.071818+00:00",
+  "actual_original_tool_session_id": 34669,
+  "actual_tool_exit_code": 0,
+  "actual_child_exit_code": 0,
+  "root_audit_passed": true,
+  "main_head": "90499ace7bcd273ab710af38e3ed1c0448e66552",
+  "parent_counts": {
+    "samples": 47809,
+    "events": 5
+  },
+  "parent_steps": 1816704,
+  "observations": [
+    {
+      "identity_sha256": "3a50e9a1f3a7d78419b5a45ab9707ac573afb49e4f141fe04c08908f2509b4ef",
+      "kind": null,
+      "label": "summary",
+      "limit": null,
+      "record_payload_sha256": "0ef3a3d6ab06bbc459db69a817e230be682ed50da9caefa3880f8893658f6eed",
+      "start": 0,
+      "wall_seconds": 7.3842011649976484
+    },
+    {
+      "count": 64,
+      "identity_sha256": "3a50e9a1f3a7d78419b5a45ab9707ac573afb49e4f141fe04c08908f2509b4ef",
+      "kind": "samples",
+      "label": "samples-first",
+      "limit": 64,
+      "next": 64,
+      "page_bytes": 561506,
+      "page_sha256": "9ca509fb7fd215a1addc2b6a09ef27ad9375cf8121dc1f2f5e4343fb218ecb43",
+      "record_payload_sha256": "0ef3a3d6ab06bbc459db69a817e230be682ed50da9caefa3880f8893658f6eed",
+      "start": 0,
+      "total": 47809,
+      "wall_seconds": 8.382597934018122
+    },
+    {
+      "count": 64,
+      "identity_sha256": "3a50e9a1f3a7d78419b5a45ab9707ac573afb49e4f141fe04c08908f2509b4ef",
+      "kind": "samples",
+      "label": "samples-next",
+      "limit": 64,
+      "next": 128,
+      "page_bytes": 562065,
+      "page_sha256": "d924ef63a16c665123be41e9099a2b93077fb7c6ab85353e9d97be321c442bf1",
+      "record_payload_sha256": "0ef3a3d6ab06bbc459db69a817e230be682ed50da9caefa3880f8893658f6eed",
+      "start": 64,
+      "total": 47809,
+      "wall_seconds": 8.310961651004618
+    },
+    {
+      "count": 1,
+      "identity_sha256": "3a50e9a1f3a7d78419b5a45ab9707ac573afb49e4f141fe04c08908f2509b4ef",
+      "kind": "samples",
+      "label": "samples-last",
+      "limit": 1,
+      "next": 47809,
+      "page_bytes": 8445,
+      "page_sha256": "2998c801a3d58f672e6eeb143eb737b05de04acd71e39b98f87cae72ada66251",
+      "record_payload_sha256": "0ef3a3d6ab06bbc459db69a817e230be682ed50da9caefa3880f8893658f6eed",
+      "start": 47808,
+      "total": 47809,
+      "wall_seconds": 7.9260910490120295
+    },
+    {
+      "count": 5,
+      "identity_sha256": "3a50e9a1f3a7d78419b5a45ab9707ac573afb49e4f141fe04c08908f2509b4ef",
+      "kind": "events",
+      "label": "events",
+      "limit": 8,
+      "next": 5,
+      "page_bytes": 83592,
+      "page_sha256": "023b83549d717d411240779219cfed74c2b81c316c5d53a195f4842cab53ded6",
+      "record_payload_sha256": "0ef3a3d6ab06bbc459db69a817e230be682ed50da9caefa3880f8893658f6eed",
+      "start": 0,
+      "total": 5,
+      "wall_seconds": 8.070231090998277
+    }
+  ],
+  "original_record": {
+    "payload_sha256": "0ef3a3d6ab06bbc459db69a817e230be682ed50da9caefa3880f8893658f6eed",
+    "recorded_at": "2026-10-09T16:14:58.015272+09:00",
+    "result_id": "crop-cycle-verified-result-v1:a10f9bbc50e245958ecbaeff309b57b8d15b5d17e30d6111d18fa75d569e8444"
+  },
+  "parent_backup_sha256": "5efc500fa0ff078e5122b1fa428b02549294f741826878968f3798550d6886c1",
+  "source_entries_preserved": 2146,
+  "actual_current_host_SCRAM": true,
+  "FD_before_after": [
+    4,
+    4
+  ],
+  "read_RHS_row_generation_publication_proof_issue_calls": 0,
+  "full_writer_executed": false,
+  "restored_PG_stopped_and_owned_data_removed": true,
+  "resources": {
+    "wall_seconds": 44.193577840022044,
+    "RSS_samples": 732,
+    "sample_interval_seconds": 0.05,
+    "fresh_PG_tree_samples": 683,
+    "single_PID_peak_RSS_bytes": 130433024,
+    "combined_peak_RSS_bytes": 441176064,
+    "RSS_scope": "controller/owned children/protected preview plus actual observed fresh PG tree; not WSL total",
+    "source_count": 1588,
+    "source_pins_preserved": true,
+    "preview_dist_unchanged": true,
+    "protected_preview_preserved": true,
+    "fresh_PG_gone": true,
+    "fresh_postmaster_absent": true,
+    "owned_non_zombie_remaining": [],
+    "remaining_children": []
+  },
+  "native_cli": {
+    "effort": "xhigh",
+    "judgment_scope": "Measure bounded actual full-parent current query cost before normal whole harvest writer; no alternative authority, RHS, generated rows, publication or gate approval.",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "turn_event_sha256": "f51df69e733a0357e29262cfd82f5355221d8791adbd8b6fcfbd5e0af9d3d67e",
+    "turn_timestamp": "2026-10-09T07:27:57.436Z"
+  },
+  "private_receipt_sha256": {
+    "terminal.private.json": "fd368827b5913b8d754afc4812a69f827f54a3fbff65f2dcf5bddf058d648e49",
+    "read-cost.private.json": "31d2557f94713ea7873471799e246b08c5fc03ec9614afecff45e4d97505ee02",
+    "actual-tool-terminal.private.json": "69570eee6c2b5637ad4cf9b1f71797c9aabcaf04c826ed6260c88f8385a666c3",
+    "native-cli.private.json": "5838c0b8dd3e81632df74fc279588f55c28d700c1591b646fc6a5ee874ea0b42",
+    "probe-code.private.json": "98f11595843fe620bbc9100e803d4718d26077a945e353a30a8b26bdb4a28090",
+    "probe.private.log": "580c2648bca07d3e9592d2c9a9f24257c000ca9c59f525f329647fed78e7d2d5"
+  },
+  "private_probe_controller_sha256": {
+    "controller-v2.py": "8b838c0dcb001ad23dc40c59c270b373f2df37c6e9132eb7caed5c12eee121af",
+    "probe.py": "e74a2b6e357f9aa73ec73065e2396c6d09e915c8884a89a73deab0467fa1f63f"
+  },
+  "decision": "Do not start the full normal harvest writer under an unmeasured expanded deadline. Measure and reduce repeated full parent validation while preserving current rights, exact signed identity, whole artifact validation, and per-page bytes; keep the actual writer/reader/API acceptance pending.",
+  "not_accepted": [
+    "whole normal harvest writer/registry",
+    "independent Decimal all stored harvest rows",
+    "full harvest backup/fresh current reader",
+    "protected full harvest API/representative WebGL",
+    "candidate UI deployment/U1/U3/realtime",
+    "actual cultivar/farm/independent measurements/forecast/margin/ranking/general production capacity"
+  ],
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed"
+}

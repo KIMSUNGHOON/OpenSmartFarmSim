@@ -1370,9 +1370,12 @@
       현재1,584/고정1,400 source·원 입력/artifact/key·미리보기 보존·소유 비좀비/child/pidfile0.
       기존 수용 판본을 바꾸지 않고 새 전체 계보를 보존했다. 전체 수확 writer/API·3D/관문 수용은 아니다.
     - [ ] **`crop-harvest-full-writer-registry`** — 선행 새 전체 부모 현재 조회. 실제 writer/등록·fresh reader와 집중 시험을3~5 core파일로 나눈다.
-      다음은 복원된 실제 전체 부모 summary/첫·다음64/마지막1/5사건의 제한된 조회 비용 측정(300초 상한)이다.
-      원 record/원량·실제 SCRAM·FD/원본 보존·재계산/행 생성/게시0·원 종료/PG 정리·WSL 한도를 확인한다.
-      748page 반복 비용으로 전체 writer 예산/필요한 개선을 정하며 준비 명령만으로 수용하지 않는다.
+      - [x] **`crop-harvest-full-parent-read-cost`** — [실제 제한된 현재 조회 비용](../research/crop-harvest-full-parent-read-cost-20261009.md).
+        원34669 도구0/자식0·44.194초/300초·summary/첫·다음64/마지막1/5사건 각각7.384–8.383초.
+        같은 원 record/원량·실제 SCRAM·FD4→4·원본2,146항목/source1,588 보존·읽기 재계산/행 생성/게시0,
+        단일/관측 합 RSS130,433,024/441,176,064bytes·fresh PG 소유 data 정리·보호 미리보기 보존.
+        전체 writer는 실행하지 않았다. 다음은 반복 전체 검사의 호출/횟수와 거부 경계를 좁힌 작은 비용 개선 계약/시험이다.
+        현재 권리/서명·원본 변조 거부를 유지하고 실제 비용으로 전체 writer 예산을 정한다.
       - [x] **`crop-harvest-storage-preservation-small`** — [core4 계약](../contracts/crop-harvest-storage-preservation-v1.md).
         전체 부모 계산 대기 중 선행 수용한 작은 부모에서 정상 writer/registry→새 DB·수확 인증 보존→
         원 DB 정지 뒤 fresh Python 현재 reader를 검증한다. 원 수량/UTC/최초 시각·권리/계정 거부·읽기 재계산0·
