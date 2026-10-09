@@ -1,0 +1,63 @@
+{
+  "version": "crop-catalog-image-build-boundary-reference-v1",
+  "observed_at": "2026-10-09T06:18:48.491122+00:00",
+  "status": "missing_image_allowlist_fixed_diagnostic_candidate_hosted_build_cause_unresolved",
+  "hosted_failure": {
+    "run_id": 37892105777,
+    "head": "973c57d371abff826998f1eeb7b8f4fe8d51a0fd",
+    "job_id": 113695106230,
+    "step": "Build and verify isolated application images",
+    "web_Docker_RUN": "npm run build",
+    "actual_exit_code": 1,
+    "failure_log_sha256": "29c34aa90980c5cb0b77f429dbd7f6cdb64aa88d492fb92160697621d965be26",
+    "underlying_npm_error_present_in_quiet_log": false,
+    "root_cause_confirmed": false
+  },
+  "local_minimal_image_omission_probe": {
+    "original_exec_session_id": 63940,
+    "actual_controller_exit_code": 1,
+    "actual_vite_build_child_exit_code": 0,
+    "expected_failure_reproduced": false,
+    "warning": "Imported crop-result-empty.png absent; URL remains unchanged for runtime resolution",
+    "controller_receipt_sha256": "8243151a9f956422022342544866e896d4012da328ef02d7b59201ddc8d2a415",
+    "log_sha256": "ad0def33944eddc098b4b641b05372ee18f830a5d3175840ab77b4b36cf61dc0",
+    "wall_seconds": 1.6930134829890449,
+    "actual_Docker_used": false,
+    "source_count": 1576,
+    "source_and_preview_preserved": true,
+    "protected_identity_count": 4,
+    "owned_remaining_and_child_count": 0,
+    "single_PID_peak_RSS_bytes": 535683072,
+    "combined_peak_RSS_bytes": 1007849472,
+    "RSS_samples": 22,
+    "sample_interval_seconds": 0.05
+  },
+  "changes": {
+    "exact_asset_inclusion": ".dockerignore:!web/src/assets/crop-result-empty.png",
+    "existing_Docker_export_regression": "scripts/check-application-images.py verifies exported asset SHA",
+    "build_failure_diagnostic": "Actual image builds use --progress plain instead of --quiet; public build-source output only",
+    "private_build_context_exclusions_unchanged": true
+  },
+  "local_checks": {
+    "Python_AST_syntax": true,
+    "approved_original_asset_and_previous_accepted_ordinary_build_SHA": "39bf15bdcd694ee514f33132c0a18db93f4b0b17d1f7797c8cd06929ff5b5f85",
+    "approved_asset_bytes": 95662,
+    "actual_Docker_export_and_image_build": false
+  },
+  "native_CLI": {
+    "actual_effort": "xhigh",
+    "actual_model": "gpt-6.1-sol",
+    "judgment_scope": "Stored crop catalog screen candidate, metadata selection and original approved prototype integration. Bounded ordinary product build only; browser, original design alignment and native acceptance pending. Current native CLI judgment; no domain coefficients or gate decisions adopted.",
+    "recursive_invocations": 0,
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-09T06:14:20.995Z",
+    "turn_event_sha256": "8c133bb32223681b112b573f069ab149c0f6e9f6589512b6eb14275b1c426d35"
+  },
+  "not_run": [
+    "Actual Docker context export/image build: no local Docker Engine",
+    "Hosted diagnostic candidate build",
+    "New UI deployment",
+    "Realtime U3 linking"
+  ],
+  "production_claim_gate_change": false
+}

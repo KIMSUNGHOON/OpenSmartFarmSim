@@ -112,7 +112,7 @@ def image_checks(directory, prefix, images):
     assert not (exported / 'context/fixtures/crop-fruit-transport-reference-cases-v1.json').exists()
     assert not (exported / 'context/fixtures/crop-fruit-cohort-reference-cases-v1.json').exists()
     assert (exported / 'context/web/src/assets/cutout-15-b6376be1ea78.png').is_file()
-    for name in ['crop-research-leaf.png', 'crop-design/leaf.svg',
+    for name in ['crop-research-leaf.png', 'crop-result-empty.png', 'crop-design/leaf.svg',
                  'crop-design/plant-seedling.svg', 'crop-design/clock.svg',
                  'crop-design/line-chart.svg', 'crop-design/database.svg',
                  'crop-design/magnifying-glass.svg', 'crop-design/research-hold.png',
@@ -126,7 +126,8 @@ def image_checks(directory, prefix, images):
     for service in ('backend', 'web'):
         image = f'{prefix}-{service}:test'
         images[service] = image
-        command('docker', 'build', '--quiet', '--target', f'{service}-app', '--file',
+        event('image_build_started', service=service)
+        command('docker', 'build', '--progress', 'plain', '--target', f'{service}-app', '--file',
                 str(context / service / 'Dockerfile'), '--tag', image, str(context))
         info = json.loads(command('docker', 'image', 'inspect', image).stdout)[0]
         expected_uid = '11001:11010' if service == 'backend' else '11002:11002'
