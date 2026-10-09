@@ -143,7 +143,7 @@
     요청 중첩 반례의2개 동시 요청을1개로 수정했다. source1,571·기존 dist·보호4 identity/소유 정리를 보존했다.
     [원12ui 이미지/HTML](../research/product-ui-result-selector-design-preparation-20261009.md)의 빈 상태 PNG를 그대로 사용했다.
     새8개 브라우저 조건은 미실행이며 선행22개와 합쳐30개, 원3상태 improve/렌더 대조와 실제 공동 DB가 남아 있다.
-    전체 게시/보존·source 정리 뒤 자원을 확보해 검증한다. **미배포 후보이며 이 체크박스·상위 U1/U3는 미완료다.**
+    전체 게시/보존·source 정리 뒤 자원을 확보해 검증한다. **코드는 현재 기동 빌드에 포함되지만 목록 선택 경로는 미수용이며 이 체크박스·상위 U1/U3는 미완료다.**
     후속 [hosted 실패 보완](../research/crop-ui-hosted-failure-fixes-20261009.md): 원30개 중22통과/8실패를 확인했다.
     컨테이너 타입은 같은 제외 조건 RED→GREEN, 현재 타입/집중211개·원69406 종료0이다.
     목록 접근성 이름·부모 summary 검사 순서를 수정했고 수정판 브라우저/이미지·원 디자인/실제 DB 수용은 남았다.
@@ -1388,13 +1388,21 @@
       전체 부모 같은5요청/대표129sample·5event/원 record·UTC·권리/계정 거부·읽기 RHS0,
       합40.074→35.413초·summary snapshot8→6/sample9→7·현재 farm4/DB 연결345 보존.
       원 입력/artifact/backup/source·preview 보존·FD/role/schema/passfile0·PG/소유 정리·512MiB/1GiB.
-      main 코드 통합/기존 미리보기 배포는 하지 않았다. 기동 전환 시 원 preview의 source guard를 보존해야 한다.
-    - [ ] **`crop-full-parent-api-view-preview`** — 선행 수용된 완료 전체 생장 부모/현재 query·기존 API와 성장3D.
-      다음 작은 구현에서 기존 factory/빌드의 보호 API·대표 frame·기동을3~5 core파일로 고정한다.
-      같은 실제 DB/원 record·대표 첫/마지막/관리 UTC의 원 C/N/LAI·실제 HTTPS bytes/시간,
-      현재 권리/계정·조회 RHS/게시0·원 도구0·WSL/소유 정리가 수용 기준이다.
-      새 수확 미등록을 표시하며 다른 부모의 수확을 붙이지 않는다. 기존 작은 미리보기는 새 수용 전까지 유지한다.
-      기존 빌드/factory 재사용 조건의1–3집중시간 잠정이며 전체 수확/실시간 U3 수용은 별도다.
+      격리 수용 당시에는 미통합이었다. 후속 원 미리보기 정상 종료 뒤 main f79ef64에 통합하고 새 고정 source 미리보기에 연결했다.
+    - [x] **`crop-full-parent-api-view-preview`** — [core5 계약](../contracts/crop-full-parent-api-view-preview-v1.md)·
+      [전체 생장 실제 API/대표3D·사용자 기동 수용](../research/crop-full-parent-api-view-preview-20261009.md).
+      원7678 실제 도구0/119.766초·같은 원 서명 DB/실제 SCRAM·고유5시점의50 C/N/LAI·5사건의 원 UTC/상태,
+      보호 HTTPS14/브라우저11·완료200응답9쌍 bytes/SHA·최대6.625초/65,064bytes·현재 권리/계정 거부·복원.
+      조회 RHS/행 생성/게시/증명0·FD/원본2,146항목·소유 PG/data/브라우저/HTTP 정리0,
+      지정 single-process Chromium의 단일/합 RSS418,369,536/1,000,091,648bytes≤512MiB/1GiB.
+      window40/타입·압축 없는 제품 빌드 통과; 일반 압축 빌드 RSS 실패와 앞선 private harness 실패를 원 종료1로 남긴다.
+      원83196 작은 미리보기 정상 종료0 후 원37119의 별도 고정 source를 localhost:5173/8443에 의도적으로 기동했다.
+      원59276 도구0: frontend/보호 summary200·같은 원 bytes·47,809시점/5사건/1,816,704완료 걸음.
+      수확 미등록/실시간 U3 미완료·실제 품종/독립 자료/관문 hold를 유지한다. 전체 수확·U1/일반 운영 용량 수용은 별도다.
+    - [ ] **`crop-full-parent-preview-minified-build`** — 현재 전체 생장 화면의 일반 압축 빌드에서 관측한 WSL 단일 RSS 실패.
+      같은 웹 tree·잠금의 빌드를 한도 안에서 재현하거나 실제 hosted 원 빌드/출처가 검증된 산출물을 확보한다.
+      소스/동작/권리 검사와512MiB/1GiB 기준을 유지한다. 현재 압축 없는 미리보기의 원 수용과 구분하고
+      기존 미리보기/전체 작기 계산을 반복하지 않는다. 일반 운영 용량·U1/U3를 완료 처리하지 않는다.
     - [ ] **`crop-harvest-full-writer-registry`** — 선행 새 전체 부모 현재 조회. 실제 writer/등록·fresh reader와 집중 시험을3~5 core파일로 나눈다.
       - [x] **`crop-harvest-full-parent-read-cost`** — [실제 제한된 현재 조회 비용](../research/crop-harvest-full-parent-read-cost-20261009.md).
         원34669 도구0/자식0·44.194초/300초·summary/첫·다음64/마지막1/5사건 각각7.384–8.383초.

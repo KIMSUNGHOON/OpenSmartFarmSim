@@ -7,8 +7,8 @@
 
 [원 종료·비용·자원·hash](artifacts/crop-cycle-calculation-query-facts-reference-20261009.json)를 보존했다.
 코드는 격리 branch `perf/calculation-query-facts-20261009`의 `fedd8e72ed37701f20ccec8ca92df18353a10b75`다.
-**main 런타임 소스 통합·현재 미리보기 배포는 아직 없다.** 기존 미리보기는 main 파일의 hash를 검사하므로
-그 소스를 보존하는 기동 전환 전까지 격리 판본을 사용한다. 원 모델/증명/서명/입력/artifact는 바꾸지 않았다.
+**이 수용 당시 main 런타임 소스 통합·미리보기 배포는 없었다.** 기존 미리보기는 main 파일의 hash를 검사하므로
+이후 [17:46 KST 전체 생장 미리보기 전환](crop-full-parent-api-view-preview-20261009.md)에서 원 미리보기를 정상 종료하고 main f79ef64에 통합했다. 새 미리보기는 별도 고정 source를 사용한다. 원 모델/증명/서명/입력/artifact는 바꾸지 않았다.
 
 ## 실제 검증
 
