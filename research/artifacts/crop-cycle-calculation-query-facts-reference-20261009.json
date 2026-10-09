@@ -1,0 +1,262 @@
+{
+  "version": "crop-cycle-calculation-query-facts-reference-v1",
+  "scope": "isolated_current_query_facts_bundle_local_software_acceptance_only",
+  "observed_at_utc": "2026-10-09T08:03:42.916251+00:00",
+  "source": {
+    "branch": "perf/calculation-query-facts-20261009",
+    "git_head": "fedd8e72ed37701f20ccec8ca92df18353a10b75",
+    "code_integrated_into_main": false,
+    "preview_deployed": false,
+    "core_files_sha256": {
+      "backend/app/crop_cycle_calculation_result_read_context.py": "61fc86d19c26216313493fc5379d5a2f5660dcd49bf7d4ace5259afbc8c67a0e",
+      "backend/app/crop_cycle_calculation_current_query.py": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b",
+      "backend/tests/test_crop_cycle_calculation_query_facts.py": "a45c60e90d149f71fecea8920e26b8c331cf75423778eae4bcddc45d4810f3b3",
+      "contracts/crop-cycle-calculation-query-facts-v1.md": "945e8dd7c6133ffc36a87f20d1ee359eea56d6636d8f1d803b730df582ac9836"
+    }
+  },
+  "actual_tool_exits": {
+    "missing_facts_red94236": 1,
+    "focused5950": 0,
+    "native_fixture_setup26405": 1,
+    "native82227": 0,
+    "full_parent61642": 0,
+    "summary_profile14795": 0
+  },
+  "tests": {
+    "new_facts": 8,
+    "existing_read_context": 49,
+    "existing_actual_SCRAM_current_query": 12,
+    "unique_total": 69,
+    "schemas_roles_passfiles_after": 0
+  },
+  "comparisons": [
+    {
+      "after_seconds": 6.3693128309969325,
+      "before_seconds": 7.3842011649976484,
+      "label": "summary",
+      "original_record_and_page_equal": true,
+      "ratio": 0.8625594954249816
+    },
+    {
+      "after_seconds": 7.497403966990532,
+      "before_seconds": 8.382597934018122,
+      "label": "samples-first",
+      "original_record_and_page_equal": true,
+      "ratio": 0.8944009990703109
+    },
+    {
+      "after_seconds": 7.537200393009698,
+      "before_seconds": 8.310961651004618,
+      "label": "samples-next",
+      "original_record_and_page_equal": true,
+      "ratio": 0.9068987091401886
+    },
+    {
+      "after_seconds": 6.917624933994375,
+      "before_seconds": 7.9260910490120295,
+      "label": "samples-last",
+      "original_record_and_page_equal": true,
+      "ratio": 0.8727662716991679
+    },
+    {
+      "after_seconds": 7.091765150980791,
+      "before_seconds": 8.070231090998277,
+      "label": "events",
+      "original_record_and_page_equal": true,
+      "ratio": 0.8787561435373407
+    }
+  ],
+  "before_five_queries_sum_seconds": 40.074082890030695,
+  "after_five_queries_sum_seconds": 35.41330727597233,
+  "improvement_percent": 11.630398696454847,
+  "call_counts": {
+    "summary_result_snapshot": [
+      8,
+      6
+    ],
+    "summary_input_verify": [
+      16,
+      12
+    ],
+    "sample64_result_snapshot": [
+      9,
+      7
+    ],
+    "sample64_input_verify": [
+      18,
+      14
+    ],
+    "sample64_current_farm_registration": [
+      4,
+      4
+    ],
+    "sample64_DB_connect": [
+      345,
+      345
+    ],
+    "sample64_current_pre_post": [
+      2,
+      2
+    ]
+  },
+  "whole_file_SHA_validation_not_replaced_by_stat_cache": true,
+  "current_rights_scope_foreign_tenant_denied_and_restored": true,
+  "full_parent_queries_original_record_page_boundaries_values_UTC_equal": true,
+  "representative_unique_samples": 129,
+  "representative_events": 5,
+  "full_parent_read_RHS_row_generation_publication_proof_calls": 0,
+  "all_original_inputs_artifact_backup_identities_preserved": true,
+  "previous_existing_methods_other_than_current_query_open_AST_unchanged": true,
+  "resources": {
+    "focused57": {
+      "RSS_samples": 1851,
+      "RSS_scope": "owned controller/children and protected preview trees; not whole WSL",
+      "combined_peak_RSS_bytes": 407224320,
+      "main_source_count": 1590,
+      "main_source_preserved": true,
+      "preview_dist_preserved": true,
+      "protected_preview_preserved": true,
+      "remaining_children": [],
+      "remaining_owned": [],
+      "sample_interval_seconds": 0.05,
+      "single_PID_peak_RSS_bytes": 130433024,
+      "wall_seconds": 101.32226579799317,
+      "worktree_source_count": 1592,
+      "worktree_source_preserved": true
+    },
+    "native12": {
+      "RSS_samples": 5323,
+      "RSS_scope": "owned controller/children and protected preview trees; not whole WSL",
+      "combined_peak_RSS_bytes": 571584512,
+      "fixture_temp_empty_removed": true,
+      "main_source_count": 1590,
+      "main_source_preserved": true,
+      "observed_owned_PG_count": 1,
+      "observed_owned_PG_tree_samples": 5265,
+      "owned_PG_all_gone": true,
+      "owned_PG_pidfiles_absent": true,
+      "preview_dist_preserved": true,
+      "protected_preview_preserved": true,
+      "remaining_children": [],
+      "remaining_owned": [],
+      "sample_interval_seconds": 0.05,
+      "single_PID_peak_RSS_bytes": 130433024,
+      "wall_seconds": 490.0852129289997,
+      "worktree_source_count": 1592,
+      "worktree_source_preserved": true
+    },
+    "full_parent5_plus_profile_denials": {
+      "RSS_samples": 1073,
+      "RSS_scope": "controller/owned children/protected preview plus actual observed fresh PG tree; not WSL total",
+      "combined_peak_RSS_bytes": 446951424,
+      "fresh_PG_gone": true,
+      "fresh_PG_tree_samples": 1020,
+      "fresh_postmaster_absent": true,
+      "owned_non_zombie_remaining": [],
+      "preview_dist_unchanged": true,
+      "protected_preview_preserved": true,
+      "remaining_children": [],
+      "sample_interval_seconds": 0.05,
+      "single_PID_peak_RSS_bytes": 130433024,
+      "source_count": 1592,
+      "source_pins_preserved": true,
+      "wall_seconds": 65.76702254198608
+    },
+    "actual_summary_profile": {
+      "RSS_samples": 194,
+      "RSS_scope": "controller/owned children/protected preview plus actual fresh PG and concurrently observed native-unit controller/PG trees; observers confer no cleanup authority; not WSL total",
+      "additional_native_unit_observer_samples": 194,
+      "combined_peak_RSS_bytes": 689782784,
+      "fresh_PG_gone": true,
+      "fresh_PG_tree_samples": 143,
+      "fresh_postmaster_absent": true,
+      "owned_non_zombie_remaining": [],
+      "preview_dist_unchanged": true,
+      "protected_preview_preserved": true,
+      "remaining_children": [],
+      "sample_interval_seconds": 0.05,
+      "single_PID_peak_RSS_bytes": 130433024,
+      "source_count": 1592,
+      "source_pins_preserved": true,
+      "wall_seconds": 11.994925413979217
+    }
+  },
+  "native_CLI": {
+    "effort": "xhigh",
+    "judgment_scope": "Measure isolated facts-bundle candidate on the same retained full parent: original five unprofiled queries, one profiled original sample read, current rights/scope/tenant denials and restore. No substituted query/RHS/rows/publication or recursive CLI.",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "turn_event_sha256": "2d13488bed378c974580713e33283cbfe8528fcebb9f126a9a7360fc68c471d9",
+    "turn_timestamp": "2026-10-09T07:36:02.034Z"
+  },
+  "private_receipt_sha256": {
+    "focused-v1/terminal.private.json": "682b25c2936583c6a6059f3a6897da8d25118650e960fff5f40f7a0f50a8826a",
+    "native-v2/terminal.private.json": "0342d129c369ae0c471c23f7874c0ccf30cc452685f391765cc7a008861bde7a",
+    "full-cost-v1/terminal.private.json": "e458c2f2ded8b7e5a070ec5f5533935fd9e106f0872c2bebb9c7b5710c779ad1",
+    "summary-profile-v1/terminal.private.json": "8016b9a03f97451542182326b80db710837bc5dc75dd3c38a586430f436e5aa1",
+    "red-v1/terminal.private.json": "7e092497d061d7efbee59d0a64c56bce80e547ef7ab590247c22d1c705c276cb",
+    "native-v1/terminal.private.json": "d1a1db88abfc8e6eeb28db255f086cc15103988c2b279b246a2f8221fa23e104",
+    "full-cost-v1/actual-tool-terminal.private.json": "717650189df434092c07648efa4f7e58dbf397560563103f87e55ebe0860b110",
+    "full-cost-v1/read-cost.private.json": "1c3625eacad82e7b62f4f4cda418d4bb91950b3410be792bd856007dc5e6ce81",
+    "full-cost-v1/profile.private.json": "4540c5b55136a2f0701a17ae10a2fa193ddb04bc172e30b89cc7c1b01af99663",
+    "full-cost-v1/denials.private.json": "66ab5576f0d105c8a9ea8a99c7f64eaf62770ce965846bdafef9a639b059d717",
+    "native-v2/actual-tool-terminal.private.json": "e91441e9cb592f9c5b17112848e5c88e3fceaf37c771cb8414e565d04c167fe7",
+    "native-v2/cleanup.private.json": "e6df2f97b28d5d23da066c300aaf62a9309443b2ba2de445ef483a3f8ecc7081",
+    "summary-profile-v1/actual-tool-terminal.private.json": "c56b35df254ac210048c175a853f91f4e159c87f803c5d2014159a9409775459",
+    "summary-profile-v1/summary-all-functions.private.json": "98251ff8f30c4088093fc4921bba38743ed20441b244f8147ca5aa4bc6cf0fe9"
+  },
+  "remaining": [
+    "Main code integration requires preserving/replacing the preview source pins first",
+    "Completed full-parent actual API/representative3D and user preview connection",
+    "Full normal harvest writer/registry independent Decimal/all stored rows preservation/fresh reader/API3D",
+    "Repeated current farm validation and DB connections remain",
+    "UI U1/U3 realtime/execution and climate/resources/Decimal crop economics",
+    "Actual cultivar/independent domestic measurements/product runtime CLI/G0-G4/forecast/margin/ranking"
+  ],
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "CI_partition3_observation": {
+    "run_id": 37892105708,
+    "job_id": 113695106113,
+    "conclusion": "failure",
+    "failed_tests": 10,
+    "passed_tests": 1073,
+    "failure_scope": "OwnedProcessScope constructor requires absent Python pidfd symbols in exact standalone3.12.13",
+    "hosted_log_sha256": "2b3d916628a3528aa8f9f1073dd076ec58fd1880a59f4967348a2386abc96e85",
+    "local_exact_python_capability": {
+      "FD_before_after": [
+        5,
+        5
+      ],
+      "actual_own_pidfd_open_signal0": true,
+      "libc_pidfd_open": true,
+      "libc_pidfd_send_signal": true,
+      "numeric_PID_signal_fallback": false,
+      "observed_at": "2026-10-09T07:57:14.709915+00:00",
+      "platform": "linux",
+      "python": "3.12.13",
+      "python_pidfd_open": false,
+      "python_pidfd_send_signal": false,
+      "signals_to_other_processes": 0
+    },
+    "capability_private_receipt_sha256": "d8bb135b1c6658fd966a807a1cc08fbe09314da7006d42fb3edc7d2939f26cd8",
+    "helper_fix_or_hosted_overall_accepted": false
+  },
+  "CI_partition5_observation": {
+    "run_id": 37892105708,
+    "job_id": 113695105991,
+    "conclusion": "failure",
+    "failed_tests": 1,
+    "passed_tests": 907,
+    "test": "test_crop_harvest_runtime_factory.py::test_actual_protected_operator_fresh_python_same_DB_and_private_denial[original_login_scope0]",
+    "line": 347,
+    "failure_scope": "authenticated_endpoint_sha256 actual/expected mismatch; cause not established",
+    "actual_endpoint_sha256": "a805b66d473fc7f7ffe41cc3e4e7c9832a6e5fb380837d30314709bebe71b5e7",
+    "expected_endpoint_sha256": "9992012170b5a077eece9aba44b8b47271da2296cf8f405870dd7de5b7b683f3",
+    "hosted_log_sha256": "a39c40196387b8a5c89590d944fa23443d9014e932576dc6a70548053f0bdd98",
+    "actual_original_log_download74605_exit_code": 0,
+    "old_role_teardown_deadlock_not_treated_as_same_cause": true,
+    "fix_or_hosted_overall_accepted": false
+  }
+}

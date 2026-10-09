@@ -50,6 +50,19 @@
     원8dd와 같은 세 관련 source·CI Python3.12.13/소유 PG16.15에서1통과/종료0·PG/자원 정리0이다.
     재현/원인/수정 증거가 아니며 hosted18의 실제 lock·transaction 또는 충실한 재현을 더 확보해야 한다.
 
+- [ ] **`crop-result-ci-pidfd-compatibility`** — 원 Backend37892105708 분할3/113695106113의10실패·1,073통과.
+  [확인한 범위](../research/crop-cycle-calculation-query-facts-20261009.md): 모두 pidfd 지원 진입 실패이며
+  같은 uv Python3.12.13의 두 Python 함수 부재를 확인했다. libc의 자기 pidfd/signal0·FD5→5는 통과했다.
+  다음 작은 호환 수정은 원 pidfd/identity·보호 tree·close/실패 거부 시험을 유지한다.
+  숫자 PID signal fallback·skip·감사 생략을 하지 않는다. 현재 helper SHA와 보호 미리보기를 보존하고
+  실제 두 Python 배포본의 소유 child·철회/실패/정리와 hosted 회귀 뒤만 체크한다.
+
+- [ ] **`crop-result-ci-harvest-endpoint-binding`** — 원 Backend37892105708 분할5/113695105991의1실패·907통과.
+  `test_crop_harvest_runtime_factory.py:347`의 실제 protected operator/fresh Python endpoint SHA 불일치다.
+  원 로그/hash와 실제/예상 endpoint 문맥을 대사해 필요한 작은 수정으로 좁힌다.
+  구형 역할 정리 교착과 분리하며 endpoint/서명 검사를 생략하거나 단순 retry로 완료하지 않는다.
+  [현재 관측](../research/crop-cycle-calculation-query-facts-20261009.md), 원 API/권리/복원/소유 정리 회귀를 유지한다.
+
 ## 최종 제품 UI 통합 (2026-10-09)
 
 [순서·잠정 작업량·날짜 조건](plan.md#최종-제품-ui-통합--2026-10-09-사용자-요청)을 따른다.
@@ -1369,6 +1382,19 @@
       후속2,626.363초·raw backup500,601bytes/128MiB·단일/관측 합 RSS178,319,360/588,541,952bytes,
       현재1,584/고정1,400 source·원 입력/artifact/key·미리보기 보존·소유 비좀비/child/pidfile0.
       기존 수용 판본을 바꾸지 않고 새 전체 계보를 보존했다. 전체 수확 writer/API·3D/관문 수용은 아니다.
+    - [x] **`crop-cycle-calculation-query-facts`** — [core4 계약](../contracts/crop-cycle-calculation-query-facts-v1.md)·
+      [격리 로컬 수용](../research/crop-cycle-calculation-query-facts-20261009.md), source fedd8e7.
+      새8/기존49/실제 SCRAM12·고유69개, 원5950/82227/61642/14795 실제 도구0.
+      전체 부모 같은5요청/대표129sample·5event/원 record·UTC·권리/계정 거부·읽기 RHS0,
+      합40.074→35.413초·summary snapshot8→6/sample9→7·현재 farm4/DB 연결345 보존.
+      원 입력/artifact/backup/source·preview 보존·FD/role/schema/passfile0·PG/소유 정리·512MiB/1GiB.
+      main 코드 통합/기존 미리보기 배포는 하지 않았다. 기동 전환 시 원 preview의 source guard를 보존해야 한다.
+    - [ ] **`crop-full-parent-api-view-preview`** — 선행 수용된 완료 전체 생장 부모/현재 query·기존 API와 성장3D.
+      다음 작은 구현에서 기존 factory/빌드의 보호 API·대표 frame·기동을3~5 core파일로 고정한다.
+      같은 실제 DB/원 record·대표 첫/마지막/관리 UTC의 원 C/N/LAI·실제 HTTPS bytes/시간,
+      현재 권리/계정·조회 RHS/게시0·원 도구0·WSL/소유 정리가 수용 기준이다.
+      새 수확 미등록을 표시하며 다른 부모의 수확을 붙이지 않는다. 기존 작은 미리보기는 새 수용 전까지 유지한다.
+      기존 빌드/factory 재사용 조건의1–3집중시간 잠정이며 전체 수확/실시간 U3 수용은 별도다.
     - [ ] **`crop-harvest-full-writer-registry`** — 선행 새 전체 부모 현재 조회. 실제 writer/등록·fresh reader와 집중 시험을3~5 core파일로 나눈다.
       - [x] **`crop-harvest-full-parent-read-cost`** — [실제 제한된 현재 조회 비용](../research/crop-harvest-full-parent-read-cost-20261009.md).
         원34669 도구0/자식0·44.194초/300초·summary/첫·다음64/마지막1/5사건 각각7.384–8.383초.
