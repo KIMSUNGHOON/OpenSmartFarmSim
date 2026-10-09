@@ -8,7 +8,7 @@
 이 주소는 이번 WSL 세션의 내부 미리보기이며 서버 종료 또는 WSL 종료 뒤에는 다시 기동해야 한다.
 
 접속 토큰과 저장 결과 입력값은 저장소 밖의 보호 파일
-`~/.local/state/OpenSmartFarmSim/20261009-product-ui-preview/run-v4/OPEN-UI.private.txt` 에 있다.
+`~/.local/state/OpenSmartFarmSim/20261009-product-ui-preview/run-v5/OPEN-UI.private.txt` 에 있다.
 파일을 로컬 편집기로 열어 **내부 시험 연결 → 연결 설정 → 08 성장 연구 3D** 순서로 사용한다.
 **저장 결과 판본**에서 `calculation cycle v1`을 고르고 안내의 다섯 필드를 입력한 뒤
 **저장 연구 조회**를 누르면 보존된 원 3시점의 3D·그래프·표를 읽는다.
@@ -23,6 +23,10 @@
 현재 자료는 작은 합성 계산이고 실제 품종 생산·마진 예측·추천이 아니다.
 [실제 기동/검증 범위](../research/product-ui-preview-and-integration-plan-20261009.md),
 [U0–U5 통합 순서와 일정](../tasks/plan.md#최종-제품-ui-통합--2026-10-09-사용자-요청)을 확인한다.
+
+[저장 결과 목록 화면 후보](../research/web-crop-result-catalog-screen-candidate-20261009.md)는
+소스에 추가했으나 위 미리보기에 배포하지 않았다. 선택 로직/SDK176개·타입·제품 빌드만 확인했고,
+브라우저/디자인/실제 공동 DB 수용이 남았다. 진행 중인 전체 계산의 실시간 화면은 U3 후속이다.
 
 ## 지금 3D를 직접 보기
 

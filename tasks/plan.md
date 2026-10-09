@@ -99,6 +99,12 @@ U1은 [서버 목록 계약](../contracts/crop-result-catalog-v1.md)의 metadata
 원 이미지/HTML·CLI 종료를 확인했다. 아직 구현/배포하지 않았다. 목록 클릭의 전달에는 기존 CropReplay 최초 판본
 선택과 HarvestReplay의 초기 수확 ID/같은 부모 연결도 포함한다. 이를 화면 계약의 작은 선행 자식으로 나눈다.
 실제 구현 뒤 원 승인 이미지에 대한12ui improve와 좁은 폭/키보드·취소/권리 검증을 마친다.
+[목록 화면 구현 후보](../research/web-crop-result-catalog-screen-candidate-20261009.md)는
+농장/등록 작물/같은 결과의 선택을 기존08에 연결하고 새16개+SDK 회귀176개·타입·일반 제품 빌드를 확인했다.
+선택 전달 자식 수용과 병행한 개발이며 화면 수용/배포는 아니다. 새8개·선행22개 브라우저 조건,
+원 desktop-loaded/desktop-empty/mobile-loaded의 improve와 렌더 대조, 실제 공동 DB/재시작 검증이 남았다.
+현재 전체 계산/미리보기의 동시 자원 조건에서 브라우저를 반복하지 않고 전체 게시/보존·source 정리 뒤 수행한다.
+이후 같은 실행의 서버 진행/확정 checkpoint→완료 결과 연결은 U3의 별도 계약/수용으로 진행한다.
 기존 hosted Backend의 실제 수확 인증 감사 실패에 필요한
 [초기화 설정 후보](../research/ci-explicit-host-scram-candidate-20261009.md)는 로컬 A/B만 확인했다.
 [8dd386d 실제 종료](../research/crop-result-ci-terminal-20261009.md)는 Backend2/3 성공·0/1/4/5/집계 실패다.

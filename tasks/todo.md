@@ -120,8 +120,14 @@
   - [ ] **`web-crop-result-catalog`** — 선행 보호 API/두 SDK와 선택 전달 자식 수용. 기존 농장 목록/선택에서 SDK로 결과를 찾고
     같은 결과/농장·판본을 기존 생장3D/수확에 전달한다. 수동 ID 복사·token 저장 없이 재선택하며
     빈 목록/hold·현재 권리 실패·취소/늦은 응답·키보드/좁은 화면을 검증한다.
-    [실제12ui 디자인/HTML](../research/product-ui-result-selector-design-preparation-20261009.md)은 준비했으며 구현/배포는 남았다.
-    초기 판본/수확 ID·같은 부모 전달과 선택 변경 시 기존 값 제거를 작은 선행 자식으로 나눈 뒤 화면을 연결한다.
+    [핵심5파일 화면 계약](../contracts/web-crop-result-catalog-screen-v1.md)의
+    [현재 구현 후보](../research/web-crop-result-catalog-screen-candidate-20261009.md)는 기존08의 선택 진입과
+    농장 등록 재확인→등록 작물→생장/수확10건 페이지→기존 재생 전달을 연결했다.
+    새16개와 두 SDK 회귀를 합친176개·타입 원59056 종료0, 일반 제품 빌드 원5274 종료0을 확인했다.
+    요청 중첩 반례의2개 동시 요청을1개로 수정했다. source1,571·기존 dist·보호4 identity/소유 정리를 보존했다.
+    [원12ui 이미지/HTML](../research/product-ui-result-selector-design-preparation-20261009.md)의 빈 상태 PNG를 그대로 사용했다.
+    새8개 브라우저 조건은 미실행이며 선행22개와 합쳐30개, 원3상태 improve/렌더 대조와 실제 공동 DB가 남아 있다.
+    전체 게시/보존·source 정리 뒤 자원을 확보해 검증한다. **미배포 후보이며 이 체크박스·상위 U1/U3는 미완료다.**
   - [ ] **`product-ui-result-catalog-native`** — 선행 API/웹. 실제 별도 DB/API/빌드 App에서
     저장 결과 선택→같은 UTC3D/수확·새로고침/백엔드 재시작·철회/계정과 WSL 자원을 확인한다.
     첫 두 판본 연결 뒤 기존 기관/구획/startup 판본의 검색/선택 범위를 대사하고 상위 U1을 판단한다.
