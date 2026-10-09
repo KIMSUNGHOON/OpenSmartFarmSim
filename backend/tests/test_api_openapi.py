@@ -34,6 +34,7 @@ OPERATIONS = {
     ('/v1/crop-cycle-calculation-research-results/{result_id}','get'): ('getCalculationCycleCropResearchResult',list(CROP_READ_SCOPES)),
     ('/v1/crop-harvest-research-results/{result_id}','get'): ('getHarvestResearchResult',list(CROP_READ_SCOPES)),
     ('/v1/crop-research-result-catalog','get'): ('listCropResearchResults',list(CROP_READ_SCOPES)),
+    ('/v1/crop-research-result-catalog/farm-crops','get'): ('getCropResearchFarmSelection',list(CROP_READ_SCOPES)),
     ('/v1/source-history/{research_job_id}/collections/{collection_job_id}/economic-candidates','get'):
         ('listSourceEconomicCandidates',list(SOURCE_ECONOMIC_READ_SCOPES)),
     ('/v1/source-history/{research_job_id}/collections/{collection_job_id}/economic-candidates/{candidate_id}','get'):
@@ -247,7 +248,7 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
                                       '/v1/crop-startup-research-results/','/v1/crop-cycle-research-results/',
                                       '/v1/crop-cycle-calculation-research-results/','/v1/crop-harvest-research-results/'))
                 else b'scenario_id=example&scenario_revision=r1&registration_sha256='+b'a'*64
-                  if path == '/v1/farm-authored-inputs/activity'
+                  if path in ('/v1/farm-authored-inputs/activity','/v1/crop-research-result-catalog/farm-crops')
                 else b'plan_id=example&submission_sha256='+b'a'*64 if path == '/v1/break-even-plans/receipt'
                 else b'kind=economic_input' if path == '/v1/market-user-sources'
                 else b'kind=economic_input&record_id=example&revision=r1' if path == '/v1/market-user-sources/record'

@@ -86,9 +86,14 @@ def test_restored_catalogue_actual_https_original_metadata_and_many_growth_rows(
             h.backup.command(Path(parent['binary'])/'pg_restore', ['--no-password', '--exit-on-error',
                 '--clean', '--if-exists', '--dbname', context['admin'], dump], stage, 'prepared-DB-restore')
         doc = json.loads(h.runtime.private_bytes(context['config']))
-        for field in ('principal', 'rights'):
+        for field in ('principal', 'rights', 'market_scope'):
             target = stage/(field+'.private')
-            h.backup.write(target, h.runtime.private_bytes(doc[field+'_file']))
+            original_path=doc[field+'_file'];control_raw=h.runtime.private_bytes(original_path)
+            h.backup.write(target, control_raw)
+            if field=='market_scope':
+                original_sha=doc['static_sha256'].pop(original_path)
+                assert sha256(control_raw).hexdigest()==original_sha
+                doc['static_sha256'][str(target)]=original_sha
             doc[field+'_file'] = str(target)
         for name in ('job-artifacts', 'unused-legacy', 'prepared-custody'):
             (stage/name).mkdir(mode=0o700)
@@ -201,14 +206,16 @@ def test_restored_catalogue_actual_https_original_metadata_and_many_growth_rows(
                     assert thread.is_alive() and monotonic() < deadline; sleep(.02)
                 port = https.servers[0].sockets[0].getsockname()[1]
                 trust = ssl.create_default_context(cafile=str(cert))
-                def call(kind=catalog.KINDS[0], *, bearer='owner', cursor=None, **filters):
-                    query = {'kind': kind, **farm, **filters}
+                def call(kind=catalog.KINDS[0], *, bearer='owner', cursor=None, farm_selection=False, **filters):
+                    observed_kind = 'farm_selection' if farm_selection else kind
+                    query = {k:v for k,v in farm.items() if k!='crop_id'} if farm_selection else {'kind':kind, **farm}
+                    query.update(filters)
                     if cursor is not None:
                         query.update(before_recorded_at=cursor['recorded_at'], before_result_id=cursor['result_id'])
                     connection = http.client.HTTPSConnection('127.0.0.1', port, context=trust, timeout=30)
                     started = monotonic()
                     try:
-                        connection.request('GET', public.PATH+'?'+urlencode(query), headers={} if bearer is None
+                        connection.request('GET', (public.SELECTION_PATH if farm_selection else public.PATH)+'?'+urlencode(query), headers={} if bearer is None
                             else {'Authorization': 'Bearer '+tokens[bearer].decode()})
                         response = connection.getresponse(); raw = response.read(); elapsed = monotonic()-started
                         assert elapsed < 30 and len(raw) <= public.MAX_RESPONSE_BYTES
@@ -216,14 +223,16 @@ def test_restored_catalogue_actual_https_original_metadata_and_many_growth_rows(
                         if response.status == 200:
                             assert response.getheader('x-ossf-crop-catalog-code-sha256') == catalog.CODE_SHA256
                             assert response.getheader('x-ossf-crop-catalog-projection-sha256') == public.CODE_SHA256
-                        observations.append({'kind': kind, 'requested_limit': filters.get('limit', 10),
+                            if farm_selection:
+                                assert response.getheader('x-ossf-crop-farm-selection-version') == catalog.SELECTION_VERSION
+                        observations.append({'kind': observed_kind, 'requested_limit': filters.get('limit', 10),
                             'status': response.status, 'seconds': elapsed, 'bytes': len(raw),
                             'body_sha256': sha256(raw).hexdigest(), 'request_query': query})
                         assert not any(token in raw for token in tokens.values())
                         h.backup.write(stage/('http-body-'+str(len(observations))+'.private.json'), raw)
                         return response.status, json.loads(raw)
                     except Exception as exc:
-                        observations.append({'kind': kind, 'requested_limit': filters.get('limit', 10),
+                        observations.append({'kind': observed_kind, 'requested_limit': filters.get('limit', 10),
                             'exception_type': type(exc).__name__, 'seconds': monotonic()-started})
                         raise
                     finally:
@@ -275,6 +284,33 @@ def test_restored_catalogue_actual_https_original_metadata_and_many_growth_rows(
                     [x['result_id'] for x in preparation], reverse=True)
                 assert len(last['items']) == 1 and last['items'][0]['result_id'] == original_row['result_id']
                 assert prepared_store._find(tenant, result_id=original_row['result_id']) == original_row
+                farm_ref={k:v for k,v in farm.items() if k!='crop_id'}
+                registration=original_query.store.server.binding.farms.read_registration(tenant,
+                    farm_ref['scenario_id'],farm_ref['scenario_revision'],farm_ref['registration_sha256'])
+                expected_selection={'version':catalog.SELECTION_VERSION,'scope':'registered_user_inputs_only',
+                    'farm':farm_ref,'items':[{'crop_id':c.crop_id,'batch_id':c.batch_id,'species':c.species,
+                        'variety':c.variety,'occupancy':{'start':catalog._time(c.occupancy.start),'end':catalog._time(c.occupancy.end)},
+                        'profile_status':c.profile_status,'origin':c.provenance.origin,'evidence_level':c.provenance.evidence_level}
+                        for c in sorted(registration['farm'].crops,key=lambda c:c.crop_id)],
+                    'selection_validation_required':True,'rights_or_gate_approval':False}
+                assert call(farm_selection=True,bearer=None)[0]==401
+                assert call(farm_selection=True,bearer='denied')[0]==403
+                assert call(farm_selection=True,bearer='foreign')[0]==422
+                assert call(farm_selection=True,registration_sha256='0'*64)[0]==422
+                status,selection=call(farm_selection=True);assert status==200 and selection==expected_selection
+                scope_control=Path(doc['market_scope_file']);scope_raw=h.runtime.private_bytes(scope_control)
+                original_encode=public._farm_selection_bytes
+                def withdraw_farm_scope(*args,**kwargs):
+                    result=original_encode(*args,**kwargs)
+                    replace_control(scope_control,h.canonical({**json.loads(scope_raw),'candidate_ids':[]}))
+                    return result
+                try:
+                    with patch.object(public,'_farm_selection_bytes',withdraw_farm_scope):
+                        assert call(farm_selection=True)[0]==422
+                    assert call(farm_selection=True)[0]==422
+                finally:replace_control(scope_control,scope_raw)
+                status,selection=call(farm_selection=True);assert status==200 and selection==expected_selection
+                save('farm-selection.original.private.json',selection)
             finally:
                 https.should_exit = True; thread.join(timeout=120)
                 assert not thread.is_alive()
@@ -288,4 +324,7 @@ def test_restored_catalogue_actual_https_original_metadata_and_many_growth_rows(
         'read_phase_value_read_RHS_proof_publication_calls': 0, 'source_entries_unchanged': len(original),
         'FD_before_after': [fd_before, len(os.listdir('/proc/self/fd'))], 'restored_postmaster_absent': True,
         'new_file_descriptor_identities':0,
+        'farm_selection_original_metadata_matched':True,
+        'farm_selection_HTTP_completed':8,
+        'current_registration_scope_withdrawn_post_projection':True,
         'UI_live_progress_and_G0_G4': 'not_assessed', 'actual_crop_Runs': 0})

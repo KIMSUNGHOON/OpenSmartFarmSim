@@ -41,12 +41,21 @@ U0는 사용자가 기존 앱을 확인하는 내부 실행이다. U1/U2 준비�
 그 경계가 검증된 뒤 별도 작은 작업으로 수용하며, U0의 재생을 그 증거로 사용하지 않는다.
 
 U1은 [서버 목록 계약](../contracts/crop-result-catalog-v1.md)의 metadata 조회 →
-보호 API/OpenAPI → 기존 작성 농장 목록에 연결한 SDK/결과 선택 → 실제 DB/API/브라우저 수용으로 나눈다.
+보호 API/OpenAPI → 등록 작물 선택 조회/두 SDK → 기존 작성 농장 목록의 결과 선택 → 실제 DB/API/브라우저 수용으로 나눈다.
 첫 두 판본은 verified 생장·등록 수확이다. 목록은 현재 권리와 서명 metadata를 확인하며
 선택 시 파일/원 수치/현재 권리는 기존 query로 다시 검사한다. 목록 조회에 전체 결과 검증 비용을
 붙이거나 목록을 원 파일/관문 승인으로 표시하지 않는다. 기존 기관/구획/startup 판본의 범위도
 대사한 뒤 상위 U1을 판단한다. 세부 작업량은 기존 U1의1–2집중일 안에서 실측으로 갱신하고,
 현재 실시간 전체 계산 연동과 최종 제품 UI 완료일로 전가하지 않는다.
+
+기존 `FarmAuthoringSummary`/웹 farm catalog에는 crop_id·species/variety가 없다.
+결과 목록의 필수 crop_id를 사용자가 추측하는 의존성 누락을
+[현재 등록 작물 조회](../contracts/crop-result-farm-selection-v1.md)로 보완한다.
+같은 현재 farm graph/원 hash와 사용자 등록 의도를 읽고 선택 시 기존 결과 검사를 유지한다.
+이 서버 자식과 SDK 수용 전에는 실제 선택 화면을 게시하지 않는다. 고정 계약의 화면 설계는 병행한다.
+[등록 작물 서버 자식](../research/crop-result-farm-selection-implementation-20261009.md)은
+집중348개·실제 별도 SCRAM/HTTPS22응답 중 선택8개/원1작물·원 종료0/정리로 로컬 수용했다.
+등록 작물 웹 SDK와 목록 SDK의 남은 빌드·실제 선택 화면/U1 및 실시간 U3는 미완료다.
 
 [metadata 서버 자식](../research/crop-result-catalog-metadata-implementation-20261009.md)은
 집중30개와 별도 실제 SCRAM/각1건·현재 권리/변조·투영 뒤 철회·원 생성0/정리로 로컬 수용했다.

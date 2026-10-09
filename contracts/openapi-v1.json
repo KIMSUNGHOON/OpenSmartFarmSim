@@ -5949,6 +5949,35 @@
         "title": "FarmEconomicSelection",
         "type": "object"
       },
+      "FarmRegistration": {
+        "additionalProperties": false,
+        "properties": {
+          "registration_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Registration Sha256",
+            "type": "string"
+          },
+          "scenario_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "scenario_revision": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "scenario_revision",
+          "registration_sha256"
+        ],
+        "title": "FarmRegistration",
+        "type": "object"
+      },
       "FarmReplayScenarioSummary": {
         "additionalProperties": false,
         "properties": {
@@ -5986,6 +6015,52 @@
           "intent_job"
         ],
         "title": "FarmReplayScenarioSummary",
+        "type": "object"
+      },
+      "FarmSelection": {
+        "additionalProperties": false,
+        "properties": {
+          "farm": {
+            "$ref": "#/components/schemas/FarmRegistration"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/RegisteredCrop"
+            },
+            "maxItems": 32,
+            "title": "Items",
+            "type": "array"
+          },
+          "rights_or_gate_approval": {
+            "const": false,
+            "title": "Rights Or Gate Approval",
+            "type": "boolean"
+          },
+          "scope": {
+            "const": "registered_user_inputs_only",
+            "title": "Scope",
+            "type": "string"
+          },
+          "selection_validation_required": {
+            "const": true,
+            "title": "Selection Validation Required",
+            "type": "boolean"
+          },
+          "version": {
+            "const": "crop-research-farm-selection-v1",
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "scope",
+          "farm",
+          "items",
+          "selection_validation_required",
+          "rights_or_gate_approval"
+        ],
+        "title": "FarmSelection",
         "type": "object"
       },
       "GrowthCatalog": {
@@ -8447,6 +8522,65 @@
           "projection_code_sha256"
         ],
         "title": "Reference",
+        "type": "object"
+      },
+      "RegisteredCrop": {
+        "additionalProperties": false,
+        "properties": {
+          "batch_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Batch Id",
+            "type": "string"
+          },
+          "crop_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Crop Id",
+            "type": "string"
+          },
+          "evidence_level": {
+            "const": "assumed",
+            "title": "Evidence Level",
+            "type": "string"
+          },
+          "occupancy": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "origin": {
+            "const": "user",
+            "title": "Origin",
+            "type": "string"
+          },
+          "profile_status": {
+            "const": "unavailable",
+            "title": "Profile Status",
+            "type": "string"
+          },
+          "species": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Species",
+            "type": "string"
+          },
+          "variety": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Variety",
+            "type": "string"
+          }
+        },
+        "required": [
+          "crop_id",
+          "batch_id",
+          "species",
+          "variety",
+          "occupancy",
+          "profile_status",
+          "origin",
+          "evidence_level"
+        ],
+        "title": "RegisteredCrop",
         "type": "object"
       },
       "Removal": {
@@ -14024,6 +14158,114 @@
           }
         ],
         "summary": "List Results",
+        "x-ossf-required-scopes": [
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read",
+          "crop_result_read"
+        ]
+      }
+    },
+    "/v1/crop-research-result-catalog/farm-crops": {
+      "get": {
+        "operationId": "getCropResearchFarmSelection",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "scenario_id",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Scenario Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "scenario_revision",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+              "title": "Scenario Revision",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "registration_sha256",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-f]{64}$",
+              "title": "Registration Sha256",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FarmSelection"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Get Farm Selection",
         "x-ossf-required-scopes": [
           "farm_scenario_read",
           "metadata",

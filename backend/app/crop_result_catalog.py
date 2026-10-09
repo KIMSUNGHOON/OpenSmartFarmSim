@@ -12,13 +12,15 @@ from . import crop_harvest_current_query as harvest
 from .thermal_run_store import _canonical
 
 VERSION = 'crop-research-result-catalog-v1'
+SELECTION_VERSION = 'crop-research-farm-selection-v1'
+MAX_CROPS = 32
 MAX_LIMIT = 20
 MAX_PAGE_BYTES = 64 * 1024
 KINDS = ('calculation_cycle_v1', 'harvest_v1')
 # Reviewed implementation determines which registration arguments may share a check.
 REGISTRATION_CODE_SHA256 = '4f245271487b1e55422386b42221aa8d24906d28f52403626c474c62f14568a9'
 CODE_SHA256 = sha256(Path(__file__).read_bytes()).hexdigest()
-_DECLARATIONS = (VERSION, MAX_LIMIT, MAX_PAGE_BYTES, KINDS, REGISTRATION_CODE_SHA256, CODE_SHA256)
+_DECLARATIONS = (VERSION, SELECTION_VERSION, MAX_CROPS, MAX_LIMIT, MAX_PAGE_BYTES, KINDS, REGISTRATION_CODE_SHA256, CODE_SHA256)
 
 
 class CropResultCatalogHold(ValueError):
@@ -64,7 +66,7 @@ class CropResultCatalog:
                 None if self.harvest is None else self.harvest._fixed)
 
     def _binding(self):
-        _need((VERSION, MAX_LIMIT, MAX_PAGE_BYTES, KINDS, REGISTRATION_CODE_SHA256, CODE_SHA256) == _DECLARATIONS
+        _need((VERSION, SELECTION_VERSION, MAX_CROPS, MAX_LIMIT, MAX_PAGE_BYTES, KINDS, REGISTRATION_CODE_SHA256, CODE_SHA256) == _DECLARATIONS
               and sha256(Path(__file__).read_bytes()).hexdigest() == CODE_SHA256
               and sha256(Path(calculation.server.farms.original.__file__).read_bytes()).hexdigest()
                   == REGISTRATION_CODE_SHA256
@@ -72,6 +74,44 @@ class CropResultCatalog:
         self.calculation._binding()
         if self.harvest is not None:
             self.harvest._binding()
+
+    def _selection_registration(self, tenant, farm):
+        self._binding()
+        binding = self.calculation.store.server.binding
+        binding._guard(tenant, False)
+        registration = binding.farms.read_registration(tenant, farm['scenario_id'],
+            farm['scenario_revision'], farm['registration_sha256'])
+        _need(registration['scenario_sha256'] == farm['registration_sha256']
+              and registration['farm'].scenario_id == farm['scenario_id']
+              and registration['farm'].scenario_revision == farm['scenario_revision'])
+        binding._guard(tenant, False)
+        return registration
+
+    @contextmanager
+    def open_farm_selection(self, tenant, farm_ref):
+        try:
+            _need(type(farm_ref) is dict and set(farm_ref) == {
+                'scenario_id', 'scenario_revision', 'registration_sha256'})
+            _need(all(calculation.storage._name(farm_ref[k]) for k in ('scenario_id', 'scenario_revision'))
+                  and calculation.inputs._digest(farm_ref['registration_sha256']))
+            farm = deepcopy(farm_ref)
+            registration = deepcopy(self._selection_registration(tenant, farm))
+            crops = registration['farm'].crops
+            _need(len(crops) <= MAX_CROPS and len({c.crop_id for c in crops}) == len(crops))
+            items = [{'crop_id':c.crop_id, 'batch_id':c.batch_id, 'species':c.species, 'variety':c.variety,
+                'occupancy':{'start':_time(c.occupancy.start), 'end':_time(c.occupancy.end)},
+                'profile_status':c.profile_status, 'origin':c.provenance.origin,
+                'evidence_level':c.provenance.evidence_level} for c in sorted(crops, key=lambda c:c.crop_id)]
+            page = {'version':SELECTION_VERSION, 'scope':'registered_user_inputs_only', 'farm':farm,
+                'items':items, 'selection_validation_required':True, 'rights_or_gate_approval':False}
+            _need(len(_canonical(page)) <= MAX_PAGE_BYTES)
+            _need(self._selection_registration(tenant, farm) == registration)
+            yield deepcopy(page)
+            _need(self._selection_registration(tenant, farm) == registration)
+        except PermissionError:
+            raise
+        except Exception:
+            raise CropResultCatalogHold('stored crop farm selection unavailable') from None
 
     def _guard(self, tenant, farm):
         self._binding()

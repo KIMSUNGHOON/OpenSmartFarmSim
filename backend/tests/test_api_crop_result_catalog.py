@@ -87,6 +87,124 @@ def get(case,*,query=None,body=b'',headers=None):
         headers=[(b'authorization',b'Bearer '+TOKEN)] if headers is None else headers))
 
 
+SELECTION_REF={k:v for k,v in FARM.items() if k!='crop_id'}
+SELECTION_PATH='/v1/crop-research-result-catalog/farm-crops'
+
+
+def selection_case(monkeypatch,**kwargs):
+    case=assembly(monkeypatch,**kwargs)
+    case.state['selection']={'version':'crop-research-farm-selection-v1','scope':'registered_user_inputs_only',
+        'farm':deepcopy(SELECTION_REF),'items':[{'crop_id':'crop-1','batch_id':'batch-1',
+            'species':'방울토마토 시험 의도','variety':'등록 품종 · 미검증',
+            'occupancy':{'start':'2026-01-01T00:00:00.000000Z','end':'2026-01-02T00:00:00.000000Z'},
+            'profile_status':'unavailable','origin':'user','evidence_level':'assumed'}],
+        'selection_validation_required':True,'rights_or_gate_approval':False}
+    @contextmanager
+    def opened(service,tenant,farm):
+        case.trace.append('selection-open');case.state['selection_request']=(tenant,farm)
+        try:
+            if case.state['read_error'] is not None:raise case.state['read_error']
+            if not case.state['allowed']:raise PermissionError('private farm rights')
+            yield deepcopy(case.state['selection'])
+            case.trace.append('selection-current')
+            if case.state['exit_error'] is not None:raise case.state['exit_error']
+            if not case.state['allowed']:raise PermissionError('private farm rights')
+        finally:case.trace.append('selection-close')
+    monkeypatch.setattr(catalog.CropResultCatalog,'open_farm_selection',opened)
+    return case
+
+
+def get_selection(case,*,query=None,body=b'',headers=None):
+    params=SELECTION_REF if query is None else query
+    raw=params if isinstance(params,str) else urlencode(params)
+    return asyncio.run(request(case.app,path=SELECTION_PATH,query=raw.encode(),body=body,
+        headers=[(b'authorization',b'Bearer '+TOKEN)] if headers is None else headers))
+
+
+def test_farm_selection_typed_bytes_finish_before_current_context_and_account(monkeypatch):
+    case=selection_case(monkeypatch)
+    status,value,headers=get_selection(case)
+    assert status==200 and value==case.state['selection']
+    assert case.state['selection_request']==('tenant-1',SELECTION_REF)
+    assert case.trace==['account','selection-open','selection-current','selection-close','account']
+    assert headers[b'cache-control']==b'no-store'
+    assert headers[b'x-ossf-crop-farm-selection-version']==b'crop-research-farm-selection-v1'
+    assert headers[b'x-ossf-crop-catalog-projection-sha256']==route.CODE_SHA256.encode()
+
+
+@pytest.mark.parametrize('extra',['&extra=1','&crop_id=guess','&kind=harvest_v1','&limit=20',
+    '&scenario_id=duplicate','&registration_sha256=bad'])
+def test_farm_selection_closed_query_never_reads_registration(monkeypatch,extra):
+    case=selection_case(monkeypatch)
+    status,value,_=get_selection(case,query=urlencode(SELECTION_REF)+extra)
+    assert status==422 and value['error']['code']=='invalid_request' and 'selection-open' not in case.trace
+
+
+@pytest.mark.parametrize('field',list(SELECTION_REF))
+def test_farm_selection_required_fields_are_not_guessed(monkeypatch,field):
+    case=selection_case(monkeypatch);params=deepcopy(SELECTION_REF);params.pop(field)
+    assert get_selection(case,query=params)[0]==422 and 'selection-open' not in case.trace
+
+
+def test_farm_selection_requires_auth_empty_body_and_configured_reader(monkeypatch):
+    case=selection_case(monkeypatch)
+    assert get_selection(case,headers=[])[0]==401
+    assert get_selection(case,body=b'{}')[0]==422 and 'selection-open' not in case.trace
+    case=selection_case(monkeypatch,scopes=READ_SCOPES[:-1]);assert get_selection(case)[0]==403
+    case=selection_case(monkeypatch,disabled=True)
+    assert get_selection(case)[0]==503 and get_selection(case,headers=[])[0]==401
+
+
+@pytest.mark.parametrize('fault',['extra','farm','hash','scope','approval','selection','origin','evidence',
+    'profile','species-number','label-control','label-whitespace','label-size','period','duplicate','order','too-many','bytes'])
+def test_farm_selection_rejects_unbound_or_invalid_public_metadata(monkeypatch,fault):
+    case=selection_case(monkeypatch);v=case.state['selection'];item=v['items'][0]
+    if fault=='extra':item['yield_kg']=5
+    elif fault=='farm':v['farm']['scenario_id']='foreign'
+    elif fault=='hash':v['farm']['registration_sha256']='b'*64
+    elif fault=='scope':v['scope']='approved_crop_profile'
+    elif fault=='approval':v['rights_or_gate_approval']=1
+    elif fault=='selection':v['selection_validation_required']=False
+    elif fault=='origin':item['origin']='measured'
+    elif fault=='evidence':item['evidence_level']='validated'
+    elif fault=='profile':item['profile_status']='approved'
+    elif fault=='species-number':item['species']=42
+    elif fault=='label-control':item['variety']='bad\nlabel'
+    elif fault=='label-whitespace':item['species']=' label '
+    elif fault=='label-size':item['species']='x'*201
+    elif fault=='period':item['occupancy']['end']=item['occupancy']['start']
+    elif fault=='duplicate':v['items']=[item,item]
+    elif fault=='order':v['items']=[{**item,'crop_id':'crop-2'},item]
+    else:
+        v['items']=[{**deepcopy(item),'crop_id':str(i).zfill(3)+'c'*197} for i in range(33 if fault=='too-many' else 32)]
+        if fault=='bytes':
+            for row in v['items']:row.update(species='🌱'*200,variety='🍅'*200,batch_id='b'*200)
+    status,value,_=get_selection(case)
+    assert status==422 and value['error']['code']=='crop_catalog_hold'
+
+
+@pytest.mark.parametrize('count',[0,32])
+def test_farm_selection_empty_and_maximum_crop_count_are_metadata_only(monkeypatch,count):
+    case=selection_case(monkeypatch);item=case.state['selection']['items'][0]
+    case.state['selection']['items']=[{**deepcopy(item),'crop_id':'crop-'+str(i).zfill(2)} for i in range(count)]
+    assert get_selection(case)[:2]==(200,case.state['selection'])
+
+
+@pytest.mark.parametrize('fault',['withdrawal','changed-registration','changed-account'])
+def test_farm_selection_late_changes_do_not_publish_prepared_bytes(monkeypatch,fault):
+    case=selection_case(monkeypatch);original=route._farm_selection_bytes
+    def encoded(*args,**kwargs):
+        value=original(*args,**kwargs)
+        if fault=='withdrawal':case.state['allowed']=False
+        elif fault=='changed-registration':case.state['exit_error']=catalog.CropResultCatalogHold('private replacement')
+        else:case.state['foreign_after']=True
+        return value
+    monkeypatch.setattr(route,'_farm_selection_bytes',encoded)
+    status,value,_=get_selection(case)
+    assert status==(422 if fault=='changed-registration' else 403)
+    assert 'items' not in value and b'private' not in json.dumps(value).encode()
+
+
 @pytest.mark.parametrize('kind',catalog.KINDS)
 def test_complete_typed_page_serializes_inside_current_context(monkeypatch,kind):
     case=assembly(monkeypatch,kind=kind);original=route._public_bytes

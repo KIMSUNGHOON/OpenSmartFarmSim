@@ -12,6 +12,95 @@ FARM = {'scenario_id':'owned-farm','scenario_revision':'r1','registration_sha256
 AT = datetime(2026,10,9,1,0,tzinfo=timezone.utc)
 
 
+def selection_service(count=1):
+    service=object.__new__(catalog.CropResultCatalog)
+    crops=tuple(SimpleNamespace(crop_id='crop-'+str(i).zfill(2),batch_id='batch-'+str(i),
+        species='방울토마토 시험 의도',variety='등록 품종 · 미검증',profile_status='unavailable',
+        provenance=SimpleNamespace(origin='user',evidence_level='assumed'),
+        occupancy=SimpleNamespace(start=AT,end=AT+timedelta(days=1))) for i in range(count))
+    ref={k:v for k,v in FARM.items() if k!='crop_id'}
+    registration={'farm':SimpleNamespace(scenario_id=ref['scenario_id'],scenario_revision=ref['scenario_revision'],
+        crops=tuple(reversed(crops))),'scenario_sha256':ref['registration_sha256']}
+    state={'registration':registration,'allowed':True,'calls':0}
+    def read(tenant,selected):
+        state['calls']+=1
+        if tenant!='tenant-1' or not state['allowed']:raise PermissionError('private reason')
+        assert selected==ref
+        return deepcopy(state['registration'])
+    service._selection_registration=read
+    return service,ref,state
+
+
+@pytest.mark.parametrize('count',[0,1,32])
+def test_registered_crop_selection_preserves_user_labels_and_original_clock(count):
+    service,ref,state=selection_service(count)
+    with service.open_farm_selection('tenant-1',ref) as value:
+        assert value['farm']==ref and len(value['items'])==count
+        assert value['version']=='crop-research-farm-selection-v1'
+        assert value['scope']=='registered_user_inputs_only'
+        assert value['selection_validation_required'] is True and value['rights_or_gate_approval'] is False
+        assert [v['crop_id'] for v in value['items']]==sorted(v.crop_id for v in state['registration']['farm'].crops)
+        for item in value['items']:
+            source=next(v for v in state['registration']['farm'].crops if v.crop_id==item['crop_id'])
+            assert (item['species'],item['variety'],item['batch_id'])==(source.species,source.variety,source.batch_id)
+            assert item['occupancy']=={'start':catalog._time(AT),'end':catalog._time(AT+timedelta(days=1))}
+            assert (item['origin'],item['evidence_level'],item['profile_status'])==('user','assumed','unavailable')
+    assert state['calls']==3
+
+
+@pytest.mark.parametrize('fault',['missing','extra','crop','hash','path','not-object'])
+def test_crop_selection_invalid_farm_reference_never_reads_registration(fault):
+    service,ref,state=selection_service()
+    if fault=='missing':ref.pop('scenario_id')
+    elif fault=='extra':ref['approved']=True
+    elif fault=='crop':ref['crop_id']='guess'
+    elif fault=='hash':ref['registration_sha256']='A'*64
+    elif fault=='path':ref['scenario_id']='../guess'
+    else:ref=[]
+    with pytest.raises(catalog.CropResultCatalogHold):
+        with service.open_farm_selection('tenant-1',ref):pytest.fail('invalid reference yielded')
+    assert state['calls']==0
+
+
+@pytest.mark.parametrize('fault',['duplicate','too-many','bytes'])
+def test_crop_selection_does_not_truncate_invalid_or_oversized_registration(fault):
+    service,ref,state=selection_service(33 if fault=='too-many' else 32)
+    crops=state['registration']['farm'].crops
+    if fault=='duplicate':crops[-1].crop_id=crops[0].crop_id
+    elif fault=='bytes':
+        for i,crop in enumerate(crops):
+            crop.species='🌱'*200;crop.variety='🍅'*200
+            crop.crop_id=str(i).zfill(3)+'c'*197;crop.batch_id='b'*200
+    with pytest.raises(catalog.CropResultCatalogHold):
+        with service.open_farm_selection('tenant-1',ref):pytest.fail('invalid metadata yielded')
+
+
+@pytest.mark.parametrize('fault',['foreign','withdrawal','registration-change'])
+def test_crop_selection_current_authority_before_and_after_projection(fault):
+    service,ref,state=selection_service()
+    if fault=='foreign':
+        with pytest.raises(PermissionError):
+            with service.open_farm_selection('foreign',ref):pytest.fail('foreign metadata yielded')
+        return
+    with pytest.raises(PermissionError if fault=='withdrawal' else catalog.CropResultCatalogHold):
+        with service.open_farm_selection('tenant-1',ref):
+            if fault=='withdrawal':state['allowed']=False
+            else:state['registration']['farm'].crops[0].variety='changed'
+
+
+def test_crop_selection_registration_uses_current_shared_binding_and_exact_hash():
+    service,ref,state=selection_service();registration=state['registration'];trace=[]
+    service._binding=lambda:trace.append('binding')
+    def read(*args):trace.append(args);return deepcopy(registration)
+    service.calculation=SimpleNamespace(store=SimpleNamespace(server=SimpleNamespace(binding=SimpleNamespace(
+        _guard=lambda tenant,write:trace.append((tenant,write)),farms=SimpleNamespace(read_registration=read)))))
+    del service._selection_registration
+    assert service._selection_registration('tenant-1',ref)==registration
+    assert trace==['binding',('tenant-1',False),('tenant-1',ref['scenario_id'],ref['scenario_revision'],ref['registration_sha256']),('tenant-1',False)]
+    registration['scenario_sha256']='b'*64
+    with pytest.raises(catalog.CropResultCatalogHold):service._selection_registration('tenant-1',ref)
+
+
 def identifier(kind, n):
     prefix = catalog.calculation.storage.VERSION if kind == catalog.KINDS[0] else catalog.harvest.registry.VERSION
     return prefix+':'+format(n,'064x')

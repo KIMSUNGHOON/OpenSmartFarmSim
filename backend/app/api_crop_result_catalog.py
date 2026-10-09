@@ -13,9 +13,11 @@ from .api_contracts import ErrorEnvelope
 from .api_crop_replay import _Public, Name, UtcStamp, NAME_PATTERN
 from .api_crop_harvest_replay import Farm, FalseValue, ParentID, ResultID as HarvestID
 from .crop_result_store import READ_SCOPES
+from .provenance import Name as UserLabel
 from .thermal_run_store import _canonical
 
 PATH = '/v1/crop-research-result-catalog'
+SELECTION_PATH = PATH+'/farm-crops'
 CODE_SHA256 = sha256(Path(__file__).read_bytes()).hexdigest()
 MAX_RESPONSE_BYTES = 64 * 1024
 Kind = Literal['calculation_cycle_v1', 'harvest_v1']
@@ -101,6 +103,35 @@ _PAGE = TypeAdapter(CatalogPage)
 _STAMP = TypeAdapter(RecordedAt)
 
 
+class FarmRegistration(_Public):
+    scenario_id: Name
+    scenario_revision: Name
+    registration_sha256: Annotated[str, Field(strict=True, pattern=r'^[0-9a-f]{64}$')]
+
+
+class RegisteredCrop(_Public):
+    crop_id: Name
+    batch_id: Name
+    species: Annotated[UserLabel, Field(strict=True, min_length=1, max_length=200)]
+    variety: Annotated[UserLabel, Field(strict=True, min_length=1, max_length=200)]
+    occupancy: Period
+    profile_status: Literal['unavailable']
+    origin: Literal['user']
+    evidence_level: Literal['assumed']
+
+
+class FarmSelection(_Public):
+    version: Literal['crop-research-farm-selection-v1']
+    scope: Literal['registered_user_inputs_only']
+    farm: FarmRegistration
+    items: Annotated[list[RegisteredCrop], Field(max_length=32)]
+    selection_validation_required: TrueValue
+    rights_or_gate_approval: FalseValue
+
+
+_FARM_SELECTION = TypeAdapter(FarmSelection)
+
+
 class CatalogProjectionHold(ValueError):
     """Stored metadata does not support this public response."""
 
@@ -131,6 +162,25 @@ def _response(service, tenant, kind, farm, limit, before):
         return _public_bytes(value, kind=kind, farm=farm, limit=limit, before=before)
 
 
+def _farm_selection_bytes(value, *, farm):
+    try:
+        projected = _FARM_SELECTION.validate_python(value)
+        ids = [row.crop_id for row in projected.items]
+        if projected.farm.model_dump(mode='json') != farm or ids != sorted(set(ids)):
+            raise ValueError()
+        raw = _canonical(projected.model_dump(mode='json'))
+        if len(raw) > MAX_RESPONSE_BYTES:
+            raise ValueError()
+        return raw
+    except Exception:
+        raise CatalogProjectionHold('stored crop farm selection unavailable') from None
+
+
+def _selection_response(service, tenant, farm):
+    with service.open_farm_selection(tenant, farm) as value:
+        return _farm_selection_bytes(value, farm=farm)
+
+
 def install_catalog_routes(app, *, jobs, farms, calculation_query, harvest_query,
                            principal_provider, authorized_tenant, error, access):
     service = None
@@ -152,6 +202,43 @@ def install_catalog_routes(app, *, jobs, farms, calculation_query, harvest_query
     headers = {} if service is None else {'Cache-Control': 'no-store', 'X-OSSF-Crop-Catalog-Version': catalog.VERSION,
         'X-OSSF-Crop-Catalog-Code-SHA256': catalog.CODE_SHA256,
         'X-OSSF-Crop-Catalog-Projection-SHA256': CODE_SHA256}
+    selection_headers = {} if service is None else {**headers,
+        'X-OSSF-Crop-Farm-Selection-Version': catalog.SELECTION_VERSION}
+
+    @app.get(SELECTION_PATH, response_model=FarmSelection, operation_id='getCropResearchFarmSelection',
+        openapi_extra=access(READ_SCOPES),
+        responses={status: {'model': ErrorEnvelope} for status in (401, 403, 422, 503)})
+    async def get_farm_selection(request: Request,
+            scenario_id: Annotated[str, Query(pattern=NAME_PATTERN, max_length=200)],
+            scenario_revision: Annotated[str, Query(pattern=NAME_PATTERN, max_length=200)],
+            registration_sha256: Annotated[str, Query(pattern=r'^[0-9a-f]{64}$')]):
+        tenant, denied = authorized_tenant(*READ_SCOPES)
+        if denied is not None:
+            return denied
+        keys = [key for key, _ in request.query_params.multi_items()]
+        if len(keys) != len(set(keys)) or set(keys) != {'scenario_id', 'scenario_revision', 'registration_sha256'}:
+            return error(422, 'invalid_request', 'Invalid request')
+        async for chunk in request.stream():
+            if chunk:
+                return error(422, 'invalid_request', 'Invalid request')
+        if service is None:
+            return error(503, 'crop_catalog_unavailable', 'Stored crop catalog unavailable')
+        farm = {'scenario_id': scenario_id, 'scenario_revision': scenario_revision,
+                'registration_sha256': registration_sha256}
+        try:
+            raw = await run_in_threadpool(_selection_response, service, tenant, farm)
+            current, denied = authorized_tenant(*READ_SCOPES)
+            if denied is not None:
+                return denied
+            if current != tenant:
+                return error(403, 'forbidden', 'Resource access denied')
+            return Response(raw, media_type='application/json', headers=selection_headers)
+        except PermissionError:
+            return error(403, 'forbidden', 'Resource access denied')
+        except (catalog.CropResultCatalogHold, CatalogProjectionHold):
+            return error(422, 'crop_catalog_hold', 'Stored crop catalog evidence unavailable')
+        except Exception:
+            return error(503, 'crop_catalog_unavailable', 'Stored crop catalog unavailable')
 
     @app.get(PATH, response_model=CatalogPage, operation_id='listCropResearchResults',
         openapi_extra=access(READ_SCOPES),

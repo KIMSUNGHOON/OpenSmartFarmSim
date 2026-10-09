@@ -41,12 +41,22 @@
     실제 SCRAM/HTTPS 원7187 종료0·45.661초/상한1,200초·14응답·생장21건/수확1건,
     최대20건6.483초/8,237bytes·조회 값/RHS/게시/증명0·370source/새FD0·소유 PG/HTTPS 종료다.
     같은 저장 결과를 재사용했고 UI 목록/실시간·일반 운영 용량/새 hosted 전체 수용은 별도다.
+  - [x] **`crop-result-farm-selection`** — [등록 작물 조회 계약](../contracts/crop-result-farm-selection-v1.md)의5핵심 파일.
+    기존 농장 요약에는 crop_id/이름이 없으므로 현재 등록의 작물·품종 의도·재배 기간을 서버에서 찾는다.
+    원 사용자 가정/미검증 상태와 현재 권리·농장 hash를 보존하며 닫힌 query/DTO·최대32/64KiB,
+    Unicode·빈 목록·철회/변조/투영 뒤 변경을 실제 별도 SCRAM/HTTPS와 대사한다.
+    [로컬 증거](../research/crop-result-farm-selection-implementation-20261009.md): 집중348개/원77334 종료0,
+    실제 SCRAM/HTTPS 원10756 종료0·22응답 중 선택8개/원1작물·성공604bytes/최대1.352초,
+    투영 뒤 현재 등록 scope 철회·원값/370entries·새FD0·소유 정리·동시 RSS827,895,808bytes다.
+    실제32작물/웹 선택·실시간·상위 U1은 미수용이다. 화면 설계는 고정 계약으로 병행할 수 있다.
   - [ ] **`web-crop-result-catalog-client`** — 선행 보호 API. [5파일 SDK 계약](../contracts/web-crop-result-catalog-client-v1.md)의
     닫힌 두 kind/같은 농장·UTC/cursor·고유 ID·취소와30초/64KiB를 기존 transport에서 검사한다.
     [후보 검증](../research/web-crop-result-catalog-client-implementation-20261009.md): 실제 별도 HTTPS 원42058 종료0/7원문·
     웹 전체949개(새98개 포함)/타입 자식 종료0·source/미리보기 보존. 동시 RSS 한도의 빌드 종료로 **수용 보류**다.
     원 계산 자원 확보 뒤 같은 source의 남은 빌드를 검증한다. 화면·실시간 연동 완료로 표시하지 않는다.
-  - [ ] **`web-crop-result-catalog`** — 선행 보호 API/SDK 수용. 기존 농장 목록/선택에서 SDK로 결과를 찾고
+  - [ ] **`web-crop-result-farm-selection-client`** — 선행 등록 작물 조회. 원 실제 HTTPS 응답을 보존한 닫힌
+    farm3/crop metadata SDK를 기존 transport에 연결하고 Unicode/UTC·원 사용자 가정/권리 주장·취소를 검사한다.
+  - [ ] **`web-crop-result-catalog`** — 선행 보호 API/두 SDK 수용. 기존 농장 목록/선택에서 SDK로 결과를 찾고
     같은 결과/농장·판본을 기존 생장3D/수확에 전달한다. 수동 ID 복사·token 저장 없이 재선택하며
     빈 목록/hold·현재 권리 실패·취소/늦은 응답·키보드/좁은 화면을 검증한다.
   - [ ] **`product-ui-result-catalog-native`** — 선행 API/웹. 실제 별도 DB/API/빌드 App에서

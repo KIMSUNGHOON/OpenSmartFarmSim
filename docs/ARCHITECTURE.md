@@ -80,6 +80,9 @@ API/3D에서 재계산하거나 G0–G4를 해제하지 않는다.
 [저장 작물 연구 결과 목록 API](../contracts/api-crop-result-catalog-v1.md)는 기존 현재 query와 같은
 인증/농장 graph의 metadata만 제공하며, 선택한 결과의 원 파일/수치·현재 권리는 기존 개별 조회로 다시 검사한다.
 실시간 실행 상태나 미확정 생장 궤적을 이 목록으로 제공하지 않는다.
+[등록 작물 선택 조회](../contracts/crop-result-farm-selection-v1.md)는 작성 농장 요약의 원 hash에서
+현재 등록의 crop_id·사용자 작물/품종 의도와 재배 기간을 찾는다. 같은 farm graph에서 bytes 투영
+전후에 재검사하며 등록 의도를 검증된 품종/결과·관문 승인으로 표시하지 않는다.
 
 [OpenAPI 3.1](https://spec.openapis.org/oas/v3.1.0)로 요청·응답·오류 스키마를 관리한다. 아래는 첫 계약의 경계이며 필드 상세 스키마는 구현 전에 예시 요청/응답과 함께 확정한다.
 
