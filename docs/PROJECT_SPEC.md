@@ -37,7 +37,9 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 자식 실행 경로 보완 후 부모 PYTHONPATH 없는12개 집중 검사를 통과했다.
 [새 결과 DB 계약](../research/crop-climate-joint-result-schema-implementation-20261010.md)도 실제 SCRAM5그룹·
 원128KiB/컬럼·UTC·변조/중복/설치 rollback·기존2테이블 보존·원 종료/정리로 로컬 수용했다.
-[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 명시 권한→결과 등록/API→
+[새 명시 권한](../research/crop-climate-joint-result-roles-implementation-20261010.md)도 새7/기존226=233개·실제 SCRAM/audit·
+기존 설정의 누락/False 호환·원 종료/보존/정리로 로컬 수용했다. 새 True operator/API 조립은 후속이다.
+[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 결과 등록/API→
 같은 시각3D며 온실 경계 조사는 병행한다. 현재 UI·U3/관문 상태는 위와 같다.
 
 **당시 실행 상태 — 2026-10-09 17:46 KST:** [완료 전체 생장 부모의 실제 API·3D/사용자 기동](../research/crop-full-parent-api-view-preview-20261009.md)을 로컬 수용하고 `http://localhost:5173/`을 전환했다.

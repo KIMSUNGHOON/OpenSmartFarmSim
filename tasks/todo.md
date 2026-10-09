@@ -1701,10 +1701,20 @@
         원67605→e4fa9b 실제0/5.068초·schema/role/passfile/PG 정리·FD4→4·원본2,148/source1,744/UI 보존,
         .25초 단일/합 RSS147,255,296/428,863,488bytes다. DB FK는 같은 tenant의 jobs 존재이며 실제 농장 검사는 후속 store다.
         최초 Unix 소켓 trust를 SCRAM으로 잘못 가정한 fixture 오류를 수정했다. 이전82/993·전체166일/API/WebGL은 재실행하지 않았다.
-      - [ ] **`crop-climate-joint-result-roles`** — 선행: 새 schema. 기존 역할/설치 경계를 대조해 명시 새 table grant의 변경 파일을 고정한다.
+      - [x] **`crop-climate-joint-result-roles`** — 선행: 새 schema. 기존 역할/설치 경계를 대조해 명시 새 table grant의 변경 파일을 고정한다.
+        core5: `backend/app/runtime_roles.py`, `backend/app/operator_config.py`, `backend/app/calculation_operator_config.py`,
+        `backend/tests/test_crop_climate_joint_result_roles.py`, `contracts/crop-climate-joint-result-roles-v1.md`.
+        원 정상 로더3개 실패를 재현해 기존 operator 판본에 새 flag의 누락/False만 호환한다. 새 True 활성화는 후속 조립이다.
+        기존 공통 login/owner fixture는 변경하지 않고 전용 fixture에서 새 schema를 먼저 설치한다.
         수용: 기본 false·누락/false/true/잘못된 타입, authority와 다른 역할의 최소 grant·실제 SCRAM/audit·이전 권한/결과 공존.
-        기존 runtime_roles321줄 근거의1–2집중시간 잠정. 새 서비스/queue를 만들지 않는다.
+        [로컬 수용](../research/crop-climate-joint-result-roles-implementation-20261010.md): 새7/기존226=233개를 동일 core5에서 순차 통과했다.
+        실제 PG16.15/SCRAM 누락/False/True·권한84개씩/승격18거부·원 bytes/UTC·기존2테이블·audit 변경12건·미설치/누락 grant 거부,
+        원 로더3개 실패→제품 호환 수정→기존132개 통과다. 기존 설정은 새 flag의 누락/False만 허용하고 True 활성화는 후속이다.
+        원54207/76363/27860 실제0·5.080/21.536/35.036초·FD/PG/schema/role/passfile 정리·원본2,148/source1,748/UI 보존,
+        .25초 단일/합 RSS147,255,296/543,592,448bytes다. 새 store/API/U3·PG17+ 새 hosted·관문은 미수용이며 새 서비스/queue는 추가하지 않았다.
       - [ ] **`crop-climate-joint-result-storage`** — 선행: 새 schema/역할/현재 server custody. core3는 새 store module/해당 tests/contract.
+        다음 core3: `backend/app/crop_climate_joint_result_store.py`, `backend/tests/test_crop_climate_joint_result_store.py`,
+        `contracts/crop-climate-joint-result-store-v1.md`.
         수용: tenant/farm·원 evidence/HEAD/root/UTC·독립 domain/id/HMAC·원자 등록/중복 충돌·rollback·현재 철회·fresh 실제 DB/조회 계산0·이전 결과 공존/정리.
         기존 store266줄 근거의2–4집중시간 잠정. HTTP2MiB와3D·사용자 실행/U3는 후속이다.
 - [ ] **`crop-water-nutrient`** — 선행: 작물/기후 결합·배지/급배액/성분 근거.
