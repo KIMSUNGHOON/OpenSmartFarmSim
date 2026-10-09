@@ -58,7 +58,9 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 실제 SCRAM/검증된 HTTPS·원 bytes/UTC·늦은 철회/취소·계산0·기존 계약/화면/원본 보존으로 로컬 수용했다.
 [명시 서버 조립](../research/crop-climate-joint-runtime-implementation-20261010.md)도 새62/회귀300=고유362개·실제 SCRAM/TLS
 원6응답·오조립/권한/늦은 철회·계산0·기존 UI/원본/소유 정리로 로컬 수용했다.
-다음은 typed 웹 client→같은 시각3D며 온실 경계 조사는 병행한다.
+[typed 웹 reader](../research/crop-climate-joint-web-client-implementation-20261010.md)도 고유459개(웹113/회귀344/실제 HTTPS2)·
+원6응답/UTC·타입/제한된 비압축 빌드·계산0/기존 화면 보존으로 로컬 수용했다. 최초 RSS 초과 빌드도 기록했다.
+다음은 같은 시각의 표·그래프·수치3D며 온실 경계 조사는 병행한다.
 전체 결합·실시간 U3·실제 자료/생산 관문은 미완료다.
 
 **2026-10-09 사용자 확인 화면과 최종 UI:** 기존 App의 실제 API/저장 결과 동시 기동을

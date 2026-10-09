@@ -35,7 +35,8 @@
 [같은 세션 현재 조회10개 검사](../research/crop-climate-joint-current-query-implementation-20261010.md)까지 수용했다.
 [보호 HTTP](../research/crop-climate-joint-http-route-implementation-20261010.md)도 실제 SCRAM/HTTPS·원 bytes/UTC·철회/취소로 수용했다.
 [명시 서버 조립](../research/crop-climate-joint-runtime-implementation-20261010.md)도 실제 SCRAM/TLS·오조립/철회·계산0으로 수용했다.
-그 모델의 typed 웹 client·같은 UTC3D는 후속이며 현재 화면의 결과가 자동 교체되지는 않는다.
+[typed 웹 reader](../research/crop-climate-joint-web-client-implementation-20261010.md)도 웹457개/실제 HTTPS2개·
+타입/제한된 비압축 빌드로 수용했다. 그 모델의 표·그래프·같은 UTC3D는 후속이며 현재 화면의 결과가 자동 교체되지는 않는다.
 3D는 LAI·과실 구획의 수치 모식도다. 실제 작물 외형·품종 생산·생과 수확·마진 예측·추천이 아니다.
 지역부터 작물 생산·자원·경제까지 자동 연결한 최종 통합 UI/U1/U3도 미수용이다.
 

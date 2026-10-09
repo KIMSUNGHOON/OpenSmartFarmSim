@@ -43,7 +43,9 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 실제 SCRAM/검증된 HTTPS·원 bytes/UTC·늦은 철회/취소·조회 계산0·기존52경로/211스키마와 UI/원본 보존으로 로컬 수용했다.
 [명시 서버 조립](research/crop-climate-joint-runtime-implementation-20261010.md)도 새62/회귀300=고유362개·실제 SCRAM/TLS
 원6응답·오조립/권한/늦은 철회·계산0·기존 UI/원본/소유 정리로 로컬 수용했다.
-32초 합성/명시 상수 입력 범위이며 새 공동 모델의 UI 연결은 없다. 다음은 typed 웹 client→같은 UTC3D며 온실 경계 조사는 병행한다.
+[typed 웹 reader](research/crop-climate-joint-web-client-implementation-20261010.md)도 새 웹113/기존344/실제 HTTPS2=고유459개·
+원6응답/UTC·타입/제한된 비압축 빌드·계산0/기존 화면 보존으로 로컬 수용했다. 최초 빌드의 RSS 초과/소유 종료도 기록했다.
+32초 합성/명시 상수 입력 범위이며 새 공동 모델의 UI 연결은 없다. 다음은 같은 UTC의 표·그래프·수치3D며 온실 경계 조사는 병행한다.
 전체 결합/실제 생산 모델·실시간 U3·품종/독립 자료·관문은 미완료다.
 
 **2026-10-09 최신 수용:** [전체 수확 저장·등록·복원](research/crop-harvest-full-writer-completed-20261009.md)을 완료했다.

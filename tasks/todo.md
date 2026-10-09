@@ -1772,13 +1772,18 @@
       오조립/키/코드/grant8거부·늦은 권리422/계정401·계산/새 행0·FD/원본2,148/UI/소유 정리를 확인했다.
       원6그룹 종료0·453.635초·단일/합 RSS185,724,928/510,488,576bytes다. 특정 결과 권리는 기동 승인 대신 현재 조회에서 검사한다.
       core/검증은 native22:39→22:53Z 약14분이며 기록/commit은 별도다. 전체 작기/새 웹/U3/hosted·관문은 미수용이다.
-    - [ ] **`crop-climate-joint-web-client`** — 다음. 선행: 새 보호 HTTP/runtime·원 공개 DTO.
-      예정: `web/src/jointCropClimateReplay.ts`, 기존 `web/src/api.ts`, 집중 test/별도 계약·소유 공개 fixture.
-      착수 때 기존242줄 SDK/379줄 검사와 새447줄 projection을 대조해 정확한 파일 경계를 고정한다.
+    - [x] **`crop-climate-joint-web-client`** — 선행: 새 보호 HTTP/runtime·원 공개 DTO.
+      core5: `web/src/jointCropClimateReplay.ts`, 기존 `web/src/api.ts`, 집중 test/별도 계약·소유 공개 fixture.
+      착수 때 기존242줄 SDK/379줄 검사와 새447줄 projection을 대조해 다섯 파일 경계를 고정했다.
       수용: 원108상태/22장부·사건·마이크로초 UTC/hold·result/farm/identity 결속과 페이지64/8·2MiB,
       현재 scope/취소/늦은 응답·잘못된 판본/단위/시간/값 거부·기존 SDK 공존·타입/집중 검사·실제 원 wire 대사.
-      화면/계산 중 prefix/U3를 완료 처리하지 않는다.2–4집중시간 잠정이며 실제 DTO/fixture 범위 확정 뒤 갱신한다.
-    - [ ] **`crop-climate-joint-numerical-3d`** — 선행: 위 typed client/runtime, 기존 저장 결과 선택/3D 경로.
+      [로컬 수용](../research/crop-climate-joint-web-client-implementation-20261010.md): core0f3a03e·새 웹113/기존344/실제 HTTPS2=고유459개,
+      원6 wire/108상태/UTC·혼합/늦은 응답/취소 거부·타입/제한된 비압축 빌드·조회 계산0·원본2,148/UI/FD/소유 정리를 확인했다.
+      최종 네 웹 그룹의 core5 SHA와 캡처 당시 backend pin을 보존했다. 최종 감시175.168초·단일/합 RSS395,014,144/502,095,872bytes다.
+      최초 빌드는 PID713,510,912bytes로 소유 종료-15/실패1였고 기존 수용 recipe의 heap48MiB/CPU1/GC로 다시 통과했다.
+      종전2–4집중시간은 native23:01→최종 빌드23:18Z 약17분으로 갱신하며 기록/commit은 별도다.
+      화면/계산 중 prefix/U3·hosted/관문은 미수용이다.
+    - [ ] **`crop-climate-joint-numerical-3d`** — 다음. 선행: 위 typed client/runtime, 기존 저장 결과 선택/3D 경로.
       수용된 typed client를 재사용한다. 새 view/동일 시각 adapter와 tests/계약의 변경 경계는 착수 때 고정한다.
       수용: 새108상태의 원 leaf/LAI·과실50 C/N·계산된 수관/공기 온도와 장부·사건/UTC를 같은 선택/표/그래프/WebGL에서 대사,
       원 행/시각 이동·hold/결측/권리 철회·잘못된 판본·늦은 응답 정리와 기존121상태/전체166일 보기 공존·WSL 한도/원본 보존.

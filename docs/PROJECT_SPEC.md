@@ -50,8 +50,10 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 실제 SCRAM/검증된 HTTPS·원108상태/장부/UTC·늦은 철회/취소·계산0·기존 계약/화면/원본 보존으로 로컬 수용했다.
 [명시 서버 조립](../research/crop-climate-joint-runtime-implementation-20261010.md)도 새62/회귀300=고유362개·실제 SCRAM/TLS
 원6응답·오조립/권한/늦은 철회·계산0·기존 UI/원본/소유 정리로 로컬 수용했다.
-[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 typed 웹 client→
-같은 시각3D며 온실 경계 조사는 병행한다. 새 공동 모델 UI·실시간 U3/관문은 미완료다.
+[typed 웹 reader](../research/crop-climate-joint-web-client-implementation-20261010.md)도 고유459개(웹113/회귀344/실제 HTTPS2)·
+원6응답/UTC·타입/제한된 비압축 빌드·계산0/기존 화면 보존으로 로컬 수용했다. 최초 RSS 초과 빌드도 기록했다.
+[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 같은 시각의 표·그래프·수치3D며
+온실 경계 조사는 병행한다. 새 공동 모델 UI·실시간 U3/관문은 미완료다.
 
 **당시 실행 상태 — 2026-10-09 17:46 KST:** [완료 전체 생장 부모의 실제 API·3D/사용자 기동](../research/crop-full-parent-api-view-preview-20261009.md)을 로컬 수용하고 `http://localhost:5173/`을 전환했다.
 원7678 실제 도구0/119.766초·같은 실제 SCRAM/보호 HTTPS/제품 App·WebGL에서
