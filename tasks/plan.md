@@ -109,6 +109,10 @@ U1은 [서버 목록 계약](../contracts/crop-result-catalog-v1.md)의 metadata
 원 desktop-loaded/desktop-empty/mobile-loaded의 improve와 렌더 대조, 실제 공동 DB/재시작 검증이 남았다.
 현재 전체 계산/미리보기의 동시 자원 조건에서 브라우저를 반복하지 않고 전체 게시/보존·source 정리 뒤 수행한다.
 이후 같은 실행의 서버 진행/확정 checkpoint→완료 결과 연결은 U3의 별도 계약/수용으로 진행한다.
+[실제 hosted UI 실패 보완](../research/crop-ui-hosted-failure-fixes-20261009.md): 원30개 중22통과/8실패를 확인했다.
+컨테이너 타입 선언 누락은 같은 제외 조건에서 RED→GREEN, 현재 타입·집중211개/원69406 종료0이다.
+목록 접근성 이름과 수확 summary의 부모 검사 순서를 수정했으나 수정판 브라우저/이미지·원 디자인·실제 DB 수용은 남았다.
+기존 사용자 미리보기와 전체 계산은 유지하며 U1/U3 체크·배포로 전가하지 않는다.
 기존 hosted Backend의 실제 수확 인증 감사 실패에 필요한
 [초기화 설정 후보](../research/ci-explicit-host-scram-candidate-20261009.md)는 로컬 A/B만 확인했다.
 [8dd386d 실제 종료](../research/crop-result-ci-terminal-20261009.md)는 Backend2/3 성공·0/1/4/5/집계 실패다.

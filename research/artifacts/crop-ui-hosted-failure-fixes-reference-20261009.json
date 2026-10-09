@@ -1,0 +1,116 @@
+{
+  "version": "crop-ui-hosted-failure-fixes-reference-v1",
+  "observed_at": "2026-10-09T06:24:32.694561+00:00",
+  "status": "container_type_reproduced_and_fixed_browser_fixes_candidate",
+  "diagnostic_hosted_run": {
+    "id": 37893003883,
+    "head": "45571d7ffd48f24075203d1fec3b7fe9d1e73b23",
+    "conclusion": "failure",
+    "log_sha256": "2fc69e8228e013ca266483934a9c2b5d8b64cbfbd2d82b8b86f3abdaff57c850",
+    "confirmed_error": "selected-crop-replay.spec.ts lines31/73 TS2339 __showSelectedCrop missing; declaration lived only in excluded e2e TSX harness"
+  },
+  "web_hosted_run": {
+    "id": 37892105702,
+    "head": "973c57d371abff826998f1eeb7b8f4fe8d51a0fd",
+    "conclusion": "failure",
+    "type_unit_build_audit": "passed",
+    "browser_passed": 132,
+    "browser_failed": 8,
+    "pending_subset30_passed": 22,
+    "pending_subset30_failed": 8,
+    "log_sha256": "847cc82c88a3d408ea0a2dfe6c03c4611ad7f2008ec5cc4ba5fa2cd80c9775be",
+    "failures": [
+      "7 catalog exact farm-select label waits",
+      "1 unrelated parent hash fetched harvest page before refusing"
+    ]
+  },
+  "filtered_context_type_RED": {
+    "receipt_sha256": "72121ac6cd929adf40eed2cbaee0f9da8e7dd2ef98dd9c8bf38e76a10f7a1e9c",
+    "actual_controller_exit_code": 0,
+    "commands": [
+      {
+        "label": "typecheck-filtered-context",
+        "actual_exit_code": 1,
+        "wall_seconds": 0.7757836329983547,
+        "log_sha256": "aa638b50c17e0485c9cae2e7aa26b4e43214d42484a4b977aa756ce970fe2a87"
+      }
+    ],
+    "source_count": 1579,
+    "source_and_preview_preserved": true,
+    "protected_original_identities_preserved": true,
+    "owned_remaining_and_children": 0,
+    "single_PID_peak_RSS_bytes": 399675392,
+    "combined_peak_RSS_bytes": 940539904,
+    "RSS_samples": 9,
+    "sample_interval_seconds": 0.05,
+    "wall_seconds": 0.832513702014694
+  },
+  "GREEN": {
+    "original_exec_session_id": 69406,
+    "receipt_sha256": "ccd6f612dc10264eef636e45f13107ad85b4f131dae8f1c4c4b3968eb18f5daf",
+    "actual_controller_exit_code": 0,
+    "commands": [
+      {
+        "label": "typecheck-filtered-context",
+        "actual_exit_code": 0,
+        "wall_seconds": 0.7303095020179171,
+        "log_sha256": "0018bd6714cfd6b609561b2ed0719c894fc30580860b5831211f2629105f30a9"
+      },
+      {
+        "label": "focused-unit",
+        "actual_exit_code": 0,
+        "wall_seconds": 1.7905055530136451,
+        "log_sha256": "a7a36f27e49ca2242c64d3c4a505989157ef4d275a98845190dfe6dc3a635f30"
+      },
+      {
+        "label": "main-typecheck",
+        "actual_exit_code": 0,
+        "wall_seconds": 0.7553161749965511,
+        "log_sha256": "0018bd6714cfd6b609561b2ed0719c894fc30580860b5831211f2629105f30a9"
+      }
+    ],
+    "source_count": 1580,
+    "source_and_preview_preserved": true,
+    "protected_original_identities_preserved": true,
+    "owned_remaining_and_children": 0,
+    "single_PID_peak_RSS_bytes": 399736832,
+    "combined_peak_RSS_bytes": 940683264,
+    "RSS_samples": 46,
+    "sample_interval_seconds": 0.05,
+    "wall_seconds": 3.392581271007657,
+    "focused_unit_tests_passed": 211,
+    "focused_files": [
+      "harvestGrowthBinding.test.ts",
+      "cropResultPicker.test.ts",
+      "cropResultCatalog.test.ts",
+      "cropFarmSelection.test.ts"
+    ],
+    "filtered_and_main_typecheck_exit_code": 0
+  },
+  "changes": [
+    "Harness shared Window declaration moved to .d.ts already admitted by existing e2e *.ts context pattern; no new fixture runtime shipping",
+    "Catalog select accessible names match visible labels",
+    "Existing exact parent/farm/hash/status summary binding extracted and checked before any harvest page; complete page/UTC binding retained",
+    "Existing original 1-request refusal browser expectation retained; no timeout increase or skipped tests"
+  ],
+  "native_CLI": {
+    "actual_effort": "xhigh",
+    "actual_model": "gpt-6.1-sol",
+    "judgment_scope": "Implement approved12ui stored crop result catalogue using accepted metadata SDKs and existing replay, immutable registrations and current-account rechecks; no invented agronomic outputs or recursive CLI. Exact native CLI judgment and verification.",
+    "recursive_invocations": 0,
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-09T06:14:20.995Z",
+    "turn_event_sha256": "8c133bb32223681b112b573f069ab149c0f6e9f6589512b6eb14275b1c426d35"
+  },
+  "not_run": [
+    "Fixed candidate hosted Docker build",
+    "Fixed candidate browser30 cases",
+    "Original3 design improve/render comparison",
+    "Actual selected/catalog joint DB/restart acceptance",
+    "Candidate UI deployment",
+    "Realtime U3 linkage"
+  ],
+  "G0_G4": "not_assessed",
+  "actual_cultivar_farm_Runs": 0,
+  "independent_domestic_datasets": 0
+}

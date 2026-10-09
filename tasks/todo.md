@@ -128,6 +128,9 @@
     [원12ui 이미지/HTML](../research/product-ui-result-selector-design-preparation-20261009.md)의 빈 상태 PNG를 그대로 사용했다.
     새8개 브라우저 조건은 미실행이며 선행22개와 합쳐30개, 원3상태 improve/렌더 대조와 실제 공동 DB가 남아 있다.
     전체 게시/보존·source 정리 뒤 자원을 확보해 검증한다. **미배포 후보이며 이 체크박스·상위 U1/U3는 미완료다.**
+    후속 [hosted 실패 보완](../research/crop-ui-hosted-failure-fixes-20261009.md): 원30개 중22통과/8실패를 확인했다.
+    컨테이너 타입은 같은 제외 조건 RED→GREEN, 현재 타입/집중211개·원69406 종료0이다.
+    목록 접근성 이름·부모 summary 검사 순서를 수정했고 수정판 브라우저/이미지·원 디자인/실제 DB 수용은 남았다.
   - [ ] **`product-ui-result-catalog-native`** — 선행 API/웹. 실제 별도 DB/API/빌드 App에서
     저장 결과 선택→같은 UTC3D/수확·새로고침/백엔드 재시작·철회/계정과 WSL 자원을 확인한다.
     첫 두 판본 연결 뒤 기존 기관/구획/startup 판본의 검색/선택 범위를 대사하고 상위 U1을 판단한다.

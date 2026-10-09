@@ -15,6 +15,7 @@ U1 화면의 선행 자식이다. 선행은 현재 등록 작물/결과 목록 A
   기존 운영자 수동 조회 경로와 공개 DTO·원 수치/UTC는 유지한다.
 - 수확 선택은 같은 부모의 생장 조회 뒤 원 수확 ID를 기존 HarvestReplay에 전달해
   summary→bounded page를 한 번 읽는다. 기존 source/hash/farm/UTC 결속 검사를 유지하며
+  summary의 부모/farm/source hash가 다르면 page 요청 전에 거부한다.
   부모·권리 실패 시 두 화면을 함께 제거한다. 선택 metadata를 결과 검증으로 대신하지 않는다.
 - 외부 초기 ID/선택·계정 변경, null 선택, 취소 뒤 늦은 성공/실패는 이전 값을 복원하지 않는다.
   원 초기 선택의 자동 조회는 한 번이며 관련 없는 rerender/범위 이동에서 중복 접수하지 않는다.

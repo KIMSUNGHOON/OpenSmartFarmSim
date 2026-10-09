@@ -41,7 +41,7 @@ export default function CropResultCatalog({api,onCreateFarm}:{api:Api|null;onCre
     {state.error&&<p role="alert" className="notice error">{errors[state.error.code]??'조회를 완료하지 못했습니다. 농장 목록부터 다시 확인해주세요.'}</p>}
     <div className="catalog-filters">
       <section className="catalog-filter"><h2>농장 선택</h2>
-        <label className="catalog-label">등록된 농장 판본<select ref={farmSelect} disabled={disabled||!state.farms?.items.length}
+        <label className="catalog-label">등록된 농장 판본<select aria-label="등록된 농장 판본" ref={farmSelect} disabled={disabled||!state.farms?.items.length}
           value={state.farm?.intent_job.job_id??''} onChange={e=>act(p=>p.chooseFarm(e.target.value))}>
           <option value="" disabled>농장 판본을 선택하세요</option>
           {state.farms?.items.map(farm=><option key={farm.intent_job.job_id} value={farm.intent_job.job_id}>
@@ -55,7 +55,7 @@ export default function CropResultCatalog({api,onCreateFarm}:{api:Api|null;onCre
           {onCreateFarm&&<button className="button secondary" onClick={onCreateFarm}>작성 농장 화면 열기</button>}</p>}
       </section>
       <section className="catalog-filter"><h2>작물 선택</h2>
-        <label className="catalog-label">등록된 작물과 재배 기간<select disabled={disabled||!state.crops?.items.length}
+        <label className="catalog-label">등록된 작물과 재배 기간<select aria-label="등록된 작물과 재배 기간" disabled={disabled||!state.crops?.items.length}
           value={state.crop?.crop_id??''} onChange={e=>act(p=>p.chooseCrop(e.target.value))}>
           <option value="" disabled>농장 확인 후 작물을 선택하세요</option>
           {state.crops?.items.map(crop=><option key={crop.crop_id} value={crop.crop_id}>

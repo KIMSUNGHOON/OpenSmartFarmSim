@@ -3,7 +3,7 @@ import { describe,it,expect } from 'vitest';
 import { ApiError } from './api-validation';
 import { decodeCalculationCycleCropResponse } from './calculationCycleCropReplay';
 import { decodeHarvestReplayResponse } from './harvestReplay';
-import { bindHarvestGrowthWindow,type HarvestGrowthInput } from './harvestGrowthBinding';
+import { bindHarvestGrowthWindow,matchHarvestGrowthSummary,type HarvestGrowthInput } from './harvestGrowthBinding';
 
 const crops=JSON.parse(readFileSync(new URL('../e2e/calculation-cycle-crop-prefix-recorded-responses.json',import.meta.url),'utf8'));
 const harvests=JSON.parse(readFileSync(new URL('../e2e/harvest-recorded-responses.json',import.meta.url),'utf8'));
@@ -43,6 +43,11 @@ function individuallyValid(v:HarvestGrowthInput){
 }
 
 describe('bounded stored harvest/growth binding',()=>{
+  it('checks the exact parent from summaries before any harvest page is available',()=>{
+    const v=input(),before=structuredClone(v);
+    expect(()=>matchHarvestGrowthSummary(v.crop_summary,v.harvest_summary)).not.toThrow();
+    expect(v).toEqual(before);
+  });
   it('keeps source quantities and exact same-UTC stored frames without changing either input',()=>{
     const v=input(),before=structuredClone(v),bound=bindHarvestGrowthWindow(v);
     expect(v).toEqual(before);expect(bound.crop_result_id).toBe(v.crop_summary.result_id);
@@ -111,6 +116,7 @@ describe('bounded stored harvest/growth binding',()=>{
   };
   it.each(Object.keys(joins))('rejects independently valid but unrelated %s',key=>{
     const v=input();joins[key]!(v);individuallyValid(v);expect(()=>bindHarvestGrowthWindow(v)).toThrow(ApiError);
+    expect(()=>matchHarvestGrowthSummary(v.crop_summary,v.harvest_summary)).toThrow(ApiError);
   });
   const faults:Record<string,(v:any)=>void>={
     summaryPageIdentity:v=>{v.sample_page.recorded_at='2026-10-02T00:00:00Z';},

@@ -1,10 +1,9 @@
 import {createRoot} from 'react-dom/client';
 import {createApi} from '../src/api';
-import SelectedCropReplay,{type StoredCropSelection} from '../src/SelectedCropReplay';
+import SelectedCropReplay from '../src/SelectedCropReplay';
 import '@fontsource-variable/noto-sans-kr';
 import '../src/App.css';
 
-declare global{interface Window{__showSelectedCrop:(token:string|null,selection:StoredCropSelection|null)=>void;}}
 const target=document.getElementById('root');if(!target)throw Error('isolated test root unavailable');
 const root=createRoot(target);let token:string|null=null,api:ReturnType<typeof createApi>|null=null;
 window.__showSelectedCrop=(next,selection)=>{

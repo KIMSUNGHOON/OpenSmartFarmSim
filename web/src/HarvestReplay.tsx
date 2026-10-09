@@ -2,7 +2,7 @@ import { useEffect,useMemo,useRef,useState,type FormEvent } from 'react';
 import { ApiError,type createApi } from './api';
 import { validHarvestLookup,type HarvestSummaryResponse,type HarvestPageResponse } from './harvestReplay';
 import { type CalculationCycleCropSummaryResponse,type CalculationCycleCropPageResponse } from './calculationCycleCropReplay';
-import { bindHarvestGrowthWindow } from './harvestGrowthBinding';
+import { bindHarvestGrowthWindow,matchHarvestGrowthSummary } from './harvestGrowthBinding';
 import './HarvestReplay.css';
 
 type Props=Readonly<{api:ReturnType<typeof createApi>|null;parent:CalculationCycleCropSummaryResponse|null;
@@ -52,6 +52,7 @@ export default function HarvestReplay(props:Props){
       if(!current())return;
       try{
         const summary=baseline??await client.harvestSummary(lookup,owned.signal);if(!current())return;
+        matchHarvestGrowthSummary(crop,summary);
         const page=await client.harvestPage(lookup,{offset,limit:LIMIT},{signal:owned.signal,summary});if(!current())return;
         bindHarvestGrowthWindow({crop_summary:crop,sample_page:null,harvest_summary:summary,harvest_page:page});
         setVisible({api:client,parent:crop,id:lookup.result_id,selectionId,phase:'ready',summary,page,error:null});

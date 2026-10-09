@@ -14,15 +14,11 @@ export type HarvestGrowthRow=Readonly<{index:number;row:HarvestRow;at:string;
   interval:Readonly<{start:HarvestGrowthFrame|null;end:HarvestGrowthFrame|null}>|null}>;
 type Range=Readonly<{offset:number;count:number;total:number;partial:boolean}>;
 
-export function bindHarvestGrowthWindow(input:HarvestGrowthInput){
-  need(object(input));closed(input,['crop_summary','sample_page','harvest_summary','harvest_page']);
-  const {crop_summary:crop,sample_page:samplePage,harvest_summary:harvest,harvest_page:harvestPage}=input;
+export function matchHarvestGrowthSummary(crop:CalculationCycleCropSummaryResponse,harvest:HarvestSummaryResponse){
   need(object(crop)&&object(harvest));
   const cropLookup={...crop.farm,result_id:crop.result_id},harvestLookup={...harvest.farm,result_id:harvest.result_id};
   need(decodeCalculationCycleCropResponse(crop,cropLookup).summary!==null);
   need(decodeHarvestReplayResponse(harvest,harvestLookup).summary!==null);
-  need(decodeHarvestReplayResponse(harvestPage,harvestLookup).page!==null);
-  matchHarvestReplayPage(harvest,harvestPage);
   const source=harvest.reference.source,ref=crop.reference;
   for(const key of ['scenario_id','scenario_revision','registration_sha256','crop_id'] as const)
     need(crop.farm[key]===harvest.farm[key]);
@@ -30,6 +26,16 @@ export function bindHarvestGrowthWindow(input:HarvestGrowthInput){
     &&source.payload_sha256===ref.payload_sha256&&source.input_root_sha256===ref.input_root_sha256
     &&source.artifact_sha256===ref.artifact_sha256&&source.math_manifest_sha256===ref.context_sha256
     &&source.source_status===ref.status);
+}
+
+export function bindHarvestGrowthWindow(input:HarvestGrowthInput){
+  need(object(input));closed(input,['crop_summary','sample_page','harvest_summary','harvest_page']);
+  const {crop_summary:crop,sample_page:samplePage,harvest_summary:harvest,harvest_page:harvestPage}=input;
+  matchHarvestGrowthSummary(crop,harvest);
+  const cropLookup={...crop.farm,result_id:crop.result_id},harvestLookup={...harvest.farm,result_id:harvest.result_id};
+  need(decodeHarvestReplayResponse(harvestPage,harvestLookup).page!==null);
+  matchHarvestReplayPage(harvest,harvestPage);
+  const source=harvest.reference.source,ref=crop.reference;
   const frames:HarvestGrowthFrame[]=[];
   let sampleRange:Range|null=null;
   if(samplePage!==null){
