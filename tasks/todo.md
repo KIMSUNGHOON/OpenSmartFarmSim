@@ -1583,11 +1583,15 @@
     단일/합 RSS147,255,296/317,276,160bytes다. 순간 RHS만 수용하며 적분·온실/부모 결합·hosted·UI/U3는 미수용이다.
   - [ ] **`crop-climate-joint-integration`** — 선행: 새 공동 RHS. 짧은 명시 작기 구간/사건의
     공동 stage·원량·온도/LAI·탄소/열/수증기/물질 경계 수지와 수렴·hold를 검증하고 비용을 실측한다.
-    - [ ] **`crop-climate-joint-short-integration`** — 다음 core5: 새 계약/적분/시험/독립 참조/fixture.
+    - [x] **`crop-climate-joint-short-integration`** — [core5 계약](../contracts/crop-climate-joint-short-integration-v1.md): 새 계약/적분/시험/독립 참조/fixture.
       새108상태와 누적 장부, 초 단위 경계·명시 forcing/RGR sampling, signed U/비음수 상태를 구분한다.
       같은 stage RK4·동적 T24/Tsum, 독립 짧은 궤적/각 장부·dt반분·수치/domain hold와 마지막 확정 상태를 검증한다.
       먼저 사건 없는 bounded 구간으로 수용하며 양의 tail 수렴과 빈 과실 진입의 기존 불확실성을 구분한다.
       기존121상태/Fraction clock·원 결과는 보존하고 새 저장/API/3D는 포함하지 않는다.
+      [corecd2870c/로컬 수용](../research/crop-climate-joint-integration-implementation-20261010.md): 새44/기존463=507개,
+      원24304/별도18891 실제0·32초6사례/독립798수치·dt8/4/2 대 독립0.25의60비율(최소15.9489),
+      signed U/동적 clock·7수지/22장부·trial/endpoint hold/마지막 확정 상태·원본2,148/source1,693/FD/정리를 통과했다.
+      단일/합 RSS147,255,296/327,208,960bytes다. 빈 과실 시간 수렴·관리/온실·새 저장/3D/U3/hosted는 미수용이다.
     - [ ] **`crop-climate-joint-management`** — 위 짧은 적분 뒤 부분 적엽/줄기·과실 사건·출력의 순서를 계약한다.
       crop/구획·signed U/C·제거 열/탄소/개수 장부를 원자 적용하며 전량 제거/실패는 hold/마지막 확정 상태를 보존한다.
       독립 전후값/같은 초 경계·열/탄소 대사·원량/수렴/실제 비용 뒤 부모 짧은 적분을 평가한다.
