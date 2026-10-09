@@ -11,11 +11,13 @@
 합성 저장/재생 부모만 수용하며 **계산 중 진행 상태·새 checkpoint의 실시간 U3와 최종 통합 UI는 미구현**이다.
 기후/물·양분/구매 에너지→사용자 실행/Decimal 경제와 실제 품종/독립 자료·G0–G4/생산/미래 마진/추천 hold를 유지한다.
 
-**2026-10-09 후속 계산:** [고정 LAI의 수관·공기·수증기 동적 자식](../research/crop-canopy-air-dynamics-implementation-20261009.md)을
-새56/기존230개·독립 Decimal/수렴·원 종료/보존으로 로컬 수용했다.
-짧은 합성 연구 계산이며 전체 작물·기후 피드백/실제 생산 모델은 미완료다.
-[결합 계약](../contracts/crop-climate-coupling-v1.md)에 가변 LAI/적엽 현열 정책→새 공동 RHS/짧은 적분→
-온실 경계·새 저장/같은 UTC3D의 의존성을 고정했다. 현재 UI·U3/관문 상태는 위와 같다.
+**2026-10-10 후속 계산:** 고정 LAI 자식 다음의
+[가변 열용량 운반·적엽](../research/crop-canopy-energy-transport-implementation-20261010.md)을
+새48/기존364=412개·독립 Decimal195스칼라·원 종료/보존으로 로컬 수용했다.
+총 용량 유입/유출·signed 저장 열/기준온도와 부분 적엽의 순수 합성 계산이다.
+실측 물성·대사열·전체 작물·기후 피드백/실제 생산 모델은 미완료다.
+[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 signed 수관 에너지를 기본 상태로 한
+새 공동 RHS/짧은 적분→온실 경계·새 저장/같은 UTC3D다. 현재 UI·U3/관문 상태는 위와 같다.
 
 **당시 실행 상태 — 2026-10-09 17:46 KST:** [완료 전체 생장 부모의 실제 API·3D/사용자 기동](../research/crop-full-parent-api-view-preview-20261009.md)을 로컬 수용하고 `http://localhost:5173/`을 전환했다.
 원7678 실제 도구0/119.766초·같은 실제 SCRAM/보호 HTTPS/제품 App·WebGL에서

@@ -118,7 +118,15 @@ LAI=0은 `EMPTY_CANOPY_HOLD`; 빈 수관의 별도 온도 상태 전환은 후�
 작물 공동 적분은 성장 RHS의 LAI를 돌려받고 동적 Tcan/PAR/CO₂를 같은 stage에 공급해야 한다.
 현재 piecewise constant Tcan의 Fraction 온도합 clock·121상태 checkpoint를 재사용하지 않는다.
 새 상태/clock/입력/수치·checkpoint 판본과 관리 사건의 순서를 고정한다.
-LAI가 변할 때 `capCan=capLeaf*LAI`의 열용량 변화·새 잎/적엽의 현열 운반을
-명시해야 한다. `Ccan*dTcan`만으로 전 기간 에너지 보존을 주장하지 않는다.
+LAI가 변할 때 `capCan=capLeaf*LAI`의 열용량 변화·새 잎/적엽의 현열 운반은
+[가변 용량 계약](crop-canopy-energy-transport-v1.md)의 별도 작은 자식으로 고정했다.
+[2026-10-10 로컬 수용](../research/crop-canopy-energy-transport-implementation-20261010.md)은
+총 allocation/maintenance/removal, 명시 Tin/Tref, current-Tc 유출과 부분 적엽 U/C 비례다.
+이는 실제 조직 물성/대사열을 검증한 경계가 아니며 미확인 실제 적용은 hold다.
+후속 공동 RHS/적분의 수관 기본 상태는 **signed Uref**이고 `Tc=Tref+Uref/Ccan`을
+같은 stage의 leaf에서 유도한다. `Uref'=Qcan-H-LE+Qmaterial`과 공기 현열/수증기·탄소를 함께 대사한다.
+Tc와 leaf를 각각 적분한 뒤 곱의 절단 오차를 반올림 잔차라고 주장하지 않는다.
+부호 있는 에너지를 기존 전부 0 이상 상태 검사에 넣거나 121상태 checkpoint에 덧붙이지 않는다.
+`Ccan*dTcan`만으로 전 기간 에너지 보존을 주장하지 않는다.
 그 뒤 물/양분·구매 에너지→같은 농장/배치 사용자 실행→Decimal 경제를 연결한다.
 첫 자식만으로 부모 `crop-climate-coupling`이나 U3/생산 관문을 체크하지 않는다.
