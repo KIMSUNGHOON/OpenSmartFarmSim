@@ -1,0 +1,338 @@
+{
+  "schema_version": "harvest-view-screen-acceptance-v1",
+  "accepted_at": "2026-10-08T16:32:11.148463+00:00",
+  "base_commit": "e6cc41ea81ed561369f620105226f14807ea4f25",
+  "native_cli": {
+    "timestamp": "2026-10-08T16:23:59.356Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "event_sha256": "643cc112e0e494c4ad31c0a4407e503fe44d539a6298b523488f676763714389",
+    "recursive_cli_invocations": 0
+  },
+  "core_sha256": {
+    "contracts/web-crop-harvest-view-screen-v1.md": "20cef025c085047bfcabebc83cd3bbeff947e7a0b1a1915f7b1b51fc649f7ae7",
+    "web/src/HarvestReplay.tsx": "b1a45f368f4345e7b57cae11c9425b8eee4eacc0bd8d32294e6633fd20478216",
+    "web/src/CycleCropReplay.tsx": "9868ccc6e4720f07af665afa39b6c8b6cb4f5b308d5041f0e95d5f7a0d2050c3",
+    "web/src/HarvestReplay.css": "88aa9b8b88e6f1059fd49cea1d0851b2a66b4f41a92ceefa6dc2dcea97299e1c",
+    "web/e2e/harvest-replay.spec.ts": "11e0d5e64cfbc95eb8a936c9f1b4382903cdf4248a6f229a7b73fd217a70bf11"
+  },
+  "preserved_source_count": 820,
+  "preserved_sources_sha256": "cecceaab8626f5c8a242d153ea9f369e4f0966bdc74c1e6b645051b2b8af4c85",
+  "counts": {
+    "new_harvest_browser": 10,
+    "old_calculation_browser": 15,
+    "old_calculation_partition": [
+      1,
+      14
+    ],
+    "old_original_stored_frames_verified": 27,
+    "web_unit": 851,
+    "typecheck_and_build_passed": true
+  },
+  "native_receipts": [
+    {
+      "native_session_id": 13586,
+      "actual_tool_exit_code": 0,
+      "original_tool_result_sha256": "8574714ec8cee20a1190a7dc3859aa877ae7950299f978d472f1a34167ef0c55",
+      "verification_sha256": "8448059bba8697670ab1cd583911e69f1f77feae9135af5d08efabfe6a2bb814",
+      "steps": [
+        {
+          "label": "diagnose_original27",
+          "argv": [
+            "node",
+            "node_modules/@playwright/test/cli.js",
+            "test",
+            "calculation-cycle-crop-replay.spec.ts",
+            "-g",
+            "all 27 original UTC frames",
+            "--config=.harvest-local-playwright-20261009.config.ts",
+            "--reporter=line"
+          ],
+          "exit_code": 0,
+          "seconds": 7.506495053006802,
+          "log_sha256": "c6d23b1990ba474b73de466944d952ce4c494ab93034caa815b0369aa584d350",
+          "node_heap_mib": 128
+        }
+      ],
+      "resource": {
+        "nice": 19,
+        "sample_period_seconds": 0.1,
+        "samples": 74,
+        "max_single_process_rss_bytes": 295645184,
+        "max_owned_rss_sum_bytes": 1036615680,
+        "live_owned_children_after": []
+      },
+      "duration_seconds": 7.535967014991911
+    },
+    {
+      "native_session_id": 24832,
+      "actual_tool_exit_code": 0,
+      "original_tool_result_sha256": "4bb3e0566b711b3fbe850a13f32bc6d13a3b5a2bced118436ee0bf94fbe18344",
+      "verification_sha256": "b37a80899e6d93d184ffea1445932301345eb07d6f2f263c331ad1e324a7a9df",
+      "steps": [
+        {
+          "label": "build_with_typecheck",
+          "argv": [
+            "npm",
+            "run",
+            "build"
+          ],
+          "exit_code": 0,
+          "seconds": 1.740687715006061,
+          "log_sha256": "a5b4fe6ffe59106a37ecc42d227c6a8c2dfde3aab4d423dbfb0d8ca5782e9af6",
+          "node_heap_mib": 256
+        },
+        {
+          "label": "browser_harvest",
+          "argv": [
+            "node",
+            "node_modules/@playwright/test/cli.js",
+            "test",
+            "harvest-replay.spec.ts",
+            "--config=.harvest-local-playwright-20261009.config.ts",
+            "--reporter=line"
+          ],
+          "exit_code": 0,
+          "seconds": 27.354728158999933,
+          "log_sha256": "3d5f73bd98c78b769aad01d0f20c7b8e290bbfd6affc660141d20fb6207190c2",
+          "node_heap_mib": 128
+        },
+        {
+          "label": "browser_calculation_remaining",
+          "argv": [
+            "node",
+            "node_modules/@playwright/test/cli.js",
+            "test",
+            "calculation-cycle-crop-replay.spec.ts",
+            "--grep-invert",
+            "all 27 original UTC frames",
+            "--config=.harvest-local-playwright-20261009.config.ts",
+            "--reporter=line"
+          ],
+          "exit_code": 0,
+          "seconds": 37.70851360200322,
+          "log_sha256": "1e58234a2d905ff3f422681b19ba8f8305eb4d59ceb7d6fb9582d0bb11f9e5d8",
+          "node_heap_mib": 128
+        },
+        {
+          "label": "web_all",
+          "argv": [
+            "npm",
+            "test",
+            "--",
+            "--maxWorkers=1",
+            "--no-file-parallelism"
+          ],
+          "exit_code": 0,
+          "seconds": 16.786943260987755,
+          "log_sha256": "a625eecdd9e2c78f3453f88b7970cc726e04a9bf01bb9170cab86d50820198c3",
+          "node_heap_mib": 256
+        }
+      ],
+      "resource": {
+        "nice": 19,
+        "sample_period_seconds": 0.1,
+        "samples": 817,
+        "max_single_process_rss_bytes": 455958528,
+        "max_owned_rss_sum_bytes": 1014153216,
+        "live_owned_children_after": []
+      },
+      "duration_seconds": 83.6260068010015
+    },
+    {
+      "native_session_id": 30303,
+      "actual_tool_exit_code": 0,
+      "original_tool_result_sha256": "2033da455ffc043623cc83f93bb9fa9b12dcac13f815c7b82e151c076a7992bf",
+      "verification_sha256": "955384f594085244909d5d2fdc153a1539e655de9bfddfb96b36afd180890463",
+      "steps": [
+        {
+          "label": "final_typecheck",
+          "argv": [
+            "npm",
+            "run",
+            "typecheck"
+          ],
+          "exit_code": 0,
+          "seconds": 0.7169918589934241,
+          "log_sha256": "0018bd6714cfd6b609561b2ed0719c894fc30580860b5831211f2629105f30a9",
+          "node_heap_mib": 256
+        },
+        {
+          "label": "final_browser_harvest",
+          "argv": [
+            "node",
+            "node_modules/@playwright/test/cli.js",
+            "test",
+            "harvest-replay.spec.ts",
+            "--config=.harvest-local-playwright-20261009.config.ts",
+            "--reporter=line"
+          ],
+          "exit_code": 0,
+          "seconds": 27.56060351600172,
+          "log_sha256": "64dd4ec14b27d00a336b07b2293b36b57bd6821d47e23f82802d8c12c4602a7f",
+          "node_heap_mib": 128
+        }
+      ],
+      "resource": {
+        "nice": 19,
+        "sample_period_seconds": 0.1,
+        "samples": 277,
+        "max_single_process_rss_bytes": 346456064,
+        "max_owned_rss_sum_bytes": 1019863040,
+        "live_owned_children_after": []
+      },
+      "duration_seconds": 28.308507160982117
+    }
+  ],
+  "harness": {
+    "nice": 19,
+    "sample_period_seconds": 0.1,
+    "node_browser_test_heap_mib": 128,
+    "node_unit_build_heap_mib": 256,
+    "node_semi_space_mib": 2,
+    "browser_args": [
+      "--enable-unsafe-swiftshader",
+      "--no-zygote",
+      "--js-flags=--max-old-space-size=64 --max-semi-space-size=2"
+    ],
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "workers": 1,
+    "retries": 0,
+    "static_latest_build_server": "python3 http.server on127.0.0.1:5193",
+    "temporary_config_sha256": "778e304abcc9209b7e528f56f68d7fa478eea9209f88e71ae6e258e051632562",
+    "temporary_config_removed_after": true,
+    "original27_test_source_unchanged": true,
+    "assertions_omitted": 0,
+    "after_prior_unit_build_only_final_E2E_WebGL_assertions_added": true,
+    "general_browser_or_production_resource_acceptance": false
+  },
+  "images": [
+    {
+      "path": "research/artifacts/harvest-replay-desktop.png",
+      "sha256": "cd4e58d3aff7b3c86b48fd7fa16aba479cd6d5889488cdcbdc56b29b2364fd80",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "panel_image_size": {
+        "width": 820,
+        "height": 1323
+      },
+      "scope": "actual_App_panel_Chromium_owned_rebound_synthetic_response_not_joint_DB"
+    },
+    {
+      "path": "research/artifacts/harvest-replay-mobile.png",
+      "sha256": "cc3305272d4a8d525b019e1444287ceb7df4a23b51526d3beff91194bfbf2546",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "panel_image_size": {
+        "width": 366,
+        "height": 1536
+      },
+      "scope": "actual_App_panel_Chromium_owned_rebound_synthetic_response_not_joint_DB"
+    }
+  ],
+  "additional_large_text_private_capture_sha256": "0635b576c2f7a6ae625664dd4f316fa1c4462af2fde63ef4f59b712033f07dbe",
+  "design": {
+    "tool": "12ui",
+    "candidates_inspected": 4,
+    "selected": "C",
+    "hosted_run_id": "crt-2b4fa58ff1b09e2e1156bfb4e1d4297c356c9321",
+    "conversion_operation_id": "15c0194d-814b-4385-8c62-aff134189639",
+    "responsive_export_operation_id": "47895930-9ed0-42f3-adcf-44c3168b5261",
+    "unchanged_approved_layerdoc_sha256": "2709007f639ceb88e929480917e47dd94bff86b06a16f74efcbcf410f50a68f1",
+    "post_implementation_close": {
+      "native_session_id": 20374,
+      "actual_exit_code": 0,
+      "implemented_url": "http://127.0.0.1:5194/.harvest-preview-20261009/",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "plan_changes_sha256": "72155bd025973b0e47c3e136e3bb36e8c1632c37e0bce3f3d836e17bb1146ec4",
+      "actual_source_capture_sha256": null,
+      "dom_anchor_overlap_percent": 19.5,
+      "pixel_fidelity_accepted": false,
+      "charged_micros": 0
+    },
+    "review_sha256": "e09bb0a880e33a664ab8a5dbb97ed098fee403c4ff02d602a6b4cf39c647c013",
+    "private_assets_retained_without_public_signed_URLs": true,
+    "source_values_units_UTC_actual_WebGL_preserved": true
+  },
+  "failed_attempts_preserved": [
+    {
+      "native_session_id": 53721,
+      "actual_exit_code": 1,
+      "reason": "owned resource limit exceeded",
+      "label": "browser_new_and_calculation",
+      "peak_single_rss_bytes": 256847872,
+      "peak_owned_sum_rss_bytes": 1142829056,
+      "failure_record_sha256": "dec5b5dbf5e09e2919957bbd2887024122ef78ecac163b94531c8bd71ba940aa",
+      "live_owned_after": []
+    },
+    {
+      "native_session_id": 15760,
+      "actual_exit_code": 1,
+      "reason": "owned resource limit exceeded",
+      "label": "browser_calculation",
+      "peak_single_rss_bytes": 457940992,
+      "peak_owned_sum_rss_bytes": 1078951936,
+      "failure_record_sha256": "4317b48a32b1d927cd503236469ee28dff221d367949b0e31ac3b4e33cf7249b",
+      "live_owned_after": []
+    },
+    {
+      "native_session_id": 28539,
+      "actual_exit_code": 1,
+      "reason": "owned resource limit exceeded",
+      "label": "browser_calculation",
+      "peak_single_rss_bytes": 463441920,
+      "peak_owned_sum_rss_bytes": 1073979392,
+      "failure_record_sha256": "bc3e8a57f73881937797d5948e715ec919ec138bd031735fe07065754addaf30",
+      "live_owned_after": []
+    },
+    {
+      "native_session_id": 48525,
+      "actual_exit_code": 1,
+      "reason": "owned resource limit exceeded",
+      "label": "diagnose_original27",
+      "peak_single_rss_bytes": 300797952,
+      "peak_owned_sum_rss_bytes": 1076744192,
+      "failure_record_sha256": "9dfdc9132843a64789382576c9a8afacd1b864ff33bfeac77f31c2e2725dcd70",
+      "live_owned_after": []
+    },
+    {
+      "native_session_id": 90574,
+      "actual_exit_code": 1,
+      "reason": "Node64 test worker heap OOM in original27-frame test",
+      "harvest_browser_passed": 10,
+      "calculation_browser_passed": 14,
+      "calculation_browser_failed": 1,
+      "record_sha256": "7f9d48b0fb817062bf8af9ef392ff80f59ba1f01717032a7a678226680fe7b66",
+      "final_peak_resource_receipt_missing": true
+    }
+  ],
+  "scope": "software_research_only_rebound_synthetic_UI_fixture",
+  "gates": "not_assessed",
+  "rights_or_gate_approval": false,
+  "not_run": [
+    "actual_joint_harvest_DB_API_WebGL",
+    "full166_harvest_mass_load",
+    "crop_RHS",
+    "product_CLI",
+    "hosted_CI",
+    "push"
+  ],
+  "remaining_holds": [
+    "real_cultivar_inputs_and_conversion_coefficients_missing",
+    "independent_domestic_farm_data_missing",
+    "G0_G1_G2_G3a_G3b_G4_not_assessed",
+    "production_future_margin_ranking_held",
+    "legacy25h_original_command_exit_missing"
+  ],
+  "goal_status": "active"
+}

@@ -1,0 +1,364 @@
+{
+  "evidence_version": "web-crop-startup-replay-reference-v1",
+  "recorded_at": "2026-10-05T05:00:33.898988+00:00",
+  "scope": "own_synthetic_saved_startup_math_only_no_whole_crop_production_prediction",
+  "implementation_commit": "363ba6dd4afab7c6041b78e82b47f39ee1d7d193",
+  "geometry_commit": "44bf506d30db5cc4c03e13d723209e629137da7d",
+  "baseline_commit": "77bc8642068c0bc0ddaae4af03626444f2e155bb",
+  "cli": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "observed_turn_context_at": "2026-10-05T04:25:00.397Z",
+    "turn_context_line_sha256": "513596530cf9e9ab88bf16cb89546e09b181a15942f2ffe2ea03f94fdea2ec87",
+    "recursive_cli_invocations": 0,
+    "runtime_cli_accepted": false
+  },
+  "file_sha256": {
+    "web/src/coupledCropGeometry.ts": "787ec7cda3cda6146dcd14108a22614dd7bd643c1396cc2497c5ca35e9c6b642",
+    "web/src/startupCropGeometry.test.ts": "6a5a7480181daffc68e7b4c38623e3de530967f994dadc7d20380120ea97b044",
+    "web/src/CoupledCropScene.tsx": "619d2c29fb7f8703821694facc389ebf8143d3a4575a3c1255632ca22b42b435",
+    "web/e2e/startup-crop-fixture.ts": "08dc36d7ef26853b653dd1c10213c0645f8b1b065fa3f352b0ea05311d1c0fde",
+    "web/src/CoupledCropReplay.tsx": "7b2aeaa9d6e7df1ae38d105bb6c3d812fa5cc3884d12d70cdb8b499071c530cf",
+    "web/src/CropReplay.tsx": "f4e43cfdc882bdc2a375f47eec432b1b2b68aaa072e13664a7a5bb9bcd73cf7e",
+    "web/e2e/startup-crop-replay.spec.ts": "370024bb19d2fa90058c4a2a0ea3713e3ebea8916e3a1767a7960e3702966ebd",
+    "web/e2e/real-startup-crop-replay-smoke.mjs": "783ff4168250edf3e34ad4f8ed4c0101d45180a307c13cce481f81be39d2c66d",
+    "backend/tests/web_crop_startup_replay_smoke.py": "320cf0853548fb0cc7b763d8b92b6da02d88bfe0a8aac6835c150f9fc2470940",
+    ".github/workflows/authored-api-smoke.yml": "3a5bc4b6bdee78b4817fd178a2736b778efef69f3b8b8609dcfb12541c4feb76"
+  },
+  "fixture_sources": {
+    "sources": {
+      "empty-entry": {
+        "private_packet_receipt_sha256": "55f7c0caa9e10ca83f7706ff18e41e358abd75ff88197804e38153a02fcdfc1d",
+        "actual_prior_scram_packet": true,
+        "current_live_record": false,
+        "prior_https_wire_response": false
+      },
+      "full-removal-reentry": {
+        "private_packet_receipt_sha256": "e8642184785accc553141d1d24498ad3ec880634477600fea958910ee886026b",
+        "actual_prior_scram_packet": true,
+        "current_live_record": false,
+        "prior_https_wire_response": false
+      },
+      "positive-tail": {
+        "private_packet_receipt_sha256": "441b4377eb99494d050e591d91d3471c73ed6c0de0a2c8d08a2748b2b3125b31",
+        "actual_prior_scram_packet": true,
+        "current_live_record": false,
+        "prior_https_wire_response": false
+      },
+      "fractional": {
+        "pure_math_held_projection": true,
+        "actual_scram_packet": false,
+        "current_live_record": false
+      },
+      "empty": {
+        "pure_math_held_projection": true,
+        "actual_scram_packet": false,
+        "current_live_record": false
+      }
+    },
+    "file_sha256": "08dc36d7ef26853b653dd1c10213c0645f8b1b065fa3f352b0ea05311d1c0fde",
+    "get_reintegrated_recorded_cases": false,
+    "held_cases_pure_math_without_real_db": true
+  },
+  "verification": {
+    "full_web_unit_passed": 383,
+    "test_files": 17,
+    "new_geometry_passed": 7,
+    "focused_geometry_including_old_passed": 24,
+    "chromium_passed": 31,
+    "new_startup_chromium_passed": 12,
+    "old_v1_v2_chromium_passed": 19,
+    "chromium_duration_report": "1.7m",
+    "failed": 0,
+    "skipped": 0,
+    "new_unit_nodes": [
+      "src/startupCropGeometry.test.ts::[0]startup logarithmic display without changing saved quantities keeps actual empty-entry tiny cohorts positive and Float32 representable",
+      "src/startupCropGeometry.test.ts::[1]startup logarithmic display without changing saved quantities stores the original C/N in the actual mesh and hides removed zeros before reentry",
+      "src/startupCropGeometry.test.ts::[2]startup logarithmic display without changing saved quantities handles constant value 0 without seed or overflow",
+      "src/startupCropGeometry.test.ts::[3]startup logarithmic display without changing saved quantities handles constant value 5e-324 without seed or overflow",
+      "src/startupCropGeometry.test.ts::[4]startup logarithmic display without changing saved quantities handles constant value 1 without seed or overflow",
+      "src/startupCropGeometry.test.ts::[5]startup logarithmic display without changing saved quantities handles constant value 1.7976931348623157e+308 without seed or overflow",
+      "src/startupCropGeometry.test.ts::[6]startup logarithmic display without changing saved quantities keeps separate bounds fixed across all saved frames and validates out of range values"
+    ],
+    "inventory_format": "relative file :: [assertion index] fullName",
+    "inventory_sha256": "4ae30657b82fdbc25f9861c1ee5afe67978471191afe31f027c4a3e424ae3f35",
+    "unit_report_sha256": "4ad0b16b0d27572c3e8bdb9ec8dae246a2048327c397f9cfe27fa8df131bb144",
+    "unit_report_wall_seconds": 11.38546728515625,
+    "typecheck_exit_code": 0,
+    "build_exit_code": 0,
+    "vite_build_seconds": 0.579,
+    "build_warning": "existing SVG renderer chunk520.20kB exceeds500kB; no limit relaxed",
+    "red_and_fixes": [
+      "missing v3 option and geometry API",
+      "lazy root readiness in test helper",
+      "fixture quantity types decoded at runtime; no unit validation relaxed",
+      "Playwright parameterized cases use explicit loop",
+      "explicit option value49 for cohort50",
+      "Node and Chromium log10 difference 2.220446049250313e-16; display height tolerance4*Number.EPSILON, zero/raw quantity exact"
+    ],
+    "logs": {
+      "ossf-startup-web-geometry-red-20261005.log": {
+        "sha256": "4e2d2c773696410b558bc0aa19731786fd34205beb5525bd245db10086156dff",
+        "bytes": 4590
+      },
+      "ossf-startup-web-geometry-fixed-20261005.log": {
+        "sha256": "a35f630328bf8034a815d535bbb8dff5968ecf6a9c508914c6ef3e9d8d00b0af",
+        "bytes": 210
+      },
+      "ossf-startup-web-red-20261005.log": {
+        "sha256": "2450cf284c534e860f26b3e3d4931d90be6960a5621edcd8bfbf0ba4e39b28ff",
+        "bytes": 2569
+      },
+      "ossf-startup-web-browser-initial-20261005.log": {
+        "sha256": "f096cfb32fc22e0ca3a4c281825980a7d9c8f71a083d4dacfedbb20d98aba650",
+        "bytes": 2776
+      },
+      "ossf-startup-web-browser-geometry-20261005.log": {
+        "sha256": "f90ddc6743320cb6b77daeba19b009cda67f874c3f1f4dff6f2f3a356f700287",
+        "bytes": 2444
+      },
+      "ossf-startup-web-browser-focused-20261005.log": {
+        "sha256": "b1c9cd7ae205080f54cadf77b18d8ca2ff019731261384c25602c8fd0b9a0c09",
+        "bytes": 4942
+      },
+      "ossf-startup-web-browser-final-20261005.log": {
+        "sha256": "06b25e5d74126bf192869ed519b99414c0d8364f614cb5bda9449e262187ab44",
+        "bytes": 4529
+      },
+      "ossf-startup-web-typecheck-expanded-20261005.log": {
+        "sha256": "e0ba44bffa9251b9dc0dcc371c5b34359cabfe04b0030d7f73990ecc589773eb",
+        "bytes": 20592
+      },
+      "ossf-startup-web-typecheck-fixed-20261005.log": {
+        "sha256": "0018bd6714cfd6b609561b2ed0719c894fc30580860b5831211f2629105f30a9",
+        "bytes": 56
+      },
+      "ossf-startup-web-unit-final-20261005.log": {
+        "sha256": "687e3791403f67df0d94f12f7931a308c0d32bcf8b558710a759a56553fe0b21",
+        "bytes": 212
+      },
+      "ossf-startup-web-build-20261005.log": {
+        "sha256": "963e8fc1d7cf0b84017a8b8233d02f0b69548b7db857864180f0a2cc446e60b5",
+        "bytes": 12113
+      },
+      "ossf-startup-web-actual-20261005.log": {
+        "sha256": "42863db5148e71cdde37e49a67feda837baf20db5f0ce25776ff8a9763343803",
+        "bytes": 365
+      }
+    }
+  },
+  "actual_https_scram_browser": {
+    "passed": 1,
+    "pytest_seconds": 195.57,
+    "receipt_sha256": "eaa073d75b349d1bb2874f00ab29288f6d08263dce02221d2446283f36b56717",
+    "postgres_version": "postgres (PostgreSQL) 16.15",
+    "rows_before": 5,
+    "rows_after": 5,
+    "get_reintegration": false,
+    "completed_unique_samples": 12,
+    "completed_cases": {
+      "empty-entry": 3,
+      "full-removal-reentry": 3,
+      "positive-tail": 6
+    },
+    "past_hold_samples": 1,
+    "past_hold_at": "2026-10-01T00:00:00.500000Z",
+    "empty_hold_samples": 0,
+    "verified_frames_including_past_return_and_reconnection": 15,
+    "carbon_number_mesh_values_checked": 1500,
+    "positive_meshes": 1200,
+    "hidden_zero_meshes": 300,
+    "max_leaf_triangle_area_absolute_error": 8.881784197001252e-16,
+    "max_log_height_difference_vs_python_receipt_check": 1.1102230246251565e-16,
+    "zero_and_saved_numbers_units_indices_visibility_y_exact": true,
+    "selected_cumulative_fields": 16,
+    "selected_startup_diagnostic_fields": 4,
+    "network_statuses": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      422,
+      403,
+      200
+    ],
+    "successful_complete_bodies": 7,
+    "max_body_seconds": 9.485,
+    "cache": "no-store",
+    "request_timeout_seconds": 30,
+    "browser_errors": [],
+    "account_change": true,
+    "reconnected": true,
+    "credential_storage": "memory only; Bearer input empty and local/session storage counts0"
+  },
+  "geometry": {
+    "v3_mode": "explicit logarithmic comparison of saved original C/N; LAI remains physical single-sided area",
+    "positive_height": "(log10(v)-L)/(U-L)",
+    "bounds": "L=floor(log10(min_positive))-1; U=ceil(log10(max_positive)); fixed over all saved frames separately C/N",
+    "zero_height": 0,
+    "all_zero_bounds": null,
+    "arbitrary_crop_seed_or_floor": false,
+    "old_v2_linear_mode_preserved": true,
+    "unsafe_old_v2_float32_fallback_preserved": true,
+    "observed_empty_entry_minima_at_60_seconds": {
+      "carbon": 5.291029192486798e-214,
+      "number": 6.782557198434201e-222
+    },
+    "linear_float32_underflow_counts_at_60_seconds": {
+      "carbon": 37,
+      "number": 38
+    }
+  },
+  "maximum_ui_case": {
+    "samples": 512,
+    "events": 128,
+    "sequential_requests": 16,
+    "local_event_display_additional_requests": 0,
+    "scope": "explicit shape fixture, not actual 512-frame crop computation in this browser test"
+  },
+  "screens": {
+    "startup-crop-desktop.png": {
+      "file": "research/artifacts/startup-crop-desktop.png",
+      "sha256": "a139735af378a867d9188ec9db53cdbe8d565f542e24bbc320210c9f5f4a4b48",
+      "bytes": 623522
+    },
+    "startup-crop-mobile.png": {
+      "file": "research/artifacts/startup-crop-mobile.png",
+      "sha256": "49ca648fca87eb1c253a2d1a7349bb1be7171a28df6b72337e8cc0bb9fb9924e",
+      "bytes": 504590
+    },
+    "startup-crop-past-hold.png": {
+      "file": "research/artifacts/startup-crop-past-hold.png",
+      "sha256": "8a1e208925b977aef0f3c79a68660ce11c0bfb09b5d3cc714ffdf9b033037208",
+      "bytes": 586271
+    },
+    "startup-crop-empty-hold.png": {
+      "file": "research/artifacts/startup-crop-empty-hold.png",
+      "sha256": "8ae8776464c00a3a6277fbeff3cca0a711f33a899895fa046cfb1707800b7ef2",
+      "bytes": 269147
+    }
+  },
+  "design": {
+    "kits": [
+      {
+        "state": "completed",
+        "input_url": "http://127.0.0.1:5186/__startup_design_preview.html?kind=positive-tail",
+        "record_sha256": "0b5f72203935f509940d091149a792a0225e779a62e1d23129895ec7b7d8efbe",
+        "plan_sha256": "d7aa315bd4bb6e1d992c28deb45716c93b63fe0a184abc7f9fb399952f4e784e",
+        "before_side_anchor_overlap_percent": 20.5,
+        "required_anchor_overlap_percent": 60,
+        "settled": true,
+        "pixel_fidelity_accepted": false,
+        "new_purchases": 0
+      },
+      {
+        "state": "empty_hold",
+        "input_url": "http://127.0.0.1:5186/__startup_design_preview.html?kind=empty",
+        "record_sha256": "d0ed37a377c2b91af94ab9c4a1f94d30b31a2cb590c720a8989ef5970fd6b777",
+        "plan_sha256": "829ff5984703be6339caf73bc2ec88bd7e92c4d0d23eddf98e57e6c1983dcbee",
+        "before_side_anchor_overlap_percent": 21.9,
+        "required_anchor_overlap_percent": 60,
+        "settled": true,
+        "pixel_fidelity_accepted": false,
+        "new_purchases": 0
+      },
+      {
+        "state": "past_hold",
+        "input_url": "http://127.0.0.1:5186/__startup_design_preview.html?kind=fractional",
+        "record_sha256": "111b6a22488c9ce1920b2b24e47fe9231d8340c8fe1e127052e0b5a827d040b5",
+        "plan_sha256": "2deab0e8017941eb2f716f1c4a198ca1fbd23a06902e5ab0394f0381a410f128",
+        "before_side_anchor_overlap_percent": 25.7,
+        "required_anchor_overlap_percent": 60,
+        "settled": true,
+        "pixel_fidelity_accepted": false,
+        "new_purchases": 0
+      }
+    ],
+    "main_original_target_sha256": "5fa9acbd0f6eed724db74cb717ff8edba2aff7c4581eb6d83bec834a7484bb2f",
+    "new_frameworks_fonts_assets": 0,
+    "new_purchases": 0,
+    "limits": [
+      "root monorepo repo path lacks src; durable resume refused changing repo; new free kit used actual web repo",
+      "all target plans under60percent; pixel fidelity not accepted",
+      "derived hold target rasters not all available",
+      "numeric scene and charts remain actual geometry/data; generated raster graph/model must not replace them",
+      "wrong mappings such as 3D image into token input rejected; existing approved theme/font/four assets reused"
+    ]
+  },
+  "preservation": {
+    "backend_api34_hashes_match_prior_proof": true,
+    "prior_api_proof_sha256": "4eb011aa774dce3487c622af183074fca96c89b2bb3a10809d6b6e0e769beec3",
+    "client_decoder_and_request_unchanged": true,
+    "numeric_model_and_coefficients_unchanged": true,
+    "new_dependencies": 0
+  },
+  "resources": {
+    "scope": "synthetic_crop_startup_replay_actual_https_browser_only",
+    "started_at": "2026-10-05T04:50:16.216033+00:00",
+    "postgres_version": "postgres (PostgreSQL) 16.15",
+    "new_dependencies": 0,
+    "servers_started": 1,
+    "synthetic_crop_custody_created": true,
+    "actual_crop_run_created": false,
+    "pytest_arguments": [
+      "tests/web_crop_startup_replay_smoke.py"
+    ],
+    "focused_harness_timeout_seconds": 1800,
+    "exit_code": 0,
+    "wall_seconds": 196.10991878100322,
+    "own_synthetic_screens_preserved": "/tmp/ossf-startup-web-actual-screens-20261005",
+    "remaining_test_roles": 0,
+    "remaining_test_schemas": 0,
+    "remaining_test_password_files": 0,
+    "postgres_stopped": true,
+    "postgres_status_exit_code": 3,
+    "private_cluster_and_admin_password_files_removed": true,
+    "owned_servers_after": 0,
+    "peak_children_rss_mib": 622.38671875,
+    "real_receipt_frontend_stopped": true,
+    "real_receipt_https_thread_joined": true,
+    "additional_preview_server_stopped": true,
+    "temporary_preview_removed": true,
+    "execution": "sequential nice unit/browser/one small private SCRAM cluster; no local Docker",
+    "peak_children_rss_scope": "focused harness process tree only, not total WSL memory"
+  },
+  "review": {
+    "correctness": "same validated v3 result/farm/hash/UTC; no partial scene; complete pages; original50 C/N/16cum/4diagnostic; fractional hold separate",
+    "architecture": "existing scene/chart shared; explicit version selector and startup client; log scales only v3; no new queues/services/numeric math",
+    "security": "current authenticated API/requery denial clears data; runtime decoder and memory credentials; no raw farm data or secrets",
+    "performance": "max512/128 in16 sequential requests; existing lazy scene/chart; renderer disposal; one bounded DB and browser worker",
+    "readability": "typed shared model selection; startup details own small helper; focused separate fixture"
+  },
+  "external_dependencies": {
+    "independent_domestic_datasets": 0,
+    "adopted_actual_forcing": 0,
+    "actual_crop_runs": 0
+  },
+  "not_run": [
+    "hosted CI for this startup API/client/3D SHA",
+    "local Docker or production deployment",
+    "actual cultivar independent farm validation or full cycle"
+  ],
+  "not_accepted": [
+    "actual runtimeCLI/G0-G4",
+    "automatic fruit set/pre-onset or validated sink capacity",
+    "whole cycle/freshkg/resources/economics/prediction/ranking",
+    "pixel fidelity"
+  ],
+  "hosted": {
+    "current_remote_sha": "92cade3bafb6654f27599fd9f94d42204dccd29f",
+    "current_backend_run": 37259991160,
+    "startup_api_client_and_3d_not_in_that_run": true,
+    "same_run_not_canceled": true
+  },
+  "documentation_verification": {
+    "local_file_links_checked": 762,
+    "missing": 0,
+    "source_hashes_rechecked": 10,
+    "screen_hashes_rechecked": 4,
+    "git_diff_check": "passed"
+  }
+}

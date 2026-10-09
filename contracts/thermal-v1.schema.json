@@ -1,0 +1,1967 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:opensmartfarmsim:thermal-v1",
+  "title": "OpenSmartFarmSim synthetic G1 thermal v1 accepted-run trace",
+  "description": "Accepted self-authored synthetic G1 software trace only; this is not an external-source G0 approval or field-accuracy claim. The deterministic server verifies timestamps, references, rights truth, equations, holds, and gates.",
+  "type": "object",
+  "properties": {
+    "contract_version": {
+      "const": "thermal-v1"
+    },
+    "model_origin": {
+      "const": "project_aggregate_v1"
+    },
+    "claim_scope": {
+      "const": "synthetic_g1_contract_trace"
+    },
+    "run_status": {
+      "const": "accepted"
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "thermal_control_volumes": {
+          "const": 1
+        },
+        "boundary": {
+          "const": "dry_air_plus_canopy"
+        },
+        "dynamic_states": {
+          "const": [
+            "temperature",
+            "humidity_ratio"
+          ]
+        }
+      },
+      "required": [
+        "thermal_control_volumes",
+        "boundary",
+        "dynamic_states"
+      ],
+      "additionalProperties": false
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trace_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trace_sequence_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "input_snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision_context_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision_at_utc": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+    },
+    "review_at_utc": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+    },
+    "claim_mode": {
+      "enum": ["ex_ante", "ex_post_replay"]
+    },
+    "decision_time_kind": {
+      "enum": ["actual", "hypothetical"]
+    },
+    "model_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parameter_set_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "engine_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "unit_registry_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "manifest_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "synthetic_input_review_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "product_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "author": {
+            "type": "string",
+            "minLength": 1
+          },
+          "synthetic": {
+            "const": true
+          },
+          "observed_start_utc": {
+            "const": null
+          },
+          "observed_end_utc": {
+            "const": null
+          },
+          "applicability_start_utc": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+          },
+          "applicability_end_utc": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+          },
+          "published_at_utc": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+          },
+          "available_at_utc": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+          },
+          "retrieved_at_utc": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+          },
+          "vintage": {
+            "type": "string",
+            "minLength": 1
+          },
+          "revision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "original_unit": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "T_o": {"const": "K"},
+                  "phi_o": {"const": "1"},
+                  "p_o": {"const": "Pa"},
+                  "solar_interval_energy": {"const": "J/m²"}
+                },
+                "required": ["T_o", "phi_o", "p_o", "solar_interval_energy"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "temperature": {"const": "K"},
+                  "humidity_ratio": {"const": "kg_v/kg_da"},
+                  "heat": {"const": "W_th"},
+                  "time": {"const": "s"}
+                },
+                "required": ["temperature", "humidity_ratio", "heat", "time"],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "provider_qc": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "enum": [
+                  "pass",
+                  "not_provided",
+                  "not_applicable"
+                ]
+              },
+              "detail": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "status",
+              "detail"
+            ],
+            "additionalProperties": false
+          },
+          "project_qc": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "const": "pass"
+              },
+              "rule_version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "detail": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "status",
+              "rule_version",
+              "detail"
+            ],
+            "additionalProperties": false
+          },
+          "raw_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "normalization_rule_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rights": {
+            "type": "object",
+            "properties": {
+              "use": {
+                "const": "allowed"
+              },
+              "display": {
+                "const": "allowed"
+              },
+              "redistribute": {
+                "const": "allowed"
+              }
+            },
+            "required": [
+              "use",
+              "display",
+              "redistribute"
+            ],
+            "additionalProperties": false
+          },
+          "reviewer": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "source_locator",
+          "product_id",
+          "author",
+          "synthetic",
+          "observed_start_utc",
+          "observed_end_utc",
+          "applicability_start_utc",
+          "applicability_end_utc",
+          "published_at_utc",
+          "available_at_utc",
+          "retrieved_at_utc",
+          "vintage",
+          "revision",
+          "original_unit",
+          "provider_qc",
+          "project_qc",
+          "raw_sha256",
+          "normalization_rule_ref",
+          "rights",
+          "reviewer"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "interval": {
+      "type": "object",
+      "properties": {
+        "start_utc": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+        },
+        "end_utc": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+        }
+      },
+      "required": [
+        "start_utc",
+        "end_utc"
+      ],
+      "additionalProperties": false
+    },
+    "initial_state": {
+      "type": "object",
+      "properties": {
+        "temperature": {
+          "$ref": "#/$defs/initial_K"
+        },
+        "humidity_ratio": {
+          "$ref": "#/$defs/initial_kg_v_kg_da"
+        }
+      },
+      "required": [
+        "temperature",
+        "humidity_ratio"
+      ],
+      "additionalProperties": false
+    },
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "effective_heat_capacity": {
+          "$ref": "#/$defs/sourced_J_K__positive"
+        },
+        "dry_air_mass": {
+          "$ref": "#/$defs/sourced_kg_da__positive"
+        },
+        "dry_air_specific_heat": {
+          "$ref": "#/$defs/sourced_J_kg_da_K__positive"
+        },
+        "latent_heat": {
+          "$ref": "#/$defs/sourced_J_kg_v__positive"
+        },
+        "envelope_conductance": {
+          "$ref": "#/$defs/sourced_W_K_nonnegative"
+        },
+        "indoor_volume": {
+          "$ref": "#/$defs/sourced_m³__positive"
+        },
+        "floor_area": {
+          "$ref": "#/$defs/sourced_m2__positive"
+        },
+        "absorbed_solar_fraction": {
+          "$ref": "#/$defs/sourced_1_nonnegative"
+        },
+        "dry_air_gas_constant": {
+          "$ref": "#/$defs/sourced_J_kg_da_K__positive"
+        },
+        "vapor_gas_constant": {
+          "$ref": "#/$defs/sourced_J_kg_v_K__positive"
+        },
+        "saturation_pressure_rule": {
+          "type": "object",
+          "properties": {
+            "formula_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "formula_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "formula_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "formula_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "temperature_min": {
+              "$ref": "#/$defs/sourced_K__positive"
+            },
+            "temperature_max": {
+              "$ref": "#/$defs/sourced_K__positive"
+            },
+            "coefficients": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "value": {
+                    "type": "number"
+                  },
+                  "unit": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "origin": {
+                    "enum": [
+                      "measured",
+                      "literature",
+                      "assumed"
+                    ]
+                  },
+                  "basis_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "name",
+                  "value",
+                  "unit",
+                  "origin",
+                  "basis_ref",
+                  "version"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "formula_id",
+            "formula_ref",
+            "formula_version",
+            "formula_sha256",
+            "temperature_min",
+            "temperature_max",
+            "coefficients"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "effective_heat_capacity",
+        "dry_air_mass",
+        "dry_air_specific_heat",
+        "latent_heat",
+        "envelope_conductance",
+        "indoor_volume",
+        "floor_area",
+        "absorbed_solar_fraction",
+        "dry_air_gas_constant",
+        "vapor_gas_constant",
+        "saturation_pressure_rule"
+      ],
+      "additionalProperties": false
+    },
+    "forcing": {
+      "type": "object",
+      "properties": {
+        "outdoor_temperature": {
+          "$ref": "#/$defs/sourced_K__positive"
+        },
+        "outdoor_relative_humidity": {
+          "$ref": "#/$defs/sourced_1_nonnegative"
+        },
+        "outdoor_pressure": {
+          "$ref": "#/$defs/sourced_Pa__positive"
+        },
+        "outdoor_humidity_ratio": {
+          "$ref": "#/$defs/derived_kg_v_kg_da_nonnegative"
+        },
+        "ventilation_dry_air_flow": {
+          "$ref": "#/$defs/sourced_kg_da_s_nonnegative"
+        },
+        "canopy_evaporation": {
+          "$ref": "#/$defs/sourced_kg_v_s_nonnegative"
+        },
+        "solar_interval_energy": {
+          "$ref": "#/$defs/sourced_J_m2_nonnegative"
+        },
+        "solar_gain": {
+          "$ref": "#/$defs/derived_W_nonnegative"
+        },
+        "ground_heat_flow": {
+          "$ref": "#/$defs/sourced_W"
+        }
+      },
+      "required": [
+        "outdoor_temperature",
+        "outdoor_relative_humidity",
+        "outdoor_pressure",
+        "outdoor_humidity_ratio",
+        "ventilation_dry_air_flow",
+        "canopy_evaporation",
+        "solar_interval_energy",
+        "solar_gain",
+        "ground_heat_flow"
+      ],
+      "additionalProperties": false
+    },
+    "heater": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "const": "indirect_sensible"
+        },
+        "capacity_basis": {
+          "const": "delivered_thermal_power"
+        },
+        "capacity": {
+          "$ref": "#/$defs/sourced_W_th_nonnegative"
+        },
+        "available": {
+          "$ref": "#/$defs/sourced_boolean_1"
+        },
+        "setpoint": {
+          "$ref": "#/$defs/sourced_K__positive"
+        },
+        "control_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "mode",
+        "capacity_basis",
+        "capacity",
+        "available",
+        "setpoint",
+        "control_version"
+      ],
+      "additionalProperties": false
+    },
+    "condensation_policy": {
+      "const": "hold_on_saturation"
+    },
+    "integration": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "const": "explicit_euler"
+        },
+        "substep": {
+          "$ref": "#/$defs/sourced_s__positive"
+        },
+        "stability_rule_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "residual_rule_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "residual_tolerances": {
+          "type": "object",
+          "properties": {
+            "vapor_residual": {
+              "$ref": "#/$defs/sourced_kg_v_nonnegative"
+            },
+            "aggregate_energy_residual": {
+              "$ref": "#/$defs/sourced_J_nonnegative"
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            },
+            "rule_version": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "vapor_residual",
+            "aggregate_energy_residual",
+            "rationale",
+            "rule_version"
+          ],
+          "additionalProperties": false
+        },
+        "step_convergence_tolerances": {
+          "type": "object",
+          "properties": {
+            "temperature": {
+              "$ref": "#/$defs/sourced_K_nonnegative"
+            },
+            "humidity_ratio": {
+              "$ref": "#/$defs/sourced_kg_v_kg_da_nonnegative"
+            },
+            "delivered_heat_energy": {
+              "$ref": "#/$defs/sourced_J_nonnegative"
+            },
+            "rationale": {
+              "type": "string",
+              "minLength": 1
+            },
+            "rule_version": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "temperature",
+            "humidity_ratio",
+            "delivered_heat_energy",
+            "rationale",
+            "rule_version"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "method",
+        "substep",
+        "stability_rule_ref",
+        "residual_rule_ref",
+        "residual_tolerances",
+        "step_convergence_tolerances"
+      ],
+      "additionalProperties": false
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "start_utc": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+          },
+          "end_utc": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+          },
+          "state_start": {
+            "type": "object",
+            "properties": {
+              "temperature": {
+                "$ref": "#/$defs/trace_K"
+              },
+              "humidity_ratio": {
+                "$ref": "#/$defs/trace_kg_v_kg_da"
+              }
+            },
+            "required": [
+              "temperature",
+              "humidity_ratio"
+            ],
+            "additionalProperties": false
+          },
+          "state_end": {
+            "type": "object",
+            "properties": {
+              "temperature": {
+                "$ref": "#/$defs/trace_K"
+              },
+              "humidity_ratio": {
+                "$ref": "#/$defs/trace_kg_v_kg_da"
+              }
+            },
+            "required": [
+              "temperature",
+              "humidity_ratio"
+            ],
+            "additionalProperties": false
+          },
+          "indoor_pressure_end": {
+            "$ref": "#/$defs/trace_Pa"
+          },
+          "relative_humidity_end": {
+            "$ref": "#/$defs/trace_1"
+          },
+          "heat_demand": {
+            "$ref": "#/$defs/trace_W_th"
+          },
+          "heat_delivered": {
+            "$ref": "#/$defs/trace_W_th"
+          },
+          "heat_unmet": {
+            "$ref": "#/$defs/trace_W_th"
+          },
+          "delivered_heat_energy": {
+            "$ref": "#/$defs/trace_kWh_th"
+          },
+          "mass_terms": {
+            "type": "object",
+            "properties": {
+              "ventilation": {
+                "$ref": "#/$defs/trace_kg_v"
+              },
+              "canopy_evaporation": {
+                "$ref": "#/$defs/trace_kg_v"
+              },
+              "heater_vapor": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "const": 0
+                  },
+                  "unit": {
+                    "const": "kg_v"
+                  }
+                },
+                "required": [
+                  "value",
+                  "unit"
+                ],
+                "additionalProperties": false
+              },
+              "condensation": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "const": 0
+                  },
+                  "unit": {
+                    "const": "kg_v"
+                  }
+                },
+                "required": [
+                  "value",
+                  "unit"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "ventilation",
+              "canopy_evaporation",
+              "heater_vapor",
+              "condensation"
+            ],
+            "additionalProperties": false
+          },
+          "heat_terms": {
+            "type": "object",
+            "properties": {
+              "solar": {
+                "$ref": "#/$defs/trace_J"
+              },
+              "heater": {
+                "$ref": "#/$defs/trace_J"
+              },
+              "envelope": {
+                "$ref": "#/$defs/trace_J"
+              },
+              "ground": {
+                "$ref": "#/$defs/trace_J"
+              },
+              "ventilation_sensible": {
+                "$ref": "#/$defs/trace_J"
+              },
+              "canopy_latent": {
+                "$ref": "#/$defs/trace_J"
+              }
+            },
+            "required": [
+              "solar",
+              "heater",
+              "envelope",
+              "ground",
+              "ventilation_sensible",
+              "canopy_latent"
+            ],
+            "additionalProperties": false
+          },
+          "vapor_residual": {
+            "$ref": "#/$defs/trace_kg_v"
+          },
+          "aggregate_energy_residual": {
+            "$ref": "#/$defs/trace_J"
+          },
+          "convergence_deltas": {
+            "type": "object",
+            "properties": {
+              "temperature": {
+                "$ref": "#/$defs/trace_K"
+              },
+              "humidity_ratio": {
+                "$ref": "#/$defs/trace_kg_v_kg_da"
+              },
+              "delivered_heat_energy": {
+                "$ref": "#/$defs/trace_J"
+              }
+            },
+            "required": [
+              "temperature",
+              "humidity_ratio",
+              "delivered_heat_energy"
+            ],
+            "additionalProperties": false
+          },
+          "acceptance_rule_version": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "start_utc",
+          "end_utc",
+          "state_start",
+          "state_end",
+          "indoor_pressure_end",
+          "relative_humidity_end",
+          "heat_demand",
+          "heat_delivered",
+          "heat_unmet",
+          "delivered_heat_energy",
+          "mass_terms",
+          "heat_terms",
+          "vapor_residual",
+          "aggregate_energy_residual",
+          "convergence_deltas",
+          "acceptance_rule_version"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "contract_version",
+    "model_origin",
+    "claim_scope",
+    "run_status",
+    "scope",
+    "run_id",
+    "trace_id",
+    "trace_sequence_index",
+    "input_snapshot_id",
+    "decision_id",
+    "decision_context_id",
+    "decision_at_utc",
+    "review_at_utc",
+    "claim_mode",
+    "decision_time_kind",
+    "model_version",
+    "parameter_set_version",
+    "engine_version",
+    "unit_registry_version",
+    "manifest_sha256",
+    "synthetic_input_review_id",
+    "source_records",
+    "interval",
+    "initial_state",
+    "parameters",
+    "forcing",
+    "heater",
+    "condensation_policy",
+    "integration",
+    "steps"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {"properties": {"trace_sequence_index": {"const": 0}}, "required": ["trace_sequence_index"]},
+      "then": {
+        "properties": {
+          "initial_state": {
+            "properties": {
+              "temperature": {"$ref": "#/$defs/sourced_K__positive"},
+              "humidity_ratio": {"$ref": "#/$defs/sourced_kg_v_kg_da_nonnegative"}
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "initial_state": {
+            "properties": {
+              "temperature": {"$ref": "#/$defs/carried_K"},
+              "humidity_ratio": {"$ref": "#/$defs/carried_kg_v_kg_da"}
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "initial_K": {
+      "oneOf": [
+        {"$ref": "#/$defs/sourced_K__positive"},
+        {"$ref": "#/$defs/carried_K"}
+      ]
+    },
+    "initial_kg_v_kg_da": {
+      "oneOf": [
+        {"$ref": "#/$defs/sourced_kg_v_kg_da_nonnegative"},
+        {"$ref": "#/$defs/carried_kg_v_kg_da"}
+      ]
+    },
+    "carried_K": {
+      "type": "object",
+      "properties": {
+        "value": {"type": "number", "exclusiveMinimum": 0},
+        "unit": {"const": "K"},
+        "origin": {"const": "derived"},
+        "basis_ref": {"type": "string", "pattern": "^trace-sha256:[0-9a-f]{64}#/steps/(0|[1-9][0-9]*)/state_end/temperature$"},
+        "version": {"const": "v1"},
+        "calculation_rule_ref": {"const": "thermal-state-carry-v1"},
+        "calculation_rule_version": {"const": "v1"},
+        "previous_trace_id": {"type": "string", "minLength": 1},
+        "previous_trace_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "previous_state_pointer": {"type": "string", "pattern": "^/steps/(0|[1-9][0-9]*)/state_end/temperature$"}
+      },
+      "required": ["value", "unit", "origin", "basis_ref", "version", "calculation_rule_ref", "calculation_rule_version", "previous_trace_id", "previous_trace_sha256", "previous_state_pointer"],
+      "additionalProperties": false
+    },
+    "carried_kg_v_kg_da": {
+      "type": "object",
+      "properties": {
+        "value": {"type": "number", "minimum": 0},
+        "unit": {"const": "kg_v/kg_da"},
+        "origin": {"const": "derived"},
+        "basis_ref": {"type": "string", "pattern": "^trace-sha256:[0-9a-f]{64}#/steps/(0|[1-9][0-9]*)/state_end/humidity_ratio$"},
+        "version": {"const": "v1"},
+        "calculation_rule_ref": {"const": "thermal-state-carry-v1"},
+        "calculation_rule_version": {"const": "v1"},
+        "previous_trace_id": {"type": "string", "minLength": 1},
+        "previous_trace_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "previous_state_pointer": {"type": "string", "pattern": "^/steps/(0|[1-9][0-9]*)/state_end/humidity_ratio$"}
+      },
+      "required": ["value", "unit", "origin", "basis_ref", "version", "calculation_rule_ref", "calculation_rule_version", "previous_trace_id", "previous_trace_sha256", "previous_state_pointer"],
+      "additionalProperties": false
+    },
+    "trace_K": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "const": "K"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "trace_kg_v_kg_da": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "const": "kg_v/kg_da"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_K__positive": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "const": "K"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_kg_v_kg_da_nonnegative": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "const": "kg_v/kg_da"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "derived_kg_v_kg_da_nonnegative": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "const": "kg_v/kg_da"
+        },
+        "origin": {
+          "const": "derived"
+        },
+        "basis_ref": {
+          "const": "synthetic-thermal-parameters-v1:/conversion_rules/outdoor_humidity_ratio"
+        },
+        "version": {
+          "const": "v1"
+        },
+        "calculation_rule_ref": {
+          "const": "thermal-outdoor-w-v1"
+        },
+        "calculation_rule_version": {
+          "const": "v1"
+        },
+        "input_record_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version",
+        "calculation_rule_ref",
+        "calculation_rule_version",
+        "input_record_ids"
+      ],
+      "additionalProperties": false
+    },
+    "derived_W_nonnegative": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "const": "W"
+        },
+        "origin": {
+          "const": "derived"
+        },
+        "basis_ref": {
+          "const": "synthetic-thermal-parameters-v1:/conversion_rules/solar_gain"
+        },
+        "version": {
+          "const": "v1"
+        },
+        "calculation_rule_ref": {
+          "const": "thermal-solar-interval-v1"
+        },
+        "calculation_rule_version": {
+          "const": "v1"
+        },
+        "input_record_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version",
+        "calculation_rule_ref",
+        "calculation_rule_version",
+        "input_record_ids"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_boolean_1": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "boolean"
+        },
+        "unit": {
+          "const": "1"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "trace_kg_v": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "const": "kg_v"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "trace_J": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "const": "J"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "trace_Pa": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "const": "Pa"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "trace_1": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 1
+        },
+        "unit": {
+          "const": "1"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "trace_W_th": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "const": "W_th"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "trace_kWh_th": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "const": "kWh_th"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_J_K__positive": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "const": "J/K"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_kg_da__positive": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "const": "kg_da"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_J_kg_da_K__positive": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "const": "J/(kg_da*K)"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_J_kg_v__positive": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "const": "J/kg_v"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_W_K_nonnegative": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "const": "W/K"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_m³__positive": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "const": "m³"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_m2__positive": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "const": "m²"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_1_nonnegative": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "unit": {
+          "const": "1"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_J_kg_v_K__positive": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "const": "J/(kg_v*K)"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_Pa__positive": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "const": "Pa"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_kg_da_s_nonnegative": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "const": "kg_da/s"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_kg_v_s_nonnegative": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "const": "kg_v/s"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_J_m2_nonnegative": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "const": "J/m²"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_W_nonnegative": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "const": "W"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_W": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "const": "W"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_W_th_nonnegative": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "const": "W_th"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_kg_v_nonnegative": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "const": "kg_v"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_J_nonnegative": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "const": "J"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_K_nonnegative": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "const": "K"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "sourced_s__positive": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "const": "s"
+        },
+        "origin": {
+          "enum": [
+            "measured",
+            "literature",
+            "assumed"
+          ]
+        },
+        "basis_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "origin",
+        "basis_ref",
+        "version"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

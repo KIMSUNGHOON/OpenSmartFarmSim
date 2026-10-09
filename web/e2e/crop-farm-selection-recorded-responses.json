@@ -1,0 +1,35 @@
+{
+  "accepted_receipt_sha256": "78cff8659c9bc779c58797332e07695571833c9dda266efc119d42bb479731e4",
+  "actual_HTTPS_body_checks": [
+    {
+      "body_sha256": "b1df9dbe311e2e91c636f28b6d83379b5fd2f5fb477e448c9a97b7004b545ecc",
+      "bytes": 604,
+      "label": "registered",
+      "native_response_number": 19,
+      "query": {
+        "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+        "scenario_id": "owned-harvest-parent-farm",
+        "scenario_revision": "r1"
+      }
+    },
+    {
+      "body_sha256": "b1df9dbe311e2e91c636f28b6d83379b5fd2f5fb477e448c9a97b7004b545ecc",
+      "bytes": 604,
+      "label": "restored_scope",
+      "native_response_number": 22,
+      "query": {
+        "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+        "scenario_id": "owned-harvest-parent-farm",
+        "scenario_revision": "r1"
+      }
+    }
+  ],
+  "actual_crop_Runs": 0,
+  "actual_exit_code": 0,
+  "bodies_raw_utf8": {
+    "registered": "{\"farm\":{\"registration_sha256\":\"cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531\",\"scenario_id\":\"owned-harvest-parent-farm\",\"scenario_revision\":\"r1\"},\"items\":[{\"batch_id\":\"batch-1\",\"crop_id\":\"crop-1\",\"evidence_level\":\"assumed\",\"occupancy\":{\"end\":\"2027-03-16T00:00:00.000000Z\",\"start\":\"2026-10-01T00:00:00.000000Z\"},\"origin\":\"user\",\"profile_status\":\"unavailable\",\"species\":\"synthetic-species-intent\",\"variety\":\"unspecified-user-intent\"}],\"rights_or_gate_approval\":false,\"scope\":\"registered_user_inputs_only\",\"selection_validation_required\":true,\"version\":\"crop-research-farm-selection-v1\"}",
+    "restored_scope": "{\"farm\":{\"registration_sha256\":\"cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531\",\"scenario_id\":\"owned-harvest-parent-farm\",\"scenario_revision\":\"r1\"},\"items\":[{\"batch_id\":\"batch-1\",\"crop_id\":\"crop-1\",\"evidence_level\":\"assumed\",\"occupancy\":{\"end\":\"2027-03-16T00:00:00.000000Z\",\"start\":\"2026-10-01T00:00:00.000000Z\"},\"origin\":\"user\",\"profile_status\":\"unavailable\",\"species\":\"synthetic-species-intent\",\"variety\":\"unspecified-user-intent\"}],\"rights_or_gate_approval\":false,\"scope\":\"registered_user_inputs_only\",\"selection_validation_required\":true,\"version\":\"crop-research-farm-selection-v1\"}"
+  },
+  "original_exec_session_id": 10756,
+  "scope": "owned_synthetic_actual_HTTPS_raw_bodies_not_live_history_or_measured_farm_data"
+}

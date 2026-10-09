@@ -1,0 +1,205 @@
+{
+  "evidence_version": "crop-cycle-artifact-implementation-v1",
+  "recorded_at": "2026-10-05T08:41:38.537401Z",
+  "scope": "software_research_only",
+  "cli": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "observed_turn_context_at": "2026-10-05T07:46:25.992Z",
+    "turn_context_line_sha256": "88811af8737174f5765830267917d40f632a4fc6a2f4220e7422cc9999d1dee0",
+    "invocation_evidence": "actual current Codex CLI turn_context; no nested CLI",
+    "recursive_cli_invocations": 0,
+    "product_runtime_invocation_not_claimed": true
+  },
+  "module_commit": "130ede3adde58d7864a28cf58192044f724808f4",
+  "reference_commit": "8ed205bb105972c6b0bdaeae7cd1e41413c96182",
+  "acceptance_code_and_report_commit": "b0f33c135b31d2a7558e405f857d23b2450b53ba",
+  "file_sha256": {
+    "README.md": "53652daa60b25e0821e9caf2c5a7db0f08d66eabeab9b0d8ea0b3fc9544e7f22",
+    "docs/PROJECT_SPEC.md": "853b80eebadfe21a58a2a852c344f0e653848ed11be374defbc943eba23e3802",
+    "docs/IMPLEMENTATION_SLICE.md": "bf20989bc435f9028f1b1a3619702b09ea13433537ba18905aee88507fe998f9",
+    "tasks/plan.md": "42d835c8ec81f8d7c5dcce34a29ce19d542c0fcf7a29a99c8e6410c1fb328db6",
+    "tasks/todo.md": "32e0cd168649c19ab7151b3573b1e87062e0b76ade51dc2db4c0000c84683a4c",
+    "contracts/crop-cycle-artifact-v1.md": "6215d95f5513049be70cd29961c999b797074524cc07d8252da0afda4a95b435",
+    "research/crop-cycle-artifact-implementation.md": "350d937c46b52c94055b7af4c512ff44a0848d3efce1cd71b171429eb914471d",
+    "backend/app/crop_cycle_artifact.py": "10bcf863ba40338f2efa7242d78c2cccd3020fbdca061951da6b7b1c5a7c51f7",
+    "backend/tests/test_crop_cycle_artifact.py": "f597dd2a952184553f7f8d68bd70c155886278c4c927291daa3d501f7294e971",
+    "research/crop-cycle-artifact-reference.py": "45e9cabb59b8d55dd1b99eaf5d48cdf03e9412c1df05be129df06d8205d0dc9d",
+    "research/artifacts/crop-cycle-artifact-reference-20261005.json": "46172b30baa2b499ab1a6238836abf3e01e30c668cddcefbd6062f2cea483ab8"
+  },
+  "first_reference_draft_commit": "130ede3adde58d7864a28cf58192044f724808f4",
+  "first_reference_draft_file_sha256": {
+    "backend/tests/test_crop_cycle_artifact.py": "07d6abfa018a7b3a317998e63c46b796880171a026dc42c08e96b53abeb3413f",
+    "contracts/crop-cycle-artifact-v1.md": "5ae9aef7cbd0b9aa81b08d36493ad6a51be0b255932b7dbffaa65a2dd0a028f6"
+  },
+  "first_reference_preserved": true,
+  "original57_test_source_unchanged_except_appended_budget_regression": true,
+  "frozen_legacy_api_continuation_reader_and_stream40_sha256": {
+    "backend/app/crop_startup_artifact.py": "6d095d6b2c5cfff36cdfbf7b1f0b16d2acbe44e162c918a5ece637cda9c2f33a",
+    "backend/tests/test_crop_startup_artifact.py": "8c4e15afc6f113947cae2d32d4629f58ed15ea716737c29f08bd00bac998d6e6",
+    "backend/app/crop_coupled_artifact.py": "4d239f24d43bf351f3c11c9e9d59fccff30a76ef0815659f22c60fbc8ec7d017",
+    "backend/app/thermal_run_store.py": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+    "research/artifacts/crop-startup-integration-reference-20261005.json": "9b82831acb198a2b96c5c0620728ecf5b5ae245d2543b42580cfc00d253bb3b2",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "research/crop-integration-reference.py": "a38b7a67e43cf9f590838bf915ab3e5048950b8be6ed35f70817e18b42a09ce7",
+    "research/crop-plant-cohort-integration-reference.py": "9b880b9d06812f3cfa05bf1c5e47ef93811b548d2320136ce5ae813730d50a72",
+    "research/crop-fruit-startup-source-register.json": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+    "backend/app/crop_plant_startup_integration.py": "a48f2069d26024eeed5612e95bf59639f943fd6b98e789b21124a125c558656b",
+    "backend/tests/test_crop_plant_startup_integration.py": "38aa5e404124518eb9c44b9487c443de5a739ad4b1486e4eb74fe6709b637a86",
+    "research/crop-plant-startup-integration-reference.py": "c99cb9c2a83531a85183cfc9ccecc7401f95bd310bdc210cf4501d880458c44c",
+    "fixtures/crop-plant-startup-integration-reference-v1.json": "a94e4d88e02a5b29e2b1c20f0767cea6a326dccaa31278d5138667755b2f8026",
+    "fixtures/crop-fruit-transport-reference-parameters-v1.json": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070",
+    "backend/app/crop_plant_startup_rates.py": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_plant_cohort_integration.py": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+    "backend/app/crop_result_store.py": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+    "backend/app/crop_coupled_result_store.py": "765184999e07b078a6f79b414c148497ee3543b889a40a65d091a4ab44080632",
+    "backend/app/crop_startup_result_store.py": "d2e12ad750258b1b362261cb52b797de4bdcca02f84ecaaebafd9b74dab9b0af",
+    "backend/tests/test_crop_startup_result_store.py": "16e41c5a90a0838344f7e1ff185214ee4125bf52454dced3858725db210ae476",
+    "backend/app/api_crop_coupled_replay.py": "83d3eefd782206801fe645afc2e200bb621509b7c932b4a0544bbcb2bf31c582",
+    "backend/app/api_crop_startup_replay.py": "05b553e236dc3d5272829acd14f54910ef1a17400585cd7001e9992a048d7fac",
+    "backend/app/api.py": "b69837ec1793dfaf5d2d9e495d2b3d94b68209a2b462ae1113338fd25cf66fb8",
+    "backend/app/api_runtime.py": "40e183a1dfb95123f6c3c7659a974cd9717cc5f3d7ee2a78c38a8e07e5cf0d91",
+    "backend/tests/test_api_crop_startup_replay.py": "17bbfe9876eaa2488085b8cdbd3a7120299fa54bdcb05643c12c33cc37671fa2",
+    "backend/tests/test_api_openapi.py": "84d70344abe03be8bb825b475e1d78149833ce6ad6438d695784df8242529bcb",
+    "contracts/openapi-v1.json": "94bb9270ec8242aaa97fb8399b83286864ceb6e5a053173a652fd2691bceb510",
+    "backend/app/crop_cycle_continuation.py": "478f152a2395a451d9add64acf37e23ddc32a15273b14d0419869c1634596899",
+    "backend/tests/test_crop_cycle_continuation.py": "c0b0059e0816e88418ed761cbc1c5a085a23e262b4948c1f95dfd3f3ae3643a7",
+    "backend/app/crop_cycle_input_stream.py": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53",
+    "backend/tests/test_crop_cycle_input_stream.py": "dc5d9f86ebe74cb0d920939ab07381c7d729a0bc3abcffc165d702635ab4c23f",
+    "backend/app/crop_cycle_stream_execution.py": "4de399721cab82ab7f56e093b11b72682437e29bb3097e745b1e61d695d03aac",
+    "backend/tests/test_crop_cycle_stream_execution.py": "0a0800f6be8abb702ba2dcd461c00e9bf913a81c2c30ae2baabfc61b8447c3d1"
+  },
+  "verification": {
+    "unique_focused_passed": 58,
+    "focused_acceptance_mode": "57-test run plus one new isolated file-budget regression; not a single58 run",
+    "focused_runs": [
+      {
+        "passed": 57,
+        "skipped": 0,
+        "wall_seconds": 55.36,
+        "command": "nice -n 10 .venv/bin/python -m pytest -q tests/test_crop_cycle_artifact.py"
+      },
+      {
+        "passed": 1,
+        "skipped": 0,
+        "wall_seconds": 0.2,
+        "command": "nice -n 10 .venv/bin/python -m pytest -q tests/test_crop_cycle_artifact.py::test_orphan_file_count_rejects_before_rhs_and_preserves_published_prefix"
+      }
+    ],
+    "six_short_original_canonical_payloads_equal": true,
+    "hold_types": 7,
+    "rehashed_semantic_tamper_types": 13,
+    "separate_resume_read_processes": 7,
+    "restored_float64_values": 847,
+    "actual_process_crashes": 2,
+    "actual_crash_exit_codes": [
+      73,
+      74
+    ],
+    "before_after_atomic_head_recovery_equal": true,
+    "long_actual_steps": 11400,
+    "long_hours": 25,
+    "long_samples": 27,
+    "long_events": 5,
+    "long_commits": 93,
+    "long_storage_bytes": 755868,
+    "long_file_count": 127,
+    "long_read_seconds": 0.38875928000197746,
+    "read_calculation_calls": {
+      "advance": 0,
+      "original_integrator": 0,
+      "rhs": 0
+    },
+    "max_observed_read_page_bytes": 32918,
+    "reference_wall_seconds": 236.26435011799913,
+    "parent_peak_rss_mib": 54.0546875,
+    "child_max_peak_rss_mib": 53.6796875,
+    "cleanup": {
+      "owned_temp_input_artifact_response_files_removed": true,
+      "parent_fd_count_preserved": true,
+      "children_terminal": true,
+      "servers_started": 0,
+      "databases_started": 0
+    }
+  },
+  "private_log_sha256": {
+    "ossf-cycle-artifact-focused-20261005.log": "b8ae171f14f9359c1d44c5c7c915382669abc9c7e39f04538e72b358d75d7195",
+    "ossf-cycle-artifact-file-budget-20261005.log": "93c97c10af4fc8b54296201243c032c5e8295479ca6b4adc06019033d6f9e282",
+    "ossf-cycle-artifact-reference-20261005.log": "15068ab718cfa0bfdbc7e75117f89c5cd93949414228c50142bd6a8ce6c32e2c",
+    "ossf-cycle-artifact-regression-red-20261005.log": "505298931bb92449ca2182eb1f6324211b507d897e6cf300391593bef8db9bad",
+    "ossf-cycle-artifact-budget-red-20261005.log": "404a0992d14a4fd3a4b86cc062802d1273190cab6ebee99990b2345c3d287a65"
+  },
+  "observed_and_fixed": [
+    {
+      "reason": "closed context leaked the upstream rejection type; bool/float delta counters accepted; post-HEAD exception left writer open",
+      "evidence": "ossf-cycle-artifact-regression-red-20261005.log",
+      "fix": "typed context rejection, exact integer metadata and poison-close on ambiguous HEAD publication"
+    },
+    {
+      "reason": "existing orphan bytes exceeded the directory budget but the next RHS still started",
+      "evidence": "ossf-cycle-artifact-budget-red-20261005.log",
+      "fix": "full owned-directory usage checked before advance_chunk"
+    }
+  ],
+  "review": [
+    "finite blob/page/delta/checkpoint/commit/directory bytes and files",
+    "original immutable input/model/policy/seed/clock pins",
+    "canonical original sample/event prefixes and individual removed-term fsum order",
+    "closed typed counters and original checkpoint progression",
+    "past-only hold and exact normalized diagnostics",
+    "atomic HEAD before/after uncertainty, exclusive writer and actual process death recovery",
+    "bounded read preflight without RHS/integration; selected-page hash checked again",
+    "typed malformed identities/files and FD/tempfile cleanup",
+    "single-owner serial API; no thread sharing or hostile-process authentication claim",
+    "POSIX object and DB metadata separation follows the existing TECH_STACK"
+  ],
+  "claims_not_accepted": [
+    "actual host power loss/storage durability",
+    "full166day/1440002step burden",
+    "farm/current rights/HMAC/DB/API/3D cycle linkage",
+    "actual cultivar/initial/management/forcing adoption",
+    "freshkg/resources/economics/G0-G4 validation"
+  ],
+  "next_task": "crop-cycle-storage-schema",
+  "next_local_schema_estimate": {
+    "focused_hours": [
+      2.5,
+      4
+    ],
+    "kst_date_window": [
+      "2026-10-05",
+      "2026-10-06"
+    ],
+    "basis": "contract0.5-1h + installer/immutable constraints1h + real SCRAM invalid-row/regression/cleanup1-2h; previous v3 schema evidence",
+    "ci_wait_and_external_farm_validation_excluded": true
+  },
+  "actual_adopted_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "actual_crop_runs": 0,
+  "g0_g4_not_promoted": true,
+  "documentation_validation": {
+    "local_markdown_links_and_anchors": 2034,
+    "all_exist": true,
+    "implementation_dags": [
+      {
+        "edges": 80,
+        "acyclic": true
+      },
+      {
+        "edges": 89,
+        "acyclic": true
+      }
+    ],
+    "current_file_hashes_match": 11,
+    "frozen_hashes_match": 40,
+    "draft_hashes_match": 2
+  }
+}

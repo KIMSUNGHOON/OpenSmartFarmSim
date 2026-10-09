@@ -1,0 +1,791 @@
+{
+  "event_cases": [
+    {
+      "case_id": "partial-reference0",
+      "event": {
+        "input_id": "synthetic-capacity-partial-reference0",
+        "origin": "synthetic",
+        "values": {
+          "canopy_sensible_energy": {
+            "unit": "J/m2_floor",
+            "value": 52668.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_removed": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 15000.0
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": 0.0
+          }
+        }
+      },
+      "expected_decimal": {
+        "after_canopy_capacity": "1915.2000000",
+        "after_canopy_sensible_energy": "42134.4000000",
+        "after_canopy_temperature": "22",
+        "after_leaf_area_index": "1.5960000",
+        "after_leaf_carbohydrate": "60000",
+        "before_canopy_capacity": "2394.0000000",
+        "before_canopy_sensible_energy": "52668.0000000",
+        "before_canopy_temperature": "22",
+        "before_leaf_area_index": "1.9950000",
+        "before_leaf_carbohydrate": "75000",
+        "outgoing_sensible_energy": "10533.6000000"
+      }
+    },
+    {
+      "case_id": "partial-reference20",
+      "event": {
+        "input_id": "synthetic-capacity-partial-reference20",
+        "origin": "synthetic",
+        "values": {
+          "canopy_sensible_energy": {
+            "unit": "J/m2_floor",
+            "value": 4788.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_removed": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 15000.0
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": 20.0
+          }
+        }
+      },
+      "expected_decimal": {
+        "after_canopy_capacity": "1915.2000000",
+        "after_canopy_sensible_energy": "3830.4000000",
+        "after_canopy_temperature": "22",
+        "after_leaf_area_index": "1.5960000",
+        "after_leaf_carbohydrate": "60000",
+        "before_canopy_capacity": "2394.0000000",
+        "before_canopy_sensible_energy": "4788.0000000",
+        "before_canopy_temperature": "22",
+        "before_leaf_area_index": "1.9950000",
+        "before_leaf_carbohydrate": "75000",
+        "outgoing_sensible_energy": "957.6000000"
+      }
+    },
+    {
+      "case_id": "partial-reference30",
+      "event": {
+        "input_id": "synthetic-capacity-partial-reference30",
+        "origin": "synthetic",
+        "values": {
+          "canopy_sensible_energy": {
+            "unit": "J/m2_floor",
+            "value": -19152.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_removed": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 15000.0
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": 30.0
+          }
+        }
+      },
+      "expected_decimal": {
+        "after_canopy_capacity": "1915.2000000",
+        "after_canopy_sensible_energy": "-15321.6000000",
+        "after_canopy_temperature": "22",
+        "after_leaf_area_index": "1.5960000",
+        "after_leaf_carbohydrate": "60000",
+        "before_canopy_capacity": "2394.0000000",
+        "before_canopy_sensible_energy": "-19152.0000000",
+        "before_canopy_temperature": "22",
+        "before_leaf_area_index": "1.9950000",
+        "before_leaf_carbohydrate": "75000",
+        "outgoing_sensible_energy": "-3830.4000000"
+      }
+    },
+    {
+      "case_id": "zero-removal",
+      "event": {
+        "input_id": "synthetic-capacity-zero-removal",
+        "origin": "synthetic",
+        "values": {
+          "canopy_sensible_energy": {
+            "unit": "J/m2_floor",
+            "value": 52668.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_removed": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 0.0
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": 0.0
+          }
+        }
+      },
+      "expected_decimal": {
+        "after_canopy_capacity": "2394.0000000",
+        "after_canopy_sensible_energy": "52668.0000000",
+        "after_canopy_temperature": "22",
+        "after_leaf_area_index": "1.9950000",
+        "after_leaf_carbohydrate": "75000",
+        "before_canopy_capacity": "2394.0000000",
+        "before_canopy_sensible_energy": "52668.0000000",
+        "before_canopy_temperature": "22",
+        "before_leaf_area_index": "1.9950000",
+        "before_leaf_carbohydrate": "75000",
+        "outgoing_sensible_energy": "0E-7"
+      }
+    },
+    {
+      "case_id": "zero-energy-partial",
+      "event": {
+        "input_id": "synthetic-capacity-zero-energy-partial",
+        "origin": "synthetic",
+        "values": {
+          "canopy_sensible_energy": {
+            "unit": "J/m2_floor",
+            "value": 0.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_removed": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 15000.0
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          }
+        }
+      },
+      "expected_decimal": {
+        "after_canopy_capacity": "1915.2000000",
+        "after_canopy_sensible_energy": "0E-7",
+        "after_canopy_temperature": "22",
+        "after_leaf_area_index": "1.5960000",
+        "after_leaf_carbohydrate": "60000",
+        "before_canopy_capacity": "2394.0000000",
+        "before_canopy_sensible_energy": "0E-7",
+        "before_canopy_temperature": "22",
+        "before_leaf_area_index": "1.9950000",
+        "before_leaf_carbohydrate": "75000",
+        "outgoing_sensible_energy": "0E-7"
+      }
+    }
+  ],
+  "input_basis": "self-authored represented leaf-capacity cases, not cultivar measurements; capLeaf1200 is explicit synthetic input and not farm adoption; carbon is not leaf-water mass; metabolic heat excluded",
+  "oracle": "independent_Decimal80_open_capacity_inventory_no_app_import",
+  "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+  "scope": "synthetic_software_reference_only",
+  "transport_cases": [
+    {
+      "case_id": "no-flow",
+      "expected_decimal": {
+        "canopy_capacity": "2394.0000000",
+        "canopy_sensible_energy": "52668.0000000",
+        "capacity_allocation": "0E-7",
+        "capacity_maintenance": "0E-7",
+        "capacity_net": "0E-7",
+        "capacity_removal": "0E-7",
+        "energy_incoming": "0E-7",
+        "energy_maintenance_outgoing": "0E-7",
+        "energy_net": "0E-7",
+        "energy_removal_outgoing": "0E-7",
+        "leaf_area_index": "1.9950000",
+        "leaf_net_rate": "0",
+        "material_temperature_rate": "0",
+        "storage_rate_from_chain_rule": "0E-7"
+      },
+      "forcing": {
+        "input_id": "synthetic-capacity-no-flow",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          },
+          "incoming_capacity_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          },
+          "leaf_allocation": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_maintenance": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.0
+          },
+          "leaf_removal": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.0
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": 0.0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "same-temperature-entry",
+      "expected_decimal": {
+        "canopy_capacity": "2394.0000000",
+        "canopy_sensible_energy": "52668.0000000",
+        "capacity_allocation": "0.0638400",
+        "capacity_maintenance": "0E-7",
+        "capacity_net": "0.0638400",
+        "capacity_removal": "0E-7",
+        "energy_incoming": "1.4044800",
+        "energy_maintenance_outgoing": "0E-7",
+        "energy_net": "1.4044800",
+        "energy_removal_outgoing": "0E-7",
+        "leaf_area_index": "1.9950000",
+        "leaf_net_rate": "2",
+        "material_temperature_rate": "0",
+        "storage_rate_from_chain_rule": "1.4044800"
+      },
+      "forcing": {
+        "input_id": "synthetic-capacity-same-temperature-entry",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          },
+          "incoming_capacity_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          },
+          "leaf_allocation": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 2.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_maintenance": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.0
+          },
+          "leaf_removal": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.0
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": 0.0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "cold-entry",
+      "expected_decimal": {
+        "canopy_capacity": "2394.0000000",
+        "canopy_sensible_energy": "52668.0000000",
+        "capacity_allocation": "0.0638400",
+        "capacity_maintenance": "0.01596000",
+        "capacity_net": "0.039900000",
+        "capacity_removal": "0.007980000",
+        "energy_incoming": "0.8937600",
+        "energy_maintenance_outgoing": "0.35112000",
+        "energy_net": "0.367080000",
+        "energy_removal_outgoing": "0.175560000",
+        "leaf_area_index": "1.9950000",
+        "leaf_net_rate": "1.25",
+        "material_temperature_rate": "-0.00021333333333333333333333333333333333333333333333333333333333333333333333333333333",
+        "storage_rate_from_chain_rule": "0.36708000000000000000000000000000000000000000000000000000000000000000000000000001"
+      },
+      "forcing": {
+        "input_id": "synthetic-capacity-cold-entry",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          },
+          "incoming_capacity_temperature": {
+            "unit": "degC",
+            "value": 14.0
+          },
+          "leaf_allocation": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 2.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_maintenance": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.5
+          },
+          "leaf_removal": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.25
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": 0.0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "warm-entry",
+      "expected_decimal": {
+        "canopy_capacity": "2394.0000000",
+        "canopy_sensible_energy": "52668.0000000",
+        "capacity_allocation": "0.0638400",
+        "capacity_maintenance": "0.01596000",
+        "capacity_net": "0.039900000",
+        "capacity_removal": "0.007980000",
+        "energy_incoming": "1.9152000",
+        "energy_maintenance_outgoing": "0.35112000",
+        "energy_net": "1.388520000",
+        "energy_removal_outgoing": "0.175560000",
+        "leaf_area_index": "1.9950000",
+        "leaf_net_rate": "1.25",
+        "material_temperature_rate": "0.00021333333333333333333333333333333333333333333333333333333333333333333333333333333",
+        "storage_rate_from_chain_rule": "1.3885200000000000000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "forcing": {
+        "input_id": "synthetic-capacity-warm-entry",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          },
+          "incoming_capacity_temperature": {
+            "unit": "degC",
+            "value": 30.0
+          },
+          "leaf_allocation": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 2.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_maintenance": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.5
+          },
+          "leaf_removal": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.25
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": 0.0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "maintenance-only",
+      "expected_decimal": {
+        "canopy_capacity": "2394.0000000",
+        "canopy_sensible_energy": "52668.0000000",
+        "capacity_allocation": "0E-7",
+        "capacity_maintenance": "0.0638400",
+        "capacity_net": "-0.0638400",
+        "capacity_removal": "0E-7",
+        "energy_incoming": "0E-7",
+        "energy_maintenance_outgoing": "1.4044800",
+        "energy_net": "-1.4044800",
+        "energy_removal_outgoing": "0E-7",
+        "leaf_area_index": "1.9950000",
+        "leaf_net_rate": "-2",
+        "material_temperature_rate": "0",
+        "storage_rate_from_chain_rule": "-1.4044800"
+      },
+      "forcing": {
+        "input_id": "synthetic-capacity-maintenance-only",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          },
+          "incoming_capacity_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          },
+          "leaf_allocation": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_maintenance": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 2.0
+          },
+          "leaf_removal": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.0
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": 0.0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "continuous-removal-only",
+      "expected_decimal": {
+        "canopy_capacity": "2394.0000000",
+        "canopy_sensible_energy": "52668.0000000",
+        "capacity_allocation": "0E-7",
+        "capacity_maintenance": "0E-7",
+        "capacity_net": "-0.0638400",
+        "capacity_removal": "0.0638400",
+        "energy_incoming": "0E-7",
+        "energy_maintenance_outgoing": "0E-7",
+        "energy_net": "-1.4044800",
+        "energy_removal_outgoing": "1.4044800",
+        "leaf_area_index": "1.9950000",
+        "leaf_net_rate": "-2",
+        "material_temperature_rate": "0",
+        "storage_rate_from_chain_rule": "-1.4044800"
+      },
+      "forcing": {
+        "input_id": "synthetic-capacity-continuous-removal-only",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          },
+          "incoming_capacity_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          },
+          "leaf_allocation": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_maintenance": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.0
+          },
+          "leaf_removal": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 2.0
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": 0.0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "net-zero-cold-entry",
+      "expected_decimal": {
+        "canopy_capacity": "2394.0000000",
+        "canopy_sensible_energy": "52668.0000000",
+        "capacity_allocation": "0.0638400",
+        "capacity_maintenance": "0.0319200",
+        "capacity_net": "0E-7",
+        "capacity_removal": "0.0319200",
+        "energy_incoming": "0.8937600",
+        "energy_maintenance_outgoing": "0.7022400",
+        "energy_net": "-0.5107200",
+        "energy_removal_outgoing": "0.7022400",
+        "leaf_area_index": "1.9950000",
+        "leaf_net_rate": "0",
+        "material_temperature_rate": "-0.00021333333333333333333333333333333333333333333333333333333333333333333333333333333",
+        "storage_rate_from_chain_rule": "-0.51071999999999999999999999999999999999999999999999999999999999999999999999999999"
+      },
+      "forcing": {
+        "input_id": "synthetic-capacity-net-zero-cold-entry",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          },
+          "incoming_capacity_temperature": {
+            "unit": "degC",
+            "value": 14.0
+          },
+          "leaf_allocation": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 2.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_maintenance": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 1.0
+          },
+          "leaf_removal": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 1.0
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": 0.0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "cold-entry-reference20",
+      "expected_decimal": {
+        "canopy_capacity": "2394.0000000",
+        "canopy_sensible_energy": "4788.0000000",
+        "capacity_allocation": "0.0638400",
+        "capacity_maintenance": "0.01596000",
+        "capacity_net": "0.039900000",
+        "capacity_removal": "0.007980000",
+        "energy_incoming": "-0.3830400",
+        "energy_maintenance_outgoing": "0.03192000",
+        "energy_net": "-0.430920000",
+        "energy_removal_outgoing": "0.015960000",
+        "leaf_area_index": "1.9950000",
+        "leaf_net_rate": "1.25",
+        "material_temperature_rate": "-0.00021333333333333333333333333333333333333333333333333333333333333333333333333333333",
+        "storage_rate_from_chain_rule": "-0.43091999999999999999999999999999999999999999999999999999999999999999999999999999"
+      },
+      "forcing": {
+        "input_id": "synthetic-capacity-cold-entry-reference20",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          },
+          "incoming_capacity_temperature": {
+            "unit": "degC",
+            "value": 14.0
+          },
+          "leaf_allocation": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 2.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_maintenance": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.5
+          },
+          "leaf_removal": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.25
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": 20.0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "cold-entry-reference30",
+      "expected_decimal": {
+        "canopy_capacity": "2394.0000000",
+        "canopy_sensible_energy": "-19152.0000000",
+        "capacity_allocation": "0.0638400",
+        "capacity_maintenance": "0.01596000",
+        "capacity_net": "0.039900000",
+        "capacity_removal": "0.007980000",
+        "energy_incoming": "-1.0214400",
+        "energy_maintenance_outgoing": "-0.12768000",
+        "energy_net": "-0.829920000",
+        "energy_removal_outgoing": "-0.063840000",
+        "leaf_area_index": "1.9950000",
+        "leaf_net_rate": "1.25",
+        "material_temperature_rate": "-0.00021333333333333333333333333333333333333333333333333333333333333333333333333333333",
+        "storage_rate_from_chain_rule": "-0.82991999999999999999999999999999999999999999999999999999999999999999999999999999"
+      },
+      "forcing": {
+        "input_id": "synthetic-capacity-cold-entry-reference30",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          },
+          "incoming_capacity_temperature": {
+            "unit": "degC",
+            "value": 14.0
+          },
+          "leaf_allocation": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 2.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_maintenance": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.5
+          },
+          "leaf_removal": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.25
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": 30.0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "cold-entry-reference-minus10",
+      "expected_decimal": {
+        "canopy_capacity": "2394.0000000",
+        "canopy_sensible_energy": "76608.0000000",
+        "capacity_allocation": "0.0638400",
+        "capacity_maintenance": "0.01596000",
+        "capacity_net": "0.039900000",
+        "capacity_removal": "0.007980000",
+        "energy_incoming": "1.5321600",
+        "energy_maintenance_outgoing": "0.51072000",
+        "energy_net": "0.766080000",
+        "energy_removal_outgoing": "0.255360000",
+        "leaf_area_index": "1.9950000",
+        "leaf_net_rate": "1.25",
+        "material_temperature_rate": "-0.00021333333333333333333333333333333333333333333333333333333333333333333333333333333",
+        "storage_rate_from_chain_rule": "0.76608000000000000000000000000000000000000000000000000000000000000000000000000001"
+      },
+      "forcing": {
+        "input_id": "synthetic-capacity-cold-entry-reference-minus10",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          },
+          "incoming_capacity_temperature": {
+            "unit": "degC",
+            "value": 14.0
+          },
+          "leaf_allocation": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 2.0
+          },
+          "leaf_carbohydrate": {
+            "unit": "mg_CH2O/m2_floor",
+            "value": 75000.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "leaf_maintenance": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.5
+          },
+          "leaf_removal": {
+            "unit": "mg_CH2O/m2_floor/s",
+            "value": 0.25
+          },
+          "reference_temperature": {
+            "unit": "degC",
+            "value": -10.0
+          }
+        }
+      }
+    }
+  ],
+  "version": "crop-canopy-energy-transport-reference-cases-v1"
+}

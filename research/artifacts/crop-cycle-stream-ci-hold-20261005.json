@@ -1,0 +1,144 @@
+{
+  "evidence_version": "crop-cycle-stream-ci-first-attempt-hold-v1",
+  "recorded_at_utc": "2026-10-05T08:46:53.033606+00:00",
+  "head_sha": "fe41e22eed6080a742bb27bb9ec12130532314f1",
+  "scope": "pure continuation/input reader/stream execution; cycle result artifact is not in this SHA",
+  "accepted_previous_ci": "research/artifacts/crop-startup-replay-ci-20261005.json",
+  "workflow_status_observed": [
+    {
+      "conclusion": "",
+      "databaseId": 37279357847,
+      "headSha": "fe41e22eed6080a742bb27bb9ec12130532314f1",
+      "name": "Backend tests",
+      "status": "queued"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37279357829,
+      "headSha": "fe41e22eed6080a742bb27bb9ec12130532314f1",
+      "name": "C0 Compose verification",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37279357886,
+      "headSha": "fe41e22eed6080a742bb27bb9ec12130532314f1",
+      "name": "Web tests",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37279357904,
+      "headSha": "fe41e22eed6080a742bb27bb9ec12130532314f1",
+      "name": "Application runtime verification",
+      "status": "completed"
+    },
+    {
+      "conclusion": "",
+      "databaseId": 37279357866,
+      "headSha": "fe41e22eed6080a742bb27bb9ec12130532314f1",
+      "name": "Authored API PostgreSQL smoke",
+      "status": "in_progress"
+    }
+  ],
+  "all_five_workflows_not_accepted": true,
+  "authored_api_first_attempt": {
+    "run_id": 37279357866,
+    "run_attempt": 1,
+    "conclusion": "cancelled",
+    "other_six_jobs": "success",
+    "browser_job_id": 111663555305,
+    "browser_test_report": {
+      "passed": 7,
+      "seconds": 1432.19
+    },
+    "browser_job_accepted": false,
+    "browser_database_password_cleanup": "success",
+    "failure_annotation_messages": [
+      "The job has exceeded the maximum execution time of 25m0s",
+      "The operation was canceled."
+    ],
+    "cause_observed": "GitHub job exceeded its existing25-minute deadline; not an agent cancellation; seven pytest checks reported passed",
+    "unchanged_http_or_job_deadlines": true
+  },
+  "authored_api_retry_observed": {
+    "conclusion": null,
+    "head_sha": "fe41e22eed6080a742bb27bb9ec12130532314f1",
+    "path": ".github/workflows/authored-api-smoke.yml",
+    "run_attempt": 2,
+    "status": "in_progress",
+    "updated_at": "2026-10-05T08:29:41Z"
+  },
+  "retry_command": "gh run rerun 37279357866 --failed (same SHA, cancelled job only)",
+  "backend_completed_partitions_audited": [
+    {
+      "partition": 0,
+      "passed": 717,
+      "inventory_total": 3709,
+      "inventory_sha256": "08a870358e36171e13c22f41c59396cbcf4d1aec03a920bb87780518e24a3127",
+      "raw_log_bytes": 44172,
+      "raw_log_sha256": "80b20805b570faf54c08f5d443df5b6fe574e9b4e3c36afd4885c6d99ac13746",
+      "database_password_cleanup": "success"
+    },
+    {
+      "partition": 1,
+      "passed": 503,
+      "inventory_total": 3709,
+      "inventory_sha256": "08a870358e36171e13c22f41c59396cbcf4d1aec03a920bb87780518e24a3127",
+      "raw_log_bytes": 37477,
+      "raw_log_sha256": "67c3ef80b234798ac9537350c3169a955b513f93112c7e03855643f156164815",
+      "database_password_cleanup": "success"
+    }
+  ],
+  "backend_jobs_observed": [
+    {
+      "job_id": 111663555239,
+      "name": "backend-partition-0",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "job_id": 111663555459,
+      "name": "backend-partition-4",
+      "status": "queued",
+      "conclusion": null
+    },
+    {
+      "job_id": 111663555464,
+      "name": "backend-partition-5",
+      "status": "queued",
+      "conclusion": null
+    },
+    {
+      "job_id": 111663555474,
+      "name": "backend-partition-3",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "job_id": 111663555497,
+      "name": "backend-partition-2",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "job_id": 111663555501,
+      "name": "backend-partition-1",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "full_backend_inventory_and_aggregate_not_accepted": true,
+  "private_source_sha256": {
+    "first_attempt_jobs": "f3a4f24f1d22a3d4460466218a7913d2806774fd0524403c25111f09154b4243",
+    "failure_annotations": "73666dff366b7d84e27904acc1dcd58e69c8c280bbdb5c5f0cbe97f8d5ae4d24",
+    "retry_status": "e8721d5905b690ac4bb96b1aa4586e97e20339475848ed9b4a58b1228da3cd27",
+    "backend_jobs": "cd961211b21050bf991fc80e39d6944079f841b982ef5c23735daeadc59cb5c7",
+    "workflow_status": "12b8df6de9704239bb332cdd76c92febf9fb6a8c55aa83f7bbd2edce2915f1ec",
+    "authored_browser_log": "7865862eb8e97ff02c22228fe10e190d5939b4dc001788b73a5116c589b5d44a"
+  },
+  "later_retry_and_other_partitions_require_fresh_terminal_audit": true,
+  "g0_g4": "not assessed or promoted; fake runtime providers/test keys in software checks",
+  "actual_crop_runs": 0,
+  "local_artifact_acceptance_does_not_change_ci_status": true
+}

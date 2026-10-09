@@ -1,0 +1,204 @@
+{
+  "version": "crop-harvest-full-parent-restored-reference-v1",
+  "scope": "new_full166_synthetic_parent_whole_comparison_normal_publication_authenticated_backup_current_restore_only",
+  "observed_at_utc": "2026-10-09T07:21:40.909948+00:00",
+  "actual_tool_exits": {
+    "original_compute95915": 0,
+    "original_finish36916": 0,
+    "root_audit_exec": 0
+  },
+  "original_failure95086_preserved": true,
+  "whole_parent_restoration_accepted": true,
+  "actual_product_CLI_independent_G1_accepted": false,
+  "source": {
+    "frozen_producer_git_head": "dc7b852040f9a27af7a42bb779a1ba5063588ed5",
+    "root_git_head_at_finish": "cb4a5fafc7ea3a9d8a430ecd88eac9ff2212191d",
+    "source_count": 1584,
+    "frozen_source_count": 1400,
+    "original_accepted_guard_files": 392,
+    "root_and_frozen_source_pins_preserved_at_terminal": true,
+    "source_freeze_released_after_actual_finish0_and_root_audit": true
+  },
+  "compute": {
+    "status": "completed",
+    "steps": 1816704,
+    "planned_steps": 1816704,
+    "counts": {
+      "events": 5,
+      "samples": 47809
+    },
+    "commit_count": 456,
+    "file_count": 919,
+    "storage_bytes": 404673556,
+    "artifact_sha256": "f1bf669180fa3b07f39c4b582fedc5c7edcf28b5e35497cde9947dcdd5eb6a8c",
+    "input_root_sha256": "05a58cc9092682f663bb3e2f827003f51ec8a778f746bb429126a663e841fc04",
+    "context_sha256": "71c322fac5c814d4d01238b01761c565506d676c2da9a4df2994c03007483c6a",
+    "head_sha256": "dbdac5625094bd1f5372831b0aef38054a81a586095698273986e8082ca17ab3",
+    "header_sha256": "ded4b38381e51f6e68f2d51076e6717ac774db8c91209d81332dbbc89a3f7696"
+  },
+  "comparison": {
+    "all_original_rows_compared": true,
+    "counts": {
+      "events": 5,
+      "samples": 47809
+    },
+    "pages": {
+      "events": 1,
+      "samples": 748
+    },
+    "candidate_row_sha256": {
+      "events": "853fc56f2af571cd38e273b08caaf2da510e38e44e2c2fee4f9934077d5e3d42",
+      "samples": "88028e84883d9286f6d9f8296e897a9e4be8c0400501e309392f4410fd26bd5d"
+    },
+    "same_candidate_row_hashes_as_prior_accepted_full166": true,
+    "checkpoint_all_semantics_equal": true,
+    "checkpoint_state_count": 121,
+    "RHS_calls": 0,
+    "FD_before_after": [
+      4,
+      4
+    ]
+  },
+  "finish_commands": [
+    {
+      "actual_exit_code": 0,
+      "label": "compare-publish-backup",
+      "log_sha256": "0b3dabf4585975e9ad98b6646144de91396ce1960b0ba8682fd2cd11dd3dc4cc",
+      "wall_seconds": 2537.6139374759805
+    },
+    {
+      "actual_exit_code": 0,
+      "label": "current-source-read",
+      "log_sha256": "0d88d55fb2d647cd45ae00802e7415cd245c580c1df457015df73b83efe59590",
+      "wall_seconds": 51.358816445979755
+    },
+    {
+      "actual_exit_code": 0,
+      "label": "verified-source-cleanup",
+      "log_sha256": "ca08ed875300036dde9cc3707fc225d8c593fba24091ba20a6938bef1d349975",
+      "wall_seconds": 1.1655453020066489
+    },
+    {
+      "actual_exit_code": 0,
+      "label": "fresh-current-restore",
+      "log_sha256": "0d88d55fb2d647cd45ae00802e7415cd245c580c1df457015df73b83efe59590",
+      "wall_seconds": 34.56393448298331
+    }
+  ],
+  "comparison_command": {
+    "actual_exit_code": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "reason": null,
+    "wall_seconds": 2302.5713246380037
+  },
+  "publication_command": {
+    "actual_exit_code": 0,
+    "log_sha256": "c2a7a32126fac32602b7535654bfc8f613b01a0faa11f3a77e1fba1ad6908d80",
+    "reason": null,
+    "wall_seconds": 39.20006172399735
+  },
+  "backup_restore": {
+    "raw_backup_files_bytes": 500601,
+    "raw_backup_limit_bytes": 134217728,
+    "original_record": {
+      "payload_sha256": "0ef3a3d6ab06bbc459db69a817e230be682ed50da9caefa3880f8893658f6eed",
+      "recorded_at": "2026-10-09T16:14:58.015272+09:00",
+      "result_id": "crop-cycle-verified-result-v1:a10f9bbc50e245958ecbaeff309b57b8d15b5d17e30d6111d18fa75d569e8444"
+    },
+    "counts": {
+      "events": 5,
+      "samples": 47809
+    },
+    "status": "completed",
+    "representative_pages": {
+      "events": {
+        "count": 5,
+        "next": 5,
+        "rows_sha256": "853fc56f2af571cd38e273b08caaf2da510e38e44e2c2fee4f9934077d5e3d42",
+        "start": 0,
+        "total": 5
+      },
+      "samples-first": {
+        "count": 64,
+        "next": 64,
+        "rows_sha256": "0f7f267b749843d59aba3a831c6f3047ae729df3bf8d02bba9e998b293520b22",
+        "start": 0,
+        "total": 47809
+      },
+      "samples-last": {
+        "count": 1,
+        "next": 47809,
+        "rows_sha256": "67b2d1659f49eac0bdc09cbb7920f4574f09ab318db312a761f70d1c0c98435a",
+        "start": 47808,
+        "total": 47809
+      }
+    },
+    "actual_host_SCRAM": true,
+    "current_rights_scope_foreign_tenant_denied_and_restored": true,
+    "current_and_frozen_and_fresh_read_equal": true,
+    "read_RHS_publication_proof_issue_calls": 0,
+    "FD_before_after": [
+      4,
+      4
+    ],
+    "declared_result_key_and_proof_retained_in_authenticated_backup": true,
+    "original_plan_key_files_preserved": true,
+    "original_source_PG_stopped_before_fresh_restore": true,
+    "original_source_cluster_absent": true,
+    "fresh_restore_PG_stopped": true,
+    "original_inputs_artifact_runtime_keys_intentionally_retained": true
+  },
+  "resources": {
+    "wall_seconds": 2626.362512290012,
+    "original_preparation_deadline_ns": 1791537132785366154,
+    "sample_interval_seconds": 0.05,
+    "RSS_samples": 44287,
+    "fresh_PG_tree_observed_samples": 482,
+    "single_PID_peak_RSS_bytes": 178319360,
+    "combined_peak_RSS_bytes": 588541952,
+    "RSS_scope": "controller/owned children plus verified source PG and protected preview trees and observed actual fresh restore PG tree; shared pages may double count; not WSL total",
+    "owned_non_zombie_remaining": [],
+    "remaining_child_PIDs": [],
+    "fresh_PG_pidfile_remaining": false,
+    "preview_dist_unchanged": true,
+    "protected_preview_identities_preserved": true
+  },
+  "native_cli": {
+    "actual_effort": "xhigh",
+    "actual_model": "gpt-6.1-sol",
+    "judgment_scope": "Existing accepted whole166 recovery/comparison/normal publication/authenticated backup -> current source denials -> owned source fixture stop/cleanup -> fresh current restore; no model/input change or gate promotion",
+    "recursive_invocations": 0,
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-09T06:27:06.921Z",
+    "turn_event_sha256": "2c7a98321af1d40277a62db5a48796f2a27219b2ffc250b99c4dcf038fe9da4e"
+  },
+  "private_receipt_sha256": {
+    "original-tool-terminal.private.json": "95a472aa9d5a31764cdf142cbe301ac86700b8c51560187f3893c3846114f0e2",
+    "actual-tool-terminal.private.json": "b45dd04568aa368969f714aa12235803a716df453d77f1109aa78e3ec70b4fae",
+    "finish-terminal.private.json": "03e7ffcf5d57724e432228285d1a18bdb3d5f1c3b4ff80b8a20bae3e23cbde93",
+    "root-audit.private.json": "5056c3552f0d4a118962e6794043e569377a7260aa113fc94ccf79dadcb2fc4e",
+    "published-backup.private.json": "ca8fb70cc9fa9686b87d3c7c5bbac838c4bfd936c1d2d5a8a9c1a6130b1c7a62",
+    "comparison.result.json": "f18234c09ffce598ed3594bbc2e84a605606f0231d7867f66de5a50d8a84647a",
+    "current-source-read.private.json": "ce5b20a68429f5d3a9f0dfffc2454b8147f4f69bff0e36ade6f3ae184b891989",
+    "source-cleanup.private.json": "bc45c9132d3fcc30fd01ad118371e2bc898efa840783b835e0240194406c6abb",
+    "fresh-current-read.private.json": "f0af9f272ac7de05885ae6c145556e8428ccc34f322dbd4ca3c4dddbfa9c728c"
+  },
+  "private_controller_source_sha256": {
+    "controller.py": "7dc9495a9ac5336a9347bcd925142fc4e8cdb2da2cd473155afa000ee7ad42e1",
+    "finish.py": "b5c733fb7fe09c96c021e58e4e5d565803ddbc2aca43242e3fa2ad2f2c0e57a3",
+    "current-read.py": "332d7ee26720c44f93984656ccb5f9aa61a61a4387b150973b89fb6bc0c839e5",
+    "stop-source.py": "affff0a19d847b6d25d502e8eca62ba8c614829205d1fe6518e3a572694ce0de"
+  },
+  "not_run_or_accepted": [
+    "Full normal harvest writer/registry and independent Decimal whole stored rows",
+    "Full harvest authenticated preservation/fresh current reader",
+    "Full harvest protected API/representative WebGL",
+    "New UI candidate deployment/U1/U3/realtime execution link",
+    "Actual cultivar/farm/independent domestic measurements",
+    "Climate/water/nutrients/purchased energy/crop economic integration",
+    "Product runtime CLI/independent whole G1/G0-G4/forecast/ranking",
+    "General production/WSL capacity"
+  ],
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed"
+}

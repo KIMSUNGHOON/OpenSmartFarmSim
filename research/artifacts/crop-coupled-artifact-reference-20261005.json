@@ -1,0 +1,1422 @@
+{
+  "evidence_version": "crop-coupled-artifact-local-v1",
+  "recorded_at_utc": "2026-10-04T19:36:24.546721+00:00",
+  "scope": "synthetic calculation artifact only; not farm rights/DB custody/approved Run",
+  "cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "verified_turn_context_at": "2026-10-04T18:26:29.821Z",
+    "recursive_cli": false
+  },
+  "code_and_input_sha256": {
+    "backend/app/crop_coupled_artifact.py": "4d239f24d43bf351f3c11c9e9d59fccff30a76ef0815659f22c60fbc8ec7d017",
+    "backend/tests/test_crop_coupled_artifact.py": "e51eb57a8a8a6dce4c71d4dd091369ee07baf4663b595f9fd07d052b6533d7c9",
+    "contracts/crop-coupled-artifact-v1.md": "b65efe71fab01af6bb6f4f6ec1381f76cfee531b639551731a5d6577a43d6d48",
+    "research/artifacts/crop-plant-cohort-integration-reference-20261005.json": "aa5cb3db81ef674c657bf8e54ca6c086acf5ff86c00f7df2bae4e0ba6f0ca118"
+  },
+  "tests": {
+    "new_artifact": 42,
+    "prior_crop": 488,
+    "passed": 530,
+    "seconds": 13.1,
+    "first_green_passed": 41,
+    "first_green_seconds": 6.54,
+    "red_exit_code": 2,
+    "red_log_sha256": "7c97a81e6b6d58be82fd0b0bdaccc2b314d72671a17152ee4385dad8b40d8f2d",
+    "green_log_sha256": "59e4ce2f8a432b1c5e389a7013829f4c69a0252028b4ec53201dbb2bb911a918"
+  },
+  "actual_artifacts": [
+    {
+      "case_id": "synthetic-day-night-management-initial",
+      "artifact_sha256": "ab79f2bddf6533ab2aad1f9d988a75c033db2168f0d01ec17c785c34646c5ec8",
+      "artifact_id": "crop-coupled-artifact-v1:fa637bf85e5703ae1059d0a312a1239f57728871efb1c1eb98b6d5930792d451",
+      "artifact_bytes": 131036,
+      "program_sha256": "786df0c2dc1c845e1cfb3ba07c4ad1f82173b6ba53f3da414f2dc5e340177f81",
+      "result_sha256": "b0a6323cb816f6dd2ddffbc89fe65d93f930a49281acf2eb7ac2b142262338b6",
+      "manifest": {
+        "code_sha256": {
+          "allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+          "cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+          "coupled": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+          "integrator": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+          "plant": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+          "transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3"
+        },
+        "convergence": "not_evaluated_for_this_program",
+        "input_ids": [
+          "synthetic-day-night-management-initial",
+          "synthetic-day-night-management-forcing-0",
+          "synthetic-day-night-management-continuous-0",
+          "synthetic-day-night-management-entry-0",
+          "synthetic-day-night-management-RGR-0",
+          "synthetic-day-night-management-forcing-1",
+          "synthetic-day-night-management-continuous-1",
+          "synthetic-day-night-management-entry-1",
+          "synthetic-day-night-management-RGR-1",
+          "synthetic-day-night-management-event-0",
+          "synthetic-day-night-management-event-150",
+          "synthetic-day-night-management-event-300"
+        ],
+        "input_sha256": "698da66e161506b12a0d7a53f00528a31e91d5dbfa6b68faaac3ad339a5c7a62",
+        "integrator_version": "crop-plant-cohort-rk4-research-v1",
+        "origins": [
+          "synthetic"
+        ],
+        "policy_sha256": "edbc67cfe59a61a1573ef5b1f189c548c47a74b996d4ef6221adc663c1cc306a",
+        "profile_sha256": {
+          "cohort_profile": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+          "growth_profile": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+          "transport_profile": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+        },
+        "python_version": "3.12.3",
+        "rate_model_version": "vanthoor-greenlight-explicit-entry-plant-rates-research-v1",
+        "research_assumptions": [
+          "leaf_stem_fixed_RGR_from_reference_profile_not_measured"
+        ],
+        "solver": {
+          "max_step_seconds": 10,
+          "max_steps": 10000,
+          "method": "rk4-fixed-v1",
+          "roundoff_rule": "64-ulp-per-operation-v1"
+        },
+        "temperature_sum_method": "analytic_piecewise_constant_fraction_v1",
+        "time_rule": "UTC_POSIX_whole_seconds_v1"
+      },
+      "samples": 6,
+      "events": 3,
+      "status": "completed"
+    },
+    {
+      "case_id": "synthetic-night-convergence-initial",
+      "artifact_sha256": "a77ff1e02bccff7de8cb4038bab9292940d7298d723e9e7a43cdc8f43c3d1487",
+      "artifact_id": "crop-coupled-artifact-v1:71849413f873a5403cfd286881ee964a81be0198e90f4ab9c17f9a440c9477a5",
+      "artifact_bytes": 68300,
+      "program_sha256": "83069f29245e351517aef4dd36b26b4dc29a61019c5d6e9cb871017762cd7ea2",
+      "result_sha256": "3cb5d21a259ed8a957c96e62f3254632216786a3f9081b9fad28f0d130a8b804",
+      "manifest": {
+        "code_sha256": {
+          "allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+          "cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+          "coupled": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+          "integrator": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+          "plant": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+          "transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3"
+        },
+        "convergence": "not_evaluated_for_this_program",
+        "input_ids": [
+          "synthetic-night-convergence-initial",
+          "synthetic-night-convergence-forcing-0",
+          "synthetic-night-convergence-continuous-0",
+          "synthetic-night-convergence-entry-0",
+          "synthetic-night-convergence-RGR-0"
+        ],
+        "input_sha256": "3cc0bb140330a8fd55cb4c537c72018e02e87a45df20c612f94b4596d4335b03",
+        "integrator_version": "crop-plant-cohort-rk4-research-v1",
+        "origins": [
+          "synthetic"
+        ],
+        "policy_sha256": "edbc67cfe59a61a1573ef5b1f189c548c47a74b996d4ef6221adc663c1cc306a",
+        "profile_sha256": {
+          "cohort_profile": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+          "growth_profile": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+          "transport_profile": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+        },
+        "python_version": "3.12.3",
+        "rate_model_version": "vanthoor-greenlight-explicit-entry-plant-rates-research-v1",
+        "research_assumptions": [
+          "leaf_stem_fixed_RGR_from_reference_profile_not_measured"
+        ],
+        "solver": {
+          "max_step_seconds": 10,
+          "max_steps": 10000,
+          "method": "rk4-fixed-v1",
+          "roundoff_rule": "64-ulp-per-operation-v1"
+        },
+        "temperature_sum_method": "analytic_piecewise_constant_fraction_v1",
+        "time_rule": "UTC_POSIX_whole_seconds_v1"
+      },
+      "samples": 5,
+      "events": 0,
+      "status": "completed"
+    }
+  ],
+  "capacity": {
+    "scope": "synthetic one-day software artifact capacity; no DB/HTTPS/crop accuracy",
+    "recorded_at_utc": "2026-10-04T19:31:59.184596+00:00",
+    "program_sha256": "e71910a80d4a656d344e4c37ec31e9c9b5ac9dc9d56b20f03ca07e992da5122d",
+    "program": {
+      "initial_state": {
+        "input_id": "synthetic-one-day-capacity-512-output-v1",
+        "origin": "synthetic",
+        "values": {
+          "buffer": {
+            "value": 1000000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 100000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 40000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 500,
+            "unit": "degC_day"
+          },
+          "fruit_number": [
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            }
+          ],
+          "fruit_carbohydrate": [
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 40,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          ]
+        }
+      },
+      "segments": [
+        {
+          "start": "2026-01-01T00:00:00Z",
+          "end": "2026-01-02T00:00:00Z",
+          "forcing": {
+            "input_id": "synthetic-day-night-management-forcing-0",
+            "origin": "synthetic",
+            "values": {
+              "canopy_temperature": {
+                "value": 20,
+                "unit": "degC"
+              },
+              "par_above_canopy": {
+                "value": 0,
+                "unit": "umol_photons/m2_floor/s"
+              },
+              "co2": {
+                "value": 800,
+                "unit": "ppm"
+              }
+            }
+          },
+          "removals": {
+            "input_id": "synthetic-day-night-management-continuous-0",
+            "origin": "synthetic",
+            "values": {
+              "leaf": {
+                "value": 0,
+                "unit": "mg_CH2O/m2_floor/s"
+              },
+              "stem_root": {
+                "value": 0,
+                "unit": "mg_CH2O/m2_floor/s"
+              }
+            }
+          },
+          "fruit_entry": {
+            "input_id": "synthetic-day-night-management-entry-0",
+            "origin": "synthetic",
+            "values": {
+              "fruit_number_inflow": {
+                "value": 0,
+                "unit": "fruits_equivalent/m2_floor/s"
+              },
+              "fruit_entry_carbohydrate": {
+                "value": 0,
+                "unit": "mg_CH2O/fruit_equivalent"
+              }
+            }
+          },
+          "relative_growth_rate": {
+            "input_id": "synthetic-day-night-management-RGR-0",
+            "origin": "synthetic",
+            "values": {
+              "fruit_relative_growth_rate": [
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                },
+                {
+                  "value": 0,
+                  "unit": "1/s"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "events": [],
+      "output_times": [
+        "2026-01-01T00:00:00Z",
+        "2026-01-01T00:02:49Z",
+        "2026-01-01T00:05:38Z",
+        "2026-01-01T00:08:27Z",
+        "2026-01-01T00:11:16Z",
+        "2026-01-01T00:14:05Z",
+        "2026-01-01T00:16:54Z",
+        "2026-01-01T00:19:44Z",
+        "2026-01-01T00:22:33Z",
+        "2026-01-01T00:25:22Z",
+        "2026-01-01T00:28:11Z",
+        "2026-01-01T00:31:00Z",
+        "2026-01-01T00:33:49Z",
+        "2026-01-01T00:36:38Z",
+        "2026-01-01T00:39:27Z",
+        "2026-01-01T00:42:16Z",
+        "2026-01-01T00:45:05Z",
+        "2026-01-01T00:47:54Z",
+        "2026-01-01T00:50:43Z",
+        "2026-01-01T00:53:33Z",
+        "2026-01-01T00:56:22Z",
+        "2026-01-01T00:59:11Z",
+        "2026-01-01T01:02:00Z",
+        "2026-01-01T01:04:49Z",
+        "2026-01-01T01:07:38Z",
+        "2026-01-01T01:10:27Z",
+        "2026-01-01T01:13:16Z",
+        "2026-01-01T01:16:05Z",
+        "2026-01-01T01:18:54Z",
+        "2026-01-01T01:21:43Z",
+        "2026-01-01T01:24:32Z",
+        "2026-01-01T01:27:21Z",
+        "2026-01-01T01:30:11Z",
+        "2026-01-01T01:33:00Z",
+        "2026-01-01T01:35:49Z",
+        "2026-01-01T01:38:38Z",
+        "2026-01-01T01:41:27Z",
+        "2026-01-01T01:44:16Z",
+        "2026-01-01T01:47:05Z",
+        "2026-01-01T01:49:54Z",
+        "2026-01-01T01:52:43Z",
+        "2026-01-01T01:55:32Z",
+        "2026-01-01T01:58:21Z",
+        "2026-01-01T02:01:10Z",
+        "2026-01-01T02:04:00Z",
+        "2026-01-01T02:06:49Z",
+        "2026-01-01T02:09:38Z",
+        "2026-01-01T02:12:27Z",
+        "2026-01-01T02:15:16Z",
+        "2026-01-01T02:18:05Z",
+        "2026-01-01T02:20:54Z",
+        "2026-01-01T02:23:43Z",
+        "2026-01-01T02:26:32Z",
+        "2026-01-01T02:29:21Z",
+        "2026-01-01T02:32:10Z",
+        "2026-01-01T02:34:59Z",
+        "2026-01-01T02:37:48Z",
+        "2026-01-01T02:40:38Z",
+        "2026-01-01T02:43:27Z",
+        "2026-01-01T02:46:16Z",
+        "2026-01-01T02:49:05Z",
+        "2026-01-01T02:51:54Z",
+        "2026-01-01T02:54:43Z",
+        "2026-01-01T02:57:32Z",
+        "2026-01-01T03:00:21Z",
+        "2026-01-01T03:03:10Z",
+        "2026-01-01T03:05:59Z",
+        "2026-01-01T03:08:48Z",
+        "2026-01-01T03:11:37Z",
+        "2026-01-01T03:14:27Z",
+        "2026-01-01T03:17:16Z",
+        "2026-01-01T03:20:05Z",
+        "2026-01-01T03:22:54Z",
+        "2026-01-01T03:25:43Z",
+        "2026-01-01T03:28:32Z",
+        "2026-01-01T03:31:21Z",
+        "2026-01-01T03:34:10Z",
+        "2026-01-01T03:36:59Z",
+        "2026-01-01T03:39:48Z",
+        "2026-01-01T03:42:37Z",
+        "2026-01-01T03:45:26Z",
+        "2026-01-01T03:48:15Z",
+        "2026-01-01T03:51:05Z",
+        "2026-01-01T03:53:54Z",
+        "2026-01-01T03:56:43Z",
+        "2026-01-01T03:59:32Z",
+        "2026-01-01T04:02:21Z",
+        "2026-01-01T04:05:10Z",
+        "2026-01-01T04:07:59Z",
+        "2026-01-01T04:10:48Z",
+        "2026-01-01T04:13:37Z",
+        "2026-01-01T04:16:26Z",
+        "2026-01-01T04:19:15Z",
+        "2026-01-01T04:22:04Z",
+        "2026-01-01T04:24:54Z",
+        "2026-01-01T04:27:43Z",
+        "2026-01-01T04:30:32Z",
+        "2026-01-01T04:33:21Z",
+        "2026-01-01T04:36:10Z",
+        "2026-01-01T04:38:59Z",
+        "2026-01-01T04:41:48Z",
+        "2026-01-01T04:44:37Z",
+        "2026-01-01T04:47:26Z",
+        "2026-01-01T04:50:15Z",
+        "2026-01-01T04:53:04Z",
+        "2026-01-01T04:55:53Z",
+        "2026-01-01T04:58:43Z",
+        "2026-01-01T05:01:32Z",
+        "2026-01-01T05:04:21Z",
+        "2026-01-01T05:07:10Z",
+        "2026-01-01T05:09:59Z",
+        "2026-01-01T05:12:48Z",
+        "2026-01-01T05:15:37Z",
+        "2026-01-01T05:18:26Z",
+        "2026-01-01T05:21:15Z",
+        "2026-01-01T05:24:04Z",
+        "2026-01-01T05:26:53Z",
+        "2026-01-01T05:29:42Z",
+        "2026-01-01T05:32:31Z",
+        "2026-01-01T05:35:21Z",
+        "2026-01-01T05:38:10Z",
+        "2026-01-01T05:40:59Z",
+        "2026-01-01T05:43:48Z",
+        "2026-01-01T05:46:37Z",
+        "2026-01-01T05:49:26Z",
+        "2026-01-01T05:52:15Z",
+        "2026-01-01T05:55:04Z",
+        "2026-01-01T05:57:53Z",
+        "2026-01-01T06:00:42Z",
+        "2026-01-01T06:03:31Z",
+        "2026-01-01T06:06:20Z",
+        "2026-01-01T06:09:10Z",
+        "2026-01-01T06:11:59Z",
+        "2026-01-01T06:14:48Z",
+        "2026-01-01T06:17:37Z",
+        "2026-01-01T06:20:26Z",
+        "2026-01-01T06:23:15Z",
+        "2026-01-01T06:26:04Z",
+        "2026-01-01T06:28:53Z",
+        "2026-01-01T06:31:42Z",
+        "2026-01-01T06:34:31Z",
+        "2026-01-01T06:37:20Z",
+        "2026-01-01T06:40:09Z",
+        "2026-01-01T06:42:58Z",
+        "2026-01-01T06:45:48Z",
+        "2026-01-01T06:48:37Z",
+        "2026-01-01T06:51:26Z",
+        "2026-01-01T06:54:15Z",
+        "2026-01-01T06:57:04Z",
+        "2026-01-01T06:59:53Z",
+        "2026-01-01T07:02:42Z",
+        "2026-01-01T07:05:31Z",
+        "2026-01-01T07:08:20Z",
+        "2026-01-01T07:11:09Z",
+        "2026-01-01T07:13:58Z",
+        "2026-01-01T07:16:47Z",
+        "2026-01-01T07:19:37Z",
+        "2026-01-01T07:22:26Z",
+        "2026-01-01T07:25:15Z",
+        "2026-01-01T07:28:04Z",
+        "2026-01-01T07:30:53Z",
+        "2026-01-01T07:33:42Z",
+        "2026-01-01T07:36:31Z",
+        "2026-01-01T07:39:20Z",
+        "2026-01-01T07:42:09Z",
+        "2026-01-01T07:44:58Z",
+        "2026-01-01T07:47:47Z",
+        "2026-01-01T07:50:36Z",
+        "2026-01-01T07:53:25Z",
+        "2026-01-01T07:56:15Z",
+        "2026-01-01T07:59:04Z",
+        "2026-01-01T08:01:53Z",
+        "2026-01-01T08:04:42Z",
+        "2026-01-01T08:07:31Z",
+        "2026-01-01T08:10:20Z",
+        "2026-01-01T08:13:09Z",
+        "2026-01-01T08:15:58Z",
+        "2026-01-01T08:18:47Z",
+        "2026-01-01T08:21:36Z",
+        "2026-01-01T08:24:25Z",
+        "2026-01-01T08:27:14Z",
+        "2026-01-01T08:30:04Z",
+        "2026-01-01T08:32:53Z",
+        "2026-01-01T08:35:42Z",
+        "2026-01-01T08:38:31Z",
+        "2026-01-01T08:41:20Z",
+        "2026-01-01T08:44:09Z",
+        "2026-01-01T08:46:58Z",
+        "2026-01-01T08:49:47Z",
+        "2026-01-01T08:52:36Z",
+        "2026-01-01T08:55:25Z",
+        "2026-01-01T08:58:14Z",
+        "2026-01-01T09:01:03Z",
+        "2026-01-01T09:03:52Z",
+        "2026-01-01T09:06:42Z",
+        "2026-01-01T09:09:31Z",
+        "2026-01-01T09:12:20Z",
+        "2026-01-01T09:15:09Z",
+        "2026-01-01T09:17:58Z",
+        "2026-01-01T09:20:47Z",
+        "2026-01-01T09:23:36Z",
+        "2026-01-01T09:26:25Z",
+        "2026-01-01T09:29:14Z",
+        "2026-01-01T09:32:03Z",
+        "2026-01-01T09:34:52Z",
+        "2026-01-01T09:37:41Z",
+        "2026-01-01T09:40:31Z",
+        "2026-01-01T09:43:20Z",
+        "2026-01-01T09:46:09Z",
+        "2026-01-01T09:48:58Z",
+        "2026-01-01T09:51:47Z",
+        "2026-01-01T09:54:36Z",
+        "2026-01-01T09:57:25Z",
+        "2026-01-01T10:00:14Z",
+        "2026-01-01T10:03:03Z",
+        "2026-01-01T10:05:52Z",
+        "2026-01-01T10:08:41Z",
+        "2026-01-01T10:11:30Z",
+        "2026-01-01T10:14:19Z",
+        "2026-01-01T10:17:09Z",
+        "2026-01-01T10:19:58Z",
+        "2026-01-01T10:22:47Z",
+        "2026-01-01T10:25:36Z",
+        "2026-01-01T10:28:25Z",
+        "2026-01-01T10:31:14Z",
+        "2026-01-01T10:34:03Z",
+        "2026-01-01T10:36:52Z",
+        "2026-01-01T10:39:41Z",
+        "2026-01-01T10:42:30Z",
+        "2026-01-01T10:45:19Z",
+        "2026-01-01T10:48:08Z",
+        "2026-01-01T10:50:58Z",
+        "2026-01-01T10:53:47Z",
+        "2026-01-01T10:56:36Z",
+        "2026-01-01T10:59:25Z",
+        "2026-01-01T11:02:14Z",
+        "2026-01-01T11:05:03Z",
+        "2026-01-01T11:07:52Z",
+        "2026-01-01T11:10:41Z",
+        "2026-01-01T11:13:30Z",
+        "2026-01-01T11:16:19Z",
+        "2026-01-01T11:19:08Z",
+        "2026-01-01T11:21:57Z",
+        "2026-01-01T11:24:46Z",
+        "2026-01-01T11:27:36Z",
+        "2026-01-01T11:30:25Z",
+        "2026-01-01T11:33:14Z",
+        "2026-01-01T11:36:03Z",
+        "2026-01-01T11:38:52Z",
+        "2026-01-01T11:41:41Z",
+        "2026-01-01T11:44:30Z",
+        "2026-01-01T11:47:19Z",
+        "2026-01-01T11:50:08Z",
+        "2026-01-01T11:52:57Z",
+        "2026-01-01T11:55:46Z",
+        "2026-01-01T11:58:35Z",
+        "2026-01-01T12:01:25Z",
+        "2026-01-01T12:04:14Z",
+        "2026-01-01T12:07:03Z",
+        "2026-01-01T12:09:52Z",
+        "2026-01-01T12:12:41Z",
+        "2026-01-01T12:15:30Z",
+        "2026-01-01T12:18:19Z",
+        "2026-01-01T12:21:08Z",
+        "2026-01-01T12:23:57Z",
+        "2026-01-01T12:26:46Z",
+        "2026-01-01T12:29:35Z",
+        "2026-01-01T12:32:24Z",
+        "2026-01-01T12:35:14Z",
+        "2026-01-01T12:38:03Z",
+        "2026-01-01T12:40:52Z",
+        "2026-01-01T12:43:41Z",
+        "2026-01-01T12:46:30Z",
+        "2026-01-01T12:49:19Z",
+        "2026-01-01T12:52:08Z",
+        "2026-01-01T12:54:57Z",
+        "2026-01-01T12:57:46Z",
+        "2026-01-01T13:00:35Z",
+        "2026-01-01T13:03:24Z",
+        "2026-01-01T13:06:13Z",
+        "2026-01-01T13:09:02Z",
+        "2026-01-01T13:11:52Z",
+        "2026-01-01T13:14:41Z",
+        "2026-01-01T13:17:30Z",
+        "2026-01-01T13:20:19Z",
+        "2026-01-01T13:23:08Z",
+        "2026-01-01T13:25:57Z",
+        "2026-01-01T13:28:46Z",
+        "2026-01-01T13:31:35Z",
+        "2026-01-01T13:34:24Z",
+        "2026-01-01T13:37:13Z",
+        "2026-01-01T13:40:02Z",
+        "2026-01-01T13:42:51Z",
+        "2026-01-01T13:45:41Z",
+        "2026-01-01T13:48:30Z",
+        "2026-01-01T13:51:19Z",
+        "2026-01-01T13:54:08Z",
+        "2026-01-01T13:56:57Z",
+        "2026-01-01T13:59:46Z",
+        "2026-01-01T14:02:35Z",
+        "2026-01-01T14:05:24Z",
+        "2026-01-01T14:08:13Z",
+        "2026-01-01T14:11:02Z",
+        "2026-01-01T14:13:51Z",
+        "2026-01-01T14:16:40Z",
+        "2026-01-01T14:19:29Z",
+        "2026-01-01T14:22:19Z",
+        "2026-01-01T14:25:08Z",
+        "2026-01-01T14:27:57Z",
+        "2026-01-01T14:30:46Z",
+        "2026-01-01T14:33:35Z",
+        "2026-01-01T14:36:24Z",
+        "2026-01-01T14:39:13Z",
+        "2026-01-01T14:42:02Z",
+        "2026-01-01T14:44:51Z",
+        "2026-01-01T14:47:40Z",
+        "2026-01-01T14:50:29Z",
+        "2026-01-01T14:53:18Z",
+        "2026-01-01T14:56:08Z",
+        "2026-01-01T14:58:57Z",
+        "2026-01-01T15:01:46Z",
+        "2026-01-01T15:04:35Z",
+        "2026-01-01T15:07:24Z",
+        "2026-01-01T15:10:13Z",
+        "2026-01-01T15:13:02Z",
+        "2026-01-01T15:15:51Z",
+        "2026-01-01T15:18:40Z",
+        "2026-01-01T15:21:29Z",
+        "2026-01-01T15:24:18Z",
+        "2026-01-01T15:27:07Z",
+        "2026-01-01T15:29:56Z",
+        "2026-01-01T15:32:46Z",
+        "2026-01-01T15:35:35Z",
+        "2026-01-01T15:38:24Z",
+        "2026-01-01T15:41:13Z",
+        "2026-01-01T15:44:02Z",
+        "2026-01-01T15:46:51Z",
+        "2026-01-01T15:49:40Z",
+        "2026-01-01T15:52:29Z",
+        "2026-01-01T15:55:18Z",
+        "2026-01-01T15:58:07Z",
+        "2026-01-01T16:00:56Z",
+        "2026-01-01T16:03:45Z",
+        "2026-01-01T16:06:35Z",
+        "2026-01-01T16:09:24Z",
+        "2026-01-01T16:12:13Z",
+        "2026-01-01T16:15:02Z",
+        "2026-01-01T16:17:51Z",
+        "2026-01-01T16:20:40Z",
+        "2026-01-01T16:23:29Z",
+        "2026-01-01T16:26:18Z",
+        "2026-01-01T16:29:07Z",
+        "2026-01-01T16:31:56Z",
+        "2026-01-01T16:34:45Z",
+        "2026-01-01T16:37:34Z",
+        "2026-01-01T16:40:23Z",
+        "2026-01-01T16:43:13Z",
+        "2026-01-01T16:46:02Z",
+        "2026-01-01T16:48:51Z",
+        "2026-01-01T16:51:40Z",
+        "2026-01-01T16:54:29Z",
+        "2026-01-01T16:57:18Z",
+        "2026-01-01T17:00:07Z",
+        "2026-01-01T17:02:56Z",
+        "2026-01-01T17:05:45Z",
+        "2026-01-01T17:08:34Z",
+        "2026-01-01T17:11:23Z",
+        "2026-01-01T17:14:12Z",
+        "2026-01-01T17:17:02Z",
+        "2026-01-01T17:19:51Z",
+        "2026-01-01T17:22:40Z",
+        "2026-01-01T17:25:29Z",
+        "2026-01-01T17:28:18Z",
+        "2026-01-01T17:31:07Z",
+        "2026-01-01T17:33:56Z",
+        "2026-01-01T17:36:45Z",
+        "2026-01-01T17:39:34Z",
+        "2026-01-01T17:42:23Z",
+        "2026-01-01T17:45:12Z",
+        "2026-01-01T17:48:01Z",
+        "2026-01-01T17:50:50Z",
+        "2026-01-01T17:53:40Z",
+        "2026-01-01T17:56:29Z",
+        "2026-01-01T17:59:18Z",
+        "2026-01-01T18:02:07Z",
+        "2026-01-01T18:04:56Z",
+        "2026-01-01T18:07:45Z",
+        "2026-01-01T18:10:34Z",
+        "2026-01-01T18:13:23Z",
+        "2026-01-01T18:16:12Z",
+        "2026-01-01T18:19:01Z",
+        "2026-01-01T18:21:50Z",
+        "2026-01-01T18:24:39Z",
+        "2026-01-01T18:27:29Z",
+        "2026-01-01T18:30:18Z",
+        "2026-01-01T18:33:07Z",
+        "2026-01-01T18:35:56Z",
+        "2026-01-01T18:38:45Z",
+        "2026-01-01T18:41:34Z",
+        "2026-01-01T18:44:23Z",
+        "2026-01-01T18:47:12Z",
+        "2026-01-01T18:50:01Z",
+        "2026-01-01T18:52:50Z",
+        "2026-01-01T18:55:39Z",
+        "2026-01-01T18:58:28Z",
+        "2026-01-01T19:01:17Z",
+        "2026-01-01T19:04:07Z",
+        "2026-01-01T19:06:56Z",
+        "2026-01-01T19:09:45Z",
+        "2026-01-01T19:12:34Z",
+        "2026-01-01T19:15:23Z",
+        "2026-01-01T19:18:12Z",
+        "2026-01-01T19:21:01Z",
+        "2026-01-01T19:23:50Z",
+        "2026-01-01T19:26:39Z",
+        "2026-01-01T19:29:28Z",
+        "2026-01-01T19:32:17Z",
+        "2026-01-01T19:35:06Z",
+        "2026-01-01T19:37:56Z",
+        "2026-01-01T19:40:45Z",
+        "2026-01-01T19:43:34Z",
+        "2026-01-01T19:46:23Z",
+        "2026-01-01T19:49:12Z",
+        "2026-01-01T19:52:01Z",
+        "2026-01-01T19:54:50Z",
+        "2026-01-01T19:57:39Z",
+        "2026-01-01T20:00:28Z",
+        "2026-01-01T20:03:17Z",
+        "2026-01-01T20:06:06Z",
+        "2026-01-01T20:08:55Z",
+        "2026-01-01T20:11:45Z",
+        "2026-01-01T20:14:34Z",
+        "2026-01-01T20:17:23Z",
+        "2026-01-01T20:20:12Z",
+        "2026-01-01T20:23:01Z",
+        "2026-01-01T20:25:50Z",
+        "2026-01-01T20:28:39Z",
+        "2026-01-01T20:31:28Z",
+        "2026-01-01T20:34:17Z",
+        "2026-01-01T20:37:06Z",
+        "2026-01-01T20:39:55Z",
+        "2026-01-01T20:42:44Z",
+        "2026-01-01T20:45:33Z",
+        "2026-01-01T20:48:23Z",
+        "2026-01-01T20:51:12Z",
+        "2026-01-01T20:54:01Z",
+        "2026-01-01T20:56:50Z",
+        "2026-01-01T20:59:39Z",
+        "2026-01-01T21:02:28Z",
+        "2026-01-01T21:05:17Z",
+        "2026-01-01T21:08:06Z",
+        "2026-01-01T21:10:55Z",
+        "2026-01-01T21:13:44Z",
+        "2026-01-01T21:16:33Z",
+        "2026-01-01T21:19:22Z",
+        "2026-01-01T21:22:12Z",
+        "2026-01-01T21:25:01Z",
+        "2026-01-01T21:27:50Z",
+        "2026-01-01T21:30:39Z",
+        "2026-01-01T21:33:28Z",
+        "2026-01-01T21:36:17Z",
+        "2026-01-01T21:39:06Z",
+        "2026-01-01T21:41:55Z",
+        "2026-01-01T21:44:44Z",
+        "2026-01-01T21:47:33Z",
+        "2026-01-01T21:50:22Z",
+        "2026-01-01T21:53:11Z",
+        "2026-01-01T21:56:00Z",
+        "2026-01-01T21:58:50Z",
+        "2026-01-01T22:01:39Z",
+        "2026-01-01T22:04:28Z",
+        "2026-01-01T22:07:17Z",
+        "2026-01-01T22:10:06Z",
+        "2026-01-01T22:12:55Z",
+        "2026-01-01T22:15:44Z",
+        "2026-01-01T22:18:33Z",
+        "2026-01-01T22:21:22Z",
+        "2026-01-01T22:24:11Z",
+        "2026-01-01T22:27:00Z",
+        "2026-01-01T22:29:49Z",
+        "2026-01-01T22:32:39Z",
+        "2026-01-01T22:35:28Z",
+        "2026-01-01T22:38:17Z",
+        "2026-01-01T22:41:06Z",
+        "2026-01-01T22:43:55Z",
+        "2026-01-01T22:46:44Z",
+        "2026-01-01T22:49:33Z",
+        "2026-01-01T22:52:22Z",
+        "2026-01-01T22:55:11Z",
+        "2026-01-01T22:58:00Z",
+        "2026-01-01T23:00:49Z",
+        "2026-01-01T23:03:38Z",
+        "2026-01-01T23:06:27Z",
+        "2026-01-01T23:09:17Z",
+        "2026-01-01T23:12:06Z",
+        "2026-01-01T23:14:55Z",
+        "2026-01-01T23:17:44Z",
+        "2026-01-01T23:20:33Z",
+        "2026-01-01T23:23:22Z",
+        "2026-01-01T23:26:11Z",
+        "2026-01-01T23:29:00Z",
+        "2026-01-01T23:31:49Z",
+        "2026-01-01T23:34:38Z",
+        "2026-01-01T23:37:27Z",
+        "2026-01-01T23:40:16Z",
+        "2026-01-01T23:43:06Z",
+        "2026-01-01T23:45:55Z",
+        "2026-01-01T23:48:44Z",
+        "2026-01-01T23:51:33Z",
+        "2026-01-01T23:54:22Z",
+        "2026-01-01T23:57:11Z",
+        "2026-01-02T00:00:00Z"
+      ],
+      "solver": {
+        "method": "rk4-fixed-v1",
+        "max_step_seconds": 10,
+        "max_steps": 10000,
+        "roundoff_rule": "64-ulp-per-operation-v1"
+      }
+    },
+    "artifact_sha256": "74717ff117f4fcab571a2d39dee743c38329fe428fbbc6f9c777b3bb1dedfdd1",
+    "artifact_id": "crop-coupled-artifact-v1:8393ba8c07e67dcfdc04f1d0f715651123951289a7e22bd89eb3f5a3f2b8a498",
+    "artifact_code_sha256": "4d239f24d43bf351f3c11c9e9d59fccff30a76ef0815659f22c60fbc8ec7d017",
+    "result_sha256": "82832316c0c2a34ece14ce4a6b1da9e066d112ffeae0f47858f56c675e7b4c15",
+    "result_manifest": {
+      "code_sha256": {
+        "allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+        "cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+        "coupled": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+        "integrator": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+        "plant": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+        "transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3"
+      },
+      "convergence": "not_evaluated_for_this_program",
+      "input_ids": [
+        "synthetic-one-day-capacity-512-output-v1",
+        "synthetic-day-night-management-forcing-0",
+        "synthetic-day-night-management-continuous-0",
+        "synthetic-day-night-management-entry-0",
+        "synthetic-day-night-management-RGR-0"
+      ],
+      "input_sha256": "54fd12f84d3f8ef658a01badd9be67871ef0d90dbaba1c7834849cd09f10bb13",
+      "integrator_version": "crop-plant-cohort-rk4-research-v1",
+      "origins": [
+        "synthetic"
+      ],
+      "policy_sha256": "edbc67cfe59a61a1573ef5b1f189c548c47a74b996d4ef6221adc663c1cc306a",
+      "profile_sha256": {
+        "cohort_profile": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+        "growth_profile": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+        "transport_profile": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+      },
+      "python_version": "3.12.3",
+      "rate_model_version": "vanthoor-greenlight-explicit-entry-plant-rates-research-v1",
+      "research_assumptions": [
+        "leaf_stem_fixed_RGR_from_reference_profile_not_measured"
+      ],
+      "solver": {
+        "max_step_seconds": 10,
+        "max_steps": 10000,
+        "method": "rk4-fixed-v1",
+        "roundoff_rule": "64-ulp-per-operation-v1"
+      },
+      "temperature_sum_method": "analytic_piecewise_constant_fraction_v1",
+      "time_rule": "UTC_POSIX_whole_seconds_v1"
+    },
+    "same_as_prior_integration_result": true,
+    "output_samples": 512,
+    "steps": 8687,
+    "program_bytes": 18930,
+    "artifact_bytes": 3683992,
+    "calculate_validate_seconds": 59.11352062600781,
+    "read_validate_seconds": 0.30553331901319325,
+    "peak_rss_kib": 85224,
+    "benchmark_script_sha256": "aeca4323f6f22fc399627bb01e57f43ee5e8330ac4f594757a1d67b492d0f9e2"
+  },
+  "db_scram": "not_run_for_this_new_artifact",
+  "http_browser": "not_run_for_this_non_UI_slice",
+  "gates_opened": [],
+  "actual_runs": 0,
+  "domestic_independent_datasets": 0
+}

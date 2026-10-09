@@ -1,0 +1,65 @@
+{
+  "AB_receipt_sha256": "8884754610c64121feba80f66d05d98594ba159f7fb1184ce456d6afbad3f6cb",
+  "Docker18_actual_image_local_run": false,
+  "actual_exit_code": 0,
+  "actual_failed_server_HBA": "unavailable",
+  "bash_syntax_blocks_passed": [
+    7,
+    5
+  ],
+  "cases": [
+    {
+      "actual_required_SCRAM_login_used_password": false,
+      "complete_host_audit_passed": false,
+      "explicit_host_scram": false,
+      "host_methods": [
+        "trust",
+        "trust",
+        "trust",
+        "trust",
+        "scram-sha-256"
+      ]
+    },
+    {
+      "actual_required_SCRAM_login_used_password": true,
+      "complete_host_audit_passed": true,
+      "explicit_host_scram": true,
+      "host_methods": [
+        "scram-sha-256",
+        "scram-sha-256",
+        "scram-sha-256",
+        "scram-sha-256",
+        "scram-sha-256"
+      ]
+    }
+  ],
+  "failed_head": "dfc5a2c062bc6b3c7ecb2591b90138f266c75733",
+  "failed_hosted_run": 37871758375,
+  "failed_job_log_sha256": {
+    "113631511489": "3acb021430188c7878aecf1fcac4616118d8961490b12412c4116faebdad860f",
+    "113631511498": "d613f0e413b569888ab69bb6c0b1ce24ce6fe95a41e868b214de3b4eae55db59"
+  },
+  "hosted_after_fix": "pending",
+  "native_cli_review": {
+    "event_sha256": "4407cca2d0824a924e3a55da144d71cda5d540cb08f17037dfe0da25be3d0bef",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-09T02:23:57.911Z"
+  },
+  "native_exec_session_id": 56299,
+  "observations": {
+    "RSS_samples": 20,
+    "actual_failed_host_HBA_and_Docker18_image": "not_observed",
+    "combined_peak_RSS_bytes": 755929088,
+    "owned_postmasters_absent": true,
+    "single_peak_RSS_bytes": 155357184,
+    "wall_seconds": 1.9788963489991147
+  },
+  "scope": "local_PG16_entrypoint_initialization_reproduction_only",
+  "workflow_sha256": {
+    "authored-api-smoke.yml": "a4524808e43015610a3a5c838070d72608e75cbdf7b61e8a49c3937c30493c90",
+    "backend-tests.yml": "705bdae9f4e697fb49ec1b91b49070896d290b613caca1baa9f29e76aa10023e"
+  }
+}

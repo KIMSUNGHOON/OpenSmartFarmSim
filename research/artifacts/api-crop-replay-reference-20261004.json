@@ -1,0 +1,2697 @@
+{
+  "evidence_version": "api-crop-replay-reference-v1",
+  "scope": "synthetic software HTTP/custody test only; not G0–G4 evidence",
+  "runtime_evidence": {
+    "scope": "synthetic_crop_math_only",
+    "result_id": "crop-result-v1:3289adab5b96bcdcdb01176edf5f3c61c6e3efd253caef9b7cba3f9ce7bd561d",
+    "actual_tls_scram": true,
+    "responses": [
+      {
+        "status": 401,
+        "value": {
+          "error": {
+            "code": "unauthenticated",
+            "message": "Authentication required"
+          }
+        }
+      },
+      {
+        "status": 403,
+        "value": {
+          "error": {
+            "code": "forbidden",
+            "message": "Resource access denied"
+          }
+        }
+      },
+      {
+        "status": 404,
+        "value": {
+          "error": {
+            "code": "not_found",
+            "message": "Crop research result not found"
+          }
+        }
+      },
+      {
+        "status": 200,
+        "value": {
+          "result_id": "crop-result-v1:3289adab5b96bcdcdb01176edf5f3c61c6e3efd253caef9b7cba3f9ce7bd561d",
+          "recorded_at": "2026-10-04T13:09:26.768872Z",
+          "study_id": "study-1",
+          "revision": "r1",
+          "farm": {
+            "scenario_id": "farm-1",
+            "scenario_revision": "r1",
+            "registration_sha256": "bc7b497922ece37822071f85cbd08866ab8949e3c173e45f4f2f66872601497b",
+            "crop_id": "crop-1"
+          },
+          "batch_id": "batch-1",
+          "zone_id": "zone-1",
+          "farm_sha256": "dd3f9e8894d75236026d6a08c2e475424bb747b073cd2a9fd97ee6bf50f2030b",
+          "source_binding_sha256": "fcb6e94ae95fed50fdc977a1f3680ded3ae3b632949a7a5cb22fd18d3151faa4",
+          "storage_status": "stored_unpublished_research",
+          "claim_scope": "synthetic_crop_math_only",
+          "scope": "software_research_only",
+          "gates": "not_assessed",
+          "normalization": "per_m2_floor",
+          "profile_applicability": "unvalidated_for_registered_crop",
+          "temporal_provenance": "synthetic_research_program",
+          "start_utc": "2026-10-01T00:00:00Z",
+          "end_utc": "2026-10-01T00:05:00Z",
+          "status": "completed",
+          "steps": 30,
+          "planned_steps": 30,
+          "manifest": {
+            "integrator_version": "crop-rk4-research-v1",
+            "rate_model_version": "vanthoor-greenlight-carbon-rates-v1",
+            "domain_policy": "vanthoor-bounded-photosynthesis-v1",
+            "profile_id": "vanthoor-greenlight-reference-rates-v1",
+            "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+            "code_sha256": {
+              "integrator": "dbcff4fc502b562ebe148356abe88eceed86273d58feaa18ee91c9222fad2e8a",
+              "rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858"
+            },
+            "storage_code_sha256": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+            "input_sha256": "36bde9d426d97945bd25bf5d1c17c9a1273dc6f0f614d4fa31edf67b230d490a",
+            "raw_program_sha256": "8eb55f00420fc75047e7f474834e8fdb3e0c9e4f5e493a1ec9d3ccce5b8f3d86",
+            "result_sha256": "74f1daeed78510562eeca0727186378216e9130dc69dd5104d9efc0f80e25157",
+            "payload_sha256": "2ce5cd3a0e2123f80ea9c9a1b44c0fe1ae3dedba38bc13f8314d2f4ca0432d9f",
+            "notice_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+            "solver": {
+              "method": "rk4-fixed-v1",
+              "max_step_seconds": 10,
+              "max_steps": 10000,
+              "roundoff_rule": "64-ulp-per-operation-v1"
+            },
+            "time_rule": "UTC_POSIX_whole_seconds_v1",
+            "python_version": "3.12.3",
+            "convergence": "not_evaluated_for_this_program",
+            "temperature_sum_method": "analytic_piecewise_constant_fraction_v1"
+          },
+          "samples": [
+            {
+              "at": "2026-10-01T00:00:00Z",
+              "state": {
+                "buffer": {
+                  "value": 20000.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4368.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1560.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.5,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.0,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.1161888,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 2.3283064365386963e-10,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:01:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19989.47189805538,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4373.735066806805,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1564.509110835354,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.09808531697723,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.499652898313144,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.013888888888888888,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11634135277706101,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 2.89957719984378,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 3.0071385347210544,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.06660327479150845,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.010084807152487297,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.0015895686605226138,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": -1.4653276422110784e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 1.6298145055770874e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:02:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19978.95520399632,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4379.46996211711,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1569.0181260424274,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.19630320862177,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.499306037585452,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.027777777777777776,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11649390099231513,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 5.810534738154382,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 6.014268960979349,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.13329233526678616,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.020198478371309628,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.003179599060250177,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 2.845882383917253e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 3.026798367500305e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:03:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19967.551337954807,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4284.604942982472,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1573.5272453109808,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.2945433628674,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.50104202777077,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.04375,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11397049148333374,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 7.834742684323699,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 9.021493695068772,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.2000674269477034,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.030341744776683135,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.004770206407359913,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 100.6,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 3.086046175548862e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 4.6566128730773926e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:04:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19956.09544367603,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4289.741790096504,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1578.036668051777,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.39294515178443,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.502776812825843,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.059722222222222225,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11410713161656699,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 9.808111018586018,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 12.02898238848316,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.2654048037715507,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.0405153442257092,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.00636150601317159,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 101.19999999999996,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 2.1878800854358005e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 6.05359673500061e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:05:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19942.66628681699,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4295.47846984229,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1582.5459948642695,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 289.4914262646866,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.500345173345035,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.07152777777777777,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11425972729780491,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 9.808111018586018,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 15.0364463367365,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.33082345622610865,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.0507178103629542,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.00794562702594541,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 101.19999999999996,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 23.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 2.98853997104942e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 7.683411240577698e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            }
+          ],
+          "events": [
+            {
+              "at": "2026-10-01T00:03:00Z",
+              "removals": {
+                "leaf": {
+                  "value": 100.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "before": {
+                "buffer": {
+                  "value": 19967.551337954807,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4384.604942982472,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1573.5272453109808,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.2945433628674,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.50104202777077,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.04375,
+                  "unit": "degC_day"
+                }
+              },
+              "after": {
+                "buffer": {
+                  "value": 19967.551337954807,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4284.604942982472,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1573.5272453109808,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.2945433628674,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.50104202777077,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.04375,
+                  "unit": "degC_day"
+                }
+              }
+            },
+            {
+              "at": "2026-10-01T00:05:00Z",
+              "removals": {
+                "leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 20.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "before": {
+                "buffer": {
+                  "value": 19942.66628681699,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4295.47846984229,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1582.5459948642695,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 309.4914262646866,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.500345173345035,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.07152777777777777,
+                  "unit": "degC_day"
+                }
+              },
+              "after": {
+                "buffer": {
+                  "value": 19942.66628681699,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4295.47846984229,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1582.5459948642695,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 289.4914262646866,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.500345173345035,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.07152777777777777,
+                  "unit": "degC_day"
+                }
+              }
+            }
+          ],
+          "hold": null
+        }
+      },
+      {
+        "status": 200,
+        "value": {
+          "result_id": "crop-result-v1:3289adab5b96bcdcdb01176edf5f3c61c6e3efd253caef9b7cba3f9ce7bd561d",
+          "recorded_at": "2026-10-04T13:09:26.768872Z",
+          "study_id": "study-1",
+          "revision": "r1",
+          "farm": {
+            "scenario_id": "farm-1",
+            "scenario_revision": "r1",
+            "registration_sha256": "bc7b497922ece37822071f85cbd08866ab8949e3c173e45f4f2f66872601497b",
+            "crop_id": "crop-1"
+          },
+          "batch_id": "batch-1",
+          "zone_id": "zone-1",
+          "farm_sha256": "dd3f9e8894d75236026d6a08c2e475424bb747b073cd2a9fd97ee6bf50f2030b",
+          "source_binding_sha256": "fcb6e94ae95fed50fdc977a1f3680ded3ae3b632949a7a5cb22fd18d3151faa4",
+          "storage_status": "stored_unpublished_research",
+          "claim_scope": "synthetic_crop_math_only",
+          "scope": "software_research_only",
+          "gates": "not_assessed",
+          "normalization": "per_m2_floor",
+          "profile_applicability": "unvalidated_for_registered_crop",
+          "temporal_provenance": "synthetic_research_program",
+          "start_utc": "2026-10-01T00:00:00Z",
+          "end_utc": "2026-10-01T00:05:00Z",
+          "status": "completed",
+          "steps": 30,
+          "planned_steps": 30,
+          "manifest": {
+            "integrator_version": "crop-rk4-research-v1",
+            "rate_model_version": "vanthoor-greenlight-carbon-rates-v1",
+            "domain_policy": "vanthoor-bounded-photosynthesis-v1",
+            "profile_id": "vanthoor-greenlight-reference-rates-v1",
+            "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+            "code_sha256": {
+              "integrator": "dbcff4fc502b562ebe148356abe88eceed86273d58feaa18ee91c9222fad2e8a",
+              "rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858"
+            },
+            "storage_code_sha256": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+            "input_sha256": "36bde9d426d97945bd25bf5d1c17c9a1273dc6f0f614d4fa31edf67b230d490a",
+            "raw_program_sha256": "8eb55f00420fc75047e7f474834e8fdb3e0c9e4f5e493a1ec9d3ccce5b8f3d86",
+            "result_sha256": "74f1daeed78510562eeca0727186378216e9130dc69dd5104d9efc0f80e25157",
+            "payload_sha256": "2ce5cd3a0e2123f80ea9c9a1b44c0fe1ae3dedba38bc13f8314d2f4ca0432d9f",
+            "notice_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+            "solver": {
+              "method": "rk4-fixed-v1",
+              "max_step_seconds": 10,
+              "max_steps": 10000,
+              "roundoff_rule": "64-ulp-per-operation-v1"
+            },
+            "time_rule": "UTC_POSIX_whole_seconds_v1",
+            "python_version": "3.12.3",
+            "convergence": "not_evaluated_for_this_program",
+            "temperature_sum_method": "analytic_piecewise_constant_fraction_v1"
+          },
+          "samples": [
+            {
+              "at": "2026-10-01T00:00:00Z",
+              "state": {
+                "buffer": {
+                  "value": 20000.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4368.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1560.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.5,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.0,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.1161888,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 2.3283064365386963e-10,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:01:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19989.47189805538,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4373.735066806805,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1564.509110835354,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.09808531697723,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.499652898313144,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.013888888888888888,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11634135277706101,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 2.89957719984378,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 3.0071385347210544,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.06660327479150845,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.010084807152487297,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.0015895686605226138,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": -1.4653276422110784e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 1.6298145055770874e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:02:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19978.95520399632,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4379.46996211711,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1569.0181260424274,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.19630320862177,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.499306037585452,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.027777777777777776,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11649390099231513,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 5.810534738154382,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 6.014268960979349,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.13329233526678616,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.020198478371309628,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.003179599060250177,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 2.845882383917253e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 3.026798367500305e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:03:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19967.551337954807,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4284.604942982472,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1573.5272453109808,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.2945433628674,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.50104202777077,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.04375,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11397049148333374,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 7.834742684323699,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 9.021493695068772,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.2000674269477034,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.030341744776683135,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.004770206407359913,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 100.6,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 3.086046175548862e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 4.6566128730773926e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:04:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19956.09544367603,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4289.741790096504,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1578.036668051777,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.39294515178443,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.502776812825843,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.059722222222222225,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11410713161656699,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 9.808111018586018,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 12.02898238848316,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.2654048037715507,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.0405153442257092,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.00636150601317159,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 101.19999999999996,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 2.1878800854358005e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 6.05359673500061e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:05:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19942.66628681699,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4295.47846984229,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1582.5459948642695,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 289.4914262646866,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.500345173345035,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.07152777777777777,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11425972729780491,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 9.808111018586018,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 15.0364463367365,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.33082345622610865,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.0507178103629542,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.00794562702594541,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 101.19999999999996,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 23.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 2.98853997104942e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 7.683411240577698e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            }
+          ],
+          "events": [
+            {
+              "at": "2026-10-01T00:03:00Z",
+              "removals": {
+                "leaf": {
+                  "value": 100.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "before": {
+                "buffer": {
+                  "value": 19967.551337954807,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4384.604942982472,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1573.5272453109808,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.2945433628674,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.50104202777077,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.04375,
+                  "unit": "degC_day"
+                }
+              },
+              "after": {
+                "buffer": {
+                  "value": 19967.551337954807,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4284.604942982472,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1573.5272453109808,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.2945433628674,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.50104202777077,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.04375,
+                  "unit": "degC_day"
+                }
+              }
+            },
+            {
+              "at": "2026-10-01T00:05:00Z",
+              "removals": {
+                "leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 20.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "before": {
+                "buffer": {
+                  "value": 19942.66628681699,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4295.47846984229,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1582.5459948642695,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 309.4914262646866,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.500345173345035,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.07152777777777777,
+                  "unit": "degC_day"
+                }
+              },
+              "after": {
+                "buffer": {
+                  "value": 19942.66628681699,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4295.47846984229,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1582.5459948642695,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 289.4914262646866,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.500345173345035,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.07152777777777777,
+                  "unit": "degC_day"
+                }
+              }
+            }
+          ],
+          "hold": null
+        }
+      },
+      {
+        "status": 422,
+        "value": {
+          "error": {
+            "code": "crop_research_hold",
+            "message": "Crop research evidence unavailable"
+          }
+        }
+      },
+      {
+        "status": 422,
+        "value": {
+          "error": {
+            "code": "invalid_request",
+            "message": "Invalid request"
+          }
+        }
+      },
+      {
+        "status": 422,
+        "value": {
+          "error": {
+            "code": "crop_research_hold",
+            "message": "Crop research evidence unavailable"
+          }
+        }
+      },
+      {
+        "status": 422,
+        "value": {
+          "error": {
+            "code": "crop_research_hold",
+            "message": "Crop research evidence unavailable"
+          }
+        }
+      },
+      {
+        "status": 200,
+        "value": {
+          "result_id": "crop-result-v1:3289adab5b96bcdcdb01176edf5f3c61c6e3efd253caef9b7cba3f9ce7bd561d",
+          "recorded_at": "2026-10-04T13:09:26.768872Z",
+          "study_id": "study-1",
+          "revision": "r1",
+          "farm": {
+            "scenario_id": "farm-1",
+            "scenario_revision": "r1",
+            "registration_sha256": "bc7b497922ece37822071f85cbd08866ab8949e3c173e45f4f2f66872601497b",
+            "crop_id": "crop-1"
+          },
+          "batch_id": "batch-1",
+          "zone_id": "zone-1",
+          "farm_sha256": "dd3f9e8894d75236026d6a08c2e475424bb747b073cd2a9fd97ee6bf50f2030b",
+          "source_binding_sha256": "fcb6e94ae95fed50fdc977a1f3680ded3ae3b632949a7a5cb22fd18d3151faa4",
+          "storage_status": "stored_unpublished_research",
+          "claim_scope": "synthetic_crop_math_only",
+          "scope": "software_research_only",
+          "gates": "not_assessed",
+          "normalization": "per_m2_floor",
+          "profile_applicability": "unvalidated_for_registered_crop",
+          "temporal_provenance": "synthetic_research_program",
+          "start_utc": "2026-10-01T00:00:00Z",
+          "end_utc": "2026-10-01T00:05:00Z",
+          "status": "completed",
+          "steps": 30,
+          "planned_steps": 30,
+          "manifest": {
+            "integrator_version": "crop-rk4-research-v1",
+            "rate_model_version": "vanthoor-greenlight-carbon-rates-v1",
+            "domain_policy": "vanthoor-bounded-photosynthesis-v1",
+            "profile_id": "vanthoor-greenlight-reference-rates-v1",
+            "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+            "code_sha256": {
+              "integrator": "dbcff4fc502b562ebe148356abe88eceed86273d58feaa18ee91c9222fad2e8a",
+              "rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858"
+            },
+            "storage_code_sha256": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+            "input_sha256": "36bde9d426d97945bd25bf5d1c17c9a1273dc6f0f614d4fa31edf67b230d490a",
+            "raw_program_sha256": "8eb55f00420fc75047e7f474834e8fdb3e0c9e4f5e493a1ec9d3ccce5b8f3d86",
+            "result_sha256": "74f1daeed78510562eeca0727186378216e9130dc69dd5104d9efc0f80e25157",
+            "payload_sha256": "2ce5cd3a0e2123f80ea9c9a1b44c0fe1ae3dedba38bc13f8314d2f4ca0432d9f",
+            "notice_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+            "solver": {
+              "method": "rk4-fixed-v1",
+              "max_step_seconds": 10,
+              "max_steps": 10000,
+              "roundoff_rule": "64-ulp-per-operation-v1"
+            },
+            "time_rule": "UTC_POSIX_whole_seconds_v1",
+            "python_version": "3.12.3",
+            "convergence": "not_evaluated_for_this_program",
+            "temperature_sum_method": "analytic_piecewise_constant_fraction_v1"
+          },
+          "samples": [
+            {
+              "at": "2026-10-01T00:00:00Z",
+              "state": {
+                "buffer": {
+                  "value": 20000.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4368.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1560.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.5,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.0,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.1161888,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 0.0,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 2.3283064365386963e-10,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:01:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19989.47189805538,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4373.735066806805,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1564.509110835354,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.09808531697723,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.499652898313144,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.013888888888888888,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11634135277706101,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 2.89957719984378,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 3.0071385347210544,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.06660327479150845,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.010084807152487297,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.0015895686605226138,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": -1.4653276422110784e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 1.6298145055770874e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:02:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19978.95520399632,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4379.46996211711,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1569.0181260424274,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.19630320862177,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.499306037585452,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.027777777777777776,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11649390099231513,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 5.810534738154382,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 6.014268960979349,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.13329233526678616,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.020198478371309628,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.003179599060250177,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 2.845882383917253e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 3.026798367500305e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:03:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19967.551337954807,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4284.604942982472,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1573.5272453109808,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.2945433628674,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.50104202777077,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.04375,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11397049148333374,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 7.834742684323699,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 9.021493695068772,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.2000674269477034,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.030341744776683135,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.004770206407359913,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 100.6,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 3.086046175548862e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 4.6566128730773926e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:04:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19956.09544367603,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4289.741790096504,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1578.036668051777,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.39294515178443,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.502776812825843,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.059722222222222225,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11410713161656699,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 9.808111018586018,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 12.02898238848316,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.2654048037715507,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.0405153442257092,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.00636150601317159,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 101.19999999999996,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 2.1878800854358005e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 6.05359673500061e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            },
+            {
+              "at": "2026-10-01T00:05:00Z",
+              "state": {
+                "buffer": {
+                  "value": 19942.66628681699,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4295.47846984229,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1582.5459948642695,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 289.4914262646866,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.500345173345035,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.07152777777777777,
+                  "unit": "degC_day"
+                }
+              },
+              "lai": {
+                "value": 0.11425972729780491,
+                "unit": "m2_leaf/m2_floor"
+              },
+              "cumulative": {
+                "photosynthesis": {
+                  "value": 9.808111018586018,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "growth_respiration": {
+                  "value": 15.0364463367365,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_leaf": {
+                  "value": 0.33082345622610865,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_stem_root": {
+                  "value": 0.0507178103629542,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "maintenance_fruit": {
+                  "value": 0.00794562702594541,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_leaf": {
+                  "value": 101.19999999999996,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "removal_fruit": {
+                  "value": 23.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "carbon_residual": {
+                "value": 2.98853997104942e-12,
+                "unit": "mg_CH2O/m2_floor"
+              },
+              "carbon_residual_budget": {
+                "value": 7.683411240577698e-09,
+                "unit": "mg_CH2O/m2_floor"
+              }
+            }
+          ],
+          "events": [
+            {
+              "at": "2026-10-01T00:03:00Z",
+              "removals": {
+                "leaf": {
+                  "value": 100.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "before": {
+                "buffer": {
+                  "value": 19967.551337954807,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4384.604942982472,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1573.5272453109808,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.2945433628674,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.50104202777077,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.04375,
+                  "unit": "degC_day"
+                }
+              },
+              "after": {
+                "buffer": {
+                  "value": 19967.551337954807,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4284.604942982472,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1573.5272453109808,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 312.2945433628674,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.50104202777077,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.04375,
+                  "unit": "degC_day"
+                }
+              }
+            },
+            {
+              "at": "2026-10-01T00:05:00Z",
+              "removals": {
+                "leaf": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 0.0,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 20.0,
+                  "unit": "mg_CH2O/m2_floor"
+                }
+              },
+              "before": {
+                "buffer": {
+                  "value": 19942.66628681699,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4295.47846984229,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1582.5459948642695,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 309.4914262646866,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.500345173345035,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.07152777777777777,
+                  "unit": "degC_day"
+                }
+              },
+              "after": {
+                "buffer": {
+                  "value": 19942.66628681699,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "leaf": {
+                  "value": 4295.47846984229,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "stem_root": {
+                  "value": 1582.5459948642695,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "fruit": {
+                  "value": 289.4914262646866,
+                  "unit": "mg_CH2O/m2_floor"
+                },
+                "temperature_filtered_24h": {
+                  "value": 20.500345173345035,
+                  "unit": "degC"
+                },
+                "temperature_sum": {
+                  "value": 0.07152777777777777,
+                  "unit": "degC_day"
+                }
+              }
+            }
+          ],
+          "hold": null
+        }
+      }
+    ],
+    "full_response_seconds": [
+      0.003488569986075163,
+      0.003666571981739253,
+      0.024848166009178385,
+      5.52426449698396,
+      5.519139545998769,
+      0.02539489301852882,
+      0.0026421980001032352,
+      2.8094422279973514,
+      1.9133702190010808,
+      5.580219027993735
+    ],
+    "timeout_seconds": 30,
+    "https_server_joined": true
+  },
+  "focused_tests": {
+    "started_at": "2026-10-04T13:07:48.069659+00:00",
+    "completed_at": "2026-10-04T13:11:04.280620+00:00",
+    "exit_code": 0,
+    "wall_seconds": 196.21096225100337,
+    "postgres": "16.15",
+    "python": "3.12.3",
+    "log_sha256": "d9f5fe98b138f621bded7ee7798ca3daec736c31f5c8f181ef493497c37f6313",
+    "tests": [
+      "tests/test_api_crop_replay.py",
+      "tests/test_operator_config.py",
+      "tests/test_api_runtime.py",
+      "tests/test_api_openapi.py",
+      "tests/test_crop_growth_rates.py",
+      "tests/test_crop_photosynthesis_domain.py",
+      "tests/test_crop_growth_integration.py"
+    ],
+    "temporary_cluster_and_password_files_removed": true
+  },
+  "inventory": {
+    "count": 316,
+    "by_file": {
+      "tests/test_api_crop_replay.py": 18,
+      "tests/test_operator_config.py": 52,
+      "tests/test_api_runtime.py": 40,
+      "tests/test_api_openapi.py": 60,
+      "tests/test_crop_growth_rates.py": 86,
+      "tests/test_crop_photosynthesis_domain.py": 32,
+      "tests/test_crop_growth_integration.py": 28
+    },
+    "nodes": [
+      "tests/test_api_crop_replay.py::test_saved_projection_preserves_every_computed_quantity_and_scope",
+      "tests/test_api_crop_replay.py::test_bad_saved_projection_is_fixed_hold[bytes_hash]",
+      "tests/test_api_crop_replay.py::test_bad_saved_projection_is_fixed_hold[result_id]",
+      "tests/test_api_crop_replay.py::test_bad_saved_projection_is_fixed_hold[raw_duplicate]",
+      "tests/test_api_crop_replay.py::test_bad_saved_projection_is_fixed_hold[profile]",
+      "tests/test_api_crop_replay.py::test_bad_saved_projection_is_fixed_hold[model]",
+      "tests/test_api_crop_replay.py::test_bad_saved_projection_is_fixed_hold[scope]",
+      "tests/test_api_crop_replay.py::test_bad_saved_projection_is_fixed_hold[unit]",
+      "tests/test_api_crop_replay.py::test_bad_saved_projection_is_fixed_hold[nonfinite]",
+      "tests/test_api_crop_replay.py::test_bad_saved_projection_is_fixed_hold[bool]",
+      "tests/test_api_crop_replay.py::test_bad_saved_projection_is_fixed_hold[order]",
+      "tests/test_api_crop_replay.py::test_bad_saved_projection_is_fixed_hold[missing_sample]",
+      "tests/test_api_crop_replay.py::test_bad_saved_projection_is_fixed_hold[extra_sample]",
+      "tests/test_api_crop_replay.py::test_bad_saved_projection_is_fixed_hold[hold_samples]",
+      "tests/test_api_crop_replay.py::test_crop_openapi_closed_units_queries_scopes_and_research_status",
+      "tests/test_api_crop_replay.py::test_explicit_runtime_crop_options_are_paired_before_connections",
+      "tests/test_api_crop_replay.py::test_scram_api_current_authority_read_hold_errors_and_no_reintegration[login_scope0]",
+      "tests/test_api_crop_replay.py::test_standard_runtime_https_same_saved_result_current_rights_and_cleanup[login_scope0]",
+      "tests/test_operator_config.py::test_reads_explicit_private_config_and_hides_secrets",
+      "tests/test_operator_config.py::test_existing_policy_and_explicit_crop_option[None]",
+      "tests/test_operator_config.py::test_existing_policy_and_explicit_crop_option[False]",
+      "tests/test_operator_config.py::test_existing_policy_and_explicit_crop_option[True]",
+      "tests/test_operator_config.py::test_crop_option_requires_explicit_boolean[0]",
+      "tests/test_operator_config.py::test_crop_option_requires_explicit_boolean[1]",
+      "tests/test_operator_config.py::test_crop_option_requires_explicit_boolean[false]",
+      "tests/test_operator_config.py::test_crop_option_requires_explicit_boolean[None]",
+      "tests/test_operator_config.py::test_closed_schema_rejects_before_factory[extra]",
+      "tests/test_operator_config.py::test_closed_schema_rejects_before_factory[missing]",
+      "tests/test_operator_config.py::test_closed_schema_rejects_before_factory[version]",
+      "tests/test_operator_config.py::test_closed_schema_rejects_before_factory[policy_extra]",
+      "tests/test_operator_config.py::test_closed_schema_rejects_before_factory[policy_missing]",
+      "tests/test_operator_config.py::test_closed_schema_rejects_before_factory[policy_bool]",
+      "tests/test_operator_config.py::test_closed_schema_rejects_before_factory[content_extra]",
+      "tests/test_operator_config.py::test_closed_schema_rejects_before_factory[content_bool]",
+      "tests/test_operator_config.py::test_closed_schema_rejects_before_factory[host]",
+      "tests/test_operator_config.py::test_closed_schema_rejects_before_factory[port_bool]",
+      "tests/test_operator_config.py::test_closed_schema_rejects_before_factory[relative]",
+      "tests/test_operator_config.py::test_closed_schema_rejects_before_factory[traversal]",
+      "tests/test_operator_config.py::test_closed_schema_rejects_before_factory[factory]",
+      "tests/test_operator_config.py::test_invalid_json_or_size_is_closed[{\"config_version\":\"a\",\"config_version\":\"b\"}]",
+      "tests/test_operator_config.py::test_invalid_json_or_size_is_closed[{\"port\":NaN}]",
+      "tests/test_operator_config.py::test_invalid_json_or_size_is_closed[[]]",
+      "tests/test_operator_config.py::test_invalid_json_or_size_is_closed[\\xff]",
+      "tests/test_operator_config.py::test_invalid_json_or_size_is_closed[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]",
+      "tests/test_operator_config.py::test_actual_private_metadata_and_paths_are_required[file_mode]",
+      "tests/test_operator_config.py::test_actual_private_metadata_and_paths_are_required[parent_mode]",
+      "tests/test_operator_config.py::test_actual_private_metadata_and_paths_are_required[file_symlink]",
+      "tests/test_operator_config.py::test_actual_private_metadata_and_paths_are_required[parent_symlink]",
+      "tests/test_operator_config.py::test_actual_private_metadata_and_paths_are_required[hard_link]",
+      "tests/test_operator_config.py::test_actual_private_metadata_and_paths_are_required[fifo]",
+      "tests/test_operator_config.py::test_actual_private_metadata_and_paths_are_required[short_key]",
+      "tests/test_operator_config.py::test_missing_environment_has_fixed_error",
+      "tests/test_operator_config.py::test_wrong_observed_owner_is_rejected_before_factory[file]",
+      "tests/test_operator_config.py::test_wrong_observed_owner_is_rejected_before_factory[parent]",
+      "tests/test_operator_config.py::test_posix_acl_inspection_refuses_additional_access[system.posix_acl_access]",
+      "tests/test_operator_config.py::test_posix_acl_inspection_refuses_additional_access[system.posix_acl_default]",
+      "tests/test_operator_config.py::test_real_change_during_read_refuses_input_and_closes_descriptors[permissions]",
+      "tests/test_operator_config.py::test_real_change_during_read_refuses_input_and_closes_descriptors[append]",
+      "tests/test_operator_config.py::test_real_change_during_read_refuses_input_and_closes_descriptors[same_size]",
+      "tests/test_operator_config.py::test_real_change_during_read_refuses_input_and_closes_descriptors[unlink]",
+      "tests/test_operator_config.py::test_dependency_failure_has_fixed_error_and_no_descriptor_leak[wrong_type]",
+      "tests/test_operator_config.py::test_dependency_failure_has_fixed_error_and_no_descriptor_leak[missing_verifier]",
+      "tests/test_operator_config.py::test_dependency_failure_has_fixed_error_and_no_descriptor_leak[exception]",
+      "tests/test_operator_config.py::test_dependency_failure_has_fixed_error_and_no_descriptor_leak[exit]",
+      "tests/test_operator_config.py::test_actual_scram_assembly_refuses_current_identity_grants_provider_and_tls[identity-login_scope0]",
+      "tests/test_operator_config.py::test_actual_scram_assembly_refuses_current_identity_grants_provider_and_tls[grant-login_scope0]",
+      "tests/test_operator_config.py::test_actual_scram_assembly_refuses_current_identity_grants_provider_and_tls[provider-login_scope0]",
+      "tests/test_operator_config.py::test_actual_scram_assembly_refuses_current_identity_grants_provider_and_tls[provider_binding-login_scope0]",
+      "tests/test_operator_config.py::test_actual_scram_assembly_refuses_current_identity_grants_provider_and_tls[tls-login_scope0]",
+      "tests/test_operator_config.py::test_real_operator_entry_starts_tls_bearer_and_refuses_post_start_grant_drift[login_scope0]",
+      "tests/test_api_runtime.py::test_configuration_rejects_invalid_or_unbound_operating_values[changes0]",
+      "tests/test_api_runtime.py::test_configuration_rejects_invalid_or_unbound_operating_values[changes1]",
+      "tests/test_api_runtime.py::test_configuration_rejects_invalid_or_unbound_operating_values[changes2]",
+      "tests/test_api_runtime.py::test_configuration_rejects_invalid_or_unbound_operating_values[changes3]",
+      "tests/test_api_runtime.py::test_configuration_rejects_invalid_or_unbound_operating_values[changes4]",
+      "tests/test_api_runtime.py::test_configuration_rejects_invalid_or_unbound_operating_values[changes5]",
+      "tests/test_api_runtime.py::test_configuration_rejects_invalid_or_unbound_operating_values[changes6]",
+      "tests/test_api_runtime.py::test_configuration_rejects_invalid_or_unbound_operating_values[changes7]",
+      "tests/test_api_runtime.py::test_configuration_rejects_invalid_or_unbound_operating_values[changes8]",
+      "tests/test_api_runtime.py::test_configuration_rejects_invalid_or_unbound_operating_values[changes9]",
+      "tests/test_api_runtime.py::test_configuration_rejects_invalid_or_unbound_operating_values[changes10]",
+      "tests/test_api_runtime.py::test_configuration_rejects_invalid_or_unbound_operating_values[changes11]",
+      "tests/test_api_runtime.py::test_config_hides_private_values_and_is_frozen",
+      "tests/test_api_runtime.py::test_missing_dependencies_are_rejected[changes0]",
+      "tests/test_api_runtime.py::test_missing_dependencies_are_rejected[changes1]",
+      "tests/test_api_runtime.py::test_missing_dependencies_are_rejected[changes2]",
+      "tests/test_api_runtime.py::test_missing_dependencies_are_rejected[changes3]",
+      "tests/test_api_runtime.py::test_missing_dependencies_are_rejected[changes4]",
+      "tests/test_api_runtime.py::test_missing_dependencies_are_rejected[changes5]",
+      "tests/test_api_runtime.py::test_missing_dependencies_are_rejected[changes6]",
+      "tests/test_api_runtime.py::test_missing_dependencies_are_rejected[changes7]",
+      "tests/test_api_runtime.py::test_missing_dependencies_are_rejected[changes8]",
+      "tests/test_api_runtime.py::test_missing_dependencies_are_rejected[changes9]",
+      "tests/test_api_runtime.py::test_assembly_rejects_untyped_config_without_provider_calls",
+      "tests/test_api_runtime.py::test_authored_option_pair_and_profile_fail_before_source_factory[synthetic-authored-gate-key-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-None-True]",
+      "tests/test_api_runtime.py::test_authored_option_pair_and_profile_fail_before_source_factory[None-<lambda>-True]",
+      "tests/test_api_runtime.py::test_authored_option_pair_and_profile_fail_before_source_factory[synthetic-authored-gate-key-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-<lambda>-False]",
+      "tests/test_api_runtime.py::test_assembly_rejects_bad_identity_grants_artifacts_or_sources[identity-login_scope0]",
+      "tests/test_api_runtime.py::test_assembly_rejects_bad_identity_grants_artifacts_or_sources[grant-login_scope0]",
+      "tests/test_api_runtime.py::test_assembly_rejects_bad_identity_grants_artifacts_or_sources[root_mode-login_scope0]",
+      "tests/test_api_runtime.py::test_assembly_rejects_bad_identity_grants_artifacts_or_sources[root_missing-login_scope0]",
+      "tests/test_api_runtime.py::test_assembly_rejects_bad_identity_grants_artifacts_or_sources[root_symlink-login_scope0]",
+      "tests/test_api_runtime.py::test_assembly_rejects_bad_identity_grants_artifacts_or_sources[source-login_scope0]",
+      "tests/test_api_runtime.py::test_assembly_rejects_bad_identity_grants_artifacts_or_sources[source_exit-login_scope0]",
+      "tests/test_api_runtime.py::test_assembly_rejects_bad_identity_grants_artifacts_or_sources[content_owner-login_scope0]",
+      "tests/test_api_runtime.py::test_real_foreground_cli_assembles_all_stores_and_reads_signed_economics[login_scope0]",
+      "tests/test_api_runtime.py::test_job_grant_audit_flag_rejects_nonboolean_or_unbound_configuration[None]",
+      "tests/test_api_runtime.py::test_job_grant_audit_flag_rejects_nonboolean_or_unbound_configuration[1]",
+      "tests/test_api_runtime.py::test_job_grant_audit_flag_rejects_nonboolean_or_unbound_configuration[true]",
+      "tests/test_api_runtime.py::test_job_grant_audit_flag_rejects_nonboolean_or_unbound_configuration[True]",
+      "tests/test_api_openapi.py::test_snapshot_matches_actual_routes_and_public_protocol",
+      "tests/test_api_openapi.py::test_references_resolve_locally_and_component_schemas_are_valid",
+      "tests/test_api_openapi.py::test_point_runtime_and_schema_reject_the_same_invalid_shapes[value0]",
+      "tests/test_api_openapi.py::test_point_runtime_and_schema_reject_the_same_invalid_shapes[value1]",
+      "tests/test_api_openapi.py::test_point_runtime_and_schema_reject_the_same_invalid_shapes[value2]",
+      "tests/test_api_openapi.py::test_point_runtime_and_schema_reject_the_same_invalid_shapes[value3]",
+      "tests/test_api_openapi.py::test_point_runtime_and_schema_reject_the_same_invalid_shapes[value4]",
+      "tests/test_api_openapi.py::test_point_runtime_and_schema_reject_the_same_invalid_shapes[value5]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key0]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key1]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key2]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key3]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key4]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key5]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key6]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key7]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key8]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key9]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key10]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key11]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key12]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key13]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key14]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key15]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key16]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key17]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key18]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key19]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key20]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key21]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key22]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key23]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key24]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key25]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key26]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key27]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key28]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key29]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key30]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key31]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key32]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key33]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key34]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key35]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key36]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key37]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key38]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key39]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key40]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key41]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key42]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key43]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key44]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key45]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key46]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key47]",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key48]",
+      "tests/test_api_openapi.py::test_export_does_not_call_principal_or_operational_stores",
+      "tests/test_api_openapi.py::test_check_detects_missing_or_changed_bytes_and_write_is_exact",
+      "tests/test_api_openapi.py::test_actual_cli_check_runs_without_runtime_credentials",
+      "tests/test_crop_growth_rates.py::test_independent_decimal_equation_reference_and_carbon_balance[source-initial-day]",
+      "tests/test_crop_growth_rates.py::test_independent_decimal_equation_reference_and_carbon_balance[night-with-removal]",
+      "tests/test_crop_growth_rates.py::test_independent_decimal_equation_reference_and_carbon_balance[cool-canopy-day]",
+      "tests/test_crop_growth_rates.py::test_independent_decimal_equation_reference_and_carbon_balance[warm-canopy-day]",
+      "tests/test_crop_growth_rates.py::test_profile_is_pinned_immutable_and_not_approved",
+      "tests/test_crop_growth_rates.py::test_replay_hash_binds_units_provenance_and_explicit_removals",
+      "tests/test_crop_growth_rates.py::test_darkness_has_zero_photosynthesis_even_without_leaves[10]",
+      "tests/test_crop_growth_rates.py::test_darkness_has_zero_photosynthesis_even_without_leaves[17]",
+      "tests/test_crop_growth_rates.py::test_darkness_has_zero_photosynthesis_even_without_leaves[20]",
+      "tests/test_crop_growth_rates.py::test_darkness_has_zero_photosynthesis_even_without_leaves[23]",
+      "tests/test_crop_growth_rates.py::test_darkness_has_zero_photosynthesis_even_without_leaves[34]",
+      "tests/test_crop_growth_rates.py::test_daylight_zero_leaf_limit_and_weak_light_stability",
+      "tests/test_crop_growth_rates.py::test_compensation_point_singular_or_nonphysical_domain_is_held[0-23]",
+      "tests/test_crop_growth_rates.py::test_compensation_point_singular_or_nonphysical_domain_is_held[0.001-17]",
+      "tests/test_crop_growth_rates.py::test_compensation_point_singular_or_nonphysical_domain_is_held[0.001-23]",
+      "tests/test_crop_growth_rates.py::test_depleted_buffer_is_held_instead_of_clipped",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[nan-state-buffer]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[nan-state-leaf]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[nan-state-stem_root]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[nan-state-fruit]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[nan-state-temperature_sum]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[nan-state-temperature_filtered_24h]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[nan-forcing-canopy_temperature]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[nan-forcing-par_above_canopy]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[nan-forcing-co2]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[nan-removals-leaf]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[nan-removals-stem_root]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[nan-removals-fruit]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[inf-state-buffer]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[inf-state-leaf]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[inf-state-stem_root]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[inf-state-fruit]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[inf-state-temperature_sum]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[inf-state-temperature_filtered_24h]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[inf-forcing-canopy_temperature]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[inf-forcing-par_above_canopy]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[inf-forcing-co2]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[inf-removals-leaf]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[inf-removals-stem_root]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[inf-removals-fruit]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[-1-state-buffer]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[-1-state-leaf]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[-1-state-stem_root]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[-1-state-fruit]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[-1-state-temperature_sum]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[-1-state-temperature_filtered_24h]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[-1-forcing-canopy_temperature]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[-1-forcing-par_above_canopy]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[-1-forcing-co2]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[-1-removals-leaf]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[-1-removals-stem_root]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[-1-removals-fruit]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[True-state-buffer]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[True-state-leaf]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[True-state-stem_root]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[True-state-fruit]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[True-state-temperature_sum]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[True-state-temperature_filtered_24h]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[True-forcing-canopy_temperature]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[True-forcing-par_above_canopy]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[True-forcing-co2]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[True-removals-leaf]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[True-removals-stem_root]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[True-removals-fruit]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[1-state-buffer]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[1-state-leaf]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[1-state-stem_root]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[1-state-fruit]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[1-state-temperature_sum]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[1-state-temperature_filtered_24h]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[1-forcing-canopy_temperature]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[1-forcing-par_above_canopy]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[1-forcing-co2]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[1-removals-leaf]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[1-removals-stem_root]",
+      "tests/test_crop_growth_rates.py::test_nonfinite_negative_wrong_type_is_rejected[1-removals-fruit]",
+      "tests/test_crop_growth_rates.py::test_units_closed_fields_and_origin_cannot_be_silently_replaced[state]",
+      "tests/test_crop_growth_rates.py::test_units_closed_fields_and_origin_cannot_be_silently_replaced[forcing]",
+      "tests/test_crop_growth_rates.py::test_units_closed_fields_and_origin_cannot_be_silently_replaced[removals]",
+      "tests/test_crop_growth_rates.py::test_scope_boundaries_and_unrepresentable_numbers_are_rejected[forcing-co2-0]",
+      "tests/test_crop_growth_rates.py::test_scope_boundaries_and_unrepresentable_numbers_are_rejected[forcing-co2-1]",
+      "tests/test_crop_growth_rates.py::test_scope_boundaries_and_unrepresentable_numbers_are_rejected[forcing-canopy_temperature-9.9]",
+      "tests/test_crop_growth_rates.py::test_scope_boundaries_and_unrepresentable_numbers_are_rejected[forcing-canopy_temperature-34.1]",
+      "tests/test_crop_growth_rates.py::test_scope_boundaries_and_unrepresentable_numbers_are_rejected[state-temperature_filtered_24h-16.9]",
+      "tests/test_crop_growth_rates.py::test_scope_boundaries_and_unrepresentable_numbers_are_rejected[state-temperature_filtered_24h-23.1]",
+      "tests/test_crop_growth_rates.py::test_scope_boundaries_and_unrepresentable_numbers_are_rejected[state-buffer-100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[10-400-0.49-False]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[10-400-0.51-True]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[17-400-0.149-False]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[17-400-0.151-True]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[20-400-1e-06-True]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[23-400-0.02-False]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[23-400-0.023-True]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[34-400-0.1-False]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[34-400-0.11-True]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[17-40-0.14-False]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[17-40-0.3-True]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[17-40-0.72-False]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[10-40-1-True]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[20-40-1-False]",
+      "tests/test_crop_photosynthesis_domain.py::test_source_domain_matches_independent_inequalities[23-40-1-False]",
+      "tests/test_crop_photosynthesis_domain.py::test_both_sides_of_independently_calculated_boundaries[10-400-0.5-True]",
+      "tests/test_crop_photosynthesis_domain.py::test_both_sides_of_independently_calculated_boundaries[17-400-0.15-True]",
+      "tests/test_crop_photosynthesis_domain.py::test_both_sides_of_independently_calculated_boundaries[23-400-0.0217948717948717948717948717948717948717948717948717948717948-True]",
+      "tests/test_crop_photosynthesis_domain.py::test_both_sides_of_independently_calculated_boundaries[34-400-0.101709401709401709401709401709401709401709401709401709401709-True]",
+      "tests/test_crop_photosynthesis_domain.py::test_both_sides_of_independently_calculated_boundaries[17-40-0.708333333333333333333333333333333333333333333333333333333341-False]",
+      "tests/test_crop_photosynthesis_domain.py::test_lai_one_matches_original_leaf_compensation_point[10]",
+      "tests/test_crop_photosynthesis_domain.py::test_lai_one_matches_original_leaf_compensation_point[17]",
+      "tests/test_crop_photosynthesis_domain.py::test_lai_one_matches_original_leaf_compensation_point[20]",
+      "tests/test_crop_photosynthesis_domain.py::test_lai_one_matches_original_leaf_compensation_point[23]",
+      "tests/test_crop_photosynthesis_domain.py::test_lai_one_matches_original_leaf_compensation_point[34]",
+      "tests/test_crop_photosynthesis_domain.py::test_zero_leaf_day_and_night_limits_preserve_explicit_domain[10]",
+      "tests/test_crop_photosynthesis_domain.py::test_zero_leaf_day_and_night_limits_preserve_explicit_domain[17]",
+      "tests/test_crop_photosynthesis_domain.py::test_zero_leaf_day_and_night_limits_preserve_explicit_domain[20]",
+      "tests/test_crop_photosynthesis_domain.py::test_zero_leaf_day_and_night_limits_preserve_explicit_domain[23]",
+      "tests/test_crop_photosynthesis_domain.py::test_zero_leaf_day_and_night_limits_preserve_explicit_domain[34]",
+      "tests/test_crop_photosynthesis_domain.py::test_generic_initial_leaf_state_is_held_at_cool_day_without_invented_lai",
+      "tests/test_crop_photosynthesis_domain.py::test_zero_a_floating_boundary_has_cool_interval_zero_at_pivot_and_warm_hold",
+      "tests/test_crop_growth_integration.py::test_independent_decimal_curve_units_carbon_balance_and_pulse_journal[events]",
+      "tests/test_crop_growth_integration.py::test_independent_decimal_curve_units_carbon_balance_and_pulse_journal[night]",
+      "tests/test_crop_growth_integration.py::test_filtered_temperature_and_sum_match_independent_piecewise_analytic_solution",
+      "tests/test_crop_growth_integration.py::test_smaller_steps_converge_toward_fixed_independent_reference",
+      "tests/test_crop_growth_integration.py::test_replay_digest_input_nonmutation_and_solver_source_event_time_binding",
+      "tests/test_crop_growth_integration.py::test_start_and_end_removals_occur_once_and_outputs_are_after_event",
+      "tests/test_crop_growth_integration.py::test_equation_failure_returns_diagnostics_without_completed_samples[domain_switch]",
+      "tests/test_crop_growth_integration.py::test_equation_failure_returns_diagnostics_without_completed_samples[depleted_initial]",
+      "tests/test_crop_growth_integration.py::test_equation_failure_returns_diagnostics_without_completed_samples[negative_trial]",
+      "tests/test_crop_growth_integration.py::test_equation_failure_returns_diagnostics_without_completed_samples[excessive_event]",
+      "tests/test_crop_growth_integration.py::test_equation_failure_returns_diagnostics_without_completed_samples[overflow_balance]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[gap]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[overlap]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[order]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[offset]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[duplicate_output]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[outside_output]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[missing_endpoint]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[duplicate_event]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[outside_event]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[event_unit]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[event_negative]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[method]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[zero_step]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[bool_step]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[extra_solver]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[missing_rule]",
+      "tests/test_crop_growth_integration.py::test_invalid_or_unbounded_program_is_rejected_before_execution[budget]"
+    ]
+  },
+  "cli": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "turn_context_at": "2026-10-04T12:44:33.373Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false
+  },
+  "code_sha256": {
+    "backend/app/api_crop_replay.py": "1ff3c312aa3a54018cdbf08f2b89bef4939980f1a89298d8e4e3354a9c70436c",
+    "backend/app/api.py": "883e581e151ae64267cad9537dc17aa51bc15e71721610d0e9fc87bc005e1010",
+    "backend/app/api_runtime.py": "8f2248579ff34cbd2be5738039e02306f6ebeacf26b14e4daea4c41e657551ef",
+    "backend/app/operator_config.py": "7c43ebc27e0c59f08d6b88a40508af4946b52cb137e45388b9a983d1727023e8",
+    "backend/tests/test_api_crop_replay.py": "5913652b447cbf1ae9212c212a85c317904290fa0348b7ceed47675c76569751",
+    "backend/tests/test_api_openapi.py": "a175c3e3d722248a24f91fdecf19042eb6ccd9ca149d920869d57b09332312ae",
+    "contracts/openapi-v1.json": "18ef6d5bea260936a342c8ebfc4ff616c1c0f1182d31d4a5c08f2e729f52f32b"
+  },
+  "initial_failed_tests": {
+    "started_at": "2026-10-04T12:58:20.411651+00:00",
+    "completed_at": "2026-10-04T13:01:14.321770+00:00",
+    "exit_code": 1,
+    "wall_seconds": 173.91012203501305,
+    "postgres": "16.15",
+    "python": "3.12.3",
+    "log_sha256": "afb3fd0f0b547c1c20eb1f34858ec6b5b5e078b0fad64ae1808f9bb9bee98add",
+    "tests": [
+      "tests/test_api_crop_replay.py",
+      "tests/test_operator_config.py",
+      "tests/test_api_runtime.py",
+      "tests/test_api_openapi.py",
+      "tests/test_crop_growth_rates.py",
+      "tests/test_crop_photosynthesis_domain.py",
+      "tests/test_crop_growth_integration.py"
+    ],
+    "temporary_cluster_and_password_files_removed": true
+  },
+  "diagnosis_tests": {
+    "started_at": "2026-10-04T13:02:17.866785+00:00",
+    "completed_at": "2026-10-04T13:03:57.468951+00:00",
+    "exit_code": 1,
+    "wall_seconds": 99.60216734698042,
+    "postgres": "16.15",
+    "python": "3.12.3",
+    "log_sha256": "38ad5bbc5ccb7dfa85ba3c003b29ede1f97f4a0c36571e527aa78c3233245641",
+    "tests": [
+      "tests/test_api_crop_replay.py::test_standard_runtime_https_same_saved_result_current_rights_and_cleanup",
+      "tests/test_api_crop_replay.py::test_scram_api_current_authority_read_hold_errors_and_no_reintegration",
+      "tests/test_api_openapi.py::test_each_documented_scope_is_required_before_any_store_read[key0]"
+    ],
+    "temporary_cluster_and_password_files_removed": true
+  },
+  "operator_fix_ci": {
+    "head_sha": "9f9195ccb4af75747aa99a210995626acbef6c43",
+    "run_id": 37203321687,
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37203321687",
+    "conclusion": "success",
+    "log_sha256": "c3517934396b5e6a33627ec9c98bd9f1fed470128545fb29f892210893a59a06",
+    "checks": [
+      {
+        "check": "actual_build_context",
+        "excluded_probes": 13
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:7826420df2e5864686c6842f9a4288047d9dd2a51522d8121ff1c4df11780e54",
+        "service": "backend",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:c4a64fb556781340955a26c25c825e326ed11edcf50a13c3747afaae9d935b51",
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "backend_readonly_imports_and_closed_startup",
+        "code_sha256": "033c0c98c4e78f675b815f5e55ac3c44ad5b3e3f022cd2f5f26e91348b13f67c",
+        "environment_sha256": "e73e9ec049e80bfa4ad96afc33bfa25f5fddab60d60771284d6292178241beb3"
+      },
+      {
+        "check": "cleanup",
+        "containers_removed": true,
+        "image_tags_removed": true,
+        "temporary_files_removed": true
+      },
+      {
+        "check": "actual_build_context",
+        "excluded_probes": 13
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:7826420df2e5864686c6842f9a4288047d9dd2a51522d8121ff1c4df11780e54",
+        "service": "backend",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:c4a64fb556781340955a26c25c825e326ed11edcf50a13c3747afaae9d935b51",
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "api",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 134217728,
+        "nano_cpus": 250000000,
+        "readonly": true,
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 1000000000,
+        "readonly": true,
+        "service": "simulation",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "restart_current_completed_result",
+        "unchanged": true
+      },
+      {
+        "check": "current_grant_drift_refused",
+        "status": 503
+      },
+      {
+        "check": "compose_cleanup",
+        "processes_volumes_credentials_removed": true
+      },
+      {
+        "check": "actual_build_context",
+        "excluded_probes": 13
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:7826420df2e5864686c6842f9a4288047d9dd2a51522d8121ff1c4df11780e54",
+        "service": "backend",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:c4a64fb556781340955a26c25c825e326ed11edcf50a13c3747afaae9d935b51",
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "api",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 134217728,
+        "nano_cpus": 250000000,
+        "readonly": true,
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 1000000000,
+        "readonly": true,
+        "service": "simulation",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 268435456,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "collector",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "restart_current_completed_result",
+        "unchanged": true
+      },
+      {
+        "check": "collection_restart_and_parent_withdrawal",
+        "status": 422,
+        "unchanged": true
+      },
+      {
+        "check": "current_grant_drift_refused",
+        "status": 503
+      },
+      {
+        "check": "collector_current_grant_refused",
+        "exit_code": 3
+      },
+      {
+        "check": "compose_cleanup",
+        "processes_volumes_credentials_removed": true
+      },
+      {
+        "check": "actual_build_context",
+        "excluded_probes": 13
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:7826420df2e5864686c6842f9a4288047d9dd2a51522d8121ff1c4df11780e54",
+        "service": "backend",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:c4a64fb556781340955a26c25c825e326ed11edcf50a13c3747afaae9d935b51",
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "research_terminal_hold",
+        "reason_code": "ai_validated_hold"
+      },
+      {
+        "check": "held_research_ingestion_refused",
+        "status": 422
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "api",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 134217728,
+        "nano_cpus": 250000000,
+        "readonly": true,
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 1000000000,
+        "readonly": true,
+        "service": "simulation",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 536870912,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "supervisor",
+        "uid": "11003:11020"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "authority",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 134217728,
+        "nano_cpus": 250000000,
+        "readonly": true,
+        "service": "dispatcher",
+        "uid": "11004:11030"
+      },
+      {
+        "check": "restart_current_completed_result",
+        "unchanged": true
+      },
+      {
+        "check": "research_restart_current_hold",
+        "unchanged": true
+      },
+      {
+        "check": "current_grant_drift_refused",
+        "status": 503
+      },
+      {
+        "check": "dispatcher_current_grant_refused",
+        "exit_code": 3
+      },
+      {
+        "check": "compose_cleanup",
+        "processes_volumes_credentials_removed": true
+      }
+    ]
+  },
+  "remaining_holds": [
+    "actual reference input rights/QC",
+    "domestic independent cycles: 0",
+    "calculated growth browser/3D",
+    "actual product CLI/independent release/full G1/G2/G3a/G3b/G4"
+  ],
+  "live_fixture_result_available_after_test_cleanup": false,
+  "credential_scope": "synthetic test identities and generated private TLS/SCRAM; no private keys, bearer tokens or database DSNs recorded"
+}

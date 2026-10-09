@@ -1,0 +1,73 @@
+{
+  "evidence_version": "crop-cycle-stream-authored-retry-ci-v1",
+  "recorded_at_utc": "2026-10-05T09:16:08.604453+00:00",
+  "head_sha": "fe41e22eed6080a742bb27bb9ec12130532314f1",
+  "workflow_run_id": 37279357866,
+  "run_attempt": 2,
+  "status": "completed",
+  "conclusion": "success",
+  "scope": "Authored API workflow at the continuation/input reader/stream execution SHA; cycle artifact and storage schema are absent",
+  "first_attempt_hold_preserved": "research/artifacts/crop-cycle-stream-ci-hold-20261005.json",
+  "retry_command": "gh run rerun 37279357866 --failed",
+  "cancelled_job_only_rerun": true,
+  "job_statuses": [
+    {
+      "job_id": 111678338997,
+      "name": "authored-browser",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "job_id": 111678339078,
+      "name": "authored-api",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "job_id": 111678339169,
+      "name": "authored-economics",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "job_id": 111678339431,
+      "name": "authored-assessment",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "job_id": 111678339595,
+      "name": "authored-financial-browser",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "job_id": 111678340265,
+      "name": "authored-assessment-https",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "job_id": 111678380039,
+      "name": "authored-financial-selection",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "retried_browser": {
+    "job_id": 111678338997,
+    "passed": 7,
+    "skipped": 0,
+    "pytest_seconds": 1207.46,
+    "database_password_cleanup": "success",
+    "raw_log_sha256": "88e3cb845755afc6005510b4d0c3b24f9449bb037c2611d78762010389b973fe",
+    "raw_log_bytes": 78111
+  },
+  "workflow_jobs_api_sha256": "f99e4d0c87754902985dd47f14bbd2abb00bf7bef572fff60a521db3ab3863d4",
+  "first_failure_cause": "25-minute GitHub job deadline after7passed; no agent cancellation or deadline relaxation",
+  "all_five_workflows_not_claimed": true,
+  "other_backend_partitions_and_aggregate_need_terminal_audit": true,
+  "g0_g4_not_promoted": true,
+  "actual_crop_runs": 0,
+  "runtime_cli": "fake providers/test keys in software checks"
+}

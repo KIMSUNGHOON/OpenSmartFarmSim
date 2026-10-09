@@ -1,0 +1,379 @@
+{
+  "fixture_version": "crop-growth-reference-cases-v1",
+  "scope": "synthetic software math cases; no Axiany measurements or G0/G1/G2/G3 gate evidence",
+  "reference_method": "60-digit Decimal evaluation of published formulas in subtraction-root/original smoothing form, no import of product module",
+  "generator_sha256": "a4fc42ccd8bdcd90b50e71b08fc327662b8e282d99475fb601df218d17cb86e3",
+  "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+  "relative_error_budget": 5e-12,
+  "absolute_rate_error_budget": 5e-14,
+  "cases": [
+    {
+      "case_id": "source-initial-day",
+      "state": {
+        "input_id": "source-initial-day-state",
+        "origin": "synthetic",
+        "values": {
+          "buffer": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 4368,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 1560,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 312,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 20.5,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 0,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "forcing": {
+        "input_id": "source-initial-day-forcing",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 1000,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          }
+        }
+      },
+      "removals": {
+        "input_id": "source-initial-day-removals",
+        "origin": "synthetic",
+        "values": {
+          "leaf": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "fruit": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      },
+      "expected": {
+        "lai": "0.1161888",
+        "photosynthesis": "0.0482315123738081791337322636819279565959173072100630706199001",
+        "growth_respiration": "0.0501190435650526010320704259270061656058839366442309048145072",
+        "allocation": {
+          "fruit": "0.00166014044168083374116586853029110786884214662886168257602954",
+          "leaf": "0.0966952159088295842742988921160577626172781336100744631004718",
+          "stem_root": "0.0753204839710883077505065054377713098281955988120580028361570"
+        },
+        "maintenance_respiration": {
+          "leaf": "0.00110933966768099352484868951109555620941452761931267677058198",
+          "stem_root": "0.000167839575081418328687481842456820463960411239233185966730703",
+          "fruit": "0.0000264889669516252056159835288775390119991941547633327512119205"
+        },
+        "derivatives": {
+          "fruit": "0.00163365147472920853554988500141356885684295247409834982481762",
+          "leaf": "0.0955858762411485907494502026049622064078636059907617863298898",
+          "stem_root": "0.0751526443960068894218190235953144893642351875728248168694263",
+          "buffer": "-0.175563371512843147664309428329198389324282508485161982707265",
+          "temperature_filtered_24h": "-0.00000578703703703703703703703703703703703703703703703703703703704",
+          "temperature_sum": "0.000231481481481481481481481481481481481481481481481481481481481"
+        }
+      }
+    },
+    {
+      "case_id": "night-with-removal",
+      "state": {
+        "input_id": "night-with-removal-state",
+        "origin": "synthetic",
+        "values": {
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 100000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 40000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 100000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 1200,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "forcing": {
+        "input_id": "night-with-removal-forcing",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          }
+        }
+      },
+      "removals": {
+        "input_id": "night-with-removal-removals",
+        "origin": "synthetic",
+        "values": {
+          "leaf": {
+            "value": 0.01,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "fruit": {
+            "value": 0.05,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      },
+      "expected": {
+        "lai": "2.6600000",
+        "photosynthesis": "0E-174",
+        "growth_respiration": "0.139229032140908752235136034522420796750995819849661559220472",
+        "allocation": {
+          "fruit": "0.332243958322188646214909046722143604386187360668875350937761",
+          "leaf": "0.0964077975906187026009325047378482016155511697655982658686736",
+          "stem_root": "0.0750966002284819367628316352694817570479030164489923334134931"
+        },
+        "maintenance_respiration": {
+          "leaf": "0.0302022579157736180693021999599375870548264717581458477653215",
+          "stem_root": "0.00511784658630400213969731803355714731649509089158206296426773",
+          "fruit": "0.0100964320410078953776341648281059368828814718269306004056983"
+        },
+        "derivatives": {
+          "fruit": "0.272147526281180750837274881894037667503305888841944750532063",
+          "leaf": "0.0562055396748450845316303047779106145607246980074524181033521",
+          "stem_root": "0.0699787536421779346231343172359246097314079255574102704492254",
+          "buffer": "-0.642977388282198037813809221251894359800637366733127509440400",
+          "temperature_filtered_24h": "0E+1",
+          "temperature_sum": "0.000266203703703703703703703703703703703703703703703703703703704"
+        }
+      }
+    },
+    {
+      "case_id": "cool-canopy-day",
+      "state": {
+        "input_id": "cool-canopy-day-state",
+        "origin": "synthetic",
+        "values": {
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 100000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 40000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 50000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 500,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "forcing": {
+        "input_id": "cool-canopy-day-forcing",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          }
+        }
+      },
+      "removals": {
+        "input_id": "cool-canopy-day-removals",
+        "origin": "synthetic",
+        "values": {
+          "leaf": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "fruit": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      },
+      "expected": {
+        "lai": "2.6600000",
+        "photosynthesis": "0.547359125768490714785096723457072655591668000255687829917636",
+        "growth_respiration": "0.0715336378141536407722168266495872971990799364787214827017253",
+        "allocation": {
+          "fruit": "0.123612550976161623929360296402195449976568984058073792510638",
+          "leaf": "0.0742834766353698815486169452662803266806065476309210671878287",
+          "stem_root": "0.0578629186422881182589226731547867807827882581546121997042034"
+        },
+        "maintenance_respiration": {
+          "leaf": "0.0199260591215332772874988099865234996918362788974428756836809",
+          "stem_root": "0.00337651952837509136744936607264432790167139250481164579308483",
+          "fruit": "0.00333058048717270917197386449342467718192076131426999074828095"
+        },
+        "derivatives": {
+          "fruit": "0.120281970488988914757386431908770772794648222743803801762357",
+          "leaf": "0.0543574175138366042611181352797568269887702687334781915041478",
+          "stem_root": "0.0544863991139130268914733070821424528811168656498005539111186",
+          "buffer": "0.220066541700517450275979981984222800952624273933359287813241",
+          "temperature_filtered_24h": "0E+1",
+          "temperature_sum": "0.000196759259259259259259259259259259259259259259259259259259259"
+        }
+      }
+    },
+    {
+      "case_id": "warm-canopy-day",
+      "state": {
+        "input_id": "warm-canopy-day-state",
+        "origin": "synthetic",
+        "values": {
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 50000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "fruit": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 22,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 1500,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "forcing": {
+        "input_id": "warm-canopy-day-forcing",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          }
+        }
+      },
+      "removals": {
+        "input_id": "warm-canopy-day-removals",
+        "origin": "synthetic",
+        "values": {
+          "leaf": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "fruit": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      },
+      "expected": {
+        "lai": "1.3300000",
+        "photosynthesis": "0.663810753809606749167760029295540123672229121933687065165691",
+        "growth_respiration": "0.145554523370825137088193492000207002299095242160920766841202",
+        "allocation": {
+          "fruit": "0.347350505672487487272511748734430433712243154163204543877530",
+          "leaf": "0.100781542002645163418820807069293536756045309446747465152779",
+          "stem_root": "0.0785035169283762325578183128750286496836563463058874991716383"
+        },
+        "maintenance_respiration": {
+          "leaf": "0.0140898515271602404873305914903241395555834325147558018400396",
+          "stem_root": "0.00238755985532283037652748927847567552123431075466179005243321",
+          "fruit": "0.000942030419106967087337376722119654287289728052859753898238955"
+        },
+        "derivatives": {
+          "fruit": "0.346408475253380520185174372012310779424953426110344789979291",
+          "leaf": "0.0866916904754849229314902155789693972004618769319916633127394",
+          "stem_root": "0.0761159570730534021812908235965529741624220355512257091192051",
+          "buffer": "-0.008379334164727271169584331383419498778810930143073209877458",
+          "temperature_filtered_24h": "0.0000115740740740740740740740740740740740740740740740740740740741",
+          "temperature_sum": "0.000266203703703703703703703703703703703703703703703703703703704"
+        }
+      }
+    }
+  ]
+}

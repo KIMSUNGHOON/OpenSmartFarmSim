@@ -1,0 +1,73 @@
+{
+  "evidence_version": "crop-harvest-contract-preparation-v1",
+  "observed_at_utc": "2026-10-07T06:22:51.065778+00:00",
+  "scope": "candidate_contract_and_task_breakdown_only_not_implementation_or_parameter_adoption",
+  "baseline_commit": "f11bedc20e627ad631cdf99a739e19d2dc03b9ba",
+  "native_cli": {
+    "timestamp": "2026-10-07T06:13:32.070Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "8ec6d8db3223eb88f55ed461e9c4575c2ce358674fffc3c9653005925dd4afbf",
+    "recursive_cli_invocations": 0
+  },
+  "source_sha256": {
+    "contracts/crop-harvest-v1.md": "abe4d26c97d29dfd3857c8a1128caedede504ecdf5c02964593946d0146af68f",
+    "research/crop-harvest-conversion-baseline-20261006.md": "c0b750d3c42ab44ddc42d1eaa54e1c2f693bd4462b38b076e33c489f18c2c498",
+    "research/artifacts/crop-harvest-conversion-review-20261006.json": "1c52120fdc50b1127cdefab7bbbf2611f86a3c1fd5d57430cdcb4d0aebc1e1f2",
+    "backend/app/crop_plant_startup_integration.py": "a48f2069d26024eeed5612e95bf59639f943fd6b98e789b21124a125c558656b",
+    "backend/app/crop_startup_artifact.py": "6d095d6b2c5cfff36cdfbf7b1f0b16d2acbe44e162c918a5ece637cda9c2f33a",
+    "backend/app/crop_plant_cohort_integration.py": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf"
+  },
+  "planning_documents_at_review_sha256": {
+    "tasks/plan.md": "b514ee639d39c9b3c267fe60bf445ffe1448e8d7d4df3988df6efaae81a4a2e5",
+    "tasks/todo.md": "e99a4fb1d1500c7bcd143c0c6d663f78fe5827c2f513f9456a7dd8e7d1804b2d",
+    "docs/RESEARCH_BASELINE.md": "87ff005832ecf5b958b703ec6d029aad2350e7de87cd9f046f9ec83b2c2a6050"
+  },
+  "design_choices": {
+    "children_in_order": [
+      "crop-removal-ledger",
+      "crop-removal-mass",
+      "crop-harvest-events"
+    ],
+    "first_child": "Separate terminal integral deltas and journal fruit C/N; exclude vegetative removal from fruit ledger.",
+    "current_event_carbohydrate_includes_leaf_stem_root_and_fruit": true,
+    "no_default_eta_DMC_or_grade_or_sales_fraction": true,
+    "interval_coefficients_not_replaced_by_average_DMC": true,
+    "original_result_and_removal_identity_and_UTC_preserved": true,
+    "cycle3D_and_full_burden_preconditions_unchanged": true
+  },
+  "verification": {
+    "document_check_exit_code": 0,
+    "document_check_log_sha256": "98e7e3687eacad55b838293516a4a7b82af5cd989a44de8977339c557634a63e",
+    "local_links_and_anchors": 2565,
+    "DAGs": [
+      {
+        "edges": 103,
+        "acyclic": true
+      },
+      {
+        "edges": 89,
+        "acyclic": true
+      }
+    ],
+    "original_checkboxes_preserved": 145,
+    "new_children_unchecked": [
+      "crop-removal-ledger",
+      "crop-removal-mass",
+      "crop-harvest-events"
+    ],
+    "existing_acceptance_receipts_and_source_bindings": "preserved by existing delivery verifier",
+    "full166_pinned_source_files_unchanged": 55,
+    "git_diff_check": "passed",
+    "program_tests_run": 0,
+    "new_network_source_retrievals_by_parent": 0
+  },
+  "implementation_accepted": false,
+  "mass_conversion_executed": false,
+  "parameter_values_adopted": 0,
+  "actual_crop_runs": 0,
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "gates": "not_assessed",
+  "completion_date_estimate": null
+}

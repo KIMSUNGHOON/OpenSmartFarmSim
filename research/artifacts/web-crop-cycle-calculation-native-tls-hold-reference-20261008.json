@@ -1,0 +1,179 @@
+{
+  "TLS_diagnosis": {
+    "cases": [
+      {
+        "TLS_CA_verified": false,
+        "argv": [
+          "node",
+          "node_modules/vite/bin/vite.js",
+          "--port",
+          "53411"
+        ],
+        "case": "expired",
+        "certificate_not_after_utc": "2026-10-07T16:46:33+00:00",
+        "log_sha256": "608d0c2c9a9a9d6f0f1bf53abc79666d926b2977a4e1990ece4efb48cce76520",
+        "seconds": 0.30756244999793125,
+        "verification_code": 10,
+        "verification_message": "certificate has expired",
+        "vite_PID_gone": true
+      },
+      {
+        "TLS_CA_verified": true,
+        "argv": [
+          "node",
+          "node_modules/vite/bin/vite.js",
+          "--port",
+          "40749"
+        ],
+        "bytes": 431,
+        "case": "fresh",
+        "certificate_not_after_utc": "2026-10-07T16:58:34+00:00",
+        "log_sha256": "96558a1bbfae8adf1faa7d7985d2e9e66e744948230868aac29389d163b85436",
+        "seconds": 0.350186848998419,
+        "status": 200,
+        "vite_PID_gone": true
+      }
+    ],
+    "cause": "tls_files fixture issued at test setup expires after10minutes; native calculation before frontend took morethan25minutes",
+    "correction": "request tls_files after calculation as existing originalnative test already does; keep10minute validity/CA verification/20second readiness",
+    "driver_sha256": "65084fbb9921e918e7d9ac93eaa6fc94fd12f314f18f7b2202b48c8427ce276d",
+    "scope": "real_Vite_TLS_CA_verification_only_no_PG_or_crop_math_or_browser",
+    "source_sha256": {
+      "backend/tests/test_api_serve.py": "afb0aa24bd02da1d19109c1987cfc0244b6d15c3ad92224e992c8d101ea349b4",
+      "backend/tests/web_shell_smoke.py": "2e78355926b6f2fcda88ef3f622d18f15e604e493f852330ab744ebecf04557b",
+      "web/vite.config.ts": "7a33378741bd32c47eefdd23dff70ef5485801c2ab5ff533a3c6ea377eb61c9d"
+    },
+    "temp_removed": true
+  },
+  "actual_cultivar_inputs": 0,
+  "actual_failed_certificate_bytes_not_preserved_after_fixture_cleanup": true,
+  "actual_long_calculation_progress": {
+    "counts": {
+      "events": 5,
+      "samples": 27
+    },
+    "scope": "owned_synthetic_registered_calculation",
+    "seconds": 1303.4977940370009,
+    "status": "completed",
+    "steps": 11400
+  },
+  "actual_measured_crop_Runs": 0,
+  "browser_protocol_stages_reached": [],
+  "corrected_collect_exit_code": 0,
+  "corrected_collect_tests": 1,
+  "corrected_native_experiment_started_at_utc": "2026-10-07T16:50:20.940545+00:00",
+  "corrected_native_same_PID_start_live": true,
+  "corrected_native_terminal_or_browser_acceptance": false,
+  "corrected_source_sha256": {
+    "backend/tests/web_crop_cycle_calculation_replay_smoke.py": "04f908df850ddab3effc0f22344fe0261a61e0c160c3de7b7564ab151d6d8d02",
+    "contracts/web-crop-cycle-calculation-native-v1.md": "edd23a0ac5f67442b0565b4312d27f13503c5db6adf18a06594108a4609f1b4b",
+    "web/e2e/real-cycle-crop-replay-smoke.mjs": "138f3cd17f383a18084a9690dc3e562aacc490129505880d4ab65d4b0d695844"
+  },
+  "corrected_test_commit": "ac1067e",
+  "correction": "late request.getfixturevalue TLS after calculation; original10minute lifetime/CA/readiness20sec retained; persist browser report before assertions",
+  "database_cleanup": {
+    "actual_host_auth_methods": [
+      "scram-sha-256",
+      "scram-sha-256",
+      "scram-sha-256",
+      "scram-sha-256"
+    ],
+    "passfiles_after": 0,
+    "roles_after": 0,
+    "schemas_after": 0
+  },
+  "diagnosis_basis": "fixture_created_before_test_body_validity10minutes_vs25minute_actual_elapsed; independent_real_Vite_expired_CA_error10/fresh_CA_HTTP200_reproduction",
+  "domestic_independent_datasets": 0,
+  "final_completion_date": "unavailable_pending_core_and_external_evidence",
+  "gates": "not_assessed",
+  "native_accepted": false,
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "native_context_line_sha256": "730b29335f3ea3df2a568a14cde608d605adb9e45fe0d28c71e7ebf292e27d1b",
+    "reasoning_effort": "xhigh",
+    "recursive_CLI_invocations": 0,
+    "timestamp": "2026-10-07T16:32:20.770Z"
+  },
+  "observed_at_utc": "2026-10-07T16:51:59.796136+00:00",
+  "original_model_profiles_SDK_window_UI_backend_product_TLS_fixture_locks_CI_changed": false,
+  "prepared_actual_registered_cases": {
+    "empty": {
+      "advances": 1,
+      "input_evidence_sha256": "5eda32dc3da02fc02b73b2a4cb1d60e72ca0f2e2f9655e6cd8362ae87565f230",
+      "input_root_sha256": "1eba49b9b876156b65ea823a1692a81ba833c4e9838868257711024881076efb",
+      "result_evidence_sha256": "6e7d6386ea7621f495e34451e9b4360bb0b2548f962b59e39cd5c940febd8456",
+      "result_id": "crop-cycle-verified-result-v1:6e4bb09816db7f3a5e714dcc0051019525ea39d956b3a2691505cf648a93b600",
+      "seconds": 51.34256427700166,
+      "status": "hold",
+      "steps": 0
+    },
+    "empty_completed": {
+      "advances": 1,
+      "input_evidence_sha256": "114a70f5ea4c8d81b582897aef368a996ed4ad391aef7e355b318a44a228eeb1",
+      "input_root_sha256": "b26007212c9c750ad2b15e303ab96bba9e42a54ea2bf2ff0b5167dfbb731926c",
+      "result_evidence_sha256": "03b87a1de40a3c7c338ac1b2ee0ee4e2c5c9092b2c0d7db67395e5c262d7ca90",
+      "result_id": "crop-cycle-verified-result-v1:22d6ce2e1d33f424f895633b2b643b6b76f3831548f35f55cd988137084baddb",
+      "seconds": 52.90496851899661,
+      "status": "completed",
+      "steps": 120
+    },
+    "long": {
+      "advances": 92,
+      "input_evidence_sha256": "25abb98a8e80ac221b485e990b21985942510bf4ee59ed59179b18f3898ab6ed",
+      "input_root_sha256": "4e2fefb708113bd9b425071e4fe5ba81b9768c5bc18985e92686cb155cd61f74",
+      "result_evidence_sha256": "c0ebb403885c0e27c5d152b248fbbca9cee0b6a635ab9539121a90afaa5a3d59",
+      "result_id": "crop-cycle-verified-result-v1:9623d35973134d17947feb3ca2f33078c3f7b68c7606c1d8eb19356943da2ac0",
+      "seconds": 1334.085330187001,
+      "status": "completed",
+      "steps": 11400
+    },
+    "past": {
+      "advances": 1,
+      "input_evidence_sha256": "8398e9d6181584f719424050a13b366a234d2ae32817bd1f5eaa42c33f33bf97",
+      "input_root_sha256": "1303aeff095934473e0d4d29a8cd2cd74dc1aeee3b08b6da3f1f9f07be618212",
+      "result_evidence_sha256": "80e316e8f9a7712d4fa1e12fbf3304d7fea3d2d35bd671049ad3ae5cf3ae2784",
+      "result_id": "crop-cycle-verified-result-v1:85c4194112fe0545837db47010e87c1ae8767bf0b837a7bd9d67c322e5211902",
+      "seconds": 51.30001184599678,
+      "status": "hold",
+      "steps": 0
+    }
+  },
+  "preserved_source_count": 118,
+  "recursive_CLI_invocations": 0,
+  "schema_version": "web-crop-cycle-calculation-native-tls-hold-v1",
+  "scope": "owned_registered_synthetic_25h_calculation_complete_frontend_TLS_expired_before_browser",
+  "terminal_failure": {
+    "all_preserved_sources_unchanged": true,
+    "clusters": [
+      {
+        "directory": "/tmp/ossf-cnative-nvq505nq/system/ossf-login-pg-s89tf_ou/data",
+        "directory_exists_after": false,
+        "pid": 645957,
+        "same_PID_alive_after": false,
+        "start_ticks": "6051385"
+      }
+    ],
+    "exit_code": 1,
+    "finished_at_utc": "2026-10-07T16:45:43.052547+00:00",
+    "log_sha256": "674e06f9da3bde4074557415d91b05abf6752d2c64820f6971fa43ac23ae7560",
+    "memory_scope": "sampled_current_descendants_RSS_sum_may_double_count_shared_pages_not_WSL_total_or_PSS",
+    "owned_remaining_processes": [],
+    "owned_temp_tree_removed": true,
+    "passfiles_after": [],
+    "sampled_descendant_RSS_sum_max_bytes": 1029120000,
+    "sampled_pytest_primary_max_RSS_bytes": 159698944,
+    "source_sha256": {
+      "backend/tests/web_crop_cycle_calculation_replay_smoke.py": "93925c1992b478c6b7f5c72bd429ab87a1740065c5c8e4af78260614fb353e61",
+      "contracts/web-crop-cycle-calculation-native-v1.md": "edd23a0ac5f67442b0565b4312d27f13503c5db6adf18a06594108a4609f1b4b",
+      "web/e2e/real-cycle-crop-replay-smoke.mjs": "138f3cd17f383a18084a9690dc3e562aacc490129505880d4ab65d4b0d695844"
+    },
+    "source_sha256_after": {
+      "backend/tests/web_crop_cycle_calculation_replay_smoke.py": "93925c1992b478c6b7f5c72bd429ab87a1740065c5c8e4af78260614fb353e61",
+      "contracts/web-crop-cycle-calculation-native-v1.md": "edd23a0ac5f67442b0565b4312d27f13503c5db6adf18a06594108a4609f1b4b",
+      "web/e2e/real-cycle-crop-replay-smoke.mjs": "138f3cd17f383a18084a9690dc3e562aacc490129505880d4ab65d4b0d695844"
+    },
+    "started_at_utc": "2026-10-07T16:20:16.051112+00:00",
+    "wall_budget_interrupt_sent": false,
+    "wall_seconds": 1526.9995680529973
+  }
+}

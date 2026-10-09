@@ -1,0 +1,146 @@
+{
+  "accepted_small_strategy_receipt": "research/artifacts/crop-cycle-full-rhs-small-strategy-reference-20261006.json",
+  "accepted_small_strategy_receipt_sha256": "1c6adeae045e17b08d98670c774cf04de66262715d5da9b87109942a41a15a87",
+  "actual_cli_context": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "ac7902bcab352117ba5b0b1b90915bee955ceaaeaf823588d1366186facdd5af",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-06T06:39:07.225Z"
+  },
+  "actual_cultivar_adoptions": 0,
+  "artifact_limits": {
+    "commits": 16384,
+    "delta_bytes": 8388608,
+    "directory_bytes": 536870912,
+    "files": 65536,
+    "metadata_bytes": 131072,
+    "page_bytes": 2097152,
+    "page_records": 128,
+    "pages_per_commit": 16,
+    "root_bytes": 2097152
+  },
+  "budget": {
+    "max_steps": 10000,
+    "max_transitions": 128
+  },
+  "deadline_at_utc": "2026-10-06T12:45:32.620491+00:00",
+  "driver_sha256": "31a7ecc2d1932ec92cabcefae5979b57f746363cdc49bcce3878835ae4a91f89",
+  "estimate": "Earlier5h pure linear4.83h is not a bound/date;21600s is fixed experiment budget. Full HTTP/3D date requires actual termination and validation cost correction.",
+  "evidence_version": "crop-cycle-full-rhs-started-observation-v1",
+  "first_checkpoint": {
+    "FD_after": 4,
+    "FD_before": 4,
+    "actual_rhs_calls": 620,
+    "checkpoint_sha256": "506fd5d98b374b491447807c8a86dd336143a6a2e6157406710aaa9cb17a6b67",
+    "command": "nice -n 10 backend/.venv/bin/python research/crop-cycle-full-rhs-reference.py --new-run /tmp/ossf-cycle-full-rhs-166day-20261006 --max-chunks 1 --output /tmp/ossf-cycle-full-rhs-166day-first-checkpoint-20261006.json",
+    "exit_code": 0,
+    "head_sha256": "d56194772820439860f06f4963c0bfc6c1f362d0e38930754f6a32f0fc403360",
+    "raw_observation_sha256": "276d64a9a0acfa84d65bb15a756bdbcc03673007ef2c8964a73917c3ba396507",
+    "reason": "OPERATOR_CHUNK_PAUSE",
+    "session_id": 5620,
+    "status": "incomplete",
+    "steps": 123,
+    "wall_seconds": 32.092733819969
+  },
+  "full166day_math_completed": false,
+  "gates": "not_assessed",
+  "global_wall_seconds": 21600,
+  "independent_domestic_validation_datasets": 0,
+  "input_root_sha256": "ab24eda4d763d7fe3faff1ae3c7c2f84fbec030af71a494bf284fef1f2cdcd98",
+  "interval_seconds": 300,
+  "intervals": 47808,
+  "plan": {
+    "boundaries": 47811,
+    "counts": {
+      "anchors": 47809,
+      "events": 5,
+      "outputs": 47809,
+      "segments": 47808
+    },
+    "packet_referenced_bytes": 113920841,
+    "planned_steps": 1816704
+  },
+  "preparation_seconds": 96.92805826599943,
+  "process_resident_limit_bytes": 268435456,
+  "product_crop_runs": 0,
+  "profile_sha256": {
+    "cohort_profile": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "growth_profile": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "transport_profile": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+  },
+  "recorded_at_utc": "2026-10-06T06:52:23.603713+00:00",
+  "registered_full166day_storage_HTTPS_3D_accepted": false,
+  "resources": {
+    "effective_nice": 10,
+    "experiment_directory_intentionally_retained_for_running_resume": true,
+    "owned_PG_browser_started": false,
+    "recursive_CLI_invocations": 0,
+    "single_calculation_process": true
+  },
+  "resumed_invocation": {
+    "command": "nice -n 10 backend/.venv/bin/python research/crop-cycle-full-rhs-reference.py --resume-run /tmp/ossf-cycle-full-rhs-166day-20261006 --spec-sha256 9f0415126674a2ab1dd4ccd6fc216c27cdd8cfadf063735c3053d25bc1ee5df6 --output /tmp/ossf-cycle-full-rhs-166day-terminal-20261006.json",
+    "exit_code": null,
+    "log_prefix_bytes": 1423,
+    "log_prefix_sha256": "31b97f541acd6601e790cb0aaf064b8f7c5b812ac645c64ca51978931a4a345a",
+    "observed_progress": [
+      {
+        "at": "2026-01-01T00:32:40Z",
+        "chunks_this_call": 1,
+        "files_before_chunk": 6,
+        "max_observed_active_rss_bytes": 47980544,
+        "phase": "actual_RHS",
+        "steps": 248,
+        "storage_bytes_before_chunk": 77295,
+        "wall_seconds": 33.187283394974656
+      },
+      {
+        "at": "2026-01-01T09:01:20Z",
+        "chunks_this_call": 32,
+        "files_before_chunk": 68,
+        "max_observed_active_rss_bytes": 47980544,
+        "phase": "actual_RHS",
+        "steps": 4114,
+        "storage_bytes_before_chunk": 1111328,
+        "wall_seconds": 73.69651103200158
+      },
+      {
+        "at": "2026-01-01T17:46:20Z",
+        "chunks_this_call": 64,
+        "files_before_chunk": 133,
+        "max_observed_active_rss_bytes": 48005120,
+        "phase": "actual_RHS",
+        "steps": 8104,
+        "storage_bytes_before_chunk": 2216163,
+        "wall_seconds": 114.11273484898265
+      },
+      {
+        "at": "2026-01-02T02:31:28Z",
+        "chunks_this_call": 96,
+        "files_before_chunk": 198,
+        "max_observed_active_rss_bytes": 48005120,
+        "phase": "actual_RHS",
+        "steps": 12095,
+        "storage_bytes_before_chunk": 3314218,
+        "wall_seconds": 153.68810373998713
+      },
+      {
+        "at": "2026-01-02T11:16:36Z",
+        "chunks_this_call": 128,
+        "files_before_chunk": 262,
+        "max_observed_active_rss_bytes": 48005120,
+        "phase": "actual_RHS",
+        "steps": 16086,
+        "storage_bytes_before_chunk": 4384125,
+        "wall_seconds": 192.3873681279947
+      }
+    ],
+    "session_id": 81574,
+    "status_at_observation": "live"
+  },
+  "scope": "own_synthetic_numeric_experiment_in_progress_only",
+  "snapshot_base": "f572058098c7fc3eef41de5479e07bbbe4782bff",
+  "source_program_sha256": "8751f703fd91e2d7d6b12a271e2ee5469cb53ec9c70e5a94ca3783b35b5e935c",
+  "spec_sha256": "9f0415126674a2ab1dd4ccd6fc216c27cdd8cfadf063735c3053d25bc1ee5df6",
+  "started_at_utc": "2026-10-06T06:45:32.620491+00:00"
+}

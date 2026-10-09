@@ -1,0 +1,82 @@
+{
+  "evidence_version": "web-crop-cycle-pages-reference-v1",
+  "recorded_at_utc": "2026-10-06T02:51:06.947767+00:00",
+  "snapshot_commit": "61ac06069f3510cda8248eea4b5b72117b49d04a",
+  "scope": "Local decoded client and sequential transport tests; no new browser/3D or independent cultivar validation",
+  "source_sha256": {
+    "web/src/cycleCropReplay.ts": "05b35cbf28e0b9b3df3495bc68e382c56cbe8311c820d1cf5dcaa7d470867308",
+    "web/src/cycleCropReplay.test.ts": "69b217994f9895c3b4330aa7c84c0006c03126ad880519e63d47a4f70fd5b47b",
+    "web/src/api.ts": "05f1115f3ee47b5ef94adf1908403a87027539210e6ef556cdf48f7bf9949049",
+    "web/src/startupCropReplay.ts": "6917bce223a2f768394b4fa872c70a2cd7183e0da63a050df43e001039a3626a",
+    "web/e2e/cycle-crop-recorded-responses.json": "43fad7bf11f43a2fd92ed04323a024848b1e8d086add391e0a714016a3e3c990"
+  },
+  "cli": {
+    "timestamp": "2026-10-06T02:39:09.080Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "turn_context_line_sha256": "c827f44f3bd6a6b56b36648325643c2f570e3529178e39a0c52263d0a42734a9",
+    "hash_includes_trailing_newline": true,
+    "recursive_cli_invocations": 0,
+    "scope": "current development CLI; own implementation and five-axis review, not independent agricultural validation"
+  },
+  "actual_api_predecessor_receipt": "research/artifacts/crop-cycle-api-runtime-long-reference-20261006.json",
+  "actual_api_predecessor_sha256": "bfb1bfa735552417efae54e2465e1781124fe8a9658972fc05b86e2efcfdc8c8",
+  "public_decoded_fixture": {
+    "sha256": "43fad7bf11f43a2fd92ed04323a024848b1e8d086add391e0a714016a3e3c990",
+    "bytes": 857787,
+    "short_responses": 12,
+    "long_responses": 11,
+    "short_raw_sha256": "9c9055f7814ad765697f7abe6a823625d03ac82ab955a61e48ab17a801e14dca",
+    "long_raw_sha256": "6b5adcdc85151836992116d09d196dc724fe2f376b67a486a9dbb99c33622169",
+    "exact_values_unchanged": true,
+    "wire_bytes_or_live_history_or_real_farm_data": false
+  },
+  "verification": {
+    "new_cycle_tests": 120,
+    "focused_tests": 296,
+    "focused_files": 4,
+    "focused_seconds": 6.22,
+    "full_web_tests_before_lock_fix": 503,
+    "full_web_files": 18,
+    "full_web_seconds": 6.47,
+    "typecheck_exit_code": 0,
+    "build_exit_code": 0,
+    "vite_build_seconds": 0.75,
+    "existing_over500KB_chunk_warning_preserved": true,
+    "startup_helper_only_export_added": true,
+    "frozen_backend_files_matched": 49,
+    "new_browser_tests_run": false
+  },
+  "recorded_checks": [
+    "closed public schemas/literals/units and all50 C/N arrays",
+    "original selected UTC outputs and zero completed outputs",
+    "all four residual/budget pairs",
+    "fractional hold last_confirmed kept separate; samples before hold and events at or before hold",
+    "same full reference/first DB recorded_at and ordered cross-page UTC",
+    "actual byte-short page progress; one request at once; consumer backpressure",
+    "shape-only513 single-record pages and maximum131072 terminal offset without crop calculation",
+    "cancel/late identity/query/summary changes and rights refusal rejected; no partial completion"
+  ],
+  "review": {
+    "correctness": "original23 responses, mutation cases and iterator completion inspected",
+    "readability": "one cycle module and explicit same-pattern public types",
+    "architecture": "canonical sample helper body reused; new factory uses unchanged common request",
+    "security": "server owns rights and custody; client repeats closed checks, no authorization replacement",
+    "performance": "one current page and finite count-derived request bound, no collected replay arrays"
+  },
+  "logs_sha256": {
+    "focused_finish": "b0b472ed1473355e5c248f249dc698e82038775c086d97563dd5f8706887120a",
+    "build_finish": "c04a4d9f43b8aaeabf037f41697829c6d97e4e41a1092ae09a70968c00060193",
+    "full_web_before_lock_fix": "d6c5c8022ef7bd76324265a3f6c1d43604a668767f57660a70bfa4eea5ac5696"
+  },
+  "local_client_accepted": true,
+  "hosted_current_head_accepted": false,
+  "remaining": [
+    "current-window helper, screen and actual PG/TLS/WebGL",
+    "d61bcb3 hosted web audit failure; separate source-map-js patch and exact-head CI",
+    "whole-cycle burden, actual cultivar inputs, independent domestic data, fresh kg/resources/economics"
+  ],
+  "gates": "not_assessed",
+  "actual_crop_runs": 0,
+  "domestic_independent_datasets": 0
+}

@@ -1,0 +1,259 @@
+{
+  "evidence_version": "crop-cycle-route-runtime-web-ci-v1",
+  "recorded_at_utc": "2026-10-06T08:01:31.391748+00:00",
+  "head_sha": "7a855a71b355eb45e126fa1f4bc557b5f6dfefd7",
+  "scope": "Hosted tests for crop cycle authenticated route/runtime/client/3D and isolated old CI assertion/audit fixes at exact remote7a. Later profile/full runner/input witness research are outside this SHA.",
+  "workflow_runs": [
+    {
+      "id": 37417451919,
+      "name": "C0 Compose verification",
+      "head_sha": "7a855a71b355eb45e126fa1f4bc557b5f6dfefd7",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417451919",
+      "run_attempt": 1
+    },
+    {
+      "id": 37417451927,
+      "name": "Web tests",
+      "head_sha": "7a855a71b355eb45e126fa1f4bc557b5f6dfefd7",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417451927",
+      "run_attempt": 1
+    },
+    {
+      "id": 37417452050,
+      "name": "Application runtime verification",
+      "head_sha": "7a855a71b355eb45e126fa1f4bc557b5f6dfefd7",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452050",
+      "run_attempt": 1
+    },
+    {
+      "id": 37417452143,
+      "name": "Authored API PostgreSQL smoke",
+      "head_sha": "7a855a71b355eb45e126fa1f4bc557b5f6dfefd7",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452143",
+      "run_attempt": 1
+    },
+    {
+      "id": 37417452118,
+      "name": "Backend tests",
+      "head_sha": "7a855a71b355eb45e126fa1f4bc557b5f6dfefd7",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452118",
+      "run_attempt": 1
+    }
+  ],
+  "workflow_api_sha256": "1790528b886ff0f53203699581c0ed1cc7d6592ffc0c098b9d87b26d21e231ab",
+  "backend_jobs_api_sha256": "522a131e2ac6da994afd93583dcf51a1ac826968f7094b866244c874cfafcf82",
+  "backend": {
+    "passed_total": 4145,
+    "separate_uid_passed": 4,
+    "skipped": 0,
+    "inventory_sha256": "7172d8a2bc61c3b51f67e75cee70f783bc80fe79ba65daf190a331dec418a9c8",
+    "partition_pass_counts": {
+      "0": 711,
+      "1": 639,
+      "2": 704,
+      "3": 1048,
+      "4": 503,
+      "5": 540
+    },
+    "database_password_cleanup_jobs_passed": 6,
+    "aggregate_inventory_check": "success",
+    "aggregate": {
+      "job_id": 112166849300,
+      "log_sha256": "676cc9c773fa2225da70432f0ca827862044f4bdcdc79d605a214c01a01c466f",
+      "status": "success"
+    },
+    "jobs": [
+      {
+        "partition": 0,
+        "job_id": 112119106007,
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452118/job/112119106007",
+        "passed": 711,
+        "inventory_total": 4145,
+        "inventory_sha256": "7172d8a2bc61c3b51f67e75cee70f783bc80fe79ba65daf190a331dec418a9c8",
+        "log_sha256": "850ace951a9dbe13111375215da646bce22636d354228631d3d6405d6ff15703",
+        "database_password_cleanup": "success",
+        "test_skipped": 0,
+        "pytest_seconds": 3057.83
+      },
+      {
+        "partition": 1,
+        "job_id": 112119105816,
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452118/job/112119105816",
+        "passed": 639,
+        "inventory_total": 4145,
+        "inventory_sha256": "7172d8a2bc61c3b51f67e75cee70f783bc80fe79ba65daf190a331dec418a9c8",
+        "log_sha256": "62d52497d53ff422e60ac170d77338d813831be4b83700e71740fd4505993302",
+        "database_password_cleanup": "success",
+        "test_skipped": 0,
+        "pytest_seconds": 1144.76
+      },
+      {
+        "partition": 2,
+        "job_id": 112119105941,
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452118/job/112119105941",
+        "passed": 704,
+        "inventory_total": 4145,
+        "inventory_sha256": "7172d8a2bc61c3b51f67e75cee70f783bc80fe79ba65daf190a331dec418a9c8",
+        "log_sha256": "dc58b2746f41bfba0d85568f9e8a5bc50e1d565bdf1f2f7a6a5d30983f849a81",
+        "database_password_cleanup": "success",
+        "test_skipped": 0,
+        "pytest_seconds": 949.43
+      },
+      {
+        "partition": 3,
+        "job_id": 112119106008,
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452118/job/112119106008",
+        "passed": 1048,
+        "inventory_total": 4145,
+        "inventory_sha256": "7172d8a2bc61c3b51f67e75cee70f783bc80fe79ba65daf190a331dec418a9c8",
+        "log_sha256": "95fd6ebd19bdd328a183724c9e7a340fcbafbc7e559210af73e2c47d965f435d",
+        "database_password_cleanup": "success",
+        "test_skipped": 0,
+        "pytest_seconds": 1484.79
+      },
+      {
+        "partition": 4,
+        "job_id": 112119105918,
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452118/job/112119105918",
+        "passed": 503,
+        "inventory_total": 4145,
+        "inventory_sha256": "7172d8a2bc61c3b51f67e75cee70f783bc80fe79ba65daf190a331dec418a9c8",
+        "log_sha256": "ee5d55526498197f9775055cfc48545dfc03ef6d7635f97bd7216b59e5f2cb96",
+        "database_password_cleanup": "success",
+        "test_skipped": 0,
+        "pytest_seconds": 6543.87
+      },
+      {
+        "partition": 5,
+        "job_id": 112119105966,
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452118/job/112119105966",
+        "passed": 540,
+        "inventory_total": 4145,
+        "inventory_sha256": "7172d8a2bc61c3b51f67e75cee70f783bc80fe79ba65daf190a331dec418a9c8",
+        "log_sha256": "e465b551e831d16a93adfcf311c740f59321647625074849b15bbd5c7d5a21fa",
+        "database_password_cleanup": "success",
+        "test_skipped": 0,
+        "pytest_seconds": 790.05
+      }
+    ]
+  },
+  "web": {
+    "passed_total": 522,
+    "job_id": 112119104512,
+    "log_sha256": "b68db7f93450a761194b646f907c38b51e4cfe577354a34ea6afbe486ba50607",
+    "steps": {
+      "Set up job": "success",
+      "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803": "success",
+      "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38": "success",
+      "Run npm install --global npm@11.16.0": "success",
+      "Run npm ci --strict-peer-deps": "success",
+      "Run npm run typecheck": "success",
+      "Run npm run test": "success",
+      "Run npm run build": "success",
+      "Run npm audit --audit-level=high": "success",
+      "Run npx --no-install playwright install --with-deps chromium": "success",
+      "Run npm run test:browser": "success",
+      "Post Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38": "success",
+      "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803": "success",
+      "Complete job": "success"
+    }
+  },
+  "authored": {
+    "first_attempt_all7_jobs_success": true,
+    "jobs_api_sha256": "c3ff95af6e084e1c640cbd8134b10018045d703a91967874c01b2870d05fcf09",
+    "jobs": [
+      {
+        "id": 112119105961,
+        "name": "authored-assessment-https",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452143/job/112119105961"
+      },
+      {
+        "id": 112119106198,
+        "name": "authored-economics",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452143/job/112119106198"
+      },
+      {
+        "id": 112119106203,
+        "name": "authored-browser",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452143/job/112119106203"
+      },
+      {
+        "id": 112119106208,
+        "name": "authored-financial-browser",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452143/job/112119106208"
+      },
+      {
+        "id": 112119106217,
+        "name": "authored-api",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452143/job/112119106217"
+      },
+      {
+        "id": 112119106236,
+        "name": "authored-financial-selection",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452143/job/112119106236"
+      },
+      {
+        "id": 112119106310,
+        "name": "authored-assessment",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452143/job/112119106310"
+      }
+    ]
+  },
+  "other_jobs": {
+    "C0 Compose verification": {
+      "jobs_api_sha256": "4be982d76727ba8935389ffa848fd846098e8bfbae1743cfd2e70b00b77a32b0",
+      "jobs": [
+        {
+          "id": 112119104491,
+          "name": "compose",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417451919/job/112119104491"
+        }
+      ]
+    },
+    "Application runtime verification": {
+      "jobs_api_sha256": "b1747cd31b0b9ca9e7e9d247f342f5c0826d45f4bb7e199ed09c73d9cb325bae",
+      "jobs": [
+        {
+          "id": 112119105315,
+          "name": "images",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37417452050/job/112119105315"
+        }
+      ]
+    }
+  },
+  "prior_failed_head": "d61bcb3b0c89b28c7d409d2a58fb10d8508f942d",
+  "prior_failed_evidence": "research/artifacts/crop-cycle-route-runtime-ci-hold-20261006.json",
+  "all5_terminal_first_attempt_success": true,
+  "no_cancellation_rerun_or_timeout_change_for_this_head": true,
+  "raw_logs_private": true,
+  "initial_run_log_retrieval_note": "gh run view --log returned0bytes for four completed runs; individual jobs/logs and jobs APIs used for acceptance instead",
+  "gates": "not_assessed; hosted software tests do not release real data, crop forecasts, rankings or deployment"
+}

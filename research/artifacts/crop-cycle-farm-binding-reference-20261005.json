@@ -1,0 +1,448 @@
+{
+  "evidence_version": "crop-cycle-farm-binding-implementation-v1",
+  "recorded_at_utc": "2026-10-05T10:46:16.002602+00:00",
+  "scope": "synthetic_farm_input_binding_only",
+  "cli": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "observed_turn_context_at": "2026-10-05T09:51:56.077Z",
+    "turn_context_line_sha256": "d0dbc3f56ce23aef7adb71dc40ce783841bd2b9738720a3bdb6737f6e5994e2b",
+    "invocation_evidence": "actual current Codex CLI turn_context; no nested CLI",
+    "recursive_cli_invocations": 0,
+    "product_runtime_invocation_not_claimed": true
+  },
+  "implementation_commits": {
+    "draft": "78d764db3c465af5842b4166c8de0ad3342b070d",
+    "safety_fix": "0fc279109c11c0b27ff0e3dbbe07dd0014468a2b",
+    "input_codec_and_acceptance_snapshot": "7883b6dfafd612d37b755b299557f851c8db865e"
+  },
+  "file_sha256": {
+    "README.md": "2f436a334e07ae05a67c1fe93a51cd13b84e881e3e1461f7cb1b269c5a56043a",
+    "docs/PROJECT_SPEC.md": "110cbcc1d036430c39882ea2b6692de0fddccc446dde5ad76c4b482a2183087a",
+    "docs/IMPLEMENTATION_SLICE.md": "ecabe428220d8b9d4f15c8ef3b39b02c4afa961d5b1f9dfe0a386150fdd0b5c6",
+    "tasks/plan.md": "3649a1e78e147a74184a8025a74a58036aadc2578cccaf91e89c44e48de6c665",
+    "tasks/todo.md": "6136f595271ba6fb61bc633740d6084dca472590d9bacdde4b2f29ee298ee59a",
+    "backend/app/crop_cycle_farm_binding.py": "4f245271487b1e55422386b42221aa8d24906d28f52403626c474c62f14568a9",
+    "backend/tests/test_crop_cycle_farm_binding.py": "d76b3be7fbbc7a76ca100538c936615df86cb6e664705810573a6dd65b97db12",
+    "contracts/crop-cycle-farm-binding-v1.md": "892deabd660bb006caa157dd370f3f24b1907e842c4d29f78b788aecae6b9202",
+    "contracts/crop-cycle-server-custody-v1.md": "5810b2d8c67fa14ebee160921fd636b80f8b4bc680caf1112e3a8c06cb9f8aae",
+    "research/crop-cycle-farm-binding-implementation.md": "5d91ac4742bfc48ce20f332df55975963824abef40c6bbf549a9dc0df6ba2c94",
+    "research/artifacts/crop-cycle-storage-roles-reference-20261005.json": "b19d0b0e0ec96784b7dbd0983fbe8a15921792a6df752459b362f61b603e4bcc",
+    "research/artifacts/crop-cycle-stream-ci-20261005.json": "0325ce35f02d4eac1680ed261aff76e8639dbf49c115720dc36e486909709557"
+  },
+  "frozen_calculation_storage_api_artifact_and_schema44_sha256": {
+    "backend/app/crop_startup_artifact.py": "6d095d6b2c5cfff36cdfbf7b1f0b16d2acbe44e162c918a5ece637cda9c2f33a",
+    "backend/tests/test_crop_startup_artifact.py": "8c4e15afc6f113947cae2d32d4629f58ed15ea716737c29f08bd00bac998d6e6",
+    "backend/app/crop_coupled_artifact.py": "4d239f24d43bf351f3c11c9e9d59fccff30a76ef0815659f22c60fbc8ec7d017",
+    "backend/app/thermal_run_store.py": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+    "research/artifacts/crop-startup-integration-reference-20261005.json": "9b82831acb198a2b96c5c0620728ecf5b5ae245d2543b42580cfc00d253bb3b2",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "research/crop-integration-reference.py": "a38b7a67e43cf9f590838bf915ab3e5048950b8be6ed35f70817e18b42a09ce7",
+    "research/crop-plant-cohort-integration-reference.py": "9b880b9d06812f3cfa05bf1c5e47ef93811b548d2320136ce5ae813730d50a72",
+    "research/crop-fruit-startup-source-register.json": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+    "backend/app/crop_plant_startup_integration.py": "a48f2069d26024eeed5612e95bf59639f943fd6b98e789b21124a125c558656b",
+    "backend/tests/test_crop_plant_startup_integration.py": "38aa5e404124518eb9c44b9487c443de5a739ad4b1486e4eb74fe6709b637a86",
+    "research/crop-plant-startup-integration-reference.py": "c99cb9c2a83531a85183cfc9ccecc7401f95bd310bdc210cf4501d880458c44c",
+    "fixtures/crop-plant-startup-integration-reference-v1.json": "a94e4d88e02a5b29e2b1c20f0767cea6a326dccaa31278d5138667755b2f8026",
+    "fixtures/crop-fruit-transport-reference-parameters-v1.json": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070",
+    "backend/app/crop_plant_startup_rates.py": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_plant_cohort_integration.py": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+    "backend/app/crop_result_store.py": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+    "backend/app/crop_coupled_result_store.py": "765184999e07b078a6f79b414c148497ee3543b889a40a65d091a4ab44080632",
+    "backend/app/crop_startup_result_store.py": "d2e12ad750258b1b362261cb52b797de4bdcca02f84ecaaebafd9b74dab9b0af",
+    "backend/tests/test_crop_startup_result_store.py": "16e41c5a90a0838344f7e1ff185214ee4125bf52454dced3858725db210ae476",
+    "backend/app/api_crop_coupled_replay.py": "83d3eefd782206801fe645afc2e200bb621509b7c932b4a0544bbcb2bf31c582",
+    "backend/app/api_crop_startup_replay.py": "05b553e236dc3d5272829acd14f54910ef1a17400585cd7001e9992a048d7fac",
+    "backend/app/api.py": "b69837ec1793dfaf5d2d9e495d2b3d94b68209a2b462ae1113338fd25cf66fb8",
+    "backend/app/api_runtime.py": "40e183a1dfb95123f6c3c7659a974cd9717cc5f3d7ee2a78c38a8e07e5cf0d91",
+    "backend/tests/test_api_crop_startup_replay.py": "17bbfe9876eaa2488085b8cdbd3a7120299fa54bdcb05643c12c33cc37671fa2",
+    "backend/tests/test_api_openapi.py": "84d70344abe03be8bb825b475e1d78149833ce6ad6438d695784df8242529bcb",
+    "contracts/openapi-v1.json": "94bb9270ec8242aaa97fb8399b83286864ceb6e5a053173a652fd2691bceb510",
+    "backend/app/crop_cycle_continuation.py": "478f152a2395a451d9add64acf37e23ddc32a15273b14d0419869c1634596899",
+    "backend/tests/test_crop_cycle_continuation.py": "c0b0059e0816e88418ed761cbc1c5a085a23e262b4948c1f95dfd3f3ae3643a7",
+    "backend/app/crop_cycle_input_stream.py": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53",
+    "backend/tests/test_crop_cycle_input_stream.py": "dc5d9f86ebe74cb0d920939ab07381c7d729a0bc3abcffc165d702635ab4c23f",
+    "backend/app/crop_cycle_stream_execution.py": "4de399721cab82ab7f56e093b11b72682437e29bb3097e745b1e61d695d03aac",
+    "backend/tests/test_crop_cycle_stream_execution.py": "0a0800f6be8abb702ba2dcd461c00e9bf913a81c2c30ae2baabfc61b8447c3d1",
+    "backend/app/crop_cycle_artifact.py": "10bcf863ba40338f2efa7242d78c2cccd3020fbdca061951da6b7b1c5a7c51f7",
+    "backend/tests/test_crop_cycle_artifact.py": "f597dd2a952184553f7f8d68bd70c155886278c4c927291daa3d501f7294e971",
+    "backend/app/crop_cycle_result_schema.py": "94cfba00cec0d3026bc4afb133c70168e4294e5beb0b625530db8f83acce73c8",
+    "backend/tests/test_crop_cycle_result_schema.py": "81f58e8aedb2a491253aa58af8b4cd04a2304bfbe674daab0536d7b796b661d2"
+  },
+  "runtime_versions": {
+    "local_postgresql": "16.15",
+    "python": "3.12.3",
+    "psycopg": "3.3.6",
+    "pytest": "9.1.1",
+    "hosted_not_claimed_for_this_code": true
+  },
+  "verification": {
+    "unique_focused_passed": 54,
+    "skipped": 0,
+    "acceptance_mode": "47 valid first passes + 8 corrected focused passes - 2 overlaps + 1 Unicode correction = 54; not a single54 GREEN/full backend run",
+    "runs": {
+      "first": {
+        "passed": 48,
+        "failed": 1,
+        "deselected": 0,
+        "skipped": 0,
+        "pytest_seconds": 1147.47,
+        "eligible_passes_for_acceptance": 47,
+        "private_log_sha256": "c0b4a4573f63aeba5485cdd5731e81a59b37ea34457ff98b5099690ac5406d2f",
+        "private_process_proof_sha256": "b0989ddcd1a65655f742980528b5aff7e11b7c78a928d8e4b6ff39d3372241fd",
+        "process_and_cleanup": {
+          "scope": "synthetic_cycle_farm_input_binding_only",
+          "started_at": "2026-10-05T10:00:12.549516+00:00",
+          "postgres_version": "postgres (PostgreSQL) 16.15",
+          "new_dependencies": 0,
+          "servers_started": 1,
+          "application_crop_custody_or_run_created": false,
+          "pytest_arguments": [
+            "tests/test_crop_cycle_farm_binding.py"
+          ],
+          "exit_code": 1,
+          "wall_seconds": 1148.0643622900243,
+          "remaining_test_roles": 0,
+          "remaining_test_schemas": 0,
+          "remaining_test_password_files": 0,
+          "postgres_stopped": true,
+          "postgres_status_exit_code": 3,
+          "private_cluster_and_admin_password_files_removed": true,
+          "owned_servers_after": 0,
+          "peak_children_rss_mib": 136.21484375
+        }
+      },
+      "safety_red": {
+        "passed": 1,
+        "failed": 3,
+        "deselected": 49,
+        "skipped": 0,
+        "pytest_seconds": 94.19,
+        "eligible_passes_for_acceptance": 0,
+        "private_log_sha256": "0af60505e563dbf96406f1c9624d03235624cdedb58f022024e764aaaa84f79e",
+        "private_process_proof_sha256": "71bc7a3b3ddb9892d0216101460182adc476e1b74121ab9adffbdd52de694399",
+        "process_and_cleanup": {
+          "scope": "synthetic_cycle_farm_input_binding_only",
+          "started_at": "2026-10-05T10:20:38.824278+00:00",
+          "postgres_version": "postgres (PostgreSQL) 16.15",
+          "new_dependencies": 0,
+          "servers_started": 1,
+          "application_crop_custody_or_run_created": false,
+          "pytest_arguments": [
+            "tests/test_crop_cycle_farm_binding.py",
+            "-k",
+            "policy_callback"
+          ],
+          "exit_code": 1,
+          "wall_seconds": 94.64519152004505,
+          "remaining_test_roles": 0,
+          "remaining_test_schemas": 0,
+          "remaining_test_password_files": 0,
+          "postgres_stopped": true,
+          "postgres_status_exit_code": 3,
+          "private_cluster_and_admin_password_files_removed": true,
+          "owned_servers_after": 0,
+          "peak_children_rss_mib": 120.01171875
+        }
+      },
+      "safety_correction": {
+        "passed": 8,
+        "failed": 0,
+        "deselected": 45,
+        "skipped": 0,
+        "pytest_seconds": 212.61,
+        "eligible_passes_for_acceptance": 8,
+        "private_log_sha256": "b5c24c449aac6c76c592b4ed3e93e89bebc19d8a307a5b495f17dafdf8f31df9",
+        "private_process_proof_sha256": "e3d0e1bda779dd515c2b6ff1221eecae22f0ec48f83ac583869c80defc7f85fc",
+        "process_and_cleanup": {
+          "scope": "synthetic_cycle_farm_input_binding_only",
+          "started_at": "2026-10-05T10:23:07.836788+00:00",
+          "postgres_version": "postgres (PostgreSQL) 16.15",
+          "new_dependencies": 0,
+          "servers_started": 1,
+          "application_crop_custody_or_run_created": false,
+          "pytest_arguments": [
+            "tests/test_crop_cycle_farm_binding.py",
+            "-k",
+            "policy_callback or actual_scram_registered or fresh_process or (current_rights and (source))"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 213.0787754500052,
+          "remaining_test_roles": 0,
+          "remaining_test_schemas": 0,
+          "remaining_test_password_files": 0,
+          "postgres_stopped": true,
+          "postgres_status_exit_code": 3,
+          "private_cluster_and_admin_password_files_removed": true,
+          "owned_servers_after": 0,
+          "peak_children_rss_mib": 124.22265625
+        }
+      },
+      "unicode_red": {
+        "passed": 0,
+        "failed": 1,
+        "deselected": 53,
+        "skipped": 0,
+        "pytest_seconds": 1.18,
+        "eligible_passes_for_acceptance": 0,
+        "private_log_sha256": "b333300150c91de12f37c68c2159166836e36ea43121c6cafd120c02ae39c88b",
+        "private_process_proof_sha256": "72985eae1f484b81e4772fed00ee07adebf25379c9e25bed2d82defaace8ba88",
+        "process_and_cleanup": {
+          "scope": "synthetic_cycle_farm_input_binding_only",
+          "started_at": "2026-10-05T10:29:13.213083+00:00",
+          "postgres_version": "postgres (PostgreSQL) 16.15",
+          "new_dependencies": 0,
+          "servers_started": 1,
+          "application_crop_custody_or_run_created": false,
+          "pytest_arguments": [
+            "tests/test_crop_cycle_farm_binding.py",
+            "-k",
+            "unicode"
+          ],
+          "exit_code": 1,
+          "wall_seconds": 1.5785193970077671,
+          "remaining_test_roles": 0,
+          "remaining_test_schemas": 0,
+          "remaining_test_password_files": 0,
+          "postgres_stopped": true,
+          "postgres_status_exit_code": 3,
+          "private_cluster_and_admin_password_files_removed": true,
+          "owned_servers_after": 0,
+          "peak_children_rss_mib": 100.20703125
+        }
+      },
+      "unicode_correction": {
+        "passed": 2,
+        "failed": 0,
+        "deselected": 52,
+        "skipped": 0,
+        "pytest_seconds": 30.49,
+        "eligible_passes_for_acceptance": 2,
+        "private_log_sha256": "49bee3ab2d2517549a541d4c35c8676f6d506f6cab3ca4e9540fb101905b85f5",
+        "private_process_proof_sha256": "039e87b38a229cd863df46e406429f981ef7553c0fd5e55029cc9857dfe675b6",
+        "process_and_cleanup": {
+          "scope": "synthetic_cycle_farm_input_binding_only",
+          "started_at": "2026-10-05T10:30:34.408739+00:00",
+          "postgres_version": "postgres (PostgreSQL) 16.15",
+          "new_dependencies": 0,
+          "servers_started": 1,
+          "application_crop_custody_or_run_created": false,
+          "pytest_arguments": [
+            "tests/test_crop_cycle_farm_binding.py",
+            "-k",
+            "unicode or actual_scram_registered"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 30.94469495798694,
+          "remaining_test_roles": 0,
+          "remaining_test_schemas": 0,
+          "remaining_test_password_files": 0,
+          "postgres_stopped": true,
+          "postgres_status_exit_code": 3,
+          "private_cluster_and_admin_password_files_removed": true,
+          "owned_servers_after": 0,
+          "peak_children_rss_mib": 117.890625
+        }
+      }
+    },
+    "first_source_sha256": "6b3e322f7a3c7c015e32396eb1b3206ccef28b6b2552838ee4a79de694d70ab8",
+    "first49_tests_sha256": "24ad85db49ade9c5ae1d97aee09a19743aca65a17a97590787110db5aa3f8cfa",
+    "corrected_safety_source_sha256": "88960b093f922003bbd48172fdbac22c95094ae0aab9880058f58acc0c12e53b",
+    "corrected53_tests_sha256": "1a40ab72a5167f8890f4423d1bafde7cd94f5be01db75d0bc901c66470beb7e1",
+    "final54_collection_log_sha256": "8a2e2617bbff5280c007584fbdf9f5bee830e960b084e196b57758d236630ad2",
+    "test_acceptance_stage": {
+      "tests/test_crop_cycle_farm_binding.py::test_actual_scram_registered_crop_and_input_binding_current_read_without_rows[login_scope0]": "safety_correction",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[extra-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[missing-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[version-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[root-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[program-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[rights-version-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[rights-root-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[available-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[crop-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[farm-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[revision-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[identifier-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[declaration-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[rights-type-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[null-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_closed_root_request_and_current_registration_reject_wrong_inputs[redistribute-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_raw_request_is_canonical_and_bounded[space-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_raw_request_is_canonical_and_bounded[duplicate-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_raw_request_is_canonical_and_bounded[nan-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_raw_request_is_canonical_and_bounded[utf8-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_raw_request_is_canonical_and_bounded[empty-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_raw_request_is_canonical_and_bounded[oversize-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_current_rights_and_callback_interruption_reject_revocation[rights-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_current_rights_and_callback_interruption_reject_revocation[source-login_scope0]": "safety_correction",
+      "tests/test_crop_cycle_farm_binding.py::test_current_rights_and_callback_interruption_reject_revocation[read-scopes-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_current_rights_and_callback_interruption_reject_revocation[write-scope-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_current_rights_and_callback_interruption_reject_revocation[foreign-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_current_rights_and_callback_interruption_reject_revocation[late-source-login_scope0]": "safety_correction",
+      "tests/test_crop_cycle_farm_binding.py::test_current_rights_and_callback_interruption_reject_revocation[late-scope-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_current_rights_and_callback_interruption_reject_revocation[late-rights-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_fixed_runtime_reader_files_and_expected_binding_cannot_change[profile-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_fixed_runtime_reader_files_and_expected_binding_cannot_change[policy-version-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_fixed_runtime_reader_files_and_expected_binding_cannot_change[provider-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_fixed_runtime_reader_files_and_expected_binding_cannot_change[farm-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_fixed_runtime_reader_files_and_expected_binding_cannot_change[identity-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_fixed_runtime_reader_files_and_expected_binding_cannot_change[code-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_fixed_runtime_reader_files_and_expected_binding_cannot_change[notice-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_fixed_runtime_reader_files_and_expected_binding_cannot_change[closed-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_fixed_runtime_reader_files_and_expected_binding_cannot_change[root-file-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_fixed_runtime_reader_files_and_expected_binding_cannot_change[block-file-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_fixed_runtime_reader_files_and_expected_binding_cannot_change[expected-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_callback_requires_exact_true_and_cannot_change_declaration[1-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_callback_requires_exact_true_and_cannot_change_declaration[true-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_callback_requires_exact_true_and_cannot_change_declaration[None-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_callback_requires_exact_true_and_cannot_change_declaration[answer3-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_callback_requires_exact_true_and_cannot_change_declaration[False-login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_period_outside_registered_occupancy_is_rejected[login_scope0]": "first_valid47",
+      "tests/test_crop_cycle_farm_binding.py::test_fresh_process_reconnection_preserves_binding_bytes_and_fd_cleanup[login_scope0]": "safety_correction",
+      "tests/test_crop_cycle_farm_binding.py::test_policy_callback_and_reader_memory_cannot_change_preflighted_input[root-after-policy-login_scope0]": "safety_correction",
+      "tests/test_crop_cycle_farm_binding.py::test_policy_callback_and_reader_memory_cannot_change_preflighted_input[block-after-policy-login_scope0]": "safety_correction",
+      "tests/test_crop_cycle_farm_binding.py::test_policy_callback_and_reader_memory_cannot_change_preflighted_input[reader-memory-login_scope0]": "safety_correction",
+      "tests/test_crop_cycle_farm_binding.py::test_policy_callback_and_reader_memory_cannot_change_preflighted_input[mutable-declaration-login_scope0]": "safety_correction",
+      "tests/test_crop_cycle_farm_binding.py::test_unicode_input_identifier_preserves_original_root_canonical_codec[login_scope0]": "unicode_correction"
+    },
+    "excluded_first_pass": "late-source test injected the nonexistent ThermalRunStore.get_input_rights and passed via wrapped callback AttributeError; not valid revocation evidence; corrected actual economic provider rerun",
+    "first_failure": "source test incorrectly patched nonexistent ThermalRunStore.get_input_rights; corrected to farms.replay.candidates._source._source.get_input_rights",
+    "actual_safety_red_failures": [
+      "root file changed after policy callback",
+      "block file changed after policy callback",
+      "reader internal root mutation"
+    ],
+    "unicode_red_failure": "UTF-8 farm codec differed from original input root ASCII-escape codec",
+    "root_canonical_codec": "unchanged crop_cycle_input_stream._canonical",
+    "invalid_workspace_collection_not_counted_as_tdd_red": true,
+    "invalid_workspace_collection_log_sha256": "8392fe470ec248c01c68b11f7777d54510faf1dbf6f500d3b4f2aca4cc3490ca",
+    "actual_scram_farm_source_and_frozen_binding": true,
+    "separate_python_reconnection_same_bytes_and_fd_cleanup": true,
+    "current_scopes_farm_source_input_and_mid_callback_change_rejected": true,
+    "rhs_and_advance_forbidden_in_all_binding_tests": true,
+    "crop_rhs_calls": 0,
+    "crop_rows_created": 0,
+    "actual_crop_runs_created": 0,
+    "observed_peak_sequential_child_rss_mib": 136.21484375,
+    "rss_is_not_process_group_or_whole_wsl_total": true
+  },
+  "reference": {
+    "scope": "synthetic_farm_input_binding_only",
+    "actual_scram": true,
+    "binding_bytes": 3496,
+    "binding_sha256": "993bb2e23275aa6e04567fc3fa3cd39bc5c4c753773f8c7984c859a91c3892b1",
+    "input_root_sha256": "9add153a6f5e624b59e37bb1e78a9176ad215690dc485bae87676bb30743bdb7",
+    "prepare_seconds": 5.5608287959476,
+    "current_seconds": 5.819575743051246,
+    "same_current_bytes": true,
+    "counts_before_after_unchanged": true,
+    "crop_rows_and_runs": [
+      0,
+      0
+    ],
+    "plan": {
+      "planned_steps": 120,
+      "boundaries": 3,
+      "counts": {
+        "anchors": 3,
+        "events": 0,
+        "outputs": 3,
+        "segments": 2
+      },
+      "packet_referenced_bytes": 11548
+    },
+    "planned_steps_are_preflight_math_not_rhs": true,
+    "private_reference_sha256": "e661156b1fd0e165cd42dddf3e609565dc80ab26f558baf2766522beba2ee005"
+  },
+  "dependency_split": [
+    "crop-cycle-farm-binding accepted local",
+    "crop-cycle-server-custody not implemented",
+    "crop-cycle-db-custody not implemented",
+    "parent crop-cycle-result-storage not accepted"
+  ],
+  "next_stage": {
+    "task": "crop-cycle-server-custody",
+    "candidate_contract": "contracts/crop-cycle-server-custody-v1.md",
+    "focused_hours": [
+      3,
+      5
+    ],
+    "provisional_kst_dates": [
+      "2026-10-05",
+      "2026-10-07"
+    ],
+    "basis": "proof/adapter1-2h + actual writer/current rights/restore1-2h + forced exit/tamper/cleanup1h;4focused hours/day; excludes CI/external data"
+  },
+  "remaining_storage_parent": {
+    "focused_hours": [
+      5,
+      8
+    ],
+    "provisional_kst_dates": [
+      "2026-10-05",
+      "2026-10-08"
+    ],
+    "db_custody_hours": [
+      2,
+      3
+    ]
+  },
+  "ci_scope": {
+    "accepted_prior_head": "fe41e22eed6080a742bb27bb9ec12130532314f1",
+    "accepted_receipt": "research/artifacts/crop-cycle-stream-ci-20261005.json",
+    "current_remote_head": "ff6eb3d05084b499db93a7698776b3c7f339be5c",
+    "current_remote_backend_run": 37292433584,
+    "current_remote_four_other_workflows": "terminal success observed; Backend remaining partitions in progress/queued; no full acceptance",
+    "farm_binding_outside_current_remote_ci": true,
+    "push_waits_for_exact_head_terminal": true
+  },
+  "not_accepted": [
+    "server-computed signed file custody",
+    "DB HMAC publication",
+    "cycle API/client/same-UTC 3D",
+    "166day actual RHS burden",
+    "fresh kg/resources/Decimal economics",
+    "real product runtime CLI",
+    "G0",
+    "G1",
+    "G2",
+    "G3a",
+    "G3b",
+    "G4",
+    "crop production or future margin or crop ranking"
+  ],
+  "external_holds": {
+    "adopted_actual_cultivar_initial_management_forcing": 0,
+    "independent_domestic_farm_datasets": 0,
+    "actual_crop_runs": 0,
+    "profile_applicability": "unvalidated_for_registered_crop",
+    "trusted_root_provider_actual_policy_data_and_review": "not acquired"
+  },
+  "public_payload_policy": "hashes, scope, synthetic metrics, cleanup only; actual binding, credentials and private data excluded",
+  "documentation_check": {
+    "local_markdown_links_and_anchors": 2102,
+    "all_exist": true,
+    "receipt_file_hashes_match": 12,
+    "frozen_source_hashes_match": 44,
+    "implementation_dags": [
+      {
+        "edges": 83,
+        "acyclic": true
+      },
+      {
+        "edges": 89,
+        "acyclic": true
+      }
+    ],
+    "git_diff_check": "passed"
+  }
+}

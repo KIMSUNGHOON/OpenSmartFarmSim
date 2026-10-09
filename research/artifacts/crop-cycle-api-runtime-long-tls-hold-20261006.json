@@ -1,0 +1,71 @@
+{
+  "evidence_version": "crop-cycle-api-runtime-long-tls-hold-v1",
+  "recorded_at_utc": "2026-10-06T00:37:11.017038+00:00",
+  "snapshot_commit": "654929f92c87e9c1533180e4568aaee6bd373b91",
+  "scope": "Genuine synthetic registered25h calculation/store reached first HTTPS handshake; no response budget acceptance and no crop/biological gate acceptance.",
+  "source_sha256": {
+    "backend/app/api_runtime.py": "d321de38cc241992cbdbaf703fda2d0bcf6c619f55cb233e557066804135ed83",
+    "backend/tests/test_api_crop_cycle_runtime.py": "b6e26d186a0f7f127b2efc4f4855686023bc5004eee403b94758c0fb18ef7c64",
+    "backend/tests/test_api_crop_cycle_tls.py": "65fa8d000e0fbd26198eb1c6d3ecdbee1809b8aed1d03b1f755bd97e9af98f12"
+  },
+  "shared_tls_fixture_source_sha256": "afb0aa24bd02da1d19109c1987cfc0244b6d15c3ad92224e992c8d101ea349b4",
+  "cli": {
+    "timestamp": "2026-10-06T00:17:32.672Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "turn_context_line_sha256": "a1a0f42f628d81a5ee211ba52041d0752a7e3a1aaa7ee6e87455851d8bf42b0f",
+    "scope": "development_long_native_expired_test_certificate_diagnosis",
+    "recursive_cli_invocations": 0
+  },
+  "verification": {
+    "selected": 1,
+    "failed": 1,
+    "deselected": 1,
+    "pytest_seconds": 2616.58,
+    "private_log_sha256": "81a9dfbaf323e91fc441d49c0ce5e7aa43c645998aa5ddb5e5c0f46ca42bbde4",
+    "completed11400_and_store_put_reached": true,
+    "independent_control_flow_ran_but_public_original_comparison_not_reached": true,
+    "http_full_responses": 0,
+    "two_restart_and_pages_not_reached": true
+  },
+  "hold": {
+    "failure_type": "ssl.SSLCertVerificationError",
+    "reported_cause": "certificate has expired",
+    "phase": "first trusted SSL handshake before GET headers/body",
+    "test_fixture_lifetime_seconds": 600,
+    "fixture_was_requested_before_long_calculation": true,
+    "actual30second_http_budget_measured": false,
+    "proposal": "Request the existing verified TLS fixture dynamically after calculation/store; preserve fixture lifetime, SSL verification, HTTP30sec/2MiB and worker128 transitions."
+  },
+  "native_cleanup": {
+    "scope": "synthetic_cycle_api_runtime_tls_software_only",
+    "started_at": "2026-10-05T23:49:13.780487+00:00",
+    "postgres_version": "postgres (PostgreSQL) 16.15",
+    "new_dependencies": 0,
+    "servers_started": 1,
+    "pytest_arguments": [
+      "tests/test_api_crop_cycle_tls.py",
+      "-k",
+      "registered_25h"
+    ],
+    "effective_nice": 10,
+    "exit_code": 1,
+    "wall_seconds": 2617.1974021320348,
+    "remaining_test_roles": 0,
+    "remaining_test_schemas": 0,
+    "remaining_test_password_files": 0,
+    "postgres_stopped": true,
+    "postgres_status_exit_code": 3,
+    "private_cluster_and_admin_password_files_removed": true,
+    "owned_servers_after": 0,
+    "peak_children_rss_mib": 126.39453125
+  },
+  "private_owned_cluster_directories_after": 0,
+  "prior_short_acceptance": "research/artifacts/crop-cycle-api-runtime-short-reference-20261006.json",
+  "prior_short_failure": "research/artifacts/crop-cycle-api-runtime-tls-hold-20261006.json",
+  "runtime_and_api_parent_local_accepted": false,
+  "gates": "not_assessed",
+  "actual_crop_runs": 0,
+  "domestic_independent_datasets": 0,
+  "raw_logs_and_test_private_keys_public": false
+}

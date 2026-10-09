@@ -1,0 +1,302 @@
+{
+  "CI_settings_changed": false,
+  "actual_log_argv": [
+    "gh",
+    "run",
+    "view",
+    "37647874843",
+    "-R",
+    "KIMSUNGHOON/OpenSmartFarmSim",
+    "--log"
+  ],
+  "actual_log_exit_code": 0,
+  "all_three_actual_steps_and_cleanup_accepted": true,
+  "artifacts_count": 0,
+  "cancel_rerun_push_performed": false,
+  "current_native_browser_accepted": false,
+  "evidence_origin": "actual_terminal_run_logs",
+  "existing_compatibility_source_sha256": {
+    "backend/tests/test_application_operator_policy.py": "76b2598251071bf882eca9fec5f6750e06fe889e7b3983a201faba58fc3b92fe",
+    "backend/tests/test_operator_config.py": "6cbffa576258b79a150a82bb03162c7332c0e970285aaf45f6dc3fc6c431d3d8",
+    "scripts/check-application-runtime.py": "80c9fa2dff31b84a8f36af828101f352b85907bc1f0bb76961fa02e097493e7d"
+  },
+  "existing_three_Compose_step_events": {
+    "Verify actual Compose API and automatic worker": [
+      {
+        "check": "actual_build_context",
+        "excluded_probes": 17,
+        "fruit_cohort_profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+        "fruit_transport_profile_sha256": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:f659756c00ed27f866488358dd0d50b1dc402191b61458b1759d439c14731bf2",
+        "service": "backend",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:6966ae6412a716e696df70689fc1ea7ad404615c1c33013ab68ca436be224b29",
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "api",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 134217728,
+        "nano_cpus": 250000000,
+        "readonly": true,
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 1000000000,
+        "readonly": true,
+        "service": "simulation",
+        "uid": "11001:11010"
+      },
+      {
+        "assessment": "hold",
+        "check": "tls_scram_automatic_economic_completion",
+        "scope": "software_fixture_only"
+      },
+      {
+        "check": "restart_current_completed_result",
+        "unchanged": true
+      },
+      {
+        "check": "current_grant_drift_refused",
+        "status": 503
+      },
+      {
+        "check": "compose_cleanup",
+        "processes_volumes_credentials_removed": true
+      }
+    ],
+    "Verify actual Compose owned collection consumer": [
+      {
+        "check": "actual_build_context",
+        "excluded_probes": 17,
+        "fruit_cohort_profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+        "fruit_transport_profile_sha256": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:f659756c00ed27f866488358dd0d50b1dc402191b61458b1759d439c14731bf2",
+        "service": "backend",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:6966ae6412a716e696df70689fc1ea7ad404615c1c33013ab68ca436be224b29",
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "assessment": "hold",
+        "check": "automatic_owned_collection",
+        "scope": "software_fixture_only",
+        "source_count": 3
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "api",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 134217728,
+        "nano_cpus": 250000000,
+        "readonly": true,
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 1000000000,
+        "readonly": true,
+        "service": "simulation",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 268435456,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "collector",
+        "uid": "11001:11010"
+      },
+      {
+        "assessment": "hold",
+        "check": "tls_scram_automatic_economic_completion",
+        "scope": "software_fixture_only"
+      },
+      {
+        "check": "restart_current_completed_result",
+        "unchanged": true
+      },
+      {
+        "check": "collection_restart_and_parent_withdrawal",
+        "status": 422,
+        "unchanged": true
+      },
+      {
+        "check": "current_grant_drift_refused",
+        "status": 503
+      },
+      {
+        "check": "collector_current_grant_refused",
+        "exit_code": 3
+      },
+      {
+        "check": "compose_cleanup",
+        "processes_volumes_credentials_removed": true
+      }
+    ],
+    "Verify actual Compose scoped research authority": [
+      {
+        "check": "actual_build_context",
+        "excluded_probes": 17,
+        "fruit_cohort_profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+        "fruit_transport_profile_sha256": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:f659756c00ed27f866488358dd0d50b1dc402191b61458b1759d439c14731bf2",
+        "service": "backend",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "image_built",
+        "image_id": "sha256:6966ae6412a716e696df70689fc1ea7ad404615c1c33013ab68ca436be224b29",
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "research_terminal_hold",
+        "reason_code": "ai_validated_hold"
+      },
+      {
+        "check": "held_research_ingestion_refused",
+        "status": 422
+      },
+      {
+        "captures": 1,
+        "check": "automatic_scoped_research_hold",
+        "decisions": 1,
+        "scope": "software_fixture_only",
+        "signed_executions": 1
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "api",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 134217728,
+        "nano_cpus": 250000000,
+        "readonly": true,
+        "service": "web",
+        "uid": "11002:11002"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 1000000000,
+        "readonly": true,
+        "service": "simulation",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 536870912,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "supervisor",
+        "uid": "11003:11020"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 805306368,
+        "nano_cpus": 500000000,
+        "readonly": true,
+        "service": "authority",
+        "uid": "11001:11010"
+      },
+      {
+        "check": "actual_compose_process",
+        "memory_bytes": 134217728,
+        "nano_cpus": 250000000,
+        "readonly": true,
+        "service": "dispatcher",
+        "uid": "11004:11030"
+      },
+      {
+        "assessment": "hold",
+        "check": "tls_scram_automatic_economic_completion",
+        "scope": "software_fixture_only"
+      },
+      {
+        "check": "restart_current_completed_result",
+        "unchanged": true
+      },
+      {
+        "check": "research_restart_current_hold",
+        "unchanged": true
+      },
+      {
+        "check": "current_grant_drift_refused",
+        "status": 503
+      },
+      {
+        "check": "dispatcher_current_grant_refused",
+        "exit_code": 3
+      },
+      {
+        "check": "compose_cleanup",
+        "processes_volumes_credentials_removed": true
+      }
+    ]
+  },
+  "gates": "not_assessed",
+  "hosted_sources_equal_current": true,
+  "observed_at_utc": "2026-10-07T16:27:54.516225+00:00",
+  "raw_log_bytes": 50750,
+  "raw_log_sha256": "c219506cff390410aa91390ecb305ce771005b9186cad740d93d71f219167368",
+  "run": {
+    "conclusion": "success",
+    "databaseId": 37647874843,
+    "headSha": "f2dc10f4fd84780ed1fbb1ef8a2a9e51985fe19c",
+    "jobs": [
+      {
+        "conclusion": "success",
+        "name": "images",
+        "status": "completed"
+      }
+    ],
+    "name": "Application runtime verification",
+    "status": "completed",
+    "updatedAt": "2026-10-07T16:00:52Z",
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874843"
+  },
+  "schema_version": "application-operator-policy-hosted-reference-v1",
+  "scope": "existing_three_Compose_software_fixture_paths_only_not_crop_G1_or_G4",
+  "whole_Backend_CI_accepted": false
+}

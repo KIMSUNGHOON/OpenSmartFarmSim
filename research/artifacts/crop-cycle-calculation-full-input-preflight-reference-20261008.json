@@ -1,0 +1,116 @@
+{
+  "acceptance": {
+    "G0_input_adoption": false,
+    "full166_DB_API_sameUTC3D": false,
+    "full166_farm_economic_calendar_registration": false,
+    "full166_registered_RHS": false,
+    "original_input_reopens_under_new_verified_calculation_context": true,
+    "prefix_cost_parent": false
+  },
+  "controller_sha256": "045fe0f995c6ee0b167e6be8d492cbbaa8f467e02edcb5c2013962326f6e662c",
+  "execution": {
+    "argv": [
+      "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/full166-registration/preflight-original-input.py"
+    ],
+    "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend",
+    "driver_sha256": "0b4e94160ddd581e72126e169f4dbc01007f3b0cf823042f0732e4f5074523bf",
+    "exit_code": 0,
+    "finished_at_utc": "2026-10-07T18:17:37.794392+00:00",
+    "log_sha256": "898067497485948afd91b1c0e4fde190a50f07f1244e7ff55251586d5df09cac",
+    "nice": 19,
+    "primary_PID_absent_after": true,
+    "sampled_primary_max_RSS_bytes": 98041856,
+    "source_pins": 123,
+    "source_pins_unchanged": true,
+    "started_at_utc": "2026-10-07T18:17:05.743443+00:00",
+    "wall_budget_interrupt_sent": false,
+    "wall_budget_seconds": 120,
+    "wall_seconds": 32.050963473986485
+  },
+  "external_dependencies": {
+    "actual_adopted_cultivar_inputs": 0,
+    "domestic_independent_datasets": 0,
+    "measured_farm_crop_runs": 0
+  },
+  "gate_decisions": {
+    "G0": "not_assessed",
+    "G1": "not_assessed",
+    "G2": "not_assessed",
+    "G3a": "not_assessed",
+    "G3b": "not_assessed",
+    "G4": "not_assessed"
+  },
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "native_turn_context_line_sha256": "5a9750094b77aa7f997ee36bec41ea7ad12fec454a70114bc3cb9279c0173b47",
+    "observed_at_utc": "2026-10-07T17:55:40.972822+00:00",
+    "reasoning_effort": "xhigh",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T17:49:07.297Z"
+  },
+  "next_action": "bind genuine farm and economic calendar to full input; any declared clock transformation requires separate version/root and exact original-value/interval mapping before registration",
+  "recorded_at_utc": "2026-10-07T18:19:12.694973+00:00",
+  "scope": "owned_synthetic_original_full166_input_only_not_farm_registration",
+  "source_period_and_registration_mismatch": {
+    "current_short_fixture_farm_dates": [
+      "2026-10-01",
+      "2026-11-30"
+    ],
+    "original_input_UTC": [
+      "2026-01-01T00:00:00Z",
+      "2026-06-16T00:00:00Z"
+    ],
+    "scope": "observed input root and current owned fixture; no actual farm binding attempt or period bypass performed"
+  },
+  "source_pins_receipt_sha256": "3afcc56e589e0a0e09b3c9cb9649311dd6c4542c204c15f8812a83473bdf8ec3",
+  "terminal_receipt_sha256": "8c791186871a9aeed0a9d3a9943de6cb687f74a705ffcf6c01e674343fe29707",
+  "verified_input": {
+    "actual_farm_DB_calls": 0,
+    "actual_steps": 0,
+    "boundary_count": 47811,
+    "context_closed_and_caches_empty": true,
+    "context_open_seconds": 0.3692961859924253,
+    "context_sha256": "a0be314645b1bc421efc275076357adcc58347586a1beb44f5e1f86e81ebfae5",
+    "currently_registered_small_farm_period": {
+      "end": "2026-11-30",
+      "start": "2026-10-01"
+    },
+    "descriptors_after": 4,
+    "descriptors_before": 4,
+    "input_plan": {
+      "boundaries": 47811,
+      "counts": {
+        "anchors": 47809,
+        "events": 5,
+        "outputs": 47809,
+        "segments": 47808
+      },
+      "packet_referenced_bytes": 113920841,
+      "planned_steps": 1816704
+    },
+    "input_root_file_sha256": "ab24eda4d763d7fe3faff1ae3c7c2f84fbec030af71a494bf284fef1f2cdcd98",
+    "input_root_sha256": "ab24eda4d763d7fe3faff1ae3c7c2f84fbec030af71a494bf284fef1f2cdcd98",
+    "native_recursive_CLI_calls": 0,
+    "observed_at_utc": "2026-10-07T18:17:37.500807+00:00",
+    "original_file_count": 750,
+    "original_input_files_hash_mode_device_inode_preserved": true,
+    "period": {
+      "end": "2026-06-16T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    },
+    "planned_steps": 1816704,
+    "process_lifetime_peak_RSS_bytes": 98488320,
+    "proof_issue_seconds": 30.284409215004416,
+    "proof_sha256": "b6c15004d5f42958cb3feabdbfe00a2660006257f96ad3009b42e1266715f67f",
+    "rhs_calls": 0,
+    "rights_or_gate_approval": false,
+    "scope": "original_full166_input_verified_calculation_preflight_only",
+    "seed_count": 121,
+    "segment_count": 47808,
+    "wall_seconds": 30.66065928300668,
+    "whole166_registration_accepted": false
+  },
+  "verified_receipt_sha256": "fe445fc55ff94ca4d53e7641ad168d20ec462f43329ce588fd356d3488387223",
+  "version": "original166-calculation-input-preflight-observed-v1"
+}

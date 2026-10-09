@@ -1,0 +1,95 @@
+{
+  "evidence_version": "crop-cycle-full-rhs-test-isolation-CI-reference-v1",
+  "observed_at_utc": "2026-10-07T05:06:50.104047+00:00",
+  "head_sha": "86290c304ddb6b386dcb1730acf9652ff84a4d41",
+  "scope": "hosted_predecessor_commit_including_test_isolation_only",
+  "workflows": [
+    {
+      "conclusion": "success",
+      "databaseId": 37560182343,
+      "headSha": "86290c304ddb6b386dcb1730acf9652ff84a4d41",
+      "status": "completed",
+      "workflowName": "C0 Compose verification",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37560182343"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37560182370,
+      "headSha": "86290c304ddb6b386dcb1730acf9652ff84a4d41",
+      "status": "completed",
+      "workflowName": "Application runtime verification",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37560182370"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37560182262,
+      "headSha": "86290c304ddb6b386dcb1730acf9652ff84a4d41",
+      "status": "completed",
+      "workflowName": "Web tests",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37560182262"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37560182294,
+      "headSha": "86290c304ddb6b386dcb1730acf9652ff84a4d41",
+      "status": "completed",
+      "workflowName": "Authored API PostgreSQL smoke",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37560182294"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37560182333,
+      "headSha": "86290c304ddb6b386dcb1730acf9652ff84a4d41",
+      "status": "completed",
+      "workflowName": "Backend tests",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37560182333"
+    }
+  ],
+  "backend_jobs": [
+    {
+      "name": "backend-partition-5",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "backend-partition-4",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "backend-partition-3",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "backend-partition-2",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "backend-partition-0",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "backend-partition-1",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "backend",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "test_counts_independently_retrieved": false,
+  "excludes_local_commits": [
+    "a31dc25",
+    "04072f0",
+    "40594a5"
+  ],
+  "excludes_new_durable_supervisor": true,
+  "full166_or_G0_G4_accepted": false,
+  "live_run_cancelled_or_restarted": false,
+  "CI_configuration_changed": false
+}

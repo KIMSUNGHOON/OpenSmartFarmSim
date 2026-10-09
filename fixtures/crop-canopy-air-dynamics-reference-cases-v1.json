@@ -1,0 +1,393 @@
+{
+  "cases": [
+    {
+      "case_id": "warm",
+      "rhs_decimal": {
+        "air_capacity": "4800.00",
+        "air_pressure": "1342.2015",
+        "air_temperature_rate": "0.0083333333333333333333333333333333333333333333333333333333333333333333333333333333",
+        "air_vapor_mass_rate": "0.000082049656211663404842815470363030680444338044584690803018734068718384857375863027",
+        "canopy_capacity": "2400",
+        "canopy_temperature_rate": "-0.10042569071607305911037412599559381962026175384687186141495769515001787523786018",
+        "latent_heat": "201.02165771857534186489790238942516708862820923249246739589846836004290057086442",
+        "sensible_heat": "40.0",
+        "water_vapor": "0.000082049656211663404842815470363030680444338044584690803018734068718384857375863027"
+      },
+      "scenario": {
+        "forcing": {
+          "air_external_sensible_heat": {
+            "unit": "W/m2_floor",
+            "value": 0.0
+          },
+          "air_external_vapor": {
+            "unit": "kg_water/m2_floor/s",
+            "value": 0.0
+          },
+          "canopy_external_heat": {
+            "unit": "W/m2_floor",
+            "value": 0.0
+          }
+        },
+        "input_id": "synthetic-dynamic-warm",
+        "origin": "synthetic",
+        "parameters": {
+          "air_capacity_density": {
+            "unit": "kg_air/m3",
+            "value": 1.2
+          },
+          "air_volume_per_floor_area": {
+            "unit": "m3/m2_floor",
+            "value": 4.0
+          },
+          "canopy_vapor_resistance": {
+            "unit": "s/m",
+            "value": 82.0
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "vapor_gas_constant": {
+            "unit": "J/kg_water/K",
+            "value": 461.0
+          }
+        },
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 18.0
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.04
+          },
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 20.0
+          }
+        }
+      },
+      "trajectory_60s_dt0_25_decimal": {
+        "state": {
+          "air_temperature": "17.984432967958840719470605807268165088542420676220540264670116055021992498272879",
+          "air_vapor_mass": "0.043263191959937404362653165884353758697101571667066223457594526947209588916719500",
+          "canopy_temperature": "16.699958938312884940850348211852541152957304237428816357698688298012892984303085"
+        },
+        "transfers": {
+          "latent_heat": "7994.8203018466406885002564166667088078988505843122474711065910206634928459627791",
+          "sensible_heat": "-74.721753797564546541092125112807574996380754141406729583442935894436008290189735",
+          "water_vapor": "0.0032631919599374043626531658843537586971015716670662234575945269472095889167195016"
+        }
+      },
+      "trajectory_60s_dt1_decimal": {
+        "state": {
+          "air_temperature": "17.984432967110122217559484969674056984117881873687544791995137902275325643764755",
+          "air_vapor_mass": "0.043263191958573719863390729181299171365763560292365629926905536017133312303561434",
+          "canopy_temperature": "16.699958941402416537669660688075648595880601787501663198960322844625759069251527"
+        },
+        "transfers": {
+          "latent_heat": "7994.8202985056136653072864941829698461207227162957933209185632419766151437255103",
+          "sensible_heat": "-74.721757871413355714472145564526476234167006299784998423338069078436909929171833",
+          "water_vapor": "0.0032631919585737198633907291812991713657635602923656299269055360171333123035614328"
+        }
+      }
+    },
+    {
+      "case_id": "reverse",
+      "rhs_decimal": {
+        "air_capacity": "4800.00",
+        "air_pressure": "2748.9430",
+        "air_temperature_rate": "-0.020833333333333333333333333333333333333333333333333333333333333333333333333333333",
+        "air_vapor_mass_rate": "-0.000035276635138571869466647785195380265349524441790666982301212407483906740982976817",
+        "canopy_capacity": "2400",
+        "canopy_temperature_rate": "0.077678231703958783413869614053617354210972867661305877765820999306488131420122167",
+        "latent_heat": "-86.427756089501080193287073728681650106334882387134106637970398335571515408293202",
+        "sensible_heat": "-100.0",
+        "water_vapor": "-0.000035276635138571869466647785195380265349524441790666982301212407483906740982976817"
+      },
+      "scenario": {
+        "forcing": {
+          "air_external_sensible_heat": {
+            "unit": "W/m2_floor",
+            "value": 0.0
+          },
+          "air_external_vapor": {
+            "unit": "kg_water/m2_floor/s",
+            "value": 0.0
+          },
+          "canopy_external_heat": {
+            "unit": "W/m2_floor",
+            "value": 0.0
+          }
+        },
+        "input_id": "synthetic-dynamic-reverse",
+        "origin": "synthetic",
+        "parameters": {
+          "air_capacity_density": {
+            "unit": "kg_air/m3",
+            "value": 1.2
+          },
+          "air_volume_per_floor_area": {
+            "unit": "m3/m2_floor",
+            "value": 4.0
+          },
+          "canopy_vapor_resistance": {
+            "unit": "s/m",
+            "value": 82.0
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "vapor_gas_constant": {
+            "unit": "J/kg_water/K",
+            "value": 461.0
+          }
+        },
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 25.0
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.08
+          },
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 20.0
+          }
+        }
+      },
+      "trajectory_60s_dt0_25_decimal": {
+        "state": {
+          "air_temperature": "24.236367969229800927121718812151596437510653540073321812172398810995571179924268",
+          "air_vapor_mass": "0.079137113219165770088895828214786442866505857981748361169287303985136862015679510",
+          "canopy_temperature": "22.408127650308674513342071073102313365420629563485237682007746226514977665811988"
+        },
+        "transfers": {
+          "latent_heat": "-2114.0726130438632822052208737732149770606479447165151352461052364146880615852113",
+          "sensible_heat": "-3665.4337476969555498157497016723370999488630076480553015724857072212583363635576",
+          "water_vapor": "-0.00086288678083422991110417178521355713349414201825163883071269601486313798432049451"
+        }
+      },
+      "trajectory_60s_dt1_decimal": {
+        "state": {
+          "air_temperature": "24.236367969875212090163372592785044444730708957240227142053031740462199198266345",
+          "air_vapor_mass": "0.079137113221592919858845462339619889290928787980760557984061237351174195966776263",
+          "canopy_temperature": "22.408127646540136797101845342734607459382111021826476107164756723085276554049875"
+        },
+        "transfers": {
+          "latent_heat": "-2114.0726070973463458286172679312712372244694471366329390499684896232198813981636",
+          "sensible_heat": "-3665.4337445989819672158115546317866652925970052469097181454476457814438483215445",
+          "water_vapor": "-0.00086288677840708014115453766038011070907121201923944201593876264882580403322374023"
+        }
+      }
+    },
+    {
+      "case_id": "isothermal",
+      "rhs_decimal": {
+        "air_capacity": "4800.00",
+        "air_pressure": "1351.4215",
+        "air_temperature_rate": "0E+1",
+        "air_vapor_mass_rate": "0.000081280681665700860033315465410984729628058428091979954024338220930724417602906515",
+        "canopy_capacity": "2400",
+        "canopy_temperature_rate": "-0.082974029200402961284009537607046911495309645343896203066511933866781176302967067",
+        "latent_heat": "199.13767008096710708162289025691258758874314882535088735962864128027482312712096",
+        "sensible_heat": "0.0",
+        "water_vapor": "0.000081280681665700860033315465410984729628058428091979954024338220930724417602906515"
+      },
+      "scenario": {
+        "forcing": {
+          "air_external_sensible_heat": {
+            "unit": "W/m2_floor",
+            "value": 0.0
+          },
+          "air_external_vapor": {
+            "unit": "kg_water/m2_floor/s",
+            "value": 0.0
+          },
+          "canopy_external_heat": {
+            "unit": "W/m2_floor",
+            "value": 0.0
+          }
+        },
+        "input_id": "synthetic-dynamic-isothermal",
+        "origin": "synthetic",
+        "parameters": {
+          "air_capacity_density": {
+            "unit": "kg_air/m3",
+            "value": 1.2
+          },
+          "air_volume_per_floor_area": {
+            "unit": "m3/m2_floor",
+            "value": 4.0
+          },
+          "canopy_vapor_resistance": {
+            "unit": "s/m",
+            "value": 82.0
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "vapor_gas_constant": {
+            "unit": "J/kg_water/K",
+            "value": 461.0
+          }
+        },
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 20.0
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.04
+          },
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 20.0
+          }
+        }
+      },
+      "trajectory_60s_dt0_25_decimal": {
+        "state": {
+          "air_temperature": "19.620334388797675093312290094689391764345768399035540946678998813002794742447894",
+          "air_vapor_mass": "0.043428159576057756688382993374380060922423858289198857112579582430236407856150648",
+          "canopy_temperature": "17.259751655179023193984447407608237613000774531705084804217011976461410828617085"
+        },
+        "transfers": {
+          "latent_heat": "8398.9909613415038865383337672311492599384528085371999258199769540791992475690986",
+          "sensible_heat": "-1822.3949337711595521010075454909195311403116846294034559408056975865852362501112",
+          "water_vapor": "0.0034281595760577566883829933743800609224238582891988571125795824302364078561506520"
+        }
+      },
+      "trajectory_60s_dt1_decimal": {
+        "state": {
+          "air_temperature": "19.620334388109675254430279729631809703598632787246355838105711232116156830021936",
+          "air_vapor_mass": "0.043428159574829358338154252661735497581648934944068368241882897960423851359896685",
+          "canopy_temperature": "17.259751657809012854273640948548060144869446670104162410199785867835004743394934"
+        },
+        "transfers": {
+          "latent_heat": "8398.9909583319279284779190212519690750398906129675021926131000030384358317468823",
+          "sensible_heat": "-1822.3949370735587787346572977673134227265626212174919770925860858424472158947184",
+          "water_vapor": "0.0034281595748293583381542526617354975816489349440683682418828979604238513598966868"
+        }
+      }
+    },
+    {
+      "case_id": "forced",
+      "rhs_decimal": {
+        "air_capacity": "4800.00",
+        "air_pressure": "1342.2015",
+        "air_temperature_rate": "0.020833333333333333333333333333333333333333333333333333333333333333333333333333333",
+        "air_vapor_mass_rate": "0.00010631191322523703318860088182610056260627663950227415206641999756828496903603324",
+        "canopy_capacity": "2400",
+        "canopy_temperature_rate": "-0.0803809114174294713800300668641443243272407361585715302344704141842909058909506",
+        "latent_heat": "262.91418740183073131207216047394637838537776678057167256272899404229817413828144",
+        "sensible_heat": "80.0",
+        "water_vapor": "0.00010731191322523703318860088182610056260627663950227415206641999756828496903603324"
+      },
+      "scenario": {
+        "forcing": {
+          "air_external_sensible_heat": {
+            "unit": "W/m2_floor",
+            "value": 20.0
+          },
+          "air_external_vapor": {
+            "unit": "kg_water/m2_floor/s",
+            "value": -1e-06
+          },
+          "canopy_external_heat": {
+            "unit": "W/m2_floor",
+            "value": 150.0
+          }
+        },
+        "input_id": "synthetic-dynamic-forced",
+        "origin": "synthetic",
+        "parameters": {
+          "air_capacity_density": {
+            "unit": "kg_air/m3",
+            "value": 1.2
+          },
+          "air_volume_per_floor_area": {
+            "unit": "m3/m2_floor",
+            "value": 4.0
+          },
+          "canopy_vapor_resistance": {
+            "unit": "s/m",
+            "value": 82.0
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2.0
+          },
+          "leaf_heat_capacity": {
+            "unit": "J/m2_leaf/K",
+            "value": 1200.0
+          },
+          "vapor_gas_constant": {
+            "unit": "J/kg_water/K",
+            "value": 461.0
+          }
+        },
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 18.0
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.04
+          },
+          "canopy_temperature": {
+            "unit": "degC",
+            "value": 22.0
+          }
+        }
+      },
+      "trajectory_60s_dt0_25_decimal": {
+        "state": {
+          "air_temperature": "18.772357731364921248363991199635126104675512378359460507357231568172973126941927",
+          "air_vapor_mass": "0.044812772437112982860534791275780079563779698194701440830803589310761049881258451",
+          "canopy_temperature": "19.730996007717320833142751506704249902623866669523358137173539442252148658998144"
+        },
+        "transfers": {
+          "latent_heat": "11938.292470926808008310238625661194931260260577018530035468793811364572209083223",
+          "sensible_heat": "2507.3171105516219921471577582486053024424594161254104353147115272302710093212208",
+          "water_vapor": "0.0048727724371129828605347912757800795637796981947014408308035893107610498812584601"
+        }
+      },
+      "trajectory_60s_dt1_decimal": {
+        "state": {
+          "air_temperature": "18.772357730530155617310841863010694765675555837158740560805298177890001822791965",
+          "air_vapor_mass": "0.044812772435394513527145995403047718344104879987765028893621824559566975128607677",
+          "canopy_temperature": "19.730996011141122873083445966700731325708490004839051882817124406328709243962397"
+        },
+        "transfers": {
+          "latent_heat": "11938.292466716558141507688737466909943056955970024320789373470170939089065088812",
+          "sensible_heat": "2507.3171065447469630920409424513348752426680183619546918654312538720087494014310",
+          "water_vapor": "0.0048727724353945135271459954030477183441048799877650288936218245595669751286076786"
+        }
+      }
+    }
+  ],
+  "input_basis": "self-authored constant-LAI synthetic cases, not cultivar/site data; all capacities, geometry, density, resistance and gas constant explicit; capLeaf1200 equals a source example without adoption, Rv461 is an explicit synthetic assumption, not a source-ratio adoption",
+  "oracle": "independent_Decimal_80_RHS_and_RK4_no_app_import",
+  "profile_sha256": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+  "scope": "synthetic_software_reference_only",
+  "version": "crop-canopy-air-dynamics-reference-cases-v1"
+}

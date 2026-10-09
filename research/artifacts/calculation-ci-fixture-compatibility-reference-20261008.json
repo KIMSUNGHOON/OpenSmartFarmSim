@@ -1,0 +1,244 @@
+{
+  "acceptance": "focused_local_compatibility_verified_hosted_pending",
+  "fresh_import_checks": {
+    "diagnostic": {
+      "3_12_3_original_test_passed": true,
+      "baseline": "standard library secrets imported before project imports; no FD target whitelist",
+      "observed_at_utc": "2026-10-07T18:04:17.966968+00:00",
+      "observed_cold_stdlib_secrets_extra_FD": "/dev/urandom",
+      "original_ci_failure_reproduced_on_3_12_13": true,
+      "project_sources_modified": false,
+      "python": "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/calculation-prefix-cost/ci-python-3.12.13-venv/bin/python",
+      "records": [
+        {
+          "exit_code": 0,
+          "fd_after": 5,
+          "fd_before": 5,
+          "first": "app.api_crop_cycle_calculation_replay",
+          "negative_control": false
+        },
+        {
+          "exit_code": 1,
+          "fd_after": 6,
+          "fd_before": 5,
+          "first": "app.api_crop_cycle_calculation_replay",
+          "negative_control": true
+        },
+        {
+          "exit_code": 0,
+          "fd_after": 5,
+          "fd_before": 5,
+          "first": "app.operator_config",
+          "negative_control": false
+        },
+        {
+          "exit_code": 1,
+          "fd_after": 6,
+          "fd_before": 5,
+          "first": "app.operator_config",
+          "negative_control": true
+        },
+        {
+          "exit_code": 0,
+          "fd_after": 5,
+          "fd_before": 5,
+          "first": "app.api",
+          "negative_control": false
+        },
+        {
+          "exit_code": 1,
+          "fd_after": 6,
+          "fd_before": 5,
+          "first": "app.api",
+          "negative_control": true
+        }
+      ]
+    },
+    "diagnostic_sha256": "da6e2ce20434797c27e8283c9e4f76ebbc5c5ceedb41303ac91f0b21602fd515",
+    "extra_open_file_negative_controls_rejected": 3,
+    "green_ci_python_3_12_13": {
+      "argv": [
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/calculation-prefix-cost/ci-python-3.12.13-venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/test_api_crop_cycle_calculation_replay.py",
+        "tests/test_api_crop_cycle_calculation_route.py",
+        "tests/test_calculation_operator_config.py",
+        "tests/test_crop_cycle_calculation_runtime.py",
+        "-q",
+        "-k",
+        "fresh_import or fresh_python",
+        "--tb=short"
+      ],
+      "deselected": 190,
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T18:08:36.616838+00:00",
+      "log_sha256": "852b2f58c94607efdd3b891be1de4b2089b126d3070ee3ed6d615ba7c10bfdf0",
+      "passed": 12,
+      "pytest_seconds": 10.9,
+      "started_at_utc": "2026-10-07T18:08:25.296547+00:00"
+    },
+    "green_wsl_python_3_12_3": {
+      "argv": [
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/test_api_crop_cycle_calculation_replay.py",
+        "tests/test_api_crop_cycle_calculation_route.py",
+        "tests/test_calculation_operator_config.py",
+        "tests/test_crop_cycle_calculation_runtime.py",
+        "-q",
+        "-k",
+        "fresh_import or fresh_python",
+        "--tb=short"
+      ],
+      "deselected": 190,
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T18:08:37.631758+00:00",
+      "log_sha256": "b133c650932e9168bb84dda060131c7228c62b31b7b4b1527500fa174082e7b4",
+      "passed": 12,
+      "pytest_seconds": 11.91,
+      "started_at_utc": "2026-10-07T18:08:25.298622+00:00"
+    },
+    "no_FD_target_whitelist": true,
+    "project_modules_not_preloaded": true,
+    "red": {
+      "argv": [
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/calculation-prefix-cost/ci-python-3.12.13-venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/test_api_crop_cycle_calculation_replay.py",
+        "tests/test_api_crop_cycle_calculation_route.py",
+        "tests/test_calculation_operator_config.py",
+        "tests/test_crop_cycle_calculation_runtime.py",
+        "-q",
+        "-k",
+        "fresh_import or fresh_python",
+        "--tb=short"
+      ],
+      "exit_code": 1,
+      "finished_at_utc": "2026-10-07T18:06:42.948641+00:00",
+      "log_sha256": "b520a87465eb81f91a9bb21cc718520bc01bdb5d93c915ad2cf6088fb91ab3bc",
+      "started_at_utc": "2026-10-07T18:06:31.293699+00:00"
+    }
+  },
+  "full_backend_suite_rerun": false,
+  "full_loader_runtime_HTTP_scenarios_rerun": false,
+  "gate_decisions": {
+    "G0": "not_assessed",
+    "G1": "not_assessed",
+    "G2": "not_assessed",
+    "G3a": "not_assessed",
+    "G3b": "not_assessed",
+    "G4": "not_assessed"
+  },
+  "hosted_observation": {
+    "conclusion": null,
+    "failures": {
+      "1": {
+        "errors": 0,
+        "failed": 3,
+        "job_log_sha256": "c399806fd31a3c48ee1732eaa38b363a498488c664ce88ae477f98bd1fb4ee0f",
+        "passed": 1198
+      },
+      "2": {
+        "errors": 2,
+        "failed": 9,
+        "job_log_sha256": "432ec93ba01747e328cee0cb2904059770ecdfe2ff6a1243ef7352f6459f1a99",
+        "passed": 584
+      },
+      "3": {
+        "errors": 1,
+        "failed": 0,
+        "job_log_sha256": "49fb76d65e76e2d18c0dbf3fdb704e3bc412b1f07cf87e871510e8a170071031",
+        "passed": 721
+      }
+    },
+    "head_sha": "f2dc10f4fd84780ed1fbb1ef8a2a9e51985fe19c",
+    "partitions": {
+      "0": "success",
+      "1": "failure",
+      "2": "failure",
+      "3": "failure",
+      "4": "in_progress",
+      "5": "in_progress"
+    },
+    "rerun_cancel_or_new_push_performed": false,
+    "run_id": 37647874807,
+    "status": "in_progress",
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37647874807"
+  },
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "native_turn_context_line_sha256": "5a9750094b77aa7f997ee36bec41ea7ad12fec454a70114bc3cb9279c0173b47",
+    "observed_at_utc": "2026-10-07T17:55:40.972822+00:00",
+    "reasoning_effort": "xhigh",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T17:49:07.297Z"
+  },
+  "next_action": "keep original hosted run; inspect remaining terminal jobs; whole166 real registration and prefix costs remain next core crop task",
+  "original118_changed_after_cost_measurement": [
+    "backend/tests/test_api_crop_cycle_calculation_replay.py",
+    "backend/tests/test_api_crop_cycle_calculation_route.py",
+    "backend/tests/test_api_crop_cycle_calculation_tls.py",
+    "backend/tests/test_calculation_operator_config.py",
+    "backend/tests/test_crop_cycle_calculation_runtime.py"
+  ],
+  "original_product_sources_changed": [],
+  "recorded_at_utc": "2026-10-07T18:12:38.940055+00:00",
+  "runtime_dependency_lock_schema_UI_CI_configuration_changes": false,
+  "scope": "test_only_cold_stdlib_FD_baseline_and_server_HBA_audits",
+  "server_HBA_audit": {
+    "active_login_scope": "separate real host connection requires scram-sha-256 and used_password true",
+    "actual_scram_and_three_teardown_audits": 1,
+    "final": {
+      "argv": [
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/calculation-prefix-cost/ci-python-3.12.13-venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/test_login_hba_audit.py",
+        "-q",
+        "--tb=short",
+        "--basetemp",
+        "/tmp/ossf-hbafinal-zwaw_zbb/pytest"
+      ],
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T18:11:23.074949+00:00",
+      "log_sha256": "a3612f7731018ad3ea4add07bebee8e255ff3fab6adcd3b75f835284c1eb2a24",
+      "owned_temp_tree_removed": true,
+      "passfiles_after": [],
+      "postmaster_pidfiles_after": [],
+      "scope": "actual_local_PG16.15_scram_and_three_runtime_teardown_audits_host_file_read_forbidden_not_full_loader_runtime_HTTP_rerun",
+      "source_sha256": {
+        "backend/tests/login_database.py": "1c5aa36f2c5bfe88c61747046b9153a5ef0ccb35afd47ed09dddf6d9ff1e6bfb",
+        "backend/tests/test_api_crop_cycle_calculation_replay.py": "79f5985f039c37ad2e294246341ff8ff703118368352738c08bc032c389b42f1",
+        "backend/tests/test_api_crop_cycle_calculation_route.py": "85ce5475cbdb1488b07cee4f4fe784074eb4342c9377aa8bad1501c9bc7609df",
+        "backend/tests/test_api_crop_cycle_calculation_tls.py": "18b40c8099158d0d2f0b497b6f34f244106c4ea58196c558f453fe6702d036f5",
+        "backend/tests/test_calculation_operator_config.py": "ed123c5f886e8eb82903b9707cc0903431e7bb57cf018f64782b5398f81ac60a",
+        "backend/tests/test_crop_cycle_calculation_runtime.py": "5bddd3e6fea348102e0c7d01aa2cd0aca95bdf609ef55bfbf660560f15153454",
+        "backend/tests/test_login_hba_audit.py": "f93b5cba54225f6da4efc6148ba5237683b681d919b157e4a92828b23b1dc608"
+      },
+      "sources_unchanged": true,
+      "started_at_utc": "2026-10-07T18:11:20.764466+00:00"
+    },
+    "guard_cases": 6,
+    "host_Path_read_text_forbidden": true,
+    "hosted_PostgreSQL18_after_fix_tested": false,
+    "official_documentation": "https://www.postgresql.org/docs/18/view-pg-hba-file-rules.html",
+    "passed": 7,
+    "postgresql_runtime_test_version": "16.15",
+    "pytest_seconds": 1.93,
+    "view": "pg_catalog.pg_hba_file_rules",
+    "view_scope": "current configuration file contents, not proof of last loaded server configuration"
+  },
+  "source_sha256": {
+    "backend/tests/login_database.py": "1c5aa36f2c5bfe88c61747046b9153a5ef0ccb35afd47ed09dddf6d9ff1e6bfb",
+    "backend/tests/test_api_crop_cycle_calculation_replay.py": "79f5985f039c37ad2e294246341ff8ff703118368352738c08bc032c389b42f1",
+    "backend/tests/test_api_crop_cycle_calculation_route.py": "85ce5475cbdb1488b07cee4f4fe784074eb4342c9377aa8bad1501c9bc7609df",
+    "backend/tests/test_api_crop_cycle_calculation_tls.py": "18b40c8099158d0d2f0b497b6f34f244106c4ea58196c558f453fe6702d036f5",
+    "backend/tests/test_calculation_operator_config.py": "ed123c5f886e8eb82903b9707cc0903431e7bb57cf018f64782b5398f81ac60a",
+    "backend/tests/test_crop_cycle_calculation_runtime.py": "5bddd3e6fea348102e0c7d01aa2cd0aca95bdf609ef55bfbf660560f15153454",
+    "backend/tests/test_login_hba_audit.py": "f93b5cba54225f6da4efc6148ba5237683b681d919b157e4a92828b23b1dc608"
+  },
+  "version": "calculation-ci-fixture-compatibility-v1"
+}

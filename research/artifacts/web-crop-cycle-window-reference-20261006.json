@@ -1,0 +1,63 @@
+{
+  "evidence_version": "web-crop-cycle-window-reference-v1",
+  "recorded_at_utc": "2026-10-06T03:01:32.741215+00:00",
+  "snapshot_commit": "083baf0586315dad1f6f65f71dfab72efe60b859",
+  "scope": "current window controller and original public response tests only; not a screen/browser/3D acceptance",
+  "source_sha256": {
+    "web/src/cycleCropWindow.ts": "92e26fe4d9c93c8c781be4c46be2c391453cc804e0c3ed7df325cc0a921f817e",
+    "web/src/cycleCropWindow.test.ts": "ed26ae4ada5fd1db433fa5bd0041a1593dacd2e4c33ff89787c809cc76dbbf2e"
+  },
+  "cli": {
+    "timestamp": "2026-10-06T02:39:09.080Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "turn_context_line_sha256": "c827f44f3bd6a6b56b36648325643c2f570e3529178e39a0c52263d0a42734a9",
+    "hash_includes_trailing_newline": true,
+    "recursive_cli_invocations": 0,
+    "scope": "current development CLI; own implementation and five-axis review, not independent agricultural validation"
+  },
+  "client_predecessor": "research/artifacts/web-crop-cycle-pages-reference-20261006.json",
+  "client_receipt_sha256": "6f21bbbe5d6ee9250e6469ef163d648329030a69b578ce351e6984093fd61409",
+  "verification": {
+    "new_window_tests": 19,
+    "full_web_tests": 522,
+    "full_web_files": 19,
+    "full_web_seconds": 6.76,
+    "typecheck_build_exit_code": 0,
+    "vite_build_seconds": 0.875,
+    "existing_chunk_warning": true,
+    "client_source5_unchanged": true,
+    "frozen_backend49_unchanged": true,
+    "new_browser_tests_run": false
+  },
+  "checks": [
+    "original saved result/farm/full reference and selected raw UTC/index",
+    "current-page count/offset/byte next/UTC range and partial label separate from completed/hold status",
+    "only visited integer offsets retained for previous lookup; former raw arrays discarded",
+    "only one sample or event page retained, at most64/8 rows",
+    "actual empty hold and shape-only completed zero outputs with no fabricated frames",
+    "all old numeric data cleared on loading/cancel/rights/reference failure",
+    "aborted full response settlement awaited before next account/ID HTTP",
+    "superseded queued requests skipped; reentrant callbacks cannot overwrite pending owner",
+    "no updates after dispose or late canceled responses; reset selection on page changes"
+  ],
+  "five_axis_review": "same validated client factory and bounded controller; no agriculture coefficients, runtime service, rendering or model arithmetic changes; cancellation tests now wait on actual request-start promises, not a guessed microtask count",
+  "initial_test_failures": [
+    "module absent",
+    "unused test import before adding error cases",
+    "four cancellation fixtures attempted cancellation before the request started; corrected to explicit entered promises"
+  ],
+  "logs_sha256": {
+    "full_web": "eee5dced2902c52be19fabeece8be92eb3c011897d5575912b7661a50904d62c",
+    "build": "21882a5fef681fa136cce8574fc0941c5390c45def75c8c0cba4064745650201"
+  },
+  "local_window_helper_accepted": true,
+  "remaining": [
+    "same-UTC screen and actual PG/TLS/WebGL",
+    "current exact-head hosted CI; single dependency patch not yet pushed",
+    "whole-cycle burden, actual cultivar inputs, independent domestic data, fresh kg/resources/economics"
+  ],
+  "gates": "not_assessed",
+  "actual_crop_runs": 0,
+  "domestic_independent_datasets": 0
+}

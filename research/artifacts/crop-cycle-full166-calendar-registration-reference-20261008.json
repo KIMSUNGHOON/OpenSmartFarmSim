@@ -1,0 +1,346 @@
+{
+  "actual_measured_crop_Runs": 0,
+  "adopted_actual_cultivar_inputs": 0,
+  "database_cleanup": {
+    "passfiles_after": 0,
+    "roles_after": 0,
+    "schemas_after": 0,
+    "server_host_auth_methods": [
+      "scram-sha-256",
+      "scram-sha-256",
+      "scram-sha-256",
+      "scram-sha-256"
+    ]
+  },
+  "domestic_independent_validation_datasets": 0,
+  "focused_translation_and_input_tests": {
+    "argv": [
+      "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+      "-m",
+      "pytest",
+      "tests/test_crop_cycle_calendar_translation.py",
+      "tests/test_crop_cycle_input_stream.py",
+      "-q",
+      "--tb=short"
+    ],
+    "exit_code": 0,
+    "log_sha256": "093e90c9f7538f1007eba8d178bd04c10cb5ec8fd5f6f7935a0e5cccbb6a4a9d",
+    "wall_seconds": 4.737415957002668
+  },
+  "fresh_harvest_resources_economic_coupling_accepted": false,
+  "gates": {
+    "G0": "not_assessed",
+    "G1": "not_assessed",
+    "G2": "not_assessed",
+    "G3a": "not_assessed",
+    "G3b": "not_assessed",
+    "G4": "not_assessed"
+  },
+  "native_browser_missing_original_exit_record_hold_unchanged": true,
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "native_turn_context_line_sha256": "2df582a9936b622baa21d4b2a44a37a18c2ae42f73a2cdfd28c0b56aea4a1481",
+    "observed_at_utc": "2026-10-07T18:26:48.297992+00:00",
+    "reasoning_effort": "xhigh",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T18:25:43.096Z"
+  },
+  "native_cli_record_sha256": "349a3a579d960ee8790512f7b07df942f8a2a512600485531501db3cf920e9eb",
+  "observed_at_utc": "2026-10-07T18:39:11.331142+00:00",
+  "original_failed_registration_reason": "test scope tuple union TypeError before farm registration; fixed with explicit sets after terminal cleanup",
+  "phases": {
+    "calendar-preparation": {
+      "all_preserved_sources_unchanged": true,
+      "clusters_stopped_and_removed": true,
+      "command_record_sha256": "e72d2d4dfd82e5a2b84c1f8cce96daa40c07d3e0781f823d440f9ef011b97dae",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T18:35:21.121621+00:00",
+      "log_sha256": "65acab6334233aa2d84a38ff06e25c3f6af0d8da7e924f2c2a69f36f193615c7",
+      "memory_scope": "sampled_current_descendants_RSS_sum_may_double_count_shared_pages_not_WSL_total_or_PSS",
+      "nice": 19,
+      "owned_remaining_processes": [],
+      "owned_temp_tree_removed": true,
+      "passfiles_after": [],
+      "preserved_source_count": 127,
+      "primary_and_controller_terminal": true,
+      "result_record_sha256": "b72c8617ccb1e8fad073e8a64ceee35ad238e97710c12a0e88da7b9fd61f78a3",
+      "sampled_descendant_RSS_sum_max_bytes": 101310464,
+      "sampled_pytest_primary_max_RSS_bytes": 101310464,
+      "started_at_utc": "2026-10-07T18:32:47.619605+00:00",
+      "wall_budget_interrupt_sent": false,
+      "wall_observation_budget_seconds": 1200,
+      "wall_seconds": 153.49831979500595
+    },
+    "calendar-registration": {
+      "all_preserved_sources_unchanged": true,
+      "clusters_stopped_and_removed": true,
+      "command_record_sha256": "08a777474042fba0813cd6f95990106c617dc3b1ecb277479722bbeeaabf4d6c",
+      "exit_code": 1,
+      "finished_at_utc": "2026-10-07T18:36:00.741769+00:00",
+      "log_sha256": "721ea58b561124ae067519fa5cb773c83a5e446a1ef3855db03d687de74e162b",
+      "memory_scope": "sampled_current_descendants_RSS_sum_may_double_count_shared_pages_not_WSL_total_or_PSS",
+      "nice": 19,
+      "owned_remaining_processes": [],
+      "owned_temp_tree_removed": true,
+      "passfiles_after": [],
+      "preserved_source_count": 127,
+      "primary_and_controller_terminal": true,
+      "result_record_sha256": "096579e5d15392c570e372827cfcf738a54e2b6f1e09ab478849435edfa5fdc9",
+      "sampled_descendant_RSS_sum_max_bytes": 116985856,
+      "sampled_pytest_primary_max_RSS_bytes": 116985856,
+      "started_at_utc": "2026-10-07T18:35:47.584456+00:00",
+      "wall_budget_interrupt_sent": false,
+      "wall_observation_budget_seconds": 1200,
+      "wall_seconds": 13.15515827400668
+    },
+    "calendar-registration-fixed": {
+      "all_preserved_sources_unchanged": true,
+      "clusters_stopped_and_removed": true,
+      "command_record_sha256": "5f1ab38587f0c5f8111970c0dd230f73e1989eeb5e3f35f041323c59f221771b",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-07T18:37:09.919587+00:00",
+      "log_sha256": "d652363f656f529b3afb608df0d09197f3b1bebac0e2abefc15dbcf4756d590c",
+      "memory_scope": "sampled_current_descendants_RSS_sum_may_double_count_shared_pages_not_WSL_total_or_PSS",
+      "nice": 19,
+      "owned_remaining_processes": [],
+      "owned_temp_tree_removed": true,
+      "passfiles_after": [],
+      "preserved_source_count": 127,
+      "primary_and_controller_terminal": true,
+      "result_record_sha256": "1a3b81abb8ff8f84b4f31df4ebc4af9ed220e79e9fc93a7bde2db59b1c456039",
+      "sampled_descendant_RSS_sum_max_bytes": 129028096,
+      "sampled_pytest_primary_max_RSS_bytes": 129028096,
+      "started_at_utc": "2026-10-07T18:36:33.999422+00:00",
+      "wall_budget_interrupt_sent": false,
+      "wall_observation_budget_seconds": 1200,
+      "wall_seconds": 35.917753468995215
+    }
+  },
+  "preparation": {
+    "actual_steps": 0,
+    "context_open_seconds": 0.3634091550047742,
+    "context_sha256": "71c322fac5c814d4d01238b01761c565506d676c2da9a4df2994c03007483c6a",
+    "contexts_closed_caches_empty": true,
+    "derived_files": 750,
+    "descriptors_after": 4,
+    "descriptors_before": 4,
+    "input_proof_seconds": 30.213986556002055,
+    "original_files": 750,
+    "original_hash_mode_device_inode_preserved": true,
+    "proof_sha256": "de3d6a665caef93709a20927ae2eb7fa238ef69ef4a1c9c5e2033f72865d3464",
+    "rhs_calls": 0,
+    "rights_or_gate_approval": false,
+    "source_root_sha256": "ab24eda4d763d7fe3faff1ae3c7c2f84fbec030af71a494bf284fef1f2cdcd98",
+    "target_period": {
+      "end": "2027-03-16T00:00:00Z",
+      "start": "2026-10-01T00:00:00Z"
+    },
+    "target_root_sha256": "05a58cc9092682f663bb3e2f827003f51ec8a778f746bb429126a663e841fc04",
+    "translation_receipt_sha256": "f578258e670843558617f9a7b6fd6f9be259242962ba5bca5eb640e4e5e7f47b",
+    "translation_seconds": 121.65688185399631,
+    "wall_seconds": 152.3356265850016
+  },
+  "preserved_source_record_sha256": "6dc0d736f1723ccb5f613b96f9f7f11f9aa614f412c7a3c150049d1a84b4fc5e",
+  "registration": {
+    "actual_crop_Runs": 0,
+    "actual_steps": 0,
+    "after_registration_counts": [
+      90,
+      90,
+      0,
+      0
+    ],
+    "binding_and_denials_wall_seconds": 13.438906915005646,
+    "binding_sha256": "ad28c03208f45f2fd6641a032457b4ff9cf3676a74e87a37d32c4e40a1d7d94b",
+    "binding_writes": 0,
+    "context_sha256": "71c322fac5c814d4d01238b01761c565506d676c2da9a4df2994c03007483c6a",
+    "contexts_closed_caches_empty": true,
+    "crop": {
+      "area": {
+        "available_at": "2026-09-28T00:00:00Z",
+        "evidence_level": "assumed",
+        "input_id": "crop-area-1",
+        "origin": "user",
+        "revision": "r1",
+        "source_ref": "self-authored-contract-test",
+        "unit": "m\u00b2",
+        "value": "80"
+      },
+      "batch_id": "batch-1",
+      "channels": [
+        "direct"
+      ],
+      "collection_window": {
+        "end": "2026-10-24T00:00:00Z",
+        "start": "2026-10-15T00:00:00Z"
+      },
+      "crop_id": "crop-1",
+      "grades": [
+        "grade-1"
+      ],
+      "harvest_window": {
+        "end": "2026-10-16T00:00:00Z",
+        "start": "2026-10-14T00:00:00Z"
+      },
+      "occupancy": {
+        "end": "2027-03-16T00:00:00Z",
+        "start": "2026-10-01T00:00:00Z"
+      },
+      "profile_status": "unavailable",
+      "provenance": {
+        "available_at": "2026-09-28T00:00:00Z",
+        "evidence_level": "assumed",
+        "input_id": "crop-intent-1",
+        "origin": "user",
+        "revision": "r1",
+        "source_ref": "self-authored-contract-test"
+      },
+      "release_at": "2027-03-17T00:00:00Z",
+      "sales_window": {
+        "end": "2026-10-18T00:00:00Z",
+        "start": "2026-10-15T00:00:00Z"
+      },
+      "species": "synthetic-species-intent",
+      "variety": "unspecified-user-intent"
+    },
+    "current_rights_and_principal_denied": true,
+    "current_seconds": 2.62073428700387,
+    "derived_input_files": 750,
+    "descriptors_after": 12,
+    "descriptors_before": 12,
+    "economic_reference": {
+      "candidate_id": "31f5d40223aad0c649cf170682251a23ecfd48f045afc8bec8a7fd6c89397d7a",
+      "revision": "r1",
+      "scenario_id": "market-123bfb8a8475689cc0799a1b3df94511",
+      "sha256": "63da12caeb54223226a42068532d54af37e5b3553ce9827a1117f542f6435c34"
+    },
+    "farm_period_end": "2027-03-16",
+    "farm_period_start": "2026-10-01",
+    "old_registration_preserved": true,
+    "older_registration": {
+      "farm_sha256": "656dd513a5ed4d3390c83f4546813c614186436b5245ed56f63cc4d1065e6397",
+      "intent_job": {
+        "attempt_count": 0,
+        "created_at": "2026-10-08T03:36:47.603473+09:00",
+        "job_id": "378b13ee-bcd7-4bcc-bf78-a7c2e12ba8e1",
+        "max_attempts": 3,
+        "reason_code": null,
+        "stage": "collection",
+        "state": "queued",
+        "updated_at": "2026-10-08T03:36:47.603474+09:00"
+      },
+      "numeric_input_sha256": "7c7fdeadceb0cb179204df702a0005c7f0545d5578a55ccb3d6908b4bf88b2d3",
+      "registration_status": "registered_unpublished_inputs",
+      "rights_sha256": "cdac0227e9b2764e884b7bfd683f608510fa650e6e8f69151783465b797d0d02",
+      "scenario_id": "owned-full166-farm",
+      "scenario_revision": "r1",
+      "scenario_sha256": "0b1cdda2963c4b2c9f335a015c1af229eebb493f8a285d33014b4c0280fe9a25"
+    },
+    "original_and_derived_hash_mode_device_inode_preserved": true,
+    "original_input_files": 750,
+    "original_period_and_short_occupancy_denied": true,
+    "period": {
+      "end": "2027-03-16T00:00:00Z",
+      "start": "2026-10-01T00:00:00Z"
+    },
+    "planned_steps": 1816704,
+    "prepare_seconds": 2.587371258996427,
+    "registration": {
+      "farm_sha256": "b9e209c8c9f54f7219cab301c18b6e3c6f0534e0d7c82ec884a2fc0e0b55a03f",
+      "intent_job": {
+        "attempt_count": 0,
+        "created_at": "2026-10-08T03:36:49.921506+09:00",
+        "job_id": "c5428e8a-592a-45ab-bf32-11d6aa4bd96c",
+        "max_attempts": 3,
+        "reason_code": null,
+        "stage": "collection",
+        "state": "queued",
+        "updated_at": "2026-10-08T03:36:49.921506+09:00"
+      },
+      "numeric_input_sha256": "a96b794a7a8c3666b7b5e2924c18481183cf87c64683348e2efcf5311d9346e6",
+      "registration_status": "registered_unpublished_inputs",
+      "rights_sha256": "964ad5105323fa6bf3ba66f5a74ad296baf953e1dd1b08b77f5854c81f4d34d8",
+      "scenario_id": "owned-full166-farm",
+      "scenario_revision": "r2",
+      "scenario_sha256": "2e8f6229e7c42c6950e114ebd330d33af2fe4ddd66304768f1bbe41eb45dd3ba"
+    },
+    "rhs_calls": 0,
+    "rights_or_gate_approval": false,
+    "scope": "derived_synthetic_full166_calendar_registration_only",
+    "source_root_sha256": "ab24eda4d763d7fe3faff1ae3c7c2f84fbec030af71a494bf284fef1f2cdcd98",
+    "target_root_sha256": "05a58cc9092682f663bb3e2f827003f51ec8a778f746bb429126a663e841fc04",
+    "translation_receipt_sha256": "f578258e670843558617f9a7b6fd6f9be259242962ba5bca5eb640e4e5e7f47b"
+  },
+  "registration_accepted": true,
+  "schema_version": "crop-cycle-full166-calendar-registration-observation-v1",
+  "scope": "derived_synthetic_full166_input_calendar_and_actual_farm_registration_only",
+  "source_sha256": {
+    "backend/tests/crop_cycle_full_calendar_registration_smoke.py": "31738aeb7335dc49fc1df1273bfc25862483faaa7086dcc3b4aa02e6c6bc9883",
+    "backend/tests/test_crop_cycle_calendar_translation.py": "96f1a734b08741c33a87a9c6055c8f2fa4fbe6de93ad3247e2a18b86e2eb3886",
+    "contracts/crop-cycle-calendar-registration-v1.md": "e132ea2db081962e943bb44b1bfc9d69b45a0e3cebe3d88ccf88a43c1ca7e8e0",
+    "research/crop-cycle-calendar-translation.py": "1f784b4921009b3ff024d68cf2a1ef4ce386e76e0c4d501c50679d35f1a10fd7"
+  },
+  "translation": {
+    "input_stream_code_sha256": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53",
+    "non_calendar_inputs_preserved": true,
+    "offset_seconds": 23587200,
+    "plan": {
+      "boundaries": 47811,
+      "counts": {
+        "anchors": 47809,
+        "events": 5,
+        "outputs": 47809,
+        "segments": 47808
+      },
+      "packet_referenced_bytes": 113920844,
+      "planned_steps": 1816704
+    },
+    "rights_or_gate_approval": false,
+    "scope": "synthetic_calendar_version_only",
+    "source_calculation_sha256": "68ea5a85deb4326b24b2fce94d7c71b87b53d058c09a5017a0de11312b53cc5e",
+    "source_period": {
+      "end": "2026-06-16T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    },
+    "source_program_id": "own-uniform-cycle-shape-cost-v1",
+    "source_root_sha256": "ab24eda4d763d7fe3faff1ae3c7c2f84fbec030af71a494bf284fef1f2cdcd98",
+    "streams": {
+      "anchors": {
+        "count": 47809,
+        "source_record_chain_sha256": "bd7d019016b55a3430cb4f9eff8b3f271b6a94c8cb7bda38dd269c0922943aa2",
+        "target_record_chain_sha256": "73b572ccec07569edef671d1520a5811a2e052cdfbb62d1c2ecb4f33fb522201",
+        "target_restored_record_chain_sha256": "bd7d019016b55a3430cb4f9eff8b3f271b6a94c8cb7bda38dd269c0922943aa2"
+      },
+      "events": {
+        "count": 5,
+        "source_record_chain_sha256": "8ae9a4230416da8284787c31a424822ea99408b82af754cdcb5e0c8996b4a1c2",
+        "target_record_chain_sha256": "8652ddb75507371ff4b768e80fc1c61655595437c1c2fc08bc405b3c523d36af",
+        "target_restored_record_chain_sha256": "8ae9a4230416da8284787c31a424822ea99408b82af754cdcb5e0c8996b4a1c2"
+      },
+      "outputs": {
+        "count": 47809,
+        "source_record_chain_sha256": "bd7d019016b55a3430cb4f9eff8b3f271b6a94c8cb7bda38dd269c0922943aa2",
+        "target_record_chain_sha256": "73b572ccec07569edef671d1520a5811a2e052cdfbb62d1c2ecb4f33fb522201",
+        "target_restored_record_chain_sha256": "bd7d019016b55a3430cb4f9eff8b3f271b6a94c8cb7bda38dd269c0922943aa2"
+      },
+      "segments": {
+        "count": 47808,
+        "source_record_chain_sha256": "0d7336750d88dd7fd9cdfc266801d90d8f70195f9258528c693653f17986f85f",
+        "target_record_chain_sha256": "33655e17f0d8e2bce05bf5a0356e219f0e6db09c7b283ef0cc79e01d0831d67c",
+        "target_restored_record_chain_sha256": "0d7336750d88dd7fd9cdfc266801d90d8f70195f9258528c693653f17986f85f"
+      }
+    },
+    "target_calculation_sha256": "86d1d6f3abaa0a5e52a01dd382d335d2dd964d25037e9d19b578b62c63dbc002",
+    "target_period": {
+      "end": "2027-03-16T00:00:00Z",
+      "start": "2026-10-01T00:00:00Z"
+    },
+    "target_program_id": "owned-full166-calendar-20261001-v1",
+    "target_root_sha256": "05a58cc9092682f663bb3e2f827003f51ec8a778f746bb429126a663e841fc04",
+    "temperature_clock_prefix_sha256": "05abcfad7eee723bfd72b9d6bb5353ee2b1e00a9964a33ae87f8b55d29201f82",
+    "translation_code_sha256": "1f784b4921009b3ff024d68cf2a1ef4ce386e76e0c4d501c50679d35f1a10fd7",
+    "version": "crop-cycle-calendar-translation-v1"
+  },
+  "whole_registered_cycle_DB_API_3D_accepted": false,
+  "whole_registered_cycle_execution_accepted": false
+}

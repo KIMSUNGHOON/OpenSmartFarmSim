@@ -1,0 +1,683 @@
+{
+  "evidence_version": "crop-cycle-server-custody-local-v1",
+  "recorded_at_utc": "2026-10-05T12:19:24.114468+00:00",
+  "status": "accepted_local_synthetic_software_only",
+  "snapshot_commit": "705d177513434e886bca1404520c503d1c8c0a8c",
+  "cli": {
+    "implementation_context": {
+      "timestamp": "2026-10-05T10:50:09.576Z",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "line_sha256": "d1fc7e4990b25d598cd0fd20386198742a6d4a75a7ad047047588e929dca5b8c"
+    },
+    "acceptance_context": {
+      "timestamp": "2026-10-05T12:12:17.766Z",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "line_sha256": "9309fcc957e31594235bb0febf064b4091b49455cd05d052942706cf71b12236"
+    },
+    "recursive_invocations": 0,
+    "actual_current_cli_session": true,
+    "product_runtime_cli_acceptance": false
+  },
+  "file_sha256": {
+    "backend/app/crop_cycle_server_custody.py": "85053b8dee2bf7c0a3675c92931ec9321e7e2804cf8ebb1593542212782d7683",
+    "backend/tests/test_crop_cycle_server_custody.py": "6ce4cd137cc559bd710c751da2b23307c4904daf863030d2f6280f18fea64249",
+    "backend/tests/test_crop_cycle_server_custody_farms.py": "02b653f610032c44634cba2aadf12b0ba22dd2fd39f3dacccc3cde3844debee0",
+    "research/crop-cycle-server-custody-reference.py": "0f8863d20f02d31b58ca74d046b25058800b153944b8f05104be82577bfd3e95",
+    "contracts/crop-cycle-server-custody-v1.md": "840ad3ffee7b6dc70e990b2e244e56221f43a318348efb712c3af03ce24639ed",
+    "research/crop-cycle-server-custody-implementation.md": "1146a4306752d09da99fa3281657fa2933a99dafd28a16503c5c9e0017f4f3e0",
+    "README.md": "4cf6a47f8690b4ac598c9ac8b5bb9ef3e537b04fef54751819af467a8cc55294",
+    "docs/PROJECT_SPEC.md": "3c73307aa4977d14b9265683423314ebad0e3db9a94940794d2272067ea7c16f",
+    "docs/IMPLEMENTATION_SLICE.md": "5d430f36776e03b3fc41bb6538e82b736d438158c39fa87cad3e7fdc8e59715b",
+    "tasks/plan.md": "2bfde0a2e3b305a5d2b26913422abc86e115d954b8cea446464f1e4c3401e3bd",
+    "tasks/todo.md": "c4b8812672d7b1b152b371876b64981266ff03f66d1d9bcc0231290c3e1dd9cb",
+    "research/artifacts/crop-cycle-artifact-schema-roles-ci-20261005.json": "45f46b984357b3cedb7bf5c6b58cf9ea3bfda2e501ade1f582ecee74c17f8d09",
+    "research/artifacts/crop-cycle-farm-binding-reference-20261005.json": "971540410afce22920c05e6e3d28984c7bbc26966f394ac7b397e0d8187b295c"
+  },
+  "frozen_calculation_storage_api_binding_and_schema46_sha256": {
+    "backend/app/crop_startup_artifact.py": "6d095d6b2c5cfff36cdfbf7b1f0b16d2acbe44e162c918a5ece637cda9c2f33a",
+    "backend/tests/test_crop_startup_artifact.py": "8c4e15afc6f113947cae2d32d4629f58ed15ea716737c29f08bd00bac998d6e6",
+    "backend/app/crop_coupled_artifact.py": "4d239f24d43bf351f3c11c9e9d59fccff30a76ef0815659f22c60fbc8ec7d017",
+    "backend/app/thermal_run_store.py": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+    "research/artifacts/crop-startup-integration-reference-20261005.json": "9b82831acb198a2b96c5c0620728ecf5b5ae245d2543b42580cfc00d253bb3b2",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "research/crop-integration-reference.py": "a38b7a67e43cf9f590838bf915ab3e5048950b8be6ed35f70817e18b42a09ce7",
+    "research/crop-plant-cohort-integration-reference.py": "9b880b9d06812f3cfa05bf1c5e47ef93811b548d2320136ce5ae813730d50a72",
+    "research/crop-fruit-startup-source-register.json": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+    "backend/app/crop_plant_startup_integration.py": "a48f2069d26024eeed5612e95bf59639f943fd6b98e789b21124a125c558656b",
+    "backend/tests/test_crop_plant_startup_integration.py": "38aa5e404124518eb9c44b9487c443de5a739ad4b1486e4eb74fe6709b637a86",
+    "research/crop-plant-startup-integration-reference.py": "c99cb9c2a83531a85183cfc9ccecc7401f95bd310bdc210cf4501d880458c44c",
+    "fixtures/crop-plant-startup-integration-reference-v1.json": "a94e4d88e02a5b29e2b1c20f0767cea6a326dccaa31278d5138667755b2f8026",
+    "fixtures/crop-fruit-transport-reference-parameters-v1.json": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070",
+    "backend/app/crop_plant_startup_rates.py": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_plant_cohort_integration.py": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+    "backend/app/crop_result_store.py": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+    "backend/app/crop_coupled_result_store.py": "765184999e07b078a6f79b414c148497ee3543b889a40a65d091a4ab44080632",
+    "backend/app/crop_startup_result_store.py": "d2e12ad750258b1b362261cb52b797de4bdcca02f84ecaaebafd9b74dab9b0af",
+    "backend/tests/test_crop_startup_result_store.py": "16e41c5a90a0838344f7e1ff185214ee4125bf52454dced3858725db210ae476",
+    "backend/app/api_crop_coupled_replay.py": "83d3eefd782206801fe645afc2e200bb621509b7c932b4a0544bbcb2bf31c582",
+    "backend/app/api_crop_startup_replay.py": "05b553e236dc3d5272829acd14f54910ef1a17400585cd7001e9992a048d7fac",
+    "backend/app/api.py": "b69837ec1793dfaf5d2d9e495d2b3d94b68209a2b462ae1113338fd25cf66fb8",
+    "backend/app/api_runtime.py": "40e183a1dfb95123f6c3c7659a974cd9717cc5f3d7ee2a78c38a8e07e5cf0d91",
+    "backend/tests/test_api_crop_startup_replay.py": "17bbfe9876eaa2488085b8cdbd3a7120299fa54bdcb05643c12c33cc37671fa2",
+    "backend/tests/test_api_openapi.py": "84d70344abe03be8bb825b475e1d78149833ce6ad6438d695784df8242529bcb",
+    "contracts/openapi-v1.json": "94bb9270ec8242aaa97fb8399b83286864ceb6e5a053173a652fd2691bceb510",
+    "backend/app/crop_cycle_continuation.py": "478f152a2395a451d9add64acf37e23ddc32a15273b14d0419869c1634596899",
+    "backend/tests/test_crop_cycle_continuation.py": "c0b0059e0816e88418ed761cbc1c5a085a23e262b4948c1f95dfd3f3ae3643a7",
+    "backend/app/crop_cycle_input_stream.py": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53",
+    "backend/tests/test_crop_cycle_input_stream.py": "dc5d9f86ebe74cb0d920939ab07381c7d729a0bc3abcffc165d702635ab4c23f",
+    "backend/app/crop_cycle_stream_execution.py": "4de399721cab82ab7f56e093b11b72682437e29bb3097e745b1e61d695d03aac",
+    "backend/tests/test_crop_cycle_stream_execution.py": "0a0800f6be8abb702ba2dcd461c00e9bf913a81c2c30ae2baabfc61b8447c3d1",
+    "backend/app/crop_cycle_artifact.py": "10bcf863ba40338f2efa7242d78c2cccd3020fbdca061951da6b7b1c5a7c51f7",
+    "backend/tests/test_crop_cycle_artifact.py": "f597dd2a952184553f7f8d68bd70c155886278c4c927291daa3d501f7294e971",
+    "backend/app/crop_cycle_result_schema.py": "94cfba00cec0d3026bc4afb133c70168e4294e5beb0b625530db8f83acce73c8",
+    "backend/tests/test_crop_cycle_result_schema.py": "81f58e8aedb2a491253aa58af8b4cd04a2304bfbe674daab0536d7b796b661d2",
+    "backend/app/crop_cycle_farm_binding.py": "4f245271487b1e55422386b42221aa8d24906d28f52403626c474c62f14568a9",
+    "backend/tests/test_crop_cycle_farm_binding.py": "d76b3be7fbbc7a76ca100538c936615df86cb6e664705810573a6dd65b97db12"
+  },
+  "version_history": {
+    "first_source_sha256": "0e293645ed4b0bd2560df961f256384c6ef593c1831833d9205e171b379f90e5",
+    "first18_tests_sha256": "cf1f0563dd46ee899068e0db777d6c38fb46e7a3cddacb9c4cd0043155bd4195",
+    "before_reader_cleanup_commit": "bd1030b03c1d4948e68c2dc4af16057aa8bdee13",
+    "before_reader_cleanup_source_sha256": "91def1218147ba0495f2c2676d67fff52eb67446f6a2bc5911d37f6d29b0247e",
+    "final_reader_cleanup_source_sha256": "85053b8dee2bf7c0a3675c92931ec9321e7e2804cf8ebb1593542212782d7683",
+    "last_change": "3 lines close Base InputPacket descriptor before rejecting subtype. Frozen math/normal writer path unchanged; final long reference not rerun."
+  },
+  "verification": {
+    "unique_accepted_tests": 46,
+    "pure_unique": 41,
+    "actual_scram_unique": 5,
+    "single46_green": false,
+    "full_backend_local": false,
+    "split_formula": "pure29+restart7+global3+numeric hold2+SCRAM unique5=46; fixed2 overlaps first positive1; postfix10 are overlaps",
+    "executions": {
+      "first_pure": {
+        "passed": 18,
+        "failed": 0,
+        "deselected": 0,
+        "skipped": 0,
+        "pytest_seconds": 14.01,
+        "private_log_sha256": "8a1f9d358bf23846672d261365506f8e3115c5ac68d75da55adacbe872f69079"
+      },
+      "privacy_red": {
+        "passed": 0,
+        "failed": 4,
+        "deselected": 18,
+        "skipped": 0,
+        "pytest_seconds": 5.79,
+        "private_log_sha256": "5480e7c5d80dc57471ebec1ef1667a0f9e48eceffbe4b3556cc4057f005d106a"
+      },
+      "privacy_correction": {
+        "passed": 28,
+        "failed": 0,
+        "deselected": 0,
+        "skipped": 0,
+        "pytest_seconds": 26.81,
+        "private_log_sha256": "2a89511d4437a43edb5fbcbdae79fa9f4502cd887014b54464c8ba3adf002d69"
+      },
+      "final_pure": {
+        "passed": 29,
+        "failed": 0,
+        "deselected": 0,
+        "skipped": 0,
+        "pytest_seconds": 28.11,
+        "private_log_sha256": "311a95361320846e1d2ece29cc3dbb74f8ecf77fe5007d16897296c206a434e3"
+      },
+      "restart_pure": {
+        "passed": 7,
+        "failed": 0,
+        "deselected": 29,
+        "skipped": 0,
+        "pytest_seconds": 14.49,
+        "private_log_sha256": "82944b05faed9ae27b54ec9474c25254479d610ab43bd93fcfbb7966e8907c4a"
+      },
+      "first_farms": {
+        "passed": 3,
+        "failed": 0,
+        "deselected": 0,
+        "skipped": 0,
+        "pytest_seconds": 261.65,
+        "private_log_sha256": "ff8cfbf4f4d6f499e47e251af8f8ef54bcdef7eeb02d99a48e2cbbf98686cded",
+        "private_process_proof_sha256": "379cd631169d618d4533e988bde519c8fd03c6912f7637467860ae5992a110d6",
+        "process_and_cleanup": {
+          "scope": "synthetic_cycle_server_custody_initial_integration_only",
+          "started_at": "2026-10-05T11:16:34.622645+00:00",
+          "postgres_version": "postgres (PostgreSQL) 16.15",
+          "new_dependencies": 0,
+          "servers_started": 1,
+          "application_crop_custody_or_run_created": false,
+          "pytest_arguments": [
+            "tests/test_crop_cycle_server_custody_farms.py"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 262.0814961050055,
+          "remaining_test_roles": 0,
+          "remaining_test_schemas": 0,
+          "remaining_test_password_files": 0,
+          "postgres_stopped": true,
+          "postgres_status_exit_code": 3,
+          "private_cluster_and_admin_password_files_removed": true,
+          "owned_servers_after": 0,
+          "peak_children_rss_mib": 127.734375
+        },
+        "corrected_process_proof_sha256": "39e7f45d341bc11a00da682635d0d9fb656feff92ec5b8512e17520ec94f995a",
+        "corrected_process_and_cleanup": {
+          "scope": "synthetic_cycle_server_custody_initial_integration_only",
+          "started_at": "2026-10-05T11:16:34.622645+00:00",
+          "postgres_version": "postgres (PostgreSQL) 16.15",
+          "new_dependencies": 0,
+          "servers_started": 1,
+          "pytest_arguments": [
+            "tests/test_crop_cycle_server_custody_farms.py"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 262.0814961050055,
+          "remaining_test_roles": 0,
+          "remaining_test_schemas": 0,
+          "remaining_test_password_files": 0,
+          "postgres_stopped": true,
+          "postgres_status_exit_code": 3,
+          "private_cluster_and_admin_password_files_removed": true,
+          "owned_servers_after": 0,
+          "peak_children_rss_mib": 127.734375,
+          "server_owned_signed_synthetic_crop_files_created": true,
+          "db_crop_rows_or_actual_crop_runs_created": false,
+          "runner_metadata_correction": {
+            "original_proof_sha256": "379cd631169d618d4533e988bde519c8fd03c6912f7637467860ae5992a110d6",
+            "reason": "binding runner legacy Boolean described no file custody; actual new tests created signed server files and counted zero DB crop rows/Runs; process/cleanup measurements unchanged"
+          }
+        }
+      },
+      "reader_red": {
+        "passed": 0,
+        "failed": 1,
+        "deselected": 3,
+        "skipped": 0,
+        "pytest_seconds": 19.81,
+        "private_log_sha256": "0be85f61dc5be0acd3d79efb134e8cc43f601dc1da834e59fc280a9447d341e1",
+        "private_process_proof_sha256": "6581a6d9558004c0c1712d43811175f6a38295543a96e673dc49c192f44e5573",
+        "process_and_cleanup": {
+          "scope": "synthetic_cycle_server_custody_initial_integration_only",
+          "started_at": "2026-10-05T11:40:14.159615+00:00",
+          "postgres_version": "postgres (PostgreSQL) 16.15",
+          "new_dependencies": 0,
+          "servers_started": 1,
+          "server_owned_signed_synthetic_crop_files_created": false,
+          "db_crop_rows_or_actual_crop_runs_created": false,
+          "pytest_arguments": [
+            "tests/test_crop_cycle_server_custody_farms.py",
+            "-k",
+            "reader_subclass"
+          ],
+          "exit_code": 1,
+          "wall_seconds": 20.27093059301842,
+          "remaining_test_roles": 0,
+          "remaining_test_schemas": 0,
+          "remaining_test_password_files": 0,
+          "postgres_stopped": true,
+          "postgres_status_exit_code": 3,
+          "private_cluster_and_admin_password_files_removed": true,
+          "owned_servers_after": 0,
+          "peak_children_rss_mib": 114.66015625
+        }
+      },
+      "reader_correction": {
+        "passed": 2,
+        "failed": 0,
+        "deselected": 2,
+        "skipped": 0,
+        "pytest_seconds": 148.51,
+        "private_log_sha256": "7a68681beceb3981daeb35787ef6d6b56ae081203f8be4b632ada812dc68a14a",
+        "private_process_proof_sha256": "f3040d361877a9ebb2ec4c9b6b67ff4dbf01d51300cdf0eb7a82be79ac87a25a",
+        "process_and_cleanup": {
+          "scope": "synthetic_cycle_server_custody_initial_integration_only",
+          "started_at": "2026-10-05T11:43:55.707788+00:00",
+          "postgres_version": "postgres (PostgreSQL) 16.15",
+          "new_dependencies": 0,
+          "servers_started": 1,
+          "server_owned_signed_synthetic_crop_files_created": true,
+          "db_crop_rows_or_actual_crop_runs_created": false,
+          "pytest_arguments": [
+            "tests/test_crop_cycle_server_custody_farms.py",
+            "-k",
+            "reader_subclass or actual_scram_registered_farm"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 148.92180409299908,
+          "remaining_test_roles": 0,
+          "remaining_test_schemas": 0,
+          "remaining_test_password_files": 0,
+          "postgres_stopped": true,
+          "postgres_status_exit_code": 3,
+          "private_cluster_and_admin_password_files_removed": true,
+          "owned_servers_after": 0,
+          "peak_children_rss_mib": 120.57421875
+        }
+      },
+      "postfix_pure": {
+        "passed": 10,
+        "failed": 0,
+        "deselected": 26,
+        "skipped": 0,
+        "pytest_seconds": 16.29,
+        "private_log_sha256": "8cd283523934368a82bdefd8d60c5acdd65c9aa092951542fc526e8d8b0da014"
+      },
+      "global_pure": {
+        "passed": 3,
+        "failed": 0,
+        "deselected": 36,
+        "skipped": 0,
+        "pytest_seconds": 0.88,
+        "private_log_sha256": "e25b5ac56e5acec0190d91017c8ff2042c6b36850f7a545e03ff54a8bbbb8314"
+      },
+      "lock_source_farm": {
+        "passed": 1,
+        "failed": 0,
+        "deselected": 4,
+        "skipped": 0,
+        "pytest_seconds": 64.06,
+        "private_log_sha256": "8fd33bda4e6e4dfce74930ca7de5c95d1dfe6354587f6e284f3ef092f629c427",
+        "private_process_proof_sha256": "ac761fa9d33758b3598a19be511a8f7291ff8a5671e875fa98ef2245e7abc800",
+        "process_and_cleanup": {
+          "scope": "synthetic_cycle_server_custody_initial_integration_only",
+          "started_at": "2026-10-05T11:53:34.174567+00:00",
+          "postgres_version": "postgres (PostgreSQL) 16.15",
+          "new_dependencies": 0,
+          "servers_started": 1,
+          "server_owned_signed_synthetic_crop_files_created": true,
+          "db_crop_rows_or_actual_crop_runs_created": false,
+          "pytest_arguments": [
+            "tests/test_crop_cycle_server_custody_farms.py",
+            "-k",
+            "root_lock"
+          ],
+          "exit_code": 0,
+          "wall_seconds": 64.5279382460285,
+          "remaining_test_roles": 0,
+          "remaining_test_schemas": 0,
+          "remaining_test_password_files": 0,
+          "postgres_stopped": true,
+          "postgres_status_exit_code": 3,
+          "private_cluster_and_admin_password_files_removed": true,
+          "owned_servers_after": 0,
+          "peak_children_rss_mib": 122.83984375
+        }
+      },
+      "numeric_hold_pure": {
+        "passed": 2,
+        "failed": 0,
+        "deselected": 39,
+        "skipped": 0,
+        "pytest_seconds": 2.02,
+        "private_log_sha256": "5912a34e77301d612541a6e6977dcb202905329093ffa11c366b915cb5ed37c4"
+      }
+    },
+    "test_acceptance_stage": {
+      "tests/test_crop_cycle_server_custody.py::test_first_head_is_signed_before_selection_and_complete_retry_has_no_rhs": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_changed_selected_proof_is_rejected_before_any_rhs[signature]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_changed_selected_proof_is_rejected_before_any_rhs[parent]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_changed_selected_proof_is_rejected_before_any_rhs[head]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_changed_selected_proof_is_rejected_before_any_rhs[intent]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_changed_selected_proof_is_rejected_before_any_rhs[version]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_changed_selected_proof_is_rejected_before_any_rhs[extra]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_changed_selected_proof_is_rejected_before_any_rhs[bool-sequence]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_changed_selected_proof_is_rejected_before_any_rhs[missing]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_unsigned_actual_writer_delta_cannot_be_adopted": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_signature_from_another_key_and_noncanonical_envelope_are_held": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_private_file_types_modes_and_unknown_files_are_rejected[symlink]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_private_file_types_modes_and_unknown_files_are_rejected[fifo]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_private_file_types_modes_and_unknown_files_are_rejected[hardlink]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_private_file_types_modes_and_unknown_files_are_rejected[mode]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_private_file_types_modes_and_unknown_files_are_rejected[extra-file]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_sparse_orphan_budget_stops_before_next_rhs": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_mid_compute_rights_withdrawal_leaves_previous_signed_head": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_source_privacy_and_stale_directory_handles_stop_before_rhs[source-mode]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_source_privacy_and_stale_directory_handles_stop_before_rhs[source-hardlink]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_source_privacy_and_stale_directory_handles_stop_before_rhs[source-directory]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_source_privacy_and_stale_directory_handles_stop_before_rhs[proof-directory]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_six_actual_equation_results_remain_original_under_signed_publication[empty-no-entry]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_six_actual_equation_results_remain_original_under_signed_publication[empty-entry]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_six_actual_equation_results_remain_original_under_signed_publication[first-only]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_six_actual_equation_results_remain_original_under_signed_publication[full-removal-reentry]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_six_actual_equation_results_remain_original_under_signed_publication[positive-tail]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_six_actual_equation_results_remain_original_under_signed_publication[night-smooth]": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_rights_withdrawn_during_page_read_prevent_returning_records": "final_pure",
+      "tests/test_crop_cycle_server_custody.py::test_actual_process_exit_recovers_only_selected_signed_head[before-proof-41-1]": "restart_pure",
+      "tests/test_crop_cycle_server_custody.py::test_actual_process_exit_recovers_only_selected_signed_head[after-proof-42-1]": "restart_pure",
+      "tests/test_crop_cycle_server_custody.py::test_actual_process_exit_recovers_only_selected_signed_head[before-head-43-1]": "restart_pure",
+      "tests/test_crop_cycle_server_custody.py::test_actual_process_exit_recovers_only_selected_signed_head[after-head-44-2]": "restart_pure",
+      "tests/test_crop_cycle_server_custody.py::test_initial_unsigned_computation_cannot_replace_known_zero_header": "restart_pure",
+      "tests/test_crop_cycle_server_custody.py::test_known_zero_header_without_head_is_republished_and_no_fd_leak": "restart_pure",
+      "tests/test_crop_cycle_server_custody.py::test_fresh_python_exec_restores_signed_vector_and_reads_without_rhs": "restart_pure",
+      "tests/test_crop_cycle_server_custody.py::test_other_intents_count_toward_root_budget_before_rhs[intents]": "global_pure",
+      "tests/test_crop_cycle_server_custody.py::test_other_intents_count_toward_root_budget_before_rhs[root-bytes]": "global_pure",
+      "tests/test_crop_cycle_server_custody.py::test_context_code_and_notice_change_cannot_sign_another_delta": "global_pure",
+      "tests/test_crop_cycle_server_custody.py::test_numeric_hold_signs_only_original_confirmed_past[pre-onset]": "numeric_hold_pure",
+      "tests/test_crop_cycle_server_custody.py::test_numeric_hold_signs_only_original_confirmed_past[late-event]": "numeric_hold_pure",
+      "tests/test_crop_cycle_server_custody_farms.py::test_actual_scram_registered_farm_signed_server_equations_and_no_rhs_read_retry[login_scope0]": "reader_correction",
+      "tests/test_crop_cycle_server_custody_farms.py::test_actual_registered_input_withdrawn_after_equations_does_not_select_new_head[login_scope0]": "first_farms",
+      "tests/test_crop_cycle_server_custody_farms.py::test_foreign_tenant_wrong_expected_progress_and_changed_resolver_are_held[login_scope0]": "first_farms",
+      "tests/test_crop_cycle_server_custody_farms.py::test_rejected_input_reader_subclass_releases_its_descriptor_without_rhs[login_scope0]": "reader_correction",
+      "tests/test_crop_cycle_server_custody_farms.py::test_real_root_lock_different_revision_conflict_and_current_source_withdrawal[login_scope0]": "lock_source_farm"
+    },
+    "final46_collection_log_sha256": "19b51d47b4225f3df779619772be5b98d667f59caf1788abd29ebc913f48d9e5",
+    "collection_seconds": 0.79,
+    "meaningful_red": [
+      "source mode/hardlink/directory and stale proof directory replacement:4 did not raise",
+      "unsupported InputPacket subclass FD12 to13:1 failed, RHS0"
+    ],
+    "missing_module_collection_is_not_functional_red": true,
+    "controller_resigned_malformed_proofs_test_body_validation": true,
+    "actual_forced_process_exit_codes": [
+      41,
+      42,
+      43,
+      44
+    ],
+    "restored_selected_commits": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "fork_exit_and_fresh_python_exec_are_separate_tests": true,
+    "pure_tests_unregistered_binding_and_noop_current_callback": true,
+    "scram_farms_and_source_rights_are_synthetic": true,
+    "local_versions": {
+      "python": "3.12.3",
+      "psycopg": "3.3.6",
+      "pytest": "9.1.1",
+      "postgres": "16.15"
+    },
+    "sequential_native_postgres_runs": 4,
+    "new_dependencies": 0,
+    "cluster_limits": {
+      "max_connections": 32,
+      "shared_buffers": "16MB",
+      "work_mem": "1MB",
+      "maintenance_work_mem": "16MB",
+      "nice": 10,
+      "private_loopback": true
+    },
+    "peak_sequential_child_rss_mib": 127.734375,
+    "rss_is_not_group_or_whole_wsl": true,
+    "all_native_clusters_roles_schemas_passwords_removed": true
+  },
+  "long_reference": {
+    "snapshot_commit": "bd1030b03c1d4948e68c2dc4af16057aa8bdee13",
+    "final_reader_cleanup_not_rerun": true,
+    "private_reference_sha256": "9c8eb4b16256e3690c46ca6140a2cdf310c2225703d67a9a20023039b2116003",
+    "private_log_sha256": "564b109a32080b298ba23651bbe9da43f205140fe42df29b9b9a59b567ad93e7",
+    "actual_evidence": {
+      "actual_registered_farm_current_rights_not_claimed_here": true,
+      "actual_steps": 11400,
+      "canonical_independent_samples_events_equal": true,
+      "child_peak_rss_mib": 96.703125,
+      "child_wall_seconds": 86.30160330299987,
+      "cleanup": {
+        "child_exit_code": 0,
+        "fd_count_preserved": true,
+        "private_directory_removed": true,
+        "servers_or_databases_started": 0
+      },
+      "code_sha256": "91def1218147ba0495f2c2676d67fff52eb67446f6a2bc5911d37f6d29b0247e",
+      "crop_rows_and_runs_created": 0,
+      "final_checkpoint_and_vector_exact": true,
+      "forcing_intervals": 300,
+      "independent_seconds": 102.52762555703521,
+      "not_accepted": [
+        "actual cultivar/initial/management/forcing",
+        "G0-G4",
+        "166day crop burden",
+        "DB/API/3D/economics"
+      ],
+      "parent_peak_rss_mib": 96.703125,
+      "pending_event_at": "2026-01-01T10:40:00Z",
+      "pending_event_resume_steps": 4864,
+      "period_seconds": 90000,
+      "private_child_response_sha256": "a01f00704a20a73f6b7c70d6d6fde1cd3a51ce08b0dc83a3d652261ff02ad984",
+      "progress": {
+        "artifact_sha256": "b25fc0b65b088871fb280d6a3c02e88ee94989a3374cd4bba028afc60c4bd54b",
+        "binding_sha256": "3b005ababf149c39c7fe3c94a92fcdf1cfd3309bb8ef346bd6d19600c31214a9",
+        "commit_count": 93,
+        "context_sha256": "eed8e54232d41d7e530c11f212c9e8c66ccda5371523b7919bac8f0dddb8b4f0",
+        "counts": {
+          "events": 5,
+          "samples": 27
+        },
+        "custody_code_sha256": "91def1218147ba0495f2c2676d67fff52eb67446f6a2bc5911d37f6d29b0247e",
+        "file_count": 127,
+        "head_sha256": "91a680e67eeaa9e4d9b1a8e3162725545813246d777110ee058b5ee6c343baef",
+        "header_sha256": "bc1b870b663eaa4fb73ed83ae80ef9096a6a36eede64257e52fee9a4c6466e0a",
+        "input_root_sha256": "56b8ad59e5027db15172269327bb4e81672857ef5e4178501d0e5d0b9c1df252",
+        "intent_sha256": "f8f3472ba7ac2a727c283812cc7fa6cd6dee98336df8c6a18d064b51852e8351",
+        "planned_steps": 11400,
+        "proof_sha256": "5821aef0eeb362d06b775dd7132fc77d7fc18167abe6c2206990ade238e0417f",
+        "scope": "synthetic_crop_math_only",
+        "status": "completed",
+        "steps": 11400,
+        "storage_bytes": 755868,
+        "version": "crop-cycle-server-custody-v1"
+      },
+      "reading": {
+        "pages": [
+          {
+            "bytes": 59464,
+            "kind": "samples",
+            "records": 7,
+            "seconds": 1.1509911679895595,
+            "start": 0
+          },
+          {
+            "bytes": 59778,
+            "kind": "samples",
+            "records": 7,
+            "seconds": 1.1577516570105217,
+            "start": 7
+          },
+          {
+            "bytes": 61591,
+            "kind": "samples",
+            "records": 7,
+            "seconds": 1.1634311189991422,
+            "start": 14
+          },
+          {
+            "bytes": 52678,
+            "kind": "samples",
+            "records": 6,
+            "seconds": 1.1403277929639444,
+            "start": 21
+          },
+          {
+            "bytes": 32645,
+            "kind": "events",
+            "records": 2,
+            "seconds": 1.1276456860359758,
+            "start": 0
+          },
+          {
+            "bytes": 32918,
+            "kind": "events",
+            "records": 2,
+            "seconds": 1.1138732670224272,
+            "start": 2
+          },
+          {
+            "bytes": 18145,
+            "kind": "events",
+            "records": 1,
+            "seconds": 1.1324887470109388,
+            "start": 4
+          }
+        ],
+        "read_computation_calls": {
+          "advance": 0,
+          "rhs": 0
+        },
+        "seconds": 8.376322925032582
+      },
+      "recorded_at_utc": "2026-10-05T11:33:59.912475+00:00",
+      "restored_checkpoint_bytes_exact": true,
+      "restored_float64_count": 121,
+      "scope": "unregistered_synthetic_signed_files_only",
+      "signed_intent_file_count": 223,
+      "signed_intent_total_bytes": 829769,
+      "source_sha256": "0f8863d20f02d31b58ca74d046b25058800b153944b8f05104be82577bfd3e95",
+      "total_wall_seconds": 238.45993152703159,
+      "version": "crop-cycle-server-custody-long-reference-v1",
+      "writer_parent_and_exec_seconds": 135.65992666897364
+    },
+    "independent_control_flow_shares_frozen_rates_not_new_driver_index_or_cursor": true,
+    "independent_biological_or_local_farm_validation": false
+  },
+  "farm_reference": {
+    "snapshot_commit": "705d177513434e886bca1404520c503d1c8c0a8c",
+    "private_reference_sha256": "2e4381789d27fd1b65b693742ba54a130b332de419760a2027451efb9c353e21",
+    "actual_evidence": {
+      "scope": "synthetic_server_farm_custody_software_only",
+      "actual_scram": true,
+      "progress_bytes": 976,
+      "progress_sha256": "c8d949b39d6e3bf5512650b623ae46f95e85d24437ecd3b23f10a7259a17c062",
+      "progress": {
+        "artifact_sha256": "c5c8fef2707ecea380ce9d3a233fd4b93bb48a44463f0aeac344ce804a4d1e4d",
+        "binding_sha256": "13cffa6ef23dcaa26c1b9f37d0cedb24872bffb2fef427769f56489921070618",
+        "commit_count": 1,
+        "context_sha256": "8981926686b618c2ec8f9a3677b2ee36ea4ad042591cf4de2eebfa07945960a0",
+        "counts": {
+          "events": 0,
+          "samples": 3
+        },
+        "custody_code_sha256": "85053b8dee2bf7c0a3675c92931ec9321e7e2804cf8ebb1593542212782d7683",
+        "file_count": 6,
+        "head_sha256": "0da395a744f8cdbb32158dcb6658be44487ba16d9b352921983dc3043e1750a3",
+        "header_sha256": "566172b7deed77e7c375fe3c1616c79b37ffc94accd8a9f5ae26dc4e33b3b1df",
+        "input_root_sha256": "5ae34875fa57f58c8d12f9231ee06f309b7e043e18bba5f72c2d4f5c2783fa2e",
+        "intent_sha256": "61b1c36c13a778f0bf71f39a1b06db178b63e1997c27081ccda3026676c52ac4",
+        "planned_steps": 120,
+        "proof_sha256": "147777c76d4ea631ca24de9f772789ac1d896819ffc359d5d1463bf5a533a168",
+        "scope": "synthetic_crop_math_only",
+        "status": "completed",
+        "steps": 120,
+        "storage_bytes": 36006,
+        "version": "crop-cycle-server-custody-v1"
+      },
+      "advance_seconds": 39.8798130970099,
+      "inspect_seconds": 16.59219853999093,
+      "page_seconds": {
+        "samples": 16.657031065027695,
+        "events": 16.631404698011465
+      },
+      "same_fresh_service_bytes": true,
+      "complete_retry_and_reads_rhs_zero": true,
+      "current_scope_and_input_withdrawal_held": true,
+      "crop_rows_and_runs": [
+        0,
+        0
+      ]
+    },
+    "http_tls_latency_acceptance": false,
+    "different_uid_key_custody_acceptance": false,
+    "initial_reference_before_reader_cleanup": {
+      "snapshot_commit": "bd1030b03c1d4948e68c2dc4af16057aa8bdee13",
+      "private_reference_sha256": "2cde7db841c50ac395f127011c55e996120c6d4a0bac1db9d301c22213088ba7",
+      "progress_code_sha256": "91def1218147ba0495f2c2676d67fff52eb67446f6a2bc5911d37f6d29b0247e",
+      "advance_seconds": 39.83214584301459,
+      "inspect_seconds": 16.518330057966523,
+      "page_seconds": {
+        "samples": 16.575801104016136,
+        "events": 16.591633060015738
+      }
+    }
+  },
+  "closed_budgets": {
+    "intent_bytes": 196608,
+    "proof_bytes": 8192,
+    "progress_bytes": 131072,
+    "proof_directory_bytes": 134217728,
+    "proof_files": 32770,
+    "intent_directory_bytes": 671088640,
+    "intent_files": 98310,
+    "root_bytes": 1073741824,
+    "root_files": 131072,
+    "root_intents": 128,
+    "original_artifact_bytes": 536870912,
+    "original_artifact_files": 65536,
+    "original_artifact_commits": 16384,
+    "advance_max_steps": 10000,
+    "advance_max_transitions": 128,
+    "sparse_orphan_files_and_other_intents_counted_before_rhs": true
+  },
+  "publication_scope": {
+    "proof_fsynced_before_selected_head": true,
+    "current_inputs_farm_source_and_scopes_checked_before_after": true,
+    "unsigned_computed_head_not_adopted": true,
+    "orphan_proof_does_not_select_new_head": true,
+    "only_known_zero_step_initial_header_recoverable": true,
+    "unknown_partial_proofs_hold": true,
+    "all_os_or_disk_crash_recovery_claimed": false,
+    "root_nonblocking_lock_serializes_intents": true,
+    "crop_database_rows_created": 0,
+    "actual_crop_runs_created": 0
+  },
+  "dependency_split": [
+    "crop-cycle-farm-binding accepted local",
+    "crop-cycle-server-custody accepted local",
+    "crop-cycle-db-custody not implemented",
+    "parent crop-cycle-result-storage not accepted"
+  ],
+  "next_stage": {
+    "task": "crop-cycle-db-custody",
+    "focused_hours": [
+      2,
+      3
+    ],
+    "provisional_kst_dates": [
+      "2026-10-05",
+      "2026-10-07"
+    ],
+    "basis": "closed metadata/HMAC1h + actual SCRAM publication/withdrawal/restart/cleanup1-2h;4focused hours/day; excludes CI/external data",
+    "acceptance": "Closed metadata binds exact signed server progress, same farm/root/profile/code/notice and immutable artifact. Actual SCRAM atomically publishes only completed or numerical-hold signed results, checks farm/source/input rights before/after commit, rejects crossed/partial/modified references, retries immutably/conflicts, separate Python reads original pages without RHS, cleans resources. No API/Run/gate promotion."
+  },
+  "ci_scope": {
+    "accepted_predecessor_head": "ff6eb3d05084b499db93a7698776b3c7f339be5c",
+    "accepted_receipt": "research/artifacts/crop-cycle-artifact-schema-roles-ci-20261005.json",
+    "accepted_workflows": 5,
+    "backend_passed": 3862,
+    "separate_uid_passed": 4,
+    "first_attempt_no_cancel_rerun_or_timeout_change": true,
+    "farm_binding_and_server_custody_outside_predecessor_sha": true,
+    "new_hosted_acceptance": false
+  },
+  "not_accepted": [
+    "DB HMAC publication",
+    "cycle API/client/same UTC 3D",
+    "166day actual RHS burden",
+    "fresh kg/resources/Decimal economics",
+    "real product runtime CLI",
+    "G0",
+    "G1",
+    "G2",
+    "G3a",
+    "G3b",
+    "G4",
+    "crop production or future margin or crop ranking"
+  ],
+  "external_holds": {
+    "adopted_actual_cultivar_initial_management_forcing": 0,
+    "independent_domestic_farm_datasets": 0,
+    "actual_crop_runs": 0,
+    "profile_applicability": "unvalidated_for_registered_crop",
+    "trusted_root_provider_actual_policy_data_and_review": "not acquired"
+  },
+  "public_payload_policy": "hashes, scope, synthetic metrics, cleanup only; credentials, actual private farm/source data, raw restricted data excluded",
+  "documentation_check": "pending before first receipt commit"
+}

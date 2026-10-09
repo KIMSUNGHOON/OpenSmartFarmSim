@@ -1,0 +1,133 @@
+{
+  "all_six_complete_inventory_sha256": "1376176733de7ed89ddf291461e79ed9bff3df8c7473be34d632dee52dbbfee5",
+  "backend_run": {
+    "conclusion": "success",
+    "createdAt": "2026-10-09T14:07:50Z",
+    "status": "completed",
+    "updatedAt": "2026-10-09T16:28:19Z",
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37941890045"
+  },
+  "distinct_UID_service_smoke_passed": 4,
+  "head_sha256": "4b7fe6f058266e7032a97bd4064b28307db65fcf",
+  "note": "gh run log retrieval covered partition5 and aggregate only; each partition summary/hash is from its direct job log",
+  "partitions": [
+    {
+      "conclusion": "success",
+      "deselected": 5203,
+      "job_id": 113858089908,
+      "job_name": "backend-partition-2",
+      "log_bytes": 38379,
+      "log_sha256": "cddaf4c288a676468b3c4dad9f562728d1b95c3b781338222789277e71f5c6d8",
+      "passed": 865,
+      "pytest_duration": "1577.83s (0:26:17)",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37941890045/job/113858089908",
+      "warnings": 0
+    },
+    {
+      "conclusion": "success",
+      "deselected": 4686,
+      "job_id": 113858090002,
+      "job_name": "backend-partition-3",
+      "log_bytes": 39171,
+      "log_sha256": "c9ddaddf02681509dc224ab2a3ee5defcea09118116f263fab3a4a8435b3171c",
+      "passed": 1382,
+      "pytest_duration": "1445.72s (0:24:05)",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37941890045/job/113858090002",
+      "warnings": 0
+    },
+    {
+      "conclusion": "success",
+      "deselected": 5129,
+      "job_id": 113858090032,
+      "job_name": "backend-partition-4",
+      "log_bytes": 38522,
+      "log_sha256": "9dfa0bdb3a5a0bcd60338ce42a731e35967c33525de4638557964d8ac69e0541",
+      "passed": 939,
+      "pytest_duration": "1969.57s (0:32:49)",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37941890045/job/113858090032",
+      "warnings": 0
+    },
+    {
+      "conclusion": "success",
+      "deselected": 5016,
+      "job_id": 113858090124,
+      "job_name": "backend-partition-0",
+      "log_bytes": 45074,
+      "log_sha256": "fd0efbe5188d29c01e3e21733cad8f2516b28265b6d0bcd94b48b4fd9b2acb5e",
+      "passed": 1052,
+      "pytest_duration": "1908.69s (0:31:48)",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37941890045/job/113858090124",
+      "warnings": 0
+    },
+    {
+      "conclusion": "success",
+      "deselected": 5097,
+      "job_id": 113858090171,
+      "job_name": "backend-partition-5",
+      "log_bytes": 38576,
+      "log_sha256": "63e63cb0f708f92d57a73194484b365cc076d5391390361da6780a5b34b2ee8a",
+      "passed": 971,
+      "pytest_duration": "3416.73s (0:56:56)",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37941890045/job/113858090171",
+      "warnings": 0
+    },
+    {
+      "conclusion": "success",
+      "deselected": 5209,
+      "job_id": 113858090174,
+      "job_name": "backend-partition-1",
+      "log_bytes": 40064,
+      "log_sha256": "7b7ae20a640d0af250850310e70ccec6f008d2bced5b3174e86ca5b4e0dc5eaa",
+      "passed": 859,
+      "pytest_duration": "3453.12s (0:57:33)",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37941890045/job/113858090174",
+      "warnings": 2
+    }
+  ],
+  "retrieved_aggregate_and_partition5_log_sha256": "675bdfdc49cc043ca66a604d8cfb48c98f034e26aa6aad44d86e92766084b347",
+  "scope": "hosted software regression at exact4b7fe6f only; later crop climate changes, runtime real CLI, independent data and G0-G4 not accepted",
+  "total_passed": 6068,
+  "version": "backend-4b7fe6f-hosted-acceptance-20261010",
+  "workflows": [
+    {
+      "conclusion": "success",
+      "databaseId": 37941889932,
+      "headSha": "4b7fe6f058266e7032a97bd4064b28307db65fcf",
+      "name": "C0 Compose verification",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37941889932"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37941889972,
+      "headSha": "4b7fe6f058266e7032a97bd4064b28307db65fcf",
+      "name": "Application runtime verification",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37941889972"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37941890018,
+      "headSha": "4b7fe6f058266e7032a97bd4064b28307db65fcf",
+      "name": "Web tests",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37941890018"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37941890169,
+      "headSha": "4b7fe6f058266e7032a97bd4064b28307db65fcf",
+      "name": "Authored API PostgreSQL smoke",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37941890169"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37941890045,
+      "headSha": "4b7fe6f058266e7032a97bd4064b28307db65fcf",
+      "name": "Backend tests",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37941890045"
+    }
+  ]
+}

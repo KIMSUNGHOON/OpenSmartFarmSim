@@ -1,0 +1,164 @@
+{
+  "profile_id": "vanthoor-explicit-entry-cohort-reference-v1",
+  "scope": "reference_only_not_G0",
+  "model_version": "explicit-entry-fruit-cohort-rates-research-v1",
+  "model_basis": "Vanthoor Eq9.38..9.45/Table9.1; supplied cohort RGR and explicit-entry allocation; no state advance or automatic set/entry mass",
+  "sources": {
+    "original_thesis": {
+      "source_id": "vanthoor-thesis",
+      "source_url": "https://edepot.wur.nl/170301",
+      "product_id": "10.18174/170301",
+      "observed_period_local": null,
+      "published_at": "2011-06-17",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:51:13.324303+00:00",
+      "vintage": "published article/thesis",
+      "raw_sha256": "965ecc5573290d0cc59b514e9766b301f9584d212545dec177efa66dd756ac38",
+      "bytes": 3423075,
+      "units": "mathematical reference; parameter units and source pages recorded below",
+      "qc": "pinned bytes hash verified; scoped equations/parameters reviewed; not cultivar or G0 adoption",
+      "rights": {
+        "license": "fulltext-redistribution-unconfirmed",
+        "use": "read and reference mathematical definitions; no fulltext incorporation",
+        "display": "citation/short contextual references only; fulltext/figures not adopted",
+        "redistribution": "unconfirmed; PDF excluded from repository"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "observed_times": null
+    }
+  },
+  "review": {
+    "cli_model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "verified_turn_context_at": "2026-10-04T17:08:21.845Z",
+    "recursive_cli": false,
+    "reference_register": "research/crop-fruit-source-register.json",
+    "reference_register_sha256": "3ec6ea74342eb7bbf9c64dead4fb1ada2fe6e359de561569a5a719baad067b47",
+    "notes": [
+      "General model reference, no actual Axiany calibration",
+      "RGR supplied per compartment, no fixed or inferred physiological default",
+      "CH2O potential mass is not fresh fruit weight",
+      "Continuous model fruit equivalents and synthetic floor area units",
+      "Growth respiration at buffer once; cohort maintenance once; total fruit derived from compartments"
+    ]
+  },
+  "allocation_policy": {
+    "policy_id": "explicit-entry-fruit-allocation-research-v1",
+    "source_register_sha256": "edbc67cfe59a61a1573ef5b1f189c548c47a74b996d4ef6221adc663c1cc306a"
+  },
+  "parameters": {
+    "nDev": {
+      "value": 50,
+      "source_value": "50",
+      "unit": "1",
+      "basis": "Table9.1 printed p267"
+    },
+    "cDev1": {
+      "value": -7.64e-09,
+      "source_value": "-7.64e-9",
+      "unit": "1/s",
+      "basis": "Table9.1 printed p266"
+    },
+    "cDev2": {
+      "value": 1.16e-08,
+      "source_value": "1.16e-8",
+      "unit": "1/s/degC",
+      "basis": "Table9.1 printed p266"
+    },
+    "GMax": {
+      "value": 10000.0,
+      "source_value": "1e4",
+      "unit": "mg_CH2O/fruit",
+      "basis": "Table9.1 printed p266"
+    },
+    "Gompertz_M_intercept": {
+      "value": -4.93,
+      "source_value": "-4.93",
+      "unit": "day",
+      "basis": "Eq9.40 printed p255"
+    },
+    "Gompertz_M_slope": {
+      "value": 0.548,
+      "source_value": "0.548",
+      "unit": "1",
+      "basis": "Eq9.40 printed p255"
+    },
+    "Gompertz_B_intercept": {
+      "value": 2.44,
+      "source_value": "2.44",
+      "unit": "day",
+      "basis": "Eq9.41 printed p255"
+    },
+    "Gompertz_B_M_slope": {
+      "value": 0.403,
+      "source_value": "0.403",
+      "unit": "1",
+      "basis": "Eq9.41 printed p255"
+    },
+    "seconds_per_day": {
+      "value": 86400,
+      "source_value": "86400",
+      "unit": "s/day",
+      "basis": "Eq9.39 printed p255"
+    },
+    "stage_age_midpoint": {
+      "value": 0.5,
+      "source_value": "0.5",
+      "unit": "1",
+      "basis": "Eq9.42 printed p256"
+    },
+    "fruit_maintenance": {
+      "value": 1.16e-07,
+      "source_value": "1.16e-7",
+      "unit": "1/s",
+      "basis": "Table9.1 printed p266"
+    },
+    "fruit_growth_respiration": {
+      "value": 0.27,
+      "source_value": "0.27",
+      "unit": "1",
+      "basis": "Table9.1 printed p266"
+    },
+    "cRgr": {
+      "value": 2850000.0,
+      "source_value": "2.85e6",
+      "unit": "s",
+      "basis": "Table9.1 printed p266"
+    },
+    "Q10": {
+      "value": 2.0,
+      "source_value": "2",
+      "unit": "1",
+      "basis": "Table9.1 printed p268"
+    },
+    "maintenance_temperature_reference_c": {
+      "value": 25,
+      "source_value": "25",
+      "unit": "degC",
+      "basis": "Eq9.45 printed p256"
+    },
+    "q10_temperature_interval_c": {
+      "value": 10,
+      "source_value": "10",
+      "unit": "degC",
+      "basis": "reciprocal of coefficient0.1 per degC, Eq9.45 printed p256"
+    }
+  },
+  "domain": {
+    "filtered_temperature_c": [
+      17,
+      23
+    ],
+    "temperature_sum_onset_exclusive": {
+      "value": 0,
+      "unit": "degC_day",
+      "basis": "Eq9.33 printed p254"
+    },
+    "initial_state_generated": false,
+    "automatic_set_generated": false,
+    "state_advanced": false
+  }
+}

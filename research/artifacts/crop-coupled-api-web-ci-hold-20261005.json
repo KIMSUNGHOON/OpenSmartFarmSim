@@ -1,0 +1,152 @@
+{
+  "evidence_version": "crop-coupled-api-web-ci-hold-v1",
+  "recorded_at_utc": "2026-10-05T00:13:53.004876+00:00",
+  "head_sha": "e70a7f242d725c0bece9526ff44270caf320c6b6",
+  "status": "not_accepted",
+  "reason": "existing authored assessment HTTPS admission read timed out at unchanged 30s; partition3 and aggregate failed",
+  "workflow_runs": [
+    {
+      "conclusion": "success",
+      "databaseId": 37240870205,
+      "headSha": "e70a7f242d725c0bece9526ff44270caf320c6b6",
+      "name": "C0 Compose verification",
+      "status": "completed",
+      "updatedAt": "2026-10-04T22:40:35Z"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37240870210,
+      "headSha": "e70a7f242d725c0bece9526ff44270caf320c6b6",
+      "name": "Web tests",
+      "status": "completed",
+      "updatedAt": "2026-10-04T22:42:38Z"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37240870190,
+      "headSha": "e70a7f242d725c0bece9526ff44270caf320c6b6",
+      "name": "Application runtime verification",
+      "status": "completed",
+      "updatedAt": "2026-10-04T22:46:32Z"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37240870239,
+      "headSha": "e70a7f242d725c0bece9526ff44270caf320c6b6",
+      "name": "Authored API PostgreSQL smoke",
+      "status": "completed",
+      "updatedAt": "2026-10-04T22:56:40Z"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 37240870201,
+      "headSha": "e70a7f242d725c0bece9526ff44270caf320c6b6",
+      "name": "Backend tests",
+      "status": "completed",
+      "updatedAt": "2026-10-05T00:10:14Z"
+    }
+  ],
+  "backend_partitions": [
+    {
+      "partition": 0,
+      "job_id": 111549167148,
+      "conclusion": "success",
+      "selected_count": 574,
+      "all_count": 3100,
+      "inventory_sha256": "55c27829a7083dac452e1cb1bb628067c97fd1d6a1d471923422b21c353aca54",
+      "test_summaries": [
+        "2026-10-04T22:40:41.9153532Z 4 passed in 15.42s",
+        "2026-10-04T23:09:28.0266046Z 574 passed, 2526 deselected in 1725.25s (0:28:45)"
+      ],
+      "cleanup": "success",
+      "log_sha256": "a9a32e518b9fdfd220e426593f5a2aff7104a3373b5235fd7b2ab608765b456c"
+    },
+    {
+      "partition": 1,
+      "job_id": 111549167163,
+      "conclusion": "success",
+      "selected_count": 464,
+      "all_count": 3100,
+      "inventory_sha256": "55c27829a7083dac452e1cb1bb628067c97fd1d6a1d471923422b21c353aca54",
+      "test_summaries": [
+        "2026-10-04T23:02:51.8632867Z 464 passed, 2636 deselected, 2 warnings in 1343.67s (0:22:23)"
+      ],
+      "cleanup": "success",
+      "log_sha256": "6ea8d8f27c065c8abe945a7a599322c89b1ca4b192b56b4073f431f2fb22d3b2"
+    },
+    {
+      "partition": 2,
+      "job_id": 111549167195,
+      "conclusion": "success",
+      "selected_count": 352,
+      "all_count": 3100,
+      "inventory_sha256": "55c27829a7083dac452e1cb1bb628067c97fd1d6a1d471923422b21c353aca54",
+      "test_summaries": [
+        "2026-10-04T23:36:18.1985253Z 352 passed, 2748 deselected in 1975.13s (0:32:55)"
+      ],
+      "cleanup": "success",
+      "log_sha256": "1a7b9c641584715d4008c90b8741e61a2617ec1aff5d6f76797d0b93836cf2b0"
+    },
+    {
+      "partition": 3,
+      "job_id": 111549167188,
+      "conclusion": "failure",
+      "selected_count": 532,
+      "all_count": 3100,
+      "inventory_sha256": "55c27829a7083dac452e1cb1bb628067c97fd1d6a1d471923422b21c353aca54",
+      "test_summaries": [
+        "2026-10-04T23:41:13.8344117Z 1 failed, 531 passed, 2568 deselected in 1876.90s (0:31:16)"
+      ],
+      "cleanup": "success",
+      "log_sha256": "ae1ec022d977257f370a7c844b974bc0f78967cfce7be6f2e0f016185141d45f"
+    },
+    {
+      "partition": 4,
+      "job_id": 111549167218,
+      "conclusion": "success",
+      "selected_count": 462,
+      "all_count": 3100,
+      "inventory_sha256": "55c27829a7083dac452e1cb1bb628067c97fd1d6a1d471923422b21c353aca54",
+      "test_summaries": [
+        "2026-10-05T00:02:42.2790300Z 462 passed, 2638 deselected in 1555.06s (0:25:55)"
+      ],
+      "cleanup": "success",
+      "log_sha256": "bfec2d6ea315a75bbc5cc0ef61783e2c8be09d058d44d03357aff4e784e56492"
+    },
+    {
+      "partition": 5,
+      "job_id": 111549167035,
+      "conclusion": "success",
+      "selected_count": 716,
+      "all_count": 3100,
+      "inventory_sha256": "55c27829a7083dac452e1cb1bb628067c97fd1d6a1d471923422b21c353aca54",
+      "test_summaries": [
+        "2026-10-05T00:10:03.7291986Z 716 passed, 2384 deselected in 1704.18s (0:28:24)"
+      ],
+      "cleanup": "success",
+      "log_sha256": "515ab4c9da327bee8577e2e8fd99c284f5d6f67f72128bb5e6132c637c416bb9"
+    }
+  ],
+  "counts": {
+    "passed": 3099,
+    "failed": 1,
+    "separate_uid_passed": 4,
+    "successful_cleanups": 6
+  },
+  "aggregate": {
+    "job_id": 111565119505,
+    "conclusion": "failure"
+  },
+  "local_isolated_same_test": {
+    "passed": 1,
+    "responses": 10,
+    "max_body_seconds": 22.118,
+    "timeout_seconds": 30,
+    "postgres": "16.15",
+    "hosted_postgres": "18",
+    "root_cause_confirmed": false
+  },
+  "summary_fix": "0c57278; local 13 tests/7.73s; old hosted summary overflow not repaired by rerun",
+  "later_UI_and_startup_hosted_covered": false,
+  "gates_opened": []
+}

@@ -1,0 +1,115 @@
+{
+  "evidence_version": "crop-cycle-input-stream-reference-v1",
+  "recorded_at": "2026-10-05T06:38:30.181491+00:00",
+  "scope": "large own synthetic input/clock/grid reader and separate Python cursor restore only; no RHS/crop Run",
+  "file_sha256": {
+    "backend/app/crop_cycle_input_stream.py": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53",
+    "backend/tests/test_crop_cycle_input_stream.py": "dc5d9f86ebe74cb0d920939ab07381c7d729a0bc3abcffc165d702635ab4c23f",
+    "contracts/crop-cycle-input-stream-v1.md": "a30cdda9e33b98c29ba56160e23c0a300a5c8fb621a3a3687e1d7528dc2110f7",
+    "research/crop-cycle-input-stream-reference.py": "87c24e613fb3a3605cd1a87369088f4852dc270f89c554f96335c088e3899056",
+    "fixtures/crop-plant-startup-integration-reference-v1.json": "a94e4d88e02a5b29e2b1c20f0767cea6a326dccaa31278d5138667755b2f8026",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "fixtures/crop-fruit-transport-reference-parameters-v1.json": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+  },
+  "root_sha256": "ff8e4c2610f05d48f4f015cd9f3e1de72108740228d5df6476a5d7a9325bc42e",
+  "calculation_sha256": "8b697da2b791e14cdc0c097b1f20a3fe2a1379f6cdaaa4ad28c50b0750be89c8",
+  "intervals": 48000,
+  "source_shape_points": 48001,
+  "interval_seconds": 300,
+  "period_seconds": 14400000,
+  "plan": {
+    "planned_steps": 1440002,
+    "boundaries": 48003,
+    "counts": {
+      "anchors": 4801,
+      "events": 4,
+      "outputs": 1601,
+      "segments": 48000
+    },
+    "packet_referenced_bytes": 113276558
+  },
+  "clock_checks": [
+    {
+      "segment_index": 0,
+      "temperature_sum_float_hex": "0x1.f400000000000p+8",
+      "fraction_exact": true
+    },
+    {
+      "segment_index": 127,
+      "temperature_sum_float_hex": "0x1.f6fd6c16c16c1p+8",
+      "fraction_exact": true
+    },
+    {
+      "segment_index": 128,
+      "temperature_sum_float_hex": "0x1.f6fdb05b05b06p+8",
+      "fraction_exact": true
+    },
+    {
+      "segment_index": 129,
+      "temperature_sum_float_hex": "0x1.f70f8e38e38e4p+8",
+      "fraction_exact": true
+    },
+    {
+      "segment_index": 255,
+      "temperature_sum_float_hex": "0x1.fa0ce38e38e39p+8",
+      "fraction_exact": true
+    },
+    {
+      "segment_index": 256,
+      "temperature_sum_float_hex": "0x1.fa0cfa4fa4fa5p+8",
+      "fraction_exact": true
+    },
+    {
+      "segment_index": 2175,
+      "temperature_sum_float_hex": "0x1.13cd8e38e38e4p+9",
+      "fraction_exact": true
+    },
+    {
+      "segment_index": 47999,
+      "temperature_sum_float_hex": "0x1.99b46c16c16c2p+10",
+      "fraction_exact": true
+    }
+  ],
+  "independent_boundary_chain_equal": true,
+  "independent_original_grid_steps_equal": true,
+  "separate_python_processes": 1,
+  "prefix_boundaries": 2176,
+  "cursor_bytes": 305,
+  "child": {
+    "boundary_chain_sha256": "a9b41a416fa0bf7939c1d541df025028c2491670e80132fd02b9eb7f88252ae4",
+    "boundary_count": 48003,
+    "fd_count_preserved": true,
+    "final_cursor": {
+      "cursor_sha256": "e19d8bc1ca0eb11a866a095e3a538e96f9f3c1f4c3370bf089cfe1465bc3b2af",
+      "last_at": "2026-06-16T16:00:00Z",
+      "positions": {
+        "anchors": 4801,
+        "events": 4,
+        "outputs": 1601,
+        "segments": 48000
+      },
+      "root_sha256": "ff8e4c2610f05d48f4f015cd9f3e1de72108740228d5df6476a5d7a9325bc42e",
+      "version": "crop-cycle-input-cursor-v1"
+    },
+    "first_resumed_at": "2026-01-08T13:10:00Z",
+    "peak_rss_mib": 30.23046875,
+    "wall_seconds": 26.97907205100637
+  },
+  "observed_parent_windows": {
+    "max_block_records": 128,
+    "max_cached_records": 388
+  },
+  "packet_bytes": 113276558,
+  "packet_files": 428,
+  "max_block_bytes": 301356,
+  "writer_preflight_wall_seconds": 32.73396959999809,
+  "wall_seconds": 79.84792870198726,
+  "parent_peak_rss_mib": 30.23046875,
+  "fd_count_preserved": true,
+  "temporary_directory_removed": true,
+  "new_servers_or_db": 0,
+  "actual_rhs_executed": false,
+  "actual_crop_runs": 0,
+  "g0_g4": "not accepted"
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/contracts/decision-v1.schema.json",
+  "title": "Codex decision proposal v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "stage", "input_sha256", "proposed_status",
+    "selected_ids", "rejected_ids", "claims", "missing_evidence", "reason",
+    "decision_context_id", "decision_at_utc", "claim_mode", "decision_time_kind"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "enum": ["decision_v1"]},
+    "stage": {"type": "string", "enum": ["research", "collection_review", "assessment"]},
+    "input_sha256": {"type": "string"},
+    "proposed_status": {"type": "string", "enum": ["proceed", "hold"]},
+    "selected_ids": {"type": "array", "items": {"type": "string"}},
+    "rejected_ids": {"type": "array", "items": {"type": "string"}},
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim", "evidence_ids", "uncertainty"],
+        "properties": {
+          "claim": {"type": "string"},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}},
+          "uncertainty": {"type": "string"}
+        }
+      }
+    },
+    "missing_evidence": {"type": "array", "items": {"type": "string"}},
+    "reason": {"type": "string"},
+    "decision_context_id": {"type": ["string", "null"]},
+    "decision_at_utc": {"type": ["string", "null"]},
+    "claim_mode": {"type": ["string", "null"], "enum": ["ex_ante", "ex_post_replay", null]},
+    "decision_time_kind": {"type": ["string", "null"], "enum": ["actual", "hypothetical", null]}
+  }
+}

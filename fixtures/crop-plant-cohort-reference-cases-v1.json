@@ -1,0 +1,4922 @@
+{
+  "fixture_version": "crop-plant-cohort-decimal-reference-v1",
+  "scope": "synthetic instantaneous software math; no actual cultivar, integration or claim gates",
+  "input_sha256": {
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-growth-reference-cases-v1.json": "f96b119c561981a459bdbd5dd82daaa6965b54f483174552b3867105cc01e0fc",
+    "fixtures/crop-fruit-cohort-reference-cases-v1.json": "bb52e2ccbf7f9737b3c9d5c2c673145101c0c302947c96d521c448c6e368e2e9",
+    "research/crop-integration-reference.py": "a38b7a67e43cf9f590838bf915ab3e5048950b8be6ed35f70817e18b42a09ce7"
+  },
+  "generator_sha256": "2a4721ed7d538b0d9a571b09f9093c436c4885c4bcdbb8011b36d7eafa0ec246",
+  "method": "60-digit Decimal original plant RHS plus independent pinned cohort demand/transport/maintenance",
+  "cases": [
+    {
+      "case_id": "synthetic-plant-17C-zero-RGR",
+      "state": {
+        "input_id": "synthetic-plant-17C-zero-RGR",
+        "origin": "synthetic",
+        "values": {
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 100000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 40000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 500,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "cohort_state": {
+        "input_id": "synthetic-plant-17C-zero-RGR-cohort",
+        "origin": "synthetic",
+        "values": {
+          "fruit_number": [
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            }
+          ],
+          "fruit_carbohydrate": [
+            {
+              "value": 1.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.8666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 9.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.3333333333333335,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.1,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.933333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.833333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.833333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 1.8666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.866666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 14.466666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.1,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.266666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.5,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.166666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 13.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.3333333333333335,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.733333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 9.733333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.333333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 15.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 17.733333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.566666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.9,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.666666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 13.5,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 16.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 19.366666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 14.666666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 17.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 21.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.033333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          ],
+          "fruit_relative_growth_rate": [
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            }
+          ],
+          "temperature_filtered_24h": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 500,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "forcing": {
+        "input_id": "synthetic-plant-17C-zero-RGR-forcing",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          }
+        }
+      },
+      "removals": {
+        "input_id": "synthetic-plant-17C-zero-RGR-removal",
+        "origin": "synthetic",
+        "values": {
+          "leaf": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      },
+      "fruit_entry": {
+        "input_id": "synthetic-plant-17C-zero-RGR-entry",
+        "origin": "synthetic",
+        "values": {
+          "fruit_number_inflow": {
+            "value": 0.01,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "fruit_entry_carbohydrate": {
+            "value": 1.0,
+            "unit": "mg_CH2O/fruit_equivalent"
+          }
+        }
+      },
+      "expected": {
+        "photosynthesis": "0.547359125768490714785096723457072655591668000255687829917636",
+        "growth_respiration": "0.0715336378141536407722168266495872971990799364787214827017253",
+        "fruit_allocation": "0.123612550976161623929360296402195449976568984058073792510638",
+        "fruit_buffer_debit": "0.156987939739725262390287576430788221470242609753753716488510",
+        "fruit_carbohydrate_total": "423.0333333333333354",
+        "fruit_maintenance": "0E-85",
+        "old_single_fruit_maintenance": "0.0000281789313084725682053442029938403645187573202878202919103472",
+        "terminal_carbohydrate": "0.00002874993333333333017400",
+        "terminal_number": "9.47800E-7",
+        "lai": "2.6600000",
+        "plant_derivatives": {
+          "buffer": "0.220066541700517450275979981984222800952624273933359287813241",
+          "leaf": "0.0543574175138366042611181352797568269887702687334781915041478",
+          "stem_root": "0.0544863991139130268914733070821424528811168656498005539111186",
+          "temperature_filtered_24h": "0E+1",
+          "temperature_sum": "0.000196759259259259259259259259259259259259259259259259259259259"
+        },
+        "dC": [
+          "0.00998673080000000000000000000000000000000000000000000000000000",
+          "0.0000305705123619952665203077713123061522679496995717567504612777",
+          "0.0000934913908865476383383887451555108671283212739727343294842380",
+          "0.000207193925698553428977078943741802533628646894800859649252323",
+          "0.000394922724594337383202379793893630406297552618407847732907056",
+          "0.000683235520920345562333439908106428336892810484986128945714330",
+          "0.00109991268241514060767499775144002490615147545076186533564559",
+          "0.000106153600000000000000000000000000000000000000000000000000000",
+          "0.000510107063062428310900539360195727473040874456811090875650844",
+          "0.000996649370687681519431248603887206727720215629978767450839340",
+          "0.00162474620293567760672460403861670220359905965706877859372085",
+          "0.00241816242361921853715249604980951309657238639212942576946386",
+          "0.00337642722609464024646969187496688014865572514657855095908951",
+          "0.00449007050783825918968401637135204762949796502525240333369012",
+          "0.000824081728817910526557820498221541036362103340305984574489764",
+          "0.00156509501406457449113450291002973124912868983437318716747159",
+          "0.00255257828693009017890735586199663956751879363382574624817553",
+          "0.00364098940077283652414576227324734343746368891817061824795809",
+          "0.00480261151299537097579252551290503895458373969653557775325202",
+          "0.00600776275154076722640157945913834704959640993321646629842796",
+          "0.00722652554654617191588907089945878179062978650817304120844714",
+          "0.00117375610844165814032459537299676594656997226907756750774102",
+          "0.00211623365750244324437428810463417881400378376417104696485445",
+          "0.00319316308343374284779582211348854109782541923501477532897356",
+          "0.00424374726511865314818020826418907509652629674783898971885565",
+          "0.00524756625831248734400260129055504055390246265467398320493148",
+          "0.00618778573136365620581714523341242543829575787307762259757709",
+          "0.000128900800000000000000000000000000000000000000000000000000000",
+          "0.000959469709738495465167530779157304059405521551875897278144869",
+          "0.00187454495519108328433241107770897928353600125040774487987721",
+          "0.00271474559653231986548887471635116511842550371578652502736675",
+          "0.00347410842388743630854570671934447176523282238866872377981799",
+          "0.00414935269961307605102462806598750006629477783571959207678305",
+          "0.00473950054741319145113529327671914018163091816921794196042925",
+          "0.00524549298096813398124354834589897810409050949702458852545571",
+          "0.000855794407419186392282915339778823748568082804281948932745993",
+          "0.00131800662485045091064320190049973494545826425099963065094269",
+          "0.00186949298022811491101742600718474508598474977123472222818369",
+          "0.00234554820419447946081413090567754833596587734307317061854732",
+          "0.00275031704872458882839976420361064721086640081034326392540856",
+          "0.00308847885894695954812626699815895808544211285206632095708220",
+          "0.00336504521176744731112217257977249875965848516667533249179257",
+          "0.000608761622401196399051500166761208681311352012276806632568252",
+          "0.000813608780581871014363672058067639212738155690356221683556355",
+          "0.00114429165671633858882660655647453666802097578370200233791965",
+          "0.00142222990124904859737131380778417690030335225545753445916291",
+          "0.00165230266041227577330557693322662093941444334825867180808425",
+          "0.00183922300829233912268645912520544758858565027627755680478395",
+          "0.00198748789562813259931239957014387799773412432963698103128330",
+          "0.000436826171116936668192430261930216724041015815957797873626452"
+        ],
+        "dN": [
+          "0.009999052200",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "0.000006634600",
+          "-0.000001895600",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "0.000005686800",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "0.000005686800",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "0.000005686800",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "0.000005686800",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "0.000005686800",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "0.000005686800"
+        ]
+      }
+    },
+    {
+      "case_id": "synthetic-plant-17C-varying-RGR",
+      "state": {
+        "input_id": "synthetic-plant-17C-varying-RGR",
+        "origin": "synthetic",
+        "values": {
+          "buffer": {
+            "value": 10000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 100000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 40000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 500,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "cohort_state": {
+        "input_id": "synthetic-plant-17C-varying-RGR-cohort",
+        "origin": "synthetic",
+        "values": {
+          "fruit_number": [
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            }
+          ],
+          "fruit_carbohydrate": [
+            {
+              "value": 1.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.8666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 9.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.3333333333333335,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.1,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.933333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.833333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.833333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 1.8666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.866666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 14.466666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.1,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.266666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.5,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.166666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 13.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.3333333333333335,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.733333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 9.733333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.333333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 15.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 17.733333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.566666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.9,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.666666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 13.5,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 16.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 19.366666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 14.666666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 17.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 21.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.033333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          ],
+          "fruit_relative_growth_rate": [
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            }
+          ],
+          "temperature_filtered_24h": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 500,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "forcing": {
+        "input_id": "synthetic-plant-17C-varying-RGR-forcing",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 17,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 400,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          }
+        }
+      },
+      "removals": {
+        "input_id": "synthetic-plant-17C-varying-RGR-removal",
+        "origin": "synthetic",
+        "values": {
+          "leaf": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      },
+      "fruit_entry": {
+        "input_id": "synthetic-plant-17C-varying-RGR-entry",
+        "origin": "synthetic",
+        "values": {
+          "fruit_number_inflow": {
+            "value": 0.01,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "fruit_entry_carbohydrate": {
+            "value": 1.0,
+            "unit": "mg_CH2O/fruit_equivalent"
+          }
+        }
+      },
+      "expected": {
+        "photosynthesis": "0.547359125768490714785096723457072655591668000255687829917636",
+        "growth_respiration": "0.0715336378141536407722168266495872971990799364787214827017253",
+        "fruit_allocation": "0.123612550976161623929360296402195449976568984058073792510638",
+        "fruit_buffer_debit": "0.156987939739725262390287576430788221470242609753753716488510",
+        "fruit_carbohydrate_total": "423.0333333333333354",
+        "fruit_maintenance": "0.0000221494624062856440728211258009703237314703204343006369555696",
+        "old_single_fruit_maintenance": "0.0000281789313084725682053442029938403645187573202878202919103472",
+        "terminal_carbohydrate": "0.00002874993333333333017400",
+        "terminal_number": "9.47800E-7",
+        "lai": "2.6600000",
+        "plant_derivatives": {
+          "buffer": "0.220066541700517450275979981984222800952624273933359287813241",
+          "leaf": "0.0543574175138366042611181352797568269887702687334781915041478",
+          "stem_root": "0.0544863991139130268914733070821424528811168656498005539111186",
+          "temperature_filtered_24h": "0E+1",
+          "temperature_sum": "0.000196759259259259259259259259259259259259259259259259259259259"
+        },
+        "dC": [
+          "0.00998673080000000000000000000000000000000000000000000000000000",
+          "0.0000303905698166064068245941279666150088110204177888704547174041",
+          "0.0000931992239288327012884281142707842660371995123158969167034138",
+          "0.000206794256040092703876442080002591572366816403443147250362529",
+          "0.000394411942444333208098035679514158877332790551073481074857440",
+          "0.000683235520920345562333439908106428336892810484986128945714330",
+          "0.00109920965107501669073247736976527714732580269489788816652619",
+          "0.000106153600000000000000000000000000000000000000000000000000000",
+          "0.000509885024363283463611305834272256797322166857745390618994556",
+          "0.000996309589518330916007044961250019294287293152021011953655138",
+          "0.00162474620293567760672460403861670220359905965706877859372085",
+          "0.00241760794949679937642681590711223186163425867248981527443381",
+          "0.00337571008901661267371069759915891485506842627705722276408203",
+          "0.00448921565884655152761880200630309917339495383660274500697245",
+          "0.000823957364468344292622557850136357378215388952052247703409778",
+          "0.00156509501406457449113450291002973124912868983437318716747159",
+          "0.00255221421712895457906212209291507376384121309953904378559584",
+          "0.00364046704166661890946434280556176209762814256925787879648961",
+          "0.00480194539689793643395813074000635401914735554427272375510236",
+          "0.00600694994168467362605348447086899671863922282908222765810497",
+          "0.00722652554654617191588907089945878179062978650817304120844714",
+          "0.00117362429006538490589787280143275074179015862735307178853113",
+          "0.00211595034408890148721279848091906990916083001917603787586079",
+          "0.00319273010797041039560346551110439588979176953604392023017628",
+          "0.00424316097604212661678158237101118305452439129567658807665546",
+          "0.00524756625831248734400260129055504055390246265467398320493148",
+          "0.00618693205045064859238694191280737458829315524095707889221781",
+          "0.000128900800000000000000000000000000000000000000000000000000000",
+          "0.000959314282649094072061736730523701877230452368036482421303547",
+          "0.00187422960273325461973869143351960293513444199878600013300837",
+          "0.00271474559653231986548887471635116511842550371578652502736675",
+          "0.00347349745617518576169991612991653374097123718639252215741877",
+          "0.00414853374677705690924941009188410928293926518793503249684865",
+          "0.00473850137326703963838370111737111277847634194082366096320477",
+          "0.00524431151964725475883523487354606448925137478449338203421097",
+          "0.000855794407419186392282915339778823748568082804281948932745993",
+          "0.00131768021744253623491988886615074491457491618577706982242297",
+          "0.00186896840773585400131408760173262232493478115371449141887266",
+          "0.00234483768035721594956851755441458719379338577390512204961330",
+          "0.00274941762798219017227687220839456282824984130986685231521508",
+          "0.00308847885894695954812626699815895808544211285206632095708220",
+          "0.00336382955340848303805480753467051180339979561934066486228334",
+          "0.000608575697973559620928797947107291753344274527586091915344091",
+          "0.000813231314793324773968644483510566354844378907451106570058745",
+          "0.00114371869239155129677794943359614217242820454636147346031492",
+          "0.00142222990124904859737131380778417690030335225545753445916291",
+          "0.00165138202413354207258936163223135107324513269621940163576555",
+          "0.00183804106014521960462070930026268997508065769502944181671607",
+          "0.00198608905182352006146017054705663963331771760988498763516902",
+          "0.000436624079048891538073445165286569520117097390321971625819017"
+        ],
+        "dN": [
+          "0.009999052200",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "0.000006634600",
+          "-0.000001895600",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "0.000005686800",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "0.000005686800",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "0.000005686800",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "0.000005686800",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "0.000005686800",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "-9.47800E-7",
+          "0.000005686800"
+        ]
+      }
+    },
+    {
+      "case_id": "synthetic-plant-20C-zero-RGR",
+      "state": {
+        "input_id": "synthetic-plant-20C-zero-RGR",
+        "origin": "synthetic",
+        "values": {
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 50000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 1500,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "cohort_state": {
+        "input_id": "synthetic-plant-20C-zero-RGR-cohort",
+        "origin": "synthetic",
+        "values": {
+          "fruit_number": [
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            }
+          ],
+          "fruit_carbohydrate": [
+            {
+              "value": 1.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.8666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 9.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.3333333333333335,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.1,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.933333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.833333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.833333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 1.8666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.866666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 14.466666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.1,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.266666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.5,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.166666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 13.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.3333333333333335,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.733333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 9.733333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.333333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 15.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 17.733333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.566666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.9,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.666666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 13.5,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 16.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 19.366666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 14.666666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 17.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 21.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.033333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          ],
+          "fruit_relative_growth_rate": [
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            }
+          ],
+          "temperature_filtered_24h": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 1500,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "forcing": {
+        "input_id": "synthetic-plant-20C-zero-RGR-forcing",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          }
+        }
+      },
+      "removals": {
+        "input_id": "synthetic-plant-20C-zero-RGR-removal",
+        "origin": "synthetic",
+        "values": {
+          "leaf": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      },
+      "fruit_entry": {
+        "input_id": "synthetic-plant-20C-zero-RGR-entry",
+        "origin": "synthetic",
+        "values": {
+          "fruit_number_inflow": {
+            "value": 0.01,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "fruit_entry_carbohydrate": {
+            "value": 1.0,
+            "unit": "mg_CH2O/fruit_equivalent"
+          }
+        }
+      },
+      "expected": {
+        "photosynthesis": "0.663810753809606749167760029295540123672229121933687065165691",
+        "growth_respiration": "0.136525882926403539487216734651298565997134978802524217107111",
+        "fruit_allocation": "0.325804608291372413744209417575685260235958045839326577605388",
+        "fruit_buffer_debit": "0.413771852530042965455145960321120280499666718215944753558843",
+        "fruit_carbohydrate_total": "423.0333333333333354",
+        "fruit_maintenance": "0E-85",
+        "old_single_fruit_maintenance": "0.0000346923338544561541978529311911334327377765181474675362419866",
+        "terminal_carbohydrate": "0.00003402793333333332959400",
+        "terminal_number": "0.000001121800",
+        "lai": "1.3300000",
+        "plant_derivatives": {
+          "buffer": "0.033316124513411227612740589525709182091819585284087890228440",
+          "leaf": "0.0822642086059160337383904914172678897441128429578413651929194",
+          "stem_root": "0.0715555097118209296458702713814531779670801545333687169768055",
+          "temperature_filtered_24h": "0.0000347222222222222222222222222222222222222222222222222222222222",
+          "temperature_sum": "0.000266203703703703703703703703703703703703703703703703703703704"
+        },
+        "dC": [
+          "0.00998429480000000000000000000000000000000000000000000000000000",
+          "0.000169643747416644316916243721413204241125211273751399437542270",
+          "0.000415326988903114244482890908968019297111502904792917979626056",
+          "0.000837350590432429915946486525283123806195019063798828398396724",
+          "0.00150451815805557301304128005393265293452398886069645860396939",
+          "0.00249069087018372392523278053381943263335184749903164527865168",
+          "0.00386804899039567484626824689472058102168147586156448667772119",
+          "0.000125641600000000000000000000000000000000000000000000000000000",
+          "0.00175218971537826117518466371082610581514043684687248783321858",
+          "0.00325318553830145518735213395153699776804066406028120723762171",
+          "0.00517522323945396120103763744417481330825098089829574105969696",
+          "0.00754445252555216284429122361549993124321842363663754752078430",
+          "0.0103446488681974446776217212169112878962495060686697021505537",
+          "0.0135364000746902516972113581153835978264364110134889641032379",
+          "0.00225846095882754464584256173137881639558829666679416271999320",
+          "0.00461469701933029075135498078343665016861749737486272904262957",
+          "0.00742151895024336823431469581111308781404794415936722675116395",
+          "0.0104639531427909198926848853649381291987977744093114953971856",
+          "0.0136638027219754489226582196102377543842552033480836524361162",
+          "0.0169404483269482235543575089218094024706712737734777125336971",
+          "0.0202150933412891392659805794512503539855218945229513701115664",
+          "0.00306878389333648061292292878198262674725283048690960352475405",
+          "0.00586444126098917404136403411877208539858565396024994305473671",
+          "0.00878339911540794228828767350684633133643117262477297742829592",
+          "0.0116039393799838468830247786891678910812862287917984627551593",
+          "0.0142759733782248934692818270516194374733874885708204649369141",
+          "0.0167592310787243594433009238078917171846935027489612835699115",
+          "0.000152564800000000000000000000000000000000000000000000000000000",
+          "0.00260824441241934259289191598078892172337217215512914942647993",
+          "0.00504998432979331090879196019269212512816652089096371694302979",
+          "0.00727974659391957525702351959936605866558422817533362019037238",
+          "0.00928515284687042382146443117650320758096720325565283649112891",
+          "0.0110605002478347455260057502749445120862822533700141186177113",
+          "0.0126057330969644711727376863011430876277745493226774223650192",
+          "0.0139254320003838484222425479776442305152459660531586126081990",
+          "0.00205254837062230130332903440976803028582548916133645569761098",
+          "0.00351629127195719919784081616698208541575642308157961709670307",
+          "0.00496774762944139345749722618517875024797676427017665673671985",
+          "0.00621818573705689286199145692563374554320567303433259335439449",
+          "0.00727955442440111985771891136742766268418105575667019844514792",
+          "0.00816496257290931953033666953949726315749412630512646722402877",
+          "0.00888818590586218342838303261027856992483142325766874435587185",
+          "0.00137300609712241814454745551650528641887860751586224464703351",
+          "0.00217649515747952429656979501437378313067946966980772825754112",
+          "0.00304511599207497982328573858082989196358493087911652957841051",
+          "0.00377501328095734836216147658042516908640700798335412496106014",
+          "0.00437923059836445241654862641118046513343332150768577118439809",
+          "0.00487029711128529889350894873293619195832901153740189611962341",
+          "0.00526011406775612200851861532163998122092016118586144950520035",
+          "0.000901115537530480081257538387032209306599458044174153256557490"
+        ],
+        "dN": [
+          "0.009998878200",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "0.000007852600",
+          "-0.000002243600",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "0.000006730800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "0.000006730800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "0.000006730800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "0.000006730800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "0.000006730800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "0.000006730800"
+        ]
+      }
+    },
+    {
+      "case_id": "synthetic-plant-20C-varying-RGR",
+      "state": {
+        "input_id": "synthetic-plant-20C-varying-RGR",
+        "origin": "synthetic",
+        "values": {
+          "buffer": {
+            "value": 15000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 50000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 20000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 1500,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "cohort_state": {
+        "input_id": "synthetic-plant-20C-varying-RGR-cohort",
+        "origin": "synthetic",
+        "values": {
+          "fruit_number": [
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            }
+          ],
+          "fruit_carbohydrate": [
+            {
+              "value": 1.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.8666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 9.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.3333333333333335,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.1,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.933333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.833333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.833333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 1.8666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.866666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 14.466666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.1,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.266666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.5,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.166666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 13.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.3333333333333335,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.733333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 9.733333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.333333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 15.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 17.733333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.566666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.9,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.666666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 13.5,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 16.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 19.366666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 14.666666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 17.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 21.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.033333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          ],
+          "fruit_relative_growth_rate": [
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            }
+          ],
+          "temperature_filtered_24h": {
+            "value": 20,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 1500,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "forcing": {
+        "input_id": "synthetic-plant-20C-varying-RGR-forcing",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 600,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 800,
+            "unit": "ppm"
+          }
+        }
+      },
+      "removals": {
+        "input_id": "synthetic-plant-20C-varying-RGR-removal",
+        "origin": "synthetic",
+        "values": {
+          "leaf": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      },
+      "fruit_entry": {
+        "input_id": "synthetic-plant-20C-varying-RGR-entry",
+        "origin": "synthetic",
+        "values": {
+          "fruit_number_inflow": {
+            "value": 0.01,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "fruit_entry_carbohydrate": {
+            "value": 1.0,
+            "unit": "mg_CH2O/fruit_equivalent"
+          }
+        }
+      },
+      "expected": {
+        "photosynthesis": "0.663810753809606749167760029295540123672229121933687065165691",
+        "growth_respiration": "0.136525882926403539487216734651298565997134978802524217107111",
+        "fruit_allocation": "0.325804608291372413744209417575685260235958045839326577605388",
+        "fruit_buffer_debit": "0.413771852530042965455145960321120280499666718215944753558843",
+        "fruit_carbohydrate_total": "423.0333333333333354",
+        "fruit_maintenance": "0.0000272691869000918170591953247858693845390509619165986471895545",
+        "old_single_fruit_maintenance": "0.0000346923338544561541978529311911334327377765181474675362419866",
+        "terminal_carbohydrate": "0.00003402793333333332959400",
+        "terminal_number": "0.000001121800",
+        "lai": "1.3300000",
+        "plant_derivatives": {
+          "buffer": "0.033316124513411227612740589525709182091819585284087890228440",
+          "leaf": "0.0822642086059160337383904914172678897441128429578413651929194",
+          "stem_root": "0.0715555097118209296458702713814531779670801545333687169768055",
+          "temperature_filtered_24h": "0.0000347222222222222222222222222222222222222222222222222222222222",
+          "temperature_sum": "0.000266203703703703703703703703703703703703703703703703703703704"
+        },
+        "dC": [
+          "0.00998429480000000000000000000000000000000000000000000000000000",
+          "0.000169422212157165758275246100479023443079718767841677627215315",
+          "0.000414967289185359519345676649012043887360021313054685422860856",
+          "0.000836858539365232523485285173029702823979408321260459218729583",
+          "0.00150388931146515906785352505375789123200293335923274987216298",
+          "0.00249069087018372392523278053381943263335184749903164527865168",
+          "0.00386718345728887489623906471417308336919190258902763928492719",
+          "0.000125641600000000000000000000000000000000000000000000000000000",
+          "0.00175191635367426262380366154104094436776505998286725544963654",
+          "0.00325276721861304938904977169874273447472719030471027461661456",
+          "0.00517522323945396120103763744417481330825098089829574105969696",
+          "0.00754376988783400216936549760365146136675002920755356654196920",
+          "0.0103437659688902285341031043970193482541322330707667676930391",
+          "0.0135353476321298572743924495489307371187862044526795653338820",
+          "0.00225830784835335690267033554938610696599406932623053186973259",
+          "0.00461469701933029075135498078343665016861749737486272904262957",
+          "0.00742107072774163254590672646761527652972298657180350220846706",
+          "0.0104633100432955402326455780089190709112442557992303235156178",
+          "0.0136629826368634532685562173564820527472291854438530371366710",
+          "0.0169394476406347822329283286308113608670586502797590109697192",
+          "0.0202150933412891392659805794512503539855218945229513701115664",
+          "0.00306862160587895562229245712312997093741103549830894463860518",
+          "0.00586409246126286642908251576686366036964374302614200468518549",
+          "0.00878286606008514511312137204190512527236426098702307748365652",
+          "0.0116032175734626760937971732333660250065492544684603829385195",
+          "0.0142759733782248934692818270516194374733874885708204649369141",
+          "0.0167581800742375309325512025886554700352418780608808260215188",
+          "0.000152564800000000000000000000000000000000000000000000000000000",
+          "0.00260805305922654360692111403637933043969939708154697857284241",
+          "0.00504959608537662056006808932332789372537638530045104047866196",
+          "0.00727974659391957525702351959936605866558422817533362019037238",
+          "0.00928440065738475243634578276682502361002930566605229210481905",
+          "0.0110594919986258875842787558011656832654312428543879501250389",
+          "0.0126045029692964776915846829205095351722355224663314994158513",
+          "0.0139239774508790648620776910348032890898210438711389915582299",
+          "0.00205254837062230130332903440976803028582548916133645569761098",
+          "0.00351588941730047064961298158315646150567197834790179509290586",
+          "0.00496710180494815201918268240025779439865024050319210282798233",
+          "0.00621731097960409749767066019576070740384473752020004617005410",
+          "0.00727844710757886921515383481591343631952774287427655327189371",
+          "0.00816496257290931953033666953949726315749412630512646722402877",
+          "0.00888668925486500851476514517585566624510444743380301560554731",
+          "0.00137277719730202877400559189653330206721857377566518756545566",
+          "0.00217603044258272675921799090017903039963131773222032502032156",
+          "0.00304441059024747200654057870356897739054652415403613339396709",
+          "0.00377501328095734836216147658042516908640700798335412496106014",
+          "0.00437809716215316676775240766920159618548162915957190272297579",
+          "0.00486884196242710932363567286311429143706165418900631895816419",
+          "0.00525839188902093113490441058875300778316552358697715737636536",
+          "0.000900866733009924998634454935266065668247147038851787665858713"
+        ],
+        "dN": [
+          "0.009998878200",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "0.000007852600",
+          "-0.000002243600",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "0.000006730800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "0.000006730800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "0.000006730800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "0.000006730800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "0.000006730800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "-0.000001121800",
+          "0.000006730800"
+        ]
+      }
+    },
+    {
+      "case_id": "synthetic-plant-23C-zero-RGR",
+      "state": {
+        "input_id": "synthetic-plant-23C-zero-RGR",
+        "origin": "synthetic",
+        "values": {
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 100000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 40000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 1200,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "cohort_state": {
+        "input_id": "synthetic-plant-23C-zero-RGR-cohort",
+        "origin": "synthetic",
+        "values": {
+          "fruit_number": [
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            }
+          ],
+          "fruit_carbohydrate": [
+            {
+              "value": 1.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.8666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 9.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.3333333333333335,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.1,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.933333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.833333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.833333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 1.8666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.866666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 14.466666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.1,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.266666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.5,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.166666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 13.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.3333333333333335,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.733333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 9.733333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.333333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 15.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 17.733333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.566666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.9,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.666666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 13.5,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 16.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 19.366666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 14.666666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 17.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 21.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.033333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          ],
+          "fruit_relative_growth_rate": [
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            }
+          ],
+          "temperature_filtered_24h": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 1200,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "forcing": {
+        "input_id": "synthetic-plant-23C-zero-RGR-forcing",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          }
+        }
+      },
+      "removals": {
+        "input_id": "synthetic-plant-23C-zero-RGR-removal",
+        "origin": "synthetic",
+        "values": {
+          "leaf": {
+            "value": 0.01,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      },
+      "fruit_entry": {
+        "input_id": "synthetic-plant-23C-zero-RGR-entry",
+        "origin": "synthetic",
+        "values": {
+          "fruit_number_inflow": {
+            "value": 0.01,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "fruit_entry_carbohydrate": {
+            "value": 1.0,
+            "unit": "mg_CH2O/fruit_equivalent"
+          }
+        }
+      },
+      "expected": {
+        "photosynthesis": "0",
+        "growth_respiration": "0.139229032140908752235136034522420796750995819849661559220472",
+        "fruit_allocation": "0.332243958322188646214909046722143604386187360668875350937761",
+        "fruit_buffer_debit": "0.421949827069179580692934489337122377570457948049471695690956",
+        "fruit_carbohydrate_total": "423.0333333333333354",
+        "fruit_maintenance": "0E-85",
+        "old_single_fruit_maintenance": "0.0000427112730108104002878446574586606527979889927660481121624560",
+        "terminal_carbohydrate": "0.00003930593333333332901400",
+        "terminal_number": "0.000001295800",
+        "lai": "2.6600000",
+        "plant_derivatives": {
+          "buffer": "-0.642977388282198037813809221251894359800637366733127509440400",
+          "leaf": "0.0562055396748450845316303047779106145607246980074524181033521",
+          "stem_root": "0.0699787536421779346231343172359246097314079255574102704492254",
+          "temperature_filtered_24h": "0E+1",
+          "temperature_sum": "0.000266203703703703703703703703703703703703703703703703703703704"
+        },
+        "dC": [
+          "0.00998185880000000000000000000000000000000000000000000000000000",
+          "0.000255655698462456363026337408187757578773370646431689061403442",
+          "0.000593356417781727971420151716086260140232325221650593605071695",
+          "0.00114835129529134889937318034875441082129241526805439136544610",
+          "0.00199233302062683658468119712024424004883938828596578195422371",
+          "0.00319744127332689447046295623601773088978027489570553033058294",
+          "0.00482902309522897080242468510842989804221829507950418257768700",
+          "0.000145129600000000000000000000000000000000000000000000000000000",
+          "0.00208600530916313165848762823285767702874691023016269169505056",
+          "0.00379162112629669022923498084089260364262795996785489086958702",
+          "0.00591907624789922658684342470451168456099110967661871361387537",
+          "0.00848268944520852740135342595048310573820924313313611862845702",
+          "0.0114523295695824979164641395043072181380268353410811133339847",
+          "0.0147767417363247419582648053039858541472277212282687084215833",
+          "0.00244391989066332005059139917207730965659938551043968477767001",
+          "0.00491513889228477048228784815975759916063832103191625315797574",
+          "0.00782315356777870791418488454477039642865235119868463696863828",
+          "0.0109266262742065777787549297376232511088145969141899342453446",
+          "0.0141463134445088135781146687349823810307106038027257692110579",
+          "0.0174031520657185722196855239617489346701810746712631174161890",
+          "0.0206219785541066350922966233628933128435926977631278002798488",
+          "0.00313083183512855548022662284179206840863465731480018343860868",
+          "0.00590796040565863915244053784334145752970298109960676630405937",
+          "0.00880439666967221807717994972547702293597949003926786556042836",
+          "0.0115785043372832668314388370271636259238781652988325550871385",
+          "0.0141856673971983348343520481164959325590839579737015393771071",
+          "0.0165909659925399222321178963718991004168170155060059966421279",
+          "0.000176228800000000000000000000000000000000000000000000000000000",
+          "0.00256173151390283759057172332383688247452599157393824480742012",
+          "0.00495044186352413055039483521697146079138080776232752360279726",
+          "0.00712081892979785401749715906342085019813932425930591009095675",
+          "0.00906398408722369957924212171792257807203694573216433783910867",
+          "0.0107771176551169923993741318294963976713517463258501173739343",
+          "0.0122624525362860079630774940686042403372517104191781079463497",
+          "0.0135263080912356034766651979371135635830207830287128803954150",
+          "0.00202333922967305371707845713131976507328856683177888559728181",
+          "0.00340302162270980226071465219883033030878770655958781217652961",
+          "0.00480500707186413549016354570649280764800036402468698715840931",
+          "0.00601054787669825874098245344607846352627991033632436744246360",
+          "0.00703211240747847475746409360958289240452351879061459917881785",
+          "0.00788306736193396636122826529808662557571373869331275890961757",
+          "0.00857723799225582932736024950295505359756818113020467567897105",
+          "0.00136065290181027377707972105857744899399377560574858098895661",
+          "0.00209416857366664692236167194191667662283919720234590738604787",
+          "0.00293145010791437118256579831868355803973469684205107710698732",
+          "0.00363475510768493340659256055062597429193192308300328371932297",
+          "0.00421686276010470715224026862614154554382739804202233205488837",
+          "0.00468998729341487050377552591090652725807529088098257179452271",
+          "0.00506568449994935491335805448115418402711535565605002767217871",
+          "0.000907452142668124230398383708644944896549280789687854093637824"
+        ],
+        "dN": [
+          "0.009998704200",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "0.000009070600",
+          "-0.000002591600",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "0.000007774800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "0.000007774800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "0.000007774800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "0.000007774800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "0.000007774800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "0.000007774800"
+        ]
+      }
+    },
+    {
+      "case_id": "synthetic-plant-23C-varying-RGR",
+      "state": {
+        "input_id": "synthetic-plant-23C-varying-RGR",
+        "origin": "synthetic",
+        "values": {
+          "buffer": {
+            "value": 5000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "leaf": {
+            "value": 100000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "stem_root": {
+            "value": 40000,
+            "unit": "mg_CH2O/m2_floor"
+          },
+          "temperature_filtered_24h": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 1200,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "cohort_state": {
+        "input_id": "synthetic-plant-23C-varying-RGR-cohort",
+        "origin": "synthetic",
+        "values": {
+          "fruit_number": [
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.2,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.3,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.4,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.5,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.6,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.7,
+              "unit": "fruits_equivalent/m2_floor"
+            },
+            {
+              "value": 0.1,
+              "unit": "fruits_equivalent/m2_floor"
+            }
+          ],
+          "fruit_carbohydrate": [
+            {
+              "value": 1.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.8666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 9.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.3333333333333335,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.1,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.933333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.833333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.833333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 1.8666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.866666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 14.466666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.1,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.266666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 6.5,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.166666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 13.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 0.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.3333333333333335,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 4.733333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 9.733333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 12.333333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 15.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 17.733333333333334,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.566666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.2,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 7.9,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 10.666666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 13.5,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 16.4,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 19.366666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 2.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 5.666666666666667,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 8.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 11.6,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 14.666666666666666,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 17.8,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 21.0,
+              "unit": "mg_CH2O/m2_floor"
+            },
+            {
+              "value": 3.033333333333333,
+              "unit": "mg_CH2O/m2_floor"
+            }
+          ],
+          "fruit_relative_growth_rate": [
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 0.0,
+              "unit": "1/s"
+            },
+            {
+              "value": 1e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 2e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 3e-06,
+              "unit": "1/s"
+            },
+            {
+              "value": 4e-06,
+              "unit": "1/s"
+            }
+          ],
+          "temperature_filtered_24h": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "temperature_sum": {
+            "value": 1200,
+            "unit": "degC_day"
+          }
+        }
+      },
+      "forcing": {
+        "input_id": "synthetic-plant-23C-varying-RGR-forcing",
+        "origin": "synthetic",
+        "values": {
+          "canopy_temperature": {
+            "value": 23,
+            "unit": "degC"
+          },
+          "par_above_canopy": {
+            "value": 0,
+            "unit": "umol_photons/m2_floor/s"
+          },
+          "co2": {
+            "value": 400,
+            "unit": "ppm"
+          }
+        }
+      },
+      "removals": {
+        "input_id": "synthetic-plant-23C-varying-RGR-removal",
+        "origin": "synthetic",
+        "values": {
+          "leaf": {
+            "value": 0.01,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "stem_root": {
+            "value": 0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      },
+      "fruit_entry": {
+        "input_id": "synthetic-plant-23C-varying-RGR-entry",
+        "origin": "synthetic",
+        "values": {
+          "fruit_number_inflow": {
+            "value": 0.01,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          "fruit_entry_carbohydrate": {
+            "value": 1.0,
+            "unit": "mg_CH2O/fruit_equivalent"
+          }
+        }
+      },
+      "expected": {
+        "photosynthesis": "0",
+        "growth_respiration": "0.139229032140908752235136034522420796750995819849661559220472",
+        "fruit_allocation": "0.332243958322188646214909046722143604386187360668875350937761",
+        "fruit_buffer_debit": "0.421949827069179580692934489337122377570457948049471695690956",
+        "fruit_carbohydrate_total": "423.0333333333333354",
+        "fruit_maintenance": "0.0000335723071085064163863456061244546406957094819623946422869185",
+        "old_single_fruit_maintenance": "0.0000427112730108104002878446574586606527979889927660481121624560",
+        "terminal_carbohydrate": "0.00003930593333333332901400",
+        "terminal_number": "0.000001295800",
+        "lai": "2.6600000",
+        "plant_derivatives": {
+          "buffer": "-0.642977388282198037813809221251894359800637366733127509440400",
+          "leaf": "0.0562055396748450845316303047779106145607246980074524181033521",
+          "stem_root": "0.0699787536421779346231343172359246097314079255574102704492254",
+          "temperature_filtered_24h": "0E+1",
+          "temperature_sum": "0.000266203703703703703703703703703703703703703703703703703703704"
+        },
+        "dC": [
+          "0.00998185880000000000000000000000000000000000000000000000000000",
+          "0.000255382956565390419143595361031060189309526556810016449521566",
+          "0.000592913575483732498372936281393733752770775277593545882909227",
+          "0.00114774550936888842565052229886472446507944237974477552942176",
+          "0.00199155881966019745727651862614150552746110284169282717912684",
+          "0.00319744127332689447046295623601773088978027489570553033058294",
+          "0.00482795749897996897517426962475956669792252612086987265563419",
+          "0.000145129600000000000000000000000000000000000000000000000000000",
+          "0.00208566876142843139529154637396172700522142390638828411356557",
+          "0.00379110611434931724450556479687526218838136330350555374730940",
+          "0.00591907624789922658684342470451168456099110967661871361387537",
+          "0.00848184901959547536491690205717157493092743227764588346399460",
+          "0.0114512425930328726644391561646073806415303036602138143795859",
+          "0.0147754460275461459449573660392261945828101903405302127486454",
+          "0.00244373138955839921957595923474172726334954592076057148947299",
+          "0.00491513889228477048228784815975759916063832103191625315797574",
+          "0.00782260174114976053935877652644111769678489941653472647328950",
+          "0.0109258345258556161754951873389298665141432553009555742968647",
+          "0.0141453038013047127885769053184995704370223156555430761510173",
+          "0.0174019200763542682169994698956682355051205885330156835158386",
+          "0.0206219785541066350922966233628933128435926977631278002798488",
+          "0.00313063203583186763761716993860388128157920063505625032822378",
+          "0.00590753098282421929975514391439753246858758155593581188699653",
+          "0.00880374040158955256398040350476319605008210274359911507140199",
+          "0.0115776156892172114852390603237611543949820769368180126016399",
+          "0.0141856673971983348343520481164959325590839579737015393771071",
+          "0.0165896720542375628704566775702994123558864389133786203082066",
+          "0.000176228800000000000000000000000000000000000000000000000000000",
+          "0.00256149593048854740632941780658921351036933406488210653193918",
+          "0.00494996387857950987179073744718889452204187778739816851196421",
+          "0.00712081892979785401749715906342085019813932425930591009095675",
+          "0.00906305803334063846749668910261984450051846448449200136803209",
+          "0.0107758763547362475127352942780104565781314268322771218706683",
+          "0.0122609380714798567787708489438800244467192781984040683562888",
+          "0.0135245173307388555819831745752528750323834607687084592582671",
+          "0.00202333922967305371707845713131976507328856683177888559728181",
+          "0.00340252688159419426949124500998339075607895668593616828414795",
+          "0.00480421196864727998173786344874940799778530844331183329361761",
+          "0.00600947092394721789887614868210351819552996407818353442430620",
+          "0.00703074914055895803318034525777228267269429232616047150220061",
+          "0.00788306736193396636122826529808662557571373869331275890961757",
+          "0.00857539539874193033437469188836433697988961981571108190614257",
+          "0.00136037109307518574877694760013675038379097109589409607485322",
+          "0.00209359644251765647492328456577305763515705336951536152908194",
+          "0.00293058165639527163968874381308568813649533776099141058706819",
+          "0.00363475510768493340659256055062597429193192308300328371932297",
+          "0.00421546733644529999757101003139479183406005081466379193647213",
+          "0.00468819579502752518099360892510494323607174792547906055486545",
+          "0.00506356424922074325532875130654028178036995054696637224609351",
+          "0.000907145828372627880037424620201492445292549702874944710230653"
+        ],
+        "dN": [
+          "0.009998704200",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "0.000009070600",
+          "-0.000002591600",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "0.000007774800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "0.000007774800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "0.000007774800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "0.000007774800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "0.000007774800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "-0.000001295800",
+          "0.000007774800"
+        ]
+      }
+    }
+  ]
+}

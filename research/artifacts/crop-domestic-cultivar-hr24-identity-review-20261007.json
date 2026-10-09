@@ -1,0 +1,88 @@
+{
+  "catalog_available_at": null,
+  "catalog_publication_at": null,
+  "catalog_redistribution_or_external_CLI_full_content_permission_verified": false,
+  "catalog_revision": null,
+  "data_adoption": {
+    "actual_crop_runs": 0,
+    "actual_cultivar_inputs_adopted": 0,
+    "coefficients_adopted": false,
+    "domestic_received_datasets": 0,
+    "gates": "not_assessed",
+    "reserved_independent_cycles": 0
+  },
+  "entire_catalog_or_registry_exhaustively_checked": false,
+  "first_crop_page_unique_product_ids": 20,
+  "official_form_and_retained_query_input_verified": true,
+  "official_get_observations": [
+    {
+      "completed_at_utc": "2026-10-07T05:44:22.192827+00:00",
+      "displayed_result_count": "0",
+      "sha256": "8f95b5c5f40a253cf24f7e90ee3b4e0ece906ee72be5269eed2966b355cd9780",
+      "status": 200,
+      "url": "https://www.farmhannong.com/kor/product/product_ct03/list.do?productCt1=PRODUCT_CT03&productName=Joeungyeo&pageIndex=1"
+    },
+    {
+      "completed_at_utc": "2026-10-07T05:44:22.383521+00:00",
+      "displayed_result_count": "21",
+      "sha256": "fef22e1011547478f0a477a0cdc16854c878d10508311dc6995d124774ef9d37",
+      "status": 200,
+      "url": "https://www.farmhannong.com/kor/product/product_ct03/list.do?productCt1=PRODUCT_CT03&crops_crops46=CROPS46&pageIndex=1"
+    }
+  ],
+  "official_korean_name": null,
+  "official_mapping_status": "unconfirmed",
+  "official_product_id": null,
+  "official_registry_id": null,
+  "outreach_sent": false,
+  "paper_code": "HR24",
+  "paper_name": "Joeungyeo’",
+  "private_evidence_sha256": {
+    "farmhannong-exact-name-search.html": "8f95b5c5f40a253cf24f7e90ee3b4e0ece906ee72be5269eed2966b355cd9780",
+    "farmhannong-seed-list.html": "c4eaf54f73ea143a9b72be48a5729be027e83fcd902479a63c46cf6efb218955",
+    "farmhannong-tomato-list.html": "fef22e1011547478f0a477a0cdc16854c878d10508311dc6995d124774ef9d37",
+    "identity-review-receipt.json": "6bec73f3e4c6e6614703516c5e1ecc86050dc37f33d73f38a6119a788c20a89c",
+    "native-context-verification.json": "8b8b8c96672acc30d4b977740b79d9316f0b118409a6f7cf50c5d4235679b67b",
+    "official-name-and-crop-search-retrieval.json": "19c13efb48e2d572cf6c676021a93cb7918767d9b93541a06f98f2bf42970b1a",
+    "seed-list-retrieval.json": "60df72757b2283f4d34b6dd9d9b8444730377d4d5bd31189e5c2777b9a351d97"
+  },
+  "private_manifest_sha256": "a12da0a5e03684e456330422314e1acf03f17ad5bf7211066390fe8f1d6f9f1d",
+  "recorded_at_utc": "2026-10-07T05:51:57.215797+00:00",
+  "recursive_codex_cli_invocations": 0,
+  "remaining_external_evidence": "Provider/trial seed document explicitly pairing paper name/code with official cultivar/product/registration identity; raw measurement access/rights and unused independent split.",
+  "research_output": "research/crop-domestic-cultivar-hr24-identity-20261007.md",
+  "research_output_sha256": "6e1e357cfe07a53541c958d30969e9f9d5726f2ac2b85b0fbc1118f075b24d5c",
+  "researcher_native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256_including_lf": "a30e308e7bcd30537943b25e698699e98ee71238df4f85b2abdc534d3b99e137",
+    "raw_line_sha256_without_lf": "74ff603fbb4e369d242a30dce33e2deab974b99006df0adaf2b60049012b3f86",
+    "turn_context_timestamp": "2026-10-07T05:42:31.155Z"
+  },
+  "review_version": "crop-domestic-cultivar-hr24-identity-review-v1",
+  "reviewer_native_cli": {
+    "effort": "xhigh",
+    "hash_excludes_line_feed": true,
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "ebd5c10da5553d4786c7274c69e503fa1bb537d8ce57f9603152690da2911b5d",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T05:37:01.416Z"
+  },
+  "rootstock": null,
+  "source_rights_approved": false,
+  "status": "reviewed_identity_research_only",
+  "verification": {
+    "git_diff_check": "passed",
+    "local_links_and_anchors_checked": 2552,
+    "pinned_calculation_source_files_unchanged": 55,
+    "plan_dag_edges": [
+      103,
+      89
+    ],
+    "plan_dags_acyclic": true,
+    "prior_access_report_and_data_status_unchanged": true,
+    "private_manifest_entries_verified": 7,
+    "program_tests_run": false
+  },
+  "zero_search_is_absence_or_discontinuation_proof": false
+}

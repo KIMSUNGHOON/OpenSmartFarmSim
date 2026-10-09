@@ -1,0 +1,254 @@
+{
+  "evidence_version": "web-crop-startup-pages-reference-v1",
+  "recorded_at": "2026-10-05T04:21:50.031937+00:00",
+  "implementation_commit": "3e6172498f0a8c9391dfad7d6a81c3cde1a47458",
+  "baseline_commit": "876830b1ea3576d726f2bcc5bd9670e14181d1cd",
+  "scope": "synthetic_saved_startup_response_decoder_and_complete_pages_only",
+  "cli": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "observed_turn_context_at": "2026-10-05T04:03:18.857Z",
+    "turn_context_line_sha256": "521e66e0d9ee42b7bbd39ed37cd911bf263d3bb50069037f4aebc3848c9316bb",
+    "recursive_cli_invocations": 0,
+    "runtime_cli_accepted": false
+  },
+  "file_sha256": {
+    "web/src/startupCropReplay.ts": "c86e2386dec8c6c8ba65a1458fbb5a6ac9984dfb74178e477e9c553a7f0911a4",
+    "web/src/startupCropReplay.test.ts": "301d2ac30f7c3c717546fd84cd4eeb3d224fed32ef039152bad5166212d19d8e",
+    "web/src/coupledCropReplay.ts": "a73e52cb8c5cfa38e2da6d6fb9268fa7314980bd156fc31ccead163029a2e1a4",
+    "web/src/api.ts": "6e5d76de47523bd8079ec96f93907b2f4e283efa3b52d0d02ea5de7a829d140d",
+    "web/e2e/startup-crop-recorded-page.json": "a72b82432eb73163af9767c5445a41c3058d37fee5c369f6c36345b2db4edac7"
+  },
+  "fixture": {
+    "source_private_receipt_sha256": "e2e6f12c3591225ac09710985ff061183883d8250f3e098e275904a4806aa278",
+    "source_response_index": 0,
+    "source_status": 200,
+    "fixture_file": "web/e2e/startup-crop-recorded-page.json",
+    "fixture_bytes": 686491,
+    "fixture_sha256": "a72b82432eb73163af9767c5445a41c3058d37fee5c369f6c36345b2db4edac7",
+    "record_type": "canonical decoded JSON value, not original TLS wire bytes",
+    "scope": "own synthetic software math only; not a live row or agricultural evidence"
+  },
+  "verification": {
+    "full_web_unit_passed": 376,
+    "new_startup_pages_passed": 77,
+    "test_files": 16,
+    "failed": 0,
+    "skipped": 0,
+    "json_report_sha256": "97d51a7277ac2cadc1caaa72ec58d8f169adbf8b9e340279a6c5f16dcb20476d",
+    "json_report_wall_seconds": 6.058281494140625,
+    "full_node_inventory_sha256": "caddbb665641c0d1086d9831d8b489650abd0a0ebaa8cb294045cd4a08f12668",
+    "full_node_inventory_format": "relative file :: [assertion index] fullName; original parameterized titles retained",
+    "original_duplicate_title_occurrences": 19,
+    "new_nodes": [
+      "src/startupCropReplay.test.ts::[0]startup saved response and exact model boundary keeps the recorded TLS projection, all 50 arrays, 16 cumulatives and 4 diagnostics unchanged",
+      "src/startupCropReplay.test.ts::[1]startup saved response and exact model boundary rejects old_id before use",
+      "src/startupCropReplay.test.ts::[2]startup saved response and exact model boundary rejects schema before use",
+      "src/startupCropReplay.test.ts::[3]startup saved response and exact model boundary rejects model before use",
+      "src/startupCropReplay.test.ts::[4]startup saved response and exact model boundary rejects program before use",
+      "src/startupCropReplay.test.ts::[5]startup saved response and exact model boundary rejects policy before use",
+      "src/startupCropReplay.test.ts::[6]startup saved response and exact model boundary rejects dependency before use",
+      "src/startupCropReplay.test.ts::[7]startup saved response and exact model boundary rejects missing_code before use",
+      "src/startupCropReplay.test.ts::[8]startup saved response and exact model boundary rejects assumptions before use",
+      "src/startupCropReplay.test.ts::[9]startup saved response and exact model boundary rejects transition before use",
+      "src/startupCropReplay.test.ts::[10]startup saved response and exact model boundary rejects balance_rule before use",
+      "src/startupCropReplay.test.ts::[11]startup saved response and exact model boundary rejects area_zero before use",
+      "src/startupCropReplay.test.ts::[12]startup saved response and exact model boundary rejects area_exponent before use",
+      "src/startupCropReplay.test.ts::[13]startup saved response and exact model boundary rejects area_unit before use",
+      "src/startupCropReplay.test.ts::[14]startup saved response and exact model boundary rejects unknown before use",
+      "src/startupCropReplay.test.ts::[15]startup saved response and exact model boundary rejects fruit_count before use",
+      "src/startupCropReplay.test.ts::[16]startup saved response and exact model boundary rejects fruit_unit before use",
+      "src/startupCropReplay.test.ts::[17]startup saved response and exact model boundary rejects cumulative before use",
+      "src/startupCropReplay.test.ts::[18]startup saved response and exact model boundary rejects diagnostics before use",
+      "src/startupCropReplay.test.ts::[19]startup saved response and exact model boundary rejects signed_budget before use",
+      "src/startupCropReplay.test.ts::[20]startup saved response and exact model boundary rejects nonfinite before use",
+      "src/startupCropReplay.test.ts::[21]startup saved response and exact model boundary rejects phase before use",
+      "src/startupCropReplay.test.ts::[22]startup saved response and exact model boundary rejects date before use",
+      "src/startupCropReplay.test.ts::[23]startup saved response and exact model boundary rejects reorder before use",
+      "src/startupCropReplay.test.ts::[24]startup saved response and exact model boundary rejects duplicate before use",
+      "src/startupCropReplay.test.ts::[25]startup saved response and exact model boundary rejects hold_missing before use",
+      "src/startupCropReplay.test.ts::[26]startup saved response and exact model boundary rejects future_sample before use",
+      "src/startupCropReplay.test.ts::[27]startup saved response and exact model boundary rejects future_confirmed before use",
+      "src/startupCropReplay.test.ts::[28]startup saved response and exact model boundary assembles a complete result and preserves fractional hold diagnostics without another sample",
+      "src/startupCropReplay.test.ts::[29]startup saved response and exact model boundary retains signed diagnostics and decimal area text without crop arithmetic or money conversion",
+      "src/startupCropReplay.test.ts::[30]startup saved response and exact model boundary rejects a missing completed start after assembly",
+      "src/startupCropReplay.test.ts::[31]startup saved response and exact model boundary rejects a missing completed end after assembly",
+      "src/startupCropReplay.test.ts::[32]startup complete sequential samples and events loads all 512 samples and 128 events once in 16 bounded sequential requests",
+      "src/startupCropReplay.test.ts::[33]startup complete sequential samples and events uses the authenticated transport for the new same-origin read without a request body",
+      "src/startupCropReplay.test.ts::[34]startup complete sequential samples and events rejects sample_offset drift without a partial replay",
+      "src/startupCropReplay.test.ts::[35]startup complete sequential samples and events rejects event_offset drift without a partial replay",
+      "src/startupCropReplay.test.ts::[36]startup complete sequential samples and events rejects sample_total drift without a partial replay",
+      "src/startupCropReplay.test.ts::[37]startup complete sequential samples and events rejects event_total drift without a partial replay",
+      "src/startupCropReplay.test.ts::[38]startup complete sequential samples and events rejects sample_order drift without a partial replay",
+      "src/startupCropReplay.test.ts::[39]startup complete sequential samples and events rejects event_order drift without a partial replay",
+      "src/startupCropReplay.test.ts::[40]startup complete sequential samples and events rejects result_hash drift without a partial replay",
+      "src/startupCropReplay.test.ts::[41]startup complete sequential samples and events rejects allocation_hash drift without a partial replay",
+      "src/startupCropReplay.test.ts::[42]startup complete sequential samples and events rejects startup_code drift without a partial replay",
+      "src/startupCropReplay.test.ts::[43]startup complete sequential samples and events rejects area drift without a partial replay",
+      "src/startupCropReplay.test.ts::[44]startup complete sequential samples and events rejects recorded drift without a partial replay",
+      "src/startupCropReplay.test.ts::[45]startup complete sequential samples and events rejects status drift without a partial replay",
+      "src/startupCropReplay.test.ts::[46]startup complete sequential samples and events rejects missing_sample drift without a partial replay",
+      "src/startupCropReplay.test.ts::[47]startup complete sequential samples and events rejects missing_event drift without a partial replay",
+      "src/startupCropReplay.test.ts::[48]startup complete sequential samples and events compares field values independent of JSON key order",
+      "src/startupCropReplay.test.ts::[49]startup complete sequential samples and events rejects invalid result_id before the network",
+      "src/startupCropReplay.test.ts::[50]startup complete sequential samples and events rejects invalid scenario_id before the network",
+      "src/startupCropReplay.test.ts::[51]startup complete sequential samples and events rejects invalid scenario_revision before the network",
+      "src/startupCropReplay.test.ts::[52]startup complete sequential samples and events rejects invalid registration_sha256 before the network",
+      "src/startupCropReplay.test.ts::[53]startup complete sequential samples and events rejects invalid crop_id before the network",
+      "src/startupCropReplay.test.ts::[54]startup complete sequential samples and events rejects invalid pagination {\"sample_offset\":-1} before the network",
+      "src/startupCropReplay.test.ts::[55]startup complete sequential samples and events rejects invalid pagination {\"sample_offset\":513} before the network",
+      "src/startupCropReplay.test.ts::[56]startup complete sequential samples and events rejects invalid pagination {\"sample_limit\":65} before the network",
+      "src/startupCropReplay.test.ts::[57]startup complete sequential samples and events rejects invalid pagination {\"event_offset\":129} before the network",
+      "src/startupCropReplay.test.ts::[58]startup complete sequential samples and events rejects invalid pagination {\"event_limit\":9} before the network",
+      "src/startupCropReplay.test.ts::[59]startup complete sequential samples and events rejects invalid pagination {\"event_limit\":0} before the network",
+      "src/startupCropReplay.test.ts::[60]startup complete sequential samples and events rejects invalid pagination {\"sample_offset\":null} before the network",
+      "src/startupCropReplay.test.ts::[61]startup complete sequential samples and events rejects invalid pagination {\"sample_offset\":0.5} before the network",
+      "src/startupCropReplay.test.ts::[62]startup complete sequential samples and events returns only the confirmed past or an empty result for holds",
+      "src/startupCropReplay.test.ts::[63]startup complete sequential samples and events rejects a caller changing farm identity during progress before another request",
+      "src/startupCropReplay.test.ts::[64]startup cancellation, authorization and bounded transport HTTP 401 stops collection without returning private details",
+      "src/startupCropReplay.test.ts::[65]startup cancellation, authorization and bounded transport HTTP 403 stops collection without returning private details",
+      "src/startupCropReplay.test.ts::[66]startup cancellation, authorization and bounded transport HTTP 404 stops collection without returning private details",
+      "src/startupCropReplay.test.ts::[67]startup cancellation, authorization and bounded transport HTTP 422 stops collection without returning private details",
+      "src/startupCropReplay.test.ts::[68]startup cancellation, authorization and bounded transport HTTP 503 stops collection without returning private details",
+      "src/startupCropReplay.test.ts::[69]startup cancellation, authorization and bounded transport rights denied between sample pages returns no partial data",
+      "src/startupCropReplay.test.ts::[70]startup cancellation, authorization and bounded transport rights denied during remaining event pages returns no completed samples",
+      "src/startupCropReplay.test.ts::[71]startup cancellation, authorization and bounded transport pre-canceled lookup starts no network request",
+      "src/startupCropReplay.test.ts::[72]startup cancellation, authorization and bounded transport canceling progress prevents later requests and clears per-request listeners",
+      "src/startupCropReplay.test.ts::[73]startup cancellation, authorization and bounded transport an account or result change can abort an active request and reject its late success",
+      "src/startupCropReplay.test.ts::[74]startup cancellation, authorization and bounded transport rejects a 2 MiB plus one body and cancels the stream",
+      "src/startupCropReplay.test.ts::[75]startup cancellation, authorization and bounded transport invalid UTF-8 cannot become a decoded crop result",
+      "src/startupCropReplay.test.ts::[76]startup cancellation, authorization and bounded transport retains the 30 second timeout and removes timers and external listeners"
+    ],
+    "typecheck_exit_code": 0,
+    "build_exit_code": 0,
+    "vite_build_seconds": 0.613,
+    "earlier_focused_passed": 229,
+    "initial_red": "missing client module",
+    "initial_decoder_selected_passed": 28,
+    "initial_decoder_nonselected": 3,
+    "initial_full_passed": 31,
+    "initial_typecheck_failure": "8 fixture-helper inferred return type errors; explicit page mutation boundary then final typecheck passed",
+    "logs": {
+      "ossf-startup-web-pages-red-20261005.log": {
+        "sha256": "aa2304ae96c31ea65bc15da2be58997843ac8de279acab9ef66dcfe17678f1fe",
+        "bytes": 1178
+      },
+      "ossf-startup-web-pages-decoder-initial-20261005.log": {
+        "sha256": "3e272d518be5bf72f0a1d63d03dded1ad089bb7460eaf374004fd8c6fb151a72",
+        "bytes": 325
+      },
+      "ossf-startup-web-pages-initial-20261005.log": {
+        "sha256": "d079b9957ebe8b12dd12de2b21264af3ab17baf1a45b76ba628962b09e7634ab",
+        "bytes": 288
+      },
+      "ossf-startup-web-pages-focused-20261005.log": {
+        "sha256": "cf476c1025f9ac0e723f12f9954e2b69f45af88091268aa3df80a1b97b168529",
+        "bytes": 380
+      },
+      "ossf-startup-web-pages-typecheck-20261005.log": {
+        "sha256": "4e01a9ab7b0622ac2cab16bc95583fec7b72e02a377e8e265a5ef8332faf0ded",
+        "bytes": 2514
+      },
+      "ossf-startup-web-pages-unit-final-20261005.log": {
+        "sha256": "6e914517744dfd9c9300c0eb9d2a113e01c4b873f24ae64782039f2b6ee058d7",
+        "bytes": 209
+      },
+      "ossf-startup-web-pages-build-20261005.log": {
+        "sha256": "067427f470eb8ae84a3d885ed16709df0f4d7f1b2c640f3292c73f63450eb7d0",
+        "bytes": 12113
+      }
+    },
+    "build_warning": "existing SVG renderer chunk520.20kB above500kB; no limit relaxed"
+  },
+  "contract": {
+    "response_version": "crop-startup-replay-v1",
+    "result_version": "crop-result-v3",
+    "samples_maximum": 512,
+    "events_maximum": 128,
+    "requests_maximum": 16,
+    "concurrent_requests": 1,
+    "response_bytes_maximum": 2097152,
+    "timeout_seconds": 30,
+    "complete_sample_and_event_arrays_before_return": true,
+    "sample_page_maximum": 64,
+    "event_page_maximum": 8,
+    "code_hash_fields": 9,
+    "cumulative_fields": 16,
+    "diagnostic_fields": 4,
+    "same_identity_manifest_area_utc_checked": true,
+    "identity_change_cancel_and_late_success_rejected": true,
+    "cumulative_or_crop_math_recomputed": false,
+    "last_confirmed_added_as_scene_sample": false
+  },
+  "preservation": {
+    "backend34_hashes_match_prior_api_proof": true,
+    "prior_api_proof": "research/artifacts/api-crop-startup-replay-reference-20261005.json",
+    "prior_api_proof_sha256": "4eb011aa774dce3487c622af183074fca96c89b2bb3a10809d6b6e0e769beec3",
+    "old_v2_module_change": "two export lines for four unchanged state/quantity/event/page validators; behavior preserved",
+    "old_v1_decoder_and_geometry_and_locks_unchanged": true,
+    "new_dependencies": 0
+  },
+  "review": {
+    "correctness": "separate v3 model/schema/manifest; exact quantities and fractional holds; complete sample/event arrays and no partial replay",
+    "readability": "206line client, typed fields; 249line behavioral tests and isolated public synthetic fixture",
+    "architecture": "existing canonical state/quantity/event/page helpers reused, shared HTTP transport; no CLI recursion or numeric model edits",
+    "security": "closed unknown responses/lookups/query; current denial propagates; memory Bearer/no-store; stream/listener cleanup; synthetic public response only",
+    "performance": "bounded512/128, at most16 sequential requests2MiB/30seconds; fixture used in tests only"
+  },
+  "resources": {
+    "execution": "sequential nice npm unit/build",
+    "new_databases": 0,
+    "new_servers": 0,
+    "new_browser_or_gpu_services": 0,
+    "owned_services_after": 0
+  },
+  "external_dependencies": {
+    "independent_domestic_datasets": 0,
+    "adopted_actual_forcing": 0,
+    "actual_crop_runs": 0
+  },
+  "not_run": [
+    "new startup scene or browser tests",
+    "new client actual SCRAM/HTTPS/browser path",
+    "hosted CI for this client/API commit"
+  ],
+  "not_accepted": [
+    "startup model new3D/browser mapping",
+    "wholecrop, freshkg, resources/economics",
+    "actual runtimeCLI and G0-G4/independent crop validation"
+  ],
+  "hosted": {
+    "accepted_math_sha": "d105daaf8ba0ec8c853e8407913ba0f55de1ce45",
+    "current_remote_sha": "92cade3bafb6654f27599fd9f94d42204dccd29f",
+    "current_backend_run": 37259991160,
+    "api_and_client_not_in_current_run": true,
+    "same_remote_ci_not_canceled": true,
+    "observed_backend_partitions": {
+      "0": "success",
+      "1": "success",
+      "2": "in_progress",
+      "3": "in_progress",
+      "4": "queued",
+      "5": "queued"
+    },
+    "other_four_workflows": "success"
+  },
+  "documentation_verification": {
+    "markdown_files": [
+      "README.md",
+      "docs/PROJECT_SPEC.md",
+      "docs/IMPLEMENTATION_SLICE.md",
+      "tasks/plan.md",
+      "tasks/todo.md",
+      "contracts/web-crop-startup-replay-v1.md",
+      "research/web-crop-startup-pages-implementation.md"
+    ],
+    "local_file_targets_checked": 754,
+    "missing_local_file_targets": 0,
+    "git_diff_check_exit_code": 0,
+    "changed_code_sha256_checked": 5,
+    "private_test_log_sha256_checked": 7,
+    "scope": "local file targets; changed headings reviewed, not an external-link/anchor crawler"
+  }
+}

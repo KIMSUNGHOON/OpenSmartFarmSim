@@ -1,0 +1,87 @@
+{
+  "G0_G4": "not_assessed",
+  "UI_U3_realtime": false,
+  "actual_crop_Runs": 0,
+  "actual_native_FD_before_after": [
+    14,
+    14
+  ],
+  "actual_native_database_counts_preserved": [
+    89,
+    89,
+    0,
+    0,
+    1
+  ],
+  "core_commit": "79cf1fb9f6e28e1eafe0a07630eaec1b1f818b0a",
+  "current_values_receipt_sha256": "88055f2292ffd8feca17202b231b9ba7d39a2c035b31e3049fff1e39c7725e5c",
+  "date": "2026-10-09",
+  "full_harvest_writer_API_3D_acceptance": false,
+  "historical_receipt_modified_or_rebound": false,
+  "historical_values_receipt_sha256": "3e845e6add86acf1c5cb25b0c104a4df90c33aeb3554ea90164148d41f3f3cbe",
+  "hosted_Backend_acceptance": false,
+  "local_historical_fixture_hold_resolved": true,
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "turn_event_sha256": "050fa6fc3b71395069a96ec4889a38a7bccabbb3307c70c8496ae02094d2d598",
+    "turn_timestamp": "2026-10-09T10:55:06.320Z"
+  },
+  "native_receipt_root_audit_actual_exit_code": 0,
+  "native_receipt_root_audit_chunk_id": "0936a0",
+  "read_RHS_generation_registration_proof_calls": 0,
+  "response_limit_bytes": 2097152,
+  "response_limit_seconds": 30,
+  "root_audit_actual_exit_code": 0,
+  "root_audit_chunk_id": "081c42",
+  "scope": "small_actual_registered_SCRAM_then_recorded_API_projection_and_protected_ASGI; no new TLS/full_API/native3D/U3/hosted acceptance",
+  "source_sha256": {
+    "backend/tests/test_api_crop_harvest_replay.py": "7a1841c14fc10c7c9aed05511281cf4be338404d92223aaf415ff5572353f5d5",
+    "backend/tests/test_api_crop_harvest_route.py": "001c2fb30ca60ecc53585ba9e2b27659c686f50cb0b86971244a40f39ff986a5",
+    "contracts/crop-harvest-api-fixture-current-version-v1.md": "3b545bf86834cc6237114410fd974afc07decdd9c0b127648d98a6f40cc00975",
+    "research/artifacts/crop-harvest-api-current-values-20261009.json": "88055f2292ffd8feca17202b231b9ba7d39a2c035b31e3049fff1e39c7725e5c"
+  },
+  "verification": {
+    "G0_G4": "not_assessed",
+    "actual_crop_Runs": 0,
+    "actual_focused_tool": {
+      "controller_seconds": 25.237153091002256,
+      "existing_HTTP_reconciliation_tests": 29,
+      "existing_tests": 142,
+      "exit_code": 0,
+      "focused_unique_tests": 174,
+      "new_history_tests": 3,
+      "pytest_seconds": 23.78,
+      "session_id": 9291
+    },
+    "actual_native_tool": {
+      "controller_seconds": 327.96128899700125,
+      "exit_code": 0,
+      "fresh_python_children": 2,
+      "harvest_rows": 6,
+      "pytest_seconds": 327.1,
+      "registered_rows": 1,
+      "session_id": 89157
+    },
+    "combined_peak_RSS_bytes": 875069440,
+    "current_code_pins_unchanged": true,
+    "frontend_status": 200,
+    "old_receipt_unchanged": true,
+    "owned_temps_removed": [
+      "native-current",
+      "focused-v1"
+    ],
+    "protected_live": true,
+    "public_receipt_exact_native_values": true,
+    "root_FD_before_after": [
+      4,
+      4
+    ],
+    "scope": "small_actual_registered_SCRAM_then_recorded_API_projection_and_protected_ASGI; no new TLS/full_API/native3D/U3/hosted acceptance",
+    "single_PID_peak_RSS_bytes": 220712960,
+    "source_preview_original_inventory_preserved": true,
+    "unique_tests_including_native": 175
+  },
+  "version": "owned-harvest-api-fixture-version-reference-v1"
+}

@@ -1,0 +1,133 @@
+{
+  "actual_full166_accepted": false,
+  "backend": {
+    "conclusion": "failure",
+    "headSha": "2daa99ff825638ac7b95c714438f0f588a029b13",
+    "jobs": [
+      {
+        "completedAt": "2026-10-07T06:50:51Z",
+        "conclusion": "failure",
+        "databaseId": 112641108214,
+        "name": "backend-partition-4",
+        "startedAt": "2026-10-07T06:18:18Z",
+        "status": "completed",
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37574780524/job/112641108214"
+      },
+      {
+        "completedAt": "2026-10-07T06:18:15Z",
+        "conclusion": "success",
+        "databaseId": 112641108360,
+        "name": "backend-partition-2",
+        "startedAt": "2026-10-07T05:44:10Z",
+        "status": "completed",
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37574780524/job/112641108360"
+      },
+      {
+        "completedAt": "2026-10-07T06:57:03Z",
+        "conclusion": "success",
+        "databaseId": 112641108403,
+        "name": "backend-partition-3",
+        "startedAt": "2026-10-07T05:47:21Z",
+        "status": "completed",
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37574780524/job/112641108403"
+      },
+      {
+        "completedAt": "2026-10-07T05:47:18Z",
+        "conclusion": "failure",
+        "databaseId": 112641108430,
+        "name": "backend-partition-1",
+        "startedAt": "2026-10-07T05:07:39Z",
+        "status": "completed",
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37574780524/job/112641108430"
+      },
+      {
+        "completedAt": "2026-10-07T07:20:17Z",
+        "conclusion": "success",
+        "databaseId": 112641108439,
+        "name": "backend-partition-5",
+        "startedAt": "2026-10-07T06:50:53Z",
+        "status": "completed",
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37574780524/job/112641108439"
+      },
+      {
+        "completedAt": "2026-10-07T05:44:05Z",
+        "conclusion": "success",
+        "databaseId": 112641108445,
+        "name": "backend-partition-0",
+        "startedAt": "2026-10-07T05:07:39Z",
+        "status": "completed",
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37574780524/job/112641108445"
+      },
+      {
+        "completedAt": "2026-10-07T07:20:24Z",
+        "conclusion": "failure",
+        "databaseId": 112678376452,
+        "name": "backend",
+        "startedAt": "2026-10-07T07:20:20Z",
+        "status": "completed",
+        "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37574780524/job/112678376452"
+      }
+    ],
+    "status": "completed"
+  },
+  "canceled_or_rerun": false,
+  "fixed_head_hosted_accepted": false,
+  "full_backend_accepted": false,
+  "head": "2daa99ff825638ac7b95c714438f0f588a029b13",
+  "hold": "backend partitions1/4 leaked test passfiles at module teardown; fixed-head hosted acceptance pending",
+  "local_fixes": [
+    {
+      "commit": "f11bedc20e627ad631cdf99a739e19d2dc03b9ba",
+      "green_passed": 2,
+      "green_seconds": 75.53,
+      "receipt": "research/artifacts/application-collection-passfile-cleanup-reference-20261007.json"
+    },
+    {
+      "commit": "46e85b03eb5cd3b8f1b478de1b3ee30a74e2e315",
+      "green_passed": 4,
+      "green_seconds": 65.98,
+      "receipt": "research/artifacts/planning-passfile-cleanup-reference-20261007.json"
+    }
+  ],
+  "merged": false,
+  "observed_at_utc": "2026-10-07T07:27:35.509389+00:00",
+  "pipeline_changes": false,
+  "reference_version": "crop-cycle-durable-ci-terminal-hold-v1",
+  "runs": [
+    {
+      "conclusion": "success",
+      "databaseId": 37574780515,
+      "headSha": "2daa99ff825638ac7b95c714438f0f588a029b13",
+      "name": "Authored API PostgreSQL smoke",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37574780516,
+      "headSha": "2daa99ff825638ac7b95c714438f0f588a029b13",
+      "name": "C0 Compose verification",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37574780525,
+      "headSha": "2daa99ff825638ac7b95c714438f0f588a029b13",
+      "name": "Application runtime verification",
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37574780500,
+      "headSha": "2daa99ff825638ac7b95c714438f0f588a029b13",
+      "name": "Web tests",
+      "status": "completed"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 37574780524,
+      "headSha": "2daa99ff825638ac7b95c714438f0f588a029b13",
+      "name": "Backend tests",
+      "status": "completed"
+    }
+  ]
+}

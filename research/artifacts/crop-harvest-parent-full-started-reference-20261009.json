@@ -1,0 +1,69 @@
+{
+  "accepted": false,
+  "actual_original_tool_exit_code": null,
+  "actual_pytest_pid": 1508360,
+  "actual_pytest_start_ticks": "17522904",
+  "copied_core_sha256": {
+    "backend/tests/crop_harvest_parent_production_smoke.py": "be0151eb194aa39b092dfe29888623192ce7672edf7ead24b5e755b51e33aeb5",
+    "contracts/crop-harvest-parent-production-v1.md": "61de7328edc88be9be618dd0459b17c2e1b1dd713f305cf88d97f9c92fd6378f",
+    "research/crop-harvest-parent-production.py": "87096fd690ff777dca150213294c5c62d6e757ccf853ca5b41eea3e1a397db34"
+  },
+  "estimated_execution_end_KST": {
+    "basis": "prior full execution actual7h15; conditional estimate, not acceptance or production deadline",
+    "earliest": "2026-10-09T16:12:12.785366+09:00",
+    "latest": "2026-10-09T18:12:12.785366+09:00"
+  },
+  "gates": {
+    "G0": "not_assessed",
+    "G1": "not_assessed",
+    "G2": "not_assessed",
+    "G3a": "not_assessed",
+    "G3b": "not_assessed",
+    "G4": "not_assessed"
+  },
+  "input_root_sha256": "05a58cc9092682f663bb3e2f827003f51ec8a778f746bb429126a663e841fc04",
+  "isolated_producer_baseline_commit": "dc7b852040f9a27af7a42bb779a1ba5063588ed5",
+  "limits": {
+    "nice": 19,
+    "owned_pipeline_RSS_bytes": 1073741824,
+    "single_PID_RSS_bytes": 536870912,
+    "wall_seconds": 32400
+  },
+  "main_implementation_commit": "dcf8ef3dd137bccd653860cbce0b1d6809230ade",
+  "native_model": "gpt-6.1-sol",
+  "not_started": [
+    "whole harvest writer/registry",
+    "new whole harvest API/representative3D",
+    "climate/water/nutrients/energy/economic coupling"
+  ],
+  "observed_HEAD_sha256": "96b937fca5a1913cd43ac59d7f1ffde075a69d91e5a91d9d759aef4516b34ce4",
+  "observed_at_utc": "2026-10-09T00:14:32.499596+00:00",
+  "observed_confirmed_commit_count": 2,
+  "observed_confirmed_steps": 7980,
+  "original_deadline_at_KST": "2026-10-09T18:12:12.785366+09:00",
+  "original_tool_session_id": 95086,
+  "planned": {
+    "events": 5,
+    "samples": 47809,
+    "steps": 1816704
+  },
+  "preparation_sha256": "82ec0526f693f144f84ace8ad46c6bca7073d84d243074aea6e7d9973359b539",
+  "production_forecast_margin_ranking": "hold",
+  "reasoning_effort": "xhigh",
+  "recursive_CLI_calls": 0,
+  "required_before_acceptance": [
+    "all original rows and121state checkpoint comparison",
+    "normal publication",
+    "original authority and DB backup",
+    "source DB cleanup and current-checkout fresh restore",
+    "current rights/scope denial",
+    "original tool exit0",
+    "source/resource/cleanup audit"
+  ],
+  "scope": "new_synthetic_full166_parent_with_retained_authority_only",
+  "source_pins_sha256": "2f0226e8716844682b608fdb0b9f9fcda5bf1c8faee14f6e8357ed0e3b9d1619",
+  "started_at_KST": "2026-10-09T09:12:12.785366+09:00",
+  "started_at_utc": "2026-10-09T00:12:12.785366+00:00",
+  "status_at_observation": "running",
+  "version": "crop-harvest-parent-full-start-observation-v1"
+}

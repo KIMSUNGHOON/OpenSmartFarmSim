@@ -1,0 +1,70 @@
+{
+  "evidence_version": "crop-domestic-cultivar-hr24-catalog-followup-parent-review-v1",
+  "observed_at_utc": "2026-10-07T06:28:45.681862+00:00",
+  "scope": "public_catalog_identity_metadata_review_only",
+  "baseline_commit": "eaeed8d5cec871e23c96491e491673f4148b4ad2",
+  "parent_native_cli": {
+    "timestamp": "2026-10-07T06:13:32.070Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "8ec6d8db3223eb88f55ed461e9c4575c2ce358674fffc3c9653005925dd4afbf",
+    "recursive_cli_invocations": 0
+  },
+  "agent_native_cli_independently_verified": {
+    "timestamp": "2026-10-07T06:16:18.257Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256_with_LF": "d19aba247e84b824050d35351a5ead0fe9babbf74cc834d92e167e4859c6f92a"
+  },
+  "source_sha256": {
+    "research/crop-domestic-cultivar-hr24-catalog-followup-20261007.md": "5fe36d702f1258da8fa141d710820251007b38ef5a8c80f5c5f2e396397bb9fd",
+    "research/crop-domestic-cultivar-hr24-identity-20261007.md": "6e1e357cfe07a53541c958d30969e9f9d5726f2ac2b85b0fbc1118f075b24d5c",
+    "research/crop-domestic-validation-access-followup-20261007.md": "16f307ddaf2656aaaa949fe74f365de0a570d7360d70c750d6e4c5408b3c85e1",
+    "research/crop-independent-data-status.json": "a5c5400257e408a034137ff79e2a0f99ed3db293ef34b430389230352b0c5778"
+  },
+  "actual_review": {
+    "private_manifest_sha256": "f5e1c341c87534dc836a8d940fca90f3a0a9510067ab0e60ef8d230ed7b2d6d6",
+    "private_files_hash_and_permission_checked": 54,
+    "parent_review_receipt_sha256": "a9efb9b3b9eb55ef144ad3f1043c4eda31128fbd77497b1203bb4d901c6765f1",
+    "list_page_counts": [
+      20,
+      21
+    ],
+    "second_page_new_id": "5042",
+    "unique_detail_products": 21,
+    "detail_titles_and_OG_match": 21,
+    "target_literal_hits": 0,
+    "official_korean_name_product_or_registry_mapping": "unconfirmed",
+    "current_HTML_scope_closed": true,
+    "images_OCR_historical_catalog_and_national_registry_unreviewed": true,
+    "first_list_headers_not_retained": true,
+    "second_list_exact_retrieval_completion_time_unknown": true,
+    "available_at_publication_revision_unknown": true,
+    "rights_external_CLI_display_redistribution_unconfirmed": true
+  },
+  "verification": {
+    "delivery_check_exit_code": 0,
+    "delivery_check_log_sha256": "5081c882d76274a6672b8cb38d2bb314c16bea43a891b885a0af21e14f699c39",
+    "local_links_and_anchors": 2570,
+    "DAGs": [
+      {
+        "edges": 103,
+        "acyclic": true
+      },
+      {
+        "edges": 89,
+        "acyclic": true
+      }
+    ],
+    "prior_reports_and_existing_checkboxes_unchanged": true,
+    "full166_source_pins_unchanged": 55,
+    "program_tests_run": 0,
+    "new_network_retrievals_by_parent": 0
+  },
+  "next_identity_dependency": "Separate primary evidence explicitly linking HR24/Joeungyeo to the official cultivar/product/registry identifier; do not infer a Korean alias or reuse this HTML scope as proof of nonexistence.",
+  "actual_crop_runs": 0,
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "parameter_values_adopted": 0,
+  "gates": "not_assessed"
+}

@@ -1,0 +1,122 @@
+# Use with compose.yaml and --profile runtime. Requires Compose >= 2.24.4.
+x-backend-app: &backend-app
+  context: .
+  dockerfile: backend/Dockerfile
+  target: backend-app
+
+x-restricted-process: &restricted-process
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  pids_limit: 64
+  tmpfs: ['/tmp:rw,noexec,nosuid,size=32m,mode=1777']
+  init: true
+  restart: "no"
+  stop_grace_period: 30s
+  logging:
+    driver: local
+    options:
+      max-size: 5m
+      max-file: '2'
+
+services:
+  db:
+    mem_limit: 512m
+    cpus: 0.5
+    pids_limit: 128
+    shm_size: 64m
+    logging:
+      driver: local
+      options:
+        max-size: 5m
+        max-file: '2'
+
+  api:
+    <<: *restricted-process
+    profiles: !override [runtime]
+    build: *backend-app
+    image: ${OSSF_BACKEND_IMAGE:-opensmartfarmsim-backend:operator}
+    user: '11001:11010'
+    mem_limit: 768m
+    cpus: 0.5
+    environment: !override
+      OSSF_API_CONFIG: /run/operator/api/operator.json
+      PYTHONPATH: /run/operator/api/plugins:/app/backend
+    secrets: !reset []
+    volumes: !override
+      - type: bind
+        source: ${OSSF_API_PRIVATE_DIR:?set a protected API directory}
+        target: /run/operator/api
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${OSSF_ARTIFACT_DIR:?set an existing protected artifact directory}
+        target: /artifacts
+        bind:
+          create_host_path: false
+    ports:
+      - '127.0.0.1:${OSSF_WEB_PORT:-8444}:8444'
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - >-
+          import http.client,ssl;
+          c=http.client.HTTPSConnection('127.0.0.1',8443,timeout=3,
+          context=ssl.create_default_context(cafile='/run/operator/api/api-ca.pem'));
+          c.request('GET','/openapi.json');r=c.getresponse();
+          assert r.status==401;r.read();c.close()
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+  web:
+    <<: *restricted-process
+    profiles: !override [runtime]
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+      target: web-app
+    image: ${OSSF_WEB_IMAGE:-opensmartfarmsim-web:operator}
+    user: '11002:11002'
+    mem_limit: 128m
+    cpus: 0.25
+    network_mode: service:api
+    depends_on:
+      api:
+        condition: service_healthy
+    volumes:
+      - type: bind
+        source: ${OSSF_WEB_PRIVATE_DIR:?set a protected web TLS directory}
+        target: /run/operator/web
+        read_only: true
+        bind:
+          create_host_path: false
+
+  simulation:
+    <<: *restricted-process
+    profiles: !override [runtime]
+    build: *backend-app
+    image: ${OSSF_BACKEND_IMAGE:-opensmartfarmsim-backend:operator}
+    user: '11001:11010'
+    mem_limit: 768m
+    cpus: 1
+    command: [python, -m, app.deterministic_work, --factory, '${OSSF_SIMULATION_FACTORY:?set a trusted deterministic factory}']
+    environment: !override
+      PYTHONPATH: /run/operator/simulation/plugins:/app/backend
+    secrets: !reset []
+    volumes: !override
+      - type: bind
+        source: ${OSSF_SIMULATION_PRIVATE_DIR:?set a protected simulation directory}
+        target: /run/operator/simulation
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${OSSF_ARTIFACT_DIR:?set an existing protected artifact directory}
+        target: /artifacts
+        bind:
+          create_host_path: false

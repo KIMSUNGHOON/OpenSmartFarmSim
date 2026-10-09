@@ -1,0 +1,4391 @@
+{
+  "evidence_version": "crop-fruit-startup-rates-reference-v1",
+  "created_at_utc": "2026-10-05T00:13:05.517533+00:00",
+  "scope": "instantaneous own synthetic research software only",
+  "base_commit": "04f2eb6",
+  "cli": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "verified_turn_context_at": "2026-10-04T23:47:34.729Z",
+    "recursive_cli": false
+  },
+  "pins": {
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/tests/test_crop_fruit_startup.py": "2ab22201927b2a2a00755f292c49e8bcd752589090aa86356659d6424d6a69e0",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "research/crop-fruit-startup-source-register.json": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+    "research/artifacts/crop-fruit-startup-policy-reference-20261005.json": "de692dc848cf9e54eda720954ff344599b14382145f7610736cde50b4a374fbf"
+  },
+  "focused_tests": {
+    "new": 56,
+    "existing_crop": 488,
+    "total": 544,
+    "passed": 544,
+    "skipped": 0,
+    "seconds": 6.89
+  },
+  "test_log_records": [
+    {
+      "stage": "red",
+      "raw_sha256": "047604c9121190e1226dc0ed1613c84a8d65c8f304d6b09df41e609e60cc3fb2",
+      "summary": "1 error in 0.14s"
+    },
+    {
+      "stage": "green",
+      "raw_sha256": "c11ffd40b0c960dd7c82a877686e8ddcdeacbf0f57cdc17688455b120400a486",
+      "summary": "56 passed in 0.09s"
+    },
+    {
+      "stage": "focused",
+      "raw_sha256": "6e918a59f9f832f44c86f3be11a9ec3db74336f34225002ea6ad7e07a4ea8915",
+      "summary": "544 passed in 6.89s"
+    }
+  ],
+  "case_results": [
+    {
+      "case_id": "synthetic-established",
+      "origin": "synthetic",
+      "result": {
+        "model_version": "explicit-entry-empty-sink-startup-rates-research-v1",
+        "policy_id": "explicit-entry-empty-sink-deferral-research-v1",
+        "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+        "scope": "software_research_only",
+        "profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+        "input_sha256": "cc56fcc306e569b12ecf1ff173d77915d18b73322a25fe9288e340780689c7fb",
+        "allocation_model_version": "explicit-entry-fruit-allocation-rates-v1",
+        "allocation_input_sha256": "ed440f048d33f07fa91c3f1524d6f3ea2589840dc13c79f04bff26ba4359d625",
+        "requested_carbohydrate_inflow": {
+          "value": 10.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "effective_carbohydrate_inflow": {
+          "value": 10.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred_carbohydrate_inflow": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "realized_growth_respiration": {
+          "value": 2.7,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative_adjustment": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "carbohydrate_inflow": [
+          {
+            "value": 2.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 3.2,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 4.8,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        ],
+        "number_inflow": [
+          {
+            "value": 2.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        ],
+        "allocation_balance_residual": {
+          "carbohydrate_inflow": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "allocation_balance_budget": {
+          "carbohydrate_inflow": {
+            "value": 1.8118839761882555e-13,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 4.529709940470639e-14,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_residual": {
+          "request": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "request": {
+            "value": 2.0605739337042905e-13,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 2.0605739337042905e-13,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-balanced-first-entry",
+      "origin": "synthetic",
+      "result": {
+        "model_version": "explicit-entry-empty-sink-startup-rates-research-v1",
+        "policy_id": "explicit-entry-empty-sink-deferral-research-v1",
+        "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+        "scope": "software_research_only",
+        "profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+        "input_sha256": "94cf7d3ef2f0c4d99e9f816c493c56c43651891c744a33a5f05558e1a3866d63",
+        "allocation_model_version": "explicit-entry-fruit-allocation-rates-v1",
+        "allocation_input_sha256": "b3aef42c065b58ef98d9d246b3bc4501962d5e39ee4b161039083ea23f67a972",
+        "requested_carbohydrate_inflow": {
+          "value": 6.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "effective_carbohydrate_inflow": {
+          "value": 6.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred_carbohydrate_inflow": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "realized_growth_respiration": {
+          "value": 1.62,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative_adjustment": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "carbohydrate_inflow": [
+          {
+            "value": 6.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        ],
+        "number_inflow": [
+          {
+            "value": 2.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        ],
+        "allocation_balance_residual": {
+          "carbohydrate_inflow": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "allocation_balance_budget": {
+          "carbohydrate_inflow": {
+            "value": 9.059419880941277e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 4.529709940470639e-14,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_residual": {
+          "request": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "request": {
+            "value": 1.0302869668521453e-13,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 1.0302869668521453e-13,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-empty-tail-first-entry",
+      "origin": "synthetic",
+      "result": {
+        "model_version": "explicit-entry-empty-sink-startup-rates-research-v1",
+        "policy_id": "explicit-entry-empty-sink-deferral-research-v1",
+        "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+        "scope": "software_research_only",
+        "profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+        "input_sha256": "625578d56da3070df00018ff5aea4c76a9521438dff66edeea18d8ec0f820897",
+        "allocation_model_version": "explicit-entry-fruit-allocation-rates-v1",
+        "allocation_input_sha256": "0dc052d3b2799403dfed966105c118a0dbb2e79b580f62c809b8de41c0aed3ba",
+        "requested_carbohydrate_inflow": {
+          "value": 10.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "effective_carbohydrate_inflow": {
+          "value": 2.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred_carbohydrate_inflow": {
+          "value": 8.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "realized_growth_respiration": {
+          "value": 0.54,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative_adjustment": {
+          "value": 10.16,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "carbohydrate_inflow": [
+          {
+            "value": 2.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        ],
+        "number_inflow": [
+          {
+            "value": 2.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        ],
+        "allocation_balance_residual": {
+          "carbohydrate_inflow": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "allocation_balance_budget": {
+          "carbohydrate_inflow": {
+            "value": 4.529709940470639e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 4.529709940470639e-14,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_residual": {
+          "request": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "request": {
+            "value": 2.0605739337042905e-13,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 2.0605739337042905e-13,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-all-empty-first-entry",
+      "origin": "synthetic",
+      "result": {
+        "model_version": "explicit-entry-empty-sink-startup-rates-research-v1",
+        "policy_id": "explicit-entry-empty-sink-deferral-research-v1",
+        "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+        "scope": "software_research_only",
+        "profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+        "input_sha256": "2a798b9ef7a99de1af2f2a6cc17e9c529be1d969c5977c859cbe385785001589",
+        "allocation_model_version": "explicit-entry-fruit-allocation-rates-v1",
+        "allocation_input_sha256": "b33967dcc76df595d49f854b8a82b9de5672a02ea5e4cd337514ad7f2b591a64",
+        "requested_carbohydrate_inflow": {
+          "value": 10.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "effective_carbohydrate_inflow": {
+          "value": 2.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred_carbohydrate_inflow": {
+          "value": 8.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "realized_growth_respiration": {
+          "value": 0.54,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative_adjustment": {
+          "value": 10.16,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "carbohydrate_inflow": [
+          {
+            "value": 2.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        ],
+        "number_inflow": [
+          {
+            "value": 2.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        ],
+        "allocation_balance_residual": {
+          "carbohydrate_inflow": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "allocation_balance_budget": {
+          "carbohydrate_inflow": {
+            "value": 4.529709940470639e-14,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 4.529709940470639e-14,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_residual": {
+          "request": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "request": {
+            "value": 2.0605739337042905e-13,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 2.0605739337042905e-13,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-all-empty-no-entry",
+      "origin": "synthetic",
+      "result": {
+        "model_version": "explicit-entry-empty-sink-startup-rates-research-v1",
+        "policy_id": "explicit-entry-empty-sink-deferral-research-v1",
+        "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+        "scope": "software_research_only",
+        "profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+        "input_sha256": "48fc370a7c89a61f196caca2c14eed2cd233a34520f9504b1f114ad8d46b1bc5",
+        "allocation_model_version": "explicit-entry-fruit-allocation-rates-v1",
+        "allocation_input_sha256": "b78c3d1bc67d1f48c84553f94ca906baa116a4354bfbbb0201f347500e43c831",
+        "requested_carbohydrate_inflow": {
+          "value": 10.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "effective_carbohydrate_inflow": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred_carbohydrate_inflow": {
+          "value": 10.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "realized_growth_respiration": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative_adjustment": {
+          "value": 12.7,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "carbohydrate_inflow": [
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        ],
+        "number_inflow": [
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        ],
+        "allocation_balance_residual": {
+          "carbohydrate_inflow": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "allocation_balance_budget": {
+          "carbohydrate_inflow": {
+            "value": 5.04e-322,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 5.04e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_residual": {
+          "request": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": -8.881784197001252e-16,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "request": {
+            "value": 2.0605739337042905e-13,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 2.0605739337042905e-13,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-all-empty-zero",
+      "origin": "synthetic",
+      "result": {
+        "model_version": "explicit-entry-empty-sink-startup-rates-research-v1",
+        "policy_id": "explicit-entry-empty-sink-deferral-research-v1",
+        "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+        "scope": "software_research_only",
+        "profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+        "input_sha256": "3d1468ea8394f8eda93a7ec4437ebfd0f2adad103bd860ced2a7373bd7c33585",
+        "allocation_model_version": "explicit-entry-fruit-allocation-rates-v1",
+        "allocation_input_sha256": "dc4cf0f5d7ddd90c50f3649984531eb48e0a49752f5b4d75d9385669ee5ec131",
+        "requested_carbohydrate_inflow": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "effective_carbohydrate_inflow": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred_carbohydrate_inflow": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "realized_growth_respiration": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative_adjustment": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "carbohydrate_inflow": [
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        ],
+        "number_inflow": [
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        ],
+        "allocation_balance_residual": {
+          "carbohydrate_inflow": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "allocation_balance_budget": {
+          "carbohydrate_inflow": {
+            "value": 5.04e-322,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 5.04e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_residual": {
+          "request": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "request": {
+            "value": 5.73e-322,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 5.73e-322,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-zero-entry-positive-tail",
+      "origin": "synthetic",
+      "result": {
+        "model_version": "explicit-entry-empty-sink-startup-rates-research-v1",
+        "policy_id": "explicit-entry-empty-sink-deferral-research-v1",
+        "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+        "scope": "software_research_only",
+        "profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+        "input_sha256": "4501ef96a816bc8847f9b9473d960dea93bd7a16c0f151ed294c0a749f9c2ae9",
+        "allocation_model_version": "explicit-entry-fruit-allocation-rates-v1",
+        "allocation_input_sha256": "52d92b6211135d7fbba54afe42477c87aeb3d11be6dcef1ba0d1301438237d5e",
+        "requested_carbohydrate_inflow": {
+          "value": 10.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "effective_carbohydrate_inflow": {
+          "value": 10.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred_carbohydrate_inflow": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "realized_growth_respiration": {
+          "value": 2.7,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative_adjustment": {
+          "value": 0.0,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "carbohydrate_inflow": [
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 4.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 6.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        ],
+        "number_inflow": [
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        ],
+        "allocation_balance_residual": {
+          "carbohydrate_inflow": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "allocation_balance_budget": {
+          "carbohydrate_inflow": {
+            "value": 1.8118839761882555e-13,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 5.04e-322,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_residual": {
+          "request": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "request": {
+            "value": 2.0605739337042905e-13,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 2.0605739337042905e-13,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-small-empty-tail",
+      "origin": "synthetic",
+      "result": {
+        "model_version": "explicit-entry-empty-sink-startup-rates-research-v1",
+        "policy_id": "explicit-entry-empty-sink-deferral-research-v1",
+        "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+        "scope": "software_research_only",
+        "profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+        "input_sha256": "03f15429f6272d52327def4a5dab366d15c32df6beea66b39657f01c4225ac4d",
+        "allocation_model_version": "explicit-entry-fruit-allocation-rates-v1",
+        "allocation_input_sha256": "fd8ca5e92160f9890065a58043ba11203cecaa4b4e40ccb895bb830e8e2fd43f",
+        "requested_carbohydrate_inflow": {
+          "value": 1e-20,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "effective_carbohydrate_inflow": {
+          "value": 2e-21,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred_carbohydrate_inflow": {
+          "value": 8e-21,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "realized_growth_respiration": {
+          "value": 5.399999999999999e-22,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative_adjustment": {
+          "value": 1.0159999999999999e-20,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "carbohydrate_inflow": [
+          {
+            "value": 2e-21,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        ],
+        "number_inflow": [
+          {
+            "value": 2e-21,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        ],
+        "allocation_balance_residual": {
+          "carbohydrate_inflow": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "allocation_balance_budget": {
+          "carbohydrate_inflow": {
+            "value": 3.8368135610839464e-35,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 3.8368135610839464e-35,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_residual": {
+          "request": {
+            "value": -3.76158192263132e-37,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": -7.52316384526264e-37,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "request": {
+            "value": 1.7453740121009325e-34,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 1.7453740121009325e-34,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-large-empty-tail",
+      "origin": "synthetic",
+      "result": {
+        "model_version": "explicit-entry-empty-sink-startup-rates-research-v1",
+        "policy_id": "explicit-entry-empty-sink-deferral-research-v1",
+        "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+        "scope": "software_research_only",
+        "profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+        "input_sha256": "c1ce66d9f6551292e63c4ccf1a09b8d41313c36df552a479a9cf6c3e165e580d",
+        "allocation_model_version": "explicit-entry-fruit-allocation-rates-v1",
+        "allocation_input_sha256": "36c41a428a1de056fb94561b45fb1883e53d135d03fd76bad525da8d5f716a13",
+        "requested_carbohydrate_inflow": {
+          "value": 1e+20,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "effective_carbohydrate_inflow": {
+          "value": 2e+19,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "deferred_carbohydrate_inflow": {
+          "value": 8e+19,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "realized_growth_respiration": {
+          "value": 5.4e+18,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "buffer_derivative_adjustment": {
+          "value": 1.016e+20,
+          "unit": "mg_CH2O/m2_floor/s"
+        },
+        "carbohydrate_inflow": [
+          {
+            "value": 2e+19,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        ],
+        "number_inflow": [
+          {
+            "value": 2e+19,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          },
+          {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        ],
+        "allocation_balance_residual": {
+          "carbohydrate_inflow": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 0.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "allocation_balance_budget": {
+          "carbohydrate_inflow": {
+            "value": 417792.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "number_inflow": {
+            "value": 417792.0,
+            "unit": "fruits_equivalent/m2_floor/s"
+          }
+        },
+        "balance_residual": {
+          "request": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 0.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        },
+        "balance_budget": {
+          "request": {
+            "value": 1900544.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          },
+          "whole_plant": {
+            "value": 1900544.0,
+            "unit": "mg_CH2O/m2_floor/s"
+          }
+        }
+      }
+    },
+    {
+      "case_id": "synthetic-entry-over-budget",
+      "origin": "synthetic",
+      "result": {
+        "hold": "FRUIT_ENTRY_BUDGET_HOLD: entry exceeds requested carbon"
+      }
+    },
+    {
+      "case_id": "synthetic-missing-W1",
+      "origin": "synthetic",
+      "result": {
+        "hold": "INPUT_HOLD: numeric value required"
+      }
+    },
+    {
+      "case_id": "synthetic-zero-W1-with-entry",
+      "origin": "synthetic",
+      "result": {
+        "hold": "FRUIT_ENTRY_STATE_HOLD: positive inflow requires entry mass"
+      }
+    },
+    {
+      "case_id": "synthetic-missing-S",
+      "origin": "synthetic",
+      "result": {
+        "hold": "INPUT_HOLD: numeric value required"
+      }
+    },
+    {
+      "case_id": "synthetic-negative-S",
+      "origin": "synthetic",
+      "result": {
+        "hold": "INPUT_HOLD: finite nonnegative value required"
+      }
+    }
+  ],
+  "whole_plant_composition_implemented": false,
+  "time_integration_implemented": false,
+  "storage_API_3D_for_new_model_implemented": false,
+  "actual_crop_runs": 0,
+  "gates_opened": []
+}

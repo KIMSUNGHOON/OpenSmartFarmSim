@@ -1,0 +1,141 @@
+{
+  "evidence_version": "application-collection-passfile-cleanup-reference-v1",
+  "observed_at_utc": "2026-10-07T06:10:08.852081+00:00",
+  "scope": "test_owned_copied_credential_cleanup_only",
+  "baseline_commit": "cb78450116bfcce0a6917629bbe8fb77a73f6d9e",
+  "native_cli": {
+    "timestamp": "2026-10-07T06:03:19.492Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "626c1c2bb6451beeea1f1136d9d90041e8ccb1879610c41ce87513040c97d2c6",
+    "recursive_cli_invocations": 0
+  },
+  "source_sha256": {
+    "backend/tests/test_application_collection_fixture.py": "1a66811c0c112d5eb34ee6f469c3dd8564ee68d4a6a04bba6c5cd28465c4560f",
+    "backend/tests/test_crop_cycle_current_query.py": "da46bb914cd8b61ef445ce62fa0ec0bd0aad41a41576b2b5304f9bff6ae56af8",
+    "backend/tests/login_database.py": "4174c3309593dcbbfee1ec54ee91ead7927c901e28ccd826385fb8af115bcea8",
+    "scripts/application-collection-fixture.py": "bae35b341d4460b825450d74a7a89bf0c85872371d0f43bd3dcc73cf8eefbfa9"
+  },
+  "hosted_failure": {
+    "head_sha": "2daa99ff825638ac7b95c714438f0f588a029b13",
+    "run_id": 37574780524,
+    "job_id": 112641108430,
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37574780524/job/112641108430",
+    "passed": 751,
+    "teardown_errors": 1,
+    "seconds": 2354.58,
+    "job_conclusion": "failure",
+    "log_sha256": "75d8dd143deb485d3ed9632951c58209b90e89afde9de0e517cba44366604af0",
+    "overall_status_at_review": "queued",
+    "overall_conclusion_at_review": "",
+    "observed_jobs": [
+      {
+        "name": "backend-partition-4",
+        "status": "queued",
+        "conclusion": ""
+      },
+      {
+        "name": "backend-partition-2",
+        "status": "in_progress",
+        "conclusion": ""
+      },
+      {
+        "name": "backend-partition-3",
+        "status": "in_progress",
+        "conclusion": ""
+      },
+      {
+        "name": "backend-partition-1",
+        "status": "completed",
+        "conclusion": "failure"
+      },
+      {
+        "name": "backend-partition-5",
+        "status": "queued",
+        "conclusion": ""
+      },
+      {
+        "name": "backend-partition-0",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "root_cause": "The collection fixture copies a real temporary login password into collection/authority.pgpass. Its test left this copy after the login_scope fixture removed the original files. The unchanged later current-query module audit found the copy in the shared pytest base.",
+  "fix": "The owning collection test unlinks only its copied passfile in finally, including preparation/assertion failures. The global current-query cleanup audit is unchanged.",
+  "tests": {
+    "pytest_arguments": [
+      "-m",
+      "pytest",
+      "tests/test_application_collection_fixture.py::test_private_collection_parent_uses_same_login_and_tenant",
+      "tests/test_crop_cycle_current_query.py::test_source_withdrawal_inside_final_input_rights_review_cannot_return",
+      "-q",
+      "--tb=short"
+    ],
+    "actual_postgresql_version": "16.15",
+    "runtime_auth": "SCRAM-SHA-256",
+    "before_fix": {
+      "exit_code": 1,
+      "log_sha256": "3b57c714459aa76a8d744581a36c468d4efd256e79f8ae98cf14ec1852d7fc65",
+      "source_changed": false,
+      "passed": 2,
+      "teardown_errors": 1,
+      "seconds": 75.69,
+      "source_sha256": {
+        "backend/tests/test_application_collection_fixture.py": "3d41940ce9c884c5227e751a8db7065ae0d63de53ad0458821f9aaf2dc6e93ed",
+        "backend/tests/test_crop_cycle_current_query.py": "da46bb914cd8b61ef445ce62fa0ec0bd0aad41a41576b2b5304f9bff6ae56af8",
+        "backend/tests/login_database.py": "4174c3309593dcbbfee1ec54ee91ead7927c901e28ccd826385fb8af115bcea8"
+      }
+    },
+    "after_fix": {
+      "exit_code": 0,
+      "wall_seconds": 76.0302021259995,
+      "log_sha256": "f7a72369fcc95c420811475e60223dfb4974ab9784c0c8011fd8b74a967a8707",
+      "source_sha256": {
+        "backend/tests/test_application_collection_fixture.py": "1a66811c0c112d5eb34ee6f469c3dd8564ee68d4a6a04bba6c5cd28465c4560f",
+        "backend/tests/test_crop_cycle_current_query.py": "da46bb914cd8b61ef445ce62fa0ec0bd0aad41a41576b2b5304f9bff6ae56af8",
+        "backend/tests/login_database.py": "4174c3309593dcbbfee1ec54ee91ead7927c901e28ccd826385fb8af115bcea8"
+      },
+      "passed": 2,
+      "teardown_errors": 0,
+      "seconds": 75.53
+    },
+    "same_existing_test_order": true,
+    "new_test_nodes": 0,
+    "separate_failure_path_injection_run": false,
+    "whole_backend_local_run": false,
+    "hosted_fixed_head_accepted": false
+  },
+  "cleanup": {
+    "schemas_after": 0,
+    "roles_after": 0,
+    "passfiles_after": 0,
+    "pg_process_gone": true,
+    "pg_data_directory_gone": true,
+    "private_cleanup_reference_sha256": "247366b8ab0b615fa2002c72ff540f0ac616ad0e4aa80ac1d7e8b53dfd0286c6",
+    "original_test_operations_and_assertions_preserved": true,
+    "current_query_audit_and_all8_test_bodies_unchanged": true,
+    "local_red_run_copied_passfile_removed": true,
+    "local_red_run_copied_passfile_absent": true
+  },
+  "preserved": {
+    "full166_pinned_source_files": 55,
+    "full166_source_files_unchanged": true,
+    "supervision_sha256": "1952feae10039b2f955ee676b4ff3e7f79ce040420b3fa657f5ff3da03d9ecfc",
+    "current_query_cleanup_audit_unchanged": true,
+    "current_query_all8_test_bodies_unchanged": true,
+    "application_test_existing_operations_and_assertions_preserved": true,
+    "application_fixture_script_unchanged": true,
+    "pipeline_changed": false,
+    "historical_receipts_sha256": {
+      "research/artifacts/crop-cycle-query-authority-reference-20261007.json": "fa0fdb9f45e500bfd35dab66a915d2ba63f655eb129c617bdcdea0168ff6df60",
+      "research/artifacts/crop-cycle-query-runtime-reference-20261007.json": "5360e00baa9b6f25e226ea3872a8267882c086dafc560df2bf5f6fa82d2375da",
+      "research/artifacts/crop-cycle-full-rhs-durable-started-reference-20261007.json": "3cce3e130d512c224ed9b11fc200ed57ad39f13a510d661ff37b575f745a59a4"
+    }
+  },
+  "actual_crop_runs": 0,
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "whole166_or_restore_burden_accepted": false,
+  "gates": "not_assessed"
+}

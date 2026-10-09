@@ -1,0 +1,79 @@
+{
+  "evidence_version": "crop-cycle-api-runtime-long-http-hold-v1",
+  "recorded_at_utc": "2026-10-06T01:29:51.323355+00:00",
+  "snapshot_commit": "c27d8c53d9bf0ef6a27d6f20322e47c07b0b2a2b",
+  "status": "hold",
+  "scope": "actual synthetic25h TLS/SCRAM runtime test; no farm or biological validation",
+  "failure": "HTTPS socket read timed out before a page response status line; configured timeout30s",
+  "source_sha256": {
+    "backend/app/api_runtime.py": "d321de38cc241992cbdbaf703fda2d0bcf6c619f55cb233e557066804135ed83",
+    "backend/tests/test_api_crop_cycle_runtime.py": "b6e26d186a0f7f127b2efc4f4855686023bc5004eee403b94758c0fb18ef7c64",
+    "backend/tests/test_api_crop_cycle_tls.py": "598c2ce5782d6b062a5edad0548c6649881fa217cd3726601bdb12a9ffffeb62"
+  },
+  "cli": {
+    "timestamp": "2026-10-06T01:09:48.549Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "turn_context_line_sha256": "52065f4085a633daaecc25661ee7363cf424a832537c46f975bbb3bf4a9ea608",
+    "hash_includes_trailing_newline": true,
+    "recursive_cli": false
+  },
+  "native": {
+    "scope": "synthetic_cycle_api_runtime_tls_software_only",
+    "started_at": "2026-10-06T00:40:14.890551+00:00",
+    "postgres_version": "postgres (PostgreSQL) 16.15",
+    "new_dependencies": 0,
+    "servers_started": 1,
+    "pytest_arguments": [
+      "tests/test_api_crop_cycle_tls.py",
+      "-k",
+      "registered_25h"
+    ],
+    "effective_nice": 10,
+    "exit_code": 1,
+    "wall_seconds": 2790.037117447995,
+    "remaining_test_roles": 0,
+    "remaining_test_schemas": 0,
+    "remaining_test_password_files": 0,
+    "postgres_stopped": true,
+    "postgres_status_exit_code": 3,
+    "private_cluster_and_admin_password_files_removed": true,
+    "owned_servers_after": 0,
+    "peak_children_rss_mib": 139.65625
+  },
+  "native_log_sha256": "1e2774595ecdd03b6da0c802691264e2473e4a4a83efbc187f54495e063bcc3c",
+  "native_runner_sha256": "d78cbd977c1c11d55510fb9767c46100d3c52fce20c6834903a2a9db3a32fe9b",
+  "pytest": {
+    "passed": 0,
+    "failed": 1,
+    "deselected": 1,
+    "seconds": 2789.54,
+    "selected_node": "tests/test_api_crop_cycle_tls.py::test_registered_25h_runtime_full_http_original_pages_budget_and_restart[login_scope0]"
+  },
+  "reached_from_source_control_flow": {
+    "independent_control_flow_computed": true,
+    "server_completed_steps": 11400,
+    "immutable_DB_put": true,
+    "TLS_verified_initial_summary_passed": true,
+    "at_least_one_full_summary_response_passed_30s_2MiB_FD_and_counts_assertions": true,
+    "page_response_failed_before_status_line": true,
+    "all_original_rows_comparison_and_restart_not_completed": true
+  },
+  "unrecorded": {
+    "exact_failed_page_kind": null,
+    "exact_failed_offset": null,
+    "partial_successful_responses_count": null,
+    "partial_response_seconds_and_bytes": null
+  },
+  "success_only_decoded_public_artifact_absent": true,
+  "prior_failures_preserved_sha256": {
+    "research/artifacts/crop-cycle-api-runtime-tls-hold-20261006.json": "600722bc5804e4d95e16748d851216f896d479e9ade96bf175c389330a9d311d",
+    "research/artifacts/crop-cycle-api-runtime-long-tls-hold-20261006.json": "458b12304dbe67d0f6d3c5fa427d62b2b519cfacabd6e0bd746c24ca7ca444c2"
+  },
+  "HTTP_30s_2MiB_budget_accepted": false,
+  "runtime_and_API_parent_accepted": false,
+  "new_actual_crop_runs": 0,
+  "independent_domestic_datasets": 0,
+  "gates": "not_assessed",
+  "next": "retain timeout30/2MiB; diagnose custody/API page read work, persist partial call evidence before another genuine retry"
+}

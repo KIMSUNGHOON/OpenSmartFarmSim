@@ -1,0 +1,3608 @@
+{
+  "G0_G4": "not_assessed",
+  "RHS_regeneration_during_read": 0,
+  "actual_crop_Runs": 0,
+  "actual_registered_query_evidence": {
+    "farm": {
+      "crop_id": "crop-1",
+      "registration_sha256": "9dd8b06aa643022befdb76a7179a2e098579dabbfc68b44d5ad53d7f7c71c6ad",
+      "scenario_id": "farm-1",
+      "scenario_revision": "r1"
+    },
+    "identity": {
+      "artifact_sha256": "3869140e3a57ee51a47538d42e7846bf7a0c9492f02662e4b446f3915cc22bbe",
+      "code_sha256": "d85daf59d49d00e4479ede001b8134d3cb4c5d1124f99224aedc72531335b0b7",
+      "dependency_sha256": {
+        "artifact": "eb62fd64d48ee2be20842cd952dbaf6df5ca7c6b5cc825e7b7730d94066eb7e4",
+        "crop_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b",
+        "registry": "161569cabe4dd13e1f344d4eb786807fac59b93bc2ad226aba1c19f82e5c1dd4"
+      },
+      "parent_source": {
+        "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+        "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+        "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+        "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+        "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+        "source_status": "completed"
+      },
+      "payload_sha256": "48f845fdd6284560be49b4071d65fcdf45beed73dae19b6e0c2a2892bd3514ca",
+      "result_id": "crop-harvest-registered-result-v1:46fe041b20343a0789e4b2bc5fe4e5b85884697f5cf0cccac9aba6787d445f25",
+      "rights_or_gate_approval": false,
+      "version": "crop-harvest-registered-current-query-v1"
+    },
+    "registered_record": {
+      "payload_raw_utf8": "{\"artifact\":{\"key\":\"46fe041b20343a0789e4b2bc5fe4e5b85884697f5cf0cccac9aba6787d445f25\",\"row_chain_sha256\":\"492173f112e1d109848780465ceff4498ea4df9663da877c075eb173f16577fe\",\"row_count\":6,\"sha256\":\"3869140e3a57ee51a47538d42e7846bf7a0c9492f02662e4b446f3915cc22bbe\",\"writer_code_sha256\":\"eb62fd64d48ee2be20842cd952dbaf6df5ca7c6b5cc825e7b7730d94066eb7e4\"},\"claim_scope\":\"synthetic_harvest_allocation_math_only\",\"code\":{\"artifact_code_sha256\":\"eb62fd64d48ee2be20842cd952dbaf6df5ca7c6b5cc825e7b7730d94066eb7e4\",\"publication_code_sha256\":\"161569cabe4dd13e1f344d4eb786807fac59b93bc2ad226aba1c19f82e5c1dd4\",\"registry_schema_code_sha256\":\"69fc80f322d13c2678690e8e658162be139255098a8b119aa46c0156c85faa15\"},\"farm\":{\"crop_id\":\"crop-1\",\"registration_sha256\":\"9dd8b06aa643022befdb76a7179a2e098579dabbfc68b44d5ad53d7f7c71c6ad\",\"scenario_id\":\"farm-1\",\"scenario_revision\":\"r1\"},\"parameters\":{\"allocation_sha256\":\"4c161ca54d0214849ea9550867d677eb378bef53baeba4b35e20a3ffd45bc8f2\",\"mass_sha256\":\"71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c\"},\"parent_result_id\":\"crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736\",\"result_id\":\"crop-harvest-registered-result-v1:46fe041b20343a0789e4b2bc5fe4e5b85884697f5cf0cccac9aba6787d445f25\",\"rights_or_gate_approval\":false,\"schema_version\":\"crop-harvest-registered-result-v1\",\"source\":{\"artifact_sha256\":\"765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef\",\"input_root_sha256\":\"15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be\",\"math_manifest_sha256\":\"99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1\",\"payload_sha256\":\"57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6\",\"result_id\":\"crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736\",\"source_status\":\"completed\"},\"status\":\"stored_unpublished_research\",\"tenant_id\":\"tenant-1\"}",
+      "payload_sha256": "48f845fdd6284560be49b4071d65fcdf45beed73dae19b6e0c2a2892bd3514ca",
+      "recorded_at": "2026-10-09T21:03:18.725939+09:00",
+      "result_id": "crop-harvest-registered-result-v1:46fe041b20343a0789e4b2bc5fe4e5b85884697f5cf0cccac9aba6787d445f25"
+    },
+    "rows": [
+      {
+        "allocation_parameters": {
+          "allocation_id": "owned-allocation",
+          "available_at": "2026-09-30T00:00:00Z",
+          "evidence_id": "owned-allocation-arithmetic",
+          "evidence_level": "assumed",
+          "mass_parameter_sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+          "origin": "synthetic",
+          "policy": "proportional_original_population",
+          "population": {
+            "basis": "m2_floor",
+            "basis_evidence_id": "owned-model-floor",
+            "population_id": "owned-model-fruit",
+            "scope": "all_model_fruit_cohorts"
+          },
+          "revision": "1",
+          "source": {
+            "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+            "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+            "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+            "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+            "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+            "source_status": "completed"
+          },
+          "version": "crop-harvest-allocation-v1"
+        },
+        "allocation_sha256": "4c161ca54d0214849ea9550867d677eb378bef53baeba4b35e20a3ffd45bc8f2",
+        "allocations": [
+          {
+            "assignment_id": "initial-harvest",
+            "fraction": {
+              "unit": "1",
+              "value": "0.1"
+            },
+            "purpose": "harvest",
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "5",
+                  "numerator": "2"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.4
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "2361183241434822606848",
+                  "numerator": "944473296573929"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 4e-07
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "1180591620717411303424",
+                  "numerator": "944473296573929"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 8e-07
+              },
+              "number": {
+                "exact": {
+                  "denominator": "720575940379279360",
+                  "numerator": "1441151880758559"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 0.0020000000000000005
+              }
+            }
+          },
+          {
+            "assignment_id": "initial-sampling",
+            "fraction": {
+              "unit": "1",
+              "value": "0.2"
+            },
+            "purpose": "sampling",
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "5",
+                  "numerator": "4"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.8
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "1180591620717411303424",
+                  "numerator": "944473296573929"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 8e-07
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "590295810358705651712",
+                  "numerator": "944473296573929"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 1.6e-06
+              },
+              "number": {
+                "exact": {
+                  "denominator": "360287970189639680",
+                  "numerator": "1441151880758559"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 0.004000000000000001
+              }
+            }
+          },
+          {
+            "assignment_id": "initial-thinning",
+            "fraction": {
+              "unit": "1",
+              "value": "0.1"
+            },
+            "purpose": "thinning",
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "5",
+                  "numerator": "2"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.4
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "2361183241434822606848",
+                  "numerator": "944473296573929"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 4e-07
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "1180591620717411303424",
+                  "numerator": "944473296573929"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 8e-07
+              },
+              "number": {
+                "exact": {
+                  "denominator": "720575940379279360",
+                  "numerator": "1441151880758559"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 0.0020000000000000005
+              }
+            }
+          }
+        ],
+        "claim_scope": "synthetic_harvest_allocation_math_only",
+        "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+        "dependency_sha256": {
+          "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+          "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+        },
+        "mass": {
+          "claim_scope": "synthetic_removal_mass_math_only",
+          "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+          "dependency_sha256": {
+            "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+            "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+          },
+          "dry_matter": {
+            "unit": "kg_DM/m2_floor",
+            "value": 4e-06
+          },
+          "fresh_mass_per_equivalent": {
+            "unit": "kg_FW/fruit_equivalent",
+            "value": 0.0003999999999999999
+          },
+          "fresh_matter": {
+            "unit": "kg_FW/m2_floor",
+            "value": 8e-06
+          },
+          "parameter_sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+          "parameters": {
+            "available_at": "2026-09-30T00:00:00Z",
+            "evidence_id": "owned-algebra-fixture",
+            "evidence_level": "assumed",
+            "origin": "synthetic",
+            "parameter_id": "owned-synthetic-mass",
+            "policy": "constant_per_original_interval",
+            "population": {
+              "basis": "m2_floor",
+              "basis_evidence_id": "owned-model-floor",
+              "population_id": "owned-model-fruit",
+              "scope": "all_model_fruit_cohorts"
+            },
+            "revision": "r1",
+            "rounding": "nearest_float64_from_exact_input_floats_per_row",
+            "segment": {
+              "dmc": {
+                "unit": "kg_DM/kg_FW",
+                "value": 0.5
+              },
+              "end_at": "2026-10-01T00:02:00Z",
+              "eta": {
+                "unit": "mg_DM/mg_CH2O",
+                "value": 1.0
+              },
+              "segment_id": "owned-first",
+              "start_at": "2026-10-01T00:00:00Z"
+            },
+            "sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+            "version": "crop-removal-mass-parameters-v1"
+          },
+          "removal": {
+            "carbohydrate": {
+              "unit": "mg_CH2O/m2_floor",
+              "value": 4.0
+            },
+            "claim_scope": "research_removal_math_only",
+            "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+            "cohorts": {
+              "fruit_carbohydrate": [
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 4.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                }
+              ],
+              "fruit_number": [
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.020000000000000004
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                }
+              ]
+            },
+            "dependency_sha256": {
+              "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+              "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+            },
+            "end_at": "2026-10-01T00:00:00Z",
+            "kind": "explicit_fruit_removal",
+            "number": {
+              "unit": "fruits_equivalent/m2_floor",
+              "value": 0.020000000000000004
+            },
+            "position": {
+              "event": 0,
+              "event_sha256": "02a2d9cb6e054261f68f8813f909eca09ff5ad1f561a88f3733a5b422bab6f08",
+              "input_id": "synthetic-startup-full-removal-reentry-event-0"
+            },
+            "rights_or_gate_approval": false,
+            "row_id": "crop-removal-ledger-v1:4981dac7e9012adeeb40e893f02886054fe0523404559f0cfad1de4b07395ee1",
+            "schema_version": "crop-removal-ledger-v1",
+            "source": {
+              "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+              "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+              "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+              "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+              "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+              "source_status": "completed"
+            },
+            "start_at": "2026-10-01T00:00:00Z"
+          },
+          "removal_sha256": "8a10fbd9d3e0ad93b0881bcd8fa38964e18eea0bfef87fd7e322f0a217a0db26",
+          "rights_or_gate_approval": false,
+          "row_id": "crop-removal-mass-v1:e217c08bfa974d568245e0e27afeb23948ab446209cff6aa1358b746a1cc3d52",
+          "schema_version": "crop-removal-mass-v1",
+          "segment_id": "owned-first",
+          "version": "crop-removal-mass-v1"
+        },
+        "mass_row_sha256": "eca7b696919c05a801a83c6e3c84b7b038d9299b597f9c76ec5ec210fb843c77",
+        "rights_or_gate_approval": false,
+        "rounding": "nearest_float64_with_exact_rational_portions_of_stored_mass_row",
+        "row_id": "crop-harvest-allocation-result-v1:8ac0229d0aecca69d79965181804f186d06dd59961d85c9447420e8763b08c50",
+        "schema_version": "crop-harvest-allocation-result-v1",
+        "unassigned": {
+          "fraction": {
+            "exact": {
+              "denominator": "5",
+              "numerator": "3"
+            },
+            "unit": "1",
+            "value": 0.6
+          },
+          "quantities": {
+            "carbohydrate": {
+              "exact": {
+                "denominator": "5",
+                "numerator": "12"
+              },
+              "unit": "mg_CH2O/m2_floor",
+              "value": 2.4
+            },
+            "dry_matter": {
+              "exact": {
+                "denominator": "1180591620717411303424",
+                "numerator": "2833419889721787"
+              },
+              "unit": "kg_DM/m2_floor",
+              "value": 2.4e-06
+            },
+            "fresh_matter": {
+              "exact": {
+                "denominator": "590295810358705651712",
+                "numerator": "2833419889721787"
+              },
+              "unit": "kg_FW/m2_floor",
+              "value": 4.8e-06
+            },
+            "number": {
+              "exact": {
+                "denominator": "360287970189639680",
+                "numerator": "4323455642275677"
+              },
+              "unit": "fruits_equivalent/m2_floor",
+              "value": 0.012000000000000002
+            }
+          }
+        },
+        "version": "crop-harvest-allocation-result-v1"
+      },
+      {
+        "allocation_parameters": {
+          "allocation_id": "owned-allocation",
+          "available_at": "2026-09-30T00:00:00Z",
+          "evidence_id": "owned-allocation-arithmetic",
+          "evidence_level": "assumed",
+          "mass_parameter_sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+          "origin": "synthetic",
+          "policy": "proportional_original_population",
+          "population": {
+            "basis": "m2_floor",
+            "basis_evidence_id": "owned-model-floor",
+            "population_id": "owned-model-fruit",
+            "scope": "all_model_fruit_cohorts"
+          },
+          "revision": "1",
+          "source": {
+            "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+            "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+            "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+            "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+            "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+            "source_status": "completed"
+          },
+          "version": "crop-harvest-allocation-v1"
+        },
+        "allocation_sha256": "4c161ca54d0214849ea9550867d677eb378bef53baeba4b35e20a3ffd45bc8f2",
+        "allocations": [
+          {
+            "assignment_id": "terminal-harvest",
+            "fraction": {
+              "unit": "1",
+              "value": "0.6"
+            },
+            "purpose": "harvest",
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "360287970189639680",
+                  "numerator": "5825763006410277"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.01616974056431541
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "1511157274518286468382720",
+                  "numerator": "24435021080838651"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 1.6169740564315407e-08
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "755578637259143234191360",
+                  "numerator": "24435021080838651"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 3.2339481128630814e-08
+              },
+              "number": {
+                "exact": {
+                  "denominator": "184467440737095516160",
+                  "numerator": "14899361401358901"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 8.076959999999995e-05
+              }
+            }
+          },
+          {
+            "assignment_id": "terminal-thinning",
+            "fraction": {
+              "unit": "1",
+              "value": "0.2"
+            },
+            "purpose": "thinning",
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "360287970189639680",
+                  "numerator": "1941921002136759"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.005389913521438469
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "1511157274518286468382720",
+                  "numerator": "8145007026946217"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 5.3899135214384696e-09
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "755578637259143234191360",
+                  "numerator": "8145007026946217"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 1.0779827042876939e-08
+              },
+              "number": {
+                "exact": {
+                  "denominator": "184467440737095516160",
+                  "numerator": "4966453800452967"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 2.6923199999999983e-05
+              }
+            }
+          }
+        ],
+        "claim_scope": "synthetic_harvest_allocation_math_only",
+        "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+        "dependency_sha256": {
+          "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+          "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+        },
+        "mass": {
+          "claim_scope": "synthetic_removal_mass_math_only",
+          "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+          "dependency_sha256": {
+            "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+            "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+          },
+          "dry_matter": {
+            "unit": "kg_DM/m2_floor",
+            "value": 2.6949567607192346e-08
+          },
+          "fresh_mass_per_equivalent": {
+            "unit": "kg_FW/fruit_equivalent",
+            "value": 0.0004003917455160213
+          },
+          "fresh_matter": {
+            "unit": "kg_FW/m2_floor",
+            "value": 5.389913521438469e-08
+          },
+          "parameter_sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+          "parameters": {
+            "available_at": "2026-09-30T00:00:00Z",
+            "evidence_id": "owned-algebra-fixture",
+            "evidence_level": "assumed",
+            "origin": "synthetic",
+            "parameter_id": "owned-synthetic-mass",
+            "policy": "constant_per_original_interval",
+            "population": {
+              "basis": "m2_floor",
+              "basis_evidence_id": "owned-model-floor",
+              "population_id": "owned-model-fruit",
+              "scope": "all_model_fruit_cohorts"
+            },
+            "revision": "r1",
+            "rounding": "nearest_float64_from_exact_input_floats_per_row",
+            "segment": {
+              "dmc": {
+                "unit": "kg_DM/kg_FW",
+                "value": 0.5
+              },
+              "end_at": "2026-10-01T00:02:00Z",
+              "eta": {
+                "unit": "mg_DM/mg_CH2O",
+                "value": 1.0
+              },
+              "segment_id": "owned-first",
+              "start_at": "2026-10-01T00:00:00Z"
+            },
+            "sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+            "version": "crop-removal-mass-parameters-v1"
+          },
+          "removal": {
+            "carbohydrate": {
+              "unit": "mg_CH2O/m2_floor",
+              "value": 0.026949567607192346
+            },
+            "claim_scope": "research_removal_math_only",
+            "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+            "cohorts": null,
+            "dependency_sha256": {
+              "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+              "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+            },
+            "end_at": "2026-10-01T00:01:00Z",
+            "kind": "model_terminal_outflow",
+            "number": {
+              "unit": "fruits_equivalent/m2_floor",
+              "value": 0.00013461599999999992
+            },
+            "position": {
+              "sample_sha256": [
+                "48833d2614e033f4a747592f9cfd8ce8c7adc684f7e801f21dcd9f39490e9336",
+                "5c2ae1799cf2a6019b1712f4b84200fe0e4825de7a3609cca3ddf24fec90f6b0"
+              ],
+              "samples": [
+                0,
+                1
+              ]
+            },
+            "rights_or_gate_approval": false,
+            "row_id": "crop-removal-ledger-v1:270a00fc48677134c4c9c9f1c7a03ecb3e9375087619489cc1ec7467dfb3381d",
+            "schema_version": "crop-removal-ledger-v1",
+            "source": {
+              "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+              "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+              "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+              "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+              "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+              "source_status": "completed"
+            },
+            "start_at": "2026-10-01T00:00:00Z"
+          },
+          "removal_sha256": "04ad87956ea00aa22eb3618716f0658b2728ed56a4c099bdf9f375aa75aad3b0",
+          "rights_or_gate_approval": false,
+          "row_id": "crop-removal-mass-v1:7d3010c3f240f3a500dc483468ec61d85d911e02955dcc9522b04c4de7e16c6c",
+          "schema_version": "crop-removal-mass-v1",
+          "segment_id": "owned-first",
+          "version": "crop-removal-mass-v1"
+        },
+        "mass_row_sha256": "91ca1b2e3aabeca69adda552bc69a82b1346c3b988958b1f5a344bdb4c41b049",
+        "rights_or_gate_approval": false,
+        "rounding": "nearest_float64_with_exact_rational_portions_of_stored_mass_row",
+        "row_id": "crop-harvest-allocation-result-v1:9c10ccfbdd706a7f4aba1ffaa2077a897e122e382afd7305e7153321669b48e4",
+        "schema_version": "crop-harvest-allocation-result-v1",
+        "unassigned": {
+          "fraction": {
+            "exact": {
+              "denominator": "5",
+              "numerator": "1"
+            },
+            "unit": "1",
+            "value": 0.2
+          },
+          "quantities": {
+            "carbohydrate": {
+              "exact": {
+                "denominator": "360287970189639680",
+                "numerator": "1941921002136759"
+              },
+              "unit": "mg_CH2O/m2_floor",
+              "value": 0.005389913521438469
+            },
+            "dry_matter": {
+              "exact": {
+                "denominator": "1511157274518286468382720",
+                "numerator": "8145007026946217"
+              },
+              "unit": "kg_DM/m2_floor",
+              "value": 5.3899135214384696e-09
+            },
+            "fresh_matter": {
+              "exact": {
+                "denominator": "755578637259143234191360",
+                "numerator": "8145007026946217"
+              },
+              "unit": "kg_FW/m2_floor",
+              "value": 1.0779827042876939e-08
+            },
+            "number": {
+              "exact": {
+                "denominator": "184467440737095516160",
+                "numerator": "4966453800452967"
+              },
+              "unit": "fruits_equivalent/m2_floor",
+              "value": 2.6923199999999983e-05
+            }
+          }
+        },
+        "version": "crop-harvest-allocation-result-v1"
+      },
+      {
+        "allocation_parameters": {
+          "allocation_id": "owned-allocation",
+          "available_at": "2026-09-30T00:00:00Z",
+          "evidence_id": "owned-allocation-arithmetic",
+          "evidence_level": "assumed",
+          "mass_parameter_sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+          "origin": "synthetic",
+          "policy": "proportional_original_population",
+          "population": {
+            "basis": "m2_floor",
+            "basis_evidence_id": "owned-model-floor",
+            "population_id": "owned-model-fruit",
+            "scope": "all_model_fruit_cohorts"
+          },
+          "revision": "1",
+          "source": {
+            "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+            "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+            "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+            "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+            "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+            "source_status": "completed"
+          },
+          "version": "crop-harvest-allocation-v1"
+        },
+        "allocation_sha256": "4c161ca54d0214849ea9550867d677eb378bef53baeba4b35e20a3ffd45bc8f2",
+        "allocations": [],
+        "claim_scope": "synthetic_harvest_allocation_math_only",
+        "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+        "dependency_sha256": {
+          "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+          "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+        },
+        "mass": {
+          "claim_scope": "synthetic_removal_mass_math_only",
+          "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+          "dependency_sha256": {
+            "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+            "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+          },
+          "dry_matter": {
+            "unit": "kg_DM/m2_floor",
+            "value": 0.002005421267857548
+          },
+          "fresh_mass_per_equivalent": {
+            "unit": "kg_FW/fruit_equivalent",
+            "value": 0.0003994916647096646
+          },
+          "fresh_matter": {
+            "unit": "kg_FW/m2_floor",
+            "value": 0.004010842535715096
+          },
+          "parameter_sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+          "parameters": {
+            "available_at": "2026-09-30T00:00:00Z",
+            "evidence_id": "owned-algebra-fixture",
+            "evidence_level": "assumed",
+            "origin": "synthetic",
+            "parameter_id": "owned-synthetic-mass",
+            "policy": "constant_per_original_interval",
+            "population": {
+              "basis": "m2_floor",
+              "basis_evidence_id": "owned-model-floor",
+              "population_id": "owned-model-fruit",
+              "scope": "all_model_fruit_cohorts"
+            },
+            "revision": "r1",
+            "rounding": "nearest_float64_from_exact_input_floats_per_row",
+            "segment": {
+              "dmc": {
+                "unit": "kg_DM/kg_FW",
+                "value": 0.5
+              },
+              "end_at": "2026-10-01T00:02:00Z",
+              "eta": {
+                "unit": "mg_DM/mg_CH2O",
+                "value": 1.0
+              },
+              "segment_id": "owned-first",
+              "start_at": "2026-10-01T00:00:00Z"
+            },
+            "sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+            "version": "crop-removal-mass-parameters-v1"
+          },
+          "removal": {
+            "carbohydrate": {
+              "unit": "mg_CH2O/m2_floor",
+              "value": 2005.4212678575482
+            },
+            "claim_scope": "research_removal_math_only",
+            "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+            "cohorts": {
+              "fruit_carbohydrate": [
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 36.035757084960636
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.00757885921956
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.01598855558102
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.023808072831
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.03400398540147
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.04696732588804
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.06217491652339
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.080081922942746
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.100260528419604
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.12228963778701
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.14583381655013
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.16969821651753
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.19378551791055
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.217278393197475
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.23955521522216
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.2602724211173
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.27840242149147
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.29416348910979
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.30716123032203
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.31726419050989
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.32464640243438
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.32878971748644
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.33038747187816
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.3294644937328
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.3262411323869
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.321170185328896
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.313939359039686
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.305379160861825
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.29559013487609
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.28481569757704
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.273488458975834
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.26124270263947
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.248829975545185
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.236255314911254
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.22365633780314
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.211355086354686
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.19887571659842
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.18686199664145
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.175217435541896
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.1639853579683
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.153401729745156
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.14291404442486
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.13309751762942
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.12379634549711
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.1150027108181
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.10690902863094
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.09892674818512
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.09160073918416
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.084750930978515
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 40.078350122370196
+                }
+              ],
+              "fruit_number": [
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2398586984937599
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.20000668551589287
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.1999999999906026
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.19999999999974447
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.2
+                }
+              ]
+            },
+            "dependency_sha256": {
+              "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+              "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+            },
+            "end_at": "2026-10-01T00:01:00Z",
+            "kind": "explicit_fruit_removal",
+            "number": {
+              "unit": "fruits_equivalent/m2_floor",
+              "value": 10.039865384
+            },
+            "position": {
+              "event": 1,
+              "event_sha256": "61579b89d2334c25f97a2c8c3641e25c77c322f1c1b2b5847cee6738369b9d1f",
+              "input_id": "synthetic-startup-full-removal-reentry-event-60"
+            },
+            "rights_or_gate_approval": false,
+            "row_id": "crop-removal-ledger-v1:a3abc957bd7a28ed3e0c62c8eda3940d9b582ab8f20da88861c62b2fdb28745a",
+            "schema_version": "crop-removal-ledger-v1",
+            "source": {
+              "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+              "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+              "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+              "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+              "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+              "source_status": "completed"
+            },
+            "start_at": "2026-10-01T00:01:00Z"
+          },
+          "removal_sha256": "b99cdea987fc2963df4f4e05d3b54bd31b27412afe110195fb3aa084d2f5b821",
+          "rights_or_gate_approval": false,
+          "row_id": "crop-removal-mass-v1:ff4824c0ac71dd9eda0ea6b12dc931cb5bffd4e40be428103a78ec01de4fd44b",
+          "schema_version": "crop-removal-mass-v1",
+          "segment_id": "owned-first",
+          "version": "crop-removal-mass-v1"
+        },
+        "mass_row_sha256": "092fcacebc3c083fd9db6f097a4349368038534118ca2cde4b0e3c011bf178f6",
+        "rights_or_gate_approval": false,
+        "rounding": "nearest_float64_with_exact_rational_portions_of_stored_mass_row",
+        "row_id": "crop-harvest-allocation-result-v1:1f4f12d36b1139ec2f596b5b8dea030ab228d18fcf3ef8c8272a14d0c7d30865",
+        "schema_version": "crop-harvest-allocation-result-v1",
+        "unassigned": {
+          "fraction": {
+            "exact": {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "unit": "1",
+            "value": 1.0
+          },
+          "quantities": {
+            "carbohydrate": {
+              "exact": {
+                "denominator": "2199023255552",
+                "numerator": "4409968005197325"
+              },
+              "unit": "mg_CH2O/m2_floor",
+              "value": 2005.4212678575482
+            },
+            "dry_matter": {
+              "exact": {
+                "denominator": "1152921504606846976",
+                "numerator": "2312093305508895"
+              },
+              "unit": "kg_DM/m2_floor",
+              "value": 0.002005421267857548
+            },
+            "fresh_matter": {
+              "exact": {
+                "denominator": "576460752303423488",
+                "numerator": "2312093305508895"
+              },
+              "unit": "kg_FW/m2_floor",
+              "value": 0.004010842535715096
+            },
+            "number": {
+              "exact": {
+                "denominator": "562949953421312",
+                "numerator": "5651941750279043"
+              },
+              "unit": "fruits_equivalent/m2_floor",
+              "value": 10.039865384
+            }
+          }
+        },
+        "version": "crop-harvest-allocation-result-v1"
+      },
+      {
+        "allocation_parameters": {
+          "allocation_id": "owned-allocation",
+          "available_at": "2026-09-30T00:00:00Z",
+          "evidence_id": "owned-allocation-arithmetic",
+          "evidence_level": "assumed",
+          "mass_parameter_sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+          "origin": "synthetic",
+          "policy": "proportional_original_population",
+          "population": {
+            "basis": "m2_floor",
+            "basis_evidence_id": "owned-model-floor",
+            "population_id": "owned-model-fruit",
+            "scope": "all_model_fruit_cohorts"
+          },
+          "revision": "1",
+          "source": {
+            "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+            "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+            "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+            "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+            "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+            "source_status": "completed"
+          },
+          "version": "crop-harvest-allocation-v1"
+        },
+        "allocation_sha256": "4c161ca54d0214849ea9550867d677eb378bef53baeba4b35e20a3ffd45bc8f2",
+        "allocations": [],
+        "claim_scope": "synthetic_harvest_allocation_math_only",
+        "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+        "dependency_sha256": {
+          "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+          "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+        },
+        "mass": {
+          "claim_scope": "synthetic_removal_mass_math_only",
+          "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+          "dependency_sha256": {
+            "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+            "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+          },
+          "dry_matter": {
+            "unit": "kg_DM/m2_floor",
+            "value": 0.0
+          },
+          "fresh_mass_per_equivalent": {
+            "unit": "kg_FW/fruit_equivalent",
+            "value": null
+          },
+          "fresh_matter": {
+            "unit": "kg_FW/m2_floor",
+            "value": 0.0
+          },
+          "parameter_sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+          "parameters": {
+            "available_at": "2026-09-30T00:00:00Z",
+            "evidence_id": "owned-algebra-fixture",
+            "evidence_level": "assumed",
+            "origin": "synthetic",
+            "parameter_id": "owned-synthetic-mass",
+            "policy": "constant_per_original_interval",
+            "population": {
+              "basis": "m2_floor",
+              "basis_evidence_id": "owned-model-floor",
+              "population_id": "owned-model-fruit",
+              "scope": "all_model_fruit_cohorts"
+            },
+            "revision": "r1",
+            "rounding": "nearest_float64_from_exact_input_floats_per_row",
+            "segment": {
+              "dmc": {
+                "unit": "kg_DM/kg_FW",
+                "value": 0.5
+              },
+              "end_at": "2026-10-01T00:02:00Z",
+              "eta": {
+                "unit": "mg_DM/mg_CH2O",
+                "value": 1.0
+              },
+              "segment_id": "owned-first",
+              "start_at": "2026-10-01T00:00:00Z"
+            },
+            "sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+            "version": "crop-removal-mass-parameters-v1"
+          },
+          "removal": {
+            "carbohydrate": {
+              "unit": "mg_CH2O/m2_floor",
+              "value": 0.0
+            },
+            "claim_scope": "research_removal_math_only",
+            "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+            "cohorts": {
+              "fruit_carbohydrate": [
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                }
+              ],
+              "fruit_number": [
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                }
+              ]
+            },
+            "dependency_sha256": {
+              "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+              "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+            },
+            "end_at": "2026-10-01T00:01:30Z",
+            "kind": "explicit_fruit_removal",
+            "number": {
+              "unit": "fruits_equivalent/m2_floor",
+              "value": 0.0
+            },
+            "position": {
+              "event": 2,
+              "event_sha256": "9115e179d313b9974eac1d1714cb34d4187fc548829e7218d7b9d5f19a7797dd",
+              "input_id": "owned-removal-ledger-leaf-stem-only"
+            },
+            "rights_or_gate_approval": false,
+            "row_id": "crop-removal-ledger-v1:5a28eeaf6609db680891223c915949550f954dba689d84019b9a9407210804ee",
+            "schema_version": "crop-removal-ledger-v1",
+            "source": {
+              "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+              "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+              "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+              "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+              "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+              "source_status": "completed"
+            },
+            "start_at": "2026-10-01T00:01:30Z"
+          },
+          "removal_sha256": "77d81c865c4777d5567525ac9ea9a534473d5bd4bc147a090f0d12ab5f120236",
+          "rights_or_gate_approval": false,
+          "row_id": "crop-removal-mass-v1:cce90387c501825c951576b431db2dd3495b8ae75eaaced571088cdc2e03171b",
+          "schema_version": "crop-removal-mass-v1",
+          "segment_id": "owned-first",
+          "version": "crop-removal-mass-v1"
+        },
+        "mass_row_sha256": "fdd23671893cb1ba132247008c55503919a8bc381e95a37915cd4ff49a1713c6",
+        "rights_or_gate_approval": false,
+        "rounding": "nearest_float64_with_exact_rational_portions_of_stored_mass_row",
+        "row_id": "crop-harvest-allocation-result-v1:8bd9cb19b15fa863cdcdc52ead56664a9d047c197119095adb190cc2d2f4adf2",
+        "schema_version": "crop-harvest-allocation-result-v1",
+        "unassigned": {
+          "fraction": {
+            "exact": {
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "unit": "1",
+            "value": 1.0
+          },
+          "quantities": {
+            "carbohydrate": {
+              "exact": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "unit": "mg_CH2O/m2_floor",
+              "value": 0.0
+            },
+            "dry_matter": {
+              "exact": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "unit": "kg_DM/m2_floor",
+              "value": 0.0
+            },
+            "fresh_matter": {
+              "exact": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "unit": "kg_FW/m2_floor",
+              "value": 0.0
+            },
+            "number": {
+              "exact": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "unit": "fruits_equivalent/m2_floor",
+              "value": 0.0
+            }
+          }
+        },
+        "version": "crop-harvest-allocation-result-v1"
+      },
+      {
+        "allocation_parameters": {
+          "allocation_id": "owned-allocation",
+          "available_at": "2026-09-30T00:00:00Z",
+          "evidence_id": "owned-allocation-arithmetic",
+          "evidence_level": "assumed",
+          "mass_parameter_sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+          "origin": "synthetic",
+          "policy": "proportional_original_population",
+          "population": {
+            "basis": "m2_floor",
+            "basis_evidence_id": "owned-model-floor",
+            "population_id": "owned-model-fruit",
+            "scope": "all_model_fruit_cohorts"
+          },
+          "revision": "1",
+          "source": {
+            "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+            "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+            "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+            "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+            "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+            "source_status": "completed"
+          },
+          "version": "crop-harvest-allocation-v1"
+        },
+        "allocation_sha256": "4c161ca54d0214849ea9550867d677eb378bef53baeba4b35e20a3ffd45bc8f2",
+        "allocations": [
+          {
+            "assignment_id": "terminal-harvest",
+            "fraction": {
+              "unit": "1",
+              "value": "0.6"
+            },
+            "purpose": "harvest",
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.0
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 0.0
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 0.0
+              },
+              "number": {
+                "exact": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 0.0
+              }
+            }
+          }
+        ],
+        "claim_scope": "synthetic_harvest_allocation_math_only",
+        "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+        "dependency_sha256": {
+          "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+          "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+        },
+        "mass": {
+          "claim_scope": "synthetic_removal_mass_math_only",
+          "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+          "dependency_sha256": {
+            "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+            "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+          },
+          "dry_matter": {
+            "unit": "kg_DM/m2_floor",
+            "value": 0.0
+          },
+          "fresh_mass_per_equivalent": {
+            "unit": "kg_FW/fruit_equivalent",
+            "value": null
+          },
+          "fresh_matter": {
+            "unit": "kg_FW/m2_floor",
+            "value": 0.0
+          },
+          "parameter_sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+          "parameters": {
+            "available_at": "2026-09-30T00:00:00Z",
+            "evidence_id": "owned-algebra-fixture",
+            "evidence_level": "assumed",
+            "origin": "synthetic",
+            "parameter_id": "owned-synthetic-mass",
+            "policy": "constant_per_original_interval",
+            "population": {
+              "basis": "m2_floor",
+              "basis_evidence_id": "owned-model-floor",
+              "population_id": "owned-model-fruit",
+              "scope": "all_model_fruit_cohorts"
+            },
+            "revision": "r1",
+            "rounding": "nearest_float64_from_exact_input_floats_per_row",
+            "segment": {
+              "dmc": {
+                "unit": "kg_DM/kg_FW",
+                "value": 0.5
+              },
+              "end_at": "2026-10-01T00:02:00Z",
+              "eta": {
+                "unit": "mg_DM/mg_CH2O",
+                "value": 1.0
+              },
+              "segment_id": "owned-first",
+              "start_at": "2026-10-01T00:00:00Z"
+            },
+            "sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+            "version": "crop-removal-mass-parameters-v1"
+          },
+          "removal": {
+            "carbohydrate": {
+              "unit": "mg_CH2O/m2_floor",
+              "value": 0.0
+            },
+            "claim_scope": "research_removal_math_only",
+            "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+            "cohorts": null,
+            "dependency_sha256": {
+              "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+              "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+            },
+            "end_at": "2026-10-01T00:02:00Z",
+            "kind": "model_terminal_outflow",
+            "number": {
+              "unit": "fruits_equivalent/m2_floor",
+              "value": 0.0
+            },
+            "position": {
+              "sample_sha256": [
+                "5c2ae1799cf2a6019b1712f4b84200fe0e4825de7a3609cca3ddf24fec90f6b0",
+                "5df8c63c06f4acaca9e900cb50001fe0be3620485f05adf0e17541b1385d0f26"
+              ],
+              "samples": [
+                1,
+                2
+              ]
+            },
+            "rights_or_gate_approval": false,
+            "row_id": "crop-removal-ledger-v1:f48dade6811aed54d7cc198e776418caf08a39e3802003647423440beaf09012",
+            "schema_version": "crop-removal-ledger-v1",
+            "source": {
+              "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+              "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+              "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+              "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+              "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+              "source_status": "completed"
+            },
+            "start_at": "2026-10-01T00:01:00Z"
+          },
+          "removal_sha256": "fe0c73256d5004c993ee4df79b18846ba22b0ed0089a39fe695dff79c43fa64d",
+          "rights_or_gate_approval": false,
+          "row_id": "crop-removal-mass-v1:e8135b3c1635e957ce7ac7e72a10d3eecc60669b33379bf7c1553eafa554d004",
+          "schema_version": "crop-removal-mass-v1",
+          "segment_id": "owned-first",
+          "version": "crop-removal-mass-v1"
+        },
+        "mass_row_sha256": "d56d8a6af11f9fe0707a8c24b4674e7a8911981b48d6fa68041fe9fb4379b238",
+        "rights_or_gate_approval": false,
+        "rounding": "nearest_float64_with_exact_rational_portions_of_stored_mass_row",
+        "row_id": "crop-harvest-allocation-result-v1:6658c968fef4c4be436eb676d9a689f7cfea3f3e77c617cf4c11dc36072ecd5d",
+        "schema_version": "crop-harvest-allocation-result-v1",
+        "unassigned": {
+          "fraction": {
+            "exact": {
+              "denominator": "5",
+              "numerator": "2"
+            },
+            "unit": "1",
+            "value": 0.4
+          },
+          "quantities": {
+            "carbohydrate": {
+              "exact": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "unit": "mg_CH2O/m2_floor",
+              "value": 0.0
+            },
+            "dry_matter": {
+              "exact": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "unit": "kg_DM/m2_floor",
+              "value": 0.0
+            },
+            "fresh_matter": {
+              "exact": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "unit": "kg_FW/m2_floor",
+              "value": 0.0
+            },
+            "number": {
+              "exact": {
+                "denominator": "1",
+                "numerator": "0"
+              },
+              "unit": "fruits_equivalent/m2_floor",
+              "value": 0.0
+            }
+          }
+        },
+        "version": "crop-harvest-allocation-result-v1"
+      },
+      {
+        "allocation_parameters": {
+          "allocation_id": "owned-allocation",
+          "available_at": "2026-09-30T00:00:00Z",
+          "evidence_id": "owned-allocation-arithmetic",
+          "evidence_level": "assumed",
+          "mass_parameter_sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+          "origin": "synthetic",
+          "policy": "proportional_original_population",
+          "population": {
+            "basis": "m2_floor",
+            "basis_evidence_id": "owned-model-floor",
+            "population_id": "owned-model-fruit",
+            "scope": "all_model_fruit_cohorts"
+          },
+          "revision": "1",
+          "source": {
+            "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+            "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+            "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+            "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+            "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+            "source_status": "completed"
+          },
+          "version": "crop-harvest-allocation-v1"
+        },
+        "allocation_sha256": "4c161ca54d0214849ea9550867d677eb378bef53baeba4b35e20a3ffd45bc8f2",
+        "allocations": [
+          {
+            "assignment_id": "last-disposal",
+            "fraction": {
+              "unit": "1",
+              "value": "0.5"
+            },
+            "purpose": "disposal",
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "4503599627370496",
+                  "numerator": "2097147721832783"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.46566033736378976
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "18889465931478580854784",
+                  "numerator": "8796075078274129"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 4.6566033736378975e-07
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "9444732965739290427392",
+                  "numerator": "8796075078274129"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 9.313206747275795e-07
+              },
+              "number": {
+                "exact": {
+                  "denominator": "4722366482869645213696",
+                  "numerator": "4765656783071161"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 1.0091670776418033e-06
+              }
+            }
+          }
+        ],
+        "claim_scope": "synthetic_harvest_allocation_math_only",
+        "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+        "dependency_sha256": {
+          "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+          "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+        },
+        "mass": {
+          "claim_scope": "synthetic_removal_mass_math_only",
+          "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+          "dependency_sha256": {
+            "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+            "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+          },
+          "dry_matter": {
+            "unit": "kg_DM/m2_floor",
+            "value": 9.313206747275795e-07
+          },
+          "fresh_mass_per_equivalent": {
+            "unit": "kg_FW/fruit_equivalent",
+            "value": 0.9228607386834959
+          },
+          "fresh_matter": {
+            "unit": "kg_FW/m2_floor",
+            "value": 1.862641349455159e-06
+          },
+          "parameter_sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+          "parameters": {
+            "available_at": "2026-09-30T00:00:00Z",
+            "evidence_id": "owned-algebra-fixture",
+            "evidence_level": "assumed",
+            "origin": "synthetic",
+            "parameter_id": "owned-synthetic-mass",
+            "policy": "constant_per_original_interval",
+            "population": {
+              "basis": "m2_floor",
+              "basis_evidence_id": "owned-model-floor",
+              "population_id": "owned-model-fruit",
+              "scope": "all_model_fruit_cohorts"
+            },
+            "revision": "r1",
+            "rounding": "nearest_float64_from_exact_input_floats_per_row",
+            "segment": {
+              "dmc": {
+                "unit": "kg_DM/kg_FW",
+                "value": 0.5
+              },
+              "end_at": "2026-10-01T00:02:00Z",
+              "eta": {
+                "unit": "mg_DM/mg_CH2O",
+                "value": 1.0
+              },
+              "segment_id": "owned-first",
+              "start_at": "2026-10-01T00:00:00Z"
+            },
+            "sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+            "version": "crop-removal-mass-parameters-v1"
+          },
+          "removal": {
+            "carbohydrate": {
+              "unit": "mg_CH2O/m2_floor",
+              "value": 0.9313206747275795
+            },
+            "claim_scope": "research_removal_math_only",
+            "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+            "cohorts": {
+              "fruit_carbohydrate": [
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.9313206747275795
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "mg_CH2O/m2_floor",
+                  "value": 0.0
+                }
+              ],
+              "fruit_number": [
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 2.0183341552836067e-06
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                },
+                {
+                  "unit": "fruits_equivalent/m2_floor",
+                  "value": 0.0
+                }
+              ]
+            },
+            "dependency_sha256": {
+              "canonical_json": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+              "current_query": "7aa4a4cd0e352b45057c0321fbfea345ce9dabfd3b3043554340efbe16abc67b"
+            },
+            "end_at": "2026-10-01T00:02:00Z",
+            "kind": "explicit_fruit_removal",
+            "number": {
+              "unit": "fruits_equivalent/m2_floor",
+              "value": 2.0183341552836067e-06
+            },
+            "position": {
+              "event": 3,
+              "event_sha256": "b1cd496ce6cf233d270d3af0920ef474ca379fb2fdda8a4a3fa0cb56c4126e13",
+              "input_id": "synthetic-startup-full-removal-reentry-event-120"
+            },
+            "rights_or_gate_approval": false,
+            "row_id": "crop-removal-ledger-v1:98d50ce5d40e32fb73bbd19117bf6412cc81938aa7272dda69b47efa5682df8d",
+            "schema_version": "crop-removal-ledger-v1",
+            "source": {
+              "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+              "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+              "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+              "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+              "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+              "source_status": "completed"
+            },
+            "start_at": "2026-10-01T00:02:00Z"
+          },
+          "removal_sha256": "2f1d9978718308082a1688032a99d8c6d729884014fd4225c4b972d8eb61b049",
+          "rights_or_gate_approval": false,
+          "row_id": "crop-removal-mass-v1:c8373272cdc1a146eb5576d0fb725d446fa67687512dcbe3b6f4dbd354a765f7",
+          "schema_version": "crop-removal-mass-v1",
+          "segment_id": "owned-first",
+          "version": "crop-removal-mass-v1"
+        },
+        "mass_row_sha256": "7685159b456c9b0a9a926430a9d191dd26762df958f8d5bb2a3fdf0ea1e2fd40",
+        "rights_or_gate_approval": false,
+        "rounding": "nearest_float64_with_exact_rational_portions_of_stored_mass_row",
+        "row_id": "crop-harvest-allocation-result-v1:0055821c74968293e2ad7de5479951c4b82172e867d4c3ce45c29111a7a06bc2",
+        "schema_version": "crop-harvest-allocation-result-v1",
+        "unassigned": {
+          "fraction": {
+            "exact": {
+              "denominator": "2",
+              "numerator": "1"
+            },
+            "unit": "1",
+            "value": 0.5
+          },
+          "quantities": {
+            "carbohydrate": {
+              "exact": {
+                "denominator": "4503599627370496",
+                "numerator": "2097147721832783"
+              },
+              "unit": "mg_CH2O/m2_floor",
+              "value": 0.46566033736378976
+            },
+            "dry_matter": {
+              "exact": {
+                "denominator": "18889465931478580854784",
+                "numerator": "8796075078274129"
+              },
+              "unit": "kg_DM/m2_floor",
+              "value": 4.6566033736378975e-07
+            },
+            "fresh_matter": {
+              "exact": {
+                "denominator": "9444732965739290427392",
+                "numerator": "8796075078274129"
+              },
+              "unit": "kg_FW/m2_floor",
+              "value": 9.313206747275795e-07
+            },
+            "number": {
+              "exact": {
+                "denominator": "4722366482869645213696",
+                "numerator": "4765656783071161"
+              },
+              "unit": "fruits_equivalent/m2_floor",
+              "value": 1.0091670776418033e-06
+            }
+          }
+        },
+        "version": "crop-harvest-allocation-result-v1"
+      }
+    ],
+    "source": {
+      "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+      "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+      "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+      "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+      "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+      "source_status": "completed"
+    },
+    "summary": {
+      "allocation_parameters": {
+        "allocation_id": "owned-allocation",
+        "available_at": "2026-09-30T00:00:00Z",
+        "evidence_id": "owned-allocation-arithmetic",
+        "evidence_level": "assumed",
+        "mass_parameter_sha256": "71c9d8964f23fd5b2fb6657faf876db8e52f72210bf583ca1c7c0014ab22361c",
+        "observations": [
+          {
+            "assignment_ids": [
+              "terminal-harvest",
+              "initial-harvest"
+            ],
+            "available_at": "2026-10-02T00:00:00Z",
+            "end_at": "2026-10-01T00:02:00Z",
+            "evidence_id": "owned-comparison-fixture",
+            "evidence_level": "assumed",
+            "fresh_matter": {
+              "unit": "kg_FW/m2_floor",
+              "value": 1.2e-05
+            },
+            "observation_id": "owned-observation",
+            "origin": "synthetic",
+            "start_at": "2026-10-01T00:00:00Z"
+          }
+        ],
+        "origin": "synthetic",
+        "policy": "proportional_original_population",
+        "population": {
+          "basis": "m2_floor",
+          "basis_evidence_id": "owned-model-floor",
+          "population_id": "owned-model-fruit",
+          "scope": "all_model_fruit_cohorts"
+        },
+        "revision": "1",
+        "rules": [
+          {
+            "assignment_id": "terminal-harvest",
+            "fraction": {
+              "unit": "1",
+              "value": "0.6"
+            },
+            "purpose": "harvest",
+            "selector": {
+              "first_sample": 0,
+              "kind": "model_terminal_outflow",
+              "last_sample": 2
+            }
+          },
+          {
+            "assignment_id": "terminal-thinning",
+            "fraction": {
+              "unit": "1",
+              "value": "0.2"
+            },
+            "purpose": "thinning",
+            "selector": {
+              "first_sample": 0,
+              "kind": "model_terminal_outflow",
+              "last_sample": 1
+            }
+          },
+          {
+            "assignment_id": "initial-harvest",
+            "fraction": {
+              "unit": "1",
+              "value": "0.1"
+            },
+            "purpose": "harvest",
+            "selector": {
+              "event": 0,
+              "kind": "explicit_fruit_removal"
+            }
+          },
+          {
+            "assignment_id": "initial-sampling",
+            "fraction": {
+              "unit": "1",
+              "value": "0.2"
+            },
+            "purpose": "sampling",
+            "selector": {
+              "event": 0,
+              "kind": "explicit_fruit_removal"
+            }
+          },
+          {
+            "assignment_id": "initial-thinning",
+            "fraction": {
+              "unit": "1",
+              "value": "0.1"
+            },
+            "purpose": "thinning",
+            "selector": {
+              "event": 0,
+              "kind": "explicit_fruit_removal"
+            }
+          },
+          {
+            "assignment_id": "last-disposal",
+            "fraction": {
+              "unit": "1",
+              "value": "0.5"
+            },
+            "purpose": "disposal",
+            "selector": {
+              "event": 3,
+              "kind": "explicit_fruit_removal"
+            }
+          }
+        ],
+        "source": {
+          "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+          "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+          "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+          "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+          "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+          "source_status": "completed"
+        },
+        "version": "crop-harvest-allocation-v1"
+      },
+      "allocation_sha256": "4c161ca54d0214849ea9550867d677eb378bef53baeba4b35e20a3ffd45bc8f2",
+      "claim_scope": "synthetic_harvest_allocation_math_only",
+      "code_sha256": "5e186027f67b39985848c855b0758643ddc94bc5cec5a3e7bf37009cbaaa7f01",
+      "observation_comparisons": [
+        {
+          "modeled_fresh_matter": {
+            "exact": {
+              "denominator": "755578637259143234191360",
+              "numerator": "628897930888153211"
+            },
+            "unit": "kg_FW/m2_floor",
+            "value": 8.323394811286308e-07
+          },
+          "observation": {
+            "assignment_ids": [
+              "terminal-harvest",
+              "initial-harvest"
+            ],
+            "available_at": "2026-10-02T00:00:00Z",
+            "end_at": "2026-10-01T00:02:00Z",
+            "evidence_id": "owned-comparison-fixture",
+            "evidence_level": "assumed",
+            "fresh_matter": {
+              "unit": "kg_FW/m2_floor",
+              "value": 1.2e-05
+            },
+            "observation_id": "owned-observation",
+            "origin": "synthetic",
+            "start_at": "2026-10-01T00:00:00Z"
+          },
+          "observed_minus_modeled": {
+            "exact": {
+              "denominator": "755578637259143234191360",
+              "numerator": "8438045716221565829"
+            },
+            "unit": "kg_FW/m2_floor",
+            "value": 1.1167660518871369e-05
+          },
+          "status": "compared_synthetic_fixture"
+        }
+      ],
+      "rights_or_gate_approval": false,
+      "rounding": "nearest_float64_with_exact_rational_sum_of_portions",
+      "row_chain_sha256": "492173f112e1d109848780465ceff4498ea4df9663da877c075eb173f16577fe",
+      "row_count": 6,
+      "schema_version": "crop-harvest-allocation-summary-v1",
+      "source": {
+        "artifact_sha256": "765f7def0f0237d541197e361694568b84a7b838b14ef654a2f9b1d8df15c5ef",
+        "input_root_sha256": "15831a21866bb6ea4407820371063780739e9e19f949f39d4c2705420da3d2be",
+        "math_manifest_sha256": "99692b518b097d54b02adafc28a9ed3eae14ffb2566f9c983fca856b64f448f1",
+        "payload_sha256": "57df0766ddc06b75b35313cd4875733c0856dd82a1108ee73f092b223f601fe6",
+        "result_id": "crop-cycle-verified-result-v1:9e84bce81a1bf1f29bbb38e06adf74f49c53502cb7bc1a42bf267edc77f8b736",
+        "source_status": "completed"
+      },
+      "totals_by_kind_and_purpose": {
+        "explicit_fruit_removal": {
+          "disposal": {
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "4503599627370496",
+                  "numerator": "2097147721832783"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.46566033736378976
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "18889465931478580854784",
+                  "numerator": "8796075078274129"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 4.6566033736378975e-07
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "9444732965739290427392",
+                  "numerator": "8796075078274129"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 9.313206747275795e-07
+              },
+              "number": {
+                "exact": {
+                  "denominator": "4722366482869645213696",
+                  "numerator": "4765656783071161"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 1.0091670776418033e-06
+              }
+            },
+            "rows": 1
+          },
+          "harvest": {
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "5",
+                  "numerator": "2"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.4
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "2361183241434822606848",
+                  "numerator": "944473296573929"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 4e-07
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "1180591620717411303424",
+                  "numerator": "944473296573929"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 8e-07
+              },
+              "number": {
+                "exact": {
+                  "denominator": "720575940379279360",
+                  "numerator": "1441151880758559"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 0.0020000000000000005
+              }
+            },
+            "rows": 1
+          },
+          "sampling": {
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "5",
+                  "numerator": "4"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.8
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "1180591620717411303424",
+                  "numerator": "944473296573929"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 8e-07
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "590295810358705651712",
+                  "numerator": "944473296573929"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 1.6e-06
+              },
+              "number": {
+                "exact": {
+                  "denominator": "360287970189639680",
+                  "numerator": "1441151880758559"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 0.004000000000000001
+              }
+            },
+            "rows": 1
+          },
+          "thinning": {
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "5",
+                  "numerator": "2"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.4
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "2361183241434822606848",
+                  "numerator": "944473296573929"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 4e-07
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "1180591620717411303424",
+                  "numerator": "944473296573929"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 8e-07
+              },
+              "number": {
+                "exact": {
+                  "denominator": "720575940379279360",
+                  "numerator": "1441151880758559"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 0.0020000000000000005
+              }
+            },
+            "rows": 1
+          },
+          "unassigned": {
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "22517998136852480",
+                  "numerator": "45222601307358217867"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 2008.286928194912
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "18889465931478580854784",
+                  "numerator": "37935467510771558401"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 0.0020082869281949117
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "9444732965739290427392",
+                  "numerator": "37935467510771558401"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 0.0040165738563898235
+              },
+              "number": {
+                "exact": {
+                  "denominator": "23611832414348226068480",
+                  "numerator": "237342984726880005834397"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 10.051866393167078
+              }
+            },
+            "rows": 4
+          }
+        },
+        "model_terminal_outflow": {
+          "disposal": {
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.0
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 0.0
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 0.0
+              },
+              "number": {
+                "exact": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 0.0
+              }
+            },
+            "rows": 0
+          },
+          "harvest": {
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "360287970189639680",
+                  "numerator": "5825763006410277"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.01616974056431541
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "1511157274518286468382720",
+                  "numerator": "24435021080838651"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 1.6169740564315407e-08
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "755578637259143234191360",
+                  "numerator": "24435021080838651"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 3.2339481128630814e-08
+              },
+              "number": {
+                "exact": {
+                  "denominator": "184467440737095516160",
+                  "numerator": "14899361401358901"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 8.076959999999995e-05
+              }
+            },
+            "rows": 2
+          },
+          "sampling": {
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.0
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 0.0
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 0.0
+              },
+              "number": {
+                "exact": {
+                  "denominator": "1",
+                  "numerator": "0"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 0.0
+              }
+            },
+            "rows": 0
+          },
+          "thinning": {
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "360287970189639680",
+                  "numerator": "1941921002136759"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.005389913521438469
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "1511157274518286468382720",
+                  "numerator": "8145007026946217"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 5.3899135214384696e-09
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "755578637259143234191360",
+                  "numerator": "8145007026946217"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 1.0779827042876939e-08
+              },
+              "number": {
+                "exact": {
+                  "denominator": "184467440737095516160",
+                  "numerator": "4966453800452967"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 2.6923199999999983e-05
+              }
+            },
+            "rows": 1
+          },
+          "unassigned": {
+            "quantities": {
+              "carbohydrate": {
+                "exact": {
+                  "denominator": "360287970189639680",
+                  "numerator": "1941921002136759"
+                },
+                "unit": "mg_CH2O/m2_floor",
+                "value": 0.005389913521438469
+              },
+              "dry_matter": {
+                "exact": {
+                  "denominator": "1511157274518286468382720",
+                  "numerator": "8145007026946217"
+                },
+                "unit": "kg_DM/m2_floor",
+                "value": 5.3899135214384696e-09
+              },
+              "fresh_matter": {
+                "exact": {
+                  "denominator": "755578637259143234191360",
+                  "numerator": "8145007026946217"
+                },
+                "unit": "kg_FW/m2_floor",
+                "value": 1.0779827042876939e-08
+              },
+              "number": {
+                "exact": {
+                  "denominator": "184467440737095516160",
+                  "numerator": "4966453800452967"
+                },
+                "unit": "fruits_equivalent/m2_floor",
+                "value": 2.6923199999999983e-05
+              }
+            },
+            "rows": 2
+          }
+        }
+      }
+    }
+  },
+  "observed_original_actual_exit_code": 0,
+  "original_exec_session_id": 21850,
+  "schema_version": "crop-harvest-api-current-read-values-v1",
+  "scope": "owned_actual_native_SCRAM_values_for_contract_tests"
+}

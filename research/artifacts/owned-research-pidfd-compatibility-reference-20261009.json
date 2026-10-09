@@ -1,0 +1,152 @@
+{
+  "AST_ownership_tree_protection_preserved": true,
+  "G0_G4": "not_assessed",
+  "GNU_header_reference": {
+    "URL": "https://raw.githubusercontent.com/bminor/glibc/glibc-2.39/sysdeps/unix/sysv/linux/sys/pidfd.h",
+    "license": "LGPL-2.1-or-later",
+    "raw_sha256": "fcd96ba6b05d59ccf36317ccad56c586300b5b9c16c9327b7018224eb97b58ec",
+    "retrieved_at_utc": "2026-10-09T10:30:26.042921+00:00",
+    "use": "interface reference only; no source code or dataset adopted",
+    "vintage": "glibc-2.39"
+  },
+  "RSS_samples": 20,
+  "U3_realtime": false,
+  "actual_crop_Runs": 0,
+  "actual_distributions": {
+    "system": {
+      "CLOEXEC": true,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "Python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "Python_pidfd_functions_callable": [
+        true,
+        true
+      ],
+      "Python_version": [
+        3,
+        12,
+        3
+      ],
+      "kernel": "6.18.40.1-microsoft-standard-WSL2",
+      "libc_backend_selected": false,
+      "libc_version": "glibc 2.39",
+      "own_pidfd_signal0_passed": true
+    },
+    "uv": {
+      "CLOEXEC": true,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "Python": "3.12.13 (main, May 10 2026, 19:30:01) [Clang 22.1.3 ]",
+      "Python_pidfd_functions_callable": [
+        false,
+        false
+      ],
+      "Python_version": [
+        3,
+        12,
+        13
+      ],
+      "kernel": "6.18.40.1-microsoft-standard-WSL2",
+      "libc_backend_selected": true,
+      "libc_version": "glibc 2.39",
+      "own_pidfd_signal0_passed": true
+    }
+  },
+  "at_utc": "2026-10-09T10:30:26.042921+00:00",
+  "combined_peak_RSS_bytes": 599834624,
+  "core_commit": "2847588c49a6c64beaad96bd06afcef3ebe98794",
+  "core_sha256": {
+    "backend/tests/test_owned_research_process_scope.py": "a08d54c364b641d89d7080fc37decece68bacf514d08712d816dcfd1c425aa1f",
+    "contracts/owned-research-pidfd-compatibility-v1.md": "8a445cdf4981b88c8900cbd6e86b88211dfd56992770381811e570f305de68cc",
+    "research/owned-research-process-scope.py": "0337a2878b1d57b39d0e7ef2840c8e0fb41fe6ae4bcdd12812959aacb15f311f"
+  },
+  "final_cases_passed_each_distribution": 30,
+  "final_existing_and_new_case_count": 30,
+  "frontend_status": 200,
+  "frozen_live_helper_sha256": "5839d2ab17dcda9c8219e51dbb5087c9e6cb6c4ee419c0e9969ddb807305b665",
+  "full_writer_running": true,
+  "hosted_CI_accepted": false,
+  "kernel_calls_use_pidfd_only": true,
+  "main_helper_sha256": "0337a2878b1d57b39d0e7ef2840c8e0fb41fe6ae4bcdd12812959aacb15f311f",
+  "native_cli": {
+    "effort": "xhigh",
+    "judgment": "Reproduce exact uv Python3.12.13 pidfd symbol absence and add lazy libc pidfd binding only, retaining identities/protected ownership/close/refusal and no numeric PID fallback; verify real children under both Python distributions while preserving live full writer and preview.",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "turn_event_sha256": "729b1a0e3bd913cc4ecfe670ad079f5bb5775d02d3dbb32aa7b645f12441205a",
+    "turn_timestamp": "2026-10-09T10:17:06.185Z"
+  },
+  "new_cases": 20,
+  "new_runtime_packages": 0,
+  "numeric_PID_signal_fallbacks": 0,
+  "old_cases": 10,
+  "owned_non_zombie_remaining": 0,
+  "owned_tmp_cleanup_complete": true,
+  "phases": {
+    "final-system": {
+      "actual_exit_code": 0,
+      "case_count": 30,
+      "log_sha256": "389278e6c7e90b21d54db81efeaded8c292d4f93c6eb348cb69efb65e5e6bf7a",
+      "original_tool": 61087,
+      "owned_tmp_removed": true,
+      "source_count": 1618,
+      "terminal_sha256": "20bdd3d938f63b0d0fadc62dcf8bc8c2f3a612ddfe9f2c543cf1cce7bf99ec15",
+      "wall_seconds": 1.3905283679778222
+    },
+    "final-uv": {
+      "actual_exit_code": 0,
+      "case_count": 30,
+      "log_sha256": "829696ed6afd8d53ed9155137975453ee9e5a9cee5628b3fa0ed03ac2774fd0c",
+      "original_tool": 85784,
+      "owned_tmp_removed": true,
+      "source_count": 1618,
+      "terminal_sha256": "7ace25da06a781cddf39c86d3d3f7caffd4d1e689c56e20747edce0510dc3c08",
+      "wall_seconds": 1.1637969629955478
+    },
+    "green-system": {
+      "actual_exit_code": 0,
+      "case_count": 27,
+      "log_sha256": "b31aa80e32167e7cf390d72c77385b197f620b904adc2f4f9c6368e4cfe3190c",
+      "original_tool": 35374,
+      "owned_tmp_removed": true,
+      "source_count": 1618,
+      "terminal_sha256": "1bb6652d28ee5349e1c5c2a41473b1030fd0dfc93edd47f206fd86523ada6846",
+      "wall_seconds": 1.1245838160102721
+    },
+    "green-uv": {
+      "actual_exit_code": 0,
+      "case_count": 27,
+      "log_sha256": "a4881f62327706cc9b81baa454a90d32c31be1263a6f20465bb3d8feeca22da9",
+      "original_tool": 15329,
+      "owned_tmp_removed": true,
+      "source_count": 1618,
+      "terminal_sha256": "e1862727bcdd70daae5f71ef34cb257b5d2e5bb87bd9cc9b8d275cb0f1bc87ab",
+      "wall_seconds": 1.1598387009871658
+    },
+    "red-uv": {
+      "actual_exit_code": 1,
+      "case_count": 10,
+      "log_sha256": "67ff1315a20e46ce4859eb3544325837583a39931460ca2bfe57795efa21e4dd",
+      "original_tool": 87572,
+      "owned_tmp_removed": true,
+      "source_count": 1617,
+      "terminal_sha256": "ab9735ba50bf154a1f7e58121e75c7e7a7777fa6b8fdf1d3359b2784c60c36b8",
+      "wall_seconds": 0.8505723589914851
+    }
+  },
+  "resource_scope": "test controller/owned children, exact protected preview and full writer/own PG trees; not WSL total",
+  "root_audit_actual_exit_code": 0,
+  "root_audit_original_exec_chunk": "0e0ad4",
+  "root_audit_receipt_sha256": "127944af1dad68ab3a7ba591562fa4c55403cbc564838cbed5c9e7ca77e88690",
+  "sample_interval_seconds": 0.25,
+  "scope": "local_pidfd_binding_compatibility_only_not_hosted_CI_or_crop_gate_acceptance",
+  "signal_owned_only_two_call_names_changed": true,
+  "single_PID_peak_RSS_bytes": 137854976,
+  "source_originals_preview_and_live_full_writer_preserved": true,
+  "version": "owned-research-pidfd-compatibility-reference-v1",
+  "whole_writer_accepted": false
+}

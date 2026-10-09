@@ -1,0 +1,103 @@
+{
+  "article_license": "CC BY 4.0 indication verified in original publisher JATS; not approval of unpublished farm data",
+  "attachment_observation": {
+    "bytes": 1817,
+    "completed_at_utc": "2026-10-07T05:21:44.225237+00:00",
+    "content_type": "text/html; charset=utf-8",
+    "raw_sha256": "f1cd53eb25e36a6df740942ae2779137243cc392755dbee244b87205cff13623",
+    "source_body_retained": false,
+    "status": 200,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/12757247/bin/DataSheet1.docx"
+  },
+  "cli_credentials_or_raw_restricted_farm_data_in_repository": false,
+  "data_adoption": {
+    "actual_crop_runs": 0,
+    "actual_cultivar_inputs_adopted": 0,
+    "coefficient_adoption": false,
+    "domestic_received_datasets": 0,
+    "gates": "not_assessed",
+    "reserved_independent_cycles": 0,
+    "source_rights_approved": false
+  },
+  "facts_reviewed": [
+    "official DOI/JATS/article CC license",
+    "provider supplement descriptor/version only",
+    "methods/source identity HR17/HR24/HR23 and Wanju/Wonju ambiguity",
+    "soil greenhouse setting vs current development reference",
+    "fitted yield comparisons not independent project validation",
+    "fresh/dry summaries not paired per-harvest DMC series"
+  ],
+  "first_party_product": {
+    "available_at": null,
+    "doi": "10.3389/fpls.2025.1730694",
+    "observations": "2022/2023 experimental summaries; raw timestamp/QC unverified",
+    "publication_date": "2025-12-19",
+    "publication_timestamp": null,
+    "revision_time": null,
+    "supplement_fileServerId": "1730694/data-sheet/1",
+    "supplement_fileServerVersionNumber": 1,
+    "url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2025.1730694/full"
+  },
+  "holds": [
+    "actual DOCX body and file-specific rights",
+    "synchronized environment/growth/harvest raw records, QC and units/area/timezone",
+    "cultivar/rootstock and independent unused split",
+    "source and external CLI processing rights for actual measurements"
+  ],
+  "next_access_action": "Inspect actual supplement via normal publisher public download when available; inventory synchronized raw measurements and rights. If absent, separately released or explicitly supplied data are required.",
+  "outreach_sent": false,
+  "private_evidence_sha256": {
+    "cc-by-4-deed.html": "8dda1ccec4be91fc80821d4e4fd5c568072b9a3a74b2fdc07c249a27e920ef01",
+    "cc-by-4-legalcode.html": "58230517b7895aa219ff46a6ed63e67057a1582fb9ea054b16728a8c13525650",
+    "frontiers-1730694-public-article.html": "5d96756a1a8393a8b264d82ba339ab4fdcd24f3b18fe540710fb56c9ef8ba81c",
+    "frontiers-1730694-public-article.xml": "8ae905d37b49ee858c66b8542151a1a36faba68ef16a2eeb03088552f4aa5e2e",
+    "frontiers-copyright.html": "46131dbefe25e574d057f5a34ccbe573174509184a814c03f40cabccbdb7f5a1",
+    "frontiers-terms.html": "46131dbefe25e574d057f5a34ccbe573174509184a814c03f40cabccbdb7f5a1",
+    "provider-file-descriptors.json": "7459c478ed19401a10e6fded24f83ecbfc6092731bbf66bc2725226a70e9642c",
+    "published-supplement-inventory.json": "36c8abb8a436fc24a809a8b3d7a421d30ff63052e951300eda4ce72318630426",
+    "retrieval-collection-manifest.json": "4db078f4b0882956cf3b92b96c75ca5158165d2402df525bfe0883de17a951be"
+  },
+  "private_manifest_entries_verified": 19,
+  "recorded_at_utc": "2026-10-07T05:34:17.287372+00:00",
+  "recursive_codex_cli_invocations": 0,
+  "research_output": "research/crop-domestic-validation-access-followup-20261007.md",
+  "research_output_sha256": "16f307ddaf2656aaaa949fe74f365de0a570d7360d70c750d6e4c5408b3c85e1",
+  "researcher_native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256_including_lf": "9f83457f266501377b138dcbba1f36c54d6cd1ac9ae2de35e0b26556c654db5c",
+    "raw_line_sha256_without_lf": "9461d85b1d4c4d85c9ba3456651038306d5ad3ce20aa360a7502294b25ec42b0",
+    "turn_context_timestamp": "2026-10-07T05:17:41.598Z"
+  },
+  "review_version": "crop-domestic-validation-access-review-v1",
+  "reviewer_native_cli": {
+    "effort": "xhigh",
+    "hash_excludes_line_feed": true,
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "21b34eb947e8910aff912e171cb9bb1185509b4fddee2540681ab194e71b29b0",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T05:24:32.533Z"
+  },
+  "status": "reviewed_access_research_only",
+  "terms_evidence": {
+    "current_policy_vintage_verified": false,
+    "direct_get_body_is_policy_text": false,
+    "direct_get_same_shell_bytes": 7696,
+    "parent_web_policy_body_independently_retrieved": false,
+    "researcher_web_expression_source_line_sha256_including_lf": "5c0e95d614fbf6dab1f68d185d68132695713c3bbce5dbe03b34948247a6f1ed"
+  },
+  "verification": {
+    "git_diff_check": "passed",
+    "live_experiment_pinned_source_files_unchanged": 55,
+    "local_links_checked_by_existing_delivery_checker": 2548,
+    "native_model_and_effort_actual_line_match": true,
+    "new_program_tests_run": false,
+    "plan_dags_acyclic": true,
+    "plan_dags_edges": [
+      103,
+      89
+    ],
+    "public_source_and_metadata_hashes_match": true,
+    "task_checkboxes_unchanged": true
+  }
+}

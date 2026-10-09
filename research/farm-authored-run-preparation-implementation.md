@@ -1,0 +1,9 @@
+# Authored Run preparation software evidence — 2026-09-30
+
+The exact `gpt-6-sol`/`xhigh` development CLI session added `backend/app/farm_authored_run.py`, scenario ID/revision in the completed-review proof, and a runtime-code manifest pin for the new module. The preparer fetches a currently valid stored release and recomputes the registered authored candidate before deriving canonical final trace bytes. This is an architecture and software decision within the [preparation contract](../contracts/farm-authored-run-preparation-v1.md), not approval of agricultural data.
+
+From `backend/`, `uv run --locked --group dev pytest -q tests/test_farm_authored_run.py tests/test_farm_authored_release.py` passed **3 tests**. They cover stable Run identity, two final trace hashes, exact 60+60 unchanged kernel steps, final first-trace carry references, and holds on tenant/revision/trace mismatch. The release key and reports in this test are synthetic, and the pure builder is only for use behind the installed preparer.
+
+The regression `OSSF_TEST_PG_DSN=<local PostgreSQL 16.15 SCRAM test DSN> uv run --locked --group dev pytest -q tests/test_farm_authored_review.py::test_authored_review_completion_requires_signed_attestation` passed **1 test in 230.61 s**. It uses the existing fake CLI to create an actual persisted review job, capture, signed execution attestation and completion proof, including the added scenario ID/revision. It does not use the product model or independently issue an authored release. The immutable release-store SQL test from the previous step is not repeated for this code change; the new preparer has no database writes.
+
+No final authored Run row, transactional publisher, completed 3D projection, real product CLI invocation or independent release issuance exists from this change. G0/G1/G2/G3/G4 remain held on their own evidence requirements.

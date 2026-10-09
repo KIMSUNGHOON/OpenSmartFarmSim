@@ -1,0 +1,73 @@
+{
+  "G0_G4": "not_assessed",
+  "UI_selection_or_live_link_accepted": false,
+  "actual_crop_Runs": 0,
+  "all_protected_original_identities_unchanged": true,
+  "controller_measured_RSS_probe": {
+    "actual_exit_code": 0,
+    "combined_peak_RSS_bytes": 497586176,
+    "owned_non_zombie_remaining": [],
+    "owned_peak_RSS_bytes": 24981504,
+    "ownership_helper_sha256": "5839d2ab17dcda9c8219e51dbb5087c9e6cb6c4ee419c0e9969ddb807305b665",
+    "preview_dist_unchanged": true,
+    "probe_owned_RSS_limit_bytes": 8388608,
+    "reason": "scope_probe_expected_owned_RSS_limit",
+    "remaining_child_PIDs": [],
+    "single_PID_peak_RSS_bytes": 128204800,
+    "source_count": 1545,
+    "source_pins_preserved": true,
+    "wall_seconds": 0.2187434969819151
+  },
+  "focused": {
+    "RSS_samples": 12,
+    "actual_exit_code": 0,
+    "combined_peak_RSS_bytes": 548319232,
+    "focused_passed": 10,
+    "log_sha256": "ed3a5a27ca8f03a2bda786968e4581ce4b95e1980f33136756dfb18bd21d7c17",
+    "owned_non_zombie_remaining": 0,
+    "protected_original_identities_unchanged": true,
+    "single_PID_peak_RSS_bytes": 128204800,
+    "source_sha256": {
+      "backend/tests/test_owned_research_process_scope.py": "bd7743b5c72dac9485ad2d41495808167544f1dad01d001abde87304746f363a",
+      "contracts/owned-research-process-scope-v1.md": "d73dd65f3dc50911b30c72977aef2e14c1b71cabb27b40ec15d513bb9b637089",
+      "research/owned-research-process-scope.py": "5839d2ab17dcda9c8219e51dbb5087c9e6cb6c4ee419c0e9969ddb807305b665"
+    },
+    "wall_seconds": 0.7164065630058758
+  },
+  "native_cli": {
+    "event_sha256": "0977e6ad43f3ca167c6d2dd29180bbd3d19d2da81f5fcd0008af68e48b946c69",
+    "judgment_scope": "Protected descendant cleanup incident diagnosis, process identity/pidfd design, focused isolated regression and recovery claim boundary",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-09T04:30:52.450Z"
+  },
+  "observed_at": "2026-10-09T13:34:53.382748+09:00",
+  "original_incident": {
+    "actual_pytest_exit": -15,
+    "cause": "replay test controller incorrectly added protected-tree descendants to owned post-exit cleanup; RSS limit triggered cleanup",
+    "deadline_not_extended": true,
+    "full_original_exit": 1,
+    "full_original_session": 95086,
+    "interrupted_commit_count": 303,
+    "interrupted_steps": 1209263,
+    "original_completed_or_accepted": false,
+    "original_deadline_ns": 1791537132785366154,
+    "preview_exit": 1,
+    "preview_original_session": 82604
+  },
+  "probe_child_actual_exit": -15,
+  "protected_original_identity_count": 4,
+  "publication_recovery_contract": "pending",
+  "recovered_compute_session": 95915,
+  "recovered_compute_terminal_or_accepted": false,
+  "recovered_preview_summary_proof": {
+    "live_full166_link": false,
+    "observed_at": "2026-10-09T13:30:40.295120+09:00",
+    "same_original_stored_summary": true,
+    "status": 200,
+    "stored_samples": 3
+  },
+  "schema_version": "owned-research-process-scope-reference-v1",
+  "scope": "local_owned_research_controller_cleanup_only"
+}

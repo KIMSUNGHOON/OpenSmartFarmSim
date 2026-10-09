@@ -1,0 +1,368 @@
+{
+  "CI": {
+    "backend_live_jobs": {
+      "conclusion": "",
+      "jobs": [
+        {
+          "conclusion": "",
+          "name": "backend-partition-4",
+          "status": "queued"
+        },
+        {
+          "conclusion": "",
+          "name": "backend-partition-5",
+          "status": "queued"
+        },
+        {
+          "conclusion": "success",
+          "name": "backend-partition-0",
+          "status": "completed"
+        },
+        {
+          "conclusion": "",
+          "name": "backend-partition-3",
+          "status": "in_progress"
+        },
+        {
+          "conclusion": "",
+          "name": "backend-partition-2",
+          "status": "in_progress"
+        },
+        {
+          "conclusion": "success",
+          "name": "backend-partition-1",
+          "status": "completed"
+        }
+      ],
+      "status": "queued"
+    },
+    "cancel_restart_rerun_performed": false,
+    "new_changes_hosted_accepted": false,
+    "push_performed": false,
+    "remote_head": "353bffb2535d72f322298709a9f2b8eb291e7bba"
+  },
+  "acceptance": "local_explicit_operator_loader_and_operator_runtime_software_only",
+  "accepted_unique_tests": {
+    "full_backend_execution": false,
+    "new": 57,
+    "prior_regression": 155,
+    "single_combined_execution": false,
+    "total_split": 212
+  },
+  "actual_SCRAM_assembly": {
+    "actual_scram": true,
+    "counts_after": {
+      "crop_cycle_research_results": 0,
+      "crop_cycle_verified_research_results": 0,
+      "job_events": 88,
+      "jobs": 88
+    },
+    "counts_before": {
+      "crop_cycle_research_results": 0,
+      "crop_cycle_verified_research_results": 0,
+      "job_events": 88,
+      "jobs": 88
+    },
+    "environment_entrypoint_assembled_service": true,
+    "fd_after": 12,
+    "fd_before": 12,
+    "four_independent_keys": true,
+    "input_proof_sha256": "1ccd241fbd41450655defb0981447107e47598754e43b82a612c2e5e4ade2df8",
+    "normal_assembly_seconds": 0.17654532400047174,
+    "parser_context_QC_RHS_advance_publication_forbidden": true,
+    "private_files_and_inputs_unchanged": true,
+    "reconstructed_same_bindings": true,
+    "same_jobs_farm_current_principal": true
+  },
+  "actual_adopted_cultivar_inputs": 0,
+  "actual_browser_executions": 0,
+  "actual_database_cleanup": {
+    "actual_host_auth_methods": [
+      "scram-sha-256",
+      "scram-sha-256",
+      "scram-sha-256",
+      "scram-sha-256"
+    ],
+    "passfiles_after": 0,
+    "roles_after": 0,
+    "schemas_after": 0
+  },
+  "actual_farm_crop_Runs": 0,
+  "actual_new_HTTP_responses": 0,
+  "actual_test_evidence": [
+    {
+      "actual_owned_PG_clusters": 0,
+      "all_owned_PG_directories_and_PIDs_gone": true,
+      "command_receipt_sha256": "c1f405b0ff599ab63bef12a24c452950666d2a2338a20756c0183e85178161c3",
+      "driver_sha256": "06ec9964c34b781d72fa7a14f5fac77368846f2929fc2083f54ac289302dda4b",
+      "exit_code": 1,
+      "log_sha256": "a113af7ec2d3f1fac078b25c4009e316c07dfa89a49e73752a1ec2d45fa7c256",
+      "nice": 19,
+      "passfiles_after": 0,
+      "phase": "red",
+      "pytest_summary": "2 failed in 0.75s",
+      "result_receipt_sha256": "d2602c3d1d29dc6c9ff9729db49279018adbd61ba6e5bc0eecc988b229aa9fe4",
+      "sampled_primary_max_RSS_bytes": 96235520,
+      "source_sha256": {
+        "backend/app/api_runtime.py": "ff2bac2fed675821530109a6eb8dc1c1d07449b1178946344849f10c88684136",
+        "backend/app/calculation_operator_config.py": "9a4186d3608ce8cbf9db79ba207ebe7280eeaa87b664041be4705b46244d6d7e",
+        "backend/app/operator_config.py": "bb73a2de7dac4b4a0749c8822c5ab1abe27d94af086f2af92d763e3f36d8f80b",
+        "backend/tests/test_calculation_operator_config.py": "85e9d889bc8b45effb16a519fecb589f9381c609f1c02d855567a381006b2446",
+        "contracts/crop-cycle-calculation-operator-loader-v1.md": "511f28f320dfc82d5987390ff0cdb65c72c21ce2b6c745c20079b2a39a242404"
+      },
+      "source_sha256_unchanged_during_execution": true,
+      "temporary_test_tree_removed": true,
+      "wall_seconds": 1.2030507419985952
+    },
+    {
+      "actual_owned_PG_clusters": 0,
+      "all_owned_PG_directories_and_PIDs_gone": true,
+      "command_receipt_sha256": "cfd9ecc20c786534902a589451ae0822c0572fb3f2c3d776b173e84406c1e262",
+      "driver_sha256": "06ec9964c34b781d72fa7a14f5fac77368846f2929fc2083f54ac289302dda4b",
+      "exit_code": 0,
+      "log_sha256": "7c3178f0eacce0030ee95f7f98a44083255d44c3206e826585cc9bcd4b8c4092",
+      "nice": 19,
+      "passfiles_after": 0,
+      "phase": "green",
+      "pytest_summary": "2 passed in 0.80s",
+      "result_receipt_sha256": "f3951cdb992c07b26f6eeb258732202a1135685ff2cc70eae55b300b2aeb45cd",
+      "sampled_primary_max_RSS_bytes": 96653312,
+      "source_sha256": {
+        "backend/app/api_runtime.py": "ff2bac2fed675821530109a6eb8dc1c1d07449b1178946344849f10c88684136",
+        "backend/app/calculation_operator_config.py": "1f2ccdcb2ac10533fc9ab1361f22f82c8e38591e37fa04ecc253c1a6cbecbeb3",
+        "backend/app/operator_config.py": "bb73a2de7dac4b4a0749c8822c5ab1abe27d94af086f2af92d763e3f36d8f80b",
+        "backend/tests/test_calculation_operator_config.py": "85e9d889bc8b45effb16a519fecb589f9381c609f1c02d855567a381006b2446",
+        "contracts/crop-cycle-calculation-operator-loader-v1.md": "511f28f320dfc82d5987390ff0cdb65c72c21ce2b6c745c20079b2a39a242404"
+      },
+      "source_sha256_unchanged_during_execution": true,
+      "temporary_test_tree_removed": true,
+      "wall_seconds": 1.4033871200008434
+    },
+    {
+      "actual_owned_PG_clusters": 0,
+      "all_owned_PG_directories_and_PIDs_gone": true,
+      "command_receipt_sha256": "ed8c9ee0b0cca62ac806aec91e57b589263caf554c38cc87eb654002ef6391e4",
+      "driver_sha256": "06ec9964c34b781d72fa7a14f5fac77368846f2929fc2083f54ac289302dda4b",
+      "exit_code": 0,
+      "log_sha256": "74df06f1d7d660b03f140f7bfad36ec75d8fb16c6b9bdabc03a680f0e7578bfe",
+      "nice": 19,
+      "passfiles_after": 0,
+      "phase": "focused",
+      "pytest_summary": "56 passed in 3.07s",
+      "result_receipt_sha256": "50323e26960cdbea20288125562e79da7261c57785b97a87037813d7911ecb7d",
+      "sampled_primary_max_RSS_bytes": 101343232,
+      "source_sha256": {
+        "backend/app/api_runtime.py": "ff2bac2fed675821530109a6eb8dc1c1d07449b1178946344849f10c88684136",
+        "backend/app/calculation_operator_config.py": "1f2ccdcb2ac10533fc9ab1361f22f82c8e38591e37fa04ecc253c1a6cbecbeb3",
+        "backend/app/operator_config.py": "bb73a2de7dac4b4a0749c8822c5ab1abe27d94af086f2af92d763e3f36d8f80b",
+        "backend/tests/test_calculation_operator_config.py": "d6957bc990c81c5b567cef249d425709260ccd319621733e3b035f5aa13c92d3",
+        "contracts/crop-cycle-calculation-operator-loader-v1.md": "511f28f320dfc82d5987390ff0cdb65c72c21ce2b6c745c20079b2a39a242404"
+      },
+      "source_sha256_unchanged_during_execution": true,
+      "temporary_test_tree_removed": true,
+      "wall_seconds": 3.6091961749989423
+    },
+    {
+      "actual_owned_PG_clusters": 1,
+      "all_owned_PG_directories_and_PIDs_gone": true,
+      "command_receipt_sha256": "47a1b790241bdcae94a817012d4ec95b660d71d8474c1feb40f0b085f547d945",
+      "driver_sha256": "06ec9964c34b781d72fa7a14f5fac77368846f2929fc2083f54ac289302dda4b",
+      "exit_code": 1,
+      "log_sha256": "61ecc01380f9e60b196a50fac63633818886059e473e077c988f4f2c78e69587",
+      "nice": 19,
+      "passfiles_after": 0,
+      "phase": "scram",
+      "pytest_summary": "1 failed, 56 deselected in 12.67s",
+      "result_receipt_sha256": "431d115c223baf798c7c86042fc2d1b9464934b1dddb2ee2fc01a97c6322a805",
+      "sampled_primary_max_RSS_bytes": 124043264,
+      "source_sha256": {
+        "backend/app/api_runtime.py": "ff2bac2fed675821530109a6eb8dc1c1d07449b1178946344849f10c88684136",
+        "backend/app/calculation_operator_config.py": "1f2ccdcb2ac10533fc9ab1361f22f82c8e38591e37fa04ecc253c1a6cbecbeb3",
+        "backend/app/operator_config.py": "bb73a2de7dac4b4a0749c8822c5ab1abe27d94af086f2af92d763e3f36d8f80b",
+        "backend/tests/test_calculation_operator_config.py": "33eee28bc757d0ebda444a1f1199639a720191ec41dad4fb011d21d4fd3a82c5",
+        "contracts/crop-cycle-calculation-operator-loader-v1.md": "511f28f320dfc82d5987390ff0cdb65c72c21ce2b6c745c20079b2a39a242404"
+      },
+      "source_sha256_unchanged_during_execution": true,
+      "temporary_test_tree_removed": true,
+      "wall_seconds": 13.22914071699779
+    },
+    {
+      "actual_owned_PG_clusters": 1,
+      "all_owned_PG_directories_and_PIDs_gone": true,
+      "command_receipt_sha256": "c9a8917c9b128b6b83b77e751754a8b4abaf7738c2817855ce74c6472344c07e",
+      "driver_sha256": "d4601e6b606692bda57440d5af7bac02db95257e125d8bbcd6fd1769ee0607fa",
+      "exit_code": 0,
+      "log_sha256": "614ac0acc069f936bd310983fd4eeab86d619fc8b276f444ce9d7431bec0c6b7",
+      "nice": 19,
+      "passfiles_after": 0,
+      "phase": "verified",
+      "pytest_summary": "57 passed in 15.45s",
+      "result_receipt_sha256": "c6629eca1a7c2b203d133b758ef9178844f85e331fc788c5e9ce4b7a0a524f60",
+      "sampled_primary_max_RSS_bytes": 130621440,
+      "source_sha256": {
+        "backend/app/api_runtime.py": "ff2bac2fed675821530109a6eb8dc1c1d07449b1178946344849f10c88684136",
+        "backend/app/calculation_operator_config.py": "1f2ccdcb2ac10533fc9ab1361f22f82c8e38591e37fa04ecc253c1a6cbecbeb3",
+        "backend/app/operator_config.py": "bb73a2de7dac4b4a0749c8822c5ab1abe27d94af086f2af92d763e3f36d8f80b",
+        "backend/tests/test_calculation_operator_config.py": "428bb19d63230fbc2fba6f4fbd4d6b165dcfb7df1d488c2f48b12f29fa601262",
+        "contracts/crop-cycle-calculation-operator-loader-v1.md": "511f28f320dfc82d5987390ff0cdb65c72c21ce2b6c745c20079b2a39a242404"
+      },
+      "source_sha256_unchanged_during_execution": true,
+      "temporary_test_tree_removed": true,
+      "wall_seconds": 16.03608468099992
+    },
+    {
+      "actual_owned_PG_clusters": 3,
+      "all_owned_PG_directories_and_PIDs_gone": true,
+      "command_receipt_sha256": "8ff0700c7c401a93307c93f6a286e8af40d1b127b863372e554756ac830a02bc",
+      "driver_sha256": "06ec9964c34b781d72fa7a14f5fac77368846f2929fc2083f54ac289302dda4b",
+      "exit_code": 0,
+      "log_sha256": "37d19e2e1965d005b1b1f2cce9cd499a044ce12ca2677b203360d2fb8b20a59b",
+      "nice": 19,
+      "passfiles_after": 0,
+      "phase": "regression",
+      "pytest_summary": "155 passed in 44.99s",
+      "result_receipt_sha256": "2eadfb6a390d794afe0a58ab0e75de1391e49143bf6b70fa3fddca1c6d510b5c",
+      "sampled_primary_max_RSS_bytes": 131604480,
+      "source_sha256": {
+        "backend/app/api_runtime.py": "ff2bac2fed675821530109a6eb8dc1c1d07449b1178946344849f10c88684136",
+        "backend/app/calculation_operator_config.py": "1f2ccdcb2ac10533fc9ab1361f22f82c8e38591e37fa04ecc253c1a6cbecbeb3",
+        "backend/app/operator_config.py": "bb73a2de7dac4b4a0749c8822c5ab1abe27d94af086f2af92d763e3f36d8f80b",
+        "backend/tests/test_calculation_operator_config.py": "428bb19d63230fbc2fba6f4fbd4d6b165dcfb7df1d488c2f48b12f29fa601262",
+        "contracts/crop-cycle-calculation-operator-loader-v1.md": "511f28f320dfc82d5987390ff0cdb65c72c21ce2b6c745c20079b2a39a242404"
+      },
+      "source_sha256_unchanged_during_execution": true,
+      "temporary_test_tree_removed": true,
+      "wall_seconds": 45.50339905600413
+    }
+  ],
+  "contract_updated_after_tests": true,
+  "current_core_source_sha256": {
+    "backend/app/api_runtime.py": "ff2bac2fed675821530109a6eb8dc1c1d07449b1178946344849f10c88684136",
+    "backend/app/calculation_operator_config.py": "1f2ccdcb2ac10533fc9ab1361f22f82c8e38591e37fa04ecc253c1a6cbecbeb3",
+    "backend/app/operator_config.py": "bb73a2de7dac4b4a0749c8822c5ab1abe27d94af086f2af92d763e3f36d8f80b",
+    "backend/tests/test_calculation_operator_config.py": "428bb19d63230fbc2fba6f4fbd4d6b165dcfb7df1d488c2f48b12f29fa601262",
+    "contracts/crop-cycle-calculation-operator-loader-v1.md": "511f28f320dfc82d5987390ff0cdb65c72c21ce2b6c745c20079b2a39a242404"
+  },
+  "domestic_independent_datasets": 0,
+  "failure_disposition": "First SCRAM assembly reached real runtime then test used authority instead of input_authority; corrected test field only. Product hash unchanged. Original RED and all failures/cleanup retained.",
+  "fresh_imports": [
+    {
+      "exit_code": 0,
+      "fd_after": 4,
+      "fd_before": 4,
+      "first": "app.api_runtime",
+      "new_calculation_store_query_modules_loaded": false
+    },
+    {
+      "exit_code": 0,
+      "fd_after": 4,
+      "fd_before": 4,
+      "first": "app.calculation_operator_config",
+      "new_calculation_store_query_modules_loaded": false
+    },
+    {
+      "exit_code": 0,
+      "fd_after": 4,
+      "fd_before": 4,
+      "first": "app.operator_config",
+      "new_calculation_store_query_modules_loaded": false
+    }
+  ],
+  "gates": "not_assessed",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "native_turn_context_line_sha256": "b41b5d9df155688d7a002d12e65dc044c05b17741ff52224083498aab7e5d49b",
+    "previous_goal_turn_classification": "progress: consumed terminal RED handle; refusal confirms next implementation action",
+    "reasoning_effort": "xhigh",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T13:35:08.190Z"
+  },
+  "preserved_source_count": 75,
+  "preserved_source_sha256": {
+    "LICENSES/GreenLight-BSD-3-Clause-Clear.txt": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+    "backend/app/api_crop_coupled_replay.py": "83d3eefd782206801fe645afc2e200bb621509b7c932b4a0544bbcb2bf31c582",
+    "backend/app/api_crop_cycle_calculation_replay.py": "43db235645057cf1f1981dc75528a655b758dff503f5fb986192680c807c658d",
+    "backend/app/api_crop_cycle_replay.py": "df4e92802fa9322b025a920c7e2ab2af40731b091479079647cf1ec954d43b85",
+    "backend/app/api_crop_startup_replay.py": "05b553e236dc3d5272829acd14f54910ef1a17400585cd7001e9992a048d7fac",
+    "backend/app/api_runtime.py": "ff2bac2fed675821530109a6eb8dc1c1d07449b1178946344849f10c88684136",
+    "backend/app/crop_coupled_artifact.py": "4d239f24d43bf351f3c11c9e9d59fccff30a76ef0815659f22c60fbc8ec7d017",
+    "backend/app/crop_coupled_result_store.py": "765184999e07b078a6f79b414c148497ee3543b889a40a65d091a4ab44080632",
+    "backend/app/crop_cycle_artifact.py": "10bcf863ba40338f2efa7242d78c2cccd3020fbdca061951da6b7b1c5a7c51f7",
+    "backend/app/crop_cycle_calculation_current_query.py": "2189bbb94eaf35ab75007de1787d89d3ff1a28381ceaf8c3b9be86f1644fe9ec",
+    "backend/app/crop_cycle_calculation_result_evidence.py": "d891b74825585a53d4f9c24d9c44536f818a39964babca3b94660d2261d7d6b2",
+    "backend/app/crop_cycle_calculation_result_read_context.py": "21640d2d69b7f641af0a4ff2b517ffd90d9e56647761cfd1d9d215c5f20ad819",
+    "backend/app/crop_cycle_continuation.py": "478f152a2395a451d9add64acf37e23ddc32a15273b14d0419869c1634596899",
+    "backend/app/crop_cycle_current_query.py": "02413fccf1c0c65b3e608962e24bba1959c10c71f446528383e4b57979536736",
+    "backend/app/crop_cycle_farm_binding.py": "4f245271487b1e55422386b42221aa8d24906d28f52403626c474c62f14568a9",
+    "backend/app/crop_cycle_input_stream.py": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53",
+    "backend/app/crop_cycle_result_schema.py": "94cfba00cec0d3026bc4afb133c70168e4294e5beb0b625530db8f83acce73c8",
+    "backend/app/crop_cycle_result_store.py": "c182ba1dad82f6363abc9d7ed7cb784e6e989da0c23862563d47f1a91ebf043e",
+    "backend/app/crop_cycle_server_custody.py": "85053b8dee2bf7c0a3675c92931ec9321e7e2804cf8ebb1593542212782d7683",
+    "backend/app/crop_cycle_stream_execution.py": "4de399721cab82ab7f56e093b11b72682437e29bb3097e745b1e61d695d03aac",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_plant_cohort_integration.py": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_plant_startup_integration.py": "a48f2069d26024eeed5612e95bf59639f943fd6b98e789b21124a125c558656b",
+    "backend/app/crop_plant_startup_rates.py": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756",
+    "backend/app/crop_result_store.py": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+    "backend/app/crop_startup_artifact.py": "6d095d6b2c5cfff36cdfbf7b1f0b16d2acbe44e162c918a5ece637cda9c2f33a",
+    "backend/app/crop_startup_result_store.py": "d2e12ad750258b1b362261cb52b797de4bdcca02f84ecaaebafd9b74dab9b0af",
+    "backend/app/operator_config.py": "bb73a2de7dac4b4a0749c8822c5ab1abe27d94af086f2af92d763e3f36d8f80b",
+    "backend/app/thermal_run_store.py": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+    "backend/tests/test_api_crop_cycle_calculation_replay.py": "1e8766d82210f69b6825291ef3e4ffc8d5424f337e122937d44f88b541c6bc06",
+    "backend/tests/test_api_crop_cycle_replay.py": "604af991733cf3264243b4feaece96bb84c639c0b8aa0a443e3412340c44b7c4",
+    "backend/tests/test_api_crop_startup_replay.py": "17bbfe9876eaa2488085b8cdbd3a7120299fa54bdcb05643c12c33cc37671fa2",
+    "backend/tests/test_application_operator_policy.py": "76b2598251071bf882eca9fec5f6750e06fe889e7b3983a201faba58fc3b92fe",
+    "backend/tests/test_crop_cycle_artifact.py": "f597dd2a952184553f7f8d68bd70c155886278c4c927291daa3d501f7294e971",
+    "backend/tests/test_crop_cycle_burden_profile.py": "9543b1af756f7744e14041daec29cbe43278d8fa18f52123f32221da99b777f9",
+    "backend/tests/test_crop_cycle_calculation_current_query.py": "e4b44bc1342da9ddbf79c9a1949aef87dbe61e0d98f39c1eec6a5fc2fa5f9488",
+    "backend/tests/test_crop_cycle_calculation_result_evidence.py": "766ac39ad8a7892e6b2b078a8004b9f5aaa53f3feb426037a792e816c4b3ddc4",
+    "backend/tests/test_crop_cycle_calculation_result_read_context.py": "5ba9faad99ba879ff5b9c8020d96cd064c553e076fbf3d4e7f5d180efc3fa3e2",
+    "backend/tests/test_crop_cycle_calculation_runtime.py": "45d03100e5d7bf32270cd3ed66fc939a6afe271b36b1242a71b74bd70849ae9e",
+    "backend/tests/test_crop_cycle_continuation.py": "c0b0059e0816e88418ed761cbc1c5a085a23e262b4948c1f95dfd3f3ae3643a7",
+    "backend/tests/test_crop_cycle_current_query.py": "da46bb914cd8b61ef445ce62fa0ec0bd0aad41a41576b2b5304f9bff6ae56af8",
+    "backend/tests/test_crop_cycle_farm_binding.py": "d76b3be7fbbc7a76ca100538c936615df86cb6e664705810573a6dd65b97db12",
+    "backend/tests/test_crop_cycle_input_stream.py": "dc5d9f86ebe74cb0d920939ab07381c7d729a0bc3abcffc165d702635ab4c23f",
+    "backend/tests/test_crop_cycle_result_schema.py": "81f58e8aedb2a491253aa58af8b4cd04a2304bfbe674daab0536d7b796b661d2",
+    "backend/tests/test_crop_cycle_result_store.py": "feb34143d9056f9b3d2ee5bf8e06e3b0f1c2e4f82ff4e163c0bfc26a966fdfcb",
+    "backend/tests/test_crop_cycle_result_store_farms.py": "63e4ce69d0309ccc272475b116150a323adc29bc34b00b64fb22314ed6166210",
+    "backend/tests/test_crop_cycle_result_summary.py": "0183235fee7daffe0c52e424fb7094cc501fb7d38d5ed90095e9a4c1877c39d6",
+    "backend/tests/test_crop_cycle_server_custody.py": "6ce4cd137cc559bd710c751da2b23307c4904daf863030d2f6280f18fea64249",
+    "backend/tests/test_crop_cycle_server_custody_farms.py": "02b653f610032c44634cba2aadf12b0ba22dd2fd39f3dacccc3cde3844debee0",
+    "backend/tests/test_crop_cycle_stream_execution.py": "0a0800f6be8abb702ba2dcd461c00e9bf913a81c2c30ae2baabfc61b8447c3d1",
+    "backend/tests/test_crop_plant_startup_integration.py": "38aa5e404124518eb9c44b9487c443de5a739ad4b1486e4eb74fe6709b637a86",
+    "backend/tests/test_crop_startup_artifact.py": "8c4e15afc6f113947cae2d32d4629f58ed15ea716737c29f08bd00bac998d6e6",
+    "backend/tests/test_crop_startup_result_store.py": "16e41c5a90a0838344f7e1ff185214ee4125bf52454dced3858725db210ae476",
+    "backend/tests/test_operator_config.py": "6cbffa576258b79a150a82bb03162c7332c0e970285aaf45f6dc3fc6c431d3d8",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "fixtures/crop-fruit-transport-reference-parameters-v1.json": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-plant-startup-integration-reference-v1.json": "a94e4d88e02a5b29e2b1c20f0767cea6a326dccaa31278d5138667755b2f8026",
+    "research/artifacts/crop-startup-integration-reference-20261005.json": "9b82831acb198a2b96c5c0620728ecf5b5ae245d2543b42580cfc00d253bb3b2",
+    "research/crop-cycle-burden-profile.py": "3aa54011758ba01e291579985f91a3b90b8580e54e3de0dec2b492b91c74d9fc",
+    "research/crop-cycle-calculation-result-evidence-reference.py": "021269ffac2e7760a24b1f949578d7fad093dd0f42328815708f0867102ece7a",
+    "research/crop-cycle-calculation-result-read-context-reference.py": "d1b3af5e447fa3d5fa0889a31eda5fbc37a010d1e734733ff4a2a6d7887236ed",
+    "research/crop-cycle-full-rhs-durable.py": "21fe374dc5e6037d5bfd8a9008aac05eab00daeb3ba0d81745a54bc4aac3cbb4",
+    "research/crop-cycle-full-rhs-reference.py": "31a7ecc2d1932ec92cabcefae5979b57f746363cdc49bcce3878835ae4a91f89",
+    "research/crop-cycle-stream-execution-reference.py": "b13b6224dadd4d69a94e6d9e2d3a820449e636cb57b621915c325dcb3e1f3f1b",
+    "research/crop-fruit-startup-source-register.json": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+    "research/crop-integration-reference.py": "a38b7a67e43cf9f590838bf915ab3e5048950b8be6ed35f70817e18b42a09ce7",
+    "research/crop-plant-cohort-integration-reference.py": "9b880b9d06812f3cfa05bf1c5e47ef93811b548d2320136ce5ae813730d50a72",
+    "research/crop-plant-startup-integration-reference.py": "c99cb9c2a83531a85183cfc9ccecc7401f95bd310bdc210cf4501d880458c44c",
+    "scripts/check-application-runtime.py": "80c9fa2dff31b84a8f36af828101f352b85907bc1f0bb76961fa02e097493e7d"
+  },
+  "receipt_version": "crop-cycle-calculation-operator-loader-local-reference-v1",
+  "recorded_at_utc": "2026-10-07T13:42:27.960224+00:00",
+  "remaining_holds": [
+    "new_authenticated_route_OpenAPI_and_actual_TLS",
+    "full166_registered_prefix_storage_restore_same_UTC3D",
+    "fresh_harvest_resources_purchased_energy_Decimal_economics",
+    "actual_cultivar_inputs_domestic_independent_validation",
+    "actual_product_CLI_independent_release_and_G0_G4",
+    "hosted_compatibility_and_new_changes"
+  ]
+}

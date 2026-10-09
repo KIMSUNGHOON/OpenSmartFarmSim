@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-10-07T09:23:02.215753+00:00",
+  "scope": "new verified server-custody implementation boundary only",
+  "native_cli": {
+    "timestamp": "2026-10-07T09:18:20.387Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "record_sha256": "f58255b03e75b255d91e7ae7c0eb4704ae6b56ad2e001308f3e915b83a7d5e6f",
+    "recursive_cli_invocations": 0
+  },
+  "source_sha256": {
+    "backend/app/crop_cycle_server_custody.py": "85053b8dee2bf7c0a3675c92931ec9321e7e2804cf8ebb1593542212782d7683",
+    "backend/app/crop_cycle_calculation_artifact.py": "e69024eee28ce3d20f9edd6aa84f2303a44fb1a93c7b0b4a67858b92c1bc2691",
+    "backend/app/crop_cycle_calculation_farm_binding.py": "44cee8b857492b75e5e484625157af235fa2122b60522308fb0db728f157fd61",
+    "backend/app/crop_cycle_calculation_context.py": "3f9fc95d956ee9d4bee70e8bde8ee7e1c8653d864bc95d5a1864c78385a6b152"
+  },
+  "old_lines": 475,
+  "old_functions": 36,
+  "decisions": [
+    "explicit new exact binding/context/artifact and HMAC domains",
+    "trusted resolver returns owned verified context for installed input authority",
+    "keep original file locks/limits/parent proof chain and original55 source pins",
+    "second current farm guard after proof fsync and before atomic HEAD",
+    "no DB/API/3D acceptance from server child"
+  ],
+  "implementation_accepted": false
+}

@@ -1,0 +1,142 @@
+{
+  "inspection_version": "crop-cycle-calculation-farm-binding-inspection-v1",
+  "recorded_at": "2026-10-07T08:54:30.111277+00:00",
+  "native_cli": {
+    "timestamp": "2026-10-07T08:48:51.115Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "record_sha256": "df2ee5947c86c0298203052e5f95c8e24ebc9f268adc3ce7283f7217e901bc81",
+    "recursive_cli_invocations": 0
+  },
+  "files": {
+    "backend/app/crop_cycle_farm_binding.py": {
+      "sha256": "4f245271487b1e55422386b42221aa8d24906d28f52403626c474c62f14568a9",
+      "lines": 150,
+      "exact_type_checks": [
+        121,
+        53,
+        58,
+        70,
+        73,
+        77,
+        86,
+        34,
+        145
+      ]
+    },
+    "backend/app/crop_cycle_server_custody.py": {
+      "sha256": "85053b8dee2bf7c0a3675c92931ec9321e7e2804cf8ebb1593542212782d7683",
+      "lines": 475,
+      "exact_type_checks": [
+        115,
+        137,
+        139,
+        140,
+        180,
+        182,
+        189,
+        296,
+        441,
+        207,
+        207,
+        208,
+        303,
+        398,
+        412,
+        413,
+        444
+      ]
+    },
+    "backend/app/crop_cycle_result_store.py": {
+      "sha256": "c182ba1dad82f6363abc9d7ed7cb784e6e989da0c23862563d47f1a91ebf043e",
+      "lines": 242,
+      "exact_type_checks": [
+        34,
+        37,
+        146,
+        202,
+        118,
+        118,
+        238
+      ]
+    },
+    "backend/app/crop_cycle_result_schema.py": {
+      "sha256": "94cfba00cec0d3026bc4afb133c70168e4294e5beb0b625530db8f83acce73c8",
+      "lines": 96,
+      "exact_type_checks": [
+        31
+      ]
+    },
+    "backend/app/crop_cycle_calculation_context.py": {
+      "sha256": "3f9fc95d956ee9d4bee70e8bde8ee7e1c8653d864bc95d5a1864c78385a6b152",
+      "lines": 447,
+      "exact_type_checks": [
+        203,
+        138,
+        140,
+        164,
+        313,
+        372,
+        390,
+        329,
+        276,
+        321,
+        325,
+        391,
+        322
+      ]
+    },
+    "backend/app/crop_cycle_calculation_artifact.py": {
+      "sha256": "e69024eee28ce3d20f9edd6aa84f2303a44fb1a93c7b0b4a67858b92c1bc2691",
+      "lines": 541,
+      "exact_type_checks": [
+        75,
+        201,
+        64,
+        122,
+        123,
+        124,
+        159,
+        182,
+        182,
+        204,
+        208,
+        239,
+        240,
+        241,
+        293,
+        296,
+        303,
+        494,
+        494,
+        495,
+        517,
+        519,
+        206,
+        210,
+        305,
+        308,
+        308,
+        321,
+        323,
+        331
+      ]
+    }
+  },
+  "observed_constraints": [
+    "farm _input exact original InputPacket",
+    "server exact original CycleFarmBinding/InputPacket and original engine",
+    "DB store exact original CycleServerCustody and closed original binding keys",
+    "SQL fixed crop-cycle-result-v1 ID/payload and crop-cycle-artifact-v1 ref"
+  ],
+  "decision": "Keep parent unchecked; implement current farm authority, server execution/signatures, DB atomic custody as ordered children. First child has module/test/contract only; no RHS/result rows/Run and no original55 edits.",
+  "dependency_edges_before": [
+    109,
+    89
+  ],
+  "dependency_edges_after": [
+    114,
+    89
+  ],
+  "data_or_gates_adopted": false
+}

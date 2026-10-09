@@ -1,0 +1,814 @@
+{
+  "Nginx": {
+    "actual_built_index_verified": true,
+    "actual_exit_code": 0,
+    "official_signature_and_binary_hash_revalidated": true,
+    "upstream_TLS_certificate_validation": true,
+    "version": "1.30.5"
+  },
+  "acceptance": {
+    "G0_G4": "not_assessed",
+    "actual_crop_Runs": 0,
+    "actual_cultivar_coefficients": 0,
+    "crop_harvest_replay_parent": false,
+    "crop_harvest_view_native": true,
+    "full166_mass_load": false,
+    "independent_domestic_farm_datasets": 0,
+    "legacy25h_missing_original_exit": "hold",
+    "production_future_margin_recommendation": "hold",
+    "small_crop_harvest_view_parent": true
+  },
+  "accepted_at_kst": "2026-10-09 02:22 KST",
+  "accepted_at_utc": "2026-10-08T17:22:04.851319+00:00",
+  "all_dist_hashes_revalidated": true,
+  "built_App": {
+    "argv": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "exit_code": 0,
+    "log_sha256": "87573ca4d8b4e8abf5d30991422587d4eb938b78ec8c5f826b4cc8aeb279b007",
+    "seconds": 1.6910083679831587
+  },
+  "cleanup": {
+    "database-cleanup.json": {
+      "actual_host_SCRAM": true,
+      "passfiles_after": 0,
+      "roles_after": 0,
+      "schemas_after": 0
+    },
+    "harvest-registry-cleanup.json": {
+      "passfiles_after": 0,
+      "roles_after": 0,
+      "schemas_after": 0
+    },
+    "harvest-tls-private-cleanup.json": {
+      "protected_files_after": 0,
+      "removed_file_count": 24
+    }
+  },
+  "failed_attempts": [
+    {
+      "accepted": false,
+      "actual_pytest_exit": 1,
+      "actual_tool_exit": 1,
+      "original_session_id": 84186,
+      "raw_result_sha256": "e12575ebe3b0541257df060ffc041900f123b2d855ded31486b4292f2a5b539c",
+      "reason": "expected HTTP query outside request principal"
+    },
+    {
+      "accepted": false,
+      "actual_pytest_exit": 2,
+      "actual_tool_exit": 2,
+      "original_session_id": 66585,
+      "raw_result_sha256": "3afd8bf59e24ff828afdb471a124459c18e47640f18cdf6dd830e9ad7f4c8884",
+      "reason": "RSS; JSON key order / failure capture investigated"
+    },
+    {
+      "accepted": false,
+      "actual_pytest_exit": -15,
+      "actual_tool_exit": 241,
+      "original_session_id": 46908,
+      "raw_result_sha256": "3dbf6a4624dfe33ae67b5d93655cdeabfc20239deaa141f7df06f286bc780ca9",
+      "reason": "normal path RSS; pytest-15; explicit owned PG cleanup"
+    },
+    {
+      "accepted": false,
+      "actual_pytest_exit": -15,
+      "actual_tool_exit": 241,
+      "original_session_id": 18014,
+      "raw_result_sha256": "df9d2ed22ad4f965b958187082cb3b563928297e4651cca92b5e3f0327b02c79",
+      "reason": "RSS after first3rows; pytest-15; explicit owned PG cleanup"
+    },
+    {
+      "accepted": false,
+      "actual_pytest_exit": 1,
+      "actual_tool_exit": 1,
+      "original_session_id": 93482,
+      "raw_result_sha256": "95cce8f394b3ecc4c1dc2dce708e3e14233530057c8b29ff99acded6672a7f85",
+      "reason": "all6rows/3frames passed; immediate mobile resize assertion failed"
+    }
+  ],
+  "in_process_GPU_source": {
+    "claim": "GPU thread in browser; savings measured only in this trial",
+    "observed_blob": "c5dbb4130b64ced08ad862fe4bd9209a2ce6b033",
+    "retrieved_at_utc": "2026-10-08T17:22:04.851319+00:00",
+    "url": "https://chromium.googlesource.com/chromium/src/+/refs/heads/main/content/public/common/content_switches.cc"
+  },
+  "limits": {
+    "HTTP_body_bytes": 2097152,
+    "HTTP_body_seconds": 30,
+    "nice": 19,
+    "original_wall_seconds": 600,
+    "owned_RSS_sum_bytes": 1073741824,
+    "single_RSS_bytes": 536870912
+  },
+  "native_Codex_CLI": {
+    "effort": "xhigh",
+    "event_sha256": "50d0efecd3e1b31190128feb4c4466e17ae5d5856499c2575f2b2b1e90ed2c84",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "timestamp": "2026-10-08T16:57:52.940Z"
+  },
+  "observation": {
+    "FD_identity_preserved": true,
+    "HTTPS_joined": true,
+    "actual_coefficients_adopted": 0,
+    "actual_crop_Runs": 0,
+    "actual_same_DB_SCRAM": true,
+    "browser": {
+      "actual_WebGL": true,
+      "browser_launch_args": [
+        "--enable-unsafe-swiftshader",
+        "--no-zygote",
+        "--in-process-gpu",
+        "--js-flags=--max-old-space-size=64 --max-semi-space-size=2"
+      ],
+      "canceled_late_request_then_account_change_no_old_restore": true,
+      "current_rights_revoked_restored": true,
+      "denied_crop_UI": true,
+      "direct_denied_harvest_status": 403,
+      "errors": [],
+      "explicit_collections": [
+        {
+          "after": {
+            "Documents": 5,
+            "JSHeapTotalSize": 10022912,
+            "JSHeapUsedSize": 9157348,
+            "Nodes": 2047
+          },
+          "before": {
+            "Documents": 12,
+            "JSHeapTotalSize": 16838656,
+            "JSHeapUsedSize": 12632368,
+            "Nodes": 2290
+          },
+          "method": "HeapProfiler.collectGarbage_and_owned_Node_gc",
+          "phase": "crop_loaded_before_harvest"
+        },
+        {
+          "after": {
+            "Documents": 5,
+            "JSHeapTotalSize": 10608640,
+            "JSHeapUsedSize": 10067904,
+            "Nodes": 2426
+          },
+          "before": {
+            "Documents": 5,
+            "JSHeapTotalSize": 13754368,
+            "JSHeapUsedSize": 10478332,
+            "Nodes": 2436
+          },
+          "method": "HeapProfiler.collectGarbage_and_owned_Node_gc",
+          "phase": "harvest_loaded_before_row_checks"
+        },
+        {
+          "after": {
+            "Documents": 5,
+            "JSHeapTotalSize": 12705792,
+            "JSHeapUsedSize": 11338148,
+            "Nodes": 2459
+          },
+          "before": {
+            "Documents": 5,
+            "JSHeapTotalSize": 19521536,
+            "JSHeapUsedSize": 15125444,
+            "Nodes": 2795
+          },
+          "method": "HeapProfiler.collectGarbage_and_owned_Node_gc",
+          "phase": "first_rows_before_next_API"
+        },
+        {
+          "after": {
+            "Documents": 5,
+            "JSHeapTotalSize": 13492224,
+            "JSHeapUsedSize": 11634836,
+            "Nodes": 2443
+          },
+          "before": {
+            "Documents": 5,
+            "JSHeapTotalSize": 22142976,
+            "JSHeapUsedSize": 16133256,
+            "Nodes": 3052
+          },
+          "method": "HeapProfiler.collectGarbage_and_owned_Node_gc",
+          "phase": "before_captures"
+        },
+        {
+          "after": {
+            "Documents": 5,
+            "JSHeapTotalSize": 12705792,
+            "JSHeapUsedSize": 12187224,
+            "Nodes": 2555
+          },
+          "before": {
+            "Documents": 5,
+            "JSHeapTotalSize": 17948672,
+            "JSHeapUsedSize": 13496036,
+            "Nodes": 2567
+          },
+          "method": "HeapProfiler.collectGarbage_and_owned_Node_gc",
+          "phase": "after_captures"
+        },
+        {
+          "after": {
+            "Documents": 5,
+            "JSHeapTotalSize": 12705792,
+            "JSHeapUsedSize": 11831440,
+            "Nodes": 3041
+          },
+          "before": {
+            "Documents": 5,
+            "JSHeapTotalSize": 20307968,
+            "JSHeapUsedSize": 12099012,
+            "Nodes": 3041
+          },
+          "method": "HeapProfiler.collectGarbage_and_owned_Node_gc",
+          "phase": "crop_loaded_before_harvest"
+        },
+        {
+          "after": {
+            "Documents": 5,
+            "JSHeapTotalSize": 12967936,
+            "JSHeapUsedSize": 12064728,
+            "Nodes": 3402
+          },
+          "before": {
+            "Documents": 5,
+            "JSHeapTotalSize": 15589376,
+            "JSHeapUsedSize": 12496380,
+            "Nodes": 3412
+          },
+          "method": "HeapProfiler.collectGarbage_and_owned_Node_gc",
+          "phase": "harvest_loaded_before_row_checks"
+        }
+      ],
+      "network": [
+        {
+          "body_sha256": "977cc04cf2f8294a997ceec790cf5f63d8644ffcb57a3be53d4179e742f3d6f9",
+          "bytes": 9599,
+          "cache": "no-store",
+          "complete": true,
+          "endpoint": "crop",
+          "offset": null,
+          "outcome": "complete",
+          "seconds": 2.2392000000178816,
+          "status": 200,
+          "view": "summary"
+        },
+        {
+          "body_sha256": "19e64a4598727c214fb5bd5ee8ed871304e16a7e587dcd9d32f9cb8b10b942ff",
+          "bytes": 27947,
+          "cache": "no-store",
+          "complete": true,
+          "endpoint": "crop",
+          "offset": "0",
+          "outcome": "complete",
+          "seconds": 2.244300000011921,
+          "status": 200,
+          "view": "samples"
+        },
+        {
+          "body_sha256": "1f329df5ad22c46d8a8e40113ba8321d1a086bc9c95a35db10079f6535e9f3e0",
+          "bytes": 12406,
+          "cache": "no-store",
+          "complete": true,
+          "endpoint": "harvest",
+          "offset": null,
+          "outcome": "complete",
+          "seconds": 13.540200000017881,
+          "status": 200,
+          "view": "summary"
+        },
+        {
+          "body_sha256": "8c2b1b9b8fbcba9b7b2aaa01caf38b5c4c5235ef05572f5fcea6847dff716d61",
+          "bytes": 32659,
+          "cache": "no-store",
+          "complete": true,
+          "endpoint": "harvest",
+          "offset": "0",
+          "outcome": "complete",
+          "seconds": 22.72190000000596,
+          "status": 200,
+          "view": "records"
+        },
+        {
+          "body_sha256": "aa2d321caf23c79752f200aae9c5fd987aa48f9cc78949db00f9efd70fec8056",
+          "bytes": 29355,
+          "cache": "no-store",
+          "complete": true,
+          "endpoint": "harvest",
+          "offset": "3",
+          "outcome": "complete",
+          "seconds": 22.55080000001192,
+          "status": 200,
+          "view": "records"
+        },
+        {
+          "body_sha256": null,
+          "bytes": 0,
+          "cache": "no-store",
+          "complete": false,
+          "endpoint": "harvest",
+          "offset": null,
+          "outcome": "headers",
+          "seconds": 0.6621000000238418,
+          "status": 422,
+          "view": "summary"
+        },
+        {
+          "body_sha256": "977cc04cf2f8294a997ceec790cf5f63d8644ffcb57a3be53d4179e742f3d6f9",
+          "bytes": 9599,
+          "cache": "no-store",
+          "complete": true,
+          "endpoint": "crop",
+          "offset": null,
+          "outcome": "complete",
+          "seconds": 2.2497000000178815,
+          "status": 200,
+          "view": "summary"
+        },
+        {
+          "body_sha256": "19e64a4598727c214fb5bd5ee8ed871304e16a7e587dcd9d32f9cb8b10b942ff",
+          "bytes": 27947,
+          "cache": "no-store",
+          "complete": true,
+          "endpoint": "crop",
+          "offset": "0",
+          "outcome": "complete",
+          "seconds": 2.2769000000059605,
+          "status": 200,
+          "view": "samples"
+        },
+        {
+          "body_sha256": "1f329df5ad22c46d8a8e40113ba8321d1a086bc9c95a35db10079f6535e9f3e0",
+          "bytes": 12406,
+          "cache": "no-store",
+          "complete": true,
+          "endpoint": "harvest",
+          "offset": null,
+          "outcome": "complete",
+          "seconds": 13.65890000000596,
+          "status": 200,
+          "view": "summary"
+        },
+        {
+          "body_sha256": "8c2b1b9b8fbcba9b7b2aaa01caf38b5c4c5235ef05572f5fcea6847dff716d61",
+          "bytes": 32659,
+          "cache": "no-store",
+          "complete": true,
+          "endpoint": "harvest",
+          "offset": "0",
+          "outcome": "complete",
+          "seconds": 22.643599999994038,
+          "status": 200,
+          "view": "records"
+        },
+        {
+          "body_sha256": null,
+          "bytes": 0,
+          "cache": null,
+          "complete": false,
+          "endpoint": "harvest",
+          "offset": null,
+          "outcome": "fetch-error",
+          "seconds": 0.048299999982118605,
+          "status": null,
+          "view": "summary"
+        },
+        {
+          "body_sha256": null,
+          "bytes": 0,
+          "cache": "no-store",
+          "complete": false,
+          "endpoint": "harvest",
+          "offset": null,
+          "outcome": "headers",
+          "seconds": 0.004300000011920929,
+          "status": 403,
+          "view": "summary"
+        },
+        {
+          "body_sha256": null,
+          "bytes": 0,
+          "cache": "no-store",
+          "complete": false,
+          "endpoint": "crop",
+          "offset": null,
+          "outcome": "headers",
+          "seconds": 0.012599999994039535,
+          "status": 403,
+          "view": "summary"
+        }
+      ],
+      "peak_active_reads": 1,
+      "production_scripts": [
+        "/assets/index-ZitPouiI.js"
+      ],
+      "same_UTC": true,
+      "scope": "owned_synthetic_same_DB_actual_API_WebGL_not_agricultural_validation",
+      "source_response_replacement": false,
+      "stage": "verified",
+      "unmounted": true,
+      "verified": [
+        {
+          "at": "2026-10-01T00:00:00Z",
+          "index": 0,
+          "row_id": "crop-harvest-allocation-result-v1:974eb3696c88e8961f11fbc015129b33d94c06c998252719bcff064223efd948",
+          "sample_index": 0
+        },
+        {
+          "at": "2026-10-01T00:01:00Z",
+          "index": 1,
+          "row_id": "crop-harvest-allocation-result-v1:71ad90cae7d6d748bf5f30277dcfe4e824a28cc8fa709f122392312d6f341383",
+          "sample_index": 1
+        },
+        {
+          "at": "2026-10-01T00:01:00Z",
+          "index": 2,
+          "row_id": "crop-harvest-allocation-result-v1:06beb47c8f39589042533f61f19d6a2228c2e296772c09cae4305824cd8c8ee9",
+          "sample_index": 1
+        },
+        {
+          "at": "2026-10-01T00:01:30Z",
+          "index": 3,
+          "row_id": "crop-harvest-allocation-result-v1:983ad31242d9a1663e5be7035672e67fbfa7fa7b5e53ac76159aaf2170529bef",
+          "sample_index": null
+        },
+        {
+          "at": "2026-10-01T00:02:00Z",
+          "index": 4,
+          "row_id": "crop-harvest-allocation-result-v1:b22911140cbd3436f05c3bbd6702c21ec6dc2748b7949df002f9e5238115e5ee",
+          "sample_index": 2
+        },
+        {
+          "at": "2026-10-01T00:02:00Z",
+          "index": 5,
+          "row_id": "crop-harvest-allocation-result-v1:9cf786ac449fba0b198bb244e0609538fcc2365780b9dd713b342c725a9e4220",
+          "sample_index": 2
+        }
+      ],
+      "verified_rows": 6,
+      "verified_sample_indices": [
+        0,
+        1,
+        2
+      ]
+    },
+    "counts_after": {
+      "crop_cycle_verified_research_results": 1,
+      "harvest_rows": 1,
+      "job_events": 89,
+      "jobs": 89,
+      "thermal_g1_runs": 0
+    },
+    "counts_before": {
+      "crop_cycle_verified_research_results": 1,
+      "harvest_rows": 1,
+      "job_events": 89,
+      "jobs": 89,
+      "thermal_g1_runs": 0
+    },
+    "full166_mass_load_accepted": false,
+    "gates": "not_assessed",
+    "harvest_result_id": "crop-harvest-registered-result-v1:39f414820083b752bd8326629d3048b78ce387168e32c111f5bb7b54cf605880",
+    "original_120_steps": 120,
+    "parent_result_id": "crop-cycle-verified-result-v1:50318e9e3dc915b049101cbd945b523ccad77be8969fd4da4c1f7b27ca15ef33",
+    "protected_real_dependency_import": true,
+    "read_RHS_generation_issue_publication_calls": 0,
+    "scope": "owned_same_DB_synthetic_harvest_actual_App_WebGL",
+    "server_peak_active_reads": 1,
+    "server_responses": [
+      {
+        "body_sha256": "977cc04cf2f8294a997ceec790cf5f63d8644ffcb57a3be53d4179e742f3d6f9",
+        "bytes": 9599,
+        "cache": "no-store",
+        "complete": true,
+        "delayed": false,
+        "endpoint": "crop",
+        "offset": null,
+        "seconds": 2.2304295729845762,
+        "status": 200,
+        "view": "summary"
+      },
+      {
+        "body_sha256": "19e64a4598727c214fb5bd5ee8ed871304e16a7e587dcd9d32f9cb8b10b942ff",
+        "bytes": 27947,
+        "cache": "no-store",
+        "complete": true,
+        "delayed": false,
+        "endpoint": "crop",
+        "offset": "0",
+        "seconds": 2.2397369479876943,
+        "status": 200,
+        "view": "samples"
+      },
+      {
+        "body_sha256": "1f329df5ad22c46d8a8e40113ba8321d1a086bc9c95a35db10079f6535e9f3e0",
+        "bytes": 12406,
+        "cache": "no-store",
+        "complete": true,
+        "delayed": false,
+        "endpoint": "harvest",
+        "offset": null,
+        "seconds": 13.535560909018386,
+        "status": 200,
+        "view": "summary"
+      },
+      {
+        "body_sha256": "8c2b1b9b8fbcba9b7b2aaa01caf38b5c4c5235ef05572f5fcea6847dff716d61",
+        "bytes": 32659,
+        "cache": "no-store",
+        "complete": true,
+        "delayed": false,
+        "endpoint": "harvest",
+        "offset": "0",
+        "seconds": 22.71716989800916,
+        "status": 200,
+        "view": "records"
+      },
+      {
+        "body_sha256": "aa2d321caf23c79752f200aae9c5fd987aa48f9cc78949db00f9efd70fec8056",
+        "bytes": 29355,
+        "cache": "no-store",
+        "complete": true,
+        "delayed": false,
+        "endpoint": "harvest",
+        "offset": "3",
+        "seconds": 22.546249292005086,
+        "status": 200,
+        "view": "records"
+      },
+      {
+        "body_sha256": "17375dd50200e11b83258c674cf23cb6f2ddd4641aeefa0df37f7bfe7bd1d072",
+        "bytes": 92,
+        "cache": "no-store",
+        "complete": true,
+        "delayed": false,
+        "endpoint": "harvest",
+        "offset": null,
+        "seconds": 0.6583912549831439,
+        "status": 422,
+        "view": "summary"
+      },
+      {
+        "body_sha256": "977cc04cf2f8294a997ceec790cf5f63d8644ffcb57a3be53d4179e742f3d6f9",
+        "bytes": 9599,
+        "cache": "no-store",
+        "complete": true,
+        "delayed": false,
+        "endpoint": "crop",
+        "offset": null,
+        "seconds": 2.2444886499724817,
+        "status": 200,
+        "view": "summary"
+      },
+      {
+        "body_sha256": "19e64a4598727c214fb5bd5ee8ed871304e16a7e587dcd9d32f9cb8b10b942ff",
+        "bytes": 27947,
+        "cache": "no-store",
+        "complete": true,
+        "delayed": false,
+        "endpoint": "crop",
+        "offset": "0",
+        "seconds": 2.2724411230010446,
+        "status": 200,
+        "view": "samples"
+      },
+      {
+        "body_sha256": "1f329df5ad22c46d8a8e40113ba8321d1a086bc9c95a35db10079f6535e9f3e0",
+        "bytes": 12406,
+        "cache": "no-store",
+        "complete": true,
+        "delayed": false,
+        "endpoint": "harvest",
+        "offset": null,
+        "seconds": 13.653680539980996,
+        "status": 200,
+        "view": "summary"
+      },
+      {
+        "body_sha256": "8c2b1b9b8fbcba9b7b2aaa01caf38b5c4c5235ef05572f5fcea6847dff716d61",
+        "bytes": 32659,
+        "cache": "no-store",
+        "complete": true,
+        "delayed": false,
+        "endpoint": "harvest",
+        "offset": "0",
+        "seconds": 22.63844107501791,
+        "status": 200,
+        "view": "records"
+      },
+      {
+        "body_sha256": "e41656eb2ba6c6293bf6dd928e5a88cdbc50535cab661c1969e0f598e497ed62",
+        "bytes": 21,
+        "cache": "no-store",
+        "complete": true,
+        "delayed": true,
+        "endpoint": "harvest",
+        "offset": null,
+        "seconds": 0.42349842900875956,
+        "status": 500,
+        "view": "summary"
+      },
+      {
+        "body_sha256": "1ae0610a2bc3c4299f75db4623b6163cb075b5bd5fc5f919848892c95a2b84d2",
+        "bytes": 65,
+        "cache": "no-store",
+        "complete": true,
+        "delayed": false,
+        "endpoint": "harvest",
+        "offset": null,
+        "seconds": 0.0007972119783516973,
+        "status": 403,
+        "view": "summary"
+      },
+      {
+        "body_sha256": "1ae0610a2bc3c4299f75db4623b6163cb075b5bd5fc5f919848892c95a2b84d2",
+        "bytes": 65,
+        "cache": "no-store",
+        "complete": true,
+        "delayed": false,
+        "endpoint": "crop",
+        "offset": null,
+        "seconds": 0.0008099109982140362,
+        "status": 403,
+        "view": "summary"
+      }
+    ],
+    "source": {
+      "artifact_sha256": "bdcc2ab0f68893921eceb9da9919d263bed934c12b73bceca26feac25ec3454f",
+      "input_root_sha256": "00e3e6e2867dc932accc2cb2e52bc6ad22f2d37cff39bf207ddaa0829def3a23",
+      "math_manifest_sha256": "596b366bccc4f6f41864094155319a6aba6b158a884a6583365cd77b347d0643",
+      "payload_sha256": "e8dfafbf71cdb4a41d49b8f073a239964948f55b999231722256ab57fe00862d",
+      "result_id": "crop-cycle-verified-result-v1:50318e9e3dc915b049101cbd945b523ccad77be8969fd4da4c1f7b27ca15ef33",
+      "source_status": "completed"
+    },
+    "source_bytes_modes_inodes_preserved": true
+  },
+  "original_terminal_audit": {
+    "G0_G4": "not_assessed",
+    "actual_original_terminal_observed": true,
+    "actual_pytest_exit": 0,
+    "actual_tool_exit": 0,
+    "all_owned_resources_closed": true,
+    "all_source_hashes_audited": true,
+    "at_utc": "2026-10-08T17:18:16.398402+00:00",
+    "canceled_client_and_delayed_server_distinguished": true,
+    "client_response_count": 13,
+    "completed_client_server_body_pairs": [
+      {
+        "body_sha256": "977cc04cf2f8294a997ceec790cf5f63d8644ffcb57a3be53d4179e742f3d6f9",
+        "bytes": 9599,
+        "endpoint": "crop",
+        "offset": null,
+        "view": "summary"
+      },
+      {
+        "body_sha256": "19e64a4598727c214fb5bd5ee8ed871304e16a7e587dcd9d32f9cb8b10b942ff",
+        "bytes": 27947,
+        "endpoint": "crop",
+        "offset": "0",
+        "view": "samples"
+      },
+      {
+        "body_sha256": "1f329df5ad22c46d8a8e40113ba8321d1a086bc9c95a35db10079f6535e9f3e0",
+        "bytes": 12406,
+        "endpoint": "harvest",
+        "offset": null,
+        "view": "summary"
+      },
+      {
+        "body_sha256": "8c2b1b9b8fbcba9b7b2aaa01caf38b5c4c5235ef05572f5fcea6847dff716d61",
+        "bytes": 32659,
+        "endpoint": "harvest",
+        "offset": "0",
+        "view": "records"
+      },
+      {
+        "body_sha256": "aa2d321caf23c79752f200aae9c5fd987aa48f9cc78949db00f9efd70fec8056",
+        "bytes": 29355,
+        "endpoint": "harvest",
+        "offset": "3",
+        "view": "records"
+      },
+      {
+        "body_sha256": "977cc04cf2f8294a997ceec790cf5f63d8644ffcb57a3be53d4179e742f3d6f9",
+        "bytes": 9599,
+        "endpoint": "crop",
+        "offset": null,
+        "view": "summary"
+      },
+      {
+        "body_sha256": "19e64a4598727c214fb5bd5ee8ed871304e16a7e587dcd9d32f9cb8b10b942ff",
+        "bytes": 27947,
+        "endpoint": "crop",
+        "offset": "0",
+        "view": "samples"
+      },
+      {
+        "body_sha256": "1f329df5ad22c46d8a8e40113ba8321d1a086bc9c95a35db10079f6535e9f3e0",
+        "bytes": 12406,
+        "endpoint": "harvest",
+        "offset": null,
+        "view": "summary"
+      },
+      {
+        "body_sha256": "8c2b1b9b8fbcba9b7b2aaa01caf38b5c4c5235ef05572f5fcea6847dff716d61",
+        "bytes": 32659,
+        "endpoint": "harvest",
+        "offset": "0",
+        "view": "records"
+      }
+    ],
+    "core_sha256": {
+      "backend/tests/crop_harvest_view_native_smoke.py": "3717743165b34b2dce8a7638ca91618ca0abe04f543ab046dc604581c0526680",
+      "contracts/crop-harvest-view-native-v1.md": "56f5f9dc7bb163f060920f05219f817c1658b0e7f0646639db1b224ff0731465",
+      "web/e2e/harvest-replay-native-smoke.mjs": "c84c45d29c8383d770d7aea7d5c92a76804150f6e84f85df4d8cedced8bcc3aa"
+    },
+    "fixture_teardown_complete": true,
+    "full166_mass_load_accepted": false,
+    "max_client_response_seconds": 22.72190000000596,
+    "max_server_response_bytes": 32659,
+    "max_server_response_seconds": 22.71716989800916,
+    "native_session_id": 69379,
+    "original_deadline_ns": 1791480211372681096,
+    "owned_RSS_peak_bytes": 1030803456,
+    "owned_temp_tree_removed": true,
+    "raw_native_result_sha256": "41280272d15165f5eafe50ea1011b7c245130cacc6f89da99022d46112a0eb59",
+    "raw_verified_sha256": "e8f1e211dbcd2f6ba30574a850a6df7d7356e093af41fec355ad893f39fd089e",
+    "screens": {
+      "harvest-native-3d-desktop.png": {
+        "bytes": 125413,
+        "sha256": "f8d236c016d75e42b93c2748b3348f3dfc6c1684dbf8767eb5139be5ff83cac8",
+        "width_height": [
+          1024,
+          768
+        ]
+      },
+      "harvest-native-table-desktop.png": {
+        "bytes": 123320,
+        "sha256": "c584728eef1cc116d164ccfbced29903274218f85a4b9457a096e4216c00e28c",
+        "width_height": [
+          820,
+          1085
+        ]
+      },
+      "harvest-native-table-mobile.png": {
+        "bytes": 86211,
+        "sha256": "1d99a6a3ef3d7bcef6da3558dbec2ed6aa0d5fc69070f10e177b3503030f3ab6",
+        "width_height": [
+          366,
+          1299
+        ]
+      }
+    },
+    "server_response_count": 13,
+    "single_RSS_peak_bytes": 295022592,
+    "source_count": 828,
+    "tests": 2,
+    "wall_seconds": 226.49798169199494
+  },
+  "parent_memory": {
+    "Python_gc_collected": 4086,
+    "after_RSS_bytes": 132620288,
+    "before_RSS_bytes": 143835136,
+    "glibc_malloc_trim_return": 1,
+    "phase": "before_browser",
+    "scope": "owned_Linux_test_process_only_not_production_memory_claim"
+  },
+  "prior_screen_verification": {
+    "existing_Chromium": 15,
+    "new_Chromium": 10,
+    "reference": "research/artifacts/web-crop-harvest-view-screen-reference-20261009.json",
+    "typecheck_build": "passed earlier unchanged product sources; not reexecuted or added to native2",
+    "web_unit": 851
+  },
+  "private_controller_preflight_failures": {
+    "DB_browser_launched": false,
+    "accepted_as_native": false,
+    "count": 2
+  },
+  "remote_CI_read_only": {
+    "Backend_tests": "failure",
+    "head": "2a3e61571d0574a063577ec1edcfb75aa5f2d565",
+    "new_hosted_CI_push_rerun": false,
+    "successful_workflows": 4
+  },
+  "resource_observation": {
+    "RSS_scope": "owned_unique_PID_RSS_sum_including_PG_controller_shared_pages_may_double_count_notPSS_orWSLtotal",
+    "sample_interval_seconds": 0.1,
+    "sampled_pipeline_RSS_sum_max_bytes": 1030803456,
+    "sampled_primary_max_RSS_bytes": 165580800,
+    "sampled_single_process_max_RSS_bytes": 295022592
+  },
+  "resource_scope": "specific_Linux_test_heap_viewport_GC_in_process_GPU_not_general_browser_or_production_capacity",
+  "same_build_input_count": 97,
+  "source_preservation": {
+    "all_unchanged": true,
+    "count": 828,
+    "sha256_of_canonical_source_map": "4b1a955fe50e1098f9bf651f8d1df3ffa90f8101e3f4af2fc2b3dbb9632b75d5"
+  },
+  "version": "crop-harvest-view-native-reference-v1"
+}

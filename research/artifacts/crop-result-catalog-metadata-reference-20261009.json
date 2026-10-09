@@ -1,0 +1,90 @@
+{
+  "frozen_producer_files_sha256": {
+    "backend/tests/crop_harvest_parent_production_smoke.py": "be0151eb194aa39b092dfe29888623192ce7672edf7ead24b5e755b51e33aeb5",
+    "contracts/crop-harvest-parent-production-v1.md": "61de7328edc88be9be618dd0459b17c2e1b1dd713f305cf88d97f9c92fd6378f",
+    "research/crop-harvest-parent-production.py": "87096fd690ff777dca150213294c5c62d6e757ccf853ca5b41eea3e1a397db34"
+  },
+  "holds": [
+    "protected API/OpenAPI and web SDK/catalogue selection",
+    "actual same-DB API/browser/restart acceptance and older research versions scope",
+    "live full166 execution progress/confirmed-prefix UI integration",
+    "full harvest parent and writer/registry/native path",
+    "actual cultivar/farm data and G0-G4 production/resources/economics/forecast/ranking claims"
+  ],
+  "native_cli_review": {
+    "event_sha256": "8af7a2d3b5e46da14bc675286eaf807c5e8128bec7257897a6ab65e9d33e97bf",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-09T01:51:50.226Z"
+  },
+  "native_observations": {
+    "FD_before_after": [
+      12,
+      12
+    ],
+    "G0_G4": "not_assessed",
+    "actual_crop_Runs": 0,
+    "guarded_crop_read_RHS_publication_proof_calls": 0,
+    "observations": [
+      {
+        "equal_cursor_empty": true,
+        "foreign_scope_registration_crop_rights_tamper_and_post_projection_denied": true,
+        "items": 1,
+        "kind": "calculation_cycle_v1",
+        "original_result_and_recorded_at_preserved": true,
+        "read_seconds": 5.440939571999479,
+        "response_bytes": 786
+      },
+      {
+        "equal_cursor_empty": true,
+        "foreign_scope_registration_crop_rights_tamper_and_post_projection_denied": true,
+        "items": 1,
+        "kind": "harvest_v1",
+        "original_result_and_recorded_at_preserved": true,
+        "read_seconds": 4.753368989971932,
+        "response_bytes": 764
+      }
+    ],
+    "restored_postmaster_absent": true,
+    "source_entries_unchanged": 60,
+    "status": "metadata_catalog_local_only"
+  },
+  "native_test": {
+    "budget_breach": [],
+    "elapsed_seconds": 58.29704398699687,
+    "exit_code": 0,
+    "external_original_processes_still_same": true,
+    "max_owned_RSS_bytes": 810688512,
+    "max_single_RSS_bytes": 140951552,
+    "observed_at": "2026-10-09T02:03:43.867407+00:00",
+    "original_exec_session_id": 48842,
+    "owned_restored_postmaster_absent": true,
+    "passed": 1,
+    "pytest_seconds": 57.81,
+    "resource_scope": "controller/test/clone PostgreSQL plus exact-live full producer and user preview trees/DBs",
+    "samples": 560
+  },
+  "observed_at": "2026-10-09T02:07:03.420365+00:00",
+  "prior_failed_native": {
+    "cause": "test expected parent recorded_at in original_record; backup manifest stores only ID/hash. Corrected test uses unchanged restored DB timestamp for growth; independent preserved harvest timestamp remains checked.",
+    "exit_code": 1,
+    "original_exec_session_id": 56104,
+    "owned_postmaster_stopped": true
+  },
+  "status": "local_metadata_child_only",
+  "tested_source_sha256": {
+    "backend/app/crop_result_catalog.py": "d4c176f7f0ba07954bf5a366e1594849d22a7650d26c0807fe730e83a90cd981",
+    "backend/tests/crop_result_catalog_preserved_smoke.py": "eb83f8b04733c781e8754d33405594a47ebe05657dde1e68813c013d6c35a75e",
+    "backend/tests/test_crop_result_catalog.py": "a7406e29623e3fce8723cb17216c6aefc44bff9137550d51cf0355fd5b9a271e"
+  },
+  "timestamp_evidence": "growth compares against original row restored from checked immutable DB dump; harvest also compares against prior preserved original_record.recorded_at",
+  "unit_tests": {
+    "exit_code": 0,
+    "original_exec_session_id": 26744,
+    "passed": 30,
+    "pytest_seconds": 0.78
+  },
+  "version": "crop-result-catalog-metadata-local-acceptance-v1"
+}

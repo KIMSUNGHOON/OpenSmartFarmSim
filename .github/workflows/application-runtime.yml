@@ -1,0 +1,50 @@
+name: Application runtime verification
+
+on:
+  push:
+    branches: [main, 'ci/application-runtime']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: application-runtime-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  images:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - name: Build and verify isolated application images
+        env:
+          DOCKER_BUILDKIT: '1'
+        run: python3 scripts/check-application-images.py
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7
+        with:
+          version: '0.11.14'
+          python-version: '3.12.13'
+          enable-cache: false
+      - name: Install locked host test harness
+        run: uv sync --locked --project backend --python 3.12.13
+      - name: Verify actual Compose API and automatic worker
+        env:
+          DOCKER_BUILDKIT: '1'
+          UV_PYTHON_DOWNLOADS: '0'
+        run: backend/.venv/bin/python scripts/check-application-runtime.py
+      - name: Verify actual Compose owned collection consumer
+        env:
+          DOCKER_BUILDKIT: '1'
+          UV_PYTHON_DOWNLOADS: '0'
+        run: backend/.venv/bin/python scripts/check-application-runtime.py --collection
+      - name: Verify actual Compose scoped research authority
+        env:
+          DOCKER_BUILDKIT: '1'
+          UV_PYTHON_DOWNLOADS: '0'
+        run: backend/.venv/bin/python scripts/check-application-runtime.py --authority

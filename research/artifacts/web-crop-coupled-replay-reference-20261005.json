@@ -1,0 +1,229 @@
+{
+  "schema_version": "web-crop-coupled-replay-reference-v1",
+  "accepted_scope": "local synthetic stored crop math, same-time browser replay only",
+  "base_commit": "e70a7f242d725c0bece9526ff44270caf320c6b6",
+  "cli": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "turn_timestamp": "2026-10-04T22:52:33.768Z",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "output_report": "research/web-crop-coupled-replay-implementation.md"
+  },
+  "source_sha256": {
+    ".dockerignore": "19aa51f489ee59c1c01ccc97e2689d2fc9c15a0dd9b4e1bc9c14b908e2b39f66",
+    ".github/workflows/authored-api-smoke.yml": "6541161f74e772fb270de282e4b52c4b96c119f6f8d53e827b3e3366d9f838cf",
+    "backend/tests/web_crop_coupled_replay_smoke.py": "589b03021eaf747b5e48616f8a982226b5c116b4c52d3adc57974c1e77ea311a",
+    "web/e2e/coupled-crop-fixture.ts": "25afe22a09458a048f7ac1eb129cf0996736aa46eb803a9a14dd5e99f7e390b5",
+    "web/e2e/coupled-crop-replay.spec.ts": "554b9289f15aaff80738abcaa1c3172a401c8e6ca73de3bb7eaae60ecbc67185",
+    "web/e2e/real-coupled-crop-replay-smoke.mjs": "1fc435d892a50e31a99079791f9d0408471b4dae408158df61babdb0b813527b",
+    "web/src/CoupledCropChart.tsx": "8094a5444cdf2202fd5fed3c91c5f60a0a3944f4cf774d6e0f1326f24d86e5c9",
+    "web/src/CoupledCropReplay.css": "432d05a85de345afe297926c3fa9d420e0baebb5a626d276419a918eae44f5b7",
+    "web/src/CoupledCropReplay.tsx": "bdd834c28088e23fc4ce78794ab04f9ceae23fd40fab70c05aef19650f08888f",
+    "web/src/CoupledCropScene.tsx": "b2d8a2b5d6b5b981f1b1fff0d5b8096f07ca6614e1bcb86bd4ac3afa1481c03d",
+    "web/src/CropReplay.css": "382a7e4fe54f7ab173763f6d1c0693835ffbd45b7177f2281cbf87c4a1ab4807",
+    "web/src/CropReplay.tsx": "23d0c1d50d3362119b003340b2b00e8a0e86dc3644ca171e75d16c1db63473a2",
+    "web/src/assets/crop-coupled-design/cutout-39-e57cccea5fd1.png": "e57cccea5fd1130954d9c06c9f2b5a9a928f3508eb25af15f25fcf2e46c683d6",
+    "web/src/assets/crop-coupled-design/cutout-40-ef51681c6de1.png": "ef51681c6de18d155dacf167fee02d8bd0754eb158a453bf6ead87545ee17541",
+    "web/src/assets/crop-coupled-design/cutout-61-9b0200c77fa2.png": "9b0200c77fa20968e710df4aec7bc48f9caf724b8754fb20b5107ab77516d7e9",
+    "web/src/assets/crop-coupled-design/cutout-83-610a56c5d842.png": "610a56c5d842087ec310a2a8bfda4294caae7e30cfc2c66be2fe22d122060edc",
+    "web/src/coupledCropGeometry.ts": "57038d8fa33c4a44f183716a9f92f98deb2653251ffeb60db15f855082251e0b",
+    "web/src/coupledCropReplay.ts": "c84089bdbb9785f8ee33a0cdc37c4b5aa34f5a03c0c7c2735f6a117038dc85c1",
+    "web/src/cropGeometry.ts": "4204432e122a430a727f467100ebc59d81464a0baa44e78f480eb84a7d6466c7",
+    "web/vite.config.ts": "7a33378741bd32c47eefdd23dff70ef5485801c2ab5ff533a3c6ea377eb61c9d"
+  },
+  "unit_tests": {
+    "passed": 129,
+    "files": 4,
+    "duration_seconds": 6.37,
+    "command": "npm test -- --maxWorkers=1 src/coupledCropGeometry.test.ts src/coupledCropReplay.test.ts src/cropGeometry.test.ts src/api.test.ts",
+    "evidence": "observed CLI tool output; no separate saved JSON log"
+  },
+  "chromium": {
+    "statistics": {
+      "startTime": "2026-10-04T23:30:44.285Z",
+      "duration": 60248.408,
+      "expected": 19,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "report_sha256": "098114ebbc596607a94f96df97306f4c900a9b7b55fdf20aa5b3069904ecc722",
+    "new_cases": 9,
+    "legacy_cases": 10,
+    "workers": 1
+  },
+  "typecheck_build": {
+    "passed": true,
+    "build_log_sha256": "d2baba2ae6941bb1a6278a6a2e1855d110c3642ab171f6b5f088fd56eb5b743f",
+    "svg_chunk_kb": 520.2,
+    "existing_size_warning_retained": true
+  },
+  "actual_storage_https_browser": {
+    "test": {
+      "started_at": "2026-10-04T23:22:43.368823+00:00",
+      "completed_at": "2026-10-04T23:24:48.775753+00:00",
+      "exit_code": 0,
+      "wall_seconds": 125.40692994298297,
+      "postgres": "16.15",
+      "python": "3.12.3",
+      "log_sha256": "dc3bf084b55fde669e775b323ce6b4e64cf938caf7839480e8c743a73d2ae637",
+      "tests": [
+        "tests/web_crop_coupled_replay_smoke.py"
+      ],
+      "temporary_cluster_and_password_files_removed": true
+    },
+    "private_evidence_sha256": "8b4ce664ca479182880b29c20f7c4de0d7567297c6e1b1102a0b128e503ebe86",
+    "result_ids": {
+      "result": "crop-result-v2:f153ad00613f078a976660c0b4158ef840d002b83848064aea09fa468b9fb9c9",
+      "past": "crop-result-v2:c4c31004f6267e959a2ac51e3fe54329da63a1a4c073d06d8750c8850224d522",
+      "empty": "crop-result-v2:15f98cb9adf971a166f7c8c4c8c3ca5fd682262510a322b36a36e5f55a4349a1"
+    },
+    "recorded_at": "2026-10-04T23:23:13.625449Z",
+    "completed_saved_samples": 6,
+    "past_hold_samples": 1,
+    "empty_hold_samples": 0,
+    "verified_frames": 9,
+    "checked_cohort_mesh_quantities": 900,
+    "network_statuses": [
+      200,
+      200,
+      200,
+      200,
+      422,
+      403,
+      200
+    ],
+    "consumed_successful_bodies": 5,
+    "maximum_body_seconds": 9.53569999998808,
+    "maximum_triangle_area_error": 8.881784197001252e-16,
+    "rows_before": 3,
+    "rows_after": 3,
+    "no_get_reintegration": true,
+    "https_server_joined": true,
+    "frontend_stopped": true,
+    "account_change": true,
+    "reconnected": true,
+    "browser_errors": []
+  },
+  "recorded_demo": {
+    "scope": "recorded own synthetic demo; not live storage or agricultural evidence",
+    "rows": [
+      {
+        "kind": "completed",
+        "result_id": "crop-result-v2:23e61b93d37a59925c9115458688f0d757484d470ede6a9d79d26dd3ded60cbe",
+        "statuses": [
+          200,
+          403,
+          404
+        ],
+        "same_recorded_response": true
+      },
+      {
+        "kind": "past",
+        "hold": true
+      },
+      {
+        "kind": "empty",
+        "hold": true
+      }
+    ],
+    "browser_contexts_closed": 3,
+    "farm": {
+      "scenario_id": "farm-1",
+      "scenario_revision": "r1",
+      "registration_sha256": "0d4c0563d537e57a3e0f82dc5449253eaafe5b2ecdbaabfbc68a151746f86a10",
+      "crop_id": "crop-1"
+    }
+  },
+  "design": {
+    "approved_main_sha256": "eba016bb43d47543ec457c67cd6565c4c9d4df7b0ea5badfd6e03f42c9955c7d",
+    "empty_sha256": "346136014722c54d7247e13538630a0e3d00e66ce89f325c6c9b5802fe393667",
+    "past_sha256": "1c75ce25b84944df7b869621d1220501604a5ba22c3f90d41e2348023a676eed",
+    "closeout_overlap_percent": {
+      "main": 23.0,
+      "empty": 21.5,
+      "past": 21.8
+    },
+    "pixel_fidelity_accepted": false,
+    "reason": "Retained real values, units, authentication, evidence and deterministic Three/ECharts; rejected example graph/plant rasters and the background containing unsupported text.",
+    "past_prototype": {
+      "status": "failed",
+      "reason": "12ui holding composition has no content area inside 1536x1024",
+      "screen_and_html": "succeeded",
+      "product_uses_generated_prototype": false
+    },
+    "settled_named_charges": [
+      {
+        "runId": "2b0b0420-3da4-45b2-926b-5ec934016ed9",
+        "fundingSource": "sponsored",
+        "chargedMicros": 0,
+        "providerCostMicros": null
+      },
+      {
+        "runId": "28036367-0361-434a-a3af-8ab73db2bedd",
+        "fundingSource": "sponsored",
+        "chargedMicros": 0,
+        "providerCostMicros": null
+      },
+      {
+        "runId": "crt-8dcaabeedc443b01e12adb343e9da905ea29381c",
+        "fundingSource": "sponsored",
+        "chargedMicros": 0,
+        "providerCostMicros": null
+      },
+      {
+        "runId": "crt-07104048cd8a60fb220704b699b6848ebfb0ce35",
+        "fundingSource": "sponsored",
+        "chargedMicros": 0,
+        "providerCostMicros": null
+      },
+      {
+        "runId": "1ea3f74a-9b7b-49f0-8fb3-228b6d909b1a",
+        "fundingSource": "sponsored",
+        "chargedMicros": 0,
+        "providerCostMicros": null
+      },
+      {
+        "runId": "crt-acde3e589ba879515e75504a10f4e8d1d2d86961",
+        "fundingSource": "sponsored",
+        "chargedMicros": 0,
+        "providerCostMicros": null
+      },
+      {
+        "runId": "93cc6a24-c351-4c1a-a1e9-fe9d289a18fb",
+        "fundingSource": "sponsored",
+        "chargedMicros": 0,
+        "providerCostMicros": null
+      }
+    ],
+    "provider_cost": "withheld; not assumed zero",
+    "package_ids_without_charge_rows": [
+      "4ef5f1ed-b009-48b6-a31b-70ad7bd74249",
+      "cd9410f5-0c4d-431b-aad1-83e6007bf102",
+      "964f581a-480e-4bce-a3cc-cc419511f547",
+      "f82ad30e-4f38-430d-90fe-eb888b668d5d"
+    ]
+  },
+  "screens_sha256": {
+    "research/artifacts/coupled-crop-replay-desktop.png": "6e5c13138df934e631fd15baf8c17faa318d9846e0221304cbe3e3c05e35b10f",
+    "research/artifacts/coupled-crop-replay-empty-hold.png": "be61764e706f48c747bfa17030192fcecb947178e70d046945a5696a5f17ab8e",
+    "research/artifacts/coupled-crop-replay-mobile.png": "d35fbb1b29167af10bf7593b959a517acde2a69f02ddc47c247c64c8057e471e",
+    "research/artifacts/coupled-crop-replay-past-hold.png": "5eedb9b5afc880d8bf415f22b49df1f72cef23f3f66d5122236eebe52028b1ae",
+    "research/artifacts/coupled-crop-replay-recorded-demo-geometry.png": "d3939f1189c53a235a6873162849dfb95f5a993f4e571eb99a994282c898c084"
+  },
+  "not_accepted": [
+    "live domestic forcing",
+    "registered cultivar validation",
+    "automatic startup/fruit set",
+    "whole-cycle simulation",
+    "fresh harvest kg or actual fruit count",
+    "purchased resources or future economics",
+    "crop ranking",
+    "G0-G4",
+    "new hosted CI or Docker build"
+  ],
+  "implemented_commit": "cc6448b7dc6d7ba2822967c0c43db34d97eb4e66",
+  "owned_design_preview_stopped": true,
+  "temporary_preview_html_removed": true
+}

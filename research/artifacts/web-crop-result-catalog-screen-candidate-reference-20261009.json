@@ -1,0 +1,350 @@
+{
+  "version": "web-crop-result-catalog-screen-candidate-reference-v1",
+  "observed_at": "2026-10-09T14:57:45.659945+09:00",
+  "status": "candidate_browser_design_native_hold_not_deployed_not_accepted",
+  "core_sources": {
+    "contracts/web-crop-result-catalog-screen-v1.md": "58478bd4c17e324403a8d4bfe124f8b3051b88eee3cbbab5465dacec41f4c891",
+    "web/src/cropResultPicker.ts": "1d2d729bbb9c1668d299e0b4eb332f6ed6edfb128fd5cb97f830fc8077c7a017",
+    "web/src/cropResultPicker.test.ts": "d7ca3cafeb89e773b901d47ab037ade34e19feb24c2ba9b51b6c252a30738c7a",
+    "web/src/CropResultCatalog.tsx": "d31b220d8f2d7e2700ee7639076d57593e7d45a45e94d9748e1ada51be65c7c1",
+    "web/src/App.tsx": "132851f090ce8ffcb63ade429ed256370b5c96e31eba78613ca1c0ae37943168"
+  },
+  "support_sources": {
+    "web/src/CropResultCatalog.css": "0c7773954220b2780f214c51934da9819472fb5fedf6744dd9a8b5c6de148965",
+    "web/src/assets/crop-result-empty.png": "39bf15bdcd694ee514f33132c0a18db93f4b0b17d1f7797c8cd06929ff5b5f85",
+    "web/e2e/crop-result-catalog.spec.ts": "50c811b0c250a19009ba8f04a150655aff9162e4c63d0c565b5071601be2dcb6"
+  },
+  "native_Codex_CLI": [
+    {
+      "actual_effort": "xhigh",
+      "actual_model": "gpt-6.1-sol",
+      "judgment_scope": "Implement approved12ui stored crop result catalogue using accepted metadata SDKs and existing replay, immutable registrations and current-account rechecks; no invented agronomic outputs or recursive CLI. Exact native CLI judgment and verification.",
+      "recursive_invocations": 0,
+      "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "timestamp": "2026-10-09T05:38:27.032Z",
+      "turn_event_sha256": "e1c4a1d28333545dd281d8dffc9ad8616370b5a75bdc8d95c39838a52ff2734c"
+    },
+    {
+      "actual_effort": "xhigh",
+      "actual_model": "gpt-6.1-sol",
+      "judgment_scope": "Stored crop catalog screen candidate, metadata selection and original approved prototype integration. Bounded ordinary product build only; browser, original design alignment and native acceptance pending. Current native CLI judgment; no domain coefficients or gate decisions adopted.",
+      "recursive_invocations": 0,
+      "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "timestamp": "2026-10-09T05:54:43.371Z",
+      "turn_event_sha256": "ffe3553293a1dd3c4cc5f56b058eaecef6851ad7628f1d93507a4c089ab70443"
+    }
+  ],
+  "executions": [
+    {
+      "stage": "focused-v1",
+      "original_completed_tool_chunk": "e46176",
+      "terminal_sha256": "efcc58b673a263a66dddc6f0e60e81729a46251a9f7ebea283db98c216473766",
+      "actual_exit_code": 1,
+      "reason": null,
+      "wall_seconds": 0.7558866629842669,
+      "source_count": 1570,
+      "source_pins_preserved": true,
+      "preview_dist_unchanged": true,
+      "single_PID_peak_RSS_bytes": 209641472,
+      "combined_peak_RSS_bytes": 755707904,
+      "protected_original_identities_preserved": true,
+      "owned_remaining": 0,
+      "remaining_children": 0,
+      "commands": [
+        {
+          "label": "picker-unit",
+          "argv_redacted_paths": [
+            "nice",
+            "-n",
+            "19",
+            "node",
+            "--max-old-space-size=96",
+            "<workspace>/web/node_modules/vitest/vitest.mjs",
+            "run",
+            "src/cropResultPicker.test.ts",
+            "--maxWorkers=1",
+            "--no-file-parallelism"
+          ],
+          "actual_exit_code": 1,
+          "wall_seconds": 0.707548233011039,
+          "log_sha256": "0eb3431231e7e08e54225cea2ece6248741413fbd683b6a60b08ed9944ba123b"
+        }
+      ]
+    },
+    {
+      "stage": "focused-v2",
+      "original_completed_tool_chunk": "884cd6",
+      "terminal_sha256": "5a7a0d3118d597049f65dc7b1bc45ca218035ae31d700dac9a349db6205bb72c",
+      "actual_exit_code": 1,
+      "reason": null,
+      "wall_seconds": 0.7671759169897996,
+      "source_count": 1570,
+      "source_pins_preserved": true,
+      "preview_dist_unchanged": true,
+      "single_PID_peak_RSS_bytes": 212467712,
+      "combined_peak_RSS_bytes": 759209984,
+      "protected_original_identities_preserved": true,
+      "owned_remaining": 0,
+      "remaining_children": 0,
+      "commands": [
+        {
+          "label": "picker-unit",
+          "argv_redacted_paths": [
+            "nice",
+            "-n",
+            "19",
+            "node",
+            "--max-old-space-size=96",
+            "<workspace>/web/node_modules/vitest/vitest.mjs",
+            "run",
+            "src/cropResultPicker.test.ts",
+            "--maxWorkers=1",
+            "--no-file-parallelism"
+          ],
+          "actual_exit_code": 1,
+          "wall_seconds": 0.7140520959801506,
+          "log_sha256": "ec8c3cec68666b9484f3db81f9b4b2a958d898c49a8b98aea534167e67b95c00"
+        }
+      ]
+    },
+    {
+      "stage": "focused-v3",
+      "original_exec_session_id": 69979,
+      "terminal_sha256": "d38a4f126f5333261dca65a7300f95c323f48e86263ffe5f38da8b6b09f86396",
+      "actual_exit_code": 0,
+      "reason": null,
+      "wall_seconds": 1.5241038359818049,
+      "source_count": 1570,
+      "source_pins_preserved": true,
+      "preview_dist_unchanged": true,
+      "single_PID_peak_RSS_bytes": 386039808,
+      "combined_peak_RSS_bytes": 932073472,
+      "protected_original_identities_preserved": true,
+      "owned_remaining": 0,
+      "remaining_children": 0,
+      "commands": [
+        {
+          "label": "picker-unit",
+          "argv_redacted_paths": [
+            "nice",
+            "-n",
+            "19",
+            "node",
+            "--max-old-space-size=96",
+            "<workspace>/web/node_modules/vitest/vitest.mjs",
+            "run",
+            "src/cropResultPicker.test.ts",
+            "--maxWorkers=1",
+            "--no-file-parallelism"
+          ],
+          "actual_exit_code": 0,
+          "wall_seconds": 0.7062550540140364,
+          "log_sha256": "4ced047048d0de55645f8a51a11002e526474aa03441cc7127409f54827ab68b"
+        },
+        {
+          "label": "type",
+          "argv_redacted_paths": [
+            "nice",
+            "-n",
+            "19",
+            "npm",
+            "run",
+            "typecheck"
+          ],
+          "actual_exit_code": 0,
+          "wall_seconds": 0.7485336959944107,
+          "log_sha256": "0018bd6714cfd6b609561b2ed0719c894fc30580860b5831211f2629105f30a9"
+        }
+      ]
+    },
+    {
+      "stage": "focused-v4",
+      "original_exec_session_id": 59056,
+      "terminal_sha256": "cc98a9ecf0074fc43449420847bb978bc0e833b9ef9a4d1120e56bbafba9fdc9",
+      "actual_exit_code": 0,
+      "reason": null,
+      "wall_seconds": 2.2429460550192744,
+      "source_count": 1571,
+      "source_pins_preserved": true,
+      "preview_dist_unchanged": true,
+      "single_PID_peak_RSS_bytes": 401563648,
+      "combined_peak_RSS_bytes": 947503104,
+      "protected_original_identities_preserved": true,
+      "owned_remaining": 0,
+      "remaining_children": 0,
+      "commands": [
+        {
+          "label": "picker-unit",
+          "argv_redacted_paths": [
+            "nice",
+            "-n",
+            "19",
+            "node",
+            "--max-old-space-size=96",
+            "<workspace>/web/node_modules/vitest/vitest.mjs",
+            "run",
+            "src/cropResultPicker.test.ts",
+            "src/cropResultCatalog.test.ts",
+            "src/cropFarmSelection.test.ts",
+            "--maxWorkers=1",
+            "--no-file-parallelism"
+          ],
+          "actual_exit_code": 0,
+          "wall_seconds": 1.4164928770042025,
+          "log_sha256": "588846c05b61081d09f9394a1c7be5b9214161415898a442d6f3d855d707f243"
+        },
+        {
+          "label": "type",
+          "argv_redacted_paths": [
+            "nice",
+            "-n",
+            "19",
+            "npm",
+            "run",
+            "typecheck"
+          ],
+          "actual_exit_code": 0,
+          "wall_seconds": 0.74523394802236,
+          "log_sha256": "0018bd6714cfd6b609561b2ed0719c894fc30580860b5831211f2629105f30a9"
+        }
+      ]
+    },
+    {
+      "stage": "build-v2",
+      "original_exec_session_id": 5274,
+      "terminal_sha256": "473396319527b9321c9688b416f377f1b094598e8d26d5e6f12d38e35444a0a6",
+      "actual_exit_code": 0,
+      "reason": null,
+      "wall_seconds": 1.7982724529865663,
+      "source_count": 1571,
+      "source_pins_preserved": true,
+      "preview_dist_unchanged": true,
+      "single_PID_peak_RSS_bytes": 535252992,
+      "combined_peak_RSS_bytes": 1006845952,
+      "protected_original_identities_preserved": true,
+      "owned_remaining": 0,
+      "remaining_children": 0,
+      "commands": [
+        {
+          "label": "web-build",
+          "argv_redacted_paths": [
+            "nice",
+            "-n",
+            "19",
+            "taskset",
+            "-c",
+            "0",
+            "node",
+            "--expose-gc",
+            "--require",
+            "<private-candidate-stage>/build-v2/owned-node-gc.cjs",
+            "--max-old-space-size=48",
+            "--max-semi-space-size=2",
+            "node_modules/vite/bin/vite.js",
+            "build",
+            "--outDir",
+            "<private-candidate-stage>/build-v2/build"
+          ],
+          "actual_exit_code": 0,
+          "wall_seconds": 1.7581924199766945,
+          "log_sha256": "84e13aa4315938fb5a7424f53bcea6e2e4de81517f639c67b4e675e968bf3637"
+        }
+      ]
+    }
+  ],
+  "current_focused_tests": {
+    "files_passed": 3,
+    "tests_passed": 176,
+    "new_picker": 16,
+    "accepted_catalog_SDK_regression": 98,
+    "accepted_farm_selection_SDK_regression": 62,
+    "whole_web_rerun": false,
+    "type_exit_code": 0
+  },
+  "failed_checks": [
+    {
+      "stage": "focused-v1",
+      "passed": 14,
+      "failed": 1,
+      "cause": "test asserted before the old request entered; synchronized on actual entry before asserting cancel/late response; not product RED evidence"
+    },
+    {
+      "stage": "focused-v2",
+      "passed": 15,
+      "failed": 1,
+      "cause": "synchronous changed subscriber reentered before pending was assigned; peak active requests2 instead of1; fixed by assigning pending before notification"
+    },
+    {
+      "stage": "focused-v3",
+      "passed": 16,
+      "failed": 0,
+      "cause": "same overlap regression after fix records peak1; typecheck0"
+    }
+  ],
+  "build": {
+    "ordinary_product_config": true,
+    "output_deployed": false,
+    "node_old_space_MiB": 48,
+    "node_semi_space_MiB": 2,
+    "owned_Node_GC_interval_ms": 250,
+    "GC_records": [
+      {
+        "pid": 1674337,
+        "method": "explicit_owned_test_Node_gc_250ms",
+        "calls": 5,
+        "before_peak_RSS": 531992576,
+        "after_peak_RSS": 529092608,
+        "available": true
+      }
+    ],
+    "unexecuted_preparation": "build-v1 unchanged; unused prior-harness assertion removed in fresh build-v2 before first build invocation"
+  },
+  "design": {
+    "source": "original approved12ui branch with desktop-loaded, desktop-empty and mobile-loaded states",
+    "approved_source_hashes": {
+      "screens/winner.png": "cfb2b0fc39ab0a5b587a6d2d628479290a7e888fa649bc55c2b39fe15f64c413",
+      "screens/a.png": "28426361a2d01db45a351e99f6ce0e1374a8108fbeca0d4923f478c3186ebb58",
+      "screens/b.png": "7737d7cfd453aa78d0dd85a24c159f94570108f9d64caa25c530256436074850",
+      "prototype/desktop-loaded.html": "0c12d5206ec4f5c197cb01e4907abab1c48d2cf1b59082a73e845ad0f68ad8ba",
+      "prototype/desktop-empty.html": "36d4f7714a8ab1ac9b09884090980af62cc121a7c82b7176498275acf8a6ea5a",
+      "prototype/mobile-loaded.html": "3267c90d0b42ad33f08f23ca31ce25cc4fec59e4e203efab9a8fac7e4df924f2"
+    },
+    "empty_asset_origin": {
+      "asset_bytes": 95662,
+      "asset_operation": "extract original PNG bytes unchanged from approved12ui exported HTML; no image editing or new generation",
+      "asset_sha256": "39bf15bdcd694ee514f33132c0a18db93f4b0b17d1f7797c8cd06929ff5b5f85",
+      "original_model_effort": "native CLI evidence verified by subsequent protected verification controller",
+      "source_original_HTML_sha256": "36d4f7714a8ab1ac9b09884090980af62cc121a7c82b7176498275acf8a6ea5a",
+      "source_original_image_element": "viewport-1-a-results-empty-illustration"
+    },
+    "post_implementation_improve_runs": 0,
+    "visual_acceptance": false
+  },
+  "resource_limits": {
+    "single_PID_bytes": 536870912,
+    "combined_bytes": 1073741824,
+    "sample_interval_seconds": 0.1,
+    "scope": "controller plus owned descendants and protected full producer/preview trees; shared pages may double count; not WSL total"
+  },
+  "browser_cases_passed": 0,
+  "pending_browser_cases": {
+    "new_catalog_App": 8,
+    "preceding_selected_replay": 9,
+    "old_harvest": 10,
+    "old_growth": 3,
+    "total": 30
+  },
+  "native_joint_DB_App_runs": 0,
+  "fixture_scope": "owned software metadata decoded with accepted SDKs and recorded responses; does not establish a new joint farm DB, crop calibration or production validity",
+  "UI_status": {
+    "localhost_5173": "unchanged existing separate DB stored3 replay",
+    "new_catalog_deployed": false,
+    "same_running_full166_realtime_link": false,
+    "U1_accepted": false,
+    "U3_accepted": false
+  },
+  "next_action": "complete active full recovery comparison/publication/backup and source teardown; then verify current browser contracts and original3 design targets, followed by actual joint DB/restart acceptance; same-execution progress API/UI U3 remains separate",
+  "actual_cultivar_farm_Runs": 0,
+  "independent_domestic_crop_datasets": 0,
+  "G0_G4_production_forecast_margin_ranking": "held"
+}

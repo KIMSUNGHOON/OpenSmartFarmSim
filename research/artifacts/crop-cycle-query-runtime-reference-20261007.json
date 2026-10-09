@@ -1,0 +1,355 @@
+{
+  "evidence_version": "crop-cycle-query-runtime-reference-v1",
+  "observed_at_utc": "2026-10-07T04:45:46.618007+00:00",
+  "scope": "synthetic_registered_farm_current_query_API_runtime_software_only",
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "17756578c99c56f4096c03f96e7579565d9ccb421addd7955bd3a0f7923cec96",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T04:43:25.035Z"
+  },
+  "source_sha256": {
+    "backend/app/api.py": "2efc420bdd19be4050289c7809b03719a6feb4c250b5ca2edf06b35666655a41",
+    "backend/app/api_crop_cycle_replay.py": "df4e92802fa9322b025a920c7e2ab2af40731b091479079647cf1ec954d43b85",
+    "backend/app/api_runtime.py": "c1c2b09535055fc9d56f2c497f44d0110e2a437193cac9010207831cc42b2eb7",
+    "backend/app/crop_cycle_current_query.py": "02413fccf1c0c65b3e608962e24bba1959c10c71f446528383e4b57979536736",
+    "backend/tests/test_crop_cycle_query_runtime.py": "ac5e9a47e26b995b12a952511abcdcf401a8372c5ba1ead8f6087885c5d04e60",
+    "backend/tests/test_crop_cycle_query_tls.py": "2a2d7dc9b2af27a623bbd9c8d82f250bd89fdec2c54e8916179be08518470a8b",
+    "contracts/crop-cycle-query-runtime-v1.md": "b93a118c7b78fc9f63e78c94da9f0d5fe84a026b3c57f52705b7a0d09b55d481"
+  },
+  "prior_authority_acceptance": {
+    "commit": "04072f0",
+    "receipt_sha256": "fa0fdb9f45e500bfd35dab66a915d2ba63f655eb129c617bdcdea0168ff6df60",
+    "original_query_code_sha256": "6410b7b0d6c91103b67174dd544b760617f35df19f55e85e4ac9b9ab5654aab9",
+    "passed": 8,
+    "seconds": 631.33,
+    "source_at_execution": "historical authority source, not final transport delta",
+    "only_subsequent_query_source_delta": "Import RolePolicyHold and propagate it alongside PermissionError; original math and authority tests unchanged.",
+    "previous_receipt_rewritten": false
+  },
+  "tests": {
+    "runtime_option_RED": {
+      "session_id": 65623,
+      "exit_code": 1,
+      "failed": 5,
+      "seconds": 0.86,
+      "log_sha256": "f0faf3ec1fc6e03a4225fe1ad00af2ac93b895225d3c4f6c1c0112a1c3baf2ef"
+    },
+    "import_cycle_collection_error": {
+      "session_id": 17115,
+      "exit_code": 2,
+      "collection_errors": 3,
+      "seconds": 1.05,
+      "reason": "Moved current-query import into route installer; legacy import order preserved.",
+      "log_sha256": "8d9d3f20ef64982f58be9f3f1939425360c0db1c5d8da15a1588545919cfae53"
+    },
+    "focused52_GREEN": {
+      "session_id": 66822,
+      "exit_code": 0,
+      "passed": 52,
+      "seconds": 7.65,
+      "composition": {
+        "new_query_runtime": 5,
+        "existing_cycle_runtime": 6,
+        "existing_cycle_route": 41
+      },
+      "pytest_arguments": [
+        "-m",
+        "pytest",
+        "tests/test_crop_cycle_query_runtime.py",
+        "tests/test_api_crop_cycle_runtime.py",
+        "tests/test_api_crop_cycle_route.py",
+        "-q"
+      ],
+      "query_code_sha256_at_execution": "6410b7b0d6c91103b67174dd544b760617f35df19f55e85e4ac9b9ab5654aab9",
+      "log_sha256": "5e830a4e1566172b9fed78e3e1257ba274949acc40f271f557a415e7a12ee9be"
+    },
+    "compatibility_GREEN": {
+      "session_id": 94013,
+      "exit_code": 0,
+      "passed": 137,
+      "skipped": 9,
+      "seconds": 185.78,
+      "pytest_arguments": [
+        "-m",
+        "pytest",
+        "tests/test_api_runtime.py",
+        "tests/test_api_openapi.py",
+        "tests/test_api_crop_cycle_replay.py",
+        "-q"
+      ],
+      "skipped_reason": "Optional existing DB cases had no PG DSN in this segment; new native TLS segment ran separately.",
+      "query_code_sha256_at_execution": "6410b7b0d6c91103b67174dd544b760617f35df19f55e85e4ac9b9ab5654aab9",
+      "log_sha256": "31815910411428111a7460a84358bf2868591545e5f7d6747cd1854ebd88a701"
+    },
+    "actual_TLS_role_mapping_RED": {
+      "session_id": 3740,
+      "exit_code": 1,
+      "failed": 1,
+      "seconds": 230.07,
+      "reason": "Actual wrong-worker GRANT was denied as 422; existing runtime contract requires 503. Propagate RolePolicyHold; no role grants or checks relaxed.",
+      "log_sha256": "4140ce96f96f8137baca39e941bb38db7c609af89208e1f398965dbf75a3267b"
+    },
+    "affected_guard2_final_GREEN": {
+      "session_id": 70903,
+      "exit_code": 0,
+      "passed": 2,
+      "seconds": 166.21,
+      "query_code_sha256_at_execution": "02413fccf1c0c65b3e608962e24bba1959c10c71f446528383e4b57979536736",
+      "already_in_historical_authority8": true,
+      "pytest_arguments": [
+        "-m",
+        "pytest",
+        "tests/test_crop_cycle_current_query.py::test_current_authority_withdrawals_reject_without_leaking_FD",
+        "tests/test_crop_cycle_current_query.py::test_source_withdrawal_inside_final_input_rights_review_cannot_return",
+        "-q"
+      ],
+      "log_sha256": "b7e9412acec19dc29d86c6ffe4ca09df88864c94e4092fb8036ab25c88b1a467"
+    },
+    "actual_TLS_final_GREEN": {
+      "session_id": 2829,
+      "exit_code": 0,
+      "passed": 1,
+      "seconds": 243.58,
+      "query_code_sha256_at_execution": "02413fccf1c0c65b3e608962e24bba1959c10c71f446528383e4b57979536736",
+      "pytest_arguments": [
+        "-m",
+        "pytest",
+        "tests/test_crop_cycle_query_tls.py",
+        "-q",
+        "--durations=1",
+        "--maxfail=1"
+      ],
+      "log_sha256": "3a53429084d4005bc9d723a130bc0268d4c2a00ac7657edef13666595e47be68"
+    },
+    "segmented_inventory": {
+      "collected": 207,
+      "unique_passed": 198,
+      "skipped": 9,
+      "collection_seconds": 1.25,
+      "inventory_log_sha256": "90f67493251c73ae78ee30ac17b4339c4ac6a562fea4525aa3b5d1f55e1ec045",
+      "composition": {
+        "test_crop_cycle_current_query.py": 8,
+        "test_crop_cycle_query_runtime.py": 5,
+        "test_crop_cycle_query_tls.py": 1,
+        "test_api_crop_cycle_runtime.py": 6,
+        "test_api_crop_cycle_route.py": 41,
+        "test_api_runtime.py": 40,
+        "test_api_openapi.py": 63,
+        "test_api_crop_cycle_replay.py": 43
+      },
+      "includes_historical_authority8": true,
+      "repeated_guard2_not_added": true,
+      "single_whole_backend_run": false,
+      "all198_executed_on_final_query_source": false,
+      "final_transport_delta_verification": "Two affected authority guards and actual SCRAM/TLS on the final code; API/factory source unchanged since focused and compatibility segments."
+    }
+  },
+  "actual_native": {
+    "actual_crop_runs": 0,
+    "actual_scram_tls": true,
+    "counts": {
+      "events": 3,
+      "samples": 3
+    },
+    "custody_FDs_after": 0,
+    "max_response_bytes": 21514,
+    "max_response_seconds": 6.306509264999477,
+    "original_checkpoint_sha256": "ab9997832acaefa68b760a0878b7adf9874597ead8b2c0fadfeb47331f3c265f",
+    "original_manifest_sha256": "8632b8bdadadc646b262bbf0be68634f6110479f50087d4a9c5f137ff249043c",
+    "parser_context_QC_RHS_calls_during_query": 0,
+    "query_code_sha256": "02413fccf1c0c65b3e608962e24bba1959c10c71f446528383e4b57979536736",
+    "query_version": "crop-cycle-current-query-v1",
+    "research_rows_before_cleanup": 3,
+    "responses": [
+      {
+        "bytes": 5527,
+        "seconds": 5.453916553000454,
+        "sha256": "c9d7acc26fa6d377f18fc0466d2e949830870b43cb71957e445db8e50c8f109f",
+        "status": 200
+      },
+      {
+        "bytes": 72,
+        "seconds": 0.0031501160010520834,
+        "sha256": "229598df10066d3767750c6c30c29a808879ae9116213edcb781f0985c91252c",
+        "status": 401
+      },
+      {
+        "bytes": 65,
+        "seconds": 0.0028108389997214545,
+        "sha256": "1ae0610a2bc3c4299f75db4623b6163cb075b5bd5fc5f919848892c95a2b84d2",
+        "status": 403
+      },
+      {
+        "bytes": 73,
+        "seconds": 0.038563005000469275,
+        "sha256": "659323c24241b26e0a5bef40af0cc74f23aafb9cff69d79a6dc009b2f3b1bf36",
+        "status": 404
+      },
+      {
+        "bytes": 16926,
+        "seconds": 5.404553664000559,
+        "sha256": "d92c81e5ecc9b917ecf98f94d2449441dbf11fbbfc755ce1e77d58c63789fa04",
+        "status": 200
+      },
+      {
+        "bytes": 12189,
+        "seconds": 5.315509855998243,
+        "sha256": "8842236d21ad94dc6b43000e21838a2cc2cf15caa1e4af212ced7805e437bd3c",
+        "status": 200
+      },
+      {
+        "bytes": 3307,
+        "seconds": 5.3005752800017945,
+        "sha256": "8cc91ead97eeb331936cd65dfd03a009e77086dedbab0448f3a4eec1d9a169fa",
+        "status": 200
+      },
+      {
+        "bytes": 17740,
+        "seconds": 5.438951714000723,
+        "sha256": "26a7442f7c8a0212997c09d3094b009ef627db92a34426b12b92077af2d9bbe4",
+        "status": 200
+      },
+      {
+        "bytes": 19248,
+        "seconds": 5.385858369998459,
+        "sha256": "4fdf4538323aac36cb76e37618a41c8b1b294061b23473f812e0a261f1468084",
+        "status": 200
+      },
+      {
+        "bytes": 21514,
+        "seconds": 5.364850558999024,
+        "sha256": "e59dbfba3948d285ab1aa05a37e15a0e1029ea253863bf504cef8c39e3c8ddeb",
+        "status": 200
+      },
+      {
+        "bytes": 3306,
+        "seconds": 6.306509264999477,
+        "sha256": "9741752a20becdd16558c35983735f76af32f0dfdb782935936e65a51beed8c6",
+        "status": 200
+      },
+      {
+        "bytes": 5658,
+        "seconds": 5.338580315001309,
+        "sha256": "b60a2d9c2b0724c3181c81a85cd042f6dcdf84c8efd3acf61f9466ff70f04ce4",
+        "status": 200
+      },
+      {
+        "bytes": 3297,
+        "seconds": 5.50251645499884,
+        "sha256": "a8091fdeec216b88a14794a12f0184eaab9e1667e3c392da88f7016cc16e4c96",
+        "status": 200
+      },
+      {
+        "bytes": 3295,
+        "seconds": 5.579460919001576,
+        "sha256": "424eb5fb7677cc80748f457807723537cc1c628b0012cfc1ec8becf09c47fc2c",
+        "status": 200
+      },
+      {
+        "bytes": 86,
+        "seconds": 1.4247523350022675,
+        "sha256": "a6369edcd5df2ddcf9c1c8144010bb173f6573a5385505ff70bf707e6e71dce6",
+        "status": 422
+      },
+      {
+        "bytes": 86,
+        "seconds": 1.3264978260012867,
+        "sha256": "a6369edcd5df2ddcf9c1c8144010bb173f6573a5385505ff70bf707e6e71dce6",
+        "status": 422
+      },
+      {
+        "bytes": 86,
+        "seconds": 4.207690603001538,
+        "sha256": "a6369edcd5df2ddcf9c1c8144010bb173f6573a5385505ff70bf707e6e71dce6",
+        "status": 422
+      },
+      {
+        "bytes": 91,
+        "seconds": 0.02589412599991192,
+        "sha256": "0ba13b29726ab4b14bfb374b5571bf77bd943d38028608738d44da50c7a53bf4",
+        "status": 503
+      },
+      {
+        "bytes": 86,
+        "seconds": 0.07541549899906386,
+        "sha256": "a6369edcd5df2ddcf9c1c8144010bb173f6573a5385505ff70bf707e6e71dce6",
+        "status": 422
+      },
+      {
+        "bytes": 5527,
+        "seconds": 5.6173364280002716,
+        "sha256": "c9d7acc26fa6d377f18fc0466d2e949830870b43cb71957e445db8e50c8f109f",
+        "status": 200
+      },
+      {
+        "bytes": 5527,
+        "seconds": 5.565357098999812,
+        "sha256": "c9d7acc26fa6d377f18fc0466d2e949830870b43cb71957e445db8e50c8f109f",
+        "status": 200
+      },
+      {
+        "bytes": 5527,
+        "seconds": 5.5659806660005415,
+        "sha256": "c9d7acc26fa6d377f18fc0466d2e949830870b43cb71957e445db8e50c8f109f",
+        "status": 200
+      }
+    ],
+    "scope": "synthetic_registered_farm_query_software_only",
+    "servers_joined": 2,
+    "steps": 120,
+    "whole166_accepted": false,
+    "private_reference_sha256": "de34d25f53bf3637656aa8b3c9ef04acdb4ef5d8d0a30dddaf001d24253032ab",
+    "response_count": 22,
+    "status_counts": {
+      "200": 14,
+      "401": 1,
+      "403": 1,
+      "404": 1,
+      "422": 4,
+      "503": 1
+    },
+    "response_budget_seconds": 30,
+    "response_budget_bytes": 2097152
+  },
+  "cleanup": {
+    "failed_TLS": {
+      "schemas_after": 0,
+      "roles_after": 0,
+      "passfiles_after": 0,
+      "pg_process_gone": true,
+      "pg_data_directory_gone": true,
+      "private_cleanup_reference_sha256": "345bf484a2655c773efd32e0c7a4c67cf1c04476cf16a46f3608142e54f6b93d"
+    },
+    "final_affected_guards": {
+      "schemas_after": 0,
+      "roles_after": 0,
+      "passfiles_after": 0,
+      "pg_process_gone": true,
+      "pg_data_directory_gone": true,
+      "private_cleanup_reference_sha256": "150a7203f71b5be860ffe6683d13f2c367d3e706b9a5aa3aff98699d995051fd"
+    },
+    "final_TLS": {
+      "schemas_after": 0,
+      "roles_after": 0,
+      "passfiles_after": 0,
+      "pg_process_gone": true,
+      "pg_data_directory_gone": true,
+      "private_cleanup_reference_sha256": "efe01bf00be002825162e99487bed3ca3fee9ce671dac07d5232b1297cfe70ab"
+    }
+  },
+  "original_math52_unchanged": true,
+  "prior12_primitive_source_changes": false,
+  "original_db_farm_binding_and_server_custody_source_changes": false,
+  "current_query_small_software_parent_accepted": true,
+  "whole166_API_3D_restore_or_burden_accepted": false,
+  "new_current_query_browser_or_WebGL_test_run": false,
+  "full_local_backend_suite_run": false,
+  "hosted_CI_for_this_change_accepted": false,
+  "original166_terminal_status": "unverifiable; original experiment not restarted or budget reset",
+  "actual_crop_runs": 0,
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "gates": "not_assessed"
+}

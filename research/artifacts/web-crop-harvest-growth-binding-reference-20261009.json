@@ -1,0 +1,114 @@
+{
+  "schema_version": "harvest-growth-binding-local-verification-v1",
+  "completed_at": "2026-10-08T15:47:38.648549+00:00",
+  "base_commit": "09a6319295a03769e09ea43539362c0ff7f7efed",
+  "native_cli": {
+    "timestamp": "2026-10-08T15:38:49.724Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "event_sha256": "6ec8ca8effdbb879750a456d2a8ed428f9896ca24f25312f89b0c3530129d926",
+    "recursive_cli_invocations": 0
+  },
+  "steps": [
+    {
+      "label": "focused",
+      "argv": [
+        "npm",
+        "test",
+        "--",
+        "harvestGrowthBinding.test.ts",
+        "--maxWorkers=1",
+        "--no-file-parallelism"
+      ],
+      "exit_code": 0,
+      "seconds": 1.125167202000739,
+      "log_sha256": "80bf1a521e85e91ea9bf5956d44d510f953468d4f42b316aca3404f6b608434e"
+    },
+    {
+      "label": "web_all",
+      "argv": [
+        "npm",
+        "test",
+        "--",
+        "--maxWorkers=1",
+        "--no-file-parallelism"
+      ],
+      "exit_code": 0,
+      "seconds": 15.964094428985845,
+      "log_sha256": "805b73822b1efa5b3a5d4421d427e230715f8c64a4671e957ab7525786bca362"
+    },
+    {
+      "label": "build_with_typecheck",
+      "argv": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "seconds": 1.7451614270103164,
+      "log_sha256": "46ab2e7b4e75af89904bdab9f547b17d28b8c8d34b8e71aa69d0515f13aa133e"
+    }
+  ],
+  "preserved_source_count": 777,
+  "preserved_sources_sha256": "9fa4ee60df86d0d2fa1b3b0e2a334d4eb01378f58d05659c7b7eda0acbbf1d41",
+  "core_sha256": {
+    "contracts/web-crop-harvest-growth-binding-v1.md": "2ec9daabb97b4955b68f42793d6b3efabf24627084c9ddb1590b3b3b3e030abd",
+    "web/src/harvestGrowthBinding.ts": "be1bb0e98c808d64d68b362a88806e02bdad429fd49f41897821b170a390aad0",
+    "web/src/harvestGrowthBinding.test.ts": "d8950d75118648084b8a47fb3ddd5b06fc91b6f9992a890db4b07d556bd7bdf4",
+    "web/src/harvestReplay.ts": "7621ba20dd14c385653427c9b6f510c5c3bd09b879df76f6af31c28a77ab37e6",
+    "web/src/calculationCycleCropReplay.ts": "2d04c7cc18015690e7a7fd40b4b5dc5e3a43464aa75f61ae2d49e875f9a71ee7"
+  },
+  "resource": {
+    "nice": 19,
+    "node_heap_mib": 256,
+    "sample_period_seconds": 0.1,
+    "samples": 184,
+    "max_single_process_rss_bytes": 446570496,
+    "max_owned_rss_sum_bytes": 562962432,
+    "live_owned_children_after": []
+  },
+  "duration_seconds": 18.870989668997936,
+  "not_run": [
+    "actual_HTTP",
+    "actual_DB",
+    "browser",
+    "WebGL",
+    "crop_RHS",
+    "product_CLI",
+    "hosted_CI",
+    "push"
+  ],
+  "claim": "software_shape_binding_only_not_joint_run_or_agricultural_validation",
+  "original_native_tool_session": 86385,
+  "original_native_tool_exit_code": 0,
+  "native_tool_result_sha256": "591641469abf91724f5d9941c9f2976819755eaed532d7ea7be1afe3ad4ebcda",
+  "tests": {
+    "focused": 34,
+    "web_all": 851
+  },
+  "prior_web_tests_included": 817,
+  "fractional_time_red_original_exit_code": 1,
+  "fractional_time_red_record_sha256": "920e64d2f4512517d1349779485b85c5ab524c7c5f3aae39a62b60bf0a2adfce",
+  "driver_sha256": "3f96e64010fa4ace3090e2497b9af07e9a0ec16d935a94d9edb976890b5578e7",
+  "external_dependencies": {
+    "adopted_cultivar_inputs": 0,
+    "actual_mass_coefficients": 0,
+    "independent_domestic_farm_datasets": 0,
+    "actual_farm_crop_runs": 0,
+    "gates": "not_assessed"
+  },
+  "remote_ci_read_only_at": "2026-10-08T15:39:06Z",
+  "remote_ci_head": "2a3e61571d0574a063577ec1edcfb75aa5f2d565",
+  "remote_ci": {
+    "Backend tests": "failure",
+    "C0 Compose verification": "success",
+    "Web tests": "success",
+    "Authored API PostgreSQL smoke": "success",
+    "Application runtime verification": "success"
+  },
+  "completed_child": "crop-harvest-growth-binding",
+  "incomplete_parents": [
+    "crop-harvest-view",
+    "crop-harvest-replay"
+  ]
+}

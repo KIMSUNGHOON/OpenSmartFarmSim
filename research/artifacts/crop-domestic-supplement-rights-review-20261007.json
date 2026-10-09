@@ -1,0 +1,77 @@
+{
+  "evidence_version": "crop-domestic-supplement-rights-parent-review-v1",
+  "observed_at_utc": "2026-10-07T07:03:32.702379+00:00",
+  "scope": "public publication license evidence and conditional CLI inference review; not data or gate approval",
+  "baseline_commit": "c5560fcee1f19577b1a92337feddc09fafd8b4aa",
+  "parent_native_cli": {
+    "timestamp": "2026-10-07T06:46:44.459Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256_with_LF": "21bfd0e83680a2da1a09354a34ad5a574db1e8431ca4dee9d046334647259750",
+    "raw_line_sha256_without_LF": "0cf5096bcb23a7e188dff69f52818accc28f0ea60f0e8044d55345d9543c572a",
+    "recursive_cli_invocations": 0
+  },
+  "agent_native_cli_independently_verified": {
+    "timestamp": "2026-10-07T06:45:55.190Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256_including_trailing_LF": "d9feb40ee89a4716f6763e6c9ac19ef59589af10871706573f586c4af2bd9f4d",
+    "raw_line_sha256_without_trailing_LF": "d83b5bb239bf8a6bead34f28ea016687ee652ef22c3d9fe6c5e707c4248d2335"
+  },
+  "source_sha256": {
+    "research/crop-domestic-supplement-rights-20261007.md": "3f42a7213db293706871de31f472548bfa649401eaa3169f96d53949796faf79",
+    "research/crop-domestic-supplement-access-20261007.md": "01402c10b852014449ba04f1c86face96b55c1c653e66202c5cd4f7e09055241",
+    "research/crop-domestic-validation-access-followup-20261007.md": "16f307ddaf2656aaaa949fe74f365de0a570d7360d70c750d6e4c5408b3c85e1",
+    "research/crop-independent-data-status.json": "a5c5400257e408a034137ff79e2a0f99ed3db293ef34b430389230352b0c5778"
+  },
+  "target": {
+    "doi": "10.3389/fpls.2025.1730694",
+    "fileServerId": "1730694/data-sheet/1",
+    "version": 1,
+    "docx_sha256": "53d65c2d06d46a569e068f6290dc5ff5f6c2c3ac07c9fad573aca4eabad80df2"
+  },
+  "actual_review": {
+    "private_manifest_sha256": "c98098a867f677385dce60282bd913050ec37f1adb18fd9c881102b4c063e656",
+    "private_files_hash_and_permission_checked": 12,
+    "prior_reused_files_hash_checked": 9,
+    "parent_review_receipt_sha256": "3e41d36788e25d0263cc63eba8b5d0923f59286e676c201966baebdb5c93dc6c",
+    "actual_JATS_ALI_CC_BY4_reference_and_start_date_verified": true,
+    "article_license_start_date": "2025-12-19; date only",
+    "direct_current_author_guidance_visible_text_matches_prior": true,
+    "saved_web_responses_independently_matched_native_tool_outputs": 3,
+    "official_policy_and_guidance_URL_scope": 4,
+    "conditional_inference": "CC BY publication baseline supports author-owned public supplement content; absence of a separate license label alone does not imply lack of permission.",
+    "file_specific_credits_third_party_exceptions_and_personal_data": "unconfirmed",
+    "current_legal_body_and_effective_revision_available_at": "unconfirmed; cached TDM wording is not verified current policy",
+    "specific_external_service_scope": "unconfirmed; no blanket permission or prohibition inferred",
+    "DOCX_or_PMC_retrievals_by_rights_agent": 0,
+    "document_rows_tables_figures_exported": false,
+    "parent_ALI_parser_corrected_then_verified": true
+  },
+  "verification": {
+    "delivery_check_exit_code": 0,
+    "delivery_check_log_sha256": "813c3ef5956fde1be40940913368577f7993215c08520568c97994b437b65ad7",
+    "delivery_verifier_sha256": "8843f97a77abc3a2e264aee4c43a9fb188750b003185109b04c6eb529fa2f904",
+    "local_links_and_anchors": 2595,
+    "DAGs": [
+      {
+        "edges": 107,
+        "acyclic": true
+      },
+      {
+        "edges": 89,
+        "acyclic": true
+      }
+    ],
+    "all_prior103_and89_dependency_edges_preserved_with_exact4_calculation_edges": true,
+    "prior_reports_status_and_existing_checkboxes_unchanged": true,
+    "program_tests_run": 0,
+    "new_network_retrievals_by_parent": 0
+  },
+  "next_access_dependency": "Check credits/license/third-party exceptions for this exact SHA, then review titles/columns/time keys/units within confirmed use scope; no dataset adoption yet.",
+  "actual_crop_runs": 0,
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "parameter_values_adopted": 0,
+  "gates": "not_assessed"
+}

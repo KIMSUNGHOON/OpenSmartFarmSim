@@ -1,0 +1,130 @@
+{
+  "G0_G4": "not_assessed",
+  "created_at": "2026-10-09T01:36:05.394009+00:00",
+  "formula_records": [
+    {
+      "definition": "610.78 * exp(17.2694 *temp / (temp + 238.3))",
+      "pointer": "/Vapour fluxes/satVp(temp)",
+      "source_unit": "Pa"
+    },
+    {
+      "definition": "vecCanAir * (satVp(tCan) - vpAir)",
+      "pointer": "/Canopy transpiration/mvCanAir",
+      "source_unit": "kg m**-2 s**-1"
+    },
+    {
+      "definition": "2 * rhoAirCap * cPAir * lai / (L * gammaPsych * (rB + rS))",
+      "pointer": "/Canopy transpiration/vecCanAir",
+      "source_unit": "kg m**-2 Pa**-1 s**-1"
+    },
+    {
+      "definition": "sensible(2 * alfaLeafAir * lai, tCan, tAir)",
+      "pointer": "/Heat fluxes/Convection and conduction/Table 8.4/hCanAir",
+      "source_unit": "W m**-2"
+    },
+    {
+      "definition": "abs(hec) * (t1 - t2)",
+      "pointer": "/Heat fluxes/Convection and conduction/sensible(hec, t1, t2)",
+      "source_unit": "W m**-2"
+    },
+    {
+      "definition": "L * mvCanAir",
+      "pointer": "/Heat fluxes/Latent heat fluxes/lCanAir",
+      "source_unit": "W m**-2"
+    }
+  ],
+  "interpretations": {
+    "leaf_air_heat_transfer": "source m^-2 interpreted as leaf area using leaf description and LAI leaf/floor; source unit has no leaf marker"
+  },
+  "native_CLI_review": {
+    "event_sha256": "24197a06a600f972b8753c9214d74c64ddc2f92470e910c15f374e35b953d9d1",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-09T01:32:36.614Z"
+  },
+  "parameter_profile_sha256": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+  "rights_notice_path": "LICENSES/GreenLight-BSD-3-Clause-Clear.txt",
+  "sources": [
+    {
+      "QC": {
+        "raw_hash_length": "pass",
+        "six_formula_pointers": "pass",
+        "validated_accuracy_domain": "unavailable"
+      },
+      "available_at": null,
+      "available_at_hold": "not adopted for decision-vintage data",
+      "bytes": 130649,
+      "observation_meaning": "model code or license, not farm observations",
+      "observed_at": null,
+      "product_id": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "publication_hold": "first public availability not reconstructed; original provisional metadata used commit timestamp",
+      "published_at": null,
+      "raw_sha256": "c0fb7a025533f15b80cb6cd60aafdc19be9fe42df6b8183cf97b83fc086138b3",
+      "retrieved_at": "2026-10-09T01:09:19.687664+00:00",
+      "reviewer": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "reviewed_at": "2026-10-09T01:36:05.394009+00:00",
+        "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+      },
+      "revision_committed_at": "2026-09-09T16:00:54Z",
+      "rights": {
+        "display": "retain copyright, conditions, disclaimer; no endorsement",
+        "license": "BSD-3-Clause-Clear",
+        "redistribution": "source and binary reuse under retained notice; no adoption decision",
+        "use": "source use allowed subject to retained notice; no patent grant"
+      },
+      "source_id": "greenhouse_vanthoor_2011_chapter_8",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/greenhouse_vanthoor_2011_chapter_8.json",
+      "status": "reference_software_equations_only_not_G0_data",
+      "units": "quantity-specific SI interpretation in profile; license not a quantity",
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd"
+    },
+    {
+      "QC": {
+        "raw_hash_length": "pass",
+        "six_formula_pointers": "not_applicable",
+        "validated_accuracy_domain": "unavailable"
+      },
+      "available_at": null,
+      "available_at_hold": "not adopted for decision-vintage data",
+      "bytes": 1716,
+      "observation_meaning": "model code or license, not farm observations",
+      "observed_at": null,
+      "product_id": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "publication_hold": "first public availability not reconstructed; original provisional metadata used commit timestamp",
+      "published_at": null,
+      "raw_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+      "retrieved_at": "2026-10-09T01:09:20.426394+00:00",
+      "reviewer": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "xhigh",
+        "reviewed_at": "2026-10-09T01:36:05.394009+00:00",
+        "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+      },
+      "revision_committed_at": "2026-09-09T16:00:54Z",
+      "rights": {
+        "display": "retain copyright, conditions, disclaimer; no endorsement",
+        "license": "BSD-3-Clause-Clear",
+        "redistribution": "source and binary reuse under retained notice; no adoption decision",
+        "use": "source use allowed subject to retained notice; no patent grant"
+      },
+      "source_id": "LICENSE",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/LICENSE.txt",
+      "status": "reference_software_equations_only_not_G0_data",
+      "units": "quantity-specific SI interpretation in profile; license not a quantity",
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd"
+    }
+  ],
+  "supplement_sha256": "0a94d30758e2fe365ecd4e0f97c38e7b404bd5d4cf7536cbf9f485b58418ec60",
+  "unadopted": [
+    "stomatal closure, source unit mismatch sRsSlope",
+    "rhoAirCap altitude relation and dynamic rhoAir",
+    "zero-LAI canopy temperature ODE",
+    "leaf-liquid storage/condensation physiology",
+    "full climate/water/energy integration"
+  ],
+  "version": "crop-canopy-exchange-source-register-v1"
+}

@@ -1,0 +1,83 @@
+{
+  "scope": "read_authority_denial_assertion_only_no_product_code_or_workflow_change",
+  "source_commit": "f9c4bc9",
+  "source_sha256": {
+    "backend/tests/test_market_candidate_store.py": "fb32ce3e211e09074d8266c4b08c02d33a975b301e05716dcbc110fa9131cc4c"
+  },
+  "cli": {
+    "timestamp": "2026-10-06T03:29:16.739Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "56f7fbcc0a93ca849e541ee3d890773528ffd2429c255d42c06635dc0f43b48d"
+  },
+  "hosted_failure": {
+    "sha": "d61bcb3b0c89b28c7d409d2a58fb10d8508f942d",
+    "run_id": 37405273500,
+    "job_id": 112081329340,
+    "passed": 703,
+    "failed": 1,
+    "seconds": 1137.44,
+    "failure": "expected authenticated; actual market candidate read authority denied",
+    "log_sha256": "1405488b021d680b53041363f1f9aea2676e42b6c0ba1c7b6647a9b58e827506"
+  },
+  "reproduction": {
+    "scope": "market_candidate_CI_failure_reproduction_software_only",
+    "started_at": "2026-10-06T03:42:15.893162+00:00",
+    "postgres_version": "postgres (PostgreSQL) 16.15",
+    "new_dependencies": 0,
+    "servers_started": 1,
+    "pytest_arguments": [
+      "tests/test_market_candidate_store.py",
+      "-k",
+      "tenant_scope_and_concurrent_retry"
+    ],
+    "effective_nice": 10,
+    "exit_code": 1,
+    "wall_seconds": 0.975532216951251,
+    "remaining_test_roles": 0,
+    "remaining_test_schemas": 0,
+    "remaining_test_password_files": 0,
+    "postgres_stopped": true,
+    "postgres_status_exit_code": 3,
+    "private_cluster_and_admin_password_files_removed": true,
+    "owned_servers_after": 0,
+    "peak_children_rss_mib": 74.109375
+  },
+  "focused_fix": {
+    "scope": "market_candidate_CI_denial_assertion_fix_software_only",
+    "started_at": "2026-10-06T03:42:34.384980+00:00",
+    "postgres_version": "postgres (PostgreSQL) 16.15",
+    "new_dependencies": 0,
+    "servers_started": 1,
+    "pytest_arguments": [
+      "tests/test_market_candidate_store.py"
+    ],
+    "effective_nice": 10,
+    "exit_code": 0,
+    "wall_seconds": 3.130938230024185,
+    "remaining_test_roles": 0,
+    "remaining_test_schemas": 0,
+    "remaining_test_password_files": 0,
+    "postgres_stopped": true,
+    "postgres_status_exit_code": 3,
+    "private_cluster_and_admin_password_files_removed": true,
+    "owned_servers_after": 0,
+    "peak_children_rss_mib": 74.66796875
+  },
+  "focused_results": {
+    "passed": 5,
+    "seconds": 2.81,
+    "full_backend_run": false,
+    "hosted_fix_accepted": false
+  },
+  "logs_sha256": {
+    "ossf-market-candidate-denial-repro-20261006.log": "029a46efcbd2f02319e0c0239ad8ae6e08999b1e7d578b58f645714444612820",
+    "ossf-market-candidate-denial-fixed-20261006.log": "abcc8dbf8b089e02aa58e70a850eaef1624aff5fe4f4924053d4a6d4ef19a01e"
+  },
+  "gates": "not_assessed",
+  "actual_crop_runs": 0,
+  "domestic_independent_datasets": 0,
+  "evidence_version": "market-candidate-read-authority-assertion-reference-v1",
+  "recorded_at_utc": "2026-10-06T03:58:11.164010+00:00",
+  "snapshot_commit": "f9c4bc9"
+}

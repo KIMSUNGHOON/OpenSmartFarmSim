@@ -1,0 +1,126 @@
+{
+  "receipt_version": "crop-harvest-source-dimension-review-v1",
+  "recorded_at_utc": "2026-10-06T00:53:52.433217+00:00",
+  "scope": "primary_source_and_unit_review_only",
+  "status": "reviewed_no_data_parameter_or_implementation_adoption",
+  "base_commit": "9fbfe72bd0aa78943ef8ce06412e260bb3c86031",
+  "report": "research/crop-harvest-conversion-baseline-20261006.md",
+  "report_sha256": "c0b750d3c42ab44ddc42d1eaa54e1c2f693bd4462b38b076e33c489f18c2c498",
+  "child_output_sha256": "fa28dedf1a1ed94117e4a17fa8a096bf9103294388cc81748432a59b50c8dd92",
+  "child_session_meta": {
+    "session_id": "01a10eaa-a45c-7fa3-bfd1-6bbf25fe738a",
+    "timestamp": "2026-10-06T00:43:46.741Z",
+    "line_sha256": "52ef2fb741b0db37e89cd7ff700070c4f8a465dfad3f4c3f068122bc50a949fc"
+  },
+  "actual_cli_turn_contexts": [
+    {
+      "who": "parent",
+      "timestamp": "2026-10-06T00:47:56.906Z",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "line_sha256": "0950299c4cac6bb750a984e72628d6fe89d179b14673861833ecb10c192a209d"
+    },
+    {
+      "who": "child",
+      "timestamp": "2026-10-06T00:43:48.056Z",
+      "model": "gpt-6.1-sol",
+      "effort": "xhigh",
+      "line_sha256": "f8fc4c2a4be29a5e2fa6d84c5d6ce66e21523dc84983d8779c986df04d56d3b1"
+    }
+  ],
+  "recursive_cli": false,
+  "actual_product_cli_or_independent_approval_evidence": false,
+  "original_bytes_verified": [
+    {
+      "source_id": "vanthoor-thesis",
+      "raw_sha256": "965ecc5573290d0cc59b514e9766b301f9584d212545dec177efa66dd756ac38",
+      "bytes": 3423075,
+      "matches_existing_register": true
+    },
+    {
+      "source_id": "crop-model",
+      "raw_sha256": "272a589edf0bb40d1a91b34e883f8e94b9adf747a576be4620c50296c03d7033",
+      "bytes": 26741,
+      "matches_existing_register": true
+    },
+    {
+      "product_id": "24757220#ReadMe.pdf",
+      "raw_sha256": "e884cc347088bac498b730eaf442ccb9593c7aa84d4f85090b1fe2927646509c",
+      "bytes": 733072,
+      "matches_existing_register": true
+    },
+    {
+      "product_id": "24757220#Reference/Production.csv",
+      "raw_sha256": "5124bacfd527a155c7fde61762a793a3192546253e9f442b42b7583ba3a69b65",
+      "bytes": 1086,
+      "matches_existing_register": true
+    },
+    {
+      "product_id": "24757220#Reference/TomQuality.csv",
+      "raw_sha256": "7f15759110c8df57efb376fa6f0808d076fbe143e436059f21b6df2243ac0978",
+      "bytes": 395,
+      "matches_existing_register": true
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/scripts/greenlight_example.py",
+      "raw_sha256": "f36f9db841298eb6e9d0c8ec11eaebf22ac56c730cd0a8f086a8b2e4ca761bbd",
+      "bytes": 8397,
+      "retrieved_at": "2026-10-06T00:50:09.089496+00:00",
+      "assumed_dmc_raw_lines": [
+        184,
+        185
+      ],
+      "not_cultivar_coefficient": true
+    },
+    {
+      "source_id": "figshare-metadata",
+      "source_url": "https://api.figshare.com/v2/articles/12764777",
+      "raw_sha256": "56d641d0da19c6750020a48ae92da642dc7a4aa82e3e857190643fb2f6741ce6",
+      "bytes": 8797,
+      "matches_existing_register": true
+    },
+    {
+      "source_id": "agc-paper",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7698269/",
+      "raw_sha256": "a67e101b95b7337806fd51413eb2687467c358ae7b94d824742f293d6791a6ca",
+      "bytes": 282743,
+      "matches_existing_register": true
+    },
+    {
+      "source_id": "model-readme",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/readme.txt",
+      "raw_sha256": "9e5ca837f6be1524886550f2c00d0ddab0cf980fd4be778e7e8d3532f4239ad9",
+      "bytes": 2581,
+      "matches_existing_register": true
+    }
+  ],
+  "verified_original_count": 9,
+  "findings": [
+    "CH2O_to_DM_reference_assumption_is_separate_from_DM_to_FW_measurement",
+    "example_dmc_0_06_not_adopted",
+    "terminal_outflow_and_explicit_removals_need_event_reconciliation",
+    "production_area_density_grade_and_H_P_S_not_inferred",
+    "post_decision_DMC_excluded_from_prospective_inputs"
+  ],
+  "holds": [
+    "cultivar_specific_DM_FW_sample_and_method_QC",
+    "Reference_production_and_crop_area_denominators",
+    "source_schema_time_and_harvest_event_QC",
+    "grade_sales_inventory_and_actual_settlement_evidence",
+    "decision_time_available_at",
+    "independent_domestic_farm_and_future_cycle_validation"
+  ],
+  "new_adopted_data_count": 0,
+  "new_adopted_parameter_count": 0,
+  "new_crop_run_count": 0,
+  "gates": {
+    "G0": "not_assessed",
+    "G1": "not_assessed",
+    "G2": "not_assessed",
+    "G3a": "not_assessed",
+    "G3b": "not_assessed",
+    "G4": "not_assessed"
+  },
+  "test_scope": "none_needed_for_document_only_source_review",
+  "native_or_CI_for_this_research_run": false
+}

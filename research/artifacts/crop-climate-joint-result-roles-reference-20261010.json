@@ -1,0 +1,2371 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_crop_Runs": 0,
+  "coexistence_scope": "Existing two schema result rows and grants, protected frozen UI/source; no arbitrary historical signed-packet migration acceptance",
+  "core_commit": "850d002e11b5549949cb8aa12d0868b726f4c040",
+  "core_pins": {
+    "backend/app/calculation_operator_config.py": "a3a6db089e15e325e6bfaf2b13dd1bfd979e144ed10358573feda3eac0bd4f32",
+    "backend/app/operator_config.py": "d38a57ee2b3d1902682065d2c6b87184fc6793759301a1117ce55a796def5dac",
+    "backend/app/runtime_roles.py": "a58200a3fb2b4084813e305b9ed6748cc4ac4e89bfd681563aa65bc1c27ad5c3",
+    "backend/tests/test_crop_climate_joint_result_roles.py": "ea3730d4243bb8a3c54324070bbcde29f755a94d67b92c2a229f29173d0aa228",
+    "contracts/crop-climate-joint-result-roles-v1.md": "3536484d4e8e2482cc521989f1755f19a319dfbe0155d95f42f25a714fb92861"
+  },
+  "decision_id": "joint-result-roles-20261010-850d002",
+  "existing_tests": 226,
+  "final_stages": [
+    "roles-v2",
+    "operator-v2",
+    "regression-v2"
+  ],
+  "final_unique_tests": 233,
+  "holds": [
+    "actual cultivar input adoption",
+    "independent local farm measurements",
+    "G0 rights/quality adoption",
+    "G2/G3a/G3b/G4",
+    "new joint operator/API assembly"
+  ],
+  "native_cli": {
+    "LF_sha256": "137117f4667e65c61fc97f9eaff1b9ad661a153f964b3b8a6c4c45f6572fb241",
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "new_product_runtime_CLI_invocations": 0,
+    "recursive_CLI_invocations": 0,
+    "reviewable_output": "core5, versioned contract and actual focused acceptance evidence; no data/gate approval",
+    "timestamp": "2026-10-09T19:56:50.854Z"
+  },
+  "new_result_store_API_3D_U3_connected": false,
+  "new_tests": 7,
+  "not_run": [
+    "full backend regression",
+    "previous 82/993 complete numerical/storage suites",
+    "166 day producer",
+    "new store/API/WebGL",
+    "product runtime CLI"
+  ],
+  "old_operator_versions_allow_joint_flag": [
+    "omitted",
+    "exact_false"
+  ],
+  "old_operator_versions_reject_joint_activation": true,
+  "prechange_product_pins": {
+    "backend/app/calculation_operator_config.py": "1f2ccdcb2ac10533fc9ab1361f22f82c8e38591e37fa04ecc253c1a6cbecbeb3",
+    "backend/app/operator_config.py": "bb73a2de7dac4b4a0749c8822c5ab1abe27d94af086f2af92d763e3f36d8f80b",
+    "backend/app/runtime_roles.py": "be1dc60254bbe2238610ef52712a5bf76340d6ce0a5a2256072c90d85112c63f"
+  },
+  "runtime_new_flag_default": false,
+  "schema_core_pins_preserved": {
+    "backend/app/crop_climate_joint_result_schema.py": "bc8df78920f620e268c7d4f7c53452e3f9fbdb72a1a5252d97503ecd592cea59",
+    "backend/tests/test_crop_climate_joint_result_schema.py": "58fe60aa4224198fdb5b5c0b73b714799d3777fffa2cba704fa1a13a7d357a2b",
+    "contracts/crop-climate-joint-result-schema-v1.md": "6e983804e787295243732effe990d71835f5db52843f00abf26b25160191ed35"
+  },
+  "schema_reference": {
+    "path": "research/artifacts/crop-climate-joint-result-schema-reference-20261010.json",
+    "sha256": "23d3ed6afd23ed8fa0f0319885faf7c3848e036ec2ad66eb83a23b37ef85f75c"
+  },
+  "shared_login_or_owner_fixture_changes": false,
+  "stages": {
+    "operator-probe-v1": {
+      "evidence": {},
+      "failure": "Three existing normal config cases rejected newly serialized false field before compatibility fix",
+      "original_tool": "0bb396",
+      "pytest_summary": "3 failed, 129 deselected in 1.07s",
+      "session": 61045,
+      "source_pins_sha256": "7db7bff8bc6d5cbcd05013223f4859b09f61fa2998665bfa49a4dd030f46c82c",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 6,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 370503680,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "bd7b82ed67ada65b30e5ad55a715abf1f3d5ac9a174c648d32f12cb19ff46e4b",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 147255296,
+        "source_count": 1748,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 1.5840828610234894
+      },
+      "terminal_observed_at_utc": "2026-10-09T20:04:47.331909+00:00",
+      "terminal_tool": "8bb3a9"
+    },
+    "operator-v2": {
+      "evidence": {},
+      "original_tool": "17abf3",
+      "pytest_summary": "132 passed in 20.60s",
+      "session": 76363,
+      "source_pins_sha256": "e351705d025b66568d0e5b090714f7b7a3a43424d71e0edfc9c9cefcc6c4a61f",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 81,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 543592448,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "6b7209c0da084aa100dfe75dbaf2202502763f3ceaa0e0b5f3a7eaf63a4767eb",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960734,
+            "start_ticks": 24692134
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960741,
+            "start_ticks": 24692182
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960742,
+            "start_ticks": 24692184
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960743,
+            "start_ticks": 24692184
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960745,
+            "start_ticks": 24692184
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960746,
+            "start_ticks": 24692184
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960747,
+            "start_ticks": 24692184
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960750,
+            "start_ticks": 24692213
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960758,
+            "start_ticks": 24692238
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960769,
+            "start_ticks": 24692263
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960775,
+            "start_ticks": 24692292
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960780,
+            "start_ticks": 24692311
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960789,
+            "start_ticks": 24692336
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960799,
+            "start_ticks": 24692389
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960828,
+            "start_ticks": 24692908
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960830,
+            "start_ticks": 24692918
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960836,
+            "start_ticks": 24692967
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960837,
+            "start_ticks": 24692969
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960838,
+            "start_ticks": 24692969
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960840,
+            "start_ticks": 24692969
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960841,
+            "start_ticks": 24692969
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960842,
+            "start_ticks": 24692969
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960851,
+            "start_ticks": 24692989
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960875,
+            "start_ticks": 24693044
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960891,
+            "start_ticks": 24693069
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960909,
+            "start_ticks": 24693096
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960925,
+            "start_ticks": 24693121
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960943,
+            "start_ticks": 24693148
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960959,
+            "start_ticks": 24693173
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960977,
+            "start_ticks": 24693201
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960993,
+            "start_ticks": 24693226
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961011,
+            "start_ticks": 24693253
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961035,
+            "start_ticks": 24693305
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961043,
+            "start_ticks": 24693324
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961046,
+            "start_ticks": 24693331
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961057,
+            "start_ticks": 24693356
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961069,
+            "start_ticks": 24693383
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961082,
+            "start_ticks": 24693410
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961094,
+            "start_ticks": 24693436
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961107,
+            "start_ticks": 24693463
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961119,
+            "start_ticks": 24693489
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961130,
+            "start_ticks": 24693514
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961155,
+            "start_ticks": 24693567
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961166,
+            "start_ticks": 24693591
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961167,
+            "start_ticks": 24693593
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961179,
+            "start_ticks": 24693619
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961191,
+            "start_ticks": 24693645
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961203,
+            "start_ticks": 24693671
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961215,
+            "start_ticks": 24693698
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961228,
+            "start_ticks": 24693726
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961240,
+            "start_ticks": 24693751
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961253,
+            "start_ticks": 24693778
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961265,
+            "start_ticks": 24693803
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961278,
+            "start_ticks": 24693830
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961290,
+            "start_ticks": 24693857
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961302,
+            "start_ticks": 24693882
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961314,
+            "start_ticks": 24693909
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961323,
+            "start_ticks": 24693931
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961324,
+            "start_ticks": 24693933
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961325,
+            "start_ticks": 24693936
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961344,
+            "start_ticks": 24694041
+          }
+        ],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 147255296,
+        "source_count": 1748,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 21.53600393497618
+      },
+      "terminal_observed_at_utc": "2026-10-09T20:07:25.838787+00:00",
+      "terminal_tool": "022e83"
+    },
+    "regression-v1": {
+      "evidence": {
+        "joint-schema/bounds.json": {
+          "accepted_exact_upper_bounds": true,
+          "bad_payload_hash": 1,
+          "one_microsecond_over_horizon_rejected": true,
+          "raw_size_rejections": 2,
+          "rejected_columns": 108
+        },
+        "joint-schema/database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "joint-schema/identifiers.json": {
+          "rejected": 8
+        },
+        "joint-schema/identity.json": {
+          "duplicate_install_rejections": 1,
+          "foreign_key_rejections": 2,
+          "hold_zero_steps_accepted": true,
+          "immutable_rejections": 2,
+          "partial_install_rollback": true,
+          "unchanged_payload_sha256": "678c831cd2074398f1cf4ce2e9d0d9e75a754c81374d9b5af99360ec7c5a1843",
+          "unique_rejections": 3
+        },
+        "joint-schema/raw.json": {
+          "duplicate_top_and_nested": true,
+          "individual_column_pins": 33,
+          "inserted_rows": 0,
+          "rehashed_rejections": 92
+        },
+        "joint-schema/roundtrip.json": {
+          "actual_crop_Runs": 0,
+          "all_column_count": 37,
+          "end_utc": "2026-10-01T00:00:32.123456Z",
+          "equation_calls": 0,
+          "payload_sha256": "02b16df486d41c585579cf07096ffc3afdc038c57621477a36c3203092a05c81",
+          "raw_bytes": 131072,
+          "roles": 4,
+          "runtime_denials": 20,
+          "start_utc": "2026-10-01T00:00:00.123456Z"
+        },
+        "joint-schema/test_matching_raw_cannot_bypass_bounds_ids_sha_or_utc[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "joint-schema/test_rehashed_raw_closed_shape_duplicates_types_and_every_pin[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "joint-schema/test_scram_roundtrip_original_bytes_and_no_new_runtime_grants[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "joint-schema/test_unique_intent_tenant_fk_hold_and_immutable_reinstall[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "legacy-schema/database-cleanup.json": {
+          "roles_after": 0,
+          "schemas_after": 0
+        },
+        "legacy-schema/schema-roundtrip.json": {
+          "actual_crop_Runs": 0,
+          "actual_scram": true,
+          "crop_RHS_calls": 0,
+          "original_bytes_hash_time_preserved": true,
+          "payload_bytes": 1063,
+          "payload_sha256": "65c43f66da78b678ebbedb8a5a6cdee2cae4c5f31e7d2d9821473b4dfb49e781",
+          "postgres_server_version": 160015,
+          "same_tenant_study_revision": true,
+          "schema_version": "crop-cycle-verified-result-v1",
+          "whole_role_audit_passed": true
+        }
+      },
+      "original_tool": "5403b7",
+      "pytest_summary": "94 passed, 7 deselected in 34.88s",
+      "session": 15767,
+      "source_pins_sha256": "7db7bff8bc6d5cbcd05013223f4859b09f61fa2998665bfa49a4dd030f46c82c",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 135,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 459214848,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 2,
+        "log_sha256": "01cf88dc052a93d1a50e59cd737539152e3fb28921944d3008f0151a32656f8e",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958803,
+            "start_ticks": 24668529
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958809,
+            "start_ticks": 24668582
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958810,
+            "start_ticks": 24668584
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958811,
+            "start_ticks": 24668584
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958813,
+            "start_ticks": 24668584
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958814,
+            "start_ticks": 24668584
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958815,
+            "start_ticks": 24668584
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958819,
+            "start_ticks": 24668615
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958838,
+            "start_ticks": 24668660
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958849,
+            "start_ticks": 24668691
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958859,
+            "start_ticks": 24668719
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958947,
+            "start_ticks": 24668797
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958963,
+            "start_ticks": 24668821
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958994,
+            "start_ticks": 24668850
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959064,
+            "start_ticks": 24668898
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959074,
+            "start_ticks": 24668927
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959083,
+            "start_ticks": 24668952
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959095,
+            "start_ticks": 24669003
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959104,
+            "start_ticks": 24669032
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959114,
+            "start_ticks": 24669055
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959124,
+            "start_ticks": 24669074
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959135,
+            "start_ticks": 24669103
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959168,
+            "start_ticks": 24669132
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959181,
+            "start_ticks": 24669161
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959191,
+            "start_ticks": 24669187
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959203,
+            "start_ticks": 24669215
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959220,
+            "start_ticks": 24669239
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959230,
+            "start_ticks": 24669265
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959241,
+            "start_ticks": 24669285
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959248,
+            "start_ticks": 24669312
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959269,
+            "start_ticks": 24669412
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959275,
+            "start_ticks": 24669461
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959276,
+            "start_ticks": 24669463
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959277,
+            "start_ticks": 24669463
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959279,
+            "start_ticks": 24669463
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959280,
+            "start_ticks": 24669463
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959281,
+            "start_ticks": 24669463
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959282,
+            "start_ticks": 24669471
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959294,
+            "start_ticks": 24669504
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959326,
+            "start_ticks": 24669554
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959357,
+            "start_ticks": 24669602
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959368,
+            "start_ticks": 24669633
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959374,
+            "start_ticks": 24669662
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959382,
+            "start_ticks": 24669685
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959393,
+            "start_ticks": 24669709
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959404,
+            "start_ticks": 24669741
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959409,
+            "start_ticks": 24669767
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959418,
+            "start_ticks": 24669793
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959429,
+            "start_ticks": 24669819
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959444,
+            "start_ticks": 24669872
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959453,
+            "start_ticks": 24669889
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959465,
+            "start_ticks": 24669923
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959480,
+            "start_ticks": 24669976
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959490,
+            "start_ticks": 24670002
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959501,
+            "start_ticks": 24670026
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959518,
+            "start_ticks": 24670056
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959529,
+            "start_ticks": 24670076
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959541,
+            "start_ticks": 24670102
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959552,
+            "start_ticks": 24670134
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959557,
+            "start_ticks": 24670160
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959566,
+            "start_ticks": 24670185
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959577,
+            "start_ticks": 24670211
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959592,
+            "start_ticks": 24670267
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959601,
+            "start_ticks": 24670284
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959612,
+            "start_ticks": 24670318
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959617,
+            "start_ticks": 24670344
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959626,
+            "start_ticks": 24670372
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959638,
+            "start_ticks": 24670398
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959642,
+            "start_ticks": 24670423
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959651,
+            "start_ticks": 24670450
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959680,
+            "start_ticks": 24670476
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959685,
+            "start_ticks": 24670504
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959693,
+            "start_ticks": 24670527
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959705,
+            "start_ticks": 24670553
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959714,
+            "start_ticks": 24670583
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959729,
+            "start_ticks": 24670627
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959740,
+            "start_ticks": 24670660
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959745,
+            "start_ticks": 24670686
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959754,
+            "start_ticks": 24670712
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959765,
+            "start_ticks": 24670737
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959773,
+            "start_ticks": 24670767
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959788,
+            "start_ticks": 24670794
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959798,
+            "start_ticks": 24670813
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959808,
+            "start_ticks": 24670847
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959829,
+            "start_ticks": 24670873
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959850,
+            "start_ticks": 24670892
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959860,
+            "start_ticks": 24670926
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959865,
+            "start_ticks": 24670951
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959874,
+            "start_ticks": 24670969
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959885,
+            "start_ticks": 24671002
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959891,
+            "start_ticks": 24671032
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959899,
+            "start_ticks": 24671054
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959910,
+            "start_ticks": 24671079
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959939,
+            "start_ticks": 24671111
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959946,
+            "start_ticks": 24671136
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959956,
+            "start_ticks": 24671163
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959973,
+            "start_ticks": 24671191
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959979,
+            "start_ticks": 24671217
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959987,
+            "start_ticks": 24671237
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1959999,
+            "start_ticks": 24671263
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960012,
+            "start_ticks": 24671294
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960027,
+            "start_ticks": 24671344
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960039,
+            "start_ticks": 24671370
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960051,
+            "start_ticks": 24671402
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960056,
+            "start_ticks": 24671426
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960095,
+            "start_ticks": 24671585
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960097,
+            "start_ticks": 24671594
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960103,
+            "start_ticks": 24671642
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960104,
+            "start_ticks": 24671645
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960105,
+            "start_ticks": 24671645
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960107,
+            "start_ticks": 24671645
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960108,
+            "start_ticks": 24671645
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960109,
+            "start_ticks": 24671645
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960111,
+            "start_ticks": 24671664
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960146,
+            "start_ticks": 24671713
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960155,
+            "start_ticks": 24671740
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960156,
+            "start_ticks": 24671745
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960162,
+            "start_ticks": 24671796
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960171,
+            "start_ticks": 24671818
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960176,
+            "start_ticks": 24671845
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960185,
+            "start_ticks": 24671872
+          }
+        ],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 147255296,
+        "source_count": 1748,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 36.27841290200013
+      },
+      "terminal_observed_at_utc": "2026-10-09T20:03:44.860789+00:00",
+      "terminal_tool": "0d5855"
+    },
+    "regression-v2": {
+      "evidence": {
+        "joint-schema/bounds.json": {
+          "accepted_exact_upper_bounds": true,
+          "bad_payload_hash": 1,
+          "one_microsecond_over_horizon_rejected": true,
+          "raw_size_rejections": 2,
+          "rejected_columns": 108
+        },
+        "joint-schema/database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "joint-schema/identifiers.json": {
+          "rejected": 8
+        },
+        "joint-schema/identity.json": {
+          "duplicate_install_rejections": 1,
+          "foreign_key_rejections": 2,
+          "hold_zero_steps_accepted": true,
+          "immutable_rejections": 2,
+          "partial_install_rollback": true,
+          "unchanged_payload_sha256": "ad14260028d919c1ae304a0708c0b5b9944b43b968149ae942bc537a1a0a71a0",
+          "unique_rejections": 3
+        },
+        "joint-schema/raw.json": {
+          "duplicate_top_and_nested": true,
+          "individual_column_pins": 33,
+          "inserted_rows": 0,
+          "rehashed_rejections": 92
+        },
+        "joint-schema/roundtrip.json": {
+          "actual_crop_Runs": 0,
+          "all_column_count": 37,
+          "end_utc": "2026-10-01T00:00:32.123456Z",
+          "equation_calls": 0,
+          "payload_sha256": "043067907111e3d99eeaf234dc207dafa3d126a127b3e1b93f00453444a603eb",
+          "raw_bytes": 131072,
+          "roles": 4,
+          "runtime_denials": 20,
+          "start_utc": "2026-10-01T00:00:00.123456Z"
+        },
+        "joint-schema/test_matching_raw_cannot_bypass_bounds_ids_sha_or_utc[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "joint-schema/test_rehashed_raw_closed_shape_duplicates_types_and_every_pin[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "joint-schema/test_scram_roundtrip_original_bytes_and_no_new_runtime_grants[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "joint-schema/test_unique_intent_tenant_fk_hold_and_immutable_reinstall[login_scope0]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "legacy-schema/database-cleanup.json": {
+          "roles_after": 0,
+          "schemas_after": 0
+        },
+        "legacy-schema/schema-roundtrip.json": {
+          "actual_crop_Runs": 0,
+          "actual_scram": true,
+          "crop_RHS_calls": 0,
+          "original_bytes_hash_time_preserved": true,
+          "payload_bytes": 1063,
+          "payload_sha256": "096abd908c971d35cef7bf703d3d1b3f82b706922960aac4c9482e349e6b965f",
+          "postgres_server_version": 160015,
+          "same_tenant_study_revision": true,
+          "schema_version": "crop-cycle-verified-result-v1",
+          "whole_role_audit_passed": true
+        }
+      },
+      "original_tool": "6259a9",
+      "pytest_summary": "94 passed, 7 deselected in 33.85s",
+      "session": 27860,
+      "source_pins_sha256": "e351705d025b66568d0e5b090714f7b7a3a43424d71e0edfc9c9cefcc6c4a61f",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 131,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 447492096,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 2,
+        "log_sha256": "89f2050ff40de725ba0a0b60ed51be8c474e9a4870af743381b4bb2c0d1df715",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961390,
+            "start_ticks": 24696565
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961396,
+            "start_ticks": 24696613
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961397,
+            "start_ticks": 24696615
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961398,
+            "start_ticks": 24696615
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961400,
+            "start_ticks": 24696615
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961401,
+            "start_ticks": 24696615
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961402,
+            "start_ticks": 24696615
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961408,
+            "start_ticks": 24696645
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961416,
+            "start_ticks": 24696669
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961426,
+            "start_ticks": 24696693
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961436,
+            "start_ticks": 24696713
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961447,
+            "start_ticks": 24696743
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961508,
+            "start_ticks": 24696801
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961547,
+            "start_ticks": 24696827
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961554,
+            "start_ticks": 24696853
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961594,
+            "start_ticks": 24696879
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961634,
+            "start_ticks": 24696905
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961652,
+            "start_ticks": 24696929
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961662,
+            "start_ticks": 24696958
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961671,
+            "start_ticks": 24696975
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961680,
+            "start_ticks": 24697004
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961691,
+            "start_ticks": 24697033
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961718,
+            "start_ticks": 24697114
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961725,
+            "start_ticks": 24697138
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961735,
+            "start_ticks": 24697165
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961745,
+            "start_ticks": 24697190
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961755,
+            "start_ticks": 24697209
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961766,
+            "start_ticks": 24697239
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961777,
+            "start_ticks": 24697267
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961789,
+            "start_ticks": 24697297
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961796,
+            "start_ticks": 24697321
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961804,
+            "start_ticks": 24697348
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961817,
+            "start_ticks": 24697421
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961823,
+            "start_ticks": 24697470
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961824,
+            "start_ticks": 24697472
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961825,
+            "start_ticks": 24697472
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961827,
+            "start_ticks": 24697473
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961828,
+            "start_ticks": 24697473
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961829,
+            "start_ticks": 24697473
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961834,
+            "start_ticks": 24697501
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961844,
+            "start_ticks": 24697527
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961868,
+            "start_ticks": 24697557
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961877,
+            "start_ticks": 24697582
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961904,
+            "start_ticks": 24697608
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961909,
+            "start_ticks": 24697633
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961918,
+            "start_ticks": 24697659
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961929,
+            "start_ticks": 24697683
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961940,
+            "start_ticks": 24697713
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961945,
+            "start_ticks": 24697738
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961954,
+            "start_ticks": 24697762
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961965,
+            "start_ticks": 24697786
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961976,
+            "start_ticks": 24697816
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961982,
+            "start_ticks": 24697845
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1961990,
+            "start_ticks": 24697865
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962001,
+            "start_ticks": 24697889
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962013,
+            "start_ticks": 24697923
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962028,
+            "start_ticks": 24697975
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962038,
+            "start_ticks": 24698002
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962049,
+            "start_ticks": 24698025
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962064,
+            "start_ticks": 24698080
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962074,
+            "start_ticks": 24698106
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962085,
+            "start_ticks": 24698129
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962096,
+            "start_ticks": 24698158
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962102,
+            "start_ticks": 24698183
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962111,
+            "start_ticks": 24698208
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962122,
+            "start_ticks": 24698232
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962134,
+            "start_ticks": 24698262
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962159,
+            "start_ticks": 24698335
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962171,
+            "start_ticks": 24698369
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962177,
+            "start_ticks": 24698396
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962185,
+            "start_ticks": 24698422
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962195,
+            "start_ticks": 24698439
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962207,
+            "start_ticks": 24698474
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962222,
+            "start_ticks": 24698527
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962243,
+            "start_ticks": 24698578
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962258,
+            "start_ticks": 24698631
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962268,
+            "start_ticks": 24698659
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962279,
+            "start_ticks": 24698682
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962294,
+            "start_ticks": 24698737
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962315,
+            "start_ticks": 24698788
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962323,
+            "start_ticks": 24698816
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962330,
+            "start_ticks": 24698842
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962339,
+            "start_ticks": 24698859
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962351,
+            "start_ticks": 24698894
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962365,
+            "start_ticks": 24698948
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962375,
+            "start_ticks": 24698965
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962387,
+            "start_ticks": 24699000
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962392,
+            "start_ticks": 24699027
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962400,
+            "start_ticks": 24699048
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962411,
+            "start_ticks": 24699073
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962427,
+            "start_ticks": 24699106
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962443,
+            "start_ticks": 24699159
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962455,
+            "start_ticks": 24699184
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962470,
+            "start_ticks": 24699238
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962481,
+            "start_ticks": 24699257
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962493,
+            "start_ticks": 24699288
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962508,
+            "start_ticks": 24699339
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962535,
+            "start_ticks": 24699518
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962541,
+            "start_ticks": 24699565
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962542,
+            "start_ticks": 24699567
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962543,
+            "start_ticks": 24699567
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962545,
+            "start_ticks": 24699567
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962546,
+            "start_ticks": 24699567
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962547,
+            "start_ticks": 24699568
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962548,
+            "start_ticks": 24699576
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962557,
+            "start_ticks": 24699603
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962583,
+            "start_ticks": 24699631
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962594,
+            "start_ticks": 24699667
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962599,
+            "start_ticks": 24699708
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962608,
+            "start_ticks": 24699736
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962610,
+            "start_ticks": 24699764
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962616,
+            "start_ticks": 24699789
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1962628,
+            "start_ticks": 24699813
+          }
+        ],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 147255296,
+        "source_count": 1748,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 35.03630495999823
+      },
+      "terminal_observed_at_utc": "2026-10-09T20:08:23.915474+00:00",
+      "terminal_tool": "a9614c"
+    },
+    "roles-v1": {
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "drift.json": {
+          "baseline_audit_restored_each_time": true,
+          "rejected_mutations": 12,
+          "repeat_runtime_install_rejected": true
+        },
+        "matrix-false.json": {
+          "allowed_statements": 0,
+          "denied_statements": 20,
+          "enabled": false,
+          "equation_calls": 0,
+          "old_grants_preserved": true,
+          "postgres_server_version": 160015,
+          "role_escalations_denied": 6,
+          "same_raw_UTC_roundtrip": false,
+          "table_privilege_checks": 84
+        },
+        "matrix-omitted.json": {
+          "allowed_statements": 0,
+          "denied_statements": 20,
+          "enabled": false,
+          "equation_calls": 0,
+          "old_grants_preserved": true,
+          "postgres_server_version": 160015,
+          "role_escalations_denied": 6,
+          "same_raw_UTC_roundtrip": false,
+          "table_privilege_checks": 84
+        },
+        "matrix-true.json": {
+          "allowed_statements": 2,
+          "denied_statements": 18,
+          "enabled": true,
+          "equation_calls": 0,
+          "old_grants_preserved": true,
+          "postgres_server_version": 160015,
+          "role_escalations_denied": 6,
+          "same_raw_UTC_roundtrip": true,
+          "table_privilege_checks": 84
+        },
+        "missing-table.json": {
+          "audit_rejected": true,
+          "install_rejected": true,
+          "runtime_roles_created": 0
+        },
+        "policy.json": {
+          "bad_types_rejected": 10,
+          "default": false
+        },
+        "test_actual_scram_matrix_roundtrip_and_old_grants_preserved[false]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "test_actual_scram_matrix_roundtrip_and_old_grants_preserved[omitted]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "test_actual_scram_matrix_roundtrip_and_old_grants_preserved[true]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "test_new_table_column_routine_grant_option_and_membership_drift_fail_audit-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "test_true_requires_preinstalled_table_and_atomic_fresh_roles[uninstalled]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        }
+      },
+      "original_tool": "6626e0",
+      "pytest_summary": "6 passed in 4.35s",
+      "session": 30712,
+      "source_pins_sha256": "7db7bff8bc6d5cbcd05013223f4859b09f61fa2998665bfa49a4dd030f46c82c",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 19,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 430854144,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "log_sha256": "ebcb79cee71a34e906fe7ce8683b672c941567e1978f236a2cf1dc5cbff9d0a7",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958274,
+            "start_ticks": 24660474
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958276,
+            "start_ticks": 24660485
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958282,
+            "start_ticks": 24660533
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958283,
+            "start_ticks": 24660535
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958284,
+            "start_ticks": 24660535
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958286,
+            "start_ticks": 24660536
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958287,
+            "start_ticks": 24660536
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958288,
+            "start_ticks": 24660536
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958290,
+            "start_ticks": 24660554
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958305,
+            "start_ticks": 24660581
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958329,
+            "start_ticks": 24660602
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958338,
+            "start_ticks": 24660633
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958368,
+            "start_ticks": 24660658
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958373,
+            "start_ticks": 24660684
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958401,
+            "start_ticks": 24660711
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958410,
+            "start_ticks": 24660731
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958420,
+            "start_ticks": 24660758
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1958428,
+            "start_ticks": 24660777
+          }
+        ],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 147255296,
+        "source_count": 1748,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 5.059610413009068
+      },
+      "terminal_observed_at_utc": "2026-10-09T20:01:53.302152+00:00",
+      "terminal_tool": "e8a477"
+    },
+    "roles-v2": {
+      "evidence": {
+        "roles/database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "roles/drift.json": {
+          "baseline_audit_restored_each_time": true,
+          "rejected_mutations": 12,
+          "repeat_runtime_install_rejected": true
+        },
+        "roles/matrix-false.json": {
+          "allowed_statements": 0,
+          "denied_statements": 20,
+          "enabled": false,
+          "equation_calls": 0,
+          "old_grants_preserved": true,
+          "postgres_server_version": 160015,
+          "role_escalations_denied": 6,
+          "same_raw_UTC_roundtrip": false,
+          "table_privilege_checks": 84
+        },
+        "roles/matrix-omitted.json": {
+          "allowed_statements": 0,
+          "denied_statements": 20,
+          "enabled": false,
+          "equation_calls": 0,
+          "old_grants_preserved": true,
+          "postgres_server_version": 160015,
+          "role_escalations_denied": 6,
+          "same_raw_UTC_roundtrip": false,
+          "table_privilege_checks": 84
+        },
+        "roles/matrix-true.json": {
+          "allowed_statements": 2,
+          "denied_statements": 18,
+          "enabled": true,
+          "equation_calls": 0,
+          "old_grants_preserved": true,
+          "postgres_server_version": 160015,
+          "role_escalations_denied": 6,
+          "same_raw_UTC_roundtrip": true,
+          "table_privilege_checks": 84
+        },
+        "roles/missing-table.json": {
+          "audit_rejected": true,
+          "install_rejected": true,
+          "runtime_roles_created": 0
+        },
+        "roles/operator-compatibility.json": {
+          "FD_before_after": [
+            12,
+            12
+          ],
+          "accepted_missing_or_false": 4,
+          "rejected_true_or_bad_types_before_factory": 14
+        },
+        "roles/policy.json": {
+          "bad_types_rejected": 10,
+          "default": false
+        },
+        "roles/test_actual_scram_matrix_roundtrip_and_old_grants_preserved[false]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "roles/test_actual_scram_matrix_roundtrip_and_old_grants_preserved[omitted]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "roles/test_actual_scram_matrix_roundtrip_and_old_grants_preserved[true]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "roles/test_new_table_column_routine_grant_option_and_membership_drift_fail_audit-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        },
+        "roles/test_true_requires_preinstalled_table_and_atomic_fresh_roles[uninstalled]-preservation.json": {
+          "legacy_tables": [
+            "crop_cycle_research_results",
+            "crop_cycle_verified_research_results"
+          ],
+          "unchanged_rows": [
+            1,
+            1
+          ]
+        }
+      },
+      "original_tool": "9d43fb",
+      "pytest_summary": "7 passed in 4.50s",
+      "session": 54207,
+      "source_pins_sha256": "e351705d025b66568d0e5b090714f7b7a3a43424d71e0edfc9c9cefcc6c4a61f",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 19,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 430526464,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "d4fa92d431234d3500a06534ae50318944b969743ac5b3222ca573202aca7db8",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960533,
+            "start_ticks": 24689519
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960539,
+            "start_ticks": 24689533
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960545,
+            "start_ticks": 24689580
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960546,
+            "start_ticks": 24689582
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960547,
+            "start_ticks": 24689582
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960549,
+            "start_ticks": 24689583
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960550,
+            "start_ticks": 24689583
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960551,
+            "start_ticks": 24689583
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960552,
+            "start_ticks": 24689594
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960557,
+            "start_ticks": 24689622
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960595,
+            "start_ticks": 24689674
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960619,
+            "start_ticks": 24689701
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960633,
+            "start_ticks": 24689725
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960648,
+            "start_ticks": 24689753
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960672,
+            "start_ticks": 24689775
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960682,
+            "start_ticks": 24689803
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960688,
+            "start_ticks": 24689831
+          },
+          {
+            "boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+            "pid": 1960694,
+            "start_ticks": 24689857
+          }
+        ],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 147255296,
+        "source_count": 1748,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 5.080224681994878
+      },
+      "terminal_observed_at_utc": "2026-10-09T20:06:43.709990+00:00",
+      "terminal_tool": "4fc29e"
+    }
+  },
+  "status": "locally_accepted_roles_and_disabled_operator_compatibility_only",
+  "version": "joint-crop-climate-result-roles-acceptance-v1"
+}

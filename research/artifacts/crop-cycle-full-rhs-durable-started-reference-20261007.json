@@ -1,0 +1,95 @@
+{
+  "evidence_version": "crop-cycle-full-rhs-durable-started-observation-v2",
+  "observed_at_utc": "2026-10-07T05:13:28.604663+00:00",
+  "scope": "owned_synthetic_actual_RHS_progress_only",
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "4b285cc45fe2c9e22c6e68095db25eb15afa9b02347c3b57d5105bee7f5656ef",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T04:50:48.689Z"
+  },
+  "supervisor_commit": "2daa99ff825638ac7b95c714438f0f588a029b13",
+  "supervisor_version": "crop-cycle-full-rhs-durable-v2",
+  "supervision_sha256": "1952feae10039b2f955ee676b4ff3e7f79ce040420b3fa657f5ff3da03d9ecfc",
+  "spec_sha256": "d4e7de05249b55a2db3218c3e47c09ac1819ab15415b4021a44399ea76bcc310",
+  "input_root_sha256": "ab24eda4d763d7fe3faff1ae3c7c2f84fbec030af71a494bf284fef1f2cdcd98",
+  "source_sha256": {
+    "research/crop-cycle-full-rhs-durable.py": "21fe374dc5e6037d5bfd8a9008aac05eab00daeb3ba0d81745a54bc4aac3cbb4",
+    "research/crop-cycle-full-rhs-reference.py": "31a7ecc2d1932ec92cabcefae5979b57f746363cdc49bcce3878835ae4a91f89",
+    "research/crop-cycle-stream-execution-reference.py": "b13b6224dadd4d69a94e6d9e2d3a820449e636cb57b621915c325dcb3e1f3f1b"
+  },
+  "started_at_utc": "2026-10-07T05:07:36.678777+00:00",
+  "deadline_at_utc": "2026-10-07T11:07:36.678777+00:00",
+  "global_wall_seconds": 21600,
+  "preparation_wall_seconds": 98.66518282900142,
+  "plan": {
+    "boundaries": 47811,
+    "counts": {
+      "anchors": 47809,
+      "events": 5,
+      "outputs": 47809,
+      "segments": 47808
+    },
+    "packet_referenced_bytes": 113920841,
+    "planned_steps": 1816704
+  },
+  "initialization": {
+    "session_id": 6935,
+    "exit_code": 0,
+    "log_sha256": "4ef6421caa0dd987900fecc4a7e773383c5eddc7e6bba5bdf4e6855ac08f3534"
+  },
+  "first_checkpoint": {
+    "session_id": 93026,
+    "parent_exit_code": 0,
+    "worker_returncode": 0,
+    "worker_gone": true,
+    "steps": 123,
+    "actual_rhs_calls": 620,
+    "status": "incomplete",
+    "reason": "OPERATOR_CHUNK_PAUSE",
+    "wall_seconds": 31.72168765600145,
+    "head_sha256": "d56194772820439860f06f4963c0bfc6c1f362d0e38930754f6a32f0fc403360",
+    "checkpoint_sha256": "506fd5d98b374b491447807c8a86dd336143a6a2e6157406710aaa9cb17a6b67",
+    "receipt_sha256": "bd26c47872a2b399716bd00551f3b5e94ac670c3b3f170ed8fe9ed8790d0f446",
+    "worker_FD_before_after": [
+      5,
+      5
+    ]
+  },
+  "resume": {
+    "session_id": 78170,
+    "same_original_spec_in_actual_argv": true,
+    "private_actual_argv_recorded": true,
+    "request_sha256": "effa088b258421a91b63d3badd0c494811780a8e6539c7ad010079708e2433ce",
+    "worker_identity_sha256": "d1aeff13725e3c6625827c54136cdad747ab07cdab23608bee91b9e8fd8dd9a1",
+    "actual_PID_start_ticks_boot_ID_match": true,
+    "worker_live_at_observation": true,
+    "effective_nice": 15,
+    "exclusive_lock_currently_held": true,
+    "progress": {
+      "phase": "actual_RHS",
+      "chunks_this_call": 64,
+      "steps": 8104,
+      "at": "2026-01-01T17:46:20Z",
+      "storage_bytes_before_chunk": 2216163,
+      "files_before_chunk": 133,
+      "wall_seconds": 108.14897122500042,
+      "max_observed_active_rss_bytes": 48111616
+    },
+    "log_snapshot_sha256": "e7a0cdab8b1c0e90531070832c071c58a93f02c282bb5feea788a1333b476f58",
+    "terminal_receipt_available_at_observation": false,
+    "actual_exit_code": null,
+    "exact_full_resume_checkpoint_comparison_pending_final_result": true
+  },
+  "private_home_directory_mode": "0o700",
+  "old_lost_experiment_reused": false,
+  "old_budget_reset": false,
+  "new_independent_experiment": true,
+  "actual_full166_or_restore_burden_accepted": false,
+  "full_farm_DB_API_3D_accepted": false,
+  "actual_crop_runs": 0,
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "gates": "not_assessed"
+}

@@ -1,0 +1,121 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_artifact_bytes": 309399098,
+  "actual_artifact_files": 751,
+  "actual_crop_Runs": 0,
+  "actual_cultivar_inputs": 0,
+  "core_sha256": {
+    "backend/tests/test_crop_harvest_full_writer.py": "d71beea4efa68bfedd2fb5f7bc61e3996775ed1a7c107f07906fdea68cf899d8",
+    "contracts/crop-harvest-full-writer-v1.md": "49dbdb321e467110627836f9f8469c44e897b3a842d07558bc0e500001184f1a",
+    "research/crop-harvest-full-writer.py": "b792ae68ade243084b1439c37fb5b8f9b01374d3622c342715b2d3296cc3ca1b"
+  },
+  "fresh_current_query": {
+    "first_count": 64,
+    "foreign_tenant_and_scoped_display_denied_restored": true,
+    "guarded_RHS_harvest_generation_registration_proof_calls": 0,
+    "last_count": 1,
+    "same_original_record_summary_pages": true,
+    "shared_control_files_changed": false
+  },
+  "full_API_3D_accepted": false,
+  "harvest_artifact": {
+    "row_chain_sha256": "13476acda3061c152da51cecfb9a326dc4702fdeeb5622a30254b99b9fc275f2",
+    "row_count": 47813,
+    "sha256": "b59e3eed4dc8ae0c1c7d13235044dd1d6491908e85d14f27a3a93041a9b097ae",
+    "writer_code_sha256": "eb62fd64d48ee2be20842cd952dbaf6df5ca7c6b5cc825e7b7730d94066eb7e4"
+  },
+  "independent_audit": {
+    "all_rounding_balances_within_budget": true,
+    "all_rows_independently_checked": true,
+    "decimal_precision": 2200,
+    "event_rows": 5,
+    "rows": 47813,
+    "terminal_rows": 47808
+  },
+  "independent_local_datasets": 0,
+  "native_CLI": {
+    "effort": "xhigh",
+    "judgment": "Run normal full harvest registry on the preserved whole parent and measured3h budget; retain early authenticated backup, independent all-row Decimal, stopped-source fresh reader, exact current rights and protected preview. Frozen source only; do not rerun crop RHS.",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "turn_event_sha256": "cb3460fd9329a6711bcae36e18ab1de8ff8304e0352d339a8a0e62a6ee9dbfaa",
+    "turn_timestamp": "2026-10-09T09:18:16.585Z"
+  },
+  "normal_writer_registry_accepted": true,
+  "observation_date": "2026-10-09",
+  "original_command": {
+    "actual_exit_code": 0,
+    "session_id": 96517,
+    "terminal_chunk": "793a4b"
+  },
+  "original_parent_artifact_sha256": "f1bf669180fa3b07f39c4b582fedc5c7edcf28b5e35497cde9947dcdd5eb6a8c",
+  "phases": [
+    {
+      "actual_exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "phase": "producer",
+      "reason": null,
+      "wall_seconds": 5919.305718274991
+    },
+    {
+      "actual_exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "phase": "fresh",
+      "reason": null,
+      "wall_seconds": 211.75276126898825
+    }
+  ],
+  "preservation": {
+    "authenticated_backup_preserved": true,
+    "frontend_status": 200,
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_data_absent": true,
+    "owned_stopped_data_removed_bytes": 84497733,
+    "protected_preview_live": true,
+    "raw_backup_bytes": 522495,
+    "root_FD_before_after": [
+      3,
+      3
+    ],
+    "storage_manifest_sha256": "3b1de5683fdd01024b95c1eb7a3ea335717eecff2c4f3f97f5c5e2eca1061752"
+  },
+  "private_evidence_sha256": {
+    "fresh-verified.private.json": "7396bb86d54c204010375b1bc205ff40f069f348b5c6f61b135a7d7322bff7b5",
+    "produced/all-rows-audit.private.json": "1c61b2747f64d16e29bf00f5c9412893d702032e584bfcc997738a81d98b4817",
+    "produced/producer-verified.private.json": "7af5f7e8e16c98c2e9ed01eafda6c46f1417afe2174d33f82f94f3921686b4fa",
+    "root-audit.private.json": "c5ed5dbade9f5b7b6cdc524b9522aa9b545c36c8384f1a0e89cadfd34b0d2d07",
+    "terminal.private.json": "0edc55c772119cf271fcb56a73d5297ba9aa46a1b49c3f19d37fa96852f519e8"
+  },
+  "production_forecast_margin_ranking": "hold",
+  "realtime_U3_accepted": false,
+  "registered_record": {
+    "payload_sha256": "f411a43982bcdb7452eaa666995d472ec84c66eaf955a2b6c842d8c24f10f24e",
+    "recorded_at": "2026-10-09T20:26:26.758036+09:00",
+    "result_id": "crop-harvest-registered-result-v1:797624fc715035d12c4869e7c4f437fa2bd9b96cc0d20e72b881f47c10735285"
+  },
+  "resources": {
+    "RSS_samples": 23789,
+    "RSS_scope": "controller/owned children, exact protected live preview and both observed original owned PG trees; not WSL total",
+    "combined_peak_RSS_bytes": 516091904,
+    "fresh_PG_tree_samples": 23772,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 143360000
+  },
+  "root_command": {
+    "actual_exit_code": 0,
+    "session_id": 3349,
+    "terminal_chunk": "3c8893"
+  },
+  "schema_version": "crop-harvest-full-writer-completed-reference-v1",
+  "scope": "owned_whole_synthetic_harvest_only",
+  "source_commit": "c0cc687dafca4c479a9eafc38e6ff8e11740d812",
+  "timing": {
+    "current_selected_seconds": 170.33748695801478,
+    "early_authenticated_backup_seconds": 0.1642361289996188,
+    "independent_all_rows_seconds": 93.52926952799316,
+    "normal_put_seconds": 5623.921662821987,
+    "prepare_seconds": 28.013159732014174
+  },
+  "wall_seconds": 6131.177264587022
+}

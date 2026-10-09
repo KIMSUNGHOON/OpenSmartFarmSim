@@ -1,0 +1,829 @@
+{
+  "core_sha256": {
+    "backend/app/crop_climate_joint_current_query.py": "a06af6433a230b9698253ca095c250c83abc77a4565a311d03b1b2ac5bcfa261",
+    "backend/tests/test_crop_climate_joint_current_query.py": "dea540aca4be469625292ac0b48e517719e35f9b547262af1b01741240edbade",
+    "contracts/crop-climate-joint-current-query-v1.md": "740a414eae6f76fa62f2c8274d359361182da3861883efa56ababb3decdd2ab1"
+  },
+  "current_query_core_commit": "475eb19f7480a3312660b536ce24b6733596c61b",
+  "current_query_same_source_1763_for_all_seven_stages": true,
+  "current_query_unique_tests": 10,
+  "native_CLI": {
+    "metadata_tool": "1b0097",
+    "model": "gpt-6.1-sol",
+    "new_product_runtime_CLI_calls": 0,
+    "original_LF_sha256": "f31e9dbb4b09513aa86bd4fb1b7d08b4e054c2f70e24574d88cd37298e4d8d41",
+    "reasoning_effort": "xhigh",
+    "recursive_CLI_calls": 0,
+    "timestamp": "2026-10-09T21:20:51.554Z"
+  },
+  "not_rerun": [
+    "whole backend",
+    "prior numerical/storage993",
+    "input evidence82",
+    "role regression233",
+    "full166-day RHS/writer",
+    "new HTTP/browser/WebGL",
+    "actual Python3.12.13 interpreter",
+    "new hosted CI"
+  ],
+  "runtime_fixture_fix_commit": "3829a5842d4de17bb199f334a315f829c3307dee",
+  "runtime_fixture_followup": {
+    "CI_declared_python": "3.12.13",
+    "actual_DB_test_and_cleanup_AST_preserved": true,
+    "actual_failed_reproduction": "red-v2 old fixed artifact root mismatch, exit1",
+    "actual_local_python": "3.12.3",
+    "authenticated_current_read_from_type_fixture": false,
+    "final_pure_evidence": {
+      "fresh.json": {
+        "PID": 2024938,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "response_sha256": {
+          "events": "638282a459ea45f95cc15b52486b916966a4ef61d43bc23f4aa6ca23468e5e6b",
+          "samples": "8560cd8ec716492f0515cbb9184d76e14d169022c08d8a34a21f31c09b3f5bd9",
+          "summary": "dc9e6018ad9d431b5b139dc562d0a9279ad8eb5cca5e27db1503fd8d6db04d32"
+        }
+      },
+      "original.json": {
+        "FD_before_after": [
+          12,
+          12
+        ],
+        "all_original_108_states_and_ledgers_events_units_UTC": true,
+        "authenticated_current_read": false,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "native_runtime_identity": {
+          "byteorder": "little",
+          "component_code_sha256": {
+            "crop_canopy_energy_transport": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+            "crop_canopy_exchange": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+            "crop_fruit_allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+            "crop_fruit_cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+            "crop_fruit_startup": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+            "crop_fruit_transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+            "crop_growth_rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+            "crop_plant_cohort_rates": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+            "crop_plant_startup_rates": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756"
+          },
+          "driver_code_sha256": "336794d229602957e58f0976bdb735c0312f318d5570eb62b3fb30f2d4f5538b",
+          "engine_code_sha256": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+          "engine_version": "joint-crop-climate-continuation-research-v1",
+          "float_mant_dig": 53,
+          "float_radix": 2,
+          "management_code_sha256": "deedd9d1f8d04c6db63d88b8156f83ea43b3563234da073b756f448aaa203255",
+          "physical_clock_contract": "dynamic-canopy-temperature-history-rhs-v1",
+          "platform_machine": "x86_64",
+          "platform_system": "Linux",
+          "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+          "profile_sha256": {
+            "cohort": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+            "exchange": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+            "growth": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+            "transport": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+          },
+          "python_version": "3.12.3",
+          "rhs_code_sha256": "207ed32696b59f1ec8ce750db70bd10798c5c7ae8f78206df6038177e81124b8",
+          "short_code_sha256": "b3311c32250474e5457049974c09e6c484425c8231517dffede222ea0c35b839",
+          "state_schema": "crop-climate-stage-state-v1"
+        },
+        "original_inputs_unchanged": true,
+        "private_fields_absent": true,
+        "responses": {
+          "events": {
+            "bytes": 73566,
+            "sha256": "638282a459ea45f95cc15b52486b916966a4ef61d43bc23f4aa6ca23468e5e6b"
+          },
+          "samples": {
+            "bytes": 35046,
+            "sha256": "8560cd8ec716492f0515cbb9184d76e14d169022c08d8a34a21f31c09b3f5bd9"
+          },
+          "summary": {
+            "bytes": 18904,
+            "sha256": "dc9e6018ad9d431b5b139dc562d0a9279ad8eb5cca5e27db1503fd8d6db04d32"
+          }
+        },
+        "rows": {
+          "events": 3,
+          "samples": 3
+        },
+        "unregistered_farm_and_custody_type_fixture": true
+      },
+      "runtime-identity.json": {
+        "actual_interpreter": "3.12.3",
+        "authenticated_current_read": false,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "fault_injection_only": true,
+        "native_context_and_identity_preserved": true,
+        "simulated_python_identity": "3.12.13"
+      }
+    },
+    "fixture_test_sha256": "28299ee428af833ee8fb6411eaa06c9ddf655d7ac26885e94789e4f2a15a4797",
+    "no_tests_attempt": "red-v1 private argv slicing bug, exit5; excluded from failure reproduction and accepted tests",
+    "old_actual_DB2_not_rerun": true,
+    "product_projection_and_calculation_unchanged": true,
+    "production_cross_runtime_identity_gates_relaxed": false,
+    "pure_unique_tests_passed": 39,
+    "reproduction": "platform.python_version fault injection only, no actual Python3.12.13 execution",
+    "same_reproduction_after_fix": "red-v3 original test passes; overlaps pure39, no extra unique count",
+    "stages": [
+      {
+        "name": "red-v1",
+        "original_tool": "d8b7df",
+        "pytest_footer": "40 deselected in 1.15s",
+        "session_id": 82096,
+        "terminal": {
+          "G0_G4": "not_assessed",
+          "RSS_samples": 7,
+          "actual_child_exit": 5,
+          "actual_crop_Runs": 0,
+          "combined_peak_RSS_bytes": 362876928,
+          "controller_FD_before_after": [
+            4,
+            4
+          ],
+          "frontend_status": 200,
+          "known_invalid_test_passfiles_removed": 0,
+          "log_sha256": "452bf2213a9cf254be0e2ff897f9d88be3c43199716c6ffb8463ad644b7e4cd1",
+          "original_source_entries": 2148,
+          "original_sources_preserved": true,
+          "owned_non_zombie_remaining": [],
+          "owned_postgres_processes_observed_count": 0,
+          "owned_postgres_remaining": [],
+          "passfiles_remaining": [],
+          "preview_assets_preserved": true,
+          "preview_source_preserved": true,
+          "protected_live": true,
+          "reason": null,
+          "sample_interval_seconds": 0.25,
+          "single_PID_peak_RSS_bytes": 137621504,
+          "source_count": 1763,
+          "source_preserved": true,
+          "temporary_PG_directories_remaining": [],
+          "wall_seconds": 1.836780073994305
+        },
+        "terminal_tool": "b24042"
+      },
+      {
+        "name": "red-v2",
+        "original_tool": "2684ab",
+        "pytest_footer": "39 deselected, 1 error in 1.53s",
+        "session_id": 70221,
+        "terminal": {
+          "G0_G4": "not_assessed",
+          "RSS_samples": 8,
+          "actual_child_exit": 1,
+          "actual_crop_Runs": 0,
+          "combined_peak_RSS_bytes": 367603712,
+          "controller_FD_before_after": [
+            4,
+            4
+          ],
+          "frontend_status": 200,
+          "known_invalid_test_passfiles_removed": 0,
+          "log_sha256": "d1e43b6853636e5634a8715867833d7c7e0c832c7df59f6d2ad7a4c8605dbb14",
+          "original_source_entries": 2148,
+          "original_sources_preserved": true,
+          "owned_non_zombie_remaining": [],
+          "owned_postgres_processes_observed_count": 0,
+          "owned_postgres_remaining": [],
+          "passfiles_remaining": [],
+          "preview_assets_preserved": true,
+          "preview_source_preserved": true,
+          "protected_live": true,
+          "reason": null,
+          "sample_interval_seconds": 0.25,
+          "single_PID_peak_RSS_bytes": 137621504,
+          "source_count": 1763,
+          "source_preserved": true,
+          "temporary_PG_directories_remaining": [],
+          "wall_seconds": 2.0929008729872294
+        },
+        "terminal_tool": "2ed98b"
+      },
+      {
+        "name": "pure-v1",
+        "original_tool": "1ac651",
+        "pytest_footer": "39 passed, 2 deselected in 3.75s",
+        "session_id": 78491,
+        "terminal": {
+          "G0_G4": "not_assessed",
+          "RSS_samples": 17,
+          "actual_child_exit": 0,
+          "actual_crop_Runs": 0,
+          "combined_peak_RSS_bytes": 470085632,
+          "controller_FD_before_after": [
+            4,
+            4
+          ],
+          "frontend_status": 200,
+          "known_invalid_test_passfiles_removed": 0,
+          "log_sha256": "5ad13e862032a5f5ae59964274ab1fb3af44a2058ffb5924549f611e1a8c406c",
+          "original_source_entries": 2148,
+          "original_sources_preserved": true,
+          "owned_non_zombie_remaining": [],
+          "owned_postgres_processes_observed_count": 0,
+          "owned_postgres_remaining": [],
+          "passfiles_remaining": [],
+          "preview_assets_preserved": true,
+          "preview_source_preserved": true,
+          "protected_live": true,
+          "reason": null,
+          "sample_interval_seconds": 0.25,
+          "single_PID_peak_RSS_bytes": 137621504,
+          "source_count": 1763,
+          "source_preserved": true,
+          "temporary_PG_directories_remaining": [],
+          "wall_seconds": 4.400670948001789
+        },
+        "terminal_tool": "55b0c4"
+      },
+      {
+        "name": "red-v3",
+        "original_tool": "ae58fb",
+        "pytest_footer": "1 passed, 40 deselected in 1.56s",
+        "session_id": 96233,
+        "terminal": {
+          "G0_G4": "not_assessed",
+          "RSS_samples": 8,
+          "actual_child_exit": 0,
+          "actual_crop_Runs": 0,
+          "combined_peak_RSS_bytes": 367964160,
+          "controller_FD_before_after": [
+            4,
+            4
+          ],
+          "frontend_status": 200,
+          "known_invalid_test_passfiles_removed": 0,
+          "log_sha256": "67fab5d669d11a6e325aad6d3d03c30811f1e3e1af94a62253bd525600a5c4f4",
+          "original_source_entries": 2148,
+          "original_sources_preserved": true,
+          "owned_non_zombie_remaining": [],
+          "owned_postgres_processes_observed_count": 0,
+          "owned_postgres_remaining": [],
+          "passfiles_remaining": [],
+          "preview_assets_preserved": true,
+          "preview_source_preserved": true,
+          "protected_live": true,
+          "reason": null,
+          "sample_interval_seconds": 0.25,
+          "single_PID_peak_RSS_bytes": 137621504,
+          "source_count": 1763,
+          "source_preserved": true,
+          "temporary_PG_directories_remaining": [],
+          "wall_seconds": 2.1011556749872398
+        },
+        "terminal_tool": "0b6f05"
+      }
+    ]
+  },
+  "scope": {
+    "G0_G4": "not_assessed",
+    "actual_crop_Runs": 0,
+    "current_user_UI": "completed synthetic 166-day replay; new joint model not connected",
+    "events": 3,
+    "fresh_scram_PID": 2010462,
+    "full_goal_achieved": false,
+    "new_joint_HTTP_runtime_WebGL_or_U3_runs": 0,
+    "owned_synthetic_seconds": 32,
+    "read_numerical_calls": 0,
+    "samples": 3,
+    "state_count": 108,
+    "steps": 16
+  },
+  "stages": [
+    {
+      "evidence": {},
+      "evidence_sha256": {},
+      "name": "pure-v1",
+      "original_tool": "4145f2",
+      "pytest_footer": "4 passed, 6 deselected in 1.20s",
+      "session_id": 13634,
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 7,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 364261376,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "859e5ca9ef83a08608fa44fdb29b47bc7ac46da5cb6343ef7ea9c93806b37c54",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 0,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 137621504,
+        "source_count": 1763,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 1.8386868620000314
+      },
+      "terminal_tool": "32aab4",
+      "unique_tests": 4
+    },
+    {
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "normal.json": {
+          "FD_before_after": [
+            12,
+            12
+          ],
+          "G0_G4": "not_assessed",
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "counts_unchanged": true,
+          "fresh": {
+            "PID": 2010462,
+            "actual_scram": true,
+            "calls": {
+              "RHS": 0,
+              "advance": 0,
+              "event": 0,
+              "prepare_binding": 0,
+              "prepare_context": 0,
+              "restore": 0,
+              "start": 0,
+              "step": 0
+            },
+            "counts_unchanged": true,
+            "response_sha256": {
+              "events": "1536d6df4d6c2ba033d655a5612b0fd64d9d6003062792bfa67859c19e80137e",
+              "samples": "880f73cbe89ceeabeea84ab3ff9c2c7f186230f3677100c15c8cf68e7c2dc206",
+              "summary": "01e6dcdec728ab49ae4ccb5c822f4e520a4444f43e12b9e69f6d10defe762f4c"
+            },
+            "revoked_review_denied": true
+          },
+          "original_wires_equal": true,
+          "query_seconds": {
+            "events": 4.777200304000871,
+            "samples": 4.7542255989974365,
+            "summary": 4.798832778993528
+          },
+          "responses": {
+            "events": {
+              "bytes": 73566,
+              "sha256": "1536d6df4d6c2ba033d655a5612b0fd64d9d6003062792bfa67859c19e80137e"
+            },
+            "samples": {
+              "bytes": 35046,
+              "sha256": "880f73cbe89ceeabeea84ab3ff9c2c7f186230f3677100c15c8cf68e7c2dc206"
+            },
+            "summary": {
+              "bytes": 18904,
+              "sha256": "01e6dcdec728ab49ae4ccb5c822f4e520a4444f43e12b9e69f6d10defe762f4c"
+            }
+          }
+        }
+      },
+      "evidence_sha256": {
+        "database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "normal.json": "54823c6d4e7b79e7a4d0003083ebc37716d3af43ca8ce77ec2e5f48b50b28da9"
+      },
+      "name": "normal-v1",
+      "original_tool": "2d3c2b",
+      "pytest_footer": "1 passed, 9 deselected in 91.67s (0:01:31)",
+      "session_id": 18165,
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 345,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 600657920,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "83d77d216c8945efe8a9d4f06b8ed8037d4cee9cdff40b2b6c8ad11397934231",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 473,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 137621504,
+        "source_count": 1763,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 94.93823486100882
+      },
+      "terminal_tool": "57b1fe",
+      "unique_tests": 1
+    },
+    {
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "hold.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "counts_unchanged": true,
+          "original_last_confirmed_and_failure_prefix": true,
+          "original_wires_equal": true,
+          "response_sha256": {
+            "events": "c33fb11814638ec50fb09660a962bd545c27a15c63cfe03940da3e9d1a3a4f35",
+            "samples": "d20e6eddf65f1ad41c020ff6faa790fdb292ec5123b73233527ac7fa69a66747",
+            "summary": "5c254555f9c7a75c6b130e8567b497d3ad4ff5e745f4facab4e6600700317707"
+          }
+        }
+      },
+      "evidence_sha256": {
+        "database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "hold.json": "1cf5f76cfbad177128110ea2e33225a8170bd306bb4f6a28d969a530a8201e34"
+      },
+      "name": "hold-v1",
+      "original_tool": "651fa8",
+      "pytest_footer": "1 passed, 9 deselected in 71.71s (0:01:11)",
+      "session_id": 42040,
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 272,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 511946752,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "891a78d5c7316fb44ea08d78236e6d11e79000c2ea1bca6661036900f99725cf",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 389,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 137621504,
+        "source_count": 1763,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 74.539220998995
+      },
+      "terminal_tool": "67ba66",
+      "unique_tests": 1
+    },
+    {
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "rights-projection.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "counts_unchanged": true,
+          "early_denied": 12,
+          "late_denied": 12,
+          "phase": "projection",
+          "rejected": [
+            "input-rights:summary",
+            "input-rights:samples",
+            "input-rights:events",
+            "review:summary",
+            "review:samples",
+            "review:events",
+            "read-scope:summary",
+            "read-scope:samples",
+            "read-scope:events",
+            "farm-source:summary",
+            "farm-source:samples",
+            "farm-source:events"
+          ]
+        }
+      },
+      "evidence_sha256": {
+        "database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "rights-projection.json": "7c47f7bcaf89cc39105ef6cc2ea5fa2673ea2eb629d855334f852428b0025fa3"
+      },
+      "name": "rights-projection-v1",
+      "original_tool": "731bd5",
+      "pytest_footer": "1 passed, 9 deselected in 88.39s (0:01:28)",
+      "session_id": 40427,
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 334,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 508801024,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "50acbdae4e1d70b0783b8e5aa1258c680853f6d04caf771f6ee0077611c57995",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 463,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 137621504,
+        "source_count": 1763,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 91.69949650097988
+      },
+      "terminal_tool": "29a78a",
+      "unique_tests": 1
+    },
+    {
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "rights-serialization.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "counts_unchanged": true,
+          "early_denied": 12,
+          "late_denied": 12,
+          "phase": "serialization",
+          "rejected": [
+            "input-rights:summary",
+            "input-rights:samples",
+            "input-rights:events",
+            "review:summary",
+            "review:samples",
+            "review:events",
+            "read-scope:summary",
+            "read-scope:samples",
+            "read-scope:events",
+            "farm-source:summary",
+            "farm-source:samples",
+            "farm-source:events"
+          ]
+        }
+      },
+      "evidence_sha256": {
+        "database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "rights-serialization.json": "11ef4ad48db87d3addbee371b58f8926b3558048c4e9c66834b46fd57403bdae"
+      },
+      "name": "rights-serialization-v1",
+      "original_tool": "12d7b8",
+      "pytest_footer": "1 passed, 9 deselected in 88.34s (0:01:28)",
+      "session_id": 17507,
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 333,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 518217728,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "d86563c2ed573ba1a7a7796073adc8c5f8aa45f841e40b7332c066468c78f5e3",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 467,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 137621504,
+        "source_count": 1763,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 91.65538030999596
+      },
+      "terminal_tool": "4e16d2",
+      "unique_tests": 1
+    },
+    {
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "tamper.json": {
+          "DB_mutations_are_lookup_fault_injection": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "counts_unchanged": true,
+          "late_tamper_rejected": [
+            "signature",
+            "column",
+            "recorded-at",
+            "missing",
+            "original-page-after-serialization"
+          ],
+          "page_tamper_is_actual_owned_file": true
+        }
+      },
+      "evidence_sha256": {
+        "database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "tamper.json": "f4773db8c7f21fba069d4fb6c75327e7b9ed96579ec24237f973a614648759bc"
+      },
+      "name": "tamper-v1",
+      "original_tool": "71dc7d",
+      "pytest_footer": "1 passed, 9 deselected in 58.67s",
+      "session_id": 5615,
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 224,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 509669376,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "25266546f94751e1e08e54db9182c48bfc8f62fbf16dd7f3f96651c048176f94",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 321,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 137621504,
+        "source_count": 1763,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 61.008672978990944
+      },
+      "terminal_tool": "b6c09b",
+      "unique_tests": 1
+    },
+    {
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "edges.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "foreign_tenant_and_changed_store_denied": true,
+          "invalid_or_foreign_farms": 4,
+          "invalid_queries": 12,
+          "missing_is_None": true,
+          "page_end_and_cursor": true,
+          "serialized_2MiB_enforced": true
+        }
+      },
+      "evidence_sha256": {
+        "database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "edges.json": "bab7a330f19efdeca6f38759736878c7e9f12176ca14fdf2dbbbb9411f76cd3a"
+      },
+      "name": "edges-v1",
+      "original_tool": "4b9f7a",
+      "pytest_footer": "1 passed, 9 deselected in 56.15s",
+      "session_id": 24651,
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 215,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 510861312,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "5f6feb4da9e7deac131c72bacb7216e0432c912cfd2919fbcc055db5d9d066f3",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 300,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 137621504,
+        "source_count": 1763,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 58.50396150001325
+      },
+      "terminal_tool": "5319e0",
+      "unique_tests": 1
+    }
+  ],
+  "version": "joint-crop-climate-current-query-implementation-evidence-v1"
+}

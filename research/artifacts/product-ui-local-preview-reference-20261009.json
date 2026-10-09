@@ -1,0 +1,165 @@
+{
+  "G0_G4": "not_assessed",
+  "HTTP": [
+    {
+      "bytes": 9598,
+      "cache_control": "no-store",
+      "name": "growth-summary",
+      "seconds": 2.098924394987989,
+      "sha256": "14ce4217953be4ed9933df5e45d28e7cfb9139c8b0fbb0812052a5a35a5533c3",
+      "status": 200
+    },
+    {
+      "bytes": 27946,
+      "cache_control": "no-store",
+      "name": "growth-samples",
+      "seconds": 2.1094001220189966,
+      "sha256": "2e33a75912a6a9d8710a718d5250966bee61b36b02b4d960896d2ed61fecafb1",
+      "status": 200
+    },
+    {
+      "bytes": 54032,
+      "cache_control": "no-store",
+      "name": "growth-events",
+      "seconds": 2.123364496976137,
+      "sha256": "94a1804392774d6f13dde22859a23c6dc5001b3eb1ab804fc89df33a0bec5800",
+      "status": 200
+    },
+    {
+      "bytes": 12453,
+      "cache_control": "no-store",
+      "name": "harvest-summary",
+      "seconds": 12.447333112999331,
+      "sha256": "ee56c8f264f1adaa1bcef11171f490ff9d3987b21b66d7f1ecad012be3293f97",
+      "status": 200
+    },
+    {
+      "bytes": 49836,
+      "cache_control": "no-store",
+      "name": "harvest-records",
+      "seconds": 20.56710323598236,
+      "sha256": "24dfb1db33e3498059e429b035f39bd9d7a593edc08f07e8d5821dbb1e14f15c",
+      "status": 200
+    }
+  ],
+  "OpenAPI_fix": {
+    "GREEN": "137 passed in 93.58s",
+    "GREEN_original_session": 18998,
+    "RED": "1 failed in 2.69s",
+    "commit": "fbfcf0e",
+    "hosted_CI_6021ec6_authored": "failed_missing_expected_harvest_route",
+    "hosted_CI_fixed_commit": "not_yet_observed",
+    "original_RED_session": 98575
+  },
+  "UI_code_changes": 0,
+  "actual_cultivar_crop_Runs": 0,
+  "backend": "https://127.0.0.1:8443",
+  "browser_growth": {
+    "UI_code_changes": 0,
+    "crop_samples": 3,
+    "harvest_total": 5,
+    "network": [
+      {
+        "path": "/v1/crop-cycle-calculation-research-results/crop-cycle-verified-result-v1%3A22f888b5b2a7e8148e9cea2e438bb6937caea2986f4ca5d7dd63bbb06aafb91d",
+        "status": 200
+      },
+      {
+        "path": "/v1/crop-cycle-calculation-research-results/crop-cycle-verified-result-v1%3A22f888b5b2a7e8148e9cea2e438bb6937caea2986f4ca5d7dd63bbb06aafb91d",
+        "status": 200
+      }
+    ],
+    "page_errors": [],
+    "prediction_recommendation": "hold",
+    "route_substitutions": 0,
+    "scope": "existing_App_actual_preserved_small_DB_API_only",
+    "verified": [
+      {
+        "actual_WebGL2": true,
+        "at": "2026-10-01T00:00:00Z",
+        "cohort_C_N_each": 50,
+        "index": 0
+      },
+      {
+        "actual_WebGL2": true,
+        "at": "2026-10-01T00:02:00Z",
+        "cohort_C_N_each": 50,
+        "index": 2
+      }
+    ],
+    "visible_harvest_rows_checked": 0
+  },
+  "browser_growth_command": {
+    "argv": [
+      "node",
+      "--max-old-space-size=64",
+      "--max-semi-space-size=2",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261009-product-ui-preview/check-growth.mjs"
+    ],
+    "exit_code": 0,
+    "harvest_browser_check": "deferred_after_original_resource_hold",
+    "hold": null,
+    "included_full_original_and_both_DBs": true,
+    "sample_period_seconds": 0.1,
+    "sampled_peak_RSS_bytes": {
+      "combined": 1058881536,
+      "single": 401113088
+    },
+    "samples": 81,
+    "wall_seconds": 8.686232280015247
+  },
+  "built_index_sha256": "066373481e604548b6691ad4dfdab6d4b113fed5f3bd61d4a6b5a5254a9aea20",
+  "crop_samples": 3,
+  "final_product_UI": "not_accepted",
+  "frontend": "http://localhost:5173/",
+  "frontend_build": {
+    "exit_code": 0,
+    "known_warning": "preexisting_chunk_over_500_kB",
+    "node": "22.22.3",
+    "node_heap_limit_MiB": 192,
+    "original_tool_session": 8342,
+    "typecheck": true,
+    "vite_build": true
+  },
+  "frontend_proxy": "native_nginx_upstream_TLS_verified_browser_loopback_HTTP",
+  "harvest_browser_current_preview": "held_by_original_combined_resource_limit",
+  "harvest_rows": 5,
+  "native_CLI_judgment": {
+    "event_sha256": "f6039b769f799f8eaf93dd576879e2074862c638d43690554484c61d5adf6951",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-09T01:16:28.017Z"
+  },
+  "observed_at": "2026-10-09T01:29:44.623980+00:00",
+  "original_broader_browser": {
+    "argv": [
+      "node",
+      "--max-old-space-size=64",
+      "--max-semi-space-size=2",
+      "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261009-product-ui-preview/check.mjs"
+    ],
+    "exit_code": 1,
+    "hold": "owned resource or time cap",
+    "included_full_original_and_both_DBs": true,
+    "sample_period_seconds": 0.1,
+    "sampled_peak_RSS_bytes": {
+      "combined": 1089314816,
+      "single": 414289920
+    },
+    "samples": 85,
+    "wall_seconds": 9.121875486016506
+  },
+  "original_full_run": "still_running_separate_DB_original_tool_session_95086",
+  "predictions_margin_ranking": "hold",
+  "private_evidence_sha256": {
+    "browser-command.private.json": "a08ac6e18369f3d1979dd194b3a4d3526dca2533eee9f997c9d965518c57a8a1",
+    "browser-growth-check.private.json": "8a9c34ec61ebd21e3498c0f10953da9fc6be7a1291a8f88b0b1d1dff19c303dc",
+    "browser-growth-command.private.json": "bdf863971fa0f6d1837ef47d9a069e38df4608d73ab7ec03b8091ac14297c876",
+    "ready.json": "d1056186ca2ddff0e159f8ea05531f1c4816406df69dcca88a22d8ae4c1d2ae9"
+  },
+  "scope": "existing_product_App_preserved_small_synthetic_DB_only",
+  "service_lifetime": "intentionally_running_for_user_inspection",
+  "synthetic_registered_crop_id": "crop-1",
+  "version": "product-ui-local-preview-reference-v1"
+}

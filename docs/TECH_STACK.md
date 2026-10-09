@@ -1,0 +1,100 @@
+# 기술 스택과 배포 기준
+
+상태: **기술 결정과 `repo-bootstrap` 완료, 2026-09-27.** [제품 명세](PROJECT_SPEC.md)의 완주 흐름과 [아키텍처](ARCHITECTURE.md)의 필수 Codex CLI 작업자를 만들기 위한 기준이다. 아래는 선택한 구성이지 전체 설치·성능·라이선스 감사를 마친 목록이 아니다. 사용자는 농업 전문 지식 없이 지역을 고르고, 자료 근거·시뮬레이션·3D 설명·작물 판단 보류 또는 검증된 추천을 읽을 수 있어야 한다.
+
+## 최소 운영 구성 결정표
+
+| 영역 | 선택과 상태 | 역할과 선택 이유·공식 근거 |
+| --- | --- | --- |
+| 브라우저 앱·언어 | **필수:** [React](https://react.dev/learn) + TypeScript + [Vite](https://vite.dev/guide/) | 지역/작업/3D/표의 상태를 컴포넌트로 구성하고 정적 파일로 빌드한다. Vite의 TypeScript 변환은 형 검사와 별개이므로 `tsc --noEmit`을 CI에 둔다([Vite 설명](https://vite.dev/guide/features)). 서버 렌더링 프레임워크는 이 초기 흐름에 필요하지 않다. |
+| 지도·3D | **필수:** [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/)와 [Three.js](https://threejs.org/docs/) | 지도는 좌표·관측소 차이를, 3D는 **저장된** 한 구역 상태를 재생한다. 둘은 서로 다른 좌표/장면 계약을 가진다. 지도 타일은 라이브러리와 별도 자원이다. G4 전에 자체 호스팅 또는 사용권이 확인된 타일 공급자를 정하고 요청량·출처표시를 시험한다. 상용 타일 서비스는 계정/계약 의존성으로만 도입한다. |
+| 그래프·접근성 | **필수:** [Apache ECharts](https://echarts.apache.org/handbook/en/best-practices/aria/) + 의미 있는 HTML 표·문장 + [WCAG 2.2](https://www.w3.org/TR/WCAG22/) 검사 | 시계열 탐색에 그래프를 쓰되 ECharts의 ARIA 설명만으로 동등 접근을 보장하지 않는다. 같은 수치의 표, 키보드 조작, 텍스트 대안과 동작 줄이기를 제공한다. |
+| HTTP API·스키마 | **필수:** Python [FastAPI](https://fastapi.tiangolo.com/features/) + [Uvicorn](https://uvicorn.dev/) + [Pydantic](https://pydantic.dev/docs/validation/latest/concepts/models/) + [OpenAPI 3.1](https://spec.openapis.org/oas/v3.1.0) | 입력·출력의 버전별 계약, 검증 및 문서화를 한 Python 코드베이스에서 유지한다. Pydantic의 형식 검증은 출처의 진실성이나 과학적 타당성 검증과 별개다. 긴 계산은 API 프로세스에서 실행하지 않는다([FastAPI 배경 작업 주의](https://fastapi.tiangolo.com/tutorial/background-tasks/)). |
+| 수치 계산 | **필수:** [NumPy](https://numpy.org/doc/stable/) + [SciPy `solve_ivp`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html) + [Pint](https://pint.readthedocs.io/en/stable/) | 버전이 지정된 열·수증기 수지 방정식의 배열·수치 적분·단위 검사를 맡는다. 적분법, 상대/절대 허용 오차, 시간 간격과 단위 레지스트리를 모델 버전에 고정한다. AI 출력은 방정식이나 계수를 임의로 바꿀 수 없다. |
+| 수집·AI 작업 | **필수:** [HTTPX](https://www.python-httpx.org/) 제공자 어댑터 + **Codex CLI `gpt-6.1-sol` `xhigh`** | HTTPX의 시간제한과 정해진 제공자 어댑터로 원자료를 수집한다. Codex CLI가 지역 선택 후 자료 조사·수집 계획과 결과 해석/작물 판단을 **런타임**에 수행한다([OpenAI 비대화형 실행](https://developers.openai.com/codex/non-interactive-mode), [모델](https://developers.openai.com/api/docs/models/gpt-6.1-sol)). CLI는 별도 격리 작업자에서 비동기로 실행한다. 작업 순서와 게시 상태는 PostgreSQL 작업표가 소유한다. 별도 에이전트 프레임워크는 첫 출시에 쓰지 않는다. |
+| 시장·거시 어댑터 | **필수:** 기존 HTTPX의 제공자별 소형 어댑터와 권리/시각 검사 | 초기에는 [시장 설계](MARKET_INTELLIGENCE.md#4-원천-후보와-실제로-알-수-있는-범위)의 실제 사용 허가를 받은 KREI 발행본, 선택한 KOSIS 표, KAMIS 가격 단계와 농장 계약/정산만 필요한 범위에서 연결한다. ECOS·통관·도매시장 물량은 노출 경로·판본·권리가 확인될 때 추가한다. 품목/등급/포장/채널 단위와 `published_at`·`available_at`·`revision_id`를 검증하며 임의 URL 수집을 허용하지 않는다. 외부 자료별 API 요금·호출 한도·지연·보존/표시권을 운영비에 포함한다. |
+| 시장 시나리오·후속 검증 | **필수:** Python 표준 라이브러리 + 기존 NumPy/SciPy; **후속:** 검증된 고정 전망 모델 | 첫 단계는 조건부 공동 충격과 물량 보존·기간별 현금 계산만 수행한다. rolling-origin as-of 분할, 계절/직전값 기준선, 오차·편향·구간 포함률·현금 부족/후회 손실은 기존 배열·통계 함수와 명시적 Python 코드로 계산할 수 있다. 자료/권리와 G3a/B 시험이 확보되기 전에는 예측 패키지를 추가하지 않는다. Pandas도 첫 범위의 필수 의존성이 아니다. 이후 시점 결합이 복잡해지고 검증된 필요가 생길 때만 추가하며 대체 라이브러리의 도입 이유·버전·회귀 결과를 기록한다. |
+| 경제 산술·금액 | **필수:** Python 표준 [`decimal.Decimal`](https://docs.python.org/3/library/decimal.html), PostgreSQL [`numeric`](https://www.postgresql.org/docs/current/datatype-numeric.html), 불변 가격/요금·견적 버전 | 원화·단가·비율 계산에 이진 부동소수를 쓰지 않고 입력 단위·소수 자리·반올림 정책을 명시한다. 시계열 물리 계산의 NumPy 부동소수와 경제 산술을 분리한다. 통화 변환은 환율 출처·적용일을 고정한다. 금융 전용 패키지는 추가하지 않는다. [경제 계약](ECONOMICS.md)의 재고·달력·현금 대사를 기준으로 시험한다. |
+| 작업 큐 | **필수:** PostgreSQL 작업표 + Python 작업자 + [Psycopg](https://www.psycopg.org/psycopg3/docs/basic/usage.html) | 트랜잭션·임대·`FOR UPDATE SKIP LOCKED`로 API와 수집/CLI/계산을 분리한다([PostgreSQL 설명](https://www.postgresql.org/docs/current/sql-select.html)). 초기에는 Redis/Celery를 추가하지 않고, 실제 대기시간·복구 시험에서 병목이 입증되면 재평가한다. |
+| 메타데이터·시계열 | **필수:** [PostgreSQL](https://www.postgresql.org/docs/current/) | 사용자 권한·관문·출처·작업 상태와 `decision_at`/`available_at`·시장 `vintage_id`/개정 관계·모델/특성 절단시각은 관계형 테이블, 유연한 근거 속성은 `jsonb`, 시간별 결과는 `run_id, timestamp` 색인 테이블로 둔다([JSON](https://www.postgresql.org/docs/current/datatype-json.html), [시계열 분할](https://www.postgresql.org/docs/current/ddl-partitioning.html)). 초기에는 별도 시계열 DB가 필요하지 않다. |
+| 원본·결과 객체 | **필수:** 배포 호스트의 영속 POSIX 볼륨에 SHA-256 내용 주소 파일 | 원본 응답·시장 최초 발행본과 정정본·정규화 스냅샷·CLI 이벤트·manifest를 불변 파일로 두고 DB에는 해시·경로·권한을 기록한다. 농장 정산 원문은 테넌트 권한으로 격리하고 정정은 새 객체로 연결한다. 임시 파일→동기화→원자적 이름 변경→DB 게시 순서를 시험한다. 백업은 DB와 파일을 같은 복원 시점으로 묶는다. **선택:** 다중 호스트가 필요해지면 호환 객체 저장소로 이동; AWS S3 등 관리형 서비스 선택 시 별도 공급자 계정·요금·계약 의존성을 명시한다. |
+| 데이터·단위 형식 | **필수:** UTF-8 JSON/JSONL(계약·CLI 사건), 원본 제공자 형식의 바이트 보존, 정규화 시계열의 스키마 지정 CSV, SHA-256 manifest, UTC ISO 8601 시각, WGS84 경도·위도, Pint 단위 명세 | 사람이 검사하고 다른 도구로 재생할 수 있는 작은 첫 범위에 맞춘다. 순간값/구간 적산값, `kWh_th`/`kWh_e`/연료량, 제공자 QC/프로젝트 검사를 별도 필드로 둔다. **선택:** 양이 커지면 [Apache Parquet](https://parquet.apache.org/docs/)로 불변 시계열 객체를 추가한다. |
+| 로컬·배포 | **필수:** [uv](https://docs.astral.sh/uv/concepts/projects/sync/)와 npm, [Compose](https://docs.docker.com/compose/intro/compose-application-model/)의 웹/API/작업자/PostgreSQL/영속 볼륨 | 같은 서비스 정의로 로컬·staging·단일 호스트 production을 구성한다. 자체 호스팅 기준에는 특정 클라우드 계정이 필요하지 않다. 운영 호스트·도메인·TLS 인증서·지도 타일·기상 제공자 키·OpenAI 인증은 별도 준비 의존성이다. |
+| 시험·CI | **필수:** [pytest](https://docs.pytest.org/en/stable/), [Vitest](https://vitest.dev/guide/), [Playwright Test](https://playwright.dev/docs/intro), 스크립트로 재현 가능한 CI | 수지/단위·관문·멱등성·작업 복구·API 계약, **금액 반올림·수확/등급/판매/반품/폐기/재고 보존·기말 미판매 매출 0과 생산원가 단일 반영·가격 버전 고정·공동비 배분 합계·수금과 운전자본 이중 반영 방지·열량→구매량·요금 대조·세 손익분기 목표의 날짜별 재계산·해 없음/경계값·작기 달력**, 브라우저의 지도 대체·3D/표 동일값·키보드 흐름을 시험한다. 시장 자료는 발행 전·사후 정정 판본 주입 차단, 권리/단위/등급 불일치, 같은 충격의 후보별 적용, 등급별 판매량·농가 순수취가의 공동 변화, 시점 전진 시험에서 학습/보정 누수를 시험한다. 고정 스냅샷과 예상 결과로 회귀를 검증한다. 호스팅 CI(예: GitHub Actions)는 **선택**이며 해당 서비스 계정에 의존한다. |
+| 관측성·보안 | **필수:** 구조화 로그/작업 ID/감사 기록, 메트릭·경고, TLS·권한·비밀 분리·egress 제어; **선택:** [OpenTelemetry](https://opentelemetry.io/docs/concepts/signals/) 송신·수집기 | 작업 단계와 Codex 도구 호출/출처/비용 사용량을 연결한다. 수집기·대시보드 서비스를 추가하기 전에도 운영자가 실패와 보류를 식별할 수 있어야 한다. 좌표·원자료·인증정보가 로그에 노출되지 않도록 마스킹한다. |
+
+필수 구성 **전체는 아직 설치되지 않았다**. 부트스트랩 의존성의 캐시 설치만 확인했다. 라이브러리 자체의 라이선스와 배포에 포함되는 폰트·지도 타일·3D 자산·전이 의존성의 권리는 별도 목록으로 G4에서 검사한다. 자체 코드·문서의 [Apache-2.0](../LICENSE)은 외부 자료와 자산에 적용되지 않는다.
+
+경제 계산의 수용 예에는 평가 종료 직전 100kg을 판매 가능하게 만들고 일부만 판매·일부 반품·일부 폐기한 경우를 둔다. 판매 인정량과 반품 환불만 매출에 반영하고 기말 재고에는 매출을 붙이지 않으며, 재고를 키운 비용은 같은 기간에 한 번만 차감해야 한다. 다음 기간에 남은 재고를 팔면 매출이 그 기간에 나타나고 기존 생산 투입은 연속 기간 합계에서 다시 차감되지 않아야 한다. 같은 자료에서 감가상각, 수금 지연, 시설 투자와 대출 상환일을 각각 바꿔 **운영이익·영업 현금·투자/금융 포함 누적 현금 손익분기**가 서로 다른 값을 낼 수 있음을 확인한다. 작물 순위 수용 시험도 같은 기간과 시작 재고 기준으로 미판매 재고가 많은 후보를 임의 판매가로 높게 평가하지 않아야 한다.
+
+### 앱 이미지·정적 웹 서버 후보 (2026-10-03)
+
+[앱 이미지 계약](../contracts/application-images-v1.md)은 기존 C0 의존성 target과
+별도의 Python 앱·정적 웹 target을 정의한다. 정적 서버는 공식
+`nginx:1.30.5-trixie@sha256:b972f831f200b19ef0767938224f9711e74cd783718738cd7405d5cabf75c442`
+후보다. OCI index 원문 해시와 Linux amd64를 확인했으며, 비특권 UID·읽기 전용
+구성·표준 상위 TLS 인증·같은 출처 API를 검증한다. NGINX의
+[공식 라이선스](https://nginx.org/LICENSE)는 BSD-2-Clause 조건이며 이미지의 OS/전이
+고지까지 운영 목록에서 확인해야 한다. 로컬 웹 빌드와
+[실제 hosted 이미지 수용](../research/application-images-implementation.md)은 통과했다.
+[API/웹/자동 경제 Compose 후보](../contracts/application-compose-runtime-v1.md)는
+자원 한도·명시적 private mount·loopback을 정의하며
+[실제 서비스 소프트웨어 수용](../research/application-compose-runtime-implementation.md)은 통과했다.
+[조사 RPC 전경 소비](../contracts/cli-dispatch-loop-v1.md)와
+[소유 수집 자동 소비](../contracts/collection-consumer-v1.md)는 기존 Python 실행기와
+SCRAM/Unix IPC를 사용하며 새 orchestration 프레임워크를 추가하지 않는다.
+수집/조사 RPC 각각의 Compose 단계와 같은 `d19f7c0` 전체 CI는
+[고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)에서 수용했다.
+결합 원천 경로·독립 자격증명·실제 제품 CLI·전체 G1/G4는 보류다.
+
+### 작물 수치 모듈 — 2026-10-04
+
+다음 구현은 기존 Python 백엔드의 작은 결정적 수식 모듈이다.
+[Vanthoor/GreenLight 고정 참조와 권리](../research/crop-tomato-model-baseline-20261004.md)를
+사용하며 전체 GreenLight GUI/해석기·새 에이전트 orchestration 의존성을 추가하지 않았다.
+현재 Three.js·ECharts/HTML 표·API·불변 저장을 성장 재생에 재사용한다.
+새 솔버/라이브러리가 실제 수렴/성능 수용에 필요해지면 그 증거와 잠금·라이선스를
+검토하고 별도 작업으로 기록한다.
+현재 [작물 연구 적분](../contracts/crop-growth-integration-v1.md)은 표준 라이브러리의 명시적
+RK4/정확한 구간 온도 합을 사용한다. SciPy/NumPy를 설치한 것으로 표시하지 않는다.
+독립 고정밀 원식·간격 축소·수지를 확인한 계산 영역이며 실제 작기의 수렴은 별도 증거가 필요하다.
+
+## 에이전트 프레임워크 비교와 채택 문턱
+
+**첫 출시의 필수 경로는 Codex CLI `gpt-6.1-sol` `xhigh`와 PostgreSQL 작업표**다. 지역·시장 근거 조사 → 허용 제공자 수집 → 불변 기상/MarketSnapshot → 수치·경제 산술 → CLI 평가 → 서버의 평가별 G0~G3 검사를 한 작업 흐름으로 둔다. CLI는 출처의 적합성과 해석·보류를 판단하고, 고정 모델 실행과 금액/물량 산술은 결정적 코드가 맡는다. G4는 공개 배포 관문으로 별도 검사한다. [OpenAI 공식 비대화형 문서](https://learn.chatgpt.com/docs/non-interactive-mode)는 `codex exec --json` 사건 기록과 `--output-schema` 구조화 결과를 설명하고, [모델 페이지](https://developers.openai.com/api/docs/models/gpt-6.1-sol)는 `xhigh` 지원을 명시한다. 이 문서가 특정 배포 계정의 접근권·청구 방식을 보장하지는 않는다. **일반 OpenAI API 호출이나 프레임워크의 모델 커넥터는 필수 Codex CLI 실행으로 세지 않는다.** 시장 자료/검증 경로에 LangChain·LangGraph·Deep Agents·Hermes는 필요하지 않다.
+
+| 대상과 공식 근거 | 이 제품에서 얻는 것 / 새 경계 | 첫 출시 상태 | 채택 재검토 조건 |
+| --- | --- | --- | --- |
+| [LangChain Python](https://docs.langchain.com/oss/python/langchain/overview) | `create_agent`의 모델·도구 루프와 다양한 연동. CLI를 사용자 정의 도구로 감쌀 수는 있으나 이것은 별도 통합 구현이고 기본 모델 커넥터가 CLI 호출을 뜻하지 않는다. | **연기**: 현재 조사·평가의 필수 주체인 CLI와 두 번째 모델 루프를 만들 필요가 없다. | 실제로 여러 독립 모델·도구 통합이 필요해지고, CLI 모델/강도·출처·보류 보존 시험과 품질·운영비 이득이 입증될 때. |
+| [LangGraph](https://docs.langchain.com/oss/python/langgraph/overview)·[영속화](https://docs.langchain.com/oss/python/langgraph/persistence) | 단계 그래프, 영속 체크포인트, 중단/재개·사람 개입. CLI를 노드로 연결할 수 있으나 외부 수집·정산·게시의 멱등성과 증거 출처는 별도 계약이다. 작업표와 체크포인트의 상태 소유권을 정해야 한다. | **연기**: 초기에는 작업표 하나로 제출·임대·재시도·취소를 관리한다. | 여러 독립 장기 단계의 중단/재개·사람 검토가 작업표 구현을 반복적으로 복잡하게 하고, 단일 상태 소유·장애 복구 시험에서 이득이 확인될 때. |
+| [LangChain Deep Agents (`deepagents`)](https://docs.langchain.com/oss/python/deepagents/overview) | 계획·파일 맥락·하위 에이전트가 있는 별도 하네스이며 LangGraph 기반이다. Codex CLI를 필수 판단 주체로 연결하는 통합은 별도 설계·검증 대상이고 하위 호출 비용도 생긴다. | **거부(첫 출시)**. | 허용 원천의 장기 조사가 실제 병목이고 하위 작업이 출처 정확도·완결성을 높이며 요청당 비용/지연·권한·CLI 필수 경로를 시험으로 감당할 때. |
+| [Nous Research Hermes Agent](https://github.com/NousResearch/hermes-agent)·[선택형 Codex app-server 경로](https://hermes-agent.nousresearch.com/docs/user-guide/features/codex-app-server-runtime) | 세션·기억·채널을 가진 별도 실행 환경. 공식 문서의 선택형 Codex app-server 경로는 존재하나 베타이며, 기본 `openai-codex` 제공자 이름만으로 CLI 경로가 보장되지 않는다. 지정 모델/강도와 격리·사건 기록은 제품 통합 시험이 필요하다. | **거부(첫 출시)**. | 다중 채널·지속 세션이 실제 제품 요구가 되고, 선택형 CLI 경로가 안정화되며 모델 `gpt-6.1-sol`·`xhigh`·권한·출처·비용/지연을 배포 환경에서 확인할 때. |
+
+여기서 비교한 **Deep Agents는 LangChain의 `deepagents` 구현**이다. 이름이 비슷한 [RUC-NLPIR `DeepAgent` 연구 프로젝트](https://github.com/RUC-NLPIR/DeepAgent)는 별개다. 어떤 후보를 나중에 도입하더라도 Codex CLI의 필수 개발·런타임 호출, 가격/요금 출처 추적, 결정적 산술과 관문 검사를 유지한다. 프레임워크의 편의 기능은 농업·경제 검증의 대체 증거가 아니다.
+
+## 버전·재현 정책
+
+**구현된 버전 상태:** `backend/pyproject.toml`·`uv.lock`은 FastAPI `0.141.1`, Pydantic `2.13.5`, 개발용 pytest `9.1.1`을 고정한다. `web/package.json`·`package-lock.json`은 React/ReactDOM `19.3.0`, Vite `8.3.1`, TypeScript `7.0.2`, Vitest `5.0.2`, React 타입 `19.3.0`을 고정한다. 두 잠금 파일은 Git에 추적된다. 오프라인 캐시에서 `uv lock --check`, `uv sync --locked`, FastAPI/Pydantic import와 `npm ci --strict-peer-deps`(43개 패키지)가 통과했고, 이후 `node_modules`는 제거됐다. `compose.yaml`과 Dockerfile은 잠금 의존성 이미지의 정적 골격으로 추가됐으며 standalone Compose 기본·`app` 프로필 `config -q`가 통과했다. 추가로 Psycopg/psycopg-binary `3.3.6`과 런타임 jsonschema `4.26.0`을 잠그고 `uv lock --check`·동기화·import 및 사용자 로컬 PostgreSQL 16.15 연결을 확인했다. [C0 Actions 실행 36303540834](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36303540834)에서 web/API 의존성 이미지 빌드와 PostgreSQL 18.6 기동·영속성을 확인해 `compose-runtime` C0를 수용했다. [초기 백엔드 CI 실행 36318356211](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/36318356211)은 PostgreSQL 18.6에서 전체 **977 passed, 0 skipped**를 기록했다. 로컬 호스트에는 Docker Engine이 없고 앱 역할 전체 기동·웹 빌드·G1 종단 간 경로·production 라이선스 검증은 후속 작업이다.
+
+실행 완료 서명 후보에는 [Ed25519 서명·검증](https://cryptography.io/en/latest/hazmat/primitives/asymmetric/ed25519/)을 위해 [`cryptography==50.0.1`](https://pypi.org/project/cryptography/50.0.1/)을 런타임 의존성으로 잠갔다. [실행 증명 계약](../contracts/cli-execution-attestation-v1.md)의 공개키 검증 시험은 통과했지만 별도 감독 프로세스·운영 DB 역할·비밀키 배포는 아직 없다. 위 977개 CI 결과는 초기 구성의 기록이고, 새 서명 경계의 수용 증거가 아니다.
+
+후속 구성 요소를 구현할 때 각 도구의 **공식 지원 중인 안정 릴리스**와 호환 범위를 확인하고, 실제 선택한 정확한 버전을 기록한다. 베타/미리보기나 `latest` 태그를 production 기본값으로 두지 않는다. 현재 문서의 링크가 표시하는 버전이 배포 버전이라는 뜻은 아니다. 모델 ID `gpt-6.1-sol`과 추론 강도 `xhigh`는 사용자 지정값이므로 다른 값으로 자동 대체하지 않는다. 시장 어댑터/스키마, 원본 판본·권리, 조건부 시나리오 규칙과 후속 전망 모델·학습 자료·특성 절단시각·구간 보정·G3 검증 ID를 실행 manifest에 고정한다. 외부 시장 자료의 호출/저장/표시 비용과 판본 보존 용량도 배포 전 실측한다.
+
+프런트엔드는 `package-lock.json`을 커밋하고 CI에서 `npm ci`를 사용한다([npm 문서](https://docs.npmjs.com/cli/v11/commands/npm-ci/)). Python은 `pyproject.toml`과 `uv.lock`을 커밋하고 CI에서 잠금 일치 검사 후 동기화한다([uv 문서](https://docs.astral.sh/uv/concepts/projects/sync/)). Codex CLI 바이너리/패키지 버전, 프롬프트·출력 스키마 버전, 모델·계수·단위 정의 버전도 실행 manifest에 남긴다. 컨테이너의 기반/배포 이미지는 digest로 고정하고 정기 보안 업데이트 시 digest를 검토·교체한다([Docker 설명](https://docs.docker.com/reference/cli/docker/image/pull/)). 버전 갱신은 고정 스냅샷 재계산, G0~G4 관련 회귀 시험과 권리 목록 검사를 거친다.
+
+## 출시 전 외부 의존성
+
+2026-10-06의 실제 웹 CI high 감사 실패로 간접 개발 의존성 `source-map-js`만1.2.1에서
+공식 수정판1.2.2(BSD-3-Clause)로 잠금을 갱신했다. 다른 package node와 직접 의존성은
+보존했고 전체 웹503개/타입·빌드·audit0을 로컬 확인했다.
+[단일 보완 증거](../research/source-map-js-audit-fix-20261006.md)의 해당 SHA hosted 수용은 별도다.
+
+- **OpenAI 계정/자격증명:** Codex CLI 런타임 사용은 OpenAI 접근에 의존한다. [공식 인증 안내](https://developers.openai.com/codex/non-interactive-mode)는 자동화에 API 키를 설명하지만, 이 계정에서 `gpt-6.1-sol` `xhigh`의 CLI 이용 가능 여부, 허용량, 실제 과금, 공개 서비스 사용 조건은 이 문서에서 확인되지 않았다. G4 전 **실제 배포 주체의 인증된 CLI 실행·제한·계약 검토**를 통과해야 한다. 불가하면 필수 런타임이 없으므로 서비스를 출시하지 않는다.
+- **자료/현장:** 기상·작물 자료의 저장/표시/재배포 권리, 제공자 키·호출 한도와 G0의 일사 품질을 확인한다. G2에는 국내 현장 계측과 구매 에너지·요금 대조, G3에는 등급·판매·원가·현금흐름 실적 및 같은 의사결정 조건의 대응 작물 독립 검증 자료가 필요하다. 권리 확인된 지도 타일과 재배포 가능한 예제 데이터도 G4의 외부 의존성이다.
+- **운영:** 단일 호스트·백업 저장소·TLS·도메인·경고 수신 담당자를 정한다. 호스팅 사업자를 선택하면 그 사업자의 계정·비용·서비스 약속을 따로 기록한다. 요청당 CLI 실제 청구액·자료/지도·계산·저장·지원비를 계측해 [서비스 자체의 마진](ECONOMICS.md#7-검증-관문과-출시-차단-조건)을 농장 손익과 별도 검토한다.
+
+HTTPS API 실행 후보는 Uvicorn `0.54.0`을 추가 고정했다([안정 릴리스](https://pypi.org/project/uvicorn/0.54.0/), BSD-3-Clause). [서버 계약](../contracts/api-https-service-v1.md)은 인증된 FastAPI 조립을 로컬 TLS로 실행한다. 잠금은 click `8.5.0`과 h11 `0.16.0`을 함께 기록하며 선택형 standard extras는 쓰지 않는다. 실제 공개 TLS·전체 운영 factory·Compose 기동·보안/라이선스 수용은 아직 별도다.
+
+첫 [웹 화면 후보](../contracts/web-location-shell-v1.md)는 Playwright Test `1.63.0`, Node 타입 `22.20.4`, 자체 호스팅 `@fontsource-variable/noto-sans-kr` `5.3.0`을 추가로 잠갔다. 글꼴의 원본 OFL-1.1 고지를 정적 결과에 복사하고 원격 글꼴 요청은 쓰지 않는다. Node `22.22.3`/npm `11.16.0`으로 TypeScript·Vitest·Vite 및 Chromium 연결을 검증했고, 새 웹 CI는 같은 도구와 잠금 설치를 사용한다. [검증 기록](../research/web-location-shell-implementation.md)은 실제 TLS/SCRAM 시험과 모의 응답 시험을 구분한다. 전체 운영 스택/라이선스·G1/G4 수용은 남아 있다.
+
+첫 [내부 열 재생 후보](../contracts/web-thermal-replay-v1.md)는 `three@0.186.1`(MIT), `echarts@6.1.0`(Apache-2.0), 개발용 `@types/three@0.186.0`(MIT)을 정확한 버전으로 잠갔다. 별도 React 3D 래퍼는 추가하지 않았다. [Three WebGLRenderer](https://threejs.org/docs/pages/WebGLRenderer.html)의 WebGL2와 [OrbitControls](https://threejs.org/docs/pages/OrbitControls.html)를 사용하며, 차트는 [ECharts core의 필요한 모듈](https://echarts.apache.org/handbook/en/basics/import/)과 [SVG 렌더러](https://echarts.apache.org/handbook/en/best-practices/canvas-vs-svg/)를 선택했다. 라이선스 원문·ECharts NOTICE/d3 고지·zrender/tslib 고지를 `web/public/licenses/`에서 정적 빌드에 복사한다. 장면은 직접 작성한 개념 도형이고 외부 3D 자산은 없다. [검증 기록](../research/web-thermal-replay-implementation.md)은 지연 로딩·브라우저·API 연결 범위와 번들 크기 경고를 기록하며 지도·전체 운영/G1/G4 수용은 후속이다.

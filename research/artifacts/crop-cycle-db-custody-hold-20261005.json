@@ -1,0 +1,203 @@
+{
+  "schema_version": "crop-cycle-db-custody-hold-v1",
+  "recorded_at": "2026-10-05T13:55:53.367990+00:00",
+  "scope": "synthetic_crop_math_software_only",
+  "stage_status": "candidate_awaiting_registered25h_and_current_short_acceptance",
+  "snapshot_commit": "f400d06557054bbfa2cc58fe40162f3ab79913b9",
+  "file_sha256": {
+    "backend/app/crop_cycle_result_store.py": "5c503da25445a8d497dadd3c51276d588191001cacdd33a0e6e164e87a25ba1d",
+    "backend/tests/test_crop_cycle_result_store.py": "feb34143d9056f9b3d2ee5bf8e06e3b0f1c2e4f82ff4e163c0bfc26a966fdfcb",
+    "backend/tests/test_crop_cycle_result_store_farms.py": "63e4ce69d0309ccc272475b116150a323adc29bc34b00b64fb22314ed6166210"
+  },
+  "frozen49_sha256": {
+    "backend/app/crop_startup_artifact.py": "6d095d6b2c5cfff36cdfbf7b1f0b16d2acbe44e162c918a5ece637cda9c2f33a",
+    "backend/tests/test_crop_startup_artifact.py": "8c4e15afc6f113947cae2d32d4629f58ed15ea716737c29f08bd00bac998d6e6",
+    "backend/app/crop_coupled_artifact.py": "4d239f24d43bf351f3c11c9e9d59fccff30a76ef0815659f22c60fbc8ec7d017",
+    "backend/app/thermal_run_store.py": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+    "research/artifacts/crop-startup-integration-reference-20261005.json": "9b82831acb198a2b96c5c0620728ecf5b5ae245d2543b42580cfc00d253bb3b2",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "research/crop-integration-reference.py": "a38b7a67e43cf9f590838bf915ab3e5048950b8be6ed35f70817e18b42a09ce7",
+    "research/crop-plant-cohort-integration-reference.py": "9b880b9d06812f3cfa05bf1c5e47ef93811b548d2320136ce5ae813730d50a72",
+    "research/crop-fruit-startup-source-register.json": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+    "backend/app/crop_plant_startup_integration.py": "a48f2069d26024eeed5612e95bf59639f943fd6b98e789b21124a125c558656b",
+    "backend/tests/test_crop_plant_startup_integration.py": "38aa5e404124518eb9c44b9487c443de5a739ad4b1486e4eb74fe6709b637a86",
+    "research/crop-plant-startup-integration-reference.py": "c99cb9c2a83531a85183cfc9ccecc7401f95bd310bdc210cf4501d880458c44c",
+    "fixtures/crop-plant-startup-integration-reference-v1.json": "a94e4d88e02a5b29e2b1c20f0767cea6a326dccaa31278d5138667755b2f8026",
+    "fixtures/crop-fruit-transport-reference-parameters-v1.json": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070",
+    "backend/app/crop_plant_startup_rates.py": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_plant_cohort_integration.py": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+    "backend/app/crop_result_store.py": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+    "backend/app/crop_coupled_result_store.py": "765184999e07b078a6f79b414c148497ee3543b889a40a65d091a4ab44080632",
+    "backend/app/crop_startup_result_store.py": "d2e12ad750258b1b362261cb52b797de4bdcca02f84ecaaebafd9b74dab9b0af",
+    "backend/tests/test_crop_startup_result_store.py": "16e41c5a90a0838344f7e1ff185214ee4125bf52454dced3858725db210ae476",
+    "backend/app/api_crop_coupled_replay.py": "83d3eefd782206801fe645afc2e200bb621509b7c932b4a0544bbcb2bf31c582",
+    "backend/app/api_crop_startup_replay.py": "05b553e236dc3d5272829acd14f54910ef1a17400585cd7001e9992a048d7fac",
+    "backend/app/api.py": "b69837ec1793dfaf5d2d9e495d2b3d94b68209a2b462ae1113338fd25cf66fb8",
+    "backend/app/api_runtime.py": "40e183a1dfb95123f6c3c7659a974cd9717cc5f3d7ee2a78c38a8e07e5cf0d91",
+    "backend/tests/test_api_crop_startup_replay.py": "17bbfe9876eaa2488085b8cdbd3a7120299fa54bdcb05643c12c33cc37671fa2",
+    "backend/tests/test_api_openapi.py": "84d70344abe03be8bb825b475e1d78149833ce6ad6438d695784df8242529bcb",
+    "contracts/openapi-v1.json": "94bb9270ec8242aaa97fb8399b83286864ceb6e5a053173a652fd2691bceb510",
+    "backend/app/crop_cycle_continuation.py": "478f152a2395a451d9add64acf37e23ddc32a15273b14d0419869c1634596899",
+    "backend/tests/test_crop_cycle_continuation.py": "c0b0059e0816e88418ed761cbc1c5a085a23e262b4948c1f95dfd3f3ae3643a7",
+    "backend/app/crop_cycle_input_stream.py": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53",
+    "backend/tests/test_crop_cycle_input_stream.py": "dc5d9f86ebe74cb0d920939ab07381c7d729a0bc3abcffc165d702635ab4c23f",
+    "backend/app/crop_cycle_stream_execution.py": "4de399721cab82ab7f56e093b11b72682437e29bb3097e745b1e61d695d03aac",
+    "backend/tests/test_crop_cycle_stream_execution.py": "0a0800f6be8abb702ba2dcd461c00e9bf913a81c2c30ae2baabfc61b8447c3d1",
+    "backend/app/crop_cycle_artifact.py": "10bcf863ba40338f2efa7242d78c2cccd3020fbdca061951da6b7b1c5a7c51f7",
+    "backend/tests/test_crop_cycle_artifact.py": "f597dd2a952184553f7f8d68bd70c155886278c4c927291daa3d501f7294e971",
+    "backend/app/crop_cycle_result_schema.py": "94cfba00cec0d3026bc4afb133c70168e4294e5beb0b625530db8f83acce73c8",
+    "backend/tests/test_crop_cycle_result_schema.py": "81f58e8aedb2a491253aa58af8b4cd04a2304bfbe674daab0536d7b796b661d2",
+    "backend/app/crop_cycle_farm_binding.py": "4f245271487b1e55422386b42221aa8d24906d28f52403626c474c62f14568a9",
+    "backend/tests/test_crop_cycle_farm_binding.py": "d76b3be7fbbc7a76ca100538c936615df86cb6e664705810573a6dd65b97db12",
+    "backend/app/crop_cycle_server_custody.py": "85053b8dee2bf7c0a3675c92931ec9321e7e2804cf8ebb1593542212782d7683",
+    "backend/tests/test_crop_cycle_server_custody.py": "6ce4cd137cc559bd710c751da2b23307c4904daf863030d2f6280f18fea64249",
+    "backend/tests/test_crop_cycle_server_custody_farms.py": "02b653f610032c44634cba2aadf12b0ba22dd2fd39f3dacccc3cde3844debee0"
+  },
+  "cli_initial": {
+    "timestamp": "2026-10-05T12:31:45.220Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "line_sha256": "35f44d2c1d7e32eb54a9ff5014d7221380df339ff168c3a061f043526af9d66d"
+  },
+  "cli_review": {
+    "timestamp": "2026-10-05T13:06:32.226Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "line_sha256": "89ba5513a86c4de082d98d5a72822b35ec29eaec9df1e8ed2610376f4ca51ee0"
+  },
+  "recursive_cli_invocations": 0,
+  "passed_split_executions": {
+    "pure61": {
+      "passed": 61,
+      "seconds": 0.93,
+      "log_sha256": "2c910bd9207aa5b103082754bafaa019fb79508945d962d1c2bbffe381d19d13"
+    },
+    "boundary_native9": {
+      "passed": 9,
+      "pytest_seconds": 1488.61,
+      "source_snapshot": "ad9d3b0b0feb3a7c4b27f68ef87fa52563d4eb57",
+      "runner": {
+        "scope": "synthetic_cycle_db_custody_software_only",
+        "started_at": "2026-10-05T12:53:46.287994+00:00",
+        "postgres_version": "postgres (PostgreSQL) 16.15",
+        "new_dependencies": 0,
+        "servers_started": 1,
+        "pytest_arguments": [
+          "tests/test_crop_cycle_result_store_farms.py",
+          "-k",
+          "commit_boundary or separate_connection or numeric_hold or valid_hmac"
+        ],
+        "effective_nice": 10,
+        "exit_code": 0,
+        "wall_seconds": 1489.1497354159947,
+        "remaining_test_roles": 0,
+        "remaining_test_schemas": 0,
+        "remaining_test_password_files": 0,
+        "postgres_stopped": true,
+        "postgres_status_exit_code": 3,
+        "private_cluster_and_admin_password_files_removed": true,
+        "owned_servers_after": 0,
+        "peak_children_rss_mib": 125.1328125
+      },
+      "log_sha256": "cb7f9c91c4da163c870ddf7516741456c0e1c65ed38025459a3f88d51bf31ca9"
+    },
+    "physical_native1": {
+      "passed": 1,
+      "pytest_seconds": 152.11,
+      "source_snapshot": "7c539aed0a9f3ac15b0b576f61b9d1e550e1e05f",
+      "runner": {
+        "scope": "synthetic_cycle_db_custody_software_only",
+        "started_at": "2026-10-05T13:50:28.471120+00:00",
+        "postgres_version": "postgres (PostgreSQL) 16.15",
+        "new_dependencies": 0,
+        "servers_started": 1,
+        "pytest_arguments": [
+          "tests/test_crop_cycle_result_store_farms.py",
+          "-k",
+          "persisted_db"
+        ],
+        "effective_nice": 10,
+        "exit_code": 0,
+        "wall_seconds": 152.59412720799446,
+        "remaining_test_roles": 0,
+        "remaining_test_schemas": 0,
+        "remaining_test_password_files": 0,
+        "postgres_stopped": true,
+        "postgres_status_exit_code": 3,
+        "private_cluster_and_admin_password_files_removed": true,
+        "owned_servers_after": 0,
+        "peak_children_rss_mib": 125.94921875
+      },
+      "log_sha256": "7fd8431f54b62c6bde9d5863b39868431143c8c6c033d20fec3f54f9b8990066"
+    }
+  },
+  "initial_registered25h_hold": {
+    "scope": "initial_native_harness_resource_hold_not_crop_model_red",
+    "checked_at": "2026-10-05T13:50:28.294448+00:00",
+    "runner_exit_code": 1,
+    "pytest_completed": false,
+    "physical_case_reached": false,
+    "reason": "native harness process deadline 1800 seconds before registered25h terminal",
+    "reported_remaining_deadline_seconds": 1799.9999940489652,
+    "worker_transitions_and_http30s_unchanged": true,
+    "private_cluster_and_credentials_removed": true,
+    "postgres_pid_absent": true,
+    "owned_servers_after": 0,
+    "roles_and_schemas_before_stop_not_measured": true,
+    "last_recorded_observation": {
+      "retrieved_at": "2026-10-05T13:43:58.605948+00:00",
+      "heads": [
+        {
+          "commit_count": 53,
+          "confirmed_steps": 6608,
+          "terminal": false
+        }
+      ],
+      "source_code_sha256": "5c503da25445a8d497dadd3c51276d588191001cacdd33a0e6e164e87a25ba1d",
+      "source_snapshot": "7c539aed0a9f3ac15b0b576f61b9d1e550e1e05f"
+    },
+    "private_log_sha256": "48e1d1958e3272663f1927891cf2ac221fb68fab8a3c87108d3173aabdec2e17",
+    "source_and_gates_accepted_by_this_run": false
+  },
+  "functional_red": {
+    "initial_pure_passed": 60,
+    "initial_pure_failed": 1,
+    "cause": "artifact integer3 accepted float3.0 via Python equality; fixed canonical byte comparison",
+    "log_sha256": "65786d121b335b5c1d2ccaea8361d8f7103c7debe37f88420e2c422a8a67a9a6"
+  },
+  "pending": [
+    "current-module short SCRAM/fork confirmation running",
+    "registered25h complete reference, publication and original pages",
+    "accepted stage receipt and parent checkbox",
+    "exact predecessor Backend CI"
+  ],
+  "resource_procedure": {
+    "one_private_cluster_at_a_time": true,
+    "nice": 10,
+    "postgresql": "16.15",
+    "next_registered25h_native_deadline_seconds": 5400,
+    "worker_max_transitions": 128,
+    "public_http_deadline_seconds": 30,
+    "worker_http_gates_or_code_relaxed": false
+  },
+  "not_claimed": [
+    "all74 current tests passed",
+    "single full backend GREEN",
+    "registered25h terminal or DB publication in timed out case",
+    "independent domestic farm evidence",
+    "actual cultivar inputs",
+    "crop harvest fresh kg energy purchases margin ranking",
+    "G0-G4"
+  ],
+  "gate_changes": false,
+  "actual_cultivar_forcing_initial_management_adoptions": 0,
+  "independent_domestic_farm_datasets": 0,
+  "actual_crop_runs": 0
+}

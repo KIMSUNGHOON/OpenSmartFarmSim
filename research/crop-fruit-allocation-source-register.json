@@ -1,0 +1,163 @@
+{
+  "register_version": "crop-fruit-allocation-research-v1",
+  "created_at_utc": "2026-10-04T16:39:19.682773+00:00",
+  "status": "development_policy_only_not_product_or_cultivar_acceptance",
+  "cli": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "verified_turn_context_at": "2026-10-04T16:25:20.568Z",
+    "recursive_cli": false
+  },
+  "sources": [
+    {
+      "source_id": "vanthoor-thesis",
+      "source_url": "https://edepot.wur.nl/170301",
+      "product_id": "10.18174/170301",
+      "observed_period_local": null,
+      "published_at": "2011-06-17",
+      "available_at": null,
+      "available_at_status": "not reconstructed for farm decision use; research only",
+      "retrieved_at": "2026-10-04T08:51:13.324303+00:00",
+      "vintage": "published article/thesis",
+      "raw_sha256": "965ecc5573290d0cc59b514e9766b301f9584d212545dec177efa66dd756ac38",
+      "bytes": 3423075,
+      "units": "mathematical reference; parameter units and source pages recorded below",
+      "qc": "pinned bytes hash verified; scoped equations/parameters reviewed; not cultivar or G0 adoption",
+      "rights": {
+        "license": "fulltext-redistribution-unconfirmed",
+        "use": "read and reference mathematical definitions; no fulltext incorporation",
+        "display": "citation/short contextual references only; fulltext/figures not adopted",
+        "redistribution": "unconfirmed; PDF excluded from repository"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption",
+      "observed_times": null
+    },
+    {
+      "source_id": "greenhouses-crop",
+      "source_url": "https://raw.githubusercontent.com/queraltab/Greenhouses-Library/89ae0e8097eb0751abce2013d304fa5f9c09b885/Greenhouses/Components/CropYield/TomatoYieldModel.mo",
+      "product_id": "queraltab/Greenhouses-Library@89ae0e8097eb0751abce2013d304fa5f9c09b885",
+      "observed_times": null,
+      "published_at": "2019-08-02T08:14:14Z",
+      "publication_time_basis": "pinned Git commit timestamp; not proof of first public availability",
+      "available_at": null,
+      "available_at_status": "first public availability not reconstructed; research only",
+      "retrieved_at": "2026-10-04T16:31:03.005705+00:00",
+      "vintage": "commit 89ae0e8097eb0751abce2013d304fa5f9c09b885",
+      "raw_sha256": "1126f1a82ee219322f26e45e21f2463a40f17756242ad894c6ba529da225b582",
+      "bytes": 20240,
+      "units": "model equations; CH2O, fruit counts, days/seconds; not actual cultivar observations",
+      "qc": "bounded raw download/hash verified; directly reviewed crop code/doc differences",
+      "rights": {
+        "license": "BSD-3-Clause; pinned root LICENSE reviewed",
+        "use": "read and cite modelling assumptions only; no product code or raw data adopted",
+        "display": "citation/short contextual references; no figures/raw fulltext displayed",
+        "redistribution": "per BSD conditions with notices; no source incorporation/redistribution performed"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption"
+    },
+    {
+      "source_id": "greenhouses-crop-doc",
+      "source_url": "https://raw.githubusercontent.com/queraltab/Greenhouses-Library/89ae0e8097eb0751abce2013d304fa5f9c09b885/docs/cropyield.rst",
+      "product_id": "queraltab/Greenhouses-Library@89ae0e8097eb0751abce2013d304fa5f9c09b885",
+      "observed_times": null,
+      "published_at": "2019-08-02T08:14:14Z",
+      "publication_time_basis": "pinned Git commit timestamp; not proof of first public availability",
+      "available_at": null,
+      "available_at_status": "first public availability not reconstructed; research only",
+      "retrieved_at": "2026-10-04T16:31:03.006725+00:00",
+      "vintage": "commit 89ae0e8097eb0751abce2013d304fa5f9c09b885",
+      "raw_sha256": "ec51e286b131d5d1b8b613071979d182793cadfc7ffbe70fb9ae183ff74b6f53",
+      "bytes": 25465,
+      "units": "model equations; CH2O, fruit counts, days/seconds; not actual cultivar observations",
+      "qc": "bounded raw download/hash verified; directly reviewed crop code/doc differences",
+      "rights": {
+        "license": "BSD-3-Clause; pinned root LICENSE reviewed",
+        "use": "read and cite modelling assumptions only; no product code or raw data adopted",
+        "display": "citation/short contextual references; no figures/raw fulltext displayed",
+        "redistribution": "per BSD conditions with notices; no source incorporation/redistribution performed"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption"
+    },
+    {
+      "source_id": "greenhouses-license",
+      "source_url": "https://raw.githubusercontent.com/queraltab/Greenhouses-Library/89ae0e8097eb0751abce2013d304fa5f9c09b885/LICENSE",
+      "product_id": "queraltab/Greenhouses-Library@89ae0e8097eb0751abce2013d304fa5f9c09b885",
+      "observed_times": null,
+      "published_at": "2019-08-02T08:14:14Z",
+      "publication_time_basis": "pinned Git commit timestamp; not proof of first public availability",
+      "available_at": null,
+      "available_at_status": "first public availability not reconstructed; research only",
+      "retrieved_at": "2026-10-04T16:31:03.282809+00:00",
+      "vintage": "commit 89ae0e8097eb0751abce2013d304fa5f9c09b885",
+      "raw_sha256": "f3a9d70ab44de41a84954ad795d9d76a6bd845af9f570080e0ca77b2dbf24dd5",
+      "bytes": 1495,
+      "units": "model equations; CH2O, fruit counts, days/seconds; not actual cultivar observations",
+      "qc": "bounded raw download/hash verified; directly reviewed crop code/doc differences",
+      "rights": {
+        "license": "BSD-3-Clause; pinned root LICENSE reviewed",
+        "use": "read and cite modelling assumptions only; no product code or raw data adopted",
+        "display": "citation/short contextual references; no figures/raw fulltext displayed",
+        "redistribution": "per BSD conditions with notices; no source incorporation/redistribution performed"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption"
+    },
+    {
+      "source_id": "fruit-development-2021",
+      "source_url": "https://pure.tue.nl/ws/portalfiles/portal/185330090/1_s2.0_S1537511021001215_main.pdf",
+      "product_id": "10.1016/j.biosystemseng.2021.06.002",
+      "observed_times": null,
+      "published_at": "2021-06-30",
+      "publication_time_basis": "publisher PDF p300 online date; issue 2021-08-01",
+      "available_at": null,
+      "available_at_status": "date-only online publication; exact time/zone not reconstructed; no historical decision adoption",
+      "retrieved_at": "2026-10-04T16:31:43.828676+00:00",
+      "vintage": "Version of Record; TU/e cover download 2026-10-04",
+      "raw_sha256": "c0617f6510678b2089f7b447ee00e9934935aaa6117c6189c6f109369c426c17",
+      "bytes": 5681942,
+      "units": "model equations; CH2O, fruit counts, days/seconds; not actual cultivar observations",
+      "qc": "bounded 8MB PDF download/hash verified; printed pp306-307 rendered/reviewed; initial 3MB size hold preserved",
+      "rights": {
+        "license": "CC-BY-4.0 stated in article pp300/cover; generic portal boilerplate noted",
+        "use": "read and cite modelling assumptions only; no product code or raw data adopted",
+        "display": "citation/short contextual references; no figures/raw fulltext displayed",
+        "redistribution": "not performed; raw PDF excluded"
+      },
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh session 01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "status": "research_reference_not_G0_adoption"
+    }
+  ],
+  "comparison": {
+    "printed_original": "Eq9.36 tail j>=2; Eq9.37 denominator includes j=1; algebraic conservation discrepancy",
+    "greenhouses_code": "TomatoYieldModel.mo lines285-307: explicit first-stage W potential state derivative; denominator subtracts first-stage demand and adds 1e-9",
+    "greenhouses_doc": "cropyield.rst lines456-464: retains original all-stage denominator; no original-author erratum established",
+    "kuijpers2021": "printed pp306-307: modified delay model assumes fixed filtered temperature over development and steady-state fruit buffers; does not resolve original W1 or denominator",
+    "code_not_adopted": true
+  },
+  "development_policy": {
+    "policy_id": "explicit-entry-fruit-allocation-research-v1",
+    "compartments": 50,
+    "entry_mass_and_set": "explicit quantities with provenance; no Gompertz integration boundary or initial seed inferred",
+    "normalization": "sum w_j over j=2..50; no epsilon/residual redistribution; original formula intentionally changed in separate version",
+    "zero_remaining": "tail inflow zero; empty tail permitted only when no remaining inflow",
+    "holds": [
+      "A1>F",
+      "S>0 with W1=0",
+      "remaining inflow>0 with empty tail",
+      "nonfinite/negative/wrong units/shape",
+      "outside post-onset shared research domain at integration"
+    ],
+    "limitations": [
+      "first compartment receives entry mass only; existing first-stage growth demand not separately allocated",
+      "automatic fruit set/entry mass remains held",
+      "actual cultivar accuracy requires independent evidence"
+    ]
+  },
+  "gates_opened": [],
+  "actual_crop_runs": 0,
+  "independent_domestic_datasets": 0
+}

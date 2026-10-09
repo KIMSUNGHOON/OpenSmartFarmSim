@@ -1,0 +1,109 @@
+{
+  "evidence_version": "crop-cycle-full-rhs-test-isolation-reference-v1",
+  "recorded_at_utc": "2026-10-06T09:30:18.639491+00:00",
+  "scope": "native_reference_test_process_isolation_only; original math/runtime/resource guards/CI workflows unchanged",
+  "status": "focused_local_accepted; isolated_worktree_commit_pending; hosted_fix_not_run; main_integration_deferred_until_original_native_terminal",
+  "source_snapshot_base_commit": "7f7e2cc7169e742808ab5abe57546244b9fc45ed",
+  "source_sha256": {
+    "backend/tests/test_crop_cycle_full_rhs_reference.py": "28f8c544229dec6a23118c7c7b5093c3e6c0d21bdebe0471071d31f12c137670"
+  },
+  "cli": {
+    "timestamp": "2026-10-06T09:26:45.214Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "51f3593e63ea1fd2f5f5e4f3f3eef57fb97858f773699c5711d9aef4cc17b802",
+    "recursive_cli_invocations": 0
+  },
+  "hosted_failure": {
+    "head_sha": "8fe7dcec4b41fc3017bf75e6f485516c1714923a",
+    "run_id": 37434297055,
+    "job_id": 112172214121,
+    "partition": 2,
+    "passed": 519,
+    "failed": 8,
+    "deselected": 3666,
+    "seconds": 927.08,
+    "inventory_count": 4193,
+    "inventory_sha256": "aef6f199b659f872fd9a1edac00c315f00a2e05d515363fa3e7a9b4b67332096",
+    "observed_reason": "PROCESS_RESIDENT_BUDGET",
+    "exact_hosted_resident_bytes_not_recorded": true,
+    "overall_workflow_terminal_at_this_record": false
+  },
+  "same_real_parent_pressure_before": {
+    "mode": "before",
+    "pytest_exit_code": 1,
+    "wall_seconds": 1.5999095750157721,
+    "parent_resident_before": 283119616,
+    "parent_resident_at_result": 308097024,
+    "parent_peak_resident_bytes": 307933184,
+    "after_pressure_release": 54710272,
+    "nice": 15,
+    "selected_node": "tests/test_crop_cycle_full_rhs_reference.py::test_retained_writer_and_restart_preserve_all_original_rows_state_and_no_rhs_read[empty-entry]",
+    "test_source_sha256": "806a5e973080a8ff69fa85a1f76c104a94d5be8ae538cdcbbbc345491d9d85f6",
+    "script_sha256": "9544f44ea2942efc0343691d0f140e2495014a5008b78247856ae84b9f06d0c4"
+  },
+  "same_real_parent_pressure_after_initial_fix": {
+    "mode": "after",
+    "pytest_exit_code": 0,
+    "wall_seconds": 3.76238931104308,
+    "parent_resident_before": 283119616,
+    "parent_resident_at_result": 304357376,
+    "parent_peak_resident_bytes": 304660480,
+    "after_pressure_release": 50970624,
+    "nice": 15,
+    "selected_node": "tests/test_crop_cycle_full_rhs_reference.py::test_retained_writer_and_restart_preserve_all_original_rows_state_and_no_rhs_read[empty-entry]",
+    "test_source_sha256": "45140c831431ce24eb5a4c14479ddcbccd9444a8bf7276fd72abcd0ffaf42f51",
+    "script_sha256": "9544f44ea2942efc0343691d0f140e2495014a5008b78247856ae84b9f06d0c4"
+  },
+  "persistent_regression_red_without_decorator": {
+    "exit_code": 1,
+    "seconds": 1.969471721968148,
+    "real_memory_gate_in_failure": true,
+    "before_sha256": "8348eb08dd4641c28d4a1917c1b6fcc0e5b512dd8862feb4f6ef73e979e532b3",
+    "restored_sha256": "28f8c544229dec6a23118c7c7b5093c3e6c0d21bdebe0471071d31f12c137670",
+    "restored_byte_identical": true,
+    "log_sha256": "5b91f231e3b8a530e1073ff7d47126fde682de664cef3bdd405f3dbf6f67b45b"
+  },
+  "focused_final_green": {
+    "session_id": 77314,
+    "exit_code": 0,
+    "unique_nodes_passed": 18,
+    "seconds": 23.69,
+    "original_nodes_still_executed_in_child": 17,
+    "new_regression_nodes": 1,
+    "previous_final18_seconds": 23.29,
+    "counts_not_added_across_runs": true
+  },
+  "review": {
+    "original_function_bodies_unchanged": 10,
+    "original_parameter_markers_and_arguments_except_request_preserved": true,
+    "native_active_resident_limit_bytes": 268435456,
+    "real_parent_pressure_test_has_no_RSS_override": true,
+    "native_global_wall_limit_seconds": 21600,
+    "CI_workflow_or_partition_changes": 0,
+    "node_skips_or_removed_tests": 0,
+    "original_native_session_id": 81574,
+    "original_main_frozen_source_files_unchanged": 53,
+    "original_launch_source_snapshot_sha256": "035a579dc1d0ac3901ccf81301504c41e3d0652e94c394ab92db461f52f76c11",
+    "test_children_sequential": true,
+    "child_test_timeout_seconds": 60,
+    "new_PG_API_browser_servers": 0,
+    "dependency_installs": 0,
+    "full_backend_suite_not_run_locally": true,
+    "hosted_fix_accepted": false
+  },
+  "private_logs_sha256": {
+    "backend-p2-job.log": "c3920476994e575118f811a8c8ea403fb340de5703fe0b6c5102ec81096db98d",
+    "before-pressure.log": "d32b9af6af80d32385a0f54a1c577ad96699e5d35f3a90a39500ca2897efe2f9",
+    "after-pressure.log": "5caecd104005a97126ac0f7e5e5a48c7a9ed4a4af9fe12f4dcfb717711dc51b1",
+    "fresh-process-focused17.log": "5798e201d7177c53e8f7e5bf326948b94b7d5258b478020502c2fa5790d9c7a9",
+    "fresh-process-focused-final18.log": "6af8f634f3e611c859ae7592a2d41eaad5ac3e3f90fa8131198a47ecd28831b4",
+    "persistent-regression-red.log": "5b91f231e3b8a530e1073ff7d47126fde682de664cef3bdd405f3dbf6f67b45b",
+    "fresh-process-focused-after-red18.log": "1db5585f8ceac68dc328fcef72cbb8c530efc001ecdc5d269ea54c5a480a2695"
+  },
+  "pressure_reproducer_sha256": "9544f44ea2942efc0343691d0f140e2495014a5008b78247856ae84b9f06d0c4",
+  "production_crop_claims": false,
+  "actual_crop_runs": 0,
+  "domestic_independent_datasets": 0,
+  "gates": "not_assessed"
+}

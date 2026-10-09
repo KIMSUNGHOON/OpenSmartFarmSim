@@ -1,0 +1,230 @@
+{
+  "evidence_version": "crop-fruit-predecessor-ci-v1",
+  "recorded_at_utc": "2026-10-04T16:59:52.324056+00:00",
+  "head_sha": "d76410fb2ee402f2c244222536b1189bfb536c6e",
+  "scope": "predecessor saved crop replay/image regression; does not cover new fruit code",
+  "workflow_runs": [
+    {
+      "id": 37213151229,
+      "name": "Web tests",
+      "head_sha": "d76410fb2ee402f2c244222536b1189bfb536c6e",
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-10-04T15:31:27Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37213151229"
+    },
+    {
+      "id": 37213151159,
+      "name": "Application runtime verification",
+      "head_sha": "d76410fb2ee402f2c244222536b1189bfb536c6e",
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-10-04T15:35:18Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37213151159"
+    },
+    {
+      "id": 37213151211,
+      "name": "C0 Compose verification",
+      "head_sha": "d76410fb2ee402f2c244222536b1189bfb536c6e",
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-10-04T15:29:36Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37213151211"
+    },
+    {
+      "id": 37213151129,
+      "name": "Authored API PostgreSQL smoke",
+      "head_sha": "d76410fb2ee402f2c244222536b1189bfb536c6e",
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-10-04T15:44:42Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37213151129"
+    },
+    {
+      "id": 37213151173,
+      "name": "Backend tests",
+      "head_sha": "d76410fb2ee402f2c244222536b1189bfb536c6e",
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-10-04T16:46:12Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37213151173"
+    }
+  ],
+  "backend": {
+    "passed_total": 2671,
+    "partition_pass_counts": {
+      "1": 406,
+      "2": 351,
+      "3": 763,
+      "4": 488,
+      "5": 290,
+      "0": 373
+    },
+    "separate_uid_passed": 4,
+    "inventory_sha256": "343249bf7378fec59c8b9997350ba895e91b9c435d871531e400be685ea8d38e",
+    "log_bytes": 337630,
+    "log_sha256": "31cf2d1e3fc193a1ae12926b9b60df8add0cc9708347186d16da8038952015aa",
+    "partition0_api_log_bytes": 43792,
+    "partition0_api_log_sha256": "ee2962f1ff211fc241f9b81c4c3c7926542358c6fe2d2af8675b82c1bbf0685f",
+    "log_retrieval_note": "gh run view omitted partition0; raw job log API supplied its actual 373+4 pass lines",
+    "jobs": [
+      {
+        "id": 111468314230,
+        "name": "backend-partition-0",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T15:29:22Z",
+        "completed_at": "2026-10-04T15:47:38Z"
+      },
+      {
+        "id": 111468314338,
+        "name": "backend-partition-4",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T16:10:15Z",
+        "completed_at": "2026-10-04T16:46:06Z"
+      },
+      {
+        "id": 111468314369,
+        "name": "backend-partition-3",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T16:08:41Z",
+        "completed_at": "2026-10-04T16:24:08Z"
+      },
+      {
+        "id": 111468314372,
+        "name": "backend-partition-5",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T16:24:11Z",
+        "completed_at": "2026-10-04T16:42:09Z"
+      },
+      {
+        "id": 111468314399,
+        "name": "backend-partition-2",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T15:47:41Z",
+        "completed_at": "2026-10-04T16:10:12Z"
+      },
+      {
+        "id": 111468314417,
+        "name": "backend-partition-1",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T15:29:26Z",
+        "completed_at": "2026-10-04T16:08:38Z"
+      },
+      {
+        "id": 111482309473,
+        "name": "backend",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-04T16:46:09Z",
+        "completed_at": "2026-10-04T16:46:11Z"
+      }
+    ],
+    "cleanup_and_uid_steps": [
+      {
+        "job_id": 111468314230,
+        "step": "Prepare readable runtime for UID service smoke",
+        "conclusion": "success"
+      },
+      {
+        "job_id": 111468314230,
+        "step": "Check content access with distinct Linux UIDs",
+        "conclusion": "success"
+      },
+      {
+        "job_id": 111468314230,
+        "step": "Remove database and password files",
+        "conclusion": "success"
+      },
+      {
+        "job_id": 111468314338,
+        "step": "Prepare readable runtime for UID service smoke",
+        "conclusion": "skipped"
+      },
+      {
+        "job_id": 111468314338,
+        "step": "Check content access with distinct Linux UIDs",
+        "conclusion": "skipped"
+      },
+      {
+        "job_id": 111468314338,
+        "step": "Remove database and password files",
+        "conclusion": "success"
+      },
+      {
+        "job_id": 111468314369,
+        "step": "Prepare readable runtime for UID service smoke",
+        "conclusion": "skipped"
+      },
+      {
+        "job_id": 111468314369,
+        "step": "Check content access with distinct Linux UIDs",
+        "conclusion": "skipped"
+      },
+      {
+        "job_id": 111468314369,
+        "step": "Remove database and password files",
+        "conclusion": "success"
+      },
+      {
+        "job_id": 111468314372,
+        "step": "Prepare readable runtime for UID service smoke",
+        "conclusion": "skipped"
+      },
+      {
+        "job_id": 111468314372,
+        "step": "Check content access with distinct Linux UIDs",
+        "conclusion": "skipped"
+      },
+      {
+        "job_id": 111468314372,
+        "step": "Remove database and password files",
+        "conclusion": "success"
+      },
+      {
+        "job_id": 111468314399,
+        "step": "Prepare readable runtime for UID service smoke",
+        "conclusion": "skipped"
+      },
+      {
+        "job_id": 111468314399,
+        "step": "Check content access with distinct Linux UIDs",
+        "conclusion": "skipped"
+      },
+      {
+        "job_id": 111468314399,
+        "step": "Remove database and password files",
+        "conclusion": "success"
+      },
+      {
+        "job_id": 111468314417,
+        "step": "Prepare readable runtime for UID service smoke",
+        "conclusion": "skipped"
+      },
+      {
+        "job_id": 111468314417,
+        "step": "Check content access with distinct Linux UIDs",
+        "conclusion": "skipped"
+      },
+      {
+        "job_id": 111468314417,
+        "step": "Remove database and password files",
+        "conclusion": "success"
+      },
+      {
+        "job_id": 111482309473,
+        "step": "Require all partitions and identical complete inventories",
+        "conclusion": "success"
+      }
+    ],
+    "cleanup_passed_jobs": 6,
+    "uid_execution_job_id": 111468314230,
+    "conditional_uid_steps": "UID work only runs in partition0; skipped entries in other partitions retained as actual metadata"
+  },
+  "gates_opened": []
+}

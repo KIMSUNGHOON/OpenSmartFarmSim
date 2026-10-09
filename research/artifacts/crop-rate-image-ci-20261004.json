@@ -1,0 +1,167 @@
+{
+  "schema_version": "crop-rate-image-ci-v1",
+  "accepted_scope": "profile_and_license_packaging_only",
+  "accepted_head_sha": "207e20e6a99533bd0419cfa24ba8e3dec8f6d3d0",
+  "workflow_run_id": 37194520191,
+  "status": "completed",
+  "conclusion": "success",
+  "observed_at": "2026-10-04T10:21:21.162765+00:00",
+  "job": {
+    "completedAt": "2026-10-04T10:17:32Z",
+    "conclusion": "success",
+    "databaseId": 111413494194,
+    "name": "images",
+    "startedAt": "2026-10-04T10:10:46Z",
+    "status": "completed",
+    "steps": [
+      {
+        "conclusion": "success",
+        "name": "Set up job",
+        "number": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "number": 2,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Build and verify isolated application images",
+        "number": 3,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+        "number": 4,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Install locked host test harness",
+        "number": 5,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Verify actual Compose API and automatic worker",
+        "number": 6,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Verify actual Compose owned collection consumer",
+        "number": 7,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Verify actual Compose scoped research authority",
+        "number": 8,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+        "number": 15,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+        "number": 16,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Complete job",
+        "number": 17,
+        "status": "completed"
+      }
+    ],
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37194520191/job/111413494194"
+  },
+  "log_bytes": 49840,
+  "log_sha256": "dbc06d5873952d2987223d91d5a87426c77286ff49cdfef36f3e23e22e49873c",
+  "check_sequence": [
+    "actual_build_context",
+    "image_built",
+    "image_built",
+    "backend_readonly_imports_and_closed_startup",
+    "web_static_tls_and_fixture_proxy",
+    "web_static_tls_and_fixture_proxy",
+    "cleanup",
+    "actual_build_context",
+    "image_built",
+    "image_built",
+    "actual_compose_process",
+    "actual_compose_process",
+    "actual_compose_process",
+    "tls_scram_automatic_economic_completion",
+    "restart_current_completed_result",
+    "current_grant_drift_refused",
+    "compose_cleanup",
+    "actual_build_context",
+    "image_built",
+    "image_built",
+    "automatic_owned_collection",
+    "actual_compose_process",
+    "actual_compose_process",
+    "actual_compose_process",
+    "actual_compose_process",
+    "tls_scram_automatic_economic_completion",
+    "restart_current_completed_result",
+    "collection_restart_and_parent_withdrawal",
+    "current_grant_drift_refused",
+    "collector_current_grant_refused",
+    "compose_cleanup",
+    "actual_build_context",
+    "image_built",
+    "image_built",
+    "research_terminal_hold",
+    "held_research_ingestion_refused",
+    "automatic_scoped_research_hold",
+    "actual_compose_process",
+    "actual_compose_process",
+    "actual_compose_process",
+    "actual_compose_process",
+    "actual_compose_process",
+    "actual_compose_process",
+    "tls_scram_automatic_economic_completion",
+    "restart_current_completed_result",
+    "research_restart_current_hold",
+    "current_grant_drift_refused",
+    "dispatcher_current_grant_refused",
+    "compose_cleanup"
+  ],
+  "actual_build_context_excluded_probe_counts": [
+    13,
+    13,
+    13,
+    13
+  ],
+  "required_inputs": {
+    "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "license_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a"
+  },
+  "verification_code_sha256": {
+    "scripts/check-application-images.py": "1c07fb6c4a50601ffc13fd1efb8b127580cd3de5217dfc6350decb4f337e1b8b",
+    "backend/Dockerfile": "62dc413179d8c8c0bcf5c631aee35b9780024de14ee0078909c38e56960120cb",
+    ".dockerignore": "e4c04df0f53d91d607283e9626ff53aa85965a7ea94220bcf914e0cc321ce60a"
+  },
+  "cleanup": {
+    "isolated_image_check_success": true,
+    "compose_cleanup_success_count": 3
+  },
+  "remaining_holds": [
+    "new_whole_backend_ci_not_terminal",
+    "actual_product_cli_and_independent_release",
+    "end_to_end_g1",
+    "domestic_g2",
+    "crop_and_economic_g3a",
+    "paired_comparison_g3b",
+    "public_g4"
+  ]
+}

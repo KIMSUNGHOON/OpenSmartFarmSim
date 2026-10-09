@@ -1,0 +1,579 @@
+{
+  "fixture_id": "synthetic-thermal-parameters-v1",
+  "synthetic": true,
+  "claim_scope": "synthetic_g1_software_input_only",
+  "author": "OpenSmartFarmSim fixture authors",
+  "generated_at_utc": "2026-09-27T09:04:00Z",
+  "published_at_utc": "2026-09-27T09:04:00Z",
+  "available_at_utc": "2026-09-27T09:04:00Z",
+  "retrieved_at_utc": "2026-09-27T09:04:00Z",
+  "vintage_id": "synthetic-thermal-parameters-v1-vintage-1",
+  "revision_id": "r3",
+  "assumption_basis": {
+    "basis_ref": "thermal-assumption-v1",
+    "version": "v1",
+    "author": "OpenSmartFarmSim fixture authors",
+    "method": "Self-authored rounded constants, facility/control sentinels, and inclusive 289-293 K test domain for software contracts only; no provider validity or accuracy claim, literature calibration, or site measurement.",
+    "rights": "author_owned_apache_2_0"
+  },
+  "law_source": {
+    "basis_ref": "nws-epz-vapor-pressure-pdf",
+    "url": "https://www.weather.gov/media/epz/wxcalc/vaporPressure.pdf",
+    "final_url": "https://www.weather.gov/media/epz/wxcalc/vaporPressure.pdf",
+    "source_locator": "https://www.weather.gov/media/epz/wxcalc/vaporPressure.pdf",
+    "product_id": "NWS El Paso Vapor Pressure formula PDF",
+    "version": null,
+    "version_status": "no dated provider version stated in PDF; raw SHA-256 identifies observed bytes",
+    "vintage_id": null,
+    "revision_id": null,
+    "published_at_utc": null,
+    "publication_time": null,
+    "publication_time_status": "unknown; HTTP Last-Modified is not publication time",
+    "available_at_utc": null,
+    "retrieved_at_utc": "2026-09-27T08:33:51Z",
+    "http_status": 200,
+    "http_content_type": "application/pdf",
+    "http_last_modified_utc": "2017-02-04T01:36:33Z",
+    "raw_pdf_byte_length": 72617,
+    "raw_pdf_sha256": "74e5a28ee21bde51d5ffad17f2418dc5c827c338d1bc11a09cbd7c623b87b621",
+    "formula_text": "p_sat_hPa=6.11*10^(7.5*t_C/(237.3+t_C)); t_C=T_K-273.15; p_sat_Pa=100*p_sat_hPa",
+    "formula_encoding": "UTF-8 canonical project transcription, exactly as serialized JSON string content; SHA-256 is of this text, not the PDF",
+    "observation_status": "not_applicable_published_equation",
+    "observed_start_utc": null,
+    "observed_end_utc": null,
+    "original_unit": "hPa",
+    "declared_validity_interval": null,
+    "quantitative_accuracy": null,
+    "provider_qc_status": "not_specified",
+    "project_qc_status": "author checked formula and units; independent CLI review checked NWS formula, BIPM conversions, conditional disclaimer rights, and former fixture arithmetic; no server gate decision",
+    "reviewer": {
+      "session_id": "01a0e210-df86-7e10-8c8e-d29a946c0e7d",
+      "model": "gpt-6-sol",
+      "model_reasoning_effort": "xhigh",
+      "reviewed_at_utc_minute": "2026-09-27T08:59Z",
+      "reviewed_fixture_raw_sha256": "4787a2dee823f6ea4b64922e08f8aa618f9f1f499f22236e4282d9cef0b0071a",
+      "reviewed_manifest_raw_sha256": "1c2e5cd0f286118c46b5ed7b066e501cbd658ad197dc77b8cf4e95a0076461fb",
+      "scope": "Independent Codex CLI review of NWS PDF formula and units, BIPM conversions, NWS disclaimer conditional rights, and arithmetic in the former fixture and manifest bytes.",
+      "limitations": "Saved PDF was independently hashed; no fresh remote byte comparison, review of new metadata bytes, server G0/G1 decision, human rights approval, field validation, or accepted thermal run."
+    },
+    "review_status": "independent_cli_source_and_conditional_rights_review_completed",
+    "rights": {
+      "basis_url": "https://www.weather.gov/disclaimer",
+      "publication": "public_domain_unless_specifically_noted_otherwise",
+      "use": "allowed_with_conditions",
+      "store": "allowed_with_conditions",
+      "transform": "allowed_with_conditions",
+      "display": "allowed_with_conditions",
+      "redistribute": "allowed_with_conditions",
+      "conditions": "Lawful use; do not claim NWS content as own; do not imply endorsement or affiliation; do not present modified information as official.",
+      "third_party_caveat": "NWS disclaimer excludes specifically noted third-party material; independent CLI review found no special notice in this one-page PDF's extracted text; third-party rights remain conditional.",
+      "scope": "NWS PDF and formula under official disclaimer; self-authored fixture text has separate Apache-2.0 rights; no Apache relicensing of PDF",
+      "status": "nws_public_domain_disclaimer_independent_cli_reviewed_conditional"
+    }
+  },
+  "initial_state": {
+    "temperature": {
+      "value": 293,
+      "unit": "K",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "humidity_ratio": {
+      "value": 0.008,
+      "unit": "kg_v/kg_da",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    }
+  },
+  "parameters": {
+    "effective_heat_capacity": {
+      "value": 1000000,
+      "unit": "J/K",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "dry_air_mass": {
+      "value": 1000,
+      "unit": "kg_da",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "dry_air_specific_heat": {
+      "value": 1000,
+      "unit": "J/(kg_da*K)",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "latent_heat": {
+      "value": 2500000,
+      "unit": "J/kg_v",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "envelope_conductance": {
+      "value": 200,
+      "unit": "W/K",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "indoor_volume": {
+      "value": 850,
+      "unit": "m³",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "floor_area": {
+      "value": 100,
+      "unit": "m²",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "absorbed_solar_fraction": {
+      "value": 0.5,
+      "unit": "1",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "dry_air_gas_constant": {
+      "value": 287,
+      "unit": "J/(kg_da*K)",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "vapor_gas_constant": {
+      "value": 461,
+      "unit": "J/(kg_v*K)",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "saturation_pressure_rule": {
+      "formula_id": "nws-epz-vapor-pressure-pdf",
+      "formula_ref": "nws-epz-vapor-pressure-pdf",
+      "formula_version": "nws-formula-transcription-v1",
+      "formula_sha256": "ea8d52e0bb02e36afb796b245f7df5dd3ce267fb7f0ea5c57dfa9b4e491e6b4b",
+      "temperature_min": {
+        "value": 289,
+        "unit": "K",
+        "origin": "assumed",
+        "basis_ref": "thermal-assumption-v1",
+        "version": "v1"
+      },
+      "temperature_max": {
+        "value": 293,
+        "unit": "K",
+        "origin": "assumed",
+        "basis_ref": "thermal-assumption-v1",
+        "version": "v1"
+      },
+      "coefficients": [
+        {
+          "name": "pressure_coefficient",
+          "value": 6.11,
+          "unit": "hPa",
+          "origin": "literature",
+          "basis_ref": "nws-epz-vapor-pressure-pdf",
+          "version": "nws-formula-transcription-v1"
+        },
+        {
+          "name": "exponent_factor",
+          "value": 7.5,
+          "unit": "1",
+          "origin": "literature",
+          "basis_ref": "nws-epz-vapor-pressure-pdf",
+          "version": "nws-formula-transcription-v1"
+        },
+        {
+          "name": "denominator_offset",
+          "value": 237.3,
+          "unit": "°C_interval",
+          "origin": "literature",
+          "basis_ref": "nws-epz-vapor-pressure-pdf",
+          "version": "nws-formula-transcription-v1"
+        },
+        {
+          "name": "exponential_base",
+          "value": 10,
+          "unit": "1",
+          "origin": "literature",
+          "basis_ref": "nws-epz-vapor-pressure-pdf",
+          "version": "nws-formula-transcription-v1"
+        },
+        {
+          "name": "kelvin_to_celsius_offset",
+          "value": 273.15,
+          "unit": "K",
+          "origin": "literature",
+          "basis_ref": "bipm-si-unit-conversions",
+          "version": "bipm-si-conversion-transcription-v1"
+        },
+        {
+          "name": "hpa_to_pa_factor",
+          "value": 100,
+          "unit": "Pa/hPa",
+          "origin": "literature",
+          "basis_ref": "bipm-si-unit-conversions",
+          "version": "bipm-si-conversion-transcription-v1"
+        }
+      ]
+    }
+  },
+  "heater": {
+    "mode": "indirect_sensible",
+    "capacity_basis": "delivered_thermal_power",
+    "capacity": {
+      "value": 500,
+      "unit": "W_th",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "available": {
+      "value": true,
+      "unit": "1",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "setpoint": {
+      "value": 293,
+      "unit": "K",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "control_version": "thermal-indirect-sensible-end-target-v1"
+  },
+  "condensation_policy": "hold_on_saturation",
+  "integration": {
+    "method": "explicit_euler",
+    "substep": {
+      "value": 60,
+      "unit": "s",
+      "origin": "assumed",
+      "basis_ref": "thermal-assumption-v1",
+      "version": "v1"
+    },
+    "stability_rule_ref": "thermal-euler-stability-v1",
+    "residual_rule_ref": "thermal-binary64-residual-v1",
+    "residual_tolerances": {
+      "vapor_residual": {
+        "value": 1.2e-13,
+        "unit": "kg_v",
+        "origin": "assumed",
+        "basis_ref": "thermal-assumption-v1",
+        "version": "v1"
+      },
+      "aggregate_energy_residual": {
+        "value": 4.5e-06,
+        "unit": "J",
+        "origin": "assumed",
+        "basis_ref": "thermal-assumption-v1",
+        "version": "v1"
+      },
+      "rationale": "pre-registered absolute <= limit per 60 s step; NWS-recomputed upstream envelope gives mass operand sum <16.1 kg_v and energy operand sum <6.28e8 J including both endpoint stores. gamma_64=64*u/(1-64*u), u=2^-53, gives bounds <1.144e-13 kg_v and <4.463e-6 J. Conditional on reviewed IEEE-754 binary64 operation order with <=64 relevant rounded operations; otherwise HOLD.",
+      "rule_version": "v1"
+    },
+    "step_convergence_tolerances": {
+      "temperature": {
+        "value": 8.1e-05,
+        "unit": "K",
+        "origin": "assumed",
+        "basis_ref": "thermal-assumption-v1",
+        "version": "v1"
+      },
+      "humidity_ratio": {
+        "value": 5.4e-10,
+        "unit": "kg_v/kg_da",
+        "origin": "assumed",
+        "basis_ref": "thermal-assumption-v1",
+        "version": "v1"
+      },
+      "delivered_heat_energy": {
+        "value": 0,
+        "unit": "J",
+        "origin": "assumed",
+        "basis_ref": "thermal-assumption-v1",
+        "version": "v1"
+      },
+      "rationale": "pre-registered absolute <= limit for one 60 s Euler step versus two 30 s steps with identical NWS-normalized forcing and controller reevaluation: (dt*a/2)^2*max equilibrium distance =8.019e-5 K and <5.277e-10 kg_v/kg_da over the upstream invariant envelope, with binary64 margins. Cap active throughout; 500*60=2*500*30 J exactly. Software checks, not accuracy claims.",
+      "rule_version": "v1"
+    }
+  },
+  "conversion_rules": {
+    "outdoor_humidity_ratio": {
+      "rule_ref": "thermal-outdoor-w-v1",
+      "version": "v1",
+      "formula": "t_C=T_o_K-273.15; p_sat_hPa=6.11*10^(7.5*t_C/(237.3+t_C)); p_sat_Pa=100*p_sat_hPa; e_o=phi_o*p_sat_Pa; w_o=(R_da/R_v)*e_o/(p_o-e_o)",
+      "input_domain": "289<=T_o_K<=293 project synthetic range; 0<=phi_o<=1; p_o>e_o; same weather interval",
+      "saturation_rule_input_record_id": "synthetic-thermal-parameters-v1:/parameters/saturation_pressure_rule",
+      "unit_conversion_basis_ref": "bipm-si-unit-conversions"
+    },
+    "solar_gain": {
+      "rule_ref": "thermal-solar-interval-v1",
+      "version": "v1",
+      "formula": "Q_solar=H_solar*A_floor*f_abs/(end_utc-start_utc)",
+      "input_domain": "positive UTC interval; H_solar>=0 J/m²; 0<=f_abs<=1; constant W only inside linked hour"
+    }
+  },
+  "input_records": [
+    {
+      "record_id": "synthetic-thermal-parameters-v1:/parameters/dry_air_gas_constant",
+      "file_id": "synthetic-thermal-parameters-v1",
+      "json_pointer": "/parameters/dry_air_gas_constant",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-thermal-parameters-v1:/parameters/vapor_gas_constant",
+      "file_id": "synthetic-thermal-parameters-v1",
+      "json_pointer": "/parameters/vapor_gas_constant",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-thermal-parameters-v1:/parameters/floor_area",
+      "file_id": "synthetic-thermal-parameters-v1",
+      "json_pointer": "/parameters/floor_area",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-thermal-parameters-v1:/parameters/absorbed_solar_fraction",
+      "file_id": "synthetic-thermal-parameters-v1",
+      "json_pointer": "/parameters/absorbed_solar_fraction",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-thermal-parameters-v1:/parameters/saturation_pressure_rule",
+      "file_id": "synthetic-thermal-parameters-v1",
+      "json_pointer": "/parameters/saturation_pressure_rule",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-weather-v1:/intervals/0/values/T_o",
+      "file_id": "synthetic-weather-v1",
+      "json_pointer": "/intervals/0/values/T_o",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-weather-v1:/intervals/0/values/phi_o",
+      "file_id": "synthetic-weather-v1",
+      "json_pointer": "/intervals/0/values/phi_o",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-weather-v1:/intervals/0/values/p_o",
+      "file_id": "synthetic-weather-v1",
+      "json_pointer": "/intervals/0/values/p_o",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-weather-v1:/intervals/0/values/solar_interval_energy",
+      "file_id": "synthetic-weather-v1",
+      "json_pointer": "/intervals/0/values/solar_interval_energy",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-weather-v1:/intervals/0/start_utc",
+      "file_id": "synthetic-weather-v1",
+      "json_pointer": "/intervals/0/start_utc",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-weather-v1:/intervals/0/end_utc",
+      "file_id": "synthetic-weather-v1",
+      "json_pointer": "/intervals/0/end_utc",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-weather-v1:/intervals/1/values/T_o",
+      "file_id": "synthetic-weather-v1",
+      "json_pointer": "/intervals/1/values/T_o",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-weather-v1:/intervals/1/values/phi_o",
+      "file_id": "synthetic-weather-v1",
+      "json_pointer": "/intervals/1/values/phi_o",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-weather-v1:/intervals/1/values/p_o",
+      "file_id": "synthetic-weather-v1",
+      "json_pointer": "/intervals/1/values/p_o",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-weather-v1:/intervals/1/values/solar_interval_energy",
+      "file_id": "synthetic-weather-v1",
+      "json_pointer": "/intervals/1/values/solar_interval_energy",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-weather-v1:/intervals/1/start_utc",
+      "file_id": "synthetic-weather-v1",
+      "json_pointer": "/intervals/1/start_utc",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    },
+    {
+      "record_id": "synthetic-weather-v1:/intervals/1/end_utc",
+      "file_id": "synthetic-weather-v1",
+      "json_pointer": "/intervals/1/end_utc",
+      "resolution": "later server resolves file_id through manifest-v2 raw SHA-256 and JSON pointer"
+    }
+  ],
+  "intervals": [
+    {
+      "start_utc": "2026-10-15T08:00:00Z",
+      "end_utc": "2026-10-15T09:00:00Z",
+      "weather_ref": {
+        "fixture_id": "synthetic-weather-v1",
+        "interval_index": 0
+      },
+      "weather_input_ids": {
+        "T_o": "synthetic-weather-v1:/intervals/0/values/T_o",
+        "phi_o": "synthetic-weather-v1:/intervals/0/values/phi_o",
+        "p_o": "synthetic-weather-v1:/intervals/0/values/p_o",
+        "solar_interval_energy": "synthetic-weather-v1:/intervals/0/values/solar_interval_energy"
+      },
+      "assumed_forcing": {
+        "ventilation_dry_air_flow": {
+          "value": 0.02,
+          "unit": "kg_da/s",
+          "origin": "assumed",
+          "basis_ref": "thermal-assumption-v1",
+          "version": "v1"
+        },
+        "canopy_evaporation": {
+          "value": 1e-05,
+          "unit": "kg_v/s",
+          "origin": "assumed",
+          "basis_ref": "thermal-assumption-v1",
+          "version": "v1"
+        },
+        "ground_heat_flow": {
+          "value": 0,
+          "unit": "W",
+          "origin": "assumed",
+          "basis_ref": "thermal-assumption-v1",
+          "version": "v1"
+        }
+      },
+      "derived_forcing": {
+        "outdoor_humidity_ratio": {
+          "unit": "kg_v/kg_da",
+          "status": "pending_deterministic_engine",
+          "calculation_rule_ref": "thermal-outdoor-w-v1",
+          "calculation_rule_version": "v1",
+          "input_record_ids": [
+            "synthetic-weather-v1:/intervals/0/values/T_o",
+            "synthetic-weather-v1:/intervals/0/values/phi_o",
+            "synthetic-weather-v1:/intervals/0/values/p_o",
+            "synthetic-thermal-parameters-v1:/parameters/dry_air_gas_constant",
+            "synthetic-thermal-parameters-v1:/parameters/vapor_gas_constant",
+            "synthetic-thermal-parameters-v1:/parameters/saturation_pressure_rule"
+          ]
+        },
+        "solar_gain": {
+          "unit": "W",
+          "status": "pending_deterministic_engine",
+          "calculation_rule_ref": "thermal-solar-interval-v1",
+          "calculation_rule_version": "v1",
+          "input_record_ids": [
+            "synthetic-weather-v1:/intervals/0/values/solar_interval_energy",
+            "synthetic-weather-v1:/intervals/0/start_utc",
+            "synthetic-weather-v1:/intervals/0/end_utc",
+            "synthetic-thermal-parameters-v1:/parameters/floor_area",
+            "synthetic-thermal-parameters-v1:/parameters/absorbed_solar_fraction"
+          ]
+        }
+      }
+    },
+    {
+      "start_utc": "2026-10-15T09:00:00Z",
+      "end_utc": "2026-10-15T10:00:00Z",
+      "weather_ref": {
+        "fixture_id": "synthetic-weather-v1",
+        "interval_index": 1
+      },
+      "weather_input_ids": {
+        "T_o": "synthetic-weather-v1:/intervals/1/values/T_o",
+        "phi_o": "synthetic-weather-v1:/intervals/1/values/phi_o",
+        "p_o": "synthetic-weather-v1:/intervals/1/values/p_o",
+        "solar_interval_energy": "synthetic-weather-v1:/intervals/1/values/solar_interval_energy"
+      },
+      "assumed_forcing": {
+        "ventilation_dry_air_flow": {
+          "value": 0.02,
+          "unit": "kg_da/s",
+          "origin": "assumed",
+          "basis_ref": "thermal-assumption-v1",
+          "version": "v1"
+        },
+        "canopy_evaporation": {
+          "value": 1e-05,
+          "unit": "kg_v/s",
+          "origin": "assumed",
+          "basis_ref": "thermal-assumption-v1",
+          "version": "v1"
+        },
+        "ground_heat_flow": {
+          "value": 0,
+          "unit": "W",
+          "origin": "assumed",
+          "basis_ref": "thermal-assumption-v1",
+          "version": "v1"
+        }
+      },
+      "derived_forcing": {
+        "outdoor_humidity_ratio": {
+          "unit": "kg_v/kg_da",
+          "status": "pending_deterministic_engine",
+          "calculation_rule_ref": "thermal-outdoor-w-v1",
+          "calculation_rule_version": "v1",
+          "input_record_ids": [
+            "synthetic-weather-v1:/intervals/1/values/T_o",
+            "synthetic-weather-v1:/intervals/1/values/phi_o",
+            "synthetic-weather-v1:/intervals/1/values/p_o",
+            "synthetic-thermal-parameters-v1:/parameters/dry_air_gas_constant",
+            "synthetic-thermal-parameters-v1:/parameters/vapor_gas_constant",
+            "synthetic-thermal-parameters-v1:/parameters/saturation_pressure_rule"
+          ]
+        },
+        "solar_gain": {
+          "unit": "W",
+          "status": "pending_deterministic_engine",
+          "calculation_rule_ref": "thermal-solar-interval-v1",
+          "calculation_rule_version": "v1",
+          "input_record_ids": [
+            "synthetic-weather-v1:/intervals/1/values/solar_interval_energy",
+            "synthetic-weather-v1:/intervals/1/start_utc",
+            "synthetic-weather-v1:/intervals/1/end_utc",
+            "synthetic-thermal-parameters-v1:/parameters/floor_area",
+            "synthetic-thermal-parameters-v1:/parameters/absorbed_solar_fraction"
+          ]
+        }
+      }
+    }
+  ],
+  "provenance_status": "author proposal only; record IDs, hashes, rights, QC and reviewer require deterministic server resolution before any accepted trace",
+  "acceptance_status": "HOLD; independent CLI source review is not a deterministic thermal engine, trace, accepted Run, server G0/G1 decision, local validation, or operation-order review",
+  "unit_basis": {
+    "basis_ref": "bipm-si-unit-conversions",
+    "version": "bipm-si-conversion-transcription-v1",
+    "source_urls": {
+      "kelvin_to_celsius_offset": "https://www.bipm.org/documents/20126/41489682/SI-App2-kelvin.pdf/",
+      "hpa_to_pa_factor": "https://www.bipm.org/en/measurement-units/si-prefixes"
+    },
+    "basis": "Project-local transcription of exact SI conversions: BIPM MeP-K gives t_C=T_K-273.15, and BIPM SI prefixes gives hecto=10^2, hence 1 hPa=100 Pa. The basis_ref and version are project IDs, not BIPM identifiers or publication dates; these are not NWS empirical coefficients."
+  }
+}

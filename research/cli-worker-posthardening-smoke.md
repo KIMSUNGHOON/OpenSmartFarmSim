@@ -1,0 +1,13 @@
+# Post-hardening Codex CLI worker smoke
+
+Run at 2026-09-27T13:24:10Z on the local PostgreSQL 16.15 test database with `codex-cli 0.157.1`. The repository command was `OSSF_TEST_PG_DSN=<private local DSN> OSSF_REAL_CLI_PATH=<absolute CLI path> bash scripts/run-cli-smoke.sh --run`. The wrapper created a private temporary Codex home, copied only the private credential, then deleted that home. The test database schema was also deleted by its fixture. No credential, prompt, JSONL, final output, or restricted source bytes are retained in this file.
+
+`tests/test_cli_worker.py::test_real_cli_three_stage_synthetic_hold` passed (`1 passed in 27.44s`). Each of the three actual CLI subprocesses was invoked with `gpt-6-sol`, `model_reasoning_effort="xhigh"`, the JSON output schema, and a read-only sandbox. The test checked that its JSONL and final output were retained under matching hashes, its exit code was zero, and the server produced a decision plus a validated `hold` report. The input was self-authored synthetic metadata with missing real-source G0 evidence.
+
+| Stage | Job ID | Capture ID | Decision ID | JSONL SHA-256 | Final SHA-256 | Input tokens | Cached input | Output tokens | Reasoning output |
+| --- | --- | --- | --- | --- | --- | ---: | ---: | ---: | ---: |
+| `research` | `83f9a470-3a46-4a90-b3a1-03e10e6c2153` | `ffbf9ed1-c1eb-498e-8d94-d2400e0fc3c3` | `15f35dc0-bb12-4681-b67e-645e4a982ec3` | `635b1f2047bed9db16380f6ce7fae44b2a4f31afc4d85cc241b6253335485ad1` | `86bfddb39cc851d3c5af490d6e5032028f59d344f1d60e79437cf5ae1933d61b` | 14,326 | 0 | 171 | 43 |
+| `collection_review` | `6d1a7839-09ed-419e-9d24-ab88f5fb664e` | `5727f55a-62c5-4efe-a357-3b6c6e42cf56` | `886810b3-ef6d-4224-b47a-726ddd075092` | `5b642e074f35f51760c84dc4ccd4db34a7488c0b722588e405610e7c1f2ca9b6` | `dd2a548e1875a25008b2b41a111b40eb065083aad47e3733003b2fe418cce92f` | 14,319 | 0 | 184 | 56 |
+| `assessment` | `5bdfeef7-546d-44e8-98a4-072f491da249` | `7c96edb1-e9b1-44cb-a11f-b4d4634dfbf7` | `509fa85f-aa29-4e2e-89e7-3ed14186d569` | `c48896d3d5ba0915b744c4012cb342b6a284937c924b87b32a9f5f0b39c55603` | `18e57d5fb5d5fe48ebc81f66c04f80e7c0c347d566638fec6eb8a70fa9350671` | 14,295 | 12,032 | 183 | 59 |
+
+The three calls report 42,940 input tokens and 538 output tokens in total. These usage counters do not establish billed cost. This smoke verifies the post-hardening local subprocess and JobStore path only. The worker still requires `synthetic_smoke=True`; no production process attestation, job-specific container/egress isolation, independently signed release, or product runtime G1 claim follows from this result.

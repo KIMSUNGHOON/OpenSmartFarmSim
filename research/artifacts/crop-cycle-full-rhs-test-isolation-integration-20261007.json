@@ -1,0 +1,70 @@
+{
+  "evidence_version": "crop-cycle-full-rhs-test-isolation-integration-v1",
+  "recorded_at_utc": "2026-10-07T02:03:42.716565+00:00",
+  "native_cli": {
+    "timestamp": "2026-10-07T01:57:57.942Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "2f2ce09f71ab416702b664816fc4ac532fba2f2a8e3c001241276dac216eae9a",
+    "recursive_cli_invocations": 0
+  },
+  "scope": "Normal cherry-pick of preserved CI test process isolation; current focused and source review; original missing166 remains hold; no hosted fix acceptance yet.",
+  "preserved_candidate_commit": "e310e27581828a1a22a25148aa4e57d8805d9e2e",
+  "integrated_commit": "4bf9af3ec502e10d790140dd7f83fa4a37d8f885",
+  "original_result_evidence_commit": "c899b30",
+  "source_sha256": {
+    "backend/tests/test_crop_cycle_full_rhs_reference.py": "28f8c544229dec6a23118c7c7b5093c3e6c0d21bdebe0471071d31f12c137670"
+  },
+  "focused_tests": {
+    "session_id": 28492,
+    "exit_code": 0,
+    "passed": 18,
+    "seconds": 24.3,
+    "log_sha256": "978cc8c9e38ce02f88d39550c5c1df023a24b6a739019c78e54202eb25be2bf3",
+    "command": "cd backend; nice -n 15 .venv/bin/python -m pytest tests/test_crop_cycle_full_rhs_reference.py -q"
+  },
+  "delivery_review": {
+    "links": 2476,
+    "links_and_anchors": "passed",
+    "dags": [
+      {
+        "edges": 99,
+        "acyclic": true
+      },
+      {
+        "edges": 89,
+        "acyclic": true
+      }
+    ],
+    "prior_primitive_source_hashes": 9,
+    "original53_current_unchanged": false,
+    "original_math52_unchanged": true,
+    "authorized_CI_test_only_changes": [
+      "backend/tests/test_crop_cycle_full_rhs_reference.py"
+    ],
+    "original_test_function_bodies_preserved": 10,
+    "related_unique_passed": 89,
+    "old_own5h_raw_currently_available": false,
+    "whole166_and_parent_acceptance": false,
+    "git_diff_check": "passed"
+  },
+  "delivery_review_sha256": "cec1d0c73b72f736e7cfc3a5c108697bdca6e8daa6eadb06b90a6ac4908c9198",
+  "original_small_strategy_math_driver_and_profile51_source_unchanged": true,
+  "original_test_bodies_preserved": 10,
+  "original_parameter_markers_preserved": true,
+  "original_limits": {
+    "process_resident_bytes": 268435456,
+    "global_wall_seconds": 21600
+  },
+  "workflow_timeout_outputs_solver_or_product_math_changes": false,
+  "prior_remote_head": "8fe7dcec4b41fc3017bf75e6f485516c1714923a",
+  "prior_CI_all_five_terminal_reconfirmed": true,
+  "prior_backend_failed": true,
+  "new_hosted_CI_accepted": false,
+  "original166_restarted_or_budget_reset": false,
+  "original166_terminal_outcome": "unverifiable",
+  "actual_crop_runs": 0,
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "gates": "not_assessed"
+}

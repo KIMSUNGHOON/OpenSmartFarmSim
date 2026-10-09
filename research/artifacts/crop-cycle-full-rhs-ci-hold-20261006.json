@@ -1,0 +1,265 @@
+{
+  "evidence_version": "crop-cycle-full-rhs-ci-hold-v1",
+  "recorded_at_utc": "2026-10-06T10:00:57.421688+00:00",
+  "scope": "remote8fe_profile_full_runner_and_research_input_witness; excludes_local3ad7f_and_isolatede310_fix",
+  "head_sha": "8fe7dcec4b41fc3017bf75e6f485516c1714923a",
+  "all_workflows_terminal": true,
+  "workflows": [
+    {
+      "id": 37434297080,
+      "name": "C0 Compose verification",
+      "head_sha": "8fe7dcec4b41fc3017bf75e6f485516c1714923a",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-10-06T08:10:00Z",
+      "updated_at": "2026-10-06T08:10:50Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37434297080"
+    },
+    {
+      "id": 37434297122,
+      "name": "Web tests",
+      "head_sha": "8fe7dcec4b41fc3017bf75e6f485516c1714923a",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-10-06T08:10:00Z",
+      "updated_at": "2026-10-06T08:15:21Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37434297122"
+    },
+    {
+      "id": 37434297087,
+      "name": "Authored API PostgreSQL smoke",
+      "head_sha": "8fe7dcec4b41fc3017bf75e6f485516c1714923a",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-10-06T08:10:00Z",
+      "updated_at": "2026-10-06T08:22:36Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37434297087"
+    },
+    {
+      "id": 37434297052,
+      "name": "Application runtime verification",
+      "head_sha": "8fe7dcec4b41fc3017bf75e6f485516c1714923a",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "created_at": "2026-10-06T08:10:00Z",
+      "updated_at": "2026-10-06T08:15:55Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37434297052"
+    },
+    {
+      "id": 37434297055,
+      "name": "Backend tests",
+      "head_sha": "8fe7dcec4b41fc3017bf75e6f485516c1714923a",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_attempt": 1,
+      "created_at": "2026-10-06T08:10:00Z",
+      "updated_at": "2026-10-06T09:50:38Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37434297055"
+    }
+  ],
+  "backend_jobs": [
+    {
+      "id": 112172213716,
+      "name": "backend-partition-3",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-06T08:54:34Z",
+      "completed_at": "2026-10-06T09:22:29Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37434297055/job/112172213716"
+    },
+    {
+      "id": 112172213958,
+      "name": "backend-partition-0",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-06T08:10:04Z",
+      "completed_at": "2026-10-06T08:38:35Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37434297055/job/112172213958"
+    },
+    {
+      "id": 112172214057,
+      "name": "backend-partition-5",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-06T09:22:32Z",
+      "completed_at": "2026-10-06T09:45:49Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37434297055/job/112172214057"
+    },
+    {
+      "id": 112172214090,
+      "name": "backend-partition-1",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-06T08:10:04Z",
+      "completed_at": "2026-10-06T09:12:06Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37434297055/job/112172214090"
+    },
+    {
+      "id": 112172214121,
+      "name": "backend-partition-2",
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-06T08:38:38Z",
+      "completed_at": "2026-10-06T08:54:31Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37434297055/job/112172214121"
+    },
+    {
+      "id": 112172214258,
+      "name": "backend-partition-4",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-06T09:12:09Z",
+      "completed_at": "2026-10-06T09:50:32Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37434297055/job/112172214258"
+    },
+    {
+      "id": 112209974992,
+      "name": "backend",
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-06T09:50:35Z",
+      "completed_at": "2026-10-06T09:50:37Z",
+      "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37434297055/job/112209974992"
+    }
+  ],
+  "backend_partition_results": [
+    {
+      "partition": 0,
+      "selected": 1151,
+      "inventory": 4193,
+      "inventory_sha256": "aef6f199b659f872fd9a1edac00c315f00a2e05d515363fa3e7a9b4b67332096",
+      "result": "1151 passed, 3042 deselected in 1662.19s (0:27:42)",
+      "passed": 1151,
+      "failed": 0,
+      "warnings": 0,
+      "skipped": 0,
+      "log_sha256": "b1e8a0f42314ec9adad3336696ca81999ed553f2b39ae49d852b258debfa1640",
+      "warning_categories": [],
+      "UID_additional_results": [
+        "4 passed in 14.80s"
+      ]
+    },
+    {
+      "partition": 1,
+      "selected": 520,
+      "inventory": 4193,
+      "inventory_sha256": "aef6f199b659f872fd9a1edac00c315f00a2e05d515363fa3e7a9b4b67332096",
+      "result": "520 passed, 3673 deselected, 2 warnings in 3695.49s (1:01:35)",
+      "passed": 520,
+      "failed": 0,
+      "warnings": 2,
+      "skipped": 0,
+      "log_sha256": "e6910cd08406806fe25fe2a3437e6049f6dc7858681f59634c5d2c20e6618289",
+      "warning_categories": [
+        "UserWarning"
+      ],
+      "UID_additional_results": []
+    },
+    {
+      "partition": 2,
+      "selected": 527,
+      "inventory": 4193,
+      "inventory_sha256": "aef6f199b659f872fd9a1edac00c315f00a2e05d515363fa3e7a9b4b67332096",
+      "result": "8 failed, 519 passed, 3666 deselected in 927.08s (0:15:27)",
+      "passed": 519,
+      "failed": 8,
+      "warnings": 0,
+      "skipped": 0,
+      "log_sha256": "c3920476994e575118f811a8c8ea403fb340de5703fe0b6c5102ec81096db98d",
+      "warning_categories": [],
+      "UID_additional_results": []
+    },
+    {
+      "partition": 3,
+      "selected": 719,
+      "inventory": 4193,
+      "inventory_sha256": "aef6f199b659f872fd9a1edac00c315f00a2e05d515363fa3e7a9b4b67332096",
+      "result": "719 passed, 3474 deselected in 1646.35s (0:27:26)",
+      "passed": 719,
+      "failed": 0,
+      "warnings": 0,
+      "skipped": 0,
+      "log_sha256": "18503ae73da1628b346d66baebfb93c1e8e2e0f6a2450cbb632687f454adc9ec",
+      "warning_categories": [],
+      "UID_additional_results": []
+    },
+    {
+      "partition": 4,
+      "selected": 628,
+      "inventory": 4193,
+      "inventory_sha256": "aef6f199b659f872fd9a1edac00c315f00a2e05d515363fa3e7a9b4b67332096",
+      "result": "628 passed, 3565 deselected in 2275.57s (0:37:55)",
+      "passed": 628,
+      "failed": 0,
+      "warnings": 0,
+      "skipped": 0,
+      "log_sha256": "0a55441e436b03b29cefe7817e4f6e85bc8b6c2a3a5a4d0fea99f8ee10dbdfc2",
+      "warning_categories": [],
+      "UID_additional_results": []
+    },
+    {
+      "partition": 5,
+      "selected": 648,
+      "inventory": 4193,
+      "inventory_sha256": "aef6f199b659f872fd9a1edac00c315f00a2e05d515363fa3e7a9b4b67332096",
+      "result": "648 passed, 3545 deselected in 1368.55s (0:22:48)",
+      "passed": 648,
+      "failed": 0,
+      "warnings": 0,
+      "skipped": 0,
+      "log_sha256": "bfc9b647fbb6e4b234c4f826594bec3d44165e49910ee15c58ee1a2e85e2a772",
+      "warning_categories": [],
+      "UID_additional_results": []
+    }
+  ],
+  "backend_inventory": {
+    "unique_nodes": 4193,
+    "passed": 4185,
+    "failed": 8,
+    "skipped": 0,
+    "UID_additional_passed": 4,
+    "same_complete_inventory_six_partitions": true,
+    "inventory_sha256": "aef6f199b659f872fd9a1edac00c315f00a2e05d515363fa3e7a9b4b67332096",
+    "warning_count": 2,
+    "warning_categories": [
+      "UserWarning"
+    ],
+    "aggregate_job_conclusion": "failure"
+  },
+  "hold": {
+    "reason": "full_rhs_reference_tests_in_suite_parent_reached_actual256MiB_process_RSS_guard",
+    "hosted_exact_RSS_not_recorded": true,
+    "local_fix_commit": "e310e27581828a1a22a25148aa4e57d8805d9e2e",
+    "local_fix_main_integrated": false,
+    "local_fix_hosted_tested": false,
+    "local_fix_unique_nodes_passed": 18,
+    "local_fix_seconds": 23.69,
+    "original17_node_bodies_and_markers_preserved": true,
+    "native_resource_guard_or_math_or_CI_workflow_changed": false,
+    "future_push": "one normal verified batch after original81574 terminal and source freeze end; no rerun/cancel/restart"
+  },
+  "cli": {
+    "timestamp": "2026-10-06T09:36:23.807Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "425f273caac82521212465927ab25ea472e4739c4e4d36e5d0ffc16322ebdccd",
+    "recursive_cli_invocations": 0
+  },
+  "private_evidence_sha256": {
+    "terminal-state.json": "103b203f594d55f999037609ac4142d65dc4efdef2d8b3f686e565ec5fae97fc",
+    "backend-logs.zip": "1b2e899e99672cd2ef0b167d4ea97e3e50024244695a2c12fa38f71ae5b7155d",
+    "whitelisted-log-summary.json": "0716923b674f35908d6112fd952cbf6344cfdf7871040cb49cc450efa097cfec",
+    "partition-results.json": "c0e0ee79b43f5fe822a9dceebd35e7e2465640497f877a292ae753aa34f26d56"
+  },
+  "local_snapshot_commit": "7f7e2cc7169e742808ab5abe57546244b9fc45ed",
+  "current_head_hosted_accepted": false,
+  "previous_whole_hosted_accepted_sha": "7a855a71b355eb45e126fa1f4bc557b5f6dfefd7",
+  "frozen_operations_baseline": "d19f7c0",
+  "actual_crop_runs": 0,
+  "domestic_independent_datasets": 0,
+  "gates": "not_assessed"
+}

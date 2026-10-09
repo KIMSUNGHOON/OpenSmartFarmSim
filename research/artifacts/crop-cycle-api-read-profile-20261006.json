@@ -1,0 +1,1208 @@
+{
+  "evidence_version": "crop-cycle-api-read-profile-v1",
+  "recorded_at_utc": "2026-10-06T01:46:26.961383+00:00",
+  "snapshot_commit": "0ee3a724ee8072cf33d3a4d908759c4b8a250d1b",
+  "scope": "actual120step_registered_SCRAM_direct_read_diagnostic; source behavior unchanged; no HTTPS budget or biological validation",
+  "cli": {
+    "timestamp": "2026-10-06T01:09:48.549Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "line_sha256": "52065f4085a633daaecc25661ee7363cf424a832537c46f975bbb3bf4a9ea608",
+    "hash_includes_newline": true,
+    "recursive_CLI": false
+  },
+  "source_sha256": {
+    "backend/app/api_crop_cycle_replay.py": "abff42731d1f56b25b7772db953f0b99349f6123fa93e257901b3af936d96c5e",
+    "backend/app/crop_cycle_farm_binding.py": "4f245271487b1e55422386b42221aa8d24906d28f52403626c474c62f14568a9",
+    "backend/app/crop_cycle_server_custody.py": "85053b8dee2bf7c0a3675c92931ec9321e7e2804cf8ebb1593542212782d7683",
+    "backend/app/crop_cycle_result_store.py": "c182ba1dad82f6363abc9d7ed7cb784e6e989da0c23862563d47f1a91ebf043e",
+    "backend/app/farm_authoring_storage.py": "b630625079b0c83fdfdfb33fa8e8d5ed74966a593ffa67582880b86690c79aac",
+    "backend/app/market_scenario.py": "14e1343235c2b80b5a99beee6347f5dbfd38d2e7203181b64c389c9ccb287b86",
+    "backend/app/market_candidate_store.py": "dcc4fff5ded64eaa3170e9950f2d2e975c2b69b495f15299672a8e36aaf5f152",
+    "backend/app/market_source_store.py": "642fbd19aa5b553bf111b5aba1e1a696567b4cb9a9709b7a0f4c1fde6f97123b",
+    "backend/app/market_hold_store.py": "dcd6b6ab6123e11b49720456a2d2dc5c836337f4a416c9dd6486e76171cb6125",
+    "backend/app/market_runtime.py": "5876455a7ce011c7635d77270f616dbad0ed1f31a584369677b6e0d9a31a9181"
+  },
+  "diagnostic_source_sha256": "1e1368c369ac19aeabc9bdfe860b6116fe9cb7ca0c05301be61496e07bbbc850",
+  "native_runner_sha256": "dfaac13c7dd735123b9876fe5e027fcbc1c08459dea5231011f3217d116eea90",
+  "native_log_sha256": "8ec4b893360a7c6298b204d617b55792275f05b61833652ab80c9aec540b5c90",
+  "raw_profile_sha256": "bfb2b22fe53778eb7312b50c00a37da582d20f7d7ef0f8a83d9918dfe52e9d97",
+  "pytest": {
+    "passed": 1,
+    "seconds": 168.79,
+    "not_a_runtime_acceptance_case": true
+  },
+  "measurement": {
+    "scope": "actual_registered120step_SCRAM_direct_read_diagnostic_only",
+    "HTTP_budget_accepted": false,
+    "profile_overhead_included": true,
+    "summary_unprofiled_seconds": 24.02872403297806,
+    "sample_profiled_seconds": 33.21950567699969,
+    "actual_steps": 120,
+    "samples": 3,
+    "read_RHS_zero": true,
+    "top_cumulative_functions": [
+      {
+        "file": "api_crop_cycle_replay.py",
+        "line": 302,
+        "function": "_read_cycle_response",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 6.1931e-05,
+        "cumulative_seconds": 33.218820808000004
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 143,
+        "function": "current",
+        "primitive_calls": 5,
+        "total_calls": 5,
+        "self_seconds": 4.3620000000000006e-05,
+        "cumulative_seconds": 33.099564798
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 120,
+        "function": "_bind",
+        "primitive_calls": 5,
+        "total_calls": 5,
+        "self_seconds": 0.000801982,
+        "cumulative_seconds": 33.099519228000005
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 102,
+        "function": "_registration",
+        "primitive_calls": 10,
+        "total_calls": 10,
+        "self_seconds": 0.000643777,
+        "cumulative_seconds": 33.060496394000005
+      },
+      {
+        "file": "farm_authoring_storage.py",
+        "line": 417,
+        "function": "read_registration",
+        "primitive_calls": 10,
+        "total_calls": 10,
+        "self_seconds": 0.00070114,
+        "cumulative_seconds": 32.780297608000005
+      },
+      {
+        "file": "farm_authoring_storage.py",
+        "line": 245,
+        "function": "_read",
+        "primitive_calls": 10,
+        "total_calls": 10,
+        "self_seconds": 0.001066043,
+        "cumulative_seconds": 32.778381110000005
+      },
+      {
+        "file": "farm_authoring_storage.py",
+        "line": 148,
+        "function": "_prepare",
+        "primitive_calls": 10,
+        "total_calls": 10,
+        "self_seconds": 0.002083437,
+        "cumulative_seconds": 32.461499352000004
+      },
+      {
+        "file": "market_scenario.py",
+        "line": 624,
+        "function": "validate_pinned",
+        "primitive_calls": 10,
+        "total_calls": 10,
+        "self_seconds": 0.001646078,
+        "cumulative_seconds": 30.749715731000002
+      },
+      {
+        "file": "market_scenario.py",
+        "line": 373,
+        "function": "_prepare",
+        "primitive_calls": 10,
+        "total_calls": 10,
+        "self_seconds": 0.0036382130000000004,
+        "cumulative_seconds": 30.115512831
+      },
+      {
+        "file": "market_runtime.py",
+        "line": 16,
+        "function": "connect_market",
+        "primitive_calls": 1170,
+        "total_calls": 1170,
+        "self_seconds": 0.22041283,
+        "cumulative_seconds": 27.513206767000003
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 453,
+        "function": "current",
+        "primitive_calls": 4,
+        "total_calls": 4,
+        "self_seconds": 1.616e-05,
+        "cumulative_seconds": 26.537600497000003
+      },
+      {
+        "file": "runtime_roles.py",
+        "line": 156,
+        "function": "audit_runtime_roles",
+        "primitive_calls": 1281,
+        "total_calls": 1281,
+        "self_seconds": 0.108793473,
+        "cumulative_seconds": 21.45566712
+      },
+      {
+        "file": "connection.py",
+        "line": 479,
+        "function": "wait",
+        "primitive_calls": 25640,
+        "total_calls": 25640,
+        "self_seconds": 16.129595386000002,
+        "cumulative_seconds": 20.421985029000002
+      },
+      {
+        "file": "connection.py",
+        "line": 281,
+        "function": "execute",
+        "primitive_calls": 21797,
+        "total_calls": 21797,
+        "self_seconds": 0.040593878,
+        "cumulative_seconds": 20.25412182
+      },
+      {
+        "file": "cursor.py",
+        "line": 100,
+        "function": "execute",
+        "primitive_calls": 21797,
+        "total_calls": 21797,
+        "self_seconds": 0.058890288000000006,
+        "cumulative_seconds": 19.936840246000003
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 261,
+        "function": "_guard",
+        "primitive_calls": 3,
+        "total_calls": 3,
+        "self_seconds": 4.8540000000000006e-05,
+        "cumulative_seconds": 19.681292348
+      },
+      {
+        "file": "api_market_source.py",
+        "line": 48,
+        "function": "scoped_read",
+        "primitive_calls": 760,
+        "total_calls": 760,
+        "self_seconds": 0.0024050480000000003,
+        "cumulative_seconds": 19.330834239
+      },
+      {
+        "file": "market_source_store.py",
+        "line": 251,
+        "function": "_read",
+        "primitive_calls": 760,
+        "total_calls": 760,
+        "self_seconds": 0.007693109,
+        "cumulative_seconds": 19.311498991
+      },
+      {
+        "file": "economics.py",
+        "line": 180,
+        "function": "calculate",
+        "primitive_calls": 10,
+        "total_calls": 10,
+        "self_seconds": 0.0006078510000000001,
+        "cumulative_seconds": 18.704207733
+      },
+      {
+        "file": "market_source_store.py",
+        "line": 87,
+        "function": "connect",
+        "primitive_calls": 760,
+        "total_calls": 760,
+        "self_seconds": 0.001075907,
+        "cumulative_seconds": 17.791642671
+      },
+      {
+        "file": "economics.py",
+        "line": 231,
+        "function": "_verify_inputs",
+        "primitive_calls": 10,
+        "total_calls": 10,
+        "self_seconds": 0.00680972,
+        "cumulative_seconds": 17.130511698
+      },
+      {
+        "file": "market_candidate_store.py",
+        "line": 329,
+        "function": "get_economic_input",
+        "primitive_calls": 340,
+        "total_calls": 340,
+        "self_seconds": 0.006367973000000001,
+        "cumulative_seconds": 17.095261841000003
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 164,
+        "function": "_current",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 1.336e-05,
+        "cumulative_seconds": 13.247534822
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 396,
+        "function": "page",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 4.6421e-05,
+        "cumulative_seconds": 13.050829245000001
+      },
+      {
+        "file": "market_candidate_store.py",
+        "line": 207,
+        "function": "scoped_lookup",
+        "primitive_calls": 440,
+        "total_calls": 440,
+        "self_seconds": 0.003411503,
+        "cumulative_seconds": 11.617968597
+      },
+      {
+        "file": "market_scenario.py",
+        "line": 44,
+        "function": "_load",
+        "primitive_calls": 430,
+        "total_calls": 430,
+        "self_seconds": 0.001778293,
+        "cumulative_seconds": 10.795214215000001
+      },
+      {
+        "file": "market_candidate_store.py",
+        "line": 177,
+        "function": "connect",
+        "primitive_calls": 380,
+        "total_calls": 380,
+        "self_seconds": 0.000528748,
+        "cumulative_seconds": 8.954584576
+      },
+      {
+        "file": "market_scenario.py",
+        "line": 355,
+        "function": "_input_rights",
+        "primitive_calls": 350,
+        "total_calls": 350,
+        "self_seconds": 0.00419659,
+        "cumulative_seconds": 8.857240558
+      },
+      {
+        "file": "market_source_store.py",
+        "line": 293,
+        "function": "get_input_rights",
+        "primitive_calls": 350,
+        "total_calls": 350,
+        "self_seconds": 0.000517516,
+        "cumulative_seconds": 8.738189004
+      },
+      {
+        "file": "market_source_store.py",
+        "line": 284,
+        "function": "get_economic_input",
+        "primitive_calls": 340,
+        "total_calls": 340,
+        "self_seconds": 0.000675005,
+        "cumulative_seconds": 8.695680022000001
+      },
+      {
+        "file": "runtime_login.py",
+        "line": 24,
+        "function": "connect_runtime",
+        "primitive_calls": 1281,
+        "total_calls": 1281,
+        "self_seconds": 0.022174941,
+        "cumulative_seconds": 8.263038185000001
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method builtins.next>",
+        "primitive_calls": 1058,
+        "total_calls": 1325,
+        "self_seconds": 0.00105948,
+        "cumulative_seconds": 7.071360095
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 199,
+        "function": "_read",
+        "primitive_calls": 2,
+        "total_calls": 2,
+        "self_seconds": 3.765e-05,
+        "cumulative_seconds": 6.9154877390000005
+      },
+      {
+        "file": "contextlib.py",
+        "line": 132,
+        "function": "__enter__",
+        "primitive_calls": 1,
+        "total_calls": 2,
+        "self_seconds": 4.1100000000000005e-06,
+        "cumulative_seconds": 6.91281908
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 431,
+        "function": "_open",
+        "primitive_calls": 2,
+        "total_calls": 2,
+        "self_seconds": 9.053400000000001e-05,
+        "cumulative_seconds": 6.881352806000001
+      }
+    ],
+    "selected_component_functions": [
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 143,
+        "function": "current",
+        "primitive_calls": 5,
+        "total_calls": 5,
+        "self_seconds": 4.3620000000000006e-05,
+        "cumulative_seconds": 33.099564798
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 120,
+        "function": "_bind",
+        "primitive_calls": 5,
+        "total_calls": 5,
+        "self_seconds": 0.000801982,
+        "cumulative_seconds": 33.099519228000005
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 102,
+        "function": "_registration",
+        "primitive_calls": 10,
+        "total_calls": 10,
+        "self_seconds": 0.000643777,
+        "cumulative_seconds": 33.060496394000005
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 453,
+        "function": "current",
+        "primitive_calls": 4,
+        "total_calls": 4,
+        "self_seconds": 1.616e-05,
+        "cumulative_seconds": 26.537600497000003
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 261,
+        "function": "_guard",
+        "primitive_calls": 3,
+        "total_calls": 3,
+        "self_seconds": 4.8540000000000006e-05,
+        "cumulative_seconds": 19.681292348
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 164,
+        "function": "_current",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 1.336e-05,
+        "cumulative_seconds": 13.247534822
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 396,
+        "function": "page",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 4.6421e-05,
+        "cumulative_seconds": 13.050829245000001
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 199,
+        "function": "_read",
+        "primitive_calls": 2,
+        "total_calls": 2,
+        "self_seconds": 3.765e-05,
+        "cumulative_seconds": 6.9154877390000005
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 431,
+        "function": "_open",
+        "primitive_calls": 2,
+        "total_calls": 2,
+        "self_seconds": 9.053400000000001e-05,
+        "cumulative_seconds": 6.881352806000001
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 202,
+        "function": "__init__",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 4.9101e-05,
+        "cumulative_seconds": 6.8746403240000005
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 219,
+        "function": "_wrap_validation",
+        "primitive_calls": 5,
+        "total_calls": 10,
+        "self_seconds": 0.000265174,
+        "cumulative_seconds": 0.048291857
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 271,
+        "function": "_load_prefix",
+        "primitive_calls": 5,
+        "total_calls": 5,
+        "self_seconds": 0.000138292,
+        "cumulative_seconds": 0.048047833000000005
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 156,
+        "function": "_validate_delta",
+        "primitive_calls": 5,
+        "total_calls": 5,
+        "self_seconds": 0.000177154,
+        "cumulative_seconds": 0.032270638000000004
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 362,
+        "function": "_progress",
+        "primitive_calls": 3,
+        "total_calls": 3,
+        "self_seconds": 5.0050000000000004e-05,
+        "cumulative_seconds": 0.03218971
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 134,
+        "function": "_find",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 3.7551e-05,
+        "cumulative_seconds": 0.027742019000000003
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 85,
+        "function": "_input",
+        "primitive_calls": 10,
+        "total_calls": 10,
+        "self_seconds": 0.000598718,
+        "cumulative_seconds": 0.023931595
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 102,
+        "function": "_sample",
+        "primitive_calls": 15,
+        "total_calls": 15,
+        "self_seconds": 0.000406166,
+        "cumulative_seconds": 0.02123689
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 50,
+        "function": "_binding",
+        "primitive_calls": 27,
+        "total_calls": 27,
+        "self_seconds": 0.000505619,
+        "cumulative_seconds": 0.018861724
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 61,
+        "function": "_guard",
+        "primitive_calls": 19,
+        "total_calls": 19,
+        "self_seconds": 4.445e-05,
+        "cumulative_seconds": 0.015881982
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 240,
+        "function": "_blob",
+        "primitive_calls": 23,
+        "total_calls": 23,
+        "self_seconds": 4.248e-05,
+        "cumulative_seconds": 0.011379512000000001
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 49,
+        "function": "_blob",
+        "primitive_calls": 23,
+        "total_calls": 23,
+        "self_seconds": 9.541000000000001e-05,
+        "cumulative_seconds": 0.011333182
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 416,
+        "function": "open_writer",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 1.948e-05,
+        "cumulative_seconds": 0.010546123000000001
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 458,
+        "function": "open_artifact",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 1.8001000000000003e-05,
+        "cumulative_seconds": 0.009829644
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 425,
+        "function": "_binding",
+        "primitive_calls": 8,
+        "total_calls": 8,
+        "self_seconds": 5.5620000000000006e-05,
+        "cumulative_seconds": 0.008944882000000001
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 131,
+        "function": "_guard",
+        "primitive_calls": 3,
+        "total_calls": 3,
+        "self_seconds": 7.13e-06,
+        "cumulative_seconds": 0.007293277000000001
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 59,
+        "function": "_pins",
+        "primitive_calls": 17,
+        "total_calls": 17,
+        "self_seconds": 0.00038235600000000004,
+        "cumulative_seconds": 0.0068082030000000005
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 257,
+        "function": "_records",
+        "primitive_calls": 10,
+        "total_calls": 10,
+        "self_seconds": 3.368e-05,
+        "cumulative_seconds": 0.0057944630000000006
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 39,
+        "function": "_json",
+        "primitive_calls": 29,
+        "total_calls": 29,
+        "self_seconds": 1.813e-05,
+        "cumulative_seconds": 0.005526978
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 438,
+        "function": "page",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 2.3201e-05,
+        "cumulative_seconds": 0.005366834
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 128,
+        "function": "_binding",
+        "primitive_calls": 3,
+        "total_calls": 3,
+        "self_seconds": 1.4272000000000002e-05,
+        "cumulative_seconds": 0.0050623940000000004
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 84,
+        "function": "_vector",
+        "primitive_calls": 20,
+        "total_calls": 20,
+        "self_seconds": 0.000111736,
+        "cumulative_seconds": 0.003432619
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 70,
+        "function": "_header",
+        "primitive_calls": 6,
+        "total_calls": 6,
+        "self_seconds": 2.159e-05,
+        "cumulative_seconds": 0.003291848
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 307,
+        "function": "_selected",
+        "primitive_calls": 4,
+        "total_calls": 4,
+        "self_seconds": 6.609e-05,
+        "cumulative_seconds": 0.003001623
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 58,
+        "function": "_pins",
+        "primitive_calls": 11,
+        "total_calls": 11,
+        "self_seconds": 0.000185181,
+        "cumulative_seconds": 0.002948982
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 40,
+        "function": "_pins",
+        "primitive_calls": 5,
+        "total_calls": 5,
+        "self_seconds": 6.6692e-05,
+        "cumulative_seconds": 0.002855461
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 188,
+        "function": "_secure_input",
+        "primitive_calls": 9,
+        "total_calls": 9,
+        "self_seconds": 0.000173243,
+        "cumulative_seconds": 0.002435605
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 145,
+        "function": "_usage",
+        "primitive_calls": 8,
+        "total_calls": 23,
+        "self_seconds": 0.00043091300000000005,
+        "cumulative_seconds": 0.002312681
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 56,
+        "function": "_hash",
+        "primitive_calls": 180,
+        "total_calls": 180,
+        "self_seconds": 0.000116131,
+        "cumulative_seconds": 0.002196983
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 82,
+        "function": "_decode",
+        "primitive_calls": 2,
+        "total_calls": 2,
+        "self_seconds": 5.5641000000000005e-05,
+        "cumulative_seconds": 0.00207157
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 290,
+        "function": "_proof",
+        "primitive_calls": 12,
+        "total_calls": 12,
+        "self_seconds": 9.477e-05,
+        "cumulative_seconds": 0.001948718
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 136,
+        "function": "_checked",
+        "primitive_calls": 22,
+        "total_calls": 22,
+        "self_seconds": 0.000148411,
+        "cumulative_seconds": 0.001822688
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 68,
+        "function": "_secure",
+        "primitive_calls": 263,
+        "total_calls": 263,
+        "self_seconds": 0.000492831,
+        "cumulative_seconds": 0.0016661470000000002
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 85,
+        "function": "_file",
+        "primitive_calls": 133,
+        "total_calls": 133,
+        "self_seconds": 0.000130982,
+        "cumulative_seconds": 0.0013981850000000001
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 145,
+        "function": "_row",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 3.0261e-05,
+        "cumulative_seconds": 0.001305289
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 98,
+        "function": "_read",
+        "primitive_calls": 26,
+        "total_calls": 26,
+        "self_seconds": 0.000152301,
+        "cumulative_seconds": 0.001209191
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 44,
+        "function": "_read",
+        "primitive_calls": 29,
+        "total_calls": 29,
+        "self_seconds": 3.7292e-05,
+        "cumulative_seconds": 0.0007965040000000001
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 65,
+        "function": "_request",
+        "primitive_calls": 7,
+        "total_calls": 7,
+        "self_seconds": 0.000104012,
+        "cumulative_seconds": 0.00067573
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 179,
+        "function": "_head",
+        "primitive_calls": 33,
+        "total_calls": 33,
+        "self_seconds": 9.979e-05,
+        "cumulative_seconds": 0.000540905
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 247,
+        "function": "_head",
+        "primitive_calls": 6,
+        "total_calls": 6,
+        "self_seconds": 4.5261000000000006e-05,
+        "cumulative_seconds": 0.000437866
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 45,
+        "function": "_pointers",
+        "primitive_calls": 27,
+        "total_calls": 27,
+        "self_seconds": 4.3701e-05,
+        "cumulative_seconds": 0.000389048
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 89,
+        "function": "_position",
+        "primitive_calls": 15,
+        "total_calls": 15,
+        "self_seconds": 0.00010212100000000001,
+        "cumulative_seconds": 0.000342743
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 27,
+        "function": "_need",
+        "primitive_calls": 155,
+        "total_calls": 155,
+        "self_seconds": 0.000222033,
+        "cumulative_seconds": 0.000222033
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 107,
+        "function": "<genexpr>",
+        "primitive_calls": 30,
+        "total_calls": 30,
+        "self_seconds": 3.892e-05,
+        "cumulative_seconds": 0.000167013
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 76,
+        "function": "_directory",
+        "primitive_calls": 18,
+        "total_calls": 18,
+        "self_seconds": 2.1021e-05,
+        "cumulative_seconds": 0.000166395
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 131,
+        "function": "_signed",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 2.9700000000000004e-06,
+        "cumulative_seconds": 0.000133752
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 196,
+        "function": "_same_directory",
+        "primitive_calls": 10,
+        "total_calls": 10,
+        "self_seconds": 1.8631000000000002e-05,
+        "cumulative_seconds": 0.000103442
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 47,
+        "function": "_progress",
+        "primitive_calls": 2,
+        "total_calls": 2,
+        "self_seconds": 2.6481000000000003e-05,
+        "cumulative_seconds": 7.728100000000001e-05
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 163,
+        "function": "<genexpr>",
+        "primitive_calls": 199,
+        "total_calls": 199,
+        "self_seconds": 4.774e-05,
+        "cumulative_seconds": 7.117e-05
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 52,
+        "function": "_need",
+        "primitive_calls": 748,
+        "total_calls": 748,
+        "self_seconds": 6.873e-05,
+        "cumulative_seconds": 6.873e-05
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 304,
+        "function": "<genexpr>",
+        "primitive_calls": 24,
+        "total_calls": 24,
+        "self_seconds": 7.901000000000001e-06,
+        "cumulative_seconds": 4.0812e-05
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 308,
+        "function": "_usage",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 8.31e-06,
+        "cumulative_seconds": 3.9031e-05
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 41,
+        "function": "_profiles",
+        "primitive_calls": 39,
+        "total_calls": 39,
+        "self_seconds": 3.7300000000000005e-05,
+        "cumulative_seconds": 3.7300000000000005e-05
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 143,
+        "function": "_signature",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 8.050000000000001e-06,
+        "cumulative_seconds": 3.226e-05
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 34,
+        "function": "_closed",
+        "primitive_calls": 18,
+        "total_calls": 18,
+        "self_seconds": 2.9910000000000003e-05,
+        "cumulative_seconds": 3.1490000000000005e-05
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 227,
+        "function": "__init__",
+        "primitive_calls": 2,
+        "total_calls": 2,
+        "self_seconds": 3.831e-06,
+        "cumulative_seconds": 3.1312e-05
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 235,
+        "function": "close",
+        "primitive_calls": 2,
+        "total_calls": 2,
+        "self_seconds": 1.667e-05,
+        "cumulative_seconds": 2.9670000000000002e-05
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 64,
+        "function": "_intent_id",
+        "primitive_calls": 2,
+        "total_calls": 2,
+        "self_seconds": 2.7200000000000002e-06,
+        "cumulative_seconds": 2.949e-05
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 35,
+        "function": "_need",
+        "primitive_calls": 292,
+        "total_calls": 292,
+        "self_seconds": 2.9e-05,
+        "cumulative_seconds": 2.9e-05
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 109,
+        "function": "_exists",
+        "primitive_calls": 5,
+        "total_calls": 5,
+        "self_seconds": 4.980000000000001e-06,
+        "cumulative_seconds": 2.508e-05
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 71,
+        "function": "<genexpr>",
+        "primitive_calls": 28,
+        "total_calls": 28,
+        "self_seconds": 8.740000000000001e-06,
+        "cumulative_seconds": 2.3140000000000002e-05
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 234,
+        "function": "__exit__",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 1.6900000000000001e-06,
+        "cumulative_seconds": 2.265e-05
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 255,
+        "function": "close",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 5.53e-06,
+        "cumulative_seconds": 1.853e-05
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 302,
+        "function": "_acquire",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 4.000000000000001e-06,
+        "cumulative_seconds": 1.3980000000000002e-05
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 96,
+        "function": "<genexpr>",
+        "primitive_calls": 8,
+        "total_calls": 8,
+        "self_seconds": 5.6100000000000005e-06,
+        "cumulative_seconds": 1.337e-05
+      },
+      {
+        "file": "crop_cycle_server_custody.py",
+        "line": 422,
+        "function": "_pointers",
+        "primitive_calls": 11,
+        "total_calls": 11,
+        "self_seconds": 1.145e-05,
+        "cumulative_seconds": 1.145e-05
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 77,
+        "function": "_budget",
+        "primitive_calls": 5,
+        "total_calls": 5,
+        "self_seconds": 1.0460000000000001e-05,
+        "cumulative_seconds": 1.098e-05
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 124,
+        "function": "_pointers",
+        "primitive_calls": 3,
+        "total_calls": 3,
+        "self_seconds": 5.891e-06,
+        "cumulative_seconds": 9.081e-06
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 239,
+        "function": "_open",
+        "primitive_calls": 7,
+        "total_calls": 7,
+        "self_seconds": 6.44e-06,
+        "cumulative_seconds": 8.46e-06
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 105,
+        "function": "<genexpr>",
+        "primitive_calls": 10,
+        "total_calls": 10,
+        "self_seconds": 7.430000000000001e-06,
+        "cumulative_seconds": 7.430000000000001e-06
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 30,
+        "function": "_need",
+        "primitive_calls": 83,
+        "total_calls": 83,
+        "self_seconds": 7.3800000000000005e-06,
+        "cumulative_seconds": 7.3800000000000005e-06
+      },
+      {
+        "file": "crop_cycle_farm_binding.py",
+        "line": 80,
+        "function": "<genexpr>",
+        "primitive_calls": 49,
+        "total_calls": 49,
+        "self_seconds": 6.0600000000000004e-06,
+        "cumulative_seconds": 6.0600000000000004e-06
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 158,
+        "function": "<genexpr>",
+        "primitive_calls": 22,
+        "total_calls": 22,
+        "self_seconds": 5.060000000000001e-06,
+        "cumulative_seconds": 5.9700000000000004e-06
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 166,
+        "function": "<genexpr>",
+        "primitive_calls": 15,
+        "total_calls": 15,
+        "self_seconds": 4.85e-06,
+        "cumulative_seconds": 5.83e-06
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 37,
+        "function": "_integer",
+        "primitive_calls": 14,
+        "total_calls": 14,
+        "self_seconds": 4.92e-06,
+        "cumulative_seconds": 5.7800000000000006e-06
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 211,
+        "function": "<genexpr>",
+        "primitive_calls": 25,
+        "total_calls": 25,
+        "self_seconds": 5.3400000000000005e-06,
+        "cumulative_seconds": 5.3400000000000005e-06
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 162,
+        "function": "<genexpr>",
+        "primitive_calls": 25,
+        "total_calls": 25,
+        "self_seconds": 5.03e-06,
+        "cumulative_seconds": 5.03e-06
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 231,
+        "function": "closed",
+        "primitive_calls": 10,
+        "total_calls": 10,
+        "self_seconds": 1.97e-06,
+        "cumulative_seconds": 1.97e-06
+      },
+      {
+        "file": "crop_cycle_result_store.py",
+        "line": 161,
+        "function": "_record",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 1.97e-06,
+        "cumulative_seconds": 1.97e-06
+      },
+      {
+        "file": "crop_cycle_artifact.py",
+        "line": 233,
+        "function": "__enter__",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "self_seconds": 2.6e-07,
+        "cumulative_seconds": 2.6e-07
+      }
+    ],
+    "gates": "not_assessed"
+  },
+  "native_cleanup": {
+    "scope": "actual_cycle_SCRAM_direct_read_profile_diagnostic_only",
+    "started_at": "2026-10-06T01:36:13.127193+00:00",
+    "postgres_version": "postgres (PostgreSQL) 16.15",
+    "new_dependencies": 0,
+    "servers_started": 1,
+    "pytest_arguments": [
+      "/tmp/ossf-cycle-http-profile-20261006/test_cycle_http_profile.py",
+      "-c",
+      "pyproject.toml"
+    ],
+    "effective_nice": 10,
+    "exit_code": 0,
+    "wall_seconds": 169.22537338698748,
+    "remaining_test_roles": 0,
+    "remaining_test_schemas": 0,
+    "remaining_test_password_files": 0,
+    "postgres_stopped": true,
+    "postgres_status_exit_code": 3,
+    "private_cluster_and_admin_password_files_removed": true,
+    "owned_servers_after": 0,
+    "peak_children_rss_mib": 131.9609375
+  },
+  "interpretation": {
+    "dominant_measured_path": "farm_registration_revalidation -> market_pinned_validation -> repeated_market_connections_and_role_audits",
+    "prefix_validation_primary_cause_not_supported_by_this_small_profile": true,
+    "profile_overhead_included": true,
+    "cumulative_times_overlap_do_not_sum": true,
+    "counts_are_function_calls_not_distinct_SQL_statements": true
+  },
+  "remaining": [
+    "design narrow bounded market read scope preserving current principal roles rights immutable inputs and pins",
+    "focused tamper withdrawal grant-drift and economic equality checks",
+    "original whole25h verified_TLS full_response30s/2MiB/restart and cleanup acceptance",
+    "same-ID UTC web and3D",
+    "actual independent crop and economic evidence"
+  ],
+  "HTTP_budget_accepted": false,
+  "runtime_API_parent_accepted": false,
+  "actual_crop_runs": 0,
+  "domestic_independent_datasets": 0,
+  "gates": "not_assessed"
+}

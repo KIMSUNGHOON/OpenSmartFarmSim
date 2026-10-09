@@ -1,0 +1,167 @@
+{
+  "evidence_version": "crop-cycle-result-read-context-implementation-v1",
+  "recorded_at_utc": "2026-10-07T02:15:37.480435+00:00",
+  "scope": "Separate read-only stored-result type and current byte queries on own small actual terminal fixtures. No current farm/registration/server DB trace or full166/API/3D/gate acceptance.",
+  "base_commit": "86290c304ddb6b386dcb1730acf9652ff84a4d41",
+  "native_cli": {
+    "timestamp": "2026-10-07T01:57:57.942Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "raw_line_sha256": "2f2ce09f71ab416702b664816fc4ac532fba2f2a8e3c001241276dac216eae9a",
+    "recursive_cli_invocations": 0
+  },
+  "source_sha256": {
+    "backend/app/crop_cycle_result_read_context.py": "71be5f0be3984d7765606bfabc52bf26a80292ebb22fd819ff41a22c604cb4af",
+    "backend/tests/test_crop_cycle_result_read_context.py": "150606bce2eac80575c2af0f52ffd57105c86d543b346f9308a4365a4e36f0f2",
+    "contracts/crop-cycle-result-read-context-v1.md": "c7c7bbb6fee4c086efba9756cf63ed349de4183645c702bdcff97b2acc353c52"
+  },
+  "tests": {
+    "missing_module_RED": {
+      "exit_code": 2,
+      "errors": 1,
+      "seconds": 0.16,
+      "handle_kind": "immediate_terminal"
+    },
+    "first31_GREEN": {
+      "session_id": 47934,
+      "exit_code": 0,
+      "passed": 31,
+      "seconds": 42.74
+    },
+    "second35_GREEN": {
+      "session_id": 91303,
+      "exit_code": 0,
+      "passed": 35,
+      "seconds": 48.76
+    },
+    "entry_failure_RED": {
+      "session_id": 32758,
+      "exit_code": 1,
+      "failed": 1,
+      "deselected": 35,
+      "seconds": 2.32
+    },
+    "final36_GREEN": {
+      "session_id": 93848,
+      "exit_code": 0,
+      "passed": 36,
+      "seconds": 51.83,
+      "command": "cd backend; nice -n 15 .venv/bin/python -m pytest tests/test_crop_cycle_result_read_context.py -q"
+    },
+    "related125_GREEN": {
+      "session_id": 16674,
+      "exit_code": 0,
+      "unique_passed": 125,
+      "seconds": 106.31,
+      "composition": {
+        "input_evidence": 33,
+        "input_read_context": 15,
+        "result_evidence": 41,
+        "result_read_context": 36
+      },
+      "command": "cd backend; nice -n 15 .venv/bin/python -m pytest tests/test_crop_cycle_input_evidence.py tests/test_crop_cycle_input_read_context.py tests/test_crop_cycle_result_evidence.py tests/test_crop_cycle_result_read_context.py -q"
+    },
+    "counts_not_summed_across_runs": true,
+    "whole_backend_web_browser_not_run_this_stage": true
+  },
+  "actual_native": {
+    "fixture_build": {
+      "session_id": 72037,
+      "exit_code": 0,
+      "command": "nice -n 15 backend/.venv/bin/python /home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/measure_result_read_context.py issue",
+      "math_seconds": 15.906733202000396,
+      "steps": 1800,
+      "samples": 61,
+      "events": 3,
+      "raw_observation_sha256": "a56c18838fd0cf8ca2416686863265182b5d49e387e778348037932d6177c196",
+      "preliminary_query_core_sha256": {
+        "backend/app/crop_cycle_result_read_context.py": "281c09453e67d405a3e4073bafc434ec11ada360b40324ef6b7e8e35a7e35a96",
+        "backend/tests/test_crop_cycle_result_read_context.py": "570fdc8a66c777a159d3b761e07673165e67e67f4d9c36b6a28242b682dbb1f6",
+        "contracts/crop-cycle-result-read-context-v1.md": "c7c7bbb6fee4c086efba9756cf63ed349de4183645c702bdcff97b2acc353c52"
+      },
+      "query_metrics_not_final_code_acceptance": true
+    },
+    "final_separate_query": {
+      "session_id": 73254,
+      "exit_code": 0,
+      "command": "nice -n 15 backend/.venv/bin/python /home/sunghoonk/.local/state/OpenSmartFarmSim/20261007-result-evidence-resume/measure_result_read_context.py verify",
+      "observed": {
+        "CPU_after_imports_seconds": 0.39957899900000016,
+        "FD_before_after": [
+          4,
+          4
+        ],
+        "PID": 59822,
+        "actual_cultivar_or_full166_accepted": false,
+        "artifact_sha256": "15d0efeda0940f6ff2ba0ae4c038012f0b2c2772e4e90813ed6bc0248a65844a",
+        "core_sha256": {
+          "backend/app/crop_cycle_result_read_context.py": "71be5f0be3984d7765606bfabc52bf26a80292ebb22fd819ff41a22c604cb4af",
+          "backend/tests/test_crop_cycle_result_read_context.py": "150606bce2eac80575c2af0f52ffd57105c86d543b346f9308a4365a4e36f0f2",
+          "contracts/crop-cycle-result-read-context-v1.md": "c7c7bbb6fee4c086efba9756cf63ed349de4183645c702bdcff97b2acc353c52"
+        },
+        "counts": {
+          "events": 3,
+          "samples": 61
+        },
+        "current_farm_rights_server_trace_or_HTTP_3D_accepted": false,
+        "gates": "not_assessed",
+        "input_root_sha256": "7f346742c1c4e8cef2819d51a6610e93130c7dfa51f45b0804546dd083d76bbe",
+        "largest_page_bytes": 483532,
+        "math_manifest_sha256": "3ca7d8d8f4a7293801d697ce833c0ec87e7dbba43d5412953c626cc529ca090a",
+        "max_cached_pages": 2,
+        "measurement_source_sha256": "642bc702a9ee2d465d56dc2909cf0155995e01e7dc06b79446f666103fffb216",
+        "mode": "verify",
+        "nice": 15,
+        "observed_at_utc": "2026-10-07T02:12:02.924351+00:00",
+        "open_seconds": 0.026180557999396115,
+        "original166_restarted_or_old_budget_reset": false,
+        "original_all_records_sha256": {
+          "events": "5c426abce75f2b911f00f1d3c8032d37994ab07d350b1e6cff7e37e8390195f9",
+          "samples": "c1c384aba17c3f0e6a811e89c27874f4db842e6012bcd587e6be9c825bf5acb4"
+        },
+        "original_checkpoint_sha256": "233070663da110104aa328a4328c52feffd1035b062b7fe7ccda3a254d77088f",
+        "original_parser_context_or_RHS_calls": 0,
+        "pages_read": 2,
+        "process_peak_RSS_bytes": 90509312,
+        "recheck_seconds": 0.01311569899917231,
+        "steps": 1800,
+        "summary_all_pages_seconds": 0.3450951869999699,
+        "whole_after_imports_until_record_seconds": 0.3995967520004342
+      },
+      "raw_observation_sha256": "823c7c335f06c48e0490da80da6fce3d226b3578b0ab499d89ad16051805c809"
+    },
+    "version_scope": "New own five-hour fixture was built under the preliminary query candidate; an entry-failure cleanup test then failed and the query was fixed. Final cold Python queries the same unchanged original math artifact/QC receipt with the final query code. Preliminary query timing is not adopted as final-code evidence.",
+    "new_small_experiment_global_wall_seconds": 300,
+    "original166_restarted_or_budget_reset": false,
+    "original_control_sha256": "0e7303ba23891fa02056afa2e962f2ec6d365b2d1afbe3c6e9707bb811aaddad",
+    "same_retained_keys_proofs_math_manifest_checkpoint_and_all_rows": true,
+    "actual_all_original_records_compared": {
+      "samples": 61,
+      "events": 3
+    },
+    "math_or_QC_reexecuted_by_final_query": false
+  },
+  "private_logs_sha256": {
+    "missing_module_RED": "04714b0f6a4b69291397020a911881e09918311ec8f805838cb7e1cac4a0390e",
+    "first31_GREEN": "6da31eefc6521efbecc968fea0a80f82873bef9784bf99b7446b1f83af5ac816",
+    "second35_GREEN": "9c5d583b900bd5e9e3b7855fff7b10c9bfcc2f440ec148ed7ff977bc5c2c558b",
+    "entry_failure_RED": "3aa4afde0a83e9b53076d154a248def4c8fd891eca77e05ec9ca6f0ed952ba53",
+    "final36_GREEN": "6e7d2469a8ce2e5545a4d7afbe12f3f8a8de1fc7af4e3760b782348b0ff7cec2",
+    "related125_GREEN": "89aaa4066f30bdc922da6f94dbf42eec2d62ad3a961c7b160bed7dc6ce333a47",
+    "native_fixture_build": "95e1f84265661088eee40ab8de91e5e651c0ad6e5e3c4bd89c96ec04ca4b373e",
+    "final_native_separate_query": "b2015abd02caeb1aefd81bd296e4b6f991f94e27b09a8aa63383df0505845614"
+  },
+  "measurement_script_sha256": "642bc702a9ee2d465d56dc2909cf0155995e01e7dc06b79446f666103fffb216",
+  "process_wall_scope": "Both modes start timing after app imports and stop before observation write/process exit. Final verify excludes new math and proof issuance. RSS is process-wide peak including imports.",
+  "cache_scope": "OS cache uncontrolled; separate Python is not cold OS-cache or low-hardware evidence. No original166 process remains; no PG/API/browser servers started.",
+  "original52_sources_unchanged_with_one_accepted_CI_test_change": true,
+  "prior_primitives9_core_source_unchanged": true,
+  "original_v1_calculation_engine_rejects_new_query_type": true,
+  "actual_registered_farm_rights_server_trace_HTTP_3D_accepted": false,
+  "original166_terminal_outcome": "unverifiable",
+  "full166_replay_restore_or_burden_parents_accepted": false,
+  "adopted_actual_cultivar_inputs": 0,
+  "independent_domestic_farm_datasets": 0,
+  "actual_crop_runs": 0,
+  "gates": "not_assessed"
+}

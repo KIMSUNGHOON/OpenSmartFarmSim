@@ -1,0 +1,91 @@
+{
+  "evidence_version": "crop-cycle-execution-contract-reference-v1",
+  "recorded_at": "2026-10-05T05:41:55.133361+00:00",
+  "scope": "execution contract, original solver grid/representation evidence and next task decomposition only",
+  "cli": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "observed_turn_context_at": "2026-10-05T05:15:37.838Z",
+    "turn_context_line_sha256": "78caf06c429301aa6d8dbb8788efdb3d74b6776c6b95fe0d85b90d8b9990096a",
+    "recursive_cli_invocations": 0,
+    "runtime_cli_accepted": false
+  },
+  "file_sha256": {
+    "contracts/crop-cycle-execution-v1.md": "f492a149fdc98d9be2d7cdfcd8a8a674895ad5bc3c38843b5ca37630aae3d9f1",
+    "research/crop-cycle-execution-contract.md": "ab6e7b4bc53cad5dda0d33fc2083ec4156443bce81a9027ded70767a8af3d6ff",
+    "research/crop-cycle-execution-reference.py": "8cf65fbb82cdb2569af073d25a75d829566393295e80bb3bd3a52e9205c9c5ce",
+    "research/artifacts/crop-cycle-execution-reference-20261005.json": "4730fdea67e64d5114206d3d9d4e63989ec299c11300c0102c58a7ed3c93ae46"
+  },
+  "source_draft_commit": "0b1fac6038ca37d40b76209788859e86c888dd5a",
+  "source_draft_contract_sha256": "b519812ef9c9cee46a9fcd15f0183f07399472e49630924c1e68b55fd0b4ba49",
+  "original_reference_contract_hash_is_draft_not_current": true,
+  "verification": {
+    "original_solver_cases": 6,
+    "original_solver_steps": 630,
+    "original_grid_partition_trials": 30,
+    "serialized_vectors": 23,
+    "serialized_float64_values": 2783,
+    "all_float64_roundtrips_exact": true,
+    "extra_boundary_scalar_counterexample": true,
+    "rounded_fraction_prefix_counterexample": true,
+    "wall_seconds": 5.5079028620093595,
+    "peak_rss_mib": 22.89453125,
+    "command": "nice -n10 backend/.venv/bin/python research/crop-cycle-execution-reference.py --output research/artifacts/crop-cycle-execution-reference-20261005.json",
+    "log_sha256": "9be04269ce6fb8581f5125da75fcfc906f6f9e1b83a2f7d9a07e54f95fc9c4ef",
+    "frozen_math_storage_and_api34_hashes_unchanged": true,
+    "new_model_continuation_tested": false,
+    "new_db_or_server_started": 0,
+    "g0_g4": "not accepted",
+    "local_markdown_links_and_anchors_checked": 774,
+    "current_dependency_graph_acyclic": true,
+    "diff_check_passed": true
+  },
+  "review": {
+    "scope": "contract accepted; actual new model resume/fullcycle not accepted",
+    "correctness": "121vector/originalseed/16cumulative/global operation counters/exact clock/phase-cursors; preserve original RK4 union/grid; no new chunk boundary",
+    "initial_ready": "normalized input only, no confirmed crop state; initial event/domain failure empty hold",
+    "event_position": "pending boundary after step-end and committed boundary resume exactly once",
+    "architecture": "frozen original versions and point calculators reused; pure provider -> bounded input stream -> immutable current-rights pages -> actual RHS burden; no new general infra",
+    "security": "SHA alone not authenticity/rights; closed bounded context/checkpoint; actual HMAC/custody/atomicity in later physical store checks",
+    "performance": "short driver starts within existing caps; global budget and long RHS/stream/worker limits measured later",
+    "evidence_limits": "grouping/serialization/scalar/Fraction toy evidence not actual model resume or crop accuracy"
+  },
+  "next_task": "crop-cycle-continuation",
+  "next_scope": "actual RHS short programs/hold with persisted checkpoint restore, including separate Python; no implicit long period or actual farming claim",
+  "next_estimate": {
+    "context_kernel_step_checkpoint_hours": [
+      2,
+      3
+    ],
+    "real6program_hold_restore_regression_report_hours": [
+      2,
+      3
+    ],
+    "focused_total_hours": [
+      4,
+      6
+    ],
+    "days_at_4hours_excluding_ci": [
+      "2026-10-05",
+      "2026-10-07"
+    ],
+    "long_cycle_prediction_date": null
+  },
+  "external_dependencies": {
+    "adopted_actual_forcing": 0,
+    "actual_crop_runs": 0,
+    "independent_domestic_datasets": 0
+  },
+  "not_run": [
+    "new driver/model continuation and checkpoint acceptance",
+    "long input/store/API/3D newcycle",
+    "actual RHS fullcycle burden",
+    "new hosted CI for this contract"
+  ],
+  "hosted_storage_reference": {
+    "head_sha": "92cade3bafb6654f27599fd9f94d42204dccd29f",
+    "proof": "research/artifacts/crop-startup-storage-ci-20261005.json",
+    "startup_api_client_3d_contract_not_in_that_sha": true
+  }
+}

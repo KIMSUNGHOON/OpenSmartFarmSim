@@ -1,0 +1,5 @@
+# Authored simulation admission evidence — 2026-09-30
+
+The exact development Codex CLI `gpt-6-sol`/`xhigh` session added a scoped authored simulation admission service and included it in the reviewer runtime-code manifest requirement. It stores only tenant/review/registration/scenario pointers, not raw private farm or restricted provider records. The [contract](../contracts/farm-authored-simulation-v1.md) leaves Run publication to a separate worker.
+
+`OSSF_TEST_PG_DSN=<local PostgreSQL 16.15 SCRAM test DSN> uv run --locked --group dev pytest -q tests/test_farm_authored_simulation.py` passed **1 test in 2.03 s**. It covers a queued immutable simulation job, exact retry, foreign tenant and missing scope holds, rejected changed Run identity, and rollback when the preparation changes inside the insert commit guard. The preparer is an explicit synthetic fixture returning a signed-test packet; the test does not run the real product CLI or independently validate a farm. G1 and all domain/operating gates remain held.

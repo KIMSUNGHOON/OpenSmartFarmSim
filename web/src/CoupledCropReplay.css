@@ -1,0 +1,26 @@
+/* Adapted from the accepted C responsive export: visualization/metrics, two plots, exact-value data. */
+.coupled-replay{--crop-ink:#244d30;gap:16px}.coupled-replay .panel{background:#fafbf3;border-color:#e5e8d9;border-radius:8px}
+.coupled-viewer{display:grid;gap:16px;min-width:0}.coupled-distribution-grid>div{min-width:0}
+.coupled-result-id{font-size:.75rem;overflow-wrap:anywhere;margin:0}
+.coupled-replay .crop-scope{background-image:none;background-color:#fafbf3}
+.coupled-readout h2::before,.coupled-distribution h2::before,.coupled-hold h2::before{content:'';display:inline-block;width:22px;height:22px;background:center/contain no-repeat;vertical-align:middle;margin-right:8px}
+.coupled-readout h2::before{background-image:url('./assets/crop-coupled-design/cutout-61-9b0200c77fa2.png')}
+.coupled-distribution h2::before{background-image:url('./assets/crop-coupled-design/cutout-83-610a56c5d842.png')}
+.coupled-hold h2::before{background-image:url('./assets/crop-coupled-design/cutout-40-ef51681c6de1.png')}
+.coupled-top-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1fr);gap:12px;align-items:start}
+.coupled-readout dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.coupled-readout .crop-carbon-card{border-color:#e0e7d4;border-radius:9px;background:#fafbf4;padding:12px}
+.coupled-readout .crop-carbon-card dd{margin-left:0;font-size:1rem;line-height:1.6;overflow-wrap:anywhere}
+.coupled-readout .crop-carbon-card small{display:block}.coupled-timeline .crop-play-buttons{max-width:340px}
+.coupled-timeline strong{overflow-wrap:anywhere;min-width:0;max-width:100%}
+.coupled-distribution-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.coupled-distribution h3{font-size:.875rem;margin:0}
+.coupled-plot{height:210px;width:100%;margin-top:8px}.coupled-history .coupled-plot{height:280px}
+.coupled-replay pre{max-width:100%;overflow:auto;max-height:420px;font-size:.75rem;line-height:1.6;padding:12px;background:#edf3e5;border-radius:6px}
+.coupled-cohort-table,.coupled-diagnostic-table{width:100%;border-collapse:collapse;font-size:.8125rem;font-variant-numeric:tabular-nums}
+.coupled-cohort-table caption,.coupled-diagnostic-table caption{caption-side:bottom;text-align:left;padding-top:14px;white-space:normal;color:#4c6550}
+.coupled-cohort-table th,.coupled-cohort-table td,.coupled-diagnostic-table th,.coupled-diagnostic-table td{border-bottom:1px solid #e5e8d9;padding:9px 12px;text-align:right;white-space:nowrap}
+.coupled-cohort-table thead,.coupled-diagnostic-table thead{background:#eef3e6}.coupled-cohort-table th:first-child{width:10%;text-align:left}
+.coupled-time-table small{display:block}.coupled-hold p{overflow-wrap:anywhere}.coupled-progress p{font-size:.875rem}
+@media(max-width:1050px){.coupled-top-grid{grid-template-columns:minmax(0,1fr)}.coupled-canvas{height:330px}}
+@media(max-width:750px){.coupled-distribution-grid{grid-template-columns:minmax(0,1fr)}.coupled-timeline{grid-row:auto}.coupled-canvas{height:280px}.coupled-history .crop-heading label{width:100%}}
+@media(max-width:430px){.coupled-readout dl{grid-template-columns:minmax(0,1fr)}.coupled-plot{height:240px}.crop-format select{width:100%}}

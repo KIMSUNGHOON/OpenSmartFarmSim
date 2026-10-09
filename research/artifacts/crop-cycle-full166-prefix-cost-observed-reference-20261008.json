@@ -1,0 +1,1027 @@
+{
+  "acceptance": {
+    "full_input_initial_prefix_cost_child": "locally_verified",
+    "new_native_formal_acceptance": "hold_missing_original_command_exit_record",
+    "prefix_cost_parent": false,
+    "whole166_DB_API_3D": false,
+    "whole166_registered_calculation": false
+  },
+  "checkpoint_comparison": {
+    "all_state_seed_clock_cursor_counters_exact_after_explicit_shift": true,
+    "excluded_provenance_only_fields": [
+      "checkpoint_sha256",
+      "event_prefix_sha256",
+      "output_prefix_sha256",
+      "parent_sha256",
+      "root_sha256",
+      "version"
+    ],
+    "fresh_service_checkpoint_exact": true,
+    "same_semantic_sha256": "7955309f957b86933b0a106543859ae38d264851682e6ee68eb21e26a77e6ee1"
+  },
+  "cleanup": {
+    "passfiles_after": 0,
+    "roles_after": 0,
+    "schemas_after": 0,
+    "server_host_auth_methods": [
+      "scram-sha-256",
+      "scram-sha-256",
+      "scram-sha-256",
+      "scram-sha-256"
+    ]
+  },
+  "comparison": {
+    "advance_count": 32,
+    "artifact_sha256": "15b609576243c73b67a4947b5affc2db14047787e4851064b3aabeafd3d0286d",
+    "input_evidence_sha256": "a134089ce5cf1c1e450ea5bda6b1586c270f5ba432d7da7c272ec633c3c29262",
+    "input_root_sha256": "ab24eda4d763d7fe3faff1ae3c7c2f84fbec030af71a494bf284fef1f2cdcd98",
+    "offset_days": 273,
+    "original_HEAD_sha256": "cf1fd75e3c00b34cb298b261ec2daa4cf679784d999366173cd280510d8c1b69",
+    "result_evidence_sha256": "f11ce716c6c4a5f4861344dd4df5f5cd966c407243e8c8d371a0d05c2056fe61",
+    "selected_commit_sha256": "f7a7ada71d7c261d8e17782cb2986041b570fd398ae8c0339a8eeec46e05e86b",
+    "selected_rows": {
+      "events": 2,
+      "samples": 105
+    },
+    "wall_seconds": 9.678207841992844
+  },
+  "continued_native_cli": {
+    "model": "gpt-6.1-sol",
+    "native_turn_context_line_sha256": "64296f2094b13b632b60ebab7704483d4e1346ce00711280f748c143fbb90537",
+    "observed_at_utc": "2026-10-07T19:02:54.621243+00:00",
+    "reasoning_effort": "xhigh",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T18:58:43.613Z"
+  },
+  "execution": {
+    "all_preserved_sources_unchanged": true,
+    "argv": [
+      "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+      "-m",
+      "pytest",
+      "tests/crop_cycle_full_prefix_cost_smoke.py",
+      "-k",
+      "actual_full166",
+      "-q",
+      "-x",
+      "--tb=short",
+      "--basetemp",
+      "/tmp/ossf-fullprefix-kch4o5qe/pytest"
+    ],
+    "clusters": [
+      {
+        "directory": "/tmp/ossf-fullprefix-kch4o5qe/system/ossf-login-pg-0gcm6_yc/data",
+        "directory_exists_after": false,
+        "pid": 840457,
+        "same_PID_alive_after": false,
+        "start_ticks": "6968883"
+      }
+    ],
+    "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend",
+    "driver_sha256": "f63a960e7cfa6ccaf9c880839956fcbeab77c961da114af4ca15fc0dd44c1677",
+    "exit_code": 0,
+    "finished_at_utc": "2026-10-07T19:04:01.768395+00:00",
+    "log_sha256": "995d923aceeb2a8d926c47a22e2895bd31a5c2315afe843168a046fe8b8f8201",
+    "memory_scope": "sampled_current_descendants_RSS_sum_may_double_count_shared_pages_not_WSL_total_or_PSS",
+    "nice": 19,
+    "owned_remaining_processes": [],
+    "owned_temp_tree_removed": true,
+    "passfiles_after": [],
+    "preserved_source_count": 129,
+    "sampled_descendant_RSS_sum_max_bytes": 252080128,
+    "sampled_pytest_primary_max_RSS_bytes": 252080128,
+    "scope": "derived_synthetic_full166_registered_initial_prefix_cost_not_whole_cycle_or_forecast_approval",
+    "source_sha256": {
+      "backend/tests/crop_cycle_calculation_prefix_cost_smoke.py": "875632dfdfb73bb6b7b4a69ec0773e0fc61989f1111f0cab8e10f33ce81556ae",
+      "backend/tests/crop_cycle_full_prefix_cost_smoke.py": "d296b6f4ce2275632a76cbbf3f4648b585fcbeb496934dc5eb810ce9a589c188",
+      "contracts/crop-cycle-calculation-full-prefix-cost-v1.md": "34e08ed34cdcaafa2f15ab0d3a3a563123387b1a5b21a78e89298997a07eb15f",
+      "research/crop-cycle-calculation-prefix-cost.py": "07d4f90edfd78b468a482344bd569eb444036ddd1a7e3f7208a79c4b64894e96"
+    },
+    "source_sha256_after": {
+      "backend/tests/crop_cycle_calculation_prefix_cost_smoke.py": "875632dfdfb73bb6b7b4a69ec0773e0fc61989f1111f0cab8e10f33ce81556ae",
+      "backend/tests/crop_cycle_full_prefix_cost_smoke.py": "d296b6f4ce2275632a76cbbf3f4648b585fcbeb496934dc5eb810ce9a589c188",
+      "contracts/crop-cycle-calculation-full-prefix-cost-v1.md": "34e08ed34cdcaafa2f15ab0d3a3a563123387b1a5b21a78e89298997a07eb15f",
+      "research/crop-cycle-calculation-prefix-cost.py": "07d4f90edfd78b468a482344bd569eb444036ddd1a7e3f7208a79c4b64894e96"
+    },
+    "started_at_utc": "2026-10-07T18:53:10.916937+00:00",
+    "tmp_root": "/tmp/ossf-fullprefix-kch4o5qe",
+    "wall_budget_interrupt_sent": false,
+    "wall_observation_budget_seconds": 1200,
+    "wall_seconds": 650.8493004240008
+  },
+  "external_dependencies": {
+    "actual_adopted_cultivar_inputs": 0,
+    "domestic_independent_datasets": 0,
+    "measured_farm_crop_runs": 0
+  },
+  "gate_decisions": {
+    "G0": "not_assessed",
+    "G1": "not_assessed",
+    "G2": "not_assessed",
+    "G3a": "not_assessed",
+    "G3b": "not_assessed",
+    "G4": "not_assessed"
+  },
+  "inputs": {
+    "context_sha256": "71c322fac5c814d4d01238b01761c565506d676c2da9a4df2994c03007483c6a",
+    "forcing_segments": 47808,
+    "output_seconds": 300,
+    "period_end": "2027-03-16T00:00:00Z",
+    "period_start": "2026-10-01T00:00:00Z",
+    "planned_events": 5,
+    "planned_samples": 47809,
+    "planned_steps": 1816704,
+    "preserved_derived_input_files": 750,
+    "preserved_original_artifact_files": 29141,
+    "preserved_original_input_files": 750,
+    "rk4_seconds": 8,
+    "root_sha256": "05a58cc9092682f663bb3e2f827003f51ec8a778f746bb429126a663e841fc04",
+    "state_size": 121
+  },
+  "lightweight_tests": {
+    "captured_original_log_available": false,
+    "separate_native_tool_result": true,
+    "unique_cases_passed": 17
+  },
+  "measurement": {
+    "budget": {
+      "max_steps": 10000,
+      "max_transitions": 128
+    },
+    "costs": {
+      "artifact.advance": {
+        "calls": 32,
+        "cpu_seconds": 152.72203694,
+        "exclusive_cpu_seconds": 3.193139445001769,
+        "exclusive_wall_seconds": 3.480315062610316,
+        "wall_seconds": 245.52167857802124
+      },
+      "artifact.blob_write": {
+        "calls": 66,
+        "cpu_seconds": 0.0341932670001146,
+        "exclusive_cpu_seconds": 0.0341932670001146,
+        "exclusive_wall_seconds": 0.2249490210233489,
+        "wall_seconds": 0.2249490210233489
+      },
+      "artifact.delta_qc": {
+        "calls": 1184,
+        "cpu_seconds": 22.51862167999956,
+        "exclusive_cpu_seconds": 19.169621862004536,
+        "exclusive_wall_seconds": 19.16703631602286,
+        "wall_seconds": 22.524672463114257
+      },
+      "artifact.prefix_verify": {
+        "calls": 67,
+        "cpu_seconds": 25.107210401000156,
+        "exclusive_cpu_seconds": 2.120329761000935,
+        "exclusive_wall_seconds": 2.1196963622351177,
+        "wall_seconds": 25.113588417007122
+      },
+      "calculation.advance": {
+        "calls": 32,
+        "cpu_seconds": 45.547750801999925,
+        "exclusive_cpu_seconds": 2.1677471649963387,
+        "exclusive_wall_seconds": 2.193985721707577,
+        "wall_seconds": 45.553871948010055
+      },
+      "diagnostic.fresh_service_checkpoint": {
+        "calls": 1,
+        "cpu_seconds": 6.22538337200001,
+        "exclusive_cpu_seconds": 0.05349401299991996,
+        "exclusive_wall_seconds": 0.0534894370357506,
+        "wall_seconds": 10.420303685998078
+      },
+      "diagnostic.saved_checkpoint": {
+        "calls": 1,
+        "cpu_seconds": 6.208648676999985,
+        "exclusive_cpu_seconds": 0.05476239199998645,
+        "exclusive_wall_seconds": 0.054755057019065134,
+        "wall_seconds": 10.407426460995339
+      },
+      "economics.calculate": {
+        "calls": 338,
+        "cpu_seconds": 116.6327812869995,
+        "exclusive_cpu_seconds": 111.9392032989964,
+        "exclusive_wall_seconds": 280.7202277114702,
+        "wall_seconds": 287.45425582998723
+      },
+      "economics.verified_arithmetic": {
+        "calls": 338,
+        "cpu_seconds": 0.11914974400009903,
+        "exclusive_cpu_seconds": 0.11914974400009903,
+        "exclusive_wall_seconds": 0.1191175209969515,
+        "wall_seconds": 0.1191175209969515
+      },
+      "farm.current_rights": {
+        "calls": 168,
+        "cpu_seconds": 211.79325468999986,
+        "exclusive_cpu_seconds": 0.5597206509999975,
+        "exclusive_wall_seconds": 0.5608932551840553,
+        "wall_seconds": 453.62118503691454
+      },
+      "farm.input_validate": {
+        "calls": 338,
+        "cpu_seconds": 36.735791382999885,
+        "exclusive_cpu_seconds": 3.3241442630002087,
+        "exclusive_wall_seconds": 3.3236954480962595,
+        "wall_seconds": 36.73993390794203
+      },
+      "farm.prepare": {
+        "calls": 1,
+        "cpu_seconds": 1.2678859849999995,
+        "exclusive_cpu_seconds": 0.0037277580000001365,
+        "exclusive_wall_seconds": 0.003731523029273376,
+        "wall_seconds": 2.7114321700064465
+      },
+      "farm.registration_read": {
+        "calls": 338,
+        "cpu_seconds": 172.392482302,
+        "exclusive_cpu_seconds": 23.584674789999823,
+        "exclusive_wall_seconds": 55.8181096270273,
+        "wall_seconds": 411.054109000921
+      },
+      "farm.registration_validate": {
+        "calls": 338,
+        "cpu_seconds": 175.76190088299995,
+        "exclusive_cpu_seconds": 3.3694185809999837,
+        "exclusive_wall_seconds": 7.973949519844609,
+        "wall_seconds": 419.0280585207656
+      },
+      "input.context_factory": {
+        "calls": 34,
+        "cpu_seconds": 7.279410851999749,
+        "exclusive_cpu_seconds": 0.47699316199740416,
+        "exclusive_wall_seconds": 0.4775922829139745,
+        "wall_seconds": 7.281711428979179
+      },
+      "input.proof_verify": {
+        "calls": 1003,
+        "cpu_seconds": 97.9715847039999,
+        "exclusive_cpu_seconds": 97.9715847039999,
+        "exclusive_wall_seconds": 97.98599723898224,
+        "wall_seconds": 97.98599723898224
+      },
+      "journal.file_usage": {
+        "calls": 1160,
+        "cpu_seconds": 0.5097286429996863,
+        "exclusive_cpu_seconds": 0.23139059099952242,
+        "exclusive_wall_seconds": 0.23166790687537286,
+        "wall_seconds": 0.5099052586738253
+      },
+      "journal.open": {
+        "calls": 34,
+        "cpu_seconds": 74.01566006000009,
+        "exclusive_cpu_seconds": 2.047720073000045,
+        "exclusive_wall_seconds": 2.079585453859181,
+        "wall_seconds": 125.82460254202306
+      },
+      "journal.progress": {
+        "calls": 34,
+        "cpu_seconds": 12.489815011000065,
+        "exclusive_cpu_seconds": 0.004407164000149066,
+        "exclusive_wall_seconds": 0.004430070024682209,
+        "wall_seconds": 12.49355429703428
+      },
+      "journal.selected_proof": {
+        "calls": 99,
+        "cpu_seconds": 0.32513538000005227,
+        "exclusive_cpu_seconds": 0.29271374700012487,
+        "exclusive_wall_seconds": 0.29191675677429885,
+        "wall_seconds": 0.3251412389508914
+      },
+      "journal.sign": {
+        "calls": 67,
+        "cpu_seconds": 0.007140671999948722,
+        "exclusive_cpu_seconds": 0.007140671999948722,
+        "exclusive_wall_seconds": 0.0071282140124822035,
+        "wall_seconds": 0.0071282140124822035
+      },
+      "json.canonical": {
+        "calls": 87312,
+        "cpu_seconds": 6.054031715995613,
+        "exclusive_cpu_seconds": 6.054031715995613,
+        "exclusive_wall_seconds": 6.069865998259047,
+        "wall_seconds": 6.069865998259047
+      },
+      "market.source_read": {
+        "calls": 25688,
+        "cpu_seconds": 8.879709180002767,
+        "exclusive_cpu_seconds": 8.879709180002767,
+        "exclusive_wall_seconds": 12.372106115202769,
+        "wall_seconds": 12.372106115202769
+      },
+      "market.validate_pinned": {
+        "calls": 338,
+        "cpu_seconds": 148.80780751200015,
+        "exclusive_cpu_seconds": 27.869745289000896,
+        "exclusive_wall_seconds": 62.02454802622378,
+        "wall_seconds": 355.2359993738937
+      },
+      "rhs": {
+        "calls": 20056,
+        "cpu_seconds": 36.9810302750021,
+        "exclusive_cpu_seconds": 36.9810302750021,
+        "exclusive_wall_seconds": 36.958959698167746,
+        "wall_seconds": 36.958959698167746
+      },
+      "server.advance": {
+        "calls": 32,
+        "cpu_seconds": 340.07615387100003,
+        "exclusive_cpu_seconds": 2.0003923560014503,
+        "exclusive_wall_seconds": 2.003017666414962,
+        "wall_seconds": 575.4930368640198
+      }
+    },
+    "descriptors_after": 12,
+    "descriptors_before": 12,
+    "effective_nice": 19,
+    "fresh_service_checkpoint_exact": true,
+    "full166day_accepted": false,
+    "growth_curve": [
+      {
+        "commit_count": 1,
+        "counts": {
+          "events": 2,
+          "samples": 4
+        },
+        "file_count": 6,
+        "planned_steps": 1816704,
+        "progress_sha256": "9463418c333e7ea49a7a626679aef990e770dc721806c629543ccbfc31a7b10f",
+        "status": "yielded",
+        "steps": 123,
+        "storage_bytes": 79352,
+        "wall_seconds": 25.801846772999852
+      },
+      {
+        "commit_count": 2,
+        "counts": {
+          "events": 2,
+          "samples": 7
+        },
+        "file_count": 8,
+        "planned_steps": 1816704,
+        "progress_sha256": "0ab5539cc72ef3aba757fd5be6d54fb7581f2476f2d8a12616b44f68c1c919f4",
+        "status": "yielded",
+        "steps": 248,
+        "storage_bytes": 110617,
+        "wall_seconds": 17.274249489986687
+      },
+      {
+        "commit_count": 3,
+        "counts": {
+          "events": 2,
+          "samples": 10
+        },
+        "file_count": 10,
+        "planned_steps": 1816704,
+        "progress_sha256": "36f7bd086a0e1007c72f589d145e7ff663cac5bd2e3d60a46205a540ab4692dd",
+        "status": "yielded",
+        "steps": 373,
+        "storage_bytes": 141800,
+        "wall_seconds": 17.34534961299505
+      },
+      {
+        "commit_count": 4,
+        "counts": {
+          "events": 2,
+          "samples": 14
+        },
+        "file_count": 12,
+        "planned_steps": 1816704,
+        "progress_sha256": "84df14f4bd38038012d79a2841ce9e6308734d0f5908135ffc57b2d17ef6e3a3",
+        "status": "yielded",
+        "steps": 497,
+        "storage_bytes": 181830,
+        "wall_seconds": 17.388672981993295
+      },
+      {
+        "commit_count": 5,
+        "counts": {
+          "events": 2,
+          "samples": 17
+        },
+        "file_count": 14,
+        "planned_steps": 1816704,
+        "progress_sha256": "edbd801c4472523e3f1edd57bc56978be03174db758466cd138003da3c828fdd",
+        "status": "yielded",
+        "steps": 622,
+        "storage_bytes": 213014,
+        "wall_seconds": 17.432776314992225
+      },
+      {
+        "commit_count": 6,
+        "counts": {
+          "events": 2,
+          "samples": 20
+        },
+        "file_count": 16,
+        "planned_steps": 1816704,
+        "progress_sha256": "bd8895be997c91a7da70c70f6b0583fc2d86665ed72968758c184d848439fd59",
+        "status": "yielded",
+        "steps": 747,
+        "storage_bytes": 244168,
+        "wall_seconds": 17.578230550003354
+      },
+      {
+        "commit_count": 7,
+        "counts": {
+          "events": 2,
+          "samples": 23
+        },
+        "file_count": 18,
+        "planned_steps": 1816704,
+        "progress_sha256": "b481a0083bf3f40032919913fb8f8246fb7607a422db7bc6555933df84ad35ae",
+        "status": "yielded",
+        "steps": 872,
+        "storage_bytes": 275285,
+        "wall_seconds": 17.634084297009395
+      },
+      {
+        "commit_count": 8,
+        "counts": {
+          "events": 2,
+          "samples": 27
+        },
+        "file_count": 20,
+        "planned_steps": 1816704,
+        "progress_sha256": "44d1b7db6cf07313cd49d056258d87733a4ed01969c907afb0297d1d9bc61b15",
+        "status": "yielded",
+        "steps": 996,
+        "storage_bytes": 315244,
+        "wall_seconds": 17.66452553900308
+      },
+      {
+        "commit_count": 9,
+        "counts": {
+          "events": 2,
+          "samples": 30
+        },
+        "file_count": 22,
+        "planned_steps": 1816704,
+        "progress_sha256": "ba0999f41c580136688dcb2f9bbe9e234e330169816178f54d18350d7c25725d",
+        "status": "yielded",
+        "steps": 1121,
+        "storage_bytes": 346360,
+        "wall_seconds": 17.716062481995323
+      },
+      {
+        "commit_count": 10,
+        "counts": {
+          "events": 2,
+          "samples": 33
+        },
+        "file_count": 24,
+        "planned_steps": 1816704,
+        "progress_sha256": "524ba0e7f50f7e11228691b2c28974ba1abcfb0f683529f72134b344cb7d56f2",
+        "status": "yielded",
+        "steps": 1246,
+        "storage_bytes": 377497,
+        "wall_seconds": 17.80123737300164
+      },
+      {
+        "commit_count": 11,
+        "counts": {
+          "events": 2,
+          "samples": 37
+        },
+        "file_count": 26,
+        "planned_steps": 1816704,
+        "progress_sha256": "7bd735d7efc960345d674f0938c2892f44339458f8acf6e4a1d382eed7fa9245",
+        "status": "yielded",
+        "steps": 1370,
+        "storage_bytes": 417391,
+        "wall_seconds": 17.85007166300784
+      },
+      {
+        "commit_count": 12,
+        "counts": {
+          "events": 2,
+          "samples": 40
+        },
+        "file_count": 28,
+        "planned_steps": 1816704,
+        "progress_sha256": "8d73c8866af653116790ce76852177fa94b3562f5dd5ee021f92e43a23b9767d",
+        "status": "yielded",
+        "steps": 1495,
+        "storage_bytes": 448544,
+        "wall_seconds": 17.817099092004355
+      },
+      {
+        "commit_count": 13,
+        "counts": {
+          "events": 2,
+          "samples": 43
+        },
+        "file_count": 30,
+        "planned_steps": 1816704,
+        "progress_sha256": "72d83427261ba0f24df42a076bbf6f8bec07287ea950951b5665334f92dc56db",
+        "status": "yielded",
+        "steps": 1620,
+        "storage_bytes": 479662,
+        "wall_seconds": 17.849554932006868
+      },
+      {
+        "commit_count": 14,
+        "counts": {
+          "events": 2,
+          "samples": 46
+        },
+        "file_count": 32,
+        "planned_steps": 1816704,
+        "progress_sha256": "20aee2bae7e6be688e8e7200f3911fcf4ff81ccb9dd08b76f42bc1a7e9b9ba32",
+        "status": "yielded",
+        "steps": 1745,
+        "storage_bytes": 510763,
+        "wall_seconds": 17.87914980200003
+      },
+      {
+        "commit_count": 15,
+        "counts": {
+          "events": 2,
+          "samples": 50
+        },
+        "file_count": 34,
+        "planned_steps": 1816704,
+        "progress_sha256": "1ba50a909b49a621bc82d5664c2e76add85f3451193ae2ce5e00ae603f5ea9fd",
+        "status": "yielded",
+        "steps": 1869,
+        "storage_bytes": 550643,
+        "wall_seconds": 18.06866265500139
+      },
+      {
+        "commit_count": 16,
+        "counts": {
+          "events": 2,
+          "samples": 53
+        },
+        "file_count": 36,
+        "planned_steps": 1816704,
+        "progress_sha256": "a4637fc4c187a449428c5570a8af9d2812000dc56c422f9234b6d51893b19dd0",
+        "status": "yielded",
+        "steps": 1994,
+        "storage_bytes": 581758,
+        "wall_seconds": 18.081915468996158
+      },
+      {
+        "commit_count": 17,
+        "counts": {
+          "events": 2,
+          "samples": 56
+        },
+        "file_count": 38,
+        "planned_steps": 1816704,
+        "progress_sha256": "e66a10be43ae066cdd7288b563e551e46f9a61c4b87f192e8cc94c03f447505a",
+        "status": "yielded",
+        "steps": 2119,
+        "storage_bytes": 612810,
+        "wall_seconds": 18.032363753998652
+      },
+      {
+        "commit_count": 18,
+        "counts": {
+          "events": 2,
+          "samples": 60
+        },
+        "file_count": 40,
+        "planned_steps": 1816704,
+        "progress_sha256": "978390b83d53072e4c999118ee4a584318fa49fc0ce9eb19493033c323893457",
+        "status": "yielded",
+        "steps": 2243,
+        "storage_bytes": 652661,
+        "wall_seconds": 18.195900211008848
+      },
+      {
+        "commit_count": 19,
+        "counts": {
+          "events": 2,
+          "samples": 63
+        },
+        "file_count": 42,
+        "planned_steps": 1816704,
+        "progress_sha256": "25dad3b1d5bea25b57dd04e0611519b028e78fa2233e5678a1635500f91ddb29",
+        "status": "yielded",
+        "steps": 2368,
+        "storage_bytes": 683747,
+        "wall_seconds": 18.164824284991482
+      },
+      {
+        "commit_count": 20,
+        "counts": {
+          "events": 2,
+          "samples": 66
+        },
+        "file_count": 44,
+        "planned_steps": 1816704,
+        "progress_sha256": "94c782121cf4983245dff7622c2d0caa829aea4b24b220bddb0b7055ba68deb4",
+        "status": "yielded",
+        "steps": 2493,
+        "storage_bytes": 714804,
+        "wall_seconds": 17.460474299005
+      },
+      {
+        "commit_count": 21,
+        "counts": {
+          "events": 2,
+          "samples": 69
+        },
+        "file_count": 46,
+        "planned_steps": 1816704,
+        "progress_sha256": "5e1c7966160de8d78ba39e34d26d99d2b9ab9033c640278016bd13cd1ffc0905",
+        "status": "yielded",
+        "steps": 2618,
+        "storage_bytes": 745894,
+        "wall_seconds": 17.463300479997997
+      },
+      {
+        "commit_count": 22,
+        "counts": {
+          "events": 2,
+          "samples": 73
+        },
+        "file_count": 48,
+        "planned_steps": 1816704,
+        "progress_sha256": "4f3391abbb262afd58ac9cef07df88800b89a70a878b27cfdac20992ad414124",
+        "status": "yielded",
+        "steps": 2742,
+        "storage_bytes": 785704,
+        "wall_seconds": 17.603370489989175
+      },
+      {
+        "commit_count": 23,
+        "counts": {
+          "events": 2,
+          "samples": 76
+        },
+        "file_count": 50,
+        "planned_steps": 1816704,
+        "progress_sha256": "f9164e4bc57913e1402a0a11f350bfc649d41020531a68fda23848784de74ec7",
+        "status": "yielded",
+        "steps": 2867,
+        "storage_bytes": 816754,
+        "wall_seconds": 17.515581921004923
+      },
+      {
+        "commit_count": 24,
+        "counts": {
+          "events": 2,
+          "samples": 79
+        },
+        "file_count": 52,
+        "planned_steps": 1816704,
+        "progress_sha256": "55532d09b4259adb58e88c5f0132cacc0219666563c0be9961ca4c660d3ac28d",
+        "status": "yielded",
+        "steps": 2992,
+        "storage_bytes": 847801,
+        "wall_seconds": 17.679876114008948
+      },
+      {
+        "commit_count": 25,
+        "counts": {
+          "events": 2,
+          "samples": 83
+        },
+        "file_count": 54,
+        "planned_steps": 1816704,
+        "progress_sha256": "d54c8441330ef9050da0b8540185d1ed4c8500c4d7ad48f5da557f754dce607c",
+        "status": "yielded",
+        "steps": 3116,
+        "storage_bytes": 887647,
+        "wall_seconds": 17.59810664699762
+      },
+      {
+        "commit_count": 26,
+        "counts": {
+          "events": 2,
+          "samples": 86
+        },
+        "file_count": 56,
+        "planned_steps": 1816704,
+        "progress_sha256": "2ce6bd53e8e8d2db514e2ffa24787cd847158943b530fa7d025be8600344f2a4",
+        "status": "yielded",
+        "steps": 3241,
+        "storage_bytes": 918699,
+        "wall_seconds": 17.718869032003568
+      },
+      {
+        "commit_count": 27,
+        "counts": {
+          "events": 2,
+          "samples": 89
+        },
+        "file_count": 58,
+        "planned_steps": 1816704,
+        "progress_sha256": "18ff13626e42c84e4fb19443dd38b558f0dac44761ce0622b2967d9c192676dc",
+        "status": "yielded",
+        "steps": 3366,
+        "storage_bytes": 949762,
+        "wall_seconds": 17.707558793990756
+      },
+      {
+        "commit_count": 28,
+        "counts": {
+          "events": 2,
+          "samples": 92
+        },
+        "file_count": 60,
+        "planned_steps": 1816704,
+        "progress_sha256": "6931758cad27ab2326f6db109630a3a1cb575c872d9bbd1a07833fdf0cb144e1",
+        "status": "yielded",
+        "steps": 3491,
+        "storage_bytes": 980782,
+        "wall_seconds": 17.71410634199856
+      },
+      {
+        "commit_count": 29,
+        "counts": {
+          "events": 2,
+          "samples": 96
+        },
+        "file_count": 62,
+        "planned_steps": 1816704,
+        "progress_sha256": "eeff18b0dd2e0f39ff12486ac09173401d83721b9aa0e7716064929bd207442d",
+        "status": "yielded",
+        "steps": 3615,
+        "storage_bytes": 1020640,
+        "wall_seconds": 17.813988092995714
+      },
+      {
+        "commit_count": 30,
+        "counts": {
+          "events": 2,
+          "samples": 99
+        },
+        "file_count": 64,
+        "planned_steps": 1816704,
+        "progress_sha256": "200e1f1eb98884e7392826b60812e0e217345199b4e405cc6b57ff4a536478d9",
+        "status": "yielded",
+        "steps": 3740,
+        "storage_bytes": 1051662,
+        "wall_seconds": 17.85123112500878
+      },
+      {
+        "commit_count": 31,
+        "counts": {
+          "events": 2,
+          "samples": 102
+        },
+        "file_count": 66,
+        "planned_steps": 1816704,
+        "progress_sha256": "8186c27089aa8bdf6f6e6c0948096331e5834ba1148478c37529e09bce823628",
+        "status": "yielded",
+        "steps": 3865,
+        "storage_bytes": 1082713,
+        "wall_seconds": 17.937271889997646
+      },
+      {
+        "commit_count": 32,
+        "counts": {
+          "events": 2,
+          "samples": 105
+        },
+        "file_count": 68,
+        "planned_steps": 1816704,
+        "progress_sha256": "c2a1bca6c31f56818b4da085908047d4c565ef0b788931ed0ecf180322b0f84d",
+        "status": "yielded",
+        "steps": 3990,
+        "storage_bytes": 1113726,
+        "wall_seconds": 17.85414526099339
+      }
+    ],
+    "last_progress": {
+      "artifact_sha256": null,
+      "binding_sha256": "479c827b1b058081dac089a62585181fa00712485d14be6d0e309ffdbae1ee0d",
+      "commit_count": 32,
+      "context_sha256": "71c322fac5c814d4d01238b01761c565506d676c2da9a4df2994c03007483c6a",
+      "counts": {
+        "events": 2,
+        "samples": 105
+      },
+      "custody_code_sha256": "c7fe972d9398953da2a69af2eaad9dc61366f96d6f0a539bec00034cc5f93763",
+      "file_count": 68,
+      "head_sha256": "6fbbe1844fbdec01c93df0282d197ccdcb9a2b5f85c25dc41954afced1691a89",
+      "header_sha256": "7d2ac6abffe2e8bb789a29fef8b42fc985f710c03c7fd08c9270a46f83a11db7",
+      "input_root_sha256": "05a58cc9092682f663bb3e2f827003f51ec8a778f746bb429126a663e841fc04",
+      "intent_sha256": "ce81a77db60ce191b0cea52cdf746e8835f47d872fec192e08dcac3e068fcb2b",
+      "planned_steps": 1816704,
+      "proof_sha256": "871b4a7436fe10997c2b85cb2ef29928e0e818e5d465303725e626bc453e90cd",
+      "scope": "synthetic_crop_math_only",
+      "status": "yielded",
+      "steps": 3990,
+      "storage_bytes": 1113726,
+      "version": "crop-cycle-verified-server-custody-v1"
+    },
+    "max_advances": 32,
+    "measurement_code_sha256": "07d4f90edfd78b468a482344bd569eb444036ddd1a7e3f7208a79c4b64894e96",
+    "measurement_scope": "serial_process_lifetime_RSS_and_wrapper_overhead_inclusive_costs_not_additive",
+    "measurement_version": "crop-cycle-calculation-prefix-cost-v1",
+    "per_advance_cost_detail": "preserved_in_hashed_private_full166-prefix-profile.json",
+    "process_peak_rss_bytes": 185204736,
+    "read_rhs_calls": 0,
+    "recorded_at_utc": "2026-10-07T19:03:25.484527+00:00",
+    "reused_costs_code_sha256": "3aa54011758ba01e291579985f91a3b90b8580e54e3de0dec2b492b91c74d9fc",
+    "scope": "owned_synthetic_registered_prefix_cost_only",
+    "stop_reason": "advance_limit",
+    "wall_budget_seconds": 900,
+    "wall_seconds": 596.4150796150061
+  },
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "native_turn_context_line_sha256": "2d9b8087f1b139fcb5c21f20b3c2f7e5645d5fdf29f6eace17db8d3369059d3a",
+    "observed_at_utc": "2026-10-07T18:43:15.681853+00:00",
+    "reasoning_effort": "xhigh",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T18:42:12.599Z"
+  },
+  "preflight": {
+    "actual_steps": 123,
+    "counts": {
+      "events": 2,
+      "samples": 4
+    },
+    "exit_code": 0,
+    "log_sha256": "97eac5087c0559b8f795d11013677b95bb46a0b6d6ff0830a4050c689bb42c95",
+    "negative_state_change_rejected": true,
+    "original_checkpoint_values_equal": true,
+    "original_rows_exact_after_explicit_shift": true,
+    "wall_seconds": 11.059803644995554
+  },
+  "preserved_preflight_failure": {
+    "exit_code": 1,
+    "log_sha256": "3053c689133c0f8cad64c84df657a1eaab717bb38f5ac2f23238daafd3818a54",
+    "wall_seconds": 3.3032334789895685
+  },
+  "private_evidence_sha256": {
+    "full166-prefix-result.json": "82f3712534ed2ee96e127fd54380ac16bf2e134463498ca435387613b0f0882a",
+    "native-cli-context-continued.json": "b2577b5ebe7dd161fe7df3c5d9322caa44c954a696d41c6ae090083e9121e1e5",
+    "native-cli-context.json": "eaa17577c2837ca77801741c8eca6166129e8b1e871ed77f1cc5528a41756a4e",
+    "preserved-before.json": "c4a88968615f72e50b7d0eeca928b7b9b78a1515374900299d1dfa2bb97a493d",
+    "reference-preflight-checkpoint-result.json": "c033cb5e194dd6335c7bf177e43b76b5c9b5f3ddf41bd48891e25ae5b82e3e04"
+  },
+  "private_measurement_evidence_sha256": {
+    "database-cleanup.json": "ea7c673c5a290819e78fd912df61523a8f27ef5df2813e1ac945a535024dded7",
+    "full166-prefix-profile.json": "3269489d4709e9be64259cb2a7a89bb0880ceaf658f827616dc3f32c20f1049f",
+    "full166-prefix-verified.json": "8bc87998fa65beec7fc2d0da4d4150767f55c29f666918c679676df8395b7a52"
+  },
+  "receipt_version": "crop-cycle-full166-prefix-cost-observed-v1",
+  "recorded_at_utc": "2026-10-07T19:05:05.331603+00:00",
+  "scope": "derived_synthetic_full166_registered_initial_increasing_prefix_only",
+  "source_sha256": {
+    "LICENSES/GreenLight-BSD-3-Clause-Clear.txt": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+    "backend/app/api.py": "bda74653ee8db803f5bb1660c8e2c0cbfc1437cc026d25e8cbbdfb588b151332",
+    "backend/app/api_crop_coupled_replay.py": "83d3eefd782206801fe645afc2e200bb621509b7c932b4a0544bbcb2bf31c582",
+    "backend/app/api_crop_cycle_calculation_replay.py": "43db235645057cf1f1981dc75528a655b758dff503f5fb986192680c807c658d",
+    "backend/app/api_crop_cycle_calculation_route.py": "9d70d5200217db8548da3be2113039cfb70b1f89681f667622eb36a25edd147c",
+    "backend/app/api_crop_cycle_replay.py": "df4e92802fa9322b025a920c7e2ab2af40731b091479079647cf1ec954d43b85",
+    "backend/app/api_crop_startup_replay.py": "05b553e236dc3d5272829acd14f54910ef1a17400585cd7001e9992a048d7fac",
+    "backend/app/api_runtime.py": "612f53cff5d761aa2e305389d1ba27d250a49a3d51ebf56f83b55ddbd85adf1e",
+    "backend/app/calculation_operator_config.py": "1f2ccdcb2ac10533fc9ab1361f22f82c8e38591e37fa04ecc253c1a6cbecbeb3",
+    "backend/app/crop_coupled_artifact.py": "4d239f24d43bf351f3c11c9e9d59fccff30a76ef0815659f22c60fbc8ec7d017",
+    "backend/app/crop_coupled_result_store.py": "765184999e07b078a6f79b414c148497ee3543b889a40a65d091a4ab44080632",
+    "backend/app/crop_cycle_artifact.py": "10bcf863ba40338f2efa7242d78c2cccd3020fbdca061951da6b7b1c5a7c51f7",
+    "backend/app/crop_cycle_calculation_current_query.py": "2189bbb94eaf35ab75007de1787d89d3ff1a28381ceaf8c3b9be86f1644fe9ec",
+    "backend/app/crop_cycle_calculation_result_evidence.py": "d891b74825585a53d4f9c24d9c44536f818a39964babca3b94660d2261d7d6b2",
+    "backend/app/crop_cycle_calculation_result_read_context.py": "21640d2d69b7f641af0a4ff2b517ffd90d9e56647761cfd1d9d215c5f20ad819",
+    "backend/app/crop_cycle_continuation.py": "478f152a2395a451d9add64acf37e23ddc32a15273b14d0419869c1634596899",
+    "backend/app/crop_cycle_current_query.py": "02413fccf1c0c65b3e608962e24bba1959c10c71f446528383e4b57979536736",
+    "backend/app/crop_cycle_farm_binding.py": "4f245271487b1e55422386b42221aa8d24906d28f52403626c474c62f14568a9",
+    "backend/app/crop_cycle_input_stream.py": "83eecd4c282f5572cbd244edd633b7b9b40ba1c879fe5cfb9de102da182d2d53",
+    "backend/app/crop_cycle_result_schema.py": "94cfba00cec0d3026bc4afb133c70168e4294e5beb0b625530db8f83acce73c8",
+    "backend/app/crop_cycle_result_store.py": "c182ba1dad82f6363abc9d7ed7cb784e6e989da0c23862563d47f1a91ebf043e",
+    "backend/app/crop_cycle_server_custody.py": "85053b8dee2bf7c0a3675c92931ec9321e7e2804cf8ebb1593542212782d7683",
+    "backend/app/crop_cycle_stream_execution.py": "4de399721cab82ab7f56e093b11b72682437e29bb3097e745b1e61d695d03aac",
+    "backend/app/crop_fruit_allocation.py": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "backend/app/crop_fruit_cohorts.py": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "backend/app/crop_fruit_startup.py": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "backend/app/crop_fruit_transport.py": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "backend/app/crop_growth_rates.py": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "backend/app/crop_plant_cohort_integration.py": "76736eadb643e8811bf79ea18d354b8746eeea27aa65ee5f685a7eb9f5dabfcf",
+    "backend/app/crop_plant_cohort_rates.py": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "backend/app/crop_plant_startup_integration.py": "a48f2069d26024eeed5612e95bf59639f943fd6b98e789b21124a125c558656b",
+    "backend/app/crop_plant_startup_rates.py": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756",
+    "backend/app/crop_result_store.py": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+    "backend/app/crop_startup_artifact.py": "6d095d6b2c5cfff36cdfbf7b1f0b16d2acbe44e162c918a5ece637cda9c2f33a",
+    "backend/app/crop_startup_result_store.py": "d2e12ad750258b1b362261cb52b797de4bdcca02f84ecaaebafd9b74dab9b0af",
+    "backend/app/operator_config.py": "bb73a2de7dac4b4a0749c8822c5ab1abe27d94af086f2af92d763e3f36d8f80b",
+    "backend/app/thermal_run_store.py": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+    "backend/tests/crop_cycle_calculation_prefix_cost_smoke.py": "875632dfdfb73bb6b7b4a69ec0773e0fc61989f1111f0cab8e10f33ce81556ae",
+    "backend/tests/crop_cycle_full_calendar_registration_smoke.py": "31738aeb7335dc49fc1df1273bfc25862483faaa7086dcc3b4aa02e6c6bc9883",
+    "backend/tests/crop_cycle_full_prefix_cost_smoke.py": "d296b6f4ce2275632a76cbbf3f4648b585fcbeb496934dc5eb810ce9a589c188",
+    "backend/tests/login_database.py": "1c5aa36f2c5bfe88c61747046b9153a5ef0ccb35afd47ed09dddf6d9ff1e6bfb",
+    "backend/tests/test_api_crop_cycle_calculation_replay.py": "79f5985f039c37ad2e294246341ff8ff703118368352738c08bc032c389b42f1",
+    "backend/tests/test_api_crop_cycle_calculation_route.py": "85ce5475cbdb1488b07cee4f4fe784074eb4342c9377aa8bad1501c9bc7609df",
+    "backend/tests/test_api_crop_cycle_calculation_tls.py": "18b40c8099158d0d2f0b497b6f34f244106c4ea58196c558f453fe6702d036f5",
+    "backend/tests/test_api_crop_cycle_replay.py": "604af991733cf3264243b4feaece96bb84c639c0b8aa0a443e3412340c44b7c4",
+    "backend/tests/test_api_crop_cycle_route.py": "7874c0a6962f7699d70612ced52a63f7c2789086c05434f2bcc4bc2f3f5dd130",
+    "backend/tests/test_api_crop_startup_replay.py": "17bbfe9876eaa2488085b8cdbd3a7120299fa54bdcb05643c12c33cc37671fa2",
+    "backend/tests/test_api_openapi.py": "dcdbe08af635070935473b99fc36053ddf26773e095feedce835722cd3da583c",
+    "backend/tests/test_application_operator_policy.py": "76b2598251071bf882eca9fec5f6750e06fe889e7b3983a201faba58fc3b92fe",
+    "backend/tests/test_calculation_operator_config.py": "ed123c5f886e8eb82903b9707cc0903431e7bb57cf018f64782b5398f81ac60a",
+    "backend/tests/test_crop_cycle_artifact.py": "f597dd2a952184553f7f8d68bd70c155886278c4c927291daa3d501f7294e971",
+    "backend/tests/test_crop_cycle_burden_profile.py": "9543b1af756f7744e14041daec29cbe43278d8fa18f52123f32221da99b777f9",
+    "backend/tests/test_crop_cycle_calculation_current_query.py": "e4b44bc1342da9ddbf79c9a1949aef87dbe61e0d98f39c1eec6a5fc2fa5f9488",
+    "backend/tests/test_crop_cycle_calculation_result_evidence.py": "766ac39ad8a7892e6b2b078a8004b9f5aaa53f3feb426037a792e816c4b3ddc4",
+    "backend/tests/test_crop_cycle_calculation_result_read_context.py": "5ba9faad99ba879ff5b9c8020d96cd064c553e076fbf3d4e7f5d180efc3fa3e2",
+    "backend/tests/test_crop_cycle_calculation_runtime.py": "5bddd3e6fea348102e0c7d01aa2cd0aca95bdf609ef55bfbf660560f15153454",
+    "backend/tests/test_crop_cycle_calendar_translation.py": "96f1a734b08741c33a87a9c6055c8f2fa4fbe6de93ad3247e2a18b86e2eb3886",
+    "backend/tests/test_crop_cycle_continuation.py": "c0b0059e0816e88418ed761cbc1c5a085a23e262b4948c1f95dfd3f3ae3643a7",
+    "backend/tests/test_crop_cycle_current_query.py": "da46bb914cd8b61ef445ce62fa0ec0bd0aad41a41576b2b5304f9bff6ae56af8",
+    "backend/tests/test_crop_cycle_farm_binding.py": "d76b3be7fbbc7a76ca100538c936615df86cb6e664705810573a6dd65b97db12",
+    "backend/tests/test_crop_cycle_input_stream.py": "dc5d9f86ebe74cb0d920939ab07381c7d729a0bc3abcffc165d702635ab4c23f",
+    "backend/tests/test_crop_cycle_result_schema.py": "81f58e8aedb2a491253aa58af8b4cd04a2304bfbe674daab0536d7b796b661d2",
+    "backend/tests/test_crop_cycle_result_store.py": "feb34143d9056f9b3d2ee5bf8e06e3b0f1c2e4f82ff4e163c0bfc26a966fdfcb",
+    "backend/tests/test_crop_cycle_result_store_farms.py": "63e4ce69d0309ccc272475b116150a323adc29bc34b00b64fb22314ed6166210",
+    "backend/tests/test_crop_cycle_result_summary.py": "0183235fee7daffe0c52e424fb7094cc501fb7d38d5ed90095e9a4c1877c39d6",
+    "backend/tests/test_crop_cycle_server_custody.py": "6ce4cd137cc559bd710c751da2b23307c4904daf863030d2f6280f18fea64249",
+    "backend/tests/test_crop_cycle_server_custody_farms.py": "02b653f610032c44634cba2aadf12b0ba22dd2fd39f3dacccc3cde3844debee0",
+    "backend/tests/test_crop_cycle_stream_execution.py": "0a0800f6be8abb702ba2dcd461c00e9bf913a81c2c30ae2baabfc61b8447c3d1",
+    "backend/tests/test_crop_plant_startup_integration.py": "38aa5e404124518eb9c44b9487c443de5a739ad4b1486e4eb74fe6709b637a86",
+    "backend/tests/test_crop_startup_artifact.py": "8c4e15afc6f113947cae2d32d4629f58ed15ea716737c29f08bd00bac998d6e6",
+    "backend/tests/test_crop_startup_result_store.py": "16e41c5a90a0838344f7e1ff185214ee4125bf52454dced3858725db210ae476",
+    "backend/tests/test_login_hba_audit.py": "f93b5cba54225f6da4efc6148ba5237683b681d919b157e4a92828b23b1dc608",
+    "backend/tests/test_operator_config.py": "6cbffa576258b79a150a82bb03162c7332c0e970285aaf45f6dc3fc6c431d3d8",
+    "backend/tests/web_crop_cycle_replay_smoke.py": "30956ec66350d231d50ca423ddcb9ded57e476c72f1c72b07b69e98633d7a87a",
+    "backend/tests/web_shell_smoke.py": "2e78355926b6f2fcda88ef3f622d18f15e604e493f852330ab744ebecf04557b",
+    "contracts/crop-cycle-calculation-full-prefix-cost-v1.md": "34e08ed34cdcaafa2f15ab0d3a3a563123387b1a5b21a78e89298997a07eb15f",
+    "contracts/crop-cycle-calculation-prefix-cost-v1.md": "3308e3211d194dea4a77ce0552fe02c3f6f7c45061c37b7334669b5d125baa5f",
+    "contracts/crop-cycle-calendar-registration-v1.md": "e132ea2db081962e943bb44b1bfc9d69b45a0e3cebe3d88ccf88a43c1ca7e8e0",
+    "contracts/openapi-v1.json": "57c835db9cc331289a208ddcbf99b59837e05400824ce02c39b497e2741d9c1e",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "fixtures/crop-fruit-transport-reference-parameters-v1.json": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-plant-startup-integration-reference-v1.json": "a94e4d88e02a5b29e2b1c20f0767cea6a326dccaa31278d5138667755b2f8026",
+    "research/artifacts/crop-startup-integration-reference-20261005.json": "9b82831acb198a2b96c5c0620728ecf5b5ae245d2543b42580cfc00d253bb3b2",
+    "research/crop-cycle-burden-profile.py": "3aa54011758ba01e291579985f91a3b90b8580e54e3de0dec2b492b91c74d9fc",
+    "research/crop-cycle-calculation-prefix-cost.py": "07d4f90edfd78b468a482344bd569eb444036ddd1a7e3f7208a79c4b64894e96",
+    "research/crop-cycle-calculation-result-evidence-reference.py": "021269ffac2e7760a24b1f949578d7fad093dd0f42328815708f0867102ece7a",
+    "research/crop-cycle-calculation-result-read-context-reference.py": "d1b3af5e447fa3d5fa0889a31eda5fbc37a010d1e734733ff4a2a6d7887236ed",
+    "research/crop-cycle-calendar-translation.py": "1f784b4921009b3ff024d68cf2a1ef4ce386e76e0c4d501c50679d35f1a10fd7",
+    "research/crop-cycle-full-rhs-durable.py": "21fe374dc5e6037d5bfd8a9008aac05eab00daeb3ba0d81745a54bc4aac3cbb4",
+    "research/crop-cycle-full-rhs-reference.py": "31a7ecc2d1932ec92cabcefae5979b57f746363cdc49bcce3878835ae4a91f89",
+    "research/crop-cycle-stream-execution-reference.py": "b13b6224dadd4d69a94e6d9e2d3a820449e636cb57b621915c325dcb3e1f3f1b",
+    "research/crop-fruit-startup-source-register.json": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+    "research/crop-integration-reference.py": "a38b7a67e43cf9f590838bf915ab3e5048950b8be6ed35f70817e18b42a09ce7",
+    "research/crop-plant-cohort-integration-reference.py": "9b880b9d06812f3cfa05bf1c5e47ef93811b548d2320136ce5ae813730d50a72",
+    "research/crop-plant-startup-integration-reference.py": "c99cb9c2a83531a85183cfc9ccecc7401f95bd310bdc210cf4501d880458c44c",
+    "scripts/check-application-runtime.py": "80c9fa2dff31b84a8f36af828101f352b85907bc1f0bb76961fa02e097493e7d",
+    "web/e2e/calculation-cycle-crop-recorded-responses.json": "a2d3e197b352bc51ab1dd66f520f38912032bb9a9e705733eb89919e47f4a80b",
+    "web/e2e/calculation-cycle-crop-replay.spec.ts": "db6ced7c5fc87bba761093f9519fa7e6bfcb4888194cb6dcae9b92d82de9377f",
+    "web/e2e/coupled-crop-fixture.ts": "25afe22a09458a048f7ac1eb129cf0996736aa46eb803a9a14dd5e99f7e390b5",
+    "web/e2e/coupled-crop-replay.spec.ts": "554b9289f15aaff80738abcaa1c3172a401c8e6ca73de3bb7eaae60ecbc67185",
+    "web/e2e/crop-fixture.ts": "8ad46cd75d813dd5d436bda2bc4e2108a0ecca3c1eaf4c0da0a713f8b1978323",
+    "web/e2e/crop-replay.spec.ts": "a560cdc0236367d463bc8eb09f116a3991b0fce5461b6354d7c4df1661e73465",
+    "web/e2e/cycle-crop-fixture.ts": "8b01398e4da5b4645322cb510b129ace5df57f334dd9bad650e1e4ba4cdbdc0e",
+    "web/e2e/cycle-crop-replay.spec.ts": "030c983431af92b9aae7d0a8648202a2db1983ce8ed22b22acd11464690b590f",
+    "web/e2e/startup-crop-fixture.ts": "08dc36d7ef26853b653dd1c10213c0645f8b1b065fa3f352b0ea05311d1c0fde",
+    "web/e2e/startup-crop-replay.spec.ts": "370024bb19d2fa90058c4a2a0ea3713e3ebea8916e3a1767a7960e3702966ebd",
+    "web/package-lock.json": "7c71e36d67b965ed054271db94f10f913f36cea362dd4e9e221722928c8cf731",
+    "web/package.json": "1554fbdaf7c8c9573163045fe6ebfbd0ce9d95268a023f29fd6e6106276b2925",
+    "web/playwright.config.ts": "d24619fbb5c5cc6c534a1d529d1547a348285dede6096b3db5933d665e341f13",
+    "web/src/CoupledCropChart.tsx": "aaeca2fa86a194179fb891f8f19334d4d92955500cfaa2c6063b6af132fa808b",
+    "web/src/CoupledCropScene.tsx": "deffa71b24cd81c031b42cddf8485114e4f52d8ece4cc5e12c792d2f678d895e",
+    "web/src/CropReplay.tsx": "813760b6ab8d72170ce5b3acd4c525fa02e6c65a340a6eff25e5ba103163b790",
+    "web/src/CycleCropReplay.css": "1f3a5fad4309dae6539223e261e5bae86fb772fbb393cb0e74c68d022fa00c13",
+    "web/src/CycleCropReplay.tsx": "233fd5950ee6ec38cadbcb1c6bc4243b70418daba1f04d67dc2c0754bcb627c6",
+    "web/src/api.ts": "221128d955a0dab59821e4d8a64bfc642747143395350fb8baf6d1ecbcaf9974",
+    "web/src/calculationCycleCropReplay.test.ts": "4446364018ab8d9f00f83fe953ebe433aeb9b7790e60e5eabb0a75d3f5c74768",
+    "web/src/calculationCycleCropReplay.ts": "453ee2e81c8b3681467363e5abcd2ac6dd5299a7405dbbc79c865d959d398d5c",
+    "web/src/calculationCycleCropWindow.test.ts": "e1ad3cf6aa6f9cdfaf3165b1a975f25588c87bbdbf1bdf31902759ce3b66171e",
+    "web/src/coupledCropGeometry.ts": "787ec7cda3cda6146dcd14108a22614dd7bd643c1396cc2497c5ca35e9c6b642",
+    "web/src/coupledCropReplay.test.ts": "957b67a629d9cccbebc9128301db851ab76202faf3b4bd0d65d0c1576761c7be",
+    "web/src/coupledCropReplay.ts": "a73e52cb8c5cfa38e2da6d6fb9268fa7314980bd156fc31ccead163029a2e1a4",
+    "web/src/cycleCropReplay.test.ts": "69b217994f9895c3b4330aa7c84c0006c03126ad880519e63d47a4f70fd5b47b",
+    "web/src/cycleCropReplay.ts": "05b35cbf28e0b9b3df3495bc68e382c56cbe8311c820d1cf5dcaa7d470867308",
+    "web/src/cycleCropWindow.test.ts": "ed26ae4ada5fd1db433fa5bd0041a1593dacd2e4c33ff89787c809cc76dbbf2e",
+    "web/src/cycleCropWindow.ts": "af88f2428a4427345077a951eab195216fb7d5392582058dfca1c0e27f56736a",
+    "web/src/startupCropGeometry.test.ts": "6a5a7480181daffc68e7b4c38623e3de530967f994dadc7d20380120ea97b044",
+    "web/src/startupCropReplay.test.ts": "301d2ac30f7c3c717546fd84cd4eeb3d224fed32ef039152bad5166212d19d8e",
+    "web/src/startupCropReplay.ts": "6917bce223a2f768394b4fa872c70a2cd7183e0da63a050df43e001039a3626a"
+  },
+  "verification": {
+    "actual_crop_Runs": 0,
+    "all_owned_contexts_closed_caches_empty": true,
+    "current_rights_and_principal_denied": true,
+    "gates": "not_assessed",
+    "original_and_derived_inputs_and_original_result_preserved": true,
+    "original_artifact_files": 29141,
+    "original_rows_and_checkpoint_values_equal": true,
+    "row_counts_before_after": [
+      [
+        89,
+        89,
+        0,
+        0,
+        0
+      ],
+      [
+        89,
+        89,
+        0,
+        0,
+        0
+      ]
+    ],
+    "scope": "derived_full166_registered_initial_prefix_measurement_only",
+    "whole166_cycle_accepted": false,
+    "yielded_not_published": true
+  }
+}

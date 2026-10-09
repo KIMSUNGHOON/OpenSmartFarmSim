@@ -1,0 +1,322 @@
+{
+  "evidence_version": "crop-fruit-cohort-image-v1",
+  "recorded_at_utc": "2026-10-04T18:51:39.597577+00:00",
+  "head_sha": "784335d6890fc3dcceef5adc279a79dd9e943a73",
+  "workflow": {
+    "id": 37224223039,
+    "status": "completed",
+    "conclusion": "success",
+    "updated_at": "2026-10-04T18:29:50Z",
+    "html_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37224223039"
+  },
+  "jobs": [
+    {
+      "id": 111500431334,
+      "name": "images",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-04T18:23:02Z",
+      "completed_at": "2026-10-04T18:29:49Z"
+    }
+  ],
+  "log_bytes": 50744,
+  "log_sha256": "83403664cae20d0c68fd24dd43099023d0870683aea3dcfd2974642b53ac4c51",
+  "source_hashes": {
+    ".dockerignore": "0385f8f5a0c3f469ae93bdd711c89cb5350813ff42218ac998805a7eeb04c8e9",
+    "scripts/check-application-images.py": "c37143d4eb9fddb758ab70146c5004599db411828a33e887bcf5b260b0d7e653",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb"
+  },
+  "events": [
+    {
+      "check": "actual_build_context",
+      "excluded_probes": 17,
+      "fruit_cohort_profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+      "fruit_transport_profile_sha256": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+    },
+    {
+      "check": "image_built",
+      "image_id": "sha256:fea8844e8ebe3debc8617cf6bc05a15d74f59587fa545335fed3ccbc88c54150",
+      "service": "backend",
+      "uid": "11001:11010"
+    },
+    {
+      "check": "image_built",
+      "image_id": "sha256:184b0e7b6380e8bb08fdc90ce13b46aecee44a194b9fa088ef57999fc4701d7a",
+      "service": "web",
+      "uid": "11002:11002"
+    },
+    {
+      "check": "backend_readonly_imports_and_closed_startup",
+      "code_sha256": "8550c76803d748539d422724f44ecd6a86afade67ab39c39d6cf0f5b853535e0",
+      "environment_sha256": "e73e9ec049e80bfa4ad96afc33bfa25f5fddab60d60771284d6292178241beb3",
+      "fruit_cohort_profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb"
+    },
+    {
+      "certificate": "api",
+      "check": "web_static_tls_and_fixture_proxy",
+      "proxy_status": 200
+    },
+    {
+      "certificate": "wrong-name",
+      "check": "web_static_tls_and_fixture_proxy",
+      "proxy_status": 502
+    },
+    {
+      "check": "cleanup",
+      "containers_removed": true,
+      "image_tags_removed": true,
+      "temporary_files_removed": true
+    },
+    {
+      "check": "actual_build_context",
+      "excluded_probes": 17,
+      "fruit_cohort_profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+      "fruit_transport_profile_sha256": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+    },
+    {
+      "check": "image_built",
+      "image_id": "sha256:fea8844e8ebe3debc8617cf6bc05a15d74f59587fa545335fed3ccbc88c54150",
+      "service": "backend",
+      "uid": "11001:11010"
+    },
+    {
+      "check": "image_built",
+      "image_id": "sha256:184b0e7b6380e8bb08fdc90ce13b46aecee44a194b9fa088ef57999fc4701d7a",
+      "service": "web",
+      "uid": "11002:11002"
+    },
+    {
+      "check": "actual_compose_process",
+      "memory_bytes": 805306368,
+      "nano_cpus": 500000000,
+      "readonly": true,
+      "service": "api",
+      "uid": "11001:11010"
+    },
+    {
+      "check": "actual_compose_process",
+      "memory_bytes": 134217728,
+      "nano_cpus": 250000000,
+      "readonly": true,
+      "service": "web",
+      "uid": "11002:11002"
+    },
+    {
+      "check": "actual_compose_process",
+      "memory_bytes": 805306368,
+      "nano_cpus": 1000000000,
+      "readonly": true,
+      "service": "simulation",
+      "uid": "11001:11010"
+    },
+    {
+      "assessment": "hold",
+      "check": "tls_scram_automatic_economic_completion",
+      "scope": "software_fixture_only"
+    },
+    {
+      "check": "restart_current_completed_result",
+      "unchanged": true
+    },
+    {
+      "check": "current_grant_drift_refused",
+      "status": 503
+    },
+    {
+      "check": "compose_cleanup",
+      "processes_volumes_credentials_removed": true
+    },
+    {
+      "check": "actual_build_context",
+      "excluded_probes": 17,
+      "fruit_cohort_profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+      "fruit_transport_profile_sha256": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+    },
+    {
+      "check": "image_built",
+      "image_id": "sha256:fea8844e8ebe3debc8617cf6bc05a15d74f59587fa545335fed3ccbc88c54150",
+      "service": "backend",
+      "uid": "11001:11010"
+    },
+    {
+      "check": "image_built",
+      "image_id": "sha256:184b0e7b6380e8bb08fdc90ce13b46aecee44a194b9fa088ef57999fc4701d7a",
+      "service": "web",
+      "uid": "11002:11002"
+    },
+    {
+      "assessment": "hold",
+      "check": "automatic_owned_collection",
+      "scope": "software_fixture_only",
+      "source_count": 3
+    },
+    {
+      "check": "actual_compose_process",
+      "memory_bytes": 805306368,
+      "nano_cpus": 500000000,
+      "readonly": true,
+      "service": "api",
+      "uid": "11001:11010"
+    },
+    {
+      "check": "actual_compose_process",
+      "memory_bytes": 134217728,
+      "nano_cpus": 250000000,
+      "readonly": true,
+      "service": "web",
+      "uid": "11002:11002"
+    },
+    {
+      "check": "actual_compose_process",
+      "memory_bytes": 805306368,
+      "nano_cpus": 1000000000,
+      "readonly": true,
+      "service": "simulation",
+      "uid": "11001:11010"
+    },
+    {
+      "check": "actual_compose_process",
+      "memory_bytes": 268435456,
+      "nano_cpus": 500000000,
+      "readonly": true,
+      "service": "collector",
+      "uid": "11001:11010"
+    },
+    {
+      "assessment": "hold",
+      "check": "tls_scram_automatic_economic_completion",
+      "scope": "software_fixture_only"
+    },
+    {
+      "check": "restart_current_completed_result",
+      "unchanged": true
+    },
+    {
+      "check": "collection_restart_and_parent_withdrawal",
+      "status": 422,
+      "unchanged": true
+    },
+    {
+      "check": "current_grant_drift_refused",
+      "status": 503
+    },
+    {
+      "check": "collector_current_grant_refused",
+      "exit_code": 3
+    },
+    {
+      "check": "compose_cleanup",
+      "processes_volumes_credentials_removed": true
+    },
+    {
+      "check": "actual_build_context",
+      "excluded_probes": 17,
+      "fruit_cohort_profile_sha256": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+      "fruit_transport_profile_sha256": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+    },
+    {
+      "check": "image_built",
+      "image_id": "sha256:fea8844e8ebe3debc8617cf6bc05a15d74f59587fa545335fed3ccbc88c54150",
+      "service": "backend",
+      "uid": "11001:11010"
+    },
+    {
+      "check": "image_built",
+      "image_id": "sha256:184b0e7b6380e8bb08fdc90ce13b46aecee44a194b9fa088ef57999fc4701d7a",
+      "service": "web",
+      "uid": "11002:11002"
+    },
+    {
+      "check": "research_terminal_hold",
+      "reason_code": "ai_validated_hold"
+    },
+    {
+      "check": "held_research_ingestion_refused",
+      "status": 422
+    },
+    {
+      "captures": 1,
+      "check": "automatic_scoped_research_hold",
+      "decisions": 1,
+      "scope": "software_fixture_only",
+      "signed_executions": 1
+    },
+    {
+      "check": "actual_compose_process",
+      "memory_bytes": 805306368,
+      "nano_cpus": 500000000,
+      "readonly": true,
+      "service": "api",
+      "uid": "11001:11010"
+    },
+    {
+      "check": "actual_compose_process",
+      "memory_bytes": 134217728,
+      "nano_cpus": 250000000,
+      "readonly": true,
+      "service": "web",
+      "uid": "11002:11002"
+    },
+    {
+      "check": "actual_compose_process",
+      "memory_bytes": 805306368,
+      "nano_cpus": 1000000000,
+      "readonly": true,
+      "service": "simulation",
+      "uid": "11001:11010"
+    },
+    {
+      "check": "actual_compose_process",
+      "memory_bytes": 536870912,
+      "nano_cpus": 500000000,
+      "readonly": true,
+      "service": "supervisor",
+      "uid": "11003:11020"
+    },
+    {
+      "check": "actual_compose_process",
+      "memory_bytes": 805306368,
+      "nano_cpus": 500000000,
+      "readonly": true,
+      "service": "authority",
+      "uid": "11001:11010"
+    },
+    {
+      "check": "actual_compose_process",
+      "memory_bytes": 134217728,
+      "nano_cpus": 250000000,
+      "readonly": true,
+      "service": "dispatcher",
+      "uid": "11004:11030"
+    },
+    {
+      "assessment": "hold",
+      "check": "tls_scram_automatic_economic_completion",
+      "scope": "software_fixture_only"
+    },
+    {
+      "check": "restart_current_completed_result",
+      "unchanged": true
+    },
+    {
+      "check": "research_restart_current_hold",
+      "unchanged": true
+    },
+    {
+      "check": "current_grant_drift_refused",
+      "status": 503
+    },
+    {
+      "check": "dispatcher_current_grant_refused",
+      "exit_code": 3
+    },
+    {
+      "check": "compose_cleanup",
+      "processes_volumes_credentials_removed": true
+    }
+  ],
+  "scope": "one pinned cohort profile packaging and prior app/Compose regression; new time integrator and claim gates not covered",
+  "actual_runs": 0,
+  "domestic_independent_datasets": 0,
+  "gates_opened": []
+}

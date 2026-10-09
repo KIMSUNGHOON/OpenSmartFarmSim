@@ -1,0 +1,598 @@
+# OpenSmartFarmSim 제품 명세
+
+**2026-10-04 우선순위 개정:** 다음 구현은 방울토마토 한 품종·한 작기의 생장 계산과
+저장 결과의 성장 3D 연결이다. 기존 열·경제·운영 조립은 재사용하며 완료 범위는
+[운영 기반 고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)에 둔다.
+아래 초안 날짜는 최초 작성일이다. 현재 구현 순서는 §7과 [작업 계획](../tasks/plan.md)을 따른다.
+
+**현재 사용자 화면 — 2026-10-09 22:48 KST:** [완료 생장·수확 사용자 전환](../research/crop-harvest-full-user-preview-20261009.md)을 로컬 수용했다.
+`http://localhost:5173/`의 실제 DB/API는 완료 합성166일 생장47,809시점·수확47,813행과 같은 UTC 수치3D를 읽는다.
+원 수확3행/WebGL·독립 root·기존 서비스 종료0/새 서비스 생존·원본/DB/FD·WSL 한도를 확인했다.
+합성 저장/재생 부모만 수용하며 **계산 중 진행 상태·새 checkpoint의 실시간 U3와 최종 통합 UI는 미구현**이다.
+기후/물·양분/구매 에너지→사용자 실행/Decimal 경제와 실제 품종/독립 자료·G0–G4/생산/미래 마진/추천 hold를 유지한다.
+
+**2026-10-10 후속 계산:** 가변 용량 자식 뒤
+[작물·기후 공동 순간 RHS](../research/crop-climate-joint-rhs-implementation-20261010.md)를
+새51/기존412=463개·독립 Decimal1,290스칼라·원 종료/보존으로 로컬 수용했다.
+같은 leaf/LAI·signed Uref에서 구한 수관 온도를 crop/교환·동적 T24/Tsum 미분에 함께 사용한다.
+[짧은 공동 적분](../research/crop-climate-joint-integration-implementation-20261010.md)도 새44/기존463=507개·
+독립798수치/60수렴 비율·원 종료/보존으로 수용했다. 사건 없는32초의108상태/22장부 범위다.
+실측 물성·대사열·전체 작기/온실·실제 생산 모델은 미완료다.
+[원자적 관리](../research/crop-climate-joint-management-implementation-20261010.md)도 새69/기존507=576개·
+독립3,728수치/60수렴 비율·원 실패 재현/수정·원 종료/보존으로 수용했다. 순수 사건/명시 시험 구성 범위다.
+[자동 구간/사건 실행](../research/crop-climate-joint-boundary-implementation-20261010.md)도 새72/기존576=648개·
+독립5,973수치/60수렴 비율·원 종료/보존으로 수용했다. 명시 상수 입력의 짧은 공동 구간/사건 범위다.
+[분할 실행/복원](../research/crop-climate-joint-continuation-implementation-20261010.md)도 새138/기존648=786개·
+독립5,973수치/60수렴 비율·fresh 복원/원 종료·보존으로 수용했다.
+[원 격자 UTC 결속](../research/crop-climate-joint-time-implementation-20261010.md)도 새130/기존786=916개·
+독립272시각/원5,076수치 보존·fresh/재계산0·원 종료/자원으로 로컬 수용했다.
+[불변 페이지 저장/fresh 조회](../research/crop-climate-joint-storage-implementation-20261010.md)도 새77/기존916=993개·
+원5,076수치/46시각 보존·reader 계산0·실제 HEAD 전후 중단/재개·원 종료/자원으로 로컬 수용했다.
+[새 원 입력 검증 증거](../research/crop-climate-joint-input-evidence-implementation-20261010.md)도 새82개·원9개 context/UTC·972초기 수치,
+fresh10개/철회10개·조회 계산0·원 종료/보존/자원으로 로컬 수용했다. 기존993개는 원 파일 pin을 유지하고 재실행하지 않았다.
+[현재 농장/자료 권리 결속](../research/crop-climate-joint-farm-binding-implementation-20261010.md)도 실제 SCRAM6검사 그룹·
+fresh exec/같은 binding·조회 계산0·마이크로초 UTC/종료1µs 초과 거부·현재 철회/정리·원 종료/자원으로 로컬 수용했다.
+[서버 서명 이력/재개](../research/crop-climate-joint-server-custody-implementation-20261010.md)도 실제 SCRAM4그룹·
+fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·원 종료/정리로 로컬 수용했다.
+자식 실행 경로 보완 후 부모 PYTHONPATH 없는12개 집중 검사를 통과했다.
+[새 결과 DB 계약](../research/crop-climate-joint-result-schema-implementation-20261010.md)도 실제 SCRAM5그룹·
+원128KiB/컬럼·UTC·변조/중복/설치 rollback·기존2테이블 보존·원 종료/정리로 로컬 수용했다.
+[새 명시 권한](../research/crop-climate-joint-result-roles-implementation-20261010.md)도 새7/기존226=233개·실제 SCRAM/audit·
+기존 설정의 누락/False 호환·원 종료/보존/정리로 로컬 수용했다. 새 True operator/API 조립은 후속이다.
+[서명 결과 등록/현재 조회](../research/crop-climate-joint-result-store-implementation-20261010.md)도 실제 SCRAM9개·
+별도 exec 원 bytes/UTC·조회 계산0·철회/rollback/충돌/기존2테이블 보존·원 종료/정리로 로컬 수용했다.
+기존 UI 종료를 확인해 보존 원본으로 복구했고 인증된 생장/수확 summary가 원 wire와 일치했다. 새 접속 안내는 web README의 run-v3다.
+[새 결과 API 투영](../research/crop-climate-joint-result-projection-implementation-20261010.md)도 고유40개·원108상태/장부/UTC·fresh 동일 응답·
+실제 SCRAM completed/hold·조회 계산0·원 종료/정리로 로컬 수용했다. HMAC/현재 권리/페이지 소속은 별도 current reader에서 검증한다.
+[같은 세션 현재 조회](../research/crop-climate-joint-current-query-implementation-20261010.md)도 고유10개·원 wire/fresh SCRAM·늦은 철회/변조·
+조회 계산0·원 종료/정리로 로컬 수용했다. 순수 fixture의 runtime identity 차이도 재현/수정해39개를 통과했고 운영 identity 검사는 유지했다.
+[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 보호 HTTP→명시 runtime→
+같은 시각3D며 온실 경계 조사는 병행한다. 새 공동 모델 UI·실시간 U3/관문은 미완료다.
+
+**당시 실행 상태 — 2026-10-09 17:46 KST:** [완료 전체 생장 부모의 실제 API·3D/사용자 기동](../research/crop-full-parent-api-view-preview-20261009.md)을 로컬 수용하고 `http://localhost:5173/`을 전환했다.
+원7678 실제 도구0/119.766초·같은 실제 SCRAM/보호 HTTPS/제품 App·WebGL에서
+고유5시점의50 C/N·LAI/기관값과5관리 사건의 원 UTC·값, 현재 권리/계정 거부·복원,
+조회 RHS/행 생성/게시/증명0·FD/원본2,146항목·검증 PG/소유 정리를 확인했다.
+지정 single-process Chromium의 단일/관측 합 RSS418,369,536/1,000,091,648bytes로512MiB/1GiB 안이다.
+원59276 도구0의 기동 뒤 frontend/보호 summary200·원 bytes 일치로47,809저장 시점/5사건/1,816,704완료 걸음을 확인했다.
+[전체 부모의 모든 행/121상태 대사·정상 게시/보존](../research/crop-harvest-full-parent-restored-20261009.md)은 선행 수용을 유지한다.
+[조회 사실 묶음](../research/crop-cycle-calculation-query-facts-20261009.md)은 main f79ef64, 시점 이동은532c494로 통합했고 미리보기는 별도 고정 source를 사용한다.
+window40개/타입과 압축을 끈 제품 빌드가 통과했다. 일반 압축 빌드의 WSL 메모리 실패는 남기며 운영 용량 수용은 별도다.
+현재 화면은 **완료 전체 합성 생장 결과의 조회/수치3D 재생**이다. 수확 미등록·실시간 U3 미완료이며 원3시점 예제는 정상 종료했다.
+다음은 전체 수확의 남은 읽기 비용 경계 확정→정상 writer/registry·독립 Decimal 대사/보존→
+수확 API/3D→기후/물·양분/구매 에너지→사용자 실행/Decimal 경제다.
+원 Backend37892105708은0/1/2/4 성공·3/5 실패·집계 failure로 종료했다. 두 CI 자식과 U1/U3·실제 품종/독립 자료·G0–G4/생산/미래 마진/추천 hold는 유지한다.
+아래 시각이 붙은 기록은 당시 관측이며 현재 실행 상태의 증거로 사용하지 않는다.
+
+**당시 진행 관측 — 2026-10-09 10:02 KST:** [새 전체 부모 실행](../research/artifacts/crop-harvest-parent-full-started-reference-20261009.json)을09:12 KST 시작했다.
+동일 원 모델/입력의 새166일 계산 판본이며10:02 KST 같은 프로세스의 확정 checkpoint는243,447걸음/commit61이다. 완료/수용은 아니다.
+원9시간 상한18:12 KST·이전 전체7시간15분 근거의16:12–18:12 종료 추정은 조건부다.
+모든 원 행/121상태 대사→정상 게시/인증 보존→원 DB 정리 후 fresh 복원·원 종료/자원 감사 뒤 전체 부모를 평가한다.
+수확 writer/API/3D와 기후/자원/경제·실제 자료 관문은 후속이다.
+
+**최신 수용 — 2026-10-09 10:02 KST:** [새 부모의 작은 수확 저장·보존](../research/crop-harvest-storage-preservation-small-implementation-20261009.md)을
+원52100 종료0·집중10개/실제 DB1개·DB 정지 후 fresh 현재 조회로 로컬 수용했다.
+원5행/UTC·Decimal 독립 대사·서명/최초 시각·현재 권리/계정·조회 재계산0과 원 입력/artifact/FD·소유 정리를 확인했다.
+전체249.050초/900초·raw330,541bytes·동시 전체 계산 포함 RSS 합701.11MiB다. 작은 저장 자식만 완료했다.
+전체 부모는10:02 KST 같은 프로세스에서243,447걸음/commit61로 진행 중이며 원18:12 마감/수용 보류를 유지한다.
+다음은 전체 부모 최종 감사→전체 수확 writer/registry→실제 API/대표3D→기후/자원/Decimal 경제다.
+실제 품종/농장 Run/국내 독립 자료0건·G0–G4/생산/미래 마진/추천 hold와 운영 기반 고정을 유지한다.
+
+**선행 수용 — 2026-10-09 09:10 KST:** [정상 producer와 인증 보존의 작은 구성](../research/crop-harvest-parent-production-small-implementation-20261009.md)을
+원17264 종료0·집중11개/실제 DB1개·원 DB 정리 후 현재 checkout의 fresh 복원으로 로컬 수용했다.
+고정 `dc7b852`의 원392 source guard를 유지하고 작은120걸음/3시점/3사건·121상태/수지를 fresh 대사한 뒤 정상 게시·인증 보존했다.
+전체101.710초/600초·raw308,638bytes·단일/소유 RSS130.61/355.31MiB·1,400 source·소유 정리를 확인했다. 작은 구성만 완료다.
+다음은 같은 원 모델/입력의 새 전체166일 계산·모든 원값/현재 query 복원→새 source/profile의 전체 수확 writer/등록→실제 API/대표3D다.
+전체는 준비부터9시간 상한·이전7시간15분 근거로7–9시간 잠정이며 실제 종료/정리 전에는 수용하지 않는다.
+그 뒤 기후/물·양분/구매 에너지→사용자 실행/Decimal 경제다. 실제 품종/농장 Run/국내 독립 자료0건·G0–G4/생산/마진/추천 hold를 유지한다.
+
+**선행 수용 — 2026-10-09 09:00 KST:** [작은 부모 DB·인증 자료 보존](../research/crop-harvest-parent-backup-implementation-20261009.md)을
+원90143 종료0·집중11개/실제 DB1개·원 DB 정리 후 fresh Python 복원으로 로컬 수용했다.
+원120걸음/3시점·서명/원량/UTC와 현재 권리·계정/변조 거부, 조회 RHS0·1,480 source·소유 정리를 확인했다.
+전체81.287초·raw backup307,294bytes·단일/소유 RSS129.76/388.52MiB다. 이 보존 자식만 완료했다.
+기존 전체166일의 DB/config/무작위 서명 key 삭제로 원 인증 복원은 불가하다. 후속에는 같은 모델/입력의 새 전체 계산 판본이 필요하다.
+다음은 작은 정상 producer+보존 구성→새 전체 계산/원값 대사·현재 query 복원→새 source/profile 판본의 전체 수확 writer/등록
+→실제 API/대표3D→기후/물·양분/구매 에너지→사용자 실행/Decimal 경제다.
+종전 첫 복원2–4시간 추정은 철회한다. 이전 전체7시간15분을 근거로 준비 검증 후7–9시간 실행·대사를 잠정 잡고 후속 완료일은 실측 뒤 정한다.
+실제 품종 입력·농장 작물 Run·국내 독립 자료0건, G0–G4/생산/미래 마진/추천 hold와 운영 기반 고정을 유지한다.
+
+**선행 수용 — 2026-10-09 02:48 KST:** [전체 수확 수량·용량 대사](../research/crop-harvest-full-capacity-implementation-20261009.md)를
+원78826 종료0·집중38개·전체 명령85.238초·1,474 source/원본/FD identity·소유 정리로 로컬 수용했다.
+원47,809시점/5사건에서47,813행을 RHS0으로 만들고 Decimal 독립 수량/반올림 수지와 단위·목적·미배정을 대사했다.
+748page/307,675,603bytes·root/HEAD/atomic 예약 상한311,878,099bytes≤512MiB,
+알려진 root95,883bytes·단일/소유 RSS106.55/125.51MiB다. 용량 자식만 완료했다.
+실제 전체 writer/DB/API/대표3D와 replay 부모는 미완료다. 다음은 정리된 DB/인증 자료의 실제 전체 부모 복원
+→같은 raw profile의 전체 writer/등록·fresh 현재권리→API/대표3D→기후·물/양분·구매 에너지→사용자 실행/Decimal 경제다.
+첫 복원은 보존 자료/검증 경로 재사용 조건의2–4집중시간 잠정이며 전체 실행 예산은 실제 복원 뒤 측정한다.
+실제 품종 입력·농장 작물 Run·국내 독립 자료0건, G0–G4/생산/미래 마진/추천 hold는 유지한다.
+
+**선행 수용 — 2026-10-09 02:22 KST:** [같은 실제 DB의 수확·생장3D](../research/crop-harvest-view-native-implementation-20261009.md)를
+원69379 종료0·2통과/226.498초·828 source/소유 정리로 로컬 수용했다.
+원6행/3시점·50 C/N/LAI·현재 권리/계정·취소/늦은 응답을 실제 SCRAM/보호 HTTPS/빌드 App/WebGL로 대사했다.
+metadata/시각/응답 대체0·조회 RHS/행 생성/게시0이며 완료200응답9개의 양쪽 bytes/SHA가 같다.
+13요청·최대22.722초/32,659bytes·지정 heap/GC/GPU thread의 소유 RSS 합1,030,803,456bytes≤1GiB다.
+작은 native/view 부모만 추가 완료했다. 전체166일 새 질량 부하·replay 부모와 일반 운영 용량 수용은 남아 있다.
+다음은 원 전체 결과의 RHS0 질량/배정 용량 대사→실제 전체 부하→기후/물·양분/구매 에너지→사용자 실행/Decimal 경제다.
+실제 품종 계수·농장 작물 Run·국내 독립 자료0건, G0–G4/생산/미래 마진/추천 hold는 유지한다.
+
+**선행 수용 — 2026-10-09 01:32 KST:** [수확 표/기존 생장3D 화면](../research/web-crop-harvest-view-screen-implementation-20261009.md)을
+새 Chromium10개/기존15개(1+14분할)·웹851개·타입/빌드·원13586/24832/30303 종료0·820 source/정리로 로컬 수용했다.
+원 목적/단위/미배정·현재 부분 범위/전체 합계·합성 비교/hold를 유지하며 같은 UTC의 실제 캔버스 C/N도 대사했다.
+선택/계정/부모·권리 실패/취소/늦은 응답의 이전 값 제거와 모바일/키보드를 확인했다.
+소유 fixture의 metadata/시각을 맞춘 실제 App 검증이며 새 공동 DB/백엔드 HTTPS 증거는0회다.
+화면 자식만 완료했다. 실제 native/전체166일 질량 부하·view/replay 부모는 미완료다.
+다음은 작은 같은 실제 DB/API/대표 WebGL→전체 작기 질량 부하→기후/물·양분/구매 에너지→사용자 실행/Decimal 경제다.
+지정 시험 heap/viewport에서 소유 RSS 합1GiB/단일512MiB와 정리를 확인했으며 일반 운영 용량 수용은 아니다.
+실제 계수/품종 입력·농장 작물 Run·국내 독립 자료0건, G0–G4/생산/마진 예측·추천 보류는 유지한다.
+
+**선행 수용 — 2026-10-09 00:50 KST:** [저장 생장·수확 범위 결속](../research/web-crop-harvest-growth-binding-implementation-20261009.md)을
+집중34개/웹 전체851개(기존817 포함)·타입/빌드·원 도구86385 종료0·777 source/정리로 로컬 수용했다.
+같은 농장/부모/원 hash·상태·저장 UTC만 연결하며 대응 시점이 없는 사건은 보간하지 않는다.
+현재 범위와 전체 저장 합계·합성/hold를 구분한다. 새 실제 DB/HTTP/화면/WebGL 검증은0회다.
+수확 view의 결속 자식만 완료했고 표/3D·실제 통합/전체166일 질량 부하·replay 부모는 미완료다.
+다음은 수확 표/기존 생장3D 화면과 선택/취소/권리 실패 제거→실제 DB/API/대표 WebGL이다.
+기후/물·양분/구매 에너지→사용자 실행/Decimal 경제·실제 자료/독립 검증은 후속이다.
+실제 계수/품종 입력·농장 작물 Run·국내 독립 자료0건, G0–G4/생산/마진 예측·추천 보류는 유지한다.
+
+**선행 수용 — 2026-10-09 00:32 KST:** [등록 수확 결과 웹 SDK](../research/web-crop-harvest-client-implementation-20261009.md)를
+집중97개/웹 전체817개(기존720 포함)·타입/빌드·원 종료0·458 source/정리로 로컬 수용했다.
+실제 HTTPS 원 응답5개 SHA/길이·원6행/UTC/단위/정확 수량·합성/미배정·관측 비교/hold를 보존했다.
+공통 Bearer·30초/2MiB transport와 순차 페이지·전체성/취소/혼합 거부를 연결했다.
+SDK와 선행 API를 합친 HTTP/SDK 부모만 추가 완료했다. 수확 표/3D·replay 부모는 미완료다.
+선행 합성166일 생장 DB/API/대표3D는 유지한다. 새 수확 경로의 전체166일 질량 부하는 별도다.
+다음은 같은 UTC의 수확 목적·미배정 표/기존 생장 수치3D→실제 DB/API/대표 WebGL의 작은 검증이다.
+그 뒤 기후/물·양분/구매 에너지→Decimal 경제 연결로 진행한다.
+실제 계수/품종 입력·농장 작물 Run·국내 독립 자료0건, G0–G4/생산/마진 예측·추천 보류는 유지한다.
+
+**2026-10-08 단계별 연결 기록:** [별도 계산 설정 로더](../research/crop-cycle-calculation-operator-loader-20261007.md)를
+새57개/기존155개·고유212개 분할·실제 SCRAM/자원 정리로 로컬 수용했다.
+[인증 route/OpenAPI](../research/crop-cycle-calculation-route-openapi-20261007.md)도 새63개/회귀221개·고유284개 분할,
+원48 path/148 schema·78 source/원량·UTC·투영 뒤 철회로 ASGI 자식만 로컬 수용했다.
+[runtime/실제 TLS](../research/crop-cycle-calculation-runtime-tls-20261007.md)도 실제3개/runtime19개/회귀315개·고유337개 분할,
+26 전체 HTTPS 최대5.258614초/23,546bytes·원량/UTC·철회/변조·81 source/정리로 작은 API 부모까지 로컬 수용했다.
+[새 SDK](../research/web-crop-cycle-calculation-client-20261007.md)도 새178개 포함 웹 전체700개·타입/빌드·
+34 공개 JSON/원량·UTC·검증 정보/순차·취소·101 source 보존으로 수용했다.
+[현재 범위 선택](../research/web-crop-cycle-calculation-window-20261008.md)도 새19개 포함 웹 전체719개·타입/빌드·
+원/새 source·원량/UTC·검증 정보·취소/settlement·104 source 보존으로 수용했다.
+[새 같은 UTC 화면](../research/web-crop-cycle-calculation-view-20261008.md)도 Chromium 새15개/기존47개·
+웹719개·타입/빌드·원27시점/5사건·113 source/정리로 합성 응답의 화면 연결까지 로컬 수용했다.
+후속 [새 실제 PG/TLS/WebGL 기능 검증](../research/web-crop-cycle-calculation-native-observed-20261008.md)은
+시험 로그1통과·34frame·24 HTTPS·별도 정리를 확인했다. 원 명령 종료 코드 기록 누락으로 최종 native/웹 부모는 보류한다.
+[작은 등록 누적 비용](../research/crop-cycle-calculation-prefix-cost-observed-20261008.md)은 정상/hold·수정한32회 시험을
+분할 확인했다. 3,990걸음·확정9시점/2사건·원량/복원·권리·종료0/정리를 확인했으며 전체166일 비용 부모는 미수용이다.
+[전체166일의 별도 합성 달력 등록](../research/crop-cycle-full166-calendar-registration-20261008.md)은
+원750파일/네 stream·값/clock/격자 보존·73개 회귀·실제 SCRAM 농장/경제 달력·현재 권리/기간 거부·RHS0·종료0/정리로 수용했다.
+[전체 입력 초기32회 비용](../research/crop-cycle-full166-prefix-cost-observed-20261008.md)도3,990걸음·
+105시점/2사건·원 상태/행·현재 권리·129 source/정리·종료0으로 로컬 수용했다.
+[후보 읽기 연결 개선](../research/crop-cycle-candidate-read-scope-implementation-20261008.md)도 고유37개 분할·
+연결38→1/원 검증·산술·첫3회 원량/권리/정리로 로컬 수용했다.
+[입력 재검사 개선](../research/crop-cycle-calculation-recheck-cost-implementation-20261008.md)도 고유199개 분할·
+같은 첫3회99→85검사/30.737→29.551초·체크포인트 전체/원량·늦은 변조/철회·복원/정리로 로컬 수용했다.
+[개선 판본32회](../research/crop-cycle-calculation-full-budget-observed-20261008.md)도 같은 checkpoint/원량·권리/복원·
+263 source/정리·종료0/358.024초로 관측 자식만 수용했다. 두 개선 전 advance575.494→304.344초다.
+과거 delta QC2n/합1,056회를 확인해 전체 등록 장시간 실행/wall 예산은 보류다.
+[prefix 검증 증명](../research/crop-cycle-calculation-prefix-attestation-implementation-20261008.md)은
+재개 입력/HEAD 직전 권한 철회 두 반례를 RED로 확인·복원하고 최종 수정판208개 분할·같은32회 원량/권리·266 source/정리·종료0으로 로컬 수용했다.
+delta QC1,056→64회·advance304.344→290.225초·전체339.187초이며 입력 검사839회는 보존했다.
+candidate 현재 bytes 검사 뒤 마지막 입력/권한 검사와 atomic HEAD 순서를 검증했다.
+[계산 묶음 가능성](../research/crop-cycle-calculation-chunk-feasibility-observed-20261008.md)도 실제1통과/종료0·같은4,096전이/원105출력/2사건·
+비계보 checkpoint 전체·2page/954,171bytes·268 source/정리로 수용했다. 제품128전이 제한은 유지했다.
+[새 prefix 공개 연결](../research/crop-cycle-calculation-prefix-api-bridge-implementation-20261008.md)도 실제 RED 뒤 수정·
+API193개/웹720개/Chromium15개·타입/빌드·새34 JSON/원량/UTC·270 source/종료0/정리로 로컬 수용했다.
+[제한된 계산 묶음](../research/crop-cycle-calculation-bounded-chunks-implementation-20261008.md)도 고유177개·
+실제4,096전이 저장/3,990걸음/원105출력·2사건·별도 Python 재개·274 source/종료0/정리로 로컬 수용했다.
+요청4,096전이/실효128원경계·기존 bytes 한도·명시 서버v3이며 원 수식/격자/현재 권리를 유지한다.
+[등록 농장의 두 큰 묶음](../research/crop-cycle-calculation-registered-chunk-cost-observed-20261008.md)도 실제 SCRAM1통과·
+8,192전이/7,980걸음·원210출력/4사건·fork 재개·현재 권리/복사 입력 변조 거부·276 source/종료0/정리로 수용했다.
+두 advance50.212/47.349초는 초기 구간 관측이다.
+[전체 참조 용량](../research/crop-cycle-calculation-full-capacity-observed-20261008.md)도 고유10개·RHS0·456묶음/
+전체47,809출력/5사건·예약 포함481,987,541bytes/512MiB·279 source/종료0/정리로 수용했다.
+[같은 농장 별도 Python 복원](../research/crop-cycle-calculation-registered-runtime-implementation-20261008.md)도 고유7개·
+실제 SCRAM40→80걸음/2출력·복원 RHS0·계산 전 SIGKILL-9/재개·권리/변조·284 source/종료0/정리로 수용했다.
+[등록 계산 감독](../research/crop-cycle-calculation-registered-supervisor-control-implementation-20261008.md)도 고유16개·
+실제 SCRAM40→60→80걸음/2출력·같은 마감/복원 RHS0·pause/cancel/실제-9·현재 권리·
+289 source/종료0/정리로 작은 감독자 부모를 로컬 수용했다.
+[완료 결과 별도 DB 게시](../research/crop-cycle-calculation-registered-terminal-publication-implementation-20261008.md)도
+고유9개·실제 SCRAM40→120걸음/3출력·fresh 게시/재시도 RHS0/같은 row1·미완료/권한 거부·
+294 source/종료0/정리로 작은 연결을 수용했다.
+[같은 DB의 실제 App/3D](../research/crop-cycle-calculation-registered-replay-harness-implementation-20261008.md)도
+고유2개·실제120걸음/원3시점·3사건·보호 HTTPS8개/최대2.148초·현재 권리/계정 거부·
+303 source/원 종료0/정리로 작은 기능 경로를 수용했다.
+이전 descendant RSS 합1.584GB 초과 보류 뒤 [작은 자원 경로](../research/crop-cycle-calculation-registered-replay-resource-implementation-20261008.md)를
+고유2개·원 종료0/89.680초·원3시점/3사건·392 source/정리로 로컬 수용했다.
+실제 빌드/Nginx·지정 viewport/Node heap·명시 CDP GC2회에서 PG/controller 포함 동시 RSS 합
+1,048,477,696bytes≤1GiB다. 일반 운영 브라우저/전체 작기의 자원 수용으로 확대하지 않는다.
+[전체 실행 구성의 작은 수용](../research/crop-cycle-calculation-full166-same-db-preparation-implementation-20261008.md)도
+고유13시험·실제 대사 자식0→게시 자식0→같은 DB/UTC3D·원 종료0/준비부터102.476초·
+PG/controller 포함 RSS 합1,050,714,112bytes≤1GiB·397 source/정리로 수용했다.
+원166일 참조의 첫64/마지막1시점·전체5사건/121상태 읽기도 RHS0으로 확인했다.
+[별도 전체166일 실행](../research/crop-cycle-calculation-full166-same-db-completed-20261008.md)은10월8일11:41→18:56 KST에 원 종료0/1통과로 완료했다.
+준비부터26,127.555초·전체47,809행/5사건·121상태/수지 대사→같은 DB 게시→보호 HTTPS10개/대표14시점 WebGL·
+권리/계정 거부·398 source/자원 정리를 최종 감사했다. 표본 RSS 합1,070,809,088bytes≤1GiB이며 여유약2.8MiB다.
+원9시간 상한/수식/격자를 유지했고 감사 후 source freeze를 해제했다. 전체47,809프레임·실제 형상/품종/관문 수용은 아니다.
+[제거 원장](../research/crop-removal-ledger-implementation-20261008.md)과 [명시 합성 질량 환산](../research/crop-removal-mass-implementation-20261008.md)도 로컬 수용했다. 다음은 수확 의미·작기 질량 게시→자원/경제 연결이며 실제 자료·예측/추천 hold는 유지한다.
+[CI 시험 호환 수정](../research/calculation-ci-fixture-compatibility-20261008.md)은 고유19개 집중 검증을 통과했고 hosted 수용은 별도다.
+전체166일 연구 DB/API/대표3D는 위 종료 증거로 수용했다. 누적 비용 부모의 별도 잔여 기준·생과/자원/경제와 실제 자료 관문은 후속이다.
+
+상태: **검토용 초안, 2026-09-27.** 설계 선택은 구현 방향이며 과학적 검증 또는 production readiness를 뜻하지 않는다. 기획자는 농업·지역 조건·종자에 관한 배경지식이 없으므로 전문적인 수치의 선정과 근거 검토는 Codex CLI `gpt-6.1-sol` `xhigh`가 **연구·설계 단계와 배포 제품의 실제 사용 중 모두** 담당한다. 필요한 소프트웨어·역할·선택 이유는 [기술 스택](TECH_STACK.md), 프로세스·자료·판정 계약은 [아키텍처](ARCHITECTURE.md#필수-codex-cli-런타임-작업자)에 둔다. 사용자 선호가 필요한 항목만 마지막 절에 분리했다.
+
+## 1. 목표와 첫 경계
+
+**제품 질문:** “이 지역, 이 온실과 작기, 이 자원 한도에서 어떤 작물 선택이 내 목표에 가장 맞는가?” 첫 사용자는 온실 신설 또는 운영 방안을 비교하는 사람이다. 후보의 재배 방식과 시설 조건을 같게 두고, 자료 수집 → 비용·가격 근거 확인 → 계산 → 3D 설명 → 조건부 사업성·작물 판단을 한 번의 흐름으로 제공한다. 비용·마진의 산식과 증빙 경계는 [경제 계약](ECONOMICS.md), 수급·거시 자료와 검증 설계는 [시장 설계](MARKET_INTELLIGENCE.md)에 둔다. FAO의 [토지 적합성 체계](https://www.fao.org/4/x5310e/x5310e04.htm)도 적합성을 정의된 사용 방식과 관리 조건에 대해 다룬다. 여기서 그 원칙을 온실 의사결정에 적용한다는 것은 **프로젝트 판단**이다.
+
+첫 검증 경계는 **대한민국의 육지 좌표 한 점, 단일 온실 구역, 배지재배 과채류, 한 작기, 과거 기상 재현**이다. 대한민국부터 시작하는 이유는 [기상청 ASOS 시간 관측](https://apihub.kma.go.kr/apiList.do)과 [5 km 단기예보 격자](https://apihub.kma.go.kr/apiList.do?seqApi=10), [농사로 작목 자료](https://nongsaro.go.kr/portal/ps/psx/psxj/cropManualMain.mo?farmerMainFlag=VC011205)를 같은 언어·제도권에서 검토할 수 있기 때문이다. 이 결정이 모든 국내 필지에 현장 정확도를 보장하지는 않는다. 지역명 검색은 좌표 선택을 돕고, 행정구역 중심점은 농장 좌표로 둔갑시키지 않는다. 관측소의 거리·고도·운영기간·요소 보유율을 표시하고, 적용 가능한 자료가 없으면 실행을 막거나 탐색용 자료로 격하한다.
+
+## 2. 사용자 흐름과 표시 계약
+
+| 단계 | 사용자가 하는 일 | 시스템이 남기고 보여줄 것 |
+| --- | --- | --- |
+| 1. 지역 선택 | 지도 또는 지역 목록에서 좌표를 지정하고 확인 | WGS84 좌표와 **Codex CLI 지역 조사 작업 ID**. 비동기 조사 후 선택한 지점과 관측소/격자의 차이, 지원 여부 |
+| 2. 목표·시나리오 | 온실 사양, 작기, 설비·열수요 한도, 평가 달력, 투자/운영 관점, 결정 시각 `D`와 시설 투자·종묘 발주·정식의 선행기간/변경 가능 시점, 수확·판매·수금 달력과 **비교 목표(비용·마진·현금 부족 포함)**를 확인·수정. 실제 전력·연료 한도는 해당 계량 또는 검증된 변환 근거가 있을 때만 사용. 물 한도는 물수지 모델 도입 후 사용 | 누락된 필수값, 사용자 입력·가정·측정값의 구분, `D`에 가능했던 후보·계약/판로 |
+| 3. 자료 조사·수집 | 사용하려는 기상 기간과 작물 프로필을 확인 | **Codex CLI가 그 지역·기간의 허용 자료원을 조사하고 수집 계획을 판단**한 기록, 제공자·관측소·기간·일사 보유율·원본 시각·이용조건·제공자 QC 유무·프로젝트 품질 및 결측 보고서. 수집 후에도 CLI가 자료 채택/보류를 판단하고 서버가 G0를 검사. 작물 기준은 개발 중 연구·승인된 버전만 등록. **CLI가 가격·수급·거시·계약 요금·자재·노동·CAPEX 원천의 발표/개정 시각·적용일·단위·권리·증빙 등급과 품종·등급·지역·채널/계약 일치를 조사·채택/보류**하고 허용된 어댑터만 수집 |
+| 4. 고정 입력 생성 | 실행 전 자료 미리보기를 확인 | 원본 스냅샷 ID, 정규화 버전, 단위·UTC 변환·대체 자료 여부. 시장 `MarketContext`가 `available(snapshot_id)`이면 G0 승인 판본·발표/수집 시각, `unavailable(hold_report_id)`이면 보류 사유·누락 증거. 가격/견적의 고정 버전과 입력 출처·`측정·거래확정/견적/모델값/가정` 등급, 필수 비용 누락 목록 |
+| 5. 시뮬레이션 | 실행을 요청하고 작업 상태를 본다 | 모델·매개변수 버전, 초기조건, 제어 기록, 실패/재시도 상태, 재현 manifest와 사후 재현 여부. **물리 Run과 구분된 시장 근거/조건부 시나리오, 별도 결정적 산술 계산기의 조건부 비용·마진·월별 현금흐름과 입력 출처·등급**. 첫 G1 내부 시범에서 시장 자료 보류 시 사용자 가정만으로 조건부 경제 계산 |
+| 6. 3D 재생 | 시각을 이동해 온실 변화를 관찰 | 계산된 시점의 온도·습도·난방·환기와 계산 가능한 누적 열수요 또는 공급열(kWh_th)을 동일한 표·그래프와 함께 표시. 실제 전력·연료 사용량이 없으면 그 사유도 표시. 시점별 경제 수치는 **검증된 입력으로 산출된 경우에만** 시간축에 맞춰 겹쳐 보이고, 동일한 표에도 제공 |
+| 7. 작물 판단 | 조건별 결과와 빠진 근거를 확인한다 | **Codex CLI가 매 평가에서** 결과와 근거를 검토한 후보별 제약 위반·불확실성·적용 범위·판단 기록. 서버가 G0~G3와 경제 증거 범위를 확인해 순위가 정당화될 때만 “평가한 후보 중 최적”, 아니면 “판단 보류”. 첫 내부 시범에서는 G0 승인 MarketSnapshot이 있을 때만 **시장 근거 카드**를, 없으면 G0 사유·누락 증거와 “사용자 가정만의 조건부 계산/판단 보류”를 표시하고 평가를 `hold`로 끝낸다. “이 조건이라면” 손익·손익분기·월별 현금 부족과 필요한 증거를 제시. 시장 자료 부재 시 자료 유래 시나리오·예측·작물 순위는 내지 않는다. 검증된 미래 전망 상태와 순위는 해당 G3 통과 후에만 표시 |
+
+후속 단계에서는 `unavailable(hold_report_id)`이어도 비공개 농장 계약·정산·원장의 접근·이용권, 해당 농장·기간·채널·계약 조건의 적용성, 원장·정산 대사를 독립 확인하면 조건부 또는 해당 농장의 과거 계산에 쓰고 `measured/quoted` 등급을 유지한다. 이 증빙은 G0 승인 MarketSnapshot을 대신하지 않으며 공개 시장 근거 카드·자료 유래 시장 시나리오·전망·G3a 미래 예측·G3b 작물 순위를 열지 않는다. Assessment는 `hold`다.
+
+`D`는 되돌리기 어려운 첫 투자·발주·계약 약속 이전의 선택 시각으로 기록한다. 실제 결정 기록이 없으면 가상의 `D`라고 표시한다. 뒤에 발표된 시장 자료는 그 결정의 근거로 소급하지 않는다. 시장 전망은 불확실하고 자료 판본에 민감하다. 시나리오는 수급·에너지·환율·금리·노동비·정책 변화와 계약 조건을 함께 바꿀 수 있으나, 첫 단계의 수치는 발생 확률이나 미래 예측이 아닌 조건이다. 공식 집계·도매 참고가격은 농가 순수취 단가가 아니다.
+
+짧은 예보로 한 작기의 기후 적합성을 결정하지 않는다. **과거 재현**은 여러 대표 연도의 실제 관측을 비교하고, **전망 시나리오**는 예보 발표시각을 고정한 별도 모드로 후속 도입한다. 기상 관측이 `D` 뒤에 발생하거나 그때 이용 불가능했다면 해당 Run을 `ex_post_replay`(사후 재현)로 표시한다. 그 관측과 결과를 `D` 당시 알 수 있었던 근거나 미래 작물 선택 증거로 제시하지 않는다. 어느 모드도 미래 수확을 확정하지 않는다.
+
+사용자는 농업 지식을 전제로 한 수치를 직접 골라야만 다음 화면으로 갈 수 있어서는 안 된다. 시스템은 검토된 기본 가정과 출처·적용 범위를 쉬운 말로 제시하고, 시설 사양과 목표처럼 본인만 아는 값은 수정하도록 안내한다. 필수 현장값이 없으면 탐색 또는 판단 보류로 명확히 표시한다. 긴 조사·CLI·시뮬레이션 중에는 작업 단계·예상되는 다음 단계·실패/보류 이유를 보여 준다. Codex CLI 이용 불가 시 추천을 정적 규칙으로 대신 만들지 않는다.
+
+## 3. 후보 작물과 필요한 입력
+
+비교 후보 등록부의 초기 연구 대상은 **방울토마토, 오이, 파프리카**이다. 모두 같은 온실·배지재배라는 비교 틀에서 검토할 수 있도록 범위를 정한 **제품 선택**이며, 세 작물의 현지 품종별 모델이 이미 검증되었다는 주장은 아니다. 첫 계산·현장 자료 확보는 **방울토마토 한 품종·한 작기**부터 시작한다. [WUR 공개 토마토 온실 데이터](https://research.wur.nl/en/datasets/autonomous-greenhouse-challenge-second-edition-2019/)는 변수와 재현 시험을 설계하는 참고 자료이지만 네덜란드 자료이므로 국내 정확도 증거가 아니다. 기존 입문서의 잎상추는 교육용 대안으로만 유지한다.
+
+각 후보를 실제 평가 목록에 올리려면 다음이 필요하다: 종·품종과 종자 공급 근거, 파종/정식/수확·선별·판매·수금 달력과 투자·식재 선행기간, 가능한 계약/판로·인도 조건, 생육 단계별 온도·습도·광·CO₂·급액 요구조건과 출처, 기질·양액·병해 관리 범위, 식재밀도, 판매 가능 수량·품질을 측정한 작기, 자원 사용과 비용, 적용 가능한 온실 사양, 국내 독립 검증 결과, 개별 자료의 재사용 권리. [농사로 저작권 정책](https://www.nongsaro.go.kr/portal/ps/psz/psza/contentMain.mo?menuId=PS00190)에 따라 매뉴얼 항목별 이용조건을 확인한다. 기준값은 원문 맥락과 단위·생육 단계를 사람이 검토해 버전 관리하며, 출처 없는 인터넷 표를 자동으로 작물 사실로 채택하지 않는다. 국내 평가용 품종·기준값은 **미확인 질문**이다. 개발 참조는 [2026-10-04 조사](../research/crop-tomato-model-baseline-20261004.md)에 따라 **Axiany/Maxifort, 2019-12-16~2020-05-29, WUR Reference303** 한 작기로 한정한다. 이 해외 참조는 국내 대상 경계를 바꾸거나 Axiany 전용 보정·종자 공급·국내 정확도를 입증하지 않는다. [실제 파일/채널 감사](../research/crop-forcing-audit.md)는 완료했다. 시간대·62.5/76.8/96m²의 Reference 대응·수관/초기기관/상세 관리 사건과 형식/결측의 채택은 보류이며 실제 forcing/새 Run은 0개다.
+
+## 4. “최적”의 정확한 뜻
+
+“최적”은 **사용자가 고른 목표 함수, 같은 기간과 시설, 명시된 자원·품질 제약, 평가 등록된 후보 집합 안에서** 상대적으로 가장 좋은 선택이라는 뜻이다. 초기 화면은 목표를 쉬운 말로 고르게 한다. 후속 검증 목표의 예: “판매 인정 수입에서 기간 운영비와 감가상각비를 뺀 관리용 운영이익”, “물 사용을 최소화하면서 재배 조건을 충족”, “실제 구매 전력 또는 연료 비용을 최소화하면서 재배 조건을 충족”. 첫 탐색 단계의 “난방 열수요 비교”는 실제 에너지 사용량 비교가 아니다. 서로 단위가 다른 목표를 임의 점수로 합치지 않는다. 목표·가격·시설 투자비 처리·위험 선호가 정해지지 않으면 경제적 최적화는 수행하지 않는다. 첫 내부 시범의 조건부 손익표는 수급·거시 시나리오를 포함한 **가정에 대한 산술 결과**이며, 미래 가격·판매량·이익 예측이나 작물 순위가 아니다. 서로 다른 작기 길이는 같은 달력 기간의 재식·휴지·교체와 수확·판매·수금 일정으로 비교한다. [경제 계약](ECONOMICS.md)의 등급별 판매 kg, 채널별 실수취 근거, 공헌이익·운영이익·현금흐름 정의를 따른다.
+
+계산 계약은 후보 작물 c, 시설·관리 시나리오 s, 기상 연도/예보 및 매개변수 표본 ω에 대해 J(c,s,ω)를 정의하고, 물·공급열/구매 전력/연료·설비용량·작기·작물별 생육조건을 구분해 제약으로 평가한다. 작기 길이가 다른 후보는 같은 면적과 **같은 평가 기간**으로 맞추고 비재배 기간·교체 비용도 포함한다. 이익 목표 J는 그 기간에 **실제 판매되거나 계약상 인도·검수 조건을 충족해 판매로 인정된 등급·경로별 수량 × 해당 가격 − 할인·반품액**을 매출 `R`로 하고, 종자·배지·물·계량 또는 검증된 전력/연료·노동 등 기간 변동 운영비 `V`, 고정 운영비 `F`, 관리용 감가상각비를 빼는 `OI`로 정의한다. 수확량·판매 가능량은 판매 인정량이 아니며, 미판매 기말 재고는 예상 매출이나 잔존가치로 목표에 더하지 않는다. 그 재고를 키운 기간 비용은 같은 평가 기간에 포함하고 생산 배치별 원가를 따로 추적해 다음 기간에 이중 차감하지 않는다. G3a 미래 마진과 G3b 순위는 동일한 시작 재고 기준, 기간 말 재고·반품·폐기 처리와 비용 배분을 사용한다. 이는 [경제 계약](ECONOMICS.md#3-판매량가격비용-공식)의 관리용 목표이며 정식 회계 이익 주장이 아니다. 자원 절감 목표는 동일한 생산 또는 품질 하한이 있어야 비교 가능하다. 모든 비용·수확·품질 자료는 출처·시점·지역·품종을 기록한다.
+
+물리 시뮬레이션, `D` 당시 판본을 쓰는 시장 전망/조건부 시나리오, 판매·비용의 결정적 경제 계산기를 각각 별도 입력·버전·검증 단위로 둔다. 수확 시점별 수확 kg `H`, 등급별 판매 가능 kg `P`, 계약상 판매 인정 kg `S`, 농가 계약가격과 차감 후 순수취 단가를 함께 다루고, 시장 참고가격과 혼동하지 않는다. 기상 연도·관측소·설비 계수·품종 반응도 바꿔 민감도를 확인한다. 후보에는 같은 날씨·수요·공급·에너지 충격을 적용하되 품종 반응과 계약 차이는 구분한다. 공동 분포 근거가 없으면 가격·등급·`P`·`S`의 독립 확률을 만들지 않고 조건부 범위만 보인다. 검증된 경우에만 제약 위반 확률과 미래 결과 구간을 제시하며 결측과 적용 범위도 표시한다. 후보 결과가 겹치거나 입력이 부족하거나 후보가 하나면 **“어느 작물이 최적인지 판단 보류”**한다. 첫 탐색 버전에서 보이는 “제어 목표 충족”은 *시뮬레이션의 명시된 환경·시설 목표를 만족했다*는 의미이며 작물별 적합·수확·수익·재배 성공 보장이 아니다. 수확량과 미래 관리용 운영이익을 권고 근거로 쓰는 시점은 [검증 관문](#6-검증과-수용-관문)을 지난 뒤다.
+
+## 5. 첫 모델과 표현 수준
+
+**선택한 첫 계산 모델:** 한 구역의 시간에 따른 **열·수증기 수지**를 계산하는 설명 가능한 축약 물리 모델(grey-box). 외기 온습도·바람·일사, 피복 투과·열손실, 난방·환기 사양과 제어 규칙, 초기 실내 상태를 입력으로 받아 실내 온습도·설비 가동·난방 열수요(kWh_th)를 낸다. 난방 용량은 실내에 전달 가능한 열출력(kW_th)인지 확인하고, 그 의미가 확정되었을 때만 모델 공급열(kWh_th)과 미충족 열수요(kWh_th)를 계산한다. 출력은 원자료의 시간 의미를 보존한 **시간별 시점**으로 저장한다. 내부 수치 적분 간격은 안정성 시험으로 정한다. 방정식·계수·적분 설정은 버전을 고정해 **결정적으로** 계산하며, Codex CLI는 매 요청의 자료 연구·자료 채택·결과 판단을 맡는다. 저장된 수치 실행을 같은 입력으로 재계산하는 것과 **비결정적 AI 판단을 새로 요청하는 것**은 다르다. 온실 모델에 이 수지와 설비·구조 입력이 필요하다는 근거는 [WUR 물리 모델](https://research.wur.nl/en/publications/a-validated-physical-model-of-greenhouse-climate/)과 [GreenLight 논문](https://research.wur.nl/en/publications/greenlight-an-open-source-model-for-greenhouses-with-supplemental/)이다. 그 연구의 정확도를 이 구현이나 국내 온실에 전가하지 않는다.
+
+구매 전력(kWh_e)과 연료 소비(L, kg 또는 발열량 기준을 밝힌 kWh_fuel)는 공급열과 다른 양이다. 전력·연료 계량값이 있거나 설비 종류, 운전점별 효율/COP, 보조 설비 소비량과 연료 발열량 같은 변환 입력을 검증하기 전에는 이를 계산 결과·비용·절감률로 내지 않는다. [미국 에너지부의 히트펌프 설명](https://www.energy.gov/cmei/femp/purchasing-energy-efficient-geothermal-heat-pumps)도 COP를 열출력과 전기 입력의 비율로 정의한다. 첫 3D와 결과는 **모델 난방 열수요/공급열**로 표시하고 실제 사용량처럼 이름 붙이지 않는다.
+
+### 5.1 기존 열 재생의 완료 범위
+
+현재 열 계산과 3D는 **환경·설비 반응을 설명하는 탐색적 시뮬레이션**이다.
+식물의 동적 생장·개화·수확, CO₂ 반응, 양액 화학, 병해충은 이 기존 경로에서
+계산하지 않는다. 증산 등의 작물 효과는 명시된 시나리오 계수다. 기존 Run의
+출력 필드를 생장 또는 실제 구매 에너지로 이름만 바꾸지 않는다.
+
+### 5.2 다음 개발 범위: 작물 생장 → 저장 → 성장 3D
+
+첫 작물 구현은 [모델 조사](../research/crop-tomato-model-baseline-20261004.md)와
+[계산 계약](../contracts/crop-growth-research-v1.md)에 고정한 Vanthoor 계열의 광 동화,
+탄소 버퍼, 잎·줄기/뿌리·과실 분배와 호흡 계산부터 시작한다. 원 모델/코드·매개변수·
+단위·권리·정정·초기조건·forcing 판본을 고정한다. 일반 토마토 문헌 계수는
+`reference_only`이며 품종 프로필 승인이나 국내 예측 근거가 아니다.
+[수관·공기 순간 교환 계산](../research/crop-canopy-exchange-implementation-20261009.md)은
+순수 E/H/LE 산술 자식까지 로컬 수용했다. 동적 기후·물/양분·구매 에너지 결합은
+미완료이며 이 결과를 생산/용수 사용/미래 비용으로 표시하지 않는다.
+적분 전 [작은 수관 적용 정책](../contracts/crop-photosynthesis-domain-v1.md)의 온도·LAI·
+CO₂ 영역을 확인한다. 지원 범위 밖 또는 기관/버퍼 고갈은 증거를 남기고 중단하며
+품종 초기조건을 바꾸거나 임의 기본값으로 계산을 이어가지 않는다.
+[시간 적분 계약](../contracts/crop-growth-integration-v1.md)은 선언된 UTC 환경/제거 사건의
+연구 시계열·수지/수렴·고갈 중단을 정의한다. 이 소프트웨어 수용을 실제 한 작기의
+재현이나 해당 품종의 생산 검증으로 넓히지 않는다.
+[불변 연구 결과](../contracts/crop-result-v1.md)는 정확한 농장/작물·입력/계수/코드/
+시계열과 현재 프로그램 권리를 연결한다. 첫 저장 판본은 명시적 합성 수식 입력이며
+수치 hold·미검증 품종 적용성을 유지한다. 실제 참조 자료의 원본/권리/QC 연결과
+승인 Run·생산/추천 게시는 해당 후속 증거가 필요하다.
+[현재 권리 아래 저장 연구 조회](../contracts/api-crop-replay-v1.md)는 같은 농장/result ID의
+UTC 상태/단위·모델/입력/저장 hash와 수치 hold만 반환한다. 로컬 실제 TLS/SCRAM
+조회 수용은 성장 3D나 실제 품종/농장 예측의 관문 수용이 아니다.
+
+수관 온도, PAR, CO₂와 관리 사건이 필요하다. 기존 실내 기온을 수관 온도로,
+외부 일사를 PAR로 자동 대체하지 않는다. 필요한 변환·수관 모델은 별도로 검증한다.
+첫 계산의 적정 수분·양분 가정은 명시하며 수분 스트레스·양액 소비 예측으로 쓰지 않는다.
+잎 면적·탄소 저장·온도 합·누적 호흡/제거와 수지 잔차를 시간축으로 적분하고,
+고정 입력의 재계산·특이점·양수성·수렴을 확인한 뒤 변경 불가 결과로 저장한다.
+
+성장 3D는 **저장된 계산 상태를 재생**한다. 같은 결과 ID와 시각의 잎 면적·기관
+상태를 장면·그래프·표에서 대사한다. 도형의 배치·형태는 모식도임을 표시하고,
+총 잎 면적처럼 계산한 양만 저장 결과에 연결한다. 키·잎수·착과 수·숙기·실제 구조는
+대응 모델과 근거가 없으면 표시하지 않는다. 보간 프레임은 계산 시점과 구분한다.
+3D가 없어도 표·텍스트에서 같은 정보와 보류 이유를 확인할 수 있어야 한다.
+[첫 성장 연구 재생](../research/web-crop-replay-implementation.md)은 2026-10-04 로컬
+소프트웨어로 수용했다. 5분/6시점 합성 계산의 바닥 1m²당 실제 삼각형 잎 면적 합계와
+기관 탄소량이 같은 저장/API 값에 연결되며, 정상 중간 생장이나 생과 생산량을 만들지 않는다.
+웹 209개·집중 Chromium 10개와 실제 SCRAM/HTTPS/장면 대사를 통과한 범위다.
+실제 한 작기 입력/QC·품종/생산 검증과 전체 제품 G1·G2–G4는 남아 있다.
+
+실제 Reference archive의 47,809시점은 기관 단독 연구 v1의20,000 배열/100만 step 한도를 넘는다.
+현재 기관·50과실 구획/startup 모델은128 forcing/128 event·512 output·10,000 step·1일 한도다
+([공유 입력 검사](../backend/app/crop_plant_cohort_integration.py)). 두 판본의 한도를 구분한다.
+`crop-cycle-capacity`의 연속 상태·수지/사건·불변 입력·저장/조회와
+자원/재현 검증이 실제 한 작기 재현의 선행이다. 출력 시간 선택을 forcing 해상도
+변경과 구분한다. 해당 계약은 과실 모델 개발과 국내 자료 확보에 병행한다.
+
+[과실 구획 조사/계약](../research/crop-fruit-cohorts-baseline.md)은 원 50구획과 계수/단위,
+인쇄 배분식의 보존·초기/gate 문제를 기록했다. 먼저 생식기의 순간 이동을 독립
+수치/개수·탄소 수지로 확인하고 전체 배분/착과 정책을 별도 판본으로 수용한 뒤
+적분/수확으로 연결한다. 원식의 분모나 품종 과중을 조용히 변경하지 않는다.
+[순간 이동 구현](../research/crop-fruit-transport-implementation.md)은 2026-10-05 KST에
+15개 합성 사례·3,090 독립 수치와 집중 238개 시험으로 로컬 수용했다.
+이는 착과/전체 배분·작기 적분·실제 품종 수확이나 G0–G4 수용이 아니다.
+[별도 배분 개발 정책](../research/crop-fruit-allocation-policy.md)은 명시적 착과/진입
+질량의 보존 변형이다. 자동 착과/초기값이나 품종 계수를 추정하지 않고 제품
+[순수 배분 계산](../research/crop-fruit-allocation-implementation.md)은 315개 집중 시험과
+독립 600개 유입/4개 hold로 로컬 수용했다.
+[문헌식 수요·구획 순간 결합](../research/crop-fruit-cohort-rates-implementation.md)도 401개 집중 시험과
+독립 8,592수치로 로컬 수용했다.
+[기관과 과실의 순간 수지 결합](../research/crop-plant-cohort-rates-implementation.md)도 444개 집중·684수치로 수용했다.
+[짧은 시간 적분/사건](../research/crop-plant-cohort-integration-implementation.md)도 488개·독립 1,309수치/해석해 250개로 수용했다.
+[새 저장 선행 artifact](../research/crop-coupled-artifact-implementation.md)도 530개 집중과
+512출력 파일/재적분 없는 읽기로 수용했다.
+[농장 결합 v2 저장](../research/crop-coupled-result-storage-implementation.md)도 실제 SCRAM·
+564개·현재 권리/동일 bytes/변조/철회·원자성·정리로 로컬 수용했다.
+[페이지 조회 API](../research/api-crop-coupled-replay-implementation.md)도 고유 207개 분할 검증·
+실제 HTTPS 19개·재적분 없는 최대 11.508339초/649,718 bytes·권리/재시작/정리로 로컬 수용했다.
+[같은 저장 ID/UTC의 50구획 연구 3D](../research/web-crop-coupled-replay-implementation.md)도
+단위 129개·Chromium 19개·실제 SCRAM/HTTPS/WebGL 1개로 로컬 수용했다.
+실제 완료 6시점/과거 hold 1시점/빈 hold·900개 C/N mesh·현재 권리/정리를 확인했다.
+512개 UI는 shape 검증이다. [초기/명시적 유입 정책 조사](../research/crop-fruit-startup-policy.md)는
+원천 8개·독립 9개 보존/5개 hold로 수용했다.
+[빈 tail 요청/실현 adapter](../research/crop-fruit-startup-rates-implementation.md)도
+56개 새/544개 집중으로 로컬 수용했다. [새 기관 순간 결합](../research/crop-plant-startup-rates-implementation.md)도
+78개 새/622개 집중·독립 22사례로 buffer/생장 호흡을 함께 대사했다.
+[새 짧은 적분/manifest](../research/crop-startup-integration-implementation.md)도
+56개 새/678개 집중·독립 6프로그램/23시점과 합성 24시간/512출력으로 로컬 수용했다.
+초기 전환/극소 구획의 수치 간격/해석해 오차는 실제 생산 정확도와 구별한다.
+[새 불변 artifact/reader](../research/crop-startup-artifact-implementation.md)도
+79개 새/799개 집중·6프로그램의 기존 적분 결과와 동일·별도 Python/512출력 읽기로 수용했다.
+[v3 표/명시 role·설정](../research/crop-startup-storage-schema-implementation.md)도 새20개/184개 고유
+분할·실제 SCRAM/불변/정리로 로컬 수용했다. 표의 시험 행은 계산/승인 결과가 아니다.
+[농장 결합 저장 v3](../research/crop-startup-result-storage-implementation.md)도 새18개/집중119개·
+실제 SCRAM/6프로그램/별도 Python·commit 전후 철회/정리로 로컬 수용했다.
+[같은 저장 ID/UTC 페이지 API](../research/api-crop-startup-replay-implementation.md)도 새47개/고유252개
+분할·실제 HTTPS/SCRAM19응답·최대14.248425초/700,084 bytes·정리로 로컬 수용했다.
+[새 응답/순차 페이지 결합](../research/web-crop-startup-pages-implementation.md)도 새77개/웹 전체376개·
+typecheck/build·기록 TLS 원값 대사로 로컬 수용했다.
+[동일 UTC 성장 3D/실제 브라우저](../research/web-crop-startup-replay-implementation.md)도
+웹383개·Chromium31개·실제 SCRAM/TLS/WebGL1개·고유12시점/1,500 C/N mesh·정리로 로컬 수용했다.
+빈 초기/전량 제거 후 재유입의 원값을 보존하고 v3 로그 비교 축을 명시한다.
+도형의 높이는 실제 키/과실 크기/생과 kg가 아니다.
+[전체 작기 실행 명세/원 격자 대사](../research/crop-cycle-execution-contract.md)도 원 solver6프로그램/630걸음·
+30분할 grouping·2,783float64/정확한 clock 반례로 로컬 수용했다. 실제 재시작은 아래 별도 구현에서 검증했다.
+[순수 실제 RHS continuation](../research/crop-cycle-continuation-implementation.md)도157개·30실제 분할과
+별도 Python6개/726float64·원 상태/누적/clock·사건/hold 대사로 로컬 수용했다.
+[불변 분할 원 입력 reader](../research/crop-cycle-input-stream-implementation.md)도64개·48,000자작 합성 구간/
+48,003경계·독립 clock/grid·별도 Python 복원·30.23MiB/정리로 로컬 수용했다. 실제 RHS는 실행하지 않았다.
+[긴 입력/실제 RHS 연결](../research/crop-cycle-stream-execution-implementation.md)도144개 집중·
+25시간/11,400실제 걸음·별도 Python7개/847float64·canonical 사건/hash·원 상태/수지/hold로 로컬 수용했다.
+[그 긴 결과의 불변 파일/reader](../research/crop-cycle-artifact-implementation.md)도58개 고유 분할 검증·
+25시간/11,400실제 걸음·755,868bytes·별도 Python7개/847float64·실제 강제 종료2개/복구로 로컬 수용했다.
+조회의 RHS/advance/원 적분은0회다. 긴 결과의 농장/웹 재생은 후속이다.
+[cycle 불변 DB 참조 schema](../research/crop-cycle-storage-schema-implementation.md)도74개 고유 분할·
+실제 SCRAM/기본 네 role 거부·정상 JSON128KiB·불변/변조/rollback·기존 v3 보존/정리로 로컬 수용했다.
+시험의 직접 작성 metadata 행은 실제 파일/farm 연결·현재 권리/HMAC 검증을 대신하지 않는다.
+[명시 role/config](../research/crop-cycle-storage-roles-implementation.md)도 새21개/고유236개 분할·
+실제 네 SCRAM/선택 권한·일곱 drift·기존 v3/기본 false·정리로 로컬 수용했다.
+현재 권리 저장은 [농장/input root 결합](../contracts/crop-cycle-farm-binding-v1.md) →
+[실제 서버 계산/서명된 progress](../contracts/crop-cycle-server-custody-v1.md) → DB 게시로 분해한다.
+첫 [농장/root 결합](../research/crop-cycle-farm-binding-implementation.md)은 고유54개 분할·실제 SCRAM/
+현재 권리·중간 입력 변경·별도 Python/정리로10월5일 로컬 수용했다.
+[실제 서버 계산/서명 저장](../research/crop-cycle-server-custody-implementation.md)도 고유46개 분할·
+실제 SCRAM/현재 권리·강제 종료4개·별도 Python 복원/정리로10월5일 로컬 수용했다.
+25시간/11,400실제 걸음·27시점/5사건을 독립 제어 흐름과 대사했다. 마지막 reader 정리 수정 전 참조 판본을 고정한다.
+현재 [DB 저장](../research/crop-cycle-db-custody-implementation.md)은 고유76개 분할
+(순수61·실제 DB15개)과 원49개 보존/정리로10월6일 KST 로컬 수용했다.
+합성 등록 농장25시간/11,400걸음·원27시점/5사건·7페이지와 재시작/fork·변조를 대사했다.
+요약의 원 manifest 누락을 실제 정상/hold 실패2개로 재현·수정했고 기존 요약 중 권리 철회도 재확인했다.
+수정 전 긴 참조와 최종 판본의 분할 근거를 구분한다. 저장 부모까지 로컬 수용했고 다음 [조회 API 후보](../contracts/api-crop-cycle-pages-v1.md)는
+요약/수치 페이지와 한 현재 권리 읽기 context·실제30초/2MiB를 검증한다. 그다음 client → 같은 UTC3D →
+작기 부하 → 생과 환산을 [todo](../tasks/todo.md)의 작은 자식 순서로 진행한다. 각3–5파일 작업/검증은 [todo](../tasks/todo.md)를 따른다.
+startup API/client/3D까지 `1555610`의 [CI5개/백엔드3,456개·UID4개](../research/artifacts/crop-startup-replay-ci-20261005.json),
+동일 목록/정리·집계도 수용했다. 후속 `fe41e22`도
+[CI5개/백엔드3,709개·UID4개](../research/artifacts/crop-cycle-stream-ci-20261005.json),
+여섯 동일 목록/정리·집계로 continuation/reader/긴 RHS까지 수용했다.
+이어 `ff6eb3d`의 [CI5개/백엔드3,862개·UID4개](../research/artifacts/crop-cycle-artifact-schema-roles-ci-20261005.json)도
+여섯 동일 목록/정리·집계로 cycle artifact/schema/roles까지 수용했다.
+후속 `0f2925f`의 [CI5개/백엔드3,962개·UID4개](../research/artifacts/crop-cycle-farm-server-ci-20261005.json)도
+여섯 동일 목록/DB·비밀 파일 정리·집계와 작성 첫 시도7job로 농장 결합/서버 실행까지 수용했다.
+DB는 후속 `4bb6e53`의 [CI5개/Backend4,038개·UID4개](../research/artifacts/crop-cycle-db-custody-ci-20261006.json)에서
+여섯 동일 목록·DB/비밀 정리·집계까지 수용했다.
+[공개 투영](../research/crop-cycle-api-projection-implementation.md)도 고유43개 분할·실제25시간의 원량/UTC·
+출력0/hold·RHS0회로 로컬 수용했다.
+후속 `2c0f0e6`의 [CI5개/Backend4,081개·UID4개](../research/artifacts/crop-cycle-api-projection-ci-20261006.json)도
+여섯 동일 목록/정리·집계와 작성 첫 시도7job로 공개 투영까지 수용했다.
+[인증 route](../research/crop-cycle-api-route-implementation.md)도 고유146개 분할·최종41개·원량·한 문맥/
+후검사·기존 OpenAPI 보존으로 로컬 수용했다.
+실제 응답 비용을 근거로 한 [원천 읽기 범위](../research/crop-cycle-market-read-scope-implementation.md)는
+고유56개 분할·같은21 짧은 TLS 최대12.764535초·현재 권리/변조/재시작/정리로 로컬 수용했다.
+[실제 runtime/API](../research/api-crop-cycle-runtime-implementation.md)는 고유52개 분할 증거와
+원25시간의 전체 HTTPS11응답·27시점/5사건·재시작·RHS0회·정리로 로컬 수용했다.
+긴 응답 최대15.839875초/64,785bytes이며30초/2MiB와 G0–G4·산식은 유지한다.
+[client](../research/web-crop-cycle-pages-implementation.md)도 새120개·집중296개·웹 전체503개/
+타입/빌드·원23 공개 JSON/helper 보존으로 로컬 수용했다.
+[범위 helper](../research/web-crop-cycle-window-implementation.md)도 새19개·웹 전체522개/타입·빌드·
+직렬 취소·원량 보존으로 로컬 수용했다.
+[같은 UTC 화면 기능](../research/web-crop-cycle-view-implementation.md)도 기록 응답의Chromium16개·
+기존3개·웹522개/타입·빌드·원27시점/5사건·원49개/선행7개 보존으로 로컬 수용했다.
+[새 실제 PG/TLS/WebGL](../research/web-crop-cycle-native-implementation.md)도1통과/2044.35초·
+원25시간/11,400걸음·27시점/5사건·21 HTTPS 최대20.484300초/64,791bytes·
+RHS0·현재 권리/계정 거부·자원/DB/서버 정리로 로컬 수용했다. 별도 CPU4배 형식20범위를
+대사했고 replay/result-pages 부모를 로컬 수용했다. 실제 저사양기기·pixel fidelity·품종은 별도다.
+[종료된 d61 CI](../research/crop-cycle-route-runtime-ci-hold-20261006.md)는 backend 한 분할/웹 감사 실패이며
+후속 `7a855a7`의 [CI5개](../research/crop-cycle-route-runtime-ci-success-20261006.md)는 Backend4,145개/UID4개·
+동일 목록/정리·집계와 웹522개/Chromium98개·타입/빌드/audit0으로 성공했다.
+profile/full runner/입력 대사 실험은 이 hosted SHA 밖이다. 다음 [작기 부하](../contracts/crop-cycle-burden-v1.md)는
+비용 측정 → 실제166일 RHS → 전체 저장 조회/중단 복원으로 진행한다.
+[profile](../research/crop-cycle-burden-profile-implementation.md)은 고유15개 분할·실제 SCRAM/worker·
+166일 input plan1,816,704걸음/RHS0으로 로컬 수용했다.
+이어 [runner/작은 재개 전략](../research/crop-cycle-full-rhs-small-strategy-implementation.md)은 집중17개·
+실제 자작5시간61출력/2사건·별도 Python 재개·terminal RHS0/정리로 로컬 수용했다.
+다음은 실제166일 RHS/안전한 재개와
+원 입력 재검증 비용 개선 뒤 완전 저장 조회/3D다. 전체 날짜는 실제 종료·조회 예산 수용 뒤 산정한다.
+[서버 입력 검사 영수증](../research/crop-cycle-input-evidence-implementation-20261006.md)은33개 집중 시험·
+원 발행31.34초/별도 Python 재조회0.176초·현재 원 bytes/context·RHS0/FD 정리로 로컬 수용했다.
+원53 source와 판본을 보존했으며 결과 조회 타입·과거 재생 연결·현재 farm/Scope/권리·
+실제 전체 API/3D 수용은 남아 있다. 입력 수학 검사의 영수증으로 관문을 해제하지 않는다.
+[별도 입력 조회 문맥](../research/crop-cycle-input-read-context-implementation-20261006.md)은15개 집중 시험·
+원47,811경계/같은 context/clock·재시작·RHS0/FD 정리로 로컬 수용했다.
+원 계산 provenance와 조회 타입/코드를 분리했으며 결과 검증·현재 farm/권리·API 연결은 별도다.
+[계산 경로의 별도 비용 관측](../research/crop-cycle-farm-input-cost-observation-20261007.md)은 원 `_input`
+두 호출22.05/22.22초를 확인했다. 조회 수용이 계산의 반복 검사를 개선한 것은 아니다.
+[현재 코드 대조](../research/crop-cycle-calculation-context-inspection-20261007.md)에서 기존 artifact도 원 계산 타입을
+요구함을 확인했다. [공식 계산 문맥/판본 계약](../contracts/crop-cycle-calculation-context-v1.md) → 새 판본 artifact
+→ 현재 농장·권리/custody의 작은 작업으로 검증하며 실행 중 소스와 과거 결과 판본을 보존한다.
+전체 저장/조회·부하 수용은 기존 증거를 모두 요구한다.
+[새 순수 계산 경로](../research/crop-cycle-calculation-context-implementation-20261007.md)는90개 집중 시험·
+원/새 checkpoint/121상태·clock/counter·별도 Python4개·변조/자원 정리로 로컬 수용했다.
+같은166일 입력 factory0.386465초는RHS0의 입력 경로 관측이며 실제 농장/HTTP/전체 작기 처리량은 아니다.
+[새 artifact 판본](../research/crop-cycle-calculation-artifact-implementation-20261007.md)도 새68개/선행90개·
+158통과·실제25시간/11,400걸음·27시점/5사건·별도 Python7개와 HEAD 전후 즉시 종료2개/복원으로 로컬 수용했다.
+원/순수 새 계산과 원량·UTC/checkpoint를 대사했고 조회 RHS0·현재 입력 검사·정리를 확인했다.
+[새 농장 권한 결속](../research/crop-cycle-calculation-farm-authority-implementation-20261007.md)은 실제 SCRAM 고유12개를
+분할 수용했다. 현재 등록/권리·exact 계산 context/proof·입력 변조 거부와 세 실행의 정리를 확인했다.
+이 권한 단계의 RHS/새 작물 row/Run은0이다.
+후속 [새 서버 계산/서명](../research/crop-cycle-calculation-server-custody-implementation-20261007.md)은 순수50개·실제 SCRAM12개,
+고유62개 분할·실제 중단4곳/fresh Python·현재 권리/원 이력 보존과 등록 농장7→120걸음 재개를 로컬 수용했다.
+새 DB row/Run은0이며 DB 원자 게시가 다음이다. 농장 연결 부모·전체 작기/저장/3D·관문 보류를 유지한다.
+[새 결과 표/권한](../research/crop-cycle-calculation-result-schema-implementation-20261007.md)은
+전체68개/22.68초·실제 SCRAM·구형 행 보존/명시 권한·제약/정리로 로컬 수용했다.
+이 행은 SQL 형식 fixture이며 signed 계산 결과 게시·현재 조회는 다음 자식이다. 실제 작물 Run/자료는0건이다.
+후속 [새 signed 결과 DB 게시](../research/crop-cycle-calculation-result-publication-implementation-20261007.md)는
+순수81개·실제 SCRAM 고유15개, 고유96개 분할·실제7→120재개/원량·현재 권리/원자 게시·
+원 이력 공존/변조/정리로 로컬 수용했다. 두 DB 자식과 authority/server 증거로 작은 DB·농장 연결 부모도 수용했다.
+get7.898755초와 다른 실행39.668745초를 모두 기록했다. 전체 등록 누적 비용·새 proof/현재 조회·
+공개 판본/operator-config/API runtime 연결과 HTTP30초/2MiB·전체166일/동일 UTC3D는 후속이다.
+[새 조회 구현 순서](../contracts/crop-cycle-calculation-query-v1.md)는 result evidence → reader → 현재 query →
+공개 판본/runtime → client/동일 UTC3D다. 실제 등록 prefix 비용 측정은 독립 병행하며 전체 수용에는 둘 다 필요하다.
+[새 계산 결과 증명](../research/crop-cycle-calculation-result-evidence-implementation-20261007.md)은
+새79개/선행74개·고유153개 분할·자체5시간 정상/hold·별도 Python2개/parser/context/QC/RHS0·
+원55 source/FD/PID 정리로 작은 소프트웨어 자식을 수용했다. 전체166일 새 증명/농장/API/3D는 후속이다.
+후속 [조회 타입4 core파일](../contracts/crop-cycle-calculation-result-read-context-v1.md)도
+[새49개/선행115개·집중164개](../research/crop-cycle-calculation-result-read-context-implementation-20261007.md)·
+원5시간 정상/hold·별도 Python2개/parser/context/QC/RHS0·원량/UTC·byte 경계/변조·FD/cache/PID로 수용했다.
+다음은 [현재 farm/DB query](../contracts/crop-cycle-calculation-current-query-v1.md)의 실제 등록/권리·validation9+8·
+원 input proof·전체 부모 서버 서명 결속이다. 전체166일/HTTP/3D와 관문은 계속 별도다.
+[원166일 증명 실측](../research/crop-cycle-full-result-evidence-cost-observation-20261007.md)은6,111,094bytes/8MiB·
+별도 Python 검증1.589495초와 선택 page를 확인한 순수 관측이며 새 판본/농장·HTTP 증거는 아니다.
+새 계산 module만 쓰는 순수 개발은 원55 source SHA·현재 입력/spec을 보존하며 실행과 병행하고,
+동결 소스 변경은 실제 실행 종료·증거 보존 뒤 진행한다.
+[확정 과거 결과 비용](../research/crop-cycle-result-prefix-read-cost-observation-20261006.md)은
+원8,175commit/26,831출력의 수지 검증73.71초로 반복 결과 검증도30초 경로 전에 개선해야 함을 확인했다.
+[결과 검증 영수증](../research/crop-cycle-result-evidence-implementation-20261006.md)은 작은 완료/hold의
+원 QC·새41개/관련 고유89개·새5시간1,800걸음/61출력/3사건·별도 Python/FD 정리로 로컬 수용했다.
+원 QC 발행0.136초/별도 재조회0.013초는 작은 사례의 실측이다. 원 전체 검증과 현재 bytes를 분리했다.
+[별도 결과 조회 타입](../research/crop-cycle-result-read-context-implementation-20261007.md)은 새36개/관련 고유125개·
+새5시간의 원61출력/3사건 전체·별도 Python/FD 정리로 로컬 수용했다. 원 page 값/UTC/count·
+현재 bytes/파일 보안·cache 한도·반환 전 재대사를 확인했다. 다음은 [현재 농장 조회 계약](../contracts/crop-cycle-current-query-v1.md)의
+3 core파일 농장/DB/원 서명 결속 → 명시적 API/runtime 연결·실제 TLS →
+실제 전체 저장/같은 UTC3D로 이어지며 전체 작기/복원·부하 부모 수용은 전체166일 종료와 실제 경로 증거를 기다린다.
+참조 proof로 농장 계산 이력을 만들지 않는다.
+첫 수용은 실제 원 농장 등록/result row·전체 부모 custody 서명의 현재 권리/증명 전후 결속과
+작은 등록 농장 SCRAM의 철회/변조/재시작·정리다. 이어 API/runtime의 명시적 구성과
+실제 TLS 전체 응답30초/2MiB·투영 후 철회를 확인해야 현재 조회 부모를 수용한다. 새 조회 소프트웨어로 관문을 해제하지 않는다.
+현재 [농장/DB 조회 결속](../research/crop-cycle-query-authority-implementation-20261007.md)의 실제 SCRAM8개/631.33초와
+[API/runtime 연결](../research/crop-cycle-query-runtime-implementation-20261007.md)의 실제 SCRAM/TLS1개/243.58초를 로컬 수용했다.
+원120걸음·3시점/3관리 사건·22 HTTPS·재시작·투영 후 철회·trace/역할 거부·정리를 확인했다.
+응답 최대6.306509초/21,514bytes·분할 고유198통과/9건너뜀이며 선행 authority와 최종 예외 전파 변경의 판본을 구분한다.
+현재 조회 부모의 작은 저장 조회 소프트웨어 범위까지 수용했다. 전체166일/복원·부하·새3D/관문은 별도다.
+
+[지속 저장 감독자](../research/crop-cycle-full-rhs-durable-implementation-20261007.md)의 실제5개/22.67초로
+child 강제 종료(-9)·같은 checkpoint 재개와 연속760걸음/21시점/2사건·121상태 대사를 수용했다.
+원 spec SHA·deadline을 고정했고 원 수식/runner/한도는 보존했다. 새166일은 별도 판본/독립6시간 예산이며
+원 유실 실험의 재시작/예산 재설정이 아니다. 전체 RHS/복원·부하 수용과 관문은 계속 별도다.
+[새 실험 시작 관측](../research/artifacts/crop-cycle-full-rhs-durable-started-reference-20261007.json)은
+원123걸음 중단/정상 종료 뒤 같은 spec 재개·8,104걸음 진행을 확인했다. 관측 당시 실행 중이며 전체 수용은 아니다.
+
+후속 [새166일 전체 RHS 수용](../research/crop-cycle-full-rhs-durable-completed-20261007.md)은10월7일
+실제 종료0·1,816,704걸음·47,809시점/5사건·원 전체 reader 수지/행 SHA·조회 RHS0와
+첫123걸음의 전체 체크포인트/121상태·seed/clock/cursor 복원,55 source/입력/결과 전수 대사·정리를 확인했다.
+원6시간 내20,518.836401초의 소유 합성 수치 실험이며 full-rhs 자식만 수용한다.
+전체 등록 농장 DB/API/같은 UTC3D·복원/부하와 실제 품종/예측·추천 관문은 아직 미수용이다.
+
+10월7일 [재개 관측](../research/crop-cycle-full-rhs-missing-state-20261007.md)은 원81574 handle·실험/terminal
+보존 경로 부재를 확인했다. 원 최종 결과는 확인 불가이며 부분 관측을 전체 수용으로 바꾸지 않는다.
+작은 사례의 조회 개발은 계속하고 원 전체 수용은 복구 가능한 원 증거 또는 별도 판본의 새 실험 증거를 요구한다.
+보존 CI 시험 수정은 `4bf9af3`으로 정상 적용해 현재18개/24.30초를 통과했다
+([통합 증거](../research/artifacts/crop-cycle-full-rhs-test-isolation-integration-20261007.json)). 원 수식/한도·새 hosted 수용은 구분한다.
+실제 전체 작기 처리는 미수용이며6시간 수치 실험 예산 후보를 날짜로 표시하지 않는다.
+빈 초기 tail/양의 남은 유입·자동 착과/초기/RGR 정책은 별도 판본으로 해소해야
+전체 작기 생산 모델의 착수/게시 범위에 접근할 수 있다.
+
+착과/과실 발달 구획과 적엽·적심·수확 관리 사건, 탄수화물→건물→생과중 환산,
+등급·불량의 품종별 근거는 후속 작은 단계에서 검증한다. 탄소 질량을 생과 수확 kg,
+모델의 평활 제거 유량을 실제 숙기나 수확으로 직접 표시하지 않는다. 그다음 기존
+열 모델과의 작물 효과 중복을 제거하며 수관/증산 결합, 배지 물·성분/재순환 수지,
+구매 전력·연료·CO₂를 연결하고 같은 생산 배치의 H/P/S·재고·정산을 기존
+[경제 계약](ECONOMICS.md)의 Decimal 계산기로 연결한다. 노지용
+[FAO AquaCrop](https://www.fao.org/aquacrop/overview/input-requirements/)을 배지 모델로 직접 옮기지 않는다.
+
+### 5.3 개발 착수와 결과 게시
+
+권리가 확인된 문헌식/코드와 필요한 매개변수의 차원 검토, 명시적 합성 forcing으로
+순수 계산 개발을 시작할 수 있다. 과실 발달 구획도 동일한 개발 경계를 따르며
+실제 품종/작기 적용에는 별도의 관리/발달·입력/QC 근거가 필요하다. 실제 농장 자료 접근·G2·시장 G0·전체 운영 조립은
+이 개발의 선행 조건이 아니다. 독립 국내 자료 확보·검증 설계는 병행한다.
+조사 등록부·연구 계산·합성 시험은 각각의 증거 범위만 가지며 G0 승인 데이터나
+G1 제품 Run을 자동으로 만들지 않는다. 제품 재생은 해당 입력 G0와 계산/재현 G1,
+국내 미래 생산/자원 예측은 해당 G2·G3a, 미래 가격/마진은 시장·경제 검증도 필요하다.
+각 범위는 따로 기록한다. 후보 순위는 G3b, 공개 서비스/배포는 G4를 그대로 요구한다.
+
+### 5.4 최종 제품 UI 통합
+
+기존 조사·농장 작성·작업·생장 3D·수확·경제 화면을 하나의 사용자 경로로 통합한다.
+지역 선택 → 조사된 자료와 부족한 근거 → 시설/품종/작기 입력 → 실행 상태 → 저장 결과 선택
+→ 동일 실행/시각의 3D·생산량·자원 → 조건부 비용/마진·판단 보류를 이어가야 한다.
+사용자가 내부 ID를 전달하거나 농업 계수를 추측해야 하는 흐름은 최종 UI 수용이 아니다.
+재접속/재시작 뒤 저장 결과 복원과 현재 권리 재검사, 모바일/키보드·지도/WebGL 대체를 포함한다.
+계산되지 않은 항목과 자료 미확인을 명시하고 결과의 연구/합성/가정 범위를 유지한다.
+실제 지역·품종 예측과 추천의 게시 조건은 §5.3 및 §6을 따른다.
+진행 화면은 같은 실행의 서버 확정 체크포인트·계산 시각·최종 갱신 시각을 조회하고,
+연결 지연/중단을 표시해야 한다. 완료 뒤에는 그 실행에서 게시된 불변 결과를 3D로 연다.
+자동 새로고침이나 저장 결과 재생을 실행 중인 계산의 실시간 연동으로 표시하지 않는다.
+[UI 통합 계획](../tasks/plan.md#최종-제품-ui-통합--2026-10-09-사용자-요청)과
+[수용 작업](../tasks/todo.md#최종-제품-ui-통합-2026-10-09)에 의존성·산출물·잠정 작업량을 기록한다.
+기존 개별 화면과 localhost의 내부 미리보기가 있다는 사실만으로 최종 UI를 완료 처리하지 않는다.
+[선택→기존 재생 전달 후보](../research/web-crop-result-replay-selection-candidate-20261009.md)는
+타입/웹 회귀·일반 빌드를 확인했으나 브라우저 자원 보류다. 실제 목록/App·U1/U3 수용을 대신하지 않는다.
+[농장·작물·결과 목록 화면 후보](../research/web-crop-result-catalog-screen-candidate-20261009.md)는
+선택 로직/SDK176개·타입·일반 빌드를 확인했다. 현재 기동 빌드에는 포함됐으나 목록 선택의 원3상태 디자인 대조·
+실제 공동 DB/재시작 수용과 진행 중인 계산의 실시간 연결은 남아 있다.
+
+## 6. 검증과 수용 관문
+
+| 관문 | 사전에 정의할 시험과 통과 조건 | 막히면 내릴 수 없는 주장 |
+| --- | --- | --- |
+| G0 자료·권리 | 시장 자료의 `D` 이전 발표·이용 가능 시각과 당시 판본, 시장 품종·등급·지역·채널/계약·단위·권리·결측 검사; 해당 좌표/기간의 필수 요소 보유율·품질·단위·시각·공간차 검토; 제공자 QC 제공 여부와 프로젝트 검사 결과 분리; **일사 자체의 결측·야간값·물리 범위·시간 적산 일치 검사**를 사전 정의하고 기록; 각 항목 이용/저장/표시 권리 기록 | 자동 수집의 적법한 배포, 현장 입력의 충분성 |
+| G1 계산·재현 | 고정 원본+모델+계수로 재실행; 열/수증기 및 작물 탄소 수지 잔차, 기관/수확 제거·생과중 변환 보존, 적분 수렴·초기조건·관리 사건 재현, 물리 범위, 시간대·단위 변환, 결측 차단, 설비 한계·정전 시나리오 시험. **승인된 시장 스냅샷이 있으면 고정 재실행·가격 단계·공동 충격 제약을 시험하고, 없으면 보류 보고서·사용자 가정만의 조건부 산술·Assessment `hold`를 시험한다. 별도 경제 산술의 원화/단위·반올림, 수확→등급→판매·반품·폐기·재고 보존, 미판매분 매출 0과 기간 생산원가 단일 반영, 배분 합계, 수금/운전자본 대사, 세 손익분기 목표의 날짜별 재계산·해 없음·경계값도 시험** | 물리·조건부 손익 계산의 신뢰, 같은 실행 재생 |
+| G2 실측 비교 | 공개 [WUR 온실 자료](https://research.wur.nl/en/datasets/autonomous-greenhouse-challenge-second-edition-2019/)로 외부 재현 시험; 국내 협력 온실에서 **보정 기간과 겹치지 않는 기간/작기**의 실내 온습도와, 출력하는 경우 같은 물리량의 공급열·전력·연료 계량을 각각 비교. 작물 출력에는 같은 품종·관리·면적 기준의 잎 면적·기관량·착과/수확 시계열을 보정에 쓰지 않은 국내 측정과 비교하며 측정 불확실성도 기록. MAE/RMSE·편향·극값·예측구간 포함률을 보고, 직전 관측값 유지·단순 열손실 모델 같은 명시된 기준선과 비교 | 국내 현장 생장·기후·자원 예측 |
+| G3 작물·경제·선택 | **G3a:** 품종별 수확·등급별 packout·판매 인정량·반품·폐기·기말 재고 및 생산원가·경로별 실수취가·구매 에너지/요금·운영비·월별 현금흐름을 원장·계량·청구·정산과 대조하고, `D` 당시 시장 판본만 쓴 rolling-origin 시험에서 수확·등급별 판매 가능/인정 kg·농가 순수취가·`OI`·현금 부족의 단순 계절/당시 관측 기준선 대비 오차·편향·구간 포함률을 독립 검증. **G3b:** 이에 더해, **같은 `D`에 실제 계약/판로가 가능한 둘 이상의 작물**을 공통 시장 충격과 지역·시설·평가 기간·면적·관리 및 목표/비용 기준이 맞는 시험구 또는 대응 작기로 비교한 **모델 개발·보정·후보 선택에 쓰지 않은 자료**를 확보. 공통 기간의 미판매 재고에는 매출을 붙이지 않고 해당 생산원가를 기간 비용에 포함한 관리용 이익으로 순위를 검증한다. 비교 설계와 차이 보정·제외 기준을 사전 등록하고 실제 선택의 순위·후회 손실·순위 역전·불확실성 포함률을 평가. 검증 범위는 지역·시설형·품종·기간·목표별로 기록. **경제 오차·편향·구간 포함률과 의사결정 손실**을 사전 등록한 기준으로 평가 | G3a 밖의 미래 수확·가격·판매량·이익 예측 또는 G3b 밖의 “후보 중 최적” 추천 |
+| G4 공개 운영·배포 | 시장 원천의 계약·공표 지연·정정·권리와 오래된 자료의 보류 표시; 작업 중단·중복 요청·공급자 장애·복구, 권한 분리, 백업 복원, 3D/표 값 일치, 키보드·저사양 기기 시험; **실제 배포 계정의 Codex CLI `gpt-6.1-sol` `xhigh` 호출, 인증/계약·한도·지연·비용·격리·도구/egress·출력 스키마·보류 동작 시험과 요청당 서비스 원가·운영 재원 검토**; **자체 코드의 기여·저작권 귀속과 코드·의존성·지도 타일·3D 자산·포함 데이터의 라이선스/출처표시·재배포 권리 목록**; 인증정보를 저장소에 넣지 않는 OpenAI/자료 제공자 키 설정 안내, 배포 절차와 권리 확인된 예제 데이터로 새 환경 설치·실행 시험 | 공개 production 서비스와 공개 배포물 |
+
+수치 허용 오차와 서비스 목표는 **센서 오차, 실제 의사결정의 손실, 대상 기기 및 운영 약속**을 측정한 뒤 실험 전에 등록한다. 근거 없는 숫자로 합격선을 고정하지 않는다. 관문별 데이터셋·기간·제외 사유·실패 결과도 공개 가능한 범위에서 기록한다. **G3b용 대응 작물 비교 자료의 확보와 공유 권리는 외부 협력에 달린 필수 의존성**이다. 작물별 오차가 작다는 사실만으로 선택 순위의 오차가 작다고 결론 내리지 않는다. 대응 자료가 없으면 G3b는 미통과이고 순위는 계속 보류한다.
+
+매 Assessment는 **각 Run과 후보마다 G0 자료·권리, G1 모델·재현, G2 현장 검증 범위, G3 선택 검증의 적용 여부를 다시 검사**한다. 미래 가격·수확·판매량·마진을 보여 주려면 각 후보의 G3a가 이번 입력 범위에 유효해야 하고, **순위를 보여 주려면 G3b의 이번 후보들 간 대응 자료**가 이번 목표에도 유효해야 한다. 과거에 통과한 프로필·모델이라도 이번 좌표가 검증된 지역 안인지, 시설형·품종·평가 기간·목표가 승인된 범위 안인지 확인한다. 범위 밖이거나 한 후보라도 순위에 필요한 관문을 통과하지 못하면 순위를 내지 않고 후보별 이유를 기록한다. G3a를 통과한 후보의 미래 마진은 그 후보의 검증 범위만 명시해 표시할 수 있다. 한 후보만 남아도 “최적”이라 부르지 않는다. G4는 **공개 서비스/배포 단계**의 별도 필수 관문이며 G3 통과 여부와 관계없이 적용한다.
+
+## 7. 순서와 의존성
+
+현재 우선순위는 [고정된 운영 기반](../research/crop-priority-and-runtime-freeze-20261004.md)
+위에서 다음 작은 계산·재생 단계를 수용하는 것이다. 기존 종단 간 G1 작업은 유지하되
+추가 기반 작업은 실패한 핵심 경로·필수 관문의 구체적 근거가 있을 때만 계획에 추가한다.
+
+1. **단일 품종·작기 조사와 병행 실측 경로:** 모델 후보·식/계수/단위/권리·forcing·관리 사건과 초기조건을 고정한다. 독립 국내 농장 자료의 동의·필수 채널·측정 오차·개발/보정/검증 분리를 준비한다. 자료 획득은 모델 개발과 동시에 진행하며 농장 계약이 없으면 외부 의존성을 기록한다.
+2. **생장 계산:** `crop-growth-rates`의 순간 탄소 유량 → `crop-photosynthesis-domain`의 원식 적용 정책 → `crop-growth-integration`의 시간 적분. 독립 참조값·수지·경계값·재현·수렴으로 계산 계약을 확인한다. 국내 예측을 주장하지 않는다.
+3. **저장 결과와 성장 3D:** `crop-result-storage` → `api-crop-replay` → `web-crop-replay`. 변경 불가 입력/결과·현재 권리·같은 ID/시점의 표/그래프/장면을 확인한다. 연구 재생과 승인 제품 Run을 구분한다.
+4. **생산량·자원·경제 결합:** 과실 발달/수확·생과중/등급 → 수관/열·물/성분·구매 에너지 → 같은 농장/배치의 실행/불변 결과 선택 → 생산 배치 H/P/S와 조건부 손익/현금 연결. 사용자 실행 연결과 전체 작기 처리는 기존 작업/worker와 현재 권리·고정 입력/모델을 재사용하는 작은 단계로 검증한다. 각각의 수지·단위·적용 범위와 실제 계량/정산을 검증한다. 시장이 보류면 기존 사용자 가정 경계를 유지하며 모델 수확을 사용자 가정으로 재분류하지 않는다.
+5. **검증된 예측과 비교:** 독립 국내 G2와 미래 작기 G3a의 해당 출력 범위가 확보된 경우만 예측을 게시한다. 과거 전체 작기를 본 개발 참조는 미래 검증이 아니다. 경제 전망에는 `D` 당시 시장/계약/비용 판본과 독립 경제 검증이 더 필요하다. 둘 이상 후보의 대응 자료 G3b 전에는 “최적”을 보류한다.
+6. **공개 운영과 확대:** 실제 제품 CLI·독립 해제·운영/비용/복구/권리 증거를 포함한 G4 뒤 승인 범위만 공개한다. 지역·품종·온실형 확대는 각 적용 범위에서 G0~G3를 재확인한다. 예보·다구역·노지·전 세계는 별도 모델과 근거가 필요하다.
+
+## 8. 남은 결정
+
+**사용자 선호가 필요한 것:** 첫 사용자가 신설 투자자인지 기존 재배자인지, 우선 비교할 목표(관리용 운영이익/물/에너지)와 반드시 지킬 한도, 협력 농장·현장 자료를 제공할 수 있는지, 원하는 공개 서비스 범위와 예산. 작물·모델·자료의 기술적 타당성 판단을 농업 비전문가인 사용자에게 떠넘기지 않는다.
+
+**Codex CLI가 연구·검증할 것:** 시범 온실·작기와 품종 선정, 실제 `D`·계약/정산 자료 및 시장 원천의 과거 판본·권리, 관측소 일사 보유율과 현장 차이, 피복·환기·난방 계수, 작물별 원문 기준과 이용권, 배지·수확 모델의 검증 가능성, G0~G4의 수치 합격선, 개인정보·자료 보존 설계, 가격·요금·견적의 계약 적용 범위 및 사업성 오차 검증. 사용 중에는 선택 지역의 새 자료 조사·수집 판단과 계산 후 후보 판단도 필수다. 확인 전 값은 **미확인**으로 남긴다. [런타임 계약](ARCHITECTURE.md#필수-codex-cli-런타임-작업자)에 정한 CLI 호출과 관문 검사를 통과하지 못하면 순위는 보류한다.

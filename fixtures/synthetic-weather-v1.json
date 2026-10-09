@@ -1,0 +1,89 @@
+{
+  "fixture_id": "synthetic-weather-v1",
+  "synthetic": true,
+  "claim_scope": "synthetic_g1_software_input_only",
+  "assumption_id": "weather-assumption-v1",
+  "start_utc": "2026-10-15T08:00:00Z",
+  "end_utc": "2026-10-15T10:00:00Z",
+  "interval_semantics": "[start_utc,end_utc), UTC, contiguous, no gap fill",
+  "solar_semantics": "interval_total_J_per_m2_not_instantaneous_W_per_m2",
+  "intervals": [
+    {
+      "start_utc": "2026-10-15T08:00:00Z",
+      "end_utc": "2026-10-15T09:00:00Z",
+      "values": {
+        "T_o": {
+          "value": 290,
+          "unit": "K",
+          "origin": "assumed",
+          "basis_ref": "weather-assumption-v1",
+          "version": "v1",
+          "method": "Self-authored algebraic sentinel for outdoor temperature; no observed or provider data."
+        },
+        "phi_o": {
+          "value": 0.5,
+          "unit": "1",
+          "origin": "assumed",
+          "basis_ref": "weather-assumption-v1",
+          "version": "v1",
+          "method": "Self-authored algebraic sentinel for outdoor relative humidity fraction; no observed or provider data."
+        },
+        "p_o": {
+          "value": 100000,
+          "unit": "Pa",
+          "origin": "assumed",
+          "basis_ref": "weather-assumption-v1",
+          "version": "v1",
+          "method": "Self-authored algebraic sentinel for outdoor total pressure; no observed or provider data."
+        },
+        "solar_interval_energy": {
+          "value": 3600,
+          "unit": "J/m²",
+          "origin": "assumed",
+          "basis_ref": "weather-assumption-v1",
+          "version": "v1",
+          "method": "Self-authored algebraic sentinel for solar interval total, including explicit zero; no observed or provider data."
+        }
+      }
+    },
+    {
+      "start_utc": "2026-10-15T09:00:00Z",
+      "end_utc": "2026-10-15T10:00:00Z",
+      "values": {
+        "T_o": {
+          "value": 289,
+          "unit": "K",
+          "origin": "assumed",
+          "basis_ref": "weather-assumption-v1",
+          "version": "v1",
+          "method": "Self-authored algebraic sentinel for outdoor temperature; no observed or provider data."
+        },
+        "phi_o": {
+          "value": 0.6,
+          "unit": "1",
+          "origin": "assumed",
+          "basis_ref": "weather-assumption-v1",
+          "version": "v1",
+          "method": "Self-authored algebraic sentinel for outdoor relative humidity fraction; no observed or provider data."
+        },
+        "p_o": {
+          "value": 100000,
+          "unit": "Pa",
+          "origin": "assumed",
+          "basis_ref": "weather-assumption-v1",
+          "version": "v1",
+          "method": "Self-authored algebraic sentinel for outdoor total pressure; no observed or provider data."
+        },
+        "solar_interval_energy": {
+          "value": 0,
+          "unit": "J/m²",
+          "origin": "assumed",
+          "basis_ref": "weather-assumption-v1",
+          "version": "v1",
+          "method": "Self-authored algebraic sentinel for solar interval total, including explicit zero; no observed or provider data."
+        }
+      }
+    }
+  ],
+  "derived_values_policy": "No w_o or solar power supplied; a later versioned deterministic engine derives them with a registered saturation law and interval duration."
+}

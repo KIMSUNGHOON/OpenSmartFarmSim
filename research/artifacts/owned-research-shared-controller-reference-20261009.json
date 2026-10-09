@@ -1,0 +1,228 @@
+{
+  "CLI": {
+    "effort": "xhigh",
+    "judgment": "Reproduce shared pytest-controller ownership sent-set failure with actual multiprocessing resource tracker; preserve product helper byte-for-byte and original assertion ASTs; explicitly protect preexisting test-controller children before spawning owned families; verify normal/thread preexisting families and both actual Python distributions before hosted regression. No crop/model/gate changes.",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "turn_event_sha256": "1637eca570e5c145fd2e1228992f62d61a1c0cf45b085df674a8c318aa0495f4",
+    "turn_timestamp": "2026-10-09T13:56:11.267Z"
+  },
+  "G0_G4": "not_assessed",
+  "accepted_local": true,
+  "actual_crop_Runs": 0,
+  "actual_cultivar_inputs": 0,
+  "cases": {
+    "green-system": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 5,
+      "accepted": true,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 354197504,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "failed": 0,
+      "frontend_status": 200,
+      "original_exec": 95789,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "passed": 32,
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 147255296,
+      "source_count": 1663,
+      "source_preserved": true,
+      "terminal_chunk": "cd0815",
+      "tracker_gone_after_owned_stdlib_stop": true,
+      "tracker_original_identity_preserved": true,
+      "wall_seconds": 1.3633774339978117
+    },
+    "green-uv": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 5,
+      "accepted": true,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 359534592,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "failed": 0,
+      "frontend_status": 200,
+      "original_exec": 48295,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "passed": 32,
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 147255296,
+      "source_count": 1663,
+      "source_preserved": true,
+      "terminal_chunk": "b75ffa",
+      "tracker_gone_after_owned_stdlib_stop": true,
+      "tracker_original_identity_preserved": true,
+      "wall_seconds": 1.3609227139968425
+    },
+    "plain-system": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 5,
+      "accepted": true,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 347791360,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "failed": 0,
+      "frontend_status": 200,
+      "original_exec": 36281,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "passed": 32,
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 147255296,
+      "source_count": 1663,
+      "source_preserved": true,
+      "terminal_chunk": "7a32ce",
+      "wall_seconds": 1.3663188249920495
+    },
+    "plain-uv": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 5,
+      "accepted": true,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 354062336,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "failed": 0,
+      "frontend_status": 200,
+      "original_exec": 15059,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "passed": 32,
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 147255296,
+      "source_count": 1663,
+      "source_preserved": true,
+      "terminal_chunk": "79644f",
+      "wall_seconds": 1.3752949780027848
+    },
+    "red-uv": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 2,
+      "accepted": false,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 318529536,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "failed": 2,
+      "frontend_status": 200,
+      "original_exec": 95993,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "passed": 0,
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 147255296,
+      "source_count": 1663,
+      "source_preserved": true,
+      "terminal_chunk": "186592",
+      "tracker_gone_after_owned_stdlib_stop": true,
+      "tracker_original_identity_preserved": true,
+      "wall_seconds": 0.5652363230183255
+    }
+  },
+  "core_commit": "bba1167546e015540b39f6db514385a579f82558",
+  "historical_hosted_extra_PID_type": "not established by original log; same failure reproduced with a known live resource tracker",
+  "hosted_accepted": false,
+  "independent_domestic_datasets": 0,
+  "original_test_assertion_ASTs_unchanged": 16,
+  "product_helper_sha256": "0337a2878b1d57b39d0e7ef2840c8e0fb41fe6ae4bcdd12812959aacb15f311f",
+  "root_audit": {
+    "G0_G4": "not_assessed",
+    "accepted_local": true,
+    "actual_crop_Runs": 0,
+    "actual_exit": 0,
+    "actual_tool_chunk": "c281b9",
+    "cases": {
+      "green-system": {
+        "actual_exit": 0,
+        "terminal_sha256": "93af5de76f64c163d3a8ec1881f076b752609ef71122d8c3262adde3ce1893ab",
+        "wall_seconds": 1.3633774339978117
+      },
+      "green-uv": {
+        "actual_exit": 0,
+        "terminal_sha256": "f2cc66d9e7e7e022b680ea74527b202600448b978017688daa486eeda1c3bef4",
+        "wall_seconds": 1.3609227139968425
+      },
+      "plain-system": {
+        "actual_exit": 0,
+        "terminal_sha256": "b6fa078974b5f63b8c81ebfb0aa0dc930d866c32cbdeb8694d5e3b82336eb82a",
+        "wall_seconds": 1.3663188249920495
+      },
+      "plain-uv": {
+        "actual_exit": 0,
+        "terminal_sha256": "b8019f4fbae7dac752651f3e27963ca3c4db789c2556b0fa6e4874ec57406211",
+        "wall_seconds": 1.3752949780027848
+      },
+      "red-uv": {
+        "actual_exit": 1,
+        "terminal_sha256": "11e728144042fe85316e837b5d362e3840ca7c7dd2088b6ef0060783e64aa751",
+        "wall_seconds": 0.5652363230183255
+      }
+    },
+    "frontend_status": 200,
+    "hosted_accepted": false,
+    "original_source_entries": 2148,
+    "original_test_assertion_ASTs_unchanged": 16,
+    "originals_preserved": true,
+    "owned_test_controllers_and_trackers_gone": true,
+    "product_helper_SHA_unchanged": true,
+    "proof_sha256": "afae08579a9359666cc4157e6b26996e5a38e816ffc5bd5880c9bb38f13c76e0",
+    "root_FD_before_after": [
+      4,
+      4
+    ],
+    "same_preview_controller_service_PG_live": true,
+    "service_FD_before_after": [
+      8,
+      8
+    ],
+    "source_and_assets_preserved": true,
+    "source_entries": 1663
+  },
+  "schema_version": "owned-research-shared-controller-reference-v1",
+  "unique_cases": 32
+}

@@ -1,0 +1,161 @@
+{
+  "ci_failure": {
+    "assertion": "schemas == roles == len(secrets) == 0; found 2 owned copied passfiles from earlier authority fixture test",
+    "head": "8d111f1991ef8698b8d0748229020a5b9e36910e",
+    "job_id": 112736579454,
+    "run_id": 37604499282,
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37604499282/job/112736579454"
+  },
+  "gate_decisions": "not_assessed",
+  "green": {
+    "argv": [
+      "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+      "-m",
+      "pytest",
+      "tests/test_application_authority_fixture.py::test_private_authority_policy_retains_actual_invocation_and_registry_hold",
+      "tests/test_crop_cycle_current_query.py::test_source_withdrawal_inside_final_input_rights_review_cannot_return",
+      "-q",
+      "--tb=short",
+      "--basetemp",
+      "/tmp/ossf-apc-e3qs6qvv/pytest"
+    ],
+    "clusters": [
+      {
+        "PID_exists_after": false,
+        "directory": "/tmp/ossf-apc-e3qs6qvv/system/ossf-login-pg-9h_j9i1h/data",
+        "directory_exists_after": false,
+        "pid": 457821,
+        "start_ticks": "4160959"
+      },
+      {
+        "PID_exists_after": false,
+        "directory": "/tmp/ossf-apc-e3qs6qvv/system/ossf-login-pg-_9o440nk/data",
+        "directory_exists_after": false,
+        "pid": 457910,
+        "start_ticks": "4161290"
+      }
+    ],
+    "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend",
+    "finished_at": "2026-10-07T11:06:18.585731+00:00",
+    "log_sha256": "501965877018360f49c232b86309f49a5db57131435278f1974b0651fb26ba35",
+    "nice": 19,
+    "passfiles_after": [],
+    "passfiles_after_owned_cleanup": [],
+    "pytest_seconds": 66.25,
+    "returncode": 0,
+    "sampled_test_primary_max_RSS_bytes": 129564672,
+    "source_sha256": {
+      "backend/tests/login_database.py": "4174c3309593dcbbfee1ec54ee91ead7927c901e28ccd826385fb8af115bcea8",
+      "backend/tests/test_application_authority_fixture.py": "ee8d12b57a26cddc25bc5d452f19fa1e0ff43035cf93404d9db3f25acfbc07cc",
+      "backend/tests/test_crop_cycle_current_query.py": "da46bb914cd8b61ef445ce62fa0ec0bd0aad41a41576b2b5304f9bff6ae56af8",
+      "scripts/application-authority-fixture.py": "76a4e691e1395af2b04808c49813d927c7fcd0e5d620afae8f993c487b810f29"
+    },
+    "source_sha256_after": {
+      "backend/tests/login_database.py": "4174c3309593dcbbfee1ec54ee91ead7927c901e28ccd826385fb8af115bcea8",
+      "backend/tests/test_application_authority_fixture.py": "ee8d12b57a26cddc25bc5d452f19fa1e0ff43035cf93404d9db3f25acfbc07cc",
+      "backend/tests/test_crop_cycle_current_query.py": "da46bb914cd8b61ef445ce62fa0ec0bd0aad41a41576b2b5304f9bff6ae56af8",
+      "scripts/application-authority-fixture.py": "76a4e691e1395af2b04808c49813d927c7fcd0e5d620afae8f993c487b810f29"
+    },
+    "started_at": "2026-10-07T11:05:11.834504+00:00",
+    "temporary_test_tree_removed": true,
+    "tests_passed": 2,
+    "tmp_root": "/tmp/ossf-apc-e3qs6qvv",
+    "wall_seconds": 66.75083906899818
+  },
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "record_sha256": "51241d8a4af55e86e0f92fb36c5bd28b650a1be2a618d5654fe09631839e2895",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T10:57:08.135Z"
+  },
+  "not_run": [
+    "explicit failure injection",
+    "whole backend local regression",
+    "hosted CI for this correction"
+  ],
+  "private_record_sha256": {
+    "authority-green-command.json": "5c6d17e151cb780f6f19157037593145abbdb807811c3c641785fbd92dc2f787",
+    "authority-green-result.json": "3530ec892861103788c0588c6841bcf4fa1bb032d35a67e5d7f432a4681b6a3e",
+    "authority-green.log": "501965877018360f49c232b86309f49a5db57131435278f1974b0651fb26ba35",
+    "authority-red-command.json": "da8210396afb0fee5bc7b1e0a0a507d45d4f064c6b58ae9498c56a3b42040353",
+    "authority-red-result.json": "37236ba46b4bd3c8e64dc8ef55ae8c728fce2b30b884b2be39ce0f227efcc8ce",
+    "authority-red.log": "842967bd48f441fef2194b3feccc8583b8ca96edae08d6073dace805a8027b0b",
+    "source-review.json": "b6fbec875da563b788b1293765d56e07203de45cd26a7e76f1452677d0e52cfb"
+  },
+  "red": {
+    "argv": [
+      "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+      "-m",
+      "pytest",
+      "tests/test_application_authority_fixture.py::test_private_authority_policy_retains_actual_invocation_and_registry_hold",
+      "tests/test_crop_cycle_current_query.py::test_source_withdrawal_inside_final_input_rights_review_cannot_return",
+      "-q",
+      "--tb=short",
+      "--basetemp",
+      "/tmp/ossf-apc-2mn6e4ep/pytest"
+    ],
+    "clusters": [
+      {
+        "PID_exists_after": false,
+        "directory": "/tmp/ossf-apc-2mn6e4ep/system/ossf-login-pg-iyfymrpa/data",
+        "directory_exists_after": false,
+        "pid": 451262,
+        "start_ticks": "4151257"
+      },
+      {
+        "PID_exists_after": false,
+        "directory": "/tmp/ossf-apc-2mn6e4ep/system/ossf-login-pg-8nldb5kg/data",
+        "directory_exists_after": false,
+        "pid": 451494,
+        "start_ticks": "4151601"
+      }
+    ],
+    "cwd": "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend",
+    "finished_at": "2026-10-07T11:04:42.119066+00:00",
+    "log_sha256": "842967bd48f441fef2194b3feccc8583b8ca96edae08d6073dace805a8027b0b",
+    "nice": 19,
+    "passfiles_after": [
+      "pytest/test_private_authority_policy_0/supervisor/supervisor.pgpass",
+      "pytest/test_private_authority_policy_0/authority/authority.pgpass"
+    ],
+    "passfiles_after_owned_cleanup": [],
+    "pytest_seconds": 66.85,
+    "returncode": 1,
+    "sampled_test_primary_max_RSS_bytes": 130199552,
+    "source_sha256": {
+      "backend/tests/login_database.py": "4174c3309593dcbbfee1ec54ee91ead7927c901e28ccd826385fb8af115bcea8",
+      "backend/tests/test_application_authority_fixture.py": "0f51f0c4371272c4e367214ec7ebd1cc4965079eee321e5eee929a87cabbcc0d",
+      "backend/tests/test_crop_cycle_current_query.py": "da46bb914cd8b61ef445ce62fa0ec0bd0aad41a41576b2b5304f9bff6ae56af8",
+      "scripts/application-authority-fixture.py": "76a4e691e1395af2b04808c49813d927c7fcd0e5d620afae8f993c487b810f29"
+    },
+    "source_sha256_after": {
+      "backend/tests/login_database.py": "4174c3309593dcbbfee1ec54ee91ead7927c901e28ccd826385fb8af115bcea8",
+      "backend/tests/test_application_authority_fixture.py": "0f51f0c4371272c4e367214ec7ebd1cc4965079eee321e5eee929a87cabbcc0d",
+      "backend/tests/test_crop_cycle_current_query.py": "da46bb914cd8b61ef445ce62fa0ec0bd0aad41a41576b2b5304f9bff6ae56af8",
+      "scripts/application-authority-fixture.py": "76a4e691e1395af2b04808c49813d927c7fcd0e5d620afae8f993c487b810f29"
+    },
+    "started_at": "2026-10-07T11:03:34.568523+00:00",
+    "teardown_errors": 1,
+    "temporary_test_tree_removed": true,
+    "tests_passed": 2,
+    "tmp_root": "/tmp/ossf-apc-2mn6e4ep",
+    "wall_seconds": 67.55016082299699
+  },
+  "scope": "existing_synthetic_actual_SCRAM_test_cleanup_only",
+  "source_review": {
+    "all_original_operations_assertions_AST_equal": true,
+    "cleanup_owned_copies_only": 2,
+    "exception_injection_not_run": true,
+    "new_source_sha256": "ee8d12b57a26cddc25bc5d452f19fa1e0ff43035cf93404d9db3f25acfbc07cc",
+    "original_source_sha256": "0f51f0c4371272c4e367214ec7ebd1cc4965079eee321e5eee929a87cabbcc0d",
+    "prepare_and_all_original_body_in_finally_scope": true
+  },
+  "source_sha256": {
+    "backend/tests/login_database.py": "4174c3309593dcbbfee1ec54ee91ead7927c901e28ccd826385fb8af115bcea8",
+    "backend/tests/test_application_authority_fixture.py": "ee8d12b57a26cddc25bc5d452f19fa1e0ff43035cf93404d9db3f25acfbc07cc",
+    "backend/tests/test_crop_cycle_current_query.py": "da46bb914cd8b61ef445ce62fa0ec0bd0aad41a41576b2b5304f9bff6ae56af8",
+    "scripts/application-authority-fixture.py": "76a4e691e1395af2b04808c49813d927c7fcd0e5d620afae8f993c487b810f29"
+  },
+  "version": "application-authority-passfile-cleanup-reference-v1"
+}

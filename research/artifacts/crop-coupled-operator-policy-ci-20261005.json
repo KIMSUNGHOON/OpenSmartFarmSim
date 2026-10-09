@@ -1,0 +1,130 @@
+{
+  "evidence_version": "crop-coupled-operator-policy-hosted-v1",
+  "recorded_at_utc": "2026-10-04T21:00:44.479993+00:00",
+  "scope": "synthetic application/Compose compatibility; no independent CLI or G0-G4 acceptance",
+  "head_sha": "d15cf926795be2fa4bd13fef30ed89d72f421d6f",
+  "run_id": 37233733437,
+  "job_id": 111528616670,
+  "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37233733437",
+  "conclusion": "success",
+  "started_at": "2026-10-04T20:51:54Z",
+  "completed_at": "2026-10-04T20:58:39Z",
+  "steps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+      "conclusion": "success"
+    },
+    {
+      "name": "Build and verify isolated application images",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+      "conclusion": "success"
+    },
+    {
+      "name": "Install locked host test harness",
+      "conclusion": "success"
+    },
+    {
+      "name": "Verify actual Compose API and automatic worker",
+      "conclusion": "success"
+    },
+    {
+      "name": "Verify actual Compose owned collection consumer",
+      "conclusion": "success"
+    },
+    {
+      "name": "Verify actual Compose scoped research authority",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success"
+    }
+  ],
+  "all_image_and_runtime_checks": 49,
+  "check_names": [
+    "actual_build_context",
+    "image_built",
+    "image_built",
+    "backend_readonly_imports_and_closed_startup",
+    "web_static_tls_and_fixture_proxy",
+    "web_static_tls_and_fixture_proxy",
+    "cleanup",
+    "actual_build_context",
+    "image_built",
+    "image_built",
+    "actual_compose_process",
+    "actual_compose_process",
+    "actual_compose_process",
+    "tls_scram_automatic_economic_completion",
+    "restart_current_completed_result",
+    "current_grant_drift_refused",
+    "compose_cleanup",
+    "actual_build_context",
+    "image_built",
+    "image_built",
+    "automatic_owned_collection",
+    "actual_compose_process",
+    "actual_compose_process",
+    "actual_compose_process",
+    "actual_compose_process",
+    "tls_scram_automatic_economic_completion",
+    "restart_current_completed_result",
+    "collection_restart_and_parent_withdrawal",
+    "current_grant_drift_refused",
+    "collector_current_grant_refused",
+    "compose_cleanup",
+    "actual_build_context",
+    "image_built",
+    "image_built",
+    "research_terminal_hold",
+    "held_research_ingestion_refused",
+    "automatic_scoped_research_hold",
+    "actual_compose_process",
+    "actual_compose_process",
+    "actual_compose_process",
+    "actual_compose_process",
+    "actual_compose_process",
+    "actual_compose_process",
+    "tls_scram_automatic_economic_completion",
+    "restart_current_completed_result",
+    "research_restart_current_hold",
+    "current_grant_drift_refused",
+    "dispatcher_current_grant_refused",
+    "compose_cleanup"
+  ],
+  "compose_cleanups": [
+    {
+      "check": "compose_cleanup",
+      "processes_volumes_credentials_removed": true
+    },
+    {
+      "check": "compose_cleanup",
+      "processes_volumes_credentials_removed": true
+    },
+    {
+      "check": "compose_cleanup",
+      "processes_volumes_credentials_removed": true
+    }
+  ],
+  "log_sha256": "f802e1b59add007375ecaf29ff3a9903590150870247cc981b30107db77a5123",
+  "accepted_code_sha256": {
+    "backend/app/operator_config.py": "775fe7be63fdda8902b0833a2b099d50ae5339122051288242c6008226dd0e86",
+    "backend/tests/test_operator_config.py": "47891d31c6af83535048d8424c64ed2a15bff654d21ee774c713644bc60f2a3b"
+  },
+  "full_backend_ci": "still pending; not accepted by this image/Compose proof"
+}

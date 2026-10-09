@@ -1,0 +1,41 @@
+# Add after compose.application.yaml for the explicit owned collector service.
+services:
+  collector:
+    profiles: !override [runtime]
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      target: backend-app
+    image: ${OSSF_BACKEND_IMAGE:-opensmartfarmsim-backend:operator}
+    user: '11001:11010'
+    command: [python, -m, app.collection_consume, --factory, '${OSSF_COLLECTION_FACTORY:?set a trusted collection factory}']
+    environment: !override
+      PYTHONPATH: /run/operator/collection/plugins:/app/backend
+    secrets: !reset []
+    volumes: !override
+      - type: bind
+        source: ${OSSF_COLLECTION_PRIVATE_DIR:?set a protected collection directory}
+        target: /run/operator/collection
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${OSSF_ARTIFACT_DIR:?set an existing protected artifact directory}
+        target: /artifacts
+        bind:
+          create_host_path: false
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 64
+    mem_limit: 256m
+    cpus: 0.5
+    tmpfs: ['/tmp:rw,noexec,nosuid,size=32m,mode=1777']
+    init: true
+    restart: 'no'
+    stop_grace_period: 30s
+    logging:
+      driver: local
+      options:
+        max-size: 5m
+        max-file: '2'

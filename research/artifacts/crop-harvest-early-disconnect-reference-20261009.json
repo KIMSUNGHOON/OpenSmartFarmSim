@@ -1,0 +1,306 @@
+{
+  "ASGI_regression": {
+    "cancellation_passed": 1,
+    "controller_seconds": 21.285928835975938,
+    "failed": 2,
+    "green_actual_exit": 0,
+    "green_original_exec": 85391,
+    "passed": 149,
+    "pytest_seconds": 19.77,
+    "red_actual_exit": 1,
+    "red_original_exec": 9983
+  },
+  "G0_G4": "not_assessed",
+  "TLS_green": {
+    "DB_counts_before_after": [
+      {
+        "crop_cycle_verified_research_results": 1,
+        "harvest": 1,
+        "job_events": 89,
+        "jobs": 89,
+        "thermal_g1_runs": 0
+      },
+      {
+        "crop_cycle_verified_research_results": 1,
+        "harvest": 1,
+        "job_events": 89,
+        "jobs": 89,
+        "thermal_g1_runs": 0
+      }
+    ],
+    "FD_before_after": [
+      3,
+      3
+    ],
+    "RHS_generation_registration_publication_proof_calls": 0,
+    "actual_exit": 0,
+    "disconnect": {
+      "bytes": 64,
+      "client_response_received": false,
+      "complete": true,
+      "seconds": 0.0017463950207456946,
+      "sha256": "f5379d1a75ee7259a8d2cac2fe720ba04689013c8def6d3d6a063aad05effffa",
+      "status": 422
+    },
+    "normal_reconciliation": [
+      {
+        "G0_G4": "not_assessed",
+        "bytes": 16519,
+        "label": "summary",
+        "scope": "synthetic_research_only",
+        "seconds": 8.788388990011299,
+        "sha256": "6a71d8f434677a2f0b83d40cea85ea07aa1144469677e588a792e40f761dff26",
+        "status": 200,
+        "stored_values_equal": true,
+        "version": "owned-harvest-http-reconciliation-v1"
+      },
+      {
+        "G0_G4": "not_assessed",
+        "bytes": 486219,
+        "label": "first",
+        "scope": "synthetic_research_only",
+        "seconds": 10.797608722990844,
+        "sha256": "95177625ec1a4f9fe9d85af0e25bea0ce6b8995befe33031488d0a32cf029c7f",
+        "status": 200,
+        "stored_values_equal": true,
+        "version": "owned-harvest-http-reconciliation-v1"
+      },
+      {
+        "G0_G4": "not_assessed",
+        "bytes": 16519,
+        "label": "summary",
+        "scope": "synthetic_research_only",
+        "seconds": 8.744619978009723,
+        "sha256": "6a71d8f434677a2f0b83d40cea85ea07aa1144469677e588a792e40f761dff26",
+        "status": 200,
+        "stored_values_equal": true,
+        "version": "owned-harvest-http-reconciliation-v1"
+      }
+    ],
+    "original_exec": 89030,
+    "original_manifest_sha256": "3b1de5683fdd01024b95c1eb7a3ea335717eecff2c4f3f97f5c5e2eca1061752",
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "query_calls_for_incomplete_request": 0,
+    "received_events": [
+      {
+        "bytes": 0,
+        "more_body": null,
+        "type": "http.disconnect"
+      }
+    ],
+    "same_actual_SCRAM_DB": true,
+    "server_errors": [],
+    "server_responses": [
+      {
+        "bytes": 64,
+        "complete": true,
+        "seconds": 0.0017463950207456946,
+        "sha256": "f5379d1a75ee7259a8d2cac2fe720ba04689013c8def6d3d6a063aad05effffa",
+        "status": 422
+      },
+      {
+        "bytes": 16519,
+        "complete": true,
+        "seconds": 8.786110446992097,
+        "sha256": "6a71d8f434677a2f0b83d40cea85ea07aa1144469677e588a792e40f761dff26",
+        "status": 200
+      },
+      {
+        "bytes": 486219,
+        "complete": true,
+        "seconds": 10.794181428005686,
+        "sha256": "95177625ec1a4f9fe9d85af0e25bea0ce6b8995befe33031488d0a32cf029c7f",
+        "status": 200
+      },
+      {
+        "bytes": 65,
+        "complete": true,
+        "seconds": 0.0008868830045685172,
+        "sha256": "1ae0610a2bc3c4299f75db4623b6163cb075b5bd5fc5f919848892c95a2b84d2",
+        "status": 403
+      },
+      {
+        "bytes": 76,
+        "complete": true,
+        "seconds": 0.08364990100380965,
+        "sha256": "f490581a2b5368661de0da12a8a679c160c6e6b9bf85b181831327ff4ba25339",
+        "status": 404
+      },
+      {
+        "bytes": 92,
+        "complete": true,
+        "seconds": 2.9886812180047855,
+        "sha256": "17375dd50200e11b83258c674cf23cb6f2ddd4641aeefa0df37f7bfe7bd1d072",
+        "status": 422
+      },
+      {
+        "bytes": 16519,
+        "complete": true,
+        "seconds": 8.742121321993181,
+        "sha256": "6a71d8f434677a2f0b83d40cea85ea07aa1144469677e588a792e40f761dff26",
+        "status": 200
+      }
+    ],
+    "shared_controls_changed": false,
+    "terminal_chunk": "3c13aa",
+    "wall_seconds": 37.417697855998995
+  },
+  "TLS_red": {
+    "accepted": false,
+    "actual_exit": 0,
+    "observed_disconnect_status": 500,
+    "observed_exception": "ClientDisconnect",
+    "original_exec": 26424,
+    "wall_seconds": 15.40227115000016
+  },
+  "accepted": true,
+  "actual_crop_Runs": 0,
+  "actual_cultivar_inputs": 0,
+  "core_commit": "d92ad73090fd1d41c93fa6cf0d99309b1cc8c877",
+  "core_sha256": {
+    "backend/app/api_crop_harvest_route.py": "4505754982f08e8e84f4f856d2930b741b3bd2eebf60c3c8229dc11c99be20b6",
+    "backend/tests/test_crop_harvest_disconnect.py": "6a6dbad11f606234eaf181e5acda70cef5ec4daa9f8c95dd826aa738d023e184",
+    "contracts/crop-harvest-early-disconnect-v1.md": "064a4c55b71e0b1e7dd70c2cadf6c10edded90d772e9c1e0f54dd91c95b88547",
+    "research/crop-harvest-disconnect.py": "a789ce4007ff92c7c482689ca93a4134fe548600138bedf7e6cd785c3eedb872"
+  },
+  "early_body_disconnect_500_fix_accepted": true,
+  "independent_local_datasets": 0,
+  "native_CLI": {
+    "effort": "xhigh",
+    "judgment": "Use the existing422 invalid_request envelope for ClientDisconnect while consuming a bodyless harvest GET. Catch only this explicit Starlette transport exception around request.stream, before any current query. Do not swallow task cancellation or unexpected exceptions. Reproduce exact ASGI disconnected/empty incomplete fragments and actual standard HTTPS original preserved full DB request with Content-Length declared but no body, then client close. Observe actual disconnect and server ASGI422; no claim that a closed client receives a response. Verify original summary/records bytes, current source-rights/scope/foreign denial, no calculation/generation/registration/proof or shared controls, source/DB/FD identity, protected preview, explicit WSL bounds/owned cleanup. Keep unchanged model/parameter/decoder/manifest identity, ordinary success and late cancellation semantics. No recursive CLI.",
+    "model": "gpt-6.1-sol",
+    "previous_evidence_commit": "7676cacac5009c3c1a772cd7d825f423773c2bf5",
+    "previous_goal_turn_classification": "progress",
+    "recursive_invocations": 0,
+    "turn_event_sha256": "887fe2cecd52288c20de5bdf391704c98b005cbd6a78a8a1d82d673c7024fe12",
+    "turn_timestamp": "2026-10-09T12:53:12.410Z"
+  },
+  "ordinary_frontend_build_or_WebGL_rerun": false,
+  "prior_full_API_representative_WebGL_reference_sha256": "bda4b026c3762fbe415188d407a91bd93f3bc8aacacf8f5d1837ea62c6d3f42a",
+  "realtime_U3": false,
+  "resource_limits_bytes": {
+    "owned_and_explicit_protected_trees": 1073741824,
+    "single_PID": 536870912
+  },
+  "resource_observations": {
+    "green": {
+      "RSS_samples": 83,
+      "combined_peak_RSS_bytes": 520167424,
+      "fresh_PGs_gone": true,
+      "fresh_postmasters_absent": true,
+      "owned_non_zombie_remaining": [],
+      "preview_dist_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 215236608,
+      "source_count": 1652,
+      "source_pins_preserved": true,
+      "wall_seconds": 21.285928835975938
+    },
+    "native-green": {
+      "RSS_samples": 144,
+      "combined_peak_RSS_bytes": 486625280,
+      "fresh_PGs_gone": true,
+      "fresh_postmasters_absent": true,
+      "owned_non_zombie_remaining": [],
+      "preview_dist_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 141307904,
+      "source_count": 1652,
+      "source_pins_preserved": true,
+      "wall_seconds": 37.417697855998995
+    },
+    "native-red": {
+      "RSS_samples": 58,
+      "combined_peak_RSS_bytes": 485679104,
+      "fresh_PGs_gone": true,
+      "fresh_postmasters_absent": true,
+      "owned_non_zombie_remaining": [],
+      "preview_dist_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 132829184,
+      "source_count": 1652,
+      "source_pins_preserved": true,
+      "wall_seconds": 15.40227115000016
+    },
+    "red": {
+      "RSS_samples": 10,
+      "combined_peak_RSS_bytes": 379084800,
+      "fresh_PGs_gone": true,
+      "fresh_postmasters_absent": true,
+      "owned_non_zombie_remaining": [],
+      "preview_dist_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 132472832,
+      "source_count": 1650,
+      "source_pins_preserved": true,
+      "wall_seconds": 2.602305056003388
+    }
+  },
+  "root_actual_exit": 0,
+  "root_audit": {
+    "FD_before_after": [
+      4,
+      4
+    ],
+    "G0_G4": "not_assessed",
+    "accepted": true,
+    "actual_crop_Runs": 0,
+    "actual_same_DB_TLS_early_disconnect500_to422": true,
+    "current_scope_foreign_display_denials_restored": true,
+    "current_source_entries": 1652,
+    "focused_green_original": 85391,
+    "focused_tests_passed": 149,
+    "frontend_status": 200,
+    "incomplete_query_calls": 0,
+    "native_green_actual_exit": 0,
+    "native_green_original": 89030,
+    "normal_full_summary_and_first64_wire_equal_prior_accepted": true,
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "original_terminal_observations": {
+      "green": {
+        "actual_exit_code": 0,
+        "original_exec": 85391,
+        "terminal_chunk": "30f377",
+        "terminal_sha256": "72327b6eee552cd0c6059f10a3cd8cc7ed80fc5e53ff974f71bbd3c007af7bfb"
+      },
+      "native-green": {
+        "actual_exit_code": 0,
+        "original_exec": 89030,
+        "terminal_chunk": "3c13aa",
+        "terminal_sha256": "f52ae228d947991b2f3277c25e144ef3581f102ff2d2e6c27b8fde8301e5c40b"
+      },
+      "native-red": {
+        "actual_exit_code": 0,
+        "original_exec": 26424,
+        "terminal_chunk": "e05b60",
+        "terminal_sha256": "6646e231bc8e8f94983809a6afb870d5b59d32fe27d14d6f1e264b4e592184a1"
+      },
+      "red": {
+        "actual_exit_code": 1,
+        "original_exec": 9983,
+        "terminal_chunk": "49ca4c",
+        "terminal_sha256": "31d29dd4822963d33c9b2abc089fdedfd3617bbf7e8002ee25e833189018f386"
+      }
+    },
+    "owned_controllers_PGs_HTTPS_gone": true,
+    "owned_stopped_data_and_temps_removed_bytes": 83936616,
+    "protected_preview_live_preserved": true,
+    "read_math_generation_registration_proof_calls": 0,
+    "realtime_U3": false,
+    "user_preview_full_harvest_connected": false
+  },
+  "root_original_tool_chunk": "8effa8",
+  "root_proof_sha256": "c038bd8d7e26ffa9ba256be18238bfa7fce4c51e886a7aa2f753ef9967ba1066",
+  "scope": "owned_synthetic_software_actual_same_DB_TLS_pre_body_disconnect",
+  "user_preview_harvest_connected": false
+}

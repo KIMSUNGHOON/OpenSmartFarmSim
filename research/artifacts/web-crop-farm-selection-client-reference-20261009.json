@@ -1,0 +1,271 @@
+{
+  "actual_HTTPS_recorded_fixtures": [
+    {
+      "actual_crop_Runs": 0,
+      "actual_exit_code": 0,
+      "checks": [
+        {
+          "body_sha256": "b1df9dbe311e2e91c636f28b6d83379b5fd2f5fb477e448c9a97b7004b545ecc",
+          "bytes": 604,
+          "label": "registered",
+          "native_response_number": 19,
+          "query": {
+            "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+            "scenario_id": "owned-harvest-parent-farm",
+            "scenario_revision": "r1"
+          }
+        },
+        {
+          "body_sha256": "b1df9dbe311e2e91c636f28b6d83379b5fd2f5fb477e448c9a97b7004b545ecc",
+          "bytes": 604,
+          "label": "restored_scope",
+          "native_response_number": 22,
+          "query": {
+            "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+            "scenario_id": "owned-harvest-parent-farm",
+            "scenario_revision": "r1"
+          }
+        }
+      ],
+      "file": "web/e2e/crop-farm-selection-recorded-responses.json",
+      "original_exec_session_id": 10756
+    },
+    {
+      "actual_crop_Runs": 0,
+      "actual_exit_code": 0,
+      "checks": [
+        {
+          "body_sha256": "fb3e8408cd88fc891191c3d33f7907dc9c0b8ae47ebf6bef6b643c081fedab41",
+          "bytes": 4397,
+          "label": "growth_default",
+          "query": {
+            "crop_id": "crop-1",
+            "kind": "calculation_cycle_v1",
+            "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+            "scenario_id": "owned-harvest-parent-farm",
+            "scenario_revision": "r1"
+          },
+          "seconds": 5.038361337996321
+        },
+        {
+          "body_sha256": "6d0635abe0f2c3266bbe2214979a1328a07b31b192ceb054fff4bc2bacf03337",
+          "bytes": 8237,
+          "label": "growth_max",
+          "query": {
+            "crop_id": "crop-1",
+            "kind": "calculation_cycle_v1",
+            "limit": 20,
+            "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+            "scenario_id": "owned-harvest-parent-farm",
+            "scenario_revision": "r1"
+          },
+          "seconds": 6.409514981001848
+        },
+        {
+          "body_sha256": "bef616b11c4f86317dbb08b682bcd852a59ea14f012da330c58254a9b2765aae",
+          "bytes": 786,
+          "label": "growth_tail",
+          "query": {
+            "before_recorded_at": "2026-10-09T02:29:30.638070Z",
+            "before_result_id": "crop-cycle-verified-result-v1:c90424b1e8098b0217854101f7ff82fcc76e6c7731633de08de9ee4a6309664c",
+            "crop_id": "crop-1",
+            "kind": "calculation_cycle_v1",
+            "limit": 20,
+            "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+            "scenario_id": "owned-harvest-parent-farm",
+            "scenario_revision": "r1"
+          },
+          "seconds": 3.942495396011509
+        },
+        {
+          "body_sha256": "9235222378be09e345036a8d59c16438bbc8d1bcedd18a4e2dcc2d36c74b77a4",
+          "bytes": 764,
+          "label": "harvest",
+          "query": {
+            "crop_id": "crop-1",
+            "kind": "harvest_v1",
+            "limit": 20,
+            "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+            "scenario_id": "owned-harvest-parent-farm",
+            "scenario_revision": "r1"
+          },
+          "seconds": 3.985570780991111
+        },
+        {
+          "body_sha256": "8ccbff254759f28edb739dc8a6fb7d66e0b3e0359790f107efb007c2a060385d",
+          "bytes": 4391,
+          "label": "growth_tied_first",
+          "query": {
+            "crop_id": "crop-1",
+            "kind": "calculation_cycle_v1",
+            "limit": 10,
+            "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+            "scenario_id": "owned-harvest-parent-farm",
+            "scenario_revision": "r1"
+          },
+          "seconds": 5.008220293006161
+        },
+        {
+          "body_sha256": "a0ed54a0a5c06bc98924451350069d83d1270e12cc0abd54e7e35bfdf473aa80",
+          "bytes": 4393,
+          "label": "growth_tied_next",
+          "query": {
+            "before_recorded_at": "2026-10-09T03:04:15.443208Z",
+            "before_result_id": "crop-cycle-verified-result-v1:a1434e78f141f09bfdc09afb61117615fd2dfeeed57c42ed473e5bf43626274f",
+            "crop_id": "crop-1",
+            "kind": "calculation_cycle_v1",
+            "limit": 10,
+            "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+            "scenario_id": "owned-harvest-parent-farm",
+            "scenario_revision": "r1"
+          },
+          "seconds": 5.385748232976766
+        },
+        {
+          "body_sha256": "bef616b11c4f86317dbb08b682bcd852a59ea14f012da330c58254a9b2765aae",
+          "bytes": 786,
+          "label": "growth_tied_tail",
+          "query": {
+            "before_recorded_at": "2026-10-09T03:04:15.443208Z",
+            "before_result_id": "crop-cycle-verified-result-v1:02910d3db85c9f1d3f429a94d7530dd46aaf54c926e60731a25f52b6278f71f3",
+            "crop_id": "crop-1",
+            "kind": "calculation_cycle_v1",
+            "limit": 10,
+            "registration_sha256": "cea0a9c26e470a242c726a2722d7a8daab3fdc92721b4074412ccc4cb6cbd531",
+            "scenario_id": "owned-harvest-parent-farm",
+            "scenario_revision": "r1"
+          },
+          "seconds": 4.060577424999792
+        }
+      ],
+      "file": "web/e2e/crop-result-catalog-recorded-responses.json",
+      "original_exec_session_id": 42058
+    }
+  ],
+  "actual_crop_Runs": 0,
+  "build_exit_code": 0,
+  "build_file_count": 161,
+  "catalogue_current_source_sha256": {
+    "contracts/web-crop-result-catalog-client-v1.md": "6b103bb7a97d1400f7306e404b93c876474b41e24abce9cb5caf3b5b6c77efe0",
+    "web/e2e/crop-result-catalog-recorded-responses.json": "ba022a6beccea48520c25c910318b253933d18ddaa85a05ee2c89152b4353b77",
+    "web/src/api.ts": "49b9c2787e9eeffcd03232b3e42ddf6a3589bc5bae19374e01a499ed0a5f3d97",
+    "web/src/cropResultCatalog.test.ts": "69f3d49d37aa3d43e23a156c1c1b73f67ba8a5a297d8f5c48312220e890c6364",
+    "web/src/cropResultCatalog.ts": "a6e50c452133f555ec0d0dcce5a1fa168b87673dc4133c59481afd3e9d2202b0"
+  },
+  "earlier_catalogue_build_hold": "Preserved as historical evidence in web-crop-result-catalog-client-reference-20261009.json; resolved for current sources by this whole-web/type/build run. Only API factory added two farm-selection assembly lines; transport/catalogue implementation unchanged.",
+  "holds": [
+    "selector UI/replay binding/native browser/restart and U1 parent",
+    "live execution/confirmed prefix and same-run completion U3",
+    "general concurrent production capacity",
+    "actual cultivar/farm/independent local data and G0-G4 production/resources/margin/forecast/ranking claims"
+  ],
+  "native_cli_review": {
+    "actual_effort": "xhigh",
+    "actual_model": "gpt-6.1-sol",
+    "judgment_scope": "Exact registered-user-input metadata SDK/contract and WSL-resource-bounded verification. No agricultural coefficients or gate decisions adopted.",
+    "recursive_invocations": 0,
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-09T03:56:54.055Z",
+    "turn_event_sha256": "ea8ac7228c6ad1a0590dd6e8d30cec3dc34c5193c6c51e1de4c8f78ea1164a38"
+  },
+  "new_farm_selection_tests": 62,
+  "original_exec_session_id": 66094,
+  "previous_catalogue_tests": 98,
+  "previous_whole_web": 949,
+  "source_sha256": {
+    "contracts/web-crop-farm-selection-client-v1.md": "aeda1efd9e1ff11678a4eadbdfa6f95ee56005d215ee515ff89c9c0f60ec99cf",
+    "web/e2e/crop-farm-selection-recorded-responses.json": "429d3910256c114dd4be881a5f93fc2cc9696c3052689783aac862f32d44128c",
+    "web/src/api.ts": "49b9c2787e9eeffcd03232b3e42ddf6a3589bc5bae19374e01a499ed0a5f3d97",
+    "web/src/cropFarmSelection.test.ts": "d748ad9f0da934309a167dd0101c4979c659ba23cc0defd3c1cd0213480301bc",
+    "web/src/cropFarmSelection.ts": "7f5bf68f4153caa80b447923dffa0dc1de4e2d39543ec31079873ba303ed8aa8"
+  },
+  "status": "two_local_SDK_children_accepted_not_UI",
+  "terminal": {
+    "MALLOC_ARENA_MAX": 2,
+    "RAYON_NUM_THREADS": 1,
+    "RSS_samples": 187,
+    "RSS_scope": "controller and descendants plus original producer and user preview descendants, shared pages may double count; not WSL total",
+    "actual_exit_code": 0,
+    "build_CPU_affinity": [
+      0
+    ],
+    "build_heap_change_reason": "Prior rendering stopped at combined1GiB with heap128; current original/previewRSS525MB after design CLI exit. Lower build heap96 to reserve32MiB; unchanged bundle/content/limits.",
+    "combined_peak_RSS_bytes": 1005539328,
+    "commands": [
+      {
+        "actual_exit_code": 0,
+        "argv": [
+          "nice",
+          "-n",
+          "19",
+          "node",
+          "node_modules/vitest/vitest.mjs",
+          "run",
+          "--pool=threads",
+          "--maxWorkers=1"
+        ],
+        "label": "web-all",
+        "log_sha256": "29eb4eeb704203de068a146f920be5fc3e0a4d3633e34724d55dcad6ef243529",
+        "wall_seconds": 16.494346274994314
+      },
+      {
+        "actual_exit_code": 0,
+        "argv": [
+          "nice",
+          "-n",
+          "19",
+          "node",
+          "node_modules/typescript/bin/tsc",
+          "--noEmit"
+        ],
+        "label": "typecheck",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "wall_seconds": 0.6142132629756816
+      },
+      {
+        "actual_exit_code": 0,
+        "argv": [
+          "nice",
+          "-n",
+          "19",
+          "taskset",
+          "-c",
+          "0",
+          "node",
+          "node_modules/vite/bin/vite.js",
+          "build",
+          "--outDir",
+          "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261009-web-crop-farm-selection-sdk/run-v1/build"
+        ],
+        "label": "web-build",
+        "log_sha256": "89d3a78372a6e2ab7846550f8521c05d6cf337bd7f54113f7193def39a190880",
+        "wall_seconds": 1.9348845380009152
+      }
+    ],
+    "nice": 19,
+    "node_heap_limit_MiB": {
+      "typecheck": 128,
+      "web-all": 128,
+      "web-build": 96
+    },
+    "preview_dist_unchanged": true,
+    "protected_same": {
+      "1508356": true,
+      "1508384": true,
+      "1547003": true,
+      "1547022": true
+    },
+    "reason": null,
+    "remaining_child_PIDs": [],
+    "sample_interval_seconds": 0.1,
+    "single_PID_peak_RSS_bytes": 455315456,
+    "source_count": 1533,
+    "source_pins_preserved": true,
+    "wall_limit_seconds": 600,
+    "wall_seconds": 19.045782736997353
+  },
+  "terminal_receipt_sha256": "67303a089b1720a627b88175a17dac009e89d0dd44249cd5e7b661d5007295c5",
+  "typecheck_exit_code": 0,
+  "version": "web-crop-farm-selection-client-reference-v1",
+  "whole_web_passed": 1011
+}

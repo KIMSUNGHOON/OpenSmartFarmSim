@@ -1,0 +1,88 @@
+{
+  "all_preserved_sources_unchanged": true,
+  "controller": {
+    "driver_sha256": "0f91f9674597bdee3cb4e864a83f923ff8e25994c57713b61695a1ccd34fb550",
+    "global_wall_observation_budget_seconds": 1200,
+    "nice": 19,
+    "requires_previous_native_terminal_and_cleanup": true,
+    "started": false
+  },
+  "holds": {
+    "G0_G4": "not_assessed",
+    "actual_adopted_cultivar_inputs": 0,
+    "actual_measured_crop_Runs": 0,
+    "domestic_independent_validation_datasets": 0,
+    "forecast_and_ranking": "hold",
+    "fresh_harvest_resources_Decimal_link": "pending",
+    "full166_registered_restore_API_3D": "pending"
+  },
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "native_turn_context_line_sha256": "ead14525577a19687172b884dc22e4899c61fc89bc57bf44230d70f2aaf5fea5",
+    "reasoning_effort": "xhigh",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-07T16:57:30.256Z"
+  },
+  "observed_at_utc": "2026-10-07T17:11:52.961808+00:00",
+  "preserved_source_count": 118,
+  "preserved_source_set_sha256": "7347430b96da25afa657f3bc6f5fe2acc0c907745bb4e69200b514ab7dac90a1",
+  "registered_actual_tests": {
+    "bounded_25h_prefix_curve": false,
+    "full166_registration_and_cost": false,
+    "normal_and_hold_equivalence": false,
+    "reason": "wait for same native process terminal and verified cleanup; one PG/calculation at a time",
+    "started": false
+  },
+  "same_native_observation": {
+    "accepted": false,
+    "latest_progress": {
+      "counts": {
+        "events": 4,
+        "samples": 23
+      },
+      "scope": "owned_synthetic_registered_calculation",
+      "seconds": 1099.3613094400062,
+      "status": "yielded",
+      "steps": 9601
+    },
+    "latest_progress_file": "long-advance-77.json",
+    "phase": "native-late-tls",
+    "same_PID_start_live": true,
+    "session_id": 78054
+  },
+  "scope": "measurement_observer_and_budget_validation_only_actual_registered_measurement_pending",
+  "source_sha256": {
+    "backend/tests/crop_cycle_calculation_prefix_cost_smoke.py": "58b37d4b13aa4ff88bb221de740a704b3f7047dd41db21ae997a70c78e6d5252",
+    "contracts/crop-cycle-calculation-prefix-cost-v1.md": "3308e3211d194dea4a77ce0552fe02c3f6f7c45061c37b7334669b5d125baa5f",
+    "research/crop-cycle-calculation-prefix-cost.py": "75b9f35e8bc4a5f98fc577eb45aae9ac4b9fb1bcd3a8ab03369df7e558b8d85c"
+  },
+  "verification": {
+    "collect_only": {
+      "collected": 20,
+      "exit_code": 0,
+      "log_sha256": "349b381936d40f7f6e2ac0a8822e6820e1640553f081be1a141b8f2585d212c9",
+      "pytest_seconds": 0.82
+    },
+    "final_light": {
+      "controller_seconds": 1.2704699259993504,
+      "exit_code": 0,
+      "log_sha256": "b4892c773a60980f0994a69790471f8c05cf7be8eafc688f6e0db76021a3b937",
+      "pytest_deselected": 3,
+      "pytest_passed": 17,
+      "pytest_seconds": 0.81,
+      "scope": "observer restoration, nested metrics and invalid quotas; no crop RHS or PostgreSQL",
+      "source_sha256": {
+        "backend/tests/crop_cycle_calculation_prefix_cost_smoke.py": "58b37d4b13aa4ff88bb221de740a704b3f7047dd41db21ae997a70c78e6d5252",
+        "contracts/crop-cycle-calculation-prefix-cost-v1.md": "3308e3211d194dea4a77ce0552fe02c3f6f7c45061c37b7334669b5d125baa5f",
+        "research/crop-cycle-calculation-prefix-cost.py": "75b9f35e8bc4a5f98fc577eb45aae9ac4b9fb1bcd3a8ab03369df7e558b8d85c"
+      }
+    },
+    "python_ast": true,
+    "red_missing_driver": {
+      "error": "FileNotFoundError for not-yet-implemented measurement driver",
+      "exit_code": 1,
+      "log_sha256": "fb8ce89eaf9dd61460bdde43407e5e889dcf9df85ea87a7a81c689c3d358c028"
+    }
+  },
+  "version": "crop-cycle-calculation-prefix-cost-prepared-reference-v1"
+}

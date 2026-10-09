@@ -1,0 +1,88 @@
+{
+  "evidence_version": "web-crop-coupled-pages-local-v1",
+  "recorded_at_utc": "2026-10-04T22:23:24.568609+00:00",
+  "scope": "Closed browser decoder/page assembly and cancellation of synthetic saved research quantities; no scene/browser or G0-G4 acceptance",
+  "cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "verified_turn_context_at": "2026-10-04T22:05:49.804Z",
+    "recursive_cli": false
+  },
+  "current_sha256": {
+    "web/src/coupledCropReplay.ts": "c84089bdbb9785f8ee33a0cdc37c4b5aa34f5a03c0c7c2735f6a117038dc85c1",
+    "web/src/coupledCropReplay.test.ts": "957b67a629d9cccbebc9128301db851ab76202faf3b4bd0d65d0c1576761c7be",
+    "web/src/api.ts": "b8b46259760ae7d8f05fec57888ea2582c951def2fea148aa19e50651411a25c"
+  },
+  "red": {
+    "missing_module": "./coupledCropReplay",
+    "exit_code": 1,
+    "source": "Observed tool execution of focused Vitest; no persisted RED log hash"
+  },
+  "focused_tests": {
+    "passed": 135,
+    "failed": 0,
+    "workers": 1,
+    "start_epoch_ms": 1791152237146,
+    "complete_epoch_ms": 1791152242993.6125,
+    "by_file": {
+      "api.test.ts": 26,
+      "coupledCropReplay.test.ts": 73,
+      "cropReplay.test.ts": 36
+    },
+    "report_sha256": "58d63ba34e0d3ddd0addd61c4ad2cc895e9bccbd27b8be81abba68814effb9a0"
+  },
+  "prior_tls_bytes_acceptance": {
+    "passed": 1,
+    "actual_new_server_request": false,
+    "actual_prior_public_responses_decoded": 13,
+    "all_sample_pages": 8,
+    "samples_preserved": 512,
+    "fruit_number_and_carbohydrate_slots": 50,
+    "first_events_preserved": 8,
+    "total_events_recorded": 128,
+    "adapter": "After independently decoding all original actual TLS responses, later sample-page event fields use the actual recorded empty end-event page. All samples/shared fields unchanged. Separate recorded-bytes replay, not new live HTTP acceptance.",
+    "source_evidence_sha256": "5efe977217dd6d8c5a27238476ad633340781bbb09d87fe30e00a1ad7c0d17f3",
+    "acceptance_source_sha256": "446cbe96b88049f95f8733406ec36d1b6daf681bf18e6487c5e7d53068a5c5c6",
+    "acceptance_report_sha256": "38e483a9c2208cd44ddc931c46f8321b310e1833dfbc4f817235b95187a1f4f0",
+    "owned_temporary_test_removed": true
+  },
+  "behavior": {
+    "max_sample_pages": 8,
+    "sample_limit": 64,
+    "event_limit": 8,
+    "max_body_bytes": 2097152,
+    "timeout_ms_per_request": 30000,
+    "single_sequential_request": true,
+    "repeat_event_payloads_avoided": true,
+    "microsecond_utc_order": "BigInt; no Date.parse millisecond truncation",
+    "pre_fetch_in_fetch_between_page_late_reply_cancellation": true,
+    "late_reply_body_canceled": true,
+    "abort_listener_timer_cleanup": true,
+    "no_crop_conservation_or_future_state_calculation": true
+  },
+  "typecheck": {
+    "passed": true
+  },
+  "build": {
+    "passed": true,
+    "log_sha256": "fddc449ccfdfc47b87fb21baeb46dd0c3cde77e78acbfe3b3b1a8d76302903a0",
+    "remaining_warning": "Existing lazy ECharts installSVGRenderer chunk 518.53 kB >500 kB. Warning not suppressed; no chunk policy changed."
+  },
+  "resource_management": {
+    "vitest_workers": 1,
+    "local_postgres_started": 0,
+    "browser_started": false,
+    "new_docker_dependencies": false,
+    "owned_test_runners_stopped": true
+  },
+  "remaining": {
+    "scene_geometry_and_render_connection": true,
+    "live_scram_tls_browser": true,
+    "new_head_hosted_ci": true,
+    "gates": "G0-G4 unchanged; not_assessed",
+    "domestic_independent_datasets": 0,
+    "adopted_forcing": 0,
+    "actual_crop_runs": 0
+  }
+}
