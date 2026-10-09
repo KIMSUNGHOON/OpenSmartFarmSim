@@ -63,6 +63,8 @@
   - [ ] **`web-crop-result-catalog`** — 선행 보호 API/두 SDK 수용. 기존 농장 목록/선택에서 SDK로 결과를 찾고
     같은 결과/농장·판본을 기존 생장3D/수확에 전달한다. 수동 ID 복사·token 저장 없이 재선택하며
     빈 목록/hold·현재 권리 실패·취소/늦은 응답·키보드/좁은 화면을 검증한다.
+    [실제12ui 디자인/HTML](../research/product-ui-result-selector-design-preparation-20261009.md)은 준비했으며 구현/배포는 남았다.
+    초기 판본/수확 ID·같은 부모 전달과 선택 변경 시 기존 값 제거를 작은 선행 자식으로 나눈 뒤 화면을 연결한다.
   - [ ] **`product-ui-result-catalog-native`** — 선행 API/웹. 실제 별도 DB/API/빌드 App에서
     저장 결과 선택→같은 UTC3D/수확·새로고침/백엔드 재시작·철회/계정과 WSL 자원을 확인한다.
     첫 두 판본 연결 뒤 기존 기관/구획/startup 판본의 검색/선택 범위를 대사하고 상위 U1을 판단한다.

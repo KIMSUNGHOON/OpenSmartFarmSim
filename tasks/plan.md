@@ -72,6 +72,10 @@ U1은 [서버 목록 계약](../contracts/crop-result-catalog-v1.md)의 metadata
 후속 [등록 작물 SDK/현재 두 SDK 수용](../research/web-crop-farm-selection-client-implementation-20261009.md)은
 전체1,011개·타입/빌드·원66094 종료0/19.046초·source/미리보기/소유 정리로 이전 빌드 보류를 해소했다.
 원 계산/미리보기와 기존 배포 파일을 유지하며 다음은12ui-design 기반 저장 결과 선택 화면→실제 DB/API/브라우저다.
+[실제 디자인/HTML 준비](../research/product-ui-result-selector-design-preparation-20261009.md)는4후보 중 A와3상태의
+원 이미지/HTML·CLI 종료를 확인했다. 아직 구현/배포하지 않았다. 목록 클릭의 전달에는 기존 CropReplay 최초 판본
+선택과 HarvestReplay의 초기 수확 ID/같은 부모 연결도 포함한다. 이를 화면 계약의 작은 선행 자식으로 나눈다.
+실제 구현 뒤 원 승인 이미지에 대한12ui improve와 좁은 폭/키보드·취소/권리 검증을 마친다.
 기존 hosted Backend의 실제 수확 인증 감사 실패에 필요한
 [초기화 설정 후보](../research/ci-explicit-host-scram-candidate-20261009.md)는 로컬 A/B만 확인했으며
 새 head의 hosted 전체/UID/정리·집계 수용은 기다린다. 운영 기반 범위는 유지한다.
