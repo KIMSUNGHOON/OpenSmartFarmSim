@@ -1,0 +1,228 @@
+{
+  "G0_G4": "not_assessed",
+  "U3_realtime_progress": false,
+  "actual_crop_Runs": 0,
+  "actual_tool_exits": {
+    "74534": 0,
+    "85029": 0
+  },
+  "all_prefix_balances_within_half_ULP_budget": true,
+  "audit": {
+    "decimal_precision": 2200,
+    "event_rows": 2,
+    "every_prefix_row_independently_checked": true,
+    "row_chain_sha256": "7d9b8df7037a16adab509cdfa24b967c68c7e94a9836e18d4b6deeeb58dd0412",
+    "rows": 128,
+    "scope": "two_unpublished_pages_only",
+    "terminal_rows": 126,
+    "whole_crop_totals_and_observations_evaluated": false
+  },
+  "budget": {
+    "extra_disk_nonlinearity_and_full_audit_cost_not_yet_measured": true,
+    "fresh_read_budget_separate_seconds": 900,
+    "normal_writer_registry_backup_budget_seconds": 10800,
+    "observed_next_sample64_seconds": 7.6461721250088885,
+    "observed_prefix_nonquery_seconds": 0.2918503090622835,
+    "observed_summary_mean_seconds": 6.693990717187989,
+    "scope": "supervision budget from partial measurements and prior whole capacity; not a guaranteed completion estimate",
+    "simple_read_cost_extrapolation_seconds": 5853.948583083215,
+    "whole_parent_summary_requests_from_current_call_structure": 19,
+    "whole_source_event_requests": 1,
+    "whole_source_sample_requests": 748
+  },
+  "code_commit": "dc4b5a68118748a1ae11285d2d3ec31e665f96f9",
+  "core_sha256": {
+    "backend/tests/test_crop_harvest_writer_prefix_cost.py": "bc896c95319f0155626c893708bca5d073cd731f5084886760264a94ff7de1d1",
+    "contracts/crop-harvest-writer-prefix-cost-v1.md": "2c13858cfad18a1c4d7cb3d3ae7a9123f03b859dba1e8cd02c21f04c8c374cf8",
+    "research/crop-harvest-writer-prefix-cost.py": "de5fecce70ec4bc1e9ab70217bc1d5238b461be867987bd2fb708b1b0baadbfa"
+  },
+  "full_writer_or_independent_whole_audit_accepted": false,
+  "independent_domestic_farm_datasets": 0,
+  "measurement": {
+    "FD_before_after": [
+      3,
+      3
+    ],
+    "HEAD_and_DB_unpublished": true,
+    "fresh_postmaster_absent": true,
+    "full_RHS_or_crop_publication_proof_calls": 0,
+    "normal_methods_restored": true,
+    "normal_registry_prefix_seconds": 56.596300608012825,
+    "pages": [
+      {
+        "bytes": 483644,
+        "count": 64,
+        "put_seconds": 0.008901692985091358,
+        "sha256": "27736f08e121f5a1a4a2219d09db814ca441237a8c1f58dc34e74176f7cf0083"
+      },
+      {
+        "bytes": 459664,
+        "count": 64,
+        "put_seconds": 0.007883831014623865,
+        "sha256": "61ad56cc7cf0eda0c07b77f74c06c9f22cfcf50229b3cc536cf692cbc1c95124"
+      }
+    ],
+    "parent_DB_counts_before_after": [
+      {
+        "crop_cycle_verified_research_results": 1,
+        "job_events": 89,
+        "jobs": 89,
+        "thermal_g1_runs": 0
+      },
+      {
+        "crop_cycle_verified_research_results": 1,
+        "job_events": 89,
+        "jobs": 89,
+        "thermal_g1_runs": 0
+      }
+    ],
+    "query_calls": [
+      {
+        "count": null,
+        "kind": null,
+        "limit": null,
+        "phase": "preparation",
+        "seconds": 6.7202331730222795,
+        "start": 0
+      },
+      {
+        "count": 1,
+        "kind": "samples",
+        "limit": 1,
+        "phase": "preparation",
+        "seconds": 7.147963084978983,
+        "start": 0
+      },
+      {
+        "count": 1,
+        "kind": "samples",
+        "limit": 1,
+        "phase": "preparation",
+        "seconds": 7.416048017999856,
+        "start": 47808
+      },
+      {
+        "count": null,
+        "kind": null,
+        "limit": null,
+        "phase": "calculation-right-denied",
+        "seconds": 6.75161292499979,
+        "start": 0
+      },
+      {
+        "count": null,
+        "kind": null,
+        "limit": null,
+        "phase": "writer",
+        "seconds": 6.5455407639965415,
+        "start": 0
+      },
+      {
+        "count": null,
+        "kind": null,
+        "limit": null,
+        "phase": "writer",
+        "seconds": 6.623529765987769,
+        "start": 0
+      },
+      {
+        "count": null,
+        "kind": null,
+        "limit": null,
+        "phase": "writer",
+        "seconds": 6.781732547999127,
+        "start": 0
+      },
+      {
+        "count": null,
+        "kind": null,
+        "limit": null,
+        "phase": "writer",
+        "seconds": 6.76791354897432,
+        "start": 0
+      },
+      {
+        "count": null,
+        "kind": null,
+        "limit": null,
+        "phase": "writer",
+        "seconds": 6.75123695898219,
+        "start": 0
+      },
+      {
+        "count": 64,
+        "kind": "samples",
+        "limit": 64,
+        "phase": "writer",
+        "seconds": 7.762314638006501,
+        "start": 0
+      },
+      {
+        "count": 5,
+        "kind": "events",
+        "limit": 5,
+        "phase": "writer",
+        "seconds": 7.426009949995205,
+        "start": 0
+      },
+      {
+        "count": 64,
+        "kind": "samples",
+        "limit": 64,
+        "phase": "writer",
+        "seconds": 7.6461721250088885,
+        "start": 64
+      },
+      {
+        "count": null,
+        "kind": null,
+        "limit": null,
+        "phase": "post-stop",
+        "seconds": 6.65503666800214,
+        "start": 0
+      }
+    ],
+    "scoped_calculation_right_denied_and_restored": true,
+    "shared_rights_or_principal_files_modified": false,
+    "source_event_count": 5,
+    "source_sample_count": 47809,
+    "source_schema_role_passfile_cleanup": true
+  },
+  "native_cli": {
+    "effort": "xhigh",
+    "judgment": "Measure the first two normal harvest writer pages on the authenticated whole parent with controlled no-HEAD/no-DB interruption; check actual source rows using independent Decimal, current rights and protected live preview.",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "turn_event_sha256": "cb3460fd9329a6711bcae36e18ab1de8ff8304e0352d339a8a0e62a6ee9dbfaa",
+    "turn_timestamp": "2026-10-09T09:18:16.585Z"
+  },
+  "observed_at_utc": "2026-10-09T09:36:53.584359+00:00",
+  "owned_PG_temp_cleanup": true,
+  "partial_unpublished_blobs_and_profiles_retained_private": true,
+  "private_original_measured_sha256": "b4f5fe8c68fded76b461bbe424f1a3416813143992ea0c0dd9e0cd5b2afaf2b7",
+  "private_root_audit_sha256": "c535ff82c750f78d4112d0c25bab69909e21e7958e393c33e71e246522d46fb0",
+  "resources": {
+    "RSS_samples": 1488,
+    "RSS_scope": "controller/owned children and exact protected preview/PG trees; not whole WSL",
+    "combined_peak_RSS_bytes": 483749888,
+    "fresh_PG_tree_samples": 1457,
+    "frontend_status": 200,
+    "original_source_entries": 2146,
+    "original_sources_preserved": true,
+    "preview_dist_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "sample_interval_seconds": 0.05,
+    "single_PID_peak_RSS_bytes": 130957312,
+    "source_count": 1607,
+    "wall_seconds": 96.52757812599884
+  },
+  "scope": "two_normal_unpublished_pages_on_authenticated_full_synthetic_parent_only",
+  "tests": {
+    "existing": 54,
+    "focused": 64,
+    "focused_pytest_seconds": 5.22,
+    "new": 10
+  },
+  "version": "crop-harvest-writer-prefix-cost-reference-v1"
+}

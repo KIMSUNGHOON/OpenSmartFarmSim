@@ -1418,11 +1418,17 @@
         source1,602/기존 전체 생장 미리보기 source/dist/원 identity·frontend200·소유 임시 정리,
         최종 native 단일/관측 합 RSS125,083,648/497,868,800bytes. 두 RED와 중간 판본 증거도 남긴다.
         전체748page의1,496→2는 호출 구조의 계산이며 전체 wall 실측/전체 writer 수용은 아니다.
-      - [ ] **`crop-harvest-full-writer-prefix-cost`** — 선행 위 내부 검사와 보존된 전체 부모.
+      - [x] **`crop-harvest-full-writer-prefix-cost`** — 선행 위 내부 검사와 보존된 전체 부모.
         정상 writer 처음2page의 실제 부분 실행을3~5 core파일 계약/시험으로 고정한다.
         새 source/profile 원문·원 계수/배정/수량/UTC·현재 권리·조회 RHS0와 실제 부분 비용,
         통제 중단의 HEAD/DB 미게시·원본/미리보기/FD·소유 PG/임시 정리가 수용 기준이다.
         이 실측으로 전체 writer/registry의 wall 예산을 정한다. 전체 실행/독립 Decimal/보존·API/3D는 체크하지 않는다.
+        [core3/로컬 수용](../research/crop-harvest-writer-prefix-cost-20261009.md), dc4b5a6:
+        원74534/85029 도구0·집중64개(새10/기존54)·실제 전체 부모 정상 부분56.596초/2page·128행.
+        독립 Decimal2200/126구간·2사건·원량/UTC·HEAD/DB 미게시·현재 계산 권리 거부/복원·FD3→3,
+        원본2,146/source1,607·미리보기/DB 보존·소유 PG/임시 정리·최종 단일/합 RSS130,957,312/483,749,888bytes.
+        전체96.528초/600초. 단순 읽기 구조 외삽97.6분이며 실제 전체 종료 추정은 아니다.
+        전체 writer/registry·독립 대사/backup10,800초와 별도 fresh reader900초 상한을 준비한다.
       - [x] **`crop-harvest-storage-preservation-small`** — [core4 계약](../contracts/crop-harvest-storage-preservation-v1.md).
         전체 부모 계산 대기 중 선행 수용한 작은 부모에서 정상 writer/registry→새 DB·수확 인증 보존→
         원 DB 정지 뒤 fresh Python 현재 reader를 검증한다. 원 수량/UTC/최초 시각·권리/계정 거부·읽기 재계산0·
