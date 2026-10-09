@@ -1,0 +1,85 @@
+{
+  "version": "crop-ui-application-runtime-hosted-reference-v1",
+  "observed_at": "2026-10-09T06:31:34.110114+00:00",
+  "status": "isolated_application_runtime_workflow_completed_success",
+  "run_id": 37893449391,
+  "run_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37893449391",
+  "branch": "ci/catalog-image-20261009",
+  "event": "workflow_dispatch",
+  "job_id": 113699325589,
+  "actual_workflow_conclusion": "success",
+  "terminal_receipt_sha256": "b604a359acdeb027a87218a9223e26603e170b75847364586a98c144fb41eab2",
+  "private_full_log_sha256": "a6b55290f89ba291d635cdf546dffbc59a37de91556589646ffdfc456b994202",
+  "steps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Build and verify isolated application images",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Install locked host test harness",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Verify actual Compose API and automatic worker",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Verify actual Compose owned collection consumer",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Verify actual Compose scoped research authority",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Post Run astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+      "conclusion": "success",
+      "status": "completed"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success",
+      "status": "completed"
+    }
+  ],
+  "source_fixes": "research/crop-ui-hosted-failure-fixes-20261009.md",
+  "actual_Docker_context_export_asset_SHA_and_existing_exclusions_checked": true,
+  "actual_backend_web_image_build_and_isolation_checks": true,
+  "actual_Compose_API_worker_consumer_scoped_authority_checks": true,
+  "PR_Backend_cancelled_or_rerun": false,
+  "local_Docker_or_WSL_general_capacity_claim": false,
+  "not_verified": [
+    "Fixed candidate UI Chromium30 cases",
+    "Original3 design alignment",
+    "Selected/catalog actual joint DB/restart acceptance",
+    "U1/U3 realtime production integration",
+    "Entire hosted Backend suite and UID gates"
+  ],
+  "G0_G4": "not_assessed",
+  "head_git_revision": "0f865d16ac5b4316fb286bb69a8977ae0219fdf0"
+}

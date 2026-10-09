@@ -113,6 +113,9 @@ U1은 [서버 목록 계약](../contracts/crop-result-catalog-v1.md)의 metadata
 컨테이너 타입 선언 누락은 같은 제외 조건에서 RED→GREEN, 현재 타입·집중211개/원69406 종료0이다.
 목록 접근성 이름과 수확 summary의 부모 검사 순서를 수정했으나 수정판 브라우저/이미지·원 디자인·실제 DB 수용은 남았다.
 기존 사용자 미리보기와 전체 계산은 유지하며 U1/U3 체크·배포로 전가하지 않는다.
+[수정판 실제 이미지/Compose](../research/crop-ui-application-runtime-hosted-20261009.md)는
+별도37893449391/0f865d1의 원 terminal success로 확인했다. PNG export·두 이미지/격리·API/작업자·소비자·scope 경로를 통과했다.
+수정판 브라우저30개/원 디자인·실제 DB 선택과 기존 PR 전체 Backend/UID는 별도 미완료다.
 기존 hosted Backend의 실제 수확 인증 감사 실패에 필요한
 [초기화 설정 후보](../research/ci-explicit-host-scram-candidate-20261009.md)는 로컬 A/B만 확인했다.
 [8dd386d 실제 종료](../research/crop-result-ci-terminal-20261009.md)는 Backend2/3 성공·0/1/4/5/집계 실패다.

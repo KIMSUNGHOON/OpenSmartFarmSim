@@ -131,6 +131,8 @@
     후속 [hosted 실패 보완](../research/crop-ui-hosted-failure-fixes-20261009.md): 원30개 중22통과/8실패를 확인했다.
     컨테이너 타입은 같은 제외 조건 RED→GREEN, 현재 타입/집중211개·원69406 종료0이다.
     목록 접근성 이름·부모 summary 검사 순서를 수정했고 수정판 브라우저/이미지·원 디자인/실제 DB 수용은 남았다.
+    [수정판 실제 이미지/Compose](../research/crop-ui-application-runtime-hosted-20261009.md)는 별도37893449391/0f865d1 success다.
+    원 PNG export·두 이미지·API/작업자/소비자/scope 검사를 통과했고 브라우저30개·원 디자인/실제 DB·상위 U1/U3는 남았다.
   - [ ] **`product-ui-result-catalog-native`** — 선행 API/웹. 실제 별도 DB/API/빌드 App에서
     저장 결과 선택→같은 UTC3D/수확·새로고침/백엔드 재시작·철회/계정과 WSL 자원을 확인한다.
     첫 두 판본 연결 뒤 기존 기관/구획/startup 판본의 검색/선택 범위를 대사하고 상위 U1을 판단한다.
