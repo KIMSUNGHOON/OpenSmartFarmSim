@@ -2,7 +2,7 @@
 
 선행은 [현재 농장/자료 결속](crop-climate-joint-farm-binding-v1.md),
 [원 입력 증거](crop-climate-joint-input-evidence-v1.md), [분할 실행](crop-climate-joint-continuation-v1.md),
-[UTC](crop-climate-joint-time-v1.md), [불변 저장](crop-climate-joint-storage-v1.md)이다.
+[UTC](crop-climate-joint-time-binding-v1.md), [불변 저장](crop-climate-joint-storage-v1.md)이다.
 새108상태 producer와 원 프로필/입력/UTC를 사용한다. 기존121상태의 authority/context/reader로 위장하지 않는다.
 서버 내부 Python 경계이며 DB 결과 등록·HTTP API·3D·사용자 실행/U3·전체 작기는 후속이다.
 합성 소프트웨어 계산만 대상으로 하며 G0–G4는 `not_assessed`다.

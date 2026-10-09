@@ -1678,14 +1678,30 @@
       정상 prepare0.974/current0.935초·binding6,580bytes·schema/role/passfile/PG 정리·FD4→4,
       선행32 core/9코드/16oracle·원본2,148/source1,734·미리보기 보존·단일/합 RSS147,255,296/567,664,640bytes다.
       이전82/993 수치·저장 회귀는 재실행하지 않았다. server custody/DB 등록/API/3D/U3·실제 자료/관문은 미완료다.
-    - [ ] **`crop-climate-joint-server-custody`** — 다음 core3: `backend/app/crop_climate_joint_server_custody.py`,
+    - [x] **`crop-climate-joint-server-custody`** — core3: `backend/app/crop_climate_joint_server_custody.py`,
       해당 tests, `contracts/crop-climate-joint-server-custody-v1.md`. 선행: 새 farm/input evidence·공동 producer/UTC/불변 저장.
       원 intent/분할 계산/HEAD/root 전후 현재 farm/source/검토를 검사하고 별도 domain HMAC으로 intent/확정 HEAD를 인증한다.
       원108상태/context/UTC/checkpoint/원량·작은 정상/hold·계정/source/검토/입력 철회·변조/혼합/재시작/원 prefix·FD/원본/정리/원 종료/자원을 확인한다.
       원475줄 custody의 exact 이전 binding/reader/engine으로 위장하지 않는다. 새 DB 결과 등록/API/3D와 전체 작기는 후속이다.
+      [로컬 수용](../research/crop-climate-joint-server-custody-implementation-20261010.md): 실제 SCRAM4그룹·fresh exec1940571/원16걸음·2사건/원 checkpoint·UTC·조회 계산0,
+      정상/실제 hold·HMAC/파일 변조·현재 권리/늦은 철회·128intent 상한·잠금·원 종료/FD4→4·PG/schema/role/passfile 정리를 통과했다.
+      root는 원 서명 영수증의3→2→1→0/HMAC·key/domain/JSON 거부6개를 대사했으며 정리된 DB의 live query가 아니다.
+      공유 전6개 검사 파일의 child 실행 경로만 보완하고 부모 PYTHONPATH 없는12개 집중 검사를 통과했다.
+      .25초 최대 단일/합 RSS147,255,296/605,310,976bytes·원본2,148/source1,739/기동 UI 보존. 기존 전체166일/82/993 전체 회귀는 재실행하지 않았다.
     - [ ] **`crop-climate-joint-result-registry`** — 선행: 새 서명 이력/현재 권리. 현재 저장 schema/역할·판본 제약을 대조해 core 경계를 고정한다.
       새 공동 결과/원 evidence·서명/불변 페이지/UTC를 현재 tenant/farm에 원자 등록하고 fresh 현재 권리·원 bytes/이전 결과 공존을 검증한다.
       이후 현재 권리의2MiB API→같은 UTC 수치3D→사용자 실행/U3로 연결한다. 별도 queue/service 추가를 선행 조건으로 두지 않는다.
+      아래3자식이 실제 수용된 뒤 부모를 평가한다. 이전 schema는 model/version/ref/scope를 고정하므로 새 tag/계약이 필요하다.
+      - [ ] **`crop-climate-joint-result-schema`** — 다음 core3: `backend/app/crop_climate_joint_result_schema.py`, 해당 tests,
+        `contracts/crop-climate-joint-result-schema-v1.md`. 새 불변 metadata SQL·source/context/UTC/evidence/서명 참조·tenant/farm FK.
+        수용: 실제 PG 정상 원 bytes/컬럼·닫힌/중복 JSON·SHA·unique intent·숫자/용량·수정/삭제 거부와 기존 결과 보존, 소유 정리/실제 종료.
+        role/게시/API를 이 자식에 포함하지 않는다. 기존96줄 계약 근거의1–2집중시간 잠정.
+      - [ ] **`crop-climate-joint-result-roles`** — 선행: 새 schema. 기존 역할/설치 경계를 대조해 명시 새 table grant의 변경 파일을 고정한다.
+        수용: 기본 false·누락/false/true/잘못된 타입, authority와 다른 역할의 최소 grant·실제 SCRAM/audit·이전 권한/결과 공존.
+        기존 runtime_roles321줄 근거의1–2집중시간 잠정. 새 서비스/queue를 만들지 않는다.
+      - [ ] **`crop-climate-joint-result-storage`** — 선행: 새 schema/역할/현재 server custody. core3는 새 store module/해당 tests/contract.
+        수용: tenant/farm·원 evidence/HEAD/root/UTC·독립 domain/id/HMAC·원자 등록/중복 충돌·rollback·현재 철회·fresh 실제 DB/조회 계산0·이전 결과 공존/정리.
+        기존 store266줄 근거의2–4집중시간 잠정. HTTP2MiB와3D·사용자 실행/U3는 후속이다.
 - [ ] **`crop-water-nutrient`** — 선행: 작물/기후 결합·배지/급배액/성분 근거.
   예정 파일(3): `backend/app/crop_water_nutrient.py`, `backend/tests/test_crop_water_nutrient.py`,
   `contracts/crop-water-nutrient-v1.md`.

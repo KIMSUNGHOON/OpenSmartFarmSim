@@ -51,7 +51,10 @@ core12e6d7b·새72/기존576=648개·독립5,973수치/60수렴 비율로 수용
 기존993개는 재실행하지 않고29선행 core·9코드·16oracle pin을 대사했다.
 [현재 농장/자료 권리 결속](../research/crop-climate-joint-farm-binding-implementation-20261010.md)도 실제 SCRAM6검사 그룹·
 fresh exec/같은 binding·조회 계산0·마이크로초 UTC/종료1µs 초과 거부·현재 철회/정리·원 종료/자원으로 로컬 수용했다.
-다음은 서명된 계산 이력→DB 결과 등록/API→같은 시각3D다.
+[서버 서명 이력/재개](../research/crop-climate-joint-server-custody-implementation-20261010.md)도 실제 SCRAM4그룹·
+fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·원 종료/정리로 로컬 수용했다.
+자식 실행 경로 보완 후 부모 PYTHONPATH 없는12개 집중 검사를 통과했다.
+다음은 새 DB 계약→권한→결과 등록/API→같은 시각3D다.
 복사/CO₂·기공/온실 경계의 원식/단위 조사는 병행하며 자동 온실 예측의 선행 조건은 유지한다.
 사용자 접수/진행 상태 U3와 확정 prefix의 계산 중3D는 별도 수용한다.
 앞선 미리보기0.5–1.5집중시간 추정은 이번 실제 전환 증거로 대체한다. 다음 계산/API 준비일은 계약 분해 뒤 갱신한다.
@@ -1047,17 +1050,22 @@ flowchart TD
 | 새 불변 페이지 저장/fresh 읽기 | UTC binding·원 source/checkpoint와64sample/8event 페이지·불변 manifest·읽기 RHS0 | [2026-10-10 수용](../research/crop-climate-joint-storage-implementation-20261010.md). 새77/기존916=993개·원5,076수치/46시각·fresh 계산0·실제 HEAD 전후 SIGKILL/재개. 최대 페이지657,049/조회657,237bytes. 최종46.906/기존80.379/root15.409초 |
 | 새 입력 검증 증거 | 새108상태 context/seed·4프로필/notice·UTC/source bytes/QC와 명시 authority/검토 증거 | [2026-10-10 수용](../research/crop-climate-joint-input-evidence-implementation-20261010.md). 새82개·원9개 context/UTC·972초기 수치·fresh10개/철회10개·조회 계산0. 최종5.675/root2.611초·전후 byte 재검사 RED2개 수정/원 실패 보존. 기존993개 재실행 없이29 core/9코드/16oracle pin 보존 |
 | 새 현재 농장/자료 권리 결속 | 새 input evidence·현재 FarmAuthoringService/권리 resolver·등록 농장/crop/batch/zone/기간 | [2026-10-10 수용](../research/crop-climate-joint-farm-binding-implementation-20261010.md). 실제 SCRAM6그룹/3순차·fresh exec PID1920137/같은 binding·계산0. 원 초 단위 helper의 실패를 새 마이크로초 비교로 수정·끝1µs 초과 거부. 정상19.810/권리33.372/경계47.189초·원 종료/정리/보존 |
-| 새 서명 계산 이력 | 현재 farm/source 권리 결속·원108상태 producer/UTC·불변 저장·서버 key | 다음 `crop-climate-joint-server-custody` core3. 원 custody475/새 farm150/저장323줄·계약0.5–1h, 구현1–2h, 작은 실제 producer/HMAC·현재 철회/재시작1–2h, 기록0.5–1h의3–6집중시간 잠정. 기존 exact binding/reader/engine으로 위장하지 않는다 |
+| 새 서명 계산 이력 | 현재 farm/source 권리 결속·원108상태 producer/UTC·불변 저장·서버 key | [2026-10-10 수용](../research/crop-climate-joint-server-custody-implementation-20261010.md). 실제 SCRAM4그룹·fresh16걸음/2사건·조회0·정상/hold/서명·늦은 철회. 정상74.693/권리42.032/변조53.253/hold51.982/root1.073초. 자식 경로 보완12개도 별도 통과; 전체166일·UI 미연결 |
+| 새 결과 DB 계약 | 새 source/context/UTC/intent/HEAD/root metadata·기존 결과 공존 | 다음 `crop-climate-joint-result-schema` core3. 이전 schema96줄은 version/ref/scope와 이전 input root를 고정하므로 새 모델을 기존 tag로 삽입하지 않는다. 새 불변 SQL·닫힌 raw/컬럼·tenant/farm FK·정수/용량/unique·수정 거부를 실제 PG에서 수용;1–2집중시간 잠정 |
+| 새 결과 명시 권한 | 새 schema; 현재 runtime_roles321줄·기존 기본 grant 보존 | `crop-climate-joint-result-roles`. 실제 필요가 입증된 새 결과 table만 명시 opt-in/기본 false로 연결, 현재 SCRAM/audit·누락/false/true·이전 역할/결과 공존을 검증;1–2집중시간 잠정 |
+| 새 결과 등록/현재 조회 | 새 schema/역할·원 server custody/현재 권리 | `crop-climate-joint-result-storage` core3. 기존 store266줄의 transaction/immutable metadata 경계와 대조; 새 domain/id/HMAC·원 bytes/UTC·fresh 실제 DB·철회/rollback/기존 결과 공존·조회 계산0;2–4집중시간 잠정 |
 | 새 현재 권리·API·3D | forcing 변경 계약은 별도 수용; 새 evidence→현재 농장/자료 권리→server custody/등록→API→같은 시각 수치3D | 기존 exact authority/context 타입으로 위장하지 않는다. 원 code/profile/QC·현재 권리/철회·페이지 응답2MiB/조회 RHS0·같은 UTC3D 수용 뒤 사용자 실행/U3로 연결. 기존121상태/원 결과 보존; 온실 원식 조사 병행 |
 
 고정 LAI 자식 수용일은2026-10-09, 가변 용량/공동 순간 RHS/짧은 적분/원자 관리/자동 구성/분할 복원/UTC/페이지 저장은2026-10-10이다. 온실 경계와 현재 권리/API 비용 관측 전에는
 전체 결합/제품 완료일을 산정하지 않는다. 독립 계측 자료 확보는 그 개발과 병행한다.
 
-**다음 한 단계의 수용 기준:** `crop-climate-joint-server-custody`의 작은 원 producer/서명 이력이다.
-현재 farm/source/검토 권리를 원 intent·분할 계산·HEAD/root의 전후에 적용하고 원 input/context/UTC/checkpoint/원량을 고정한다.
-새 domain HMAC으로 intent/확정 HEAD를 인증하고 다른 tenant/model/source·철회/변조·정상/hold·재시작/원 prefix,
-FD/정리/원 종료/WSL 자원을 실제 작은 producer에서 확인한다. 기존121상태 binding/reader/engine으로 위장하지 않는다.
-다음 새 DB 결과 등록/API→같은 UTC3D→사용자 실행/U3를 연결한다. DB/역할의 변경 범위는 현재 저장 제약 대조 뒤 고정한다.
+**다음 한 단계의 수용 기준:** `crop-climate-joint-result-schema`의 새 불변 metadata SQL/contract다.
+새 source/context/UTC/evidence·intent/HEAD/root와 tenant/farm을 원 bytes에 고정하고 기존 결과를 그대로 보존한다.
+실제 PG에서 닫힌 JSON·중복 key·raw SHA/컬럼 대사·등록 farm FK·고유 intent·정수/용량 범위·수정/삭제 거부를 확인한다.
+core3는 새 schema module/해당 tests/contract다. 이 단계에서 role flag/DB 결과 게시/API/UI를 완료 처리하지 않는다.
+이어 명시 역할/grant→새 결과 등록/현재 권리 조회→2MiB API→같은 UTC3D→사용자 실행/U3를 연결한다.
+현재96/266/321줄 계약 대조와 작은 실제 fixture를 근거로 DB3자식은4–8집중시간 잠정이며,
+10/10 연속 작업·새 오류 없음 조건의 검토 목표다. API/3D·전체 제품 완료일은 후속 실측과 외부 자료 확보 뒤 갱신한다.
 새 farm 결속에서 확인한0.974/0.935초는 작은 prepare/current 실측이며 전체 producer/API 비용이 아니다.
 합성 소프트웨어 검증과 실제 G0/현장/미래 게시를 구분하고 독립 국내 자료 확보와 병행한다.
 명시 상수 입력의 UTC/저장은 forcing 변경/자동 온실/전체 작기의 수용을 뜻하지 않는다. 해당 경계·U3·관문은 후속 수용이다.
