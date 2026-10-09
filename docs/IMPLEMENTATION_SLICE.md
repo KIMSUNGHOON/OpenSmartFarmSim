@@ -34,7 +34,9 @@ signed Uref/현재 leaf에서 유도한 Tc를 crop/교환/T24/Tsum에 함께 사
 독립5,973수치/60수렴 비율·fresh 복원/원 종료·보존으로 수용했다.
 [UTC 결속](../research/crop-climate-joint-time-implementation-20261010.md)도 새130/기존786=916개·독립272시각,
 원5,076수치·context/checkpoint/prefix 보존·fresh/재계산0·원 종료/자원으로 로컬 수용했다.
-다음은 불변 페이지 저장/fresh reader→현재 권리 API·같은 시각3D며 온실 경계 조사는 병행한다.
+[불변 페이지 저장/fresh 조회](../research/crop-climate-joint-storage-implementation-20261010.md)도 새77/기존916=993개·
+원5,076수치/46시각 보존·reader 계산0·실제 HEAD 전후 중단/재개·원 종료/자원으로 로컬 수용했다.
+다음은 새 입력 검증 증거→현재 농장/자료 권리·server custody/등록/API→같은 시각3D며 온실 경계 조사는 병행한다.
 전체 결합·실시간 U3·실제 자료/생산 관문은 미완료다.
 
 **2026-10-09 사용자 확인 화면과 최종 UI:** 기존 App의 실제 API/저장 결과 동시 기동을

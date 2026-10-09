@@ -1643,13 +1643,30 @@
       선행23파일/16oracle·원본2,148/source1,719·FD4→4/소유 정리·미리보기 보존을 통과했다.
       단일/합 RSS147,255,296/407,535,616bytes·최종80.356초/root7.207초다.
       시간 포함 최대chunk5,010,569bytes는 HTTP2MiB 초과이며 페이지 저장/새 API·3D/U3/관문은 미완료다.
-    - [ ] **`crop-climate-joint-page-storage`** — 다음 core3: `backend/app/crop_climate_joint_storage.py`,
+    - [x] **`crop-climate-joint-page-storage`** — core3: `backend/app/crop_climate_joint_storage.py`,
       `backend/tests/test_crop_climate_joint_storage.py`, `contracts/crop-climate-joint-storage-v1.md`.
       선행: 수용한 continuation/UTC binding. 기존 atomic 불변 artifact 저장 방식을 검토/재사용한다.
       원 context/binding/checkpoint·source hash와64sample/8event 이하 페이지/불변 manifest를 저장한다.
       9프로그램의108상태/22/6장부·원 elapsed/UTC·처음/중간/마지막/hold prefix를 fresh reader에서 정확히 복원하고,
       실제 페이지2MiB 이하·읽기 RHS0·변조/혼합/불완전 게시 거부·원본/FD/원 종료/자원 보존을 확인한다.
       현재 권리 등록/API→같은 UTC3D→사용자 실행/U3는 후속이며 storage/replay 부모는 유지한다.
+      [core5547f5e/로컬 수용](../research/crop-climate-joint-storage-implementation-20261010.md): 새77/기존916=993개,
+      원80146/기존5003/별도57103 실제0·9프로그램의5,076수치/46시각·fresh context/RHS 생성0,
+      실제 SIGKILL 전1903215/후1903216(-9)·원 prefix 재개/최종 동일·현재 binding/checkpoint 혼합 RED2개/수정·원 실패 보존,
+      선행26파일/9코드/16oracle·원본2,148/source1,724·FD4→4/소유 정리·미리보기 보존을 통과했다.
+      최대129sample/128event는19페이지·최대page657,049/조회657,237bytes·전체5,347,572bytes/26파일,
+      단일/합 RSS147,255,296/406,417,408bytes다. 입력 evidence/현재 권리/API/3D/U3·관문은 미완료다.
+    - [ ] **`crop-climate-joint-input-evidence`** — 다음 core3: `backend/app/crop_climate_joint_input_evidence.py`,
+      `backend/tests/test_crop_climate_joint_input_evidence.py`, `contracts/crop-climate-joint-input-evidence-v1.md`.
+      선행: 수용한 새 공동 context/UTC/페이지 저장과 source/profile/notice의 기존 검토. 이전 input packet/clock 전용 authority를 위장해 쓰지 않는다.
+      원 context/seed·4프로필/notice·UTC/source bytes·정규화/QC·코드 판본과 검토/증거 ID를 명시 새 authority에 결속한다.
+      현재 원 bytes·변조/seed/profile/time/code·철회/혼합·fresh/원본/FD/원 종료/자원을 확인한다.
+      합성 input math 증거·실제 G0 자료 채택과 현재 farm/display 권리·독립 G2/G3를 구분하며 관문을 열지 않는다.
+    - [ ] **`crop-climate-joint-farm-binding`** — 선행: 새 입력 evidence·현재 FarmAuthoringService/자료 권리 resolver.
+      예정 core3: `backend/app/crop_climate_joint_farm_binding.py`, 해당 tests, `contracts/crop-climate-joint-farm-binding-v1.md`.
+      현재 tenant/농장 판본·crop/batch/zone·재배 기간·원 source/context/UTC/evidence와 research 계산/표시권을 결속한다.
+      실제 등록/현재 권리·철회/다른 계정/기간/모델 혼합·fresh/원본/FD/종료를 검증한다. 등록 의도를 검증된 품종으로 표시하지 않는다.
+      이후 server custody/등록→API→같은 UTC3D→사용자 실행/U3를 작은 후속으로 나눈다.
 - [ ] **`crop-water-nutrient`** — 선행: 작물/기후 결합·배지/급배액/성분 근거.
   예정 파일(3): `backend/app/crop_water_nutrient.py`, `backend/tests/test_crop_water_nutrient.py`,
   `contracts/crop-water-nutrient-v1.md`.

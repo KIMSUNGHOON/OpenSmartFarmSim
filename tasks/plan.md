@@ -1038,17 +1038,19 @@ flowchart TD
 | 온실 경계/복사·CO₂·기공 | 명시 열/물/CO₂ 저장·출입과 PAR/흡수 복사 경로, 단위/근거·수지 | 고정 LAI 자식 뒤 병행 조사 가능; source 단위 불일치·실제 시설/계측 입력은 별도 hold |
 | 새 분할 실행/복원 | immutable context/seed·108상태/연속22·사건6/전역 수지·경계 cursor·source/수치 identity | [2026-10-10 수용](../research/crop-climate-joint-continuation-implementation-20261010.md). 새138/기존648=786개·독립5,973/60비율·fresh 남은8걸음/1사건; 약21분 개발/검토·66.565초 회귀/33.022초 root |
 | 새 UTC 결속 | 명시 origin/시각 정밀도·elapsed 원 격자/UTC를 새 identity에 결속·재계산0/원량 보존 | [2026-10-10 수용](../research/crop-climate-joint-time-implementation-20261010.md). 새130/기존786=916개·독립272시각/원5,076수치·23선행 파일/원본 보존·fresh 수치 호출0. 최종80.356초/root7.207초 |
-| 새 불변 페이지 저장/fresh 읽기 | UTC binding·원 source/checkpoint와64sample/8event 페이지·불변 manifest·읽기 RHS0 | 다음 `crop-climate-joint-page-storage` core3. 계약/재사용0.5–1h·writer/reader0.5–1.5h·fresh/변조/자원0.5–1h·기록0.5h의2–4집중시간 잠정; 계속 작업/새 I/O 장애 없음 조건의10월10일 검토 목표 |
-| 새 입력 경계·API·3D | forcing 변경 계약은 별도 수용; 명시 상수 입력 UTC/페이지→현재 권리 API→같은 시각 수치3D | 시간 포함 첫128경계5,010,569bytes로 HTTP2MiB 초과다. 실제 페이지 byte/현재 권리 조회·원량/UTC·같은 시각3D 수용 뒤 사용자 실행/U3로 연결. 기존121상태/원 결과 보존; 온실 원식 조사 병행 |
+| 새 불변 페이지 저장/fresh 읽기 | UTC binding·원 source/checkpoint와64sample/8event 페이지·불변 manifest·읽기 RHS0 | [2026-10-10 수용](../research/crop-climate-joint-storage-implementation-20261010.md). 새77/기존916=993개·원5,076수치/46시각·fresh 계산0·실제 HEAD 전후 SIGKILL/재개. 최대 페이지657,049/조회657,237bytes. 최종46.906/기존80.379/root15.409초 |
+| 새 입력 검증 증거 | 새108상태 context/seed·4프로필/notice·UTC/source bytes/QC와 명시 authority/검토 증거 | 다음 `crop-climate-joint-input-evidence` core3. 기존authority232줄·농장결속140줄은 이전 packet/context 전용이다. 계약/재사용0.5–1h·검증/evidence0.5–1h·fresh/변조/현재 bytes/자원0.5–1.5h·기록0.5h의2–4집중시간 잠정; 계속 작업/새 source 장애 없음 조건의10월10일 검토 목표 |
+| 새 현재 권리·API·3D | forcing 변경 계약은 별도 수용; 새 evidence→현재 농장/자료 권리→server custody/등록→API→같은 시각 수치3D | 기존 exact authority/context 타입으로 위장하지 않는다. 원 code/profile/QC·현재 권리/철회·페이지 응답2MiB/조회 RHS0·같은 UTC3D 수용 뒤 사용자 실행/U3로 연결. 기존121상태/원 결과 보존; 온실 원식 조사 병행 |
 
-고정 LAI 자식 수용일은2026-10-09, 가변 용량/공동 순간 RHS/짧은 적분/원자 관리/자동 구성/분할 복원/UTC 결속은2026-10-10이다. 온실 경계와 저장/API 비용 관측 전에는
+고정 LAI 자식 수용일은2026-10-09, 가변 용량/공동 순간 RHS/짧은 적분/원자 관리/자동 구성/분할 복원/UTC/페이지 저장은2026-10-10이다. 온실 경계와 현재 권리/API 비용 관측 전에는
 전체 결합/제품 완료일을 산정하지 않는다. 독립 계측 자료 확보는 그 개발과 병행한다.
 
-**다음 한 단계의 수용 기준:** `crop-climate-joint-page-storage`의 불변 페이지 writer/fresh reader다.
-원 context/binding/checkpoint·source SHA와 원 elapsed/UTC를 manifest에 고정하고64sample/8event 이하의 페이지로 저장한다.
-9프로그램의 처음/중간/마지막/사건/hold·원108상태/22/6장부·prefix/bytes를 새 프로세스에서 정확히 대사한다.
-페이지별 실제2MiB 이하·읽기 RHS0·변조/시간/모델 혼합·불완전 게시 거부와 원본/FD/원 종료/자원을 검증한다.
-그 뒤 현재 권리 등록/API→같은 UTC3D→사용자 실행/U3를 연결한다.
+**다음 한 단계의 수용 기준:** `crop-climate-joint-input-evidence`의 원 입력/검토 증거 결속이다.
+새 context/seed·4프로필 원 bytes/notice·UTC origin·source/QC/정규화/코드 판본과 검토·증거 ID를 새 authority에 고정한다.
+원 bytes 재검사·변조/다른 seed/profile/time/code·철회/혼합 거부·fresh/FD/원 종료/자원을 확인한다.
+기존 입력 authority/CalculationContext는 이전121상태 packet/clock 전용이므로 새108상태의 승인으로 재사용하지 않는다.
+합성 input math 증거는 실제 G0 채택이나 현재 farm/display 권리의 승인과 별개다. 독립 국내 자료 확보와 병행한다.
+그 뒤 현재 농장/자료 권리→server custody/등록/API→같은 UTC3D→사용자 실행/U3를 연결한다.
 명시 상수 입력의 UTC/저장은 forcing 변경/자동 온실/전체 작기의 수용을 뜻하지 않는다. 해당 경계·U3·관문은 후속 수용이다.
 G2의 최종 판정에는 검증하는 해당 출력의 계산/재현 증거가 필요하다.
 해외 Reference의 시간대/입력 보류가 국내 독립 자료 확보나 국내 해당 모델의
