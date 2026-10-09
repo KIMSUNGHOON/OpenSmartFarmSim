@@ -1466,8 +1466,13 @@
       새 부모 source/profile의 명시 새 판본에서 원 계수/배정/수량·UTC를 대사하고 새 페이지/root hash와 공간을 기록한다.
       기존 capacity의 원47,813행/748page·원 수량과 비교하되 구형 source/raw/hash를 새 계보로 재사용하거나 덮어쓰지 않는다.
       불변 registry·fresh Python 현재 권리/계정 거부·읽기 RHS0·원 종료/소유 정리를 확인한다. API/3D 비용은 별도 실측한다.
-    - [ ] **`crop-harvest-full-api-native`** — 선행 전체 writer/registry. 착수 시 실제 보호 API/대표 WebGL과 수동 시험을3~5 core파일로 나눈다.
+    - [x] **`crop-harvest-full-api-native`** — 선행 전체 writer/registry. 실제 보호 API/대표 WebGL과 수동 조회 경로를3~5 core파일로 나눈다.
       수용: 같은 전체 부모/수확의 모든 행 대사와 대표 frame 검사 분리, 실제 bytes/시간·권리/취소/계정·원 종료/WSL 정리. 전체 실행의 관측 예산을 유지한다.
+      [전체 실제 수용](../research/crop-harvest-full-view-20261009.md),2a19074:
+      원72505/별도 root 실제0·225.535초·같은 SCRAM/API/App/WebGL에서 수확6행/생장10시점/관리5사건 대사,
+      표시권422·Scope403/다른 tenant404·취소/계정 변경 뒤 늦은 정상200의 이전 값 복원 없음,
+      23응답·최대 완료 client11.003초/65,064bytes·원본/DB/FD/RHS0·소유 정리/WSL 상한을 확인했다.
+      조기 본문 수신 전 취소500은 아래 별도 작업이다. 상위 replay·현재 사용자 수확 미리보기/U3는 미수용이다.
       - [x] **`crop-harvest-http-reconciliation`** — [core3 계약](../contracts/crop-harvest-http-reconciliation-v1.md)·
         [로컬 준비 수용](../research/crop-harvest-http-reconciliation-20261009.md), b4f2482.
         원57894/별도 root9112c1 실제0·새29/기존7=36개·새 정상 writer 소유6행/보호 ASGI,
@@ -1494,7 +1499,14 @@
         summary8.823초/첫64행10.939초/끝1행10.780초·원량/서명/최초 UTC·현재 권한/끝 검사·변조 거부,
         조회 RHS/생성/등록/증명0·wire/ASGI·30초/2MiB·FD/원본/소유 정리/WSL 상한을 확인했다.
         기존 manifest는 원 frozen Python으로 검증하고 reader 한 파일만 다른 새 호환 관측을 보존했다.
-        원 decoder/manifest/결과는 바꾸지 않았다. 전체 API/대표 WebGL·수동 확인 부모와 U3는 미수용이다.
+        원 decoder/manifest/결과는 바꾸지 않았다. 이후 전체 API/대표 WebGL은 위 부모의 새 증거로 수용했으며
+        현재 사용자 수확 미리보기와 U3는 미수용이다.
+    - [ ] **`crop-harvest-early-disconnect`** — 선행 실제 전체 view의 원75169 입구 지연/취소500 관측.
+      3~5 core파일의 원인 재현/처리 계약·실제 TLS 집중 검사로 분해한다.
+      수용: 인증된 정상 GET의 본문 수신 전 연결 종료를 실제로 재현하고 서버500 없이 종료한다.
+      부분/취소 요청은 계산·등록·증명/성공 결과를 만들지 않으며 현재 계정/권리·일반 정상/거부 응답과
+      늦은 응답 정리를 유지한다. 원 명령 종료·실제 서버/FD/DB/원본/소유 정리·WSL 상한 뒤 체크한다.
+      이 보완과 사용자 미리보기 전환 뒤 상위 mass-load/replay를 평가한다.
 - [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.
   예정 파일(3): `backend/app/crop_climate_coupling.py`, `backend/tests/test_crop_climate_coupling.py`,
   `contracts/crop-climate-coupling-v1.md`.
