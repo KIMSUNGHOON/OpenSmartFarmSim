@@ -54,8 +54,15 @@
   [확인한 범위](../research/crop-cycle-calculation-query-facts-20261009.md): 모두 pidfd 지원 진입 실패이며
   같은 uv Python3.12.13의 두 Python 함수 부재를 확인했다. libc의 자기 pidfd/signal0·FD5→5는 통과했다.
   다음 작은 호환 수정은 원 pidfd/identity·보호 tree·close/실패 거부 시험을 유지한다.
-  숫자 PID signal fallback·skip·감사 생략을 하지 않는다. 현재 helper SHA와 보호 미리보기를 보존하고
+  숫자 PID signal fallback·skip·감사 생략을 하지 않는다. 실행 중 고정 source의 기존 helper SHA와 보호 미리보기를 보존하고
   실제 두 Python 배포본의 소유 child·철회/실패/정리와 hosted 회귀 뒤만 체크한다.
+  - [x] **`owned-research-pidfd-bindings`** — [core3 계약](../contracts/owned-research-pidfd-compatibility-v1.md)·
+    [로컬 수용](../research/owned-research-pidfd-compatibility-20261009.md), 2847588.
+    원87572 exact uv3.12.13 RED10→최종 원85784/61087 두 배포본 각30개 GREEN0(기존10/새20),
+    실제 소유/보호/고아·변경 identity·C errno 실패 후 실제 fd close/대상 생존·signal0/CLOEXEC/FD4→4를 확인했다.
+    AST 소유/보호 본문 보존·표준 ctypes/지연 libc·숫자 PID fallback0·소유 자식/임시 정리·별도 root 감사0,
+    source1,618·원본/미리보기/전체 writer 고정 helper 보존·RSS 합599,834,624bytes다.
+    main helper0337a287…와 실행 중 고정 helper5839d2ab…를 구분한다. 상위 hosted 분할3/전체 CI는 미수용이다.
 
 - [ ] **`crop-result-ci-harvest-endpoint-binding`** — 원 Backend37892105708 분할5/113695105991의1실패·907통과.
   `test_crop_harvest_runtime_factory.py:347`의 실제 protected operator/fresh Python endpoint SHA 불일치다.
