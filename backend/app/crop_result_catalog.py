@@ -15,8 +15,10 @@ VERSION = 'crop-research-result-catalog-v1'
 MAX_LIMIT = 20
 MAX_PAGE_BYTES = 64 * 1024
 KINDS = ('calculation_cycle_v1', 'harvest_v1')
+# Reviewed implementation determines which registration arguments may share a check.
+REGISTRATION_CODE_SHA256 = '4f245271487b1e55422386b42221aa8d24906d28f52403626c474c62f14568a9'
 CODE_SHA256 = sha256(Path(__file__).read_bytes()).hexdigest()
-_DECLARATIONS = (VERSION, MAX_LIMIT, MAX_PAGE_BYTES, KINDS, CODE_SHA256)
+_DECLARATIONS = (VERSION, MAX_LIMIT, MAX_PAGE_BYTES, KINDS, REGISTRATION_CODE_SHA256, CODE_SHA256)
 
 
 class CropResultCatalogHold(ValueError):
@@ -62,8 +64,10 @@ class CropResultCatalog:
                 None if self.harvest is None else self.harvest._fixed)
 
     def _binding(self):
-        _need((VERSION, MAX_LIMIT, MAX_PAGE_BYTES, KINDS, CODE_SHA256) == _DECLARATIONS
+        _need((VERSION, MAX_LIMIT, MAX_PAGE_BYTES, KINDS, REGISTRATION_CODE_SHA256, CODE_SHA256) == _DECLARATIONS
               and sha256(Path(__file__).read_bytes()).hexdigest() == CODE_SHA256
+              and sha256(Path(calculation.server.farms.original.__file__).read_bytes()).hexdigest()
+                  == REGISTRATION_CODE_SHA256
               and self._pointers() == self._fixed)
         self.calculation._binding()
         if self.harvest is not None:
@@ -95,14 +99,17 @@ class CropResultCatalog:
                 'AND scenario_revision=%s AND registration_sha256=%s AND {}=%s{} '
                 'ORDER BY recorded_at DESC,result_id DESC LIMIT %s').format(table, crop, cursor), args).fetchall()
 
-    def _parent(self, tenant, result_id, farm):
+    def _parent(self, tenant, result_id, farm, *, registration_checks):
         store = self.calculation.store
         row = store._find(tenant, result_id=result_id)
         packet = store._row(row, tenant, farm)
         binding = store.server.binding
         request, source = packet['binding']['request'], packet['binding']['input']
-        registration = binding._registration(tenant, request, source)
-        _need(_canonical(registration) == _canonical(packet['binding']['registration'])
+        key = _canonical({'tenant_id': tenant, 'farm': request['farm'],
+            'available_at': request['rights']['available_at'], 'period': source['period']})
+        if key not in registration_checks:
+            registration_checks[key] = _canonical(binding._registration(tenant, request, source))
+        _need(registration_checks[key] == _canonical(packet['binding']['registration'])
               and packet['policies']['input_rights_version'] == binding.input_rights.policy_version
               and packet['policies']['resolver_version'] == store.server.input_resolver.version
               and packet['policies']['notice_sha256'] == sha256(binding.notice_raw).hexdigest())
@@ -110,11 +117,12 @@ class CropResultCatalog:
         store._guard(tenant)
         return row, packet
 
-    def _item(self, tenant, kind, farm, row):
+    def _item(self, tenant, kind, farm, row, *, registration_checks):
         growth = kind == KINDS[0]
         store = self.calculation.store if growth else self.harvest.store
         packet = store._row(row, tenant, farm)
-        parent_row, parent = self._parent(tenant, row['result_id'] if growth else packet['parent_result_id'], farm)
+        parent_row, parent = self._parent(tenant, row['result_id'] if growth else packet['parent_result_id'], farm,
+                                        registration_checks=registration_checks)
         if growth:
             _need(store._record(parent_row) == store._record(row))
             detail = {'study_id': packet['study_id'], 'revision': packet['revision'],
@@ -148,7 +156,8 @@ class CropResultCatalog:
             keys = [(r['recorded_at'], r['result_id']) for r in rows]
             _need(keys == sorted(keys, reverse=True) and len(set(keys)) == len(keys)
                   and (before is None or all(key < (before['recorded_at'], before['result_id']) for key in keys)))
-            items = [self._item(tenant, kind, farm, row) for row in rows]
+            registration_checks = {}
+            items = [self._item(tenant, kind, farm, row, registration_checks=registration_checks) for row in rows]
             snapshots = deepcopy(rows)
             cursor = {k: items[limit-1][k] for k in ('recorded_at', 'result_id')} if len(items) > limit else None
             page = {'version': VERSION, 'scope': 'stored_research_metadata_only', 'kind': kind,
@@ -159,9 +168,11 @@ class CropResultCatalog:
             def recheck():
                 _need(self._guard(tenant, farm) == registration)
                 store = self.calculation.store if kind == KINDS[0] else self.harvest.store
+                registration_checks = {}
                 for row, item in zip(snapshots, items):
                     found = store._find(tenant, result_id=row['result_id']) if kind == KINDS[0] else store._find(tenant, row['result_id'])
-                    _need(found == row and self._item(tenant, kind, farm, found) == item)
+                    _need(found == row and self._item(tenant, kind, farm, found,
+                          registration_checks=registration_checks) == item)
                 _need(self._guard(tenant, farm) == registration)
             recheck()
             yield deepcopy(page)

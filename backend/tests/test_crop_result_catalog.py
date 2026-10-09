@@ -72,7 +72,7 @@ def memory_service(kind, count=3):
     def guard(tenant,farm):
         if tenant!='tenant-1' or not state['allowed']:raise PermissionError('denied')
         return {'registration':'same'}
-    def item(tenant,kind,farm,row):
+    def item(tenant,kind,farm,row,*,registration_checks=None):
         return {'result_id':row['result_id'],'recorded_at':catalog._time(row['recorded_at']),
                 'calculation_status':'completed','value':row['value']}
     service._guard=guard;service._item=item
@@ -131,3 +131,80 @@ def test_unknown_authorities_and_missing_harvest_reader_are_rejected():
 def test_UTC_time_normalization_and_naive_time_rejection():
     assert catalog._time(AT.astimezone(timezone(timedelta(hours=9))))=='2026-10-09T01:00:00.000000Z'
     with pytest.raises(catalog.CropResultCatalogHold):catalog._time(AT.replace(tzinfo=None))
+
+
+def parent_service():
+    calls={'registrations':0,'rights':0,'allowed':True}
+    registration={'registered':'owned-farm'}
+    packet={'binding':{'request':{'farm':deepcopy(FARM),'rights':{'available_at':'2026-01-01T00:00:00Z'}},
+        'input':{'root_sha256':'a'*64,'period':{'start':'2026-02-01T00:00:00Z','end':'2026-02-02T00:00:00Z'}},
+        'registration':registration},'policies':{'input_rights_version':'owned-rights',
+        'resolver_version':'owned-resolver','notice_sha256':catalog.sha256(b'notice').hexdigest()}}
+    def registered(*args):calls['registrations']+=1;return deepcopy(registration)
+    def rights(*args):
+        calls['rights']+=1
+        if not calls['allowed']:raise PermissionError('withdrawn')
+    binding=SimpleNamespace(_registration=registered,_rights=rights,
+        input_rights=SimpleNamespace(policy_version='owned-rights'),notice_raw=b'notice')
+    store=SimpleNamespace(_find=lambda *args,**kwargs:{'result_id':'owned'},
+        _row=lambda *args:deepcopy(packet),_guard=lambda *args:None,
+        server=SimpleNamespace(binding=binding,input_resolver=SimpleNamespace(version='owned-resolver')))
+    service=object.__new__(catalog.CropResultCatalog);service.calculation=SimpleNamespace(store=store)
+    return service,packet,calls
+
+
+def test_same_registration_arguments_share_only_one_pass_check_but_keep_each_rights_check():
+    service,packet,calls=parent_service();checks={}
+    for n in range(3):
+        packet['binding']['request']['study_id']=str(n)
+        packet['binding']['input']['root_sha256']=format(n,'064x')
+        service._parent('tenant-1','owned',FARM,registration_checks=checks)
+    assert calls['registrations']==1 and calls['rights']==3
+    service._parent('tenant-1','owned',FARM,registration_checks={})
+    assert calls['registrations']==2 and calls['rights']==4
+    calls['allowed']=False
+    with pytest.raises(PermissionError):service._parent('tenant-1','owned',FARM,registration_checks=checks)
+    assert calls['registrations']==2 and calls['rights']==5
+
+
+@pytest.mark.parametrize('field',('tenant','farm','available_at','start','end'))
+def test_different_registration_arguments_are_not_combined(field):
+    service,packet,calls=parent_service();checks={};tenant='tenant-1'
+    service._parent(tenant,'owned',FARM,registration_checks=checks)
+    if field=='tenant':tenant='tenant-2'
+    elif field=='farm':packet['binding']['request']['farm']['crop_id']='crop-2'
+    elif field=='available_at':packet['binding']['request']['rights'][field]='2026-01-02T00:00:00Z'
+    else:packet['binding']['input']['period'][field]='2026-02-01T01:00:00Z'
+    service._parent(tenant,'owned',FARM,registration_checks=checks)
+    assert calls['registrations']==2 and calls['rights']==2
+
+
+def test_shared_registration_check_still_rejects_a_changed_original_binding():
+    service,packet,calls=parent_service();checks={}
+    service._parent('tenant-1','owned',FARM,registration_checks=checks)
+    packet['binding']['registration']['registered']='changed'
+    with pytest.raises(catalog.CropResultCatalogHold):
+        service._parent('tenant-1','owned',FARM,registration_checks=checks)
+
+
+def test_response_validation_phases_do_not_share_registration_checks():
+    service,rows,_=memory_service(catalog.KINDS[0]);original=service._item;phases=[]
+    def item(*args,registration_checks=None):
+        phases.append(registration_checks)
+        return original(*args,registration_checks=registration_checks)
+    service._item=item
+    service.read('tenant-1',catalog.KINDS[0],FARM,limit=2)
+    assert len(phases)==9 and all(type(value) is dict for value in phases)
+    assert phases[0] is phases[1] is phases[2]
+    assert phases[3] is phases[4] is phases[5]
+    assert phases[6] is phases[7] is phases[8]
+    assert phases[0] is not phases[3] and phases[3] is not phases[6]
+
+
+def test_registration_implementation_change_refuses_combined_checks(monkeypatch):
+    service=object.__new__(catalog.CropResultCatalog)
+    service.calculation=SimpleNamespace(_pointers=lambda:(),_binding=lambda:None);service.harvest=None
+    service._fixed=service._pointers()
+    service._binding()
+    monkeypatch.setattr(catalog,'REGISTRATION_CODE_SHA256','0'*64)
+    with pytest.raises(catalog.CropResultCatalogHold):service._binding()
