@@ -93,6 +93,8 @@ class ApiRuntimeDependencies:
     crop_cycle_calculation_result_store_factory: object = field(default=None, repr=False)
     crop_cycle_calculation_current_query_factory: object = field(default=None, repr=False)
     crop_harvest_current_query_factory: object = field(default=None, repr=False)
+    crop_climate_joint_result_store_factory: object = field(default=None, repr=False)
+    crop_climate_joint_current_query_factory: object = field(default=None, repr=False)
 
     def __post_init__(self):
         if (type(self.research_registry) is not ResearchRegistry or
@@ -109,6 +111,8 @@ class ApiRuntimeDependencies:
                 (self.crop_cycle_calculation_result_store_factory is not None and not callable(self.crop_cycle_calculation_result_store_factory)) or
                 (self.crop_cycle_calculation_current_query_factory is not None and not callable(self.crop_cycle_calculation_current_query_factory)) or
                 (self.crop_harvest_current_query_factory is not None and not callable(self.crop_harvest_current_query_factory)) or
+                (self.crop_climate_joint_result_store_factory is not None and not callable(self.crop_climate_joint_result_store_factory)) or
+                (self.crop_climate_joint_current_query_factory is not None and not callable(self.crop_climate_joint_current_query_factory)) or
                 (self.owned_fixture_registry is not None and type(self.owned_fixture_registry) is not OwnedFixtureRegistry) or
                 (self.owned_research_contexts is not None and
                     (type(self.owned_research_contexts) is not dict or self.owned_fixture_registry is None))):
@@ -137,6 +141,8 @@ class ApiRuntime:
     authored_simulation: AuthoredSimulationService | None = field(repr=False)
     crop_results: CropResultStore | None = field(repr=False)
     coupled_crop_results: CoupledCropResultStore | None = field(repr=False)
+    joint_crop_results: object = field(repr=False)
+    joint_crop_query: object = field(repr=False)
 
     def __init__(self, config, dependencies):
         try:
@@ -159,6 +165,12 @@ class ApiRuntime:
                     (config.policy.crop_cycle_calculation_result_storage and not config.policy.crop_cycle_result_storage)):
                 raise ValueError()
             if dependencies.crop_harvest_current_query_factory is not None and not config.policy.crop_cycle_calculation_result_storage:
+                raise ValueError()
+            if (config.policy.crop_climate_joint_result_storage !=
+                    (dependencies.crop_climate_joint_result_store_factory is not None) or
+                    config.policy.crop_climate_joint_result_storage !=
+                    (dependencies.crop_climate_joint_current_query_factory is not None) or
+                    (config.policy.crop_climate_joint_result_storage and not config.policy.crop_cycle_result_storage)):
                 raise ValueError()
             authored_option = (config.authored_run_gate_key is not None or
                 dependencies.authored_run_store_factory is not None)
@@ -278,6 +290,32 @@ class ApiRuntime:
                         calculation_cycle_crop_query.store is not calculation_cycle_crop_results):
                     raise ValueError()
                 calculation_cycle_crop_query._binding()
+            joint_crop_results = None
+            joint_crop_query = None
+            if dependencies.crop_climate_joint_result_store_factory is not None:
+                from .crop_climate_joint_result_store import JointCropClimateResultStore
+                from .crop_climate_joint_current_query import JointCropClimateCurrentQuery
+                if farm_authoring is None:
+                    raise ValueError()
+                joint_crop_results = dependencies.crop_climate_joint_result_store_factory(
+                    farm_authoring_service=farm_authoring)
+                if (type(joint_crop_results) is not JointCropClimateResultStore or
+                        joint_crop_results.jobs is not jobs or
+                        joint_crop_results.server.binding.farms is not farm_authoring or
+                        joint_crop_results.server.binding.jobs is not jobs or
+                        jobs.principal_provider is not current_principal):
+                    raise ValueError()
+                joint_crop_results._binding()
+                keys = (joint_crop_results.integrity_key, joint_crop_results.server.integrity_key,
+                        joint_crop_results.server.binding.input_authority.integrity_key)
+                if len(set(keys)) != 3:
+                    raise ValueError()
+                joint_crop_query = dependencies.crop_climate_joint_current_query_factory(
+                    result_store=joint_crop_results)
+                if (type(joint_crop_query) is not JointCropClimateCurrentQuery or
+                        joint_crop_query.store is not joint_crop_results):
+                    raise ValueError()
+                joint_crop_query._binding()
             harvest_crop_query = None
             harvest_crop_results = None
             if dependencies.crop_harvest_current_query_factory is not None:
@@ -344,7 +382,9 @@ class ApiRuntime:
                 crop_cycle_result_store=cycle_crop_results,crop_cycle_current_query=cycle_crop_query,
                 crop_cycle_calculation_result_store=calculation_cycle_crop_results,
                 crop_cycle_calculation_current_query=calculation_cycle_crop_query,
-                crop_harvest_current_query=harvest_crop_query)
+                crop_harvest_current_query=harvest_crop_query,
+                crop_climate_joint_result_store=joint_crop_results,
+                crop_climate_joint_current_query=joint_crop_query)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -362,5 +402,6 @@ class ApiRuntime:
                 ('cycle_crop_query', cycle_crop_query),
                 ('calculation_cycle_crop_results', calculation_cycle_crop_results),
                 ('calculation_cycle_crop_query', calculation_cycle_crop_query),
-                ('harvest_crop_results', harvest_crop_results), ('harvest_crop_query', harvest_crop_query)):
+                ('harvest_crop_results', harvest_crop_results), ('harvest_crop_query', harvest_crop_query),
+                ('joint_crop_results', joint_crop_results), ('joint_crop_query', joint_crop_query)):
             object.__setattr__(self, name, value)
