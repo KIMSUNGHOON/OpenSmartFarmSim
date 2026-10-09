@@ -13,7 +13,7 @@ import threading
 import time
 from unittest.mock import patch
 
-VERSION = 'owned-harvest-api-cost-v1'
+VERSION = 'owned-harvest-api-cost-v2'
 MAX_BYTES = 2 * 1024**2
 MAX_SECONDS = 30
 
@@ -49,6 +49,68 @@ def load_storage(source_root, code_sha256):
         p for p in sys.path if not (Path(p or os.getcwd()).resolve() / 'app').is_dir()
         and Path(p or os.getcwd()).resolve() != backend / 'tests']]
     return module('owned_harvest_cost_storage', path)
+
+
+def compatible_dependencies(saved, original_root, runtime_root):
+    original_root = Path(original_root).resolve(strict=True); runtime_root = Path(runtime_root).resolve(strict=True)
+    changed = []
+    for name, expected in saved['dependencies'].items():
+        path = Path(name).resolve(strict=True); relative = path.relative_to(original_root)
+        need(sha256(path.read_bytes()).hexdigest() == expected)
+        target = (runtime_root / relative).resolve(strict=True)
+        need(target.is_relative_to(runtime_root))
+        actual = sha256(target.read_bytes()).hexdigest()
+        if actual != expected:
+            need(relative.as_posix() == 'backend/app/crop_harvest_current_query.py')
+            changed.append(relative.as_posix())
+    return changed
+
+
+def original_manifest(original_root, runtime_root, manifest, digest, directory):
+    """Validate old absolute custody paths in a fresh exact-source Python, never another CLI."""
+    import subprocess
+    original_root = Path(original_root).resolve(strict=True); runtime_root = Path(runtime_root).resolve(strict=True)
+    path = original_root / 'research/crop-harvest-storage-preservation.py'
+    original_code = sha256(path.read_bytes()).hexdigest()
+    need(sha256((runtime_root / path.relative_to(original_root)).read_bytes()).hexdigest() == original_code)
+    output = directory / 'original-checked-manifest.private.json'
+    script = '''import importlib.util,sys
+from pathlib import Path
+spec=importlib.util.spec_from_file_location('owned_original_manifest_check',sys.argv[1])
+tool=importlib.util.module_from_spec(spec);spec.loader.exec_module(tool)
+storage=tool.load_storage(Path(sys.argv[2]),sys.argv[3])
+storage.checked(Path(sys.argv[4]),sys.argv[5])
+storage.backup.write(Path(sys.argv[6]),storage.runtime.private_bytes(Path(sys.argv[4])))
+print(sys.argv[5],flush=True)
+'''
+    argv = [sys.executable, '-B', '-c', script, str(Path(__file__).resolve()), str(original_root),
+            original_code, str(manifest), digest, str(output)]
+    sites = [str(Path(p).resolve()) for p in sys.path if Path(p or os.getcwd()).name in ('site-packages', 'dist-packages')]
+    env = {**os.environ, 'PYTHONDONTWRITEBYTECODE': '1', 'MALLOC_ARENA_MAX': '2',
+           'PYTHONPATH': os.pathsep.join([str(original_root / 'backend'), str(original_root / 'backend/tests'), *sites])}
+    started = time.monotonic(); timed_out = False
+    with (directory / 'original-validator.private.log').open('xb') as log:
+        os.fchmod(log.fileno(), 0o600)
+        try:
+            result = subprocess.run(argv, env=env, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
+                                    stderr=log, timeout=60, check=False)
+            exit_code, stdout = result.returncode, result.stdout
+        except subprocess.TimeoutExpired as error:
+            timed_out = True; exit_code = None; stdout = error.stdout or b''
+    invocation = {'argv': argv, 'actual_exit_code': exit_code, 'timed_out': timed_out,
+        'wall_seconds': time.monotonic() - started, 'stdout_sha256': sha256(stdout).hexdigest(),
+        'stderr_sha256': sha256((directory / 'original-validator.private.log').read_bytes()).hexdigest()}
+    operator_file(directory / 'original-validator-command.private.json', json.dumps(invocation, sort_keys=True).encode())
+    need(not timed_out and exit_code == 0 and stdout == (digest + '\n').encode())
+    raw = output.read_bytes(); need(sha256(raw).hexdigest() == digest)
+    saved = json.loads(raw); changed = compatible_dependencies(saved, original_root, runtime_root)
+    receipt = {'version': 'owned-original-harvest-reader-compatibility-v1', 'scope': 'owned_synthetic_only',
+        'original_manifest_sha256': digest, 'original_storage_code_sha256': original_code,
+        'original_source_root': str(original_root), 'runtime_source_root': str(runtime_root),
+        'changed_dependency_relative_paths': changed, 'validator': invocation,
+        'original_manifest_modified': False, 'new_result_or_proof_issued': False, 'G0_G4': 'not_assessed'}
+    operator_file(directory / 'reader-compatibility.private.json', json.dumps(receipt, sort_keys=True).encode())
+    return saved
 
 
 class Observation:
@@ -279,21 +341,24 @@ def measure(runtime, saved, farm, tokens, cert, check):
             'HTTPS_closed': True, 'shared_control_files_changed': False}
 
 
-def run(source_root, storage_code_sha256, manifest, digest, directory):
+def run(source_root, storage_code_sha256, manifest, digest, directory, *, original_source_root=None):
     import secrets
+    directory = Path(directory); directory.mkdir(mode=0o700)
+    need(directory.stat().st_mode & 0o777 == 0o700)
+    preverified = None if original_source_root is None else original_manifest(
+        original_source_root, source_root, manifest, digest, directory)
     storage = load_storage(source_root, storage_code_sha256); backup = storage.backup; h = backup.runtime
     from crop_harvest_storage_preservation_smoke import source_inventory
     from test_api_crop_cycle_calculation_tls import fd_inventory
     from psycopg import sql
     # This code stays separate from the frozen storage helper and its dependency identities.
     check = module('owned_harvest_cost_http_check', Path(__file__).with_name('crop-harvest-http-reconciliation.py'))
-    manifest = Path(manifest); saved = storage.checked(manifest, digest)
+    manifest = Path(manifest); saved = storage.checked(manifest, digest) if preverified is None else preverified
     parent = backup.checked(saved['parent_backup'], saved['parent_backup_sha256'])
     original_doc = json.loads(h.private_bytes(Path(saved['parent_backup']).parent / 'original-runtime.private'))
     roots = [manifest.parent, Path(original_doc['input']['directory']), Path(original_doc['server_directory']),
              Path(original_doc['rights_file']), Path(original_doc['principal_file'])]
-    before = source_inventory(roots); fds = fd_inventory(); directory = Path(directory); directory.mkdir(mode=0o700)
-    need(directory.stat().st_mode & 0o777 == 0o700)
+    before = source_inventory(roots); fds = fd_inventory()
     cert, secret = certificate(backup, directory)
     tokens = {name: secrets.token_urlsafe(40).encode() for name in ('owner', 'denied', 'foreign')}
     def forbidden(*_, **__): raise AssertionError('harvest HTTPS read attempted calculation or proof')
@@ -335,6 +400,8 @@ def run(source_root, storage_code_sha256, manifest, digest, directory):
         'original_sources_preserved': True, 'source_entries': len(before), 'FD_before_after': [len(fds), len(fd_inventory())],
         'owned_postmaster_absent': True, 'guarded_RHS_harvest_generation_registration_proof_calls': 0,
         'original_manifest_sha256': digest, 'storage_code_sha256': storage_code_sha256,
+        'reader_compatibility_receipt_sha256': sha256((directory / 'reader-compatibility.private.json').read_bytes()).hexdigest()
+            if preverified is not None else None,
         'realtime_progress': False, 'actual_crop_Runs': 0, 'G0_G4': 'not_assessed'}
     backup.write(directory / 'cost.private.json', backup.canonical(report))
     return report
@@ -348,8 +415,10 @@ def main():
     parser.add_argument('--manifest', type=Path, required=True)
     parser.add_argument('--sha256', required=True)
     parser.add_argument('--directory', type=Path, required=True)
+    parser.add_argument('--original-source-root', type=Path)
     args = parser.parse_args()
-    result = run(args.source_root, args.storage_code_sha256, args.manifest, args.sha256, args.directory)
+    result = run(args.source_root, args.storage_code_sha256, args.manifest, args.sha256, args.directory,
+                 original_source_root=args.original_source_root)
     print(json.dumps({'accepted': result['accepted'], 'scope': result['scope'], 'hold': result['hold']}), flush=True)
     raise SystemExit(0 if result['accepted'] else 2)
 

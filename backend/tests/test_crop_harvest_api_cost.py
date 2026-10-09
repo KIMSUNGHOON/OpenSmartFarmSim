@@ -165,3 +165,67 @@ except ValueError:pass
 else:raise AssertionError('foreign backend/code accepted')
 assert 'owned_harvest_cost_storage' not in sys.modules
 ''', ROOT, fault, tmp_path)
+
+
+@pytest.fixture
+def compatibility_tree(tmp_path):
+    original = tmp_path / 'original'; runtime = tmp_path / 'runtime'; dependencies = {}
+    for name in ('backend/app/crop_harvest_current_query.py', 'backend/app/crop_harvest_registry.py',
+                 'research/crop-harvest-parent-backup.py', 'research/crop-harvest-parent-runtime.py',
+                 'research/crop-harvest-storage-preservation.py'):
+        raw = ('owned original ' + name).encode()
+        for root in (original, runtime):
+            path = root / name; path.parent.mkdir(parents=True, exist_ok=True); write(path, raw)
+        dependencies[str(original / name)] = sha256(raw).hexdigest()
+    return original, runtime, {'dependencies': dependencies}
+
+
+def test_compatibility_accepts_only_new_reader_and_preserves_original_dependencies(compatibility_tree):
+    original, runtime, saved = compatibility_tree
+    assert cost.compatible_dependencies(saved, original, runtime) == []
+    path = runtime / 'backend/app/crop_harvest_current_query.py'; path.chmod(0o600); path.write_bytes(b'owned new reader')
+    before = json.dumps(saved, sort_keys=True)
+    assert cost.compatible_dependencies(saved, original, runtime) == ['backend/app/crop_harvest_current_query.py']
+    assert json.dumps(saved, sort_keys=True) == before
+
+
+@pytest.mark.parametrize('relative', ['backend/app/crop_harvest_registry.py', 'research/crop-harvest-parent-backup.py',
+                                    'research/crop-harvest-parent-runtime.py', 'research/crop-harvest-storage-preservation.py'])
+def test_compatibility_refuses_changes_outside_current_reader(compatibility_tree, relative):
+    original, runtime, saved = compatibility_tree
+    path = runtime / relative; path.chmod(0o600); path.write_bytes(b'changed dependency')
+    with pytest.raises(ValueError): cost.compatible_dependencies(saved, original, runtime)
+
+
+@pytest.mark.parametrize('fault', ['original-tamper', 'missing-runtime', 'outside-original', 'runtime-symlink'])
+def test_compatibility_refuses_tampering_missing_or_escaping_dependency(compatibility_tree, fault):
+    original, runtime, saved = compatibility_tree
+    relative = 'backend/app/crop_harvest_current_query.py'; path = original / relative; target = runtime / relative
+    if fault == 'original-tamper': path.chmod(0o600); path.write_bytes(b'tampered original')
+    elif fault == 'missing-runtime': target.unlink()
+    else:
+        outside = original.parent / 'outside.py'; write(outside, path.read_bytes())
+        if fault == 'outside-original':
+            saved['dependencies'][str(outside)] = sha256(outside.read_bytes()).hexdigest()
+        else: target.unlink(); target.symlink_to(outside)
+    with pytest.raises((ValueError, FileNotFoundError)): cost.compatible_dependencies(saved, original, runtime)
+
+
+def test_actual_frozen_validator_failure_records_invocation_without_loading_parent_app_or_network(tmp_path, monkeypatch):
+    manifest = tmp_path / 'invalid-manifest.private.json'; write(manifest, b'{}')
+    directory = tmp_path / 'observation'; directory.mkdir(mode=0o700)
+    before_modules = {name: value for name, value in sys.modules.items() if name == 'app' or name.startswith('app.')}
+    before_fds = fd_inventory()
+    def denied(*_, **__): raise AssertionError('parent network during frozen validation')
+    monkeypatch.setattr('socket.create_connection', denied)
+    with pytest.raises(ValueError, match='harvest_api_cost_rejected'):
+        cost.original_manifest(ROOT, ROOT, manifest, sha256(manifest.read_bytes()).hexdigest(), directory)
+    invocation = json.loads((directory / 'original-validator-command.private.json').read_bytes())
+    assert invocation['actual_exit_code'] != 0 and not invocation['timed_out']
+    assert invocation['argv'][0] == sys.executable and invocation['argv'][1:3] == ['-B', '-c']
+    assert invocation['stderr_sha256'] == sha256((directory / 'original-validator.private.log').read_bytes()).hexdigest()
+    assert not (directory / 'original-checked-manifest.private.json').exists()
+    assert not (directory / 'reader-compatibility.private.json').exists()
+    assert {name: value for name, value in sys.modules.items() if name == 'app' or name.startswith('app.')} == before_modules
+    assert fd_inventory() == before_fds and manifest.read_bytes() == b'{}'
+    assert (directory / 'original-validator-command.private.json').stat().st_mode & 0o777 == 0o600
