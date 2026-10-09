@@ -5,7 +5,13 @@
 [운영 기반 고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)에 둔다.
 아래 초안 날짜는 최초 작성일이다. 현재 구현 순서는 §7과 [작업 계획](../tasks/plan.md)을 따른다.
 
-**현재 실행 상태 — 2026-10-09 17:46 KST:** [완료 전체 생장 부모의 실제 API·3D/사용자 기동](../research/crop-full-parent-api-view-preview-20261009.md)을 로컬 수용하고 `http://localhost:5173/`을 전환했다.
+**현재 사용자 화면 — 2026-10-09 22:48 KST:** [완료 생장·수확 사용자 전환](../research/crop-harvest-full-user-preview-20261009.md)을 로컬 수용했다.
+`http://localhost:5173/`의 실제 DB/API는 완료 합성166일 생장47,809시점·수확47,813행과 같은 UTC 수치3D를 읽는다.
+원 수확3행/WebGL·독립 root·기존 서비스 종료0/새 서비스 생존·원본/DB/FD·WSL 한도를 확인했다.
+합성 저장/재생 부모만 수용하며 **계산 중 진행 상태·새 checkpoint의 실시간 U3와 최종 통합 UI는 미구현**이다.
+기후/물·양분/구매 에너지→사용자 실행/Decimal 경제와 실제 품종/독립 자료·G0–G4/생산/미래 마진/추천 hold를 유지한다.
+
+**당시 실행 상태 — 2026-10-09 17:46 KST:** [완료 전체 생장 부모의 실제 API·3D/사용자 기동](../research/crop-full-parent-api-view-preview-20261009.md)을 로컬 수용하고 `http://localhost:5173/`을 전환했다.
 원7678 실제 도구0/119.766초·같은 실제 SCRAM/보호 HTTPS/제품 App·WebGL에서
 고유5시점의50 C/N·LAI/기관값과5관리 사건의 원 UTC·값, 현재 권리/계정 거부·복원,
 조회 RHS/행 생성/게시/증명0·FD/원본2,146항목·검증 PG/소유 정리를 확인했다.

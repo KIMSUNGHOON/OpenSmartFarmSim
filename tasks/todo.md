@@ -98,6 +98,9 @@
   5조회/원 3시점·5행, 좁힌 원 20806 종료0의 첫/마지막 WebGL C/N/LAI 대사·페이지 오류0을 확인했다.
   기존 넓은 수확 브라우저 검사는 소유 합1GiB 초과로 중단해 보류를 남겼고, 이번 수확 조회는 HTTP 범위다.
   별도 DB/API/프론트엔드는 사용자 확인을 위해 실행을 유지한다. 성공 실행의 종료/재기동·전체 UI/G1은 미수용이다.
+  [현재 전체 생장·수확 전환](../research/crop-harvest-full-user-preview-20261009.md): 원20355/98309/58094/별도 root95128 실제0,
+  전체47,809시점/47,813행의 원 수확3행/같은 UTC WebGL·원본/DB/FD·WSL 한도를 확인했다.
+  기존37119 종료0/PG 정리 뒤 새24180은 의도적으로 실행 중이다. 실시간 상태/새 checkpoint의 U3는 미구현이다.
 - [ ] **`product-ui-result-catalog` (U1)** — 선행: 기존 농장 등록/현재 권리 조회와 저장 결과 조회.
   예정: `backend/app/crop_result_catalog.py`, `backend/tests/test_crop_result_catalog.py`,
   `web/src/CropResultCatalog.tsx`, `web/e2e/crop-result-catalog.spec.ts`, 별도 계약.
@@ -1291,7 +1294,7 @@
     [로컬 수용](../research/crop-harvest-events-implementation-20261008.md): 순수148개(원장61/질량44/배정43)·실제 SCRAM1개/원 종료0·6행/6규칙·네 목적 양수·관측 차이/미배정·독립 Decimal·전체/분할/한 행 페이지·권리/FD/406 source/정리.
     첫 driver nice race 종료1·원 pytest exit 미확인/통제 SIGINT·정리는 보존했고, pre-exec 우선순위 수정 v2만 수용했다.
     세 자식과 해당 실제 근거/검증이 모이기 전에는 부모를 체크하지 않는다.
-- [ ] **`crop-harvest-replay`** — 선행: `crop-removal-mass`, `crop-harvest-events`와 같은 작기의 검증된 현재 조회.
+- [x] **`crop-harvest-replay`** — 선행: `crop-removal-mass`, `crop-harvest-events`와 같은 작기의 검증된 현재 조회.
   기후/물·양분/구매 에너지 완료와 독립적으로 착수한다. 첫 예정 파일(3):
   `contracts/crop-harvest-replay-v1.md`, `backend/app/crop_harvest_replay.py`, `backend/tests/test_crop_harvest_replay.py`.
   착수 시 계약/불변 파생 결과·현재 권리 조회 → HTTP/SDK → 같은 UTC 표/3D를3~5파일 자식으로 나눈다.
@@ -1300,6 +1303,8 @@
   실제 DB/API/대표 WebGL에서 원 값·단위를 대사하고 전체 행 대사와 대표 화면 검사를 구분한다.
   사용자 산출물: 같은 UTC의 출처/가정/보류가 있는 질량·배정 재생. 합성 계수/배정은 실제 수확 예측으로 표시하지 않는다.
   실제 생산량 게시에는 부모의 실제 계수/수확 근거와 해당 G0/G1, 미래 예측에는 G2/G3a가 추가로 필요하다.
+  [전체 합성 재생 수용](../research/crop-harvest-full-user-preview-20261009.md): 전체 writer/Decimal·fresh 현재권리 복원,
+  보호 API/SDK·대표 WebGL/수확 표·조기 종료·사용자 전환의 증거를 대조했다. 실제 품종/예측 관문·U1/U3는 별도다.
   - [x] **`crop-harvest-artifact`** — 첫 위3파일. 원 결과·계수/배정 원문 hash/판본·UTC·단위·미배정/hold를 불변 파생 artifact에 결속한다.
     수용: 현재 검증 조회만 소비·bounded page/bytes·단일/분할 읽기 동일·원 행과 질량/배정 전체 대사·hash/atomic HEAD·중단 전후 복원·별도 Python/RHS0.
     권리 철회/원본 변경 뒤 게시를 거부하고 기존 artifact/수식을 보존한다. 작은 실제 현재 DB 조회/소유 WSL 자원 상한·정리 뒤 자식만 체크한다.
@@ -1376,11 +1381,14 @@
     [로컬 수용](../research/crop-harvest-full-capacity-implementation-20261009.md): 원78826 종료0·집중38개/전체85.238초·47,813행 전부 독립 Decimal/원 UTC·hash 대사.
     748page/307,675,603bytes·예약 상한311,878,099bytes≤512MiB·root 알려진 필드95,883bytes·목적/미배정/leaf-stem 분리·1,474 source/원본/FD identity·소유 정리.
     순차 RSS 단일106.55MiB/소유 합125.51MiB. 실제 전체 writer/DB/HTTP/현재권리 복원은0회며 그 부모는 미완료다.
-  - [ ] **`crop-harvest-full-mass-load`** — 선행 용량 수용과 기존 등록 query/API/작은 native.
+  - [x] **`crop-harvest-full-mass-load`** — 선행 용량 수용과 기존 등록 query/API/작은 native.
     착수 시 전체 writer/등록·별도 Python 현재권리 복원·API/대표 WebGL을3~5 core파일 자식으로 나눈다.
     수용: 같은 원 전체 결과/계수·배정/UTC의 모든 행/질량·불변 저장/DB·RHS0 읽기·실제 현재권리/계정 거부와 원 명령 종료/소유 자원 정리.
     전체 행 대사와 대표 프레임 검증을 구분하고 관측된 용량/시간 안에서 수행한다. 실제 품종/미래 생산량으로 승격하지 않는다.
     두 전체 자식의 증거가 모인 뒤 `crop-harvest-replay` 부모를 평가한다.
+    [합성 전체 부하 수용](../research/crop-harvest-full-user-preview-20261009.md): 원96517/3349의47,813행·독립 Decimal/fresh,
+    원70467/72505/89030의 실제 전체 API/대표3D·현재 권한·조기 종료, 원58094/95128의 사용자 전환/원본/FD/정리를 대조했다.
+    지정 무압축 App/Chromium의 한정된 WSL 수용이다. 일반 압축 빌드 후속 자식은 추가 용량 보완으로 남기며 여기서 수용하지 않는다.
     - [x] **`crop-harvest-parent-backup`** — 전체 부모 후속 조회를 위한 작은 DB/원 인증 자료 보존 자식.
       [core4 계약](../contracts/crop-harvest-parent-backup-v1.md)·[로컬 수용](../research/crop-harvest-parent-backup-implementation-20261009.md):
       원90143 종료0·집중11개/실제 DB1개·원 DB 정리 후 fresh Python 실제 SCRAM 복원.
@@ -1516,13 +1524,18 @@
       새3/집중149개·원89030/별도 root 실제0·같은 원 DB/TLS에서 실제500→422·미완료 query0,
       정상 summary/첫64행의 원 wire·현재 Scope403/다른 계정404/표시권422·복원,
       37.418초/7응답·원본2,148항목/DB/FD·조회 계산/생성/게시/proof0·WSL 상한/소유 정리를 확인했다.
-      원26424 종료0은 수정 전500 재현이며 수용 성공이 아니다. 현재 사용자 수확 미리보기/U3·상위 replay는 남았다.
-    - [ ] **`crop-harvest-full-user-preview`** — 선행 전체 writer/API/대표3D·조기 종료 보완.
+      원26424 종료0은 수정 전500 재현이며 수용 성공이 아니다. 당시 사용자 수확 미리보기/상위 replay는 별도였고 후속 전환에서 평가했다. U3는 남았다.
+    - [x] **`crop-harvest-full-user-preview`** — 선행 전체 writer/API/대표3D·조기 종료 보완.
       수정된 고정 source와 원 저장 결과를 사용하는 소유 서비스·감독/전환·접속 안내를3~5 core파일로 준비한다.
       수용: 같은 원 전체 생장/수확의 정상 보호 summary/첫·끝 page 원 bytes·현재 권한·frontend200,
       수용된 빌드와 현재 웹 source/자산 일치·미리보기 안내·조회 재계산0·원본/FD를 확인한다.
       기존 사용자 미리보기를 새 후보 확인까지 보존하고 정확한 소유 identity 아래 기존 서비스/PG를 정리한 뒤5173을 전환한다.
       원 기동 handle/현재 live identity·WSL 상한을 기록한다. 토큰은 private 안내에만 두며 사용자 자동 선택/U3·실제 작물 관문은 별도다.
+      [core5/실제 전환 수용](../research/crop-harvest-full-user-preview-20261009.md): 서버7ff954b/관측74557e1,
+      후보20355·전환 후98309·실제 화면58094·독립 root95128 실제0. 원 수확3행/같은 UTC50 C/N·LAI,
+      scope403/다른 계정404·첫64/끝1 원 wire·DB 불변/서비스FD8→8/root3→3·원본2,148/custody2,927 보존이다.
+      기존37119 종료0/PG data 부재 뒤5173/8445로 전환했고 새24180은 의도적으로 live다. 정상 종료0을 주장하지 않는다.
+      최종 브라우저 단일/합 RSS405,037,056/810,868,736bytes·소유 정리를 통과했다. 앞선 실패는 보존한다.
 - [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.
   예정 파일(3): `backend/app/crop_climate_coupling.py`, `backend/tests/test_crop_climate_coupling.py`,
   `contracts/crop-climate-coupling-v1.md`.

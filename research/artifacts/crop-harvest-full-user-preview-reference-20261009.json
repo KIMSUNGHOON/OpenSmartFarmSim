@@ -1,0 +1,361 @@
+{
+  "CLI": {
+    "model": "gpt-6.1-sol",
+    "native_turn_context_raw_sha256": "28cbc48187b21809c3f1d1dd79c163ed4eefd66d9d331a2cecba10204c2ac33a",
+    "native_turn_context_timestamp": "2026-10-09T13:37:37.612Z",
+    "reasoning_effort": "xhigh",
+    "recursive_CLI_invocations": 0
+  },
+  "G0_G4": "not_assessed",
+  "accepted": true,
+  "accepted_probes": {
+    "browser-v5": {
+      "RSS_samples": 142,
+      "actual_child_exit": 0,
+      "all_protected_live": true,
+      "browser": {
+        "G0_G4": "not_assessed",
+        "accepted": true,
+        "actual_WebGL": true,
+        "actual_origin": "http://localhost:5173/",
+        "browser_body_copy": false,
+        "browser_body_sha256_claim": false,
+        "browser_completion_evidence": "decoded original UI values plus independent server completion",
+        "errors": [],
+        "harvest_rows_checked": 3,
+        "harvest_total": 47813,
+        "network": [
+          {
+            "cache": "no-store",
+            "endpoint": "crop",
+            "offset": null,
+            "response_content_length": 9628,
+            "status": 200,
+            "view": "summary"
+          },
+          {
+            "cache": "no-store",
+            "endpoint": "crop",
+            "offset": "0",
+            "response_content_length": 65064,
+            "status": 200,
+            "view": "samples"
+          },
+          {
+            "cache": "no-store",
+            "endpoint": "harvest",
+            "offset": null,
+            "response_content_length": 16519,
+            "status": 200,
+            "view": "summary"
+          },
+          {
+            "cache": "no-store",
+            "endpoint": "harvest",
+            "offset": "0",
+            "response_content_length": 33836,
+            "status": 200,
+            "view": "records"
+          }
+        ],
+        "realtime_progress": false,
+        "routes_or_response_substitutions": 0,
+        "same_UTC_original_50_C_N_and_LAI": true,
+        "sample_count": 47809,
+        "selected_sample_index": 0,
+        "transportEvents": [
+          {
+            "endpoint": "crop",
+            "error": "net::ERR_ABORTED",
+            "offset": "0",
+            "view": "samples"
+          },
+          {
+            "endpoint": "harvest",
+            "error": "net::ERR_ABORTED",
+            "offset": null,
+            "view": "summary"
+          },
+          {
+            "endpoint": "harvest",
+            "error": "net::ERR_ABORTED",
+            "offset": "0",
+            "view": "records"
+          }
+        ]
+      },
+      "combined_peak_RSS_bytes": 810868736,
+      "original_exec": 58094,
+      "owned_non_zombie_remaining": [],
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 405037056,
+      "source_pins_preserved": true,
+      "terminal_chunk": "cea193",
+      "terminal_sha256": "c2c9cc812c8d42b90626d4414110a5c77c8f30a3fd4123ce4c5dc6401d32748f",
+      "wall_seconds": 37.66778676898684
+    },
+    "candidate": {
+      "RSS_samples": 198,
+      "actual_child_exit": 0,
+      "all_protected_live": true,
+      "combined_peak_RSS_bytes": 621432832,
+      "original_exec": 20355,
+      "owned_non_zombie_remaining": [],
+      "responses": [
+        {
+          "bytes": 9628,
+          "endpoint": "crop",
+          "label": "summary",
+          "offset": null,
+          "seconds": 5.8284934910188895,
+          "sha256": "0a2a5ddbb0051cfcfe5757ab2dd488be8cebd22dc0679cd9b7a462ef0fab31f7",
+          "status": 200,
+          "subject": "owner"
+        },
+        {
+          "bytes": 16519,
+          "endpoint": "harvest",
+          "label": "summary",
+          "offset": null,
+          "seconds": 8.812113710999256,
+          "sha256": "6a71d8f434677a2f0b83d40cea85ea07aa1144469677e588a792e40f761dff26",
+          "status": 200,
+          "subject": "owner"
+        },
+        {
+          "bytes": 65064,
+          "endpoint": "crop",
+          "label": "samples",
+          "offset": 0,
+          "seconds": 6.404301408998435,
+          "sha256": "b351b693f04d57360c40c449c3f1874bb118f112220d559ce69070abc040cb0f",
+          "status": 200,
+          "subject": "owner"
+        },
+        {
+          "bytes": 13839,
+          "endpoint": "crop",
+          "label": "samples",
+          "offset": 47808,
+          "seconds": 6.37515312700998,
+          "sha256": "b8eef69289f8477e25a5c2e47287da8a8e4e9c4dae0173a876bea223889a6e1a",
+          "status": 200,
+          "subject": "owner"
+        },
+        {
+          "bytes": 486219,
+          "endpoint": "harvest",
+          "label": "first",
+          "offset": null,
+          "seconds": 10.934179834002862,
+          "sha256": "95177625ec1a4f9fe9d85af0e25bea0ce6b8995befe33031488d0a32cf029c7f",
+          "status": 200,
+          "subject": "owner"
+        },
+        {
+          "bytes": 9027,
+          "endpoint": "harvest",
+          "label": "last",
+          "offset": null,
+          "seconds": 10.733032931981143,
+          "sha256": "76c8d685e6fd63778ef699991c8887c7ec3938ccceb698767223d78287ce8020",
+          "status": 200,
+          "subject": "owner"
+        },
+        {
+          "bytes": 65,
+          "endpoint": "harvest",
+          "label": "summary",
+          "offset": null,
+          "seconds": 0.002396585972746834,
+          "sha256": "1ae0610a2bc3c4299f75db4623b6163cb075b5bd5fc5f919848892c95a2b84d2",
+          "status": 403,
+          "subject": "denied"
+        },
+        {
+          "bytes": 76,
+          "endpoint": "harvest",
+          "label": "summary",
+          "offset": null,
+          "seconds": 0.08234537599491887,
+          "sha256": "f490581a2b5368661de0da12a8a679c160c6e6b9bf85b181831327ff4ba25339",
+          "status": 404,
+          "subject": "foreign"
+        }
+      ],
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 145907712,
+      "source_pins_preserved": true,
+      "terminal_chunk": "c48c15",
+      "terminal_sha256": "643bea8f52784fc328d7d9414567b6fd720e8f013be9441ac88476ef561ad972",
+      "wall_seconds": 51.81381629200769
+    },
+    "cutover": {
+      "RSS_samples": 65,
+      "actual_child_exit": 0,
+      "all_protected_live": true,
+      "combined_peak_RSS_bytes": 413446144,
+      "original_exec": 98309,
+      "owned_non_zombie_remaining": [],
+      "responses": [
+        {
+          "bytes": 9628,
+          "endpoint": "crop",
+          "label": "summary",
+          "offset": null,
+          "seconds": 6.105960582004627,
+          "sha256": "0a2a5ddbb0051cfcfe5757ab2dd488be8cebd22dc0679cd9b7a462ef0fab31f7",
+          "status": 200,
+          "subject": "owner"
+        },
+        {
+          "bytes": 16519,
+          "endpoint": "harvest",
+          "label": "summary",
+          "offset": null,
+          "seconds": 8.783279239985859,
+          "sha256": "6a71d8f434677a2f0b83d40cea85ea07aa1144469677e588a792e40f761dff26",
+          "status": 200,
+          "subject": "owner"
+        }
+      ],
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 147087360,
+      "source_pins_preserved": true,
+      "terminal_chunk": "fe71ad",
+      "terminal_sha256": "649dbaa00a029c6b4adf9a68236850b57707b86b92f0c11758b81c9dfa8dc6b8",
+      "wall_seconds": 16.655892734997906
+    }
+  },
+  "actual_crop_Runs": 0,
+  "actual_cultivar_inputs": 0,
+  "browser_observer_commit": "74557e1d4ffa9bf960e7905b257947a1eb40114b",
+  "core_commit": "7ff954b464a63f829f1f949621a3ec3f4d1623bd",
+  "cutover": {
+    "current_backend": "https://127.0.0.1:8445",
+    "current_frontend": "http://localhost:5173/",
+    "current_live_actual_exit": null,
+    "current_live_intentionally_preserved": true,
+    "current_live_original_exec": 24180,
+    "old_actual_exit": 0,
+    "old_controller_service_PG_data_gone": true,
+    "old_original_exec": 37119,
+    "old_terminal_chunk": "35ac1a",
+    "owned_nginx_config_test_exit": 0,
+    "owned_nginx_master_pidfd_SIGHUP": true,
+    "retirement_actual_exit": 0,
+    "retirement_original_exec": 76757,
+    "retirement_terminal_chunk": "6052b4"
+  },
+  "harvest_row_count": 47813,
+  "independent_domestic_datasets": 0,
+  "observed_at": "2026-10-09T22:48:47+09:00",
+  "original_manifest_sha256": "3b1de5683fdd01024b95c1eb7a3ea335717eecff2c4f3f97f5c5e2eca1061752",
+  "parent_acceptance_scope": "synthetic storage/current-query/API/representative-WebGL only; ordinary minified-build and integrated U1/U3 remain separate",
+  "production_forecast_margin_ranking": "hold",
+  "realtime_U3": false,
+  "root_audit": {
+    "DB_counts": {
+      "crop_cycle_verified_research_results": 1,
+      "harvest": 1,
+      "job_events": 89,
+      "jobs": 89,
+      "thermal_g1_runs": 0
+    },
+    "actual_exit": 0,
+    "all_source_metadata_assets_preserved": true,
+    "browser_body_sha256_claim": false,
+    "browser_server_completed_headers_lengths_equal": true,
+    "custody_entries": 2927,
+    "frontend": {
+      "bytes": 477,
+      "sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1",
+      "status": 200
+    },
+    "frozen_source_entries": 1658,
+    "guarded_math_publication_calls": 0,
+    "no_transient_owned_remaining": true,
+    "observer_source_entries": 1658,
+    "old_controller_service_PG_data_gone": true,
+    "original_exec": 95128,
+    "original_source_entries": 2148,
+    "proof_sha256": "d156af4837e1f4a1ff3ad3bed1c06bd5b3b116ce0d37383b48a37e4c14e79d66",
+    "root_FD_before_after_equal": true,
+    "root_FD_count": 3,
+    "service_FD_before_after_equal": true,
+    "service_FD_count": 8,
+    "terminal_chunk": "9c05ae"
+  },
+  "same_actual_SCRAM_DB": true,
+  "sample_count": 47809,
+  "schema_version": "full-harvest-user-preview-reference-v1",
+  "scope": "owned_completed_full166_synthetic_growth_harvest_user_preview",
+  "screenshot": {
+    "actual_image_inspected": true,
+    "file": "harvest-full-user-preview-desktop-20261009.png",
+    "masked_inputs": true,
+    "sha256": "0bc9515104e7d52b83c369d6e841bfaae79955dd03d8d4ee290ef4a568db14d4"
+  },
+  "unaccepted_browser_attempts": [
+    {
+      "accepted": false,
+      "actual_exit": 1,
+      "all_protected_live": true,
+      "combined_peak_RSS_bytes": 753618944,
+      "original_exec": 20940,
+      "owned_non_zombie_remaining": [],
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 316276736,
+      "source_pins_preserved": true,
+      "stage": "browser",
+      "terminal_chunk": "048071",
+      "terminal_sha256": "608844fe0d6a1b7db2837b3b9e5601d126501104dfb42e098d1c6c622f8f418c",
+      "wall_seconds": 9.366695992997847
+    },
+    {
+      "accepted": false,
+      "actual_exit": 1,
+      "all_protected_live": true,
+      "combined_peak_RSS_bytes": 791904256,
+      "original_exec": 34112,
+      "owned_non_zombie_remaining": [],
+      "reason": "wall_limit",
+      "single_PID_peak_RSS_bytes": 396849152,
+      "source_pins_preserved": true,
+      "stage": "browser-v2",
+      "terminal_chunk": "703aab",
+      "terminal_sha256": "502e2d3465145b699e7cb4bf0151d51638fd30cd817333ee5f42296754307ff1",
+      "wall_seconds": 180.256251305982
+    },
+    {
+      "accepted": false,
+      "actual_exit": 1,
+      "all_protected_live": true,
+      "combined_peak_RSS_bytes": 824459264,
+      "original_exec": 82339,
+      "owned_non_zombie_remaining": [],
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 386854912,
+      "source_pins_preserved": true,
+      "stage": "browser-v3",
+      "terminal_chunk": "3e5068",
+      "terminal_sha256": "d08381a1ce85497b917e76e58d62164be1890caa128e8d0b6960e9217ad7be68",
+      "wall_seconds": 37.357199001009576
+    },
+    {
+      "accepted": false,
+      "actual_exit": 1,
+      "all_protected_live": true,
+      "combined_peak_RSS_bytes": 924360704,
+      "original_exec": 29343,
+      "owned_non_zombie_remaining": [],
+      "reason": "RSS_limit",
+      "single_PID_peak_RSS_bytes": 540327936,
+      "source_pins_preserved": true,
+      "stage": "browser-v4",
+      "terminal_chunk": "b351c1",
+      "terminal_sha256": "204a13e1f0e533e62ff1fd799723cdc17c326eec1a2c3c4f55ad154061c71022",
+      "wall_seconds": 40.402650584990624
+    }
+  ]
+}
