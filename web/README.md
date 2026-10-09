@@ -10,7 +10,11 @@
 
 새 접속 토큰과 원 결과의 다섯 입력값은 저장소 밖의 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v1/service/OPEN-UI.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v3/service/OPEN-UI.private.txt`
+
+2026-10-10 기존 서비스 종료를 확인한 뒤 보존 원본으로 재기동했다.
+이전 토큰 대신 위 새 안내를 사용한다. 인증된 생장/수확 summary의 원 wire 일치·계산0을
+[복구 기록](../research/crop-climate-joint-result-store-implementation-20261010.md#기존-사용자-ui의-실제-종료-확인과-복구)에서 확인했다.
 
 1. 위 파일을 로컬 편집기로 열고 **내부 시험 연결 → 접근 토큰 → 연결 설정**을 선택한다.
 2. **08 성장 연구 3D → 저장 결과 판본: calculation cycle v1**을 선택한다.

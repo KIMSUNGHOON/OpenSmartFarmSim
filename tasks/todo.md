@@ -1688,10 +1688,12 @@
       root는 원 서명 영수증의3→2→1→0/HMAC·key/domain/JSON 거부6개를 대사했으며 정리된 DB의 live query가 아니다.
       공유 전6개 검사 파일의 child 실행 경로만 보완하고 부모 PYTHONPATH 없는12개 집중 검사를 통과했다.
       .25초 최대 단일/합 RSS147,255,296/605,310,976bytes·원본2,148/source1,739/기동 UI 보존. 기존 전체166일/82/993 전체 회귀는 재실행하지 않았다.
-    - [ ] **`crop-climate-joint-result-registry`** — 선행: 새 서명 이력/현재 권리. 현재 저장 schema/역할·판본 제약을 대조해 core 경계를 고정한다.
+    - [x] **`crop-climate-joint-result-registry`** — 선행: 새 서명 이력/현재 권리. 현재 저장 schema/역할·판본 제약을 대조해 core 경계를 고정한다.
       새 공동 결과/원 evidence·서명/불변 페이지/UTC를 현재 tenant/farm에 원자 등록하고 fresh 현재 권리·원 bytes/이전 결과 공존을 검증한다.
       이후 현재 권리의2MiB API→같은 UTC 수치3D→사용자 실행/U3로 연결한다. 별도 queue/service 추가를 선행 조건으로 두지 않는다.
       아래3자식이 실제 수용된 뒤 부모를 평가한다. 이전 schema는 model/version/ref/scope를 고정하므로 새 tag/계약이 필요하다.
+      2026-10-10 schema/roles/store3자식과 실제 SCRAM9개·fresh 원 bytes/UTC·현재 권리/rollback/충돌/기존 행 보존의
+      [수용 근거](../research/crop-climate-joint-result-store-implementation-20261010.md)로 작은 합성 저장 부모를 수용했다. API/3D/U3·관문은 별도다.
       - [x] **`crop-climate-joint-result-schema`** — core3: `backend/app/crop_climate_joint_result_schema.py`, 해당 tests,
         `contracts/crop-climate-joint-result-schema-v1.md`. 새 불변 metadata SQL·source/context/UTC/evidence/서명 참조·tenant/farm FK.
         수용: 실제 PG 정상 원 bytes/컬럼·닫힌/중복 JSON·SHA·unique intent·숫자/용량·수정/삭제 거부와 기존 결과 보존, 소유 정리/실제 종료.
@@ -1712,11 +1714,36 @@
         원 로더3개 실패→제품 호환 수정→기존132개 통과다. 기존 설정은 새 flag의 누락/False만 허용하고 True 활성화는 후속이다.
         원54207/76363/27860 실제0·5.080/21.536/35.036초·FD/PG/schema/role/passfile 정리·원본2,148/source1,748/UI 보존,
         .25초 단일/합 RSS147,255,296/543,592,448bytes다. 새 store/API/U3·PG17+ 새 hosted·관문은 미수용이며 새 서비스/queue는 추가하지 않았다.
-      - [ ] **`crop-climate-joint-result-storage`** — 선행: 새 schema/역할/현재 server custody. core3는 새 store module/해당 tests/contract.
-        다음 core3: `backend/app/crop_climate_joint_result_store.py`, `backend/tests/test_crop_climate_joint_result_store.py`,
+      - [x] **`crop-climate-joint-result-storage`** — 선행: 새 schema/역할/현재 server custody. core3는 새 store module/해당 tests/contract.
+        core3: `backend/app/crop_climate_joint_result_store.py`, `backend/tests/test_crop_climate_joint_result_store.py`,
         `contracts/crop-climate-joint-result-store-v1.md`.
         수용: tenant/farm·원 evidence/HEAD/root/UTC·독립 domain/id/HMAC·원자 등록/중복 충돌·rollback·현재 철회·fresh 실제 DB/조회 계산0·이전 결과 공존/정리.
-        기존 store266줄 근거의2–4집중시간 잠정. HTTP2MiB와3D·사용자 실행/U3는 후속이다.
+        [core2c0f305/로컬 수용](../research/crop-climate-joint-result-store-implementation-20261010.md): 실제 SCRAM7그룹/고유9개·원3sample/3event/마이크로초 UTC,
+        별도 exec1973421 원 bytes/최초 시각·조회8종 계산0·기본/미완료/잠금/현재 철회·commit 전/후/강제 오류 rollback·변조/같은 판본 충돌,
+        이전2테이블 schema-only 원 행/권한·실제 종료/소유 정리를 통과했다. 과거 signed 판본 이관은 수용하지 않았다.
+        원64000/57435/48880/24586/94592/12534/44137 실제0·합548.478초·FD4→4·원본2,148/source1,753/복구 UI 보존,
+        .25초 단일/합 RSS126,730,240/590,618,624bytes다. 약24분에는 UI 종료 확인/복구·집중 검사가 포함된다.
+        기존233/82/993·전체166일/새 WebGL은 재실행하지 않았다. HTTP2MiB와3D·사용자 실행/U3는 후속이다.
+    - [ ] **`crop-climate-joint-result-projection`** — 다음 core3: `backend/app/api_crop_climate_joint_replay.py`,
+      `backend/tests/test_api_crop_climate_joint_replay.py`, `contracts/api-crop-climate-joint-replay-v1.md`.
+      선행: 새 store의 원 metadata/terminal/page. 기존121상태 응답으로 새108상태를 위장하지 않는 닫힌 새 tag/DTO다.
+      수용: 같은 source/context/root/crop/batch/zone·원108상태/22장부·사건·UTC/순서/단위·completed/hold/마지막 확정값 보존,
+      code/profile/QC 판본·2MiB/페이지 한도·혼합/잘못된 숫자·추가 필드 거부·원 대사/조회 계산0; raw 입력/비밀/권리 내부 기록은 공개 필드에서 제외한다.
+      기존220줄 projection과 이번 원 packet/페이지 근거의2–4집중시간 잠정. 새 HTTP/runtime/브라우저는 이 자식의 수용이 아니다.
+    - [ ] **`crop-climate-joint-current-http`** — 선행: 새 projection/store.
+      새 current reader/route·기존 API 연결/해당 tests/계약의 변경 경계는 착수 때 고정한다.
+      수용: 같은 custody 세션의 현재 농장/자료/계정·서명/원 bytes를 투영/직렬화 전후 확인한 인증 GET,
+      summary/samples/events·2MiB·중복/여분 query/본문/연결 종료·404/권한/hold/미조립 거부와 실제 SCRAM/HTTPS·늦은 철회·조회 계산0/FD/원본 보존.
+      API 비용을 실측한 뒤 후속 시간 추정을 갱신한다. 별도 queue/service를 추가하지 않는다.
+    - [ ] **`crop-climate-joint-runtime-assembly`** — 선행: 새 current HTTP·원 input authority/farm/custody/store.
+      기존 operator 판본의 새 flag 누락/False 호환을 유지하고 새 명시 True를 활성화하는 닫힌 판본/factory를 조립한다.
+      수용: 같은 jobs/farm·정확한 타입/권리/모델/code pin·별도 key·명시 provisioned 권한·미조립/오조립 거부,
+      실제 공유 DB/TLS로 원 결과를 읽고 재계산/새 행/자동 관문 승격이 없음. 자격증명은 private에 보존한다.
+    - [ ] **`crop-climate-joint-numerical-3d`** — 선행: 새 typed HTTP/runtime, 기존 저장 결과 선택/3D 경로.
+      새 typed client/view/동일 시각 adapter와 tests/계약의 변경 경계는 착수 때 고정한다.
+      수용: 새108상태의 원 leaf/LAI·과실50 C/N·계산된 수관/공기 온도와 장부·사건/UTC를 같은 선택/표/그래프/WebGL에서 대사,
+      원 행/시각 이동·hold/결측/권리 철회·잘못된 판본·늦은 응답 정리와 기존121상태/전체166일 보기 공존·WSL 한도/원본 보존.
+      임의 생장/기후 애니메이션이나 실제 품종 외형/생산 예측으로 제시하지 않는다. 실시간 확정 prefix/U3는 `crop-execution-link`의 후속 수용이다.
 - [ ] **`crop-water-nutrient`** — 선행: 작물/기후 결합·배지/급배액/성분 근거.
   예정 파일(3): `backend/app/crop_water_nutrient.py`, `backend/tests/test_crop_water_nutrient.py`,
   `contracts/crop-water-nutrient-v1.md`.
