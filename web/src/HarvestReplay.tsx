@@ -7,8 +7,8 @@ import './HarvestReplay.css';
 
 type Props=Readonly<{api:ReturnType<typeof createApi>|null;parent:CalculationCycleCropSummaryResponse|null;
   samplePage:CalculationCycleCropPageResponse|null;selectedAt:string|null;
-  selectSample:(globalIndex:number)=>void;invalidate:(error:ApiError)=>void}>;
-type Visible=Readonly<{api:Props['api'];parent:Props['parent'];id:string;phase:'loading'|'ready'|'error';
+  selectSample:(globalIndex:number)=>void;invalidate:(error:ApiError)=>void;initialResultId?:string}>;
+type Visible=Readonly<{api:Props['api'];parent:Props['parent'];id:string;selectionId:string|null;phase:'loading'|'ready'|'error';
   summary:HarvestSummaryResponse|null;page:HarvestPageResponse|null;error:ApiError|null}>;
 const LIMIT=3;
 const PURPOSE={harvest:'수확',thinning:'솎기',disposal:'폐기',sampling:'표본',unassigned:'미배정'};
@@ -19,13 +19,18 @@ function Amount({q,original=false,unassigned=false}:{q:{value:number;unit:string
 }
 
 export default function HarvestReplay(props:Props){
-  const {api,parent,samplePage,selectedAt,selectSample,invalidate}=props;
+  const {api,parent,samplePage,selectedAt,selectSample,invalidate}=props,selectionId=props.initialResultId??null;
   const [id,setId]=useState(''),[visible,setVisible]=useState<Visible|null>(null);
-  const live=useRef({api,parent,id,invalidate});live.current={api,parent,id,invalidate};
+  const [autoLoad,setAutoLoad]=useState<Readonly<{api:Props['api'];parent:Props['parent'];id:string}>|null>(null);
+  const live=useRef({api,parent,id,selectionId,invalidate});live.current={api,parent,id,selectionId,invalidate};
   const generation=useRef(0),controller=useRef<AbortController|null>(null),pending=useRef<Promise<void>>(Promise.resolve());
-  const state=visible?.api===api&&visible.parent===parent&&visible.id===id?visible:null;
-  function cancel(){generation.current++;controller.current?.abort();controller.current=null;setVisible(null);}
-  useEffect(()=>{cancel();setId('');return()=>{generation.current++;controller.current?.abort();};},[api,parent]);
+  const state=visible?.api===api&&visible.parent===parent&&visible.id===id&&visible.selectionId===selectionId?visible:null;
+  function cancel(){generation.current++;controller.current?.abort();controller.current=null;setVisible(null);setAutoLoad(null);}
+  useEffect(()=>{cancel();setId(selectionId??'');
+    if(api&&parent&&selectionId)setAutoLoad({api,parent,id:selectionId});
+    return()=>{generation.current++;controller.current?.abort();};
+  },[api,parent,selectionId]);
+  useEffect(()=>{if(autoLoad?.api===api&&autoLoad?.parent===parent&&autoLoad?.id===id)load();},[autoLoad,api,parent,id]);
   const binding=useMemo(()=>{
     if(!parent||state?.phase!=='ready'||!state.summary||!state.page)return null;
     try{return bindHarvestGrowthWindow({crop_summary:parent,sample_page:samplePage,
@@ -36,24 +41,24 @@ export default function HarvestReplay(props:Props){
     if(!api||!parent)return;
     const lookup={...parent.farm,result_id:id};cancel();
     if(!validHarvestLookup(lookup)){
-      setVisible({api,parent,id,phase:'error',summary:null,page:null,error:new ApiError('invalid_request')});return;
+      setVisible({api,parent,id,selectionId,phase:'error',summary:null,page:null,error:new ApiError('invalid_request')});return;
     }
     const client=api,crop=parent,version=++generation.current,owned=new AbortController();controller.current=owned;
     const current=()=>generation.current===version&&!owned.signal.aborted&&live.current.api===client
-      &&live.current.parent===crop&&live.current.id===lookup.result_id;
+      &&live.current.parent===crop&&live.current.id===lookup.result_id&&live.current.selectionId===selectionId;
     const prior=pending.current;
-    setVisible({api:client,parent:crop,id:lookup.result_id,phase:'loading',summary:null,page:null,error:null});
+    setVisible({api:client,parent:crop,id:lookup.result_id,selectionId,phase:'loading',summary:null,page:null,error:null});
     pending.current=prior.catch(()=>{}).then(async()=>{
       if(!current())return;
       try{
         const summary=baseline??await client.harvestSummary(lookup,owned.signal);if(!current())return;
         const page=await client.harvestPage(lookup,{offset,limit:LIMIT},{signal:owned.signal,summary});if(!current())return;
         bindHarvestGrowthWindow({crop_summary:crop,sample_page:null,harvest_summary:summary,harvest_page:page});
-        setVisible({api:client,parent:crop,id:lookup.result_id,phase:'ready',summary,page,error:null});
+        setVisible({api:client,parent:crop,id:lookup.result_id,selectionId,phase:'ready',summary,page,error:null});
       }catch(error){
         if(current()){
           const failure=error instanceof ApiError?error:new ApiError('network_unresolved');
-          setVisible({api:client,parent:crop,id:lookup.result_id,phase:'error',summary:null,page:null,error:failure});
+          setVisible({api:client,parent:crop,id:lookup.result_id,selectionId,phase:'error',summary:null,page:null,error:failure});
           live.current.invalidate(failure);
         }
       }finally{if(version===generation.current)controller.current=null;}

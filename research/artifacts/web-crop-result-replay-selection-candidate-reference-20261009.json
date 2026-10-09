@@ -1,0 +1,344 @@
+{
+  "version": "web-crop-result-replay-selection-candidate-reference-v1",
+  "observed_at": "2026-10-09T14:09:02.684541+09:00",
+  "status": "candidate_browser_resource_hold_not_accepted",
+  "core_sources": {
+    "contracts/web-crop-result-replay-selection-v1.md": "d20281fb650589bfcac34f0b0a81162e41bf2fa9d661a4f602ecb970a0c3866f",
+    "web/src/SelectedCropReplay.tsx": "609b856f124d4f094dbc6a7784094f8a7878f0670e9bb4ed8108b7daaabcb3b4",
+    "web/src/CycleCropReplay.tsx": "0d899eaa30db2e6e8b6c8c6b8b8f032a5c916a80690f84e81d50cb4478ae006c",
+    "web/src/HarvestReplay.tsx": "47545d9d9eb69644137fcd99e6b90218918125d083d147a806e6b123afacfecf",
+    "web/e2e/selected-crop-replay.spec.ts": "b6b2017a5b6143d8a2f8d1996d7b395b7fdbba34bf265f35584c164959a8a116"
+  },
+  "source_count_at_checks": 1553,
+  "native_Codex_CLI": {
+    "actual_effort": "xhigh",
+    "actual_model": "gpt-6.1-sol",
+    "judgment_scope": "Selected stored crop replay component contract, current fixture browser verification and bounded static build instead of dev server. Current native CLI judgment; no crop coefficients or gate decisions adopted.",
+    "recursive_invocations": 0,
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-09T05:00:37.158Z",
+    "turn_event_sha256": "b0221cd96563ce20e789a64b97c8f728b47c97f9a11761b3b02c8e4d97181c2a"
+  },
+  "typecheck": {
+    "original_controller": 40857,
+    "child_exit_code": 0
+  },
+  "whole_web": {
+    "original_controller": 40857,
+    "child_exit_code": 0,
+    "files_passed": 25,
+    "tests_passed": 1011,
+    "new_component_browser_coverage_claimed": false,
+    "wider_controller_exit_code": 1
+  },
+  "ordinary_build": {
+    "original_controller": 43788,
+    "actual_controller_and_build_exit_code": 0,
+    "actual_product_config_used": true,
+    "output_deployed_to_preview": false,
+    "explicit_Node_old_space_MiB": 48,
+    "explicit_Node_semi_space_MiB": 2,
+    "explicit_owned_Node_GC_interval_ms": 250,
+    "GC_records": [
+      {
+        "pid": 1651476,
+        "method": "explicit_owned_test_Node_gc_250ms",
+        "calls": 4,
+        "before_peak_RSS": 532635648,
+        "after_peak_RSS": 529522688,
+        "available": true
+      }
+    ],
+    "single_PID_peak_RSS_bytes": 535814144,
+    "combined_peak_RSS_bytes": 1007550464,
+    "single_limit_bytes": 536870912,
+    "combined_limit_bytes": 1073741824
+  },
+  "stages": [
+    {
+      "stage": "run-v4",
+      "original_exec_session_id": 66523,
+      "actual_controller_exit_code": 1,
+      "terminal_sha256": "f69a4009dd87838f635ee1f896813c7a7af0dbeafad44b71ad6f5de2e95e6666",
+      "reason": "combined_RSS_limit",
+      "wall_seconds": 2.222533535998082,
+      "single_PID_peak_RSS_bytes": 545275904,
+      "combined_peak_RSS_bytes": 1016942592,
+      "commands": [
+        {
+          "label": "typecheck",
+          "actual_exit_code": 0,
+          "wall_seconds": 0.7126669129938819,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "build-harness",
+          "actual_exit_code": -15,
+          "wall_seconds": 1.4610797519853804,
+          "log_sha256": "901b06f8ea1d4f65ddca650ae841c336d570d780cb15ebddb636709d1457f55a"
+        }
+      ],
+      "protected_original_identities_preserved": true,
+      "preview_dist_unchanged": true,
+      "source_pins_preserved": true,
+      "owned_remaining": 0
+    },
+    {
+      "stage": "run-v5",
+      "original_exec_session_id": 53189,
+      "actual_controller_exit_code": 1,
+      "terminal_sha256": "24abb71a535766c6a0049600725e1dbb837b78931e6a37a747f2d0c2bbf73269",
+      "reason": "combined_RSS_limit",
+      "wall_seconds": 3.9426647479995154,
+      "single_PID_peak_RSS_bytes": 517742592,
+      "combined_peak_RSS_bytes": 1161056256,
+      "commands": [
+        {
+          "label": "typecheck",
+          "actual_exit_code": 0,
+          "wall_seconds": 0.7044556970067788,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "build-harness",
+          "actual_exit_code": 0,
+          "wall_seconds": 1.5227304000000004,
+          "log_sha256": "001f29cd884bf09c3339f3a4d4ec0f585ca8d30db561bbde6cecba97cff13a66"
+        },
+        {
+          "label": "new-1",
+          "actual_exit_code": -15,
+          "wall_seconds": 1.613377073983429,
+          "log_sha256": "a4a05faa2b1b927b9d2287e92b8d54a9569b17aba8dd33213af8da1effde2b6b"
+        }
+      ],
+      "protected_original_identities_preserved": true,
+      "preview_dist_unchanged": true,
+      "source_pins_preserved": true,
+      "owned_remaining": 0
+    },
+    {
+      "stage": "run-v6",
+      "original_exec_session_id": 50781,
+      "actual_controller_exit_code": 1,
+      "terminal_sha256": "b689fca415426c477922464dea7364e4743a29ee337c836e329b506a7dde882e",
+      "reason": "combined_RSS_limit",
+      "wall_seconds": 4.547862904990325,
+      "single_PID_peak_RSS_bytes": 532238336,
+      "combined_peak_RSS_bytes": 1108525056,
+      "commands": [
+        {
+          "label": "typecheck",
+          "actual_exit_code": 0,
+          "wall_seconds": 0.6475142830167897,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "build-harness",
+          "actual_exit_code": 0,
+          "wall_seconds": 1.5603726989938878,
+          "log_sha256": "3ec4f1cc4ee4b4246fe36bfa14313ca096e2f16bd67fe3013d084def46ccc914"
+        },
+        {
+          "label": "new-1",
+          "actual_exit_code": -15,
+          "wall_seconds": 2.2244653009984177,
+          "log_sha256": "ff337f3646cda8af22fe760f9d1bc521f6a01f0e0e3e7d31a839b53c62185221"
+        }
+      ],
+      "protected_original_identities_preserved": true,
+      "preview_dist_unchanged": true,
+      "source_pins_preserved": true,
+      "owned_remaining": 0
+    },
+    {
+      "stage": "run-v7",
+      "original_exec_session_id": 41407,
+      "actual_controller_exit_code": 1,
+      "terminal_sha256": "e7f90bcdb341a688925d62702ac83022be53427130b264c5f41009b7e8de2b69",
+      "reason": "combined_RSS_limit",
+      "wall_seconds": 2.1771650679875165,
+      "single_PID_peak_RSS_bytes": 546938880,
+      "combined_peak_RSS_bytes": 1019215872,
+      "commands": [
+        {
+          "label": "typecheck",
+          "actual_exit_code": 0,
+          "wall_seconds": 0.6386007429973688,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "build-harness",
+          "actual_exit_code": 0,
+          "wall_seconds": 1.488272989023244,
+          "log_sha256": "91649c95f12a6b0524635593b2c6d52eb050bb2cc289eeb0a5b7b232b3c2ff9b"
+        }
+      ],
+      "protected_original_identities_preserved": true,
+      "preview_dist_unchanged": true,
+      "source_pins_preserved": true,
+      "owned_remaining": 0
+    },
+    {
+      "stage": "run-v8",
+      "original_exec_session_id": 41377,
+      "actual_controller_exit_code": 1,
+      "terminal_sha256": "9905d3131fa14245a5a9d72a47dffdd395950f96cb7c2d501dbd52faf73b912d",
+      "reason": null,
+      "wall_seconds": 2.049027009983547,
+      "single_PID_peak_RSS_bytes": 392265728,
+      "combined_peak_RSS_bytes": 878686208,
+      "commands": [
+        {
+          "label": "typecheck",
+          "actual_exit_code": 0,
+          "wall_seconds": 0.6885771999950521,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "new-1",
+          "actual_exit_code": -6,
+          "wall_seconds": 1.3014413549972232,
+          "log_sha256": "57d27e68773cab6d4304b3d5137ee68b1bfc4e17e60304034e5489c464bd9be3"
+        }
+      ],
+      "protected_original_identities_preserved": true,
+      "preview_dist_unchanged": true,
+      "source_pins_preserved": true,
+      "owned_remaining": 0
+    },
+    {
+      "stage": "run-v9",
+      "original_exec_session_id": 89686,
+      "actual_controller_exit_code": 1,
+      "terminal_sha256": "bbe22af0946c67ac387916d6b84a0d7bda80f537d84fa31d838135341ce3163a",
+      "reason": "combined_RSS_limit",
+      "wall_seconds": 3.2681842480087653,
+      "single_PID_peak_RSS_bytes": 397959168,
+      "combined_peak_RSS_bytes": 1109389312,
+      "commands": [
+        {
+          "label": "typecheck",
+          "actual_exit_code": 0,
+          "wall_seconds": 0.6455514319823124,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "new-1",
+          "actual_exit_code": -15,
+          "wall_seconds": 2.5266236620082054,
+          "log_sha256": "dedd365eca2eab17565ddfe3d995cebe4a6d29e0ecabe614cbb581a8b9269498"
+        }
+      ],
+      "protected_original_identities_preserved": true,
+      "preview_dist_unchanged": true,
+      "source_pins_preserved": true,
+      "owned_remaining": 0
+    },
+    {
+      "stage": "run-v10",
+      "original_exec_session_id": 40857,
+      "actual_controller_exit_code": 1,
+      "terminal_sha256": "ba4ee8d2d6bf207208fffb532a214b683f80dcaca19d7880e91113bb75555613",
+      "reason": "combined_RSS_limit",
+      "wall_seconds": 18.329179602005752,
+      "single_PID_peak_RSS_bytes": 550359040,
+      "combined_peak_RSS_bytes": 1023205376,
+      "commands": [
+        {
+          "label": "typecheck",
+          "actual_exit_code": 0,
+          "wall_seconds": 0.6431576180038974,
+          "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "label": "web-all",
+          "actual_exit_code": 0,
+          "wall_seconds": 16.209680700994795,
+          "log_sha256": "307ade54b229cb7aae70ca2fffcf41f4dd52e694e139d68edfacde51520d7551"
+        },
+        {
+          "label": "web-build",
+          "actual_exit_code": -15,
+          "wall_seconds": 1.4128398910106625,
+          "log_sha256": "e9b196771649c73057c3429563745f0c8a556887ed687ff917c47e222a817ea3"
+        }
+      ],
+      "protected_original_identities_preserved": true,
+      "preview_dist_unchanged": true,
+      "source_pins_preserved": true,
+      "owned_remaining": 0
+    },
+    {
+      "stage": "run-v11",
+      "original_exec_session_id": 94726,
+      "actual_controller_exit_code": 1,
+      "terminal_sha256": "36917172c4ce85bf0979b42829443b9e0f2ff130ccdd87b9989b7bd146df4d1d",
+      "reason": "combined_RSS_limit",
+      "wall_seconds": 1.6682401440048125,
+      "single_PID_peak_RSS_bytes": 540999680,
+      "combined_peak_RSS_bytes": 1028546560,
+      "commands": [
+        {
+          "label": "web-build",
+          "actual_exit_code": -15,
+          "wall_seconds": 1.6156301260052714,
+          "log_sha256": "eeb6f2aea9cfe2ab4287aed542159e3694c53989aaefcf975901bf11abeb68ed"
+        }
+      ],
+      "protected_original_identities_preserved": true,
+      "preview_dist_unchanged": true,
+      "source_pins_preserved": true,
+      "owned_remaining": 0
+    },
+    {
+      "stage": "run-v12",
+      "original_exec_session_id": 43788,
+      "actual_controller_exit_code": 0,
+      "terminal_sha256": "f3e060314c323b85b8560e077520bdba1d6613a92bcf2634ba5c41195451196d",
+      "reason": null,
+      "wall_seconds": 1.8059264510229696,
+      "single_PID_peak_RSS_bytes": 535814144,
+      "combined_peak_RSS_bytes": 1007550464,
+      "commands": [
+        {
+          "label": "web-build",
+          "actual_exit_code": 0,
+          "wall_seconds": 1.7609593770175707,
+          "log_sha256": "80009a30b3092f3033ccdc98ee523bca84ba032cbc0fdeac741a826be37d9848"
+        }
+      ],
+      "protected_original_identities_preserved": true,
+      "preview_dist_unchanged": true,
+      "source_pins_preserved": true,
+      "owned_remaining": 0
+    }
+  ],
+  "browser_cases_passed": 0,
+  "pending_browser_cases": {
+    "new": 9,
+    "old_harvest": 10,
+    "old_growth": 3
+  },
+  "fixture_scope": "metadata/timestamps rebound owned software fixtures, not new joint DB/native evidence",
+  "UI_status": {
+    "localhost_5173": "existing separate DB stored3 replay",
+    "new_UI_deployed": false,
+    "U1_accepted": false,
+    "live_full166_link": false,
+    "U3_accepted": false
+  },
+  "full_compute_observation": {
+    "same_recovery_session": 95915,
+    "confirmed_commits": 353,
+    "confirmed_steps": 1408812,
+    "planned_steps": 1816704,
+    "terminal_exists": false,
+    "original_deadline_KST": "2026-10-09T18:12:12+09:00",
+    "completed_or_accepted": false
+  },
+  "next_action": "Finish active full recovery/comparison/publication/backup and source teardown before rerunning full browser contract with current sources, both preview roots protected; full UI/actual DB integration still required",
+  "actual_cultivar_farm_Runs": 0,
+  "independent_domestic_crop_datasets": 0,
+  "G0_G4_production_forecast_margin_ranking": "held"
+}

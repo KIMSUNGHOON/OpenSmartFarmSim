@@ -76,8 +76,8 @@ function SampleTable({samples,index,select}:{samples:readonly StartupCropSample[
         {(Object.keys(SAMPLE_LABELS) as (keyof typeof SAMPLE_LABELS)[]).map(key=><td key={key} data-metric={key} data-raw-value={row[key].value}><Quantity q={row[key]}/></td>)}
       </tr>)}</tbody></table></div></section>;
 }
-export default function CycleCropReplayView({api,initialSelection,autoLoadInitialSelection=false,sourceKind='original'}:{api:Api|null;
-  initialSelection?:CycleCropLookup;autoLoadInitialSelection?:boolean;sourceKind?:'original'|'calculation'}){
+export default function CycleCropReplayView({api,initialSelection,autoLoadInitialSelection=false,sourceKind='original',initialHarvestResultId}:{api:Api|null;
+  initialSelection?:CycleCropLookup;autoLoadInitialSelection?:boolean;sourceKind?:'original'|'calculation';initialHarvestResultId?:string}){
   const initial=initialSelection?.result_id.startsWith(sourceKind==='calculation'?'crop-cycle-verified-result-v1:':'crop-cycle-result-v1:')?initialSelection:undefined;
   const [lookup,setLookup]=useState(initial??EMPTY),[localError,setLocalError]=useState<ApiError|null>(null);
   const [playing,setPlaying]=useState(false),[reduced,setReduced]=useState(false),owner=useRef({api,sourceKind});
@@ -197,6 +197,7 @@ export default function CycleCropReplayView({api,initialSelection,autoLoadInitia
       </details>
     </>}
     <HarvestReplay api={sourceKind==='calculation'?api:null}
+      initialResultId={sourceKind==='calculation'?initialHarvestResultId:undefined}
       parent={summary?.schema_version==='crop-cycle-calculation-replay-v1'?summary:null}
       samplePage={state?.sample_page?.schema_version==='crop-cycle-calculation-replay-v1'&&state.sample_page.page.kind==='samples'?state.sample_page:null}
       selectedAt={sample?.at??null} selectSample={globalIndex=>{select(globalIndex-(state?.sample_page?.page.offset??0));

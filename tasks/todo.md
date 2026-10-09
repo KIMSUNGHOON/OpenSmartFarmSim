@@ -79,7 +79,14 @@
     farm3/crop metadata SDK를 기존 transport에 연결하고 Unicode/UTC·원 사용자 가정/권리 주장·취소를 검사한다.
     [수용 증거](../research/web-crop-farm-selection-client-implementation-20261009.md): 새62개 포함 전체1,011개·타입/빌드,
     원66094 종료0/19.046초·동시 RSS1,005,539,328bytes/소유 정리·미리보기 보존. 실제 화면/U1은 별도다.
-  - [ ] **`web-crop-result-catalog`** — 선행 보호 API/두 SDK 수용. 기존 농장 목록/선택에서 SDK로 결과를 찾고
+  - [ ] **`web-crop-result-replay-selection`** — 선행 두 SDK 수용; [핵심5파일 계약](../contracts/web-crop-result-replay-selection-v1.md).
+    결과 목록의 닫힌 선택→같은 verified 생장 부모/초기 수확 ID를 기존 재생에 전달한다.
+    수용: 실제 Chromium의 원 C/N·수량/단위·같은 UTC, 최초 한 번 조회·동일 선택/페이지 이동,
+    invalid/null·권리/부모 실패·취소/늦은 응답·계정 변경, 기존 생장/수확 회귀·웹/타입/빌드·자원/정리다.
+    [후보 증거](../research/web-crop-result-replay-selection-candidate-20261009.md): 타입/웹1,011개 자식0,
+    일반 빌드 원43788 종료0. 동시 브라우저 자원 초과로 새9개/기존13개는 수용 대기다.
+    전체 복구의 게시/보존·source 정리로 자원을 확보한 뒤 검증한다. 실제 목록/App 배포·상위 U1/U3는 미완료다.
+  - [ ] **`web-crop-result-catalog`** — 선행 보호 API/두 SDK와 선택 전달 자식 수용. 기존 농장 목록/선택에서 SDK로 결과를 찾고
     같은 결과/농장·판본을 기존 생장3D/수확에 전달한다. 수동 ID 복사·token 저장 없이 재선택하며
     빈 목록/hold·현재 권리 실패·취소/늦은 응답·키보드/좁은 화면을 검증한다.
     [실제12ui 디자인/HTML](../research/product-ui-result-selector-design-preparation-20261009.md)은 준비했으며 구현/배포는 남았다.
