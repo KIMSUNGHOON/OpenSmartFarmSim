@@ -1632,12 +1632,24 @@
       별도 fresh는 과거 적분0/남은8걸음·1사건만 실행했다. 최대 구성512선택/128사건5chunk 완료,
       context255,217/checkpoint10,578bytes·단일/합 RSS147,255,296/365,334,528bytes다.
       chunk4,995,778bytes는 HTTP2MiB를 넘으므로 후속 페이지 저장/API를 별도 검증한다. 새 UTC/저장/3D/U3/관문은 미완료다.
-    - [ ] **`crop-climate-joint-utc-binding`** — 다음 core3: `backend/app/crop_climate_joint_time.py`,
+    - [x] **`crop-climate-joint-utc-binding`** — core3: `backend/app/crop_climate_joint_time.py`,
       `backend/tests/test_crop_climate_joint_time.py`, `contracts/crop-climate-joint-time-binding-v1.md`.
       명시 UTC origin/정밀도와 원 elapsed 격자·새 시간 변환 판본을 context/checkpoint·출력 identity에 결속한다.
       같은 step_index의 sample/event/last_confirmed·처음/중간/마지막/hold 시각을 확인하고 원 상태/장부/prefix를 보존한다.
       UTC/KST·범위/naive·모호한 시간대·표현 정밀도 손실/혼합 거부와 수치 재계산0·원 종료/FD/자원을 검증한다.
       forcing 변경·온실/전체 작기·writer/권리 API/3D/U3는 후속 수용이다.
+      [corea8c7028/로컬 수용](../research/crop-climate-joint-time-implementation-20261010.md): 새130/기존786=916개,
+      원46128/별도24702 실제0·원9프로그램의5,076수치/91시간 기록 보존·독립272시각·fresh 수치 호출0,
+      선행23파일/16oracle·원본2,148/source1,719·FD4→4/소유 정리·미리보기 보존을 통과했다.
+      단일/합 RSS147,255,296/407,535,616bytes·최종80.356초/root7.207초다.
+      시간 포함 최대chunk5,010,569bytes는 HTTP2MiB 초과이며 페이지 저장/새 API·3D/U3/관문은 미완료다.
+    - [ ] **`crop-climate-joint-page-storage`** — 다음 core3: `backend/app/crop_climate_joint_storage.py`,
+      `backend/tests/test_crop_climate_joint_storage.py`, `contracts/crop-climate-joint-storage-v1.md`.
+      선행: 수용한 continuation/UTC binding. 기존 atomic 불변 artifact 저장 방식을 검토/재사용한다.
+      원 context/binding/checkpoint·source hash와64sample/8event 이하 페이지/불변 manifest를 저장한다.
+      9프로그램의108상태/22/6장부·원 elapsed/UTC·처음/중간/마지막/hold prefix를 fresh reader에서 정확히 복원하고,
+      실제 페이지2MiB 이하·읽기 RHS0·변조/혼합/불완전 게시 거부·원본/FD/원 종료/자원 보존을 확인한다.
+      현재 권리 등록/API→같은 UTC3D→사용자 실행/U3는 후속이며 storage/replay 부모는 유지한다.
 - [ ] **`crop-water-nutrient`** — 선행: 작물/기후 결합·배지/급배액/성분 근거.
   예정 파일(3): `backend/app/crop_water_nutrient.py`, `backend/tests/test_crop_water_nutrient.py`,
   `contracts/crop-water-nutrient-v1.md`.

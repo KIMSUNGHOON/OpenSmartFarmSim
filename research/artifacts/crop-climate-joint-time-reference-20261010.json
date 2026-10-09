@@ -1,0 +1,483 @@
+{
+  "G0_G4": "not_assessed",
+  "HTTP_API_accepted": false,
+  "UI_U3_connected": false,
+  "acceptance": "local_time_binding_only",
+  "actual_crop_Runs": 0,
+  "binding_calls": {
+    "RHS": 0,
+    "advance": 0,
+    "event": 0,
+    "restore": 0,
+    "step": 0
+  },
+  "cases": [
+    {
+      "binding_sha256": "c9b20780bee055ee37c535edd36fd8565e15a92a8c514a1976608259016d5b42",
+      "bound_chunk_sha256": [
+        "ee09793e1c19de8557ebcc8ae43a94d7652760ee49523770a233bc0c20ab7277",
+        "26548e5c640fd3dd0e26a147bf9b0fbdc792d1384dd42a0b42e7346586aab9cc",
+        "5f3a012f24d83de0d2d3146a8b8414853b9d6f27d5d2ac2a3804b353d40465c6",
+        "682ce2583d66b6884ee69bce485a8df4c7b83b8bcea2713f8b21755ce93a5330",
+        "1a1ad0dda95e0b1a697bed7652d78b4b14c108a257ca39ae609c07f13ed945b2",
+        "b161992484765251aa72326915a9f77469d8141f8989c0a8b4887eaf4e427b5b"
+      ],
+      "case_id": "no-events",
+      "context_sha256": "abc9e2c84030909684ff782a003c6153dc684bd1109f226d7897453cdb481eaf",
+      "event_prefix_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "events_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "final_checkpoint_sha256": "1086727f25c4c3fcc723c0ec2ec7603788ae93afbc9bf80841cd805c12aa837d",
+      "output_prefix_sha256": "c981761f47a9f5465f6927a04308f376ffba8cf131893167ef421d5b18091a0f",
+      "samples_sha256": "2e107607bb7553078b92d33e18e6d6fa51e30d23abdaa7e4a4838061f91ab1a1"
+    },
+    {
+      "binding_sha256": "f46e605d70fc07e3d4441c1c35294fee5e38f256c1b3d077c6cfd3386cfeda20",
+      "bound_chunk_sha256": [
+        "418f8d15ba489d6e23c3b02ca3f127624acc140507bd9719cc3a919a6be30c18",
+        "78e48cb746a4b24eb182391d9e600395613da675b110803b011bffa08f79070e",
+        "21f29bfbc5ea735e00354b32201e06765104bc60f3ed89b38ec3ee13a7ce07a4",
+        "f975b4bd3e699073ec6da8c6b8b0d0c08943bc37376b0edf59d389571815507d",
+        "d812712ea678fe9d92ba345b3589d3dbab2a614566f082d8b36aa2d847ca36f7",
+        "4c132a55adeaac33095ffd02ede566568eba081e474d9d31ab042ef801558844"
+      ],
+      "case_id": "warm-mid",
+      "context_sha256": "6c86dfca1054654f5f1b5c03ec2a79d18a984e55d9c8e60d0c4ad7f5ad328cc7",
+      "event_prefix_sha256": "c7f9fff1b5d9c9e237ea7f6cd5b67735229a0c8afbac3f0e823f5298316543d9",
+      "events_sha256": "7f49684ad5840a98704413e41a55d033f4ff224c23a99b5dbfdba31b3249eb7d",
+      "final_checkpoint_sha256": "130926b95109cc0af2531e9a92a79b1783ba6c833873314206aba83804262381",
+      "output_prefix_sha256": "73f51342493c81c579c7c443c7fb0902bad80d83544c68b6cee9fc6624cd5051",
+      "samples_sha256": "822ba71bfc566e8090f2caf74566808eb33bf789cc1abf650e511715b847f003"
+    },
+    {
+      "binding_sha256": "46526f0a17e021b4184fbf310b0aa0f64bcc2ae6817e5ed0d0a9ea4c080649b6",
+      "bound_chunk_sha256": [
+        "93b9f9d6b60ba9efe76222a8141cd5eadab891250c05fc5e753b29277289c7dd",
+        "1c0fb832956c521fac1bc6935e550cfcedfcac97610b3a85c068316a55e58267",
+        "a4f8a88afc57624a39c4f7e3ed04cffcf0f375d519328c965bd3a4a348ffa282",
+        "3981aae12624e161fae291243e70f9ec58d8517effc0b488b8e1512b6faa52e4",
+        "1b5adfe6abf0c3c1052d78ec747ae5d7f9d5b8d075d3c45ba235ba9f7dec9325",
+        "48b6cf645688f97c1f3376123906bbe2f7fc0ae5741fcfa40611feae485c100b"
+      ],
+      "case_id": "reverse-mid",
+      "context_sha256": "04a0e5d99783f91b0370f746ba00adbd8b875d46e20d197102b74287b5dd7b65",
+      "event_prefix_sha256": "f5d997bf75ccca820bd06a3b5fce137d953b9b4e46efc9b413038bf103cd785a",
+      "events_sha256": "396186ad8c0540b7abe1c6141cbf5345856029c84106b562a6b40f6c4c94b5c2",
+      "final_checkpoint_sha256": "30409fb61c9ba4778233a29c7aa4976a3a731f9a5df599f392e1e3174f9f7133",
+      "output_prefix_sha256": "b09939b9c5e33e68b67f8f76ce963e68cbc0644a5ca80b9ef6777d001fe291cb",
+      "samples_sha256": "1aa40b0e07be9bb2b53364b55b5549792f6446c51e0c7dd58ad272a82055cf87"
+    },
+    {
+      "binding_sha256": "dbf7ed3cbf278a25a792e78e68c9696bdc0e136b3ba12eca2f71d2469c402b8a",
+      "bound_chunk_sha256": [
+        "bf4533a7a44f64cefab71a6e456f9a6ebee21ef4bf481e9beef644a961a10486",
+        "fb9c2d0be60af4ddfbde4fcc1c5ce0f554b8e7ce8a98d2ac7188d0f4e280df37",
+        "9643fc0a67b5c37c7b7ee50bdb3bb811e1a404a182ec75a646616355562d184b",
+        "1449ac70e5fdbc3837c4b79ae2d86cfa50dfdaabeaf00a3167ac157ed069116d",
+        "2d41cfba5e6a02c19d714137a712e6328f91536cc6497ab326d6db9bd9d8fc63",
+        "90b35d16b9dbe8ab3fa651f5788cde92652a84f6b32dac3c5a4dd3c1d0b24e8f"
+      ],
+      "case_id": "dark-mid",
+      "context_sha256": "3459e000c67111a10935141ad574e33607f8c8b0214c738860ae49d86d72153f",
+      "event_prefix_sha256": "9d46b14c74fb4583d803786a9cabfca5bbd639b4df952b2f3244f13f3a52754c",
+      "events_sha256": "2f0255067b21a2ca5156d5a9877d87ba812919417fb9dfed62a31e4f8ae45e86",
+      "final_checkpoint_sha256": "a7ab388925509789a2e11a0a217b3311609d54c638b40c9f5f474cc5ae10b79b",
+      "output_prefix_sha256": "223d72231f7adc0a0b78e3f5e6ee37827346d85820c085e72f4a99719d651120",
+      "samples_sha256": "cf4b9c2bcb21859acde74350b84aa04fa8ea4e65e7ef0e0ee52f53fd09ed3f93"
+    },
+    {
+      "binding_sha256": "f1975733dc35ba514e31317d1a9b93d1d837d21a587879ff3eaa6867b6a1fc2b",
+      "bound_chunk_sha256": [
+        "c8ede659655f0fe64b317a3bd4024efffb18609b2ae401f3f9480e608943a2ea",
+        "dfb3fde68e21eb5d0e4b9cf9d08ec3694bbe11f960aa814732b940e7ec7befc1",
+        "01103adf7264059e0492c421a0d845263619cda3f2dd9d044021ee6769afdf98",
+        "e73e4436119398e93984698b1883466ea560f045a603e15b93b4f6b23cce78cc",
+        "660d64388cf41f339b41a7a7a10a5c4e8996b88eb9312615ef8e5146733089b7",
+        "bb1f9283ab0cc53a63bef722d439479648e0eeb9372d8b4af912a4c3867c3c09"
+      ],
+      "case_id": "initial",
+      "context_sha256": "9e085caf5a18b1be302313103c221ac73292b973719b3884f191adc62ec4cbb7",
+      "event_prefix_sha256": "11ee7f8973c1bc22fa997ddb73e12980d697503778139755ff5a3c31e6cd36f3",
+      "events_sha256": "0cb6f109047c3f925d39e08e4557fb5be5efc12e8264e7e36ce989d57ce1c9d7",
+      "final_checkpoint_sha256": "2c2ff12fde6bdeed7f083208ade5633da1959cddcdedeee1a2ac6197b7139100",
+      "output_prefix_sha256": "dde2f9e7fbb5fa53a588a1baf7a8373d77b3f537c85e01d68382faa57fb1d80f",
+      "samples_sha256": "3cc39e368aea20b7b5f9a50ca3701a16d5a09596d4915392c0603d4b666ae362"
+    },
+    {
+      "binding_sha256": "abd9da88ab1b29b3e9f4b66ca21b3e3fce0c52c2e9b27f2e2d39056176d5f9dc",
+      "bound_chunk_sha256": [
+        "e60550c1930887dc51370eb718a2538e8acec14acd6f0a5e6f5d544654247ffe",
+        "dbd5853d18ea9042706f23c0d4d49beaaf214528a4fb99b9cd3202b09c6c3f13",
+        "e4ede9ff59dac8c851811899f3c38e80f2d7f5a330331286742b15446a1a0931",
+        "93e8f507e8ddfc182234eb4044046c2389e41cb3aa5d62cf46fe34c16f7eea3d",
+        "30050f493d5bbda9039a2afdaa648c9423dc4c9536c73a478e0446aad5d17640",
+        "154e134c03df2e700084b4b97ce76faeb00b8e1aa2b6e495823b625efe9a5e72"
+      ],
+      "case_id": "final",
+      "context_sha256": "1c84e1d6c27d2ec1be0aef2141d9289316743cc6325db74bae989b4b1185be5c",
+      "event_prefix_sha256": "7c9799fdaf04a55813a670f527ed127097a71ec9ab0ccf7d1166d7cb551d4040",
+      "events_sha256": "45f9b94a52561954df1f13574d9120cbae30d9b812443775cc0c5d7144a701c4",
+      "final_checkpoint_sha256": "5cfedbd802ac90ab391b80447f4269505d0c771f358298da54a1491927909be9",
+      "output_prefix_sha256": "893b21bf553f89bd210ce2f4b2eac9949eefbf10861edeb9d433e4d72f4393ff",
+      "samples_sha256": "5f69945cddf10e9c34309cce780bc75175c85d2330194575e644886db7415c75"
+    },
+    {
+      "binding_sha256": "193103f14d1eeb8559d9fabaa679ea5b298a1a3caac9cc3920b85b7f6bbd9b70",
+      "bound_chunk_sha256": [
+        "3f80ed581e6b1ce960d099897dcfe19db69c607698186420e647dde152f35cfa",
+        "dfa9022545b4be837dd086a531bc3ece71b996a6fae1dbd7d6966840818ac404",
+        "56c560b072e68fd9f4f4a4fe094541a3222fbe77aeab85b601cd85b24bfce7d8",
+        "1e8fab0f1c3109bf27837286f691ff6d40b1a49bcdd058324ac63504c0d34d48",
+        "e6cda69869a082f112bfe7d35dd9acf2c37e90bfdfa10c0c44e2ea46d45500e6",
+        "571739f25b6d0670b288d4e86df1b848bcaeb77903f46d4dfb46cfe3ad2bde58"
+      ],
+      "case_id": "multiple",
+      "context_sha256": "83a7f22f781200971064c10f04dcc89a614ff994daecda5bd28ce674fe4adbbc",
+      "event_prefix_sha256": "c5c54ef13587fb478bf4c96b6628261a3b48a35b3bf4ca38a3d4b826cd7b7374",
+      "events_sha256": "373f855527d9d86c710d53a8bf2aa23132bf64c08d7f33c04362498371ef6965",
+      "final_checkpoint_sha256": "b4866a7846123c4449b5b46933eb688f21a2390df54970a186feb7931eebeee8",
+      "output_prefix_sha256": "072133923e68606fa01169d65dce1bcf3c81f3d2524774ba63e3a5b6da8662c3",
+      "samples_sha256": "93571c691343b6ec3b09c600101779a7907ca97de85f79618d250c60625a16ad"
+    },
+    {
+      "binding_sha256": "1aead09241c22edc90ce78bf80ecd33b9a809155b21908881fbbbe8b27171b02",
+      "bound_chunk_sha256": [
+        "071072d3d3c0f88b5ae30f3b2e3094470edadf364488008b4c7ab8741eca9768",
+        "5e6717d77ff39f8aab0ededb7ceb1096d50b001a95539fc9585cd71851a7568c",
+        "7a4b8607c47e9e22c0d6fd8975c9b529861f8104882a6932213b659f3bb0eb05",
+        "63790535d2b5d49de888d6734d58eefb8f28f57543649c98cf758eeeba3b3d37",
+        "9aaafeb0686840314252b5277fc08dc2449a2146b4bf8785c4edf404bc9ce5f9",
+        "65477c9ed72acecf981b76f3a47e0489144dca0bc92ed06aefaa21f40e3fa8a4"
+      ],
+      "case_id": "negative-reference",
+      "context_sha256": "07d7faa9ad6fd1f60c4001b4a84e9177eb02e9db75b509b2ce81452755808d5d",
+      "event_prefix_sha256": "9ddbc691da7617c3fefefdad8c4222f59f09e2ba647d5b101f01f074c2c9bb18",
+      "events_sha256": "847d5285f1f1be6a1ea2c78c64cb997bc744df98e8a09ad5d3127289907f1bea",
+      "final_checkpoint_sha256": "452457983b461ebd5d84f572c3285a7520332f61d190147ce46c84aab3676cff",
+      "output_prefix_sha256": "37aded8ee483bb87693daac4fc54f9c07baa48b37afe41ad99f97eac5ab1bb76",
+      "samples_sha256": "18d2778c163c648f29105bebc7e282c3a8ae5439e9d1181ec2625f680c3a0478"
+    },
+    {
+      "binding_sha256": "fe7b89bb078f3877c14549dd64f87fba44108f2ef53879b7e0f772b5cd286bb7",
+      "bound_chunk_sha256": [
+        "30b266e2a197e645ec25940da1f9e270e50ebba172fd91a0084a805c1502eac0",
+        "91f8fc3c9d8df9ac1e63ca212932e9bb45463b2185d6329e66f509b0725e5278",
+        "8200a94e49ae0f70e18ce5c3a94e6a19cf2da4d4912b6605ec5ccb6a312420cc",
+        "a031bccbd1fc0a2c7d5d1a7c6685775f08ba7709503877f5ec7fee08b9a12d06",
+        "a940f547338c36909e7483ec31c08a4d74406b57727b989ef495b31f1a1cec05",
+        "2cb36eb934a67c4db064428399d94056ea3ecc14219ebea97da44e5f144c6d62"
+      ],
+      "case_id": "zero-reference",
+      "context_sha256": "eb605cf727cb04b2de59a23e51e748af52be70e76cb01f4c944f0e409e43cfa5",
+      "event_prefix_sha256": "9c25fe08c5d0a0ae769a17d55472774ebb923409e04ee82b060640ff39bf3df7",
+      "events_sha256": "e8e3a44fd12de7f3b53b854420a3ecd2fc8be012572835c1924abb722dd2c075",
+      "final_checkpoint_sha256": "e158888ffe1fac4a2b070a772fd601a49b7df3ee4d1fd173560a53ac44f1fb67",
+      "output_prefix_sha256": "4c9c8c7fe69376aad7e857e018d24a72d3cf0c6b55e97a4cdaab0a2fe0876c3b",
+      "samples_sha256": "beceb14516df1e0cfd3ff8eb99d508ab308fe31f94371b2f58b64254524535da"
+    }
+  ],
+  "chunk_boundary_budgets": [
+    1,
+    7,
+    128
+  ],
+  "component_code_sha256": {
+    "crop_canopy_energy_transport": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+    "crop_canopy_exchange": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+    "crop_fruit_allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+    "crop_fruit_cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+    "crop_fruit_startup": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+    "crop_fruit_transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+    "crop_growth_rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+    "crop_plant_cohort_rates": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+    "crop_plant_startup_rates": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756"
+  },
+  "core_commit": "a8c70282c94e804936212ad3bb9ba01c95c74b3b",
+  "core_sha256": {
+    "backend/app/crop_climate_joint_time.py": "946680379e482cbcff63bb6fb60421f9abf41c108fb69667a52f38d22e502b9c",
+    "backend/tests/test_crop_climate_joint_time.py": "0a042c3aa20111d230e78fbc77074172682b92131b3a5af7e2961ee1a95e8648",
+    "contracts/crop-climate-joint-time-binding-v1.md": "c1610a1c89c0b6ef20527858345ff130b3257c8d8df101a2952ccdfe76c97a9b"
+  },
+  "exact_original_numeric_state_scalars_preserved": 5076,
+  "final_focused_regressions": 916,
+  "final_new_tests": 130,
+  "focused_tests_before_extensions": 120,
+  "fresh_process": {
+    "PID": 1896473,
+    "actual_exit": 0,
+    "binding_numerical_calls": 0,
+    "binding_sha256": "193103f14d1eeb8559d9fabaa679ea5b298a1a3caac9cc3920b85b7f6bbd9b70",
+    "prefix_events": 0,
+    "prefix_steps": 0,
+    "result_sha256": "1e8fab0f1c3109bf27837286f691ff6d40b1a49bcdd058324ac63504c0d34d48",
+    "setup_current_endpoint_RHS": 3
+  },
+  "independent_integer_epoch_time_comparisons": 272,
+  "initial_smoke_tests": 2,
+  "maximum_first_chunk_cost": {
+    "binding_manifest_bytes": 631,
+    "bound_chunk_bytes": 5010569,
+    "boundary_steps": 127,
+    "checkpoint_bytes": 10578,
+    "events": 128,
+    "samples": 128,
+    "source_chunk_bytes": 4996376
+  },
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "native_line_LF_sha256": "fe0a7ad9239dc3abc9cb414e60da4e66f76dbd059759a50b0fbc7d74e2cfb9d3",
+    "timestamp": "2026-10-09T17:30:31.711Z"
+  },
+  "oracle_input_sha256": {
+    "contracts/crop-canopy-energy-transport-v1.md": "9a52267bb5cf921748f875bbe53d43da6927ab53922309972af7979c2a6bad11",
+    "contracts/crop-plant-cohort-integration-v1.md": "4eba6541571d1cc42b5e77c7f0c5ce3fd7a1c8f7a7c94d718752dcccb3135e6e",
+    "fixtures/crop-canopy-exchange-reference-parameters-v1.json": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+    "fixtures/crop-climate-joint-management-reference-cases-v1.json": "74f3aa4e9f75acc83a60c2c8bfecd3aadfc7a4359685b3e4e2ab45c6f93eb747",
+    "fixtures/crop-climate-joint-rhs-reference-cases-v1.json": "2c95b2808297c96cad80eaebcd4ba37797706901f44115713dfddccdfffc9658",
+    "fixtures/crop-fruit-cohort-reference-parameters-v1.json": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+    "fixtures/crop-fruit-transport-reference-parameters-v1.json": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070",
+    "fixtures/crop-growth-reference-parameters-v1.json": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "fixtures/crop-plant-startup-reference-cases-v1.json": "4a3ef17617c172b817e32f6d2ed20153c19fd28560f9cb23e650e591485193fb",
+    "research/crop-canopy-air-dynamics-reference.py": "6c9e7c5d2698531133414b7817931dfe81dcc95e363ed20c2332dead4a1f95a6",
+    "research/crop-canopy-energy-transport-reference.py": "09b6dbe423b71218ac05376b3e932cfe11364eba11d585b43f7ad5dc261bc120",
+    "research/crop-climate-joint-integration-reference.py": "1a0fc4170c12d90f72e6311f7273f28e7c8a734980f83bff2986a281f8191a21",
+    "research/crop-climate-joint-management-reference.py": "7982b0af6adc72a894255db06e7b4b3db2088a4fe58c84830a87b37235ed0fa4",
+    "research/crop-climate-joint-rhs-reference.py": "b8edd43caf19205f8b2e64b98f4e1c7d84ceba5bf086955aff3c46ff2a7beee5",
+    "research/crop-integration-reference.py": "a38b7a67e43cf9f590838bf915ab3e5048950b8be6ed35f70817e18b42a09ce7",
+    "research/crop-plant-startup-reference.py": "d7de6caa6ca863d1d196de1c610b6401b93977a27e0ea087f43b785b635c31b2"
+  },
+  "original_timed_records_bound": 91,
+  "predecessor_artifact_sha256": "2c6160627a251c0ec48f2ba80dc64732f246d9dca483b7496a020daff6be9e5b",
+  "predecessor_numeric_files_changes": 0,
+  "prior_core_sha256": {
+    "backend/app/crop_climate_joint_boundary.py": "336794d229602957e58f0976bdb735c0312f318d5570eb62b3fb30f2d4f5538b",
+    "backend/app/crop_climate_joint_continuation.py": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+    "backend/app/crop_climate_joint_integration.py": "b3311c32250474e5457049974c09e6c484425c8231517dffede222ea0c35b839",
+    "backend/app/crop_climate_joint_management.py": "deedd9d1f8d04c6db63d88b8156f83ea43b3563234da073b756f448aaa203255",
+    "backend/app/crop_climate_joint_rhs.py": "207ed32696b59f1ec8ce750db70bd10798c5c7ae8f78206df6038177e81124b8",
+    "backend/tests/test_crop_climate_joint_boundary.py": "569cd45627e42679c0085fc9c29f9666a13ac3f3e72e9b40b64e8c4f6a4cb58f",
+    "backend/tests/test_crop_climate_joint_continuation.py": "17930ffde18cd471da15d07af59e0882066466ba554738eeb601ac08fd855c68",
+    "backend/tests/test_crop_climate_joint_integration.py": "0d0d64a13aee413564a170440f57c8baaa761d966a811f9261fa85a9ce13fe44",
+    "backend/tests/test_crop_climate_joint_management.py": "4229a9d026ecf3e0b776529d6eab634b1306203b961634ed7dcfab74c6b14935",
+    "backend/tests/test_crop_climate_joint_rhs.py": "d64f0979b611a0d25f87f93218e3f6ce33d4c8daca87f8682c6e4c64de399728",
+    "contracts/crop-climate-joint-boundary-driver-v1.md": "a0d8f69903d3ac398af35c966608b2912271542fc0a3c593c3b457a0065fbed8",
+    "contracts/crop-climate-joint-continuation-v1.md": "1aecaee7bb0d98f316a8a141912895917b32603a970a2ec4cabf6ee0cdefa97f",
+    "contracts/crop-climate-joint-management-v1.md": "930047e3def1ec2285a75e2919f10ef78c813dbf836cc972048ed62522222b87",
+    "contracts/crop-climate-joint-rhs-v1.md": "3633bb79ed70c641990152da28f2efa3a4532f0df95976c095737f509c61e12f",
+    "contracts/crop-climate-joint-short-integration-v1.md": "100af7f6d4bfe6d5dfd64188dbfb85d196302141893f69d65be58c2c9999015e",
+    "fixtures/crop-climate-joint-boundary-reference-cases-v1.json": "d49dafbbba95f84d141d9b4845111ec08ff65690e45e4166c3aaac149a22c784",
+    "fixtures/crop-climate-joint-integration-reference-cases-v1.json": "528df7fe63c2e5181a64cd72fb4272a3532f399c10f8f480cca4f43a63362a89",
+    "fixtures/crop-climate-joint-management-reference-cases-v1.json": "74f3aa4e9f75acc83a60c2c8bfecd3aadfc7a4359685b3e4e2ab45c6f93eb747",
+    "fixtures/crop-climate-joint-rhs-reference-cases-v1.json": "2c95b2808297c96cad80eaebcd4ba37797706901f44115713dfddccdfffc9658",
+    "research/crop-climate-joint-boundary-reference.py": "b6971db93a43632021c58b2a5ee4e195cdc9108b3d1cb7d183abe3d68ac6ab3b",
+    "research/crop-climate-joint-integration-reference.py": "1a0fc4170c12d90f72e6311f7273f28e7c8a734980f83bff2986a281f8191a21",
+    "research/crop-climate-joint-management-reference.py": "7982b0af6adc72a894255db06e7b4b3db2088a4fe58c84830a87b37235ed0fa4",
+    "research/crop-climate-joint-rhs-reference.py": "b8edd43caf19205f8b2e64b98f4e1c7d84ceba5bf086955aff3c46ff2a7beee5"
+  },
+  "prior_regressions": 786,
+  "production_prediction_accepted": false,
+  "program_count": 9,
+  "real_management_hold_times": {
+    "events": [],
+    "hold": {
+      "at": "2026-10-01T00:00:32.000000Z",
+      "step_index": 16
+    },
+    "last_confirmed": {
+      "at": "2026-10-01T00:00:32.000000Z",
+      "step_index": 16
+    },
+    "samples": []
+  },
+  "recursive_CLI_invocations": 0,
+  "root_FD_before_after": [
+    4,
+    4
+  ],
+  "scope": "synthetic_software_research_only",
+  "stages": {
+    "final": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 314,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 407535616,
+      "completion_tool_chunk": "7cbf83",
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "launch_tool_chunk": "558b1f",
+      "log_sha256": "b5e45ca9ef6fa13964b241d0797f670c48ce979459736a897ae5a1cde33bbaa8",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_passed": 916,
+      "pytest_seconds": 79.83,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 147255296,
+      "source_count": 1719,
+      "source_preserved": true,
+      "unified_exec_session": 46128,
+      "wall_seconds": 80.35570412900415
+    },
+    "focused": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 60,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 391700480,
+      "completion_tool_chunk": "863d00",
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "launch_tool_chunk": "ffbeae",
+      "log_sha256": "53cc64bdbaf747ccc7c3043443c5f094a88f6462289da97b110b607b7f4b89b6",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_passed": 120,
+      "pytest_seconds": 15.02,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 147255296,
+      "source_count": 1719,
+      "source_preserved": true,
+      "unified_exec_session": 50718,
+      "wall_seconds": 15.388662845012732
+    },
+    "root": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 28,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 393662464,
+      "completion_tool_chunk": "aa0674",
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "launch_tool_chunk": "cbec6b",
+      "log_sha256": "7b8ac983bd9f0d74d780c8a51b918824a84d24860e5c4b90b7ab72d989e84aa1",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 147255296,
+      "source_count": 1719,
+      "source_preserved": true,
+      "unified_exec_session": 24702,
+      "wall_seconds": 7.207189898006618
+    },
+    "smoke": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 2,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 306364416,
+      "completion_tool_chunk": "01eaf2",
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "launch_tool_chunk": "ae3ffb",
+      "log_sha256": "686b4ed9a084cc13a88ea4749c9895e659d7faa3540b7c04eedf6fa858d9cc2c",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_passed": 2,
+      "pytest_seconds": 0.21,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 147255296,
+      "source_count": 1719,
+      "source_preserved": true,
+      "unified_exec_session": 81736,
+      "wall_seconds": 0.5615919459960423
+    }
+  },
+  "storage_accepted": false,
+  "technical_sources": [
+    {
+      "QC": "primary documentation read; product data not adopted",
+      "available_at": "2026-10-09T17:25:48.101906+00:00",
+      "available_at_basis": "first_observed_documentation_retrieval_only_not_product_data",
+      "bytes": 75652,
+      "observation_time": null,
+      "product_id": "postgresql16",
+      "published_at": null,
+      "raw_sha256": "093c0ea97aaa37a6c76a737c36488f23adfcd959e592f6d572b7aa2506d7945f",
+      "retrieved_at": "2026-10-09T17:25:48.101906+00:00",
+      "reviewer": "native Codex CLI gpt-6.1-sol xhigh, turn17:22 UTC",
+      "revision": "major16 documentation",
+      "rights": {
+        "display": "short paraphrase and direct link",
+        "redistribution": "raw contents not committed or redistributed",
+        "use": "reference only"
+      },
+      "units": "technical timestamp resolution seconds/microseconds",
+      "url": "https://www.postgresql.org/docs/16/datatype-datetime.html"
+    },
+    {
+      "QC": "primary documentation read; product data not adopted",
+      "available_at": "2026-10-09T17:25:48.566108+00:00",
+      "available_at_basis": "first_observed_documentation_retrieval_only_not_product_data",
+      "bytes": 404437,
+      "observation_time": null,
+      "product_id": "python312",
+      "published_at": null,
+      "raw_sha256": "7e1985602799b053413068115a1e54ca77c46745c331975f1d258f9813c7a1ca",
+      "retrieved_at": "2026-10-09T17:25:48.566108+00:00",
+      "reviewer": "native Codex CLI gpt-6.1-sol xhigh, turn17:22 UTC",
+      "revision": "major3.12 documentation",
+      "rights": {
+        "display": "short paraphrase and direct link",
+        "redistribution": "raw contents not committed or redistributed",
+        "use": "reference only"
+      },
+      "units": "technical timestamp resolution seconds/microseconds",
+      "url": "https://docs.python.org/3.12/library/datetime.html"
+    },
+    {
+      "QC": "primary documentation read; product data not adopted",
+      "available_at": "2026-10-09T17:25:48.820260+00:00",
+      "available_at_basis": "first_observed_documentation_retrieval_only_not_product_data",
+      "bytes": 35064,
+      "observation_time": null,
+      "product_id": "rfc3339",
+      "published_at": null,
+      "raw_sha256": "9ab2b8864a85dca73a88f49b0927bc7bc85f596926e4fd1890905777924e700a",
+      "retrieved_at": "2026-10-09T17:25:48.820260+00:00",
+      "reviewer": "native Codex CLI gpt-6.1-sol xhigh, turn17:22 UTC",
+      "revision": "July2002 RFC3339",
+      "rights": {
+        "display": "short paraphrase and direct link",
+        "redistribution": "raw contents not committed or redistributed",
+        "use": "reference only"
+      },
+      "units": "technical timestamp resolution seconds/microseconds",
+      "url": "https://www.rfc-editor.org/rfc/rfc3339.txt"
+    }
+  ],
+  "version": "crop-climate-joint-time-binding-reference-v1",
+  "wall_seconds": 6.831861495011253
+}
