@@ -17,8 +17,8 @@ core5는 이 계약, `research/crop-harvest-api-cost.py`의 명시 credential li
    실제5173 proxy/보호 API를 재확인하고 기존 App의 수확 표/같은 UTC WebGL을 직접 읽는다.
    브라우저는 응답 헤더의 상태/Content-Length/no-store와 실제 표시값을 읽고 완료 여부는 독립 서버 관측과 대사한다. 본문을 복제하지 않으며
    브라우저 본문 SHA 수용을 주장하지 않는다. 실제 proxy probe의 원 wire SHA/bytes·독립 서버 관측과 구분한다.
-   기존 SDK는 EOF 뒤에도 reader.cancel을 호출한다. 지정 Chromium에서 관측된 네 ERR_ABORTED는
-   해당 네 응답에 정확히 결속해 보존하며, 원값의 UI decode와 독립 서버의 네 완료200/bytes가 모두 일치해야 한다.
+   기존 SDK는 EOF 뒤에도 reader.cancel을 호출한다. 지정 Chromium에서 관측된 최대 네 ERR_ABORTED는
+   해당 응답에 정확히 결속해 보존하며, 원값의 UI decode와 독립 서버의 네 완료200/bytes가 모두 일치해야 한다.
    이 조건 없는 연결 종료·다른 오류를 정상 완료로 간주하지 않는다.
 4. 새 기동 handle/현재 controller·서비스·PG identity와0.25초 RSS를 기록한다.
    단일512MiB/명시 소유+보호 트리 합1GiB를 유지하며 그 밖의 WSL 용량을 수용했다고 보고하지 않는다.

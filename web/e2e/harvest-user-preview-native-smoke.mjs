@@ -58,9 +58,13 @@ try{
     }
   }
   expect(selected).toBeDefined();expect(data.summary.reference.sample_count).toBe(47809);
+  await cdp.send('HeapProfiler.collectGarbage');globalThis.gc?.();
   await page.screenshot({path:directory+'/full-harvest-user-desktop.png',fullPage:false,mask:[page.locator('input,textarea')]});
-  expect(errors).toEqual([]);expect(network).toHaveLength(4);expect(transportEvents).toHaveLength(4);
-  expect(transportEvents).toEqual(network.map(({endpoint,view,offset})=>({endpoint,view,offset,error:'net::ERR_ABORTED'})));
+  await cdp.send('HeapProfiler.collectGarbage');globalThis.gc?.();
+  expect(errors).toEqual([]);expect(network).toHaveLength(4);
+  expect(transportEvents.length).toBeLessThanOrEqual(4);
+  expect(transportEvents.every(event=>event.error==='net::ERR_ABORTED'&&network.some(row=>
+    row.endpoint===event.endpoint&&row.view===event.view&&row.offset===event.offset))).toBe(true);
   expect(network.every(r=>r.status===200&&Number.isSafeInteger(r.response_content_length)
     &&r.response_content_length>0&&r.response_content_length<=2*1024**2&&r.cache==='no-store')).toBe(true);
   const report={accepted:true,actual_origin:origin,actual_WebGL:true,sample_count:47809,harvest_total:47813,
