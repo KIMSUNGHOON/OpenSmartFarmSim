@@ -130,3 +130,10 @@ Tc와 leaf를 각각 적분한 뒤 곱의 절단 오차를 반올림 잔차라�
 `Ccan*dTcan`만으로 전 기간 에너지 보존을 주장하지 않는다.
 그 뒤 물/양분·구매 에너지→같은 농장/배치 사용자 실행→Decimal 경제를 연결한다.
 첫 자식만으로 부모 `crop-climate-coupling`이나 U3/생산 관문을 체크하지 않는다.
+
+[새 공동 순간 RHS 계약](crop-climate-joint-rhs-v1.md)은2026-10-10
+[새51/기존412·독립1,290스칼라](../research/crop-climate-joint-rhs-implementation-20261010.md)로 로컬 수용했다.
+기관5·과실 C/N100·기후3의 새108상태와 초당 미분만 정의한다.
+RGR50은 명시 forcing이고 새 적분 상태가 아니다. 다음 짧은 공동 적분에서
+sampling·shared stage·dynamic T24/Tsum·signed U 검사·시간/장부를 계약한다.
+원자적 적엽/과실 관리·새 continuation/저장·API·같은 UTC3D는 별도 수용한다.
