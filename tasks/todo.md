@@ -45,6 +45,10 @@
     생성 후 단언 실패 대조·소유 PG/파일 정리와 보호4/source/dist를 확인했다. 제품 저장 함수/감사는 보존했다.
   - [ ] **`crop-result-ci-role-teardown`** — 분할5의 교착/잔여 주체를 실제 연결·transaction·lock 증거로
     좁힌 뒤 재현/수정한다. 위 단위 시험 파일 정리를 이 문제나 hosted 전체 수용으로 표시하지 않는다.
+    실제 교착은 `test_api_economic_scenario.py::test_each_scope_is_required_before_any_admission[market_source_read-login_scope0]`의 정리다.
+    [원47427 단일 대조](../research/artifacts/crop-result-ci-role-teardown-probe-reference-20261009.json)는
+    원8dd와 같은 세 관련 source·CI Python3.12.13/소유 PG16.15에서1통과/종료0·PG/자원 정리0이다.
+    재현/원인/수정 증거가 아니며 hosted18의 실제 lock·transaction 또는 충실한 재현을 더 확보해야 한다.
 
 ## 최종 제품 UI 통합 (2026-10-09)
 
