@@ -218,7 +218,9 @@ def test_restored_catalogue_actual_https_original_metadata_and_many_growth_rows(
                             assert response.getheader('x-ossf-crop-catalog-projection-sha256') == public.CODE_SHA256
                         observations.append({'kind': kind, 'requested_limit': filters.get('limit', 10),
                             'status': response.status, 'seconds': elapsed, 'bytes': len(raw),
-                            'body_sha256': sha256(raw).hexdigest()})
+                            'body_sha256': sha256(raw).hexdigest(), 'request_query': query})
+                        assert not any(token in raw for token in tokens.values())
+                        h.backup.write(stage/('http-body-'+str(len(observations))+'.private.json'), raw)
                         return response.status, json.loads(raw)
                     except Exception as exc:
                         observations.append({'kind': kind, 'requested_limit': filters.get('limit', 10),
