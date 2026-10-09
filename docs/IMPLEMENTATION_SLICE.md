@@ -4,7 +4,17 @@
 작물 생장·저장·성장 3D로 진행한다. 첫 작성 시점의 구현 현황은 아래에 남겨두며,
 현재 운영 완료 범위와 CI는 [고정 기록](../research/crop-priority-and-runtime-freeze-20261004.md)을 따른다.
 
-**최신 수용 — 2026-10-09 02:48 KST:** [전체 수확 수량·용량 대사](../research/crop-harvest-full-capacity-implementation-20261009.md)를
+**최신 수용 — 2026-10-09 09:00 KST:** [작은 부모 DB·인증 자료 보존](../research/crop-harvest-parent-backup-implementation-20261009.md)을
+원90143 종료0·집중11개/실제 DB1개·원 DB 정리 후 fresh Python 복원으로 로컬 수용했다.
+원120걸음/3시점·서명/원량/UTC와 현재 권리·계정/변조 거부, 조회 RHS0·1,480 source·소유 정리를 확인했다.
+전체81.287초·raw backup307,294bytes·단일/소유 RSS129.76/388.52MiB다. 이 보존 자식만 완료했다.
+기존 전체166일의 DB/config/무작위 서명 key 삭제로 원 인증 복원은 불가하다. 후속에는 같은 모델/입력의 새 전체 계산 판본이 필요하다.
+다음은 작은 정상 producer+보존 구성→새 전체 계산/원값 대사·현재 query 복원→새 source/profile 판본의 전체 수확 writer/등록
+→실제 API/대표3D→기후/물·양분/구매 에너지→사용자 실행/Decimal 경제다.
+종전 첫 복원2–4시간 추정은 철회한다. 이전 전체7시간15분을 근거로 준비 검증 후7–9시간 실행·대사를 잠정 잡고 후속 완료일은 실측 뒤 정한다.
+실제 품종 입력·농장 작물 Run·국내 독립 자료0건, G0–G4/생산/미래 마진/추천 hold와 운영 기반 고정을 유지한다.
+
+**선행 수용 — 2026-10-09 02:48 KST:** [전체 수확 수량·용량 대사](../research/crop-harvest-full-capacity-implementation-20261009.md)를
 원78826 종료0·집중38개·전체 명령85.238초·1,474 source/원본/FD identity·소유 정리로 로컬 수용했다.
 원47,809시점/5사건에서47,813행을 RHS0으로 만들고 Decimal 독립 수량/반올림 수지와 단위·목적·미배정을 대사했다.
 748page/307,675,603bytes·root/HEAD/atomic 예약 상한311,878,099bytes≤512MiB,
