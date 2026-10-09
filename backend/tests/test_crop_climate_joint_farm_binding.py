@@ -22,6 +22,7 @@ import test_crop_climate_joint_input_evidence as inputs
 from login_database import login_database,login_scope
 
 profiles=inputs.profiles
+FRESH_PYTHONPATH=os.pathsep.join((str(Path(__file__).resolve().parents[1]),str(Path(__file__).resolve().parent)))
 pytestmark=pytest.mark.parametrize('login_scope',[{'market_calculation':True,'market_source_storage':True,
     'thermal_scenario_storage':True,'break_even_calculation':True,'crop_cycle_result_storage':True}],indirect=True)
 
@@ -171,7 +172,8 @@ def test_normal_registered_bind_and_actual_fresh_exec(setup,tmp_path,monkeypatch
         'registry_raw':registry_raw.decode(),'registry_sha256':replay.registry.sha256,'context_id':'context-1','root':str(inputs.reference.reference.ROOT),
         'review':p[3],'body':body,'proof':str(proof_path),'binding':str(binding_path),'directory':str(p[0])}
     config=tmp_path/'fresh.private.json';config.write_text(json.dumps(pack));config.chmod(0o600)
-    child=subprocess.Popen([sys.executable,'-B','-c',FRESH_SCRIPT,str(config)],stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    child=subprocess.Popen([sys.executable,'-B','-c',FRESH_SCRIPT,str(config)],stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.PIPE,
+        env=dict(os.environ,PYTHONPATH=FRESH_PYTHONPATH))
     stdout,stderr=child.communicate(timeout=60);assert child.returncode==0,stderr.decode();fresh=json.loads(stdout)
     assert fresh['binding_sha256']==sha256(raw).hexdigest() and fresh['review_revocation_rejected'] and all(n==0 for n in fresh['calls'].values())
     assert counts(service)==before and before[2:]==(0,0)

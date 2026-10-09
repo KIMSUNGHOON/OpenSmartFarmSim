@@ -17,6 +17,7 @@ import test_crop_climate_joint_farm_binding as reference
 
 pytestmark=reference.pytestmark
 KEY=b'owned-joint-custody-test-secret-32-bytes!'
+FRESH_PYTHONPATH=os.pathsep.join((str(Path(__file__).resolve().parents[1]),str(Path(__file__).resolve().parent)))
 
 
 def save(name,value):
@@ -124,7 +125,8 @@ def test_normal_actual_producer_and_fresh_resume_zero_read_calls(setup,tmp_path,
         assert first_calls=={'prepare_context':1,'start':1,'restore':0,'advance':1,'RHS':4,'step':0,'event':1,'prepare_binding':1}
         assert custody.inspect('tenant-1',raw)==first and calls==first_calls
     path=fresh_pack(tmp_path,value,first,custody)
-    child=subprocess.Popen([sys.executable,'-B','-c',FRESH_SCRIPT,str(path)],stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    child=subprocess.Popen([sys.executable,'-B','-c',FRESH_SCRIPT,str(path)],stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.PIPE,
+        env=dict(os.environ,PYTHONPATH=FRESH_PYTHONPATH))
     stdout,stderr=child.communicate(timeout=100);assert child.returncode==0,stderr.decode();fresh=json.loads(stdout)
     assert fresh['calls']=={'prepare_context':1,'start':0,'restore':1,'advance':1,'RHS':87,'step':16,'event':2,'prepare_binding':1}
     with monkeypatch.context() as patch:

@@ -4,6 +4,8 @@ from dataclasses import replace
 from hashlib import sha256
 import calendar
 import json
+import os
+from pathlib import Path
 import subprocess
 import sys
 import time
@@ -14,6 +16,7 @@ from app import crop_climate_joint_time as model
 import test_crop_climate_joint_continuation as reference
 
 profiles=reference.profiles
+FRESH_PYTHONPATH=os.pathsep.join((str(Path(__file__).resolve().parents[1]),str(Path(__file__).resolve().parent)))
 
 
 def origin(stamp='2026-10-01T00:00:00Z'):
@@ -300,5 +303,6 @@ c.driver.joint.evaluate_rhs=c.driver.short.integrate=c.driver.management.apply_m
 b=m.prepare_binding(ctx,origin=p['origin']);r=m.bind_chunk(b,before,s,expected_chunk_sha256=p['source_sha256'],expected_binding_sha256=p['binding_sha256'])
 print(json.dumps({'result_sha256':r['result_sha256'],'binding_sha256':b.sha256,'binding_numerical_calls':0}))
 '''
-    r=subprocess.run([sys.executable,'-B','-c',script,str(p)],check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=20)
+    r=subprocess.run([sys.executable,'-B','-c',script,str(p)],check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=20,
+        env=dict(os.environ,PYTHONPATH=FRESH_PYTHONPATH))
     assert json.loads(r.stdout)=={'result_sha256':expected['result_sha256'],'binding_sha256':binding.sha256,'binding_numerical_calls':0}

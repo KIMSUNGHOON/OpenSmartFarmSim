@@ -3,6 +3,7 @@ from copy import deepcopy
 from hashlib import sha256
 import json
 import os
+from pathlib import Path
 import subprocess
 import sys
 
@@ -12,6 +13,7 @@ from app import crop_climate_joint_storage as model
 import test_crop_climate_joint_time as reference
 
 profiles=reference.profiles
+FRESH_PYTHONPATH=os.pathsep.join((str(Path(__file__).resolve().parents[1]),str(Path(__file__).resolve().parent)))
 
 
 def test_smoke_exact_sample_and_event_pages(profiles,tmp_path):
@@ -66,7 +68,8 @@ c.prepare_context=c.start=c.restore_checkpoint=c.advance_chunk=c.driver.joint.ev
 with m.open_artifact(sys.argv[1],sys.argv[2]) as r:
  print(json.dumps({'summary':r.summary,'samples':r.page('samples')['records'],'events':r.page('events')['records']}))
 '''
-    r=subprocess.run([sys.executable,'-B','-c',script,str(tmp_path),artifact],check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=20)
+    r=subprocess.run([sys.executable,'-B','-c',script,str(tmp_path),artifact],check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=20,
+        env=dict(os.environ,PYTHONPATH=FRESH_PYTHONPATH))
     found=json.loads(r.stdout)
     assert found['summary']['counts']=={'samples':3,'events':3}
     assert [v['value'] for v in found['samples']]==[v for chunk in chunks for v in chunk['samples']]
@@ -119,7 +122,8 @@ def cut(self,head):
 m.ArtifactWriter._publish_head=cut
 with m.create_writer(sys.argv[2],b,initial) as w:w.append(s,expected_chunk_sha256=p['digest'])
 '''
-    p=subprocess.run([sys.executable,'-B','-c',script,str(pack),str(directory),phase],stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=20)
+    p=subprocess.run([sys.executable,'-B','-c',script,str(pack),str(directory),phase],stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=20,
+        env=dict(os.environ,PYTHONPATH=FRESH_PYTHONPATH))
     assert p.returncode==-9,p.stderr.decode()
     raw=(directory/'HEAD').read_bytes();head=json.loads(raw);n=int(phase=='after');assert head['commit_count']==n and head['artifact_sha256'] is None
     cp=initial if n==0 else chunks[0]['checkpoint']

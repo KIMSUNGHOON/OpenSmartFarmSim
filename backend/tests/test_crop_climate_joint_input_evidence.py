@@ -15,6 +15,7 @@ import test_crop_climate_joint_time as reference
 
 profiles=reference.profiles
 KEY=b'owned-joint-input-evidence-test-key-32!'
+FRESH_PYTHONPATH=os.pathsep.join((str(Path(__file__).resolve().parents[1]),str(Path(__file__).resolve().parent)))
 
 
 def packet(directory,profiles,case=None,origin=None):
@@ -180,7 +181,8 @@ for target,name in ((m.continuation,'prepare_context'),(m.continuation,'start'),
 result=t.authority(p['review']).verify(p['directory'],p['source'],Path(p['receipt']).read_bytes(),expected_context_sha256=p['context'],expected_binding_sha256=p['binding'])
 print(json.dumps({'context':result.record['context_sha256'],'binding':result.record['binding_sha256'],'calls':len(calls),'gates':result.rights_or_gate_approval}))
 '''
-    child=subprocess.run([sys.executable,'-B','-c',script,str(pack)],capture_output=True,timeout=20,check=True)
+    child=subprocess.run([sys.executable,'-B','-c',script,str(pack)],capture_output=True,timeout=20,check=True,
+        env=dict(os.environ,PYTHONPATH=FRESH_PYTHONPATH))
     assert json.loads(child.stdout)=={'context':p[2]._context.root_sha256,'binding':p[2].sha256,'calls':0,'gates':False}
 
 

@@ -3,6 +3,7 @@ from copy import deepcopy
 from dataclasses import replace
 from hashlib import sha256
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -13,6 +14,7 @@ from app import crop_climate_joint_continuation as model
 import test_crop_climate_joint_boundary as reference
 
 ROOT=Path(__file__).resolve().parents[2]
+FRESH_PYTHONPATH=os.pathsep.join((str(Path(__file__).resolve().parents[1]),str(Path(__file__).resolve().parent)))
 CASES=reference.REFERENCE['cases']
 profiles=reference.profiles
 
@@ -115,7 +117,8 @@ while cp.value['next_index']<=ctx.program['step_count']:
  r=m.advance_chunk(ctx,cp,3);assert r['status']!='hold',r['hold'];cp=r['checkpoint'];chunks+=1;samples.extend(r['samples']);events.extend(r['events'])
 print(json.dumps({'checkpoint_sha256':cp.sha256,'samples_sha256':m._hash(samples),'events_sha256':m._hash(events),'calls':calls,'chunks':chunks}))
 '''
-    completed=subprocess.run([sys.executable,'-B','-c',script,str(pack)],check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=20)
+    completed=subprocess.run([sys.executable,'-B','-c',script,str(pack)],check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=20,
+        env=dict(os.environ,PYTHONPATH=FRESH_PYTHONPATH))
     found=json.loads(completed.stdout);remaining_samples=[s for s in target['samples'] if s['step_index']>=boundary]
     remaining_events=[e for e in target['events'] if e['step_index']>=boundary]
     assert found['checkpoint_sha256']==target['checkpoint'].sha256
