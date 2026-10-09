@@ -215,7 +215,7 @@ Code = create_model('JointResultCode', __base__=_Public,
         for k in storage.CODE})
 
 
-class Reference(_Public):
+class JointReference(_Public):
     storage_status: Literal['stored_unpublished_research']
     claim_scope: Literal['synthetic_joint_crop_climate_math_only']
     G0_G4: Literal['not_assessed']
@@ -274,7 +274,7 @@ class JointReplay(_Public):
     study_id: Name
     revision: Name
     farm: Farm
-    reference: Reference
+    reference: JointReference
     summary: Summary | None
     page: Annotated[SamplePage | EventPage, Field(discriminator='kind')] | None
 

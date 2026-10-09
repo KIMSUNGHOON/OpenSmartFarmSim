@@ -33,6 +33,7 @@ OPERATIONS = {
     ('/v1/crop-cycle-research-results/{result_id}','get'): ('getCycleCropResearchResult',list(CROP_READ_SCOPES)),
     ('/v1/crop-cycle-calculation-research-results/{result_id}','get'): ('getCalculationCycleCropResearchResult',list(CROP_READ_SCOPES)),
     ('/v1/crop-harvest-research-results/{result_id}','get'): ('getHarvestResearchResult',list(CROP_READ_SCOPES)),
+    ('/v1/crop-climate-joint-research-results/{result_id}','get'): ('getJointCropClimateResearchResult',list(CROP_READ_SCOPES)),
     ('/v1/crop-research-result-catalog','get'): ('listCropResearchResults',list(CROP_READ_SCOPES)),
     ('/v1/crop-research-result-catalog/farm-crops','get'): ('getCropResearchFarmSelection',list(CROP_READ_SCOPES)),
     ('/v1/source-history/{research_job_id}/collections/{collection_job_id}/economic-candidates','get'):
@@ -232,6 +233,7 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
         .replace("{run_id}", ("authored-thermal-run-v1:" if '/authored-runs/' in path else
             "synthetic-thermal-v1:")+"a"*64).replace("{result_id}",
                 ("crop-cycle-verified-result-v1:" if '/crop-cycle-calculation-research-results/' in path else
+                 "joint-crop-climate-result-v1:" if '/crop-climate-joint-research-results/' in path else
                  "crop-harvest-registered-result-v1:" if '/crop-harvest-research-results/' in path else
                  "crop-cycle-result-v1:" if '/crop-cycle-research-results/' in path else
                  "crop-result-v3:" if '/crop-startup-research-results/' in path else
@@ -246,7 +248,8 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
                 else b'scenario_id=example&scenario_revision=r1&crop_id=crop-1&registration_sha256='+b'a'*64
                   if path.startswith(('/v1/crop-research-results/','/v1/crop-coupled-research-results/',
                                       '/v1/crop-startup-research-results/','/v1/crop-cycle-research-results/',
-                                      '/v1/crop-cycle-calculation-research-results/','/v1/crop-harvest-research-results/'))
+                                      '/v1/crop-cycle-calculation-research-results/','/v1/crop-harvest-research-results/',
+                                      '/v1/crop-climate-joint-research-results/'))
                 else b'scenario_id=example&scenario_revision=r1&registration_sha256='+b'a'*64
                   if path in ('/v1/farm-authored-inputs/activity','/v1/crop-research-result-catalog/farm-crops')
                 else b'plan_id=example&submission_sha256='+b'a'*64 if path == '/v1/break-even-plans/receipt'
