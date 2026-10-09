@@ -185,6 +185,25 @@ class _Reader:
     def summary(self):
         return self._operation(lambda: deepcopy(self._root['summary']))
 
+    def verify_all_rows(self):
+        def verified():
+            chain = sha256();count = 0;page_start = 0;page_bytes = 0
+            for descriptor in self._root['pages']:
+                values = _blob(self._fd, descriptor['sha256'], LIMITS['page_bytes'])
+                _need(type(values) is list and len(values) == descriptor['count']
+                      and descriptor['start'] == count)
+                for row in values:
+                    raw = _canonical(row);chain.update(raw + b'\n')
+                    page_bytes += len(raw) + (count > page_start);count += 1
+                    if count - page_start == LIMITS['page_records'] or count == self._root['row_count']:
+                        envelope = {'start': page_start, 'next': count, 'total': self._root['row_count'], 'records': []}
+                        _need(len(_canonical(envelope)) + page_bytes <= LIMITS['page_bytes'])
+                        page_start = count;page_bytes = 0
+            digest = chain.hexdigest()
+            _need(count == self._root['row_count'] and digest == self._root['row_chain_sha256'])
+            return {'row_count': count, 'row_chain_sha256': digest}
+        return self._operation(verified)
+
     def page(self, start=0, limit=64):
         def selected():
             total = self._root['row_count']

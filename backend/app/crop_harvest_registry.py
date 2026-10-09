@@ -209,11 +209,9 @@ class HarvestRegistry:
             summary = reader.summary()
             _need(summary['row_count'] == artifact['row_count'] and summary['row_chain_sha256'] == artifact['row_chain_sha256'])
             if full:
-                chain = sha256();count = 0
-                for start in range(0,artifact['row_count'],replay.LIMITS['page_records']):
-                    for row in reader.page(start,replay.LIMITS['page_records'])['records']:
-                        chain.update(_canonical(row)+b'\n');count += 1
-                _need(count == artifact['row_count'] and chain.hexdigest() == artifact['row_chain_sha256'])
+                verified = reader.verify_all_rows()
+                _need(verified['row_count'] == artifact['row_count']
+                      and verified['row_chain_sha256'] == artifact['row_chain_sha256'])
 
     def put(self, tenant, parent_result_id, farm_ref, parameter_raw, allocation_raw):
         fd = lock = child = None
