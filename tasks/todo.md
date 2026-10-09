@@ -7,10 +7,16 @@
   RSS 관측과 종료 권한을 분리하고 보호 가지 전체/원 identity·pidfd를 검사한다.
   집중10개/원c66e47 종료0, 실제8MiB 소유 RSS 상한 중단 원50b664 종료0·의도 자식-15,
   보호4 identity/원source·dist 보존·새 소유 비좀비0이다. UI/전체 부모 수용은 아니다.
+- [x] **`crop-parent-recovery-publication-small`** — [4파일 계약](../contracts/crop-parent-recovery-publication-v1.md)과
+  [로컬 수용](../research/crop-parent-recovery-publication-small-implementation-20261009.md).
+  집중23개/원13258 종료0·실제 작은 원19677 종료0/148.830초·PG 포함 fresh 복원 원10063 종료0/14.399초.
+  실제 원pytest-15/동일 data 재시작·40→120걸음/3시점/3사건·원 행/121상태·원 plan/key 정상 게시/backup,
+  source 정리 후 같은 현재 조회/권리/정리·보호4 identity/source/dist를 보존했다.
+  첫 native 실패는 남겼고 전체 미완료 파생 거부/새 파일0도 확인했다. 전체 부모/UI/관문 수용은 아니다.
 - [ ] **`crop-harvest-parent-interruption-recovery`** — 원95086은 pytest-15/실행기1이며 미수용이다.
   복구 원95915가303commit/1,209,263걸음에서 같은 입력/artifact로 재개 중이다.
-  원18:12:12 마감 유지. 원 전체 대사/종료 뒤 원 사전 선언plan/key의 복구 계보 계약·검증,
-  정상 게시/인증 backup·원 DB 정리/fresh 현재 query와 실제 종료/자원 감사를 완료해야 한다.
+  원18:12:12 마감 유지. 위 작은 helper 수용 뒤 전체 복구 종료/파생·전체 원 행/121상태 대사,
+  원 plan/key 정상 게시/인증 backup·source 정리/fresh 현재 query·원 종료/자원 감사를 완료해야 한다.
   선언/원 manifest 변경이나 source guard 완화로 대체하지 않는다.
 
 ## 최종 제품 UI 통합 (2026-10-09)

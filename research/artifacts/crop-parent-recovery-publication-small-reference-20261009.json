@@ -1,0 +1,142 @@
+{
+  "G0_G4": "not_assessed",
+  "UI_or_full_parent_accepted": false,
+  "accepted_local": true,
+  "actual_crop_Runs": 0,
+  "actual_full_incomplete_refusal": {
+    "actual_crop_Runs": 0,
+    "actual_full_incomplete_derivation_refused": true,
+    "created_output_files": false,
+    "error_class": "ValueError",
+    "observed_at": "2026-10-09T13:52:13.080642+09:00",
+    "publication_calls": 0,
+    "same_recovery_controller_live": true
+  },
+  "actual_native": {
+    "RSS_samples": 1178,
+    "actual_exit_code": 0,
+    "combined_peak_RSS_bytes": 977514496,
+    "commands": [
+      {
+        "actual_exit_code": 0,
+        "label": "native-small",
+        "log_sha256": "a9a479cfb63fae679a257f5a1874389f09161ce6a13549a5ed277b0dd2a35c54",
+        "wall_seconds": 127.20772814200609
+      },
+      {
+        "actual_exit_code": 0,
+        "label": "fresh-current-restore",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "wall_seconds": 13.437925933976658
+      }
+    ],
+    "fresh_restore_PG_pidfile_remaining": false,
+    "main_source_count": 1551,
+    "original_pinned_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "preview_dist_unchanged": true,
+    "protected_original_identities_unchanged": true,
+    "single_PID_peak_RSS_bytes": 131870720,
+    "source_PG_pidfiles_remaining": 0,
+    "source_pins_preserved": true,
+    "wall_limit_seconds": 600,
+    "wall_seconds": 148.8298091159959
+  },
+  "actual_publication_RHS_calls": 0,
+  "actual_small_scope": {
+    "PG_stop_start_exit_codes": [
+      0,
+      0
+    ],
+    "actual_original_pytest_exit": -15,
+    "all_rows_and_121state_compared": true,
+    "compute_exit": 0,
+    "current_rights_principal_foreign_denied": true,
+    "original_plan_key_files_preserved": true
+  },
+  "actual_source_comparison_RHS_calls": 0,
+  "current_fresh_restore_PG_inclusive": {
+    "G0_G4": "not_assessed",
+    "RSS_samples": 209,
+    "RSS_scope": "controller/children plus actual fresh restore PG tree and full compute/user preview PG trees; sampled RSS shared pages may double count",
+    "actual_crop_Runs": 0,
+    "actual_exit_code": 0,
+    "combined_peak_RSS_bytes": 792682496,
+    "fresh_PG_pidfile_remaining": false,
+    "fresh_PG_tree_observed_samples": 180,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original_small_deadline_ns": 1791521873577672627,
+    "owned_non_zombie_remaining": [],
+    "protected_original_identities_unchanged": true,
+    "reason": null,
+    "same_original_record_values_UTC": true,
+    "sample_interval_seconds": 0.05,
+    "single_PID_peak_RSS_bytes": 128204800,
+    "source_count": 1551,
+    "source_pins_preserved": true,
+    "wall_seconds": 14.398701230995357
+  },
+  "failed_first_native": {
+    "actual_exit_code": 1,
+    "owned_non_zombie_remaining": [],
+    "protected_original_identities_unchanged": true,
+    "source_PG_pidfiles_remaining": 0,
+    "source_pins_preserved": true,
+    "wall_seconds": 43.06571501499275
+  },
+  "focused": {
+    "actual_exit_code": 0,
+    "focused_passed": 23,
+    "log_sha256": "b4c60dcbc562b01ed5b43d4a2009443dfa7ad60760dd06eab0d7e6140b73bf7c",
+    "wall_seconds": 2.1694674190075602
+  },
+  "full_observation": {
+    "confirmed_commits": 334,
+    "confirmed_steps": 1332983,
+    "full_terminal_or_accepted": false,
+    "observed_at_KST": "2026-10-09 13:53:17",
+    "original_deadline_KST": "2026-10-09 18:12:12",
+    "original_execution": 95086,
+    "original_terminal": "failed_interrupted_not_accepted",
+    "planned_steps": 1816704,
+    "recovered_execution": 95915
+  },
+  "independent_domestic_farm_datasets": 0,
+  "native_CLI": {
+    "event_sha256": "2a7301bb7744bafd1b755228527b571fcea61292ed1732795874fe785686f85d",
+    "implementation_source_sha256": {
+      "backend/tests/crop_parent_recovery_publication_smoke.py": "fabdc6458ad245354122d57ecbc3301aba11627cdff5d9541c58f9532427f72a",
+      "backend/tests/test_crop_parent_recovery_publication.py": "a24f16bee41d910b5972ccdb81c114c805883e164bafdc2a0cbfbfa45ef6aa65",
+      "contracts/crop-parent-recovery-publication-v1.md": "6b2d81f714b8fceada6fd33ba626627a1dbcffd432106590824550b29cc2473d",
+      "research/crop-parent-recovery-publication.py": "a77f8f072840740aa1afe9cdfd3c75aaf132311caa0f1c18711182942c9edac6"
+    },
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_CLI_invocations": 0,
+    "scope": "Interruption publication lineage contract: original declaration/plan/key retention, historical supervision verification, same-data PG restart and completed recovery derivation; no domain coefficients or gate decisions",
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-09T04:38:28.524Z"
+  },
+  "native_v2_RSS_caveat": "fresh-restore PG tree was not explicitly included; separate fresh resource verification below is authoritative for that stage",
+  "schema_version": "owned-parent-recovery-publication-small-reference-v1",
+  "scope": "local_owned_small_recovery_only",
+  "small_completed": {
+    "commit_count": 4,
+    "counts": {
+      "events": 3,
+      "samples": 3
+    },
+    "status": "completed",
+    "steps": 120
+  },
+  "small_original_confirmed": {
+    "commit_count": 1,
+    "counts": {
+      "events": 1,
+      "samples": 1
+    },
+    "status": "yielded",
+    "steps": 40
+  },
+  "small_original_deadline_ns": 1791521873577672627
+}
