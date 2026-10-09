@@ -116,6 +116,10 @@ U1은 [서버 목록 계약](../contracts/crop-result-catalog-v1.md)의 metadata
 [수정판 실제 이미지/Compose](../research/crop-ui-application-runtime-hosted-20261009.md)는
 별도37893449391/0f865d1의 원 terminal success로 확인했다. PNG export·두 이미지/격리·API/작업자·소비자·scope 경로를 통과했다.
 수정판 브라우저30개/원 디자인·실제 DB 선택과 기존 PR 전체 Backend/UID는 별도 미완료다.
+[수정판 웹 전체 회귀](../research/crop-ui-web-hosted-regression-20261009.md)는 별도37895265205/58adcdd에서
+같은 웹 tree의 타입·1,028단위·일반 빌드/audit·Chromium140개(예정30개 포함)를 통과했다.
+기능 회귀의 같은 소스 반복 대신 원3상태 improve/렌더 대조→현재 실제 공동 DB/API·재시작·WSL 브라우저
+자원/정리를 확인한다. 이 증거는 U1/U3 수용이나 기존 미리보기 교체가 아니다.
 기존 hosted Backend의 실제 수확 인증 감사 실패에 필요한
 [초기화 설정 후보](../research/ci-explicit-host-scram-candidate-20261009.md)는 로컬 A/B만 확인했다.
 [8dd386d 실제 종료](../research/crop-result-ci-terminal-20261009.md)는 Backend2/3 성공·0/1/4/5/집계 실패다.
