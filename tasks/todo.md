@@ -22,6 +22,22 @@
   현재 권리를 다시 확인한 뒤 기존 3D/수확을 연다. 새로고침·API 재시작 후 같은 저장 결과를
   재선택하며 중복 계산하지 않는다. 다른 계정/철회/변조·빈 목록·페이지 경계·늦은 응답을 확인한다.
   접근 토큰은 저장하지 않는다. **사용자 산출물:** ID 수동 복사 없이 여는 저장 결과 목록.
+  - [x] **`crop-result-catalog-metadata`** — [서버 목록 계약](../contracts/crop-result-catalog-v1.md)의
+    핵심4파일. 기존 현재 farm/등록·display 권리와 서명 metadata로 verified 생장/수확 목록을
+    keyset 페이지로 찾는다. 선택 시 원 query를 다시 검증하며 목록을 파일/수치/관문 승인으로 표시하지 않는다.
+    수용: 두 kind/UTC·동률/빈 페이지·다른 계정/등록/작물·현재 scope/display 철회·HMAC 변조·
+    투영 뒤 철회를 실제 별도 복원 SCRAM DB와 대사하고 원 입력/서명/생성0·소유 정리/WSL 자원을 기록한다.
+    [로컬 증거](../research/crop-result-catalog-metadata-implementation-20261009.md): 집중30개/원26744 종료0,
+    실제 SCRAM1개/원48842 종료0·58.297초·두 kind 각1건/5.441·4.753초·60 source/FD12→12·소유 PG 정지,
+    동시 전체/미리보기 포함 RSS810,688,512bytes다. 실제20항목 성능/보호 API·화면·상위 U1은 미수용이다.
+  - [ ] **`crop-result-catalog-api`** — 선행 metadata. 기존 현재 query와 같은 인증/런타임에서
+    보호 GET/닫힌 query·typed response/OpenAPI·no-store·현재 주체 재확인·정해진 시간/bytes를 검증한다.
+  - [ ] **`web-crop-result-catalog`** — 선행 보호 API. 기존 농장 목록/선택에서 SDK로 결과를 찾고
+    같은 결과/농장·판본을 기존 생장3D/수확에 전달한다. 수동 ID 복사·token 저장 없이 재선택하며
+    빈 목록/hold·현재 권리 실패·취소/늦은 응답·키보드/좁은 화면을 검증한다.
+  - [ ] **`product-ui-result-catalog-native`** — 선행 API/웹. 실제 별도 DB/API/빌드 App에서
+    저장 결과 선택→같은 UTC3D/수확·새로고침/백엔드 재시작·철회/계정과 WSL 자원을 확인한다.
+    첫 두 판본 연결 뒤 기존 기관/구획/startup 판본의 검색/선택 범위를 대사하고 상위 U1을 판단한다.
 - [ ] **`product-ui-region-input` (U2)** — 선행: 기존 조사/수집/검토·농장 작성 API; U1과 병행 가능.
   예정: `web/src/ProjectSetup.tsx`, `web/src/ResearchEvidence.tsx`, `web/src/App.tsx`,
   `web/e2e/project-setup.spec.ts`, 별도 계약. 한 번에 만드는 화면은 더 작은 부분으로 나눈다.
