@@ -1487,12 +1487,14 @@
         원 저장 summary/page·wire/ASGI SHA·scope/tenant/현재 표시권 거부·복원·읽기 RHS0/FD/정리를 확인했다.
         전체는 원64849 진단2/별도 root39119 실제0·summary30.019초 timeout/서버34.619초로 보류했다.
         한도/현재 권리·원본/backup·미리보기는 보존했다. 첫64/끝1·전체 HTTP 거부·대표3D/U3는 미수용이다.
-      - [ ] **`crop-harvest-current-read-cost`** — 선행 위 전체 timeout 실측과 보존된 전체 record.
-        요청 안 중복 부모 조회를 계측하고3~5 core파일의 검사 범위/판본 호환 계약으로 나눈다.
-        수용: 원 artifact/서명·최초 UTC/summary/첫64/끝1·원량 불변, 현재 권리/계정·끝 검사/변조 거부,
-        조회 RHS/수확 생성/등록/증명0, 같은 전체 보호 HTTPS 각30초/2MiB·wire/ASGI 대사·소유 정리/WSL 상한.
-        기존 manifest/decoder pin을 바꾸어 통과시키지 않으며 새 호환 증거는 별도로 보존한다.
-        현재 비용 경계가 통과한 뒤 전체 API/대표 WebGL·수동 확인 부모를 평가한다.
+      - [x] **`crop-harvest-current-read-cost`** — [계약](../contracts/crop-harvest-current-read-cost-v1.md)·
+        [실제 수용](../research/crop-harvest-current-read-cost-20261009.md),6195dd9/bfb038b.
+        원21850 실제0·실제 DB6행/fresh2Python, 원24804 실제0·집중238개,
+        원70467 실제0·같은 전체47,813행 보호 HTTPS7응답/별도 root0으로 수용했다.
+        summary8.823초/첫64행10.939초/끝1행10.780초·원량/서명/최초 UTC·현재 권한/끝 검사·변조 거부,
+        조회 RHS/생성/등록/증명0·wire/ASGI·30초/2MiB·FD/원본/소유 정리/WSL 상한을 확인했다.
+        기존 manifest는 원 frozen Python으로 검증하고 reader 한 파일만 다른 새 호환 관측을 보존했다.
+        원 decoder/manifest/결과는 바꾸지 않았다. 전체 API/대표 WebGL·수동 확인 부모와 U3는 미수용이다.
 - [ ] **`crop-climate-coupling`** — 선행: 생산 모델의 필요한 상태와 수관/PAR/CO₂ 근거.
   예정 파일(3): `backend/app/crop_climate_coupling.py`, `backend/tests/test_crop_climate_coupling.py`,
   `contracts/crop-climate-coupling-v1.md`.

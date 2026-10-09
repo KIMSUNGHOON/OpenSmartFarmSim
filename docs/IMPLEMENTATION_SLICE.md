@@ -2,8 +2,9 @@
 
 **2026-10-09 전체 수확 후속:** [정상 전체 저장·등록·복원](../research/crop-harvest-full-writer-completed-20261009.md)은
 원96517/별도 root3349 실제0·47,813행 독립 Decimal·인증 backup·fresh 현재 권리/원값·정리로 로컬 수용했다.
-[보호 API 비용](../research/crop-harvest-api-cost-20261009.md)은 집중40개/작은 실제 HTTPS7응답을 통과했으나,
-전체 summary30초 timeout으로 보류했다. 다음은 중복 부모 조회 비용/현재 끝 검사·판본 호환 보완→같은 전체 API/대표3D다.
+[요청 범위 조회/전체 보호 API](../research/crop-harvest-current-read-cost-20261009.md)는 집중238개·실제 DB와
+같은 전체 HTTPS7응답으로30초 timeout을 해소했다. 원 서명·시각·원량/권한/정리와30초/2MiB는 유지했다.
+다음은 같은 전체 API/대표 UTC의 WebGL 대사다. 사용자 화면의 전체 수확 연결은 아직 수용하지 않았다.
 현재 화면의 완료 생장 조회, 전체 수확 저장 완료, 실시간 U3·최종 제품 UI/실제 자료·관문 수용을 각각 기록한다.
 
 **2026-10-09 사용자 확인 화면과 최종 UI:** 기존 App의 실제 API/저장 결과 동시 기동을

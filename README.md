@@ -8,8 +8,8 @@
 
 **2026-10-09 최신 수용:** [전체 수확 저장·등록·복원](research/crop-harvest-full-writer-completed-20261009.md)을 완료했다.
 원96517/별도 root3349 실제0·47,813행 Decimal 독립 대사·인증 backup·fresh 동일 결과/현재 권리·소유 정리를 통과했다.
-[보호 API 비용](research/crop-harvest-api-cost-20261009.md)은 집중40개/작은 실제 HTTPS7응답까지 수용했으나,
-전체 summary는30초 timeout(서버34.619초)으로 보류했다. 다음은 중복 부모 조회 비용 보완→전체 API/대표3D다.
+[요청 범위 조회/전체 보호 API](research/crop-harvest-current-read-cost-20261009.md)는 집중238개·실제 DB·전체 HTTPS7응답을 통과했다.
+같은 저장 summary8.823초/첫64행10.939초/끝1행10.780초로 이전30초 timeout을 해소했다. 다음은 같은 UTC의 전체 API/대표3D다.
 기존 화면은 완료 생장을 읽으며 전체 수확 화면·실시간 U3·실제 품종/독립 자료/관문 수용은 남아 있다.
 
 **당시 2026-10-09 19:00 KST 계산 관측:** [정상 전체 수확 writer](research/crop-harvest-full-writer-running-20261009.md)를
