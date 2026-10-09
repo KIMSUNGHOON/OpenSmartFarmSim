@@ -23,7 +23,7 @@ from app.crop_result_store import READ_SCOPES
 from app.http_identity import current_principal
 from app.runtime_roles import RolePolicyHold
 from test_api_crop_cycle_route import protect, TOKEN, NOW
-from test_api_crop_harvest_replay import source, REFERENCE_SHA
+from test_api_crop_harvest_replay import source, historical_source, REFERENCE_SHA
 from test_crop_harvest_current_query import forbid_all_reads_math
 from test_crop_harvest import save_native
 from test_http_identity import request
@@ -128,6 +128,20 @@ def test_one_current_context_preserves_recorded_values_and_checks_before_return(
         'raw_utf8': raw[0].decode(), 'bytes': len(raw[0]), 'sha256': sha256(raw[0]).hexdigest(),
         'trace': case.trace, 'FD_before_after': [fd, fd], 'RHS_regeneration_registration_proof_calls': 0,
         'gates': 'not_assessed'})
+
+
+def test_historical_values_return_hold_through_protected_route_without_publishing(source,historical_source,monkeypatch):
+    case=assembly(source,monkeypatch);original=deepcopy(historical_source);forbid_all_reads_math(monkeypatch)
+    @contextmanager
+    def outdated(*args,**kwargs):
+        case.trace.append('historical-open')
+        try:yield deepcopy(historical_source)
+        finally:case.trace.append('historical-close')
+    monkeypatch.setattr(case.query,'open',outdated)
+    status,value,headers=get(case,query='&view=records')
+    assert status==422 and value=={'error':{'code':'harvest_research_hold','message':'Harvest research evidence unavailable'}}
+    assert headers[b'cache-control']==b'no-store' and case.trace.count('historical-open')==case.trace.count('historical-close')==1
+    assert historical_source==original and 'reference' not in value
 
 
 @pytest.mark.parametrize('query', ['&extra=1', '&scenario_id=duplicate', '&view=summary&view=records',

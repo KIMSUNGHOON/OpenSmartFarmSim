@@ -14,13 +14,14 @@ from app import crop_harvest_current_query as current
 from test_crop_harvest_current_query import forbid_all_reads_math
 from test_crop_harvest import save_native
 
-REFERENCE=Path(__file__).resolve().parents[2]/'research/artifacts/crop-harvest-current-query-implementation-reference-20261008.json'
-REFERENCE_SHA='3e845e6add86acf1c5cb25b0c104a4df90c33aeb3554ea90164148d41f3f3cbe'
+REFERENCE=Path(__file__).resolve().parents[2]/'research/artifacts/crop-harvest-api-current-values-20261009.json'
+REFERENCE_SHA='88055f2292ffd8feca17202b231b9ba7d39a2c035b31e3049fff1e39c7725e5c'
+HISTORICAL_REFERENCE=REFERENCE.with_name('crop-harvest-current-query-implementation-reference-20261008.json')
+HISTORICAL_REFERENCE_SHA='3e845e6add86acf1c5cb25b0c104a4df90c33aeb3554ea90164148d41f3f3cbe'
 
 
-@pytest.fixture
-def source():
-    raw=REFERENCE.read_bytes();assert sha256(raw).hexdigest()==REFERENCE_SHA
+def recorded_source(path,digest):
+    raw=path.read_bytes();assert sha256(raw).hexdigest()==digest
     evidence=json.loads(raw)['actual_registered_query_evidence'];saved=evidence['registered_record']
     record={'result_id':saved['result_id'],'payload_raw':saved['payload_raw_utf8'].encode(),
         'payload_sha256':saved['payload_sha256'],'recorded_at':datetime.fromisoformat(saved['recorded_at'])}
@@ -28,7 +29,27 @@ def source():
         'identity':evidence['identity']}
 
 
+@pytest.fixture
+def source():return recorded_source(REFERENCE,REFERENCE_SHA)
+
+
+@pytest.fixture
+def historical_source():return recorded_source(HISTORICAL_REFERENCE,HISTORICAL_REFERENCE_SHA)
+
+
 def project(source):return public.project_harvest_result(source,view='records',limit=64)
+
+
+@pytest.mark.parametrize('view',['summary','records'])
+def test_historical_signed_values_are_refused_without_rebinding_or_generation(historical_source,monkeypatch,view):
+    original=deepcopy(historical_source);raw=HISTORICAL_REFERENCE.read_bytes();forbid_all_reads_math(monkeypatch)
+    with pytest.raises(current.registry.HarvestRegistrationHold):
+        current.registry._decode(historical_source['record']['payload_raw'])
+    value=historical_source if view=='records' else {**historical_source,'page':None}
+    with pytest.raises(public.HarvestProjectionHold):
+        public.project_harvest_result(value,view=view,limit=64 if view=='records' else None)
+    assert historical_source==original and HISTORICAL_REFERENCE.read_bytes()==raw
+    assert sha256(raw).hexdigest()==HISTORICAL_REFERENCE_SHA
 
 
 def test_saved_SCRAM_summary_and_all_rows_keep_values_without_math(source,monkeypatch):
