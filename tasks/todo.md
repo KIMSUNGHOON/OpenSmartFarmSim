@@ -59,6 +59,10 @@
     다음3~5 core파일에서 같은 pytest controller의 선행 자식이 있는 실제 프로세스 조건을 재현해 원인을 확정한다.
     수용: 기존 자식/PG·보호 가지를 종료하지 않고 지정 소유 가족만 실제 pidfd로 정리하며 strict sent-set/FD 검사를 유지한다.
     검사 생략/허용 집합 확대/제품 ownership 범위 축소로 통과시키지 않는다. 원 명령 종료/소유 정리와 hosted 재검증을 구분한다.
+    [bba1167 로컬 수용](../research/owned-research-shared-controller-20261009.md): 실제 uv3.12.13 tracker의 원95993 종료1/같은2실패,
+    원48295/95789/15059/36281 실제0·두 배포본/일반·tracker의 고유32개·선행 일반/thread 가족 보존이다.
+    기존16 test 함수 assertion AST/제품 helper SHA·원본2,148/서비스FD8→8/root4→4·미리보기/소유 정리를 확인했다.
+    로컬 자식만 수용했다. 새 exact-commit hosted 분할1/전체 회귀 뒤 부모를 체크한다.
   숫자 PID signal fallback·skip·감사 생략을 하지 않는다. 실행 중 고정 source의 기존 helper SHA와 보호 미리보기를 보존하고
   실제 두 Python 배포본의 소유 child·철회/실패/정리와 hosted 회귀 뒤만 체크한다.
   - [x] **`owned-research-pidfd-bindings`** — [core3 계약](../contracts/owned-research-pidfd-compatibility-v1.md)·
