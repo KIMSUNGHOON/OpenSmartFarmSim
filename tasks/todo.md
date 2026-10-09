@@ -1734,7 +1734,7 @@
       원43890/15699 실제0·4.150/117.071초·FD4→4·원본2,148/기존 UI 보존·PG/schema/role/passfile/소유 정리,
       .25초 단일/합 RSS137,621,504/524,496,896bytes다. 첫 감시 ESRCH/시험 socket 소실 실패는 보존하고 private 감시 수정 뒤 같은 core를 재검증했다.
       HMAC/현재 권리/페이지 인증은 포함하지 않는다. 새 HTTP/runtime/브라우저/U3는 미수용이다.
-    - [ ] **`crop-climate-joint-current-http`** — 선행: 새 projection/store.
+    - [x] **`crop-climate-joint-current-http`** — 선행: 새 projection/store.
       수용: 같은 custody 세션의 현재 농장/자료/계정·서명/원 bytes를 투영/직렬화 전후 확인한 인증 GET,
       summary/samples/events·2MiB·중복/여분 query/본문/연결 종료·404/권한/hold/미조립 거부와 실제 SCRAM/HTTPS·늦은 철회·조회 계산0/FD/원본 보존.
       API 비용을 실측한 뒤 후속 시간 추정을 갱신한다. 별도 queue/service를 추가하지 않는다.
@@ -1750,14 +1750,23 @@
         .25초 단일/합 RSS137,621,504/600,657,920bytes다. 작은 조회4.8초이며 HTTP/전체 작기 성능은 미수용이다.
         core3829a58은 앞선 projection fixture의 runtime identity 고정 root 문제만 수정했다. 원 재현1→순수39개/같은 재현1개 통과(중복 제외),
         실제 Python3.12.13 실행은 아니며 type fixture의 HMAC/농장 인증·과거 결과 이관은 주장하지 않는다. 계산/운영 identity/기존 DB2검사 AST는 유지했다.
-      - [ ] **`crop-climate-joint-http-route`** — 다음 core4: `backend/app/api_crop_climate_joint_route.py`,
+      - [x] **`crop-climate-joint-http-route`** — core7: `backend/app/api_crop_climate_joint_route.py`,
         `backend/app/api.py`, `backend/tests/test_api_crop_climate_joint_route.py`, `contracts/api-crop-climate-joint-route-v1.md`.
+        실제 schema 추가에 필요한 `contracts/openapi-v1.json`/기존 `test_api_openapi.py`와
+        기존 수확 schema 이름을 보존하는 새 projection 클래스 이름 변경1파일을 포함한다.
         수용: 동일 jobs/farm/principal 조립의 보호 GET·엄격 query/본문/조기 종료·현재 계정 재검사·no-store/2MiB와 실제 SCRAM/HTTPS,
-        잘못된 조립/404/권한/hold/늦은 철회·원값/조회 계산0/정리.2–3집중시간 잠정; runtime True/브라우저/U3는 후속이다.
-    - [ ] **`crop-climate-joint-runtime-assembly`** — 선행: 새 current HTTP·원 input authority/farm/custody/store.
+        잘못된 조립/404/권한/hold/늦은 철회·원값/조회 계산0/정리.
+        [core1ebbabe/로컬 수용](../research/crop-climate-joint-http-route-implementation-20261010.md): 새72(일반65/실제 SCRAM7)·투영39/관련 회귀260=고유371개,
+        실제 TLS completed/hold의6응답 원 bytes/UTC·9자료 철회/3만료·취소/전송 실패 뒤 원 custody 재조회·8종 계산0/행 불변,
+        기존52경로/211스키마·원본2,148/UI·FD/PG/schema/role/passfile/소유 정리를 확인했다.
+        최종10그룹 원 종료0·700.767초·단일/합 RSS241,807,360/594,550,784bytes다.
+        전체373회 중 selector 중복2회는 제외했다. 초기 FD3실패와 오류 경로 계정5실패를 추적·수정했고 원 실패는 보존했다.
+        작은 HTTPS4.84–4.88초다. runtime True/브라우저/U3·전체 작기/hosted 수용은 후속이다.
+    - [ ] **`crop-climate-joint-runtime-assembly`** — 다음. 선행: 새 current HTTP·원 input authority/farm/custody/store.
       기존 operator 판본의 새 flag 누락/False 호환을 유지하고 새 명시 True를 활성화하는 닫힌 판본/factory를 조립한다.
       수용: 같은 jobs/farm·정확한 타입/권리/모델/code pin·별도 key·명시 provisioned 권한·미조립/오조립 거부,
       실제 공유 DB/TLS로 원 결과를 읽고 재계산/새 행/자동 관문 승격이 없음. 자격증명은 private에 보존한다.
+      착수 때 기존 runtime/config/factory 검사를 대조해 변경 경계를 고정한다.2–4집중시간 잠정이며 registry/CI·웹/외부 자료 대기는 제외한다.
     - [ ] **`crop-climate-joint-numerical-3d`** — 선행: 새 typed HTTP/runtime, 기존 저장 결과 선택/3D 경로.
       새 typed client/view/동일 시각 adapter와 tests/계약의 변경 경계는 착수 때 고정한다.
       수용: 새108상태의 원 leaf/LAI·과실50 C/N·계산된 수관/공기 온도와 장부·사건/UTC를 같은 선택/표/그래프/WebGL에서 대사,

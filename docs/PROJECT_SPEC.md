@@ -46,7 +46,9 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 실제 SCRAM completed/hold·조회 계산0·원 종료/정리로 로컬 수용했다. HMAC/현재 권리/페이지 소속은 별도 current reader에서 검증한다.
 [같은 세션 현재 조회](../research/crop-climate-joint-current-query-implementation-20261010.md)도 고유10개·원 wire/fresh SCRAM·늦은 철회/변조·
 조회 계산0·원 종료/정리로 로컬 수용했다. 순수 fixture의 runtime identity 차이도 재현/수정해39개를 통과했고 운영 identity 검사는 유지했다.
-[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 보호 HTTP→명시 runtime→
+[보호 HTTP](../research/crop-climate-joint-http-route-implementation-20261010.md)도 고유371개(새72/투영39/회귀260)·
+실제 SCRAM/검증된 HTTPS·원108상태/장부/UTC·늦은 철회/취소·계산0·기존 계약/화면/원본 보존으로 로컬 수용했다.
+[결합 계약](../contracts/crop-climate-coupling-v1.md)의 다음은 명시 runtime→
 같은 시각3D며 온실 경계 조사는 병행한다. 새 공동 모델 UI·실시간 U3/관문은 미완료다.
 
 **당시 실행 상태 — 2026-10-09 17:46 KST:** [완료 전체 생장 부모의 실제 API·3D/사용자 기동](../research/crop-full-parent-api-view-preview-20261009.md)을 로컬 수용하고 `http://localhost:5173/`을 전환했다.

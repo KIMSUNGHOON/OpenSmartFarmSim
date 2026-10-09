@@ -1,0 +1,952 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_crop_Runs": 0,
+  "all_attempts": [
+    {
+      "exit": 0,
+      "final_source_accepted": true,
+      "log_sha256": "aabdd377c12c49dd003cc036854d586f883e3c1115b691f4f26c32f6506e891f",
+      "pytest_summary": "1 passed, 71 deselected in 52.67s",
+      "reason": null,
+      "stage": "account-v1",
+      "wall_seconds": 54.90725769900018
+    },
+    {
+      "exit": 0,
+      "final_source_accepted": true,
+      "log_sha256": "eb8f1d651775120f867afd1e265d17446c3c858a230ee4af60dfbf74d209237d",
+      "pytest_summary": "2 passed, 70 deselected in 103.82s (0:01:43)",
+      "reason": null,
+      "stage": "cancel-v1",
+      "wall_seconds": 107.43909456799156
+    },
+    {
+      "exit": 1,
+      "final_source_accepted": false,
+      "log_sha256": "a84269aa01e23dcc9742986068191ecc5f74e1f7e4fb96cea8549515e3a69308",
+      "pytest_summary": "1 failed, 63 deselected in 73.16s (0:01:13)",
+      "reason": null,
+      "stage": "completed-v1",
+      "wall_seconds": 76.00502917001722
+    },
+    {
+      "exit": 1,
+      "final_source_accepted": false,
+      "log_sha256": "c5de14592aafbc32d13ae020e2cd63b133ab9131bebbe580d0003a735e241d81",
+      "pytest_summary": "1 failed, 65 deselected in 73.29s (0:01:13)",
+      "reason": null,
+      "stage": "completed-v2",
+      "wall_seconds": 76.2720850740152
+    },
+    {
+      "exit": 1,
+      "final_source_accepted": false,
+      "log_sha256": "87a0c23615eecc58038478c70b031534f91e6a12edd0857f54373559cb83f773",
+      "pytest_summary": "1 failed, 65 deselected in 73.17s (0:01:13)",
+      "reason": null,
+      "stage": "completed-v3",
+      "wall_seconds": 75.97240511400742
+    },
+    {
+      "exit": 0,
+      "final_source_accepted": false,
+      "log_sha256": "a250cc81dbef9030da524b184e4d29d0de307c0df925bc904bb8fd671570ccdf",
+      "pytest_summary": "1 passed, 65 deselected in 72.76s (0:01:12)",
+      "reason": null,
+      "stage": "completed-v4",
+      "wall_seconds": 75.65912828099681
+    },
+    {
+      "exit": 0,
+      "final_source_accepted": true,
+      "log_sha256": "d70b49765c0c7c7b643854756497b6dd301bd3ade8bf531c1595cae5f7dfe83e",
+      "pytest_summary": "1 passed, 71 deselected in 73.02s (0:01:13)",
+      "reason": null,
+      "stage": "completed-v5",
+      "wall_seconds": 75.9059795140056
+    },
+    {
+      "exit": 0,
+      "final_source_accepted": true,
+      "log_sha256": "9a91fc5dad34940be68da87e12ebd580950bc39a552cb4dad100c910fd8793f4",
+      "pytest_summary": "2 passed, 70 deselected in 145.00s (0:02:24)",
+      "reason": null,
+      "stage": "hold-v1",
+      "wall_seconds": 149.96500674501294
+    },
+    {
+      "exit": 0,
+      "final_source_accepted": true,
+      "log_sha256": "df0761df2e461e939e0d3c09ab7c9f38a2ff606f502a485ac3bf09e44ce2a908",
+      "pytest_summary": "39 passed, 2 deselected in 3.83s",
+      "reason": null,
+      "stage": "projection-v1",
+      "wall_seconds": 4.400618247978855
+    },
+    {
+      "exit": 0,
+      "final_source_accepted": false,
+      "log_sha256": "ba9791aa2cd26823d3f15c3095c04406ae95ddf097b2ee5252ab6b410e8c81ab",
+      "pytest_summary": "59 passed, 5 deselected in 8.56s",
+      "reason": null,
+      "stage": "pure-v1",
+      "wall_seconds": 9.28223028301727
+    },
+    {
+      "exit": 0,
+      "final_source_accepted": false,
+      "log_sha256": "70c0dfc4f68526b93229a9a5b4f98c7fd5534266bbe2a7a93b4e6d36e70df750",
+      "pytest_summary": "59 passed, 7 deselected in 8.48s",
+      "reason": null,
+      "stage": "pure-v2",
+      "wall_seconds": 9.282170994003536
+    },
+    {
+      "exit": 1,
+      "final_source_accepted": false,
+      "log_sha256": "be0ac0bab5044b82dbef9fa85b275c1fc68e026ae244830e200153bcc1489735",
+      "pytest_summary": "5 failed, 60 passed, 7 deselected in 9.15s",
+      "reason": null,
+      "stage": "pure-v3",
+      "wall_seconds": 9.810912967019249
+    },
+    {
+      "exit": 0,
+      "final_source_accepted": true,
+      "log_sha256": "0b146f014bd112382b94a6c9a771c9b7c325aa3b9a1a8df768d7a753ac4b2133",
+      "pytest_summary": "65 passed, 7 deselected in 8.61s",
+      "reason": null,
+      "stage": "pure-v4",
+      "wall_seconds": 9.286134944995865
+    },
+    {
+      "exit": 0,
+      "final_source_accepted": true,
+      "log_sha256": "86848ed485a8b637309eadfdd310f1f0430a34341ea32299dc7561ca3ee97421",
+      "pytest_summary": "1 passed, 71 deselected in 43.98s",
+      "reason": null,
+      "stage": "refusals-v1",
+      "wall_seconds": 45.80676072501228
+    },
+    {
+      "exit": 0,
+      "final_source_accepted": true,
+      "log_sha256": "b5e25bcf2b19ad2115641e39c9e74009d55092921c8a98eebd58403176a45009",
+      "pytest_summary": "260 passed, 1 deselected in 120.56s (0:02:00)",
+      "reason": null,
+      "stage": "regression-v1",
+      "wall_seconds": 121.61520263800048
+    },
+    {
+      "exit": 0,
+      "final_source_accepted": true,
+      "log_sha256": "dfadb6c882fbe86bb7727f29150ea687c8c6fbef4d25ad1fad0504ee902b4954",
+      "pytest_summary": "1 passed, 71 deselected in 73.00s (0:01:13)",
+      "reason": null,
+      "stage": "rights-v1",
+      "wall_seconds": 75.65374257502845
+    },
+    {
+      "exit": 0,
+      "final_source_accepted": false,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pytest_summary": null,
+      "reason": null,
+      "stage": "schema-v1",
+      "wall_seconds": 2.0926194810017478
+    },
+    {
+      "exit": 0,
+      "final_source_accepted": false,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pytest_summary": null,
+      "reason": null,
+      "stage": "schema-v2",
+      "wall_seconds": 2.0939093729830347
+    },
+    {
+      "exit": 0,
+      "final_source_accepted": true,
+      "log_sha256": "fd792a8412d782dc70c42a6878fd8c10e0a8b3764d60b9be35a2c73ff8d947d9",
+      "pytest_summary": "1 passed, 71 deselected in 53.64s",
+      "reason": null,
+      "stage": "send-v1",
+      "wall_seconds": 55.78712794400053
+    }
+  ],
+  "artifact_version": "joint-crop-climate-http-route-implementation-reference-v1",
+  "base_head": "f06fb67b7eb1b7e129b14b0b41eac266d20de146",
+  "controller_executed_sha256": "7c53903e5da293161bc6eaf949a289d9112c0aa4e179daaafc7ab3c074856faf",
+  "controller_final_stage_source_count": 1768,
+  "core_sha256": {
+    "backend/app/api.py": "c8f105043c8f091c4a26a4b280d4119a6fb06b4d7092203cba3d97c6abc90b19",
+    "backend/app/api_crop_climate_joint_replay.py": "8cf4a2a150514c2246a7b326fb0bc31185aa56489b5b028cdb2aabf07c561f10",
+    "backend/app/api_crop_climate_joint_route.py": "ffd79bc9e2c636c7b92d3b1cf41a1985bfd8a7718df7ffd169b4ac0482f17711",
+    "backend/tests/test_api_crop_climate_joint_route.py": "d82a23a75b6b818cb959de7dc55aca427a20faa099c6ea13c04816a072b46049",
+    "backend/tests/test_api_openapi.py": "77f8920f4d6214fb4d3ce3c650bb9f7927e8f6c2e38946767c1e65936388521a",
+    "contracts/api-crop-climate-joint-route-v1.md": "b56bfa74b920e1ad15ca784104e6ce9da164f5ca6f68c1ba966d2f1a90b73f85",
+    "contracts/openapi-v1.json": "5a15440ccb1a67f06e5cd740c88613c496adbd079d3fc83dafc062b73bb26bc3"
+  },
+  "failure_diagnosis": {
+    "OpenAPI": "renamed only new projection Reference to JointReference; previous52 paths/211 schemas exact",
+    "completed-v1_v2_v3": "pytest /dev/null FileHandler FD10 closed by uvicorn logging.dictConfig; original bytes/TLS succeeded, exact FD check failed; final verifies handler ownership then exact post-config inventory",
+    "completed-v4": "passed before final error-path account correction; not final acceptance",
+    "pure-v3": "five actual failure-path account recheck failures; corrected and pure-v4 passes"
+  },
+  "final_stages": [
+    {
+      "evidence": {
+        "import-api.json": {
+          "FD": 4,
+          "database_or_socket_connections": 0,
+          "first": "app.api",
+          "query_loaded": false
+        },
+        "import-api_crop_climate_joint_route.json": {
+          "FD": 4,
+          "database_or_socket_connections": 0,
+          "first": "app.api_crop_climate_joint_route",
+          "query_loaded": false
+        },
+        "import-operator_config.json": {
+          "FD": 4,
+          "database_or_socket_connections": 0,
+          "first": "app.operator_config",
+          "query_loaded": false
+        },
+        "openapi.json": {
+          "closed_joint_response": true,
+          "existing_operations_equal": true,
+          "paths": 53,
+          "schemas": 256
+        }
+      },
+      "guard": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 36,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 497496064,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "0b146f014bd112382b94a6c9a771c9b7c325aa3b9a1a8df768d7a753ac4b2133",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 0,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143237120,
+        "source_count": 1768,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 9.286134944995865
+      },
+      "pytest_summary": "65 passed, 7 deselected in 8.61s",
+      "stage": "pure-v4",
+      "tool": {
+        "actual_terminal_exit": 0,
+        "original_chunk": "6e928e",
+        "session_id": 33423,
+        "stage": "pure-v4",
+        "terminal_chunk": "eeeb8e"
+      }
+    },
+    {
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "native-completed.json": {
+          "FD": [
+            10,
+            10
+          ],
+          "actual_scram": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "original_108_states_ledgers_UTC": true,
+          "original_response_bytes_equal": true,
+          "pytest_devnull_log_handlers_closed_by_TLS_logging_config": 1,
+          "replies": {
+            "events": {
+              "bytes": 73566,
+              "seconds": 4.848934143985389,
+              "sha256": "bb3f56790f6bd379b66c5eac311339b940df7d3fb0fec871862a51a672b25b03"
+            },
+            "samples": {
+              "bytes": 35046,
+              "seconds": 4.841003592009656,
+              "sha256": "b4dcbab26f01afc27d747afc13b1b97ae6f98ba35e5fc899ab32b67166322c5a"
+            },
+            "summary": {
+              "bytes": 18904,
+              "seconds": 4.838731430994812,
+              "sha256": "c5f661ae8ff303fe347bd339998b4d1dfc16140623fcb50fb11dbcdfb03906c0"
+            }
+          },
+          "verified_TLS": true
+        }
+      },
+      "guard": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 277,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 521445376,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "d70b49765c0c7c7b643854756497b6dd301bd3ade8bf531c1595cae5f7dfe83e",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 386,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 151506944,
+        "source_count": 1768,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 75.9059795140056
+      },
+      "pytest_summary": "1 passed, 71 deselected in 73.02s (0:01:13)",
+      "stage": "completed-v5",
+      "tool": {
+        "actual_terminal_exit": 0,
+        "original_chunk": "84a4f9",
+        "session_id": 45451,
+        "stage": "completed-v5",
+        "terminal_chunk": "67b5d4"
+      }
+    },
+    {
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "native-completed.json": {
+          "FD": [
+            10,
+            10
+          ],
+          "actual_scram": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "original_108_states_ledgers_UTC": true,
+          "original_response_bytes_equal": true,
+          "pytest_devnull_log_handlers_closed_by_TLS_logging_config": 1,
+          "replies": {
+            "events": {
+              "bytes": 73566,
+              "seconds": 4.9064024630060885,
+              "sha256": "6f9dd86552b8e653ecaec13c781af53a5a4dafe80bd9bab08e69bc730ad7d140"
+            },
+            "samples": {
+              "bytes": 35046,
+              "seconds": 4.8325973189785145,
+              "sha256": "ff37cdce47331eb2ebd65ab2631380dcaf349f50f2c06b0f4e0d0744ece9eb0e"
+            },
+            "summary": {
+              "bytes": 18904,
+              "seconds": 4.985369299014565,
+              "sha256": "70484fbc5aba38bf82853bc124b790d2da22f5ea6e68bc03588b1e8c187e7208"
+            }
+          },
+          "verified_TLS": true
+        },
+        "native-hold.json": {
+          "FD": [
+            10,
+            10
+          ],
+          "actual_scram": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "original_108_states_ledgers_UTC": true,
+          "original_response_bytes_equal": true,
+          "pytest_devnull_log_handlers_closed_by_TLS_logging_config": 0,
+          "replies": {
+            "events": {
+              "bytes": 49736,
+              "seconds": 4.844091346982168,
+              "sha256": "dfe4d698f32bb6535eedb5c5544ccbd4f86a795cee2a214ce7b6d371962f0c11"
+            },
+            "samples": {
+              "bytes": 24764,
+              "seconds": 4.873676656017778,
+              "sha256": "bce5fce6368d6e185cb85b0907e83be31b5fe4909b66d5e81dcd4ffedde44f1d"
+            },
+            "summary": {
+              "bytes": 18995,
+              "seconds": 4.8697360749938525,
+              "sha256": "7dc384802f59fa42f96b9744ffe4c6671c5f351722d31a23e81cc2dc4149adc7"
+            }
+          },
+          "verified_TLS": true
+        }
+      },
+      "guard": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 538,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 538357760,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "9a91fc5dad34940be68da87e12ebd580950bc39a552cb4dad100c910fd8793f4",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 690,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 164007936,
+        "source_count": 1768,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 149.96500674501294
+      },
+      "pytest_summary": "2 passed, 70 deselected in 145.00s (0:02:24)",
+      "stage": "hold-v1",
+      "tool": {
+        "actual_terminal_exit": 0,
+        "original_chunk": "cb6f1f",
+        "session_id": 86554,
+        "stage": "hold-v1",
+        "terminal_chunk": "e10bd7"
+      }
+    },
+    {
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "native-refusals.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "early_invalid_query_calls": 0,
+          "missing_or_foreign_denied": true
+        }
+      },
+      "guard": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 169,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 522399744,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "86848ed485a8b637309eadfdd310f1f0430a34341ea32299dc7561ca3ee97421",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 223,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 139055104,
+        "source_count": 1768,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 45.80676072501228
+      },
+      "pytest_summary": "1 passed, 71 deselected in 43.98s",
+      "stage": "refusals-v1",
+      "tool": {
+        "actual_terminal_exit": 0,
+        "original_chunk": "a3f6d5",
+        "session_id": 39874,
+        "stage": "refusals-v1",
+        "terminal_chunk": "dacaa6"
+      }
+    },
+    {
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "native-withdrawal-rights.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "rejected": [
+            "input-rights:summary",
+            "input-rights:samples",
+            "input-rights:events",
+            "review:summary",
+            "review:samples",
+            "review:events",
+            "farm-source:summary",
+            "farm-source:samples",
+            "farm-source:events"
+          ],
+          "serialized_but_withheld": true
+        }
+      },
+      "guard": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 277,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 535511040,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "dfadb6c882fbe86bb7727f29150ea687c8c6fbef4d25ad1fad0504ee902b4954",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 371,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 176787456,
+        "source_count": 1768,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 75.65374257502845
+      },
+      "pytest_summary": "1 passed, 71 deselected in 73.00s (0:01:13)",
+      "stage": "rights-v1",
+      "tool": {
+        "actual_terminal_exit": 0,
+        "original_chunk": "567538",
+        "session_id": 74899,
+        "stage": "rights-v1",
+        "terminal_chunk": "4679b8"
+      }
+    },
+    {
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "native-withdrawal-account.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "rejected": [
+            "credential:summary",
+            "credential:samples",
+            "credential:events"
+          ],
+          "serialized_but_withheld": true
+        }
+      },
+      "guard": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 202,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 530464768,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "aabdd377c12c49dd003cc036854d586f883e3c1115b691f4f26c32f6506e891f",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 280,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 156532736,
+        "source_count": 1768,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 54.90725769900018
+      },
+      "pytest_summary": "1 passed, 71 deselected in 52.67s",
+      "stage": "account-v1",
+      "tool": {
+        "actual_terminal_exit": 0,
+        "original_chunk": "4fb92a",
+        "session_id": 3138,
+        "stage": "account-v1",
+        "terminal_chunk": "3e5e44"
+      }
+    },
+    {
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "native-cancel.json": {
+          "FD_count": 11,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "current_principal_cleared": true,
+          "custody_reopened_same_wire": true,
+          "worker_closed": true
+        },
+        "native-send-failure.json": {
+          "FD_count": 11,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "current_principal_cleared": true,
+          "custody_reopened_same_wire": true,
+          "worker_closed": true
+        }
+      },
+      "guard": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 390,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 532910080,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "eb8f1d651775120f867afd1e265d17446c3c858a230ee4af60dfbf74d209237d",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 500,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 152211456,
+        "source_count": 1768,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 107.43909456799156
+      },
+      "pytest_summary": "2 passed, 70 deselected in 103.82s (0:01:43)",
+      "stage": "cancel-v1",
+      "tool": {
+        "actual_terminal_exit": 0,
+        "original_chunk": "dc74b8",
+        "session_id": 22029,
+        "stage": "cancel-v1",
+        "terminal_chunk": "1f255d"
+      }
+    },
+    {
+      "evidence": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "native-send-failure.json": {
+          "FD_count": 11,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "current_principal_cleared": true,
+          "custody_reopened_same_wire": true,
+          "worker_closed": true
+        }
+      },
+      "guard": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 205,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 528584704,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "fd792a8412d782dc70c42a6878fd8c10e0a8b3764d60b9be35a2c73ff8d947d9",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 291,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 146931712,
+        "source_count": 1768,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 55.78712794400053
+      },
+      "pytest_summary": "1 passed, 71 deselected in 53.64s",
+      "stage": "send-v1",
+      "tool": {
+        "actual_terminal_exit": 0,
+        "original_chunk": "7e37f9",
+        "session_id": 10194,
+        "stage": "send-v1",
+        "terminal_chunk": "d792db"
+      }
+    },
+    {
+      "evidence": {},
+      "guard": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 17,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 470360064,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "df0761df2e461e939e0d3c09ab7c9f38a2ff606f502a485ac3bf09e44ce2a908",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 0,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 137621504,
+        "source_count": 1768,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 4.400618247978855
+      },
+      "pytest_summary": "39 passed, 2 deselected in 3.83s",
+      "stage": "projection-v1",
+      "tool": {
+        "actual_terminal_exit": 0,
+        "original_chunk": "a38d38",
+        "session_id": 65040,
+        "stage": "projection-v1",
+        "terminal_chunk": "6488da"
+      }
+    },
+    {
+      "evidence": {},
+      "guard": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 475,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 594550784,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "b5e25bcf2b19ad2115641e39c9e74009d55092921c8a98eebd58403176a45009",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 0,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 241807360,
+        "source_count": 1768,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 121.61520263800048
+      },
+      "pytest_summary": "260 passed, 1 deselected in 120.56s (0:02:00)",
+      "stage": "regression-v1",
+      "tool": {
+        "actual_terminal_exit": 0,
+        "original_chunk": "56dd15",
+        "session_id": 10427,
+        "stage": "regression-v1",
+        "terminal_chunk": "9faa80"
+      }
+    }
+  ],
+  "holds": [
+    "explicit True runtime assembly",
+    "typed web client/same UTC3D",
+    "live execution U3",
+    "full-cycle joint forcing/capacity",
+    "actual cultivar and independent local measurements",
+    "G0-G4 and production/future margin/ranking",
+    "hosted backend acceptance: f06 Docker Hub429/504/timeouts before application tests"
+  ],
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_LF_sha256": "ff628880e98aeeda4b6be5bb1a16653db1ee9b55564eb9a7a3f25cc3957ea10c",
+    "recursive_CLI_calls": 0,
+    "timestamp": "2026-10-09T21:54:37.503Z"
+  },
+  "native_metadata_tool": "478216",
+  "product_runtime_CLI_calls": 0,
+  "recorded_at_UTC": "2026-10-09T22:26:23.932041+00:00",
+  "recursive_CLI_calls": 0,
+  "resource": {
+    "combined_peak_bytes": 594550784,
+    "guard_wall_total_seconds": 700.7669256010267,
+    "owned_plus_protected_limit_bytes": 1073741824,
+    "sample_interval_seconds": 0.25,
+    "single_PID_limit_bytes": 536870912,
+    "single_PID_peak_bytes": 241807360
+  },
+  "runtime_True_UI_WebGL_U3_or_full_cycle_accepted": false,
+  "schema_compatibility": {
+    "after_snapshot_sha256": "5a15440ccb1a67f06e5cd740c88613c496adbd079d3fc83dafc062b73bb26bc3",
+    "before_snapshot_sha256": "1edf9cb5ddd8acc45665d9f8e4cafa67eca9ec36afcd0ad68cd43be396527b73",
+    "new_paths": 53,
+    "new_schemas": 256,
+    "old_paths": 52,
+    "old_paths_equal": true,
+    "old_schemas": 211,
+    "old_schemas_equal": true
+  },
+  "scope": "owned_synthetic_32_second_software_HTTP_only",
+  "source_and_core_pins_same_across_final_stages": true,
+  "stage_selection_overlap_corrected_for_future_runs": true,
+  "validation": {
+    "actual_SCRAM_unique": 7,
+    "actual_TLS_unique": 2,
+    "final_execution_count": 373,
+    "new_unique_tests": 72,
+    "overlaps": {
+      "completed-v5_in_hold-v1": 1,
+      "send-v1_in_cancel-v1": 1
+    },
+    "projection_regression": 39,
+    "pure_route": 65,
+    "related_regression": 260,
+    "total_unique": 371
+  }
+}

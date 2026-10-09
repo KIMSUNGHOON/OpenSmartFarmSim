@@ -39,7 +39,9 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 실제 SCRAM completed/hold·조회 계산0·실패 감시 수정/원 종료/정리로 로컬 수용했다. HMAC/권리 승인은 current reader의 책임이다.
 [같은 세션 현재 조회](research/crop-climate-joint-current-query-implementation-20261010.md)도 고유10개·원 wire/fresh SCRAM·늦은 철회/변조·
 조회 계산0·원 종료/정리로 로컬 수용했다. 실행 환경 차이에 따른 순수 fixture의 고정 root 실패를 재현해 시험만 수정하고39개를 통과했다.
-32초 합성/명시 상수 입력 범위이며 새 공동 모델의 UI 연결은 없다. 다음은 보호 HTTP→명시 runtime→같은 UTC3D며 온실 경계 조사는 병행한다.
+[보호 HTTP](research/crop-climate-joint-http-route-implementation-20261010.md)도 새72/투영39/관련 회귀260=고유371개·
+실제 SCRAM/검증된 HTTPS·원 bytes/UTC·늦은 철회/취소·조회 계산0·기존52경로/211스키마와 UI/원본 보존으로 로컬 수용했다.
+32초 합성/명시 상수 입력 범위이며 새 공동 모델의 UI 연결은 없다. 다음은 명시 runtime→같은 UTC3D며 온실 경계 조사는 병행한다.
 전체 결합/실제 생산 모델·실시간 U3·품종/독립 자료·관문은 미완료다.
 
 **2026-10-09 최신 수용:** [전체 수확 저장·등록·복원](research/crop-harvest-full-writer-completed-20261009.md)을 완료했다.
