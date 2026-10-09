@@ -6,6 +6,10 @@
 최종 통합 UI는 미완료이며 [U0–U5 작업·수용 기준·잠정 일정](tasks/plan.md#최종-제품-ui-통합--2026-10-09-사용자-요청)을 따른다.
 재생은 저장된 계산 시간의 이동이다. 계산 진행률·새 checkpoint의 실시간 U3와 전체 수확은 아직 연결하지 않았다.
 
+**2026-10-09 19:00 KST 계산 관측:** [정상 전체 수확 writer](research/crop-harvest-full-writer-running-20261009.md)를
+18:52:18 KST 시작해 durable JSON53개를 저장했다. 아직 DB 등록/독립 대사·fresh 수용 전이며 화면은 기존 완료 생장을 읽는다.
+producer21:52:18 KST 마감과 후속 fresh900초는 감독 상한이다. 수확 API/3D 검증 뒤 사용자 화면 연결을 평가한다.
+
 **UI 후보 검증:** 목록 선택의 선행 [동일 웹 소스 hosted 회귀](research/crop-ui-web-hosted-regression-20261009.md)는
 웹1,028개·Chromium140개/skip0·타입/일반 빌드/audit가 통과했다. U1의 원3상태 디자인·실제 공동 DB 선택 수용은 남았다.
 이번 [전체 생장 연결/시점 이동](research/crop-full-parent-api-view-preview-20261009.md)은 별도 검증이며 기본 수동 조회를 안내한다.

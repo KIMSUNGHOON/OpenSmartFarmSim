@@ -27,16 +27,21 @@ window40개/타입·압축을 끈 제품 빌드는 통과했으며 일반 압축
 집중70개/실제 SCRAM1개·고유71개·원74739/48655 도구0, 작은3page의 검사 본체 부모 조회6→2와
 전체 blob/행 SHA·논리적 응답2MiB·권리 철회/rollback·원본/미리보기/FD·소유 정리·WSL 상한을 확인했다.
 전체748page의1,496→2는 호출 구조의 계산이며 전체 wall 실측은 아니다. writer의 생장748page 읽기 비용은 남았다.
-다음 `crop-harvest-full-writer-prefix-cost`에서 정상 writer 처음2page·통제 중단/HEAD·DB 미게시를 실제 대사한다.
+당시 다음 `crop-harvest-full-writer-prefix-cost`에서 정상 writer 처음2page·통제 중단/HEAD·DB 미게시를 실제 대사하도록 계획했다.
 보존 자료/측정 경로 재사용 조건으로 계약·준비·부분 실측은1–2집중시간 잠정이며, 전체 예산/완료일은 그 실측 뒤 정한다.
 **18:37 KST 추가:** [정상 부분 비용](../research/crop-harvest-writer-prefix-cost-20261009.md)을 dc4b5a6에서 수용했다.
 원74534/85029 도구0·64개·실제 전체 부모128행/2page·부분56.596초·독립 Decimal2200·원량/UTC·미게시/권리/정리를 확인했다.
 단순 읽기 호출 외삽은97.6분이며 전체 wall 실측은 아니다. 다음 정상 전체 writer/registry·독립 대사/backup은
 10,800초(3시간), 원 DB 정지 뒤 fresh reader는 별도900초의 감독 상한으로 준비한다.
 직전 부분 실측1–2집중시간 잠정은 완료 증거로 대체한다. 전체 종료/감사·수확 API/3D 및 제품 완료일은 별도다.
-이후 **실제 정상 writer 부분 비용 → 정상 전체 수확 writer/registry·독립 Decimal 대사
-→ 수확 인증 보존/fresh reader → 수확 보호 API/대표3D → 기후/물·양분/구매 에너지 → 사용자 실행/Decimal 경제**를 진행한다.
-전체 RHS는 재실행하지 않는다. 기존 작은900초 예산만 늘려 전체 writer를 시작하지 않으며 남은 비용을 실측한다.
+**19:00 KST 추가:** [정상 전체 writer 실행](../research/crop-harvest-full-writer-running-20261009.md)을
+고정 c0cc687/원96517에서18:52:18 KST 시작했다. 원93770 집중81개 종료0, 실제 원47,809sample/5event·
+원 artifact/새 합성 profile 연결 사전 검사를 통과했다. 실행480.404초의 durable JSON53개를 관측했으며
+DB 등록/인증 backup/전체 대사 marker는 false다. 실행/보호 미리보기 identity가 살아 있고 최종 수용은 아니다.
+producer 마감21:52:18 KST·이후 fresh900초 상한을 유지한다. 실제 종료/별도 root 감사 전 전체 writer를 체크하지 않는다.
+다음은 **진행 중인 정상 전체 수확 writer/registry·독립 Decimal 대사
+→ 수확 인증 보존/fresh reader → 수확 보호 API/대표3D → 기후/물·양분/구매 에너지 → 사용자 실행/Decimal 경제**다.
+전체 RHS는 재실행하지 않는다. 부분 실측으로 정한 전체 예산을 사용하며 관측 실패만으로 같은 실행을 재시작하지 않는다.
 
 UI 후보의 [같은 웹 소스 hosted 회귀](../research/crop-ui-web-hosted-regression-20261009.md)는
 웹1,028개·Chromium140개/skip0·타입/빌드/audit까지 통과했다. 같은 기능 시험을 변경 없이 반복하지 않는다.

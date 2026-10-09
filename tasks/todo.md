@@ -1404,6 +1404,12 @@
       소스/동작/권리 검사와512MiB/1GiB 기준을 유지한다. 현재 압축 없는 미리보기의 원 수용과 구분하고
       기존 미리보기/전체 작기 계산을 반복하지 않는다. 일반 운영 용량·U1/U3를 완료 처리하지 않는다.
     - [ ] **`crop-harvest-full-writer-registry`** — 선행 새 전체 부모 현재 조회. 실제 writer/등록·fresh reader와 집중 시험을3~5 core파일로 나눈다.
+      [core3 실행 계약](../contracts/crop-harvest-full-writer-v1.md)·[19:00 실행 관측](../research/crop-harvest-full-writer-running-20261009.md):
+      고정 c0cc687/원96517을18:52:18 KST 시작했다. 원93770 집중81개 종료0·원 전체 부모/새 profile 사전 검사 통과,
+      480.404초의 durable JSON53개/22,904,596bytes이며 DB 등록/backup/전체 대사 미완료다.
+      producer10,800초/21:52:18 KST 마감·이후 fresh900초 상한. 원 종료0/독립 전체 Decimal/인증 보존/fresh·
+      별도 root 감사/소유 정리 전에는 체크하지 않는다. 실패 시 새 DB data/key/artifact/backup을 보존한다.
+      기존 localhost는 완료 생장 부모의 별도 조회이며 이 작업의 진행률/수확을 자동 반영하지 않는다.
       - [x] **`crop-harvest-full-parent-read-cost`** — [실제 제한된 현재 조회 비용](../research/crop-harvest-full-parent-read-cost-20261009.md).
         원34669 도구0/자식0·44.194초/300초·summary/첫·다음64/마지막1/5사건 각각7.384–8.383초.
         같은 원 record/원량·실제 SCRAM·FD4→4·원본2,146항목/source1,588 보존·읽기 재계산/행 생성/게시0,
