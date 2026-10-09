@@ -159,7 +159,7 @@ class CalculationCurrentCycleQuery:
             with results.open_calculation_result_read_context(result_directory,packet['artifact']['sha256'],
                     resolved['input_directory'],root,resolved['input_evidence_raw'],resolved['result_evidence_raw'],
                     authority=self.authority) as reader:
-                context=reader.context_record;summary=reader.summary
+                facts=reader.facts();context=facts['context'];summary=facts['summary']
                 snapshot=inputs._json(resolved['result_evidence_raw'])['payload']['snapshot']
                 fd=server._open_directory_nofollow(Path(resolved['input_directory']))
                 try:raw=server._read(fd,'root.json',inputs.MAX_ROOT_BYTES)
@@ -187,7 +187,7 @@ class CalculationCurrentCycleQuery:
                 keys={'status','scope','steps','planned_steps','output_start','event_start','checkpoint','manifest'}
                 if summary['status']=='hold':keys.update(('hold','last_confirmed'))
                 terminal={key:summary[key] for key in keys}
-                identity={**reader.identity,'query_version':VERSION,'query_code_sha256':CODE_SHA256,
+                identity={**facts['identity'],'query_version':VERSION,'query_code_sha256':CODE_SHA256,
                     'query_dependency_sha256':dict(DEPENDENCY_SHA256),'evidence_resolver_version':self.evidence_resolver.version,
                     'input_evidence_sha256':sha256(resolved['input_evidence_raw']).hexdigest(),
                     'original_payload_sha256':record['payload_sha256'],'original_binding_sha256':progress['binding_sha256'],
