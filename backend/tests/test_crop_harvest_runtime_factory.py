@@ -343,7 +343,7 @@ def test_actual_protected_operator_fresh_python_same_DB_and_private_denial(
         first=run();second=run();assert first['pid']!=second['pid']
         assert first['result']==second['result'] and first['result']['counts']==before
         assert first['result']['catalog_sha256']==research.catalog.sha256
-        endpoint=sha256(json_raw([login_database['host'],login_database['port'],login_database['database']])).hexdigest()
+        endpoint=sha256(json_raw([login_database['host'],int(login_database['port']),login_database['database']])).hexdigest()
         assert first['result']['authenticated_endpoint_sha256']==endpoint
         harvest_key.chmod(0o644)
         try:assert run(denied=True)['result']['denied'] is True
