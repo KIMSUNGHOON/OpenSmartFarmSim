@@ -23,7 +23,7 @@ def load_calculation_api_runtime(config_path):
                 POLICY_FIELDS | original.OPTIONAL_POLICY_FIELDS):
             raise ValueError
         policy = value['policy']
-        if (type(policy[FLAG]) is not bool or
+        if (policy.get(original.JOINT_RESULT_FLAG, False) is not False or type(policy[FLAG]) is not bool or
                 (policy[FLAG] and policy.get('crop_cycle_result_storage') is not True)):
             raise ValueError
         reference = value['dependencies_factory']
