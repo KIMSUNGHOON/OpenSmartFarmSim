@@ -43,7 +43,7 @@ while True:time.sleep(.05)
 
 
 @pytest.fixture
-def families():
+def families(request):
     made = []
     def spawn(mode='normal'):
         process = subprocess.Popen([sys.executable, '-c', FAMILY, mode],
@@ -53,6 +53,15 @@ def families():
         identities = tuple(scope_module.identity(ids[name]) for name in ('root', 'child'))
         made.append((process, identities))
         return process, identities
+    preexisting = ()
+    if getattr(request, 'param', None):
+        _, preexisting = spawn(request.param)
+    controller = scope_module.identity(os.getpid())
+    baseline = tuple(item for item, _ in scope_module._tree(controller).values() if item != controller)
+    def new_scope(protected=()):
+        return scope_module.OwnedProcessScope(protected=(*baseline, *protected))
+    spawn.scope = new_scope
+    spawn.preexisting = preexisting
     yield spawn
     for process, identities in made:
         if process.poll() is None:
@@ -83,7 +92,7 @@ def until_stopped(scope):
 def test_cleanup_preserves_entire_protected_tree_and_stops_only_owned(families, mode):
     _, protected = families(mode)
     owned_process, owned = families()
-    scope = scope_module.OwnedProcessScope(protected=(protected[0],))
+    scope = families.scope(protected=(protected[0],))
     observed = scope.sample()
     assert {item.pid for item in (*protected, *owned)} <= observed.keys()
     assert sum(observed.values()) > 0
@@ -93,9 +102,22 @@ def test_cleanup_preserves_entire_protected_tree_and_stops_only_owned(families, 
     assert all(scope_module.live(item) for item in protected)
 
 
+@pytest.mark.parametrize('families', ['normal', 'thread'], indirect=True)
+def test_preexisting_family_is_protected_and_only_later_owned_family_is_stopped(families):
+    owned_process, owned = families()
+    before = len(os.listdir('/proc/self/fd'))
+    scope = families.scope()
+    assert {item.pid for item in (*families.preexisting, *owned)} <= scope.sample().keys()
+    sent = scope.signal_owned(signal.SIGTERM)
+    assert sent and set(sent) <= set(owned)
+    until_stopped(scope); owned_process.wait(timeout=5)
+    assert all(scope_module.live(item) for item in families.preexisting)
+    assert len(os.listdir('/proc/self/fd')) == before
+
+
 def test_protected_descendant_remains_excluded_after_parent_exit(families):
     parent, protected = families('orphan')
-    scope = scope_module.OwnedProcessScope(protected=(protected[0],))
+    scope = families.scope(protected=(protected[0],))
     assert protected[1].pid in scope.sample()
     parent.stdin.write('exit\n'); parent.stdin.flush(); parent.wait(timeout=5)
     _, owned = families()
@@ -108,7 +130,7 @@ def test_protected_descendant_remains_excluded_after_parent_exit(families):
 def test_post_exit_cleanup_keeps_protected_children(families):
     _, protected = families()
     parent, owned = families('orphan')
-    scope = scope_module.OwnedProcessScope(protected=(protected[0],))
+    scope = families.scope(protected=(protected[0],))
     scope.sample()
     parent.stdin.write('exit\n'); parent.stdin.flush(); parent.wait(timeout=5)
     assert scope.signal_owned(signal.SIGTERM) == (owned[1],)
@@ -118,7 +140,7 @@ def test_post_exit_cleanup_keeps_protected_children(families):
 
 def test_observation_dict_cannot_authorize_signals(families):
     _, protected = families()
-    scope = scope_module.OwnedProcessScope(protected=(protected[0],))
+    scope = families.scope(protected=(protected[0],))
     sample = scope.sample()
     sample[protected[1].pid] = 2 ** 40
     assert scope.signal_owned(signal.SIGTERM) == ()
@@ -134,14 +156,14 @@ def test_incomplete_protected_walk_still_prunes_its_entire_owned_branch(families
             return {pid: row for pid, row in records.items() if pid == root.pid}
         return records
     monkeypatch.setattr(scope_module, '_tree', partial)
-    scope = scope_module.OwnedProcessScope(protected=(protected[0],))
+    scope = families.scope(protected=(protected[0],))
     assert scope.signal_owned(signal.SIGTERM) == ()
     assert all(scope_module.live(item) for item in protected)
 
 
 def test_pid_identity_change_after_pidfd_open_refuses_signal_and_closes_fd(families, monkeypatch):
     _, owned = families()
-    scope = scope_module.OwnedProcessScope()
+    scope = families.scope()
     original_open, original_live = scope_module._pidfd_open, scope_module.live
     opened = []
     def open_then_change(pid):
@@ -159,7 +181,7 @@ def test_pid_identity_change_after_pidfd_open_refuses_signal_and_closes_fd(famil
 
 def test_pidfd_send_failure_closes_fd_and_has_no_numeric_pid_fallback(families, monkeypatch):
     families()
-    scope = scope_module.OwnedProcessScope()
+    scope = families.scope()
     original_open = scope_module._pidfd_open
     opened = []
     def record_open(pid):
@@ -220,7 +242,7 @@ def test_real_libc_pidfd_signal0_and_owned_cleanup_preserve_protected_tree(famil
     finally:
         os.close(fd)
     assert len(os.listdir('/proc/self/fd')) == before
-    scope = scope_module.OwnedProcessScope(protected=(protected[0],))
+    scope = families.scope(protected=(protected[0],))
     sent = scope.signal_owned(signal.SIGTERM)
     assert sent and set(sent) <= set(owned)
     until_stopped(scope); owned_process.wait(timeout=5)
@@ -292,7 +314,7 @@ def test_libc_signal_error_closes_real_owned_pidfds_without_retry(families, monk
             calls.append((fd, sig, info, flags));ctypes.set_errno(error);return -1
         patch.setattr(scope_module, '_pidfd_backend', lambda: (opened, refused, True))
         patch.setattr(os, 'kill', lambda *_: pytest.fail('numeric PID fallback'))
-        scope = scope_module.OwnedProcessScope()
+        scope = families.scope()
         if error == errno.ESRCH:assert scope.signal_owned(signal.SIGTERM) == ()
         else:
             with pytest.raises(OSError) as caught:scope.signal_owned(signal.SIGTERM)
