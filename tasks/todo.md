@@ -13,11 +13,11 @@
   실제 원pytest-15/동일 data 재시작·40→120걸음/3시점/3사건·원 행/121상태·원 plan/key 정상 게시/backup,
   source 정리 후 같은 현재 조회/권리/정리·보호4 identity/source/dist를 보존했다.
   첫 native 실패는 남겼고 전체 미완료 파생 거부/새 파일0도 확인했다. 전체 부모/UI/관문 수용은 아니다.
-- [ ] **`crop-harvest-parent-interruption-recovery`** — 원95086은 pytest-15/실행기1이며 미수용이다.
-  복구 원95915가303commit/1,209,263걸음에서 같은 입력/artifact로 재개 중이다.
-  원18:12:12 마감 유지. 위 작은 helper 수용 뒤 전체 복구 종료/파생·전체 원 행/121상태 대사,
-  원 plan/key 정상 게시/인증 backup·source 정리/fresh 현재 query·원 종료/자원 감사를 완료해야 한다.
-  선언/원 manifest 변경이나 source guard 완화로 대체하지 않는다.
+- [x] **`crop-harvest-parent-interruption-recovery`** — 원95086의 pytest-15/실행기1 실패는 보존한다.
+  [전체 복구·게시·현재 복원 수용](../research/crop-harvest-full-parent-restored-20261009.md):
+  원95915/36916 실제 도구 종료0·별도 감사0. 같은 입력/artifact·원18:12:12 상한에서 완료했고
+  전체 원 행/121상태·원 plan/key 게시·인증 보존·source 정리/fresh 현재 조회·자원/정리를 통과했다.
+  선언/manifest 변경이나 source guard 완화0. 전체 수확 writer/API·UI·관문 수용은 별도다.
 
 ## 작물 회귀 CI의 관측 실패 (2026-10-09)
 
@@ -1361,17 +1361,18 @@
       구형 source guard가 후속 API/웹6파일을 거부해 고정 dc7b852 worktree의 원392 hash를 유지·새 core 복사 hash 기록.
       전체101.710초/600초·raw308,638bytes·단일/소유 RSS130.61/355.31MiB·1,400 source·PG/원 임시 정리·비공개 보존.
       새 전체 계산/전체 부모·수확 writer/API/3D 수용은 별도다.
-    - [ ] **`crop-harvest-full-parent-restore`** — 10월9일09:12 KST 시작·원95086 중단 실패/복구95915 진행 중·18:12 상한.
-      [불변 시작 관측](../research/artifacts/crop-harvest-parent-full-started-reference-20261009.json). 종전 전체 판본의 DB/config/무작위 key 삭제로 단순 원 인증 복원은 불가.
-      선행 작은 정상 producer+보존 구성 수용 완료. 고정 dc7b852 source/새 core의 같은 구성으로 새 전체 계산을 실행한다.
-      같은 모델/입력의 새 전체 계산 판본을 만들고 모든47,809sample/5event·121상태/수지·UTC를 원 결과와 대사한다.
-      원 서명 우회/임의 행 삽입 없이 새 농장/source/결과 계보와 인증 자료를 보존한다.
-      실제 SCRAM/current query·별도 Python 조회·현재 권리 철회/복원·계정 거부·읽기 RHS0·원 종료/소유 정리가 수용 기준이다.
-      기존 수용 판본은 변경하지 않는다. 종전 복원2–4시간 추정 철회; 이전 전체7시간15분 근거로 준비 후7–9시간 잠정.
-      [후속 실행 사전 검사](../research/crop-parent-full-finish-preflight-20261009.md)는 원69801 종료0/1.136초·
-      원 선언/key/source와 현재 소유 PG를 확인했다. 파생/게시/backup0회이고 준비한 후속 명령은 미실행이다.
-      15:08 KST 실제95915 live/423commit·1,688,180걸음. 실제 종료0 뒤 모든 원값 대사/게시/현재 복원·감사로 수용한다.
+    - [x] **`crop-harvest-full-parent-restore`** — [전체166일 로컬 수용](../research/crop-harvest-full-parent-restored-20261009.md).
+      원95915/36916 실제 도구 종료0·16:21 KST 별도 감사0. 원95086 실패는 남긴다.
+      1,816,704걸음/456commit·47,809sample/5event·121상태/UTC·수지 전체 대사와 이전 원 행 SHA 일치,
+      원 plan/key 정상 게시·인증 backup→확인한 source PG 정지/cluster 정리→현재 fresh 실제 SCRAM 조회.
+      현재 권리/scope/foreign tenant 거부·복원·읽기 RHS/게시/proof0·FD4→4·원 record/원량을 확인했다.
+      후속2,626.363초·raw backup500,601bytes/128MiB·단일/관측 합 RSS178,319,360/588,541,952bytes,
+      현재1,584/고정1,400 source·원 입력/artifact/key·미리보기 보존·소유 비좀비/child/pidfile0.
+      기존 수용 판본을 바꾸지 않고 새 전체 계보를 보존했다. 전체 수확 writer/API·3D/관문 수용은 아니다.
     - [ ] **`crop-harvest-full-writer-registry`** — 선행 새 전체 부모 현재 조회. 실제 writer/등록·fresh reader와 집중 시험을3~5 core파일로 나눈다.
+      다음은 복원된 실제 전체 부모 summary/첫·다음64/마지막1/5사건의 제한된 조회 비용 측정(300초 상한)이다.
+      원 record/원량·실제 SCRAM·FD/원본 보존·재계산/행 생성/게시0·원 종료/PG 정리·WSL 한도를 확인한다.
+      748page 반복 비용으로 전체 writer 예산/필요한 개선을 정하며 준비 명령만으로 수용하지 않는다.
       - [x] **`crop-harvest-storage-preservation-small`** — [core4 계약](../contracts/crop-harvest-storage-preservation-v1.md).
         전체 부모 계산 대기 중 선행 수용한 작은 부모에서 정상 writer/registry→새 DB·수확 인증 보존→
         원 DB 정지 뒤 fresh Python 현재 reader를 검증한다. 원 수량/UTC/최초 시각·권리/계정 거부·읽기 재계산0·

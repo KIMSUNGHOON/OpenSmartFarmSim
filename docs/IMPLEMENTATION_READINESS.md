@@ -1,6 +1,18 @@
 # 구현 준비 현황
 
-**진행 관측 — 2026-10-09 10:02 KST:** [새 전체 부모 실행](../research/artifacts/crop-harvest-parent-full-started-reference-20261009.json)을09:12 KST 시작했다.
+**현재 실행 상태 — 2026-10-09 16:21 KST:** [전체166일 합성 부모의 게시·보존·현재 복원](../research/crop-harvest-full-parent-restored-20261009.md)을 로컬 수용했다.
+원 계산95915·후속36916 실제 도구 종료0/별도 종료 감사0: 1,816,704걸음/456commit·
+47,809sample/5event 전체 원 행·UTC/121상태 대사→원 plan/key 정상 게시·인증 backup→
+확인한 원 PG 정지/cluster 정리→현재 fresh 실제 SCRAM 조회·권리/계정 거부를 통과했다.
+후속2,626.363초·raw backup500,601bytes·단일/관측 합 RSS178,319,360/588,541,952bytes,
+원 입력/artifact/key·source/미리보기 보존과 소유 정리를 확인했다. 원95086의 중단 실패는 남긴다.
+다음은 전체 부모 조회 비용 측정→정상 전체 수확 writer/registry·독립 Decimal 대사/보존→
+보호 API/대표3D→기후/물·양분/구매 에너지→사용자 실행/Decimal 경제다.
+미리보기는 별도 저장 합성3시점이며 완료 전체 결과/실시간 U3에 연결되지 않았다.
+U1/U3·실제 품종/독립 농장 자료·G0–G4/생산/미래 마진/추천 hold는 유지한다.
+아래 시각이 붙은 기록은 당시 관측이며 현재 실행 상태의 증거로 사용하지 않는다.
+
+**당시 진행 관측 — 2026-10-09 10:02 KST:** [새 전체 부모 실행](../research/artifacts/crop-harvest-parent-full-started-reference-20261009.json)을09:12 KST 시작했다.
 동일 원 모델/입력의 새166일 계산 판본이며10:02 KST 같은 프로세스의 확정 checkpoint는243,447걸음/commit61이다. 완료/수용은 아니다.
 원9시간 상한18:12 KST·이전 전체7시간15분 근거의16:12–18:12 종료 추정은 조건부다.
 모든 원 행/121상태 대사→정상 게시/인증 보존→원 DB 정리 후 fresh 복원·원 종료/자원 감사 뒤 전체 부모를 평가한다.
