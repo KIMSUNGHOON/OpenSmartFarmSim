@@ -133,6 +133,29 @@ result(null 또는 result ID/원 farm 참조/terminal status)다.
 현재 조회에서 입력 hash/서명 계보·권한과 결과 ID의 같은 job/farm/batch/판본을 전후 대사한다.
 조회 중 Context/RHS/restore/advance/행 생성/등록은0이어야 한다.
 
+### E6a 진행 조회 인터페이스
+
+`JointExecutionQuery(checkpoint_store, result_store).read(tenant, job_id)`는
+같은 jobs/server에 결속된 정확한 E2/E3 객체를 받는다. 같은 tenant의 joint job이
+없으면 None, 있으면 닫힌 `ExecutionRead`의 canonical JSON bytes를 반환한다.
+읽기는 현재 작물 읽기 권한과 metadata를 사용하며 simulation_create/execute·작물 쓰기 권한을 요구하지 않는다.
+기존 generic JobStatus는 응답의 `job` 필드에 그대로 둔다.
+
+체크포인트 투영은 `head_sha256`, `proof_sha256`, `artifact_sha256`, `status`,
+`steps`, `planned_steps`, `counts.samples/events`, `computed_through_utc`,
+`checkpoint_recorded_at`, `publication_sequence`다. result는 `result_id/farm/status`다.
+result.farm은 기존 joint 공개 Farm의 scenario_id/scenario_revision/registration_sha256/crop_id/batch_id/zone_id다.
+검증된 원 registry packet에서 투영하며 접수의 네 필드 farm 참조로 대체하지 않는다.
+observed_at은 DB 조회 시각이며 두 시각은 원 마이크로초를 보존한 UTC 문자열이다.
+현재 HEAD가 DB 사건과 같아야 current다. 같은 HEAD의 최초 수용 사건은 재시도 후에도
+원 attempt/시각을 유지하며 terminal 연결 사건/outcome은 현재 완료 attempt와 대사한다.
+
+사건/HEAD가 없으면 none, 서명된 후속 HEAD만 있거나 파일 잠금 중이면 unavailable이며
+checkpoint/result는 null이다. 잘못된 서명·이력·결과 연결·현재 권리 거부를 unavailable로 바꾸지 않는다.
+readonly DB snapshot 뒤 현재 job/사건/게시/outcome을 다시 대사한다. 조회 중 변경은
+고정 `JointExecutionQueryPending`, 잘못된 현재 증거는 `JointExecutionQueryHold`, scope 거부는
+PermissionError이며 부분 수치를 반환하지 않는다. HTTP 오류 매핑과 runtime 노출은 E6b/E6c에서 검증한다.
+
 첫 UI 연결은 계산 접수·확정 걸음/계산 UTC·최종 갱신·재접속·취소·완료/hold 결과 선택이다.
 bounded polling은 앞 요청 정산 뒤에만 시작하고 숨김/계정/선택 변경/해제 때 중단한다.
 초기 대기10초, 일시 오류 시 최대60초까지 backoff하고 실제 응답 비용/최대 화면 지연을 보고한다.
