@@ -1892,12 +1892,17 @@
     최종 core4/전체 backend522 Python pin 동일·타입/제한된 비압축 빌드·조회21계수0·원본2,148/기동/정리를 확인했다.
     단일/합 RSS383,475,712/501,788,672bytes; native→집중1,163.651초(약19분), 기록/commit 별도다.
     현재5173/브라우저 자동 갱신/전체 작기·실제 자료/관문은 미수용이다.
-  - [ ] **E8 U3 계산 화면** — 다음 한 단계. 선행: E7·기존 joint 재생. 예정 core4: `web/src/JointCropClimateExecution.tsx`, `web/src/CropReplay.tsx`, 해당 e2e, 위 실행 계약.
-    수용: 실제 실행 접수/진행·최종 확인 시각·단일 bounded polling·숨김/선택/계정/늦은 응답 제거;
-    끊김/재접속·서버 작업 취소·완료/hold의 같은 result 선택→UTC3D, 빈 출력/권리 거부. 확인: TypeScript/집중 Chromium·디자인/접근성. M,1–2시간.
-  - [ ] **E9 실제 기동/사용자 연결** — 선행: E1–E8. 예정 core3: 격리 reference runner/실행 report/증거 artifact.
+  - [x] **E8 U3 계산 화면 계약** — 선행: E7·기존 joint 재생. core5: 예정 화면/조립/e2e/계약4파일에 반응형 CSS1파일 추가.
+    [core288cbaf/수용 근거](../research/crop-climate-joint-execution-screen-implementation-20261010.md): 기록 응답 Chromium15/기존 웹273=고유288개·타입/제한된 빌드.
+    제품 SDK 접수/진행·별도 확인/수용/계산 시각·단일 bounded polling·숨김/선택/계정/늦은 응답 제거,
+    끊김/재접속·독립 취소/확인·완료/hold의 같은 result→UTC3D·빈 출력/권리 거부·모바일/키보드를 확인했다.
+    최종 취소 뒤 과거 대기 문구를 수정했다. 실패6단계의 원 source/log와 전체44단계 종료/정리를 보존했다.
+    12ui 기존3상태 비교21.7/23.9/19.6%는 낮은 대응이며 최종 디자인 fidelity 수용이 아니다.
+    backend522 Python/원본2,148/기동을 보존했다. 단일/합 RSS404,451,328/844,111,872bytes; native→집중1,222.797초(약20분), 기록/commit 별도다.
+    실제 서버/제품 브라우저·현재5173 전환은 E9이며 계산 중 prefix3D/전체 U3·실제 자료/관문은 미수용이다.
+  - [ ] **E9 실제 기동/사용자 연결** — 다음 한 단계. 선행: E1–E8. 예정 core3: 격리 reference runner/실행 report/증거 artifact.
     수용: 모의 route 없는 실제 SCRAM/TLS/제품 브라우저의 같은 job→checkpoint→result/3D·취소/재연결/hold;
-    응답 비용/화면 지연·WSL/원본·기존 서버 보존과 검증 뒤 사용자 전환·접속 안내. 확인: 실제 runner/root 종료·정리·사용자 URL. M,1–2시간.
+    응답 비용/화면 지연·WSL/원본·기존 서버 보존과 검증 뒤 사용자 전환·접속 안내. 확인: 실제 runner/root 종료·정리·사용자 URL. M,2–4집중시간 잠정(기동/대사·보존/안내·검토 포함).
   - [ ] **계산 중 확정 prefix3D** — E9 뒤 별도 계약 분해. 현재 terminal page를 미완료에 사용하지 않는다.
     수용: 불변 prefix/수용 HEAD·원 sample/event/같은 UTC·현재 권리와 동시 게시/취소/재시작·늦은 응답을 실제 DB/브라우저에서 대사.
     작업량은 prefix reader 계약/비용 관측 뒤 산정한다. 위10–18시간은 이 작업과 전체 U3/실제 관문을 포함하지 않는다.

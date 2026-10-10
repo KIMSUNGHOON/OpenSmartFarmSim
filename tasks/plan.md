@@ -1119,8 +1119,11 @@ UUID 인자 없는 실제 프로세스의 E1 발견/16걸음·단일 저장·신
 **E7 typed client 수용:** [core616b3f5/고유276개](../research/crop-climate-joint-execution-web-client-implementation-20261010.md)로
 실제 컴파일 SDK/SCRAM/검증 TLS의 접수/원 값·시각·정상/hold/저장 결과·권리 철회 후 취소와 타입/제한된 빌드를 확인했다.
 기존 JobStatus의 offset 시각을 거부한 오류를 수정하고 원 실패를 보존했다.
-**다음 한 단계는 E8 계산 화면**이다. 단일 polling/최종 확인 시각·재접속·취소·같은 완료/hold 저장3D 선택을 집중 브라우저에서 검증한다.
-그다음 E9 실제 사용자 전환이며 현재5173의 새 실행 기능은 비활성이다.
+**E8 화면 계약 수용:** [core288cbaf/고유288개](../research/crop-climate-joint-execution-screen-implementation-20261010.md)로 기록 응답 Chromium15개와 기존 웹273개·타입/제한된 빌드를 통과했다.
+단일 polling/별도 시각·숨김/선택/계정/늦은 응답 제거·재접속·독립 취소/확인·완료/hold의 같은 저장3D와 빈 출력을 확인했다.
+현재 취소 확인 뒤 과거 대기 문구를 제거했다. 예상 core4에 반응형 CSS1파일을 추가했고 새 dependency/backend/서비스는 없다.
+**다음 한 단계는 E9 실제 사용자 전환**이다. 모의 route 없는 실제 SCRAM/TLS/독립 자동 소비/제품 브라우저 대사·비용/지연/보존 뒤 사용자 기동/접속 안내를 수용한다.
+E8의 기록 응답 검사는 E9 실제 기동을 대신하지 않으며 현재5173의 새 실행 기능은 비활성이다.
 계산 중 prefix3D는 별도 수용이다. 실제 입력의 게시 조건과 합성 개발 착수 조건은 구분한다.
 투영의 초기2–4시간 추정은 native 최초 설계20:50Z부터 약24분의 개발/검토·실패 재검증 관측으로 갱신한다.
 current reader는 native21:20Z부터 약20분의 개발/검토와474.184초 집중 실행으로 수용했다. 순수 fixture의 환경 차이 재현/시험 수정도 포함한다.
@@ -1155,8 +1158,8 @@ schema/역할/store3자식은 작은 합성 저장 부모로 수용했다. 이�
 | E6b HTTP | 보호된 접수/진행/취소 API | E1/E6a |[수용](../research/crop-climate-joint-execution-http-implementation-20261010.md): native→집중 terminal1,522.129초, 기록/commit 별도|
 | E6c runtime | 명시 조립·기본 비활성/오조립 거부 | E5/E6b |[수용](../research/crop-climate-joint-execution-runtime-implementation-20261010.md): native→집중 terminal682.088초, 기록/commit 별도|
 | E7 typed client | 같은 job의 요청/진행/취소·완료 result 참조 | E6 |[수용](../research/crop-climate-joint-execution-web-client-implementation-20261010.md): native→집중 terminal1,163.651초, 기록/commit 별도|
-| E8 화면 | 단일 자동 갱신·재접속·취소·완료/hold 저장3D 선택 | E7·기존 joint 화면 |1–2|
-| E9 실제 사용자 경로 | 실제 SCRAM/TLS/제품 브라우저·기존 서버 보존 후 전환 | E1–E8 |1–2|
+| E8 화면 | 단일 자동 갱신·재접속·취소·완료/hold 저장3D 선택 | E7·기존 joint 화면 |[화면 수용](../research/crop-climate-joint-execution-screen-implementation-20261010.md): native→집중1,222.797초, 기록/commit 별도|
+| E9 실제 사용자 경로 | 실제 SCRAM/TLS/제품 브라우저·기존 서버 보존 후 전환 | E1–E8 |2–4; 기동/대사·보존/안내·검토 포함|
 
 최초 합계8.5–17.5시간에 문서/확인 여유를 포함해 **10–18집중시간**으로 계획했다.
 E1은 새9/회귀8=고유17검사·제품 source 동일/시험 계정 취소 scope 보완·원 실패/종료·보존으로 수용했다.
@@ -1175,7 +1178,9 @@ E6c도 새35/기존215=고유250개·실제 API/독립 소비기/원 결과·취
 E7도 새 웹113/기존160/실제 SDK·SCRAM·TLS3=고유276개·원 offset/UTC·정상/hold/권리 철회 후 취소·보존을 수용했고 native→집중 약19분을 관측했다.
 E8/E9의 미관측 비용을 앞 단계 속도로 환산하지 않는다. E6a 묶음 시간은 API 응답 지연이 아니다.
 이전 core 단계의 실제14–47분 관측을 참조했지만, 임대/파일·DB와 재접속 비용은 아직 미관측이다.
-남은 E8/E9 작업 합은2–4시간이며 문서/검토/통합 여유를 포함해 **3–6집중시간** 잠정이다.
+E8의 초기1–2시간은 native→최종 집중1,222.797초(약20분) 관측으로 갱신한다. 기록/검토·commit은 별도다.
+남은 E9는 실제 기동/브라우저 대사·보존/전환·안내·검토 여유를 포함해 **2–4집중시간** 잠정이다.
+연속 작업이 가능하면 10/10 저녁–10/11 KST를 목표 범위로 두고 실제 기동 검증 뒤 다시 추정한다.
 2026-10-10 오후 연속 착수·하루6집중시간 가정은1–2집중일/10월10일 밤–11일 KST의 작은 합성 사용자 연결이며 E9 실측 뒤 수정한다.
 외부 운영/CI와 전체 작기·실제 자료·최종 디자인/전체 U3의 날짜를 이 추정에 포함하지 않는다.
 
