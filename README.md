@@ -58,7 +58,9 @@ checkpoint의 DB 수용 시각과 heartbeat를 구분하고, 접수→worker→�
 [E4 임대 worker](research/crop-climate-joint-execution-worker-implementation-20261010.md)도 core6cf4eaf·새24/관련4=고유28개·실제 SCRAM/fresh·강제 종료/재개·원108상태/UTC·원자 저장/권리·정리로 수용했다.
 성공 publication과 수치 hold의 결과 연결 사건을 구분해 기존 DB 계약을 유지했다.
 [E5a 작업 발견](research/crop-climate-joint-execution-discovery-implementation-20261010.md)도 core4a0774c·신규8/기존52=고유60개로
-실제 E1 요청/혼합 페이지·현재 권한·조회 계산/쓰기0·기존 경계/정리를 수용했다. 다음은 E5b 자동 소비이며 API/UI 연결은 미완료다.
+실제 E1 요청/혼합 페이지·현재 권한·조회 계산/쓰기0·기존 경계/정리를 수용했다.
+[E5b 자동 소비](research/crop-climate-joint-execution-consumer-implementation-20261010.md)도 corea3acae0·신규16/기존37=고유53개로
+실제 프로세스의 자동 계산/신호·취소·잠금/재시도·미종결 거부와 원본/기동/정리를 수용했다. 다음은 E6 진행 조회/API이며 UI 연결은 미완료다.
 계산 중 checkpoint의3D에는 terminal page와 구분된 별도 후속 검증이 필요하다. 현재5173 자동 연동은 아직 없다.
 전체 결합/실제 생산 모델·실시간 U3·품종/독립 자료·관문은 미완료다.
 

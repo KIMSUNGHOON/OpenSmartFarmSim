@@ -70,7 +70,8 @@ core9f5c18d·고유17검사/실제 SCRAM·동시 중복/현재 권리·rollback�
 [E4 임대 worker](../research/crop-climate-joint-execution-worker-implementation-20261010.md)도 수용했다.
 E4는 core6cf4eaf·새24/관련4=고유28검사에서 원108상태/UTC·취소/만료·실제 crash/fresh 재개·원자 정상/hold 저장·권리/정리를 확인했다.
 [E5a 발견](../research/crop-climate-joint-execution-discovery-implementation-20261010.md)도 core4a0774c·고유60개로 실제 E1 요청/혼합 queue·권한·무변경/계산0·기존 경계/정리를 수용했다.
-다음은 E5b 자동 소비→진행/취소 API→자동 갱신→완료/hold 저장3D다. 현재5173 자동 연동은 미구현이다.
+[E5b 자동 소비](../research/crop-climate-joint-execution-consumer-implementation-20261010.md)도 corea3acae0·고유53개로 실제 프로세스 자동 계산/신호·취소·잠금/재시도·미종결 거부·기존 worker/정리를 수용했다.
+다음은 E6 현재 진행/취소 API→자동 갱신→완료/hold 저장3D다. 현재5173 자동 연동은 미구현이다.
 계산 중 prefix3D는 terminal 조회와 구분해 별도 수용하고, 온실 경계 조사/독립 자료 확보는 병행한다.
 전체 결합·실시간 U3·실제 자료/생산 관문은 미완료다.
 

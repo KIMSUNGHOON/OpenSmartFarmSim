@@ -1105,8 +1105,11 @@ core10 경계를 고정했고 원108상태/장부/UTC·실제 SCRAM/검증 HTTPS
 **E5a 작업 발견 수용:** [core4a0774c/고유60개](../research/crop-climate-joint-execution-discovery-implementation-20261010.md)로
 실제 E1 접수2건/혼합46페이지·현재 scope/비정규 거부·다섯 작업 테이블 무변경·계산10종/쓰기9종0을 확인했다.
 기존 discovery47/collection2/loop3개·기존25정의·원본/기동/정리를 보존했다.
-**다음 한 단계는 E5b 자동 소비**다. 정확한 worker/outcome·순차 소비/중지/재시도·기존 worker를 검증한 뒤
-API/typed reader→U3 상태/완료 저장3D로 진행한다.
+**E5b 자동 소비 수용:** [corea3acae0/고유53개](../research/crop-climate-joint-execution-consumer-implementation-20261010.md)로
+UUID 인자 없는 실제 프로세스의 E1 발견/16걸음·단일 저장·신호/취소/후속 시도0,
+실제 잠금/기존 일정 재시도·미종결/고정 오류·기존37개/원본/기동/정리를 확인했다.
+**다음 한 단계는 E6a 현재 진행 DTO**다. 같은 job/input/farm·확정 checkpoint/DB 수용 시각·현재 권리·닫힌 결과 연결을 계산0으로 대사하고,
+보호 HTTP/명시 runtime→typed reader→U3 상태/완료 저장3D로 진행한다.
 계산 중 prefix3D는 별도 수용이다. 실제 입력의 게시 조건과 합성 개발 착수 조건은 구분한다.
 투영의 초기2–4시간 추정은 native 최초 설계20:50Z부터 약24분의 개발/검토·실패 재검증 관측으로 갱신한다.
 current reader는 native21:20Z부터 약20분의 개발/검토와474.184초 집중 실행으로 수용했다. 순수 fixture의 환경 차이 재현/시험 수정도 포함한다.
@@ -1136,7 +1139,7 @@ schema/역할/store3자식은 작은 합성 저장 부모로 수용했다. 이�
 | E3 결과 transaction hook | job 완료와 결속할 같은 transaction의 결과 등록 | 기존 result store |[수용](../research/crop-climate-joint-result-transaction-implementation-20261010.md): native→회귀1,682.844초, 기록/commit 별도|
 | E4 임대 worker | 실제 queued→진행→완료/hold·취소/재개 | E1/E2/E3 |[수용](../research/crop-climate-joint-execution-worker-implementation-20261010.md): native→집중 terminal3,414.796초, 기록/commit 별도|
 | E5a 발견 | 닫힌 joint 판본의 읽기 전용 발견 | E4 |[수용](../research/crop-climate-joint-execution-discovery-implementation-20261010.md): native→집중721.762초, 기록/commit 별도|
-| E5b 소비 | 정확한 joint worker/outcome의 기존 프로세스 자동 소비 | E5a |0.5–1|
+| E5b 소비 | 정확한 joint worker/outcome의 기존 프로세스 자동 소비 | E5a |[수용](../research/crop-climate-joint-execution-consumer-implementation-20261010.md): native→집중853.598초, 기록/commit 별도|
 | E6a 현재 진행 DTO | 현재 job/checkpoint/result의 계산0 조회 | E2/E4 |0.75–1.5|
 | E6b HTTP/E6c runtime | 보호된 접수/진행/취소 API·명시 조립 | E1/E6a/E5 |합1.25–2.5|
 | E7 typed client | 같은 job의 요청/진행/취소·완료 result 참조 | E6 |0.5–1|
@@ -1151,10 +1154,11 @@ E3도 신규10/기존9개·최종 제품 SHA 동일/기존 정의 보존·고유
 E4도 새24/관련4=고유28개·실제 crash/fresh와 원값/권리/정리를 통과했고 native→최종 집중 검증 약57분을 관측했다.
 세 advance11.115–15.679초·갱신 간격 최대21.266초·마지막 갱신→완료35.543초로 시험의600초 임대 안이다.
 E5a도 신규8/기존52=고유60개·실제 E1 요청/무변경·원 실패/정리를 수용했고 native→집중 약12분을 관측했다.
-E5b–E9의 미관측 비용을 E1–E5a 속도로 환산하지 않는다.
+E5b도 신규16/기존37=고유53개·실제 자동 소비/신호/취소/잠금/재시도/미종결·원본/기동/정리를 수용했고 native→집중 약14분을 관측했다.
+E6–E9의 미관측 비용을 E1–E5b 속도로 환산하지 않는다.
 이전 core 단계의 실제14–47분 관측을 참조했지만, 임대/파일·DB와 재접속 비용은 아직 미관측이다.
-남은 E5b–E9 작업 합은5–10시간이며 문서/검토 여유를 포함해 **5–11집중시간** 잠정이다.
-하루6시간·2026-10-10 연속 착수 가정은1–2집중일/10월11–12일 KST의 작은 합성 사용자 연결이며 E5b/E9 실측 뒤 수정한다.
+남은 E6–E9 작업 합은4.5–9시간이며 문서/검토 여유를 포함해 **5–10집중시간** 잠정이다.
+하루6시간·2026-10-10 연속 착수 가정은1–2집중일/10월11–12일 KST의 작은 합성 사용자 연결이며 E6/E9 실측 뒤 수정한다.
 외부 운영/CI와 전체 작기·실제 자료·최종 디자인/전체 U3의 날짜를 이 추정에 포함하지 않는다.
 
 E2/E3는 논리적으로 독립적이며 E6a는 실제 worker 검증 후 수용한다. WSL의 실제 DB/수치 시험은 순차 실행한다.
