@@ -62,7 +62,9 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 [명시 서버 조립](../research/crop-climate-joint-runtime-implementation-20261010.md)도 새62/회귀300=고유362개·실제 SCRAM/TLS
 원6응답·오조립/권한/늦은 철회·계산0·기존 UI/원본/소유 정리로 수용했다.
 [typed 웹 reader](../research/crop-climate-joint-web-client-implementation-20261010.md)를 웹457개/실제 HTTPS2개·원6응답/UTC·
-타입/제한된 비압축 빌드로 로컬 수용했다. 다음은 같은 UTC의 표·그래프·수치3D다.
+타입/제한된 비압축 빌드로 로컬 수용했다.
+같은 UTC의 표·그래프·수치3D와 [E1 내부 실행 접수](../research/crop-climate-joint-execution-admission-implementation-20261010.md)도
+각 범위로 로컬 수용했다. 다음은 현재 임대가 확정 checkpoint/counts/UTC·DB 수용 시각을 결속하는 E2다.
 새 runtime의 작은 HTTPS 조회4.840–8.466초이며 전체 작기/동시 사용자 성능은 미수용이다.
 복사/CO₂·기공/온실 경계의 원식/단위 조사는 병행하며 자동 온실 예측의 선행 조건은 유지한다.
 사용자 접수/진행 상태 U3와 확정 prefix의 계산 중3D는 별도 수용한다.
@@ -1089,8 +1091,12 @@ core10 경계를 고정했고 원108상태/장부/UTC·실제 SCRAM/검증 HTTPS
 [요청/진행/완료 계약](../contracts/crop-execution-link-v1.md)을 수용했다. 구현 수용은 아니다.
 기존 job/임대·취소를 재사용하고 heartbeat 시각과 checkpoint 수용 시각을 구분한다.
 현재 공개 API에는 checkpoint/취소 경로가 없고 custody page는 terminal만 읽는다.
-**다음 한 단계는 E1 합성 실행 접수**다. 실제 SCRAM의 같은 요청/원 job·revision 충돌·현재 권리/늦은 철회·
-64KiB와 접수 계산0·원본/미리보기/소유 정리를 확인한다. 변경 경계는 service/test/기존 계약의3 core파일이다.
+**E1 합성 실행 접수 수용:** [core9f5c18d/고유17검사](../research/crop-climate-joint-execution-admission-implementation-20261010.md)로
+실제 SCRAM의 같은 요청/원 job·동시 중복/충돌·현재 권리/늦은 rollback·64KiB와 접수10종 계산/등록0을 확인했다.
+기존 source/기동·원본2,148과 소유 정리를 보존했으며 새 API/worker/UI는 미조립이다.
+**다음 한 단계는 E2 확정 checkpoint 수용**이다. 현재 임대/취소·원 입력을 검사한 뒤 원 HEAD/proof와
+확정 counts/UTC를 append-only job event에 수용하고 DB 수용 시각을 heartbeat와 구분한다.
+같은 HEAD/최초 시각·단조 sequence·늦은 임대/취소/권리/혼합 거부·crash 후 원 prefix 재적분0과 실제 SCRAM/소유 정리를 확인한다.
 이후 현재 임대가 원 HEAD를 DB에 수용→원자 완료 게시→API/typed reader→U3 상태/완료 저장3D로 진행한다.
 계산 중 prefix3D는 별도 수용이다. 실제 입력의 게시 조건과 합성 개발 착수 조건은 구분한다.
 투영의 초기2–4시간 추정은 native 최초 설계20:50Z부터 약24분의 개발/검토·실패 재검증 관측으로 갱신한다.
@@ -1116,7 +1122,7 @@ schema/역할/store3자식은 작은 합성 저장 부모로 수용했다. 이�
 
 | 순서 | 확인 가능한 산출물 | 직접 의존성 | 잠정 집중시간 |
 | --- | --- | --- | ---: |
-| E1 접수 service | 현재 농장/입력에 결속된 job ID·중복/충돌 | 이번 경계·farm binding·JobStore |0.5–1.5|
+| E1 접수 service | 현재 농장/입력에 결속된 job ID·중복/충돌 | 이번 경계·farm binding·JobStore |[수용](../research/crop-climate-joint-execution-admission-implementation-20261010.md): native→회귀748.422초, 기록/commit 별도|
 | E2 checkpoint 수용 | 원 HEAD/UTC/counts와 별도 DB 수용 시각 | E1·custody·job_events |0.75–1.5|
 | E3 결과 transaction hook | job 완료와 결속할 같은 transaction의 결과 등록 | 기존 result store |0.75–1.5|
 | E4 임대 worker | 실제 queued→진행→완료/hold·취소/재개 | E1/E2/E3 |1–2|
@@ -1127,7 +1133,10 @@ schema/역할/store3자식은 작은 합성 저장 부모로 수용했다. 이�
 | E8 화면 | 단일 자동 갱신·재접속·취소·완료/hold 저장3D 선택 | E7·기존 joint 화면 |1–2|
 | E9 실제 사용자 경로 | 실제 SCRAM/TLS/제품 브라우저·기존 서버 보존 후 전환 | E1–E8 |1–2|
 
-합계8.5–17.5시간에 문서/확인 여유를 포함해 **10–18집중시간**이다.
+최초 합계8.5–17.5시간에 문서/확인 여유를 포함해 **10–18집중시간**으로 계획했다.
+E1은 새9/회귀8=고유17검사·제품 source 동일/시험 계정 취소 scope 보완·원 실패/종료·보존으로 수용했다.
+초기0.5–1.5시간은 실제 native00:37:33Z→회귀 terminal00:50:01Z의약13분 관측으로 대체한다.
+E2–E9의 미관측 비용을 이 단계 속도로 환산하지 않고 현재 전체 범위의 날짜 조건을 유지한다.
 이전 core 단계의 실제14–47분 관측을 참조했지만, 임대/파일·DB와 재접속 비용은 아직 미관측이다.
 E1/E4/E9 실측 뒤 수정한다. 하루6시간이면2–3집중일이며 2026-10-10 착수 시 단순 계산은10월12–13일이다.
 외부 운영/CI와 전체 작기·실제 자료·최종 디자인/전체 U3의 날짜를 이 추정에 포함하지 않는다.

@@ -50,7 +50,10 @@ core7ad76c2·고유501개/실제 SCRAM·HTTPS·WebGL·원값/권리/소유 정�
 32초 합성/명시 상수 입력 범위며 새 화면은 현재5173에 배포하지 않았다. 현재5173은 기존 완료166일을 읽는다.
 이어 [실행 경계/전이표](contracts/crop-execution-link-v1.md)를 기존 jobs/임대·custody/결과 저장과 대조해 확정했다.
 checkpoint의 DB 수용 시각과 heartbeat를 구분하고, 접수→worker→진행/취소 API→완료 저장3D의
-[E1–E9 순서](tasks/plan.md#작물-계산과-ui의-실행-연결--2026-10-10)를 추가했다. 다음은 계산0의 합성 실행 접수다.
+[E1–E9 순서](tasks/plan.md#작물-계산과-ui의-실행-연결--2026-10-10)를 추가했다.
+[E1 내부 접수](research/crop-climate-joint-execution-admission-implementation-20261010.md)는 core9f5c18d·새9/회귀8=고유17검사·
+실제 SCRAM/동시 중복·현재 권리/rollback·접수10종 계산/등록0·원본/기동/소유 정리로 수용했다.
+다음은 현재 임대가 확정 HEAD/counts/UTC를 job 사건으로 수용하고 별도 갱신 시각을 기록하는 E2다. worker/API/UI 연결은 미완료다.
 계산 중 checkpoint의3D에는 terminal page와 구분된 별도 후속 검증이 필요하다. 현재5173 자동 연동은 아직 없다.
 전체 결합/실제 생산 모델·실시간 U3·품종/독립 자료·관문은 미완료다.
 

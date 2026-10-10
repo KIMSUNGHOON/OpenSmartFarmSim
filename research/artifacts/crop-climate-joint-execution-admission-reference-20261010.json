@@ -1,0 +1,514 @@
+{
+  "G0_G4": "not_assessed",
+  "UI_5173_preserved": true,
+  "UI_5173_realtime_connected": false,
+  "actual_crop_Runs": 0,
+  "actual_scram": true,
+  "admission_numeric_and_registration_calls_zero": {
+    "RHS": 0,
+    "advance": 0,
+    "custody_advance": 0,
+    "event": 0,
+    "prepare_binding": 0,
+    "prepare_context": 0,
+    "restore": 0,
+    "result_put": 0,
+    "start": 0,
+    "step": 0
+  },
+  "all_original_items_preserved": 2148,
+  "core_commit": "9f5c18d8abbe0fce9648e91930618f6dc6c47bfe",
+  "core_files": {
+    "backend/app/crop_climate_joint_execution.py": {
+      "bytes": 4672,
+      "lines": 98,
+      "sha256": "7cbbf542e83f0b4b3d8214c88c9b60f8225379d55be30ab785c42e1e74f78df4"
+    },
+    "backend/tests/test_crop_climate_joint_execution.py": {
+      "bytes": 13947,
+      "lines": 257,
+      "sha256": "8886c568a6c1d13c618391e6679f6f69c006ed2c81cad7e1cbdcd34b99996da9"
+    },
+    "contracts/crop-execution-link-v1.md": {
+      "bytes": 12874,
+      "lines": 143,
+      "sha256": "bee531fb208d982f506a73ae80409aba4296d00bde8b93dd443b1e14e5bd46ec"
+    }
+  },
+  "domestic_independent_datasets": 0,
+  "existing_accepted_tests": 8,
+  "final_document_validation": {
+    "core3_pins_unchanged": true,
+    "credential_patterns": 0,
+    "exit_code": 0,
+    "frontend_HTTP200_same_HTML": true,
+    "local_links_exist": 1724,
+    "protected_processes_live": 3,
+    "tool": "62ccf7"
+  },
+  "final_regression_terminal_written_at": "2026-10-10T00:50:01.674274+00:00",
+  "invocations": [
+    {
+      "argv": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-admission/normal-v1/pytest",
+        "-k",
+        "normal"
+      ],
+      "evidence": {
+        "database-cleanup.json": {
+          "bytes": 32,
+          "sha256": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+          "value": {
+            "roles": 0,
+            "schemas": 0
+          }
+        },
+        "normal.json": {
+          "bytes": 363,
+          "sha256": "e8342d10209c66218fa91efbc2771f4a623afed7a0b6471d2e696ddb6f9226f5",
+          "value": {
+            "G0_G4": "not_assessed",
+            "actual_scram": true,
+            "calls": {
+              "RHS": 0,
+              "advance": 0,
+              "event": 0,
+              "prepare_binding": 0,
+              "prepare_context": 0,
+              "restore": 0,
+              "start": 0,
+              "step": 0
+            },
+            "input_bytes": 7827,
+            "input_sha256": "053e452b6bef178396d42386ab2d5d87c6ae5f519666b30eb0c099b7ecf17e8f",
+            "same_job_three_requests": true
+          }
+        }
+      },
+      "exec_session": 14502,
+      "failed": 0,
+      "launch_tool": "3fbd39",
+      "passed": 1,
+      "phase": "normal-v1",
+      "root_exit_code": 0,
+      "scope": "prototype_only",
+      "source_pins_sha256": "c67553a56dcffa7f834f2e924c1a3ecc1427147b4b8d53b6c4732e8ddcc5def1",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 77,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 314458112,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "afe31cccd46ccd0e3be7dc030c528adaa2bfdd6213e7bb04468a62b532d7e24d",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_identity_list_sha256": "35e44c22b72fb840fd8a4159e8c5fb887da06eff10427e5c8347af70d67357c8",
+        "owned_postgres_processes_observed_count": 94,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 121978880,
+        "source_count": 1797,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 20.649577353033237
+      },
+      "terminal_sha256": "2227e4874777151dac819acd12c1b5135b6468c58648304fdc8fde5dda5e5411",
+      "terminal_tool": "976c37"
+    },
+    {
+      "argv": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-admission/full-v1/pytest"
+      ],
+      "evidence": {
+        "access.json": {
+          "bytes": 112,
+          "sha256": "4bc65bc9b12fe3195e8f385045ca4f8bc0333ecfe29772eb7ca63542ae5431d0",
+          "value": {
+            "cross_tenant_rights_review_source_rejected": true,
+            "recovery_same_inputs": true,
+            "scopes_checked": 11
+          }
+        },
+        "authority.json": {
+          "bytes": 129,
+          "sha256": "0575fc83f59a5c641f2080a71c7a2f2e647c22c061d0840ec26499b2f46bb111",
+          "value": {
+            "changed_contract_and_code_rejected": 4,
+            "changed_principal_provider_rejected": true,
+            "nonexact_binding_rejected": true
+          }
+        },
+        "closed.json": {
+          "bytes": 143,
+          "sha256": "12ec37a4e28016ebce4500bbba0df02cf84520cefac55cd9f46557bc2b8c7e92",
+          "value": {
+            "invalid_requests": 7,
+            "invalid_resolvers": 6,
+            "oversized_binding_fault_rejected_before_job": true,
+            "private_error_sanitized": true
+          }
+        },
+        "concurrent.json": {
+          "bytes": 83,
+          "sha256": "f324597f03523d252d822f2be1e15bcaf8330fad91f931487e7e04aaa6aac521",
+          "value": {
+            "different_content_one_job_one_conflict": true,
+            "same_intent_one_job": true
+          }
+        },
+        "database-cleanup.json": {
+          "bytes": 32,
+          "sha256": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+          "value": {
+            "roles": 0,
+            "schemas": 0
+          }
+        },
+        "late-resolver.json": {
+          "bytes": 114,
+          "sha256": "8a4b191227407558609481ad4b58be73a035fb53fd701adbc6cb4cd78bcc2bcb",
+          "value": {
+            "insert_seen_inside_transaction": true,
+            "job_and_event_rolled_back": true,
+            "same_intent_recovered": true
+          }
+        },
+        "late-rights.json": {
+          "bytes": 114,
+          "sha256": "8a4b191227407558609481ad4b58be73a035fb53fd701adbc6cb4cd78bcc2bcb",
+          "value": {
+            "insert_seen_inside_transaction": true,
+            "job_and_event_rolled_back": true,
+            "same_intent_recovered": true
+          }
+        },
+        "late-scope.json": {
+          "bytes": 114,
+          "sha256": "8a4b191227407558609481ad4b58be73a035fb53fd701adbc6cb4cd78bcc2bcb",
+          "value": {
+            "insert_seen_inside_transaction": true,
+            "job_and_event_rolled_back": true,
+            "same_intent_recovered": true
+          }
+        },
+        "normal.json": {
+          "bytes": 410,
+          "sha256": "c58058c4b1d61b0d7bd44a6afa0ae05812dccbae4c4f6e5ce7a851c192a1853e",
+          "value": {
+            "G0_G4": "not_assessed",
+            "actual_scram": true,
+            "calls": {
+              "RHS": 0,
+              "advance": 0,
+              "custody_advance": 0,
+              "event": 0,
+              "prepare_binding": 0,
+              "prepare_context": 0,
+              "restore": 0,
+              "result_put": 0,
+              "start": 0,
+              "step": 0
+            },
+            "input_bytes": 7827,
+            "input_sha256": "e890202f3140a533f989cc76da844202cce1c598831c0aa657084ff2458787b1",
+            "same_job_three_requests": true
+          }
+        }
+      },
+      "exec_session": 12037,
+      "failed": 1,
+      "launch_tool": "57d5c4",
+      "passed": 8,
+      "phase": "full-v1",
+      "root_exit_code": 1,
+      "scope": "final_product_source; missing cancel scope in one test",
+      "source_pins_sha256": "8c7cd6c64479576a234fb232eb01b80a2ad3f031dd5dd0db5be5d6928d2db802",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 482,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 413671424,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "fec25aad0c2f1254c2aa7d7685d712b9d0b8bf755e61c9eb110cceb84a05c401",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_identity_list_sha256": "678afa96e1fd709e6c90a8130ae64d851732da9f554ebac6617b7a897d4152eb",
+        "owned_postgres_processes_observed_count": 493,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 139509760,
+        "source_count": 1797,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 132.6957266490208
+      },
+      "terminal_sha256": "2519d76c4c1ec8daf449425fcd9c29dfbfc76f27a037545cf73cbd34451d98f7",
+      "terminal_tool": "dfa0f1"
+    },
+    {
+      "argv": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-admission/conflict-v2/pytest",
+        "-k",
+        "test_conflict_and_new_revision_do_not_restart_terminal_job"
+      ],
+      "evidence": {
+        "conflict.json": {
+          "bytes": 128,
+          "sha256": "a8eb1636ed8c8625d58849f8968b0d994f15f742b7d88f7f0e69a4832647094f",
+          "value": {
+            "different_request_and_resolver_conflicts": 2,
+            "new_revision_new_job": true,
+            "terminal_duplicate_stays_canceled": true
+          }
+        },
+        "database-cleanup.json": {
+          "bytes": 32,
+          "sha256": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+          "value": {
+            "roles": 0,
+            "schemas": 0
+          }
+        }
+      },
+      "exec_session": 3466,
+      "failed": 0,
+      "launch_tool": "79a346",
+      "passed": 1,
+      "phase": "conflict-v2",
+      "root_exit_code": 0,
+      "scope": "corrected failed test only",
+      "source_pins_sha256": "84a13626e9f8e8f390743e83b08362f4e47d546151c6ab10a91d89cf30314900",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 85,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 318324736,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "e5310042ffadddb8ebe02e12204b5a37041e3cc1b7777b5feb0cec101640e1e4",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_identity_list_sha256": "1075125d7f47eba3989bca265352b99e0acba9a64b5e27a7ff08fd63eea45910",
+        "owned_postgres_processes_observed_count": 110,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 125104128,
+        "source_count": 1797,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 22.879852171987295
+      },
+      "terminal_sha256": "dda8614bdf8ab3fc5638696106e53bb62476283422c1747d71c92d294b7edb68",
+      "terminal_tool": "7e1667"
+    },
+    {
+      "argv": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_farm_binding.py",
+        "tests/test_jobs.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-admission/regression-v1/pytest",
+        "-k",
+        "test_normal_registered_bind_and_actual_fresh_exec or test_current_permissions_reviews_and_sources or test_closed_requests_and_mixed_provenance or test_late_callback_changes_rejected_without_new_rows or test_fixed_runtime_configuration_and_exact_true or test_authenticated_utc_outside_actual_crop_period or test_canonical_input_serializes_once or test_canonical_input_rechecks"
+      ],
+      "evidence": {
+        "closed-and-mixed.json": {
+          "bytes": 359,
+          "sha256": "d4a4d0e12e4b73c228f6e79bdde86fc1962d72a1fcd49912e39ed77e663684c1"
+        },
+        "current-rights.json": {
+          "bytes": 396,
+          "sha256": "866b439e7ad0caab977388a06d1d79b7859b9b0308796250a521c5d662b0aba4"
+        },
+        "database-cleanup.json": {
+          "bytes": 32,
+          "sha256": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+          "value": {
+            "roles": 0,
+            "schemas": 0
+          }
+        },
+        "late-callbacks.json": {
+          "bytes": 134,
+          "sha256": "1d3aa3f55dc68c22744bfdb4d1728df370465037860bb5e6f033a671466a9a46"
+        },
+        "normal-binding.json": {
+          "bytes": 9071,
+          "sha256": "c703f0ad90f05fab6f295e0e3579706e1d3ef1b28e6e1656e8b5d3914dfc18b7"
+        },
+        "outside-period.json": {
+          "bytes": 200,
+          "sha256": "ad53847a7029f5099c001c968c941576eaf0d4c400a57684d6af599c77de0bac"
+        },
+        "runtime-fixed.json": {
+          "bytes": 233,
+          "sha256": "9f50f9c8238b6337709d25a6bd48577c11ce3762b0e0bfac3cb868c51afb707c"
+        }
+      },
+      "exec_session": 50598,
+      "failed": 0,
+      "launch_tool": "f93b9a",
+      "passed": 8,
+      "phase": "regression-v1",
+      "root_exit_code": 0,
+      "scope": "existing related regressions",
+      "source_pins_sha256": "84a13626e9f8e8f390743e83b08362f4e47d546151c6ab10a91d89cf30314900",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 344,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 400240640,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "4a9d254063b9c44a80a1bbcafdd1785f5549608b17f525a3a0a02253bfa335af",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_identity_list_sha256": "e477bb2e1a50da88032cd1ec1c8821c2a6a590bfd2aa3ab60765dbeb66c4d5a2",
+        "owned_postgres_processes_observed_count": 348,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 130183168,
+        "source_count": 1797,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 93.72342168301111
+      },
+      "terminal_sha256": "c4d54eb42664f2aa4a8bf50fa8d45d9c841d67b80ee85265ba19d995241713a8",
+      "terminal_tool": "3c1d20"
+    }
+  ],
+  "maximum_owned_protected_RSS_bytes": 413671424,
+  "maximum_single_PID_RSS_bytes": 139509760,
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_cli": false,
+    "timestamp": "2026-10-10T00:37:33.252Z",
+    "turn_context_sha256": "18e338f72419abe8eaec0f52015c667db7f9e9b3c597a26d2553b8010bb956c7"
+  },
+  "native_turn_start_to_final_regression_seconds": 748.422274,
+  "new_accepted_tests": 9,
+  "new_product_runtime_CLI_invocations": 0,
+  "new_service_HTTP_exposed": false,
+  "not_run": [
+    "full backend/web suites",
+    "build",
+    "new hosted CI",
+    "full166 crop recalculation"
+  ],
+  "only_test_definition_changed_after_full_v1": [
+    "test_conflict_and_new_revision_do_not_restart_terminal_job"
+  ],
+  "private_terminal_projection": "Original terminal SHA retained; repeated PG identities represented by count/list digest. Regression records retain evidence-file SHA/bytes, not raw binding.",
+  "product_unchanged_full_v1_conflict_v2_regression": true,
+  "prototype_excluded_from_unique_count": true,
+  "push_hold": true,
+  "remaining": [
+    "E2 confirmed checkpoint acceptance",
+    "E3 same-transaction result registration",
+    "E4 worker",
+    "E5 discovery/consumer",
+    "E6 API/runtime",
+    "E7 typed client",
+    "E8 UI",
+    "E9 actual browser and user preview transition",
+    "in-progress prefix3D separate contract"
+  ],
+  "schema_version": "crop-climate-joint-execution-admission-reference-v1",
+  "scope_of_zero_calls": "after synthetic fixture input/evidence preparation, during admission and checks",
+  "source_before": "c682bb760c338d2842dabe4cb69857da490627e5",
+  "status": "accepted_local_synthetic_admission_only",
+  "unique_accepted_tests": 17,
+  "worker_discovery_consumes_new_version": false
+}

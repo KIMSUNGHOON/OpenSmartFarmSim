@@ -1820,11 +1820,16 @@
     heartbeat/계산 UTC/DB 수용 시각·임대/파일·DB의 차이와 terminal-only 페이지를 확인했다.
     native gpt-6.1-sol/xhigh·재귀0, source/로컬 링크/diff·기존 기동 identity/HTML 보존을 확인했다.
     실행 연동·새 테스트/hosted·UI 전환·관문 수용은 아니다. 후속 구현은 아래 미완료다.
-  - [ ] **E1 합성 실행 접수** — 다음 한 단계. 선행: 경계·farm binding·기존 JobStore.
-    예정 core3: `backend/app/crop_climate_joint_execution.py`, `backend/tests/test_crop_climate_joint_execution.py`, 위 실행 계약.
+  - [x] **E1 합성 실행 접수** — 선행: 경계·farm binding·기존 JobStore.
+    core3: `backend/app/crop_climate_joint_execution.py`, `backend/tests/test_crop_climate_joint_execution.py`, 위 실행 계약.
     수용: 현재 input/farm/rights의 계산0 접수·64KiB/다른 tenant 거부; 같은 intent 원 job/최초 입력 유지·같은 revision의 다른 내용409;
-    commit 직전 철회 rollback·기존 job/미리보기 보존. 확인: 해당 집중 pytest와 실제 SCRAM/소유 종료·정리. M,0.5–1.5시간.
-  - [ ] **E2 checkpoint 수용** — 선행: E1·custody. 예정 core3: `backend/app/crop_climate_joint_execution_checkpoint.py`, 같은 이름 test, 위 실행 계약.
+    commit 직전 철회 rollback·기존 job/미리보기 보존.
+    [core9f5c18d/로컬 수용](../research/crop-climate-joint-execution-admission-implementation-20261010.md): 새9/회귀8=고유17개·실제 SCRAM,
+    동시 요청1job/1event·원 binding/7,827bytes·11scope/현재 철회·insert 뒤 rollback·접수10종 계산/등록0을 확인했다.
+    원8pass/1실패는 cancel scope 부재이며 시험 하나 보완/1pass·다른8/제품 동일; 원 실패/종료·source/원본2,148/기동/FD/소유 정리를 보존했다.
+    단일/합 RSS139,509,760/413,671,424bytes. 초기0.5–1.5시간은 native→회귀748.422초 관측으로 갱신하며 기록/commit 별도다.
+    새 worker/API/UI·hosted/전체 작기/관문은 미수용이다.
+  - [ ] **E2 checkpoint 수용** — 다음 한 단계. 선행: E1·custody. 예정 core3: `backend/app/crop_climate_joint_execution_checkpoint.py`, 같은 이름 test, 위 실행 계약.
     수용: 현재 임대/취소 검사 뒤 원 HEAD/proof·counts/UTC의 append-only 사건/단조 sequence·DB recorded_at;
     중복 최초 시각/heartbeat 불변·늦은 임대/철회/혼합 거부·crash 후 원 HEAD 수용. 확인: 집중 pytest/실제 SCRAM. M,0.75–1.5시간.
   - [ ] **E3 결과 transaction hook** — 선행: 기존 joint result store. 예정 core3: 기존 store/test, `contracts/crop-climate-joint-result-store-v1.md`.

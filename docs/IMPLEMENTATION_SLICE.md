@@ -63,7 +63,9 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 [같은 시각의 표·그래프·수치3D](../research/crop-climate-joint-numerical-view-implementation-20261010.md)도
 core7ad76c2·고유501개/실제 SCRAM·HTTPS·WebGL·원값/권리·원본/UI/소유 정리로 로컬 수용했다.
 새 화면은 현재5173에 배포하지 않았다. [기존 jobs/임대·저장 코드 대조](../research/crop-execution-link-boundary-20261010.md)로
-[실행 경계](../contracts/crop-execution-link-v1.md)를 확정했다. 다음은 계산0 합성 접수 E1이며
+[실행 경계](../contracts/crop-execution-link-v1.md)를 확정했다. [계산0 합성 접수 E1](../research/crop-climate-joint-execution-admission-implementation-20261010.md)은
+core9f5c18d·고유17검사/실제 SCRAM·동시 중복/현재 권리·rollback·원본/기동 보존으로 로컬 수용했다.
+다음은 E2 확정 checkpoint/counts/UTC·별도 DB 수용 시각이며
 worker/확정 checkpoint·취소 API→자동 갱신→완료/hold 저장3D의 E1–E9로 진행한다.
 계산 중 prefix3D는 terminal 조회와 구분해 별도 수용하고, 온실 경계 조사/독립 자료 확보는 병행한다.
 전체 결합·실시간 U3·실제 자료/생산 관문은 미완료다.
