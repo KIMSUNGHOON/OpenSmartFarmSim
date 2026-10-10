@@ -80,7 +80,8 @@ core9f5c18d·고유17검사/실제 SCRAM·동시 중복/현재 권리·rollback�
 [E9b 지속 사용자 연결](../research/crop-climate-joint-execution-user-preview-20261010.md)도 최종 실제 브라우저5경로·재시작/원 결과·원본/WSL로 수용했다.
 사용자 실행 화면은5174이며 [확정 prefix 계약](../contracts/crop-climate-joint-prefix-view-v1.md)을 고정했다.
 [P1 원 페이지 reader](../research/crop-climate-joint-prefix-reader-implementation-20261010.md)는 실제 SCRAM 고유12개·원 수치/UTC·현재 권리/계보·fresh·조회 계산/쓰기0으로 수용했다.
-다음은 P2 공개 투영이며 API/계산 중3D는 미수용이다. 현재5173은 완료된 전체 저장 재생을 제공한다.
+[P2 공개 투영](../research/crop-climate-joint-prefix-projection-implementation-20261010.md)도 고유44개·실제 SCRAM/fresh·닫힌 응답/원 수치/UTC로 수용했다.
+다음은 P3a 보호 API이며 API/계산 중3D는 미수용이다. 현재5173은 완료된 전체 저장 재생을 제공한다.
 자원 모듈 전체와 독립 자료 확보를 이 합성 접수의 선행 조건으로 두지 않는다.
 진행 상태 갱신→terminal 저장3D를 먼저 연결하며 계산 중 prefix3D는 별도 수용한다. 현재5173 실시간 연동은 미구현이다.
 [결합 계약](../contracts/crop-climate-coupling-v1.md)의 온실 경계 조사는 병행하며 실제 전체 작기·실시간 U3/관문은 미완료다.
