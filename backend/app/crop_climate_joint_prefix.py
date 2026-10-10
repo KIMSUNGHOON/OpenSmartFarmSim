@@ -1,8 +1,9 @@
 """Readonly DB-accepted joint pages; internal records, before public projection."""
-from contextlib import ExitStack
+from contextlib import ExitStack, contextmanager
 from dataclasses import dataclass, field
 from hashlib import sha256
 import json
+import os
 from pathlib import Path
 from uuid import UUID
 
@@ -14,7 +15,7 @@ from .runtime_roles import RolePolicyHold
 checkpoints = execution.checkpoints
 custody = execution.custody
 storage = custody.storage
-VERSION = 'joint-crop-climate-prefix-read-v1'
+VERSION = 'joint-crop-climate-prefix-read-v2'
 CLAIM_SCOPE = 'synthetic_joint_crop_climate_confirmed_prefix_only'
 MAX_READ_BYTES = storage.LIMITS['page_bytes'] + 2 * checkpoints.execution.MAX_INPUT_BYTES + storage.LIMITS['metadata_bytes']
 CODE_SHA256 = sha256(Path(__file__).read_bytes()).hexdigest()
@@ -77,6 +78,40 @@ class JointExecutionPrefixQuery:
         self._binding()
         self.query._guard(tenant)
         self._binding()
+
+    @contextmanager
+    def _session(self, tenant, request_raw, binding_raw):
+        self._guard(tenant)
+        server = self.server
+        server.binding._guard(tenant, False)
+        request = server.binding._request(request_raw)
+        files = custody.files
+        with ExitStack() as opened:
+            def keep(fd):
+                opened.callback(os.close, fd)
+                return fd
+            root = keep(files.job_store._open_directory_nofollow(server.directory))
+            identity = custody._intent_id(tenant, request)
+            intent = keep(files._directory(root, identity, create=False))
+            intent_raw = files._read(intent, 'intent.json', custody.LIMITS['intent_bytes'])
+            signed = custody._checked(intent_raw, server.integrity_key, custody.INTENT_DOMAIN, custody.LIMITS['intent_bytes'])
+            expected = {'version': custody.INTENT_VERSION, 'scope': custody.SCOPE, 'G0_G4': 'not_assessed',
+                'tenant_id': tenant, 'intent_id': identity, 'request_sha256': custody._hash(request_raw),
+                'binding': files.inputs._json(binding_raw), 'resolver_version': server.input_resolver.version,
+                'custody_code_sha256': custody.CODE_SHA256, 'dependency_sha256': custody.DEPENDENCY_SHA256,
+                'limits': custody.LIMITS}
+            _need(execution._same(signed, expected))
+            proofs = keep(files._directory(intent, 'proofs', create=False))
+            artifact = keep(files._directory(intent, 'artifact', create=False))
+            def current():
+                server._binding()
+                value = server.input_resolver(tenant, request['input']['source_sha256'], request['input']['evidence_sha256'])
+                _need(type(value) is tuple and len(value) == 2 and isinstance(value[0], (str, Path)) and type(value[1]) is bytes)
+                return server.binding.current(tenant, request_raw, value[0], value[1], binding_raw, write=False)
+            session = custody._Session(server, root, intent, proofs, artifact, identity, intent_raw, binding_raw, current)
+            session._guard()
+            yield session
+            session._guard()
 
     def _chosen(self, conn, tenant, job, latest, selector):
         if selector is None:
@@ -157,7 +192,8 @@ class JointExecutionPrefixQuery:
                     'final_checkpoint_sha256': None if cp is None else cp['sha256']})
             summary = {'counts': counts, **{'last_'+k[:-1]+'_utc': rows[-1]['last_at'] if rows else None for k, rows in index.items()}}
             page = None if view == 'summary' else self._page(reader, data, view, start, limit)
-            _need(reader._head()[1] == live_sha)
+            if reader._head()[1] != live_sha:
+                raise JointPrefixPending('joint prefix changed during read')
         session._guard()
         return {'selection': {'checkpoint': p, 'checkpoint_recorded_at': execution._utc(chosen['recorded_at']),
                     'checkpoint_attempt': chosen['attempt']},
@@ -205,7 +241,7 @@ class JointExecutionPrefixQuery:
                 result = dict.fromkeys(('selection', 'binding', 'manifest', 'time_binding', 'summary', 'page'))
                 session = live_sha = None
                 if chosen is not None:
-                    session, _ = opened.enter_context(self.query.results._session(tenant, raw))
+                    session = opened.enter_context(self._session(tenant, raw, binding_raw))
                     result, live_sha = self._accepted(session, chosen, latest, job, binding_raw, view, start, limit)
                 self.query._current(tenant, value, raw, binding_raw)
                 with self.jobs.connect() as probe:
@@ -221,7 +257,8 @@ class JointExecutionPrefixQuery:
                 if session is not None:
                     session._guard()
                     with storage._Files(session.path) as check:
-                        _need(check._head()[1] == live_sha)
+                        if check._head()[1] != live_sha:
+                            raise JointPrefixPending('joint prefix changed during read')
                 result.update(version=VERSION, scope=custody.SCOPE, claim_scope=CLAIM_SCOPE, G0_G4='not_assessed',
                     job=execution.jobs_public.public_job_status(job).model_dump(mode='json'), cancel_requested=job['cancel_requested'],
                     observed_at=at, prefix_status='closed' if closed else 'none' if chosen is None else 'accepted')

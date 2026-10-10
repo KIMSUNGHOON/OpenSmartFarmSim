@@ -282,14 +282,14 @@ def test_actual_running_original_HTTPS_pages_and_selection(native,tls_files,monk
             c.mode['preparing']=True
             with c.worker.server._open('tenant-1',c.raw,False):
                 c.mode['preparing']=False
-                try:assert http('GET',path)[0]==503
+                try:assert http('GET',path)[0]==200
                 finally:c.mode['preparing']=True
             c.mode['preparing']=False
             assert all(n==0 for n in calls.values())
         assert reference.persisted_digest(c.worker.jobs)==before
     save('actual-running',{'actual_scram':True,'verified_TLS':True,'same_original_projection_wire':True,
         'read_scopes_only':True,'selector_and_UTC':True,'empty_end_and_ranges':True,'unaccepted_selector_409':True,
-        'missing_404':True,'real_lock_503':True,'DB_unchanged':True,'calls':calls,'replies':replies})
+        'missing_404':True,'immutable_read_while_writer_locked':True,'DB_unchanged':True,'calls':calls,'replies':replies})
 
 
 @reference.reference.pytestmark

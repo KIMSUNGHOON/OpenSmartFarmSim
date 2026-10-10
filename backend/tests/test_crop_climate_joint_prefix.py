@@ -335,11 +335,17 @@ def test_selector_bounds_missing_unaccepted_and_actual_lock(setup, monkeypatch):
             with pytest.raises(model.JointPrefixRequestRejected): query.read('tenant-1', job_id, **options)
         with pytest.raises(model.JointPrefixSelectionConflict): query.read('tenant-1', job_id, selector=dict(pin, proof_sha256='a'*64))
         with worker.server._open('tenant-1', raw, False):
-            with pytest.raises(model.JointPrefixPending): query.read('tenant-1', job_id)
+            original = model.custody.files._file
+            def without_lock(*a, **kw):
+                assert not kw.get('lock'), 'prefix acquired writer lock'
+                return original(*a, **kw)
+            patch.setattr(model.custody.files, '_file', without_lock)
+            assert read(query, job_id)['prefix_status'] == 'accepted'
         assert all(n == 0 for n in calls.values())
     assert reference.persisted_digest(worker.jobs) == before
     save('boundaries', {'missing_and_unstarted': True, 'invalid_shapes_ranges_limits_rejected': True,
-        'unaccepted_selector_rejected': True, 'actual_file_lock_pending': True, 'calls': calls, 'DB_unchanged': True})
+        'unaccepted_selector_rejected': True, 'immutable_read_while_writer_locked': True, 'reader_lock_calls': 0,
+        'calls': calls, 'DB_unchanged': True})
 
 
 def test_original_signed_head_proof_commit_page_tampering_rejected(setup, monkeypatch):
