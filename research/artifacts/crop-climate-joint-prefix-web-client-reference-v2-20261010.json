@@ -1,0 +1,77 @@
+{
+  "G0_G4": "not_assessed",
+  "acceptance": "same_test_content_explicit_smoke_collection",
+  "actual_crop_Runs": 0,
+  "base_evidence": {
+    "path": "research/artifacts/crop-climate-joint-prefix-web-client-reference-20261010.json",
+    "sha256": "b0ab5fe3301fc665da5e1663c35c3b8c8d1855ea68bb67911e09a03103e0feb3"
+  },
+  "core_commit": "f40a8ff447028c00c7074cf83dec66d74b2aba4d",
+  "final_source_unique_passed": 306,
+  "id": "crop-climate-joint-prefix-web-client-reference-v2-20261010",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "timestamp": "2026-10-10T11:37:56.681Z",
+    "turn_context_sha256": "3cb5491a2456c77a91d4e1d4f007d59e82e7010cc36e063bf0b14330d229869d"
+  },
+  "next": "crop-climate-joint-prefix-ui",
+  "recursive_CLI": false,
+  "runtime_CLI": false,
+  "schema_version": 2,
+  "shared_codec_commit": "c750007",
+  "skipped": 0,
+  "source_sha256": {
+    "backend/tests/crop_climate_joint_prefix_sdk_smoke.py": "cc2b90ebe758138d1784822ba7622df73b733c991368290c0168cf96f90ee089",
+    "web/src/api.ts": "c7248a040fc218e8bc9def9743e0b32f04d4bdc904fe5ff996966fdcb50a1bea",
+    "web/src/jointCropClimateExecution.ts": "5866758dcdd10a32b18b6db574ed5b2a060f595d59fab00442721ea6c94ecf35",
+    "web/src/jointCropClimatePrefix.test.ts": "6cf5b71b5efdef929f6b909b44e903b922d45f164c47a74e6453f3c963eefb47",
+    "web/src/jointCropClimatePrefix.ts": "0f97e1cd0f1da7afd4178a262c4f7e11479d7fc7332d7877a1c73d192712323b",
+    "web/src/jointCropClimateReplay.ts": "e60eb0c979783631f30e83e7964735edeb633401247c626030fe337f7d30ee10"
+  },
+  "test_path_change": {
+    "actual_tests_repeated_after_rename": false,
+    "body_changed": false,
+    "collect_only_tests": 3,
+    "collection_log_sha256": "ae7e099a125ba994bf43e36d964a12cf189c0c06b4aff2abd32b450ae1a76f81",
+    "from": "backend/tests/test_crop_climate_joint_prefix_sdk.py",
+    "reason": "SDK smoke needs an explicitly prepared Node bundle. Existing backend CI discovers test_*.py without Node; use the established *_smoke.py explicit collection convention.",
+    "receipt": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 9,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 527118336,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "ae7e099a125ba994bf43e36d964a12cf189c0c06b4aff2abd32b450ae1a76f81",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 120340480,
+      "source_count": 1866,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 2.460357037023641
+    },
+    "sha256_unchanged": "cc2b90ebe758138d1784822ba7622df73b733c991368290c0168cf96f90ee089",
+    "to": "backend/tests/crop_climate_joint_prefix_sdk_smoke.py"
+  },
+  "test_path_commit": "0a28e6beb64ffca77d6b5440c185dca3feaa42fe",
+  "user_deployment": false
+}
