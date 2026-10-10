@@ -81,7 +81,8 @@ E4는 core6cf4eaf·새24/관련4=고유28검사에서 원108상태/UTC·취소/�
 실제 SDK/검증 TLS의 같은 job/result·정상/hold·권리 철회 후 취소·원 offset/UTC 값·타입/제한된 빌드·보존을 수용했다.
 [E8 계산 화면](../research/crop-climate-joint-execution-screen-implementation-20261010.md)은 core288cbaf·기록 응답 Chromium15/기존 웹273=고유288개·타입/제한된 빌드로 수용했다.
 단일 조회·숨김/선택/계정/늦은 응답·재접속·취소 확인과 같은 완료/hold 저장3D·빈 출력을 확인했다.
-다음은 E9 실제 SCRAM/TLS/제품 브라우저 검증과 사용자 전환이다. 현재5173 자동 실행 연동은 비활성이다.
+[E9a 실제 SCRAM/TLS/제품 브라우저](../research/crop-climate-joint-execution-browser-implementation-20261010.md)는 완료/hold/취소3경로·원 checkpoint/결과/UTC3D·재접속/보존으로 수용했다.
+다음은 E9b 지속 사용자 서버 연결이다. 현재5173 자동 실행 연동은 비활성이다.
 계산 중 prefix3D는 terminal 조회와 구분해 별도 수용하고, 온실 경계 조사/독립 자료 확보는 병행한다.
 전체 결합·실시간 U3·실제 자료/생산 관문은 미완료다.
 

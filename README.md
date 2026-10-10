@@ -73,7 +73,8 @@ checkpoint의 DB 수용 시각과 heartbeat를 구분하고, 접수→worker→�
 실제 SDK/SCRAM/TLS 정상·hold·권리 철회 후 취소·원 값/시각·타입/제한된 빌드·보존을 수용했다. 기존 JobStatus offset 호환 오류를 수정했다.
 [E8 계산 화면](research/crop-climate-joint-execution-screen-implementation-20261010.md)도 core288cbaf·기록 응답 Chromium15/기존 웹273=고유288개·타입/제한된 빌드로 수용했다.
 단일 자동 조회·재접속·독립 서버 취소·완료/hold의 같은 UTC3D 선택을 구현했다.
-다음은 E9의 실제 SCRAM/TLS/제품 브라우저 검증과 사용자 전환이다. 현재5173에는 새 실행 경로를 활성화하지 않았다.
+[E9a 실제 브라우저](research/crop-climate-joint-execution-browser-implementation-20261010.md)는 완료/hold/취소3경로·자동 checkpoint/원 결과/UTC3D·재접속·보존을 통과했다.
+다음 E9b는 지속 사용자 서버 연결이다. 현재5173에는 새 실행 경로를 활성화하지 않았다.
 계산 중 checkpoint의3D에는 terminal page와 구분된 별도 후속 검증이 필요하다. 현재5173 자동 연동은 아직 없다.
 전체 결합/실제 생산 모델·실시간 U3·품종/독립 자료·관문은 미완료다.
 
