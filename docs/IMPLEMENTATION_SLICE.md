@@ -75,7 +75,9 @@ E4는 core6cf4eaf·새24/관련4=고유28검사에서 원108상태/UTC·취소/�
 확정 HEAD/UTC/최초 수용 시각·재시도·완료/hold·fresh SCRAM·권리/변조·계산/쓰기0·원 실패 수정/보존을 수용했다.
 [E6b 보호 HTTP](../research/crop-climate-joint-execution-http-implementation-20261010.md)도 core384733f·고유251개로
 실제 SCRAM/TLS 접수/확정 진행·완료/hold/기존 GET·권리 철회 후 소유자 취소·경로/형식 보존·원 실패 수정/정리를 수용했다.
-다음은 E6c 명시 runtime→자동 갱신→완료/hold 저장3D다. 현재5173 자동 연동은 미구현이다.
+[E6c 명시 runtime](../research/crop-climate-joint-execution-runtime-implementation-20261010.md)도 coreeb65671·고유250개로
+실제 SCRAM/TLS 접수→별도 자동 소비→정상/hold/원 저장 결과·실제 취소 확인·기본False/기존 조회·원본/기동 보존을 수용했다.
+다음은 E7 typed client→E8 자동 갱신→E9 완료/hold 저장3D 사용자 전환이다. 현재5173 자동 연동은 미구현이다.
 계산 중 prefix3D는 terminal 조회와 구분해 별도 수용하고, 온실 경계 조사/독립 자료 확보는 병행한다.
 전체 결합·실시간 U3·실제 자료/생산 관문은 미완료다.
 

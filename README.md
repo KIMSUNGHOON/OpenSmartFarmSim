@@ -66,7 +66,10 @@ checkpoint의 DB 수용 시각과 heartbeat를 구분하고, 접수→worker→�
 완료 farm 투영의 원 실패를 수정하고 재검증했다.
 [E6b 보호 HTTP](research/crop-climate-joint-execution-http-implementation-20261010.md)도 core384733f·고유251개로 실제 SCRAM/TLS의
 접수/원 진행·완료/hold/기존 저장 GET·권리 철회 후 소유자 취소·원 실패 수정/정리를 수용했다.
-기존53경로/진행 형식을 보존했다. 다음은 E6c 명시 runtime이며 현재 사용자 서버/UI 연결은 미완료다.
+기존53경로/진행 형식을 보존했다.
+[E6c 명시 runtime](research/crop-climate-joint-execution-runtime-implementation-20261010.md)도 coreeb65671·새35/기존215=고유250개로
+실제 SCRAM/TLS 접수→독립 자동 소비→정상/hold/같은 저장 결과·작업자 취소 확인·기본 비활성/기존 조회·보존을 수용했다.
+다음은 E7 typed client→E8 자동 갱신 화면→E9 사용자 전환이며 현재5173 서버/UI에는 새 실행 경로를 활성화하지 않았다.
 계산 중 checkpoint의3D에는 terminal page와 구분된 별도 후속 검증이 필요하다. 현재5173 자동 연동은 아직 없다.
 전체 결합/실제 생산 모델·실시간 U3·품종/독립 자료·관문은 미완료다.
 

@@ -70,7 +70,9 @@ core9f5c18d·고유17검사/실제 SCRAM·동시 중복/현재 권리·rollback�
 완료 farm 투영의 제품 오류를 수정하고 재검증했다.
 [E6b 보호 HTTP](../research/crop-climate-joint-execution-http-implementation-20261010.md)도 core384733f·고유251개로
 실제 SCRAM/TLS의 접수/원 진행·완료/hold/기존 GET·권리 철회 후 소유자 취소·원 형식/경로 보존·실패 수정/정리를 수용했다.
-다음은 E6c 명시 runtime이며 현재 사용자 서버/UI 연결은 미완료다.
+[E6c 명시 runtime](../research/crop-climate-joint-execution-runtime-implementation-20261010.md)도 coreeb65671·고유250개로
+실제 SCRAM/TLS 접수와 별도 자동 소비기·정상/hold/원 저장 결과·실제 취소 확인·기존 설정/조회·원본/기동 보존을 수용했다.
+다음은 E7 typed client→E8 자동 갱신 화면→E9 사용자 전환이다. 현재5173 새 실행 서버/UI 연결은 미완료다.
 자원 모듈 전체와 독립 자료 확보를 이 합성 접수의 선행 조건으로 두지 않는다.
 진행 상태 갱신→terminal 저장3D를 먼저 연결하며 계산 중 prefix3D는 별도 수용한다. 현재5173 실시간 연동은 미구현이다.
 [결합 계약](../contracts/crop-climate-coupling-v1.md)의 온실 경계 조사는 병행하며 실제 전체 작기·실시간 U3/관문은 미완료다.

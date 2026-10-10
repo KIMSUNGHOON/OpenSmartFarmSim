@@ -1877,10 +1877,14 @@
     순환 import와 시험 helper의 원 실패2개·초기100개 source를 보존하고 최종 경로를 재검증했다.
     단일/합 RSS168,701,952/350,474,240bytes·원본2,148/기동/소유 정리; native→집중1,522.129초(약25분), 기록/commit 별도다.
     작은 진행 GET2.960–8.079초·취소0.068–0.080초이며 운영 용량은 미수용이다. 현재5173/runtime 활성화/UI/관문은 별도다.
-  - [ ] **E6c 명시 runtime** — 다음 한 단계. 선행: E5/E6b. 예정 core4: 기존 `api_runtime.py`/test와 joint operator config/test.
-    수용: 명시 기능/같은 authority·store/worker 연결·오조립/누락 거부·기존 default false;
-    실제 SCRAM/TLS 접수/진행/취소와 원본/기동 보존. 확인: 집중 runtime/config pytest·실제 서비스. M,0.5–1시간.
-  - [ ] **E7 typed client** — 선행: E6. 예정 core3: `web/src/jointCropClimateExecution.ts`, 같은 이름 test, 위 실행 계약.
+  - [x] **E6c 명시 runtime** — 선행: E5/E6b. core4: 기존 api runtime/joint operator config·전용 실행 runtime test·기존 runtime 계약.
+    [coreeb65671/수용 근거](../research/crop-climate-joint-execution-runtime-implementation-20261010.md): 새35/기존215=고유250개,
+    실제 SCRAM/TLS 접수/queued·running→별도 자동 소비→정상/hold·원 진행/저장 bytes·같은 job/farm/result;
+    실제 소비기 취소 확인/수치0·명시 판본/기본False·기존 loader/조회·조립/조회21계수0을 확인했다.
+    모든 실행 source는7검사 묶음에서 최종 SHA다. 단일/합 RSS149,450,752/463,298,560bytes,
+    원본2,148/기동·FD4→4·소유 PG/임시PG/passfile/프로세스0; native→집중682.088초(약11분), 문서/commit 별도다.
+    현재5173 새 실행 활성화·웹 자동 갱신/브라우저·전체 작기/실제 자료/관문은 미수용이다.
+  - [ ] **E7 typed client** — 다음 한 단계. 선행: E6. 예정 core3: `web/src/jointCropClimateExecution.ts`, 같은 이름 test, 위 실행 계약.
     수용: 기존 transport 재사용·닫힌 DTO/원 job/farm/UTC·count/시각/상태 혼합 거부와 Abort/크기/timeout;
     null checkpoint/result·hold·현재 권리 오류를 명시. 확인: 집중 Vitest/TypeScript·제한된 빌드·실제 HTTPS. M,0.5–1시간.
   - [ ] **E8 U3 계산 화면** — 선행: E7·기존 joint 재생. 예정 core4: `web/src/JointCropClimateExecution.tsx`, `web/src/CropReplay.tsx`, 해당 e2e, 위 실행 계약.
