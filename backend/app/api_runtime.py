@@ -57,6 +57,7 @@ class ApiRuntimeConfig:
     host: str = '127.0.0.1'
     port: int = 8443
     crop_climate_joint_execution: bool = field(default=False, kw_only=True)
+    crop_climate_joint_prefix: bool = field(default=False, kw_only=True)
 
     def __post_init__(self):
         if (type(self.policy) is not RuntimeLoginPolicy or not self.policy.break_even_calculation or
@@ -72,7 +73,9 @@ class ApiRuntimeConfig:
                 type(self.host) is not str or self.host not in ('127.0.0.1', '::1') or
                 type(self.port) is not int or not 0 <= self.port <= 65535 or
                 type(self.crop_climate_joint_execution) is not bool or
-                (self.crop_climate_joint_execution and not self.policy.crop_climate_joint_result_storage)):
+                (self.crop_climate_joint_execution and not self.policy.crop_climate_joint_result_storage) or
+                type(self.crop_climate_joint_prefix) is not bool or
+                (self.crop_climate_joint_prefix and not self.crop_climate_joint_execution)):
             raise ValueError('API runtime configuration rejected')
 
 
@@ -149,6 +152,7 @@ class ApiRuntime:
     joint_execution_admission: object = field(repr=False)
     joint_execution_checkpoints: object = field(repr=False)
     joint_execution_query: object = field(repr=False)
+    joint_prefix_query: object = field(repr=False)
 
     def __init__(self, config, dependencies):
         try:
@@ -334,6 +338,10 @@ class ApiRuntime:
                     server.binding, input_resolver=server.input_resolver)
                 joint_execution_checkpoints = JointExecutionCheckpointStore(joint_execution_admission, server)
                 joint_execution_query = JointExecutionQuery(joint_execution_checkpoints, joint_crop_results)
+            joint_prefix_query = None
+            if config.crop_climate_joint_prefix:
+                from .crop_climate_joint_prefix import JointExecutionPrefixQuery
+                joint_prefix_query = JointExecutionPrefixQuery(joint_execution_query)
             harvest_crop_query = None
             harvest_crop_results = None
             if dependencies.crop_harvest_current_query_factory is not None:
@@ -404,7 +412,8 @@ class ApiRuntime:
                 crop_climate_joint_result_store=joint_crop_results,
                 crop_climate_joint_current_query=joint_crop_query,
                 crop_climate_joint_execution_service=joint_execution_admission,
-                crop_climate_joint_execution_query=joint_execution_query)
+                crop_climate_joint_execution_query=joint_execution_query,
+                crop_climate_joint_prefix_query=joint_prefix_query)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -426,5 +435,6 @@ class ApiRuntime:
                 ('joint_crop_results', joint_crop_results), ('joint_crop_query', joint_crop_query),
                 ('joint_execution_admission', joint_execution_admission),
                 ('joint_execution_checkpoints', joint_execution_checkpoints),
-                ('joint_execution_query', joint_execution_query)):
+                ('joint_execution_query', joint_execution_query),
+                ('joint_prefix_query', joint_prefix_query)):
             object.__setattr__(self, name, value)

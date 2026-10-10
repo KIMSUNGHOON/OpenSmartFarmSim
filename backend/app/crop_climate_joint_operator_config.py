@@ -8,6 +8,8 @@ from . import operator_config as original
 VERSION = 'operator-joint-crop-climate-api-config-v1'
 EXECUTION_VERSION = 'operator-joint-crop-climate-execution-api-config-v1'
 EXECUTION_FLAG = 'crop_climate_joint_execution'
+PREFIX_VERSION = 'operator-joint-crop-climate-prefix-api-config-v1'
+PREFIX_FLAG = 'crop_climate_joint_prefix'
 FLAG = original.JOINT_RESULT_FLAG
 CALCULATION_FLAG = 'crop_cycle_calculation_result_storage'
 POLICY_FIELDS = original.POLICY_FIELDS | {FLAG}
@@ -32,16 +34,19 @@ def load_joint_api_runtime(config_path):
                            parse_constant=original._constant)
         if type(value) is not dict:
             raise ValueError
-        execution_version = value.get('config_version') == EXECUTION_VERSION
-        expected = original.FIELDS | ({EXECUTION_FLAG} if execution_version else set())
-        if (value.keys() != expected or value['config_version'] not in (VERSION, EXECUTION_VERSION) or
+        prefix_version = value.get('config_version') == PREFIX_VERSION
+        execution_version = value.get('config_version') in (EXECUTION_VERSION, PREFIX_VERSION)
+        expected = original.FIELDS | ({EXECUTION_FLAG} if execution_version else set()) | ({PREFIX_FLAG} if prefix_version else set())
+        if (value.keys() != expected or value['config_version'] not in (VERSION, EXECUTION_VERSION, PREFIX_VERSION) or
                 type(value['policy']) is not dict or
                 not POLICY_FIELDS <= value['policy'].keys() <=
                 POLICY_FIELDS | original.OPTIONAL_POLICY_FIELDS | {CALCULATION_FLAG}):
             raise ValueError
         policy = value['policy']
         execution = value[EXECUTION_FLAG] if execution_version else False
-        if (type(execution) is not bool or (execution and policy[FLAG] is not True) or
+        prefix = value[PREFIX_FLAG] if prefix_version else False
+        if (type(prefix) is not bool or (prefix and execution is not True) or
+                type(execution) is not bool or (execution and policy[FLAG] is not True) or
                 type(policy[FLAG]) is not bool or
                 type(policy.get(CALCULATION_FLAG, False)) is not bool or
                 ((policy[FLAG] or policy.get(CALCULATION_FLAG, False)) and
@@ -70,7 +75,7 @@ def load_joint_api_runtime(config_path):
             market_hold_key=read(value['market_hold_key_file'], minimum=32, maximum=4096),
             authored_run_gate_key=None if authored is None else read(authored, minimum=32, maximum=4096),
             content_access=access, host=value['host'], port=value['port'],
-            crop_climate_joint_execution=execution)
+            crop_climate_joint_execution=execution, crop_climate_joint_prefix=prefix)
         module, attribute = reference.split(':')
         factory = getattr(original.importlib.import_module(module), attribute)
         dependencies = factory(config=config)
