@@ -1,0 +1,6 @@
+.joint-execution .execution-progress dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0}
+.joint-execution .execution-progress dl>div{padding:12px;border:1px solid #e4e4d8;border-radius:7px;background:#f9f9f1}
+.joint-execution .execution-progress dt{font-size:.8125rem}
+.joint-execution .execution-progress dd{margin:8px 0 0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.joint-execution input[type=file]{max-width:100%}
+@media(max-width:640px){.joint-execution .execution-progress dl{grid-template-columns:1fr}}
