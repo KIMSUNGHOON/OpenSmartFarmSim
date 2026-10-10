@@ -1,0 +1,1094 @@
+{
+  "CI_run_or_remote_change": false,
+  "G0_G4": "not_assessed",
+  "UI_realtime_accepted": false,
+  "accepted": true,
+  "accepted_bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+  "accepted_stages": [
+    {
+      "finished_at_utc": "2026-10-10T05:53:31.414361+00:00",
+      "id": "test-v2",
+      "passed_counted": 113,
+      "source_pin_manifest_sha256": "4313cbeb93c9a8ddd0ae160ab61b5650426914835d48606893087075898de3e9",
+      "started_record_sha256": "7c26d56d53759a25dd1d5f19bf062889179cee05997ec93ad24dc7afa234b895",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 4,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 346419200,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "7c7756edbd7a2bec589d5d46d7df60eb41d401bc2a808aa8f1db634865336ec3",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 0,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 199282688,
+        "source_count": 1827,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 1.0828585230046883
+      },
+      "terminal_record_sha256": "fdb4e3818e9b2c5a6204c899c01a12ad7aa6b9d215e824788f704c60442f33b4"
+    },
+    {
+      "finished_at_utc": "2026-10-10T05:53:59.019742+00:00",
+      "id": "bundle-v2",
+      "passed_counted": 0,
+      "source_pin_manifest_sha256": "4313cbeb93c9a8ddd0ae160ab61b5650426914835d48606893087075898de3e9",
+      "started_record_sha256": "33a9e434819f1ec9d87ff19ea8432f15225e586294846817348abd9181288650",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 3,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 194785280,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "31c766a16aa479bcbbfe928a2978877ccf7c218570c382c02425d974b80136bc",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 0,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 116879360,
+        "source_count": 1827,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 0.8164986920310184
+      },
+      "terminal_record_sha256": "dae758c165649f1055635782daef64798ae23d072d8f9b42e14429a1b8438d06"
+    },
+    {
+      "finished_at_utc": "2026-10-10T05:55:57.209627+00:00",
+      "id": "native-completed-v2",
+      "passed_counted": 1,
+      "source_pin_manifest_sha256": "4313cbeb93c9a8ddd0ae160ab61b5650426914835d48606893087075898de3e9",
+      "started_record_sha256": "bf96d05eb905eb2d438ea9f117305843695e88c23362076a75727456503eef97",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 328,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 501788672,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "578501f94b0ac11fc05b9a8cb19ab2076a670b973bb9fae034e4c1db1aa37668",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 444,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 145350656,
+        "source_count": 1827,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 90.58573633799097
+      },
+      "terminal_record_sha256": "437484ec3e44bd2522c436aeed56c461cb8b5b1eb4fb4eb40698b0a0df3b01c4"
+    },
+    {
+      "finished_at_utc": "2026-10-10T05:57:35.956462+00:00",
+      "id": "native-hold-v1",
+      "passed_counted": 1,
+      "source_pin_manifest_sha256": "4313cbeb93c9a8ddd0ae160ab61b5650426914835d48606893087075898de3e9",
+      "started_record_sha256": "bca65be4efd66342498f2ecd9655e791488dcf868e1deb4e2a2d517eab3e7b72",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 327,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 494137344,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "ff56371ed7c245f1313d9902bc034d906659af1b5554b8a373553e94b90e8599",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 415,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 145498112,
+        "source_count": 1827,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 90.35601092298748
+      },
+      "terminal_record_sha256": "53f134accc814f05b1bb86c52ee5e154e2c47457181db2d05adff0c9e704290f"
+    },
+    {
+      "finished_at_utc": "2026-10-10T05:58:11.057788+00:00",
+      "id": "native-cancel-v1",
+      "passed_counted": 1,
+      "source_pin_manifest_sha256": "4313cbeb93c9a8ddd0ae160ab61b5650426914835d48606893087075898de3e9",
+      "started_record_sha256": "7709c3d82f41ef1d0b49741ddf8690602f64c3895a8ae46d29838a7e9fbbf716",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 115,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 487411712,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "2f117a3526e551985958f6ea8b6daebe645c529ab3e4cf0bdb93674d3621d39f",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 121,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 136212480,
+        "source_count": 1827,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 30.998994947003666
+      },
+      "terminal_record_sha256": "38c7185a06533ec6b40a50ba1e10408e2c67d89e07319809b78c47e4291626d9"
+    },
+    {
+      "finished_at_utc": "2026-10-10T05:58:34.899460+00:00",
+      "id": "regression-v1",
+      "passed_counted": 160,
+      "source_pin_manifest_sha256": "4313cbeb93c9a8ddd0ae160ab61b5650426914835d48606893087075898de3e9",
+      "started_record_sha256": "3040f323000da1aed7eeaf42df492a7494a9062da772ccd78db37de71cbe1241",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 7,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 382398464,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "132148871d6d22c8639e84e87354f7434851f099a0713fe40388c5365b711c0a",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 0,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 207462400,
+        "source_count": 1827,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 1.8681877279886976
+      },
+      "terminal_record_sha256": "c4840f32fc6c6cb84d88f7f47cf55f14e6dafedf6b637a7ba36a1cca5205e95c"
+    },
+    {
+      "finished_at_utc": "2026-10-10T05:59:21.536841+00:00",
+      "id": "typecheck-v2",
+      "passed_counted": 0,
+      "source_pin_manifest_sha256": "4313cbeb93c9a8ddd0ae160ab61b5650426914835d48606893087075898de3e9",
+      "started_record_sha256": "57795f128a9e0e0081acd43b68794f7fdb971063bf7dc9d59badb21d9730aeca",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 3,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 461434880,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 0,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 383475712,
+        "source_count": 1827,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 0.8308540629805066
+      },
+      "terminal_record_sha256": "0f2217156d43c375ccd7735aa453ffa64a12e629c984249f6953ab7498b9f8ff"
+    },
+    {
+      "finished_at_utc": "2026-10-10T05:59:31.660916+00:00",
+      "id": "build-v1",
+      "passed_counted": 0,
+      "source_pin_manifest_sha256": "4313cbeb93c9a8ddd0ae160ab61b5650426914835d48606893087075898de3e9",
+      "started_record_sha256": "354c3f8a01a3e2c81c9f2ba209bddada3554a116f060ab5ab8f8692f560199cb",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 9,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 393760768,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "4ffed254e5e04e77ec319d33810ab9b54cb034255bc685e83235ee03b11484bd",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 0,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 316051456,
+        "source_count": 1827,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 2.3670550109818578
+      },
+      "terminal_record_sha256": "33ac8d8766d852a45b433fb91af27e2d07ed9844df45e14f4bb105f0563e601c"
+    }
+  ],
+  "actual_SDK_paths": {
+    "cancel": {
+      "sha256": "f0fcdbc3897f40af7cbacf09756ab23b935c62390735db1693d2a3cdd98dc6e5",
+      "value": {
+        "G0_G4": "not_assessed",
+        "actual_crop_Runs": 0,
+        "actual_scram": true,
+        "attempt": {
+          "actual_scram": true,
+          "attempt": 1,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "state": "canceled"
+        },
+        "automatic_separate_consumer": true,
+        "consumer_exit": 0,
+        "events": [
+          {
+            "event": "started",
+            "version": 1
+          },
+          {
+            "attempt": 1,
+            "event": "attempt",
+            "job_id": "52a3006b-cad6-4665-ab49-a6549910fbcc",
+            "reason_code": "canceled_by_request",
+            "state": "canceled",
+            "version": 1
+          },
+          {
+            "event": "stopped",
+            "version": 1
+          }
+        ],
+        "mode": "cancel",
+        "read_calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "real_compiled_SDK_to_real_runtime": true,
+        "requests": [
+          {
+            "actual_exit": 1,
+            "error": {
+              "code": "network_unresolved",
+              "status": null
+            },
+            "expected_error": "network_unresolved",
+            "operation": "read",
+            "seconds": 0.10203988698776811
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "submit",
+            "requests": [
+              {
+                "bytes": 237,
+                "method": "POST",
+                "no_store": true,
+                "seconds": 1.97080159,
+                "sha256": "23d01620f869e13f63abcfb0e60ac90679b6960a88a902359806a5e9fead7c0d",
+                "status": 202
+              }
+            ],
+            "result_sha256": "b4ffe83a204be327cb377965059de226b25ce8e387cca940ef48b5dab3a8d80b",
+            "wall_seconds": 2.029203355021309
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "read",
+            "requests": [
+              {
+                "bytes": 495,
+                "method": "GET",
+                "no_store": true,
+                "seconds": 3.110270697,
+                "sha256": "1e1b0c7fff911ae2b0e7ab28ddf4bedf5e75b5cad51af5b5c0bfccfa199f874e",
+                "status": 200
+              }
+            ],
+            "result_sha256": "0a5130a8165c52f9e54ab725697dd2933f1a81acdf8e06b8eb10d91c670f61b8",
+            "wall_seconds": 3.1698091570287943
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "read",
+            "requests": [
+              {
+                "bytes": 499,
+                "method": "GET",
+                "no_store": true,
+                "seconds": 3.065887852,
+                "sha256": "a96d5505bd7474c777418922efa609185cf5a41203be6281edc44c0f10ec5965",
+                "status": 200
+              }
+            ],
+            "result_sha256": "d819ff25aba36523d8f76f5e64a06699c06304b75e6c9c972ab258cbc21b8d31",
+            "wall_seconds": 3.125221483001951
+          },
+          {
+            "actual_exit": 1,
+            "error": {
+              "code": "invalid_request",
+              "status": 422
+            },
+            "expected_error": "invalid_request",
+            "operation": "read",
+            "seconds": 0.6386601949925534
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "cancel",
+            "requests": [
+              {
+                "bytes": 463,
+                "method": "POST",
+                "no_store": true,
+                "seconds": 0.136446244,
+                "sha256": "432cf74961b802e9631af4330213e51e20983b2d69576ca19487f4bdd9a44c56",
+                "status": 200
+              }
+            ],
+            "result_sha256": "7919285338bc71f109d5b3884ad3ac5be705a7f9fcd02a7c0617f82160cdeb1c",
+            "wall_seconds": 0.19773702998645604
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "read",
+            "requests": [
+              {
+                "bytes": 514,
+                "method": "GET",
+                "no_store": true,
+                "seconds": 3.065236051,
+                "sha256": "ecbabfc2ce7c240144144d5d3945a1310021b3540c8e4e724d710a7b9a5c27fe",
+                "status": 200
+              }
+            ],
+            "result_sha256": "a1d7f69d5bf17cc2e81c0451a1a93c4779d70890e72ab2c057c8237d1faa8fb7",
+            "wall_seconds": 3.1259712560568005
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "cancel",
+            "requests": [
+              {
+                "bytes": 480,
+                "method": "POST",
+                "no_store": true,
+                "seconds": 0.12666475400000002,
+                "sha256": "6ec80cc7b9d17f6db0633fe116fac7d6d04fcc6f79b7a0eae59a58fd507d68a6",
+                "status": 200
+              }
+            ],
+            "result_sha256": "44e0a35d9cfecc1c0c095c2d92906ee0b2f6ce1917c49c8e9e1f8e8eca96109e",
+            "wall_seconds": 0.1819676260347478
+          }
+        ],
+        "verified_TLS_with_negative_CA_test": true
+      }
+    },
+    "completed": {
+      "sha256": "d2e0335c6f78a20f16f723275306d4cf52762a1af7edc1d966d3f31ab74b14c9",
+      "value": {
+        "G0_G4": "not_assessed",
+        "actual_crop_Runs": 0,
+        "actual_scram": true,
+        "attempt": {
+          "actual_scram": true,
+          "attempt": 1,
+          "calls": {
+            "RHS": 88,
+            "advance": 1,
+            "event": 3,
+            "prepare_binding": 1,
+            "prepare_context": 1,
+            "restore": 0,
+            "start": 1,
+            "step": 16
+          },
+          "state": "succeeded"
+        },
+        "automatic_separate_consumer": true,
+        "consumer_exit": 0,
+        "events": [
+          {
+            "event": "started",
+            "version": 1
+          },
+          {
+            "attempt": 1,
+            "event": "attempt",
+            "job_id": "fe2bbc7d-9166-442b-acaf-efe4f86e36f3",
+            "reason_code": "completed",
+            "state": "succeeded",
+            "version": 1
+          },
+          {
+            "event": "stopped",
+            "version": 1
+          }
+        ],
+        "mode": "completed",
+        "read_calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "real_compiled_SDK_to_real_runtime": true,
+        "requests": [
+          {
+            "actual_exit": 1,
+            "error": {
+              "code": "network_unresolved",
+              "status": null
+            },
+            "expected_error": "network_unresolved",
+            "operation": "read",
+            "seconds": 0.1074298580060713
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "submit",
+            "requests": [
+              {
+                "bytes": 237,
+                "method": "POST",
+                "no_store": true,
+                "seconds": 1.9632357900000001,
+                "sha256": "3f66a28ac0c060ae1892b128d5696bc749faf532ff2f73510265bec8744cbbd5",
+                "status": 202
+              }
+            ],
+            "result_sha256": "22bfc164d220220448e5440d878d6bc2c7080116ef613fd4146586968703032b",
+            "wall_seconds": 2.0219248610083014
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "read",
+            "requests": [
+              {
+                "bytes": 495,
+                "method": "GET",
+                "no_store": true,
+                "seconds": 3.090317792,
+                "sha256": "d7eb8778ea79f3c58077001d06dac3ee087429c9709d0ad4f9d0fdd7bbbc90da",
+                "status": 200
+              }
+            ],
+            "result_sha256": "669d3ac9f5b360b5c98186cada83af264b4ecee3a884a600a526842fbaf25221",
+            "wall_seconds": 3.151724949013442
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "read",
+            "requests": [
+              {
+                "bytes": 499,
+                "method": "GET",
+                "no_store": true,
+                "seconds": 3.046784906,
+                "sha256": "4c8a53959947b11aaf6fad3f227092d73c3edef81c759a2bad4001758c7a596e",
+                "status": 200
+              }
+            ],
+            "result_sha256": "93292e7c7629e471085513d936358535d6e0a62f18b173f172f29d1012e8044c",
+            "wall_seconds": 3.102403000986669
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "read",
+            "requests": [
+              {
+                "bytes": 1295,
+                "method": "GET",
+                "no_store": true,
+                "seconds": 7.921577689,
+                "sha256": "0f349e9c8bbfd3a1acc9edb800692fc36eb238a011c9bd56c9fd2a4057272d03",
+                "status": 200
+              }
+            ],
+            "result_sha256": "6885ba77686f758e4f51bf2fbcfad010a3e5d20f458cff4e8045642d6440449e",
+            "wall_seconds": 7.982045468001161
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "stored",
+            "requests": [
+              {
+                "bytes": 18904,
+                "method": "GET",
+                "no_store": true,
+                "seconds": 5.193512944,
+                "sha256": "132bf5ca51726483e6327aeb42ce538f0c33f1d666928d63792f81bbc9230624",
+                "status": 200
+              }
+            ],
+            "result_sha256": "96c28829203de40c4ba4c0439b252f242ae296dfba59e33c081176aa276d6b70",
+            "wall_seconds": 5.25718684704043
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "cancel",
+            "requests": [
+              {
+                "bytes": 464,
+                "method": "POST",
+                "no_store": true,
+                "seconds": 0.128543588,
+                "sha256": "fae32691525f5675bd6e96a789338c8af3e18daf40e46e8ec5521d030192877c",
+                "status": 200
+              }
+            ],
+            "result_sha256": "70b51a3b92a27c08605a60f50e2ab03398c41a3ca2ca17ecea10f4959900f322",
+            "wall_seconds": 0.1873576320358552
+          }
+        ],
+        "verified_TLS_with_negative_CA_test": true
+      }
+    },
+    "hold": {
+      "sha256": "14fb866e75172e24d272b51e318802bc7108cbaabc91825088a0256ffe13ca48",
+      "value": {
+        "G0_G4": "not_assessed",
+        "actual_crop_Runs": 0,
+        "actual_scram": true,
+        "attempt": {
+          "actual_scram": true,
+          "attempt": 1,
+          "calls": {
+            "RHS": 87,
+            "advance": 1,
+            "event": 3,
+            "prepare_binding": 1,
+            "prepare_context": 1,
+            "restore": 0,
+            "start": 1,
+            "step": 16
+          },
+          "state": "hold"
+        },
+        "automatic_separate_consumer": true,
+        "consumer_exit": 0,
+        "events": [
+          {
+            "event": "started",
+            "version": 1
+          },
+          {
+            "attempt": 1,
+            "event": "attempt",
+            "job_id": "971fa1b7-ab89-41c1-b984-a17ac4b4b1d5",
+            "reason_code": "joint_numerical_hold",
+            "state": "hold",
+            "version": 1
+          },
+          {
+            "event": "stopped",
+            "version": 1
+          }
+        ],
+        "mode": "hold",
+        "read_calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "real_compiled_SDK_to_real_runtime": true,
+        "requests": [
+          {
+            "actual_exit": 1,
+            "error": {
+              "code": "network_unresolved",
+              "status": null
+            },
+            "expected_error": "network_unresolved",
+            "operation": "read",
+            "seconds": 0.1068118360126391
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "submit",
+            "requests": [
+              {
+                "bytes": 237,
+                "method": "POST",
+                "no_store": true,
+                "seconds": 1.9555921560000002,
+                "sha256": "4204a9ef5ac1e4182f3f851813f6ee922e62c8c2a9d79814b767c33c10d52f1a",
+                "status": 202
+              }
+            ],
+            "result_sha256": "02086b269ea61507499d44cd3566ad722d2483fbab558b6e160cc9cdf3b52fe3",
+            "wall_seconds": 2.013527882983908
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "read",
+            "requests": [
+              {
+                "bytes": 495,
+                "method": "GET",
+                "no_store": true,
+                "seconds": 3.114297572,
+                "sha256": "190a0135851de0cbec4a20f3a494aa57177e0e6c0ea98250142d28eeb73d7b0b",
+                "status": 200
+              }
+            ],
+            "result_sha256": "ef62e25d44f54a397f6375b52e7f1e16a39bc5bac10994884758dcc94799ca80",
+            "wall_seconds": 3.1739946979796514
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "read",
+            "requests": [
+              {
+                "bytes": 499,
+                "method": "GET",
+                "no_store": true,
+                "seconds": 3.105820193,
+                "sha256": "740af9fa1a28567adefcabe11214e758e355c76e8e56be42f2882dcbb4374d69",
+                "status": 200
+              }
+            ],
+            "result_sha256": "495c422b6b290a4f73528db050ca9ac3c38ed1aeacc91fd92cc2f37f2c7a4a03",
+            "wall_seconds": 3.164059411967173
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "read",
+            "requests": [
+              {
+                "bytes": 1298,
+                "method": "GET",
+                "no_store": true,
+                "seconds": 7.886109187,
+                "sha256": "78e82a244a2bb308e8371fb9e524bfbc3ec1a3562dfe6c842609b2323dca1168",
+                "status": 200
+              }
+            ],
+            "result_sha256": "68ad2ce8df162635efdfb9653a97b13d08b7fa2cbb5e1c3f80df43429275bc59",
+            "wall_seconds": 7.946812136971857
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "stored",
+            "requests": [
+              {
+                "bytes": 18995,
+                "method": "GET",
+                "no_store": true,
+                "seconds": 5.145564458,
+                "sha256": "ffc1d3d2fae92367e40930cc9b3fe15c9f1893e6f2cf9a73641cde881596800e",
+                "status": 200
+              }
+            ],
+            "result_sha256": "232bb9e02557b94949d39abba1924cd7769f43ec28222b8031ebc48f3408f688",
+            "wall_seconds": 5.206929137988482
+          },
+          {
+            "actual_exit": 0,
+            "bundle_sha256": "33002edd48ce82816656cac276da84c08bae4f26b4b4771decc295d3c4047718",
+            "operation": "cancel",
+            "requests": [
+              {
+                "bytes": 477,
+                "method": "POST",
+                "no_store": true,
+                "seconds": 0.13162136000000002,
+                "sha256": "74db3c66debba82583612fef2c45f641eeeb444b825339e800198c4d39bed375",
+                "status": 200
+              }
+            ],
+            "result_sha256": "78cb8541902a9064dbc2ce54c2faaa7f388717998742562ab628759caa280866",
+            "wall_seconds": 0.19145459996070713
+          }
+        ],
+        "verified_TLS_with_negative_CA_test": true
+      }
+    }
+  },
+  "actual_crop_Runs": 0,
+  "backend_pin_manifest_sha256": "15aac2be81d454e714c6368976aa03d898c95f45e35dce6fd1e8e480599f6e5e",
+  "backend_python_pin_count_unchanged": 522,
+  "browser_run": false,
+  "combined_peak_RSS_bytes": 501788672,
+  "controllers_terminal": 12,
+  "core_commit": "616b3f54398364296a02aba1682c56b7e374f29f",
+  "current_5173_HTML_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1",
+  "current_5173_HTTP": 200,
+  "current_5173_execution_enabled": false,
+  "current_user_preview_changed": false,
+  "earlier_stages_not_counted_twice": [
+    {
+      "finished_at_utc": "2026-10-10T05:49:45.282064+00:00",
+      "id": "typecheck-v1",
+      "passed_counted": 0,
+      "source_pin_manifest_sha256": "b6867c6a3a5570dfae68c16c6586383af66ed279013c1ff659a0f87a3ec81a46",
+      "started_record_sha256": "49dfc7f13ff17c9b2d1330415dd8f39eb73f11b7c37024d6aa3d1f0177f2d38d",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 3,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 450203648,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 0,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 372342784,
+        "source_count": 1827,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 0.8634220579988323
+      },
+      "terminal_record_sha256": "d1ab740f88a4b24bde876121fd0c38445036090cf7869e666d6a054f8b239c0b"
+    },
+    {
+      "finished_at_utc": "2026-10-10T05:49:58.225831+00:00",
+      "id": "test-v1",
+      "passed_counted": 0,
+      "source_pin_manifest_sha256": "b6867c6a3a5570dfae68c16c6586383af66ed279013c1ff659a0f87a3ec81a46",
+      "started_record_sha256": "f0d8a6171df0e0c9939c35f4fb9a4e9226d53b671c056dd2c042f60bc9af5df1",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 4,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 333590528,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "16f0aa455bf893c47f8713c50261902225bf81e4575f11c77afdac020e811f46",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 0,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 187580416,
+        "source_count": 1827,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 1.0837576689664274
+      },
+      "terminal_record_sha256": "14f8b869dc03c7a36abd921717eb4a76a36b6164632cc3756df0f555658e52d4"
+    },
+    {
+      "finished_at_utc": "2026-10-10T05:51:37.999642+00:00",
+      "id": "bundle-v1",
+      "passed_counted": 0,
+      "source_pin_manifest_sha256": "b6867c6a3a5570dfae68c16c6586383af66ed279013c1ff659a0f87a3ec81a46",
+      "started_record_sha256": "b3a978c636684591eaeb4181f59a1cd953dc5b84d1a324c4519314cffc277198",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 3,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 197042176,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "46cc66043f5f0c55b0739f015d0bba1dbea7e9d839e98ff819c9aeb1dc0b5a96",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 0,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 119087104,
+        "source_count": 1827,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 0.8160225710016675
+      },
+      "terminal_record_sha256": "6c9611cad98cceffa5fc507d852141a6939a4b9dc3e5dcf617b7f7851165bbb2"
+    },
+    {
+      "finished_at_utc": "2026-10-10T05:52:25.311300+00:00",
+      "id": "native-completed-v1",
+      "passed_counted": 0,
+      "source_pin_manifest_sha256": "b6867c6a3a5570dfae68c16c6586383af66ed279013c1ff659a0f87a3ec81a46",
+      "started_record_sha256": "dc8eddb2eb74c066fb9da44e9173a161a074a179ce86be283e961c4024070124",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 68,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 391258112,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "known_invalid_test_passfiles_removed": 0,
+        "log_sha256": "3cc664254d9756903acd41ce72d3285d2eb127ec5bb813a7c5dbd3e380ddbc53",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 65,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 133758976,
+        "source_count": 1827,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 18.163042894972023
+      },
+      "terminal_record_sha256": "f972761090361f00c66514c0c26dd707847ce79e5800924509704b5d15b1e0d3"
+    }
+  ],
+  "failure": {
+    "actual_post_202_wire_sha256": "b795c64d527fefe27dc1ea3c9245a5a30a047ff19273cd2b595ec7768a4790d9",
+    "created_at": "2026-10-10T14:52:22.438782+09:00",
+    "fixed_original_offset_and_microseconds_preserved": true,
+    "original_bundle_sha256": "6a46e60165798c10dae2f32db65d2c9073033c4c934cfb71d7f224ee4c8a4aef",
+    "original_client_source_sha256": "b789c7cba669fdc128ca932cf92484ab71b2abc647aaf9651320241e265a7b9a",
+    "reason": "new client wrongly required Z on original JobStatus timestamp with +09:00 offset",
+    "updated_at": "2026-10-10T14:52:22.438783+09:00"
+  },
+  "final_core_SHA256": {
+    "contracts/crop-execution-link-v1.md": "18c62bc88dd0bb301c4484b0d498aea5a34492c01283d7fa6c9db519af83b49f",
+    "web/src/api.ts": "982a62850501cb043815c44b2ee7e79788b5ae3225c1daedab7f15e58389935c",
+    "web/src/jointCropClimateExecution.test.ts": "3614bd85c0c02dec7ab40ec9fda7ed2627c2df91563135c238164521ea937074",
+    "web/src/jointCropClimateExecution.ts": "b9c037653a74bc8697c7f66c04b7c549b8291eb09dc0db973556726b9bf2144c"
+  },
+  "full_suite_run": false,
+  "holds": [
+    "E8 polling screen",
+    "E9 actual user transition",
+    "live confirmed-prefix 3D",
+    "full-cycle joint forcing/resources/economics",
+    "independent cultivar/farm measurements",
+    "G0-G4/production/future-margin/ranking"
+  ],
+  "independent_local_datasets": 0,
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "timestamp": "2026-10-10T05:40:08.010Z",
+    "turn_context_sha256": "20c2364d856fc74290fa96d92f65ff3d9697ab327f224ce3d2f755850a2fd336"
+  },
+  "native_harness_SHA256": {
+    "controller.py": "f5dc1c07f8104b350d3a880010e44acb4c6f8671951027ee02d9b3297be2adf5",
+    "native-client.ts": "6c521d36667272678780076122fa8b2cf5015d9cb64938a9221092e9d02427e0",
+    "native.py": "22dd6ef0d47e1a222832124f054724383b676db642f30f91e07a9d65e4890bb6",
+    "owned-node-gc.cjs": "7fa44fe8145e8febc40f19edba79313d0236eecfc54fd70c2bf3340910d6264e"
+  },
+  "native_to_final_focused_seconds": 1163.650916,
+  "new_web_tests": 113,
+  "next_task": "crop-climate-joint-execution-screen",
+  "ordinary_minified_build_run": false,
+  "original_source_entries_preserved": 2148,
+  "product_build_minify_false_passed": true,
+  "push_hold": true,
+  "real_SDK_SCRAM_TLS_tests": 3,
+  "recursive_CLI_invocations": 0,
+  "related_existing_web_tests": 160,
+  "runtime_CLI_invocations": 0,
+  "schema_version": "joint-crop-climate-execution-web-client-reference-v1",
+  "scope": "owned-synthetic-software-wiring",
+  "single_PID_peak_RSS_bytes": 383475712,
+  "typecheck_passed": true,
+  "unexpected_failed_pytest_phases": 1,
+  "unique_checks": 276
+}

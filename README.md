@@ -69,7 +69,9 @@ checkpoint의 DB 수용 시각과 heartbeat를 구분하고, 접수→worker→�
 기존53경로/진행 형식을 보존했다.
 [E6c 명시 runtime](research/crop-climate-joint-execution-runtime-implementation-20261010.md)도 coreeb65671·새35/기존215=고유250개로
 실제 SCRAM/TLS 접수→독립 자동 소비→정상/hold/같은 저장 결과·작업자 취소 확인·기본 비활성/기존 조회·보존을 수용했다.
-다음은 E7 typed client→E8 자동 갱신 화면→E9 사용자 전환이며 현재5173 서버/UI에는 새 실행 경로를 활성화하지 않았다.
+[E7 typed client](research/crop-climate-joint-execution-web-client-implementation-20261010.md)도 core616b3f5·고유276개로
+실제 SDK/SCRAM/TLS 정상·hold·권리 철회 후 취소·원 값/시각·타입/제한된 빌드·보존을 수용했다. 기존 JobStatus offset 호환 오류를 수정했다.
+다음은 E8 자동 갱신 화면→E9 사용자 전환이며 현재5173 서버/UI에는 새 실행 경로를 활성화하지 않았다.
 계산 중 checkpoint의3D에는 terminal page와 구분된 별도 후속 검증이 필요하다. 현재5173 자동 연동은 아직 없다.
 전체 결합/실제 생산 모델·실시간 U3·품종/독립 자료·관문은 미완료다.
 

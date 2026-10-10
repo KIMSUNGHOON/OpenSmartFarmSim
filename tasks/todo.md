@@ -1884,10 +1884,15 @@
     모든 실행 source는7검사 묶음에서 최종 SHA다. 단일/합 RSS149,450,752/463,298,560bytes,
     원본2,148/기동·FD4→4·소유 PG/임시PG/passfile/프로세스0; native→집중682.088초(약11분), 문서/commit 별도다.
     현재5173 새 실행 활성화·웹 자동 갱신/브라우저·전체 작기/실제 자료/관문은 미수용이다.
-  - [ ] **E7 typed client** — 다음 한 단계. 선행: E6. 예정 core3: `web/src/jointCropClimateExecution.ts`, 같은 이름 test, 위 실행 계약.
-    수용: 기존 transport 재사용·닫힌 DTO/원 job/farm/UTC·count/시각/상태 혼합 거부와 Abort/크기/timeout;
-    null checkpoint/result·hold·현재 권리 오류를 명시. 확인: 집중 Vitest/TypeScript·제한된 빌드·실제 HTTPS. M,0.5–1시간.
-  - [ ] **E8 U3 계산 화면** — 선행: E7·기존 joint 재생. 예정 core4: `web/src/JointCropClimateExecution.tsx`, `web/src/CropReplay.tsx`, 해당 e2e, 위 실행 계약.
+  - [x] **E7 typed client** — 선행: E6. core4: 새 client/test·기존 API 조립·실행 계약.
+    [core616b3f5/수용 근거](../research/crop-climate-joint-execution-web-client-implementation-20261010.md): 새 웹113/기존160/실제 SDK·SCRAM·TLS3=고유276개,
+    닫힌 요청/DTO·원 job/farm/count·offset/UTC 마이크로초·null/unavailable/정상/hold·abort/timeout과 기존 오류를 확인했다.
+    실제 컴파일 SDK의 접수→독립 자동 소비→같은 원 값/저장 결과, 서버 표시권 철회 후 조회422/취소/실제 확인도 통과했다.
+    최초 JobStatus offset 거부의 원 실패/번들/source를 보존하고 수정했다. 초기112개는 중복 집계하지 않았다.
+    최종 core4/전체 backend522 Python pin 동일·타입/제한된 비압축 빌드·조회21계수0·원본2,148/기동/정리를 확인했다.
+    단일/합 RSS383,475,712/501,788,672bytes; native→집중1,163.651초(약19분), 기록/commit 별도다.
+    현재5173/브라우저 자동 갱신/전체 작기·실제 자료/관문은 미수용이다.
+  - [ ] **E8 U3 계산 화면** — 다음 한 단계. 선행: E7·기존 joint 재생. 예정 core4: `web/src/JointCropClimateExecution.tsx`, `web/src/CropReplay.tsx`, 해당 e2e, 위 실행 계약.
     수용: 실제 실행 접수/진행·최종 확인 시각·단일 bounded polling·숨김/선택/계정/늦은 응답 제거;
     끊김/재접속·서버 작업 취소·완료/hold의 같은 result 선택→UTC3D, 빈 출력/권리 거부. 확인: TypeScript/집중 Chromium·디자인/접근성. M,1–2시간.
   - [ ] **E9 실제 기동/사용자 연결** — 선행: E1–E8. 예정 core3: 격리 reference runner/실행 report/증거 artifact.
