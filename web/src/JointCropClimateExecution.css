@@ -4,3 +4,11 @@
 .joint-execution .execution-progress dd{margin:8px 0 0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
 .joint-execution input[type=file]{max-width:100%}
 @media(max-width:640px){.joint-execution .execution-progress dl{grid-template-columns:1fr}}
+.joint-prefix{display:grid;gap:16px;min-width:0}
+.joint-prefix .prefix-times{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.joint-prefix .prefix-times>div{padding:12px;border:1px solid #e4e4d8;border-radius:7px;background:#f9f9f1}
+.joint-prefix .prefix-times dd{margin:8px 0 0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.joint-prefix small{display:block;font-size:.75rem}
+.joint-prefix .coupled-viewer{min-width:0}
+.joint-prefix pre{max-height:320px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+@media(max-width:640px){.joint-prefix .prefix-times{grid-template-columns:1fr}}

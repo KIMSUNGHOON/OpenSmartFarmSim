@@ -3,6 +3,7 @@ import { ApiError,type createApi } from './api';
 import { jointExecutionResultLookup,validJointExecutionRequest,type JointExecutionRequest,type JointExecutionLookup,
   type JointExecutionJob,type JointExecutionRead,type JointExecutionCancellation } from './jointCropClimateExecution';
 import type { JointCropClimateLookup } from './jointCropClimateReplay';
+import Prefix,{readJointPrefixSnapshot,type JointPrefixSnapshot} from './JointCropClimatePrefix';
 import './CropReplay.css';
 import './JointCropClimateExecution.css';
 const Replay=lazy(()=>import('./JointCropClimateReplay'));
@@ -24,6 +25,7 @@ function terminal(value:JointExecutionRead){
   return !['queued','simulating'].includes(value.job.state)
     && !(value.checkpoint_status==='unavailable' && (value.job.state==='succeeded'||value.job.state==='hold'));
 }
+function terminalState(value:JointExecutionRead|null){return value!==null&&(!['queued','simulating'].includes(value.job.state)||value.cancel_requested);}
 export default function JointCropClimateExecution({api}:{api:Api|null}){
   const [fields,setFields]=useState(EMPTY),[request,setRequest]=useState<JointExecutionRequest|null>(null);
   const [session,setSession]=useState<Session|null>(null),[job,setJob]=useState<JointExecutionJob|null>(null);
@@ -33,6 +35,9 @@ export default function JointCropClimateExecution({api}:{api:Api|null}){
   const [submitBusy,setSubmitBusy]=useState(false),[cancelBusy,setCancelBusy]=useState(false),[restart,setRestart]=useState(0);
   const [visible,setVisible]=useState(()=>document.visibilityState!=='hidden');
   const [opened,setOpened]=useState<JointCropClimateLookup|null>(null);
+  const [prefix,setPrefix]=useState<JointPrefixSnapshot|null>(null),[prefixObserved,setPrefixObserved]=useState<string|null>(null);
+  const [prefixUnavailable,setPrefixUnavailable]=useState(false);
+  const prefixDisabled=useRef(false);
   const epoch=useRef(0),submitAbort=useRef<AbortController|null>(null),cancelAbort=useRef<AbortController|null>(null);
   const pollAbort=useRef<AbortController|null>(null),pending=useRef<Promise<void>|null>(null);
   const current=session?.api===api?session:null;
@@ -40,10 +45,11 @@ export default function JointCropClimateExecution({api}:{api:Api|null}){
     epoch.current++;submitAbort.current?.abort();cancelAbort.current?.abort();pollAbort.current?.abort();
     setSession(null);setJob(null);setProgress(null);setCancellation(null);setOpened(null);setError(null);setCommandError(null);
     setLastObserved(null);setConnection('idle');setSubmitBusy(false);setCancelBusy(false);
+    setPrefix(null);setPrefixObserved(null);setPrefixUnavailable(false);prefixDisabled.current=false;
   }
   useEffect(()=>{reset();setRequest(null);setFields(EMPTY);return()=>{epoch.current++;
     submitAbort.current?.abort();cancelAbort.current?.abort();pollAbort.current?.abort();};},[api]);
-  useEffect(()=>{const change=()=>{setVisible(document.visibilityState!=='hidden');setOpened(null);};
+  useEffect(()=>{const change=()=>{setVisible(document.visibilityState!=='hidden');setOpened(null);setPrefix(null);setPrefixObserved(null);};
     document.addEventListener('visibilitychange',change);return()=>document.removeEventListener('visibilitychange',change);},[]);
   useEffect(()=>{
     if(!current||!visible||cancelBusy)return;
@@ -56,11 +62,26 @@ export default function JointCropClimateExecution({api}:{api:Api|null}){
         try{
           const value=await current!.api.jointCropClimateExecution(current!.lookup,controller.signal);if(!valid())return;
           setProgress(value);setJob(value.job);setLastObserved(value.observed_at);setError(null);delay=10_000;
+          if(value.cancel_requested || !['queued','simulating'].includes(value.job.state)){
+            setPrefix(null);setPrefixObserved(null);
+          }
           if(terminal(value)){setConnection('terminal');return;}
+          if(!value.cancel_requested && ['queued','simulating'].includes(value.job.state) && !prefixDisabled.current){
+            try{
+              const next=await readJointPrefixSnapshot(current!.api,current!.lookup,controller.signal);if(!valid())return;
+              setPrefix(old=>old&&next.snapshot&&JSON.stringify(old.summary.reference)===JSON.stringify(next.snapshot.summary.reference)?old:next.snapshot);
+              setPrefixObserved(next.observedAt);setPrefixUnavailable(false);
+            }catch(cause){
+              if(!valid())return;const failure=errorOf(cause);
+              if(failure.code!=='not_available')throw failure;
+              setPrefix(null);setPrefixObserved(null);setPrefixUnavailable(true);prefixDisabled.current=true;
+            }
+          }
           setConnection('waiting');
         }catch(cause){
           if(!valid())return;const failure=errorOf(cause);setError(failure);setProgress(null);setOpened(null);
-          if(BLOCKED.has(failure.code)){setLastObserved(null);setConnection('blocked');return;}
+          if(BLOCKED.has(failure.code)){setPrefix(null);setPrefixObserved(null);setLastObserved(null);setConnection('blocked');return;}
+          if(failure.code==='intent_conflict'){setPrefix(null);setPrefixObserved(null);}
           delay=Math.min(delay*2,60_000);setConnection('retrying');
         }
         if(valid())timer=setTimeout(()=>{void poll();},delay);
@@ -92,6 +113,7 @@ export default function JointCropClimateExecution({api}:{api:Api|null}){
   async function cancel(){
     if(!current||cancelBusy)return;const id=epoch.current,controller=new AbortController();cancelAbort.current=controller;
     pollAbort.current?.abort();setCancelBusy(true);setProgress(null);setOpened(null);setCommandError(null);
+    setPrefix(null);setPrefixObserved(null);
     try{
       const value=await current.api.cancelJointCropClimateExecution(current.lookup.job_id,controller.signal);if(id!==epoch.current)return;
       setCancellation(value);setJob(value.job);setLastObserved(value.observed_at);
@@ -104,8 +126,8 @@ export default function JointCropClimateExecution({api}:{api:Api|null}){
   return <div className="crop-replay joint-execution">
     <section className="panel"><div className="crop-heading"><div><p className="step-number">공동 계산 / 실행 연결</p>
       <h1>작물·기후 계산 상태</h1></div><span className="badge">합성 연구 · 현장 검증 전</span></div>
-      <p>계산 중에는 서버가 수용한 진행 정보를 확인합니다. 완료·수치 보류 뒤 같은 저장 결과의 UTC 수치3D를 엽니다.</p>
-      <p className="crop-caption">진행 걸음은 수치 계산의 작업량입니다. 작물 생장률·남은 시간·생산 예측이 아닙니다. 계산 중 생장3D는 아직 제공하지 않습니다.</p>
+      <p>계산 중에는 확정된 저장 시점의 생장 수치를 표·그래프·3D로 확인합니다. 완료·수치 보류 뒤 같은 최종 저장 결과를 엽니다.</p>
+      <p className="crop-caption">진행 걸음은 수치 계산의 작업량입니다. 작물 생장률·남은 시간·생산 예측이 아닙니다. 미확정 중간 상태를 만들지 않습니다.</p>
     </section>
     <section className="panel"><h2>등록 입력으로 계산 시작</h2><form onSubmit={submit}>
       <label>검토된 계산 접수 파일<input type="file" accept="application/json,.json" disabled={submitBusy||cancelBusy}
@@ -118,7 +140,7 @@ export default function JointCropClimateExecution({api}:{api:Api|null}){
     <details className="panel crop-lookup" open={!current}><summary>기존 계산에 다시 연결</summary><form onSubmit={reconnect}>
       <div className="crop-lookup-fields">{Object.entries(LABELS).map(([key,label])=><label key={key}>{label}<input required
         value={fields[key as keyof typeof fields]} maxLength={key==='registration_sha256'?64:200}
-        pattern={key==='job_id'?'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}':key==='registration_sha256'?'[0-9a-f]{64}':'[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}'}
+        pattern={key==='job_id'?'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}':key==='registration_sha256'?'[0-9a-f]{64}':'[A-Za-z0-9][A-Za-z0-9_.:\\/\\-]{0,199}'}
         onChange={event=>{reset();setFields({...fields,[key]:event.target.value});}}/></label>)}</div>
       <button className="button secondary" disabled={!api||submitBusy||cancelBusy}>기존 계산 조회</button>
     </form></details>
@@ -132,7 +154,8 @@ export default function JointCropClimateExecution({api}:{api:Api|null}){
         <div><dt>작업 갱신 시각</dt><dd>{state?.updated_at??'—'}</dd></div>
         <div><dt>작업 시도</dt><dd>{state?`${state.attempt_count} / ${state.max_attempts}`:'—'}</dd></div>
       </dl>
-      {error&&<p role="alert">{ERRORS[error.code]??'진행 정보를 확인할 수 없습니다.'} 이전 수치를 지웠습니다.</p>}
+      {error&&<p role="alert">{error.code==='intent_conflict'?'조회할 확정 판본이 바뀌었습니다.':ERRORS[error.code]??'진행 정보를 확인할 수 없습니다.'}
+        {prefix?' 아래는 마지막으로 확인한 확정 결과입니다.':' 이전 수치를 지웠습니다.'}</p>}
       {checkpoint?<dl aria-label="서버 수용 체크포인트"><div><dt>확정 계산 걸음</dt><dd>{checkpoint.steps} / {checkpoint.planned_steps}</dd></div>
         <div><dt>계산된 시각 (UTC)</dt><dd>{checkpoint.computed_through_utc??'초기 상태 · 아직 계산 전'}</dd></div>
         <div><dt>체크포인트 최초 수용 (UTC)</dt><dd>{checkpoint.checkpoint_recorded_at}</dd></div>
@@ -145,12 +168,17 @@ export default function JointCropClimateExecution({api}:{api:Api|null}){
       {cancellation&&<p role="status">{cancellation.cancel_accepted?'취소 요청 수락':'취소 요청으로 상태가 바뀌지 않음'} · 취소 응답 당시: {STATES[cancellation.job.state]}</p>}
       {state?.reason_code&&<p>서버 사유: {state.reason_code}</p>}
       <div className="crop-page-controls"><button className="button secondary" disabled={cancelBusy||!visible}
-        onClick={()=>{setOpened(null);setRestart(value=>value+1);}}>지금 다시 확인</button>
+        onClick={()=>{setOpened(null);prefixDisabled.current=false;setPrefixUnavailable(false);setRestart(value=>value+1);}}>지금 다시 확인</button>
         <button className="button secondary" disabled={cancelBusy||state?.state==='canceled'} onClick={()=>void cancel()}>서버 계산 취소</button>
         <button className="button secondary" onClick={reset}>조회 연결 해제</button>
         {result&&<button className="button primary" onClick={()=>setOpened(result)}>같은 저장 결과 3D 열기</button>}</div>
       <p className="crop-caption">정상 응답 뒤 10초를 기다려 다시 조회합니다. 통신 오류는 최대 60초까지 간격을 늘립니다. 숨긴 화면에서는 조회를 멈춥니다.</p>
     </section>}
+    {current&&visible&&!cancelBusy&&!opened&&<>
+      {prefix&&prefixObserved?<Prefix key={prefix.summary.summary.last_sample_utc??'empty'} snapshot={prefix} observedAt={prefixObserved}
+        stale={connection==='checking'||connection==='retrying'}/>:
+        !terminalState(progress)&&<p className="panel" role="status">{prefixUnavailable?'현재 서버에서 확정 부분 결과를 열 수 없습니다. 계산 상태는 계속 확인합니다.':'표시 가능한 확정 생장 시점을 기다립니다.'}</p>}
+    </>}
     {current&&opened&&<Suspense fallback={<p role="status">같은 저장 결과 준비 중…</p>}>
       <Replay api={current.api} initialSelection={opened} autoLoadInitialSelection/></Suspense>}
   </div>;
