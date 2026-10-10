@@ -1,5 +1,35 @@
 # Internal web shell
 
+<a id="joint-execution-user-preview"></a>
+
+## 계산 상태 자동 조회와 저장3D — 2026-10-10
+
+**http://localhost:5174/** 에서 제품 App·실제 HTTPS API `https://127.0.0.1:8446`·영속 PostgreSQL·별도 자동 계산 작업자를 함께 실행한다.
+같은 DB에 접수한 작업의 상태와 확정 checkpoint를 자동 조회하고, 완료/hold 뒤 같은 저장 UTC의 수치3D를 연다.
+현재 대상은 명시된 합성 입력의32초/16걸음 소프트웨어 검증이다. 전체 작기의 동적 기후나 실제 품종 예측을 제공하는 최종 제품은 아니다.
+
+접속 토큰·기존 작업 ID/농장 필드·Windows에서 파일을 여는 경로는 다음 보호 파일에 있다.
+
+`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v4/OPEN-UI.private.txt`
+
+1. 위 파일을 로컬 편집기로 열고5174에서 **내부 시험 연결 → 접근 토큰 → 연결 설정**을 선택한다.
+2. **08 성장 연구 3D → joint 실행 · 계산 상태와 완료 3D**를 선택한다.
+3. 새 계산은 다음 파일을 업로드하고 접수한다.
+
+   `~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/requests/normal-user.json`
+
+4. 작업 상태·확정 checkpoint를 확인하고, 완료되면 저장 결과의3D를 연다.
+   이미 완료된 작업을 보려면 보호 안내의 작업 ID와 농장 필드로 재접속한다. 정상/hold의 재시작 후 조회도 실제 브라우저로 확인했다.
+
+현재 토큰은 **2026-10-11 17:24 KST**까지 유효하며 페이지 메모리에만 둔다. 새로고침 뒤에는 다시 연결한다.
+자동 조회는 이전 응답 완료 뒤10초를 기다리고 서버 조회 시간이 추가된다. 짧은 예제는 중간 checkpoint 조회 전에 끝날 수 있다.
+탭 숨김/화면 이탈은 화면 조회를 멈춘다. 서버 계산 중단은 별도 취소 요청과 작업자 확인이 필요하다.
+토큰을 저장소·URL·로그·스크린샷에 복사하지 않는다.
+
+[실제 사용자 연결 검증](../research/crop-climate-joint-execution-user-preview-20261010.md)은 새 완료/hold/취소와 재시작 정상/hold의 고유5경로를 통과했다.
+기존5173은 아래의 완료166일 저장 재생용으로 유지한다. 계산 중 확정 prefix의 성장3D·두 주소의 통합/최종 U0–U5와 전체 U3는 미완료다.
+현재3D는 저장 LAI·과실 구획·온도의 수치 모식도이며 G0–G4·실제 생산/미래 마진/추천 보류는 유지한다.
+
 ## 기존 제품 앱의 로컬 동시 기동 — 2026-10-09
 
 현재 사용자 확인용 **http://localhost:5173/** 은 `src/App.tsx`의 제품 빌드와 실제 HTTPS API
@@ -29,10 +59,10 @@
 이전 생장 전용/원3시점 미리보기의 토큰·안내는 현재 서버에 사용하지 않는다.
 같은 원 부모의 전체 수확만 연결한다. 다른 부모의 작은 수확 ID를 붙이지 않는다.
 
-**실시간 계산 상태 연결은 미완료다.** 이 부모는 계산이 완료됐고 재생 버튼은 저장된 계산 시간을 이동한다.
+**5173은 완료 저장 결과 화면이다.** 이 부모는 계산이 완료됐고 재생 버튼은 저장된 계산 시간을 이동한다.
 계산 중 진행률·새 checkpoint를 자동으로 받지 않는다. 현재 선택한 작은 범위만 읽으며 중간 상태를 보간하지 않는다.
 [새 계산 화면의 실제 서버/브라우저 검증](../research/crop-climate-joint-execution-browser-implementation-20261010.md)은 완료/hold/취소3경로를 통과했다.
-그 격리 시험 서버는 종료됐으며 현재5173에 새 실행을 활성화하지 않았다. 다음 E9b는 지속 사용자 서버·인증/접수 안내·실제 사용자 브라우저 확인이다.
+그 격리 시험 서버는 종료됐다. [E9b 지속 사용자 연결](../research/crop-climate-joint-execution-user-preview-20261010.md)은 수용했고 새 계산 화면은 아래5174 안내를 따른다.
 최근 공동 작물·기후32초 모델은 [API 투영](../research/crop-climate-joint-result-projection-implementation-20261010.md)과
 [같은 세션 현재 조회10개 검사](../research/crop-climate-joint-current-query-implementation-20261010.md)까지 수용했다.
 [보호 HTTP](../research/crop-climate-joint-http-route-implementation-20261010.md)도 실제 SCRAM/HTTPS·원 bytes/UTC·철회/취소로 수용했다.
@@ -42,7 +72,7 @@
 [그 모델의 표·그래프·같은 UTC3D](../research/crop-climate-joint-numerical-view-implementation-20261010.md)도
 고유501개·실제 SCRAM/HTTPS/WebGL과 원값/권리/정리로 로컬 수용했다.
 새 화면은 source/bundle 검증까지이며 **현재5173의 고정 빌드에는 배포하지 않았다.**
-기존 결과가 자동 교체되거나 실행 중 새 checkpoint를 받지는 않는다. 다음은 E9b 사용자 서버 연결이며 계산 중 prefix3D/전체 U3는 별도다.
+5173에서는 기존 결과가 자동 교체되거나 실행 중 새 checkpoint를 받지는 않는다.5174는 계산 상태를 자동 조회하며 계산 중 prefix3D/전체 U3는 별도다.
 3D는 LAI·과실 구획의 수치 모식도다. 실제 작물 외형·품종 생산·생과 수확·마진 예측·추천이 아니다.
 지역부터 작물 생산·자원·경제까지 자동 연결한 최종 통합 UI/U1/U3도 미수용이다.
 

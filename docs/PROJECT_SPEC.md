@@ -8,7 +8,8 @@
 **현재 사용자 화면 — 2026-10-09 22:48 KST:** [완료 생장·수확 사용자 전환](../research/crop-harvest-full-user-preview-20261009.md)을 로컬 수용했다.
 `http://localhost:5173/`의 실제 DB/API는 완료 합성166일 생장47,809시점·수확47,813행과 같은 UTC 수치3D를 읽는다.
 원 수확3행/WebGL·독립 root·기존 서비스 종료0/새 서비스 생존·원본/DB/FD·WSL 한도를 확인했다.
-합성 저장/재생 부모만 수용하며 **현재5173의 계산 중 상태 자동 연동과 최종 통합 UI는 미완료**이다.
+**2026-10-10 새 계산 UI:** [E9b 사용자 연결](../research/crop-climate-joint-execution-user-preview-20261010.md)을 수용했고5174에서 합성 접수/상태·확정 checkpoint 자동 조회/완료 저장 UTC3D·취소/재접속을 제공한다.
+5173은 전체 저장 재생용이다. 계산 중 확정 prefix3D·두 주소를 통합한 최종 제품 UI/전체 U3는 미완료다.
 기후/물·양분/구매 에너지→사용자 실행/Decimal 경제와 실제 품종/독립 자료·G0–G4/생산/미래 마진/추천 hold를 유지한다.
 
 **2026-10-10 후속 계산:** 가변 용량 자식 뒤
@@ -76,7 +77,8 @@ core9f5c18d·고유17검사/실제 SCRAM·동시 중복/현재 권리·rollback�
 실제 SDK/검증 TLS 접수/진행·정상/hold·권리 철회 후 취소·원 값/시각·타입/제한된 빌드/보존을 수용했다.
 [E8 계산 화면](../research/crop-climate-joint-execution-screen-implementation-20261010.md)도 core288cbaf·기록 응답 Chromium15/기존 웹273=고유288개·타입/제한된 빌드로 화면 계약을 수용했다.
 [E9a 실제 서버/제품 브라우저](../research/crop-climate-joint-execution-browser-implementation-20261010.md)도 완료/hold/취소3경로·자동 checkpoint/원 결과/UTC3D·재접속/보존으로 수용했다.
-다음 E9b 지속 사용자 서버 연결은 미완료이며 현재5173 새 실행 연동은 비활성이다.
+[E9b 지속 사용자 연결](../research/crop-climate-joint-execution-user-preview-20261010.md)도 최종 실제 브라우저5경로·재시작/원 결과·원본/WSL로 수용했다.
+사용자 실행 화면은5174이며 다음은 확정 prefix 읽기 계약이다. 현재5173은 완료된 전체 저장 재생을 제공한다.
 자원 모듈 전체와 독립 자료 확보를 이 합성 접수의 선행 조건으로 두지 않는다.
 진행 상태 갱신→terminal 저장3D를 먼저 연결하며 계산 중 prefix3D는 별도 수용한다. 현재5173 실시간 연동은 미구현이다.
 [결합 계약](../contracts/crop-climate-coupling-v1.md)의 온실 경계 조사는 병행하며 실제 전체 작기·실시간 U3/관문은 미완료다.

@@ -1,11 +1,16 @@
 # OpenSmartFarmSim
 
+**2026-10-10 계산 실행 UI:** `http://localhost:5174/`에서 실제 DB/HTTPS API/별도 자동 작업자와 제품 App을 함께 기동했다.
+[접속 안내](web/README.md#joint-execution-user-preview)에 따라 합성 계산 접수→상태/확정 checkpoint 자동 조회→완료/hold 저장 UTC3D·취소/재접속을 확인할 수 있다.
+[E9b 실제 사용자 연결](research/crop-climate-joint-execution-user-preview-20261010.md)은 최종 브라우저5경로·재시작/원 결과·WSL 전체 서비스 합산을 통과했다.
+계산 중 확정 prefix의 성장3D와 최종 제품 UI는 후속 작업이다.
+
 **2026-10-09 사용자 확인 UI:** 기존 제품 App과 실제 DB/HTTPS 백엔드를 함께 기동했다.
 `http://localhost:5173/`에서 [접속·저장 결과 조회 안내](web/README.md#기존-제품-앱의-로컬-동시-기동--2026-10-09)에 따라
 **완료된 합성166일의 생장47,809시점·수확47,813행과 같은 시각의 수치3D**를 조회할 수 있다.
 원 시점 번호/마지막 시점으로 이동한다. [전체 수확 사용자 서버 전환·실제 검증](research/crop-harvest-full-user-preview-20261009.md)을 수용했다.
 최종 통합 UI는 미완료이며 [U0–U5 작업·수용 기준·잠정 일정](tasks/plan.md#최종-제품-ui-통합--2026-10-09-사용자-요청)을 따른다.
-재생은 저장된 계산 시간의 이동이다. **계산 진행 상태·새 checkpoint의 실시간 U3는 아직 연결하지 않았다.**
+5173의 재생은 저장된 계산 시간의 이동이다. 계산 상태 자동 조회는5174에서 제공하며 계산 중 성장3D·전체 U3는 미완료다.
 
 **2026-10-10 기후 계산 후속:** [짧은 작물·기후 공동 적분](research/crop-climate-joint-integration-implementation-20261010.md)을
 새44/기존463=507개·독립 Decimal798수치/60수렴 비율·원 종료/보존으로 로컬 수용했다.
@@ -74,7 +79,7 @@ checkpoint의 DB 수용 시각과 heartbeat를 구분하고, 접수→worker→�
 [E8 계산 화면](research/crop-climate-joint-execution-screen-implementation-20261010.md)도 core288cbaf·기록 응답 Chromium15/기존 웹273=고유288개·타입/제한된 빌드로 수용했다.
 단일 자동 조회·재접속·독립 서버 취소·완료/hold의 같은 UTC3D 선택을 구현했다.
 [E9a 실제 브라우저](research/crop-climate-joint-execution-browser-implementation-20261010.md)는 완료/hold/취소3경로·자동 checkpoint/원 결과/UTC3D·재접속·보존을 통과했다.
-다음 E9b는 지속 사용자 서버 연결이다. 현재5173에는 새 실행 경로를 활성화하지 않았다.
+[E9b 지속 사용자 연결](research/crop-climate-joint-execution-user-preview-20261010.md)도 최종 실제 브라우저5경로·재시작/원 결과·원본/자원으로 수용했다. 새 계산 화면은5174다.
 계산 중 checkpoint의3D에는 terminal page와 구분된 별도 후속 검증이 필요하다. 현재5173 자동 연동은 아직 없다.
 전체 결합/실제 생산 모델·실시간 U3·품종/독립 자료·관문은 미완료다.
 

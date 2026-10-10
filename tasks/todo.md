@@ -1900,7 +1900,7 @@
     12ui 기존3상태 비교21.7/23.9/19.6%는 낮은 대응이며 최종 디자인 fidelity 수용이 아니다.
     backend522 Python/원본2,148/기동을 보존했다. 단일/합 RSS404,451,328/844,111,872bytes; native→집중1,222.797초(약20분), 기록/commit 별도다.
     실제 서버/제품 브라우저·현재5173 전환은 E9이며 계산 중 prefix3D/전체 U3·실제 자료/관문은 미수용이다.
-  - [ ] **E9 실제 기동/사용자 연결** — 선행: E1–E8. reference JS helper를 추가해 검증 산출물은 core4파일이다.
+  - [x] **E9 실제 기동/사용자 연결** — 선행: E1–E8. E9a4파일·E9b6파일의 로컬 합성 실행 범위다.5174 사용자 실행/5173 전체 저장 재생이며 최종 통합 UI/전체 U3는 별도다.
     수용: 모의 route 없는 실제 SCRAM/TLS/제품 브라우저의 같은 job→checkpoint→result/3D·취소/재연결/hold;
     응답 비용/화면 지연·WSL/원본·기존 서버 보존과 검증 뒤 사용자 전환·접속 안내. 확인: 실제 runner/root 종료·정리·사용자 URL.
     - [x] **E9a 실제 브라우저 대사** — [core8248ddd/수용 근거](../research/crop-climate-joint-execution-browser-implementation-20261010.md).
@@ -1910,13 +1910,20 @@
       전체10단계 종료·원본2,148/기동3/source/assets·FD4→4·소유 PG/프로세스/passfile0; 최대 PID417,894,400/합1,025,409,024bytes.
       native→집중3,835.489초(약64분), 기록/commit 별도다. 기존 E8의288개·제품 build는 source 동일이라 재실행/중복 집계하지 않았다.
       시험 서버는 종료됐다. 현재5173 활성화·지속 사용자 인증/기동·계산 중 prefix3D/전체 U3는 미수용이다.
-    - [ ] **E9b 지속 사용자 서버 연결** — 다음 한 단계. 선행: E9a. 실제 operator API/별도 자동 소비기/제품 웹·보호 접수/인증 안내를 준비한다.
-      수용: 실제 clock/수명 토큰, 사용자 URL의 같은 job 접수→자동 checkpoint→완료/hold 저장 UTC3D·취소/재접속,
-      기존5173/원본 보존·종료 시 결과 보존/정리·PID/start_ticks/boot 수명 기록·실제 제품 브라우저 확인. 임시 pytest 서버/토큰은 재사용하지 않는다.
-      기동/인증0.5–1 + 사용자 브라우저/보존·종료0.5–1 + 안내/검토0.25–0.5 =1.25–2.5집중시간 잠정. 실제 기동 뒤 갱신한다.
+    - [x] **E9b 지속 사용자 서버 연결** — [core6120db3/수용 근거](../research/crop-climate-joint-execution-user-preview-20261010.md).
+      실제 operator API/독립 자동 소비기/제품 웹·보호 접수/실제 clock 토큰·완료/hold/취소와 cold 정상/hold의 고유5브라우저 경로를 통과했다.
+      원 UTC·readout/50구획/실제 WebGL·maxGET1·원 정상3/hold2 값·재접속, 재시작3job/4응답 bytes/64불변파일·구 token401을 확인했다.
+      원본2,148/기존5173·source/assets·종결16단계/실패2개·FD4→4·시험 소유 정리를 보존했다. PG guardian 전체 합산 뒤 앞선3개를 반복했고 중복 집계하지 않았다.
+      최종 PID424,079,360/합1,035,988,992bytes; native→집중2,931.046초(약49분), 기록/commit 별도다.
+      5174의 frozen source/API/worker/영속PG는 의도적으로 실행 중이다. 보호 접속 안내·실제 PID/start_ticks/boot·24시간 수명/5초 live receipt를 남겼다.
+      계산 중 prefix3D/최종 UI/전체 U3·실제 자료/관문은 미수용이다.
   - [ ] **계산 중 확정 prefix3D** — E9 뒤 별도 계약 분해. 현재 terminal page를 미완료에 사용하지 않는다.
     수용: 불변 prefix/수용 HEAD·원 sample/event/같은 UTC·현재 권리와 동시 게시/취소/재시작·늦은 응답을 실제 DB/브라우저에서 대사.
     작업량은 prefix reader 계약/비용 관측 뒤 산정한다. 위10–18시간은 이 작업과 전체 U3/실제 관문을 포함하지 않는다.
+    - [ ] **P0 확정 prefix 읽기 계약** — 다음 한 단계. 선행: E9b·E2/E4·기존 불변 페이지/서명 계약. 예정1파일: `contracts/crop-climate-joint-prefix-view-v1.md`.
+      수용: DB 수용 proof/sequence에 원 sample/event 페이지·farm/context·현재 권리를 결속하고, 미수용 private HEAD·동시 writer/취소/fresh를 정의한다.
+      computed UTC와 마지막 저장 sample UTC를 구분하고 sample 없는 checkpoint의 임의 프레임0·조회 계산0·bounded 페이지를 명시한다.
+      기존 source와 실행 가능 조건을 대조해 backend→HTTP/SDK→화면/실제 브라우저 자식과 예상 시간을 작성한다. 계약/의존성 대조0.5–1집중시간 잠정이다.
 - [ ] **`crop-economic-link`** — 선행: 생산량·자원 계산·`crop-execution-link`와 같은 배치/달력의 경제 입력.
   예정 파일(3): `backend/app/crop_economic_link.py`, `backend/tests/test_crop_economic_link.py`,
   `contracts/crop-economic-link-v1.md`.
