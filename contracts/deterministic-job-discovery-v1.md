@@ -2,7 +2,7 @@
 
 Status: implemented; focused actual SCRAM software acceptance passed.
 The 2026-10-04 [collection extension](collection-consumer-v1.md) shares the
-bounded query through a separate closed profile; this public economic interface
+bounded query through a separate closed profile; this public deterministic interface
 retains the simulation-only versions/scopes below. Its unchanged47-case
 regression passed again in the combined95-case actual SCRAM selection.
 This is a dependency of the planned foreground consumer, not a
@@ -29,12 +29,20 @@ operator tenant. The selected versions are a nonempty immutable subset of:
 | `economic-calculation-input-v3` | EconomicCalculationWorker with its authored Run binding |
 | `break-even-calculation-input-v1` | BreakEvenCalculationWorker |
 | `break-even-verification-input-v1` | BreakEvenVerificationWorker |
+| `joint-crop-climate-execution-input-v1` | JointExecutionWorker with its current farm/input binding, server custody and result store |
 
 The consumer must bind the same jobs, tenant, principal and runtime policy as
 its configured worker. Discovery does not create these dependencies, migrate
 the database, infer missing farm/release bindings or call any CLI. Worker-specific
 scope and dependency checks still occur in that worker immediately before claim
 and through calculation/publication.
+
+The joint version is selected explicitly, just like the economic versions. It
+does not enable future joint versions or the separate collection profile. E1
+admission creates the immutable joint job; discovery only returns its UUID and
+version. E4's worker retains full envelope, rights, lease and checkpoint/result
+validation. Registering this version in the automatic consumer is the separate
+E5b task; discovery alone does not start a calculation or connect a live UI.
 
 ## Bounded read interface
 
@@ -105,6 +113,10 @@ actual disposable SCRAM JobStore and prove:
 3. Expired canceled/exhausted owned records reach existing recovery without a new
    processing lease, and two discoveries followed by competing existing claims
    preserve one owner and atomic publication.
+4. Explicit joint selection finds the actual E1-admitted job UUIDs across a
+   mixed paginated queue, with zero numerical/custody/result calls and zero job
+   writes. Current scope loss or noncanonical input rejects the entire page;
+   the collection profile and existing economic discovery remain unchanged.
 
 The test uses synthetic software inputs and records actual version/hash/cleanup
 evidence. It does not establish automatic CLI research, independent releases,

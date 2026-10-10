@@ -16,6 +16,7 @@ INPUT_VERSIONS = frozenset({
     'economic-calculation-input-v1', 'economic-calculation-input-v2',
     'economic-calculation-input-v3', 'break-even-calculation-input-v1',
     'break-even-verification-input-v1',
+    'joint-crop-climate-execution-input-v1',
 })
 
 

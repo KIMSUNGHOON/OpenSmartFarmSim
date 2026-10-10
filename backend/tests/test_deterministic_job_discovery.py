@@ -5,11 +5,14 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import FrozenInstanceError
 from datetime import datetime, timedelta, timezone
 from hashlib import sha256
+import json
+import os
 from pathlib import Path
 import sys
 from uuid import UUID, uuid4
 
 from psycopg import sql
+import psycopg
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -21,6 +24,8 @@ from app.jobs import canonical_input_bytes
 from app.runtime_roles import RuntimeLoginPolicy
 from login_database import login_database, login_scope
 from test_economic_calculation_worker import calculation_setup, economic_api, PROFILE
+from test_crop_climate_joint_execution import setup as joint_admission, authoring, farm_setup, profiles
+import test_crop_climate_joint_execution as joint_reference
 
 VERSION = 'break-even-calculation-input-v1'
 NOW = datetime(2026, 10, 2, tzinfo=timezone.utc)
@@ -392,3 +397,121 @@ def test_scram_discovery_delegates_recovery_and_competing_worker_publication(cal
         assert closed['reason']['code'] == ('cancel_lease_expired' if canceled else 'attempts_exhausted')
         assert len(jobs.list_attempt_outcomes('tenant-1', pending['job_id'])) == 1
         assert jobs.get_publication('tenant-1', pending['job_id']) is None and discovered_pass(discovery) == ()
+
+
+JOINT_VERSION = joint_reference.model.INPUT_VERSION
+
+
+def joint_save(name, value):
+    root = os.environ.get('OSSF_JOINT_DISCOVERY_EVIDENCE')
+    if root:
+        with (Path(root) / (name + '.json')).open('x') as f:
+            os.fchmod(f.fileno(), 0o400); json.dump(value, f, sort_keys=True, indent=2)
+            f.flush(); os.fsync(f.fileno())
+
+
+@pytest.fixture(scope='module')
+def joint_cleanup(login_database):
+    yield
+    with psycopg.connect(login_database['admin']) as conn:
+        schemas = conn.execute("SELECT count(*) FROM pg_namespace WHERE nspname LIKE 'login_test_%'").fetchone()[0]
+        roles = conn.execute("SELECT count(*) FROM pg_roles WHERE rolname LIKE 'login_%'").fetchone()[0]
+    joint_save('database-cleanup', {'schemas': schemas, 'roles': roles})
+    assert schemas == roles == 0
+
+
+@pytest.mark.parametrize('selected', [frozenset({JOINT_VERSION}), frozenset({VERSION}), frozenset({JOINT_VERSION, VERSION})])
+def test_joint_version_selection_preserves_explicit_other_versions(isolated_jobs, monkeypatch, selected):
+    jobs, _ = isolated_jobs
+    candidates = [row(JOINT_VERSION), row(VERSION), row('joint-crop-climate-execution-input-v2')]
+    isolated_page(monkeypatch, jobs, candidates)
+    page = DeterministicJobDiscovery(jobs, tenant_id='tenant-a', input_versions=selected).page()
+    assert [(r.job_id, r.input_version) for r in page.jobs] == [
+        (str(r['job_id']), json.loads(r['input_bytes'])['input_version']) for r in candidates
+        if json.loads(r['input_bytes'])['input_version'] in selected]
+    assert all(set(vars(r)) == {'job_id', 'input_version'} for r in page.jobs)
+
+
+def test_joint_future_version_is_not_an_implicit_extension(isolated_jobs):
+    jobs, _ = isolated_jobs
+    with pytest.raises(DiscoveryHold, match='^discovery_binding_rejected$'):
+        DeterministicJobDiscovery(jobs, tenant_id='tenant-a', input_versions=frozenset({JOINT_VERSION + '-future'}))
+
+
+@joint_reference.pytestmark
+@pytest.mark.usefixtures('joint_cleanup')
+def test_scram_joint_e1_admission_mixed_pages_never_claim_or_calculate(joint_admission, login_scope, monkeypatch):
+    service, raw, value, calls = joint_admission
+    base = login_scope[0]; jobs = service.jobs; principal = value[4]
+    principal['scopes'].update({'simulation_execute', 'cancel'})
+    for version in ('thermal-simulation-input-v1', VERSION, 'future-input-v1'):
+        queue(base, version, tenant='tenant-1')
+    first = service.submit('tenant-1', raw)
+    body = json.loads(raw); body['revision'] = 'discovery-r2'
+    second = service.submit('tenant-1', canonical_input_bytes(body))
+    expected = {str(first['job_id']), str(second['job_id'])}
+    queue(base, JOINT_VERSION, tenant='foreign')
+    queue(base, JOINT_VERSION, tenant='tenant-1', stage='collection')
+    future = queue(base, JOINT_VERSION, tenant='tenant-1')
+    live = queue(base, JOINT_VERSION, tenant='tenant-1')
+    canceled = queue(base, JOINT_VERSION, tenant='tenant-1')
+    assert jobs.cancel('tenant-1', canceled['job_id'])
+    assert jobs.claim(600, allowed_stages=('simulation',), tenant_id='tenant-1', job_id=str(live['job_id']))
+    with base.connect() as conn:
+        conn.execute(sql.SQL("UPDATE {} SET next_attempt_at=clock_timestamp()+interval '2 hours' WHERE job_id=%s")
+            .format(base._table('jobs')), (future['job_id'],))
+    before = persisted_digest(base); blocked = {}
+    with monkeypatch.context() as patch:
+        for name in ('submit', 'claim', 'renew', 'fail', 'cancel', 'ack_cancel', '_event', '_outcome', '_insert_publication'):
+            blocked[name] = 0
+            def forbidden(*a, _name=name, **kw):
+                blocked[_name] += 1; pytest.fail('joint discovery invoked ' + _name)
+            patch.setattr(JobStore, name, forbidden)
+        discovery = DeterministicJobDiscovery(jobs, tenant_id='tenant-1', input_versions=frozenset({JOINT_VERSION}))
+        cursor = None; found = []; pages = []
+        for _ in range(100):
+            page = discovery.page(cursor=cursor, limit=2); found.extend(page.jobs)
+            pages.append({'scanned':page.scanned_count, 'matches':len(page.jobs)})
+            if page.next_cursor is None: break
+            assert page.next_cursor != cursor; cursor = page.next_cursor
+        else: pytest.fail('joint discovery did not finish its bounded fixture scan')
+        assert {r.job_id for r in found} == expected and len(found) == 2
+        assert all(r.input_version == JOINT_VERSION for r in found)
+        assert any(p['scanned'] == 2 and p['matches'] == 0 for p in pages)
+        assert all(n == 0 for n in blocked.values()) and all(n == 0 for n in calls.values())
+    assert persisted_digest(base) == before
+    assert all(jobs.get_job('tenant-1', job)['state'] == 'queued' for job in expected)
+    with jobs.connect() as conn:
+        assert conn.pgconn.used_password and conn.info.get_parameters()['require_auth'] == 'scram-sha-256'
+    joint_save('e1-mixed', {'actual_scram':True, 'same_e1_job_ids':True, 'pages':pages,
+        'persisted_before_after_sha256':[before,persisted_digest(base)], 'numeric_calls':calls, 'write_calls':blocked})
+
+
+@pytest.mark.usefixtures('joint_cleanup')
+@pytest.mark.parametrize('scope', ['metadata', 'simulation_execute'])
+def test_scram_joint_current_scope_rejects_without_queue_changes(scram_discovery, scope):
+    base, jobs, principal, _ = scram_discovery
+    queue(base, JOINT_VERSION)
+    discovery = DeterministicJobDiscovery(jobs, tenant_id='tenant-a', input_versions=frozenset({JOINT_VERSION}))
+    before = persisted_digest(base); principal['scopes'].remove(scope)
+    with pytest.raises(DiscoveryHold, match='^discovery_access_rejected$'): discovery.page()
+    principal['scopes'].add(scope)
+    assert len(discovery.page().jobs) == 1 and persisted_digest(base) == before
+    joint_save('scope-' + scope, {'rejected_before_read':True, 'persisted_unchanged':True})
+
+
+@pytest.mark.usefixtures('joint_cleanup')
+def test_scram_joint_noncanonical_input_refuses_partial_page(scram_discovery):
+    base, jobs, _, _ = scram_discovery
+    queue(base, JOINT_VERSION)
+    raw = ('{ "input_version": "' + JOINT_VERSION + '" }').encode()
+    with base.connect() as conn:
+        conn.execute(sql.SQL('INSERT INTO {} '
+            '(tenant_id,job_id,stage,input_bytes,input_sha256,idempotency_key,state,max_attempts) '
+            'VALUES (%s,%s,%s,%s,%s,%s,%s,%s)').format(base._table('jobs')),
+            ('tenant-a', uuid4(), 'simulation', raw, sha256(raw).hexdigest(), uuid4().hex, 'queued', 3))
+    before = persisted_digest(base)
+    discovery = DeterministicJobDiscovery(jobs, tenant_id='tenant-a', input_versions=frozenset({JOINT_VERSION}))
+    with pytest.raises(DiscoveryHold, match='^discovery_input_rejected$'): discovery.page()
+    assert persisted_digest(base) == before
+    joint_save('noncanonical', {'partial_page_refused':True, 'persisted_unchanged':True, 'DB_digest_constraint_preserved':True})
