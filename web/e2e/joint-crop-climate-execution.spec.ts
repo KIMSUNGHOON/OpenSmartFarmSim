@@ -33,6 +33,8 @@ test.setTimeout(30_000);
 test.afterEach(async({page})=>{const cdp=await page.context().newCDPSession(page);
   try{await cdp.send('HeapProfiler.collectGarbage');}finally{await cdp.detach();}});
 async function enter(page:Page){
+  // This older response set represents the execution server with prefix routes disabled.
+  await page.route('**/v1/jobs/*/crop-climate-joint-execution/prefix',r=>r.fulfill({status:404,json:{}}));
   await page.clock.install();await page.addInitScript(()=>{
     const w=window;w.executionReads=[];const original=window.fetch;
     window.fetch=async(...args)=>{const path=String(args[0]),start=Date.now(),response=await original(...args);
