@@ -1783,11 +1783,21 @@
       최초 빌드는 PID713,510,912bytes로 소유 종료-15/실패1였고 기존 수용 recipe의 heap48MiB/CPU1/GC로 다시 통과했다.
       종전2–4집중시간은 native23:01→최종 빌드23:18Z 약17분으로 갱신하며 기록/commit은 별도다.
       화면/계산 중 prefix/U3·hosted/관문은 미수용이다.
-    - [ ] **`crop-climate-joint-numerical-3d`** — 다음. 선행: 위 typed client/runtime, 기존 저장 결과 선택/3D 경로.
-      수용된 typed client를 재사용한다. 새 view/동일 시각 adapter와 tests/계약의 변경 경계는 착수 때 고정한다.
+    - [x] **`crop-climate-joint-numerical-3d`** — 선행: 위 typed client/runtime, 기존 저장 결과 선택/3D 경로.
+      수용된 typed client를 재사용한다. 2026-10-10 착수 core10: 새 `JointCropClimateReplay.tsx`, `JointCropClimateChart.tsx`,
+      `jointCropClimateGeometry.ts`/집중 test, browser spec/별도 계약과 기존 `CropReplay.tsx`, `CoupledCropScene.tsx`,
+      `coupledCropGeometry.ts`, `CoupledCropChart.tsx`의 최소 공통 인터페이스/그래프 재사용이다. 별도 CSS/프레임워크/서버는 추가하지 않는다.
+      기존 승인 LayerDoc/CSS/자산을 적용하고12ui 마무리 비교·격리 Chromium으로 확인한다. 착수 예상2–4집중시간이며 native 연결 관측 뒤 갱신한다.
       수용: 새108상태의 원 leaf/LAI·과실50 C/N·계산된 수관/공기 온도와 장부·사건/UTC를 같은 선택/표/그래프/WebGL에서 대사,
       원 행/시각 이동·hold/결측/권리 철회·잘못된 판본·늦은 응답 정리와 기존121상태/전체166일 보기 공존·WSL 한도/원본 보존.
       임의 생장/기후 애니메이션이나 실제 품종 외형/생산 예측으로 제시하지 않는다. 실시간 확정 prefix/U3는 `crop-execution-link`의 후속 수용이다.
+      [로컬 수용](../research/crop-climate-joint-numerical-view-implementation-20261010.md): core7ad76c2/10파일·새 geometry12/관련474/새 browser12/기존27시점1/native2=고유501개,
+      원108상태/장부/UTC·수관/공기 온도·실제 SCRAM/검증 HTTPS/WebGL·철회422/복원·계정401·조회 계산0을 확인했다.
+      타입/제한된 비압축 빌드·최종20그룹297.118초·원본2,148/UI/FD/소유 정리, 단일/합 RSS505,204,736/919,687,168bytes다.
+      마지막 변경은 browser spec의 디자인 사본 CSS 경로 helper뿐이며 해당3상태/타입/비교를 재검증했다. 제품/수치/계약은 동일하다.
+      원 디자인3상태 비교는26.3/23.5/14.0% 대응·새 구매0으로 끝냈다. pixel fidelity/최종 UI·현재5173 배포·U3/관문은 미수용이다.
+      최초 타입/빌드/브라우저/native 검사와 사본 CSS·기존 구매 복구의 실패도 원 handle/종료로 보존했다.
+      초기2–4집중시간은 native23:28→최종 검증00:15Z 약47분 관측으로 갱신하며 기록/commit은 별도다.
 - [ ] **`crop-water-nutrient`** — 선행: 작물/기후 결합·배지/급배액/성분 근거.
   예정 파일(3): `backend/app/crop_water_nutrient.py`, `backend/tests/test_crop_water_nutrient.py`,
   `contracts/crop-water-nutrient-v1.md`.
@@ -1804,6 +1814,14 @@
   수용: 같은 농장/작물/배치·입력/모델/계수/UTC/현재 권리의 접수→실행→불변 결과 선택→3D,
   취소/재시도/재시작·혼합/늦은 변경 거부와 end-to-end 검증. 실제 입력은 해당 G0/G1 필요.
   연구 결과와 승인 Run을 구분하며 실제 제품 CLI/독립 해제·예측/추천 관문을 자동 승격하지 않음.
+  - [ ] **실행 경계 확정** — 다음 한 단계. 기존 jobs/임대 worker/현재 상태·새 joint 저장 계약을 대조하고,
+    접수·상태·확정 checkpoint·완료 결과 ID 연결의 변경 파일/의존성을 고정한다.
+    수용: 동일 farm/batch·입력/모델/UTC/현재 권리와 취소/재시작·늦은 응답의 상태 전이/증거표,
+    작은 합성 실행 범위와 실제 자료·예측 게시 조건의 구분. 별도 queue/framework 추가 근거 없으면 기존 계약을 사용한다.
+  - [ ] **접수/현재 상태 연결** — 위 경계 뒤 기존 API/worker로 실제 상태·확정 checkpoint/계산 시각/갱신 시각과 완료 결과를 연결한다.
+    수용: 실제 DB/worker의 접수→실행→완료/hold·현재 권리·취소/재접속·결과 ID/원값 대사. 브라우저가 진행률을 만들지 않음.
+  - [ ] **U3 화면 연결** — 위 상태 계약의 typed reader→현재 상태 표시/자동 갱신→완료 결과 선택→같은 UTC3D.
+    수용: 동일 실행/원 checkpoint·갱신 지연 표시·끊김/재접속·취소/늦은 응답·권리 거부·완료/hold/빈 결과와 실제 백엔드·브라우저 검증.
 - [ ] **`crop-economic-link`** — 선행: 생산량·자원 계산·`crop-execution-link`와 같은 배치/달력의 경제 입력.
   예정 파일(3): `backend/app/crop_economic_link.py`, `backend/tests/test_crop_economic_link.py`,
   `contracts/crop-economic-link-v1.md`.
