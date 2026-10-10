@@ -1850,10 +1850,12 @@
     native→집중 terminal3,414.796초(약57분), 기록/commit 별도다. 자동 소비/API/UI·관문은 미수용이다.
   - [x] **checkpoint E1–E4** — 위 실제 같은 job/원값·취소/재개·원자 저장/권리·최종 제품 source·원본/기동/정리를 대조했다.
     새 API/UI 수용은 후속이며 전체 작기는 재실행하지 않았다.
-  - [ ] **E5a 작업 발견** — 다음 한 단계. 선행: E4. 예정 core3: 기존 `deterministic_job_discovery.py`/test, discovery 계약.
-    수용: joint 판본 명시 허용·권한/다른 stage·잘못된 입력 거부와 기존 판본/페이지 보존.
-    확인: 집중 discovery pytest/실제 DB. M,0.5–1시간.
-  - [ ] **E5b 자동 소비** — 선행: E5a. 예정 core3: 기존 `deterministic_work.py`/test, worker-loop 계약.
+  - [x] **E5a 작업 발견** — 선행: E4. core3: 기존 `deterministic_job_discovery.py`/test, discovery 계약.
+    [core4a0774c/수용 근거](../research/crop-climate-joint-execution-discovery-implementation-20261010.md): 신규8/기존52=고유60개·최종 제품/test SHA 동일,
+    실제 E1 접수2건/혼합46페이지·tenant/stage/미래/활성/취소 경계·scope/비정규 거부·다섯 작업 테이블 무변경/계산10종·쓰기9종0을 확인했다.
+    기존25개 정의·경제 발견/복구/경쟁·collection profile/worker 판본을 보존했다. 시험의 취소 tenant/scope 실패2회를 보완하고 원 실패/종료/정리를 보존했다.
+    단일/합 RSS125,952,000/317,661,184bytes·원본2,148/기동/소유 정리; native→집중721.762초(약12분), 기록/commit 별도다. 자동 소비/API/UI는 미수용이다.
+  - [ ] **E5b 자동 소비** — 다음 한 단계. 선행: E5a. 예정 core3: 기존 `deterministic_work.py`/test, worker-loop 계약.
     수용: 정확한 joint worker/outcome 등록·한 job 순차 소비·중지/재시도/닫히지 않은 결과 거부·기존 worker 보존.
     확인: 집중 loop pytest·실제 worker 프로세스/신호/정리. M,0.5–1시간.
   - [ ] **E6a 현재 진행 DTO** — 선행: E2/E4. 예정 core3: `backend/app/crop_climate_joint_execution_query.py`, 같은 이름 test, 위 실행 계약.

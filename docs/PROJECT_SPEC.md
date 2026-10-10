@@ -61,7 +61,9 @@ core9f5c18d·고유17검사/실제 SCRAM·동시 중복/현재 권리·rollback�
 [E2 확정 checkpoint 수용](../research/crop-climate-joint-execution-checkpoint-implementation-20261010.md)도 coreaf93e83·고유24개 집중 검사로 원 counts/UTC·최초 수용 시각·실제 중단/fresh/권리·보존을 확인했다.
 [E3 호출자 거래의 결과 저장](../research/crop-climate-joint-result-transaction-implementation-20261010.md)도 corec99198c·고유19개 실제 SCRAM 검사로 외부 commit/rollback·최초 시각/원 bytes·구형 판본 보존을 수용했다.
 [E4 임대 worker](../research/crop-climate-joint-execution-worker-implementation-20261010.md)도 core6cf4eaf·고유28개 실제 SCRAM 검사로 정상/수치 hold·취소/만료·실제 crash/fresh 재개·원108상태/UTC·원자 저장/권리·정리를 수용했다.
-성공 publication·보류 결과 연결 사건과 기존 DB 제약을 유지했다. 다음은 E5 작업 자동 발견/소비이며 API/UI 연결은 미완료다.
+성공 publication·보류 결과 연결 사건과 기존 DB 제약을 유지했다.
+[E5a 작업 발견](../research/crop-climate-joint-execution-discovery-implementation-20261010.md)도 core4a0774c·고유60개로
+실제 E1 요청/혼합 queue·권한·조회 계산/쓰기0·기존 경계/정리를 수용했다. 다음은 E5b 자동 소비이며 API/UI 연결은 미완료다.
 자원 모듈 전체와 독립 자료 확보를 이 합성 접수의 선행 조건으로 두지 않는다.
 진행 상태 갱신→terminal 저장3D를 먼저 연결하며 계산 중 prefix3D는 별도 수용한다. 현재5173 실시간 연동은 미구현이다.
 [결합 계약](../contracts/crop-climate-coupling-v1.md)의 온실 경계 조사는 병행하며 실제 전체 작기·실시간 U3/관문은 미완료다.
