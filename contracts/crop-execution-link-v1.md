@@ -1,6 +1,6 @@
 # 작물 계산 요청·확정 진행·완료 결과 연결 v1
 
-상태: **구현 경계 확정, 구현 미완료 — 2026-10-10.**
+상태: **E1 접수 service 로컬 수용; worker/API/UI 연결 미완료 — 2026-10-10.**
 [코드 대조 근거](../research/crop-execution-link-boundary-20261010.md)와
 [작업 순서](../tasks/plan.md#작물-계산과-ui의-실행-연결--2026-10-10)를 따른다.
 대상은 현재 수용된 짧은 합성 joint 입력·108상태·UTC·서명 저장이다.
@@ -23,7 +23,8 @@ binding은 원 canonical bytes를 JSON 객체로 결속하고 SHA는 그 원 byt
 job 상한을 넓히거나 잘라 저장하지 않는다. 초과 요청은 접수 전에 거부한다.
 
 tenant/study/revision당 하나의 실행 의도를 만든다. 기존 jobs의 tenant/stage별 멱등 키에
-새 domain과 canonical `[study_id, revision]`의 SHA-256을 사용한다. 별도 caller 키로 같은
+`ossf-joint-crop-climate-execution-intent-v1\0` domain과 canonical `[study_id, revision]`의 SHA-256을 사용한다.
+별도 caller 키로 같은
 custody intent의 작업을 여러 개 만들지 않는다. 같은 입력 재요청은 원 job을 반환하고,
 같은 revision의 다른 입력·binding·resolver는 conflict다. 취소/실패 뒤 새 의도로 시작하려면
 새 revision을 사용한다. 임대 재시도는 같은 작업의 기존 시도 정책을 따른다.
@@ -126,7 +127,17 @@ bounded polling은 앞 요청 정산 뒤에만 시작하고 숨김/계정/선택
 
 ## 착수·검증
 
-다음 첫 구현은 **E1 합성 실행 접수**다. 변경은 새 service/test와 이 계약의 세 core파일 이내다.
-실제 SCRAM의 정상·동일 요청/원 job·revision 충돌·현재 권한/늦은 철회·64KiB·다른 tenant를 확인한다.
-접수 중 수치 준비/적분/게시 호출0, 기존 job/store·원본/미리보기 보존과 실제 종료/소유 정리를 기록한다.
+**E1 합성 실행 접수**는 [로컬 검증](../research/crop-climate-joint-execution-admission-implementation-20261010.md)으로 수용했다.
+`JointCropClimateExecutionService(binding, input_resolver=...)`의 `submit(tenant, request_raw)`가
+서버 내부 JobStore row를 반환한다. HTTP 응답은 후속 route의 명시 allowlist 투영을 거쳐야 한다.
+변경은 새 service/test와 이 계약의 세 core파일이다. 현재 authority·principal provider·resolver와
+입력 판본/domain/상한·코드 identity를 고정하고 commit guard에서 원 binding을 재검사한다.
+입력 해석/검증 거부는 고정 `JointCropClimateExecutionHold`, 권한 거부는 고정 PermissionError,
+같은 revision 충돌은 고정 JobIntentConflict다. 내부 경로/예외 원문을 메시지에 넣지 않는다.
+정상 job 입력은7,827bytes였고 잘못된 요청/64KiB 초과와 oversized binding fault를 접수 전에 거부했다.
+실제 SCRAM 새9/회귀8=고유17검사·동시 중복/충돌·현재 권한/권리·늦은 rollback·다른 tenant를 확인했다.
+접수 중10종 수치 준비/적분/custody/결과 등록 호출0, 기존 job/store·원본2,148/미리보기 보존과
+실제 종료/소유 정리를 기록했다. fixture가 입력 증거를 만드는 준비 단계의 계산은 이0회 주장에 포함하지 않는다.
+아직 discovery/worker는 새 입력을 소비하지 않는다. 현재 API/UI에 접수·진행 경로를 노출하지 않는다.
+다음은 **E2 확정 checkpoint 수용**, 독립적으로 준비할 수 있는 **E3 결과 transaction hook**이다.
 worker/API/UI는 각자 [todo](../tasks/todo.md)의 증거가 있을 때만 수용한다.
