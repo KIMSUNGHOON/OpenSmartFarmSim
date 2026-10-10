@@ -36,7 +36,7 @@ type DecodeJob=(value:unknown)=>JobStatus;
 function name(v:unknown):v is string{return typeof v==='string' && /^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$/.test(v);}
 function digest(v:unknown):v is string{return typeof v==='string' && /^[0-9a-f]{64}$/.test(v);}
 function utc(v:unknown):v is string{return date(v) && v.endsWith('Z');}
-function jobInstant(stamp:string):bigint{
+export function jointExecutionJobInstant(stamp:string):bigint{
   need(date(stamp));const fraction=/\.(\d{1,6})/.exec(stamp)?.[1]??'';
   return BigInt(Date.parse(stamp.replace(/\.\d{1,6}/,'')))*1000n+BigInt(fraction.padEnd(6,'0'));
 }
@@ -49,7 +49,7 @@ function farm(v:unknown,result=false):asserts v is JointExecutionFarm{
   for(const k of FARM)need(k==='registration_sha256'?digest(v[k]):name(v[k]));
   if(result)need(name(v.batch_id) && name(v.zone_id));
 }
-function lookup(v:unknown):asserts v is JointExecutionLookup{
+export function checkJointExecutionLookup(v:unknown):asserts v is JointExecutionLookup{
   need(object(v));closed(v,['job_id','farm']);need(uuid(v.job_id));farm(v.farm);
 }
 export function validJointExecutionRequest(v:unknown):v is JointExecutionRequest{
@@ -68,7 +68,7 @@ export function validJointExecutionRequest(v:unknown):v is JointExecutionRequest
 }
 function job(v:unknown,decode:DecodeJob,id?:string):JointExecutionJob{
   const j=decode(v);need(j.stage==='simulation' && member(j.state,STATES) && (!id || j.job_id===id)
-    && jobInstant(j.updated_at)>=jobInstant(j.created_at));
+    && jointExecutionJobInstant(j.updated_at)>=jointExecutionJobInstant(j.created_at));
   if(j.state==='simulating' || j.state==='succeeded')need(j.attempt_count>=1);
   return {...j,stage:j.stage,state:j.state};
 }
@@ -83,6 +83,7 @@ function checkpoint(v:unknown):asserts v is JointExecutionCheckpoint{
   need(v.status==='ready'?v.computed_through_utc===null && v.steps===0:utc(v.computed_through_utc));
   if(v.status==='completed')need(v.steps===v.planned_steps);
 }
+export function decodeJointExecutionCheckpoint(v:unknown):JointExecutionCheckpoint{checkpoint(v);return v;}
 function result(v:unknown,expected:JointExecutionFarm):asserts v is JointExecutionResult{
   need(object(v));closed(v,['result_id','farm','status']);farm(v.farm,true);
   need(typeof v.result_id==='string' && /^joint-crop-climate-result-v1:[0-9a-f]{64}$/.test(v.result_id)
@@ -92,15 +93,15 @@ function result(v:unknown,expected:JointExecutionFarm):asserts v is JointExecuti
 function envelope(v:Record<string,unknown>,version:string,j:JointExecutionJob){
   need(v.version===version && v.scope===SCOPE && v.G0_G4==='not_assessed'
     && typeof v.cancel_requested==='boolean' && utc(v.observed_at)
-    && utcMicroseconds(v.observed_at)>=jobInstant(j.updated_at));
+    && utcMicroseconds(v.observed_at)>=jointExecutionJobInstant(j.updated_at));
 }
 export function decodeJointExecutionRead(v:unknown,select:JointExecutionLookup,decode:DecodeJob):JointExecutionRead{
-  lookup(select);need(object(v));closed(v,['version','scope','G0_G4','job','cancel_requested','observed_at','checkpoint_status','checkpoint','result']);
+  checkJointExecutionLookup(select);need(object(v));closed(v,['version','scope','G0_G4','job','cancel_requested','observed_at','checkpoint_status','checkpoint','result']);
   const j=job(v.job,decode,select.job_id);envelope(v,VERSION,j);
   need(member(v.checkpoint_status,['none','current','unavailable'] as const));
   if(v.checkpoint!==null){
     checkpoint(v.checkpoint);need(v.checkpoint_status==='current'
-      && utcMicroseconds(v.checkpoint.checkpoint_recorded_at)>=jobInstant(j.created_at)
+      && utcMicroseconds(v.checkpoint.checkpoint_recorded_at)>=jointExecutionJobInstant(j.created_at)
       && utcMicroseconds(v.checkpoint.checkpoint_recorded_at)<=utcMicroseconds(String(v.observed_at)));
   }else need(v.checkpoint_status!=='current');
   if(v.result!==null){
@@ -135,7 +136,7 @@ export function createJointCropClimateExecutionApi(request:Request,decode:Decode
       canceled(signal);need(JSON.stringify(input)===identity);return job(raw,decode);
     },
     async jointCropClimateExecution(select:JointExecutionLookup,signal?:AbortSignal):Promise<JointExecutionRead>{
-      lookup(select);canceled(signal);const identity=JSON.stringify(select),id=select.job_id;
+      checkJointExecutionLookup(select);canceled(signal);const identity=JSON.stringify(select),id=select.job_id;
       const raw=await request('/v1/jobs/'+id+'/crop-climate-joint-execution','GET',undefined,200,MAX_RESPONSE,TIMEOUT,signal);
       canceled(signal);need(JSON.stringify(select)===identity);return decodeJointExecutionRead(raw,select,decode);
     },

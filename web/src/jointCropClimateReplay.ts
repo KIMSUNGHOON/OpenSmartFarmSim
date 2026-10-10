@@ -140,6 +140,18 @@ function point(v:unknown,grid:JointCropClimateTimeGrid):asserts v is JointCropCl
   need(object(v));closed(v,['step_index','at']);need(integer(v.step_index,0,grid.step_count) && utc(v.at)
     && utcMicroseconds(v.at)===utcMicroseconds(grid.start_utc)+BigInt(v.step_index)*BigInt(grid.step_microseconds));
 }
+export function decodeJointCropClimateTimeGrid(v:unknown,input:Readonly<{start_utc:string;end_utc:string}>,plannedSteps:number):JointCropClimateTimeGrid{
+  need(integer(plannedSteps,1,4096) && object(v));const g=v;
+  closed(g,['version','time_rule','time_code_sha256','start_utc','end_utc','step_seconds_decimal','step_microseconds','step_count']);
+  need(g.version==='joint-crop-climate-time-binding-research-v1' && g.time_rule==='UTC_POSIX_integer_microseconds_decimal_step_v1'
+    && digest(g.time_code_sha256) && utc(g.start_utc) && utc(g.end_utc) && g.start_utc===input.start_utc && g.end_utc===input.end_utc
+    && typeof g.step_seconds_decimal==='string'
+    && integer(g.step_microseconds,1,600000000) && g.step_count===plannedSteps);
+  need(decimalMicroseconds(g.step_seconds_decimal)===BigInt(g.step_microseconds));
+  const duration=utcMicroseconds(g.end_utc)-utcMicroseconds(g.start_utc);
+  need(duration>0n && duration<=600000000n && duration===BigInt(g.step_microseconds)*BigInt(plannedSteps));
+  return g as JointCropClimateTimeGrid;
+}
 function reference(v:unknown):asserts v is JointCropClimateReference{
   need(object(v));closed(v,[...Object.keys(REFERENCE_LITERALS),'input','artifact','code','payload_sha256','model','time_grid','last_confirmed','failed_boundary']);
   literals(v,REFERENCE_LITERALS);need(digest(v.payload_sha256));identity(v.model);
@@ -153,15 +165,7 @@ function reference(v:unknown):asserts v is JointCropClimateReference{
     && a.steps<=a.planned_steps && (a.status!=='completed' || a.steps===a.planned_steps)
     && a.ref==='joint-crop-climate-storage-research-v1:'+a.sha256 && integer(a.sample_count,0,512) && integer(a.event_count,0,128)
     && integer(a.commit_count,1,4097) && integer(a.storage_bytes,1,512*1024*1024) && integer(a.file_count,1,65536));
-  need(object(v.time_grid));const g=v.time_grid;
-  closed(g,['version','time_rule','time_code_sha256','start_utc','end_utc','step_seconds_decimal','step_microseconds','step_count']);
-  need(g.version==='joint-crop-climate-time-binding-research-v1' && g.time_rule==='UTC_POSIX_integer_microseconds_decimal_step_v1'
-    && digest(g.time_code_sha256) && utc(g.start_utc) && utc(g.end_utc) && g.start_utc===v.input.start_utc && g.end_utc===v.input.end_utc
-    && typeof g.step_seconds_decimal==='string'
-    && integer(g.step_microseconds,1,600000000) && g.step_count===a.planned_steps);
-  need(decimalMicroseconds(g.step_seconds_decimal)===BigInt(g.step_microseconds));
-  const duration=utcMicroseconds(g.end_utc)-utcMicroseconds(g.start_utc);
-  need(duration>0n && duration<=600000000n && duration===BigInt(g.step_microseconds)*BigInt(a.planned_steps));
+  const g=decodeJointCropClimateTimeGrid(v.time_grid,v.input as JointCropClimateReference['input'],a.planned_steps);
   need(v.code.server_dependency_sha256.continuation===v.model.engine_code_sha256
     && v.code.server_dependency_sha256.time===g.time_code_sha256);
   const grid=g as JointCropClimateTimeGrid;point(v.last_confirmed,grid);need(v.last_confirmed.step_index===a.steps);
@@ -169,14 +173,14 @@ function reference(v:unknown):asserts v is JointCropClimateReference{
   else need(v.failed_boundary===null);
 }
 const STATE_KEYS=['plant_state','cohort_state','climate_state','derived'] as const;
-function sample(v:unknown,r:JointCropClimateReference):asserts v is JointCropClimateSample{
+export function checkJointCropClimateSample(v:unknown,r:Pick<JointCropClimateReference,'time_grid'>):asserts v is JointCropClimateSample{
   need(object(v));closed(v,['value','time']);point(v.time,r.time_grid);need(object(v.value));const s=v.value;
   closed(s,[...STATE_KEYS,'step_index','elapsed_seconds','integrated_transfers','event_totals','event_count','balance_residuals','balance_budgets','phase']);
   state(s);need(s.step_index===v.time.step_index && finite(s.elapsed_seconds) && s.elapsed_seconds===s.step_index*Number(r.time_grid.step_seconds_decimal)
     && integer(s.event_count,0,128) && member(s.phase,['initial','step-end','boundary-after-event'] as const));
   quantities(s.integrated_transfers,TRANSFERS);quantities(s.event_totals,EVENT_TOTALS);budgets(s.balance_residuals,s.balance_budgets,BALANCE);
 }
-function event(v:unknown,r:JointCropClimateReference):asserts v is JointCropClimateEvent{
+export function checkJointCropClimateEvent(v:unknown,r:Pick<JointCropClimateReference,'time_grid'|'model'>):asserts v is JointCropClimateEvent{
   need(object(v));closed(v,['value','time']);point(v.time,r.time_grid);need(object(v.value));closed(v.value,['step_index','elapsed_seconds','management']);
   need(v.value.step_index===v.time.step_index && finite(v.value.elapsed_seconds)
     && v.value.elapsed_seconds===v.value.step_index*Number(r.time_grid.step_seconds_decimal) && object(v.value.management));
@@ -197,18 +201,22 @@ function event(v:unknown,r:JointCropClimateReference):asserts v is JointCropClim
   for(const [k,u] of Object.entries(REMOVED))quantity(m.removed[k],u);
   quantities(m.removed_totals,REMOVED_TOTALS);budgets(m.balance_residuals,m.balance_budgets,EVENT_BALANCE);
 }
-function summary(v:unknown,r:JointCropClimateReference):asserts v is JointCropClimateSummaryResponse['summary']{
-  need(object(v));closed(v,['status','manifest','last_confirmed','checkpoint_sha256','hold']);need(v.status===r.artifact.status && object(v.manifest));
-  const m=v.manifest;closed(m,['identity','program_sha256','initial_rhs_sha256','initial_calculation_sha256','policy_sha256','numerical','scope','clock_contract']);
+export function decodeJointCropClimateManifest(v:unknown,grid:JointCropClimateTimeGrid,model?:JointCropClimateIdentity):JointCropClimateManifest{
+  need(object(v));const m=v;closed(m,['identity','program_sha256','initial_rhs_sha256','initial_calculation_sha256','policy_sha256','numerical','scope','clock_contract']);
   identity(m.identity);
-  need(stable(m.identity)===stable(r.model) && m.policy_sha256===r.model.policy_sha256 && m.scope==='software_research_only'
+  need((model===undefined || stable(m.identity)===stable(model)) && m.policy_sha256===m.identity.policy_sha256 && m.scope==='software_research_only'
     && m.clock_contract==='elapsed-grid-shared-rk4-events-v1');for(const k of ['program_sha256','initial_rhs_sha256','initial_calculation_sha256'])need(digest(m[k]));
   need(object(m.numerical));const n=m.numerical;closed(n,['step_seconds','step_count','duration_seconds','method','quantity_rule','roundoff_rule']);
-  need(n.step_seconds===Number(r.time_grid.step_seconds_decimal) && n.step_count===r.artifact.planned_steps
-    && n.duration_seconds===Number(r.time_grid.step_seconds_decimal)*r.artifact.planned_steps
+  need(n.step_seconds===Number(grid.step_seconds_decimal) && n.step_count===grid.step_count
+    && n.duration_seconds===Number(grid.step_seconds_decimal)*grid.step_count
     && n.method==='single-step-shared-rk4-kernel-events-v1' && n.quantity_rule==='cohort-decimal-rational-removal-v1'
     && n.roundoff_rule==='64-ulp-per-step-and-event-global-ledger-v1');
-  sample(v.last_confirmed,r);need(stable(v.last_confirmed.time)===stable(r.last_confirmed));
+  return m as JointCropClimateManifest;
+}
+function summary(v:unknown,r:JointCropClimateReference):asserts v is JointCropClimateSummaryResponse['summary']{
+  need(object(v));closed(v,['status','manifest','last_confirmed','checkpoint_sha256','hold']);need(v.status===r.artifact.status && object(v.manifest));
+  decodeJointCropClimateManifest(v.manifest,r.time_grid,r.model);
+  checkJointCropClimateSample(v.last_confirmed,r);need(stable(v.last_confirmed.time)===stable(r.last_confirmed));
   if(v.status==='completed'){need(digest(v.checkpoint_sha256) && v.hold===null);return;}
   need(v.checkpoint_sha256===null && object(v.hold));const h=v.hold;closed(h,['reason_code','phase','time_meaning','time']);
   point(h.time,r.time_grid);
@@ -222,7 +230,7 @@ function page(v:unknown,r:JointCropClimateReference):asserts v is JointCropClima
   need(integer(v.offset,0,total) && integer(v.limit,1,v.kind==='samples'?64:8) && v.total===total && Array.isArray(v.records)
     && v.records.length===Math.min(v.limit,total-v.offset));const end=v.offset+v.records.length;
   need(v.next_offset===(end<total?end:null));let previous=-1;
-  for(const row of v.records){if(v.kind==='samples')sample(row,r);else event(row,r);const at=row.time.step_index;
+  for(const row of v.records){if(v.kind==='samples')checkJointCropClimateSample(row,r);else checkJointCropClimateEvent(row,r);const at=row.time.step_index;
     need(at>previous && at<=r.artifact.steps && (r.failed_boundary===null || at<r.failed_boundary.step_index));previous=at;}
 }
 export function decodeJointCropClimateResponse(v:unknown,lookup:JointCropClimateLookup):JointCropClimateResponse{
