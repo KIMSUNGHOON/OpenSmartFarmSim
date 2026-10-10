@@ -106,3 +106,22 @@ existing user preview, original files and scoped process cleanup remain required
 This acceptance activates no user preview or UI polling by itself; E7–E9 remain
 necessary for the user's execution screen. A live confirmed-prefix 3D reader remains
 separate from completed-result replay.
+
+## Explicit confirmed prefix assembly
+
+`operator-joint-crop-climate-prefix-api-config-v1` uses the execution version's
+closed fields plus required exact boolean `crop_climate_joint_prefix`.
+True requires `crop_climate_joint_execution=True`. `ApiRuntimeConfig` defaults
+the prefix flag to False. Existing joint versions keep prefix disabled and reject
+the extra field; generic/calculation loaders reject the prefix version.
+
+Enabled assembly creates `JointExecutionPrefixQuery` from its same execution
+query and exposes `joint_prefix_query`. The API conditionally installs the three
+[prefix GET routes](crop-climate-joint-prefix-view-v1.md) with the same jobs,
+server, farm, result store and principal. Disabled assembly passes None and does
+not call the installer or add prefix paths to the default OpenAPI contract.
+
+Reader v2 reads signed immutable snapshots without acquiring calculation custody
+locks. Actual unpaused worker/TLS acceptance must cover running accepted prefixes
+or transient snapshot retries, original normal/hold results and worker cancellation.
+No runtime acceptance activates the SDK, calculation-time 3D or user deployment.

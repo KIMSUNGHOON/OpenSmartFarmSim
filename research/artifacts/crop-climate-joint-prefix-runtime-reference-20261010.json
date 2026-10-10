@@ -1,0 +1,2485 @@
+{
+  "G0_G4": "not_assessed",
+  "HTTP_max_bytes": 25087,
+  "HTTP_max_seconds": 8.907789401011541,
+  "HTTP_projection_and_existing_config_regression_passed": 133,
+  "accepted_scope": "reader v2 immutable snapshot and opt-in API runtime; actual unpaused worker/TLS; no SDK/UI activation",
+  "actual_crop_Runs": 0,
+  "actual_invocation": "existing native Codex CLI; source judgment and output are committed changes and guarded receipts",
+  "actual_unpaused_normal_hold_cancel": true,
+  "baseline_commit": "db84a7e06e475ce0676c2e827f51eeb78036227d",
+  "calculation_time_prefix3D_accepted": false,
+  "changed_baseline_sources": {
+    "backend/app/crop_climate_joint_prefix.py": {
+      "after": "24dbeeedf94a6771e640eb09dc8e33231b29c640e72e4ee985b6dd8ab306ee82",
+      "before": "2201df892ce389de117953470b58f4ff8988a0d61cbd2732244b15f36d681493"
+    },
+    "backend/tests/test_api_crop_climate_joint_prefix_routes.py": {
+      "after": "0489e7f0fae634f7cf91f7a5eba934d8b54c6e9805d2f1a5ae986f1de173d84c",
+      "before": "3fd78ab0feb6dc3729f86db0d678b7699fd6b844a52665891a1e09f7ba9c5076"
+    },
+    "backend/tests/test_crop_climate_joint_prefix.py": {
+      "after": "2d2e852b5b470e3d629dabc3f63c18a2be932ea82607609e3483d44bb150bcf2",
+      "before": "f6613893cc308d06cec92826aaaff1bbb322ef7301ad9a0f3a98c53853fe37a9"
+    }
+  },
+  "conditional_small_synthetic_user_preview_date_KST": "2026-10-11; subject to SDK/UI/unpaused browser acceptance, WSL and service lifetime",
+  "core_commit": "8e794e4a6bd6fe56458553d6b8614e647950f528",
+  "failed_reproductions": {
+    "focused-automatic-normal-v1": {
+      "attempt_states": [
+        "queued",
+        "queued",
+        "failed"
+      ],
+      "close_reasons": [],
+      "log_sha256": "5e508a1d606d03ae3af8c83c255e748096ea5f8b3bb387f199a775d0fdcc48a3",
+      "source_sha256": {
+        "backend/app/api.py": "6b0809930d9c2ab2c38da43f3a706d02a3255060d03dad545270a41a9ce3857a",
+        "backend/app/api_runtime.py": "ae46be474506e40462a7e7e05c4d900524a2166ec8f63acb43162c4684b8d2cc",
+        "backend/app/crop_climate_joint_operator_config.py": "ec2d841f3bd240937025d2d84b5e8226968a1efa09d2f308ddd083c4403ea082",
+        "backend/app/crop_climate_joint_prefix.py": "2201df892ce389de117953470b58f4ff8988a0d61cbd2732244b15f36d681493",
+        "backend/tests/test_api_crop_climate_joint_prefix_routes.py": "3fd78ab0feb6dc3729f86db0d678b7699fd6b844a52665891a1e09f7ba9c5076",
+        "backend/tests/test_crop_climate_joint_prefix.py": "f6613893cc308d06cec92826aaaff1bbb322ef7301ad9a0f3a98c53853fe37a9",
+        "backend/tests/test_crop_climate_joint_prefix_runtime.py": "75dc3b55a1b85473d59f868d74a4f3555d2f9ebe2f7ed060d6fba925ed1dea81"
+      },
+      "terminal_sha256": "8c1876016f931181c2838cc9aa4952ac6aef65a61ca01183f0aeea482a83ddcb"
+    },
+    "focused-automatic-normal-v2": {
+      "attempt_states": [
+        "queued",
+        "queued",
+        "failed"
+      ],
+      "close_reasons": [
+        "joint_execution_busy",
+        "joint_execution_busy",
+        "joint_execution_busy"
+      ],
+      "log_sha256": "2973c40dea87ed1fe3a906dafdc13d05970739d3765bf6363730b81e9fd4154b",
+      "source_sha256": {
+        "backend/app/api.py": "6b0809930d9c2ab2c38da43f3a706d02a3255060d03dad545270a41a9ce3857a",
+        "backend/app/api_runtime.py": "ae46be474506e40462a7e7e05c4d900524a2166ec8f63acb43162c4684b8d2cc",
+        "backend/app/crop_climate_joint_operator_config.py": "ec2d841f3bd240937025d2d84b5e8226968a1efa09d2f308ddd083c4403ea082",
+        "backend/app/crop_climate_joint_prefix.py": "2201df892ce389de117953470b58f4ff8988a0d61cbd2732244b15f36d681493",
+        "backend/tests/test_api_crop_climate_joint_prefix_routes.py": "3fd78ab0feb6dc3729f86db0d678b7699fd6b844a52665891a1e09f7ba9c5076",
+        "backend/tests/test_crop_climate_joint_prefix.py": "f6613893cc308d06cec92826aaaff1bbb322ef7301ad9a0f3a98c53853fe37a9",
+        "backend/tests/test_crop_climate_joint_prefix_runtime.py": "42eb2700271d65a1fd156d759ac792f05cc71b87bfe0f930b827c61f88822b3d"
+      },
+      "terminal_sha256": "8a916e64c575f4708eec3c153255aa0164095a1444cc29741582bffe96d4b1a5"
+    }
+  },
+  "failure_fix": "v1 reader custody mutex caused three joint_execution_busy outcomes and failed calculation; v2 reader acquires no writer mutex and rethrows moving snapshots as503",
+  "final_source_group_receipts": {
+    "focused-automatic-normal-v3": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 449,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 904830976,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "001d516b20b98257e38cb3d4a2022711500e91deb1b344deafb3e4b14b2dee39",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed_count": 897,
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 157270016,
+      "skipped": 0,
+      "source_count": 1859,
+      "source_pins_sha256": "c2d98f83db2ceab0abf9633f77b3ca6aebd6d0f94890152c0801f783d9c8af6c",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "4aa348c2e17f468efe65f36023138ac9246a9b74dbe2882f5dd8c5b3c83eff2d",
+      "unique_passed": 1,
+      "wall_seconds": 143.71550742298132
+    },
+    "focused-runtime-remaining-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 577,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 901750784,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "3fcbe1c6990bb41363db7cadc1f083562a1349a1c2d92f6c90287cca7c43d4fd",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed_count": 1037,
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 166338560,
+      "skipped": 0,
+      "source_count": 1859,
+      "source_pins_sha256": "c2d98f83db2ceab0abf9633f77b3ca6aebd6d0f94890152c0801f783d9c8af6c",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "858115036e983ff6f5582f86fb3a929348e5d382619d9b8d9a43ec9bb3eca842",
+      "unique_passed": 45,
+      "wall_seconds": 185.4990179479937
+    },
+    "regression-http-projection-config-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 516,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 727924736,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "35ec027d44984e82c9105676a73834390800d3efc9a8c307eb5485f0b48ffa29",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed_count": 700,
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 174395392,
+      "skipped": 0,
+      "source_count": 1859,
+      "source_pins_sha256": "c2d98f83db2ceab0abf9633f77b3ca6aebd6d0f94890152c0801f783d9c8af6c",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "829dead4491f3d3544b2380f163f99a16c5c02d998c080b9611c922539442b90",
+      "unique_passed": 133,
+      "wall_seconds": 154.82422425301047
+    },
+    "regression-reader-v2-security": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 1332,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 796209152,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "8db68130677f2db6764770b6113de3f55a0891611cc8769f90375b1e7cfdb2ef",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed_count": 1666,
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 135655424,
+      "skipped": 0,
+      "source_count": 1859,
+      "source_pins_sha256": "c2d98f83db2ceab0abf9633f77b3ca6aebd6d0f94890152c0801f783d9c8af6c",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "45f3146bdbbe64aa3617c5b069ecc2cc00808b2a1b7717174031e6d4d9d6e0c7",
+      "unique_passed": 6,
+      "wall_seconds": 433.6675645079813
+    }
+  },
+  "final_source_unique_passed": 185,
+  "final_test_terminal_at_utc": "2026-10-10T11:29:59.917421+00:00",
+  "full_product_UI_accepted": false,
+  "goal_status": "active",
+  "id": "crop-climate-joint-prefix-runtime-reference-20261010",
+  "independent_domestic_farm_datasets": 0,
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "timestamp": "2026-10-10T11:00:12.341Z",
+    "turn_context_sha256": "c9283e30beab6e29be12c2fe0998e6c88abe8396a44061cfa4e0271c9e1b05a6"
+  },
+  "native_to_final_test_terminal_seconds": 1787.5764207839966,
+  "new_runtime_unique_passed": 46,
+  "next": "crop-climate-joint-prefix-web-client",
+  "not_run": [
+    "remaining six original P1 cases",
+    "remaining three actual P3a cases and its105 control cases",
+    "two actual P2 cases; actual projection used by this runtime and HTTPS regressions",
+    "full backend suite and hosted CI",
+    "SDK/UI/browser/build and user prefix deployment",
+    "full joint crop cycle and real farm validation"
+  ],
+  "operator_config_version": "operator-joint-crop-climate-prefix-api-config-v1",
+  "preserved_baseline_source_sha256": {
+    "backend/app/api_crop_climate_joint_execution.py": "29884c5e1edffffb5a74cd5925256f80bb07e269baa7ff8c1b380e3891157103",
+    "backend/app/api_crop_climate_joint_prefix.py": "d2ee873f86336278182a194ef7f38ac0be685dbfc730896bbd799a2acd7b09ef",
+    "backend/app/api_crop_climate_joint_prefix_routes.py": "1ca48f44b22e7f93776c17be3918bde85dd4c28df61ca6aefd0a75f8f9b780ee",
+    "backend/app/api_crop_climate_joint_replay.py": "8cf4a2a150514c2246a7b326fb0bc31185aa56489b5b028cdb2aabf07c561f10",
+    "backend/app/crop_climate_joint_boundary.py": "336794d229602957e58f0976bdb735c0312f318d5570eb62b3fb30f2d4f5538b",
+    "backend/app/crop_climate_joint_continuation.py": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+    "backend/app/crop_climate_joint_execution_checkpoint.py": "afdd607f35dd255b82693feac4996675da6010d12808e7d52a50e33ca9b8cd67",
+    "backend/app/crop_climate_joint_execution_query.py": "7b525f74993914759426165acd219f1087e7c91ede00fd478392a4db0a87417c",
+    "backend/app/crop_climate_joint_execution_worker.py": "401e201b0be194c11dd57b67caf4edf9059463d9368bf73264a8f10661e3f794",
+    "backend/app/crop_climate_joint_farm_binding.py": "669fea7460e39e3108a99571e487b2a10e8d0c34377ac2954115605c96f0cbef",
+    "backend/app/crop_climate_joint_server_custody.py": "6a5c7c6286760f9fdb9cae17d803e6c222bb4ee67fd8fc0315d9db726f34f085",
+    "backend/app/crop_climate_joint_storage.py": "1bdfa739545ac91619f27f25672977949aceb4657b49a82a5af696646d2cd0dd",
+    "backend/tests/test_api_crop_climate_joint_prefix.py": "e4e64fe23c3e248010216bcfef3df353d1502f93b36a80f975fce7741f6fa75c",
+    "web/src/JointCropClimateExecution.tsx": "9740d0d5b6aed05baf89c2529afaa74bc46ecada1c49b3d51a820622745c65ff",
+    "web/src/JointCropClimateReplay.tsx": "d19b2189c9d3402722c35d19b7b6dd260a47c43d2dba147dae97bd975af6835b",
+    "web/src/jointCropClimateGeometry.ts": "2a911b4a0a92ced8d3ddaa5cedb9e46a213c1019fe496260bbaaab759e4644de"
+  },
+  "push_hold": true,
+  "reader_v2_commit": "5861eb9db84eb04e876924f5d09fdc5ceb13446c",
+  "reader_v2_security_fresh_regression_passed": 6,
+  "reader_version": "joint-crop-climate-prefix-read-v2",
+  "recorded_HTTP_reply_count": 54,
+  "recursive_CLI": 0,
+  "remaining_focused_hours_estimate": [
+    3.75,
+    7.5
+  ],
+  "resource_limits": {
+    "combined_RSS_bytes": 1073741824,
+    "nice": 19,
+    "sample_interval_seconds": 0.25,
+    "single_PID_RSS_bytes": 536870912,
+    "threads": 1,
+    "wall_limit_seconds_per_group": 600
+  },
+  "runtime_CLI": 0,
+  "skipped": 0,
+  "source_judgment": "Read only signed immutable intent/pages without acquiring calculation custody locks; retain current rights, signed ancestry, stable HEAD/DB and late projection checks. Keep writer/input/result formats and default API contract unchanged.",
+  "source_sha256": {
+    "backend/app/api.py": "6b0809930d9c2ab2c38da43f3a706d02a3255060d03dad545270a41a9ce3857a",
+    "backend/app/api_runtime.py": "ae46be474506e40462a7e7e05c4d900524a2166ec8f63acb43162c4684b8d2cc",
+    "backend/app/crop_climate_joint_operator_config.py": "ec2d841f3bd240937025d2d84b5e8226968a1efa09d2f308ddd083c4403ea082",
+    "backend/app/crop_climate_joint_prefix.py": "24dbeeedf94a6771e640eb09dc8e33231b29c640e72e4ee985b6dd8ab306ee82",
+    "backend/tests/test_api_crop_climate_joint_prefix_routes.py": "0489e7f0fae634f7cf91f7a5eba934d8b54c6e9805d2f1a5ae986f1de173d84c",
+    "backend/tests/test_crop_climate_joint_prefix.py": "2d2e852b5b470e3d629dabc3f63c18a2be932ea82607609e3483d44bb150bcf2",
+    "backend/tests/test_crop_climate_joint_prefix_runtime.py": "42eb2700271d65a1fd156d759ac792f05cc71b87bfe0f930b827c61f88822b3d"
+  },
+  "test_evidence": {
+    "focused-automatic-normal-v3": {
+      "automatic-completed": {
+        "actual_scram": true,
+        "attempts": [
+          {
+            "actual_scram": true,
+            "attempt": 1,
+            "calls": {
+              "RHS": 94,
+              "advance": 3,
+              "event": 3,
+              "prepare_binding": 3,
+              "prepare_context": 3,
+              "restore": 2,
+              "start": 1,
+              "step": 16
+            },
+            "state": "succeeded"
+          }
+        ],
+        "automatic_independent_worker": true,
+        "chunk_budget": 8,
+        "events": [
+          {
+            "event": "started",
+            "version": 1
+          },
+          {
+            "attempt": 1,
+            "event": "attempt",
+            "job_id": "9f054df8-b470-45f8-8272-2193d94dc7c2",
+            "reason_code": "completed",
+            "state": "succeeded",
+            "version": 1
+          },
+          {
+            "event": "stopped",
+            "version": 1
+          }
+        ],
+        "observations": [
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "accepted",
+            "reference": {
+              "checkpoint": {
+                "artifact_sha256": null,
+                "checkpoint_recorded_at": "2026-10-10T11:13:20.473004Z",
+                "computed_through_utc": "2026-10-01T00:00:14.123456Z",
+                "counts": {
+                  "events": 1,
+                  "samples": 1
+                },
+                "head_sha256": "1f8bd1c0caf7b9a76d55f5895024694c6f1d60543454c68120694841da77719a",
+                "planned_steps": 16,
+                "proof_sha256": "0343d7073c23a0404afadf764744fff440953844fd4f81bc3dac112545463cec",
+                "publication_sequence": 1,
+                "status": "yielded",
+                "steps": 7
+              },
+              "checkpoint_attempt": 1,
+              "farm": {
+                "batch_id": "batch-1",
+                "crop_id": "crop-1",
+                "registration_sha256": "376730836c3b1439511547b6abffaff8f3275e97212099fe08904f9213bfdf88",
+                "scenario_id": "farm-1",
+                "scenario_revision": "r1",
+                "zone_id": "zone-1"
+              },
+              "input": {
+                "context_sha256": "83a7f22f781200971064c10f04dcc89a614ff994daecda5bd28ce674fe4adbbc",
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "evidence_sha256": "f77ba1b7951c6416dd56195f544b6ae333596c2d4c696a730f22ece207187bd6",
+                "program_id": "synthetic-joint-warm-day",
+                "source_sha256": "6dfbe10947ab18417d23bd5da4c63eea28e123b9bcada04506aeb714d97608a4",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "time_binding_sha256": "44a9c1ab5e8a400b148f24c806e3c4f7a3466cb4423dcd9e1e846e8668d28d97"
+              },
+              "manifest": {
+                "clock_contract": "elapsed-grid-shared-rk4-events-v1",
+                "identity": {
+                  "byteorder": "little",
+                  "component_code_sha256": {
+                    "crop_canopy_energy_transport": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+                    "crop_canopy_exchange": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+                    "crop_fruit_allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+                    "crop_fruit_cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+                    "crop_fruit_startup": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+                    "crop_fruit_transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+                    "crop_growth_rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+                    "crop_plant_cohort_rates": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+                    "crop_plant_startup_rates": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756"
+                  },
+                  "driver_code_sha256": "336794d229602957e58f0976bdb735c0312f318d5570eb62b3fb30f2d4f5538b",
+                  "engine_code_sha256": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+                  "engine_version": "joint-crop-climate-continuation-research-v1",
+                  "float_mant_dig": 53,
+                  "float_radix": 2,
+                  "management_code_sha256": "deedd9d1f8d04c6db63d88b8156f83ea43b3563234da073b756f448aaa203255",
+                  "physical_clock_contract": "dynamic-canopy-temperature-history-rhs-v1",
+                  "platform_machine": "x86_64",
+                  "platform_system": "Linux",
+                  "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                  "profile_sha256": {
+                    "cohort": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+                    "exchange": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+                    "growth": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+                    "transport": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+                  },
+                  "python_version": "3.12.3",
+                  "rhs_code_sha256": "207ed32696b59f1ec8ce750db70bd10798c5c7ae8f78206df6038177e81124b8",
+                  "short_code_sha256": "b3311c32250474e5457049974c09e6c484425c8231517dffede222ea0c35b839",
+                  "state_schema": "crop-climate-stage-state-v1"
+                },
+                "initial_calculation_sha256": "6ecd2ff24eb59256c154ad52fda1c928aa9b24fbb110b6752a4381af627d124d",
+                "initial_rhs_sha256": "3b58b2d472fc2ee9095f0b94fff1dff6ac3ae65d0cbce9931149e0334bfd6de6",
+                "numerical": {
+                  "duration_seconds": 32.0,
+                  "method": "single-step-shared-rk4-kernel-events-v1",
+                  "quantity_rule": "cohort-decimal-rational-removal-v1",
+                  "roundoff_rule": "64-ulp-per-step-and-event-global-ledger-v1",
+                  "step_count": 16,
+                  "step_seconds": 2.0
+                },
+                "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                "program_sha256": "7de7956ccc4e7649bc16dc01d6c0a4207754a59a0322f6411c41cb5836725ff6",
+                "scope": "software_research_only"
+              },
+              "revision": "r1",
+              "selector": {
+                "head_sha256": "1f8bd1c0caf7b9a76d55f5895024694c6f1d60543454c68120694841da77719a",
+                "proof_sha256": "0343d7073c23a0404afadf764744fff440953844fd4f81bc3dac112545463cec",
+                "publication_sequence": 1
+              },
+              "study_id": "joint-study",
+              "time_grid": {
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "step_count": 16,
+                "step_microseconds": 2000000,
+                "step_seconds_decimal": "2.0",
+                "time_code_sha256": "946680379e482cbcff63bb6fb60421f9abf41c108fb69667a52f38d22e502b9c",
+                "time_rule": "UTC_POSIX_integer_microseconds_decimal_step_v1",
+                "version": "joint-crop-climate-time-binding-research-v1"
+              }
+            },
+            "state": "simulating",
+            "status": 200,
+            "summary": {
+              "counts": {
+                "events": 1,
+                "samples": 1
+              },
+              "last_event_utc": "2026-10-01T00:00:00.123456Z",
+              "last_sample_utc": "2026-10-01T00:00:00.123456Z"
+            }
+          },
+          {
+            "page_samples": 1,
+            "selector": {
+              "head_sha256": "1f8bd1c0caf7b9a76d55f5895024694c6f1d60543454c68120694841da77719a",
+              "proof_sha256": "0343d7073c23a0404afadf764744fff440953844fd4f81bc3dac112545463cec",
+              "publication_sequence": 1
+            },
+            "status": 200
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "prefix_status": "accepted",
+            "reference": {
+              "checkpoint": {
+                "artifact_sha256": null,
+                "checkpoint_recorded_at": "2026-10-10T11:13:39.468427Z",
+                "computed_through_utc": "2026-10-01T00:00:30.123456Z",
+                "counts": {
+                  "events": 2,
+                  "samples": 2
+                },
+                "head_sha256": "66e8d37c8caf183bf7d29b93538a4d14df3d760fd3fc2b5122c7422954c17e4f",
+                "planned_steps": 16,
+                "proof_sha256": "e78c4bdd0c680ce8f22ce42c054110a8c9da685be8f3ca93fb5d7cc0f1529168",
+                "publication_sequence": 2,
+                "status": "yielded",
+                "steps": 15
+              },
+              "checkpoint_attempt": 1,
+              "farm": {
+                "batch_id": "batch-1",
+                "crop_id": "crop-1",
+                "registration_sha256": "376730836c3b1439511547b6abffaff8f3275e97212099fe08904f9213bfdf88",
+                "scenario_id": "farm-1",
+                "scenario_revision": "r1",
+                "zone_id": "zone-1"
+              },
+              "input": {
+                "context_sha256": "83a7f22f781200971064c10f04dcc89a614ff994daecda5bd28ce674fe4adbbc",
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "evidence_sha256": "f77ba1b7951c6416dd56195f544b6ae333596c2d4c696a730f22ece207187bd6",
+                "program_id": "synthetic-joint-warm-day",
+                "source_sha256": "6dfbe10947ab18417d23bd5da4c63eea28e123b9bcada04506aeb714d97608a4",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "time_binding_sha256": "44a9c1ab5e8a400b148f24c806e3c4f7a3466cb4423dcd9e1e846e8668d28d97"
+              },
+              "manifest": {
+                "clock_contract": "elapsed-grid-shared-rk4-events-v1",
+                "identity": {
+                  "byteorder": "little",
+                  "component_code_sha256": {
+                    "crop_canopy_energy_transport": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+                    "crop_canopy_exchange": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+                    "crop_fruit_allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+                    "crop_fruit_cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+                    "crop_fruit_startup": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+                    "crop_fruit_transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+                    "crop_growth_rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+                    "crop_plant_cohort_rates": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+                    "crop_plant_startup_rates": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756"
+                  },
+                  "driver_code_sha256": "336794d229602957e58f0976bdb735c0312f318d5570eb62b3fb30f2d4f5538b",
+                  "engine_code_sha256": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+                  "engine_version": "joint-crop-climate-continuation-research-v1",
+                  "float_mant_dig": 53,
+                  "float_radix": 2,
+                  "management_code_sha256": "deedd9d1f8d04c6db63d88b8156f83ea43b3563234da073b756f448aaa203255",
+                  "physical_clock_contract": "dynamic-canopy-temperature-history-rhs-v1",
+                  "platform_machine": "x86_64",
+                  "platform_system": "Linux",
+                  "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                  "profile_sha256": {
+                    "cohort": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+                    "exchange": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+                    "growth": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+                    "transport": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+                  },
+                  "python_version": "3.12.3",
+                  "rhs_code_sha256": "207ed32696b59f1ec8ce750db70bd10798c5c7ae8f78206df6038177e81124b8",
+                  "short_code_sha256": "b3311c32250474e5457049974c09e6c484425c8231517dffede222ea0c35b839",
+                  "state_schema": "crop-climate-stage-state-v1"
+                },
+                "initial_calculation_sha256": "6ecd2ff24eb59256c154ad52fda1c928aa9b24fbb110b6752a4381af627d124d",
+                "initial_rhs_sha256": "3b58b2d472fc2ee9095f0b94fff1dff6ac3ae65d0cbce9931149e0334bfd6de6",
+                "numerical": {
+                  "duration_seconds": 32.0,
+                  "method": "single-step-shared-rk4-kernel-events-v1",
+                  "quantity_rule": "cohort-decimal-rational-removal-v1",
+                  "roundoff_rule": "64-ulp-per-step-and-event-global-ledger-v1",
+                  "step_count": 16,
+                  "step_seconds": 2.0
+                },
+                "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                "program_sha256": "7de7956ccc4e7649bc16dc01d6c0a4207754a59a0322f6411c41cb5836725ff6",
+                "scope": "software_research_only"
+              },
+              "revision": "r1",
+              "selector": {
+                "head_sha256": "66e8d37c8caf183bf7d29b93538a4d14df3d760fd3fc2b5122c7422954c17e4f",
+                "proof_sha256": "e78c4bdd0c680ce8f22ce42c054110a8c9da685be8f3ca93fb5d7cc0f1529168",
+                "publication_sequence": 2
+              },
+              "study_id": "joint-study",
+              "time_grid": {
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "step_count": 16,
+                "step_microseconds": 2000000,
+                "step_seconds_decimal": "2.0",
+                "time_code_sha256": "946680379e482cbcff63bb6fb60421f9abf41c108fb69667a52f38d22e502b9c",
+                "time_rule": "UTC_POSIX_integer_microseconds_decimal_step_v1",
+                "version": "joint-crop-climate-time-binding-research-v1"
+              }
+            },
+            "state": "simulating",
+            "status": 200,
+            "summary": {
+              "counts": {
+                "events": 2,
+                "samples": 2
+              },
+              "last_event_utc": "2026-10-01T00:00:16.123456Z",
+              "last_sample_utc": "2026-10-01T00:00:16.123456Z"
+            }
+          },
+          {
+            "page_samples": 2,
+            "selector": {
+              "head_sha256": "66e8d37c8caf183bf7d29b93538a4d14df3d760fd3fc2b5122c7422954c17e4f",
+              "proof_sha256": "e78c4bdd0c680ce8f22ce42c054110a8c9da685be8f3ca93fb5d7cc0f1529168",
+              "publication_sequence": 2
+            },
+            "status": 200
+          },
+          {
+            "status": 503
+          },
+          {
+            "prefix_status": "closed",
+            "reference": null,
+            "state": "succeeded",
+            "status": 200,
+            "summary": null
+          }
+        ],
+        "original_terminal_bytes": true,
+        "process_exit": 0,
+        "read_calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "replies": [
+          {
+            "bytes": 237,
+            "seconds": 1.9117150019737892,
+            "sha256": "4a734e240b44882b12b769beed8492dc7eefa018fb030f98a99bb93ea1baee13",
+            "status": 202
+          },
+          {
+            "bytes": 575,
+            "seconds": 4.956456510990392,
+            "sha256": "756d85c9ea563882c6fdca394572ae917b481c66be26ef04ea523733fe57711d",
+            "status": 200
+          },
+          {
+            "bytes": 82,
+            "seconds": 2.000085500010755,
+            "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+            "status": 503
+          },
+          {
+            "bytes": 82,
+            "seconds": 4.01064041396603,
+            "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+            "status": 503
+          },
+          {
+            "bytes": 579,
+            "seconds": 5.009752235026099,
+            "sha256": "1018c58da7b833d974c741407daec56612dd7b4b879ee38357d07880fff1fa3a",
+            "status": 200
+          },
+          {
+            "bytes": 579,
+            "seconds": 5.080030061013531,
+            "sha256": "ff8b13d934c148083a7bcc33e9ae8ec406661ff4436808fd92113d47d512e20c",
+            "status": 200
+          },
+          {
+            "bytes": 579,
+            "seconds": 5.059081134968437,
+            "sha256": "a7035245f97a2272dc5e771f89849f4d9998ffce2085650885fa02a5aa4df537",
+            "status": 200
+          },
+          {
+            "bytes": 579,
+            "seconds": 5.0612077550031245,
+            "sha256": "f04f0144cde658b071a2b47f60e67888d5059328b87206529f8bb54247ef780f",
+            "status": 200
+          },
+          {
+            "bytes": 5149,
+            "seconds": 8.878033433982637,
+            "sha256": "1a3ccdfc34fd7f5c49cd9470bce7d583ef87bd76d499444d778ff1665f632250",
+            "status": 200
+          },
+          {
+            "bytes": 13682,
+            "seconds": 8.83805325103458,
+            "sha256": "7a5015acdb11c6d0ed9ef1c4c790a112f8352006d6cdcd41138430870255267f",
+            "status": 200
+          },
+          {
+            "bytes": 82,
+            "seconds": 3.996535284037236,
+            "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+            "status": 503
+          },
+          {
+            "bytes": 82,
+            "seconds": 5.83614089601906,
+            "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+            "status": 503
+          },
+          {
+            "bytes": 82,
+            "seconds": 5.812570144946221,
+            "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+            "status": 503
+          },
+          {
+            "bytes": 5150,
+            "seconds": 8.890446019009687,
+            "sha256": "5000a186e4170bc44fcc10a7d13083564f97c4c6d55a3ef31c668652940b4b68",
+            "status": 200
+          },
+          {
+            "bytes": 24011,
+            "seconds": 8.867635079019237,
+            "sha256": "cc083b5d20fb07bcbaf5d2fd958ff8114c7310c5bd1f43317c17f9703d3d1df0",
+            "status": 200
+          },
+          {
+            "bytes": 82,
+            "seconds": 3.907927774998825,
+            "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+            "status": 503
+          },
+          {
+            "bytes": 580,
+            "seconds": 4.967422220972367,
+            "sha256": "4ee6cec67728e9effa5f052953a914bf019fb6d1958680494a37653ec7117ff1",
+            "status": 200
+          },
+          {
+            "bytes": 1295,
+            "seconds": 7.639235931972507,
+            "sha256": "16486b2ed2639e75369cf91a508e70c51815941b42ba767ec425730edfa97377",
+            "status": 200
+          },
+          {
+            "bytes": 18905,
+            "seconds": 4.954494122997858,
+            "sha256": "9acbeb564862b2464a743310800d6bacc6ad5c73f87e5661dcbd98c346b14901",
+            "status": 200
+          }
+        ],
+        "running_accepted_count": 2,
+        "test_pause": false,
+        "transient_503_count": 6,
+        "verified_TLS": true
+      },
+      "observed-completed": {
+        "attempts": [
+          {
+            "actual_scram": true,
+            "attempt": 1,
+            "calls": {
+              "RHS": 94,
+              "advance": 3,
+              "event": 3,
+              "prepare_binding": 3,
+              "prepare_context": 3,
+              "restore": 2,
+              "start": 1,
+              "step": 16
+            },
+            "state": "succeeded"
+          }
+        ],
+        "events": [
+          {
+            "event": "started",
+            "version": 1
+          },
+          {
+            "attempt": 1,
+            "event": "attempt",
+            "job_id": "9f054df8-b470-45f8-8272-2193d94dc7c2",
+            "reason_code": "completed",
+            "state": "succeeded",
+            "version": 1
+          },
+          {
+            "event": "stopped",
+            "version": 1
+          }
+        ],
+        "observations": [
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "accepted",
+            "reference": {
+              "checkpoint": {
+                "artifact_sha256": null,
+                "checkpoint_recorded_at": "2026-10-10T11:13:20.473004Z",
+                "computed_through_utc": "2026-10-01T00:00:14.123456Z",
+                "counts": {
+                  "events": 1,
+                  "samples": 1
+                },
+                "head_sha256": "1f8bd1c0caf7b9a76d55f5895024694c6f1d60543454c68120694841da77719a",
+                "planned_steps": 16,
+                "proof_sha256": "0343d7073c23a0404afadf764744fff440953844fd4f81bc3dac112545463cec",
+                "publication_sequence": 1,
+                "status": "yielded",
+                "steps": 7
+              },
+              "checkpoint_attempt": 1,
+              "farm": {
+                "batch_id": "batch-1",
+                "crop_id": "crop-1",
+                "registration_sha256": "376730836c3b1439511547b6abffaff8f3275e97212099fe08904f9213bfdf88",
+                "scenario_id": "farm-1",
+                "scenario_revision": "r1",
+                "zone_id": "zone-1"
+              },
+              "input": {
+                "context_sha256": "83a7f22f781200971064c10f04dcc89a614ff994daecda5bd28ce674fe4adbbc",
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "evidence_sha256": "f77ba1b7951c6416dd56195f544b6ae333596c2d4c696a730f22ece207187bd6",
+                "program_id": "synthetic-joint-warm-day",
+                "source_sha256": "6dfbe10947ab18417d23bd5da4c63eea28e123b9bcada04506aeb714d97608a4",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "time_binding_sha256": "44a9c1ab5e8a400b148f24c806e3c4f7a3466cb4423dcd9e1e846e8668d28d97"
+              },
+              "manifest": {
+                "clock_contract": "elapsed-grid-shared-rk4-events-v1",
+                "identity": {
+                  "byteorder": "little",
+                  "component_code_sha256": {
+                    "crop_canopy_energy_transport": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+                    "crop_canopy_exchange": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+                    "crop_fruit_allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+                    "crop_fruit_cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+                    "crop_fruit_startup": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+                    "crop_fruit_transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+                    "crop_growth_rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+                    "crop_plant_cohort_rates": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+                    "crop_plant_startup_rates": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756"
+                  },
+                  "driver_code_sha256": "336794d229602957e58f0976bdb735c0312f318d5570eb62b3fb30f2d4f5538b",
+                  "engine_code_sha256": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+                  "engine_version": "joint-crop-climate-continuation-research-v1",
+                  "float_mant_dig": 53,
+                  "float_radix": 2,
+                  "management_code_sha256": "deedd9d1f8d04c6db63d88b8156f83ea43b3563234da073b756f448aaa203255",
+                  "physical_clock_contract": "dynamic-canopy-temperature-history-rhs-v1",
+                  "platform_machine": "x86_64",
+                  "platform_system": "Linux",
+                  "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                  "profile_sha256": {
+                    "cohort": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+                    "exchange": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+                    "growth": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+                    "transport": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+                  },
+                  "python_version": "3.12.3",
+                  "rhs_code_sha256": "207ed32696b59f1ec8ce750db70bd10798c5c7ae8f78206df6038177e81124b8",
+                  "short_code_sha256": "b3311c32250474e5457049974c09e6c484425c8231517dffede222ea0c35b839",
+                  "state_schema": "crop-climate-stage-state-v1"
+                },
+                "initial_calculation_sha256": "6ecd2ff24eb59256c154ad52fda1c928aa9b24fbb110b6752a4381af627d124d",
+                "initial_rhs_sha256": "3b58b2d472fc2ee9095f0b94fff1dff6ac3ae65d0cbce9931149e0334bfd6de6",
+                "numerical": {
+                  "duration_seconds": 32.0,
+                  "method": "single-step-shared-rk4-kernel-events-v1",
+                  "quantity_rule": "cohort-decimal-rational-removal-v1",
+                  "roundoff_rule": "64-ulp-per-step-and-event-global-ledger-v1",
+                  "step_count": 16,
+                  "step_seconds": 2.0
+                },
+                "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                "program_sha256": "7de7956ccc4e7649bc16dc01d6c0a4207754a59a0322f6411c41cb5836725ff6",
+                "scope": "software_research_only"
+              },
+              "revision": "r1",
+              "selector": {
+                "head_sha256": "1f8bd1c0caf7b9a76d55f5895024694c6f1d60543454c68120694841da77719a",
+                "proof_sha256": "0343d7073c23a0404afadf764744fff440953844fd4f81bc3dac112545463cec",
+                "publication_sequence": 1
+              },
+              "study_id": "joint-study",
+              "time_grid": {
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "step_count": 16,
+                "step_microseconds": 2000000,
+                "step_seconds_decimal": "2.0",
+                "time_code_sha256": "946680379e482cbcff63bb6fb60421f9abf41c108fb69667a52f38d22e502b9c",
+                "time_rule": "UTC_POSIX_integer_microseconds_decimal_step_v1",
+                "version": "joint-crop-climate-time-binding-research-v1"
+              }
+            },
+            "state": "simulating",
+            "status": 200,
+            "summary": {
+              "counts": {
+                "events": 1,
+                "samples": 1
+              },
+              "last_event_utc": "2026-10-01T00:00:00.123456Z",
+              "last_sample_utc": "2026-10-01T00:00:00.123456Z"
+            }
+          },
+          {
+            "page_samples": 1,
+            "selector": {
+              "head_sha256": "1f8bd1c0caf7b9a76d55f5895024694c6f1d60543454c68120694841da77719a",
+              "proof_sha256": "0343d7073c23a0404afadf764744fff440953844fd4f81bc3dac112545463cec",
+              "publication_sequence": 1
+            },
+            "status": 200
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "prefix_status": "accepted",
+            "reference": {
+              "checkpoint": {
+                "artifact_sha256": null,
+                "checkpoint_recorded_at": "2026-10-10T11:13:39.468427Z",
+                "computed_through_utc": "2026-10-01T00:00:30.123456Z",
+                "counts": {
+                  "events": 2,
+                  "samples": 2
+                },
+                "head_sha256": "66e8d37c8caf183bf7d29b93538a4d14df3d760fd3fc2b5122c7422954c17e4f",
+                "planned_steps": 16,
+                "proof_sha256": "e78c4bdd0c680ce8f22ce42c054110a8c9da685be8f3ca93fb5d7cc0f1529168",
+                "publication_sequence": 2,
+                "status": "yielded",
+                "steps": 15
+              },
+              "checkpoint_attempt": 1,
+              "farm": {
+                "batch_id": "batch-1",
+                "crop_id": "crop-1",
+                "registration_sha256": "376730836c3b1439511547b6abffaff8f3275e97212099fe08904f9213bfdf88",
+                "scenario_id": "farm-1",
+                "scenario_revision": "r1",
+                "zone_id": "zone-1"
+              },
+              "input": {
+                "context_sha256": "83a7f22f781200971064c10f04dcc89a614ff994daecda5bd28ce674fe4adbbc",
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "evidence_sha256": "f77ba1b7951c6416dd56195f544b6ae333596c2d4c696a730f22ece207187bd6",
+                "program_id": "synthetic-joint-warm-day",
+                "source_sha256": "6dfbe10947ab18417d23bd5da4c63eea28e123b9bcada04506aeb714d97608a4",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "time_binding_sha256": "44a9c1ab5e8a400b148f24c806e3c4f7a3466cb4423dcd9e1e846e8668d28d97"
+              },
+              "manifest": {
+                "clock_contract": "elapsed-grid-shared-rk4-events-v1",
+                "identity": {
+                  "byteorder": "little",
+                  "component_code_sha256": {
+                    "crop_canopy_energy_transport": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+                    "crop_canopy_exchange": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+                    "crop_fruit_allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+                    "crop_fruit_cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+                    "crop_fruit_startup": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+                    "crop_fruit_transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+                    "crop_growth_rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+                    "crop_plant_cohort_rates": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+                    "crop_plant_startup_rates": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756"
+                  },
+                  "driver_code_sha256": "336794d229602957e58f0976bdb735c0312f318d5570eb62b3fb30f2d4f5538b",
+                  "engine_code_sha256": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+                  "engine_version": "joint-crop-climate-continuation-research-v1",
+                  "float_mant_dig": 53,
+                  "float_radix": 2,
+                  "management_code_sha256": "deedd9d1f8d04c6db63d88b8156f83ea43b3563234da073b756f448aaa203255",
+                  "physical_clock_contract": "dynamic-canopy-temperature-history-rhs-v1",
+                  "platform_machine": "x86_64",
+                  "platform_system": "Linux",
+                  "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                  "profile_sha256": {
+                    "cohort": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+                    "exchange": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+                    "growth": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+                    "transport": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+                  },
+                  "python_version": "3.12.3",
+                  "rhs_code_sha256": "207ed32696b59f1ec8ce750db70bd10798c5c7ae8f78206df6038177e81124b8",
+                  "short_code_sha256": "b3311c32250474e5457049974c09e6c484425c8231517dffede222ea0c35b839",
+                  "state_schema": "crop-climate-stage-state-v1"
+                },
+                "initial_calculation_sha256": "6ecd2ff24eb59256c154ad52fda1c928aa9b24fbb110b6752a4381af627d124d",
+                "initial_rhs_sha256": "3b58b2d472fc2ee9095f0b94fff1dff6ac3ae65d0cbce9931149e0334bfd6de6",
+                "numerical": {
+                  "duration_seconds": 32.0,
+                  "method": "single-step-shared-rk4-kernel-events-v1",
+                  "quantity_rule": "cohort-decimal-rational-removal-v1",
+                  "roundoff_rule": "64-ulp-per-step-and-event-global-ledger-v1",
+                  "step_count": 16,
+                  "step_seconds": 2.0
+                },
+                "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                "program_sha256": "7de7956ccc4e7649bc16dc01d6c0a4207754a59a0322f6411c41cb5836725ff6",
+                "scope": "software_research_only"
+              },
+              "revision": "r1",
+              "selector": {
+                "head_sha256": "66e8d37c8caf183bf7d29b93538a4d14df3d760fd3fc2b5122c7422954c17e4f",
+                "proof_sha256": "e78c4bdd0c680ce8f22ce42c054110a8c9da685be8f3ca93fb5d7cc0f1529168",
+                "publication_sequence": 2
+              },
+              "study_id": "joint-study",
+              "time_grid": {
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "step_count": 16,
+                "step_microseconds": 2000000,
+                "step_seconds_decimal": "2.0",
+                "time_code_sha256": "946680379e482cbcff63bb6fb60421f9abf41c108fb69667a52f38d22e502b9c",
+                "time_rule": "UTC_POSIX_integer_microseconds_decimal_step_v1",
+                "version": "joint-crop-climate-time-binding-research-v1"
+              }
+            },
+            "state": "simulating",
+            "status": 200,
+            "summary": {
+              "counts": {
+                "events": 2,
+                "samples": 2
+              },
+              "last_event_utc": "2026-10-01T00:00:16.123456Z",
+              "last_sample_utc": "2026-10-01T00:00:16.123456Z"
+            }
+          },
+          {
+            "page_samples": 2,
+            "selector": {
+              "head_sha256": "66e8d37c8caf183bf7d29b93538a4d14df3d760fd3fc2b5122c7422954c17e4f",
+              "proof_sha256": "e78c4bdd0c680ce8f22ce42c054110a8c9da685be8f3ca93fb5d7cc0f1529168",
+              "publication_sequence": 2
+            },
+            "status": 200
+          },
+          {
+            "status": 503
+          },
+          {
+            "prefix_status": "closed",
+            "reference": null,
+            "state": "succeeded",
+            "status": 200,
+            "summary": null
+          }
+        ]
+      }
+    },
+    "focused-runtime-remaining-v1": {
+      "automatic-hold": {
+        "actual_scram": true,
+        "attempts": [
+          {
+            "actual_scram": true,
+            "attempt": 1,
+            "calls": {
+              "RHS": 93,
+              "advance": 3,
+              "event": 3,
+              "prepare_binding": 3,
+              "prepare_context": 3,
+              "restore": 2,
+              "start": 1,
+              "step": 16
+            },
+            "state": "hold"
+          }
+        ],
+        "automatic_independent_worker": true,
+        "chunk_budget": 8,
+        "events": [
+          {
+            "event": "started",
+            "version": 1
+          },
+          {
+            "attempt": 1,
+            "event": "attempt",
+            "job_id": "d5fac391-4732-4b47-a575-b6372674ed9b",
+            "reason_code": "joint_numerical_hold",
+            "state": "hold",
+            "version": 1
+          },
+          {
+            "event": "stopped",
+            "version": 1
+          }
+        ],
+        "observations": [
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "accepted",
+            "reference": {
+              "checkpoint": {
+                "artifact_sha256": null,
+                "checkpoint_recorded_at": "2026-10-10T11:16:31.338286Z",
+                "computed_through_utc": "2026-10-01T00:00:14.123456Z",
+                "counts": {
+                  "events": 1,
+                  "samples": 1
+                },
+                "head_sha256": "9405f37b0307711174c7e10e3dd30da7f298a10d6931d3a31c0d79c148cfb43b",
+                "planned_steps": 16,
+                "proof_sha256": "237c9912a6f9b4d9098dd58cc42999bce664870f4bc53c55dbc1829dcf77445b",
+                "publication_sequence": 1,
+                "status": "yielded",
+                "steps": 7
+              },
+              "checkpoint_attempt": 1,
+              "farm": {
+                "batch_id": "batch-1",
+                "crop_id": "crop-1",
+                "registration_sha256": "588e6ecce652445287a164a6c616649b1b7d4bb05a496952de3bd30908485ed9",
+                "scenario_id": "farm-1",
+                "scenario_revision": "r1",
+                "zone_id": "zone-1"
+              },
+              "input": {
+                "context_sha256": "25fa291f05e71915aef2fd6277f300217038f22464064bb070a56902ba30020d",
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "evidence_sha256": "8217a0d743644db0a3757d5f478a9898f88152812a98f4c39d1ae0a8bbf16b96",
+                "program_id": "synthetic-joint-warm-day",
+                "source_sha256": "1c70e96e87fb06c446459e4c560ac7ce36f3e04d951eb62706ef853696e0e2c0",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "time_binding_sha256": "0f0a01246e126384280edd0a6de9a41ce0865b2c2d0928dfce287afae38774f4"
+              },
+              "manifest": {
+                "clock_contract": "elapsed-grid-shared-rk4-events-v1",
+                "identity": {
+                  "byteorder": "little",
+                  "component_code_sha256": {
+                    "crop_canopy_energy_transport": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+                    "crop_canopy_exchange": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+                    "crop_fruit_allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+                    "crop_fruit_cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+                    "crop_fruit_startup": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+                    "crop_fruit_transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+                    "crop_growth_rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+                    "crop_plant_cohort_rates": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+                    "crop_plant_startup_rates": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756"
+                  },
+                  "driver_code_sha256": "336794d229602957e58f0976bdb735c0312f318d5570eb62b3fb30f2d4f5538b",
+                  "engine_code_sha256": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+                  "engine_version": "joint-crop-climate-continuation-research-v1",
+                  "float_mant_dig": 53,
+                  "float_radix": 2,
+                  "management_code_sha256": "deedd9d1f8d04c6db63d88b8156f83ea43b3563234da073b756f448aaa203255",
+                  "physical_clock_contract": "dynamic-canopy-temperature-history-rhs-v1",
+                  "platform_machine": "x86_64",
+                  "platform_system": "Linux",
+                  "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                  "profile_sha256": {
+                    "cohort": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+                    "exchange": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+                    "growth": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+                    "transport": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+                  },
+                  "python_version": "3.12.3",
+                  "rhs_code_sha256": "207ed32696b59f1ec8ce750db70bd10798c5c7ae8f78206df6038177e81124b8",
+                  "short_code_sha256": "b3311c32250474e5457049974c09e6c484425c8231517dffede222ea0c35b839",
+                  "state_schema": "crop-climate-stage-state-v1"
+                },
+                "initial_calculation_sha256": "6ecd2ff24eb59256c154ad52fda1c928aa9b24fbb110b6752a4381af627d124d",
+                "initial_rhs_sha256": "3b58b2d472fc2ee9095f0b94fff1dff6ac3ae65d0cbce9931149e0334bfd6de6",
+                "numerical": {
+                  "duration_seconds": 32.0,
+                  "method": "single-step-shared-rk4-kernel-events-v1",
+                  "quantity_rule": "cohort-decimal-rational-removal-v1",
+                  "roundoff_rule": "64-ulp-per-step-and-event-global-ledger-v1",
+                  "step_count": 16,
+                  "step_seconds": 2.0
+                },
+                "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                "program_sha256": "8a7f6630d5e68f7bdcc2a87527b0e47641c8e7ff68bc4dcbb14684505a2ff961",
+                "scope": "software_research_only"
+              },
+              "revision": "r1",
+              "selector": {
+                "head_sha256": "9405f37b0307711174c7e10e3dd30da7f298a10d6931d3a31c0d79c148cfb43b",
+                "proof_sha256": "237c9912a6f9b4d9098dd58cc42999bce664870f4bc53c55dbc1829dcf77445b",
+                "publication_sequence": 1
+              },
+              "study_id": "joint-study",
+              "time_grid": {
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "step_count": 16,
+                "step_microseconds": 2000000,
+                "step_seconds_decimal": "2.0",
+                "time_code_sha256": "946680379e482cbcff63bb6fb60421f9abf41c108fb69667a52f38d22e502b9c",
+                "time_rule": "UTC_POSIX_integer_microseconds_decimal_step_v1",
+                "version": "joint-crop-climate-time-binding-research-v1"
+              }
+            },
+            "state": "simulating",
+            "status": 200,
+            "summary": {
+              "counts": {
+                "events": 1,
+                "samples": 1
+              },
+              "last_event_utc": "2026-10-01T00:00:00.123456Z",
+              "last_sample_utc": "2026-10-01T00:00:00.123456Z"
+            }
+          },
+          {
+            "page_samples": 1,
+            "selector": {
+              "head_sha256": "9405f37b0307711174c7e10e3dd30da7f298a10d6931d3a31c0d79c148cfb43b",
+              "proof_sha256": "237c9912a6f9b4d9098dd58cc42999bce664870f4bc53c55dbc1829dcf77445b",
+              "publication_sequence": 1
+            },
+            "status": 200
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "prefix_status": "accepted",
+            "reference": {
+              "checkpoint": {
+                "artifact_sha256": null,
+                "checkpoint_recorded_at": "2026-10-10T11:16:50.287594Z",
+                "computed_through_utc": "2026-10-01T00:00:30.123456Z",
+                "counts": {
+                  "events": 2,
+                  "samples": 2
+                },
+                "head_sha256": "763750d9a98b103a7628b6e186e2f52136a56d2005279748e4ef3ab597cd0bc8",
+                "planned_steps": 16,
+                "proof_sha256": "756ef744255ef9123fa6ff14816f59b07e680a144411572f153a22bb5b40ddf4",
+                "publication_sequence": 2,
+                "status": "yielded",
+                "steps": 15
+              },
+              "checkpoint_attempt": 1,
+              "farm": {
+                "batch_id": "batch-1",
+                "crop_id": "crop-1",
+                "registration_sha256": "588e6ecce652445287a164a6c616649b1b7d4bb05a496952de3bd30908485ed9",
+                "scenario_id": "farm-1",
+                "scenario_revision": "r1",
+                "zone_id": "zone-1"
+              },
+              "input": {
+                "context_sha256": "25fa291f05e71915aef2fd6277f300217038f22464064bb070a56902ba30020d",
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "evidence_sha256": "8217a0d743644db0a3757d5f478a9898f88152812a98f4c39d1ae0a8bbf16b96",
+                "program_id": "synthetic-joint-warm-day",
+                "source_sha256": "1c70e96e87fb06c446459e4c560ac7ce36f3e04d951eb62706ef853696e0e2c0",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "time_binding_sha256": "0f0a01246e126384280edd0a6de9a41ce0865b2c2d0928dfce287afae38774f4"
+              },
+              "manifest": {
+                "clock_contract": "elapsed-grid-shared-rk4-events-v1",
+                "identity": {
+                  "byteorder": "little",
+                  "component_code_sha256": {
+                    "crop_canopy_energy_transport": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+                    "crop_canopy_exchange": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+                    "crop_fruit_allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+                    "crop_fruit_cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+                    "crop_fruit_startup": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+                    "crop_fruit_transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+                    "crop_growth_rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+                    "crop_plant_cohort_rates": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+                    "crop_plant_startup_rates": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756"
+                  },
+                  "driver_code_sha256": "336794d229602957e58f0976bdb735c0312f318d5570eb62b3fb30f2d4f5538b",
+                  "engine_code_sha256": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+                  "engine_version": "joint-crop-climate-continuation-research-v1",
+                  "float_mant_dig": 53,
+                  "float_radix": 2,
+                  "management_code_sha256": "deedd9d1f8d04c6db63d88b8156f83ea43b3563234da073b756f448aaa203255",
+                  "physical_clock_contract": "dynamic-canopy-temperature-history-rhs-v1",
+                  "platform_machine": "x86_64",
+                  "platform_system": "Linux",
+                  "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                  "profile_sha256": {
+                    "cohort": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+                    "exchange": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+                    "growth": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+                    "transport": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+                  },
+                  "python_version": "3.12.3",
+                  "rhs_code_sha256": "207ed32696b59f1ec8ce750db70bd10798c5c7ae8f78206df6038177e81124b8",
+                  "short_code_sha256": "b3311c32250474e5457049974c09e6c484425c8231517dffede222ea0c35b839",
+                  "state_schema": "crop-climate-stage-state-v1"
+                },
+                "initial_calculation_sha256": "6ecd2ff24eb59256c154ad52fda1c928aa9b24fbb110b6752a4381af627d124d",
+                "initial_rhs_sha256": "3b58b2d472fc2ee9095f0b94fff1dff6ac3ae65d0cbce9931149e0334bfd6de6",
+                "numerical": {
+                  "duration_seconds": 32.0,
+                  "method": "single-step-shared-rk4-kernel-events-v1",
+                  "quantity_rule": "cohort-decimal-rational-removal-v1",
+                  "roundoff_rule": "64-ulp-per-step-and-event-global-ledger-v1",
+                  "step_count": 16,
+                  "step_seconds": 2.0
+                },
+                "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                "program_sha256": "8a7f6630d5e68f7bdcc2a87527b0e47641c8e7ff68bc4dcbb14684505a2ff961",
+                "scope": "software_research_only"
+              },
+              "revision": "r1",
+              "selector": {
+                "head_sha256": "763750d9a98b103a7628b6e186e2f52136a56d2005279748e4ef3ab597cd0bc8",
+                "proof_sha256": "756ef744255ef9123fa6ff14816f59b07e680a144411572f153a22bb5b40ddf4",
+                "publication_sequence": 2
+              },
+              "study_id": "joint-study",
+              "time_grid": {
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "step_count": 16,
+                "step_microseconds": 2000000,
+                "step_seconds_decimal": "2.0",
+                "time_code_sha256": "946680379e482cbcff63bb6fb60421f9abf41c108fb69667a52f38d22e502b9c",
+                "time_rule": "UTC_POSIX_integer_microseconds_decimal_step_v1",
+                "version": "joint-crop-climate-time-binding-research-v1"
+              }
+            },
+            "state": "simulating",
+            "status": 200,
+            "summary": {
+              "counts": {
+                "events": 2,
+                "samples": 2
+              },
+              "last_event_utc": "2026-10-01T00:00:16.123456Z",
+              "last_sample_utc": "2026-10-01T00:00:16.123456Z"
+            }
+          },
+          {
+            "page_samples": 2,
+            "selector": {
+              "head_sha256": "763750d9a98b103a7628b6e186e2f52136a56d2005279748e4ef3ab597cd0bc8",
+              "proof_sha256": "756ef744255ef9123fa6ff14816f59b07e680a144411572f153a22bb5b40ddf4",
+              "publication_sequence": 2
+            },
+            "status": 200
+          },
+          {
+            "status": 503
+          },
+          {
+            "prefix_status": "closed",
+            "reference": null,
+            "state": "hold",
+            "status": 200,
+            "summary": null
+          }
+        ],
+        "original_terminal_bytes": true,
+        "process_exit": 0,
+        "read_calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "replies": [
+          {
+            "bytes": 237,
+            "seconds": 1.8505360119743273,
+            "sha256": "310fa54010b4697baebf8daf67f2796fefa4cc970dbfce01c897c298f335cc47",
+            "status": 202
+          },
+          {
+            "bytes": 575,
+            "seconds": 4.888325709034689,
+            "sha256": "f0c298367b80784c0a575969003ccc8adb0785f62af67838f68fff79a6ea5218",
+            "status": 200
+          },
+          {
+            "bytes": 82,
+            "seconds": 2.0488736070110463,
+            "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+            "status": 503
+          },
+          {
+            "bytes": 82,
+            "seconds": 4.007410706020892,
+            "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+            "status": 503
+          },
+          {
+            "bytes": 579,
+            "seconds": 5.080639337014873,
+            "sha256": "ce3b1bac465f95aca89b41eca307c98a1c4b8cd92013047d4f1ca22bff5c6406",
+            "status": 200
+          },
+          {
+            "bytes": 579,
+            "seconds": 5.027483220968861,
+            "sha256": "0301fb9785635840422b95da550a800a8d4f339ec647db48dd5f16ded58e99bb",
+            "status": 200
+          },
+          {
+            "bytes": 579,
+            "seconds": 5.022628282022197,
+            "sha256": "c59c18ffd21c57a017e4a9314e9e069d4f73cc56904ede775364881d23d423cf",
+            "status": 200
+          },
+          {
+            "bytes": 579,
+            "seconds": 5.068839473999105,
+            "sha256": "638cd227142ad1852d443e0138fa6961129573e00977bcd062bac364071a0e30",
+            "status": 200
+          },
+          {
+            "bytes": 5149,
+            "seconds": 8.874404543021228,
+            "sha256": "c8fefdb4b15249a08fcf2f0f07c20daf28a862dde1494910c49efe0a0ed9b4c7",
+            "status": 200
+          },
+          {
+            "bytes": 13682,
+            "seconds": 8.843877448001876,
+            "sha256": "63e632cb4505fb6b77e975259b2e9f7985feaee3390cb7a75519aeabaced14cc",
+            "status": 200
+          },
+          {
+            "bytes": 82,
+            "seconds": 3.9960530269891024,
+            "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+            "status": 503
+          },
+          {
+            "bytes": 82,
+            "seconds": 5.792958812031429,
+            "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+            "status": 503
+          },
+          {
+            "bytes": 82,
+            "seconds": 5.847469414002262,
+            "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+            "status": 503
+          },
+          {
+            "bytes": 5150,
+            "seconds": 8.907789401011541,
+            "sha256": "6a4512ae37093ecd6d446ea307410f5fda594c6910c10191c58d98b37f15b1ce",
+            "status": 200
+          },
+          {
+            "bytes": 24011,
+            "seconds": 8.840122649038676,
+            "sha256": "4c3aeecfe3ba5225fda28c4eed4ac862af2d440cce05a8561607992ebe253d04",
+            "status": 200
+          },
+          {
+            "bytes": 82,
+            "seconds": 3.9333690290222876,
+            "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+            "status": 503
+          },
+          {
+            "bytes": 593,
+            "seconds": 5.004831132013351,
+            "sha256": "7d25003a12cf54d14d1dabed6c731b9dda03485fe96c1e27c004898df7062f3c",
+            "status": 200
+          },
+          {
+            "bytes": 1298,
+            "seconds": 7.639726396999322,
+            "sha256": "5bc9511dd06234cbf8013c23b941e4c04a5590e628e179f0487c9916a5ff680f",
+            "status": 200
+          },
+          {
+            "bytes": 18996,
+            "seconds": 4.851787034014706,
+            "sha256": "2cfde510617db576f3a3c8540e2c26039822420510aaf7f7f437ccc140e77f3d",
+            "status": 200
+          }
+        ],
+        "running_accepted_count": 2,
+        "test_pause": false,
+        "transient_503_count": 6,
+        "verified_TLS": true
+      },
+      "cancel": {
+        "actual_scram": true,
+        "attempts": [
+          {
+            "actual_scram": true,
+            "attempt": 1,
+            "calls": {
+              "RHS": 0,
+              "advance": 0,
+              "event": 0,
+              "prepare_binding": 0,
+              "prepare_context": 0,
+              "restore": 0,
+              "start": 0,
+              "step": 0
+            },
+            "state": "canceled"
+          }
+        ],
+        "process_exit": 0,
+        "read_calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "replies": [
+          {
+            "bytes": 237,
+            "seconds": 1.9234268629807048,
+            "sha256": "5b9895f398afe63e2d3edd8f10fe922a64a5e41222f49f4ba313cb60344d459f",
+            "status": 202
+          },
+          {
+            "bytes": 463,
+            "seconds": 0.9932012589997612,
+            "sha256": "3cdad8888d00dab6cc882b50222bc47ca626f8c0394bd3f8d6f58e85b8a25804",
+            "status": 200
+          },
+          {
+            "bytes": 596,
+            "seconds": 4.952378052985296,
+            "sha256": "a4b8070766fd9ed7e693154bbcffc15a29bf19a46220eb503c186e0b170bdf69",
+            "status": 200
+          }
+        ],
+        "test_pause": false,
+        "verified_TLS": true,
+        "worker_acknowledged": true
+      },
+      "default-schema": {
+        "FD_unchanged": true,
+        "connections": 0,
+        "paths": 56,
+        "prefix_imports": 0,
+        "schemas": 262
+      },
+      "disabled": {
+        "actual_scram": true,
+        "installer_calls": 0,
+        "routes_absent": true,
+        "verified_TLS": true
+      },
+      "observed-hold": {
+        "attempts": [
+          {
+            "actual_scram": true,
+            "attempt": 1,
+            "calls": {
+              "RHS": 93,
+              "advance": 3,
+              "event": 3,
+              "prepare_binding": 3,
+              "prepare_context": 3,
+              "restore": 2,
+              "start": 1,
+              "step": 16
+            },
+            "state": "hold"
+          }
+        ],
+        "events": [
+          {
+            "event": "started",
+            "version": 1
+          },
+          {
+            "attempt": 1,
+            "event": "attempt",
+            "job_id": "d5fac391-4732-4b47-a575-b6372674ed9b",
+            "reason_code": "joint_numerical_hold",
+            "state": "hold",
+            "version": 1
+          },
+          {
+            "event": "stopped",
+            "version": 1
+          }
+        ],
+        "observations": [
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "none",
+            "reference": null,
+            "state": "simulating",
+            "status": 200,
+            "summary": null
+          },
+          {
+            "prefix_status": "accepted",
+            "reference": {
+              "checkpoint": {
+                "artifact_sha256": null,
+                "checkpoint_recorded_at": "2026-10-10T11:16:31.338286Z",
+                "computed_through_utc": "2026-10-01T00:00:14.123456Z",
+                "counts": {
+                  "events": 1,
+                  "samples": 1
+                },
+                "head_sha256": "9405f37b0307711174c7e10e3dd30da7f298a10d6931d3a31c0d79c148cfb43b",
+                "planned_steps": 16,
+                "proof_sha256": "237c9912a6f9b4d9098dd58cc42999bce664870f4bc53c55dbc1829dcf77445b",
+                "publication_sequence": 1,
+                "status": "yielded",
+                "steps": 7
+              },
+              "checkpoint_attempt": 1,
+              "farm": {
+                "batch_id": "batch-1",
+                "crop_id": "crop-1",
+                "registration_sha256": "588e6ecce652445287a164a6c616649b1b7d4bb05a496952de3bd30908485ed9",
+                "scenario_id": "farm-1",
+                "scenario_revision": "r1",
+                "zone_id": "zone-1"
+              },
+              "input": {
+                "context_sha256": "25fa291f05e71915aef2fd6277f300217038f22464064bb070a56902ba30020d",
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "evidence_sha256": "8217a0d743644db0a3757d5f478a9898f88152812a98f4c39d1ae0a8bbf16b96",
+                "program_id": "synthetic-joint-warm-day",
+                "source_sha256": "1c70e96e87fb06c446459e4c560ac7ce36f3e04d951eb62706ef853696e0e2c0",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "time_binding_sha256": "0f0a01246e126384280edd0a6de9a41ce0865b2c2d0928dfce287afae38774f4"
+              },
+              "manifest": {
+                "clock_contract": "elapsed-grid-shared-rk4-events-v1",
+                "identity": {
+                  "byteorder": "little",
+                  "component_code_sha256": {
+                    "crop_canopy_energy_transport": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+                    "crop_canopy_exchange": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+                    "crop_fruit_allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+                    "crop_fruit_cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+                    "crop_fruit_startup": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+                    "crop_fruit_transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+                    "crop_growth_rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+                    "crop_plant_cohort_rates": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+                    "crop_plant_startup_rates": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756"
+                  },
+                  "driver_code_sha256": "336794d229602957e58f0976bdb735c0312f318d5570eb62b3fb30f2d4f5538b",
+                  "engine_code_sha256": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+                  "engine_version": "joint-crop-climate-continuation-research-v1",
+                  "float_mant_dig": 53,
+                  "float_radix": 2,
+                  "management_code_sha256": "deedd9d1f8d04c6db63d88b8156f83ea43b3563234da073b756f448aaa203255",
+                  "physical_clock_contract": "dynamic-canopy-temperature-history-rhs-v1",
+                  "platform_machine": "x86_64",
+                  "platform_system": "Linux",
+                  "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                  "profile_sha256": {
+                    "cohort": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+                    "exchange": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+                    "growth": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+                    "transport": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+                  },
+                  "python_version": "3.12.3",
+                  "rhs_code_sha256": "207ed32696b59f1ec8ce750db70bd10798c5c7ae8f78206df6038177e81124b8",
+                  "short_code_sha256": "b3311c32250474e5457049974c09e6c484425c8231517dffede222ea0c35b839",
+                  "state_schema": "crop-climate-stage-state-v1"
+                },
+                "initial_calculation_sha256": "6ecd2ff24eb59256c154ad52fda1c928aa9b24fbb110b6752a4381af627d124d",
+                "initial_rhs_sha256": "3b58b2d472fc2ee9095f0b94fff1dff6ac3ae65d0cbce9931149e0334bfd6de6",
+                "numerical": {
+                  "duration_seconds": 32.0,
+                  "method": "single-step-shared-rk4-kernel-events-v1",
+                  "quantity_rule": "cohort-decimal-rational-removal-v1",
+                  "roundoff_rule": "64-ulp-per-step-and-event-global-ledger-v1",
+                  "step_count": 16,
+                  "step_seconds": 2.0
+                },
+                "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                "program_sha256": "8a7f6630d5e68f7bdcc2a87527b0e47641c8e7ff68bc4dcbb14684505a2ff961",
+                "scope": "software_research_only"
+              },
+              "revision": "r1",
+              "selector": {
+                "head_sha256": "9405f37b0307711174c7e10e3dd30da7f298a10d6931d3a31c0d79c148cfb43b",
+                "proof_sha256": "237c9912a6f9b4d9098dd58cc42999bce664870f4bc53c55dbc1829dcf77445b",
+                "publication_sequence": 1
+              },
+              "study_id": "joint-study",
+              "time_grid": {
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "step_count": 16,
+                "step_microseconds": 2000000,
+                "step_seconds_decimal": "2.0",
+                "time_code_sha256": "946680379e482cbcff63bb6fb60421f9abf41c108fb69667a52f38d22e502b9c",
+                "time_rule": "UTC_POSIX_integer_microseconds_decimal_step_v1",
+                "version": "joint-crop-climate-time-binding-research-v1"
+              }
+            },
+            "state": "simulating",
+            "status": 200,
+            "summary": {
+              "counts": {
+                "events": 1,
+                "samples": 1
+              },
+              "last_event_utc": "2026-10-01T00:00:00.123456Z",
+              "last_sample_utc": "2026-10-01T00:00:00.123456Z"
+            }
+          },
+          {
+            "page_samples": 1,
+            "selector": {
+              "head_sha256": "9405f37b0307711174c7e10e3dd30da7f298a10d6931d3a31c0d79c148cfb43b",
+              "proof_sha256": "237c9912a6f9b4d9098dd58cc42999bce664870f4bc53c55dbc1829dcf77445b",
+              "publication_sequence": 1
+            },
+            "status": 200
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "status": 503
+          },
+          {
+            "prefix_status": "accepted",
+            "reference": {
+              "checkpoint": {
+                "artifact_sha256": null,
+                "checkpoint_recorded_at": "2026-10-10T11:16:50.287594Z",
+                "computed_through_utc": "2026-10-01T00:00:30.123456Z",
+                "counts": {
+                  "events": 2,
+                  "samples": 2
+                },
+                "head_sha256": "763750d9a98b103a7628b6e186e2f52136a56d2005279748e4ef3ab597cd0bc8",
+                "planned_steps": 16,
+                "proof_sha256": "756ef744255ef9123fa6ff14816f59b07e680a144411572f153a22bb5b40ddf4",
+                "publication_sequence": 2,
+                "status": "yielded",
+                "steps": 15
+              },
+              "checkpoint_attempt": 1,
+              "farm": {
+                "batch_id": "batch-1",
+                "crop_id": "crop-1",
+                "registration_sha256": "588e6ecce652445287a164a6c616649b1b7d4bb05a496952de3bd30908485ed9",
+                "scenario_id": "farm-1",
+                "scenario_revision": "r1",
+                "zone_id": "zone-1"
+              },
+              "input": {
+                "context_sha256": "25fa291f05e71915aef2fd6277f300217038f22464064bb070a56902ba30020d",
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "evidence_sha256": "8217a0d743644db0a3757d5f478a9898f88152812a98f4c39d1ae0a8bbf16b96",
+                "program_id": "synthetic-joint-warm-day",
+                "source_sha256": "1c70e96e87fb06c446459e4c560ac7ce36f3e04d951eb62706ef853696e0e2c0",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "time_binding_sha256": "0f0a01246e126384280edd0a6de9a41ce0865b2c2d0928dfce287afae38774f4"
+              },
+              "manifest": {
+                "clock_contract": "elapsed-grid-shared-rk4-events-v1",
+                "identity": {
+                  "byteorder": "little",
+                  "component_code_sha256": {
+                    "crop_canopy_energy_transport": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+                    "crop_canopy_exchange": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+                    "crop_fruit_allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+                    "crop_fruit_cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+                    "crop_fruit_startup": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+                    "crop_fruit_transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+                    "crop_growth_rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+                    "crop_plant_cohort_rates": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+                    "crop_plant_startup_rates": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756"
+                  },
+                  "driver_code_sha256": "336794d229602957e58f0976bdb735c0312f318d5570eb62b3fb30f2d4f5538b",
+                  "engine_code_sha256": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+                  "engine_version": "joint-crop-climate-continuation-research-v1",
+                  "float_mant_dig": 53,
+                  "float_radix": 2,
+                  "management_code_sha256": "deedd9d1f8d04c6db63d88b8156f83ea43b3563234da073b756f448aaa203255",
+                  "physical_clock_contract": "dynamic-canopy-temperature-history-rhs-v1",
+                  "platform_machine": "x86_64",
+                  "platform_system": "Linux",
+                  "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                  "profile_sha256": {
+                    "cohort": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+                    "exchange": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+                    "growth": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+                    "transport": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+                  },
+                  "python_version": "3.12.3",
+                  "rhs_code_sha256": "207ed32696b59f1ec8ce750db70bd10798c5c7ae8f78206df6038177e81124b8",
+                  "short_code_sha256": "b3311c32250474e5457049974c09e6c484425c8231517dffede222ea0c35b839",
+                  "state_schema": "crop-climate-stage-state-v1"
+                },
+                "initial_calculation_sha256": "6ecd2ff24eb59256c154ad52fda1c928aa9b24fbb110b6752a4381af627d124d",
+                "initial_rhs_sha256": "3b58b2d472fc2ee9095f0b94fff1dff6ac3ae65d0cbce9931149e0334bfd6de6",
+                "numerical": {
+                  "duration_seconds": 32.0,
+                  "method": "single-step-shared-rk4-kernel-events-v1",
+                  "quantity_rule": "cohort-decimal-rational-removal-v1",
+                  "roundoff_rule": "64-ulp-per-step-and-event-global-ledger-v1",
+                  "step_count": 16,
+                  "step_seconds": 2.0
+                },
+                "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+                "program_sha256": "8a7f6630d5e68f7bdcc2a87527b0e47641c8e7ff68bc4dcbb14684505a2ff961",
+                "scope": "software_research_only"
+              },
+              "revision": "r1",
+              "selector": {
+                "head_sha256": "763750d9a98b103a7628b6e186e2f52136a56d2005279748e4ef3ab597cd0bc8",
+                "proof_sha256": "756ef744255ef9123fa6ff14816f59b07e680a144411572f153a22bb5b40ddf4",
+                "publication_sequence": 2
+              },
+              "study_id": "joint-study",
+              "time_grid": {
+                "end_utc": "2026-10-01T00:00:32.123456Z",
+                "start_utc": "2026-10-01T00:00:00.123456Z",
+                "step_count": 16,
+                "step_microseconds": 2000000,
+                "step_seconds_decimal": "2.0",
+                "time_code_sha256": "946680379e482cbcff63bb6fb60421f9abf41c108fb69667a52f38d22e502b9c",
+                "time_rule": "UTC_POSIX_integer_microseconds_decimal_step_v1",
+                "version": "joint-crop-climate-time-binding-research-v1"
+              }
+            },
+            "state": "simulating",
+            "status": 200,
+            "summary": {
+              "counts": {
+                "events": 2,
+                "samples": 2
+              },
+              "last_event_utc": "2026-10-01T00:00:16.123456Z",
+              "last_sample_utc": "2026-10-01T00:00:16.123456Z"
+            }
+          },
+          {
+            "page_samples": 2,
+            "selector": {
+              "head_sha256": "763750d9a98b103a7628b6e186e2f52136a56d2005279748e4ef3ab597cd0bc8",
+              "proof_sha256": "756ef744255ef9123fa6ff14816f59b07e680a144411572f153a22bb5b40ddf4",
+              "publication_sequence": 2
+            },
+            "status": 200
+          },
+          {
+            "status": 503
+          },
+          {
+            "prefix_status": "closed",
+            "reference": null,
+            "state": "hold",
+            "status": 200,
+            "summary": null
+          }
+        ]
+      }
+    },
+    "regression-http-projection-config-v1": {
+      "actual-rights-cancel": {
+        "actual_scram": true,
+        "calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "cancel_closes_values": true,
+        "owner_cancel_without_read_or_display_rights": true,
+        "replies": [
+          {
+            "bytes": 84,
+            "seconds": 8.279967379989102,
+            "sha256": "8a1f3dc9cdbb5f2375a68cfb2a46a5cd23a63920a3af651ab6820785433be42d",
+            "status": 422
+          },
+          {
+            "bytes": 65,
+            "seconds": 0.002861800021491945,
+            "sha256": "1ae0610a2bc3c4299f75db4623b6163cb075b5bd5fc5f919848892c95a2b84d2",
+            "status": 403
+          },
+          {
+            "bytes": 463,
+            "seconds": 0.08048831799533218,
+            "sha256": "e174bf3530cae9dbaa458e93b0cf2afcce10b9523663e496bb411c2614e0f8ad",
+            "status": 200
+          },
+          {
+            "bytes": 580,
+            "seconds": 5.039692765043583,
+            "sha256": "01e2182e16fdc32ed06b800a58da0b4a44c5bb79a3ba1d25bf37a4806469252a",
+            "status": 200
+          }
+        ],
+        "rights_revoked_after_projection_422": true,
+        "verified_TLS": true
+      },
+      "actual-running": {
+        "DB_unchanged": true,
+        "actual_scram": true,
+        "calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "empty_end_and_ranges": true,
+        "immutable_read_while_writer_locked": true,
+        "missing_404": true,
+        "read_scopes_only": true,
+        "replies": [
+          {
+            "bytes": 575,
+            "seconds": 4.936225026962347,
+            "sha256": "febf0450a03a33bcba21def35d6b062b1fb0d65d4b3cd14fdb3a1bb5ad1086a2",
+            "status": 200
+          },
+          {
+            "bytes": 5149,
+            "seconds": 8.757631497981492,
+            "sha256": "cad4cd8e97f97eb4bef179cb0008a2bfe2ecdda83f6524047268c7305a439a01",
+            "status": 200
+          },
+          {
+            "bytes": 13682,
+            "seconds": 8.83732711902121,
+            "sha256": "27bce350438d73323d27cb3b7053532b8e634ee7078eef81cbf5c6418024fc27",
+            "status": 200
+          },
+          {
+            "bytes": 25087,
+            "seconds": 8.587053887022194,
+            "sha256": "eeb269374a4cc964ed6089dded7e399a5f794e673a16b8f6d37c420693bc7e87",
+            "status": 200
+          },
+          {
+            "bytes": 5100,
+            "seconds": 8.78493416501442,
+            "sha256": "137b1bbe4c0843be50a0bcc72a41ce452a807aa9932a8c749580c8a112af05fd",
+            "status": 200
+          },
+          {
+            "bytes": 64,
+            "seconds": 1.9536588169867173,
+            "sha256": "f5379d1a75ee7259a8d2cac2fe720ba04689013c8def6d3d6a063aad05effffa",
+            "status": 422
+          },
+          {
+            "bytes": 99,
+            "seconds": 1.0030464259907603,
+            "sha256": "b375fecb7f297e3a386789c058d7c5127868039420d5d1e970f67e9d8deb0007",
+            "status": 409
+          },
+          {
+            "bytes": 65,
+            "seconds": 0.08931674802443013,
+            "sha256": "8bce149de4552b06341a4a188cc344595250231209723e4eebfa52064987dc9e",
+            "status": 404
+          },
+          {
+            "bytes": 5149,
+            "seconds": 8.66391924401978,
+            "sha256": "97a219514c29868cd62491f4bcc5265c66bfb5b38a74f3a1add82c1e0e0cc424",
+            "status": 200
+          }
+        ],
+        "same_original_projection_wire": true,
+        "selector_and_UTC": true,
+        "unaccepted_selector_409": true,
+        "verified_TLS": true
+      },
+      "database-cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "original": {
+        "FD_unchanged": true,
+        "authenticated_current_read": false,
+        "calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "canonical_payload_bytes": {
+          "events": 72874,
+          "samples": 34365,
+          "summary": 5176
+        },
+        "fresh": {
+          "authenticated_current_read": false,
+          "calls": {
+            "RHS": 0,
+            "_put_in_transaction": 0,
+            "advance": 0,
+            "confirm": 0,
+            "event": 0,
+            "jobs._durable_artifact": 0,
+            "jobs._event": 0,
+            "jobs._insert_publication": 0,
+            "jobs._outcome": 0,
+            "jobs.ack_cancel": 0,
+            "jobs.cancel": 0,
+            "jobs.claim": 0,
+            "jobs.fail": 0,
+            "jobs.renew": 0,
+            "jobs.submit": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "put": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "same_original_public_responses": true
+        },
+        "original_values_units_UTC": true,
+        "private_fields_absent": true,
+        "unregistered_projection_fixture": true
+      },
+      "schema": {
+        "actual_serialized_UTF8_cap": 2097152,
+        "array_length": 50,
+        "closed_allowlists": true,
+        "discriminators": [
+          "none",
+          "closed",
+          "accepted"
+        ],
+        "serialization_fault_injection": true
+      }
+    },
+    "regression-reader-v2-security": {
+      "boundaries": {
+        "DB_unchanged": true,
+        "calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "immutable_read_while_writer_locked": true,
+        "invalid_shapes_ranges_limits_rejected": true,
+        "missing_and_unstarted": true,
+        "reader_lock_calls": 0,
+        "unaccepted_selector_rejected": true
+      },
+      "concurrent-cancel": {
+        "DB_delta_is_intentional_external_cancel": true,
+        "external_process": {
+          "actual_scram": true,
+          "external_cancel_accepted": true
+        },
+        "mixed_snapshot_rejected": true,
+        "reader_calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        }
+      },
+      "database-cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "older": {
+        "DB_unchanged": true,
+        "calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "earliest_attempt_and_time_preserved": true,
+        "fresh": {
+          "DB_unchanged": true,
+          "actual_scram": true,
+          "calls": {
+            "RHS": 0,
+            "_put_in_transaction": 0,
+            "advance": 0,
+            "confirm": 0,
+            "event": 0,
+            "jobs._durable_artifact": 0,
+            "jobs._event": 0,
+            "jobs._insert_publication": 0,
+            "jobs._outcome": 0,
+            "jobs.ack_cancel": 0,
+            "jobs.cancel": 0,
+            "jobs.claim": 0,
+            "jobs.fail": 0,
+            "jobs.renew": 0,
+            "jobs.submit": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "put": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "same_original_record_except_observation": true
+        },
+        "new_publication_sequence": 2,
+        "old_selector": {
+          "head_sha256": "ee2451da62c8635183b88b6e4b8cc62e410b25b7c52e32e29aba6dda00537cef",
+          "proof_sha256": "d1543989c52177fe80d1ca87a3a88ed1948779d8bdfce77666280c3adc967ecf",
+          "publication_sequence": 1
+        },
+        "private_tail_not_adopted": true
+      },
+      "rights": {
+        "DB_unchanged": true,
+        "calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "late_revocation_rejected": true,
+        "read_without_write_or_execute_scope": true,
+        "review_revoked_rejected": true,
+        "scope_rejections": 2,
+        "source_rights_revoked_rejected": true
+      },
+      "rollback": {
+        "DB_unchanged": true,
+        "calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "old_selector_works_after_HEAD_restored": true,
+        "valid_signed_rollback_rejected_for_latest_and_old_selector": true
+      },
+      "tampering": {
+        "DB_unchanged": true,
+        "calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "original_owned_files_restored": true,
+        "rejected": [
+          "intent",
+          "proof",
+          "HEAD",
+          "commit",
+          "sample"
+        ]
+      }
+    }
+  },
+  "user_deployment": false,
+  "worker_test_pause": false
+}

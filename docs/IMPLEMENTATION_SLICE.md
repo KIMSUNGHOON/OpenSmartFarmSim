@@ -87,7 +87,8 @@ E4는 core6cf4eaf·새24/관련4=고유28검사에서 원108상태/UTC·취소/�
 [확정 prefix 계약](../contracts/crop-climate-joint-prefix-view-v1.md) 뒤 [P1 원 페이지/DB reader](../research/crop-climate-joint-prefix-reader-implementation-20261010.md)를 실제 SCRAM 고유12개·원 수치/UTC·fresh/철회/rollback·계산/쓰기0으로 수용했다.
 [P2 typed 공개 투영](../research/crop-climate-joint-prefix-projection-implementation-20261010.md)도 core376c774·고유44개·실제 SCRAM/fresh·원 수치/UTC·private 제외로 수용했다.
 [P3a 보호 API](../research/crop-climate-joint-prefix-http-implementation-20261010.md)도 core8da1776·고유110개·실제 SCRAM/TLS·현재 권리/늦은 취소·원 응답으로 수용했다.
-다음은 P3b 명시 runtime이다. 사용자 활성화/계산 중 성장3D/전체 U3 수용은 별도다.
+[P3b 명시 runtime/reader v2](../research/crop-climate-joint-prefix-runtime-implementation-20261010.md)도 고유185개·실제 unpaused 정상/hold/cancel·조회 잠금 충돌 수정·권리/서명/기존 계약으로 로컬 수용했다.
+다음은 P4 웹 reader다. 사용자 prefix 활성화/계산 중 성장3D/전체 U3 수용은 별도다.
 계산 중 prefix3D는 terminal 조회와 구분해 별도 수용하고, 온실 경계 조사/독립 자료 확보는 병행한다.
 전체 결합·실시간 U3·실제 자료/생산 관문은 미완료다.
 

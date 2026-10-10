@@ -82,7 +82,8 @@ core9f5c18d·고유17검사/실제 SCRAM·동시 중복/현재 권리·rollback�
 [P1 원 페이지 reader](../research/crop-climate-joint-prefix-reader-implementation-20261010.md)는 실제 SCRAM 고유12개·원 수치/UTC·현재 권리/계보·fresh·조회 계산/쓰기0으로 수용했다.
 [P2 공개 투영](../research/crop-climate-joint-prefix-projection-implementation-20261010.md)도 고유44개·실제 SCRAM/fresh·닫힌 응답/원 수치/UTC로 수용했다.
 [P3a 보호 API](../research/crop-climate-joint-prefix-http-implementation-20261010.md)도 고유110개·실제 SCRAM/TLS·원 응답/현재 권리·취소로 수용했다.
-다음은 P3b 명시 조립이며 사용자 runtime 활성화/계산 중3D는 미수용이다. 현재5173은 완료된 전체 저장 재생을 제공한다.
+[P3b 명시 조립/reader v2](../research/crop-climate-joint-prefix-runtime-implementation-20261010.md)도 고유185개·실제 unpaused 정상/hold/cancel·현재 권리/서명·기존 계약으로 로컬 수용했다. 조회 잠금이 계산 재시도를 소진한 실패를 재현·수정했다.
+다음은 P4 웹 reader이며 사용자 prefix 활성화/계산 중3D는 미수용이다. 현재5173은 완료된 전체 저장 재생을 제공하고5174는 진행 상태와 종료 후3D를 제공한다.
 자원 모듈 전체와 독립 자료 확보를 이 합성 접수의 선행 조건으로 두지 않는다.
 진행 상태 갱신→terminal 저장3D를 먼저 연결하며 계산 중 prefix3D는 별도 수용한다. 현재5173 실시간 연동은 미구현이다.
 [결합 계약](../contracts/crop-climate-coupling-v1.md)의 온실 경계 조사는 병행하며 실제 전체 작기·실시간 U3/관문은 미완료다.

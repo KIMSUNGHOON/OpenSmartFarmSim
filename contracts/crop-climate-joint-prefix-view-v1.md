@@ -1,6 +1,6 @@
 # 계산 중 확정 작물·기후 페이지 조회 v1
 
-상태: **P0 계약 완료·[P1 내부 reader/실제 SCRAM 수용](../research/crop-climate-joint-prefix-reader-implementation-20261010.md), [P2 공개 투영 수용](../research/crop-climate-joint-prefix-projection-implementation-20261010.md)·[P3a 명시 HTTP 수용](../research/crop-climate-joint-prefix-http-implementation-20261010.md), runtime/3D 미수용**. 기준 checkout은 `625baab6ff2ad68c36487b7caf4928584f94882b`, 검토일은2026-10-10이다.
+상태: **P0 계약 완료·[P1 내부 reader/실제 SCRAM 수용](../research/crop-climate-joint-prefix-reader-implementation-20261010.md), [P2 공개 투영 수용](../research/crop-climate-joint-prefix-projection-implementation-20261010.md)·[P3a 명시 HTTP 수용](../research/crop-climate-joint-prefix-http-implementation-20261010.md), [P3b runtime/reader v2 수용](../research/crop-climate-joint-prefix-runtime-implementation-20261010.md), 사용자 활성화/3D 미수용**. 기준 checkout은 `625baab6ff2ad68c36487b7caf4928584f94882b`, 검토일은2026-10-10이다.
 선행은 [실행/체크포인트](crop-execution-link-v1.md), [서명 이력](crop-climate-joint-server-custody-v1.md),
 [불변 페이지](crop-climate-joint-storage-v1.md), [완료 결과 투영](api-crop-climate-joint-replay-v1.md)과
 [E9b 사용자 연결](../research/crop-climate-joint-execution-user-preview-20261010.md)이다.
@@ -32,7 +32,7 @@ source 해시·심볼과 실제 native CLI 판단 근거는 [P0 기계 기록](.
    simulation_create/execute·작물 쓰기 권한을 읽기의 조건으로 추가하지 않는다.
 2. readonly repeatable-read DB snapshot에서 job/불변 입력과 전체 bounded 수용 이력을 검증한다.
    기본 선택은 최신 DB 수용 사건이다. 페이지 요청의 세 값은 **같은 job의 실제 수용 사건**과 모두 같아야 한다.
-3. 기존 nofollow·소유 directory·bounded regular file·잠금 경계 안에서 intent/binding/HMAC와 현재 서명 HEAD의 계보를 검증한다.
+3. 기존 nofollow·소유 directory·bounded regular file 경계에서 intent/binding/HMAC와 현재 서명 HEAD의 계보를 검증한다. P3b에서 실제 조회 잠금이 계산 재시도를 소진한 실패를 재현했으므로 reader v2는 계산의 배타 잠금을 취득하지 않는 불변 snapshot을 사용한다. 현재 signed intent/원 HEAD·DB의 전후 변경은 수치를 반환하지 않고503으로 재조회한다. 기존 writer/terminal reader의 잠금·입력/증명 형식은 유지한다.
    선택한 proof/HEAD가 그 계보의 실제 조상 또는 현재 HEAD인지 확인한다. 현재 HEAD가 뒤로 갔거나 선택 이력이 갈라졌으면 hold다.
 4. **선택한** HEAD로 원 header/commit/pages·checkpoint/counts/context/UTC/prefix를 검증한다.
    새 private tail이나 orphan/temp의 숫자는 반환하지 않는다. terminal SHA가 있는 선택이면 그 원 root도 대사하되 결과 registry를 만들지 않는다.
@@ -98,7 +98,7 @@ UUID/hash/sequence는 기존 canonical 규칙을 따른다. offset은0..선택 t
 끝 offset은 원 total과 빈 records/next_offset=null을 반환한다. UTF-8 전체 응답2MiB 이하·추가 query/중복 query/body 거부를 적용한다.
 현재 metadata+작물 읽기 scopes·요청 전후 인증과 `Cache-Control: no-store`, 기존 API 오류 envelope를 사용한다.
 잘못된 요청422, 인증401/범위403, 같은 tenant 대상 없음404,
-유효한 selector와 DB 수용 사건 불일치409, 현재 자료/선택 증거 거부422, 저장 잠금/전후 변경/운영 불가503이다.
+유효한 selector와 DB 수용 사건 불일치409, 현재 자료/선택 증거 거부422, 전후 변경/운영 불가503이다. reader v2는 불변 snapshot이 유효하면 writer 잠금만으로 거부하지 않는다.
 none의 page와 closed의 page도409로 수치를 반환하지 않는다. HMAC/변조/철회를503의 일시 대기로 바꾸지 않는다.
 새 경로는 명시 runtime 조립에서 같은 객체/factory/권한을 확인할 때만 켠다. 기존 설정의 생략/기본 비활성과 기존 API 응답은 보존한다.
 
