@@ -1,13 +1,15 @@
 # Joint crop/climate protected runtime v1
 
 This extends [API assembly](api-runtime-assembly-v1.md) for the existing
-[current HTTP reader](api-crop-climate-joint-route-v1.md). It assembles a reader;
-it does not execute a model, register results, adopt inputs, or approve G0–G4.
+[current HTTP reader](api-crop-climate-joint-route-v1.md). The base version assembles
+a reader; the explicit execution version is specified below. Assembly does not
+execute a model, register results, adopt inputs, or approve G0–G4.
 
 ## Explicit configuration
 
-`app.crop_climate_joint_operator_config.load_joint_api_runtime(path)` accepts
-only `operator-joint-crop-climate-api-config-v1`. Top-level fields and protected
+The reader configuration of
+`app.crop_climate_joint_operator_config.load_joint_api_runtime(path)` uses
+`operator-joint-crop-climate-api-config-v1`. Top-level fields and protected
 file rules are those of [operator configuration](operator-config-v1.md).
 `crop_climate_joint_result_storage` is a required exact boolean. Optional existing
 crop flags retain their defaults; `crop_cycle_calculation_result_storage` may
@@ -63,3 +65,44 @@ seed preparation. DB counts, input/config bytes, descriptors, owned temporary
 resources and the existing user preview must be preserved. Synthetic 32-second
 fixtures prove software wiring only; same-UTC 3D, live checkpoints/U3, full-cycle
 joint forcing, independent local evidence and production claims remain separate.
+
+## Explicit execution API assembly
+
+The same loader additionally accepts
+`operator-joint-crop-climate-execution-api-config-v1`. Its closed top-level fields
+are the reader version's fields plus required exact boolean
+`crop_climate_joint_execution`. True requires joint result storage and its existing
+cycle authority prerequisite. False disables execution. The reader version still
+rejects that extra field, and the legacy/calculation loaders reject the execution
+version. `ApiRuntimeConfig.crop_climate_joint_execution` defaults to False; no new
+SQL table, grant, migration or package is introduced.
+
+Enabled assembly derives `JointCropClimateExecutionService`,
+`JointExecutionCheckpointStore` and `JointExecutionQuery` from the exact selected
+joint result store's server, binding and input resolver. It exposes
+`joint_execution_admission`, `joint_execution_checkpoints`, `joint_execution_query`
+and supplies the same admission/query instances to the protected execution HTTP
+installer. There is no second resolver, farm selection, custody root or key default.
+Disabled assembly exposes three None values and execution routes remain 503 for
+otherwise authorized requests. The current-result routes keep their existing policy.
+
+HTTP stores retain request-scoped `current_principal`. Assembly neither starts a
+background task nor lends a request identity to a worker after its request ends.
+An operator's separate trusted factory constructs the existing
+`JointExecutionWorker`/`DeterministicWorkerLoop` with its explicitly authorized
+tenant principal, the same provisioned authority policy/schema and immutable input,
+custody and result configurations. Across processes these are equivalent protected
+configurations, not Python object identity. Within each process checkpoint/server/
+result/jobs bindings must be identical as enforced by their constructors. Existing
+E5b discovery consumes admitted jobs without receiving a target UUID. The selected
+inputs and all current rights are rechecked at admission, execution and reading.
+
+Execution acceptance requires real owned SCRAM and verified TLS admission, queued
+and running reads, independent automatic consumption, normal and numerical-hold
+result selection with original stored response bytes, and running cancellation
+acknowledged by that actual consumer. Startup must perform no numerical or job
+mutation calls. Configuration/protected-file rejection, old default behavior,
+existing user preview, original files and scoped process cleanup remain required.
+This acceptance activates no user preview or UI polling by itself; E7–E9 remain
+necessary for the user's execution screen. A live confirmed-prefix 3D reader remains
+separate from completed-result replay.

@@ -56,6 +56,7 @@ class ApiRuntimeConfig:
     content_access: ContentAccess | None = field(default=None, repr=False)
     host: str = '127.0.0.1'
     port: int = 8443
+    crop_climate_joint_execution: bool = field(default=False, kw_only=True)
 
     def __post_init__(self):
         if (type(self.policy) is not RuntimeLoginPolicy or not self.policy.break_even_calculation or
@@ -69,7 +70,9 @@ class ApiRuntimeConfig:
                      not 32 <= len(self.authored_run_gate_key) <= 4096)) or
                 (self.content_access is not None and type(self.content_access) is not ContentAccess) or
                 type(self.host) is not str or self.host not in ('127.0.0.1', '::1') or
-                type(self.port) is not int or not 0 <= self.port <= 65535):
+                type(self.port) is not int or not 0 <= self.port <= 65535 or
+                type(self.crop_climate_joint_execution) is not bool or
+                (self.crop_climate_joint_execution and not self.policy.crop_climate_joint_result_storage)):
             raise ValueError('API runtime configuration rejected')
 
 
@@ -143,6 +146,9 @@ class ApiRuntime:
     coupled_crop_results: CoupledCropResultStore | None = field(repr=False)
     joint_crop_results: object = field(repr=False)
     joint_crop_query: object = field(repr=False)
+    joint_execution_admission: object = field(repr=False)
+    joint_execution_checkpoints: object = field(repr=False)
+    joint_execution_query: object = field(repr=False)
 
     def __init__(self, config, dependencies):
         try:
@@ -316,6 +322,18 @@ class ApiRuntime:
                         joint_crop_query.store is not joint_crop_results):
                     raise ValueError()
                 joint_crop_query._binding()
+            joint_execution_admission = None
+            joint_execution_checkpoints = None
+            joint_execution_query = None
+            if config.crop_climate_joint_execution:
+                from .crop_climate_joint_execution import JointCropClimateExecutionService
+                from .crop_climate_joint_execution_checkpoint import JointExecutionCheckpointStore
+                from .crop_climate_joint_execution_query import JointExecutionQuery
+                server = joint_crop_results.server
+                joint_execution_admission = JointCropClimateExecutionService(
+                    server.binding, input_resolver=server.input_resolver)
+                joint_execution_checkpoints = JointExecutionCheckpointStore(joint_execution_admission, server)
+                joint_execution_query = JointExecutionQuery(joint_execution_checkpoints, joint_crop_results)
             harvest_crop_query = None
             harvest_crop_results = None
             if dependencies.crop_harvest_current_query_factory is not None:
@@ -384,7 +402,9 @@ class ApiRuntime:
                 crop_cycle_calculation_current_query=calculation_cycle_crop_query,
                 crop_harvest_current_query=harvest_crop_query,
                 crop_climate_joint_result_store=joint_crop_results,
-                crop_climate_joint_current_query=joint_crop_query)
+                crop_climate_joint_current_query=joint_crop_query,
+                crop_climate_joint_execution_service=joint_execution_admission,
+                crop_climate_joint_execution_query=joint_execution_query)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -403,5 +423,8 @@ class ApiRuntime:
                 ('calculation_cycle_crop_results', calculation_cycle_crop_results),
                 ('calculation_cycle_crop_query', calculation_cycle_crop_query),
                 ('harvest_crop_results', harvest_crop_results), ('harvest_crop_query', harvest_crop_query),
-                ('joint_crop_results', joint_crop_results), ('joint_crop_query', joint_crop_query)):
+                ('joint_crop_results', joint_crop_results), ('joint_crop_query', joint_crop_query),
+                ('joint_execution_admission', joint_execution_admission),
+                ('joint_execution_checkpoints', joint_execution_checkpoints),
+                ('joint_execution_query', joint_execution_query)):
             object.__setattr__(self, name, value)
