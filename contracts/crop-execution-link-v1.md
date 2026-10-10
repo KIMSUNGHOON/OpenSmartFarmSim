@@ -232,3 +232,32 @@ QueryCanceled로 끝나면 고정 문구의 JointCustodyPending을 반환한다.
 확인 중10종 준비/복원/수치/custody advance/결과 등록 호출은0이다. fixture 준비 계산은 별도다.
 E2는 job을 완료하거나 결과를 등록하지 않는다. worker/HTTP/진행 UI는 후속이며
 현재5173의 완료 저장 결과와 실시간 U3 상태는 그대로다.
+
+## E7 웹 실행 클라이언트
+
+기존 `createApi`가 같은 인증/abort/응답 stream transport와 JobStatus decoder로 다음 메서드를 제공한다.
+
+- `submitJointCropClimateExecution(request, signal?)`: 닫힌 원 E1 요청을 POST하고202의 원 simulation job을 반환한다.
+  같은 revision 재접수는 이미 실행/종료된 job도 반환하므로 queued만 허용하지 않는다.
+- `jointCropClimateExecution({job_id, farm}, signal?)`: E6a/E6b의 원 진행 DTO를 GET한다.
+  farm은 접수의 네 참조 필드며 선택 가능한 result의 여섯 farm 필드 중 같은 네 필드를 대사한다.
+- `cancelJointCropClimateExecution(job_id, signal?)`: 자료 lookup 없이 cancel 경로를 POST하고200의 원 수락/상태를 반환한다.
+  수락은 작업자의 취소 확인과 별개며 현재 자료 조회권 철회 후에도 이 메서드를 호출할 수 있다.
+- `jointExecutionResultLookup(progress)`: 검증된 result가 있으면 기존 joint 저장 reader의 lookup을 만든다. 없으면 null이다.
+
+요청은64KiB, 세 응답은16KiB, 각 요청은30초이며 기존 transport의 공개 ApiError code를 유지한다.
+없는 checkpoint/result와 unavailable은 수치0이나 가상의 결과로 대체하지 않는다.
+닫힌 필드·판본/scope/관문 표기·simulation 상태·같은 job/farm·정수 bounds·checkpoint/result 연결을 검사한다.
+웹 정수는 `Number.MAX_SAFE_INTEGER` 이하만 허용하며 서버의64bit 정수를 반올림해 표시하지 않는다.
+조회/DB 수용 시각은 원 UTC 마이크로초 문자열로 보존한다. 기존 JobStatus의 생성/갱신 시각은
+원 timezone offset도 보존하며 비교할 때만 동일 instant의 마이크로초로 환산한다.
+벽시계 시각과 계산 시간축을 비교하지 않는다.
+ready는 steps0/계산 시각null, completed는 steps=planned_steps이며 terminal artifact hash가 필요하다.
+completed/hold checkpoint와 simulating job은 결과 transaction 이전의 유효 조합이다.
+성공 또는 numerical hold의 unavailable 조회에는 result가 없을 수 있고 current에는 같은 terminal result가 필요하다.
+재시도 queued·취소/실패 작업의 마지막 확정 checkpoint도 그대로 허용한다.
+
+접수 body는 호출 시작 시 복사하고 호출 뒤 원 요청/lookup 변경과 늦은 abort를 거부한다.
+abort/timeout은 HTTP 대기를 끝내며 서버 작업의 취소나 미접수를 증명하지 않는다. 서버 취소에는 위 명시 메서드를 쓴다.
+SDK는 자동 polling/자동 재접수/동시 요청 제한을 소유하지 않는다. E8 화면이 단일 polling을 관리하며
+취소 명령은 진행 GET 대기와 독립적으로 보낼 수 있다. 성장값/예측/ETA와 계산 중 prefix3D는 제공하지 않는다.

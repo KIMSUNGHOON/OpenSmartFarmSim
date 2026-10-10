@@ -13,6 +13,7 @@ import { createStartupCropReplayApi } from './startupCropReplay';
 import { createCycleCropReplayApi } from './cycleCropReplay';
 import { createCalculationCycleCropReplayApi } from './calculationCycleCropReplay';
 import { createJointCropClimateReplayApi } from './jointCropClimateReplay';
+import { createJointCropClimateExecutionApi } from './jointCropClimateExecution';
 import { createHarvestReplayApi } from './harvestReplay';
 import { createCropResultCatalogApi } from './cropResultCatalog';
 import { createCropFarmSelectionApi } from './cropFarmSelection';
@@ -198,6 +199,7 @@ export function createApi(token:string, fetcher:typeof fetch = fetch) {
     ...createCycleCropReplayApi(request),
     ...createCalculationCycleCropReplayApi(request),
     ...createJointCropClimateReplayApi(request),
+    ...createJointCropClimateExecutionApi(request,decodeJob),
     ...createHarvestReplayApi(request),
     ...createCropResultCatalogApi(request),
     ...createCropFarmSelectionApi(request),
