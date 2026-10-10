@@ -4,7 +4,7 @@ Status: implemented; focused actual process/SCRAM software acceptance passed.
 The 2026-10-04 [shared signal extraction](../research/cli-dispatch-loop-implementation.md)
 retains the same mechanism and passed the37-case actual SCRAM regression again.
 This closes the manual job-UUID delivery gap for the existing deterministic
-economic, break-even calculation and break-even verification workers.
+economic, break-even calculation, break-even verification and joint crop/climate workers.
 
 ## Operator interface
 
@@ -18,12 +18,21 @@ application Compose tasks own deployable configuration and images.
 
 `DeterministicWorkerLoop(worker, *, input_versions, poll_seconds=1, page_size=25)`
 accepts exactly one existing EconomicCalculationWorker,
-BreakEvenCalculationWorker or BreakEvenVerificationWorker per process. Versions
+BreakEvenCalculationWorker, BreakEvenVerificationWorker or JointExecutionWorker per process. Versions
 are an explicit nonempty frozenset accepted by that worker and by
 [discovery](deterministic-job-discovery-v1.md). Economic v2 requires its farm
 binding; v3 requires both farm and authored Run bindings. No missing dependency
 is inferred. Poll seconds is an exact integer in 1–60; page size is an exact
 integer in 1–50. Booleans are rejected.
+
+JointExecutionWorker accepts only `joint-crop-climate-execution-input-v1` and
+its exact JointExecutionOutcome. Its current E1/E2/E3 dependencies, farm/input
+binding and custody/result authority are supplied explicitly and checked by
+the worker. Successful publication, numerical hold, cancellation and retry
+retain the existing [joint execution boundary](crop-execution-link-v1.md).
+The consumer emits attempt metadata only; a private result ID is not exposed
+in process events. This registration does not create HTTP submission/progress,
+user runtime configuration or a live UI connection.
 
 The consumer constructs discovery from the same fixed JobStore, tenant,
 versions, authenticated principal and audited authority runtime policy. These
@@ -94,6 +103,12 @@ separate Python processes with the disposable SCRAM fixtures must prove:
 4. Separate configured break-even calculation and verification consumers both
    discover their own input version and preserve full existing parent/result
    checks. Processes, disposable DB/roles and password files are cleaned.
+5. A separately configured joint consumer discovers actual E1 jobs without a
+   target UUID argument, registers the same terminal result and stops before a
+   following job after SIGTERM. Current cancellation publishes no result; a real
+   custody lock produces a persisted retry which the same loop discovers again.
+   An unclosed lease outcome exits with the fixed unresolved error, without
+   emitting a closed attempt or dispatching another job.
 
 These are synthetic software proofs. They do not establish actual product CLI,
 independent release/G1, maximum concurrency, crop ranking or G4 deployment.
