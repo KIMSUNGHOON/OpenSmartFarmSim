@@ -1,6 +1,6 @@
 # 작물 계산 요청·확정 진행·완료 결과 연결 v1
 
-상태: **E1 접수 service 로컬 수용; worker/API/UI 연결 미완료 — 2026-10-10.**
+상태: **E1 접수·E2 checkpoint 내부 서비스 로컬 수용; worker/API/UI 연결 미완료 — 2026-10-10.**
 [코드 대조 근거](../research/crop-execution-link-boundary-20261010.md)와
 [작업 순서](../tasks/plan.md#작물-계산과-ui의-실행-연결--2026-10-10)를 따른다.
 대상은 현재 수용된 짧은 합성 joint 입력·108상태·UTC·서명 저장이다.
@@ -139,5 +139,31 @@ bounded polling은 앞 요청 정산 뒤에만 시작하고 숨김/계정/선택
 접수 중10종 수치 준비/적분/custody/결과 등록 호출0, 기존 job/store·원본2,148/미리보기 보존과
 실제 종료/소유 정리를 기록했다. fixture가 입력 증거를 만드는 준비 단계의 계산은 이0회 주장에 포함하지 않는다.
 아직 discovery/worker는 새 입력을 소비하지 않는다. 현재 API/UI에 접수·진행 경로를 노출하지 않는다.
-다음은 **E2 확정 checkpoint 수용**, 독립적으로 준비할 수 있는 **E3 결과 transaction hook**이다.
+E2의 내부 checkpoint 수용도 아래 검증으로 완료했다. 다음은 **E3 결과 transaction hook**이다.
 worker/API/UI는 각자 [todo](../tasks/todo.md)의 증거가 있을 때만 수용한다.
+
+## E2 내부 checkpoint 수용
+
+[로컬 검증](../research/crop-climate-joint-execution-checkpoint-implementation-20261010.md)을 수용했다.
+`JointExecutionCheckpointStore(admission, server)`는 같은 binding/resolver의 정확한 E1/custody 객체를 요구한다.
+`confirm(tenant, job_id, attempt=..., lease_token=...)`는 현재 simulation 임대와 취소 여부를 검사하고
+기존 job_events에 원 서명 HEAD/proof와 제한된 metadata만 등록한다. 서버 내부 반환은
+`event_id/job_id/attempt/recorded_at/checkpoint`이며 후속 HTTP DTO로 직접 노출하지 않는다.
+worker는 simulation_execute와 현재 작물 쓰기 권한을 사용하며 simulation_create는 필요하지 않다.
+
+closed snapshot은 input/binding/source/context/time/header/artifact·각 코드 SHA와 custody_sequence,
+publication_sequence, status/steps/planned_steps/counts/computed_through_utc를 결속한다.
+전체 상태 벡터를 복사하지 않는다. 기록은 최대8KiB, 이력은 기존 custody commit 상한에서 유도한
+MAX_EVENTS로 제한한다. 현재 원 HEAD와 마지막 DB 수용 HEAD의 서명 계보를 대사하고
+같은 HEAD의 중복은 최초 사건과 recorded_at을 반환한다. 단계마다 현재 권리와 임대를 다시 확인한다.
+
+기존 runtime DB의 statement_timeout은 변경하지 않는다. 같은 job 행의 동시 잠금 대기가
+QueryCanceled로 끝나면 고정 문구의 JointCustodyPending을 반환한다. 파일 session 종료에서도
+이 유형을 보존하고 transaction을 rollback한다. 호출자는 일시 대기 후 같은 작업을 재확인한다.
+이 동작을 실제 SCRAM 잠금/timeout과 같은 event/time 재시도로 검증했다.
+
+파일 HEAD 뒤 DB 수용 전의 실제 프로세스 강제 종료, 새 임대/fresh exec의 원 HEAD 수용,
+원 UTC/counts·정상/hold·늦은 변경 rollback·혼합/변조 거부를 확인했다.
+확인 중10종 준비/복원/수치/custody advance/결과 등록 호출은0이다. fixture 준비 계산은 별도다.
+E2는 job을 완료하거나 결과를 등록하지 않는다. worker/HTTP/진행 UI는 후속이며
+현재5173의 완료 저장 결과와 실시간 U3 상태는 그대로다.
