@@ -49,3 +49,40 @@ custody callback 안의 DB Pending은 파일 custody의 일반 Hold로 바뀌지
 claim_scope는 synthetic_joint_crop_climate_math_only, G0_G4는 not_assessed다.
 실제 품종/한 작기/생산·자원 구매·마진/추천 관문을 통과한 결과가 아니다.
 HTTP/API·같은 UTC 3D·사용자 계산 접수/실시간 U3는 후속이다.
+
+## E3 호출자 거래에 결속한 등록 — 2026-10-10
+
+[거래 hook 검증](../research/crop-climate-joint-result-transaction-implementation-20261010.md)을 수용했다.
+`_put_in_transaction(conn, tenant, request_raw)`는 서버 내부 context manager다.
+호출자는 기존 jobs.connect의 authority 연결에서 외부 transaction을 먼저 시작하고,
+context 안에서 반환 record를 사용하는 작업 완료/게시 기록을 같은 conn에 작성한다.
+context 종료의 현재 권리 검사가 끝난 뒤 외부 transaction을 commit한다.
+실제 worker의 job/임대·취소·완료 기록 결속은 후속 E4가 검증한다.
+
+연결은 열린 정확한 psycopg Connection, autocommit=False, INTRANS여야 한다.
+SCRAM session/current authority·DB·명시 endpoint와 현재 runtime grants를 다시 검사한다.
+idle/aborted/closed·admin/다른 runtime role·다른 tenant를 허용하지 않는다.
+내부 savepoint를 사용하므로 hook은 외부 transaction을 commit하거나 닫지 않는다.
+context 안의 호출자 오류와 최종 권리 거부는 결과와 그 savepoint 안의 호출자 기록을 함께 되돌린다.
+호출자가 오류를 잡아 외부 거래를 계속해도 부분 결과는 남지 않는다. 호출자 예외 객체는 보존한다.
+context 뒤 외부 거래가 실패해도 결과는 외부 rollback에 포함된다.
+
+기존 put과 새 hook은 같은 `_insert`를 사용한다. 원 packet 생성/검증, try-advisory lock,
+HMAC/참조 컬럼 대사·충돌·INSERT 뒤 현재 권리 검사는 공유한다.
+기존 put의 commit 뒤 재검사도 유지한다. 새 hook은 yield 뒤 호출자 기록까지 작성한 시점에
+권리를 재검사한다. 권리 저장소와 DB 전체의 전역 원자 snapshot을 뜻하지 않는다.
+completed/hold의 원 terminal 값과 같은 입력 재시도의 최초 bytes/recorded_at을 보존하며 계산은 하지 않는다.
+
+### 코드 판본 경계
+
+SQL/wire schema와 result ID prefix는 joint-crop-climate-result-v1을 유지한다.
+새 storage_code_sha256은 원 code 객체와 result ID 해시에 포함되므로 별도 저장 코드 판본이다.
+이전 결과 bytes/HMAC/recorded_at을 갱신하거나 새 코드로 재서명하지 않는다.
+현재 reader와 두 writer는 이전 code pin을 보류하며 기존 intent를 자동 채택하지 않는다.
+이전 reader 전체 source는 git23b9da42f2bce869bab1106bdb53a848650b3f54에 보존돼 있다.
+그 storage source의 SHA256은87e7e10e8d3476e437f5fec55f0cbc1ab03026a62a62019332ad5f0eab30538c이며,
+실제 SCRAM 행에서 원 reader의 동일 bytes/시각 재조회를 검증했다. 새 코드와 구형 결과를 암묵적으로 혼합하지 않는다.
+
+신규10/기존9개 집중 검사는 완료/hold·동일 최초 값·외부 commit/rollback·savepoint 복구,
+늦은 권리/권한/resolver 변경과 원 판본 보존을 다룬다. 입력·모델·기존 UI/원본은 보존한다.
+worker/API/UI 자동 연동·전체 작기·실제 자료와 관문은 이번 수용 범위에 포함하지 않는다.

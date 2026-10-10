@@ -7,11 +7,14 @@ import json
 from pathlib import Path
 from uuid import UUID
 
-from psycopg import sql
+from psycopg import Connection, sql
+from psycopg.conninfo import conninfo_to_dict
+from psycopg.pq import TransactionStatus
 
 from . import crop_climate_joint_result_schema as schema
 from . import crop_climate_joint_server_custody as server
 from . import runtime_roles
+from .runtime_login import verify_runtime_identity
 from .crop_result_store import _name
 from .thermal_run_store import _canonical, _document, _time
 
@@ -230,11 +233,60 @@ class JointCropClimateResultStore:
 
     @contextmanager
     def _session(self, tenant, request_raw):
-        pending = None
+        error = None
         with self.server._open(tenant, request_raw, False) as opened:
             try: yield opened
-            except server.JointCustodyPending as exc: pending = exc
-        if pending is not None: raise pending
+            except Exception as exc: error = exc
+        if error is not None: raise error
+
+    def _insert(self, conn, tenant, request_raw, session, progress, payload, packet):
+        request = self.server.binding._request(request_raw)
+        acquired = conn.execute('SELECT pg_try_advisory_xact_lock(%s) AS acquired',
+            (_lock_key(tenant, request['study_id'], request['revision']),)).fetchone()['acquired']
+        if not acquired: raise server.JointCustodyPending('joint research registration busy')
+        values = {**self._columns(packet), 'payload_raw': payload,
+            'payload_sha256': sha256(payload).hexdigest(), 'integrity_signature': self._signature(payload)}
+        table = self.jobs._table(schema.TABLE)
+        conn.execute(sql.SQL('INSERT INTO {} ({}) VALUES ({}) ON CONFLICT DO NOTHING').format(table,
+            sql.SQL(',').join(map(sql.Identifier, values)),
+            sql.SQL(',').join(sql.Placeholder() for _ in values)), tuple(values.values()))
+        row = conn.execute(sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND study_id=%s AND revision=%s')
+            .format(table), (tenant, request['study_id'], request['revision'])).fetchone()
+        if row is None: raise server.JointCustodyConflict('joint research revision conflict')
+        self._row(row, tenant, request['farm'])
+        if row['payload_raw'] != payload: raise server.JointCustodyConflict('joint research revision conflict')
+        self._current(tenant, request_raw, session, progress, write=True)
+        return row
+
+    def _transaction_connection(self, conn):
+        _need(type(conn) is Connection and not conn.closed and not conn.autocommit
+            and conn.info.transaction_status == TransactionStatus.INTRANS)
+        policy, kind = self.jobs.runtime_identity
+        verify_runtime_identity(conn, policy, kind)
+        configured = conninfo_to_dict(self.jobs._dsn); actual = conn.info.get_parameters()
+        _need(all(actual.get(k) == configured[k] for k in ('host', 'hostaddr', 'port', 'dbname', 'user')
+            if k in configured))
+        runtime_roles.audit_runtime_roles(conn, policy)
+
+    @contextmanager
+    def _put_in_transaction(self, conn, tenant, request_raw):
+        caller_error = None
+        try:
+            self._guard(tenant, True); self._transaction_connection(conn)
+            with conn.transaction():
+                with self._session(tenant, request_raw) as (session, _):
+                    progress = session.progress()
+                    self._current(tenant, request_raw, session, progress, write=True)
+                    payload = _packet(session.binding_raw, progress, self.server.input_resolver.version)
+                    row = self._insert(conn, tenant, request_raw, session, progress, payload, _decode(payload))
+                    try: yield self._record(row)
+                    except BaseException as exc:
+                        caller_error = exc; raise
+                    self._current(tenant, request_raw, session, progress, write=True)
+        except (PermissionError, server.JointCustodyConflict, server.JointCustodyPending): raise
+        except Exception:
+            if caller_error is not None: raise caller_error
+            raise server.JointCustodyHold('joint research registration unavailable') from None
 
     def put(self, tenant, request_raw):
         try:
@@ -244,21 +296,7 @@ class JointCropClimateResultStore:
                 payload = _packet(session.binding_raw, progress, self.server.input_resolver.version)
                 packet = _decode(payload)
                 with self.jobs.connect() as conn:
-                    acquired = conn.execute('SELECT pg_try_advisory_xact_lock(%s) AS acquired',
-                        (_lock_key(tenant, request['study_id'], request['revision']),)).fetchone()['acquired']
-                    if not acquired: raise server.JointCustodyPending('joint research registration busy')
-                    values = {**self._columns(packet), 'payload_raw': payload,
-                        'payload_sha256': sha256(payload).hexdigest(), 'integrity_signature': self._signature(payload)}
-                    table = self.jobs._table(schema.TABLE)
-                    conn.execute(sql.SQL('INSERT INTO {} ({}) VALUES ({}) ON CONFLICT DO NOTHING').format(table,
-                        sql.SQL(',').join(map(sql.Identifier, values)),
-                        sql.SQL(',').join(sql.Placeholder() for _ in values)), tuple(values.values()))
-                    row = conn.execute(sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND study_id=%s AND revision=%s')
-                        .format(table), (tenant, request['study_id'], request['revision'])).fetchone()
-                    if row is None: raise server.JointCustodyConflict('joint research revision conflict')
-                    self._row(row, tenant, request['farm'])
-                    if row['payload_raw'] != payload: raise server.JointCustodyConflict('joint research revision conflict')
-                    self._current(tenant, request_raw, session, progress, write=True)
+                    row = self._insert(conn, tenant, request_raw, session, progress, payload, packet)
                 self._current(tenant, request_raw, session, progress, write=True)
                 return self._record(row)
         except (PermissionError, server.JointCustodyConflict, server.JointCustodyPending): raise

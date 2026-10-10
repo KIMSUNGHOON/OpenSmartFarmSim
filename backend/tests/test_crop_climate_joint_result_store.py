@@ -4,6 +4,7 @@ from copy import deepcopy
 from dataclasses import replace
 from hashlib import sha256
 import hmac
+import importlib.util
 import json
 import os
 from pathlib import Path
@@ -324,3 +325,183 @@ def test_revision_conflicts_forced_rollback_old_rows_and_late_read_rights(setup,
         'late_page_rights_rejected': True, 'old_schema_only_rows_preserved': [1, 1],
         'historical_signed_migration_tested': False, 'current_grants_audit': True,
         'rows': 1, 'calls': calls, 'original_intent_sha256': registration['intent_sha256']})
+
+
+def transaction_count(conn, result):
+    return conn.execute(sql.SQL('SELECT count(*) AS n FROM {}').format(
+        result.jobs._table(schema.TABLE))).fetchone()['n']
+
+
+def test_transaction_normal_shared_bytes_time_and_outer_visibility(setup, monkeypatch):
+    result, raw, value, _ = ready(setup)
+    calls = producer.reference.forbid(monkeypatch)
+    with result.jobs.connect() as conn:
+        conn.execute('SELECT 1')
+        with result._put_in_transaction(conn, 'tenant-1', raw) as first:
+            assert transaction_count(conn, result) == 1 and count(result.server.binding) == 0
+            job_id = json.loads(first['payload_raw'])['farm']['registration_job_id']
+            result.jobs._event(conn, 'tenant-1', job_id, 'joint_transaction_probe_v1')
+        assert conn.info.transaction_status == store.TransactionStatus.INTRANS
+        assert count(result.server.binding) == 0
+    assert count(result.server.binding) == 1 and result.put('tenant-1', raw) == first
+    with result.jobs.connect() as conn:
+        conn.execute('SELECT 1')
+        with result._put_in_transaction(conn, 'tenant-1', raw) as duplicate: assert duplicate == first
+        assert conn.pgconn.used_password and conn.info.get_parameters()['require_auth'] == 'scram-sha-256'
+        assert conn.execute(sql.SQL('SELECT count(*) AS n FROM {} WHERE kind=%s')
+            .format(result.jobs._table('job_events')), ('joint_transaction_probe_v1',)).fetchone()['n'] == 1
+    assert all(v == 0 for v in calls.values())
+    save('transaction-normal.json', {'actual_scram': True, 'caller_commit_required': True,
+        'uncommitted_result_invisible_to_other_connection': True, 'shared_payload_sha256': first['payload_sha256'],
+        'recorded_at': first['recorded_at'].isoformat(), 'put_and_transaction_identical': True, 'calls': calls})
+
+
+@pytest.mark.parametrize('phase', ['inside-hook', 'after-hook', 'caught-inside-hook'])
+def test_transaction_rollback_preserves_caller_error_and_no_partial_result(setup, monkeypatch, phase):
+    result, raw, _, _ = ready(setup)
+    calls = producer.reference.forbid(monkeypatch)
+    sentinel = RuntimeError('owned caller rollback probe')
+    if phase == 'caught-inside-hook':
+        with result.jobs.connect() as conn:
+            conn.execute('SELECT 1')
+            with pytest.raises(RuntimeError) as caught:
+                with result._put_in_transaction(conn, 'tenant-1', raw): raise sentinel
+            assert caught.value is sentinel and transaction_count(conn, result) == 0
+            assert conn.info.transaction_status == store.TransactionStatus.INTRANS
+        assert count(result.server.binding) == 0 and all(v == 0 for v in calls.values())
+        save('transaction-rollback-' + phase + '.json', {'caught_error_parent_transaction_remains_usable': True,
+            'rows_after_parent_commit': 0, 'calls': calls})
+        return
+    with pytest.raises(RuntimeError) as caught:
+        with result.jobs.connect() as conn:
+            conn.execute('SELECT 1')
+            with result._put_in_transaction(conn, 'tenant-1', raw):
+                assert transaction_count(conn, result) == 1
+                if phase == 'inside-hook': raise sentinel
+            raise sentinel
+    assert caught.value is sentinel and count(result.server.binding) == 0
+    assert result.put('tenant-1', raw)['payload_raw'] and all(v == 0 for v in calls.values())
+    save('transaction-rollback-' + phase + '.json', {'caller_exception_identity_preserved': True,
+        'rows_after_rollback': 0, 'normal_registration_after_rollback': True, 'calls': calls})
+
+
+@pytest.mark.parametrize('change', ['rights', 'scope', 'resolver'])
+def test_transaction_late_change_after_caller_write_rolls_back_savepoint(setup, monkeypatch, change):
+    result, raw, value, _ = ready(setup)
+    principal, rights = value[4:]; version = result.server.input_resolver.version
+    calls = producer.reference.forbid(monkeypatch)
+    with result.jobs.connect() as conn:
+        conn.execute('SELECT 1')
+        with pytest.raises((PermissionError, producer.model.JointCustodyHold)):
+            with result._put_in_transaction(conn, 'tenant-1', raw) as item:
+                assert transaction_count(conn, result) == 1
+                job_id = json.loads(item['payload_raw'])['farm']['registration_job_id']
+                result.jobs._event(conn, 'tenant-1', job_id, 'joint_transaction_probe_v1')
+                if change == 'rights': rights.allowed = False
+                elif change == 'scope': principal['scopes'].remove('crop_result_write')
+                else: result.server.input_resolver.version = 'revoked-before-caller-commit-v1'
+        assert transaction_count(conn, result) == 0
+        assert conn.execute(sql.SQL('SELECT count(*) AS n FROM {} WHERE kind=%s')
+            .format(result.jobs._table('job_events')), ('joint_transaction_probe_v1',)).fetchone()['n'] == 0
+        assert conn.info.transaction_status == store.TransactionStatus.INTRANS
+    rights.allowed = True; principal['scopes'].add('crop_result_write'); result.server.input_resolver.version = version
+    assert count(result.server.binding) == 0 and result.put('tenant-1', raw)['payload_raw']
+    assert all(v == 0 for v in calls.values())
+    save('transaction-late-' + change + '.json', {'after_yield_caller_event_and_result_rolled_back': True,
+        'parent_transaction_committable': True, 'recovery_after_rights_restoration': True, 'calls': calls})
+
+
+def test_transaction_identity_requires_active_authority_connection(setup, login_database, login_scope, monkeypatch):
+    result, raw, _, _ = ready(setup)
+    calls = producer.reference.forbid(monkeypatch); checked = []
+    with result.jobs.connect() as conn:
+        with pytest.raises(producer.model.JointCustodyHold):
+            with result._put_in_transaction(conn, 'tenant-1', raw): pytest.fail('idle connection admitted')
+        assert conn.info.transaction_status == store.TransactionStatus.IDLE; checked.append('idle')
+        conn.autocommit = True
+        with pytest.raises(producer.model.JointCustodyHold):
+            with result._put_in_transaction(conn, 'tenant-1', raw): pytest.fail('autocommit admitted')
+        conn.autocommit = False; checked.append('autocommit')
+        with pytest.raises(psycopg.errors.DivisionByZero): conn.execute('SELECT 1/0')
+        with pytest.raises(producer.model.JointCustodyHold):
+            with result._put_in_transaction(conn, 'tenant-1', raw): pytest.fail('aborted transaction admitted')
+        assert conn.info.transaction_status == store.TransactionStatus.INERROR
+        conn.rollback(); checked.append('aborted')
+    with pytest.raises(producer.model.JointCustodyHold):
+        with result._put_in_transaction(conn, 'tenant-1', raw): pytest.fail('closed connection admitted')
+    checked.append('closed')
+    with psycopg.connect(login_database['admin'], row_factory=psycopg.rows.dict_row) as admin:
+        admin.execute('SELECT 1')
+        with pytest.raises(producer.model.JointCustodyHold):
+            with result._put_in_transaction(admin, 'tenant-1', raw): pytest.fail('admin connection admitted')
+    checked.append('admin')
+    from app.runtime_login import connect_runtime
+    _, policy, dsns = login_scope
+    with connect_runtime(dsns['worker'], policy, 'worker') as worker:
+        worker.execute('SELECT 1')
+        with pytest.raises(producer.model.JointCustodyHold):
+            with result._put_in_transaction(worker, 'tenant-1', raw): pytest.fail('worker connection admitted')
+    checked.append('worker')
+    with result.jobs.connect() as conn:
+        conn.execute('SELECT 1')
+        with pytest.raises(PermissionError):
+            with result._put_in_transaction(conn, 'foreign', raw): pytest.fail('foreign tenant admitted')
+    checked.append('foreign-tenant')
+    assert count(result.server.binding) == 0 and all(v == 0 for v in calls.values())
+    save('transaction-identity.json', {'rejected': checked, 'rows': 0, 'calls': calls})
+
+
+def test_transaction_legacy_code_pin_keeps_immutable_row_and_frozen_reader(setup, monkeypatch):
+    path = os.environ.get('OSSF_JOINT_RESULT_PRE_TRANSACTION_SOURCE')
+    if not path: pytest.skip('requires pinned pre-transaction source for version-boundary verification')
+    source = Path(path)
+    assert sha256(source.read_bytes()).hexdigest() == '87e7e10e8d3476e437f5fec55f0cbc1ab03026a62a62019332ad5f0eab30538c'
+    spec = importlib.util.spec_from_file_location('app.joint_result_store_frozen_pre_transaction', source)
+    frozen = importlib.util.module_from_spec(spec); spec.loader.exec_module(frozen)
+    result, raw, value, _ = ready(setup)
+    old = frozen.JointCropClimateResultStore(result.server, integrity_key=KEY)
+    calls = producer.reference.forbid(monkeypatch)
+    first = old.put('tenant-1', raw)
+    assert frozen.CODE_SHA256 != store.CODE_SHA256
+    with result.jobs.connect() as conn:
+        before = conn.execute(sql.SQL('SELECT * FROM {}').format(result.jobs._table(schema.TABLE))).fetchall()
+    with pytest.raises(producer.model.JointCustodyHold): result.get('tenant-1', first['result_id'], value[1]['farm'])
+    with pytest.raises(producer.model.JointCustodyHold): result.put('tenant-1', raw)
+    with result.jobs.connect() as conn:
+        conn.execute('SELECT 1')
+        with pytest.raises(producer.model.JointCustodyHold):
+            with result._put_in_transaction(conn, 'tenant-1', raw): pytest.fail('old code pin adopted')
+        assert conn.execute(sql.SQL('SELECT * FROM {}').format(result.jobs._table(schema.TABLE))).fetchall() == before
+    assert old.get('tenant-1', first['result_id'], value[1]['farm']) == first
+    assert count(result.server.binding) == 1 and all(v == 0 for v in calls.values())
+    save('transaction-legacy.json', {'old_source_commit': '23b9da42f2bce869bab1106bdb53a848650b3f54',
+        'old_storage_code_sha256': frozen.CODE_SHA256, 'new_storage_code_sha256': store.CODE_SHA256,
+        'original_row_and_frozen_reader_preserved': True, 'new_reader_and_both_writers_reject_old_code_pin': True,
+        'original_payload_sha256': first['payload_sha256'], 'recorded_at': first['recorded_at'].isoformat(), 'calls': calls})
+
+
+@pytest.mark.parametrize('setup', ['hold'], indirect=True)
+def test_transaction_hold_and_advisory_pending_preserve_terminal_values(setup, monkeypatch):
+    result, raw, value, done = ready(setup)
+    expected = json.loads(done); assert expected['status'] == 'hold'
+    calls = producer.reference.forbid(monkeypatch)
+    with result.jobs.connect() as owner:
+        owner.execute('SELECT pg_advisory_xact_lock(%s)', (store._lock_key('tenant-1', 'joint-study', 'r1'),))
+        with result.jobs.connect() as conn:
+            conn.execute('SELECT 1')
+            with pytest.raises(producer.model.JointCustodyPending):
+                with result._put_in_transaction(conn, 'tenant-1', raw): pytest.fail('busy registration admitted')
+            assert transaction_count(conn, result) == 0 and conn.info.transaction_status == store.TransactionStatus.INTRANS
+    with result.jobs.connect() as conn:
+        conn.execute('SELECT 1')
+        with result._put_in_transaction(conn, 'tenant-1', raw) as first:
+            packet = json.loads(first['payload_raw'])
+            assert packet['policies']['server_progress'] == expected
+            assert packet['artifact']['status'] == 'hold' and packet['G0_G4'] == 'not_assessed'
+        assert count(result.server.binding) == 0
+    assert result.put('tenant-1', raw) == first
+    assert result.summary('tenant-1', first['result_id'], value[1]['farm'])['counts'] == expected['counts']
+    assert all(v == 0 for v in calls.values())
+    save('transaction-hold.json', {'original_terminal_progress_preserved': True,
+        'advisory_pending_no_rows_parent_usable': True, 'put_and_hook_same_hold_record': True,
+        'payload_sha256': first['payload_sha256'], 'G0_G4': 'not_assessed', 'calls': calls})
