@@ -1099,9 +1099,11 @@ core10 경계를 고정했고 원108상태/장부/UTC·실제 SCRAM/검증 HTTPS
 동시 SQL 잠금 timeout은 일시 대기로 분류하며 원 실패/소스 pin을 보존했다. 최종 module 전체 재실행은 아니다.
 **E3 결과 transaction hook 수용:** [corec99198c/고유19개](../research/crop-climate-joint-result-transaction-implementation-20261010.md)로
 기존 put과 같은 bytes/최초 시각·caller commit/savepoint rollback·늦은 거부/구형 판본 보존을 실제 SCRAM에서 확인했다.
-**다음 한 단계는 E4 임대 worker**다. E1 job의 현재 임대가 bounded advance/E2 진행을 수행하고 E3 context 안에서
-결과·job publication/outcome/완료를 같은 거래에 저장한다. 취소/만료·crash 재개/재적분0·부분 게시0과 원108상태/UTC를 검증한다.
-이후 API/typed reader→U3 상태/완료 저장3D로 진행한다.
+**E4 임대 worker 수용:** [core6cf4eaf/고유28개](../research/crop-climate-joint-execution-worker-implementation-20261010.md)로
+실제 접수→구간 계산/E2 진행→E3 원자 정상/hold 저장·취소/만료·crash/fresh 재개·원108상태/UTC·현재 권리/정리를 확인했다.
+성공 publication·수치 hold의 결과 연결 사건은 기존 DB 제약에 맞춰 구분했다. E1–E4 내부 checkpoint도 대사했다.
+**다음 한 단계는 E5a 작업 발견**이다. 명시 joint 판본·실제 혼합 queue/페이지·권한/무변경·조회 계산0을 확인하고,
+E5b 자동 소비→API/typed reader→U3 상태/완료 저장3D로 진행한다.
 계산 중 prefix3D는 별도 수용이다. 실제 입력의 게시 조건과 합성 개발 착수 조건은 구분한다.
 투영의 초기2–4시간 추정은 native 최초 설계20:50Z부터 약24분의 개발/검토·실패 재검증 관측으로 갱신한다.
 current reader는 native21:20Z부터 약20분의 개발/검토와474.184초 집중 실행으로 수용했다. 순수 fixture의 환경 차이 재현/시험 수정도 포함한다.
@@ -1129,7 +1131,7 @@ schema/역할/store3자식은 작은 합성 저장 부모로 수용했다. 이�
 | E1 접수 service | 현재 농장/입력에 결속된 job ID·중복/충돌 | 이번 경계·farm binding·JobStore |[수용](../research/crop-climate-joint-execution-admission-implementation-20261010.md): native→회귀748.422초, 기록/commit 별도|
 | E2 checkpoint 수용 | 원 HEAD/UTC/counts와 별도 DB 수용 시각 | E1·custody·job_events |[수용](../research/crop-climate-joint-execution-checkpoint-implementation-20261010.md): native→회귀2,485.837초, 기록/commit 별도|
 | E3 결과 transaction hook | job 완료와 결속할 같은 transaction의 결과 등록 | 기존 result store |[수용](../research/crop-climate-joint-result-transaction-implementation-20261010.md): native→회귀1,682.844초, 기록/commit 별도|
-| E4 임대 worker | 실제 queued→진행→완료/hold·취소/재개 | E1/E2/E3 |1–2|
+| E4 임대 worker | 실제 queued→진행→완료/hold·취소/재개 | E1/E2/E3 |[수용](../research/crop-climate-joint-execution-worker-implementation-20261010.md): native→집중 terminal3,414.796초, 기록/commit 별도|
 | E5a 발견/E5b 소비 | 닫힌 joint 판본/worker의 기존 프로세스 자동 소비 | E4 |합1–2|
 | E6a 현재 진행 DTO | 현재 job/checkpoint/result의 계산0 조회 | E2/E4 |0.75–1.5|
 | E6b HTTP/E6c runtime | 보호된 접수/진행/취소 API·명시 조립 | E1/E6a/E5 |합1.25–2.5|
@@ -1142,19 +1144,23 @@ E1은 새9/회귀8=고유17검사·제품 source 동일/시험 계정 취소 sco
 초기0.5–1.5시간은 실제 native00:37:33Z→회귀 terminal00:50:01Z의약13분 관측으로 대체한다.
 E2도 원 실패/소스 pin·고유24개 집중 검사를 수용했고 native→회귀 약41분을 관측했다.
 E3도 신규10/기존9개·최종 제품 SHA 동일/기존 정의 보존·고유19개 검사로 수용했고 native→회귀 약28분을 관측했다.
-E4–E9의 미관측 비용을 E1–E3 속도로 환산하지 않고 현재 전체 범위의 날짜 조건을 유지한다.
+E4도 새24/관련4=고유28개·실제 crash/fresh와 원값/권리/정리를 통과했고 native→최종 집중 검증 약57분을 관측했다.
+세 advance11.115–15.679초·갱신 간격 최대21.266초·마지막 갱신→완료35.543초로 시험의600초 임대 안이다.
+E5–E9의 미관측 비용을 E1–E4 속도로 환산하지 않는다.
 이전 core 단계의 실제14–47분 관측을 참조했지만, 임대/파일·DB와 재접속 비용은 아직 미관측이다.
-E1/E4/E9 실측 뒤 수정한다. 하루6시간이면2–3집중일이며 2026-10-10 착수 시 단순 계산은10월12–13일이다.
+남은 E5–E9 작업 합은5.5–11시간이며 문서/검토 여유를 포함해 **6–12집중시간** 잠정이다.
+하루6시간·2026-10-10 연속 착수 가정은1–2집중일/10월11–12일 KST의 작은 합성 사용자 연결이며 E5/E9 실측 뒤 수정한다.
 외부 운영/CI와 전체 작기·실제 자료·최종 디자인/전체 U3의 날짜를 이 추정에 포함하지 않는다.
 
 E2/E3는 논리적으로 독립적이며 E6a는 실제 worker 검증 후 수용한다. WSL의 실제 DB/수치 시험은 순차 실행한다.
 checkpoint는 append-only job_events에 단조 sequence로 수용하고 DB recorded_at을 사용한다.
 heartbeat/파일 mtime을 계산 진척 시각으로 쓰지 않는다. 파일 HEAD와 DB 수용은 전역 원자 transaction이 아니다.
 임대 상실/취소 뒤 private HEAD는 사용자 진행/완료가 아니며 새 임대는 원 prefix 재적분 없이 검증·수용한다.
-완료는 result registry/job publication/terminal 상태를 같은 DB transaction에 게시한다.
+정상/수치 hold의 registry·결과 연결 사건·outcome/terminal은 같은 DB transaction이다.
+성공 publication과 수치 hold의 publication0은 [실행 계약](../contracts/crop-execution-link-v1.md)을 따른다.
 새 queue/framework/진행 테이블은 현재 코드 대조에서 필요하지 않았다.
 
-**검증 지점:** E1–E4 뒤 실제 SCRAM의 원 checkpoint/취소·임대 만료/강제 종료·재개/rollback을 대사한다.
+**검증 지점:** E1–E4는 [실제 SCRAM 원 checkpoint/취소·만료·강제 종료/fresh 재개·rollback 대사](../research/crop-climate-joint-execution-worker-implementation-20261010.md)를 수용했다.
 E6–E9 뒤 실제 TLS/제품 브라우저의 같은 실행 ID/UTC·단일 polling/늦은 응답/권리·완료 result/3D를 확인한다.
 polling 초기10초는 앞 요청 정산 뒤의 대기이며 일시 오류에는 최대60초까지 backoff한다.
 새 API 비용/화면 지연을 실측하고 현재와 마지막 확인 상태를 구분한다.

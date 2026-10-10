@@ -57,7 +57,8 @@ HTTP/API·같은 UTC 3D·사용자 계산 접수/실시간 U3는 후속이다.
 호출자는 기존 jobs.connect의 authority 연결에서 외부 transaction을 먼저 시작하고,
 context 안에서 반환 record를 사용하는 작업 완료/게시 기록을 같은 conn에 작성한다.
 context 종료의 현재 권리 검사가 끝난 뒤 외부 transaction을 commit한다.
-실제 worker의 job/임대·취소·완료 기록 결속은 후속 E4가 검증한다.
+실제 worker 결속은 [E4 수용](../research/crop-climate-joint-execution-worker-implementation-20261010.md)으로 검증했다.
+hook 종료 뒤 같은 외부 거래에서 현재 실행 권리/입력·임대를 확인하고 마지막 fence로 terminal 상태를 갱신한다.
 
 연결은 열린 정확한 psycopg Connection, autocommit=False, INTRANS여야 한다.
 SCRAM session/current authority·DB·명시 endpoint와 현재 runtime grants를 다시 검사한다.

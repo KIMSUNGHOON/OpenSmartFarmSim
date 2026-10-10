@@ -1841,11 +1841,16 @@
     실제 authority/연결 거부·원 hold/advisory pending·구형 immutable 행/원 reader 보존·수치8종0·원본/기동/소유 정리를 통과했다.
     SQL/wire v1과 code pin의 별도 판본을 명시했다. 단일/합 RSS132,399,104/436,658,176bytes;
     native→회귀1,682.844초(약28분), 기록/commit 별도다. 실제 job 완료/worker/API/UI·관문은 미수용이다.
-  - [ ] **E4 임대 worker** — 다음 한 단계. 선행: E1/E2/E3. 예정 core3: `backend/app/crop_climate_joint_execution_worker.py`, 같은 이름 test, 위 실행 계약.
-    수용: 실제 접수→bounded advance/확정 진행→원자 완료/hold result·publication·outcome; chunk 취소/만료·crash 후 원 prefix 재적분0;
-    원108상태/UTC·현재 권리/rollback·실제 종료/원본·WSL/소유 정리. 확인: 집중 pytest/실제 SCRAM·fresh exec. M,1–2시간.
-  - [ ] **checkpoint E1–E4** — 위 실제 증거·현재 source/원본/기동 보존을 대조한 뒤 API/UI 진행. 전체 작기 재실행 불필요.
-  - [ ] **E5a 작업 발견** — 선행: E4. 예정 core3: 기존 `deterministic_job_discovery.py`/test, discovery 계약.
+  - [x] **E4 임대 worker** — 선행: E1/E2/E3. core3: `backend/app/crop_climate_joint_execution_worker.py`, 같은 이름 test, 위 실행 계약.
+    [core6cf4eaf/수용 근거](../research/crop-climate-joint-execution-worker-implementation-20261010.md): 새24/관련4=고유28개 실제 SCRAM 검사·최종 제품 source 동일,
+    실제 접수/세 구간/E2 진행→E3 원자 정상/수치 hold 결과·연결/outcome/상태·성공 publication을 확인했다.
+    deferred SQL 제약 충돌을 재현/수정하고 수치 hold는 publication0을 유지했다. 취소/만료·실제 -9/fresh 임대2의7+9걸음·원108상태/UTC,
+    저장5지점 오류/늦은 변경3경우 rollback·원 결과 재사용/잠금·입력/권한·원본/기동·소유 정리를 통과했다.
+    세 advance11.115–15.679초·최대 갱신 간격/최종 tail21.266/35.543초≤600초; 단일/합 RSS129,622,016/451,383,296bytes.
+    native→집중 terminal3,414.796초(약57분), 기록/commit 별도다. 자동 소비/API/UI·관문은 미수용이다.
+  - [x] **checkpoint E1–E4** — 위 실제 같은 job/원값·취소/재개·원자 저장/권리·최종 제품 source·원본/기동/정리를 대조했다.
+    새 API/UI 수용은 후속이며 전체 작기는 재실행하지 않았다.
+  - [ ] **E5a 작업 발견** — 다음 한 단계. 선행: E4. 예정 core3: 기존 `deterministic_job_discovery.py`/test, discovery 계약.
     수용: joint 판본 명시 허용·권한/다른 stage·잘못된 입력 거부와 기존 판본/페이지 보존.
     확인: 집중 discovery pytest/실제 DB. M,0.5–1시간.
   - [ ] **E5b 자동 소비** — 선행: E5a. 예정 core3: 기존 `deterministic_work.py`/test, worker-loop 계약.
@@ -1853,6 +1858,7 @@
     확인: 집중 loop pytest·실제 worker 프로세스/신호/정리. M,0.5–1시간.
   - [ ] **E6a 현재 진행 DTO** — 선행: E2/E4. 예정 core3: `backend/app/crop_climate_joint_execution_query.py`, 같은 이름 test, 위 실행 계약.
     수용: 같은 job/input/farm·현재 권리·사건/HEAD 대사와 none/current/unavailable; 원 counts/UTC/수용 시각·완료/hold result;
+    E4 닫힌 결과 연결 사건/현재 registry·attempt/확정 checkpoint와 성공 publication 또는 수치 hold의 publication0·reason 대사;
     조회 준비/복원/RHS/등록0·마지막 사건/HEAD 차이·늦은 철회 거부. 확인: 집중 pytest/실제 SCRAM. M,0.75–1.5시간.
   - [ ] **E6b 보호 HTTP** — 선행: E1/E6a. 예정 core4: `backend/app/api_crop_climate_joint_execution.py`, 해당 test, `backend/app/api.py`, 위 실행 계약.
     수용: 전용 접수/조회/취소·인증 tenant/현재 scope·원 wire/오류; 취소 수락과 terminal 확인 구분·권리 철회 뒤 소유자 취소;

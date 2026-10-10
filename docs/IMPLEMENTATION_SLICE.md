@@ -65,8 +65,11 @@ core7ad76c2·고유501개/실제 SCRAM·HTTPS·WebGL·원값/권리·원본/UI/�
 새 화면은 현재5173에 배포하지 않았다. [기존 jobs/임대·저장 코드 대조](../research/crop-execution-link-boundary-20261010.md)로
 [실행 경계](../contracts/crop-execution-link-v1.md)를 확정했다. [계산0 합성 접수 E1](../research/crop-climate-joint-execution-admission-implementation-20261010.md)은
 core9f5c18d·고유17검사/실제 SCRAM·동시 중복/현재 권리·rollback·원본/기동 보존으로 로컬 수용했다.
-다음은 E2 확정 checkpoint/counts/UTC·별도 DB 수용 시각이며
-worker/확정 checkpoint·취소 API→자동 갱신→완료/hold 저장3D의 E1–E9로 진행한다.
+[E2 checkpoint](../research/crop-climate-joint-execution-checkpoint-implementation-20261010.md)·
+[E3 결과 거래](../research/crop-climate-joint-result-transaction-implementation-20261010.md)와
+[E4 임대 worker](../research/crop-climate-joint-execution-worker-implementation-20261010.md)도 수용했다.
+E4는 core6cf4eaf·새24/관련4=고유28검사에서 원108상태/UTC·취소/만료·실제 crash/fresh 재개·원자 정상/hold 저장·권리/정리를 확인했다.
+다음은 E5 자동 발견/소비→진행/취소 API→자동 갱신→완료/hold 저장3D다. 현재5173 자동 연동은 미구현이다.
 계산 중 prefix3D는 terminal 조회와 구분해 별도 수용하고, 온실 경계 조사/독립 자료 확보는 병행한다.
 전체 결합·실시간 U3·실제 자료/생산 관문은 미완료다.
 
