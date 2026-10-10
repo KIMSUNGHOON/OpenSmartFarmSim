@@ -1,6 +1,6 @@
 # 계산 중 확정 작물·기후 페이지 조회 v1
 
-상태: **P0 계약/의존성 검토 완료, 구현·실제 DB/API/3D 수용 전**. 기준 checkout은 `625baab6ff2ad68c36487b7caf4928584f94882b`, 검토일은2026-10-10이다.
+상태: **P0 계약 완료·[P1 내부 reader/실제 SCRAM 수용](../research/crop-climate-joint-prefix-reader-implementation-20261010.md), P2 공개 투영/API/3D 미수용**. 기준 checkout은 `625baab6ff2ad68c36487b7caf4928584f94882b`, 검토일은2026-10-10이다.
 선행은 [실행/체크포인트](crop-execution-link-v1.md), [서명 이력](crop-climate-joint-server-custody-v1.md),
 [불변 페이지](crop-climate-joint-storage-v1.md), [완료 결과 투영](api-crop-climate-joint-replay-v1.md)과
 [E9b 사용자 연결](../research/crop-climate-joint-execution-user-preview-20261010.md)이다.

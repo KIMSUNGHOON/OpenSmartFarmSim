@@ -4,7 +4,7 @@
 [접속 안내](web/README.md#joint-execution-user-preview)에 따라 합성 계산 접수→상태/확정 checkpoint 자동 조회→완료/hold 저장 UTC3D·취소/재접속을 확인할 수 있다.
 [E9b 실제 사용자 연결](research/crop-climate-joint-execution-user-preview-20261010.md)은 최종 브라우저5경로·재시작/원 결과·WSL 전체 서비스 합산을 통과했다.
 계산 중 확정 prefix의 성장3D와 최종 제품 UI는 후속 작업이다.
-[확정 prefix 읽기 계약](contracts/crop-climate-joint-prefix-view-v1.md)과 [P1–P6 순서/수용·잠정 시간](tasks/plan.md#joint-prefix-view-20261010)을 추가했다. 다음 구현은 DB 수용 판본의 원 페이지 reader다.
+[확정 prefix 읽기 계약](contracts/crop-climate-joint-prefix-view-v1.md)과 [P1–P6 순서/수용·잠정 시간](tasks/plan.md#joint-prefix-view-20261010)을 추가했다. [P1 원 페이지 reader](research/crop-climate-joint-prefix-reader-implementation-20261010.md)를 실제 SCRAM 고유12개로 수용했다. 다음은 P2 공개 투영이며 계산 중3D는 미완료다.
 
 **2026-10-09 사용자 확인 UI:** 기존 제품 App과 실제 DB/HTTPS 백엔드를 함께 기동했다.
 `http://localhost:5173/`에서 [접속·저장 결과 조회 안내](web/README.md#기존-제품-앱의-로컬-동시-기동--2026-10-09)에 따라

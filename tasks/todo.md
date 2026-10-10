@@ -1919,18 +1919,20 @@
       계산 중 prefix3D/최종 UI/전체 U3·실제 자료/관문은 미수용이다.
   - [ ] **계산 중 확정 prefix3D** <a id="joint-prefix-view-20261010"></a> — [P0 계약](../contracts/crop-climate-joint-prefix-view-v1.md)/[순서·잠정 시간](plan.md#joint-prefix-view-20261010). 현재 terminal page를 미완료에 사용하지 않는다.
     수용: 불변 prefix/수용 HEAD·원 sample/event/같은 UTC·현재 권리와 동시 게시/취소/재시작·늦은 응답을 실제 DB/브라우저에서 대사.
-    P1–P6 합계7.5–15집중시간 잠정/연속 작업10/11 KST 조건부다. P1 실제 비용 뒤 갱신한다. 전체 U3/실제 관문 날짜는 미정이다.
+    P1 수용 뒤 남은 P2–P6는6–12집중시간 잠정/연속 작업10/11 KST 조건부다. 실제 HTTP/SDK/사용자 관측 뒤 갱신한다. 전체 U3/실제 관문 날짜는 미정이다.
     - [x] **P0 확정 prefix 읽기 계약** — 선행: E9b·E2/E4·기존 불변 페이지/서명 계약. core 계약1파일과 계획/기계 기록 갱신이다.
       [source/CLI 증거](../research/artifacts/crop-climate-joint-prefix-contract-reference-20261010.json):13파일/26심볼·native gpt-6.1-sol/xhigh·재귀0.
       DB 수용 selector/원 페이지·이전 판본/계보·현재 권리·동시 writer/취소/fresh와 계산/저장 UTC·빈 장면/조회 계산0·공개 제한을 정의했다.
       P1–P6 의존성/수용/검증·파일/조건부 시간을 작성했다. native→source 대조1,036.777초(약17분), 문서 검사/commit 별도다.
       source13파일 SHA/계약 출력 hash·상대 파일 링크1,817개/명시 anchor2개·diff/비밀 미포함 검사를 통과했고 두 사용자 서버/HTML은 동일하다.
       실제 prefix DB/HTTP/3D 검사는 실행하지 않았고 구현·부모/전체 U3 체크는 열어 둔다.
-    - [ ] **P1 원 페이지/DB reader** — 다음 한 단계. 선행: P0. 예정2파일: `backend/app/crop_climate_joint_prefix.py`, `backend/tests/test_crop_climate_joint_prefix.py`.
-      수용: 실제 SCRAM running의 원 sample/event/UTC·빈 ready·sparse output, DB 미수용 거부/이전 수용 판본·현재 계보/권리/취소·fresh.
-      원 수치·최초 수용 시각 보존/수치 호출·DB 쓰기0·페이지 상한/비용·FD/소유 종료·두 사용자 서비스/원본 보존을 확인한다.
-      확인: backend에서 `.venv/bin/python -B -m pytest tests/test_crop_climate_joint_prefix.py -q`, 보호된 실제 SCRAM 설정/skip0·fresh 원 결과 대사·감독 receipt.1.5–3h 잠정.
-    - [ ] **P2 typed prefix 투영** — 선행: P1. 예정 `backend/app/api_crop_climate_joint_prefix.py`와 test2파일.
+    - [x] **P1 원 페이지/DB reader** — 선행: P0. reader/test2파일, [coreb05d407/수용 근거](../research/crop-climate-joint-prefix-reader-implementation-20261010.md).
+      [실행 증거](../research/artifacts/crop-climate-joint-prefix-reader-reference-20261010.json): 실제 SCRAM 최종 같은 source의 고유12개/skip0·5/4/3 순차 그룹.
+      원 값/UTC·sparse/빈 ready·65행64+1·private/수용 tail 뒤 이전 판본·최신 DB보다 과거 signed rollback 거부·최초 시각/fresh를 확인했다.
+      현재 권한/자료·늦은 철회/실제 외부 취소·변조/잠금·정상/hold 원 결과·조회 계산/쓰기21계수0·DB/FD/소유 정리를 통과했다.
+      read6.877–6.905초/64행658,115bytes·단일/합 RSS147,017,728/813,441,024bytes·원본2,148/두 사용자 서버를 보존했다.
+      첫 JSON 직렬화 실패 원 SHA/receipt 보존·수정 후 수용; native→최종 검증2554.329초(약43분), 문서/commit 별도. API/3D/부모/전체 U3는 미완료다.
+    - [ ] **P2 typed prefix 투영** — 다음 한 단계. 선행: P1. 예정 `backend/app/api_crop_climate_joint_prefix.py`와 test2파일.
       수용/확인: 원 sample/Event whitelist·닫힌 summary/page/selector·64/8/2MiB·끝/빈/거부/fresh를 집중 pytest로 대사.0.75–1.5h 잠정.
     - [ ] **P3a 보호 prefix HTTP** — 선행: P2. 예정 routes/test2파일.
       수용/확인: 실제 SCRAM/HTTPS·현재 계정 전후/scopes·원 응답·query/body/selector·거부/잠금·조회 계산0; 집중 pytest/실제 응답.0.75–1.5h 잠정.
