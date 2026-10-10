@@ -1861,11 +1861,15 @@
     실제 custody 잠금→queued/계산0→같은 consumer의 재발견/시도2 성공, 소유 임대 만료→unclosed/종료3/고정 오류·결과/후속 실행0을 통과했다.
     기존37개 bytes를 보존하고 전용 fixture를 분리했다. 시험 private JSON의 atomic replace 보완 뒤 live retry만 재검증했다. 모든 test/fixture 정의는 같다.
     단일/합 RSS138,248,192/480,096,256bytes·원본2,148/기동/소유 정리; native→집중853.598초(약14분), 기록/commit 별도다. API/UI는 미수용이다.
-  - [ ] **E6a 현재 진행 DTO** — 다음 한 단계. 선행: E2/E4. 예정 core3: `backend/app/crop_climate_joint_execution_query.py`, 같은 이름 test, 위 실행 계약.
-    수용: 같은 job/input/farm·현재 권리·사건/HEAD 대사와 none/current/unavailable; 원 counts/UTC/수용 시각·완료/hold result;
-    E4 닫힌 결과 연결 사건/현재 registry·attempt/확정 checkpoint와 성공 publication 또는 수치 hold의 publication0·reason 대사;
-    조회 준비/복원/RHS/등록0·마지막 사건/HEAD 차이·늦은 철회 거부. 확인: 집중 pytest/실제 SCRAM. M,0.75–1.5시간.
-  - [ ] **E6b 보호 HTTP** — 선행: E1/E6a. 예정 core4: `backend/app/api_crop_climate_joint_execution.py`, 해당 test, `backend/app/api.py`, 위 실행 계약.
+  - [x] **E6a 현재 진행 DTO** — 선행: E2/E4. core3: `backend/app/crop_climate_joint_execution_query.py`, 같은 이름 test, 위 실행 계약.
+    [core0bfa9dd/수용 근거](../research/crop-climate-joint-execution-query-implementation-20261010.md): 신규16/관련2=고유18개·실제 SCRAM readonly/fresh,
+    같은 job/input/farm·원 사건/HEAD/counts/UTC/최초 DB 시각·heartbeat/시도2 보존·none/current/unavailable을 확인했다.
+    현재 attempt/확정 checkpoint·서명 registry/닫힌 연결 사건·완료 publication1/수치 hold0·원 farm/batch/zone을 대사했다.
+    조회21개 호출 계수0·다섯 작업 테이블 무변경·실제 잠금/미확정 HEAD·변조3종/늦은 철회·별도 actor 변경 Pending을 통과했다.
+    완료 farm4→6 투영 오류의 원 실패2회·이전 source를 보존하고 최종 정상/fresh/hold/schema를 재검증했다. 앞선 checkpoint 정의는 같다.
+    단일/합 RSS132,415,488/436,039,680bytes·원본2,148/기동/소유 정리; native→집중2,240.123초(약37분), 기록/commit 별도다.
+    HTTP/API 지연·runtime/UI/전체 작기·실제 자료/관문은 미수용이다.
+  - [ ] **E6b 보호 HTTP** — 다음 한 단계. 선행: E1/E6a. 예정 core4: `backend/app/api_crop_climate_joint_execution.py`, 해당 test, `backend/app/api.py`, 위 실행 계약.
     수용: 전용 접수/조회/취소·인증 tenant/현재 scope·원 wire/오류; 취소 수락과 terminal 확인 구분·권리 철회 뒤 소유자 취소;
     기존 JobStatus/저장 GET 불변·본문/응답 한도·취소/늦은 응답. 확인: 집중 route/기존 API pytest와 실제 TLS. M,0.75–1.5시간.
   - [ ] **E6c 명시 runtime** — 선행: E5/E6b. 예정 core4: 기존 `api_runtime.py`/test와 joint operator config/test.
