@@ -1,6 +1,6 @@
 # 작물 계산 요청·확정 진행·완료 결과 연결 v1
 
-상태: **E1 접수·E2 checkpoint 내부 서비스 로컬 수용; worker/API/UI 연결 미완료 — 2026-10-10.**
+상태: **E1–E4 내부 접수·checkpoint·결과 거래·임대 worker 로컬 수용; 자동 소비/API/UI 연결 미완료 — 2026-10-10.**
 [코드 대조 근거](../research/crop-execution-link-boundary-20261010.md)와
 [작업 순서](../tasks/plan.md#작물-계산과-ui의-실행-연결--2026-10-10)를 따른다.
 대상은 현재 수용된 짧은 합성 joint 입력·108상태·UTC·서명 저장이다.
@@ -41,7 +41,7 @@ custody intent의 작업을 여러 개 만들지 않는다. 같은 입력 재요
 | queued → canceled | 기존 JobStore.cancel의 즉시 취소 | worker claim/결과 등록0 |
 | simulating → 취소 요청 → canceled | 요청 수락과 worker 확인을 구분. 기존 상태와 cancel_requested 표시 | chunk 도중/완료 직전 취소, 부분 결과 비게시 |
 | simulating → succeeded | completed root·결과 등록·job publication·terminal 상태의 같은 DB transaction | 실제 저장 result ID/원 값/최초 시각, rollback |
-| simulating → hold | 수치 hold의 마지막 확정 상태와 실패 진단. 검증된 terminal 연구 결과만 선택 가능 | 실패 trial 정상 행0, hold 결과/진단 대사 |
+| simulating → hold | 수치 hold의 마지막 확정 상태와 실패 진단. 등록 연구 결과의 연결 사건·outcome·상태를 같은 거래에 저장 | 실패 trial 정상 행0, hold 결과/진단 대사·일반 publication0 |
 | simulating → failed/권리 hold | 안전한 reason code. 새 선택 가능한 결과 없음 | 잘못된 입력·최대 시도·현재 철회, 비밀 누출0 |
 
 `jobs.updated_at`은 heartbeat·취소에도 바뀌는 **작업 갱신 시각**이다.
@@ -75,15 +75,36 @@ HEAD 후 DB 사건 전 crash는 동일 작업의 새 임대가 원 HEAD/현재 �
 
 ## 결과 게시
 
-현재 `JointCropClimateResultStore.put`은 자체 transaction이다. 결과를 먼저 commit하고 나중에
-job을 완료시키는 방식은 허용하지 않는다. store의 기존 검증/삽입을 호출자 소유 transaction에서
-사용할 수 있는 좁은 내부 hook으로 추출하고 기존 put은 그 경로를 재사용한다.
+E3의 `JointCropClimateResultStore._put_in_transaction`을 E4
+[`JointExecutionWorker`](../backend/app/crop_climate_joint_execution_worker.py)가 사용한다.
+명시적 `run_once(job_id)`가 E1 입력을 현재 임대로 검증하고, 원 HEAD가 있으면 수치 호출 없이
+E2에 먼저 수용한다. 새 구간은1–128 예산으로 순차 계산한다. 구간 전 현재 입력/권리·임대를
+확인·갱신하고 구간 뒤 E2를 확인한다. 파일 잠금은 일시 재시도, 현재 권리/입력 거부는 보류다.
+자동 발견/소비는 E5에서 조립한다.
+
 terminal root, 현재 farm/input/rights, 원 입력·임대·취소를 확인한 뒤 같은 DB 연결에서
-결과 registry, 닫힌 publication manifest, terminal state/event/outcome을 함께 commit한다.
-publication artifact SHA/size는 등록한 canonical 결과 packet의 SHA/bytes이며 root SHA와 구분한다.
-manifest는 새 joint 판본·job/attempt·원 input SHA·result ID·packet/root/HEAD/proof SHA를 결속한다.
-권리 거부/취소/임대 상실/예외면 이 DB 변경을 모두 rollback한다.
-수치 hold에는 hold 결과를 연결할 수 있으나 실행 권리/자료 거부 hold에는 결과 ID가 없다.
+결과 registry, 결과 연결 사건, terminal event/outcome/state를 함께 commit한다.
+**기존 DB의 `succeeded` iff 일반 job publication1 제약을 유지한다.** 성공에는 일반
+publication을 함께 작성하며 수치 hold에는 일반 publication0과 닫힌 결과 연결 사건을 사용한다.
+이는 실제 deferred SQL 제약 거부를 재현한 뒤 보완한 계약이다. DB schema·일반 조회 계약은 그대로다.
+
+결과 연결 사건 kind는 `joint_execution_result_registered_v1`이다. reason은8KiB 이하의 닫힌 객체다:
+`schema_version="1"`, `publication_version="joint-crop-climate-execution-publication-v1"`,
+`result_link_version="joint-crop-climate-execution-result-link-v1"`, `status`, `job_id`, `stage`, `attempt`,
+`input_sha256`, `result_id`, `artifact_sha256`, `artifact_size`, `root_sha256`, `head_sha256`,
+`proof_sha256`, `checkpoint_event_id`, `worker_code_sha256`, `scope`, `G0_G4`.
+status는 원 completed/hold, stage는 simulation, scope는 원 합성 연구, G0_G4는 not_assessed다.
+성공 publication의 manifest는 이 객체와 같다. artifact SHA/size는 등록한 canonical 결과 packet의
+SHA/bytes이며 root SHA와 구분한다. 새 worker code pin은 과거 이력을 재서명하지 않는다.
+후속 E6 reader는 같은 job/input/현재 attempt·확정 checkpoint·현재 서명 registry와 이 사건을 대사하고,
+성공 publication 일치 또는 수치 hold의 publication0·`joint_numerical_hold` reason을 확인한다.
+실행 권리/자료 거부 hold에는 결과 연결 사건과 결과 ID가 없다.
+
+hook 안에서 registry와 연결/게시/event/outcome을 작성하고, hook의 최종 권리 검사가 끝난 뒤
+같은 외부 거래에서 현재 실행 권리/입력·임대를 재확인한다. terminal state UPDATE는 마지막
+DB clock/취소 fence다. 따라서 hook 종료 뒤 만료/오류도 이 외부 거래 전체를 rollback한다.
+성공용 content-addressed packet 파일은 DB rollback 뒤 비공개 잔존할 수 있으며 DB 연결 없이 선택하지 않는다.
+권리 거부/취소/임대 상실/예외면 이 DB 결과/연결/완료 변경은 모두 rollback한다.
 연구 result의 status/scope/관문을 변경하거나 승인 Run/Assessment 통과로 표시하지 않는다.
 store 변경으로 바뀌는 code pin/packet은 새 판본으로 취급한다. 기존 immutable metadata를 고치지 않고
 기존 결과의 frozen reader/증거를 보존한다. 명시 호환 검증 없이 과거 결과를 새 worker에 채택하지 않는다.
