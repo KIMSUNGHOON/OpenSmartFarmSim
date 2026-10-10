@@ -24,9 +24,13 @@ from app.farm_authoring_storage import READ_SCOPES as FARM_AUTHORING_READ_SCOPES
 from app.farm_authored_review import REVIEW_SCOPES as FARM_AUTHORED_REVIEW_SCOPES
 from app import api_openapi
 from test_http_identity import request
+from app.api_crop_climate_joint_execution import SUBMIT_SCOPES as JOINT_SUBMIT_SCOPES, PROGRESS_SCOPES as JOINT_PROGRESS_SCOPES
 
 
 OPERATIONS = {
+    ('/v1/crop-climate-joint-executions','post'): ('submitJointCropClimateExecution',list(JOINT_SUBMIT_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-climate-joint-execution','get'): ('getJointCropClimateExecution',list(JOINT_PROGRESS_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-climate-joint-execution/cancel','post'): ('cancelJointCropClimateExecution',['cancel']),
     ('/v1/crop-research-results/{result_id}','get'): ('getCropResearchResult',list(CROP_READ_SCOPES)),
     ('/v1/crop-coupled-research-results/{result_id}','get'): ('getCoupledCropResearchResult',list(CROP_READ_SCOPES)),
     ('/v1/crop-startup-research-results/{result_id}','get'): ('getStartupCropResearchResult',list(CROP_READ_SCOPES)),

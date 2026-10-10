@@ -4,79 +4,31 @@ from contextlib import contextmanager, ExitStack
 from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
-from typing import Annotated, Literal
 from uuid import UUID
 import json
 import os
 
 from psycopg import sql
-from pydantic import Field, model_validator
 
 from . import crop_climate_joint_execution_worker as worker
 from . import api_contracts as jobs_public
 from . import api_crop_climate_joint_replay as public
+from . import api_crop_climate_joint_execution as wire
 from .runtime_roles import RolePolicyHold
 
 checkpoints = worker.checkpoints
 storage = worker.results
 custody = checkpoints.custody
-VERSION = 'joint-crop-climate-execution-query-v1'
-MAX_RESPONSE_BYTES = 16 * 1024
+VERSION = wire.VERSION
+MAX_RESPONSE_BYTES = wire.MAX_RESPONSE_BYTES
 CODE_SHA256 = sha256(Path(__file__).read_bytes()).hexdigest()
-_MODULES = {'worker': worker, 'job_projection': jobs_public, 'joint_projection': public}
+_MODULES = {'worker': worker, 'job_projection': jobs_public, 'joint_projection': public, 'execution_projection': wire}
 _DEPENDENCIES = {k: sha256(Path(m.__file__).read_bytes()).hexdigest() for k, m in _MODULES.items()}
 _FIXED = (VERSION, MAX_RESPONSE_BYTES, CODE_SHA256, storage._canonical(_DEPENDENCIES))
-Counter = Annotated[int, Field(strict=True, ge=0, le=2**63 - 1)]
-
-
-class ExecutionCounts(public._Public):
-    samples: Counter
-    events: Counter
-
-
-class ExecutionCheckpoint(public._Public):
-    head_sha256: public.Digest
-    proof_sha256: public.Digest
-    artifact_sha256: public.Digest | None
-    status: Literal['ready', 'yielded', 'completed', 'hold']
-    steps: Counter
-    planned_steps: Annotated[int, Field(strict=True, ge=1, le=2**63 - 1)]
-    counts: ExecutionCounts
-    computed_through_utc: public.UtcStamp | None
-    checkpoint_recorded_at: public.UtcStamp
-    publication_sequence: Annotated[int, Field(strict=True, ge=1, le=checkpoints.MAX_EVENTS)]
-
-
-class ExecutionResult(public._Public):
-    result_id: Annotated[str, Field(strict=True, pattern=r'^joint-crop-climate-result-v1:[a-f0-9]{64}$')]
-    farm: public.Farm
-    status: Literal['completed', 'hold']
-
-
-class ExecutionRead(public._Public):
-    version: Literal['joint-crop-climate-execution-query-v1']
-    scope: Literal['synthetic_joint_crop_climate_math_only']
-    G0_G4: Literal['not_assessed']
-    job: jobs_public.JobStatus
-    cancel_requested: Annotated[bool, Field(strict=True)]
-    observed_at: public.UtcStamp
-    checkpoint_status: Literal['none', 'current', 'unavailable']
-    checkpoint: ExecutionCheckpoint | None
-    result: ExecutionResult | None
-
-    @model_validator(mode='after')
-    def consistent_progress(self):
-        _need((self.checkpoint_status == 'current') == (self.checkpoint is not None))
-        if self.checkpoint is not None:
-            c = self.checkpoint
-            _need(c.steps <= c.planned_steps
-                and (c.artifact_sha256 is not None) == (c.status in ('completed', 'hold'))
-                and (c.computed_through_utc is None) == (c.status == 'ready'))
-            if c.status == 'completed': _need(c.steps == c.planned_steps)
-        if self.result is not None:
-            _need(self.checkpoint is not None and self.checkpoint.status == self.result.status
-                and self.job.state == ('succeeded' if self.result.status == 'completed' else 'hold'))
-        return self
+ExecutionCounts = wire.ExecutionCounts
+ExecutionCheckpoint = wire.ExecutionCheckpoint
+ExecutionResult = wire.ExecutionResult
+ExecutionRead = wire.ExecutionRead
 
 
 class JointExecutionQueryHold(ValueError):
@@ -125,6 +77,11 @@ class JointExecutionQuery:
             and (VERSION, MAX_RESPONSE_BYTES, CODE_SHA256, storage._canonical(_DEPENDENCIES)) == _FIXED
             and sha256(Path(__file__).read_bytes()).hexdigest() == CODE_SHA256
             and {k: sha256(Path(m.__file__).read_bytes()).hexdigest() for k, m in _MODULES.items()} == _DEPENDENCIES)
+        _need(wire.MAX_CHECKPOINT_EVENTS == checkpoints.MAX_EVENTS
+            and wire.INPUT_VERSION == checkpoints.execution.INPUT_VERSION
+            and wire.SOURCE_VERSION == custody.farms.evidence.SOURCE_VERSION
+            and wire.RIGHTS_VERSION == custody.farms.RIGHTS_VERSION)
+        _need(set(wire.ExecutionResultFarm.model_fields) == set(public.Farm.model_fields))
         self.checkpoints._binding(); self.results._binding()
 
     def _guard(self, tenant):

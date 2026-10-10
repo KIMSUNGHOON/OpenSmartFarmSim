@@ -156,6 +156,27 @@ readonly DB snapshot 뒤 현재 job/사건/게시/outcome을 다시 대사한다
 고정 `JointExecutionQueryPending`, 잘못된 현재 증거는 `JointExecutionQueryHold`, scope 거부는
 PermissionError이며 부분 수치를 반환하지 않는다. HTTP 오류 매핑과 runtime 노출은 E6b/E6c에서 검증한다.
 
+### E6b 보호 HTTP 인터페이스
+
+접수 POST는 E1의 study_id/revision/farm/input/rights를 닫힌 JSON으로 받고202의 기존 JobStatus를 반환한다.
+같은 revision 재요청은 같은 job이며 원 본문은64KiB 이하·중복 JSON 키/비정상 숫자를 거부한다.
+잘못된 JSON/형식은422, 초과는413, JSON이 아닌 content type은415다.
+진행 GET은 E6a의 원 canonical bytes를 전달하며 query parameter와 본문을 받지 않는다.
+작업 ID는 소문자 canonical UUID다. 진행 응답의16KiB 상한을 적용한다.
+
+취소 POST는 빈 본문·query 없음과 cancel scope만 요구하며200의
+`version=joint-crop-climate-execution-cancel-v1`, scope/G0_G4, 기존 JobStatus,
+cancel_requested/cancel_accepted/observed_at을 반환한다. cancel_accepted는 기존 JobStore의 취소 수락이다.
+queued는 canceled로 닫히고 실행 중이면 cancel_requested이며 worker의 확인 전에는 종료로 표시하지 않는다.
+terminal 재요청은 cancel_accepted=false와 원 terminal 상태를 반환한다.
+취소는 tenant/job/stage/불변 입력 판본을 검사하며 metadata·현재 과학 자료의 읽기/사용 권리를 요구하지 않는다.
+
+모든 응답은 no-store이며 작업 호출 뒤 현재 인증 tenant와 해당 scope를 다시 검사한다.
+현재 증거 Hold는422, 변경 중 Pending/운영 오류는503으로 고정 오류만 반환한다.
+공개 DTO는 HTTP 모듈에서 생성하고 query는 같은 타입을 가져온다. 기본 OpenAPI 생성은 작업자/진행 reader를 로드하지 않는다.
+API 조립은 같은 admission/checkpoint/query/store/server/farm/principal을 요구한다.
+`create_app`의 두 실행 인자는 기본 None이며 실제 운영 설정 활성화는 E6c다.
+
 첫 UI 연결은 계산 접수·확정 걸음/계산 UTC·최종 갱신·재접속·취소·완료/hold 결과 선택이다.
 bounded polling은 앞 요청 정산 뒤에만 시작하고 숨김/계정/선택 변경/해제 때 중단한다.
 초기 대기10초, 일시 오류 시 최대60초까지 backoff하고 실제 응답 비용/최대 화면 지연을 보고한다.

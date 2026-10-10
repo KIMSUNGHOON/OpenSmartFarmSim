@@ -5724,6 +5724,321 @@
         "title": "EventValue",
         "type": "object"
       },
+      "ExecutionCancellation": {
+        "additionalProperties": false,
+        "properties": {
+          "G0_G4": {
+            "const": "not_assessed",
+            "title": "G0 G4",
+            "type": "string"
+          },
+          "cancel_accepted": {
+            "title": "Cancel Accepted",
+            "type": "boolean"
+          },
+          "cancel_requested": {
+            "title": "Cancel Requested",
+            "type": "boolean"
+          },
+          "job": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "observed_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Observed At",
+            "type": "string"
+          },
+          "scope": {
+            "const": "synthetic_joint_crop_climate_math_only",
+            "title": "Scope",
+            "type": "string"
+          },
+          "version": {
+            "const": "joint-crop-climate-execution-cancel-v1",
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "scope",
+          "G0_G4",
+          "job",
+          "cancel_requested",
+          "cancel_accepted",
+          "observed_at"
+        ],
+        "title": "ExecutionCancellation",
+        "type": "object"
+      },
+      "ExecutionCheckpoint": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_sha256": {
+            "anyOf": [
+              {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Artifact Sha256"
+          },
+          "checkpoint_recorded_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Checkpoint Recorded At",
+            "type": "string"
+          },
+          "computed_through_utc": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Computed Through Utc"
+          },
+          "counts": {
+            "$ref": "#/components/schemas/ExecutionCounts"
+          },
+          "head_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Head Sha256",
+            "type": "string"
+          },
+          "planned_steps": {
+            "maximum": 9.223372036854776e+18,
+            "minimum": 1.0,
+            "title": "Planned Steps",
+            "type": "integer"
+          },
+          "proof_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Proof Sha256",
+            "type": "string"
+          },
+          "publication_sequence": {
+            "maximum": 4099.0,
+            "minimum": 1.0,
+            "title": "Publication Sequence",
+            "type": "integer"
+          },
+          "status": {
+            "enum": [
+              "ready",
+              "yielded",
+              "completed",
+              "hold"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "steps": {
+            "maximum": 9.223372036854776e+18,
+            "minimum": 0.0,
+            "title": "Steps",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "head_sha256",
+          "proof_sha256",
+          "artifact_sha256",
+          "status",
+          "steps",
+          "planned_steps",
+          "counts",
+          "computed_through_utc",
+          "checkpoint_recorded_at",
+          "publication_sequence"
+        ],
+        "title": "ExecutionCheckpoint",
+        "type": "object"
+      },
+      "ExecutionCounts": {
+        "additionalProperties": false,
+        "properties": {
+          "events": {
+            "maximum": 9.223372036854776e+18,
+            "minimum": 0.0,
+            "title": "Events",
+            "type": "integer"
+          },
+          "samples": {
+            "maximum": 9.223372036854776e+18,
+            "minimum": 0.0,
+            "title": "Samples",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "samples",
+          "events"
+        ],
+        "title": "ExecutionCounts",
+        "type": "object"
+      },
+      "ExecutionRead": {
+        "additionalProperties": false,
+        "properties": {
+          "G0_G4": {
+            "const": "not_assessed",
+            "title": "G0 G4",
+            "type": "string"
+          },
+          "cancel_requested": {
+            "title": "Cancel Requested",
+            "type": "boolean"
+          },
+          "checkpoint": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExecutionCheckpoint"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "checkpoint_status": {
+            "enum": [
+              "none",
+              "current",
+              "unavailable"
+            ],
+            "title": "Checkpoint Status",
+            "type": "string"
+          },
+          "job": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "observed_at": {
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "title": "Observed At",
+            "type": "string"
+          },
+          "result": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExecutionResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "scope": {
+            "const": "synthetic_joint_crop_climate_math_only",
+            "title": "Scope",
+            "type": "string"
+          },
+          "version": {
+            "const": "joint-crop-climate-execution-query-v1",
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "scope",
+          "G0_G4",
+          "job",
+          "cancel_requested",
+          "observed_at",
+          "checkpoint_status",
+          "checkpoint",
+          "result"
+        ],
+        "title": "ExecutionRead",
+        "type": "object"
+      },
+      "ExecutionResult": {
+        "additionalProperties": false,
+        "properties": {
+          "farm": {
+            "$ref": "#/components/schemas/ExecutionResultFarm"
+          },
+          "result_id": {
+            "pattern": "^joint-crop-climate-result-v1:[a-f0-9]{64}$",
+            "title": "Result Id",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "completed",
+              "hold"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "result_id",
+          "farm",
+          "status"
+        ],
+        "title": "ExecutionResult",
+        "type": "object"
+      },
+      "ExecutionResultFarm": {
+        "additionalProperties": false,
+        "properties": {
+          "batch_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Batch Id",
+            "type": "string"
+          },
+          "crop_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Crop Id",
+            "type": "string"
+          },
+          "registration_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Registration Sha256",
+            "type": "string"
+          },
+          "scenario_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Id",
+            "type": "string"
+          },
+          "scenario_revision": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Scenario Revision",
+            "type": "string"
+          },
+          "zone_id": {
+            "maxLength": 200,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+            "title": "Zone Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "scenario_revision",
+          "registration_sha256",
+          "crop_id",
+          "batch_id",
+          "zone_id"
+        ],
+        "title": "ExecutionResultFarm",
+        "type": "object"
+      },
       "Farm": {
         "additionalProperties": false,
         "properties": {
@@ -15200,6 +15515,315 @@
         ]
       }
     },
+    "/v1/crop-climate-joint-executions": {
+      "post": {
+        "operationId": "submitJointCropClimateExecution",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "farm": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "crop_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Crop Id",
+                        "type": "string"
+                      },
+                      "registration_sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Registration Sha256",
+                        "type": "string"
+                      },
+                      "scenario_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Id",
+                        "type": "string"
+                      },
+                      "scenario_revision": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Scenario Revision",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "scenario_id",
+                      "scenario_revision",
+                      "registration_sha256",
+                      "crop_id"
+                    ],
+                    "title": "ExecutionFarm",
+                    "type": "object"
+                  },
+                  "input": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "context_sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Context Sha256",
+                        "type": "string"
+                      },
+                      "evidence_sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Evidence Sha256",
+                        "type": "string"
+                      },
+                      "program_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Program Id",
+                        "type": "string"
+                      },
+                      "schema_version": {
+                        "const": "joint-crop-climate-input-source-v1",
+                        "title": "Schema Version",
+                        "type": "string"
+                      },
+                      "source_sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Source Sha256",
+                        "type": "string"
+                      },
+                      "time_binding_sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Time Binding Sha256",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schema_version",
+                      "program_id",
+                      "source_sha256",
+                      "context_sha256",
+                      "time_binding_sha256",
+                      "evidence_sha256"
+                    ],
+                    "title": "ExecutionInput",
+                    "type": "object"
+                  },
+                  "revision": {
+                    "maxLength": 200,
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                    "title": "Revision",
+                    "type": "string"
+                  },
+                  "rights": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "access": {
+                        "title": "Access",
+                        "type": "boolean"
+                      },
+                      "available_at": {
+                        "format": "date-time",
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+                        "title": "Available At",
+                        "type": "string"
+                      },
+                      "declaration_id": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Declaration Id",
+                        "type": "string"
+                      },
+                      "display": {
+                        "title": "Display",
+                        "type": "boolean"
+                      },
+                      "input_source_sha256": {
+                        "pattern": "^[0-9a-f]{64}$",
+                        "title": "Input Source Sha256",
+                        "type": "string"
+                      },
+                      "ownership_asserted": {
+                        "title": "Ownership Asserted",
+                        "type": "boolean"
+                      },
+                      "redistribute": {
+                        "title": "Redistribute",
+                        "type": "boolean"
+                      },
+                      "revision": {
+                        "maxLength": 200,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                        "title": "Revision",
+                        "type": "string"
+                      },
+                      "schema_version": {
+                        "const": "joint-crop-climate-input-rights-v1",
+                        "title": "Schema Version",
+                        "type": "string"
+                      },
+                      "store": {
+                        "title": "Store",
+                        "type": "boolean"
+                      },
+                      "transform": {
+                        "title": "Transform",
+                        "type": "boolean"
+                      },
+                      "use": {
+                        "title": "Use",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "schema_version",
+                      "declaration_id",
+                      "revision",
+                      "input_source_sha256",
+                      "available_at",
+                      "redistribute",
+                      "ownership_asserted",
+                      "access",
+                      "store",
+                      "transform",
+                      "use",
+                      "display"
+                    ],
+                    "title": "ExecutionRights",
+                    "type": "object"
+                  },
+                  "study_id": {
+                    "maxLength": 200,
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:/-]{0,199}$",
+                    "title": "Study Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "study_id",
+                  "revision",
+                  "farm",
+                  "input",
+                  "rights"
+                ],
+                "title": "ExecutionRequest",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobStatus"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Submit",
+        "x-ossf-max-body-bytes": 65536,
+        "x-ossf-required-scopes": [
+          "simulation_create",
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read",
+          "crop_result_read",
+          "crop_result_write"
+        ]
+      }
+    },
     "/v1/crop-climate-joint-research-results/{result_id}": {
       "get": {
         "operationId": "getJointCropClimateResearchResult",
@@ -21193,6 +21817,251 @@
           "market_candidate_read",
           "decision_context_read",
           "market_hold_context_read"
+        ]
+      }
+    },
+    "/v1/jobs/{job_id}/crop-climate-joint-execution": {
+      "get": {
+        "operationId": "getJointCropClimateExecution",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "title": "Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExecutionRead"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Progress",
+        "x-ossf-required-scopes": [
+          "metadata",
+          "farm_scenario_read",
+          "metadata",
+          "artifact",
+          "thermal_snapshot_read",
+          "decision_context_read",
+          "market_hold_context_read",
+          "market_source_read",
+          "market_candidate_read",
+          "crop_result_read"
+        ]
+      }
+    },
+    "/v1/jobs/{job_id}/crop-climate-joint-execution/cancel": {
+      "post": {
+        "operationId": "cancelJointCropClimateExecution",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "title": "Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExecutionCancellation"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "summary": "Cancel",
+        "x-ossf-required-scopes": [
+          "cancel"
         ]
       }
     },
