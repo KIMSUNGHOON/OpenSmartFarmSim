@@ -1,19 +1,24 @@
 import { BoxGeometry,Group,Mesh,type Material } from 'three';
 import { CARBON_UNIT } from './cropReplay';
-import { FRUIT_NUMBER_UNIT,type CoupledCropState,type CoupledCropSample } from './coupledCropReplay';
+import { FRUIT_NUMBER_UNIT,type CoupledCropState } from './coupledCropReplay';
+
+export type CohortInventory=Pick<CoupledCropState,'fruit_carbohydrate'|'fruit_number'>;
+export type CohortSceneSample=Readonly<{at:string;state:CohortInventory;lai:Readonly<{value:number;unit:'m2_leaf/m2_floor'}>;
+  temperatures?:Readonly<{canopy:Readonly<{value:number;unit:'degC'}>;air:Readonly<{value:number;unit:'degC'}>}>}>;
+export type TemperatureRange=Readonly<{minimum:number;maximum:number}>;
 
 type LogBounds=Readonly<{lower:number;upper:number}>;
 export type CohortScales=Readonly<{carbon:number;number:number;
-  logarithmic?:Readonly<{carbon:LogBounds|null;number:LogBounds|null}>}>;
+  logarithmic?:Readonly<{carbon:LogBounds|null;number:LogBounds|null}>;temperatures?:TemperatureRange}>;
 type Heights=Readonly<{carbon:readonly number[];number:readonly number[]}>;
 function need(value:unknown):asserts value {if(!value)throw new Error('crop_scene_unavailable');}
-function quantities(state:CoupledCropState){
+function quantities(state:CohortInventory){
   for(const [values,unit] of [[state.fruit_carbohydrate,CARBON_UNIT],[state.fruit_number,FRUIT_NUMBER_UNIT]] as const){
     need(Array.isArray(values) && values.length===50);
     for(const q of values)need(q && q.unit===unit && Number.isFinite(q.value) && q.value>=0);
   }
 }
-export function coupledCohortScales(samples:readonly Pick<CoupledCropSample,'state'>[]):CohortScales{
+export function coupledCohortScales(samples:readonly {state:CohortInventory}[]):CohortScales{
   let carbon=0,number=0;
   for(const sample of samples){
     quantities(sample.state);
@@ -22,7 +27,7 @@ export function coupledCohortScales(samples:readonly Pick<CoupledCropSample,'sta
   }
   return {carbon,number};
 }
-export function startupCohortScales(samples:readonly Pick<CoupledCropSample,'state'>[]){
+export function startupCohortScales(samples:readonly {state:CohortInventory}[]){
   const maxima=coupledCohortScales(samples),minimum={carbon:Infinity,number:Infinity};
   for(const sample of samples)for(const [kind,key] of [['carbon','fruit_carbohydrate'],['number','fruit_number']] as const)
     for(const q of sample.state[key])if(q.value>0)minimum[kind]=Math.min(minimum[kind],q.value);
@@ -30,7 +35,7 @@ export function startupCohortScales(samples:readonly Pick<CoupledCropSample,'sta
     {lower:Math.floor(Math.log10(minimum[kind]))-1,upper:Math.ceil(Math.log10(maxima[kind]))}:null;
   return {...maxima,logarithmic:{carbon:bound('carbon'),number:bound('number')}};
 }
-export function coupledCohortHeights(state:CoupledCropState,scales:CohortScales):Heights{
+export function coupledCohortHeights(state:CohortInventory,scales:CohortScales):Heights{
   quantities(state);
   function heights(values:readonly {value:number}[],maximum:number,bounds?:LogBounds|null){
     need(Number.isFinite(maximum) && maximum>=0);
@@ -48,6 +53,15 @@ export function coupledCohortHeights(state:CoupledCropState,scales:CohortScales)
   return {carbon:heights(state.fruit_carbohydrate,scales.carbon,scales.logarithmic?.carbon),
     number:heights(state.fruit_number,scales.number,scales.logarithmic?.number)};
 }
+export function temperaturePosition(value:number,range:TemperatureRange){
+  const {minimum,maximum}=range;
+  need(Number.isFinite(value) && Number.isFinite(minimum) && Number.isFinite(maximum)
+    && minimum<=value && value<=maximum);
+  if(minimum===maximum)return .5;
+  const scale=Math.max(Math.abs(minimum),Math.abs(maximum),1);
+  const ratio=(value/scale-minimum/scale)/(maximum/scale-minimum/scale);
+  need(Number.isFinite(ratio) && ratio>=0 && ratio<=1);return ratio;
+}
 export function createCohortDiagrams(carbonMaterial:Material,numberMaterial:Material){
   const group=new Group(),carbonGroup=new Group(),numberGroup=new Group(),geometry=new BoxGeometry(.07,1,.07);
   numberGroup.position.x=1.4;group.add(carbonGroup,numberGroup);
@@ -61,7 +75,7 @@ export function createCohortDiagrams(carbonMaterial:Material,numberMaterial:Mate
   const carbon=bars(carbonGroup,carbonMaterial,CARBON_UNIT),number=bars(numberGroup,numberMaterial,FRUIT_NUMBER_UNIT);
   let disposed=false;
   return {group,carbon,number,
-    update(state:CoupledCropState,scales:CohortScales){
+    update(state:CohortInventory,scales:CohortScales){
       need(!disposed);const heights=coupledCohortHeights(state,scales);
       for(const [meshes,values,ratios] of [[carbon,state.fruit_carbohydrate,heights.carbon],
         [number,state.fruit_number,heights.number]] as const){

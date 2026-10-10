@@ -16,7 +16,7 @@ function quantity(sample:CoupledCropSample,metric:Metric,cohort:number){
   if(metric==='fruit_number' || metric==='fruit_carbohydrate')return sample.state[metric][cohort]!;
   return sample.state[metric];
 }
-function Plot({option,raw}:{option:Record<string,unknown>;raw?:readonly number[]}){
+export function Plot({option,raw}:{option:Record<string,unknown>;raw?:readonly number[]}){
   const target=useRef<HTMLDivElement>(null),chart=useRef<EChartsType|null>(null),[failed,setFailed]=useState(false);
   useEffect(()=>{
     const element=target.current;if(!element)return;

@@ -3,13 +3,13 @@ import { Scene,PerspectiveCamera,WebGLRenderer,Color,Mesh,MeshStandardMaterial,B
   HemisphereLight,DirectionalLight,Vector3,DoubleSide } from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { createCanopy } from './cropGeometry';
-import { createCohortDiagrams,type CohortScales } from './coupledCropGeometry';
+import { createCohortDiagrams,temperaturePosition,type CohortScales,type CohortSceneSample } from './coupledCropGeometry';
 import { displayNumber,CARBON_UNIT } from './cropReplay';
-import { FRUIT_NUMBER_UNIT,type CoupledCropSample } from './coupledCropReplay';
+import { FRUIT_NUMBER_UNIT } from './coupledCropReplay';
 
-type View={update:(sample:CoupledCropSample)=>void;rotate:(direction:number)=>void;reset:()=>void;dispose:()=>void};
+type View={update:(sample:CohortSceneSample)=>void;rotate:(direction:number)=>void;reset:()=>void;dispose:()=>void};
 function clearEvidence(canvas:HTMLCanvasElement){
-  for(const key of ['sceneAt','leafSurfaceArea','cohortDrawing','drawCalls'])delete canvas.dataset[key];
+  for(const key of ['sceneAt','leafSurfaceArea','cohortDrawing','temperatureDrawing','drawCalls'])delete canvas.dataset[key];
 }
 function createView(canvas:HTMLCanvasElement,scales:CohortScales,failed:()=>void):View|null{
   const context=canvas.getContext('webgl2',{antialias:true,alpha:true});
@@ -44,6 +44,12 @@ function createView(canvas:HTMLCanvasElement,scales:CohortScales,failed:()=>void
     const floorShape=new BoxGeometry(1,.025,1);shapes.push(floorShape);
     const floor=new Mesh(floorShape,material('#c6d1b7'));floor.position.set(-1.4,-.022,0);scene.add(floor);
     diagrams=createCohortDiagrams(material('#7d943b'),material('#547a96'));scene.add(diagrams.group);
+    const temperatures=scales.temperatures?(['canopy','air'] as const).map((kind,i)=>{
+      const shape=new BoxGeometry(.12,.045,.12);shapes.push(shape);
+      const marker=new Mesh(shape,material(kind==='canopy'?'#b87724':'#547a96'));marker.position.set(-2.2+i*.4,0,.5);scene.add(marker);
+      const axisShape=new BoxGeometry(.012,1,.012);shapes.push(axisShape);
+      const axis=new Mesh(axisShape,material('#9ba68d'));axis.position.set(marker.position.x,.6,.5);scene.add(axis);return {kind,marker};
+    }):[];
     observer=new ResizeObserver(()=>{if(pending!==null || disposed)return;
       pending=requestAnimationFrame(()=>{pending=null;if(disposed)return;const box=canvas.getBoundingClientRect();
         if(box.width<1 || box.height<1)return;
@@ -52,6 +58,14 @@ function createView(canvas:HTMLCanvasElement,scales:CohortScales,failed:()=>void
     return {update(sample){if(disposed)return;
       try{
         diagrams!.update(sample.state,scales);canopy!.update(sample.lai.value);const area=canopy!.area();
+        if(Boolean(sample.temperatures)!==Boolean(scales.temperatures))throw new Error('crop_scene_unavailable');
+        if(sample.temperatures && scales.temperatures){
+          const drawing=temperatures.map(({kind,marker})=>{const q=sample.temperatures![kind];
+            if(q.unit!=='degC')throw new Error('crop_scene_unavailable');
+            marker.position.y=.1+temperaturePosition(q.value,scales.temperatures!);marker.userData={value:q.value,unit:q.unit};
+            return {kind,value:marker.userData.value,unit:marker.userData.unit,y:marker.position.y};});
+          canvas.dataset.temperatureDrawing=JSON.stringify({range:scales.temperatures,markers:drawing});
+        }
         if(!Number.isFinite(area) || Math.abs(area-sample.lai.value)>Math.max(1e-8,sample.lai.value*1e-6))throw new Error('crop_scene_unavailable');
         if(context!.isContextLost())throw new Error('crop_scene_unavailable');
         const drawing=(meshes:ReturnType<typeof createCohortDiagrams>['carbon'])=>meshes.map(mesh=>({index:mesh.userData.cohortIndex,
@@ -65,7 +79,7 @@ function createView(canvas:HTMLCanvasElement,scales:CohortScales,failed:()=>void
   }catch(error){dispose();throw error;}
 }
 
-export default function CoupledCropScene({sample,scales,rangeLabel}:{sample:CoupledCropSample;scales:CohortScales;rangeLabel?:string}){
+export default function CoupledCropScene({sample,scales,rangeLabel}:{sample:CohortSceneSample;scales:CohortScales;rangeLabel?:string}){
   const canvas=useRef<HTMLCanvasElement>(null),view=useRef<View|null>(null),latest=useRef(sample);latest.current=sample;
   const [available,setAvailable]=useState<boolean|null>(null),[epoch,setEpoch]=useState(0);
   // OrbitControls removes root listeners while its canvas is still attached.
@@ -92,6 +106,9 @@ export default function CoupledCropScene({sample,scales,rangeLabel}:{sample:Coup
       <button className="button secondary" aria-label="연결 연구 기본 시점" disabled={!available} onClick={()=>view.current?.reset()}>기본 시점</button>
       <button className="button secondary" aria-label="연결 연구 오른쪽에서 보기" disabled={!available} onClick={()=>view.current?.rotate(1)}>오른쪽</button></div>
     <p className="crop-caption">왼쪽: 논리 바닥 1m²당 잎 한 면 {displayNumber(sample.lai.value)}m². 배치·지지선은 실제 키·잎수·재식밀도가 아닙니다.</p>
+    {sample.temperatures && scales.temperatures && <p className="crop-caption">왼쪽 온도 표식: 주황 수관 {String(sample.temperatures.canopy.value)}°C,
+      파랑 공기 {String(sample.temperatures.air.value)}°C. 현재 범위의 공통 선형축 {String(scales.temperatures.minimum)} → {String(scales.temperatures.maximum)}°C입니다.
+      같은 온도만 있으면 축 중앙에 표시합니다. 표식 위치는 온도 비교이며 실제 시설의 위치·크기가 아닙니다.</p>}
     {scales.logarithmic && <p className="crop-caption startup-log-scale">3D 막대 높이는 {rangeLabel?'현재 읽은 범위':'전체 저장 시점'}의 로그 비교 척도입니다.
       {(['carbon','number'] as const).map(kind=>{const b=scales.logarithmic![kind];return <span key={kind}> {kind==='carbon'?'C':'N'}:
         {b?` 10^${b.lower} → 10^${b.upper}`:' 양수 없음'}. </span>;})}
