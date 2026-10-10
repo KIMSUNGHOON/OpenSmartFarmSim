@@ -1808,20 +1808,59 @@
   `contracts/crop-energy-v1.md`.
   수용: 공급열/미충족 열과 구매 전력/연료·보조 설비/CO₂ 분리, 효율/COP·단위/적용 범위;
   근거가 없으면 변환 보류. 확인: 집중 수지/경계 pytest·계량/청구 대조.
-- [ ] **`crop-execution-link`** — 선행: 해당 작물/자원 모델·불변 결과 계약과 현재 farm/batch/zone 연결.
+- [ ] **`crop-execution-link`** — 선행: 준비된 작물 모델·불변 결과 계약과 현재 farm/batch/zone 연결.
   필요 근거: 현재 작물 v1은 내부 저장된 합성 연구 GET이며 사용자 계산 접수/소비·완료 결과 선택이 없음.
   작은 접수/작업자/저장/조회/UI 단계로 나눠 기존 계정/작업 저장소와 worker를 재사용한다.
   수용: 같은 농장/작물/배치·입력/모델/계수/UTC/현재 권리의 접수→실행→불변 결과 선택→3D,
   취소/재시도/재시작·혼합/늦은 변경 거부와 end-to-end 검증. 실제 입력은 해당 G0/G1 필요.
   연구 결과와 승인 Run을 구분하며 실제 제품 CLI/독립 해제·예측/추천 관문을 자동 승격하지 않음.
-  - [ ] **실행 경계 확정** — 다음 한 단계. 기존 jobs/임대 worker/현재 상태·새 joint 저장 계약을 대조하고,
-    접수·상태·확정 checkpoint·완료 결과 ID 연결의 변경 파일/의존성을 고정한다.
-    수용: 동일 farm/batch·입력/모델/UTC/현재 권리와 취소/재시작·늦은 응답의 상태 전이/증거표,
-    작은 합성 실행 범위와 실제 자료·예측 게시 조건의 구분. 별도 queue/framework 추가 근거 없으면 기존 계약을 사용한다.
-  - [ ] **접수/현재 상태 연결** — 위 경계 뒤 기존 API/worker로 실제 상태·확정 checkpoint/계산 시각/갱신 시각과 완료 결과를 연결한다.
-    수용: 실제 DB/worker의 접수→실행→완료/hold·현재 권리·취소/재접속·결과 ID/원값 대사. 브라우저가 진행률을 만들지 않음.
-  - [ ] **U3 화면 연결** — 위 상태 계약의 typed reader→현재 상태 표시/자동 갱신→완료 결과 선택→같은 UTC3D.
-    수용: 동일 실행/원 checkpoint·갱신 지연 표시·끊김/재접속·취소/늦은 응답·권리 거부·완료/hold/빈 결과와 실제 백엔드·브라우저 검증.
+  자원 모듈 전체 완성을 합성 접수의 선행 조건으로 두지 않는다. 준비된 결과부터 연결하고 자원/경제는 후속 결속한다.
+  - [x] **실행 경계 확정** — [코드 대조/판단 근거](../research/crop-execution-link-boundary-20261010.md)와
+    [전이/증거 계약](../contracts/crop-execution-link-v1.md)으로 고정했다. job64KiB와 binding128KiB,
+    heartbeat/계산 UTC/DB 수용 시각·임대/파일·DB의 차이와 terminal-only 페이지를 확인했다.
+    native gpt-6.1-sol/xhigh·재귀0, source/로컬 링크/diff·기존 기동 identity/HTML 보존을 확인했다.
+    실행 연동·새 테스트/hosted·UI 전환·관문 수용은 아니다. 후속 구현은 아래 미완료다.
+  - [ ] **E1 합성 실행 접수** — 다음 한 단계. 선행: 경계·farm binding·기존 JobStore.
+    예정 core3: `backend/app/crop_climate_joint_execution.py`, `backend/tests/test_crop_climate_joint_execution.py`, 위 실행 계약.
+    수용: 현재 input/farm/rights의 계산0 접수·64KiB/다른 tenant 거부; 같은 intent 원 job/최초 입력 유지·같은 revision의 다른 내용409;
+    commit 직전 철회 rollback·기존 job/미리보기 보존. 확인: 해당 집중 pytest와 실제 SCRAM/소유 종료·정리. M,0.5–1.5시간.
+  - [ ] **E2 checkpoint 수용** — 선행: E1·custody. 예정 core3: `backend/app/crop_climate_joint_execution_checkpoint.py`, 같은 이름 test, 위 실행 계약.
+    수용: 현재 임대/취소 검사 뒤 원 HEAD/proof·counts/UTC의 append-only 사건/단조 sequence·DB recorded_at;
+    중복 최초 시각/heartbeat 불변·늦은 임대/철회/혼합 거부·crash 후 원 HEAD 수용. 확인: 집중 pytest/실제 SCRAM. M,0.75–1.5시간.
+  - [ ] **E3 결과 transaction hook** — 선행: 기존 joint result store. 예정 core3: 기존 store/test, `contracts/crop-climate-joint-result-store-v1.md`.
+    수용: 기존 put과 caller-owned transaction이 같은 검증/원 metadata·최초 시각을 사용; 호출자 rollback/늦은 권리 거부 때 부분 row0;
+    새 code pin과 기존 immutable 결과의 판본 경계를 명시. 확인: 기존/새 집중 SCRAM store 검사·원본 보존. M,0.75–1.5시간.
+  - [ ] **E4 임대 worker** — 선행: E1/E2/E3. 예정 core3: `backend/app/crop_climate_joint_execution_worker.py`, 같은 이름 test, 위 실행 계약.
+    수용: 실제 접수→bounded advance/확정 진행→원자 완료/hold result·publication·outcome; chunk 취소/만료·crash 후 원 prefix 재적분0;
+    원108상태/UTC·현재 권리/rollback·실제 종료/원본·WSL/소유 정리. 확인: 집중 pytest/실제 SCRAM·fresh exec. M,1–2시간.
+  - [ ] **checkpoint E1–E4** — 위 실제 증거·현재 source/원본/기동 보존을 대조한 뒤 API/UI 진행. 전체 작기 재실행 불필요.
+  - [ ] **E5a 작업 발견** — 선행: E4. 예정 core3: 기존 `deterministic_job_discovery.py`/test, discovery 계약.
+    수용: joint 판본 명시 허용·권한/다른 stage·잘못된 입력 거부와 기존 판본/페이지 보존.
+    확인: 집중 discovery pytest/실제 DB. M,0.5–1시간.
+  - [ ] **E5b 자동 소비** — 선행: E5a. 예정 core3: 기존 `deterministic_work.py`/test, worker-loop 계약.
+    수용: 정확한 joint worker/outcome 등록·한 job 순차 소비·중지/재시도/닫히지 않은 결과 거부·기존 worker 보존.
+    확인: 집중 loop pytest·실제 worker 프로세스/신호/정리. M,0.5–1시간.
+  - [ ] **E6a 현재 진행 DTO** — 선행: E2/E4. 예정 core3: `backend/app/crop_climate_joint_execution_query.py`, 같은 이름 test, 위 실행 계약.
+    수용: 같은 job/input/farm·현재 권리·사건/HEAD 대사와 none/current/unavailable; 원 counts/UTC/수용 시각·완료/hold result;
+    조회 준비/복원/RHS/등록0·마지막 사건/HEAD 차이·늦은 철회 거부. 확인: 집중 pytest/실제 SCRAM. M,0.75–1.5시간.
+  - [ ] **E6b 보호 HTTP** — 선행: E1/E6a. 예정 core4: `backend/app/api_crop_climate_joint_execution.py`, 해당 test, `backend/app/api.py`, 위 실행 계약.
+    수용: 전용 접수/조회/취소·인증 tenant/현재 scope·원 wire/오류; 취소 수락과 terminal 확인 구분·권리 철회 뒤 소유자 취소;
+    기존 JobStatus/저장 GET 불변·본문/응답 한도·취소/늦은 응답. 확인: 집중 route/기존 API pytest와 실제 TLS. M,0.75–1.5시간.
+  - [ ] **E6c 명시 runtime** — 선행: E5/E6b. 예정 core4: 기존 `api_runtime.py`/test와 joint operator config/test.
+    수용: 명시 기능/같은 authority·store/worker 연결·오조립/누락 거부·기존 default false;
+    실제 SCRAM/TLS 접수/진행/취소와 원본/기동 보존. 확인: 집중 runtime/config pytest·실제 서비스. M,0.5–1시간.
+  - [ ] **E7 typed client** — 선행: E6. 예정 core3: `web/src/jointCropClimateExecution.ts`, 같은 이름 test, 위 실행 계약.
+    수용: 기존 transport 재사용·닫힌 DTO/원 job/farm/UTC·count/시각/상태 혼합 거부와 Abort/크기/timeout;
+    null checkpoint/result·hold·현재 권리 오류를 명시. 확인: 집중 Vitest/TypeScript·제한된 빌드·실제 HTTPS. M,0.5–1시간.
+  - [ ] **E8 U3 계산 화면** — 선행: E7·기존 joint 재생. 예정 core4: `web/src/JointCropClimateExecution.tsx`, `web/src/CropReplay.tsx`, 해당 e2e, 위 실행 계약.
+    수용: 실제 실행 접수/진행·최종 확인 시각·단일 bounded polling·숨김/선택/계정/늦은 응답 제거;
+    끊김/재접속·서버 작업 취소·완료/hold의 같은 result 선택→UTC3D, 빈 출력/권리 거부. 확인: TypeScript/집중 Chromium·디자인/접근성. M,1–2시간.
+  - [ ] **E9 실제 기동/사용자 연결** — 선행: E1–E8. 예정 core3: 격리 reference runner/실행 report/증거 artifact.
+    수용: 모의 route 없는 실제 SCRAM/TLS/제품 브라우저의 같은 job→checkpoint→result/3D·취소/재연결/hold;
+    응답 비용/화면 지연·WSL/원본·기존 서버 보존과 검증 뒤 사용자 전환·접속 안내. 확인: 실제 runner/root 종료·정리·사용자 URL. M,1–2시간.
+  - [ ] **계산 중 확정 prefix3D** — E9 뒤 별도 계약 분해. 현재 terminal page를 미완료에 사용하지 않는다.
+    수용: 불변 prefix/수용 HEAD·원 sample/event/같은 UTC·현재 권리와 동시 게시/취소/재시작·늦은 응답을 실제 DB/브라우저에서 대사.
+    작업량은 prefix reader 계약/비용 관측 뒤 산정한다. 위10–18시간은 이 작업과 전체 U3/실제 관문을 포함하지 않는다.
 - [ ] **`crop-economic-link`** — 선행: 생산량·자원 계산·`crop-execution-link`와 같은 배치/달력의 경제 입력.
   예정 파일(3): `backend/app/crop_economic_link.py`, `backend/tests/test_crop_economic_link.py`,
   `contracts/crop-economic-link-v1.md`.

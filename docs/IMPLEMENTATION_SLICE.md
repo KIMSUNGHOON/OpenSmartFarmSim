@@ -62,7 +62,10 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 원6응답/UTC·타입/제한된 비압축 빌드·계산0/기존 화면 보존으로 로컬 수용했다. 최초 RSS 초과 빌드도 기록했다.
 [같은 시각의 표·그래프·수치3D](../research/crop-climate-joint-numerical-view-implementation-20261010.md)도
 core7ad76c2·고유501개/실제 SCRAM·HTTPS·WebGL·원값/권리·원본/UI/소유 정리로 로컬 수용했다.
-새 화면은 현재5173에 배포하지 않았다. 다음은 기존 접수/작업자/현재 상태 계약 대조→사용자 실행/U3며 온실 경계 조사는 병행한다.
+새 화면은 현재5173에 배포하지 않았다. [기존 jobs/임대·저장 코드 대조](../research/crop-execution-link-boundary-20261010.md)로
+[실행 경계](../contracts/crop-execution-link-v1.md)를 확정했다. 다음은 계산0 합성 접수 E1이며
+worker/확정 checkpoint·취소 API→자동 갱신→완료/hold 저장3D의 E1–E9로 진행한다.
+계산 중 prefix3D는 terminal 조회와 구분해 별도 수용하고, 온실 경계 조사/독립 자료 확보는 병행한다.
 전체 결합·실시간 U3·실제 자료/생산 관문은 미완료다.
 
 **2026-10-09 사용자 확인 화면과 최종 UI:** 기존 App의 실제 API/저장 결과 동시 기동을

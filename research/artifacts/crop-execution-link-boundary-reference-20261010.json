@@ -1,0 +1,159 @@
+{
+  "U3_accepted": false,
+  "actual_cultivar_farm_runs": 0,
+  "documentation_paths": [
+    "README.md",
+    "docs/PROJECT_SPEC.md",
+    "docs/IMPLEMENTATION_SLICE.md",
+    "tasks/plan.md",
+    "tasks/todo.md",
+    "contracts/crop-execution-link-v1.md",
+    "research/crop-execution-link-boundary-20261010.md"
+  ],
+  "execution_link_implemented": false,
+  "frontend": {
+    "http_status": 200,
+    "sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1"
+  },
+  "gates": "not_assessed",
+  "independent_domestic_farm_datasets": 0,
+  "local_markdown_targets_exist": 1729,
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_cli": false,
+    "timestamp": "2026-10-10T00:20:38.384Z",
+    "turn_context_sha256": "f0cc7b804c62e57d382b7247c66328224149c770c94fe01f3b999ba11feed5cf"
+  },
+  "observed_at": "2026-10-10T00:35:02.395026+00:00",
+  "original_preservation": {
+    "items": 2148,
+    "metadata_and_sha256_mismatches": 0
+  },
+  "protected_processes": [
+    {
+      "pid": 1969717,
+      "same_live_identity": true,
+      "starttime": 24816234
+    },
+    {
+      "pid": 1969727,
+      "same_live_identity": true,
+      "starttime": 24816302
+    },
+    {
+      "pid": 1969745,
+      "same_live_identity": true,
+      "starttime": 24816701
+    }
+  ],
+  "push_hold": true,
+  "rejected_audit_attempts": [
+    {
+      "exit_code": 1,
+      "handle": "c64acc",
+      "reason": "heartbeat assertion inspected renew wrapper, not _renew_in_transaction; source unchanged"
+    }
+  ],
+  "schema_version": "crop-execution-link-boundary-reference-v1",
+  "scope": "source_and_contract_audit_only",
+  "source_commit": "eb4db01b9238f79a579394ed59936c6587cb596a",
+  "source_files": {
+    "backend/app/api.py": {
+      "bytes": 84153,
+      "sha256": "c8f105043c8f091c4a26a4b280d4119a6fb06b4d7092203cba3d97c6abc90b19"
+    },
+    "backend/app/api_contracts.py": {
+      "bytes": 9650,
+      "sha256": "5b471bd9378df2e08f1c7507933fd814d3176e446f287443e3f99498ad61e3a9"
+    },
+    "backend/app/crop_climate_joint_farm_binding.py": {
+      "bytes": 9858,
+      "sha256": "669fea7460e39e3108a99571e487b2a10e8d0c34377ac2954115605c96f0cbef"
+    },
+    "backend/app/crop_climate_joint_result_store.py": {
+      "bytes": 19435,
+      "sha256": "87e7e10e8d3476e437f5fec55f0cbc1ab03026a62a62019332ad5f0eab30538c"
+    },
+    "backend/app/crop_climate_joint_server_custody.py": {
+      "bytes": 19126,
+      "sha256": "6a5c7c6286760f9fdb9cae17d803e6c222bb4ee67fd8fc0315d9db726f34f085"
+    },
+    "backend/app/db.py": {
+      "bytes": 57642,
+      "sha256": "a269f4e19509375a361e18cb1a53aacaf1f73553809d59ba1429b68901c6fe85"
+    },
+    "backend/app/deterministic_job_discovery.py": {
+      "bytes": 7032,
+      "sha256": "2198952657592b340b5b5d32e58178a2c80d85110502e41e7eed0ace03c07412"
+    },
+    "backend/app/deterministic_work.py": {
+      "bytes": 7329,
+      "sha256": "7ac82622e7251f319844a83466052e5c2a778942f48f6aa926703e7c86587f0b"
+    },
+    "backend/app/farm_authored_simulation.py": {
+      "bytes": 4574,
+      "sha256": "2b412e8f9f4254f73eda0e437d2b87545c4172003ff3e5146ec79537ff813298"
+    },
+    "backend/app/farm_authored_simulation_worker.py": {
+      "bytes": 9556,
+      "sha256": "87ef7db4725f61483d421be483ab19f7329854499174545ff79a56a50ef2237a"
+    },
+    "backend/app/job_store.py": {
+      "bytes": 88926,
+      "sha256": "9b54b6be6765b62c1ba66f8938f8023bf5e882193d580ee3fd0c6d5ba1f80ca7"
+    },
+    "backend/app/jobs.py": {
+      "bytes": 4580,
+      "sha256": "0e7f0bd4fb60cb20fb299b9440ad83a46888ce370979cf66869719bbbcf3e466"
+    },
+    "backend/app/simulation_work.py": {
+      "bytes": 2066,
+      "sha256": "1b56be5e246a90b75314071bbb145ed768a7cbeca93da77d97848d533cab9317"
+    },
+    "web/src/api.ts": {
+      "bytes": 16237,
+      "sha256": "a0d5a59a4fb8ef5264815a436924bbb57a4f6a9c3de0faea57e09326a7e1455d"
+    },
+    "web/src/jointCropClimateReplay.ts": {
+      "bytes": 27652,
+      "sha256": "86b44f5b6007cfa8c554a9ece24c77e1bc849124a8fb518c469cb76e186ffe9c"
+    }
+  },
+  "static_route_count": 51,
+  "static_source_checks": {
+    "api_has_no_cancel_path": true,
+    "binding_128KiB": true,
+    "closed_consumer_excludes_joint": true,
+    "closed_discovery_excludes_joint": true,
+    "custody_has_no_job_lease_fence": true,
+    "custody_has_no_wall_publication_time": true,
+    "existing_cancel_and_ack": true,
+    "existing_immutable_job_events": true,
+    "existing_unique_intent_key": true,
+    "generic_job_get_exists": true,
+    "generic_status_has_no_checkpoint": true,
+    "heartbeat_changes_job_updated_at": true,
+    "job_input_64KiB": true,
+    "result_put_owns_connection": true
+  },
+  "successful_audit_receipt": {
+    "command": "nice -n 19 python3 audit.private.py",
+    "duration_seconds": 0.552559291,
+    "exit_code": 0,
+    "handle": "6c23bd",
+    "local_links": 1729,
+    "original_items": 2148,
+    "protected_live": 3,
+    "static_checks": 14
+  },
+  "validation_not_run": [
+    "new worker or API behavior",
+    "pytest",
+    "Vitest",
+    "browser",
+    "build",
+    "hosted CI",
+    "full166 crop recalculation"
+  ]
+}

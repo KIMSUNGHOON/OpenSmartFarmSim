@@ -54,7 +54,10 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 원6응답/UTC·타입/제한된 비압축 빌드·계산0/기존 화면 보존으로 로컬 수용했다. 최초 RSS 초과 빌드도 기록했다.
 [같은 시각의 표·그래프·수치3D](../research/crop-climate-joint-numerical-view-implementation-20261010.md)도
 core7ad76c2·고유501개·실제 SCRAM/HTTPS/WebGL·원값/권리·원본/UI/소유 정리로 로컬 수용했다.
-새 화면은 현재5173에 배포하지 않았다. 다음은 기존 접수/작업자/현재 상태 계약 대조→사용자 실행/U3다.
+새 화면은 현재5173에 배포하지 않았다. [실행 요청/확정 checkpoint/완료 연결 경계](../contracts/crop-execution-link-v1.md)를
+기존 코드와 대조해 확정했고 [E1–E9](../tasks/plan.md#작물-계산과-ui의-실행-연결--2026-10-10)로 분해했다.
+다음은 현재 farm/input/rights의 계산0 접수다. 자원 모듈 전체와 독립 자료 확보를 이 합성 접수의 선행 조건으로 두지 않는다.
+진행 상태 갱신→terminal 저장3D를 먼저 연결하며 계산 중 prefix3D는 별도 수용한다. 현재5173 실시간 연동은 미구현이다.
 [결합 계약](../contracts/crop-climate-coupling-v1.md)의 온실 경계 조사는 병행하며 실제 전체 작기·실시간 U3/관문은 미완료다.
 
 **당시 실행 상태 — 2026-10-09 17:46 KST:** [완료 전체 생장 부모의 실제 API·3D/사용자 기동](../research/crop-full-parent-api-view-preview-20261009.md)을 로컬 수용하고 `http://localhost:5173/`을 전환했다.

@@ -48,7 +48,10 @@ fresh 원16걸음/2사건·조회 계산0·정상/hold·변조/늦은 철회·�
 [같은 UTC의 표·그래프·수치3D](research/crop-climate-joint-numerical-view-implementation-20261010.md)도
 core7ad76c2·고유501개/실제 SCRAM·HTTPS·WebGL·원값/권리/소유 정리로 로컬 수용했다.
 32초 합성/명시 상수 입력 범위며 새 화면은 현재5173에 배포하지 않았다. 현재5173은 기존 완료166일을 읽는다.
-다음은 기존 접수/작업자/현재 상태 계약을 대조해 사용자 실행/U3의 작은 경계를 확정하는 단계며 온실 경계 조사는 병행한다.
+이어 [실행 경계/전이표](contracts/crop-execution-link-v1.md)를 기존 jobs/임대·custody/결과 저장과 대조해 확정했다.
+checkpoint의 DB 수용 시각과 heartbeat를 구분하고, 접수→worker→진행/취소 API→완료 저장3D의
+[E1–E9 순서](tasks/plan.md#작물-계산과-ui의-실행-연결--2026-10-10)를 추가했다. 다음은 계산0의 합성 실행 접수다.
+계산 중 checkpoint의3D에는 terminal page와 구분된 별도 후속 검증이 필요하다. 현재5173 자동 연동은 아직 없다.
 전체 결합/실제 생산 모델·실시간 U3·품종/독립 자료·관문은 미완료다.
 
 **2026-10-09 최신 수용:** [전체 수확 저장·등록·복원](research/crop-harvest-full-writer-completed-20261009.md)을 완료했다.
