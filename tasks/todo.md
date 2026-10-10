@@ -1829,10 +1829,13 @@
     원8pass/1실패는 cancel scope 부재이며 시험 하나 보완/1pass·다른8/제품 동일; 원 실패/종료·source/원본2,148/기동/FD/소유 정리를 보존했다.
     단일/합 RSS139,509,760/413,671,424bytes. 초기0.5–1.5시간은 native→회귀748.422초 관측으로 갱신하며 기록/commit 별도다.
     새 worker/API/UI·hosted/전체 작기/관문은 미수용이다.
-  - [ ] **E2 checkpoint 수용** — 다음 한 단계. 선행: E1·custody. 예정 core3: `backend/app/crop_climate_joint_execution_checkpoint.py`, 같은 이름 test, 위 실행 계약.
-    수용: 현재 임대/취소 검사 뒤 원 HEAD/proof·counts/UTC의 append-only 사건/단조 sequence·DB recorded_at;
-    중복 최초 시각/heartbeat 불변·늦은 임대/철회/혼합 거부·crash 후 원 HEAD 수용. 확인: 집중 pytest/실제 SCRAM. M,0.75–1.5시간.
-  - [ ] **E3 결과 transaction hook** — 선행: 기존 joint result store. 예정 core3: 기존 store/test, `contracts/crop-climate-joint-result-store-v1.md`.
+  - [x] **E2 checkpoint 수용** — 선행: E1·custody. core3: `backend/app/crop_climate_joint_execution_checkpoint.py`, 같은 이름 test, 위 실행 계약.
+    [coreaf93e83/수용 근거](../research/crop-climate-joint-execution-checkpoint-implementation-20261010.md): 새13/회귀11=고유24개 집중 검사·실제 SCRAM,
+    원 HEAD/proof·counts/UTC·최초 DB recorded_at/단조 sequence·중복/heartbeat 불변과 늦은 변경5경우 rollback을 확인했다.
+    실제 HEAD 뒤 producer SIGKILL(-9)·새 임대2/fresh 원값·재계산10종0·퇴행/변조/혼합 거부와 source/원본/기동/소유 정리를 통과했다.
+    동시 SQL timeout의 typed pending/재시도1event를 보완했고 원 실패/소스 pin·변경 메서드 AST 대조를 보존했다. 최종 module 전체 재실행은 아니다.
+    단일/합 RSS138,743,808/434,565,120bytes; native→회귀2,485.837초(약41분), 기록/commit 별도다. worker/API/UI/U3·관문은 미수용이다.
+  - [ ] **E3 결과 transaction hook** — 다음 한 단계. 선행: 기존 joint result store. 예정 core3: 기존 store/test, `contracts/crop-climate-joint-result-store-v1.md`.
     수용: 기존 put과 caller-owned transaction이 같은 검증/원 metadata·최초 시각을 사용; 호출자 rollback/늦은 권리 거부 때 부분 row0;
     새 code pin과 기존 immutable 결과의 판본 경계를 명시. 확인: 기존/새 집중 SCRAM store 검사·원본 보존. M,0.75–1.5시간.
   - [ ] **E4 임대 worker** — 선행: E1/E2/E3. 예정 core3: `backend/app/crop_climate_joint_execution_worker.py`, 같은 이름 test, 위 실행 계약.

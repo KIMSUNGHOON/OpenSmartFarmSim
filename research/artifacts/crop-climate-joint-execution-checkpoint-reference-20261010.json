@@ -1,0 +1,1857 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_crop_runs": 0,
+  "aggregate_peaks_bytes": {
+    "combined": 434565120,
+    "single_PID": 138743808
+  },
+  "artifact_version": "joint-execution-checkpoint-reference-v1",
+  "concurrency_fix_definition_preservation": {
+    "all_other_test_definitions_and_fixtures_unchanged": true,
+    "new_behavior": "bounded SQL row lock query timeout is typed transient pending; preserve it across custody context closure",
+    "normal_validation_and_history_snapshot_input_guards_unchanged": true,
+    "product_changed_methods": [
+      "JointExecutionCheckpointStore._lease",
+      "JointExecutionCheckpointStore._session"
+    ],
+    "test_changed_definitions": [
+      "test_concurrent_confirm_is_one_original_event"
+    ]
+  },
+  "core_commit": "af93e83af10dea49c0b78eb1c75742af11587f2d",
+  "core_files": {
+    "backend/app/crop_climate_joint_execution_checkpoint.py": {
+      "bytes": 12873,
+      "sha256": "afdd607f35dd255b82693feac4996675da6010d12808e7d52a50e33ca9b8cd67"
+    },
+    "backend/tests/test_crop_climate_joint_execution_checkpoint.py": {
+      "bytes": 23387,
+      "sha256": "64fcbc389cd26798ec0036a7082660f47d9b15a2e05461b47220ab17ccf2825e"
+    },
+    "contracts/crop-execution-link-v1.md": {
+      "bytes": 15110,
+      "sha256": "db3303baed64382c061ade8d60c510b01f648ff764c4bec0d9743fc57e56db1a"
+    }
+  },
+  "date": "2026-10-10",
+  "holds": [
+    "worker",
+    "execution HTTP/runtime",
+    "UI automatic progress",
+    "in-progress prefix 3D",
+    "real cultivar/farm validation",
+    "production forecast/margin/ranking",
+    "push and new hosted CI"
+  ],
+  "independent_local_farm_datasets": 0,
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_cli": false,
+    "timestamp": "2026-10-10T00:57:55.507Z",
+    "turn_context_sha256": "d31ef28297739e567e4b31c918812ed31783803888076407b4e4bfacbeb824c1"
+  },
+  "native_cli_continuation": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_cli": false,
+    "timestamp": "2026-10-10T01:13:58.871Z",
+    "turn_context_sha256": "034fce2913d0dccb8fa918c3dba633cd74e2c7631b027cd7625d32ec7d85c580"
+  },
+  "not_run": [
+    "full backend",
+    "web suites/build",
+    "full 166-day calculation",
+    "new hosted CI"
+  ],
+  "phases": [
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 2,
+      "actual_child_exit": 2,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 123355136,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution_checkpoint.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/normal-v1/pytest",
+        "-k",
+        "normal"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "e28ec8d2d161b467c260c4f4ff3ba75f32a8f6b1b4fe2c5befdcd9d167a88bd0",
+      "observations": {},
+      "observed_pg_identity_count": 0,
+      "observed_pg_identity_list_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "normal-v1",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 error in 0.25s",
+      "reason": null,
+      "root_actual_exit": 2,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 43896832,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 824,
+      "terminal_sha256": "13d971914e960d38a7ef8a303df96071ef70349692e62e1c1456082827188f87",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "e9c759d6a2ec4037124afe1153af94349912409bd2704f360d619ea8619470cf",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "042302e98ec4be08249ec6b9aabd62c66712ce64ef9281662b8385e2f03467dc"
+      },
+      "wall_seconds": 0.5574665020103566
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 112,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 315670528,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution_checkpoint.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/normal-v2/pytest",
+        "-k",
+        "normal"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "a0a0601331815f8d2362307e56d278b62882c0c5de595cafdefea3d7070baa44",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        }
+      },
+      "observed_pg_identity_count": 150,
+      "observed_pg_identity_list_sha256": "c2d573cd17b9ae59df1a8086a8ffcf999f18c8427706c9fdaa802e1fc7c9b435",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "normal-v2",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 failed in 28.90s",
+      "reason": null,
+      "root_actual_exit": 1,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 126234624,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 14925,
+      "terminal_sha256": "c87fc3fc158ce7530aa3c51c05c30b09b4e5551495c8b8b40a857b0660a83789",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "e9c4a4e30e6ef30aa563c29fed7a28a07872cf423a247c80fa054035afb55745",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "042302e98ec4be08249ec6b9aabd62c66712ce64ef9281662b8385e2f03467dc"
+      },
+      "wall_seconds": 30.264427935995627
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 113,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 316727296,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/diagnose.py",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/diagnose-v1/pytest"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "882cdc66fc17c063f310e76423239fa9676d93a0048ed442582ad043d24d0506",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        }
+      },
+      "observed_pg_identity_count": 144,
+      "observed_pg_identity_list_sha256": "cf9413e95a204941c2abcafb4413a839edb4812e7adcaff3d7a54d3af2a14245",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "diagnose-v1",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 failed in 28.98s",
+      "reason": null,
+      "root_actual_exit": 1,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 126115840,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 14360,
+      "terminal_sha256": "fe69e4812639918cd4cff6944559a0ad4a6bfb6011b27196f7bdf96d9f58cabb",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "e9c4a4e30e6ef30aa563c29fed7a28a07872cf423a247c80fa054035afb55745",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "042302e98ec4be08249ec6b9aabd62c66712ce64ef9281662b8385e2f03467dc"
+      },
+      "wall_seconds": 30.42810731200734
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 217,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 328105984,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution_checkpoint.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/normal-v3/pytest",
+        "-k",
+        "normal"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "372401751bd0eadcb1822dfffc4f75425b862725f4dd6b1d3ea2dc4a1f9f9a2f",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "normal.json": {
+          "actual_scram": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "checkpoint": {
+            "G0_G4": "not_assessed",
+            "artifact_sha256": null,
+            "checkpoint_code_sha256": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+            "computed_through_utc": "2026-10-01T00:00:00.123456Z",
+            "context_sha256": "83a7f22f781200971064c10f04dcc89a614ff994daecda5bd28ce674fe4adbbc",
+            "counts": {
+              "events": 1,
+              "samples": 1
+            },
+            "custody_code_sha256": "6a5c7c6286760f9fdb9cae17d803e6c222bb4ee67fd8fc0315d9db726f34f085",
+            "custody_sequence": 1,
+            "execution_code_sha256": "7cbbf542e83f0b4b3d8214c88c9b60f8225379d55be30ab785c42e1e74f78df4",
+            "farm_binding_sha256": "1bc0c3e1331469f37f521bc5a4394b34bf50bdb922b2fee77a804f85ffb802a1",
+            "head_sha256": "290b1c7d2fd9db0d88f7c5fb1a077818553c7fbe955532c9236c6c3d39180693",
+            "header_sha256": "3acea510ceae83d8d0e82101c2c72f3c7766ddf6a15d9e8435d29e72694f54e6",
+            "input_sha256": "b415bb017a7cedf041f210853e551ecd34ff523a7de4d2f62a38040ca0b3d5a2",
+            "intent_sha256": "947a496611716e1c411962f39ed643bf24b2cb7676fcc955e39c807e8777d967",
+            "planned_steps": 16,
+            "proof_sha256": "65c3f0eae97caedd7a1f4749a14e4d3ad7ac7f6804c2644bb361d598a56766b8",
+            "publication_sequence": 1,
+            "scope": "synthetic_joint_crop_climate_math_only",
+            "source_sha256": "6dfbe10947ab18417d23bd5da4c63eea28e123b9bcada04506aeb714d97608a4",
+            "status": "yielded",
+            "steps": 0,
+            "time_binding_sha256": "44a9c1ab5e8a400b148f24c806e3c4f7a3466cb4423dcd9e1e846e8668d28d97",
+            "version": "joint-crop-climate-execution-checkpoint-v1"
+          },
+          "event_recorded_at": "2026-10-10T01:10:53.779436+00:00",
+          "same_event_after_retry_and_heartbeat": true
+        }
+      },
+      "observed_pg_identity_count": 307,
+      "observed_pg_identity_list_sha256": "6fd821513b12469cd4471b2ea739b9a85c27d0c652c488437e8aa29c10a743de",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "normal-v3",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 passed in 56.97s",
+      "reason": null,
+      "root_actual_exit": null,
+      "root_observation": "child terminal recovered after truncated tool output; controller root exit not re-observed; final normal test rerun in concurrent-v1",
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 125046784,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 29683,
+      "terminal_sha256": "ea4dddd1e0bf48585fc550870f8e93dab76f73378f8e25016dd616c413f9e165",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "37e5d78d3dff8f18a1edb6844c233dba5eb1dc38dbf17af4a25f51be73df4548"
+      },
+      "wall_seconds": 59.235769885010086
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 486,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 344031232,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution_checkpoint.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/sequence-v1/pytest",
+        "-k",
+        "sequence"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "742c4780bb57c404a9d642b5d7acd2ff1e2d8deba5534c67272405f1f72b9039",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "sequence-completed.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "failed_trial_not_published": true,
+          "first": {
+            "G0_G4": "not_assessed",
+            "artifact_sha256": null,
+            "checkpoint_code_sha256": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+            "computed_through_utc": "2026-10-01T00:00:00.123456Z",
+            "context_sha256": "83a7f22f781200971064c10f04dcc89a614ff994daecda5bd28ce674fe4adbbc",
+            "counts": {
+              "events": 1,
+              "samples": 1
+            },
+            "custody_code_sha256": "6a5c7c6286760f9fdb9cae17d803e6c222bb4ee67fd8fc0315d9db726f34f085",
+            "custody_sequence": 1,
+            "execution_code_sha256": "7cbbf542e83f0b4b3d8214c88c9b60f8225379d55be30ab785c42e1e74f78df4",
+            "farm_binding_sha256": "0d1f809059ad19c286b0fe68b9fccd521087289b02c7ef721716cc92df6aaa22",
+            "head_sha256": "290b1c7d2fd9db0d88f7c5fb1a077818553c7fbe955532c9236c6c3d39180693",
+            "header_sha256": "3acea510ceae83d8d0e82101c2c72f3c7766ddf6a15d9e8435d29e72694f54e6",
+            "input_sha256": "e6213c60433a0b7bd6ab77454676c1386fc1f73fcdd47672b78c7f60e9839293",
+            "intent_sha256": "dbd69578703faf594bfeb9acf1884bddca51192a76f6fcf37b89f3f76bb2513b",
+            "planned_steps": 16,
+            "proof_sha256": "a7b38160331f0ef3ef2a1d7d9177261b792c7529b1a121d8ae8ceb1ad4a73b30",
+            "publication_sequence": 1,
+            "scope": "synthetic_joint_crop_climate_math_only",
+            "source_sha256": "6dfbe10947ab18417d23bd5da4c63eea28e123b9bcada04506aeb714d97608a4",
+            "status": "yielded",
+            "steps": 0,
+            "time_binding_sha256": "44a9c1ab5e8a400b148f24c806e3c4f7a3466cb4423dcd9e1e846e8668d28d97",
+            "version": "joint-crop-climate-execution-checkpoint-v1"
+          },
+          "last": {
+            "G0_G4": "not_assessed",
+            "artifact_sha256": "1bdc4772ccf002013265af19707abff2a822600f463c4a299569a0b63d42d7ef",
+            "checkpoint_code_sha256": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+            "computed_through_utc": "2026-10-01T00:00:32.123456Z",
+            "context_sha256": "83a7f22f781200971064c10f04dcc89a614ff994daecda5bd28ce674fe4adbbc",
+            "counts": {
+              "events": 3,
+              "samples": 3
+            },
+            "custody_code_sha256": "6a5c7c6286760f9fdb9cae17d803e6c222bb4ee67fd8fc0315d9db726f34f085",
+            "custody_sequence": 3,
+            "execution_code_sha256": "7cbbf542e83f0b4b3d8214c88c9b60f8225379d55be30ab785c42e1e74f78df4",
+            "farm_binding_sha256": "0d1f809059ad19c286b0fe68b9fccd521087289b02c7ef721716cc92df6aaa22",
+            "head_sha256": "020327fe08ebbadd26f4367ab2f42dfe5191a8d5f29b89a71ab31561a0eb0af3",
+            "header_sha256": "3acea510ceae83d8d0e82101c2c72f3c7766ddf6a15d9e8435d29e72694f54e6",
+            "input_sha256": "e6213c60433a0b7bd6ab77454676c1386fc1f73fcdd47672b78c7f60e9839293",
+            "intent_sha256": "dbd69578703faf594bfeb9acf1884bddca51192a76f6fcf37b89f3f76bb2513b",
+            "planned_steps": 16,
+            "proof_sha256": "3a9b08e66c44081a98fde2b0b9543af816fbcdae0171435b84c5a1a76875fb3e",
+            "publication_sequence": 2,
+            "scope": "synthetic_joint_crop_climate_math_only",
+            "source_sha256": "6dfbe10947ab18417d23bd5da4c63eea28e123b9bcada04506aeb714d97608a4",
+            "status": "completed",
+            "steps": 16,
+            "time_binding_sha256": "44a9c1ab5e8a400b148f24c806e3c4f7a3466cb4423dcd9e1e846e8668d28d97",
+            "version": "joint-crop-climate-execution-checkpoint-v1"
+          },
+          "terminal_does_not_complete_job_or_register_result": true
+        },
+        "sequence-hold.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "failed_trial_not_published": true,
+          "first": {
+            "G0_G4": "not_assessed",
+            "artifact_sha256": null,
+            "checkpoint_code_sha256": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+            "computed_through_utc": "2026-10-01T00:00:00.123456Z",
+            "context_sha256": "25fa291f05e71915aef2fd6277f300217038f22464064bb070a56902ba30020d",
+            "counts": {
+              "events": 1,
+              "samples": 1
+            },
+            "custody_code_sha256": "6a5c7c6286760f9fdb9cae17d803e6c222bb4ee67fd8fc0315d9db726f34f085",
+            "custody_sequence": 1,
+            "execution_code_sha256": "7cbbf542e83f0b4b3d8214c88c9b60f8225379d55be30ab785c42e1e74f78df4",
+            "farm_binding_sha256": "96bc6fab3f1f678ce8abff26c0ee1042ae8bd747d9d4e372279ce578fd830532",
+            "head_sha256": "ad623c7167edc5e8d6af5cafc966f5ab3bfcadb67764a921291035d9bdd846bc",
+            "header_sha256": "b949ad34a32bad73b98b0b1d10c7c22e4c8fdd91774264b3cadc43037b706e2a",
+            "input_sha256": "641caa0b0480df580c0938a5f64927322861bf56eca4d1d4ef5f8b32cfb10233",
+            "intent_sha256": "dc2dbeef5a6047e4db7fc590f6ee77ce058212f95da7f8768124ace12a8e2cb5",
+            "planned_steps": 16,
+            "proof_sha256": "db6ae04def4a86e2e638fce2d4125d530cb94700ea1a6f898292ed0bd63c24e3",
+            "publication_sequence": 1,
+            "scope": "synthetic_joint_crop_climate_math_only",
+            "source_sha256": "1c70e96e87fb06c446459e4c560ac7ce36f3e04d951eb62706ef853696e0e2c0",
+            "status": "yielded",
+            "steps": 0,
+            "time_binding_sha256": "0f0a01246e126384280edd0a6de9a41ce0865b2c2d0928dfce287afae38774f4",
+            "version": "joint-crop-climate-execution-checkpoint-v1"
+          },
+          "last": {
+            "G0_G4": "not_assessed",
+            "artifact_sha256": "43174f101eeb49cf6803651a8c86d317a0db0e609191e10d2f63b159cb2e60a1",
+            "checkpoint_code_sha256": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+            "computed_through_utc": "2026-10-01T00:00:32.123456Z",
+            "context_sha256": "25fa291f05e71915aef2fd6277f300217038f22464064bb070a56902ba30020d",
+            "counts": {
+              "events": 2,
+              "samples": 2
+            },
+            "custody_code_sha256": "6a5c7c6286760f9fdb9cae17d803e6c222bb4ee67fd8fc0315d9db726f34f085",
+            "custody_sequence": 3,
+            "execution_code_sha256": "7cbbf542e83f0b4b3d8214c88c9b60f8225379d55be30ab785c42e1e74f78df4",
+            "farm_binding_sha256": "96bc6fab3f1f678ce8abff26c0ee1042ae8bd747d9d4e372279ce578fd830532",
+            "head_sha256": "3fb9a64555b7c5ebbfc598e8512799fe77fec8cc0d1bb11e0528add5093d72a5",
+            "header_sha256": "b949ad34a32bad73b98b0b1d10c7c22e4c8fdd91774264b3cadc43037b706e2a",
+            "input_sha256": "641caa0b0480df580c0938a5f64927322861bf56eca4d1d4ef5f8b32cfb10233",
+            "intent_sha256": "dc2dbeef5a6047e4db7fc590f6ee77ce058212f95da7f8768124ace12a8e2cb5",
+            "planned_steps": 16,
+            "proof_sha256": "536e98afc430a2be4c38c47b938b2dc730159969d50cf65ce594991e9dabc083",
+            "publication_sequence": 2,
+            "scope": "synthetic_joint_crop_climate_math_only",
+            "source_sha256": "1c70e96e87fb06c446459e4c560ac7ce36f3e04d951eb62706ef853696e0e2c0",
+            "status": "hold",
+            "steps": 16,
+            "time_binding_sha256": "0f0a01246e126384280edd0a6de9a41ce0865b2c2d0928dfce287afae38774f4",
+            "version": "joint-crop-climate-execution-checkpoint-v1"
+          },
+          "terminal_does_not_complete_job_or_register_result": true
+        }
+      },
+      "observed_pg_identity_count": 664,
+      "observed_pg_identity_list_sha256": "4003d64ff331da4a64e5108ecec31d0c9a2efd54a517d4b246b76ccd0e7780db",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "sequence-v1",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "2 passed, 11 deselected in 130.68s (0:02:10)",
+      "reason": null,
+      "root_actual_exit": 0,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 127447040,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 63241,
+      "terminal_sha256": "998fbf34a6a86498eba0f21444b8a935f0d98de1f7b57536d9780833fbda6d05",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "9bce00fdc041a1d021b5bba464512d765e81592d02eaaa3e66632e52821b9ba9"
+      },
+      "wall_seconds": 135.40487924299669
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 297,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 434565120,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution_checkpoint.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/fresh-v1/pytest",
+        "-k",
+        "fresh"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "6ad7ddae4a18c817b6b6794d446c52381dc811be0b9b424db177a04aca8b257b",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "fresh.json": {
+          "adopted_checkpoint": {
+            "G0_G4": "not_assessed",
+            "artifact_sha256": "1bdc4772ccf002013265af19707abff2a822600f463c4a299569a0b63d42d7ef",
+            "checkpoint_code_sha256": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+            "computed_through_utc": "2026-10-01T00:00:32.123456Z",
+            "context_sha256": "83a7f22f781200971064c10f04dcc89a614ff994daecda5bd28ce674fe4adbbc",
+            "counts": {
+              "events": 3,
+              "samples": 3
+            },
+            "custody_code_sha256": "6a5c7c6286760f9fdb9cae17d803e6c222bb4ee67fd8fc0315d9db726f34f085",
+            "custody_sequence": 3,
+            "execution_code_sha256": "7cbbf542e83f0b4b3d8214c88c9b60f8225379d55be30ab785c42e1e74f78df4",
+            "farm_binding_sha256": "4d99edb844164a58dbdec937c478a0b666ea0f26382cf33b0158cef733c5ebb4",
+            "head_sha256": "020327fe08ebbadd26f4367ab2f42dfe5191a8d5f29b89a71ab31561a0eb0af3",
+            "header_sha256": "3acea510ceae83d8d0e82101c2c72f3c7766ddf6a15d9e8435d29e72694f54e6",
+            "input_sha256": "c4765a5bb29f632ea0efb253f2fa491efc2099e4b62b4fe8696ccbfccfeb23db",
+            "intent_sha256": "738c59c1efb48b928a06cc59a45de1786078eb472156cbfcf8cacfbd59112dd9",
+            "planned_steps": 16,
+            "proof_sha256": "7fa016b7780739bac25980493f2bbd17d7ecc81ab882311c59b7ae3f39a8d579",
+            "publication_sequence": 1,
+            "scope": "synthetic_joint_crop_climate_math_only",
+            "source_sha256": "6dfbe10947ab18417d23bd5da4c63eea28e123b9bcada04506aeb714d97608a4",
+            "status": "completed",
+            "steps": 16,
+            "time_binding_sha256": "44a9c1ab5e8a400b148f24c806e3c4f7a3466cb4423dcd9e1e846e8668d28d97",
+            "version": "joint-crop-climate-execution-checkpoint-v1"
+          },
+          "attempt": 2,
+          "fresh": {
+            "actual_scram": true,
+            "calls": {
+              "RHS": 0,
+              "advance": 0,
+              "custody_advance": 0,
+              "event": 0,
+              "prepare_binding": 0,
+              "prepare_context": 0,
+              "restore": 0,
+              "result_put": 0,
+              "start": 0,
+              "step": 0
+            },
+            "checkpoint": {
+              "G0_G4": "not_assessed",
+              "artifact_sha256": "1bdc4772ccf002013265af19707abff2a822600f463c4a299569a0b63d42d7ef",
+              "checkpoint_code_sha256": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+              "computed_through_utc": "2026-10-01T00:00:32.123456Z",
+              "context_sha256": "83a7f22f781200971064c10f04dcc89a614ff994daecda5bd28ce674fe4adbbc",
+              "counts": {
+                "events": 3,
+                "samples": 3
+              },
+              "custody_code_sha256": "6a5c7c6286760f9fdb9cae17d803e6c222bb4ee67fd8fc0315d9db726f34f085",
+              "custody_sequence": 3,
+              "execution_code_sha256": "7cbbf542e83f0b4b3d8214c88c9b60f8225379d55be30ab785c42e1e74f78df4",
+              "farm_binding_sha256": "4d99edb844164a58dbdec937c478a0b666ea0f26382cf33b0158cef733c5ebb4",
+              "head_sha256": "020327fe08ebbadd26f4367ab2f42dfe5191a8d5f29b89a71ab31561a0eb0af3",
+              "header_sha256": "3acea510ceae83d8d0e82101c2c72f3c7766ddf6a15d9e8435d29e72694f54e6",
+              "input_sha256": "c4765a5bb29f632ea0efb253f2fa491efc2099e4b62b4fe8696ccbfccfeb23db",
+              "intent_sha256": "738c59c1efb48b928a06cc59a45de1786078eb472156cbfcf8cacfbd59112dd9",
+              "planned_steps": 16,
+              "proof_sha256": "7fa016b7780739bac25980493f2bbd17d7ecc81ab882311c59b7ae3f39a8d579",
+              "publication_sequence": 1,
+              "scope": "synthetic_joint_crop_climate_math_only",
+              "source_sha256": "6dfbe10947ab18417d23bd5da4c63eea28e123b9bcada04506aeb714d97608a4",
+              "status": "completed",
+              "steps": 16,
+              "time_binding_sha256": "44a9c1ab5e8a400b148f24c806e3c4f7a3466cb4423dcd9e1e846e8668d28d97",
+              "version": "joint-crop-climate-execution-checkpoint-v1"
+            },
+            "event_id": "4799068f-038b-4cb7-a5ab-4bee1c6720dc",
+            "recorded_at": "2026-10-10T01:20:25.010723+00:00",
+            "review_revocation_rejected": true
+          },
+          "fresh_reader_exit": 0,
+          "killed_producer_exit": -9,
+          "no_reintegration_calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "original_progress_sha256": "35a3ad52348b3acd5b957c0809803a78992af38b05793329c6fedf5e5998a4ef",
+          "restored_head_calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "same_event_and_time": true,
+          "signed_old_head_rejected_without_new_event": true
+        }
+      },
+      "observed_pg_identity_count": 405,
+      "observed_pg_identity_list_sha256": "43f17517e58c733067d482f4f25f3887da83f9eceaeddc643ab2b992a820be20",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "fresh-v1",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 passed, 12 deselected in 78.53s (0:01:18)",
+      "reason": null,
+      "root_actual_exit": 0,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 126373888,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 38894,
+      "terminal_sha256": "4053450aa5face8fb5ef2cc6248adeb6504fcbe6f3ea6f00257ae308229120b7",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "5eba5ba376a332aed39e1b8812403af758efdb1841075b5b4ea39f0c16e0c525"
+      },
+      "wall_seconds": 81.57118651398923
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 225,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 327643136,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution_checkpoint.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/lease-v1/pytest",
+        "-k",
+        "lease"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "adbe935f1408a136d381a1a1b1077951686e9611d967059344e2aa43ca161f08",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "lease.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "invalid_arguments": 5,
+          "new_attempt_same_head_preserves_first_event_time": true,
+          "new_head_sequence": 2,
+          "stale_wrong_expired_canceled_rejected": true
+        }
+      },
+      "observed_pg_identity_count": 324,
+      "observed_pg_identity_list_sha256": "8b3d9c019f62a164245ceda2b397101ded716f8bcca8b54ea141d84ac9d7976f",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "lease-v1",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 passed, 12 deselected in 58.90s",
+      "reason": null,
+      "root_actual_exit": 0,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 125444096,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 31280,
+      "terminal_sha256": "fe397b9833bce44a25d7752c895f17fb9aa16b2890b4f1f4964a50663384b995",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "5eba5ba376a332aed39e1b8812403af758efdb1841075b5b4ea39f0c16e0c525"
+      },
+      "wall_seconds": 61.43072599399602
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 711,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 378105856,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution_checkpoint.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/late-v1/pytest",
+        "-k",
+        "late and (rights or scope or resolver)"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "71697a1ec3ff2915d5a1fb9456c31baf280c1baee64d4e6be11fda83470dc165",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "late-cancel.json": {
+          "after_insert_rejected": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "checkpoint_event_rolled_back": true,
+          "original_lease_transaction_recovered": true
+        },
+        "late-expired.json": {
+          "after_insert_rejected": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "checkpoint_event_rolled_back": true,
+          "original_lease_transaction_recovered": true
+        },
+        "late-resolver.json": {
+          "after_insert_rejected": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "checkpoint_event_rolled_back": true,
+          "original_lease_transaction_recovered": true
+        },
+        "late-rights.json": {
+          "after_insert_rejected": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "checkpoint_event_rolled_back": true,
+          "original_lease_transaction_recovered": true
+        },
+        "late-scope.json": {
+          "after_insert_rejected": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "checkpoint_event_rolled_back": true,
+          "original_lease_transaction_recovered": true
+        }
+      },
+      "observed_pg_identity_count": 927,
+      "observed_pg_identity_list_sha256": "50ea215e24ab8ef7836e12fb6b2c2b46b1acdf7a5871ed4f3215fd16782c4f1e",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "late-v1",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "5 passed, 8 deselected in 195.06s (0:03:15)",
+      "reason": null,
+      "root_actual_exit": 0,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 128831488,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 87963,
+      "terminal_sha256": "0a87ee67405c72a30fc4881bd6f244aec0dc24dd709b3aa8dc6c7b1313664f54",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "5eba5ba376a332aed39e1b8812403af758efdb1841075b5b4ea39f0c16e0c525"
+      },
+      "wall_seconds": 202.00113068602514
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 309,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 330272768,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution_checkpoint.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/latelease-v1/pytest",
+        "-k",
+        "late and (expired or cancel)"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "29c1440beae32d22d229a29e89080d9400d8a7db26ff7b8b88b7e223de4df942",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "late-cancel.json": {
+          "after_insert_rejected": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "checkpoint_event_rolled_back": true,
+          "original_lease_transaction_recovered": true
+        },
+        "late-expired.json": {
+          "after_insert_rejected": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "checkpoint_event_rolled_back": true,
+          "original_lease_transaction_recovered": true
+        }
+      },
+      "observed_pg_identity_count": 416,
+      "observed_pg_identity_list_sha256": "07aca3fe0ff3646c1ed4af0fb7585b2e02a44bc46c7f88a629e2a62308e92c9d",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "latelease-v1",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "2 passed, 11 deselected in 81.80s (0:01:21)",
+      "reason": null,
+      "root_actual_exit": 0,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 125652992,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 39928,
+      "terminal_sha256": "73bd537c07bb494672f18367e082c16288909b5548409eef07c8b022bb930254",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "5eba5ba376a332aed39e1b8812403af758efdb1841075b5b4ea39f0c16e0c525"
+      },
+      "wall_seconds": 84.86675836896757
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 160,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 321097728,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution_checkpoint.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/access-v1/pytest",
+        "-k",
+        "access"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "10c61d6c11edf13c8822bf025ba01810c53bd0b3d7baa123b7e7c878d680e587",
+      "observations": {
+        "access.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "create_scope_not_required": true,
+          "foreign_rights_review_source_signed_head_rejected": true,
+          "required_scopes": 11
+        },
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        }
+      },
+      "observed_pg_identity_count": 223,
+      "observed_pg_identity_list_sha256": "0027ef9250d6937e080cb6256db61a8ee076ec7e9d97ffc594a71269e3c8cbd1",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "access-v1",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 passed, 12 deselected in 41.62s",
+      "reason": null,
+      "root_actual_exit": 0,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 124899328,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 21786,
+      "terminal_sha256": "cb3024369fe2575de515a39895f4ba3fb0c189035c82c7c2952af4861f74be1e",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "5eba5ba376a332aed39e1b8812403af758efdb1841075b5b4ea39f0c16e0c525"
+      },
+      "wall_seconds": 43.41917959001148
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 152,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 326946816,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution_checkpoint.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/input-v1/pytest",
+        "-k",
+        "input"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "0562040dbefabaf920d9f630c842fb8dfd1df401bfd254cbd386ac754f51ebfd",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "input.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "closed_mixed_envelopes_rejected": 6,
+          "injected_invalid_boolean_duplicate_history_blocks_adoption": true,
+          "new_accepted_event_after_forgery": 0
+        }
+      },
+      "observed_pg_identity_count": 209,
+      "observed_pg_identity_list_sha256": "e888160da38050fefbf6e0815e4523ac92de3e3a6541df44eb8452db9139e480",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "input-v1",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 passed, 12 deselected in 39.34s",
+      "reason": null,
+      "root_actual_exit": 0,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 125272064,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 20470,
+      "terminal_sha256": "c4629f75ab38dd00f1094b6ca552bb43103059feaf3f12ff635a2b1f40b98ead",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "5eba5ba376a332aed39e1b8812403af758efdb1841075b5b4ea39f0c16e0c525"
+      },
+      "wall_seconds": 41.12706712097861
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 342,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 365690880,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution_checkpoint.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/concurrent-v1/pytest",
+        "-k",
+        "test_normal_original_head or test_concurrent"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "147f3dc14c2c945f6577dc5195c573380fd1d6f946f3761685fa9667ddeec15f",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "normal.json": {
+          "actual_scram": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "checkpoint": {
+            "G0_G4": "not_assessed",
+            "artifact_sha256": null,
+            "checkpoint_code_sha256": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+            "computed_through_utc": "2026-10-01T00:00:00.123456Z",
+            "context_sha256": "83a7f22f781200971064c10f04dcc89a614ff994daecda5bd28ce674fe4adbbc",
+            "counts": {
+              "events": 1,
+              "samples": 1
+            },
+            "custody_code_sha256": "6a5c7c6286760f9fdb9cae17d803e6c222bb4ee67fd8fc0315d9db726f34f085",
+            "custody_sequence": 1,
+            "execution_code_sha256": "7cbbf542e83f0b4b3d8214c88c9b60f8225379d55be30ab785c42e1e74f78df4",
+            "farm_binding_sha256": "69ac6f70d22ec1168360f696324c48c30e7aaf4d535e77b077b482486ee0f758",
+            "head_sha256": "290b1c7d2fd9db0d88f7c5fb1a077818553c7fbe955532c9236c6c3d39180693",
+            "header_sha256": "3acea510ceae83d8d0e82101c2c72f3c7766ddf6a15d9e8435d29e72694f54e6",
+            "input_sha256": "863f5ee800b92420f4d1080e217449789a19e9931f83b5069fd3d9526644613d",
+            "intent_sha256": "a7cf0cc93dff256ddac52ba4a766fb1dacba86b0bc952c15e36f5b5f6a691294",
+            "planned_steps": 16,
+            "proof_sha256": "f1522ea94a76bd37bcb41f17025327b1c3aa3815861531c5f46c1fb9042dca44",
+            "publication_sequence": 1,
+            "scope": "synthetic_joint_crop_climate_math_only",
+            "source_sha256": "6dfbe10947ab18417d23bd5da4c63eea28e123b9bcada04506aeb714d97608a4",
+            "status": "yielded",
+            "steps": 0,
+            "time_binding_sha256": "44a9c1ab5e8a400b148f24c806e3c4f7a3466cb4423dcd9e1e846e8668d28d97",
+            "version": "joint-crop-climate-execution-checkpoint-v1"
+          },
+          "event_recorded_at": "2026-10-10T01:28:59.429899+00:00",
+          "same_event_after_retry_and_heartbeat": true
+        }
+      },
+      "observed_pg_identity_count": 468,
+      "observed_pg_identity_list_sha256": "b57f536e3efdfe96e3decda0530de56e6a99c7774c37eb4231eb04c3523b92b4",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "concurrent-v1",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 failed, 1 passed, 11 deselected in 90.83s (0:01:30)",
+      "reason": null,
+      "root_actual_exit": 1,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 138743808,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 44816,
+      "terminal_sha256": "66b6e4ef348b6be52a96ff10fbb1a0e4aecea8e9002d8072bb9474552dacbdf5",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "5eba5ba376a332aed39e1b8812403af758efdb1841075b5b4ea39f0c16e0c525"
+      },
+      "wall_seconds": 94.44771158095682
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 152,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 338464768,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/diagnose.py",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/diagnose-v2/pytest"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "40af820623d30b9f7bc2c8c9e2b89ae113e2816b8c431c36625a95e9b3c810ab",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        }
+      },
+      "observed_pg_identity_count": 198,
+      "observed_pg_identity_list_sha256": "38f3d72879a59b4dff5df19ba6d2ae92491a2404b3d9cd01ac8491d777616a8b",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "diagnose-v2",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 failed, 12 deselected in 39.40s",
+      "reason": null,
+      "root_actual_exit": 1,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 127488000,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 19437,
+      "terminal_sha256": "89ebf12b2b9ca8138a60279c190c34aa17e705c9447c17c4198e73e0d67a3ab0",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "a462aa33df168ce27e3d28c73dd92054f0d1957a888ef239ab190ab0206bb509",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "5eba5ba376a332aed39e1b8812403af758efdb1841075b5b4ea39f0c16e0c525"
+      },
+      "wall_seconds": 41.100510528020095
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 319,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 332374016,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution_checkpoint.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/concurrent-v2/pytest",
+        "-k",
+        "test_normal_original_head or test_concurrent"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "7334dfb7f1033e31ff2d7583d72ae8d85b4105814dda05d4aaf66d2f14f9f5e8",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "normal.json": {
+          "actual_scram": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "checkpoint": {
+            "G0_G4": "not_assessed",
+            "artifact_sha256": null,
+            "checkpoint_code_sha256": "afdd607f35dd255b82693feac4996675da6010d12808e7d52a50e33ca9b8cd67",
+            "computed_through_utc": "2026-10-01T00:00:00.123456Z",
+            "context_sha256": "83a7f22f781200971064c10f04dcc89a614ff994daecda5bd28ce674fe4adbbc",
+            "counts": {
+              "events": 1,
+              "samples": 1
+            },
+            "custody_code_sha256": "6a5c7c6286760f9fdb9cae17d803e6c222bb4ee67fd8fc0315d9db726f34f085",
+            "custody_sequence": 1,
+            "execution_code_sha256": "7cbbf542e83f0b4b3d8214c88c9b60f8225379d55be30ab785c42e1e74f78df4",
+            "farm_binding_sha256": "875c446dc080df9b5565a29b52c2962b343186ef05bca295deadafe5209eb6a1",
+            "head_sha256": "290b1c7d2fd9db0d88f7c5fb1a077818553c7fbe955532c9236c6c3d39180693",
+            "header_sha256": "3acea510ceae83d8d0e82101c2c72f3c7766ddf6a15d9e8435d29e72694f54e6",
+            "input_sha256": "252d281626bcc4a37d7e92624a492d06f98a8d7ada999c6bd36869e066512329",
+            "intent_sha256": "d0a30d6b3888d25c7dc7c1dc59cefe0f638c3b111b06dd3ee435622bbb8b6de8",
+            "planned_steps": 16,
+            "proof_sha256": "97e510a6a674011356b20687b93b417a322a8d9c3385ca7843275d990bc34058",
+            "publication_sequence": 1,
+            "scope": "synthetic_joint_crop_climate_math_only",
+            "source_sha256": "6dfbe10947ab18417d23bd5da4c63eea28e123b9bcada04506aeb714d97608a4",
+            "status": "yielded",
+            "steps": 0,
+            "time_binding_sha256": "44a9c1ab5e8a400b148f24c806e3c4f7a3466cb4423dcd9e1e846e8668d28d97",
+            "version": "joint-crop-climate-execution-checkpoint-v1"
+          },
+          "event_recorded_at": "2026-10-10T01:33:05.440025+00:00",
+          "same_event_after_retry_and_heartbeat": true
+        }
+      },
+      "observed_pg_identity_count": 449,
+      "observed_pg_identity_list_sha256": "de467b23a68742fc65c8f525ff15cea5bfad517a100bc219328d1692a00e9f48",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "concurrent-v2",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 failed, 1 passed, 11 deselected in 84.49s (0:01:24)",
+      "reason": null,
+      "root_actual_exit": 1,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 128598016,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 43030,
+      "terminal_sha256": "f3ae6e7382534180c08af8ae75dd03ce412081b66e01ad3cc4622d528eb4723f",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "afdd607f35dd255b82693feac4996675da6010d12808e7d52a50e33ca9b8cd67",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "5dc1dfb8207818cc4402e13b6f31e680b8a4ffed47a3a061578e20527c86ab8b"
+      },
+      "wall_seconds": 87.68357307900442
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 193,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 324349952,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution_checkpoint.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/concurrent-v3/pytest",
+        "-k",
+        "test_concurrent"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "09c2e208baca0d5cc73b76ab52349c3d08323407e07291762742e3a648d97465",
+      "observations": {
+        "concurrent.json": {
+          "actual_scram_row_lock_statement_timeout": true,
+          "busy_returns_typed_pending": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "events": 1,
+          "overlapping_requests": 2,
+          "pending_inside_file_session_rolled_back": true,
+          "retry_identical_event_and_timestamp": true
+        },
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        }
+      },
+      "observed_pg_identity_count": 237,
+      "observed_pg_identity_list_sha256": "8a4fd50eb2cb47ebfb482783d1bf40d5686dc1ab9c5b694a167e2f8d1faacf6c",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "concurrent-v3",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 passed, 12 deselected in 50.32s",
+      "reason": null,
+      "root_actual_exit": 0,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 131014656,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 23102,
+      "terminal_sha256": "c4f2fb146d517cd2a987a148642cceb28a6fe3bbef78f4d8edeeafd95b716f26",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "afdd607f35dd255b82693feac4996675da6010d12808e7d52a50e33ca9b8cd67",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "64fcbc389cd26798ec0036a7082660f47d9b15a2e05461b47220ab17ccf2825e"
+      },
+      "wall_seconds": 52.34584960597567
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 304,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 434257920,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution_checkpoint.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/fresh-v2/pytest",
+        "-k",
+        "fresh"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "60a3f1d4cea551a43b720c047c9c1ee7c0b66fd1ab16e73bc975e77aa989818f",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "fresh.json": {
+          "adopted_checkpoint": {
+            "G0_G4": "not_assessed",
+            "artifact_sha256": "1bdc4772ccf002013265af19707abff2a822600f463c4a299569a0b63d42d7ef",
+            "checkpoint_code_sha256": "afdd607f35dd255b82693feac4996675da6010d12808e7d52a50e33ca9b8cd67",
+            "computed_through_utc": "2026-10-01T00:00:32.123456Z",
+            "context_sha256": "83a7f22f781200971064c10f04dcc89a614ff994daecda5bd28ce674fe4adbbc",
+            "counts": {
+              "events": 3,
+              "samples": 3
+            },
+            "custody_code_sha256": "6a5c7c6286760f9fdb9cae17d803e6c222bb4ee67fd8fc0315d9db726f34f085",
+            "custody_sequence": 3,
+            "execution_code_sha256": "7cbbf542e83f0b4b3d8214c88c9b60f8225379d55be30ab785c42e1e74f78df4",
+            "farm_binding_sha256": "afe32833003423c2f83e88cc492eed46f0d5affea23d48545037dda23dab7a28",
+            "head_sha256": "020327fe08ebbadd26f4367ab2f42dfe5191a8d5f29b89a71ab31561a0eb0af3",
+            "header_sha256": "3acea510ceae83d8d0e82101c2c72f3c7766ddf6a15d9e8435d29e72694f54e6",
+            "input_sha256": "4536b88cc294c017744451647f5ca0b1ad65c22affa282d29958069bd7c7fa64",
+            "intent_sha256": "0e5c4f3e35e5f177ecf8b8439972ec3a9ad20ba796db9fdf90d3790d7d11040a",
+            "planned_steps": 16,
+            "proof_sha256": "f50c2040be64beb6d5079f8a24543f931c059565f79c887fe627b6f02dbe91c1",
+            "publication_sequence": 1,
+            "scope": "synthetic_joint_crop_climate_math_only",
+            "source_sha256": "6dfbe10947ab18417d23bd5da4c63eea28e123b9bcada04506aeb714d97608a4",
+            "status": "completed",
+            "steps": 16,
+            "time_binding_sha256": "44a9c1ab5e8a400b148f24c806e3c4f7a3466cb4423dcd9e1e846e8668d28d97",
+            "version": "joint-crop-climate-execution-checkpoint-v1"
+          },
+          "attempt": 2,
+          "fresh": {
+            "actual_scram": true,
+            "calls": {
+              "RHS": 0,
+              "advance": 0,
+              "custody_advance": 0,
+              "event": 0,
+              "prepare_binding": 0,
+              "prepare_context": 0,
+              "restore": 0,
+              "result_put": 0,
+              "start": 0,
+              "step": 0
+            },
+            "checkpoint": {
+              "G0_G4": "not_assessed",
+              "artifact_sha256": "1bdc4772ccf002013265af19707abff2a822600f463c4a299569a0b63d42d7ef",
+              "checkpoint_code_sha256": "afdd607f35dd255b82693feac4996675da6010d12808e7d52a50e33ca9b8cd67",
+              "computed_through_utc": "2026-10-01T00:00:32.123456Z",
+              "context_sha256": "83a7f22f781200971064c10f04dcc89a614ff994daecda5bd28ce674fe4adbbc",
+              "counts": {
+                "events": 3,
+                "samples": 3
+              },
+              "custody_code_sha256": "6a5c7c6286760f9fdb9cae17d803e6c222bb4ee67fd8fc0315d9db726f34f085",
+              "custody_sequence": 3,
+              "execution_code_sha256": "7cbbf542e83f0b4b3d8214c88c9b60f8225379d55be30ab785c42e1e74f78df4",
+              "farm_binding_sha256": "afe32833003423c2f83e88cc492eed46f0d5affea23d48545037dda23dab7a28",
+              "head_sha256": "020327fe08ebbadd26f4367ab2f42dfe5191a8d5f29b89a71ab31561a0eb0af3",
+              "header_sha256": "3acea510ceae83d8d0e82101c2c72f3c7766ddf6a15d9e8435d29e72694f54e6",
+              "input_sha256": "4536b88cc294c017744451647f5ca0b1ad65c22affa282d29958069bd7c7fa64",
+              "intent_sha256": "0e5c4f3e35e5f177ecf8b8439972ec3a9ad20ba796db9fdf90d3790d7d11040a",
+              "planned_steps": 16,
+              "proof_sha256": "f50c2040be64beb6d5079f8a24543f931c059565f79c887fe627b6f02dbe91c1",
+              "publication_sequence": 1,
+              "scope": "synthetic_joint_crop_climate_math_only",
+              "source_sha256": "6dfbe10947ab18417d23bd5da4c63eea28e123b9bcada04506aeb714d97608a4",
+              "status": "completed",
+              "steps": 16,
+              "time_binding_sha256": "44a9c1ab5e8a400b148f24c806e3c4f7a3466cb4423dcd9e1e846e8668d28d97",
+              "version": "joint-crop-climate-execution-checkpoint-v1"
+            },
+            "event_id": "362c4b42-dc44-4547-9ee3-a11384441270",
+            "recorded_at": "2026-10-10T01:36:30.124522+00:00",
+            "review_revocation_rejected": true
+          },
+          "fresh_reader_exit": 0,
+          "killed_producer_exit": -9,
+          "no_reintegration_calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "original_progress_sha256": "39f841fb1f0ed92935b121d1924564703170cbc15fc6c589b7217075db84b995",
+          "restored_head_calls": {
+            "RHS": 0,
+            "advance": 0,
+            "custody_advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "result_put": 0,
+            "start": 0,
+            "step": 0
+          },
+          "same_event_and_time": true,
+          "signed_old_head_rejected_without_new_event": true
+        }
+      },
+      "observed_pg_identity_count": 419,
+      "observed_pg_identity_list_sha256": "fb8e74da12e08ce2bf2c87ef5625a165e835982d2c05caed580ed6c43e09f7e3",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "fresh-v2",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 passed, 12 deselected in 80.49s (0:01:20)",
+      "reason": null,
+      "root_actual_exit": 0,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 127676416,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 40210,
+      "terminal_sha256": "4b29dc22f98bddb759310cf5bdd215a55b1a377c9a576a278f91de6f4cf14432",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "afdd607f35dd255b82693feac4996675da6010d12808e7d52a50e33ca9b8cd67",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "64fcbc389cd26798ec0036a7082660f47d9b15a2e05461b47220ab17ccf2825e"
+      },
+      "wall_seconds": 83.48839809600031
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 500,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 400543744,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_execution.py",
+        "tests/test_jobs.py",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-execution-checkpoint/regression-v1/pytest",
+        "-k",
+        "test_crop_climate_joint_execution.py or test_canonical_input_serializes_once or test_canonical_input_rechecks"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "b13c06d5307c873bfaf7f3f18b9c5d8bd8b13474c1c7474d6e4cf2ba9d65ab72",
+      "observations": {
+        "access.json": {
+          "bytes": 112,
+          "sha256": "4bc65bc9b12fe3195e8f385045ca4f8bc0333ecfe29772eb7ca63542ae5431d0"
+        },
+        "authority.json": {
+          "bytes": 129,
+          "sha256": "0575fc83f59a5c641f2080a71c7a2f2e647c22c061d0840ec26499b2f46bb111"
+        },
+        "closed.json": {
+          "bytes": 143,
+          "sha256": "12ec37a4e28016ebce4500bbba0df02cf84520cefac55cd9f46557bc2b8c7e92"
+        },
+        "concurrent.json": {
+          "bytes": 83,
+          "sha256": "f324597f03523d252d822f2be1e15bcaf8330fad91f931487e7e04aaa6aac521"
+        },
+        "conflict.json": {
+          "bytes": 128,
+          "sha256": "a8eb1636ed8c8625d58849f8968b0d994f15f742b7d88f7f0e69a4832647094f"
+        },
+        "database-cleanup.json": {
+          "bytes": 32,
+          "sha256": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27"
+        },
+        "late-resolver.json": {
+          "bytes": 114,
+          "sha256": "8a4b191227407558609481ad4b58be73a035fb53fd701adbc6cb4cd78bcc2bcb"
+        },
+        "late-rights.json": {
+          "bytes": 114,
+          "sha256": "8a4b191227407558609481ad4b58be73a035fb53fd701adbc6cb4cd78bcc2bcb"
+        },
+        "late-scope.json": {
+          "bytes": 114,
+          "sha256": "8a4b191227407558609481ad4b58be73a035fb53fd701adbc6cb4cd78bcc2bcb"
+        },
+        "normal.json": {
+          "bytes": 410,
+          "sha256": "a514538afad3fa81932bab4a603c79277e996a52606d071f4dbc97a16a1fd1dd"
+        }
+      },
+      "observed_pg_identity_count": 537,
+      "observed_pg_identity_list_sha256": "69f2b91465be156f7c2dbe5622eab6af7cd360562e9ddb65b36b414fdb9713c0",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "phase": "regression-v1",
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "11 passed, 11 deselected in 133.80s (0:02:13)",
+      "reason": null,
+      "root_actual_exit": 0,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137797632,
+      "source_count": 1801,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 51303,
+      "terminal_sha256": "b6a77310ca0653cc73843f90294c1032e400c63cccef936c567d76d3e5aa772f",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_execution_checkpoint.py": "afdd607f35dd255b82693feac4996675da6010d12808e7d52a50e33ca9b8cd67",
+        "backend/tests/test_crop_climate_joint_execution_checkpoint.py": "64fcbc389cd26798ec0036a7082660f47d9b15a2e05461b47220ab17ccf2825e"
+      },
+      "wall_seconds": 137.90095724002458
+    }
+  ],
+  "resource_policy": {
+    "child_nice": 19,
+    "combined_limit_bytes": 1073741824,
+    "sample_seconds": 0.25,
+    "single_PID_limit_bytes": 536870912
+  },
+  "scope": "synthetic software checkpoint adoption only",
+  "sequence_definition_preservation": {
+    "changed_definitions": [
+      "test_access_current_rights_reviews_source_and_signed_head",
+      "test_fresh_crash_after_head_before_event_adopt_without_reintegration"
+    ],
+    "sequence_normal_hold_and_shared_fixtures_preserved": true
+  },
+  "unique_focused_tests": {
+    "new": 13,
+    "regression": 11,
+    "scope": "unchanged validation paths plus final timeout-classification, normal and fresh focused checks; per-phase code pins preserved; not a full rerun on final module SHA",
+    "total": 24
+  }
+}

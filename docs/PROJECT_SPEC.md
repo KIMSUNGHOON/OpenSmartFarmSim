@@ -58,7 +58,8 @@ core7ad76c2·고유501개·실제 SCRAM/HTTPS/WebGL·원값/권리·원본/UI/�
 기존 코드와 대조해 확정했고 [E1–E9](../tasks/plan.md#작물-계산과-ui의-실행-연결--2026-10-10)로 분해했다.
 [E1 현재 farm/input/rights의 계산0 접수](../research/crop-climate-joint-execution-admission-implementation-20261010.md)는
 core9f5c18d·고유17검사/실제 SCRAM·동시 중복/현재 권리·rollback·원본/기동 보존으로 로컬 수용했다.
-다음은 E2 확정 checkpoint/counts/UTC·별도 DB 수용 시각 결속이다. worker/API/UI 연결은 미완료다.
+[E2 확정 checkpoint 수용](../research/crop-climate-joint-execution-checkpoint-implementation-20261010.md)도 coreaf93e83·고유24개 집중 검사로 원 counts/UTC·최초 수용 시각·실제 중단/fresh/권리·보존을 확인했다.
+다음은 E3 결과 transaction hook이며 worker/API/UI 연결은 미완료다.
 자원 모듈 전체와 독립 자료 확보를 이 합성 접수의 선행 조건으로 두지 않는다.
 진행 상태 갱신→terminal 저장3D를 먼저 연결하며 계산 중 prefix3D는 별도 수용한다. 현재5173 실시간 연동은 미구현이다.
 [결합 계약](../contracts/crop-climate-coupling-v1.md)의 온실 경계 조사는 병행하며 실제 전체 작기·실시간 U3/관문은 미완료다.
