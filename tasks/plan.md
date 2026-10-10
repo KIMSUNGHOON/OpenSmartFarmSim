@@ -1205,7 +1205,7 @@ source 검토는 구현/시험 수용이 아니다. 아래 자식은 작은 합�
 | P0 계약 | 위 계약1파일 + 계획/증거 갱신 | E9b·기존 E2/E4/저장 | source13파일/26심볼·판본 선택·권리·동시 writer/취소/fresh·빈 시점·순서 대조 |native→source1,036.777초(약17분); 문서 검사/commit 별도|
 | P1 원 페이지/DB | [coreb05d407/수용 근거](../research/crop-climate-joint-prefix-reader-implementation-20261010.md)·reader/test2파일 | P0 | 실제 SCRAM 고유12개·원 값/UTC·ready/이전 수용/rollback·권리/취소/fresh·계산/DB 쓰기0·read6.877–6.905초·보존/정리 |native→최종 검증2554.329초(약43분), 문서/commit 별도|
 | P2 typed 투영 | [core376c774/수용 근거](../research/crop-climate-joint-prefix-projection-implementation-20261010.md)·모델/test2파일 | P1 | 고유44개(42 fixture/실제 SCRAM2)·원 수치/UTC·닫힌 DTO/64+1·fresh/현재 권리·계산/쓰기0·보존/정리 |native→최종 검증883.695초(약15분), 문서/commit 별도|
-| P3a 보호 HTTP | `backend/app/api_crop_climate_joint_prefix_routes.py`, 대응 test | P2 | 실제 HTTPS/SCRAM·인증/현재 권리/selector·query/body·원 응답·현재 계정 전후 검사; 집중 pytest/실제 응답 |0.75–1.5h|
+| P3a 보호 HTTP | [core8da1776/수용 근거](../research/crop-climate-joint-prefix-http-implementation-20261010.md)·installer/test2파일 | P2 | 고유110개(제어105/실제 SCRAM·TLS5)·원 응답/늦은 권리/독립 취소·계산/쓰기0·기존56경로/262스키마·보존/정리 |native→최종 검증1037.090초(약17분), 문서/commit 별도|
 | P3b 명시 runtime | 기존 `api.py`/`api_runtime.py`/joint operator config와 집중 test, 최대5파일로 분해 | P3a | 같은 factory/jobs/server/farm/principal·기본 비활성·기존 설정/원 결과 호환·별도 자동 worker와 실제 TLS |0.75–1.5h|
 | P4 웹 reader | `web/src/jointCropClimatePrefix.ts`, `api.ts`, 대응 unit/실제 SDK test, 최대4파일 | P3b | 기존 typed sample/event 재사용·원 selector/UTC·취소/응답 제한/오류·실제 SDK/TLS; unit·typecheck·제한된 build |0.75–1.5h|
 | P5 부분 결과 화면 | `JointCropClimatePrefix.tsx`, 기존 Execution/CSS, e2e1, 최대4파일 | P4 | 한 갱신 주기의 순차 GET·동일 저장 UTC·빈 출력/새 판본 원자 교체·cancel/숨김/계정/늦은 응답·terminal 전환; Chromium·typecheck/build |1.5–3h|
@@ -1216,11 +1216,11 @@ P1/P2 후 원 페이지/공개 정보 checkpoint, P3b/P4 후 실제 보호 전�
 P1은 권리/계보 거부를 일시 대기로 숨기지 않으며 accepted snapshot만 읽는다. 작업 중 관련 DB 상태 변경은 Pending으로 버리고 재조회한다.
 각 pytest는 해당 파일·현재 fixture 회귀에 한정하고 실제 SCRAM을 명시한다. DB fixture가 skip이면 수용하지 않는다.
 선택한 수용 판본의 실제 원 수치/UTC와 fresh 결과를 대사하고 모든 read의 수치/게시/DB 쓰기0을 검증한다.
-P3b의 실제 파일과 옵션은 기존 조립을 대조해5파일 이하로 확정한다. 수치/입력/custody/result source pin 변경이 필요하면 판본/보존·호환 검증을 먼저 분해한다.
+P3b의 실제 파일과 옵션은 기존 조립을 대조해5파일 이하로 확정한다. 새 installer는 활성 reader를 요구하므로 생략/False일 때 호출하지 않고 기존 기본 API 계약을 보존한다. 별도 자동 worker의 running prefix/일시 충돌 재조회→terminal도 실제 TLS에서 확인한다. 수치/입력/custody/result source pin 변경이 필요하면 판본/보존·호환 검증을 먼저 분해한다.
 새 orchestration/queue/DB schema는 현 단계의 선행 조건이 아니다. 기존 `_Files._load`의 누적 전체 검증 비용은 P1에서 측정한다.
 
-P0의 최초 P1–P6 추정은7.5–15집중시간이었다. P2의 실제 종료 뒤 **남은 P3–P6는5.25–10.5집중시간 잠정**으로 갱신한다. 연속 작업 시 **2026-10-11 KST의 작은 합성 prefix 사용자 화면**을 조건부 범위로 둔다.
-P1은 원 reader6.877–6.905초/64행658,115bytes를 관측했다. P2는 그 뒤 투영/직렬화6.361–11.793ms·64행 전체663,085bytes를 확인했다. P3/P4의 실제 HTTP/SDK 및 P6 사용자 관측 뒤 시간과 날짜를 다시 산정한다. 실패 재검증·WSL 상한·기존 서비스 수명에 따라 늦어질 수 있다.
+P0의 최초 P1–P6 추정은7.5–15집중시간이었다. P3a의 실제 종료 뒤 **남은 P3b–P6는4.5–9집중시간 잠정**으로 갱신한다. 연속 작업 시 **2026-10-11 KST의 작은 합성 prefix 사용자 화면**을 조건부 범위로 둔다.
+P1은 원 reader6.877–6.905초/64행658,115bytes를 관측했다. P2는 그 뒤 투영/직렬화6.361–11.793ms·64행 전체663,085bytes를 확인했다. P3a는 실제 TLS18응답·최대8.235초를 확인했다. P3b 자동 worker 동시 조회·P4 SDK와 P6 사용자 관측 뒤 시간과 날짜를 다시 산정한다. 실패 재검증·WSL 상한·기존 서비스 수명에 따라 늦어질 수 있다.
 이 범위는 전체166일 동적 기후·최종 U0–U5/전체 U3·생산/마진/추천 관문이나 외부 자료 확보 완료 날짜가 아니다.
 사용자 서비스 전환 전에는5174의 기능/안내를 완료 후 저장3D로 유지한다. 관측 장벽은 시험에서만 기록하고 사용자 계산을 느리게 꾸미지 않는다.
 

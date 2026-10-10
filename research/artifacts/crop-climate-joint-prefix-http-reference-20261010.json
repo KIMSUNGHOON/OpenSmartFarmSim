@@ -1,0 +1,516 @@
+{
+  "G0_G4": "not_assessed",
+  "HTTP_max_bytes": 25087,
+  "HTTP_max_seconds": 8.234603168035392,
+  "HTTP_reply_count": 18,
+  "accepted_scope": "P3a explicit prefix GET installation; actual SCRAM/verified HTTPS, not runtime enablement or UI deployment",
+  "actual_crop_Runs": 0,
+  "actual_invocation": "existing native Codex CLI turn_context; no nested CLI",
+  "baseline_commit": "c8edf74842a28e6f7601958e7485bf55cacd75b0",
+  "calculation_time_prefix3D_accepted": false,
+  "conditional_small_synthetic_user_preview_date_KST": "2026-10-11; conditional on runtime/SDK/browser validation, WSL and service lifetime",
+  "core_commit": "8da1776826d3d76afd61c248ba41eaf5227b3011",
+  "earlier_attempts_not_added_to_unique_passed": {
+    "focused-control-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 19,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 620281856,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "full_private_receipt_sha256": "538f8ab5a3636f8a51c6ae9d934b7e0bc315e3bbae043831a0bda7ee0d6b4fb2",
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "d3a7a4a4fae607e4b8f1bbccbcbb57aa3c4069a05e97e83f7768d360bd2dd3aa",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_process_observations_count": 0,
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 148246528,
+      "source_count": 1856,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 5.0899607229512185
+    }
+  },
+  "failed_source_sha256": {
+    "backend/app/api_crop_climate_joint_prefix_routes.py": "4e45bd0b2b8a6edcd6f9ff5265ba8a4017969241e46d695268d106eb51bbe7b4",
+    "backend/tests/test_api_crop_climate_joint_prefix_routes.py": "cb2b110cb78184f5727f97af29ac45d381dd7f94d95e9def19359ba734c03562"
+  },
+  "failure_fix": "invalid serialization None must be unavailable503, not absent target404; validate bytes before returning read result",
+  "final_source_group_receipts": {
+    "focused-control-v2": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 19,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 644808704,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "deselected": 5,
+      "frontend_status": 200,
+      "full_private_receipt_sha256": "9335e2e6b6b96002b559d978d64a6f73234d854a9331a5f3f4adeb67a0dc8639",
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "ac453834b1d735c560e0ea089614df1d4f35daef1433666c69d7e1d9402f66aa",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_process_observations_count": 0,
+      "owned_postgres_remaining": [],
+      "passed": 105,
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_duration": "4.36s",
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 145924096,
+      "skipped": 0,
+      "source_count": 1856,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 5.088295278022997
+    },
+    "focused-scram-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 1093,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 766271488,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "deselected": 105,
+      "frontend_status": 200,
+      "full_private_receipt_sha256": "763be61f38d558e05216f4a02b7e888ba6a1c79ece30fc935d9cb1ad951d001b",
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "1458d8f85a2eed73c892d0960d62a7026e49dbbff8934ec7c7c5a94117c597b6",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_process_observations_count": 1329,
+      "owned_postgres_remaining": [],
+      "passed": 5,
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_duration": "319.26s (0:05:19)",
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 172859392,
+      "skipped": 0,
+      "source_count": 1856,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 347.79857633897336
+    }
+  },
+  "final_source_unique_passed": 110,
+  "final_test_terminal_at_utc": "2026-10-10T10:50:39.377800+00:00",
+  "fixture_scope": {
+    "HTTP_control_fixture": 105,
+    "HTTP_control_fixture_bypasses_numerical_projection": true,
+    "actual_SCRAM_verified_TLS": 5,
+    "late_source_rights_and_independent_cancel_hooks_are_controlled_tests": true
+  },
+  "full_product_UI_accepted": false,
+  "goal_status": "active",
+  "id": "crop-climate-joint-prefix-http-reference-20261010",
+  "independent_domestic_farm_datasets": 0,
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "timestamp": "2026-10-10T10:33:22.288Z",
+    "turn_context_sha256": "29dfd20b0cf1bd64a8030de99b41400066a1f7cc2a9e6f8680b358f0220b96cc"
+  },
+  "native_to_final_test_terminal_seconds": 1037.0897998809814,
+  "next": "crop-climate-joint-prefix-runtime",
+  "not_run": [
+    "full backend/web suite",
+    "old route runtime suite rerun",
+    "frontend typecheck/build",
+    "new runtime factory/operator flag",
+    "new browser tests",
+    "user preview replacement",
+    "166-day joint calculation",
+    "remote CI/fetch/push"
+  ],
+  "original_P0_P1_P2_source_sha256": {
+    "backend/app/api_crop_climate_joint_execution.py": "29884c5e1edffffb5a74cd5925256f80bb07e269baa7ff8c1b380e3891157103",
+    "backend/app/api_crop_climate_joint_prefix.py": "d2ee873f86336278182a194ef7f38ac0be685dbfc730896bbd799a2acd7b09ef",
+    "backend/app/api_crop_climate_joint_replay.py": "8cf4a2a150514c2246a7b326fb0bc31185aa56489b5b028cdb2aabf07c561f10",
+    "backend/app/crop_climate_joint_boundary.py": "336794d229602957e58f0976bdb735c0312f318d5570eb62b3fb30f2d4f5538b",
+    "backend/app/crop_climate_joint_continuation.py": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+    "backend/app/crop_climate_joint_execution_checkpoint.py": "afdd607f35dd255b82693feac4996675da6010d12808e7d52a50e33ca9b8cd67",
+    "backend/app/crop_climate_joint_execution_query.py": "7b525f74993914759426165acd219f1087e7c91ede00fd478392a4db0a87417c",
+    "backend/app/crop_climate_joint_execution_worker.py": "401e201b0be194c11dd57b67caf4edf9059463d9368bf73264a8f10661e3f794",
+    "backend/app/crop_climate_joint_farm_binding.py": "669fea7460e39e3108a99571e487b2a10e8d0c34377ac2954115605c96f0cbef",
+    "backend/app/crop_climate_joint_prefix.py": "2201df892ce389de117953470b58f4ff8988a0d61cbd2732244b15f36d681493",
+    "backend/app/crop_climate_joint_server_custody.py": "6a5c7c6286760f9fdb9cae17d803e6c222bb4ee67fd8fc0315d9db726f34f085",
+    "backend/app/crop_climate_joint_storage.py": "1bdfa739545ac91619f27f25672977949aceb4657b49a82a5af696646d2cd0dd",
+    "backend/tests/test_api_crop_climate_joint_prefix.py": "e4e64fe23c3e248010216bcfef3df353d1502f93b36a80f975fce7741f6fa75c",
+    "backend/tests/test_crop_climate_joint_prefix.py": "f6613893cc308d06cec92826aaaff1bbb322ef7301ad9a0f3a98c53853fe37a9",
+    "web/src/JointCropClimateExecution.tsx": "9740d0d5b6aed05baf89c2529afaa74bc46ecada1c49b3d51a820622745c65ff",
+    "web/src/JointCropClimateReplay.tsx": "d19b2189c9d3402722c35d19b7b6dd260a47c43d2dba147dae97bd975af6835b",
+    "web/src/jointCropClimateGeometry.ts": "2a911b4a0a92ced8d3ddaa5cedb9e46a213c1019fe496260bbaaab759e4644de"
+  },
+  "original_sources_unchanged": true,
+  "push_hold": true,
+  "recursive_CLI": 0,
+  "remaining_focused_hours_estimate": [
+    4.5,
+    9
+  ],
+  "resource_limits": {
+    "combined_RSS_bytes": 1073741824,
+    "nice": 19,
+    "sample_interval_seconds": 0.25,
+    "single_PID_RSS_bytes": 536870912,
+    "threads": 1,
+    "wall_limit_seconds_per_group": 600
+  },
+  "runtime_CLI": 0,
+  "skipped": 0,
+  "source_judgment": "explicit installer requires trusted P1 reader; default app contract unchanged. P3b conditionally installs routes only with enabled validated reader; projection afterward rechecks actual DB job/current farm rights using pinned existing private read methods.",
+  "source_sha256": {
+    "backend/app/api_crop_climate_joint_prefix_routes.py": "1ca48f44b22e7f93776c17be3918bde85dd4c28df61ca6aefd0a75f8f9b780ee",
+    "backend/tests/test_api_crop_climate_joint_prefix_routes.py": "3fd78ab0feb6dc3729f86db0d678b7699fd6b844a52665891a1e09f7ba9c5076"
+  },
+  "test_evidence": {
+    "actual-concurrent-cancel": {
+      "record": {
+        "DB_delta_is_external_cancel": true,
+        "actual_scram": true,
+        "external_process": {
+          "actual_scram": true,
+          "independent_cancel_accepted": true
+        },
+        "reader_calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "replies": [
+          {
+            "bytes": 82,
+            "seconds": 8.234603168035392,
+            "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+            "status": 503
+          }
+        ],
+        "serialized_values_withheld": true,
+        "verified_TLS": true
+      },
+      "sha256": "ac8cc75ddca4dfe422fb33143cd3fa52b8f325e8b1d95751624e3b83db318dc3"
+    },
+    "actual-rights-cancel": {
+      "record": {
+        "actual_scram": true,
+        "calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "cancel_closes_values": true,
+        "owner_cancel_without_read_or_display_rights": true,
+        "replies": [
+          {
+            "bytes": 84,
+            "seconds": 7.248855880985502,
+            "sha256": "8a1f3dc9cdbb5f2375a68cfb2a46a5cd23a63920a3af651ab6820785433be42d",
+            "status": 422
+          },
+          {
+            "bytes": 65,
+            "seconds": 0.0027311089797876775,
+            "sha256": "1ae0610a2bc3c4299f75db4623b6163cb075b5bd5fc5f919848892c95a2b84d2",
+            "status": 403
+          },
+          {
+            "bytes": 463,
+            "seconds": 0.07422989298356697,
+            "sha256": "1db754e0cb9cfdef474a12445c262946cd6a81807a154edef75b66300ab53497",
+            "status": 200
+          },
+          {
+            "bytes": 580,
+            "seconds": 5.05923337303102,
+            "sha256": "3b8cf3ca7cbfeddf251d4eb8691430629bf83e256c4518bd65c16f3b40c5ccad",
+            "status": 200
+          }
+        ],
+        "rights_revoked_after_projection_422": true,
+        "verified_TLS": true
+      },
+      "sha256": "02ccab5dac707bae3fb47366f9776ae41670644bf761eec5b27050fe4f55a02a"
+    },
+    "actual-running": {
+      "record": {
+        "DB_unchanged": true,
+        "actual_scram": true,
+        "calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "empty_end_and_ranges": true,
+        "missing_404": true,
+        "read_scopes_only": true,
+        "real_lock_503": true,
+        "replies": [
+          {
+            "bytes": 575,
+            "seconds": 4.936566084972583,
+            "sha256": "7fe669aa89089898873d3f587cfd8096851b299be1aad2d61bab53a357250650",
+            "status": 200
+          },
+          {
+            "bytes": 5149,
+            "seconds": 7.68655594199663,
+            "sha256": "0f4b51035b337ab09caf6a8a60478714d64a0ada94dcf4c37a4910aaebf0e3aa",
+            "status": 200
+          },
+          {
+            "bytes": 13682,
+            "seconds": 7.742441752983723,
+            "sha256": "1f9463d5bf4eb53033ab7e5804609d71a316a2ee11971043014e405be677ea50",
+            "status": 200
+          },
+          {
+            "bytes": 25087,
+            "seconds": 7.695360719983,
+            "sha256": "7e334390378b2c7e2764407e0a32dfaa36bbcbd40e644006207357b76e5a4781",
+            "status": 200
+          },
+          {
+            "bytes": 5100,
+            "seconds": 7.841025319008622,
+            "sha256": "712580bd323f810cf8522a552f5e07466f53312fae613b72844d2b9a1eee3981",
+            "status": 200
+          },
+          {
+            "bytes": 64,
+            "seconds": 1.9525158049655147,
+            "sha256": "f5379d1a75ee7259a8d2cac2fe720ba04689013c8def6d3d6a063aad05effffa",
+            "status": 422
+          },
+          {
+            "bytes": 99,
+            "seconds": 1.0072163590230048,
+            "sha256": "b375fecb7f297e3a386789c058d7c5127868039420d5d1e970f67e9d8deb0007",
+            "status": 409
+          },
+          {
+            "bytes": 65,
+            "seconds": 0.08527426101500168,
+            "sha256": "8bce149de4552b06341a4a188cc344595250231209723e4eebfa52064987dc9e",
+            "status": 404
+          },
+          {
+            "bytes": 82,
+            "seconds": 1.0282763399882242,
+            "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+            "status": 503
+          }
+        ],
+        "same_original_projection_wire": true,
+        "selector_and_UTC": true,
+        "unaccepted_selector_409": true,
+        "verified_TLS": true
+      },
+      "sha256": "b7f142f25579040eb637a37d50045806582853b9ef2f55a78f037615c297e26d"
+    },
+    "actual-terminal-hold": {
+      "record": {
+        "DB_unchanged": true,
+        "actual_scram": true,
+        "calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "prefix_closed": true,
+        "replies": [
+          {
+            "bytes": 593,
+            "seconds": 5.250352478993591,
+            "sha256": "e9475b2f863f9a5f85de1c884846fdd33dfeff153c76309eb21d2a3c05e3d4d5",
+            "status": 200
+          },
+          {
+            "bytes": 1298,
+            "seconds": 8.065164317958988,
+            "sha256": "699b9fc7b0638e4f332ced0e8dee7bdd97175da79be8ff8961be502a5757d7de",
+            "status": 200
+          }
+        ],
+        "same_existing_result_ID": true,
+        "verified_TLS": true
+      },
+      "sha256": "0c30cf215eeb659b00ce345146e2ae1966b044a7a4a9ca60c2d5fa32900e3afb"
+    },
+    "actual-terminal-succeeded": {
+      "record": {
+        "DB_unchanged": true,
+        "actual_scram": true,
+        "calls": {
+          "RHS": 0,
+          "_put_in_transaction": 0,
+          "advance": 0,
+          "confirm": 0,
+          "event": 0,
+          "jobs._durable_artifact": 0,
+          "jobs._event": 0,
+          "jobs._insert_publication": 0,
+          "jobs._outcome": 0,
+          "jobs.ack_cancel": 0,
+          "jobs.cancel": 0,
+          "jobs.claim": 0,
+          "jobs.fail": 0,
+          "jobs.renew": 0,
+          "jobs.submit": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "put": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "prefix_closed": true,
+        "replies": [
+          {
+            "bytes": 580,
+            "seconds": 5.205459151009563,
+            "sha256": "36d96053be692b5735962187385bc467fa344c91ddf36d17dc4ca67969a376fb",
+            "status": 200
+          },
+          {
+            "bytes": 1295,
+            "seconds": 8.06552482797997,
+            "sha256": "7de54b911480b01ba62ab7a1844df5c5397195949cef0ec06fe582802dc562e2",
+            "status": 200
+          }
+        ],
+        "same_existing_result_ID": true,
+        "verified_TLS": true
+      },
+      "sha256": "eb89892bee61f16989be43726109feb337881db597df68b8913d14eae782a328"
+    },
+    "database-cleanup": {
+      "record": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "sha256": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27"
+    },
+    "schema": {
+      "record": {
+        "existing_paths": 56,
+        "existing_schemas": 262,
+        "fresh": {
+          "FD_unchanged": true,
+          "connections": 0,
+          "operational_prefix_imports": 0
+        },
+        "original_default_contract_unchanged": true,
+        "paths": 3
+      },
+      "sha256": "14b07572587c6b17648b7552dd94a1ab988cb7fc3bc0148608a38968cee8d28e"
+    }
+  },
+  "timing_scope": "native context to final guarded test terminal; documentation/commits separate; HTTP reply measurements include authentication/read/projection/current recheck"
+}

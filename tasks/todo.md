@@ -1919,7 +1919,7 @@
       계산 중 prefix3D/최종 UI/전체 U3·실제 자료/관문은 미수용이다.
   - [ ] **계산 중 확정 prefix3D** <a id="joint-prefix-view-20261010"></a> — [P0 계약](../contracts/crop-climate-joint-prefix-view-v1.md)/[순서·잠정 시간](plan.md#joint-prefix-view-20261010). 현재 terminal page를 미완료에 사용하지 않는다.
     수용: 불변 prefix/수용 HEAD·원 sample/event/같은 UTC·현재 권리와 동시 게시/취소/재시작·늦은 응답을 실제 DB/브라우저에서 대사.
-    P2 수용 뒤 남은 P3–P6는5.25–10.5집중시간 잠정/연속 작업10/11 KST 조건부다. 실제 HTTP/SDK/사용자 관측 뒤 갱신한다. 전체 U3/실제 관문 날짜는 미정이다.
+    P3a 수용 뒤 남은 P3b–P6는4.5–9집중시간 잠정/연속 작업10/11 KST 조건부다. 실제 HTTP/SDK/사용자 관측 뒤 갱신한다. 전체 U3/실제 관문 날짜는 미정이다.
     - [x] **P0 확정 prefix 읽기 계약** — 선행: E9b·E2/E4·기존 불변 페이지/서명 계약. core 계약1파일과 계획/기계 기록 갱신이다.
       [source/CLI 증거](../research/artifacts/crop-climate-joint-prefix-contract-reference-20261010.json):13파일/26심볼·native gpt-6.1-sol/xhigh·재귀0.
       DB 수용 selector/원 페이지·이전 판본/계보·현재 권리·동시 writer/취소/fresh와 계산/저장 UTC·빈 장면/조회 계산0·공개 제한을 정의했다.
@@ -1938,10 +1938,14 @@
       조회 계산/쓰기21계수0·DB/FD/소유 정리·schema/role0·원15 source/2,148항목/두 사용자 서버를 보존했다.
       내부 ASCII/농장 UTF-8 canonical 불일치 실패 원 SHA/receipt를 보존하고 원 규칙으로 수정했다. 투영/직렬화6.361–11.793ms·64행 전체663,085bytes.
       단일/합 RSS152,834,048/785,899,520bytes·native→최종 검증883.695초(약15분), 문서/commit 별도. 보호 HTTP/사용자 화면은 미완료다.
-    - [ ] **P3a 보호 prefix HTTP** — 다음 한 단계. 선행: P2. 예정 routes/test2파일.
-      수용/확인: 실제 SCRAM/HTTPS·현재 계정 전후/scopes·원 응답·query/body/selector·거부/잠금·조회 계산0; 집중 pytest/실제 응답.0.75–1.5h 잠정.
-    - [ ] **P3b 명시 prefix runtime** — 선행: P3a. 기존 API/runtime/operator config와 test최대5파일; 실제 파일은 조립 대조 후 확정.
-      수용/확인: 같은 jobs/server/farm/principal·기본 비활성·기존 설정/원 결과 pin 호환·독립 자동 worker/실제 TLS; 집중 pytest/실제 기동.0.75–1.5h 잠정.
+    - [x] **P3a 보호 prefix HTTP** — 선행: P2. installer/test2파일, [core8da1776/수용 근거](../research/crop-climate-joint-prefix-http-implementation-20261010.md).
+      [실행 증거](../research/artifacts/crop-climate-joint-prefix-http-reference-20261010.json): 최종 같은 source의 고유110개(HTTP 제어105/실제 SCRAM·TLS5), skip0.
+      원 응답/selector/UTC·현재 scopes/계정 전후·query/body·거부 상태/잠금·늦은 표시권/별도 actor 취소·정상/hold 원 결과·조회 계산/쓰기21계수0을 통과했다.
+      기존56경로/262스키마 동일·fresh import 연결0·schema/role0·FD/소유 정리·원17 source/2,148항목/두 사용자 서버를 보존했다.
+      잘못된 직렬화 None의404 분류 실패 원 SHA/receipt를 보존하고503으로 수정했다. 실제 TLS18응답 최대8.235초/25,087bytes.
+      단일/합 RSS172,859,392/766,271,488bytes·native→최종 검증1037.090초(약17분), 문서/commit 별도. runtime/SDK/3D 활성화는 미완료다.
+    - [ ] **P3b 명시 prefix runtime** — 다음 한 단계. 선행: P3a. 기존 API/runtime/operator config와 test최대5파일; 실제 파일은 조립 대조 후 확정.
+      수용/확인: 같은 jobs/server/farm/principal·생략/False 때 installer 미호출/기본 계약 보존·기존 설정/원 결과 pin 호환·독립 자동 worker의 running prefix/충돌 재조회→정상/hold·실제 TLS; 집중 pytest/실제 기동.0.75–1.5h 잠정.
     - [ ] **P4 typed prefix SDK** — 선행: P3b. 새 reader/API/대응 unit·실제 SDK test최대4파일.
       수용/확인: 원 selector/수치/UTC·닫힌 응답/취소·기존 sample/event 재사용·실제 HTTPS; unit/typecheck/제한된 build.0.75–1.5h 잠정.
     - [ ] **P5 계산 중 부분 결과 UI** — 선행: P4. 새 prefix component/기존 Execution·CSS/e2e최대4파일; UI 디자인/브라우저 스킬 적용.
