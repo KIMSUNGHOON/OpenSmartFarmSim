@@ -1,0 +1,1005 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_crop_runs": 0,
+  "aggregate_peaks_bytes": {
+    "combined": 436658176,
+    "single_PID": 132399104
+  },
+  "artifact_version": "joint-result-transaction-reference-v1",
+  "core_commit": "c99198c527d054688ec7367d4e519f427e84aac6",
+  "core_files": {
+    "backend/app/crop_climate_joint_result_store.py": {
+      "bytes": 21412,
+      "sha256": "bfeddef9c29ddf773d2eb1eadbca0247e485eb4be6f2c52112c10740990ba4d7"
+    },
+    "backend/tests/test_crop_climate_joint_result_store.py": {
+      "bytes": 33717,
+      "sha256": "9f0ec0194a325da712b5d28aed0b72e139443f00ac2a92869cd28548b654cba2"
+    },
+    "contracts/crop-climate-joint-result-store-v1.md": {
+      "bytes": 6848,
+      "sha256": "22ca2053930949031cc54e6e89081e6503e61a0d1da3bffa17390b160440f508"
+    }
+  },
+  "date": "2026-10-10",
+  "holds": [
+    "E4 leased worker and atomic job publication",
+    "execution API/UI automatic progress",
+    "in-progress prefix 3D",
+    "actual cultivar/farm validation",
+    "production forecast/margin/ranking",
+    "push and new hosted CI"
+  ],
+  "independent_local_datasets": 0,
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_cli": false,
+    "timestamp": "2026-10-10T01:43:21.258Z",
+    "turn_context_sha256": "dc62a7a80b901aaa26dd1fc9adbced5dfe833a50756dce3ca5d5f48a42504cd0"
+  },
+  "native_to_final_regression_seconds": 1682.844,
+  "new_UI_deployment": false,
+  "new_runtime_CLI_invocations": 0,
+  "not_run": [
+    "full backend",
+    "web suites/build",
+    "full 166-day calculation",
+    "new hosted CI"
+  ],
+  "original_test_definition_preservation": {
+    "added_definitions": [
+      "test_transaction_hold_and_advisory_pending_preserve_terminal_values",
+      "test_transaction_identity_requires_active_authority_connection",
+      "test_transaction_late_change_after_caller_write_rolls_back_savepoint",
+      "test_transaction_legacy_code_pin_keeps_immutable_row_and_frozen_reader",
+      "test_transaction_normal_shared_bytes_time_and_outer_visibility",
+      "test_transaction_rollback_preserves_caller_error_and_no_partial_result",
+      "transaction_count"
+    ],
+    "original_definitions_preserved": 13
+  },
+  "phases": [
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 307,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_root_exit": 0,
+      "case": "normal-v1",
+      "combined_peak_RSS_bytes": 338239488,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_result_store.py",
+        "-k",
+        "test_transaction_normal",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-result-transaction/normal-v1/pytest"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "283daf3068b12b5e5e11aaf572bebf440c65be458106660aae4b3889326ef7a6",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "transaction-normal.json": {
+          "actual_scram": true,
+          "caller_commit_required": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "put_and_transaction_identical": true,
+          "recorded_at": "2026-10-10T10:48:51.073565+09:00",
+          "shared_payload_sha256": "c0289e49e36be038aba9c0c74347963f01e5e68726c8d1bea76ccb36baef5d62",
+          "uncommitted_result_invisible_to_other_connection": true
+        }
+      },
+      "observed_pg_identity_count": 412,
+      "observed_pg_identity_list_sha256": "569426262079f64ba890e6ce78314198d8aa28665bbbcae85c339425f3a37fa3",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 passed, 11 deselected in 81.36s (0:01:21)",
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 126709760,
+      "source_count": 1803,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 39552,
+      "terminal_sha256": "b41da13ca175d79f6f8b6ff458461afacc2eedb9a2fee7d5388f6b83979e51dc",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_result_store.py": "bfeddef9c29ddf773d2eb1eadbca0247e485eb4be6f2c52112c10740990ba4d7",
+        "backend/tests/test_crop_climate_joint_result_store.py": "0f498d4e8010c10644d68ecaec9db8e11d5c4ba2fe8138dd73a7599115a56cf1"
+      },
+      "wall_seconds": 84.61579794302816
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 686,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_root_exit": 0,
+      "case": "rights-v1",
+      "combined_peak_RSS_bytes": 362405888,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_result_store.py",
+        "-k",
+        "test_transaction_late",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-result-transaction/rights-v1/pytest"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "bcfe8ab66f0e7ef61d5854c9746326ebdc4cdfa822e93de0e677528866d67d26",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "transaction-late-resolver.json": {
+          "after_yield_caller_event_and_result_rolled_back": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "parent_transaction_committable": true,
+          "recovery_after_rights_restoration": true
+        },
+        "transaction-late-rights.json": {
+          "after_yield_caller_event_and_result_rolled_back": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "parent_transaction_committable": true,
+          "recovery_after_rights_restoration": true
+        },
+        "transaction-late-scope.json": {
+          "after_yield_caller_event_and_result_rolled_back": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "parent_transaction_committable": true,
+          "recovery_after_rights_restoration": true
+        }
+      },
+      "observed_pg_identity_count": 797,
+      "observed_pg_identity_list_sha256": "cf8646087947790f6de150c9df91977a8051756056b05dd1a398b579a52d9573",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "3 passed, 15 deselected in 187.85s (0:03:07)",
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 130338816,
+      "source_count": 1803,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 75743,
+      "terminal_sha256": "e1baf39a2e5c9e6508a71a74cefe8dfe75df03c877058fb59983bbd00d68b438",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_result_store.py": "bfeddef9c29ddf773d2eb1eadbca0247e485eb4be6f2c52112c10740990ba4d7",
+        "backend/tests/test_crop_climate_joint_result_store.py": "da1e0d378c1220c976ab67ec5debb4cf7f09d24ee111f29473f7943b9838994c"
+      },
+      "wall_seconds": 194.39463627903024
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 600,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_root_exit": 0,
+      "case": "rollback-v1",
+      "combined_peak_RSS_bytes": 355397632,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_result_store.py",
+        "-k",
+        "test_transaction_rollback",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-result-transaction/rollback-v1/pytest"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "060694574efd5463e4425cacca98d814e6db42a9c29d58fdd883be7518c85ecc",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "transaction-rollback-after-hook.json": {
+          "caller_exception_identity_preserved": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "normal_registration_after_rollback": true,
+          "rows_after_rollback": 0
+        },
+        "transaction-rollback-caught-inside-hook.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "caught_error_parent_transaction_remains_usable": true,
+          "rows_after_parent_commit": 0
+        },
+        "transaction-rollback-inside-hook.json": {
+          "caller_exception_identity_preserved": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "normal_registration_after_rollback": true,
+          "rows_after_rollback": 0
+        }
+      },
+      "observed_pg_identity_count": 817,
+      "observed_pg_identity_list_sha256": "04271d1ed86f7933cc693664c16e82cc56bd0c1dcbf1c5480ebb61218678c5f8",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "3 passed, 16 deselected in 163.43s (0:02:43)",
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 131366912,
+      "source_count": 1803,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 77622,
+      "terminal_sha256": "306c69a5e434c63bb2d2f23038e17209fdb04ca4a46f211aa4d50cbcb807c957",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_result_store.py": "bfeddef9c29ddf773d2eb1eadbca0247e485eb4be6f2c52112c10740990ba4d7",
+        "backend/tests/test_crop_climate_joint_result_store.py": "9f0ec0194a325da712b5d28aed0b72e139443f00ac2a92869cd28548b654cba2"
+      },
+      "wall_seconds": 169.6170374249923
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 145,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_root_exit": 0,
+      "case": "identity-v1",
+      "combined_peak_RSS_bytes": 304660480,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_result_store.py",
+        "-k",
+        "test_transaction_identity",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-result-transaction/identity-v1/pytest"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "276508288b1a47d7d83e847f9f2d3d09c222755e4559e729ee52efc7d177e9b8",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "transaction-identity.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "rejected": [
+            "idle",
+            "autocommit",
+            "aborted",
+            "closed",
+            "admin",
+            "worker",
+            "foreign-tenant"
+          ],
+          "rows": 0
+        }
+      },
+      "observed_pg_identity_count": 203,
+      "observed_pg_identity_list_sha256": "e58d72f9636c1a4b4207635f4394a4c8fdcc49d80adf55a6bf348e39d9821499",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 passed, 18 deselected in 37.38s",
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 129437696,
+      "source_count": 1803,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 19907,
+      "terminal_sha256": "18eb0c7be63967ad5b4b932d1ca2cd905dabaffdd6dae5c22e8d27dc001580ae",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_result_store.py": "bfeddef9c29ddf773d2eb1eadbca0247e485eb4be6f2c52112c10740990ba4d7",
+        "backend/tests/test_crop_climate_joint_result_store.py": "9f0ec0194a325da712b5d28aed0b72e139443f00ac2a92869cd28548b654cba2"
+      },
+      "wall_seconds": 39.345954446005635
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 261,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_root_exit": 0,
+      "case": "legacy-v1",
+      "combined_peak_RSS_bytes": 341340160,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_result_store.py",
+        "-k",
+        "test_transaction_legacy",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-result-transaction/legacy-v1/pytest"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "5dd7d160f9eb0d79ac2f7e8f6e026f12f22edf4730adc3b6012c7060066b2927",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "transaction-legacy.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "new_reader_and_both_writers_reject_old_code_pin": true,
+          "new_storage_code_sha256": "bfeddef9c29ddf773d2eb1eadbca0247e485eb4be6f2c52112c10740990ba4d7",
+          "old_source_commit": "23b9da42f2bce869bab1106bdb53a848650b3f54",
+          "old_storage_code_sha256": "87e7e10e8d3476e437f5fec55f0cbc1ab03026a62a62019332ad5f0eab30538c",
+          "original_payload_sha256": "1e724dfe8446e0128c0bb7f0a79aafd5e3a7a394dfe16b56c56a080af29e60d2",
+          "original_row_and_frozen_reader_preserved": true,
+          "recorded_at": "2026-10-10T10:58:46.192659+09:00"
+        }
+      },
+      "observed_pg_identity_count": 362,
+      "observed_pg_identity_list_sha256": "946c0aeeda109a69198172b104de440e7e395edde99097e73179952163f6da4c",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 passed, 18 deselected in 68.68s (0:01:08)",
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 130359296,
+      "source_count": 1803,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 34852,
+      "terminal_sha256": "f2041a09eef5fe876c997b441403541977a6a7b86b00931b725a0d640c39c485",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_result_store.py": "bfeddef9c29ddf773d2eb1eadbca0247e485eb4be6f2c52112c10740990ba4d7",
+        "backend/tests/test_crop_climate_joint_result_store.py": "9f0ec0194a325da712b5d28aed0b72e139443f00ac2a92869cd28548b654cba2"
+      },
+      "wall_seconds": 71.46169418405043
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 283,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_root_exit": 0,
+      "case": "hold-v1",
+      "combined_peak_RSS_bytes": 348786688,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_result_store.py",
+        "-k",
+        "test_transaction_hold",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-result-transaction/hold-v1/pytest"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "36eb51031ae22076edeb74f64dd6f1f599afb21a342ef50aa7417db89bda5b86",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "transaction-hold.json": {
+          "G0_G4": "not_assessed",
+          "advisory_pending_no_rows_parent_usable": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "original_terminal_progress_preserved": true,
+          "payload_sha256": "a3c380a4831fd5c1a8662a4a52e5ec7caf7d12f0e23aff566f89b81285a77c9b",
+          "put_and_hook_same_hold_record": true
+        }
+      },
+      "observed_pg_identity_count": 409,
+      "observed_pg_identity_list_sha256": "d7895a881db3df9c3e0b8de5278fe92252836ee5b1114c72656513a41e8d74d3",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 passed, 18 deselected in 74.98s (0:01:14)",
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 130228224,
+      "source_count": 1803,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 39270,
+      "terminal_sha256": "6691a176d622470e036e62ea7a0cc414f91df6ac4b0e61407674e8382e629c8c",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_result_store.py": "bfeddef9c29ddf773d2eb1eadbca0247e485eb4be6f2c52112c10740990ba4d7",
+        "backend/tests/test_crop_climate_joint_result_store.py": "9f0ec0194a325da712b5d28aed0b72e139443f00ac2a92869cd28548b654cba2"
+      },
+      "wall_seconds": 78.36704783100868
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 470,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_root_exit": 0,
+      "case": "oldnormal-v1",
+      "combined_peak_RSS_bytes": 436658176,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_result_store.py",
+        "-k",
+        "test_original_signed_result",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-result-transaction/oldnormal-v1/pytest"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "b854cd81cbd9c9be7ab6b891a607ef5fc3c1aa7671f2af856fe32ec57fe3aa33",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "normal.json": {
+          "bytes": 59378,
+          "sha256": "e08c64fa37caee35e4f097db7696d838550f0b09bb8b68e25d272f792410283e"
+        }
+      },
+      "observed_pg_identity_count": 666,
+      "observed_pg_identity_list_sha256": "c114b092ae8449fd19b574836e8458adb3b9369b3f031758a71657b6504f1961",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 passed, 18 deselected in 126.64s (0:02:06)",
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 132399104,
+      "source_count": 1803,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 63429,
+      "terminal_sha256": "da111802f7a6707f6689e2b2edf72e7a1169d7ca777982197a6651ab9f753fcc",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_result_store.py": "bfeddef9c29ddf773d2eb1eadbca0247e485eb4be6f2c52112c10740990ba4d7",
+        "backend/tests/test_crop_climate_joint_result_store.py": "9f0ec0194a325da712b5d28aed0b72e139443f00ac2a92869cd28548b654cba2"
+      },
+      "wall_seconds": 131.29021125502186
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 607,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_root_exit": 0,
+      "case": "oldwrite-v1",
+      "combined_peak_RSS_bytes": 352362496,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_result_store.py",
+        "-k",
+        "test_default_permission or test_uncreated_yielded or test_actual_transaction",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-result-transaction/oldwrite-v1/pytest"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "6b66227738bf87b059953e4c88d8963db896fb38003b38e6fefdf8a214342abb",
+      "observations": {
+        "after-commit.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "late_rights_rejected": true,
+          "rows": 1
+        },
+        "before-commit.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "late_rights_rejected": true,
+          "rows": 0
+        },
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "pending.json": {
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0
+          },
+          "rows": 0,
+          "uncreated_yielded_key_foreign_busy_rejected": true
+        }
+      },
+      "observed_pg_identity_count": 816,
+      "observed_pg_identity_list_sha256": "970fa79b665f705551e9a3d3b78e95749f0796a26f920d23583167fcea70901f",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "4 passed, 15 deselected in 165.64s (0:02:45)",
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 130064384,
+      "source_count": 1803,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 77528,
+      "terminal_sha256": "0a0c85843639211aff5e01f1bc578e2867c99140b8a4d21aad01855d2495167d",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_result_store.py": "bfeddef9c29ddf773d2eb1eadbca0247e485eb4be6f2c52112c10740990ba4d7",
+        "backend/tests/test_crop_climate_joint_result_store.py": "9f0ec0194a325da712b5d28aed0b72e139443f00ac2a92869cd28548b654cba2"
+      },
+      "wall_seconds": 172.1410893110442
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 487,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_root_exit": 0,
+      "case": "oldread-v1",
+      "combined_peak_RSS_bytes": 340738048,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_result_store.py",
+        "-k",
+        "test_current_revocations or test_valid_hmac",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-result-transaction/oldread-v1/pytest"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "520ff587c9c28340b9fb8f0831f48d3fe5cae05d9e1c3a4ceade9d8614bd0d5b",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "rights.json": {
+          "bytes": 319,
+          "sha256": "c2a21ecb99f908e96b513357431c8aa28f8532f777df7e2639358df19ea53150"
+        },
+        "tamper.json": {
+          "bytes": 343,
+          "sha256": "ab03c818eb488fadb5a87dbc10f05cad02b2f530bea697215723132368a377eb"
+        }
+      },
+      "observed_pg_identity_count": 655,
+      "observed_pg_identity_list_sha256": "543e28b66f1b5df83d9f8f93246b1bbe487180e6efa5ebd19fdc39f04fe48e9d",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "2 passed, 17 deselected in 131.19s (0:02:11)",
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 130822144,
+      "source_count": 1803,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 62395,
+      "terminal_sha256": "df30b137dfc0296f2c0ac07def29998ff964918ea0133c0d9b846839a56079c8",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_result_store.py": "bfeddef9c29ddf773d2eb1eadbca0247e485eb4be6f2c52112c10740990ba4d7",
+        "backend/tests/test_crop_climate_joint_result_store.py": "9f0ec0194a325da712b5d28aed0b72e139443f00ac2a92869cd28548b654cba2"
+      },
+      "wall_seconds": 136.13546675996622
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 216,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_root_exit": 0,
+      "case": "oldfinish-v1",
+      "combined_peak_RSS_bytes": 332279808,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_result_store.py",
+        "-k",
+        "test_original_hold",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-result-transaction/oldfinish-v1/pytest"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "f8d92c8d6e0f4f0fc04b50f6a1b03897077631834943e29c1d765ee5dae9bdc4",
+      "observations": {
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        },
+        "hold.json": {
+          "bytes": 20149,
+          "sha256": "892c42b507d09fc9b6138117378bd785f36a9000fe548c3449c73adc26f15ab5"
+        }
+      },
+      "observed_pg_identity_count": 304,
+      "observed_pg_identity_list_sha256": "244ad170bc550b95fc9a33ab34124e1a349765e76a3c79902b70e555194158e5",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 passed, 18 deselected in 56.59s",
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 129507328,
+      "source_count": 1803,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 29400,
+      "terminal_sha256": "83787efcf6a1c23ebf42b8fd333aa3c36a318c7017963063a45c4bb43be2096c",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_result_store.py": "bfeddef9c29ddf773d2eb1eadbca0247e485eb4be6f2c52112c10740990ba4d7",
+        "backend/tests/test_crop_climate_joint_result_store.py": "9f0ec0194a325da712b5d28aed0b72e139443f00ac2a92869cd28548b654cba2"
+      },
+      "wall_seconds": 59.18053958599921
+    },
+    {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 368,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_root_exit": 0,
+      "case": "oldconflict-v1",
+      "combined_peak_RSS_bytes": 335732736,
+      "command": [
+        "nice",
+        "-n",
+        "19",
+        "/home/sunghoonk/Workspaces/OpenSmartFarmSim/backend/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--tb=short",
+        "tests/test_crop_climate_joint_result_store.py",
+        "-k",
+        "test_revision_conflicts",
+        "--basetemp",
+        "/home/sunghoonk/.local/state/OpenSmartFarmSim/20261010-joint-result-transaction/oldconflict-v1/pytest"
+      ],
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "3d1cc2dddcad8bd5a02f9fe5223351e0bf532b7b4179a910ca5782af8b5bddef",
+      "observations": {
+        "conflict.json": {
+          "bytes": 518,
+          "sha256": "5e2b56619ed865f13c0774de59ed7372f98560a5eb68f21d92351e29011ed26d"
+        },
+        "database-cleanup.json": {
+          "roles": 0,
+          "schemas": 0
+        }
+      },
+      "observed_pg_identity_count": 539,
+      "observed_pg_identity_list_sha256": "f8b2ad30e828a257ca17e10f36cd0634e64eb3a17b936fdfd6286684fd81f503",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "pytest_summary": "1 passed, 18 deselected in 98.03s (0:01:38)",
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 131072000,
+      "source_count": 1803,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_bytes": 51491,
+      "terminal_sha256": "38e0cf2d43cb2d59663c113061e6d188a309f7a5bbbd5301ec74ccbbecf35eda",
+      "tested_source_sha256": {
+        "backend/app/crop_climate_joint_result_store.py": "bfeddef9c29ddf773d2eb1eadbca0247e485eb4be6f2c52112c10740990ba4d7",
+        "backend/tests/test_crop_climate_joint_result_store.py": "9f0ec0194a325da712b5d28aed0b72e139443f00ac2a92869cd28548b654cba2"
+      },
+      "wall_seconds": 101.78045914502582
+    }
+  ],
+  "resource_policy": {
+    "child_nice": 19,
+    "combined_limit_bytes": 1073741824,
+    "sample_seconds": 0.25,
+    "single_PID_limit_bytes": 536870912
+  },
+  "scope": "synthetic software transaction hook only",
+  "unique_focused_tests": {
+    "existing": 9,
+    "new": 10,
+    "total": 19
+  },
+  "version_boundary": {
+    "immutable_old_rows_rewritten": 0,
+    "new_storage_code_sha256": "bfeddef9c29ddf773d2eb1eadbca0247e485eb4be6f2c52112c10740990ba4d7",
+    "old_frozen_reader": "verified original bytes/time",
+    "old_rows_current_reader": "hold",
+    "pre_transaction_git_commit": "23b9da42f2bce869bab1106bdb53a848650b3f54",
+    "pre_transaction_source_sha256": "87e7e10e8d3476e437f5fec55f0cbc1ab03026a62a62019332ad5f0eab30538c",
+    "wire_schema_version": "joint-crop-climate-result-v1"
+  }
+}

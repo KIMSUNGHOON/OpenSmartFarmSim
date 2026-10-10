@@ -1097,9 +1097,11 @@ core10 경계를 고정했고 원108상태/장부/UTC·실제 SCRAM/검증 HTTPS
 **E2 확정 checkpoint 수용:** [coreaf93e83/고유24개 집중 검사](../research/crop-climate-joint-execution-checkpoint-implementation-20261010.md)로
 원 HEAD/counts/UTC·최초 DB 수용 시각·단조 sequence·늦은 변경 rollback과 실제 중단/fresh/재적분0을 확인했다.
 동시 SQL 잠금 timeout은 일시 대기로 분류하며 원 실패/소스 pin을 보존했다. 최종 module 전체 재실행은 아니다.
-**다음 한 단계는 E3 결과 transaction hook**이다. 기존 put과 caller transaction의 같은 검증/원 metadata·최초 시각,
-rollback/늦은 권리 거부 시 부분 row0과 새 code pin 판본/기존 결과 보존을 실제 SCRAM으로 확인한다.
-이후 E4 임대 worker→원자 완료 게시→API/typed reader→U3 상태/완료 저장3D로 진행한다.
+**E3 결과 transaction hook 수용:** [corec99198c/고유19개](../research/crop-climate-joint-result-transaction-implementation-20261010.md)로
+기존 put과 같은 bytes/최초 시각·caller commit/savepoint rollback·늦은 거부/구형 판본 보존을 실제 SCRAM에서 확인했다.
+**다음 한 단계는 E4 임대 worker**다. E1 job의 현재 임대가 bounded advance/E2 진행을 수행하고 E3 context 안에서
+결과·job publication/outcome/완료를 같은 거래에 저장한다. 취소/만료·crash 재개/재적분0·부분 게시0과 원108상태/UTC를 검증한다.
+이후 API/typed reader→U3 상태/완료 저장3D로 진행한다.
 계산 중 prefix3D는 별도 수용이다. 실제 입력의 게시 조건과 합성 개발 착수 조건은 구분한다.
 투영의 초기2–4시간 추정은 native 최초 설계20:50Z부터 약24분의 개발/검토·실패 재검증 관측으로 갱신한다.
 current reader는 native21:20Z부터 약20분의 개발/검토와474.184초 집중 실행으로 수용했다. 순수 fixture의 환경 차이 재현/시험 수정도 포함한다.
@@ -1126,7 +1128,7 @@ schema/역할/store3자식은 작은 합성 저장 부모로 수용했다. 이�
 | --- | --- | --- | ---: |
 | E1 접수 service | 현재 농장/입력에 결속된 job ID·중복/충돌 | 이번 경계·farm binding·JobStore |[수용](../research/crop-climate-joint-execution-admission-implementation-20261010.md): native→회귀748.422초, 기록/commit 별도|
 | E2 checkpoint 수용 | 원 HEAD/UTC/counts와 별도 DB 수용 시각 | E1·custody·job_events |[수용](../research/crop-climate-joint-execution-checkpoint-implementation-20261010.md): native→회귀2,485.837초, 기록/commit 별도|
-| E3 결과 transaction hook | job 완료와 결속할 같은 transaction의 결과 등록 | 기존 result store |0.75–1.5|
+| E3 결과 transaction hook | job 완료와 결속할 같은 transaction의 결과 등록 | 기존 result store |[수용](../research/crop-climate-joint-result-transaction-implementation-20261010.md): native→회귀1,682.844초, 기록/commit 별도|
 | E4 임대 worker | 실제 queued→진행→완료/hold·취소/재개 | E1/E2/E3 |1–2|
 | E5a 발견/E5b 소비 | 닫힌 joint 판본/worker의 기존 프로세스 자동 소비 | E4 |합1–2|
 | E6a 현재 진행 DTO | 현재 job/checkpoint/result의 계산0 조회 | E2/E4 |0.75–1.5|
@@ -1139,7 +1141,8 @@ schema/역할/store3자식은 작은 합성 저장 부모로 수용했다. 이�
 E1은 새9/회귀8=고유17검사·제품 source 동일/시험 계정 취소 scope 보완·원 실패/종료·보존으로 수용했다.
 초기0.5–1.5시간은 실제 native00:37:33Z→회귀 terminal00:50:01Z의약13분 관측으로 대체한다.
 E2도 원 실패/소스 pin·고유24개 집중 검사를 수용했고 native→회귀 약41분을 관측했다.
-E3–E9의 미관측 비용을 E1/E2 속도로 환산하지 않고 현재 전체 범위의 날짜 조건을 유지한다.
+E3도 신규10/기존9개·최종 제품 SHA 동일/기존 정의 보존·고유19개 검사로 수용했고 native→회귀 약28분을 관측했다.
+E4–E9의 미관측 비용을 E1–E3 속도로 환산하지 않고 현재 전체 범위의 날짜 조건을 유지한다.
 이전 core 단계의 실제14–47분 관측을 참조했지만, 임대/파일·DB와 재접속 비용은 아직 미관측이다.
 E1/E4/E9 실측 뒤 수정한다. 하루6시간이면2–3집중일이며 2026-10-10 착수 시 단순 계산은10월12–13일이다.
 외부 운영/CI와 전체 작기·실제 자료·최종 디자인/전체 U3의 날짜를 이 추정에 포함하지 않는다.

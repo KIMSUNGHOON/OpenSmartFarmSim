@@ -1835,10 +1835,13 @@
     실제 HEAD 뒤 producer SIGKILL(-9)·새 임대2/fresh 원값·재계산10종0·퇴행/변조/혼합 거부와 source/원본/기동/소유 정리를 통과했다.
     동시 SQL timeout의 typed pending/재시도1event를 보완했고 원 실패/소스 pin·변경 메서드 AST 대조를 보존했다. 최종 module 전체 재실행은 아니다.
     단일/합 RSS138,743,808/434,565,120bytes; native→회귀2,485.837초(약41분), 기록/commit 별도다. worker/API/UI/U3·관문은 미수용이다.
-  - [ ] **E3 결과 transaction hook** — 다음 한 단계. 선행: 기존 joint result store. 예정 core3: 기존 store/test, `contracts/crop-climate-joint-result-store-v1.md`.
-    수용: 기존 put과 caller-owned transaction이 같은 검증/원 metadata·최초 시각을 사용; 호출자 rollback/늦은 권리 거부 때 부분 row0;
-    새 code pin과 기존 immutable 결과의 판본 경계를 명시. 확인: 기존/새 집중 SCRAM store 검사·원본 보존. M,0.75–1.5시간.
-  - [ ] **E4 임대 worker** — 선행: E1/E2/E3. 예정 core3: `backend/app/crop_climate_joint_execution_worker.py`, 같은 이름 test, 위 실행 계약.
+  - [x] **E3 결과 transaction hook** — 선행: 기존 joint result store. core3: 기존 store/test, `contracts/crop-climate-joint-result-store-v1.md`.
+    [corec99198c/수용 근거](../research/crop-climate-joint-result-transaction-implementation-20261010.md): 신규10/기존9=고유19개 실제 SCRAM 검사·전 실행 최종 제품 SHA 동일,
+    기존13개 검사/fixture 정의 보존·같은 원 bytes/최초 시각·외부 commit/savepoint rollback·늦은 변경3경우 결과/호출자 event0을 확인했다.
+    실제 authority/연결 거부·원 hold/advisory pending·구형 immutable 행/원 reader 보존·수치8종0·원본/기동/소유 정리를 통과했다.
+    SQL/wire v1과 code pin의 별도 판본을 명시했다. 단일/합 RSS132,399,104/436,658,176bytes;
+    native→회귀1,682.844초(약28분), 기록/commit 별도다. 실제 job 완료/worker/API/UI·관문은 미수용이다.
+  - [ ] **E4 임대 worker** — 다음 한 단계. 선행: E1/E2/E3. 예정 core3: `backend/app/crop_climate_joint_execution_worker.py`, 같은 이름 test, 위 실행 계약.
     수용: 실제 접수→bounded advance/확정 진행→원자 완료/hold result·publication·outcome; chunk 취소/만료·crash 후 원 prefix 재적분0;
     원108상태/UTC·현재 권리/rollback·실제 종료/원본·WSL/소유 정리. 확인: 집중 pytest/실제 SCRAM·fresh exec. M,1–2시간.
   - [ ] **checkpoint E1–E4** — 위 실제 증거·현재 source/원본/기동 보존을 대조한 뒤 API/UI 진행. 전체 작기 재실행 불필요.
