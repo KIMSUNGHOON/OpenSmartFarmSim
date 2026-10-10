@@ -1869,10 +1869,15 @@
     완료 farm4→6 투영 오류의 원 실패2회·이전 source를 보존하고 최종 정상/fresh/hold/schema를 재검증했다. 앞선 checkpoint 정의는 같다.
     단일/합 RSS132,415,488/436,039,680bytes·원본2,148/기동/소유 정리; native→집중2,240.123초(약37분), 기록/commit 별도다.
     HTTP/API 지연·runtime/UI/전체 작기·실제 자료/관문은 미수용이다.
-  - [ ] **E6b 보호 HTTP** — 다음 한 단계. 선행: E1/E6a. 예정 core4: `backend/app/api_crop_climate_joint_execution.py`, 해당 test, `backend/app/api.py`, 위 실행 계약.
-    수용: 전용 접수/조회/취소·인증 tenant/현재 scope·원 wire/오류; 취소 수락과 terminal 확인 구분·권리 철회 뒤 소유자 취소;
-    기존 JobStatus/저장 GET 불변·본문/응답 한도·취소/늦은 응답. 확인: 집중 route/기존 API pytest와 실제 TLS. M,0.75–1.5시간.
-  - [ ] **E6c 명시 runtime** — 선행: E5/E6b. 예정 core4: 기존 `api_runtime.py`/test와 joint operator config/test.
+  - [x] **E6b 보호 HTTP** — 선행: E1/E6a. core7: 새 HTTP/test·기존 api/query의 공개 타입 이동·실행 계약·생성 OpenAPI/기존 권한 test.
+    [core384733f/수용 근거](../research/crop-climate-joint-execution-http-implementation-20261010.md): HTTP108/새 OpenAPI 권한3/기존140=고유251개,
+    실제 SCRAM/검증 TLS의 같은 E1 접수/원 확정 bytes/UTC·실행 중 취소 수락/worker 확인과 완료/hold/원 저장 GET을 확인했다.
+    권리 철회 후 cancel만 가진 소유자 취소·본문/응답 한도·scope/늦은 계정·요청 task 취소/전송 실패 정리도 통과했다.
+    기존53경로·네 확장 schema 동일·default 작업자/reader/DB/socket0과 E6a 원 checkpoint/heartbeat/시도2/최초 시각 보존을 대사했다.
+    순환 import와 시험 helper의 원 실패2개·초기100개 source를 보존하고 최종 경로를 재검증했다.
+    단일/합 RSS168,701,952/350,474,240bytes·원본2,148/기동/소유 정리; native→집중1,522.129초(약25분), 기록/commit 별도다.
+    작은 진행 GET2.960–8.079초·취소0.068–0.080초이며 운영 용량은 미수용이다. 현재5173/runtime 활성화/UI/관문은 별도다.
+  - [ ] **E6c 명시 runtime** — 다음 한 단계. 선행: E5/E6b. 예정 core4: 기존 `api_runtime.py`/test와 joint operator config/test.
     수용: 명시 기능/같은 authority·store/worker 연결·오조립/누락 거부·기존 default false;
     실제 SCRAM/TLS 접수/진행/취소와 원본/기동 보존. 확인: 집중 runtime/config pytest·실제 서비스. M,0.5–1시간.
   - [ ] **E7 typed client** — 선행: E6. 예정 core3: `web/src/jointCropClimateExecution.ts`, 같은 이름 test, 위 실행 계약.

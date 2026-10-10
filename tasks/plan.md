@@ -1111,9 +1111,12 @@ UUID 인자 없는 실제 프로세스의 E1 발견/16걸음·단일 저장·신
 **E6a 현재 진행 DTO 수용:** [core0bfa9dd/고유18개](../research/crop-climate-joint-execution-query-implementation-20261010.md)로
 원 checkpoint/counts/UTC·최초 DB 시각/재시도·완료/hold·fresh SCRAM·현재 권리/변조·조회 계산/쓰기0를 확인했다.
 완료 farm 투영의 제품 오류를 수정하고 최종 경로를 재검증했다. 앞선 checkpoint 검사 source와의 차이도 보존했다.
-**다음 한 단계는 E6b 보호 HTTP**다. 인증 tenant의 전용 접수/진행/취소·고정 오류·본문/응답 한도·현재 scope,
-권리 철회 후 소유자 취소와 취소 수락/terminal 구분·기존 저장 GET/JobStatus 불변을 집중 route/실제 TLS로 확인한다.
-그다음 명시 runtime→typed reader→U3 상태/완료 저장3D로 진행한다.
+**E6b 보호 HTTP 수용:** [core384733f/고유251개](../research/crop-climate-joint-execution-http-implementation-20261010.md)로
+실제 SCRAM/TLS 접수/원 진행·완료/hold/기존 저장 GET·권리 철회 후 소유자 취소·늦은 응답/전송 정리와 경로/형식 보존을 확인했다.
+순환 import와 native helper 실패를 수정하고 원 종료/보존을 확인했다. HTTP/진행 공개 타입 이동과 OpenAPI/권한 gate를 포함한 core7개다.
+**다음 한 단계는 E6c 명시 runtime**다. 같은 authority·store/worker 연결·명시 기능·기본 비활성/누락·오조립 거부와
+실제 SCRAM/TLS 접수/진행/취소·원본/기동 보존을 runtime/config 집중 검사로 확인한다.
+그다음 typed reader→U3 상태/완료 저장3D로 진행한다.
 계산 중 prefix3D는 별도 수용이다. 실제 입력의 게시 조건과 합성 개발 착수 조건은 구분한다.
 투영의 초기2–4시간 추정은 native 최초 설계20:50Z부터 약24분의 개발/검토·실패 재검증 관측으로 갱신한다.
 current reader는 native21:20Z부터 약20분의 개발/검토와474.184초 집중 실행으로 수용했다. 순수 fixture의 환경 차이 재현/시험 수정도 포함한다.
@@ -1145,7 +1148,8 @@ schema/역할/store3자식은 작은 합성 저장 부모로 수용했다. 이�
 | E5a 발견 | 닫힌 joint 판본의 읽기 전용 발견 | E4 |[수용](../research/crop-climate-joint-execution-discovery-implementation-20261010.md): native→집중721.762초, 기록/commit 별도|
 | E5b 소비 | 정확한 joint worker/outcome의 기존 프로세스 자동 소비 | E5a |[수용](../research/crop-climate-joint-execution-consumer-implementation-20261010.md): native→집중853.598초, 기록/commit 별도|
 | E6a 현재 진행 DTO | 현재 job/checkpoint/result의 계산0 조회 | E2/E4 |[수용](../research/crop-climate-joint-execution-query-implementation-20261010.md): native→집중 terminal2,240.123초, 기록/commit 별도|
-| E6b HTTP/E6c runtime | 보호된 접수/진행/취소 API·명시 조립 | E1/E6a/E5 |합1.25–2.5|
+| E6b HTTP | 보호된 접수/진행/취소 API | E1/E6a |[수용](../research/crop-climate-joint-execution-http-implementation-20261010.md): native→집중 terminal1,522.129초, 기록/commit 별도|
+| E6c runtime | 명시 조립·기본 비활성/오조립 거부 | E5/E6b |0.5–1|
 | E7 typed client | 같은 job의 요청/진행/취소·완료 result 참조 | E6 |0.5–1|
 | E8 화면 | 단일 자동 갱신·재접속·취소·완료/hold 저장3D 선택 | E7·기존 joint 화면 |1–2|
 | E9 실제 사용자 경로 | 실제 SCRAM/TLS/제품 브라우저·기존 서버 보존 후 전환 | E1–E8 |1–2|
@@ -1160,10 +1164,12 @@ E4도 새24/관련4=고유28개·실제 crash/fresh와 원값/권리/정리를 �
 E5a도 신규8/기존52=고유60개·실제 E1 요청/무변경·원 실패/정리를 수용했고 native→집중 약12분을 관측했다.
 E5b도 신규16/기존37=고유53개·실제 자동 소비/신호/취소/잠금/재시도/미종결·원본/기동/정리를 수용했고 native→집중 약14분을 관측했다.
 E6a도 신규16/관련2=고유18개·실제 원 시각/재시도/완료/hold·fresh·거부·제품 오류 수정/보존을 수용했고 native→집중 약37분을 관측했다.
-E6b–E9의 미관측 비용을 앞 단계 속도로 환산하지 않는다. E6a 묶음 시간은 API 응답 지연이 아니다.
+E6b도 HTTP108/새 OpenAPI 권한3/기존140=고유251개·실제 SCRAM/TLS·원 bytes/취소/권리·경로/형식 보존으로 수용했고 native→집중 약25분을 관측했다.
+작은 진행 GET은 미실행2.960/확정7.490/완료7.735/hold8.079초다. 단일 표본이며 운영 용량/전체 작기 비용이 아니다.
+E6c–E9의 미관측 비용을 앞 단계 속도로 환산하지 않는다. E6a 묶음 시간은 API 응답 지연이 아니다.
 이전 core 단계의 실제14–47분 관측을 참조했지만, 임대/파일·DB와 재접속 비용은 아직 미관측이다.
-남은 E6b–E9 작업 합은3.75–7.5시간이며 문서/검토 여유를 포함해 **4–9집중시간** 잠정이다.
-하루6시간·2026-10-10 연속 착수 가정은1–2집중일/10월11–12일 KST의 작은 합성 사용자 연결이며 HTTP/E9 실측 뒤 수정한다.
+남은 E6c–E9 작업 합은3–6시간이며 문서/검토 여유를 포함해 **4–8집중시간** 잠정이다.
+2026-10-10 오후 연속 착수·하루6집중시간 가정은1–2집중일/10월10일 밤–11일 KST의 작은 합성 사용자 연결이며 runtime/E9 실측 뒤 수정한다.
 외부 운영/CI와 전체 작기·실제 자료·최종 디자인/전체 U3의 날짜를 이 추정에 포함하지 않는다.
 
 E2/E3는 논리적으로 독립적이며 E6a는 실제 worker 검증 후 수용한다. WSL의 실제 DB/수치 시험은 순차 실행한다.
