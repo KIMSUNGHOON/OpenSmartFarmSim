@@ -83,7 +83,8 @@ E4는 core6cf4eaf·새24/관련4=고유28검사에서 원108상태/UTC·취소/�
 단일 조회·숨김/선택/계정/늦은 응답·재접속·취소 확인과 같은 완료/hold 저장3D·빈 출력을 확인했다.
 [E9a 실제 SCRAM/TLS/제품 브라우저](../research/crop-climate-joint-execution-browser-implementation-20261010.md)는 완료/hold/취소3경로·원 checkpoint/결과/UTC3D·재접속/보존으로 수용했다.
 [E9b 지속 사용자 연결](../research/crop-climate-joint-execution-user-preview-20261010.md)도 최종 브라우저5경로·재시작/원 결과·원본/WSL로 수용했다.
-사용자 계산 접수/진행 자동 조회/완료 UTC3D는5174이며5173은 전체 저장 재생용이다. 다음은 확정 prefix 읽기 계약이며 계산 중 성장3D/전체 U3는 별도다.
+사용자 계산 접수/진행 자동 조회/완료 UTC3D는5174이며5173은 전체 저장 재생용이다.
+[확정 prefix 계약](../contracts/crop-climate-joint-prefix-view-v1.md)을 고정했고 다음은 원 페이지/DB reader(P1)다. 계산 중 성장3D/전체 U3 수용은 별도다.
 계산 중 prefix3D는 terminal 조회와 구분해 별도 수용하고, 온실 경계 조사/독립 자료 확보는 병행한다.
 전체 결합·실시간 U3·실제 자료/생산 관문은 미완료다.
 

@@ -1122,7 +1122,8 @@ UUID 인자 없는 실제 프로세스의 E1 발견/16걸음·단일 저장·신
 **E8 화면 계약 수용:** [core288cbaf/고유288개](../research/crop-climate-joint-execution-screen-implementation-20261010.md)로 기록 응답 Chromium15개와 기존 웹273개·타입/제한된 빌드를 통과했다.
 단일 polling/별도 시각·숨김/선택/계정/늦은 응답 제거·재접속·독립 취소/확인·완료/hold의 같은 저장3D와 빈 출력을 확인했다.
 현재 취소 확인 뒤 과거 대기 문구를 제거했다. 예상 core4에 반응형 CSS1파일을 추가했고 새 dependency/backend/서비스는 없다.
-**다음 한 단계는 확정 prefix 읽기 계약(P0)**이다. [E9b 지속 사용자 연결](../research/crop-climate-joint-execution-user-preview-20261010.md)도 실제 clock/인증·접수/자동 진행/저장 UTC3D·취소/재접속·재시작/원 결과·WSL로 수용했다.
+**다음 한 단계는 확정 prefix의 원 페이지/DB reader(P1)**다. [P0 계약](../contracts/crop-climate-joint-prefix-view-v1.md)은 기존 source/의존성을 대조해 고정했고 구현은 아래 순서를 따른다.
+[E9b 지속 사용자 연결](../research/crop-climate-joint-execution-user-preview-20261010.md)도 실제 clock/인증·접수/자동 진행/저장 UTC3D·취소/재접속·재시작/원 결과·WSL로 수용했다.
 새 계산 화면은5174, 전체 저장 재생은5173이다. 계산 중 성장3D와 두 화면을 통합하는 전체 U3는 미완료다.
 계산 중 prefix3D는 별도 수용이다. 실제 입력의 게시 조건과 합성 개발 착수 조건은 구분한다.
 투영의 초기2–4시간 추정은 native 최초 설계20:50Z부터 약24분의 개발/검토·실패 재검증 관측으로 갱신한다.
@@ -1187,9 +1188,41 @@ E9b의 최초1.25–2.5집중시간 추정은 실제 native→집중2,931.046초
 최종 새 계산3/재시작 조회2=고유5경로·새 정상3/hold2 원 시점/실제 WebGL·실제 수명 토큰/이전 token401·DB/원64파일/원 결과 보존을 통과했다.
 앞선3개 기능 검사는 PG guardian 합산을 보완해 반복했고 중복 집계하지 않았다. 최종 합 최대1,035,988,992bytes·PID424,079,360bytes로1GiB/512MiB 안이다.
 5174 사용자 controller/service/worker/PG는 frozen core6120db3에서 의도적으로 기동 중이며 인증 종료는2026-10-11 17:24 KST다.
-다음 P0는 계약/의존성 대조0.5–1집중시간 잠정이다. 수용: DB 수용 proof/sequence와 원 페이지·현재 권리·동시 writer/취소/fresh 조건을 명시하고
-계산 UTC와 마지막 저장 sample UTC를 구분하며 미수용 HEAD/임의 프레임을 거부한다. 이후 backend→HTTP/SDK→계산 중 저장 시점3D의 분해/시간은 reader 계약·비용 관측 뒤 산정한다.
+P0의 계약/의존성 대조는 아래 source 근거와 선택 규칙으로 완료했다. 다음 P1에서 실제 reader 비용과 빈/중간/이전 수용 판본을 검증한다.
 외부 운영/CI와 전체 작기·실제 자료·최종 디자인/전체 U3의 날짜를 이 추정에 포함하지 않는다.
+
+<a id="joint-prefix-view-20261010"></a>
+
+### 계산 중 확정 시점의 3D 연결 — P0, 2026-10-10
+
+[계약](../contracts/crop-climate-joint-prefix-view-v1.md)과 [source/CLI 기록](../research/artifacts/crop-climate-joint-prefix-contract-reference-20261010.json)을 따른다.
+현재 terminal page는 root가 필요하며 진행 DTO는 숫자 페이지를 제공하지 않는다. 새 reader는 같은 DB 수용 사건/proof의 원 페이지를 읽는다.
+이전 수용 판본은 현재 서명 계보와 권리가 유효하면 새 tail 뒤에도 선택할 수 있다. computed UTC와 실제 마지막 sample UTC는 별개다.
+source 검토는 구현/시험 수용이 아니다. 아래 자식은 작은 합성 개발 경로이며 독립 농장 자료 확보·기후 경계 연구는 병행한다.
+
+| 단계 | 산출물/예정 core 파일 | 선행 | 수용/검증 | 집중 시간 잠정 |
+| --- | --- | --- | --- | ---: |
+| P0 계약 | 위 계약1파일 + 계획/증거 갱신 | E9b·기존 E2/E4/저장 | source13파일/26심볼·판본 선택·권리·동시 writer/취소/fresh·빈 시점·순서 대조 |native→source1,036.777초(약17분); 문서 검사/commit 별도|
+| P1 원 페이지/DB | `backend/app/crop_climate_joint_prefix.py`, `backend/tests/test_crop_climate_joint_prefix.py` | P0 | 실제 SCRAM running의 원 값/UTC·ready/이전 수용/미수용 거부·철회/취소·fresh·계산/DB 쓰기0·read 비용/소유 정리 |1.5–3h|
+| P2 typed 투영 | `backend/app/api_crop_climate_joint_prefix.py`, 대응 test | P1 | 원 수치/시간·event whitelist·닫힌 DTO·64/8/2MiB/끝/빈·거부·fresh; 집중 pytest |0.75–1.5h|
+| P3a 보호 HTTP | `backend/app/api_crop_climate_joint_prefix_routes.py`, 대응 test | P2 | 실제 HTTPS/SCRAM·인증/현재 권리/selector·query/body·원 응답·현재 계정 전후 검사; 집중 pytest/실제 응답 |0.75–1.5h|
+| P3b 명시 runtime | 기존 `api.py`/`api_runtime.py`/joint operator config와 집중 test, 최대5파일로 분해 | P3a | 같은 factory/jobs/server/farm/principal·기본 비활성·기존 설정/원 결과 호환·별도 자동 worker와 실제 TLS |0.75–1.5h|
+| P4 웹 reader | `web/src/jointCropClimatePrefix.ts`, `api.ts`, 대응 unit/실제 SDK test, 최대4파일 | P3b | 기존 typed sample/event 재사용·원 selector/UTC·취소/응답 제한/오류·실제 SDK/TLS; unit·typecheck·제한된 build |0.75–1.5h|
+| P5 부분 결과 화면 | `JointCropClimatePrefix.tsx`, 기존 Execution/CSS, e2e1, 최대4파일 | P4 | 한 갱신 주기의 순차 GET·동일 저장 UTC·빈 출력/새 판본 원자 교체·cancel/숨김/계정/늦은 응답·terminal 전환; Chromium·typecheck/build |1.5–3h|
+| P6a 실제 브라우저 | prefix browser reference Python/JS2파일 + 결과 증거 | P5 | 실제 running의 원 표/LAI/50구획/온도/WebGL·원 시각·완료/hold·cancel/재접속·원본/WSL·실제 종료 |1–2h|
+| P6b 사용자 기동 | 기존 live operator/preview와 접속 안내, core 최대2파일 | P6a | frozen 후보 검증 뒤5174 연결·실제 수명/자동 worker·장벽 없는 계산 중 조회·기존 결과/5173/현재 키 보존·접속 안내 |0.5–1h|
+
+P1/P2 후 원 페이지/공개 정보 checkpoint, P3b/P4 후 실제 보호 전달 checkpoint, P6a/P6b 후 사용자 기동 checkpoint를 둔다.
+P1은 권리/계보 거부를 일시 대기로 숨기지 않으며 accepted snapshot만 읽는다. 작업 중 관련 DB 상태 변경은 Pending으로 버리고 재조회한다.
+각 pytest는 해당 파일·현재 fixture 회귀에 한정하고 실제 SCRAM을 명시한다. DB fixture가 skip이면 수용하지 않는다.
+선택한 수용 판본의 실제 원 수치/UTC와 fresh 결과를 대사하고 모든 read의 수치/게시/DB 쓰기0을 검증한다.
+P3b의 실제 파일과 옵션은 기존 조립을 대조해5파일 이하로 확정한다. 수치/입력/custody/result source pin 변경이 필요하면 판본/보존·호환 검증을 먼저 분해한다.
+새 orchestration/queue/DB schema는 현 단계의 선행 조건이 아니다. 기존 `_Files._load`의 누적 전체 검증 비용은 P1에서 측정한다.
+
+합계 **7.5–15집중시간 잠정**이며 원 source/의존성과 단계 수에 근거한 구현 추정이다. 연속 작업 시 **2026-10-11 KST의 작은 합성 prefix 사용자 화면**을 조건부 범위로 둔다.
+P1의 실제 read 비용/fixture·검증 종료 후 남은 시간과 날짜를 다시 산정한다. 실패 재검증·WSL 상한·기존 서비스 수명에 따라 늦어질 수 있다.
+이 범위는 전체166일 동적 기후·최종 U0–U5/전체 U3·생산/마진/추천 관문이나 외부 자료 확보 완료 날짜가 아니다.
+사용자 서비스 전환 전에는5174의 기능/안내를 완료 후 저장3D로 유지한다. 관측 장벽은 시험에서만 기록하고 사용자 계산을 느리게 꾸미지 않는다.
 
 E2/E3는 논리적으로 독립적이며 E6a는 실제 worker 검증 후 수용한다. WSL의 실제 DB/수치 시험은 순차 실행한다.
 checkpoint는 append-only job_events에 단조 sequence로 수용하고 DB recorded_at을 사용한다.

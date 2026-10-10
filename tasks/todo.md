@@ -1917,13 +1917,33 @@
       최종 PID424,079,360/합1,035,988,992bytes; native→집중2,931.046초(약49분), 기록/commit 별도다.
       5174의 frozen source/API/worker/영속PG는 의도적으로 실행 중이다. 보호 접속 안내·실제 PID/start_ticks/boot·24시간 수명/5초 live receipt를 남겼다.
       계산 중 prefix3D/최종 UI/전체 U3·실제 자료/관문은 미수용이다.
-  - [ ] **계산 중 확정 prefix3D** — E9 뒤 별도 계약 분해. 현재 terminal page를 미완료에 사용하지 않는다.
+  - [ ] **계산 중 확정 prefix3D** <a id="joint-prefix-view-20261010"></a> — [P0 계약](../contracts/crop-climate-joint-prefix-view-v1.md)/[순서·잠정 시간](plan.md#joint-prefix-view-20261010). 현재 terminal page를 미완료에 사용하지 않는다.
     수용: 불변 prefix/수용 HEAD·원 sample/event/같은 UTC·현재 권리와 동시 게시/취소/재시작·늦은 응답을 실제 DB/브라우저에서 대사.
-    작업량은 prefix reader 계약/비용 관측 뒤 산정한다. 위10–18시간은 이 작업과 전체 U3/실제 관문을 포함하지 않는다.
-    - [ ] **P0 확정 prefix 읽기 계약** — 다음 한 단계. 선행: E9b·E2/E4·기존 불변 페이지/서명 계약. 예정1파일: `contracts/crop-climate-joint-prefix-view-v1.md`.
-      수용: DB 수용 proof/sequence에 원 sample/event 페이지·farm/context·현재 권리를 결속하고, 미수용 private HEAD·동시 writer/취소/fresh를 정의한다.
-      computed UTC와 마지막 저장 sample UTC를 구분하고 sample 없는 checkpoint의 임의 프레임0·조회 계산0·bounded 페이지를 명시한다.
-      기존 source와 실행 가능 조건을 대조해 backend→HTTP/SDK→화면/실제 브라우저 자식과 예상 시간을 작성한다. 계약/의존성 대조0.5–1집중시간 잠정이다.
+    P1–P6 합계7.5–15집중시간 잠정/연속 작업10/11 KST 조건부다. P1 실제 비용 뒤 갱신한다. 전체 U3/실제 관문 날짜는 미정이다.
+    - [x] **P0 확정 prefix 읽기 계약** — 선행: E9b·E2/E4·기존 불변 페이지/서명 계약. core 계약1파일과 계획/기계 기록 갱신이다.
+      [source/CLI 증거](../research/artifacts/crop-climate-joint-prefix-contract-reference-20261010.json):13파일/26심볼·native gpt-6.1-sol/xhigh·재귀0.
+      DB 수용 selector/원 페이지·이전 판본/계보·현재 권리·동시 writer/취소/fresh와 계산/저장 UTC·빈 장면/조회 계산0·공개 제한을 정의했다.
+      P1–P6 의존성/수용/검증·파일/조건부 시간을 작성했다. native→source 대조1,036.777초(약17분), 문서 검사/commit 별도다.
+      source13파일 SHA/계약 출력 hash·상대 파일 링크1,817개/명시 anchor2개·diff/비밀 미포함 검사를 통과했고 두 사용자 서버/HTML은 동일하다.
+      실제 prefix DB/HTTP/3D 검사는 실행하지 않았고 구현·부모/전체 U3 체크는 열어 둔다.
+    - [ ] **P1 원 페이지/DB reader** — 다음 한 단계. 선행: P0. 예정2파일: `backend/app/crop_climate_joint_prefix.py`, `backend/tests/test_crop_climate_joint_prefix.py`.
+      수용: 실제 SCRAM running의 원 sample/event/UTC·빈 ready·sparse output, DB 미수용 거부/이전 수용 판본·현재 계보/권리/취소·fresh.
+      원 수치·최초 수용 시각 보존/수치 호출·DB 쓰기0·페이지 상한/비용·FD/소유 종료·두 사용자 서비스/원본 보존을 확인한다.
+      확인: backend에서 `.venv/bin/python -B -m pytest tests/test_crop_climate_joint_prefix.py -q`, 보호된 실제 SCRAM 설정/skip0·fresh 원 결과 대사·감독 receipt.1.5–3h 잠정.
+    - [ ] **P2 typed prefix 투영** — 선행: P1. 예정 `backend/app/api_crop_climate_joint_prefix.py`와 test2파일.
+      수용/확인: 원 sample/Event whitelist·닫힌 summary/page/selector·64/8/2MiB·끝/빈/거부/fresh를 집중 pytest로 대사.0.75–1.5h 잠정.
+    - [ ] **P3a 보호 prefix HTTP** — 선행: P2. 예정 routes/test2파일.
+      수용/확인: 실제 SCRAM/HTTPS·현재 계정 전후/scopes·원 응답·query/body/selector·거부/잠금·조회 계산0; 집중 pytest/실제 응답.0.75–1.5h 잠정.
+    - [ ] **P3b 명시 prefix runtime** — 선행: P3a. 기존 API/runtime/operator config와 test최대5파일; 실제 파일은 조립 대조 후 확정.
+      수용/확인: 같은 jobs/server/farm/principal·기본 비활성·기존 설정/원 결과 pin 호환·독립 자동 worker/실제 TLS; 집중 pytest/실제 기동.0.75–1.5h 잠정.
+    - [ ] **P4 typed prefix SDK** — 선행: P3b. 새 reader/API/대응 unit·실제 SDK test최대4파일.
+      수용/확인: 원 selector/수치/UTC·닫힌 응답/취소·기존 sample/event 재사용·실제 HTTPS; unit/typecheck/제한된 build.0.75–1.5h 잠정.
+    - [ ] **P5 계산 중 부분 결과 UI** — 선행: P4. 새 prefix component/기존 Execution·CSS/e2e최대4파일; UI 디자인/브라우저 스킬 적용.
+      수용/확인: 순차 GET·동일 원 UTC의 표/그래프/3D·빈 출력/원자 교체·취소/숨김/계정/늦은 응답·terminal 전환; 기록 응답 Chromium/typecheck/build.1.5–3h 잠정.
+    - [ ] **P6a 실제 prefix 브라우저** — 선행: P5. reference Python/JS2파일과 기계 증거.
+      수용/확인: 실제 running 중 원 LAI/50구획/온도/UTC/WebGL→terminal 원 결과, hold/cancel/빈/재접속·권리와 WSL/원본/실제 종료.1–2h 잠정.
+    - [ ] **P6b prefix 사용자 기동** — 선행: P6a. live operator/preview core최대2파일과 접속 안내.
+      수용/확인: frozen 후보 수용 뒤5174 연결·실제 인증/자동 worker·장벽 없는 계산 중 관측·원 결과/현재 키/5173 보존·접속 안내.0.5–1h 잠정.
 - [ ] **`crop-economic-link`** — 선행: 생산량·자원 계산·`crop-execution-link`와 같은 배치/달력의 경제 입력.
   예정 파일(3): `backend/app/crop_economic_link.py`, `backend/tests/test_crop_economic_link.py`,
   `contracts/crop-economic-link-v1.md`.
