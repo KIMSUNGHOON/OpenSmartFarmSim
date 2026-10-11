@@ -1,14 +1,14 @@
 # 계산 중 확정 작물·기후 페이지 조회 v1
 
-상태: **P0 계약 완료·[P1 내부 reader/실제 SCRAM 수용](../research/crop-climate-joint-prefix-reader-implementation-20261010.md), [P2 공개 투영 수용](../research/crop-climate-joint-prefix-projection-implementation-20261010.md)·[P3a 명시 HTTP 수용](../research/crop-climate-joint-prefix-http-implementation-20261010.md), [P3b runtime/reader v2 수용](../research/crop-climate-joint-prefix-runtime-implementation-20261010.md), [P4 웹 reader 수용](../research/crop-climate-joint-prefix-web-client-implementation-20261010.md), [P5 화면 기능 수용](../research/crop-climate-joint-prefix-ui-implementation-20261010.md), 실제 prefix 브라우저/사용자 활성화·최종 디자인 미수용**. 기준 checkout은 `625baab6ff2ad68c36487b7caf4928584f94882b`, 검토일은2026-10-10이다.
+상태: **P0–P5 구현·[reader v5](../research/crop-climate-joint-prefix-read-cost-implementation-20261011.md)·[P6a 실제 정상/hold/취소 브라우저와 두 화면 복구](../research/crop-climate-joint-prefix-cancel-browser-20261011.md) 수용; P6b 사용자 활성화·최종 디자인 미수용**. 최초 계약 기준 checkout은 `625baab6ff2ad68c36487b7caf4928584f94882b`/2026-10-10이며 최신 브라우저는 제품 core `89c23d8`/2026-10-11이다.
 선행은 [실행/체크포인트](crop-execution-link-v1.md), [서명 이력](crop-climate-joint-server-custody-v1.md),
 [불변 페이지](crop-climate-joint-storage-v1.md), [완료 결과 투영](api-crop-climate-joint-replay-v1.md)과
 [E9b 사용자 연결](../research/crop-climate-joint-execution-user-preview-20261010.md)이다.
 이 계약은 새 prefix reader의 구현 기준이다. 현재5174의 계산 상태 자동 조회/완료 저장3D를 계산 중 성장3D 수용으로 바꾸지 않는다.
 
-2026-10-11 [P6a2a reader v3](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)는 [임대 갱신 계약](crop-climate-joint-prefix-progress-guard-v1.md)을 적용했다. 같은 작업의 두 시각만 UTC 단조 전진할 때 원 snapshot을 유지한다. HEAD/최신 수용 이력·lifecycle/input/권리 변경 검사는 유지하며 실제 prefix 브라우저/사용자 활성화는 미수용이다. 아래 reader v2 설명은 선행 구현의 경계다.
+2026-10-11 [P6a2a reader v3](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)는 [임대 갱신 계약](crop-climate-joint-prefix-progress-guard-v1.md)을 적용했다. 같은 작업의 두 시각만 UTC 단조 전진할 때 원 snapshot을 유지한다. HEAD/최신 수용 이력·lifecycle/input/권리 변경 검사는 유지했다. 당시 실제 prefix 브라우저/사용자 활성화는 미수용이었다. 아래 reader v2 설명과 source 대조표는 선행 구현의 경계다.
 
-이후 [실제 요청별 전진 진단](../research/crop-climate-joint-prefix-progress-diagnosis-20261011.md)에 따라 [P6a2b1 전진 읽기 계약](crop-climate-joint-prefix-forward-read-v1.md)을 분해했다. 구현 전이며 v3의 HEAD/latest 비교는 아직 그대로다. 불변 선택 판본·관측 HEAD/DB 사건의 현재 계보와 권리를 증명하는 수정 뒤 실제 page200과 P6 브라우저를 별도로 수용한다.
+이후 [실제 요청별 전진 진단](../research/crop-climate-joint-prefix-progress-diagnosis-20261011.md)에 따라 [P6a2b1 전진 읽기 계약](crop-climate-joint-prefix-forward-read-v1.md)을 분해하고 [v4 구현](../research/crop-climate-joint-prefix-forward-read-implementation-20261011.md)과 v5 조회 비용 수정을 수용했다. 불변 선택 판본·관측 HEAD/DB 사건의 현재 계보·권리를 증명하며 실제 page200과 P6a 브라우저도 확인했다. 사용자 활성화 P6b는 남아 있다.
 
 ## 현재 구현에서 확인한 경계
 

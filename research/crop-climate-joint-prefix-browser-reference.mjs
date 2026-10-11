@@ -127,7 +127,7 @@ try{
       const drawing=await scene(page,'.joint-prefix-viewer');
       if(drawing&&drawing.cohorts&&!prefixSeen.some(v=>JSON.stringify(v.selector)===JSON.stringify(drawing.selector))){
         prefixSeen.push(drawing);
-        if(!screenshot){await page.locator('.joint-prefix-viewer .coupled-top-grid > section').first()
+        if(input.mode!=='live-cancel'&&!screenshot){await page.locator('.joint-prefix-viewer .coupled-top-grid > section').first()
           .screenshot({path:join(input.directory,'running-prefix.png')});screenshot=true;}
       }
       if(input.mode==='live-cancel'&&prefixSeen.length&&!cancelRequested){
@@ -166,7 +166,7 @@ try{
       const commands=responses.filter(r=>r.url.endsWith('/cancel'));
       assert(commands.some(r=>r.status===200&&r.value.cancel_requested&&r.value.cancel_accepted));
       record={mode:input.mode,job_id:job,running_prefixes:prefixSeen,canceled:true,terminal_result_created:false,
-        cancel_UI_attempts:cancelAttempts,cancel_HTTP_responses:commands.map(r=>({status:r.status,
+        pre_cancel_screenshot:false,cancel_UI_attempts:cancelAttempts,cancel_HTTP_responses:commands.map(r=>({status:r.status,
           cancel_requested:r.value.cancel_requested,cancel_accepted:r.value.cancel_accepted}))};
     }else{
       assert.equal(await page.locator('.joint-prefix').count(),0);

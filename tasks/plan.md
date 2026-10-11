@@ -1195,6 +1195,8 @@ P0의 계약/의존성 대조는 아래 source 근거와 선택 규칙으로 완
 
 ### 계산 중 확정 시점의 3D 연결 — P0, 2026-10-10
 
+**최신 수용 — 2026-10-11 P6a:** [실제 브라우저 취소·두 화면 복구](../research/crop-climate-joint-prefix-cancel-browser-20261011.md)는 원9884의 같은 selector/원값/UTC/WebGL→취소1회200 수락/worker canceled·장면 제거·같은 DB 결과/게시/성공 사건0을 확인했다. 같은 제품318파일의 선행 정상/hold·빈/재접속·정상 현재 권리 철회/복원과 합쳐 P6a를 수용했다. 원 두 화면은 run-v9/serve-v9이며 원7응답·109/319/32행·381파일/키·권리·원본2,148/보호 root4를 대사했다. 아래 실패·진단 순서는 당시 이력이다. **현재 다음 한 단계는 P6b 사용자5174 활성화**다. 수용된 backend/web의 고정 source·명시 prefix/자동 worker에서 장벽 없는 실제 계산 중 원 수치/UTC/WebGL→terminal과 현재 인증/원 결과·키/권리·두 주소를 확인하고 접속 안내를 갱신한다. 기존 WSL 유지보수/복구 창과512MiB/1GiB 기준을 적용한다. 이번4 guard 합127.941초/legacy probe14.824초이며 준비·분석/복구 기동·기록은 별도다. P6b0.5–1집중시간을 조건부 배정하고 실제 자원·현재 결과/복구 수용 뒤 시각을 갱신한다. 현재 사용자5174의 계산 중3D는 비활성이다. 최종 UI/전체 작기/독립 자료·생산/마진/추천 관문은 별도 미완료다.
+
 [계약](../contracts/crop-climate-joint-prefix-view-v1.md)과 [source/CLI 기록](../research/artifacts/crop-climate-joint-prefix-contract-reference-20261010.json)을 따른다.
 현재 terminal page는 root가 필요하며 진행 DTO는 숫자 페이지를 제공하지 않는다. 새 reader는 같은 DB 수용 사건/proof의 원 페이지를 읽는다.
 이전 수용 판본은 현재 서명 계보와 권리가 유효하면 새 tail 뒤에도 선택할 수 있다. computed UTC와 실제 마지막 sample UTC는 별개다.
@@ -1209,7 +1211,7 @@ source 검토는 구현/시험 수용이 아니다. 아래 자식은 작은 합�
 | P3b 명시 runtime | [reader v2/core5861eb9 + runtime/core8e794e4](../research/crop-climate-joint-prefix-runtime-implementation-20261010.md)·3파일/4파일 자식 | P3a | 고유185개·실제 unpaused 정상/hold/cancel·조회 잠금 취득0·현재 권리/서명·기본 API 보존 |native→최종 검증1,787.576초(약30분); 문서/commit 별도|
 | P4 웹 reader | [공용 검사c750007/새 SDKf40a8ff 수용](../research/crop-climate-joint-prefix-web-client-implementation-20261010.md)·2파일/4파일 자식 | P3b | 고유306개·실제 unpaused SDK/SCRAM/TLS 정상/hold/cancel·원 sample/binary64/UTC·기존226/새77·타입/제한된 build; 실제 event-prefix200은 미관측/503 |native→최종 시험1,576.244초(약26분); 문서/commit 별도|
 | P5 부분 결과 화면 | [core36d9b80/fa2e72b 기능 수용](../research/crop-climate-joint-prefix-ui-implementation-20261010.md)·제품3/시험2파일 자식 | P4 | 고유338개(Chromium20/기존15·웹303)·원 UTC/LAI/50구획/WebGL·순차/원자 교체·빈/취소/숨김/계정/terminal·타입/build; 최종 디자인 일치 보류 |native→수용 증거3,285.142초(약55분); 문서/commit 별도|
-| P6a 실제 브라우저 | prefix browser reference Python/JS2파일 + 결과 증거 | P5 | 실제 running의 원 표/LAI/50구획/온도/WebGL·원 시각/사건·완료/hold·cancel/재접속·원본/WSL·실제 종료; P4 미관측 event-prefix200을 실제 SDK로 확인 |1–2h|
+| P6a 실제 브라우저 | [동일 제품 정상/hold·취소/복구 수용](../research/crop-climate-joint-prefix-cancel-browser-20261011.md)·reference Python/JS와 증거 | P5 | 원 표/LAI/50구획/온도/UTC/WebGL·사건/생장200→terminal 또는 취소 수락/worker canceled·DB 결과 없음; 빈/재접속/권리·원본/WSL·실제 종료/두 주소 복구 |취소 guard89.153초, 이번4 guard127.941초+legacy probe14.824초; 준비/기록 별도|
 | P6b 사용자 기동 | 기존 live operator/preview와 접속 안내, core 최대2파일 | P6a | frozen 후보 검증 뒤5174 연결·실제 수명/자동 worker·장벽 없는 계산 중 조회·기존 결과/5173/현재 키 보존·접속 안내 |0.5–1h|
 
 **P6a 10/11 실측에 따른 기동 순서 조정:** 두 사용자 서비스의 합산 기준 RSS578,494,464bytes에서 분리 API/기록 결과 브라우저를 추가한 첫 profile이1,105,895,424bytes로1GiB 상한을 넘었다. 계산 접수0이며 시험 프로세스만 정리했고 두 원 서비스/자산·2,148원본을 보존했다. 따라서5173 재생을 유지한 상태로5174의 활성 계산 유무를 확인하고 정확한 기존 guardian을 정상 종료한다. 기존 DB/결과/키를 보존한 같은 저장소의 후보를 별도 포트에서 실제 독립 worker·prefix API/브라우저로 검증하고, P6a 통과 뒤5174를 활성화한다. 실패/중단 시 원 frozen5174를 복구한다. 이 검증 창에서는5173 root를 보호하고5174는 데이터/키·원 결과 보존과 최종 복구를 검사한다. 메모리 상한·관문·실제 사건/3D 수용 기준은 유지한다. source/설계 판단은 이번 native gpt-6.1-sol/xhigh context이며 재귀 CLI0이다.

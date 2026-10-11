@@ -1,0 +1,317 @@
+{
+  "API_mocking": false,
+  "G0_G4": "not_assessed",
+  "P6a_accepted": true,
+  "P6b_accepted": false,
+  "RSS_sample_interval_seconds": 0.25,
+  "actual_farm_Runs": 0,
+  "backend_app_files": 203,
+  "cancel_browser": {
+    "API_mocking": false,
+    "HTTP_responses": [
+      {
+        "cancel_accepted": true,
+        "cancel_requested": true,
+        "status": 200
+      }
+    ],
+    "UI_attempts": 1,
+    "actual_browser_exit": 0,
+    "actual_service_exit": 0,
+    "canceled": true,
+    "console_page_errors": [],
+    "driver_warning_count": 2,
+    "expected_transient_console_resource_errors": [
+      "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+    ],
+    "pre_cancel_screenshot": false,
+    "response_capture": "actual_fetch_Response_clone_bytes",
+    "terminal_result_created": false
+  },
+  "combined_actual_browser_cases": [
+    {
+      "actual_WebGL_draw_calls": [
+        109
+      ],
+      "actual_browser_exit": 0,
+      "actual_service_exit": 0,
+      "case": "normal",
+      "current_rights_revocation_and_recovery": true,
+      "initial_empty_no_scene": true,
+      "observer_sha256": "63f42b8d08d413f796502500ceb2437f463ac6db670aa22aca79bcd53ca6af68",
+      "original_UTC": [
+        "2026-10-01T00:00:00.123456Z"
+      ],
+      "original_tool_session": 49259,
+      "reconnect": true,
+      "reference_JS_sha256": "695ce1766e6196e1c7ce7442f13f4d0d431f2a05f887673dcf31c1117b6933f8",
+      "reference_Python_sha256": "9658dfd821c915260c6d622f94c8274256abb83e0df45abe6fceccf3a5701022",
+      "running_prefix_acceptance": true,
+      "running_prefix_scenes": 1,
+      "same_selector_original_numeric_readouts_chart_50_cohorts_temperature_and_event_UTC": true
+    },
+    {
+      "actual_WebGL_draw_calls": [
+        109
+      ],
+      "actual_browser_exit": 0,
+      "actual_service_exit": 0,
+      "case": "hold",
+      "current_rights_revocation_and_recovery": false,
+      "initial_empty_no_scene": true,
+      "observer_sha256": "5eb6dabbb38b827c5b67f0cd076dc1059f0ea105da304b47245a554771856637",
+      "original_UTC": [
+        "2026-10-01T00:00:00.123456Z"
+      ],
+      "original_tool_session": 7699,
+      "reconnect": true,
+      "reference_JS_sha256": "695ce1766e6196e1c7ce7442f13f4d0d431f2a05f887673dcf31c1117b6933f8",
+      "reference_Python_sha256": "9658dfd821c915260c6d622f94c8274256abb83e0df45abe6fceccf3a5701022",
+      "running_prefix_acceptance": true,
+      "running_prefix_scenes": 1,
+      "same_selector_original_numeric_readouts_chart_50_cohorts_temperature_and_event_UTC": true
+    },
+    {
+      "actual_WebGL_draw_calls": [
+        109
+      ],
+      "actual_browser_exit": 0,
+      "actual_service_exit": 0,
+      "case": "cancel",
+      "current_rights_revocation_and_recovery": false,
+      "initial_empty_no_scene": true,
+      "observer_sha256": "0e85f3f0b122b08b2c7368cdaba150bf1684e12d0783cf60a7a73bb8bc59bf2b",
+      "original_UTC": [
+        "2026-10-01T00:00:00.123456Z"
+      ],
+      "original_tool_session": 9884,
+      "reconnect": false,
+      "reference_JS_sha256": "ac4c0ceb8b4f498890f990f9f3617048ae43b233fa8fde3c1012dab3c9ccb926",
+      "reference_Python_sha256": "9658dfd821c915260c6d622f94c8274256abb83e0df45abe6fceccf3a5701022",
+      "running_prefix_acceptance": true,
+      "running_prefix_scenes": 1,
+      "same_selector_original_numeric_readouts_chart_50_cohorts_temperature_and_event_UTC": true
+    }
+  ],
+  "current_reference_sha256": {
+    "crop-climate-joint-prefix-browser-reference.mjs": "ac4c0ceb8b4f498890f990f9f3617048ae43b233fa8fde3c1012dab3c9ccb926",
+    "crop-climate-joint-prefix-browser-reference.py": "9658dfd821c915260c6d622f94c8274256abb83e0df45abe6fceccf3a5701022"
+  },
+  "final_restoration": {
+    "P6a_accepted": true,
+    "P6b_accepted": false,
+    "authenticated_original_responses": 7,
+    "cancel_DB_counts": {
+      "crop_climate_joint_research_results": 0,
+      "job_publications": 0,
+      "success_or_result_events": 0
+    },
+    "frontends": {
+      "5173": {
+        "HTML_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1",
+        "status": 200
+      },
+      "5174": {
+        "HTML_sha256": "5f8062c48dd576fed3963bc2ac71b2dd5db2e83fbdb580858216f771cd3b637a",
+        "status": 200
+      }
+    },
+    "goal_status": "active",
+    "integrity_actual_tool_exit": 0,
+    "joint_restore_original_tool": 35477,
+    "legacy_probe_actual_exit": 0,
+    "legacy_restore_original_tool": 74111,
+    "observed_at": "2026-10-11T11:03:59.444760+00:00",
+    "old_token_401": true,
+    "original_source_entries": 2148,
+    "preexisting_files": 381,
+    "preexisting_row_counts": {
+      "job_attempts": 32,
+      "job_events": 319,
+      "jobs": 109
+    },
+    "protected_roots_live": 4,
+    "query_actual_tool_exit": 0,
+    "restored_worker_attempts": 0,
+    "same_product_files_normal_hold_cancel": 318,
+    "signing_keys_rights_DSN_preserved": true,
+    "temporary_5175_closed": true
+  },
+  "guard_cases": [
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_guard_child_exit": 0,
+      "actual_tool_exit": 0,
+      "case": "focused-maintenance-baseline-v1",
+      "combined_peak_RSS_bytes": 705376256,
+      "guard_terminal_sha256": "93735a676f84d838d38329470a05eb84c437a6e3fb8ada8063932af01f5b1403",
+      "maintenance_window": false,
+      "original_source_entries": 2148,
+      "original_tool_session": 83552,
+      "owned_processes_PG_temporary_PG_passfiles_remaining": 0,
+      "protected_roots": 4,
+      "single_PID_peak_RSS_bytes": 136900608,
+      "source_originals_frozen_sources_and_assets_preserved": true,
+      "wall_seconds": 1.3759104730015679
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_guard_child_exit": 0,
+      "actual_tool_exit": 0,
+      "case": "focused-live-cancel-v1",
+      "combined_peak_RSS_bytes": 965967872,
+      "guard_terminal_sha256": "9d1f7f1ba084f687cc899a5f2e565ca3e15edcd52a8b25bcabef50cc63f13bed",
+      "maintenance_window": true,
+      "original_source_entries": 2148,
+      "original_tool_session": 9884,
+      "owned_processes_PG_temporary_PG_passfiles_remaining": 0,
+      "protected_roots": 0,
+      "single_PID_peak_RSS_bytes": 368873472,
+      "source_originals_frozen_sources_and_assets_preserved": true,
+      "wall_seconds": 89.15341810999962
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_guard_child_exit": 0,
+      "actual_tool_exit": 0,
+      "case": "focused-restore-query-v1",
+      "combined_peak_RSS_bytes": 659415040,
+      "guard_terminal_sha256": "9cbb658814044698af453d2eaf829db092eb208aeb9a6b1cea598e2359b7bbe7",
+      "maintenance_window": false,
+      "original_source_entries": 2148,
+      "original_tool_session": 6307,
+      "owned_processes_PG_temporary_PG_passfiles_remaining": 0,
+      "protected_roots": 4,
+      "single_PID_peak_RSS_bytes": 136740864,
+      "source_originals_frozen_sources_and_assets_preserved": true,
+      "wall_seconds": 37.07098852600029
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_guard_child_exit": 0,
+      "actual_tool_exit": 0,
+      "case": "focused-restore-integrity-v1",
+      "combined_peak_RSS_bytes": 572243968,
+      "guard_terminal_sha256": "6256db5c608701f6e6bf89ad003a19bb1b0e33b56e91bcdbac39ab124a4f7d96",
+      "maintenance_window": false,
+      "original_source_entries": 2148,
+      "original_tool_session": 75097,
+      "owned_processes_PG_temporary_PG_passfiles_remaining": 0,
+      "protected_roots": 4,
+      "single_PID_peak_RSS_bytes": 136740864,
+      "source_originals_frozen_sources_and_assets_preserved": true,
+      "wall_seconds": 0.3410421160006081
+    }
+  ],
+  "guard_wall_seconds_sum": 127.94135922500209,
+  "independent_domestic_datasets": 0,
+  "legacy_probe": {
+    "actual_exit": 0,
+    "actual_tool_exit": 0,
+    "combined_peak_RSS_bytes": 380469248,
+    "original_tool_session": 65661,
+    "owned_remaining": [],
+    "protected_live": true,
+    "reason": null,
+    "single_PID_peak_RSS_bytes": 136609792,
+    "wall_seconds": 14.823674876999576
+  },
+  "native_CLI_evidence": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "timestamp": "2026-10-11T10:52:36.741Z",
+    "turn_context_sha256": "030abfa51121481eb8ad9f59c870618f78d4f9b012945966b489eb2931481968"
+  },
+  "next_step": "P6b user5174 activation using frozen accepted backend/web; actual unpaused running WebGL; preserve old DB/results/keys/rights and restore both ports under existing resource limits.",
+  "no_claim_final_reference_normal_hold_rerun": true,
+  "not_run": [
+    "new product UI build",
+    "full CI",
+    "remote operations",
+    "additional full crop cycle",
+    "user prefix activation P6b"
+  ],
+  "old_previews_stop": {
+    "fallback_prepared": true,
+    "joint_actual_tool_exit": 0,
+    "joint_original_tool": 73699,
+    "legacy_actual_tool_exit": 0,
+    "legacy_original_tool": 62256,
+    "old_identities_gone": true,
+    "ports_closed": [
+      5173,
+      5174,
+      5175,
+      8445,
+      8446
+    ]
+  },
+  "preparation_errors": [
+    {
+      "corrected_by": "Use existing backend virtualenv; no stop was sent before the error.",
+      "kind": "system Python lacks FastAPI"
+    },
+    {
+      "corrected_by": "Keep historical schema; active run/identities already recorded; old prefix activation remains false.",
+      "kind": "Historical frozen ready JSON has no prefix_enabled key"
+    }
+  ],
+  "product_code_changes": 0,
+  "product_core_commit": "89c23d86f484e03462f8758dd180234593143b00",
+  "product_source_sha256": "104fff43bc40bd38be135f3584a1f4e0c09ef6bff6cfad529cbfc314ddbd2607",
+  "reference_JS_changes": [
+    "Skip only pre-cancel screenshot in live-cancel; existing normal/hold screenshots remain.",
+    "Record pre_cancel_screenshot=false for accepted cancellation."
+  ],
+  "reference_case_hashes_differ": true,
+  "resource_limits_bytes": {
+    "combined": 1073741824,
+    "single_PID": 536870912
+  },
+  "restored_integrity": {
+    "DSN_preserved": true,
+    "G0_G4": "not_assessed",
+    "actual_SCRAM": true,
+    "cancel_job_state": "canceled",
+    "cancel_result_publication_counts": {
+      "crop_climate_joint_research_results": 0,
+      "job_publications": 0,
+      "success_or_result_events": 0
+    },
+    "current_rights_preserved": true,
+    "existing_files_preserved": 381,
+    "preexisting_row_counts": {
+      "job_attempts": 32,
+      "job_events": 319,
+      "jobs": 109
+    },
+    "preexisting_rows_preserved": {
+      "job_attempts": true,
+      "job_events": true,
+      "jobs": true
+    },
+    "read_only_transaction": true,
+    "restored_worker_attempts": 0,
+    "signing_keys_preserved": true
+  },
+  "same_product_code_across_normal_hold_cancel_and_current_checkout": true,
+  "scope": "Actual unpaused synthetic running prefix WebGL -> cancel acceptance -> independent worker canceled; P6a combined with same-product normal/hold evidence; user activation P6b remains",
+  "version": "joint-prefix-cancel-browser-reference-v1",
+  "web_src_files": 115,
+  "worker_pause_or_delay": false
+}

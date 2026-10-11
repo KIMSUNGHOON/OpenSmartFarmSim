@@ -5,7 +5,7 @@
 2026-10-11 WSL 재시작 뒤 두 서버를 [보존 결과로 복구](../research/crop-user-preview-reboot-recovery-20261011.md)했다. 아래 새 접속 파일을 사용한다.
 같은 날 실제 계산 중3D의 유지보수 검증 뒤 [두 기존 frozen 서버를 다시 복구](../research/crop-climate-joint-progress-prefix-retry-20261011.md#사용자-서버-복구-확인)했다. 현재 안내는 이 재기동의 새 토큰을 가리킨다.
 이후 [v4 실제 브라우저 검증](../research/crop-climate-joint-prefix-browser-v4-20261011.md)에서도 계산 중3D를 수용하지 못해 두 기존 화면을 당시 `run-v7`/`serve-v7`로 다시 복구했다.
-이후 [v5 실제 WebGL 부분 검증·복구](../research/crop-climate-joint-prefix-browser-v5-20261011.md)에서 정상/hold를 확인했지만 취소 검증이 남았다. 두 기존 화면을 다시 복구했으며 **현재 접속 파일은 아래 `run-v8`/`serve-v8`**이다. 계산 중3D는 아직 사용자5174에서 비활성이다.
+이후 [v5 실제 WebGL 부분 검증·복구](../research/crop-climate-joint-prefix-browser-v5-20261011.md)에서 정상/hold를 확인했다. 후속 [실제 브라우저 취소·원 두 화면 복구](../research/crop-climate-joint-prefix-cancel-browser-20261011.md)까지 통과해 P6a를 수용했다. **현재 접속 파일은 아래 `run-v9`/`serve-v9`**이다. P6b 사용자 적용은 남아 계산 중3D는 아직 사용자5174에서 비활성이다.
 
 ## 계산 상태 자동 조회와 저장3D — 2026-10-10
 
@@ -15,7 +15,7 @@
 
 접속 토큰·기존 작업 ID/농장 필드·Windows에서 파일을 여는 경로는 다음 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v8/OPEN-UI.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v9/OPEN-UI.private.txt`
 
 1. 위 파일을 로컬 편집기로 열고5174에서 **내부 시험 연결 → 접근 토큰 → 연결 설정**을 선택한다.
 2. **08 성장 연구 3D → joint 실행 · 계산 상태와 완료 3D**를 선택한다.
@@ -35,14 +35,14 @@
 [P3b 중간 결과 API/서버 조립](../research/crop-climate-joint-prefix-runtime-implementation-20261010.md)은 별도 시험 서버에서 수용했다. 현재5174에는 배포하지 않았으며 계산 중 성장3D는 아직 표시하지 않는다. 개발·검증용 별도 DB에서 실행한 작업도 이 화면에 자동 노출되지 않는다.
 
 기존5173은 아래의 완료166일 저장 재생용으로 유지한다. 계산 중 확정 prefix의 성장3D·두 주소의 통합/최종 U0–U5와 전체 U3는 미완료다.
-[P4 웹 reader](../research/crop-climate-joint-prefix-web-client-implementation-20261010.md)는 실제 SDK/TLS로 로컬 수용했다. [P5 화면 기능](../research/crop-climate-joint-prefix-ui-implementation-20261010.md)도 기록 응답 Chromium35/웹303·타입/build로 수용했으며 P6 실제 브라우저·사용자 기동이 남았다. 현재 서버의 화면은 아직 변경하지 않았다. 최종 디자인 일치는 보류다.
+[P4 웹 reader](../research/crop-climate-joint-prefix-web-client-implementation-20261010.md)는 실제 SDK/TLS로 로컬 수용했다. [P5 화면 기능](../research/crop-climate-joint-prefix-ui-implementation-20261010.md)도 기록 응답 Chromium35/웹303·타입/build로 수용했으며 후속 P6a 실제 브라우저는 통과했고 P6b 사용자 기동이 남았다. 현재 서버의 화면은 아직 변경하지 않았다. 최종 디자인 일치는 보류다.
 [P6a0 조회 수정](../research/crop-climate-joint-progress-prefix-retry-20261011.md)은 표준 CLI38개/웹303으로 확인했다. 실제 후보는 event200 뒤 samples503로 계산 중3D를 보여주지 못해 미수용이며 현재5174에 적용하지 않았다.
-[P6a1 실제 원인 분류](../research/crop-climate-joint-prefix-page-diagnosis-20261011.md)는 별도 자동 작업자 진단2회에서 임대 갱신·결과 판본 전진·작업 시작/종료에 따른 조회 보류를 구분했다. 이후 [P6a2a reader v3/HTTP](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)의 정상 임대 갱신 비교를 고유245개·제한된 소유 scratch PG의 자동 정상/hold/cancel로 확인했다. 실제 계산 중 WebGL과 사용자 적용은 남아 있어 현재 화면의 연동 범위는 위와 같다.
+[P6a1 실제 원인 분류](../research/crop-climate-joint-prefix-page-diagnosis-20261011.md)는 별도 자동 작업자 진단2회에서 임대 갱신·결과 판본 전진·작업 시작/종료에 따른 조회 보류를 구분했다. 이후 [P6a2a reader v3/HTTP](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)의 정상 임대 갱신 비교를 고유245개·제한된 소유 scratch PG의 자동 정상/hold/cancel로 확인했다. 후속 P6a 실제 계산 중 WebGL은 통과했고 사용자 적용이 남아 현재 화면의 연동 범위는 위와 같다.
 현재3D는 저장 LAI·과실 구획·온도의 수치 모식도이며 G0–G4·실제 생산/미래 마진/추천 보류는 유지한다.
 
-[전진 읽기 v4/HTTP](../research/crop-climate-joint-prefix-forward-read-implementation-20261011.md)는 최종265개·실제 자동 정상/hold/cancel, 공개 요약→같은 선택자의 사건/생장200과 원 terminal 값/UTC를 확인했다. P6a 실제 WebGL과 P6b 사용자 적용은 남아 있어 현재5174의 계산 중3D는 계속 비활성이다.
+[전진 읽기 v4/HTTP](../research/crop-climate-joint-prefix-forward-read-implementation-20261011.md)는 최종265개·실제 자동 정상/hold/cancel, 공개 요약→같은 선택자의 사건/생장200과 원 terminal 값/UTC를 확인했다. 이후 P6a 실제 WebGL은 통과했으며 P6b 사용자 적용이 남아 현재5174의 계산 중3D는 계속 비활성이다.
 
-[조회 비용 수정 reader v5](../research/crop-climate-joint-prefix-read-cost-implementation-20261011.md)는 최종267개·실제 같은 선택자 사건/생장200·원 terminal/현재 권리로 로컬 수용했다. 실제 제품 브라우저 P6a와 사용자 적용 P6b는 남아 있으므로 현재5174의 계산 중3D는 계속 비활성이다. 개발 시험 DB의 작업은 이 사용자 DB에 자동 노출되지 않는다.
+[조회 비용 수정 reader v5](../research/crop-climate-joint-prefix-read-cost-implementation-20261011.md)는 최종267개·실제 같은 선택자 사건/생장200·원 terminal/현재 권리로 로컬 수용했다. 후속 실제 제품 브라우저 P6a도 통과했다. 사용자 적용 P6b가 남아 현재5174의 계산 중3D는 계속 비활성이다. 개발 시험 DB의 작업은 이 사용자 DB에 자동 노출되지 않는다.
 
 ## 기존 제품 앱의 로컬 동시 기동 — 2026-10-09
 
@@ -54,7 +54,7 @@
 
 새 접속 토큰과 원 결과의 다섯 입력값은 저장소 밖의 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v8/service/OPEN-UI.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v9/service/OPEN-UI.private.txt`
 
 2026-10-10 기존 서비스 종료를 확인한 뒤 보존 원본으로 재기동했다.
 이전 토큰 대신 위 새 안내를 사용한다. 인증된 생장/수확 summary의 원 wire 일치·계산0을
