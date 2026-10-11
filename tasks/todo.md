@@ -1648,15 +1648,30 @@
       독립 Decimal6사례/36수치·원 fixture bytes·실제 공동 RHS 순간 ΔTair'=Q/Cair·Δm_v'=Fv/7수지,
       단위/domain/overflow/underflow hold와 기존228계산 파일/원본2,148·두 사용자 서버/자원 보존이다.
       순간식만 수용하며 동적 stage 재계산·새 저장/API/3D 배포·현장 적용 관문은 아래 미완료다.
-    - [ ] **`crop-greenhouse-ventilation-joint-stages`** — 선행: 위 순간 경계와 공동 적분.
+    - [x] **`crop-greenhouse-ventilation-joint-stages`** — 선행: 위 순간 경계와 공동 적분.
       같은 RK stage의 현재 Tair/m_v로 환기를 다시 계산해 기존 다른 Q/Fv에 정확히 한 번 합성한다.
-      새 model/policy/context identity와 명시 실외/환기 입력을 계약하며 기존 checkpoint/결과는 보존한다.
+      새 model/policy/input identity와 명시 실외/환기 입력을 계약하며 기존 checkpoint/결과는 보존한다.
+      새 context/checkpoint의 구현 수용은 아래 분할 실행 자식이며 기존 exact type에 넣지 않는다.
       수용: 독립 짧은 궤적·dt반분 수렴·현열/수증기/잠열과 전역 장부·0환기/부호/hold;
       고정 forcing을 동적 환기로 보고하지 않는다. writer/API/UI는 다음 자식에서 별도 수용한다.
+      [새 핵심5파일 계약](../contracts/crop-greenhouse-ventilation-joint-v1.md)/[로컬 수용](../research/crop-greenhouse-ventilation-joint-implementation-20261011.md):
+      새51/기존180=231통과·독립6궤적/816수치·72반분 비율>8·108상태/25장부/10수지,
+      실제 stage 호출/합성1·0환기 원 결과 정확 동일/초기 항 고정 반례·signed/0 U·원 fixture bytes·hold/identity를 확인했다.
+      기존230계산 파일·원본2,148·두 사용자 frozen 서버와 FD/소유 정리/WSL 한도를 보존했다. 사건/UTC/context/저장/UI는 미완료다.
     - [ ] **`crop-greenhouse-ventilation-stored-view`** — 선행: 위 stage 수용과 기존 저장/현재 조회/수치3D.
       새 원 입력·모델 identity의 checkpoint/저장 결과를 현재 권리 API와 같은 UTC 표/그래프/3D로 잇는다.
       수용: 저장 재계산0·원량/UTC·현재 권리·실제 worker/API/WebGL·완료/hold/취소/재접속·WSL 한도.
       사용자 서버 전환 뒤 실제 접수한 작업만 자동 갱신하는지 확인하며 개발용 별도 DB 결과와 구분한다.
+      - [ ] **`crop-greenhouse-ventilation-management-program`** — 다음 한 단계. 새 RK 구간과 기존 원자 관리의 경계 순서,
+        선택 출력·25연속/6사건 장부·전역 수지/환기 분할을 새 program identity로 묶는다.
+        수용: 초기/중간/마지막 관리·적엽 뒤 바뀐 수관/온도·독립 원량/장부·0환기 호환·hold prefix/원본/자원.
+      - [ ] **`crop-greenhouse-ventilation-continuation-utc`** — 위 program을 새 immutable context/checkpoint/UTC 판본으로 결속.
+        수용: 임의 chunk 분할의 정확 동일성·fresh trusted digest 복원/과거 적분0·25장부/6사건/UTC·혼합 판본 거부.
+        기존 context는22장부/고정 forcing을 요구하므로 새 항을 끼워 넣지 않는다.
+      - [ ] **`crop-greenhouse-ventilation-storage-current-api`** — 새 입력/QC·권리/서버 custody·불변 page/결과 등록·현재 조회 계약.
+        수용: 원 bytes/수치/UTC·현재 농장/권리·새 판본 식별·조회 계산0·중단/재개/원 결과 보존·실제 SCRAM/TLS.
+      - [ ] **`crop-greenhouse-ventilation-worker-web-activation`** — 기존 작업 임대/자동 소비·typed client·같은 UTC3D에 새 판본 연결.
+        수용: 실제 worker/사용자 DB 접수→running 부분 결과/완료·hold/취소·재접속·원 값/WebGL·두 UI/WSL 보존.
     - [ ] **`crop-greenhouse-radiation-par`** — 원문 incident/absorbed PAR·cover/floor 반사와 PAR/NIR 열 경계.
       crop의 above-canopy 입력에 흡수 PAR을 넣어 차광을 이중 적용하지 않는다.
       명시 광학 입력/권리·단위·독립 분배/극한/수지와 새 identity를 수용하며 총 일사 예측 주장은 별도다.

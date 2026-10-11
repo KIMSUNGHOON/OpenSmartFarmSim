@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**계산 개발 — 2026-10-11:** [순수 환기 현열/수증기 경계](../research/crop-greenhouse-ventilation-implementation-20261011.md)를 핵심5파일·새50/기존86=136검사·독립36수치로 로컬 수용했다. 동적 stage 연결→새 저장/API/같은 UTC3D 배포는 후속이며 전체 온실 결합/실제 생산 관문은 미완료다. 현재 사용자 UI는 아래 A2 범위다.
+**계산 개발 — 2026-10-11:** [환기의 현재 공동 stage 적분](../research/crop-greenhouse-ventilation-joint-implementation-20261011.md)을 핵심5파일·새51/기존180=231검사·독립816수치/72반분 비율로 로컬 수용했다. 관리/선택 출력 program→새25장부 context/UTC→저장/API/같은 UTC3D 배포는 후속이며 전체 온실 결합/실제 생산 관문은 미완료다. 현재 사용자 UI는 아래 A2 범위다.
 
 **현재 구현 상태 — 2026-10-11 21:19 KST:** [A2 연속 부분 결과3D](../research/crop-climate-joint-prefix-advance-browser-20261011.md)를 합성128초 범위로 수용했다.
 같은 사용자 DB의 실제 계산 중 원5시점·표/그래프/WebGL 갱신→완료 원9시점/3사건·재접속과 원 데이터/키/기존 권리·두 주소 복구를 확인했다.
