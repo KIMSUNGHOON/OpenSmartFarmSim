@@ -126,9 +126,14 @@ try{
     while(true){
       const drawing=await scene(page,'.joint-prefix-viewer');
       if(drawing&&drawing.cohorts&&!prefixSeen.some(v=>JSON.stringify(v.selector)===JSON.stringify(drawing.selector))){
-        prefixSeen.push(drawing);
+        prefixSeen.push(input.mode==='live-advance'?{...drawing,observed_wall_UTC:new Date().toISOString()}:drawing);
         if(input.mode!=='live-cancel'&&!screenshot){await page.locator('.joint-prefix-viewer .coupled-top-grid > section').first()
           .screenshot({path:join(input.directory,'running-prefix.png')});screenshot=true;}
+        if(input.mode==='live-advance'&&new Set(prefixSeen.map(v=>v.at)).size===2
+          &&prefixSeen.filter(v=>v.at===drawing.at).length===1){
+          await page.locator('.joint-prefix-viewer .coupled-top-grid > section').first()
+            .screenshot({path:join(input.directory,'running-prefix-advanced.png')});
+        }
       }
       if(input.mode==='live-cancel'&&prefixSeen.length&&!cancelRequested){
         cancelResponsesAtSend=responses.filter(r=>r.url.endsWith('/cancel')).length;cancelAttempts++;
@@ -157,6 +162,17 @@ try{
       assert(samplePage&&eventPage,'same-selector original sample and event prefix200 required');
       assert(['queued','simulating'].includes(samplePage.value.job.state));matches(drawing,samplePage.value.page.records);
       assert.deepEqual(drawing.eventTimes,eventPage.value.page.records.map(r=>r.time.at));
+    }
+    if(input.mode==='live-advance'){
+      const advancing=prefixSeen.filter((v,i,all)=>all.findIndex(other=>other.at===v.at)===i);
+      assert(advancing.length>=2,'must observe at least two distinct original UTC samples while running');
+      for(let i=1;i<advancing.length;i++){
+        const before=advancing[i-1],after=advancing[i];
+        assert(after.at>before.at,'selected original UTC must advance');
+        assert(after.selector.publication_sequence>before.selector.publication_sequence,'accepted publication must advance');
+        assert.notDeepEqual({values:after.values,carbon:after.carbon,number:after.number},
+          {values:before.values,carbon:before.carbon,number:before.number},'original quantities must change');
+      }
     }
     if(input.mode==='live-cancel'){
       assert.equal(await page.locator('.joint-prefix').count(),0);
@@ -245,6 +261,8 @@ try{
     viewport:{width:1024,height:768,deviceScaleFactor:0.5},running_prefix_acceptance:input.mode!=='profile',test_checkpoint_pause:false,
     initial_empty_no_scene:initialEmpty,current_rights_revocation:rightsRevocation,
     owned_Node_gc_250ms_calls:gcCalls,response_capture:'actual_fetch_Response_clone_bytes',API_mocking:false};
+  if(input.mode==='live-advance')record={...record,advancing_running_samples:[...new Set(prefixSeen.map(v=>v.at))],
+    multiple_advancing_running_samples_verified:true};
   progress('accepted-case');await context.close();
 }finally{
   await browser.close();save('browser-responses.private.json',responses);

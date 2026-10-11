@@ -1,0 +1,117 @@
+{
+  "A1_input_replay_accepted": true,
+  "A2_actual_browser_accepted": false,
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "actual_tool_exit": 0,
+  "domestic_independent_datasets": 0,
+  "guard": {
+    "G0_G4": "not_assessed",
+    "RSS_samples": 10,
+    "actual_child_exit": 0,
+    "actual_crop_Runs": 0,
+    "combined_peak_RSS_bytes": 707489792,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "frontend_status": 200,
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "known_invalid_test_passfiles_removed": 0,
+    "log_sha256": "4e91420d4e543df1f56c541ab88d59902984b3f9a14dec9c5ff9acb66239c077",
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 4,
+    "reason": null,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 136712192,
+    "source_count": 1915,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining": [],
+    "user_previews_maintenance_window": false,
+    "wall_seconds": 2.704512149000948
+  },
+  "holds": [
+    "actual multiple advancing original UTC scenes unverified",
+    "new input farm/policy admission and user activation pending",
+    "full season/UI/independent farm and G0-G4 gates unaccepted"
+  ],
+  "live_advance_mode_executed": false,
+  "native_Codex_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "scope": "native CLI development/input and observation-contract review",
+    "timestamp": "2026-10-11T11:45:44.662Z",
+    "turn_context_sha256": "874b8d476241c89afe78d5fede0fe6a72963e60d15c42c27a082a64bf15b009e"
+  },
+  "not_run": [
+    "actual live-advance browser",
+    "user service restart or input activation",
+    "new product build",
+    "whole CI or remote"
+  ],
+  "original_tool": 88508,
+  "preflight": {
+    "G0_G4": "not_assessed",
+    "context_sha256": "d05ede5ee5976727335206b7dd69049d53e423afb1cec8033713105b547d18c0",
+    "duration_seconds": 128,
+    "event_count": 3,
+    "evidence_sha256": "c86be0b7d2c930b74d04f570af74386fc97c839b87e325e9941e384c73027277",
+    "model_RHS_executed": true,
+    "new_source_sha256": "ec31bd1f8173d978edcb4fb2d3ae606842f835cca900b675d7e08587fabb8b25",
+    "no_hold": true,
+    "observed_at": "2026-10-11T11:52:31.559618+00:00",
+    "old_source_sha256": "6dfbe10947ab18417d23bd5da4c63eea28e123b9bcada04506aeb714d97608a4",
+    "restored_chunks": 9,
+    "result_sha256": "62be38d6b9708a3e2b56bec5c323086f2092e75c96653adb90328f7706920987",
+    "same_parameters_profiles_events_and_origin": true,
+    "sample_UTC": [
+      "2026-10-01T00:00:00.123456Z",
+      "2026-10-01T00:00:16.123456Z",
+      "2026-10-01T00:00:32.123456Z",
+      "2026-10-01T00:00:48.123456Z",
+      "2026-10-01T00:01:04.123456Z",
+      "2026-10-01T00:01:20.123456Z",
+      "2026-10-01T00:01:36.123456Z",
+      "2026-10-01T00:01:52.123456Z",
+      "2026-10-01T00:02:08.123456Z"
+    ],
+    "sample_count": 9,
+    "step_count": 64,
+    "step_seconds": 2,
+    "time_binding_sha256": "7a0e007d4b3cf9de7c00b40b6bfe9d4d76f5f3aa4d8341b62c7bbb7f2d2364ba",
+    "user_job_submitted": false,
+    "user_runtime_modified": false,
+    "wall_seconds": 1.6555554560000019,
+    "whole_chunks": 1,
+    "whole_equals_chunk8_restored_exactly": true,
+    "worker_delay_or_pause": false
+  },
+  "private_original_results_sha256": "62be38d6b9708a3e2b56bec5c323086f2092e75c96653adb90328f7706920987",
+  "reference_MJS_sha256": "61f8d8dea7396d02f14f47b5da23b40d1f177d7c0eb51d3aa56c54297fb5d7ab",
+  "schema_version": "1",
+  "scope": "synthetic128s input replay and advancing-browser observation contract; no actual advancing browser acceptance",
+  "syntax_check_exit": 0,
+  "terminal_sha256": "6b294e8f7a6950c1574c1373d9def103f08bf77d7ea692046fd9b501000f419a",
+  "user_previews_preserved": {
+    "current_runs": [
+      "run-v10",
+      "serve-v10"
+    ],
+    "new_user_jobs": 0,
+    "ports_HTTP200": [
+      5173,
+      5174
+    ],
+    "protected_roots_live": 4,
+    "user_runtime_or_rights_changed": false
+  }
+}
