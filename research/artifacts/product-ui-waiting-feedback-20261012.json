@@ -1,0 +1,364 @@
+{
+  "task": "product-ui-waiting-feedback",
+  "status": "accepted_current_progress_UI_only",
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-11T21:32:41.546Z",
+    "raw_line_sha256": "444a98c88509a98f1fa111059d12be97ed60831f2817bd4a636aaf9cbdb2801c",
+    "same_native_CLI_session": true,
+    "recursive_cli_invocations": 0
+  },
+  "record": {
+    "reported_at": "2026-10-11T22:04:42.255853Z",
+    "sha256": "dfda38ff14af396cfe017dab7f93ee35d4dcf4fbbbb0420cffc6f10292742e6f",
+    "remaining_focused_hours": {
+      "min": 3,
+      "max": 6
+    },
+    "new_model_deployed": false,
+    "real_farm_runs": 0,
+    "full_product_completion": null
+  },
+  "frontend_URLs": [
+    "http://localhost:5173/",
+    "http://localhost:5174/#crop-execution"
+  ],
+  "actual_browser": {
+    "actual_both_HTTP": true,
+    "actual_same_source_record": true,
+    "actual_original_DOM": true,
+    "stage_count": 5,
+    "authentication_required": false,
+    "real_automatic_second_poll": true,
+    "record_time": "2026-10-11T22:04:42.255853Z",
+    "record_sha256": "dfda38ff14af396cfe017dab7f93ee35d4dcf4fbbbb0420cffc6f10292742e6f",
+    "new_model_deployed": false,
+    "remaining_focused_hours": {
+      "min": 3,
+      "max": 6
+    },
+    "full_product_completion": null,
+    "API_writes": 0,
+    "credentialed_status_requests": 0,
+    "pageerrors": []
+  },
+  "mobile": {
+    "5173": {
+      "viewport": 390,
+      "scroll": 390
+    },
+    "5174": {
+      "viewport": 390,
+      "scroll": 390
+    }
+  },
+  "screenshots": {
+    "5173_desktop": {
+      "path": "research/artifacts/product-ui-waiting-feedback-5173-desktop-20261012.png",
+      "sha256": "7dd5127ba5a947ddfec5f62ca213b6049eeff1d5f4ae2e14faeb042d14e2d71c"
+    },
+    "5173_mobile": {
+      "path": "research/artifacts/product-ui-waiting-feedback-5173-mobile-20261012.png",
+      "sha256": "359a4620f470a01490d5a2414241914f6b8205c5f3d24d37dbcc41555ab43db0"
+    },
+    "5174_desktop": {
+      "path": "research/artifacts/product-ui-waiting-feedback-5174-desktop-20261012.png",
+      "sha256": "6cd9da7ad93c08a9c8c5e8297391d6ffafb5c30c57ce893ab1c868fe09f036ae"
+    },
+    "5174_mobile": {
+      "path": "research/artifacts/product-ui-waiting-feedback-5174-mobile-20261012.png",
+      "sha256": "772b6f6baa33aebdf2b2b7eea653f54ac264093d24bb740af3dd88d6b74aae2f"
+    }
+  },
+  "guards": {
+    "smoke-prefix-reader-v1": {
+      "original_tool_session": 80515,
+      "terminal_collected": true,
+      "terminal_sha256": "c90778e789ead60024829cb92cb22e94986307f41f31c081b9d2dbd0a4ae7d55",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 62.84451755500049,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "protected_live": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 143818752,
+      "combined_peak_RSS_bytes": 872890368,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-prefix-wire-v1": {
+      "original_tool_session": 13827,
+      "terminal_collected": true,
+      "terminal_sha256": "2f26ec74c701559b1c0443d9a804265b6a125026b0e53a3d7df9f5503ae2aba8",
+      "actual_child_exit": 2,
+      "reason": null,
+      "wall_seconds": 1.917545820993837,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "protected_live": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 136867840,
+      "combined_peak_RSS_bytes": 728285184,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-prefix-wire-v2": {
+      "original_tool_session": 5070,
+      "terminal_collected": true,
+      "terminal_sha256": "0a0a87fe7c4c129527a5ab73eb401d8da1386b9bee3d936bb53bf4f00504cf82",
+      "actual_child_exit": 1,
+      "reason": null,
+      "wall_seconds": 6.9415445730119245,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "protected_live": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 166322176,
+      "combined_peak_RSS_bytes": 838422528,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-prefix-wire-v3": {
+      "original_tool_session": 3862,
+      "terminal_collected": true,
+      "terminal_sha256": "3d056939122010e2445296f286730c3a3849333d29edc1d240603252db521337",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 8.499590976993204,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "protected_live": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 163803136,
+      "combined_peak_RSS_bytes": 876494848,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-user-progress-browser-v1": {
+      "original_tool_session": 93488,
+      "terminal_collected": true,
+      "terminal_sha256": "137fdd65bd06e7b99d97d4bfd7fa0a5dc796bf90079c50f7be8849327e8e2189",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 39.5043955190049,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "protected_live": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 248524800,
+      "combined_peak_RSS_bytes": 992854016,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-prefix-native-projection-http-v1": {
+      "original_tool_session": 97895,
+      "terminal_collected": true,
+      "terminal_sha256": "a88af22fe5ab477b16e2691d7448aeb263e6ced8eeb02bf810f825fdb892fb60",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 85.2079463639966,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "protected_live": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 162811904,
+      "combined_peak_RSS_bytes": 908353536,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-prefix-runtime-config-v1": {
+      "original_tool_session": 51560,
+      "terminal_collected": true,
+      "terminal_sha256": "58d6a3b1e742d6868bc2616defc9ab2f26a67debc599380ae7ccb1931cc193b7",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 5.075952947998303,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "protected_live": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 138706944,
+      "combined_peak_RSS_bytes": 853934080,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-prefix-unpaused-normal-v1": {
+      "original_tool_session": 48251,
+      "terminal_collected": true,
+      "terminal_sha256": "59344212d14d79a34690bc392dbe3a2539120441c35ae4b3376a86434fb5ca65",
+      "actual_child_exit": 1,
+      "reason": "RSS_limit",
+      "wall_seconds": 82.1200971060025,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "protected_live": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 167845888,
+      "combined_peak_RSS_bytes": 1080586240,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-prefix-traced-unpaused-v1": {
+      "original_tool_session": 77473,
+      "terminal_collected": true,
+      "terminal_sha256": "f9ab6f3abf6b655ec0d7236002792a0de74d5e8e24e0bdc5301a3504ea250ee3",
+      "actual_child_exit": 1,
+      "reason": "RSS_limit",
+      "wall_seconds": 208.88772004099155,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "protected_live": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 160985088,
+      "combined_peak_RSS_bytes": 1086992384,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    "focused-user-progress-current-v2": {
+      "original_tool_session": 67159,
+      "terminal_collected": true,
+      "terminal_sha256": "a0effbb54b961411c2e2c8ca0f5c71d2d9ddc3f9d643a6b1ea7c535a6d34ec99",
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 21.092079998998088,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "protected_live": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 263176192,
+      "combined_peak_RSS_bytes": 998440960,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    }
+  },
+  "preservation": {
+    "checked_at": "2026-10-11T22:08:04.693971+00:00",
+    "old_files_unchanged": 276,
+    "explicit_shared_changes": {
+      "backend/app/api.py": {
+        "before": "f035a0158c63074ed15ab47710f270b861bd2567b8bc57b98d925a96dba8b755",
+        "after": "d9b7be2c7e6fd27909556784e3180bbcee8086bb49619c0cdafc7bc873f278c3"
+      },
+      "backend/app/api_runtime.py": {
+        "before": "87f1afbd2c91c0f31c064f3165c50efd02ab694d285dbd380e265d88c913026e",
+        "after": "d0a5e4732842ea9e3d1857c64cec56642f8be811afaa815be83deaf9b31f0116"
+      },
+      "backend/app/crop_greenhouse_ventilation_operator_config.py": {
+        "before": "a4b809c730b4c5d72fd6fea4db2f145d3894afc5f0b6cdd56699d346a4ff535f",
+        "after": "6592523e03620fa113065e9316d509ccb46515ed7e08f360e8bde118b5253d62"
+      }
+    },
+    "terminal_web_core_files_unchanged": 8,
+    "current_assets_unchanged": 172,
+    "protected_roots_live": 4,
+    "legacy_entry_script_config_preserved": true,
+    "user_service_restart": false,
+    "frontends": {
+      "5173": {
+        "status": 200,
+        "index_sha256": "b90e2a960b2345952c47eac7f8acafe7b2a39f6ff8ba7d3cd9b29b0216ddd094"
+      },
+      "5174": {
+        "status": 200,
+        "index_sha256": "6ddc5d81e4517375bb6201cd0bd9739785d07b7d4d0e28bf842a55c7f8ade363"
+      }
+    },
+    "same_progress_HTTP_sha256": "dfda38ff14af396cfe017dab7f93ee35d4dcf4fbbbb0420cffc6f10292742e6f"
+  },
+  "prefix_API_accepted": false,
+  "passing_prefix_checks": {
+    "reader_actual_scram": 1,
+    "public_projection_HTTP_control": 204,
+    "actual_scram_verified_TLS_original_pages": 1,
+    "strict_runtime_configuration": 42
+  },
+  "unpaused_observed_same_selector_events_samples_200_pairs": 3,
+  "unpaused_normal_terminal_accepted": false,
+  "unpaused_422_independent_cause": "unresolved; resource termination and worker hold were also observed",
+  "diagnostic_small_PG": {
+    "shared_buffers": "16MB",
+    "max_connections": 32,
+    "user_or_production_PG_modified": false,
+    "accepted": false
+  },
+  "remaining_order": [
+    "bounded_WSL_native_prefix_API_validation",
+    "actual_running_original_values_UTC_WebGL",
+    "user_activation_and_preservation"
+  ],
+  "G0_G4": "not_assessed",
+  "remote_CI_run": false,
+  "recursive_CLI_invocations": 0
+}

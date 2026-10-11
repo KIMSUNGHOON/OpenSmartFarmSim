@@ -1,5 +1,7 @@
 # OpenSmartFarmSim 제품 명세
 
+**현재 사용자 표시/일정 — 2026-10-12 07:04 KST:** [현재 개발 기록 재확인](../research/product-ui-waiting-feedback-20261012.md).5173상단/5174에서 같은 기록을 인증 없이15초마다 조회한다. 완료 결과3D는 검증됐고 새 모델은 미배포다. 자동 실행 검증이 WSL 메모리 상한에 걸려 자원 내 부분 API 검증→계산 중3D→사용자 적용을3–6집중시간으로 재산정했다. 전체 작기·생산량/자원/경제·최종 UI와 독립 농장 자료/관문의 완료일은 미정이다. 아래 날짜별 기록은 해당 시점의 상태다.
+
 **실행 API/서버 — 2026-10-12:** [접수·진행·취소 연결](../research/crop-greenhouse-ventilation-execution-http-runtime-implementation-20261012.md)을 고유377검사/실제 DB·HTTPS·독립 작업자19·원 체크포인트/UTC·정상/보류·취소·현재 권리·기존 모델/두 UI/최종 보존으로 로컬 수용했다. 다음은 완료 결과3D→확정 부분 조회/3D→사용자 적용이다. 합성32초·새 모델 미배포이며 남은2–5집중시간, 전체 제품 완료일 미정을 유지한다.
 
 **자동 계산 핵심 — 2026-10-12:** [환기 모델 접수·자동 실행](../research/crop-greenhouse-ventilation-execution-core-implementation-20261012.md)을 고유91검사(기존 소비자77/실제 DB·독립 프로세스14)·정상/보류·취소/강제 종료 재개·원자 저장·현재 권리·두 UI/WSL 보존으로 로컬 수용했다. [접수·진행·취소 API/서버](../research/crop-greenhouse-ventilation-execution-http-runtime-implementation-20261012.md)도377검사로 확인했다. 다음은 완료 결과3D→확정 부분 조회/3D→사용자 적용이다. 합성32초이며 새 모델 사용자 배포·전체 제품 완료는 미수용이다.

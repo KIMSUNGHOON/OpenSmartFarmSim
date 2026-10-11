@@ -1,36 +1,36 @@
 {
   "schema_version": "development-status-v1",
-  "reported_at": "2026-10-11T21:25:12.812496Z",
+  "reported_at": "2026-10-11T22:04:42.255853Z",
   "stages": [
     {
       "id": "growth",
       "state": "completed",
-      "evidence": "합성 입력의 생장·환기 계산과 원 UTC 검증 완료"
+      "evidence": "합성 입력으로 작물 생장·시설 환기의 수식 계산을 검증했습니다. 실제 농장의 생육 정확도 검증은 별도로 남아 있습니다."
     },
     {
       "id": "storage",
       "state": "completed",
-      "evidence": "실제 DB 저장·현재 조회·rollback: 새19/기존1, 총20그룹 통과"
+      "evidence": "계산 결과를 DB에 저장하고 같은 시각의 원 수치를 다시 읽는 검증을 마쳤습니다."
     },
     {
       "id": "api",
       "state": "completed",
-      "evidence": "결과 조회 API232검사·명시 서버239검사에 이어 새 계산의 접수·진행 조회·취소 API/서버도377검사를 통과했습니다. 사용자 화면 적용은 후속입니다."
+      "evidence": "완료 결과 조회와 신규 계산의 시작·진행 조회·취소 연결을 검증했습니다. 새 모델의 사용자 화면 적용은 후속입니다."
     },
     {
       "id": "execution_3d",
       "state": "next",
-      "evidence": "완료·보류 저장 결과3D는 실제 DB·HTTPS 원 응답6개·웹254검사·Chromium12경로/같은 UTC·수치/WebGL을 통과했습니다. 다음은 확정 부분 API→계산 중3D입니다. 새 모델 미배포."
+      "evidence": "완료 결과의3D 검증은 통과했습니다. 현재는 계산 중 결과 연결을 검증 중입니다. 자동 실행에서 원 부분 결과를 관측했지만, WSL 메모리 보호 상한으로 시험이 종료되어 전체 검증을 아직 통과하지 못했습니다."
     },
     {
       "id": "activation",
       "state": "pending",
-      "evidence": "두 화면 복구·원 DB/결과/권리/키 보존을 확인했습니다. 계산 중3D 검증 뒤 실제 사용자 서버에 새 모델을 적용합니다. 전체 작기/생산·자원·경제·최종 UI·독립 농장 자료는 미완료입니다."
+      "evidence": "남은 순서: ① WSL 자원 내 자동 실행·중간 결과 API 검증 ② 실행 중 원 수치·시각·3D 검증 ③ 사용자 서버 적용. 추가 검증 창을 반영해 기존2–5시간을3–6집중시간으로 재산정했습니다. 실제 자료·생산량·자원·경제·최종 UI는 후속입니다."
     }
   ],
   "remaining_focused_hours": {
-    "min": 2,
-    "max": 5
+    "min": 3,
+    "max": 6
   },
   "new_model_deployed": false,
   "real_farm_runs": 0,
