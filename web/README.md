@@ -41,6 +41,7 @@
 [P6b 실제 사용자 기동](../research/crop-climate-joint-prefix-user-activation-20261011.md)→
 [A2 연속 시점 전진](../research/crop-climate-joint-prefix-advance-browser-20261011.md)을 각각 기록했다.
 개발·검증용 별도 DB에서 실행한 작업은 이 사용자 DB에 자동 노출되지 않는다.
+새로 개발한 [순간 환기 함수](../research/crop-greenhouse-ventilation-implementation-20261011.md)도 현재 UI에 미배포다. 공동 stage 계산→새 저장/API/같은 UTC3D→사용자 기동의 수용 뒤 연결한다.
 기존5173은 아래의 완료166일 저장 재생용으로 유지한다. 두 주소의 통합/최종 U0–U5와 전체 U3는 미완료다.
 현재3D는 저장 LAI·과실 구획·온도의 수치 모식도이며 최종 디자인·G0–G4·실제 생산/미래 마진/추천 보류는 유지한다.
 

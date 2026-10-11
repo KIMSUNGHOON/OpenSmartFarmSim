@@ -2,6 +2,12 @@
 
 ## 현재 구현 우선순위 — 2026-10-11
 
+[순수 환기 현열/수증기](../research/crop-greenhouse-ventilation-implementation-20261011.md)를21:44 KST에 로컬 수용했다.
+핵심5파일·새50/기존86=136검사·독립36수치와 실제 공동 RHS의 순간 합성을 통과했다.
+다음 한 단계는 같은 현재 RK stage의 재계산/새 identity·독립 궤적/수렴/전역 장부다.
+잠정2–4집중시간의 작업 분해는 아래 온실 경계 표를 따른다. 그 뒤 새 저장/현재 권리 API/같은 UTC3D를 별도 수용한다.
+이 환기 함수는 현재 UI에 미배포이며 사용자 화면은 다음 A2 범위를 유지한다.
+
 [A2 실제 연속 갱신/사용자 연결](../research/crop-climate-joint-prefix-advance-browser-20261011.md)을21:19 KST에 수용했다.
 [A1](../research/crop-climate-joint-prefix-advance-input-20261011.md)의 같은 모델/계수·새128초 입력을 정상 재기동으로 연결했다.
 실제 자동 계산 중 서로 다른 원 UTC5개·표/그래프/WebGL→완료 원9시점/3사건·재접속을 확인했고 모두 DB 종료 시각 이전이었다.
@@ -1080,7 +1086,10 @@ flowchart TD
 | 짧은 공동 적분 | 새108상태/22장부·명시 forcing/RGR·초 단위 shared stage·수렴/hold | [2026-10-10 수용](../research/crop-climate-joint-integration-implementation-20261010.md). 새44/기존463=507개·32초6사례/독립798수치/60수렴 비율. 전체 작기 외삽은 보류 |
 | 원자적 관리 사건 | 부분 적엽/과실·줄기 제거와 U/C·탄소/개수/제거 열·출력 순서 | [2026-10-10 수용](../research/crop-climate-joint-management-implementation-20261010.md). 새69/기존507=576개·독립3,728수치/60수렴 비율; 순수 사건/명시 시험 구성 범위 |
 | 자동 구간/사건 구성 | 명시 격자·108상태/연속22장부/사건6합계·전역7수지·사건 후 출력/실패 prefix | [2026-10-10 수용](../research/crop-climate-joint-boundary-implementation-20261010.md). 새72/기존576=648개·9프로그램/독립5,973수치/60수렴 비율. 이전0.5–2집중시간 추정은 원20분 개발/검토·19.489초 회귀/24.856초 root로 갱신 |
-| 온실 경계/복사·CO₂·기공 | 명시 열/물/CO₂ 저장·출입과 PAR/흡수 복사 경로, 단위/근거·수지 | 고정 LAI 자식 뒤 병행 조사 가능; source 단위 불일치·실제 시설/계측 입력은 별도 hold |
+| 순수 환기 현열/수증기 | 명시 f·현재 공기 온도/수증기 질량·실외 T/vp·같은 Rv → 부호 Q/Fv·별도 잠열 장부 | [2026-10-11 로컬 수용](../research/crop-greenhouse-ventilation-implementation-20261011.md): 새50/기존86=136통과·독립6사례/36수치. 순간식이며 사용자 UI 미배포 |
+| 환기의 공동 stage 연결 | 현재 stage Tair/m_v로 재계산·새 identity·독립 궤적/수렴·전역 장부/hold | 다음 한 단계. 계약/adapter0.5–1집중시간 + 독립 궤적/수렴1–2시간 + 집중 검증/보존0.5–1시간 = 잠정2–4시간. 실제 비용/실패 관측 시 갱신 |
+| 새 환기 결과의 저장/API/3D | 새 model/context/입력 → writer/현재 권리 API → 같은 UTC 표/그래프/3D → 실제 worker/브라우저/사용자 서버 | 위 stage 수용 뒤 단계별 검증. 개발 DB 결과를 자동 게시하지 않으며 배포 뒤 같은 사용자 DB의 접수 작업을 자동 갱신. 전체 견적은 stage 비용 관측 뒤 갱신 |
+| 복사/PAR·CO₂·기공·시설 환기량 | above-canopy PAR/흡수 열·NIR, CO₂ 질량/ppm·기공, 바람/창/형상의 명시 경계 | [원문 검토/남은 입력](../research/crop-greenhouse-boundary-source-review-20261011.md). PAR 이중 차광·sRsSlope 단위·현장 광학/시설/계측은 별도 hold; 독립 농장 자료 확보와 병행 |
 | 새 분할 실행/복원 | immutable context/seed·108상태/연속22·사건6/전역 수지·경계 cursor·source/수치 identity | [2026-10-10 수용](../research/crop-climate-joint-continuation-implementation-20261010.md). 새138/기존648=786개·독립5,973/60비율·fresh 남은8걸음/1사건; 약21분 개발/검토·66.565초 회귀/33.022초 root |
 | 새 UTC 결속 | 명시 origin/시각 정밀도·elapsed 원 격자/UTC를 새 identity에 결속·재계산0/원량 보존 | [2026-10-10 수용](../research/crop-climate-joint-time-implementation-20261010.md). 새130/기존786=916개·독립272시각/원5,076수치·23선행 파일/원본 보존·fresh 수치 호출0. 최종80.356초/root7.207초 |
 | 새 불변 페이지 저장/fresh 읽기 | UTC binding·원 source/checkpoint와64sample/8event 페이지·불변 manifest·읽기 RHS0 | [2026-10-10 수용](../research/crop-climate-joint-storage-implementation-20261010.md). 새77/기존916=993개·원5,076수치/46시각·fresh 계산0·실제 HEAD 전후 SIGKILL/재개. 최대 페이지657,049/조회657,237bytes. 최종46.906/기존80.379/root15.409초 |

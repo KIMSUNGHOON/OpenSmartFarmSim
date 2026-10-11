@@ -1,0 +1,336 @@
+{
+  "G0_G4": "not_assessed",
+  "cases": [
+    {
+      "case_id": "cool_dry",
+      "expected_decimal": {
+        "air_external_sensible_heat": "-144.000000",
+        "air_external_vapor": "-0.00013507377884406961863226339240299536748818641106137483328521656013844141746955482",
+        "indoor_vapor_density": "0.015",
+        "latent_energy": "-330.93075816797056564904531138733865034605670710036834154878057233918147280040931",
+        "outdoor_vapor_density": "0.0059950814103953587578491071731336421674542392625750111143188959907705721686963452",
+        "reduced_energy_to_air": "-474.93075816797056564904531138733865034605670710036834154878057233918147280040931"
+      },
+      "scenario": {
+        "forcing": {
+          "outdoor_air_temperature": {
+            "unit": "degC",
+            "value": 16.0
+          },
+          "outdoor_vapor_pressure": {
+            "unit": "Pa",
+            "value": 800.0
+          },
+          "volume_exchange_per_floor_area": {
+            "unit": "m3/m2_floor/s",
+            "value": 0.015
+          }
+        },
+        "input_id": "cool_dry",
+        "origin": "synthetic",
+        "parameters": {
+          "air_capacity_density": {
+            "unit": "kg_air/m3",
+            "value": 1.2
+          },
+          "air_volume_per_floor_area": {
+            "unit": "m3/m2_floor",
+            "value": 4.0
+          },
+          "vapor_gas_constant": {
+            "unit": "J/kg_water/K",
+            "value": 461.5
+          }
+        },
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 24.0
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.06
+          }
+        }
+      }
+    },
+    {
+      "case_id": "warm_moist",
+      "expected_decimal": {
+        "air_external_sensible_heat": "96.000000",
+        "air_external_vapor": "0.000094506762238672544939834882379073309146526133989683341580879890598738302259779792",
+        "indoor_vapor_density": "0.0083333333333333333333333333333333333333333333333333333333333333333333333333333333",
+        "latent_energy": "231.54156748474773510259546182872960740898902827472418687315573196690884053646049",
+        "outdoor_vapor_density": "0.020146678613167401450812693630717496976649100082043751030943319658175621115805807",
+        "reduced_energy_to_air": "327.54156748474773510259546182872960740898902827472418687315573196690884053646049"
+      },
+      "scenario": {
+        "forcing": {
+          "outdoor_air_temperature": {
+            "unit": "degC",
+            "value": 28.0
+          },
+          "outdoor_vapor_pressure": {
+            "unit": "Pa",
+            "value": 2800.0
+          },
+          "volume_exchange_per_floor_area": {
+            "unit": "m3/m2_floor/s",
+            "value": 0.008
+          }
+        },
+        "input_id": "warm_moist",
+        "origin": "synthetic",
+        "parameters": {
+          "air_capacity_density": {
+            "unit": "kg_air/m3",
+            "value": 1.2
+          },
+          "air_volume_per_floor_area": {
+            "unit": "m3/m2_floor",
+            "value": 3.0
+          },
+          "vapor_gas_constant": {
+            "unit": "J/kg_water/K",
+            "value": 461.5
+          }
+        },
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 18.0
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.025
+          }
+        }
+      }
+    },
+    {
+      "case_id": "zero_exchange",
+      "expected_decimal": {
+        "air_external_sensible_heat": "-0.0000",
+        "air_external_vapor": "-0E-83",
+        "indoor_vapor_density": "0.015",
+        "latent_energy": "-0E-84",
+        "outdoor_vapor_density": "0.0059950814103953587578491071731336421674542392625750111143188959907705721686963452",
+        "reduced_energy_to_air": "-0E-84"
+      },
+      "scenario": {
+        "forcing": {
+          "outdoor_air_temperature": {
+            "unit": "degC",
+            "value": 16.0
+          },
+          "outdoor_vapor_pressure": {
+            "unit": "Pa",
+            "value": 800.0
+          },
+          "volume_exchange_per_floor_area": {
+            "unit": "m3/m2_floor/s",
+            "value": 0.0
+          }
+        },
+        "input_id": "zero_exchange",
+        "origin": "synthetic",
+        "parameters": {
+          "air_capacity_density": {
+            "unit": "kg_air/m3",
+            "value": 1.2
+          },
+          "air_volume_per_floor_area": {
+            "unit": "m3/m2_floor",
+            "value": 4.0
+          },
+          "vapor_gas_constant": {
+            "unit": "J/kg_water/K",
+            "value": 461.5
+          }
+        },
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 24.0
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.06
+          }
+        }
+      }
+    },
+    {
+      "case_id": "dry_equilibrium",
+      "expected_decimal": {
+        "air_external_sensible_heat": "0.000000",
+        "air_external_vapor": "0.000",
+        "indoor_vapor_density": "0",
+        "latent_energy": "0.0000",
+        "outdoor_vapor_density": "0E+2",
+        "reduced_energy_to_air": "0.000000"
+      },
+      "scenario": {
+        "forcing": {
+          "outdoor_air_temperature": {
+            "unit": "degC",
+            "value": 24.0
+          },
+          "outdoor_vapor_pressure": {
+            "unit": "Pa",
+            "value": 0.0
+          },
+          "volume_exchange_per_floor_area": {
+            "unit": "m3/m2_floor/s",
+            "value": 0.015
+          }
+        },
+        "input_id": "dry_equilibrium",
+        "origin": "synthetic",
+        "parameters": {
+          "air_capacity_density": {
+            "unit": "kg_air/m3",
+            "value": 1.2
+          },
+          "air_volume_per_floor_area": {
+            "unit": "m3/m2_floor",
+            "value": 4.0
+          },
+          "vapor_gas_constant": {
+            "unit": "J/kg_water/K",
+            "value": 461.5
+          }
+        },
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 24.0
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "isothermal_humidity_gradient",
+      "expected_decimal": {
+        "air_external_sensible_heat": "0.000000",
+        "air_external_vapor": "-0.000051556662617728660629173245507292190216591749463893991839047331009705966158462053",
+        "indoor_vapor_density": "0.01",
+        "latent_energy": "-126.31382341343521854147445149286586603064978618654028000566596097377961708823203",
+        "outdoor_vapor_density": "0.0065628891588180892913884502995138539855605500357404005440635112660196022561025298",
+        "reduced_energy_to_air": "-126.31382341343521854147445149286586603064978618654028000566596097377961708823203"
+      },
+      "scenario": {
+        "forcing": {
+          "outdoor_air_temperature": {
+            "unit": "degC",
+            "value": 24.0
+          },
+          "outdoor_vapor_pressure": {
+            "unit": "Pa",
+            "value": 900.0
+          },
+          "volume_exchange_per_floor_area": {
+            "unit": "m3/m2_floor/s",
+            "value": 0.015
+          }
+        },
+        "input_id": "isothermal_humidity_gradient",
+        "origin": "synthetic",
+        "parameters": {
+          "air_capacity_density": {
+            "unit": "kg_air/m3",
+            "value": 1.2
+          },
+          "air_volume_per_floor_area": {
+            "unit": "m3/m2_floor",
+            "value": 4.0
+          },
+          "vapor_gas_constant": {
+            "unit": "J/kg_water/K",
+            "value": 461.5
+          }
+        },
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 24.0
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.04
+          }
+        }
+      }
+    },
+    {
+      "case_id": "source_vapor_constant",
+      "expected_decimal": {
+        "air_external_sensible_heat": "-144.000000",
+        "air_external_vapor": "-0.00013514949252558171036183708149811648368498294648346692363527840610736686647388870",
+        "indoor_vapor_density": "0.015",
+        "latent_energy": "-331.11625668767519038650084967038538502820821888449396290643209496304882286102732",
+        "outdoor_vapor_density": "0.0059900338316278859758775279001255677543344702344355384243147729261755422350740864",
+        "reduced_energy_to_air": "-475.11625668767519038650084967038538502820821888449396290643209496304882286102732"
+      },
+      "scenario": {
+        "forcing": {
+          "outdoor_air_temperature": {
+            "unit": "degC",
+            "value": 16.0
+          },
+          "outdoor_vapor_pressure": {
+            "unit": "Pa",
+            "value": 800.0
+          },
+          "volume_exchange_per_floor_area": {
+            "unit": "m3/m2_floor/s",
+            "value": 0.015
+          }
+        },
+        "input_id": "source_vapor_constant",
+        "origin": "synthetic",
+        "parameters": {
+          "air_capacity_density": {
+            "unit": "kg_air/m3",
+            "value": 1.2
+          },
+          "air_volume_per_floor_area": {
+            "unit": "m3/m2_floor",
+            "value": 4.0
+          },
+          "vapor_gas_constant": {
+            "unit": "J/kg_water/K",
+            "value": 461.8888888888889
+          }
+        },
+        "state": {
+          "air_temperature": {
+            "unit": "degC",
+            "value": 24.0
+          },
+          "air_vapor_mass": {
+            "unit": "kg_water/m2_floor",
+            "value": 0.06
+          }
+        }
+      }
+    }
+  ],
+  "comparison": {
+    "absolute": 0,
+    "expected_zero": "exact",
+    "relative": 2e-14
+  },
+  "decimal_precision": 80,
+  "generator_sha256": "ec2411d308ab52197f8ac4a19ec1e2c71e495640ef25733285b67d241cc92e03",
+  "notice_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+  "numeric_inputs": "Decimal(str(explicit_binary64_input))",
+  "profile_sha256": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+  "schema_version": "prescribed-ventilation-decimal-reference-v1",
+  "scope": "self_authored_synthetic_math_only",
+  "source_sha256": "c0fb7a025533f15b80cb6cd60aafdc19be9fe42df6b8183cf97b83fc086138b3"
+}

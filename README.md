@@ -1,5 +1,7 @@
 # OpenSmartFarmSim
 
+**계산 개발 — 2026-10-11:** [순수 환기 현열/수증기](research/crop-greenhouse-ventilation-implementation-20261011.md)를 새50/기존86=136검사·독립36수치로 로컬 수용했다. 다음은 공동 적분의 매 stage 연결→새 저장/API/같은 UTC3D다. 이 새 함수는 아래 사용자 화면에 아직 배포하지 않았다.
+
 **현재 사용자 화면 — 2026-10-11 21:19 KST:** [A2 계산 중 연속 수치3D](research/crop-climate-joint-prefix-advance-browser-20261011.md)를 합성128초 범위로 수용했다.
 `http://localhost:5174/`에서 같은 DB의 계산 상태·확정 부분 결과를 자동 조회하며 실제 running 원5시점→완료 원9시점/3사건·재접속을 확인했다.
 정상 응답 뒤10초 대기와 서버 처리 시간이 추가되는 polling이다. 이번 장면 관측 간격은 약33–34초였다.

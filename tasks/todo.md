@@ -1640,6 +1640,30 @@
   - [ ] **`crop-climate-greenhouse-boundaries`** — 선행: 고정 LAI 동적 자식; 공동 RHS와 병행 조사 가능.
     복사/PAR·흡수 열, CO₂ 저장/출입·기공의 원문/계수·단위와 시설/제어 경계를 확정한다.
     원 sRsSlope 차원·현장/광/계측 미확인을 자동 보정하지 않는다. 명시 강제 입력 재생은 자동 온실 예측과 구별한다.
+    - [x] **`crop-greenhouse-ventilation`** — [원문/권리 검토](../research/crop-greenhouse-boundary-source-review-20261011.md)와
+      [새 핵심5파일 계약](../contracts/crop-greenhouse-ventilation-v1.md)의 순수 순간 환기 현열/수증기 경계.
+      명시 비음수 환기량·현재 공기 온도/수증기 질량·실외 온도/압력·부피/면적·같은 Rv에서
+      부호 Q/Fv와 별도 잠열 장부를 계산한다. 기존461.5의 선언된 변형과 원8314/18의 동등성을 구분한다.
+      [로컬 수용](../research/crop-greenhouse-ventilation-implementation-20261011.md): 새50/기존86=136통과,
+      독립 Decimal6사례/36수치·원 fixture bytes·실제 공동 RHS 순간 ΔTair'=Q/Cair·Δm_v'=Fv/7수지,
+      단위/domain/overflow/underflow hold와 기존228계산 파일/원본2,148·두 사용자 서버/자원 보존이다.
+      순간식만 수용하며 동적 stage 재계산·새 저장/API/3D 배포·현장 적용 관문은 아래 미완료다.
+    - [ ] **`crop-greenhouse-ventilation-joint-stages`** — 선행: 위 순간 경계와 공동 적분.
+      같은 RK stage의 현재 Tair/m_v로 환기를 다시 계산해 기존 다른 Q/Fv에 정확히 한 번 합성한다.
+      새 model/policy/context identity와 명시 실외/환기 입력을 계약하며 기존 checkpoint/결과는 보존한다.
+      수용: 독립 짧은 궤적·dt반분 수렴·현열/수증기/잠열과 전역 장부·0환기/부호/hold;
+      고정 forcing을 동적 환기로 보고하지 않는다. writer/API/UI는 다음 자식에서 별도 수용한다.
+    - [ ] **`crop-greenhouse-ventilation-stored-view`** — 선행: 위 stage 수용과 기존 저장/현재 조회/수치3D.
+      새 원 입력·모델 identity의 checkpoint/저장 결과를 현재 권리 API와 같은 UTC 표/그래프/3D로 잇는다.
+      수용: 저장 재계산0·원량/UTC·현재 권리·실제 worker/API/WebGL·완료/hold/취소/재접속·WSL 한도.
+      사용자 서버 전환 뒤 실제 접수한 작업만 자동 갱신하는지 확인하며 개발용 별도 DB 결과와 구분한다.
+    - [ ] **`crop-greenhouse-radiation-par`** — 원문 incident/absorbed PAR·cover/floor 반사와 PAR/NIR 열 경계.
+      crop의 above-canopy 입력에 흡수 PAR을 넣어 차광을 이중 적용하지 않는다.
+      명시 광학 입력/권리·단위·독립 분배/극한/수지와 새 identity를 수용하며 총 일사 예측 주장은 별도다.
+    - [ ] **`crop-greenhouse-co2-stomatal`** — CO₂ 질량/ppm·압력/온도/부피·광합성 sink와 기공 closure.
+      CH₂O/CO₂ 질량을 구분하고 원 sRsSlope 단위 불일치에 대한 검토된 정책·독립 참조를 요구한다.
+    - [ ] **`crop-greenhouse-facility-flow`** — 명시 시설 형상·풍속/창·screen·계수 근거/QC/권리 뒤 환기량 산출.
+      main/top 구획 감소와 ACH 변환을 별도 계약하고 실측 검증 전 예측/제어 관문은 유지한다.
   - [ ] **`crop-climate-joint-storage-replay`** — 선행: 짧은 공동 적분·해당 경계/입력 수용.
     새 continuation/context/checkpoint/불변 artifact→현재 권리 저장/API→같은 UTC3D로 나눈다.
     분할/재개/중단·관리/clock·원량/수지·읽기 재적분0·원 결과 보존을 통과해야 부모를 평가한다.

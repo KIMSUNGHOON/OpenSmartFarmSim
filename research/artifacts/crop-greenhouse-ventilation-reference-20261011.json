@@ -1,0 +1,163 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted_at": "2026-10-11T12:44:07.599874Z",
+  "actual_farm_runs": 0,
+  "core_sha256": {
+    "backend/app/crop_greenhouse_ventilation.py": "fa15b8eccd3376aae5523547173332a5baafa6089604608e65c1ea8050f65134",
+    "backend/tests/test_crop_greenhouse_ventilation.py": "b14be06b6d98ce59357fd719142143f095abfad6b6b9250019354bdb5f8f8c02",
+    "contracts/crop-greenhouse-ventilation-v1.md": "3a3b62bb6685d4f6a4574e4177f267caef928d67f3e667027f81799ece02f7b6",
+    "fixtures/crop-greenhouse-ventilation-reference-cases-v1.json": "ce900c5b67a15b0612e3092c12efa2772743f01b4b907e46b973e2f78425f878",
+    "research/crop-greenhouse-ventilation-reference.py": "ec2411d308ab52197f8ac4a19ec1e2c71e495640ef25733285b67d241cc92e03"
+  },
+  "earlier_private_verifier_failures": [
+    {
+      "actual_tool_exit": 1,
+      "original_tool_session_id": 77298,
+      "product_changes": 0,
+      "reason": "pre_rotation_runtime_snapshot_compared_to_current_authorized_credential_rotation",
+      "stage": "focused-preservation-v1"
+    },
+    {
+      "actual_tool_exit": 1,
+      "original_tool_session_id": 22224,
+      "product_changes": 0,
+      "reason": "private_probe_used_plain_digest_instead_of_actual_domain_separated_credential_digest",
+      "stage": "focused-preservation-v2"
+    }
+  ],
+  "existing_calculation_files_preserved": 228,
+  "focused_checks": {
+    "existing_canopy_exchange": 35,
+    "existing_joint_rhs": 51,
+    "new": 50,
+    "passed": 136,
+    "total_unique": 136
+  },
+  "independent_domestic_datasets": 0,
+  "independent_reference": {
+    "byte_replay": true,
+    "cases": 6,
+    "comparison": {
+      "absolute": 0,
+      "expected_zero": "exact",
+      "relative": 2e-14
+    },
+    "precision": 80,
+    "scalars": 36
+  },
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "timestamp": "2026-10-11T12:27:31.060Z",
+    "turn_context_sha256": "8023c0df9afd8951f8c39b62bb1f44b9e421e2044177ad365ce1b1406d8bb02a"
+  },
+  "native_cli_receipt_sha256": "77b9c38b7e6737813824658a5a6225035d76d53948521c5bc04667798080fd21",
+  "post_core_preservation": {
+    "G0_G4": "not_assessed",
+    "accepted_core_hashes_unchanged": true,
+    "actual_tool_exit": 0,
+    "current_runtime_noncredential_fields_and_rights_reviews_preserved": true,
+    "diff_check": true,
+    "frontends": {
+      "5173": {
+        "HTTP": 200,
+        "index_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1"
+      },
+      "5174": {
+        "HTTP": 200,
+        "index_sha256": "333812c54d1fc67801c46bd0f5a5a98473922156c152a21b824fe3b4907a2937"
+      }
+    },
+    "frozen_prefix_assets": 171,
+    "frozen_prefix_source_files": 1911,
+    "guide_permissions_preserved": true,
+    "local_links_exist": 1993,
+    "old_calculation_files_preserved": 228,
+    "original_tool_session_id": 75108,
+    "prior_authorized_token_rotation_matches_current_ready_guide_handoff": true,
+    "protected_roots_live": 4,
+    "terminal_sha256": "90a5374d864cb0647405d19803e42273b8598a9b11e64405ffa3a0b5a3fc18bd"
+  },
+  "remaining": [
+    "same_current_RK_stage_recalculation_and_new_identity",
+    "independent_short_trajectory_and_convergence",
+    "new_storage_rights_API_same_UTC_3D_and_user_activation",
+    "radiation_PAR_NIR_CO2_stomatal_facility_boundaries",
+    "independent_cultivar_farm_measurements_and_G0_G4"
+  ],
+  "runs": [
+    {
+      "RSS_samples": 1,
+      "actual_child_exit": 0,
+      "actual_tool_exit": 0,
+      "combined_peak_RSS_bytes": 620388352,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_session_id": 25086,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "source_count": 1926,
+      "source_preserved": true,
+      "stage": "focused-reference-v1",
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "8c0ed67d331866524670a8c4c77f11ae9c7cd55a965b19c1b3e401ca8270f42a",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.34786424100457225
+    },
+    {
+      "RSS_samples": 3,
+      "actual_child_exit": 0,
+      "actual_tool_exit": 0,
+      "combined_peak_RSS_bytes": 660004864,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_session_id": 6252,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "source_count": 1927,
+      "source_preserved": true,
+      "stage": "focused-ventilation-v1",
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "408f8e565d2446b29e9a19044a1b46a6b4c447521592cdb3c588e26fc14e5c2c",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.8672739089961397
+    }
+  ],
+  "runtime_stage_recalculation_accepted": false,
+  "schema_version": "prescribed-ventilation-acceptance-reference-v1",
+  "scope": "synthetic_prescribed_ventilation_math_only",
+  "source_review_sha256": "9ec6446d4544000128d4d546c0aac66c90c0b034ed875fbf7e94e7296d14c56a",
+  "status": "locally_accepted_instantaneous_software_only",
+  "user_deployed": false
+}
