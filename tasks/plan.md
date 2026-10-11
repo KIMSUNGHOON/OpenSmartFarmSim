@@ -1216,6 +1216,14 @@ source 검토는 구현/시험 수용이 아니다. 아래 자식은 작은 합�
 
 [기동 준비/실측 기록](../research/crop-climate-joint-prefix-browser-preparation-20261011.md): 명시 prefix/worker budget의 helper2파일을 준비하고 구문/옵션/변경 전 거부·보존 검사를 통과했다. 실제 후보 기동/유지보수/사용자 활성화는 아직0이며 P6a/P6b는 미수용이다. 유지보수/복구 검증0.5–1h를 포함해 남은2–4집중시간 잠정으로 갱신한다. 실제 event200·RSS 관측 뒤 다시 산정하며 완료 날짜는 확정하지 않는다.
 
+**10/11 실제 기동의 추가 관측:**5173을 유지한 실제 prefix 후보/자동 worker/Chromium도4회 모두 합산1,083,916,288–1,125,646,336bytes에서 한도를 넘었다. Node/브라우저 GC·API threadpool1·Chromium low-end mode는 이 동시 기동 문제를 해결하지 못했다. 불필요한 API 제한은 제거한다. 검증 창을 두 미리보기의 정상 종료→보존 DB/키의 후보/자동 worker/실제 제품 브라우저 직렬 검증→두 사용자 주소의 필수 복구로 조정한다. 단일512MiB/합산1GiB·원본/현재 권리·unpaused 계산/원 수치·전체 P6 수용 기준은 유지한다. 복구 수용 전에는 부모 P6a/P6b를 완료 처리하지 않는다. 실제 사건/3D 관측 뒤 잔여 시간을 다시 산정한다.
+
+**P6a 실제 정상 경로에서 발견한 다음 수정:** 원 응답을 browser Fetch Response.clone으로 기록한 v8은 정상 완료/원본·DB·키 보존과 RSS를 확인했지만, progress503 두 번의 backoff 뒤 prefix/event 조회가 terminal과 겹쳐409가 됐고 running3D를 보지 못했다. P6a0으로 Execution polling1파일과 회귀 e2e1파일을 수정한다. 상태503에서도 별도 현재 권리 검사의 prefix를 순차 조회하되 인증/권리 거부·cancel/terminal과 원자 snapshot·단일 요청 사슬을 유지한다. 수용은 관측한503-first의 red/green·기존 P5/E8 회귀·타입/build이며, 그 뒤 새 빌드의 실제 정상/hold/cancel/권리·event200/WebGL과 두 서비스 복구를 확인해야 P6a를 수용한다.
+
+**10/11 P6a0 수용과 다음 의존성:** [corebb67a60/수용 기록](../research/crop-climate-joint-progress-prefix-retry-20261011.md)은503-first red→표준 Playwright CLI38개·웹303=고유341개/타입/build/구문을 확인했다. 새 빌드의 실제 v9에서도 progress503 뒤 prefix 요청과 같은 selector의 event-prefix200을 처음 확인했으나 samples503로 완전한 snapshot/running WebGL을 얻지 못했고 내부 RSS soft limit도 기록됐다. 정상 계산/서비스 종료·원본 보존은 통과했지만 P6a/P6b는 미수용이다. 두 원 frozen 서버를 새 안내로 복구하고 원 API7응답·기존95/146/8행/109파일·키/권리·2,148원본과 새 보호 root4를 확인했다. 사용자5174의 계산 중3D는 계속 비활성이다.
+
+다음은 **P6a1의 같은 accepted selector events200→samples503 원인 분류**다. 첫0.5–1시간에 원 trace/source의 실패 검증 지점을 제한된 진단으로 확인하고 원본·권리·무잠금 읽기/worker 지연0·자원/정리를 검증한다. reader/재조회 수정은 이 근거 뒤 별도 작은 작업으로 분해한다. 이후 실제 P6 전체 경로 재검증0.5–1.5시간, P6b0.5–1시간은 관측 성공 뒤의 잠정 범위다. 기존 남은2–4시간/10월11일 조건부 추정은 이 미확정 수정 의존성 때문에 재산정 대상이며 **완료 날짜는 P6a1 분류 뒤 갱신한다.** 전체 작기·현장·생산/마진/추천 관문 일정은 별도다.
+
 P1/P2 후 원 페이지/공개 정보 checkpoint, P3b/P4 후 실제 보호 전달 checkpoint, P6a/P6b 후 사용자 기동 checkpoint를 둔다.
 P4는 실제 SDK 구현 대조 후 P4a 공용 값/격자·manifest·checkpoint 검사2파일과 P4b 새 reader/API/unit/실제 SDK test4파일로 분해한다. 기존 terminal/실행 검사를 그대로 재사용하고 미완료 prefix를 임시 terminal 응답으로 만들지 않는다. 각 자식의 집중 회귀/타입 뒤 실제 SDK/TLS를 확인하고 P4 부모는 모두 통과한 뒤 수용한다.
 P5는 P5a 부분 결과 component/Execution/CSS3파일과 P5b 새 e2e/기존 E8 fixture2파일로 분해한다. 기존 E8 기록은 새 prefix 요청을 제공하지 않으므로 미지원404를 명시해 기존 상태 조회 호환을 검사한다. prefix404는 해당 연결의 부분 결과만 비활성으로 두고 작업 상태/취소를 유지한다. 권리/인증/응답 거부는 원값/장면을 지우고 자동 조회를 멈춘다. 원 selector의 최근64시점/8사건을 순차 조회해 함께 교체하며 기존 승인 LayerDoc/수치3D 구성을 재사용한다. 각 자식 검증 뒤 P5를 수용하고 실제 서버/사용자 활성화는 P6에서 한다.

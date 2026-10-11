@@ -1964,8 +1964,12 @@
       UI 디자인/브라우저 스킬 적용·12ui3상태 종료0/구매0. 대응 coverage와 원 raster 부재로 최종 디자인 일치는 보류; 실제 running 연결/사용자 배포·전체 CI/관문은 미수용. native→수용 증거3,285.142초(약55분); 문서/commit 별도.
       10/11 WSL 재시작 뒤 [기존 사용자 서비스 복구](../research/crop-user-preview-reboot-recovery-20261011.md)를 별도로 확인했다. 새 private 접속 안내/보호 root를 사용하며 P5 배포는 아니다.
     - [ ] **P6a 실제 prefix 브라우저** — 다음 한 단계. 선행: P5. reference Python/JS2파일과 기계 증거.
+      - [x] P6a0: corebb67a60의 Execution polling/e2e2파일. [수용/남은 실패 기록](../research/crop-climate-joint-progress-prefix-retry-20261011.md)/[기계 증거](../research/artifacts/crop-climate-joint-progress-prefix-retry-reference-20261011.json). 기존503-first red, 새3개와 P5/E8의 표준 CLI38개·웹303=고유341개, 타입/build/구문을 통과했다. 상태503 뒤 현재 권리 prefix를 순차 조회하며 거부·cancel/terminal·원자 snapshot을 유지한다. 실제 v9에서도 해당 prefix 요청을 확인했지만 running3D는 미수용이다.
+      - [ ] P6a1: 다음 한 단계는 v9의 같은 accepted selector events200→samples503의 내부 검증 지점/전환을 분류하는 제한된 진단이다. 원 입력/결과/키/권리 보존·worker 지연/조회 잠금0·실제503의 원인 근거·WSL/소유 정리를 확인하고 필요한 reader/재조회 수정만 별도 분해한다. 첫 조사0.5–1시간, 수정 범위/완료 날짜는 분류 뒤 산정한다.
       수용/확인: 실제 running 중 원 LAI/50구획/온도/UTC/WebGL·원 event 전달→terminal 원 결과, hold/cancel/빈/재접속·권리와 WSL/원본/실제 종료. P4에서 미관측인 event-prefix200도 실제 SDK로 확인한다.1–2h 잠정.
       10/11 합산 RSS 초과 실측으로 [계획의 검증 창](plan.md#joint-prefix-view-20261010)을 적용한다.5173 유지·5174 정상 종료/같은 DB와 키의 별도 후보 검증→통과 후 활성화 또는 원 frozen 서버 복구를 필수로 확인한다. 부모 수용은 아직 미완료다.
+      추가 실제 후보4회도5173 병행 시 RSS를 초과했다. 두 원 서비스를 정상 종료하고 같은 수용 기준으로 후보를 직렬 검증한 뒤 두 주소를 복구한다. 부모 수용은 복구 확인 뒤에만 가능하다.
+      10/11 v9는 실제 event-prefix200을 처음 관측했지만 samples503·running WebGL assertion 실패/내부 RSS soft limit으로 P6a 미수용이다. 정상 계산은 완료했고 기존 두 frozen 서버를 복구해 원7응답·기존95/146/8행·109파일/키/권리·원본2,148과 보호 root4를 확인했다. 현재5174 prefix는 비활성이다. 실제 event의 terminal 대사와 hold/cancel/권리/재접속은 남았다.
     - [ ] **P6b prefix 사용자 기동** — 선행: P6a. live operator/preview core최대2파일과 접속 안내.
       수용/확인: frozen 후보 수용 뒤5174 연결·실제 인증/자동 worker·장벽 없는 계산 중 관측·원 결과/현재 키/5173 보존·접속 안내.0.5–1h 잠정.
       [10/11 기동 준비](../research/crop-climate-joint-prefix-browser-preparation-20261011.md)의 명시 prefix/budget helper2파일은 구문/옵션·변경 전 거부/보존 검사만 통과했다. 실제 기동/사용자 적용과 부모 수용은 아직0이다. 유지보수/복구를 포함한 P6 잔여2–4집중시간 잠정이며 실제 응답/자원 관측 뒤 재산정한다.

@@ -1,0 +1,1443 @@
+{
+  "G0_G4": "not_assessed",
+  "P6a_accepted": false,
+  "P6b_accepted": false,
+  "browser_runner": "locked standard Playwright CLI; one fresh Chromium and actual CLI exit per declared case; recorded API responses",
+  "browser_tests": [
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 00 submits once, polls original checkpoint, opens same completed UTC 3D"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 01 numerical hold opens original failure result"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 02 pending GET never overlaps and explicit cancel remains independent"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 03 disconnect backoff and manual reconnect preserve job identity"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 04 denial 401 clears numbers and stops polling, keeps cancel"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 04 denial 403 clears numbers and stops polling, keeps cancel"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 04 denial 404 clears numbers and stops polling, keeps cancel"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 04 denial 422 clears numbers and stops polling, keeps cancel"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 05 selection and account changes discard late responses"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 06 hidden view stops polling and resumes one current read"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 07 rejects malformed file, retries same request after unknown submission"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 08 mobile keyboard labels and no horizontal overflow"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 09 mismatched terminal response cannot open result"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 10 empty selected result creates no invented 3D frame"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "E8 11 terminal cancel refusal preserves completed status"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P6 00 progress503-first still reads an authorized complete prefix on one polling chain"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P6 01 progress503 cannot bypass a current prefix rights rejection"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P6 02 progress authorization denial never queries the prefix"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 00 original UTC values, fifty cohorts, chart and actual WebGL stay together"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 01 replaces a selector atomically and schedules the next poll after all pages"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 02 unchanged confirmed selector keeps the selected original UTC"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 02b a new selector without a new sample preserves the selected UTC"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 03 none has no invented sample or page query"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 03 ready has no invented sample or page query"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 04 an event without a saved sample does not create a growth frame"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 05 rejection 401 clears original values and stops polling"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 05 rejection 403 clears original values and stops polling"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 05 rejection 422 clears original values and stops polling"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 05 rejection malformed clears original values and stops polling"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 06 transient page 503 keeps the previous whole snapshot marked as historical"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 07 selector conflict removes the prefix before reading terminal state"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 08 cancel is independent of an in-flight prefix page and discards its late values"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 09 hiding discards the snapshot and resumes one current sequence"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 10 late prefix response after selection cannot restore the scene"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 10 late prefix response after account cannot restore the scene"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 11 completed closes the prefix and opens the original stored result"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 11 hold closes the prefix and opens the original stored result"
+    },
+    {
+      "actual_cli_exit": 0,
+      "title": "P5 12 mobile labels, keyboard and bounded tables have no page overflow"
+    }
+  ],
+  "built_assets_sha256": {
+    "assets/CoupledCropChart-NtGeBSvz.js": "c139947d00b03b87d7830c45d6c45c4a25563d792c4d55d538abeeda363fa0ee",
+    "assets/CoupledCropReplay-ClPfEmRG.css": "ef4af3e87256be7eef3889c0df270d1cd8bcba088a8cf0a241d937bb41b6e480",
+    "assets/CoupledCropReplay-D9OmcYsP.js": "ee5b2e7b1e1c3ab2fb514a0b684c8a830eb5eb0cb16077b082c920b15d8d9b43",
+    "assets/CoupledCropReplay-DVWzHrUG.js": "b654504fa42dfed9fe134648ad5a4e9a2674d0ec4789c913e38bc01a75931588",
+    "assets/CoupledCropScene-fU0INWIq.js": "790d5a599f2e1279fb122488e247fc6ce414e366a67756c26360cd293de33506",
+    "assets/CropChart-D6W7_yck.js": "7187320faa86b90638d4b343393f36f071b44839f292abb6157f5c8ff4fc30ac",
+    "assets/CropReplay-BgheLvwO.css": "9beef2db22269cda70683c27773af46ace4f32b6199867eb01cb695240ca4719",
+    "assets/CropReplay-DpMbW5lx.js": "7fa724ea9a40f55a389452bc20601e5bc953ee7f58e40dfd1cc78d01de4614d4",
+    "assets/CropResultCatalog-BUyqwNuv.js": "a6e35604d382a6f88d5fced99d3d00db7a22030cd82ffd970f862e3f842e2a88",
+    "assets/CropScene-CA3yrVeR.js": "081ddc5e0690d539d1c77679ef5efe1c3be3e5627086363a910b072d62852bd4",
+    "assets/CycleCropReplay-C1YhXfZz.js": "fb4a5f137692477d1ee7c05d1796310edb564178911cfd6a4641c1450c20bc37",
+    "assets/CycleCropReplay-Cc2gXmgy.css": "1f3a5fad4309dae6539223e261e5bae86fb772fbb393cb0e74c68d022fa00c13",
+    "assets/CycleCropReplay-QJ4vHFWb.css": "88aa9b8b88e6f1059fd49cea1d0851b2a66b4f41a92ceefa6dc2dcea97299e1c",
+    "assets/JointCropClimateChart-DEMan9wV.js": "5070e3821a98a4f4d14b7500027717b03a55aab1639841fb419bf8466f741d29",
+    "assets/JointCropClimateExecution-CRCXg4W0.css": "0a836ef1cc2b068482825fb5c35eac805f881a7c36ec0178aff91a994689cc8b",
+    "assets/JointCropClimateExecution-CZ1_6FsA.js": "ea0ad6250ef277fba02ce69b306c5f8fa6a7509e3b32118b35a6910ae287f3e7",
+    "assets/JointCropClimateReplay-B9BjXgDK.js": "1298fae07e362ae82d5a0787ab21797fc8974480481a89615e8c0c680f885e36",
+    "assets/OrbitControls-Cz1DOB3c.js": "ce75d758f343d146469d132ec25e60b3c61ca8834d9136c22a5ce69a3bb7a3e8",
+    "assets/Replay-4lBUqaBS.css": "20cf37645e179b1f7a7f39dbe870bc0a10ea5e4f9ad597c6f0f9774683cef9d5",
+    "assets/Replay-B11CBUIN.js": "58fab31525a7e3fb193c5781503a5a98214d714919d84e47c9fabe98d426b300",
+    "assets/ReplayChart-DRoyOL_1.js": "d0da993cb2db3b102cc28c5f528fa5c9ea44372b2f638f44d24d5ce45c4a595e",
+    "assets/ZoneScene-B_DCaVo4.js": "947cc95eca0646fdf1c39f6cabf2dca588bab3c779de1f2e056de29cbc13a7a8",
+    "assets/crop-research-clean-plate-Dgdsn1I3.webp": "a8e438b66d6d7fe1c6078111e5e09c5c55dab9d83d139bdaf00b030d75afafa0",
+    "assets/crop-research-leaf-y9uhEuKw.png": "d75fdc7de3cb86715bc8ea1d66c8145097aeb4b2199161c965770243e178ea71",
+    "assets/crop-result-empty-BNl73VP1.png": "39bf15bdcd694ee514f33132c0a18db93f4b0b17d1f7797c8cd06929ff5b5f85",
+    "assets/cropGeometry-BtBuUaO4.js": "50cd837a2e9c9aa518e97657706747aa2d835951638323ececbb871422374d84",
+    "assets/cutout-15-b6376be1ea78-VPhRmIPk.png": "b6376be1ea78d066b3a653b3b269313044284a6c3a72546b16df138081fb3a4b",
+    "assets/cutout-39-e57cccea5fd1-BU5XCjfX.js": "37046fc1889f9d9b7f60ca6ca0e8f5f8c0323f838a1df2caf606f530dbcde355",
+    "assets/cutout-39-e57cccea5fd1-M9Mk9m2d.png": "e57cccea5fd1130954d9c06c9f2b5a9a928f3508eb25af15f25fcf2e46c683d6",
+    "assets/cutout-40-ef51681c6de1-B5PFa8O9.png": "ef51681c6de18d155dacf167fee02d8bd0754eb158a453bf6ead87545ee17541",
+    "assets/cutout-61-9b0200c77fa2-OJo-Xv_z.png": "9b0200c77fa20968e710df4aec7bc48f9caf724b8754fb20b5107ab77516d7e9",
+    "assets/cutout-83-610a56c5d842-ZfAv94KS.png": "610a56c5d842087ec310a2a8bfda4294caae7e30cfc2c66be2fe22d122060edc",
+    "assets/index-ByfxtuX1.css": "b2f5663708a1370153691f62a7e6c3c15a20472de4b15a01c71d76e972b144be",
+    "assets/index-DK2NpmxD.js": "f4d55c9948065bfc23b18b78a93c4f8026422171409b228d24c4b97cf1251313",
+    "assets/installSVGRenderer-dU9iKlVz.js": "cb5b467759caa92e745f0ec10f8ec7804676cf352c73b9c4e5644812dcfa4221",
+    "assets/jointCropClimateGeometry-CAk31O0p.js": "7f84d164d1e71542b79b78d715bc91265db5cd97398505482adf34d0e0fbb2d5",
+    "assets/noto-sans-kr-0-wght-normal-D06yvloL.woff2": "3861da36d0eb54b3351f55d43c5ca91e732f0f2c6f8769ed475d3ec6fffdb4e5",
+    "assets/noto-sans-kr-1-wght-normal-Bqp_kP4o.woff2": "71b97f259df4fdc4c9afa9564e9bb781221c2958f3d50bfbff4825024cf783bd",
+    "assets/noto-sans-kr-10-wght-normal-D44PZdTN.woff2": "ae33c538343c38af5b814a2b47c4270a665032715919cbe282ff67421394eef9",
+    "assets/noto-sans-kr-100-wght-normal-BUnzX67h.woff2": "95045eda53125c4cc2655aebca8203a38831186d39d54223f7aeeef3a02924a3",
+    "assets/noto-sans-kr-101-wght-normal-yIk-xkbt.woff2": "883b6298e4e94168f26845865cf9eb1e1b6ef9e9b2d95b4e7615e8a3dbad4d5c",
+    "assets/noto-sans-kr-102-wght-normal-DPlG-Gq_.woff2": "10e0676c89aad2b4fad449698b9cea46f18da4767e26455619ce57669b46867f",
+    "assets/noto-sans-kr-103-wght-normal-C9B_csKo.woff2": "aa6b5671f4158c303d850771c97769f7c5af4364724afb27cfe7d1dfdf34046f",
+    "assets/noto-sans-kr-104-wght-normal-BV6o_vl3.woff2": "5a9c2053668f781a875e725ec72db67fd44e728b8ec69d45dc3a1f4346ec3b43",
+    "assets/noto-sans-kr-105-wght-normal-Bwk-4itQ.woff2": "750b7a008eef7a4c81f29f173c93961087c27f93042130a514de54f955576291",
+    "assets/noto-sans-kr-106-wght-normal-DCG_yG2L.woff2": "ae4707a72e4660e8db06899b24b62708b82411857d824b56ed6c6d1521b7a4a8",
+    "assets/noto-sans-kr-107-wght-normal-CWnd6wcQ.woff2": "afba414987102133c5250cb0865ff93d4f4bd6def8dc3222747dca5dada0c3f8",
+    "assets/noto-sans-kr-108-wght-normal-CVosuT20.woff2": "c22ebbb440bca97b15b4db671c81c9bc5aec9d20f1c562d318d6a9fa88e655e9",
+    "assets/noto-sans-kr-109-wght-normal-B6hzfDSQ.woff2": "53125e3d74e595bf3b3a20d3d15ed7b56e2c3dd61bd1c3a64fb79ceeadd07d7e",
+    "assets/noto-sans-kr-11-wght-normal-DnDO1vGF.woff2": "62bf66342286ac182b6796d0b5c08171c81ad7233563b11f40a70d6ebf44e05e",
+    "assets/noto-sans-kr-110-wght-normal-Bz2J7MHi.woff2": "273bb462b5e609e2740907f1270b8859ac79a4d46a6e8a997c6eae9b7835451b",
+    "assets/noto-sans-kr-111-wght-normal-DeeXajyY.woff2": "9ec3df1c9a0c1df8904a9a989f6cd428ea17e76ee02d613ad260c22c1d916075",
+    "assets/noto-sans-kr-112-wght-normal-DApkhTZy.woff2": "1275deebcaa012e526b58684c30327dbeb1a923c0e3b4f5a8626be29f3e6ff66",
+    "assets/noto-sans-kr-113-wght-normal-DnhzVD4m.woff2": "9ba79ece28902db625900fc4727308cda9e04cf2be3de362d280de222d1e7822",
+    "assets/noto-sans-kr-114-wght-normal-BcwVxkxL.woff2": "efb7e8d1175cde7cc99dac99fb47a74be01afeef6810f34cd6887678991108b1",
+    "assets/noto-sans-kr-115-wght-normal-Czx6kN3B.woff2": "771102ea71b52ec266607baa28becc9658675fd47c34b94accef3a38b85d48d6",
+    "assets/noto-sans-kr-116-wght-normal-DvHAaAUg.woff2": "5e02a302c52e0b6c11a3761221ce1ecb8965c78fca4ca4587ecfae48bb75da8a",
+    "assets/noto-sans-kr-117-wght-normal-DNkILo1k.woff2": "85a68fced20fc9d0d799f2b64b670387438f72205dfda50e2cccd4c1af1c9042",
+    "assets/noto-sans-kr-118-wght-normal-Be8jlQ51.woff2": "a37f045e0387b128f3f8c59db92a8e6e32d6ff467d0efe8ac12c6a4f0504b5fc",
+    "assets/noto-sans-kr-119-wght-normal-C_6m2-od.woff2": "12f2407b1bf32d201792a1f6635364cefea5b9c1ea1a3196c91823042b4fa2bb",
+    "assets/noto-sans-kr-12-wght-normal-gICIGsXI.woff2": "f4c76c430a1a1952078c9dd8e2245d325714838a7b4b3401b597628a4f625777",
+    "assets/noto-sans-kr-13-wght-normal-olvHB9I9.woff2": "a34b0164bc99e3cf34a059bdfa4bcab2cd94f6a04b1beb5c021ff9d94fe16012",
+    "assets/noto-sans-kr-14-wght-normal-BtTu50RG.woff2": "9bef1f1a9e7b7d1e0190f98fb3ece20dc505671fb39a2333e8d2e617d4609375",
+    "assets/noto-sans-kr-15-wght-normal-CxFswjwr.woff2": "0a9e68adfa8fdd67d06fb78adb2812d094e4842a3bf0a72218801cf31471edaf",
+    "assets/noto-sans-kr-16-wght-normal-D7pAhItn.woff2": "be3125ba6ae564183362929617d36505658829d5cf370d173d7f4945aa1a0d33",
+    "assets/noto-sans-kr-17-wght-normal-CcMq9J3c.woff2": "0300f785997af852f85c6dd05508ead08a4e6dd256a626a00da3b135d464be85",
+    "assets/noto-sans-kr-18-wght-normal-B_Xt9mRz.woff2": "3c8efefaf5338778b97e49ce50f81ac87bfa4a054047ee40a8d466a2d8ea274d",
+    "assets/noto-sans-kr-19-wght-normal-DicL0vd6.woff2": "b11847c60e20c0d8a9614996e36ca2fa37901c83580d8a6f4c9c1a3f0f757314",
+    "assets/noto-sans-kr-2-wght-normal-BlW3AcBF.woff2": "7281418e047de1b4f6123aa5ed97857fac48c4e1080ab7803b6a0747665b7ae1",
+    "assets/noto-sans-kr-20-wght-normal-PxcBBeNg.woff2": "a1df305f4d0d2790b97c578a07540d34d839815e1f953f4d8e0d9585beff1ab4",
+    "assets/noto-sans-kr-21-wght-normal-CuThq_3_.woff2": "38aca236039ea7b1d29e1c0d3cf791fb3752dca9acf98e699279806cfe97ca44",
+    "assets/noto-sans-kr-22-wght-normal-D-9XnguA.woff2": "768b2043f9ea35fabf52a2820e97d41023a62f8c305a79ab091a9f0cf89d17a6",
+    "assets/noto-sans-kr-23-wght-normal-CsoKTgIH.woff2": "ef69248c42aa8a28d823a7557cd43f4210217e94c85a004996a8a27ee9e9d9be",
+    "assets/noto-sans-kr-24-wght-normal-CVm75uzf.woff2": "d506c4def1b5075d06d724a43e5badc10915aa25420fb728ab14d7ccc5a77137",
+    "assets/noto-sans-kr-25-wght-normal-pcUlc7hZ.woff2": "b4be1622a4c0a0415c140e1824c8051ed4b34896f963c0313c67a8ed3f6ab859",
+    "assets/noto-sans-kr-26-wght-normal-gwaK2bp7.woff2": "c10bf867309caa3e82ab075ccb245af7f13633e20de01bcd8f861081cfc49314",
+    "assets/noto-sans-kr-27-wght-normal-BYvOljic.woff2": "82dce56af57bf89a525f9e639bdf7ba98ecbed68aa79553160f60de2ff5c1c09",
+    "assets/noto-sans-kr-28-wght-normal-COQop0OG.woff2": "9bbf59f00e95996c81afedd38dbd438f9436a6ef084a360bbd65f36d680014ee",
+    "assets/noto-sans-kr-29-wght-normal-Bwniia0r.woff2": "7a4db36d0c8583d8f34dc8940ec3a45e4b09e9427ee59cb275c17d1d75d6bd0b",
+    "assets/noto-sans-kr-3-wght-normal-DZIqdvJw.woff2": "17129da918ea2daa5b7c41e59a24a18519394b004bb943a42477b818fbdcb370",
+    "assets/noto-sans-kr-30-wght-normal-BNXqYhtq.woff2": "d0c5cb446e9e86db80cffaae4df62a8652b55d9011538e2b48c20b0244d9dd5a",
+    "assets/noto-sans-kr-31-wght-normal-BoAdonrH.woff2": "4ba18ec04f44f08074bb03350830c33f2664814a91f75a1c53dc95e97ba95f51",
+    "assets/noto-sans-kr-32-wght-normal-BREiG6LA.woff2": "b60470d84be80a5ef9b216a42a617de4913f15e160703089863f921e9457836f",
+    "assets/noto-sans-kr-33-wght-normal-DMSZNpMD.woff2": "fb1c55cd44f95c5f0e02d69b2e37a52e95f01df55e00af51c0449ee44f204bbc",
+    "assets/noto-sans-kr-34-wght-normal-Dn9wUbC5.woff2": "c33e6e78802eb174fadd448197f196ccfad27b3949c0289096b78238af20343f",
+    "assets/noto-sans-kr-35-wght-normal-CNljDv8x.woff2": "b494d884301465d934a23274d493d4efe403a67e01ea1ae997c1a461bc3ce9a9",
+    "assets/noto-sans-kr-36-wght-normal-BQ3DsEFp.woff2": "27d60101432576d2326c3fc7c31274ff8a38e6981f3cdc5cedb0b98cae5c1204",
+    "assets/noto-sans-kr-37-wght-normal-D0Nod484.woff2": "aca240294e58e9297b537bcbc7232a43c58e1e7b8043840b1c8de7dbaddc8efc",
+    "assets/noto-sans-kr-38-wght-normal-D7aEX-Z7.woff2": "16279746df830f184e0c0c404809413ed76836f6e87aa6410e97375c463e3158",
+    "assets/noto-sans-kr-39-wght-normal-QVs81SbT.woff2": "4d712a27cd8ce21f86b9ede5939706240bd22e494fa7a1f0bc7396d12e201a79",
+    "assets/noto-sans-kr-4-wght-normal-MlF4wjtz.woff2": "bdbf18c2147f3b8dae27dab77136e897e33302f971f4564b12c3da4fbe80c1ea",
+    "assets/noto-sans-kr-40-wght-normal-B6XNibcs.woff2": "2a13f2490d87963d3c0278757d728f5c4fc1c5cad18d6ea2e53936309d267a52",
+    "assets/noto-sans-kr-41-wght-normal-CrDDFHLC.woff2": "a9c3d1e69c2b9cc869816f635a0449f053674489e200ce71f838ae5f8f04834f",
+    "assets/noto-sans-kr-42-wght-normal-_xElrv31.woff2": "f74032d4e8f706ecbd908d68e1228a410d88e90a1ee69367baa6b8d2a9249e9a",
+    "assets/noto-sans-kr-43-wght-normal-D4Z4qIjx.woff2": "8040b7ae56e8c768ccc9249998d35b30ee466a33fbf3227a34fa008fbe66272f",
+    "assets/noto-sans-kr-44-wght-normal-BOzNPFw1.woff2": "be85899aca286cee0d15b20a00f42ed56ecc403329d4d048698a8f74f859daee",
+    "assets/noto-sans-kr-45-wght-normal-HgLQPnZe.woff2": "40ee6222ed14577bf53e4466da50f5235289e0da8d479004c34f14d201db15ab",
+    "assets/noto-sans-kr-46-wght-normal-B8aQM0KO.woff2": "4866a0a559e0dd6d5c9ef8f5cbd247a4daa3a9c8a6abec8ff949cde06ae09b06",
+    "assets/noto-sans-kr-47-wght-normal-CisIuWX8.woff2": "4ac45ae19e5115ffb8c5f8edfe41f58c9fbbac167fed3428db5abaaebf5f6204",
+    "assets/noto-sans-kr-48-wght-normal-Ds0KCpXR.woff2": "1ad30fe759a0e038181e199ae79c2bc700967d17c3562eadd7fdedc0d440841d",
+    "assets/noto-sans-kr-49-wght-normal-BC5F4RRq.woff2": "4924784006540380c9beab4fe127cc8b0b35973f26c9ecd31bf4f89fdc23abd7",
+    "assets/noto-sans-kr-5-wght-normal-D2ndBBlz.woff2": "0bbd4e665234190ce6a465dcdb3ccbc5fec3540230ed0a5f1ec8e4fec68d2132",
+    "assets/noto-sans-kr-50-wght-normal-C8Hs8Bel.woff2": "88629647b500f58e2d74e0c7339b5372eb0ac31b6583ee9a5a973e17a92db339",
+    "assets/noto-sans-kr-51-wght-normal-DYiiYWHC.woff2": "8ce8dfcc2fad2a92f408d33b5e0af20f4ec329262e95bd60ba9e002aac5d3562",
+    "assets/noto-sans-kr-52-wght-normal-RCgHYf1C.woff2": "7b4ddda196f3ce57720941db2ae1889c32937375b5b4d037c0269ef647bd0c1c",
+    "assets/noto-sans-kr-53-wght-normal-D_jDj1TO.woff2": "45a40cb3a43a406c959196dd0ad7bffbb5a3c45c50365cdbf0906148c9c3854f",
+    "assets/noto-sans-kr-54-wght-normal-Dh8YqAZX.woff2": "c5396b0c4028318cbdcf169f3f3d7da6fb3523ed12091e5af1088d5fa77d19e7",
+    "assets/noto-sans-kr-55-wght-normal-Bb2kolOu.woff2": "b18646a948b64ce725e1a426b4e0b0f54f90340ce69ffb9729a51dfe19c400e3",
+    "assets/noto-sans-kr-56-wght-normal-C-IXS01q.woff2": "297bd37fda24bc1a73dec80660bd8b0fb6b0c8068584a43d111299a4c74145da",
+    "assets/noto-sans-kr-57-wght-normal-B8WEhlXz.woff2": "3aa8588dae822bb07d821c61e21d5cbb328935803a5dfce5cd067375778f50cb",
+    "assets/noto-sans-kr-58-wght-normal-CPkb-af3.woff2": "c5f1266baa0787e4b7093593c2b5eb961001dc29e6c9dfb882a87367fce6a488",
+    "assets/noto-sans-kr-59-wght-normal-C4laA72l.woff2": "499d65c381e42140dbb6e0eb413cc4755ae4734fcac3e724e6ec2148cd789b19",
+    "assets/noto-sans-kr-6-wght-normal-CJnF25Ox.woff2": "b78680de0ca4a5b82af650f9c7b32300c633400a7978a17ae406ae7588b60b7f",
+    "assets/noto-sans-kr-60-wght-normal-DriWx1rc.woff2": "70045954fc344c5cd6d4a729e47612d4424e6b26d613745c9058b928149c5c74",
+    "assets/noto-sans-kr-61-wght-normal-C9Nbt4dY.woff2": "23abc68d31b9008ead2d2557abec37ac375b6734b129393707a63023c7c29f36",
+    "assets/noto-sans-kr-62-wght-normal-Brkp78oR.woff2": "bc4291982ecc7d4d1955382a564f0092f4d4b4af54e632ec5d5f238a7d62b433",
+    "assets/noto-sans-kr-63-wght-normal-Cc2PlhZU.woff2": "a36cd66e100c3ae59335a0771cedcc68c8cadf06883a50af3d8045f53bd47301",
+    "assets/noto-sans-kr-64-wght-normal-KNqhDR8m.woff2": "dd7719232de03f667d8aafaef3f5ae71f011f43edfd624546decd9a8cf22b298",
+    "assets/noto-sans-kr-65-wght-normal-FHC1ZHx-.woff2": "3da5b88ce6bbbb42e33c17a0b1b446342e56f7e270add0f4e40e5703a91c077e",
+    "assets/noto-sans-kr-66-wght-normal-IxdJCmlc.woff2": "e58cd74f4b9f3a558f5417360470f0033637436d878acd75a193d755bf9e52ba",
+    "assets/noto-sans-kr-67-wght-normal-CWhGYJ2i.woff2": "91065b61043d7ef8ee08137ee9053056f832fba51a4b36b16c11323d6c89cfed",
+    "assets/noto-sans-kr-68-wght-normal-BrksQ5yZ.woff2": "ba3f084ff680654c308e4e40e6d90bf56a7717702ec89ee60946574d1f1c05ed",
+    "assets/noto-sans-kr-69-wght-normal-BReeBVHk.woff2": "aed822d90d953436f3d15e2172374a2838954efb27f106fdb38f9fb131c5c8a6",
+    "assets/noto-sans-kr-7-wght-normal-CImCbZMD.woff2": "c5c64d6ea9494ae6a231ac27813a98899c582c36ef8532588753fde0ad19b5df",
+    "assets/noto-sans-kr-70-wght-normal-BSMUUut2.woff2": "2ccc6ff28adfdf7b4683226022c9e22941cefbac2674e28561c18b590c6311bc",
+    "assets/noto-sans-kr-71-wght-normal-D9VPS-IJ.woff2": "aea3fb176095a6bdc4a075f44267da858012b72741499925295d308feb85ee36",
+    "assets/noto-sans-kr-72-wght-normal-CYbqUrRD.woff2": "4ebc089e15c07f287f24dad0236d79a9b4f8be282a89392fed42df8b863444d1",
+    "assets/noto-sans-kr-73-wght-normal-Dq-lIKz-.woff2": "210b80ddfa82cc3a98b51d72addde32633d63642b01b9fc6a3e1d4538340f740",
+    "assets/noto-sans-kr-74-wght-normal-Dsmj0w4F.woff2": "34cbd2e2a3c7ea6aaa1ca57353ed68c806222a8caa0937b21ca3457f6c1d5c72",
+    "assets/noto-sans-kr-75-wght-normal-JM9JBG-M.woff2": "50f05146e6524134f63b9657ef675b90316b298a2e91c3bb40cceb0e5306d748",
+    "assets/noto-sans-kr-76-wght-normal-BRcUMWZ8.woff2": "9995f9e2926269d68499f14f85ea51f9ba9aee2605e87ad2a1a92686cf6d981f",
+    "assets/noto-sans-kr-77-wght-normal-q_AHRG0H.woff2": "e1b8280c9f5c957799ddd34f9193bbb42f63205df8dc81b15d941b6e10b8a5a3",
+    "assets/noto-sans-kr-78-wght-normal-CxH4Pb6I.woff2": "34698f6cb44fb932a81addb2bb18988879aa85be018f2298f87542de7aa53994",
+    "assets/noto-sans-kr-79-wght-normal-Bdi4I7EA.woff2": "bd75d5b9cef6c0e1d1c33d82a47f69aac34bd0e9ef65c72d5cd5af14ca93c33b",
+    "assets/noto-sans-kr-8-wght-normal-CstSMSR0.woff2": "f049e3c819f100098ca7c967795f8804dee3ea8915716a9fb0d145551ea34a60",
+    "assets/noto-sans-kr-80-wght-normal-C5D21FTw.woff2": "07033ae1744806138f7f4ddd8aa92eaca697c9c9e58154a69cb9cfda3c5674a9",
+    "assets/noto-sans-kr-81-wght-normal-DZCTVH03.woff2": "3192fb37c0097dd6067b6a855f35a34a710ba8732b8a0b57ea881460d3149d3c",
+    "assets/noto-sans-kr-82-wght-normal-CJo3UUYg.woff2": "fca9004ef1d6a3a73dbb6581d055670e9d6fa9e261d0811d437e1f95d615cc7b",
+    "assets/noto-sans-kr-83-wght-normal-McHuBf-B.woff2": "a3fda4dc21493df5afcd2250b53ce74133ba87b344bb4b55a7ca73afe8746199",
+    "assets/noto-sans-kr-84-wght-normal-DLV_AXtC.woff2": "daa54d456acb6350d045bcac78928b2f4589076eac758c776ec6f1fd384599e8",
+    "assets/noto-sans-kr-85-wght-normal-BlAw-6qA.woff2": "4f3c8bdc30a810d960b8182c83408744dac3256d343a935205f3adf2f9bc2866",
+    "assets/noto-sans-kr-86-wght-normal-B7E1-Ec0.woff2": "2c92585b47c61f275f50a766094aad778d04374e0b310ea7fb99ec0024c5501e",
+    "assets/noto-sans-kr-87-wght-normal-CBZPTWsE.woff2": "4171fc4ee04cbbe6570a6d60f1dcf2e00664263b70db91c12dd30d8e2cd7b245",
+    "assets/noto-sans-kr-88-wght-normal-_V-zytEf.woff2": "3e18cbe399921b2d779273826b02ba38b3e2ee31a1c5761e1257afbb9a5c40f8",
+    "assets/noto-sans-kr-89-wght-normal-D3Fd3_EL.woff2": "c3510a055ae1e1c9d78d3e68e69da722dd8a3105a5e69aee2fc1c9ef7c9e33bf",
+    "assets/noto-sans-kr-9-wght-normal-Dc1zs_Pa.woff2": "14173085eb7a70ce51247aae902e2824a40231affe5c67086340b437b01c702c",
+    "assets/noto-sans-kr-90-wght-normal-lqvjLFoO.woff2": "65c732fe80c4b022649032b0ca897d44da312111a815c109220c122fbaee0147",
+    "assets/noto-sans-kr-91-wght-normal-DsGtjSva.woff2": "d9839c7e42d7e58ee8dada2cab255ce594a2aea929179ed9ab4b10b7af10700c",
+    "assets/noto-sans-kr-92-wght-normal-CfCk7nA7.woff2": "811a7f2a0c4fff533b43d3687e31c6d6b516365548cff0d5286e876c2ab85206",
+    "assets/noto-sans-kr-93-wght-normal-LhQTABfI.woff2": "ae4408b276bb649deb77ae2145a310cc12b6979989edb72aedf2a942d877a658",
+    "assets/noto-sans-kr-94-wght-normal-ihdiE-sw.woff2": "4776bd32aee03549c4288005b257be4f06e8de90dffcd9f55c6699e485d97fbb",
+    "assets/noto-sans-kr-95-wght-normal-aqERMEsW.woff2": "671d9829370fc25c1e3da974f35b7bf68f4f944c8265609d7e0cbb0cd7ee0dc9",
+    "assets/noto-sans-kr-96-wght-normal-BsiGrPsV.woff2": "7de168c13cb394eef1e6fa0c779f59628b1de5676db5f45d83edc2ba1eb5eff7",
+    "assets/noto-sans-kr-97-wght-normal-Dr2ufsTl.woff2": "70077a3b110b8717e1ff85a9b9525ed3e0dfb8b61e9b47318dfe1c1f47773a65",
+    "assets/noto-sans-kr-98-wght-normal-DO7crlgc.woff2": "af344646e3382ef03bfc693a63d334a1ff409fa948ab7919b128e1c8b9e86b15",
+    "assets/noto-sans-kr-99-wght-normal-DzzxDKB5.woff2": "0b424ef6881e42a73d698e251919dbe5dc381a9190bd1278f5f7a276eef0ef36",
+    "assets/noto-sans-kr-cyrillic-wght-normal-Bd4ZsfxM.woff2": "eafc6e0d06f94cb50c420548a6f1d51357f9faf052bca038c0b6bbcd4cdd49bb",
+    "assets/noto-sans-kr-latin-ext-wght-normal-B5bX9d3o.woff2": "72795dcd57624f5273807a6445e203307ff08ca8bdb2d58fd8a8301283a0af87",
+    "assets/noto-sans-kr-latin-wght-normal-CZ1P3i-_.woff2": "2ee54080f0b0dee4fb2a9365ec8b3e3269d7720a7d7f2d62c2913088842e1326",
+    "assets/noto-sans-kr-vietnamese-wght-normal-BHUVOYrQ.woff2": "e4bedfe7c5a6162df7d2eb72df4960d49664addb0cb843ecd345e66365cf902e",
+    "assets/research-hold-Bwt-QHLL.png": "e43b2d1e66f7b5261449a19dc868bc5327ea5a8404431a2b7dcae6c0f3fca954",
+    "assets/three.core-Cvnl7nII.js": "8fcae94e975a1d1bec11136bc0d5df1b83765a96d1fdc3e10ba2a56ba499dd7c",
+    "index.html": "333812c54d1fc67801c46bd0f5a5a98473922156c152a21b824fe3b4907a2937",
+    "licenses/echarts-LICENSE.txt": "634293835b43a6dd2094fa39182a3d9a6b9ca43b7fdb9ac354e8037af2a3093a",
+    "licenses/echarts-NOTICE.txt": "d491d358344f842685c1b1585970999db65fe30ecf7ef3867af8814f4016c016",
+    "licenses/echarts-d3-LICENSE.txt": "e1211892da0b0e0585b7aebe8f98c1274fba15bafe47fa1f4ee8a7a502c06304",
+    "licenses/noto-sans-kr-OFL.txt": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+    "licenses/three-MIT.txt": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+    "licenses/tslib-0BSD.txt": "5989359645911c04a140c49d89496b13feca980bbf36d2250a12d3b9d06250d6",
+    "licenses/tslib-CopyrightNotice.txt": "0d8f66cd4afb566cb5b7e1540c68f43b939d3eba12ace290f18abc4f4cb53ed0",
+    "licenses/zrender-BSD-3-Clause.txt": "a681e9d183c72b4af4856935893805eb48c08f0f5a3f260203db7444c20fb98a"
+  },
+  "checks": {
+    "build-v1": {
+      "observed": {
+        "RSS_samples": 7,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 539963392,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": null,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 0,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 511324160,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": true,
+        "wall_seconds": 1.787987642999724
+      },
+      "receipt": {
+        "file": "focused-p6a0-build-v1/terminal.private.json",
+        "sha256": "d3d7175daa2aa416d640f52dbba75f4e0c33f762c09b3cd0a36b4fdcb8afd374"
+      }
+    },
+    "red-v1": {
+      "observed": {
+        "RSS_samples": 35,
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 654462976,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": null,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 0,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 332664832,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": true,
+        "wall_seconds": 9.047824276000028
+      },
+      "receipt": {
+        "file": "focused-p6a0-red-v1/terminal.private.json",
+        "sha256": "8a555294ede8999c8915d352d851506ca178b3da7f3e077d39b8e13b937721bc"
+      }
+    },
+    "screen-green-v1": {
+      "observed": {
+        "RSS_samples": 39,
+        "actual_child_exit": -15,
+        "combined_peak_RSS_bytes": 884662272,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": null,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 0,
+        "reason": "RSS_limit",
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 567848960,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": true,
+        "wall_seconds": 9.982260636999854
+      },
+      "receipt": {
+        "file": "focused-p6a0-screen-green-v1/terminal.private.json",
+        "sha256": "6d2bcff1d07e371c8c2edbbf06d59dd622f72de2def081387b36bb7cb6a855c3"
+      }
+    },
+    "screen-green-v2": {
+      "observed": {
+        "RSS_samples": 6,
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 189153280,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": null,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 0,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 147628032,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": true,
+        "wall_seconds": 1.5350717770006668
+      },
+      "receipt": {
+        "file": "focused-p6a0-screen-green-v2/terminal.private.json",
+        "sha256": "78dfdaa35e4cdf84225ebf1e9192f4594353bc6fc0e7cb5c2294936b9b9b1228"
+      }
+    },
+    "screen-green-v3": {
+      "observed": {
+        "RSS_samples": 610,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 733052928,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": null,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 0,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 408297472,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": true,
+        "wall_seconds": 164.13068896000004
+      },
+      "receipt": {
+        "file": "focused-p6a0-screen-green-v3/terminal.private.json",
+        "sha256": "66d82160334086e32d526fc014bcec4253b063af9a0675c9ba41638164711a35"
+      }
+    },
+    "syntax-v1": {
+      "observed": {
+        "RSS_samples": 4,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 126885888,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": null,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 0,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 82030592,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": true,
+        "wall_seconds": 1.029461905000062
+      },
+      "receipt": {
+        "file": "focused-p6a0-syntax-v1/terminal.private.json",
+        "sha256": "23ea82601dfacb04acb378614290879597106f6733efa3f009e53ab0a0b0c5b5"
+      }
+    },
+    "typecheck-v1": {
+      "observed": {
+        "RSS_samples": 3,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 458960896,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": null,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 0,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 430333952,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": true,
+        "wall_seconds": 0.7821868419996463
+      },
+      "receipt": {
+        "file": "focused-p6a0-typecheck-v1/terminal.private.json",
+        "sha256": "b1dcf0a9b09070252b347568b444c0ecc961d3ffbd62cd0a44bfa4de0683264c"
+      }
+    },
+    "unit-v1": {
+      "observed": {
+        "RSS_samples": 6,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 374857728,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": null,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 0,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 262459392,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": true,
+        "wall_seconds": 1.538619687999926
+      },
+      "receipt": {
+        "file": "focused-p6a0-unit-v1/terminal.private.json",
+        "sha256": "13b121fdfb5420477a3a529841b1b085affb7664f904869b6d78dcb67deed953"
+      }
+    }
+  },
+  "created_at": "2026-10-11T03:48:01.302128+00:00",
+  "final_UI_design_accepted": false,
+  "full_CI_run": false,
+  "independent_local_farm_datasets": 0,
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "timestamp": "2026-10-11T02:47:44.369Z",
+    "turn_context_sha256": "033eb321c1a90794db6b1c27df6fd05337d61e30e76071821ec72b3df11ed284"
+  },
+  "native_failed_attempts": [
+    {
+      "P6_parent_accepted": false,
+      "candidate_terminal": {
+        "G0_G4": "not_assessed",
+        "P6_parent_accepted": false,
+        "actual_browser_exit": -15,
+        "actual_service_exit": 1,
+        "automatic_unpaused_worker_chunk_budget": 8,
+        "candidate_PG_stopped": true,
+        "candidate_user_port": 39059,
+        "cleanup_error": "OperatorConfigHold",
+        "current_rights_preserved": true,
+        "database_retained": true,
+        "legacy_protected_live": true,
+        "mode": "live-normal",
+        "owned_job_cleanup": null,
+        "preexisting_data_files_preserved": true,
+        "reason": "requested_stop",
+        "signing_keys_DSN_and_inputs_preserved": true,
+        "source_preserved": true,
+        "user_activation": false,
+        "wall_seconds": 8.991872525999952
+      },
+      "candidate_terminal_receipt": {
+        "file": "focused-live-normal-v1/native/terminal.private.json",
+        "sha256": "c98651684b628b864d031577ea168e271a1fc613f7c35ab285e29a72f9eb443e"
+      },
+      "case": "focused-live-normal-v1",
+      "guard": {
+        "observed": {
+          "RSS_samples": 31,
+          "actual_child_exit": 1,
+          "combined_peak_RSS_bytes": 1107730432,
+          "controller_FD_before_after": [
+            4,
+            4
+          ],
+          "frontend_status": 200,
+          "joint_preview_assets_preserved": true,
+          "joint_preview_source_preserved": true,
+          "original_source_entries": 2148,
+          "original_sources_preserved": true,
+          "owned_non_zombie_remaining": [],
+          "owned_postgres_remaining": [],
+          "passfiles_remaining": [],
+          "preview_assets_preserved": true,
+          "preview_source_preserved": true,
+          "protected_live": true,
+          "reason": "RSS_limit",
+          "sample_interval_seconds": 0.25,
+          "single_PID_peak_RSS_bytes": 324923392,
+          "source_preserved": true,
+          "temporary_PG_directories_remaining": [],
+          "wall_seconds": 9.628615386000092
+        },
+        "receipt": {
+          "file": "focused-live-normal-v1/terminal.private.json",
+          "sha256": "7d27c71f15a0f6162bd066c5e7b40433cd383b881ecba9e6841819ab7fcffc16"
+        }
+      },
+      "source_sha256": {
+        "research/crop-climate-joint-prefix-browser-reference.mjs": "ff483c83c6f01fa4bebc80a0333140720750ad253d48a554bad85a1db175c647",
+        "research/crop-climate-joint-prefix-browser-reference.py": "f2f875688667576fd4e0060722d361e657a81d2e3a7afcd35c6207c5d98ab9e1",
+        "web/src/JointCropClimateExecution.tsx": "705e347980583014cc6f97bb96b2b9bfc58531470a025819f7e1cae19baf0ff5"
+      }
+    },
+    {
+      "P6_parent_accepted": false,
+      "case": "focused-live-normal-v2",
+      "guard": {
+        "observed": {
+          "RSS_samples": 26,
+          "actual_child_exit": -9,
+          "combined_peak_RSS_bytes": 1083916288,
+          "controller_FD_before_after": [
+            4,
+            4
+          ],
+          "frontend_status": 200,
+          "joint_preview_assets_preserved": true,
+          "joint_preview_source_preserved": true,
+          "original_source_entries": 2148,
+          "original_sources_preserved": true,
+          "owned_non_zombie_remaining": [],
+          "owned_postgres_remaining": [],
+          "passfiles_remaining": [],
+          "preview_assets_preserved": true,
+          "preview_source_preserved": true,
+          "protected_live": true,
+          "reason": "RSS_limit",
+          "sample_interval_seconds": 0.25,
+          "single_PID_peak_RSS_bytes": 322039808,
+          "source_preserved": true,
+          "temporary_PG_directories_remaining": [],
+          "wall_seconds": 12.289200828999583
+        },
+        "receipt": {
+          "file": "focused-live-normal-v2/terminal.private.json",
+          "sha256": "f710a096497c8516488814c8ea3a87d0f4349c93587cd4d4913e986cfba02450"
+        }
+      },
+      "source_sha256": {
+        "research/crop-climate-joint-prefix-browser-reference.mjs": "e444a3f7cd0c5aad4127ecb4aa5003b5b8071f2e124138de52d54fd8426d0538",
+        "research/crop-climate-joint-prefix-browser-reference.py": "1982bd0baccb26c388a404529a3ab33ed2d87965c01a6eff34517f2523f905c0",
+        "web/src/JointCropClimateExecution.tsx": "705e347980583014cc6f97bb96b2b9bfc58531470a025819f7e1cae19baf0ff5"
+      }
+    },
+    {
+      "P6_parent_accepted": false,
+      "case": "focused-live-normal-v3",
+      "guard": {
+        "observed": {
+          "RSS_samples": 22,
+          "actual_child_exit": -9,
+          "combined_peak_RSS_bytes": 1125646336,
+          "controller_FD_before_after": [
+            4,
+            4
+          ],
+          "frontend_status": 200,
+          "joint_preview_assets_preserved": true,
+          "joint_preview_source_preserved": true,
+          "original_source_entries": 2148,
+          "original_sources_preserved": true,
+          "owned_non_zombie_remaining": [],
+          "owned_postgres_remaining": [],
+          "passfiles_remaining": [],
+          "preview_assets_preserved": true,
+          "preview_source_preserved": true,
+          "protected_live": true,
+          "reason": "RSS_limit",
+          "sample_interval_seconds": 0.25,
+          "single_PID_peak_RSS_bytes": 313704448,
+          "source_preserved": true,
+          "temporary_PG_directories_remaining": [],
+          "wall_seconds": 11.361838057000114
+        },
+        "receipt": {
+          "file": "focused-live-normal-v3/terminal.private.json",
+          "sha256": "5bdf0f1f4567404dbfa42d2b082e9cd00dd761d4edccb163b4a1a5780313050b"
+        }
+      },
+      "source_sha256": {
+        "research/crop-climate-joint-prefix-browser-reference.mjs": "528ecf2718dc8a83adfe2f0241bfd52247badceec9a751637c05c36e03db3301",
+        "research/crop-climate-joint-prefix-browser-reference.py": "07c953fe6b122615ed83d1be078b23721a5602cae765b81f4b9efcb467fb7bed",
+        "web/src/JointCropClimateExecution.tsx": "705e347980583014cc6f97bb96b2b9bfc58531470a025819f7e1cae19baf0ff5"
+      }
+    },
+    {
+      "P6_parent_accepted": false,
+      "candidate_terminal": {
+        "G0_G4": "not_assessed",
+        "P6_parent_accepted": false,
+        "actual_browser_exit": 1,
+        "actual_service_exit": -15,
+        "automatic_unpaused_worker_chunk_budget": 8,
+        "candidate_PG_stopped": true,
+        "candidate_user_port": 59841,
+        "cleanup_error": "URLError",
+        "current_rights_preserved": true,
+        "database_retained": true,
+        "legacy_protected_live": true,
+        "mode": "live-normal",
+        "owned_job_cleanup": null,
+        "preexisting_data_files_preserved": true,
+        "reason": "requested_stop",
+        "signing_keys_DSN_and_inputs_preserved": true,
+        "source_preserved": true,
+        "user_activation": false,
+        "wall_seconds": 8.150555879999956
+      },
+      "candidate_terminal_receipt": {
+        "file": "focused-live-normal-v4/native/terminal.private.json",
+        "sha256": "54df602494157f1b684b921dbf49722ba0ecc8927b511c8aa4739e1c72301ab7"
+      },
+      "case": "focused-live-normal-v4",
+      "guard": {
+        "observed": {
+          "RSS_samples": 30,
+          "actual_child_exit": 1,
+          "combined_peak_RSS_bytes": 1084657664,
+          "controller_FD_before_after": [
+            4,
+            4
+          ],
+          "frontend_status": 200,
+          "joint_preview_assets_preserved": true,
+          "joint_preview_source_preserved": true,
+          "original_source_entries": 2148,
+          "original_sources_preserved": true,
+          "owned_non_zombie_remaining": [],
+          "owned_postgres_remaining": [],
+          "passfiles_remaining": [],
+          "preview_assets_preserved": true,
+          "preview_source_preserved": true,
+          "protected_live": true,
+          "reason": "RSS_limit",
+          "sample_interval_seconds": 0.25,
+          "single_PID_peak_RSS_bytes": 322707456,
+          "source_preserved": true,
+          "temporary_PG_directories_remaining": [],
+          "wall_seconds": 8.686649279999983
+        },
+        "receipt": {
+          "file": "focused-live-normal-v4/terminal.private.json",
+          "sha256": "d0c1673fc49c0d1d48a6a6ae0e978cf94c31db38ca5a1efc50cdd56508379cec"
+        }
+      },
+      "source_sha256": {
+        "research/crop-climate-joint-prefix-browser-reference.mjs": "9606e388684af8229fca4e7a47c0c3987d5f1f2631ec38bf9ff029a423c20f03",
+        "research/crop-climate-joint-prefix-browser-reference.py": "1982bd0baccb26c388a404529a3ab33ed2d87965c01a6eff34517f2523f905c0",
+        "web/src/JointCropClimateExecution.tsx": "705e347980583014cc6f97bb96b2b9bfc58531470a025819f7e1cae19baf0ff5"
+      }
+    },
+    {
+      "P6_parent_accepted": false,
+      "candidate_terminal": {
+        "G0_G4": "not_assessed",
+        "P6_parent_accepted": false,
+        "actual_browser_exit": -15,
+        "actual_service_exit": 1,
+        "automatic_unpaused_worker_chunk_budget": 8,
+        "both_previews_maintenance_window": true,
+        "candidate_PG_stopped": true,
+        "candidate_user_port": 39087,
+        "cleanup_error": "OperatorConfigHold",
+        "current_rights_preserved": true,
+        "database_retained": true,
+        "legacy_protected_live": true,
+        "mode": "live-normal",
+        "owned_job_cleanup": null,
+        "preexisting_data_files_preserved": true,
+        "protected_root_count": 0,
+        "reason": "requested_stop",
+        "signing_keys_DSN_and_inputs_preserved": true,
+        "source_preserved": true,
+        "user_activation": false,
+        "wall_seconds": 47.7450417
+      },
+      "candidate_terminal_receipt": {
+        "file": "focused-live-normal-v5/native/terminal.private.json",
+        "sha256": "998fe86ec5a3208ebc97aef3947d7b845ca70609917d9b07f923eba09081552c"
+      },
+      "case": "focused-live-normal-v5",
+      "guard": {
+        "observed": {
+          "RSS_samples": 175,
+          "actual_child_exit": 1,
+          "combined_peak_RSS_bytes": 1099579392,
+          "controller_FD_before_after": [
+            4,
+            4
+          ],
+          "frontend_status": null,
+          "joint_preview_assets_preserved": true,
+          "joint_preview_source_preserved": true,
+          "original_source_entries": 2148,
+          "original_sources_preserved": true,
+          "owned_non_zombie_remaining": [],
+          "owned_postgres_remaining": [],
+          "passfiles_remaining": [],
+          "preview_assets_preserved": true,
+          "preview_source_preserved": true,
+          "protected_live": true,
+          "protected_root_count": 0,
+          "reason": "RSS_limit",
+          "sample_interval_seconds": 0.25,
+          "single_PID_peak_RSS_bytes": 575545344,
+          "source_preserved": true,
+          "temporary_PG_directories_remaining": [],
+          "user_previews_maintenance_window": true,
+          "wall_seconds": 48.27362762699977
+        },
+        "receipt": {
+          "file": "focused-live-normal-v5/terminal.private.json",
+          "sha256": "ce3ebf527a031afb48f73a34c89f08a01a09ebfc0098e1144f0957743b827f2a"
+        }
+      },
+      "source_sha256": {
+        "research/crop-climate-joint-prefix-browser-reference.mjs": "528ecf2718dc8a83adfe2f0241bfd52247badceec9a751637c05c36e03db3301",
+        "research/crop-climate-joint-prefix-browser-reference.py": "6b3530d9f546f19a36d851f98f8b97f5d3080cb77ccb2545d51029ffdce2d484",
+        "web/src/JointCropClimateExecution.tsx": "705e347980583014cc6f97bb96b2b9bfc58531470a025819f7e1cae19baf0ff5"
+      }
+    },
+    {
+      "P6_parent_accepted": false,
+      "candidate_terminal": {
+        "G0_G4": "not_assessed",
+        "P6_parent_accepted": false,
+        "actual_browser_exit": 1,
+        "actual_service_exit": 0,
+        "automatic_unpaused_worker_chunk_budget": 8,
+        "both_previews_maintenance_window": true,
+        "candidate_PG_stopped": true,
+        "candidate_user_port": 47417,
+        "cleanup_error": null,
+        "current_rights_preserved": true,
+        "database_retained": true,
+        "legacy_protected_live": true,
+        "mode": "live-normal",
+        "owned_job_cleanup": null,
+        "preexisting_data_files_preserved": true,
+        "protected_root_count": 0,
+        "reason": "browser_RSS_soft_limit",
+        "signing_keys_DSN_and_inputs_preserved": true,
+        "source_preserved": true,
+        "user_activation": false,
+        "wall_seconds": 80.18041924599993
+      },
+      "candidate_terminal_receipt": {
+        "file": "focused-live-normal-v6/native/terminal.private.json",
+        "sha256": "728da3b19a733a867c8a3f3d051faf9ce1dfffdc322abafec1cb8e802beb23f4"
+      },
+      "case": "focused-live-normal-v6",
+      "guard": {
+        "observed": {
+          "RSS_samples": 296,
+          "actual_child_exit": 1,
+          "combined_peak_RSS_bytes": 933330944,
+          "controller_FD_before_after": [
+            4,
+            4
+          ],
+          "frontend_status": null,
+          "joint_preview_assets_preserved": true,
+          "joint_preview_source_preserved": true,
+          "original_source_entries": 2148,
+          "original_sources_preserved": true,
+          "owned_non_zombie_remaining": [],
+          "owned_postgres_remaining": [],
+          "passfiles_remaining": [],
+          "preview_assets_preserved": true,
+          "preview_source_preserved": true,
+          "protected_live": true,
+          "protected_root_count": 0,
+          "reason": null,
+          "sample_interval_seconds": 0.25,
+          "single_PID_peak_RSS_bytes": 426344448,
+          "source_preserved": true,
+          "temporary_PG_directories_remaining": [],
+          "user_previews_maintenance_window": true,
+          "wall_seconds": 80.80815027500012
+        },
+        "receipt": {
+          "file": "focused-live-normal-v6/terminal.private.json",
+          "sha256": "96bc758ff2bb763c1dedfcc83586fe8ec2728d9a20420e81db8841db35400563"
+        }
+      },
+      "source_sha256": {
+        "research/crop-climate-joint-prefix-browser-reference.mjs": "b184ea8057e317f496da5c6159eade2dee0bf2a7305c9dc49dc56a17e385f976",
+        "research/crop-climate-joint-prefix-browser-reference.py": "6019650c8d3dec5572a93f23bbf793116b07e05a211ea9736a2bf762365c12f4",
+        "web/src/JointCropClimateExecution.tsx": "705e347980583014cc6f97bb96b2b9bfc58531470a025819f7e1cae19baf0ff5"
+      }
+    },
+    {
+      "P6_parent_accepted": false,
+      "candidate_terminal": {
+        "G0_G4": "not_assessed",
+        "P6_parent_accepted": false,
+        "actual_browser_exit": 1,
+        "actual_service_exit": 0,
+        "automatic_unpaused_worker_chunk_budget": 8,
+        "both_previews_maintenance_window": true,
+        "candidate_PG_stopped": true,
+        "candidate_user_port": 59139,
+        "cleanup_error": "HTTPError",
+        "current_rights_preserved": true,
+        "database_retained": true,
+        "legacy_protected_live": true,
+        "mode": "live-normal",
+        "owned_job_cleanup": null,
+        "preexisting_data_files_preserved": true,
+        "protected_root_count": 0,
+        "reason": null,
+        "signing_keys_DSN_and_inputs_preserved": true,
+        "source_preserved": true,
+        "user_activation": false,
+        "wall_seconds": 229.27989148999995
+      },
+      "candidate_terminal_receipt": {
+        "file": "focused-live-normal-v7/native/terminal.private.json",
+        "sha256": "4dda92e152ced7a0ee88cbdd213579ce33bc27d34d400ba5f0ce3369e9f8c000"
+      },
+      "case": "focused-live-normal-v7",
+      "guard": {
+        "observed": {
+          "RSS_samples": 790,
+          "actual_child_exit": 1,
+          "combined_peak_RSS_bytes": 945700864,
+          "controller_FD_before_after": [
+            4,
+            4
+          ],
+          "frontend_status": null,
+          "joint_preview_assets_preserved": true,
+          "joint_preview_source_preserved": true,
+          "original_source_entries": 2148,
+          "original_sources_preserved": true,
+          "owned_non_zombie_remaining": [],
+          "owned_postgres_remaining": [],
+          "passfiles_remaining": [],
+          "preview_assets_preserved": true,
+          "preview_source_preserved": true,
+          "protected_live": true,
+          "protected_root_count": 0,
+          "reason": null,
+          "sample_interval_seconds": 0.25,
+          "single_PID_peak_RSS_bytes": 323416064,
+          "source_preserved": true,
+          "temporary_PG_directories_remaining": [],
+          "user_previews_maintenance_window": true,
+          "wall_seconds": 229.8582573159997
+        },
+        "receipt": {
+          "file": "focused-live-normal-v7/terminal.private.json",
+          "sha256": "e184ceccfbcef128fe49eae6d9308bc3ca397533ffa8cbe12dd4cc140a46b1b4"
+        }
+      },
+      "source_sha256": {
+        "research/crop-climate-joint-prefix-browser-reference.mjs": "3b824057153ad9d1870d8eb4d616727aff2341dd62dab7da5a04426e522fae6e",
+        "research/crop-climate-joint-prefix-browser-reference.py": "d39ee67a43ae1a21f5880095391faf4f90aa96ff501b7e1a300420b697a8dfa2",
+        "web/src/JointCropClimateExecution.tsx": "705e347980583014cc6f97bb96b2b9bfc58531470a025819f7e1cae19baf0ff5"
+      }
+    },
+    {
+      "P6_parent_accepted": false,
+      "candidate_terminal": {
+        "G0_G4": "not_assessed",
+        "P6_parent_accepted": false,
+        "actual_browser_exit": 1,
+        "actual_service_exit": 0,
+        "automatic_unpaused_worker_chunk_budget": 8,
+        "both_previews_maintenance_window": true,
+        "candidate_PG_stopped": true,
+        "candidate_user_port": 54215,
+        "cleanup_error": null,
+        "current_rights_preserved": true,
+        "database_retained": true,
+        "legacy_protected_live": true,
+        "mode": "live-normal",
+        "owned_job_cleanup": {
+          "job_id": "0266cb1a-aa13-45ea-8c03-f62b4ae5c4e2",
+          "state": "succeeded"
+        },
+        "preexisting_data_files_preserved": true,
+        "protected_root_count": 0,
+        "reason": null,
+        "signing_keys_DSN_and_inputs_preserved": true,
+        "source_preserved": true,
+        "user_activation": false,
+        "wall_seconds": 112.34344573599992
+      },
+      "candidate_terminal_receipt": {
+        "file": "focused-live-normal-v8/native/terminal.private.json",
+        "sha256": "9272d05bf3ad4296748af49da80422aa8f09497191a20632995108d34fc5c69d"
+      },
+      "case": "focused-live-normal-v8",
+      "guard": {
+        "observed": {
+          "RSS_samples": 411,
+          "actual_child_exit": 1,
+          "combined_peak_RSS_bytes": 963751936,
+          "controller_FD_before_after": [
+            4,
+            4
+          ],
+          "frontend_status": null,
+          "joint_preview_assets_preserved": true,
+          "joint_preview_source_preserved": true,
+          "original_source_entries": 2148,
+          "original_sources_preserved": true,
+          "owned_non_zombie_remaining": [],
+          "owned_postgres_remaining": [],
+          "passfiles_remaining": [],
+          "preview_assets_preserved": true,
+          "preview_source_preserved": true,
+          "protected_live": true,
+          "protected_root_count": 0,
+          "reason": null,
+          "sample_interval_seconds": 0.25,
+          "single_PID_peak_RSS_bytes": 322527232,
+          "source_preserved": true,
+          "temporary_PG_directories_remaining": [],
+          "user_previews_maintenance_window": true,
+          "wall_seconds": 112.86412326000027
+        },
+        "receipt": {
+          "file": "focused-live-normal-v8/terminal.private.json",
+          "sha256": "82f75a83879b7cc4b0825a45bf508968315c5d73aef47784a59b16a30cd7c100"
+        }
+      },
+      "source_sha256": {
+        "research/crop-climate-joint-prefix-browser-reference.mjs": "b2f1e946e3519d4149bba26a8b4f8810240572a4600801787995974d85079fe2",
+        "research/crop-climate-joint-prefix-browser-reference.py": "91b013abf1d43c776f14468260b84e9de59c6f06a20baba4c547580b3ff4efef",
+        "web/src/JointCropClimateExecution.tsx": "705e347980583014cc6f97bb96b2b9bfc58531470a025819f7e1cae19baf0ff5"
+      }
+    },
+    {
+      "P6_parent_accepted": false,
+      "candidate_terminal": {
+        "G0_G4": "not_assessed",
+        "P6_parent_accepted": false,
+        "actual_browser_exit": 1,
+        "actual_service_exit": 0,
+        "automatic_unpaused_worker_chunk_budget": 8,
+        "both_previews_maintenance_window": true,
+        "candidate_PG_stopped": true,
+        "candidate_user_port": 36783,
+        "cleanup_error": null,
+        "current_rights_preserved": true,
+        "database_retained": true,
+        "legacy_protected_live": true,
+        "mode": "live-normal",
+        "owned_job_cleanup": {
+          "job_id": "3593082b-d0da-4fb6-8f11-2fca958ac0e5",
+          "state": "succeeded"
+        },
+        "preexisting_data_files_preserved": true,
+        "protected_root_count": 0,
+        "reason": "browser_RSS_soft_limit",
+        "signing_keys_DSN_and_inputs_preserved": true,
+        "source_preserved": true,
+        "user_activation": false,
+        "wall_seconds": 115.719059647
+      },
+      "candidate_terminal_receipt": {
+        "file": "focused-live-normal-v9/native/terminal.private.json",
+        "sha256": "82b0e9519cef6a0e12a93301680d3b0f9ea5ba303ad0e676690436c634596754"
+      },
+      "case": "focused-live-normal-v9",
+      "guard": {
+        "observed": {
+          "RSS_samples": 419,
+          "actual_child_exit": 1,
+          "combined_peak_RSS_bytes": 969637888,
+          "controller_FD_before_after": [
+            4,
+            4
+          ],
+          "frontend_status": null,
+          "joint_preview_assets_preserved": true,
+          "joint_preview_source_preserved": true,
+          "original_source_entries": 2148,
+          "original_sources_preserved": true,
+          "owned_non_zombie_remaining": [],
+          "owned_postgres_remaining": [],
+          "passfiles_remaining": [],
+          "preview_assets_preserved": true,
+          "preview_source_preserved": true,
+          "protected_live": true,
+          "protected_root_count": 0,
+          "reason": null,
+          "sample_interval_seconds": 0.25,
+          "single_PID_peak_RSS_bytes": 373190656,
+          "source_preserved": true,
+          "temporary_PG_directories_remaining": [],
+          "user_previews_maintenance_window": true,
+          "wall_seconds": 116.49894510700051
+        },
+        "receipt": {
+          "file": "focused-live-normal-v9/terminal.private.json",
+          "sha256": "9637ea69f3cf3f5f0bdb54502d7f22716c26f7b2a5898afb3eb961c879a52849"
+        }
+      },
+      "source_sha256": {
+        "research/crop-climate-joint-prefix-browser-reference.mjs": "b2f1e946e3519d4149bba26a8b4f8810240572a4600801787995974d85079fe2",
+        "research/crop-climate-joint-prefix-browser-reference.py": "91b013abf1d43c776f14468260b84e9de59c6f06a20baba4c547580b3ff4efef",
+        "web/src/JointCropClimateExecution.tsx": "1c99b6d340a246a9fbcbfd3f7b07433351c506da901259446cfde9bad5edfee0"
+      }
+    }
+  ],
+  "product_core_commit": "bb67a60",
+  "production_crop_Runs": 0,
+  "remote_operations": 0,
+  "restoration": {
+    "calculation_jobs_created": 0,
+    "candidate_5175_closed": true,
+    "fresh_browser_rerun": false,
+    "integrity": {
+      "DSN_preserved": true,
+      "G0_G4": "not_assessed",
+      "actual_SCRAM": true,
+      "current_rights_preserved": true,
+      "existing_files_preserved": 109,
+      "owned_research_job_count": 8,
+      "owned_research_job_states": [
+        "succeeded",
+        "succeeded",
+        "succeeded",
+        "canceled",
+        "succeeded",
+        "succeeded",
+        "canceled",
+        "succeeded"
+      ],
+      "preexisting_row_counts": {
+        "job_attempts": 8,
+        "job_events": 146,
+        "jobs": 95
+      },
+      "preexisting_rows_preserved": {
+        "job_attempts": true,
+        "job_events": true,
+        "jobs": true
+      },
+      "read_only_transaction": true,
+      "restored_worker_attempts": 0,
+      "signing_keys_preserved": true
+    },
+    "integrity_guard": {
+      "observed": {
+        "RSS_samples": 1,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 596750336,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 4,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 136744960,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 0.3334349020005902
+      },
+      "receipt": {
+        "file": "focused-restored-integrity-v1/terminal.private.json",
+        "sha256": "d90da6f449713806a730918288fd19aeaa6246edf66ec435a147df644561b3fb"
+      }
+    },
+    "joint_guard": {
+      "observed": {
+        "RSS_samples": 149,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 651231232,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 4,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 136744960,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 39.49283343500065
+      },
+      "receipt": {
+        "file": "focused-restored-joint-probe-v1/terminal.private.json",
+        "sha256": "e7e83b5537e1613d99098193d3b96cd1d1faf5777b6b959851599310aaf016d9"
+      }
+    },
+    "joint_original_result_bytes_equal": true,
+    "joint_original_result_responses": 7,
+    "legacy_authenticated_probe": {
+      "actual_exit": 0,
+      "details": {
+        "actual_exit": 0,
+        "combined_peak_RSS_bytes": 390684672,
+        "owned_remaining": [],
+        "protected_live": true,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 136744960,
+        "wall_seconds": 15.095144748000166
+      },
+      "receipt": {
+        "file": "legacy-restore-probe-v1/terminal.private.json",
+        "sha256": "e292c8d880b0b87510114c32fa98f3bbd2a536b0018bc068ae5d0dce4db1d6c3"
+      }
+    },
+    "legacy_index_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1",
+    "legacy_original_generated_nginx_config_preserved": true,
+    "live_user_server_final_exit": null,
+    "old_joint_token_401": true,
+    "protected_roots": 4
+  },
+  "scope": "synthetic_joint_crop_climate_math_only",
+  "software_regression_accepted": true,
+  "source_sha256": {
+    "research/crop-climate-joint-prefix-browser-reference.mjs": "b2f1e946e3519d4149bba26a8b4f8810240572a4600801787995974d85079fe2",
+    "research/crop-climate-joint-prefix-browser-reference.py": "91b013abf1d43c776f14468260b84e9de59c6f06a20baba4c547580b3ff4efef",
+    "web/e2e/joint-crop-climate-prefix.spec.ts": "d1c2f37991370245b181b7b30ba2f1f8a5a2411c3dfdae88d480dc091325617f",
+    "web/src/JointCropClimateExecution.tsx": "1c99b6d340a246a9fbcbfd3f7b07433351c506da901259446cfde9bad5edfee0"
+  },
+  "unique_software_tests": 341,
+  "unit_tests": 303,
+  "user_prefix3D_activated": false,
+  "v9_API_mocking": false,
+  "v9_actual_HTTP_trace": [
+    {
+      "body_sha256": "20325b483ede0ac0ff879489cdd17c17a80c51bf327ca09b852d20204e36e575",
+      "error": null,
+      "no_store": true,
+      "page_kind": null,
+      "page_rows": null,
+      "path": "/crop-climate-joint-executions",
+      "prefix_status": null,
+      "status": 202
+    },
+    {
+      "body_sha256": "721b3760b78f01e81f77d09a354b3418a0272a6eefd2506f9c1721a569430961",
+      "error": "joint_execution_unavailable",
+      "no_store": true,
+      "page_kind": null,
+      "page_rows": null,
+      "path": "/crop-climate-joint-execution",
+      "prefix_status": null,
+      "status": 503
+    },
+    {
+      "body_sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+      "error": "joint_prefix_unavailable",
+      "no_store": true,
+      "page_kind": null,
+      "page_rows": null,
+      "path": "/crop-climate-joint-execution/prefix",
+      "prefix_status": null,
+      "status": 503
+    },
+    {
+      "body_sha256": "8f62841f45a55ee02f09d3eb1f50bf112f2283cdbdd749ba64c60547d1189324",
+      "error": null,
+      "no_store": true,
+      "page_kind": null,
+      "page_rows": null,
+      "path": "/crop-climate-joint-execution",
+      "prefix_status": null,
+      "status": 200
+    },
+    {
+      "body_sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+      "error": "joint_prefix_unavailable",
+      "no_store": true,
+      "page_kind": null,
+      "page_rows": null,
+      "path": "/crop-climate-joint-execution/prefix",
+      "prefix_status": null,
+      "status": 503
+    },
+    {
+      "body_sha256": "9b263a143cc79b3054594c374808d6137da20da58315511b3861a0aefe246580",
+      "error": null,
+      "no_store": true,
+      "page_kind": null,
+      "page_rows": null,
+      "path": "/crop-climate-joint-execution",
+      "prefix_status": null,
+      "status": 200
+    },
+    {
+      "body_sha256": "6126409b991dc169c3c3a626e11c8750e7aa73050dfc933341925258e326550f",
+      "error": null,
+      "no_store": true,
+      "page_kind": null,
+      "page_rows": null,
+      "path": "/crop-climate-joint-execution/prefix",
+      "prefix_status": "accepted",
+      "status": 200
+    },
+    {
+      "body_sha256": "d462ece51fbf5bacccdda6ca77a4fd4a6e24a34a7315a5baa68d24e3f479006a",
+      "error": null,
+      "no_store": true,
+      "page_kind": "events",
+      "page_rows": 2,
+      "path": "/crop-climate-joint-execution/prefix/events",
+      "prefix_status": "accepted",
+      "status": 200
+    },
+    {
+      "body_sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+      "error": "joint_prefix_unavailable",
+      "no_store": true,
+      "page_kind": null,
+      "page_rows": null,
+      "path": "/crop-climate-joint-execution/prefix/samples",
+      "prefix_status": null,
+      "status": 503
+    },
+    {
+      "body_sha256": "8954849ac271515c32072a8a64cb24bc474a2247b3bc0761e1f87f8ceb81de0c",
+      "error": null,
+      "no_store": true,
+      "page_kind": null,
+      "page_rows": null,
+      "path": "/crop-climate-joint-execution",
+      "prefix_status": null,
+      "status": 200
+    }
+  ],
+  "v9_actual_browser_exit": 1,
+  "v9_actual_running_WebGL_observed": false,
+  "v9_event_binary64_and_UTC_reconciliation_to_terminal": "not_completed",
+  "v9_job_terminal": "succeeded",
+  "v9_native_reason": "browser_RSS_soft_limit",
+  "v9_observed_guard_exit": 1,
+  "v9_real_prefix_event_200_observed": true,
+  "v9_unpaused_worker_chunk_budget": 8,
+  "version": "joint-prefix-progress-retry-reference-v1"
+}
