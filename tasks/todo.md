@@ -1965,8 +1965,10 @@
       10/11 WSL 재시작 뒤 [기존 사용자 서비스 복구](../research/crop-user-preview-reboot-recovery-20261011.md)를 별도로 확인했다. 새 private 접속 안내/보호 root를 사용하며 P5 배포는 아니다.
     - [ ] **P6a 실제 prefix 브라우저** — 다음 한 단계. 선행: P5. reference Python/JS2파일과 기계 증거.
       수용/확인: 실제 running 중 원 LAI/50구획/온도/UTC/WebGL·원 event 전달→terminal 원 결과, hold/cancel/빈/재접속·권리와 WSL/원본/실제 종료. P4에서 미관측인 event-prefix200도 실제 SDK로 확인한다.1–2h 잠정.
+      10/11 합산 RSS 초과 실측으로 [계획의 검증 창](plan.md#joint-prefix-view-20261010)을 적용한다.5173 유지·5174 정상 종료/같은 DB와 키의 별도 후보 검증→통과 후 활성화 또는 원 frozen 서버 복구를 필수로 확인한다. 부모 수용은 아직 미완료다.
     - [ ] **P6b prefix 사용자 기동** — 선행: P6a. live operator/preview core최대2파일과 접속 안내.
       수용/확인: frozen 후보 수용 뒤5174 연결·실제 인증/자동 worker·장벽 없는 계산 중 관측·원 결과/현재 키/5173 보존·접속 안내.0.5–1h 잠정.
+      [10/11 기동 준비](../research/crop-climate-joint-prefix-browser-preparation-20261011.md)의 명시 prefix/budget helper2파일은 구문/옵션·변경 전 거부/보존 검사만 통과했다. 실제 기동/사용자 적용과 부모 수용은 아직0이다. 유지보수/복구를 포함한 P6 잔여2–4집중시간 잠정이며 실제 응답/자원 관측 뒤 재산정한다.
 - [ ] **`crop-economic-link`** — 선행: 생산량·자원 계산·`crop-execution-link`와 같은 배치/달력의 경제 입력.
   예정 파일(3): `backend/app/crop_economic_link.py`, `backend/tests/test_crop_economic_link.py`,
   `contracts/crop-economic-link-v1.md`.

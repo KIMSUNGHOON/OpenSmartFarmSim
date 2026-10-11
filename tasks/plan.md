@@ -1212,6 +1212,10 @@ source 검토는 구현/시험 수용이 아니다. 아래 자식은 작은 합�
 | P6a 실제 브라우저 | prefix browser reference Python/JS2파일 + 결과 증거 | P5 | 실제 running의 원 표/LAI/50구획/온도/WebGL·원 시각/사건·완료/hold·cancel/재접속·원본/WSL·실제 종료; P4 미관측 event-prefix200을 실제 SDK로 확인 |1–2h|
 | P6b 사용자 기동 | 기존 live operator/preview와 접속 안내, core 최대2파일 | P6a | frozen 후보 검증 뒤5174 연결·실제 수명/자동 worker·장벽 없는 계산 중 조회·기존 결과/5173/현재 키 보존·접속 안내 |0.5–1h|
 
+**P6a 10/11 실측에 따른 기동 순서 조정:** 두 사용자 서비스의 합산 기준 RSS578,494,464bytes에서 분리 API/기록 결과 브라우저를 추가한 첫 profile이1,105,895,424bytes로1GiB 상한을 넘었다. 계산 접수0이며 시험 프로세스만 정리했고 두 원 서비스/자산·2,148원본을 보존했다. 따라서5173 재생을 유지한 상태로5174의 활성 계산 유무를 확인하고 정확한 기존 guardian을 정상 종료한다. 기존 DB/결과/키를 보존한 같은 저장소의 후보를 별도 포트에서 실제 독립 worker·prefix API/브라우저로 검증하고, P6a 통과 뒤5174를 활성화한다. 실패/중단 시 원 frozen5174를 복구한다. 이 검증 창에서는5173 root를 보호하고5174는 데이터/키·원 결과 보존과 최종 복구를 검사한다. 메모리 상한·관문·실제 사건/3D 수용 기준은 유지한다. source/설계 판단은 이번 native gpt-6.1-sol/xhigh context이며 재귀 CLI0이다.
+
+[기동 준비/실측 기록](../research/crop-climate-joint-prefix-browser-preparation-20261011.md): 명시 prefix/worker budget의 helper2파일을 준비하고 구문/옵션/변경 전 거부·보존 검사를 통과했다. 실제 후보 기동/유지보수/사용자 활성화는 아직0이며 P6a/P6b는 미수용이다. 유지보수/복구 검증0.5–1h를 포함해 남은2–4집중시간 잠정으로 갱신한다. 실제 event200·RSS 관측 뒤 다시 산정하며 완료 날짜는 확정하지 않는다.
+
 P1/P2 후 원 페이지/공개 정보 checkpoint, P3b/P4 후 실제 보호 전달 checkpoint, P6a/P6b 후 사용자 기동 checkpoint를 둔다.
 P4는 실제 SDK 구현 대조 후 P4a 공용 값/격자·manifest·checkpoint 검사2파일과 P4b 새 reader/API/unit/실제 SDK test4파일로 분해한다. 기존 terminal/실행 검사를 그대로 재사용하고 미완료 prefix를 임시 terminal 응답으로 만들지 않는다. 각 자식의 집중 회귀/타입 뒤 실제 SDK/TLS를 확인하고 P4 부모는 모두 통과한 뒤 수용한다.
 P5는 P5a 부분 결과 component/Execution/CSS3파일과 P5b 새 e2e/기존 E8 fixture2파일로 분해한다. 기존 E8 기록은 새 prefix 요청을 제공하지 않으므로 미지원404를 명시해 기존 상태 조회 호환을 검사한다. prefix404는 해당 연결의 부분 결과만 비활성으로 두고 작업 상태/취소를 유지한다. 권리/인증/응답 거부는 원값/장면을 지우고 자동 조회를 멈춘다. 원 selector의 최근64시점/8사건을 순차 조회해 함께 교체하며 기존 승인 LayerDoc/수치3D 구성을 재사용한다. 각 자식 검증 뒤 P5를 수용하고 실제 서버/사용자 활성화는 P6에서 한다.
