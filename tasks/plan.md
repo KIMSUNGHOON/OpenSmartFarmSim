@@ -1224,6 +1224,10 @@ source 검토는 구현/시험 수용이 아니다. 아래 자식은 작은 합�
 
 다음은 **P6a1의 같은 accepted selector events200→samples503 원인 분류**다. 첫0.5–1시간에 원 trace/source의 실패 검증 지점을 제한된 진단으로 확인하고 원본·권리·무잠금 읽기/worker 지연0·자원/정리를 검증한다. reader/재조회 수정은 이 근거 뒤 별도 작은 작업으로 분해한다. 이후 실제 P6 전체 경로 재검증0.5–1.5시간, P6b0.5–1시간은 관측 성공 뒤의 잠정 범위다. 기존 남은2–4시간/10월11일 조건부 추정은 이 미확정 수정 의존성 때문에 재산정 대상이며 **완료 날짜는 P6a1 분류 뒤 갱신한다.** 전체 작기·현장·생산/마진/추천 관문 일정은 별도다.
 
+**10/11 P6a1 수용:** [동일 reader/runtime의 실제 SCRAM/TLS 재현2회](../research/crop-climate-joint-prefix-page-diagnosis-20261011.md)는 DB bundle:250·final HEAD:261·HTTP 후검사:34의 Pending을 구분했다. 임대만 갱신된 `lease_until/updated_at` 변화도 거부하고, 시작/종료 전환과 정상 private HEAD 전진에서도 보류한다. v2 진단은 같은 selector event/sample200을 받았지만 WebGL·원 terminal 대사는 미실행이다. 두 사용자 서버를 중지하지 않고 원본/보호 root4/자산·FD/소유 정리·실제 종료0을 확인했다. API tracing이 포함된 조회6–11초는 반복 입력/권리 검사 비용이 대부분이며 성능 보장 수치가 아니다.
+
+다음 한 단계 **P6a2a**는 [설계 v1](../contracts/crop-climate-joint-prefix-progress-guard-v1.md)의 prefix 전용 job witness/임대 갱신 비교다. reader/HTTP2 core·대응 test2파일에서 실제 독립 heartbeat의 조회 중/직렬화 후 red/green과 현재 lifecycle/input/권리/서명·원 값/UTC·구형 계약·unpaused 정상/hold/cancel/자원을 확인한다. writer/수치/E6 진행 DTO·HEAD 변경 처리는 유지한다. 필요한 P6a2b의 HEAD 전진 개선은 그 뒤 실제 실패가 남을 때 별도 분해한다. P6a2a1–2집중시간/연속 작업10/11 KST를 잠정으로 두고, P6 전체 재검증0.5–1.5시간·P6b0.5–1시간은 관측 성공 뒤 범위다. **계산 중3D의 완료 날짜는 P6a2a 실제 재검증과 HEAD 후속 필요 확인 뒤 갱신한다.** 전체 작기·생산/자원·경제·최종 UI/현장 자료의 완료일을 이 조사로 확정하지 않는다.
+
 P1/P2 후 원 페이지/공개 정보 checkpoint, P3b/P4 후 실제 보호 전달 checkpoint, P6a/P6b 후 사용자 기동 checkpoint를 둔다.
 P4는 실제 SDK 구현 대조 후 P4a 공용 값/격자·manifest·checkpoint 검사2파일과 P4b 새 reader/API/unit/실제 SDK test4파일로 분해한다. 기존 terminal/실행 검사를 그대로 재사용하고 미완료 prefix를 임시 terminal 응답으로 만들지 않는다. 각 자식의 집중 회귀/타입 뒤 실제 SDK/TLS를 확인하고 P4 부모는 모두 통과한 뒤 수용한다.
 P5는 P5a 부분 결과 component/Execution/CSS3파일과 P5b 새 e2e/기존 E8 fixture2파일로 분해한다. 기존 E8 기록은 새 prefix 요청을 제공하지 않으므로 미지원404를 명시해 기존 상태 조회 호환을 검사한다. prefix404는 해당 연결의 부분 결과만 비활성으로 두고 작업 상태/취소를 유지한다. 권리/인증/응답 거부는 원값/장면을 지우고 자동 조회를 멈춘다. 원 selector의 최근64시점/8사건을 순차 조회해 함께 교체하며 기존 승인 LayerDoc/수치3D 구성을 재사용한다. 각 자식 검증 뒤 P5를 수용하고 실제 서버/사용자 활성화는 P6에서 한다.
