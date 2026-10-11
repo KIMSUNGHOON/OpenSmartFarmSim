@@ -1,0 +1,190 @@
+{
+  "G0_G4": "not_assessed",
+  "UTC_continuation_checkpoint_accepted": false,
+  "accepted_at": "2026-10-11T13:29:02.961541Z",
+  "actual_farm_runs": 0,
+  "core_sha256": {
+    "backend/app/crop_greenhouse_ventilation_program.py": "6aa731200881c278804bc04dca4f6a96831508a786c11bc0addfdc015e62c251",
+    "backend/tests/test_crop_greenhouse_ventilation_program.py": "b0c82fedf59f81bc7d45d4cfba7f5e175004b8df231b6e062eded0e3f772fe34",
+    "contracts/crop-greenhouse-ventilation-program-v1.md": "7f769580f8728311d546993fce3b06458b75ee9f67155454674f7d225d6dbd3a",
+    "fixtures/crop-greenhouse-ventilation-program-reference-cases-v1.json": "0089a94e50d968180828a52a3d50e824b32d06cd5f616f72678a0a8472248a18",
+    "research/crop-greenhouse-ventilation-program-reference.py": "dff37e85251b16316e05b0542b48bb39be2aa638f55c2db78996837fbbdf6133"
+  },
+  "existing_zero_flow_management_results_exact": true,
+  "focused_checks": {
+    "existing_boundary": 72,
+    "existing_management": 69,
+    "existing_ventilation_joint": 51,
+    "new": 35,
+    "passed": 227,
+    "total_unique": 227
+  },
+  "independent_domestic_datasets": 0,
+  "independent_reference": {
+    "byte_replay": true,
+    "halving_ratios_asserted_above8": 72,
+    "journal_entries": 10,
+    "minimum_ratio_not_recorded": true,
+    "precision": 80,
+    "programs": 10,
+    "scalars_compared": 6480,
+    "selected_samples": 30,
+    "source_cases_by_immutable_id_and_hash": true
+  },
+  "maximum_configuration": {
+    "events": 128,
+    "horizon_seconds": 32,
+    "reported_total_joint_rhs_calls": 3458,
+    "selected_outputs": 512,
+    "steps": 512
+  },
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "timestamp": "2026-10-11T13:15:25.823Z",
+    "turn_context_sha256": "2a7cfcdfee94fd1be361d4d51caff0393a7631ef52ac044f975f38dc2c081f2b"
+  },
+  "native_cli_receipt_sha256": "8ef3653a2f1d3296c3765aaf933387b09b43de2c3f63f852615ed987149c01c1",
+  "no_event_new_stage_results_exact": true,
+  "post_core_preservation": {
+    "G0_G4": "not_assessed",
+    "accepted_core_hashes_unchanged": true,
+    "actual_tool_exit": 0,
+    "current_runtime_noncredential_fields_and_rights_reviews_preserved": true,
+    "diff_check": true,
+    "frontends": {
+      "5173": {
+        "HTTP": 200,
+        "index_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1"
+      },
+      "5174": {
+        "HTTP": 200,
+        "index_sha256": "333812c54d1fc67801c46bd0f5a5a98473922156c152a21b824fe3b4907a2937"
+      }
+    },
+    "frozen_prefix_assets": 171,
+    "frozen_prefix_source_files": 1911,
+    "guide_permissions_preserved": true,
+    "local_links_exist": 2000,
+    "old_calculation_files_preserved": 232,
+    "original_tool_session_id": 43252,
+    "prior_authorized_token_rotation_matches_current_ready_guide_handoff": true,
+    "protected_roots_live": 4,
+    "terminal_sha256": "0269900de4a14024fe18c75fd29df6d8a992c0b9f85f30fb1cab19ec72191a18"
+  },
+  "preserved_existing_calculation_files": 232,
+  "remaining": [
+    "new25-ledger_continuation_checkpoint",
+    "UTC_binding",
+    "immutable_current_rights_storage_API",
+    "worker_typed_web_same_UTC_3D_user_activation",
+    "remaining_greenhouse_resource_economics_independent_G0_G4"
+  ],
+  "runs": [
+    {
+      "RSS_samples": 2,
+      "actual_child_exit": 0,
+      "actual_tool_exit": 0,
+      "combined_peak_RSS_bytes": 635539456,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_session_id": 46531,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "source_count": 1938,
+      "source_preserved": true,
+      "stage": "smoke-program-v1",
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "ba776c4d4251e173e3a014334496d1e653e854916a0e53c615e072b95087a4f3",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.6069805909937713
+    },
+    {
+      "RSS_samples": 86,
+      "actual_child_exit": 0,
+      "actual_tool_exit": 0,
+      "combined_peak_RSS_bytes": 636887040,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_session_id": 66092,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "source_count": 1939,
+      "source_preserved": true,
+      "stage": "focused-reference-v1",
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "318cb23609e6cccb70671f64d3eca0c3013871f1c6b2792a885a81389c785595",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 22.647855590999825
+    },
+    {
+      "RSS_samples": 275,
+      "actual_child_exit": 0,
+      "actual_tool_exit": 0,
+      "combined_peak_RSS_bytes": 729329664,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_session_id": 3143,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "source_count": 1941,
+      "source_preserved": true,
+      "stage": "focused-program-v1",
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "659d2c26ea60bc3da50ea29c0106f6c2d3760746abc04dfb0bd0ef016b470e61",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 72.2553363650004
+    }
+  ],
+  "schema_version": "ventilation-management-program-acceptance-reference-v1",
+  "scope": "synthetic_joint_ventilation_management_program_only",
+  "source_review_sha256": "9ec6446d4544000128d4d546c0aac66c90c0b034ed875fbf7e94e7296d14c56a",
+  "status": "locally_accepted_bounded_atomic_program_software_only",
+  "user_deployed": false
+}

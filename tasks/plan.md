@@ -2,6 +2,13 @@
 
 ## 현재 구현 우선순위 — 2026-10-11
 
+[환기 관리/선택 출력 program](../research/crop-greenhouse-ventilation-program-implementation-20261011.md)을 로컬 수용했다.
+새35/기존192=227검사·독립10프로그램/72반분 비율>8·최대512출력/128사건·25연속/6사건/10수지를 확인했다.
+다음은 새 continuation/checkpoint→원 UTC 결속→현재 권리 저장/API→worker/같은 UTC3D/사용자 적용이다.
+이 새 program은 현재 UI에 미배포이며 아래 A2 화면과 기존 원 결과를 보존한다.
+
+### 선행 수용과 현재 사용자 화면
+
 [환기의 현재 공동 stage 연결](../research/crop-greenhouse-ventilation-joint-implementation-20261011.md)을 로컬 수용했다.
 새51/기존180=231검사·독립816수치/72반분 비율>8·108상태/25장부/10수지를 통과했다.
 다음은 원자 관리/선택 출력 program→새25장부 context/checkpoint/UTC→현재 권리 저장/API→worker/같은 UTC3D/사용자 적용이다.
@@ -1093,8 +1100,9 @@ flowchart TD
 | 자동 구간/사건 구성 | 명시 격자·108상태/연속22장부/사건6합계·전역7수지·사건 후 출력/실패 prefix | [2026-10-10 수용](../research/crop-climate-joint-boundary-implementation-20261010.md). 새72/기존576=648개·9프로그램/독립5,973수치/60수렴 비율. 이전0.5–2집중시간 추정은 원20분 개발/검토·19.489초 회귀/24.856초 root로 갱신 |
 | 순수 환기 현열/수증기 | 명시 f·현재 공기 온도/수증기 질량·실외 T/vp·같은 Rv → 부호 Q/Fv·별도 잠열 장부 | [2026-10-11 로컬 수용](../research/crop-greenhouse-ventilation-implementation-20261011.md): 새50/기존86=136통과·독립6사례/36수치. 순간식이며 사용자 UI 미배포 |
 | 환기의 공동 stage 연결 | 현재 stage Tair/m_v로 재계산·새 identity·독립 궤적/수렴·전역 장부/hold | [2026-10-11 수용](../research/crop-greenhouse-ventilation-joint-implementation-20261011.md). 새51/기존180=231검사, 독립816수치/72반분 비율>8. 이전2–4집중시간 추정은 실제 수용으로 대체;3guard 합47.206초, 준비/분석/기록 별도 |
-| 환기 원자 관리/선택 출력 program | 새 stage + 기존 원자 관리 →25연속/6사건 장부·관리 뒤 출력/전역 수지/hold prefix·새 program identity | 다음 한 단계. 계약/사건 장부0.5–1집중시간 + driver1–2시간 + 독립 참조/실패·자원0.5–1시간 = 잠정2–4시간. 기존 driver/새 stage 실제 검증 비용 근거이며 개발 실패 관측 뒤 갱신 |
-| 환기 분할 실행/UTC | 위 program →새25장부 context/checkpoint/immutable chain/원 UTC | 원 기존 context는22장부와 old driver code에 exact 결속됨을 대조했다. 분할 정확 동일성·fresh 과거 적분0·혼합 판본 거부 후 writer 착수. program 비용 관측 뒤 시간 갱신 |
+| 환기 원자 관리/선택 출력 program | 새 stage + 기존 원자 관리 →25연속/6사건 장부·관리 뒤 출력/전역 수지/hold prefix·새 program identity | [2026-10-11 수용](../research/crop-greenhouse-ventilation-program-implementation-20261011.md): 새35/기존192=227검사·독립10프로그램/72반분 비율. 이전2–4집중시간 추정은 실제 수용으로 대체;3guard 합95.510초, 준비/분석/기록 별도 |
+| 환기 분할 실행/checkpoint | 위 program →새25장부/6사건 context/checkpoint/immutable chain | 다음 한 단계. context/manifest0.5–1집중시간 + advance/restore1–2시간 + fresh/분할/변조/자원0.5–1시간 = 잠정2–4시간. program 실제72.255초 집중 검증과 원 continuation 계약의 검증 분해 근거; 관측 실패 시 갱신 |
+| 환기 원 UTC 결속 | 새 continuation의 원 elapsed grid →명시 UTC origin/정밀도·같은 sample/event 시각 | 분할 정확 동일성·fresh 과거 적분0·혼합 판본 거부 뒤 착수. 원량 재계산0을 별도 수용한 뒤 writer로 진행. 소요는 checkpoint 비용 관측 뒤 갱신 |
 | 새 환기 결과의 저장/API/3D | 새 입력/현재 권리·custody/page/등록·API →typed web/같은 UTC3D →실제 worker/브라우저/사용자 서버 | 위 두 선행 자식 수용 뒤 단계별 검증. 개발 DB 결과 자동 게시 없음; 배포 뒤 같은 사용자 DB의 접수 작업을 자동 갱신. 전체 견적은 program/context 비용 관측 뒤 갱신 |
 | 복사/PAR·CO₂·기공·시설 환기량 | above-canopy PAR/흡수 열·NIR, CO₂ 질량/ppm·기공, 바람/창/형상의 명시 경계 | [원문 검토/남은 입력](../research/crop-greenhouse-boundary-source-review-20261011.md). PAR 이중 차광·sRsSlope 단위·현장 광학/시설/계측은 별도 hold; 독립 농장 자료 확보와 병행 |
 | 새 분할 실행/복원 | immutable context/seed·108상태/연속22·사건6/전역 수지·경계 cursor·source/수치 identity | [2026-10-10 수용](../research/crop-climate-joint-continuation-implementation-20261010.md). 새138/기존648=786개·독립5,973/60비율·fresh 남은8걸음/1사건; 약21분 개발/검토·66.565초 회귀/33.022초 root |
