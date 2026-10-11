@@ -1734,7 +1734,7 @@
           - [x] **`crop-greenhouse-ventilation-execution-current-http-runtime`** — [로컬 수용](../research/crop-greenhouse-ventilation-execution-http-runtime-implementation-20261012.md):고유377(새 경로234/기존 조립143), 실제 DB/TLS·독립 작업자19·원 checkpoint/UTC·정상/보류·실행 취소/현재 권리·조회9수치/쓰기0·기존57경로/313스키마·260계산/공유5·원본/두 UI/WSL/최종 보존. 부모 실행을 수용하며3D/사용자 적용은 남는다.
         - [ ] **`crop-greenhouse-ventilation-web-3d`** — 위 실행의 typed 현재 조회·확정 부분/완료 결과와 같은 UTC의3D/표/차트. 원108상태·25장부/10수지·환기 진단 대사·미확정/철회 결과 제거·임의 애니메이션0.
           - [x] **`crop-greenhouse-ventilation-web-terminal-3d`** — [로컬 수용](../research/crop-greenhouse-ventilation-web-terminal-implementation-20261012.md)/[기계 증거](../research/artifacts/crop-greenhouse-ventilation-web-terminal-reference-20261012.json):실제 SCRAM/검증 TLS2경로·원6응답/조회9수치0·웹254/Chromium12=고유268검사·같은 UTC/108상태/25장부/10수지·환기 진단/WebGL·보류/권리/취소/늦은 응답/모바일·타입/빌드/최종 root73812 실제0. 구 client/scene·기존270경로와 명시 계약1변경·원본2,148/두 UI/DB/권리/키/WSL을 보존했다.5173만 점검 중단·동일 결과 복구/토큰 갱신,5174는 유지했다. 기록 응답 브라우저이며 새 모델 실제 사용자 적용/계산 중3D/최종 디자인은 미수용이다.
-          - [ ] **`crop-greenhouse-ventilation-confirmed-prefix-api`** — **구현·검증 중.** 실행 조회 요약의 후속이며 계산 중3D의 선행. 확정 selector/원 sample·event 페이지·현재 권리/전진·취소/변조·조회 계산/쓰기0의 reader/projection/보호 HTTP를 수용한다. 실제 SCRAM/TLS 정상·보류·취소/원 terminal 일치와 구 모델/두 UI/WSL 보존이 수용 기준이다. [현재 부분 증거/남은 검증](../research/product-ui-waiting-feedback-20261012.md): 첫 DB·HTTPS 원 페이지/공개 응답204·설정42 통과. 자동 실행 양쪽200은 관측했지만 RSS 상한으로 정상 terminal 대사 미완료이며 체크는 유지한다.
+          - [ ] **`crop-greenhouse-ventilation-confirmed-prefix-api`** — **구현·검증 중.** 실행 조회 요약의 후속이며 계산 중3D의 선행. 확정 selector/원 sample·event 페이지·현재 권리/전진·취소/변조·조회 계산/쓰기0의 reader/projection/보호 HTTP를 수용한다. 실제 SCRAM/TLS 정상·보류·취소/원 terminal 일치와 구 모델/두 UI/WSL 보존이 수용 기준이다. [현재 부분 증거/남은 검증](../research/product-ui-waiting-feedback-20261012.md#0744-kst-후속-복구와-실제-표시): 첫 DB·HTTPS 원 페이지/공개 응답204·설정42에 이어 자원 내 자동 정상/보류/취소/기본 비활성4건·원 terminal 값/UTC 대사와 독립 전진/서명/변조/취소 경쟁7건을 통과했다. 기존 결과/접속 정보·두 화면 복구/실제 진행 표시도 통과했다. reader 페이지/권리·인증된 투영/HTTPS·구 모델 잔여 검증 전까지 체크는 유지한다.
           - [ ] **`crop-greenhouse-ventilation-web-confirmed-prefix-3d`** — 위 prefix API/terminal client 선행. 실제 장벽 없는 정상/보류 실행 중 같은 원 값/UTC/WebGL→terminal·취소/재접속·미확정/철회 장면 제거·WSL을 통과한 뒤 부모3D를 수용한다.
         - [ ] **`crop-greenhouse-ventilation-user-activation`** — 위 웹/실행의 실제 브라우저 정상/hold/취소/재접속과 사용자 DB/두 URL/원본/WSL 보존·적용 주소/다음 작업/남은 자료 보류 게시.
 
@@ -2654,7 +2654,7 @@ SCRAM 권한 역할에서 합성 서명 바이트를 변경 불가로 보존하�
 
 ## 사용자 개발 진행 기록 — 2026-10-12
 
-- [x] **`product-ui-waiting-feedback`** — [현재 표시/일정 재산정](../research/product-ui-waiting-feedback-20261012.md): 원67159 실제0·두 주소의 같은 최신 원 기록/실제 DOM5단계·자동 재조회·인증/쓰기0·390px·pageerror0·원본/두 frozen UI/보호4root·WSL 보존. 새 모델 연결 작업량을 자원 내 검증 창/API→실제 계산 중3D→사용자 적용으로3–6집중시간 재산정했다. 새 모델 미배포·prefix API 미수용·전체 제품 완료일 미정은 유지한다.
+- [x] **`product-ui-waiting-feedback`** — [현재 표시/일정 재산정과 후속 복구](../research/product-ui-waiting-feedback-20261012.md#0744-kst-후속-복구와-실제-표시): 원67159에 이어 원15949 실제0·두 주소의 같은 최신 원 기록/실제 DOM5단계·자동 재조회·인증/쓰기0·390px·pageerror0·원본/두 frozen UI/보호4root·WSL 보존. 원50432 실제0으로 기존 결과/키/권리/접속 정보·두 화면 복구를 대사했다. 새 모델 연결 작업량은 API 잔여 검증→실제 계산 중3D→사용자 적용의 잠정3–6집중시간이다. 새 모델 미배포·prefix API 미수용·전체 제품 완료일 미정은 유지한다.
 
 - [x] **`product-ui-inline-development-progress`** — [수용 기록](../research/product-ui-inline-development-progress-20261012.md): 5173 상단에서 같은 공개 개발 기록을 직접 조회한다. 실제 두 주소의 원 기록/5단계·15초 조회/오류 뒤 복구·오래된 기록·잘못된 응답 거부·390px·인증/계산 쓰기0·현재 원 작업64/64완료·기존271계산파일/원본/두 UI/WSL 보존을 확인했다. 새 모델 완료 결과3D는 다음 작업이며 미배포다.
 

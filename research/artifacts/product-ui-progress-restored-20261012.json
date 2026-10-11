@@ -1,0 +1,149 @@
+{
+  "observed_at": "2026-10-11T22:46:17.636782+00:00",
+  "scope": "current user progress display and restored previews; new ventilation prefix API remains unaccepted",
+  "browser": {
+    "actual_both_HTTP": true,
+    "actual_same_source_record": true,
+    "actual_original_DOM": true,
+    "stage_count": 5,
+    "authentication_required": false,
+    "real_automatic_second_poll": true,
+    "record_time": "2026-10-11T22:44:05.690904Z",
+    "record_sha256": "8ee869a8c06431b98d09d0319c45e5373a88dd241c110440ca222544e6282b12",
+    "new_model_deployed": false,
+    "remaining_focused_hours": {
+      "min": 3,
+      "max": 6
+    },
+    "full_product_completion": null,
+    "API_writes": 0,
+    "credentialed_status_requests": 0,
+    "pageerrors": []
+  },
+  "accepted_checks": [
+    {
+      "case": "focused-prefix-native-lifecycle-v3",
+      "original_tool_session": 23943,
+      "actual_tool_exit": 0,
+      "passed_cases": 4,
+      "terminal_sha256": "d97519948918b71f15151d1497364ab26bd9c094adf0e679bdc05f3549d9933f",
+      "wall_seconds": 611.483387914006,
+      "single_PID_peak_RSS_bytes": 186150912,
+      "combined_peak_RSS_bytes": 907972608,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_root_count": 1,
+      "legacy_only_maintenance_window": true,
+      "owned_processes_postgres_passfiles_remaining": 0
+    },
+    {
+      "case": "focused-prefix-reader-A-v1",
+      "original_tool_session": 34237,
+      "actual_tool_exit": 0,
+      "passed_cases": 7,
+      "terminal_sha256": "0a6220b78dfc5060ea954602fd2483454729f6f271e89cbe27f37e63f5983296",
+      "wall_seconds": 473.7329214700003,
+      "single_PID_peak_RSS_bytes": 150859776,
+      "combined_peak_RSS_bytes": 794664960,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_root_count": 1,
+      "legacy_only_maintenance_window": true,
+      "owned_processes_postgres_passfiles_remaining": 0
+    },
+    {
+      "case": "focused-user-preview-restored-integrity-v1",
+      "original_tool_session": 50432,
+      "actual_tool_exit": 0,
+      "passed_cases": null,
+      "terminal_sha256": "c8564a61d7c1c0fd75d8d07705e0e7b872eb7795e4cdce68df65b8fc2816efdb",
+      "wall_seconds": 1.6959087110008113,
+      "single_PID_peak_RSS_bytes": 136192000,
+      "combined_peak_RSS_bytes": 708399104,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "legacy_only_maintenance_window": false,
+      "owned_processes_postgres_passfiles_remaining": 0
+    },
+    {
+      "case": "focused-user-progress-restored-v4",
+      "original_tool_session": 15949,
+      "actual_tool_exit": 0,
+      "passed_cases": null,
+      "terminal_sha256": "1b35ddcaa428b0de36edc58db57fdcc76cb29be53f7fc480c9ff535bbeefd220",
+      "wall_seconds": 21.132768141003908,
+      "single_PID_peak_RSS_bytes": 274489344,
+      "combined_peak_RSS_bytes": 1002528768,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "legacy_only_maintenance_window": false,
+      "owned_processes_postgres_passfiles_remaining": 0
+    }
+  ],
+  "restoration": {
+    "G0_G4": "not_assessed",
+    "actual_crop_Runs": 0,
+    "legacy_DB_counts_equal": true,
+    "legacy_access_tokens_preserved": true,
+    "legacy_grant_lifetime_renewed": true,
+    "legacy_harvest_rows": 47813,
+    "legacy_jobs_restored_exactly": 89,
+    "legacy_live_observation_excluded": true,
+    "legacy_old_guide_preserved": true,
+    "legacy_private_immutable_files_preserved": 23,
+    "legacy_result_key_preserved": true,
+    "legacy_saved_events": 5,
+    "legacy_saved_samples": 47809,
+    "modern_job_rows": {
+      "job_attempts": 37,
+      "job_events": 370,
+      "jobs": 112
+    },
+    "modern_original_database_files_rights_keys_unchanged": true,
+    "modern_preexisting_files": 464,
+    "modern_service_not_restarted": true,
+    "observed_at": "2026-10-11T22:43:29.477432+00:00",
+    "protected_roots_live": 4
+  },
+  "screenshots": {
+    "product-ui-progress-restored-5173-desktop-20261012.png": "ceeda1047fee5ed649635e53c622320ba42e834f5532e39c1934bfb01bf85017",
+    "product-ui-progress-restored-5173-mobile-20261012.png": "cbc0c17524f0051142d53996c829ade831c9a9be4a3431a72db1db6e8ab5d208",
+    "product-ui-progress-restored-5174-desktop-20261012.png": "e07211c9bbd26826e3342103c8ec360f95ca4d4560d583760e882ff677f5c34b",
+    "product-ui-progress-restored-5174-mobile-20261012.png": "7a4ec65fceabf627e5c5688b07240d9d0cf374370f13bbfc9f3ee556ccae0cfe"
+  },
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "recursive_invocations": 0
+  },
+  "not_accepted": [
+    "remaining_prefix_reader_and_authenticated_projection_HTTPS_checks",
+    "live_ventilation_WebGL_integration",
+    "user_new_model_activation",
+    "full_product",
+    "G0_G4"
+  ],
+  "excluded_run": {
+    "case": "focused-user-progress-restored-v3",
+    "actual_tool_exit": 1,
+    "reason": "wrong mode; exact owned pytest child canceled",
+    "owned_passfiles_removed": 4,
+    "acceptance_evidence": false
+  },
+  "remote_CI_run": false,
+  "actual_crop_Runs": 0,
+  "uncommitted_prefix_source_sha256": {
+    "backend/app/api.py": "d9b7be2c7e6fd27909556784e3180bbcee8086bb49619c0cdafc7bc873f278c3",
+    "backend/app/api_crop_greenhouse_ventilation_prefix.py": "31b55dfb31a56d2167fd9d6648e1b7fa2d090c3686bb0cd397f6092fded7a182",
+    "backend/app/api_crop_greenhouse_ventilation_prefix_routes.py": "96e175d32d504572897118ff4af13e21e312a0c078db15810778ad34e3408572",
+    "backend/app/api_runtime.py": "d0a5e4732842ea9e3d1857c64cec56642f8be811afaa815be83deaf9b31f0116",
+    "backend/app/crop_greenhouse_ventilation_operator_config.py": "6592523e03620fa113065e9316d509ccb46515ed7e08f360e8bde118b5253d62",
+    "backend/app/crop_greenhouse_ventilation_prefix.py": "decde0fc9e4e499774ac135fb67f2a2a316933bfaba1584a9d75872d6bf2b12b",
+    "backend/tests/test_api_crop_greenhouse_ventilation_prefix.py": "7d4215d9ebfdcbec3578e2bedda66b1a65263dd1b3b7740bc300256dd68be83e",
+    "backend/tests/test_api_crop_greenhouse_ventilation_prefix_routes.py": "0f5e77ad2e673b71c33205a0504cb0ea7ff24c190221d4fc9b3bd0ff08e80ddf",
+    "backend/tests/test_crop_greenhouse_ventilation_prefix.py": "dcb362c04b4f0eed9dbd577615630b9a9bf41cab704c2a8ec1283591b4d0d73c",
+    "backend/tests/test_crop_greenhouse_ventilation_prefix_runtime.py": "91e9f926aa779423643bf790c6d143591ce816393684b7d47182dd99c7890587"
+  }
+}
