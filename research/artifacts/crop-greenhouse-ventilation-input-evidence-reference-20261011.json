@@ -1,0 +1,173 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted_at": "2026-10-11T14:57:05.590761+00:00",
+  "actual_farm_Runs": 0,
+  "core_sha256": {
+    "backend/app/crop_greenhouse_ventilation_input_evidence.py": "8fc66616e1b038f1f06b524eca7b3177bf1fd693fc022123d8cd2e36b9ecf119",
+    "backend/tests/test_crop_greenhouse_ventilation_input_evidence.py": "3dd3c2a6ded26b5bbb5a1d0fc17f8c093da200eb10d11c1e7d7233535771f8f4",
+    "contracts/crop-greenhouse-ventilation-input-evidence-v1.md": "4b5f9040a586ebe4b9a69ba049ffb15692964916b660fe9bf240a1f6d669cd86"
+  },
+  "current_farm_rights_or_custody_accepted": false,
+  "current_review_and_source_rechecked_before_return": true,
+  "final_preservation": {
+    "actual_tool_exit": 0,
+    "guard_seconds": 0.6149781959975371,
+    "original_tool_handle": 11443,
+    "receipt": {
+      "G0_G4": "not_assessed",
+      "accepted_core_hashes_unchanged": true,
+      "current_frontend_assets": 171,
+      "current_runtime_noncredential_fields_and_rights_reviews_preserved": true,
+      "diff_check": true,
+      "frontends": {
+        "5173": {
+          "HTTP": 200,
+          "index_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1"
+        },
+        "5174": {
+          "HTTP": 200,
+          "index_sha256": "6e1d45a28eb25a9dcb466e2c5a29a4d7393b0949e3d7e9f5aa0f2fa2ec0eb3d8"
+        }
+      },
+      "frozen_prefix_assets": 171,
+      "frozen_prefix_source_files": 1911,
+      "guide_permissions_preserved": true,
+      "local_links_exist": 2015,
+      "old_calculation_files_preserved": 237,
+      "prior_authorized_token_rotation_matches_current_ready_guide_handoff": true,
+      "protected_roots_live": 4
+    }
+  },
+  "focused_checks": {
+    "actual_tool_exit": 0,
+    "by_module": {
+      "test_crop_climate_joint_input_evidence.py": 82,
+      "test_crop_greenhouse_ventilation_input_evidence.py": 103,
+      "test_crop_greenhouse_ventilation_time.py": 147
+    },
+    "guard": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 117,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 819822592,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "cb86d22bafb4136e98e96465825b8a6991d85b4601e4b2c6de9925c9a6c954cc",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 196923392,
+      "source_count": 1963,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 30.823653254999954
+    },
+    "original_tool_handle": 16304,
+    "pytest_seconds": 30.14,
+    "unique_passed": 332
+  },
+  "independent_domestic_datasets": 0,
+  "initial_calculation_shape": [
+    "rhs",
+    "boundary"
+  ],
+  "issue_calls": {
+    "checkpoint_restore": 0,
+    "integration": 0,
+    "joint_RHS": 2,
+    "management": 0,
+    "ventilation": 1
+  },
+  "ledger_schema": "joint-ventilation-ledgers-v1",
+  "maximum_events": 128,
+  "maximum_output_steps": 512,
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_CLI_invocations": 0,
+    "turn_context_sha256": "a047cc1744edc79213f0ff537e010aa6d1036c908f0c6554d7a638dd46669798",
+    "turn_timestamp": "2026-10-11T14:46:56.847Z"
+  },
+  "observed_at": "2026-10-11T14:55:18.272503+00:00",
+  "old_evidence_cross_domain_rejected_both_directions": true,
+  "other_forcing_and_weather_preserved_separately": true,
+  "preserved_existing_calculation_files": 237,
+  "remaining": [
+    "current registered farm and source rights binding",
+    "server custody and signed trusted digest",
+    "result registration and protected API",
+    "worker and typed client and same UTC3D activation"
+  ],
+  "signed_domain": "ossf-joint-ventilation-input-evidence-v1",
+  "smoke": {
+    "actual_tool_exit": 0,
+    "guard": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 20,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 818978816,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "fc8130558923fbb30002f14586fea1b5b65def6dd384bc5b1e35c610644b5e5e",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "source_count": 1963,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 5.381472966997535
+    },
+    "original_tool_handle": 42721,
+    "unique_passed": 23
+  },
+  "source_programs": 10,
+  "source_review_sha256": "9ec6446d4544000128d4d546c0aac66c90c0b034ed875fbf7e94e7296d14c56a",
+  "source_shape": "joint-ventilation-input-source-v1",
+  "status": "locally_accepted",
+  "user_deployed": false,
+  "verify_and_fresh_calls": {
+    "UTC_setup": 0,
+    "checkpoint_restore": 0,
+    "context_setup": 0,
+    "integration": 0,
+    "joint_RHS": 0,
+    "management": 0,
+    "start": 0,
+    "ventilation": 0
+  }
+}

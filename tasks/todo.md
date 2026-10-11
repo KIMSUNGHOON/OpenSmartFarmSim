@@ -1705,6 +1705,15 @@
           [수용 기록](../research/crop-greenhouse-ventilation-artifact-implementation-20261011.md):새92/회귀224=316통과·원39240 보존0·기존236계산/원본2,148/두 주소200/권리/WSL 보존.
         - [ ] **`crop-greenhouse-ventilation-input-custody`** — 위 artifact·새 source/QC/권리 범위를 입력 증거/현재 농장/서버 서명 이력에 결속.
           수용: 원 입력/프로필/source/notice·기간/현재 권리·trusted checkpoint custody·철회/변조·fresh·구 binding 보존.
+          - [x] **`crop-greenhouse-ventilation-input-evidence`** — 최종332검사/보존 뒤 로컬 수용. 새 실외 입력/초기 RHS+환기/UTC·source/QC를 서명 증거로 결속.
+            수용:10program 원 입력/초기 값·발급 RHS2/환기1·조회/fresh 수치·restore0·변조/철회/늦은 변경·구 증거/원본/두 서버/WSL 보존.
+            [계약](../contracts/crop-greenhouse-ventilation-input-evidence-v1.md); 실제 자료/G0·농장 권한 승인으로 취급하지 않는다.
+            [수용 기록](../research/crop-greenhouse-ventilation-input-evidence-implementation-20261011.md):새103/회귀229=332통과·원11443 보존0·원본2,148/기존237계산·두 UI/현재 자산171/권리/WSL 보존.
+          - [ ] **`crop-greenhouse-ventilation-farm-binding`** — 위 증거를 현재 등록 농장/작물/기간·자료 권리와 결속.
+            수용: 실제 SCRAM·현재 역할/등록/검토/입력 권리·철회/변조/기간·원 bytes·조회 수치0·구 binding 보존.
+          - [ ] **`crop-greenhouse-ventilation-server-custody`** — 위 현재 binding과 새 artifact/HEAD·checkpoint의 trusted digest를 서버 서명 이력에 결속.
+            수용: fresh·현재 농장/입력·원 HEAD/UTC/장부·writer 재개·철회/변조·구 custody/원본/두 UI/WSL 보존.
+
         - [ ] **`crop-greenhouse-ventilation-result-current-api`** — 위 artifact/custody를 결과 등록·현재 조회/보호 API에 연결.
           수용: 원 bytes/수치/UTC·현재 권리·조회 계산0·completed/hold·실제 SCRAM/TLS·구 경로/결과 보존.
       - [ ] **`crop-greenhouse-ventilation-worker-web-activation`** — 기존 작업 임대/자동 소비·typed client·같은 UTC3D에 새 판본 연결.

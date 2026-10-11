@@ -2,8 +2,11 @@
 
 ## 현재 구현 우선순위 — 2026-10-11
 
-[환기 불변 페이지 저장](../research/crop-greenhouse-ventilation-artifact-implementation-20261011.md)은 새92/회귀224=316검사를 통과했다.
-30분할 구성의 원 bytes/수치/UTC·fresh 계산0·HEAD 전후 실제 강제 종료/재개를 확인했고 최종 보존 확인 뒤 로컬 수용했다.
+[환기 입력 증거](../research/crop-greenhouse-ventilation-input-evidence-implementation-20261011.md)는 새103/회귀229=332검사를 통과했다.
+10program 원 입력/초기 RHS+환기/UTC·발급 RHS2/환기1·조회/fresh 계산0·실외 입력/서명/현재 검토·구 판본 보존을 확인했다.
+최종 보존 확인 뒤 로컬 수용했다. 다음 한 단계는 현재 등록 농장/작물/기간·자료 권리와 새 증거의 결속이며 실제 SCRAM/fresh/조회 수치0을 수용한다.
+위 input-custody는 입력 증거→farm binding→server custody로 나눴다. DB 권리와 서명 digest의 의존성을 구분하며 상위/API/worker 수용은 남는다.
+[불변 페이지 저장](../research/crop-greenhouse-ventilation-artifact-implementation-20261011.md)의316검사/원 bytes·UTC/fresh·강제 종료 수용은 유지한다.
 사용자의 “화면에서 진행을 알 수 없다”는 피드백을 반영한 [사용자 상태 화면](../research/product-ui-current-status-entry-20261011.md)은
 최종 타입/빌드·실제5174의8경로·원 DB 완료64/64/9시점·보호 포함 WSL을 통과했고 최종 보존 확인 뒤 사용자 적용을 수용했다.
 5174의 직접 진입/연결 전/작업 선택 전·개발과 배포 범위를 표시한다. 현재 설명은 빌드 시점의 기록이며 Codex 개발 실시간 중계가 아니다.
