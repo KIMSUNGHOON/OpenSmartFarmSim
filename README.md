@@ -2,7 +2,7 @@
 
 **사용자 상태 화면 — 2026-10-11:** [계산 진입/상태 안내](research/product-ui-current-status-entry-20261011.md)를5174에 적용했고 최종 브라우저8경로·원 DB 완료64/64/9시점·타입/빌드를 통과했다. 최종 보존 확인 뒤 사용자 적용을 수용했다. **http://localhost:5174/#crop-execution** 에서 개발/배포 범위·연결 전/작업 선택 전을 확인한다. 새 환기 모델 미배포·전체 UI/생산/마진/추천 관문 미완료는 유지한다.
 
-**계산 개발 — 2026-10-12:** [환기 입력의 현재 농장 결속](research/crop-greenhouse-ventilation-farm-binding-implementation-20261011.md)은 실제 SCRAM 새6/회귀6그룹·fresh 동일 bytes·조회9수치 호출0·권리/기간/변경 거부를 통과했다. 최종 보존 확인 뒤 로컬 수용했다. 입력 증거332검사 수용을 유지한다. 다음은 서버 서명 이력→결과 API→worker/같은 UTC3D다. 두 UI는 유지하며 새 환기 모델은 미배포다. 실제 생산/마진/추천 관문은 미완료다.
+**계산 개발 — 2026-10-12:** [환기 서버 서명 이력·재개](research/crop-greenhouse-ventilation-server-custody-implementation-20261012.md)는 새7/기존4그룹·실제 SCRAM/fresh·HEAD 전후 SIGKILL/원 checkpoint·조회9수치 호출0·권리/변조/hold를 통과했다. 최종 보존 확인 뒤 로컬 수용했다. 다음은 결과 등록/보호 API→worker/같은 UTC3D→사용자 적용이며 잠정4–8집중시간이다. 두 UI는 유지하고 새 환기 모델은 미배포다. 전체 제품 완료 날짜·실제 생산/마진/추천 관문은 미확정/미완료다.
 
 **현재 사용자 화면 — 2026-10-11 21:19 KST:** [A2 계산 중 연속 수치3D](research/crop-climate-joint-prefix-advance-browser-20261011.md)를 합성128초 범위로 수용했다.
 `http://localhost:5174/`에서 같은 DB의 계산 상태·확정 부분 결과를 자동 조회하며 실제 running 원5시점→완료 원9시점/3사건·재접속을 확인했다.
