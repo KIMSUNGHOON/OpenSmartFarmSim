@@ -1728,11 +1728,14 @@
         수용: 실제 worker/사용자 DB 접수→running 부분 결과/완료·hold/취소·재접속·원 값/WebGL·두 UI/WSL 보존.
         - [x] **`crop-greenhouse-ventilation-runtime`** — 수용한 보호 API의 명시 서버 조립. 별도 판본/기본 비활성·현재 jobs/farms/principal·typed query/store·키/설정/권리 재검사, 실제 SCRAM/TLS 정상/보류 원3응답, 잘못된/혼합 설정 거부·기존 loader/경로/두 UI 보존.
           [로컬 수용](../research/crop-greenhouse-ventilation-runtime-implementation-20261012.md):고유239개(기본233/실제 TLS 정상·보류4/실제 DB·ASGI 거부2)·원3응답/UTC·조회9수치0·기존5loader/255계산·원본2,148/두 UI/WSL 보존. 자동 계산/3D·사용자 적용은 후속.
-        - [ ] **`crop-greenhouse-ventilation-execution`** — 위 runtime의 새 입력 판본/기존 작업표·임대/자동 소비·서명 checkpoint/원자 결과 게시. 실제 정상/hold/취소/재시작·현재 권리·원 UTC/수치·조회 계산0과 구 모델 구분.
+        - [x] **`crop-greenhouse-ventilation-execution`** — 위 runtime의 새 입력 판본/기존 작업표·임대/자동 소비·서명 checkpoint/원자 결과 게시. 실제 정상/hold/취소/재시작·현재 권리·원 UTC/수치·조회 계산0과 구 모델 구분.
           - [x] **`crop-greenhouse-ventilation-execution-core`** — [접수/자동 계산 핵심 계약](../contracts/crop-greenhouse-ventilation-execution-core-v1.md). 새 판본·기존 queue/lease·signed checkpoint·원자 정상/보류·취소/재시도/SIGKILL·독립 자동 소비·원 값/UTC/권리/WSL.
             [로컬 수용](../research/crop-greenhouse-ventilation-execution-core-implementation-20261012.md):91개(기존77/실제 DB·독립 프로세스14)·원108상태/25장부/10수지/UTC·정상/보류·취소/만료/SIGKILL 재개·원자 rollback·독립 자동 소비·기존258/공유2 SHA·원본/두 UI/WSL. 실행 HTTP/runtime·3D·사용자 적용은 후속.
-          - [ ] **`crop-greenhouse-ventilation-execution-current-http-runtime`** — 위 핵심의 typed 현재 진행/결과 연결·보호 접수/조회/취소 HTTP·별도 명시 runtime. 실제 정상/보류/취소·현재 계정/권리·구 모델/두 UI 보존 뒤 부모 실행을 수용.
+          - [x] **`crop-greenhouse-ventilation-execution-current-http-runtime`** — [로컬 수용](../research/crop-greenhouse-ventilation-execution-http-runtime-implementation-20261012.md):고유377(새 경로234/기존 조립143), 실제 DB/TLS·독립 작업자19·원 checkpoint/UTC·정상/보류·실행 취소/현재 권리·조회9수치/쓰기0·기존57경로/313스키마·260계산/공유5·원본/두 UI/WSL/최종 보존. 부모 실행을 수용하며3D/사용자 적용은 남는다.
         - [ ] **`crop-greenhouse-ventilation-web-3d`** — 위 실행의 typed 현재 조회·확정 부분/완료 결과와 같은 UTC의3D/표/차트. 원108상태·25장부/10수지·환기 진단 대사·미확정/철회 결과 제거·임의 애니메이션0.
+          - [ ] **`crop-greenhouse-ventilation-web-terminal-3d`** — 다음 한 단계: 기존 결과 GET의 새 판본 typed client와 완료/보류 선택·같은 result/UTC의3D·표·차트. 닫힌 단위/필드·원 수치·권리 철회 제거·구 client 보존·실제 저장 응답/브라우저 대사.
+          - [ ] **`crop-greenhouse-ventilation-confirmed-prefix-api`** — 실행 조회 요약의 후속이며 계산 중3D의 선행. 확정 selector/원 sample·event 페이지·현재 권리/전진·취소/변조·조회 계산/쓰기0의 reader/projection/보호 HTTP를 수용한다.
+          - [ ] **`crop-greenhouse-ventilation-web-confirmed-prefix-3d`** — 위 prefix API/terminal client 선행. 실제 장벽 없는 정상/보류 실행 중 같은 원 값/UTC/WebGL→terminal·취소/재접속·미확정/철회 장면 제거·WSL을 통과한 뒤 부모3D를 수용한다.
         - [ ] **`crop-greenhouse-ventilation-user-activation`** — 위 웹/실행의 실제 브라우저 정상/hold/취소/재접속과 사용자 DB/두 URL/원본/WSL 보존·적용 주소/다음 작업/남은 자료 보류 게시.
 
     - [ ] **`crop-greenhouse-radiation-par`** — 원문 incident/absorbed PAR·cover/floor 반사와 PAR/NIR 열 경계.

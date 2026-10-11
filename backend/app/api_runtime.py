@@ -58,6 +58,7 @@ class ApiRuntimeConfig:
     port: int = 8443
     crop_climate_joint_execution: bool = field(default=False, kw_only=True)
     crop_climate_joint_prefix: bool = field(default=False, kw_only=True)
+    crop_greenhouse_ventilation_execution: bool = field(default=False, kw_only=True)
 
     def __post_init__(self):
         if (type(self.policy) is not RuntimeLoginPolicy or not self.policy.break_even_calculation or
@@ -75,7 +76,10 @@ class ApiRuntimeConfig:
                 type(self.crop_climate_joint_execution) is not bool or
                 (self.crop_climate_joint_execution and not self.policy.crop_climate_joint_result_storage) or
                 type(self.crop_climate_joint_prefix) is not bool or
-                (self.crop_climate_joint_prefix and not self.crop_climate_joint_execution)):
+                (self.crop_climate_joint_prefix and not self.crop_climate_joint_execution) or
+                type(self.crop_greenhouse_ventilation_execution) is not bool or
+                (self.crop_greenhouse_ventilation_execution and
+                 not self.policy.crop_greenhouse_ventilation_result_storage)):
             raise ValueError('API runtime configuration rejected')
 
 
@@ -155,6 +159,9 @@ class ApiRuntime:
     joint_crop_query: object = field(repr=False)
     ventilation_crop_results: object = field(repr=False)
     ventilation_crop_query: object = field(repr=False)
+    ventilation_execution_admission: object = field(repr=False)
+    ventilation_execution_checkpoints: object = field(repr=False)
+    ventilation_execution_query: object = field(repr=False)
     joint_execution_admission: object = field(repr=False)
     joint_execution_checkpoints: object = field(repr=False)
     joint_execution_query: object = field(repr=False)
@@ -364,6 +371,20 @@ class ApiRuntime:
                         ventilation_crop_query.store is not ventilation_crop_results):
                     raise ValueError()
                 ventilation_crop_query._binding()
+            ventilation_execution_admission = None
+            ventilation_execution_checkpoints = None
+            ventilation_execution_query = None
+            if config.crop_greenhouse_ventilation_execution:
+                from .crop_greenhouse_ventilation_execution import VentilationExecutionService
+                from .crop_greenhouse_ventilation_execution_checkpoint import VentilationExecutionCheckpointStore
+                from .crop_greenhouse_ventilation_execution_query import VentilationExecutionQuery
+                server = ventilation_crop_results.server
+                ventilation_execution_admission = VentilationExecutionService(
+                    server.binding, input_resolver=server.input_resolver)
+                ventilation_execution_checkpoints = VentilationExecutionCheckpointStore(
+                    ventilation_execution_admission, server)
+                ventilation_execution_query = VentilationExecutionQuery(
+                    ventilation_execution_checkpoints, ventilation_crop_results)
             joint_execution_admission = None
             joint_execution_checkpoints = None
             joint_execution_query = None
@@ -453,7 +474,9 @@ class ApiRuntime:
                 crop_climate_joint_execution_query=joint_execution_query,
                 crop_climate_joint_prefix_query=joint_prefix_query,
                 crop_greenhouse_ventilation_result_store=ventilation_crop_results,
-                crop_greenhouse_ventilation_current_query=ventilation_crop_query)
+                crop_greenhouse_ventilation_current_query=ventilation_crop_query,
+                crop_greenhouse_ventilation_execution_service=ventilation_execution_admission,
+                crop_greenhouse_ventilation_execution_query=ventilation_execution_query)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -474,6 +497,9 @@ class ApiRuntime:
                 ('harvest_crop_results', harvest_crop_results), ('harvest_crop_query', harvest_crop_query),
                 ('joint_crop_results', joint_crop_results), ('joint_crop_query', joint_crop_query),
                 ('ventilation_crop_results', ventilation_crop_results), ('ventilation_crop_query', ventilation_crop_query),
+                ('ventilation_execution_admission', ventilation_execution_admission),
+                ('ventilation_execution_checkpoints', ventilation_execution_checkpoints),
+                ('ventilation_execution_query', ventilation_execution_query),
                 ('joint_execution_admission', joint_execution_admission),
                 ('joint_execution_checkpoints', joint_execution_checkpoints),
                 ('joint_execution_query', joint_execution_query),

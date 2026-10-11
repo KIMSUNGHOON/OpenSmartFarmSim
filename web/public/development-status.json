@@ -1,6 +1,6 @@
 {
   "schema_version": "development-status-v1",
-  "reported_at": "2026-10-11T19:34:58.083896Z",
+  "reported_at": "2026-10-11T20:13:29.898492Z",
   "stages": [
     {
       "id": "growth",
@@ -15,12 +15,12 @@
     {
       "id": "api",
       "state": "completed",
-      "evidence": "결과 조회 API232검사·명시 서버 조립239검사 통과. 새 계산의 접수·진행 조회·취소 API 연결은 현재 개발 단계입니다."
+      "evidence": "결과 조회 API232검사·명시 서버239검사에 이어 새 계산의 접수·진행 조회·취소 API/서버도377검사를 통과했습니다. 사용자 화면 적용은 후속입니다."
     },
     {
       "id": "execution_3d",
       "state": "next",
-      "evidence": "자동 실행 핵심91검사 통과. 현재 단계: 새 계산 접수·진행 조회·취소 API 연결 준비. 이후 저장된 같은 시각의 3D 연결과 사용자 적용이 남았습니다. 기존 사용자 계산64/64는 완료됐고 새 모델은 미배포입니다."
+      "evidence": "실행 핵심91검사·실행 API/서버377검사 통과. 다음은 저장된 완료 결과3D→확정 부분 결과의 조회/3D→실제 브라우저·사용자 적용입니다. 합성32초 범위이며 새 모델은 미배포입니다."
     },
     {
       "id": "activation",
@@ -29,8 +29,8 @@
     }
   ],
   "remaining_focused_hours": {
-    "min": 3,
-    "max": 6
+    "min": 2,
+    "max": 5
   },
   "new_model_deployed": false,
   "real_farm_runs": 0,

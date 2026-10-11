@@ -33,6 +33,7 @@ from .api_crop_harvest_route import install_harvest_routes
 from .api_crop_climate_joint_route import install_joint_crop_climate_routes
 from .api_crop_greenhouse_ventilation_route import install_greenhouse_ventilation_routes
 from .api_crop_climate_joint_execution import install_joint_execution_routes
+from .api_crop_greenhouse_ventilation_execution import install_ventilation_execution_routes
 from .thermal_scenario_store import ThermalScenarioStore, ThermalScenarioHold, ThermalScenarioConflict, IDENTIFIER
 from .thermal_scenario_execution import SCENARIO_SCOPES
 from .thermal_publisher import ThermalPublishHold
@@ -116,7 +117,8 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
                crop_harvest_current_query=None, crop_climate_joint_result_store=None,
                crop_climate_joint_current_query=None, crop_climate_joint_execution_service=None,
                crop_climate_joint_execution_query=None, crop_climate_joint_prefix_query=None,
-               crop_greenhouse_ventilation_result_store=None, crop_greenhouse_ventilation_current_query=None) -> FastAPI:
+               crop_greenhouse_ventilation_result_store=None, crop_greenhouse_ventilation_current_query=None,
+               crop_greenhouse_ventilation_execution_service=None, crop_greenhouse_ventilation_execution_query=None) -> FastAPI:
     if (not callable(principal_provider) or
             not callable(getattr(job_store, "get_job", None)) or
             not callable(getattr(market_hold_store, "get_public_report", None)) or
@@ -284,6 +286,10 @@ def create_app(job_store, market_hold_store, thermal_run_store, market_result_st
     install_greenhouse_ventilation_routes(app, jobs=job_store, farms=farm_authoring_service,
         store=crop_greenhouse_ventilation_result_store, query=crop_greenhouse_ventilation_current_query,
         principal_provider=principal_provider, authorized_tenant=authorized_tenant, error=_error, access=_access)
+    install_ventilation_execution_routes(app, jobs=job_store, farms=farm_authoring_service,
+        store=crop_greenhouse_ventilation_result_store, admission=crop_greenhouse_ventilation_execution_service,
+        query=crop_greenhouse_ventilation_execution_query, principal_provider=principal_provider,
+        authorized_tenant=authorized_tenant, error=_error, access=_access)
     install_joint_execution_routes(app, jobs=job_store, farms=farm_authoring_service,
         store=crop_climate_joint_result_store, admission=crop_climate_joint_execution_service,
         query=crop_climate_joint_execution_query, principal_provider=principal_provider,

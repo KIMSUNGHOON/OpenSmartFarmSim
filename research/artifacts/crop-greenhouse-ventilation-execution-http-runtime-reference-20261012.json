@@ -1,0 +1,436 @@
+{
+  "schema_version": "joint-ventilation-execution-http-runtime-reference-v1",
+  "accepted": true,
+  "final_preservation_pending": false,
+  "native_cli_context": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "875e86dc39b961eaf250457615930165e6552d43f29fbf02d31407c151cae3c2",
+    "recursive_cli_invocations": 0,
+    "same_native_CLI_session": true,
+    "timestamp": "2026-10-11T19:37:56.050Z"
+  },
+  "checks": 377,
+  "new_path_checks": 234,
+  "existing_runtime_checks": 143,
+  "actual_database_TLS_process_checks": 19,
+  "stages": [
+    {
+      "stage": "focused-execution-api-pure-v4",
+      "original_tool": 33888,
+      "actual_tool_exit": 0,
+      "original_terminal_collected": true,
+      "checks": 215,
+      "actual_child_exit": 0,
+      "wall_seconds": 118.30733020800108,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 186707968,
+      "combined_peak_RSS_bytes": 905940992,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    {
+      "stage": "focused-execution-query-rights-v1",
+      "original_tool": 78410,
+      "actual_tool_exit": 0,
+      "original_terminal_collected": true,
+      "checks": 4,
+      "actual_child_exit": 0,
+      "wall_seconds": 69.68223188000411,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 145416192,
+      "combined_peak_RSS_bytes": 883331072,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    {
+      "stage": "focused-execution-query-checkpoints-v1",
+      "original_tool": 54600,
+      "actual_tool_exit": 0,
+      "original_terminal_collected": true,
+      "checks": 5,
+      "actual_child_exit": 0,
+      "wall_seconds": 237.41781040299975,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 151683072,
+      "combined_peak_RSS_bytes": 911081472,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    {
+      "stage": "focused-execution-query-terminal-v1",
+      "original_tool": 61088,
+      "actual_tool_exit": 0,
+      "original_terminal_collected": true,
+      "checks": 2,
+      "actual_child_exit": 0,
+      "wall_seconds": 167.1382661079988,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 147619840,
+      "combined_peak_RSS_bytes": 1009704960,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    {
+      "stage": "focused-execution-http-cancel-rights-v1",
+      "original_tool": 72152,
+      "actual_tool_exit": 0,
+      "original_terminal_collected": true,
+      "checks": 2,
+      "actual_child_exit": 0,
+      "wall_seconds": 69.23774811600015,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 172703744,
+      "combined_peak_RSS_bytes": 895246336,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    {
+      "stage": "focused-execution-http-terminal-v1",
+      "original_tool": 43643,
+      "actual_tool_exit": 0,
+      "original_terminal_collected": true,
+      "checks": 2,
+      "actual_child_exit": 0,
+      "wall_seconds": 160.59135410899762,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 176300032,
+      "combined_peak_RSS_bytes": 915402752,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    {
+      "stage": "focused-execution-runtime-automatic-v1",
+      "original_tool": 39127,
+      "actual_tool_exit": 0,
+      "original_terminal_collected": true,
+      "checks": 2,
+      "actual_child_exit": 0,
+      "wall_seconds": 176.72596069699648,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 178642944,
+      "combined_peak_RSS_bytes": 1049145344,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    {
+      "stage": "focused-execution-runtime-cancel-disabled-v1",
+      "original_tool": 61344,
+      "actual_tool_exit": 0,
+      "original_terminal_collected": true,
+      "checks": 2,
+      "actual_child_exit": 0,
+      "wall_seconds": 37.72845038599917,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 158277632,
+      "combined_peak_RSS_bytes": 914423808,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    },
+    {
+      "stage": "focused-execution-runtime-compatibility-v1",
+      "original_tool": 24208,
+      "actual_tool_exit": 0,
+      "original_terminal_collected": true,
+      "checks": 143,
+      "actual_child_exit": 0,
+      "wall_seconds": 27.512375403995975,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 145018880,
+      "combined_peak_RSS_bytes": 955326464,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": []
+    }
+  ],
+  "guard_wall_seconds": 1064.3415273109931,
+  "core_sha256": {
+    "backend/app/crop_greenhouse_ventilation_execution_query.py": "2683806a1b103b0a4de0d24bfe276dae850202c69bbdab4b44c2be46b8579535",
+    "backend/app/api_crop_greenhouse_ventilation_execution.py": "616e526b0922b87a0bda673575c90d75bf3774979723033ceeeb67238093df00",
+    "backend/app/api_runtime.py": "87f1afbd2c91c0f31c064f3165c50efd02ab694d285dbd380e265d88c913026e",
+    "backend/app/api.py": "f035a0158c63074ed15ab47710f270b861bd2567b8bc57b98d925a96dba8b755",
+    "backend/app/crop_greenhouse_ventilation_operator_config.py": "a4b809c730b4c5d72fd6fea4db2f145d3894afc5f0b6cdd56699d346a4ff535f",
+    "backend/tests/test_crop_greenhouse_ventilation_execution_query.py": "32e11ce6089e17990a52a173147125a53aa5f3570162388e7374a6af0932bc10",
+    "backend/tests/test_api_crop_greenhouse_ventilation_execution.py": "d25f3a632fe1afe8b5460d779076277a53d907a49ed95ae4ff5664a3fcbc90ed",
+    "backend/tests/test_crop_greenhouse_ventilation_execution_runtime.py": "32c202ffe5cc25bf3ff425cf9be6e918f44b2991c3b2986e8ea13ebbe4612f62",
+    "contracts/crop-greenhouse-ventilation-execution-http-v1.md": "a3fc8d8182f3416eef8e1f2ad3314b947e8c261853ad4e88b6613147a2d5fe7e"
+  },
+  "existing_paths_unchanged": 57,
+  "existing_schemas_unchanged": 313,
+  "current_paths": 60,
+  "current_schemas": 319,
+  "baseline_calculation_files": 265,
+  "unchanged_calculation_files": 260,
+  "shared_before_sha256": {
+    "backend/app/api.py": "2bfd54bc954d57cf8ac4082045312957ed83a04719926e376e4294c96d89a395",
+    "backend/app/api_runtime.py": "55acaebeff265e3c23cf672eff57edb4f8bd8b7546818d46091db3c27e61211e",
+    "backend/app/crop_greenhouse_ventilation_operator_config.py": "0b04180770580bdf841031ac262987072802eb070b8e0cb16cf6f33189ea6227",
+    "backend/tests/test_api_openapi.py": "a8b3d919642acc86800042ae966fc5fcd289f4168d7184a2896641fee6438e3d",
+    "contracts/openapi-v1.json": "4c03c9974aaa423e9a888c5a42e033568b5f6ca86cdc4e7dec2f7cd127938e68"
+  },
+  "failures": [
+    {
+      "stage": "focused-execution-api-pure-v1",
+      "original_tool": 8245,
+      "exit": 4,
+      "reason": "nonexistent pytest target; no tests ran"
+    },
+    {
+      "stage": "focused-execution-api-pure-v2",
+      "original_tool": 67840,
+      "exit": 1,
+      "reason": "new route test expected legacy header name"
+    },
+    {
+      "stage": "focused-execution-api-pure-v3",
+      "original_tool": 31038,
+      "exit": 1,
+      "reason": "projection variable is Farm; VentilationFarm is the schema name"
+    }
+  ],
+  "new_model_deployed": false,
+  "user_backend_worker_restarts": 0,
+  "new_packages": 0,
+  "full_CI_run": false,
+  "remote_push": false,
+  "real_farm_runs": 0,
+  "independent_local_datasets": 0,
+  "G0_G4": "not_assessed",
+  "next": "crop-greenhouse-ventilation-web-terminal-3d",
+  "remaining_focused_hours": [
+    2,
+    5
+  ],
+  "full_product_completion": null,
+  "startup_synchronization": "runtime process tests pause only before initial worker action to observe running/cancel; calculations run after release; do not count as running WebGL evidence",
+  "tested_core_sha256": {
+    "backend/app/crop_greenhouse_ventilation_execution_query.py": "2683806a1b103b0a4de0d24bfe276dae850202c69bbdab4b44c2be46b8579535",
+    "backend/app/api_crop_greenhouse_ventilation_execution.py": "616e526b0922b87a0bda673575c90d75bf3774979723033ceeeb67238093df00",
+    "backend/app/api_runtime.py": "87f1afbd2c91c0f31c064f3165c50efd02ab694d285dbd380e265d88c913026e",
+    "backend/app/api.py": "f035a0158c63074ed15ab47710f270b861bd2567b8bc57b98d925a96dba8b755",
+    "backend/app/crop_greenhouse_ventilation_operator_config.py": "a4b809c730b4c5d72fd6fea4db2f145d3894afc5f0b6cdd56699d346a4ff535f",
+    "backend/tests/test_crop_greenhouse_ventilation_execution_query.py": "32e11ce6089e17990a52a173147125a53aa5f3570162388e7374a6af0932bc10",
+    "backend/tests/test_api_crop_greenhouse_ventilation_execution.py": "d25f3a632fe1afe8b5460d779076277a53d907a49ed95ae4ff5664a3fcbc90ed",
+    "backend/tests/test_crop_greenhouse_ventilation_execution_runtime.py": "32c202ffe5cc25bf3ff425cf9be6e918f44b2991c3b2986e8ea13ebbe4612f62",
+    "contracts/crop-greenhouse-ventilation-execution-http-v1.md": "e44dffa456a7e33f83e38e6d05726016627093d53579377229aa5ee3e1ad437c"
+  },
+  "final_preservation": {
+    "G0_G4": "not_assessed",
+    "at": "2026-10-11T20:15:06.117407+00:00",
+    "core_sha256": {
+      "backend/app/api.py": "f035a0158c63074ed15ab47710f270b861bd2567b8bc57b98d925a96dba8b755",
+      "backend/app/api_crop_greenhouse_ventilation_execution.py": "616e526b0922b87a0bda673575c90d75bf3774979723033ceeeb67238093df00",
+      "backend/app/api_runtime.py": "87f1afbd2c91c0f31c064f3165c50efd02ab694d285dbd380e265d88c913026e",
+      "backend/app/crop_greenhouse_ventilation_execution_query.py": "2683806a1b103b0a4de0d24bfe276dae850202c69bbdab4b44c2be46b8579535",
+      "backend/app/crop_greenhouse_ventilation_operator_config.py": "a4b809c730b4c5d72fd6fea4db2f145d3894afc5f0b6cdd56699d346a4ff535f",
+      "backend/tests/test_api_crop_greenhouse_ventilation_execution.py": "d25f3a632fe1afe8b5460d779076277a53d907a49ed95ae4ff5664a3fcbc90ed",
+      "backend/tests/test_crop_greenhouse_ventilation_execution_query.py": "32e11ce6089e17990a52a173147125a53aa5f3570162388e7374a6af0932bc10",
+      "backend/tests/test_crop_greenhouse_ventilation_execution_runtime.py": "32c202ffe5cc25bf3ff425cf9be6e918f44b2991c3b2986e8ea13ebbe4612f62",
+      "contracts/crop-greenhouse-ventilation-execution-http-v1.md": "e44dffa456a7e33f83e38e6d05726016627093d53579377229aa5ee3e1ad437c"
+    },
+    "current_assets_unchanged": 172,
+    "current_source_snapshot_unchanged": 194,
+    "explicit_shared_changes": {
+      "backend/app/api.py": {
+        "after": "f035a0158c63074ed15ab47710f270b861bd2567b8bc57b98d925a96dba8b755",
+        "before": "2bfd54bc954d57cf8ac4082045312957ed83a04719926e376e4294c96d89a395"
+      },
+      "backend/app/api_runtime.py": {
+        "after": "87f1afbd2c91c0f31c064f3165c50efd02ab694d285dbd380e265d88c913026e",
+        "before": "55acaebeff265e3c23cf672eff57edb4f8bd8b7546818d46091db3c27e61211e"
+      },
+      "backend/app/crop_greenhouse_ventilation_operator_config.py": {
+        "after": "a4b809c730b4c5d72fd6fea4db2f145d3894afc5f0b6cdd56699d346a4ff535f",
+        "before": "0b04180770580bdf841031ac262987072802eb070b8e0cb16cf6f33189ea6227"
+      },
+      "backend/tests/test_api_openapi.py": {
+        "after": "a663b1ecc346263212e5044c85aa11dbeb3b02160856a3166c2e746b3b68d6ed",
+        "before": "a8b3d919642acc86800042ae966fc5fcd289f4168d7184a2896641fee6438e3d"
+      },
+      "contracts/openapi-v1.json": {
+        "after": "abf3a90d9b768801cd3a23c6a99cca79503ddf1ecbfa2ad6f653de84337c9141",
+        "before": "4c03c9974aaa423e9a888c5a42e033568b5f6ca86cdc4e7dec2f7cd127938e68"
+      }
+    },
+    "frontends": {
+      "5173": {
+        "index_sha256": "338acef508dd399a2fb78d849d66cfec45916d1d9666a9e3a903b32333540334",
+        "status": 200
+      },
+      "5174": {
+        "index_sha256": "6ddc5d81e4517375bb6201cd0bd9739785d07b7d4d0e28bf842a55c7f8ade363",
+        "status": 200
+      }
+    },
+    "frozen_assets": 171,
+    "frozen_source_files": 1911,
+    "old_calculation_files_unchanged": 260,
+    "prior_overlay_assets": 171,
+    "progress_HTTP": 200,
+    "progress_no_store": true,
+    "progress_sha256": "714d2df220e40afae334554baea720530535deb46914f261ed77b83711f212e1",
+    "protected_roots_live": 4,
+    "rights_reviews_guides_preserved": true,
+    "user_backend_worker_restart": false
+  },
+  "browser": {
+    "original_tool": 69802,
+    "actual_tool_exit": 0,
+    "original_terminal_collected": true,
+    "wall_seconds": 5.92991163500119,
+    "single_PID_peak_RSS_bytes": 259211264,
+    "combined_peak_RSS_bytes": 996323328,
+    "legacy_has_progress": 0,
+    "legacy_notice_visible": true,
+    "legacy_mobile": {
+      "viewport": 390,
+      "scroll": 390
+    },
+    "navigation_clicked": true,
+    "current_progress_visible_without_authentication": true,
+    "current_progress_text": "제품 개발과 배포 상태\n\n개발 기록 갱신: 2026. 10. 12. 오전 5:13:29\n\n검증 완료 · 작물·환기 생장 계산 — 합성 입력의 생장·환기 계산과 원 UTC 검증 완료\n검증 완료 · 결과 저장·현재 권한 조회 — 실제 DB 저장·현재 조회·rollback: 새19/기존1, 총20그룹 통과\n검증 완료 · 사용자 조회 API 연결 — 결과 조회 API232검사·명시 서버239검사에 이어 새 계산의 접수·진행 조회·취소 API/서버도377검사를 통과했습니다. 사용자 화면 적용은 후속입니다.\n다음 작업 · 자동 작업자·같은 시각의 3D 연결 — 실행 핵심91검사·실행 API/서버377검사 통과. 다음은 저장된 완료 결과3D→확정 부분 결과의 조회/3D→실제 브라우저·사용자 적용입니다. 합성32초 범위이며 새 모델은 미배포입니다.\n대기 · 실제 브라우저 검증·사용자 화면 적용 — 정상·보류·취소·재접속 검증 뒤 사용자 적용\n\n새 환기 모델 화면 연결까지: 집중 작업 약 2–5시간 예상. 연속 작업 기준의 추정이며 완료 시각을 보장하지 않습니다.\n\n새 환기 모델: 현재 사용자 화면에 미배포. 실제 농장 Run: 0건. 전체 제품 완료일: 미정.\n\n기록을 15초마다 확인합니다. 마지막 조회: 오전 5:14:03. 단계별 검증 뒤 갱신되는 개발 기록이며, 선택한 계산의 진행률은 아래에서 확인합니다.\n\n현재 계산 화면은 기존 합성 입력의 작물·기후 계산과 확정 저장값의 3D를 제공합니다. 전체 제품은 자원 사용·생산량·경제 통합과 독립 농장 검증이 남아 있습니다.\n\n접속 설정: 미설정 · 아래에서 접근 토큰을 입력하세요.",
+    "current_url": "http://localhost:5174/#crop-execution",
+    "first_http": {
+      "status": 200,
+      "cache": "no-store",
+      "contentType": "application/json"
+    },
+    "mobile": {
+      "viewport": 390,
+      "scroll": 390
+    },
+    "pageerrors": [],
+    "API_writes": 0
+  },
+  "documentation_status_change": {
+    "path": "contracts/crop-greenhouse-ventilation-execution-http-v1.md",
+    "before_sha256": "e44dffa456a7e33f83e38e6d05726016627093d53579377229aa5ee3e1ad437c",
+    "after_sha256": "a3fc8d8182f3416eef8e1f2ad3314b947e8c261853ad4e88b6613147a2d5fe7e",
+    "production_and_test_code_unchanged": true
+  }
+}
