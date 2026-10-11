@@ -203,13 +203,13 @@
   계산 중 3D는 현재 권리와 확정 prefix 경계를 검증한 별도 수용 전까지 완료 결과 재생과 구분한다.
   **사용자 산출물:** 한 화면에서 이어가는 실행과 재개; 실제 CLI 없는 시험은 소프트웨어 범위로 기록.
   [P6b 사용자5174](../research/crop-climate-joint-prefix-user-activation-20261011.md)는 실제 계산 중 확정1시점→완료 결과를 수용했다. 전체 U3는 미완료다.
-  - [ ] **`joint-prefix-advancing-browser`** — 선행: P6b와 같은 방정식/출처를 유지한 검토된 새 합성 입력 판본.
+  - [x] **`joint-prefix-advancing-browser`** — 선행: P6b와 같은 방정식/출처를 유지한 검토된 새 합성 입력 판본.
     예정 핵심2파일: 기존 `research/crop-climate-joint-prefix-browser-reference.mjs`의 별도 case와 새 관측 계약.
     수용: 같은 실행의 정상 worker가 계산 중일 때 서로 다른 원 저장 UTC2개 이상을 받고,
     각 원 LAI/50구획/온도·표/그래프/WebGL의 선택 UTC/값 갱신→terminal 원 결과를 실제 DB/API/브라우저로 대사한다.
     원 입력/권리·현재 두 주소/데이터·WSL/소유 정리와 관측 지연을 기록한다. worker 인위적 지연·보간 프레임은 사용하지 않는다.
-    확인 가능한 산출물은 계산 중 값/시각이2회 이상 바뀌는 실제 화면 증거다. 현재1시점 관측으로 체크하지 않는다.
-    입력·계약0.5–1시간→실제 검증0.5–1.5집중시간 잠정; 전체 작기/최종 제품 날짜와 분리한다.
+    확인 가능한 산출물은 계산 중 값/시각이2회 이상 바뀌는 실제 화면 증거다. [A2 실제 검증](../research/crop-climate-joint-prefix-advance-browser-20261011.md)에서 원5시점 전진을 확인했다.
+    A1/A2 잠정 추정은21:19 KST 수용으로 대체했다. 이번5 guard+legacy probe348.553초, 준비/기록 별도; 전체 제품 날짜는 분리한다.
 
     - [x] **A1 입력 재현/관측 계약** — [수용 기록](../research/crop-climate-joint-prefix-advance-input-20261011.md)/[관측 계약](../contracts/crop-climate-joint-prefix-advance-observation-v1.md).
       원 계수/4profile·scenario·2초 격자·사건0/8/16·UTC를 유지하고64걸음/9출력으로 새128초 판본을 생성했다.
@@ -217,9 +217,14 @@
       원본2,148/main1915/두 frozen source·자산/보호 root4·FD4→4/소유 잔여0·단일/합 RSS136,712,192/707,489,792bytes.
       새 MJS 모드는 서로 다른 원 UTC2개와 전진 sequence/변경 원값을 요구한다. 구문0이며 실제 모드는 미실행이다.
       사용자 runtime/키·권리 변경0·새 작업0·두 주소200을 유지했다. 실제 farm/policy 접수·새 입력 활성화는 A2에 남겼다.
-    - [ ] **A2 실제 연속 갱신/사용자 연결** — A1 뒤 versioned runtime/review/rights·동일 DB/키로 정상 재기동,
-      실제 farm/권리 접수→정상 자동 worker/브라우저의 서로 다른 running 원 UTC2개 이상→terminal 원값/재접속·
-      실제 DB 종료 시각 대사, 원 데이터/키/기존 권리·두 주소 복구와 새 접속 안내를 확인한다.0.5–1.5집중시간 잠정.
+    - [x] **A2 실제 연속 갱신/사용자 연결** — [수용 기록](../research/crop-climate-joint-prefix-advance-browser-20261011.md)/[기계 증거](../research/artifacts/crop-climate-joint-prefix-advance-browser-reference-20261011.json).
+      새 versioned runtime/review/rights와 동일 DB/키·f6be606 제품으로 정상 재기동했다.
+      원 browser9806/child/guard/browser0·288.324초, running 원 UTC5개/전진 sequence·변경 값·동일 selector 사건/생장200·WebGL109회→terminal/재접속.
+      모두 DB 종료12:15:09.402597 UTC 이전이며 원9sample/3event/UTC가 A1의 실제 결과와 일치했다. 관측 간격33–34초.
+      기존111/347/36행·424파일/DSN/5키/기존 권리 항목·원본2,148/FD4→4/소유 잔여0을 보존했다.
+      단일/합 RSS397,651,968/1,032,314,880bytes, 원 두 서비스 종료0 뒤 run-v11/serve-v12를 유지한다.
+      query22176/integrity76792/guide8077/legacy probe4941 실제0·원7응답/이전 토큰401·두 주소200/해시·보호 root4/외부3/임시5175 폐쇄·새 안내를 확인했다.
+      baseline72170 tool exit는 재개 시 핸들이 없어 null이며 불변 child0/종결·보존을 확인했다. 전체 작기/최종 U3·자료/관문은 미수용이다.
 - [ ] **`product-ui-results` (U4)** — 선행: U1, 전체 저장 생장/수확 조회;
   자원은 `crop-climate-coupling`·물/양분·구매 에너지, 비용은 `crop-economic-link` 완료 뒤 각각 연결.
   예정: `web/src/ProductionResults.tsx`, `web/src/CycleCropReplay.tsx`,

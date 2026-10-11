@@ -1,6 +1,6 @@
 # 계산 중 여러 저장 시점의 실제 갱신 관측 v1
 
-상태: **2026-10-11 [A1 계약/128초 입력 재현](../research/crop-climate-joint-prefix-advance-input-20261011.md) 수용. A2 실제 연속 갱신은 미수용.**
+상태: **2026-10-11 [A1 계약/128초 입력 재현](../research/crop-climate-joint-prefix-advance-input-20261011.md) 수용. [A2 실제 연속 갱신/사용자 연결](../research/crop-climate-joint-prefix-advance-browser-20261011.md) 수용: running 원5시점→terminal 원9시점/3사건·재접속/원본·두 주소 복구.**
 선행 [P6b 사용자 활성화](../research/crop-climate-joint-prefix-user-activation-20261011.md)는
 32초 입력에서 running 원 저장1시점→terminal 원3시점을 확인했다.
 이 자식은 [확정 prefix 계약](crop-climate-joint-prefix-view-v1.md)의 원값/권리 경계를 유지하면서

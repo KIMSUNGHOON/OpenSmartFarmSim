@@ -1,0 +1,222 @@
+{
+  "A2_accepted": true,
+  "G0_G4": "not_assessed",
+  "accepted_at_UTC": "2026-10-11T12:19:50.566299+00:00",
+  "actual_farm_Runs": 0,
+  "all_current_process_identities_live": true,
+  "browser": {
+    "API_mocking": false,
+    "actual_SCRAM": true,
+    "actual_TLS": true,
+    "actual_WebGL_draw_calls": 109,
+    "actual_browser_exit": 0,
+    "actual_tool_exit": 0,
+    "observation_sha256": "7e00f476bb220d890ff8bdd21ec5d2dad9f2d95e3d4eb4948d4188c2bb01dad7",
+    "observed_frame_intervals_seconds": [
+      33.162,
+      33.57,
+      33.687,
+      34.066
+    ],
+    "original_binary64_and_UTC_preserved": true,
+    "original_prefix_rows_equal_terminal": true,
+    "original_tool": 9806,
+    "reconnect": true,
+    "response_manifest_sha256": "fca7d380aa89dced45c7bb61dff56c3cbc0b12433f7c235c80ef0e1b1eb5f21c",
+    "response_status_counts": {
+      "200": 32,
+      "202": 1,
+      "503": 2
+    },
+    "running_frames": [
+      {
+        "observed_wall_UTC": "2026-10-11T12:12:44.741Z",
+        "original_sample_UTC": "2026-10-01T00:00:00.123456Z",
+        "publication_sequence": 1
+      },
+      {
+        "observed_wall_UTC": "2026-10-11T12:13:17.903Z",
+        "original_sample_UTC": "2026-10-01T00:00:32.123456Z",
+        "publication_sequence": 3
+      },
+      {
+        "observed_wall_UTC": "2026-10-11T12:13:51.473Z",
+        "original_sample_UTC": "2026-10-01T00:01:04.123456Z",
+        "publication_sequence": 5
+      },
+      {
+        "observed_wall_UTC": "2026-10-11T12:14:25.160Z",
+        "original_sample_UTC": "2026-10-01T00:01:20.123456Z",
+        "publication_sequence": 6
+      },
+      {
+        "observed_wall_UTC": "2026-10-11T12:14:59.226Z",
+        "original_sample_UTC": "2026-10-01T00:01:52.123456Z",
+        "publication_sequence": 8
+      }
+    ],
+    "screenshot_note": "Unmodified actual captures. A screenshot may finish after the DOM observation; frame UTC evidence uses captured DOM/API records and wall UTC, not a PNG filename.",
+    "screenshots": {
+      "crop-climate-joint-prefix-advance-running-20261011.png": "464e3cdea0e8cf543f2ba2bf520c71e74c7251db7ad09e3869667ca648278502",
+      "crop-climate-joint-prefix-advance-updated-20261011.png": "e3e8b13ed14823977e0e24d0bd268753c919a9628a07a710ae92e8b28d858028"
+    },
+    "terminal_status": "completed",
+    "test_checkpoint_pause": false,
+    "worker_chunk_budget": 8
+  },
+  "domestic_independent_datasets": 0,
+  "dynamic_external_legacy_roots_adopted": 3,
+  "existing_assets_count": 171,
+  "existing_product_files_unchanged": 318,
+  "frontends": {
+    "5173": {
+      "HTML_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1",
+      "HTTP": 200
+    },
+    "5174": {
+      "HTML_sha256": "333812c54d1fc67801c46bd0f5a5a98473922156c152a21b824fe3b4907a2937",
+      "HTTP": 200
+    }
+  },
+  "guards": {
+    "focused-advance-browser-v1": {
+      "actual_child_exit": 0,
+      "actual_tool_exit": 0,
+      "combined_peak_RSS_bytes": 1032314880,
+      "original_tool": 9806,
+      "single_PID_peak_RSS_bytes": 397651968,
+      "terminal_sha256": "7205bd8d0afe4a81637d0d8dd1b798f24c898908fa8ae03443f8e39180cb5ad6",
+      "wall_seconds": 288.3239186970022
+    },
+    "focused-advance-guide-v1": {
+      "actual_child_exit": 0,
+      "actual_tool_exit": 0,
+      "combined_peak_RSS_bytes": 597237760,
+      "original_tool": 8077,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "terminal_sha256": "bf71d81da7bfa54aefb2ce9610b0bd497d7c2acb28667e0c857274e68f3bcec0",
+      "wall_seconds": 0.3422587930035661
+    },
+    "focused-advance-integrity-v1": {
+      "actual_child_exit": 0,
+      "actual_tool_exit": 0,
+      "combined_peak_RSS_bytes": 636829696,
+      "original_tool": 76792,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "terminal_sha256": "9e7f354e68730d2310dd423d4f18870b34d88c0acf398d19cb81732d07a46041",
+      "wall_seconds": 0.6154957120015752
+    },
+    "focused-advance-old-query-v1": {
+      "actual_child_exit": 0,
+      "actual_tool_exit": 0,
+      "combined_peak_RSS_bytes": 686260224,
+      "original_tool": 22176,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "terminal_sha256": "28ecd862d0e4515be42c010c21851454ea0f4d9b52c52cf1a419614a00635956",
+      "wall_seconds": 41.262996426994505
+    },
+    "focused-maintenance-baseline-v1": {
+      "actual_child_exit": 0,
+      "actual_tool_exit": null,
+      "combined_peak_RSS_bytes": 716853248,
+      "original_tool": 72170,
+      "single_PID_peak_RSS_bytes": 136712192,
+      "terminal_sha256": "383faff983166695e6dd2c3650f3729cd7674fd38217013f1fdba8f1865f9356",
+      "wall_seconds": 1.6565086350019556
+    }
+  },
+  "holds": [
+    "full season dynamic climate/resource and crop-economic coupling",
+    "final U3 and integrated UI",
+    "independent local cultivar/farm datasets",
+    "production forecast, future margin and crop ranking"
+  ],
+  "input_preflight_reference_sha256": "3026fd88b60872a0af6023181c87aa4ba6a79273cf5b68775bc3424fc4f96256",
+  "input_source_sha256": "ec31bd1f8173d978edcb4fb2d3ae606842f835cca900b675d7e08587fabb8b25",
+  "integrity": {
+    "DB_terminal_updated_at": "2026-10-11T21:15:09.402597+09:00",
+    "DSN_preserved": true,
+    "G0_G4": "not_assessed",
+    "actual_SCRAM": true,
+    "execution_publication_result_link_verified": true,
+    "existing_files_preserved": 424,
+    "existing_rights_and_reviews_entries_preserved": true,
+    "frozen_source_and_assets_preserved": true,
+    "new_owned_job_state": "succeeded",
+    "new_owned_worker_attempts": 1,
+    "new_publication_count": 1,
+    "new_result_count": 1,
+    "old_job_worker_attempts": 0,
+    "preexisting_row_counts": {
+      "job_attempts": 36,
+      "job_events": 347,
+      "jobs": 111
+    },
+    "preexisting_rows_preserved": {
+      "job_attempts": true,
+      "job_events": true,
+      "jobs": true
+    },
+    "preflight_original_UTC_equal_actual_worker": true,
+    "preflight_original_events_equal_actual_projection": 3,
+    "preflight_original_samples_equal_actual_worker": 9,
+    "read_only_transaction": true,
+    "running_observations_before_DB_terminal": true,
+    "signing_keys_preserved": true,
+    "versioned_rights_and_reviews_active": true
+  },
+  "legacy_probe": {
+    "actual_exit": 0,
+    "combined_peak_RSS_bytes": 727019520,
+    "owned_remaining": [],
+    "protected_live": true,
+    "reason": null,
+    "single_PID_peak_RSS_bytes": 136704000,
+    "wall_seconds": 16.3517572119963
+  },
+  "legacy_probe_actual_tool_exit": 0,
+  "legacy_probe_original_tool": 4941,
+  "native_Codex_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "timestamp": "2026-10-11T12:01:15.917Z",
+    "turn_context_sha256": "d7c8700dfe331bba16248375634e8dca3ae50b26a979657fcdfe8577650ab71b"
+  },
+  "not_run": [
+    "new model or coefficient adoption",
+    "new product build",
+    "whole CI or remote",
+    "independent farm validation",
+    "full season live 3D"
+  ],
+  "old_authenticated_responses_verified": 7,
+  "old_jobs_verified": 3,
+  "old_service_stop_tools": {
+    "legacy82928": {
+      "actual_exit": 0,
+      "terminal_chunk": "6215f6"
+    },
+    "prefix25933": {
+      "actual_exit": 0,
+      "terminal_chunk": "fcc4f5"
+    }
+  },
+  "original_source_entries_preserved": 2148,
+  "persistent_user_tool_exit": null,
+  "persistent_user_tools": {
+    "legacy": 65028,
+    "prefix": 49094
+  },
+  "protected_root_count": 4,
+  "reference_MJS_sha256": "61f8d8dea7396d02f14f47b5da23b40d1f177d7c0eb51d3aa56c54297fb5d7ab",
+  "rights_inputs": {
+    "existing_entries_and_keys_preserved": true,
+    "immutable_before_after_versions_retained": true,
+    "new_input_software_scope_only": true
+  },
+  "scope": "synthetic128s persisted-prefix polling; five advancing running sample UTCs; original terminal9 samples/3events and reconnect",
+  "source_commit": "f6be60654aab6d83d0b371905a3a11ec7f787067",
+  "source_file_count": 1911,
+  "temporary_5175_closed": true
+}

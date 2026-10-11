@@ -1,10 +1,10 @@
 # OpenSmartFarmSim
 
-**현재 사용자 화면 — 2026-10-11 20:35 KST:** [P6b 사용자5174 활성화](research/crop-climate-joint-prefix-user-activation-20261011.md)를 수용했다.
-`http://localhost:5174/`에서 같은 DB의 계산 상태·확정 부분 결과의 표/그래프/수치3D를 자동 조회하고 완료 결과로 연결한다.
-정상 응답 뒤10초 대기와 서버 처리 시간이 추가된다. 실제 running 관측은 원 저장1시점이며 여러 시점의 연속 성장/전체 작기·최종 UI는 미수용이다.
-5173의 완료166일 저장 재생은 유지한다. [접속 안내](web/README.md#joint-execution-user-preview)는 `run-v10`/`serve-v10`이다.
-아래 날짜별 기록은 당시 상태이며 현재 기동의 증거는 이 항목을 따른다.
+**현재 사용자 화면 — 2026-10-11 21:19 KST:** [A2 계산 중 연속 수치3D](research/crop-climate-joint-prefix-advance-browser-20261011.md)를 합성128초 범위로 수용했다.
+`http://localhost:5174/`에서 같은 DB의 계산 상태·확정 부분 결과를 자동 조회하며 실제 running 원5시점→완료 원9시점/3사건·재접속을 확인했다.
+정상 응답 뒤10초 대기와 서버 처리 시간이 추가되는 polling이다. 이번 장면 관측 간격은 약33–34초였다.
+5173은 완료166일 저장 재생을 유지한다. [새 접속 안내](web/README.md#joint-execution-user-preview)는 `run-v11`/`serve-v12`다.
+전체 작기 동적 기후/자원·경제 연결·최종 통합 UI와 실제 자료/관문은 미완료다. 아래 날짜별 기록은 당시 상태다.
 
 **2026-10-11 계산 중 실제3D 브라우저 수용:** [취소 경로/두 화면 복구](research/crop-climate-joint-prefix-cancel-browser-20261011.md)에서 원 수치·UTC/WebGL→취소 수락/worker canceled·장면 제거/DB 결과 없음과 원 두 주소 복구를 확인했다. 같은 제품 정상/hold 증거와 합쳐 P6a를 수용했다. 다음 P6b는 사용자5174의 계산 중3D 활성화이며 현재는 비활성이다. [새 접속 파일](web/README.md#joint-execution-user-preview)은 run-v9/serve-v9다.
 

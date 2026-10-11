@@ -1,10 +1,10 @@
 # 계산 중 확정 작물·기후 페이지 조회 v1
 
-상태: **P0–P5·[reader v5](../research/crop-climate-joint-prefix-read-cost-implementation-20261011.md)·[P6a 실제 정상/hold/취소](../research/crop-climate-joint-prefix-cancel-browser-20261011.md)·[P6b 사용자5174 활성화](../research/crop-climate-joint-prefix-user-activation-20261011.md) 수용; 최종 디자인/전체 U3 미수용**. 최초 계약 기준 checkout은 `625baab6ff2ad68c36487b7caf4928584f94882b`/2026-10-10이며 현재 사용자 frozen source는 `f6be606`/2026-10-11이다. 실제 사용자 running 관측은1저장 시점→terminal이며 여러 중간 시점의 연속 전진/전체 작기 검증으로 확대하지 않는다.
+상태: **P0–P5·[reader v5](../research/crop-climate-joint-prefix-read-cost-implementation-20261011.md)·[P6a 실제 정상/hold/취소](../research/crop-climate-joint-prefix-cancel-browser-20261011.md)·[P6b 사용자5174 활성화](../research/crop-climate-joint-prefix-user-activation-20261011.md) 수용; 최종 디자인/전체 U3 미수용**. 최초 계약 기준 checkout은 `625baab6ff2ad68c36487b7caf4928584f94882b`/2026-10-10이며 현재 사용자 frozen source는 `f6be606`/2026-10-11이다. [A2의 합성128초 관측](../research/crop-climate-joint-prefix-advance-browser-20261011.md)은 running 원5시점의 연속 전진→terminal 원9시점/3사건을 확인했다. 전체 작기 검증은 별도다.
 선행은 [실행/체크포인트](crop-execution-link-v1.md), [서명 이력](crop-climate-joint-server-custody-v1.md),
 [불변 페이지](crop-climate-joint-storage-v1.md), [완료 결과 투영](api-crop-climate-joint-replay-v1.md)과
 [E9b 사용자 연결](../research/crop-climate-joint-execution-user-preview-20261010.md)이다.
-이 계약은 새 prefix reader의 구현 기준이다. 현재5174의 계산 상태 자동 조회/완료 저장3D를 계산 중 성장3D 수용으로 바꾸지 않는다.
+이 계약은 새 prefix reader의 구현 기준이다. prefix reader 구현과 실제 사용자 브라우저의 수용을 별도 기록한다.
 
 2026-10-11 [P6a2a reader v3](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)는 [임대 갱신 계약](crop-climate-joint-prefix-progress-guard-v1.md)을 적용했다. 같은 작업의 두 시각만 UTC 단조 전진할 때 원 snapshot을 유지한다. HEAD/최신 수용 이력·lifecycle/input/권리 변경 검사는 유지했다. 당시 실제 prefix 브라우저/사용자 활성화는 미수용이었다. 아래 reader v2 설명과 source 대조표는 선행 구현의 경계다.
 

@@ -1,9 +1,9 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 구현 상태 — 2026-10-11 20:35 KST:** [P6a/P6b의 사용자5174 확정 부분 결과3D](../research/crop-climate-joint-prefix-user-activation-20261011.md)를 제한된 합성32초 범위로 수용했다.
-같은 사용자 DB의 실제 계산 중 원 저장1시점·WebGL→완료 원3시점/재접속·현재 권리와 기존 두 주소/데이터 보존을 확인했다.
-정상 응답 뒤10초 대기하는 polling이며 여러 running 시점의 연속 전진/전체 작기·최종 UI/전체 U3는 미수용이다.
-5173은 완료166일 저장 재생을 유지한다. [현재 접속 안내](../web/README.md#joint-execution-user-preview)를 따른다.
+**현재 구현 상태 — 2026-10-11 21:19 KST:** [A2 연속 부분 결과3D](../research/crop-climate-joint-prefix-advance-browser-20261011.md)를 합성128초 범위로 수용했다.
+같은 사용자 DB의 실제 계산 중 원5시점·표/그래프/WebGL 갱신→완료 원9시점/3사건·재접속과 원 데이터/키/기존 권리·두 주소 복구를 확인했다.
+응답 뒤10초 대기하는 polling이며 이번 장면 관측 간격은33–34초였다. 전체 작기·최종 UI/전체 U3 수용은 남아 있다.
+5173은 완료166일 저장 재생,5174는 현재 계산/확정 부분 결과 자동 조회다. [새 접속 안내](../web/README.md#joint-execution-user-preview)를 따른다.
 실제 품종/독립 농장 자료와 G0–G4·생산/미래 마진/추천 보류는 유지한다. 아래 날짜별 내용은 당시 기록이다.
 
 **2026-10-11 계산 중 조회 수정 수용:** [reader v5/비용 계측](../research/crop-climate-joint-prefix-read-cost-implementation-20261011.md)은 최종 고유267개·실제 공개 사건/생장200·원 terminal 수치/UTC·현재 권리를 확인했다. 사건 조회의 계측 시간은25.502→10.210초이며 성능 보장은 아니다. 다음은 P6a 실제 제품 브라우저/WebGL→P6b 사용자 적용이다. 원 두 화면·저장 결과를 유지하며 현재 계산 중3D/최종 UI·실제 작기/생산 관문은 미완료다.
