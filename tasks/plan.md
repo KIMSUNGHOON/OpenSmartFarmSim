@@ -2,12 +2,14 @@
 
 ## 현재 구현 우선순위 — 2026-10-11
 
-[환기 분할 실행/복원](../research/crop-greenhouse-ventilation-continuation-implementation-20261011.md)은 새175/기존224=399검사를 통과했다.
-10program/50분할 구성·fresh5지점·과거 적분/사건 재실행0·108상태/25연속/6사건/10수지·최대512출력/128사건을 확인했다.
-최종 보존 확인 뒤 로컬 수용했다. 다음은 새 판본의 원 UTC→현재 권리 저장/API→worker/같은 UTC3D/사용자 적용이다.
-새 checkpoint는 기존22장부 타입과 구분하며 현재 두 사용자 화면에 미배포다.
-다음 UTC는 원 record의 microsecond/범위·UTC/KST/fresh/임의 분할·수치 재계산0을 수용한다.
-helper/identity 대조0.25–0.5 + 원 record 결속/검사0.25–0.5 + fresh/정밀도·자원0.25–0.5로 잠정0.75–1.5집중시간이다.
+[환기 UTC 결속](../research/crop-greenhouse-ventilation-utc-implementation-20261011.md)은 새147/기존305=452검사를 통과했다.
+독립 integer epoch272UTC·10program/30분할 구성·fresh 동일과 결속 중 RHS/환기/적분/관리/restore0을 확인했다.
+최종 보존 확인 뒤 로컬 수용했다. 다음은 새 불변 페이지 저장/fresh reader→입력/현재 권리·custody/API→worker/같은 UTC3D/사용자 적용이다.
+현재 두 사용자 화면에 새 환기 모델은 미배포다. 기존 source/결과와 G0–G4 보류를 유지한다.
+기존 저장기는 구 driver 구조/claim·초기 RHS schema를 전제로 하므로 새 program/stage·25장부/UTC 판본을 구분해야 한다.
+다음 저장 자식은 원 bytes/수치/UTC·별도 reader 계산0·HEAD 전후 강제 종료/재개·두 서버/WSL을 수용한다.
+페이지/writer/reader0.5–1 + fresh/강제 종료·범위0.5–1 + 보존/기록0.25–0.5로 잠정1.25–2.5집중시간이다.
+그 뒤 입력/QC·현재 농장/권리·서버 custody, 새 결과 등록/현재 API를 별도로 수용하고 worker/web 활성화를 평가한다.
 실제 품종/독립 자료0과 미완료 온실/자원/경제/최종 UI를 고려해 전체 제품 완료 날짜는 미정이다.
 
 ### 선행 수용과 현재 사용자 화면

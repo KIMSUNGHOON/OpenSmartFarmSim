@@ -1,0 +1,156 @@
+{
+  "G0_G4": "not_assessed",
+  "UTC_accepted": true,
+  "accepted_at": "2026-10-11T14:08:17.193103+00:00",
+  "actual_farm_runs": 0,
+  "continuation_evidence_sha256": "63f2788aaa0f7771e95803b0f1061ec6d829f179baefafd45ad3db25408b7c7b",
+  "core_sha256": {
+    "backend/app/crop_greenhouse_ventilation_time.py": "d5133e4945a5f5bab8a2a02c08d076d4d4714f02a354a7e4ae7e7b8f65e3e427",
+    "backend/tests/test_crop_greenhouse_ventilation_time.py": "378323e9fd59fb810cc2f40e3cee990b6b57cab0fb8644ccae48746cd781fcad",
+    "contracts/crop-greenhouse-ventilation-time-v1.md": "f8ea394ba1eb3ce58507e798e77fb9063bffde779d53d4a6cf6d13b704fd8ddf"
+  },
+  "focused_checks": {
+    "by_module": {
+      "test_crop_climate_joint_time.py": 130,
+      "test_crop_greenhouse_ventilation_continuation.py": 175,
+      "test_crop_greenhouse_ventilation_time.py": 147
+    },
+    "guard": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 383,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 759226368,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "0f8e8b4cc40add1bff9d8d19d5308e5c3dc07120f1e040412b79ae9b4efe5a6e",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 145842176,
+      "source_count": 1951,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 100.90965333400527
+    },
+    "pytest_seconds": 100.31,
+    "unique_passed": 452
+  },
+  "independent_domestic_datasets": 0,
+  "maximum_configuration": {
+    "binding_manifest_bytes_limit": 16384,
+    "samples_and_events_in_first_chunk": 128,
+    "scope": "internal_bundle_not_HTTP_transport",
+    "source_and_result_bytes_limit": 8388608
+  },
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_CLI_invocations": 0,
+    "scope": "native CLI ventilation UTC binding design and implementation",
+    "turn_context_sha256": "65a61221b7300697de4daff06c55fee4fa0172a292c30db6b9f618b8b0650630",
+    "turn_timestamp": "2026-10-11T13:56:46.299Z"
+  },
+  "native_cli_receipt_sha256": "68cc18d62d9e09c6ad3dc2ed5019ccb1ea7fd24e12e9cb79c7eb1ff34138c696",
+  "observed_at": "2026-10-11T14:05:06.686120+00:00",
+  "post_core_preservation": {
+    "actual_child_and_tool_exit": 0,
+    "original_tool_handle": 50756,
+    "preservation_receipt_sha256": "da961ce4439943701764ff5c3906f789f4788439f218978e415ba7de4e66cada",
+    "terminal_receipt_sha256": "daa1195347f7f94e86e61c602486982f92abbc604d2532f9a1179cb156f5b310",
+    "verified": {
+      "G0_G4": "not_assessed",
+      "accepted_core_hashes_unchanged": true,
+      "current_runtime_noncredential_fields_and_rights_reviews_preserved": true,
+      "diff_check": true,
+      "frontends": {
+        "5173": {
+          "HTTP": 200,
+          "index_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1"
+        },
+        "5174": {
+          "HTTP": 200,
+          "index_sha256": "333812c54d1fc67801c46bd0f5a5a98473922156c152a21b824fe3b4907a2937"
+        }
+      },
+      "frozen_prefix_assets": 171,
+      "frozen_prefix_source_files": 1911,
+      "guide_permissions_preserved": true,
+      "local_links_exist": 2002,
+      "old_calculation_files_preserved": 235,
+      "prior_authorized_token_rotation_matches_current_ready_guide_handoff": true,
+      "protected_roots_live": 4
+    },
+    "wall_seconds": 0.6055980660021305
+  },
+  "preserved_existing_calculation_files": 235,
+  "remaining": [
+    "new immutable pages/fresh reader",
+    "input evidence/current farm rights/server custody",
+    "result storage/current API",
+    "worker/typed web/same UTC3D/user activation",
+    "other greenhouse/resource/economics/final UI/independent data gates"
+  ],
+  "reused_time_helpers_sha256": "946680379e482cbcff63bb6fb60421f9abf41c108fb69667a52f38d22e502b9c",
+  "runs": [
+    {
+      "actual_child_and_tool_exit": 0,
+      "log_sha256": "870df327cc7f5f0edbb66e200a95395925241164347472405e828d5d0e70547b",
+      "original_tool_handle": 29101,
+      "stage": "smoke-utc-v1",
+      "terminal_receipt_sha256": "30947a7fbffe81a59e15164a45b33756163333410e02254de25b931b52558d73",
+      "wall_seconds": 0.8705135749987676
+    },
+    {
+      "actual_child_and_tool_exit": 0,
+      "log_sha256": "0f8e8b4cc40add1bff9d8d19d5308e5c3dc07120f1e040412b79ae9b4efe5a6e",
+      "original_tool_handle": 73808,
+      "stage": "focused-utc-v1",
+      "terminal_receipt_sha256": "32361d5887d8526cb48d821de45af746df528ecccc12b00025476e1ef6c49674",
+      "wall_seconds": 100.90965333400527
+    }
+  ],
+  "schema_version": "greenhouse-ventilation-utc-evidence-v1",
+  "scope": "software_research_only",
+  "source_equivalence": {
+    "balances": 10,
+    "budgets": [
+      1,
+      7,
+      128
+    ],
+    "continuous_ledgers": 25,
+    "event_totals": 6,
+    "fresh_process_same_binding_and_result_SHA": true,
+    "matrix_combinations": 30,
+    "physical_calculation_and_restore_calls_during_binding": 0,
+    "programs": 10,
+    "source_numbers_UTC_checkpoint_prefix_unchanged": true,
+    "state_values": 108
+  },
+  "source_review_sha256": "9ec6446d4544000128d4d546c0aac66c90c0b034ed875fbf7e94e7296d14c56a",
+  "status": "locally_accepted_synthetic_software_only",
+  "time_oracle": {
+    "indices_per_case": 17,
+    "method": "calendar integer epoch seconds plus integer microseconds independent of binding datetime helpers",
+    "new_module_timestamps": 272,
+    "rollover_cases": 16
+  },
+  "user_deployed": false
+}

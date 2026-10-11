@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**계산 개발 — 2026-10-11:** [환기 분할 실행/복원](../research/crop-greenhouse-ventilation-continuation-implementation-20261011.md)은 새175/기존224=399검사·10program/50분할 구성·fresh5지점을 통과했다. 최종 보존 확인 뒤 로컬 수용했다. 다음은 원 UTC→현재 권리 저장/API→worker/같은 UTC3D이며 새 모델은 사용자 UI에 미배포다. 실제 생산/마진/추천 관문은 미완료다.
+**계산 개발 — 2026-10-11:** [환기 UTC 결속](../research/crop-greenhouse-ventilation-utc-implementation-20261011.md)은 새147/기존305=452검사·독립272UTC/10program·결속 계산0/fresh를 통과했다. 최종 보존 확인 뒤 로컬 수용했다. 다음은 새 불변 페이지 저장/fresh reader→입력/현재 권리·custody/API→worker/같은 UTC3D다. 새 모델은 UI 미배포이며 실제 생산/마진/추천 관문은 미완료다.
 
 **현재 구현 상태 — 2026-10-11 21:19 KST:** [A2 연속 부분 결과3D](../research/crop-climate-joint-prefix-advance-browser-20261011.md)를 합성128초 범위로 수용했다.
 같은 사용자 DB의 실제 계산 중 원5시점·표/그래프/WebGL 갱신→완료 원9시점/3사건·재접속과 원 데이터/키/기존 권리·두 주소 복구를 확인했다.

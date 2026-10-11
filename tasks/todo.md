@@ -1669,7 +1669,7 @@
         새35/기존192=227통과·독립10프로그램/72반분 비율>8·선택/사건 원값·25연속/6사건/10수지,
         실제 호출/관리 후 forcing·무사건 새 stage/0환기 구 관리 정확 동일·실패 prefix·최대512출력/128사건을 확인했다.
         기존232계산 파일·원본2,148·두 사용자 frozen source/자산·FD/소유 정리·WSL을 보존했다. UTC/context/저장/UI는 미완료다.
-      - [ ] **`crop-greenhouse-ventilation-continuation-utc`** — 위 program을 새 immutable context/checkpoint/UTC 판본으로 결속.
+      - [x] **`crop-greenhouse-ventilation-continuation-utc`** — 위 program을 새 immutable context/checkpoint/UTC 판본으로 결속.
         수용: 임의 chunk 분할의 정확 동일성·fresh trusted digest 복원/과거 적분0·25장부/6사건/UTC·혼합 판본 거부.
         기존 context는22장부/고정 forcing을 요구하므로 새 항을 끼워 넣지 않는다.
         - [x] **`crop-greenhouse-ventilation-continuation`** — 새 program/input/정책·25장부/6사건/10수지의
@@ -1681,10 +1681,23 @@
           closed 상태/단위의 복원 결함을 수정하고25연속/6사건/10수지·최대512출력/128사건·typed 판본/hold를 확인했다.
           기존234계산 파일·원본2,148·accepted source1,911/자산171·두 HTTP200/권리·FD/소유 정리·WSL을 보존했다.
           UTC/저장/API/worker/3D·사용자 배포는 미완료다.
-        - [ ] **`crop-greenhouse-ventilation-utc`** — 다음 한 단계. 위 판본의 원 elapsed index에 명시 UTC origin/정밀도를 결속한다.
+        - [x] **`crop-greenhouse-ventilation-utc`** — 위 판본의 원 elapsed index에 명시 UTC origin/정밀도를 결속한다.
           수용: 원 sample/event/last_confirmed 시각·microsecond/범위·분할 동일·UTC/KST/혼합 거부, 수치 재계산0.
+          [핵심3파일 계약](../contracts/crop-greenhouse-ventilation-time-v1.md)/[로컬 수용](../research/crop-greenhouse-ventilation-utc-implementation-20261011.md):
+          새147/기존305=452통과·10program/30분할 구성·독립272UTC·fresh 동일·결속 중 RHS/환기/적분/관리/restore0,
+          원108상태/25장부/6사건/10수지·초기/관리 후 환기/실제 hold 시점·구 타입/판본 거부·최대128sample/event를 확인했다.
+          기존235계산 파일·원본2,148·accepted source1,911/자산171·두 HTTP200/현재 권리·FD/소유/WSL을 보존했다.
+          페이지 저장/현재 권리·custody/API/worker/3D·사용자 배포는 미완료다.
       - [ ] **`crop-greenhouse-ventilation-storage-current-api`** — 새 입력/QC·권리/서버 custody·불변 page/결과 등록·현재 조회 계약.
         수용: 원 bytes/수치/UTC·현재 농장/권리·새 판본 식별·조회 계산0·중단/재개/원 결과 보존·실제 SCRAM/TLS.
+        - [ ] **`crop-greenhouse-ventilation-artifact`** — 다음 한 단계. 새 UTC/25장부 판본의 페이지 writer/fresh reader.
+          수용: 원 bytes/수치/UTC·108상태/25연속/6사건/10수지·initial/yielded/completed/hold·prefix/cursor,
+          조회 RHS/환기/적분/관리/restore0·fresh 동일·HEAD 전후 강제 종료/재개·구 결과/원본/FD/소유/WSL 보존.
+          기존 file helper·2MiB 페이지/원자 HEAD를 재사용하고 아직 현재 농장 권한의 게시 결과로 취급하지 않는다.
+        - [ ] **`crop-greenhouse-ventilation-input-custody`** — 위 artifact·새 source/QC/권리 범위를 입력 증거/현재 농장/서버 서명 이력에 결속.
+          수용: 원 입력/프로필/source/notice·기간/현재 권리·trusted checkpoint custody·철회/변조·fresh·구 binding 보존.
+        - [ ] **`crop-greenhouse-ventilation-result-current-api`** — 위 artifact/custody를 결과 등록·현재 조회/보호 API에 연결.
+          수용: 원 bytes/수치/UTC·현재 권리·조회 계산0·completed/hold·실제 SCRAM/TLS·구 경로/결과 보존.
       - [ ] **`crop-greenhouse-ventilation-worker-web-activation`** — 기존 작업 임대/자동 소비·typed client·같은 UTC3D에 새 판본 연결.
         수용: 실제 worker/사용자 DB 접수→running 부분 결과/완료·hold/취소·재접속·원 값/WebGL·두 UI/WSL 보존.
     - [ ] **`crop-greenhouse-radiation-par`** — 원문 incident/absorbed PAR·cover/floor 반사와 PAR/NIR 열 경계.
