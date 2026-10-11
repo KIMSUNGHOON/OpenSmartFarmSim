@@ -1,10 +1,13 @@
 # OpenSmartFarmSim
 
+**2026-10-11 WSL 재시작 복구:** 기존5173/5174를 보존한 결과와 frozen 자산으로 다시 기동했다.
+[인증된 원 결과 대사·복구 기록](research/crop-user-preview-reboot-recovery-20261011.md)을 확인했다. 새 접속 안내는 [web README](web/README.md#joint-execution-user-preview)를 따른다. 계산 중 prefix3D의 사용자 활성화는 P6에 남아 있다.
+
 **2026-10-10 계산 실행 UI:** `http://localhost:5174/`에서 실제 DB/HTTPS API/별도 자동 작업자와 제품 App을 함께 기동했다.
 [접속 안내](web/README.md#joint-execution-user-preview)에 따라 합성 계산 접수→상태/확정 checkpoint 자동 조회→완료/hold 저장 UTC3D·취소/재접속을 확인할 수 있다.
 [E9b 실제 사용자 연결](research/crop-climate-joint-execution-user-preview-20261010.md)은 최종 브라우저5경로·재시작/원 결과·WSL 전체 서비스 합산을 통과했다.
 계산 중 확정 prefix의 성장3D와 최종 제품 UI는 후속 작업이다.
-[확정 prefix 읽기 계약](contracts/crop-climate-joint-prefix-view-v1.md)과 [P1–P6 순서/수용·잠정 시간](tasks/plan.md#joint-prefix-view-20261010)을 추가했다. [P1 원 페이지 reader](research/crop-climate-joint-prefix-reader-implementation-20261010.md)를 실제 SCRAM 고유12개로 수용했다. [P2 공개 응답](research/crop-climate-joint-prefix-projection-implementation-20261010.md)도 고유44개·실제 SCRAM/fresh·원 수치/UTC로 수용했다. [P3a 보호 HTTPS](research/crop-climate-joint-prefix-http-implementation-20261010.md)도 고유110개·실제 SCRAM/TLS·늦은 권리/취소·원 응답으로 수용했다. [P3b 명시 runtime/reader v2](research/crop-climate-joint-prefix-runtime-implementation-20261010.md)도 고유185개·실제 unpaused 정상/hold/cancel·조회 잠금 충돌 수정·기존 API/결과 보존으로 로컬 수용했다. [P4 웹 reader](research/crop-climate-joint-prefix-web-client-implementation-20261010.md)도 고유306개·실제 SDK/TLS 정상/hold/cancel·원 sample/binary64/UTC·타입/제한된 build로 로컬 수용했다. 다음은 P5 부분 결과 UI이며 현재 사용자 화면의 계산 중3D는 미완료다.
+[확정 prefix 읽기 계약](contracts/crop-climate-joint-prefix-view-v1.md)과 [P1–P6 순서/수용·잠정 시간](tasks/plan.md#joint-prefix-view-20261010)을 추가했다. [P1 원 페이지 reader](research/crop-climate-joint-prefix-reader-implementation-20261010.md)를 실제 SCRAM 고유12개로 수용했다. [P2 공개 응답](research/crop-climate-joint-prefix-projection-implementation-20261010.md)도 고유44개·실제 SCRAM/fresh·원 수치/UTC로 수용했다. [P3a 보호 HTTPS](research/crop-climate-joint-prefix-http-implementation-20261010.md)도 고유110개·실제 SCRAM/TLS·늦은 권리/취소·원 응답으로 수용했다. [P3b 명시 runtime/reader v2](research/crop-climate-joint-prefix-runtime-implementation-20261010.md)도 고유185개·실제 unpaused 정상/hold/cancel·조회 잠금 충돌 수정·기존 API/결과 보존으로 로컬 수용했다. [P4 웹 reader](research/crop-climate-joint-prefix-web-client-implementation-20261010.md)도 고유306개·실제 SDK/TLS 정상/hold/cancel·원 sample/binary64/UTC·타입/제한된 build로 로컬 수용했다. [P5 부분 결과 화면](research/crop-climate-joint-prefix-ui-implementation-20261010.md)은 core36d9b80/fa2e72b·기록 응답 Chromium35/집중 웹303=고유338개·타입/제한된 build로 기능 로컬 수용했다. 다음은 P6 실제 서버/사용자 활성화이며 현재 사용자 화면의 계산 중3D는 미완료다. 최종 디자인 일치는 보류다.
 
 **2026-10-09 사용자 확인 UI:** 기존 제품 App과 실제 DB/HTTPS 백엔드를 함께 기동했다.
 `http://localhost:5173/`에서 [접속·저장 결과 조회 안내](web/README.md#기존-제품-앱의-로컬-동시-기동--2026-10-09)에 따라

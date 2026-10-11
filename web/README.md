@@ -2,6 +2,8 @@
 
 <a id="joint-execution-user-preview"></a>
 
+2026-10-11 WSL 재시작 뒤 두 서버를 [보존 결과로 복구](../research/crop-user-preview-reboot-recovery-20261011.md)했다. 아래 새 접속 파일을 사용한다.
+
 ## 계산 상태 자동 조회와 저장3D — 2026-10-10
 
 **http://localhost:5174/** 에서 제품 App·실제 HTTPS API `https://127.0.0.1:8446`·영속 PostgreSQL·별도 자동 계산 작업자를 함께 실행한다.
@@ -10,7 +12,7 @@
 
 접속 토큰·기존 작업 ID/농장 필드·Windows에서 파일을 여는 경로는 다음 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v4/OPEN-UI.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v5/OPEN-UI.private.txt`
 
 1. 위 파일을 로컬 편집기로 열고5174에서 **내부 시험 연결 → 접근 토큰 → 연결 설정**을 선택한다.
 2. **08 성장 연구 3D → joint 실행 · 계산 상태와 완료 3D**를 선택한다.
@@ -21,7 +23,7 @@
 4. 작업 상태·확정 checkpoint를 확인하고, 완료되면 저장 결과의3D를 연다.
    이미 완료된 작업을 보려면 보호 안내의 작업 ID와 농장 필드로 재접속한다. 정상/hold의 재시작 후 조회도 실제 브라우저로 확인했다.
 
-현재 토큰은 **2026-10-11 17:24 KST**까지 유효하며 페이지 메모리에만 둔다. 새로고침 뒤에는 다시 연결한다.
+현재 토큰은 **2026-10-12 11:15 KST**까지 유효하며 페이지 메모리에만 둔다. 새로고침 뒤에는 다시 연결한다.
 자동 조회는 이전 응답 완료 뒤10초를 기다리고 서버 조회 시간이 추가된다. 짧은 예제는 중간 checkpoint 조회 전에 끝날 수 있다.
 탭 숨김/화면 이탈은 화면 조회를 멈춘다. 서버 계산 중단은 별도 취소 요청과 작업자 확인이 필요하다.
 토큰을 저장소·URL·로그·스크린샷에 복사하지 않는다.
@@ -30,7 +32,7 @@
 [P3b 중간 결과 API/서버 조립](../research/crop-climate-joint-prefix-runtime-implementation-20261010.md)은 별도 시험 서버에서 수용했다. 현재5174에는 배포하지 않았으며 계산 중 성장3D는 아직 표시하지 않는다. 개발·검증용 별도 DB에서 실행한 작업도 이 화면에 자동 노출되지 않는다.
 
 기존5173은 아래의 완료166일 저장 재생용으로 유지한다. 계산 중 확정 prefix의 성장3D·두 주소의 통합/최종 U0–U5와 전체 U3는 미완료다.
-[P4 웹 reader](../research/crop-climate-joint-prefix-web-client-implementation-20261010.md)는 실제 SDK/TLS로 로컬 수용했으며 P5 화면/P6 브라우저·사용자 기동이 남았다. 현재 서버의 화면은 아직 변경하지 않았다.
+[P4 웹 reader](../research/crop-climate-joint-prefix-web-client-implementation-20261010.md)는 실제 SDK/TLS로 로컬 수용했다. [P5 화면 기능](../research/crop-climate-joint-prefix-ui-implementation-20261010.md)도 기록 응답 Chromium35/웹303·타입/build로 수용했으며 P6 실제 브라우저·사용자 기동이 남았다. 현재 서버의 화면은 아직 변경하지 않았다. 최종 디자인 일치는 보류다.
 현재3D는 저장 LAI·과실 구획·온도의 수치 모식도이며 G0–G4·실제 생산/미래 마진/추천 보류는 유지한다.
 
 ## 기존 제품 앱의 로컬 동시 기동 — 2026-10-09
@@ -43,7 +45,7 @@
 
 새 접속 토큰과 원 결과의 다섯 입력값은 저장소 밖의 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v3/service/OPEN-UI.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v5/service/OPEN-UI.private.txt`
 
 2026-10-10 기존 서비스 종료를 확인한 뒤 보존 원본으로 재기동했다.
 이전 토큰 대신 위 새 안내를 사용한다. 인증된 생장/수확 summary의 원 wire 일치·계산0을

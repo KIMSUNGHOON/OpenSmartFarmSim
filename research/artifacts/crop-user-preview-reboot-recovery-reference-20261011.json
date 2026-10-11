@@ -1,0 +1,192 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted_probe_guards": [
+    {
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 388374528,
+      "owned_remaining": [],
+      "protected_live": true,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 136769536,
+      "wall_seconds": 15.863404799000023
+    },
+    {
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 669954048,
+      "owned_remaining": [],
+      "protected_live": true,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 136769536,
+      "wall_seconds": 41.06525569600001
+    }
+  ],
+  "actual_crop_Runs": 0,
+  "failed_attempts": [
+    {
+      "reason": "frozen preview requires separate candidate port before publishing 5173",
+      "stage": "legacy run-v4",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 1,
+        "accepted_assets_preserved": true,
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 27860992,
+        "fresh_PG_gone": false,
+        "fresh_PG_samples": 0,
+        "fresh_postmaster_absent": true,
+        "old_source_preserved": true,
+        "original_sources_preserved": true,
+        "owned_remaining": [],
+        "reason": null,
+        "service_terminal_exists": false,
+        "single_PID_peak_RSS_bytes": 23441408,
+        "source_pins_preserved": true,
+        "wall_seconds": 0.8310971719999998
+      }
+    },
+    {
+      "reason": "historical baseline predates 43 legitimate added files; known 64 hashes all unchanged; corrected scope and reran",
+      "stage": "joint-probe-v1",
+      "terminal": {
+        "actual_exit": 1,
+        "combined_peak_RSS_bytes": 662732800,
+        "owned_remaining": [],
+        "protected_live": true,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 136769536,
+        "wall_seconds": 41.738100755000005
+      }
+    }
+  ],
+  "frontends": {
+    "5173": {
+      "same_frozen_index": true,
+      "sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1",
+      "status": 200
+    },
+    "5174": {
+      "same_frozen_index": true,
+      "sha256": "5f8062c48dd576fed3963bc2ac71b2dd5db2e83fbdb580858216f771cd3b637a",
+      "status": 200
+    }
+  },
+  "joint_authenticated_probe": {
+    "actual_TLS": true,
+    "additional_files_predating_boot": 43,
+    "historical_baseline_files": 64,
+    "old_token_401": true,
+    "response_count": 7,
+    "same_old_results": true,
+    "worker_attempts": 0
+  },
+  "joint_new_expiry": "2026-10-12T02:15:36.230984+00:00",
+  "joint_scope": "completed/hold/cancel original terminal job values ignoring observed_at; original stored wire bytes; historical 64 known inputs unchanged, 43 additional files predating boot; not an assertion that inventory was unchanged since the older pre-restart baseline",
+  "joint_wire_hashes": {
+    "cancel": {},
+    "completed": {
+      "007.wire": "9d107fec8faf901252635841d258049e33adc5448f4b6c770d746a4cdc05edc3",
+      "008.wire": "b34c2660f65bd6150df9b8f697e13c508c01bc5d0af38959d5de698464b5c69a"
+    },
+    "hold": {
+      "006.wire": "f13ec693e1cd451c9afab8c6bd873a1adceda1a3d43f53f959e444286577f74c",
+      "007.wire": "85059f51070846a5800a857c5349405928c9256c9b4a71e479c324ed8509fd2e"
+    }
+  },
+  "legacy_candidate_probe": {
+    "candidate_authenticated_probe": {
+      "G0_G4": "not_assessed",
+      "accepted": true,
+      "frontend_index_original_bytes": true,
+      "guarded_math_publication_calls": 0,
+      "origin": "http://127.0.0.1:5175/",
+      "realtime_U3": false,
+      "responses": [
+        {
+          "bytes": 9628,
+          "endpoint": "crop",
+          "label": "summary",
+          "offset": null,
+          "seconds": 5.524799322000035,
+          "sha256": "0a2a5ddbb0051cfcfe5757ab2dd488be8cebd22dc0679cd9b7a462ef0fab31f7",
+          "status": 200,
+          "subject": "owner"
+        },
+        {
+          "bytes": 16519,
+          "endpoint": "harvest",
+          "label": "summary",
+          "offset": null,
+          "original_values": {
+            "G0_G4": "not_assessed",
+            "bytes": 16519,
+            "label": "summary",
+            "scope": "synthetic_research_only",
+            "seconds": 8.58118419799996,
+            "sha256": "6a71d8f434677a2f0b83d40cea85ea07aa1144469677e588a792e40f761dff26",
+            "status": 200,
+            "stored_values_equal": true,
+            "version": "owned-harvest-http-reconciliation-v1"
+          },
+          "seconds": 8.58118419799996,
+          "sha256": "6a71d8f434677a2f0b83d40cea85ea07aa1144469677e588a792e40f761dff26",
+          "status": 200,
+          "subject": "owner"
+        }
+      ],
+      "same_original_full_growth_and_harvest": true,
+      "service_FD_before_after": [
+        8,
+        8
+      ]
+    },
+    "frontend_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1",
+    "frontend_status": 200,
+    "nginx_config_actual_exit": 0,
+    "nginx_identity": {
+      "boot_id": "a4b28e7c-d76e-43dd-af4f-f736ac42fd99",
+      "pid": 6479,
+      "start_ticks": 46035
+    },
+    "observed_at": "2026-10-11T02:15:34.021421+00:00",
+    "same_original_index": true
+  },
+  "live_user_services_intentionally_retained": true,
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "timestamp": "2026-10-11T02:10:33.706Z",
+    "turn_context_sha256": "4b380748eb3db4f3087cf48afd626cb01cdcb4599403f329b7faf4b0e584f0e4"
+  },
+  "new_boot_id": "a4b28e7c-d76e-43dd-af4f-f736ac42fd99",
+  "new_browser_tests": false,
+  "new_calculation_jobs": 0,
+  "new_guardian_identities": {
+    "PG": {
+      "boot_id": "a4b28e7c-d76e-43dd-af4f-f736ac42fd99",
+      "pid": 7999,
+      "start_ticks": 58112
+    },
+    "controller": {
+      "boot_id": "a4b28e7c-d76e-43dd-af4f-f736ac42fd99",
+      "pid": 7954,
+      "start_ticks": 57892
+    },
+    "service": {
+      "boot_id": "a4b28e7c-d76e-43dd-af4f-f736ac42fd99",
+      "pid": 7988,
+      "start_ticks": 58012
+    },
+    "worker": {
+      "boot_id": "a4b28e7c-d76e-43dd-af4f-f736ac42fd99",
+      "pid": 8009,
+      "start_ticks": 58194
+    }
+  },
+  "observed_at": "2026-10-11T02:20:28.195727+00:00",
+  "old_boot_id": "771d3193-476b-47da-8b74-4ed68214aafd",
+  "prefix_user_activation": false,
+  "prior_processes_verified_dead": true,
+  "reference_prefix_ui_sha256": "0edfcc31cdae283134b09783f54150c6246bbf0d1ec229cea0ed2b7475048873",
+  "schema_version": "owned-preview-reboot-recovery-v1"
+}

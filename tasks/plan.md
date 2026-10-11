@@ -1122,7 +1122,7 @@ UUID 인자 없는 실제 프로세스의 E1 발견/16걸음·단일 저장·신
 **E8 화면 계약 수용:** [core288cbaf/고유288개](../research/crop-climate-joint-execution-screen-implementation-20261010.md)로 기록 응답 Chromium15개와 기존 웹273개·타입/제한된 빌드를 통과했다.
 단일 polling/별도 시각·숨김/선택/계정/늦은 응답 제거·재접속·독립 취소/확인·완료/hold의 같은 저장3D와 빈 출력을 확인했다.
 현재 취소 확인 뒤 과거 대기 문구를 제거했다. 예상 core4에 반응형 CSS1파일을 추가했고 새 dependency/backend/서비스는 없다.
-**다음 한 단계는 확정 prefix의 원 페이지/DB reader(P1)**다. [P0 계약](../contracts/crop-climate-joint-prefix-view-v1.md)은 기존 source/의존성을 대조해 고정했고 구현은 아래 순서를 따른다.
+**다음 한 단계는 확정 prefix의 실제 브라우저 연결(P6a)**다. [P5 화면 기능](../research/crop-climate-joint-prefix-ui-implementation-20261010.md)까지 로컬 수용했다. [P0 계약](../contracts/crop-climate-joint-prefix-view-v1.md)은 기존 source/의존성을 대조해 고정했고 구현은 아래 순서를 따른다.
 [E9b 지속 사용자 연결](../research/crop-climate-joint-execution-user-preview-20261010.md)도 실제 clock/인증·접수/자동 진행/저장 UTC3D·취소/재접속·재시작/원 결과·WSL로 수용했다.
 새 계산 화면은5174, 전체 저장 재생은5173이다. 계산 중 성장3D와 두 화면을 통합하는 전체 U3는 미완료다.
 계산 중 prefix3D는 별도 수용이다. 실제 입력의 게시 조건과 합성 개발 착수 조건은 구분한다.
@@ -1208,12 +1208,13 @@ source 검토는 구현/시험 수용이 아니다. 아래 자식은 작은 합�
 | P3a 보호 HTTP | [core8da1776/수용 근거](../research/crop-climate-joint-prefix-http-implementation-20261010.md)·installer/test2파일 | P2 | 고유110개(제어105/실제 SCRAM·TLS5)·원 응답/늦은 권리/독립 취소·계산/쓰기0·기존56경로/262스키마·보존/정리 |native→최종 검증1037.090초(약17분), 문서/commit 별도|
 | P3b 명시 runtime | [reader v2/core5861eb9 + runtime/core8e794e4](../research/crop-climate-joint-prefix-runtime-implementation-20261010.md)·3파일/4파일 자식 | P3a | 고유185개·실제 unpaused 정상/hold/cancel·조회 잠금 취득0·현재 권리/서명·기본 API 보존 |native→최종 검증1,787.576초(약30분); 문서/commit 별도|
 | P4 웹 reader | [공용 검사c750007/새 SDKf40a8ff 수용](../research/crop-climate-joint-prefix-web-client-implementation-20261010.md)·2파일/4파일 자식 | P3b | 고유306개·실제 unpaused SDK/SCRAM/TLS 정상/hold/cancel·원 sample/binary64/UTC·기존226/새77·타입/제한된 build; 실제 event-prefix200은 미관측/503 |native→최종 시험1,576.244초(약26분); 문서/commit 별도|
-| P5 부분 결과 화면 | `JointCropClimatePrefix.tsx`, 기존 Execution/CSS, e2e1, 최대4파일 | P4 | 한 갱신 주기의 순차 GET·동일 저장 UTC·빈 출력/새 판본 원자 교체·cancel/숨김/계정/늦은 응답·terminal 전환; Chromium·typecheck/build |1.5–3h|
+| P5 부분 결과 화면 | [core36d9b80/fa2e72b 기능 수용](../research/crop-climate-joint-prefix-ui-implementation-20261010.md)·제품3/시험2파일 자식 | P4 | 고유338개(Chromium20/기존15·웹303)·원 UTC/LAI/50구획/WebGL·순차/원자 교체·빈/취소/숨김/계정/terminal·타입/build; 최종 디자인 일치 보류 |native→수용 증거3,285.142초(약55분); 문서/commit 별도|
 | P6a 실제 브라우저 | prefix browser reference Python/JS2파일 + 결과 증거 | P5 | 실제 running의 원 표/LAI/50구획/온도/WebGL·원 시각/사건·완료/hold·cancel/재접속·원본/WSL·실제 종료; P4 미관측 event-prefix200을 실제 SDK로 확인 |1–2h|
 | P6b 사용자 기동 | 기존 live operator/preview와 접속 안내, core 최대2파일 | P6a | frozen 후보 검증 뒤5174 연결·실제 수명/자동 worker·장벽 없는 계산 중 조회·기존 결과/5173/현재 키 보존·접속 안내 |0.5–1h|
 
 P1/P2 후 원 페이지/공개 정보 checkpoint, P3b/P4 후 실제 보호 전달 checkpoint, P6a/P6b 후 사용자 기동 checkpoint를 둔다.
 P4는 실제 SDK 구현 대조 후 P4a 공용 값/격자·manifest·checkpoint 검사2파일과 P4b 새 reader/API/unit/실제 SDK test4파일로 분해한다. 기존 terminal/실행 검사를 그대로 재사용하고 미완료 prefix를 임시 terminal 응답으로 만들지 않는다. 각 자식의 집중 회귀/타입 뒤 실제 SDK/TLS를 확인하고 P4 부모는 모두 통과한 뒤 수용한다.
+P5는 P5a 부분 결과 component/Execution/CSS3파일과 P5b 새 e2e/기존 E8 fixture2파일로 분해한다. 기존 E8 기록은 새 prefix 요청을 제공하지 않으므로 미지원404를 명시해 기존 상태 조회 호환을 검사한다. prefix404는 해당 연결의 부분 결과만 비활성으로 두고 작업 상태/취소를 유지한다. 권리/인증/응답 거부는 원값/장면을 지우고 자동 조회를 멈춘다. 원 selector의 최근64시점/8사건을 순차 조회해 함께 교체하며 기존 승인 LayerDoc/수치3D 구성을 재사용한다. 각 자식 검증 뒤 P5를 수용하고 실제 서버/사용자 활성화는 P6에서 한다.
 P1은 권리/계보 거부를 일시 대기로 숨기지 않으며 accepted snapshot만 읽는다. 작업 중 관련 DB 상태 변경은 Pending으로 버리고 재조회한다.
 각 pytest는 해당 파일·현재 fixture 회귀에 한정하고 실제 SCRAM을 명시한다. DB fixture가 skip이면 수용하지 않는다.
 선택한 수용 판본의 실제 원 수치/UTC와 fresh 결과를 대사하고 모든 read의 수치/게시/DB 쓰기0을 검증한다.
@@ -1224,7 +1225,11 @@ P3b의 실제 runtime 파일은 `api.py`, `api_runtime.py`, `crop_climate_joint_
 
 **P4 수용:** [공용 검사/새 SDK](../research/crop-climate-joint-prefix-web-client-implementation-20261010.md)는 고유306개·실제 SDK/TLS 정상/hold/cancel·원 binary64 1,514값/UTC·타입/제한된 build를 통과했다. 정상/hold 각각 accepted2회·samples1/2행→첫 시도 terminal 원 bytes다. 실제 event-prefix200은 관측하지 못했고503 재조회만 확인했으며 원 event envelope는 unit으로 확인했다. P5/P6가 실제 화면/사건 전달을 확인한다. 사용자 prefix는 아직 비활성이다.
 
-P0의 최초 P1–P6 추정은7.5–15집중시간이었다. P4 실제 종료 뒤 **남은 P5–P6는3–6집중시간 잠정**으로 갱신한다. 연속 작업 시 **2026-10-11 KST의 작은 합성 prefix 사용자 화면**을 조건부 범위로 둔다.
+**10/11 사용자 서비스 복구:** WSL boot 변경과 이전 root 종료를 확인하고 [동일 저장 결과/자산으로5173·5174를 복구](../research/crop-user-preview-reboot-recovery-20261011.md)했다. 계산/새 작업0·인증된 원 응답·새 보호 root와 접속 경로를 확인했다. P5 사용자 배포나 P6 수용은 아니다.
+
+**P5 기능 수용:** [기계 증거](../research/artifacts/crop-climate-joint-prefix-ui-reference-20261010.json)는 동일 제품3 SHA의 고유338개·실제 WebGL/원 UTC·최종 타입/build를 확인했다. 12ui3상태 대조는 종료0이나 DOM coverage25.0%/23.1%/23.1%·원 raster 부재로 최종 디자인 일치는 보류다. 실제 running backend/event-prefix200과 사용자 활성화는 P6다. 현재 두 사용자 서버는 변경하지 않았다.
+
+P0의 최초 P1–P6 추정은7.5–15집중시간이었다. P5 실제 종료 뒤 **남은 P6a–P6b는1.5–3집중시간 잠정**으로 갱신한다. 연속 작업 시 **2026-10-11 KST의 작은 합성 prefix 사용자 화면**을 조건부 범위로 둔다.
 P1은 원 reader6.877–6.905초/64행658,115bytes를 관측했다. P2는 투영/직렬화6.361–11.793ms·64행 전체663,085bytes를 확인했다. P3b/v2는 실제 TLS 계측54응답·최대8.908초와 장벽 없는 자동 worker의 중간 조회/재시도를 확인했다. P4 실제 SDK43 HTTP·최대9.563초·정상/hold 각각503 여섯 번을 확인했다. P6 실제 순차 진행/summary/page·사용자 관측 뒤 시간과 날짜를 다시 산정한다. 실패 재검증·WSL 상한·기존 서비스 수명에 따라 늦어질 수 있다.
 이 범위는 전체166일 동적 기후·최종 U0–U5/전체 U3·생산/마진/추천 관문이나 외부 자료 확보 완료 날짜가 아니다.
 사용자 서비스 전환 전에는5174의 기능/안내를 완료 후 저장3D로 유지한다. 관측 장벽은 시험에서만 기록하고 사용자 계산을 느리게 꾸미지 않는다.

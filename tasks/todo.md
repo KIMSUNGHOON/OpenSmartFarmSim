@@ -1919,7 +1919,7 @@
       계산 중 prefix3D/최종 UI/전체 U3·실제 자료/관문은 미수용이다.
   - [ ] **계산 중 확정 prefix3D** <a id="joint-prefix-view-20261010"></a> — [P0 계약](../contracts/crop-climate-joint-prefix-view-v1.md)/[순서·잠정 시간](plan.md#joint-prefix-view-20261010). 현재 terminal page를 미완료에 사용하지 않는다.
     수용: 불변 prefix/수용 HEAD·원 sample/event/같은 UTC·현재 권리와 동시 게시/취소/재시작·늦은 응답을 실제 DB/브라우저에서 대사.
-    P4 수용 뒤 남은 P5–P6는3–6집중시간 잠정/연속 작업10/11 KST 조건부다. 실제 브라우저/사용자 순차 조회 관측 뒤 갱신한다. 전체 U3/실제 관문 날짜는 미정이다.
+    P5 기능 수용 뒤 남은 P6a–P6b는1.5–3집중시간 잠정/연속 작업10/11 KST 조건부다. 실제 브라우저/사용자 순차 조회 관측 뒤 갱신한다. 전체 U3/실제 관문 날짜는 미정이다.
     - [x] **P0 확정 prefix 읽기 계약** — 선행: E9b·E2/E4·기존 불변 페이지/서명 계약. core 계약1파일과 계획/기계 기록 갱신이다.
       [source/CLI 증거](../research/artifacts/crop-climate-joint-prefix-contract-reference-20261010.json):13파일/26심볼·native gpt-6.1-sol/xhigh·재귀0.
       DB 수용 selector/원 페이지·이전 판본/계보·현재 권리·동시 writer/취소/fresh와 계산/저장 UTC·빈 장면/조회 계산0·공개 제한을 정의했다.
@@ -1957,9 +1957,13 @@
       실제43 HTTP·최대9.563초·binary64 1,514값/UTC 보존. 실제 event-prefix200은 미관측/503이며 새 envelope의 원 event는 unit으로 확인했다.
       초기 test 헤더/assertion 실패2회의 원 로그/source를 보존했다. 원본2,148/두 서버/FD/소유 정리·단일/합 RSS423,849,984/967,147,520bytes.
       native→최종 시험1,576.244초(약26분), 문서/commit 별도. UI/실제 브라우저/사용자 활성화·전체 CI/관문은 미수용이다.
-    - [ ] **P5 계산 중 부분 결과 UI** — 다음 한 단계. 선행: P4. 새 prefix component/기존 Execution·CSS/e2e최대4파일; UI 디자인/브라우저 스킬 적용.
-      수용/확인: 순차 GET·동일 원 UTC의 표/그래프/3D·빈 출력/원자 교체·취소/숨김/계정/늦은 응답·terminal 전환; 기록 응답 Chromium/typecheck/build.1.5–3h 잠정.
-    - [ ] **P6a 실제 prefix 브라우저** — 선행: P5. reference Python/JS2파일과 기계 증거.
+    - [x] **P5 계산 중 부분 결과 UI 기능** — 선행: P4. [수용 기록](../research/crop-climate-joint-prefix-ui-implementation-20261010.md)/[기계 증거](../research/artifacts/crop-climate-joint-prefix-ui-reference-20261010.json).
+      - [x] P5a 제품3파일 — core36d9b80. 원 selector의 최근64시점/8사건을 순차 조회하고 완전한 snapshot만 교체한다. 같은 원 UTC·빈 출력/선택 유지·오류/늦은 응답·terminal 전환.
+      - [x] P5b 브라우저2파일 — corefa2e72b. 새20/기존15·웹303=고유338개·타입/제한된 build. WSL에서 실제 Playwright 본문/hooks/expect를 단일 Node adapter로 실행했으며 표준 CLI pass가 아니다.
+      시험 수정 판본/diff·영향 경로 재검증·실패 종료/진단기 복구를 보존했다. 동일 제품3 SHA·원본2,148/두 서버·FD/소유 정리; 단일/합 RSS427,528,192/951,529,472bytes.
+      UI 디자인/브라우저 스킬 적용·12ui3상태 종료0/구매0. 대응 coverage와 원 raster 부재로 최종 디자인 일치는 보류; 실제 running 연결/사용자 배포·전체 CI/관문은 미수용. native→수용 증거3,285.142초(약55분); 문서/commit 별도.
+      10/11 WSL 재시작 뒤 [기존 사용자 서비스 복구](../research/crop-user-preview-reboot-recovery-20261011.md)를 별도로 확인했다. 새 private 접속 안내/보호 root를 사용하며 P5 배포는 아니다.
+    - [ ] **P6a 실제 prefix 브라우저** — 다음 한 단계. 선행: P5. reference Python/JS2파일과 기계 증거.
       수용/확인: 실제 running 중 원 LAI/50구획/온도/UTC/WebGL·원 event 전달→terminal 원 결과, hold/cancel/빈/재접속·권리와 WSL/원본/실제 종료. P4에서 미관측인 event-prefix200도 실제 SDK로 확인한다.1–2h 잠정.
     - [ ] **P6b prefix 사용자 기동** — 선행: P6a. live operator/preview core최대2파일과 접속 안내.
       수용/확인: frozen 후보 수용 뒤5174 연결·실제 인증/자동 worker·장벽 없는 계산 중 관측·원 결과/현재 키/5173 보존·접속 안내.0.5–1h 잠정.
