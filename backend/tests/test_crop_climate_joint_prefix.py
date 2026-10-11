@@ -523,6 +523,33 @@ def test_current_scopes_review_rights_and_late_revocation(setup, monkeypatch):
         'late_revocation_rejected': True, 'read_without_write_or_execute_scope': True, 'calls': calls, 'DB_unchanged': True})
 
 
+def test_late_farm_registration_denial_still_blocks_prefix(setup, monkeypatch):
+    query, worker, job_id, raw, value = setup
+    lease = reference.confirm(worker, job_id); advance(worker, job_id, raw, lease, 2)
+    reference.readonly(value); before = reference.persisted_digest(worker.jobs)
+    original = query._accepted; farm_reads = []; armed = False
+    farms = worker.server.binding.farms; original_registration = farms.read_registration
+    def registration(*a, **kw):
+        farm_reads.append(armed)
+        if armed: raise PermissionError('farm registration access revoked')
+        return original_registration(*a, **kw)
+    def accepted(*a, **kw):
+        nonlocal armed
+        result = original(*a, **kw); armed = True; return result
+    with monkeypatch.context() as patch:
+        calls = reference.forbid(patch)
+        patch.setattr(farms, 'read_registration', registration)
+        patch.setattr(query, '_accepted', accepted)
+        with pytest.raises(PermissionError): query.read('tenant-1', job_id)
+        assert False in farm_reads and True in farm_reads and not any(calls.values())
+    assert read(query, job_id)['prefix_status'] == 'accepted'
+    assert reference.persisted_digest(worker.jobs) == before
+    save('late-farm-registration', {'actual_SCRAM': True,
+        'synthetic_provider_denial_after_private_page': True,
+        'outer_full_farm_check_rejected_response': True, 'recovered_original': True,
+        'calls': calls, 'DB_unchanged': True})
+
+
 def test_cancel_request_and_ack_close_prefix_without_result(setup, monkeypatch):
     query, worker, job_id, raw, value = setup
     lease = reference.confirm(worker, job_id); _, first = advance(worker, job_id, raw, lease, 2)

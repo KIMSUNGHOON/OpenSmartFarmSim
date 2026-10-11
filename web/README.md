@@ -41,6 +41,8 @@
 
 [전진 읽기 v4/HTTP](../research/crop-climate-joint-prefix-forward-read-implementation-20261011.md)는 최종265개·실제 자동 정상/hold/cancel, 공개 요약→같은 선택자의 사건/생장200과 원 terminal 값/UTC를 확인했다. P6a 실제 WebGL과 P6b 사용자 적용은 남아 있어 현재5174의 계산 중3D는 계속 비활성이다.
 
+[조회 비용 수정 reader v5](../research/crop-climate-joint-prefix-read-cost-implementation-20261011.md)는 최종267개·실제 같은 선택자 사건/생장200·원 terminal/현재 권리로 로컬 수용했다. 실제 제품 브라우저 P6a와 사용자 적용 P6b는 남아 있으므로 현재5174의 계산 중3D는 계속 비활성이다. 개발 시험 DB의 작업은 이 사용자 DB에 자동 노출되지 않는다.
+
 ## 기존 제품 앱의 로컬 동시 기동 — 2026-10-09
 
 현재 사용자 확인용 **http://localhost:5173/** 은 `src/App.tsx`의 제품 빌드와 실제 HTTPS API

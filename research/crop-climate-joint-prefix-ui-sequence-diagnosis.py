@@ -1,5 +1,6 @@
 """Actual v4 UI request sequence diagnostics; no browser or worker delays."""
 from copy import deepcopy
+import cProfile
 from hashlib import sha256
 import importlib.util
 import json
@@ -30,6 +31,7 @@ def test_actual_v4_ui_sequence(prefix_native, tmp_path, monkeypatch):
     active = None
     frames = {}
     observer_errors = []
+    profilers = {}
     previous_bundles = {}
     previous_heads = {}
     modules = {str(Path(module.__file__)): name for name, module in (
@@ -54,6 +56,32 @@ def test_actual_v4_ui_sequence(prefix_native, tmp_path, monkeypatch):
                 ('latest', 'links', 'publications', 'outcomes', 'terminal'), 1)
                 if not prefix.execution._same(before[i], after[i])]}
 
+    def profile_code(code):
+        if isinstance(code, str):
+            return {'file': 'builtin', 'line': 0, 'function': code}
+        source = Path(code.co_filename)
+        try:
+            filename = str(source.relative_to(ROOT))
+        except ValueError:
+            filename = ('dependency/' if 'site-packages' in source.parts else 'python/') + source.name
+        return {'file': filename, 'line': code.co_firstlineno, 'function': code.co_name}
+
+    def finish_profile(request_id):
+        profiler, thread = profilers.pop(request_id)
+        assert thread == threading.get_ident()
+        profiler.disable()
+        stats = profiler.getstats()
+        assert len(stats) <= 5000
+        requests[request_id]['profile'] = {
+            'thread_id': thread, 'entry_count': len(stats),
+            'exclusive_total_seconds': sum(e.inlinetime for e in stats),
+            'entries': [{**profile_code(e.code), 'calls': e.callcount,
+                'recursive_calls': e.reccallcount, 'exclusive_seconds': e.inlinetime,
+                'cumulative_seconds': e.totaltime,
+                'callees': [{**profile_code(c.code), 'calls': c.callcount,
+                    'exclusive_seconds': c.inlinetime, 'cumulative_seconds': c.totaltime}
+                    for c in e.calls or ()]} for e in stats]}
+
     def observe_frame(frame, event, arg):
         module = modules.get(frame.f_code.co_filename)
         name = frame.f_code.co_name
@@ -65,6 +93,11 @@ def test_actual_v4_ui_sequence(prefix_native, tmp_path, monkeypatch):
             if active is None:
                 return None
             frames[key] = (active, time.monotonic())
+            if module == 'routes' and name == 'read':
+                assert active not in profilers and sys.getprofile() is None
+                profiler = cProfile.Profile()
+                profilers[active] = (profiler, threading.get_ident())
+                profiler.enable()
         context = frames.get(key)
         if context is None:
             return None
@@ -80,6 +113,8 @@ def test_actual_v4_ui_sequence(prefix_native, tmp_path, monkeypatch):
                         'before_state': before[0]['state'], 'after_state': None if after is None else after[0]['state']}
                 append(request_id, {**common, 'event': 'exception', 'exception': kind.__name__, **detail})
         elif event == 'return':
+            if module == 'routes' and name == 'read':
+                finish_profile(request_id)
             entry = {**common, 'event': 'return', 'seconds': time.monotonic() - started}
             if module == 'query' and name == '_bundle' and arg is not None:
                 row, latest = arg[:2]
@@ -120,6 +155,9 @@ def test_actual_v4_ui_sequence(prefix_native, tmp_path, monkeypatch):
         try:
             return observe_frame(frame, event, arg)
         except Exception as error:
+            if active in profilers:
+                profiler, thread = profilers.pop(active)
+                if thread == threading.get_ident(): profiler.disable()
             observer_errors.append({'request_id': active, 'function': frame.f_code.co_name,
                 'event': event, 'observer_error': type(error).__name__})
             return observe
@@ -203,6 +241,8 @@ def test_actual_v4_ui_sequence(prefix_native, tmp_path, monkeypatch):
             'request_sequence': 'progress_then_public_summary_events_samples',
             'browser_run': False, 'claim': 'API_diagnostics_only',
             'API_tracing_perturbs_timing': True,
+            'cProfile_scope': 'prefix_route_read_in_API_thread_only',
+            'exclusive_seconds_can_sum_cumulative_seconds_overlap': True,
             'observer_errors': observer_errors,
             'API_thread_only_tracing': True, 'requests': requests, 'read_calls': calls,
             'worker_exit': process.returncode, 'attempts': attempts, 'events': events,
@@ -213,6 +253,8 @@ def test_actual_v4_ui_sequence(prefix_native, tmp_path, monkeypatch):
             'replies': replies})
         assert requests and all(item['trace'] for item in requests)
         assert not observer_errors
+        assert not profilers
+        assert all('profile' in item for item in requests if item['view'] != 'progress')
     finally:
         threading.settrace(previous_trace)
         pack.unlink()

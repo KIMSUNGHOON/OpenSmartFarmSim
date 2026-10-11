@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**2026-10-11 실제 브라우저 후속:** [v4 브라우저/종료 전환 진단](../research/crop-climate-joint-prefix-browser-v4-20261011.md)에서 사건200/생장503·계산 중 WebGL 실패를 기록했다. 별도 API 진단1개는 요약/사건200 뒤 종료된 작업의 생장409와 원 terminal을 확인했다. 다음은 P6a2c1 조회 비용 프로파일이다. P6a/P6b 미수용과 두 원 사용자 화면의 복구·보존을 구분한다.
+**2026-10-11 조회 비용 수정 수용:** [P6a2c1 계측/P6a2c2 reader v5](../research/crop-climate-joint-prefix-read-cost-implementation-20261011.md)를 최종 고유267개·실제 unpaused 정상/hold/cancel·원 선택자/UTC·현재 권리/늦은 농장 거부·원 terminal로 로컬 수용했다. 제품 변경은 reader1파일이며 두 사용자 서버/원본·WSL을 보존했다. 다음은 P6a 실제 브라우저/WebGL→P6b 사용자 적용이다. 현재 사용자 계산 중3D·최종 UI/실제 작기/관문은 미완료다.
 
 **2026-10-11 전진 읽기 수용:** [P6a2b1 reader v4/HTTP](../research/crop-climate-joint-prefix-forward-read-implementation-20261011.md)는 고유265개·실제 공개 사건/생장200과 원 terminal·정상/hold/cancel을 통과했다. 다음은 P6a 실제 브라우저/WebGL이며 P6b 사용자 적용·전체 UI/실제 작기/관문은 미완료다.
 

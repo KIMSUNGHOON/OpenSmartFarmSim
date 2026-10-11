@@ -17,7 +17,7 @@ from .runtime_roles import RolePolicyHold
 checkpoints = execution.checkpoints
 custody = execution.custody
 storage = custody.storage
-VERSION = 'joint-crop-climate-prefix-read-v4'
+VERSION = 'joint-crop-climate-prefix-read-v5'
 CLAIM_SCOPE = 'synthetic_joint_crop_climate_confirmed_prefix_only'
 MAX_READ_BYTES = storage.LIMITS['page_bytes'] + 2 * checkpoints.execution.MAX_INPUT_BYTES + storage.LIMITS['metadata_bytes']
 CODE_SHA256 = sha256(Path(__file__).read_bytes()).hexdigest()
@@ -189,6 +189,8 @@ class JointExecutionPrefixQuery:
         server.binding._guard(tenant, False)
         request = server.binding._request(request_raw)
         files = custody.files
+        binding = files.inputs._json(binding_raw)
+        _need(binding['tenant_id'] == tenant and execution._same(binding['request'], request))
         with ExitStack() as opened:
             def keep(fd):
                 opened.callback(os.close, fd)
@@ -208,9 +210,19 @@ class JointExecutionPrefixQuery:
             artifact = keep(files._directory(intent, 'artifact', create=False))
             def current():
                 server._binding()
+                binder = server.binding
+                binder._guard(tenant, False)
                 value = server.input_resolver(tenant, request['input']['source_sha256'], request['input']['evidence_sha256'])
                 _need(type(value) is tuple and len(value) == 2 and isinstance(value[0], (str, Path)) and type(value[1]) is bytes)
-                return server.binding.current(tenant, request_raw, value[0], value[1], binding_raw, write=False)
+                source = binder._input(request, value[0], value[1])
+                _need(execution._same(source, binding['input'])
+                    and binding['rights_policy_version'] == binder.input_rights.policy_version)
+                binder._rights(tenant, request, source, False)
+                binder._guard(tenant, False)
+                binder._rights(tenant, request, source, False)
+                _need(execution._same(binder._input(request, value[0], value[1]), source))
+                binder._guard(tenant, False)
+                return binding_raw
             session = custody._Session(server, root, intent, proofs, artifact, identity, intent_raw, binding_raw, current)
             session._guard()
             yield session
