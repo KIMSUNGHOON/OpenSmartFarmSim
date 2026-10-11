@@ -1,0 +1,281 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted_at": "2026-10-11T15:11:57.614988+00:00",
+  "actual_SCRAM": true,
+  "actual_farm_Runs": 0,
+  "boundary_checks": {
+    "closed-and-mixed.json": {
+      "counts_unchanged": true,
+      "expected_binding_rejected": true,
+      "raw_cases": 6,
+      "request_cases": [
+        "extra",
+        "source",
+        "context",
+        "time",
+        "evidence",
+        "program",
+        "old-input",
+        "old-rights",
+        "old-joint-input",
+        "old-joint-rights",
+        "rights-source",
+        "rights-type",
+        "redistribute",
+        "available",
+        "crop",
+        "farm",
+        "revision",
+        "null"
+      ]
+    },
+    "current-rights.json": {
+      "counts_unchanged": true,
+      "foreign_tenant_rejected": true,
+      "scopes_checked": [
+        "read-versus-write",
+        "farm_scenario_read",
+        "metadata",
+        "artifact",
+        "thermal_snapshot_read",
+        "decision_context_read",
+        "market_hold_context_read",
+        "market_source_read",
+        "market_candidate_read",
+        "crop_result_read"
+      ],
+      "source_review_rights_revocations_rejected": true
+    },
+    "database-cleanup.json": {
+      "roles": 0,
+      "schemas": 0
+    },
+    "late-callbacks.json": {
+      "cases": [
+        "rights",
+        "review",
+        "source",
+        "scope",
+        "bytes",
+        "declaration"
+      ],
+      "counts_unchanged": true
+    },
+    "outside-period.json": {
+      "actual_occupancy_rejected": true,
+      "authenticated_end_one_microsecond_outside": "2026-10-25T00:00:00.000001Z",
+      "authenticated_time_origin": "2026-01-01T00:00:00Z",
+      "counts_unchanged": true
+    },
+    "runtime-fixed.json": {
+      "bool_write_required": true,
+      "configuration_cases": [
+        "farms",
+        "input_authority",
+        "input_rights",
+        "policy_version",
+        "runtime_identity",
+        "CODE_SHA256",
+        "key_id"
+      ],
+      "non_true_answers_rejected": 5
+    }
+  },
+  "core_sha256": {
+    "backend/app/crop_greenhouse_ventilation_farm_binding.py": "26a85898fb8d76727cf7fc3159f800c5965204482633bd5bf8de1a9c4ceafeb4",
+    "backend/tests/test_crop_greenhouse_ventilation_farm_binding.py": "f38721018b9d11ae3caedae7ae0ba5be5848aa9138db44c81ebca821f2df1995",
+    "contracts/crop-greenhouse-ventilation-farm-binding-v1.md": "ff7106eee2dcefd1bea63ffdd2917e288055afce6c9656d57ca09a18bacb8335"
+  },
+  "final_preservation": {
+    "actual_tool_exit": 0,
+    "guard_seconds": 0.6090917339970474,
+    "original_tool_handle": 80736,
+    "receipt": {
+      "G0_G4": "not_assessed",
+      "accepted_core_hashes_unchanged": true,
+      "current_frontend_assets": 171,
+      "current_runtime_noncredential_fields_and_rights_reviews_preserved": true,
+      "diff_check": true,
+      "frontends": {
+        "5173": {
+          "HTTP": 200,
+          "index_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1"
+        },
+        "5174": {
+          "HTTP": 200,
+          "index_sha256": "6e1d45a28eb25a9dcb466e2c5a29a4d7393b0949e3d7e9f5aa0f2fa2ec0eb3d8"
+        }
+      },
+      "frozen_prefix_assets": 171,
+      "frozen_prefix_source_files": 1911,
+      "guide_permissions_preserved": true,
+      "local_links_exist": 2018,
+      "old_calculation_files_preserved": 238,
+      "prior_authorized_token_rotation_matches_current_ready_guide_handoff": true,
+      "protected_roots_live": 4
+    }
+  },
+  "focused": {
+    "actual_tool_exit": 0,
+    "guard": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 653,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 963219456,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "89dd5eca5f2a0a0057c1615f07edee7bcaf7f627964da2deaab88111680b68fe",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed_count": 615,
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 142290944,
+      "source_count": 1968,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 193.49312812899734
+    },
+    "legacy_groups": 6,
+    "new_groups": 6,
+    "original_tool_handle": 2839,
+    "pytest_seconds": 181.07,
+    "unique_groups": 12
+  },
+  "independent_domestic_datasets": 0,
+  "legacy_database_cleanup": {
+    "roles": 0,
+    "schemas": 0
+  },
+  "model_ledger_schema": "joint-ventilation-ledgers-v1",
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_CLI_invocations": 0,
+    "turn_context_sha256": "a047cc1744edc79213f0ff537e010aa6d1036c908f0c6554d7a638dd46669798",
+    "turn_timestamp": "2026-10-11T14:46:56.847Z"
+  },
+  "normal": {
+    "binding_bytes": 7385,
+    "binding_sha256": "952925eda529078b033f95a5c0c04dea52730926c0da38d970cb2d7d3d2370f7",
+    "counts_before_after": [
+      [
+        89,
+        89,
+        0,
+        0
+      ],
+      [
+        89,
+        89,
+        0,
+        0
+      ]
+    ],
+    "current_seconds": 0.9467404240058386,
+    "fresh": {
+      "PID": 777180,
+      "actual_exit": 0,
+      "actual_scram": true,
+      "binding_sha256": "952925eda529078b033f95a5c0c04dea52730926c0da38d970cb2d7d3d2370f7",
+      "calls": {
+        "RHS": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "counts": [
+        89,
+        89,
+        0,
+        0
+      ],
+      "fresh_exec": true,
+      "review_revocation_rejected": true
+    },
+    "prepare_seconds": 0.9537189239999861,
+    "proof_checks_per_call": 2
+  },
+  "observed_at": "2026-10-11T15:09:29.292128+00:00",
+  "preserved_existing_calculation_files": 238,
+  "profile_applicability": "unvalidated_for_registered_crop",
+  "remaining": [
+    "server custody and signed checkpoint/artifact HEAD",
+    "result registration and protected API",
+    "automatic worker and typed web and same UTC3D activation"
+  ],
+  "remaining_ventilation_UI_focused_hours": [
+    5,
+    10
+  ],
+  "scope": "synthetic_joint_ventilation_math_only",
+  "smoke": {
+    "actual_tool_exit": 0,
+    "groups": 2,
+    "guard": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 131,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 937480192,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "log_sha256": "940cb073c003f1f6348794595dd5b61e9d5f60926d5c99945c7e5455883afab8",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed_count": 130,
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "source_count": 1968,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 37.33882788899791
+    },
+    "original_tool_handle": 36745
+  },
+  "source_review_sha256": "9ec6446d4544000128d4d546c0aac66c90c0b034ed875fbf7e94e7296d14c56a",
+  "status": "locally_accepted",
+  "user_deployed": false,
+  "validation_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_CLI_invocations": 0,
+    "turn_context_sha256": "a047cc1744edc79213f0ff537e010aa6d1036c908f0c6554d7a638dd46669798",
+    "turn_timestamp": "2026-10-11T14:46:56.847Z"
+  }
+}

@@ -1,10 +1,16 @@
 # 구현 순서
 
-## 현재 구현 우선순위 — 2026-10-11
+## 현재 구현 우선순위 — 2026-10-12
+
+[환기 입력의 현재 농장 결속](../research/crop-greenhouse-ventilation-farm-binding-implementation-20261011.md)은 실제 SCRAM 새6/회귀6그룹을 통과했다.
+fresh 동일 bytes·조회9수치 호출0·현재 tenant/등록/권리·18혼합 요청/6늦은 변경·종료1µs 초과 거부와 원 row를 확인했다.
+최종 보존 확인 뒤 로컬 수용했다. 다음 한 단계는 새 현재 binding·artifact/25장부/UTC의 서버 서명 checkpoint/HEAD 이력이다.
+수용: 원 실외 입력/초기 RHS+환기 대사·실제 SCRAM 분할 계산·HEAD/fresh 재개·읽기 수치0·철회/변조·원본/두 UI/WSL 보존.
+그 뒤 결과 등록/보호 API→worker/같은 UTC3D→사용자 적용을 평가한다. 상위 input-custody/API·새 모델 UI 배포는 아직 미수용이다.
 
 [환기 입력 증거](../research/crop-greenhouse-ventilation-input-evidence-implementation-20261011.md)는 새103/회귀229=332검사를 통과했다.
 10program 원 입력/초기 RHS+환기/UTC·발급 RHS2/환기1·조회/fresh 계산0·실외 입력/서명/현재 검토·구 판본 보존을 확인했다.
-최종 보존 확인 뒤 로컬 수용했다. 다음 한 단계는 현재 등록 농장/작물/기간·자료 권리와 새 증거의 결속이며 실제 SCRAM/fresh/조회 수치0을 수용한다.
+최종 보존 확인 뒤 로컬 수용했으며 위 현재 농장 결속의 선행 증거로 유지한다. 실제 SCRAM/fresh/조회 수치0의 농장 결속은 위 새 수용 범위를 따른다.
 위 input-custody는 입력 증거→farm binding→server custody로 나눴다. DB 권리와 서명 digest의 의존성을 구분하며 상위/API/worker 수용은 남는다.
 [불변 페이지 저장](../research/crop-greenhouse-ventilation-artifact-implementation-20261011.md)의316검사/원 bytes·UTC/fresh·강제 종료 수용은 유지한다.
 사용자의 “화면에서 진행을 알 수 없다”는 피드백을 반영한 [사용자 상태 화면](../research/product-ui-current-status-entry-20261011.md)은
@@ -16,12 +22,12 @@
 
 | 단계 | 의존성과 수용 | 잠정 집중작업시간 |
 | --- | --- | --- |
-| 새 입력 증거·농장 결속 | 새 source/QC/프로필/rights·현재 farm 권한·구 binding 보존·fresh |1–2 |
+| 새 입력 증거·농장 결속 | 입력332검사·농장 새6/회귀6그룹·최종 보존 수용 |완료 |
 | custody·결과 등록/보호 API | 새 artifact/서명 이력·철회/변조·원 수치/UTC·실제 SCRAM/TLS·조회 계산0 |2–4 |
 | worker·typed web/같은 UTC3D | 위 API·같은 작업의 running/terminal·원 값/시각·취소/재접속 |2–4 |
 | 사용자 적용 | 원 DB/두 서버/WSL 보존·실제 브라우저 정상/hold/취소·적용 주소 보고 |1–2 |
 
-합계 **6–12집중작업시간**이며 실제 구현·검증 결과로 교체한다. 연속 작업/외부 장애 없는 조건의 잠정 작업량이지 완료 약속이 아니다.
+입력/농장 결속 수용 전 합계6–12시간에서 해당 단계를 완료했다. **남은 합계5–10집중작업시간**이며 실제 구현·검증 결과로 교체한다. 연속 작업/외부 장애 없는 조건의 잠정 작업량이지 완료 약속이 아니다.
 현재 새 artifact 수용으로 저장 개발 선행은 충족했다. 입력 근거/현재 권한·API 수용 전 새 계산값을 UI에 게시하지 않는다.
 현재 두 사용자 화면에 새 환기 모델은 미배포다. 기존 source/결과와 G0–G4 보류를 유지한다.
 실제 품종/독립 자료0과 미완료 온실/자원/경제/최종 UI를 고려해 전체 제품 완료 날짜는 미정이다.
