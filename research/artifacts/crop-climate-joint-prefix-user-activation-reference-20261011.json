@@ -1,0 +1,288 @@
+{
+  "G0_G4": "not_assessed",
+  "P6a_accepted": true,
+  "P6b_accepted": true,
+  "accepted_at_UTC": "2026-10-11T11:35:32.020323+00:00",
+  "actual_farm_Runs": 0,
+  "domestic_independent_datasets": 0,
+  "failed_private_verification_cases": [
+    {
+      "accepted": false,
+      "actual_child_exit": 1,
+      "actual_tool_exit": 1,
+      "case": "focused-prefix-integrity-v1",
+      "cause": "Orchestration assertion treated empty cleanup list as integer0; unchanged previous read-only query repeated; immutable report already existed.",
+      "original_tool": 84679,
+      "owned_remaining": 0,
+      "source_and_services_preserved": true,
+      "terminal_sha256": "fa308c2ce0bffc8ef7176566e1d74a7ac52181fc17555b09efd7671c7bcf2f42",
+      "wall_seconds": 40.40750943499734
+    },
+    {
+      "accepted": false,
+      "actual_child_exit": 1,
+      "actual_tool_exit": 1,
+      "case": "focused-prefix-integrity-v2",
+      "cause": "Private verifier confused farm registration_job_id with calculation execution job_id; result lookup corrected and publication manifest linkage verified in v3.",
+      "original_tool": 66365,
+      "owned_remaining": 0,
+      "source_and_services_preserved": true,
+      "terminal_sha256": "6238978bf7816c19fae2de1e6c94b7ddd19b07a005a5588171a736b6d4f7b8e3",
+      "wall_seconds": 0.3356874860000971
+    }
+  ],
+  "guards": {
+    "focused-maintenance-baseline-v1": {
+      "actual_child_exit": 0,
+      "actual_tool_exit": 0,
+      "combined_peak_RSS_bytes": 692715520,
+      "original_tool": 79808,
+      "single_PID_peak_RSS_bytes": 136740864,
+      "terminal_sha256": "3e95f43b4825e335e18a7ec3681e3bb55492429c77ac26c99598d87f744e8a2f",
+      "wall_seconds": 1.3837443140000687
+    },
+    "focused-prefix-browser-v1": {
+      "actual_child_exit": 0,
+      "actual_tool_exit": 0,
+      "combined_peak_RSS_bytes": 1010683904,
+      "original_tool": 4786,
+      "single_PID_peak_RSS_bytes": 390512640,
+      "terminal_sha256": "2c5e119acc7e7902a2e9d27d18a5649ef65f1c88b7bc6998b58cad15b2b9e394",
+      "wall_seconds": 170.25310225700014
+    },
+    "focused-prefix-guide-v1": {
+      "actual_child_exit": 0,
+      "actual_tool_exit": 0,
+      "combined_peak_RSS_bytes": 606814208,
+      "original_tool": 76207,
+      "single_PID_peak_RSS_bytes": 136712192,
+      "terminal_sha256": "43fa417cd776f581800e35327d97a44d3838382422bc6fe947f491a19e3641db",
+      "wall_seconds": 0.34003349699924
+    },
+    "focused-prefix-integrity-v3": {
+      "actual_child_exit": 0,
+      "actual_tool_exit": 0,
+      "combined_peak_RSS_bytes": 639791104,
+      "original_tool": 54823,
+      "single_PID_peak_RSS_bytes": 136712192,
+      "terminal_sha256": "9be1a2a1db3b02cbc82aa5b6b7ce0fd69b4c9938e4de795c572c22db4f046f92",
+      "wall_seconds": 0.6297297640012403
+    },
+    "focused-prefix-old-query-v1": {
+      "actual_child_exit": 0,
+      "actual_tool_exit": null,
+      "combined_peak_RSS_bytes": 685760512,
+      "original_tool": 41113,
+      "single_PID_peak_RSS_bytes": 136712192,
+      "terminal_sha256": "f4a54391cd2f80c34d06e2b34e1ca421573cae2755a4f526cb3f0368b0585394",
+      "wall_seconds": 41.208702382999036
+    },
+    "focused-prepare-source-v1": {
+      "actual_child_exit": 0,
+      "actual_tool_exit": 0,
+      "combined_peak_RSS_bytes": 636702720,
+      "original_tool": 74225,
+      "single_PID_peak_RSS_bytes": 136740864,
+      "terminal_sha256": "ee54118a45d4a6c96f8f5807f650171f7c00149335bcebd0832ad16ca2399842",
+      "wall_seconds": 1.1494817289967614
+    }
+  },
+  "image": {
+    "file": "crop-climate-joint-prefix-user-running-20261011.png",
+    "sha256": "464e3cdea0e8cf543f2ba2bf520c71e74c7251db7ad09e3869667ca648278502",
+    "unmodified_actual_browser_capture": true
+  },
+  "legacy_restore": {
+    "actual_exit": 0,
+    "actual_tool_exit": 0,
+    "combined_peak_RSS_bytes": 728252416,
+    "original_tool": 82944,
+    "owned_remaining": [],
+    "protected_live": true,
+    "reason": null,
+    "single_PID_peak_RSS_bytes": 136712192,
+    "wall_seconds": 16.59230096399915
+  },
+  "live_user_services": {
+    "legacy": {
+      "actual_exit": null,
+      "original_tool": 82928,
+      "port": 5173,
+      "run": "run-v10",
+      "scope": "completed synthetic166day stored growth/harvest replay"
+    },
+    "prefix": {
+      "actual_exit": null,
+      "expires_at": "2026-10-12T11:19:30.683663+00:00",
+      "fresh_request": "normal-user-prefix-v1.json",
+      "fresh_request_not_submitted_at_acceptance": true,
+      "fresh_request_sha256": "4b3918302f0e10c0740a451a94fd82457375708f2dd488d232a84c6cf02ce721",
+      "guide": "OPEN-UI-PREFIX.private.txt",
+      "original_tool": 25933,
+      "port": 5174,
+      "prefix_enabled": true,
+      "run": "serve-v10"
+    }
+  },
+  "native_Codex_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "timestamp": "2026-10-11T11:10:48.488Z",
+    "turn_context_sha256": "9dac55ae0e2c5a63aa52b21e44b50f05fe40355d42e13230906eb1ffcfd35062"
+  },
+  "native_to_root_acceptance_seconds": 1483.532323,
+  "not_run": [
+    "remote operations or hosted CI",
+    "new product build",
+    "full season coupled crop/climate calculation",
+    "multiple advancing running 3D frames",
+    "full U0-U5 integration",
+    "independent farm validation or gate release"
+  ],
+  "original_tool_41113_exit_recovery": "Original return unavailable after context compaction; immutable guard child0, preservation/cleanup and native result report verified; actual tool exit is null.",
+  "polling": {
+    "after_previous_response_seconds": 10,
+    "hidden_tab_pauses_reads": true,
+    "new_saved_time_resets_selection_to_latest": true,
+    "no_synthetic_intermediate_frames": true,
+    "transient_error_backoff_max_seconds": 60
+  },
+  "preservation": {
+    "database": {
+      "DSN_preserved": true,
+      "G0_G4": "not_assessed",
+      "actual_SCRAM": true,
+      "current_rights_preserved": true,
+      "execution_publication_result_link_verified": true,
+      "existing_files_preserved": 402,
+      "frozen_source_and_assets_preserved": true,
+      "new_owned_job_state": "succeeded",
+      "new_owned_worker_attempts": 1,
+      "new_publication_count": 1,
+      "new_result_count": 1,
+      "old_job_worker_attempts": 0,
+      "preexisting_row_counts": {
+        "job_attempts": 35,
+        "job_events": 336,
+        "jobs": 110
+      },
+      "preexisting_rows_preserved": {
+        "job_attempts": true,
+        "job_events": true,
+        "jobs": true
+      },
+      "read_only_transaction": true,
+      "signing_keys_preserved": true
+    },
+    "external_legacy_roots_adopted": 3,
+    "frontends": {
+      "5173": {
+        "HTML_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1",
+        "HTTP": 200
+      },
+      "5174": {
+        "HTML_sha256": "333812c54d1fc67801c46bd0f5a5a98473922156c152a21b824fe3b4907a2937",
+        "HTTP": 200
+      }
+    },
+    "old_authenticated_responses_verified": 7,
+    "old_jobs_verified": 3,
+    "old_token_401": true,
+    "original_source_entries": 2148,
+    "original_v9_tool_exits": {
+      "35477": 0,
+      "74111": 0
+    },
+    "root_count": 4,
+    "temporary_5175_closed": true
+  },
+  "schema_version": "1",
+  "scope": "synthetic32s persisted-prefix polling and stored terminal numerical3D; one running sample observed",
+  "source": {
+    "HTML_sha256": "333812c54d1fc67801c46bd0f5a5a98473922156c152a21b824fe3b4907a2937",
+    "backend_app_files": 203,
+    "commit": "f6be60654aab6d83d0b371905a3a11ec7f787067",
+    "dist_assets": 171,
+    "dist_assets_manifest_sha256": "f06ab24299f82ace4d7e96bd4cd951725015ec30847b215d38e2e93363f1226b",
+    "full_files": 1911,
+    "new_product_code_or_build": false,
+    "product_files": 318,
+    "product_sha256": "104fff43bc40bd38be135f3584a1f4e0c09ef6bff6cfad529cbfc314ddbd2607",
+    "same_product_as_P6a": true,
+    "web_src_files": 115
+  },
+  "user_browser": {
+    "API_mocking": false,
+    "actual_SCRAM": true,
+    "actual_TLS": true,
+    "actual_WebGL_draw_calls": 109,
+    "actual_browser_exit": 0,
+    "actual_tool_exit": 0,
+    "cohorts": 50,
+    "console_page_errors": [],
+    "current_rights_revocation_and_recovery": {
+      "actual_policy_file_change": true,
+      "code": "joint_research_hold",
+      "original_sha256": "cbd8aa3850d922cafedb4ee4d871a8ce4e4bea158d52175bd34cf1f763485847",
+      "prior_scene_cleared": true,
+      "response_index": 20,
+      "restored": true,
+      "status": 422
+    },
+    "driver_warnings": [
+      "[.WebGL-0x353402db2e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "[.WebGL-0x353402db2e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "[.WebGL-0x353402db2e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "[.WebGL-0x353402db2e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    ],
+    "expected_transient_console_resource_errors": [
+      "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "Failed to load resource: the server responded with a status of 422 (Unprocessable Entity)"
+    ],
+    "initial_empty_no_scene": true,
+    "multiple_advancing_running_samples_verified": false,
+    "observation_sha256": "64bc494235ffc30e8b303c931160713d76346d42fe7f5e93e56e850b83a5cfd8",
+    "origin": "http://127.0.0.1:5174",
+    "original_binary64_and_UTC_preserved": true,
+    "original_prefix_rows_equal_terminal": true,
+    "original_tool": 4786,
+    "persistent_user_service_reused": true,
+    "reconnect": true,
+    "response_observation_sha256": "96e51c8cbcd37e8a2a96a948ff9cd6eb405a87e8472f770da67e67ec5716c075",
+    "running_prefix_acceptance": true,
+    "running_prefix_scenes": 1,
+    "running_sample_UTC_pages": [
+      [
+        "2026-10-01T00:00:00.123456Z"
+      ]
+    ],
+    "same_numerical_input_as_original_user_request": true,
+    "terminal_sample_UTC_pages": [
+      [
+        "2026-10-01T00:00:00.123456Z",
+        "2026-10-01T00:00:16.123456Z",
+        "2026-10-01T00:00:32.123456Z"
+      ],
+      [
+        "2026-10-01T00:00:00.123456Z",
+        "2026-10-01T00:00:16.123456Z",
+        "2026-10-01T00:00:32.123456Z"
+      ],
+      [
+        "2026-10-01T00:00:00.123456Z",
+        "2026-10-01T00:00:16.123456Z",
+        "2026-10-01T00:00:32.123456Z"
+      ],
+      [
+        "2026-10-01T00:00:00.123456Z",
+        "2026-10-01T00:00:16.123456Z",
+        "2026-10-01T00:00:32.123456Z"
+      ]
+    ],
+    "terminal_status": "completed",
+    "worker_chunk_budget": 8,
+    "worker_pause_or_delay": false
+  }
+}

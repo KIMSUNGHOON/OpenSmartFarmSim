@@ -202,6 +202,14 @@
   완료 뒤 그 실행의 게시 결과만 3D로 연다. 별도 DB의 이전 결과를 진행 중인 실행으로 표시하지 않는다.
   계산 중 3D는 현재 권리와 확정 prefix 경계를 검증한 별도 수용 전까지 완료 결과 재생과 구분한다.
   **사용자 산출물:** 한 화면에서 이어가는 실행과 재개; 실제 CLI 없는 시험은 소프트웨어 범위로 기록.
+  [P6b 사용자5174](../research/crop-climate-joint-prefix-user-activation-20261011.md)는 실제 계산 중 확정1시점→완료 결과를 수용했다. 전체 U3는 미완료다.
+  - [ ] **`joint-prefix-advancing-browser`** — 선행: P6b와 같은 방정식/출처를 유지한 검토된 새 합성 입력 판본.
+    예정 핵심2파일: 기존 `research/crop-climate-joint-prefix-browser-reference.mjs`의 별도 case와 새 관측 계약.
+    수용: 같은 실행의 정상 worker가 계산 중일 때 서로 다른 원 저장 UTC2개 이상을 받고,
+    각 원 LAI/50구획/온도·표/그래프/WebGL의 선택 UTC/값 갱신→terminal 원 결과를 실제 DB/API/브라우저로 대사한다.
+    원 입력/권리·현재 두 주소/데이터·WSL/소유 정리와 관측 지연을 기록한다. worker 인위적 지연·보간 프레임은 사용하지 않는다.
+    확인 가능한 산출물은 계산 중 값/시각이2회 이상 바뀌는 실제 화면 증거다. 현재1시점 관측으로 체크하지 않는다.
+    입력·계약0.5–1시간→실제 검증0.5–1.5집중시간 잠정; 전체 작기/최종 제품 날짜와 분리한다.
 - [ ] **`product-ui-results` (U4)** — 선행: U1, 전체 저장 생장/수확 조회;
   자원은 `crop-climate-coupling`·물/양분·구매 에너지, 비용은 `crop-economic-link` 완료 뒤 각각 연결.
   예정: `web/src/ProductionResults.tsx`, `web/src/CycleCropReplay.tsx`,
@@ -1917,9 +1925,9 @@
       최종 PID424,079,360/합1,035,988,992bytes; native→집중2,931.046초(약49분), 기록/commit 별도다.
       5174의 frozen source/API/worker/영속PG는 의도적으로 실행 중이다. 보호 접속 안내·실제 PID/start_ticks/boot·24시간 수명/5초 live receipt를 남겼다.
       계산 중 prefix3D/최종 UI/전체 U3·실제 자료/관문은 미수용이다.
-  - [ ] **계산 중 확정 prefix3D** <a id="joint-prefix-view-20261010"></a> — [P0 계약](../contracts/crop-climate-joint-prefix-view-v1.md)/[순서·잠정 시간](plan.md#joint-prefix-view-20261010). 현재 terminal page를 미완료에 사용하지 않는다.
+  - [x] **계산 중 확정 prefix3D — 짧은 합성 snapshot 범위** <a id="joint-prefix-view-20261010"></a> — [P0 계약](../contracts/crop-climate-joint-prefix-view-v1.md)/[순서·잠정 시간](plan.md#joint-prefix-view-20261010). terminal page를 미완료에 사용하지 않는다.
     수용: 불변 prefix/수용 HEAD·원 sample/event/같은 UTC·현재 권리와 동시 게시/취소/재시작·늦은 응답을 실제 DB/브라우저에서 대사.
-    P5 기능 수용 뒤 남은 P6a–P6b는1.5–3집중시간 잠정/연속 작업10/11 KST 조건부다. 실제 브라우저/사용자 순차 조회 관측 뒤 갱신한다. 전체 U3/실제 관문 날짜는 미정이다.
+    [P6b 실제 사용자 기동](../research/crop-climate-joint-prefix-user-activation-20261011.md)까지20:35 KST 수용했다. 실제 running 원1시점→terminal 연결 범위이며 여러 시점의 연속 전진은 위 U3 자식에 남겼다. 전체 U3/실제 관문 날짜는 미정이다.
     - [x] **P0 확정 prefix 읽기 계약** — 선행: E9b·E2/E4·기존 불변 페이지/서명 계약. core 계약1파일과 계획/기계 기록 갱신이다.
       [source/CLI 증거](../research/artifacts/crop-climate-joint-prefix-contract-reference-20261010.json):13파일/26심볼·native gpt-6.1-sol/xhigh·재귀0.
       DB 수용 selector/원 페이지·이전 판본/계보·현재 권리·동시 writer/취소/fresh와 계산/저장 UTC·빈 장면/조회 계산0·공개 제한을 정의했다.
@@ -1980,9 +1988,14 @@
       [v5 실제 WebGL 부분 검증](../research/crop-climate-joint-prefix-browser-v5-20261011.md)은 정상49259/hold7699의 원 prefix 수치/UTC·사건200·WebGL→terminal·빈/재접속과 정상 권리 철회/복원을 확인했다. 최초 정상의 harness 실패와 취소2회 실패는 수용하지 않는다. 취소503 뒤 재시도200도 succeeded/취소 미수락이며 마지막 browser RSS soft limit이 남았다. 다음은 terminal 전 실제 취소 수락/worker canceled·장면 제거/결과 미생성·WSL/정리의 진단·검증이다. 두 frozen 화면을 run-v8/serve-v8로 복구해 원7응답·104/249/22행·274파일/키/권리·원본2,148/보호 root4를 확인했다. P6a/P6b 체크는 열어 둔다. 현재 사용자5174의 계산 중3D는 비활성이다.
       - [x] **P6a2d1 실제 취소 요청 진단** — [수용 범위/실패 기록](../research/crop-climate-joint-cancel-request-diagnosis-20261011.md)/[기계 증거](../research/artifacts/crop-climate-joint-cancel-request-reference-20261011.json). 최종55047의 비추적1개 실제 SCRAM/TLS·독립 unpaused worker에서 공개 동일 selector 사건/생장200→취소200 수락→worker canceled·결과/publication 없음·closed reference/page null을 확인했다. GET 계산/변경0·observer 오류0·실제 tool/guard0,85.004초·단일/합 RSS154,632,192/1,023,586,304bytes; 사용자 중지0·원본2,148/두 frozen source·보호 root4/274파일·키/권리·FD4→4/소유 정리·WSL 통과. traced86285의 busy3회/failed는 진단만 수용했고95985 FD 경합·초기 patch 주입500은 실패로 보존했다. 제품 변경0, 앞선 브라우저503 원인은 미확정이며 최종 helper traced/새 브라우저는 미실행이다.
       - [x] **P6a2d2 실제 브라우저 취소 재검증** — [수용/복구 기록](../research/crop-climate-joint-prefix-cancel-browser-20261011.md). reference JS1파일의 취소 전 screenshot만 해당 경로에서 제외하고 정상/hold PNG와 수용 assertion을 유지했다. 실제9884의 같은 selector/원값/UTC·WebGL109회→UI 취소1회200 수락/worker canceled·장면 제거·DB 결과/게시/성공 사건0, browser/service/guard/tool0·worker 지연0·원본/두 source·FD/소유 정리·WSL 통과. guard89.153초·단일/합 RSS368,873,472/965,967,872bytes; 원 두 화면을 run-v9/serve-v9로 복구하고 인증 원7응답/DB·파일·키/권리를 대사한 뒤 P6a를 수용했다. 현재 사용자 prefix는 비활성이다.
-    - [ ] **P6b prefix 사용자 기동** — 선행: P6a. live operator/preview core최대2파일과 접속 안내.
-      수용/확인: frozen 후보 수용 뒤5174 연결·실제 인증/자동 worker·장벽 없는 계산 중 관측·원 결과/현재 키/5173 보존·접속 안내.0.5–1h 잠정.
-      [10/11 기동 준비](../research/crop-climate-joint-prefix-browser-preparation-20261011.md)의 명시 prefix/budget helper2파일은 구문/옵션·변경 전 거부/보존 검사만 통과했다. 실제 기동/사용자 적용과 부모 수용은 아직0이다. 유지보수/복구를 포함한 P6 잔여2–4집중시간 잠정이며 실제 응답/자원 관측 뒤 재산정한다.
+    - [x] **P6b prefix 사용자 기동** — 선행: P6a. [실제 사용자 수용](../research/crop-climate-joint-prefix-user-activation-20261011.md)/[기계 증거](../research/artifacts/crop-climate-joint-prefix-user-activation-reference-20261011.json).
+      f6be606 frozen1911파일/같은318제품·171자산을5174에 명시 활성화하고 정상 자동 worker의 running 원1시점·사건/생장200·WebGL109회→completed 원3시점/재접속·권리 철회/복원을 확인했다.
+      browser4786/170.253초·integrity54823/guide76207 실제0; 단일/합 RSS390,512,640/1,010,683,904bytes·원본2,148/FD4→4/소유 잔여0.
+      기존110/336/35행·402파일/키·DSN·권리·원3작업7응답/old token401을 보존하고 새 소유1작업의 결과/publication 각1·같은 실행 연결을 대사했다.
+      원5173을 run-v10으로 복구·인증 probe82944 실제0/16.592초·두 주소200/해시·보호 root4/동적 외부3/임시5175 폐쇄·새 serve-v10 접속 안내를 확인했다.
+      query41113 tool 반환은 불명/null, 불변 child0/보존·정리/원7응답 보고서로 대조했다. private 검증 실패2건도 보존했다.
+      지속 guardian25933/82928은 실행 중이며 종료0으로 세지 않는다. native→root1,483.532초(약25분), 수용 guard/probe231.557초; 문서/commit 별도.
+      여러 running 시점의 연속 전진·전체 작기/최종 디자인/전체 U3·실제 품종/독립 자료/관문은 미수용이다.
 - [ ] **`crop-economic-link`** — 선행: 생산량·자원 계산·`crop-execution-link`와 같은 배치/달력의 경제 입력.
   예정 파일(3): `backend/app/crop_economic_link.py`, `backend/tests/test_crop_economic_link.py`,
   `contracts/crop-economic-link-v1.md`.

@@ -2,47 +2,46 @@
 
 <a id="joint-execution-user-preview"></a>
 
-2026-10-11 WSL 재시작 뒤 두 서버를 [보존 결과로 복구](../research/crop-user-preview-reboot-recovery-20261011.md)했다. 아래 새 접속 파일을 사용한다.
-같은 날 실제 계산 중3D의 유지보수 검증 뒤 [두 기존 frozen 서버를 다시 복구](../research/crop-climate-joint-progress-prefix-retry-20261011.md#사용자-서버-복구-확인)했다. 현재 안내는 이 재기동의 새 토큰을 가리킨다.
-이후 [v4 실제 브라우저 검증](../research/crop-climate-joint-prefix-browser-v4-20261011.md)에서도 계산 중3D를 수용하지 못해 두 기존 화면을 당시 `run-v7`/`serve-v7`로 다시 복구했다.
-이후 [v5 실제 WebGL 부분 검증·복구](../research/crop-climate-joint-prefix-browser-v5-20261011.md)에서 정상/hold를 확인했다. 후속 [실제 브라우저 취소·원 두 화면 복구](../research/crop-climate-joint-prefix-cancel-browser-20261011.md)까지 통과해 P6a를 수용했다. **현재 접속 파일은 아래 `run-v9`/`serve-v9`**이다. P6b 사용자 적용은 남아 계산 중3D는 아직 사용자5174에서 비활성이다.
+**2026-10-11 20:35 KST:** [사용자5174의 계산 중 저장3D 활성화](../research/crop-climate-joint-prefix-user-activation-20261011.md)를 수용했다.
+현재 접속 파일은 아래 `run-v10`/`serve-v10`이며 이전 기동 토큰을 교체한다.
+5173은 완료된 저장 결과 재생,5174는 같은 사용자 DB의 계산 상태/확정 부분 결과 자동 조회다.
 
-## 계산 상태 자동 조회와 저장3D — 2026-10-10
+## 계산 상태·확정 부분 결과 자동 조회와 저장3D — 2026-10-11
 
 **http://localhost:5174/** 에서 제품 App·실제 HTTPS API `https://127.0.0.1:8446`·영속 PostgreSQL·별도 자동 계산 작업자를 함께 실행한다.
-같은 DB에 접수한 작업의 상태와 확정 checkpoint를 자동 조회하고, 완료/hold 뒤 같은 저장 UTC의 수치3D를 연다.
+같은 DB에 접수한 작업의 상태·확정 checkpoint와 계산 중 저장된 부분 결과의 표·그래프·수치3D를 자동 조회한다.
+완료/hold 뒤 같은 저장 UTC의 결과3D를 연다.
 현재 대상은 명시된 합성 입력의32초/16걸음 소프트웨어 검증이다. 전체 작기의 동적 기후나 실제 품종 예측을 제공하는 최종 제품은 아니다.
 
 접속 토큰·기존 작업 ID/농장 필드·Windows에서 파일을 여는 경로는 다음 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v9/OPEN-UI.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v10/OPEN-UI-PREFIX.private.txt`
 
 1. 위 파일을 로컬 편집기로 열고5174에서 **내부 시험 연결 → 접근 토큰 → 연결 설정**을 선택한다.
 2. **08 성장 연구 3D → joint 실행 · 계산 상태와 완료 3D**를 선택한다.
 3. 새 계산은 다음 파일을 업로드하고 접수한다.
 
-   `~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/requests/normal-user.json`
+   `~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/requests/normal-user-prefix-v1.json`
 
-4. 작업 상태·확정 checkpoint를 확인하고, 완료되면 저장 결과의3D를 연다.
-   이미 완료된 작업을 보려면 보호 안내의 작업 ID와 농장 필드로 재접속한다. 정상/hold의 재시작 후 조회도 실제 브라우저로 확인했다.
+4. 작업 상태·확정 checkpoint와 **계산 중 확정된 생장**을 확인한다. 새 저장값이 없으면 마지막 확인 시각을 유지한다.
+   완료되면 **같은 저장 결과 3D 열기**를 누른다.
+   이미 검증된 완료 작업은 보호 안내의 작업 ID와 농장 필드로 **기존 계산 조회**한다.
+   같은 파일을 다시 접수하면 같은 작업으로 연결되며 새 계산을 만들지 않는다.
 
-현재 토큰은 이번 재기동에서 새로 발급한 약24시간 유효 토큰이며 페이지 메모리에만 둔다. 새로고침 뒤에는 다시 연결한다. 이전 기동의 토큰은 사용할 수 없다.
-자동 조회는 이전 응답 완료 뒤10초를 기다리고 서버 조회 시간이 추가된다. 짧은 예제는 중간 checkpoint 조회 전에 끝날 수 있다.
+현재 토큰은2026-10-12 **20:19 KST**까지 유효하며 페이지 메모리에만 둔다. 새로고침 뒤에는 다시 연결한다. 이전 기동의 토큰은 사용할 수 없다.
+자동 조회는 이전 응답 완료 뒤10초를 기다리고 서버 조회 시간이 추가된다. 일시 오류는 최대60초 간격으로 재시도한다.
+이번 실제 사용자 브라우저에서 계산 중 원 저장 시점1개와 완료 결과3시점 연결을 확인했다.
+여러 중간 시점의 연속 전진·전체 작기 성장 애니메이션은 아직 검증하지 않았다. 짧은 예제는 중간 조회 전에 끝날 수도 있다.
 탭 숨김/화면 이탈은 화면 조회를 멈춘다. 서버 계산 중단은 별도 취소 요청과 작업자 확인이 필요하다.
 토큰을 저장소·URL·로그·스크린샷에 복사하지 않는다.
 
-[실제 사용자 연결 검증](../research/crop-climate-joint-execution-user-preview-20261010.md)은 새 완료/hold/취소와 재시작 정상/hold의 고유5경로를 통과했다.
-[P3b 중간 결과 API/서버 조립](../research/crop-climate-joint-prefix-runtime-implementation-20261010.md)은 별도 시험 서버에서 수용했다. 현재5174에는 배포하지 않았으며 계산 중 성장3D는 아직 표시하지 않는다. 개발·검증용 별도 DB에서 실행한 작업도 이 화면에 자동 노출되지 않는다.
-
-기존5173은 아래의 완료166일 저장 재생용으로 유지한다. 계산 중 확정 prefix의 성장3D·두 주소의 통합/최종 U0–U5와 전체 U3는 미완료다.
-[P4 웹 reader](../research/crop-climate-joint-prefix-web-client-implementation-20261010.md)는 실제 SDK/TLS로 로컬 수용했다. [P5 화면 기능](../research/crop-climate-joint-prefix-ui-implementation-20261010.md)도 기록 응답 Chromium35/웹303·타입/build로 수용했으며 후속 P6a 실제 브라우저는 통과했고 P6b 사용자 기동이 남았다. 현재 서버의 화면은 아직 변경하지 않았다. 최종 디자인 일치는 보류다.
-[P6a0 조회 수정](../research/crop-climate-joint-progress-prefix-retry-20261011.md)은 표준 CLI38개/웹303으로 확인했다. 실제 후보는 event200 뒤 samples503로 계산 중3D를 보여주지 못해 미수용이며 현재5174에 적용하지 않았다.
-[P6a1 실제 원인 분류](../research/crop-climate-joint-prefix-page-diagnosis-20261011.md)는 별도 자동 작업자 진단2회에서 임대 갱신·결과 판본 전진·작업 시작/종료에 따른 조회 보류를 구분했다. 이후 [P6a2a reader v3/HTTP](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)의 정상 임대 갱신 비교를 고유245개·제한된 소유 scratch PG의 자동 정상/hold/cancel로 확인했다. 후속 P6a 실제 계산 중 WebGL은 통과했고 사용자 적용이 남아 현재 화면의 연동 범위는 위와 같다.
-현재3D는 저장 LAI·과실 구획·온도의 수치 모식도이며 G0–G4·실제 생산/미래 마진/추천 보류는 유지한다.
-
-[전진 읽기 v4/HTTP](../research/crop-climate-joint-prefix-forward-read-implementation-20261011.md)는 최종265개·실제 자동 정상/hold/cancel, 공개 요약→같은 선택자의 사건/생장200과 원 terminal 값/UTC를 확인했다. 이후 P6a 실제 WebGL은 통과했으며 P6b 사용자 적용이 남아 현재5174의 계산 중3D는 계속 비활성이다.
-
-[조회 비용 수정 reader v5](../research/crop-climate-joint-prefix-read-cost-implementation-20261011.md)는 최종267개·실제 같은 선택자 사건/생장200·원 terminal/현재 권리로 로컬 수용했다. 후속 실제 제품 브라우저 P6a도 통과했다. 사용자 적용 P6b가 남아 현재5174의 계산 중3D는 계속 비활성이다. 개발 시험 DB의 작업은 이 사용자 DB에 자동 노출되지 않는다.
+[P5 기능](../research/crop-climate-joint-prefix-ui-implementation-20261010.md)→
+[reader v5](../research/crop-climate-joint-prefix-read-cost-implementation-20261011.md)→
+[P6a 정상/hold/취소](../research/crop-climate-joint-prefix-cancel-browser-20261011.md)→
+[P6b 실제 사용자 기동](../research/crop-climate-joint-prefix-user-activation-20261011.md)을 각각 기록했다.
+개발·검증용 별도 DB에서 실행한 작업은 이 사용자 DB에 자동 노출되지 않는다.
+기존5173은 아래의 완료166일 저장 재생용으로 유지한다. 두 주소의 통합/최종 U0–U5와 전체 U3는 미완료다.
+현재3D는 저장 LAI·과실 구획·온도의 수치 모식도이며 최종 디자인·G0–G4·실제 생산/미래 마진/추천 보류는 유지한다.
 
 ## 기존 제품 앱의 로컬 동시 기동 — 2026-10-09
 
@@ -54,7 +53,7 @@
 
 새 접속 토큰과 원 결과의 다섯 입력값은 저장소 밖의 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v9/service/OPEN-UI.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v10/service/OPEN-UI.private.txt`
 
 2026-10-10 기존 서비스 종료를 확인한 뒤 보존 원본으로 재기동했다.
 이전 토큰 대신 위 새 안내를 사용한다. 인증된 생장/수확 summary의 원 wire 일치·계산0을
@@ -86,7 +85,8 @@
 [그 모델의 표·그래프·같은 UTC3D](../research/crop-climate-joint-numerical-view-implementation-20261010.md)도
 고유501개·실제 SCRAM/HTTPS/WebGL과 원값/권리/정리로 로컬 수용했다.
 새 화면은 source/bundle 검증까지이며 **현재5173의 고정 빌드에는 배포하지 않았다.**
-5173에서는 기존 결과가 자동 교체되거나 실행 중 새 checkpoint를 받지는 않는다.5174는 계산 상태를 자동 조회하며 계산 중 prefix3D/전체 U3는 별도다.
+5173에서는 기존 결과가 자동 교체되거나 실행 중 새 checkpoint를 받지는 않는다.
+5174는 계산 상태와 확정 부분 결과3D를 자동 조회한다. 여러 시점의 연속 전진/전체 U3는 별도 미수용이다.
 3D는 LAI·과실 구획의 수치 모식도다. 실제 작물 외형·품종 생산·생과 수확·마진 예측·추천이 아니다.
 지역부터 작물 생산·자원·경제까지 자동 연결한 최종 통합 UI/U1/U3도 미수용이다.
 

@@ -1,5 +1,9 @@
 # 첫 구현 범위
 
+**현재 작은 단계 수용 — 2026-10-11:** [P6b 사용자5174](../research/crop-climate-joint-prefix-user-activation-20261011.md)에서 같은 DB의 실제 자동 계산 중 확정 저장1시점의 표/그래프/수치3D→완료 원3시점·재접속/권리와 기존 데이터·5173 보존을 확인했다.
+계산 중 조회는 응답 완료 뒤10초를 기다리는 polling이다. 여러 running 시점의 연속 갱신·전체 작기/최종 통합 UI는 미수용이다.
+생장 계산→저장·3D→생산량/자원·Decimal 경제 순서와 실제 자료·관문의 보류는 유지한다. 아래 기록은 당시 상태다.
+
 **2026-10-11 조회 비용 수정 수용:** [P6a2c1 계측/P6a2c2 reader v5](../research/crop-climate-joint-prefix-read-cost-implementation-20261011.md)를 최종 고유267개·실제 unpaused 정상/hold/cancel·원 선택자/UTC·현재 권리/늦은 농장 거부·원 terminal로 로컬 수용했다. 제품 변경은 reader1파일이며 두 사용자 서버/원본·WSL을 보존했다. 다음은 P6a 실제 브라우저/WebGL→P6b 사용자 적용이다. 현재 사용자 계산 중3D·최종 UI/실제 작기/관문은 미완료다.
 
 **2026-10-11 전진 읽기 수용:** [P6a2b1 reader v4/HTTP](../research/crop-climate-joint-prefix-forward-read-implementation-20261011.md)는 고유265개·실제 공개 사건/생장200과 원 terminal·정상/hold/cancel을 통과했다. 다음은 P6a 실제 브라우저/WebGL이며 P6b 사용자 적용·전체 UI/실제 작기/관문은 미완료다.
