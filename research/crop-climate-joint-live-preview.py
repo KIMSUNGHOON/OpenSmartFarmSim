@@ -170,14 +170,29 @@ def certificate(directory, lifetime):
 def serve(args):
     from app import crop_climate_joint_operator_config as loader
     from app.http_identity import token_digest
+    if not args.enable_prefix and args.worker_chunk_budget != 16:
+        raise ValueError('custom worker chunk budget requires the explicit prefix preview')
+    factory = 'joint_live_operator'
+    if args.enable_prefix:
+        factory = 'joint_prefix_live_operator_v1'
+        source = (ROOT/'research/crop-climate-joint-live-operator.py').read_bytes()
+        target = args.directory/(factory+'.py')
+        if target.exists():
+            assert not target.is_symlink() and target.read_bytes() == source
+        else:
+            with target.open('xb') as output:
+                os.fchmod(output.fileno(), 0o600)
+                output.write(source); output.flush(); os.fsync(output.fileno())
     directory=args.directory; run=directory/args.run;run.mkdir(mode=0o700)
     p=json.loads((directory/'runtime.private.json').read_bytes()); now=datetime.now(timezone.utc); token=secrets.token_urlsafe(40)
-    p.update(token_digest=token_digest(token.encode()),issued_at=now.isoformat(),expires_at=(now+timedelta(seconds=args.ttl_seconds)).isoformat())
+    p.update(token_digest=token_digest(token.encode()),issued_at=now.isoformat(),expires_at=(now+timedelta(seconds=args.ttl_seconds)).isoformat(),
+        worker_chunk_budget=args.worker_chunk_budget)
     save(directory/'runtime.private.json',p);save(run/'access.private.json',{'token':token,'farm':json.loads((directory/'farm.private.json').read_bytes())})
     cert,key=certificate(run,args.ttl_seconds)
-    config={'config_version':loader.EXECUTION_VERSION,'policy':p['policy'],'artifact_root':p['artifacts'],
+    config={'config_version':loader.PREFIX_VERSION if args.enable_prefix else loader.EXECUTION_VERSION,'policy':p['policy'],'artifact_root':p['artifacts'],
         'certificate':str(cert),'private_key':str(key),'authored_run_gate_key_file':None,'content_access':None,
-        'host':'127.0.0.1','port':args.api_port,'dependencies_factory':'joint_live_operator:dependencies','crop_climate_joint_execution':True}
+        'host':'127.0.0.1','port':args.api_port,'dependencies_factory':factory+':dependencies','crop_climate_joint_execution':True}
+    if args.enable_prefix:config['crop_climate_joint_prefix']=True
     for field,data in [('dsn_file',p['dsn'].encode()),('thermal_gate_key_file',bytes.fromhex(p['thermal_key'])),('market_hold_key_file',bytes.fromhex(p['market_key']))]:
         path=run/field;save(path,data,raw=True);config[field]=str(path)
     config_file=run/'operator.private.json';save(config_file,config)
@@ -192,7 +207,7 @@ def serve(args):
         nginx_log=(run/'nginx.private.log').open('xb');os.fchmod(nginx_log.fileno(),0o600)
         try:
             env=dict(os.environ);env['PYTHONPATH']=os.pathsep.join([str(directory),str(ROOT/'backend'),str(ROOT/'backend/tests')])
-            worker=subprocess.Popen([sys.executable,'-B','-m','app.deterministic_work','--factory','joint_live_operator:worker'],
+            worker=subprocess.Popen([sys.executable,'-B','-m','app.deterministic_work','--factory',factory+':worker'],
                 env=env,stdin=subprocess.DEVNULL,stdout=worker_log,stderr=subprocess.STDOUT)
             template=(ROOT/'web/nginx.conf').read_text()
             mapping={'/tmp/nginx.pid':str(run/'nginx.pid'),'/etc/nginx/mime.types':str(args.nginx.parents[1]/'conf/mime.types'),
@@ -209,12 +224,15 @@ def serve(args):
                 assert thread.is_alive() and worker.poll() is None and nginx.poll() is None and time.monotonic()<deadline;time.sleep(.05)
             ready={'service_pid':os.getpid(),'worker_pid':worker.pid,'frontend':f'http://localhost:{args.web_port}/',
                 'backend':f'https://127.0.0.1:{args.api_port}','actual_SCRAM':True,'issued_at':p['issued_at'],'expires_at':p['expires_at'],
-                'automatic_consumer':True,'test_checkpoint_pause':False,'G0_G4':'not_assessed','crop_Runs':0}
+                'automatic_consumer':True,'test_checkpoint_pause':False,'prefix_enabled':args.enable_prefix,
+                'worker_chunk_budget':args.worker_chunk_budget,'G0_G4':'not_assessed','crop_Runs':0}
             save(run/'ready.private.json',ready)
             save(run/'OPEN-UI.private.txt',('URL: '+ready['frontend']+'\n내부 합성 실행 / 실제 농장 예측·추천 보류\n'
                 '내부 시험 연결 → 접근 토큰 → 연결 설정\n'+token+'\n08 성장 연구 3D → 저장 결과 판본: joint 실행 · 계산 상태와 완료 3D\n'
                 '검토된 계산 접수 파일: '+str(directory/'requests/normal-user.json')+'\n계산 접수 → 자동 상태/확정 체크포인트 확인 → 같은 저장 결과 3D 열기\n'
-                '같은 파일 재접수는 같은 작업을 조회합니다. 계산 중 식물3D는 아직 없습니다.\n유효 종료: '+p['expires_at']+'\n').encode(),raw=True)
+                '같은 파일 재접수는 같은 작업을 조회합니다. '+
+                ('계산 중 확정 부분 결과3D가 켜진 검증 후보입니다. 실제 농장 예측이 아닙니다.' if args.enable_prefix else '계산 중 식물3D는 아직 없습니다.')+
+                '\n유효 종료: '+p['expires_at']+'\n').encode(),raw=True)
             started=time.monotonic()
             while not stop.wait(.25):
                 assert thread.is_alive() and worker.poll() is None and nginx.poll() is None
@@ -234,6 +252,8 @@ if __name__=='__main__':
     parser.add_argument('--directory',type=Path,required=True);parser.add_argument('--pg-bin',type=Path,required=True)
     parser.add_argument('--run',default='live-v1');parser.add_argument('--ttl-seconds',type=int,default=86400)
     parser.add_argument('--api-port',type=int,default=8446);parser.add_argument('--web-port',type=int,default=5174)
+    parser.add_argument('--enable-prefix',action='store_true')
+    parser.add_argument('--worker-chunk-budget',type=int,choices=range(1,129),default=16)
     parser.add_argument('--nginx',type=Path);parser.add_argument('--dist',type=Path)
     args=parser.parse_args();assert args.directory.is_absolute() and 60<=args.ttl_seconds<=86400
     prepare(args) if args.action=='prepare' else serve(args)

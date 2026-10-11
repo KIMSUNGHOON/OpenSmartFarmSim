@@ -135,5 +135,5 @@ def worker():
     store = result_store(FarmAuthoringService(replay), p)
     admission = JointCropClimateExecutionService(store.server.binding, input_resolver=store.server.input_resolver)
     worker = JointExecutionWorker(JointExecutionCheckpointStore(admission, store.server), store,
-        tenant_id='tenant-1', chunk_budget=16)
+        tenant_id='tenant-1', chunk_budget=p.get('worker_chunk_budget', 16))
     return DeterministicWorkerLoop(worker, input_versions=frozenset({INPUT_VERSION}), page_size=50)
