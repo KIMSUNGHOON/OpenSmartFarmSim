@@ -1726,7 +1726,8 @@
               [로컬 수용](../research/crop-greenhouse-ventilation-http-implementation-20261012.md):고유232개·실제 SCRAM/TLS 정상/보류4·현재 DB/ASGI 권리/계정/취소5·같은 불변 입력의 namespace 전후3응답 동일·조회9수치 호출0·기존56경로/262스키마·기존248계산/명시 공유5전후 SHA·원본/두 UI/WSL 보존. 새 runtime/worker/사용자 배포는 후속.
       - [ ] **`crop-greenhouse-ventilation-worker-web-activation`** — 기존 작업 임대/자동 소비·typed client·같은 UTC3D에 새 판본 연결.
         수용: 실제 worker/사용자 DB 접수→running 부분 결과/완료·hold/취소·재접속·원 값/WebGL·두 UI/WSL 보존.
-        - [ ] **`crop-greenhouse-ventilation-runtime`** — 수용한 보호 API의 명시 서버 조립. 별도 판본/기본 비활성·현재 jobs/farms/principal·typed query/store·키/설정/권리 재검사, 실제 SCRAM/TLS 정상/보류 원3응답, 잘못된/혼합 설정 거부·기존 loader/경로/두 UI 보존.
+        - [x] **`crop-greenhouse-ventilation-runtime`** — 수용한 보호 API의 명시 서버 조립. 별도 판본/기본 비활성·현재 jobs/farms/principal·typed query/store·키/설정/권리 재검사, 실제 SCRAM/TLS 정상/보류 원3응답, 잘못된/혼합 설정 거부·기존 loader/경로/두 UI 보존.
+          [로컬 수용](../research/crop-greenhouse-ventilation-runtime-implementation-20261012.md):고유239개(기본233/실제 TLS 정상·보류4/실제 DB·ASGI 거부2)·원3응답/UTC·조회9수치0·기존5loader/255계산·원본2,148/두 UI/WSL 보존. 자동 계산/3D·사용자 적용은 후속.
         - [ ] **`crop-greenhouse-ventilation-execution`** — 위 runtime의 새 입력 판본/기존 작업표·임대/자동 소비·서명 checkpoint/원자 결과 게시. 실제 정상/hold/취소/재시작·현재 권리·원 UTC/수치·조회 계산0과 구 모델 구분.
         - [ ] **`crop-greenhouse-ventilation-web-3d`** — 위 실행의 typed 현재 조회·확정 부분/완료 결과와 같은 UTC의3D/표/차트. 원108상태·25장부/10수지·환기 진단 대사·미확정/철회 결과 제거·임의 애니메이션0.
         - [ ] **`crop-greenhouse-ventilation-user-activation`** — 위 웹/실행의 실제 브라우저 정상/hold/취소/재접속과 사용자 DB/두 URL/원본/WSL 보존·적용 주소/다음 작업/남은 자료 보류 게시.

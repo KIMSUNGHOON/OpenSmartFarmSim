@@ -1,0 +1,389 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted_at": "2026-10-11T18:36:04.452281+00:00",
+  "actual_farm_Runs": 0,
+  "checks": 239,
+  "compatibility": {
+    "G0_G4": "not_assessed",
+    "at": "2026-10-11T18:38:04.771172+00:00",
+    "core_sha256": {
+      "backend/app/api_runtime.py": "55acaebeff265e3c23cf672eff57edb4f8bd8b7546818d46091db3c27e61211e",
+      "backend/app/crop_greenhouse_ventilation_operator_config.py": "0b04180770580bdf841031ac262987072802eb070b8e0cb16cf6f33189ea6227",
+      "backend/tests/test_crop_climate_joint_runtime.py": "9aa86e451d7f8bd4a3a87b38d08fd85624938665ffa32ee548324b2ea718985e",
+      "backend/tests/test_crop_greenhouse_ventilation_runtime.py": "8f907be2b6235c135c92d54c9d264b9c5dcde9b3d64e08c6be8136f2e7a7ed8c",
+      "contracts/crop-greenhouse-ventilation-runtime-v1.md": "b16cfe993d303469127a8f49737b0443e7b8e4764bd351b3edb6dcc35d89380e"
+    },
+    "current_assets_unchanged": 172,
+    "current_source_snapshot_unchanged": 194,
+    "explicit_shared_changes": {
+      "backend/app/api_runtime.py": {
+        "after": "55acaebeff265e3c23cf672eff57edb4f8bd8b7546818d46091db3c27e61211e",
+        "before": "ae46be474506e40462a7e7e05c4d900524a2166ec8f63acb43162c4684b8d2cc"
+      },
+      "backend/tests/test_crop_climate_joint_runtime.py": {
+        "after": "9aa86e451d7f8bd4a3a87b38d08fd85624938665ffa32ee548324b2ea718985e",
+        "before": "907d71e85580a8966285974bd482b9a980c4b100e1e1f309ecd47e098bb81e4a"
+      }
+    },
+    "frontends": {
+      "5173": {
+        "index_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1",
+        "status": 200
+      },
+      "5174": {
+        "index_sha256": "6ddc5d81e4517375bb6201cd0bd9739785d07b7d4d0e28bf842a55c7f8ade363",
+        "status": 200
+      }
+    },
+    "frozen_assets": 171,
+    "frozen_source_files": 1911,
+    "old_calculation_files_unchanged": 255,
+    "prior_overlay_assets": 171,
+    "progress_HTTP": 200,
+    "progress_no_store": true,
+    "progress_sha256": "c29b5e1c4629cdad8c773f9b6230bdf059b054d729ee4ae08fab82636f80eff6",
+    "protected_roots_live": 4,
+    "rights_reviews_guides_preserved": true,
+    "user_backend_worker_restart": false
+  },
+  "core_sha256": {
+    "backend/app/api_runtime.py": "55acaebeff265e3c23cf672eff57edb4f8bd8b7546818d46091db3c27e61211e",
+    "backend/app/crop_greenhouse_ventilation_operator_config.py": "0b04180770580bdf841031ac262987072802eb070b8e0cb16cf6f33189ea6227",
+    "backend/tests/test_crop_climate_joint_runtime.py": "9aa86e451d7f8bd4a3a87b38d08fd85624938665ffa32ee548324b2ea718985e",
+    "backend/tests/test_crop_greenhouse_ventilation_runtime.py": "8f907be2b6235c135c92d54c9d264b9c5dcde9b3d64e08c6be8136f2e7a7ed8c",
+    "contracts/crop-greenhouse-ventilation-runtime-v1.md": "b16cfe993d303469127a8f49737b0443e7b8e4764bd351b3edb6dcc35d89380e"
+  },
+  "evidence": {
+    "legacy_runtime-completed": {
+      "FD": [
+        10,
+        10
+      ],
+      "actual_scram": true,
+      "calls": {
+        "RHS": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "start": 0,
+        "step": 0
+      },
+      "original_wire_UTC": true,
+      "replies": {
+        "events": {
+          "bytes": 73566,
+          "seconds": 4.748185071999615,
+          "sha256": "0156ba732bcc0913e97a53241336e428d6199beafe44b0f837076d631c0fa529"
+        },
+        "samples": {
+          "bytes": 35046,
+          "seconds": 4.858929515001364,
+          "sha256": "e176780c5bde88e008e1f5d29ebddc347b1b8130e9df9a460d8da90b51df136e"
+        },
+        "summary": {
+          "bytes": 18904,
+          "seconds": 4.631515609005874,
+          "sha256": "7291f64651e3b7994838f6f63b8045f88f2f45ca2916bfca16e0a1ce9ef087bd"
+        }
+      },
+      "same_jobs_farm_current_principal": true,
+      "three_distinct_keys": true,
+      "ventilation_disabled_HTTP": 503,
+      "verified_TLS": true
+    },
+    "legacy_runtime-hold": {
+      "FD": [
+        10,
+        10
+      ],
+      "actual_scram": true,
+      "calls": {
+        "RHS": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "start": 0,
+        "step": 0
+      },
+      "original_wire_UTC": true,
+      "replies": {
+        "events": {
+          "bytes": 49736,
+          "seconds": 4.537092947000929,
+          "sha256": "c72b84d10e163b5a88d8f9acecea7c5cca778c93c900bfb3bf825bd761a30bb4"
+        },
+        "samples": {
+          "bytes": 24764,
+          "seconds": 4.707624834998569,
+          "sha256": "9ad5ec1f5ea9de0a880250e7a341854bb867b6e1b47c1decbc37f357177c7ec7"
+        },
+        "summary": {
+          "bytes": 18995,
+          "seconds": 4.793405914999312,
+          "sha256": "1ba0f13f4294dcdb3dc4d71de070a60588cd1c9214a087fd9c39fb1dfea31e77"
+        }
+      },
+      "same_jobs_farm_current_principal": true,
+      "three_distinct_keys": true,
+      "ventilation_disabled_HTTP": 503,
+      "verified_TLS": true
+    },
+    "new_runtime-completed": {
+      "FD": [
+        10,
+        10
+      ],
+      "actual_scram": true,
+      "calls": {
+        "RHS": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "original_wire_UTC": true,
+      "replies": {
+        "events": {
+          "bytes": 75881,
+          "seconds": 4.880753654004366,
+          "sha256": "841ed05fa088af59a6dd9f04fa082f6d3a6188f050c96a02b02ee8010048eef4"
+        },
+        "samples": {
+          "bytes": 39386,
+          "seconds": 4.81732249000197,
+          "sha256": "e8c4442961322e46a93b7aa208805a233bc7ab7c893c954e6fdd5b75b80f9ea2"
+        },
+        "summary": {
+          "bytes": 21715,
+          "seconds": 4.839259744003357,
+          "sha256": "c132e83392f04f7f258962b03b2c04b9dd0cae86d589c300b74f303b7c0c2b4d"
+        }
+      },
+      "same_jobs_farm_current_principal": true,
+      "three_distinct_keys": true,
+      "verified_TLS": true
+    },
+    "new_runtime-hold": {
+      "FD": [
+        10,
+        10
+      ],
+      "actual_scram": true,
+      "calls": {
+        "RHS": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "original_wire_UTC": true,
+      "replies": {
+        "events": {
+          "bytes": 51544,
+          "seconds": 4.846967350000341,
+          "sha256": "b0627ef7873c7176aea98cac9ac8be5c602013b56d1749fc4cf635de3d04b107"
+        },
+        "samples": {
+          "bytes": 27883,
+          "seconds": 4.832795319001889,
+          "sha256": "d34985608839782a9d0fe031bfbbcdb1f29d6145eada899b71689f50e24fa6e7"
+        },
+        "summary": {
+          "bytes": 21818,
+          "seconds": 4.8655405009994865,
+          "sha256": "48a1f24b457388f9916f7d72e442f6bc99a0d9c242e9143c101b512f9a907569"
+        }
+      },
+      "same_jobs_farm_current_principal": true,
+      "three_distinct_keys": true,
+      "verified_TLS": true
+    },
+    "runtime-late-denial": {
+      "calls": {
+        "RHS": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "rejected": [
+        {
+          "phase": "rights",
+          "status": 422
+        },
+        {
+          "phase": "account",
+          "status": 401
+        }
+      ]
+    },
+    "runtime-misassembly": {
+      "FD": [
+        11,
+        11
+      ],
+      "calls": {
+        "RHS": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "rebuilt_same_binding": true,
+      "rejected": [
+        "store-type",
+        "foreign-store",
+        "query-type",
+        "foreign-query",
+        "server_key-reused-input-key",
+        "db_key-reused-input-key",
+        "reused-server-db-key",
+        "model-code-pin",
+        "changed-runtime-grant"
+      ]
+    }
+  },
+  "failed_attempts": [
+    {
+      "actual_child_exit": 1,
+      "original_handle": 29319,
+      "original_terminal_collected": true,
+      "reason": "Native test reused coexistence fixture enabling legacy joint policy/grants without joint factories. New-model-only fixture explicitly disables and revokes legacy grants; exact audit remains required. Production runtime checks unchanged."
+    }
+  ],
+  "final_preservation_at": "2026-10-11T18:38:04.771172+00:00",
+  "full_CI_or_remote_run": false,
+  "full_product_completion": null,
+  "independent_domestic_datasets": 0,
+  "live_progress_browser": {
+    "API_completed_execution_next": true,
+    "API_writes": 0,
+    "actual_child_exit": 0,
+    "combined_peak_RSS_bytes": 991260672,
+    "legacy_has_progress": 0,
+    "mobile": {
+      "scroll": 390,
+      "viewport": 390
+    },
+    "new_runtime_239_evidence_visible": true,
+    "original_handle": 26590,
+    "original_source_entries": 2148,
+    "original_terminal_collected": true,
+    "owned_processes_remaining": 0,
+    "pageerrors": 0,
+    "single_PID_peak_RSS_bytes": 260968448,
+    "source_preserved": true,
+    "visible_without_authentication": true,
+    "wall_seconds": 4.068786831994657
+  },
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "d6bf654ffa04118c0f096ec3a8c0a39df8be3edf9bf23707538909c68fdfa1eb",
+    "recursive_cli_invocations": 0,
+    "same_native_CLI_session": true,
+    "timestamp": "2026-10-11T18:08:42.483Z"
+  },
+  "new_ventilation_model_deployed": false,
+  "next": "crop-greenhouse-ventilation-execution",
+  "remaining_ventilation_UI_focused_hours": [
+    3,
+    6
+  ],
+  "report": "research/crop-greenhouse-ventilation-runtime-implementation-20261012.md",
+  "runs": [
+    {
+      "actual_child_exit": 0,
+      "checks": 233,
+      "combined_peak_RSS_bytes": 900419584,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "808655f33c45aced32d8822525d412a7c763db2170b0e97f24e7b79e216b17cf",
+      "original_handle": 15832,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_terminal_collected": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 177242112,
+      "source_count": 2010,
+      "source_preserved": true,
+      "stage": "focused-runtime-pure-v2",
+      "wall_seconds": 115.87576886400348
+    },
+    {
+      "actual_child_exit": 0,
+      "checks": 4,
+      "combined_peak_RSS_bytes": 931209216,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "aff9c994b89d9eb865035afddf5e247452ed2ae26441d1e740589817c6709a7b",
+      "original_handle": 83368,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_terminal_collected": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 187506688,
+      "source_count": 2010,
+      "source_preserved": true,
+      "stage": "focused-runtime-native-normal-v2",
+      "wall_seconds": 309.138479827001
+    },
+    {
+      "actual_child_exit": 0,
+      "checks": 2,
+      "combined_peak_RSS_bytes": 909725696,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "c1c6173c5fa35793c73db46eaea2be00cd0d11be76cebf3a124d36a26b5d701b",
+      "original_handle": 74834,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_terminal_collected": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 170840064,
+      "source_count": 2010,
+      "source_preserved": true,
+      "stage": "focused-runtime-native-denial-v1",
+      "wall_seconds": 130.83774966999772
+    }
+  ],
+  "scope": "explicit read-only ventilation runtime; synthetic 32-second results",
+  "source_review_sha256": "9ec6446d4544000128d4d546c0aac66c90c0b034ed875fbf7e94e7296d14c56a",
+  "status": "local_accepted",
+  "user_backend_worker_restart": false
+}

@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**서버 연결 — 2026-10-12:** [환기 결과의 명시 서버 조립](../research/crop-greenhouse-ventilation-runtime-implementation-20261012.md)을 고유239검사·실제 DB/HTTPS 정상/보류·현재 권리/계정 철회·기존 서버/두 UI/WSL 보존으로 로컬 수용했다. 다음은 자동 계산 작업자→같은 UTC3D→사용자 적용이다. 새 모델 미배포·남은3–6집중시간·전체 제품 일정 미정을 유지한다.
+
 **현재 실행 상태 — 2026-10-09 17:46 KST:** [완료 전체 생장 부모의 실제 API·3D/사용자 기동](../research/crop-full-parent-api-view-preview-20261009.md)을 로컬 수용하고 `http://localhost:5173/`을 전환했다.
 원7678 실제 도구0/119.766초·같은 실제 SCRAM/보호 HTTPS/제품 App·WebGL에서
 고유5시점의50 C/N·LAI/기관값과5관리 사건의 원 UTC·값, 현재 권리/계정 거부·복원,

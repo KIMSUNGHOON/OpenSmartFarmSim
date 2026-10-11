@@ -101,6 +101,8 @@ class ApiRuntimeDependencies:
     crop_harvest_current_query_factory: object = field(default=None, repr=False)
     crop_climate_joint_result_store_factory: object = field(default=None, repr=False)
     crop_climate_joint_current_query_factory: object = field(default=None, repr=False)
+    crop_greenhouse_ventilation_result_store_factory: object = field(default=None, repr=False)
+    crop_greenhouse_ventilation_current_query_factory: object = field(default=None, repr=False)
 
     def __post_init__(self):
         if (type(self.research_registry) is not ResearchRegistry or
@@ -119,6 +121,8 @@ class ApiRuntimeDependencies:
                 (self.crop_harvest_current_query_factory is not None and not callable(self.crop_harvest_current_query_factory)) or
                 (self.crop_climate_joint_result_store_factory is not None and not callable(self.crop_climate_joint_result_store_factory)) or
                 (self.crop_climate_joint_current_query_factory is not None and not callable(self.crop_climate_joint_current_query_factory)) or
+                (self.crop_greenhouse_ventilation_result_store_factory is not None and not callable(self.crop_greenhouse_ventilation_result_store_factory)) or
+                (self.crop_greenhouse_ventilation_current_query_factory is not None and not callable(self.crop_greenhouse_ventilation_current_query_factory)) or
                 (self.owned_fixture_registry is not None and type(self.owned_fixture_registry) is not OwnedFixtureRegistry) or
                 (self.owned_research_contexts is not None and
                     (type(self.owned_research_contexts) is not dict or self.owned_fixture_registry is None))):
@@ -149,6 +153,8 @@ class ApiRuntime:
     coupled_crop_results: CoupledCropResultStore | None = field(repr=False)
     joint_crop_results: object = field(repr=False)
     joint_crop_query: object = field(repr=False)
+    ventilation_crop_results: object = field(repr=False)
+    ventilation_crop_query: object = field(repr=False)
     joint_execution_admission: object = field(repr=False)
     joint_execution_checkpoints: object = field(repr=False)
     joint_execution_query: object = field(repr=False)
@@ -181,6 +187,12 @@ class ApiRuntime:
                     config.policy.crop_climate_joint_result_storage !=
                     (dependencies.crop_climate_joint_current_query_factory is not None) or
                     (config.policy.crop_climate_joint_result_storage and not config.policy.crop_cycle_result_storage)):
+                raise ValueError()
+            if (config.policy.crop_greenhouse_ventilation_result_storage !=
+                    (dependencies.crop_greenhouse_ventilation_result_store_factory is not None) or
+                    config.policy.crop_greenhouse_ventilation_result_storage !=
+                    (dependencies.crop_greenhouse_ventilation_current_query_factory is not None) or
+                    (config.policy.crop_greenhouse_ventilation_result_storage and not config.policy.crop_cycle_result_storage)):
                 raise ValueError()
             authored_option = (config.authored_run_gate_key is not None or
                 dependencies.authored_run_store_factory is not None)
@@ -326,6 +338,32 @@ class ApiRuntime:
                         joint_crop_query.store is not joint_crop_results):
                     raise ValueError()
                 joint_crop_query._binding()
+            ventilation_crop_results = None
+            ventilation_crop_query = None
+            if dependencies.crop_greenhouse_ventilation_result_store_factory is not None:
+                from .crop_greenhouse_ventilation_result_store import VentilationResultStore
+                from .crop_greenhouse_ventilation_current_query import VentilationCurrentQuery
+                if farm_authoring is None:
+                    raise ValueError()
+                ventilation_crop_results = dependencies.crop_greenhouse_ventilation_result_store_factory(
+                    farm_authoring_service=farm_authoring)
+                if (type(ventilation_crop_results) is not VentilationResultStore or
+                        ventilation_crop_results.jobs is not jobs or
+                        ventilation_crop_results.server.binding.farms is not farm_authoring or
+                        ventilation_crop_results.server.binding.jobs is not jobs or
+                        jobs.principal_provider is not current_principal):
+                    raise ValueError()
+                ventilation_crop_results._binding()
+                keys = (ventilation_crop_results.integrity_key, ventilation_crop_results.server.integrity_key,
+                        ventilation_crop_results.server.binding.input_authority.integrity_key)
+                if len(set(keys)) != 3:
+                    raise ValueError()
+                ventilation_crop_query = dependencies.crop_greenhouse_ventilation_current_query_factory(
+                    result_store=ventilation_crop_results)
+                if (type(ventilation_crop_query) is not VentilationCurrentQuery or
+                        ventilation_crop_query.store is not ventilation_crop_results):
+                    raise ValueError()
+                ventilation_crop_query._binding()
             joint_execution_admission = None
             joint_execution_checkpoints = None
             joint_execution_query = None
@@ -413,7 +451,9 @@ class ApiRuntime:
                 crop_climate_joint_current_query=joint_crop_query,
                 crop_climate_joint_execution_service=joint_execution_admission,
                 crop_climate_joint_execution_query=joint_execution_query,
-                crop_climate_joint_prefix_query=joint_prefix_query)
+                crop_climate_joint_prefix_query=joint_prefix_query,
+                crop_greenhouse_ventilation_result_store=ventilation_crop_results,
+                crop_greenhouse_ventilation_current_query=ventilation_crop_query)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -433,6 +473,7 @@ class ApiRuntime:
                 ('calculation_cycle_crop_query', calculation_cycle_crop_query),
                 ('harvest_crop_results', harvest_crop_results), ('harvest_crop_query', harvest_crop_query),
                 ('joint_crop_results', joint_crop_results), ('joint_crop_query', joint_crop_query),
+                ('ventilation_crop_results', ventilation_crop_results), ('ventilation_crop_query', ventilation_crop_query),
                 ('joint_execution_admission', joint_execution_admission),
                 ('joint_execution_checkpoints', joint_execution_checkpoints),
                 ('joint_execution_query', joint_execution_query),

@@ -280,6 +280,7 @@ def test_native_verified_tls_runtime_completed_and_hold_original_bytes(native):
     assert type(query) is current.JointCropClimateCurrentQuery and query.store is selected
     assert selected.jobs is runtime.jobs and selected.server.binding.farms is runtime.farm_authoring
     assert runtime.jobs.principal_provider is current_principal
+    assert runtime.ventilation_crop_results is None and runtime.ventilation_crop_query is None
     assert len({selected.integrity_key, selected.server.integrity_key, selected.server.binding.input_authority.integrity_key}) == 3
     with runtime.jobs.connect() as conn: assert conn.pgconn.used_password and conn.info.get_parameters()['require_auth'] == 'scram-sha-256'
     assert fd_inventory() == initial
@@ -303,13 +304,21 @@ def test_native_verified_tls_runtime_completed_and_hold_original_bytes(native):
                 assert response.status == 200 and raw == expected and response.getheader('Cache-Control') == 'no-store'
                 replies[view] = {'bytes':len(raw), 'sha256':sha256(raw).hexdigest(), 'seconds':time.monotonic()-started}
             finally: connection.close()
+        connection = http.client.HTTPSConnection('127.0.0.1', port, context=context, timeout=30)
+        try:
+            connection.request('GET', '/v1/crop-greenhouse-ventilation-research-results/joint-ventilation-result-v1:'+
+                'a'*64+'?'+urlencode(c.farm), headers={'Authorization':'Bearer '+TOKEN.decode()})
+            response = connection.getresponse()
+            assert response.status == 503 and json.loads(response.read())['error']['code'] == 'ventilation_research_unavailable'
+        finally: connection.close()
     finally: server.should_exit = True; thread.join(15); assert not thread.is_alive()
     summary = json.loads(c.expected['summary'])
     assert summary['summary']['status'] == c.done['status'] and summary['reference']['G0_G4'] == 'not_assessed'
     assert summary['summary']['last_confirmed']['time']['at'].endswith('.123456Z')
     assert fd_inventory() == inventory
     save('runtime-'+c.done['status']+'.json', {'actual_scram':True, 'verified_TLS':True, 'same_jobs_farm_current_principal':True,
-        'three_distinct_keys':True, 'original_wire_UTC':True, 'replies':replies, 'calls':c.calls, 'FD':[len(inventory),len(fd_inventory())]})
+        'three_distinct_keys':True, 'original_wire_UTC':True, 'ventilation_disabled_HTTP':503,
+        'replies':replies, 'calls':c.calls, 'FD':[len(inventory),len(fd_inventory())]})
 
 
 @LOGIN
