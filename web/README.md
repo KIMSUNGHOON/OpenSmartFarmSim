@@ -390,13 +390,15 @@ See the [contract](../contracts/web-calculation-assessment-v1.md) and
 
 현재 상태 화면은 **http://localhost:5174/#crop-execution** 이다. 새로고침하면 인증 없이 상단에서
 최근 검증 완료 단계·다음 작업·기록 갱신 시각·새 모델의 배포 여부·남은 집중 작업량을 확인한다.
-개발 기록을15초마다 다시 읽으며 단계별 검증 뒤 갱신한다. 선택한 계산의 진행률은 인증/작업 선택 뒤 별도로 조회한다.
+개발 기록을15초마다 다시 읽는다. 단계 수용뿐 아니라 구현 중인 작업, 검증 착수·실패·수정 후 확인도 기록에 게시한다. 완료 표시는 수용 증거가 있을 때만 바뀐다. 선택한 계산의 진행률은 인증/작업 선택 뒤 별도로 조회한다.
+
+`http://localhost:5173/`은 기존 저장 결과 재생 화면이며 개발 진행 패널이 없다. 개발 상태는 **[http://localhost:5174/#crop-execution](http://localhost:5174/#crop-execution)** 상단의 **제품 개발과 배포 상태**에서 로그인 없이 확인한다. 2026-10-12 실제 브라우저에서 두 화면의 차이, 공개 기록 HTTP200/no-store, 390px 표시를 확인했다. 남은4–8집중시간은 새 환기 모델의 화면 연결 추정이며 전체 제품 완료 일정이 아니다.
 현재 원 작업은64/64완료이고, 새 환기 모델의 사용자 API/worker/3D 연결은 아직 남아 있다.
 5173은 기존 완료166일 결과 재생을 유지한다. 전체 제품 완료일과 실제 생산/경제/추천 관문은 미완료다.
 
 `web/public/development-status.json`은 검토된 개발 상태의 공개 기록이다. 자료·토큰·개인 농장 기록을 넣지 않는다.
 배포 NGINX의 `/development-status.json`은 저장소 밖 `published/current.json`을 `no-store`로 제공한다.
-각 단계 수용 뒤 source의 시각/상태/근거를 갱신하고, handoff의 `current_ui_development_status_feed.published_directory`를 사용한다:
+검증 진행을 확인하거나 단계를 수용한 뒤 source의 시각/상태/근거를 갱신하고, handoff의 `current_ui_development_status_feed.published_directory`를 사용한다:
 
 ```sh
 python3 -B scripts/publish-development-status.py --published-dir <handoff의-published_directory>
