@@ -2,10 +2,17 @@
 
 ## 현재 구현 우선순위 — 2026-10-12
 
+[환기 결과 DB 형식·명시 권한](../research/crop-greenhouse-ventilation-result-schema-roles-implementation-20261012.md)을 새12/기존12·현재 결속 회귀3=27그룹과 최종 보존으로 로컬 수용했다.
+기본False·기존 설정5종의 명시 비활성·실제 SCRAM/원 bytes·UTC·기존3종 결과 행/권한을 확인했다.
+공통4파일은 필요한 opt-in만 추가하고 전후 SHA/회귀를 기록했다. 기존236파일·원본/기동 두 UI·권리·WSL은 보존했다.
+다음 한 단계는 signed store의 원자 put/retry·현재 get/page/summary와 호출자 transaction/rollback이다.
+수용: 새 custody/현재 권한 아래 실제 completed/hold 원 결과·최초 bytes/recorded_at·원 페이지/UTC/fresh·철회/혼합/변조·조회9수치 호출0·구 결과/두 UI/WSL 보존.
+이후 typed 공개 조회/보호 HTTPS를 수용해야 상위 결과 API를 평가한다. DB fixture만으로 실제 계산 등록/API·생산/G0 승인을 주장하지 않는다.
+
 [환기 서버 서명 이력·재개](../research/crop-greenhouse-ventilation-server-custody-implementation-20261012.md)는 새7/기존4그룹을 통과했다.
 실제 SCRAM/fresh·HEAD 전후 SIGKILL의 선택 prefix1/2→동일 원 checkpoint·조회9수치 호출0·권리/변조/hold를 확인했다.
 최종 보존 확인 뒤 로컬 수용했다. 기존 source/원본2,148·239계산 파일·두 UI/현재 자산/권리·WSL을 유지했다.
-다음 한 단계는 새 결과 등록/현재 조회·보호 API다.
+위 DB 형식/권한은 해당 서버 서명 이력의 후속이다. 결과 등록/현재 조회·보호 API 수용은 남는다.
 수용: 원108상태/25연속/6사건/10수지·원 수치/UTC bytes·completed/hold·실제 SCRAM/TLS·현재 tenant/농장/입력 권리/검토 철회·조회9수치 호출0·구 결과/두 UI/WSL 보존.
 그 뒤 worker/typed web/같은 UTC3D→사용자 적용을 평가한다. 새 모델 API/worker/UI 배포는 아직 미수용이다.
 [현재 농장 결속](../research/crop-greenhouse-ventilation-farm-binding-implementation-20261011.md)의 새6/회귀6그룹과 입력 증거 수용을 선행으로 유지한다.
@@ -26,7 +33,7 @@
 | --- | --- | --- |
 | 새 입력 증거·농장 결속 | 입력332검사·농장 새6/회귀6그룹·최종 보존 수용 |완료 |
 | 서버 서명 이력·재개 | 새7/기존4그룹·fresh/실제 HEAD 전후 SIGKILL·최종 보존 수용 |완료 |
-| 결과 등록/보호 API | 새 artifact/서명 이력·철회/변조·원 수치/UTC·실제 SCRAM/TLS·조회 계산0 |1–2 |
+| 결과 등록/보호 API | DB 형식/권한27그룹 수용; signed store/typed query·SCRAM/TLS·철회/원 값/조회0 남음 |1–2 |
 | worker·typed web/같은 UTC3D | 위 API·같은 작업의 running/terminal·원 값/시각·취소/재접속 |2–4 |
 | 사용자 적용 | 원 DB/두 서버/WSL 보존·실제 브라우저 정상/hold/취소·적용 주소 보고 |1–2 |
 
