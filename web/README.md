@@ -41,7 +41,7 @@
 [P6b 실제 사용자 기동](../research/crop-climate-joint-prefix-user-activation-20261011.md)→
 [A2 연속 시점 전진](../research/crop-climate-joint-prefix-advance-browser-20261011.md)을 각각 기록했다.
 개발·검증용 별도 DB에서 실행한 작업은 이 사용자 DB에 자동 노출되지 않는다.
-새 [환기 UTC 결속](../research/crop-greenhouse-ventilation-utc-implementation-20261011.md)은452개 계산 검사를 통과했으며 최종 보존 확인 뒤 로컬 수용했다. 현재 UI에 미배포이며 새 페이지 저장→입력/현재 권리·custody/API→worker/같은 UTC3D→사용자 기동의 수용 뒤 연결한다.
+새 [환기 페이지 저장](../research/crop-greenhouse-ventilation-artifact-implementation-20261011.md)은316검사를 통과했고 최종 보존 확인 뒤 로컬 수용했다. UI 미배포이며 새 입력/현재 권리·custody/API→worker/같은 UTC3D 수용이 남았다. 다음 실행은 사용자 피드백에 따른 기존 화면의 연결/작업 선택·상태 표시 점검이다.
 기존5173은 아래의 완료166일 저장 재생용으로 유지한다. 두 주소의 통합/최종 U0–U5와 전체 U3는 미완료다.
 현재3D는 저장 LAI·과실 구획·온도의 수치 모식도이며 최종 디자인·G0–G4·실제 생산/미래 마진/추천 보류는 유지한다.
 

@@ -91,6 +91,12 @@
 
 ## 최종 제품 UI 통합 (2026-10-09)
 
+- [ ] **`product-ui-current-status-entry`** — 사용자 피드백 반영, 다음 실행 우선순위.
+  실제5173/5174·인증/작업 선택·빈 화면 원인을 확인하고 기존 계산 상태 화면의 진입 경로를 보완한다.
+  수용: 실제 주소200·미연결/미선택/조회/종료/보류 구분·같은 DB 작업 ID/원 상태/마지막 확인 시각·기존 결과/두 서버/WSL 보존.
+  새 환기 모델 게시와 혼동하지 않으며 실제 적용/관측 전 완료 처리하지 않는다.
+
+
 [순서·잠정 작업량·날짜 조건](plan.md#최종-제품-ui-통합--2026-10-09-사용자-요청)을 따른다.
 기존 개별 화면의 수용은 유지하고 아래 통합 작업은 실제 증거가 나올 때만 체크한다.
 각 작업은 착수 때 3–5개 핵심 파일의 부분 계약으로 나누며 기존 API/React/Three.js 화면을 재사용한다.
@@ -1690,10 +1696,11 @@
           페이지 저장/현재 권리·custody/API/worker/3D·사용자 배포는 미완료다.
       - [ ] **`crop-greenhouse-ventilation-storage-current-api`** — 새 입력/QC·권리/서버 custody·불변 page/결과 등록·현재 조회 계약.
         수용: 원 bytes/수치/UTC·현재 농장/권리·새 판본 식별·조회 계산0·중단/재개/원 결과 보존·실제 SCRAM/TLS.
-        - [ ] **`crop-greenhouse-ventilation-artifact`** — 다음 한 단계. 새 UTC/25장부 판본의 페이지 writer/fresh reader.
+        - [x] **`crop-greenhouse-ventilation-artifact`** — 계산316개·최종 보존 확인 뒤 로컬 수용. 새 UTC/25장부 판본의 페이지 writer/fresh reader.
           수용: 원 bytes/수치/UTC·108상태/25연속/6사건/10수지·initial/yielded/completed/hold·prefix/cursor,
           조회 RHS/환기/적분/관리/restore0·fresh 동일·HEAD 전후 강제 종료/재개·구 결과/원본/FD/소유/WSL 보존.
           기존 file helper·2MiB 페이지/원자 HEAD를 재사용하고 아직 현재 농장 권한의 게시 결과로 취급하지 않는다.
+          [수용 기록](../research/crop-greenhouse-ventilation-artifact-implementation-20261011.md):새92/회귀224=316통과·원39240 보존0·기존236계산/원본2,148/두 주소200/권리/WSL 보존.
         - [ ] **`crop-greenhouse-ventilation-input-custody`** — 위 artifact·새 source/QC/권리 범위를 입력 증거/현재 농장/서버 서명 이력에 결속.
           수용: 원 입력/프로필/source/notice·기간/현재 권리·trusted checkpoint custody·철회/변조·fresh·구 binding 보존.
         - [ ] **`crop-greenhouse-ventilation-result-current-api`** — 위 artifact/custody를 결과 등록·현재 조회/보호 API에 연결.
