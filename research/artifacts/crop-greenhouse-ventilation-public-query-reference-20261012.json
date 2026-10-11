@@ -1,0 +1,669 @@
+{
+  "G0_G4": "not_assessed",
+  "HTTP_or_worker_or_3D_activated": false,
+  "accepted_at": "2026-10-11T17:22:51.998072+00:00",
+  "actual_farm_Runs": 0,
+  "core_sha256": {
+    "backend/app/api_crop_greenhouse_ventilation_replay.py": "49ee5122f840850993f606d1cad9e388beb70a0ae79d2954551f86a21180a9db",
+    "backend/app/crop_greenhouse_ventilation_current_query.py": "dca981736bc4263042531a309d61bb8cc5bb79b2e3d3caeaa9f99fbbe14f91ec",
+    "backend/tests/test_api_crop_climate_joint_replay.py": "fa090fe4dad2269e5d78acc99b5b28de4cc224a884a47a8fd51c5a3c8d65c58e",
+    "backend/tests/test_api_crop_greenhouse_ventilation_replay.py": "e18150effe527d9b7cd190a235ae4d5586de7b1789ec2f6951132d47063951e5",
+    "backend/tests/test_crop_greenhouse_ventilation_current_query.py": "2a164402677891f47892580d45e894b2bffbfe5656b164a8ffb6af533befc152",
+    "contracts/api-crop-greenhouse-ventilation-replay-v1.md": "cdb38e62122abdc19099149ae000394106077134d30b022c66f04c991505a5b0",
+    "contracts/crop-greenhouse-ventilation-current-query-v1.md": "5787edefbbc01a4bfcc063d90ef0aba26360fb5e850c2dd735a58ef50c8dacae"
+  },
+  "current_public_progress_sha256": "99dae8ed778bb38194e6622ea3f1a18b48445f5746f10d2d08ceee81719f0bae",
+  "decision_id": "native-ventilation-public-query-20261012-c4fe131229200f29",
+  "evidence": {
+    "focused-pure-projection-v2": {
+      "fresh.json": {
+        "PID": 879016,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "response_sha256": {
+          "events": "c9ee9784c32734ba01d707e5c284c382378b5453daf27c32b5fe85050474f937",
+          "samples": "1e9f310b0fbd3b128a8a71ccd4031c985a5636d4fc2712f86fc27d79179d9e3b",
+          "summary": "38489ac79e38c355b58953575372e125656e26a06d30f1f5127b1c15368bfc83"
+        }
+      },
+      "original.json": {
+        "FD_before_after": [
+          12,
+          12
+        ],
+        "all_original_108_states_and_ledgers_events_units_UTC": true,
+        "authenticated_current_read": false,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "native_runtime_identity": {
+          "base_driver_code_sha256": "336794d229602957e58f0976bdb735c0312f318d5570eb62b3fb30f2d4f5538b",
+          "base_integration_code_sha256": "b3311c32250474e5457049974c09e6c484425c8231517dffede222ea0c35b839",
+          "byteorder": "little",
+          "component_code_sha256": {
+            "crop_canopy_energy_transport": "389f8c68c5259d20d3bb5d61e191791c6df112eb8b24c7cd1d5020e7da4e579c",
+            "crop_canopy_exchange": "e3092000d405e5033126df5bbb506016fd502ff59b3ef14ae4d762e03d79a8e7",
+            "crop_fruit_allocation": "4ef0ad3ce30116e1499b017ab46bad7e60641a8dfb1eafe7765b58844d4d949c",
+            "crop_fruit_cohorts": "b4f5a6e1ce2e7c993e21956f6c526aaa83c901814bc13603dfa72f9115d2a740",
+            "crop_fruit_startup": "3d9f6b038d97e5de85cef11275410d2f47035c5804954b1fe72b1755c95fadde",
+            "crop_fruit_transport": "5f2999ad240048035a9fd41e5862ee3f95caa73f7a53eb9594d2b55e517cc2a3",
+            "crop_growth_rates": "d8270e642dc80a747dd7d449094351369abb135a4663c3bf9fcdb1be5cd75858",
+            "crop_plant_cohort_rates": "fb84e52281c4b8fc05457ca724d3b7fec4c0794a1281480b267aac695fc795a6",
+            "crop_plant_startup_rates": "9b056740e2def0391226648726a4a4244eba0493c2c8a40b5b0d88260107e756"
+          },
+          "driver_code_sha256": "6aa731200881c278804bc04dca4f6a96831508a786c11bc0addfdc015e62c251",
+          "engine_code_sha256": "8b292f259c429f30d4bd9102d14fa4e49afee3a155b60204fa0b8c6b4b1a5c01",
+          "engine_version": "joint-ventilation-continuation-research-v1",
+          "float_mant_dig": 53,
+          "float_radix": 2,
+          "ledger_schema": "joint-ventilation-ledgers-v1",
+          "management_code_sha256": "deedd9d1f8d04c6db63d88b8156f83ea43b3563234da073b756f448aaa203255",
+          "notice_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+          "physical_clock_contract": "dynamic-canopy-temperature-history-rhs-v1",
+          "platform_machine": "x86_64",
+          "platform_system": "Linux",
+          "policy_sha256": "882022c483ef935bfca5002059490244d0466e370b8f2d33b5551d8408f2ee1d",
+          "profile_sha256": {
+            "cohort": "b453b4ffe618f26041e4ec6a1b1b7d2e5f38edb3d42adaaad4fa3cd4fbb99cbb",
+            "exchange": "1e032ced2ffdaf8ba713184e89b628cce4173c9e7231f30710afeda8fbf20110",
+            "growth": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+            "transport": "09ea5e176bc745361e8e3ec8945b0f8abb0b2b427b4e9c459d0663cf390e9070"
+          },
+          "python_version": "3.12.3",
+          "rhs_code_sha256": "207ed32696b59f1ec8ce750db70bd10798c5c7ae8f78206df6038177e81124b8",
+          "short_code_sha256": "d3fbbf095d342b76b2be7e224a0d4af87fbf903ed85530d4049665aa8528abf9",
+          "source_sha256": "c0fb7a025533f15b80cb6cd60aafdc19be9fe42df6b8183cf97b83fc086138b3",
+          "stage_policy_sha256": "7e80afc5944197c4bda881c77a674f6299320ad58fdab9895bf5788197c33d39",
+          "state_schema": "crop-climate-stage-state-v1",
+          "transport_helpers_code_sha256": "a3b1bb37b506ecad5961ffa1c5ce200282c6265365ce6e0d59787dd69333520a",
+          "ventilation_code_sha256": "fa15b8eccd3376aae5523547173332a5baafa6089604608e65c1ea8050f65134",
+          "ventilation_policy_sha256": "44bc93b9680cbf3ec14dacdc91757d99376db666f9a99a19978078f0eabf07b6"
+        },
+        "original_inputs_unchanged": true,
+        "private_fields_absent": true,
+        "responses": {
+          "events": {
+            "bytes": 75881,
+            "sha256": "c9ee9784c32734ba01d707e5c284c382378b5453daf27c32b5fe85050474f937"
+          },
+          "samples": {
+            "bytes": 39386,
+            "sha256": "1e9f310b0fbd3b128a8a71ccd4031c985a5636d4fc2712f86fc27d79179d9e3b"
+          },
+          "summary": {
+            "bytes": 21715,
+            "sha256": "38489ac79e38c355b58953575372e125656e26a06d30f1f5127b1c15368bfc83"
+          }
+        },
+        "rows": {
+          "events": 3,
+          "samples": 3
+        },
+        "unregistered_farm_and_custody_type_fixture": true
+      },
+      "runtime-identity.json": {
+        "actual_interpreter": "3.12.3",
+        "authenticated_current_read": false,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "fault_injection_only": true,
+        "native_context_and_identity_preserved": true,
+        "simulated_python_identity": "3.12.13"
+      }
+    },
+    "focused-query-hold-bounds-v1": {
+      "database-cleanup.json": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "edges.json": {
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "foreign_tenant_and_changed_store_denied": true,
+        "invalid_or_foreign_farms": 4,
+        "invalid_queries": 12,
+        "missing_is_None": true,
+        "page_end_and_cursor": true,
+        "serialized_2MiB_enforced": true
+      },
+      "hold.json": {
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "counts_unchanged": true,
+        "original_last_confirmed_and_failure_prefix": true,
+        "original_wires_equal": true,
+        "response_sha256": {
+          "events": "c734e5b28b403eb171fa7d45d2c53f8836007961546e204fd838b158f534c1a0",
+          "samples": "0d52c4154db15d03917897b3209d6e37915f4696586b7c0c5504fdce58700a4e",
+          "summary": "7904b668abd75178f978e5c829e49f94471799e951cde6ea7681529c7ce1877b"
+        }
+      }
+    },
+    "focused-query-normal-v1": {
+      "database-cleanup.json": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "normal.json": {
+        "FD_before_after": [
+          12,
+          12
+        ],
+        "G0_G4": "not_assessed",
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "counts_unchanged": true,
+        "fresh": {
+          "PID": 891104,
+          "actual_scram": true,
+          "calls": {
+            "RHS": 0,
+            "advance": 0,
+            "event": 0,
+            "prepare_binding": 0,
+            "prepare_context": 0,
+            "restore": 0,
+            "start": 0,
+            "step": 0,
+            "ventilation": 0
+          },
+          "counts_unchanged": true,
+          "response_sha256": {
+            "events": "bac683e35aa5e517fb926a722d867493eebf921c9a2ae13c1f1212c375392ab1",
+            "samples": "5fc2f3f0d98094b88fb24eedd074918c11fc95e3644e8ab125fdd5c3aff9b5c8",
+            "summary": "706cb7105fbb34e52f8b4813bf8a31fdb6c553ef64b9debae51992297971590e"
+          },
+          "revoked_review_denied": true
+        },
+        "original_wires_equal": true,
+        "query_seconds": {
+          "events": 5.14425300500443,
+          "samples": 5.053246465002303,
+          "summary": 5.050815298003727
+        },
+        "responses": {
+          "events": {
+            "bytes": 75881,
+            "sha256": "bac683e35aa5e517fb926a722d867493eebf921c9a2ae13c1f1212c375392ab1"
+          },
+          "samples": {
+            "bytes": 39386,
+            "sha256": "5fc2f3f0d98094b88fb24eedd074918c11fc95e3644e8ab125fdd5c3aff9b5c8"
+          },
+          "summary": {
+            "bytes": 21715,
+            "sha256": "706cb7105fbb34e52f8b4813bf8a31fdb6c553ef64b9debae51992297971590e"
+          }
+        }
+      }
+    },
+    "focused-query-rights-tamper-v1": {
+      "database-cleanup.json": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "rights-projection.json": {
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "counts_unchanged": true,
+        "early_denied": 12,
+        "late_denied": 12,
+        "phase": "projection",
+        "rejected": [
+          "input-rights:summary",
+          "input-rights:samples",
+          "input-rights:events",
+          "review:summary",
+          "review:samples",
+          "review:events",
+          "read-scope:summary",
+          "read-scope:samples",
+          "read-scope:events",
+          "farm-source:summary",
+          "farm-source:samples",
+          "farm-source:events"
+        ]
+      },
+      "rights-serialization.json": {
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "counts_unchanged": true,
+        "early_denied": 12,
+        "late_denied": 12,
+        "phase": "serialization",
+        "rejected": [
+          "input-rights:summary",
+          "input-rights:samples",
+          "input-rights:events",
+          "review:summary",
+          "review:samples",
+          "review:events",
+          "read-scope:summary",
+          "read-scope:samples",
+          "read-scope:events",
+          "farm-source:summary",
+          "farm-source:samples",
+          "farm-source:events"
+        ]
+      },
+      "tamper.json": {
+        "DB_mutations_are_lookup_fault_injection": true,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "counts_unchanged": true,
+        "late_tamper_rejected": [
+          "signature",
+          "column",
+          "recorded-at",
+          "missing",
+          "original-page-after-serialization"
+        ],
+        "page_tamper_is_actual_owned_file": true
+      }
+    },
+    "focused-registered-projection-v1": {
+      "actual-completed.json": {
+        "G0_G4": "not_assessed",
+        "actual_crop_Runs": 0,
+        "actual_scram": true,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "counts_unchanged": true,
+        "response_sha256": {
+          "events": "553bbde1c6ef795374f66b7762e08c67c5879d6f66adbac15ca201f4fb4255e6",
+          "samples": "cc53c013f721eb4e816f5701c07e6c078429bc2ff28f223e5276a026c39c449d",
+          "summary": "946cde1d0e3d3688a4f8d12a6f519057ee941a69eea1642ca7d108f4231c729c"
+        },
+        "status": "completed"
+      },
+      "actual-hold.json": {
+        "G0_G4": "not_assessed",
+        "actual_crop_Runs": 0,
+        "actual_scram": true,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "counts_unchanged": true,
+        "response_sha256": {
+          "events": "66ff99abe77f3cb458fcc790b97eb05689e9691285e51cba3701df1252cca2c3",
+          "samples": "8f7b080982965ccdfda1373371e5e0b18521045c64e3ef6f07252078e352574d",
+          "summary": "df4334fd9f78076f51e9c3ae9e0bfe478291f4be7bb1bc09ec7739eaa48d33cf"
+        },
+        "status": "hold"
+      },
+      "database-cleanup.json": {
+        "roles": 0,
+        "schemas": 0
+      }
+    }
+  },
+  "failed_attempts": [
+    {
+      "actual_exit": 1,
+      "original_handle": 29483,
+      "reason": "new2 passed; old unregistered fixture used pre-shared4 dependency SHA; one current fixture line corrected; historical records unchanged"
+    },
+    {
+      "actual_exit": 1,
+      "original_handle": 24126,
+      "reason": "87 passed; copied schema test still referenced old Cohorts name; corrected and new typed hold phase/stage added; final89 passed"
+    },
+    {
+      "actual_exit": 1,
+      "original_handle": 79768,
+      "reason": "copied preservation helper pointed to new BASE instead of accepted UI snapshot; private harness path corrected; main/core/runtime unchanged"
+    }
+  ],
+  "final_preservation": {
+    "G0_G4": "not_assessed",
+    "accepted_core_hashes_unchanged": true,
+    "current_frontend_assets": 172,
+    "current_runtime_noncredential_fields_and_rights_reviews_preserved": true,
+    "diff_check": true,
+    "frontends": {
+      "5173": {
+        "HTTP": 200,
+        "index_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1"
+      },
+      "5174": {
+        "HTTP": 200,
+        "index_sha256": "6ddc5d81e4517375bb6201cd0bd9739785d07b7d4d0e28bf842a55c7f8ade363"
+      }
+    },
+    "frozen_prefix_assets": 171,
+    "frozen_prefix_source_files": 1911,
+    "guide_permissions_preserved": true,
+    "immutable_frontend_source_files": 194,
+    "local_links_exist": 2038,
+    "old_calculation_files_preserved": 244,
+    "prior_authorized_token_rotation_matches_current_ready_guide_handoff": true,
+    "prior_overlay_assets_preserved": 171,
+    "protected_roots_live": 4,
+    "public_progress_HTTP": 200,
+    "public_progress_no_store": true,
+    "public_progress_sha256": "99dae8ed778bb38194e6622ea3f1a18b48445f5746f10d2d08ceee81719f0bae"
+  },
+  "final_preservation_original_tool_handle": 5351,
+  "fixture_is_outside_244_file_baseline": true,
+  "full_CI_or_remote_run": false,
+  "independent_domestic_datasets": 0,
+  "legacy_groups": 41,
+  "legacy_projection_fixture_change": {
+    "after_sha256": "fa090fe4dad2269e5d78acc99b5b28de4cc224a884a47a8fd51c5a3c8d65c58e",
+    "before_sha256": "28299ee428af833ee8fb6411eaa06c9ddf655d7ac26885e94789e4f2a15a4797",
+    "file": "backend/tests/test_api_crop_climate_joint_replay.py",
+    "reason": "unregistered pure fixture uses current farm binding dependency identity after previously accepted shared4 opt-in changes; archived signed/source artifacts unchanged"
+  },
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "c4fe131229200f29db278ab71e5830821d95ef076ce6c5d2e9d6a0fb06242bd7",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-11T16:52:00.186Z"
+  },
+  "new_groups": 62,
+  "observed_at": "2026-10-11T17:20:01.310070+00:00",
+  "passed_nodes": [
+    "tests/test_api_crop_climate_joint_replay.py::test_actual_scram_registered_completed_and_hold_result_projection[None-original_login_scope0]",
+    "tests/test_api_crop_climate_joint_replay.py::test_actual_scram_registered_completed_and_hold_result_projection[hold-original_login_scope0]",
+    "tests/test_api_crop_climate_joint_replay.py::test_closed_json_schema_and_actual_UTF8_serialization_cap",
+    "tests/test_api_crop_climate_joint_replay.py::test_fresh_exec_same_response_bytes_without_any_numerical_entrypoint",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[SHA]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[elapsed]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[event-SHA]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[event-code]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[extra-event]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[extra-page]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[extra-quantity]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[extra-state]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[grid]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[index-bool]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[long-array]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[manifest]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[naive-recorded]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[negative-inventory]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[offset-bool]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[order]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[record-id]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[root]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[short-array]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[tag]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[terminal]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[time]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[total]",
+    "tests/test_api_crop_climate_joint_replay.py::test_mixed_or_invalid_original_projection_is_rejected[unit]",
+    "tests/test_api_crop_climate_joint_replay.py::test_non_binary64_quantity_is_rejected[-inf]",
+    "tests/test_api_crop_climate_joint_replay.py::test_non_binary64_quantity_is_rejected[1.0]",
+    "tests/test_api_crop_climate_joint_replay.py::test_non_binary64_quantity_is_rejected[1]",
+    "tests/test_api_crop_climate_joint_replay.py::test_non_binary64_quantity_is_rejected[False]",
+    "tests/test_api_crop_climate_joint_replay.py::test_non_binary64_quantity_is_rejected[None]",
+    "tests/test_api_crop_climate_joint_replay.py::test_non_binary64_quantity_is_rejected[True]",
+    "tests/test_api_crop_climate_joint_replay.py::test_non_binary64_quantity_is_rejected[inf]",
+    "tests/test_api_crop_climate_joint_replay.py::test_non_binary64_quantity_is_rejected[nan]",
+    "tests/test_api_crop_climate_joint_replay.py::test_original_summary_all_108_states_ledgers_events_units_UTC_and_privacy",
+    "tests/test_api_crop_climate_joint_replay.py::test_page_ranges_caps_summary_exclusivity_and_serialization_recheck",
+    "tests/test_api_crop_climate_joint_replay.py::test_runtime_identity_preserved_without_fixed_historical_root",
+    "tests/test_api_crop_climate_joint_replay.py::test_serialization_rejects_changed_current_code_and_grid",
+    "tests/test_api_crop_climate_joint_replay.py::test_signed_energy_and_temperature_types_keep_negative_finite_values",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_actual_scram_registered_completed_and_hold_result_projection[None-original_login_scope0]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_actual_scram_registered_completed_and_hold_result_projection[hold-original_login_scope0]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_all_new_ledger_balance_and_ventilation_diagnostics_preserved",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_closed_json_schema_and_actual_UTF8_serialization_cap",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_fresh_exec_same_response_bytes_without_any_numerical_entrypoint",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[SHA]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[elapsed]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[event-SHA]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[event-code]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[extra-event]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[extra-page]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[extra-quantity]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[extra-state]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[grid]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[index-bool]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[long-array]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[manifest]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[naive-recorded]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[negative-inventory]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[offset-bool]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[order]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[record-id]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[root]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[short-array]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[tag]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[terminal]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[time]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[total]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_mixed_or_invalid_original_projection_is_rejected[unit]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_new_failure_phase_and_inner_stage_are_typed_without_raw_reason",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_new_ventilation_boundary_cannot_be_dropped_or_mixed[bad-event-latent-unit]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_new_ventilation_boundary_cannot_be_dropped_or_mixed[bad-vapor-unit]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_new_ventilation_boundary_cannot_be_dropped_or_mixed[changed-stage-policy]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_new_ventilation_boundary_cannot_be_dropped_or_mixed[extra-event-private-field]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_new_ventilation_boundary_cannot_be_dropped_or_mixed[missing-event-diagnostic]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_new_ventilation_boundary_cannot_be_dropped_or_mixed[missing-ledger]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_new_ventilation_boundary_cannot_be_dropped_or_mixed[missing-partition]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_new_ventilation_boundary_cannot_be_dropped_or_mixed[missing-snapshot-diagnostic]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_new_ventilation_boundary_cannot_be_dropped_or_mixed[old-ledger-schema]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_non_binary64_quantity_is_rejected[-inf]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_non_binary64_quantity_is_rejected[1.0]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_non_binary64_quantity_is_rejected[1]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_non_binary64_quantity_is_rejected[False]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_non_binary64_quantity_is_rejected[None]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_non_binary64_quantity_is_rejected[True]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_non_binary64_quantity_is_rejected[inf]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_non_binary64_quantity_is_rejected[nan]",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_original_summary_all_108_states_ledgers_events_units_UTC_and_privacy",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_page_ranges_caps_summary_exclusivity_and_serialization_recheck",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_runtime_identity_preserved_without_fixed_historical_root",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_serialization_rejects_changed_current_code_and_grid",
+    "tests/test_api_crop_greenhouse_ventilation_replay.py::test_signed_energy_and_temperature_types_keep_negative_finite_values",
+    "tests/test_crop_greenhouse_ventilation_current_query.py::test_after_serialization_DB_record_signature_columns_and_original_page_tamper[original_login_scope0]",
+    "tests/test_crop_greenhouse_ventilation_current_query.py::test_bounds_missing_foreign_farm_and_changed_assembly[original_login_scope0]",
+    "tests/test_crop_greenhouse_ventilation_current_query.py::test_current_and_late_revocations_withhold_every_view[projection-original_login_scope0]",
+    "tests/test_crop_greenhouse_ventilation_current_query.py::test_current_and_late_revocations_withhold_every_view[serialization-original_login_scope0]",
+    "tests/test_crop_greenhouse_ventilation_current_query.py::test_exact_initialized_store_required[False]",
+    "tests/test_crop_greenhouse_ventilation_current_query.py::test_exact_initialized_store_required[None]",
+    "tests/test_crop_greenhouse_ventilation_current_query.py::test_exact_initialized_store_required[store2]",
+    "tests/test_crop_greenhouse_ventilation_current_query.py::test_exact_initialized_store_required[store3]",
+    "tests/test_crop_greenhouse_ventilation_current_query.py::test_hold_preserves_original_last_confirmed_failure_boundary_and_pages[hold-original_login_scope0]",
+    "tests/test_crop_greenhouse_ventilation_current_query.py::test_normal_original_wires_same_session_and_fresh_scram[original_login_scope0]"
+  ],
+  "previous_files_unchanged": 244,
+  "remaining_ventilation_UI_focused_hours": [
+    4,
+    8
+  ],
+  "runs": [
+    {
+      "RSS_samples": 29,
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 849682432,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "groups": 89,
+      "log_sha256": "afa8175bbcfdb552075e9c2b25d8ac7c4896b9384529b0e827cbfbba11f07cb7",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_handle": 94077,
+      "owned_non_zombie_remaining": [],
+      "single_PID_peak_RSS_bytes": 136704000,
+      "stage": "focused-pure-projection-v2",
+      "wall_seconds": 7.713632127997698
+    },
+    {
+      "RSS_samples": 794,
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 890294272,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "groups": 4,
+      "log_sha256": "ddce1b11af632aa2efe13221f245e24d7043f764bfa804d027792fffba998579",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_handle": 26429,
+      "owned_non_zombie_remaining": [],
+      "single_PID_peak_RSS_bytes": 143523840,
+      "stage": "focused-registered-projection-v1",
+      "wall_seconds": 242.7142675139985
+    },
+    {
+      "RSS_samples": 355,
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 993378304,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "groups": 5,
+      "log_sha256": "1de3eb9929b760f1d35c1fb801252b30cb3171b0f90c8a2c831e762c1eb0f20b",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_handle": 57921,
+      "owned_non_zombie_remaining": [],
+      "single_PID_peak_RSS_bytes": 141922304,
+      "stage": "focused-query-normal-v1",
+      "wall_seconds": 104.46718109200447
+    },
+    {
+      "RSS_samples": 475,
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 887984128,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "groups": 2,
+      "log_sha256": "c9a853883a5436cc5a1c53cf0a6f1d6eafe0eb142b46e3c100cef075472447b5",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_handle": 29308,
+      "owned_non_zombie_remaining": [],
+      "single_PID_peak_RSS_bytes": 142692352,
+      "stage": "focused-query-hold-bounds-v1",
+      "wall_seconds": 141.5960130809981
+    },
+    {
+      "RSS_samples": 865,
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 892522496,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "groups": 3,
+      "log_sha256": "33c5df2ae77f6d43a22d21923b9833049e1d8c2eb348f5258de2fa0bfc8848db",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_handle": 39033,
+      "owned_non_zombie_remaining": [],
+      "single_PID_peak_RSS_bytes": 142155776,
+      "stage": "focused-query-rights-tamper-v1",
+      "wall_seconds": 261.689157367
+    }
+  ],
+  "scope": "synthetic_joint_ventilation_math_only",
+  "source_review_sha256": "9ec6446d4544000128d4d546c0aac66c90c0b034ed875fbf7e94e7296d14c56a",
+  "status": "accepted_local",
+  "unique_groups": 103
+}

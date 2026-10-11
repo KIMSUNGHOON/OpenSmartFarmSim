@@ -51,6 +51,7 @@ def owned_result(path, profiles):
     reference = json.loads((ROOT/'research/artifacts/crop-climate-joint-result-store-reference-20261010.json').read_bytes())
     template = reference['stages'][0]['evidence']['normal.json']['packet']
     farm_binding = deepcopy(template['binding']); source = farm_binding['input']
+    farm_binding['binding_dependency_sha256'] = public.storage.farms.DEPENDENCY_SHA256
     proof = inputs.issue(inputs.authority(p[3]), p); native = inputs.model._record(binding)
     source.update(source_sha256=p[1], context_sha256=native['context_sha256'], time_binding_sha256=native['binding_sha256'],
         evidence_sha256=sha256(proof).hexdigest(), initial_state_sha256=native['initial_state_sha256'],

@@ -4,7 +4,7 @@
 
 **사용자 상태 화면 — 2026-10-11:** [계산 진입/상태 안내](../research/product-ui-current-status-entry-20261011.md)를5174에 적용했고 최종 브라우저8경로·원 DB 완료64/64/9시점·타입/빌드를 통과했다. 최종 보존 확인 뒤 사용자 적용을 수용했다. **http://localhost:5174/#crop-execution** 에서 개발/배포 범위·연결 전/작업 선택 전을 확인한다. 새 환기 모델 미배포·전체 UI/생산/마진/추천 관문 미완료는 유지한다.
 
-**계산 개발 — 2026-10-12:** [환기 결과 등록/현재 조회](../research/crop-greenhouse-ventilation-result-store-implementation-20261012.md)을 새19/기존1=20그룹·실제 SCRAM/fresh·원 bytes/UTC·조회9수치 호출0·호출자 거래/rollback·두 모델 서명 결과 공존과 최종 보존으로 로컬 수용했다. DB 형식/명시 권한27그룹도 수용했다. 다음은 typed 공개 조회/보호 HTTPS→worker/같은 UTC3D→사용자 적용이다. 두 UI를 유지하며 새 모델은 미배포다. 남은4–8집중시간·전체 제품 일정 미정/실제 자료와 관문 보류를 유지한다.
+**계산 개발 — 2026-10-12:** [환기 공개 형식/현재 조회](../research/crop-greenhouse-ventilation-public-query-implementation-20261012.md)은 새62/기존41=103검사·실제 SCRAM/fresh·원108상태/25장부/10수지·UTC·조회9수치 호출0·늦은 철회/변조를 통과했다. 다음은 보호 HTTPS→worker/같은 UTC3D→사용자 적용이다. 두 UI를 유지하며 새 모델은 미배포다. 남은4–8집중시간·전체 제품 일정 미정/실제 자료와 관문 보류를 유지한다.
 
 **현재 구현 상태 — 2026-10-11 21:19 KST:** [A2 연속 부분 결과3D](../research/crop-climate-joint-prefix-advance-browser-20261011.md)를 합성128초 범위로 수용했다.
 같은 사용자 DB의 실제 계산 중 원5시점·표/그래프/WebGL 갱신→완료 원9시점/3사건·재접속과 원 데이터/키/기존 권리·두 주소 복구를 확인했다.

@@ -8,7 +8,7 @@
 기본False·기존 설정5종의 명시 비활성·실제 SCRAM/원 bytes·UTC·기존3종 결과 행/권한을 확인했다.
 공통4파일은 필요한 opt-in만 추가하고 전후 SHA/회귀를 기록했다. 기존236파일·원본/기동 두 UI·권리·WSL은 보존했다.
 [signed 결과 등록/현재 조회](../research/crop-greenhouse-ventilation-result-store-implementation-20261012.md)을 새19/기존1=20그룹과 최종 보존으로 로컬 수용했다. 실제 SCRAM/fresh·최초 bytes/recorded_at·원 페이지/UTC·조회9수치 호출0·호출자 거래/rollback·두 모델 signed 행 공존을 확인했다. 기존241파일·원본/두 UI/WSL을 보존했다.
-다음 한 단계는 typed 공개 조회/보호 HTTPS다. 수용: 원108상태/25연속/6사건/10수지·환기 진단/원 UTC/manifest를 혼합 없이 직렬화, 현재 권리·반환 전후 철회/변조 거부·조회9수치 호출0·2MiB 상한·실제 SCRAM/TLS·기존 API/두 UI/WSL 보존. 상위 API·worker/UI·생산/G0 승인은 미수용이다.
+[typed 공개 형식/현재 조회](../research/crop-greenhouse-ventilation-public-query-implementation-20261012.md)는 새62/기존41=103검사로 원 수치/UTC·실제 SCRAM/fresh·조회9수치 호출0·늦은 철회/변조를 통과했다. 다음 한 단계는 보호 HTTPS다. 수용: 원108상태/25연속/6사건/10수지·환기 진단/원 UTC/manifest를 혼합 없이 직렬화, 현재 권리·반환 전후 철회/변조 거부·조회9수치 호출0·2MiB 상한·실제 SCRAM/TLS·기존 API/두 UI/WSL 보존. 상위 API·worker/UI·생산/G0 승인은 미수용이다.
 
 [환기 서버 서명 이력·재개](../research/crop-greenhouse-ventilation-server-custody-implementation-20261012.md)는 새7/기존4그룹을 통과했다.
 실제 SCRAM/fresh·HEAD 전후 SIGKILL의 선택 prefix1/2→동일 원 checkpoint·조회9수치 호출0·권리/변조/hold를 확인했다.
@@ -34,7 +34,7 @@
 | --- | --- | --- |
 | 새 입력 증거·농장 결속 | 입력332검사·농장 새6/회귀6그룹·최종 보존 수용 |완료 |
 | 서버 서명 이력·재개 | 새7/기존4그룹·fresh/실제 HEAD 전후 SIGKILL·최종 보존 수용 |완료 |
-| 결과 등록/보호 API | DB 형식/권한27·signed store20그룹 수용; typed query/보호 HTTPS·철회/원 값/조회0 남음 |1–2 |
+| 결과 등록/보호 API | DB 형식/권한27·signed store20그룹·공개 형식/현재 query103검사 완료; 보호 HTTPS 수용 남음 |1–2 |
 | worker·typed web/같은 UTC3D | 위 API·같은 작업의 running/terminal·원 값/시각·취소/재접속 |2–4 |
 | 사용자 적용 | 원 DB/두 서버/WSL 보존·실제 브라우저 정상/hold/취소·적용 주소 보고 |1–2 |
 
