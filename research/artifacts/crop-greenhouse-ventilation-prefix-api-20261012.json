@@ -1,0 +1,364 @@
+{
+  "observed_at": "2026-10-11T23:28:29.856849+00:00",
+  "scope": "synthetic joint ventilation confirmed-prefix API software acceptance",
+  "new_prefix_unique_checks": 279,
+  "existing_compatibility_unique_checks": 105,
+  "unique_checks": 384,
+  "checks": [
+    {
+      "case": "focused-prefix-wire-v3",
+      "original_tool_session": 3862,
+      "actual_tool_exit": 0,
+      "passed": 204,
+      "terminal_sha256": "3d056939122010e2445296f286730c3a3849333d29edc1d240603252db521337",
+      "log_sha256": "59924f64ce53172b6fe722eb9364b368e9b73285eebcb0d5930f08e42b19ed4a",
+      "wall_seconds": 8.499590976993204,
+      "single_PID_peak_RSS_bytes": 163803136,
+      "combined_peak_RSS_bytes": 876494848,
+      "protected_roots": 4,
+      "legacy_only_maintenance_window": false,
+      "source_originals_protected_previews_preserved": true,
+      "owned_processes_PG_tempPG_passfiles_remaining": 0,
+      "FD_before_after": [
+        4,
+        4
+      ]
+    },
+    {
+      "case": "focused-prefix-reader-A-v1",
+      "original_tool_session": 34237,
+      "actual_tool_exit": 0,
+      "passed": 7,
+      "terminal_sha256": "0a6220b78dfc5060ea954602fd2483454729f6f271e89cbe27f37e63f5983296",
+      "log_sha256": "06be6670724388444360d9315412aad06664a314a5028f16e3443e4947c4ac7d",
+      "wall_seconds": 473.7329214700003,
+      "single_PID_peak_RSS_bytes": 150859776,
+      "combined_peak_RSS_bytes": 794664960,
+      "protected_roots": 1,
+      "legacy_only_maintenance_window": true,
+      "source_originals_protected_previews_preserved": true,
+      "owned_processes_PG_tempPG_passfiles_remaining": 0,
+      "FD_before_after": [
+        4,
+        4
+      ]
+    },
+    {
+      "case": "focused-prefix-reader-B-v1",
+      "original_tool_session": 23913,
+      "actual_tool_exit": 0,
+      "passed": 4,
+      "terminal_sha256": "7a52e3482de718b09d1cc85a7b1ceeca163496977cf698b7e1a3627bad211964",
+      "log_sha256": "e42fee953fd6f330952b7676779b4734726e6d21ef93d4d62d544b78a6084944",
+      "wall_seconds": 289.42242145200726,
+      "single_PID_peak_RSS_bytes": 160071680,
+      "combined_peak_RSS_bytes": 995872768,
+      "protected_roots": 4,
+      "legacy_only_maintenance_window": false,
+      "source_originals_protected_previews_preserved": true,
+      "owned_processes_PG_tempPG_passfiles_remaining": 0,
+      "FD_before_after": [
+        4,
+        4
+      ]
+    },
+    {
+      "case": "focused-prefix-reader-C-v1",
+      "original_tool_session": 43361,
+      "actual_tool_exit": 0,
+      "passed": 7,
+      "terminal_sha256": "b164d87f23007333f62d5d72c4643eb40a681d326b10bad83d9be9ba5b6238c0",
+      "log_sha256": "fa28a7e4a41ed0b6512ad021d71fb972ffef7cbbd7e1fc6951e9eb0047ae8586",
+      "wall_seconds": 382.58308250999835,
+      "single_PID_peak_RSS_bytes": 152948736,
+      "combined_peak_RSS_bytes": 920391680,
+      "protected_roots": 4,
+      "legacy_only_maintenance_window": false,
+      "source_originals_protected_previews_preserved": true,
+      "owned_processes_PG_tempPG_passfiles_remaining": 0,
+      "FD_before_after": [
+        4,
+        4
+      ]
+    },
+    {
+      "case": "focused-prefix-native-projection-http-v1",
+      "original_tool_session": 97895,
+      "actual_tool_exit": 0,
+      "passed": 1,
+      "terminal_sha256": "a88af22fe5ab477b16e2691d7448aeb263e6ced8eeb02bf810f825fdb892fb60",
+      "log_sha256": "1ef66ceb5e5a8db4022b64fd3c9cee9c0c3af2462cf1a339e868d0dec62d35f5",
+      "wall_seconds": 85.2079463639966,
+      "single_PID_peak_RSS_bytes": 162811904,
+      "combined_peak_RSS_bytes": 908353536,
+      "protected_roots": 4,
+      "legacy_only_maintenance_window": false,
+      "source_originals_protected_previews_preserved": true,
+      "owned_processes_PG_tempPG_passfiles_remaining": 0,
+      "FD_before_after": [
+        4,
+        4
+      ]
+    },
+    {
+      "case": "focused-prefix-authenticated-projection-v2",
+      "original_tool_session": 74202,
+      "actual_tool_exit": 0,
+      "passed": 2,
+      "terminal_sha256": "052364aab99a9211454a66444b5996ec4c8993cb218a75b4090379c3c881f9b8",
+      "log_sha256": "c048216676710ee8be13e44bf20a6f42d5f3f286e484fd3d07d1b92e5708a775",
+      "wall_seconds": 177.57030783200753,
+      "single_PID_peak_RSS_bytes": 162693120,
+      "combined_peak_RSS_bytes": 989577216,
+      "protected_roots": 4,
+      "legacy_only_maintenance_window": false,
+      "source_originals_protected_previews_preserved": true,
+      "owned_processes_PG_tempPG_passfiles_remaining": 0,
+      "FD_before_after": [
+        4,
+        4
+      ]
+    },
+    {
+      "case": "focused-prefix-native-HTTPS-A-v2",
+      "original_tool_session": 79709,
+      "actual_tool_exit": 0,
+      "passed": 4,
+      "terminal_sha256": "43a69519b4c44d5b299e2a82379bdc67016f6bf1504d9e49b6610cbe8b2f113d",
+      "log_sha256": "d17557e790c35fc47b2d6779c0c89d8b2d8d311d8ba96843ef595377442b7514",
+      "wall_seconds": 243.068260569009,
+      "single_PID_peak_RSS_bytes": 179494912,
+      "combined_peak_RSS_bytes": 1042001920,
+      "protected_roots": 4,
+      "legacy_only_maintenance_window": false,
+      "source_originals_protected_previews_preserved": true,
+      "owned_processes_PG_tempPG_passfiles_remaining": 0,
+      "FD_before_after": [
+        4,
+        4
+      ]
+    },
+    {
+      "case": "focused-prefix-native-HTTPS-B-v1",
+      "original_tool_session": 6586,
+      "actual_tool_exit": 0,
+      "passed": 4,
+      "terminal_sha256": "5e8ea573c9af8ffc7e3aa7aa993adbb48551e5644e783f0ddbd06e46d0e17c5a",
+      "log_sha256": "f46fc579ddb7af01b938c6848ef13bbe52306f3568fe8aaedcca907014e64c43",
+      "wall_seconds": 282.59844674800115,
+      "single_PID_peak_RSS_bytes": 189706240,
+      "combined_peak_RSS_bytes": 945049600,
+      "protected_roots": 4,
+      "legacy_only_maintenance_window": false,
+      "source_originals_protected_previews_preserved": true,
+      "owned_processes_PG_tempPG_passfiles_remaining": 0,
+      "FD_before_after": [
+        4,
+        4
+      ]
+    },
+    {
+      "case": "focused-prefix-native-lifecycle-v3",
+      "original_tool_session": 23943,
+      "actual_tool_exit": 0,
+      "passed": 4,
+      "terminal_sha256": "d97519948918b71f15151d1497364ab26bd9c094adf0e679bdc05f3549d9933f",
+      "log_sha256": "c167e468e45c0364af9b80d1a5b14e147f99afe7013edbaffc52f46788cabc73",
+      "wall_seconds": 611.483387914006,
+      "single_PID_peak_RSS_bytes": 186150912,
+      "combined_peak_RSS_bytes": 907972608,
+      "protected_roots": 1,
+      "legacy_only_maintenance_window": true,
+      "source_originals_protected_previews_preserved": true,
+      "owned_processes_PG_tempPG_passfiles_remaining": 0,
+      "FD_before_after": [
+        4,
+        4
+      ]
+    },
+    {
+      "case": "focused-prefix-config-compatibility-v1",
+      "original_tool_session": 95272,
+      "actual_tool_exit": 0,
+      "passed": 146,
+      "terminal_sha256": "c201622d18a950acde33f742e541a3a267af26c31760662396c78e6d52bfa2c4",
+      "log_sha256": "e9c72f1c65e67b6a4a99d929488224e5d5af8b60ac8fc043287ea6b17c0d5d5d",
+      "wall_seconds": 8.53784310600895,
+      "single_PID_peak_RSS_bytes": 151093248,
+      "combined_peak_RSS_bytes": 853434368,
+      "protected_roots": 4,
+      "legacy_only_maintenance_window": false,
+      "source_originals_protected_previews_preserved": true,
+      "owned_processes_PG_tempPG_passfiles_remaining": 0,
+      "FD_before_after": [
+        4,
+        4
+      ]
+    },
+    {
+      "case": "focused-prefix-legacy-native-HTTPS-v1",
+      "original_tool_session": 87019,
+      "actual_tool_exit": 0,
+      "passed": 1,
+      "terminal_sha256": "c2a404bb0aaae3fdc5a88ecb7cce0f34bc8be9c24fbe5290e229f5cc675843c7",
+      "log_sha256": "197eb7560506efdd73235e48156eef694473d8478c7278061683e47ff8bd80da",
+      "wall_seconds": 83.86537107999902,
+      "single_PID_peak_RSS_bytes": 158736384,
+      "combined_peak_RSS_bytes": 906518528,
+      "protected_roots": 4,
+      "legacy_only_maintenance_window": false,
+      "source_originals_protected_previews_preserved": true,
+      "owned_processes_PG_tempPG_passfiles_remaining": 0,
+      "FD_before_after": [
+        4,
+        4
+      ]
+    },
+    {
+      "case": "focused-prefix-final-preservation-v1",
+      "original_tool_session": 6624,
+      "actual_tool_exit": 0,
+      "passed": 0,
+      "terminal_sha256": "085e7d42375a4fea4627b77994e3c336dfa5c885b2a45c60aabd4f0d9502d45f",
+      "log_sha256": "b12a327f7489619699d0b76f9d8a96204cc6746185382e2af6e3c39d7ca09906",
+      "wall_seconds": 1.6678085019957507,
+      "single_PID_peak_RSS_bytes": 136192000,
+      "combined_peak_RSS_bytes": 720330752,
+      "protected_roots": 4,
+      "legacy_only_maintenance_window": false,
+      "source_originals_protected_previews_preserved": true,
+      "owned_processes_PG_tempPG_passfiles_remaining": 0,
+      "FD_before_after": [
+        4,
+        4
+      ]
+    }
+  ],
+  "source_sha256": {
+    "backend/app/api.py": "d9b7be2c7e6fd27909556784e3180bbcee8086bb49619c0cdafc7bc873f278c3",
+    "backend/app/api_runtime.py": "d0a5e4732842ea9e3d1857c64cec56642f8be811afaa815be83deaf9b31f0116",
+    "backend/app/crop_greenhouse_ventilation_operator_config.py": "6592523e03620fa113065e9316d509ccb46515ed7e08f360e8bde118b5253d62",
+    "backend/app/crop_greenhouse_ventilation_prefix.py": "decde0fc9e4e499774ac135fb67f2a2a316933bfaba1584a9d75872d6bf2b12b",
+    "backend/app/api_crop_greenhouse_ventilation_prefix.py": "31b55dfb31a56d2167fd9d6648e1b7fa2d090c3686bb0cd397f6092fded7a182",
+    "backend/app/api_crop_greenhouse_ventilation_prefix_routes.py": "96e175d32d504572897118ff4af13e21e312a0c078db15810778ad34e3408572",
+    "backend/tests/test_crop_greenhouse_ventilation_prefix.py": "dcb362c04b4f0eed9dbd577615630b9a9bf41cab704c2a8ec1283591b4d0d73c",
+    "backend/tests/test_api_crop_greenhouse_ventilation_prefix.py": "7d4215d9ebfdcbec3578e2bedda66b1a65263dd1b3b7740bc300256dd68be83e",
+    "backend/tests/test_api_crop_greenhouse_ventilation_prefix_routes.py": "0f5e77ad2e673b71c33205a0504cb0ea7ff24c190221d4fc9b3bd0ff08e80ddf",
+    "backend/tests/test_crop_greenhouse_ventilation_prefix_runtime.py": "91e9f926aa779423643bf790c6d143591ce816393684b7d47182dd99c7890587"
+  },
+  "automatic": {
+    "completed": {
+      "actual_scram": true,
+      "verified_TLS": true,
+      "automatic_independent_worker": true,
+      "fixture_step_count": 64,
+      "fixture_simulated_seconds": 128,
+      "chunk_budget": 8,
+      "test_pause": false,
+      "same_selector_events_samples_200": 8,
+      "original_running_rows_equal_terminal": true,
+      "original_terminal_bytes": true,
+      "transient_503_count": 1
+    },
+    "hold": {
+      "actual_scram": true,
+      "verified_TLS": true,
+      "automatic_independent_worker": true,
+      "fixture_step_count": 64,
+      "fixture_simulated_seconds": 128,
+      "chunk_budget": 8,
+      "test_pause": false,
+      "same_selector_events_samples_200": 8,
+      "original_running_rows_equal_terminal": true,
+      "original_terminal_bytes": true,
+      "transient_503_count": 1
+    }
+  },
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-11T22:49:54.809Z",
+    "raw_line_sha256": "b05a8493d0950cbbdccae3c0b6e576e569a5575e58cfbaa0451a37f1d4381120",
+    "same_native_CLI_session": true,
+    "recursive_invocations": 0
+  },
+  "private_native_adapter_sha256": "0925ea49be0f43833bbc629ca4e422eea4bb6093ad5002738def819adf7b9652",
+  "preservation": {
+    "G0_G4": "not_assessed",
+    "actual_crop_Runs": 0,
+    "current_UI_assets_unchanged": 172,
+    "explicit_shared_api_changes": [
+      "backend/app/api.py",
+      "backend/app/api_runtime.py",
+      "backend/app/crop_greenhouse_ventilation_operator_config.py"
+    ],
+    "legacy_DB_counts_equal": true,
+    "legacy_access_tokens_preserved": true,
+    "legacy_grant_lifetime_renewed": true,
+    "legacy_harvest_rows": 47813,
+    "legacy_jobs_restored_exactly": 89,
+    "legacy_live_observation_excluded": true,
+    "legacy_old_guide_preserved": true,
+    "legacy_private_immutable_files_preserved": 23,
+    "legacy_result_key_preserved": true,
+    "legacy_saved_events": 5,
+    "legacy_saved_samples": 47809,
+    "modern_job_rows": {
+      "job_attempts": 37,
+      "job_events": 370,
+      "jobs": 112
+    },
+    "modern_original_database_files_rights_keys_unchanged": true,
+    "modern_preexisting_files": 464,
+    "modern_service_not_restarted": true,
+    "observed_at": "2026-10-11T23:27:37.964465+00:00",
+    "preexisting_source_entries": 279,
+    "preexisting_source_unchanged": 276,
+    "protected_roots_live": 4
+  },
+  "excluded_mixed_module_attempt": {
+    "original_tool_session": 37325,
+    "actual_tool_exit": 1,
+    "functional_passes": 6,
+    "teardown_errors": 1,
+    "cause": "module-scoped cleanup evidence filename collision after schemas/roles0 assertion; superseded by separate module runs74202/79709",
+    "guard_reason": null
+  },
+  "prior_attempts": "RSS failures and test offset mistake retained in private evidence and earlier UI waiting report; not counted as accepted tests",
+  "not_run": [
+    "full backend suite",
+    "remote CI",
+    "live ventilation WebGL",
+    "new ventilation user activation",
+    "independent farm validation"
+  ],
+  "new_model_deployed": false,
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "user_progress_browser": {
+    "original_tool_session": 65200,
+    "actual_tool_exit": 0,
+    "terminal_sha256": "81a4b307104dcc9dda3dd99935a0e502ce5366ca388734a9a7a984c365ea3af9",
+    "browser_record_sha256": "43fc93734985d8e682df81f4ff862b2023e39a1614ca17a1f075d041cbe35b9c",
+    "single_PID_peak_RSS_bytes": 260898816,
+    "combined_peak_RSS_bytes": 995356672,
+    "both_mobile390": true,
+    "actual_both_HTTP": true,
+    "actual_same_source_record": true,
+    "actual_original_DOM": true,
+    "stage_count": 5,
+    "authentication_required": false,
+    "real_automatic_second_poll": true,
+    "record_time": "2026-10-11T23:31:56.873555Z",
+    "record_sha256": "e846bbb242d98dc33410ddd67ef0e1ab19a55cca0334999f72a961f966d41dcc",
+    "new_model_deployed": false,
+    "remaining_focused_hours": {
+      "min": 2,
+      "max": 4
+    },
+    "full_product_completion": null,
+    "API_writes": 0,
+    "credentialed_status_requests": 0,
+    "pageerrors": []
+  }
+}

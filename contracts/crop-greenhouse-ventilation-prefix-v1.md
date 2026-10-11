@@ -1,6 +1,6 @@
 # 환기 계산의 확정 부분 결과 조회 v1
 
-상태: 구현·검증 중. 첫 원 페이지/보호 HTTPS·공개 형식에 이어 자원 내 자동 정상/보류/취소/기본 비활성4건·원 terminal 값/UTC 대사와 독립 조회 전진/무결성7건을 통과했다. reader 페이지/권리·인증된 투영/HTTPS·구 모델 잔여 검증 전까지 API 부모는 미수용이다([부분 증거와 두 화면 복구](../research/product-ui-waiting-feedback-20261012.md#0744-kst-후속-복구와-실제-표시)).
+상태: [합성 소프트웨어 범위로 로컬 수용](../research/crop-greenhouse-ventilation-prefix-api-implementation-20261012.md). 새279/기존 호환105=고유384개·실제 SCRAM/TLS/독립 자동 정상·보류·취소·원 terminal 대사·기존 두 화면/결과/자원 보존을 통과했다. 새 모델의 실제 실행 중WebGL와 사용자 적용은 후속이다.
 
 선행: [현재 실행 조회](crop-greenhouse-ventilation-execution-http-v1.md),
 [서명 이력](crop-greenhouse-ventilation-server-custody-v1.md),

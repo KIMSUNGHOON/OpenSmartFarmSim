@@ -59,6 +59,7 @@ class ApiRuntimeConfig:
     crop_climate_joint_execution: bool = field(default=False, kw_only=True)
     crop_climate_joint_prefix: bool = field(default=False, kw_only=True)
     crop_greenhouse_ventilation_execution: bool = field(default=False, kw_only=True)
+    crop_greenhouse_ventilation_prefix: bool = field(default=False, kw_only=True)
 
     def __post_init__(self):
         if (type(self.policy) is not RuntimeLoginPolicy or not self.policy.break_even_calculation or
@@ -79,7 +80,9 @@ class ApiRuntimeConfig:
                 (self.crop_climate_joint_prefix and not self.crop_climate_joint_execution) or
                 type(self.crop_greenhouse_ventilation_execution) is not bool or
                 (self.crop_greenhouse_ventilation_execution and
-                 not self.policy.crop_greenhouse_ventilation_result_storage)):
+                 not self.policy.crop_greenhouse_ventilation_result_storage) or
+                type(self.crop_greenhouse_ventilation_prefix) is not bool or
+                (self.crop_greenhouse_ventilation_prefix and not self.crop_greenhouse_ventilation_execution)):
             raise ValueError('API runtime configuration rejected')
 
 
@@ -162,6 +165,7 @@ class ApiRuntime:
     ventilation_execution_admission: object = field(repr=False)
     ventilation_execution_checkpoints: object = field(repr=False)
     ventilation_execution_query: object = field(repr=False)
+    ventilation_prefix_query: object = field(repr=False)
     joint_execution_admission: object = field(repr=False)
     joint_execution_checkpoints: object = field(repr=False)
     joint_execution_query: object = field(repr=False)
@@ -385,6 +389,10 @@ class ApiRuntime:
                     ventilation_execution_admission, server)
                 ventilation_execution_query = VentilationExecutionQuery(
                     ventilation_execution_checkpoints, ventilation_crop_results)
+            ventilation_prefix_query = None
+            if config.crop_greenhouse_ventilation_prefix:
+                from .crop_greenhouse_ventilation_prefix import VentilationExecutionPrefixQuery
+                ventilation_prefix_query = VentilationExecutionPrefixQuery(ventilation_execution_query)
             joint_execution_admission = None
             joint_execution_checkpoints = None
             joint_execution_query = None
@@ -476,7 +484,8 @@ class ApiRuntime:
                 crop_greenhouse_ventilation_result_store=ventilation_crop_results,
                 crop_greenhouse_ventilation_current_query=ventilation_crop_query,
                 crop_greenhouse_ventilation_execution_service=ventilation_execution_admission,
-                crop_greenhouse_ventilation_execution_query=ventilation_execution_query)
+                crop_greenhouse_ventilation_execution_query=ventilation_execution_query,
+                crop_greenhouse_ventilation_prefix_query=ventilation_prefix_query)
             service = HttpsApiService(PrincipalMiddleware(app, dependencies.bearer_registry),
                 config.certificate, config.private_key, host=config.host, port=config.port)
         except (Exception, SystemExit):
@@ -500,6 +509,7 @@ class ApiRuntime:
                 ('ventilation_execution_admission', ventilation_execution_admission),
                 ('ventilation_execution_checkpoints', ventilation_execution_checkpoints),
                 ('ventilation_execution_query', ventilation_execution_query),
+                ('ventilation_prefix_query', ventilation_prefix_query),
                 ('joint_execution_admission', joint_execution_admission),
                 ('joint_execution_checkpoints', joint_execution_checkpoints),
                 ('joint_execution_query', joint_execution_query),
