@@ -1,0 +1,301 @@
+{
+  "G0_G4": "not_assessed",
+  "P6a_accepted": false,
+  "P6b_accepted": false,
+  "RSS_sample_interval_seconds": 0.25,
+  "actual_farm_Runs": 0,
+  "backend_app_files": 203,
+  "cases": [
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_guard_child_exit": 1,
+      "actual_tool_exit": 1,
+      "case": "focused-cancel-sequence-v1",
+      "combined_peak_RSS_bytes": 1003495424,
+      "guard_reason": null,
+      "guard_terminal_sha256": "14bc1412d47521c9747b3738591feb4d25b95ce3367064d47944846db8b74b7e",
+      "original_source_entries": 2148,
+      "original_tool_session": 87062,
+      "owned_processes_PG_temporary_PG_passfiles_remaining": 0,
+      "protected_roots": 4,
+      "reference_sha256": "cf19ee170b2c380f70fde62561ed24aec22a7d737c09b9d97f466b18548a7c8e",
+      "single_PID_peak_RSS_bytes": 144121856,
+      "source_originals_frozen_sources_and_assets_preserved": true,
+      "wall_seconds": 60.049741908002034
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_guard_child_exit": 1,
+      "actual_tool_exit": 1,
+      "case": "focused-cancel-sequence-v2",
+      "combined_peak_RSS_bytes": 1001168896,
+      "guard_reason": null,
+      "guard_terminal_sha256": "9bbed59b69d146eee597c1abacbee3d8b6cebcec6e8bc41de2c2b3e2f0bdeff0",
+      "original_source_entries": 2148,
+      "original_tool_session": 37732,
+      "owned_processes_PG_temporary_PG_passfiles_remaining": 0,
+      "protected_roots": 4,
+      "reference_sha256": "2dcdc592d7c79e1c7e93fcdb65ae32b01203e4693fb6bb1d3afeaf3e37696b19",
+      "single_PID_peak_RSS_bytes": 146780160,
+      "source_originals_frozen_sources_and_assets_preserved": true,
+      "wall_seconds": 59.97615051499815
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_guard_child_exit": 0,
+      "actual_tool_exit": 0,
+      "case": "focused-cancel-sequence-v3",
+      "combined_peak_RSS_bytes": 1013657600,
+      "guard_reason": null,
+      "guard_terminal_sha256": "a8a498a13f4e024019ce94cf079eaffe99e17bf375973df9581de2bfd5ea0f18",
+      "original_source_entries": 2148,
+      "original_tool_session": 86285,
+      "owned_processes_PG_temporary_PG_passfiles_remaining": 0,
+      "protected_roots": 4,
+      "reference_sha256": "043c52e05e4544dd4c2a89353f374d71a5be60ee910be4d6969dc95609c90598",
+      "single_PID_peak_RSS_bytes": 148369408,
+      "source_originals_frozen_sources_and_assets_preserved": true,
+      "wall_seconds": 83.65478794799856
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_guard_child_exit": 1,
+      "actual_tool_exit": 1,
+      "case": "focused-cancel-sequence-untraced-v1",
+      "combined_peak_RSS_bytes": 1037983744,
+      "guard_reason": null,
+      "guard_terminal_sha256": "d757783d57db347f9d8a329a464b5e381fe94e6afddf5fb8502ba9378946a49b",
+      "original_source_entries": 2148,
+      "original_tool_session": 95985,
+      "owned_processes_PG_temporary_PG_passfiles_remaining": 0,
+      "protected_roots": 4,
+      "reference_sha256": "023132dfbcb3705c4fafe9d014df8e27b8e43641d4a256d0bd5ae7fce7a681e5",
+      "single_PID_peak_RSS_bytes": 153731072,
+      "source_originals_frozen_sources_and_assets_preserved": true,
+      "wall_seconds": 95.58253822700135
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_guard_child_exit": 0,
+      "actual_tool_exit": 0,
+      "case": "focused-cancel-sequence-untraced-v2",
+      "combined_peak_RSS_bytes": 1023586304,
+      "guard_reason": null,
+      "guard_terminal_sha256": "e5e4fea167c855da8772d5ba7014fe72e4b6e8c1402de5ad6860cf3961545308",
+      "original_source_entries": 2148,
+      "original_tool_session": 55047,
+      "owned_processes_PG_temporary_PG_passfiles_remaining": 0,
+      "protected_roots": 4,
+      "reference_sha256": "f6a4b6ac449f901dd9ff23aedb15dd1c28731faa731732a6269ee59f65a7ff72",
+      "single_PID_peak_RSS_bytes": 154632192,
+      "source_originals_frozen_sources_and_assets_preserved": true,
+      "wall_seconds": 85.0039302030018
+    }
+  ],
+  "failed_diagnostics_retained": {
+    "untraced_v1": "Actual cancel accepted/worker canceled; monitor transient eventpoll FD raced with HTTP inventory. Not fully accepted.",
+    "v1": "Missing HTTP no-store during improperly forbidden cancel; incomplete capture, not product evidence.",
+    "v2": "Trace proves diagnostic read-only patch blocked JobStore.cancel with pytest Failed; injected HTTP500."
+  },
+  "final_helper_sha256": "f6a4b6ac449f901dd9ff23aedb15dd1c28731faa731732a6269ee59f65a7ff72",
+  "final_helper_traced_case_run": false,
+  "final_helper_untraced_case_accepted": true,
+  "final_live_preservation": {
+    "P6a_accepted": false,
+    "P6b_accepted": false,
+    "frontends": {
+      "5173": {
+        "HTML_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1",
+        "status": 200
+      },
+      "5174": {
+        "HTML_sha256": "5f8062c48dd576fed3963bc2ac71b2dd5db2e83fbdb580858216f771cd3b637a",
+        "status": 200
+      }
+    },
+    "keys_rights_preserved": true,
+    "native_untraced_tool_exit": 0,
+    "original_files_rechecked": 274,
+    "original_tool_session": 55047,
+    "protected_roots_live": 4,
+    "user_preview_stops": 0
+  },
+  "independent_domestic_datasets": 0,
+  "native_CLI_evidence": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "timestamp": "2026-10-11T10:14:10.484Z",
+    "turn_context_sha256": "d9a178621abe19627a6eda120e9ef6a80efeb0adef03d7fa520ae9a2540a02bb"
+  },
+  "next_step": "Actual browser cancel immediately after observed WebGL; keep costly screenshot observation out of the cancel path; require actual acceptance/worker canceled/no result/scene clear/resource limits and preview restoration.",
+  "not_run": [
+    "full CI",
+    "remote operations",
+    "new product UI build",
+    "new actual browser cancellation",
+    "additional full crop cycle"
+  ],
+  "product_code_changes": 0,
+  "product_core_commit": "69e420936aaf628a802cbb4ebf76fed98c8fb43a",
+  "resource_limits_bytes": {
+    "combined": 1073741824,
+    "single_PID": 536870912
+  },
+  "same_product_code_across_all_cases_and_current_checkout": true,
+  "scope": "Actual API diagnostics; no browser P6a or user P6b activation",
+  "traced_diagnostic": {
+    "API_tracing": true,
+    "PG_lock_wait_observed": false,
+    "actual_SCRAM": true,
+    "cancel_HTTP_status": 200,
+    "cancel_accepted": false,
+    "evidence_sha256": "750fc99bc610b4007fe71566106f68b46048353ce5b5211416abe3b4f3a7ab2f",
+    "final_job_state": "failed",
+    "observer_errors": [],
+    "requests": [
+      {
+        "request_id": 0,
+        "seconds": 11.69636545600224,
+        "status": 503,
+        "view": "progress",
+        "wire_sha256": "721b3760b78f01e81f77d09a354b3418a0272a6eefd2506f9c1721a569430961"
+      },
+      {
+        "request_id": 1,
+        "seconds": 23.44313910100027,
+        "status": 200,
+        "view": "summary",
+        "wire_sha256": "e2a034269b9926c3b6d990dcd340055e3453d42f1e16ae27b5c28f5923628eec"
+      },
+      {
+        "request_id": 2,
+        "seconds": 0.1859794280026108,
+        "status": 200,
+        "view": "cancel",
+        "wire_sha256": "1d3a908ee7fa9e7fce36431506acbd5237e91efc192ad14161c73e97ddf0b794"
+      }
+    ],
+    "same_public_events_samples_before_cancel": false,
+    "verified_TLS": true,
+    "worker_busy_outcome_count": 3,
+    "worker_exit": 0,
+    "worker_pause_or_delay": false,
+    "worker_traced": false
+  },
+  "traced_reader_lock_observation": {
+    "confirmed_lock_held_interval_seconds_lower_bound": 6.860707998275757,
+    "instrumentation_changes_API_timing": true,
+    "not_generalized_to_prior_untraced_browser_503": true,
+    "third_worker_busy_outcome_within_confirmed_read_session_lock_interval": true
+  },
+  "untraced_cancellation_checks": {
+    "API_mocking": false,
+    "GET_numerical_or_mutation_calls_forbidden": true,
+    "browser_run": false,
+    "cancel_accepted": true,
+    "closed_prefix_has_no_reference_or_page": true,
+    "no_registered_result_or_publication": true,
+    "same_public_selector_events_samples_200": true,
+    "worker_canceled": true
+  },
+  "untraced_diagnostic": {
+    "API_tracing": false,
+    "PG_lock_wait_observed": false,
+    "actual_SCRAM": true,
+    "cancel_HTTP_status": 200,
+    "cancel_accepted": true,
+    "evidence_sha256": "2bc8ac9bce229698bd258b2aa579e427a59ec874d72f6fee1cc87f5e7e30f010",
+    "final_job_state": "canceled",
+    "observer_errors": [],
+    "requests": [
+      {
+        "request_id": 0,
+        "seconds": 1.8060094630018284,
+        "status": 503,
+        "view": "progress",
+        "wire_sha256": "721b3760b78f01e81f77d09a354b3418a0272a6eefd2506f9c1721a569430961"
+      },
+      {
+        "request_id": 1,
+        "seconds": 5.48830305699812,
+        "status": 200,
+        "view": "summary",
+        "wire_sha256": "ebaaa3dffff7f6bb436d43ece86587521d23181c0e9afa0fcc4f47fbfb3f7041"
+      },
+      {
+        "request_id": 2,
+        "seconds": 2.7222944459972496,
+        "status": 200,
+        "view": "progress",
+        "wire_sha256": "ec6851025bfc7504b0a8542d3759d7d5164d44d46518baca1ef7b733489ee23e"
+      },
+      {
+        "request_id": 3,
+        "seconds": 4.593067771002097,
+        "status": 503,
+        "view": "summary",
+        "wire_sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b"
+      },
+      {
+        "request_id": 4,
+        "seconds": 2.7118455000018002,
+        "status": 200,
+        "view": "progress",
+        "wire_sha256": "f2d6ba98086ce61c5102daf0183b5bf7ed1f894abdcfb440774886daf9d4ed36"
+      },
+      {
+        "request_id": 5,
+        "seconds": 5.852985989997251,
+        "status": 200,
+        "view": "summary",
+        "wire_sha256": "8eaa49543c89167edd9ce3a9b932059fc64b37e30a54d99419152a480e8299b3"
+      },
+      {
+        "request_id": 6,
+        "seconds": 5.870373589998053,
+        "status": 200,
+        "view": "events",
+        "wire_sha256": "706fe014b88c1861b28da78d3e121b9a22831c5ca408f5d21ca03f09759e6d00"
+      },
+      {
+        "request_id": 7,
+        "seconds": 5.817259595998621,
+        "status": 200,
+        "view": "samples",
+        "wire_sha256": "6f9de5ccd1c6d6297b19b03e92077444adfd4eb85a96141e2307bf347f54df89"
+      },
+      {
+        "request_id": 8,
+        "seconds": 0.07296701900122571,
+        "status": 200,
+        "view": "cancel",
+        "wire_sha256": "501a475157135dd633176009295a9731e4ed3bbe62dd61959a9c129559b32413"
+      }
+    ],
+    "same_public_events_samples_before_cancel": true,
+    "verified_TLS": true,
+    "worker_busy_outcome_count": 0,
+    "worker_exit": 0,
+    "worker_pause_or_delay": false,
+    "worker_traced": false
+  },
+  "user_preview_stops": 0,
+  "version": 1,
+  "web_src_files": 115
+}
