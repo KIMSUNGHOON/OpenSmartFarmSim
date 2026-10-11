@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**계산 개발 — 2026-10-11:** [새 핵심5파일 환기 관리 program](../research/crop-greenhouse-ventilation-program-implementation-20261011.md)을 사건 포함32초 합성 계산으로 수용했다. 독립10프로그램/6,480수치/72반분 비율·새35/기존192=227검사와 원본/두 서버 보존을 확인했다. 다음은 새25장부 context/checkpoint→원 UTC→저장/API/같은 UTC3D이며 새 모델은 사용자 UI에 미배포다.
+**계산 개발 — 2026-10-11:** [환기 분할 실행/복원](../research/crop-greenhouse-ventilation-continuation-implementation-20261011.md)은 새175/기존224=399검사·10program/50분할 구성·fresh5지점을 통과했다. 최종 보존 확인 뒤 로컬 수용했다. 다음은 원 UTC→현재 권리 저장/API→worker/같은 UTC3D이며 새 모델은 사용자 UI에 미배포다. 실제 생산/마진/추천 관문은 미완료다.
 
 **현재 작은 단계 수용 — 2026-10-11 21:19 KST:** [A2 사용자5174 연속 갱신](../research/crop-climate-joint-prefix-advance-browser-20261011.md)에서 같은 DB의 합성128초 실제 계산 중 원5시점의 표/그래프/수치3D→완료 원9시점/3사건·재접속을 확인했다.
 원 데이터/키/기존 권리·5173을 보존·복구했다. 응답 뒤10초 polling이며 이번 장면 관측 간격은33–34초다.

@@ -2,10 +2,13 @@
 
 ## 현재 구현 우선순위 — 2026-10-11
 
-[환기 관리/선택 출력 program](../research/crop-greenhouse-ventilation-program-implementation-20261011.md)을 로컬 수용했다.
-새35/기존192=227검사·독립10프로그램/72반분 비율>8·최대512출력/128사건·25연속/6사건/10수지를 확인했다.
-다음은 새 continuation/checkpoint→원 UTC 결속→현재 권리 저장/API→worker/같은 UTC3D/사용자 적용이다.
-이 새 program은 현재 UI에 미배포이며 아래 A2 화면과 기존 원 결과를 보존한다.
+[환기 분할 실행/복원](../research/crop-greenhouse-ventilation-continuation-implementation-20261011.md)은 새175/기존224=399검사를 통과했다.
+10program/50분할 구성·fresh5지점·과거 적분/사건 재실행0·108상태/25연속/6사건/10수지·최대512출력/128사건을 확인했다.
+최종 보존 확인 뒤 로컬 수용했다. 다음은 새 판본의 원 UTC→현재 권리 저장/API→worker/같은 UTC3D/사용자 적용이다.
+새 checkpoint는 기존22장부 타입과 구분하며 현재 두 사용자 화면에 미배포다.
+다음 UTC는 원 record의 microsecond/범위·UTC/KST/fresh/임의 분할·수치 재계산0을 수용한다.
+helper/identity 대조0.25–0.5 + 원 record 결속/검사0.25–0.5 + fresh/정밀도·자원0.25–0.5로 잠정0.75–1.5집중시간이다.
+실제 품종/독립 자료0과 미완료 온실/자원/경제/최종 UI를 고려해 전체 제품 완료 날짜는 미정이다.
 
 ### 선행 수용과 현재 사용자 화면
 

@@ -1672,11 +1672,16 @@
       - [ ] **`crop-greenhouse-ventilation-continuation-utc`** — 위 program을 새 immutable context/checkpoint/UTC 판본으로 결속.
         수용: 임의 chunk 분할의 정확 동일성·fresh trusted digest 복원/과거 적분0·25장부/6사건/UTC·혼합 판본 거부.
         기존 context는22장부/고정 forcing을 요구하므로 새 항을 끼워 넣지 않는다.
-        - [ ] **`crop-greenhouse-ventilation-continuation`** — 다음 한 단계. 새 program/input/정책·25장부/6사건/10수지의
+        - [x] **`crop-greenhouse-ventilation-continuation`** — 새 program/input/정책·25장부/6사건/10수지의
           immutable context·initial-ready/진행/완료 checkpoint·canonical chain/trusted digest 복원을 구현한다.
           수용: program 대 임의 chunk 정확 동일·fresh 현재 endpoint만 확인/과거 적분·사건 재실행0,
           초기/사건 전후/완료·변조/판본/단위/cursor/hold prefix·원본/자원/소유 정리.
-        - [ ] **`crop-greenhouse-ventilation-utc`** — 위 판본의 원 elapsed index에 명시 UTC origin/정밀도를 결속한다.
+          [핵심3파일 계약](../contracts/crop-greenhouse-ventilation-continuation-v1.md)/[로컬 수용](../research/crop-greenhouse-ventilation-continuation-implementation-20261011.md):
+          새175/기존224=399통과·10program/50분할 구성·fresh5지점/과거 적분·사건 재실행0·최종 bytes/prefix 정확 동일,
+          closed 상태/단위의 복원 결함을 수정하고25연속/6사건/10수지·최대512출력/128사건·typed 판본/hold를 확인했다.
+          기존234계산 파일·원본2,148·accepted source1,911/자산171·두 HTTP200/권리·FD/소유 정리·WSL을 보존했다.
+          UTC/저장/API/worker/3D·사용자 배포는 미완료다.
+        - [ ] **`crop-greenhouse-ventilation-utc`** — 다음 한 단계. 위 판본의 원 elapsed index에 명시 UTC origin/정밀도를 결속한다.
           수용: 원 sample/event/last_confirmed 시각·microsecond/범위·분할 동일·UTC/KST/혼합 거부, 수치 재계산0.
       - [ ] **`crop-greenhouse-ventilation-storage-current-api`** — 새 입력/QC·권리/서버 custody·불변 page/결과 등록·현재 조회 계약.
         수용: 원 bytes/수치/UTC·현재 농장/권리·새 판본 식별·조회 계산0·중단/재개/원 결과 보존·실제 SCRAM/TLS.
