@@ -1,0 +1,467 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted_at": "2026-10-11T18:04:29.422627+00:00",
+  "actual_farm_Runs": 0,
+  "checks": 232,
+  "compatibility": {
+    "current_assets_unchanged": 172,
+    "current_source_snapshot_unchanged": 194,
+    "explicit_shared_changes": {
+      "backend/app/api.py": {
+        "after": "2bfd54bc954d57cf8ac4082045312957ed83a04719926e376e4294c96d89a395",
+        "before": "6b0809930d9c2ab2c38da43f3a706d02a3255060d03dad545270a41a9ce3857a"
+      },
+      "backend/app/api_crop_greenhouse_ventilation_replay.py": {
+        "after": "1928377427cdc8c8acdeb410d9c1634fcbe15db09170a8d58206c2a855b420bc",
+        "before": "49ee5122f840850993f606d1cad9e388beb70a0ae79d2954551f86a21180a9db"
+      },
+      "backend/tests/test_api_crop_greenhouse_ventilation_replay.py": {
+        "after": "17b7112d50847f380a7f8e0d35c14f111ccbbe3003b5c636ba5e385a30786a9d",
+        "before": "e18150effe527d9b7cd190a235ae4d5586de7b1789ec2f6951132d47063951e5"
+      },
+      "backend/tests/test_api_openapi.py": {
+        "after": "a8b3d919642acc86800042ae966fc5fcd289f4168d7184a2896641fee6438e3d",
+        "before": "162925e08d562dacc0b34416027605d636a65ecd30892f2f1ac2905cf65a9472"
+      },
+      "contracts/openapi-v1.json": {
+        "after": "4c03c9974aaa423e9a888c5a42e033568b5f6ca86cdc4e7dec2f7cd127938e68",
+        "before": "5419be16d00db3d55d6660afc8776c7d290f8f4f558014ae64514d10c673d9d5"
+      }
+    },
+    "frozen_assets": 171,
+    "frozen_source_files": 1911,
+    "old_calculation_files_unchanged": 248,
+    "old_paths_equal": 56,
+    "old_schemas_equal": 262,
+    "prior_overlay_assets": 171,
+    "protected_roots_live": 4,
+    "rights_reviews_guides_preserved": true
+  },
+  "core_sha256": {
+    "backend/app/api.py": "2bfd54bc954d57cf8ac4082045312957ed83a04719926e376e4294c96d89a395",
+    "backend/app/api_crop_greenhouse_ventilation_replay.py": "1928377427cdc8c8acdeb410d9c1634fcbe15db09170a8d58206c2a855b420bc",
+    "backend/app/api_crop_greenhouse_ventilation_route.py": "c2e7954b4c26da03eb02403d8cdb1eaf13736ee038eed2bf1413706a87244138",
+    "backend/tests/test_api_crop_greenhouse_ventilation_replay.py": "17b7112d50847f380a7f8e0d35c14f111ccbbe3003b5c636ba5e385a30786a9d",
+    "backend/tests/test_api_crop_greenhouse_ventilation_route.py": "1a0bd2ee52237cc2a72b92bf280fc62b053c3efa557b81caaa8000e1317fb865",
+    "backend/tests/test_api_openapi.py": "a8b3d919642acc86800042ae966fc5fcd289f4168d7184a2896641fee6438e3d",
+    "contracts/api-crop-greenhouse-ventilation-route-v1.md": "bf1f03ed3b592fbbe3135c7d3a2092352a222b66588c945e983cc3a0c2580ba9",
+    "contracts/openapi-v1.json": "4c03c9974aaa423e9a888c5a42e033568b5f6ca86cdc4e7dec2f7cd127938e68"
+  },
+  "evidence": {
+    "current_authority_and_transport": {
+      "native-cancel": {
+        "FD_count": 11,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "current_principal_cleared": true,
+        "custody_reopened_same_wire": true,
+        "worker_closed": true
+      },
+      "native-refusals": {
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "early_invalid_query_calls": 0,
+        "missing_or_foreign_denied": true
+      },
+      "native-send-failure": {
+        "FD_count": 11,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "current_principal_cleared": true,
+        "custody_reopened_same_wire": true,
+        "worker_closed": true
+      },
+      "native-withdrawal-account": {
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "rejected": [
+          "credential:summary",
+          "credential:samples",
+          "credential:events"
+        ],
+        "serialized_but_withheld": true
+      },
+      "native-withdrawal-rights": {
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "rejected": [
+          "input-rights:summary",
+          "input-rights:samples",
+          "input-rights:events",
+          "review:summary",
+          "review:samples",
+          "review:events",
+          "farm-source:summary",
+          "farm-source:samples",
+          "farm-source:events"
+        ],
+        "serialized_but_withheld": true
+      }
+    },
+    "legacy": {
+      "completed": {
+        "FD": [
+          10,
+          10
+        ],
+        "actual_scram": true,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "original_108_states_ledgers_UTC": true,
+        "original_response_bytes_equal": true,
+        "pytest_devnull_log_handlers_closed_by_TLS_logging_config": 0,
+        "replies": {
+          "events": {
+            "bytes": 73566,
+            "seconds": 4.975149492005585,
+            "sha256": "028a7c294ded6ae1033e322eb6885edd6a202790396c962542ad75ecf3494585"
+          },
+          "samples": {
+            "bytes": 35046,
+            "seconds": 4.762127130001318,
+            "sha256": "0be0f5f16889e414caef52e67b34123535bf970f245cd76a4dc43615b88aa3f3"
+          },
+          "summary": {
+            "bytes": 18904,
+            "seconds": 4.820788862998597,
+            "sha256": "e596ef1dbc3ab9b286db1d288c9b9c9ae3eec6c96b8fa9c889850209035f31a1"
+          }
+        },
+        "verified_TLS": true
+      },
+      "hold": {
+        "FD": [
+          10,
+          10
+        ],
+        "actual_scram": true,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0
+        },
+        "original_108_states_ledgers_UTC": true,
+        "original_response_bytes_equal": true,
+        "pytest_devnull_log_handlers_closed_by_TLS_logging_config": 0,
+        "replies": {
+          "events": {
+            "bytes": 49736,
+            "seconds": 4.735047433001455,
+            "sha256": "3b4c4cfdd4a143b3d8764f224870faed0e10e591736fb569d32c0c86b92e6852"
+          },
+          "samples": {
+            "bytes": 24764,
+            "seconds": 4.763848839000275,
+            "sha256": "76c2ffd999323c141750d80f3343c839cdb1bd5597ce1a209c572533e8e1bbff"
+          },
+          "summary": {
+            "bytes": 18995,
+            "seconds": 4.843275831997744,
+            "sha256": "b67535428d4493d699d33ef11a1cfa2e3cb9188e3da6c20556c3e8f40e28d828"
+          }
+        },
+        "verified_TLS": true
+      }
+    },
+    "new": {
+      "completed": {
+        "FD": [
+          10,
+          10
+        ],
+        "actual_scram": true,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "original_108_states_ledgers_UTC": true,
+        "original_response_bytes_equal": true,
+        "pytest_devnull_log_handlers_closed_by_TLS_logging_config": 1,
+        "replies": {
+          "events": {
+            "bytes": 75881,
+            "seconds": 4.881098922000092,
+            "sha256": "1d732a8aa33484433359b198a89b854dc0446a7d673aef00a8235937c797185c"
+          },
+          "samples": {
+            "bytes": 39386,
+            "seconds": 4.921650402997329,
+            "sha256": "91072f9797c36591761bb2f2352c5a3507e192f87c4440b71e747fc99718efa5"
+          },
+          "summary": {
+            "bytes": 21715,
+            "seconds": 4.894705246006197,
+            "sha256": "8dfc88fe580ebadd6b15c85e1370362851f945e0d2ff738e13082e60fc0537b1"
+          }
+        },
+        "verified_TLS": true
+      },
+      "hold": {
+        "FD": [
+          10,
+          10
+        ],
+        "actual_scram": true,
+        "calls": {
+          "RHS": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "original_108_states_ledgers_UTC": true,
+        "original_response_bytes_equal": true,
+        "pytest_devnull_log_handlers_closed_by_TLS_logging_config": 0,
+        "replies": {
+          "events": {
+            "bytes": 51544,
+            "seconds": 4.855943415997899,
+            "sha256": "dd23ee603ba490b0cacd23c71eba5ad6d1f5ee07b09d8d269a2f6f576bf90caf"
+          },
+          "samples": {
+            "bytes": 27883,
+            "seconds": 4.884792481003387,
+            "sha256": "1a7e25da05504dff913f9d8cabce3bccc9e6ec77251549c23cdbdd1e6ed18695"
+          },
+          "summary": {
+            "bytes": 21818,
+            "seconds": 4.8069753689997015,
+            "sha256": "25fe001778e68a04402b61bd498e7e524fc45b3e6fe60a425d4e6019e0685be5"
+          }
+        },
+        "verified_TLS": true
+      }
+    },
+    "same_input_namespace": {
+      "before_after_wire_bytes_equal": true,
+      "calls": {
+        "RHS": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "identical_immutable_inputs": true,
+      "responses": {
+        "events": {
+          "bytes": 75881,
+          "sha256": "a3b5990c2bd1c6915ece33c7319d3403abacdea8d4dad8f432fb5a5d6159390d"
+        },
+        "samples": {
+          "bytes": 39386,
+          "sha256": "04dab75301774e7d1fe11ae47ad7b19b1e8c86ae56731e545ae714231eab94bd"
+        },
+        "summary": {
+          "bytes": 21715,
+          "sha256": "f7c46ba0b385b2b52a086813a1bb02fa2dae8646efbd7222664cbd46195da886"
+        }
+      }
+    }
+  },
+  "failed_harness_attempts": [
+    {
+      "exit": -15,
+      "handle": 57129,
+      "reason": "log_limit; inventory test omitted new result ID/farm query; corrected"
+    },
+    {
+      "exit": -15,
+      "handle": 11580,
+      "reason": "log_limit; projection test used pre-namespace Point; corrected"
+    },
+    {
+      "exit": -15,
+      "handle": 90162,
+      "reason": "222 passed output but success capture dump exceeded log bound; private reporter changed; not accepted"
+    }
+  ],
+  "final_preservation_at": "2026-10-11T18:01:24.570102+00:00",
+  "full_CI_or_remote_run": false,
+  "independent_domestic_datasets": 0,
+  "invalid_cross_fixture_comparison": "Independent fixture response hashes were unequal; not used as compatibility evidence. Premature progress claim corrected. Dedicated same-immutable-input before/after check passed with all3 original wire bytes equal.",
+  "live_progress_browser": {
+    "API_state": "completed",
+    "API_writes": 0,
+    "actual_child_exit": 0,
+    "combined_peak_RSS_bytes": 977776640,
+    "execution_3d_state": "next",
+    "focused_hours": [
+      3,
+      6
+    ],
+    "mobile_width": 390,
+    "original_tool_handle": 71514,
+    "pageerrors": 0,
+    "single_PID_peak_RSS_bytes": 246263808,
+    "terminal_sha256": "3cafd082b411e8e6f8d4ff1054406214d0776e4f374f5bfd03a2868c42768f3c",
+    "visible_without_authentication": true,
+    "wall_seconds": 4.062705830998311
+  },
+  "live_progress_sha256": "681e48cda278f8e09379e553038163a8eeda110bef09fefa1ffbfb5416bf712e",
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "4dfd9ba52ae670561ef454cf8c5d97702c2cce73728e93636e077452b84858f1",
+    "recursive_cli_invocations": 0,
+    "same_native_CLI_session": true,
+    "timestamp": "2026-10-11T17:45:04.380Z"
+  },
+  "new_ventilation_model_deployed": false,
+  "next": "crop-greenhouse-ventilation-runtime",
+  "remaining_ventilation_UI_focused_hours": [
+    3,
+    6
+  ],
+  "report": "research/crop-greenhouse-ventilation-http-implementation-20261012.md",
+  "runs": {
+    "focused-namespace-same-input-v1": {
+      "FD": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "checks": 1,
+      "combined_peak_RSS_bytes": 729714688,
+      "log_sha256": "17e3cd7a80b13de052d97615a43bc35acacc670838f19f8d5d4671db06e15fba",
+      "original_tool_handle": 94610,
+      "originals_preserved": 2148,
+      "owned_PG_non_zombie_passfile_remaining": 0,
+      "protected_roots_live": 4,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "source_preserved": true,
+      "terminal_sha256": "3996738027337b4db353c640d2f5aff96e271e12ecab185269e279255b160a85",
+      "wall_seconds": 2.4398174340021797
+    },
+    "focused-native-current-rights-cancel-v1": {
+      "FD": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "checks": 5,
+      "combined_peak_RSS_bytes": 957722624,
+      "log_sha256": "24308bd8321185a7938861d152881e773332454869fb4c9893e289942cd571ed",
+      "original_tool_handle": 4520,
+      "originals_preserved": 2148,
+      "owned_PG_non_zombie_passfile_remaining": 0,
+      "protected_roots_live": 4,
+      "single_PID_peak_RSS_bytes": 198569984,
+      "source_preserved": true,
+      "terminal_sha256": "88e3e31de1bee903b8cdedf31b037301df284386a140c333bbf0f01de3fc6048",
+      "wall_seconds": 289.38781497900345
+    },
+    "focused-native-normal-hold-v1": {
+      "FD": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "checks": 4,
+      "combined_peak_RSS_bytes": 947429376,
+      "log_sha256": "aff9c994b89d9eb865035afddf5e247452ed2ae26441d1e740589817c6709a7b",
+      "original_tool_handle": 30985,
+      "originals_preserved": 2148,
+      "owned_PG_non_zombie_passfile_remaining": 0,
+      "protected_roots_live": 4,
+      "single_PID_peak_RSS_bytes": 186167296,
+      "source_preserved": true,
+      "terminal_sha256": "0d375a2e574ec878a8ee06bab05e181fe8c3477bb6d9978650ab157085c52d74",
+      "wall_seconds": 308.1296714919954
+    },
+    "focused-route-pure-v4": {
+      "FD": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "checks": 222,
+      "combined_peak_RSS_bytes": 912568320,
+      "log_sha256": "c4fbe4fb958f15011a5295c9a2d06c0db9402527d70aee10ccceff5e9b5b8bfc",
+      "original_tool_handle": 85085,
+      "originals_preserved": 2148,
+      "owned_PG_non_zombie_passfile_remaining": 0,
+      "protected_roots_live": 4,
+      "single_PID_peak_RSS_bytes": 193540096,
+      "source_preserved": true,
+      "terminal_sha256": "d8ff0f31ac3639ec3dbe11c570ef5d89c80f4c3d97818d1412f28fdbf3b68dd6",
+      "wall_seconds": 30.894736636000744
+    }
+  },
+  "scope": "authenticated bounded read of signed synthetic32s ventilation results; default runtime disabled",
+  "source_review_sha256": "9ec6446d4544000128d4d546c0aac66c90c0b034ed875fbf7e94e7296d14c56a",
+  "status": "accepted_local",
+  "user_backend_worker_restart": false
+}

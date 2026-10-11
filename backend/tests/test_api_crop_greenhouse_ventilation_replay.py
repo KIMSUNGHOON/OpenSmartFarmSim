@@ -192,7 +192,7 @@ def test_page_ranges_caps_summary_exclusivity_and_serialization_recheck(original
     for view in ('samples', 'events'):
         page = deepcopy(original[2][view]); page['start'] = 1; page['records'] = page['records'][1:2]
         projected = project(original, view, page=page, limit=1)
-        assert projected.page.next_offset == 2 and projected.page.records[0].time == public.Point.model_validate(page['records'][0]['time'])
+        assert projected.page.next_offset == 2 and projected.page.records[0].time == public.VentilationPoint.model_validate(page['records'][0]['time'])
         page['start'] = page['total']; page['records'] = []
         assert project(original, view, page=page).page.next_offset is None
         for bad in (True, 0, 65 if view == 'samples' else 9):
@@ -325,5 +325,5 @@ def test_new_failure_phase_and_inner_stage_are_typed_without_raw_reason(original
     point=original[1]['times']['last_confirmed']
     value={'reason_code':'VENTILATION_HOLD','phase':'event-after-ventilation',
         'inner_failed_stage':'k2','time_meaning':'failed_grid_boundary','time':point}
-    assert public.Hold.model_validate(value).model_dump(mode='json')==value
-    with pytest.raises(ValueError):public.Hold.model_validate({**value,'inner_failed_stage':'/private/raw-stage'})
+    assert public.VentilationHold.model_validate(value).model_dump(mode='json')==value
+    with pytest.raises(ValueError):public.VentilationHold.model_validate({**value,'inner_failed_stage':'/private/raw-stage'})

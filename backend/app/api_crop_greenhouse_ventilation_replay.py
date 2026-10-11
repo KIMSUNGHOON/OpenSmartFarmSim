@@ -84,7 +84,7 @@ class VentilationDiagnostic(_Public):
     latent_energy: _quantities['W/m2_floor']
 
 
-class State(_Public):
+class VentilationState(_Public):
     plant_state: Plant
     cohort_state: Cohorts
     climate_state: Climate
@@ -100,7 +100,7 @@ class State(_Public):
         return self
 
 
-class Snapshot(State):
+class VentilationSnapshot(VentilationState):
     ventilation: VentilationDiagnostic
     step_index: Index
     elapsed_seconds: Float
@@ -112,22 +112,22 @@ class Snapshot(State):
     phase: Literal['initial', 'step-end', 'boundary-after-event']
 
 
-class Point(_Public):
+class VentilationPoint(_Public):
     step_index: Index
     at: UtcStamp
 
 
-class Sample(_Public):
-    value: Snapshot
-    time: Point
+class VentilationSample(_Public):
+    value: VentilationSnapshot
+    time: VentilationPoint
 
 
-class EventState(State):
+class VentilationEventState(VentilationState):
     input_sha256: Digest
     calculation_sha256: Digest
 
 
-class Management(_Public):
+class VentilationManagement(_Public):
     model_version: Literal['joint-crop-climate-management-research-v1']
     code_sha256: Digest
     rhs_code_sha256: Digest
@@ -139,8 +139,8 @@ class Management(_Public):
     quantity_rule: Literal['cohort-decimal-rational-removal-v1']
     roundoff_rule: Literal['64-ulp-event-inventory-v1']
     time_coordinate: Literal['instantaneous_no_clock']
-    before: EventState
-    after: EventState
+    before: VentilationEventState
+    after: VentilationEventState
     profile_sha256: Profiles
     policy_sha256: Digest
     removed: Removed
@@ -152,19 +152,19 @@ class Management(_Public):
     G0_G4: Literal['not_assessed']
 
 
-class EventValue(_Public):
+class VentilationEventValue(_Public):
     ventilation_after: VentilationDiagnostic
     step_index: Index
     elapsed_seconds: Float
-    management: Management
+    management: VentilationManagement
 
 
-class Event(_Public):
-    value: EventValue
-    time: Point
+class VentilationEvent(_Public):
+    value: VentilationEventValue
+    time: VentilationPoint
 
 
-class Identity(_Public):
+class VentilationIdentity(_Public):
     engine_version: Literal['joint-ventilation-continuation-research-v1']
     engine_code_sha256: Digest
     transport_helpers_code_sha256: Digest
@@ -193,7 +193,7 @@ class Identity(_Public):
     float_radix: Literal[2]
 
 
-class Numerical(_Public):
+class VentilationNumerical(_Public):
     step_seconds: Float
     step_count: Annotated[int, Field(strict=True, ge=1, le=4096)]
     duration_seconds: Float
@@ -202,18 +202,18 @@ class Numerical(_Public):
     roundoff_rule: Literal['64-ulp-per-step-and-event-global-ledger-v1']
 
 
-class Manifest(_Public):
-    identity: Identity
+class VentilationManifest(_Public):
+    identity: VentilationIdentity
     program_sha256: Digest
     initial_rhs_sha256: Digest
     initial_calculation_sha256: Digest
     policy_sha256: Digest
-    numerical: Numerical
+    numerical: VentilationNumerical
     scope: Literal['software_research_only']
     clock_contract: Literal['elapsed-grid-current-ventilation-rk4-events-v1']
 
 
-class TimeGrid(_Public):
+class VentilationTimeGrid(_Public):
     version: Literal['joint-ventilation-time-binding-research-v1']
     time_rule: Literal['UTC_POSIX_integer_microseconds_decimal_step_v1']
     time_code_sha256: Digest
@@ -252,44 +252,44 @@ class VentilationReference(_Public):
     normalization_version: Literal['joint-current-ventilation-float64-grid-v1']
     qc_version: Literal['joint-initial-rhs-ventilation-schedule-utc-v1']
     input_evidence_version: Literal['joint-ventilation-input-evidence-v1']
-    model: Identity
-    time_grid: TimeGrid
-    last_confirmed: Point
-    failed_boundary: Point | None
+    model: VentilationIdentity
+    time_grid: VentilationTimeGrid
+    last_confirmed: VentilationPoint
+    failed_boundary: VentilationPoint | None
 
 
-class Hold(_Public):
+class VentilationHold(_Public):
     reason_code: Annotated[str, Field(strict=True, pattern=r'^[A-Z][A-Z0-9_]{0,99}$')]
     phase: Literal['initial', 'interval', 'global-step-balance', 'event', 'event-after-ventilation', 'global-event-balance']
     inner_failed_stage: Literal['initial', 'k2', 'k3', 'k4', 'endpoint', 'endpoint_balance'] | None
     time_meaning: Literal['failed_grid_boundary']
-    time: Point
+    time: VentilationPoint
 
 
-class Summary(_Public):
+class VentilationSummary(_Public):
     status: Literal['completed', 'hold']
-    manifest: Manifest
-    last_confirmed: Sample
+    manifest: VentilationManifest
+    last_confirmed: VentilationSample
     checkpoint_sha256: Digest | None
-    hold: Hold | None
+    hold: VentilationHold | None
 
 
-class SamplePage(_Public):
+class VentilationSamplePage(_Public):
     kind: Literal['samples']
     offset: Index
     limit: Annotated[int, Field(strict=True, ge=1, le=64)]
     total: Annotated[int, Field(strict=True, ge=0, le=512)]
     next_offset: Index | None
-    records: Annotated[list[Sample], Field(max_length=64)]
+    records: Annotated[list[VentilationSample], Field(max_length=64)]
 
 
-class EventPage(_Public):
+class VentilationEventPage(_Public):
     kind: Literal['events']
     offset: Index
     limit: Annotated[int, Field(strict=True, ge=1, le=8)]
     total: Annotated[int, Field(strict=True, ge=0, le=128)]
     next_offset: Index | None
-    records: Annotated[list[Event], Field(max_length=8)]
+    records: Annotated[list[VentilationEvent], Field(max_length=8)]
 
 
 class VentilationReplay(_Public):
@@ -300,8 +300,8 @@ class VentilationReplay(_Public):
     revision: Name
     farm: Farm
     reference: VentilationReference
-    summary: Summary | None
-    page: Annotated[SamplePage | EventPage, Field(discriminator='kind')] | None
+    summary: VentilationSummary | None
+    page: Annotated[VentilationSamplePage | VentilationEventPage, Field(discriminator='kind')] | None
 
     @model_validator(mode='after')
     def consistent(self):
@@ -364,7 +364,7 @@ def _parsed(cls, value):
 
 
 def _point(time, value, grid, dt):
-    _parsed(Point, time)
+    _parsed(VentilationPoint, time)
     _need(type(value['step_index']) is int and time['step_index'] == value['step_index']
         and type(value['elapsed_seconds']) is float and value['elapsed_seconds'] == value['step_index']*dt
         and time['at'] == server.clock._at(grid, value['step_index']))
@@ -375,7 +375,7 @@ def _event(row, identity):
     _parsed(CombinedForcing, row['value']['combined_forcing_after'])
     _parsed(VentilationDiagnostic, row['value']['ventilation_after'])
     m = row['value']['management']
-    _need(type(m) is dict and set(m) == set(Management.model_fields) | {'event'}
+    _need(type(m) is dict and set(m) == set(VentilationManagement.model_fields) | {'event'}
         and m['code_sha256'] == driver.previous.management.CODE_SHA256 and m['rhs_code_sha256'] == joint.CODE_SHA256
         and m['component_code_sha256'] == identity['component_code_sha256']
         and m['profile_sha256'] == identity['profile_sha256'] and m['policy_sha256'] == identity['policy_sha256'])
@@ -416,7 +416,7 @@ def project_ventilation_result(record, terminal, *, view='summary', page=None, l
             and terminal['G0_G4'] == 'not_assessed' and terminal['binding_sha256'] == source['time_binding_sha256']
             and all(storage._canonical(terminal[k]) == storage._canonical(progress[k]) for k in
                 ('artifact_sha256', 'context_sha256', 'status', 'counts', 'checkpoint', 'last_confirmed', 'hold', 'times')))
-        manifest = terminal['manifest']; _parsed(Manifest, manifest); identity = manifest['identity']
+        manifest = terminal['manifest']; _parsed(VentilationManifest, manifest); identity = manifest['identity']
         _need(continuation._hash(manifest) == source['context_sha256'] and identity == source['model_identity']
             and identity['engine_code_sha256'] == continuation.CODE_SHA256 and identity['driver_code_sha256'] == driver.CODE_SHA256
             and identity['short_code_sha256'] == driver.stage.CODE_SHA256 and identity['management_code_sha256'] == driver.previous.management.CODE_SHA256
@@ -428,7 +428,7 @@ def project_ventilation_result(record, terminal, *, view='summary', page=None, l
             and grid['time_code_sha256'] == server.clock.CODE_SHA256 and grid['step_count'] == numerical['step_count'] == progress['planned_steps']
             and grid['start_utc'] == packet['input']['start_utc'] and grid['end_utc'] == packet['input']['end_utc']
             and numerical['duration_seconds'] == dt*numerical['step_count'] and 0 < numerical['duration_seconds'] <= 600)
-        last = terminal['last_confirmed']; times = terminal['times']; _parsed(Snapshot, last)
+        last = terminal['last_confirmed']; times = terminal['times']; _parsed(VentilationSnapshot, last)
         _point(times['last_confirmed'], last, grid, dt); _need(last['step_index'] == progress['steps'])
         held = terminal['hold']; cp = terminal['checkpoint']; hold = None
         if progress['status'] == 'hold':
@@ -444,7 +444,7 @@ def project_ventilation_result(record, terminal, *, view='summary', page=None, l
                 and continuation._hash(cp['value']) == cp['sha256'] and cp['value']['context_sha256'] == source['context_sha256']
                 and cp['value']['next_index'] == numerical['step_count']+1 and cp['value']['last_confirmed'] == last
                 and cp['value']['output_cursor'] == progress['counts']['samples'] and cp['value']['event_cursor'] == progress['counts']['events'])
-        summary = _parsed(Summary, {'status': progress['status'], 'manifest': manifest,
+        summary = _parsed(VentilationSummary, {'status': progress['status'], 'manifest': manifest,
             'last_confirmed': {'value': last, 'time': times['last_confirmed']},
             'checkpoint_sha256': None if cp is None else cp['sha256'], 'hold': hold})
         projected_page = None
@@ -462,7 +462,7 @@ def project_ventilation_result(record, terminal, *, view='summary', page=None, l
                 previous = value['step_index']
             rows = rows if view == 'samples' else [_event(r, identity) for r in rows]
             end = page['start'] + len(rows)
-            projected_page = _parsed(SamplePage if view == 'samples' else EventPage,
+            projected_page = _parsed(VentilationSamplePage if view == 'samples' else VentilationEventPage,
                 {'kind': view, 'offset': page['start'], 'limit': limit, 'total': page['total'],
                     'next_offset': end if end < page['total'] else None, 'records': rows})
         registration = packet['binding']['registration']
@@ -473,7 +473,7 @@ def project_ventilation_result(record, terminal, *, view='summary', page=None, l
                 'input': packet['input'], 'artifact': packet['artifact'], 'code': packet['code'], 'payload_sha256': record['payload_sha256'],
                 **{k: registration[k] for k in ('normalization', 'profile_applicability')},
                 **{k: source[k] for k in ('normalization_version', 'qc_version', 'input_evidence_version')},
-                'model': identity, 'time_grid': {k: grid[k] for k in TimeGrid.model_fields},
+                'model': identity, 'time_grid': {k: grid[k] for k in VentilationTimeGrid.model_fields},
                 'last_confirmed': times['last_confirmed'], 'failed_boundary': times['hold']},
             summary=summary if view == 'summary' else None, page=projected_page)
         _public_bytes(value); return value

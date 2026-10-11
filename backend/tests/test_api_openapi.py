@@ -28,6 +28,7 @@ from app.api_crop_climate_joint_execution import SUBMIT_SCOPES as JOINT_SUBMIT_S
 
 
 OPERATIONS = {
+    ('/v1/crop-greenhouse-ventilation-research-results/{result_id}','get'): ('getGreenhouseVentilationResearchResult',list(CROP_READ_SCOPES)),
     ('/v1/crop-climate-joint-executions','post'): ('submitJointCropClimateExecution',list(JOINT_SUBMIT_SCOPES)),
     ('/v1/jobs/{job_id}/crop-climate-joint-execution','get'): ('getJointCropClimateExecution',list(JOINT_PROGRESS_SCOPES)),
     ('/v1/jobs/{job_id}/crop-climate-joint-execution/cancel','post'): ('cancelJointCropClimateExecution',['cancel']),
@@ -236,7 +237,8 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
         .replace("{report_id}", "00000000-0000-4000-8000-000000000002")
         .replace("{run_id}", ("authored-thermal-run-v1:" if '/authored-runs/' in path else
             "synthetic-thermal-v1:")+"a"*64).replace("{result_id}",
-                ("crop-cycle-verified-result-v1:" if '/crop-cycle-calculation-research-results/' in path else
+                ("joint-ventilation-result-v1:" if '/crop-greenhouse-ventilation-research-results/' in path else
+                 "crop-cycle-verified-result-v1:" if '/crop-cycle-calculation-research-results/' in path else
                  "joint-crop-climate-result-v1:" if '/crop-climate-joint-research-results/' in path else
                  "crop-harvest-registered-result-v1:" if '/crop-harvest-research-results/' in path else
                  "crop-cycle-result-v1:" if '/crop-cycle-research-results/' in path else
@@ -253,7 +255,8 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
                   if path.startswith(('/v1/crop-research-results/','/v1/crop-coupled-research-results/',
                                       '/v1/crop-startup-research-results/','/v1/crop-cycle-research-results/',
                                       '/v1/crop-cycle-calculation-research-results/','/v1/crop-harvest-research-results/',
-                                      '/v1/crop-climate-joint-research-results/'))
+                                      '/v1/crop-climate-joint-research-results/',
+                                      '/v1/crop-greenhouse-ventilation-research-results/'))
                 else b'scenario_id=example&scenario_revision=r1&registration_sha256='+b'a'*64
                   if path in ('/v1/farm-authored-inputs/activity','/v1/crop-research-result-catalog/farm-crops')
                 else b'plan_id=example&submission_sha256='+b'a'*64 if path == '/v1/break-even-plans/receipt'

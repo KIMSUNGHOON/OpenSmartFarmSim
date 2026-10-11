@@ -1,6 +1,6 @@
 {
   "schema_version": "development-status-v1",
-  "reported_at": "2026-10-11T17:42:41.554635Z",
+  "reported_at": "2026-10-11T18:01:55.472423Z",
   "stages": [
     {
       "id": "growth",
@@ -14,12 +14,12 @@
     },
     {
       "id": "api",
-      "state": "next",
-      "evidence": "진행 중: 보호 HTTPS 기본 동작·기존 API·공개 수치 형식222검사 통과. 다음은 실제 DB/TLS·권리 변경 검증. 전체 API·자동 계산·3D 연결은 아직 미완료."
+      "state": "completed",
+      "evidence": "보호 HTTPS 로컬 수용: 집중232검사 통과. 실제 DB/TLS 정상·보류, 현재 권리 철회·계정 변경·취소·전송 실패 확인. 기존56경로/262스키마 보존. 다음은 명시 서버 조립→자동 계산→같은 UTC3D."
     },
     {
       "id": "execution_3d",
-      "state": "pending",
+      "state": "next",
       "evidence": "작업 접수→자동 계산→저장 결과와 같은 UTC의 3D 연결"
     },
     {
@@ -29,8 +29,8 @@
     }
   ],
   "remaining_focused_hours": {
-    "min": 4,
-    "max": 8
+    "min": 3,
+    "max": 6
   },
   "new_model_deployed": false,
   "real_farm_runs": 0,
