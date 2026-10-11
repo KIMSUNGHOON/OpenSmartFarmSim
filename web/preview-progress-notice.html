@@ -1,5 +1,16 @@
 <aside aria-label="개발 진행 현황 안내" style="padding:16px 24px;background:#edf5ee;border-bottom:2px solid #315b3a;color:#183f23;font:16px/1.6 system-ui,sans-serif;overflow-wrap:anywhere">
   <strong>이 화면은 완료된 계산 결과의 재생 화면입니다.</strong>
-  개발 중인 새 모델의 진행 단계·최근 갱신 시각·남은 작업은
-  <a href="http://localhost:5174/#crop-execution" style="color:#183f23;font-weight:700;text-decoration:underline">개발 진행 현황 열기</a>에서 확인하세요. 진행 현황은 로그인 없이 볼 수 있습니다.
+  <p style="margin:6px 0">새 환기 모델은 화면 연결을 준비 중입니다. 아래는 개발 기록이며, 실행 중인 계산의 진행률은 아닙니다.</p>
+  <section id="preview-development-status" aria-label="제품 개발과 배포 상태">
+    <p data-progress-message role="status">최신 개발 기록을 확인하고 있습니다.</p>
+    <div data-progress-record hidden>
+      <p data-progress-time></p>
+      <ol data-progress-stages style="margin:8px 0;padding-left:24px"></ol>
+      <p data-progress-estimate></p>
+      <p data-progress-scope></p>
+      <p data-progress-checked style="font-size:14px"></p>
+    </div>
+  </section>
+  <a href="http://localhost:5174/#crop-execution" style="color:#183f23;font-weight:700;text-decoration:underline">개발 진행 현황 열기</a> · 로그인 없이 볼 수 있습니다.
 </aside>
+<script type="module" src="/preview-progress.js"></script>

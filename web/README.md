@@ -389,6 +389,8 @@ See the [contract](../contracts/web-calculation-assessment-v1.md) and
 [verification record](../research/web-calculation-assessment-implementation.md).
 # 개발 진행 확인 — 2026-10-12
 
+**5173에서도 직접 확인:** `http://localhost:5173/` 을 새로고침하면 상단에 같은 개발 기록의5단계·갱신 시각·작업량 추정을 인증 없이 표시한다. 두 주소의 `/development-status.json`은 같은 현재 기록을 제공한다. [검증/복구 기록](../research/product-ui-inline-development-progress-20261012.md)을 참조한다. 이 기록은 계산 작업의 실시간 진행률이 아니며 현재 원 작업은64/64완료다.
+
 현재 상태 화면은 **http://localhost:5174/#crop-execution** 이다. 새로고침하면 인증 없이 상단에서
 최근 검증 완료 단계·다음 작업·기록 갱신 시각·새 모델의 배포 여부·남은 집중 작업량을 확인한다.
 개발 기록을15초마다 다시 읽는다. 단계 수용뿐 아니라 구현 중인 작업, 검증 착수·실패·수정 후 확인도 기록에 게시한다. 완료 표시는 수용 증거가 있을 때만 바뀐다. 선택한 계산의 진행률은 인증/작업 선택 뒤 별도로 조회한다.

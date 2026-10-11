@@ -1,0 +1,207 @@
+{
+  "task": "product-ui-inline-development-progress",
+  "status": "accepted_local_user_preview",
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-11T20:23:42.307Z",
+    "raw_line_sha256": "f2fe67707668ce048ba3105a2086371276032abdade0396d9d3acdceed868e52",
+    "same_native_CLI_session": true,
+    "recursive_cli_invocations": 0
+  },
+  "frontend_URLs": [
+    "http://localhost:5173/",
+    "http://localhost:5174/#crop-execution"
+  ],
+  "core_sha256": {
+    "web/preview-progress-notice.html": "0113bc1d27b19377192166dbf0caede3fd14c5a06f74054ec71363788eb6f6e6",
+    "web/preview-progress.js": "298e706c5c8dc278283b04e141320bc7a0130e1c8ab1ab6516158522a5c898f3"
+  },
+  "guards": {
+    "activation": {
+      "original_tool_session": 64962,
+      "terminal_collected": true,
+      "terminal_sha256": "8053b87b446f9a099d26fe0ffec49f72b71e895aa2c801d261839000f858acf5",
+      "actual_child_exit": 0,
+      "wall_seconds": 0.8724674570039497,
+      "source_count": 2031,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "protected_live": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 136704000,
+      "combined_peak_RSS_bytes": 646492160,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true
+    },
+    "browser": {
+      "original_tool_session": 1970,
+      "terminal_collected": true,
+      "terminal_sha256": "97a94869d5453286cacf0880ed8d71361155643a559ab24d19962beeff50937b",
+      "actual_child_exit": 0,
+      "wall_seconds": 39.122600513997895,
+      "source_count": 2031,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "protected_live": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 247996416,
+      "combined_peak_RSS_bytes": 983502848,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true
+    },
+    "current_job_preservation": {
+      "original_tool_session": 8147,
+      "terminal_collected": true,
+      "terminal_sha256": "4018cc7f7ff071fc71033953d9d29ad628a63b12f3325d2b383e9a41f2c77805",
+      "actual_child_exit": 0,
+      "wall_seconds": 8.270073045001482,
+      "source_count": 2031,
+      "source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "protected_root_count": 4,
+      "protected_live": true,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "single_PID_peak_RSS_bytes": 136704000,
+      "combined_peak_RSS_bytes": 712499200,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true
+    }
+  },
+  "browser": {
+    "actual_both_HTTP": true,
+    "actual_same_source_record": true,
+    "stage_count": 5,
+    "authentication_required": false,
+    "actual_poll_failure_preserves_record": true,
+    "actual_poll_recovers_without_reload": true,
+    "rejected_browser_only_cases": [
+      "SPA HTML fallback",
+      "unknown schema",
+      "unknown field",
+      "oversize"
+    ],
+    "stale_browser_only_record_identified": true,
+    "legacyMobile": {
+      "viewport": 390,
+      "scroll": 390
+    },
+    "jointMobile": {
+      "viewport": 390,
+      "scroll": 390
+    },
+    "navigation_clicked": true,
+    "UI_fixture_scope": "isolated browser network overrides only; no shared feed/server record changed",
+    "record_time": "2026-10-11T20:13:29.898492Z",
+    "new_model_deployed": false,
+    "full_product_completion": null,
+    "API_writes": 0,
+    "credentialed_status_requests": 0,
+    "pageerrors": [],
+    "first_actual_HTTP": {
+      "status": 200,
+      "cache": "no-store",
+      "contentType": "application/json"
+    }
+  },
+  "actual_job_read": {
+    "HTTP": 200,
+    "checkpoint_recorded_at": "2026-10-11T12:14:52.221376Z",
+    "checkpoint_status": "current",
+    "computed_through_utc": "2026-10-01T00:02:08.123456Z",
+    "counts": {
+      "events": 3,
+      "samples": 9
+    },
+    "job_id": "291f2af1-c02f-4c92-b1c5-7e2ea01c3999",
+    "new_simulations_started": 0,
+    "observed_at": "2026-10-11T20:32:47.811121Z",
+    "planned_steps": 64,
+    "state": "succeeded",
+    "steps": 64
+  },
+  "preservation": {
+    "G0_G4": "not_assessed",
+    "at": "2026-10-11T20:32:50.897274+00:00",
+    "core_sha256": {
+      "backend/app/api.py": "f035a0158c63074ed15ab47710f270b861bd2567b8bc57b98d925a96dba8b755",
+      "backend/app/api_crop_greenhouse_ventilation_execution.py": "616e526b0922b87a0bda673575c90d75bf3774979723033ceeeb67238093df00",
+      "backend/app/api_runtime.py": "87f1afbd2c91c0f31c064f3165c50efd02ab694d285dbd380e265d88c913026e",
+      "backend/app/crop_greenhouse_ventilation_execution_query.py": "2683806a1b103b0a4de0d24bfe276dae850202c69bbdab4b44c2be46b8579535",
+      "backend/app/crop_greenhouse_ventilation_operator_config.py": "a4b809c730b4c5d72fd6fea4db2f145d3894afc5f0b6cdd56699d346a4ff535f",
+      "backend/tests/test_api_crop_greenhouse_ventilation_execution.py": "d25f3a632fe1afe8b5460d779076277a53d907a49ed95ae4ff5664a3fcbc90ed",
+      "backend/tests/test_crop_greenhouse_ventilation_execution_query.py": "32e11ce6089e17990a52a173147125a53aa5f3570162388e7374a6af0932bc10",
+      "backend/tests/test_crop_greenhouse_ventilation_execution_runtime.py": "32c202ffe5cc25bf3ff425cf9be6e918f44b2991c3b2986e8ea13ebbe4612f62",
+      "contracts/crop-greenhouse-ventilation-execution-http-v1.md": "a3fc8d8182f3416eef8e1f2ad3314b947e8c261853ad4e88b6613147a2d5fe7e"
+    },
+    "current_assets_unchanged": 172,
+    "current_source_snapshot_unchanged": 194,
+    "explicit_shared_changes": {},
+    "frontends": {
+      "5173": {
+        "index_sha256": "b90e2a960b2345952c47eac7f8acafe7b2a39f6ff8ba7d3cd9b29b0216ddd094",
+        "status": 200
+      },
+      "5174": {
+        "index_sha256": "6ddc5d81e4517375bb6201cd0bd9739785d07b7d4d0e28bf842a55c7f8ade363",
+        "status": 200
+      }
+    },
+    "frozen_assets": 171,
+    "frozen_source_files": 1911,
+    "old_calculation_files_unchanged": 271,
+    "prior_overlay_assets": 171,
+    "progress_HTTP": 200,
+    "progress_no_store": true,
+    "progress_sha256": "c0359b9ab842bd1185dcc4a8646856cb0934a67911f75750759c2dbaff9608a8",
+    "protected_roots_live": 4,
+    "rights_reviews_guides_preserved": true,
+    "user_backend_worker_restart": false
+  },
+  "published_record_sha256": "c0359b9ab842bd1185dcc4a8646856cb0934a67911f75750759c2dbaff9608a8",
+  "new_ventilation_model_deployed": false,
+  "actual_farm_runs": 0,
+  "independent_local_datasets": 0,
+  "G0_G4": "not_assessed",
+  "not_run": [
+    "full_CI",
+    "new_ventilation_3D",
+    "new_crop_simulation",
+    "production_validation"
+  ],
+  "next": "crop-greenhouse-ventilation-web-terminal-3d",
+  "remaining_focused_hours": [
+    2,
+    5
+  ],
+  "full_product_completion": null
+}
