@@ -5,9 +5,8 @@
 [환기 결과 DB 형식·명시 권한](../research/crop-greenhouse-ventilation-result-schema-roles-implementation-20261012.md)을 새12/기존12·현재 결속 회귀3=27그룹과 최종 보존으로 로컬 수용했다.
 기본False·기존 설정5종의 명시 비활성·실제 SCRAM/원 bytes·UTC·기존3종 결과 행/권한을 확인했다.
 공통4파일은 필요한 opt-in만 추가하고 전후 SHA/회귀를 기록했다. 기존236파일·원본/기동 두 UI·권리·WSL은 보존했다.
-다음 한 단계는 signed store의 원자 put/retry·현재 get/page/summary와 호출자 transaction/rollback이다.
-수용: 새 custody/현재 권한 아래 실제 completed/hold 원 결과·최초 bytes/recorded_at·원 페이지/UTC/fresh·철회/혼합/변조·조회9수치 호출0·구 결과/두 UI/WSL 보존.
-이후 typed 공개 조회/보호 HTTPS를 수용해야 상위 결과 API를 평가한다. DB fixture만으로 실제 계산 등록/API·생산/G0 승인을 주장하지 않는다.
+[signed 결과 등록/현재 조회](../research/crop-greenhouse-ventilation-result-store-implementation-20261012.md)을 새19/기존1=20그룹과 최종 보존으로 로컬 수용했다. 실제 SCRAM/fresh·최초 bytes/recorded_at·원 페이지/UTC·조회9수치 호출0·호출자 거래/rollback·두 모델 signed 행 공존을 확인했다. 기존241파일·원본/두 UI/WSL을 보존했다.
+다음 한 단계는 typed 공개 조회/보호 HTTPS다. 수용: 원108상태/25연속/6사건/10수지·환기 진단/원 UTC/manifest를 혼합 없이 직렬화, 현재 권리·반환 전후 철회/변조 거부·조회9수치 호출0·2MiB 상한·실제 SCRAM/TLS·기존 API/두 UI/WSL 보존. 상위 API·worker/UI·생산/G0 승인은 미수용이다.
 
 [환기 서버 서명 이력·재개](../research/crop-greenhouse-ventilation-server-custody-implementation-20261012.md)는 새7/기존4그룹을 통과했다.
 실제 SCRAM/fresh·HEAD 전후 SIGKILL의 선택 prefix1/2→동일 원 checkpoint·조회9수치 호출0·권리/변조/hold를 확인했다.
@@ -33,12 +32,12 @@
 | --- | --- | --- |
 | 새 입력 증거·농장 결속 | 입력332검사·농장 새6/회귀6그룹·최종 보존 수용 |완료 |
 | 서버 서명 이력·재개 | 새7/기존4그룹·fresh/실제 HEAD 전후 SIGKILL·최종 보존 수용 |완료 |
-| 결과 등록/보호 API | DB 형식/권한27그룹 수용; signed store/typed query·SCRAM/TLS·철회/원 값/조회0 남음 |1–2 |
+| 결과 등록/보호 API | DB 형식/권한27·signed store20그룹 수용; typed query/보호 HTTPS·철회/원 값/조회0 남음 |1–2 |
 | worker·typed web/같은 UTC3D | 위 API·같은 작업의 running/terminal·원 값/시각·취소/재접속 |2–4 |
 | 사용자 적용 | 원 DB/두 서버/WSL 보존·실제 브라우저 정상/hold/취소·적용 주소 보고 |1–2 |
 
 입력/농장 결속 수용 뒤 합계5–10시간에서 서버 서명 이력까지 완료했다. **남은 합계4–8집중작업시간**이며 실제 구현·검증 결과로 교체한다. 연속 작업/외부 장애 없는 조건의 잠정 작업량이지 완료 약속이 아니다.
-새 입력 증거·현재 농장 권한·서명 저장까지 수용했다. 결과 등록/API 수용 전 새 계산값을 UI에 게시하지 않는다.
+새 입력 증거·현재 농장 권한·서명 저장까지 수용했다. 보호 API/worker/3D 수용 전 새 계산값을 UI에 게시하지 않는다.
 현재 두 사용자 화면에 새 환기 모델은 미배포다. 기존 source/결과와 G0–G4 보류를 유지한다.
 실제 품종/독립 자료0과 미완료 온실/자원/경제/최종 UI를 고려해 전체 제품 완료 날짜는 미정이다.
 
