@@ -1,5 +1,7 @@
 # OpenSmartFarmSim
 
+**2026-10-11 실제 계산 중3D 부분 확인:** [reader v5/제품 브라우저](research/crop-climate-joint-prefix-browser-v5-20261011.md)에서 정상·hold의 확정 prefix 원 수치/UTC·WebGL→원 terminal·재접속/권리 철회·복원을 확인했다. 취소 검증이 남아 P6a/P6b는 미완료다. 두 사용자 화면은 원 결과/DB/키·권리를 보존해 복구했으며 [새 접속 안내](web/README.md#joint-execution-user-preview)는 run-v8/serve-v8이다. 현재5174는 진행률/확정 checkpoint polling·종료 후3D이며 계산 중3D는 비활성이다.
+
 **2026-10-11 계산 중 조회 비용 수정:** [P6a2c1 계측·P6a2c2 reader v5](research/crop-climate-joint-prefix-read-cost-implementation-20261011.md)를 최종 고유267개·실제 unpaused 정상/hold/cancel로 로컬 수용했다. 사건 조회는 계측25.502→10.210초, 같은 선택자의 사건/생장200·원 terminal 수치/UTC와 현재 권리를 확인했다. 원본·두 사용자 서버는 보존했다. 다음은 실제 제품 브라우저/WebGL P6a→사용자5174 적용 P6b이며 현재 계산 중3D는 비활성이다. [접속 안내](web/README.md#joint-execution-user-preview)를 따른다.
 
 **2026-10-11 중간 결과 전진 읽기:** [P6a2b1 reader v4/HTTP](research/crop-climate-joint-prefix-forward-read-implementation-20261011.md)를 동일 최종 core 고유265개·실제 자동 정상/hold/cancel로 로컬 수용했다. 계산 중 공개 요약→같은 선택자의 사건/생장200·원 terminal 값/UTC를 확인했다. 두 사용자 서버와 원본을 유지했으며 P6a 실제 WebGL/P6b 적용은 아직 남아 있다. 현재5173/5174의 계산 중3D 활성화를 뜻하지 않는다.

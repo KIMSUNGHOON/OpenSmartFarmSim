@@ -1,0 +1,312 @@
+{
+  "API_mocking": false,
+  "G0_G4": "not_assessed",
+  "P6a_accepted": false,
+  "P6b_accepted": false,
+  "RSS_sample_interval_seconds": 0.25,
+  "actual_farm_Runs": 0,
+  "candidate_asset_count": 171,
+  "candidate_asset_manifest_sha256": "e20d13fbdd454230f413c5a3727a6b74839394967dc441685d2af1a90a38afff",
+  "cases": [
+    {
+      "HTTP_status_counts": {
+        "200": 10,
+        "202": 1,
+        "503": 4
+      },
+      "accepted": false,
+      "actual_browser_exit": 1,
+      "actual_child_exit": 1,
+      "actual_service_exit": 0,
+      "actual_tool_exit": 1,
+      "browser_observation_sha256": "871596a6b14287a950ae0fb94dac702ce92ecac08d5b2eed8fd068d61599b69d",
+      "case": "focused-live-normal-v1",
+      "combined_peak_RSS_bytes": 1035927552,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_revocation": null,
+      "guard_terminal_sha256": "f79c43641bc4fa44f5b2c58b2ec784e0312bafc678120e118aa1639fcf79a8af",
+      "initial_empty_no_scene": null,
+      "native_reason": null,
+      "native_terminal_sha256": "ddef740b19bffa8a1bbc8568728f3a3d22bfff78606a769b381f3240b7abf6ad",
+      "original_source_entries": 2148,
+      "original_tool_session": 19557,
+      "owned_cleanup_complete": true,
+      "reconnect": false,
+      "reference_mjs_sha256": "b2f1e946e3519d4149bba26a8b4f8810240572a4600801787995974d85079fe2",
+      "reference_python_sha256": "2e51b6a0ede78e76f6d4ff3a0b3caf2be7c0075ea3941211ce6d669dded5e133",
+      "running_WebGL_scenes": 1,
+      "same_original_prefix_rows_and_binary64_UTC": false,
+      "single_PID_peak_RSS_bytes": 378769408,
+      "source_originals_and_frozen_previews_preserved": true,
+      "terminal_status": null,
+      "wall_seconds": 139.74203150999892
+    },
+    {
+      "HTTP_status_counts": {
+        "200": 19,
+        "202": 1,
+        "422": 1,
+        "503": 3
+      },
+      "accepted": true,
+      "actual_browser_exit": 0,
+      "actual_child_exit": 0,
+      "actual_service_exit": 0,
+      "actual_tool_exit": 0,
+      "browser_observation_sha256": "63f42b8d08d413f796502500ceb2437f463ac6db670aa22aca79bcd53ca6af68",
+      "case": "focused-live-normal-v2",
+      "combined_peak_RSS_bytes": 1018904576,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_revocation": {
+        "actual_policy_file_change": true,
+        "code": "joint_research_hold",
+        "original_sha256": "cbd8aa3850d922cafedb4ee4d871a8ce4e4bea158d52175bd34cf1f763485847",
+        "prior_scene_cleared": true,
+        "response_index": 21,
+        "restored": true,
+        "status": 422
+      },
+      "guard_terminal_sha256": "01823032a3c90ade09b5408bd00c68be556ff1939cbf7770e04a4f71d804f2df",
+      "initial_empty_no_scene": true,
+      "native_reason": null,
+      "native_terminal_sha256": "854a0cb82a3d3f37473eef008bf334bb88735fa4c6b6599678576b11edfd5da4",
+      "original_source_entries": 2148,
+      "original_tool_session": 49259,
+      "owned_cleanup_complete": true,
+      "reconnect": true,
+      "reference_mjs_sha256": "695ce1766e6196e1c7ce7442f13f4d0d431f2a05f887673dcf31c1117b6933f8",
+      "reference_python_sha256": "9658dfd821c915260c6d622f94c8274256abb83e0df45abe6fceccf3a5701022",
+      "running_WebGL_scenes": 1,
+      "same_original_prefix_rows_and_binary64_UTC": true,
+      "single_PID_peak_RSS_bytes": 392339456,
+      "source_originals_and_frozen_previews_preserved": true,
+      "terminal_status": "completed",
+      "wall_seconds": 173.0867470560006
+    },
+    {
+      "HTTP_status_counts": {
+        "200": 15,
+        "202": 1,
+        "409": 1,
+        "503": 3
+      },
+      "accepted": true,
+      "actual_browser_exit": 0,
+      "actual_child_exit": 0,
+      "actual_service_exit": 0,
+      "actual_tool_exit": 0,
+      "browser_observation_sha256": "5eb6dabbb38b827c5b67f0cd076dc1059f0ea105da304b47245a554771856637",
+      "case": "focused-live-hold-v1",
+      "combined_peak_RSS_bytes": 1022259200,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_revocation": null,
+      "guard_terminal_sha256": "af5eb0cdcf7437009f25e6d91abbd38b933b5820d73a03e62e19c8d6cb94d107",
+      "initial_empty_no_scene": true,
+      "native_reason": null,
+      "native_terminal_sha256": "9b0117e3b7dcd59ed00575e41d5ab606ecee52ae98a60705d1bd98bdc0cfaceb",
+      "original_source_entries": 2148,
+      "original_tool_session": 7699,
+      "owned_cleanup_complete": true,
+      "reconnect": true,
+      "reference_mjs_sha256": "695ce1766e6196e1c7ce7442f13f4d0d431f2a05f887673dcf31c1117b6933f8",
+      "reference_python_sha256": "9658dfd821c915260c6d622f94c8274256abb83e0df45abe6fceccf3a5701022",
+      "running_WebGL_scenes": 1,
+      "same_original_prefix_rows_and_binary64_UTC": true,
+      "single_PID_peak_RSS_bytes": 391159808,
+      "source_originals_and_frozen_previews_preserved": true,
+      "terminal_status": "hold",
+      "wall_seconds": 163.30909913800133
+    },
+    {
+      "HTTP_status_counts": {
+        "200": 8,
+        "202": 1,
+        "503": 4
+      },
+      "accepted": false,
+      "actual_browser_exit": 1,
+      "actual_child_exit": 1,
+      "actual_service_exit": 0,
+      "actual_tool_exit": 1,
+      "browser_observation_sha256": "8aeb20bf52eadb96fd8505028daab2bea2dab2b4afae109c94f9c53093b002c6",
+      "case": "focused-live-cancel-v1",
+      "combined_peak_RSS_bytes": 1028784128,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_revocation": null,
+      "guard_terminal_sha256": "c78aae6a186ac30cd96925ff21f451ca296fadcda9d216711f0f0da186293aab",
+      "initial_empty_no_scene": null,
+      "native_reason": null,
+      "native_terminal_sha256": "d9836c3ee9fc5f2633d293cb3b7de7620ed1f8e92367a219315c0aaf8e17fb8e",
+      "original_source_entries": 2148,
+      "original_tool_session": 73072,
+      "owned_cleanup_complete": true,
+      "reconnect": false,
+      "reference_mjs_sha256": "695ce1766e6196e1c7ce7442f13f4d0d431f2a05f887673dcf31c1117b6933f8",
+      "reference_python_sha256": "9658dfd821c915260c6d622f94c8274256abb83e0df45abe6fceccf3a5701022",
+      "running_WebGL_scenes": 1,
+      "same_original_prefix_rows_and_binary64_UTC": false,
+      "single_PID_peak_RSS_bytes": 373657600,
+      "source_originals_and_frozen_previews_preserved": true,
+      "terminal_status": null,
+      "wall_seconds": 249.51259867599947
+    },
+    {
+      "HTTP_status_counts": {
+        "200": 7,
+        "202": 1,
+        "503": 3
+      },
+      "accepted": false,
+      "actual_browser_exit": 1,
+      "actual_child_exit": 1,
+      "actual_service_exit": 0,
+      "actual_tool_exit": null,
+      "browser_observation_sha256": "31edca3ced35e9647971258eda19086d07e65435bb5041b543925428cceed70b",
+      "case": "focused-live-cancel-v2",
+      "combined_peak_RSS_bytes": 1026830336,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_revocation": null,
+      "guard_terminal_sha256": "1291fc476be6ed769721decf58edd9e4e5021397387b6c20c48732c2c61fc900",
+      "initial_empty_no_scene": null,
+      "native_reason": "browser_RSS_soft_limit",
+      "native_terminal_sha256": "cb6780b6f1fe6821183d9c226c9bdcb635c6a9b9278d7220c50b5f65a8344496",
+      "original_source_entries": 2148,
+      "original_tool_session": 16786,
+      "owned_cleanup_complete": true,
+      "reconnect": false,
+      "reference_mjs_sha256": "9cab12e59a2a257dcd7cb9fe2ff2caba7416ab0d19b00cb597a8ceb2cec12e6d",
+      "reference_python_sha256": "9658dfd821c915260c6d622f94c8274256abb83e0df45abe6fceccf3a5701022",
+      "running_WebGL_scenes": 1,
+      "same_original_prefix_rows_and_binary64_UTC": false,
+      "single_PID_peak_RSS_bytes": 411058176,
+      "source_originals_and_frozen_previews_preserved": true,
+      "terminal_status": null,
+      "wall_seconds": 89.46685444099785
+    }
+  ],
+  "current_helper_full_browser_acceptance": false,
+  "failure_notes": {
+    "cancel_v1": "First UI cancel HTTP503; no acceptance, job succeeded; coincident PG SELECT jobs FOR UPDATE statement timeout, API stack untraced.",
+    "cancel_v2": "Bounded UI retry observed HTTP200 with cancel_accepted=false, cancel_requested=false, job succeeded; browser RSS soft limit prevented terminal browser acceptance. Original tool handle unavailable; tool exit null.",
+    "normal_v1": "Harness assumed terminal events fetched automatically; existing event button must be used. Not accepted."
+  },
+  "identical_product_backend_app_files": 203,
+  "identical_product_web_src_files": 115,
+  "independent_domestic_datasets": 0,
+  "legacy_probe_actual_exit": 0,
+  "legacy_probe_terminal_sha256": "73d39202618383163fab097078663afd91e8df93ba37966855162124184ddb3d",
+  "native_CLI_evidence": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "timestamp": "2026-10-11T09:32:10.667Z",
+    "turn_context_sha256": "e23b3f4ca7216bf8f3e87b8c0016f87e3e0a4813ce8f6a50fda90d2e2a110849"
+  },
+  "not_run": [
+    "full CI",
+    "remote operations",
+    "additional whole-cycle computation",
+    "new product UI build",
+    "final cancel acceptance"
+  ],
+  "per_case_helper_hashes_are_recorded": true,
+  "product_core_commit": "aa619316bddbf79dce128e74f5cc4c12e7d0d9ae",
+  "remaining": [
+    "cancel before terminal transition with actual acceptance and worker confirmation under RSS limits",
+    "P6a complete acceptance",
+    "P6b user activation",
+    "production data and claim gates"
+  ],
+  "resource_limits_bytes": {
+    "combined": 1073741824,
+    "single_PID": 536870912
+  },
+  "restoration": {
+    "P6a_accepted": false,
+    "P6b_accepted": false,
+    "at_utc": "2026-10-11T10:08:11.247593+00:00",
+    "authenticated_old_joint_responses": 7,
+    "existing_files_preserved": 274,
+    "frontends": {
+      "5173": {
+        "HTML_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1",
+        "status": 200
+      },
+      "5174": {
+        "HTML_sha256": "5f8062c48dd576fed3963bc2ac71b2dd5db2e83fbdb580858216f771cd3b637a",
+        "status": 200
+      }
+    },
+    "integrity_original_session": 69854,
+    "joint_original_session": 73699,
+    "keys_rights_DSN_preserved": true,
+    "legacy_original_session": 62256,
+    "legacy_probe_original_session": 50514,
+    "original_source_entries": 2148,
+    "preexisting_row_counts": {
+      "job_attempts": 22,
+      "job_events": 249,
+      "jobs": 104
+    },
+    "protected_roots_live": 4,
+    "query_original_session": 67578,
+    "restored_worker_attempts": 0,
+    "same_original_results": true,
+    "temporary_port_5175_closed": true
+  },
+  "restoration_guards": [
+    {
+      "actual_tool_exit": 0,
+      "case": "focused-restored-query-v1",
+      "combined_peak_RSS_bytes": 670109696,
+      "original_tool_session": 67578,
+      "protected_roots": 4,
+      "single_PID_peak_RSS_bytes": 136900608,
+      "source_and_originals_preserved": true,
+      "terminal_sha256": "043af03705270e93c0f9e49b03586f592dbf061ad2c66f2f44f22adbfe21c4dc",
+      "wall_seconds": 39.2310961889998
+    },
+    {
+      "actual_tool_exit": 0,
+      "case": "focused-restored-integrity-v1",
+      "combined_peak_RSS_bytes": 569085952,
+      "original_tool_session": 69854,
+      "protected_roots": 4,
+      "single_PID_peak_RSS_bytes": 136900608,
+      "source_and_originals_preserved": true,
+      "terminal_sha256": "6c97a29b1f30e6bbce2f637d5216f354179d8825901518b3dfb70086713b8fd6",
+      "wall_seconds": 0.33708122999814805
+    }
+  ],
+  "restored_rows_preserved": {
+    "job_attempts": true,
+    "job_events": true,
+    "jobs": true
+  },
+  "running_screenshot": {
+    "copied_without_modification": true,
+    "path": "research/artifacts/crop-climate-joint-prefix-running-v5-20261011.png",
+    "sha256": "5c471089e62e278ba195c17395c52259f8e780d461abda4b3707f1f6e0be2f9a",
+    "visually_inspected": true
+  },
+  "same_product_core_across_cases_and_current_checkout": true,
+  "scope": "synthetic native browser evidence; partial P6a, no user prefix activation",
+  "version": 1,
+  "worker_chunk_budget": 8,
+  "worker_pause_or_delay": false
+}

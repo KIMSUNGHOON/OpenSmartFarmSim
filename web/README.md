@@ -4,7 +4,8 @@
 
 2026-10-11 WSL 재시작 뒤 두 서버를 [보존 결과로 복구](../research/crop-user-preview-reboot-recovery-20261011.md)했다. 아래 새 접속 파일을 사용한다.
 같은 날 실제 계산 중3D의 유지보수 검증 뒤 [두 기존 frozen 서버를 다시 복구](../research/crop-climate-joint-progress-prefix-retry-20261011.md#사용자-서버-복구-확인)했다. 현재 안내는 이 재기동의 새 토큰을 가리킨다.
-이후 [v4 실제 브라우저 검증](../research/crop-climate-joint-prefix-browser-v4-20261011.md)에서도 계산 중3D를 수용하지 못해 두 기존 화면을 다시 복구했다. 아래 경로는 최종 `run-v7`/`serve-v7`의 안내다.
+이후 [v4 실제 브라우저 검증](../research/crop-climate-joint-prefix-browser-v4-20261011.md)에서도 계산 중3D를 수용하지 못해 두 기존 화면을 당시 `run-v7`/`serve-v7`로 다시 복구했다.
+이후 [v5 실제 WebGL 부분 검증·복구](../research/crop-climate-joint-prefix-browser-v5-20261011.md)에서 정상/hold를 확인했지만 취소 검증이 남았다. 두 기존 화면을 다시 복구했으며 **현재 접속 파일은 아래 `run-v8`/`serve-v8`**이다. 계산 중3D는 아직 사용자5174에서 비활성이다.
 
 ## 계산 상태 자동 조회와 저장3D — 2026-10-10
 
@@ -14,7 +15,7 @@
 
 접속 토큰·기존 작업 ID/농장 필드·Windows에서 파일을 여는 경로는 다음 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v7/OPEN-UI.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v8/OPEN-UI.private.txt`
 
 1. 위 파일을 로컬 편집기로 열고5174에서 **내부 시험 연결 → 접근 토큰 → 연결 설정**을 선택한다.
 2. **08 성장 연구 3D → joint 실행 · 계산 상태와 완료 3D**를 선택한다.
@@ -25,7 +26,7 @@
 4. 작업 상태·확정 checkpoint를 확인하고, 완료되면 저장 결과의3D를 연다.
    이미 완료된 작업을 보려면 보호 안내의 작업 ID와 농장 필드로 재접속한다. 정상/hold의 재시작 후 조회도 실제 브라우저로 확인했다.
 
-현재 토큰은 **2026-10-12 17:03 KST**까지 유효하며 페이지 메모리에만 둔다. 새로고침 뒤에는 다시 연결한다.
+현재 토큰은 이번 재기동에서 새로 발급한 약24시간 유효 토큰이며 페이지 메모리에만 둔다. 새로고침 뒤에는 다시 연결한다. 이전 기동의 토큰은 사용할 수 없다.
 자동 조회는 이전 응답 완료 뒤10초를 기다리고 서버 조회 시간이 추가된다. 짧은 예제는 중간 checkpoint 조회 전에 끝날 수 있다.
 탭 숨김/화면 이탈은 화면 조회를 멈춘다. 서버 계산 중단은 별도 취소 요청과 작업자 확인이 필요하다.
 토큰을 저장소·URL·로그·스크린샷에 복사하지 않는다.
@@ -53,7 +54,7 @@
 
 새 접속 토큰과 원 결과의 다섯 입력값은 저장소 밖의 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v7/service/OPEN-UI.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v8/service/OPEN-UI.private.txt`
 
 2026-10-10 기존 서비스 종료를 확인한 뒤 보존 원본으로 재기동했다.
 이전 토큰 대신 위 새 안내를 사용한다. 인증된 생장/수확 summary의 원 wire 일치·계산0을

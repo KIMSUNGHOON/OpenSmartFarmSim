@@ -267,6 +267,7 @@ def run_live(args):
         context_file = directory/'browser-context.private.json'
         save(context_file, {'origin': f'http://127.0.0.1:{web_port}', 'mode': args.mode,
             'access_file': str(active/'access.private.json'), 'request_file': str(request_file),
+            'rights_file': str(service/'rights.private.json'),
             'farm': request['farm'], 'directory': str(directory),
             'playwright': str(ROOT/'web/node_modules/playwright-core/index.mjs')})
         output = (directory/'browser.private.log').open('xb'); logs.append(output); os.fchmod(output.fileno(), 0o600)
