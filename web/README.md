@@ -35,7 +35,7 @@
 기존5173은 아래의 완료166일 저장 재생용으로 유지한다. 계산 중 확정 prefix의 성장3D·두 주소의 통합/최종 U0–U5와 전체 U3는 미완료다.
 [P4 웹 reader](../research/crop-climate-joint-prefix-web-client-implementation-20261010.md)는 실제 SDK/TLS로 로컬 수용했다. [P5 화면 기능](../research/crop-climate-joint-prefix-ui-implementation-20261010.md)도 기록 응답 Chromium35/웹303·타입/build로 수용했으며 P6 실제 브라우저·사용자 기동이 남았다. 현재 서버의 화면은 아직 변경하지 않았다. 최종 디자인 일치는 보류다.
 [P6a0 조회 수정](../research/crop-climate-joint-progress-prefix-retry-20261011.md)은 표준 CLI38개/웹303으로 확인했다. 실제 후보는 event200 뒤 samples503로 계산 중3D를 보여주지 못해 미수용이며 현재5174에 적용하지 않았다.
-[P6a1 실제 원인 분류](../research/crop-climate-joint-prefix-page-diagnosis-20261011.md)는 별도 자동 작업자 진단2회에서 임대 갱신·결과 판본 전진·작업 시작/종료에 따른 조회 보류를 구분했다. 다음은 정상 임대 갱신을 구분하는 reader 수정이며, 현재 사용자 화면의 연동 범위는 위와 같다.
+[P6a1 실제 원인 분류](../research/crop-climate-joint-prefix-page-diagnosis-20261011.md)는 별도 자동 작업자 진단2회에서 임대 갱신·결과 판본 전진·작업 시작/종료에 따른 조회 보류를 구분했다. 이후 [P6a2a reader v3/HTTP](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)의 정상 임대 갱신 비교를 고유245개·제한된 소유 scratch PG의 자동 정상/hold/cancel로 확인했다. 실제 계산 중 WebGL과 사용자 적용은 남아 있어 현재 화면의 연동 범위는 위와 같다.
 현재3D는 저장 LAI·과실 구획·온도의 수치 모식도이며 G0–G4·실제 생산/미래 마진/추천 보류는 유지한다.
 
 ## 기존 제품 앱의 로컬 동시 기동 — 2026-10-09

@@ -1,5 +1,7 @@
 """Actual SCRAM reads of accepted, immutable, nonterminal joint pages."""
 from copy import deepcopy
+from contextlib import contextmanager
+from datetime import datetime
 from hashlib import sha256
 import json
 import os
@@ -70,6 +72,62 @@ def advance(worker, job_id, raw, lease, budget):
 
 def writable(value):
     value[4]['scopes'].update({'simulation_execute', 'crop_result_write'})
+
+
+@contextmanager
+def independent_heartbeat(worker, job_id, raw, value, tmp_path):
+    pack = reference.reference.producer.fresh_pack(tmp_path, value, worker.server.inspect('tenant-1', raw), worker.server)
+    packet = json.loads(pack.read_bytes()); packet.update(job_id=job_id, phase='reader'); pack.write_text(json.dumps(packet))
+    script = reference.reference.FRESH_WORKER.split('with MonkeyPatch.context()')[0] + '''
+from psycopg import sql
+def row():
+ with jobs.connect() as conn:
+  assert conn.pgconn.used_password and conn.info.get_parameters()['require_auth']=='scram-sha-256'
+  return conn.execute(sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s').format(jobs._table('jobs')),('tenant-1',p['job_id'])).fetchone()
+before=row()
+assert jobs.renew('tenant-1',p['job_id'],before['attempt_count'],before['lease_token'],600)
+after=row()
+changed=sorted(k for k in before if before[k]!=after[k])
+assert changed==['lease_until','updated_at']
+assert all(before[k]<after[k] for k in changed)
+print(json.dumps({'actual_scram':True,'changed_job_fields':changed,'timestamps_strictly_increased':True,
+ 'updated_at':after['updated_at'].isoformat().replace('+00:00','Z'),'lease_renewed_event_is_intentional':True}))
+'''
+    def renew():
+        child = subprocess.run([sys.executable, '-B', '-c', script, str(pack)], capture_output=True,
+            stdin=subprocess.DEVNULL, timeout=120, env=dict(os.environ, PYTHONPATH=reference.reference.producer.FRESH_PYTHONPATH))
+        assert child.returncode == 0, child.stderr.decode()
+        return json.loads(child.stdout)
+    try:
+        yield renew
+    finally:
+        pack.unlink(); (tmp_path/'proof.private.json').unlink()
+
+
+def test_actual_independent_heartbeat_during_read_preserves_original_page(setup, tmp_path, monkeypatch):
+    query, worker, job_id, raw, value = setup
+    lease = reference.confirm(worker, job_id); _, accepted = advance(worker, job_id, raw, lease, 8)
+    pin = {k: accepted['checkpoint'][k] for k in ('publication_sequence', 'head_sha256', 'proof_sha256')}
+    reference.readonly(value)
+    expected = read(query, job_id, selector=pin, view='samples')
+    original = query.query._bundle; observed = []; count = 0
+    with independent_heartbeat(worker, job_id, raw, value, tmp_path) as renew:
+        def changed(*args):
+            nonlocal count
+            count += 1
+            if count == 2: observed.append(renew())
+            return original(*args)
+        with monkeypatch.context() as patch:
+            calls = reference.forbid(patch); patch.setattr(query.query, '_bundle', changed)
+            actual = read(query, job_id, selector=pin, view='samples')
+            assert all(n == 0 for n in calls.values())
+    assert len(observed) == 1 and actual['job']['updated_at'] == observed[0]['updated_at']
+    assert datetime.fromisoformat(actual['observed_at']) >= datetime.fromisoformat(actual['job']['updated_at'])
+    expected['job']['updated_at'] = actual['job']['updated_at']; expected['observed_at'] = actual['observed_at']
+    assert model.storage._canonical(actual) == model.storage._canonical(expected)
+    save('independent-heartbeat', {'external_process': observed[0], 'same_original_page_binary64_UTC': True,
+        'same_accepted_selector': pin, 'reader_calls': calls, 'snapshot_uses_verified_probe_row': True,
+        'page_before_after_sha256': [sha256(model.storage._canonical(x['page'])).hexdigest() for x in (expected, actual)]})
 
 
 def test_running_original_pages_and_sparse_utc(setup, monkeypatch):

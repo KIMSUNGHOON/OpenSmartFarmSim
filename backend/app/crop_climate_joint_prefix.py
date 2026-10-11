@@ -1,6 +1,8 @@
 """Readonly DB-accepted joint pages; internal records, before public projection."""
 from contextlib import ExitStack, contextmanager
+from copy import deepcopy
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from hashlib import sha256
 import json
 import os
@@ -15,7 +17,7 @@ from .runtime_roles import RolePolicyHold
 checkpoints = execution.checkpoints
 custody = execution.custody
 storage = custody.storage
-VERSION = 'joint-crop-climate-prefix-read-v2'
+VERSION = 'joint-crop-climate-prefix-read-v3'
 CLAIM_SCOPE = 'synthetic_joint_crop_climate_confirmed_prefix_only'
 MAX_READ_BYTES = storage.LIMITS['page_bytes'] + 2 * checkpoints.execution.MAX_INPUT_BYTES + storage.LIMITS['metadata_bytes']
 CODE_SHA256 = sha256(Path(__file__).read_bytes()).hexdigest()
@@ -41,9 +43,62 @@ class JointPrefixRequestRejected(ValueError):
 
 
 @dataclass(frozen=True)
+class _ReadWitness:
+    owner: object = field(repr=False)
+    tenant: str = field(repr=False)
+    job_id: str = field(repr=False)
+    bundle: tuple = field(repr=False)
+    payload_sha256: str = field(repr=False)
+
+
+@dataclass(frozen=True)
 class PrefixRead:
     payload_raw: bytes = field(repr=False)
     payload_sha256: str
+    _witness: _ReadWitness | None = field(default=None, repr=False, compare=False)
+
+
+def _same_job_datetimes(before, after, ignored=()):
+    try:
+        for key in before:
+            if key in ignored: continue
+            a, b = before[key], after[key]
+            if type(a) is datetime or type(b) is datetime:
+                if (type(a) is not datetime or type(b) is not datetime
+                        or a.utcoffset() is None or b.utcoffset() is None
+                        or a.astimezone(timezone.utc) != b.astimezone(timezone.utc)):
+                    return False
+        return True
+    except (TypeError, ValueError, OverflowError):
+        return False
+
+
+def _same_job_row(before, after):
+    if type(before) is not dict or type(after) is not dict or before.keys() != after.keys():
+        return False
+    if not (before.get('state') == after.get('state') == 'simulating'
+            and before.get('cancel_requested') is after.get('cancel_requested') is False):
+        return execution._same(before, after) and _same_job_datetimes(before, after)
+    try:
+        if (before['stage'] != 'simulation' or type(before['attempt_count']) is not int or before['attempt_count'] < 1
+                or type(before['lease_token']) is not str or not before['lease_token']):
+            return False
+        times = ('lease_until', 'updated_at')
+        for key in times:
+            a, b = before[key], after[key]
+            if (type(a) is not datetime or type(b) is not datetime
+                    or a.utcoffset() is None or b.utcoffset() is None
+                    or b.astimezone(timezone.utc) < a.astimezone(timezone.utc)):
+                return False
+        return (execution._same({k: v for k, v in before.items() if k not in times},
+            {k: v for k, v in after.items() if k not in times}) and _same_job_datetimes(before, after, times))
+    except (KeyError, TypeError, ValueError, OverflowError):
+        return False
+
+
+def _same_bundle(before, after):
+    return (type(before) is type(after) is tuple and len(before) == len(after) == 6
+        and _same_job_row(before[0], after[0]) and execution._same(before[1:], after[1:]))
 
 
 def _need(value):
@@ -78,6 +133,16 @@ class JointExecutionPrefixQuery:
         self._binding()
         self.query._guard(tenant)
         self._binding()
+
+    def _unchanged(self, tenant, job_id, record, bundle):
+        if type(record) is not PrefixRead or type(record._witness) is not _ReadWitness:
+            return False
+        w = record._witness
+        return (w.owner is self and w.tenant == tenant and w.job_id == job_id
+            and type(record.payload_raw) is bytes
+            and w.payload_sha256 == record.payload_sha256 == sha256(record.payload_raw).hexdigest()
+            and _same_bundle(w.bundle, bundle) and w.bundle[0].get('tenant_id') == tenant
+            and str(w.bundle[0].get('job_id')) == job_id)
 
     @contextmanager
     def _session(self, tenant, request_raw, binding_raw):
@@ -246,13 +311,15 @@ class JointExecutionPrefixQuery:
                 self.query._current(tenant, value, raw, binding_raw)
                 with self.jobs.connect() as probe:
                     probe.execute('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY')
-                    if not execution._same(self.query._bundle(probe, tenant, job_id), bundle):
+                    probe_bundle = self.query._bundle(probe, tenant, job_id)
+                    if not _same_bundle(bundle, probe_bundle):
                         raise JointPrefixPending('joint prefix changed during read')
                     if chosen is not None:
                         frozen = {k: chosen['reason'][k] for k in ('publication_sequence', 'head_sha256', 'proof_sha256')}
                         if not execution._same(self._chosen(probe, tenant, job, latest, frozen), chosen):
                             raise JointPrefixPending('joint prefix changed during read')
                     at = execution._utc(probe.execute('SELECT clock_timestamp() AS at').fetchone()['at'])
+                    job = probe_bundle[0]
                 self.query._current(tenant, value, raw, binding_raw)
                 if session is not None:
                     session._guard()
@@ -266,7 +333,8 @@ class JointExecutionPrefixQuery:
                 _need(1 <= len(payload) <= MAX_READ_BYTES)
             self.query._current(tenant, value, raw, binding_raw)
             self._guard(tenant)
-            return PrefixRead(payload, sha256(payload).hexdigest())
+            digest = sha256(payload).hexdigest()
+            return PrefixRead(payload, digest, _ReadWitness(self, tenant, job_id, deepcopy(probe_bundle), digest))
         except (PermissionError, RolePolicyHold, JointPrefixPending, JointPrefixSelectionConflict, JointPrefixRequestRejected):
             raise
         except (custody.JointCustodyPending, execution.JointExecutionQueryPending):

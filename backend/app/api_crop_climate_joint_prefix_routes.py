@@ -1,6 +1,5 @@
 """Explicit authenticated routes for immutable accepted prefix records."""
 from hashlib import sha256
-import json
 from pathlib import Path as FilePath
 import re
 from typing import Annotated
@@ -18,7 +17,6 @@ PREFIX_PATH = '/v1/jobs/{job_id}/crop-climate-joint-execution/prefix'
 
 def _current_after_projection(query, tenant, job_id, record):
     current = query.query
-    value = json.loads(record.payload_raw)
     query._guard(tenant)
     with query.jobs.connect() as conn:
         conn.execute('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY')
@@ -27,9 +25,7 @@ def _current_after_projection(query, tenant, job_id, record):
             from .crop_climate_joint_prefix import JointPrefixPending
             raise JointPrefixPending('joint prefix changed during response')
         job = bundle[0]
-        from .api_contracts import public_job_status
-        from .crop_climate_joint_execution_query import _same
-        if not _same(public_job_status(job).model_dump(mode='json'), value['job']) or job['cancel_requested'] != value['cancel_requested']:
+        if not query._unchanged(tenant, job_id, record, bundle):
             from .crop_climate_joint_prefix import JointPrefixPending
             raise JointPrefixPending('joint prefix changed during response')
         frozen, raw, binding = current.checkpoints._input(tenant, job)

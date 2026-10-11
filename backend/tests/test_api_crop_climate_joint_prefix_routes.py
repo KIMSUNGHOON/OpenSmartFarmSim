@@ -1,7 +1,8 @@
 """Prefix HTTP control flow, actual SCRAM and verified TLS original responses."""
 import asyncio
 from copy import deepcopy
-from datetime import timedelta
+from dataclasses import replace
+from datetime import datetime, timedelta, timezone, tzinfo
 from hashlib import sha256
 import json
 import os
@@ -30,6 +31,7 @@ from test_api_crop_climate_joint_execution import (
     login_database, original_login_scope, login_scope, query_cleanup, authoring, base_authoring,
     tls_files, served)
 import test_crop_climate_joint_execution_query as reference
+from test_crop_climate_joint_prefix import independent_heartbeat
 
 JOB = '11111111-1111-4111-8111-111111111111'
 PATH = '/v1/jobs/'+JOB+'/crop-climate-joint-execution/prefix'
@@ -49,6 +51,101 @@ def authorized(*scopes):
     if p is None: return None, api._error(401, 'unauthenticated', 'Authentication required')
     if any(s not in p['scopes'] for s in scopes): return None, api._error(403, 'forbidden', 'Resource access denied')
     return p['tenant_id'], None
+
+
+def active_row():
+    at = datetime(2026, 10, 11, tzinfo=timezone.utc)
+    return {'tenant_id': 'tenant-1', 'job_id': '11111111-1111-4111-8111-111111111111',
+        'stage': 'simulation', 'state': 'simulating', 'cancel_requested': False, 'attempt_count': 1,
+        'lease_token': 'private-test-lease', 'input_sha256': 'a'*64, 'input_bytes': b'private-input',
+        'lease_until': at+timedelta(seconds=600), 'updated_at': at, 'reason': None, 'future_column': {'value': 1}}
+
+
+@pytest.mark.parametrize('fault', ['token', 'attempt', 'attempt-bool', 'input', 'private-input', 'cancel', 'cancel-int',
+    'terminal', 'queued', 'stage', 'reason', 'future-column', 'added-column', 'removed-column',
+    'lease-backward', 'updated-backward', 'lease-naive', 'updated-naive', 'lease-null', 'updated-text', 'missing-token'])
+def test_lease_refresh_rejects_other_row_changes_and_invalid_timestamps(fault):
+    before = active_row(); after = deepcopy(before)
+    after['lease_until'] += timedelta(seconds=1); after['updated_at'] += timedelta(seconds=1)
+    if fault == 'token': after['lease_token'] = 'other-token'
+    elif fault == 'attempt': after['attempt_count'] = 2
+    elif fault == 'attempt-bool': after['attempt_count'] = True
+    elif fault == 'input': after['input_sha256'] = 'b'*64
+    elif fault == 'private-input': after['input_bytes'] = b'other-private-input'
+    elif fault == 'cancel': after['cancel_requested'] = True
+    elif fault == 'cancel-int': after['cancel_requested'] = 0
+    elif fault == 'terminal': after['state'] = 'succeeded'
+    elif fault == 'queued': before['state'] = after['state'] = 'queued'
+    elif fault == 'stage': after['stage'] = 'research'
+    elif fault == 'reason': after['reason'] = {'code': 'changed'}
+    elif fault == 'future-column': after['future_column']['value'] = 2
+    elif fault == 'added-column': after['unknown'] = None
+    elif fault == 'removed-column': del after['future_column']
+    elif fault == 'lease-backward': after['lease_until'] = before['lease_until']-timedelta(microseconds=1)
+    elif fault == 'updated-backward': after['updated_at'] = before['updated_at']-timedelta(microseconds=1)
+    elif fault == 'lease-naive': after['lease_until'] = after['lease_until'].replace(tzinfo=None)
+    elif fault == 'updated-naive': after['updated_at'] = after['updated_at'].replace(tzinfo=None)
+    elif fault == 'lease-null': before['lease_until'] = after['lease_until'] = None
+    elif fault == 'updated-text': before['updated_at'] = after['updated_at'] = '2026-10-11T00:00:00Z'
+    else: before['lease_token'] = after['lease_token'] = None
+    assert not model._same_job_row(before, after)
+
+
+@pytest.mark.parametrize('changed', [(), ('lease_until',), ('updated_at',), ('lease_until', 'updated_at')])
+def test_lease_refresh_accepts_valid_nondecreasing_times_only(changed):
+    before = active_row(); after = deepcopy(before)
+    for key in changed: after[key] += timedelta(microseconds=1)
+    assert model._same_job_row(before, after)
+    before['state'] = after['state'] = 'queued'
+    assert model._same_job_row(before, after) is (not changed)
+
+
+def test_lease_refresh_compares_instants_across_UTC_offsets():
+    before = active_row(); after = deepcopy(before)
+    for key in ('lease_until', 'updated_at'):
+        after[key] = (after[key]+timedelta(microseconds=1)).astimezone(timezone(timedelta(hours=9)))
+    assert model._same_job_row(before, after)
+    after['updated_at'] -= timedelta(microseconds=2)
+    assert not model._same_job_row(before, after)
+
+
+@pytest.mark.parametrize('field', ['updated_at', 'created_at'])
+@pytest.mark.parametrize('state', ['simulating', 'queued'])
+def test_job_timestamp_UTC_regression_with_shared_timezone_is_rejected(field, state):
+    class FoldOffset(tzinfo):
+        def utcoffset(self, value): return timedelta(hours=0 if value is None else value.fold)
+        def dst(self, value): return timedelta(0)
+    before = active_row(); before['state'] = state
+    if state == 'queued': before.update(attempt_count=0, lease_token=None, lease_until=None)
+    before[field] = datetime(2026, 10, 11, tzinfo=FoldOffset())
+    after = dict(before); after[field] = before[field].replace(fold=1)
+    assert after[field] == before[field]
+    assert after[field].astimezone(timezone.utc) < before[field].astimezone(timezone.utc)
+    assert not model._same_job_row(before, after)
+
+
+@pytest.mark.parametrize('fault', ['missing', 'owner', 'tenant', 'job', 'digest', 'payload', 'record-digest',
+    'token', 'private-input', 'latest', 'links', 'publications', 'outcomes', 'terminal'])
+def test_private_witness_rejects_mixed_record_and_bundle(fault):
+    query = object.__new__(model.JointExecutionPrefixQuery); row = active_row()
+    bundle = (row, None, [], [], [], []); digest = sha256(b'{}').hexdigest()
+    witness = model._ReadWitness(query, row['tenant_id'], row['job_id'], deepcopy(bundle), digest)
+    record = model.PrefixRead(b'{}', digest, witness)
+    assert query._unchanged(row['tenant_id'], row['job_id'], record, bundle)
+    assert 'private-test-lease' not in repr(record) and 'private-input' not in repr(record) and repr(witness) == '_ReadWitness()'
+    if fault == 'missing': record = replace(record, _witness=None)
+    elif fault == 'owner': record = replace(record, _witness=replace(witness, owner=object()))
+    elif fault == 'tenant': record = replace(record, _witness=replace(witness, tenant='foreign'))
+    elif fault == 'job': record = replace(record, _witness=replace(witness, job_id='other'))
+    elif fault == 'digest': record = replace(record, _witness=replace(witness, payload_sha256='0'*64))
+    elif fault == 'payload': record = replace(record, payload_raw=b'{"changed":true}')
+    elif fault == 'record-digest': record = replace(record, payload_sha256='0'*64)
+    elif fault == 'token': bundle[0]['lease_token'] = 'replaced-lease'
+    elif fault == 'private-input': bundle[0]['input_bytes'] = b'replaced-private-input'
+    else:
+        index = {'latest': 1, 'links': 2, 'publications': 3, 'outcomes': 4, 'terminal': 5}[fault]
+        changed = list(bundle); changed[index] = {'changed': True}; bundle = tuple(changed)
+    assert not query._unchanged(row['tenant_id'], row['job_id'], record, bundle)
 
 
 def assembly(monkeypatch, scopes=route.PROGRESS_SCOPES):
@@ -316,6 +413,58 @@ def test_actual_late_rights_and_owner_cancel(native,tls_files,monkeypatch):
             assert all(n==0 for n in calls.values())
     save('actual-rights-cancel',{'actual_scram':True,'verified_TLS':True,'rights_revoked_after_projection_422':True,
         'owner_cancel_without_read_or_display_rights':True,'cancel_closes_values':True,'calls':calls,'replies':replies+cancel_replies+closed_replies})
+
+
+@reference.reference.pytestmark
+def test_actual_independent_heartbeat_after_projection_preserves_wire(native,tls_files,tmp_path,monkeypatch):
+    c=native;lease=reference.confirm(c.worker,c.job);c.worker.server.advance('tenant-1',c.raw,budget=8)
+    accepted=c.worker.checkpoints.confirm('tenant-1',c.job,attempt=1,lease_token=lease['lease_token'])
+    pin={k:accepted['checkpoint'][k] for k in SELECTOR}
+    original=route._current_after_projection;observed=[];snapshots=[]
+    with independent_heartbeat(c.worker,c.job,c.raw,c.value,tmp_path) as renew:
+        def changed(*args):
+            snapshots.append(json.loads(args[-1].payload_raw));observed.append(renew());return original(*args)
+        with served(c,tls_files,scopes=set(route.PROGRESS_SCOPES)) as (http,replies):
+            with monkeypatch.context() as patch:
+                calls=reference.forbid(patch);patch.setattr(route,'_current_after_projection',changed)
+                path='/v1/jobs/'+c.job+'/crop-climate-joint-execution/prefix/samples?'+urlencode(pin)
+                status,raw=http('GET',path);assert status==200 and raw==c.captured[-1]
+                assert len(observed)==1 and all(n==0 for n in calls.values())
+    value=json.loads(raw)
+    assert value['job']['updated_at']==snapshots[0]['job']['updated_at']<observed[0]['updated_at']
+    assert value['reference']['selector']==pin
+    assert model.storage._canonical(value['page'])==model.storage._canonical(snapshots[0]['page'])
+    assert not any(key in raw.decode() for key in ('lease_token','lease_until','_witness'))
+    save('actual-independent-heartbeat',{'actual_scram':True,'verified_TLS':True,'external_process':observed[0],
+        'original_serialized_snapshot_preserved':True,'same_original_page_binary64_UTC':True,'reader_calls':calls,'replies':replies,
+        'page_before_after_sha256':[sha256(model.storage._canonical(x['page'])).hexdigest() for x in (snapshots[0],value)]})
+
+
+@reference.reference.pytestmark
+def test_actual_HTTP_rejects_missing_or_mixed_private_witness(native,tls_files,monkeypatch):
+    c=native;lease=reference.confirm(c.worker,c.job);c.worker.server.advance('tenant-1',c.raw,budget=8)
+    c.worker.checkpoints.confirm('tenant-1',c.job,attempt=1,lease_token=lease['lease_token'])
+    original=route._current_after_projection;rejected=[]
+    with served(c,tls_files,scopes=set(route.PROGRESS_SCOPES)) as (http,replies):
+        for fault in ('missing','owner','tenant','digest','token','private-input'):
+            def changed(query,tenant,job_id,record):
+                w=record._witness
+                if fault=='missing': record=replace(record,_witness=None)
+                elif fault=='owner': record=replace(record,_witness=replace(w,owner=object()))
+                elif fault=='tenant': record=replace(record,_witness=replace(w,tenant='foreign'))
+                elif fault=='digest': record=replace(record,_witness=replace(w,payload_sha256='0'*64))
+                else:
+                    bundle=deepcopy(w.bundle)
+                    bundle[0]['lease_token' if fault=='token' else 'input_bytes']='other' if fault=='token' else b'other'
+                    record=replace(record,_witness=replace(w,bundle=bundle))
+                return original(query,tenant,job_id,record)
+            with monkeypatch.context() as patch:
+                calls=reference.forbid(patch);patch.setattr(route,'_current_after_projection',changed)
+                status,raw=http('GET','/v1/jobs/'+c.job+'/crop-climate-joint-execution/prefix')
+                assert status==503 and not any(key in raw.decode() for key in ('lease_token','lease_until','_witness'))
+                assert all(n==0 for n in calls.values());rejected.append(fault)
+    save('actual-witness-rejection',{'actual_scram':True,'verified_TLS':True,'rejected':rejected,
+        'private_witness_never_public':True,'reader_calls':calls,'replies':replies})
 
 
 @reference.reference.pytestmark

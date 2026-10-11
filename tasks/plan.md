@@ -1229,6 +1229,10 @@ source 검토는 구현/시험 수용이 아니다. 아래 자식은 작은 합�
 다음 한 단계 **P6a2a**는 [설계 v1](../contracts/crop-climate-joint-prefix-progress-guard-v1.md)의 prefix 전용 job witness/임대 갱신 비교다. reader/HTTP2 core·대응 test2파일에서 실제 독립 heartbeat의 조회 중/직렬화 후 red/green과 현재 lifecycle/input/권리/서명·원 값/UTC·구형 계약·unpaused 정상/hold/cancel/자원을 확인한다. writer/수치/E6 진행 DTO·HEAD 변경 처리는 유지한다. 필요한 P6a2b의 HEAD 전진 개선은 그 뒤 실제 실패가 남을 때 별도 분해한다. P6a2a1–2집중시간/연속 작업10/11 KST를 잠정으로 두고, P6 전체 재검증0.5–1.5시간·P6b0.5–1시간은 관측 성공 뒤 범위다. **계산 중3D의 완료 날짜는 P6a2a 실제 재검증과 HEAD 후속 필요 확인 뒤 갱신한다.** 전체 작기·생산/자원·경제·최종 UI/현장 자료의 완료일을 이 조사로 확정하지 않는다.
 
 P1/P2 후 원 페이지/공개 정보 checkpoint, P3b/P4 후 실제 보호 전달 checkpoint, P6a/P6b 후 사용자 기동 checkpoint를 둔다.
+**10/11 P6a2a 제한된 수용:** [reader v3/HTTP](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)는 최종2 core에서 고유245개·실제 heartbeat red/green·원 page bytes/hash/UTC·비공개 witness·UTC offset/fold를 확인했다. 자동 정상/hold/cancel3개는 소유 scratch PG16MiB/32연결에서 exit0이었다. 기본 scratch PG 실행의 RSS 초과/미추적422는 미수용이며 원인·해결을 단정하지 않는다. 두 사용자 서버 중지0·원본2,148/자산/FD/소유 정리·WSL 상한을 보존했다. 실제 WebGL/사용자 활성화는 미수용이다.
+
+다음은 **P6a2b 필요 확인의 request별 정렬 진단**이다. 최종 v3 정상 trace에 HEAD/bundle/HTTP Pending과 accepted 뒤 samples503이 남았다. 동일 selector의 events/samples를 현재 계보·DB 변화·예외 지점과 묶어 필요한 변경을 제한한다. 최초 기본 환경422는 별도 미확정 기록으로 유지한다. 첫0.5–1집중시간 뒤 수정 범위와 완료 날짜를 산정하며, 전체 P6 재검증0.5–1.5시간·P6b0.5–1시간은 성공 관측 뒤의 잠정 범위다. 운영 기반·writer 지연0·현재 권리·관문 경계는 유지한다.
+
 P4는 실제 SDK 구현 대조 후 P4a 공용 값/격자·manifest·checkpoint 검사2파일과 P4b 새 reader/API/unit/실제 SDK test4파일로 분해한다. 기존 terminal/실행 검사를 그대로 재사용하고 미완료 prefix를 임시 terminal 응답으로 만들지 않는다. 각 자식의 집중 회귀/타입 뒤 실제 SDK/TLS를 확인하고 P4 부모는 모두 통과한 뒤 수용한다.
 P5는 P5a 부분 결과 component/Execution/CSS3파일과 P5b 새 e2e/기존 E8 fixture2파일로 분해한다. 기존 E8 기록은 새 prefix 요청을 제공하지 않으므로 미지원404를 명시해 기존 상태 조회 호환을 검사한다. prefix404는 해당 연결의 부분 결과만 비활성으로 두고 작업 상태/취소를 유지한다. 권리/인증/응답 거부는 원값/장면을 지우고 자동 조회를 멈춘다. 원 selector의 최근64시점/8사건을 순차 조회해 함께 교체하며 기존 승인 LayerDoc/수치3D 구성을 재사용한다. 각 자식 검증 뒤 P5를 수용하고 실제 서버/사용자 활성화는 P6에서 한다.
 P1은 권리/계보 거부를 일시 대기로 숨기지 않으며 accepted snapshot만 읽는다. 작업 중 관련 DB 상태 변경은 Pending으로 버리고 재조회한다.

@@ -1,5 +1,7 @@
 # 첫 구현 범위
 
+**2026-10-11 계산 중 조회:** [P6a2a reader v3/HTTP](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)의 실제 임대 갱신 비교·원 페이지·비공개 witness를 제한된 소프트웨어 검증으로 수용했다. 최종2 core의 고유245개와 제한된 소유 scratch PG의 자동 정상/hold/cancel을 확인했다. 최초 기본 환경 RSS/미추적422와 남은 HEAD/DB Pending을 기록했으며 P6a 실제 WebGL·P6b 사용자 활성화는 미수용이다.
+
 **2026-10-09 전체 수확 후속:** [정상 전체 저장·등록·복원](../research/crop-harvest-full-writer-completed-20261009.md)은
 원96517/별도 root3349 실제0·47,813행 독립 Decimal·인증 backup·fresh 현재 권리/원값·정리로 로컬 수용했다.
 [요청 범위 조회/전체 보호 API](../research/crop-harvest-current-read-cost-20261009.md)는 집중238개·실제 DB와

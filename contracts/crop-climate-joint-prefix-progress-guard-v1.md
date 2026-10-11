@@ -1,9 +1,10 @@
 # Prefix의 임대 갱신과 조회 무효화 구분 — 설계 v1
 
-상태: **P6a2a 설계 준비·구현/수용 전**. 2026-10-11.
+상태: **P6a2a reader v3/HTTP의 제한된 소프트웨어 수용**. 2026-10-11.
+실제 실행 범위·scratch PG 설정·최초 미수용 실행은 [구현 기록](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)을 따른다. P6a/P6b는 미수용이다.
 근거는 [실제 예외·DB/HEAD 분류](../research/crop-climate-joint-prefix-page-diagnosis-20261011.md)다.
-현재 실행 코드는 [prefix reader v2 계약](crop-climate-joint-prefix-view-v1.md)의 전체 전후 비교를 유지한다.
-이 설계만으로 기존 source·API 동작·관문을 변경하거나 P6를 수용하지 않는다.
+현재 main의 reader v3는 이 임대 갱신 비교를 적용하며 [prefix 계약](crop-climate-joint-prefix-view-v1.md)의 HEAD/최신 수용 이력 변경 검사는 유지한다.
+두 사용자 서버는 기존 frozen source를 유지하며 prefix 활성화는 P6 뒤다. 공개 DTO와 관문은 변경하지 않는다.
 
 ## 범위와 판단
 

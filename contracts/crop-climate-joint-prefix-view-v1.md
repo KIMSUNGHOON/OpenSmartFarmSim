@@ -6,6 +6,8 @@
 [E9b 사용자 연결](../research/crop-climate-joint-execution-user-preview-20261010.md)이다.
 이 계약은 새 prefix reader의 구현 기준이다. 현재5174의 계산 상태 자동 조회/완료 저장3D를 계산 중 성장3D 수용으로 바꾸지 않는다.
 
+2026-10-11 [P6a2a reader v3](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)는 [임대 갱신 계약](crop-climate-joint-prefix-progress-guard-v1.md)을 적용했다. 같은 작업의 두 시각만 UTC 단조 전진할 때 원 snapshot을 유지한다. HEAD/최신 수용 이력·lifecycle/input/권리 변경 검사는 유지하며 실제 prefix 브라우저/사용자 활성화는 미수용이다. 아래 reader v2 설명은 선행 구현의 경계다.
+
 ## 현재 구현에서 확인한 경계
 
 | 현재 source | 확인한 사실 | 새 구현에 필요한 연결 |
