@@ -1,5 +1,7 @@
 # OpenSmartFarmSim 제품 명세
 
+**사용자 상태 화면 — 2026-10-11:** [계산 진입/상태 안내](../research/product-ui-current-status-entry-20261011.md)를5174에 적용했고 최종 브라우저8경로·원 DB 완료64/64/9시점·타입/빌드를 통과했다. 최종 보존 확인 뒤 사용자 적용을 수용했다. **http://localhost:5174/#crop-execution** 에서 개발/배포 범위·연결 전/작업 선택 전을 확인한다. 새 환기 모델 미배포·전체 UI/생산/마진/추천 관문 미완료는 유지한다.
+
 **계산 개발 — 2026-10-11:** [환기 불변 페이지 저장](../research/crop-greenhouse-ventilation-artifact-implementation-20261011.md)은 새92/회귀224=316검사·30분할 구성·fresh 계산0·HEAD 전후 강제 종료/재개를 통과했다. 최종 보존 확인 뒤 로컬 수용했다. 사용자 피드백에 따라 다음은 기존 화면의 연결/작업 선택·상태 표시 점검이다. 새 환기 모델의 입력/현재 권리·custody/API→worker/같은 UTC3D는 후속이며 아직 UI 미배포다. 실제 생산/마진/추천 관문은 미완료다.
 
 **현재 구현 상태 — 2026-10-11 21:19 KST:** [A2 연속 부분 결과3D](../research/crop-climate-joint-prefix-advance-browser-20261011.md)를 합성128초 범위로 수용했다.

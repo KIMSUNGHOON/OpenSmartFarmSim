@@ -146,6 +146,12 @@ export default function JointCropClimateExecution({api}:{api:Api|null}){
       <p>계산 중에는 확정된 저장 시점의 생장 수치를 표·그래프·3D로 확인합니다. 완료·수치 보류 뒤 같은 최종 저장 결과를 엽니다.</p>
       <p className="crop-caption">진행 걸음은 수치 계산의 작업량입니다. 작물 생장률·남은 시간·생산 예측이 아닙니다. 미확정 중간 상태를 만들지 않습니다.</p>
     </section>
+    {!current&&<section className="panel" aria-label="계산 연결 안내" role="status">
+      <h2>{api?'계산 작업 선택 전':'서버 연결 전'}</h2>
+      <p>{api?'조회할 작업이 아직 선택되지 않았습니다. 아래에서 접수 파일을 선택해 계산을 접수하거나 기존 계산 작업을 조회하세요.':
+        '상단의 내부 시험 연결에서 접근 토큰을 설정하세요. 연결 전에는 작업의 진행 여부를 조회하지 않습니다.'}</p>
+      <p>작업을 연결하면 서버 상태·확정 계산 걸음·마지막 확인 시각이 표시됩니다. 개발용 별도 DB의 작업은 이 화면에 자동 표시되지 않습니다.</p>
+    </section>}
     <section className="panel"><h2>등록 입력으로 계산 시작</h2><form onSubmit={submit}>
       <label>검토된 계산 접수 파일<input type="file" accept="application/json,.json" disabled={submitBusy||cancelBusy}
         onChange={event=>void chooseFile(event.target.files?.[0])}/></label>
