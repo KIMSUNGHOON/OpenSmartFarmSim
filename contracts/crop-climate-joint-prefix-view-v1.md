@@ -8,6 +8,8 @@
 
 2026-10-11 [P6a2a reader v3](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)는 [임대 갱신 계약](crop-climate-joint-prefix-progress-guard-v1.md)을 적용했다. 같은 작업의 두 시각만 UTC 단조 전진할 때 원 snapshot을 유지한다. HEAD/최신 수용 이력·lifecycle/input/권리 변경 검사는 유지하며 실제 prefix 브라우저/사용자 활성화는 미수용이다. 아래 reader v2 설명은 선행 구현의 경계다.
 
+이후 [실제 요청별 전진 진단](../research/crop-climate-joint-prefix-progress-diagnosis-20261011.md)에 따라 [P6a2b1 전진 읽기 계약](crop-climate-joint-prefix-forward-read-v1.md)을 분해했다. 구현 전이며 v3의 HEAD/latest 비교는 아직 그대로다. 불변 선택 판본·관측 HEAD/DB 사건의 현재 계보와 권리를 증명하는 수정 뒤 실제 page200과 P6 브라우저를 별도로 수용한다.
+
 ## 현재 구현에서 확인한 경계
 
 | 현재 source | 확인한 사실 | 새 구현에 필요한 연결 |

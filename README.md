@@ -1,5 +1,7 @@
 # OpenSmartFarmSim
 
+**2026-10-11 중간 결과 후속 진단:** [P6a2b0 요청별 추적](research/crop-climate-joint-prefix-progress-diagnosis-20261011.md)은 실제 독립 계산2회에서 정상 HEAD/DB 수용 판본의 전진으로 조회가 보류되는 지점을 확인했다. 원 terminal summary·사용자 두 서버/원본 보존은 통과했지만 accepted 공개 요약/page200은0이다. 다음은 [선택한 불변 판본의 전진 읽기](contracts/crop-climate-joint-prefix-forward-read-v1.md)이며 계산 중3D의 사용자 적용은 아직 미완료다.
+
 **2026-10-11 중간 결과 조회 수정:** [P6a2a reader v3/HTTP](research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)를 최종2 core의 고유245개·제한된 소유 scratch PG의 실제 정상/hold/cancel로 확인했다. 정상 임대 갱신을 조회 무효화와 구분하며 원 수치·시각과 현재 권리 검사를 유지한다. 두 사용자 화면은 기존 source를 유지하고 계산 중3D의 실제 WebGL·사용자 활성화는 아직 미수용이다.
 
 **2026-10-11 WSL 재시작 복구:** 기존5173/5174를 보존한 결과와 frozen 자산으로 다시 기동했다.

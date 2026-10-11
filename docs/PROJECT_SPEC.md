@@ -12,7 +12,7 @@
 5173은 전체 저장 재생용이다. 계산 중 확정 prefix3D·두 주소를 통합한 최종 제품 UI/전체 U3는 미완료다.
 기후/물·양분/구매 에너지→사용자 실행/Decimal 경제와 실제 품종/독립 자료·G0–G4/생산/미래 마진/추천 hold를 유지한다.
 
-**2026-10-11 계산 중 조회 후속:** [P6a2a reader v3/HTTP](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)의 임대 갱신 비교를 제한된 소프트웨어 검증으로 수용했다. 실제 자동 작업자의 정상/hold/cancel은 메모리를 제한한 소유 scratch PG에서 확인했다. 사용자 화면의 계산 중3D는 아직 미수용/미적용이며 다음은 남은 HEAD/DB 전진과 조회 보류의 request별 정렬 진단이다. 기존 두 화면·최종 UI/생산·경제·독립 자료 관문의 범위는 유지한다.
+**2026-10-11 계산 중 조회 후속:** [P6a2a reader v3/HTTP](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)의 임대 갱신 비교를 제한된 소프트웨어 검증으로 수용했다. 실제 자동 작업자의 정상/hold/cancel은 메모리를 제한한 소유 scratch PG에서 확인했다. [P6a2b0 실제 요청별 진단](../research/crop-climate-joint-prefix-progress-diagnosis-20261011.md)은 정상 HEAD/latest 전진에 따른 조회 보류를 구분했고 다음은 선택한 불변 판본의 현재 계보를 증명하는 P6a2b1이다. 이번 진단의 공개 accepted/page200은0이며 사용자 화면의 계산 중3D는 아직 미수용/미적용이다. 기존 두 화면·최종 UI/생산·경제·독립 자료 관문의 범위는 유지한다.
 
 **2026-10-10 후속 계산:** 가변 용량 자식 뒤
 [작물·기후 공동 순간 RHS](../research/crop-climate-joint-rhs-implementation-20261010.md)를
