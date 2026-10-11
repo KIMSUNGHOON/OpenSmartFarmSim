@@ -2,6 +2,8 @@
 
 ## 현재 구현 우선순위 — 2026-10-12
 
+사용자 대기 상태 안내를 우선 보완한 [개발 진행 기록](../research/product-ui-development-progress-20261012.md)을5174에 적용했다. 인증 없이 완료/다음/대기 단계·갱신 시각·새 모델 배포 여부·남은 작업량을15초마다 확인한다. 개발 기록과 선택한 계산 진행은 각각 명시하며 원 계산은64/64완료다. 이후 각 단계 수용 시 `web/public/development-status.json`을 갱신하고 [게시 절차](../web/README.md#개발-진행-확인--2026-10-12)로 원자 게시·HTTP/handoff SHA 대사를 수행한다. 전체 Codex 로그/실제 자료의 게시를 뜻하지 않는다.
+
 [환기 결과 DB 형식·명시 권한](../research/crop-greenhouse-ventilation-result-schema-roles-implementation-20261012.md)을 새12/기존12·현재 결속 회귀3=27그룹과 최종 보존으로 로컬 수용했다.
 기본False·기존 설정5종의 명시 비활성·실제 SCRAM/원 bytes·UTC·기존3종 결과 행/권한을 확인했다.
 공통4파일은 필요한 opt-in만 추가하고 전후 SHA/회귀를 기록했다. 기존236파일·원본/기동 두 UI·권리·WSL은 보존했다.

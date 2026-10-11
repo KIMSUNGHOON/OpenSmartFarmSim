@@ -1,0 +1,281 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted_at": "2026-10-11T16:51:36.553643+00:00",
+  "activation": {
+    "accepted": true,
+    "backend_worker_restarted": false,
+    "current_HTTP": 200,
+    "current_index_sha256": "6ddc5d81e4517375bb6201cd0bd9739785d07b7d4d0e28bf842a55c7f8ade363",
+    "legacy_HTTP": 200,
+    "legacy_index_unchanged": true,
+    "mode": "frontend_only_exact_master_pidfd_HUP",
+    "new_assets": 172,
+    "new_config_sha256": "abf3f6314cacf45210b6d8401105abf13639ad6fb5df29359334268196caaddf",
+    "old_assets_preserved": 171,
+    "old_index_sha256": "6e1d45a28eb25a9dcb466e2c5a29a4d7393b0949e3d7e9f5aa0f2fa2ec0eb3d8",
+    "original_config_sha256": "f5db487be74b29021610988a0434c41c2ca0057af35467fd628b04614474b560",
+    "protected_roots_live": 4,
+    "runtime_rights_inputs_guides_unchanged": 21,
+    "token_rotated": false,
+    "wall_seconds": 0.24025270999845816
+  },
+  "actual_farm_Runs": 0,
+  "browser_candidate": {
+    "API_writes": 0,
+    "G0_G4": "not_assessed",
+    "actualJob": null,
+    "actual_progress_HTTP": 200,
+    "mobile_width": {
+      "scroll": 390,
+      "viewport": 390
+    },
+    "mode": "candidate",
+    "new_ventilation_model_deployed": false,
+    "pageerrors": 0,
+    "verified": [
+      "actual progress HTTP200: completed20, pending API/3D/activation,4–8 focused hours, no calculation API before authentication",
+      "390px no horizontal overflow",
+      "same page automatically reads a later record without rebuild; old timestamp is explicit",
+      "invalid record keeps explicitly labelled last confirmed record",
+      "initial503 visible without fake progress"
+    ]
+  },
+  "browser_live": {
+    "API_writes": 0,
+    "G0_G4": "not_assessed",
+    "actualJob": {
+      "HTTP": 200,
+      "computed_through_utc": "2026-10-01T00:02:08.123456Z",
+      "planned_steps": 64,
+      "state": "succeeded",
+      "steps": 64
+    },
+    "actual_progress_HTTP": 200,
+    "mobile_width": {
+      "scroll": 390,
+      "viewport": 390
+    },
+    "mode": "live",
+    "new_ventilation_model_deployed": false,
+    "pageerrors": 0,
+    "verified": [
+      "actual progress HTTP200: completed20, pending API/3D/activation,4–8 focused hours, no calculation API before authentication",
+      "390px no horizontal overflow",
+      "same user DB/HTTPS original completed64/64/UTC still visible, writes0",
+      "same page automatically reads a later record without rebuild; old timestamp is explicit",
+      "invalid record keeps explicitly labelled last confirmed record",
+      "initial503 visible without fake progress"
+    ]
+  },
+  "core_sha256": {
+    "scripts/publish-development-status.py": "6fc4a24c1fb0af16d1409edbe3b0f358932c6b5a8bcff28a47824d1f026c3c18",
+    "web/src/App.tsx": "841d5139b3cb72265ddde05e2cceb948e9b6117b13d88407b2f4404132882c83",
+    "web/src/DevelopmentStatus.tsx": "b2a7481ef30c500c16bf668f524749e07e7f7a8493572e78405d516d1ea46439",
+    "web/src/developmentStatus.test.ts": "81b66810930d3843f12f0b703b15be05331e22fddfff4a311e9ee375fea52e65",
+    "web/src/developmentStatus.ts": "9669ae2008cdd42c8903b7532733ea88abf6f128a1ad3229fc903c84e84551a4"
+  },
+  "current_assets": 172,
+  "failed_harness_attempt": {
+    "actual_exit": 1,
+    "cause": "fetch observer installed after createApi captured fetch; observer moved before connection; product bytes unchanged",
+    "original_tool_handle": 11609
+  },
+  "failed_preservation_attempt": {
+    "actual_exit": 1,
+    "cause": "web README new blank line at EOF; documentation corrected; frontend/runtime/core bytes unchanged",
+    "original_tool_handle": 54142
+  },
+  "final_preservation": {
+    "G0_G4": "not_assessed",
+    "accepted_core_hashes_unchanged": true,
+    "current_frontend_assets": 172,
+    "current_runtime_noncredential_fields_and_rights_reviews_preserved": true,
+    "diff_check": true,
+    "frontends": {
+      "5173": {
+        "HTTP": 200,
+        "index_sha256": "5e5ba2733288afc0422a03481431ba4e3804e3fc265a7ac7bd3bdb3167f1c9e1"
+      },
+      "5174": {
+        "HTTP": 200,
+        "index_sha256": "6ddc5d81e4517375bb6201cd0bd9739785d07b7d4d0e28bf842a55c7f8ade363"
+      }
+    },
+    "frozen_prefix_assets": 171,
+    "frozen_prefix_source_files": 1911,
+    "guide_permissions_preserved": true,
+    "immutable_frontend_source_files": 194,
+    "local_links_exist": 2035,
+    "old_calculation_files_preserved": 244,
+    "prior_authorized_token_rotation_matches_current_ready_guide_handoff": true,
+    "prior_overlay_assets_preserved": 171,
+    "protected_roots_live": 4,
+    "public_progress_HTTP": 200,
+    "public_progress_no_store": true,
+    "public_progress_sha256": "f141255a58fcc9cd1591df4c0f30248236eb9117b286edf628169e23088f8ac5"
+  },
+  "final_preservation_original_tool_handle": 21093,
+  "full_CI_or_remote_run": false,
+  "full_product_completion": null,
+  "initial_public_record_sha256": "f141255a58fcc9cd1591df4c0f30248236eb9117b286edf628169e23088f8ac5",
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "1abf596ddd7e4ff72af71a3f85f1a14c0384b7412ddb9b99b248e77635390f9e",
+    "recursive_cli_invocations": 0,
+    "timestamp": "2026-10-11T16:33:15.898Z"
+  },
+  "new_ventilation_model_deployed": false,
+  "observed_at": "2026-10-11T16:48:08.510473+00:00",
+  "previous_calculation_files": 244,
+  "publisher": {
+    "checks": [
+      "first publication",
+      "same bytes preserve inode",
+      "new version atomic publication",
+      "old version preserved",
+      "older record rejected",
+      "unknown field rejected",
+      "current400 and no temp residue",
+      "live retry unchanged and HTTP exact200/no-store"
+    ],
+    "checks_passed": 8,
+    "current_sha256": "f141255a58fcc9cd1591df4c0f30248236eb9117b286edf628169e23088f8ac5"
+  },
+  "remaining_ventilation_UI_focused_hours": [
+    4,
+    8
+  ],
+  "runs": [
+    {
+      "RSS_samples": 3,
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 836608000,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "e3e34f80bce7467a6e9df5fe6cbc96ab30fbb10f4ba0bfb4f6303a1cac0d37fc",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_handle": 28126,
+      "owned_non_zombie_remaining": [],
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 162246656,
+      "stage": "focused-unit-v1",
+      "wall_seconds": 0.8802141900014249
+    },
+    {
+      "RSS_samples": 3,
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 1036918784,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_handle": 6694,
+      "owned_non_zombie_remaining": [],
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 428576768,
+      "stage": "focused-typecheck-v1",
+      "wall_seconds": 0.8730356200030656
+    },
+    {
+      "RSS_samples": 6,
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 941445120,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "162ae170770c852d99a955d2e1ed23e0247ed39411e8bef557d47be4d48f3b71",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_handle": 5786,
+      "owned_non_zombie_remaining": [],
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 333008896,
+      "stage": "focused-build-v1",
+      "wall_seconds": 1.661732517000928
+    },
+    {
+      "RSS_samples": 19,
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 988286976,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "d8989bd9780f3d7b911e46d633f670197dc6fd3a6cf4ff56b4212d7c502cb813",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_handle": 99403,
+      "owned_non_zombie_remaining": [],
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 234668032,
+      "stage": "focused-browser-candidate-v1",
+      "wall_seconds": 5.15605337699526
+    },
+    {
+      "RSS_samples": 2,
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 629039104,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "ea84c9cfadfcbb630b03d66897695d35bd7533c556c599cc3eb2dfc04eb463f1",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_handle": 10555,
+      "owned_non_zombie_remaining": [],
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "stage": "focused-activation-v1",
+      "wall_seconds": 0.6071163809974678
+    },
+    {
+      "RSS_samples": 49,
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 1041448960,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "f778cf0557efe747cf5bf2f0d872f4cfc0344dc4d1438c2efa2969c3dbf86143",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_handle": 11835,
+      "owned_non_zombie_remaining": [],
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 242364416,
+      "stage": "focused-browser-live-v2",
+      "wall_seconds": 13.174559708000743
+    },
+    {
+      "RSS_samples": 1,
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 617238528,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "afbfd8bec890415a7cdccbffd3aab9fdfe2855c5521068d81e12b25e344f0b38",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "original_tool_handle": 48698,
+      "owned_non_zombie_remaining": [],
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "stage": "focused-publisher-v1",
+      "wall_seconds": 0.3416182820001268
+    }
+  ],
+  "source_review_sha256": "9ec6446d4544000128d4d546c0aac66c90c0b034ed875fbf7e94e7296d14c56a",
+  "source_snapshot_files": 194,
+  "status": "accepted_user_deployed",
+  "unit_tests": 8
+}

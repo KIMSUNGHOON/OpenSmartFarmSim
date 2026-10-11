@@ -386,3 +386,23 @@ retry and do not create another assessment. Tokens are not stored. General
 regional orchestration and unknown-admission reload recovery are still pending.
 See the [contract](../contracts/web-calculation-assessment-v1.md) and
 [verification record](../research/web-calculation-assessment-implementation.md).
+# 개발 진행 확인 — 2026-10-12
+
+현재 상태 화면은 **http://localhost:5174/#crop-execution** 이다. 새로고침하면 인증 없이 상단에서
+최근 검증 완료 단계·다음 작업·기록 갱신 시각·새 모델의 배포 여부·남은 집중 작업량을 확인한다.
+개발 기록을15초마다 다시 읽으며 단계별 검증 뒤 갱신한다. 선택한 계산의 진행률은 인증/작업 선택 뒤 별도로 조회한다.
+현재 원 작업은64/64완료이고, 새 환기 모델의 사용자 API/worker/3D 연결은 아직 남아 있다.
+5173은 기존 완료166일 결과 재생을 유지한다. 전체 제품 완료일과 실제 생산/경제/추천 관문은 미완료다.
+
+`web/public/development-status.json`은 검토된 개발 상태의 공개 기록이다. 자료·토큰·개인 농장 기록을 넣지 않는다.
+배포 NGINX의 `/development-status.json`은 저장소 밖 `published/current.json`을 `no-store`로 제공한다.
+각 단계 수용 뒤 source의 시각/상태/근거를 갱신하고, handoff의 `current_ui_development_status_feed.published_directory`를 사용한다:
+
+```sh
+python3 -B scripts/publish-development-status.py --published-dir <handoff의-published_directory>
+```
+
+게시기는 원 기록을 SHA256 판본 파일로 보존하고 current 파일만 원자 교체한다. 같은 bytes 재시도는 무변경,
+과거/동시각 충돌·형식/범위 오류는 거부한다. 게시 후 실제HTTP bytes/시각과 handoff의 current SHA를 대사한다.
+재기동/배포 시 새 dist와 해당 NGINX alias를 함께 유지해야 한다. dist의 내장 기록은 빌드 당시 fallback이다.
+오래된 시각·조회 실패는 화면에 명시하며, 이 feed는 전체 Codex 실행 로그나 실제 농장 계산 자료가 아니다.

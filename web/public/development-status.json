@@ -1,0 +1,38 @@
+{
+  "schema_version": "development-status-v1",
+  "reported_at": "2026-10-11T16:39:05.294270Z",
+  "stages": [
+    {
+      "id": "growth",
+      "state": "completed",
+      "evidence": "합성 입력의 생장·환기 계산과 원 UTC 검증 완료"
+    },
+    {
+      "id": "storage",
+      "state": "completed",
+      "evidence": "실제 DB 저장·현재 조회·rollback: 새19/기존1, 총20그룹 통과"
+    },
+    {
+      "id": "api",
+      "state": "next",
+      "evidence": "새 결과 공개 형식과 보호 HTTPS 조회 수용 예정"
+    },
+    {
+      "id": "execution_3d",
+      "state": "pending",
+      "evidence": "작업 접수→자동 계산→저장 결과와 같은 UTC의 3D 연결"
+    },
+    {
+      "id": "activation",
+      "state": "pending",
+      "evidence": "정상·보류·취소·재접속 검증 뒤 사용자 적용"
+    }
+  ],
+  "remaining_focused_hours": {
+    "min": 4,
+    "max": 8
+  },
+  "new_model_deployed": false,
+  "real_farm_runs": 0,
+  "full_product_completion": null
+}

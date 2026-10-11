@@ -7,6 +7,7 @@ import AuthoredFarmWorkspace from './AuthoredFarmWorkspace';
 import SourceWorkflow from './SourceWorkflow';
 import AssessmentWorkspace from './AssessmentWorkspace';
 import AuthoredFinancialWorkspace from './AuthoredFinancialWorkspace';
+import DevelopmentStatus from './DevelopmentStatus';
 import './CropResultCatalog.css';
 const Replay=lazy(()=>import('./Replay'));
 const CropReplay=lazy(()=>import('./CropReplay'));
@@ -150,11 +151,7 @@ export default function App() {
       </header>
       <section className="panel" aria-label="제품 개발과 배포 상태">
         <h2>제품 개발과 배포 상태</h2>
-        <p>이 화면 빌드 기준: 2026-10-11. 개발 작업의 실시간 중계는 아닙니다.</p>
-        <ul><li>현재 계산 화면: 합성 입력의 작물·기후 계산 상태와 확정 저장값의 3D 조회.</li>
-          <li>새 환기 모델: 성장 계산·UTC·불변 파일 저장 검증 완료. 현재 계산 화면에는 미배포.</li>
-          <li>남은 연결: 새 입력·자료 권리 → 결과 API → 작업자와 같은 시각의 3D.</li>
-          <li>전체 제품: 자원 사용·생산량·경제 통합과 실제 농장 독립 검증이 남아 완료일 미정.</li></ul>
+        <DevelopmentStatus/>
         <p>접속 설정: {api?'설정됨 · 현재 권한은 조회할 때 확인':'미설정 · 아래에서 접근 토큰을 입력하세요'}.</p>
         {view!=='crop-execution'&&<button className="button" onClick={()=>setView('crop-execution')}>계산 진행 상태 열기</button>}
       </section>

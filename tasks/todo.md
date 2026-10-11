@@ -2636,3 +2636,7 @@ SCRAM 권한 역할에서 합성 서명 바이트를 변경 불가로 보존하�
 [계산 완료 잠금 보완 후보](../research/break-even-calculation-fence-implementation.md)는 최종 전체 재계산이 취소 요청을 막는 실제 DB 반례를 확인하고, 두 계산은 잠금 밖에서 수행하며 완료 거래는 관측 참조·현재 권리와 검사된 계획 행을 대사하도록 연결했다. 집중 취소 시험은 RED→GREEN이며 원자성·늦은 변경·기존 읽기·재생의 집중 회귀 45개가 통과했다. 실제 256개 접수·작업자·30초 조회·취소/재시도/철회, 자동 운영 조립과 독립 CLI/G1/G4의 기존 수용 체크는 유지한다.
 
 [경제 화면 계약](../contracts/web-economic-workspace-v1.md)과 [검증 기록](../research/web-economic-workspace-implementation.md)은 사용자 소유 숫자 가정의 새 판본 등록, 실제 원장·공동 충격 선택, 시나리오/계산 접수와 완료 서버 금액·보류 조회를 연결한다. 금액은 서버 문자열/null을 그대로 표시하며 응답 유실은 같은 단계의 입력·키로 재확인한다. 새 숫자의 권리·공동 가정 판본 등록·선택 후보를 추가했다([기록](../research/web-joint-amendment-implementation.md)). [월별 현금 조회 후보](../contracts/api-economic-cash-flow-v1.md)는 같은 완료 증명·읽기 권한·원장 재계산을 검사하고 한국 월 구분·UTC 최저 잔액 시각을 표로 연결한다([검증 기록](../research/web-economic-cash-implementation.md)). [손익분기 화면 후보](../contracts/web-break-even-workspace-v1.md)는 실제 저장 판매·수금과 순서가 있는 공동 가정 판본을 계획·완료 결과에 연결하며, 응답 유실 시 고정 제출 해시로 저장 접수 기록을 조회한다([검증 기록](../research/web-break-even-workspace-implementation.md)). 일반 원장·정산 작성, 전체 농장 입력, 자동 시험 가정 생성·새로고침/미저장 접수 복구·실제 CLI·최종 작물 평가·3D/전체 G1과 독립 G0/G2/G3/G4 수용은 남아 있다. 기존 작업 체크와 관문을 해제하지 않는다.
+
+## 사용자 개발 진행 기록 — 2026-10-12
+
+- [x] **`product-ui-development-progress`** — [수용 기록](../research/product-ui-development-progress-20261012.md): 기존 상태 패널의 공개 단계 기록·15초 polling·오래된 기록/오류 안내·같은 페이지 새 기록 반영·기존 실제64/64 조회·모바일·원자 게시/판본 보존·원21093 실제0·원본2,148/244계산파일/두 UI/WSL 보존으로 사용자 적용을 수용했다. 다음 crop API 작업 순서는 유지한다.
