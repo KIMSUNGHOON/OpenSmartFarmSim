@@ -1,5 +1,7 @@
 # OpenSmartFarmSim
 
+**2026-10-11 실제 계산 중3D 재검증:** [v4 브라우저/종료 전환 진단](research/crop-climate-joint-prefix-browser-v4-20261011.md)에서 요약·사건200 뒤 생장503/계산 중 WebGL 실패를 기록했다. 별도 API 진단1개는 종료 후 생장409와 원 terminal 일치를 확인했다. 다음은 조회 함수별 비용 측정이며 P6a/P6b는 미수용이다. 두 사용자 서버는 원 결과·키·권리를 보존해 복구했고 새 안내는 [web README](web/README.md#joint-execution-user-preview)다.
+
 **2026-10-11 중간 결과 전진 읽기:** [P6a2b1 reader v4/HTTP](research/crop-climate-joint-prefix-forward-read-implementation-20261011.md)를 동일 최종 core 고유265개·실제 자동 정상/hold/cancel로 로컬 수용했다. 계산 중 공개 요약→같은 선택자의 사건/생장200·원 terminal 값/UTC를 확인했다. 두 사용자 서버와 원본을 유지했으며 P6a 실제 WebGL/P6b 적용은 아직 남아 있다. 현재5173/5174의 계산 중3D 활성화를 뜻하지 않는다.
 
 **2026-10-11 중간 결과 후속 진단:** [P6a2b0 요청별 추적](research/crop-climate-joint-prefix-progress-diagnosis-20261011.md)은 실제 독립 계산2회에서 정상 HEAD/DB 수용 판본의 전진으로 조회가 보류되는 지점을 확인했다. 원 terminal summary·사용자 두 서버/원본 보존은 통과했지만 accepted 공개 요약/page200은0이다. 당시 후속은 [선택한 불변 판본의 전진 읽기](contracts/crop-climate-joint-prefix-forward-read-v1.md)이며 계산 중3D의 사용자 적용은 아직 미완료다.

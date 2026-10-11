@@ -1235,7 +1235,13 @@ P1/P2 후 원 페이지/공개 정보 checkpoint, P3b/P4 후 실제 보호 전�
 
 **10/11 P6a2b1 로컬 수용:** [전진 읽기 v4/HTTP](../research/crop-climate-joint-prefix-forward-read-implementation-20261011.md)는 동일 최종 core의 고유265개(HTTP158/reader17/투영44/runtime43/별도 자동3)를 통과했다. 원 v3 조회 중2개·직렬화 후 confirmed1개 RED와 현재 두 시점/private·confirmed GREEN, signed rollback/fork·사건 불변성·현재 권리/취소를 확인했다. 실제 공개 summary→동일 selector 사건/생장200→원 terminal 수치/UTC/summary bytes와 자동 hold/cancel·원 종료0을 확인했다. 초기 DB 연결을 먼저 반환하며 역할 한도/인증/수치/writer는 유지한다. 시험 증거 파일 충돌은 소유 controller 경로 분리 뒤 해당235개 전체로 재검증했다. 최초 미추적422 원인은 사후 단정하지 않는다. 두 사용자 서버 중지0·원본2,148/자산/FD/소유 정리·WSL 상한을 보존했다. 수용 guard10개 실측 합2,581.062초(약43분), 조사/실패 진단·문서/commit 별도다.
 
-다음은 **P6a 실제 제품 브라우저/WebGL**이다. [기존 검증 창](#joint-prefix-view-20261010)에서 unpaused 계산 중 동일 selector/원 UTC의3D·표·사건과 terminal을 대사하고 정상/hold/cancel·빈/재접속·현재 권리/자원·원본을 확인한다. 그 뒤 P6b의 사용자5174 적용과 기존 결과/현재 키·권리/두 주소·접속 안내를 확인한다. P6a0.5–1.5시간, P6b/복구0.5–1시간은 잠정이며 실제 브라우저/자원 관측 뒤 완료 날짜를 갱신한다. 현재 사용자 계산 중3D·전체 UI/작기/현장 자료의 완료를 뜻하지 않는다.
+전진 읽기 수용 직후의 다음 단계는 **P6a 실제 제품 브라우저/WebGL**이었다. [기존 검증 창](#joint-prefix-view-20261010)에서 unpaused 계산 중 동일 selector/원 UTC의3D·표·사건과 terminal을 대사하고 정상/hold/cancel·빈/재접속·현재 권리/자원·원본을 확인한다. 그 뒤 P6b의 사용자5174 적용과 기존 결과/현재 키·권리/두 주소·접속 안내를 확인한다. 당시 P6a0.5–1.5시간, P6b/복구0.5–1시간은 아래 실제 관측으로 갱신 대상이다.
+
+**10/11 v4 실제 브라우저와 P6a2c0 진단:** [원 실행/복구·기계 증거](../research/crop-climate-joint-prefix-browser-v4-20261011.md)에서 공개 요약/사건200 뒤 생장503·계산 중 WebGL 실패를 기록했다. 계산은 succeeded였으며 원 두 사용자 서버를 복구해 기존7응답·103/232/19행·252파일/키/권리·원본2,148과 보호 root4를 확인했다. 별도 SCRAM/TLS API 진단1개는9요청 trace/observer 오류0·요약/사건200 뒤 DB succeeded 상태의 생장409·원 terminal을 확인했다. 두 API의 계측 시간은22.109/21.696초다. 앞선 trace 필드 오류/기동 이름 충돌은 실패로 보존했다. 실제 브라우저503의 내부 줄은 미추적이며 API 진단409와 같은 원인으로 단정하지 않는다. P6a/P6b는 계속 미수용이다.
+
+**다음 한 단계 P6a2c1 — 조회 함수별 비용 측정:** 선행은 v4/P6a2c0이다. 기존 진단 reference1파일에서 실제 HTTP 요청의 함수별 비용을 기록하고, 입력/권리 결속·코드/HMAC·DB 재검사의 비용과 요청 중 lifecycle을 구분한다. 수용은 API observer 오류0/전 요청 coverage·worker 정지/계수 변경0·원 terminal bytes·현재 권리/원본/두 사용자 서버/WSL/소유 정리다. 중첩 cumulative 시간을 합하지 않으며 계측 결과를 일반 성능 보장으로 쓰지 않는다. 첫 조사/수정 범위 결정0.5–1집중시간 잠정이다.
+
+이 근거 뒤 **P6a2c2의 필요한 작은 조회 수정**을 reader/HTTP core최대2파일과 해당 집중 회귀로 분해한다. 원 선택자/UTC·현재 철회·실제 취소/종료 거부·정상 전진을 유지하고 실제 병목 호출 감소를 확인한 뒤 P6a 전체 실제 브라우저→P6b로 돌아간다. 종료된 prefix를 공개하거나 worker를 늦춰 관측 창을 만들지 않는다. 수정 범위/실제 브라우저 재측정 전에는 사용자 계산 중3D의 완료 날짜를 확정하지 않는다. 전체 UI/작기/독립 자료 일정은 별도다.
 
 P4는 실제 SDK 구현 대조 후 P4a 공용 값/격자·manifest·checkpoint 검사2파일과 P4b 새 reader/API/unit/실제 SDK test4파일로 분해한다. 기존 terminal/실행 검사를 그대로 재사용하고 미완료 prefix를 임시 terminal 응답으로 만들지 않는다. 각 자식의 집중 회귀/타입 뒤 실제 SDK/TLS를 확인하고 P4 부모는 모두 통과한 뒤 수용한다.
 P5는 P5a 부분 결과 component/Execution/CSS3파일과 P5b 새 e2e/기존 E8 fixture2파일로 분해한다. 기존 E8 기록은 새 prefix 요청을 제공하지 않으므로 미지원404를 명시해 기존 상태 조회 호환을 검사한다. prefix404는 해당 연결의 부분 결과만 비활성으로 두고 작업 상태/취소를 유지한다. 권리/인증/응답 거부는 원값/장면을 지우고 자동 조회를 멈춘다. 원 selector의 최근64시점/8사건을 순차 조회해 함께 교체하며 기존 승인 LayerDoc/수치3D 구성을 재사용한다. 각 자식 검증 뒤 P5를 수용하고 실제 서버/사용자 활성화는 P6에서 한다.

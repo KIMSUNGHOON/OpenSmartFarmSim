@@ -1,0 +1,885 @@
+{
+  "API_diagnosis": {
+    "API_thread_only_tracing": true,
+    "actual_SCRAM": true,
+    "actual_exit": 0,
+    "diagnostic_wait_rule": "10 seconds after progress200 or prefixOK; otherwise doubled to60. Request order matches, complete UI lifecycle/timer behavior is not tested.",
+    "full_UI_polling_parity": false,
+    "observer_errors": [],
+    "original_session": 88744,
+    "raw_evidence_sha256": "d56e2e75a9cbd62349ab8c60290d6b421fc42b80e879d4675ddc9d5b83492899",
+    "read_calculation_calls": {
+      "RHS": 0,
+      "_put_in_transaction": 0,
+      "advance": 0,
+      "confirm": 0,
+      "event": 0,
+      "jobs._durable_artifact": 0,
+      "jobs._event": 0,
+      "jobs._insert_publication": 0,
+      "jobs._outcome": 0,
+      "jobs.ack_cancel": 0,
+      "jobs.cancel": 0,
+      "jobs.claim": 0,
+      "jobs.fail": 0,
+      "jobs.renew": 0,
+      "jobs.submit": 0,
+      "prepare_binding": 0,
+      "prepare_context": 0,
+      "put": 0,
+      "restore": 0,
+      "start": 0,
+      "step": 0
+    },
+    "requests": [
+      {
+        "bundle_observations": [
+          {
+            "attempt": 0,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "presence_changed": true
+            },
+            "latest_selector": null,
+            "state": "queued"
+          },
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "bundle_components": [],
+              "job_fields": [
+                "attempt_count",
+                "lease_token",
+                "lease_until",
+                "state",
+                "updated_at"
+              ]
+            },
+            "latest_selector": null,
+            "state": "simulating"
+          }
+        ],
+        "exceptions": [
+          {
+            "exception": "JointExecutionQueryPending",
+            "function": "read",
+            "line": 221,
+            "module": "query"
+          }
+        ],
+        "job_state": null,
+        "prefix_status": null,
+        "request_id": 0,
+        "seconds": 2.611810066999169,
+        "selected_cumulative_seconds": {
+          "query._bundle": 0.005792468000436202,
+          "query._current": 2.5242443030037975,
+          "query.read": 2.6067030810008873
+        },
+        "status": 503,
+        "trace_events": 6,
+        "view": "progress"
+      },
+      {
+        "bundle_observations": [
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "presence_changed": true
+            },
+            "latest_selector": null,
+            "state": "simulating"
+          },
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "bundle_components": [],
+              "job_fields": [
+                "lease_until",
+                "updated_at"
+              ]
+            },
+            "latest_selector": null,
+            "state": "simulating"
+          },
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "bundle_components": [],
+              "job_fields": []
+            },
+            "latest_selector": null,
+            "state": "simulating"
+          }
+        ],
+        "exceptions": [],
+        "job_state": "simulating",
+        "prefix_status": "none",
+        "request_id": 1,
+        "seconds": 8.17988406600125,
+        "selected_cumulative_seconds": {
+          "prefix._after_projection": 2.7727603130006173,
+          "prefix._chosen": 2.1999985619913787e-06,
+          "prefix._same_bundle": 0.0001872020002338104,
+          "prefix._unchanged": 0.0001406439987476915,
+          "prefix.read": 5.394381555001019,
+          "query._bundle": 0.009685598997748457,
+          "query._current": 7.905934899001295,
+          "routes._current_after_projection": 2.772894814999745,
+          "routes.read": 8.174289694998151
+        },
+        "status": 200,
+        "trace_events": 17,
+        "view": "summary"
+      },
+      {
+        "bundle_observations": [
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "presence_changed": true
+            },
+            "latest_selector": null,
+            "state": "simulating"
+          },
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "bundle_components": [],
+              "job_fields": []
+            },
+            "latest_selector": null,
+            "state": "simulating"
+          }
+        ],
+        "exceptions": [],
+        "job_state": "simulating",
+        "prefix_status": null,
+        "request_id": 2,
+        "seconds": 4.126690461001999,
+        "selected_cumulative_seconds": {
+          "query._bundle": 0.00698076299886452,
+          "query._current": 4.006824737996794,
+          "query.read": 4.121694314002525
+        },
+        "status": 200,
+        "trace_events": 6,
+        "view": "progress"
+      },
+      {
+        "bundle_observations": [
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "presence_changed": true
+            },
+            "latest_selector": null,
+            "state": "simulating"
+          },
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "bundle_components": [
+                "latest"
+              ],
+              "job_fields": [
+                "lease_until",
+                "updated_at"
+              ]
+            },
+            "latest_selector": {
+              "head_sha256": "1f8bd1c0caf7b9a76d55f5895024694c6f1d60543454c68120694841da77719a",
+              "proof_sha256": "d4957eb95cb6f5ae270cde704391817feaba283b82be238a9e89753ba8f28a72",
+              "publication_sequence": 1
+            },
+            "state": "simulating"
+          }
+        ],
+        "exceptions": [
+          {
+            "exception": "JointPrefixPending",
+            "function": "read",
+            "line": 400,
+            "module": "prefix"
+          },
+          {
+            "exception": "JointPrefixPending",
+            "function": "read",
+            "line": 91,
+            "module": "routes"
+          }
+        ],
+        "job_state": null,
+        "prefix_status": null,
+        "request_id": 3,
+        "seconds": 2.7751223059967742,
+        "selected_cumulative_seconds": {
+          "prefix._chosen": 2.3380016500595957e-06,
+          "prefix._same_bundle": 0.00011218999861739576,
+          "prefix.read": 2.7701246139986324,
+          "query._bundle": 0.008247656998719322,
+          "query._current": 2.667196534002869,
+          "routes.read": 2.7701481440017233
+        },
+        "status": 503,
+        "trace_events": 10,
+        "view": "summary"
+      },
+      {
+        "bundle_observations": [
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "presence_changed": true
+            },
+            "latest_selector": {
+              "head_sha256": "1f8bd1c0caf7b9a76d55f5895024694c6f1d60543454c68120694841da77719a",
+              "proof_sha256": "d4957eb95cb6f5ae270cde704391817feaba283b82be238a9e89753ba8f28a72",
+              "publication_sequence": 1
+            },
+            "state": "simulating"
+          },
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "bundle_components": [],
+              "job_fields": []
+            },
+            "latest_selector": {
+              "head_sha256": "1f8bd1c0caf7b9a76d55f5895024694c6f1d60543454c68120694841da77719a",
+              "proof_sha256": "d4957eb95cb6f5ae270cde704391817feaba283b82be238a9e89753ba8f28a72",
+              "publication_sequence": 1
+            },
+            "state": "simulating"
+          }
+        ],
+        "exceptions": [],
+        "job_state": "simulating",
+        "prefix_status": null,
+        "request_id": 4,
+        "seconds": 4.152729948000342,
+        "selected_cumulative_seconds": {
+          "query._bundle": 0.007128403998649446,
+          "query._current": 4.02342051999949,
+          "query.read": 4.147859091997816
+        },
+        "status": 200,
+        "trace_events": 6,
+        "view": "progress"
+      },
+      {
+        "bundle_observations": [
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "presence_changed": true
+            },
+            "latest_selector": {
+              "head_sha256": "1f8bd1c0caf7b9a76d55f5895024694c6f1d60543454c68120694841da77719a",
+              "proof_sha256": "d4957eb95cb6f5ae270cde704391817feaba283b82be238a9e89753ba8f28a72",
+              "publication_sequence": 1
+            },
+            "state": "simulating"
+          },
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "bundle_components": [
+                "latest"
+              ],
+              "job_fields": [
+                "lease_until",
+                "updated_at"
+              ]
+            },
+            "latest_selector": {
+              "head_sha256": "66e8d37c8caf183bf7d29b93538a4d14df3d760fd3fc2b5122c7422954c17e4f",
+              "proof_sha256": "76b2003b8042fe34ec90da536e211db85a300c34530e35d3b0811bf834f1aad4",
+              "publication_sequence": 2
+            },
+            "state": "simulating"
+          },
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "bundle_components": [],
+              "job_fields": []
+            },
+            "latest_selector": {
+              "head_sha256": "66e8d37c8caf183bf7d29b93538a4d14df3d760fd3fc2b5122c7422954c17e4f",
+              "proof_sha256": "76b2003b8042fe34ec90da536e211db85a300c34530e35d3b0811bf834f1aad4",
+              "publication_sequence": 2
+            },
+            "state": "simulating"
+          }
+        ],
+        "exceptions": [],
+        "job_state": "simulating",
+        "prefix_status": "accepted",
+        "request_id": 5,
+        "seconds": 22.108876936999877,
+        "selected_cumulative_seconds": {
+          "custody._head": 0.006442676989536267,
+          "custody._selected": 0.013079803004075075,
+          "prefix._accepted": 2.5209228649982833,
+          "prefix._after_projection": 8.050931835001393,
+          "prefix._ancestry": 0.018488791996787768,
+          "prefix._chosen": 0.001710006999928737,
+          "prefix._refresh": 6.405235463997087,
+          "prefix.read": 14.043065650999779,
+          "query._bundle": 0.012203512000269257,
+          "query._current": 7.77711494200048,
+          "routes._current_after_projection": 8.051026774002821,
+          "routes.read": 22.10371380399738,
+          "storage._head": 0.0011584409876377322
+        },
+        "status": 200,
+        "trace_events": 144,
+        "view": "summary"
+      },
+      {
+        "bundle_observations": [
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "presence_changed": true
+            },
+            "latest_selector": {
+              "head_sha256": "66e8d37c8caf183bf7d29b93538a4d14df3d760fd3fc2b5122c7422954c17e4f",
+              "proof_sha256": "76b2003b8042fe34ec90da536e211db85a300c34530e35d3b0811bf834f1aad4",
+              "publication_sequence": 2
+            },
+            "state": "simulating"
+          },
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "bundle_components": [
+                "latest"
+              ],
+              "job_fields": []
+            },
+            "latest_selector": {
+              "head_sha256": "42ad28dda6898f349b5b583b0fa1f32ae2aec720716112ef3cc186428ce6fc3a",
+              "proof_sha256": "1b92197e28c8cfddd126b9454d6a05355ed091e009aa81b0020c18a2e4867ac4",
+              "publication_sequence": 3
+            },
+            "state": "simulating"
+          },
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "bundle_components": [],
+              "job_fields": []
+            },
+            "latest_selector": {
+              "head_sha256": "42ad28dda6898f349b5b583b0fa1f32ae2aec720716112ef3cc186428ce6fc3a",
+              "proof_sha256": "1b92197e28c8cfddd126b9454d6a05355ed091e009aa81b0020c18a2e4867ac4",
+              "publication_sequence": 3
+            },
+            "state": "simulating"
+          }
+        ],
+        "exceptions": [],
+        "job_state": "simulating",
+        "prefix_status": "accepted",
+        "request_id": 6,
+        "seconds": 21.696281652002654,
+        "selected_cumulative_seconds": {
+          "custody._head": 0.010809019979205914,
+          "custody._selected": 0.021512773007998476,
+          "prefix._accepted": 2.546990648996143,
+          "prefix._after_projection": 7.576609103001829,
+          "prefix._ancestry": 0.03032061699195765,
+          "prefix._chosen": 0.002656455002579605,
+          "prefix._refresh": 6.269819258002826,
+          "prefix.read": 14.095716477000678,
+          "query._bundle": 0.0131611850047193,
+          "query._current": 7.665363418000197,
+          "routes._current_after_projection": 7.576785433000623,
+          "routes.read": 21.689997829002095,
+          "storage._head": 0.0013100650030537508
+        },
+        "status": 200,
+        "trace_events": 195,
+        "view": "events"
+      },
+      {
+        "bundle_observations": [
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "presence_changed": true
+            },
+            "latest_selector": {
+              "head_sha256": "42ad28dda6898f349b5b583b0fa1f32ae2aec720716112ef3cc186428ce6fc3a",
+              "proof_sha256": "1b92197e28c8cfddd126b9454d6a05355ed091e009aa81b0020c18a2e4867ac4",
+              "publication_sequence": 3
+            },
+            "state": "succeeded"
+          }
+        ],
+        "exceptions": [
+          {
+            "exception": "JointPrefixSelectionConflict",
+            "function": "read",
+            "line": 386,
+            "module": "prefix"
+          },
+          {
+            "exception": "JointPrefixSelectionConflict",
+            "function": "read",
+            "line": 91,
+            "module": "routes"
+          }
+        ],
+        "job_state": null,
+        "prefix_status": null,
+        "request_id": 7,
+        "seconds": 1.350907431999076,
+        "selected_cumulative_seconds": {
+          "prefix.read": 1.3458724489973974,
+          "query._bundle": 0.004835142000956694,
+          "query._current": 1.2714651540009072,
+          "routes.read": 1.3458919189979497
+        },
+        "status": 409,
+        "trace_events": 6,
+        "view": "samples"
+      },
+      {
+        "bundle_observations": [
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "presence_changed": true
+            },
+            "latest_selector": {
+              "head_sha256": "42ad28dda6898f349b5b583b0fa1f32ae2aec720716112ef3cc186428ce6fc3a",
+              "proof_sha256": "1b92197e28c8cfddd126b9454d6a05355ed091e009aa81b0020c18a2e4867ac4",
+              "publication_sequence": 3
+            },
+            "state": "succeeded"
+          },
+          {
+            "attempt": 1,
+            "cancel_requested": false,
+            "difference_from_previous_bundle": {
+              "bundle_components": [],
+              "job_fields": []
+            },
+            "latest_selector": {
+              "head_sha256": "42ad28dda6898f349b5b583b0fa1f32ae2aec720716112ef3cc186428ce6fc3a",
+              "proof_sha256": "1b92197e28c8cfddd126b9454d6a05355ed091e009aa81b0020c18a2e4867ac4",
+              "publication_sequence": 3
+            },
+            "state": "succeeded"
+          }
+        ],
+        "exceptions": [],
+        "job_state": "succeeded",
+        "prefix_status": null,
+        "request_id": 8,
+        "seconds": 9.83882712400009,
+        "selected_cumulative_seconds": {
+          "custody._head": 0.0034796680010913406,
+          "custody._selected": 0.012326444004429504,
+          "query._bundle": 0.00831953599845292,
+          "query._current": 3.603023181000026,
+          "query.read": 9.83426412100016,
+          "storage._head": 0.001981762998184422
+        },
+        "status": 200,
+        "trace_events": 70,
+        "view": "progress"
+      }
+    ],
+    "terminal_original_summary_equal": true,
+    "timing_is_instrumented_not_performance_guarantee": true,
+    "unique_tests": 1,
+    "verified_TLS": true,
+    "worker_pause_or_delay": false,
+    "worker_traced": false
+  },
+  "G0_G4": "not_assessed",
+  "P6a_accepted": false,
+  "P6b_accepted": false,
+  "actual_browser": {
+    "API_mocking": false,
+    "actual_exit": 1,
+    "browser_evidence_sha256": {
+      "browser-context.private.json": "0b251f6f7c129f3a6d6f4dc4b8a7cd78da8334642d97751598c2bac5ce41b84d",
+      "browser-job.private.json": "2f0cfce232f75df2907f04f4a3c2bc2fc9229f820c9e14ee41acc48e2b90c689",
+      "browser-live.private.json": "d418dec65db141be8d78f85fcea0c9b812963688d274172568c64f4db2a4ea7b",
+      "browser-observation.private.json": "e95357f320146b0d4541686717790700e3ddf57be3a61a80df0707d31f469a3d",
+      "browser-phases.private.json": "b9b92322c986996a7be50caacb9a44f511a76019d80a7b3cf6ef74fb50686117",
+      "browser-responses.private.json": "e7c948915bf09302f814500a692533ff5f046b2a751119542bc8a63f7596931d"
+    },
+    "job_state": "succeeded",
+    "native_reason": "browser_RSS_soft_limit",
+    "normal_original_session": 73518,
+    "phases": [
+      {
+        "at": "2026-10-11T07:59:32.410Z",
+        "phase": "load-app"
+      },
+      {
+        "at": "2026-10-11T07:59:32.960Z",
+        "phase": "connect-token"
+      },
+      {
+        "at": "2026-10-11T07:59:33.562Z",
+        "phase": "open-growth"
+      },
+      {
+        "at": "2026-10-11T07:59:34.282Z",
+        "phase": "collect-startup-garbage"
+      },
+      {
+        "at": "2026-10-11T07:59:34.306Z",
+        "phase": "choose-request"
+      },
+      {
+        "at": "2026-10-11T07:59:34.652Z",
+        "phase": "submit-request"
+      },
+      {
+        "at": "2026-10-11T07:59:34.695Z",
+        "phase": "await-admission"
+      },
+      {
+        "at": "2026-10-11T07:59:36.438Z",
+        "phase": "await-admission"
+      },
+      {
+        "at": "2026-10-11T07:59:36.696Z",
+        "phase": "observe-running"
+      },
+      {
+        "at": "2026-10-11T07:59:38.364Z",
+        "phase": "observe-running"
+      },
+      {
+        "at": "2026-10-11T07:59:43.908Z",
+        "phase": "observe-running"
+      },
+      {
+        "at": "2026-10-11T08:00:01.264Z",
+        "phase": "observe-running"
+      },
+      {
+        "at": "2026-10-11T08:00:05.932Z",
+        "phase": "observe-running"
+      },
+      {
+        "at": "2026-10-11T08:00:31.811Z",
+        "phase": "observe-running"
+      },
+      {
+        "at": "2026-10-11T08:00:47.385Z",
+        "phase": "observe-running"
+      },
+      {
+        "at": "2026-10-11T08:01:05.072Z",
+        "phase": "observe-running"
+      },
+      {
+        "at": "2026-10-11T08:01:15.869Z",
+        "phase": "observe-running"
+      },
+      {
+        "at": "2026-10-11T08:01:46.616Z",
+        "phase": "observe-running"
+      }
+    ],
+    "responses": [
+      {
+        "bytes": 237,
+        "path": "crop-climate-joint-executions",
+        "sha256": "80a078b4438f88fde9d4ffcc597563341355557524e8f6f1b68e3d46d2d6be9e",
+        "status": 202
+      },
+      {
+        "bytes": 88,
+        "path": "jobs/41b37e02-1bce-4b91-8cf8-d7b2a82b4c88/crop-climate-joint-execution",
+        "sha256": "721b3760b78f01e81f77d09a354b3418a0272a6eefd2506f9c1721a569430961",
+        "status": 503
+      },
+      {
+        "bytes": 579,
+        "path": "jobs/41b37e02-1bce-4b91-8cf8-d7b2a82b4c88/crop-climate-joint-execution/prefix",
+        "sha256": "4e661ed4efacc68777fdb12ebf5d9eb15cdc604d3443ba23df1347f5302b5a2f",
+        "status": 200
+      },
+      {
+        "bytes": 88,
+        "path": "jobs/41b37e02-1bce-4b91-8cf8-d7b2a82b4c88/crop-climate-joint-execution",
+        "sha256": "721b3760b78f01e81f77d09a354b3418a0272a6eefd2506f9c1721a569430961",
+        "status": 503
+      },
+      {
+        "bytes": 82,
+        "path": "jobs/41b37e02-1bce-4b91-8cf8-d7b2a82b4c88/crop-climate-joint-execution/prefix",
+        "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+        "status": 503
+      },
+      {
+        "bytes": 506,
+        "path": "jobs/41b37e02-1bce-4b91-8cf8-d7b2a82b4c88/crop-climate-joint-execution",
+        "sha256": "f858cf76876608d4b1d31257d538e094b426f94a5e313ff82dd60cd1d6c89f45",
+        "status": 200
+      },
+      {
+        "bytes": 5218,
+        "path": "jobs/41b37e02-1bce-4b91-8cf8-d7b2a82b4c88/crop-climate-joint-execution/prefix",
+        "sha256": "c99eb46ca90f6ffd198b72de4ba884da40b61140516c05c9f8ff22d9a5859948",
+        "status": 200
+      },
+      {
+        "bytes": 25156,
+        "path": "jobs/41b37e02-1bce-4b91-8cf8-d7b2a82b4c88/crop-climate-joint-execution/prefix/events",
+        "sha256": "11ce8edf68fcd4f84d443b0438a9a9b90802113b0c945d65f1be67cf923e6f64",
+        "status": 200
+      },
+      {
+        "bytes": 82,
+        "path": "jobs/41b37e02-1bce-4b91-8cf8-d7b2a82b4c88/crop-climate-joint-execution/prefix/samples",
+        "sha256": "467a2781a953f579a65fb7bf533f3f8113526aff9e593ee3a2483dcef314f21b",
+        "status": 503
+      },
+      {
+        "bytes": 1295,
+        "path": "jobs/41b37e02-1bce-4b91-8cf8-d7b2a82b4c88/crop-climate-joint-execution",
+        "sha256": "a0020cba0161481f721dce4f71edc191485e97cf8ffa633bc3b2a501ad4a026d",
+        "status": 200
+      }
+    ],
+    "running_WebGL_observed": false,
+    "same_selector_events_200": true,
+    "samples_200": false,
+    "service_exit": 0,
+    "unpaused_worker_chunk_budget": 8
+  },
+  "actual_crop_Runs": 0,
+  "created_at": "2026-10-11T08:18:04.062426+00:00",
+  "full_CI_run": false,
+  "guards": [
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 421994496,
+      "original_session": 76753,
+      "originals_preserved": 2148,
+      "owned_remaining": 0,
+      "protected_roots": 4,
+      "receipt_sha256": "caeab6fbc0be6033f433a457527885ae6f3d4095c1ad932ec418f19b74d551c1",
+      "single_PID_peak_RSS_bytes": 112058368,
+      "source_and_both_frozen_assets_preserved": true,
+      "stage": "focused-maintenance-baseline-v1",
+      "wall_seconds": 1.3845853279999574
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_exit": 1,
+      "combined_peak_RSS_bytes": 184545280,
+      "original_session": 6298,
+      "originals_preserved": 2148,
+      "owned_remaining": 0,
+      "protected_roots": 0,
+      "receipt_sha256": "44a035a81d604b0201810fa40472e45acf3c48a5088e5b1f9760f2814cbdb22c",
+      "single_PID_peak_RSS_bytes": 97013760,
+      "source_and_both_frozen_assets_preserved": true,
+      "stage": "focused-live-normal-v1",
+      "wall_seconds": 1.2784355510011665
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_exit": 1,
+      "combined_peak_RSS_bytes": 386928640,
+      "original_session": 47265,
+      "originals_preserved": 2148,
+      "owned_remaining": 0,
+      "protected_roots": 0,
+      "receipt_sha256": "0d0f45eae62611f8e95d05d67cfbc29c93db074519a3f2cc47e1cff16ca9ec2c",
+      "single_PID_peak_RSS_bytes": 109592576,
+      "source_and_both_frozen_assets_preserved": true,
+      "stage": "focused-live-normal-forward-v1",
+      "wall_seconds": 3.8488627539991285
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_exit": 1,
+      "combined_peak_RSS_bytes": 963039232,
+      "original_session": 73518,
+      "originals_preserved": 2148,
+      "owned_remaining": 0,
+      "protected_roots": 0,
+      "receipt_sha256": "b6bf62dafcbb24c563831479d16f46e808f910e2c91761ee291a2d178ad338ea",
+      "single_PID_peak_RSS_bytes": 402599936,
+      "source_and_both_frozen_assets_preserved": true,
+      "stage": "focused-live-normal-forward-v2",
+      "wall_seconds": 131.30437426700155
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 663842816,
+      "original_session": 47966,
+      "originals_preserved": 2148,
+      "owned_remaining": 0,
+      "protected_roots": 4,
+      "receipt_sha256": "ea4e10244238af3ab4cf36a6940fea268342a7831e12d39865127211fd806bdc",
+      "single_PID_peak_RSS_bytes": 136876032,
+      "source_and_both_frozen_assets_preserved": true,
+      "stage": "focused-restored-joint-probe-forward-v1",
+      "wall_seconds": 39.778302615999564
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 569970688,
+      "original_session": 57823,
+      "originals_preserved": 2148,
+      "owned_remaining": 0,
+      "protected_roots": 4,
+      "receipt_sha256": "f38bfb794aa9033f50d455542523706a246e30874d171d48b097c159191f3319",
+      "single_PID_peak_RSS_bytes": 136876032,
+      "source_and_both_frozen_assets_preserved": true,
+      "stage": "focused-restored-integrity-forward-v1",
+      "wall_seconds": 0.3399540659993363
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_exit": 1,
+      "combined_peak_RSS_bytes": 1019056128,
+      "original_session": 90160,
+      "originals_preserved": 2148,
+      "owned_remaining": 0,
+      "protected_roots": 4,
+      "receipt_sha256": "91c1714df13a4cdd51443a52b801dea9ce7389b5d0d1fa2515c5eee5d2f627cf",
+      "single_PID_peak_RSS_bytes": 153706496,
+      "source_and_both_frozen_assets_preserved": true,
+      "stage": "focused-api-ui-sequence-v4-v1",
+      "wall_seconds": 146.2657679369986
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_exit": 1,
+      "combined_peak_RSS_bytes": 1030262784,
+      "original_session": 70328,
+      "originals_preserved": 2148,
+      "owned_remaining": 0,
+      "protected_roots": 4,
+      "receipt_sha256": "8151f9cd44e07b565ecc4cf2c1dc0ebb405efa95ab389a4a0f471e5467f953f8",
+      "single_PID_peak_RSS_bytes": 153583616,
+      "source_and_both_frozen_assets_preserved": true,
+      "stage": "focused-api-ui-sequence-v4-v2",
+      "wall_seconds": 147.85692594799912
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_exit": 0,
+      "combined_peak_RSS_bytes": 1029632000,
+      "original_session": 88744,
+      "originals_preserved": 2148,
+      "owned_remaining": 0,
+      "protected_roots": 4,
+      "receipt_sha256": "45ac339b6bd1e211249437477ae7a3642c5ecd3c7bded988b9c97af2f129380b",
+      "single_PID_peak_RSS_bytes": 152842240,
+      "source_and_both_frozen_assets_preserved": true,
+      "stage": "focused-api-ui-sequence-v4-v3",
+      "wall_seconds": 159.26561235199915
+    }
+  ],
+  "independent_local_farm_datasets": 0,
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "recursive_invocations": 0,
+    "timestamp": "2026-10-11T07:54:47.824Z",
+    "turn_context_sha256": "89678cb8368aa10639d20235d8f32c2c0af23c572c360bf42c3e453e734f2db6"
+  },
+  "remote_operations": 0,
+  "restoration": {
+    "authenticated_original_joint_responses": 7,
+    "files_preserved": 252,
+    "guide_runs": {
+      "5173": "run-v7/service",
+      "5174": "service-v1/serve-v7"
+    },
+    "joint_running_original": 21652,
+    "keys_DSN_rights_preserved": true,
+    "legacy_probe_exit": 0,
+    "legacy_probe_original": 54826,
+    "legacy_running_original": 74892,
+    "new_restored_worker_attempts": 0,
+    "old_token_401": true,
+    "originals_preserved": 2148,
+    "protected_roots": 4,
+    "row_counts": {
+      "job_attempts": 19,
+      "job_events": 232,
+      "jobs": 103
+    },
+    "rows_preserved": {
+      "job_attempts": true,
+      "job_events": true,
+      "jobs": true
+    }
+  },
+  "source_sha256": {
+    "backend/app/api_crop_climate_joint_prefix_routes.py": "0306400f3b9fedae7fc5c99cdb4101e116eb0370c41a08d1451c69c2abf78ffb",
+    "backend/app/crop_climate_joint_prefix.py": "2431db41c1267678f1c3c899e186dd16bf653492f4db6e7788f5c6ccf6629335",
+    "research/crop-climate-joint-prefix-browser-reference.mjs": "b2f1e946e3519d4149bba26a8b4f8810240572a4600801787995974d85079fe2",
+    "research/crop-climate-joint-prefix-browser-reference.py": "2e51b6a0ede78e76f6d4ff3a0b3caf2be7c0075ea3941211ce6d669dded5e133",
+    "research/crop-climate-joint-prefix-ui-sequence-diagnosis.py": "486a3df4c074be0eada895c19fac28fa32edb412d761729744f80a0df950f918",
+    "web/src/JointCropClimateExecution.tsx": "1c99b6d340a246a9fbcbfd3f7b07433351c506da901259446cfde9bad5edfee0"
+  },
+  "user_prefix3D_activated": false,
+  "version": "actual-v4-prefix-browser-and-lifecycle-diagnosis-v1"
+}

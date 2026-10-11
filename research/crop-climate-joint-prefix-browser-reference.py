@@ -193,8 +193,10 @@ def run_live(args):
     baseline = json.loads(args.maintenance_before.read_bytes())
     original_runtime = json.loads((service/'runtime.private.json').read_bytes())
     rights = (service/'rights.private.json').read_bytes()
-    run_name = 'prefix-p6-'+directory.parent.name
+    run_name = ('prefix-p6-'+directory.parent.name+'-'
+                +sha256(str(directory.resolve()).encode()).hexdigest()[:12])
     active = service/run_name
+    assert not active.exists(), 'browser candidate run already exists'
     request = json.loads((service/'requests'/('hold-validation.json' if args.mode == 'live-hold' else 'normal-validation.json')).read_bytes())
     request.update(study_id='p6-prefix-browser', revision=run_name+'-'+args.mode)
     request_file = directory/'request.private.json'; save(request_file, request)
@@ -250,6 +252,7 @@ def run_live(args):
                 .format(sql.Identifier(original_runtime['policy']['schema'])), ('tenant-1',)).fetchall()
         prior_cleanup = []
         for row in rows:
+            if str(row['job_id']) in baseline['database_rows']['jobs']: continue
             body = json.loads(row['input_bytes']).get('request', {})
             if (body.get('study_id'), body.get('revision')) not in owned: continue
             assert sha256(row['input_bytes']).hexdigest() == row['input_sha256']
