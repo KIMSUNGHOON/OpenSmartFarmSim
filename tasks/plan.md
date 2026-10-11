@@ -2,7 +2,9 @@
 
 ## 현재 구현 우선순위 — 2026-10-12
 
-[환기 결과 명시 서버 조립](../research/crop-greenhouse-ventilation-runtime-implementation-20261012.md)을239검사와 최종 보존으로 로컬 수용했다. 실제 SCRAM/HTTPS의 새·기존 정상/보류4건, 혼합 객체/키/실제 grant 변경과 늦은 권리/계정 철회2건을 확인했다. 다음 한 단계는 **새 작업 판본·자동 계산 작업자 연결**이다. 아래 기존 추정3–6집중시간은 worker/웹2–4와 사용자 적용1–2의 남은 작업량이며 전체 제품 완료 약속이 아니다.
+[환기 자동 실행 핵심](../research/crop-greenhouse-ventilation-execution-core-implementation-20261012.md)을91검사와 보존으로 로컬 수용했다. 실제 정상/보류·취소·임대 만료/SIGKILL 재개·rollback·늦은 권리와 독립 자동 발견을 확인했다. **다음 한 단계는 새 실행의 현재 진행 조회·접수/취소 HTTP·명시 runtime 조립**이다. 같은 UTC3D/사용자 적용과 부모 실행은 미완료다.
+
+[환기 결과 명시 서버 조립](../research/crop-greenhouse-ventilation-runtime-implementation-20261012.md)을239검사와 최종 보존으로 로컬 수용했다. 실제 SCRAM/HTTPS의 새·기존 정상/보류4건, 혼합 객체/키/실제 grant 변경과 늦은 권리/계정 철회2건을 확인했다. 접수/checkpoint/worker 핵심91검사까지 수용했으며 다음은 실행의 현재 HTTP/runtime 연결이다. 아래 기존 추정3–6집중시간은 worker/웹2–4와 사용자 적용1–2의 남은 작업량이며 전체 제품 완료 약속이 아니다.
 
 사용자 대기 상태 안내를 우선 보완한 [개발 진행 기록](../research/product-ui-development-progress-20261012.md)을5174에 적용했다. 인증 없이 완료/다음/대기 단계·갱신 시각·새 모델 배포 여부·남은 작업량을15초마다 확인한다. 개발 기록과 선택한 계산 진행은 각각 명시하며 원 계산은64/64완료다. 이후 단계 수용과 구현·검증의 확인 가능한 진행 시점에 `web/public/development-status.json`의 작업 설명·기록 시각을 갱신하고 [게시 절차](../web/README.md#개발-진행-확인--2026-10-12)로 원자 게시·HTTP/handoff SHA 대사를 수행한다. 완료 상태는 수용 뒤에만 변경한다. 전체 Codex 로그/실제 자료의 게시를 뜻하지 않는다.
 
@@ -40,7 +42,8 @@
 | 서버 서명 이력·재개 | 새7/기존4그룹·fresh/실제 HEAD 전후 SIGKILL·최종 보존 수용 |완료 |
 | 결과 등록/보호 API | DB/권한27·signed store20·공개 query103·보호 HTTPS232검사/최종 보존 수용 |완료 |
 | 명시 runtime | 집중239·실제 SCRAM/TLS 정상/보류·권리/계정·기존 서버 보존 수용 |완료 |
-| 자동 worker·typed web/같은 UTC3D | 수용한 runtime·같은 작업의 running/terminal·원 값/시각·취소/재접속 |2–4 |
+| 접수·자동 worker 핵심 |91검사·실제 정상/보류/취소/재개·독립 자동 소비 수용 |완료 |
+| 실행 현재 HTTP/runtime·typed web/같은 UTC3D | 같은 작업의 running/terminal·원 값/시각·현재 권리·취소/재접속 |2–4 |
 | 사용자 적용 | 원 DB/두 서버/WSL 보존·실제 브라우저 정상/hold/취소·적용 주소 보고 |1–2 |
 
 입력/농장 결속 수용 뒤 합계5–10시간에서 서버 서명 이력과 보호 HTTPS까지 완료했다. **남은 합계3–6집중작업시간**이며 실제 구현·검증 결과로 교체한다. 연속 작업/외부 장애 없는 조건의 잠정 작업량이지 완료 약속이 아니다.
@@ -48,10 +51,12 @@
 현재 두 사용자 화면에 새 환기 모델은 미배포다. 기존 source/결과와 G0–G4 보류를 유지한다.
 실제 품종/독립 자료0과 미완료 온실/자원/경제/최종 UI를 고려해 전체 제품 완료 날짜는 미정이다.
 
+자동 계산 단계는 [실행 핵심](../contracts/crop-greenhouse-ventilation-execution-core-v1.md)의 접수/checkpoint/worker·독립 자동 소비를 먼저 확인하고, 현재 진행 조회/보호 접수·취소 HTTP/명시 runtime을 이어서 연결한다. 핵심91검사는 수용했으며 부모 실행이나 사용자 배포는 미완료다. 기존3–6집중시간 추정과 외부 자료 의존성은 유지한다.
+
 ### 새 환기 모델의 화면 연결 순서
 
-1. **명시 runtime 조립(완료)** — 기존 loader의 새 flag True 거부와 factory 부재를 해소하는 별도 조립 판본을 추가했다. 별도 명시 판본/기본 비활성, 같은 jobs/farms/principal의 typed query/store, 서로 다른 기존 integrity key와 현재 권리를 확인한다. 실제 SCRAM/TLS 정상/보류3응답이 원 bytes/UTC와 일치하고 잘못된 조립/설정·기존 loader/경로·두 UI를 보존해야 수용한다. 위239검사/최종 보존으로 수용했다. 다음 한 단계는 아래 자동 계산이다.
-2. **새 작업 판본·자동 계산/진행** — 기존 작업표/임대·서명 저장을 재사용하고 새 입력/모델 판본을 구분한다. 실제 접수→worker 확정 checkpoint→정상/hold 결과의 원자 게시, 취소/재시작·현재 권리·조회 재계산0을 확인한다.
+1. **명시 runtime 조립(완료)** — 기존 loader의 새 flag True 거부와 factory 부재를 해소하는 별도 조립 판본을 추가했다. 별도 명시 판본/기본 비활성, 같은 jobs/farms/principal의 typed query/store, 서로 다른 기존 integrity key와 현재 권리를 확인한다. 실제 SCRAM/TLS 정상/보류3응답이 원 bytes/UTC와 일치하고 잘못된 조립/설정·기존 loader/경로·두 UI를 보존해야 수용한다. 위239검사/최종 보존으로 수용했다. 아래 자동 계산 핵심도91검사로 수용했으며 현재 진행 HTTP/runtime은 남아 있다.
+2. **새 작업 판본·자동 계산/진행(핵심 수용·HTTP/runtime 남음)** — 기존 작업표/임대·서명 저장을 재사용하고 새 입력/모델 판본을 구분한다. 실제 접수→worker 확정 checkpoint→정상/hold 결과의 원자 게시, 취소/재시작·현재 권리·조회 재계산0을 확인한다.
 3. **typed web·같은 UTC3D** — 같은 작업의 확정 부분/완료 결과만 읽는다. 108상태·25장부/10수지·환기 진단과 원 UTC를 그대로 표시하고 장면/표/차트의 원 수치를 대사한다. 임의 생장 애니메이션을 추가하지 않는다.
 4. **사용자 적용** — 실제 브라우저 정상/hold/취소/재접속과 원 사용자 DB/두 주소/WSL을 검증한 뒤 적용 URL을 게시한다. API/worker 검증용 scratch 결과는 자동으로 사용자 농장 결과가 되지 않는다.
 

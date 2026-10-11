@@ -12,6 +12,7 @@ from uuid import UUID
 from .break_even_calculation_worker import BreakEvenCalculationWorker, BreakEvenCalculationOutcome
 from .break_even_verification_worker import BreakEvenVerificationWorker, BreakEvenVerificationOutcome
 from .crop_climate_joint_execution_worker import JointExecutionWorker, JointExecutionOutcome
+from .crop_greenhouse_ventilation_execution_worker import VentilationExecutionWorker, VentilationExecutionOutcome
 from .deterministic_job_discovery import DeterministicJobDiscovery
 from .economic_calculation_worker import EconomicCalculationWorker, EconomicCalculationOutcome
 from .jobs import require_reason_code, require_seconds
@@ -24,6 +25,7 @@ WORKERS = {
     BreakEvenCalculationWorker: (frozenset({'break-even-calculation-input-v1'}), BreakEvenCalculationOutcome),
     BreakEvenVerificationWorker: (frozenset({'break-even-verification-input-v1'}), BreakEvenVerificationOutcome),
     JointExecutionWorker: (frozenset({'joint-crop-climate-execution-input-v1'}), JointExecutionOutcome),
+    VentilationExecutionWorker: (frozenset({'joint-ventilation-execution-input-v1'}), VentilationExecutionOutcome),
 }
 
 
