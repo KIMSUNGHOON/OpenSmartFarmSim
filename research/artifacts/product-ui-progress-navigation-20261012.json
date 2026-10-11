@@ -1,0 +1,159 @@
+{
+  "schema_version": "product-ui-progress-navigation-reference-v1",
+  "accepted": true,
+  "native_cli_context": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-11T19:22:33.738Z",
+    "raw_line_sha256": "414a1542a616f5847e2090bd0548f58dffb55ad6dacc6749c2a11287dd4bc520",
+    "same_native_CLI_session": true,
+    "recursive_cli_invocations": 0
+  },
+  "stages": {
+    "focused-navigation-activation-v1": {
+      "original_tool": 99158,
+      "actual_tool_exit": 1,
+      "original_terminal_collected": true,
+      "actual_child_exit": 1,
+      "combined_peak_RSS_bytes": 636133376,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 0.6031054909981322
+    },
+    "focused-navigation-activation-v2": {
+      "original_tool": 23020,
+      "actual_tool_exit": 0,
+      "original_terminal_collected": true,
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 635662336,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 136704000,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 0.5970704830033355
+    },
+    "focused-navigation-browser-v1": {
+      "original_tool": 99465,
+      "actual_tool_exit": 0,
+      "original_terminal_collected": true,
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 989855744,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 255451136,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 5.928141930999118
+    },
+    "focused-navigation-browser-final-v1": {
+      "original_tool": 61977,
+      "actual_tool_exit": 0,
+      "original_terminal_collected": true,
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 994279424,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 258129920,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 5.931628988000739
+    }
+  },
+  "browser": {
+    "legacy_has_progress": 0,
+    "legacy_notice_visible": true,
+    "legacy_mobile": {
+      "viewport": 390,
+      "scroll": 390
+    },
+    "navigation_clicked": true,
+    "current_progress_visible_without_authentication": true,
+    "current_progress_text": "제품 개발과 배포 상태\n\n개발 기록 갱신: 2026. 10. 12. 오전 4:34:58\n\n검증 완료 · 작물·환기 생장 계산 — 합성 입력의 생장·환기 계산과 원 UTC 검증 완료\n검증 완료 · 결과 저장·현재 권한 조회 — 실제 DB 저장·현재 조회·rollback: 새19/기존1, 총20그룹 통과\n검증 완료 · 사용자 조회 API 연결 — 결과 조회 API232검사·명시 서버 조립239검사 통과. 새 계산의 접수·진행 조회·취소 API 연결은 현재 개발 단계입니다.\n다음 작업 · 자동 작업자·같은 시각의 3D 연결 — 자동 실행 핵심91검사 통과. 현재 단계: 새 계산 접수·진행 조회·취소 API 연결 준비. 이후 저장된 같은 시각의 3D 연결과 사용자 적용이 남았습니다. 기존 사용자 계산64/64는 완료됐고 새 모델은 미배포입니다.\n대기 · 실제 브라우저 검증·사용자 화면 적용 — 정상·보류·취소·재접속 검증 뒤 사용자 적용\n\n새 환기 모델 화면 연결까지: 집중 작업 약 3–6시간 예상. 연속 작업 기준의 추정이며 완료 시각을 보장하지 않습니다.\n\n새 환기 모델: 현재 사용자 화면에 미배포. 실제 농장 Run: 0건. 전체 제품 완료일: 미정.\n\n기록을 15초마다 확인합니다. 마지막 조회: 오전 4:35:03. 단계별 검증 뒤 갱신되는 개발 기록이며, 선택한 계산의 진행률은 아래에서 확인합니다.\n\n현재 계산 화면은 기존 합성 입력의 작물·기후 계산과 확정 저장값의 3D를 제공합니다. 전체 제품은 자원 사용·생산량·경제 통합과 독립 농장 검증이 남아 있습니다.\n\n접속 설정: 미설정 · 아래에서 접근 토큰을 입력하세요.",
+    "current_url": "http://localhost:5174/#crop-execution",
+    "first_http": {
+      "status": 200,
+      "cache": "no-store",
+      "contentType": "application/json"
+    },
+    "mobile": {
+      "viewport": 390,
+      "scroll": 390
+    },
+    "pageerrors": [],
+    "API_writes": 0
+  },
+  "accepted_calculation_files_preserved": 265,
+  "API_worker_restarts": 0,
+  "new_packages": 0,
+  "full_CI_run": false,
+  "remote_push": false,
+  "new_model_deployed": false,
+  "real_farm_runs": 0,
+  "G0_G4": "not_assessed",
+  "remaining_focused_hours": [
+    3,
+    6
+  ],
+  "full_product_completion": null,
+  "next": "crop-greenhouse-ventilation-execution-current-http-runtime",
+  "core_sha256": {
+    "web/preview-progress-notice.html": "1883631d657938e3578d06e62ed70de4109ead547e6f1c308b095b964367477b",
+    "web/public/development-status.json": "e84e10dedbe0436e0165cec489c0f4059f2870c4ff52c64e2e9c1156cad8d20d"
+  }
+}

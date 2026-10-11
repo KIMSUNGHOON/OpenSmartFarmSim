@@ -2651,4 +2651,6 @@ SCRAM 권한 역할에서 합성 서명 바이트를 변경 불가로 보존하�
 
 ## 사용자 개발 진행 기록 — 2026-10-12
 
+- [x] **`product-ui-progress-navigation`** — [수용 기록](../research/product-ui-progress-navigation-20261012.md): 기존5173상단 안내→5174인증 없는 개발 현황을 실제 클릭으로 확인했다. 최종 원61977실제0·두 화면390px overflow0·API쓰기/pageerror0·원본2,148/계산265파일·두 frozen자산/보호4root·WSL/소유 정리를 통과했다. 새 모델 API/3D 배포는 후속이다.
+
 - [x] **`product-ui-development-progress`** — [수용 기록](../research/product-ui-development-progress-20261012.md): 기존 상태 패널의 공개 단계 기록·15초 polling·오래된 기록/오류 안내·같은 페이지 새 기록 반영·기존 실제64/64 조회·모바일·원자 게시/판본 보존·원21093 실제0·원본2,148/244계산파일/두 UI/WSL 보존으로 사용자 적용을 수용했다. 다음 crop API 작업 순서는 유지한다.
