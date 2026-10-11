@@ -11,6 +11,7 @@ import sys
 import time
 
 import pytest
+from psycopg.types.json import Jsonb
 
 from app import crop_climate_joint_prefix as model
 from test_crop_climate_joint_execution_query import (
@@ -102,6 +103,182 @@ print(json.dumps({'actual_scram':True,'changed_job_fields':changed,'timestamps_s
         yield renew
     finally:
         pack.unlink(); (tmp_path/'proof.private.json').unlink()
+
+
+@contextmanager
+def independent_advance(worker, job_id, raw, value, tmp_path, *, confirm):
+    pack = reference.reference.producer.fresh_pack(tmp_path, value, worker.server.inspect('tenant-1', raw), worker.server)
+    packet = json.loads(pack.read_bytes())
+    packet.update(job_id=job_id, phase='reader', request_raw_utf8=raw.decode(), confirm=confirm)
+    pack.write_text(json.dumps(packet))
+    script = reference.reference.FRESH_WORKER.split('with MonkeyPatch.context()')[0] + '''
+principal['scopes'].update({'simulation_execute','crop_result_write'})
+request_raw=p['request_raw_utf8'].encode()
+before=json.loads(server.inspect('tenant-1',request_raw))
+with jobs.connect() as conn:
+ assert conn.pgconn.used_password and conn.info.get_parameters()['require_auth']=='scram-sha-256'
+ row=conn.execute(__import__('psycopg').sql.SQL('SELECT * FROM {} WHERE tenant_id=%s AND job_id=%s').format(jobs._table('jobs')),('tenant-1',p['job_id'])).fetchone()
+after=json.loads(server.advance('tenant-1',request_raw,budget=2))
+assert after['steps']>before['steps'] and after['head_sha256']!=before['head_sha256']
+accepted=None
+if p['confirm']:
+ event=checkpoint_store.confirm('tenant-1',p['job_id'],attempt=row['attempt_count'],lease_token=row['lease_token'])
+ accepted={k:event['checkpoint'][k] for k in ('publication_sequence','head_sha256','proof_sha256')}
+print(json.dumps({'actual_scram':True,'private_HEAD_advanced':True,'DB_confirmed':p['confirm'],
+ 'before_head_sha256':before['head_sha256'],'after_head_sha256':after['head_sha256'],
+ 'steps_before_after':[before['steps'],after['steps']],'accepted_selector':accepted}))
+'''
+    def advance_external():
+        child = subprocess.run([sys.executable, '-B', '-c', script, str(pack)], capture_output=True,
+            stdin=subprocess.DEVNULL, timeout=120, env=dict(os.environ, PYTHONPATH=reference.reference.producer.FRESH_PYTHONPATH))
+        assert child.returncode == 0, child.stderr.decode()
+        return json.loads(child.stdout)
+    try:
+        yield advance_external
+    finally:
+        pack.unlink(); (tmp_path/'proof.private.json').unlink()
+
+
+@pytest.mark.parametrize('confirmed', [False, True], ids=['private', 'confirmed'])
+def test_actual_independent_advance_during_read_preserves_original_page(setup, tmp_path, monkeypatch, confirmed):
+    query, worker, job_id, raw, value = setup
+    lease = reference.confirm(worker, job_id); _, accepted = advance(worker, job_id, raw, lease, 2)
+    pin = {k: accepted['checkpoint'][k] for k in ('publication_sequence', 'head_sha256', 'proof_sha256')}
+    reference.readonly(value); expected = read(query, job_id, selector=pin, view='samples')
+    original = query.query._bundle; observed = []; count = 0
+    with independent_advance(worker, job_id, raw, value, tmp_path, confirm=confirmed) as publish:
+        def changed(*args):
+            nonlocal count
+            count += 1
+            if count == 2: observed.append(publish())
+            return original(*args)
+        with monkeypatch.context() as patch:
+            calls = reference.forbid(patch); patch.setattr(query.query, '_bundle', changed)
+            actual = read(query, job_id, selector=pin, view='samples')
+            assert all(n == 0 for n in calls.values())
+    expected['observed_at'] = actual['observed_at']
+    assert model.storage._canonical(actual) == model.storage._canonical(expected)
+    assert len(observed) == 1 and actual['selection']['checkpoint_recorded_at'] == model.execution._utc(accepted['recorded_at'])
+    save('independent-advance-'+str(confirmed), {'external_process': observed[0],
+        'original_page_canonical_bytes_and_UTC': True, 'same_selector': pin, 'read_calls': calls,
+        'page_before_after_sha256': [sha256(model.storage._canonical(x['page'])).hexdigest() for x in (expected, actual)]})
+
+
+def test_signed_private_HEAD_rollback_during_read_is_rejected(setup, monkeypatch):
+    query, worker, job_id, raw, value = setup
+    lease = reference.confirm(worker, job_id); _, accepted = advance(worker, job_id, raw, lease, 2)
+    pin = {k: accepted['checkpoint'][k] for k in ('publication_sequence', 'head_sha256', 'proof_sha256')}
+    _, artifact, _ = reference.reference.producer.locations(worker.server, raw)
+    path = artifact/'HEAD'
+    worker.server.advance('tenant-1', raw, budget=2)
+    older = path.read_bytes()
+    worker.server.advance('tenant-1', raw, budget=2)
+    current = path.read_bytes(); mode = path.stat().st_mode & 0o777
+    assert older != current
+    reference.readonly(value); original = query.query._bundle; count = 0
+    def changed(*args):
+        nonlocal count
+        count += 1
+        if count == 2:
+            path.chmod(0o600); path.write_bytes(older); path.chmod(mode)
+        return original(*args)
+    try:
+        with monkeypatch.context() as patch:
+            calls = reference.forbid(patch); patch.setattr(query.query, '_bundle', changed)
+            with pytest.raises(model.JointPrefixHold):
+                read(query, job_id, selector=pin, view='samples')
+            assert all(n == 0 for n in calls.values())
+    finally:
+        path.chmod(0o600); path.write_bytes(current); path.chmod(mode)
+    writable(value)
+    try:
+        path.chmod(0o600); path.write_bytes(older); path.chmod(mode)
+        worker.server.advance('tenant-1', raw, budget=1)
+        worker.server.advance('tenant-1', raw, budget=1)
+        fork = path.read_bytes()
+        assert json.loads(fork)['commit_count'] > json.loads(current)['commit_count']
+    finally:
+        path.chmod(0o600); path.write_bytes(current); path.chmod(mode)
+    reference.readonly(value); count = 0
+    def forked(*args):
+        nonlocal count
+        count += 1
+        if count == 2:
+            path.chmod(0o600); path.write_bytes(fork); path.chmod(mode)
+        return original(*args)
+    try:
+        with monkeypatch.context() as patch:
+            calls = reference.forbid(patch); patch.setattr(query.query, '_bundle', forked)
+            with pytest.raises(model.JointPrefixHold):
+                read(query, job_id, selector=pin, view='samples')
+            assert all(n == 0 for n in calls.values())
+    finally:
+        path.chmod(0o600); path.write_bytes(current); path.chmod(mode)
+    assert read(query, job_id, selector=pin, view='samples')['selection']['checkpoint'] == accepted['checkpoint']
+    save('private-HEAD-rollback', {'valid_signed_rollback_above_selected_but_behind_observed_rejected': True,
+        'valid_signed_fork_with_greater_commit_count_rejected': True,
+        'original_HEAD_restored': True, 'read_calls': calls})
+
+
+def test_actual_audit_immutability_and_returned_event_faults(setup, login_database, monkeypatch):
+    from datetime import timedelta
+    query, worker, job_id, raw, value = setup
+    lease = reference.confirm(worker, job_id); _, first = advance(worker, job_id, raw, lease, 2)
+    _, previous = advance(worker, job_id, raw, lease, 2)
+    pin = {k: first['checkpoint'][k] for k in ('publication_sequence', 'head_sha256', 'proof_sha256')}
+    table = worker.jobs._table('job_events'); sql = reference.sql
+    with reference.psycopg.connect(login_database['admin'], row_factory=reference.psycopg.rows.dict_row) as conn:
+        admin_used_password = conn.pgconn.used_password
+        originals = {name: conn.execute(sql.SQL('SELECT * FROM {} WHERE event_id=%s').format(table),
+            (event['event_id'],)).fetchone() for name, event in (('chosen', first), ('previous', previous))}
+    database_rejected = []
+    with reference.psycopg.connect(login_database['admin'], autocommit=True,
+            row_factory=reference.psycopg.rows.dict_row) as conn:
+        for target, row in originals.items():
+            for fault in ('time', 'reason', 'delete'):
+                with pytest.raises(reference.psycopg.errors.RaiseException, match='audit rows are immutable'):
+                    if fault == 'delete':
+                        conn.execute(sql.SQL('DELETE FROM {} WHERE event_id=%s').format(table), (row['event_id'],))
+                    else:
+                        field = 'recorded_at' if fault == 'time' else 'reason'
+                        modified = row[field] + timedelta(microseconds=1) if fault == 'time' else Jsonb({**row[field], 'steps': row[field]['steps']+1})
+                        conn.execute(sql.SQL('UPDATE {} SET {}=%s WHERE event_id=%s').format(table, sql.Identifier(field)),
+                            (modified, row['event_id']))
+                actual = conn.execute(sql.SQL('SELECT * FROM {} WHERE event_id=%s').format(table), (row['event_id'],)).fetchone()
+                assert model.execution._same(actual, row)
+                database_rejected.append({'event': target, 'fault': fault})
+    reference.readonly(value); original = query.query._bundle; original_chosen = query._chosen; rejected = []
+    for target in ('chosen', 'previous'):
+        row = originals[target]
+        for fault in ('time', 'reason', 'delete'):
+            count = 0; armed = False; injected = False
+            def changed(*args):
+                nonlocal count, armed
+                count += 1
+                actual = original(*args)
+                if count == 2: armed = True
+                return actual
+            def returned(*args):
+                nonlocal injected
+                actual = original_chosen(*args)
+                if armed and str(actual['event_id']) == str(row['event_id']):
+                    injected = True; actual = deepcopy(actual)
+                    if fault == 'delete': return None
+                    if fault == 'time': actual['recorded_at'] += timedelta(microseconds=1)
+                    else: actual['reason']['steps'] += 1
+                return actual
+            with monkeypatch.context() as patch:
+                calls = reference.forbid(patch); patch.setattr(query.query, '_bundle', changed)
+                patch.setattr(query, '_chosen', returned)
+                with pytest.raises((model.JointPrefixPending, model.JointPrefixHold)) as error:
+                    read(query, job_id, selector=pin, view='samples')
+                assert count == 2 and injected and all(n == 0 for n in calls.values())
+                rejected.append({'event': target, 'fault': fault, 'exception': type(error.value).__name__})
+    assert read(query, job_id, selector=pin, view='samples')['selection']['checkpoint'] == first['checkpoint']
+    save('selected-previous-event-changes', {'actual_audit_trigger_rejections': database_rejected,
+        'fault_admin_used_password': admin_used_password,
+        'actual_DB_event_rows_unchanged': True, 'reader_faults_are_synthetic_returned_rows': True,
+        'reader_rejected': rejected, 'read_calls': calls})
 
 
 def test_actual_independent_heartbeat_during_read_preserves_original_page(setup, tmp_path, monkeypatch):

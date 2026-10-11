@@ -1,6 +1,8 @@
 # OpenSmartFarmSim
 
-**2026-10-11 중간 결과 후속 진단:** [P6a2b0 요청별 추적](research/crop-climate-joint-prefix-progress-diagnosis-20261011.md)은 실제 독립 계산2회에서 정상 HEAD/DB 수용 판본의 전진으로 조회가 보류되는 지점을 확인했다. 원 terminal summary·사용자 두 서버/원본 보존은 통과했지만 accepted 공개 요약/page200은0이다. 다음은 [선택한 불변 판본의 전진 읽기](contracts/crop-climate-joint-prefix-forward-read-v1.md)이며 계산 중3D의 사용자 적용은 아직 미완료다.
+**2026-10-11 중간 결과 전진 읽기:** [P6a2b1 reader v4/HTTP](research/crop-climate-joint-prefix-forward-read-implementation-20261011.md)를 동일 최종 core 고유265개·실제 자동 정상/hold/cancel로 로컬 수용했다. 계산 중 공개 요약→같은 선택자의 사건/생장200·원 terminal 값/UTC를 확인했다. 두 사용자 서버와 원본을 유지했으며 P6a 실제 WebGL/P6b 적용은 아직 남아 있다. 현재5173/5174의 계산 중3D 활성화를 뜻하지 않는다.
+
+**2026-10-11 중간 결과 후속 진단:** [P6a2b0 요청별 추적](research/crop-climate-joint-prefix-progress-diagnosis-20261011.md)은 실제 독립 계산2회에서 정상 HEAD/DB 수용 판본의 전진으로 조회가 보류되는 지점을 확인했다. 원 terminal summary·사용자 두 서버/원본 보존은 통과했지만 accepted 공개 요약/page200은0이다. 당시 후속은 [선택한 불변 판본의 전진 읽기](contracts/crop-climate-joint-prefix-forward-read-v1.md)이며 계산 중3D의 사용자 적용은 아직 미완료다.
 
 **2026-10-11 중간 결과 조회 수정:** [P6a2a reader v3/HTTP](research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)를 최종2 core의 고유245개·제한된 소유 scratch PG의 실제 정상/hold/cancel로 확인했다. 정상 임대 갱신을 조회 무효화와 구분하며 원 수치·시각과 현재 권리 검사를 유지한다. 두 사용자 화면은 기존 source를 유지하고 계산 중3D의 실제 WebGL·사용자 활성화는 아직 미수용이다.
 

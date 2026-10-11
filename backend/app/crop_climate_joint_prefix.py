@@ -17,7 +17,7 @@ from .runtime_roles import RolePolicyHold
 checkpoints = execution.checkpoints
 custody = execution.custody
 storage = custody.storage
-VERSION = 'joint-crop-climate-prefix-read-v3'
+VERSION = 'joint-crop-climate-prefix-read-v4'
 CLAIM_SCOPE = 'synthetic_joint_crop_climate_confirmed_prefix_only'
 MAX_READ_BYTES = storage.LIMITS['page_bytes'] + 2 * checkpoints.execution.MAX_INPUT_BYTES + storage.LIMITS['metadata_bytes']
 CODE_SHA256 = sha256(Path(__file__).read_bytes()).hexdigest()
@@ -49,6 +49,8 @@ class _ReadWitness:
     job_id: str = field(repr=False)
     bundle: tuple = field(repr=False)
     payload_sha256: str = field(repr=False)
+    chosen: dict | None = field(default=None, repr=False)
+    observed_head: dict | None = field(default=None, repr=False)
 
 
 @dataclass(frozen=True)
@@ -134,15 +136,51 @@ class JointExecutionPrefixQuery:
         self.query._guard(tenant)
         self._binding()
 
-    def _unchanged(self, tenant, job_id, record, bundle):
+    def _witness_for(self, tenant, job_id, record):
         if type(record) is not PrefixRead or type(record._witness) is not _ReadWitness:
-            return False
+            return None
         w = record._witness
-        return (w.owner is self and w.tenant == tenant and w.job_id == job_id
+        valid = (w.owner is self and w.tenant == tenant and w.job_id == job_id
             and type(record.payload_raw) is bytes
             and w.payload_sha256 == record.payload_sha256 == sha256(record.payload_raw).hexdigest()
-            and _same_bundle(w.bundle, bundle) and w.bundle[0].get('tenant_id') == tenant
+            and type(w.bundle) is tuple and len(w.bundle) == 6 and type(w.bundle[0]) is dict
+            and w.bundle[0].get('tenant_id') == tenant
             and str(w.bundle[0].get('job_id')) == job_id)
+        return w if valid else None
+
+    def _unchanged(self, tenant, job_id, record, bundle):
+        w = self._witness_for(tenant, job_id, record)
+        return w is not None and _same_bundle(w.bundle, bundle)
+
+    def _after_projection(self, tenant, job_id, record):
+        self._guard(tenant)
+        w = self._witness_for(tenant, job_id, record)
+        if w is None:
+            raise JointPrefixPending('joint prefix changed during response')
+        payload = json.loads(record.payload_raw)
+        if w.chosen is None:
+            if payload['selection'] is not None or w.observed_head is not None:
+                raise JointPrefixPending('joint prefix changed during response')
+        elif (type(w.chosen) is not dict or type(w.observed_head) is not dict
+                or not execution._same(payload['selection'], {
+                    'checkpoint': w.chosen['reason'], 'checkpoint_attempt': w.chosen['attempt'],
+                    'checkpoint_recorded_at': execution._utc(w.chosen['recorded_at'])})):
+            raise JointPrefixPending('joint prefix changed during response')
+        with self.jobs.connect() as conn:
+            conn.execute('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY')
+            bundle = self.query._bundle(conn, tenant, job_id)
+            if bundle is None:
+                raise JointPrefixPending('joint prefix changed during response')
+            value, raw, binding = self.query.checkpoints._input(tenant, bundle[0])
+            self.query._current(tenant, value, raw, binding)
+            if w.chosen is None:
+                if not self._unchanged(tenant, job_id, record, bundle):
+                    raise JointPrefixPending('joint prefix changed during response')
+            else:
+                with self._session(tenant, raw, binding) as session:
+                    self._refresh(conn, tenant, w.bundle, bundle, w.chosen, session, w.observed_head, binding)
+            self.query._current(tenant, value, raw, binding)
+        self._guard(tenant)
 
     @contextmanager
     def _session(self, tenant, request_raw, binding_raw):
@@ -189,20 +227,63 @@ class JointExecutionPrefixQuery:
             raise JointPrefixSelectionConflict('joint prefix selection unavailable')
         return rows[0]
 
-    def _ancestry(self, session, live_head, selected):
+    def _ancestry(self, session, live_head, *selected):
         proof, digest = session._selected(live_head)
-        target = selected['custody_sequence']
+        observed = {'custody_sequence': proof['sequence'],
+            'head_sha256': custody._head(live_head), 'proof_sha256': digest}
+        pending = {(p['custody_sequence'], p['head_sha256'], p['proof_sha256']) for p in selected}
+        _need(pending and all(type(n) is int and 0 <= n < checkpoints.MAX_EVENTS
+            and custody._digest(h) and custody._digest(d) for n, h, d in pending))
         for _ in range(checkpoints.MAX_EVENTS):
-            _need(proof['sequence'] >= target)
-            if proof['sequence'] == target:
-                _need(custody._head(proof['head']) == selected['head_sha256'] and digest == selected['proof_sha256'])
-                return
+            _need(proof['sequence'] >= min(p[0] for p in pending))
+            current = (proof['sequence'], custody._head(proof['head']), digest)
+            _need(all(p == current for p in pending if p[0] == current[0]))
+            pending.discard(current)
+            if not pending:
+                return observed
             parent = proof['parent']
             raw = custody.files._read(session.proofs, parent['head_sha256'] + '.json', custody.LIMITS['proof_bytes'])
             value = custody._checked(raw, self.server.integrity_key, custody.PROOF_DOMAIN, custody.LIMITS['proof_bytes'])
+            previous_sequence = proof['sequence']
             proof, digest = session._proof(value['head'])
-            _need(digest == parent['proof_sha256'])
+            _need(digest == parent['proof_sha256'] and custody._head(proof['head']) == parent['head_sha256']
+                and proof['sequence'] == previous_sequence - 1)
         raise JointPrefixHold('joint prefix ancestry unavailable')
+
+    def _current_head(self, session, *selected):
+        with storage._Files(session.path) as reader:
+            head, _ = reader._head()
+            return self._ancestry(session, head, *selected)
+
+    def _refresh(self, conn, tenant, before, after, chosen, session, observed_head, binding):
+        if (type(before) is not tuple or type(after) is not tuple or len(before) != 6 or len(after) != 6
+                or not _same_job_row(before[0], after[0]) or not execution._same(before[2:], after[2:])):
+            raise JointPrefixPending('joint prefix changed during read')
+        previous, latest = before[1], after[1]
+        _need(previous is not None and latest is not None)
+        if latest['reason']['publication_sequence'] < previous['reason']['publication_sequence']:
+            raise JointPrefixHold('joint prefix history unavailable')
+        for event in (chosen, previous):
+            pin = {k: event['reason'][k] for k in ('publication_sequence', 'head_sha256', 'proof_sha256')}
+            try:
+                current = self._chosen(conn, tenant, after[0], latest, pin)
+            except JointPrefixSelectionConflict:
+                raise JointPrefixPending('joint prefix changed during read') from None
+            if not execution._same(current, event) or not _same_job_datetimes(current, event):
+                raise JointPrefixPending('joint prefix changed during read')
+        changed = not execution._same(previous, latest) or not _same_job_datetimes(previous, latest)
+        active = before[0]['state'] == 'simulating' and before[0]['cancel_requested'] is False
+        if changed and (not active or latest['reason']['publication_sequence'] == previous['reason']['publication_sequence']):
+            raise JointPrefixPending('joint prefix changed during read')
+        session._guard()
+        head = self._current_head(session, observed_head, chosen['reason'], previous['reason'], latest['reason'])
+        if changed:
+            _, verified = self._accepted(session, latest, latest, after[0], binding, 'summary', 0, None)
+            head = self._current_head(session, head, verified)
+        if not active and not execution._same(head, observed_head):
+            raise JointPrefixPending('joint prefix changed during read')
+        session._guard()
+        return head
 
     @staticmethod
     def _page(reader, data, kind, start, limit):
@@ -238,10 +319,8 @@ class JointExecutionPrefixQuery:
             and proof['sequence'] == p['custody_sequence'] and head['header_sha256'] == p['header_sha256']
             and head['artifact_sha256'] == p['artifact_sha256'])
         with storage._Files(session.path) as reader:
-            live_head, live_sha = reader._head()
-            self._ancestry(session, live_head, latest['reason'])
-            if chosen != latest:
-                self._ancestry(session, live_head, p)
+            live_head, _ = reader._head()
+            observed = self._ancestry(session, live_head, latest['reason'], p)
             data = reader._load(head)
             header, context, commits, cp, last, times, index, counts = data
             status = 'ready' if last is None else last['status']
@@ -257,13 +336,14 @@ class JointExecutionPrefixQuery:
                     'final_checkpoint_sha256': None if cp is None else cp['sha256']})
             summary = {'counts': counts, **{'last_'+k[:-1]+'_utc': rows[-1]['last_at'] if rows else None for k, rows in index.items()}}
             page = None if view == 'summary' else self._page(reader, data, view, start, limit)
-            if reader._head()[1] != live_sha:
+            head = self._ancestry(session, reader._head()[0], observed, latest['reason'], p)
+            if job['state'] != 'simulating' and not execution._same(head, observed):
                 raise JointPrefixPending('joint prefix changed during read')
         session._guard()
         return {'selection': {'checkpoint': p, 'checkpoint_recorded_at': execution._utc(chosen['recorded_at']),
                     'checkpoint_attempt': chosen['attempt']},
             'binding': binding, 'manifest': context['manifest'], 'time_binding': header['binding'],
-            'summary': summary if view == 'summary' else None, 'page': page}, live_sha
+            'summary': summary if view == 'summary' else None, 'page': page}, head
 
     def read(self, tenant, job_id, selector=None, view='summary', start=0, limit=None):
         try:
@@ -283,49 +363,47 @@ class JointExecutionPrefixQuery:
                 raise JointPrefixRequestRejected('joint prefix limit rejected')
         try:
             self._guard(tenant)
-            with self.jobs.connect() as conn, ExitStack() as opened:
-                conn.execute('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY')
-                bundle = self.query._bundle(conn, tenant, job_id)
-                if bundle is None:
-                    self._guard(tenant)
-                    return None
-                job, latest = bundle[:2]
-                if job['stage'] != 'simulation' or json.loads(self.jobs._verified_input(job)).get('input_version') != checkpoints.execution.INPUT_VERSION:
-                    self._guard(tenant)
-                    return None
-                value, raw, binding_raw = self.query.checkpoints._input(tenant, job)
-                self.query._current(tenant, value, raw, binding_raw)
-                if latest:
-                    p = latest['reason']; source = value['request']['input']
-                    _need(p['farm_binding_sha256'] == value['farm_binding_sha256']
-                        and all(p[k] == source[k] for k in ('source_sha256', 'context_sha256', 'time_binding_sha256')))
-                closed = job['cancel_requested'] or job['state'] not in ('queued', 'simulating')
-                chosen = None if closed else self._chosen(conn, tenant, job, latest, selector)
+            with ExitStack() as opened:
+                with self.jobs.connect() as conn:
+                    conn.execute('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY')
+                    bundle = self.query._bundle(conn, tenant, job_id)
+                    if bundle is None:
+                        self._guard(tenant)
+                        return None
+                    job, latest = bundle[:2]
+                    if job['stage'] != 'simulation' or json.loads(self.jobs._verified_input(job)).get('input_version') != checkpoints.execution.INPUT_VERSION:
+                        self._guard(tenant)
+                        return None
+                    value, raw, binding_raw = self.query.checkpoints._input(tenant, job)
+                    self.query._current(tenant, value, raw, binding_raw)
+                    if latest:
+                        p = latest['reason']; source = value['request']['input']
+                        _need(p['farm_binding_sha256'] == value['farm_binding_sha256']
+                            and all(p[k] == source[k] for k in ('source_sha256', 'context_sha256', 'time_binding_sha256')))
+                    closed = job['cancel_requested'] or job['state'] not in ('queued', 'simulating')
+                    chosen = None if closed else self._chosen(conn, tenant, job, latest, selector)
                 if chosen is None and view != 'summary':
                     raise JointPrefixSelectionConflict('joint prefix selection unavailable')
                 result = dict.fromkeys(('selection', 'binding', 'manifest', 'time_binding', 'summary', 'page'))
-                session = live_sha = None
+                session = observed_head = None
                 if chosen is not None:
                     session = opened.enter_context(self._session(tenant, raw, binding_raw))
-                    result, live_sha = self._accepted(session, chosen, latest, job, binding_raw, view, start, limit)
+                    result, observed_head = self._accepted(session, chosen, latest, job, binding_raw, view, start, limit)
                 self.query._current(tenant, value, raw, binding_raw)
                 with self.jobs.connect() as probe:
                     probe.execute('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY')
                     probe_bundle = self.query._bundle(probe, tenant, job_id)
-                    if not _same_bundle(bundle, probe_bundle):
-                        raise JointPrefixPending('joint prefix changed during read')
                     if chosen is not None:
-                        frozen = {k: chosen['reason'][k] for k in ('publication_sequence', 'head_sha256', 'proof_sha256')}
-                        if not execution._same(self._chosen(probe, tenant, job, latest, frozen), chosen):
-                            raise JointPrefixPending('joint prefix changed during read')
+                        observed_head = self._refresh(probe, tenant, bundle, probe_bundle, chosen,
+                            session, observed_head, binding_raw)
+                    elif not _same_bundle(bundle, probe_bundle):
+                        raise JointPrefixPending('joint prefix changed during read')
                     at = execution._utc(probe.execute('SELECT clock_timestamp() AS at').fetchone()['at'])
                     job = probe_bundle[0]
                 self.query._current(tenant, value, raw, binding_raw)
                 if session is not None:
                     session._guard()
-                    with storage._Files(session.path) as check:
-                        if check._head()[1] != live_sha:
-                            raise JointPrefixPending('joint prefix changed during read')
+                    observed_head = self._current_head(session, observed_head, chosen['reason'], probe_bundle[1]['reason'])
                 result.update(version=VERSION, scope=custody.SCOPE, claim_scope=CLAIM_SCOPE, G0_G4='not_assessed',
                     job=execution.jobs_public.public_job_status(job).model_dump(mode='json'), cancel_requested=job['cancel_requested'],
                     observed_at=at, prefix_status='closed' if closed else 'none' if chosen is None else 'accepted')
@@ -334,7 +412,8 @@ class JointExecutionPrefixQuery:
             self.query._current(tenant, value, raw, binding_raw)
             self._guard(tenant)
             digest = sha256(payload).hexdigest()
-            return PrefixRead(payload, digest, _ReadWitness(self, tenant, job_id, deepcopy(probe_bundle), digest))
+            return PrefixRead(payload, digest, _ReadWitness(self, tenant, job_id, deepcopy(probe_bundle), digest,
+                deepcopy(chosen), deepcopy(observed_head)))
         except (PermissionError, RolePolicyHold, JointPrefixPending, JointPrefixSelectionConflict, JointPrefixRequestRejected):
             raise
         except (custody.JointCustodyPending, execution.JointExecutionQueryPending):

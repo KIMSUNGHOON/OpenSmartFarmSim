@@ -1,6 +1,7 @@
 # 계산 전진 중 선택한 불변 판본 읽기 — v1
 
-상태: **P6a2b1 구현 전 계약**. 2026-10-11.
+상태: **P6a2b1 소프트웨어 로컬 수용, P6a/P6b 미완료**. 2026-10-11.
+[수용 기록](../research/crop-climate-joint-prefix-forward-read-implementation-20261011.md)은 최종265개와 실제 공개 정상/hold/cancel, 남은 브라우저/사용자 적용을 구분한다.
 근거는 [v3의 요청별 실제 분류](../research/crop-climate-joint-prefix-progress-diagnosis-20261011.md)다.
 기존 [prefix 계약](crop-climate-joint-prefix-view-v1.md)과 [임대 갱신 계약](crop-climate-joint-prefix-progress-guard-v1.md)을 확장한다.
 이 문서는 동시 전진의 비교 근거만 정하며 공개 DTO·writer/수치·입력/결과 형식은 변경하지 않는다.
@@ -43,8 +44,8 @@ page의 선택자 충돌/범위 오류와 현재 권리 거부를 재시도 가�
 
 ## 수용 기준
 
-- v3에서 실제 **독립 프로세스**의 private advance와 advance+DB confirm이 조회 중/직렬화 후 발생하는 red를 보존한다.
-  새 reader는 같은 선택 사건의 page canonical bytes/hash·binary64/UTC·최초 수용 시각을 그대로 반환해야 한다.
+- v3에서 실제 **독립 프로세스**의 조회 중 private advance/advance+DB confirm 두 RED와 직렬화 후 DB confirm RED를 보존한다.
+  새 reader는 두 조회 시점의 private/confirmed 전진에서 같은 선택 사건의 page canonical bytes/hash·binary64/UTC·최초 수용 시각을 그대로 반환해야 한다.
 - private HEAD만 전진, DB latest 전진, 같은 sequence, 두 경로의 반복 갱신을 구분한다.
   forward 검증이 실제 source/권리·HMAC/현재 계보를 호출했음을 확인한다.
 - signed rollback(특히 처음 본 private HEAD보다 뒤지만 selected보다 앞인 경우), fork/변조,

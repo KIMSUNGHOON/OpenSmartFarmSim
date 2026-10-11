@@ -1,0 +1,154 @@
+{
+  "CLI": {
+    "model": "gpt-6.1-sol",
+    "previous_goal_turn": "progress:adf3cdf request-aligned diagnosis; next implement immutable forward read",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "timestamp": "2026-10-11T05:58:19.830Z",
+    "turn_context_sha256": "5d8ba274d635c982c3d393e551d0b638229e7dd65538e0d69dbcc0ef170c755e"
+  },
+  "G0_G4": "not_assessed",
+  "actual_crop_Runs": 0,
+  "diagnosis": {
+    "actual_worker_role_connection_limit_exceeded": true,
+    "authentication_failed": false,
+    "cluster_slots_exceeded": false,
+    "initial_untraced_sample_422_cause": "unresolved; not equated with later worker hold",
+    "original_session": 78542,
+    "worker_exception_classes": [
+      "JointCustodyHold",
+      "JointFarmBindingHold",
+      "FarmAuthoringHold",
+      "ValueError",
+      "RolePolicyHold",
+      "OperationalError"
+    ]
+  },
+  "final_core_tests_passed": 1,
+  "native_normal": {
+    "API_or_worker_tracing": false,
+    "evidence_sha256": "64bc4f566d52d4990d83e9feaaa597c80be81867dbbb226984a66bfeea59c1d4",
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 1009041408,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "protected_root_count": 4,
+      "single_PID_peak_RSS_bytes": 153387008,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 141.95773749599903
+    },
+    "guard_receipt_sha256": "29be61389017d541dd156caa8037d793e7adeeb2ba40c8c5bcf51aac6e91fa8a",
+    "matches": [
+      {
+        "canonical_records_sha256": "66358fafd1a650a6a6d48ba1e1f94f4722771eca07561f03fcad3ddf0cbcb036",
+        "original_terminal_records_sha256": "66358fafd1a650a6a6d48ba1e1f94f4722771eca07561f03fcad3ddf0cbcb036",
+        "records": 1,
+        "same_binary64_and_UTC": true,
+        "selector": {
+          "head_sha256": "1f8bd1c0caf7b9a76d55f5895024694c6f1d60543454c68120694841da77719a",
+          "proof_sha256": "41da4f10e4a5547632d574574ab93d0d252c99d9ad51061e1e4b99e607004e9a",
+          "publication_sequence": 1
+        },
+        "view": "events"
+      },
+      {
+        "canonical_records_sha256": "7c23678bad2b01b2b744271445bfd8b180d56166f68a28458f1bbec08e27359b",
+        "original_terminal_records_sha256": "7c23678bad2b01b2b744271445bfd8b180d56166f68a28458f1bbec08e27359b",
+        "records": 1,
+        "same_binary64_and_UTC": true,
+        "selector": {
+          "head_sha256": "1f8bd1c0caf7b9a76d55f5895024694c6f1d60543454c68120694841da77719a",
+          "proof_sha256": "41da4f10e4a5547632d574574ab93d0d252c99d9ad51061e1e4b99e607004e9a",
+          "publication_sequence": 1
+        },
+        "view": "samples"
+      }
+    ],
+    "observations": [
+      {
+        "status": 503,
+        "view": "summary"
+      },
+      {
+        "status": 200,
+        "view": "summary"
+      },
+      {
+        "status": 200,
+        "view": "summary"
+      },
+      {
+        "status": 200,
+        "view": "summary"
+      },
+      {
+        "status": 200,
+        "view": "summary"
+      },
+      {
+        "status": 200,
+        "view": "summary"
+      },
+      {
+        "status": 200,
+        "view": "events"
+      },
+      {
+        "status": 200,
+        "view": "samples"
+      },
+      {
+        "status": 503,
+        "view": "summary"
+      },
+      {
+        "status": 200,
+        "view": "summary"
+      }
+    ],
+    "original_session": 23781,
+    "original_terminal_summary_matches": true,
+    "pytest": "1 passed, 2 deselected in 125.42s",
+    "selector_origin": "public_accepted_summary_only",
+    "worker_exit": 0,
+    "worker_pause_or_delay": false
+  },
+  "preservation": {
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "original_sources_preserved": true,
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "source_preserved": true
+  },
+  "prior_core_passes_not_counted_as_final_core": {
+    "audit_immutability_and_returned_row_faults": 1,
+    "extended_signed_fork": 1,
+    "private_and_confirmed_advance_plus_rollback": 3
+  },
+  "reader_version": "joint-crop-climate-prefix-read-v4",
+  "remaining": [
+    "final-core reader and HTTP regressions",
+    "unpaused hold/cancel",
+    "actual browser/WebGL P6a",
+    "user activation P6b"
+  ],
+  "remote_operations": false,
+  "source_sha256": {
+    "backend/app/api_crop_climate_joint_prefix_routes.py": "0306400f3b9fedae7fc5c99cdb4101e116eb0370c41a08d1451c69c2abf78ffb",
+    "backend/app/crop_climate_joint_prefix.py": "2431db41c1267678f1c3c899e186dd16bf653492f4db6e7788f5c6ccf6629335",
+    "backend/tests/test_api_crop_climate_joint_prefix_routes.py": "de8eb4f4fe040003c85f2bf78ea6a291bd4b818828322904a97409b503bc9d6d",
+    "backend/tests/test_crop_climate_joint_prefix.py": "6eb4ffc4e8c27cde42d5482681e258fd2e01117d5feb5bd7ade29067902f06b0",
+    "research/crop-climate-joint-prefix-forward-reference.py": "3528f2f3e264ce1be570690bb82f21bb448c3bafcd314a32379806f1e774b489"
+  },
+  "status": "candidate_verification_incomplete",
+  "user_prefix_3D_deployed": false
+}

@@ -38,6 +38,8 @@
 [P6a1 실제 원인 분류](../research/crop-climate-joint-prefix-page-diagnosis-20261011.md)는 별도 자동 작업자 진단2회에서 임대 갱신·결과 판본 전진·작업 시작/종료에 따른 조회 보류를 구분했다. 이후 [P6a2a reader v3/HTTP](../research/crop-climate-joint-prefix-lease-guard-implementation-20261011.md)의 정상 임대 갱신 비교를 고유245개·제한된 소유 scratch PG의 자동 정상/hold/cancel로 확인했다. 실제 계산 중 WebGL과 사용자 적용은 남아 있어 현재 화면의 연동 범위는 위와 같다.
 현재3D는 저장 LAI·과실 구획·온도의 수치 모식도이며 G0–G4·실제 생산/미래 마진/추천 보류는 유지한다.
 
+[전진 읽기 v4/HTTP](../research/crop-climate-joint-prefix-forward-read-implementation-20261011.md)는 최종265개·실제 자동 정상/hold/cancel, 공개 요약→같은 선택자의 사건/생장200과 원 terminal 값/UTC를 확인했다. P6a 실제 WebGL과 P6b 사용자 적용은 남아 있어 현재5174의 계산 중3D는 계속 비활성이다.
+
 ## 기존 제품 앱의 로컬 동시 기동 — 2026-10-09
 
 현재 사용자 확인용 **http://localhost:5173/** 은 `src/App.tsx`의 제품 빌드와 실제 HTTPS API

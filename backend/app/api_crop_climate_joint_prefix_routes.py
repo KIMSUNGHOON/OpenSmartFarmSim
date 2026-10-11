@@ -16,21 +16,7 @@ PREFIX_PATH = '/v1/jobs/{job_id}/crop-climate-joint-execution/prefix'
 
 
 def _current_after_projection(query, tenant, job_id, record):
-    current = query.query
-    query._guard(tenant)
-    with query.jobs.connect() as conn:
-        conn.execute('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY')
-        bundle = current._bundle(conn, tenant, job_id)
-        if bundle is None:
-            from .crop_climate_joint_prefix import JointPrefixPending
-            raise JointPrefixPending('joint prefix changed during response')
-        job = bundle[0]
-        if not query._unchanged(tenant, job_id, record, bundle):
-            from .crop_climate_joint_prefix import JointPrefixPending
-            raise JointPrefixPending('joint prefix changed during response')
-        frozen, raw, binding = current.checkpoints._input(tenant, job)
-        current._current(tenant, frozen, raw, binding)
-    query._guard(tenant)
+    query._after_projection(tenant, job_id, record)
 
 
 def _page_request(request, view):

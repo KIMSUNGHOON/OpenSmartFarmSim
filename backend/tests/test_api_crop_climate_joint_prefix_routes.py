@@ -31,7 +31,7 @@ from test_api_crop_climate_joint_execution import (
     login_database, original_login_scope, login_scope, query_cleanup, authoring, base_authoring,
     tls_files, served)
 import test_crop_climate_joint_execution_query as reference
-from test_crop_climate_joint_prefix import independent_heartbeat
+from test_crop_climate_joint_prefix import independent_heartbeat, independent_advance
 
 JOB = '11111111-1111-4111-8111-111111111111'
 PATH = '/v1/jobs/'+JOB+'/crop-climate-joint-execution/prefix'
@@ -441,18 +441,46 @@ def test_actual_independent_heartbeat_after_projection_preserves_wire(native,tls
 
 
 @reference.reference.pytestmark
+@pytest.mark.parametrize('confirmed', [False, True], ids=['private', 'confirmed'])
+def test_actual_independent_advance_after_projection_preserves_wire(native,tls_files,tmp_path,monkeypatch,confirmed):
+    c=native;lease=reference.confirm(c.worker,c.job);c.worker.server.advance('tenant-1',c.raw,budget=2)
+    accepted=c.worker.checkpoints.confirm('tenant-1',c.job,attempt=1,lease_token=lease['lease_token'])
+    pin={k:accepted['checkpoint'][k] for k in SELECTOR}
+    original=route._current_after_projection;observed=[];snapshots=[]
+    with independent_advance(c.worker,c.job,c.raw,c.value,tmp_path,confirm=confirmed) as publish:
+        def changed(*args):
+            snapshots.append(json.loads(args[-1].payload_raw));observed.append(publish());return original(*args)
+        with served(c,tls_files,scopes=set(route.PROGRESS_SCOPES)) as (http,replies):
+            with monkeypatch.context() as patch:
+                calls=reference.forbid(patch);patch.setattr(route,'_current_after_projection',changed)
+                status,raw=http('GET','/v1/jobs/'+c.job+'/crop-climate-joint-execution/prefix/samples?'+urlencode(pin))
+                assert status==200 and raw==c.captured[-1] and len(observed)==1
+                assert all(n==0 for n in calls.values())
+    value=json.loads(raw);assert value['reference']['selector']==pin
+    assert model.storage._canonical(value['page'])==model.storage._canonical(snapshots[0]['page'])
+    assert value['reference']['checkpoint']['checkpoint_recorded_at']==snapshots[0]['selection']['checkpoint_recorded_at']
+    assert not any(key in raw.decode() for key in ('lease_token','lease_until','_witness','observed_head'))
+    save('actual-independent-advance-'+str(confirmed),{'actual_scram':True,'verified_TLS':True,
+        'external_process':observed[0],'original_serialized_snapshot_preserved':True,
+        'same_original_page_binary64_UTC':True,'reader_calls':calls,'replies':replies,
+        'page_before_after_sha256':[sha256(model.storage._canonical(x['page'])).hexdigest() for x in (snapshots[0],value)]})
+
+
+@reference.reference.pytestmark
 def test_actual_HTTP_rejects_missing_or_mixed_private_witness(native,tls_files,monkeypatch):
     c=native;lease=reference.confirm(c.worker,c.job);c.worker.server.advance('tenant-1',c.raw,budget=8)
     c.worker.checkpoints.confirm('tenant-1',c.job,attempt=1,lease_token=lease['lease_token'])
     original=route._current_after_projection;rejected=[]
     with served(c,tls_files,scopes=set(route.PROGRESS_SCOPES)) as (http,replies):
-        for fault in ('missing','owner','tenant','digest','token','private-input'):
+        for fault in ('missing','owner','tenant','digest','token','private-input','chosen','observed-head'):
             def changed(query,tenant,job_id,record):
                 w=record._witness
                 if fault=='missing': record=replace(record,_witness=None)
                 elif fault=='owner': record=replace(record,_witness=replace(w,owner=object()))
                 elif fault=='tenant': record=replace(record,_witness=replace(w,tenant='foreign'))
                 elif fault=='digest': record=replace(record,_witness=replace(w,payload_sha256='0'*64))
+                elif fault=='chosen': record=replace(record,_witness=replace(w,chosen=None))
+                elif fault=='observed-head': record=replace(record,_witness=replace(w,observed_head=None))
                 else:
                     bundle=deepcopy(w.bundle)
                     bundle[0]['lease_token' if fault=='token' else 'input_bytes']='other' if fault=='token' else b'other'
