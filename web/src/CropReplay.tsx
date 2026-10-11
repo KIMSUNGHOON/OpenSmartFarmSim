@@ -11,6 +11,7 @@ const CropChart=lazy(()=>import('./CropChart'));
 const CoupledCropReplay=lazy(()=>import('./CoupledCropReplay'));
 const CycleCropReplay=lazy(()=>import('./CycleCropReplay'));
 const JointCropClimateReplay=lazy(()=>import('./JointCropClimateReplay'));
+const GreenhouseVentilationReplay=lazy(()=>import('./GreenhouseVentilationReplay'));
 const JointCropClimateExecution=lazy(()=>import('./JointCropClimateExecution'));
 type Api=ReturnType<typeof createApi>;
 const EMPTY:CropLookup={result_id:'',scenario_id:'',scenario_revision:'',registration_sha256:'',crop_id:''};
@@ -75,15 +76,17 @@ function CropEvents({data}:{data:CropReplay}){
 }
 
 export default function CropReplayView(props:{api:Api|null;initialSelection?:CropLookup;autoLoadInitialSelection?:boolean}){
-  const [format,setFormat]=useState(props.initialSelection?.result_id.startsWith('joint-crop-climate-result-v1:')?'joint':props.initialSelection?.result_id.startsWith('crop-cycle-verified-result-v1:')?'calculation-cycle':props.initialSelection?.result_id.startsWith('crop-cycle-result-v1:')?'cycle':props.initialSelection?.result_id.startsWith('crop-result-v3:')?'v3':props.initialSelection?.result_id.startsWith('crop-result-v2:')?'v2':'v1');
+  const [format,setFormat]=useState(props.initialSelection?.result_id.startsWith('joint-ventilation-result-v1:')?'ventilation':props.initialSelection?.result_id.startsWith('joint-crop-climate-result-v1:')?'joint':props.initialSelection?.result_id.startsWith('crop-cycle-verified-result-v1:')?'calculation-cycle':props.initialSelection?.result_id.startsWith('crop-cycle-result-v1:')?'cycle':props.initialSelection?.result_id.startsWith('crop-result-v3:')?'v3':props.initialSelection?.result_id.startsWith('crop-result-v2:')?'v2':'v1');
   return <><label className="crop-format">저장 결과 판본<select value={format} onChange={e=>setFormat(e.target.value)}>
     <option value="v1">v1 · 기관 탄소 연구</option><option value="v2">v2 · 기관과 50과실 구획 연결 연구</option>
     <option value="v3">v3 · 명시 진입·빈 과실 유보 연구</option>
     <option value="cycle">cycle v1 · 긴 계산의 현재 저장 범위</option>
     <option value="calculation-cycle">calculation cycle v1 · 입력 검사를 연결한 긴 계산</option>
     <option value="joint">joint v1 · 작물·기후 공동 계산</option>
+    <option value="ventilation">ventilation v1 · 작물·기후·명시 환기 계산</option>
     <option value="joint-execution">joint 실행 · 계산 상태와 완료 3D</option></select></label>
-    {format==='joint-execution'?<Suspense fallback={<p role="status">계산 상태 화면 준비 중…</p>}><JointCropClimateExecution api={props.api}/></Suspense>:
+    {format==='ventilation'?<Suspense fallback={<p role="status">환기 계산 화면 준비 중…</p>}><GreenhouseVentilationReplay {...props}/></Suspense>:
+    format==='joint-execution'?<Suspense fallback={<p role="status">계산 상태 화면 준비 중…</p>}><JointCropClimateExecution api={props.api}/></Suspense>:
     format==='joint'?<Suspense fallback={<p role="status">공동 계산 화면 준비 중…</p>}><JointCropClimateReplay {...props}/></Suspense>:
     format==='cycle' || format==='calculation-cycle'?<Suspense fallback={<p role="status">저장 범위 화면 준비 중…</p>}>
       <CycleCropReplay {...props} sourceKind={format==='calculation-cycle'?'calculation':'original'}/></Suspense>:

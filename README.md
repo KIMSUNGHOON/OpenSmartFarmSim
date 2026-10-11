@@ -1,5 +1,7 @@
 # OpenSmartFarmSim
 
+**현재 단계 — 2026-10-12:** [새 환기 모델의 완료 결과3D](research/crop-greenhouse-ventilation-web-terminal-implementation-20261012.md)는 실제 DB·HTTPS 원 응답6개, 웹254검사, Chromium12경로에서 같은 UTC·수치/WebGL을 확인했다. **새 모델은 아직 사용자 서버에 미배포**다. 다음은 확정 부분 API→계산 중3D→사용자 적용이며 약2–5집중시간의 잠정 작업량이다. 전체 production 제품 완료일은 독립 농장 자료와 남은 생산/자원/경제/통합 UI 검증 전에는 확정하지 않는다. 두 화면은 복구했고 **http://localhost:5173/** 상단 또는 **http://localhost:5174/#crop-execution** 에서 인증 없이 단계와 최근 기록을 확인한다.
+
 **진행 현황 직접 표시 — 2026-10-12:** **http://localhost:5173/** 을 새로고침하면 상단에서 완료 단계·남은 작업·최근 개발 기록·한정된 연결 작업량을 바로 확인한다. [실제 브라우저/현재 서버 확인](research/product-ui-inline-development-progress-20261012.md)을 통과했다. 현재 원 계산은64/64완료이며 새 환기 모델3D는 미배포다. 남은2–5집중시간은 짧은 합성 모델의 화면 연결/적용 추정이고 전체 제품 완료일은 미정이다.
 
 **실행 API/서버 — 2026-10-12:** [접수·진행·취소 연결](research/crop-greenhouse-ventilation-execution-http-runtime-implementation-20261012.md)을 고유377검사/실제 DB·HTTPS·독립 작업자19·원 체크포인트/UTC·정상/보류·취소·현재 권리·기존 모델/두 UI/최종 보존으로 로컬 수용했다. 다음은 완료 결과3D→확정 부분 조회/3D→사용자 적용이다. 합성32초·새 모델 미배포이며 남은2–5집중시간, 전체 제품 완료일 미정을 유지한다.

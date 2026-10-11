@@ -4,7 +4,9 @@
 
 ## 현재 구현 우선순위 — 2026-10-12
 
-[환기 자동 실행 핵심](../research/crop-greenhouse-ventilation-execution-core-implementation-20261012.md)91검사와 [접수·진행·취소 HTTP/명시 runtime](../research/crop-greenhouse-ventilation-execution-http-runtime-implementation-20261012.md)377검사를 로컬 수용했다. **다음 한 단계는 `crop-greenhouse-ventilation-web-terminal-3d`**다. 같은 저장 결과의 원 UTC·수치/단위로 완료·보류3D/표/차트를 연결하고, 현재 권리 거부 시 장면을 제거하며 기존 client를 보존한다. 이후 확정 부분 결과 조회→계산 중3D→사용자 적용 순서다. 새 모델 사용자3D는 아직 미배포다.
+[환기 자동 실행 핵심](../research/crop-greenhouse-ventilation-execution-core-implementation-20261012.md)91검사와 [접수·진행·취소 HTTP/명시 runtime](../research/crop-greenhouse-ventilation-execution-http-runtime-implementation-20261012.md)377검사에 이어 [완료 결과3D](../research/crop-greenhouse-ventilation-web-terminal-implementation-20261012.md)의 원 HTTPS6응답/실제 DB2경로·웹254검사·Chromium12경로·타입/빌드·복구를 확인했다. 새 모델 사용자3D는 아직 미배포다.
+
+**다음 한 단계는 `crop-greenhouse-ventilation-confirmed-prefix-api`**다. 수용 기준은 같은 실행의 서버 확정 selector에 속한 원 sample/event 페이지, 현재 권리·전진/취소·변조/미확정 거부, 조회 계산/쓰기0, 실제 SCRAM/TLS 정상·보류·취소 및 원 terminal과의 일치, 구 모델/두 사용자 화면/WSL 보존이다. reader→투영/보호 HTTP를 먼저 검증하고 이후 계산 중3D→사용자 적용으로 진행한다. 실제 worker·API와 제품 브라우저의 동시 원값/WebGL 대사는 다음 웹 단계에 남는다.
 
 사용자 대기 피드백에 따라5173의 링크 안내를 같은 공개 개발 기록의 직접 표시로 보완한다. `product-ui-inline-development-progress`는15초 조회·실패/오래된 기록·모바일을 실제 브라우저에서 확인하는 작은 수정이며 계산 모델의 추가 기반 작업은 아니다. 현재 서버의 원 작업은64/64완료다. 기록의2–5집중작업시간은 짧은 합성 모델의 연결 범위 추정이며, 전체 제품 완료 시각으로 표시하지 않는다.
 
@@ -48,8 +50,9 @@
 | 명시 runtime | 집중239·실제 SCRAM/TLS 정상/보류·권리/계정·기존 서버 보존 수용 |완료 |
 | 접수·자동 worker 핵심 |91검사·실제 정상/보류/취소/재개·독립 자동 소비 수용 |완료 |
 | 실행 현재 HTTP/runtime |377검사·실제 DB/HTTPS/독립 worker19·원 상태/현재 권리·기존 서버 보존 수용 |완료 |
-| 완료 결과 typed web/같은 UTC3D | 같은 result/UTC·108상태/25장부/10수지·완료/보류·권리 철회 제거 |0.5–1 |
-| 확정 부분 조회/계산 중3D | 선택한 checkpoint 원 sample/event·실제 unpaused 정상/hold/cancel·재접속 |0.75–1.5 |
+| 완료 결과 typed web/같은 UTC3D | 원 HTTPS6응답·웹254/Chromium12경로·같은 result/UTC·타입/빌드·복구 |완료 |
+| 확정 부분 API | 선택한 checkpoint 원 sample/event·현재 권리/전진·실제 SCRAM/TLS·조회 계산/쓰기0 |0.75–1.5 |
+| 계산 중3D | 위 API 선행·실제 unpaused 정상/hold/cancel·같은 원 값/UTC/WebGL→terminal·재접속 |0.5–1 |
 | 사용자 적용 | 원 DB/두 서버/WSL 보존·실제 브라우저 정상/hold/취소·적용 주소 보고 |0.75–2 |
 
 입력/농장 결속 수용 뒤 합계5–10시간에서 서버 서명 이력·보호 HTTPS·실행 API/runtime까지 완료했다. **남은 합계2–5집중작업시간**이며 실제 구현·검증 결과로 교체한다. 연속 작업/외부 장애 없는 조건의 잠정 작업량이지 완료 약속이 아니다.
@@ -63,10 +66,10 @@
 
 1. **명시 runtime 조립(완료)** — 기존 loader의 새 flag True 거부와 factory 부재를 해소하는 별도 조립 판본을 추가했다. 별도 명시 판본/기본 비활성, 같은 jobs/farms/principal의 typed query/store, 서로 다른 기존 integrity key와 현재 권리를 확인한다. 실제 SCRAM/TLS 정상/보류3응답이 원 bytes/UTC와 일치하고 잘못된 조립/설정·기존 loader/경로·두 UI를 보존해야 수용한다. 위239검사/최종 보존으로 수용했다. 아래 자동 계산 핵심도91검사로 수용했으며 [현재 진행 HTTP/runtime](../research/crop-greenhouse-ventilation-execution-http-runtime-implementation-20261012.md)도377검사로 확인했다.
 2. **새 작업 판본·자동 계산/진행(로컬 수용)** — 기존 작업표/임대·서명 저장을 재사용하고 새 입력/모델 판본을 구분한다. 실제 접수→worker 확정 checkpoint→정상/hold 결과의 원자 게시, 취소/재시작·현재 권리·조회 재계산0을 확인한다.
-3. **typed web·같은 UTC3D(남음)** — 먼저 완료 result의 typed client/같은 UTC3D·표/차트를0.5–1시간에 연결한다. 계산 중 확정 부분3D에는 현재 요약 API 외에 선택한 checkpoint의 원 sample/event 페이지 reader·projection·보호 HTTP가 선행해야 한다(0.75–1.5시간, web 포함).108상태·25장부/10수지·환기 진단·원 UTC를 대사하고 권리 철회/취소 시 제거한다. 완료/부분 장면을 각각 검증하며 부모3D는 둘 다 통과한 뒤 수용한다.
+3. **typed web·같은 UTC3D(완료 결과 로컬 수용, 부분 결과 남음)** — 완료/보류 result의 별도 typed client·같은 UTC3D·표/차트는 원 HTTPS6응답과 Chromium12경로로 확인했다. 계산 중 확정 부분3D에는 현재 요약 API 외에 선택한 checkpoint의 원 sample/event 페이지 reader·projection·보호 HTTP가 선행해야 한다(API0.75–1.5시간, 실제 웹0.5–1시간).108상태·25장부/10수지·환기 진단·원 UTC를 대사하고 권리 철회/취소 시 제거한다. 완료/부분 장면을 각각 검증하며 부모3D는 둘 다 통과한 뒤 수용한다.
 4. **사용자 적용(남음,0.75–2시간)** — 실제 브라우저 정상/hold/취소/재접속과 원 사용자 DB/두 주소/WSL을 검증한 뒤 적용 URL을 게시한다. API/worker 검증용 scratch 결과는 자동으로 사용자 농장 결과가 되지 않는다.
 
-남은 **2–5집중시간**은 완충을 포함한 합성32초 새 모델의 화면 연결/적용 추정이다. 이번377검사의9 guard 합1,064.342초를 확인했다. 실제 전체 작기/생산·자원·경제/독립 자료와 최종 UI 완료일은 미정이다. 사용자 적용에서는 기존 실행과 새 모델의 명시 동시 조립/원 저장소/권리·키/복구도 확인한다.
+남은 **2–5집중시간**은 합성32초 새 모델의 확정 부분 API0.75–1.5시간+실제 웹0.5–1시간+사용자 적용0.75–2시간을 반올림한 잠정 작업량이다. 기존의 부분 API/웹 통합 추정은 실제 DB와 WebGL의 별도 검증 및 WSL 점검 중단을 관측해 나누었다. 완료 결과의 검증용 브라우저12경로는 약63초, 실제 원 응답 확보는154.681초이며 최초 메모리 초과/시험 보완·복구 시간도 기록한다. 이 수치를 전체 개발 시간으로 합산하지 않는다. 실제 전체 작기/생산·자원·경제/독립 자료와 최종 UI 완료일은 미정이다. 사용자 적용에서는 기존 실행과 새 모델의 명시 동시 조립/원 저장소/권리·키/복구도 확인한다.
 
 ### 선행 수용과 현재 사용자 화면
 

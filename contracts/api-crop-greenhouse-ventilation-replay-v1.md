@@ -44,3 +44,22 @@ serialize 직전에 타입/경계와 bytes 상한을 다시 검사한다. 변조
 새 current-stage RK4/UTC/QC/정규화 판본을 닫힌 타입으로 결속한다. 구22장부의 ID/판본/응답으로 위장하지 않는다.
 
 hold는 event-after-ventilation 단계와 원 inner_failed_stage의 initial/k2/k3/k4/endpoint/endpoint_balance 또는 None을 닫힌 타입으로 제공한다. 자유 형식 원 reason/알 수 없는 내부 단계는 공개하지 않는다.
+
+## 완료 결과 웹 소비
+
+`greenhouseVentilationReplay.ts`는 위 판본을 별도 client로 읽는다. summary와 page의
+result/farm/reference가 같아야 하며 단위·유한 값·50구획·격자·수지·페이지 한도를 검사한다.
+manifest의 `policy_sha256`은 합성된 적분 정책이다. 원 작물 정책인
+`identity.policy_sha256`과 같다고 가정하지 않으며, 서버가 원 문맥과 정책 결속을 검증한다.
+웹의 digest 형식 검사를 암호학적 인증으로 해석하지 않는다.
+
+`GreenhouseVentilationReplay`는 현재 읽은 확정 시점의 UTC와 원 quantity만 표·차트·수치3D에
+연결한다. 재생은 저장 행을 선택하며 보간·새 생장/기후 계산을 하지 않는다.
+관리 사건은 before/after와 `ventilation_after`를 별도로 표시하고 실패 경계에 장면을 만들지 않는다.
+새 조회의 거부/잘못된 응답·계정/선택 변경·취소 시 이전 값을 지우고 늦은 응답을 무시한다.
+읽은 화면의 권리를 계속 확인하는 기능은 아니며 현재 권리 재조회는 명시 버튼으로 실행한다.
+빈 출력에는 장면·자동 재생이 없고 reduced motion/WebGL 실패 시 원 표와 시점 이동을 유지한다.
+
+검증용 원 HTTPS 응답의 브라우저 재생과 실제 API/worker의 동시 브라우저 검증을 구분한다.
+이 완료 결과 client는 계산 중 prefix를 제공하지 않는다. 현재 모델의 사용자 배포,
+최종 UI·실제 품종/생산량·자원 구매·경제 예측·추천과 G0–G4는 별도 수용이다.
