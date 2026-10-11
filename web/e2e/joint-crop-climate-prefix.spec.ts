@@ -41,14 +41,16 @@ test.beforeEach(async({page})=>{const value:Diagnostics={console:[],requests:[],
   page.on('pageerror',e=>value.console.push({text:e.message,url:''}));
   page.on('console',e=>{if(['error','warning'].includes(e.type()))value.console.push({text:e.text(),url:e.location().url});});
   page.on('request',r=>{const url=new URL(r.url());if(url.pathname.startsWith('/v1/'))value.requests.push(r.method()+' '+url.pathname+url.search);});
-  page.on('response',r=>{if(new URL(r.url()).pathname.includes('/crop-climate-joint-execution/prefix'))value.responses.push({url:r.url(),status:r.status()});});
+  page.on('response',r=>{if(new URL(r.url()).pathname.includes('/crop-climate-joint-execution'))value.responses.push({url:r.url(),status:r.status()});});
 });
 test.afterEach(async({page},info)=>{const value=diagnostics.get(page)!;
   const expectedStatus=info.title.includes('P5 05 rejection ')?Number(info.title.match(/rejection (\d+)/)?.[1]):
     info.title.includes('P5 06 ')?503:info.title.includes('P5 07 ')?409:0;
   const driverWarnings=value.console.filter(e=>/^\[\.WebGL-0x[0-9a-f]+\]GL Driver Message \(OpenGL, Performance, GL_CLOSE_PATH_NV, High\): GPU stall due to ReadPixels(?: \(this message will no longer repeat\))?$/.test(e.text));
-  const expectedHttpErrors=value.console.filter(e=>expectedStatus>0&&e.text.startsWith('Failed to load resource: the server responded with a status of '+expectedStatus+' ')
-    &&value.responses.some(r=>r.url===e.url&&r.status===expectedStatus));
+  const expectedStatuses=info.title.startsWith('P6 00')?[503]:info.title.startsWith('P6 01')?[503,422]:info.title.startsWith('P6 02')?[403]:[expectedStatus];
+  const expectedHttpErrors=value.console.filter(e=>expectedStatuses.some(status=>status>0&&
+    e.text.startsWith('Failed to load resource: the server responded with a status of '+status+' ')
+    &&value.responses.some(r=>r.url===e.url&&r.status===status)));
   const unexpected=value.console.filter(e=>!driverWarnings.includes(e)&&!expectedHttpErrors.includes(e));
   if(process.env.OSSF_JOINT_VIEW_EVIDENCE)await writeFile(join(process.env.OSSF_JOINT_VIEW_EVIDENCE,'browser-check.json'),JSON.stringify({
     title:info.title,status:info.status,console:value.console,driverWarnings,expectedHttpErrors,unexpected,requests:value.requests,responses:value.responses,
@@ -89,6 +91,30 @@ async function snapshot(page:Page,name:string){
       if(o.value===originals[i]!.value)o.setAttribute('selected','');else o.removeAttribute('selected');}));return '<!doctype html>'+clone.outerHTML;});
   await writeFile(join(root,name+'.html'),html);
 }
+test('P6 00 progress503-first still reads an authorized complete prefix on one polling chain',async({page})=>{
+  const d=fixture(),order=await routes(page,d);let reads=0;
+  await page.route(jobPath,r=>{reads++;order.push('progress-unavailable');return r.fulfill({status:503,json:{}});});
+  await enter(page,d);const viewer=page.locator('.joint-prefix-viewer'),row=recorded.completed[1].page.records[1];
+  await expect(viewer).toHaveAttribute('data-selected-at',row.time.at);
+  await expect(viewer.locator('.coupled-canvas')).toHaveAttribute('data-scene-at',row.time.at);
+  await expect.poll(()=>viewer.locator('.coupled-canvas').evaluate(e=>Number((e as HTMLElement).dataset.drawCalls))).toBeGreaterThan(0);
+  expect(order).toEqual(['progress-unavailable','summary','events','samples']);expect(reads).toBe(1);
+  await page.clock.fastForward(10_000);await expect.poll(()=>reads).toBe(2);
+  await expect.poll(()=>order.length).toBe(8);expect(order.slice(4)).toEqual(['progress-unavailable','summary','events','samples']);
+});
+test('P6 01 progress503 cannot bypass a current prefix rights rejection',async({page})=>{
+  const d=fixture();let progressReads=0,prefixReads=0;await routes(page,d);
+  await page.route(jobPath,r=>{progressReads++;return r.fulfill({status:503,json:{}});});
+  await page.route(prefixPath,r=>{prefixReads++;return r.fulfill({status:422,json:{}});});
+  await enter(page,d);await expect(page.getByLabel('계산 진행 상태')).toContainText('조회 보류');
+  await expect(page.locator('.joint-prefix')).toHaveCount(0);await page.clock.fastForward(60_000);
+  expect(progressReads).toBe(1);expect(prefixReads).toBe(1);
+});
+test('P6 02 progress authorization denial never queries the prefix',async({page})=>{
+  const d=fixture(),order=await routes(page,d);await page.route(jobPath,r=>r.fulfill({status:403,json:{}}));
+  await enter(page,d);await expect(page.getByLabel('계산 진행 상태')).toContainText('조회 보류');
+  await page.clock.fastForward(60_000);expect(order).toEqual([]);await expect(page.locator('.joint-prefix')).toHaveCount(0);
+});
 test('P5 00 original UTC values, fifty cohorts, chart and actual WebGL stay together',async({page})=>{
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));const order=await routes(page);await enter(page);
   const root=page.getByLabel('계산 중 확정 생장 결과'),viewer=root.locator('.joint-prefix-viewer'),row=recorded.completed[1].page.records[1];

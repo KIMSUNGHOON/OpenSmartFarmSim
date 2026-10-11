@@ -54,35 +54,52 @@ export default function JointCropClimateExecution({api}:{api:Api|null}){
   useEffect(()=>{
     if(!current||!visible||cancelBusy)return;
     let active=true,timer:ReturnType<typeof setTimeout>|undefined,delay=10_000;
+    let allowsPrefix=!cancellation?.cancel_requested && (!job||['queued','simulating'].includes(job.state));
     const controller=new AbortController();pollAbort.current=controller;
     const valid=()=>active&&!controller.signal.aborted;
+    async function refreshPrefix(){
+      try{
+        const next=await readJointPrefixSnapshot(current!.api,current!.lookup,controller.signal);if(!valid())return false;
+        const snapshot=next.snapshot;
+        if(snapshot){
+          setJob(snapshot.summary.job);
+          allowsPrefix=!snapshot.summary.cancel_requested && ['queued','simulating'].includes(snapshot.summary.job.state);
+        }
+        setPrefix(old=>!allowsPrefix?null:old&&snapshot&&JSON.stringify(old.summary.reference)===JSON.stringify(snapshot.summary.reference)?old:snapshot);
+        setPrefixObserved(allowsPrefix?next.observedAt:null);setPrefixUnavailable(false);
+        return true;
+      }catch(cause){
+        if(!valid())return false;const failure=errorOf(cause);
+        if(failure.code!=='not_available')throw failure;
+        setPrefix(null);setPrefixObserved(null);setPrefixUnavailable(true);prefixDisabled.current=true;
+        return false;
+      }
+    }
     async function poll(){
       await pending.current;if(!valid())return;setConnection('checking');
       const task=(async()=>{
+        let progressReadFailed=true;
         try{
           const value=await current!.api.jointCropClimateExecution(current!.lookup,controller.signal);if(!valid())return;
+          progressReadFailed=false;
           setProgress(value);setJob(value.job);setLastObserved(value.observed_at);setError(null);delay=10_000;
-          if(value.cancel_requested || !['queued','simulating'].includes(value.job.state)){
+          allowsPrefix=!value.cancel_requested && ['queued','simulating'].includes(value.job.state);
+          if(!allowsPrefix){
             setPrefix(null);setPrefixObserved(null);
           }
           if(terminal(value)){setConnection('terminal');return;}
-          if(!value.cancel_requested && ['queued','simulating'].includes(value.job.state) && !prefixDisabled.current){
-            try{
-              const next=await readJointPrefixSnapshot(current!.api,current!.lookup,controller.signal);if(!valid())return;
-              setPrefix(old=>old&&next.snapshot&&JSON.stringify(old.summary.reference)===JSON.stringify(next.snapshot.summary.reference)?old:next.snapshot);
-              setPrefixObserved(next.observedAt);setPrefixUnavailable(false);
-            }catch(cause){
-              if(!valid())return;const failure=errorOf(cause);
-              if(failure.code!=='not_available')throw failure;
-              setPrefix(null);setPrefixObserved(null);setPrefixUnavailable(true);prefixDisabled.current=true;
-            }
-          }
+          if(allowsPrefix&&!prefixDisabled.current){await refreshPrefix();if(!valid())return;}
           setConnection('waiting');
         }catch(cause){
-          if(!valid())return;const failure=errorOf(cause);setError(failure);setProgress(null);setOpened(null);
+          if(!valid())return;let failure=errorOf(cause),prefixRead=false;
+          if(progressReadFailed&&failure.code==='server_unavailable'&&allowsPrefix&&!prefixDisabled.current){
+            try{prefixRead=await refreshPrefix();}catch(prefixCause){failure=errorOf(prefixCause);}
+            if(!valid())return;
+          }
+          setError(failure);setProgress(null);setOpened(null);
           if(BLOCKED.has(failure.code)){setPrefix(null);setPrefixObserved(null);setLastObserved(null);setConnection('blocked');return;}
           if(failure.code==='intent_conflict'){setPrefix(null);setPrefixObserved(null);}
-          delay=Math.min(delay*2,60_000);setConnection('retrying');
+          delay=prefixRead?10_000:Math.min(delay*2,60_000);setConnection('retrying');
         }
         if(valid())timer=setTimeout(()=>{void poll();},delay);
       })();pending.current=task;await task;
