@@ -3,7 +3,7 @@
 <a id="joint-execution-user-preview"></a>
 
 **2026-10-11 21:19 KST:** [계산 중 연속 수치3D의 사용자 연결](../research/crop-climate-joint-prefix-advance-browser-20261011.md)을 합성128초 범위로 수용했다.
-현재 접속 파일은 아래 `run-v18`/`serve-v18`다. [새 모델 사용자 적용 시도](../research/crop-joint-ventilation-user-activation-20261012.md)는 동시 연결 제한과 브라우저 메모리 문제로 미수용이며, 같은 토큰으로 기존 두 계산 화면을 복구하고 원 데이터·권리를 보존했다. 상단 개발 기록에서 중단 이유와 다음 수정을 확인한다.
+현재 접속 파일은 아래 `run-v19`/`serve-v20`다. [새 모델 사용자 적용 시도](../research/crop-joint-ventilation-user-activation-20261012.md)는 동시 연결 제한과 브라우저 메모리 문제로 미수용이며, 같은 토큰으로 기존 두 계산 화면을 복구하고 원 데이터·권리를 보존했다. [현재 메모리 검증/복구](../research/crop-joint-ventilation-browser-budget-20261012.md)의 보류 사유와 다음 감독 계측을 상단 개발 기록에서 확인한다. 원 중단 계산은64/64 완료됐지만 새 모델 사용자 WebGL 수용은 남아 있다.
 5173상단/5174의12:15 KST 개발 기록에서 수정본 실제 정상/보류/취소3D 수용과 다음 명시 API/worker 조립·사용자 적용을 확인한다. 두 주소는 같은 공개 기록을15초마다 조회한다. 남은2–4집중시간 잠정·새 모델 미배포·전체 제품 완료일 미정이다.
 새 환기 모델의 [완료 결과 웹 검증](../research/crop-greenhouse-ventilation-web-terminal-implementation-20261012.md)은 로컬 수용이며 사용자 서버에는 아직 미배포다.
 5173은 완료 저장 결과 재생,5174는 같은 사용자 DB의 계산 상태/확정 부분 결과 자동 조회다.
@@ -28,7 +28,7 @@
 
 접속 토큰·기존 작업 ID/농장 필드·Windows에서 파일을 여는 경로는 다음 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v18/OPEN-UI-ADVANCE.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v20/OPEN-UI-ADVANCE.private.txt`
 
 1. 위 파일을 로컬 편집기로 열고5174에서 **내부 시험 연결 → 접근 토큰 → 연결 설정**을 선택한다.
 2. **08 성장 연구 3D → joint 실행 · 계산 상태와 완료 3D**를 선택한다.
@@ -68,7 +68,7 @@
 
 새 접속 토큰과 원 결과의 다섯 입력값은 저장소 밖의 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v18/service/OPEN-UI.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v19/service/OPEN-UI.private.txt`
 
 2026-10-10 기존 서비스 종료를 확인한 뒤 보존 원본으로 재기동했다.
 이전 토큰 대신 위 새 안내를 사용한다. 인증된 생장/수확 summary의 원 wire 일치·계산0을

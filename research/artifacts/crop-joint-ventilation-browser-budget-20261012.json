@@ -1,0 +1,158 @@
+{
+  "schema_version": "owned-ventilation-browser-budget-evidence-v1",
+  "recorded_at": "2026-10-12T07:45:42.576574+00:00",
+  "native_CLI": {
+    "timestamp": "2026-10-12T07:01:00.502Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "same_session": true,
+    "recursive_invocations": 0,
+    "turn_context_sha256": "c7707a9abb21c05dbeee3732a6dcf1992a45676b28951e127eae14ac59f1740d"
+  },
+  "source_commits": [
+    "b5b936a",
+    "32226d6"
+  ],
+  "code_sha256": {
+    "research/crop-joint-ventilation-live-preview.py": "f404d5f122c320d15a65cbc14be5e71a7fedff162899700eee078fb690b31ccb",
+    "backend/tests/test_crop_joint_ventilation_live_preview.py": "5d06c3e6962fba63d1b3366001ea902345e8679c8ea5e2c67fc1a7b0f921a452"
+  },
+  "restart_schema_checks": {
+    "actual_tool": 17487,
+    "actual_exit": 0,
+    "passed": 8,
+    "wall_seconds": 6.177733270000317
+  },
+  "actual_database_settings": {
+    "maintenance_work_mem": "16MB",
+    "max_connections": "32",
+    "shared_buffers": "16MB",
+    "work_mem": "1MB"
+  },
+  "original_database_config_preserved": true,
+  "recovered_original_job": {
+    "steps": 64,
+    "planned_steps": 64,
+    "attempts": 2,
+    "state": "succeeded",
+    "authenticated_HTTPS_confirmed": true
+  },
+  "partial_WebGL": {
+    "excluded_trial_reason": "no original terminal result offered",
+    "full_browser_accepted": false,
+    "original_API_frames_verified": 4,
+    "original_numeric_values_UTC_WebGL": true
+  },
+  "browser_budget_accepted": false,
+  "new_model_deployed": false,
+  "failed_trials": [
+    {
+      "actual_tool": 25464,
+      "actual_exit": 1,
+      "child_exit": 1,
+      "reason": "RSS_limit",
+      "wall_seconds": 125.3315674589976,
+      "single_PID_peak_RSS_bytes": 341659648,
+      "combined_peak_RSS_bytes": 1086066688,
+      "owned_remaining": 0,
+      "originals_preserved": true
+    },
+    {
+      "actual_tool": 82508,
+      "actual_exit": 1,
+      "child_exit": -15,
+      "reason": "RSS_limit",
+      "wall_seconds": 139.3139418540086,
+      "single_PID_peak_RSS_bytes": 347697152,
+      "combined_peak_RSS_bytes": 1078333440,
+      "owned_remaining": 0,
+      "originals_preserved": true
+    },
+    {
+      "actual_tool": 70287,
+      "actual_exit": 1,
+      "child_exit": 1,
+      "reason": "browser calculation wait expired",
+      "wall_seconds": 275.12177269101085,
+      "single_PID_peak_RSS_bytes": 354181120,
+      "combined_peak_RSS_bytes": 1054621696,
+      "owned_remaining": 0,
+      "originals_preserved": true
+    },
+    {
+      "actual_tool": 45914,
+      "actual_exit": 1,
+      "child_exit": -15,
+      "reason": "RSS_limit",
+      "wall_seconds": 155.60042035000515,
+      "single_PID_peak_RSS_bytes": 353607680,
+      "combined_peak_RSS_bytes": 1075924992,
+      "owned_remaining": 0,
+      "originals_preserved": true
+    }
+  ],
+  "restoration": {
+    "actual_tool": 54136,
+    "actual_exit": 0,
+    "original_immutable_files": 464,
+    "legacy_jobs": 89,
+    "legacy_samples": 47809,
+    "legacy_events": 5,
+    "legacy_harvest_rows": 47813,
+    "all_original_keys_rights_tokens_preserved": true,
+    "current_new_grants_revoked": true,
+    "legacy_run": "run-v19",
+    "joint_run": "serve-v20"
+  },
+  "receipts": {
+    "focused-final-restart-schema-v1/terminal.private.json": {
+      "sha256": "dc776b2727606432d176dc700dcfc47de2ca77e013bb067ac051389676a5612e"
+    },
+    "focused-final-preservation-v2/terminal.private.json": {
+      "sha256": "e4e4302da3cf5a41f5fb3de1607c0f228f79d4ee0ba4a3e1edc5a151e6fafeca"
+    },
+    "focused-current-preservation-v1/terminal.private.json": {
+      "sha256": "0ce19a35cba930f8059f0c178cd366370d3e08da750b954b4bdf6bf2cfe0af4b"
+    },
+    "focused-rollback-and-database-settings-v1/terminal.private.json": {
+      "sha256": "09473ee7de6ed3c291af054d92e6fb857592189a2c1fb9cb4a79f509872fe24a"
+    },
+    "partial-frame-reconciliation.private.json": {
+      "sha256": "655f3a6107e12ae39a89322bb1885ea03b23f935393ee565df3a72fddac6705b"
+    },
+    "confirmed-recovery.private.json": {
+      "sha256": "6dcee90e2bec989d29fcf9b2d53a10e33aa848e914a6f3bb396223168abe08dd"
+    },
+    "final-preservation.private.json": {
+      "sha256": "83c75d71d0a5dd5bc0e6520d598a1e1748d946c8945729d1761ef7ef8244ae5e"
+    }
+  },
+  "next_task": "crop-greenhouse-ventilation-user-browser-supervisor-profile",
+  "remaining_focused_hours": {
+    "min": 2,
+    "max": 4,
+    "conditional": true
+  },
+  "CI_run": false,
+  "real_farm_runs": 0,
+  "G0_G4": "not_assessed",
+  "final_public_UI": {
+    "actual_tool": 1275,
+    "actual_exit": 0,
+    "reported_at": "2026-10-12T07:49:07.500159Z",
+    "record_sha256": "0817b02471d7d28f921cb9dc0bc308010bd08b919e31a0be402a794052cd2e8c",
+    "two_ports": [
+      5173,
+      5174
+    ],
+    "actual_original_DOM": true,
+    "automatic_poll_ports": [
+      5173,
+      5174
+    ],
+    "API_writes": 0,
+    "pageerrors": 0,
+    "combined_peak_RSS_bytes": 973279232,
+    "owned_remaining": 0
+  }
+}
