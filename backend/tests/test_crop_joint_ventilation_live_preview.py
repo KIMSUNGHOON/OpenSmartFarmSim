@@ -48,6 +48,35 @@ def test_upgrade_and_rollback_preserve_existing_access(login_scope, login_databa
         for privilege in ('SELECT', 'INSERT'):
             assert not conn.execute('SELECT has_table_privilege(%s,%s,%s) AS allowed',
                 (previous.roles['authority'], previous.schema+'.'+TABLE, privilege)).fetchone()['allowed']
+        oid = conn.execute('SELECT to_regclass(%s)::oid AS oid', (previous.schema+'.'+TABLE,)).fetchone()['oid']
+    preview.provision(login_database['admin'], enabled)
+    preview.provision(login_database['admin'], enabled)
+    with base.connect() as conn:
+        audit_runtime_roles(conn, enabled)
+        assert conn.execute('SELECT to_regclass(%s)::oid AS oid', (enabled.schema+'.'+TABLE,)).fetchone()['oid'] == oid
+        assert conn.execute("SELECT 1 FROM pg_namespace WHERE nspname LIKE 'ossf_preview_check_%'").fetchone() is None
+        assert conn.execute(sql.SQL('SELECT count(*) AS n FROM {}').format(base._table('jobs'))).fetchone()['n'] == before
+
+
+@database_marks
+@pytest.mark.parametrize('change', ['column', 'trigger'])
+def test_existing_schema_change_rejects_reenable_without_grants(login_scope, login_database, change):
+    import psycopg
+    base, previous, _ = login_scope
+    enabled = replace(previous, crop_greenhouse_ventilation_result_storage=True)
+    preview.provision(login_database['admin'], enabled)
+    preview.provision(login_database['admin'], previous, enabled=False)
+    with psycopg.connect(login_database['admin']) as conn:
+        conn.execute(sql.SQL('ALTER TABLE {} ').format(sql.Identifier(previous.schema,TABLE)) +
+            (sql.SQL('ADD COLUMN unexpected text') if change == 'column' else
+             sql.SQL('DISABLE TRIGGER joint_ventilation_result_immutable')))
+    with pytest.raises(ValueError, match='installed ventilation schema mismatch'):
+        preview.provision(login_database['admin'], enabled)
+    with base.connect() as conn:
+        audit_runtime_roles(conn, previous)
+        assert conn.execute("SELECT 1 FROM pg_namespace WHERE nspname LIKE 'ossf_preview_check_%'").fetchone() is None
+        assert not conn.execute('SELECT has_table_privilege(%s,%s,%s) AS allowed',
+            (previous.roles['authority'], previous.schema+'.'+TABLE, 'INSERT')).fetchone()['allowed']
 
 
 @database_marks

@@ -104,6 +104,49 @@ def prepare(args):
     print(json.dumps({'prepared':True, 'synthetic':True, 'models':2, 'new_inputs':2, 'G0_G4':'not_assessed'}))
 
 
+def existing_schema(conn, policy):
+    """Compare an installed table with a rolled-back fresh installation."""
+    from psycopg import sql
+    from uuid import uuid4
+    from app.crop_greenhouse_ventilation_result_schema import install_joint_ventilation_result_schema, TABLE
+
+    def fingerprint(schema):
+        name = schema+'.'+TABLE
+        relation = conn.execute('SELECT relkind,relpersistence,relrowsecurity,relforcerowsecurity '
+            'FROM pg_class WHERE oid=to_regclass(%s)', (name,)).fetchone()
+        columns = conn.execute('SELECT attname,format_type(atttypid,atttypmod) AS type,attnotnull,'
+            'attidentity,attgenerated,pg_get_expr(adbin,adrelid) AS default_expression '
+            'FROM pg_attribute LEFT JOIN pg_attrdef ON adrelid=attrelid AND adnum=attnum '
+            'WHERE attrelid=to_regclass(%s) AND attnum>0 AND NOT attisdropped ORDER BY attnum', (name,)).fetchall()
+        constraints = conn.execute('SELECT conname,convalidated,pg_get_constraintdef(oid) AS definition '
+            'FROM pg_constraint WHERE conrelid=to_regclass(%s) ORDER BY conname', (name,)).fetchall()
+        indexes = conn.execute('SELECT indisvalid,indisready,pg_get_indexdef(indexrelid) AS definition '
+            'FROM pg_index WHERE indrelid=to_regclass(%s) ORDER BY pg_get_indexdef(indexrelid)', (name,)).fetchall()
+        triggers = conn.execute('SELECT tgname,tgenabled,pg_get_triggerdef(oid) AS definition,'
+            'pg_get_functiondef(tgfoid) AS function_definition FROM pg_trigger '
+            'WHERE tgrelid=to_regclass(%s) AND NOT tgisinternal ORDER BY tgname', (name,)).fetchall()
+        return json.dumps([relation,columns,constraints,indexes,triggers], sort_keys=True).replace(schema+'.', 'verified_schema.')
+
+    installed = fingerprint(policy.schema)
+    scratch = 'ossf_preview_check_'+uuid4().hex
+    class RolledBackReference(Exception):
+        pass
+    try:
+        with conn.transaction():
+            conn.execute('RESET ROLE')
+            conn.execute(sql.SQL('CREATE SCHEMA {} AUTHORIZATION {}').format(sql.Identifier(scratch), sql.Identifier(policy.owner)))
+            conn.execute(sql.SQL('SET LOCAL ROLE {}').format(sql.Identifier(policy.owner)))
+            conn.execute(sql.SQL('CREATE TABLE {} (tenant_id text,job_id uuid,PRIMARY KEY(tenant_id,job_id))')
+                .format(sql.Identifier(scratch,'jobs')))
+            install_joint_ventilation_result_schema(conn, scratch)
+            expected = fingerprint(scratch)
+            raise RolledBackReference()
+    except RolledBackReference:
+        pass
+    if installed != expected:
+        raise ValueError('owned installed ventilation schema mismatch')
+
+
 def provision(admin, policy, *, enabled=True):
     import psycopg
     from psycopg import sql
@@ -114,7 +157,10 @@ def provision(admin, policy, *, enabled=True):
     with psycopg.connect(admin, row_factory=psycopg.rows.dict_row) as conn:
         conn.execute(sql.SQL('SET LOCAL ROLE {}').format(sql.Identifier(policy.owner)))
         if enabled:
-            install_joint_ventilation_result_schema(conn, policy.schema)
+            if conn.execute('SELECT to_regclass(%s) AS relation', (policy.schema+'.'+TABLE,)).fetchone()['relation']:
+                existing_schema(conn, policy)
+            else:
+                install_joint_ventilation_result_schema(conn, policy.schema)
             conn.execute(sql.SQL('GRANT SELECT,INSERT ON {} TO {}').format(
                 sql.Identifier(policy.schema, TABLE), sql.Identifier(policy.roles['authority'])))
         elif conn.execute('SELECT to_regclass(%s) AS relation', (policy.schema+'.'+TABLE,)).fetchone()['relation']:
