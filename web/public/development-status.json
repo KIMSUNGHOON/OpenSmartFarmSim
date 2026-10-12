@@ -3,7 +3,7 @@
   "new_model_deployed": false,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-12T22:11:52.145263Z",
+  "reported_at": "2026-10-12T22:30:36.023171Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -27,11 +27,11 @@
       "state": "completed"
     },
     {
-      "evidence": "새 환기 모델의 정상·보류·취소3D와 합1GiB 검증은 완료했습니다. 시간 표시도 미정·판단 시각·사유로 수정하고 오래된 기록/조회 실패를 확인했습니다. 기존 입력 증거의 판본 호환 처리와 같은 판본 재검증이 남아 새 모델 사용자 적용은 보류합니다.",
+      "evidence": "기존 입력3건·저장9시점의 실제 판본 조회와 원 수치/UTC·계산/쓰기0을 확인했습니다. 설정 파일 하나만 바꾸는 방식은 기각했습니다. 기존 권한 판본과 새 환기 flag 지원 판본의 명시 조립·같은 배치 재검증이 남아 사용자 적용은 보류합니다.",
       "id": "activation",
       "state": "next"
     }
   ],
-  "estimate_reviewed_at": "2026-10-12T22:11:52.145263Z",
-  "estimate_reason": "기존 2–4시간 예상은 철회했습니다. 입력 증거의 판본 호환 처리와 같은 판본 재검증이 남아 있어 새 예상 시간을 산정하지 않았습니다."
+  "estimate_reviewed_at": "2026-10-12T22:30:36.023171Z",
+  "estimate_reason": "기존 2–4시간 예상은 철회했습니다. 기존 결과를 읽는 두 코드 판본을 확인했으나 새 모델과의 권한 조립·같은 배치 재검증이 남아 예상 시간은 미정입니다."
 }
