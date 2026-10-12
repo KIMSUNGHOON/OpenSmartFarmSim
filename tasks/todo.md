@@ -1738,6 +1738,8 @@
           - [ ] **`crop-greenhouse-ventilation-web-confirmed-prefix-3d`** — 위 prefix API/terminal client 수용을 선행으로 새 모델 전용 typed 접수/상태/취소·prefix client를 먼저 연결한다. 같은 selector/manifest/단위/UTC·페이지와 늦은 응답/혼합 판본/권리 거부를 검증한다. 실제 장벽 없는 정상/보류 실행 중 같은 원 값/UTC/WebGL→terminal·취소/재접속·미확정/철회 장면 제거·WSL을 통과한 뒤 부모3D를 수용한다.
             - [x] **`crop-greenhouse-ventilation-web-prefix-software`** — [소프트웨어 수용](../research/crop-greenhouse-ventilation-web-prefix-software-20261012.md):새 typed 접수/조회/취소·prefix client/선택기와 같은 UTC의3D/표/차트·환기 원값. 웹525/기록 응답 Chromium24·타입/빌드·기존699source/두 UI/원 결과/WSL 보존. 실제 자동 새 모델/API/WebGL 및 사용자 적용 증거는 아니다.
             - [ ] **`crop-greenhouse-ventilation-web-prefix-live-browser`** — 위 개발본을 실제 새 모델 독립 자동 작업자/보호 API와 연결한다. 장벽 없는 정상/보류의 실행 중 원 값/UTC/WebGL→같은 terminal, 취소·재접속·현재 권한 철회·WSL과 두 사용자 화면 보존 뒤 수용한다.
+              - [x] **`crop-greenhouse-ventilation-live-browser-normal`** — [실제 정상 경로](../research/crop-greenhouse-ventilation-live-browser-normal-20261012.md):원73627 actual0/독립 SCRAM 작업자·TLS API·제품 WebGL, 자동 전진 원5시점의 값/UTC/25장부/10수지/환기 진단→같은 terminal·재접속·권리422 차단/복원·390px·조회 부작용0. 두 UI/원 DB·키/토큰·원본/WSL/소유 정리 보존. 수동 과거 시점 분기는 이번 실제 실행에서 미관측이다.
+              - [ ] **`crop-greenhouse-ventilation-live-browser-hold-cancel`** — 같은 수용 제품/원 계산 코드로 실제 보류 중 원 값/UTC/WebGL→원 보류 결과, 취소 수락→worker canceled·장면 제거·결과 미게시를 확인한다. 현재 권리/재접속·512MiB/1GiB·소유 정리·두 UI/원 결과·토큰 보존 및 실제 원 도구 종료 증거 뒤 수용한다.
         - [ ] **`crop-greenhouse-ventilation-user-activation`** — 위 웹/실행의 실제 브라우저 정상/hold/취소/재접속과 사용자 DB/두 URL/원본/WSL 보존·적용 주소/다음 작업/남은 자료 보류 게시.
 
     - [ ] **`crop-greenhouse-radiation-par`** — 원문 incident/absorbed PAR·cover/floor 반사와 PAR/NIR 열 경계.

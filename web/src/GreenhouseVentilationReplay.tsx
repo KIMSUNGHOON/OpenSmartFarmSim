@@ -145,7 +145,7 @@ export default function GreenhouseVentilationReplay({api,initialSelection,autoLo
               {[row.value.derived.leaf_area_index,row.value.derived.canopy_temperature,row.value.climate_state.air_temperature].map((q,j)=><td key={j} data-raw-value={q.value}>{String(q.value)}</td>)}</tr>)}</tbody>
           </table></div></section>
         <details className="panel crop-cumulative joint-ledgers" data-selected-at={sample.time.at}><summary>선택 시점의 누적 유량·사건 합계·수지</summary>
-          <p>{sample.time.at} · UTC</p><Quantities values={sample.value.integrated_transfers} label="누적22장부"/>
+          <p>{sample.time.at} · UTC</p><Quantities values={sample.value.integrated_transfers} label="누적25장부"/>
           <Quantities values={sample.value.event_totals} label="관리 사건 누적"/>
           <Quantities values={sample.value.balance_residuals} label="수지 잔차"/><Quantities values={sample.value.balance_budgets} label="잔차 허용 한도"/></details>
       </div>}

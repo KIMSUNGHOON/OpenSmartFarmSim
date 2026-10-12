@@ -1,0 +1,421 @@
+{
+  "schema_version": "crop-greenhouse-ventilation-live-browser-normal-evidence-v1",
+  "observed_at": "2026-10-12T00:49:06.640235Z",
+  "base_commit": "40e6ae532d1709a13ffc9aad5e1cb09ace80a7f8",
+  "scope": "actual_unpaused_synthetic_worker_TLS_API_product_WebGL",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-12T00:03:55.657Z",
+    "raw_line_sha256": "d67ddbb90f79a8bc49b65bfca20caf5a7a352f3f3dad2c73bd9f88b7103d6dad",
+    "same_native_CLI_session": true,
+    "recursive_invocations": 0
+  },
+  "source_sha256": {
+    "research/test_crop_greenhouse_ventilation_live_browser_reference.py": "6506e162ce4fea1dd54cb0e146f0866e434e9aafbdf021363e6bed44352e4d22",
+    "research/crop-greenhouse-ventilation-live-browser-reference.mjs": "bb3b6b91af714f0d1d27894d5bfed3b0e9ab0e1b8a2633f0adebaa494528ecd9",
+    "web/src/GreenhouseVentilationReplay.tsx": "cf98bed69a6984df622b51b2481119d91d39c5ccd93ea7f959f4e54aca59eb04"
+  },
+  "actual_native_cases": {
+    "completed": 1,
+    "hold": 0,
+    "cancel": 0
+  },
+  "fixture": {
+    "steps": 64,
+    "simulated_seconds": 128,
+    "chunk_budget": 8,
+    "test_pause": false,
+    "actual_SCRAM": true,
+    "verified_TLS_proxy": true
+  },
+  "worker": {
+    "exit": 0,
+    "attempts": [
+      {
+        "actual_scram": true,
+        "attempt": 1,
+        "calls": {
+          "RHS": 428,
+          "advance": 9,
+          "event": 3,
+          "prepare_binding": 9,
+          "prepare_context": 9,
+          "restore": 8,
+          "start": 1,
+          "step": 64,
+          "ventilation": 349
+        },
+        "state": "succeeded"
+      }
+    ]
+  },
+  "browser": {
+    "exit": 0,
+    "wall_seconds": 294.025,
+    "page_errors": [],
+    "automatic_running_frames": [
+      {
+        "at": "2026-10-01T00:00:00.123456Z",
+        "publication_sequence": 1,
+        "draw_calls": 109,
+        "ledgers": 25,
+        "residuals": 10
+      },
+      {
+        "at": "2026-10-01T00:00:32.123456Z",
+        "publication_sequence": 3,
+        "draw_calls": 113,
+        "ledgers": 25,
+        "residuals": 10
+      },
+      {
+        "at": "2026-10-01T00:01:04.123456Z",
+        "publication_sequence": 5,
+        "draw_calls": 113,
+        "ledgers": 25,
+        "residuals": 10
+      },
+      {
+        "at": "2026-10-01T00:01:20.123456Z",
+        "publication_sequence": 6,
+        "draw_calls": 113,
+        "ledgers": 25,
+        "residuals": 10
+      },
+      {
+        "at": "2026-10-01T00:01:52.123456Z",
+        "publication_sequence": 8,
+        "draw_calls": 113,
+        "ledgers": 25,
+        "residuals": 10
+      }
+    ],
+    "each_running_frame_matches_actual_selected_API_and_original_terminal_rows": true,
+    "same_UTC_scene_chart": true,
+    "exact_units_and_quantities": true,
+    "cohort_drawing_and_DOM": true,
+    "terminal_and_restored_original_frame": true,
+    "reconnected_same_result": true,
+    "terminal_rights_422_scene_cleared": true,
+    "rights_restored_same_result": true,
+    "mobile_viewport": [
+      390,
+      844
+    ],
+    "mobile_horizontal_overflow": false,
+    "manual_saved_point_in_this_actual_case": false,
+    "transient_progress_503_observed": true
+  },
+  "read_side_effect_calls": {
+    "RHS": 0,
+    "_put_in_transaction": 0,
+    "advance": 0,
+    "confirm": 0,
+    "event": 0,
+    "jobs._durable_artifact": 0,
+    "jobs._event": 0,
+    "jobs._insert_publication": 0,
+    "jobs._outcome": 0,
+    "jobs.ack_cancel": 0,
+    "jobs.cancel": 0,
+    "jobs.claim": 0,
+    "jobs.fail": 0,
+    "jobs.renew": 0,
+    "jobs.submit": 0,
+    "prepare_binding": 0,
+    "prepare_context": 0,
+    "put": 0,
+    "restore": 0,
+    "start": 0,
+    "step": 0,
+    "ventilation": 0
+  },
+  "accepted_guards": [
+    {
+      "case": "focused-live-product-build-v2",
+      "original_tool_session": 6934,
+      "actual_tool_exit": 0,
+      "receipt_sha256": "72620b5c6c7c71b43f3045b765f1a6d8c9d041688dc929c7dc1b04f0ada8b6f9",
+      "receipt": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 6,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 879091712,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": null,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": true,
+        "log_sha256": "70cf8d3246297a38fe4bffc9fc2379802143d43e958b0346259d86d215091821",
+        "modern_frontend_status": 200,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 1,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 490459136,
+        "source_count": 2078,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 1.616703886000323
+      }
+    },
+    {
+      "case": "focused-live-browser-normal-v3",
+      "original_tool_session": 73627,
+      "actual_tool_exit": 0,
+      "receipt_sha256": "df7b7d8acae380847606529ce98b833dcd8dc4760a023af1b9ce20e723bd169c",
+      "receipt": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 1054,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1001435136,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": null,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "8bce11dbcc0fcc792bfefa79ff0675d1839d93a060f7c1b23f507fc36f8d9a3b",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 0,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 368156672,
+        "source_count": 2078,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": true,
+        "wall_seconds": 323.17609753800207
+      }
+    },
+    {
+      "case": "legacy-restore-probe-v1",
+      "original_tool_session": 42176,
+      "actual_tool_exit": 0,
+      "receipt_sha256": "6577bb8be2b4e62ffa3d6d2f0c28483b2611880136353f5c79447e5825adca4d",
+      "receipt": {
+        "actual_exit": 0,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 136138752,
+        "combined_peak_RSS_bytes": 688840704,
+        "protected_live": true,
+        "owned_remaining": [],
+        "wall_seconds": 17.694225580999046
+      }
+    },
+    {
+      "case": "focused-live-normal-final-preservation-confirm-v1",
+      "original_tool_session": 31062,
+      "actual_tool_exit": 0,
+      "receipt_sha256": "d31d248183ea6b64c65a70bedd5dc341037fd7e7a3ab1f71a646f4450c0cb8a1",
+      "receipt": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 7,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 684654592,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "e6024028de2ad2fce8e491aefc83d9a84fabe732f2f9c7e43278c43af510c03f",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 4,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 136138752,
+        "source_count": 2078,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 1.9229786249925382
+      }
+    }
+  ],
+  "private_accepted_receipts_sha256": {
+    "native_browser": "c98fe8b3c6c30135ef6d98faf489c5e128ec79ad1cd8b00cb737354a99651593",
+    "final_preservation": "12519fd8d8deed9e51cf5dbf595f932bc4f142da725beeaa53804598193e0c01"
+  },
+  "preservation": {
+    "G0_G4": "not_assessed",
+    "actual_crop_Runs": 0,
+    "current_UI_assets_unchanged": 172,
+    "explicit_shared_api_changes": [
+      "web/src/GreenhouseVentilationReplay.tsx"
+    ],
+    "legacy_DB_counts_equal": true,
+    "legacy_access_tokens_preserved": true,
+    "legacy_grant_lifetime_renewed": true,
+    "legacy_harvest_rows": 47813,
+    "legacy_jobs_restored_exactly": 89,
+    "legacy_live_observation_excluded": true,
+    "legacy_old_guide_preserved": true,
+    "legacy_private_immutable_files_preserved": 23,
+    "legacy_result_key_preserved": true,
+    "legacy_saved_events": 5,
+    "legacy_saved_samples": 47809,
+    "modern_job_rows": {
+      "job_attempts": 37,
+      "job_events": 370,
+      "jobs": 112
+    },
+    "modern_original_database_files_rights_keys_unchanged": true,
+    "modern_preexisting_files": 464,
+    "modern_restarted_with_same_access": true,
+    "modern_service_not_restarted": false,
+    "observed_at": "2026-10-12T00:45:35.377404+00:00",
+    "preexisting_source_entries": 706,
+    "preexisting_source_unchanged": 705,
+    "protected_roots_live": 4
+  },
+  "screenshots_sha256": {
+    "research/artifacts/crop-greenhouse-ventilation-live-normal-mobile-20261012.png": "d0e49d8bca0dc94962b9c92b9307aa8088310bcfa850b16e6d84eb797fe765ac",
+    "research/artifacts/crop-greenhouse-ventilation-live-normal-running-20261012.png": "dad7d46f34f1f3976d2f1aca55ce7323b575ed6fb3f4e70e60e92f4cc56c6e5e",
+    "research/artifacts/crop-greenhouse-ventilation-live-normal-terminal-20261012.png": "55f35288fc1a63f9c09f4fe197a88126d5f1bc6c18e7ce2f6311180959a37f40"
+  },
+  "restore": {
+    "legacy_run": "run-v15",
+    "modern_run": "serve-v14",
+    "legacy_original_tool_live": 23598,
+    "modern_original_tool_live": 8148,
+    "same_access_preserved": true
+  },
+  "diagnostics_excluded_from_acceptance": [
+    {
+      "case": "focused-live-product-build-v1",
+      "original_tool": 46275,
+      "actual_tool_exit": 1,
+      "reason": "RSS limit with both previews live"
+    },
+    {
+      "case": "focused-live-browser-normal-v1",
+      "original_tool": 90638,
+      "actual_tool_exit": 1,
+      "reason": "fixture DNS SAN and FD inventory ordering corrected"
+    },
+    {
+      "case": "focused-live-browser-normal-v2",
+      "original_tool": 3016,
+      "actual_tool_exit": 1,
+      "reason": "browser passed; final direct query lacked HTTP principal; changed to actual authenticated HTTPS"
+    },
+    {
+      "case": "modern-restore/serve-v13",
+      "original_tool": 91423,
+      "actual_tool_exit": 1,
+      "reason": "private restore entrypoint corrected; fresh serve-v14 used"
+    },
+    {
+      "case": "focused-live-normal-final-preservation-v1",
+      "actual_child_exit": 0,
+      "actual_tool_exit": null,
+      "reason": "original transport receipt unavailable after compaction; identical preservation assertions collected via31062"
+    }
+  ],
+  "hold": [
+    "actual unpaused hold browser",
+    "actual accepted cancellation browser",
+    "new model user activation",
+    "full cycle production/resources/economics and final integrated UI",
+    "independent farm evidence and G0-G4"
+  ],
+  "new_model_deployed": false,
+  "real_farm_runs": 0,
+  "G0_G4": "not_assessed",
+  "actual_user_status_browser": {
+    "actual_both_HTTP": true,
+    "actual_same_source_record": true,
+    "actual_original_DOM": true,
+    "stage_count": 5,
+    "authentication_required": false,
+    "real_automatic_second_poll": true,
+    "record_time": "2026-10-12T00:49:34.144351Z",
+    "record_sha256": "10560394719c7160aa193de02a81f866fa91ca0c923e3a74a7817d6397aa25fe",
+    "new_model_deployed": false,
+    "remaining_focused_hours": {
+      "min": 1,
+      "max": 3
+    },
+    "full_product_completion": null,
+    "API_writes": 0,
+    "credentialed_status_requests": 0,
+    "pageerrors": [],
+    "original_tool_session": 45708,
+    "actual_tool_exit": 0,
+    "guard": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 79,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 966221824,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "da7d4427d9df20b793d6a4cfd976172543fd055f5e93281d0bbe788278514db5",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 263823360,
+      "source_count": 2083,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 21.125444121993496
+    },
+    "screenshots_sha256": {
+      "research/artifacts/product-ui-live-normal-status-5173-20261012.png": "874fd85c3c3fcada9a1dbe560a6118e5809ffcf9224f3a0036b11d72629695ee",
+      "research/artifacts/product-ui-live-normal-status-5174-mobile-20261012.png": "1b6f20e7807b7363bf4c38de2e5332070210fa240d4e00e33c9de42daaddecec"
+    }
+  }
+}

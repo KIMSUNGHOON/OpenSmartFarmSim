@@ -3,8 +3,8 @@
 <a id="joint-execution-user-preview"></a>
 
 **2026-10-11 21:19 KST:** [계산 중 연속 수치3D의 사용자 연결](../research/crop-climate-joint-prefix-advance-browser-20261011.md)을 합성128초 범위로 수용했다.
-현재 접속 파일은 아래 `run-v14`/`serve-v12`다.2026-10-12 웹 연결 검증 뒤5173을 같은 저장 결과·접속 토큰으로 복구했다.5174는 계속 유지했다.
-2026-10-12 확정 부분 API 검증의 WSL 점검 중5173만 중단·복구했다.5174는 계속 유지했다. [최신 진행 표시/원 결과·접속 정보 보존](../research/product-ui-waiting-feedback-20261012.md#0744-kst-후속-복구와-실제-표시)을 확인했다.
+현재 접속 파일은 아래 `run-v15`/`serve-v14`다.2026-10-12 [새 모델 실제 정상 브라우저 검증](../research/crop-greenhouse-ventilation-live-browser-normal-20261012.md)의 WSL 자원 창 뒤 두 서버를 같은 저장 결과·접속 토큰으로 복구했다.
+5173상단/5174의 개발 진행 기록은09:49 KST 정상 검증 수용으로 갱신했다. 실제 보류·취소 검증→새 모델 사용자 적용이 남아 있으며 잠정1–3집중시간이다. 전체 제품 완료일은 미정이다.
 새 환기 모델의 [완료 결과 웹 검증](../research/crop-greenhouse-ventilation-web-terminal-implementation-20261012.md)은 로컬 수용이며 사용자 서버에는 아직 미배포다.
 5173은 완료 저장 결과 재생,5174는 같은 사용자 DB의 계산 상태/확정 부분 결과 자동 조회다.
 
@@ -14,7 +14,7 @@
 5173은 완료 결과 재생용이다. [진행 안내 조각](preview-progress-notice.html)을 기존 index의 `<body>` 바로 뒤에 넣은 별도 entry를 NGINX의 정확한 `/`와 `/index.html`에서 제공한다. 원 index·JS/CSS·API·DB는 보존한다. 기존5173을 새로고침하면 로그인 없이 최신5174로 이동할 수 있다. 복구 시 entry의 경로와 두 NGINX location을 함께 복원하며, 안내가 없으면 위5174주소를 직접 연다.
 첫 화면의 **제품 개발과 배포 상태**와 **09 계산 진행 상태** 메뉴/바로가기에서 확인할 수 있다.
 인증 설정이 펼쳐지고 연결 전/작업 선택 전을 명시한다. 인증 설정 뒤에도 계산 화면을 유지한다.
-보호 토큰과 기존 작업 선택 값은 아래의 같은 `OPEN-UI-ADVANCE.private.txt`를 사용한다. 토큰/서버는 교체하지 않았다.
+보호 토큰과 기존 작업 선택 값은 아래의 현재 `OPEN-UI-ADVANCE.private.txt`를 사용한다. 기존 토큰을 보존하고 서버를 복구했다.
 기존 검증 작업은64/64 완료·9시점/3사건이다. 새 계산에는 검토된 새 접수 요청이 필요하며 같은 파일 재접수는 같은 작업을 연다.
 [실제 화면8경로 기록](../research/product-ui-current-status-entry-20261011.md)은 타입/빌드와 원 DB 응답의 상태/시각 일치를 확인했다.
 개발/배포 안내는 이 화면 빌드 시점의 기록이다. 새 환기 모델 미배포·최종 UI와 실제 생산/마진/추천 보류는 유지한다.
@@ -28,7 +28,7 @@
 
 접속 토큰·기존 작업 ID/농장 필드·Windows에서 파일을 여는 경로는 다음 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v12/OPEN-UI-ADVANCE.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v14/OPEN-UI-ADVANCE.private.txt`
 
 1. 위 파일을 로컬 편집기로 열고5174에서 **내부 시험 연결 → 접근 토큰 → 연결 설정**을 선택한다.
 2. **08 성장 연구 3D → joint 실행 · 계산 상태와 완료 3D**를 선택한다.
@@ -41,7 +41,7 @@
    이미 검증된 완료 작업은 보호 안내의 작업 ID와 농장 필드로 **기존 계산 조회**한다.
    같은 파일을 다시 접수하면 같은 작업으로 연결되며 새 계산을 만들지 않는다.
 
-현재 토큰은2026-10-12 **21:10 KST**까지 유효하며 페이지 메모리에만 둔다. 새로고침 뒤에는 다시 연결한다. 이전 기동의 토큰은 사용할 수 없다.
+현재 토큰의 유효시각은 위 보호 안내 파일에서 확인한다. 페이지 메모리에만 두며 새로고침 뒤에는 다시 연결한다. 이번 복구는 기존 토큰을 보존했다.
 자동 조회는 이전 응답 완료 뒤10초를 기다리고 서버 조회 시간이 추가된다. 일시 오류는 최대60초 간격으로 재시도한다.
 이번 실제 브라우저에서 계산 중 원 저장 시점5개의 연속 전진→완료 원9시점/관리3사건·재접속을 확인했다.
 실제 장면 관측 간격은33–34초였다. 매 시점이 즉시 갱신되는 성능 보장이나 전체 작기 성장 검증은 아니다.
@@ -68,7 +68,7 @@
 
 새 접속 토큰과 원 결과의 다섯 입력값은 저장소 밖의 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v14/service/OPEN-UI.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v15/service/OPEN-UI.private.txt`
 
 2026-10-10 기존 서비스 종료를 확인한 뒤 보존 원본으로 재기동했다.
 이전 토큰 대신 위 새 안내를 사용한다. 인증된 생장/수확 summary의 원 wire 일치·계산0을
