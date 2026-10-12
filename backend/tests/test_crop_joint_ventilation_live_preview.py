@@ -2,6 +2,10 @@
 from dataclasses import replace
 import importlib.util
 from pathlib import Path
+import signal
+import subprocess
+import sys
+from types import SimpleNamespace
 
 import pytest
 from psycopg import sql
@@ -9,7 +13,7 @@ from psycopg import sql
 from app.crop_greenhouse_ventilation_result_schema import TABLE
 from app.runtime_roles import audit_runtime_roles
 from test_crop_climate_joint_result_store import (
-    login_database, login_scope, original_login_scope, pytestmark,
+    login_database, login_scope, original_login_scope, pytestmark as database_marks,
 )
 
 spec = importlib.util.spec_from_file_location(
@@ -22,6 +26,7 @@ def relation(conn, policy):
     return conn.execute('SELECT to_regclass(%s) AS relation', (policy.schema+'.'+TABLE,)).fetchone()['relation']
 
 
+@database_marks
 def test_upgrade_and_rollback_preserve_existing_access(login_scope, login_database):
     base, previous, _ = login_scope
     enabled = replace(previous, crop_greenhouse_ventilation_result_storage=True)
@@ -45,6 +50,7 @@ def test_upgrade_and_rollback_preserve_existing_access(login_scope, login_databa
                 (previous.roles['authority'], previous.schema+'.'+TABLE, privilege)).fetchone()['allowed']
 
 
+@database_marks
 def test_failed_audit_rolls_back_table_and_grants(login_scope, login_database, monkeypatch):
     base, previous, _ = login_scope
     enabled = replace(previous, crop_greenhouse_ventilation_result_storage=True)
@@ -61,6 +67,7 @@ def test_failed_audit_rolls_back_table_and_grants(login_scope, login_database, m
         audit_runtime_roles(conn, previous)
 
 
+@database_marks
 def test_policy_mismatch_cannot_install(login_scope, login_database):
     base, previous, _ = login_scope
     with pytest.raises(ValueError, match='storage policy mismatch'):
@@ -68,3 +75,36 @@ def test_policy_mismatch_cannot_install(login_scope, login_database):
     with base.connect() as conn:
         assert relation(conn, previous) is None
         audit_runtime_roles(conn, previous)
+
+
+@pytest.mark.parametrize('ignore_term', [False, True])
+def test_exact_owned_child_shutdown_escalates_and_reaps(ignore_term):
+    source = ('import signal,time\n'
+              + ('signal.signal(signal.SIGTERM,signal.SIG_IGN)\n' if ignore_term else '')
+              + 'print("ready",flush=True)\ntime.sleep(30)\n')
+    with subprocess.Popen([sys.executable, '-B', '-c', source], stdout=subprocess.PIPE, text=True) as child:
+        try:
+            assert child.stdout.readline() == 'ready\n'
+            outcome = preview.stop_owned_process(child, timeout=.1)
+            assert outcome == {'exit':-signal.SIGKILL if ignore_term else -signal.SIGTERM, 'forced':ignore_term}
+            assert child.poll() is not None and not Path('/proc', str(child.pid)).exists()
+        finally:
+            if child.poll() is None: child.kill(); child.wait(timeout=5)
+
+
+def test_child_cleanup_error_does_not_skip_other_services(monkeypatch):
+    workers, nginx = [object(), object()], object()
+    called = []
+    def stop(child, *, timeout):
+        called.append(child)
+        if child is workers[0]: raise OSError('injected owned wait failure')
+        return {'exit':0, 'forced':False}
+    monkeypatch.setattr(preview, 'stop_owned_process', stop)
+    server = SimpleNamespace(should_exit=False)
+    joined, closed = [], []
+    thread = SimpleNamespace(join=lambda timeout:joined.append(timeout), is_alive=lambda:False)
+    logs = [SimpleNamespace(close=lambda:closed.append(True))]
+    outcome = preview.stop_owned_services(workers, nginx, server, thread, logs)
+    assert called == [*workers, nginx] and joined == [30] and closed == [True]
+    assert server.should_exit and not outcome['service_stopped']
+    assert outcome['errors'] == ['child_cleanup_failed']

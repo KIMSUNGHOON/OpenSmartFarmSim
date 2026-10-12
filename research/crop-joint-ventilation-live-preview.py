@@ -123,6 +123,40 @@ def provision(admin, policy, *, enabled=True):
         audit_runtime_roles(conn, policy)
 
 
+def stop_owned_process(process, *, timeout):
+    """Wait on an unreaped direct child and escalate through its pinned pidfd."""
+    forced = False
+    if process.poll() is None:
+        fd = os.pidfd_open(process.pid)
+        try:
+            try: signal.pidfd_send_signal(fd, signal.SIGTERM)
+            except ProcessLookupError: pass
+            try: process.wait(timeout=timeout)
+            except subprocess.TimeoutExpired:
+                forced = True
+                try: signal.pidfd_send_signal(fd, signal.SIGKILL)
+                except ProcessLookupError: pass
+                process.wait(timeout=5)
+        finally: os.close(fd)
+    return {'exit':process.returncode, 'forced':forced}
+
+
+def stop_owned_services(workers, nginx, server, thread, logs):
+    stopped, errors = [], []
+    for child in (*workers, *((nginx,) if nginx is not None else ())):
+        try: stopped.append(stop_owned_process(child, timeout=60 if child in workers else 15))
+        except Exception: errors.append('child_cleanup_failed')
+    server.should_exit = True
+    try:
+        thread.join(30)
+        if thread.is_alive(): errors.append('api_cleanup_incomplete')
+    except Exception: errors.append('api_cleanup_failed')
+    for log in logs:
+        try: log.close()
+        except Exception: errors.append('log_cleanup_failed')
+    return {'children':stopped, 'errors':errors, 'service_stopped':not errors}
+
+
 def serve(args):
     from app import crop_greenhouse_ventilation_operator_config as loader
     from app.http_identity import token_digest
@@ -211,15 +245,11 @@ def serve(args):
                     assert thread.is_alive() and nginx.poll() is None and all(w.poll() is None for w in workers)
                     if time.monotonic()-started >= args.ttl_seconds-5 or datetime.now(timezone.utc) >= expires-timedelta(seconds=5): break
             finally:
-                for worker in workers:
-                    if worker.poll() is None: worker.terminate()
-                for worker in workers: worker.wait(timeout=60)
-                if nginx is not None and nginx.poll() is None: nginx.terminate(); nginx.wait(timeout=15)
-                server.should_exit = True; thread.join(30); assert not thread.is_alive()
-                for log in logs: log.close()
+                stopped = stop_owned_services(workers, nginx, server, thread, logs)
                 common.dump(args, original, admin, 'after-'+args.run)
-                save(run/'stopped.private.json', {'service_stopped':True, 'worker_exits':[w.returncode for w in workers],
+                save(run/'stopped.private.json', {**stopped, 'worker_exits':[w.returncode for w in workers],
                     'database_retained':True, 'artifacts_retained':True})
+                if not stopped['service_stopped']: raise ValueError('owned preview cleanup incomplete')
         except BaseException:
             provision(admin, RuntimeLoginPolicy(**previous['policy']), enabled=False)
             raise

@@ -1,0 +1,264 @@
+{
+  "schema_version": "crop-joint-ventilation-user-capacity-reference-v1",
+  "accepted_at": "2026-10-12T06:53:10.046832Z",
+  "task": "crop-greenhouse-ventilation-user-capacity",
+  "local_task_accepted": true,
+  "base_commit": "37f6231ead11fb8900b9a8a9e6198d8b279bd04b",
+  "native_cli": {
+    "timestamp": "2026-10-12T05:50:34.868Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "turn_context_sha256": "47ed0b9c57110c96f2b898dfeec15bd2af58fd6b42c51567561e4b6a5bb4be9a",
+    "same_session": true,
+    "recursive_invocations": 0
+  },
+  "code_sha256": {
+    "research/crop-joint-ventilation-live-operator.py": "484971a37dce2f778c26de2fbcfeb64832e1ab5757ca16eed3a9e14773b2d201",
+    "research/crop-joint-ventilation-live-preview.py": "c74f71e92dbacdc5c806728282a8bd375a11c7ae7a19b72c930c6da1f5e8b4de",
+    "backend/tests/test_crop_joint_ventilation_connection_capacity.py": "7204b06b41c620fa33b973f0c03f89d508b6c5aa24010b9474559e75453f5a72",
+    "backend/tests/test_crop_joint_ventilation_live_preview.py": "1193c0c1c8fe241c2fcb3e91eea64fde54adab25f07deccd4292f3807dfe8cd0"
+  },
+  "unique_checks": 20,
+  "final_native": {
+    "original_tool": 98347,
+    "actual_child_exit": 0,
+    "wall_seconds": 558.9741732370021,
+    "single_PID_peak_RSS_bytes": 186245120,
+    "combined_peak_RSS_bytes": 962318336,
+    "source_preserved": true,
+    "original_sources_preserved": true,
+    "original_source_entries": 2148,
+    "protected_live": true,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "temporary_PG_directories_remaining": [],
+    "passfiles_remaining": []
+  },
+  "overlap": {
+    "peak": 6,
+    "connection_limit": 8,
+    "errors": [],
+    "failures": [],
+    "pending": [
+      "concurrent_lease_renewal"
+    ],
+    "remaining": 0,
+    "G0_G4": "not_assessed"
+  },
+  "two_consumers_and_HTTPS": {
+    "independent_consumers": 2,
+    "same_database": true,
+    "connection_limit": 8,
+    "states": [
+      {
+        "model": "crop-greenhouse-ventilation",
+        "state": "simulating"
+      },
+      {
+        "model": "crop-climate-joint",
+        "state": "simulating"
+      },
+      {
+        "model": "crop-greenhouse-ventilation",
+        "state": "simulating"
+      },
+      {
+        "model": "crop-climate-joint",
+        "state": "simulating"
+      },
+      {
+        "model": "crop-greenhouse-ventilation",
+        "state": "simulating"
+      },
+      {
+        "model": "crop-climate-joint",
+        "state": "simulating"
+      },
+      {
+        "model": "crop-greenhouse-ventilation",
+        "state": "simulating"
+      },
+      {
+        "model": "crop-climate-joint",
+        "state": "simulating"
+      },
+      {
+        "model": "crop-greenhouse-ventilation",
+        "state": "simulating"
+      },
+      {
+        "model": "crop-climate-joint",
+        "state": "succeeded"
+      },
+      {
+        "model": "crop-greenhouse-ventilation",
+        "state": "succeeded"
+      }
+    ],
+    "prefixes": [
+      {
+        "model": "crop-climate-joint",
+        "status": "none"
+      },
+      {
+        "model": "crop-greenhouse-ventilation",
+        "status": "none"
+      },
+      {
+        "model": "crop-climate-joint",
+        "status": "none"
+      },
+      {
+        "model": "crop-greenhouse-ventilation",
+        "status": "accepted"
+      },
+      {
+        "model": "crop-climate-joint",
+        "status": "accepted"
+      },
+      {
+        "model": "crop-greenhouse-ventilation",
+        "status": "accepted"
+      },
+      {
+        "model": "crop-climate-joint",
+        "status": "accepted"
+      },
+      {
+        "model": "crop-greenhouse-ventilation",
+        "status": "accepted"
+      },
+      {
+        "model": "crop-climate-joint",
+        "status": "accepted"
+      },
+      {
+        "model": "crop-greenhouse-ventilation",
+        "status": "accepted"
+      },
+      {
+        "model": "crop-climate-joint",
+        "status": "closed"
+      },
+      {
+        "model": "crop-greenhouse-ventilation",
+        "status": "closed"
+      }
+    ],
+    "exit_codes": [
+      0,
+      0
+    ],
+    "HTTP_status_counts": {
+      "200": 25,
+      "202": 2,
+      "409": 0,
+      "422": 2,
+      "503": 1
+    },
+    "original_steps_UTC": true,
+    "late_rights_revocation_rejected": true,
+    "remaining_authority_connections": 0,
+    "all_original_sample_event_values_UTC": true,
+    "original_records_compared": 12,
+    "connection_limit_errors": 0,
+    "G0_G4": "not_assessed"
+  },
+  "preservation": {
+    "G0_G4": "not_assessed",
+    "auth_times_renewed_on_prior_runtime_restore": true,
+    "interrupted_new_job_retained": {
+      "attempt_count": 1,
+      "cancel_requested": false,
+      "state": "simulating"
+    },
+    "new_model_deployed": false,
+    "new_model_grants_revoked": true,
+    "old_immutable_files_preserved": 464,
+    "old_policy_audit": true,
+    "old_rows_preserved": true,
+    "old_signing_keys_rights_token_preserved": true,
+    "prepare_resolve_and_verify_real_proofs": 2,
+    "private_proof_mode": "0600",
+    "real_farm_runs": 0,
+    "user_acceptance": false
+  },
+  "preservation_original_tool": 10458,
+  "public_browser": {
+    "actual_both_HTTP": true,
+    "actual_same_source_record": true,
+    "actual_original_DOM": true,
+    "stage_count": 5,
+    "authentication_required": false,
+    "real_automatic_second_poll": true,
+    "automatic_poll_ports": [
+      5173,
+      5174
+    ],
+    "record_time": "2026-10-12T06:49:01.193451Z",
+    "record_sha256": "107d31e836875f7e8b2ff5c0b1d23968c536c0507055f53863e00f6839fa9e29",
+    "new_model_deployed": false,
+    "remaining_focused_hours": {
+      "min": 1,
+      "max": 3
+    },
+    "full_product_completion": null,
+    "API_writes": 0,
+    "credentialed_status_requests": 0,
+    "pageerrors": []
+  },
+  "public_browser_original_tool": 47941,
+  "public_browser_actual_exit": 0,
+  "public_browser_peak_RSS_bytes": 966852608,
+  "runtime_restored": {
+    "run": "serve-v19",
+    "original_tool": 1685,
+    "same_access_preserved": true,
+    "both_addresses_HTTP": 200
+  },
+  "excluded_original_tools": [
+    {
+      "tool": 72452,
+      "reason": "pytest fixture collection error"
+    },
+    {
+      "tool": 65564,
+      "reason": "harness rejected documented pending 503"
+    },
+    {
+      "tool": 67771,
+      "reason": "harness reused immutable result revision"
+    },
+    {
+      "tool": 17893,
+      "reason": "reader contention exhausted attempts before bounded wait fix"
+    }
+  ],
+  "red_evidence": [
+    {
+      "tool": 9194,
+      "actual_exit": 1,
+      "kind": "actual connection-limit overlap"
+    },
+    {
+      "tool": 26312,
+      "actual_exit": 1,
+      "kind": "actual reader blocks checkpoint confirmation"
+    }
+  ],
+  "new_model_deployed": false,
+  "user_activation_accepted": false,
+  "real_farm_runs": 0,
+  "G0_G4": "not_assessed",
+  "CI_run": false,
+  "next_task": "crop-greenhouse-ventilation-user-browser-budget",
+  "remaining_focused_hours": {
+    "min": 1,
+    "max": 3
+  },
+  "full_product_completion": null
+}
