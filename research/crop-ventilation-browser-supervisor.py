@@ -4,7 +4,10 @@ import json
 import os
 import re
 import stat
+import signal
+import subprocess
 import tempfile
+import time
 
 
 def private_bytes(path, *, maximum=2*1024**2):
@@ -109,3 +112,80 @@ def resource_snapshot(rss, *, elapsed, node=None):
     return {'elapsed_seconds':elapsed, 'combined_RSS_bytes':sum(rss.values()),
         'single_PID_RSS_bytes':max(rss.values(),default=0), 'processes':rows,
         'node':node}
+
+
+class BrowserChild:
+    """A direct child of the existing runtime owner; cleanup only its tree."""
+    def __init__(self, evidence, *, processes, env):
+        self.evidence, self.processes = evidence, processes
+        self.identities = set()
+        self.terminal = None
+        self.log = (evidence.directory/'process.private.log').open('xb')
+        os.fchmod(self.log.fileno(), 0o600)
+        try:
+            self.child = subprocess.Popen(evidence.command, env=env, cwd=evidence.directory,
+                stdin=subprocess.DEVNULL, stdout=self.log, stderr=subprocess.STDOUT)
+            self.identity = processes.identity(self.child.pid)
+            self.identities.add(self.identity)
+        except BaseException:
+            self.log.close(); evidence.close()
+            raise
+
+    def remember(self):
+        self.identities.update(identity for identity,_ in
+            self.processes._tree(self.identity).values())
+
+    def poll(self):
+        self.remember()
+        self.evidence.poll()
+        if self.child.poll() is not None: return self.finish()
+        return None
+
+    def _signal(self, signum):
+        for identity in sorted(self.identities, reverse=True):
+            if not self.processes.live(identity): continue
+            try: fd = self.processes._pidfd_open(identity.pid)
+            except ProcessLookupError: continue
+            try:
+                if self.processes.live(identity):
+                    self.processes._pidfd_send_signal(fd, signum)
+            finally:
+                os.close(fd)
+
+    def finish(self, reason=None):
+        if self.terminal is not None: return self.terminal
+        if reason is None and self.child.poll() is None:
+            raise ValueError('browser still running')
+        cleanup_error = None
+        rights_restored = False
+        forced_kill = False
+        try:
+            self.remember(); self._signal(signal.SIGTERM)
+            try: self.child.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                forced_kill = True
+                self._signal(signal.SIGKILL); self.child.wait(timeout=5)
+            deadline = time.monotonic()+5
+            while any(self.processes.live(i) for i in self.identities) and time.monotonic()<deadline:
+                time.sleep(.05)
+            if any(self.processes.live(i) for i in self.identities):
+                forced_kill = True
+                self._signal(signal.SIGKILL)
+                deadline = time.monotonic()+1
+                while any(self.processes.live(i) for i in self.identities) and time.monotonic()<deadline:
+                    time.sleep(.05)
+        except Exception as error:
+            cleanup_error = type(error).__name__
+        finally:
+            try: self.evidence.close(); rights_restored = True
+            except Exception as error: cleanup_error = type(error).__name__
+            self.log.close()
+        self.terminal = {'actual_child_exit':self.child.poll(), 'reason':reason,
+            'current_rights_restored':rights_restored, 'cleanup_error_type':cleanup_error,
+            'log_closed':self.log.closed, 'forced_kill':forced_kill,
+            'owned_remaining':[i._asdict() for i in sorted(self.identities) if self.processes.live(i)]}
+        path = self.evidence.directory/'child-terminal.private.json'
+        with path.open('x') as output:
+            os.fchmod(output.fileno(), 0o400)
+            json.dump(self.terminal, output, sort_keys=True); output.flush(); os.fsync(output.fileno())
+        return self.terminal
