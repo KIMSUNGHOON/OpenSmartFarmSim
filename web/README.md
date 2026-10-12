@@ -3,8 +3,8 @@
 <a id="joint-execution-user-preview"></a>
 
 **2026-10-11 21:19 KST:** [계산 중 연속 수치3D의 사용자 연결](../research/crop-climate-joint-prefix-advance-browser-20261011.md)을 합성128초 범위로 수용했다.
-현재 접속 파일은 아래 `run-v17`/`serve-v16`다. [환기 취소 잠금 수정·보존](../research/crop-greenhouse-ventilation-cancel-lock-fix-20261012.md)에서 두 기존 서버를 계속 연 채 원 데이터·토큰을 보존했다.
-5173상단/5174의11:35 KST 개발 기록에서 집중125검사 수용과 다음 실제 WebGL/사용자 적용을 확인한다. 실제 브라우저의 같은 기록·15초 재조회·모바일을 통과했다. 남은2–5집중시간 잠정·새 모델 미배포·전체 제품 완료일 미정이다.
+현재 접속 파일은 아래 `run-v18`/`serve-v17`다. [수정본 실제 계산·API·3D 재검증](../research/crop-greenhouse-ventilation-post-fix-live-20261012.md) 뒤 같은 토큰으로 두 계산 서버를 복구하고 원 데이터·권리를 보존했다.
+5173상단/5174의12:15 KST 개발 기록에서 수정본 실제 정상/보류/취소3D 수용과 다음 명시 API/worker 조립·사용자 적용을 확인한다. 두 주소는 같은 공개 기록을15초마다 조회한다. 남은2–4집중시간 잠정·새 모델 미배포·전체 제품 완료일 미정이다.
 새 환기 모델의 [완료 결과 웹 검증](../research/crop-greenhouse-ventilation-web-terminal-implementation-20261012.md)은 로컬 수용이며 사용자 서버에는 아직 미배포다.
 5173은 완료 저장 결과 재생,5174는 같은 사용자 DB의 계산 상태/확정 부분 결과 자동 조회다.
 
@@ -28,7 +28,7 @@
 
 접속 토큰·기존 작업 ID/농장 필드·Windows에서 파일을 여는 경로는 다음 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v16/OPEN-UI-ADVANCE.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v17/OPEN-UI-ADVANCE.private.txt`
 
 1. 위 파일을 로컬 편집기로 열고5174에서 **내부 시험 연결 → 접근 토큰 → 연결 설정**을 선택한다.
 2. **08 성장 연구 3D → joint 실행 · 계산 상태와 완료 3D**를 선택한다.
@@ -68,7 +68,7 @@
 
 새 접속 토큰과 원 결과의 다섯 입력값은 저장소 밖의 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v17/service/OPEN-UI.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v18/service/OPEN-UI.private.txt`
 
 2026-10-10 기존 서비스 종료를 확인한 뒤 보존 원본으로 재기동했다.
 이전 토큰 대신 위 새 안내를 사용한다. 인증된 생장/수확 summary의 원 wire 일치·계산0을
@@ -397,8 +397,8 @@ See the [contract](../contracts/web-calculation-assessment-v1.md) and
 최근 검증 완료 단계·다음 작업·기록 갱신 시각·새 모델의 배포 여부·남은 집중 작업량을 확인한다.
 개발 기록을15초마다 다시 읽는다. 단계 수용뿐 아니라 구현 중인 작업, 검증 착수·실패·수정 후 확인도 기록에 게시한다. 완료 표시는 수용 증거가 있을 때만 바뀐다. 선택한 계산의 진행률은 인증/작업 선택 뒤 별도로 조회한다.
 
-`http://localhost:5173/`은 기존 저장 결과 재생 화면이며 개발 진행 패널이 없다. 개발 상태는 **[http://localhost:5174/#crop-execution](http://localhost:5174/#crop-execution)** 상단의 **제품 개발과 배포 상태**에서 로그인 없이 확인한다. 2026-10-12 실제 브라우저에서 두 화면의 차이, 공개 기록 HTTP200/no-store, 390px 표시를 확인했다. 남은3–6집중시간은 새 환기 모델의 화면 연결 추정이며 전체 제품 완료 일정이 아니다.
-현재 원 작업은64/64완료이고, 새 환기 모델의 사용자 API/worker/3D 연결은 아직 남아 있다.
+**두 주소 모두 개발 진행을 직접 표시한다.** 5173 상단의 **현재 개발 진행**과 **[5174의 제품 개발과 배포 상태](http://localhost:5174/#crop-execution)**는 같은 공개 기록을 사용한다. 최신12:15 KST 기록은 수정본 실제 정상/보류/취소3D 로컬 검증 완료와 다음 명시 API/worker 조립·사용자 적용을 구분한다. 남은2–4집중시간은 새 모델의 사용자 적용 추정이며 전체 제품 완료 일정이 아니다.
+현재 원 작업은64/64완료이고, 새 환기 모델의 사용자 서버 적용은 아직 남아 있다. 검증용 자원 창의 임시 정적 서버는 종료했고 기존 계산 API 두 개를 복구했다.
 5173은 기존 완료166일 결과 재생을 유지한다. 전체 제품 완료일과 실제 생산/경제/추천 관문은 미완료다.
 
 `web/public/development-status.json`은 검토된 개발 상태의 공개 기록이다. 자료·토큰·개인 농장 기록을 넣지 않는다.

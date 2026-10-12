@@ -1,0 +1,409 @@
+{
+  "scope": "synthetic software only",
+  "G0_G4": "not_assessed",
+  "real_farm_runs": 0,
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-12T00:03:55.657Z",
+    "raw_line_sha256": "d67ddbb90f79a8bc49b65bfca20caf5a7a352f3f3dad2c73bd9f88b7103d6dad",
+    "same_native_CLI_session": true,
+    "recursive_invocations": 0
+  },
+  "source_commit": "c8b8e681c143944c3028b5c45e0739c4f1755c3a",
+  "code_sha256": {
+    "backend/app/crop_greenhouse_ventilation_execution.py": "5b7777f40b38ca8fae5dab0013def5dfe8efd15acf080b8a57b1b92b76b66734",
+    "backend/app/crop_greenhouse_ventilation_execution_checkpoint.py": "8f0e05fedc49fb7fb4b6457851ab7b822409c0e363da45c34cc895afc039dfd9",
+    "backend/app/crop_greenhouse_ventilation_execution_worker.py": "5e7a113ad5e0e6fe19d2a669309d7176b927d264ac4525a7664ea955e78e6cdd",
+    "backend/app/api_crop_greenhouse_ventilation_execution.py": "7a70dfd853269ca81046fc0d5c2baacdbe96e4d56e2cadb2636ba8163a2d2c2a",
+    "backend/tests/test_crop_greenhouse_ventilation_execution_worker.py": "c7080a62d5c900d4f3ff0fe00fadbf9bd4b00ce167136f686b7a32239c4d7a0c",
+    "backend/tests/test_api_crop_greenhouse_ventilation_execution.py": "af7761bdd43f3e5de75a8e9b2b7c511290b05e9f6c86299f6f94be23b94c3fc2"
+  },
+  "native_checks": [
+    {
+      "wall_seconds": 122.8168933709967,
+      "single_PID_peak_RSS_bytes": 338071552,
+      "combined_peak_RSS_bytes": 981893120,
+      "RSS_samples": 430,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 1,
+      "log_sha256": "f233a30b5c0be576b5b3b0936605d5bf159724119a6f3890f6aacea792e51b4d",
+      "mode": "cancel",
+      "original_tool": 58190,
+      "actual_exit": 0,
+      "scope": "actual_unpaused_synthetic_worker_TLS_API_product_WebGL",
+      "actual_SCRAM": true,
+      "verified_TLS": true,
+      "test_pause": false,
+      "worker_exit": 0,
+      "browser_exit": 0,
+      "running_frames": 1,
+      "running_UTC": [
+        "2026-10-01T00:00:00.123456Z"
+      ],
+      "pageerrors": 0,
+      "manual_saved_selection_verified": false,
+      "cancel_accepted": true,
+      "scene_cleared": true,
+      "reconnected": false,
+      "rights_cleared": false,
+      "rights_restored": false,
+      "read_calculation_and_write_calls": {
+        "RHS": 0,
+        "_put_in_transaction": 0,
+        "advance": 0,
+        "confirm": 0,
+        "event": 0,
+        "jobs._durable_artifact": 0,
+        "jobs._event": 0,
+        "jobs._insert_publication": 0,
+        "jobs._outcome": 0,
+        "jobs.ack_cancel": 0,
+        "jobs.cancel": 0,
+        "jobs.claim": 0,
+        "jobs.fail": 0,
+        "jobs.renew": 0,
+        "jobs.submit": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "put": 0,
+        "restore": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "accepted_receipt_sha256": "c6d8a45421ab4f27dc1ec123b2ba835eee070cd7ca14958f48def1a9f66bc4e5",
+      "browser_receipt_sha256": "ab40fa852252a860a942992358262ae4f6492203d82bfccb0d89affb89ba6f4b",
+      "transient_503_responses": 2
+    },
+    {
+      "wall_seconds": 310.6086752340052,
+      "single_PID_peak_RSS_bytes": 368566272,
+      "combined_peak_RSS_bytes": 1029685248,
+      "RSS_samples": 996,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 1,
+      "log_sha256": "71dcd5adc7b0e8d3e3d644ecdffc56a07b257580e73b96a3379a3917c32d6009",
+      "mode": "completed",
+      "original_tool": 66905,
+      "actual_exit": 0,
+      "scope": "actual_unpaused_synthetic_worker_TLS_API_product_WebGL",
+      "actual_SCRAM": true,
+      "verified_TLS": true,
+      "test_pause": false,
+      "worker_exit": 0,
+      "browser_exit": 0,
+      "running_frames": 4,
+      "running_UTC": [
+        "2026-10-01T00:00:00.123456Z",
+        "2026-10-01T00:01:04.123456Z",
+        "2026-10-01T00:01:36.123456Z",
+        "2026-10-01T00:01:52.123456Z"
+      ],
+      "pageerrors": 0,
+      "manual_saved_selection_verified": false,
+      "cancel_accepted": false,
+      "scene_cleared": false,
+      "reconnected": true,
+      "rights_cleared": true,
+      "rights_restored": true,
+      "read_calculation_and_write_calls": {
+        "RHS": 0,
+        "_put_in_transaction": 0,
+        "advance": 0,
+        "confirm": 0,
+        "event": 0,
+        "jobs._durable_artifact": 0,
+        "jobs._event": 0,
+        "jobs._insert_publication": 0,
+        "jobs._outcome": 0,
+        "jobs.ack_cancel": 0,
+        "jobs.cancel": 0,
+        "jobs.claim": 0,
+        "jobs.fail": 0,
+        "jobs.renew": 0,
+        "jobs.submit": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "put": 0,
+        "restore": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "accepted_receipt_sha256": "95cdf1663185a14460b8e31f69d89ca0b5fb8f626e84ce6a768c2a24d0266400",
+      "browser_receipt_sha256": "7a20c8df4be959d0f2796c61ddc6c4051d04a309909abe9364ed6074bff93787",
+      "transient_503_responses": 2
+    },
+    {
+      "wall_seconds": 328.83889560299576,
+      "single_PID_peak_RSS_bytes": 369385472,
+      "combined_peak_RSS_bytes": 1066692608,
+      "RSS_samples": 1043,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 1,
+      "log_sha256": "0caad7dc6019227597184692a3517b6e12cbc8515d9c7d9f70ad49deb16048e0",
+      "mode": "hold",
+      "original_tool": 58222,
+      "actual_exit": 0,
+      "scope": "actual_unpaused_synthetic_worker_TLS_API_product_WebGL",
+      "actual_SCRAM": true,
+      "verified_TLS": true,
+      "test_pause": false,
+      "worker_exit": 0,
+      "browser_exit": 0,
+      "running_frames": 5,
+      "running_UTC": [
+        "2026-10-01T00:00:00.123456Z",
+        "2026-10-01T00:00:32.123456Z",
+        "2026-10-01T00:01:04.123456Z",
+        "2026-10-01T00:01:20.123456Z",
+        "2026-10-01T00:01:52.123456Z"
+      ],
+      "pageerrors": 0,
+      "manual_saved_selection_verified": false,
+      "cancel_accepted": false,
+      "scene_cleared": false,
+      "reconnected": true,
+      "rights_cleared": true,
+      "rights_restored": true,
+      "read_calculation_and_write_calls": {
+        "RHS": 0,
+        "_put_in_transaction": 0,
+        "advance": 0,
+        "confirm": 0,
+        "event": 0,
+        "jobs._durable_artifact": 0,
+        "jobs._event": 0,
+        "jobs._insert_publication": 0,
+        "jobs._outcome": 0,
+        "jobs.ack_cancel": 0,
+        "jobs.cancel": 0,
+        "jobs.claim": 0,
+        "jobs.fail": 0,
+        "jobs.renew": 0,
+        "jobs.submit": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "put": 0,
+        "restore": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "accepted_receipt_sha256": "5d1d0f01b8a4bee8bfb7efeb352eff5c6168f72df66a1f9b08fd6bca44cb1320",
+      "browser_receipt_sha256": "0b81c3af89f95b68575b9e5a20e4a36a0a0950e199728aa7917a6e8ca7804967",
+      "transient_503_responses": 3
+    }
+  ],
+  "new_model_deployed": false,
+  "full_product_completion": null,
+  "remaining_focused_hours": [
+    2,
+    4
+  ],
+  "same_product_web_source_files": 128,
+  "preservation": {
+    "G0_G4": "not_assessed",
+    "actual_crop_Runs": 0,
+    "current_UI_assets_unchanged": 172,
+    "explicit_shared_api_changes": [
+      "backend/app/api_crop_greenhouse_ventilation_execution.py",
+      "backend/app/crop_greenhouse_ventilation_execution.py",
+      "backend/app/crop_greenhouse_ventilation_execution_checkpoint.py",
+      "backend/app/crop_greenhouse_ventilation_execution_worker.py",
+      "backend/tests/test_api_crop_greenhouse_ventilation_execution.py",
+      "backend/tests/test_crop_greenhouse_ventilation_execution_worker.py",
+      "web/src/GreenhouseVentilationReplay.tsx"
+    ],
+    "legacy_DB_counts_equal": true,
+    "legacy_access_tokens_preserved": true,
+    "legacy_grant_lifetime_renewed": true,
+    "legacy_harvest_rows": 47813,
+    "legacy_jobs_restored_exactly": 89,
+    "legacy_live_observation_excluded": true,
+    "legacy_old_guide_preserved": true,
+    "legacy_private_immutable_files_preserved": 23,
+    "legacy_result_key_preserved": true,
+    "legacy_saved_events": 5,
+    "legacy_saved_samples": 47809,
+    "modern_job_rows": {
+      "job_attempts": 37,
+      "job_events": 370,
+      "jobs": 112
+    },
+    "modern_original_database_files_rights_keys_unchanged": true,
+    "modern_preexisting_files": 464,
+    "modern_restarted_with_same_access": true,
+    "modern_service_not_restarted": false,
+    "observed_at": "2026-10-12T03:13:33.386993+00:00",
+    "preexisting_source_entries": 706,
+    "preexisting_source_unchanged": 699,
+    "protected_roots_live": 4,
+    "original_tool": 53933,
+    "actual_exit": 0,
+    "wall_seconds": 1.9203722040110733,
+    "single_PID_peak_RSS_bytes": 136327168,
+    "combined_peak_RSS_bytes": 670380032,
+    "RSS_samples": 7,
+    "sample_interval_seconds": 0.25,
+    "source_preserved": true,
+    "original_sources_preserved": true,
+    "original_source_entries": 2148,
+    "protected_live": true,
+    "protected_root_count": 4,
+    "log_sha256": "e43e59bf8a4c926f507426c3c1260868ae4d123ae1ba75c526ef2282eba49932"
+  },
+  "legacy_restore_probe": {
+    "original_tool": 56301,
+    "actual_exit": 0,
+    "reason": null,
+    "single_PID_peak_RSS_bytes": 136327168,
+    "combined_peak_RSS_bytes": 728604672,
+    "protected_live": true,
+    "owned_remaining": [],
+    "wall_seconds": 17.49840252099966
+  },
+  "temporary_status_bridge": {
+    "candidate_failure": {
+      "original_tool": 36400,
+      "actual_exit": 1,
+      "accepted": false,
+      "reason": "file alias treated as directory for root index; fixed explicit index rewrite",
+      "owned_remaining": 0
+    },
+    "candidate_accepted": {
+      "original_tool": 2794,
+      "actual_exit": 0
+    },
+    "original_tool": 67831,
+    "RSS_samples": 4219,
+    "actual_exit": 0,
+    "combined_peak_RSS_bytes": 356315136,
+    "owned_remaining": [],
+    "reason": null,
+    "released_ports": [
+      5174,
+      5173
+    ],
+    "requested_stop": true,
+    "single_PID_peak_RSS_bytes": 108707840,
+    "wall_seconds": 1104.7534595789912,
+    "maintenance_browser_original_tool": 74318,
+    "maintenance_browser_actual_exit": 0,
+    "maintenance_browser": {
+      "actual_both_HTTP": true,
+      "actual_same_source_record": true,
+      "actual_original_DOM": true,
+      "stage_count": 5,
+      "authentication_required": false,
+      "real_automatic_second_poll": true,
+      "record_time": "2026-10-12T02:53:59.227338Z",
+      "record_sha256": "17cfa8a35042ddea9b63a1689239fc9b77761fecc0146133e27b3c9f818527bb",
+      "new_model_deployed": false,
+      "remaining_focused_hours": {
+        "min": 2,
+        "max": 5
+      },
+      "full_product_completion": null,
+      "API_writes": 0,
+      "credentialed_status_requests": 0,
+      "pageerrors": [],
+      "panels": {
+        "5173": {
+          "text": "단계별 개발 기록입니다. 아래에서 완료한 검증과 남은 작업을 확인하세요.\n\n개발 기록 갱신: 2026. 10. 12. 오전 11:53:59\n\n검증 완료 · 작물·환기 생장 계산 — 합성 입력으로 작물 생장·시설 환기의 수식 계산을 검증했습니다. 실제 농장의 생육 정확도 검증은 별도로 남아 있습니다.\n검증 완료 · 결과 저장·현재 권한 조회 — 계산 결과를 DB에 저장하고 같은 시각의 원 수치를 다시 읽는 검증을 마쳤습니다.\n검증 완료 · 사용자 조회 API 연결 — 완료 결과・실행 상태・계산 중 확정 결과 API 검증을 마쳤습니다. 새 모델과 기존 호환 고유 384건, 실제 DB·HTTPS·독립 자동 정상/보류/취소·같은 원 수치/UTC를 확인했습니다. 사용자 서버에 새 모델을 적용한 것은 아닙니다.\n다음 작업 · 자동 작업자·같은 시각의 3D 연결 — 취소 잠금 수정의 집중125검사는 통과했습니다. 수정본을 실제 자동 계산·3D 브라우저에 연결해 취소를 검증합니다. 검증 중 기존 계산 API는 잠시 중지하고 두 주소의 개발 진행 안내는 계속 제공합니다. 다음은 같은 판본 정상/보류 확인과 사용자 적용입니다.\n대기 · 실제 브라우저 검증·사용자 화면 적용 — 수정본 실제 WebGL 취소·정상/보류 재검증/복구 0.5–1.5시간 + 기존·새 모델 서버/작업자 명시 조립·화면 적용/보존 1.5–3.5시간: 남은 2–5집중시간 잠정치입니다. 두 UI는 계속 열려 있습니다. 새 모델 미배포·전체 제품 완료일 미정입니다.\n\n새 환기 모델의 짧은 합성 계산 화면 연결: 약 2–5집중작업시간 추정. 전체 제품 완료 시각을 뜻하지 않습니다.\n\n새 환기 모델: 현재 사용자 화면에 미배포. 실제 농장 Run: 0건. 전체 제품 완료일: 미정.\n\n기록을 15초마다 확인합니다. 마지막 조회: 2026. 10. 12. 오전 11:55:34.",
+          "mobile": {
+            "viewport": 390,
+            "scroll": 390
+          }
+        },
+        "5174": {
+          "text": "제품 개발과 배포 상태\n\n개발 기록 갱신: 2026. 10. 12. 오전 11:53:59\n\n검증 완료 · 작물·환기 생장 계산 — 합성 입력으로 작물 생장·시설 환기의 수식 계산을 검증했습니다. 실제 농장의 생육 정확도 검증은 별도로 남아 있습니다.\n검증 완료 · 결과 저장·현재 권한 조회 — 계산 결과를 DB에 저장하고 같은 시각의 원 수치를 다시 읽는 검증을 마쳤습니다.\n검증 완료 · 사용자 조회 API 연결 — 완료 결과・실행 상태・계산 중 확정 결과 API 검증을 마쳤습니다. 새 모델과 기존 호환 고유 384건, 실제 DB·HTTPS·독립 자동 정상/보류/취소·같은 원 수치/UTC를 확인했습니다. 사용자 서버에 새 모델을 적용한 것은 아닙니다.\n다음 작업 · 자동 작업자·같은 시각의 3D 연결 — 취소 잠금 수정의 집중125검사는 통과했습니다. 수정본을 실제 자동 계산·3D 브라우저에 연결해 취소를 검증합니다. 검증 중 기존 계산 API는 잠시 중지하고 두 주소의 개발 진행 안내는 계속 제공합니다. 다음은 같은 판본 정상/보류 확인과 사용자 적용입니다.\n대기 · 실제 브라우저 검증·사용자 화면 적용 — 수정본 실제 WebGL 취소·정상/보류 재검증/복구 0.5–1.5시간 + 기존·새 모델 서버/작업자 명시 조립·화면 적용/보존 1.5–3.5시간: 남은 2–5집중시간 잠정치입니다. 두 UI는 계속 열려 있습니다. 새 모델 미배포·전체 제품 완료일 미정입니다.\n\n새 환기 모델 화면 연결까지: 집중 작업 약 2–5시간 예상. 연속 작업 기준의 추정이며 완료 시각을 보장하지 않습니다.\n\n새 환기 모델: 현재 사용자 화면에 미배포. 실제 농장 Run: 0건. 전체 제품 완료일: 미정.\n\n기록을 15초마다 확인합니다. 마지막 조회: 오전 11:55:51. 단계별 검증 뒤 갱신되는 개발 기록이며, 선택한 계산의 진행률은 아래에서 확인합니다.\n\n현재 계산 화면은 기존 합성 입력의 작물·기후 계산과 확정 저장값의 3D를 제공합니다. 전체 제품은 자원 사용·생산량·경제 통합과 독립 농장 검증이 남아 있습니다.\n\n접속 설정: 미설정 · 아래에서 접근 토큰을 입력하세요.",
+          "mobile": {
+            "viewport": 390,
+            "scroll": 390
+          }
+        }
+      }
+    },
+    "maintenance_browser_auto_poll_ports_observed": [
+      5173
+    ]
+  },
+  "live_previews": {
+    "legacy_run": "run-v18",
+    "modern_run": "serve-v17",
+    "legacy_original_tool": 57207,
+    "modern_original_tool": 55424,
+    "intentionally_live": true,
+    "new_model_deployed": false
+  },
+  "final_status_browser": {
+    "original_tool": 86659,
+    "actual_exit": 0,
+    "actual_both_HTTP": true,
+    "actual_same_source_record": true,
+    "actual_original_DOM": true,
+    "stage_count": 5,
+    "authentication_required": false,
+    "real_automatic_second_poll": true,
+    "automatic_poll_ports": [
+      5173,
+      5174
+    ],
+    "record_time": "2026-10-12T03:15:25.458399Z",
+    "record_sha256": "e5aef336da4e16769d54a3908e95d9f20fabd5db662a30f285b423e694cbe079",
+    "new_model_deployed": false,
+    "remaining_focused_hours": {
+      "min": 2,
+      "max": 4
+    },
+    "full_product_completion": null,
+    "API_writes": 0,
+    "credentialed_status_requests": 0,
+    "pageerrors": [],
+    "panels": {
+      "5173": {
+        "text": "단계별 개발 기록입니다. 아래에서 완료한 검증과 남은 작업을 확인하세요.\n\n개발 기록 갱신: 2026. 10. 12. 오후 12:15:25\n\n검증 완료 · 작물·환기 생장 계산 — 합성 입력으로 작물 생장·시설 환기의 수식 계산을 검증했습니다. 실제 농장의 생육 정확도 검증은 별도로 남아 있습니다.\n검증 완료 · 결과 저장·현재 권한 조회 — 계산 결과를 DB에 저장하고 같은 시각의 원 수치를 다시 읽는 검증을 마쳤습니다.\n검증 완료 · 사용자 조회 API 연결 — 완료 결과・실행 상태・계산 중 확정 결과 API 검증을 마쳤습니다. 새 모델과 기존 호환 고유 384건, 실제 DB·HTTPS·독립 자동 정상/보류/취소·같은 원 수치/UTC를 확인했습니다. 사용자 서버에 새 모델을 적용한 것은 아닙니다.\n검증 완료 · 자동 작업자·같은 시각의 3D 연결 — 수정본 실제 자동 계산·API·WebGL 정상/보류/취소를 통과했습니다. 계산 중 원4/5시점의 수치·UTC·3D, 완료/보류 결과·취소 후 장면 제거를 확인했습니다. 두 계산 서버와 원 DB·권리·접속 정보 보존도 확인했습니다. 새 모델 사용자 적용은 남아 있습니다.\n다음 작업 · 실제 브라우저 검증·사용자 화면 적용 — 다음은 기존·새 모델의 명시 API 조립 → 자동 작업자·사용자 화면 적용입니다. 실제 동시 권한/원 결과·두 주소/WSL과 사용자 3D 흐름 확인을 포함해 1.5–3.5시간(표시 2–4집중시간) 잠정입니다. 기존 계산 API는 복구했으며 새 모델은 미배포입니다.\n\n새 환기 모델의 짧은 합성 계산 화면 연결: 약 2–4집중작업시간 추정. 전체 제품 완료 시각을 뜻하지 않습니다.\n\n새 환기 모델: 현재 사용자 화면에 미배포. 실제 농장 Run: 0건. 전체 제품 완료일: 미정.\n\n기록을 15초마다 확인합니다. 마지막 조회: 2026. 10. 12. 오후 12:19:58.",
+        "mobile": {
+          "viewport": 390,
+          "scroll": 390
+        }
+      },
+      "5174": {
+        "text": "제품 개발과 배포 상태\n\n개발 기록 갱신: 2026. 10. 12. 오후 12:15:25\n\n검증 완료 · 작물·환기 생장 계산 — 합성 입력으로 작물 생장·시설 환기의 수식 계산을 검증했습니다. 실제 농장의 생육 정확도 검증은 별도로 남아 있습니다.\n검증 완료 · 결과 저장·현재 권한 조회 — 계산 결과를 DB에 저장하고 같은 시각의 원 수치를 다시 읽는 검증을 마쳤습니다.\n검증 완료 · 사용자 조회 API 연결 — 완료 결과・실행 상태・계산 중 확정 결과 API 검증을 마쳤습니다. 새 모델과 기존 호환 고유 384건, 실제 DB·HTTPS·독립 자동 정상/보류/취소·같은 원 수치/UTC를 확인했습니다. 사용자 서버에 새 모델을 적용한 것은 아닙니다.\n검증 완료 · 자동 작업자·같은 시각의 3D 연결 — 수정본 실제 자동 계산·API·WebGL 정상/보류/취소를 통과했습니다. 계산 중 원4/5시점의 수치·UTC·3D, 완료/보류 결과·취소 후 장면 제거를 확인했습니다. 두 계산 서버와 원 DB·권리·접속 정보 보존도 확인했습니다. 새 모델 사용자 적용은 남아 있습니다.\n다음 작업 · 실제 브라우저 검증·사용자 화면 적용 — 다음은 기존·새 모델의 명시 API 조립 → 자동 작업자·사용자 화면 적용입니다. 실제 동시 권한/원 결과·두 주소/WSL과 사용자 3D 흐름 확인을 포함해 1.5–3.5시간(표시 2–4집중시간) 잠정입니다. 기존 계산 API는 복구했으며 새 모델은 미배포입니다.\n\n새 환기 모델 화면 연결까지: 집중 작업 약 2–4시간 예상. 연속 작업 기준의 추정이며 완료 시각을 보장하지 않습니다.\n\n새 환기 모델: 현재 사용자 화면에 미배포. 실제 농장 Run: 0건. 전체 제품 완료일: 미정.\n\n기록을 15초마다 확인합니다. 마지막 조회: 오후 12:20:15. 단계별 검증 뒤 갱신되는 개발 기록이며, 선택한 계산의 진행률은 아래에서 확인합니다.\n\n현재 계산 화면은 기존 합성 입력의 작물·기후 계산과 확정 저장값의 3D를 제공합니다. 전체 제품은 자원 사용·생산량·경제 통합과 독립 농장 검증이 남아 있습니다.\n\n접속 설정: 미설정 · 아래에서 접근 토큰을 입력하세요.",
+        "mobile": {
+          "viewport": 390,
+          "scroll": 390
+        }
+      }
+    },
+    "wall_seconds": 34.66746345300635,
+    "single_PID_peak_RSS_bytes": 269303808,
+    "combined_peak_RSS_bytes": 963133440,
+    "RSS_samples": 130,
+    "sample_interval_seconds": 0.25,
+    "source_preserved": true,
+    "original_sources_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 4,
+    "log_sha256": "a0b2254088ba2a699b6cc836ff6a4e664f4d9fe9c85f089f6a54188e20a5ced0"
+  },
+  "earlier_status_browser": {
+    "original_tool": 59749,
+    "actual_exit": 0,
+    "scope": "both HTTP/DOM/mobile; automatic timer observed on5173 only; superseded by both-port timer check86659"
+  }
+}
