@@ -10,14 +10,19 @@ export default function DevelopmentStatus() {
     let stopped = false;
     let timer: ReturnType<typeof setTimeout>;
     let request: AbortController|null = null;
+    let latest: {stamp: string; raw: string}|null = null;
     async function read() {
       request = new AbortController();
       const timeout = setTimeout(() => request?.abort(), 5000);
       try {
         const response = await fetch('/development-status.json', {cache:'no-store', credentials:'omit', signal:request.signal});
         if (!response.ok || Number(response.headers.get('content-length') ?? 0) > 16384) throw Error('status unavailable');
-        const next = parseDevelopmentStatus(await response.text());
+        const raw = await response.text();
+        const next = parseDevelopmentStatus(raw);
         if (Date.parse(next.reported_at) > Date.now()+60000) throw Error('future status');
+        if (latest && (next.reported_at < latest.stamp ||
+            next.reported_at === latest.stamp && raw !== latest.raw)) throw Error('older status');
+        latest = {stamp: next.reported_at, raw};
         if (!stopped) {setRecord(next); setChecked(new Date().toISOString()); setUnavailable(false);}
       } catch {
         if (!stopped) setUnavailable(true);
@@ -34,7 +39,10 @@ export default function DevelopmentStatus() {
     {record && <>
       <p>개발 기록 갱신: <time dateTime={record.reported_at}>{new Date(record.reported_at).toLocaleString('ko-KR')}</time></p>
       <ol>{record.stages.map(stage => <li key={stage.id}><strong>{stateNames[stage.state]} · {developmentStages[stage.id]}</strong> — {stage.evidence}</li>)}</ol>
-      <p>새 환기 모델 화면 연결까지: 집중 작업 약 <strong>{record.remaining_focused_hours.min}–{record.remaining_focused_hours.max}시간</strong> 예상. 연속 작업 기준의 추정이며 완료 시각을 보장하지 않습니다.</p>
+      <p>새 환기 모델 화면 연결까지: {record.remaining_focused_hours === null
+        ? <strong>예상 시간 미정</strong>
+        : <>집중 작업 약 <strong>{record.remaining_focused_hours.min}–{record.remaining_focused_hours.max}시간</strong> 예상. 연속 작업 기준의 추정이며 완료 시각을 보장하지 않습니다.</>}</p>
+      {record.schema_version === 'development-status-v2' && <p>시간 추정 판단: <time dateTime={record.estimate_reviewed_at}>{new Date(record.estimate_reviewed_at).toLocaleString('ko-KR')}</time> · {record.estimate_reason}</p>}
       <p>새 환기 모델: {record.new_model_deployed?'사용자 화면 적용됨':'현재 사용자 화면에 미배포'}. 실제 농장 Run: {record.real_farm_runs}건. 전체 제품 완료일: 미정.</p>
       {Date.now()-Date.parse(record.reported_at)>1800000 && <p>30분 이상 새 개발 기록이 없습니다. 위 내용은 마지막 검증 기록입니다.</p>}
       {unavailable && <p role="status">새 기록을 확인하지 못했습니다. 마지막 확인 기록을 표시합니다.</p>}

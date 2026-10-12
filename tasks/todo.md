@@ -1759,7 +1759,7 @@
               - [x] **로컬 import/최초 화면 로딩 비용 수정** — 같은 기록의 서버182검사·타입/빌드·독립 Chromium3경로 실제0. cold import 약9.3MB/최초 JS226,681bytes 감소·초안/같은 요청/수집·검토 상태 보존. 동시 사용자3D 수용은 아니다.
               - [x] **worker metadata 의존성/최종 배치 자원** — [수용 기록](../research/crop-worker-metadata-memory-20261012.md)/[기계 증거](../research/artifacts/crop-worker-metadata-memory-20261012.json): 집중51검사·cold RSS5,414,912bytes 감소·동일 감독기/API/두 unpaused worker/기존5173의 저장9·정상6/보류6/취소1 원 값/UTC/WebGL·조회 계산/쓰기0·512MiB/PID/합1GiB. 원18733 실제0/정리·원본2,148/950파일/모든 행·키/권리/토큰·기존 두 서버 복구/원 결과 HTTPS를 확인했다. 입력 증거의 file_metadata 판본 불일치로 사용자 적용 부모는 미수용.
               - [ ] **`crop-greenhouse-ventilation-preview-version-compatibility`** — 다음 계산 연결 단계. 기존 서명 입력3건의 file_metadata SHA와 현재 판본 차이를 명시적으로 다룬다. 기존 proof/key/원 결과를 변경하지 않고 요청의 불변 모델/증거 identity에 따른 판본 조립을 결정한다. 실제 SCRAM/HTTPS의 기존9시점·새 정상/보류/취소를 함께 읽고 현재 권리·조회 계산/쓰기0·512MiB/PID/합1GiB·원본 보존을 확인한 뒤 사용자 배치를 재수용한다. 해시 무시나 과거 증거 덮어쓰기로 해결하지 않는다.
-              - [ ] **`development-status-estimate-validity`** — 추정 재산정/미정 상태를 구조화해5173/React에 동일 표시. 무효화된2–4시간을 현재 예상 완료량으로 제시하지 않도록 입력 검증·양쪽 최신 DOM/자동 재조회를 확인. 기존 단계·권한 없는 개발 기록과 실제 계산 polling 구분을 유지.
+              - [x] **`development-status-estimate-validity`** — [수용 기록](../research/product-ui-estimate-validity-20261012.md)/[기계 증거](../research/artifacts/product-ui-estimate-validity-20261012.json): v2 미정/판단 시각/사유·parser26·게시기/타입/빌드·양쪽 실제 HTTP/최신 DOM/15초 재조회·오래된 기록/조회 실패·320–1440px를 확인. 기존9시점 HTTPS·조회 계산/쓰기0·950파일/모든 행·두 서비스 보존. 새 모델 적용/전체 일정 미정은 유지.
             - [ ] **`crop-greenhouse-ventilation-user-live-acceptance`** — 위 연결 뒤 실제 사용자 DB 정상/보류/취소/재접속·계산 중/완료 WebGL·현재 권리·추가 작업자를 포함한 WSL 합 자원과 원 데이터/두 UI 보존. 최신 진행/접속 안내 게시 뒤 부모 사용자 적용을 수용한다.
 
 

@@ -16,7 +16,12 @@ def validate(raw):
     value = json.loads(raw)
     expected = {'schema_version', 'reported_at', 'stages', 'remaining_focused_hours',
                 'new_model_deployed', 'real_farm_runs', 'full_product_completion'}
-    if type(value) is not dict or set(value) != expected or value['schema_version'] != 'development-status-v1':
+    if type(value) is not dict:
+        raise ValueError('status format rejected')
+    v2 = value.get('schema_version') == 'development-status-v2'
+    if v2:
+        expected |= {'estimate_reviewed_at', 'estimate_reason'}
+    if set(value) != expected or value['schema_version'] not in ('development-status-v1', 'development-status-v2'):
         raise ValueError('status format rejected')
     stamp = value['reported_at']
     if type(stamp) is not str or not re.fullmatch(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{6}Z', stamp):
@@ -25,9 +30,18 @@ def validate(raw):
     if (when-datetime.now(timezone.utc)).total_seconds() > 60:
         raise ValueError('future status rejected')
     hours = value['remaining_focused_hours']
-    if (type(hours) is not dict or set(hours) != {'min', 'max'} or
+    if not (v2 and hours is None) and (type(hours) is not dict or set(hours) != {'min', 'max'} or
             any(type(hours[k]) is not int for k in hours) or not 0 <= hours['min'] <= hours['max'] <= 100):
         raise ValueError('status estimate rejected')
+    if v2:
+        reviewed = value['estimate_reviewed_at']
+        reason = value['estimate_reason']
+        if (type(reviewed) is not str or not re.fullmatch(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{6}Z', reviewed) or
+                type(reason) is not str or not reason.strip() or len(reason) > 240):
+            raise ValueError('estimate review rejected')
+        reviewed_at = datetime.strptime(reviewed, '%Y-%m-%dT%H:%M:%S.%fZ').replace(tzinfo=timezone.utc)
+        if reviewed_at > when:
+            raise ValueError('estimate review after publication rejected')
     stages = value['stages']
     ids = ['growth', 'storage', 'api', 'execution_3d', 'activation']
     if type(stages) is not list or len(stages) != len(ids):

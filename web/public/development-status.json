@@ -2,12 +2,9 @@
   "full_product_completion": null,
   "new_model_deployed": false,
   "real_farm_runs": 0,
-  "remaining_focused_hours": {
-    "min": 2,
-    "max": 4
-  },
-  "reported_at": "2026-10-12T13:46:47.086527Z",
-  "schema_version": "development-status-v1",
+  "remaining_focused_hours": null,
+  "reported_at": "2026-10-12T22:11:52.145263Z",
+  "schema_version": "development-status-v2",
   "stages": [
     {
       "evidence": "합성 입력으로 작물 생장·시설 환기의 수식 계산을 검증했습니다. 실제 농장의 생육 정확도 검증은 별도로 남아 있습니다.",
@@ -30,9 +27,11 @@
       "state": "completed"
     },
     {
-      "evidence": "동일 배치 저장9시점·정상6·보류6·취소1의 원 값/UTC/3D와 합1GiB 검증을 통과했습니다. 기존 입력 증거의 설정 파일 판본 불일치로 새 모델 적용은 보류하고 두 화면과 기존 결과 조회를 복구했습니다. 다음은 판본 호환 처리입니다. 기존2–4시간 예상은 철회했으며 완료 시각은 미정입니다.",
+      "evidence": "새 환기 모델의 정상·보류·취소3D와 합1GiB 검증은 완료했습니다. 시간 표시도 미정·판단 시각·사유로 수정하고 오래된 기록/조회 실패를 확인했습니다. 기존 입력 증거의 판본 호환 처리와 같은 판본 재검증이 남아 새 모델 사용자 적용은 보류합니다.",
       "id": "activation",
       "state": "next"
     }
-  ]
+  ],
+  "estimate_reviewed_at": "2026-10-12T22:11:52.145263Z",
+  "estimate_reason": "기존 2–4시간 예상은 철회했습니다. 입력 증거의 판본 호환 처리와 같은 판본 재검증이 남아 있어 새 예상 시간을 산정하지 않았습니다."
 }

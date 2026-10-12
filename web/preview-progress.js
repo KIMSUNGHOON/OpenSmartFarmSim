@@ -8,15 +8,22 @@ const stamp = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{6}Z$/;
 const exact = (value, keys) => value !== null && typeof value === 'object' && !Array.isArray(value) &&
   Object.keys(value).sort().join(',') === [...keys].sort().join(',');
 function parse(raw) {
+  if (new TextEncoder().encode(raw).length > 16384) throw Error('record too large');
   const v = JSON.parse(raw);
+  const v2 = v?.schema_version === 'development-status-v2';
   if (!exact(v, ['schema_version','reported_at','stages','remaining_focused_hours',
-    'new_model_deployed','real_farm_runs','full_product_completion']) || v.schema_version !== 'development-status-v1' ||
+    'new_model_deployed','real_farm_runs','full_product_completion', ...(v2 ? ['estimate_reviewed_at','estimate_reason'] : [])]) ||
+    (!v2 && v.schema_version !== 'development-status-v1') ||
     typeof v.reported_at !== 'string' || !stamp.test(v.reported_at) || !Number.isFinite(Date.parse(v.reported_at)) ||
     Date.parse(v.reported_at) > Date.now()+60000 || typeof v.new_model_deployed !== 'boolean' ||
     !Number.isSafeInteger(v.real_farm_runs) || v.real_farm_runs < 0 || v.full_product_completion !== null) throw Error('invalid record');
   const hours = v.remaining_focused_hours;
-  if (!exact(hours, ['min','max']) || !Number.isSafeInteger(hours.min) || !Number.isSafeInteger(hours.max) ||
-    hours.min < 0 || hours.min > hours.max || hours.max > 100 || !Array.isArray(v.stages) || v.stages.length !== 5) throw Error('invalid range');
+  if ((!v2 || hours !== null) && (!exact(hours, ['min','max']) || !Number.isSafeInteger(hours.min) || !Number.isSafeInteger(hours.max) ||
+    hours.min < 0 || hours.min > hours.max || hours.max > 100)) throw Error('invalid range');
+  if (v2 && (typeof v.estimate_reviewed_at !== 'string' || !stamp.test(v.estimate_reviewed_at) ||
+    !Number.isFinite(Date.parse(v.estimate_reviewed_at)) || Date.parse(v.estimate_reviewed_at) > Date.parse(v.reported_at) ||
+    typeof v.estimate_reason !== 'string' || !v.estimate_reason.trim() || v.estimate_reason.length > 240)) throw Error('invalid estimate review');
+  if (!Array.isArray(v.stages) || v.stages.length !== 5) throw Error('invalid stages');
   v.stages.forEach((s, i) => {
     if (!exact(s, ['id','state','evidence']) || s.id !== Object.keys(labels)[i] || !Object.hasOwn(states, s.state) ||
       typeof s.evidence !== 'string' || !s.evidence.length || s.evidence.length > 240) throw Error('invalid stage');
@@ -58,7 +65,11 @@ if (panel) {
           li.append(strong, document.createTextNode(` — ${s.evidence}`));
           return li;
         }));
-        node('estimate').textContent = `새 환기 모델의 짧은 합성 계산 화면 연결: 약 ${record.remaining_focused_hours.min}–${record.remaining_focused_hours.max}집중작업시간 추정. 전체 제품 완료 시각을 뜻하지 않습니다.`;
+        node('estimate').textContent = (record.remaining_focused_hours === null
+          ? '새 환기 모델 화면 연결까지: 예상 시간 미정.'
+          : `새 환기 모델 화면 연결까지: 집중 작업 약 ${record.remaining_focused_hours.min}–${record.remaining_focused_hours.max}시간 예상. 연속 작업 기준의 추정이며 완료 시각을 보장하지 않습니다.`)
+          + (record.schema_version === 'development-status-v2'
+            ? ` 시간 추정 판단: ${localTime(record.estimate_reviewed_at)} · ${record.estimate_reason}` : '');
         node('scope').textContent = `새 환기 모델: ${record.new_model_deployed ? '사용자 화면 적용됨' : '현재 사용자 화면에 미배포'}. 실제 농장 Run: ${record.real_farm_runs}건. 전체 제품 완료일: 미정.`;
         latest = record; latestRaw = raw;
         node('record').hidden = false;
