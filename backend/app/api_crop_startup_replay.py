@@ -4,7 +4,6 @@ from hashlib import sha256
 from typing import Annotated, Literal
 import re
 
-from fastapi import Path, Query, Request, Response
 from pydantic import Field
 from starlette.concurrency import run_in_threadpool
 
@@ -171,6 +170,8 @@ def project_startup_result(record,*,growth_profile,cohort_profile,transport_prof
 
 
 def install_startup_crop_routes(app,*,jobs,farms,store,principal_provider,authorized_tenant,error,access):
+    from fastapi import Path, Query, Request, Response
+
     if store is not None:
         if (type(store) is not storage.StartupCropResultStore or store.jobs is not jobs
                 or store.farms is not farms or farms is None or jobs.principal_provider is not principal_provider):

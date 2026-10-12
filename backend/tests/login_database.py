@@ -43,6 +43,9 @@ def login_database():
             binary_path = str(Path(shlex.split((data_directory / "postmaster.opts").read_text())[0]).parent)
         binary = Path(binary_path)
         assert (binary / "initdb").is_file() and (binary / "pg_ctl").is_file()
+        shared_buffers = os.environ.get("OSSF_TEST_PG_SHARED_BUFFERS_MIB")
+        if shared_buffers is not None and shared_buffers not in ("4", "8", "16"):
+            raise ValueError("owned test database buffer budget rejected")
         with tempfile.TemporaryDirectory(prefix="ossf-login-pg-") as directory:
             root = Path(directory); data = root / "data"; sockets = root / "socket"
             sockets.mkdir(mode=0o700)
@@ -51,10 +54,16 @@ def login_database():
             subprocess.run([str(binary / "initdb"), "-D", str(data), "-U", "ossf_login_admin",
                 "--auth-local=trust", "--auth-host=scram-sha-256", "--no-locale", "--encoding=UTF8"],
                 check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, timeout=30)
+            options = f"-h 127.0.0.1 -p {port} -k {sockets}"
+            if shared_buffers is not None:
+                options += " -c shared_buffers=" + shared_buffers + "MB"
             subprocess.run([str(binary / "pg_ctl"), "-D", str(data), "-l", str(root / "server.log"),
-                "-w", "-t", "10", "start", "-o", f"-h 127.0.0.1 -p {port} -k {sockets}"],
+                "-w", "-t", "10", "start", "-o", options],
                 check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, timeout=20)
             try:
+                if shared_buffers is not None:
+                    with psycopg.connect(host=str(sockets), port=port, dbname="postgres", user="ossf_login_admin") as conn:
+                        assert conn.execute("SHOW shared_buffers").fetchone()[0] == shared_buffers + "MB"
                 yield {"admin": make_conninfo(host=str(sockets), port=port, dbname="postgres", user="ossf_login_admin"),
                     "host": "127.0.0.1", "port": port, "database": "postgres"}
             finally:

@@ -3,7 +3,6 @@ from datetime import datetime, timezone
 from hashlib import sha256
 from typing import Annotated, Literal
 
-from fastapi import Path, Query, Request
 from pydantic import AfterValidator, BaseModel, ConfigDict, Field, model_validator
 
 from . import crop_growth_integration as integration
@@ -268,6 +267,8 @@ def project_crop_result(record):
 
 
 def install_crop_routes(app, *, jobs, farms, store, principal_provider, authorized_tenant, error, access):
+    from fastapi import Path, Query, Request
+
     if store is not None and (type(store) is not CropResultStore or store.jobs is not jobs
             or store.farms is not farms or farms is None or jobs.principal_provider is not principal_provider):
         raise ValueError('trusted crop research reader required')

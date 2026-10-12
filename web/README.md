@@ -3,7 +3,7 @@
 <a id="joint-execution-user-preview"></a>
 
 **2026-10-11 21:19 KST:** [계산 중 연속 수치3D의 사용자 연결](../research/crop-climate-joint-prefix-advance-browser-20261011.md)을 합성128초 범위로 수용했다.
-현재 접속 파일은 아래 `run-v21`/`serve-v23`다. [사용자 API·메모리 수정/복구](../research/crop-ventilation-user-input-progress-20261012.md)에서 새 합성64/64와 원 결과/856파일·키·권리·동일 토큰 보존을 확인했다.
+현재 새 환기 모델 적용은 서명 입력의 판본 호환 문제로 보류했다. [동시3D 검증·원 서버 복구](../research/crop-worker-metadata-memory-20261012.md) 뒤 기존 결과 조회를 확인했다. 현재 접속 파일은 아래 `run-v21`/`serve-v24`다. [사용자 API·메모리 수정/복구](../research/crop-ventilation-user-input-progress-20261012.md)에서 새 합성64/64와 원 결과/856파일·키·권리·동일 토큰 보존을 확인했다.
 새 모델 최종 동시3D는 합1GiB 초과로 적용 보류다. 기존 두 계산 화면을 복구했다.
 두 주소의20:11 KST 기록·15초 재조회·390px를 실제 확인했다. 기존2–4집중시간은 재산정 중이며 새 모델 미배포·전체 제품 완료일 미정이다.
 새 환기 모델의 [완료 결과 웹 검증](../research/crop-greenhouse-ventilation-web-terminal-implementation-20261012.md)은 로컬 수용이며 사용자 서버에는 아직 미배포다.
@@ -29,7 +29,7 @@
 
 접속 토큰·기존 작업 ID/농장 필드·Windows에서 파일을 여는 경로는 다음 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v23/OPEN-UI-ADVANCE.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261010-joint-execution-live-preview/service-v1/serve-v24/OPEN-UI-ADVANCE.private.txt`
 
 1. 위 파일을 로컬 편집기로 열고5174에서 **내부 시험 연결 → 접근 토큰 → 연결 설정**을 선택한다.
 2. **08 성장 연구 3D → joint 실행 · 계산 상태와 완료 3D**를 선택한다.

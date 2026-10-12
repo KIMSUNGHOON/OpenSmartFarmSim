@@ -207,8 +207,11 @@ def stop_owned_services(workers, nginx, server, thread, logs):
 @contextmanager
 def bounded_database(args, directory, label):
     import psycopg
+    shared_buffers_mib = getattr(args, 'shared_buffers_mib', 16)
+    if type(shared_buffers_mib) is not int or shared_buffers_mib not in (4, 8, 16):
+        raise ValueError('owned preview database buffer budget rejected')
     config, dsn = common.database(args, directory)
-    settings = {'shared_buffers':'16MB', 'max_connections':'32',
+    settings = {'shared_buffers':f'{shared_buffers_mib}MB', 'max_connections':'32',
         'work_mem':'1MB', 'maintenance_work_mem':'16MB'}
     options = f"-h 127.0.0.1 -p {config['port']} -k {config['socket']}"
     options += ''.join(' -c '+key+'='+value for key, value in settings.items())
@@ -332,6 +335,7 @@ if __name__ == '__main__':
     parser.add_argument('--original-directory', type=Path, required=True)
     parser.add_argument('--original-access', type=Path)
     parser.add_argument('--pg-bin', type=Path, required=True)
+    parser.add_argument('--shared-buffers-mib', type=int, choices=(4, 8, 16), default=16)
     parser.add_argument('--run', default='mixed-v1')
     parser.add_argument('--ttl-seconds', type=int, default=86400)
     parser.add_argument('--api-port', type=int, default=8446)

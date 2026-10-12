@@ -5,7 +5,6 @@ from hashlib import sha256
 from typing import Annotated,Literal
 import re
 
-from fastapi import Path,Query,Request,Response
 from pydantic import Field,model_validator
 from starlette.concurrency import run_in_threadpool
 
@@ -323,6 +322,8 @@ def _read_current_cycle_response(query,tenant,result_id,farm_ref,view,offset,lim
 
 def install_cycle_crop_routes(app,*,jobs,farms,store,principal_provider,authorized_tenant,error,access,
         query=None):
+    from fastapi import Path, Query, Request, Response
+
     from . import crop_cycle_current_query as current_query
     if store is not None:
         from . import crop_cycle_result_store as storage
