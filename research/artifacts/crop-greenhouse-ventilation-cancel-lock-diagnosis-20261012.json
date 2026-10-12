@@ -1,0 +1,61 @@
+{
+  "scope": "synthetic software diagnosis only",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "xhigh",
+  "recursive_CLI_invocations": 0,
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "normal_accepted": true,
+  "hold_accepted": true,
+  "cancel_accepted": false,
+  "diagnostic": {
+    "original_tool": 65789,
+    "actual_exit": 1,
+    "wall_seconds": 139.79680205699697,
+    "exception": "QueryCanceled",
+    "sqlstate": "57014",
+    "action": "cancel",
+    "location": "JobStore.cancel -> _locked_job SELECT FOR UPDATE",
+    "statement_timeout_ms": 5000,
+    "blocked_backend_PID_sampled": false,
+    "PID_peak_RSS_bytes": 332267520,
+    "combined_peak_RSS_bytes": 950333440,
+    "owned_remaining": 0
+  },
+  "restoration": {
+    "legacy_run": "run-v17",
+    "modern_run": "serve-v16",
+    "same_access_and_original_data": true,
+    "preservation_original_tool": 14108,
+    "actual_exit": 0,
+    "protected_roots_live": 4,
+    "original_source_entries": 2148
+  },
+  "actual_UI_status": {
+    "original_tool": 11121,
+    "actual_exit": 0,
+    "HTTP": [
+      5173,
+      5174
+    ],
+    "authentication_required": false,
+    "automatic_second_poll": true,
+    "API_writes": 0,
+    "pageerrors": 0,
+    "reported_at": "2026-10-12T01:49:41.693965Z",
+    "source_sha256": "d8ae43968ce95df78c36a1da26cc80658cb19ca7bec77d6d5ad1422713158b2b"
+  },
+  "remaining_focused_hours": [
+    2,
+    5
+  ],
+  "full_product_completion": null,
+  "native_CLI_context": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-12T00:03:55.657Z",
+    "raw_line_sha256": "d67ddbb90f79a8bc49b65bfca20caf5a7a352f3f3dad2c73bd9f88b7103d6dad",
+    "same_native_CLI_session": true,
+    "recursive_invocations": 0
+  }
+}

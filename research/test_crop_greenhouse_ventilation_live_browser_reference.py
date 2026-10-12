@@ -89,7 +89,8 @@ def actual_api(runtime, directory):
     server = runtime.service.server()
     inventory = reference.fd_inventory()
     diagnostics = MonkeyPatch()
-    if os.environ.get('OSSF_LIVE_BROWSER_DIAGNOSTICS') == '1':
+    diagnostic_mode = os.environ.get('OSSF_LIVE_BROWSER_DIAGNOSTICS')
+    if diagnostic_mode in ('1', 'cancel'):
         from app import api_crop_greenhouse_ventilation_execution as wire
         original_pool = wire.run_in_threadpool
         failures = []
@@ -104,7 +105,11 @@ def actual_api(runtime, directory):
                      'frames': [{'file': Path(f.filename).name, 'line': f.lineno, 'function': f.name}
                         for f in traceback.extract_tb(error.__traceback__)]})
                 raise
-        diagnostics.setattr(wire, 'run_in_threadpool', observed_pool)
+        def routed_pool(action, *args, **kwargs):
+            if diagnostic_mode == 'cancel' and '.cancel.' not in action.__qualname__:
+                return original_pool(action, *args, **kwargs)
+            return observed_pool(action, *args, **kwargs)
+        diagnostics.setattr(wire, 'run_in_threadpool', routed_pool)
     observed = observation.Observe(server.config.app, directory)
     server.config.app = observed
     thread = threading.Thread(target=server.run, daemon=True)
