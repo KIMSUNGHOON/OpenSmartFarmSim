@@ -1746,8 +1746,11 @@
                 - [x] **`crop-greenhouse-ventilation-live-browser-cancel`** — 실제503 잠금 원인과 환기 범위 수정/125검사는 수용했다. 수정본의 장벽/계측 없는 자동 worker/API/WebGL 원 값/UTC→취소 수락/worker canceled·장면 제거·결과 미게시·조회 부작용0·원 도구 종료/WSL/두 UI/원 결과·접속 보존을 수용한다. 검증 창에도 두 주소의 공개 진행 표시를 유지한다.
                 - [x] **`crop-greenhouse-ventilation-post-fix-normal-hold`** — 취소 수용 뒤 동일 수정본/제품 빌드로 실제 정상·보류의 여러 확정 시점/UTC·25장부/10수지/WebGL→같은 terminal·재접속·현재 권리 차단/복원·모바일·조회 부작용0·원 도구/WSL/두 UI 보존을 다시 확인한다. 이전 정상/보류 기록은 당시 판본의 증거로 유지한다. [수정본 실제 수용](../research/crop-greenhouse-ventilation-post-fix-live-20261012.md):원58190/66905/58222 actual0·정상4/보류5시점/취소1시점. 원53933/56301 actual0으로 두 서버/원 DB·키/권리/토큰·WSL/원본 보존. 사용자 적용은 남는다.
         - [ ] **`crop-greenhouse-ventilation-user-activation`** — 위 웹/실행의 실제 브라우저 정상/hold/취소/재접속과 사용자 DB/두 URL/원본/WSL 보존·적용 주소/다음 작업/남은 자료 보류 게시.
-          - [ ] **`crop-greenhouse-ventilation-mixed-api-runtime`** — 위 수정본 실제3D 수용을 선행으로 기존/새 모델의 닫힌 명시 설정과 동시 typed API를 조립한다. 같은 jobs/farms/principal·현재 grant/독립 키·실제 SCRAM/TLS 원 응답/UTC·잘못된 객체/flag/설정/늦은 권리 거부·구 loader/원 결과·WSL/원 도구/소유 정리. worker 시작·사용자 적용은 별도다.
+          - [x] **`crop-greenhouse-ventilation-mixed-api-runtime`** — 위 수정본 실제3D 수용을 선행으로 기존/새 모델의 닫힌 명시 설정과 동시 typed API를 조립한다. 같은 jobs/farms/principal·현재 grant/독립 키·실제 SCRAM/TLS 원 응답/UTC·잘못된 객체/flag/설정/늦은 권리 거부·구 loader/원 결과·WSL/원 도구/소유 정리. worker 시작·사용자 적용은 별도다. [수용 기록](../research/crop-joint-ventilation-runtime-20261012.md)/[기계 증거](../research/artifacts/crop-joint-ventilation-runtime-20261012.json): 고유198·실제 정상/보류/22거부·두 UI 최신 DOM/실제15초 재조회·원 DB/키/권리/토큰/WSL 보존. 사용자 적용은 후속.
           - [ ] **`crop-greenhouse-ventilation-mixed-worker-user-preview`** — 위 API 조립 뒤 기존 소비자 계약의 모델별 명시 작업자 선택·검토한 합성 새 입력·제품 화면 연결. 실제 사용자 정상/보류/취소/재접속·원 수치/UTC3D·두 주소/DB/키/권리/토큰/원본·추가 작업자를 포함한 WSL 합 자원·최신 진행/접속 안내를 확인한다. 실제 농장 예측/관문은 보류한다.
+            - [ ] **`crop-greenhouse-ventilation-mixed-worker-selection`** — 다음 한 단계. 기존 typed 소비자의 명시 모델/검토 입력 판본 선택. 실제 두 모델 자동 소비·원 결과/UTC·기본 비활성/잘못된·다른 모델 입력의 쓰기 전 거부·현재 권리·기존 소비자/WSL/소유 정리. 사용자 서버 적용은 후속.
+            - [ ] **`crop-greenhouse-ventilation-user-input-web`** — 위 선택 뒤 새 합성 입력의 명시 검토/등록과 제품 화면 연결. 실제 사용자 접수/진행·같은 저장 원 값/UTC·기존 결과/주소/키/권리/토큰 보존.
+            - [ ] **`crop-greenhouse-ventilation-user-live-acceptance`** — 위 연결 뒤 실제 사용자 DB 정상/보류/취소/재접속·계산 중/완료 WebGL·현재 권리·추가 작업자를 포함한 WSL 합 자원과 원 데이터/두 UI 보존. 최신 진행/접속 안내 게시 뒤 부모 사용자 적용을 수용한다.
 
 
     - [ ] **`crop-greenhouse-radiation-par`** — 원문 incident/absorbed PAR·cover/floor 반사와 PAR/NIR 열 경계.
