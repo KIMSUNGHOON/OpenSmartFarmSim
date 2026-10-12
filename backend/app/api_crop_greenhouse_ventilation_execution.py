@@ -260,7 +260,7 @@ def install_ventilation_execution_routes(app, *, jobs, farms, store, admission, 
             with jobs.connect() as conn:
                 if target(conn) is None: return None
             # Cancellation must remain available after scientific input rights are withdrawn.
-            accepted = jobs.cancel(tenant, job_id)
+            accepted = admission.cancel(tenant, job_id)
             denied = after(tenant, CANCEL_SCOPES)
             if denied is not None: raise PermissionError()
             with jobs.connect() as conn:

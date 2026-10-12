@@ -86,7 +86,7 @@ def assembly(monkeypatch, *, scopes=SCOPES):
         if row['state']=='queued':row['state']='canceled';row['reason']={'code':'canceled_by_request'}
         else:row['cancel_requested']=True
         return True
-    jobs.cancel=canceled
+    jobs.cancel=lambda *_:pytest.fail('ventilation route called unscoped cancellation')
     farms=object();binding=SimpleNamespace(farms=farms);server=SimpleNamespace(binding=binding,input_resolver=object())
     store=object.__new__(model.storage.VentilationResultStore);store.server=server
     admission=object.__new__(model.checkpoints.execution.VentilationExecutionService)
@@ -94,6 +94,7 @@ def assembly(monkeypatch, *, scopes=SCOPES):
     monkeypatch.setattr(admission,'_binding',lambda:None)
     def submit(tenant,raw):trace.append(('submit',tenant,raw));hook();return deepcopy(row)
     monkeypatch.setattr(admission,'submit',submit)
+    monkeypatch.setattr(admission,'cancel',canceled)
     query=object.__new__(model.VentilationExecutionQuery);query.results=store;query.jobs=jobs;query.server=server;query.checkpoints=SimpleNamespace(admission=admission)
     monkeypatch.setattr(query,'_binding',lambda:None)
     def read(tenant,job):trace.append(('get',tenant,job));hook();return state['raw']

@@ -1,5 +1,7 @@
 # 환기 모델의 접수·자동 계산 핵심 — v1
 
+
+**2026-10-12 취소 경계 보완:** [환기 범위 잠금 수정·125검사](../research/crop-greenhouse-ventilation-cancel-lock-fix-20261012.md)를 로컬 수용했다. 현재 증거 검증 후 짧은 행 확정 잠금에서 임대/취소/입력·최신 checkpoint를 재확인한다. 환기 typed 취소는 같은 서비스의 NO KEY UPDATE 전이를 사용하고 현재 취소 권한/입력 판본과 기존 사건/상태를 보존한다. 입력 사용 권리 철회 뒤 소유자 취소가 가능하다. 수정본 실제 WebGL·사용자 적용은 후속이다.
 2026-10-12. native Codex CLI `gpt-6.1-sol / xhigh`에서 설계한다. 재귀 CLI0.
 [명시 조회 runtime](crop-greenhouse-ventilation-runtime-v1.md) 이후의 실행 핵심이다.
 

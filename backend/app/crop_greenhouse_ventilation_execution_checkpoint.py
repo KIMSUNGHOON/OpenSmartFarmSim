@@ -97,8 +97,12 @@ class VentilationExecutionCheckpointStore:
         if not self.jobs._has_scope(tenant, 'simulation_execute'):
             raise PermissionError('ventilation checkpoint access denied')
 
-    def _lease(self, conn, tenant, job_id, attempt, token):
-        try: row = self.jobs._locked_job(conn, tenant, job_id)
+    def _lease(self, conn, tenant, job_id, attempt, token, *, lock=True):
+        try:
+            clause = sql.SQL(' FOR NO KEY UPDATE' if lock else '')
+            row = conn.execute(sql.SQL('SELECT *, lease_until > clock_timestamp() AS lease_live '
+                'FROM {} WHERE tenant_id=%s AND job_id=%s{}').format(self.jobs._table('jobs'), clause),
+                (tenant, job_id)).fetchone()
         except QueryCanceled:
             raise custody.VentilationCustodyPending('ventilation checkpoint job busy') from None
         if (not self.jobs._owns_live_lease(row, attempt, token) or row['stage'] != 'simulation'
@@ -196,7 +200,7 @@ class VentilationExecutionCheckpointStore:
                 and type(lease_token) is str and 1 <= len(lease_token) <= 200)
             self._guard(tenant)
             with self.jobs.connect() as conn:
-                job = self._lease(conn, tenant, job_id, attempt, lease_token)
+                job = self._lease(conn, tenant, job_id, attempt, lease_token, lock=False)
                 value, request_raw, binding_raw = self._input(tenant, job)
                 self._current(tenant, value, request_raw, binding_raw)
                 with self._session(tenant, request_raw) as session:
@@ -206,7 +210,7 @@ class VentilationExecutionCheckpointStore:
                     sequence = (previous['reason']['publication_sequence'] + int(not duplicate)) if previous else 1
                     packet, proof = self._snapshot(session, progress, sequence, job['input_sha256'])
                     self._descendant(session, previous, packet, proof)
-                    self._lease(conn, tenant, job_id, attempt, lease_token)
+                    self._lease(conn, tenant, job_id, attempt, lease_token, lock=False)
                     if duplicate:
                         _need(custody._canonical(previous['reason']) == custody._canonical(packet))
                         row = previous
@@ -217,7 +221,9 @@ class VentilationExecutionCheckpointStore:
                             (tenant, job_id, uuid4(), attempt, EVENT_KIND, Jsonb(packet))).fetchone()
                     self._current(tenant, value, request_raw, binding_raw)
                     _need(session.progress() == progress)
-                    self._lease(conn, tenant, job_id, attempt, lease_token)
+                    current = self._lease(conn, tenant, job_id, attempt, lease_token)
+                    _need(self._input(tenant, current) == (value, request_raw, binding_raw)
+                        and self._history(conn, tenant, current) == row)
                     result = self._record(row, job_id)
             return result
         except PermissionError: raise PermissionError('ventilation checkpoint access denied') from None

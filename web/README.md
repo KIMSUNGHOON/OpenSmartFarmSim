@@ -3,8 +3,8 @@
 <a id="joint-execution-user-preview"></a>
 
 **2026-10-11 21:19 KST:** [계산 중 연속 수치3D의 사용자 연결](../research/crop-climate-joint-prefix-advance-browser-20261011.md)을 합성128초 범위로 수용했다.
-현재 접속 파일은 아래 `run-v17`/`serve-v16`다. [취소 잠금 진단/복구](../research/crop-greenhouse-ventilation-cancel-lock-diagnosis-20261012.md)에서 원 데이터·토큰을 보존하고 두 화면을 복구했다.
-5173상단/5174 개발 기록을10:49 KST에 갱신했다. 취소503의 DB 행 잠금/5초 제한 발생 지점을 확인했으며 다음은 잠금 수정→회귀/실제 취소 검증→적용이다. 남은2–5집중시간 잠정·전체 제품 완료일 미정을 유지한다.
+현재 접속 파일은 아래 `run-v17`/`serve-v16`다. [환기 취소 잠금 수정·보존](../research/crop-greenhouse-ventilation-cancel-lock-fix-20261012.md)에서 두 기존 서버를 계속 연 채 원 데이터·토큰을 보존했다.
+5173상단/5174의11:35 KST 개발 기록에서 집중125검사 수용과 다음 실제 WebGL/사용자 적용을 확인한다. 실제 브라우저의 같은 기록·15초 재조회·모바일을 통과했다. 남은2–5집중시간 잠정·새 모델 미배포·전체 제품 완료일 미정이다.
 새 환기 모델의 [완료 결과 웹 검증](../research/crop-greenhouse-ventilation-web-terminal-implementation-20261012.md)은 로컬 수용이며 사용자 서버에는 아직 미배포다.
 5173은 완료 저장 결과 재생,5174는 같은 사용자 DB의 계산 상태/확정 부분 결과 자동 조회다.
 

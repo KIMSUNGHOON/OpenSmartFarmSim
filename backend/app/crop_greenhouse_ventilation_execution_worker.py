@@ -66,9 +66,13 @@ class VentilationExecutionWorker:
         self._binding()
         with self.jobs.connect() as conn:
             job = self.checkpoints._lease(conn, self.tenant_id, str(lease['job_id']),
-                                         lease['attempt'], lease['lease_token'])
+                                         lease['attempt'], lease['lease_token'], lock=False)
             value, request_raw, binding_raw = self.checkpoints._input(self.tenant_id, job)
             self.checkpoints._current(self.tenant_id, value, request_raw, binding_raw)
+            current = self.checkpoints._lease(conn, self.tenant_id, str(lease['job_id']),
+                                             lease['attempt'], lease['lease_token'])
+            if self.checkpoints._input(self.tenant_id, current) != (value, request_raw, binding_raw):
+                raise checkpoints.VentilationCheckpointHold('ventilation worker input changed')
             if not self.jobs._renew_in_transaction(conn, self.tenant_id, lease['job_id'],
                     lease['attempt'], lease['lease_token'], self.lease_seconds):
                 raise checkpoints.VentilationCheckpointLeaseLost('ventilation worker lease unavailable')
@@ -151,7 +155,7 @@ class VentilationExecutionWorker:
         self._binding()
         tenant, attempt, token = self.tenant_id, lease['attempt'], lease['lease_token']
         with self.jobs.connect() as conn:
-            job = self.checkpoints._lease(conn, tenant, str(lease['job_id']), attempt, token)
+            job = self.checkpoints._lease(conn, tenant, str(lease['job_id']), attempt, token, lock=False)
             value, raw, binding_raw = self.checkpoints._input(tenant, job)
             self.checkpoints._current(tenant, value, raw, binding_raw)
             latest = self.checkpoints._history(conn, tenant, job)
@@ -192,8 +196,9 @@ class VentilationExecutionWorker:
                 self.jobs._outcome(conn, tenant, job['job_id'], attempt, state, reason, termination_reason=code)
             self.checkpoints._current(tenant, value, raw, binding_raw)
             current = self.checkpoints._lease(conn, tenant, str(job['job_id']), attempt, token)
-            if self.jobs._verified_input(current) != job['input_bytes']:
-                raise checkpoints.VentilationCheckpointHold('ventilation worker input changed')
+            if (self.checkpoints._input(tenant, current) != (value, raw, binding_raw)
+                    or self.checkpoints._history(conn, tenant, current) != latest):
+                raise checkpoints.VentilationCheckpointHold('ventilation worker input or checkpoint changed')
             updated = conn.execute(sql.SQL("""UPDATE {} SET state=%s, reason=%s,
                 lease_token=NULL, lease_until=NULL, cancel_requested=false, updated_at=clock_timestamp()
                 WHERE tenant_id=%s AND job_id=%s AND stage='simulation' AND state='simulating'

@@ -1,0 +1,199 @@
+{
+  "scope": "synthetic software only",
+  "G0_G4": "not_assessed",
+  "actual_crop_Runs": 0,
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-12T00:03:55.657Z",
+    "raw_line_sha256": "d67ddbb90f79a8bc49b65bfca20caf5a7a352f3f3dad2c73bd9f88b7103d6dad",
+    "same_native_CLI_session": true,
+    "recursive_invocations": 0
+  },
+  "code_sha256": {
+    "backend/app/crop_greenhouse_ventilation_execution.py": "5b7777f40b38ca8fae5dab0013def5dfe8efd15acf080b8a57b1b92b76b66734",
+    "backend/app/crop_greenhouse_ventilation_execution_checkpoint.py": "8f0e05fedc49fb7fb4b6457851ab7b822409c0e363da45c34cc895afc039dfd9",
+    "backend/app/crop_greenhouse_ventilation_execution_worker.py": "5e7a113ad5e0e6fe19d2a669309d7176b927d264ac4525a7664ea955e78e6cdd",
+    "backend/app/api_crop_greenhouse_ventilation_execution.py": "7a70dfd853269ca81046fc0d5c2baacdbe96e4d56e2cadb2636ba8163a2d2c2a",
+    "backend/tests/test_crop_greenhouse_ventilation_execution_worker.py": "c7080a62d5c900d4f3ff0fe00fadbf9bd4b00ce167136f686b7a32239c4d7a0c",
+    "backend/tests/test_api_crop_greenhouse_ventilation_execution.py": "af7761bdd43f3e5de75a8e9b2b7c511290b05e9f6c86299f6f94be23b94c3fc2"
+  },
+  "shared_JobStore_sha256": "9b54b6be6765b62c1ba66f8938f8023bf5e882193d580ee3fd0c6d5ba1f80ca7",
+  "shared_JobStore_preserved": true,
+  "local_fix_accepted": true,
+  "unique_checks": 125,
+  "accepted": [
+    {
+      "case": "focused-scoped-cancel-validation-green-v2",
+      "original_tool": 77355,
+      "actual_exit": 0,
+      "checks": 10,
+      "wall_seconds": 437.7219123120012,
+      "single_PID_peak_RSS_bytes": 166408192,
+      "combined_peak_RSS_bytes": 927195136,
+      "RSS_samples": 1370,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "log_sha256": "21a6c0b4c23886662650987097db4040348e11dde3e5c418d2cce08277944cd3"
+    },
+    {
+      "case": "focused-scoped-cancel-normal-hold-http-v1",
+      "original_tool": 22900,
+      "actual_exit": 0,
+      "checks": 110,
+      "wall_seconds": 557.0775707220018,
+      "single_PID_peak_RSS_bytes": 197197824,
+      "combined_peak_RSS_bytes": 974118912,
+      "RSS_samples": 1676,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "log_sha256": "36b59a2d6679d3cdc744dde420005c9fe7da333aede9931cdbb25361f0ba7803"
+    },
+    {
+      "case": "focused-scoped-cancel-late-authority-v1",
+      "original_tool": 26754,
+      "actual_exit": 0,
+      "checks": 5,
+      "wall_seconds": 375.12220619700383,
+      "single_PID_peak_RSS_bytes": 149950464,
+      "combined_peak_RSS_bytes": 888590336,
+      "RSS_samples": 1171,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "protected_live": true,
+      "protected_root_count": 4,
+      "log_sha256": "a5bbe6a760ffc8a2384eff00195cc55ece47661c436976358fc70ab313b76392"
+    }
+  ],
+  "native_browser_current_revision_accepted": false,
+  "new_model_deployed": false,
+  "remaining_focused_hours": [
+    2,
+    5
+  ],
+  "full_product_completion": null,
+  "earlier_cases": [
+    {
+      "case": "focused-cancel-validation-red-v1",
+      "original_tool": 79631,
+      "actual_exit": 4,
+      "accepted": false,
+      "reason": "parameter selector omitted fixture ID"
+    },
+    {
+      "case": "focused-cancel-validation-collection-v1",
+      "original_tool": 89055,
+      "actual_exit": 0,
+      "accepted": false,
+      "scope": "collection only"
+    },
+    {
+      "case": "focused-cancel-validation-red-v2",
+      "original_tool": 18739,
+      "actual_exit": 1,
+      "accepted": false,
+      "reason": "expected QueryCanceled while locking jobs tuple; failure reproduced"
+    },
+    {
+      "case": "focused-cancel-validation-green-v1",
+      "original_tool": 1470,
+      "actual_exit": 0,
+      "accepted": false,
+      "reason": "shared JobStore change alters original custody identity; superseded by scoped solution"
+    },
+    {
+      "case": "focused-cancel-lock-regression-v1",
+      "original_tool": 56432,
+      "actual_exit": 1,
+      "actual_child_exit": -15,
+      "accepted": false,
+      "reason": "explicit stop to correct test raw-input access",
+      "invalid_fixture_passfiles_removed": 4,
+      "owned_remaining": 0
+    },
+    {
+      "case": "focused-cancel-lock-regression-v2",
+      "original_tool": 64216,
+      "actual_exit": 1,
+      "actual_child_exit": -15,
+      "accepted": false,
+      "reason": "explicit stop to narrow change to ventilation and preserve shared code identity",
+      "invalid_fixture_passfiles_removed": 4,
+      "owned_remaining": 0
+    }
+  ],
+  "all_accepted_cases_same_production_code": true,
+  "actual_UI_status": {
+    "actual_both_HTTP": true,
+    "actual_same_source_record": true,
+    "actual_original_DOM": true,
+    "real_automatic_second_poll": true,
+    "record_time": "2026-10-12T02:35:57.466878Z",
+    "record_sha256": "75c51428bb12798c966e704f08b0d4ec4469f3c9babd615ec01d223b531b0926",
+    "API_writes": 0,
+    "pageerrors": [],
+    "remaining_focused_hours": {
+      "min": 2,
+      "max": 5
+    },
+    "original_tool": 48587,
+    "actual_exit": 0
+  },
+  "preservation": {
+    "G0_G4": "not_assessed",
+    "actual_crop_Runs": 0,
+    "current_UI_assets_unchanged": 172,
+    "explicit_shared_api_changes": [
+      "backend/app/api_crop_greenhouse_ventilation_execution.py",
+      "backend/app/crop_greenhouse_ventilation_execution.py",
+      "backend/app/crop_greenhouse_ventilation_execution_checkpoint.py",
+      "backend/app/crop_greenhouse_ventilation_execution_worker.py",
+      "backend/tests/test_api_crop_greenhouse_ventilation_execution.py",
+      "backend/tests/test_crop_greenhouse_ventilation_execution_worker.py",
+      "web/src/GreenhouseVentilationReplay.tsx"
+    ],
+    "legacy_DB_counts_equal": true,
+    "legacy_access_tokens_preserved": true,
+    "legacy_grant_lifetime_renewed": true,
+    "legacy_harvest_rows": 47813,
+    "legacy_jobs_restored_exactly": 89,
+    "legacy_live_observation_excluded": true,
+    "legacy_old_guide_preserved": true,
+    "legacy_private_immutable_files_preserved": 23,
+    "legacy_result_key_preserved": true,
+    "legacy_saved_events": 5,
+    "legacy_saved_samples": 47809,
+    "modern_job_rows": {
+      "job_attempts": 37,
+      "job_events": 370,
+      "jobs": 112
+    },
+    "modern_original_database_files_rights_keys_unchanged": true,
+    "modern_preexisting_files": 464,
+    "modern_restarted_with_same_access": true,
+    "modern_service_not_restarted": false,
+    "observed_at": "2026-10-12T02:37:44.298070+00:00",
+    "preexisting_source_entries": 706,
+    "preexisting_source_unchanged": 699,
+    "protected_roots_live": 4,
+    "original_tool": 14669,
+    "actual_exit": 0
+  },
+  "screenshots": {
+    "research/artifacts/crop-greenhouse-ventilation-cancel-lock-fix-status-5173-desktop-20261012.png": {
+      "sha256": "6226a84c36703c38f8be8708e5f17ffbc8d5454db858af77ef5f38ad8968e4f5",
+      "scope": "public development status; no authentication"
+    },
+    "research/artifacts/crop-greenhouse-ventilation-cancel-lock-fix-status-5174-mobile-20261012.png": {
+      "sha256": "c5a30c067d14f60ad3d00a958646025440e99c2e575c786e0ac661d3ad493cbc",
+      "scope": "public development status; no authentication"
+    }
+  }
+}

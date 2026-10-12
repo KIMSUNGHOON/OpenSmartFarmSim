@@ -8,6 +8,7 @@ import selectors
 import signal
 import subprocess
 import sys
+import threading
 import time
 from uuid import uuid4
 
@@ -515,3 +516,132 @@ def test_checkpoint_duplicate_current_rights_and_original_time_without_numerics(
     assert rows(worker, job_id, 'job_publications') == []
     save('checkpoint', {'same_original_event':True,'same_original_UTC':True,
         'late_rights_denied':True,'publications':0,'calls':calls})
+
+
+@pytest.mark.parametrize('point', [
+    'before', 'confirm_before', 'confirm_after', 'finish_before', 'finish_after', 'result_after'])
+def test_cancel_commits_during_evidence_validation(setup, monkeypatch, point):
+    worker, job_id, raw, _ = setup
+    lease = worker.jobs.claim(600, allowed_stages=('simulation',), tenant_id='tenant-1', job_id=job_id)
+    if point != 'before':
+        worker.server.advance('tenant-1', raw, budget=128)
+    confirmed = worker._confirm(lease) if point.startswith('finish') or point == 'result_after' else None
+    original_events = len(rows(worker, job_id, 'job_events'))
+    owner = model.results.VentilationResultStore if point == 'result_after' else model.checkpoints.VentilationExecutionCheckpointStore
+    original = owner._current
+    entered, release = threading.Event(), threading.Event()
+    current_calls, outcomes, errors = [], [], []
+    pause_at = 2 if point.endswith('after') else 1
+
+    def validating(instance, *args, **kwargs):
+        result = original(instance, *args, **kwargs)
+        current_calls.append(True)
+        if len(current_calls) == pause_at:
+            entered.set()
+            assert release.wait(30), 'concurrency fixture was not released'
+        return result
+
+    def execute():
+        try:
+            if point == 'before': outcomes.append(worker._before(lease))
+            elif point.startswith('confirm'): outcomes.append(worker._confirm(lease))
+            else: outcomes.append(worker._finish(lease, confirmed))
+        except BaseException as exc:
+            errors.append(exc)
+
+    monkeypatch.setattr(owner, '_current', validating)
+    thread = threading.Thread(target=execute)
+    thread.start()
+    try:
+        assert entered.wait(30), 'worker did not reach validation'
+        started = time.monotonic()
+        assert worker.checkpoints.admission.cancel('tenant-1', job_id)
+        cancel_seconds = time.monotonic() - started
+        assert cancel_seconds < 5
+        assert not release.is_set() and thread.is_alive()
+        assert worker.jobs.get_job('tenant-1', job_id)['cancel_requested']
+    finally:
+        release.set()
+        thread.join(30)
+        assert not thread.is_alive()
+    assert not outcomes and len(errors) == 1
+    assert isinstance(errors[0], model.checkpoints.VentilationCheckpointLeaseLost)
+    assert worker._lost(lease).state == 'canceled'
+    no_published_result(worker, job_id)
+    events = rows(worker, job_id, 'job_events')
+    assert len(events) == original_events + 2
+    assert [r['kind'] for r in events].count('cancel_requested') == 1
+    assert rows(worker, job_id, 'attempt_outcomes')[0]['state'] == 'canceled'
+    save('cancel-validation-' + point, {'point': point, 'accepted_during_validation': True,
+        'cancel_seconds': cancel_seconds, 'worker_acknowledged': True,
+        'partial_checkpoint_and_results_rolled_back': True,
+        'fixture_barrier': True, 'native_browser_acceptance': False})
+
+
+@pytest.mark.parametrize('point,change', [('confirm', 'input'), ('finish', 'expire')])
+def test_unlocked_validation_rejects_changed_input_or_expired_lease(setup, monkeypatch, point, change):
+    worker, job_id, raw, _ = setup
+    lease = worker.jobs.claim(600, allowed_stages=('simulation',), tenant_id='tenant-1', job_id=job_id)
+    worker.server.advance('tenant-1', raw, budget=128)
+    confirmed = worker._confirm(lease) if point == 'finish' else None
+    original_events = len(rows(worker, job_id, 'job_events'))
+    original = model.checkpoints.VentilationExecutionCheckpointStore._current
+    calls = []
+
+    def changed(instance, *args, **kwargs):
+        result = original(instance, *args, **kwargs)
+        calls.append(True)
+        if len(calls) == 2:
+            if change == 'expire': expire(worker, job_id)
+            else:
+                value = json.loads(rows(worker, job_id, 'jobs')[0]['input_bytes'])
+                value['input_resolver_version'] += '-changed'
+                new_raw = model.checkpoints.execution.canonical_input_bytes(value)
+                with worker.jobs.connect() as conn:
+                    conn.execute(sql.SQL('UPDATE {} SET input_bytes=%s,input_sha256=%s WHERE job_id=%s')
+                        .format(worker.jobs._table('jobs')), (new_raw, sha256(new_raw).hexdigest(), job_id))
+        return result
+
+    monkeypatch.setattr(model.checkpoints.VentilationExecutionCheckpointStore, '_current', changed)
+    with pytest.raises(model.checkpoints.VentilationCheckpointHold):
+        if point == 'confirm': worker._confirm(lease)
+        else: worker._finish(lease, confirmed)
+    assert len(calls) == 2
+    no_published_result(worker, job_id)
+    assert len(rows(worker, job_id, 'job_events')) == original_events
+    assert not rows(worker, job_id, 'attempt_outcomes')
+    save('late-validation-' + change, {'point': point, 'change': change,
+        'all_checkpoint_and_result_writes_rolled_back': True})
+
+
+@pytest.mark.parametrize('active', [False, True])
+def test_scoped_cancel_preserves_identity_permissions_and_revoked_rights(setup, monkeypatch, active):
+    worker, job_id, raw, value = setup
+    admission, principal, rights = worker.checkpoints.admission, value[4], value[-1]
+    lease = worker.jobs.claim(600, allowed_stages=('simulation',), tenant_id='tenant-1', job_id=job_id) if active else None
+    legacy = worker.jobs.submit('tenant-1', 'simulation', {'input_version': 'other-model'}, uuid4().hex)
+    assert not admission.cancel('tenant-1', str(legacy['job_id']))
+    assert not admission.cancel('tenant-other', job_id)
+    principal['scopes'].remove('cancel')
+    assert not admission.cancel('tenant-1', job_id)
+    principal['scopes'].add('cancel')
+    original_scopes = set(principal['scopes'])
+    principal['scopes'].difference_update({'simulation_create', 'simulation_execute'})
+    rights.allowed = False
+    try:
+        with monkeypatch.context() as patch:
+            calls = producer.reference.forbid(patch)
+            assert admission.cancel('tenant-1', job_id)
+            if active:
+                assert admission.cancel('tenant-1', job_id)
+                assert worker._lost(lease).state == 'canceled'
+            assert not admission.cancel('tenant-1', job_id)
+            assert all(n == 0 for n in calls.values())
+    finally:
+        principal['scopes'].update(original_scopes); rights.allowed = True
+    events = rows(worker, job_id, 'job_events')
+    assert [r['kind'] for r in events].count('canceled') == 1
+    assert [r['kind'] for r in events].count('cancel_requested') == int(active)
+    no_published_result(worker, job_id)
+    save('scoped-cancel-' + str(active), {'active': active, 'rights_revoked_cancellation': True,
+        'other_model_tenant_scope_and_terminal_denied': True, 'numerical_calls': calls})

@@ -2,35 +2,28 @@
 
 ## 새 모델 웹 연결의 현재 경계 — 2026-10-12
 
-[웹 client/기록 응답 화면](../research/crop-greenhouse-ventilation-web-prefix-software-20261012.md)은 고유549검사·최종 타입/빌드·원 결과/두 UI 보존으로 수용했다.
-[실제 정상 경로](../research/crop-greenhouse-ventilation-live-browser-normal-20261012.md)도 독립 자동 작업자/보호 API/WebGL의 원5시점→같은 terminal·재접속·현재 권리 차단/복원으로 통과했다.
-[실제 보류](../research/crop-greenhouse-ventilation-live-hold-cancel-20261012.md)의 원5시점→보류 결과·재접속·권리 차단/복원도 통과했다.
-계측 없는 취소 API503이 두 번 재현되어 취소·부모3D는 미수용이다. 계측 취소1건의 성공은 진단 증거로만 보존한다.
-[잠금 진단](../research/crop-greenhouse-ventilation-cancel-lock-diagnosis-20261012.md)에서 취소 action의 QueryCanceled57014·5초 제한·JobStore 행 잠금을 확인했다. 다음 의존성은 **동시성 실패 회귀 → 잠금 범위 수정/기존 늦은 철회·원자성 회귀 → 계측 없는 실제 취소 재검증 → 사용자 적용**이다.
-원인 조사·수정/검증1.5–3.5시간+적용0.5–1.5시간, 합2–5집중시간을 잠정 배정하고 원인 확인 뒤 갱신한다. 전체 제품 완료일은 미정이다.
-전체 작기·생산량/자원/경제·최종 UI와 독립 농장 자료 관문은 기존 의존성을 유지한다.
-
-
-**진행 안내 주소 보완 — 2026-10-12:** `product-ui-progress-navigation`은5173의 완료 재생과5174의 개발 현황을 연결하는 작은 표시 수정이다. 원 저장 재생과 API/DB를 유지한 채 상단 안내→인증 없는 최신 현황 이동·모바일·쓰기0를 실제 브라우저에서 확인한다. 새 모델의 실행 API/명시 runtime→같은 UTC3D→사용자 적용 순서는 유지한다. 남은2–4집중시간은 API 수용 뒤 웹/3D·사용자 적용 범위의 갱신된 추정이며 전체 제품 일정은 자료 확보/검증 상태가 확인될 때 산정한다.
+[환기 취소 잠금 수정](../research/crop-greenhouse-ventilation-cancel-lock-fix-20261012.md)을 실제 DB/HTTPS·집중125검사·두 UI/원본 보존으로 로컬 수용했다.
+동시성10 + 정상/보류/API110 + 늦은 철회/복구5이며, 수식·계수·공용 JobStore/기존 모델 코드는 보존했다.
+[실제 정상](../research/crop-greenhouse-ventilation-live-browser-normal-20261012.md)과 [실제 보류](../research/crop-greenhouse-ventilation-live-hold-cancel-20261012.md)의 WebGL 기록은 당시 판본의 증거다.
+수정본의 장벽 없는 취소와 같은 판본 정상/보류 WebGL, 부모3D·사용자 적용은 아직 미수용이다.
 
 ## 현재 구현 우선순위 — 2026-10-12
 
-**`crop-greenhouse-ventilation-confirmed-prefix-api` 수용:** [구현/검증 기록](../research/crop-greenhouse-ventilation-prefix-api-implementation-20261012.md).
-새279/기존 호환105=고유384개, 실제 DB/TLS/독립 자동 정상·보류·취소와 같은 원 값/UTC·현재 권리/변조 거부·구 모델 회귀·두 화면/원 결과 보존을 확인했다.
-새 모델은 아직 사용자 서버에 미배포이며 실제 농장 Run0·전체 제품 완료일 미정은 유지한다.
+**수정본 실제 취소 WebGL → 같은 판본 정상/보류 WebGL → 기존·새 모델 명시 서버/worker 조립 → 사용자 적용** 순서다.
+API·worker 검사만으로 실제 3D나 사용자 배포를 수용하지 않는다. 자원 검증 창에서도 두 주소의 공개 진행 기록을 유지한다.
 
 | 남은 화면 연결 작업 | 잠정 집중 작업량 | 수용 기준 |
 | --- | --- | --- |
-| 실제 취소503 원인 조사·수정/재검증과 두 UI 복구 | 1.5–3.5시간 | 실패한 취소 action 예외 위치/원인→원인에 대응하는 작은 수정. 계측 없는 running 원 값/UTC/WebGL→취소 수락/worker canceled·장면 제거/결과 미게시·현재 권리/WSL·두 주소 보존 |
-| 사용자 서버 적용과 복구 점검 | 0.5–1.5시간 | 새 모델 실제 사용자 흐름·원 DB/키/권리/결과 보존·두 주소·WSL·접속 안내 |
+| 수정본 실제 WebGL 취소→정상/보류와 복구 | 0.5–1.5시간 | 장벽/계측 없는 자동 worker·SCRAM/TLS/API/WebGL의 원 값/UTC→취소 수락/worker canceled·장면 제거/결과 미게시. 같은 코드 판본 정상/보류·재접속·현재 권리·조회 부작용0·원 도구 종료/WSL/두 UI·원 데이터 보존 |
+| 기존·새 모델 명시 조립과 사용자 화면 적용 | 1.5–3.5시간 | 두 입력 판본의 명시 API/worker 선택과 기존 결과/키/권리/토큰 보존. 새 모델 실제 사용자 흐름·두 주소의 최신 진행/3D·WSL·접속 안내 |
 
-실제 보류 guard320초·취소 진단106초와 실패24/144/141초·복구 실적, 새로 재현된 취소 실패를 반영해 **남은2–5집중시간**으로 갱신한다. 원인 확인 전 잠정치이며 고정 완료 시각이나 전체 제품 완료일이 아니다.
-전체 작기·생산량/자원/경제·최종 UI와 독립 농장 자료/관문은 후속이다.
+남은 **2–5집중시간**은 짧은 합성 모델의 연결 추정이다. 실제 수정의125검사 guard438/557/375초와 조립 의존성을 반영했다. 고정 완료 시각이나 전체 제품 완료일을 뜻하지 않는다.
+전체 작기·생산량/자원/경제·최종 제품 UI와 독립 농장 자료의 기존 의존성/관문은 유지한다.
 
-**다음 한 단계는 `crop-greenhouse-ventilation-cancel-lock-scope`의 작은 동시성 실패 회귀와 수정**이다.
-취소 action의 JobStore 잠금57014는 실제 재현했다. 검증 중 행 잠금을 줄이고 종료 시 임대/취소/입력·현재 권리와 쓰기 rollback을 보존한다. 원인에 대응하는 작은 수정 후 계측 없는 실제 worker/API/WebGL의 수락·canceled·장면 제거·결과 미게시와 원본/두 UI/자원 보존을 확인한다.
-사용자 적용의 다음 의존성도 확인했다: `ApiRuntimeConfig`는 두 모델 실행/prefix flag를 이미 갖지만 현재 환기 loader와 기존 미리보기 factory/worker는 각각 단일 모델 조립이다. 기존 모델 조회/작업 흐름을 보존하는 명시 조립과 새 소비자의 자원 검증이 사용자 적용에 필요하다. 수식 변경은 이 의존성에 포함하지 않는다.
-아래 이전 단계 기록의 시간/다음 작업은 당시 상태이며 이 우선순위가 현재 순서다.
+**다음 한 단계는 `crop-greenhouse-ventilation-live-browser-cancel`의 수정본 실제 취소 검증**이다.
+새 runtime/DB/제품 WebGL에서 원 확정 값/UTC를 본 뒤 취소한다. 취소200만으로 수용하지 않고 worker canceled·장면 제거·결과 미게시까지 확인한다.
+현재 `ApiRuntimeConfig`의 두 모델 flag와 단일 모델 loader/factory/worker 조립을 대조한 의존성도 유지한다.
+실제 취소 뒤 동일 수정본의 정상/보류를 확인하고 혼합 조립/사용자 적용으로 진행한다. 아래 이전 단계 기록의 순서/시간은 당시 상태다.
 
 ### 이전 단계별 기록
 
