@@ -1,0 +1,645 @@
+{
+  "schema_version": "crop-ventilation-browser-supervisor-profile-evidence-v1",
+  "recorded_at": "2026-10-12T08:39:58.987705+00:00",
+  "source_commit": "d329456",
+  "model": "gpt-6.1-sol",
+  "effort": "xhigh",
+  "native_session_receipt_sha256": "cf7dbb82e8a4e5eb1bbb1ab28769f7557034afb0736f87483c5fb92491db557a",
+  "recursive_CLI_invocations": 0,
+  "subagents": 0,
+  "focused_tests_passed": 7,
+  "checks": [
+    {
+      "case": "focused-supervisor-rights-final-v1",
+      "tool": 9358,
+      "actual_exit_code": 0,
+      "terminal_sha256": "9fd8d4e5c0a177391d18319bc22a479282eb7f6c200d47661cc7c03c4c8cd40f",
+      "child_exit": 0,
+      "reason": null,
+      "wall_seconds": 2.2899778349965345,
+      "combined_peak_RSS_bytes": 641048576,
+      "single_PID_peak_RSS_bytes": 135954432,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": null
+    },
+    {
+      "case": "focused-supervisor-normal-v1",
+      "tool": 47007,
+      "actual_exit_code": 0,
+      "terminal_sha256": "60715d7f066e4c8df702d59a92649fef31401116963bbf1db8b6aee42a0b7261",
+      "child_exit": 0,
+      "reason": null,
+      "wall_seconds": 0.9428028170077596,
+      "combined_peak_RSS_bytes": 624467968,
+      "single_PID_peak_RSS_bytes": 135954432,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": true
+    },
+    {
+      "case": "focused-supervisor-failure-v1",
+      "tool": 1460,
+      "actual_exit_code": 7,
+      "terminal_sha256": "22b5025b64fe4384b3aa610eb62c29c392f2f82e76cad6160e31ee0397a6b664",
+      "child_exit": 7,
+      "reason": null,
+      "wall_seconds": 0.6778269719943637,
+      "combined_peak_RSS_bytes": 624336896,
+      "single_PID_peak_RSS_bytes": 135954432,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": true
+    },
+    {
+      "case": "focused-supervisor-malformed-v1",
+      "tool": 32447,
+      "actual_exit_code": 1,
+      "terminal_sha256": "0d83fff4b6de7d7392e2f3f5449a619ee3e535d959d5bfc299b1af1ca5bee63f",
+      "child_exit": 1,
+      "reason": "supervisor_error",
+      "wall_seconds": 0.7049271799915005,
+      "combined_peak_RSS_bytes": 624410624,
+      "single_PID_peak_RSS_bytes": 135954432,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": true
+    },
+    {
+      "case": "focused-before-profile-baseline-v1",
+      "tool": 64020,
+      "actual_exit_code": 1,
+      "terminal_sha256": "9af73559c13d826b8ea24ad0f7209d0648eac30591b7ef30501a8e54ccd58453",
+      "child_exit": 1,
+      "reason": null,
+      "wall_seconds": 1.4220379769976716,
+      "combined_peak_RSS_bytes": 674783232,
+      "single_PID_peak_RSS_bytes": 135954432,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": null
+    },
+    {
+      "case": "focused-before-profile-baseline-diagnosis-v1",
+      "tool": 33850,
+      "actual_exit_code": 1,
+      "terminal_sha256": "82c5ffd78e0a68f78dd4adb9949756916fbcc3f7fb32f239fcda31cc38d1efc6",
+      "child_exit": 1,
+      "reason": null,
+      "wall_seconds": 1.422732424995047,
+      "combined_peak_RSS_bytes": 674869248,
+      "single_PID_peak_RSS_bytes": 135954432,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": null
+    },
+    {
+      "case": "focused-before-profile-baseline-final-v1",
+      "tool": 90887,
+      "actual_exit_code": 0,
+      "terminal_sha256": "6fb8cacf1881b68e16736babb95a9f5f61ae04247b8f46ddc408bdb2b26e48c5",
+      "child_exit": 0,
+      "reason": null,
+      "wall_seconds": 1.697530588004156,
+      "combined_peak_RSS_bytes": 692797440,
+      "single_PID_peak_RSS_bytes": 135954432,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": null
+    },
+    {
+      "case": "focused-stored-replay-profile-v1",
+      "tool": 37501,
+      "actual_exit_code": 1,
+      "terminal_sha256": "4a0a46aa37304567285017a1836c603f8cc663ffe8ecb514f7cd0458bb4b968d",
+      "child_exit": 1,
+      "reason": "requested_stop",
+      "wall_seconds": 290.77491962199565,
+      "combined_peak_RSS_bytes": 1004503040,
+      "single_PID_peak_RSS_bytes": 367796224,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": true
+    },
+    {
+      "case": "focused-stored-replay-profile-v2",
+      "tool": 48150,
+      "actual_exit_code": 0,
+      "terminal_sha256": "166d1ac42bf4d74569ac7573aeacf456c6795034ffd33c428797bcb1ea00ad77",
+      "child_exit": 0,
+      "reason": null,
+      "wall_seconds": 68.69372479499725,
+      "combined_peak_RSS_bytes": 1040003072,
+      "single_PID_peak_RSS_bytes": 367009792,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": true
+    },
+    {
+      "case": "focused-stored-replay-postflight-v1",
+      "tool": 7792,
+      "actual_exit_code": 1,
+      "terminal_sha256": "6db00876726c6cb1fb72cfb151805b09586ac5fce006e9b195b50b59df291683",
+      "child_exit": 1,
+      "reason": null,
+      "wall_seconds": 15.735199080998427,
+      "combined_peak_RSS_bytes": 685076480,
+      "single_PID_peak_RSS_bytes": 134569984,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": null
+    },
+    {
+      "case": "focused-stored-replay-profile-v3",
+      "tool": 49953,
+      "actual_exit_code": 0,
+      "terminal_sha256": "2bc67da7fee0a1e3523f7e108cf4ab8af3ea664db6dec557bed84c59864a6ecd",
+      "child_exit": 0,
+      "reason": null,
+      "wall_seconds": 59.41444897800102,
+      "combined_peak_RSS_bytes": 1038508032,
+      "single_PID_peak_RSS_bytes": 365944832,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": true
+    },
+    {
+      "case": "focused-stored-replay-postflight-v2",
+      "tool": 69783,
+      "actual_exit_code": 0,
+      "terminal_sha256": "446f30ba53dd12e9b9cace5cff55a29176fe7746dab444f3ec1f725edc9dedb0",
+      "child_exit": 0,
+      "reason": null,
+      "wall_seconds": 16.008751597997616,
+      "combined_peak_RSS_bytes": 699658240,
+      "single_PID_peak_RSS_bytes": 135680000,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": null
+    },
+    {
+      "case": "focused-normal-live-webgl-v1",
+      "tool": 87172,
+      "actual_exit_code": 1,
+      "terminal_sha256": "442e07824764316fe47d4fdf25d534a6bc90fb2ce25cac49df9d5fcf38a3af9f",
+      "child_exit": 1,
+      "reason": "RSS_limit",
+      "wall_seconds": 305.7314389009989,
+      "combined_peak_RSS_bytes": 1079099392,
+      "single_PID_peak_RSS_bytes": 354054144,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": true
+    },
+    {
+      "case": "focused-original-role-rollback-v1",
+      "tool": 45514,
+      "actual_exit_code": 0,
+      "terminal_sha256": "fa6c6f46e1fcc07044251b207c309a379d02f0ffb83cc3daf5e65383fc671a78",
+      "child_exit": 0,
+      "reason": null,
+      "wall_seconds": 0.580540242997813,
+      "combined_peak_RSS_bytes": 159961088,
+      "single_PID_peak_RSS_bytes": 39653376,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": null
+    },
+    {
+      "case": "focused-final-restoration-preservation-v1",
+      "tool": 40410,
+      "actual_exit_code": 0,
+      "terminal_sha256": "c973a6ffaa38b57ecf1058567bdcf7be78faea10aced651b11aca3f477d25b83",
+      "child_exit": 0,
+      "reason": null,
+      "wall_seconds": 0.6441072100133169,
+      "combined_peak_RSS_bytes": 600322048,
+      "single_PID_peak_RSS_bytes": 136171520,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": null
+    },
+    {
+      "case": "focused-retained-normal-counters-v1",
+      "tool": 29592,
+      "actual_exit_code": 0,
+      "terminal_sha256": "670e1df06850f2d71685604a4eef916fd03cceab11bc4cec9317e0efc00baa71",
+      "child_exit": 0,
+      "reason": null,
+      "wall_seconds": 0.3749674979917472,
+      "combined_peak_RSS_bytes": 558600192,
+      "single_PID_peak_RSS_bytes": 136171520,
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "owned_remaining": 0,
+      "source_preserved": true,
+      "original_sources_preserved": true,
+      "current_rights_restored": null
+    }
+  ],
+  "profiles": {
+    "stored_replay": {
+      "phase": "terminal",
+      "elapsed_seconds": 28.35713972800295,
+      "combined_RSS_bytes": 1038508032,
+      "headroom_bytes": 35233792,
+      "same_sample_process_RSS": [
+        {
+          "role": "chrome-headless",
+          "RSS_bytes": 352649216
+        },
+        {
+          "role": "API",
+          "RSS_bytes": 135585792
+        },
+        {
+          "role": "node",
+          "RSS_bytes": 124985344
+        },
+        {
+          "role": "ventilation_worker",
+          "RSS_bytes": 119836672
+        },
+        {
+          "role": "joint_worker",
+          "RSS_bytes": 119689216
+        },
+        {
+          "role": "python",
+          "RSS_bytes": 37928960
+        },
+        {
+          "role": "python",
+          "RSS_bytes": 29757440
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 16916480
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 16785408
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 16461824
+        },
+        {
+          "role": "exited_after_sample",
+          "RSS_bytes": 15687680
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 10059776
+        },
+        {
+          "role": "nginx",
+          "RSS_bytes": 8863744
+        },
+        {
+          "role": "nginx",
+          "RSS_bytes": 7475200
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 7045120
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 6225920
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 5324800
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 3698688
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 3530752
+        }
+      ],
+      "node": {
+        "rss": 124985344,
+        "heapTotal": 50688000,
+        "heapUsed": 46253880,
+        "external": 3959388,
+        "arrayBuffers": 164662
+      },
+      "stages_observed": [
+        "idle",
+        "starting",
+        "page",
+        "terminal",
+        "rights",
+        "mobile",
+        "cleanup"
+      ]
+    },
+    "normal_live": {
+      "phase": "running",
+      "elapsed_seconds": 300.2355573579989,
+      "combined_RSS_bytes": 1079099392,
+      "headroom_bytes": -5357568,
+      "same_sample_process_RSS": [
+        {
+          "role": "chrome-headless",
+          "RSS_bytes": 354054144
+        },
+        {
+          "role": "API",
+          "RSS_bytes": 137170944
+        },
+        {
+          "role": "node",
+          "RSS_bytes": 125976576
+        },
+        {
+          "role": "ventilation_worker",
+          "RSS_bytes": 122114048
+        },
+        {
+          "role": "joint_worker",
+          "RSS_bytes": 121786368
+        },
+        {
+          "role": "python",
+          "RSS_bytes": 37928960
+        },
+        {
+          "role": "python",
+          "RSS_bytes": 30441472
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 17174528
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 16666624
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 16523264
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 16461824
+        },
+        {
+          "role": "exited_after_sample",
+          "RSS_bytes": 15818752
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 14082048
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 10059776
+        },
+        {
+          "role": "nginx",
+          "RSS_bytes": 8863744
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 7720960
+        },
+        {
+          "role": "nginx",
+          "RSS_bytes": 7475200
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 6225920
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 5324800
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 3698688
+        },
+        {
+          "role": "postgres",
+          "RSS_bytes": 3530752
+        }
+      ],
+      "node": {
+        "rss": 125976576,
+        "heapTotal": 52260864,
+        "heapUsed": 47056400,
+        "external": 3967958,
+        "arrayBuffers": 173371
+      },
+      "stages_observed": [
+        "idle",
+        "starting",
+        "page",
+        "running",
+        "cleanup"
+      ]
+    }
+  },
+  "stored_replay": {
+    "API_writes": 0,
+    "G0_G4": "not_assessed",
+    "HTTP_wire_matches_storage": true,
+    "actual_HTTPS_proxy": true,
+    "actual_SCRAM": true,
+    "all_existing_table_rows_exact": true,
+    "combined_peak_RSS_bytes": 1038508032,
+    "full_running_WebGL_acceptance": false,
+    "headroom_bytes": 35233792,
+    "immutable_files_preserved": 682,
+    "new_admissions": 0,
+    "new_model_user_deployed": false,
+    "read_calculation_calls": {
+      "RHS": 0,
+      "_put_in_transaction": 0,
+      "advance": 0,
+      "confirm": 0,
+      "event": 0,
+      "jobs._durable_artifact": 0,
+      "jobs._event": 0,
+      "jobs._insert_publication": 0,
+      "jobs._outcome": 0,
+      "jobs.ack_cancel": 0,
+      "jobs.cancel": 0,
+      "jobs.claim": 0,
+      "jobs.fail": 0,
+      "jobs.renew": 0,
+      "jobs.submit": 0,
+      "prepare_binding": 0,
+      "prepare_context": 0,
+      "put": 0,
+      "restore": 0,
+      "start": 0,
+      "step": 0,
+      "ventilation": 0
+    },
+    "real_farm_runs": 0,
+    "reconnect_and_current_rights_restore": true,
+    "saved_frames_original_values_UTC_geometry": 9,
+    "single_PID_peak_RSS_bytes": 365944832,
+    "two_required_consumers_alive_idle": true
+  },
+  "retained_normal_calculation": {
+    "G0_G4": "not_assessed",
+    "artifact_status": "completed",
+    "attempt_count": 1,
+    "event_count": 3,
+    "full_browser_accepted": false,
+    "job_state": "succeeded",
+    "new_model_deployed": false,
+    "planned_steps": 64,
+    "real_farm_runs": 0,
+    "sample_count": 9,
+    "steps": 64
+  },
+  "final_preservation": {
+    "G0_G4": "not_assessed",
+    "all_original_modern_table_rows_preserved": true,
+    "both_services_restored": true,
+    "immutable_files_preserved": 682,
+    "legacy_89_jobs_exact": true,
+    "legacy_events": 5,
+    "legacy_growth_samples": 47809,
+    "legacy_harvest_rows": 47813,
+    "new_grants_revoked": true,
+    "new_model_user_deployed": false,
+    "old_and_new_keys_rights_inputs_proofs_preserved": true,
+    "old_role_policy_audit": true,
+    "real_farm_runs": 0,
+    "retained_validation_job_attempt_count": 1,
+    "retained_validation_job_state": "succeeded",
+    "same_both_access_tokens": true
+  },
+  "runtime_stop": {
+    "worker_exits": [
+      0,
+      0
+    ],
+    "service_stopped": true
+  },
+  "full_normal_WebGL_accepted": false,
+  "hold_cancel_live_cases_run_this_stage": false,
+  "new_model_user_deployed": false,
+  "both_original_UI_restored": true,
+  "legacy_run": "run-v20",
+  "modern_run": "serve-v21",
+  "next_task": "crop-greenhouse-ventilation-user-browser-owner-integration",
+  "CI_run": false,
+  "core_math_or_parameters_changed": false,
+  "real_farm_runs": 0,
+  "G0_G4": "not_assessed",
+  "code_sha256": {
+    "crop-ventilation-browser-supervisor.py": "731743853588f7c8d1adc458dbd8ddb76cc8fc81846fb9908b114e69aed036ae",
+    "test_crop_ventilation_browser_supervisor.py": "fd7b996e0b936d6f8f631fe8afe2a1d3aea367333ca345b255defb64dfc278fe",
+    "controller.py": "9a4bf9c030393de3208d5a6442c653eec2a5d90c9e15c4fac230cf759bf5b1ce",
+    "live-browser-driver-v3.mjs": "4607f43e8c8fee2eccf96386ce13e7180078428ef4ac915af5b4b475e27e5651",
+    "profile-postflight.py": "2c93fc2bb0db75d7a2f75556a7cd058f912e2ef3c0a38f4d5b0b851d29c82ddb",
+    "final-preservation.py": "be9c84547d35f2b1aac4080c1d17d579c83850182e6c20367065808c1e637c66"
+  },
+  "public_status_browser": {
+    "tool": 69747,
+    "actual_exit_code": 0,
+    "terminal_sha256": "39102298cbbc590e6836e1dbdcd56ff09b796a9a8d6c3012c2ae73bc60045037",
+    "combined_peak_RSS_bytes": 952430592,
+    "wall_seconds": 35.00357270501263,
+    "actual_both_HTTP": true,
+    "actual_original_DOM": true,
+    "actual_same_source_record": true,
+    "real_automatic_second_poll": true,
+    "automatic_poll_ports": [
+      5173,
+      5174
+    ],
+    "record_time": "2026-10-12T08:41:06.648141Z",
+    "record_sha256": "7f9d13cd72732ad49cbb1eaa605a7e5f57a1e6a0f0e6f65b79666c402cf2fda1",
+    "API_writes": 0,
+    "credentialed_status_requests": 0,
+    "pageerrors": []
+  }
+}
