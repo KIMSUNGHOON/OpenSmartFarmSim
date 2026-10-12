@@ -13,6 +13,7 @@ import ssl
 import sys
 import threading
 import time
+import traceback
 
 import pytest
 from pytest import MonkeyPatch
@@ -87,6 +88,23 @@ def login_database():
 def actual_api(runtime, directory):
     server = runtime.service.server()
     inventory = reference.fd_inventory()
+    diagnostics = MonkeyPatch()
+    if os.environ.get('OSSF_LIVE_BROWSER_DIAGNOSTICS') == '1':
+        from app import api_crop_greenhouse_ventilation_execution as wire
+        original_pool = wire.run_in_threadpool
+        failures = []
+        async def observed_pool(action, *args, **kwargs):
+            try:
+                return await original_pool(action, *args, **kwargs)
+            except Exception as error:
+                failures.append(True)
+                observation.save(directory/('exception-'+str(len(failures))+'.private.json'),
+                    {'action': action.__qualname__, 'exception': type(error).__name__,
+                     'sqlstate': getattr(error, 'sqlstate', None),
+                     'frames': [{'file': Path(f.filename).name, 'line': f.lineno, 'function': f.name}
+                        for f in traceback.extract_tb(error.__traceback__)]})
+                raise
+        diagnostics.setattr(wire, 'run_in_threadpool', observed_pool)
     observed = observation.Observe(server.config.app, directory)
     server.config.app = observed
     thread = threading.Thread(target=server.run, daemon=True)
@@ -101,6 +119,7 @@ def actual_api(runtime, directory):
         server.should_exit = True
         thread.join(15)
         assert not thread.is_alive()
+        diagnostics.undo()
         assert reference.fd_inventory() == inventory
 
 
@@ -231,6 +250,8 @@ def test_actual_unpaused_product_browser(prefix_native, tmp_path, monkeypatch, m
                 finally:
                     connection.close()
                 if mode == 'cancel':
+                    assert any(wire['path'].endswith('/cancel') and body.get('cancel_accepted') is True
+                        for wire, body in bodies)
                     assert outcome['job']['state'] == 'canceled' and outcome['result'] is None
                     assert result['cancel_accepted'] and result['scene_cleared']
                 else:

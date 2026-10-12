@@ -59,13 +59,9 @@ try{
   gc=setInterval(async()=>{try{await cdp.send('HeapProfiler.collectGarbage');globalThis.gc?.();}catch{}},250);gc.unref();
   page.on('pageerror',e=>errors.push(e.message));
   page.on('console',e=>{if(['warning','error'].includes(e.type()))warnings.push(e.text().slice(0,200));});
-  page.on('response',async response=>{
+  page.on('response',response=>{
     const url=new URL(response.url());if(!url.pathname.startsWith('/v1/'))return;
     responses.push({path:url.pathname,query:url.search,status:response.status(),method:response.request().method()});
-    if(url.pathname==='/v1/crop-greenhouse-ventilation-executions'&&response.status()===202)
-      jobId=(await response.json()).job_id;
-    if(url.pathname.endsWith('/cancel')&&response.status()===200)
-      cancelAccepted=(await response.json()).cancel_accepted===true;
   });
   await page.goto(config.origin+'/#ventilation-execution');
   if(await page.locator('.connection').getAttribute('open')===null)
@@ -76,7 +72,12 @@ try{
   await page.getByLabel('검토된 계산 접수 파일').setInputFiles(config.request_file);
   const submit=page.getByRole('button',{name:'계산 접수',exact:true});
   await until(()=>submit.isEnabled(),'registered request was rejected by product client',15);
-  await submit.click();await until(()=>jobId,'actual admission did not return a job ID',45);
+  await submit.click();
+  await until(async()=>{
+    const value=await page.getByLabel('계산 작업 ID',{exact:true}).inputValue();
+    if(/^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/.test(value)){jobId=value;return true;}
+    return false;
+  },'product did not display the admitted job ID',45);
   const loopDeadline=Date.now()+270000;
   let terminal=false,canceled=false,selectionVerified=false;
   while(Date.now()<loopDeadline){
@@ -84,10 +85,13 @@ try{
     if(frame&&!frames.some(old=>old.at===frame.at&&old.reference.selector.publication_sequence===frame.reference.selector.publication_sequence)){
       frame.observed_at=new Date().toISOString();frame.selection='automatic_latest';frames.push(frame);
       if(frames.length===1){
-        await screenshot('running');
+        if(config.mode!=='cancel')await screenshot('running');
         if(config.mode==='cancel'){
           await page.getByRole('button',{name:'서버 계산 취소',exact:true}).click();
-          await until(()=>cancelAccepted,'server did not acknowledge cancellation',45);
+          await until(async()=>{
+            cancelAccepted=await page.getByRole('status').filter({hasText:/^취소 요청 수락 · 취소 응답 당시:/}).count()>0;
+            return cancelAccepted;
+          },'product did not display accepted cancellation',45);
           await until(async()=>await page.getByRole('heading',{name:'취소됨',exact:true}).count(),'worker did not settle canceled',90);
           assert(await page.locator('.coupled-canvas').count()===0,'canceled scene remains');
           canceled=true;break;
