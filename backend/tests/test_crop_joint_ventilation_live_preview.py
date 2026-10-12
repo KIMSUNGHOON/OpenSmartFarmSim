@@ -1,0 +1,70 @@
+"""Verify the owned preview's opt-in upgrade and rollback on a fresh database."""
+from dataclasses import replace
+import importlib.util
+from pathlib import Path
+
+import pytest
+from psycopg import sql
+
+from app.crop_greenhouse_ventilation_result_schema import TABLE
+from app.runtime_roles import audit_runtime_roles
+from test_crop_climate_joint_result_store import (
+    login_database, login_scope, original_login_scope, pytestmark,
+)
+
+spec = importlib.util.spec_from_file_location(
+    'ventilation_live_preview', Path(__file__).resolve().parents[2]/'research/crop-joint-ventilation-live-preview.py')
+preview = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(preview)
+
+
+def relation(conn, policy):
+    return conn.execute('SELECT to_regclass(%s) AS relation', (policy.schema+'.'+TABLE,)).fetchone()['relation']
+
+
+def test_upgrade_and_rollback_preserve_existing_access(login_scope, login_database):
+    base, previous, _ = login_scope
+    enabled = replace(previous, crop_greenhouse_ventilation_result_storage=True)
+    with base.connect() as conn:
+        before = conn.execute(sql.SQL('SELECT count(*) AS n FROM {}').format(base._table('jobs'))).fetchone()['n']
+        audit_runtime_roles(conn, previous)
+    preview.provision(login_database['admin'], enabled)
+    with base.connect() as conn:
+        assert relation(conn, enabled) is not None
+        audit_runtime_roles(conn, enabled)
+        for privilege in ('SELECT', 'INSERT'):
+            assert conn.execute('SELECT has_table_privilege(%s,%s,%s) AS allowed',
+                (enabled.roles['authority'], enabled.schema+'.'+TABLE, privilege)).fetchone()['allowed']
+        assert conn.execute(sql.SQL('SELECT count(*) AS n FROM {}').format(base._table('jobs'))).fetchone()['n'] == before
+    preview.provision(login_database['admin'], previous, enabled=False)
+    with base.connect() as conn:
+        assert relation(conn, previous) is not None
+        audit_runtime_roles(conn, previous)
+        for privilege in ('SELECT', 'INSERT'):
+            assert not conn.execute('SELECT has_table_privilege(%s,%s,%s) AS allowed',
+                (previous.roles['authority'], previous.schema+'.'+TABLE, privilege)).fetchone()['allowed']
+
+
+def test_failed_audit_rolls_back_table_and_grants(login_scope, login_database, monkeypatch):
+    base, previous, _ = login_scope
+    enabled = replace(previous, crop_greenhouse_ventilation_result_storage=True)
+    with base.connect() as conn:
+        assert relation(conn, previous) is None
+    def reject(*_):
+        raise ValueError('injected activation audit rejection')
+    with monkeypatch.context() as patch:
+        patch.setattr('app.runtime_roles.audit_runtime_roles', reject)
+        with pytest.raises(ValueError, match='injected activation audit rejection'):
+            preview.provision(login_database['admin'], enabled)
+    with base.connect() as conn:
+        assert relation(conn, previous) is None
+        audit_runtime_roles(conn, previous)
+
+
+def test_policy_mismatch_cannot_install(login_scope, login_database):
+    base, previous, _ = login_scope
+    with pytest.raises(ValueError, match='storage policy mismatch'):
+        preview.provision(login_database['admin'], previous)
+    with base.connect() as conn:
+        assert relation(conn, previous) is None
+        audit_runtime_roles(conn, previous)

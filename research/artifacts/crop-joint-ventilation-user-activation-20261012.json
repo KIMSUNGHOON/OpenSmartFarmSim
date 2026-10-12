@@ -1,0 +1,100 @@
+{
+  "scope": "owned synthetic user activation attempt; held and prior runtime restored",
+  "native_cli": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "recursive_invocations": 0
+  },
+  "accepted": false,
+  "new_model_deployed": false,
+  "same_database_activation_attempted": true,
+  "highest_actual_HTTPS_prefix": {
+    "steps": 55,
+    "planned_steps": 64,
+    "stored_samples": 7,
+    "computed_through_utc": "2026-10-01T00:01:50.123456Z"
+  },
+  "transaction_preflight": {
+    "tests": 3,
+    "original_tool": 14357,
+    "actual_exit": 0
+  },
+  "prepared_private_proof_regression": {
+    "cases": 2,
+    "original_tool": 63614,
+    "actual_exit": 0
+  },
+  "preservation": {
+    "old_rows": true,
+    "old_immutable_files": 464,
+    "old_signing_keys_rights_token": true,
+    "new_grants_revoked": true,
+    "prior_runtime_restored": true,
+    "auth_times_renewed": true,
+    "original_restore_tool": 18188,
+    "restore_tool_intentionally_live": true
+  },
+  "holds": [
+    "same authority connection_limit8 exhausted with simultaneous typed consumers and HTTPS reads",
+    "current user WebGL browser exceeded1GiB combined RSS; input browser32MiB Node heap also failed",
+    "consumer shutdown exceeded60s and skipped normal dump; DB/old rows retained and rollback verified",
+    "new user normal terminal/hold/cancel/reconnect/WebGL acceptance incomplete"
+  ],
+  "excluded_attempts": {
+    "new_live": {
+      "tool": 93817,
+      "actual_exit": 1
+    },
+    "full_browser_RSS": [
+      85733,
+      16556
+    ],
+    "input_browser_RSS": [
+      16463
+    ],
+    "input_browser_heap": [
+      49713
+    ],
+    "actual_api_partial": {
+      "tool": 77818,
+      "actual_exit": 1
+    },
+    "bridge_handoff_JSON": {
+      "tool": 93556,
+      "actual_exit": 1,
+      "owned_remaining": 0
+    },
+    "restored_status_alias_missing": {
+      "tool": 84030,
+      "actual_exit": 1,
+      "fixed_with_owned_nginx_reload": true
+    }
+  },
+  "remaining_focused_hours": {
+    "min": 2,
+    "max": 4,
+    "confidence": "low; revised provisional work estimate, no guaranteed finish time"
+  },
+  "real_farm_runs": 0,
+  "independent_local_datasets": 0,
+  "G0_G4": "not_assessed",
+  "full_product_completion": null,
+  "final_progress_browser": {
+    "original_tool": 91229,
+    "actual_exit": 0,
+    "ports": [
+      5173,
+      5174
+    ],
+    "source_record_matches_HTTP_DOM": true,
+    "automatic_poll_seconds": 15,
+    "mobile_width": 390,
+    "API_writes": 0,
+    "credentialed_status_requests": 0,
+    "pageerrors": 0,
+    "record_sha256": "1ea259108f810338d42d1f25579dcb50ebf20dc2067cfcbedf5efc616b2de355",
+    "combined_peak_RSS_bytes": 974925824,
+    "single_PID_peak_RSS_bytes": 262889472,
+    "owned_remaining": 0
+  }
+}
