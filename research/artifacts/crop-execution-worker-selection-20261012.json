@@ -1,0 +1,411 @@
+{
+  "schema_version": "crop-worker-selection-reference-v1",
+  "observed_at": "2026-10-12T04:21:01.836370+00:00",
+  "native_cli": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "70f21c9995d0c64e93005591341cf0c5e0b00d5c824031f3e165cc0b9d48a5a4",
+    "recursive_invocations": 0,
+    "same_native_CLI_session": true,
+    "timestamp": "2026-10-12T03:57:30.027Z",
+    "turn_id": "01a12e42-2813-7db0-b69d-b7a7bf7e08da"
+  },
+  "production_source": {
+    "backend/app/crop_execution_worker_selection.py": "4873b8e15ba07d5200d962ceb656707e15423c7de62eaad3e9dcfc91eefdff04"
+  },
+  "test_source_sha256": "14d0444442c6e1583f0e0871665a6ea229b8b4dfbaf0b75394ae6c17f3cdd22f",
+  "unique_tests": 42,
+  "new_tests": 36,
+  "existing_consumer_checks": 6,
+  "cases": {
+    "baseline": {
+      "case": "focused-worker-selection-baseline-v1",
+      "original_tool": 69532,
+      "unique_tests": 0,
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 1.9334348859993042,
+      "single_PID_peak_RSS_bytes": 136327168,
+      "combined_peak_RSS_bytes": 692424704,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 4,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "76d95e5f725b27e3e3dbbe5d8f0a361861f69a303aa9693b83135e30b9568787",
+      "terminal_sha256": "f732a6a26ab2d35b89e5d4dc17fd96e1a0c80fbd35f5ecf79599a0a69f18d426"
+    },
+    "selection": {
+      "case": "focused-worker-selection-unit-v1",
+      "original_tool": 44859,
+      "unique_tests": 35,
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 2.7015510969940806,
+      "single_PID_peak_RSS_bytes": 137445376,
+      "combined_peak_RSS_bytes": 716525568,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 4,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "e04e4143f3737ac426efe5f156c1e55e690b046397aee9543457151929c3244b",
+      "terminal_sha256": "c8b043302cffcb2887334cdcc0b0a05aa334aa35b7c1caa18bd96b3cbbac6d31"
+    },
+    "native": {
+      "case": "focused-worker-selection-native-v3",
+      "original_tool": 69268,
+      "unique_tests": 1,
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 158.89151556701108,
+      "single_PID_peak_RSS_bytes": 152109056,
+      "combined_peak_RSS_bytes": 996454400,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 4,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "5e90af874123b0a94dcb1dcfd6d9744398c1450daa425934e08260f9dbf9add8",
+      "terminal_sha256": "addf1f098e15873cc38852e2696ceac00547f2c71e30cd5900cd3f70b5c6c2ca"
+    },
+    "legacy": {
+      "case": "focused-worker-selection-legacy-entry-v1",
+      "original_tool": 77972,
+      "unique_tests": 6,
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 2.989437141994131,
+      "single_PID_peak_RSS_bytes": 136327168,
+      "combined_peak_RSS_bytes": 770707456,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 4,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "355636850f7dab714b044e3b1d02a1b5ecd97df476dc57e9a1213da870b0c082",
+      "terminal_sha256": "7b7e2f8398a636429bcbdcf0c8161fccc36b29919958e366a0af7a6eb23af7d8"
+    },
+    "preservation": {
+      "case": "focused-worker-selection-final-preservation-v1",
+      "original_tool": 44887,
+      "unique_tests": 0,
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 1.918846198997926,
+      "single_PID_peak_RSS_bytes": 136327168,
+      "combined_peak_RSS_bytes": 693776384,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 4,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "867cd97a85150187e79fc588b567616786bb353eb5ed20a1a5fe9552a56b4999",
+      "terminal_sha256": "b9c4771ab3feb4899c0a172e8ffc43fe4bbb4980759d8d4d764df592436603c3"
+    },
+    "UI": {
+      "case": "focused-worker-selection-current-status-browser-v1",
+      "original_tool": 28411,
+      "unique_tests": 0,
+      "actual_child_exit": 0,
+      "reason": null,
+      "wall_seconds": 34.68921455799136,
+      "single_PID_peak_RSS_bytes": 261300224,
+      "combined_peak_RSS_bytes": 957583360,
+      "sample_interval_seconds": 0.25,
+      "source_preserved": true,
+      "preview_source_preserved": true,
+      "preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "joint_preview_assets_preserved": true,
+      "original_sources_preserved": true,
+      "original_source_entries": 2148,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "protected_root_count": 4,
+      "protected_live": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "temporary_PG_directories_remaining": [],
+      "passfiles_remaining": [],
+      "log_sha256": "4c51c8356c451772cbbb14f746d5e9b615a836a15ad89584a7663a29c48b1407",
+      "terminal_sha256": "9f4be741eee790ff0093eae27a269015b56fcf583bdf91d7ea6457e89480053f"
+    }
+  },
+  "native": {
+    "G0_G4": "not_assessed",
+    "same_database": true,
+    "sequential_consumers": true,
+    "two_selected_independent_consumers": [
+      {
+        "actual_SCRAM": true,
+        "current_rights_rejected_before_math_no_publication": true,
+        "events": [
+          {
+            "event": "started",
+            "version": 1
+          },
+          {
+            "attempt": 1,
+            "event": "attempt",
+            "job_id": "d5d21aa8-25aa-4ae4-b3c5-62e2cebe4764",
+            "reason_code": "completed",
+            "state": "succeeded",
+            "version": 1
+          },
+          {
+            "event": "stopped",
+            "version": 1
+          }
+        ],
+        "model": "crop-climate-joint",
+        "original_progress_UTC": true,
+        "other_job_and_history_unchanged": true,
+        "other_snapshot_after": {
+          "attempt_outcomes": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "job": "899bbac42c1ea19da642e15f8da5732313df781d39c29641fa11ef52681c268d",
+          "job_attempts": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "job_events": "3205a4b3dbdb63579ce856bfcef87b8e312bbb6c5c098874f271f99c85d6bbc4",
+          "job_publications": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "other_snapshot_before": {
+          "attempt_outcomes": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "job": "899bbac42c1ea19da642e15f8da5732313df781d39c29641fa11ef52681c268d",
+          "job_attempts": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "job_events": "3205a4b3dbdb63579ce856bfcef87b8e312bbb6c5c098874f271f99c85d6bbc4",
+          "job_publications": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "payload_sha256": "34c2aad63a6df4685b36a266c13302738847105c457ed89ce49258faa6b3e3dc",
+        "process_exit": 0,
+        "rights_rejection_reason": "joint_execution_runtime_failure",
+        "rights_rejection_state": "queued",
+        "step_calls": 16
+      },
+      {
+        "actual_SCRAM": true,
+        "current_rights_rejected_before_math_no_publication": true,
+        "events": [
+          {
+            "event": "started",
+            "version": 1
+          },
+          {
+            "attempt": 1,
+            "event": "attempt",
+            "job_id": "21992c02-8489-4aaf-a831-6ffefa3fcee0",
+            "reason_code": "completed",
+            "state": "succeeded",
+            "version": 1
+          },
+          {
+            "event": "stopped",
+            "version": 1
+          }
+        ],
+        "model": "crop-greenhouse-ventilation",
+        "original_progress_UTC": true,
+        "other_job_and_history_unchanged": true,
+        "other_snapshot_after": {
+          "attempt_outcomes": "665c8df42a9bdda92557546919ac5ebbb35d024b127cac1f25bb0256c14aa222",
+          "job": "1f516bcd9a679ad075a93a3d44be9bb00b850b1c5ceaf69399a62bd29b361ec6",
+          "job_attempts": "f4e0242507151017dc27ce7e80ec0ebeba447c09d2a3c04ae6124993880a64a4",
+          "job_events": "b9dc8a124a8de912e795fb1fa248c80c962b72da78113b247437f0a4a3bae0fb",
+          "job_publications": "42c2d078e0f3847c5266285442f8603acde7c6eae26138eccea5f4a147382dd0"
+        },
+        "other_snapshot_before": {
+          "attempt_outcomes": "665c8df42a9bdda92557546919ac5ebbb35d024b127cac1f25bb0256c14aa222",
+          "job": "1f516bcd9a679ad075a93a3d44be9bb00b850b1c5ceaf69399a62bd29b361ec6",
+          "job_attempts": "f4e0242507151017dc27ce7e80ec0ebeba447c09d2a3c04ae6124993880a64a4",
+          "job_events": "b9dc8a124a8de912e795fb1fa248c80c962b72da78113b247437f0a4a3bae0fb",
+          "job_publications": "42c2d078e0f3847c5266285442f8603acde7c6eae26138eccea5f4a147382dd0"
+        },
+        "payload_sha256": "b9b17c2f60e58df38698139d859da6e82ff2acbb5874bf657fba75183f8d3d64",
+        "process_exit": 0,
+        "rights_rejection_reason": "ventilation_execution_runtime_failure",
+        "rights_rejection_state": "queued",
+        "step_calls": 16
+      }
+    ],
+    "unselected_factory_calls": 0,
+    "user_server_activated": false
+  },
+  "excluded": [
+    {
+      "case": "focused-worker-selection-native-v1",
+      "original_tool": 68997,
+      "actual_exit": 1,
+      "accepted": false,
+      "reason": "both independent calculations passed; rights rejection returned existing queued transient retry instead of test expected hold",
+      "terminal_sha256": "a9b9f16d85d7b82ac4b431cf92991cf34e4225eccf5b22c8e9e04a9cc8c6d26c",
+      "owned_remaining": []
+    },
+    {
+      "case": "focused-worker-selection-native-v2",
+      "original_tool": 14538,
+      "actual_exit": 1,
+      "accepted": false,
+      "reason": "both calculations passed; unordered other-job row-list digest differed; final canonical per-row comparison passed; original cause not conclusively established",
+      "terminal_sha256": "782c2fea6dd29ac02d6b1e8eb465b0c7f9091ee71f37dcb7f5d91c138e6fe888",
+      "owned_remaining": []
+    }
+  ],
+  "preservation": {
+    "G0_G4": "not_assessed",
+    "actual_crop_Runs": 0,
+    "current_UI_assets_unchanged": 172,
+    "explicit_shared_api_changes": [
+      "backend/app/api_crop_greenhouse_ventilation_execution.py",
+      "backend/app/crop_greenhouse_ventilation_execution.py",
+      "backend/app/crop_greenhouse_ventilation_execution_checkpoint.py",
+      "backend/app/crop_greenhouse_ventilation_execution_worker.py",
+      "backend/app/crop_greenhouse_ventilation_operator_config.py",
+      "backend/tests/test_api_crop_greenhouse_ventilation_execution.py",
+      "backend/tests/test_crop_greenhouse_ventilation_execution_worker.py",
+      "web/src/GreenhouseVentilationReplay.tsx"
+    ],
+    "legacy_DB_counts_equal": true,
+    "legacy_access_tokens_preserved": true,
+    "legacy_grant_lifetime_renewed": false,
+    "legacy_harvest_rows": 47813,
+    "legacy_jobs_restored_exactly": 89,
+    "legacy_live_observation_excluded": true,
+    "legacy_old_guide_preserved": true,
+    "legacy_private_immutable_files_preserved": 23,
+    "legacy_result_key_preserved": true,
+    "legacy_saved_events": 5,
+    "legacy_saved_samples": 47809,
+    "legacy_service_not_restarted": true,
+    "modern_job_rows": {
+      "job_attempts": 37,
+      "job_events": 370,
+      "jobs": 112
+    },
+    "modern_original_database_files_rights_keys_unchanged": true,
+    "modern_preexisting_files": 464,
+    "modern_restarted_with_same_access": false,
+    "modern_service_not_restarted": true,
+    "observed_at": "2026-10-12T04:17:35.265634+00:00",
+    "preexisting_source_entries": 706,
+    "preexisting_source_unchanged": 698,
+    "protected_roots_live": 4
+  },
+  "current_UI": {
+    "actual_both_HTTP": true,
+    "actual_same_source_record": true,
+    "actual_original_DOM": true,
+    "stage_count": 5,
+    "authentication_required": false,
+    "real_automatic_second_poll": true,
+    "automatic_poll_ports": [
+      5173,
+      5174
+    ],
+    "record_time": "2026-10-12T04:18:14.742694Z",
+    "record_sha256": "5e21646cdcdda1a4725611f120dee5fa08b93a5dff00a689c9a595495858fcdd",
+    "new_model_deployed": false,
+    "remaining_focused_hours": {
+      "min": 1,
+      "max": 3
+    },
+    "full_product_completion": null,
+    "API_writes": 0,
+    "credentialed_status_requests": 0,
+    "pageerrors": []
+  },
+  "next_activation_dependencies": {
+    "changed": [],
+    "exact_source_match": true,
+    "live_storage_policy": {
+      "authored_release_storage": false,
+      "authored_run_storage": false,
+      "crop_climate_joint_result_storage": true,
+      "crop_coupled_result_storage": false,
+      "crop_cycle_calculation_result_storage": false,
+      "crop_cycle_result_storage": true,
+      "crop_result_storage": false,
+      "crop_startup_result_storage": false,
+      "market_source_storage": true,
+      "thermal_scenario_storage": true
+    },
+    "source_files": 132,
+    "source_pin_exists": true,
+    "ventilation_storage_activation_needed": true
+  },
+  "captures": {
+    "product-ui-worker-selection-progress-5173-20261012.png": "08f012ee4cb6a7cbdbd9cc09036bb6b011e7dcbe68519a00cb11716d507e7032",
+    "product-ui-worker-selection-progress-5174-mobile-20261012.png": "5e73b61ff762cb25f3ec5259f2c739c0afbb600a2f7c6b262bf4699ce91c15d0"
+  },
+  "new_model_deployed": false,
+  "user_services_restarted": false,
+  "real_farm_runs": 0,
+  "G0_G4": "not_assessed",
+  "hosted_CI_run": false,
+  "full_regression_run": false
+}
