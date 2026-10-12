@@ -3,7 +3,7 @@
 <a id="joint-execution-user-preview"></a>
 
 **2026-10-11 21:19 KST:** [계산 중 연속 수치3D의 사용자 연결](../research/crop-climate-joint-prefix-advance-browser-20261011.md)을 합성128초 범위로 수용했다.
-현재 접속 파일은 아래 `run-v13`/`serve-v12`다.2026-10-12 07:44 KST 복구에서5173의 기존 접속 토큰을 보존했다.
+현재 접속 파일은 아래 `run-v14`/`serve-v12`다.2026-10-12 웹 연결 검증 뒤5173을 같은 저장 결과·접속 토큰으로 복구했다.5174는 계속 유지했다.
 2026-10-12 확정 부분 API 검증의 WSL 점검 중5173만 중단·복구했다.5174는 계속 유지했다. [최신 진행 표시/원 결과·접속 정보 보존](../research/product-ui-waiting-feedback-20261012.md#0744-kst-후속-복구와-실제-표시)을 확인했다.
 새 환기 모델의 [완료 결과 웹 검증](../research/crop-greenhouse-ventilation-web-terminal-implementation-20261012.md)은 로컬 수용이며 사용자 서버에는 아직 미배포다.
 5173은 완료 저장 결과 재생,5174는 같은 사용자 DB의 계산 상태/확정 부분 결과 자동 조회다.
@@ -68,7 +68,7 @@
 
 새 접속 토큰과 원 결과의 다섯 입력값은 저장소 밖의 보호 파일에 있다.
 
-`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v13/service/OPEN-UI.private.txt`
+`~/.local/state/OpenSmartFarmSim/20261009-full-harvest-user-preview/run-v14/service/OPEN-UI.private.txt`
 
 2026-10-10 기존 서비스 종료를 확인한 뒤 보존 원본으로 재기동했다.
 이전 토큰 대신 위 새 안내를 사용한다. 인증된 생장/수확 summary의 원 wire 일치·계산0을

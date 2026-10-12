@@ -1,0 +1,432 @@
+{
+  "schema_version": "ventilation-web-prefix-software-acceptance-v1",
+  "observed_at": "2026-10-11T23:59:17.095985+00:00",
+  "base_commit": "163b329e6b88ca48db37ea06da3d540eeb17a6ff",
+  "scope": "typed client and recorded-response product browser; not live new-model worker/API/WebGL or user activation",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "timestamp": "2026-10-11T23:35:20.544Z",
+    "raw_line_sha256": "d8b9308accd12a439f617cec108f04e0336bbe45835ba4b8299c602eb55b106c",
+    "same_native_CLI_session": true,
+    "recursive_invocations": 0
+  },
+  "unit_tests": 525,
+  "recorded_browser_cases": 24,
+  "combined_unique_checks": 549,
+  "typecheck": true,
+  "bounded_build": true,
+  "recorded_values_sha256": "fce186ea3214157f73f63d6d51fd37627704f29bf680110b664f74ab13a9b1b1",
+  "source_sha256": {
+    "web/src/greenhouseVentilationExecution.ts": "e2ac6e6ec002000e6666f570a97c8e97c1fff9466abd1ab35bfd8041e861db8b",
+    "web/src/greenhouseVentilationPrefix.ts": "0789c6d84ba6b8c6dfbb18435f5639eb7a6b28a3b94c4c81ffe6da5a32545622",
+    "web/src/greenhouseVentilationExecution.test.ts": "986c048403d8d7012a950ff5d37fec24a5361f2e8179c7ea2b60ff869e7cecc2",
+    "web/src/greenhouseVentilationPrefix.test.ts": "bb1914dc7c8b99d592c4cb09fd30202aec74ae11f72f32244112d292f9833891",
+    "web/src/GreenhouseVentilationExecution.tsx": "346db4b7177091abbec795c83bd6749d2823a2355d0b7361778a955614b133c8",
+    "web/src/GreenhouseVentilationPrefix.tsx": "fee39ffb4493229a80ffac91cfa66896c0e1f9fc1fea122ae4aafbce69ff1469",
+    "web/src/CropExecutionWorkspace.tsx": "a882ea50ecbb0e7f554bbab45b9e107b7bb2b196cf5153e0ab5af447eed28f32",
+    "web/src/api.ts": "8d0e7536c4534e41f2a2226c6285e8c7cb433610ff456a3fdaa7af9afdc80834",
+    "web/src/App.tsx": "13d45bd8d890cc8fdfb7d7ae828ff05fb02f3831d54aa49c2c5e466a70663f10",
+    "web/src/GreenhouseVentilationReplay.tsx": "2d19abce5d103f73836b6a2b0fdda3d3e57e34b61fc5bc52d0fe4269c953b7ba",
+    "web/e2e/greenhouse-ventilation-prefix.spec.ts": "e4094de840fd118c692bac8f12514bfdc58978fdf63aa9bc4b1406022b3a5969"
+  },
+  "accepted_guards": [
+    {
+      "case": "focused-web-SDK-unit-v2",
+      "actual_child_exit": 0,
+      "terminal_sha256": "f9188adcbf879e0dc7afe8670d67dea8a856b49fd87c7a78eb2a35b01a3139aa",
+      "log_sha256": "9fb0aadfbfe0610b93fec3284953280d718679d5c2eb27c6eba35189a5fdb415",
+      "wall_seconds": 2.2558434679958737,
+      "single_PID_peak_RSS_bytes": 221130752,
+      "combined_peak_RSS_bytes": 917352448,
+      "legacy_only_maintenance_window": false
+    },
+    {
+      "case": "focused-web-typecheck-final-v1",
+      "actual_child_exit": 0,
+      "terminal_sha256": "ddf603861fc6c678787602c16a64078eed3196ae374011fd13178a23704baff9",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "wall_seconds": 0.83705477201147,
+      "single_PID_peak_RSS_bytes": 421236736,
+      "combined_peak_RSS_bytes": 797966336,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-build-v3",
+      "actual_child_exit": 0,
+      "terminal_sha256": "c79caaa82635bab4dc9dc67848bbec7e60f693273adcafcfcd61ba15c3226155",
+      "log_sha256": "577fbb71438fb9c6810839846549be87442bd24113375e5e1b51e9aacc0d2247",
+      "wall_seconds": 1.9233188190119108,
+      "single_PID_peak_RSS_bytes": 355061760,
+      "combined_peak_RSS_bytes": 957390848,
+      "legacy_only_maintenance_window": false
+    },
+    {
+      "case": "focused-web-design-close-v1",
+      "actual_child_exit": 0,
+      "terminal_sha256": "9e92df8c4c3e228ba90e1e6a56cad5f0671effc573da5ede000d4deb7de8a100",
+      "log_sha256": "eb4fe8dbe4e586fc1d0135a5f3ba6df2c6fff003c9f1763db139842eced0e4c9",
+      "wall_seconds": 5.082811258005677,
+      "single_PID_peak_RSS_bytes": 322625536,
+      "combined_peak_RSS_bytes": 865763328,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-final-preservation-v1",
+      "actual_child_exit": 0,
+      "terminal_sha256": "77cea3215330b867b9aeda24e942314b11956447b56e2c121c54469c5de3b66d",
+      "log_sha256": "e35e7eea72ce335a17eb2066f79adfc5cc5053b9e58273ddd52c2f298ebe4e1e",
+      "wall_seconds": 1.9196982430003118,
+      "single_PID_peak_RSS_bytes": 136187904,
+      "combined_peak_RSS_bytes": 723013632,
+      "legacy_only_maintenance_window": false
+    },
+    {
+      "case": "focused-web-kernel-normal-v5",
+      "actual_child_exit": 0,
+      "terminal_sha256": "50247b1991bca582a3e3835326915d409849729f9cf4c1e3235d2c68cca4e42c",
+      "log_sha256": "690faee4d557d719e9642227c39162b626714c23762b8c015ff14df02f3b7fb9",
+      "wall_seconds": 3.7507516619953094,
+      "single_PID_peak_RSS_bytes": 366166016,
+      "combined_peak_RSS_bytes": 893550592,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-navigation-v5",
+      "actual_child_exit": 0,
+      "terminal_sha256": "3bab227d33698959d73dd7e530e39738f773bb072e955a3f4b3d71a24fb30d9a",
+      "log_sha256": "111363cd8eaabea369824bafc6811372dab3ca44d1457d0080226e83fd45d116",
+      "wall_seconds": 2.964681281999219,
+      "single_PID_peak_RSS_bytes": 271884288,
+      "combined_peak_RSS_bytes": 814505984,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-progress503-v5",
+      "actual_child_exit": 0,
+      "terminal_sha256": "cb039b21532ec096571ca451147a1b6d0c805c145fc94a1e6e95fbb2775edcd7",
+      "log_sha256": "836eefe75ff87c23088f02072d11a3eaffbd7393057f151bb8045fdd83708e3e",
+      "wall_seconds": 3.484943673000089,
+      "single_PID_peak_RSS_bytes": 361521152,
+      "combined_peak_RSS_bytes": 889827328,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-prefix-rights-v5",
+      "actual_child_exit": 0,
+      "terminal_sha256": "e8585c5621440025b35eb2a17afc84175d9f98097f38f968b016d2e4fbca1f6a",
+      "log_sha256": "a6f0f5a01074045063401a50f9f1c678365a4e38205a4bcbdd45bb08d2f3ce3b",
+      "wall_seconds": 2.715346173994476,
+      "single_PID_peak_RSS_bytes": 291381248,
+      "combined_peak_RSS_bytes": 817360896,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-job-rights-v5",
+      "actual_child_exit": 0,
+      "terminal_sha256": "ba04c966a402723365bcec31efcca5c9751a376d8d89cd6a7cdb3182cae0a51b",
+      "log_sha256": "ed97009756d8d15b82e2f15de5884564186d21c8d445c9bf5250c44576182776",
+      "wall_seconds": 2.704898903000867,
+      "single_PID_peak_RSS_bytes": 296214528,
+      "combined_peak_RSS_bytes": 822845440,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-atomic-v5",
+      "actual_child_exit": 0,
+      "terminal_sha256": "75fdcb51085ea3687d3a11c875fb583c08bedfe20f9ea275656645f77e7e6f4f",
+      "log_sha256": "acb14cab097a36fa579cebc0dc08a0881a03743e09301b404e10b8fd3cfbb8ad",
+      "wall_seconds": 4.015803271002369,
+      "single_PID_peak_RSS_bytes": 361164800,
+      "combined_peak_RSS_bytes": 887984128,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-unchanged-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "a8459dd8144de8c02de44e3f07f8a136d0b4d4350f74fc8f035a4d9b24050ea5",
+      "log_sha256": "51023f07934c354a4ae804b842571fac08488fbc99277eeb424ad7dc8b299d70",
+      "wall_seconds": 3.752915058998042,
+      "single_PID_peak_RSS_bytes": 361263104,
+      "combined_peak_RSS_bytes": 888102912,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-same-sample-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "864dd3977934749cc6b83405d9e786cd0a0a691258fbe4c8d8b8090279c566eb",
+      "log_sha256": "403604a3e47a490d8ae82e8141e82ff58903bb2ae44ad44c792870ed1a9ed281",
+      "wall_seconds": 3.7586081119952723,
+      "single_PID_peak_RSS_bytes": 371249152,
+      "combined_peak_RSS_bytes": 897970176,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-none-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "a6b215d438d56cc8e731bb49349266c8b90cb985f64b1a02ffa543e088fc5c65",
+      "log_sha256": "3f45de3d010356b63af03fc4a202d82607837c60cf869c39df7901333313d0a7",
+      "wall_seconds": 2.690439351994428,
+      "single_PID_peak_RSS_bytes": 292085760,
+      "combined_peak_RSS_bytes": 818434048,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-ready-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "c49da556163b20f374d0acf691b5302e887f2fce1019a56e5800fc157940ad86",
+      "log_sha256": "765db380dedce211aa6b4b9fadfefa0dda315179106b4c30a16b041ba026398a",
+      "wall_seconds": 2.703809718004777,
+      "single_PID_peak_RSS_bytes": 312483840,
+      "combined_peak_RSS_bytes": 840060928,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-event-only-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "1fd82950b491c0420532d1f26d6d23a8d4c989d5dafb9bb1316390419200e7d7",
+      "log_sha256": "75fc28b7f2f8fffde271d19c10641f02a03865c53a67c27452850cd211b11e0f",
+      "wall_seconds": 2.6885520629875828,
+      "single_PID_peak_RSS_bytes": 296591360,
+      "combined_peak_RSS_bytes": 822702080,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-401-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "063b6eb66312726d07512720adb3e1692e47050b0cc4dd192eaad6b09dfa6171",
+      "log_sha256": "a40fdba1618aee00f3b006dacd0b3e3f9f1312090b6ce7131af6f53ebd195173",
+      "wall_seconds": 3.486354228996788,
+      "single_PID_peak_RSS_bytes": 353034240,
+      "combined_peak_RSS_bytes": 880525312,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-403-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "f404257c3cc66a6aa6956d8b1f910eb3e6b75db4a1c739454f88bafe4af20618",
+      "log_sha256": "1594e69e402acf5986c2c58a31864c5bd8d65fb5e94e2455285b2364026f7883",
+      "wall_seconds": 3.4877852670033462,
+      "single_PID_peak_RSS_bytes": 348581888,
+      "combined_peak_RSS_bytes": 874987520,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-422-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "14b755809cab63ab399b0e65ddd6f7fb00c3ffadc8c5f46f5fb4c264c3963a5d",
+      "log_sha256": "324bc3a61cf058d1f125425d9415a759171b3b9ef8906487c69f1dfa32176ef2",
+      "wall_seconds": 3.5003901370073436,
+      "single_PID_peak_RSS_bytes": 351653888,
+      "combined_peak_RSS_bytes": 878899200,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-malformed-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "ae2769e9bcac5cc12fc61210ed7e81042a6ec34e94951c1f14cf081a066a40d1",
+      "log_sha256": "3fb0336dcd7612ed163dc025da0347b959e0db75be4a2f68ca2f5f01eaf45c0f",
+      "wall_seconds": 3.494718538990128,
+      "single_PID_peak_RSS_bytes": 348344320,
+      "combined_peak_RSS_bytes": 874201088,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-page503-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "446a2a4a802b20862e15cdea4161dea686405084f4cc098d7595e8d1e1e6a04e",
+      "log_sha256": "3544fa6e78f9540de81ae7587a63c1e9fb7d87232670500533ff6cb41d83c503",
+      "wall_seconds": 3.4904399619990727,
+      "single_PID_peak_RSS_bytes": 361893888,
+      "combined_peak_RSS_bytes": 888176640,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-conflict-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "8470c6784cc4ab3e76b6c46e05ae7213aba10d603057faf84c76fcf515c90612",
+      "log_sha256": "a03f04afc1de3b5c9558db1105a59ddebaf70f075d82f838f67cdd69a253a68e",
+      "wall_seconds": 3.475038307995419,
+      "single_PID_peak_RSS_bytes": 354066432,
+      "combined_peak_RSS_bytes": 880943104,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-cancel-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "514bdf10c5ee38c67a8accd375e73808c892752d443be08aef1451fc48a882b7",
+      "log_sha256": "15f51edc7efe052b3f868ac626b7b140d7c983e66f09bb3f8a3b46fb142572bc",
+      "wall_seconds": 2.6908649160031928,
+      "single_PID_peak_RSS_bytes": 296755200,
+      "combined_peak_RSS_bytes": 822829056,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-visibility-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "97871a372cbd2ed2ba574badc6306a3f26c43142fe4bc9841fd7b2bad9a07d8e",
+      "log_sha256": "f725461173b911bd6a9281548fa398f091a16b5275113c7a777616d1ea09b4b4",
+      "wall_seconds": 3.2223497170052724,
+      "single_PID_peak_RSS_bytes": 347443200,
+      "combined_peak_RSS_bytes": 873689088,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-selection-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "d59ad935d5868ab99fac99f527da5303db7066d715f840a7e2293a94e83be500",
+      "log_sha256": "29a8d14a3ac8638b1082a4acf62148bda4f90f7b14615aa6bfc3441f6ebd61fb",
+      "wall_seconds": 2.6894371990056243,
+      "single_PID_peak_RSS_bytes": 301031424,
+      "combined_peak_RSS_bytes": 828719104,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-account-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "e52a28088cba820cb53d971521437368091a96553e35b96ec1e8c8fd3e64a1ed",
+      "log_sha256": "7ce04d8bf47d24a583fa382aec014c6db931a1064dbfb970a549dd8132c742ec",
+      "wall_seconds": 2.6942081839952152,
+      "single_PID_peak_RSS_bytes": 311255040,
+      "combined_peak_RSS_bytes": 837910528,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-completed-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "b7453d67e9f65b42dd48c99c5fb1c67f7a027385d6d17ee1f07a3f9affb4369e",
+      "log_sha256": "8311b38ce7cd0ced8cc5707fdd8cd384cceb025f3cde5f4ae6851e6028d0bfc3",
+      "wall_seconds": 4.013874102005502,
+      "single_PID_peak_RSS_bytes": 360919040,
+      "combined_peak_RSS_bytes": 888389632,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-hold-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "bdca351e57f37a7a626a868c3717e3be557a16122b34dfca9ac6c738713390b3",
+      "log_sha256": "49a6b443cdedd8ef402540d240ee20f6c4455eeb8eff0bb5032e1bf1a53dfe3e",
+      "wall_seconds": 4.27710443000251,
+      "single_PID_peak_RSS_bytes": 349880320,
+      "combined_peak_RSS_bytes": 876662784,
+      "legacy_only_maintenance_window": true
+    },
+    {
+      "case": "focused-web-kernel-mobile-v6",
+      "actual_child_exit": 0,
+      "terminal_sha256": "3542703547348bd5d3a46faa60ccc709ce9b9b69ef052ed1240f11fad51f7d28",
+      "log_sha256": "dd2b73d31446d76a578d1e06c641f66eb387b1b3cccb3b6376b22fda7d686c03",
+      "wall_seconds": 3.4859097309963545,
+      "single_PID_peak_RSS_bytes": 335216640,
+      "combined_peak_RSS_bytes": 861650944,
+      "legacy_only_maintenance_window": true
+    }
+  ],
+  "preservation": {
+    "G0_G4": "not_assessed",
+    "actual_crop_Runs": 0,
+    "current_UI_assets_unchanged": 172,
+    "explicit_shared_api_changes": [
+      "web/src/App.tsx",
+      "web/src/GreenhouseVentilationReplay.tsx",
+      "web/src/api.ts"
+    ],
+    "legacy_DB_counts_equal": true,
+    "legacy_access_tokens_preserved": true,
+    "legacy_grant_lifetime_renewed": true,
+    "legacy_harvest_rows": 47813,
+    "legacy_jobs_restored_exactly": 89,
+    "legacy_live_observation_excluded": true,
+    "legacy_old_guide_preserved": true,
+    "legacy_private_immutable_files_preserved": 23,
+    "legacy_result_key_preserved": true,
+    "legacy_saved_events": 5,
+    "legacy_saved_samples": 47809,
+    "modern_job_rows": {
+      "job_attempts": 37,
+      "job_events": 370,
+      "jobs": 112
+    },
+    "modern_original_database_files_rights_keys_unchanged": true,
+    "modern_preexisting_files": 464,
+    "modern_service_not_restarted": true,
+    "observed_at": "2026-10-11T23:57:25.809608+00:00",
+    "preexisting_source_entries": 699,
+    "preexisting_source_unchanged": 696,
+    "protected_roots_live": 4
+  },
+  "design_close": {
+    "commands_actual_exit": [
+      0,
+      0
+    ],
+    "source_coverage_percent": {
+      "active": 20.0,
+      "empty": 22.2
+    },
+    "precision_match_accepted": false,
+    "existing_approved_layout_reused": true,
+    "unsupported_raster_or_selector_patches_applied": false
+  },
+  "diagnostics_excluded_from_acceptance": {
+    "normal_v1": "test connection disclosure toggled closed; corrected conditional opening",
+    "normal_v2": "missing exact select accessible name; explicit label fixed",
+    "normal_v3_v4": "combined RSS cap stopped test; both user servers remained live",
+    "batch_v5_new_sample": "private runner used absent 02a title; exact 02 title corrected"
+  },
+  "service_restore": {
+    "legacy_original_guard_actual_exit": 0,
+    "same_access_tokens_preserved": true,
+    "legacy_restored": true,
+    "modern_not_restarted": true,
+    "both_HTTP": 200,
+    "original_sources_entries": 2148
+  },
+  "hold": {
+    "actual_unpaused_new_model_browser": true,
+    "new_model_user_activation": true,
+    "full_cycle_resource_economics": true,
+    "independent_farm_evidence": true,
+    "final_product_UI_design": true
+  },
+  "new_model_deployed": false,
+  "real_farm_runs": 0,
+  "G0_G4": "not_assessed",
+  "actual_user_status_browser": {
+    "actual_both_HTTP": true,
+    "actual_same_source_record": true,
+    "actual_original_DOM": true,
+    "stage_count": 5,
+    "authentication_required": false,
+    "real_automatic_second_poll": true,
+    "record_time": "2026-10-12T00:00:18.382958Z",
+    "record_sha256": "8a06a552aab47b307cf256cf326d832082ec4a1fd0efd021e930678f0add75c3",
+    "new_model_deployed": false,
+    "remaining_focused_hours": {
+      "min": 2,
+      "max": 4
+    },
+    "full_product_completion": null,
+    "API_writes": 0,
+    "credentialed_status_requests": 0,
+    "pageerrors": [],
+    "panels": {
+      "5173": {
+        "text": "단계별 개발 기록입니다. 아래에서 완료한 검증과 남은 작업을 확인하세요.\n\n개발 기록 갱신: 2026. 10. 12. 오전 9:00:18\n\n검증 완료 · 작물·환기 생장 계산 — 합성 입력으로 작물 생장·시설 환기의 수식 계산을 검증했습니다. 실제 농장의 생육 정확도 검증은 별도로 남아 있습니다.\n검증 완료 · 결과 저장·현재 권한 조회 — 계산 결과를 DB에 저장하고 같은 시각의 원 수치를 다시 읽는 검증을 마쳤습니다.\n검증 완료 · 사용자 조회 API 연결 — 완료 결과・실행 상태・계산 중 확정 결과 API 검증을 마쳤습니다. 새 모델과 기존 호환 고유 384건, 실제 DB·HTTPS·독립 자동 정상/보류/취소·같은 원 수치/UTC를 확인했습니다. 사용자 서버에 새 모델을 적용한 것은 아닙니다.\n다음 작업 · 자동 작업자·같은 시각의 3D 연결 — 웹 연결 구현과 기록 응답 검증을 마쳤습니다: 웹 525건·브라우저 24경로·타입/빌드, 같은 UTC의 3D·차트·표·환기 원값을 확인했습니다. 현재 남은 작업은 실제 자동 새 모델/API/WebGL 연동 검증입니다. 사용자 서버의 새 모델은 아직 미배포입니다.\n대기 · 실제 브라우저 검증·사용자 화면 적용 — 남은 실제 자동 계산 브라우저 검증 1.5–3시간 + 사용자 적용 0.5–1시간으로 총 2–4집중시간을 잠정 추정합니다. 5173을 같은 결과·접속 토큰으로 복구했고 5174는 유지했습니다. 전체 작기·생산/자원/경제·최종 UI·농장 검증 완료일은 미정입니다.\n\n새 환기 모델의 짧은 합성 계산 화면 연결: 약 2–4집중작업시간 추정. 전체 제품 완료 시각을 뜻하지 않습니다.\n\n새 환기 모델: 현재 사용자 화면에 미배포. 실제 농장 Run: 0건. 전체 제품 완료일: 미정.\n\n기록을 15초마다 확인합니다. 마지막 조회: 2026. 10. 12. 오전 9:01:14.",
+        "mobile": {
+          "viewport": 390,
+          "scroll": 390
+        }
+      },
+      "5174": {
+        "text": "제품 개발과 배포 상태\n\n개발 기록 갱신: 2026. 10. 12. 오전 9:00:18\n\n검증 완료 · 작물·환기 생장 계산 — 합성 입력으로 작물 생장·시설 환기의 수식 계산을 검증했습니다. 실제 농장의 생육 정확도 검증은 별도로 남아 있습니다.\n검증 완료 · 결과 저장·현재 권한 조회 — 계산 결과를 DB에 저장하고 같은 시각의 원 수치를 다시 읽는 검증을 마쳤습니다.\n검증 완료 · 사용자 조회 API 연결 — 완료 결과・실행 상태・계산 중 확정 결과 API 검증을 마쳤습니다. 새 모델과 기존 호환 고유 384건, 실제 DB·HTTPS·독립 자동 정상/보류/취소·같은 원 수치/UTC를 확인했습니다. 사용자 서버에 새 모델을 적용한 것은 아닙니다.\n다음 작업 · 자동 작업자·같은 시각의 3D 연결 — 웹 연결 구현과 기록 응답 검증을 마쳤습니다: 웹 525건·브라우저 24경로·타입/빌드, 같은 UTC의 3D·차트·표·환기 원값을 확인했습니다. 현재 남은 작업은 실제 자동 새 모델/API/WebGL 연동 검증입니다. 사용자 서버의 새 모델은 아직 미배포입니다.\n대기 · 실제 브라우저 검증·사용자 화면 적용 — 남은 실제 자동 계산 브라우저 검증 1.5–3시간 + 사용자 적용 0.5–1시간으로 총 2–4집중시간을 잠정 추정합니다. 5173을 같은 결과·접속 토큰으로 복구했고 5174는 유지했습니다. 전체 작기·생산/자원/경제·최종 UI·농장 검증 완료일은 미정입니다.\n\n새 환기 모델 화면 연결까지: 집중 작업 약 2–4시간 예상. 연속 작업 기준의 추정이며 완료 시각을 보장하지 않습니다.\n\n새 환기 모델: 현재 사용자 화면에 미배포. 실제 농장 Run: 0건. 전체 제품 완료일: 미정.\n\n기록을 15초마다 확인합니다. 마지막 조회: 오전 9:01:31. 단계별 검증 뒤 갱신되는 개발 기록이며, 선택한 계산의 진행률은 아래에서 확인합니다.\n\n현재 계산 화면은 기존 합성 입력의 작물·기후 계산과 확정 저장값의 3D를 제공합니다. 전체 제품은 자원 사용·생산량·경제 통합과 독립 농장 검증이 남아 있습니다.\n\n접속 설정: 미설정 · 아래에서 접근 토큰을 입력하세요.",
+        "mobile": {
+          "viewport": 390,
+          "scroll": 390
+        }
+      }
+    },
+    "guard_terminal_sha256": "ddc58bcf061d7af3f500ecc43d71f1098a3bb49868d77b4679aebee948bc96f0",
+    "original_tool_actual_exit": 0
+  }
+}

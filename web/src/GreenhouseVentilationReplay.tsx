@@ -80,7 +80,7 @@ export default function GreenhouseVentilationReplay({api,initialSelection,autoLo
     if(!api){clear();setError(new ApiError('auth_required'));return;}read(api,{...lookup});}
   return <div className="crop-replay coupled-replay cycle-replay joint-replay ventilation-replay" aria-busy={busy}>
     <div className="crop-scope"><img src={researchLeaf} alt=""/><div><strong>작물·기후·명시 환기 계산 · 합성 연구</strong>
-      <p>관문 미평가 · 등록 품종 미검증. 저장 결과 재생이며 계산 중 실시간 갱신은 아직 연결되지 않았습니다.</p></div></div>
+      <p>관문 미평가 · 등록 품종 미검증. 완료 저장 결과 재생입니다. 계산 중 확정 결과는 계산 상태 화면에서 조회합니다.</p></div></div>
     <details className="panel crop-lookup" open={!summary}><summary>저장 연구 결과 조회</summary>
       <p>명시 환기 결과와 농장 판본의 식별자를 입력하세요. 서버가 현재 권리와 저장 기록을 확인합니다.</p>
       <form onSubmit={submit}><div className="crop-lookup-fields">{(Object.keys(LABELS) as (keyof GreenhouseVentilationLookup)[]).map(key=><label key={key}>{LABELS[key]}

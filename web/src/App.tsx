@@ -12,7 +12,7 @@ import './CropResultCatalog.css';
 const Replay=lazy(()=>import('./Replay'));
 const CropReplay=lazy(()=>import('./CropReplay'));
 const CropResultCatalog=lazy(()=>import('./CropResultCatalog'));
-const CropExecution=lazy(()=>import('./JointCropClimateExecution'));
+const CropExecution=lazy(()=>import('./CropExecutionWorkspace'));
 
 const statusNames:Record<State,string>={queued:'대기 중',researching:'자료 조사 중',collecting:'원본 수집 중',
   reviewing:'자료 검토 중',simulating:'계산 중',assessing:'평가 중',succeeded:'작업 완료',hold:'판단 보류',
@@ -50,7 +50,7 @@ export default function App() {
   const [longitude,setLongitude]=useState(''); const [startDate,setStartDate]=useState('');
   const [startTime,setStartTime]=useState('');
   const [view,setView]=useState<'input'|'work'|'economic'|'authored'|'replay'|'assessment'|'authored-financial'|'crop-replay'|'crop-execution'>(
-    ()=>window.location.hash==='#crop-execution'?'crop-execution':'input'); const [busy,setBusy]=useState(false);
+    ()=>['#crop-execution','#ventilation-execution'].includes(window.location.hash)?'crop-execution':'input'); const [busy,setBusy]=useState(false);
   const [replaySelection,setReplaySelection]=useState<{kind:'authored';jobId:string;autoLoad?:true}|undefined>();
   const [cropCatalog,setCropCatalog]=useState(false);
   const navRef=useRef<HTMLElement|null>(null);
