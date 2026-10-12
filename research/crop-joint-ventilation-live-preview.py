@@ -1,6 +1,7 @@
 """Prepare owned ventilation inputs and activate them on the preserved preview DB."""
 from copy import deepcopy
 from dataclasses import asdict, replace
+from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
 from hashlib import sha256
 from pathlib import Path
@@ -203,6 +204,29 @@ def stop_owned_services(workers, nginx, server, thread, logs):
     return {'children':stopped, 'errors':errors, 'service_stopped':not errors}
 
 
+@contextmanager
+def bounded_database(args, directory, label):
+    import psycopg
+    config, dsn = common.database(args, directory)
+    settings = {'shared_buffers':'16MB', 'max_connections':'32',
+        'work_mem':'1MB', 'maintenance_work_mem':'16MB'}
+    options = f"-h 127.0.0.1 -p {config['port']} -k {config['socket']}"
+    options += ''.join(' -c '+key+'='+value for key, value in settings.items())
+    common.command([args.pg_bin/'pg_ctl', '-D', directory/'database',
+        '-l', directory/('postgres-'+label+'.private.log'), '-w', '-t', '10',
+        'start', '-o', options], directory, 'pg-start-'+label)
+    try:
+        with psycopg.connect(dsn, row_factory=psycopg.rows.dict_row) as conn:
+            actual = {key:conn.execute('SHOW '+key).fetchone()[key] for key in settings}
+        if actual != settings:
+            raise ValueError('owned preview database resource settings rejected')
+        save(directory/(label+'.database-budget.private.json'), actual)
+        yield config, dsn
+    finally:
+        common.command([args.pg_bin/'pg_ctl', '-D', directory/'database', '-m', 'fast',
+            '-w', '-t', '10', 'stop'], directory, 'pg-stop-'+label)
+
+
 def serve(args):
     from app import crop_greenhouse_ventilation_operator_config as loader
     from app.http_identity import token_digest
@@ -231,7 +255,7 @@ def serve(args):
     path = run/'operator.private.json'; save(path, config)
     sys.path.insert(0, str(directory)); stop = threading.Event()
     for sig in (signal.SIGTERM, signal.SIGINT): signal.signal(sig, lambda *_:stop.set())
-    with common.running_database(args, original, args.run) as (_, admin):
+    with bounded_database(args, original, args.run) as (_, admin):
         try:
             provision(admin, RuntimeLoginPolicy(**value['policy']))
             runtime = loader.load_ventilation_api_runtime(path); server = runtime.service.server()
