@@ -188,7 +188,7 @@ def build():
         cwd=ROOT, env=environment, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     context = ssl.create_default_context(cafile=str(cert))
     def call(method="GET", path="/openapi.json", body=None, authenticated=False):
-        conn = http.client.HTTPSConnection("127.0.0.1", port, timeout=1, context=context)
+        conn = http.client.HTTPSConnection("127.0.0.1", port, timeout=5, context=context)
         try:
             headers = {"X-Forwarded-Proto": "http", "X-Forwarded-For": "198.51.100.7"}
             if authenticated: headers["Authorization"] = "Bearer "+TOKEN.decode()

@@ -1,9 +1,32 @@
-import { test, expect } from '@playwright/test';
+import { test, expect,type Page } from '@playwright/test';
 
 const jobId='11111111-1111-4111-8111-111111111111';
 const token='synthetic-browser-test-token-only';
 const queued={job_id:jobId,stage:'research',state:'queued',attempt_count:0,max_attempts:3,
   created_at:'2026-09-29T00:00:00Z',updated_at:'2026-09-29T00:00:00Z',reason_code:null};
+
+async function revealConnection(page:Page) {
+  if (await page.locator('.connection').getAttribute('open')===null)
+    await page.getByText('내부 시험 연결',{exact:true}).click();
+}
+
+test('inactive workspaces mount on first visit and retain a farm draft on return',async ({page}) => {
+  await page.goto('/#ventilation-execution');
+  await expect(page.getByRole('heading',{name:'작물·기후·명시 환기 계산 상태',exact:true})).toBeVisible();
+  await expect(page.locator('.authored-workflow')).toHaveCount(0);
+  await revealConnection(page);
+  await page.getByLabel('접근 토큰').fill(token);
+  await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+  await page.getByRole('button',{name:'04 작성 농장 실행',exact:true}).click();
+  await page.getByRole('button',{name:'새 입력 판본 작성',exact:true}).click();
+  await page.getByRole('button',{name:'참조 직접 입력',exact:true}).click();
+  const scenario=page.locator('.authored-composer input[name="scenario_id"]');
+  await scenario.fill('retained-farm-draft');
+  await page.getByRole('button',{name:'계산 진행 상태 열기',exact:true}).click();
+  await expect(scenario).toBeHidden();
+  await page.getByRole('button',{name:'04 작성 농장 실행',exact:true}).click();
+  await expect(scenario).toHaveValue('retained-farm-draft');
+});
 
 test('keyboard admission, actual response state and bounded hold rendering',async ({page}) => {
   const errors:string[]=[]; page.on('pageerror',error=>errors.push(error.message));
@@ -22,7 +45,7 @@ test('keyboard admission, actual response state and bounded hold rendering',asyn
     missing_evidence_count:2}}));
   await page.goto('/');
   await expect(page.getByRole('heading',{name:'시뮬레이션 입력 설정'})).toBeVisible();
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).press('Enter');
   await page.getByRole('button',{name:'합성 예시 채우기'}).press('Enter');
@@ -45,7 +68,7 @@ test('lost admission reply retains exactly the same intent and never displays in
       point:{latitude:37.5,longitude:127},spatial_support:'pending_research',research_job:queued}});
   });
   await page.goto('/');
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'합성 예시 채우기'}).click();
@@ -83,7 +106,7 @@ test('completed research advances through owned collection and review with stabl
     missing_evidence:['real_source_g0'],missing_evidence_count:1}}));
   await page.setViewportSize({width:390,height:844});
   await page.goto('/');
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'합성 예시 채우기'}).click();
@@ -131,7 +154,7 @@ test('saved source jobs return after reload and revoked authority blocks a new s
   await page.route('**/v1/jobs/'+collectionId,route=>route.fulfill({json:collection}));
   await page.setViewportSize({width:390,height:844});
   await page.goto('/');
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'02 작업과 근거'}).click();
@@ -145,7 +168,7 @@ test('saved source jobs return after reload and revoked authority blocks a new s
   await page.locator('.source-history-results li button').filter({hasText:olderReviewId}).click();
   await expect(page.locator('.source-workflow-steps').getByText('작업 '+olderReviewId)).toBeVisible();
   await page.reload();
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'02 작업과 근거'}).click();

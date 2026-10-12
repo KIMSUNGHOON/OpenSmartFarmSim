@@ -1,18 +1,26 @@
-import { lazy,Suspense,useEffect,useRef,useState,type FormEvent } from 'react';
+import { lazy,Suspense,useEffect,useRef,useState,type FormEvent,type ReactNode } from 'react';
 import { createApi, ApiError, type Evidence, type JobHold, type JobStatus, type LocationAccepted,
   type LocationIntent, type State } from './api';
 import type { SourceHistoryDetail } from './api';
-import EconomicWorkspace from './EconomicWorkspace';
-import AuthoredFarmWorkspace from './AuthoredFarmWorkspace';
-import SourceWorkflow from './SourceWorkflow';
-import AssessmentWorkspace from './AssessmentWorkspace';
-import AuthoredFinancialWorkspace from './AuthoredFinancialWorkspace';
 import DevelopmentStatus from './DevelopmentStatus';
 import './CropResultCatalog.css';
+const EconomicWorkspace=lazy(()=>import('./EconomicWorkspace'));
+const AuthoredFarmWorkspace=lazy(()=>import('./AuthoredFarmWorkspace'));
+const SourceWorkflow=lazy(()=>import('./SourceWorkflow'));
+const AssessmentWorkspace=lazy(()=>import('./AssessmentWorkspace'));
+const AuthoredFinancialWorkspace=lazy(()=>import('./AuthoredFinancialWorkspace'));
 const Replay=lazy(()=>import('./Replay'));
 const CropReplay=lazy(()=>import('./CropReplay'));
 const CropResultCatalog=lazy(()=>import('./CropResultCatalog'));
 const CropExecution=lazy(()=>import('./CropExecutionWorkspace'));
+
+function RetainedWorkspace({active,children}:{active:boolean;children:ReactNode}) {
+  const [opened,setOpened]=useState(active);
+  useEffect(()=>{if(active)setOpened(true);},[active]);
+  return active||opened ? <div hidden={!active}>
+    <Suspense fallback={<p role="status">화면을 불러오는 중입니다.</p>}>{children}</Suspense>
+  </div> : null;
+}
 
 const statusNames:Record<State,string>={queued:'대기 중',researching:'자료 조사 중',collecting:'원본 수집 중',
   reviewing:'자료 검토 중',simulating:'계산 중',assessing:'평가 중',succeeded:'작업 완료',hold:'판단 보류',
@@ -166,16 +174,16 @@ export default function App() {
       {error && <div className="notice error" role="alert">{errorNames[error.code] ?? '요청을 확인할 수 없습니다.'}</div>}
       {authoringLock && view!=='authored' && <p className="notice" role="status">
         농장 입력의 등록 접수를 확인해야 합니다. 04 작성 농장 실행에서 같은 요청을 다시 확인하세요.</p>}
-      <div hidden={view!=='economic'}><EconomicWorkspace api={api} onPending={setFinancialLock} blocked={busy || assessmentLock || authoredFinancialLock || authoringLock}/></div>
-      <div hidden={view!=='assessment'}><AssessmentWorkspace api={api} onPending={setAssessmentLock} blocked={busy || financialLock || authoredFinancialLock || authoringLock}/></div>
-      <div hidden={view!=='authored-financial'}><AuthoredFinancialWorkspace key={financialSelection?.key ?? 'financial'} api={api}
+      <RetainedWorkspace active={view==='economic'}><EconomicWorkspace api={api} onPending={setFinancialLock} blocked={busy || assessmentLock || authoredFinancialLock || authoringLock}/></RetainedWorkspace>
+      <RetainedWorkspace active={view==='assessment'}><AssessmentWorkspace api={api} onPending={setAssessmentLock} blocked={busy || financialLock || authoredFinancialLock || authoringLock}/></RetainedWorkspace>
+      <RetainedWorkspace active={view==='authored-financial'}><AuthoredFinancialWorkspace key={financialSelection?.key ?? 'financial'} api={api}
         initialJobId={financialSelection?.jobId} onPending={setAuthoredFinancialLock} blocked={busy || financialLock || assessmentLock || authoringLock}
-        onOpenReplay={jobId=>{setReplaySelection({kind:'authored',jobId,autoLoad:true});setView('replay');}}/></div>
-      <div hidden={view!=='authored'}><AuthoredFarmWorkspace api={api} onPending={setAuthoringLock} onOpenReplay={jobId=>{
+        onOpenReplay={jobId=>{setReplaySelection({kind:'authored',jobId,autoLoad:true});setView('replay');}}/></RetainedWorkspace>
+      <RetainedWorkspace active={view==='authored'}><AuthoredFarmWorkspace api={api} onPending={setAuthoringLock} onOpenReplay={jobId=>{
         setReplaySelection({kind:'authored',jobId});setView('replay');}}
         financialBlocked={connectionLocked}
         onOpenFinancial={jobId=>{if(connectionLocked)return;
-          setFinancialSelection({jobId,key:crypto.randomUUID()});setView('authored-financial');}}/></div>
+          setFinancialSelection({jobId,key:crypto.randomUUID()});setView('authored-financial');}}/></RetainedWorkspace>
       {view==='replay' && <Suspense fallback={<p role="status">재생 화면 준비 중…</p>}><Replay api={api} initialSelection={replaySelection}
         autoLoadInitialSelection={replaySelection?.autoLoad ?? false}/></Suspense>}
       {view==='crop-replay' && <><div className="catalog-entry">
@@ -234,12 +242,12 @@ export default function App() {
           <p className="muted">현재 상태나 합성 자료만으로 미래 수확·이익·작물 순위를 확정하지 않습니다.</p>
         </section>
       </div>}
-      <div hidden={view!=='work'}><SourceWorkflow api={api} researchJob={job}
+      <RetainedWorkspace active={view==='work'}><SourceWorkflow api={api} researchJob={job}
         restored={restoredSource} blocked={busy || authoringLock} onRestore={detail=>{
           generation.current++;pinned.current=null;jobId.current=detail.research.job.job_id;
           setIntent(null);setAccepted(null);setRestoredSource(detail);setJob(detail.research.job);
           setHold(null);setError(null);setChecked(new Date().toISOString());setView('work');
-        }}/></div>
+        }}/></RetainedWorkspace>
       <footer>OpenSmartFarmSim · 직접 작성한 합성 자료를 위한 내부 시험 화면</footer>
     </main>
   </div>;

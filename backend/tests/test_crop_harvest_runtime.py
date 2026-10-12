@@ -183,9 +183,9 @@ def test_actual_scram_reader_same_endpoint_farm_reassembly_denials_and_no_calcul
             (storage.server.CalculationServerCustody,'advance'), (storage.CalculationCycleCropResultStore,'put'),
             (legacy_server.CycleServerCustody,'advance'), (legacy_store.CycleCropResultStore,'put')):
         monkeypatch.setattr(module,name,forbidden)
-    original_app = runtime.create_app; forwarded = []
+    original_app = api.create_app; forwarded = []
     def capture_app(*args, **kwargs): forwarded.append(kwargs); return original_app(*args, **kwargs)
-    monkeypatch.setattr(runtime, 'create_app', capture_app)
+    monkeypatch.setattr(api, 'create_app', capture_app)
     started = perf_counter(); selected = runtime.ApiRuntime(cfg, deps); seconds = perf_counter()-started
     query = selected.harvest_crop_query; store = selected.harvest_crop_results
     assert forwarded[-1]['crop_harvest_current_query'] is query and query.store is store

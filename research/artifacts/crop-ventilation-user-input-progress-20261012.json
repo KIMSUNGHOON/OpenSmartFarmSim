@@ -1,0 +1,137 @@
+{
+  "scope": "synthetic_user_API_and_local_import_mount_optimization_only",
+  "reported_at": "2026-10-12T11:11:16.153872Z",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "recursive_invocations": 0
+  },
+  "base_commit": "f6918bd746595672645c8992f1d0177e5d94960d",
+  "checks": {
+    "backend_182": {
+      "actual_child_exit": 0,
+      "wall_seconds": 73.85367580500315,
+      "combined_peak_RSS_bytes": 660037632,
+      "single_PID_peak_RSS_bytes": 159076352,
+      "source_preserved": true
+    },
+    "draft": {
+      "actual_child_exit": 0,
+      "wall_seconds": 4.597832387997187,
+      "combined_peak_RSS_bytes": 915161088,
+      "single_PID_peak_RSS_bytes": 299532288,
+      "source_preserved": true
+    },
+    "lost_reply": {
+      "actual_child_exit": 0,
+      "wall_seconds": 3.5305352739960654,
+      "combined_peak_RSS_bytes": 907407360,
+      "single_PID_peak_RSS_bytes": 293863424,
+      "source_preserved": true
+    },
+    "workflow": {
+      "actual_child_exit": 0,
+      "wall_seconds": 4.052649327000836,
+      "combined_peak_RSS_bytes": 895549440,
+      "single_PID_peak_RSS_bytes": 277729280,
+      "source_preserved": true
+    },
+    "typecheck": {
+      "actual_child_exit": 0,
+      "wall_seconds": 5.745041902002413,
+      "combined_peak_RSS_bytes": 729497600,
+      "single_PID_peak_RSS_bytes": 415256576,
+      "source_preserved": true
+    },
+    "build": {
+      "actual_child_exit": 0,
+      "wall_seconds": 1.876909433005494,
+      "combined_peak_RSS_bytes": 818266112,
+      "single_PID_peak_RSS_bytes": 503959552,
+      "source_preserved": true
+    },
+    "preservation": {
+      "actual_child_exit": 0,
+      "wall_seconds": 0.6323817840020638,
+      "combined_peak_RSS_bytes": 623681536,
+      "single_PID_peak_RSS_bytes": 136577024,
+      "source_preserved": true
+    },
+    "visible_progress": {
+      "actual_child_exit": 0,
+      "wall_seconds": 35.07825820399739,
+      "combined_peak_RSS_bytes": 964087808,
+      "single_PID_peak_RSS_bytes": 269598720,
+      "source_preserved": true
+    }
+  },
+  "backend_test_count": 182,
+  "isolated_browser_tests": 3,
+  "user_API": {
+    "actual_HTTPS": true,
+    "actual_SCRAM": true,
+    "actual_admission": true,
+    "confirmed_steps": [
+      64
+    ],
+    "stored_samples": 9,
+    "same_original_saved_values_UTC": true,
+    "old_rows_preserved": true,
+    "old_keys_rights_runtime_token_preserved": true,
+    "webgl_tested": false,
+    "user_live_acceptance": false
+  },
+  "cold_import_RSS_bytes": {
+    "before": 93229056,
+    "after": 83927040,
+    "reduction": 9302016
+  },
+  "initial_JS_bytes": {
+    "before": 1099906,
+    "after": 873225
+  },
+  "latest_stored_3D_attempt": {
+    "actual_child_exit": 1,
+    "reason": "RSS_limit",
+    "wall_seconds": 3.038086148997536,
+    "combined_peak_RSS_bytes": 1073774592,
+    "current_rights_restored": true,
+    "owned_remaining": []
+  },
+  "resource_cap_bytes": 1073741824,
+  "preservation": {
+    "G0_G4": "not_assessed",
+    "all_original_modern_table_rows_preserved": true,
+    "both_services_restored": true,
+    "immutable_files_preserved": 856,
+    "legacy_89_jobs_exact": true,
+    "legacy_events": 5,
+    "legacy_growth_samples": 47809,
+    "legacy_harvest_rows": 47813,
+    "new_grants_revoked": true,
+    "new_model_user_deployed": false,
+    "old_and_new_keys_rights_inputs_proofs_preserved": true,
+    "old_role_policy_audit": true,
+    "real_farm_runs": 0,
+    "retained_validation_job_attempt_count": 1,
+    "retained_validation_job_state": "succeeded",
+    "same_both_access_tokens": true
+  },
+  "visible_progress": {
+    "actual_both_HTTP": true,
+    "actual_same_source_record": true,
+    "actual_original_DOM": true,
+    "real_automatic_second_poll": true,
+    "automatic_poll_ports": [
+      5173,
+      5174
+    ],
+    "record_time": "2026-10-12T11:11:16.153872Z",
+    "API_writes": 0,
+    "credentialed_status_requests": 0
+  },
+  "full_CI_run": false,
+  "new_model_user_deployed": false,
+  "real_farm_runs": 0,
+  "G0_G4": "not_assessed"
+}

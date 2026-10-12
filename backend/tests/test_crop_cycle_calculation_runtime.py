@@ -13,7 +13,7 @@ from psycopg import sql
 
 import pytest
 
-from app import api_runtime as runtime
+from app import api, api_runtime as runtime
 from test_api_runtime import config,dependencies,policy
 from test_api_serve import tls_files
 from test_crop_cycle_calculation_result_store_farms import login_scope,original_login_scope
@@ -164,10 +164,10 @@ def test_actual_scram_calculation_factories_same_farm_reconstruction_mixing_and_
             (storage.server.CalculationServerCustody,'advance'),(storage.CalculationCycleCropResultStore,'put'),
             (old_server.CycleServerCustody,'advance'),(old_store.CycleCropResultStore,'put')):
         monkeypatch.setattr(module,name,forbidden)
-    create_app=runtime.create_app;forwarded=[]
+    create_app=api.create_app;forwarded=[]
     def capture_app(*args,**kwargs):
         forwarded.append(kwargs);return create_app(*args,**kwargs)
-    monkeypatch.setattr(runtime,'create_app',capture_app)
+    monkeypatch.setattr(api,'create_app',capture_app)
     started=perf_counter();selected=runtime.ApiRuntime(cfg,deps);normal_seconds=perf_counter()-started
     current=selected.calculation_cycle_crop_results
     assert forwarded[-1].get('crop_cycle_calculation_result_store') is current

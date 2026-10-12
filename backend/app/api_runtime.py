@@ -5,7 +5,6 @@ import hmac
 import os
 from pathlib import Path
 
-from .api import create_app
 from .break_even_store import BreakEvenStore
 from .content_access import ContentAccess
 from .http_identity import BearerRegistry, PrincipalMiddleware, current_principal
@@ -458,6 +457,7 @@ class ApiRuntime:
                 authored_run_store=authored_runs) if source_admission is not None else None)
             assessments = (CalculationAssessmentService(jobs, thermal, results, scenarios, farm_scenarios,
                 authored_run_store=authored_runs) if source_admission is not None else None)
+            from .api import create_app
             app = create_app(jobs, holds, thermal, results, principal_provider=current_principal,
                 location_research_service=research,
                 break_even_store=break_even, thermal_scenario_store=scenarios,

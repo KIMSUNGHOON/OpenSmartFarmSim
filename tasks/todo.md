@@ -1754,7 +1754,11 @@
               - [x] **`crop-greenhouse-ventilation-user-browser-supervisor-profile`** — [수용/제외 기록](../research/crop-ventilation-browser-supervisor-profile-20261012.md):집중7검사·실제 정상/실패/중단 권리 복원·FD4→4/정리, 원49953/69783 실제0의 저장9시점 HTTP/DB/UTC/WebGL·재접속/390px·조회 계산/쓰기0를 확인했다. 대기/계산/화면/정리의 같은 시각 RSS와 Node heap/external/arrayBuffers를 기록했다. 후속 정상87172는 RSS 초과로 거부했고 원40410/29592 실제0에서 원 데이터/682파일·두 UI 복구와 새 계산64/64·attempt1을 확인했다. 전체 사용자 WebGL은 미수용이다.
               - [x] **`crop-greenhouse-ventilation-user-browser-owner-integration`** — [수용](../research/crop-ventilation-browser-owner-integration-20261012.md): code e7ada58·원71078 실제0/집중11검사·직접 자식 소유/형제 생존·실패/중단/강제 정리/권리 복원·FD 반환. Python5→4개·원 HTTP/프레임의 제한된 불변 증거, 같은 감독기의 저장9시점→정상6시점/완료·보류/취소와 원 대사·원본/두 UI 복구·512MiB/PID/합1GiB 수용. 사용자 연결은 다음 단계다.
               - [x] **보존 테이블 재기동·DB 기동 자원 수정** — 위 기록/기계 증거:원17487 실제0·8검사, 원74381 실제0·실제 SHOW16MB/연결32/work1MB/maintenance16MB·원 설정/행/키 보존/기존 policy 복구. 전체 사용자 메모리 관문을 통과했다는 뜻은 아니다.
-            - [ ] **`crop-greenhouse-ventilation-user-input-web`** — 다음 한 단계. 위 동시 접속/후보 브라우저 자원 수용 뒤 현재 사용자 DB의 환기 선택 저장 테이블/권한·새 명시 설정 활성화, 새 합성 입력의 명시 검토/등록과 제품 화면 연결. 기존 제품 빌드132소스 동일을 확인해 재사용 가능하다. 실제 사용자 접수/진행·같은 저장 원 값/UTC·기존 결과/주소/키/권리/토큰 보존.
+            - [ ] **`crop-greenhouse-ventilation-user-input-web`** — 다음 한 단계. 위 동시 접속/후보 브라우저 자원 수용 뒤 현재 사용자 DB의 환기 선택 저장 테이블/권한·새 명시 설정 활성화, 새 합성 입력의 명시 검토/등록과 제품 화면 연결. 최초 JS와 metadata 로딩 비용 수정은 로컬 수용했으며 사용자 변경본 배치는 미수용이다. 실제 사용자 접수/진행·같은 저장 원 값/UTC·기존 결과/주소/키/권리/토큰 보존.
+              - [x] **사용자 API/입력 검증** — [실제 접수/저장 증거](../research/crop-ventilation-user-input-progress-20261012.md): 원50271 실제0,64/64/attempt1·원9시점/UTC·기존 키/권리/토큰·행 보존. WebGL/부모 사용자 적용은 미수용.
+              - [x] **로컬 import/최초 화면 로딩 비용 수정** — 같은 기록의 서버182검사·타입/빌드·독립 Chromium3경로 실제0. cold import 약9.3MB/최초 JS226,681bytes 감소·초안/같은 요청/수집·검토 상태 보존. 동시 사용자3D 수용은 아니다.
+              - [ ] **worker metadata 의존성/최종 배치 자원** — 다음 한 단계. 비용 분류 뒤 필요한 import 변경만 채택. 원 값/UTC·TLS/권한·기존 입력/키를 유지하고 기존5173+새 API/두 worker+실제 저장9시점 WebGL/현재 권리·재접속·512MiB/PID/합1GiB·정리 검증. profile-v6 RSS_limit는 미수용.
+              - [ ] **`development-status-estimate-validity`** — 추정 재산정/미정 상태를 구조화해5173/React에 동일 표시. 무효화된2–4시간을 현재 예상 완료량으로 제시하지 않도록 입력 검증·양쪽 최신 DOM/자동 재조회를 확인. 기존 단계·권한 없는 개발 기록과 실제 계산 polling 구분을 유지.
             - [ ] **`crop-greenhouse-ventilation-user-live-acceptance`** — 위 연결 뒤 실제 사용자 DB 정상/보류/취소/재접속·계산 중/완료 WebGL·현재 권리·추가 작업자를 포함한 WSL 합 자원과 원 데이터/두 UI 보존. 최신 진행/접속 안내 게시 뒤 부모 사용자 적용을 수용한다.
 
 

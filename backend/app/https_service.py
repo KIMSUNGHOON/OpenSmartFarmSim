@@ -8,9 +8,6 @@ from pathlib import Path
 import ssl
 import stat
 
-from fastapi import FastAPI
-import uvicorn
-
 from .http_identity import PrincipalMiddleware
 
 
@@ -56,6 +53,8 @@ class HttpsApiService:
     port: int
 
     def __init__(self, app, certificate, private_key, *, host="127.0.0.1", port=8443):
+        from fastapi import FastAPI
+
         if (type(app) is not PrincipalMiddleware or type(app.app) is not FastAPI or
                 type(host) is not str or host not in ("127.0.0.1", "::1") or
                 type(port) is not int or not 0 <= port <= 65535):
@@ -65,6 +64,8 @@ class HttpsApiService:
             object.__setattr__(self, name, value)
 
     def server(self):
+        import uvicorn
+
         logging_config = {"version": 1, "disable_existing_loggers": False,
             "formatters": {"bounded": {"()": _ServiceFormatter}},
             "handlers": {"bounded": {"class": "logging.StreamHandler", "formatter": "bounded",
