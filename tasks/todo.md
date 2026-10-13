@@ -1781,7 +1781,7 @@
       명시 광학 입력/권리·단위·독립 분배/극한/수지와 새 identity를 수용하며 총 일사 예측 주장은 별도다.
       - [x] **순간 solar PAR 계산·기존 crop 소비자** — [수용/275검사](../research/crop-greenhouse-radiation-par-implementation-20261013.md): 명시 광학/스펙트럼·Decimal80의150수치/10전자전달·두 번 차광 음성 대조·수지/극한/hold·원5root/두 UI/원 source 보존. PAR만 계산하며 NIR/전체 일사·적분/저장/API/3D는 미수용이다.
       - [x] **같은 현재 상태의 PAR/열 RHS 연결** — [수용/295검사](../research/crop-greenhouse-radiation-par-joint-implementation-20261013.md): Decimal80의468수치/4공동 상태·7수지, 현재 leaf→LAI/단회 crop·열 합성·air/vapor 추가0·낮/암/음의 다른 열/leaf 변경·판본/hold, 원5root/두 UI/source 보존. 시간 적분/배포는 미수용이다.
-      - [ ] **현재 RK trial·새 identity와 독립 궤적** — 매 단계 LAI 재계산·동일 crop/열 입력, 간격 축소·단일/분할/hold·원 결과 보존을 확인한다.
+      - [x] **현재 RK trial·새 identity와 독립 궤적** — [수용/441검사](../research/crop-greenhouse-radiation-par-integration-implementation-20261013.md): 현재 leaf/air/열 상태의 PAR·환기 단회 공동 RK, 독립876수치/72간격 축소·108상태/35장부/13수지·수동 분할/실패 prefix·새 identity·원 결과/5root/자원 보존. 인증 TTL 종료를 복구해 원 저장 응답6개를 대사했다. UTC/checkpoint/저장/3D 수용은 후속이다.
       - [ ] **NIR 경계·총 일사 구분** — 원 cover/canopy/floor 층 순서/분모/반사·단위/권리·분배를 검증하고 남은 열과 중복 없는 새 합성 identity를 고정한다.
       - [ ] **새 저장/API/같은 UTC3D·사용자 수용** — 선행 계산을 새 context/입력/권리/모델 binding에 결속하여 정상/보류/취소·읽기 계산0·기존 환기/두 UI 보존 후 수용한다.
     - [ ] **`crop-greenhouse-co2-stomatal`** — CO₂ 질량/ppm·압력/온도/부피·광합성 sink와 기공 closure.

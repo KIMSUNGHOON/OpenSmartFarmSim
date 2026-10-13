@@ -1,5 +1,7 @@
 # Internal web shell
 
+**2026-10-13 인증 만료 복구:** 기존 저장 재생5173은 `run-v22/service/OPEN-UI.private.txt`, 환기5174는 기존 `user-service-v3/OPEN-UI-ISOLATED.private.txt` 접속 정보를 사용한다. 원 joint 서비스와 원 결과는 보존했고 환기 서버는 `serve-v5`다. [복구/수치 검증](../research/crop-greenhouse-radiation-par-integration-implementation-20261013.md)을 참조한다. 새 PAR 적분은441검사를 통과했으며 화면에는 아직 미배포다.
+
 **현재 — 2026-10-13:** [새 환기 모델의 로컬 사용자 적용](../research/crop-isolated-ventilation-user-activation-20261013.md)을 수용했다. 아래 새 접속 안내로 합성 계산과 저장3D를 확인한다. 지역/실제 품종·전체 작기·생산/경제 예측·최종 통합 UI는 미완료이며 이후 날짜별 기록은 당시 상태다.
 
 ## 새 환기 모델의 로컬 사용자 실행 — 2026-10-13

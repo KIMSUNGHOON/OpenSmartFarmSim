@@ -14,7 +14,7 @@
 | 1 — 수용 | 새 API·환기 작업자 조립 | 별도 영역의 접수→독립 자동 소비→저장, 양 모델의 실제 SCRAM/TLS·정상/보류/취소·현재 권리·원본/자원 보존 증거. |
 | 2 — 수용 | 같은 조립 판본의3D 재수용 | 계산 중→종료 원 수치/UTC·표/장면 대사, 재접속·권리 철회·기존 소비자/브라우저 동시 자원 증거. |
 | 3 — 수용 | 새 모델 사용자 적용 | 지속 별도 API/작업자·사용자5174의 정상/보류/취소·계산 중/저장3D·재접속/현재 권리·재시작 뒤 원문/3D, 기존 두 서비스/원본/자원과 접속/진행 안내를 확인했다. |
-| 4 — 진행 | PAR 경계 연결 | [순간 PAR/현재 LAI의 crop·열 RHS295검사](../research/crop-greenhouse-radiation-par-joint-implementation-20261013.md) 수용. 다음: RK 매 trial/독립 궤적→NIR 별도 경계→새 저장/API/UTC3D·사용자 수용. 부모는 미완료. |
+| 4 — 진행 | PAR 경계 연결 | [매 RK trial의 PAR·환기 공동 적분441검사](../research/crop-greenhouse-radiation-par-integration-implementation-20261013.md) 수용. 다음: NIR 별도 경계→새 저장/API/UTC3D·사용자 수용. 부모는 미완료. |
 | 5 | CO₂·기공 연결 | `crop-greenhouse-co2-stomatal`의 원문 단위 정책·질량/광합성 결합과 독립 참조 대사. |
 | 6 | 시설 환기량 연결 | `crop-greenhouse-facility-flow`의 시설/풍속/창/계수 근거와 유량·구획 변환 검증. |
 | 7 | 물·양분 연결 | `crop-water-nutrient`의 급배액/재순환/구매 용수·성분 재고 수지와 근거 없는 출력의 보류. |
@@ -30,11 +30,15 @@
 구체적 검증 작업은 자료가 확보된 범위에서 진행하고, 공개 출력의 조건은 [제품 관문](../docs/PROJECT_SPEC.md#6-검증과-수용-관문)을 따른다.
 자료가 없는 검증 목표는 미완료로 남기며 전체 완료 시각은 미정이다.
 
-## PAR 계산의 두 작은 단계 수용 — 2026-10-13
+## PAR 공동 적분 수용과 다음 의존성 — 2026-10-13
 
-[순수 PAR](../research/crop-greenhouse-radiation-par-implementation-20261013.md)와 [현재 상태의 광합성/열 연결](../research/crop-greenhouse-radiation-par-joint-implementation-20261013.md)을 수용했다. 원식/권리·명시 광학/스펙트럼·독립 Decimal80과 실제 소비자·7공동 수지/hold를 확인했다. 기존 환기 사용자 판본은 유지하며 새 PAR의 시간 적분/저장/3D는 아직 배포하지 않았다.
+[순수 PAR](../research/crop-greenhouse-radiation-par-implementation-20261013.md)·[현재 RHS](../research/crop-greenhouse-radiation-par-joint-implementation-20261013.md)에 이어 [매 RK trial의 PAR·환기 공동 적분](../research/crop-greenhouse-radiation-par-integration-implementation-20261013.md)을 441집중 검사로 수용했다. 독립876수치·72간격 축소 비교·108상태/35장부/13수지·수동 분할/실패 prefix를 확인했다. 초기 validation은 별도 계수하고 같은 현재 leaf/air/열 상태의 경계를 단회 합성한다. 기존 환기 계산/프로필/저장 identity는 유지한다.
 
-다음 한 단계는 **RK 각 trial의 현재 LAI로 PAR을 다시 계산하는 새 적분 판본**이다. 독립 전 상태/열 분배 궤적·간격 축소·암/leaf 변경/실패 prefix·원 결과/5root/자원을 수용한다. 이후 NIR의 별도 광학 경계→새 입력/context/checkpoint/저장/API/같은 UTC3D로 진행한다. 실제 시설/스펙트럼·독립 농장 자료 확보와 G0–G4는 별도 의존성으로 유지하며 전체 완료일은 미정이다.
+인증 TTL로 종료된 기존5173과 의존 환기 서비스를 원 결과로 복구했다. 원 joint는 계속 유지했으며 새 필수5root·원 growth/harvest summary·환기 정상/보류6HTTP 원 bytes를 검증했다. 이 복구는 개발 후속 기반 확대가 아닌 현재 사용자 경로 보존이다. 실제 PAR 저장/API/3D 배포는 아직 아니다.
+
+다음 한 단계는 **NIR cover/canopy/floor 광학 경계**다. (1) 기존 원문/권리의 층 순서·반사 분모·명시 입력을 계약하고 (2) 독립 분배/극한/hold·열 중복 방지를 검증하며 (3) 수용된 PAR/환기와 새 합성 identity에 연결한다. 그 뒤 새 입력/context→checkpoint→저장/현재 권리 API→같은 UTC3D→정상/보류/취소 사용자 수용으로 진행한다. 각 자식의 근거가 있어야 체크하며 PAR 부모는 미완료다.
+
+실제 시설/스펙트럼·품종/지역/독립 농장·시장 자료 확보는 병행한다. 합성 개발 착수와 G0–G4/예측·추천 게시 조건을 구분하며, 외부 자료와 후속 판본 수용이 확보되지 않아 전체 완료일·남은 집중 시간은 미정이다.
 
 ## 로컬 사용자 적용 수용 — 2026-10-13
 
