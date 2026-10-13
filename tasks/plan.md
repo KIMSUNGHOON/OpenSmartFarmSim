@@ -14,7 +14,7 @@
 | 1 — 수용 | 새 API·환기 작업자 조립 | 별도 영역의 접수→독립 자동 소비→저장, 양 모델의 실제 SCRAM/TLS·정상/보류/취소·현재 권리·원본/자원 보존 증거. |
 | 2 — 수용 | 같은 조립 판본의3D 재수용 | 계산 중→종료 원 수치/UTC·표/장면 대사, 재접속·권리 철회·기존 소비자/브라우저 동시 자원 증거. |
 | 3 — 수용 | 새 모델 사용자 적용 | 지속 별도 API/작업자·사용자5174의 정상/보류/취소·계산 중/저장3D·재접속/현재 권리·재시작 뒤 원문/3D, 기존 두 서비스/원본/자원과 접속/진행 안내를 확인했다. |
-| 4 — 진행 | PAR 경계 연결 | [순간 PAR/기존 crop 소비자275검사](../research/crop-greenhouse-radiation-par-implementation-20261013.md) 수용. 다음: 같은 현재 LAI의 PAR/열 RHS→RK/독립 궤적→NIR 별도 경계→새 저장/API/UTC3D·사용자 수용. 부모는 미완료. |
+| 4 — 진행 | PAR 경계 연결 | [순간 PAR/현재 LAI의 crop·열 RHS295검사](../research/crop-greenhouse-radiation-par-joint-implementation-20261013.md) 수용. 다음: RK 매 trial/독립 궤적→NIR 별도 경계→새 저장/API/UTC3D·사용자 수용. 부모는 미완료. |
 | 5 | CO₂·기공 연결 | `crop-greenhouse-co2-stomatal`의 원문 단위 정책·질량/광합성 결합과 독립 참조 대사. |
 | 6 | 시설 환기량 연결 | `crop-greenhouse-facility-flow`의 시설/풍속/창/계수 근거와 유량·구획 변환 검증. |
 | 7 | 물·양분 연결 | `crop-water-nutrient`의 급배액/재순환/구매 용수·성분 재고 수지와 근거 없는 출력의 보류. |
@@ -29,6 +29,12 @@
 자료 확보/권리 확인→해당 G0/G2→독립 미래 작기/경제 G3a→후보 간 대응 비교 G3b의
 구체적 검증 작업은 자료가 확보된 범위에서 진행하고, 공개 출력의 조건은 [제품 관문](../docs/PROJECT_SPEC.md#6-검증과-수용-관문)을 따른다.
 자료가 없는 검증 목표는 미완료로 남기며 전체 완료 시각은 미정이다.
+
+## PAR 계산의 두 작은 단계 수용 — 2026-10-13
+
+[순수 PAR](../research/crop-greenhouse-radiation-par-implementation-20261013.md)와 [현재 상태의 광합성/열 연결](../research/crop-greenhouse-radiation-par-joint-implementation-20261013.md)을 수용했다. 원식/권리·명시 광학/스펙트럼·독립 Decimal80과 실제 소비자·7공동 수지/hold를 확인했다. 기존 환기 사용자 판본은 유지하며 새 PAR의 시간 적분/저장/3D는 아직 배포하지 않았다.
+
+다음 한 단계는 **RK 각 trial의 현재 LAI로 PAR을 다시 계산하는 새 적분 판본**이다. 독립 전 상태/열 분배 궤적·간격 축소·암/leaf 변경/실패 prefix·원 결과/5root/자원을 수용한다. 이후 NIR의 별도 광학 경계→새 입력/context/checkpoint/저장/API/같은 UTC3D로 진행한다. 실제 시설/스펙트럼·독립 농장 자료 확보와 G0–G4는 별도 의존성으로 유지하며 전체 완료일은 미정이다.
 
 ## 로컬 사용자 적용 수용 — 2026-10-13
 

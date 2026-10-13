@@ -1,0 +1,174 @@
+{
+  "schema": "crop-greenhouse-radiation-par-joint-evidence-v1",
+  "recorded_at": "2026-10-13T08:55:27.735026+00:00",
+  "accepted_scope": "instantaneous_synthetic_current_state_PAR_joint_RHS_only",
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "runtime_deployed": false,
+  "new_joint_tests": 20,
+  "new_PAR_tests": 88,
+  "existing_consumer_tests": 187,
+  "total_focused_tests": 295,
+  "independent_whole_stage_cases": 4,
+  "independent_compared_scalars": 468,
+  "joint_balance_budgets_per_case": 7,
+  "native": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-13T08:15:40.478Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "turn_context_line_sha256": "d047b64be278fc6dce48d81efaf954b5776afe993b51bab0f94b5c5f38a7850c",
+    "recursive_cli": false,
+    "entrypoint": "existing native CLI session; no child CLI",
+    "delegation": "research skill agent attempted with exact model/effort; model capacity error; root performs and reviews research in proven native session"
+  },
+  "native_output_sha256": "0e72c53ddce861d6c92d9a816c3db4a45da3ace613d0b7aa7c8b3f26b750ba17",
+  "focused_guard": {
+    "actual_child_exit": 0,
+    "reason": null,
+    "wall_seconds": 1.4497491430083755,
+    "source_count": 2188,
+    "source_preserved": true,
+    "preview_source_preserved": true,
+    "preview_assets_preserved": true,
+    "original_sources_preserved": true,
+    "original_source_entries": 2148,
+    "protected_live": true,
+    "frontend_status": 200,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "single_PID_peak_RSS_bytes": 121208832,
+    "combined_peak_RSS_bytes": 691826688,
+    "RSS_samples": 5,
+    "sample_interval_seconds": 0.25,
+    "protected_root_count": 5,
+    "joint_preview_source_preserved": true,
+    "joint_preview_assets_preserved": true,
+    "log_sha256": "d3d0cc33bdff31020b1ec9b4fa639c145d863bdcab7379b634f7a2279e4e408d"
+  },
+  "code_sha256": "fdb7af3bab35587cea8bb0ec37297d1d573affa542462809e907ea0fe5ac59f9",
+  "policy_sha256": "0f4a1d2e7005e708c13a4a40662dc2556156713c16e7433138531cd2018da529",
+  "radiation_code_sha256": "bc297172077a087e26e5e5676421ec14916f2b8967a53565812ccf0641f32d54",
+  "example": {
+    "label": "synthetic original shared trial; no state advance",
+    "current_LAI": {
+      "value": 1.33,
+      "unit": "m2_leaf/m2_floor"
+    },
+    "heat_composition": {
+      "canopy_non_par_heat": {
+        "value": 150.0,
+        "unit": "W/m2_floor"
+      },
+      "canopy_absorbed_par": {
+        "value": 133.77137357765395,
+        "unit": "W/m2_floor"
+      },
+      "canopy_external_heat": {
+        "value": 283.77137357765395,
+        "unit": "W/m2_floor"
+      }
+    },
+    "incident_crop_PAR": {
+      "value": 869.4,
+      "unit": "umol_photons/m2_floor/s"
+    },
+    "joint_balance_residuals": {
+      "carbohydrate": {
+        "value": -4.885686039762804e-18,
+        "unit": "mg_CH2O/m2_floor/s"
+      },
+      "number": {
+        "value": 3.161550475626676e-19,
+        "unit": "fruits_equivalent/m2_floor/s"
+      },
+      "canopy_sensible": {
+        "value": -3.2890357104520263e-15,
+        "unit": "W/m2_floor"
+      },
+      "air_sensible": {
+        "value": 0.0,
+        "unit": "W/m2_floor"
+      },
+      "vapor_and_water_boundaries": {
+        "value": 2.752857078576476e-21,
+        "unit": "kg_water/m2_floor/s"
+      },
+      "reduced_energy": {
+        "value": 7.813194535799539e-15,
+        "unit": "W/m2_floor"
+      },
+      "crop_capacity": {
+        "value": 0.0,
+        "unit": "J/m2_floor/K/s"
+      }
+    },
+    "joint_balance_budgets": {
+      "carbohydrate": {
+        "value": 3.064215547965432e-14,
+        "unit": "mg_CH2O/m2_floor/s"
+      },
+      "number": {
+        "value": 1.8041124150158794e-16,
+        "unit": "fruits_equivalent/m2_floor/s"
+      },
+      "canopy_sensible": {
+        "value": 1.7028254738011853e-10,
+        "unit": "W/m2_floor"
+      },
+      "air_sensible": {
+        "value": 4.392e-11,
+        "unit": "W/m2_floor"
+      },
+      "vapor_and_water_boundaries": {
+        "value": 4.2817453376869563e-17,
+        "unit": "kg_water/m2_floor/s"
+      },
+      "reduced_energy": {
+        "value": 1.8228254738011854e-10,
+        "unit": "W/m2_floor"
+      },
+      "crop_capacity": {
+        "value": 2.5346170135182083e-15,
+        "unit": "J/m2_floor/K/s"
+      }
+    }
+  },
+  "remaining": [
+    "PAR reevaluation at each RK trial and independent trajectories/convergence",
+    "NIR multilayer optics/remaining heat identity",
+    "new immutable context/input/checkpoint/store/API/UTC3D acceptance",
+    "actual region/cultivar/independent farm/market data and gates",
+    "full CI"
+  ],
+  "development_status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "browser_rerun": false,
+    "reported_at": "2026-10-13T08:58:49.018740Z",
+    "source_sha256": "934f2f9fc80204bc143763155ebff679c7c04bc72bfb2dd66de822f2ab44bc53",
+    "original_tool": "70395",
+    "actual_tool_exit": 0,
+    "guard_wall_seconds": 0.38471397099783644,
+    "protected_root_count": 5,
+    "combined_peak_RSS_bytes": 641232896,
+    "note": "data-only feed; current DOM/browser not rerun; accepted ventilation service remains deployed; PAR not deployed"
+  },
+  "local_document_links_passed": 19,
+  "git_diff_check_passed": true
+}

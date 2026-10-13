@@ -1780,7 +1780,7 @@
       crop의 above-canopy 입력에 흡수 PAR을 넣어 차광을 이중 적용하지 않는다.
       명시 광학 입력/권리·단위·독립 분배/극한/수지와 새 identity를 수용하며 총 일사 예측 주장은 별도다.
       - [x] **순간 solar PAR 계산·기존 crop 소비자** — [수용/275검사](../research/crop-greenhouse-radiation-par-implementation-20261013.md): 명시 광학/스펙트럼·Decimal80의150수치/10전자전달·두 번 차광 음성 대조·수지/극한/hold·원5root/두 UI/원 source 보존. PAR만 계산하며 NIR/전체 일사·적분/저장/API/3D는 미수용이다.
-      - [ ] **같은 현재 상태의 PAR/열 RHS 연결** — 현재 leaf→LAI, incident photon 교체·흡수 PAR+명시 non-PAR 열의 단회 합성, 원 수지/air·vapor 불변·독립 참조/판본/hold를 확인한다.
+      - [x] **같은 현재 상태의 PAR/열 RHS 연결** — [수용/295검사](../research/crop-greenhouse-radiation-par-joint-implementation-20261013.md): Decimal80의468수치/4공동 상태·7수지, 현재 leaf→LAI/단회 crop·열 합성·air/vapor 추가0·낮/암/음의 다른 열/leaf 변경·판본/hold, 원5root/두 UI/source 보존. 시간 적분/배포는 미수용이다.
       - [ ] **현재 RK trial·새 identity와 독립 궤적** — 매 단계 LAI 재계산·동일 crop/열 입력, 간격 축소·단일/분할/hold·원 결과 보존을 확인한다.
       - [ ] **NIR 경계·총 일사 구분** — 원 cover/canopy/floor 층 순서/분모/반사·단위/권리·분배를 검증하고 남은 열과 중복 없는 새 합성 identity를 고정한다.
       - [ ] **새 저장/API/같은 UTC3D·사용자 수용** — 선행 계산을 새 context/입력/권리/모델 binding에 결속하여 정상/보류/취소·읽기 계산0·기존 환기/두 UI 보존 후 수용한다.
