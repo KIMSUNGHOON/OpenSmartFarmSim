@@ -201,7 +201,8 @@ def check_rights(directory, operator, cases, send, save):
 
 
 def exercise(out, policy, dsn, original, config, requests, original_directory, original_access,
-             modes=('cancel', 'completed', 'hold'), check_runtime_rights=False, browser_config=None):
+             modes=('cancel', 'completed', 'hold'), check_runtime_rights=False, browser_config=None,
+             prepare_only=False):
     import importlib.util
     root = Path(__file__).resolve().parents[1]
     spec = importlib.util.spec_from_file_location('isolated_preview_lifecycle',
@@ -260,7 +261,12 @@ def exercise(out, policy, dsn, original, config, requests, original_directory, o
             except ValueError: continue
             raise AssertionError('isolated configuration accepted '+fault)
     finally: save(directory/'runtime.private.json', value)
-    cert, key = lifecycle.common.certificate(directory, 3600)
+    lifetime = 3600
+    if prepare_only:
+        from datetime import datetime, timezone
+        lifetime = int((datetime.fromisoformat(original['expires_at'])-datetime.now(timezone.utc)).total_seconds())
+        assert 300 < lifetime <= 86400, 'retained preview authentication lifetime rejected'
+    cert, key = lifecycle.common.certificate(directory, lifetime)
     with socket.socket() as probe:
         probe.bind(('127.0.0.1', 0)); port = probe.getsockname()[1]
     from app import crop_greenhouse_ventilation_operator_config as loader
@@ -277,6 +283,17 @@ def exercise(out, policy, dsn, original, config, requests, original_directory, o
     save(directory/'api.private.json', api)
     env = {**os.environ, 'OSSF_API_CONFIG': str(directory/'api.private.json'),
         'PYTHONPATH': os.pathsep.join(map(str, (directory, root/'backend', root/'backend/tests', original_directory)))}
+    if prepare_only:
+        assert browser_config is None and not check_runtime_rights
+        shutil.copyfile(out/'authority.pgpass', passfile)
+        passfile.chmod(0o600)
+        save(directory/'prepared.private.json', {
+            'runtime_prepared': True, 'runtime_started': False,
+            'rejected_configuration_cases': sorted(faults),
+            'certificate_lifetime_seconds': lifetime,
+            'new_model_user_deployed': False, 'real_farm_runs': 0, 'G0_G4': 'not_assessed'})
+        return {'retained_runtime_prepared': True, 'runtime_started': False,
+                'rejected_configuration_cases': sorted(faults)}
     logs, children = [], []
     server = thread = None
     checks = {}

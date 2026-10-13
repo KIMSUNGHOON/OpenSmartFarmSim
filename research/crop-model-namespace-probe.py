@@ -1,7 +1,7 @@
 """Transient, owned preview namespace probe; never modifies original records."""
 import argparse
 from collections import Counter
-from dataclasses import replace
+from dataclasses import asdict, replace
 from hashlib import sha256
 import json
 import os
@@ -13,7 +13,7 @@ from uuid import uuid4
 
 def probe_ventilation(out, policy, dsn, original, original_directory, runtime, requests,
                       original_access=None, runtime_cases=('cancel', 'completed', 'hold'), check_runtime_rights=False,
-                      browser_config=None):
+                      browser_config=None, prepare_only=False):
     import importlib.util
     from pytest import MonkeyPatch
     root = Path(__file__).resolve().parents[1]
@@ -74,7 +74,8 @@ def probe_ventilation(out, policy, dsn, original, original_directory, runtime, r
         exercise = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(exercise)
         checks.update(exercise.exercise(out, policy, dsn, original, config, requests, original_directory,
-                                       original_access, runtime_cases, check_runtime_rights, browser_config))
+                                       original_access, runtime_cases, check_runtime_rights, browser_config,
+                                       prepare_only=prepare_only))
         assert all(sha256(path.read_bytes()).hexdigest() == digest for path, digest in immutable.items())
     return checks
 
@@ -97,6 +98,7 @@ def main():
                         default=('cancel', 'completed', 'hold'))
     parser.add_argument('--check-runtime-rights', action='store_true')
     parser.add_argument('--browser-config', type=Path)
+    parser.add_argument('--prepare-retained-runtime', action='store_true')
     args = parser.parse_args()
     assert bool(args.ventilation_runtime) == bool(args.ventilation_requests)
     assert not args.readmit_market_sources or args.ventilation_runtime
@@ -104,6 +106,8 @@ def main():
     assert bool(args.exercise_runtime) == bool(args.original_access)
     assert not args.check_runtime_rights or args.exercise_runtime
     assert not args.browser_config or args.exercise_runtime
+    assert not args.prepare_retained_runtime or (
+        args.exercise_runtime and not args.browser_config and not args.check_runtime_rights)
     assert len(set(args.runtime_cases)) == len(args.runtime_cases)
     out = args.output_directory
     out.mkdir(mode=0o700)
@@ -142,6 +146,7 @@ def main():
                          user='ossf_preview_admin')
     owned_roles = [policy.owner, *policy.roles.values()]
     started = False
+    retained = False
     passfiles = []
     checks = {'new_native_SCRAM_logins': 0, 'cross_namespace_denials': 0,
               'runtime_ddl_denials': 0}
@@ -182,6 +187,17 @@ def main():
         return conn.execute("SELECT a.* FROM pg_database d, LATERAL "
             "aclexplode(coalesce(d.datacl,acldefault('d',d.datdba))) a WHERE d.datname=%s "
             "ORDER BY a.grantor,a.grantee,a.privilege_type,a.is_grantable", (old.database,)).fetchall()
+
+    def original_database_acl(conn):
+        current = database_acl(conn)
+        if not args.prepare_retained_runtime:
+            return current
+        owned_logins = {row['oid'] for row in conn.execute(
+            'SELECT oid FROM pg_roles WHERE rolname=ANY(%s)', (list(policy.roles.values()),))}
+        added = [row for row in current if row['grantee'] in owned_logins]
+        assert len(added) == len(policy.roles)
+        assert all(row['privilege_type'] == 'CONNECT' and not row['is_grantable'] for row in added)
+        return [row for row in current if row['grantee'] not in owned_logins]
 
     with psycopg.connect(admin, row_factory=dict_row) as conn:
         conn.execute('SET TRANSACTION READ ONLY')
@@ -320,17 +336,37 @@ def main():
                 checks['source_payload_job_identity_preserved'] = True
             checks.update(probe_ventilation(out, policy, dsn, original, args.original_directory,
                                            args.ventilation_runtime, args.ventilation_requests, args.original_access,
-                                           args.runtime_cases, args.check_runtime_rights, args.browser_config))
+                                           args.runtime_cases, args.check_runtime_rights, args.browser_config,
+                                           prepare_only=args.prepare_retained_runtime))
+        if args.prepare_retained_runtime:
+            assert checks['retained_runtime_prepared'] and not checks['runtime_started']
+            with psycopg.connect(admin, row_factory=dict_row) as conn:
+                conn.execute('SET TRANSACTION READ ONLY')
+                audit_runtime_roles(conn, policy)
+                audit_runtime_roles(conn, old)
+                assert rows(conn, old.schema, names) == before_rows
+                assert original_catalog(conn) == before_catalog
+                assert original_database_acl(conn) == before_database_privileges
+            with (out/'retained-namespace.private.json').open('x') as stream:
+                os.fchmod(stream.fileno(), 0o400)
+                json.dump({'policy': asdict(policy), 'original_policy': asdict(old),
+                    'database': database, 'runtime': str(out/'runtime'),
+                    'passfiles': [str(path) for path in passfiles]}, stream, sort_keys=True)
+                stream.flush(); os.fsync(stream.fileno())
+            retained = True
     finally:
-        if started:
+        if started and not retained:
             with psycopg.connect(admin, row_factory=dict_row) as conn:
                 audit_runtime_roles(conn, policy)
                 conn.execute(sql.SQL('DROP SCHEMA {} CASCADE').format(sql.Identifier(policy.schema)))
                 for role in owned_roles:
                     conn.execute(sql.SQL('DROP OWNED BY {}').format(sql.Identifier(role)))
                     conn.execute(sql.SQL('DROP ROLE {}').format(sql.Identifier(role)))
-        for passfile in passfiles:
-            passfile.unlink()
+        if not retained:
+            for passfile in passfiles:
+                passfile.unlink()
+            if args.prepare_retained_runtime:
+                (out/'runtime/authority.pgpass').unlink(missing_ok=True)
     with psycopg.connect(admin, row_factory=dict_row) as conn:
         conn.execute('SET TRANSACTION READ ONLY')
         audit_runtime_roles(conn, old)
@@ -338,7 +374,7 @@ def main():
         assert original_catalog(conn) == before_catalog
         after_database_acl = conn.execute('SELECT datacl FROM pg_database WHERE datname=%s',
                                          (old.database,)).fetchone()
-        after_database_privileges = database_acl(conn)
+        after_database_privileges = original_database_acl(conn) if retained else database_acl(conn)
         comparison = {'raw_acl_array_equal': after_database_acl == before_database_acl,
                       'expanded_grantor_grantee_privilege_grantability_equal':
                           after_database_privileges == before_database_privileges,
@@ -348,14 +384,16 @@ def main():
             os.fchmod(stream.fileno(), 0o400)
             json.dump(comparison, stream, sort_keys=True)
         assert after_database_privileges == before_database_privileges
-        assert not conn.execute('SELECT 1 FROM pg_roles WHERE rolname=ANY(%s)', (owned_roles,)).fetchone()
-        assert not conn.execute('SELECT 1 FROM pg_namespace WHERE nspname=%s', (policy.schema,)).fetchone()
-    assert not any(path.exists() for path in passfiles)
+        assert bool(conn.execute('SELECT 1 FROM pg_roles WHERE rolname=ANY(%s)', (owned_roles,)).fetchone()) == retained
+        assert bool(conn.execute('SELECT 1 FROM pg_namespace WHERE nspname=%s', (policy.schema,)).fetchone()) == retained
+    assert all(path.exists() == retained for path in passfiles)
     record = {'schema_version': 'owned-model-namespace-probe-v1', **checks,
               'namespace_tables': len(names), 'source_rows': sum(sum(v.values()) for v in before_rows.values()),
               'exact_copied_tables': len(exact_names), 'all_exact_copied_table_rows_equal': True,
               'original_rows_roles_acl_preserved': True,
-              'both_policy_audits_passed': True, 'new_namespace_roles_passfiles_remaining': 0,
+              'both_policy_audits_passed': True,
+              'new_namespace_roles_passfiles_remaining': len(owned_roles)+1+len(passfiles) if retained else 0,
+              'namespace_intentionally_retained_for_user_preview': retained,
               'database_acl_comparison': comparison,
               'new_cluster_started': False, 'original_consumers_paused': False,
               'new_model_user_deployed': False, 'real_farm_runs': 0, 'G0_G4': 'not_assessed'}

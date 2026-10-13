@@ -1771,6 +1771,8 @@
                     - 수용: [동일 배치 기록](../research/crop-isolated-ventilation-browser-batch-20261013.md)/[기계 증거](../research/artifacts/crop-isolated-ventilation-browser-batch-20261013.json). 원45204 실제0/1,232.971초·계산 중6/5/1·저장9/8/0·원 수치/UTC/WebGL·현재 권리/재접속·취소 후 결과 행0·query84건 계산/쓰기0·집중7검사·device scale0.5/512MiB per PID/합1GiB/root4/FD4→4/소유 정리. 원91162 실제0의 기존 입력3/HTTPS9·950파일/원 행/키/권리/토큰과 알려진 시험 영역27개 잔여0. 사용자 적용/지속 새 서비스는 후속이다.
               - [x] **`development-status-estimate-validity`** — [수용 기록](../research/product-ui-estimate-validity-20261012.md)/[기계 증거](../research/artifacts/product-ui-estimate-validity-20261012.json): v2 미정/판단 시각/사유·parser26·게시기/타입/빌드·양쪽 실제 HTTP/최신 DOM/15초 재조회·오래된 기록/조회 실패·320–1440px를 확인. 기존9시점 HTTPS·조회 계산/쓰기0·950파일/모든 행·두 서비스 보존. 새 모델 적용/전체 일정 미정은 유지.
             - [ ] **`crop-greenhouse-ventilation-user-live-acceptance`** — 위 연결 뒤 실제 사용자 DB 정상/보류/취소/재접속·계산 중/완료 WebGL·현재 권리·추가 작업자를 포함한 WSL 합 자원과 원 데이터/두 UI 보존. 최신 진행/접속 안내 게시 뒤 부모 사용자 적용을 수용한다.
+              - [x] **지속 별도 영역·실행 설정 준비** — [수용](../research/crop-isolated-ventilation-user-preparation-20261013.md): 원26495 실제0·새 SCRAM4/상호 거부20/DDL 거부8·입력3/오조립 거부8·기존 권한/행/입력/두 서비스/root4/자원 보존. 새 영역과 사설 자격 파일을 의도적으로 유지한다. API/작업자와 사용자 HTTP는 아직 미기동/미적용이다.
+              - [ ] **지속 API·작업자와 사용자 경로 적용** — 같은 고정 설정으로 독립 소비·기존5174의 모델별 HTTPS 연결·실제 정상/보류/취소 및 계산 중/저장3D·현재 권리/재접속, 서비스 재시작 뒤 같은 원 결과 조회를 검증한다. 원5173/5174·데이터/자원 보존과 최신 사설 접속 안내 뒤 사용자 적용을 평가한다.
 
 
     - [ ] **`crop-greenhouse-radiation-par`** — 원문 incident/absorbed PAR·cover/floor 반사와 PAR/NIR 열 경계.
