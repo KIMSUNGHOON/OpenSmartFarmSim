@@ -14,7 +14,7 @@
 | 1 — 수용 | 새 API·환기 작업자 조립 | 별도 영역의 접수→독립 자동 소비→저장, 양 모델의 실제 SCRAM/TLS·정상/보류/취소·현재 권리·원본/자원 보존 증거. |
 | 2 — 수용 | 같은 조립 판본의3D 재수용 | 계산 중→종료 원 수치/UTC·표/장면 대사, 재접속·권리 철회·기존 소비자/브라우저 동시 자원 증거. |
 | 3 — 수용 | 새 모델 사용자 적용 | 지속 별도 API/작업자·사용자5174의 정상/보류/취소·계산 중/저장3D·재접속/현재 권리·재시작 뒤 원문/3D, 기존 두 서비스/원본/자원과 접속/진행 안내를 확인했다. |
-| 4 — 진행 | PAR 경계 연결 | [매 RK trial의 PAR·환기 공동 적분441검사](../research/crop-greenhouse-radiation-par-integration-implementation-20261013.md) 수용. 다음: NIR 별도 경계→새 저장/API/UTC3D·사용자 수용. 부모는 미완료. |
+| 4 — 진행 | PAR 경계 연결 | [매 RK trial의 PAR·환기 공동 적분441검사](../research/crop-greenhouse-radiation-par-integration-implementation-20261013.md) 수용. NIR 순간/현재 상태 합성415검사도 수용. 다음: NIR 포함 매 RK trial→새 저장/API/UTC3D·사용자 수용. 부모는 미완료. |
 | 5 | CO₂·기공 연결 | `crop-greenhouse-co2-stomatal`의 원문 단위 정책·질량/광합성 결합과 독립 참조 대사. |
 | 6 | 시설 환기량 연결 | `crop-greenhouse-facility-flow`의 시설/풍속/창/계수 근거와 유량·구획 변환 검증. |
 | 7 | 물·양분 연결 | `crop-water-nutrient`의 급배액/재순환/구매 용수·성분 재고 수지와 근거 없는 출력의 보류. |
@@ -36,7 +36,9 @@
 
 인증 TTL로 종료된 기존5173과 의존 환기 서비스를 원 결과로 복구했다. 원 joint는 계속 유지했으며 새 필수5root·원 growth/harvest summary·환기 정상/보류6HTTP 원 bytes를 검증했다. 이 복구는 개발 후속 기반 확대가 아닌 현재 사용자 경로 보존이다. 실제 PAR 저장/API/3D 배포는 아직 아니다.
 
-[순간 가상 NIR 분배](../research/crop-greenhouse-radiation-nir-implementation-20261013.md)는 독립315수치/233집중 검사로 수용했다. 실제 열/전체 일사 주장은 유지하지 않는다. 다음은 **현재 PAR/NIR/환기 합성 RHS→같은 매 RK trial·독립 궤적**이다. NIR 부모의 남은 기준은 다음과 같다: (1) 기존 원문/권리의 층 순서·반사 분모·명시 입력을 계약하고 (2) 독립 분배/극한/hold·열 중복 방지를 검증하며 (3) 수용된 PAR/환기와 새 합성 identity에 연결한다. 그 뒤 새 입력/context→checkpoint→저장/현재 권리 API→같은 UTC3D→정상/보류/취소 사용자 수용으로 진행한다. 각 자식의 근거가 있어야 체크하며 PAR 부모는 미완료다.
+[순간 가상 NIR 분배](../research/crop-greenhouse-radiation-nir-implementation-20261013.md)는 독립315수치/233집중 검사로, [현재 PAR/NIR/환기 합성 RHS](../research/crop-greenhouse-solar-joint-implementation-20261013.md)는 독립585수치/415집중 검사로 수용했다. 실제 온실 전체 열수지·일사/생산 예측은 미수용이다.
+
+다음 한 단계는 **합성 PAR/NIR/환기를 매 RK trial에서 갱신하는 새 적분 판본**이다. 현재 leaf/air/열 상태와 같은 가중치의 성분 장부, 독립108상태/열 분배 궤적·간격 축소·암/leaf 변경·수동 분할/실패 prefix 및 원 결과/5root/자원을 통과해야 한다. NIR 부모는 이 적분 수용까지 미완료다. 그 뒤 새 입력/context→checkpoint→저장/현재 권리 API→같은 UTC3D→정상/보류/취소 사용자 수용으로 진행한다. source 가상 NIR과 실제 cover/floor/air 열의 구분 및 각 자식의 증거를 유지한다.
 
 실제 시설/스펙트럼·품종/지역/독립 농장·시장 자료 확보는 병행한다. 합성 개발 착수와 G0–G4/예측·추천 게시 조건을 구분하며, 외부 자료와 후속 판본 수용이 확보되지 않아 전체 완료일·남은 집중 시간은 미정이다.
 

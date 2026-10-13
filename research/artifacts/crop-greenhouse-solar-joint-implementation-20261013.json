@@ -1,0 +1,116 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted": "instantaneous_shared_solar_ventilation_synthetic_only",
+  "actual_farm_Runs": 0,
+  "checks": {
+    "core_balances": 7,
+    "focused_passed": 415,
+    "independent_cases": 5,
+    "independent_values": 585,
+    "new_passed": 25,
+    "new_pure_NIR_tests_separate": 95,
+    "prior_PAR_RK_focused_evidence_unchanged": 441,
+    "skipped": 0
+  },
+  "files_sha256": {
+    "backend/app/crop_greenhouse_solar_joint.py": "ed5d7b564367491f524b76ad9d2da82f821bfbeeb6538164dd6bdf316172abd7",
+    "backend/tests/test_crop_greenhouse_solar_joint.py": "ce123c7c762d3b70853903367d4bbebca91d3ce01fc5edfd6ef6dbca34fb1a6c",
+    "contracts/crop-greenhouse-solar-joint-v1.md": "c1dedbca5c01fe60b83cb69fe738c49371f4632e5c09ee06eadb120e8721a903"
+  },
+  "final_focused_consumers": {
+    "RSS_samples": 7,
+    "actual_child_exit": 0,
+    "combined_peak_RSS_bytes": 858079232,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "frontend_status": 200,
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "log_sha256": "c5ab7f14819fd487b70337b91191b465a40d79669bac73d4bdf6caf7511de6f1",
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "original_tool": "24554:0",
+    "owned_non_zombie_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 5,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 136171520,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining": [],
+    "terminal_sha256": "47d929a468193376b154e59aa180b5a3f11be706d5a10cd21e1fa667e14e77e1",
+    "wall_seconds": 1.9727627719985321
+  },
+  "full_product_completion": null,
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "native_turn_context_sha256": "ae32f11e0bb6473981cc29b16ed3c199d2883f47f90b4ff4c4cfa74ded46636a",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "timestamp": "2026-10-13T10:13:48.709Z"
+  },
+  "native_design_output_sha256": "0b5036c5b44d5247bc9fbde4bdb211f4942e0401874cb06237ca9609c8477b0b",
+  "new_tests": {
+    "RSS_samples": 3,
+    "actual_child_exit": 0,
+    "combined_peak_RSS_bytes": 858083328,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "frontend_status": 200,
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "log_sha256": "ece6bd7028376aba334ef4dd60dceb04ae962e8cf68876b7c265d77d53ed2f8c",
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "original_tool": "32002:0",
+    "owned_non_zombie_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 5,
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 136171520,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining": [],
+    "terminal_sha256": "5c5be92b2457d66f7ebaf4113701ff5c139438bcb277a63b4f53b70115e5a1ee",
+    "wall_seconds": 0.9098858539946377
+  },
+  "next": "every shared PAR-NIR-ventilation RK trial and independent trajectories, then new immutable store/API/same UTC3D",
+  "not_run": [
+    "NIR shared RK integration",
+    "new immutable context/store/API/UTC3D",
+    "full CI",
+    "current browser/WebGL",
+    "whole DB repetition",
+    "independent farm validation"
+  ],
+  "status_feed": {
+    "both_actual_HTTP200_bytes_equal_no_store": true,
+    "browser_rerun": false,
+    "frozen_ventilation_files_preserved": 2173,
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 815382528,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "protected_live": true,
+      "protected_root_count": 5,
+      "single_PID_peak_RSS_bytes": 136171520
+    },
+    "original_tool": "98866:0",
+    "source_sha256": "57776218b9fb0112de449c8baf4ba7b5991b65ee932fd7050fd569ec6152da7f",
+    "terminal_sha256": "2bdce2c87938c490ef8227af1e666daa1589193adb83e4bdcf6b952ede3cab38"
+  },
+  "user_deployed": false,
+  "version": "crop-greenhouse-solar-joint-acceptance-v1"
+}

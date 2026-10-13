@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 PAR 적분 — 2026-10-13:** [매 중간 상태의 PAR·환기 공동 적분](research/crop-greenhouse-radiation-par-integration-implementation-20261013.md)을 441집중 검사·독립876수치/72간격 축소 비교로 수용했다. NIR 열 분배→새 저장/API/같은 UTC3D가 다음 단계이며 PAR은 미배포다. 인증 만료 뒤 기존 결과와5173·환기5174를 복구·대사했다. 실제 자료/G0–G4·생산/경제/최종 제품과 전체 완료일은 미정이다. 아래 이전 기록은 당시 상태다.
+**현재 일사 계산 — 2026-10-13:** [가상 NIR 분배·현재 PAR/NIR/환기 합성](research/crop-greenhouse-solar-joint-implementation-20261013.md)을 새120검사/관련415집중 검사·독립315광학/585공동 수치로 수용했다. 기존 PAR RK441검사는 유지한다. 다음은 NIR 포함 매 RK trial→새 저장/API/같은 UTC3D이며 새 일사 계산은 미배포다. 기존5173·환기5174와 원 결과/자원을 보존했다. 실제 자료/G0–G4·생산/경제/최종 제품과 전체 완료일은 미정이다. 아래 이전 기록은 당시 상태다.
 
 **현재 사용자 적용 — 2026-10-13:** [새 환기 모델의 로컬 실행](research/crop-isolated-ventilation-user-activation-20261013.md)을 수용했다. **http://localhost:5174/#ventilation-execution** 에서 [사설 접속 안내](web/README.md#새-환기-모델의-로컬-사용자-실행--2026-10-13)에 따라 합성 계산 접수→진행/3D·취소·저장 조회를 실행한다. 정상/보류/취소와 재시작 뒤 원문/3D·기존 입력3/HTTPS9시점·950파일/원 행·두 서비스/자원을 보존했다. 지역/실제 품종의 생산·경제 예측과 최종 제품은 미완료이며 다음은 PAR 경계다. 아래 이전 기록은 당시 상태다.
 
