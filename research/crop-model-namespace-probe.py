@@ -11,7 +11,7 @@ import sys
 from uuid import uuid4
 
 
-def probe_ventilation(out, policy, dsn, original, original_directory, runtime, requests):
+def probe_ventilation(out, policy, dsn, original, original_directory, runtime, requests, original_access=None):
     import importlib.util
     from pytest import MonkeyPatch
     root = Path(__file__).resolve().parents[1]
@@ -63,9 +63,17 @@ def probe_ventilation(out, policy, dsn, original, original_directory, runtime, r
             binding_count += 1
         assert not any(calls.values())
     assert all(sha256(path.read_bytes()).hexdigest() == digest for path, digest in immutable.items())
-    return {'new_model_farm_input_bindings_verified': binding_count,
+    checks = {'new_model_farm_input_bindings_verified': binding_count,
             'native_new_namespace_authority_used': True, 'new_model_calculation_and_write_calls': calls,
             'input_files_proofs_keys_rights_unchanged': True}
+    if original_access:
+        spec = importlib.util.spec_from_file_location('isolated_runtime_probe',
+            root/'research/crop-isolated-ventilation-runtime-probe.py')
+        exercise = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(exercise)
+        checks.update(exercise.exercise(out, policy, dsn, original, config, requests, original_directory, original_access))
+        assert all(sha256(path.read_bytes()).hexdigest() == digest for path, digest in immutable.items())
+    return checks
 
 
 def digest_rows(rows):
@@ -80,9 +88,13 @@ def main():
     parser.add_argument('--ventilation-runtime', type=Path)
     parser.add_argument('--ventilation-requests', type=Path)
     parser.add_argument('--readmit-market-sources', action='store_true')
+    parser.add_argument('--exercise-runtime', action='store_true')
+    parser.add_argument('--original-access', type=Path)
     args = parser.parse_args()
     assert bool(args.ventilation_runtime) == bool(args.ventilation_requests)
     assert not args.readmit_market_sources or args.ventilation_runtime
+    assert not args.exercise_runtime or args.readmit_market_sources
+    assert bool(args.exercise_runtime) == bool(args.original_access)
     out = args.output_directory
     out.mkdir(mode=0o700)
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'backend'))
@@ -114,6 +126,8 @@ def main():
     suffix = uuid4().hex
     policy = replace(old, schema='model_test_'+suffix, owner='model_owner_'+suffix,
                      prefix='model_'+suffix, crop_greenhouse_ventilation_result_storage=True)
+    if args.exercise_runtime:
+        policy = replace(policy, crop_climate_joint_result_storage=False)
     admin = make_conninfo(host=database['socket'], port=database['port'], dbname=old.database,
                          user='ossf_preview_admin')
     owned_roles = [policy.owner, *policy.roles.values()]
@@ -251,8 +265,15 @@ def main():
                 denied(conn, sql.SQL('SET ROLE {}').format(sql.Identifier(policy.owner)))
                 checks['runtime_ddl_denials'] += 2
                 if kind == 'authority':
-                    assert rows(conn, policy.schema, exact_names) == {
-                        name: before_rows[name] for name in exact_names}
+                    readable = exact_names
+                    if args.exercise_runtime:
+                        from app.crop_climate_joint_result_schema import TABLE as JOINT_TABLE
+                        denied(conn, sql.SQL('SELECT * FROM {} LIMIT 0').format(
+                            sql.Identifier(policy.schema, JOINT_TABLE)))
+                        checks['isolated_joint_result_select_denied'] = True
+                        readable = [name for name in exact_names if name != JOINT_TABLE]
+                    assert rows(conn, policy.schema, readable) == {
+                        name: before_rows[name] for name in readable}
         with psycopg.connect(original['dsn'], require_auth='scram-sha-256',
                 autocommit=True, row_factory=dict_row) as conn:
             assert conn.pgconn.used_password
@@ -288,7 +309,7 @@ def main():
                 checks['readmitted_market_source_records'] = len(new_sources)
                 checks['source_payload_job_identity_preserved'] = True
             checks.update(probe_ventilation(out, policy, dsn, original, args.original_directory,
-                                           args.ventilation_runtime, args.ventilation_requests))
+                                           args.ventilation_runtime, args.ventilation_requests, args.original_access))
     finally:
         if started:
             with psycopg.connect(admin, row_factory=dict_row) as conn:
