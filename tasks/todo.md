@@ -1,6 +1,6 @@
 # 첫 구현 작업 목록
 
-**2026-10-13 goal 재개 준비:** [단계별 목표 순서](plan.md)를 기록했다. 현재 자동 목표는 `usageLimited`로 재개 대기다. 재개 후 첫 작업은 **모델별 API/환기 작업자 기동**이며, 수용 증거에 따라 다음 단계로 전환한다.
+**2026-10-13 goal 재개 준비:** [단계별 목표 순서](plan.md)를 기록했다. 현재 자동 목표는 `usageLimited`로 재개 대기다. 사용자의 “순서대로 시작/계속”에 따라 수동 진행하여 **모델별 API/환기 작업자 기동**을 수용했다. 다음은 같은 조립 판본의 원 UTC/WebGL 재수용이며 자동 활성화를 주장하지 않는다.
 
 ## 현재 실행 복구와 시험 정리 수정 — 2026-10-09
 
@@ -1764,7 +1764,7 @@
                 - [x] **기존 조회의 실제 코드 의존성 확인** — [집중 기록](../research/crop-joint-input-version-compatibility-20261013.md)/[기계 증거](../research/artifacts/crop-joint-input-version-compatibility-20261013.json): 설정 파일만 선택한 실패2건을 보존. 실제 설정/권한 원판본을 선택해 입력3건·기존9시점 SCRAM/HTTPS·원 수치/UTC/조회 계산·쓰기0과950파일/모든 행을 확인. 원 권한 코드의 새 flag 거부도 실제 실행으로 검증. 혼합 조립 수용은 아니다.
                 - [x] **모델별 저장·권한 분리 검증** — [수용 기록](../research/crop-model-namespace-20261013.md)/[기계 증거](../research/artifacts/crop-model-namespace-20261013.json): 같은 PG의 별도 schema/owner/네 로그인·공식 설치/외래키 순서27표1,027행 대사·네 실제 SCRAM/양방향 거부20건/DDL·owner 거부8건·두 정책 감사/원 ACL·행 보존·소유 시험 영역/역할/passfile 정리0·512MiB/PID/합1GiB. 기존 API/작업자/네 root를 유지했다. 새 서버/3D 조립 수용은 아니다.
                 - [x] **분리 영역의 새 입력 접수·결속** — 위 기록: 과거 admitted_by를 유지한 단순 복제의 실제 거부를 확인. 다음 시험 영역에서26표 원 행을 복제하고 새 authority의 기존 adopt_job으로85건을 별도 접수해 원 입력/작업 identity를 대사했다. 정상/보류/취소 요청3건의 농장/입력/현재 권리 결속·계산/작업 쓰기0. 원75323 실제0의 최종 코드/기존 입력3건/HTTPS9시점·950파일/모든 행·키/권리/토큰 보존·정리와 원57464 실제0의 두 UI 최신 기록/재조회를 확인했다. 새 계산 실행·사용자 적용은 아니다.
-                - [ ] **모델별 API/환기 작업자 기동** — 다음 한 단계. 모델별 실제 source/DSN/권한/새 접수 기록을 고정한 명시 조립. 새 API 접수→독립 자동 소비·SCRAM/TLS에서 기존9시점/새 정상·보류·취소/현재 권리·조회 계산/쓰기0·필수 기존 소비자와 추가 API/worker를 포함한512MiB/PID/합1GiB·원본/정리를 확인한다. 이어 같은 조립 판본의 계산 중→terminal WebGL·재접속과 모델별 HTTP 사용자 연결을 재수용한다.
+                - [x] **모델별 API/환기 작업자 기동** — [수용](../research/crop-isolated-ventilation-runtime-20261013.md)/[기계 증거](../research/artifacts/crop-isolated-ventilation-runtime-20261013.json). 원44543 실제0: 별도 영역의 실제 API 접수→unpaused 독립 소비→정상9/보류8시점·취소/attempt1·원 저장 bytes/UTC·HTTP query9건/계산·쓰기0. 원63469 실제0: 권리 철회422 세 건·복원/26표 불변·원 입력3/HTTPS9·950파일/모든 원 행·키/토큰 보존. 기존 네 root·필수 소비자와 추가 API/worker 합 최대818,229,248bytes/512MiB per PID·소유 시험 영역/역할/passfile/프로세스 정리0. 원62388 실제0의 두 UI 최신 기록/15초 재조회. 소유 일시 조립 수용이며 같은 배치 WebGL/사용자 적용/지속 새 서비스는 후속이다.
                 - [ ] **모델별 source/권한 조립 최종 수용** — 위 저장/권한·새 입력 검증과 새 API/환기 작업자 기동을 선행으로 같은 조립 판본의 양 모델 SCRAM/HTTPS·정상/보류/취소·계산 중→terminal 원 수치/UTC/WebGL·현재 권리/재접속·조회 계산/쓰기0을 함께 확인한다. 과거 증거/결과/키·두 사용자 서비스/필수 소비자/브라우저를 포함한512MiB/PID/합1GiB와 원본 보존을 유지한다. 이후 모델별 HTTP 사용자 연결을 적용한다.
               - [x] **`development-status-estimate-validity`** — [수용 기록](../research/product-ui-estimate-validity-20261012.md)/[기계 증거](../research/artifacts/product-ui-estimate-validity-20261012.json): v2 미정/판단 시각/사유·parser26·게시기/타입/빌드·양쪽 실제 HTTP/최신 DOM/15초 재조회·오래된 기록/조회 실패·320–1440px를 확인. 기존9시점 HTTPS·조회 계산/쓰기0·950파일/모든 행·두 서비스 보존. 새 모델 적용/전체 일정 미정은 유지.
             - [ ] **`crop-greenhouse-ventilation-user-live-acceptance`** — 위 연결 뒤 실제 사용자 DB 정상/보류/취소/재접속·계산 중/완료 WebGL·현재 권리·추가 작업자를 포함한 WSL 합 자원과 원 데이터/두 UI 보존. 최신 진행/접속 안내 게시 뒤 부모 사용자 적용을 수용한다.

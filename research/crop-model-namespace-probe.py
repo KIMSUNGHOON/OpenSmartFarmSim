@@ -11,7 +11,8 @@ import sys
 from uuid import uuid4
 
 
-def probe_ventilation(out, policy, dsn, original, original_directory, runtime, requests, original_access=None):
+def probe_ventilation(out, policy, dsn, original, original_directory, runtime, requests,
+                      original_access=None, runtime_cases=('cancel', 'completed', 'hold'), check_runtime_rights=False):
     import importlib.util
     from pytest import MonkeyPatch
     root = Path(__file__).resolve().parents[1]
@@ -71,7 +72,8 @@ def probe_ventilation(out, policy, dsn, original, original_directory, runtime, r
             root/'research/crop-isolated-ventilation-runtime-probe.py')
         exercise = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(exercise)
-        checks.update(exercise.exercise(out, policy, dsn, original, config, requests, original_directory, original_access))
+        checks.update(exercise.exercise(out, policy, dsn, original, config, requests, original_directory,
+                                       original_access, runtime_cases, check_runtime_rights))
         assert all(sha256(path.read_bytes()).hexdigest() == digest for path, digest in immutable.items())
     return checks
 
@@ -90,11 +92,16 @@ def main():
     parser.add_argument('--readmit-market-sources', action='store_true')
     parser.add_argument('--exercise-runtime', action='store_true')
     parser.add_argument('--original-access', type=Path)
+    parser.add_argument('--runtime-cases', nargs='+', choices=('cancel', 'completed', 'hold'),
+                        default=('cancel', 'completed', 'hold'))
+    parser.add_argument('--check-runtime-rights', action='store_true')
     args = parser.parse_args()
     assert bool(args.ventilation_runtime) == bool(args.ventilation_requests)
     assert not args.readmit_market_sources or args.ventilation_runtime
     assert not args.exercise_runtime or args.readmit_market_sources
     assert bool(args.exercise_runtime) == bool(args.original_access)
+    assert not args.check_runtime_rights or args.exercise_runtime
+    assert len(set(args.runtime_cases)) == len(args.runtime_cases)
     out = args.output_directory
     out.mkdir(mode=0o700)
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'backend'))
@@ -309,7 +316,8 @@ def main():
                 checks['readmitted_market_source_records'] = len(new_sources)
                 checks['source_payload_job_identity_preserved'] = True
             checks.update(probe_ventilation(out, policy, dsn, original, args.original_directory,
-                                           args.ventilation_runtime, args.ventilation_requests, args.original_access))
+                                           args.ventilation_runtime, args.ventilation_requests, args.original_access,
+                                           args.runtime_cases, args.check_runtime_rights))
     finally:
         if started:
             with psycopg.connect(admin, row_factory=dict_row) as conn:
