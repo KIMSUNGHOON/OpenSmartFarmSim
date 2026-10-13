@@ -1,0 +1,1090 @@
+{
+  "G0_G4": "not_assessed",
+  "cases": [
+    {
+      "case_id": "nominal",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "269.99999999999999833466546306226518936455249786376953125000",
+          "outdoor_nir": "300.0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "86.057967547585848074437555188855077762605497926209853665447358722949337371527601",
+          "construction_unallocated_nir": "30.00000000000000166533453693773481063544750213623046875000",
+          "floor_absorbed_nir": "75.885128366761590081641145260338515320222861689742962983111012788692857880096266",
+          "upward_virtual_nir": "108.05690408565256017858676261307159628172413824781671460144162848835780474837613"
+        },
+        "optics": {
+          "canopy_absorptance": "0.31873321313920684668605549295819423875138044454446905560391885954600246368231359",
+          "canopy_reflectance": "0.14603811166910361523565305900971040410278183073256565249663461774755095381459900",
+          "canopy_single_pass_absorptance": "0.27121363595690674048006981127413059102610518487550549294331992702197251889931715",
+          "canopy_transmittance": "0.58274825237398964428427712971615900487111298439192885456004545523047652728608385",
+          "cover_canopy_absorptance_down": "0.29545198522658721581714727364563029998190097977489196714829643440049186562870479",
+          "cover_canopy_absorptance_up": "0.23569465082389529147044250345114399344087194970152132326806599295782375223010407",
+          "cover_canopy_reflectance_down": "0.19811829424362936675850884741663664282745993417643619230149143757932161169908829",
+          "cover_canopy_reflectance_up": "0.25787562864632129110521361761112294936848896424980683618172187902198972509768899",
+          "cover_canopy_transmittance": "0.50642972052978341742434387893773305719063908604867184055021212802018652267220693",
+          "floor_absorptance": "0.28105603098800589092479059436780352313042143079742155188855252526952201957744281",
+          "upward_reflectance": "0.40021075587278726238915391267400223811819812465810939250752861518447551674024358",
+          "virtual_cover_transmittance": "0.8500000000000000055511151231257827021181583404541015625",
+          "virtual_floor_transmittance": "0.5"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "0.97809428324963445852532641138763635807116283360031083584543800207401678851201812",
+          "cover_canopy_floor": "0.90094085287818531662074557629168167858627003291178190384925428121033919415045586"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-nominal",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 0.35
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0.27
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0.5
+          }
+        }
+      }
+    },
+    {
+      "case_id": "dark",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "0E-56",
+          "outdoor_nir": "0.0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "0E-136",
+          "construction_unallocated_nir": "0E-56",
+          "floor_absorbed_nir": "0E-136",
+          "upward_virtual_nir": "0E-136"
+        },
+        "optics": {
+          "canopy_absorptance": "0.31873321313920684668605549295819423875138044454446905560391885954600246368231359",
+          "canopy_reflectance": "0.14603811166910361523565305900971040410278183073256565249663461774755095381459900",
+          "canopy_single_pass_absorptance": "0.27121363595690674048006981127413059102610518487550549294331992702197251889931715",
+          "canopy_transmittance": "0.58274825237398964428427712971615900487111298439192885456004545523047652728608385",
+          "cover_canopy_absorptance_down": "0.29545198522658721581714727364563029998190097977489196714829643440049186562870479",
+          "cover_canopy_absorptance_up": "0.23569465082389529147044250345114399344087194970152132326806599295782375223010407",
+          "cover_canopy_reflectance_down": "0.19811829424362936675850884741663664282745993417643619230149143757932161169908829",
+          "cover_canopy_reflectance_up": "0.25787562864632129110521361761112294936848896424980683618172187902198972509768899",
+          "cover_canopy_transmittance": "0.50642972052978341742434387893773305719063908604867184055021212802018652267220693",
+          "floor_absorptance": "0.28105603098800589092479059436780352313042143079742155188855252526952201957744281",
+          "upward_reflectance": "0.40021075587278726238915391267400223811819812465810939250752861518447551674024358",
+          "virtual_cover_transmittance": "0.8500000000000000055511151231257827021181583404541015625",
+          "virtual_floor_transmittance": "0.5"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "0.97809428324963445852532641138763635807116283360031083584543800207401678851201812",
+          "cover_canopy_floor": "0.90094085287818531662074557629168167858627003291178190384925428121033919415045586"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-dark",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 0.35
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0.27
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 0
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0.5
+          }
+        }
+      }
+    },
+    {
+      "case_id": "no-leaves",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "269.99999999999999833466546306226518936455249786376953125000",
+          "outdoor_nir": "300.0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "0E-138",
+          "construction_unallocated_nir": "30.00000000000000166533453693773481063544750213623046875000",
+          "floor_absorbed_nir": "124.05405405405405372682615746073727570661538080559873397581931519812904646453654",
+          "upward_virtual_nir": "145.94594594594594460783930560152791365793711705817079727418068480187095353546346"
+        },
+        "optics": {
+          "canopy_absorptance": "0E-82",
+          "canopy_reflectance": "0E-53",
+          "canopy_single_pass_absorptance": "0E-53",
+          "canopy_transmittance": "1",
+          "cover_canopy_absorptance_down": "0E-108",
+          "cover_canopy_absorptance_up": "0E-29",
+          "cover_canopy_reflectance_down": "0.1499999999999999944488848768742172978818416595458984375",
+          "cover_canopy_reflectance_up": "0.1499999999999999944488848768742172978818416595458984375",
+          "cover_canopy_transmittance": "0.8500000000000000055511151231257827021181583404541015625",
+          "floor_absorptance": "0.45945945945945946108140690230117828647522773689918691239493250327045945026004429",
+          "upward_reflectance": "0.54054054054054053891859309769882171352477226310081308760506749672954054973995570",
+          "virtual_cover_transmittance": "0.8500000000000000055511151231257827021181583404541015625",
+          "virtual_floor_transmittance": "0.5"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "1.0000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "cover_canopy_floor": "0.92500000000000000277555756156289135105907917022705078125"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-no-leaves",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 0.35
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 0
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0.27
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0.5
+          }
+        }
+      }
+    },
+    {
+      "case_id": "zero-extinction",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "269.99999999999999833466546306226518936455249786376953125000",
+          "outdoor_nir": "300.0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "0E-138",
+          "construction_unallocated_nir": "30.00000000000000166533453693773481063544750213623046875000",
+          "floor_absorbed_nir": "124.05405405405405372682615746073727570661538080559873397581931519812904646453654",
+          "upward_virtual_nir": "145.94594594594594460783930560152791365793711705817079727418068480187095353546346"
+        },
+        "optics": {
+          "canopy_absorptance": "0E-82",
+          "canopy_reflectance": "0E-53",
+          "canopy_single_pass_absorptance": "0E-53",
+          "canopy_transmittance": "1",
+          "cover_canopy_absorptance_down": "0E-108",
+          "cover_canopy_absorptance_up": "0E-29",
+          "cover_canopy_reflectance_down": "0.1499999999999999944488848768742172978818416595458984375",
+          "cover_canopy_reflectance_up": "0.1499999999999999944488848768742172978818416595458984375",
+          "cover_canopy_transmittance": "0.8500000000000000055511151231257827021181583404541015625",
+          "floor_absorptance": "0.45945945945945946108140690230117828647522773689918691239493250327045945026004429",
+          "upward_reflectance": "0.54054054054054053891859309769882171352477226310081308760506749672954054973995570",
+          "virtual_cover_transmittance": "0.8500000000000000055511151231257827021181583404541015625",
+          "virtual_floor_transmittance": "0.5"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "1.0000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "cover_canopy_floor": "0.92500000000000000277555756156289135105907917022705078125"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-zero-extinction",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 0.35
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0.5
+          }
+        }
+      }
+    },
+    {
+      "case_id": "lossless-canopy",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "269.99999999999999833466546306226518936455249786376953125000",
+          "outdoor_nir": "300.0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "0E-190",
+          "construction_unallocated_nir": "30.00000000000000166533453693773481063544750213623046875000",
+          "floor_absorbed_nir": "93.345585100682670891355601837883112191964736165992233887254943469388640719343239",
+          "upward_virtual_nir": "176.65441489931732744330986122438207717258776169777729736274505653061135928065676"
+        },
+        "optics": {
+          "canopy_absorptance": "0E-134",
+          "canopy_reflectance": "0.41725174762601035571572287028384099512888701560807114543995454476952347271391615",
+          "canopy_single_pass_absorptance": "0E-80",
+          "canopy_transmittance": "0.58274825237398964428427712971615900487111298439192885456004545523047652728608385",
+          "cover_canopy_absorptance_down": "0E-159",
+          "cover_canopy_absorptance_up": "0E-55",
+          "cover_canopy_reflectance_down": "0.47159211869183009900159891460424044755726738316265965259649128250485213207767368",
+          "cover_canopy_reflectance_up": "0.47159211869183009900159891460424044755726738316265965259649128250485213207767369",
+          "cover_canopy_transmittance": "0.52840788130816990099840108539575955244273261683734034740350871749514786792232632",
+          "floor_absorptance": "0.34572438926178767210037913902682763828232584304696984888679817321838085889770059",
+          "upward_reflectance": "0.65427561073821232789962086097317236171767415695303015111320182678161914110229941",
+          "virtual_cover_transmittance": "0.8500000000000000055511151231257827021181583404541015625",
+          "virtual_floor_transmittance": "0.5"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "0.93741223785609844895885405585483233677874910384135414028584418651501704450173049",
+          "cover_canopy_floor": "0.76420394065408495049920054269787977622136630841867017370175435874757393396116316"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-lossless-canopy",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 1
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0.27
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0.5
+          }
+        }
+      }
+    },
+    {
+      "case_id": "black-canopy",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "269.99999999999999833466546306226518936455249786376953125000",
+          "outdoor_nir": "300.0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "126.89297291003022864389571688224082351004482871917352759082825245814152768546850",
+          "construction_unallocated_nir": "30.00000000000000166533453693773481063544750213623046875000",
+          "floor_absorbed_nir": "68.618040422875210763815206405418059375901114223132218993432868614801198143947586",
+          "upward_virtual_nir": "74.488986667094558926954539774606306478606554921463784665738878927057274170583913"
+        },
+        "optics": {
+          "canopy_absorptance": "0.46997397374085270157985039561018850670125458992116359680934759615996451733583752",
+          "canopy_reflectance": "0E-80",
+          "canopy_single_pass_absorptance": "0.41725174762601035571572287028384099512888701560807114543995454476952347271391615",
+          "canopy_transmittance": "0.58274825237398964428427712971615900487111298439192885456004545523047652728608385",
+          "cover_canopy_absorptance_down": "0.45372465663536793194578613653387909336360118489323418312250485889821313840257854",
+          "cover_canopy_absorptance_up": "0.35466398548210880467457692613867333190763611944942528572579873128454051721564664",
+          "cover_canopy_reflectance_down": "0.050939328846740867177675666479011536425876594102089540103293872386327378813068102",
+          "cover_canopy_reflectance_up": "0.14999999999999999444888487687421729788184165954589843750000000000000000000000000",
+          "cover_canopy_transmittance": "0.49533601451789120087653819698710937021052222100467627677420126871545948278435336",
+          "floor_absorptance": "0.25414089045509337476683262417923916024270157018492182479013174080087438967661859",
+          "upward_reflectance": "0.27588513580405392365331698021057233305604383989391457840052066303916109298754388",
+          "virtual_cover_transmittance": "0.8500000000000000055511151231257827021181583404541015625",
+          "virtual_floor_transmittance": "0.5"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "1.0000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "cover_canopy_floor": "0.97453033557662956641116216676049423178706170294895522994835306380683631059346595"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-black-canopy",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 0
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0.27
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0.5
+          }
+        }
+      }
+    },
+    {
+      "case_id": "reflective-cover",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "269.99999999999999833466546306226518936455249786376953125000",
+          "outdoor_nir": "300.0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "0E-135",
+          "construction_unallocated_nir": "30.00000000000000166533453693773481063544750213623046875000",
+          "floor_absorbed_nir": "0E-57",
+          "upward_virtual_nir": "269.99999999999999833466546306226518936455249786376953125000"
+        },
+        "optics": {
+          "canopy_absorptance": "0E-79",
+          "canopy_reflectance": "0.14603811166910361523565305900971040410278183073256565249663461774755095381459900",
+          "canopy_single_pass_absorptance": "0.27121363595690674048006981127413059102610518487550549294331992702197251889931715",
+          "canopy_transmittance": "0.58274825237398964428427712971615900487111298439192885456004545523047652728608385",
+          "cover_canopy_absorptance_down": "0.45629130105364383432237773266419999286913726819426154929486679923171923381100036",
+          "cover_canopy_absorptance_up": "0",
+          "cover_canopy_reflectance_down": "0.54370869894635616567762226733580000713086273180573845070513320076828076618899964",
+          "cover_canopy_reflectance_up": "1",
+          "cover_canopy_transmittance": "0",
+          "floor_absorptance": "0.0",
+          "upward_reflectance": "1",
+          "virtual_cover_transmittance": "0",
+          "virtual_floor_transmittance": "0.5"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "0.85396188833089638476434694099028959589721816926743434750336538225244904618540100",
+          "cover_canopy_floor": "0.72814565052682191716118886633209999643456863409713077464743339961585961690550018"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-reflective-cover",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 0.35
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 1
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0.27
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0.5
+          }
+        }
+      }
+    },
+    {
+      "case_id": "reflective-floor",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "269.99999999999999833466546306226518936455249786376953125000",
+          "outdoor_nir": "300.0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "114.01771730143038321486640937228319100651577370994502776066196483321779407042324",
+          "construction_unallocated_nir": "30.00000000000000166533453693773481063544750213623046875000",
+          "floor_absorbed_nir": "0E-111",
+          "upward_virtual_nir": "155.98228269856961511979905368998199835803672415382450348933803516678220592957675"
+        },
+        "optics": {
+          "canopy_absorptance": "0.42228784185714957006709976646627688138657335438092329708716495114980793686773990",
+          "canopy_reflectance": "0.14603811166910361523565305900971040410278183073256565249663461774755095381459900",
+          "canopy_single_pass_absorptance": "0.27121363595690674048006981127413059102610518487550549294331992702197251889931715",
+          "canopy_transmittance": "0.58274825237398964428427712971615900487111298439192885456004545523047652728608385",
+          "cover_canopy_absorptance_down": "0.29545198522658721581714727364563029998190097977489196714829643440049186562870479",
+          "cover_canopy_absorptance_up": "0.23569465082389529147044250345114399344087194970152132326806599295782375223010407",
+          "cover_canopy_reflectance_down": "0.19811829424362936675850884741663664282745993417643619230149143757932161169908829",
+          "cover_canopy_reflectance_up": "0.25787562864632129110521361761112294936848896424980683618172187902198972509768899",
+          "cover_canopy_transmittance": "0.50642972052978341742434387893773305719063908604867184055021212802018652267220693",
+          "floor_absorptance": "0E-55",
+          "upward_reflectance": "0.57771215814285042993290023353372311861342664561907670291283504885019206313226007",
+          "virtual_cover_transmittance": "0.8500000000000000055511151231257827021181583404541015625",
+          "virtual_floor_transmittance": "0"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "0.97809428324963445852532641138763635807116283360031083584543800207401678851201812",
+          "cover_canopy_floor": "0.80188170575637063324149115258336335717254006582356380769850856242067838830091171"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-reflective-floor",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 0.35
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 1
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0.27
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0.5
+          }
+        }
+      }
+    },
+    {
+      "case_id": "transparent-cover",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "269.99999999999999833466546306226518936455249786376953125000",
+          "outdoor_nir": "300.0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "96.245039189950765966121403048210085399824600594108120144686965521448706171420886",
+          "construction_unallocated_nir": "30.00000000000000166533453693773481063544750213623046875000",
+          "floor_absorbed_nir": "84.867994930915586481271369217884350795911353797724562339212664876707498734621516",
+          "upward_virtual_nir": "88.886965879133645887272690796170753168816543471936848766100369601843795093957592"
+        },
+        "optics": {
+          "canopy_absorptance": "0.35646310811092876503611751159077534086379709651145055971766081345790216585437730",
+          "canopy_reflectance": "0.14603811166910361523565305900971040410278183073256565249663461774755095381459900",
+          "canopy_single_pass_absorptance": "0.27121363595690674048006981127413059102610518487550549294331992702197251889931715",
+          "canopy_transmittance": "0.58274825237398964428427712971615900487111298439192885456004545523047652728608385",
+          "cover_canopy_absorptance_down": "0.27121363595690674048006981127413059102610518487550549294331992702197251889931715",
+          "cover_canopy_absorptance_up": "0.27121363595690674048006981127413059102610518487550549294331992702197251889931715",
+          "cover_canopy_reflectance_down": "0.14603811166910361523565305900971040410278183073256565249663461774755095381459900",
+          "cover_canopy_reflectance_up": "0.146038111669103615235653059009710404102781830732565652496634617747550953814599",
+          "cover_canopy_transmittance": "0.58274825237398964428427712971615900487111298439192885456004545523047652728608385",
+          "floor_absorptance": "0.31432590715153921112862651204306048024878703133205874038587071597147321305488090",
+          "upward_reflectance": "0.32921098473753202383525597636616417888741587215649069989646847057062462109074178",
+          "virtual_cover_transmittance": "1",
+          "virtual_floor_transmittance": "0.5"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "1.0000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "cover_canopy_floor": "0.92698094416544819238217347049514479794860908463371717375168269112622452309270050"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-transparent-cover",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 0.35
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 0
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0.27
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0.5
+          }
+        }
+      }
+    },
+    {
+      "case_id": "black-floor",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "269.99999999999999833466546306226518936455249786376953125000",
+          "outdoor_nir": "300.0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "63.637555722451728304509033743296116537387930480076157068592004424504669046332456",
+          "construction_unallocated_nir": "30.00000000000000166533453693773481063544750213623046875000",
+          "floor_absorbed_nir": "136.73602454304152186119794318321460572344947130016359914975827329007012196462206",
+          "upward_virtual_nir": "69.626419734506748168958486135754467103715096083529775031649722285425208989045480"
+        },
+        "optics": {
+          "canopy_absorptance": "0.23569465082389529147044250345114399344087194970152132326806599295782375223010407",
+          "canopy_reflectance": "0.14603811166910361523565305900971040410278183073256565249663461774755095381459900",
+          "canopy_single_pass_absorptance": "0.27121363595690674048006981127413059102610518487550549294331992702197251889931715",
+          "canopy_transmittance": "0.58274825237398964428427712971615900487111298439192885456004545523047652728608385",
+          "cover_canopy_absorptance_down": "0.29545198522658721581714727364563029998190097977489196714829643440049186562870479",
+          "cover_canopy_absorptance_up": "0.23569465082389529147044250345114399344087194970152132326806599295782375223010407",
+          "cover_canopy_reflectance_down": "0.19811829424362936675850884741663664282745993417643619230149143757932161169908829",
+          "cover_canopy_reflectance_up": "0.25787562864632129110521361761112294936848896424980683618172187902198972509768899",
+          "cover_canopy_transmittance": "0.50642972052978341742434387893773305719063908604867184055021212802018652267220693",
+          "floor_absorptance": "0.50642972052978341742434387893773305719063908604867184055021212802018652267220693",
+          "upward_reflectance": "0.25787562864632129110521361761112294936848896424980683618172187902198972509768899",
+          "virtual_cover_transmittance": "0.8500000000000000055511151231257827021181583404541015625",
+          "virtual_floor_transmittance": "1"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "0.97809428324963445852532641138763635807116283360031083584543800207401678851201812",
+          "cover_canopy_floor": "1.0000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-black-floor",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 0.35
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 0
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0.27
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0.5
+          }
+        }
+      }
+    },
+    {
+      "case_id": "construction-intercepts-all",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "0.0",
+          "outdoor_nir": "300.0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "0E-81",
+          "construction_unallocated_nir": "300.0",
+          "floor_absorbed_nir": "0E-81",
+          "upward_virtual_nir": "0E-81"
+        },
+        "optics": {
+          "canopy_absorptance": "0.31873321313920684668605549295819423875138044454446905560391885954600246368231359",
+          "canopy_reflectance": "0.14603811166910361523565305900971040410278183073256565249663461774755095381459900",
+          "canopy_single_pass_absorptance": "0.27121363595690674048006981127413059102610518487550549294331992702197251889931715",
+          "canopy_transmittance": "0.58274825237398964428427712971615900487111298439192885456004545523047652728608385",
+          "cover_canopy_absorptance_down": "0.29545198522658721581714727364563029998190097977489196714829643440049186562870479",
+          "cover_canopy_absorptance_up": "0.23569465082389529147044250345114399344087194970152132326806599295782375223010407",
+          "cover_canopy_reflectance_down": "0.19811829424362936675850884741663664282745993417643619230149143757932161169908829",
+          "cover_canopy_reflectance_up": "0.25787562864632129110521361761112294936848896424980683618172187902198972509768899",
+          "cover_canopy_transmittance": "0.50642972052978341742434387893773305719063908604867184055021212802018652267220693",
+          "floor_absorptance": "0.28105603098800589092479059436780352313042143079742155188855252526952201957744281",
+          "upward_reflectance": "0.40021075587278726238915391267400223811819812465810939250752861518447551674024358",
+          "virtual_cover_transmittance": "0.8500000000000000055511151231257827021181583404541015625",
+          "virtual_floor_transmittance": "0.5"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "0.97809428324963445852532641138763635807116283360031083584543800207401678851201812",
+          "cover_canopy_floor": "0.90094085287818531662074557629168167858627003291178190384925428121033919415045586"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-construction-intercepts-all",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 0.35
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0.27
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0.5
+          }
+        }
+      }
+    },
+    {
+      "case_id": "no-NIR",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "0E-55",
+          "outdoor_nir": "0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "0E-135",
+          "construction_unallocated_nir": "0E-55",
+          "floor_absorbed_nir": "0E-135",
+          "upward_virtual_nir": "0E-135"
+        },
+        "optics": {
+          "canopy_absorptance": "0.31873321313920684668605549295819423875138044454446905560391885954600246368231359",
+          "canopy_reflectance": "0.14603811166910361523565305900971040410278183073256565249663461774755095381459900",
+          "canopy_single_pass_absorptance": "0.27121363595690674048006981127413059102610518487550549294331992702197251889931715",
+          "canopy_transmittance": "0.58274825237398964428427712971615900487111298439192885456004545523047652728608385",
+          "cover_canopy_absorptance_down": "0.29545198522658721581714727364563029998190097977489196714829643440049186562870479",
+          "cover_canopy_absorptance_up": "0.23569465082389529147044250345114399344087194970152132326806599295782375223010407",
+          "cover_canopy_reflectance_down": "0.19811829424362936675850884741663664282745993417643619230149143757932161169908829",
+          "cover_canopy_reflectance_up": "0.25787562864632129110521361761112294936848896424980683618172187902198972509768899",
+          "cover_canopy_transmittance": "0.50642972052978341742434387893773305719063908604867184055021212802018652267220693",
+          "floor_absorptance": "0.28105603098800589092479059436780352313042143079742155188855252526952201957744281",
+          "upward_reflectance": "0.40021075587278726238915391267400223811819812465810939250752861518447551674024358",
+          "virtual_cover_transmittance": "0.8500000000000000055511151231257827021181583404541015625",
+          "virtual_floor_transmittance": "0.5"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "0.97809428324963445852532641138763635807116283360031083584543800207401678851201812",
+          "cover_canopy_floor": "0.90094085287818531662074557629168167858627003291178190384925428121033919415045586"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-no-NIR",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 0.35
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0.27
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0
+          }
+        }
+      }
+    },
+    {
+      "case_id": "sparse-canopy",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "269.99999999999999833466546306226518936455249786376953125000",
+          "outdoor_nir": "300.0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "6.5314459459459462922684644935265271468676029042487674572945079433604524106755892E-15",
+          "construction_unallocated_nir": "30.00000000000000166533453693773481063544750213623046875000",
+          "floor_absorbed_nir": "124.05405405405405065799708514517834488299247429643098937601213343042215083760083",
+          "upward_virtual_nir": "145.94594594594594114522243197114055221309553004081139500638496232081039186789123"
+        },
+        "optics": {
+          "canopy_absorptance": "2.4190540540540541972421507862522636128339261046372841489668498047064428087542474E-17",
+          "canopy_reflectance": "9.4499999999999996971035450346300923490319741577766177367068143350424100986552356E-18",
+          "canopy_single_pass_absorptance": "1.7550000000000001150393535914554601925278101198563044057246299414957589901344764E-17",
+          "canopy_transmittance": "0.99999999999999997299999999999999915250291905081530572568992464366033820604688625",
+          "cover_canopy_absorptance_down": "2.0182500000000001158184564640880294899536958540153865075193402500488785483660833E-17",
+          "cover_canopy_absorptance_up": "1.4917500000000001096402132188228904538465581414891154516380726495726185119219166E-17",
+          "cover_canopy_reflectance_down": "0.14999999999999999601150987687421711611354338493044550247750214340849525507999340",
+          "cover_canopy_reflectance_up": "0.15000000000000000127650987687421717789597583758183586354887926867120581389266940",
+          "cover_canopy_transmittance": "0.84999999999999998380599012312578172570189197418925959798553931643763966972660410",
+          "floor_absorptance": "0.45945945945945944971537330113244143554237140160199968046057863670317362544982595",
+          "upward_reflectance": "0.54054054054054052609408615832701659203612073587536419120016031692398488488167600",
+          "virtual_cover_transmittance": "0.8500000000000000055511151231257827021181583404541015625",
+          "virtual_floor_transmittance": "0.5"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "0.99999999999999999858250000000000009789250615834413100124870829417229688716167815",
+          "cover_canopy_floor": "0.92500000000000000199424506156289144194322830753477724876124892829575237246000330"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-sparse-canopy",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 0.35
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 1e-16
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0.27
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0.5
+          }
+        }
+      }
+    },
+    {
+      "case_id": "dense-canopy",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "269.99999999999999833466546306226518936455249786376953125000",
+          "outdoor_nir": "300.0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "157.44053625575290208561603222697261276161823293101249317060604555597017869433808",
+          "construction_unallocated_nir": "30.00000000000000166533453693773481063544750213623046875000",
+          "floor_absorbed_nir": "0.00020125369468335888499171053926396381461939294810385640581976608944454843854380374",
+          "upward_virtual_nir": "112.55926249055241289016443912475331263911964553980893422298813467794037675722337"
+        },
+        "optics": {
+          "canopy_absorptance": "0.58311309724352927058034967410131022003212412426553143719530020443220637000798467",
+          "canopy_reflectance": "0.34999952016431974336646855269006154189577411796285431695418047756253022625834790",
+          "canopy_single_pass_absorptance": "0.64999910887659387255038460098514387755360351689260277067441272604333771197938080",
+          "canopy_transmittance": "0.0000013709590863840831468463247945805506223651445429123714067963941320617622713008598",
+          "cover_canopy_absorptance_down": "0.64999924995133531263937110498877442547219344499358356113130440320221679528914562",
+          "cover_canopy_absorptance_up": "0.58311261274445299606807041349379245829017093055972819217478581406912563523171373",
+          "cover_canopy_reflectance_down": "0.34999952016461729407999313804853927964581464737626321343457378686761853319762572",
+          "cover_canopy_reflectance_up": "0.41688615737149961065129382954352124682783716181011858239109237600070969325505759",
+          "cover_canopy_transmittance": "0.0000012298840473932806357569626862948819919076301532254341218099301646715132286828866",
+          "floor_absorptance": "7.4538405438281068975194203077901183740974211089021975423596882303517252071606129E-7",
+          "upward_reflectance": "0.41688615737241634660896057395665900095603846599235767258494555959897059481949461",
+          "virtual_cover_transmittance": "0.8500000000000000055511151231257827021181583404541015625",
+          "virtual_floor_transmittance": "0.5"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "0.94750007197535204043791734656741342651104338002222367731686382172751627426238456",
+          "cover_canopy_floor": "0.82500023991769135296000343097573036017709267631186839328271310656619073340118714"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-dense-canopy",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 0.35
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 50
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0.27
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0.5
+          }
+        }
+      }
+    },
+    {
+      "case_id": "near-reflectors-lossless",
+      "expected_decimal": {
+        "diagnostics": {
+          "available_virtual_nir": "269.99999999999999833466546306226518936455249786376953125000",
+          "outdoor_nir": "300.0"
+        },
+        "heat_components": {
+          "canopy_absorbed_nir": "0E-154",
+          "construction_unallocated_nir": "30.00000000000000166533453693773481063544750213623046875000",
+          "floor_absorbed_nir": "0.0000013411045093380633795242398423790947086464071363442049628737531213144040089928898",
+          "upward_virtual_nir": "269.99999865889548899660208353802534698545778921736239490579503712624687868559599"
+        },
+        "optics": {
+          "canopy_absorptance": "0E-98",
+          "canopy_reflectance": "0.41725174762601035571572287028384099512888701560807114543995454476952347271391615",
+          "canopy_single_pass_absorptance": "0E-80",
+          "canopy_transmittance": "0.58274825237398964428427712971615900487111298439192885456004545523047652728608385",
+          "cover_canopy_absorptance_down": "0E-159",
+          "cover_canopy_absorptance_up": "0E-26",
+          "cover_canopy_reflectance_down": "0.99999998509883896513780289117933728508461705554409574291174442781437854849464567",
+          "cover_canopy_reflectance_up": "0.99999998509883896513780289117933728508461705554409574291174442781437854849464567",
+          "cover_canopy_transmittance": "1.4901161034862197108820662714915382944455904257088255572185621451505354326162038E-8",
+          "floor_absorptance": "4.9670537382891236585038739984357669889563762432503048779910972587252255876955592E-9",
+          "upward_reflectance": "0.99999999503294626171087634149612600156423301104362375674969512200890274127477441",
+          "virtual_cover_transmittance": "1.490116119384765625E-8",
+          "virtual_floor_transmittance": "7.450580596923828125E-9"
+        },
+        "reflection_denominators": {
+          "cover_canopy": "0.58274825859152519407409857142202472007441303025303917834784113956741515836652462",
+          "cover_canopy_floor": "2.235174152076372395583898574284904968842445851203806177745639185088492473E-8"
+        }
+      },
+      "scenario": {
+        "input_id": "synthetic-NIR-near-reflectors-lossless",
+        "origin": "synthetic",
+        "values": {
+          "canopy_nir_reflectance": {
+            "unit": "1",
+            "value": 1
+          },
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_nir_reflectance": {
+            "unit": "1",
+            "value": 0.9999999850988388
+          },
+          "floor_nir_reflectance": {
+            "unit": "1",
+            "value": 0.9999999925494194
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "nir_extinction_coefficient": {
+            "unit": "m2_floor/m2_leaf",
+            "value": 0.27
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_nir_fraction": {
+            "unit": "1",
+            "value": 0.5
+          }
+        }
+      }
+    }
+  ],
+  "fixture_version": "crop-greenhouse-radiation-nir-reference-cases-v1",
+  "generator_sha256": "42f315d1f539ab4e5f4d03f650d51723acce8c632c85a72da2028fa6ac78ef74",
+  "input_basis": "exact_binary64_values",
+  "oracle": "independent_Decimal80_ordered_source_and_expanded_cavity_no_app_import",
+  "scope": "self_authored_synthetic_software_math_only"
+}

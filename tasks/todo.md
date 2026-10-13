@@ -1783,6 +1783,9 @@
       - [x] **같은 현재 상태의 PAR/열 RHS 연결** — [수용/295검사](../research/crop-greenhouse-radiation-par-joint-implementation-20261013.md): Decimal80의468수치/4공동 상태·7수지, 현재 leaf→LAI/단회 crop·열 합성·air/vapor 추가0·낮/암/음의 다른 열/leaf 변경·판본/hold, 원5root/두 UI/source 보존. 시간 적분/배포는 미수용이다.
       - [x] **현재 RK trial·새 identity와 독립 궤적** — [수용/441검사](../research/crop-greenhouse-radiation-par-integration-implementation-20261013.md): 현재 leaf/air/열 상태의 PAR·환기 단회 공동 RK, 독립876수치/72간격 축소·108상태/35장부/13수지·수동 분할/실패 prefix·새 identity·원 결과/5root/자원 보존. 인증 TTL 종료를 복구해 원 저장 응답6개를 대사했다. UTC/checkpoint/저장/3D 수용은 후속이다.
       - [ ] **NIR 경계·총 일사 구분** — 원 cover/canopy/floor 층 순서/분모/반사·단위/권리·분배를 검증하고 남은 열과 중복 없는 새 합성 identity를 고정한다.
+        - [x] **순간 가상 NIR 분배** — [수용/233검사](../research/crop-greenhouse-radiation-nir-implementation-20261013.md): 독립 원식/별도 cavity의315수치·15조건/4분배·희박/완전 반사/특이점·명시 계수/권리·원5root/자원 보존. 실제 cover/floor/air 열·전체 일사·저장/3D는 미수용이다.
+        - [ ] **현재 PAR/NIR/환기 합성 RHS** — 현재 leaf/air/열·명시 non-solar 열·독립 전 상태/단회 합성과 옛 입력의 이중 계상 거부.
+        - [ ] **매 RK trial·새 궤적/identity** — NIR을 같은 stage/장부에서 다시 계산하고 독립 궤적/간격 축소·분할/hold·원 결과/자원을 수용한다.
       - [ ] **새 저장/API/같은 UTC3D·사용자 수용** — 선행 계산을 새 context/입력/권리/모델 binding에 결속하여 정상/보류/취소·읽기 계산0·기존 환기/두 UI 보존 후 수용한다.
     - [ ] **`crop-greenhouse-co2-stomatal`** — CO₂ 질량/ppm·압력/온도/부피·광합성 sink와 기공 closure.
       CH₂O/CO₂ 질량을 구분하고 원 sRsSlope 단위 불일치에 대한 검토된 정책·독립 참조를 요구한다.
