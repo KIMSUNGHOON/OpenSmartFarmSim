@@ -18,7 +18,7 @@ from urllib.parse import urlencode
 from uuid import uuid4
 
 
-def audited_runtime(config_path, *, bounded_preview=False):
+def audited_runtime(config_path, *, bounded_preview=False, capacity_record=None):
     """Audit actual HTTP query calls in this synthetic probe's API process."""
     from app.crop_greenhouse_ventilation_operator_config import load_ventilation_api_runtime
     from pytest import MonkeyPatch
@@ -35,7 +35,7 @@ def audited_runtime(config_path, *, bounded_preview=False):
             async with previous_lifespan(application):
                 limiter = current_default_thread_limiter()
                 limiter.total_tokens = 1
-                with (directory/'capacity.private.json').open('x') as stream:
+                with (capacity_record or directory/'capacity.private.json').open('x') as stream:
                     os.fchmod(stream.fileno(), 0o400)
                     json.dump({'synchronous_API_thread_tokens': limiter.total_tokens,
                                'calculation_consumer_separate_process': True}, stream)
