@@ -1788,7 +1788,8 @@
         - [x] **매 RK trial·새 궤적/identity** — [수용/617검사](../research/crop-greenhouse-solar-integration-implementation-20261013.md): 독립1,064수치/72간격 축소·108상태/41장부/15수지·각 경계/RHS 단회·분할/실패 prefix·암/zero-NIR 옛 해 동일성·원5root/자원. 참조 생성기 alias 실패를 보존하고 수정/전 사례 재생 회귀를 통과했다. 가상 NIR 연구 범위이며 전체 온실 열/현장/저장/3D 관문은 별도다.
       - [ ] **새 저장/API/같은 UTC3D·사용자 수용** — 선행 계산을 새 context/입력/권리/모델 binding에 결속하여 정상/보류/취소·읽기 계산0·기존 환기/두 UI 보존 후 수용한다.
         - [x] **새 solar 관리 사건·선택 출력 program** — [수용/698검사](../research/crop-greenhouse-solar-program-implementation-20261013.md): 새46·독립5,214선택 수치/12사건 기록·72간격 축소·41연속/6사건 장부·15수지·원 forcing/사건 전후 단회 합성·최대128사건/512출력·실패 prefix와 원5root/2,148항목/자원을 확인했다. elapsed 연구 범위이며 UTC/재개/저장/3D는 후속이다.
-        - [ ] **새 context/checkpoint·UTC** — 원 solar program/입력·모델/수치/프로필과41연속/6사건 장부·사건/출력 cursor를 불변 결속한다. 임의 허용 경계 분할/별도 프로세스 복원·원 상태/장부/사건/UTC 동일·과거 적분/사건 재실행0·실패 시 원 checkpoint/prefix 유지·옛25장부 context/단위/프로필/정책/변조·격자 혼합 거부와 원 결과/5root를 확인한다.
+        - [x] **새 context/checkpoint·UTC** — [수용/795검사](../research/crop-greenhouse-solar-continuation-implementation-20261014.md): 새371·11program/예산1·2·3·7·128/혼합·fresh0/1/8/9/17의 원 상태/41·6장부/15수지·최종 bytes/prefix 동일·과거 걸음/사건 재실행0·UTC 수치 호출0·사건 전후/실패·옛22/25타입/입력/정책/단위/권리 근거 hash 혼합 거부·최대128사건/512출력·원5root/2,148항목/자원을 확인했다. 서버 custody/저장/배포·실제 관문은 후속이다.
+        - [ ] **새 불변 solar 계산 파일** — 새41장부 판본의 원 수치/UTC·checkpoint·source/notice/policy를64sample/8event·2MiB 페이지와 원자 HEAD에 결속한다. 정상/hold·임의 분할/재시작·HEAD 전후 강제 종료 prefix·fresh reader 계산/복원/CLI0·옛 artifact/변조/단위/시각/범위/지연 변경 거부와 원본/5root/자원을 확인한다. 새 DB 저장의 필수 선행이며 권리 승인을 대체하지 않는다.
         - [ ] **새 입력 근거·농장/서명 custody·저장** — 명시 non-solar 열/광학 성분 의미와 입력/권리/검토 범위를 모델에 결속한다. 새 판본/영역에 원자 저장하며 옛 결과/키/계정을 보존한다. 합성 근거가 실제 자료 승인이 되지 않는다.
         - [ ] **API·자동 worker·같은 UTC3D·사용자 적용** — 실제 정상/보류/취소·계산 중/저장 원 수치/시각/권리·조회 계산0·재접속/재시작·기존 소비자/두 UI/WSL 보존을 각각 수용한다.
     - [ ] **`crop-greenhouse-co2-stomatal`** — CO₂ 질량/ppm·압력/온도/부피·광합성 sink와 기공 closure.

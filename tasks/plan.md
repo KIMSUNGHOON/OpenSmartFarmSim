@@ -14,7 +14,7 @@
 | 1 — 수용 | 새 API·환기 작업자 조립 | 별도 영역의 접수→독립 자동 소비→저장, 양 모델의 실제 SCRAM/TLS·정상/보류/취소·현재 권리·원본/자원 보존 증거. |
 | 2 — 수용 | 같은 조립 판본의3D 재수용 | 계산 중→종료 원 수치/UTC·표/장면 대사, 재접속·권리 철회·기존 소비자/브라우저 동시 자원 증거. |
 | 3 — 수용 | 새 모델 사용자 적용 | 지속 별도 API/작업자·사용자5174의 정상/보류/취소·계산 중/저장3D·재접속/현재 권리·재시작 뒤 원문/3D, 기존 두 서비스/원본/자원과 접속/진행 안내를 확인했다. |
-| 4 — 진행 | PAR 경계 연결 | [매 RK trial의 PAR·환기 공동 적분441검사](../research/crop-greenhouse-radiation-par-integration-implementation-20261013.md) 수용. NIR 포함 공동 RK617검사와 [solar 관리/출력698검사](../research/crop-greenhouse-solar-program-implementation-20261013.md)도 수용. 다음: 새 context/checkpoint/UTC·저장/API/3D·사용자 수용. 부모는 미완료. |
+| 4 — 진행 | PAR 경계 연결 | [매 RK trial의 PAR·환기 공동 적분441검사](../research/crop-greenhouse-radiation-par-integration-implementation-20261013.md) 수용. NIR 포함 공동 RK617검사와 [solar 관리/출력698검사](../research/crop-greenhouse-solar-program-implementation-20261013.md)도 수용. [재개/UTC795검사](../research/crop-greenhouse-solar-continuation-implementation-20261014.md)도 수용. 다음: 불변 계산 파일·입력/저장/API/3D·사용자 수용. 부모는 미완료. |
 | 5 | CO₂·기공 연결 | `crop-greenhouse-co2-stomatal`의 원문 단위 정책·질량/광합성 결합과 독립 참조 대사. |
 | 6 | 시설 환기량 연결 | `crop-greenhouse-facility-flow`의 시설/풍속/창/계수 근거와 유량·구획 변환 검증. |
 | 7 | 물·양분 연결 | `crop-water-nutrient`의 급배액/재순환/구매 용수·성분 재고 수지와 근거 없는 출력의 보류. |
@@ -42,7 +42,9 @@
 
 [새 solar 관리 사건·선택 출력 program](../research/crop-greenhouse-solar-program-implementation-20261013.md)은 새46/관련698검사·독립5,214선택 수치/12사건 기록·72간격 축소·41연속/6사건 장부/15수지로 수용했다. 기존 원자 관리 식을 재사용하고 원 other forcing을 보존하며 사건 전후 현재 PAR/NIR/환기를 재합성한다. 최대128사건/512출력·실패 prefix·기존 해/5root/2,148원 항목/자원을 확인했다. 새 일사 계산은 미배포다.
 
-다음 한 단계는 **새 불변 solar context/checkpoint·UTC**다. 원 입력·모델/프로필/수치·41/6장부·사건/출력 cursor를 결속하고 임의 허용 경계의 분할 및 별도 프로세스 복원에서 원 상태/사건/장부/UTC 동일·과거 적분/사건 재실행0을 확인한다. 단위/프로필/정책/변조와 옛25장부 context 혼합을 거부하고 실패 시 원 checkpoint/prefix·기존 결과/5root를 보존해야 한다. 이어 **입력 근거/농장·서명 custody·저장→API/자동 worker·같은 UTC3D→사용자 정상/보류/취소 수용**으로 진행한다. 이는 저장/3D의 필수 의존성이며 후속 운영 기반 확대가 아니다.
+[새 불변 solar context/checkpoint·UTC](../research/crop-greenhouse-solar-continuation-implementation-20261014.md)는 새371/관련795검사로 수용했다. 11program의 예산1/2/3/7/128·혼합/fresh0/1/8/9/17에서 모든 상태/41·6장부/15수지/진단/사건·최종 bytes/prefix가 원 계산과 같고 과거 걸음/사건 재실행0·UTC 수치 호출0을 확인했다. 옛22/25타입·source/policy/notice/단위/시각/변조 혼합·실패 prefix와 원5root/2,148항목/512MiB·합1GiB를 확인했다.
+
+다음 한 단계는 **새 불변 solar 계산 파일**이다. 기존64sample/8event·2MiB 페이지/원자 HEAD·디렉터리 한도를 유지하며 원41·6장부/UTC/checkpoint·source/notice/policy를 결속한다. 정상/hold·임의 분할·writer 재시작과 HEAD 전후 소유 child 강제 종료에서 확정 prefix를 보존하고 fresh reader의 계산/복원/CLI0·원 bytes를 확인한다. 옛 artifact 혼합/변조/단위/시각/cursor/범위/symlink/FIFO/지연 변경을 거부하고 원 결과/5root를 보존해야 한다. 이는 새 DB 저장/3D의 필수 의존성이다. 그 뒤 **입력 근거/농장·서명 custody·DB 저장→API/자동 worker·같은 UTC3D→사용자 정상/보류/취소 수용**으로 진행한다.
 
 실제 시설/스펙트럼·품종/지역/독립 농장·시장 자료 확보는 병행한다. 합성 개발 착수와 G0–G4/예측·추천 게시 조건을 구분하며, 외부 자료와 후속 판본 수용이 확보되지 않아 전체 완료일·남은 집중 시간은 미정이다.
 
