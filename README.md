@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 일사 적분 — 2026-10-13:** [PAR/NIR/환기 공동 시간 적분](research/crop-greenhouse-solar-integration-implementation-20261013.md)을 새56/관련617검사·독립1,064수치/72간격 축소·108상태/41장부/15수지로 수용했다. 다음은 관리 사건·출력 program→새 context/checkpoint/UTC·저장/API/같은 시각3D이며 새 일사 계산은 미배포다. WSL 재시작 뒤 두 UI·원 입력/결과와 필수5root를 복구·대사했다. 실제 자료/G0–G4·생산/경제/최종 제품과 전체 완료일은 미정이다. 아래 이전 기록은 당시 상태다.
+**현재 일사 관리 계산 — 2026-10-13:** [PAR/NIR/환기 관리 사건·선택 출력](research/crop-greenhouse-solar-program-implementation-20261013.md)을 새46/관련698검사·독립5,214선택 수치/12사건 기록·72간격 축소·15수지로 수용했다. 원 입력을 유지하고 잎 제거 직후 빛·환기를 재계산한다. 다음은 새 불변 context/checkpoint·UTC→입력/저장/API·같은 시각3D이며 새 일사 판본은 미배포다. 기존 두 화면/원 결과·5root/자원을 보존했다. 실제 자료/G0–G4·생산/경제/최종 제품과 전체 완료일은 미정이다. 아래 이전 기록은 당시 상태다.
 
 **현재 사용자 적용 — 2026-10-13:** [새 환기 모델의 로컬 실행](research/crop-isolated-ventilation-user-activation-20261013.md)을 수용했다. **http://localhost:5174/#ventilation-execution** 에서 [사설 접속 안내](web/README.md#새-환기-모델의-로컬-사용자-실행--2026-10-13)에 따라 합성 계산 접수→진행/3D·취소·저장 조회를 실행한다. 정상/보류/취소와 재시작 뒤 원문/3D·기존 입력3/HTTPS9시점·950파일/원 행·두 서비스/자원을 보존했다. 지역/실제 품종의 생산·경제 예측과 최종 제품은 미완료이며 다음은 PAR 경계다. 아래 이전 기록은 당시 상태다.
 

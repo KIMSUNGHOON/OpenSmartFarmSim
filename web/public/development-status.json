@@ -1,20 +1,20 @@
 {
-  "estimate_reason": "PAR・NIR・환기 공동 시간 적분은 새56/관련617검사와 독립1064수치·72간격 축소 비교를 통과했습니다. WSL 재시작 뒤 두 화면과 원 결과를 복구했습니다. 새 일사 계산은 미배포이며 관리 사건·체크포인트/UTC·저장/3D와 실제 자료 검증이 남아 완료일은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-13T13:14:42.097787Z",
+  "estimate_reason": "일사·환기 관리 사건/선택 출력은 새46/관련698검사·독립5214수치·72간격 축소를 통과했습니다. 화면은 기존 환기 판본입니다. 새 일사 체크포인트/UTC·저장/API/3D와 실제 자료 검증이 남아 전체 완료일은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-13T14:26:19.792331Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-13T13:14:42.097787Z",
+  "reported_at": "2026-10-13T14:26:19.792331Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
-      "evidence": "PAR·NIR·환기를 모든 적분 중간 상태에서 함께 계산합니다. 새56/관련617검사·독립1064수치·72간격 축소·108상태/41장부/15수지를 통과했습니다. 관리 사건/체크포인트·새 저장/3D·실제 농장 검증이 남았습니다.",
+      "evidence": "현재 PAR/NIR/환기에 잎 제거 등 관리 사건을 연결했습니다. 새46/관련698검사·독립5214선택 수치/12사건 기록·72간격 축소·15수지를 통과했습니다. 새 일사 판본은 미배포이며 체크포인트/UTC·저장/3D 연결이 남았습니다.",
       "id": "growth",
       "state": "completed"
     },
     {
-      "evidence": "기존 환기 판본의 저장·원 수치 조회를 보존했습니다. 새 일사 판본은 관리 사건·불변 context/checkpoint/UTC를 고정한 뒤 새 저장 연결을 검증합니다.",
+      "evidence": "기존 환기 판본의 저장·원 수치 조회를 보존했습니다. 새 일사 관리 계산은 불변 context/checkpoint·UTC를 먼저 고정한 뒤 새 저장 연결을 검증합니다.",
       "id": "storage",
       "state": "completed"
     },
