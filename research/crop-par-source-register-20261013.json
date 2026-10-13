@@ -1,0 +1,91 @@
+{
+  "schema": "crop-par-source-register-v1",
+  "review_context": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-13T08:15:40.478Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "turn_context_line_sha256": "d047b64be278fc6dce48d81efaf954b5776afe993b51bab0f94b5c5f38a7850c",
+    "recursive_cli": false,
+    "entrypoint": "existing native CLI session; no child CLI",
+    "delegation": "research skill agent attempted with exact model/effort; model capacity error; root performs and reviews research in proven native session"
+  },
+  "adopted_farm_data": false,
+  "sources": [
+    {
+      "id": "chapter8",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/greenhouse_vanthoor_2011_chapter_8.json",
+      "retrieved_at": "2026-10-13T08:17:44.443683+00:00",
+      "raw_sha256": "c0fb7a025533f15b80cb6cd60aafdc19be9fe42df6b8183cf97b83fc086138b3",
+      "bytes": 130649,
+      "observed_at": null,
+      "published_at": null,
+      "available_at": null,
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "reviewer": "native Codex CLI gpt-6.1-sol/xhigh session01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "product_id": "GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/chapter8",
+      "revision": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "units": "energy W/m2_floor, photon umol_photons/m2_floor/s, optics1; floor basis project interpretation",
+      "qc": "exact pinned SHA matches previous source register; JSON parsed and named definitions inspected",
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "permitted subject to license conditions; no patent license",
+        "display": "retain applicable notice/disclaimer; no endorsement",
+        "redistribution": "source retains notice/conditions/disclaimer; binary accompanies them in documentation/materials",
+        "notice_path": "LICENSES/GreenLight-BSD-3-Clause-Clear.txt",
+        "notice_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a"
+      },
+      "status": "reference_software_equations_only_not_G0_data"
+    },
+    {
+      "id": "standalone",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/greenlight/models/katzin_2021/definition/vanthoor_2011/extension_crop_vanthoor_2011_for_standalone.json",
+      "retrieved_at": "2026-10-13T08:17:44.461945+00:00",
+      "raw_sha256": "74bf4f3ebc3100945de834433b210984c7a75c78c58218e5f7d5b4bd1c82ea49",
+      "bytes": 3895,
+      "observed_at": null,
+      "published_at": null,
+      "available_at": null,
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "reviewer": "native Codex CLI gpt-6.1-sol/xhigh session01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "product_id": "GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/standalone",
+      "revision": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "units": "incident/absorbed photons; dimensionless optics",
+      "qc": "exact pinned SHA matches previous source register; JSON parsed and named definitions inspected",
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "permitted subject to license conditions; no patent license",
+        "display": "retain applicable notice/disclaimer; no endorsement",
+        "redistribution": "source retains notice/conditions/disclaimer; binary accompanies them in documentation/materials",
+        "notice_path": "LICENSES/GreenLight-BSD-3-Clause-Clear.txt",
+        "notice_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a"
+      },
+      "status": "reference_software_equations_only_not_G0_data"
+    },
+    {
+      "id": "license",
+      "source_url": "https://raw.githubusercontent.com/davkat1/GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/LICENSE.txt",
+      "retrieved_at": "2026-10-13T08:17:44.681751+00:00",
+      "raw_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+      "bytes": 1716,
+      "observed_at": null,
+      "published_at": null,
+      "available_at": null,
+      "vintage": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "reviewer": "native Codex CLI gpt-6.1-sol/xhigh session01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+      "product_id": "GreenLight/7a7b36870135aa38bbe81e65590dcf5473786bdd/license",
+      "revision": "7a7b36870135aa38bbe81e65590dcf5473786bdd",
+      "units": "not_applicable",
+      "qc": "exact SHA matches retained LICENSES/GreenLight-BSD-3-Clause-Clear.txt",
+      "rights": {
+        "license": "BSD-3-Clause-Clear",
+        "use": "permitted subject to license conditions; no patent license",
+        "display": "retain applicable notice/disclaimer; no endorsement",
+        "redistribution": "source retains notice/conditions/disclaimer; binary accompanies them in documentation/materials",
+        "notice_path": "LICENSES/GreenLight-BSD-3-Clause-Clear.txt",
+        "notice_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a"
+      },
+      "status": "reference_software_equations_only_not_G0_data"
+    }
+  ]
+}

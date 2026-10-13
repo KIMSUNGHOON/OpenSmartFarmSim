@@ -1,0 +1,564 @@
+{
+  "cases": [
+    {
+      "case_id": "nominal",
+      "expected_decimal": {
+        "above_canopy_PAR": "189.000",
+        "canopy_absorbed": "153.65189801683187523216596504533719422808447612339894830879354380069246004760351",
+        "canopy_direct_absorbed_PAR": "132.42565164798382954828058987441866313629084100158007173513067998192176215984470",
+        "canopy_floor_absorbed_PAR": "21.226246368848045683885375170918531091793635121818876573662863818770697887758806",
+        "construction_intercepted": "21.000",
+        "cover_absorbed": "45.000",
+        "cover_reflected": "45.000",
+        "electron_transport_at_20C": "193.0388458136028627533444004106497567459687711076731909674148024222670475265748",
+        "exterior_PAR_sum": "300.00000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "floor_absorbed": "16.312389164737268449571821015003728927202371666072016013660496780997186283929415",
+        "interior_sum": "189.00000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "outdoor_PAR": "300.0",
+        "par_above_canopy": "869.4000",
+        "par_absorbed_canopy": "706.79873087742662606796343920855109344918859016763516222045030148318531621897615",
+        "unresolved_reflected": "11.565196624922829318550126401261939350500982073804221915715643081772550756271231",
+        "upward_transmitted": "7.4705161935080269997120875383971374942121701367248137618303163365378029121958500"
+      },
+      "scenario": {
+        "input_id": "synthetic-PAR-nominal",
+        "origin": "synthetic",
+        "values": {
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_par_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "cover_par_transmittance": {
+            "unit": "1",
+            "value": 0.7
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_par_fraction": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "solar_par_photon_conversion": {
+            "unit": "umol_photons/J_PAR",
+            "value": 4.6
+          }
+        }
+      }
+    },
+    {
+      "case_id": "dark",
+      "expected_decimal": {
+        "above_canopy_PAR": "0.000",
+        "canopy_absorbed": "0E-167",
+        "canopy_direct_absorbed_PAR": "0E-85",
+        "canopy_floor_absorbed_PAR": "0E-167",
+        "construction_intercepted": "0.000",
+        "cover_absorbed": "0.000",
+        "cover_reflected": "0.000",
+        "electron_transport_at_20C": "0",
+        "exterior_PAR_sum": "0E-167",
+        "floor_absorbed": "0E-85",
+        "interior_sum": "0E-167",
+        "outdoor_PAR": "0.0",
+        "par_above_canopy": "0.0000",
+        "par_absorbed_canopy": "0E-168",
+        "unresolved_reflected": "0E-167",
+        "upward_transmitted": "0E-165"
+      },
+      "scenario": {
+        "input_id": "synthetic-PAR-dark",
+        "origin": "synthetic",
+        "values": {
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_par_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "cover_par_transmittance": {
+            "unit": "1",
+            "value": 0.7
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 0
+          },
+          "solar_par_fraction": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "solar_par_photon_conversion": {
+            "unit": "umol_photons/J_PAR",
+            "value": 4.6
+          }
+        }
+      }
+    },
+    {
+      "case_id": "no-leaves",
+      "expected_decimal": {
+        "above_canopy_PAR": "189.000",
+        "canopy_absorbed": "0E-7",
+        "canopy_direct_absorbed_PAR": "0.00000",
+        "canopy_floor_absorbed_PAR": "0E-7",
+        "construction_intercepted": "21.000",
+        "cover_absorbed": "45.000",
+        "cover_reflected": "45.000",
+        "electron_transport_at_20C": "0",
+        "exterior_PAR_sum": "300.0000000",
+        "floor_absorbed": "66.15000",
+        "interior_sum": "189.0000000",
+        "outdoor_PAR": "300.0",
+        "par_above_canopy": "869.4000",
+        "par_absorbed_canopy": "0E-8",
+        "unresolved_reflected": "0E-7",
+        "upward_transmitted": "122.85000"
+      },
+      "scenario": {
+        "input_id": "synthetic-PAR-no-leaves",
+        "origin": "synthetic",
+        "values": {
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_par_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "cover_par_transmittance": {
+            "unit": "1",
+            "value": 0.7
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 0
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_par_fraction": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "solar_par_photon_conversion": {
+            "unit": "umol_photons/J_PAR",
+            "value": 4.6
+          }
+        }
+      }
+    },
+    {
+      "case_id": "opaque",
+      "expected_decimal": {
+        "above_canopy_PAR": "0.00",
+        "canopy_absorbed": "0E-166",
+        "canopy_direct_absorbed_PAR": "0E-84",
+        "canopy_floor_absorbed_PAR": "0E-166",
+        "construction_intercepted": "0.00",
+        "cover_absorbed": "120.00",
+        "cover_reflected": "180.00",
+        "electron_transport_at_20C": "0",
+        "exterior_PAR_sum": "300.00000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "floor_absorbed": "0E-84",
+        "interior_sum": "0E-166",
+        "outdoor_PAR": "300.0",
+        "par_above_canopy": "0.000",
+        "par_absorbed_canopy": "0E-167",
+        "unresolved_reflected": "0E-166",
+        "upward_transmitted": "0E-164"
+      },
+      "scenario": {
+        "input_id": "synthetic-PAR-opaque",
+        "origin": "synthetic",
+        "values": {
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_par_reflectance": {
+            "unit": "1",
+            "value": 0.6
+          },
+          "cover_par_transmittance": {
+            "unit": "1",
+            "value": 0
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_par_fraction": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "solar_par_photon_conversion": {
+            "unit": "umol_photons/J_PAR",
+            "value": 4.6
+          }
+        }
+      }
+    },
+    {
+      "case_id": "reflective-cover",
+      "expected_decimal": {
+        "above_canopy_PAR": "0.00",
+        "canopy_absorbed": "0E-166",
+        "canopy_direct_absorbed_PAR": "0E-84",
+        "canopy_floor_absorbed_PAR": "0E-166",
+        "construction_intercepted": "0.00",
+        "cover_absorbed": "0.0",
+        "cover_reflected": "300.0",
+        "electron_transport_at_20C": "0",
+        "exterior_PAR_sum": "300.00000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "floor_absorbed": "0E-84",
+        "interior_sum": "0E-166",
+        "outdoor_PAR": "300.0",
+        "par_above_canopy": "0.000",
+        "par_absorbed_canopy": "0E-167",
+        "unresolved_reflected": "0E-166",
+        "upward_transmitted": "0E-164"
+      },
+      "scenario": {
+        "input_id": "synthetic-PAR-reflective-cover",
+        "origin": "synthetic",
+        "values": {
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_par_reflectance": {
+            "unit": "1",
+            "value": 1
+          },
+          "cover_par_transmittance": {
+            "unit": "1",
+            "value": 0
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_par_fraction": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "solar_par_photon_conversion": {
+            "unit": "umol_photons/J_PAR",
+            "value": 4.6
+          }
+        }
+      }
+    },
+    {
+      "case_id": "construction-intercepts-all",
+      "expected_decimal": {
+        "above_canopy_PAR": "0.00",
+        "canopy_absorbed": "0E-166",
+        "canopy_direct_absorbed_PAR": "0E-84",
+        "canopy_floor_absorbed_PAR": "0E-166",
+        "construction_intercepted": "210.00",
+        "cover_absorbed": "45.000",
+        "cover_reflected": "45.000",
+        "electron_transport_at_20C": "0",
+        "exterior_PAR_sum": "300.00000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "floor_absorbed": "0E-84",
+        "interior_sum": "0E-166",
+        "outdoor_PAR": "300.0",
+        "par_above_canopy": "0.000",
+        "par_absorbed_canopy": "0E-167",
+        "unresolved_reflected": "0E-166",
+        "upward_transmitted": "0E-164"
+      },
+      "scenario": {
+        "input_id": "synthetic-PAR-construction-intercepts-all",
+        "origin": "synthetic",
+        "values": {
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 1
+          },
+          "cover_par_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "cover_par_transmittance": {
+            "unit": "1",
+            "value": 0.7
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_par_fraction": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "solar_par_photon_conversion": {
+            "unit": "umol_photons/J_PAR",
+            "value": 4.6
+          }
+        }
+      }
+    },
+    {
+      "case_id": "transparent-cover",
+      "expected_decimal": {
+        "above_canopy_PAR": "270.00",
+        "canopy_absorbed": "219.50271145261696461737995006476742032583496589056992615541934828670351435371929",
+        "canopy_direct_absorbed_PAR": "189.17950235426261364040084267774094733755834428797153105018668568845966022834957",
+        "canopy_floor_absorbed_PAR": "30.323209098354350976979107387026472988276621602598395105232662598243854125369723",
+        "construction_intercepted": "30.00",
+        "cover_absorbed": "0.0",
+        "cover_reflected": "0.0",
+        "electron_transport_at_20C": "231.7590790754196317234455517967775561685667259280322188221761138332226698878149",
+        "exterior_PAR_sum": "299.99999999999999999999999999999999999999999999999999999999999999999999999999999",
+        "floor_absorbed": "23.303413092481812070816887164291041324574816665817165733800709687138837548470593",
+        "interior_sum": "269.99999999999999999999999999999999999999999999999999999999999999999999999999999",
+        "outdoor_PAR": "300.0",
+        "par_above_canopy": "1242.000",
+        "par_absorbed_canopy": "1009.7124726820380372399477702979301334988408430966216603149290021188361660271087",
+        "unresolved_reflected": "16.521709464175470455071609144659913357858545819720317022450918688246501080387473",
+        "upward_transmitted": "10.672165990725752856731553626281624991731671623892591088329023337911147017422643"
+      },
+      "scenario": {
+        "input_id": "synthetic-PAR-transparent-cover",
+        "origin": "synthetic",
+        "values": {
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_par_reflectance": {
+            "unit": "1",
+            "value": 0
+          },
+          "cover_par_transmittance": {
+            "unit": "1",
+            "value": 1
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_par_fraction": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "solar_par_photon_conversion": {
+            "unit": "umol_photons/J_PAR",
+            "value": 4.6
+          }
+        }
+      }
+    },
+    {
+      "case_id": "sparse-canopy",
+      "expected_decimal": {
+        "above_canopy_PAR": "189.000",
+        "canopy_absorbed": "0.0000020301434872962233057674265609685202081718250326514462558947363531675358370012625",
+        "canopy_direct_absorbed_PAR": "0.0000012303899956936350100481849824156762746180532212789379037210620998690706607409000",
+        "canopy_floor_absorbed_PAR": "7.9975349160258829571924157855284393355377181137250835217367425329846517626036246E-7",
+        "construction_intercepted": "21.000",
+        "cover_absorbed": "45.000",
+        "cover_reflected": "45.000",
+        "electron_transport_at_20C": "0.0000014314269053461628961870295620141625375069841996962477020972658775744816993859434",
+        "exterior_PAR_sum": "300.00000000000000000000000000000000000000000000000000000000000000000000000000001",
+        "floor_absorbed": "66.149999536950001620674996218425006617756240735141260809001864190998134457876634",
+        "interior_sum": "189.00000000000000000000000000000000000000000000000000000000000000000000000000001",
+        "outdoor_PAR": "300.0",
+        "par_above_canopy": "963.9000",
+        "par_absorbed_canopy": "0.000010353731785210738859413875460939453061676307666522375905063155401154432768706439",
+        "unresolved_reflected": "1.5280649904380175419754823577182410169035242181247444936842101582981452536568642E-7",
+        "upward_transmitted": "122.84999828010001203929994381660019664189944940268128472707743054584449654477301"
+      },
+      "scenario": {
+        "input_id": "synthetic-PAR-sparse-canopy",
+        "origin": "synthetic",
+        "values": {
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_par_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "cover_par_transmittance": {
+            "unit": "1",
+            "value": 0.7
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 1e-08
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_par_fraction": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "solar_par_photon_conversion": {
+            "unit": "umol_photons/J_PAR",
+            "value": 5.1
+          }
+        }
+      }
+    },
+    {
+      "case_id": "dense-canopy",
+      "expected_decimal": {
+        "above_canopy_PAR": "189.000",
+        "canopy_absorbed": "175.76999999999996121123694741368322930601833327366992820189382058373154182920424",
+        "canopy_direct_absorbed_PAR": "175.76999999999988917496270689636756862292450388251788301724546901218775054330630",
+        "canopy_floor_absorbed_PAR": "7.2036274240517315660683093829391152045184648351571543791285897938958911314596270E-14",
+        "construction_intercepted": "21.000",
+        "cover_absorbed": "45.000",
+        "cover_reflected": "45.000",
+        "electron_transport_at_20C": "307.75993241423992302139754983000191088612899042332661499322805977793031684980571",
+        "exterior_PAR_sum": "300.00000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "floor_absorbed": "4.1708347368372334786002125186710880366606412995533047620763271822162873606267608E-14",
+        "interior_sum": "189.00000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "outdoor_PAR": "300.0",
+        "par_above_canopy": "869.4000",
+        "par_absorbed_canopy": "808.54199999999982157168995810294285480768433305888166972871157468516509241433950",
+        "unresolved_reflected": "13.229999999999997080415684213933146291850842289416016101217814452538933255961610",
+        "upward_transmitted": "4.8838400005637726033689090475369430681904151562328300577987342777207741224207601E-29"
+      },
+      "scenario": {
+        "input_id": "synthetic-PAR-dense-canopy",
+        "origin": "synthetic",
+        "values": {
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_par_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "cover_par_transmittance": {
+            "unit": "1",
+            "value": 0.7
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 50
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_par_fraction": {
+            "unit": "1",
+            "value": 0.5
+          },
+          "solar_par_photon_conversion": {
+            "unit": "umol_photons/J_PAR",
+            "value": 4.6
+          }
+        }
+      }
+    },
+    {
+      "case_id": "no-PAR",
+      "expected_decimal": {
+        "above_canopy_PAR": "0.00",
+        "canopy_absorbed": "0E-166",
+        "canopy_direct_absorbed_PAR": "0E-84",
+        "canopy_floor_absorbed_PAR": "0E-166",
+        "construction_intercepted": "0.00",
+        "cover_absorbed": "0.00",
+        "cover_reflected": "0.00",
+        "electron_transport_at_20C": "0",
+        "exterior_PAR_sum": "0E-166",
+        "floor_absorbed": "0E-84",
+        "interior_sum": "0E-166",
+        "outdoor_PAR": "0",
+        "par_above_canopy": "0.000",
+        "par_absorbed_canopy": "0E-167",
+        "unresolved_reflected": "0E-166",
+        "upward_transmitted": "0E-164"
+      },
+      "scenario": {
+        "input_id": "synthetic-PAR-no-PAR",
+        "origin": "synthetic",
+        "values": {
+          "construction_interception_fraction": {
+            "unit": "1",
+            "value": 0.1
+          },
+          "cover_par_reflectance": {
+            "unit": "1",
+            "value": 0.15
+          },
+          "cover_par_transmittance": {
+            "unit": "1",
+            "value": 0.7
+          },
+          "leaf_area_index": {
+            "unit": "m2_leaf/m2_floor",
+            "value": 2
+          },
+          "outdoor_global_radiation": {
+            "unit": "W/m2_floor",
+            "value": 600
+          },
+          "solar_par_fraction": {
+            "unit": "1",
+            "value": 0
+          },
+          "solar_par_photon_conversion": {
+            "unit": "umol_photons/J_PAR",
+            "value": 4.6
+          }
+        }
+      }
+    }
+  ],
+  "comparison": {
+    "absolute": 0,
+    "expected_zero": "exact",
+    "relative": 2e-13
+  },
+  "decimal_precision": 80,
+  "fixture_version": "crop-greenhouse-radiation-par-reference-cases-v1",
+  "generator_sha256": "f5878ef40a338a9255123f5556b0ad6113a209f52c688752b0a83822122f53b5",
+  "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+  "scope": "self-authored synthetic software cases only; actual crop Runs0; G0_G4 not_assessed"
+}

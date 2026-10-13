@@ -1,0 +1,214 @@
+{
+  "schema": "crop-greenhouse-radiation-par-implementation-evidence-v1",
+  "recorded_at": "2026-10-13T08:44:16.491916+00:00",
+  "accepted_scope": "instantaneous_synthetic_solar_PAR_only",
+  "actual_crop_Runs": 0,
+  "G0_G4": "not_assessed",
+  "runtime_deployed": false,
+  "new_tests": 88,
+  "existing_tests": 187,
+  "total_focused_tests": 275,
+  "reference_cases": 10,
+  "reference_scalars": 150,
+  "crop_electron_transport_comparisons": 10,
+  "fixture_sha256": "16db7514a941c866a993aa4978fabf7505c57b1c4daa9622c8589e79f901665c",
+  "native": {
+    "session_id": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc",
+    "timestamp": "2026-10-13T08:15:40.478Z",
+    "model": "gpt-6.1-sol",
+    "effort": "xhigh",
+    "turn_context_line_sha256": "d047b64be278fc6dce48d81efaf954b5776afe993b51bab0f94b5c5f38a7850c",
+    "recursive_cli": false,
+    "entrypoint": "existing native CLI session; no child CLI",
+    "delegation": "research skill agent attempted with exact model/effort; model capacity error; root performs and reviews research in proven native session"
+  },
+  "native_output_sha256": "c13d74d3f19661c683f75781a71f0c3ae72b5dc086626be095225f0d1bbadced",
+  "focused_guard": {
+    "actual_child_exit": 0,
+    "reason": null,
+    "wall_seconds": 1.1676821490109432,
+    "source_count": 2183,
+    "source_preserved": true,
+    "preview_source_preserved": true,
+    "preview_assets_preserved": true,
+    "original_sources_preserved": true,
+    "original_source_entries": 2148,
+    "protected_live": true,
+    "frontend_status": 200,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "single_PID_peak_RSS_bytes": 121208832,
+    "combined_peak_RSS_bytes": 689283072,
+    "RSS_samples": 4,
+    "sample_interval_seconds": 0.25,
+    "protected_root_count": 5,
+    "joint_preview_source_preserved": true,
+    "joint_preview_assets_preserved": true,
+    "log_sha256": "691f0a9c12cf057f5b73ca108928fb4eb927b168bd5a2c9c2f935b433b5cc99f"
+  },
+  "reference_example": {
+    "model_version": "prescribed-solar-par-boundary-research-v1",
+    "code_sha256": "bc297172077a087e26e5e5676421ec14916f2b8967a53565812ccf0641f32d54",
+    "policy_sha256": "79ba419dd73737f6a54dfad7f33e512b0ef68400a58bbfb9dd07545545232577",
+    "profile_sha256": "d606d44c5ea6494820d0b182d08536524acdb88508a9f676788523b1248e83ca",
+    "source_sha256": "c0fb7a025533f15b80cb6cd60aafdc19be9fe42df6b8183cf97b83fc086138b3",
+    "notice_sha256": "96ce8c1f3d7b5473f473417c2785c63b74148edaddc2b9b6d40a6bbe3b7f4b6a",
+    "input_sha256": "1e402afcf875ce2f486553c40b0f56aedd1b38626658fae0b430f12ee92e44c9",
+    "scenario": {
+      "input_id": "synthetic-PAR-nominal",
+      "origin": "synthetic",
+      "values": {
+        "outdoor_global_radiation": {
+          "value": 600.0,
+          "unit": "W/m2_floor"
+        },
+        "leaf_area_index": {
+          "value": 2.0,
+          "unit": "m2_leaf/m2_floor"
+        },
+        "solar_par_fraction": {
+          "value": 0.5,
+          "unit": "1"
+        },
+        "solar_par_photon_conversion": {
+          "value": 4.6,
+          "unit": "umol_photons/J_PAR"
+        },
+        "cover_par_transmittance": {
+          "value": 0.7,
+          "unit": "1"
+        },
+        "cover_par_reflectance": {
+          "value": 0.15,
+          "unit": "1"
+        },
+        "construction_interception_fraction": {
+          "value": 0.1,
+          "unit": "1"
+        }
+      }
+    },
+    "scope": "software_research_only",
+    "claim_scope": "synthetic_prescribed_solar_par_math_only",
+    "G0_G4": "not_assessed",
+    "time_coordinate": "instantaneous_no_state_advance",
+    "crop_forcing": {
+      "par_above_canopy": {
+        "value": 869.4,
+        "unit": "umol_photons/m2_floor/s"
+      }
+    },
+    "absorbed_photons": {
+      "par_absorbed_canopy": {
+        "value": 706.7987308774266,
+        "unit": "umol_photons/m2_floor/s"
+      }
+    },
+    "heat_components": {
+      "canopy_absorbed_par": {
+        "value": 153.65189801683186,
+        "unit": "W/m2_floor"
+      },
+      "floor_absorbed_par": {
+        "value": 16.31238916473727,
+        "unit": "W/m2_floor"
+      }
+    },
+    "diagnostics": {
+      "outdoor_PAR": {
+        "value": 300.0,
+        "unit": "W/m2_floor"
+      },
+      "above_canopy_PAR": {
+        "value": 189.0,
+        "unit": "W/m2_floor"
+      },
+      "canopy_direct_absorbed_PAR": {
+        "value": 132.4256516479838,
+        "unit": "W/m2_floor"
+      },
+      "canopy_floor_absorbed_PAR": {
+        "value": 21.22624636884805,
+        "unit": "W/m2_floor"
+      }
+    },
+    "interior_partition": {
+      "canopy_absorbed": {
+        "value": 153.65189801683186,
+        "unit": "W/m2_floor"
+      },
+      "floor_absorbed": {
+        "value": 16.31238916473727,
+        "unit": "W/m2_floor"
+      },
+      "unresolved_reflected": {
+        "value": 11.56519662492283,
+        "unit": "W/m2_floor"
+      },
+      "upward_transmitted": {
+        "value": 7.470516193508029,
+        "unit": "W/m2_floor"
+      }
+    },
+    "exterior_PAR_partition": {
+      "cover_reflected": {
+        "value": 45.0,
+        "unit": "W/m2_floor"
+      },
+      "cover_absorbed": {
+        "value": 45.00000000000001,
+        "unit": "W/m2_floor"
+      },
+      "construction_intercepted": {
+        "value": 21.0,
+        "unit": "W/m2_floor"
+      },
+      "canopy_absorbed": {
+        "value": 153.65189801683186,
+        "unit": "W/m2_floor"
+      },
+      "floor_absorbed": {
+        "value": 16.31238916473727,
+        "unit": "W/m2_floor"
+      },
+      "unresolved_reflected": {
+        "value": 11.56519662492283,
+        "unit": "W/m2_floor"
+      },
+      "upward_transmitted": {
+        "value": 7.470516193508029,
+        "unit": "W/m2_floor"
+      }
+    },
+    "partition_residuals": {
+      "interior": {
+        "value": 7.105427357601002e-15,
+        "unit": "W/m2_floor"
+      },
+      "exterior_PAR": {
+        "value": 0.0,
+        "unit": "W/m2_floor"
+      }
+    },
+    "partition_budgets": {
+      "interior": {
+        "value": 9.094947017729282e-13,
+        "unit": "W/m2_floor"
+      },
+      "exterior_PAR": {
+        "value": 1.8189894035458565e-12,
+        "unit": "W/m2_floor"
+      }
+    }
+  },
+  "remaining": [
+    "same-current-stage joint adapter",
+    "independent RK trajectories/convergence/new model identity",
+    "NIR multilayer optics/remaining heat identity",
+    "new immutable input/checkpoint/store/API/UTC3D acceptance",
+    "real region/cultivar/independent farm data and claim gates",
+    "full CI"
+  ]
+}
