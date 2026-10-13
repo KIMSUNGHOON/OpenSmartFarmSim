@@ -14,7 +14,7 @@
 | 1 — 수용 | 새 API·환기 작업자 조립 | 별도 영역의 접수→독립 자동 소비→저장, 양 모델의 실제 SCRAM/TLS·정상/보류/취소·현재 권리·원본/자원 보존 증거. |
 | 2 — 수용 | 같은 조립 판본의3D 재수용 | 계산 중→종료 원 수치/UTC·표/장면 대사, 재접속·권리 철회·기존 소비자/브라우저 동시 자원 증거. |
 | 3 — 수용 | 새 모델 사용자 적용 | 지속 별도 API/작업자·사용자5174의 정상/보류/취소·계산 중/저장3D·재접속/현재 권리·재시작 뒤 원문/3D, 기존 두 서비스/원본/자원과 접속/진행 안내를 확인했다. |
-| 4 — 진행 | PAR 경계 연결 | [매 RK trial의 PAR·환기 공동 적분441검사](../research/crop-greenhouse-radiation-par-integration-implementation-20261013.md) 수용. NIR 순간/현재 상태 합성415검사도 수용. 다음: NIR 포함 매 RK trial→새 저장/API/UTC3D·사용자 수용. 부모는 미완료. |
+| 4 — 진행 | PAR 경계 연결 | [매 RK trial의 PAR·환기 공동 적분441검사](../research/crop-greenhouse-radiation-par-integration-implementation-20261013.md) 수용. NIR 포함 공동 RK617검사도 수용. 다음: solar 관리/출력 program→새 context/checkpoint/UTC·저장/API/3D·사용자 수용. 부모는 미완료. |
 | 5 | CO₂·기공 연결 | `crop-greenhouse-co2-stomatal`의 원문 단위 정책·질량/광합성 결합과 독립 참조 대사. |
 | 6 | 시설 환기량 연결 | `crop-greenhouse-facility-flow`의 시설/풍속/창/계수 근거와 유량·구획 변환 검증. |
 | 7 | 물·양분 연결 | `crop-water-nutrient`의 급배액/재순환/구매 용수·성분 재고 수지와 근거 없는 출력의 보류. |
@@ -38,7 +38,9 @@
 
 [순간 가상 NIR 분배](../research/crop-greenhouse-radiation-nir-implementation-20261013.md)는 독립315수치/233집중 검사로, [현재 PAR/NIR/환기 합성 RHS](../research/crop-greenhouse-solar-joint-implementation-20261013.md)는 독립585수치/415집중 검사로 수용했다. 실제 온실 전체 열수지·일사/생산 예측은 미수용이다.
 
-다음 한 단계는 **합성 PAR/NIR/환기를 매 RK trial에서 갱신하는 새 적분 판본**이다. 현재 leaf/air/열 상태와 같은 가중치의 성분 장부, 독립108상태/열 분배 궤적·간격 축소·암/leaf 변경·수동 분할/실패 prefix 및 원 결과/5root/자원을 통과해야 한다. NIR 부모는 이 적분 수용까지 미완료다. 그 뒤 새 입력/context→checkpoint→저장/현재 권리 API→같은 UTC3D→정상/보류/취소 사용자 수용으로 진행한다. source 가상 NIR과 실제 cover/floor/air 열의 구분 및 각 자식의 증거를 유지한다.
+[NIR 포함 공동 시간 적분](../research/crop-greenhouse-solar-integration-implementation-20261013.md)은 새56/관련617검사·독립1,064수치/72간격 축소·108상태/41장부/15수지·분할/실패 prefix로 수용했다. NIR 연구 계산 자식은 수용하며 새 저장/API/3D 부모는 미완료다. WSL 부팅 변경 뒤 기존 결과/두 주소·5root를 복구해 입력3/HTTPS9시점·환기6원 응답을 대사했다. 인증/TLS 배포 설정만 새 판본으로 갱신했고 수치/저장 identity는 보존했다.
+
+다음 한 단계는 **새 solar 관리 사건·선택 출력 program**이다. 기존 원자 관리 식/사건 한도를 재사용하고 현재 leaf/열 상태가 바뀐 뒤 PAR/NIR/환기를 다시 합성한다. 원 other forcing 유지, 독립 선택108상태/41장부/6사건 합계/15수지·사건 순서/hold prefix·기존 해/원본/5root·자원이 수용 기준이다. 그 뒤 **새 불변 context/checkpoint·UTC→입력 근거/농장·서명 custody·저장→API/자동 worker·같은 UTC3D→사용자 정상/보류/취소 수용**으로 진행한다. 옛25장부 context/관리 판본을41장부에 그대로 붙이지 않는다. 이는 저장/3D의 필수 의존성을 구체화한 것이며 후속 운영 기반 확대가 아니다.
 
 실제 시설/스펙트럼·품종/지역/독립 농장·시장 자료 확보는 병행한다. 합성 개발 착수와 G0–G4/예측·추천 게시 조건을 구분하며, 외부 자료와 후속 판본 수용이 확보되지 않아 전체 완료일·남은 집중 시간은 미정이다.
 

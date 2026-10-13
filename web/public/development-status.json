@@ -1,25 +1,25 @@
 {
-  "estimate_reason": "기존 PAR 시간 적분 뒤 NIR 분배95·현재 PAR/NIR/환기 합성25개 새 검사를 추가했고 관련415검사를 통과했습니다. 새 일사 계산은 미배포입니다. 다음은 NIR 포함 매 적분 단계·새 저장/3D입니다. 실제 자료와 전체 완료일은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-13T10:38:28.495667Z",
+  "estimate_reason": "PAR・NIR・환기 공동 시간 적분은 새56/관련617검사와 독립1064수치·72간격 축소 비교를 통과했습니다. WSL 재시작 뒤 두 화면과 원 결과를 복구했습니다. 새 일사 계산은 미배포이며 관리 사건·체크포인트/UTC·저장/3D와 실제 자료 검증이 남아 완료일은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-13T13:14:42.097787Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-13T10:38:28.495667Z",
+  "reported_at": "2026-10-13T13:14:42.097787Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
-      "evidence": "기존 PAR 시간 적분441검사에 이어 NIR 분배95·현재 PAR/NIR/환기 합성25개 새 검사(관련415검사)를 통과했습니다. 독립315광학/585공동 수치를 대사했습니다. NIR 시간 적분·새 저장/3D·실제 농장 검증이 남았습니다.",
+      "evidence": "PAR·NIR·환기를 모든 적분 중간 상태에서 함께 계산합니다. 새56/관련617검사·독립1064수치·72간격 축소·108상태/41장부/15수지를 통과했습니다. 관리 사건/체크포인트·새 저장/3D·실제 농장 검증이 남았습니다.",
       "id": "growth",
       "state": "completed"
     },
     {
-      "evidence": "환기 판본의 DB 저장과 같은 시각 원 수치 조회는 완료됐습니다. 새 PAR/NIR 합성의 시간 적분·새 불변 저장 연결은 후속입니다.",
+      "evidence": "기존 환기 판본의 저장·원 수치 조회를 보존했습니다. 새 일사 판본은 관리 사건·불변 context/checkpoint/UTC를 고정한 뒤 새 저장 연결을 검증합니다.",
       "id": "storage",
       "state": "completed"
     },
     {
-      "evidence": "기존 환기 지속 API·독립 작업자는 사용자5174에서 실행 중입니다. 원 결과와 두 UI를 유지하며 새 PAR/NIR 합성은 아직 이 서비스에 배포되지 않았습니다.",
+      "evidence": "WSL 재시작 후 기존5173·환기5174의 API/작업자를 복구하고 원 입력3/저장9시점·환기6응답을 대사했습니다. 새 일사 적분은 아직 이 서비스에 배포되지 않았습니다.",
       "id": "api",
       "state": "completed"
     },
