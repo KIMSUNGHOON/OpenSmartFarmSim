@@ -18,19 +18,37 @@ from urllib.parse import urlencode
 from uuid import uuid4
 
 
-def serve_api():
+def audited_runtime(config_path, *, bounded_preview=False):
     """Audit actual HTTP query calls in this synthetic probe's API process."""
     from app.crop_greenhouse_ventilation_operator_config import load_ventilation_api_runtime
     from pytest import MonkeyPatch
-    from test_crop_greenhouse_ventilation_execution_query import forbid
-    directory = Path(os.environ['OSSF_API_CONFIG']).parent
+    from crop_ventilation_query_audit import install, query_calls
+    directory = config_path.parent
     runtime = load_ventilation_api_runtime(directory/'api.private.json')
+    if bounded_preview:
+        from contextlib import asynccontextmanager
+        from anyio.to_thread import current_default_thread_limiter
+        app = runtime.service.app.app
+        previous_lifespan = app.router.lifespan_context
+        @asynccontextmanager
+        async def lifespan(application):
+            async with previous_lifespan(application):
+                limiter = current_default_thread_limiter()
+                limiter.total_tokens = 1
+                with (directory/'capacity.private.json').open('x') as stream:
+                    os.fchmod(stream.fileno(), 0o400)
+                    json.dump({'synchronous_API_thread_tokens': limiter.total_tokens,
+                               'calculation_consumer_separate_process': True}, stream)
+                yield
+        app.router.lifespan_context = lifespan
+    audit_patch = MonkeyPatch()
+    install(audit_patch)
     for kind, query in (('progress', runtime.ventilation_execution_query),
-                        ('result', runtime.ventilation_crop_query)):
+                        ('result', runtime.ventilation_crop_query),
+                        ('prefix', runtime.ventilation_prefix_query)):
         original = query.read
-        def read(*args, _original=original, _kind=kind, **kwargs):
-            with MonkeyPatch.context() as patch:
-                calls = forbid(patch)
+        def read(*args, _original=original, _kind=kind, _patch=audit_patch, **kwargs):
+            with query_calls() as calls:
                 try:
                     return _original(*args, **kwargs)
                 finally:
@@ -39,7 +57,11 @@ def serve_api():
                         stream.write(json.dumps({'kind': _kind, 'calls': calls}, sort_keys=True)+'\n')
                         stream.flush(); os.fsync(stream.fileno())
         query.read = read
-    runtime.service.serve()
+    return runtime
+
+
+def serve_api():
+    audited_runtime(Path(os.environ['OSSF_API_CONFIG'])).service.serve()
 
 
 def calculations(directory, operator, requests, send, children, save, modes):
@@ -174,7 +196,7 @@ def check_rights(directory, operator, cases, send, save):
 
 
 def exercise(out, policy, dsn, original, config, requests, original_directory, original_access,
-             modes=('cancel', 'completed', 'hold'), check_runtime_rights=False):
+             modes=('cancel', 'completed', 'hold'), check_runtime_rights=False, browser_config=None):
     import importlib.util
     root = Path(__file__).resolve().parents[1]
     spec = importlib.util.spec_from_file_location('isolated_preview_lifecycle',
@@ -202,7 +224,8 @@ def exercise(out, policy, dsn, original, config, requests, original_directory, o
     # The local credential copy is removed before the outer namespace is dropped.
     passfile = directory/'authority.pgpass'
     from psycopg.conninfo import conninfo_to_dict, make_conninfo
-    authority_dsn = make_conninfo(**{**conninfo_to_dict(dsn), 'passfile': str(passfile)})
+    authority_dsn = make_conninfo(**{**conninfo_to_dict(dsn), 'passfile': str(passfile),
+                                   'options': '-c max_parallel_workers_per_gather=0'})
     value = {**config, 'runtime_version': 'owned-isolated-ventilation-runtime-v1',
         'original_operator': str(original_directory/'joint_prefix_live_operator_v1.py'),
         'original_operator_sha256': sha256((original_directory/'joint_prefix_live_operator_v1.py').read_bytes()).hexdigest(),
@@ -250,34 +273,52 @@ def exercise(out, policy, dsn, original, config, requests, original_directory, o
     env = {**os.environ, 'OSSF_API_CONFIG': str(directory/'api.private.json'),
         'PYTHONPATH': os.pathsep.join(map(str, (directory, root/'backend', root/'backend/tests', original_directory)))}
     logs, children = [], []
+    server = thread = None
     checks = {}
     try:
         shutil.copyfile(out/'authority.pgpass', passfile)
         passfile.chmod(0o600)
-        for name, argv in (('api', [sys.executable, '-B', str(Path(__file__).resolve()), 'api']),
+        commands = (('api', [sys.executable, '-B', str(Path(__file__).resolve()), 'api']),
                 ('worker', [sys.executable, '-B', '-m', 'app.deterministic_work',
-                            '--factory', 'isolated_ventilation_operator:worker'])):
+                            '--factory', 'isolated_ventilation_operator:worker']))
+        if browser_config:
+            import threading
+            server = audited_runtime(directory/'api.private.json', bounded_preview=True).service.server()
+            thread = threading.Thread(target=server.run, daemon=True)
+            thread.start()
+            commands = commands[1:]
+        for name, argv in commands:
             log = (directory/(name+'.private.log')).open('xb')
             os.fchmod(log.fileno(), 0o600); logs.append(log)
             children.append(subprocess.Popen(argv, env=env, stdin=subprocess.DEVNULL,
                 stdout=log, stderr=subprocess.STDOUT))
         context = ssl.create_default_context(cafile=str(cert))
+        readiness_path = '/v1/jobs/'+str(uuid4())+'/crop-greenhouse-ventilation-execution' if browser_config else '/openapi.json'
+        readiness_status = 404 if browser_config else 200
         deadline = time.monotonic()+30
         while True:
             assert all(child.poll() is None for child in children), 'isolated runtime process exited'
+            assert thread is None or thread.is_alive(), 'isolated API owner thread exited'
             try:
-                request = urllib.request.Request(f'https://localhost:{port}/openapi.json',
+                request = urllib.request.Request(f'https://localhost:{port}'+readiness_path,
                     headers={'Authorization': 'Bearer '+token})
-                with urllib.request.urlopen(request, context=context, timeout=3) as response:
-                    assert response.status == 200
+                try: response = urllib.request.urlopen(request, context=context, timeout=3)
+                except urllib.error.HTTPError as error: response = error
+                with response:
+                    assert response.status == readiness_status
+                    assert response.headers['Cache-Control'] == 'no-store'
                     response.read()
                 break
-            except urllib.error.HTTPError:
-                raise AssertionError('isolated runtime authenticated readiness rejected') from None
             except (urllib.error.URLError, TimeoutError):
                 assert time.monotonic() < deadline, 'isolated runtime readiness expired'
                 time.sleep(.1)
-        first = (directory/'worker.private.log').read_text().splitlines()
+        deadline = time.monotonic()+30
+        while True:
+            first = (directory/'worker.private.log').read_text().splitlines()
+            if first: break
+            assert all(child.poll() is None for child in children)
+            assert time.monotonic() < deadline, 'isolated consumer readiness expired'
+            time.sleep(.1)
         assert first and json.loads(first[0]) == {'version': 1, 'event': 'started'}
         replies = []
         def send(method, path, body=None, *, authenticated=True):
@@ -295,23 +336,34 @@ def exercise(out, policy, dsn, original, config, requests, original_directory, o
                 replies.append(record)
                 return response.status, raw
         assert send('GET', '/openapi.json', authenticated=False)[0] == 401
-        cases = calculations(directory, isolated_ventilation_operator, requests, send, children, save, modes)
+        if browser_config:
+            module = lifecycle.module('isolated_browser_probe', root/'research/crop-isolated-ventilation-browser-probe.py')
+            cases = module.exercise(directory, isolated_ventilation_operator, requests, children,
+                                    save, modes, browser_config, port, cert, original_access, lifecycle)
+        else:
+            cases = calculations(directory, isolated_ventilation_operator, requests, send, children, save, modes)
         rights_checks = check_rights(directory, isolated_ventilation_operator, cases, send, save) if check_runtime_rights else {}
         checks = {'actual_TLS_API_started': True, 'independent_unpaused_consumer_started': True,
             'separate_artifact_and_empty_initial_custody_roots': True, 'worker_chunk_budget': 8,
             'original_joint_API_consumer_unchanged': True, 'isolated_joint_factory_enabled': False,
+            'API_in_namespace_owner_process': browser_config is not None,
+            'API_and_consumer_distinct_processes': True,
             'rejected_configuration_cases': sorted(faults),
             'case_outcomes': {mode: {k: v for k, v in case.items() if k not in ('job_id', 'result', 'farm')}
                 for mode, case in cases.items()}, 'HTTP_replies': replies, **rights_checks}
     finally:
         stopped = [lifecycle.stop_owned_process(child, timeout=15) for child in reversed(children)]
+        if server is not None:
+            server.should_exit = True
+            thread.join(15)
+            assert not thread.is_alive(), 'isolated API thread did not stop'
         for log in logs: log.close()
         passfile.unlink()
         save(directory/'stopped.private.json', {'children': stopped, 'remaining_children':
             sum(child.poll() is None for child in children), 'passfile_remaining': passfile.exists()})
     # Uvicorn restores and reraises SIGTERM after its graceful shutdown.
     assert not any(item['forced'] for item in stopped)
-    assert [item['exit'] for item in stopped] == [0, -signal.SIGTERM]
+    assert [item['exit'] for item in stopped] == ([0] if browser_config else [0, -signal.SIGTERM])
     events = [json.loads(line) for line in (directory/'worker.private.log').read_text().splitlines()]
     attempts = [event for event in events if event.get('event') == 'attempt']
     assert events[0]['event'] == 'started' and events[-1]['event'] == 'stopped'

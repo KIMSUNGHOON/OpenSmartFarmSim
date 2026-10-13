@@ -39,8 +39,8 @@ def atomic_bytes(path, raw):
 
 
 class BrowserEvidence:
-    def __init__(self, directory, *, request, access, rights, driver, playwright,
-                 mode, origin, job_id=None):
+    def __init__(self, directory, *, request, access, rights, driver, playwright=None,
+                 chromium=None, mode, origin, job_id=None):
         self.directory = Path(directory)
         self.directory.mkdir(mode=0o700)
         self.rights = Path(rights)
@@ -53,9 +53,12 @@ class BrowserEvidence:
                 or not re.fullmatch('[0-9a-f]{64}', k) for k,v in declaration.items())
                 or self.source not in declaration or mode not in ('profile','completed','hold','cancel')):
             raise ValueError('browser rights source rejected')
+        if bool(playwright) == bool(chromium):
+            raise ValueError('exactly one browser driver runtime is required')
         context = {'origin':origin, 'mode':mode, 'token':token,
             'request_file':str(request), 'directory':str(self.directory),
-            'playwright':str(playwright), 'job_id':job_id}
+            'job_id':job_id}
+        context['playwright' if playwright else 'chromium'] = str(playwright or chromium)
         self.context = self.directory/'context.private.json'
         atomic_bytes(self.context, json.dumps(context).encode())
         self.command = ['nice','-n','19','node','--expose-gc','--max-old-space-size=64',

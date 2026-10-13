@@ -12,13 +12,14 @@ from uuid import uuid4
 
 
 def probe_ventilation(out, policy, dsn, original, original_directory, runtime, requests,
-                      original_access=None, runtime_cases=('cancel', 'completed', 'hold'), check_runtime_rights=False):
+                      original_access=None, runtime_cases=('cancel', 'completed', 'hold'), check_runtime_rights=False,
+                      browser_config=None):
     import importlib.util
     from pytest import MonkeyPatch
     root = Path(__file__).resolve().parents[1]
     sys.path[:0] = [str(root/'backend/tests'), str(original_directory)]
     import joint_prefix_live_operator_v1 as previous_operator
-    import test_crop_greenhouse_ventilation_execution_query as query_tests
+    from crop_ventilation_query_audit import forbid
     from app.crop_greenhouse_ventilation_execution import VentilationExecutionService
     from app.thermal_run_store import _canonical
     raw = runtime.read_bytes()
@@ -45,7 +46,7 @@ def probe_ventilation(out, policy, dsn, original, original_directory, runtime, r
         immutable[path] = sha256(path.read_bytes()).hexdigest()
     binding_count = 0
     with MonkeyPatch.context() as patch:
-        calls = query_tests.forbid(patch)
+        calls = forbid(patch)
         farms = operator.farms(config, prior, previous_operator)
         store = operator.ventilation_store(farms, config)
         admission = VentilationExecutionService(store.server.binding, input_resolver=store.server.input_resolver)
@@ -73,7 +74,7 @@ def probe_ventilation(out, policy, dsn, original, original_directory, runtime, r
         exercise = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(exercise)
         checks.update(exercise.exercise(out, policy, dsn, original, config, requests, original_directory,
-                                       original_access, runtime_cases, check_runtime_rights))
+                                       original_access, runtime_cases, check_runtime_rights, browser_config))
         assert all(sha256(path.read_bytes()).hexdigest() == digest for path, digest in immutable.items())
     return checks
 
@@ -95,12 +96,14 @@ def main():
     parser.add_argument('--runtime-cases', nargs='+', choices=('cancel', 'completed', 'hold'),
                         default=('cancel', 'completed', 'hold'))
     parser.add_argument('--check-runtime-rights', action='store_true')
+    parser.add_argument('--browser-config', type=Path)
     args = parser.parse_args()
     assert bool(args.ventilation_runtime) == bool(args.ventilation_requests)
     assert not args.readmit_market_sources or args.ventilation_runtime
     assert not args.exercise_runtime or args.readmit_market_sources
     assert bool(args.exercise_runtime) == bool(args.original_access)
     assert not args.check_runtime_rights or args.exercise_runtime
+    assert not args.browser_config or args.exercise_runtime
     assert len(set(args.runtime_cases)) == len(args.runtime_cases)
     out = args.output_directory
     out.mkdir(mode=0o700)
@@ -317,7 +320,7 @@ def main():
                 checks['source_payload_job_identity_preserved'] = True
             checks.update(probe_ventilation(out, policy, dsn, original, args.original_directory,
                                            args.ventilation_runtime, args.ventilation_requests, args.original_access,
-                                           args.runtime_cases, args.check_runtime_rights))
+                                           args.runtime_cases, args.check_runtime_rights, args.browser_config))
     finally:
         if started:
             with psycopg.connect(admin, row_factory=dict_row) as conn:
@@ -365,4 +368,8 @@ def main():
 
 
 if __name__ == '__main__':
+    import signal
+    def interrupted(signum, frame):
+        raise KeyboardInterrupt('owned probe interrupted')
+    signal.signal(signal.SIGTERM, interrupted)
     main()
