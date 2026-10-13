@@ -1,11 +1,14 @@
 {
-  "estimate_reason": "동일 분리 조립의 정상·보류·취소 3D와 원 수치/UTC·저장·현재 권리·재접속을 수용했습니다. 지속 서비스와 사용자 화면 적용이 남아 완료 시간은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-13T05:11:22.616509Z",
+  "estimate_reason": "새 환기 모델의 로컬 사용자 화면 적용을 완료했습니다. 정상·보류·취소와 재시작 뒤 같은 저장 결과의 3D를 확인했습니다. 0시간은 이 연결 작업의 잔여량이며, 지역·실제 품종·전체 작기·자원·경제 통합과 전체 제품 완료일은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-13T07:33:25.761675Z",
   "full_product_completion": null,
-  "new_model_deployed": false,
+  "new_model_deployed": true,
   "real_farm_runs": 0,
-  "remaining_focused_hours": null,
-  "reported_at": "2026-10-13T05:11:22.616509Z",
+  "remaining_focused_hours": {
+    "max": 0,
+    "min": 0
+  },
+  "reported_at": "2026-10-13T07:33:25.761675Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -19,19 +22,19 @@
       "state": "completed"
     },
     {
-      "evidence": "새 모델을 별도 DB 영역·계정의 API와 독립 작업자로 실행했습니다. 실제 HTTPS 접수→정상/보류/취소·원 수치/UTC·현재 권리 검증을 통과했습니다. 기존 서비스는 유지했습니다.",
+      "evidence": "별도 지속 DB 영역·계정의 API와 독립 작업자를 사용자 5174에 연결했습니다. 실제 HTTPS·접수·현재 권리를 검증했고 기존 API·작업자와 두 서비스를 유지했습니다.",
       "id": "api",
       "state": "completed"
     },
     {
-      "evidence": "분리 API·자동 작업자의 정상·보류·취소에서 원 UTC/수치의 계산 중·저장 3D, 재접속·권리 철회/복원·취소 뒤 결과 미생성을 검증했습니다. 합성 입력·저해상도 브라우저 검증이며 기존 서비스와 자원 한도를 유지했습니다.",
+      "evidence": "실제 사용자 주소의 정상·보류·취소에서 원 수치/UTC의 계산 중·저장 3D, 재접속·권리 철회/복원·취소 뒤 결과 행0을 검증했습니다. 합성 입력·저해상도 조건이며 메모리 한도를 유지했습니다.",
       "id": "execution_3d",
       "state": "completed"
     },
     {
-      "evidence": "다음은 지속 새 API·작업자·모델별 HTTP 연결과 실제 사용자 접수/계산 중·저장 3D 수용입니다. 기존 9시점 결과와 두 UI를 보존했습니다. 현재 새 환기 모델은 사용자 화면에 미배포입니다.",
+      "evidence": "로컬 사용자 화면 적용 완료: 새 서비스 재시작 뒤 정상·보류 결과 원문과 같은 저장 3D를 확인했습니다. 기존 입력3건·HTTPS9시점·950파일/원 행과 두 서비스를 보존했습니다. 지역·실제 품종의 생산 예측과 전체 제품은 미완료입니다.",
       "id": "activation",
-      "state": "next"
+      "state": "completed"
     }
   ]
 }
