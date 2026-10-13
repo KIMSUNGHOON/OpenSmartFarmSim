@@ -1,6 +1,6 @@
 # 첫 구현 작업 목록
 
-**2026-10-13 goal 재개 준비:** [단계별 목표 순서](plan.md)를 기록했다. 현재 자동 목표는 `usageLimited`로 재개 대기다. 사용자의 “순서대로 시작/계속”에 따라 수동 진행하여 **모델별 API/환기 작업자 기동**을 수용했다. 계산 중 원 UTC/WebGL·취소 경로까지 수용했고 같은 조립의 정상/보류 최종 검증을 진행하며 자동 활성화를 주장하지 않는다.
+**2026-10-13 goal 재개 준비:** [단계별 목표 순서](plan.md)를 기록했다. 현재 자동 목표는 `usageLimited`로 재개 대기다. 사용자의 “순서대로 시작/계속”에 따라 수동 진행하여 **모델별 API/환기 작업자 기동**을 수용했다. 동일 조립의 정상/보류/취소 원 UTC/WebGL·저장/권리/재접속을 수용했고 다음은 사용자 적용이며 자동 활성화를 주장하지 않는다.
 
 ## 현재 실행 복구와 시험 정리 수정 — 2026-10-09
 
@@ -1765,9 +1765,10 @@
                 - [x] **모델별 저장·권한 분리 검증** — [수용 기록](../research/crop-model-namespace-20261013.md)/[기계 증거](../research/artifacts/crop-model-namespace-20261013.json): 같은 PG의 별도 schema/owner/네 로그인·공식 설치/외래키 순서27표1,027행 대사·네 실제 SCRAM/양방향 거부20건/DDL·owner 거부8건·두 정책 감사/원 ACL·행 보존·소유 시험 영역/역할/passfile 정리0·512MiB/PID/합1GiB. 기존 API/작업자/네 root를 유지했다. 새 서버/3D 조립 수용은 아니다.
                 - [x] **분리 영역의 새 입력 접수·결속** — 위 기록: 과거 admitted_by를 유지한 단순 복제의 실제 거부를 확인. 다음 시험 영역에서26표 원 행을 복제하고 새 authority의 기존 adopt_job으로85건을 별도 접수해 원 입력/작업 identity를 대사했다. 정상/보류/취소 요청3건의 농장/입력/현재 권리 결속·계산/작업 쓰기0. 원75323 실제0의 최종 코드/기존 입력3건/HTTPS9시점·950파일/모든 행·키/권리/토큰 보존·정리와 원57464 실제0의 두 UI 최신 기록/재조회를 확인했다. 새 계산 실행·사용자 적용은 아니다.
                 - [x] **모델별 API/환기 작업자 기동** — [수용](../research/crop-isolated-ventilation-runtime-20261013.md)/[기계 증거](../research/artifacts/crop-isolated-ventilation-runtime-20261013.json). 원44543 실제0: 별도 영역의 실제 API 접수→unpaused 독립 소비→정상9/보류8시점·취소/attempt1·원 저장 bytes/UTC·HTTP query9건/계산·쓰기0. 원63469 실제0: 권리 철회422 세 건·복원/26표 불변·원 입력3/HTTPS9·950파일/모든 원 행·키/토큰 보존. 기존 네 root·필수 소비자와 추가 API/worker 합 최대818,229,248bytes/512MiB per PID·소유 시험 영역/역할/passfile/프로세스 정리0. 원62388 실제0의 두 UI 최신 기록/15초 재조회. 소유 일시 조립 수용이며 같은 배치 WebGL/사용자 적용/지속 새 서비스는 후속이다.
-                - [ ] **모델별 source/권한 조립 최종 수용** — 위 저장/권한·새 입력 검증과 새 API/환기 작업자 기동을 선행으로 같은 조립 판본의 양 모델 SCRAM/HTTPS·정상/보류/취소·계산 중→terminal 원 수치/UTC/WebGL·현재 권리/재접속·조회 계산/쓰기0을 함께 확인한다. 과거 증거/결과/키·두 사용자 서비스/필수 소비자/브라우저를 포함한512MiB/PID/합1GiB와 원본 보존을 유지한다. 이후 모델별 HTTP 사용자 연결을 적용한다.
+                - [x] **모델별 source/권한 조립 최종 수용** — 위 저장/권한·새 입력 검증과 새 API/환기 작업자 기동을 선행으로 같은 조립 판본의 양 모델 SCRAM/HTTPS·정상/보류/취소·계산 중→terminal 원 수치/UTC/WebGL·현재 권리/재접속·조회 계산/쓰기0을 함께 확인한다. 과거 증거/결과/키·두 사용자 서비스/필수 소비자/브라우저를 포함한512MiB/PID/합1GiB와 원본 보존을 유지한다. 이후 모델별 HTTP 사용자 연결을 적용한다.
                   - [x] **분리 조립의 계산 중 WebGL·취소** — [수용 기록](../research/crop-isolated-ventilation-browser-20261013.md)/[기계 증거](../research/artifacts/crop-isolated-ventilation-browser-20261013.json). 원5151 실제0: 실행 중 원1시점/UTC·표/그래프/WebGL→취소 수락·장면 제거·결과 행0·attempt1. query11건 계산/쓰기0·집중 계측2검사·512MiB/PID/합1GiB·root4/FD/정리. 원80804 실제0으로 기존 입력3/HTTPS9·950파일/원 행·키·권리·토큰 보존. 정상/보류 최종 배치·사용자 적용 수용은 아니다.
-                  - [ ] **동일 배치 정상/보류·저장3D 재수용** — 같은 고정 source/API/독립 자동 작업자에서 정상9/보류8시점·취소를 순차 실행한다. 원 수치/UTC·terminal/저장3D·재접속·현재 권리 철회/장면 제거·복원과 기존 양 모델 HTTPS/두 UI/필수 소비자·동시 메모리·원본/정리를 확인한다.
+                  - [x] **동일 배치 정상/보류·저장3D 재수용** — 같은 고정 source/API/독립 자동 작업자에서 정상9/보류8시점·취소를 순차 실행한다. 원 수치/UTC·terminal/저장3D·재접속·현재 권리 철회/장면 제거·복원과 기존 양 모델 HTTPS/두 UI/필수 소비자·동시 메모리·원본/정리를 확인한다.
+                    - 수용: [동일 배치 기록](../research/crop-isolated-ventilation-browser-batch-20261013.md)/[기계 증거](../research/artifacts/crop-isolated-ventilation-browser-batch-20261013.json). 원45204 실제0/1,232.971초·계산 중6/5/1·저장9/8/0·원 수치/UTC/WebGL·현재 권리/재접속·취소 후 결과 행0·query84건 계산/쓰기0·집중7검사·device scale0.5/512MiB per PID/합1GiB/root4/FD4→4/소유 정리. 원91162 실제0의 기존 입력3/HTTPS9·950파일/원 행/키/권리/토큰과 알려진 시험 영역27개 잔여0. 사용자 적용/지속 새 서비스는 후속이다.
               - [x] **`development-status-estimate-validity`** — [수용 기록](../research/product-ui-estimate-validity-20261012.md)/[기계 증거](../research/artifacts/product-ui-estimate-validity-20261012.json): v2 미정/판단 시각/사유·parser26·게시기/타입/빌드·양쪽 실제 HTTP/최신 DOM/15초 재조회·오래된 기록/조회 실패·320–1440px를 확인. 기존9시점 HTTPS·조회 계산/쓰기0·950파일/모든 행·두 서비스 보존. 새 모델 적용/전체 일정 미정은 유지.
             - [ ] **`crop-greenhouse-ventilation-user-live-acceptance`** — 위 연결 뒤 실제 사용자 DB 정상/보류/취소/재접속·계산 중/완료 WebGL·현재 권리·추가 작업자를 포함한 WSL 합 자원과 원 데이터/두 UI 보존. 최신 진행/접속 안내 게시 뒤 부모 사용자 적용을 수용한다.
 

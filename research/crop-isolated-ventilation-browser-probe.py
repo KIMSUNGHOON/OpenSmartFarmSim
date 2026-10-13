@@ -142,21 +142,12 @@ def exercise(directory, operator, requests, children, save, modes, config_file,
                 rights=Path(operator.load()[0]['ventilation']['rights_file']),
                 driver=root/'research/crop-isolated-ventilation-cdp-reference.mjs',
                 chromium=Path(cfg['chromium']), mode=mode, origin=f'http://127.0.0.1:{web_port}')
-            evidence.command[evidence.command.index('--expose-gc'):evidence.command.index('--expose-gc')] = ['--no-opt', '--no-sparkplug']
-            evidence.command[:0] = ['taskset', '-c', str(min(os.sched_getaffinity(0)))]
             gc.collect()
             import ctypes
             ctypes.CDLL(None).malloc_trim(0)
-            owned = browser.BrowserChild(evidence, processes=processes, env=os.environ.copy())
-            terminal = None
-            try:
-                deadline = time.monotonic()+540
-                while terminal is None:
-                    assert all(item.poll() is None for item in (*children, child))
-                    assert time.monotonic() < deadline, 'browser case deadline expired'
-                    terminal = owned.poll(); time.sleep(.1)
-            finally:
-                if terminal is None: terminal = owned.finish('browser_probe_interrupted')
+            driver = lifecycle.module('isolated_pipe_browser', root/'research/crop-isolated-ventilation-pipe-reference.py')
+            terminal = driver.exercise(evidence, processes=processes, supervisor_class=browser.BrowserChild)
+            assert all(item.poll() is None for item in (*children, child))
             assert terminal['actual_child_exit'] == 0 and terminal['reason'] is None
             assert not terminal['owned_remaining'] and not terminal['forced_kill']
             assert terminal['current_rights_restored'] and terminal['cleanup_error_type'] is None

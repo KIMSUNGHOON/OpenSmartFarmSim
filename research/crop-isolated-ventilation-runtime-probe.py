@@ -56,6 +56,11 @@ def audited_runtime(config_path, *, bounded_preview=False):
                         os.fchmod(stream.fileno(), 0o600)
                         stream.write(json.dumps({'kind': _kind, 'calls': calls}, sort_keys=True)+'\n')
                         stream.flush(); os.fsync(stream.fileno())
+                    if bounded_preview:
+                        import ctypes
+                        import gc
+                        gc.collect()
+                        ctypes.CDLL(None).malloc_trim(0)
         query.read = read
     return runtime
 
@@ -352,15 +357,20 @@ def exercise(out, policy, dsn, original, config, requests, original_directory, o
             'case_outcomes': {mode: {k: v for k, v in case.items() if k not in ('job_id', 'result', 'farm')}
                 for mode, case in cases.items()}, 'HTTP_replies': replies, **rights_checks}
     finally:
-        stopped = [lifecycle.stop_owned_process(child, timeout=15) for child in reversed(children)]
-        if server is not None:
-            server.should_exit = True
-            thread.join(15)
-            assert not thread.is_alive(), 'isolated API thread did not stop'
-        for log in logs: log.close()
-        passfile.unlink()
-        save(directory/'stopped.private.json', {'children': stopped, 'remaining_children':
-            sum(child.poll() is None for child in children), 'passfile_remaining': passfile.exists()})
+        stopped = []
+        try:
+            stopped = [lifecycle.stop_owned_process(child, timeout=15) for child in reversed(children)]
+        finally:
+            try:
+                if server is not None:
+                    server.should_exit = True
+                    thread.join(15)
+                    assert not thread.is_alive(), 'isolated API thread did not stop'
+            finally:
+                for log in logs: log.close()
+                passfile.unlink(missing_ok=True)
+                save(directory/'stopped.private.json', {'children': stopped, 'remaining_children':
+                    sum(child.poll() is None for child in children), 'passfile_remaining': passfile.exists()})
     # Uvicorn restores and reraises SIGTERM after its graceful shutdown.
     assert not any(item['forced'] for item in stopped)
     assert [item['exit'] for item in stopped] == ([0] if browser_config else [0, -signal.SIGTERM])

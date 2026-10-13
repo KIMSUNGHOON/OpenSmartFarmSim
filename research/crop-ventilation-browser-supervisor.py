@@ -119,7 +119,7 @@ def resource_snapshot(rss, *, elapsed, node=None):
 
 class BrowserChild:
     """A direct child of the existing runtime owner; cleanup only its tree."""
-    def __init__(self, evidence, *, processes, env):
+    def __init__(self, evidence, *, processes, env, pass_fds=()):
         self.evidence, self.processes = evidence, processes
         self.identities = set()
         self.terminal = None
@@ -127,7 +127,8 @@ class BrowserChild:
         os.fchmod(self.log.fileno(), 0o600)
         try:
             self.child = subprocess.Popen(evidence.command, env=env, cwd=evidence.directory,
-                stdin=subprocess.DEVNULL, stdout=self.log, stderr=subprocess.STDOUT)
+                stdin=subprocess.DEVNULL, stdout=self.log, stderr=subprocess.STDOUT,
+                pass_fds=pass_fds)
             self.identity = processes.identity(self.child.pid)
             self.identities.add(self.identity)
         except BaseException:
