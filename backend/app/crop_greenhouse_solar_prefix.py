@@ -179,6 +179,16 @@ class SolarExecutionPrefixQuery:
             else:
                 with self._session(tenant, raw, binding) as session:
                     self._refresh(conn, tenant, w.bundle, bundle, w.chosen, session, w.observed_head, binding)
+                    page = payload['page']
+                    try:
+                        checked, _ = self._accepted(session, w.chosen, bundle[1], bundle[0], binding,
+                            'summary' if page is None else page['kind'],
+                            0 if page is None else page['start'], None if page is None else page['limit'])
+                    except (PermissionError, RolePolicyHold, SolarPrefixPending):
+                        raise
+                    except Exception:
+                        raise SolarPrefixHold('solar prefix evidence unavailable') from None
+                    _need(execution._same(checked, {k: payload[k] for k in checked}))
             self.query._current(tenant, value, raw, binding)
         self._guard(tenant)
 

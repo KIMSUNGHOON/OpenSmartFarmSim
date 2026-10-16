@@ -1,0 +1,42 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "code_sha256": {
+    "backend/app/crop_greenhouse_solar_prefix.py": "5b8e9f84f9b87567177b38a3ffd58e405d3ddfde0b890995ee76cfc74323dec4",
+    "backend/tests/test_api_crop_greenhouse_solar_prefix_native.py": "9e6441efc808f693d63788897ea6080007d69733f3e285614ed714c069e28bb1",
+    "contracts/crop-greenhouse-solar-prefix-v1.md": "8b3a9bbbea8bfbf40ea67a53db1a2a1fe6ad2eadbfde3069cba8005966cddfd6"
+  },
+  "controller_FD_before_after": [
+    4,
+    4
+  ],
+  "full_CI_rerun": false,
+  "goal_status": "active",
+  "green": {
+    "actual_exit": 0,
+    "log_sha256": "45229b99e1952d4e7b96f405725ec225c7dbbda58a14500ae049f5dfb6fe3ee3",
+    "passed": 1,
+    "tool_session": "35940"
+  },
+  "max_combined_RSS_bytes": 1017700352,
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "native_context_timestamp": "2026-10-16T22:16:52.240Z",
+    "raw_turn_context_sha256": "e620b7d756a5a0927a1fa23d1856a8616adfb3b0fd0edd3f3155dd9b46a8caf9",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+  },
+  "owned_processes_PG_temp_passfiles_remaining": [],
+  "query_numerical_and_SQL_writes": 0,
+  "red": {
+    "actual_exit": 1,
+    "failure": "actual selected page tamper did not raise SolarPrefixHold",
+    "log_sha256": "d4c9ddbb88a5f294c07241595b204de0f7b35ce5e9c4c65c1b38c7e247599a25",
+    "tool_session": "87746"
+  },
+  "remaining": "public projection, race/rights/serialization/fresh tests, protected HTTP/runtime and UTC3D/user acceptance",
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-prefix-post-serialization-fix-v1",
+  "source_and_five_roots_preserved": true
+}

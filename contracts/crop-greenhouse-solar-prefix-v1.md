@@ -15,6 +15,8 @@
 summary는 선택자가 없을 때 최신 확인 사건, 명시 선택자가 있으면 그 확인 사건을 사용한다.
 samples/events는 명시 선택자에 결속한다.
 서버 내부 witness로 후검사하며 외부 payload로 witness를 재구성하지 않는다.
+후검사에서 선택한 signed snapshot/page를 다시 읽어 원 selection/binding/manifest/time/summary/page와 대사한다.
+[직렬화 뒤 실제 페이지 변조의 RED→GREEN 검증](../research/crop-greenhouse-solar-prefix-post-serialization-fix-20261017.md)을 따르며 계산/쓰기는 추가하지 않는다.
 
 원108상태·41연속/6사건 장부·15수지·PAR/NIR·관리 전후 진단·provenance·literal 승인 False와 UTC를 보존한다.
 sample/event 페이지는 기존64/8개·2MiB 한도를 유지하며 원 offset/total/끝 빈 배열을 검사한다.
