@@ -18,6 +18,7 @@ INPUT_VERSIONS = frozenset({
     'break-even-verification-input-v1',
     'joint-crop-climate-execution-input-v1',
     'joint-ventilation-execution-input-v1',
+    'joint-solar-execution-input-v1',
 })
 
 

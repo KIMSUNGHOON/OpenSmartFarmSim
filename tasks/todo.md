@@ -1802,7 +1802,10 @@
           - [x] **solar 공개 투영·현재 조회** — [수용/106검사](../research/crop-greenhouse-solar-public-query-implementation-20261017.md): 새89/기존17·원108상태/41·6장부/15수지/단위/UTC·관리 전후 PAR/NIR/환기·출처/progress SHA/False 승인·순차 fresh2회의 원 bytes·실제 SCRAM 정상/hold·60철회/직렬화 후 변조/경계·수치/복원/CLI/SQL 변경0·원본/두 UI/5root/자원/소유 정리를 확인했다. HTTP/worker/3D·실제 관문은 후속이다.
           - [x] **solar 보호 HTTP** — [수용/205검사](../research/crop-greenhouse-solar-http-implementation-20261017.md): 새 전용67/공통·기존138·실제 인증/SCRAM/검증된 TLS 정상/hold 원3view/UTC·12철회 차단·취소/전송 실패 정리·조회 계산/SQL 변경0·기존60경로/319스키마·원본/두 UI/5root/WSL/소유 정리. 공통 시험1건 수정/재검사·중복 제외를 기록했다. runtime/worker/3D·실제 관문은 후속이다.
           - [x] **solar 전용 operator/runtime 명시 조립** — [수용/235검사](../research/crop-greenhouse-solar-runtime-implementation-20261017.md): 새62/기존173·닫힌 설정/기존9loader·exact factory/jobs/farm/principal/키·실제 SCRAM/TLS 정상/hold 원3view/UTC·오조립9/실제 권한 변경 거부·12철회/전송 정리·제품 조회 계산/SQL 변경0·기존 서버/키/역할/결과/두 UI/5root/자원/소유 정리. 시험 owner 권한 변경2건은 별도다. worker/3D·실제 관문은 후속이다.
-          - [ ] **solar 자동 worker·확정 prefix** — 선행 HTTP/runtime. 실제 접수→독립 소비·원 checkpoint 재개→원자 등록, 실행 중 취소/권리 철회·결과 미게시·같은 선택자 prefix/조회 계산0을 통과한다.
+          - [ ] **solar 자동 worker·확정 prefix** — 아래 내부 실행·현재 진행/prefix·보호 API/runtime 자식을 모두 수용해야 완료한다.
+            - [x] **solar 내부 접수·임대 worker** — [수용/131검사](../research/crop-greenhouse-solar-execution-core-implementation-20261017.md): 새41/기존90·실제 native27·원108상태/장부/UTC·normal/hold 원자 저장·독립 자동 소비/fresh 원 bytes·실제 SIGKILL/HEAD 채택/나머지만 계산·취소 경합6/권리 철회/rollback·조회 계산/쓰기0·원본/두 UI/5root/자원/소유 정리. 실제 관문/사용자3D는 후속이다.
+            - [ ] **solar 현재 진행·확정 prefix 조회** — 같은 jobs/admission/checkpoint/custody/result·현재 권리/계정·원 HEAD/최초 확정 시각/UTC·완료/hold link와 원 sample/event 선택자·조회 계산/새 행0·fresh/철회/변조/취소/보존을 검증한다.
+            - [ ] **solar 접수/진행/취소·prefix HTTP/runtime** — 현재/prefix reader 뒤 닫힌 요청/현재 권리/작업자 취소·정확한 같은 조립·실제 SCRAM/TLS 원 응답·기존 판본/사용자 서비스/자원/소유 정리를 검증한다.
           - [ ] **solar typed 웹·같은 UTC3D** — 선행 자동 실행/조회. 같은 API의 원 상태/단위/UTC를 표·장면과 대사하고 정상/hold/취소·권리/재접속·기존 소비자/WebGL/WSL을 수용한다.
           - [ ] **solar 사용자 적용·재시작** — 같은 고정 source/영역/키의 지속 API/worker에서 정상/hold/취소·원 수치/UTC3D·재접속/재시작/현재 권리와 기존 두 주소/원본/자원을 확인하고 접속·진행 안내를 갱신한다.
 
