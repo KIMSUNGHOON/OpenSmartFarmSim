@@ -1,5 +1,7 @@
 # 첫 구현 범위
 
+**현재 일사 농장 연결 — 2026-10-16:** [등록 농장·현재 자료 권리 결속](../research/crop-greenhouse-solar-farm-binding-implementation-20261016.md)을 새8/기존5=고유13검사로 수용했다. 실제 SCRAM/fresh 원 bytes·출처와 권리의 판단 시점 이전 가용성/마이크로초 경계·철회/늦은 변경·실제 DB/권한 변조 거부, 계산/복원/CLI·새 Run/결과 row0을 확인했다. 기존 두 화면/5root/원 결과/WSL 한도를 보존했다. 다음은 서명 custody→DB 등록/현재 조회→API/worker·같은 UTC3D이며 새 일사 판본은 미배포다. 실제 자료/G0–G4·생산/경제/전체 UI·완료일은 미정이며 goal은 active다. 아래 이전 기록은 당시 상태다.
+
 **현재 일사 입력 증거 — 2026-10-16:** [출처·단위/QC·선언 권리/현재 검토 결속](../research/crop-greenhouse-solar-input-evidence-implementation-20261016.md)을 새159/관련고유543검사로 수용했다. 공통 SourceRecord의 원 입력 hash/시각/판본·모든 수량 단위·합성 권리 선언을41장부 context/UTC와 묶고 발급 공동 계산1회·검증/fresh 재계산0·정상/hold 실제 파일 동일성을 확인했다. 실제 권리/G0·농장 승인은 아니다. 다음은 농장/current rights→서명 custody·DB/API·같은 UTC3D이며 새 일사 판본은 미배포다. 기존 두 화면/5root/WSL 한도와 active goal을 유지한다. 실제 자료/관문·생산/경제·전체 완료일은 미정이다. 아래 이전 기록은 당시 상태다.
 
 **현재 로컬 사용자 적용 — 2026-10-13:** [지속 새 API/작업자와 사용자5174](../research/crop-isolated-ventilation-user-activation-20261013.md)의 정상/보류/취소·계산 중/저장3D·현재 권리/재접속·재시작 뒤 원문/3D를 수용했다. 기존 입력3/HTTPS9·950파일/모든 원 행·두 서비스·WSL 한도를 보존했다. 합성 소프트웨어 범위이며 지역·실제 품종·전체 작기·자원/경제·최종 UI와 관문 수용은 남아 있다. 다음은 PAR 경계다. 아래 이전 기록은 당시 상태다.
