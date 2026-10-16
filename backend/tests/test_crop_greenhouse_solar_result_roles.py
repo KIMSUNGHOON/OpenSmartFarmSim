@@ -258,13 +258,17 @@ def test_new_table_column_routine_grant_option_and_membership_drift_fail_audit(r
 
 
 
-def test_existing_runtime_config_cannot_enable_solar_without_assembly(tmp_path):
-    from test_api_runtime import config
+def test_existing_runtime_config_cannot_enable_solar_without_assembly(tmp_path,monkeypatch):
+    from test_api_runtime import config, dependencies
+    from app.api_runtime import ApiRuntime
     original=config()
     assert original.policy.crop_greenhouse_solar_result_storage is False
-    with pytest.raises(ValueError,match='API runtime configuration rejected'):
-        replace(original,policy=replace(original.policy,crop_greenhouse_solar_result_storage=True))
-    save('runtime-default.json',{'default_false_accepted':True,'solar_true_rejected_before_assembly':True})
+    enabled=replace(original,policy=replace(original.policy,crop_greenhouse_solar_result_storage=True))
+    def forbidden(*a,**kw):pytest.fail('missing solar factories reached I/O')
+    monkeypatch.setattr('app.api_runtime.JobStore',forbidden)
+    with pytest.raises(ValueError,match='API runtime assembly rejected'):
+        ApiRuntime(enabled,dependencies())
+    save('runtime-default.json',{'default_false_accepted':True,'solar_true_without_factories_rejected':True})
 
 
 
