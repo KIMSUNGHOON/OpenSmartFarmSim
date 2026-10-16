@@ -44,7 +44,7 @@ def login_database():
         binary = Path(binary_path)
         assert (binary / "initdb").is_file() and (binary / "pg_ctl").is_file()
         shared_buffers = os.environ.get("OSSF_TEST_PG_SHARED_BUFFERS_MIB")
-        if shared_buffers is not None and shared_buffers not in ("4", "8", "16"):
+        if shared_buffers is not None and shared_buffers not in ("1", "4", "8", "16"):
             raise ValueError("owned test database buffer budget rejected")
         with tempfile.TemporaryDirectory(prefix="ossf-login-pg-") as directory:
             root = Path(directory); data = root / "data"; sockets = root / "socket"

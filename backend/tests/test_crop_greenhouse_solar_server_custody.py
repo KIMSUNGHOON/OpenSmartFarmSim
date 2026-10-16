@@ -47,7 +47,7 @@ def login_database():
                 with psycopg.connect(database['admin']) as conn:
                     assert conn.execute('SHOW max_connections').fetchone()[0]=='12'
                     assert conn.execute('SHOW max_worker_processes').fetchone()[0]=='0'
-                    assert conn.execute('SHOW shared_buffers').fetchone()[0]=='4MB'
+                    assert conn.execute('SHOW shared_buffers').fetchone()[0]==os.environ.get('OSSF_TEST_PG_SHARED_BUFFERS_MIB','4')+'MB'
             yield database
         finally:cluster.close()
 
@@ -67,7 +67,7 @@ def settled_close(port):
         try:
             fields=Path('/proc',str(pid),'stat').read_text().rsplit(')',1)[1].split()
             return fields[19] if fields[0]!='Z' else None
-        except FileNotFoundError:return None
+        except (FileNotFoundError,ProcessLookupError):return None
     def close(conn):
         pid=None;stamp=None
         if not conn.closed and conn.info.port==int(port):

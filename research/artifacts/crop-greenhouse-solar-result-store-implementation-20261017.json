@@ -1,0 +1,378 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted_at": "2026-10-16T17:00:25.548505Z",
+  "base_commit": "01fa15112c8db9461a099a462b88f2f6b22f4dcd",
+  "browser_DOM_WebGL_rerun": false,
+  "code_sha256": {
+    "backend/app/crop_greenhouse_solar_result_store.py": "c3ff0a62f8dbd9b9a2e10827ca29e756f4e2419eefb53f405fc2db8acd13da0a",
+    "backend/tests/login_database.py": "fec68c80d14f757c45a7d78dc40085d8b1526050a7590bf3b697105c291cf24b",
+    "backend/tests/test_crop_greenhouse_solar_result_fresh.py": "644a2220bf80e73ca3bd20937b44e76491dc971c5b0d3b245f8ba9132dbf1ed1",
+    "backend/tests/test_crop_greenhouse_solar_result_store.py": "e6d4136bcc378b48fe2bda7f1e7fcde69808c5c0a57b81c0b015f0fdd8773e09",
+    "backend/tests/test_crop_greenhouse_solar_server_custody.py": "ab09dd8961efc3cdc3af9ff26e809332f5d3621da1410d98792e270b1551b560",
+    "contracts/crop-greenhouse-solar-result-store-v1.md": "7b218be84c45b01a784c6b7e4a92fd63735d1d2256fb57f2cb001e2ceac7b153"
+  },
+  "distinct_checks": 35,
+  "existing_ventilation_user_deployed": true,
+  "fresh": {
+    "actual_scram": true,
+    "calls": {
+      "CLI": 0,
+      "NIR": 0,
+      "PAR": 0,
+      "RHS": 0,
+      "SQL_writes": 0,
+      "advance": 0,
+      "event": 0,
+      "prepare_binding": 0,
+      "prepare_context": 0,
+      "restore": 0,
+      "solar": 0,
+      "start": 0,
+      "step": 0,
+      "ventilation": 0
+    },
+    "original_bytes_pages_UTC": true,
+    "review_revocation_rejected": true,
+    "sequential_processes_same_database": true
+  },
+  "full_CI_rerun": false,
+  "full_product_completion": null,
+  "goal_status": "active",
+  "historical_signed_migration_tested": false,
+  "legacy_sql_fixture_rows_preserved": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "model": "gpt-6.1-sol",
+  "native_context": {
+    "model": "gpt-6.1-sol",
+    "native_context_timestamp": "2026-10-16T15:19:08.219Z",
+    "raw_turn_context_sha256": "08266b78c407a75aa06477bee60c184565eddf13027df946a20370b5216d16c4",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+  },
+  "native_design_followups_sha256": {
+    "idempotent-design-followup.private.md": "9967c33878a168956626c086905b513cf355f0de50d7937e1626fd30b6d4a307",
+    "resource-design-followup.private.md": "6c85ba509ebb9b6e48e8499aa4e875d92e205cffca459aeb354890776aebbf79",
+    "sample-design-followup.private.md": "d6ced01f016172e6c864d5ecc4f3b8761ce13f041403f1dacb6f50c03c88f019",
+    "sequential-design-followup.private.md": "c126444797b3068a76d1beb49b2a4e7284034fde8928f15c83feaf8e398b4401"
+  },
+  "native_outputs_sha256": {
+    "accepted-output.private.md": "03e0c2aca55fe9701c331e9eff3c72b2a145e6623cfb7132d5f094197bf49eb4",
+    "design-output.private.md": "dbbe8fcf3cc9babd9e853d38598001e5fa1ea217a1b221176fd2ea73f4ce9618"
+  },
+  "new_checks": 18,
+  "new_solar_user_deployed": false,
+  "normal": {
+    "FD_before_after": [
+      4,
+      4
+    ],
+    "actual_crop_Runs": 0,
+    "calls": {
+      "CLI": 0,
+      "NIR": 0,
+      "PAR": 0,
+      "RHS": 0,
+      "advance": 0,
+      "event": 0,
+      "prepare_binding": 0,
+      "prepare_context": 0,
+      "restore": 0,
+      "solar": 0,
+      "start": 0,
+      "step": 0,
+      "ventilation": 0
+    },
+    "counts_before_after": [
+      [
+        88,
+        88,
+        0,
+        0
+      ],
+      [
+        88,
+        88,
+        0,
+        0
+      ]
+    ],
+    "payload_bytes": 73066,
+    "payload_sha256": "323d1bfec5ca2fb94bc2d44dc61a3c04103a71fe6539a4f5c3bdfea1d1553a08",
+    "rows": 1
+  },
+  "private_harness_sha256": {
+    "controller.py": "3811be982895eac07cf40b776e8ce88e66d9aa0e5ea285af6822015b09c670f4",
+    "current-binding-regression.py": "38dc83d89d02e7c5b6270310d84ea51abb42e2311169f024337bc1ac448e6fc5",
+    "status-HTTP-v1.py": "ef3938879664717b34a6810bc90d3a529ecf8b6426fd823daf646fca0a6c3bba"
+  },
+  "real_farm_runs": 0,
+  "reasoning_effort": "xhigh",
+  "recursive_cli": false,
+  "regression_checks": 17,
+  "rights_or_gate_approval": false,
+  "status": "accepted_local_software_only",
+  "status_HTTP": {
+    "combined_peak_RSS_bytes": 808194048,
+    "exit_code": 0,
+    "proof": [
+      {
+        "HTTP": [
+          {
+            "bytes_equal": true,
+            "cache_control": "no-store",
+            "port": 5173,
+            "status": 200
+          },
+          {
+            "bytes_equal": true,
+            "cache_control": "no-store",
+            "port": 5174,
+            "status": 200
+          }
+        ],
+        "UI_code_changed": false,
+        "browser_rerun": false,
+        "reported_at": "2026-10-16T17:00:25.559040Z",
+        "source_sha256": "451c693d307687807f785814c6deab929f6245df3cc9abd1c2d2c74563d11ce2"
+      },
+      {
+        "files": 2173,
+        "retained_ventilation_frozen_source_preserved": true
+      },
+      {
+        "browser_DOM_rerun": false,
+        "current_HTML_matches_frozen_entry_both_ports": true
+      }
+    ],
+    "terminal_sha256": "a90c8e9a738b52c592cbe58fcdf315fb35fa09936fbc935607e19e465abdc713",
+    "tool_session": "74668"
+  },
+  "successful_batches": [
+    {
+      "RSS_samples": 613,
+      "case": "focused-normal-v12",
+      "combined_peak_RSS_bytes": 1069801472,
+      "exit_code": 0,
+      "log_sha256": "5e35b56ad1699f27af0f58cff6dcc545d82702c96281e5791d4525578ca82af5",
+      "original_source_entries": 2148,
+      "owned_cleanup_complete": true,
+      "passed": 1,
+      "protected_root_count": 5,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_and_frozen_preserved": true,
+      "terminal_sha256": "42c9b1af313f094e344931d8c73e9e171dd453701c125ae8110931b0d2e4f7c2",
+      "tool_session": "26174",
+      "wall_seconds": 186.83295970999825
+    },
+    {
+      "RSS_samples": 941,
+      "case": "focused-security-v1",
+      "combined_peak_RSS_bytes": 1015463936,
+      "exit_code": 0,
+      "log_sha256": "4e4e340942eda1c4a3c809073ff600352f1a2b23f2adc4da90ef23884f7ff05f",
+      "original_source_entries": 2148,
+      "owned_cleanup_complete": true,
+      "passed": 4,
+      "protected_root_count": 5,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_and_frozen_preserved": true,
+      "terminal_sha256": "d3eb608bba1152605fdbd958d606af85f644ffdef1c462744eef66d1491a83bb",
+      "tool_session": "3038",
+      "wall_seconds": 280.1213624660013
+    },
+    {
+      "RSS_samples": 1359,
+      "case": "focused-terminal-v1",
+      "combined_peak_RSS_bytes": 1032421376,
+      "exit_code": 0,
+      "log_sha256": "3b9df8696cb2e29b19eb885069543486c6cc406cd22211b5521bfdcecfe9451b",
+      "original_source_entries": 2148,
+      "owned_cleanup_complete": true,
+      "passed": 4,
+      "protected_root_count": 5,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_and_frozen_preserved": true,
+      "terminal_sha256": "050d825898248a19e59c17da80f0a6ce16abafa2d10f5bcc9f6f26038f17903c",
+      "tool_session": "35506",
+      "wall_seconds": 411.4518806809974
+    },
+    {
+      "RSS_samples": 1122,
+      "case": "focused-rollback-v1",
+      "combined_peak_RSS_bytes": 1023963136,
+      "exit_code": 0,
+      "log_sha256": "630f95dc8d804ee626d923ca8d4e627e8438f64ec405a570479f98aa24bebe13",
+      "original_source_entries": 2148,
+      "owned_cleanup_complete": true,
+      "passed": 5,
+      "protected_root_count": 5,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_and_frozen_preserved": true,
+      "terminal_sha256": "414c994773154ee4fa675f64c5406b5b5af94df96afc6b4ed769bc13cde88a31",
+      "tool_session": "31278",
+      "wall_seconds": 334.2364659879968
+    },
+    {
+      "RSS_samples": 919,
+      "case": "focused-caller-rights-v1",
+      "combined_peak_RSS_bytes": 1022410752,
+      "exit_code": 0,
+      "log_sha256": "52f7d2fdac3ce19b0a71b2d94c1d934f815433e075c6dcb7512c82ee81e1e2e3",
+      "original_source_entries": 2148,
+      "owned_cleanup_complete": true,
+      "passed": 4,
+      "protected_root_count": 5,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_and_frozen_preserved": true,
+      "terminal_sha256": "728b0398e70bd2f0414159ed0730cd1eb0755518e9a7405d1d0107b85d92a07b",
+      "tool_session": "78008",
+      "wall_seconds": 272.0316650349996
+    },
+    {
+      "RSS_samples": 53,
+      "case": "regression-schema-roles-v1",
+      "combined_peak_RSS_bytes": 969793536,
+      "exit_code": 0,
+      "log_sha256": "1bb84780b4b58ab7e58c9e15c1e3eb2fe2acf0554ef1c5da7950417cd94b9725",
+      "original_source_entries": 2148,
+      "owned_cleanup_complete": true,
+      "passed": 16,
+      "protected_root_count": 5,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_and_frozen_preserved": true,
+      "terminal_sha256": "a39853908a3cc49be262506caa8d3f34cf1806e42b39f92bc2200536e241dc41",
+      "tool_session": "25127",
+      "wall_seconds": 14.93016342899864
+    },
+    {
+      "RSS_samples": 194,
+      "case": "regression-custody-rights-v1",
+      "combined_peak_RSS_bytes": 978030592,
+      "exit_code": 0,
+      "log_sha256": "7a748b257da07e129bbb8cc3815f8a2a7e1e7925c494eab30205a67a8af58939",
+      "original_source_entries": 2148,
+      "owned_cleanup_complete": true,
+      "passed": 1,
+      "protected_root_count": 5,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_and_frozen_preserved": true,
+      "terminal_sha256": "1dcd548f24f719160dcc34aa9ee2502c6de8c095ea3ae834a8dd015578327ec5",
+      "tool_session": "33415",
+      "wall_seconds": 55.25664202400003
+    }
+  ],
+  "unsuccessful_attempts": [
+    {
+      "accepted": false,
+      "case": "focused-normal-v1",
+      "combined_peak_RSS_bytes": 1088442368,
+      "exit_code": 1,
+      "log_sha256": "97a9293b72128c3dd65a598773366536c422f4a24d1df71571ce13207b6b2b86",
+      "owned_cleanup_complete": true,
+      "reason": "RSS_limit"
+    },
+    {
+      "accepted": false,
+      "case": "focused-normal-v2",
+      "combined_peak_RSS_bytes": 1074384896,
+      "exit_code": 1,
+      "log_sha256": "df4723fba44970f77a38d3b78413a935cd18373af92ca9afd5888f63d250c2f5",
+      "owned_cleanup_complete": true,
+      "reason": "RSS_limit"
+    },
+    {
+      "accepted": false,
+      "case": "focused-normal-v3",
+      "combined_peak_RSS_bytes": 1074753536,
+      "exit_code": 1,
+      "log_sha256": "cdc52cbaf2044bc8facdeb4d99ef2b4ee90a0fd1e18d70c194444b06d11c65fe",
+      "owned_cleanup_complete": true,
+      "reason": "RSS_limit"
+    },
+    {
+      "accepted": false,
+      "case": "focused-normal-v4",
+      "combined_peak_RSS_bytes": 1079848960,
+      "exit_code": 1,
+      "log_sha256": "a4b4bccbb327fd8af6ac5ff1926b84d5abbbc26fdc68a7f1a36444ab0a4afe52",
+      "owned_cleanup_complete": true,
+      "reason": "RSS_limit"
+    },
+    {
+      "accepted": false,
+      "case": "focused-normal-v5",
+      "combined_peak_RSS_bytes": 1047191552,
+      "exit_code": 1,
+      "log_sha256": "a4c1d6b52aaf31746d05659fb2a5526b655a90b12f6685b42627be2e3eb71f62",
+      "owned_cleanup_complete": true,
+      "reason": null
+    },
+    {
+      "accepted": false,
+      "case": "focused-normal-v6",
+      "combined_peak_RSS_bytes": 1006616576,
+      "exit_code": 1,
+      "log_sha256": "58248723f8167633d42c39755ebd1b9db9674522c113fb706c085fc72ebc073c",
+      "owned_cleanup_complete": true,
+      "reason": null
+    },
+    {
+      "accepted": false,
+      "case": "focused-normal-v7",
+      "combined_peak_RSS_bytes": 1012920320,
+      "exit_code": 1,
+      "log_sha256": "9fc6457830387aba0641786379cb66d9e5523f8e7c0a1b4d5014fd7a68ee42e9",
+      "owned_cleanup_complete": true,
+      "reason": null
+    },
+    {
+      "accepted": false,
+      "case": "focused-normal-v8",
+      "combined_peak_RSS_bytes": 1074896896,
+      "exit_code": 1,
+      "log_sha256": "f8c1c24e93b79399c694a1dd3e59a6404ccf33177bbc78c7076eb2172576aa34",
+      "owned_cleanup_complete": true,
+      "reason": "RSS_limit"
+    },
+    {
+      "accepted": false,
+      "case": "focused-normal-v9",
+      "combined_peak_RSS_bytes": 1081331712,
+      "exit_code": 1,
+      "log_sha256": "7b4306c688c3fc2316faf36331406a05a937afc920616625921a4a10e0a2daf0",
+      "owned_cleanup_complete": true,
+      "reason": "RSS_limit"
+    },
+    {
+      "accepted": false,
+      "case": "focused-normal-v10",
+      "combined_peak_RSS_bytes": 1074135040,
+      "exit_code": 1,
+      "log_sha256": "da93bd146d603b3cf0d1dbdb11302a0adbe734574f3a78d2fe2ee240b50c4695",
+      "owned_cleanup_complete": true,
+      "reason": "RSS_limit"
+    },
+    {
+      "accepted": false,
+      "case": "focused-normal-v11",
+      "combined_peak_RSS_bytes": 1094569984,
+      "exit_code": 1,
+      "log_sha256": "d5868163184f101cdc3435f4bd6b660d176240e55c8be422fb21115e8866be3b",
+      "owned_cleanup_complete": true,
+      "reason": "RSS_limit"
+    }
+  ],
+  "user_service_or_key_or_deployed_role_changes": false
+}
