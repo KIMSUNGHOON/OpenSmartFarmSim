@@ -1,25 +1,25 @@
 {
-  "estimate_reason": "일사 계산의 재개/UTC 연결은 새371/관련795검사를 통과했습니다. 분할·별도 프로세스 복원 결과가 같고 과거 계산 재실행/UTC 수치 호출은0입니다. 화면은 기존 환기 판본이며 새 일사 저장/API/3D·실제 자료 검증이 남아 전체 완료일은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-13T15:25:52.710526Z",
+  "estimate_reason": "일사 불변 파일 저장·복구는 새107/회귀328=435검사를 통과했습니다. WSL 재시작 뒤 기존 화면과 원 결과도 복구했습니다. 화면은 기존 환기 판본이며 새 일사 입력 근거/권리·DB/API/3D와 실제 자료 검증이 남아 전체 완료일은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-16T12:10:35.571935Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-13T15:25:52.710526Z",
+  "reported_at": "2026-10-16T12:10:35.571935Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
-      "evidence": "일사 관리 계산의 불변 체크포인트/UTC를 연결했습니다. 새371/관련795검사·11합성 사례의 분할/fresh 원 상태·시각 동일·과거 재실행0·UTC 수치 호출0을 통과했습니다. 새 일사 판본은 미배포이며 실제 농장 검증은 남았습니다.",
+      "evidence": "일사·환기 관리 계산과 체크포인트/UTC 수용을 유지했습니다. 새 불변 파일도 435검사·11합성 사례·HEAD 전후 강제 종료 복구·fresh 조회 계산0을 통과했습니다. 실제 농장 검증은 남았습니다.",
       "id": "growth",
       "state": "completed"
     },
     {
-      "evidence": "기존 환기 저장·원 수치 조회를 보존했습니다. 새 일사 체크포인트/UTC 수용 뒤 불변 계산 페이지·원자 HEAD/복구를 연결하고 입력 근거/농장·서명 custody/DB 저장을 검증합니다.",
+      "evidence": "새 일사 파일의 원108상태/41연속·6사건 장부/15수지·UTC를 보존합니다. 다음은 입력 근거·농장/current rights·서명 custody/DB 등록이며 새 일사 판본은 미배포입니다.",
       "id": "storage",
       "state": "completed"
     },
     {
-      "evidence": "WSL 재시작 후 기존5173·환기5174의 API/작업자를 복구하고 원 입력3/저장9시점·환기6응답을 대사했습니다. 새 일사 적분은 아직 이 서비스에 배포되지 않았습니다.",
+      "evidence": "WSL 재시작 뒤 기존 두 주소와 원 입력3/HTTPS 저장9시점·환기6원 응답을 복구·대사했습니다. 조회 계산/쓰기0과 기존 API/worker를 보존했습니다. 새 일사 파일의 API 연결은 후속입니다.",
       "id": "api",
       "state": "completed"
     },
