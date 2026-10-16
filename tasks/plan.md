@@ -2,14 +2,14 @@
 
 ## 단계별 goal 순서와 활성 상태 — 2026-10-16
 
-사용자의 목표 재개와 실제 goal 도구의 `active` 반환을 확인했다. 이전 `usageLimited` 동안 수동 진행한 기록은 유지하며, 전체 목표의 범위를 바꾸지 않는다. 직전 goal 턴은 commit3c31018·795검사로 실제 상태를 바꾼 **progress**다. 현재 수용된 작은 단계 뒤 다음 의존성을 구현하고 세부 체크는 [todo](todo.md)를 따른다.
+사용자의 목표 재개와 실제 goal 도구의 `active` 반환을 확인했다. 이전 `usageLimited` 동안 수동 진행한 기록은 유지하며, 전체 목표의 범위를 바꾸지 않는다. 직전 goal 턴은 commitf9a6d29·435검사로 실제 상태를 바꾼 **progress**다. 현재 수용된 작은 단계 뒤 다음 의존성을 구현하고 세부 체크는 [todo](todo.md)를 따른다.
 
 | 순서 | 단계별 목표 | 다음 단계로 넘어갈 산출물 |
 | --- | --- | --- |
 | 1 — 수용 | 새 API·환기 작업자 조립 | 별도 영역의 접수→독립 자동 소비→저장, 양 모델의 실제 SCRAM/TLS·정상/보류/취소·현재 권리·원본/자원 보존 증거. |
 | 2 — 수용 | 같은 조립 판본의3D 재수용 | 계산 중→종료 원 수치/UTC·표/장면 대사, 재접속·권리 철회·기존 소비자/브라우저 동시 자원 증거. |
 | 3 — 수용 | 새 모델 사용자 적용 | 지속 별도 API/작업자·사용자5174의 정상/보류/취소·계산 중/저장3D·재접속/현재 권리·재시작 뒤 원문/3D, 기존 두 서비스/원본/자원과 접속/진행 안내를 확인했다. |
-| 4 — 진행 | PAR 경계 연결 | [매 RK trial의 PAR·환기 공동 적분441검사](../research/crop-greenhouse-radiation-par-integration-implementation-20261013.md) 수용. NIR 포함 공동 RK617검사와 [solar 관리/출력698검사](../research/crop-greenhouse-solar-program-implementation-20261013.md)도 수용. [재개/UTC795검사](../research/crop-greenhouse-solar-continuation-implementation-20261014.md)도 수용. [불변 파일435검사](../research/crop-greenhouse-solar-storage-implementation-20261016.md) 수용. 다음: 입력 근거/농장·custody/DB/API/3D·사용자 수용. 부모는 미완료. |
+| 4 — 진행 | PAR 경계 연결 | [매 RK trial의 PAR·환기 공동 적분441검사](../research/crop-greenhouse-radiation-par-integration-implementation-20261013.md) 수용. NIR 포함 공동 RK617검사와 [solar 관리/출력698검사](../research/crop-greenhouse-solar-program-implementation-20261013.md)도 수용. [재개/UTC795검사](../research/crop-greenhouse-solar-continuation-implementation-20261014.md)도 수용. [불변 파일435검사](../research/crop-greenhouse-solar-storage-implementation-20261016.md) 수용. [입력 증거543검사](../research/crop-greenhouse-solar-input-evidence-implementation-20261016.md) 수용. 다음: 농장/current rights·custody/DB/API/3D·사용자 수용. 부모는 미완료. |
 | 5 | CO₂·기공 연결 | `crop-greenhouse-co2-stomatal`의 원문 단위 정책·질량/광합성 결합과 독립 참조 대사. |
 | 6 | 시설 환기량 연결 | `crop-greenhouse-facility-flow`의 시설/풍속/창/계수 근거와 유량·구획 변환 검증. |
 | 7 | 물·양분 연결 | `crop-water-nutrient`의 급배액/재순환/구매 용수·성분 재고 수지와 근거 없는 출력의 보류. |
@@ -41,7 +41,9 @@
 
 [새 불변 solar 계산 파일](../research/crop-greenhouse-solar-storage-implementation-20261016.md)은 새107/회귀328=고유435검사로 수용했다. 11program×예산1/7/128의 원108상태/41·6장부/15수지/UTC·HEAD 전후 실제 강제 종료/재시작·fresh reader 계산/복원/CLI0·원 페이지 한도/구 판본·광학 의존·변조/지연 변경을 확인했다. WSL 부팅 변경 뒤 원 입력3/HTTPS9시점·환기6원 응답과 기존 화면/5root/2,148항목을 복구·대사했다. 원 API/worker가 감독자 종료 뒤 살아 있음을 확인해 재시작하지 않고 보호했다. 새 일사 판본은 미배포다.
 
-다음 한 단계는 **solar 입력 근거 검토**다. non-solar 열/PAR·NIR·광학/실외 입력의 의미·단위·scope와 출처/시각/판본/권리/QC/검토를 원 context/프로필/41장부 artifact에 결속한다. 정상/hold·미검토/철회/변조·옛25장부/의미/단위/프로필/범위 혼합 거부와 합성 근거의 실제 관문 대체 거부를 확인하고 원 결과/5root를 보존한다. 이어 **농장/current rights→서명 custody→DB 등록/조회→API/자동 worker·같은 UTC3D→사용자 정상/보류/취소 수용**으로 진행한다.
+[solar 입력 근거 검토](../research/crop-greenhouse-solar-input-evidence-implementation-20261016.md)는 새159/관련고유543검사로 수용했다. 기존 SourceRecord의 출처/시각/판본/원 hash/모든 수량 단위·provider QC와 초기 software QC 구분·합성 선언 권리/현재 review를 원41장부 context/UTC와 결속한다. 11program의 발급 공동 계산/PAR/NIR/환기/RHS1회·verify/fresh0·실제 정상/hold 파일 동일성,구22/25/철회/변조/늦은 변경/독립 수량 coverage/한도·원5root/자원을 확인했다. rights_or_gate_approval=False이며 실제 자료의 권리/G0·농장 승인을 대체하지 않는다.
+
+다음 한 단계는 **solar 농장/current source rights 결속**이다. 기존 실제 SCRAM FarmAuthoringService와 current read/write scope를 재사용해 검증된 새 evidence/provenance/source/context/UTC를 등록 tenant/farm revision/crop/batch/zone/면적/점유 구간과 묶는다. microsecond/availability-before-decision·원 IDs/bytes·unvalidated cultivar applicability를 유지한다. 다른 tenant/crop/기간/source/판본/receipt·철회/late change·변조된 DB/grant/authority와 실제 G0 승인 주장을 거부하며 prepare/current/fresh 계산/복원/CLI·새 Run/결과 row0·원5root/자원을 확인한다. 이어 **서명 custody→DB 등록/조회→API/자동 worker·같은 UTC3D→사용자 정상/보류/취소 수용**으로 진행한다.
 
 실제 시설/스펙트럼·품종/지역/독립 농장·시장 자료 확보는 병행한다. 합성 개발 착수와 G0–G4/예측·추천 게시 조건을 구분하며, 외부 자료와 후속 판본 수용이 확보되지 않아 전체 완료일·남은 집중 시간은 미정이다.
 
