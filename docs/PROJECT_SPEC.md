@@ -1,5 +1,7 @@
 # OpenSmartFarmSim 제품 명세
 
+**현재 일사 결과 DB 계약 — 2026-10-16:** [별도 불변 표·두 원문 보존](../research/crop-greenhouse-solar-result-schema-implementation-20261016.md)을 새7/기존35=고유42검사로 수용했다. 실제 SCRAM에서 metadata/progress 각각128KiB·해시/원 UTC·변조/경계/고유키/FK/설치 rollback·현재4역할20접근 거부와 기존3표/행 보존을 확인했다. 이전 합성32초 계산의 원36,617bytes도 계산 없이 대사했다. 다음은 명시 권한→서명 등록/현재 조회→API/worker·같은 UTC3D다. 새 일사 미배포·실제 자료/G0–G4·생산/경제/최종 UI·완료일 미정이며 goal active를 유지한다. 아래 이전 기록은 당시 상태다.
+
 **현재 일사 서명 저장 — 2026-10-16:** [서버 소유 이력·재개](../research/crop-greenhouse-solar-server-custody-implementation-20261016.md)을 새7/기존4=고유11검사로 수용했다. 실제 SCRAM/fresh 원108상태/41·6장부/15수지/UTC·확정 사건 재실행0·HEAD 전후 실제 SIGKILL/원 checkpoint 재개·현재 권리/변조/보류/한도와 조회/terminal retry 계산0을 확인했다. 합성32초 연구이며 원 결과/두 화면/5root/WSL 한도를 보존했다. 다음은 결과 DB 계약→명시 권한→등록/현재 조회→API/worker·같은 UTC3D다. 새 일사 미배포·실제 자료/G0–G4·생산/경제/최종 UI·완료일 미정, goal active를 유지한다. 아래 이전 기록은 당시 상태다.
 
 **현재 일사 농장 연결 — 2026-10-16:** [등록 농장·현재 자료 권리 결속](../research/crop-greenhouse-solar-farm-binding-implementation-20261016.md)을 새8/기존5=고유13검사로 수용했다. 실제 SCRAM/fresh 원 bytes·출처와 권리의 판단 시점 이전 가용성/마이크로초 경계·철회/늦은 변경·실제 DB/권한 변조 거부, 계산/복원/CLI·새 Run/결과 row0을 확인했다. 기존 두 화면/5root/원 결과/WSL 한도를 보존했다. 다음은 서명 custody→DB 등록/현재 조회→API/worker·같은 UTC3D이며 새 일사 판본은 미배포다. 실제 자료/G0–G4·생산/경제/전체 UI·완료일은 미정이며 goal은 active다. 아래 이전 기록은 당시 상태다.

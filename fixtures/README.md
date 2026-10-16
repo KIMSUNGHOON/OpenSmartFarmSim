@@ -32,3 +32,7 @@ wc -c fixtures/synthetic-weather-v1.json fixtures/synthetic-economics-v1.json fi
 ```
 
 Compare the first two hashes and byte counts with both manifests, and the thermal file with manifest v2. Each manifest's own hash is intentionally absent; its raw hash belongs in a later immutable Run manifest. Run the focused checks from `backend` with `UV_CACHE_DIR=/tmp/ossf-fixture-uv-cache uv run --locked --no-sync pytest -q tests/test_thermal_parameter_fixture.py tests/test_thermal_contract.py tests/test_fixture_policy.py`. These checks validate fixture structure, source and limit declarations, and raw pins; they do not execute thermal or economic engines.
+
+## Computed solar progress for the database contract
+
+[synthetic-solar-custody-progress-v1.json](synthetic-solar-custody-progress-v1.json) is a canonical captured32second software progress snapshot from [accepted solar custody](../research/crop-greenhouse-solar-server-custody-implementation-20261016.md), original32642:0. SHA256 `cd32057672e845030eee485359d7d4c7a6d39f16460ce8c4de598bbeebdf53a4`, 36617bytes. It contains computed synthetic state/ledger/checkpoint/UTC and hashes, with rights_or_gate_approval=false/G0_G4=not_assessed. It contains no farm measurements, credentials or acquired provider data and is not a new registered input or approval. Existing model/profile/[GreenLight notices](../LICENSES/GreenLight-BSD-3-Clause-Clear.txt) remain applicable. The DB test preserves these bytes without recomputing or treating its hashes as authenticated real farm evidence.

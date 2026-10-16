@@ -1,20 +1,20 @@
 {
-  "estimate_reason": "새 일사 계산의 서명 저장/재개는 새7/기존4검사를 통과했습니다. 저장 전후 강제 종료·현재 권리/변조/보류와 원 결과 보존을 확인했습니다. 결과 DB/API/같은 UTC3D·실제 자료 검증이 남아 전체 완료일은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-16T13:58:05.608895Z",
+  "estimate_reason": "새 일사 결과 DB 계약은 새7/기존35검사를 통과했습니다. 두 원문/UTC·변조 차단·기존 표/권한 보존을 확인했습니다. 명시 권한/서명 등록/현재 조회·API/같은 UTC3D와 실제 자료 검증이 남아 전체 완료일은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-16T14:22:49.826773Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-16T13:58:05.608895Z",
+  "reported_at": "2026-10-16T14:22:49.826773Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
-      "evidence": "합성32초 일사 계산의 원108상태/41·6장부/15수지/UTC를 보존했습니다. 새7/기존4=11검사에서 직접 원 계산과 같은 호출 수·fresh 확정 사건 재실행0·조회 계산0을 확인했습니다. 실제 농장/관문 검증은 남았습니다.",
+      "evidence": "이전에 검증한 합성32초 계산의 원36,617bytes/상태·장부·UTC를 DB에서 재계산 없이 대사했습니다. 새7/기존35=42검사로 소프트웨어 저장 계약을 확인했습니다. 실제 농장/관문 검증은 남았습니다.",
       "id": "growth",
       "state": "completed"
     },
     {
-      "evidence": "서명 intent/HEAD에 출처·농장·현재 권리를 묶었습니다. 저장 직전/직후 실제 강제 종료 뒤 원 checkpoint 재개·변조/철회/보류/한도를 통과했습니다. 다음은 결과 DB/명시 권한/현재 조회이며 새 일사 판본은 미배포입니다.",
+      "evidence": "metadata/progress 각각128KiB와 원 hash·출처/context/UTC/provenance를 별도 불변 표에 묶었습니다. 변조/경계/설치 rollback·기존3표/행·4역할20접근 거부를 통과했습니다. 다음은 명시 권한/서명 등록·현재 조회이며 새 일사 미배포입니다.",
       "id": "storage",
       "state": "completed"
     },
