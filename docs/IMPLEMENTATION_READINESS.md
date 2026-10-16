@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**현재 상태 — 2026-10-17:** [일사 확정 구간 원 조회](../research/crop-greenhouse-solar-prefix-read-implementation-20261017.md)를23검사로 수용했다. 현재 진행/원 selector·sample/event·UTC/권리/fresh를 내부 구현했고 기존 환기 사용자 실행/두 서비스는 유지한다. 공개 투영/후검사·보호 API/runtime·같은 UTC3D/사용자 적용, 실제 독립 자료·G0–G4·생산/경제/최종 UI·전체 CI가 남아 전체 완료일은 미정이다. 아래 기록은 당시 관측이다.
+**현재 상태 — 2026-10-17:** [일사 확정 구간 공개 응답](../research/crop-greenhouse-solar-prefix-projection-implementation-20261017.md)을91검사로 수용했다. 현재/원 구간 조회·공개 타입/직렬화 후검사는 내부 구현이며 기존 환기 사용자 실행/두 서비스를 유지한다. 접수/진행/취소·prefix 보호 API/runtime·독립 worker/같은 UTC3D·사용자 적용과 실제 자료/G0–G4/생산/경제/최종 UI/전체 CI가 남아 전체 날짜는 미정이다. 아래 기록은 당시 관측이다.
 
 **현재 상태 — 2026-10-12 20:11 KST:** [사용자 API·메모리 수정/진행 표시](../research/crop-ventilation-user-input-progress-20261012.md)에서 새 합성 계산64/64·원 값/UTC, 서버182검사·독립 화면3경로·타입/빌드를 확인했다. 최종 동시3D는 합1GiB 초과로 적용 보류다. 원 DB행/856파일·키/권리/토큰을 보존하고run-v21/serve-v23을 복구했다. 두 UI의20:11 기록·15초 재조회를 실제 확인했다. 기존2–4시간은 재산정 중이며 새 모델 미배포·전체 완료일 미정이다. 아래 이전 기록은 당시 상태다.
 

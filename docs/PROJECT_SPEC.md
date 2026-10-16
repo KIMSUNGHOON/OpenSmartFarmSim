@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 일사 확정 구간 원 조회 — 2026-10-17:** [원 sample/event·선택자·UTC/최초 시각](../research/crop-greenhouse-solar-prefix-read-implementation-20261017.md)를 전용 고유23검사로 수용했다. 실제 SCRAM/독립 새 sample·event 추가/fresh·append/heartbeat/취소·서명 rollback/fork/변조·현재/후검사 권리·조회 계산/SQL 변경0·원본/두 UI/5root/자원을 확인했다. 다음은 공개 투영/후검사→보호 HTTP/runtime→같은 UTC3D·사용자 수용이다. 새 일사 미배포·실제 자료/G0–G4·생산/경제/최종 UI·완료일 미정, 전체 CI 미실행·goal active를 유지한다. 아래 이전 기록은 당시 상태다.
+**현재 일사 확정 구간 공개 응답 — 2026-10-17:** [원 값/단위/UTC·현재 권리·직렬화 후검사](../research/crop-greenhouse-solar-prefix-projection-implementation-20261017.md)를 전용 고유91검사로 수용했다. 실제 SCRAM/독립 fresh 원 응답·새 row 추가 뒤 원 선택자/최초 시각·직렬화 뒤 권리/페이지/취소/이력 변경·조회 계산/SQL 변경0·원본/두 UI/5root/자원을 확인했다. 다음은 접수/진행/취소·prefix 보호 HTTP/명시 runtime→같은 UTC3D·사용자 수용이다. 새 일사 미배포·실제 자료/G0–G4·생산/경제/최종 UI·완료일 미정, 전체 CI 미실행·goal active를 유지한다. 아래 이전 기록은 당시 상태다.
 
 **현재 일사 명시 runtime — 2026-10-17:** [새 설정·실제 서버 조립](../research/crop-greenhouse-solar-runtime-implementation-20261017.md)을 새62/기존173=고유235검사로 수용했다. 실제 SCRAM/TLS 정상/hold 원3응답·오조립9/권한 변경 거부·12철회/전송 정리·제품 조회 계산/SQL 변경0·원본/두 UI/5root/자원을 확인했다. 다음은 내부 접수/임대 worker→확정 prefix/진행 API→같은 UTC3D·사용자 수용이다. 새 일사 미배포·실제 자료/G0–G4·생산/경제/최종 UI·완료일 미정, 전체 CI 미실행·goal active를 유지한다. 아래 이전 기록은 당시 상태다.
 

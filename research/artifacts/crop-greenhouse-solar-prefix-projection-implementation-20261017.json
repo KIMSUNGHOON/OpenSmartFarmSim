@@ -1,0 +1,605 @@
+{
+  "G0_G4": "not_assessed",
+  "accepted_at": "2026-10-16T23:01:10.283576Z",
+  "actual_farm_Runs": 0,
+  "actual_native_cases": 16,
+  "automatic_worker_concurrency_verified": false,
+  "base_commit": "1d557c596726a9eff9592fbcb96101306b4f6a65",
+  "browser_DOM_WebGL_rerun": false,
+  "claim_scope": "synthetic_joint_solar_confirmed_prefix_only",
+  "code_sha256": {
+    "backend/app/api_crop_greenhouse_solar_prefix.py": "af95fff50bf4c7166fa27c4a98f465ee3d22c17827c60a0652f173f5c438ef9a",
+    "backend/app/crop_greenhouse_solar_prefix.py": "5b8e9f84f9b87567177b38a3ffd58e405d3ddfde0b890995ee76cfc74323dec4",
+    "backend/tests/test_api_crop_greenhouse_solar_prefix.py": "58bd28b7374a6db5e774f45e67bc7c33d15ab3bf268fe88ede0160725c3a1887",
+    "backend/tests/test_api_crop_greenhouse_solar_prefix_fresh.py": "ef4f4de518c73ba0dca0ea25d90f63625278bb2a0f1ae4f6a5a0d043ea1d12c4",
+    "backend/tests/test_api_crop_greenhouse_solar_prefix_native.py": "71470f647f19faa4c49683f4620eba86611721f1334fc8c4078c9340d12a194b",
+    "contracts/api-crop-greenhouse-solar-prefix-v1.md": "47dec6f16667e9ac2c6198c3f93961d3807615ce28ba31685150fc24e39126ae",
+    "contracts/crop-greenhouse-solar-prefix-v1.md": "8b3a9bbbea8bfbf40ea67a53db1a2a1fe6ad2eadbfde3069cba8005966cddfd6"
+  },
+  "dedicated_passed": 91,
+  "development_status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_child_exit": 0,
+    "browser_DOM_WebGL_rerun": false,
+    "browser_rerun": false,
+    "log_sha256": "2997fa77d3dbaae45aa8f8513dfe187684773f88ee6000191fc196b66b5819ae",
+    "new_model_deployed_scope": "Retained ventilation only. Solar public prefix is locally accepted; new execution/prefix HTTP/runtime/user3D remain undeployed.",
+    "original_HTML_both_ports_preserved": true,
+    "reported_at": "2026-10-16T23:01:10.283576Z",
+    "retained_ventilation_files": 2173,
+    "source_sha256": "9297f77dcbcd16d132759513edd2914fdb5663f76d024156d33e5c02f03f0977",
+    "terminal_sha256": "97f538cf24d66b1ad1009c9eca47c6396d846d3df21f241a4dadf622e6eb40eb",
+    "tool_session": "35401"
+  },
+  "distinct_checks": 91,
+  "duplicate_original_positive_fixture_not_counted": {
+    "case": "focused-pure-original-v2",
+    "passed": 1,
+    "tool_session": "24183"
+  },
+  "evidence_privacy": "Only hashes/selected readonly counters. Lightweight actors perform intentionally scoped metadata SQL and publish precomputed original signed HEAD/validated checkpoint packets; they do not calculate numerical steps concurrently. A separate actual producer computes/stores new sample/event rows before an independent readonly public reader. No private source/rights/review/input/credentials are redistributed.",
+  "excluded_attempts": [
+    {
+      "actual_child_exit": 1,
+      "case": "focused-post-serialization-red-v1",
+      "log_sha256": "d4c9ddbb88a5f294c07241595b204de0f7b35ce5e9c4c65c1b38c7e247599a25",
+      "not_in_accepted_count": true,
+      "reason": "Expected RED: actual selected-page tamper after read was not rejected; fixed by reloading/comparing original selected snapshot/page and GREEN passed.",
+      "terminal_sha256": "7b0aaddd1a58ab7753fa677ab8a0cc241a6e39a7693628e7024d6994f67ab89e"
+    },
+    {
+      "actual_child_exit": 1,
+      "case": "focused-pure-original-v1",
+      "log_sha256": "7ccd2a441c4d0da8905941eee315b707f46767bd0e8007174fce2916b08727b3",
+      "not_in_accepted_count": true,
+      "reason": "Wrong joint.POLICY reference; replaced with authoritative crop.startup.POLICY_SHA256 and reran.",
+      "terminal_sha256": "c5b23ae8116b8aa044f479eb96e4a171f0ae52d8d83471d1ce283f2654dd30f7"
+    },
+    {
+      "actual_child_exit": 1,
+      "case": "focused-pure-contract-v1",
+      "log_sha256": "75c7e48345698fc7c8c83b9a9079aac8bdcf694743401f1c988c4e9829ddc761",
+      "not_in_accepted_count": true,
+      "reason": "Three NaN/Inf fixture helpers failed before projector due to strict canonical encoding; raw malformed JSON fixture corrected, all75 rerun.",
+      "terminal_sha256": "1408399c2f4f35a95648a8f499542b0e9d979ff8f8c9a4295e2e330efc58607a"
+    }
+  ],
+  "execution_prefix_HTTP_runtime_implemented": false,
+  "fresh_cleanup": {
+    "roles": 0,
+    "schemas": 0
+  },
+  "fresh_producer": {
+    "actual_producer_tail_advance": true,
+    "actual_scram": true,
+    "first_recorded_at": "2026-10-16T22:57:31.222586Z",
+    "original_and_tail_counts": [
+      {
+        "events": 1,
+        "samples": 1
+      },
+      {
+        "events": 2,
+        "samples": 2
+      }
+    ],
+    "prefix_steps_before_after": [
+      1,
+      9
+    ],
+    "query_SQL_writes": 0,
+    "query_numerical_calls_zero": true
+  },
+  "fresh_reader": {
+    "DB_unchanged": true,
+    "actual_producer_tail_not_mixed_into_old_selector": true,
+    "actual_scram": true,
+    "calls": {
+      "CLI": 0,
+      "NIR": 0,
+      "PAR": 0,
+      "RHS": 0,
+      "SQL_write_attempts": 0,
+      "_put_in_transaction": 0,
+      "advance": 0,
+      "confirm": 0,
+      "event": 0,
+      "jobs._durable_artifact": 0,
+      "jobs._event": 0,
+      "jobs._insert_publication": 0,
+      "jobs._outcome": 0,
+      "jobs.ack_cancel": 0,
+      "jobs.cancel": 0,
+      "jobs.claim": 0,
+      "jobs.fail": 0,
+      "jobs.renew": 0,
+      "jobs.submit": 0,
+      "prepare_binding": 0,
+      "prepare_context": 0,
+      "put": 0,
+      "restore": 0,
+      "solar": 0,
+      "start": 0,
+      "step": 0,
+      "ventilation": 0
+    },
+    "observation_times": [
+      "2026-10-16T22:58:28.537206Z",
+      "2026-10-16T22:58:37.201307Z",
+      "2026-10-16T22:58:45.861286Z",
+      "2026-10-16T22:58:54.555505Z"
+    ],
+    "original_page_values_UTC_and_first_confirmation": true,
+    "original_record_except_observation_equal": true,
+    "owner_bound_after_projection_checked": true,
+    "readonly_without_create_execute_write": true,
+    "response_bytes": {
+      "events": 36466,
+      "samples": 22942,
+      "summary": 7817
+    },
+    "response_without_observation_sha256": {
+      "events": "eae5952ae50214503fa13f57f7b459bb38d80d3503de5742c265b7016eac02e8",
+      "samples": "66220c3cff3fbdf7eca9a58b122f6b437a5336a2b6f2ab45859996e35c0ca59d",
+      "summary": "28d4840e50f3c3b62ecc34696efed69ed2f0dac44bad99248dfa332a76f3b848"
+    },
+    "review_withdrawal_denied": true
+  },
+  "full_CI_rerun": false,
+  "full_product_completion": null,
+  "goal_status": "active",
+  "implementation_commit": "b0d8da02aaa34b23749acfe8b07eadeddd9393d6",
+  "independent_fresh_cases": 1,
+  "native_CLI": {
+    "accepted_output_sha256": "242d3349d866980b411809a222e333443950ed04c923f680e08112885604e4f9",
+    "context_file_sha256": "fc50b9b3f360c71e77a4c2b974db215b010ad73244f75bd5c373cb5a752b94ea",
+    "design_output_sha256": "457b48c21a796cbc1cfe9a14c1e85645748f1bbc4f0f9b2a66f30ae0cff211ab",
+    "model": "gpt-6.1-sol",
+    "native_context_timestamp": "2026-10-16T22:16:52.240Z",
+    "raw_turn_context_sha256": "e620b7d756a5a0927a1fa23d1856a8616adfb3b0fd0edd3f3155dd9b46a8caf9",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+  },
+  "new_solar_user_deployed": false,
+  "next": "Protected Solar execution admission/progress/cancel/prefix HTTP, exact dedicated runtime/unpaused worker, typed UTC3D and user acceptance.",
+  "page_revalidation_fix_commit": "b1f4e4296238c7fa52626e36d9ff8c8e4ef77a73",
+  "preserved_previous_code_sha256": {
+    "backend/app/api.py": "a6333c77c9bf0e312ea22b270a183c2c256fe29753c75c859d293e136e0fd322",
+    "backend/app/api_crop_greenhouse_solar_execution.py": "90ce308d15db923469d5db7a68d6bc236c1ec027faa0936085823afdee75f896",
+    "backend/app/api_crop_greenhouse_solar_replay.py": "7f0cd5314e86afd7848c8577b9bc59092c166e0f7e625f89ea6aea56ad06c2dc",
+    "backend/app/api_crop_greenhouse_solar_route.py": "ea0e6fe15d229a96be26955461affcc6bedd40d1d8502e6951ffadcaa2356355",
+    "backend/app/api_runtime.py": "cc93dfee795a383fcd8c1edbb2442eed62168bf01eed98f951097155afd80d7f",
+    "backend/app/crop_greenhouse_solar_current_query.py": "71a083b933a9df2f130b8987b307dc2d58370c0b1b819955c09381a172987e2c",
+    "backend/app/crop_greenhouse_solar_execution.py": "4a47a3d877850428fba1aec031ba59827d3d5270992e46f90903cf0a0e8ea5de",
+    "backend/app/crop_greenhouse_solar_execution_checkpoint.py": "5cc224dabbc74f53627d82f7ceb98ac566e1959c707acac0bb9ff4725af8aa49",
+    "backend/app/crop_greenhouse_solar_execution_query.py": "087dd4988175f465b2d3d1dac5063e0ac68a55705df9d82b4bd3e35b327a38fb",
+    "backend/app/crop_greenhouse_solar_execution_worker.py": "73dcfe24bcaffb9f17b176cb578257cb11d7a57f5d8682a3ed19c4926963b559",
+    "backend/app/crop_greenhouse_solar_operator_config.py": "ba5dc61aa3e9f9fb72f98de3ddb992122ecb84784de8666d83a2759ea6454742",
+    "backend/app/deterministic_job_discovery.py": "e14796224c6b323f62b4121e595e175b8747dfa49e0ed562ee5e20048413c5a9",
+    "backend/app/deterministic_work.py": "d8aa1addddaf909573592a798274bed9a0e8dc12796ce08a2b8b0917ced7dcc5",
+    "backend/tests/test_api_crop_greenhouse_solar_replay.py": "8e31578789027ca0a54100a5eeef072d63a79cde341b9670c57ce06097d45a3f",
+    "backend/tests/test_crop_greenhouse_solar_current_fresh.py": "aec55820bd303782ffc9864ca1b47094fe2cacc1546254c28952dbdb67eaebfd",
+    "backend/tests/test_crop_greenhouse_solar_current_query.py": "935e494ea7134d18545885b31ec8f609c515721ff3f74b8e83fec6db2bc8b3ca",
+    "backend/tests/test_crop_greenhouse_solar_execution_fresh.py": "f6ea754e679e010b57d714b8dfa9cc5ab58c2e55293d6ab328986b91c070176f",
+    "backend/tests/test_crop_greenhouse_solar_execution_query.py": "f7e4ebafb133074fe8eee9f6fc1ab313eb33ad05179014299db273eb9b0e1445",
+    "backend/tests/test_crop_greenhouse_solar_execution_query_fresh.py": "bcf6aad77e2934a7a0e1b94560c863566ca03f532e5a4ddeb4dae4f3348386f0",
+    "backend/tests/test_crop_greenhouse_solar_execution_worker.py": "10dfcbd768e5ac178c7dcb2412e5786243fce546d248123b0e283fee6abd865b",
+    "backend/tests/test_crop_greenhouse_solar_prefix.py": "777f55caf77f3fd671c70df220410ac51470ef282732faa09fd8deceb6338e1f",
+    "backend/tests/test_crop_greenhouse_solar_prefix_concurrent.py": "ddc2138090dcfa3950f5c7d55eee0b9f204f52a07e534e9c28e05332eab43b53",
+    "backend/tests/test_crop_greenhouse_solar_prefix_fresh.py": "4e836ff0032f28bcf08eca68c0e79c518bf81268e4d4c23abaa25aae92e766aa",
+    "backend/tests/test_crop_greenhouse_solar_result_roles.py": "f98d5b6cce2e10e0d40c5b0ca8ff082a0cf90aa29c0ba9bbe4259c5d871dc234",
+    "backend/tests/test_crop_greenhouse_solar_runtime.py": "365fa9d7f285b6711782a8d7dceba637dea253359285dd830558675827a72e60",
+    "backend/tests/test_crop_greenhouse_solar_runtime_native.py": "fa7c67e9d9a17d3ece1c5ac4a302ee5f3eb5302ad722d117da00961db1f8e490",
+    "backend/tests/test_solar_deterministic_work.py": "ccac82e4e048fff4ee2fbb81689634dc33720e14a08589bca5830d71aa1f2849",
+    "contracts/api-crop-greenhouse-solar-replay-v1.md": "131d7a4014538ae231a1385f0830fec5b0f0afae832e9463d81ff8698986b4c4",
+    "contracts/api-crop-greenhouse-solar-route-v1.md": "bd016cfabb602e7b99e29d022114a300770a3e0367e64a750d28e13e78f12d31",
+    "contracts/crop-greenhouse-solar-current-query-v1.md": "6228a7b227275688018d10340c5ce22e3060c4438971996a2a257373feb043e3",
+    "contracts/crop-greenhouse-solar-execution-core-v1.md": "2cadf2a52e314bf25aff0215fb1fd5ed1b2bce8e54b40c51105683fc4a12acbd",
+    "contracts/crop-greenhouse-solar-execution-query-v1.md": "0703d86cab1690cfd256933ad2e247459f92e4a98bf4a2edd842cf5ea1ba329b",
+    "contracts/crop-greenhouse-solar-runtime-v1.md": "1f2fce2014e51023658742e2a40f733db92f08186cfb28410585fce3d2aad507",
+    "contracts/openapi-v1.json": "89e45024dc61618d777997b0ca6f0809ce395f24500b9b61f4937c55680122c4",
+    "fixtures/synthetic-solar-result-projection-template-v1.json": "41c0286b7c3d7909cbdeabb00b233c088091ac015ebe95d8bfa750f698aba054"
+  },
+  "public_prefix_projection_accepted": true,
+  "pure_cases": 75,
+  "resource_policy": {
+    "combined_limit_bytes": 1073741824,
+    "maintenance_window": false,
+    "nice": 19,
+    "nominal_sample_seconds": 0.25,
+    "numeric_threads": 1,
+    "protected_roots": 5,
+    "single_PID_limit_bytes": 536870912
+  },
+  "rights_or_gate_approval": false,
+  "same_UTC_3D_user_accepted": false,
+  "schema_version": "solar-prefix-projection-implementation-v1",
+  "scope": "synthetic_joint_solar_math_only",
+  "successful_guards": {
+    "focused-fresh-public-prefix-v1": {
+      "RSS_samples": 497,
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 992067584,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "evidence_sha256": {
+        "new/worker/cleanup-normal.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/worker/fresh-normal.json": "8588719c1d2d235beab0e87be5b7382e4ca7910d680b0acc66740b060818e300"
+      },
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "56aba5a23fae5c3a6944ae45e7427444a956afa2f4c80fb85d5715c3bc52d00a",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2321,
+      "source_pins_sha256": "b178cc565947f926edb1f5fde34b5b3fc54ef911936e526c6b3d635bccb2569a",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "a993296dc1d5277abbf1b0e31267d712751588e1d78d0f586f2db6ef53a4ec7b",
+      "tool_session": "57282",
+      "wall_seconds": 149.98255313000118
+    },
+    "focused-native-append-v1": {
+      "RSS_samples": 607,
+      "actual_child_exit": 0,
+      "case_counts": {
+        "tests/test_api_crop_greenhouse_solar_prefix_native.py": {
+          "failed": 0,
+          "passed": 2,
+          "skipped": 0
+        }
+      },
+      "combined_peak_RSS_bytes": 1020350464,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/solar-prefix-projection/serialized-append-False.json": "325ee002bad461db453dbbcf4edd213f3f539e51d6c9841d89e00a6395c510f1",
+        "new/solar-prefix-projection/serialized-append-True.json": "ab94e1ed4c8a973a5841e3cefa9d9a12ee665837c946110a702510c8a93d9d1b"
+      },
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "c76145575b31f3a2106e58cd354ca0ab05bb51d20f87b0f054fc87f1246818b8",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 142032896,
+      "source_count": 2321,
+      "source_pins_sha256": "b178cc565947f926edb1f5fde34b5b3fc54ef911936e526c6b3d635bccb2569a",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "2e32c7341504e7e315283c18ff72b576ba6254c4b7bb3d2c21a178c05152fa50",
+      "tool_session": "17331",
+      "wall_seconds": 177.1348362830031
+    },
+    "focused-native-current-views-v1": {
+      "RSS_samples": 417,
+      "actual_child_exit": 0,
+      "case_counts": {
+        "tests/test_api_crop_greenhouse_solar_prefix_native.py": {
+          "failed": 0,
+          "passed": 1,
+          "skipped": 0
+        }
+      },
+      "combined_peak_RSS_bytes": 1028567040,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/solar-prefix-projection/actual-views.json": "15e62372a84f8fd30da124086535cdc234b17022d7654d9f6994a7450546fb71"
+      },
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "06d0003d5e84b5d7898f44ab9a6acd2633c9de5a2927f8594e820692d03c64a2",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 144654336,
+      "source_count": 2320,
+      "source_pins_sha256": "341e70a74d0bb4cfa75eee129df9212c6ac36a44ed1dafce532aa1d81880b873",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "4db7c09b853676aef7a0e363e67e1bd1e50b5670b4ab966ed1b6764fee85da8c",
+      "tool_session": "70067",
+      "wall_seconds": 121.20838156399986
+    },
+    "focused-native-late-serialization-v1": {
+      "RSS_samples": 1243,
+      "actual_child_exit": 0,
+      "case_counts": {
+        "tests/test_api_crop_greenhouse_solar_prefix_native.py": {
+          "failed": 0,
+          "passed": 5,
+          "skipped": 0
+        }
+      },
+      "combined_peak_RSS_bytes": 1031208960,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/solar-prefix-projection/late-farm.json": "5bd31687b7bf690e91ad63c6899773f63171133109b73428f247fdcb763f908b",
+        "new/solar-prefix-projection/late-page.json": "7cd888dfbec31f48baec02057cd0aa324f56a64e3ab7a50383a9dc711fb71d38",
+        "new/solar-prefix-projection/late-review.json": "4d6f2a34b2f2fc8214132da596ce13a370b82ffff1ab6781732a7eb50415790e",
+        "new/solar-prefix-projection/late-rights.json": "ed2e3f2725e3906b7cfa4e28bec128701482a902676e46c780f0e8c50a0581c3",
+        "new/solar-prefix-projection/late-witness.json": "6de011e48b73395fff76065514bfe9c7e1ed0fe289ae2606ba9249297be997f0"
+      },
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "dcfbc74a4b399fc84e40741f6a295d4a5619171520249b7457b5297e05e4d2ff",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 144990208,
+      "source_count": 2321,
+      "source_pins_sha256": "b178cc565947f926edb1f5fde34b5b3fc54ef911936e526c6b3d635bccb2569a",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "645f3316fb4cc3b0997e387a69ec3c63635317b1942387b5a595b003983d94cb",
+      "tool_session": "31009",
+      "wall_seconds": 373.95466350600327
+    },
+    "focused-native-metadata-v1": {
+      "RSS_samples": 460,
+      "actual_child_exit": 0,
+      "case_counts": {
+        "tests/test_api_crop_greenhouse_solar_prefix_native.py": {
+          "failed": 0,
+          "passed": 2,
+          "skipped": 0
+        }
+      },
+      "combined_peak_RSS_bytes": 1018105856,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/solar-prefix-projection/serialized-cancel.json": "0d2301ef6b6271e7596c41afd18b4a61035cb951d8d732a24adbf5d64319cd67",
+        "new/solar-prefix-projection/serialized-heartbeat.json": "0cd78e006026a82197d7a6c2fcdd7e4ccbd5e5fbfb6533c3f2dcfa5af84bf40e"
+      },
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "3e8b177afdc5bf8a8abe6ab67e918c597afa97f066273e330525c010b9dfa769",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 140894208,
+      "source_count": 2321,
+      "source_pins_sha256": "b178cc565947f926edb1f5fde34b5b3fc54ef911936e526c6b3d635bccb2569a",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "9fde1b2439802f167be589cfd1bd879cdf8b0112bcc708137d3d9cf02d61dc82",
+      "tool_session": "67986",
+      "wall_seconds": 133.23091519199806
+    },
+    "focused-native-ready-dense-v1": {
+      "RSS_samples": 633,
+      "actual_child_exit": 0,
+      "case_counts": {
+        "tests/test_api_crop_greenhouse_solar_prefix_native.py": {
+          "failed": 0,
+          "passed": 2,
+          "skipped": 0
+        }
+      },
+      "combined_peak_RSS_bytes": 1034686464,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/solar-prefix-projection/actual-dense.json": "0c8d53c8e60edaff770ef527bb66d34648e86656f20d01d4668c9a34342bc957",
+        "new/solar-prefix-projection/actual-ready.json": "7c89fe9eb4063e8f1e1e28e8bfa4e1d2b3b4a8d1c7ff57f225d35659f06a03a5"
+      },
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "b9401ac29c2cb5f999545f92cb753ba71aae5348cbfc80a5077e8afc498cf0ee",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 172838912,
+      "source_count": 2321,
+      "source_pins_sha256": "b178cc565947f926edb1f5fde34b5b3fc54ef911936e526c6b3d635bccb2569a",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "788500dff9b03ccb7702fbf28e5f5e98982b881635dac4d960a5b2376b4f5f9e",
+      "tool_session": "71394",
+      "wall_seconds": 183.9716947659981
+    },
+    "focused-native-terminal-v1": {
+      "RSS_samples": 716,
+      "actual_child_exit": 0,
+      "case_counts": {
+        "tests/test_api_crop_greenhouse_solar_prefix_native.py": {
+          "failed": 0,
+          "passed": 2,
+          "skipped": 0
+        }
+      },
+      "combined_peak_RSS_bytes": 1051541504,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/solar-prefix-projection/terminal-hold.json": "f84ab25b67875c2c2a21173f87467688cbcbbb087bfdaad92ca21e949f081677",
+        "new/solar-prefix-projection/terminal-succeeded.json": "f84ab25b67875c2c2a21173f87467688cbcbbb087bfdaad92ca21e949f081677"
+      },
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "7da80ebccd0406be1b3b2f17e881df32e97a65018941ab4a22bfdf14e74e8ee5",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 143486976,
+      "source_count": 2321,
+      "source_pins_sha256": "b178cc565947f926edb1f5fde34b5b3fc54ef911936e526c6b3d635bccb2569a",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "4cb4c8bea397b2b8edbef67ef7c9563314d271247b2b3b8474738a946fa60d70",
+      "tool_session": "22059",
+      "wall_seconds": 211.06171568199352
+    },
+    "focused-post-serialization-green-v1": {
+      "RSS_samples": 243,
+      "actual_child_exit": 0,
+      "case_counts": {
+        "tests/test_api_crop_greenhouse_solar_prefix_native.py": {
+          "failed": 0,
+          "passed": 1,
+          "skipped": 0
+        }
+      },
+      "combined_peak_RSS_bytes": 1017700352,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "evidence_sha256": {
+        "new/query/database-cleanup.json": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27",
+        "new/solar-prefix-projection/after-serialization-page.json": "157638f2f479cfdaaca8b939b5b11890ae2bccd7f511c302e8d5964b4824551b"
+      },
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "45229b99e1952d4e7b96f405725ec225c7dbbda58a14500ae049f5dfb6fe3ee3",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 139063296,
+      "source_count": 2315,
+      "source_pins_sha256": "8c12e73730e7b9ebbb90718cefd46d52df1e1271402524435ef627131e051910",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "c2aea6dacbb631b89a05748d7916ddbfa9106f705d193955023cb46a7a21709a",
+      "tool_session": "35940",
+      "wall_seconds": 69.3302235969968
+    },
+    "focused-pure-contract-v2": {
+      "RSS_samples": 15,
+      "actual_child_exit": 0,
+      "case_counts": {
+        "tests/test_api_crop_greenhouse_solar_prefix.py": {
+          "failed": 0,
+          "passed": 75,
+          "skipped": 0
+        }
+      },
+      "combined_peak_RSS_bytes": 945418240,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "evidence_sha256": {
+        "new/solar-prefix-projection/pure-original.json": "ea9e5967f0443e42c18c8eb28d8b63ecb2276b854d5bbde655dda10b89747a93",
+        "new/solar-prefix-projection/schema.json": "bdcc4ad208ed2b554c855c1efa471faf8c8223b46365d942f60c571f8395f6d3"
+      },
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "14d7d39243180efe0c8c2a660eec831d3c18d11ce09c52fa7b33529eadf29976",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2319,
+      "source_pins_sha256": "66c5310cd34389a4a9e491963b6853a0501fae2939e8785d18a122bd0aecddd0",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "ff5302a22b4d39cf084aba2dd7fe1f08207076c5abbe8972ac36695b6f96544e",
+      "tool_session": "6367",
+      "wall_seconds": 4.020634043998143
+    }
+  }
+}

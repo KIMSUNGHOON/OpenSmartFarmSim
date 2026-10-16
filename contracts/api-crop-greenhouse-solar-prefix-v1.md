@@ -1,4 +1,6 @@
-# 일사 확정 구간 공개 응답 v1 — 구현·검증 중
+# 일사 확정 구간 공개 응답 v1 — 로컬 수용
+
+상태: [전용91검사로 로컬 수용](../research/crop-greenhouse-solar-prefix-projection-implementation-20261017.md). HTTP/runtime·사용자3D는 후속이다.
 
 선행: [확정 구간 원 조회](crop-greenhouse-solar-prefix-v1.md),
 [일사 공개 원량](api-crop-greenhouse-solar-replay-v1.md),
