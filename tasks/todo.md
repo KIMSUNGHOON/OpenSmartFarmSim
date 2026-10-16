@@ -1799,7 +1799,7 @@
           - [x] **solar 서명 결과 등록·현재 조회** — [수용/35검사](../research/crop-greenhouse-solar-result-store-implementation-20261017.md): 새18/기존17·실제 SCRAM 정상/hold·동일 DB의 독립 순차 프로세스 원 metadata/progress/UTC/최초 시각·재시도 SQL 변경0·현재/늦은 철회/공동 rollback/연결 identity·변조/충돌/구 타입·기존4표/행·원본/두 화면/5root/자원/소유 정리. 합성32초/실제 농장0/G0–G4 미평가이며 새 일사 미배포다.
         - [ ] **API·자동 worker·같은 UTC3D·사용자 적용** — 실제 정상/보류/취소·계산 중/저장 원 수치/시각/권리·조회 계산0·재접속/재시작·기존 소비자/두 UI/WSL 보존을 각각 수용한다.
 
-          - [ ] **solar 공개 투영·현재 조회** — 선행: 위 서명 등록. 같은 current store/선택자의 원 summary·sample/event·단위/UTC·정상/hold를 닫힌 공개 응답으로 전달한다. 현재 권리 전후·fresh·늦은 철회/변조/구 판본 거부·재계산/SQL 변경0·기존 결과/5root/자원을 통과한다.
+          - [x] **solar 공개 투영·현재 조회** — [수용/106검사](../research/crop-greenhouse-solar-public-query-implementation-20261017.md): 새89/기존17·원108상태/41·6장부/15수지/단위/UTC·관리 전후 PAR/NIR/환기·출처/progress SHA/False 승인·순차 fresh2회의 원 bytes·실제 SCRAM 정상/hold·60철회/직렬화 후 변조/경계·수치/복원/CLI/SQL 변경0·원본/두 UI/5root/자원/소유 정리를 확인했다. HTTP/worker/3D·실제 관문은 후속이다.
           - [ ] **solar 보호 HTTP·명시 runtime** — 선행 공개 조회. 전용 판본/명시 권한 조립·실제 SCRAM/HTTPS·현재 계정/농장/자료 권리·원 응답/보류·기존 서버/키/역할/결과 보존을 통과한다.
           - [ ] **solar 자동 worker·확정 prefix** — 선행 HTTP/runtime. 실제 접수→독립 소비·원 checkpoint 재개→원자 등록, 실행 중 취소/권리 철회·결과 미게시·같은 선택자 prefix/조회 계산0을 통과한다.
           - [ ] **solar typed 웹·같은 UTC3D** — 선행 자동 실행/조회. 같은 API의 원 상태/단위/UTC를 표·장면과 대사하고 정상/hold/취소·권리/재접속·기존 소비자/WebGL/WSL을 수용한다.

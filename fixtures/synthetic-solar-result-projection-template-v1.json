@@ -1,0 +1,92 @@
+{
+  "binding": {
+    "G0_G4": "not_assessed",
+    "binding_code_sha256": "44312806aa53d9a27cab20f4f44678191f5ba11b51a4200e02b97ff01cb59271",
+    "binding_dependency_sha256": {
+      "canonical_documents": "cbb57fe9d2accf6f0093275f816aed0fb319469817d5361cf01da2e7eaa0e877",
+      "farm_authority": "b630625079b0c83fdfdfb33fa8e8d5ed74966a593ffa67582880b86690c79aac",
+      "farm_inputs": "a4b06b2e42fd372df2c9216ed87d8e762cd4b33f2677e0a0916fd72aaf8a8e07",
+      "input_evidence": "00ea9651e424c7dfd0e541dbfb000477d66741a777f383c86b81bbbc34bf0bd7",
+      "job_inputs": "0e7f0bd4fb60cb20fb299b9440ad83a46888ce370979cf66869719bbbcf3e466",
+      "permission_scopes": "912f2e3daf993bc3b39e51c87f16d4d05c9c56a68269fbfb119b8ea1f962365a",
+      "runtime_roles": "eef434bd9ed883d3ab440ac7375f05f2f58b33551f7d771b923bac8763c2bb99"
+    },
+    "input": {
+      "input_evidence_version": "joint-solar-input-evidence-v1",
+      "normalization_version": "joint-current-solar-float64-grid-provenance-v1",
+      "qc_version": "joint-initial-rhs-solar-provenance-schedule-utc-v1"
+    },
+    "registration": {
+      "crop": {
+        "batch_id": "batch-1",
+        "crop_id": "crop-1"
+      },
+      "decision_at": "2026-09-28T00:00:00Z",
+      "farm_sha256": "ebedbfe0da9eb3deb8019842592cc1751a081555e7fb71e22e26a29b18ae5060",
+      "floor_area": {
+        "available_at": "2026-09-28T00:00:00Z",
+        "evidence_level": "assumed",
+        "input_id": "floor_area",
+        "origin": "user",
+        "revision": "r1",
+        "source_ref": "self-authored-contract-test",
+        "unit": "m\u00b2",
+        "value": "100"
+      },
+      "normalization": "per_m2_floor",
+      "profile_applicability": "unvalidated_for_registered_crop",
+      "registration_job_id": "1e0f5f6d-0cca-4862-9f6f-f8f6cdab1eed",
+      "registration_sha256": "2e8f0b7742163065a5399ac35731540cd191ddad28590bff129df2203175d866",
+      "source_binding_sha256": "c72c97724d0d0cf8da0b70894695b547f28ec3785f4a349dabbc5c835f5c812e",
+      "zone_id": "zone-1"
+    },
+    "request": {
+      "farm": {
+        "crop_id": "crop-1",
+        "registration_sha256": "2e8f0b7742163065a5399ac35731540cd191ddad28590bff129df2203175d866",
+        "scenario_id": "farm-1",
+        "scenario_revision": "r1"
+      },
+      "input": {
+        "context_sha256": "ecdcb2908479d8b3733964618424998d3ee030de5318eea8fe4cbad679b7729d",
+        "evidence_sha256": "7f7cfb67d3cd98071ba2c4408ca315654656d66a5934818277497fed23367172",
+        "program_id": "synthetic-joint-warm-day",
+        "schema_version": "joint-solar-input-source-v1",
+        "source_sha256": "29bb11022feb2e0563074f93c953c0a72d9deae551751979ad8e0919656d3017",
+        "time_binding_sha256": "597dd83e4b22b5de2ce2867d03aba67d74cb01dc79f4ff50542a49209ee9a0f2"
+      },
+      "revision": "r1",
+      "rights": {
+        "access": true,
+        "available_at": "2026-09-28T00:00:00Z",
+        "declaration_id": "owned-joint-source",
+        "display": true,
+        "input_source_sha256": "29bb11022feb2e0563074f93c953c0a72d9deae551751979ad8e0919656d3017",
+        "ownership_asserted": true,
+        "redistribute": false,
+        "revision": "r1",
+        "schema_version": "joint-solar-input-rights-v1",
+        "store": true,
+        "transform": true,
+        "use": true
+      },
+      "study_id": "joint-study"
+    },
+    "rights_or_gate_approval": false,
+    "rights_policy_version": "owned-solar-input-rights-test-v1",
+    "scope": "synthetic_joint_solar_math_only",
+    "tenant_id": "tenant-1",
+    "version": "joint-solar-farm-binding-v1"
+  },
+  "policies": {
+    "input_rights_version": "owned-solar-input-rights-test-v1",
+    "resolver_version": "owned-solar-custody-resolver-v1",
+    "server_progress": {
+      "G0_G4": "not_assessed",
+      "custody_code_sha256": "4eab3966a5cd92b5b328a6c4e92d48a6bc18abea6abe2571fb1ef04491ebb452",
+      "rights_or_gate_approval": false,
+      "scope": "synthetic_joint_solar_math_only",
+      "version": "joint-solar-server-custody-v1"
+    }
+  }
+}
