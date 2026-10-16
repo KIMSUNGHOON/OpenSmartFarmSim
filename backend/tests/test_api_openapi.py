@@ -28,6 +28,7 @@ from app.api_crop_climate_joint_execution import SUBMIT_SCOPES as JOINT_SUBMIT_S
 
 
 OPERATIONS = {
+    ('/v1/crop-greenhouse-solar-research-results/{result_id}','get'): ('getGreenhouseSolarResearchResult',list(CROP_READ_SCOPES)),
     ('/v1/crop-greenhouse-ventilation-executions','post'): ('submitGreenhouseVentilationExecution',list(JOINT_SUBMIT_SCOPES)),
     ('/v1/jobs/{job_id}/crop-greenhouse-ventilation-execution','get'): ('getGreenhouseVentilationExecution',list(JOINT_PROGRESS_SCOPES)),
     ('/v1/jobs/{job_id}/crop-greenhouse-ventilation-execution/cancel','post'): ('cancelGreenhouseVentilationExecution',['cancel']),
@@ -240,7 +241,8 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
         .replace("{report_id}", "00000000-0000-4000-8000-000000000002")
         .replace("{run_id}", ("authored-thermal-run-v1:" if '/authored-runs/' in path else
             "synthetic-thermal-v1:")+"a"*64).replace("{result_id}",
-                ("joint-ventilation-result-v1:" if '/crop-greenhouse-ventilation-research-results/' in path else
+                ("joint-solar-result-v1:" if '/crop-greenhouse-solar-research-results/' in path else
+                 "joint-ventilation-result-v1:" if '/crop-greenhouse-ventilation-research-results/' in path else
                  "crop-cycle-verified-result-v1:" if '/crop-cycle-calculation-research-results/' in path else
                  "joint-crop-climate-result-v1:" if '/crop-climate-joint-research-results/' in path else
                  "crop-harvest-registered-result-v1:" if '/crop-harvest-research-results/' in path else
@@ -259,6 +261,7 @@ def test_each_documented_scope_is_required_before_any_store_read(key):
                                       '/v1/crop-startup-research-results/','/v1/crop-cycle-research-results/',
                                       '/v1/crop-cycle-calculation-research-results/','/v1/crop-harvest-research-results/',
                                       '/v1/crop-climate-joint-research-results/',
+                                      '/v1/crop-greenhouse-solar-research-results/',
                                       '/v1/crop-greenhouse-ventilation-research-results/'))
                 else b'scenario_id=example&scenario_revision=r1&registration_sha256='+b'a'*64
                   if path in ('/v1/farm-authored-inputs/activity','/v1/crop-research-result-catalog/farm-crops')

@@ -1,5 +1,6 @@
 # 첫 구현 범위
 
+**현재 일사 보호 HTTP — 2026-10-17:** [실제 인증·SCRAM·검증된 TLS](../research/crop-greenhouse-solar-http-implementation-20261017.md)를 새 전용67/공통·기존138=고유205검사로 수용했다. 정상/hold 원 공개 bytes·UTC,12철회 차단·취소/전송 실패 정리·조회 계산/SQL 변경0·기존60경로/319스키마와 원본/두 UI/5root/자원을 확인했다. 다음은 전용 operator/runtime 명시 조립→자동 worker/확정 prefix→같은 UTC3D·사용자 수용이다. 새 일사 미배포·실제 자료/G0–G4·생산/경제/최종 UI·완료일 미정, 전체 CI 미실행·goal active를 유지한다. 아래 이전 기록은 당시 상태다.
 **현재 일사 공개 응답·현재 조회 — 2026-10-17:** [원 수치·단위·UTC와 현재 권리](../research/crop-greenhouse-solar-public-query-implementation-20261017.md)를 새89/기존17=고유106검사로 수용했다. 108상태/41·6장부/15수지·PAR/NIR·관리 전후 진단, 같은 SCRAM DB의 독립 fresh 원 bytes·조회 계산/SQL 변경0·60철회/직렬화 후 변조·원본/두 화면/5root/자원을 확인했다. 다음은 보호 HTTP/전용 runtime→자동 worker/같은 UTC3D·사용자 수용이다. 새 일사 미배포·실제 자료/G0–G4·생산/경제/최종 UI·완료일 미정, 전체 CI 미실행·goal active를 유지한다. 아래 이전 기록은 당시 상태다.
 
 **현재 일사 결과 등록·조회 — 2026-10-17:** [서명 원문·현재 권리·원자 저장](../research/crop-greenhouse-solar-result-store-implementation-20261017.md)을 새18/기존17=고유35검사로 수용했다. 실제 SCRAM 정상/hold·같은 DB의 별도 프로세스 원 bytes/UTC/최초 시각·동일 재시도 SQL 변경0·철회/rollback/연결 identity·변조/충돌/기존4표/행·원본/두 화면/5root/자원을 확인했다. 다음은 공개 투영·현재 조회→HTTP/runtime→자동 worker/같은 UTC3D·사용자 수용이다. 새 일사 미배포·실제 자료/G0–G4·생산/경제/최종 UI·완료일 미정, 전체 CI 미실행·goal active를 유지한다. 아래 이전 기록은 당시 상태다.
