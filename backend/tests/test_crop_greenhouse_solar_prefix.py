@@ -547,5 +547,3 @@ def test_terminal_uses_existing_result_and_prefix_is_closed(setup, monkeypatch):
         assert all(n == 0 for n in calls.values())
     assert reference.persisted_digest(worker.jobs) == before
     save('terminal-'+outcome.state, {'prefix_closed': True, 'same_existing_result': True, 'calls': calls, 'DB_unchanged': True})
-
-

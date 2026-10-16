@@ -1,18 +1,19 @@
-# 일사 계산의 확정 구간 원 조회 v1 — 구현 예정
+# 일사 계산의 확정 구간 원 조회 v1 — 원 조회 수용
 
 2026-10-17. [현재 진행 조회](crop-greenhouse-solar-execution-query-v1.md),
 [실행 핵심](crop-greenhouse-solar-execution-core-v1.md),
 [서명 이력](crop-greenhouse-solar-server-custody-v1.md),
 [불변 페이지](crop-greenhouse-solar-storage-v1.md)가 선행한다.
-이 문서는 다음 단계의 수용 경계이며 구현 완료나 사용자 게시 증거가 아니다.
+상태: [원 조회23검사로 로컬 수용](../research/crop-greenhouse-solar-prefix-read-implementation-20261017.md). 공개 투영/HTTP/runtime·사용자3D는 후속이며 사용자 게시 증거는 아니다.
 
-## 다음 한 단계
+## 원 조회
 
-별도 `SolarExecutionPrefixQuery`의 내부 `joint-solar-prefix-read-v1` 응답을 구현한다.
+별도 `SolarExecutionPrefixQuery`의 내부 `joint-solar-prefix-read-v1` 응답을 구현했다.
 범위는 `synthetic_joint_solar_confirmed_prefix_only`다. 같은 Solar jobs/admission/checkpoint/custody/result 조립만 허용한다.
 현재 권리로 DB가 확인한 사건의 최초 기록 UTC/attempt와 원 signed HEAD를 선택한다.
 선택자는 publication_sequence/head_sha256/proof_sha256의 닫힌 집합이며 bool·불명확한 숫자·추가 필드를 거부한다.
-summary는 최신 확인 사건, samples/events는 명시 선택자에 결속한다.
+summary는 선택자가 없을 때 최신 확인 사건, 명시 선택자가 있으면 그 확인 사건을 사용한다.
+samples/events는 명시 선택자에 결속한다.
 서버 내부 witness로 후검사하며 외부 payload로 witness를 재구성하지 않는다.
 
 원108상태·41연속/6사건 장부·15수지·PAR/NIR·관리 전후 진단·provenance·literal 승인 False와 UTC를 보존한다.
