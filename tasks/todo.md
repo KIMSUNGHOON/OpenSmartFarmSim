@@ -1793,7 +1793,10 @@
         - [ ] **새 입력 근거·농장/서명 custody·저장** — 명시 non-solar 열/광학 성분 의미와 입력/권리/검토 범위를 모델에 결속한다. 새 판본/영역에 원자 저장하며 옛 결과/키/계정을 보존한다. 합성 근거가 실제 자료 승인이 되지 않는다.
           - [x] **solar 입력 근거 검토** — [수용/543검사](../research/crop-greenhouse-solar-input-evidence-implementation-20261016.md): 새159·공통 SourceRecord 원 hash/시각/판본/모든 수량 단위/초기 소프트웨어 QC·합성 선언 권리/현재 검토·11program 발급 각 경계/RHS1·verify/fresh0·실제 정상/hold 파일 결속·구22/25/철회/변조/늦은 변경/한도·원5root/2,148항목/자원을 확인했다. 실제 자료 권리/G0/농장 승인은 아니며 receipt rights_or_gate_approval=False다.
           - [x] **solar 농장/current source rights 결속** — [수용/13검사](../research/crop-greenhouse-solar-farm-binding-implementation-20261016.md): 새8/기존5·실제 SCRAM/fresh 같은 bytes·등록 crop/batch/zone/면적/점유·원 provenance/context/UTC·source/권리의 판단 시점 이전 가용성·1µs 초과/철회/late change/실제 DB·grant 변조 거부·계산/복원/CLI/새 Run/결과 row0·5root/2,148항목/자원/소유 정리를 확인했다. 구 판본과 실제 G0 승인 없이 합성 범위를 유지한다.
-          - [ ] **solar 서명 custody** — 새 domain/HMAC intent/HEAD·원108상태/41연속·6사건 장부/15수지/UTC/source/provenance/farm 결속, 정상/hold 제한 계산·현재 검토/권리의 계산/게시 전후 재검사·변조/충돌/잠금·fresh checkpoint 재개/확정 걸음·사건 재실행0·조회/terminal retry 계산0·원본/5root/자원/소유 정리. 이후 DB 등록/현재 조회→API/worker·같은 UTC3D→사용자 수용을 분리한다.
+          - [x] **solar 서명 custody** — [수용/11검사](../research/crop-greenhouse-solar-server-custody-implementation-20261016.md): 새7/기존4·실제 SCRAM 정상/hold/fresh·원108상태/41·6장부/15수지/UTC·원 producer 호출 수·확정 사건 재실행0·HEAD 전후 실제 SIGKILL/원 checkpoint 재개·조회/terminal retry 계산0·현재 권리/변조/충돌/잠금/한도·원본/두 UI/5root/자원/소유 정리를 확인했다. 합성32초/G0–G4 미평가·새 일사 미배포다.
+          - [ ] **solar 결과 DB 계약** — 별도 불변 표·tenant/study/revision/model/source/context/UTC/provenance/binding/intent/HEAD/proof/root·원128KiB progress/정상/hold/행 수, 실제 SCRAM insert/read·중복/충돌/해시/단위/UTC/모델/범위/상한·설치 rollback·기존 표/행·5root/자원 보존.
+          - [ ] **solar 결과 명시 권한** — 기존 source/모델/표/역할을 보존하는 default-false 선택과 전체 grant 감사·상호 접근 거부·실제 SCRAM·rollback/소유 정리.
+          - [ ] **solar 서명 결과 등록·현재 조회** — 현재 farm/source/review/권리·custody HMAC/원 root와 원자 등록, fresh 같은 result ID/bytes/UTC·늦은 철회 rollback·읽기 계산/쓰기0·중복/충돌/변조/구 판본/기존 결과·5root/자원 보존.
         - [ ] **API·자동 worker·같은 UTC3D·사용자 적용** — 실제 정상/보류/취소·계산 중/저장 원 수치/시각/권리·조회 계산0·재접속/재시작·기존 소비자/두 UI/WSL 보존을 각각 수용한다.
     - [ ] **`crop-greenhouse-co2-stomatal`** — CO₂ 질량/ppm·압력/온도/부피·광합성 sink와 기공 closure.
       CH₂O/CO₂ 질량을 구분하고 원 sRsSlope 단위 불일치에 대한 검토된 정책·독립 참조를 요구한다.
