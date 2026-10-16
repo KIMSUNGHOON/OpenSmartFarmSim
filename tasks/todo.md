@@ -1804,8 +1804,10 @@
           - [x] **solar 전용 operator/runtime 명시 조립** — [수용/235검사](../research/crop-greenhouse-solar-runtime-implementation-20261017.md): 새62/기존173·닫힌 설정/기존9loader·exact factory/jobs/farm/principal/키·실제 SCRAM/TLS 정상/hold 원3view/UTC·오조립9/실제 권한 변경 거부·12철회/전송 정리·제품 조회 계산/SQL 변경0·기존 서버/키/역할/결과/두 UI/5root/자원/소유 정리. 시험 owner 권한 변경2건은 별도다. worker/3D·실제 관문은 후속이다.
           - [ ] **solar 자동 worker·확정 prefix** — 아래 내부 실행·현재 진행/prefix·보호 API/runtime 자식을 모두 수용해야 완료한다.
             - [x] **solar 내부 접수·임대 worker** — [수용/131검사](../research/crop-greenhouse-solar-execution-core-implementation-20261017.md): 새41/기존90·실제 native27·원108상태/장부/UTC·normal/hold 원자 저장·독립 자동 소비/fresh 원 bytes·실제 SIGKILL/HEAD 채택/나머지만 계산·취소 경합6/권리 철회/rollback·조회 계산/쓰기0·원본/두 UI/5root/자원/소유 정리. 실제 관문/사용자3D는 후속이다.
-            - [ ] **solar 현재 진행·확정 prefix 조회** — 같은 jobs/admission/checkpoint/custody/result·현재 권리/계정·원 HEAD/최초 확정 시각/UTC·완료/hold link와 원 sample/event 선택자·조회 계산/새 행0·fresh/철회/변조/취소/보존을 검증한다.
-            - [ ] **solar 접수/진행/취소·prefix HTTP/runtime** — 현재/prefix reader 뒤 닫힌 요청/현재 권리/작업자 취소·정확한 같은 조립·실제 SCRAM/TLS 원 응답·기존 판본/사용자 서비스/자원/소유 정리를 검증한다.
+            - [x] **solar 현재 실행 진행 조회** — [수용/29검사](../research/crop-greenhouse-solar-execution-query-implementation-20261017.md): 새24/기존5·실제 SCRAM/독립 normal·hold 원 응답·원 HEAD/provenance/UTC/최초 시각·heartbeat/retry·직렬화 뒤 권리/완료 묶음 오류 차단·조회 계산/SQL 변경0·원본/두 UI/5root/자원/소유 정리. prefix/보호 API·3D/실제 관문은 후속이다.
+            - [ ] **solar 확정 구간 원 조회** — [다음 계약](../contracts/crop-greenhouse-solar-prefix-v1.md). 선행 현재 진행 query. DB 확인 사건의 원 selector/sample/event/UTC/최초 시각·append/heartbeat/미확정 HEAD 후 이전 선택자·현재/후검사 권리·취소/rollback/fork/변조·fresh 동일성·조회 계산/SQL 변경0·보존/자원/소유 정리를 검증한다.
+            - [ ] **solar 확정 구간 공개 투영** — 선행 원 조회. 닫힌 DTO·원108상태/41연속·6사건 장부/15수지/PAR/NIR/관리 전후/단위/UTC·provenance/False 승인·2MiB/범위/빈 페이지·비공개 필드 차단·직렬화 후 witness/현재 권리와 수치/SQL 변경0을 검증한다.
+            - [ ] **solar 접수/진행/취소·prefix HTTP/runtime** — 현재/prefix reader·공개 투영 뒤 닫힌 요청/현재 권리/작업자 취소·정확한 같은 조립·실제 SCRAM/TLS 원 응답·기존 판본/사용자 서비스/자원/소유 정리를 검증한다.
           - [ ] **solar typed 웹·같은 UTC3D** — 선행 자동 실행/조회. 같은 API의 원 상태/단위/UTC를 표·장면과 대사하고 정상/hold/취소·권리/재접속·기존 소비자/WebGL/WSL을 수용한다.
           - [ ] **solar 사용자 적용·재시작** — 같은 고정 source/영역/키의 지속 API/worker에서 정상/hold/취소·원 수치/UTC3D·재접속/재시작/현재 권리와 기존 두 주소/원본/자원을 확인하고 접속·진행 안내를 갱신한다.
 

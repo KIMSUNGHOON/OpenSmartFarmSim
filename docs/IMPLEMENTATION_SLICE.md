@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 일사 내부 접수·자동 계산 — 2026-10-17:** [임대 worker·원자 저장·강제 종료 재개](../research/crop-greenhouse-solar-execution-core-implementation-20261017.md)를 새41/기존90=고유131검사로 수용했다. 실제 SCRAM 정상/hold 원108상태·장부/UTC·독립 자동 소비/fresh bytes, SIGKILL 뒤 prefix 채택/조회 때 재계산0·취소/철회/rollback·원본/두 UI/5root/자원을 확인했다. 다음은 현재 진행/확정 prefix 조회→보호 HTTP/runtime→같은 UTC3D·사용자 수용이다. 새 일사 미배포·실제 자료/G0–G4·생산/경제/최종 UI·완료일 미정, 전체 CI 미실행·goal active를 유지한다. 아래 이전 기록은 당시 상태다.
+**현재 일사 실행 진행 조회 — 2026-10-17:** [원 HEAD/UTC·최초 확정 시각·현재 권리](../research/crop-greenhouse-solar-execution-query-implementation-20261017.md)를 새24/기존5=고유29검사로 수용했다. 실제 SCRAM/독립 normal·hold 원 응답·heartbeat/retry·직렬화 뒤 철회/변조 차단·조회 계산/SQL 변경0·원본/두 UI/5root/자원을 확인했다. 다음은 확정 구간 원 sample/event 조회→공개 투영·보호 HTTP/runtime→같은 UTC3D·사용자 수용이다. 새 일사 미배포·실제 자료/G0–G4·생산/경제/최종 UI·완료일 미정, 전체 CI 미실행·goal active를 유지한다. 아래 이전 기록은 당시 상태다.
 
 **현재 일사 명시 runtime — 2026-10-17:** [새 설정·실제 서버 조립](../research/crop-greenhouse-solar-runtime-implementation-20261017.md)을 새62/기존173=고유235검사로 수용했다. 실제 SCRAM/TLS 정상/hold 원3응답·오조립9/권한 변경 거부·12철회/전송 정리·제품 조회 계산/SQL 변경0·원본/두 UI/5root/자원을 확인했다. 다음은 내부 접수/임대 worker→확정 prefix/진행 API→같은 UTC3D·사용자 수용이다. 새 일사 미배포·실제 자료/G0–G4·생산/경제/최종 UI·완료일 미정, 전체 CI 미실행·goal active를 유지한다. 아래 이전 기록은 당시 상태다.
 
