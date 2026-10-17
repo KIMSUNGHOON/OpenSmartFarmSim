@@ -4,7 +4,7 @@
 [보호 HTTP](api-crop-greenhouse-solar-route-v1.md)를 기존 서버에 조립하는 계약이다.
 
 `app.crop_greenhouse_solar_operator_config.load_solar_api_runtime(path)`는
-`operator-greenhouse-solar-api-config-v1`만 받는다. 최상위 필드·보호 파일·중복 JSON/비유한 값/크기/경로/모드 검사는
+읽기 판본 `operator-greenhouse-solar-api-config-v1`을 받는다. 새 [실행/prefix 명시 판본](crop-greenhouse-solar-execution-runtime-v1.md)은 별도 필드 집합을 사용하며 아래 읽기 판본을 확장하지 않는다. 최상위 필드·보호 파일·중복 JSON/비유한 값/크기/경로/모드 검사는
 [기존 operator](operator-config-v1.md)를 사용한다. `crop_greenhouse_solar_result_storage`는 필수 exact bool이다.
 선택 joint/ventilation/calculation-cycle flag도 exact bool이며 활성화 시 기존 `crop_cycle_result_storage=True`가 필요하다.
 기존 cycle factory는 농장 authority 선행 조립이며 계산이나 등록을 실행하지 않는다. 실행/prefix 최상위 flag는 이 판본에서 받지 않는다.
