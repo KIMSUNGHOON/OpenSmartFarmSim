@@ -2,7 +2,7 @@
 
 ## 단계별 goal 순서와 활성 상태 — 2026-10-17
 
-전체 목표는 active다. 이번 턴은 [조회 연결 회수의 native10검사](../research/crop-greenhouse-solar-before-connection-implementation-20261017.md), commit6a9eb4a와 [실제 후속 동시 실행 관측](../research/crop-greenhouse-solar-post-fix-resource-hold-20261017.md)의 **progress**다. 검증 전 연결4→3·첫 advance 호출을 확인했으나 동시 실행은 합 RSS hold다. 다음은 첫 advance/current의 소유 메모리 보유/회수 계측과 근거 있는 작은 수정이다. 동일 조건을 근거 없이 반복하지 않으며 실제 정상/hold/취소·현재 권리·전진 prefix/원 UTC·동시 자원 수용 뒤 같은 UTC3D와 사용자 적용으로 이어간다. 전체 완료일/남은 집중 시간은 미정이다.
+전체 목표는 active다. 이번 턴은 [작업자 회수·공개 DTO 후보 진단과 관측 중복 수정37검사](../research/crop-greenhouse-solar-reclamation-and-observer-20261017.md)의 **progress**다. 제품 GC/DTO 후보는 미채택이며 관측기만 수정했다. 수정된 집계기의 실제 동시 실행도 합 RSS1,079,226,368bytes로 hold다. 다음 한 단계는 API 생성/접수와 worker 첫 claim의 영구/일시 RSS를 분리하고 실제 보유/할당 근거로 작은 수정을 고르는 것이다. 동일 조건을 근거 없이 반복하지 않으며 원5root/동적 자식·두 UI/원본·타입/권리/감사·512MiB/PID/합1GiB를 유지한다. 이후 실제 정상/hold/취소·현재 권리·전진 prefix/원 UTC·동시 자원 수용→같은 UTC3D→사용자 적용 순서다. 전체 완료일/남은 집중 시간은 미정이다.
 
 | 순서 | 단계별 목표 | 다음 단계로 넘어갈 산출물 |
 | --- | --- | --- |

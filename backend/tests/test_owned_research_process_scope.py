@@ -138,6 +138,21 @@ def test_post_exit_cleanup_keeps_protected_children(families):
     assert all(scope_module.live(item) for item in protected)
 
 
+def test_low_owned_rss_cap_stops_only_owned_tree(families):
+    _, protected = families('thread')
+    owned_process, owned = families()
+    before = len(os.listdir('/proc/self/fd'))
+    scope = families.scope(protected=(protected[0],))
+    observed = scope.sample()
+    assert {item.pid for item in (*protected, *owned)} <= observed.keys()
+    assert sum(observed[item.pid] for item in owned) > 8 * 1024 * 1024
+    sent = scope.signal_owned(signal.SIGTERM)
+    assert sent and set(sent) <= set(owned)
+    until_stopped(scope); owned_process.wait(timeout=5)
+    assert all(scope_module.live(item) for item in protected)
+    assert len(os.listdir('/proc/self/fd')) == before
+
+
 def test_observation_dict_cannot_authorize_signals(families):
     _, protected = families()
     scope = families.scope(protected=(protected[0],))
@@ -339,3 +354,55 @@ print(json.dumps({'FD_before_after':[before,before],'libc_loaded':False}))
     child = subprocess.run([sys.executable, '-c', code, str(SCRIPT)], capture_output=True, text=True, timeout=10)
     assert child.returncode == 0 and child.stderr == ''
     assert json.loads(child.stdout)['libc_loaded'] is False
+
+
+@pytest.mark.parametrize('side', ['owned', 'protected'])
+def test_sample_does_not_walk_known_descendant_twice(side, monkeypatch):
+    controller = scope_module.Identity(100001, 1, 'synthetic-observer-test')
+    parent = scope_module.Identity(100002, 2, controller.boot_id)
+    old = scope_module.Identity(100003, 3, controller.boot_id)
+    new = scope_module.Identity(100004, 4, controller.boot_id)
+    scope = scope_module.OwnedProcessScope.__new__(scope_module.OwnedProcessScope)
+    scope.controller = controller
+    scope._protected = {parent, old} if side == 'protected' else set()
+    scope._owned = {parent} if side == 'owned' else set()
+    calls = []
+
+    def changing_tree(root, excluded=()):
+        calls.append(root)
+        assert root not in excluded, 'already observed subtree walked again'
+        if root == controller:
+            rows = [(controller, 10)]
+            if side == 'owned': rows.extend([(parent, 10), (old, 17)])
+        elif root == parent:
+            rows = [(parent, 10), (old, 17)] if side == 'protected' else [(parent, 10), (new, 12)]
+        else:
+            rows = [(old, 17), (new, 12)]
+        return {item.pid: (item, rss) for item, rss in rows if item not in excluded}
+
+    monkeypatch.setattr(scope_module, '_tree', changing_tree)
+    monkeypatch.setattr(scope_module, '_pidfd_send_signal', lambda *_: pytest.fail('observation sent a signal'))
+    observed = scope.sample()
+    assert observed == {controller.pid: 10, parent.pid: 10, old.pid: 17}
+    assert calls == ([controller] if side == 'owned' else [parent, controller])
+    # Simulated observer consistency only; /proc walks are not atomic snapshots.
+
+
+@pytest.mark.parametrize('side', ['owned', 'protected'])
+def test_sample_keeps_known_orphan_and_discovers_new_descendants(side, monkeypatch):
+    controller = scope_module.Identity(100001, 1, 'synthetic-observer-test')
+    orphan = scope_module.Identity(100002, 2, controller.boot_id)
+    child = scope_module.Identity(100003, 3, controller.boot_id)
+    scope = scope_module.OwnedProcessScope.__new__(scope_module.OwnedProcessScope)
+    scope.controller = controller
+    scope._protected = {orphan} if side == 'protected' else set()
+    scope._owned = {orphan} if side == 'owned' else set()
+
+    def tree(root, excluded=()):
+        rows = [(controller, 10)] if root == controller else [(orphan, 12), (child, 17)]
+        return {item.pid: (item, rss) for item, rss in rows if item not in excluded}
+
+    monkeypatch.setattr(scope_module, '_tree', tree)
+    assert scope.sample() == {controller.pid: 10, orphan.pid: 12, child.pid: 17}
+    known = scope._protected if side == 'protected' else scope._owned
+    assert {orphan, child} <= known

@@ -1,6 +1,6 @@
 # 첫 구현 작업 목록
 
-**2026-10-13 goal 재개 준비:** [단계별 목표 순서](plan.md)를 기록했다. 현재 자동 목표는 `usageLimited`로 재개 대기다. 사용자의 “순서대로 시작/계속”에 따라 수동 진행하여 **모델별 API/환기 작업자 기동**을 수용했다. 동일 조립의 정상/보류/취소와 로컬 사용자 적용·재시작 뒤 원문/3D를 수용했고 다음은 PAR 경계이며 자동 활성화를 주장하지 않는다.
+**현재 goal active — 2026-10-17:** [단계별 목표 순서와 최신 의존성](plan.md)을 따른다. 일사 자원 관측 수정37검사를 통과했고 실제 동시 실행은 RSS hold다. 제품 후보 미채택·새 Solar3D/사용자 적용·생산/경제/실제 관문/전체 완료일 미완료·미정을 유지한다. 아래 날짜별 기록은 당시 상태다.
 
 ## 현재 실행 복구와 시험 정리 수정 — 2026-10-09
 
@@ -1813,7 +1813,9 @@
               - [ ] **독립 unpaused worker·동시 API 수용** — 위 계약의 정상/hold/취소·권리 철회·실제 전진한 prefix/UTC/최초 시각과 전체 필수 소비자/자원·원본 보존을 검증한다. 성공 전 부모를 완료하지 않는다.
                 - [x] **API/worker 할당 분리 진단** — [진단3개·연결 관측](../research/crop-greenhouse-solar-allocation-diagnosis-20261017.md)/[기계 증거](../research/artifacts/crop-greenhouse-solar-allocation-diagnosis-20261017.json). 실제 워커8걸음·API/SCRAM/TLS3GET의 계산/SQL 변경0·fresh driver import 분리를 확인했다. 제품 변경0·원5root/두 서비스/원본/정리 보존. 기능 검사나 동시 실행/3D 수용 수에 더하지 않는다.
                 - [x] **검증 전 조회 연결 회수** — [수용 native10검사](../research/crop-greenhouse-solar-before-connection-implementation-20261017.md),6a9eb4a. 잠금 없는 조회 연결 종료 뒤 전체 current 검증·새 감사 연결의 임대/취소/입력 fence/갱신을 유지했다. 새4/기존6·실제 정상/hold/재개/검증 중 취소와 원본/5root/정리를 확인했다. 입력 변경 사례는 최종 조회 fault이며 DB trigger는 유지한다.
-                - 현재 [연결 회수 후 동시 실행 hold](../research/crop-greenhouse-solar-post-fix-resource-hold-20261017.md). 같은64걸음/chunk1/10초 조회에서 before/current 연결4→3·첫 advance 호출을 확인했으나 합 RSS로 미수용이다. 다음은 첫 advance/current 메모리 보유/회수의 분리 계측→근거 있는 수정→동일 관문 재검증이다. 정상/hold/취소·권리·전진 prefix/원 UTC/자원 성공 전 부모를 완료하지 않는다.
+                - [x] **작업자 회수·공개 DTO 지연 구축 후보 진단** — [실측/보류 기록](../research/crop-greenhouse-solar-reclamation-and-observer-20261017.md). 실제 별도 작업자8걸음과 configured API 순차3GET·원 수치/UTC·GET 계산/쓰기0, default OpenAPI/대표5거부를 확인했다. 동시 실행은 두 후보 모두 RSS hold이며 제품 미채택이다. 잘못 반복한95405는 제외하고 원 로그/별도 worktree를 보존했다. 기능·3D 수용 수에 더하지 않는다.
+                - [x] **자원 관측의 중복 트리 순회 수정** — 위 기록의 core3·새5/기존32=37검사. 합성 반례 RED2→GREEN·실제 낮은 owned8MiB 초과/TERM 정리·보호 가족/고아/thread·pidfd/FD·원본/5root/정리 보존. 원 신호/identity/_tree AST를 유지했다. `/proc` 원자 스냅샷이나 과거 초과의 원인 규명을 주장하지 않는다.
+                - [ ] **API 생성/접수·첫 claim의 보유/일시 할당 분리와 근거 있는 수정** — 수정 관측기의 실제37370:1도25.273초/합1,079,226,368bytes로 hold다. POST 종료/GET0·worker 경계 회수 전 초과를 보존한다. 영구/일시 RSS·실제 할당/객체 보유를 좁힌 뒤 작은 회수 수정만 선택한다. 원 타입/단위·권리/감사/소유권/5root/한도를 유지한 집중 회귀와 실제 동시 실행이 수용 기준이다. 동일 실패 조건을 근거 없이 반복하지 않는다. 정상/hold/취소·권리·전진 prefix/원 UTC/자원 성공 전 부모를 완료하지 않는다.
           - [ ] **solar typed 웹·같은 UTC3D** — 선행 자동 실행/조회. 같은 API의 원 상태/단위/UTC를 표·장면과 대사하고 정상/hold/취소·권리/재접속·기존 소비자/WebGL/WSL을 수용한다.
           - [ ] **solar 사용자 적용·재시작** — 같은 고정 source/영역/키의 지속 API/worker에서 정상/hold/취소·원 수치/UTC3D·재접속/재시작/현재 권리와 기존 두 주소/원본/자원을 확인하고 접속·진행 안내를 갱신한다.
 

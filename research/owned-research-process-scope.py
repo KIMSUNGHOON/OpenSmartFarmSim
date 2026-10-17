@@ -94,6 +94,18 @@ def _tree(root, excluded=()):
     return found
 
 
+def _forest(roots, excluded=()):
+    records = {}
+    seen = set(excluded)
+    for root in roots:
+        if root in seen:
+            continue
+        found = _tree(root, excluded=seen)
+        records.update(found)
+        seen.update(item for item, _ in found.values())
+    return records
+
+
 class OwnedProcessScope:
     def __init__(self, protected=()):
         _pidfd_backend()
@@ -105,9 +117,7 @@ class OwnedProcessScope:
         self.sample()
 
     def _protection(self):
-        records = {}
-        for root in tuple(self._protected):
-            records.update(_tree(root))
+        records = _forest(sorted(self._protected, key=lambda item: (item.start_ticks, item.pid)))
         self._protected.update(item for item, _ in records.values())
         if self.controller in self._protected:
             raise PermissionError('controller is inside a protected tree')
@@ -115,9 +125,7 @@ class OwnedProcessScope:
 
     def sample(self):
         protected = self._protection()
-        owned = {}
-        for root in (self.controller, *tuple(self._owned)):
-            owned.update(_tree(root, excluded=self._protected))
+        owned = _forest((self.controller, *tuple(self._owned)), excluded=self._protected)
         self._owned.update(item for item, _ in owned.values()
                            if item != self.controller and item not in self._protected)
         self._owned.difference_update(self._protected)
