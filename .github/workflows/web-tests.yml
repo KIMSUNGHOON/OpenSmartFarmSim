@@ -15,6 +15,11 @@ on:
         description: Observe worker exceptions and progress timings; this cannot accept normal execution
         type: boolean
         default: false
+      solar_worker_diagnostics_detail:
+        description: Diagnostic detail only; worker observes exceptions/outcome without farm phase journals
+        type: choice
+        default: phases
+        options: [phases, worker]
       browser_suite:
         description: Browser acceptance scope (all is the complete regression gate)
         type: choice
@@ -92,6 +97,7 @@ jobs:
     timeout-minutes: 20
     env:
       OSSF_SOLAR_TRACE_WORKER: ${{ inputs.solar_worker_diagnostics && '1' || '0' }}
+      OSSF_SOLAR_DIAGNOSTIC_DETAIL: ${{ inputs.solar_worker_diagnostics_detail || 'phases' }}
       PYTHONDONTWRITEBYTECODE: '1'
       PYTHONMALLOC: malloc
       MALLOC_ARENA_MAX: '2'

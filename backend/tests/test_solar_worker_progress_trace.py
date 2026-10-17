@@ -124,3 +124,30 @@ def test_farm_reference_phases_export_only_timing_not_returned_documents(tmp_pat
         assert phase['inclusive_seconds'] >= 0
     assert b'controlled_secret_never_export' not in raw
     assert value['last_confirmed'] is None and value['last_advanced'] is None
+
+
+def test_worker_only_detail_keeps_actual_busy_outcome_and_checkpoint(tmp_path, monkeypatch):
+    monkeypatch.setenv('OSSF_SOLAR_DIAGNOSTIC_DETAIL', 'worker')
+    body = r'''
+exec(compile('class FarmAuthoringService:\n def _guard(self):return "controlled_secret_never_export"\n', '/owned/app/farm_authoring_storage.py', 'exec'))
+class SolarExecutionOutcome:
+ state='queued';attempt=1;reason_code='solar_execution_busy'
+def _confirm():
+ return {'checkpoint':{'steps':5,'planned_steps':64,'status':'yielded','computed_through_utc':'2026-10-17T00:00:10Z'}}
+def run_once():
+ FarmAuthoringService()._guard()
+ _confirm()
+ try:raise ValueError('controlled_secret_never_export')
+ except ValueError:return SolarExecutionOutcome()
+run_once()
+'''
+    result = subprocess.run(command(tmp_path, body), capture_output=True, timeout=5)
+    assert result.returncode == 0, result.stderr.decode()
+    raw = (tmp_path/'worker-progress-diagnostics.private.json').read_bytes()
+    value = json.loads(raw)
+    assert value['detail'] == 'worker'
+    assert set(value['phase_totals']) == {'worker._confirm', 'worker.run_once'}
+    assert value['last_confirmed']['steps'] == 5
+    assert value['outcome'] == {'state':'queued', 'attempt':1, 'reason_code':'solar_execution_busy'}
+    assert value['normal_execution_accepted'] is False
+    assert b'controlled_secret_never_export' not in raw+(tmp_path/'worker-caught-diagnostics.private.json').read_bytes()
