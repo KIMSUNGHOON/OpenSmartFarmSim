@@ -177,6 +177,7 @@ class MarketCandidateStore:
         self._source = source_repository
         self._principal_provider = principal_provider
         self._scoped_reader = ContextVar('market_candidate_scoped_reader', default=None)
+        self._scoped_references = ContextVar('market_candidate_scoped_references', default=None)
 
     def connect(self):
         if self.runtime_identity is not None:
@@ -255,12 +256,68 @@ class MarketCandidateStore:
             raise MarketCandidateDenied('market candidate shared read transaction changed')
         return refs, values
 
+    def _held_binding(self, tenant):
+        from .market_hold_store import MarketHoldStore
+        from .thermal_run_store import ThermalRunStore
+        holds = self._source._holds
+        if type(holds) is not MarketHoldStore or type(holds._context_store) is not ThermalRunStore:
+            return None
+        contexts = holds._context_store
+        for store in (holds, contexts):
+            binding = store.runtime_identity
+            if (type(binding) is not tuple or len(binding) != 2
+                    or binding[0] is not self.runtime_identity[0]
+                    or binding[1] != self.runtime_identity[1]
+                    or store.dsn != self.dsn or store.schema != self.schema
+                    or store._principal_provider is not self._principal_provider):
+                return None
+        if (not holds._principal(tenant, 'market_hold_context_read')
+                or not contexts._scope(tenant, 'decision_context_read')):
+            return None
+        return ((holds, contexts, holds.runtime_identity, contexts.runtime_identity,
+                 holds._principal_provider, contexts._principal_provider,
+                 holds._scope_resolver, holds._key, contexts._context_verifier),
+                (holds.dsn, contexts.dsn, holds.schema, contexts.schema))
+
+    def _reference_guard(self, tenant):
+        scoped = self._scoped_references.get()
+        reader = self._scoped_reader.get()
+        if scoped is None:
+            if reader is not None:
+                raise MarketCandidateDenied('market candidate reference scope changed')
+            return None
+        conn, owner, shared, held, slot, reference_slot = scoped
+        if (owner != tenant or reader != (conn, tenant) or slot is not self._scoped_reader
+                or reference_slot is not self._scoped_references):
+            raise MarketCandidateDenied('market candidate reference scope changed')
+        if held is None:
+            return None
+        if shared is None or self._shared_reader(tenant, conn, shared) is None:
+            raise MarketCandidateDenied('market candidate reference authority changed')
+        current = self._held_binding(tenant)
+        if (current is None or current[1] != held[1]
+                or any(now is not before for now, before in zip(current[0], held[0]))):
+            raise MarketCandidateDenied('market candidate reference authority changed')
+        audit_runtime_roles(conn, self.runtime_identity[0])
+        return conn, held[0][0]
+
+    def _reference_value(self, tenant, name, args):
+        reader = self._reference_guard(tenant)
+        if reader is None:
+            return getattr(self._source, name)(*args)
+        conn, holds = reader
+        value = (holds._market_hold_report(*args, conn=conn) if name == 'get_market_hold_report'
+                 else holds._decision_context(*args, conn=conn))
+        self._reference_guard(tenant)
+        return value
+
     @contextmanager
     def read_scope(self, tenant):
         if (type(tenant) is not str or not tenant or self._tenant('market_candidate_read') != tenant
-                or self._scoped_reader.get() is not None):
+                or self._scoped_reader.get() is not None or self._scoped_references.get() is not None):
             raise MarketCandidateDenied('market candidate read authority denied')
         slot = self._scoped_reader
+        reference_slot = self._scoped_references
         source_scope = getattr(self._source, 'read_scope', None)
         with source_scope(tenant) if callable(source_scope) else nullcontext() as source_conn:
             shared = self._shared_reader(tenant, source_conn)
@@ -270,15 +327,21 @@ class MarketCandidateStore:
                 else:
                     conn.execute('SET TRANSACTION ISOLATION LEVEL READ COMMITTED READ ONLY')
                 token = slot.set((conn, tenant))
+                reference_token = None
                 try:
+                    held = self._held_binding(tenant) if shared is not None else None
+                    reference_token = reference_slot.set((conn, tenant, shared, held, slot, reference_slot))
                     yield
                     if self._tenant('market_candidate_read') != tenant:
                         raise MarketCandidateDenied('market candidate read authority denied')
                     if shared is not None and self._shared_reader(tenant, conn, shared) is None:
                         raise MarketCandidateDenied('market candidate shared read authority changed')
+                    self._reference_guard(tenant)
                     if self.runtime_identity is not None:
                         audit_runtime_roles(conn, self.runtime_identity[0])
                 finally:
+                    if reference_token is not None:
+                        reference_slot.reset(reference_token)
                     slot.reset(token)
 
     @contextmanager
@@ -302,7 +365,9 @@ class MarketCandidateStore:
                 tenant = self._tenant("market_candidate_read")
                 if tenant is None:
                     return None
-                raw = getattr(self._source, name)(*args)
+                raw = (self._reference_value(tenant, name, args)
+                       if name in ('get_market_hold_report', 'get_decision_context')
+                       else getattr(self._source, name)(*args))
                 value = untrusted_data(raw) if raw is not None else None
                 return (deepcopy(value) if type(value) is dict and
                         value.get("tenant_id") == tenant else None)
