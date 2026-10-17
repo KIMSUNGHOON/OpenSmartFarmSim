@@ -1,7 +1,11 @@
 # 첫 구현 작업 목록
 
+- [ ] **`crop-solar-failed-checkpoint-metadata`** — [종료 뒤 실제 저장 metadata](../research/crop-solar-unpaused-postmortem-20261017.md).
+  원 정상381.069초·두 actor -15의 미완료를 보존한다. actor/계산을 바꾸지 않는 수집4검사·원 로직/해시/상한 불변 통과.
+  sourcec757a95/CI39039991262의 실제 저장 단계/수집 결과를 대사한 뒤 다음 비용 개선과 별도 원 정상 검증으로 진행한다.
+
 - [x] **`crop-solar-progress-lock-lifetime`** — [실제 경합·원 값/현재 권리/정리](../research/crop-solar-progress-lock-lifetime-implementation-20261017.md),sourcef6b3bde.
-  고유13검사·원8메서드/worker/상한 불변을 확인했다. trace-OFF 원 정상 CI39037993173은 진행 중이며 정상/S3 수용은 아니다.
+  고유13검사·원8메서드/worker/상한 불변을 확인했다. trace-OFF 원 정상 CI39037993173은381.069초·원360초 상한에서 미완료다. 다음은 종료 뒤 저장 단계 수집이며 정상/S3 수용은 아니다.
 
 - [x] **`crop-solar-worker-termination-diagnostics`** — [실제 반환·코드 위치](../research/crop-solar-worker-termination-diagnostics-20261017.md).
   CI39036105645의4/64·attempt1/queued/solar_execution_busy와 confirm Pending을 대사해 잠금 수명 수정의 근거를 확보했다.

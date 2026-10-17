@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**독립 일사 계산 후속 — 2026-10-17:** [진행 조회 잠금 수명](../research/crop-solar-progress-lock-lifetime-implementation-20261017.md)을 고유13검사·실제 경합/원 값·UTC·권리/정리로 수용했다. 실제 queued/busy 관측에 따라 잠금 구간을 줄였고 원 상한은 유지했다. 다음은 trace-OFF 원 정상 CI39037993173이다. 정상 실행·WSL 용량·계산 중3D·새 Solar 배포/실제 자료·관문은 미완료이며 goal active·전체 완료일 미정이다.
+**독립 일사 계산 후속 — 2026-10-17:** [원 종료 뒤 저장 metadata](../research/crop-solar-unpaused-postmortem-20261017.md)를 수집한다. 잠금 수정13검사는 통과했으나 원 정상은381.069초/원360초 계산 상한으로 미완료다. actor를 계측하지 않는 수집4검사·원 로직/해시/상한 불변을 확인했고 CI39039991262가 진행 중이다. 정상·WSL 용량·계산 중3D·새 Solar/실제 자료·관문은 미완료이며 goal active·전체 완료일 미정이다.
 
 **현재 저장3D 호스팅 기능 수용 — 2026-10-17:** [정상/보류 원 값·UTC/WebGL·권리/재접속/정리](../research/crop-solar-current-webgl-verification-20261017.md). [현재 독립 실행](../research/crop-solar-current-unpaused-resource-20261017.md)은 RSS 보류이며 다음은 시험 대기 부모 회수다. 로컬5root RSS와 S2b/부모·S3/S4·새 Solar 배포 조건은 유지한다. 아래 기록은 당시 상태다.
 

@@ -1,0 +1,548 @@
+{
+  "G0_G4": "not_assessed",
+  "S3_accepted": false,
+  "actual_farm_Runs": 0,
+  "application_unchanged_since": "f6b3bdeac2ba0ba241524faa99bfb5ec2f86ed5f",
+  "distinct_tests_passed": 4,
+  "failed_original": {
+    "artifact": {
+      "digest": "sha256:4dbe2ba4dd0e2b86d687d2e516484fcb25c54ec3a8f2280ae0c99293a047c771",
+      "id": 12102453497,
+      "name": "solar-unpaused-normal-f6b3bdeac2ba0ba241524faa99bfb5ec2f86ed5f",
+      "size_in_bytes": 1930
+    },
+    "conclusion": "failure",
+    "digest_and_path_validated": true,
+    "evidence": {
+      "actor-diagnostics.json": [
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "api",
+          "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+          "worker_proof_present": false
+        },
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "worker",
+          "script_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+          "worker_proof_present": false
+        }
+      ],
+      "failure.json": {
+        "exception_type": "AssertionError",
+        "known_stage": "owned calculation timed out or failed",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_unpaused_smoke.py",
+            "function": "exercise",
+            "line": 114
+          },
+          {
+            "file": "crop-greenhouse-solar-unpaused-probe.py",
+            "function": "exercise",
+            "line": 210
+          }
+        ],
+        "original_normal_accepted": false
+      },
+      "resource.json": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "G0_G4": "not_assessed",
+        "RSS_samples": 1399,
+        "WSL_capacity_accepted": false,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 369020928,
+        "hosted_only": true,
+        "local_protected_roots_present": false,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "rights_or_gate_approval": false,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 133406720,
+        "temporary_entries_remaining": 0,
+        "wall_seconds": 381.069079331
+      }
+    },
+    "head_sha": "f6b3bdeac2ba0ba241524faa99bfb5ec2f86ed5f",
+    "run_id": 39037993173
+  },
+  "focused_tests": {
+    "focused-postmortem-checkpoint-green-v1": {
+      "actual_database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "actual_tool": "30850:0",
+      "raw_terminal_sha256": "a62ca112f7b985e41dd9cc18487290ff1333463b84fcfac6e0e45fdb867674ff",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 139,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1046503424,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "383d8b16fe77935c57401845b21eb62ff70f02761b61cf23ccb4419c1e99eba5",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2416,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 37.483313707998605
+      }
+    },
+    "focused-postmortem-checkpoint-red-v1": {
+      "actual_database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "actual_tool": "44362:1",
+      "raw_terminal_sha256": "2a62401f9d58e221683d78712a1ff88ce49229e86cf32033b9cf1d41651cb5f5",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 61,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1045438464,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "4493d4d87ab29ae393a4bc19e3e7380d231dbb47a94922e0a1936ecea0045870",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2415,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 16.46204926299106
+      }
+    },
+    "focused-postmortem-final-v1": {
+      "actual_database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "actual_tool": "24744:0",
+      "raw_terminal_sha256": "82cdd384226a845fa9c4a6441cc814fa26a147aac3ff4e3aafc78c262c5e1e8a",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 143,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1061666816,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "2df0c9dd17bf9068437f4f4589f1b45e1bcb78c4f0dcff94e3b2ec788626961f",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2416,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 38.6346885029925
+      }
+    },
+    "focused-postmortem-integration-v1": {
+      "actual_database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "actual_tool": "39684:0",
+      "raw_terminal_sha256": "1842873cc4309fd67649e24ab42e036c849f1ca77aa9671dfab997384452097a",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 140,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1057304576,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "6eeb7624f2e652062ad9832aa53953724da499ca9cc739702141d9358955e1ed",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2416,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 37.770362784009194
+      }
+    },
+    "focused-postmortem-preflight-v1": {
+      "actual_tool": "50434:0",
+      "raw_terminal_sha256": "cc1560c2e9124e9c59429cc7acdfa84a5cb3e7b101a05108f8d08c5111165d91",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 4,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 946778112,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "17a7aca773a06c2d83181ae9f42b808bd47154d1ea3a9b94e5d4a4e720d134b6",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2416,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 1.1187461049994454
+      }
+    },
+    "focused-postmortem-stopped-condition-v1": {
+      "actual_tool": "72558:0",
+      "raw_terminal_sha256": "fdb08ee83068d42f44f9deb49e9a56116a3a3946ab6419a4ce1630858245379a",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 12,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 974942208,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "169c83f66e94c449c3c1a0d5644666a236a88e470e173e22044316b935935eaf",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2416,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 3.168369121005526
+      }
+    }
+  },
+  "limits_of_evidence": [
+    "DB metadata only; no post-stop source/rights/model revalidation",
+    "no normal acceptance from partial or64 metadata",
+    "prior unexpected API status unresolved",
+    "full backend/live3D/WSLconcurrent capacity/deployment/actual data and gates remain open"
+  ],
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "84ae345df7088771bb9c6fdc7aedaf36250d10681e3bd222caa20664969afce3",
+    "recursive_cli": false,
+    "timestamp": "2026-10-17T11:45:30.208Z"
+  },
+  "new_Solar_deployed": false,
+  "next_CI": {
+    "actor_instrumentation": false,
+    "head_sha": "c757a956de6d4d1d66e7c280d272473994ba275f",
+    "pending": true,
+    "run_id": 39039991262
+  },
+  "normal_execution_accepted": false,
+  "preflight": {
+    "application_unchanged_since_f6b3bde": true,
+    "one_curated_artifact_path_added": true,
+    "original_actor_hashes_checked": true,
+    "original_driver_logic_AST_unchanged_except_stopped_failure_collection": true,
+    "original_workflow_execution_steps_environment_limits_unchanged": true
+  },
+  "query_source_sha256": "ab6992768f580c4d46278fcbe2d3215583dfd3a55c9fe0aa84b51fb3e038d565",
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-unpaused-postmortem-v1",
+  "source_commit": "c757a956de6d4d1d66e7c280d272473994ba275f",
+  "status_publication": {
+    "actual_tool": "18216:0",
+    "raw_terminal_sha256": "da5cdecc2e5679f1be24a66afebb8ae25caea84cedc0f540428d9a0cf5d02f95",
+    "result": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 35708928,
+          "comm": "python",
+          "pid": 836786
+        },
+        {
+          "RSS_bytes": 126775296,
+          "comm": "python",
+          "pid": 836789
+        },
+        {
+          "RSS_bytes": 8880128,
+          "comm": "nginx",
+          "pid": 836804
+        },
+        {
+          "RSS_bytes": 7589888,
+          "comm": "nginx",
+          "pid": 837682
+        },
+        {
+          "RSS_bytes": 126656512,
+          "comm": "python",
+          "pid": 836803
+        },
+        {
+          "RSS_bytes": 18280448,
+          "comm": "postgres",
+          "pid": 836793
+        },
+        {
+          "RSS_bytes": 5480448,
+          "comm": "postgres",
+          "pid": 836799
+        },
+        {
+          "RSS_bytes": 6012928,
+          "comm": "postgres",
+          "pid": 836798
+        },
+        {
+          "RSS_bytes": 7540736,
+          "comm": "postgres",
+          "pid": 836797
+        },
+        {
+          "RSS_bytes": 4648960,
+          "comm": "postgres",
+          "pid": 836795
+        },
+        {
+          "RSS_bytes": 6156288,
+          "comm": "postgres",
+          "pid": 836794
+        },
+        {
+          "RSS_bytes": 11751424,
+          "comm": "postgres",
+          "pid": 886319
+        },
+        {
+          "RSS_bytes": 24838144,
+          "comm": "python",
+          "pid": 837436
+        },
+        {
+          "RSS_bytes": 143671296,
+          "comm": "python",
+          "pid": 837440
+        },
+        {
+          "RSS_bytes": 8888320,
+          "comm": "nginx",
+          "pid": 837482
+        },
+        {
+          "RSS_bytes": 7516160,
+          "comm": "nginx",
+          "pid": 837557
+        },
+        {
+          "RSS_bytes": 18333696,
+          "comm": "postgres",
+          "pid": 837462
+        },
+        {
+          "RSS_bytes": 5246976,
+          "comm": "postgres",
+          "pid": 837468
+        },
+        {
+          "RSS_bytes": 6316032,
+          "comm": "postgres",
+          "pid": 837467
+        },
+        {
+          "RSS_bytes": 7467008,
+          "comm": "postgres",
+          "pid": 837466
+        },
+        {
+          "RSS_bytes": 5296128,
+          "comm": "postgres",
+          "pid": 837464
+        },
+        {
+          "RSS_bytes": 11628544,
+          "comm": "postgres",
+          "pid": 837463
+        },
+        {
+          "RSS_bytes": 120090624,
+          "comm": "python",
+          "pid": 837580
+        },
+        {
+          "RSS_bytes": 103796736,
+          "comm": "python",
+          "pid": 837589
+        },
+        {
+          "RSS_bytes": 28356608,
+          "comm": "python3",
+          "pid": 886312
+        },
+        {
+          "RSS_bytes": 8519680,
+          "comm": "python",
+          "pid": 886320
+        }
+      ],
+      "RSS_samples": 1,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 865447936,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "50299fd8e57e2ef25603f3d7f71acb2cd85ac22b881c43411b05d905e5bbeddc",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 143671296,
+      "source_count": 2419,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.33875226600503083
+    }
+  }
+}

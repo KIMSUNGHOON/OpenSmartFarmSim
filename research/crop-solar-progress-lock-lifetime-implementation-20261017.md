@@ -22,6 +22,7 @@ custody 잠금을 유지했다. 이제 `_capture_checkpoint`의 일관된 snapsh
 정상 signed descendant 전진은 원 ancestry를 검증한 뒤 Pending으로 응답을 폐기한다.
 종료 대사 잠금 충돌도 Pending이다. 변조·권리 철회·fork/rollback은 원 거부를 유지한다.
 조회는 모델/CLI 실행·checkpoint 확정·DB/결과 게시를 하지 않는다.
+현재 농장/권리/경제 참조는 매번 검증한다. 아래 계산0은 새 작물/기후 적분과 CLI 호출0을 뜻하며, 경제 참조 검증의 산술을 생략했다는 뜻이 아니다.
 작업자·수식·입력·64걸음/chunk1·조회 주기·5초 재시도·360/600초·RSS 상한을 바꾸지 않았다.
 
 ## 실제 통과 검증
@@ -33,7 +34,7 @@ custody 잠금을 유지했다. 이제 `_capture_checkpoint`의 일관된 snapsh
   이 결정적 경합 시험은 독립 unpaused 실행/처리량의 증거가 아니다.
 - 66181:0에서 원 count/UTC/최초 기록·heartbeat/새 attempt·unconfirmed/real lock unavailable,
   읽기 권한/늦은 권리·취소·직렬화 뒤 철회·none/missing의 **6검사**를 통과했다.
-- 55637:0에서 정상/수치 hold의 원 값·UTC·결과 연결·성공 게시1/hold 게시0·조회 계산/SQL 변경0의 **2검사**를 통과했다.
+- 55637:0에서 정상/수치 hold의 원 값·UTC·결과 연결·성공 게시1/hold 게시0·조회 모델/CLI 실행·SQL 변경0의 **2검사**를 통과했다.
   별도 fresh-process 시험을 새로 실행한 것으로 세지 않는다. 따라서 **고유13개**다.
 - 12100:0에서 `_checkpoint` 외 기존8개 메서드의 AST, worker/5초 재시도·원 prototype 불변과
   application 변경 파일1개를 대사했다. 모든 통과 배치의 실제 query source SHA도 최종 파일과 일치한다.
@@ -46,7 +47,9 @@ custody 잠금을 유지했다. 이제 `_capture_checkpoint`의 일관된 snapsh
 ## 다음과 남은 의존성
 
 [trace-OFF 원 정상 CI39037993173](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39037993173),
-sourcef6b3bde가 진행 중이다. 원64걸음/start1/CLI0·attempt1·두 전진 prefix·원 값/UTC·원 후검사·정리를
+sourcef6b3bde는381.069초·자식1·두 actor -15로 실패했다. 원360초 계산 상한 안에 완료하지 못했으며
+저장 단계 수/정상/DB 정리 proof는 없다. [종료 뒤 메타데이터 수집](crop-solar-unpaused-postmortem-20261017.md)으로
+원 actor를 계측하지 않고 저장된 단계부터 확인한다. 원64걸음/start1/CLI0·attempt1·두 전진 prefix·원 값/UTC·원 후검사·정리를
 모두 통과하기 전 정상 기능으로 수용하지 않는다.
 컴포넌트만 로컬 수용이며 full backend·독립 hold/취소·실제 계산 중 WebGL·WSL 용량·S3/S4·새 Solar 적용은 남았다.
 실제 품종/독립 농장/자료 권리·G0–G4와 전체 완료일은 미완료/미정이며 전체 goal active다.
