@@ -1,8 +1,213 @@
 {
+  "API_diagnostic_implementation": {
+    "no_application_or_original_body_changes": true,
+    "only_fixed_HTTP_metadata_and_prefix_exception_locations": true,
+    "source": "ba87cb8543584f333dcc1f86e819605465bbae04",
+    "tests_passed": 11
+  },
+  "API_diagnostic_status_publication": {
+    "actual_tool": "15158:0",
+    "raw_terminal_sha256": "b2c0d4c94b68c6d07117b04a6fee927defca92629507559aea1bb3a4fdc8e59a",
+    "result": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 35708928,
+          "comm": "python",
+          "pid": 836786
+        },
+        {
+          "RSS_bytes": 126775296,
+          "comm": "python",
+          "pid": 836789
+        },
+        {
+          "RSS_bytes": 8880128,
+          "comm": "nginx",
+          "pid": 836804
+        },
+        {
+          "RSS_bytes": 7589888,
+          "comm": "nginx",
+          "pid": 837682
+        },
+        {
+          "RSS_bytes": 124456960,
+          "comm": "python",
+          "pid": 836803
+        },
+        {
+          "RSS_bytes": 18280448,
+          "comm": "postgres",
+          "pid": 836793
+        },
+        {
+          "RSS_bytes": 5480448,
+          "comm": "postgres",
+          "pid": 836799
+        },
+        {
+          "RSS_bytes": 6012928,
+          "comm": "postgres",
+          "pid": 836798
+        },
+        {
+          "RSS_bytes": 7540736,
+          "comm": "postgres",
+          "pid": 836797
+        },
+        {
+          "RSS_bytes": 4648960,
+          "comm": "postgres",
+          "pid": 836795
+        },
+        {
+          "RSS_bytes": 6156288,
+          "comm": "postgres",
+          "pid": 836794
+        },
+        {
+          "RSS_bytes": 24838144,
+          "comm": "python",
+          "pid": 837436
+        },
+        {
+          "RSS_bytes": 143671296,
+          "comm": "python",
+          "pid": 837440
+        },
+        {
+          "RSS_bytes": 8888320,
+          "comm": "nginx",
+          "pid": 837482
+        },
+        {
+          "RSS_bytes": 7516160,
+          "comm": "nginx",
+          "pid": 837557
+        },
+        {
+          "RSS_bytes": 18333696,
+          "comm": "postgres",
+          "pid": 837462
+        },
+        {
+          "RSS_bytes": 5246976,
+          "comm": "postgres",
+          "pid": 837468
+        },
+        {
+          "RSS_bytes": 6316032,
+          "comm": "postgres",
+          "pid": 837467
+        },
+        {
+          "RSS_bytes": 7467008,
+          "comm": "postgres",
+          "pid": 837466
+        },
+        {
+          "RSS_bytes": 5296128,
+          "comm": "postgres",
+          "pid": 837464
+        },
+        {
+          "RSS_bytes": 11628544,
+          "comm": "postgres",
+          "pid": 837463
+        },
+        {
+          "RSS_bytes": 119959552,
+          "comm": "python",
+          "pid": 837580
+        },
+        {
+          "RSS_bytes": 108265472,
+          "comm": "python",
+          "pid": 837589
+        },
+        {
+          "RSS_bytes": 28135424,
+          "comm": "python3",
+          "pid": 861466
+        },
+        {
+          "RSS_bytes": 8384512,
+          "comm": "python",
+          "pid": 861475
+        }
+      ],
+      "RSS_samples": 1,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 855478272,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "3cab0c3d9df725709f9ed5b94f7dd7816ba1d161f6f15d78924eecbc26baff66",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 143671296,
+      "source_count": 2411,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.3308795399934752
+    }
+  },
   "G0_G4": "not_assessed",
   "S3_accepted": false,
+  "actual_actor_location_lookup": [
+    {
+      "actor": "api",
+      "actual_script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+      "assertion_AST": "Compare(left=Name(id='status', ctx=Load()), ops=[In()], comparators=[Tuple(elts=[Constant(value=200), Constant(value=503)], ctx=Load())])",
+      "line": 285
+    },
+    {
+      "actor": "worker",
+      "actual_script_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+      "assertion_AST": "BoolOp(op=And(), values=[Compare(left=Call(func=Name(id='len', ctx=Load()), args=[Name(id='events', ctx=Load())], keywords=[]), ops=[Eq()], comparators=[Constant(value=1)]), Compare(left=Subscript(value=Subscript(value=Name(id='events', ctx=Load()), slice=Constant(value=0), ctx=Load()), slice=Constant(value='state'), ctx=Load()), ops=[Eq()], comparators=[Constant(value='succeeded')]), Compare(left=Subscript(value=Subscript(value=Name(id='events', ctx=Load()), slice=Constant(value=0), ctx=Load()), slice=Constant(value='attempt'), ctx=Load()), ops=[Eq()], comparators=[Constant(value=1)])])",
+      "line": 114
+    }
+  ],
   "actual_farm_Runs": 0,
+  "actual_worker_observation": {
+    "API_exit": 1,
+    "API_status_unavailable": true,
+    "computed_through_utc": "2026-10-01T00:00:16.123456Z",
+    "confirm_exception_events": 2,
+    "confirmed_steps": 8,
+    "outcome": null,
+    "planned_steps": 64,
+    "worker_exception_journal_records": 6,
+    "worker_exit": -15
+  },
   "application_source_unchanged_since": "8423263f1a309b5011d76d41b0c5c1eacca0cab5",
+  "binding_verified": {
+    "actual_run_head_archive_digest_paths": true,
+    "actual_worker_actor_header_hashes": true,
+    "original_API_actor_line285_hash_matched": true,
+    "original_prototype_hash": true
+  },
   "failed_normal": {
     "artifact": {
       "digest": "sha256:81ee54d4053f0d688d0ecbe5e66516c5d9ef8c4e1354cc062c55e7605a4d85b0",
@@ -94,6 +299,246 @@
     "focused-worker-only-preflight-v1": "yaml absent in backend venv; no package installed, existing system Python used for YAML preflight"
   },
   "focused_tests": {
+    "focused-api-response-diagnostic-green-v1": {
+      "actual_tool": "3835:0",
+      "raw_terminal_sha256": "89c4240ea3025972b943eaaf530fa25e42281cce29d13886b2e9ce6445c099c5",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 2,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 885633024,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "704d54d2279476b018517267a8ebc5993f930e5bbc21c5a90a2ece64846fe69f",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2411,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 0.591364642008557
+      }
+    },
+    "focused-api-response-diagnostic-red-v1": {
+      "actual_tool": "52413:1",
+      "raw_terminal_sha256": "229a7cd8ab9b1b66ca0f98af8a69b9ca5f76576f93cbd616ca58e7a2b41df617",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 2,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 884748288,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "afee53154a89bf34dea89e25740ec703ce35c5a6963683ef2e843b9e14d0aeac",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2410,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 0.588369649995002
+      }
+    },
+    "focused-worker-api-location-v1": {
+      "actual_tool": "2473:0",
+      "raw_terminal_sha256": "996cecac1db9526bbf8863beb9316250b8739d05d8573986eb367a5a676f893a",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 4,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 928043008,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "28a977387d6139337b73f091891b34ac9d6473720482c731ac5ce6aa5e222231",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2409,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 1.1158941939938813
+      }
+    },
+    "focused-worker-api-mode-green-v1": {
+      "actual_tool": "77465:0",
+      "raw_terminal_sha256": "92bd440b5c93e24f5f67666dbfc00042bd7750929dbea863ec069dd321b540eb",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 3,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 889483264,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "628fa58eb8c32553b5761141c6b8c4d7865e98848ab91fea6482052902d51265",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2411,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 0.8410651470039738
+      }
+    },
+    "focused-worker-api-mode-red-v1": {
+      "actual_tool": "62582:1",
+      "raw_terminal_sha256": "c2840fdefacdac29e555b6c8e65ff433fa25b96750126817405defadcf2bb883",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 4,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 920834048,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "de3fef383899eab1f242687572176fa8cf67ef64820ed3c6bf3a1433cf06da08",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2411,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 1.1129268529912224
+      }
+    },
+    "focused-worker-api-preflight-v1": {
+      "actual_tool": "34453:0",
+      "raw_terminal_sha256": "feaefddd78532224ae8569c0d168cd80e5ac84bca7967b5af3de6a8448397c5e",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 4,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 952565760,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "2bf5d14a882fa28138cf6727abd724d14fece26e3ee8294463d897a4cd3aa0e8",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2411,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 1.1186265029973583
+      }
+    },
     "focused-worker-only-diagnostic-green-v1": {
       "actual_tool": "17910:0",
       "raw_terminal_sha256": "199508c8b151c663b54983bf8236f242192b735bec0154d79a70e634c34908ed",
@@ -304,13 +749,14 @@
   },
   "new_Solar_deployed": false,
   "normal_execution_accepted": false,
-  "pending_diagnostic": {
-    "detail": "worker",
+  "pending_API_diagnostic": {
+    "detail": "worker-api",
     "normal_acceptance_forbidden": true,
     "pending": true,
-    "run_id": 39035225593,
-    "source_commit": "65a609bfd9eba28ef14882bfff5986d6396f7f98"
+    "run_id": 39036105645,
+    "source_commit": "ba87cb8543584f333dcc1f86e819605465bbae04"
   },
+  "pending_diagnostic": null,
   "rights_or_gate_approval": false,
   "schema_version": "solar-worker-termination-diagnostics-v1",
   "source_commit": "65a609bfd9eba28ef14882bfff5986d6396f7f98",
@@ -482,5 +928,598 @@
       "wall_seconds": 0.332642108987784
     }
   },
-  "tests_passed": 7
+  "tests_passed": 7,
+  "worker_diagnostic": {
+    "artifact": {
+      "digest": "sha256:285f165db4787173c9815947d245de0db11ffa45bed174aaaaafc9e667c3a871",
+      "id": 12102092295,
+      "name": "solar-unpaused-normal-65a609bfd9eba28ef14882bfff5986d6396f7f98",
+      "size_in_bytes": 15365
+    },
+    "conclusion": "failure",
+    "digest_and_path_validated": true,
+    "evidence": {
+      "actor-diagnostics.json": [
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": 1,
+          "log": {
+            "exception_types": [
+              "AssertionError"
+            ],
+            "locations": [
+              {
+                "file": "api.private.py",
+                "function": "<module>",
+                "line": 285
+              }
+            ]
+          },
+          "role": "api",
+          "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+          "worker_proof_present": false
+        },
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "worker",
+          "script_sha256": "301a3284991f88592b5fc2e329d80ba83eeb73aa4553900d0fc6a5e5291f7e84",
+          "worker_proof_present": false
+        }
+      ],
+      "failure.json": {
+        "exception_type": "TimeoutExpired",
+        "known_stage": null,
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_unpaused_smoke.py",
+            "function": "exercise",
+            "line": 101
+          },
+          {
+            "file": "crop-greenhouse-solar-unpaused-probe.py",
+            "function": "exercise",
+            "line": 211
+          },
+          {
+            "file": "subprocess.py",
+            "function": "wait",
+            "line": 1264
+          },
+          {
+            "file": "subprocess.py",
+            "function": "_wait",
+            "line": 2045
+          }
+        ],
+        "original_normal_accepted": false
+      },
+      "resource.json": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "G0_G4": "not_assessed",
+        "RSS_samples": 1006,
+        "WSL_capacity_accepted": false,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 371658752,
+        "hosted_only": true,
+        "local_protected_roots_present": false,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "rights_or_gate_approval": false,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 132972544,
+        "temporary_entries_remaining": 0,
+        "wall_seconds": 262.1619942
+      },
+      "worker-caught-diagnostics.json": [
+        {
+          "exception_type": "SolarCustodyPending",
+          "locations": [
+            {
+              "file": "crop_greenhouse_solar_execution_worker.py",
+              "function": "_confirm",
+              "line": 93
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_checkpoint.py",
+              "function": "confirm",
+              "line": 209
+            },
+            {
+              "file": "contextlib.py",
+              "function": "__enter__",
+              "line": 137
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_checkpoint.py",
+              "function": "_session",
+              "line": 159
+            },
+            {
+              "file": "contextlib.py",
+              "function": "__enter__",
+              "line": 137
+            },
+            {
+              "file": "crop_greenhouse_solar_server_custody.py",
+              "function": "_open",
+              "line": 294
+            }
+          ]
+        },
+        {
+          "exception_type": "SolarCustodyPending",
+          "locations": [
+            {
+              "file": "crop_greenhouse_solar_execution_worker.py",
+              "function": "<lambda>",
+              "line": 164
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_worker.py",
+              "function": "_confirm",
+              "line": 93
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_checkpoint.py",
+              "function": "confirm",
+              "line": 209
+            },
+            {
+              "file": "contextlib.py",
+              "function": "__enter__",
+              "line": 137
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_checkpoint.py",
+              "function": "_session",
+              "line": 159
+            },
+            {
+              "file": "contextlib.py",
+              "function": "__enter__",
+              "line": 137
+            },
+            {
+              "file": "crop_greenhouse_solar_server_custody.py",
+              "function": "_open",
+              "line": 294
+            }
+          ]
+        },
+        {
+          "exception_type": "SolarCustodyPending",
+          "locations": [
+            {
+              "file": "crop_greenhouse_solar_execution_worker.py",
+              "function": "_custody_call",
+              "line": 100
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_worker.py",
+              "function": "<lambda>",
+              "line": 164
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_worker.py",
+              "function": "_confirm",
+              "line": 93
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_checkpoint.py",
+              "function": "confirm",
+              "line": 209
+            },
+            {
+              "file": "contextlib.py",
+              "function": "__enter__",
+              "line": 137
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_checkpoint.py",
+              "function": "_session",
+              "line": 159
+            },
+            {
+              "file": "contextlib.py",
+              "function": "__enter__",
+              "line": 137
+            },
+            {
+              "file": "crop_greenhouse_solar_server_custody.py",
+              "function": "_open",
+              "line": 294
+            }
+          ]
+        },
+        {
+          "exception_type": "SolarCustodyPending",
+          "locations": [
+            {
+              "file": "crop_greenhouse_solar_execution_worker.py",
+              "function": "_confirm",
+              "line": 93
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_checkpoint.py",
+              "function": "confirm",
+              "line": 209
+            },
+            {
+              "file": "contextlib.py",
+              "function": "__enter__",
+              "line": 137
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_checkpoint.py",
+              "function": "_session",
+              "line": 159
+            },
+            {
+              "file": "contextlib.py",
+              "function": "__enter__",
+              "line": 137
+            },
+            {
+              "file": "crop_greenhouse_solar_server_custody.py",
+              "function": "_open",
+              "line": 294
+            }
+          ]
+        },
+        {
+          "exception_type": "SolarCustodyPending",
+          "locations": [
+            {
+              "file": "crop_greenhouse_solar_execution_worker.py",
+              "function": "<lambda>",
+              "line": 164
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_worker.py",
+              "function": "_confirm",
+              "line": 93
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_checkpoint.py",
+              "function": "confirm",
+              "line": 209
+            },
+            {
+              "file": "contextlib.py",
+              "function": "__enter__",
+              "line": 137
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_checkpoint.py",
+              "function": "_session",
+              "line": 159
+            },
+            {
+              "file": "contextlib.py",
+              "function": "__enter__",
+              "line": 137
+            },
+            {
+              "file": "crop_greenhouse_solar_server_custody.py",
+              "function": "_open",
+              "line": 294
+            }
+          ]
+        },
+        {
+          "exception_type": "SolarCustodyPending",
+          "locations": [
+            {
+              "file": "crop_greenhouse_solar_execution_worker.py",
+              "function": "_custody_call",
+              "line": 100
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_worker.py",
+              "function": "<lambda>",
+              "line": 164
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_worker.py",
+              "function": "_confirm",
+              "line": 93
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_checkpoint.py",
+              "function": "confirm",
+              "line": 209
+            },
+            {
+              "file": "contextlib.py",
+              "function": "__enter__",
+              "line": 137
+            },
+            {
+              "file": "crop_greenhouse_solar_execution_checkpoint.py",
+              "function": "_session",
+              "line": 159
+            },
+            {
+              "file": "contextlib.py",
+              "function": "__enter__",
+              "line": 137
+            },
+            {
+              "file": "crop_greenhouse_solar_server_custody.py",
+              "function": "_open",
+              "line": 294
+            }
+          ]
+        }
+      ],
+      "worker-progress-diagnostics.json": {
+        "collected_monotonic": 487.529533653,
+        "diagnostic_only": true,
+        "normal_execution_accepted": false,
+        "phases": {
+          "G0_G4": "not_assessed",
+          "active_phases": [
+            {
+              "phase": "worker.run_once",
+              "started_elapsed_seconds": 3.3537377729999776
+            },
+            {
+              "phase": "worker._custody_call",
+              "started_elapsed_seconds": 233.47425550599996
+            }
+          ],
+          "detail": "worker",
+          "dropped_recent_events": 62,
+          "last_adopted": null,
+          "last_advanced": null,
+          "last_confirmed": {
+            "computed_through_utc": "2026-10-01T00:00:16.123456Z",
+            "planned_steps": 64,
+            "status": "yielded",
+            "steps": 8
+          },
+          "last_observed_monotonic": 480.119249752,
+          "normal_execution_accepted": false,
+          "observation_only": true,
+          "outcome": null,
+          "phase_totals": {
+            "worker._adopt": {
+              "calls": 1,
+              "exception_events": 0,
+              "inclusive_seconds": 2.0420251360000066,
+              "max_inclusive_seconds": 2.0420251360000066,
+              "returns": 1
+            },
+            "worker._before": {
+              "calls": 13,
+              "exception_events": 0,
+              "inclusive_seconds": 16.147940401000056,
+              "max_inclusive_seconds": 1.3696007560000112,
+              "returns": 13
+            },
+            "worker._confirm": {
+              "calls": 11,
+              "exception_events": 2,
+              "inclusive_seconds": 76.94813789700004,
+              "max_inclusive_seconds": 9.723466154999983,
+              "returns": 11
+            },
+            "worker._custody_call": {
+              "calls": 20,
+              "exception_events": 2,
+              "inclusive_seconds": 216.50122715400002,
+              "max_inclusive_seconds": 18.212777727000002,
+              "returns": 19
+            },
+            "worker.run_once": {
+              "calls": 1,
+              "exception_events": 0,
+              "inclusive_seconds": 0.0,
+              "max_inclusive_seconds": 0.0,
+              "returns": 0
+            }
+          },
+          "recent_events": [
+            {
+              "elapsed_seconds": 153.02772080699998,
+              "event": "return",
+              "inclusive_seconds": 13.650136035000003,
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 153.02817820999996,
+              "event": "call",
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 153.02847507,
+              "event": "call",
+              "phase": "worker._confirm"
+            },
+            {
+              "elapsed_seconds": 161.34165126599999,
+              "event": "return",
+              "inclusive_seconds": 8.313176195999972,
+              "phase": "worker._confirm"
+            },
+            {
+              "elapsed_seconds": 161.342193279,
+              "event": "return",
+              "inclusive_seconds": 8.31401506900005,
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 161.342563981,
+              "event": "call",
+              "phase": "worker._before"
+            },
+            {
+              "elapsed_seconds": 162.680387022,
+              "event": "return",
+              "inclusive_seconds": 1.3378230409999787,
+              "phase": "worker._before"
+            },
+            {
+              "elapsed_seconds": 162.680866073,
+              "event": "call",
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 177.774023543,
+              "event": "return",
+              "inclusive_seconds": 15.093157469999994,
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 177.803360173,
+              "event": "call",
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 177.803794509,
+              "event": "call",
+              "phase": "worker._confirm"
+            },
+            {
+              "elapsed_seconds": 185.306982292,
+              "event": "return",
+              "inclusive_seconds": 7.503187782999987,
+              "phase": "worker._confirm"
+            },
+            {
+              "elapsed_seconds": 185.307431619,
+              "event": "return",
+              "inclusive_seconds": 7.504071446000012,
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 185.36234600299997,
+              "event": "call",
+              "phase": "worker._before"
+            },
+            {
+              "elapsed_seconds": 186.551616824,
+              "event": "return",
+              "inclusive_seconds": 1.1892708210000364,
+              "phase": "worker._before"
+            },
+            {
+              "elapsed_seconds": 186.55220154900002,
+              "event": "call",
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 201.659531114,
+              "event": "return",
+              "inclusive_seconds": 15.107329564999986,
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 201.660188925,
+              "event": "call",
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 201.66075998999997,
+              "event": "call",
+              "phase": "worker._confirm"
+            },
+            {
+              "elapsed_seconds": 209.59771826600002,
+              "event": "return",
+              "inclusive_seconds": 7.936958276000041,
+              "phase": "worker._confirm"
+            },
+            {
+              "elapsed_seconds": 209.651226823,
+              "event": "return",
+              "inclusive_seconds": 7.991037898000002,
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 209.651775697,
+              "event": "call",
+              "phase": "worker._before"
+            },
+            {
+              "elapsed_seconds": 210.785209323,
+              "event": "return",
+              "inclusive_seconds": 1.1334336259999986,
+              "phase": "worker._before"
+            },
+            {
+              "elapsed_seconds": 210.78574592899997,
+              "event": "call",
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 224.85919400400002,
+              "event": "return",
+              "inclusive_seconds": 14.073448075000044,
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 224.85963842399997,
+              "event": "call",
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 224.859967456,
+              "event": "call",
+              "phase": "worker._confirm"
+            },
+            {
+              "elapsed_seconds": 232.360706113,
+              "event": "return",
+              "inclusive_seconds": 7.500738656999999,
+              "phase": "worker._confirm"
+            },
+            {
+              "elapsed_seconds": 232.36115769399998,
+              "event": "return",
+              "inclusive_seconds": 7.501519270000017,
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 232.361492764,
+              "event": "call",
+              "phase": "worker._before"
+            },
+            {
+              "elapsed_seconds": 233.473713353,
+              "event": "return",
+              "inclusive_seconds": 1.1122205890000032,
+              "phase": "worker._before"
+            },
+            {
+              "elapsed_seconds": 233.47425550599996,
+              "event": "call",
+              "phase": "worker._custody_call"
+            }
+          ],
+          "time_scope": "inclusive monotonic seconds; observer overhead included; nested durations overlap",
+          "trace_installed_monotonic": 246.644994246,
+          "version": "solar-worker-progress-observation-v2"
+        },
+        "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+        "run_id": "39035225593",
+        "source_commit": "65a609bfd9eba28ef14882bfff5986d6396f7f98",
+        "trace_header_sha256": "92aa7e8ed0ab35c206d34772f431f57b5b3a176bf32aa89da8cf75ff2bdd9191",
+        "worker_script_sha256": "301a3284991f88592b5fc2e329d80ba83eeb73aa4553900d0fc6a5e5291f7e84"
+      }
+    },
+    "head_sha": "65a609bfd9eba28ef14882bfff5986d6396f7f98",
+    "run_id": 39035225593
+  }
 }

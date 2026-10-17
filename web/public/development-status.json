@@ -1,11 +1,11 @@
 {
-  "estimate_reason": "현재 참조 reader14검사·조합 연결4→1 수용은 유지하지만 원 정상 CI는121.021초·작업자1로 실패했습니다. 작업자 중심 관찰7검사 뒤 CI39035225593에서 실제 예외/반환·확정 단계를 확인합니다. 정상/계산 중3D·로컬 용량·새 Solar 배포·외부 검증과 전체 일정은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-17T13:08:13.442481Z",
+  "estimate_reason": "실제 진단에서 합성8/64 확정·confirm 충돌·API의 예상 밖 prefix 응답 단언을 확인했습니다. API/worker 관찰11검사 뒤 CI39036105645에서 실제 HTTP 코드와 검증 위치를 확인합니다. reader14검사·조합4→1 수용은 유지하며 정상/계산 중3D·로컬 용량·새 Solar 배포·외부 검증과 전체 일정은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-17T13:20:59.358612Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-17T13:08:13.442481Z",
+  "reported_at": "2026-10-17T13:20:59.358612Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -24,7 +24,7 @@
       "state": "completed"
     },
     {
-      "evidence": "현재 참조 reader14검사·실제 조합4→1연결은 통과했습니다. 원 정상64단계 검증은121.021초·작업자1로 실패했고 완료 단계/실제 원인은 아직 모릅니다. 새 관찰7검사 뒤 CI39035225593에서 작업자 실제 예외/반환을 확인합니다. 정상 실행·계산 중3D·로컬 용량·S3/S4·새 Solar 배포는 미완료입니다.",
+      "evidence": "원 정상은121.021초·작업자1로 실패했습니다. 후속 진단은 합성8/64 확정·confirm 충돌과 API의 prefix 응답 검증 실패를 확인했고 최종 worker 반환은 없습니다. API/worker 관찰11검사 뒤 CI39036105645에서 실제 HTTP 코드/검증 위치를 수집합니다. 정상 실행·계산 중3D·로컬 용량·S3/S4·새 Solar 배포는 미완료입니다.",
       "id": "execution_3d",
       "state": "next"
     },

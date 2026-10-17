@@ -32,13 +32,42 @@ source65a609b는 명시 진단의 `detail=worker`를 추가한다. 기본은 기
 ## 다음 한 단계
 
 [CI39035225593](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39035225593),
-source65a609b/detail worker가 진행 중이다. application은 실패한8423263과 같고 원 actor 본문/입력/64걸음·
-chunk1·조회 주기·현재 검사·시간/RSS 상한을 바꾸지 않았다.
-실제 잡힌 예외/outcome과 확정 단계·종료/정리를 대사한 뒤에만 다음 수정을 정한다.
+source65a609b/detail worker는 **262.162초·API1/worker-15**로 실패했다.
+실제 마지막 확정은 **8/64·yielded·2026-10-01T00:00:16.123456Z**다.
+confirm에서 SolarCustodyPending2개 exception event(전파를 포함한 journal6건)를 확인했다.
+하지만 worker 최종 outcome은 없으며, API의 응답 단언이 먼저 실패했다.
+원 정상121초의 작업자 실패와 같은 원인으로 합치지 않는다.
+
+단일132,972,544/합371,658,752bytes·FD7→7·소유 비좀비/임시0,
+정상/DB 정리 proof 없음이다. artifact12102092295/15,365bytes의 actual run/head/ZIP digest·안전 경로와
+worker/header/prototype hash를 대사했다. worker-only 모드는 advance를 관찰하지 않으므로 None을 추정으로 채우지 않는다.
+
+2473:0에서 원 API 전체 source를 재구성해 실제 actor SHA256ab5a93a…와 일치시켰다.
+**API line285는 prefix 응답 status∈{200,503}의 단언**이다. 실제 status/오류 코드와 API 예외는 아직 없다.
+정상 원 worker SHA25614fe24d…/line114도 성공 사건1·state succeeded·attempt1 단언과 대사했다.
+입력/소스·원5root·두 화면/자산·FD/소유/PG/임시/passfile을 보존했다.
+
+## API와 작업자 관찰의 후속
+
+`worker-api` 모드는 원 API 본문 앞에 선택 관찰 header를 넣는다.
+실제 request_http의 status·고정 allowlist code·허용 prefix_status·호출 행만 최근32건,
+prefix/projection/routes의 실제 서버 스레드 예외 종류·basename/행/함수만 최근16건/각16위치로 기록한다.
+HTTP 본문·message·경로/쿼리/ID·locals/입력/환경/인증값은 내보내지 않는다.
+스레드 직렬화·64KiB·atomic replace와 진단의 정상 수용 금지를 유지한다.
+
+- 52413:1에서 관찰기 미구현3실패→3835:0에서 HTTP 상태/고정 코드·비밀값 제외·실제 새 스레드 예외·유한 기록3통과다.
+- 62582:1에서 새 worker-api 선택1실패/기존10통과를 확인한 뒤77465:0의 **고유11검사**를 통과했다.
+- 34453:0에서 YAML·기존 web/native/원 정상 계산 단계·기본False·원 prototype/application 불변,
+  원 API 본문 그대로의 header 주입/실제 원 SHA와 AST를 확인했다. artifact 경로1개만 추가했다.
+- 기존 원5root/두 UI/소스·자산·2,148원본·512MiB/PID/합1GiB·감독FD4→4·소유/PG/임시/passfile0을 유지했다.
+
+[CI39036105645](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39036105645),
+sourceba87cb8/detail worker-api가 진행 중이다. application8423263과 원 API/worker 본문·입력·64걸음·chunk1·
+조회 주기·현재 검사·시간/RSS 상한을 유지한다. 실제 HTTP 오류 코드/검증 위치를 근거로 다음 작은 수정을 정한다.
 진단은 정상 수용이 아니며, 수정 후 별도 trace-OFF 원 정상 기준이 필요하다.
 
-[독립 보류·취소 후속](../contracts/crop-solar-unpaused-hold-cancel-v1.md)을 정상→보류→취소→실제 계산 중 WebGL의
-개별 수용으로 보완했다. 기존 저장 결과 조회를 독립 실행 증거로 대체하지 않는다.
+[독립 보류·취소 후속](../contracts/crop-solar-unpaused-hold-cancel-v1.md)은 정상→보류→취소→실제 계산 중 WebGL의
+개별 수용이다. 기존 저장 결과 조회를 독립 실행 증거로 대체하지 않는다.
 S3/S4·WSL 용량·새 Solar 배포·실제 품종/독립 농장 자료·권리/G0–G4와 전체 완료일은 미완료/미정이며 goal active다.
 
-최신 실패/진단 진행 기록은15407:0에서 두 주소HTTP200·no-store·원 HTML/source·5root/원본·FD/소유 정리를 확인해 게시했다. 브라우저/디자인 재검사는 하지 않았다.
+최신8/64·API/worker 관찰 진행 기록은15158:0에서5173/5174 HTTP200·no-store·원 HTML/source·5root/원본·FD/소유 정리를 확인해 게시했다. 브라우저/디자인 재검사는 하지 않았다.

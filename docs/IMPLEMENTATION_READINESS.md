@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**독립 일사 계산 후속 — 2026-10-17:** [원 정상의 작업자 종료 사유](../research/crop-solar-worker-termination-diagnostics-20261017.md)를 조사한다. 현재 참조 reader 고유14검사/연결4→1 수용은 유지하지만 원 정상 CI39034668788은121.021초·worker1로 실패했다. 작업자 중심 관찰7검사 후 CI39035225593에서 실제 예외/반환을 확인한다. 정상 실행·WSL 용량·계산 중3D·새 Solar 배포/실제 자료·관문은 미완료이며 goal active·전체 완료일 미정이다.
+**독립 일사 계산 후속 — 2026-10-17:** [실제 종료/HTTP 진단](../research/crop-solar-worker-termination-diagnostics-20261017.md)은 확정8/64와 confirm 충돌·API의 예상 밖 prefix 응답 단언을 확인했다. API/worker 관찰11검사 후 CI39036105645에서 실제 코드/검증 위치를 확인한다. reader14검사/조합4→1 수용은 유지하며 정상 실행·WSL 용량·계산 중3D·새 Solar 배포/실제 자료·관문은 미완료다. goal active·전체 완료일 미정이다.
 
 **현재 — 2026-10-17:** [호스팅 실제 정상/보류 저장3D 기능](../research/crop-solar-current-webgl-verification-20261017.md)을 수용했다. 로컬5root 전체 앱의 RSS 보류는 유지한다. [현재 독립 동시 실행의 RSS 보류](../research/crop-solar-current-unpaused-resource-20261017.md)를 기록했고 시험 대기 부모 회수를 준비한다. 다음 S2b/부모·S3/S4·사용자 배포/전체 완료일은 미완료/미정이다. 아래 기록은 당시 상태다.
 

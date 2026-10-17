@@ -2,7 +2,7 @@
 
 **기존 UI 인증 갱신 — 2026-10-17:** [동일 토큰·원 생장/수확·joint/환기 응답·두 화면 보존](research/frozen-preview-authentication-renewal-20261017.md)을 확인했다. 새5root/자원 상한을 유지하며 기존 경로만 복원했다. 새 Solar 미배포·원360초 정상 실행 미수용이며 다음은 계산 단계별 시간 계측이다.
 
-**독립 일사 계산 후속 — 2026-10-17:** [원 정상의 작업자 종료 사유](research/crop-solar-worker-termination-diagnostics-20261017.md)를 조사한다. 현재 참조 reader 고유14검사/연결4→1 수용은 유지하지만 원 정상 CI39034668788은121.021초·worker1로 실패했다. 작업자 중심 관찰7검사 후 CI39035225593에서 실제 예외/반환을 확인한다. 정상 실행·WSL 용량·계산 중3D·새 Solar 배포/실제 자료·관문은 미완료이며 goal active·전체 완료일 미정이다.
+**독립 일사 계산 후속 — 2026-10-17:** [실제 종료/HTTP 진단](research/crop-solar-worker-termination-diagnostics-20261017.md)은 확정8/64와 confirm 충돌·API의 예상 밖 prefix 응답 단언을 확인했다. API/worker 관찰11검사 후 CI39036105645에서 실제 코드/검증 위치를 확인한다. reader14검사/조합4→1 수용은 유지하며 정상 실행·WSL 용량·계산 중3D·새 Solar 배포/실제 자료·관문은 미완료다. goal active·전체 완료일 미정이다.
 
 **저장3D 호스팅 기능 수용 — 2026-10-17:** [실제 정상/보류 HTTPS·WebGL·권리·재접속·정리](research/crop-solar-current-webgl-verification-20261017.md)를 수용했다. 정상3/보류2개 저장시점을 3D·표·그래프로 대사했다. [현재 독립 API/worker 정상 점검](research/crop-solar-current-unpaused-resource-20261017.md)은 RSS로 보류됐으며 다음은 시험 대기 부모22.4MB 회수다. 로컬 RSS·S2b/부모·S3/S4·새 Solar 배포와 실제 자료/관문은 미완료이며 전체 goal은 active다. 아래 기록은 당시 상태다.
 

@@ -1,8 +1,9 @@
 # 첫 구현 작업 목록
 
-- [ ] **`crop-solar-worker-termination-diagnostics`** — [원 정상의 실제 작업자 반환 확인](../research/crop-solar-worker-termination-diagnostics-20261017.md).
-  원 정상121.021초·worker1의 실패를 보존한다. worker-only 관찰7검사/기존 workflow·원 actor/application 불변 preflight 통과.
-  CI39035225593의 실제 예외·outcome·확정 단계/종료·정리를 대사한 뒤 작은 수정과 별도 원 정상 검증으로 진행한다.
+- [ ] **`crop-solar-worker-termination-diagnostics`** — [원 정상과 API의 실제 실패](../research/crop-solar-worker-termination-diagnostics-20261017.md).
+  원 정상121.021초·worker1을 보존한다. 후속은8/64·confirm Pending을 확인했으나 API의 prefix status 단언으로 종료해 최종 outcome이 없다.
+  API/worker 관찰11검사·원 body/hash/기존 workflow 불변 preflight 통과. CI39036105645에서 실제 HTTP 코드/검증 위치를 확인한 뒤
+  근거 있는 작은 수정과 별도 원 정상 검증으로 진행한다. 실제 없는 반환·처리량·정상 수용을 추정하지 않는다.
 
 - [x] **`farm-pinned-context-reader`** — [원 현재 참조·경제 검증을 같은 범위로 읽기](../research/farm-pinned-context-reader-implementation-20261017.md).
   고유14검사·실제 SCRAM 조합4→1연결·동일 값/검증 순서, 철회/변조/부적합/활성 변경·농장 등록 회귀와 정리 통과.

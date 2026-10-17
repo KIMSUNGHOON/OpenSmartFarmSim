@@ -1,5 +1,13 @@
 # 구현 순서
 
+## 현재 prefix HTTP 실패의 다음 단계 — 2026-10-17
+
+[작업자 진단](../research/crop-solar-worker-termination-diagnostics-20261017.md)은 원 확정8/64·confirm 잠금 충돌과
+API exit1의 prefix status∈{200,503} 단언을 확인했다. 실제 HTTP 코드/검증 위치·worker outcome은 없다.
+다음은 sourceba87cb8/CI39036105645의 worker-api 관찰이다. 고유11검사·원 actor body/한도·기존 workflow 불변을 확인했다.
+실제 API 코드/검증 위치 뒤 작은 수정과 별도 trace-OFF 원 정상→독립 보류→취소→계산 중 WebGL을 진행한다.
+정상/S3/S4·WSL 용량·새 Solar 적용/외부 관문을 완료로 승격하지 않는다. 아래 기록은 당시 상태다.
+
 ## 현재 작업자 종료 사유의 다음 단계 — 2026-10-17
 
 [원 정상 CI39034668788](../research/crop-solar-worker-termination-diagnostics-20261017.md)은121.021초·worker1로 실패했다.
