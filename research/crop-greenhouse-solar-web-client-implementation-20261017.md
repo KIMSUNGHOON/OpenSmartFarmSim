@@ -8,7 +8,7 @@
 core `3ec7e10d26f2766cf8ed8c50824f87c8f415941f`에 저장 결과 해석기와 공통 인증 요청 연결을
 구현했다. 후속 `d82861f3d19f95f04de9430a94c38dc6eb563302`는 진행표 시험 fixture만 수정했다.
 **S1a를 로컬 원문/단위 검증과 hosted 타입·단위·빌드 검증 범위로 수용했다.**
-현재 원격 브라우저 단계의 종료를 확인 중이며 전체 웹 CI 수용은 아직 판단하지 않는다.
+작성 당시 원격 브라우저 단계의 종료를 확인 중이었다. [최종 취소/후속 진입 수정](crop-greenhouse-solar-sdk-resource-and-browser-entry-20261017.md)을 확인했으며 전체 웹 CI는 미수용이다.
 실제 TypeScript SDK→현재 HTTPS(S1b), 저장 WebGL(S2), 계산 중 WebGL(S3), 사용자 적용(S4)은
 이번 구현의 수용 범위가 아니다. 새 일사 화면은 아직 사용자에게 배포하지 않았다.
 
@@ -60,7 +60,7 @@ core3ec7e10의 타입 검사 성공 뒤 단위1,860통과/2실패로 종료했�
 최신 게시 파일은 양 파서의 원 필드 보존 검사로 분리했다. 원 실패와 로컬 red/green을 보존했다.
 
 [후속39005600656](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39005600656)는
-d82861f의 전체 타입·단위·build·audit 성공을 관측했으며 브라우저 종료를 확인 중이다.
+d82861f의 전체 타입·단위·build·audit는 성공했으나 브라우저 단계의15분 job 한도로 최종 취소됐다. 후속 원인/수정은 위 최신 기록을 따른다.
 호스팅 환경의 검증을 로컬 RSS/WSL 용량 수용으로 대체하지 않는다. Backend/Compose 등
 다른 workflow나 전체 저장소 CI를 이번에 실행했다고 표시하지 않는다.
 

@@ -1,0 +1,1329 @@
+{
+  "CI": {
+    "39005600656": {
+      "annotations": [
+        {
+          "annotation_level": "failure",
+          "message": "The job has exceeded the maximum execution time of 15m0s",
+          "title": ""
+        },
+        {
+          "annotation_level": "failure",
+          "message": "The operation was canceled.",
+          "title": ""
+        }
+      ],
+      "annotations.private.json_sha256": "316682cb511f903e5451f476adb20b3e23ca177f32f8527ee2b91d4cca19b05c",
+      "conclusion": "cancelled",
+      "headSha": "d82861f3d19f95f04de9430a94c38dc6eb563302",
+      "jobs": [
+        {
+          "conclusion": "cancelled",
+          "databaseId": 117317317618,
+          "name": "web",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm install --global npm@11.16.0",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm ci --strict-peer-deps",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run typecheck",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run test",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run build",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm audit --audit-level=high",
+              "number": 9,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npx --no-install playwright install --with-deps chromium",
+              "number": 10,
+              "status": "completed"
+            },
+            {
+              "conclusion": "cancelled",
+              "name": "Run npm run test:browser",
+              "number": 11,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Post Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 21,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 22,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 23,
+              "status": "completed"
+            }
+          ]
+        }
+      ],
+      "private_snapshot_sha256": "4dd00295b8307fe7c7a86db3b282b90e19d0be12dfbde48ba5bdb427e183c154",
+      "status": "completed",
+      "terminal.private.log_sha256": "59bb589285ba65d318080dca4e1a49f071706c43ea94246d34a3bd2c257858a8",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39005600656"
+    },
+    "39006683801": {
+      "annotations": [
+        {
+          "annotation_level": "failure",
+          "message": "The job has exceeded the maximum execution time of 15m0s",
+          "title": ""
+        },
+        {
+          "annotation_level": "failure",
+          "message": "The operation was canceled.",
+          "title": ""
+        }
+      ],
+      "annotations.private.json_sha256": "316682cb511f903e5451f476adb20b3e23ca177f32f8527ee2b91d4cca19b05c",
+      "conclusion": "cancelled",
+      "headSha": "64217ec9e91e927c0eaf02737e5e7e4261eb956c",
+      "jobs": [
+        {
+          "conclusion": "cancelled",
+          "databaseId": 117320473585,
+          "name": "web",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm install --global npm@11.16.0",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm ci --strict-peer-deps",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run typecheck",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run test",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run build",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm audit --audit-level=high",
+              "number": 9,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npx --no-install playwright install --with-deps chromium",
+              "number": 10,
+              "status": "completed"
+            },
+            {
+              "conclusion": "cancelled",
+              "name": "Run npm run test:browser -- --reporter=line",
+              "number": 11,
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "Post Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 21,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 22,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 23,
+              "status": "completed"
+            }
+          ]
+        }
+      ],
+      "private_snapshot_sha256": "20f9ecd2b1d8dfdf9b470cf7a3fd6e4ad573da1fb6fe470fb6aed9fd819f551f",
+      "status": "completed",
+      "terminal.private.log_sha256": "0c7516f2e61b02a57622122477042e90eb3813dbc467a371ec5a55957cbae88f",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39006683801"
+    },
+    "39008217480": {
+      "conclusion": "",
+      "headSha": "f1aba2f5e1031aea841a10d2eecff1be7be2f968",
+      "jobs": [
+        {
+          "conclusion": "",
+          "databaseId": 117324961599,
+          "name": "web",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm install --global npm@11.16.0",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm ci --strict-peer-deps",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run typecheck",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run test",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run build",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm audit --audit-level=high",
+              "number": 9,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npx --no-install playwright install --with-deps chromium",
+              "number": 10,
+              "status": "completed"
+            },
+            {
+              "conclusion": "",
+              "name": "Run npm run test:browser -- --reporter=line",
+              "number": 11,
+              "status": "in_progress"
+            },
+            {
+              "conclusion": "",
+              "name": "Post Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 21,
+              "status": "pending"
+            },
+            {
+              "conclusion": "",
+              "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 22,
+              "status": "pending"
+            }
+          ]
+        }
+      ],
+      "private_snapshot_sha256": "d89ab0a79a82632fb1223679bd8a1c141ba7da2a209de69a68e467d3df3ce636",
+      "status": "in_progress",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39008217480"
+    }
+  },
+  "G0_G4": "not_assessed",
+  "Node_memory_diagnostic": {
+    "actual_API_or_successful_SDK_response": false,
+    "diagnostic_only": true,
+    "variants": [
+      {
+        "flags": [],
+        "heap": {
+          "does_zap_garbage": 0,
+          "external_memory": 3569056,
+          "heap_size_limit": 70254592,
+          "malloced_memory": 434328,
+          "number_of_detached_contexts": 0,
+          "number_of_native_contexts": 1,
+          "peak_malloced_memory": 1012448,
+          "total_available_size": 61720416,
+          "total_global_handles_size": 8192,
+          "total_heap_size": 10395648,
+          "total_heap_size_executable": 262144,
+          "total_physical_size": 10813440,
+          "used_global_handles_size": 3776,
+          "used_heap_size": 8327560
+        },
+        "jitless": false,
+        "memory": {
+          "arrayBuffers": 68222,
+          "external": 3569016,
+          "heapTotal": 10395648,
+          "heapUsed": 8322352,
+          "rss": 61284352
+        }
+      },
+      {
+        "flags": [
+          "--optimize-for-size"
+        ],
+        "heap": {
+          "does_zap_garbage": 0,
+          "external_memory": 3569056,
+          "heap_size_limit": 70254592,
+          "malloced_memory": 434328,
+          "number_of_detached_contexts": 0,
+          "number_of_native_contexts": 1,
+          "peak_malloced_memory": 980128,
+          "total_available_size": 61718416,
+          "total_global_handles_size": 8192,
+          "total_heap_size": 10395648,
+          "total_heap_size_executable": 262144,
+          "total_physical_size": 10813440,
+          "used_global_handles_size": 3776,
+          "used_heap_size": 8329576
+        },
+        "jitless": false,
+        "memory": {
+          "arrayBuffers": 68222,
+          "external": 3569016,
+          "heapTotal": 10395648,
+          "heapUsed": 8324368,
+          "rss": 61374464
+        }
+      },
+      {
+        "flags": [
+          "--optimize-for-size",
+          "--max-old-space-size=32"
+        ],
+        "heap": {
+          "does_zap_garbage": 0,
+          "external_memory": 3569056,
+          "heap_size_limit": 36700160,
+          "malloced_memory": 434328,
+          "number_of_detached_contexts": 0,
+          "number_of_native_contexts": 1,
+          "peak_malloced_memory": 1020648,
+          "total_available_size": 28165088,
+          "total_global_handles_size": 8192,
+          "total_heap_size": 10395648,
+          "total_heap_size_executable": 262144,
+          "total_physical_size": 10813440,
+          "used_global_handles_size": 3776,
+          "used_heap_size": 8328464
+        },
+        "jitless": false,
+        "memory": {
+          "arrayBuffers": 68222,
+          "external": 3569016,
+          "heapTotal": 10395648,
+          "heapUsed": 8323256,
+          "rss": 61140992
+        }
+      }
+    ]
+  },
+  "accepted": {
+    "Node_memory_diagnostic_only": true,
+    "S1a_previous_scope_retained": true,
+    "SDK_bundle_build_only": true,
+    "actual_SDK_current_HTTPS_S1b": false,
+    "baseline_browser_inventory": 227,
+    "browser_files": 25,
+    "connection_reveals_changed": 28,
+    "current_browser_inventory": 228,
+    "local_Chromium_connection_entry_behavior": false,
+    "migration_files": 20,
+    "new_Solar_UI": false,
+    "whole_web_CI": false
+  },
+  "caps": {
+    "combined_RSS_bytes": 1073741824,
+    "original_source_entries": 2148,
+    "per_PID_RSS_bytes": 536870912,
+    "protected_roots": 5,
+    "sample_interval_seconds": 0.25
+  },
+  "checkpoint_private_actor_sha256": {
+    "connection-reference.ts": "9507b355016cbbe43462e9c994d5a41996c5460e445cec49c4b64be5ec2531c3",
+    "controller.py": "da9eddee5cbb3dbffdbbe3f37c12b242b8a7e45efa264be6c82c330eb8ff80e1",
+    "profile-sdk-node.py": "316f1e8ce17ad9d370a016168679f0595d2cde014e3133b9bad5ecaf762a05df",
+    "run-native-sdk-exec.py": "59db4e1ecfea6119eb6f9b0a39a6ad923f5fb63f7bdc245c8a690582f126a4d0",
+    "run-native-sdk.py": "13e5b2711b6177f06ba6021efde004af4c9cb15cd50f2548584edc44bb0910e8"
+  },
+  "connection_fix_commit": "f1aba2f5e1031aea841a10d2eecff1be7be2f968",
+  "connection_migration": [
+    {
+      "after_sha256": "bf818babb618fb44c4fab9880e6474bcad5a341ad6ec25be9e0f20411689205b",
+      "before_sha256": "5b4ae3424c9f69c470a525c4967b3773b5d1aa3335cb4e70e000d178f9a03711",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/assessment.spec.ts",
+      "replacements": 2
+    },
+    {
+      "after_sha256": "f5d2a587352736b7bd2aabcb604070c107c246ee6998501333e0d76088b97357",
+      "before_sha256": "c3e8b24577c2a7fcd5c03019364172e1c7b5540b8f266ed04c40c83ad71f5c03",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/authored-financial.spec.ts",
+      "replacements": 2
+    },
+    {
+      "after_sha256": "f3413194536bdcd9136690c007adbd3652b9eaad2dd74aeebc22fe8960eaf919",
+      "before_sha256": "c030954ffdf20e643dd9bbe59661d073c9192b73546d7a6ca8200fee3fef8782",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/authored-form.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "09c3b4dbe5888fd5b0908210588ec0a1c9466cb54ef30bf9b11deb4bd22fdc43",
+      "before_sha256": "8bf35dd3816df6e5c54e9fbf5bd19905e2a3486f6e2b2d0e4e7d270a2829aca3",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/authored-workflow.spec.ts",
+      "replacements": 7
+    },
+    {
+      "after_sha256": "3e3b72925533480f626e98fbc153a0c3f629708477aff487ecabde621ac2e2e8",
+      "before_sha256": "a71216c34832be5433620ad876126055b93578712186a213a9fec18ca3d84785",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/break-even.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "145e76b8059de8943200b35c65e0e45c6dd1867ae8008b7b48dada07b8b489d2",
+      "before_sha256": "decfe6c29add97adb49dfa17af6172fd4b0a94c9a0f5815d27c2550c1f8c91ce",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/calculation-cycle-crop-replay.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "8168ee69b8fc967dc1dc7cc63015998b0d894bf97644b761e5ff936684f60dd9",
+      "before_sha256": "554b9289f15aaff80738abcaa1c3172a401c8e6ca73de3bb7eaae60ecbc67185",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/coupled-crop-replay.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "3441628db6d10e819f3bd7fd6b1c87fc06e8bfa0e6bb9370c128a1967194744b",
+      "before_sha256": "a560cdc0236367d463bc8eb09f116a3991b0fce5461b6354d7c4df1661e73465",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/crop-replay.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "aaad8aa3f46eee680203d589f520968cb2eb790a3ba284be722649f00cbd8efa",
+      "before_sha256": "50c811b0c250a19009ba8f04a150655aff9162e4c63d0c565b5071601be2dcb6",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/crop-result-catalog.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "b8c35656f609dfa4adcadb43da03e05856561f6bc5a0dc96094fba233310a7b5",
+      "before_sha256": "030c983431af92b9aae7d0a8648202a2db1983ce8ed22b22acd11464690b590f",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/cycle-crop-replay.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "a5fea17322962561b377c487475c794d523b2a8adce6b8eba50d2296538bd0f0",
+      "before_sha256": "cda994ef742b374bcd5ab30054b0e047596c8bb8517397f743f3499ee97b7404",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/economics.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "633d91aafe7d865321c17cd715c0128daad8d9e6e6240eb0cca3fe8a83884d6a",
+      "before_sha256": "11e0d5e64cfbc95eb8a936c9f1b4382903cdf4248a6f229a7b73fd217a70bf11",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/harvest-replay.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "69878b548d6783dedf37bf604c66003f738f79fe8d8158ce66137cef5e55c152",
+      "before_sha256": "81d516c9a16eaebe53fff492b3e133aaa296e7f2e545d09b90666e3bb29cf72c",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/joint-amendment.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "bb7a128f1daed9d726b99477100260fff3a5fd5c2e531e96419e1c6422b62b50",
+      "before_sha256": "a08d73dd9ed7ac1b0388c72270005c1fc899f3ea8da21658c578e68c7e90e6ee",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/joint-crop-climate-execution.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "0b8189451a7667ff4a1ff689327dec9f5e4d12758115f50f5bff743b4497e24d",
+      "before_sha256": "d1c2f37991370245b181b7b30ba2f1f8a5a2411c3dfdae88d480dc091325617f",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/joint-crop-climate-prefix.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "12f5b2f19661f08f3ac2e2bc9751de0fa3fd0ad81bf9d107ce475a326d82cafc",
+      "before_sha256": "942f1c89e6a0c0834740b5d152ef429c59d529fe728749ac4ee153df67098929",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/joint-crop-climate-replay.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "679e0498644740a8318d4e92461bc01faaa14a5bed779f1dea5e62d3da98dab7",
+      "before_sha256": "c0de7973d9dbea9add40766ddf5ca4179793c5946626f82250a38479ca2e0447",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/replay-authored.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "0b491178c54b7d61a9695569f483493ed0d31328418a6111189e100adfe7cb81",
+      "before_sha256": "6246e49e1f1b095e2130deef2c6456edcae1e22735865c6caba9e887c655c379",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/replay.spec.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "7a35c62e2d919b3473a4bea3c45883824d1509215c02e068997cb1b7dac598d0",
+      "before_sha256": "14067bdb845a69ba3b864fc65909ac3b3088a903330f5b510ce5a06b46157af9",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/source-farm-fixture.ts",
+      "replacements": 1
+    },
+    {
+      "after_sha256": "44f61bfae1649d91dab2ebae18f9d429197adf6dab9d3395349e442217cf33c1",
+      "before_sha256": "370024bb19d2fa90058c4a2a0ea3713e3ebea8916e3a1767a7960e3702966ebd",
+      "only_import_and_connection_reveal_changed": true,
+      "path": "web/e2e/startup-crop-replay.spec.ts",
+      "replacements": 1
+    }
+  ],
+  "development_status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_guard_exit": 0,
+    "browser_DOM_rerun": false,
+    "browser_rerun": false,
+    "current_HTML_matches_frozen_entry_both_ports": true,
+    "files": 2173,
+    "reported_at": "2026-10-17T06:04:21.508530Z",
+    "retained_ventilation_frozen_source_preserved": true,
+    "source_sha256": "888df265763cd0b8738ff6022f041da60d96aaaf833092a6f22e9df3ebdb3fe1",
+    "terminal_sha256": "aea88b8e357ffa92895b37b0cc265256d90595be199b3d58ee3aab0c7465002e",
+    "tool_session": "87697"
+  },
+  "exclusions": [
+    "Inventory lists are not executed test passes.",
+    "All three actual normal SDK/API attempts are resource held; hold SDK path was not run.",
+    "Both setup-GC and exec actor variants are unadopted and do not certify production memory.",
+    "V3 cleanup runner_save NameError after RSS termination is preserved, not suppressed.",
+    "jitless is incompatible with this native-fetch path; size/heap profile is transport-failure-only.",
+    "Local invalid grep, browser module resolution and all RSS holds are not RED/GREEN behavioral acceptance.",
+    "Hosted type/unit/build success does not certify WSL simultaneous browser/runtime capacity."
+  ],
+  "existing_assertion_and_request_bytes_preserved": true,
+  "full_product_completion": null,
+  "goal_status": "active",
+  "local_terminal_evidence": {
+    "focused-CI-browser-inventory-after-fix-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 15,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 0,
+      "combined_peak_RSS_bytes": 1013129216,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "45a2d0c0eb8ba31cd5560121f44771558ab197be17c72fe52154de1ac94448ba",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 203624448,
+      "source_count": 2357,
+      "source_pins_sha256": "df7cf250f1b0512489763058c78020901fcb3a61f9cbba53da23b94bdab32215",
+      "source_preserved": true,
+      "started_sha256": "06cb651c67757049b60e338fa2bc90486d784dfc2e7481944e9cb7610a287a2b",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "4b308aee5970b3844925f7abd7c5257bffb8aa84a8e7c6aa14b82277e98938a8",
+      "tool_session": "28843",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 3.930329420007183
+    },
+    "focused-CI-browser-inventory-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 30,
+      "actual_child_exit": -6,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 250,
+      "combined_peak_RSS_bytes": 989433856,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "c7e41be217664d17159bd77bd06ec73078c8639ffe7378a30aa3f97349c01005",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 176906240,
+      "source_count": 2355,
+      "source_pins_sha256": "b62cb951cff285baf48c7711aa1df0db8098de50598cba82acb6a012861a6bc1",
+      "source_preserved": true,
+      "started_sha256": "5d003247d87a68fbb0ce4d321f17d210c2dc1a9e723e9f046a660eca0e68fba5",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "f3c1d48e9762d3848e2d6c0ffa93671b3a320ca2cef4dccdeb47b21d72ffeb1a",
+      "tool_session": "90694",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 7.781919524997647
+    },
+    "focused-CI-browser-inventory-v2": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 15,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 0,
+      "combined_peak_RSS_bytes": 1010663424,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "a31e3eacb313553b1eca066d9c7dc1e618c622997089da23d9e218cae51a5ff8",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 198033408,
+      "source_count": 2355,
+      "source_pins_sha256": "b62cb951cff285baf48c7711aa1df0db8098de50598cba82acb6a012861a6bc1",
+      "source_preserved": true,
+      "started_sha256": "0310a4394f9c0e602522347d5d57002a547d06823aa931e2e53fa886988c35b8",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "a5d6d080fa6a443bb3d04c86452bfec2d6566e6d1baccc35c1a8b56739259231",
+      "tool_session": "12415",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 3.9365767530034645
+    },
+    "focused-SDK-HTTPS-completed-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 293,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 1,
+      "combined_peak_RSS_bytes": 1101926400,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "7fdaeed454c6ea06ea3f19fd495914f1a7c5bbdf24a4f46787e0051d6a103f62",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": "RSS_limit",
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2357,
+      "source_pins_sha256": "846df850622b086bec3afd7af389f3e4c25925ae8789573c8c6859415d632a6c",
+      "source_preserved": true,
+      "started_sha256": "4a38ce3dd6de76c5a19b69bf2019d34527fc445bdeb92c17b8847fe6cf3d3fbd",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "a574906edb1593330f4e3401fae015baf492d396012da196f52566dccc542f2e",
+      "tool_session": "21055",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 82.60900680800114
+    },
+    "focused-SDK-HTTPS-completed-v2": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 289,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 1,
+      "combined_peak_RSS_bytes": 1079422976,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "db6865d4f905f75e4978d083b8e2d326b16cf50bf5a44c89a0627b432e5727ad",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": "RSS_limit",
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2357,
+      "source_pins_sha256": "ba82c200f9f7f567562b570e19c99fe3f935da617f0cff65909b36bf8f7ea967",
+      "source_preserved": true,
+      "started_sha256": "c9f5e758d255000cad79fa0784ede5c09ac804641353bb2cc610d2e9df79dac2",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "0d8d4a40471f9dd341ca6b93e35a475bdbc98b1489b1432edae325e9096ad2a7",
+      "tool_session": "60447",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 81.96545146999415
+    },
+    "focused-SDK-HTTPS-completed-v3": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 312,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 1,
+      "combined_peak_RSS_bytes": 1086345216,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "631eea1819c845ee385e036a49c3a8ed6d818f0a38ef2a016bd6eb9e8b13c00e",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": "RSS_limit",
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2357,
+      "source_pins_sha256": "ba82c200f9f7f567562b570e19c99fe3f935da617f0cff65909b36bf8f7ea967",
+      "source_preserved": true,
+      "started_sha256": "e1c92ea8306474c10136ced7b4bcb81c30808f58a011ed96087ac0072a9ef06f",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "b1469be5058f337a5300fc96af5606296f78be3d4f685c9dcc181658fb6bdae3",
+      "tool_session": "47446",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 88.19871444599994
+    },
+    "focused-SDK-Node-memory-profile-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 1,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 1,
+      "combined_peak_RSS_bytes": 811442176,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "54bacdffaa2bd1d0f63a1af46601e9c73f888118acd1fb3a80a337c09868633d",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2357,
+      "source_pins_sha256": "ba82c200f9f7f567562b570e19c99fe3f935da617f0cff65909b36bf8f7ea967",
+      "source_preserved": true,
+      "started_sha256": "81a3de05296fdb5f8b7ca88ee8026b3981cccb4aa9b8dcc018e1c9a11305a593",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "34d87137025ba05a94372db088f93881bce3d4a685b75a63c443aaaf1f2dff00",
+      "tool_session": "2277",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.33398158700583735
+    },
+    "focused-SDK-Node-memory-profile-v2": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 1,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 1,
+      "combined_peak_RSS_bytes": 811532288,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "d0d1bd3b68e86dd7c5c03401c01028451ed8980afcce0a440b736e692b569f6d",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2357,
+      "source_pins_sha256": "ba82c200f9f7f567562b570e19c99fe3f935da617f0cff65909b36bf8f7ea967",
+      "source_preserved": true,
+      "started_sha256": "a4b9cd566d689524add89f5e63e85bffaeb592f0b112e448a3cd6b45b2110a02",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "5572801ce8fa05c8286b71cc8b1c8d6bfebdc123552dc86c068c4d1e1e47ab7a",
+      "tool_session": "69234",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.3577435789993615
+    },
+    "focused-SDK-Node-memory-profile-v3": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 2,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 0,
+      "combined_peak_RSS_bytes": 865595392,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "1b0bd49538b1bb41c582c4f79b3c35595096a6c4c2c0ff2eb3a1683ab03df717",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2357,
+      "source_pins_sha256": "ba82c200f9f7f567562b570e19c99fe3f935da617f0cff65909b36bf8f7ea967",
+      "source_preserved": true,
+      "started_sha256": "245786a40e0793343f9c666ab2a565c3bf741d286546f68c60b06fdb087a5fa6",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "0b17d309231f90876d975318c1bb73ec42f37dd37ea4ad7cb5ada5a282310f0b",
+      "tool_session": "47846",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.6049201329951757
+    },
+    "focused-SDK-bundle-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 2,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 0,
+      "combined_peak_RSS_bytes": 929034240,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "c5691a0f6e0d3c104ba3bb9c9b5a562495aa42c6789cd81542b04b804e3947fb",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2357,
+      "source_pins_sha256": "a3a04d89a93818ef5e5a8b4867f2b8b39f7298017b73fa142fbfcdf4de8be91b",
+      "source_preserved": true,
+      "started_sha256": "eb75ac9a6ed2ffaa16ac0e09b478e19ecff34d2a3f6dced761575bd714416e88",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "8d4a7a49e299ec0cb2387e007fa92da72e35707d510930b4a52d583ad670de90",
+      "tool_session": "47120",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.5968804060030379
+    },
+    "focused-browser-connection-red-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 4,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 1,
+      "combined_peak_RSS_bytes": 947089408,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "10430d4abdbd108757550247ef54aa526417db51010e4fcac2d0bf16fe54e830",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 144064512,
+      "source_count": 2357,
+      "source_pins_sha256": "ba82c200f9f7f567562b570e19c99fe3f935da617f0cff65909b36bf8f7ea967",
+      "source_preserved": true,
+      "started_sha256": "008f180e05f73513ee67cae198a0f97a6a0601ca1d38cf8d9d83c0ecd20f9a32",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "373be51dcf789a7993f3f2e7ce030669940d81a2a1e5e3c93efcb29f64ab99a7",
+      "tool_session": "39550",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 1.1044650580006419
+    },
+    "focused-browser-connection-red-v2": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 7,
+      "actual_child_exit": -15,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 1,
+      "combined_peak_RSS_bytes": 1084186624,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "6e97e493b5882a6370ae36d0f1821be681cbbb4ba45d44880dbf554c6b1a58a9",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": "RSS_limit",
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 142966784,
+      "source_count": 2357,
+      "source_pins_sha256": "ba82c200f9f7f567562b570e19c99fe3f935da617f0cff65909b36bf8f7ea967",
+      "source_preserved": true,
+      "started_sha256": "cc94e2d61fbbf5134be2b8079b2837d6a667804aeeff7dd87858cd12828dddbf",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "c1a4e4f48858821ba485fc581d382ed07c1ab3b465113b8dde019ca7019f2236",
+      "tool_session": "15526",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 1.75533554499998
+    },
+    "focused-browser-connection-reference-green-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 1,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 1,
+      "combined_peak_RSS_bytes": 827154432,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "5118a9ba03403b92abc203777e01225a1941f5ded5ade5de44b695ab19e6b569",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2357,
+      "source_pins_sha256": "df7cf250f1b0512489763058c78020901fcb3a61f9cbba53da23b94bdab32215",
+      "source_preserved": true,
+      "started_sha256": "d0c9051a7e4ce9bbe3ec2a37f781d8c482aa0ba5db9dc7605f48b6a234b3bc54",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "5868c5960744a1bde2e6a8b0f4420e14278c105b69bf69419e6378020b92e694",
+      "tool_session": "18690",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.330902811998385
+    },
+    "focused-browser-connection-reference-green-v2": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 5,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 1,
+      "combined_peak_RSS_bytes": 1092988928,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "b9f68b06811863fe09ce754586eb11191594e2bccea2962b9f5d6da61fa81a0a",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": "RSS_limit",
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 168042496,
+      "source_count": 2357,
+      "source_pins_sha256": "df7cf250f1b0512489763058c78020901fcb3a61f9cbba53da23b94bdab32215",
+      "source_preserved": true,
+      "started_sha256": "39747a18cd9646c7c40cefbb0834a58ba4376a61147bb57e4199e90ce0e3b2eb",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "e2a8d8fe7da56be317948ec380258a3b75b186b6027fd73cb272a3f1fa8251d3",
+      "tool_session": "22387",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 1.2199897190002957
+    },
+    "focused-entry-reference-bundle-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 2,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 0,
+      "combined_peak_RSS_bytes": 922734592,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "cf5c2eddb3691ccb1d463cdbd4593f22729d1b57b0b2937d949783e53ab42b49",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2357,
+      "source_pins_sha256": "df7cf250f1b0512489763058c78020901fcb3a61f9cbba53da23b94bdab32215",
+      "source_preserved": true,
+      "started_sha256": "e5032d28fc024dab77ee9a30ca7abea2ad74f9292e591eba90261861d2c65bc6",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "cd3cb78cdbe639616a97a8a19fcfa21a7e09342a9b0002f818767c7701b497ea",
+      "tool_session": "56065",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.6056319089984754
+    },
+    "focused-status-HTTP-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 1,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "actual_guard_exit": 0,
+      "combined_peak_RSS_bytes": 822530048,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "5a9d95cc9d412f403b2549562ac7ca2e1c433c5803bb7afd67bfbe078dc48cd4",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2359,
+      "source_pins_sha256": "fa56372e325c5264b4af234755f66f66babb6d9dfd0cc302d0044a60fcb535b7",
+      "source_preserved": true,
+      "started_sha256": "23e3c773a71b7998a495e29d86816e02a4f89314258b6a1f361667e1fe33d909",
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "aea88b8e357ffa92895b37b0cc265256d90595be199b3d58ee3aab0c7465002e",
+      "tool_session": "87697",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.33096934801142197
+    }
+  },
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "native_context_timestamp": "2026-10-17T05:27:17.269Z",
+    "raw_turn_context_sha256": "370fbb10f70e3ac6a099fe1cf43557997a08ce52c6dc24d7267e052f8c0cfff1",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+  },
+  "new_solar_user_deployed": false,
+  "next_development": "S2a typed Solar saved viewer/recorded-wire regression; first recover current connection-fix CI terminal.",
+  "owned_observer_helper_sha256": "4b28fa12d98bf624687d22a8857894ec2ec4f88b3a2bf34d9bbf13f4f8bdf2a2",
+  "parent_holds": [
+    "S1b actual SDK/current HTTPS",
+    "S2a saved viewer development",
+    "S2b actual HTTPS/stored WebGL",
+    "S3 unpaused running WebGL",
+    "S4 user activation/restart",
+    "whole repository CI",
+    "real data/prediction/recommendation gates"
+  ],
+  "private_actor_scope_note": "Current checkpoint source hashes are not retrospective hashes of every earlier mutable controller/config revision; immutable started/terminal/source pins and explicit actor variants describe each attempt.",
+  "real_farm_Runs": 0,
+  "recorded_at": "2026-10-17T06:04:48.615836+00:00",
+  "reporter_commit": "64217ec9e91e927c0eaf02737e5e7e4261eb956c",
+  "rights_or_gate_approval": false,
+  "source_sha256": {
+    ".github/workflows/web-tests.yml": "d542a23f6375b198a258905fe6fba3528c10f5c60fb1eafd2cb42e369bba3408",
+    "web/e2e/connection-entry.spec.ts": "f0a9352024e18140d5e291f55ea9ae06a0502bbc128acdfff88931cb6dabce5e",
+    "web/e2e/connection-fixture.ts": "c57ea63f1f77e09370cc1591bd27ff80778deed9bcad0475e154bf2c8dc823a8"
+  },
+  "unadopted_SDK_bundle_bytes": 288221,
+  "unadopted_SDK_bundle_sha256": "7d9837d99f7f6f9e18be17cfcb5ba2e4a3078b8a662d2ec151556216633f689b",
+  "unadopted_native_test_sources": {
+    "backend/tests/test_web_crop_greenhouse_solar_native.py": {
+      "private_copy": "candidate-native-test-v3.py",
+      "sha256": "c12ecbead0c558e2fb878ab9e8e15ab2855c0c1788cc99e7804acb3d5decbd07"
+    },
+    "web/e2e/greenhouse-solar-native-client.ts": {
+      "private_copy": "candidate-native-client.ts",
+      "sha256": "fc10e3a8f23da0332e075692ac4d6d092d2e91f6480f9980fc4c2d3cf9f07e55"
+    }
+  }
+}
