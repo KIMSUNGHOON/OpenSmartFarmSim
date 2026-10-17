@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**독립 일사 계산 후속 — 2026-10-17:** [원 종료 뒤 저장 metadata](../research/crop-solar-unpaused-postmortem-20261017.md)를 수집한다. 잠금 수정13검사는 통과했으나 원 정상은381.069초/원360초 계산 상한으로 미완료다. actor를 계측하지 않는 수집4검사·원 로직/해시/상한 불변을 확인했고 CI39039991262는380.771초로 미완료였다. 종료 뒤 DB에서attempt1/simulating·18/64·yielded를 관찰했고 다음은 실제 등록 조회 비용 분리다. 정상·WSL 용량·계산 중3D·새 Solar/실제 자료·관문은 미완료이며 goal active·전체 완료일 미정이다.
+**독립 일사 계산 후속 — 2026-10-17:** [현재 권한 감사 query](../research/runtime-role-matrix-implementation-20261017.md)를 고유54검사로 수용했다. 등록 조회21감사의 반환24,024→0행·같은 DB paired 중앙값 약12.24% 감소를 관측했다. 직전 원 독립 실행은18/64에서 미완료였고 다음은 원 조건의 정상 재검증이다. 전체 처리량·S3/S4·WSL 용량·계산 중3D·새 Solar/실제 자료·관문은 미완료이며 goal active·전체 완료일 미정이다.
 
 **현재 저장3D 호스팅 기능 수용 — 2026-10-17:** [정상/보류 실제 연결·권리·재접속/정리](../research/crop-solar-current-webgl-verification-20261017.md)를 수용했다. 로컬 동시 용량·S2b/부모·S3/S4·새 Solar 배포·제품 관문과 전체 완료일은 미완료/미정이다. 아래 기록은 당시 상태다.
 

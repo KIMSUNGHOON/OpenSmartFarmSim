@@ -1,5 +1,10 @@
 # 첫 구현 작업 목록
 
+- [x] **`runtime-role-matrix-query`** — [현재 감사 전송량과 비용](../research/runtime-role-matrix-implementation-20261017.md), source9144809.
+  새12/기존 역할·로그인39/Solar 결과·권리3의 고유54검사를 통과했다. 실제21감사·24,024→0행,
+  같은 DB의 paired21감사 중앙값0.405311→0.355695초다. 다음은 원 독립64단계 정상이다.
+  컴포넌트12.24% 관측으로 전체 처리량·S3/S4·WSL 용량·관문을 수용하지 않는다.
+
 - [x] **`crop-solar-failed-checkpoint-metadata`** — [종료 뒤 실제 저장 metadata](../research/crop-solar-unpaused-postmortem-20261017.md).
   원 정상381.069초·두 actor -15의 미완료를 보존한다. actor/계산을 바꾸지 않는 수집4검사·원 로직/해시/상한 불변 통과.
   sourcec757a95/CI39039991262는380.771초로 미완료다. 종료 뒤same-cluster Read Only/Repeatable Read에서attempt1/simulating·18/64·yielded를 대사했다. 정상 수용은 아니며 다음은 실제 등록 조회 비용 분리다.

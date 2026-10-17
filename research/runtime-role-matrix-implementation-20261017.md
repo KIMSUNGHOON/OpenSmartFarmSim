@@ -4,6 +4,8 @@
 [기계 증거](artifacts/runtime-role-matrix-implementation-20261017.json) ·
 [직전 원 실행의 실제18/64](crop-solar-unpaused-postmortem-20261017.md).
 
+구현 source: `914480987233bb67255a819529f9ad285928a357`.
+
 ## 실제 비용과 변경
 
 실제 Solar fixture의 farm 등록 조회 한 번을 계측했다. 첫 조회는0.514초였으며
@@ -41,6 +43,8 @@ owner/역할·멤버십/DDL/sequence/routine/default/추가 ACL 검사와 정책
 모든 실행에서 원5root·원2,148항목·frozen source/assets·두 UI·512MiB/PID/합1GiB,
 감독FD4→4·소유 비좀비/PG/임시/passfile0을 보존했다. 실제 역할/namespace 정리를 확인했다.
 현재 backend/browser 전체 회귀는 실행하지 않았다.
+원 actor 해시는65200:0에서 재대사했다. 첫 helper 실행은 system Python의psycopg 누락으로 실패했고,
+잠금 backend venv로 교정한 감독 실행이 통과했다. application 실패나 수용 검사로 집계하지 않는다.
 
 ## 검토와 다음
 

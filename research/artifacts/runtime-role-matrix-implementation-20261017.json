@@ -6,6 +6,50 @@
     "new_current_matrix": 12,
     "normal_hold_and_late_rights_solar_query": 3
   },
+  "actor_preflight": {
+    "actor_sha256": {
+      "api": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+      "worker": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6"
+    },
+    "actual_tool": "65200:0",
+    "corrected_interpreter": "locked_backend_venv",
+    "first_attempt": {
+      "exception_type": "ModuleNotFoundError",
+      "exit_code": 1,
+      "interpreter": "system_python",
+      "missing_module": "psycopg"
+    },
+    "raw_terminal_sha256": "eb85995c76a25d5932a51a045e81c277fde66fa4a80551cc3405522a6a3cbf08",
+    "result": {
+      "RSS_samples": 5,
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 927436800,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "28a977387d6139337b73f091891b34ac9d6473720482c731ac5ce6aa5e222231",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 143671296,
+      "source_count": 2423,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 1.3813857279892545
+    }
+  },
   "actual_farm_Runs": 0,
   "changed_application_files": [
     "backend/app/runtime_roles.py"
@@ -412,7 +456,7 @@
       "query_database_unchanged": true
     }
   },
-  "source_commit": null,
+  "source_commit": "914480987233bb67255a819529f9ad285928a357",
   "stages": {
     "focused-farm-read-profile-v1": {
       "actual_tool": "36683:0",
