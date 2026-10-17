@@ -1,6 +1,6 @@
 # 후보 범위의 현재 보류 보고서·판단 맥락 읽기 v1
 
-상태: [현재 GET 계측과 RED 재현](../research/crop-solar-native-HTTP-allocation-20261017.md). 제품 미구현·미채택.
+상태: [컴포넌트와 로컬 S1b 수용](../research/crop-market-held-context-reader-implementation-20261017.md),6004735. 고유141·현재4반복·실제 SDK 정상/hold를 통과했다. 새 DOM/WebGL/배포·전체 CI·G0–G4 수용은 아니다. 아래 기준은 구현 전 고정한 범위다.
 [이전 reader 개선](crop-solar-shared-market-reader-v1.md)의 고유92검사 수용을 유지한다.
 
 ## 작은 구현 경계

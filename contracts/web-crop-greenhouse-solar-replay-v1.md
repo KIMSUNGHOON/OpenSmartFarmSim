@@ -3,12 +3,12 @@
 상태: [S1a 수용](../research/crop-greenhouse-solar-web-client-implementation-20261017.md).
 원 HTTPS6응답·로컬 회귀424검사와 hosted 전체 타입/단위/build/audit를 확인했다.
 로컬 전체 TypeScript의 합 RSS 관문은 미통과이며 호스팅 증거를 WSL 용량 수용으로 바꾸지 않는다.
-[S2a 기록 화면/회귀 수용](../research/crop-greenhouse-solar-saved-web-implementation-20261017.md)을 추가했다. S1b/S2부모/S2b/S3/S4는 미수용이다. 계산/공개 응답의 선행은
+[S2a 기록 화면/회귀 수용](../research/crop-greenhouse-solar-saved-web-implementation-20261017.md)을 추가했다. S1b는 아래 로컬 실제 연결로 수용했으며 S2부모/S2b/S3/S4는 미수용이다. 계산/공개 응답의 선행은
 [결과 조회](crop-greenhouse-solar-current-query-v1.md)와
 [보호 HTTP](api-crop-greenhouse-solar-route-v1.md)다.
 [제품 명세](../docs/PROJECT_SPEC.md#7-순서와-의존성)의 저장→3D 경로를 작은 자식으로 나눈다.
 
-**현재 S1b 후속:** [실제 GET 계측](../research/crop-greenhouse-solar-sdk-read-allocation-20261017.md) 뒤 [같은 신원 읽기 연결 후보](crop-solar-shared-market-reader-v1.md)의 적합성/보안 회귀를 [고유92검사로 수용](../research/crop-solar-shared-market-reader-implementation-20261017.md)했다. 실제 SDK 전체 동시 수용은 남았다. SDK 누적7회는 RSS hold이며 경제 참조 재검증을 작물/CLI0과 구분한다. [추가 실제 GET/RED](../research/crop-solar-native-HTTP-allocation-20261017.md) 뒤 다음은 [현재 보류/판단 맥락 reader](crop-market-held-context-reader-v1.md)이며 미구현이다.
+**현재 S1b 수용:** [현재 reader/실제 SDK 정상·hold](../research/crop-market-held-context-reader-implementation-20261017.md)를 소유 합성 자료·로컬 애플리케이션 HTTPS 범위로 수용했다. 현재 GET의 연결186/동시1·경제 참조20회를 확인했다. 이전7회 RSS hold 이력과 별도 S3 동시 실행 보류는 유지한다. 다음은 S2b 실제 현재 HTTPS→저장 WebGL이며 S2부모/S2b/S3/S4·새 Solar 배포·G0–G4는 미완료다.
 
 ## S1a — 저장 응답 해석기와 요청 클라이언트
 

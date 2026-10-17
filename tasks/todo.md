@@ -1,6 +1,6 @@
 # 첫 구현 작업 목록
 
-전체 목표는 active다. **현재 SDK 할당·후속 읽기 범위 — 2026-10-17:** [성공 HTTP 분리/실제 GET·RED](../research/crop-solar-native-HTTP-allocation-20261017.md)를 기록했다. 기존 reader92검사 수용을 유지하며 현재 GET2건의 연결306/동시2·경제 참조 계산20회를 확인했다. 시험 Node 옵션은 분리 효과가 있었지만 실제 SDK는 누적7회 RSS hold로 미채택이다. 다음은 같은 신원의 보류/판단 맥락 reader 재사용이며 RED만 확보했다. S1b/S2b/S3/S4·새 Solar 배포/실제 자료·관문·전체 완료일은 미완료/미정, 원5root/두 UI/한도·goal active를 유지한다. 아래 기록은 당시 상태다.
+전체 목표는 active다. **현재 보류/판단 맥락 reader·실제 SDK 수용 — 2026-10-17:** [구현/고유141검사·현재4반복·정상/hold SDK](../research/crop-market-held-context-reader-implementation-20261017.md)를 로컬 소프트웨어 범위로 수용했다. 실제 GET2건 연결306→186/동시2→1·경제 참조20회 보존을 확인했다. 다음은 S2b 실제 현재 HTTPS→저장 WebGL이다. S3 독립 동시 실행/계산 중3D·S4 사용자 적용·새 Solar 배포/전체 CI/실제 자료·관문은 미완료다. 원5root/두 UI/원본/한도와 goal active·전체 완료일 미정을 유지한다. 아래 기록은 당시 상태다.
 
 ## 현재 실행 복구와 시험 정리 수정 — 2026-10-09
 
@@ -1820,9 +1820,9 @@
                 - [ ] **독립 실행의 실제 동시 RSS 수정·전체 수용** — 새 원인/할당 근거가 있을 때만 작은 수정을 선택한다. 원 타입/단위·권리/역할 감사/소유권/5root/한도를 유지한 집중 회귀와 실제 정상/hold/취소·전진 prefix/원 UTC/최종 결과·동시 자원이 수용 기준이다. 동일 실패 조건의 근거 없는 재기동이나 미채택 후보의 조합으로 부모를 완료하지 않는다.
           - [ ] **solar typed 웹·같은 UTC3D** — [저장/실행 중 분리 계약](../contracts/web-crop-greenhouse-solar-replay-v1.md). 해당 결과 API를 선행으로 저장용 웹 개발을 시작한다. 저장/실행 중 장면과 실제 자원·권리·재접속을 모두 수용해야 부모를 완료한다.
             - [x] **S1a 저장 응답 해석기/요청 클라이언트** — [수용](../research/crop-greenhouse-solar-web-client-implementation-20261017.md). 원6응답·새156/기존268=424검사와 hosted 전체 타입/단위/build/audit. 로컬 compiler0/guard1은 RSS 미수용으로 남긴다. 원 정상/hold 공개 응답 확보·108상태/41·6장부/15수지·PAR/NIR·관리·단위/UTC와 닫힌 타입/페이지/판본·혼합/변조 거부·취소/오류, TypeScript/기존 회귀. 기록 원문 해석과 실제 HTTPS의 증거 범위를 구분한다.
-            - [ ] **S1b 현재 SDK/HTTPS** — [읽기 개선/실제 SDK 보류](../research/crop-solar-shared-market-reader-implementation-20261017.md): 정상 SDK 누적7회 RSS hold, hold SDK 미실행. 읽기 컴포넌트는 아래처럼 수용했으나 실제 SDK 전체는 미수용이다. [추가 GET 계측/RED](../research/crop-solar-native-HTTP-allocation-20261017.md) 뒤 다음은 보류/판단 맥락 reader 재사용이다. 같은 실패를 근거 없이 반복하지 않는다. 정상/hold·원 선택자/페이지/참조·값/단위/UTC·현재/직렬화 후 권리·계정/판본·취소/전송 정리·원본/5root/두 UI/한도를 수용해야 한다.
-              - [x] **같은 신원 원천/후보 읽기 연결** — [컴포넌트 수용](../research/crop-solar-shared-market-reader-implementation-20261017.md), fce9009. 고유92·현재 checkout 반복3검사, 적합 scope1reader/불적합 기존2·동일 Decimal/원 검사/권리/변조/실제 SQL identity/동시/소유 정리를 확인했다. native SDK 동시 실행은 RSS hold로 S1b를 완료하지 않는다.
-              - [ ] **현재 보류 보고서/판단 맥락의 동일 신원 reader** — [계약](../contracts/crop-market-held-context-reader-v1.md). 실제 GET의 중첩120연결을 확인했고 별도 RED에서 값/Decimal/원 검증 순서는 같지만 추가 hold3/context6이 남았다. 정확한 결속·현재 권리/서명/원 행·변조·역할/동시/정리·기존 회귀와 새 GET 계측을 통과해야 컴포넌트를 수용한다. S1b 조건은 유지한다.
+            - [x] **S1b 현재 SDK/HTTPS** — [로컬 소프트웨어 수용](../research/crop-market-held-context-reader-implementation-20261017.md). 고유141·현재4반복, 실제 SCRAM/TLS/독립 producer/native SDK 정상·hold의 원 값/단위/UTC·페이지·현재/직렬화 후 권리·계정/판본·취소/전송·원본/5root/두 UI/한도를 통과했다. 시험 설정/사설 실행기를 제품 runtime이나 전체 CI/운영 용량 증거로 채택하지 않는다. 이전7회 RSS hold와 별도 S3 보류는 유지한다.
+              - [x] **같은 신원 원천/후보 읽기 연결** — [기존 수용](../research/crop-solar-shared-market-reader-implementation-20261017.md),fce9009. 후속 current hold/context와 원 값·권리·소유 계약을 유지한다.
+              - [x] **현재 보류 보고서/판단 맥락의 동일 신원 reader** — [컴포넌트 수용](../research/crop-market-held-context-reader-implementation-20261017.md),6004735. 새49/기존92·현재4반복, 같은 Decimal/원 검증·현재 권리/서명/committed 변조·실제 role/session·동시/소유 정리, 실제 GET 연결306→186/동시2→1·경제 참조20회 보존과 SDK 정상/hold를 확인했다.
             - [ ] **S2 같은 UTC 저장3D** — 개발은 S1a/원 응답, 실제 연결 수용은 S1b를 선행으로 나눈다. 부모 완료 조건은 유지한다.
               - [x] **S2a 저장 화면 개발/기록 회귀** — [기록 응답 소프트웨어 수용](../research/crop-greenhouse-solar-saved-web-implementation-20261017.md): Solar14/전체243브라우저·1,864단위·타입/build/audit, 원 UTC·50구획/장부/PAR/NIR·관리·보류/빈 상태·선택/계정/취소/권리·지연 응답 제거·실제 WebGL/원 PNG·원 디자인 대조. 실제 HTTPS/WSL 브라우저 용량·최종 디자인/사용자 배포는 별도다.
               - [ ] **S2b 실제 현재 HTTPS→저장 WebGL** — 선행 S1b/S2a. 원 선택자/페이지/원 값/UTC와 실제 WebGL·현재 권리/거부 시 제거·재접속·두 UI/원본/자원을 확인한다. 기록 응답 시험으로 대체하지 않는다.

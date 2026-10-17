@@ -271,3 +271,5 @@ stdin은 서버가 생성한 버전 고정 지시문과 `tenant_id/job_id`, 좌�
 ## 같은 신원 원천/후보 reader — 2026-10-17
 
 [좁은 읽기 프로토콜](../contracts/crop-solar-shared-market-reader-v1.md)은 동일한 typed facade/store·DSN/schema/policy/provider의 source-owned connection만 후보 scope에 제공한다. source/candidate ContextVar·현재 행/권한/역할·transaction/pointer를 보존하며 source만 close/commit한다. 다른 구성은 기존 별도 연결이다. [구현 증거](../research/crop-solar-shared-market-reader-implementation-20261017.md)는 scoped software 수용이며 SDK/worker/3D의 동시 용량과 사용자 배포는 후속이다.
+
+현재 후보 범위의 [보류/판단 맥락 reader](../contracts/crop-market-held-context-reader-v1.md)는 같은 신원 source-owned connection을 기존 private transaction reader에 빌려 현재 서명/행/범위를 검증한다. [고유141검사·로컬 실제 SDK 정상/hold](../research/crop-market-held-context-reader-implementation-20261017.md)를 수용했으며 새 저장 WebGL/실행 중3D·배포/운영 용량은 후속이다.

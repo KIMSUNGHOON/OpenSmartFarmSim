@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**현재 SDK 할당·후속 읽기 범위 — 2026-10-17:** [성공 HTTP 분리/실제 GET·RED](../research/crop-solar-native-HTTP-allocation-20261017.md)를 기록했다. 기존 reader92검사 수용을 유지하며 현재 GET2건의 연결306/동시2·경제 참조 계산20회를 확인했다. 시험 Node 옵션은 분리 효과가 있었지만 실제 SDK는 누적7회 RSS hold로 미채택이다. 다음은 같은 신원의 보류/판단 맥락 reader 재사용이며 RED만 확보했다. S1b/S2b/S3/S4·새 Solar 배포/실제 자료·관문·전체 완료일은 미완료/미정, 원5root/두 UI/한도·goal active를 유지한다. 아래 기록은 당시 상태다.
+**현재 보류/판단 맥락 reader·실제 SDK 수용 — 2026-10-17:** [구현/고유141검사·현재4반복·정상/hold SDK](../research/crop-market-held-context-reader-implementation-20261017.md)를 로컬 소프트웨어 범위로 수용했다. 실제 GET2건 연결306→186/동시2→1·경제 참조20회 보존을 확인했다. 다음은 S2b 실제 현재 HTTPS→저장 WebGL이다. S3 독립 동시 실행/계산 중3D·S4 사용자 적용·새 Solar 배포/전체 CI/실제 자료·관문은 미완료다. 원5root/두 UI/원본/한도와 goal active·전체 완료일 미정을 유지한다. 아래 기록은 당시 상태다.
 
 **현재 일사 접수 계측·저장3D 의존성 — 2026-10-17:** [실제 분리 계측과 후보 제외](../research/crop-greenhouse-solar-admission-allocation-20261017.md)를 기록했다. 실제 API POST/독립 작업 선택·임대 진단은 통과했고 세 연결 수명 후보의 동시 실행은 RSS hold로 미채택이다. [저장 응답 클라이언트](../contracts/web-crop-greenhouse-solar-replay-v1.md)의 개발 선행을 수용된 결과 API로 분리했으며 다음은 S1a다. 실행 중3D/사용자 적용 부모·전체 CI·실제 자료/생산/경제/추천은 미수용이다. 원5root/두 UI/원본/한도·goal active와 전체 완료일 미정을 유지한다.
 

@@ -1,0 +1,1316 @@
+{
+  "G0_G4": "not_assessed",
+  "S1a_accepted": true,
+  "S1b_local_software_accepted": true,
+  "S2a_recorded_software_accepted": true,
+  "S2b_accepted": false,
+  "S3_accepted": false,
+  "S4_accepted": false,
+  "actual_GET": {
+    "SDK": false,
+    "actual_SCRAM": true,
+    "connection_callers": [
+      {
+        "count": 33,
+        "owner": "JobStore",
+        "view": "samples"
+      },
+      {
+        "count": 10,
+        "owner": "MarketHoldStore",
+        "view": "samples"
+      },
+      {
+        "count": 10,
+        "owner": "MarketSourceStore",
+        "view": "samples"
+      },
+      {
+        "count": 40,
+        "owner": "ThermalRunStore",
+        "view": "samples"
+      },
+      {
+        "count": 33,
+        "owner": "JobStore",
+        "view": "summary"
+      },
+      {
+        "count": 10,
+        "owner": "MarketHoldStore",
+        "view": "summary"
+      },
+      {
+        "count": 10,
+        "owner": "MarketSourceStore",
+        "view": "summary"
+      },
+      {
+        "count": 40,
+        "owner": "ThermalRunStore",
+        "view": "summary"
+      }
+    ],
+    "crop_CLI_SQL_hooks": {
+      "CLI": 0,
+      "NIR": 0,
+      "PAR": 0,
+      "RHS": 0,
+      "SQL_writes": 0,
+      "advance": 0,
+      "event": 0,
+      "prepare_binding": 0,
+      "prepare_context": 0,
+      "restore": 0,
+      "solar": 0,
+      "start": 0,
+      "step": 0,
+      "ventilation": 0
+    },
+    "economic_calculate_calls": {
+      "samples": 10,
+      "summary": 10
+    },
+    "hold_store_binding": {
+      "same_DSN": true,
+      "same_principal_provider": true,
+      "same_runtime_kind": true,
+      "same_runtime_policy_object": true,
+      "same_schema": true,
+      "types": [
+        "_MarketSources",
+        "MarketSourceStore",
+        "MarketHoldStore",
+        "ThermalRunStore"
+      ]
+    },
+    "instrumentation_overhead_included": true,
+    "max_open_connections_by_psycopg_hooks": 1,
+    "physical_connection_opens": 186,
+    "profiles": [
+      {
+        "RSS_after": 145633280,
+        "RSS_before": 116985856,
+        "active_count_after": 0,
+        "top_live": [
+          {
+            "bytes": 100836,
+            "count": 1640,
+            "file": "http-verifier.private.py",
+            "line": 215
+          },
+          {
+            "bytes": 97200,
+            "count": 819,
+            "file": "rows.py",
+            "line": 121
+          },
+          {
+            "bytes": 81904,
+            "count": 1464,
+            "file": "encoder.py",
+            "line": 258
+          },
+          {
+            "bytes": 73968,
+            "count": 1067,
+            "file": "_queries.py",
+            "line": 103
+          },
+          {
+            "bytes": 61296,
+            "count": 1277,
+            "file": "_encodings.py",
+            "line": 87
+          },
+          {
+            "bytes": 45616,
+            "count": 682,
+            "file": "_cursor_base.py",
+            "line": 514
+          },
+          {
+            "bytes": 35136,
+            "count": 329,
+            "file": "_preparing.py",
+            "line": 157
+          },
+          {
+            "bytes": 34800,
+            "count": 465,
+            "file": "array.py",
+            "line": 138
+          },
+          {
+            "bytes": 34048,
+            "count": 608,
+            "file": "_preparing.py",
+            "line": 56
+          },
+          {
+            "bytes": 31200,
+            "count": 260,
+            "file": "crop_cycle_input_stream.py",
+            "line": 49
+          },
+          {
+            "bytes": 30403,
+            "count": 1,
+            "file": "api_crop_greenhouse_solar_replay.py",
+            "line": 475
+          },
+          {
+            "bytes": 25200,
+            "count": 378,
+            "file": "array.py",
+            "line": 126
+          },
+          {
+            "bytes": 23550,
+            "count": 471,
+            "file": "economic_contracts.py",
+            "line": 22
+          },
+          {
+            "bytes": 17754,
+            "count": 355,
+            "file": "http_identity.py",
+            "line": 25
+          },
+          {
+            "bytes": 17480,
+            "count": 46,
+            "file": "_preparing.py",
+            "line": 52
+          },
+          {
+            "bytes": 17480,
+            "count": 46,
+            "file": "_connection_base.py",
+            "line": 118
+          }
+        ],
+        "traced_live": 1075257,
+        "traced_peak": 10939212,
+        "view": "summary"
+      },
+      {
+        "RSS_after": 148250624,
+        "RSS_before": 145735680,
+        "active_count_after": 0,
+        "top_live": [
+          {
+            "bytes": 99068,
+            "count": 1626,
+            "file": "http-verifier.private.py",
+            "line": 215
+          },
+          {
+            "bytes": 97528,
+            "count": 826,
+            "file": "rows.py",
+            "line": 121
+          },
+          {
+            "bytes": 91536,
+            "count": 1636,
+            "file": "encoder.py",
+            "line": 258
+          },
+          {
+            "bytes": 76320,
+            "count": 1109,
+            "file": "_queries.py",
+            "line": 103
+          },
+          {
+            "bytes": 61488,
+            "count": 1281,
+            "file": "_encodings.py",
+            "line": 87
+          },
+          {
+            "bytes": 45400,
+            "count": 678,
+            "file": "_cursor_base.py",
+            "line": 514
+          },
+          {
+            "bytes": 39648,
+            "count": 374,
+            "file": "_preparing.py",
+            "line": 157
+          },
+          {
+            "bytes": 36064,
+            "count": 644,
+            "file": "_preparing.py",
+            "line": 56
+          },
+          {
+            "bytes": 34800,
+            "count": 465,
+            "file": "array.py",
+            "line": 138
+          },
+          {
+            "bytes": 32400,
+            "count": 270,
+            "file": "crop_cycle_input_stream.py",
+            "line": 49
+          },
+          {
+            "bytes": 25200,
+            "count": 378,
+            "file": "array.py",
+            "line": 126
+          },
+          {
+            "bytes": 23327,
+            "count": 1,
+            "file": "api_crop_greenhouse_solar_replay.py",
+            "line": 475
+          },
+          {
+            "bytes": 22450,
+            "count": 449,
+            "file": "economic_contracts.py",
+            "line": 22
+          },
+          {
+            "bytes": 19760,
+            "count": 52,
+            "file": "_preparing.py",
+            "line": 52
+          },
+          {
+            "bytes": 19760,
+            "count": 52,
+            "file": "_connection_base.py",
+            "line": 118
+          },
+          {
+            "bytes": 18104,
+            "count": 362,
+            "file": "http_identity.py",
+            "line": 25
+          }
+        ],
+        "traced_live": 1100668,
+        "traced_peak": 11056029,
+        "view": "samples"
+      }
+    ],
+    "raw_sha256": "cbaef55e3bb7a62b5ddbf3b8496a37b6531b50cb21a63c4e2840597d4db4f481",
+    "replies": {
+      "samples": {
+        "HTTP": 200,
+        "bytes": 23294,
+        "sha256": "1c4853e3b9da7b562d7b4d0ecb6ebffe006f594f03d7b1e8bc159fa20539170b"
+      },
+      "summary": {
+        "HTTP": 200,
+        "bytes": 30370,
+        "sha256": "0da304cf73d3e9d9205f7d726207b3e7d45ab50b44df4f9d469036dfb5d92f65"
+      }
+    },
+    "verified_TLS": true
+  },
+  "actual_SDK": {
+    "completed": {
+      "FD_before_after": [
+        3,
+        3
+      ],
+      "G0_G4": "not_assessed",
+      "acceptance_scope": "owned local synthetic application HTTPS, not deployed farm or G4 capacity",
+      "actual_TypeScript_SDK": true,
+      "actual_crop_Runs": 0,
+      "actual_in_flight_HTTP_cancel_drained": true,
+      "actual_limit_one_pages": true,
+      "actual_scram": true,
+      "actual_server_stopped_transport_failure_withheld": true,
+      "calls": {
+        "CLI": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "SQL_writes": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "counts_unchanged": true,
+      "current_and_post_serialization_rights_withheld": true,
+      "held_context_reader_observed": true,
+      "native_fetch_response_mocked": false,
+      "node_exit_codes": [
+        0,
+        0
+      ],
+      "node_processes": 2,
+      "node_runtime_args": [
+        [
+          "--max-old-space-size=64",
+          "--max-semi-space-size=1",
+          "--liftoff-only"
+        ],
+        [
+          "--max-old-space-size=64",
+          "--max-semi-space-size=1",
+          "--liftoff-only"
+        ]
+      ],
+      "original_response_bytes_values_units_UTC": true,
+      "owned_shared_buffers_actual": "1MB",
+      "raw_sha256": "abc7ea324649d4a9ef093b5165f648e29a4f930c2c49f738b03c9f85bbb1fc58",
+      "replies": [
+        {
+          "HTTP_statuses": [],
+          "error": {
+            "code": "network_unresolved",
+            "status": null
+          },
+          "id": "request-1"
+        },
+        {
+          "HTTP_count": 1,
+          "id": "request-2",
+          "pages": 1,
+          "view": "summary",
+          "wire_sha256": [
+            "3f983cb590fecea1e6fabd765310713326826ebc88f37e6c819d15798246126a"
+          ]
+        },
+        {
+          "HTTP_count": 4,
+          "id": "request-3",
+          "pages": 3,
+          "view": "samples",
+          "wire_sha256": [
+            "09112ecd652e5c34fbccd92d5366e56064bc1a5386c17a69dd54e7acd849c0fc",
+            "9997eee582250a0c6100a45dc5e5a9f7e3068f7db6663fb8298f6c20c8d7d315",
+            "6fcfefec952e8dc423e80acf650340e9ff27ddb7f9eef3f5eaf7ef11bdc1c3fd"
+          ]
+        },
+        {
+          "HTTP_count": 4,
+          "id": "request-4",
+          "pages": 3,
+          "view": "events",
+          "wire_sha256": [
+            "9d8b83c2c6858993f80d0e0e19fba16eb494e66744618991e2d52bb97b717478",
+            "08400cd939a11b2c807230a603cb5739a4f14631e0c26e6bf03023d2a387880c",
+            "4f5231fae5c62308c246d146f4af5fa3a208fdfe528de35f6d70e18b65e1096a"
+          ]
+        },
+        {
+          "HTTP_statuses": [
+            422
+          ],
+          "error": {
+            "code": "invalid_request",
+            "status": 422
+          },
+          "id": "request-5"
+        },
+        {
+          "HTTP_count": 1,
+          "id": "request-6",
+          "pages": 1,
+          "view": "summary",
+          "wire_sha256": [
+            "3f983cb590fecea1e6fabd765310713326826ebc88f37e6c819d15798246126a"
+          ]
+        },
+        {
+          "HTTP_statuses": [
+            422
+          ],
+          "error": {
+            "code": "invalid_request",
+            "status": 422
+          },
+          "id": "request-7"
+        },
+        {
+          "HTTP_count": 1,
+          "id": "request-8",
+          "pages": 1,
+          "view": "summary",
+          "wire_sha256": [
+            "3f983cb590fecea1e6fabd765310713326826ebc88f37e6c819d15798246126a"
+          ]
+        },
+        {
+          "HTTP_statuses": [
+            403
+          ],
+          "error": {
+            "code": "access_denied",
+            "status": 403
+          },
+          "id": "request-9"
+        },
+        {
+          "error": {
+            "code": "not_available",
+            "status": 404
+          },
+          "foreign_tenant_withheld": true,
+          "id": "request-10"
+        },
+        {
+          "HTTP_statuses": [
+            401
+          ],
+          "error": {
+            "code": "auth_required",
+            "status": 401
+          },
+          "id": "request-11"
+        },
+        {
+          "error": {
+            "code": "invalid_request",
+            "status": 422
+          },
+          "foreign_revision_withheld": true,
+          "id": "request-12"
+        },
+        {
+          "HTTP_statuses": [],
+          "error": {
+            "code": "request_canceled",
+            "status": null
+          },
+          "id": "cancel-in-flight"
+        },
+        {
+          "HTTP_count": 1,
+          "id": "request-13",
+          "pages": 1,
+          "view": "summary",
+          "wire_sha256": [
+            "3f983cb590fecea1e6fabd765310713326826ebc88f37e6c819d15798246126a"
+          ]
+        },
+        {
+          "HTTP_statuses": [],
+          "error": {
+            "code": "network_unresolved",
+            "status": null
+          },
+          "id": "request-14"
+        }
+      ],
+      "rights_or_gate_approval": false,
+      "shared_market_reader_observed": true,
+      "status": "completed",
+      "test_Wasm_liftoff_only": true,
+      "test_setup_gc_trim_RSS_before_after": [
+        115453952,
+        115453952
+      ],
+      "untrusted_TLS_withheld": true,
+      "verified_TLS": true
+    },
+    "hold": {
+      "FD_before_after": [
+        3,
+        3
+      ],
+      "G0_G4": "not_assessed",
+      "acceptance_scope": "owned local synthetic application HTTPS, not deployed farm or G4 capacity",
+      "actual_TypeScript_SDK": true,
+      "actual_crop_Runs": 0,
+      "actual_in_flight_HTTP_cancel_drained": true,
+      "actual_limit_one_pages": true,
+      "actual_scram": true,
+      "actual_server_stopped_transport_failure_withheld": true,
+      "calls": {
+        "CLI": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "SQL_writes": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "counts_unchanged": true,
+      "current_and_post_serialization_rights_withheld": true,
+      "held_context_reader_observed": true,
+      "native_fetch_response_mocked": false,
+      "node_exit_codes": [
+        0,
+        0
+      ],
+      "node_processes": 2,
+      "node_runtime_args": [
+        [
+          "--max-old-space-size=64",
+          "--max-semi-space-size=1",
+          "--liftoff-only"
+        ],
+        [
+          "--max-old-space-size=64",
+          "--max-semi-space-size=1",
+          "--liftoff-only"
+        ]
+      ],
+      "original_response_bytes_values_units_UTC": true,
+      "owned_shared_buffers_actual": "1MB",
+      "raw_sha256": "a9863c2590cec822ecf2d3727046a80ba071b8f07c5851297a3b4595f5ed23c4",
+      "replies": [
+        {
+          "HTTP_statuses": [],
+          "error": {
+            "code": "network_unresolved",
+            "status": null
+          },
+          "id": "request-1"
+        },
+        {
+          "HTTP_count": 1,
+          "id": "request-2",
+          "pages": 1,
+          "view": "summary",
+          "wire_sha256": [
+            "2abf99e0f6aff46bebbc1d3d8984fd0d9e28b225fee84a38923de1af3b2bcc71"
+          ]
+        },
+        {
+          "HTTP_count": 3,
+          "id": "request-3",
+          "pages": 2,
+          "view": "samples",
+          "wire_sha256": [
+            "b18509aafe569283838864b2384f463c7e1937f08052069c9f7411a8ba2dc6d2",
+            "cfe22884477ed26900c02c73ca64cbe04057c23f757c8f38c30e1b5587ebf114"
+          ]
+        },
+        {
+          "HTTP_count": 3,
+          "id": "request-4",
+          "pages": 2,
+          "view": "events",
+          "wire_sha256": [
+            "7414f57e54323ee86ce675a457e196d5d872417a2c4e2ca39ea59857021ce230",
+            "83a17d2a6311ad28b2d2454d86c89cc7a0d8efa083bcf8f8199d71486384b0d5"
+          ]
+        },
+        {
+          "HTTP_statuses": [
+            422
+          ],
+          "error": {
+            "code": "invalid_request",
+            "status": 422
+          },
+          "id": "request-5"
+        },
+        {
+          "HTTP_count": 1,
+          "id": "request-6",
+          "pages": 1,
+          "view": "summary",
+          "wire_sha256": [
+            "2abf99e0f6aff46bebbc1d3d8984fd0d9e28b225fee84a38923de1af3b2bcc71"
+          ]
+        },
+        {
+          "HTTP_statuses": [
+            422
+          ],
+          "error": {
+            "code": "invalid_request",
+            "status": 422
+          },
+          "id": "request-7"
+        },
+        {
+          "HTTP_count": 1,
+          "id": "request-8",
+          "pages": 1,
+          "view": "summary",
+          "wire_sha256": [
+            "2abf99e0f6aff46bebbc1d3d8984fd0d9e28b225fee84a38923de1af3b2bcc71"
+          ]
+        },
+        {
+          "HTTP_statuses": [
+            403
+          ],
+          "error": {
+            "code": "access_denied",
+            "status": 403
+          },
+          "id": "request-9"
+        },
+        {
+          "error": {
+            "code": "not_available",
+            "status": 404
+          },
+          "foreign_tenant_withheld": true,
+          "id": "request-10"
+        },
+        {
+          "HTTP_statuses": [
+            401
+          ],
+          "error": {
+            "code": "auth_required",
+            "status": 401
+          },
+          "id": "request-11"
+        },
+        {
+          "error": {
+            "code": "invalid_request",
+            "status": 422
+          },
+          "foreign_revision_withheld": true,
+          "id": "request-12"
+        },
+        {
+          "HTTP_statuses": [],
+          "error": {
+            "code": "request_canceled",
+            "status": null
+          },
+          "id": "cancel-in-flight"
+        },
+        {
+          "HTTP_count": 1,
+          "id": "request-13",
+          "pages": 1,
+          "view": "summary",
+          "wire_sha256": [
+            "2abf99e0f6aff46bebbc1d3d8984fd0d9e28b225fee84a38923de1af3b2bcc71"
+          ]
+        },
+        {
+          "HTTP_statuses": [],
+          "error": {
+            "code": "network_unresolved",
+            "status": null
+          },
+          "id": "request-14"
+        }
+      ],
+      "rights_or_gate_approval": false,
+      "shared_market_reader_observed": true,
+      "status": "hold",
+      "test_Wasm_liftoff_only": true,
+      "test_setup_gc_trim_RSS_before_after": [
+        115253248,
+        115249152
+      ],
+      "untrusted_TLS_withheld": true,
+      "verified_TLS": true
+    }
+  },
+  "actual_farm_Runs": 0,
+  "backend_CI": {
+    "conclusion": "",
+    "databaseId": 39018578815,
+    "headSha": "6004735874efb7e7fad0e864c1440acdc1f16210",
+    "jobs": [
+      {
+        "conclusion": "",
+        "databaseId": 117355629907,
+        "name": "backend-partition-3",
+        "status": "queued"
+      },
+      {
+        "conclusion": "",
+        "databaseId": 117355629982,
+        "name": "backend-partition-1",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": "",
+        "databaseId": 117355630001,
+        "name": "backend-partition-2",
+        "status": "queued"
+      },
+      {
+        "conclusion": "",
+        "databaseId": 117355630040,
+        "name": "backend-partition-4",
+        "status": "queued"
+      },
+      {
+        "conclusion": "",
+        "databaseId": 117355630044,
+        "name": "backend-partition-0",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": "",
+        "databaseId": 117355630052,
+        "name": "backend-partition-5",
+        "status": "queued"
+      }
+    ],
+    "status": "queued",
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39018578815"
+  },
+  "code_review": {
+    "adopted_commit": "6004735874efb7e7fad0e864c1440acdc1f16210",
+    "base": "576a61c2fd06613aec4277b3ea293b556a21c002",
+    "candidate_and_workspace_core_bytes_identical": true,
+    "candidate_commit": "c2e88cec02be780197c9f505e59f3f076c2010f7",
+    "core_sha256": {
+      "backend/app/market_candidate_store.py": "67c44a996cf40d22723109c067fafde4b0282ec4dba4bf9f1f8409a983463eb9",
+      "backend/tests/test_market_held_context_read_scope.py": "d0f05f5f4b2c073573b66e33f6e69d0cfecae1c6920cc3297a523c400cd09857"
+    },
+    "model": "gpt-6.1-sol",
+    "preserved_validation_and_arithmetic_bytes": [
+      "backend/app/economics.py",
+      "backend/app/market_scenario.py",
+      "backend/app/market_hold_store.py",
+      "backend/app/thermal_run_store.py"
+    ],
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "review": "Preserves original economic and hold/context validation bodies; exact trusted source-shared connection and holder/context policy/provider/session binding; current full roles and pre/post rights/signature checks; legacy fallback selected at scope entry; two ContextVars detect replacement and are reset by their original slots; source alone closes. Existing17other candidate methods unchanged.141distinct scoped tests pass; actual SDK/3D capacity and full new-source CI still require evidence.",
+    "review_axes": [
+      "correctness",
+      "readability",
+      "architecture",
+      "security",
+      "performance"
+    ]
+  },
+  "current_hold_SDK_accepted": true,
+  "current_normal_SDK_accepted": true,
+  "existing_cases": 92,
+  "full_backend_CI_accepted": false,
+  "full_product_completion": null,
+  "goal_status": "active",
+  "limits": {
+    "combined_bytes": 1073741824,
+    "nominal_sample_seconds": 0.25,
+    "original_required_roots": 5,
+    "single_PID_bytes": 536870912
+  },
+  "main_repeated_cases": 4,
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "native_context_timestamp": "2026-10-17T08:18:23.205Z",
+    "raw_turn_context_sha256": "8010517de484bd8222d60e525dad60e46eb39c89544771c6aa84df7acca7a957",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+  },
+  "new_browser_DOM_WebGL_executed": false,
+  "new_component_cases": 49,
+  "new_solar_user_deployed": false,
+  "next": "S2b actual current HTTPS→stored WebGL at original values/UTC, current denial removal/reconnect and original roots/UI/resources. S3 requires independent unpaused runtime acceptance; S4 same deployment/restart. Full CI/operating capacity and external farm/data/gates remain separate.",
+  "previous_backend_CI_preserved": 39015742702,
+  "prior_normal_SDK_RSS_holds_historical": 7,
+  "private_driver_sha256": "5a34102c54b4aa92b4eeb2d6edc0c0b5f5d7eb2aa719cd43fc89787ef13147ac",
+  "private_verification_driver_adopted_as_product_runtime": false,
+  "product_Node_or_PG_settings_changed": false,
+  "reader_component_adopted": true,
+  "reader_observation": {
+    "G0_G4": "not_assessed",
+    "actual_farm_Runs": 0,
+    "all_connections_closed_with_actual_password": true,
+    "eligible_connections": {
+      "source": 2
+    },
+    "fallback_connections": {
+      "contexts": 6,
+      "holds": 3,
+      "source": 2
+    },
+    "same_decimal_ledger_and_result_id": true,
+    "same_hold_context_validator_sequence": true,
+    "same_typed_request_scenario_pin": true
+  },
+  "recorded_at": "2026-10-17T08:56:56.037972Z",
+  "remaining_focused_hours": null,
+  "rights_or_gate_approval": false,
+  "schema_version": "market-held-context-reader-implementation-v1",
+  "source_economic_scope_breakdown": {
+    "economic_admission": 19,
+    "new_scope_resolver_contents": 1,
+    "source": 14
+  },
+  "stage_pass_counts": {
+    "binding": 26,
+    "current_and_owned": 22,
+    "existing_readers": 59,
+    "source_economic_and_scope": 34
+  },
+  "stages": {
+    "RED": {
+      "actual_child_exit": 1,
+      "case": "regression-held-context-reader-red-v1",
+      "combined_peak_RSS_bytes": 1004064768,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "1b9c35fd83e2c42dc38e3568a25a05f738971b85aaa5b30843364aee7642d1cb",
+      "observed_owned_postgres_identity_count": 34,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2375,
+      "source_pins_sha256": "37c39777eaa3c93c53388dbdce8da289bf916fe6884ec822004c3350f2ec668f",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "0e12b166ba1ca771304333b0e2810fab53329960f0e7a23df5e6f8d4c6c88e29",
+      "tool": "37657:1",
+      "wall_seconds": 11.850656547001563
+    },
+    "SDK_completed": {
+      "actual_child_exit": 0,
+      "case": "focused-held-context-native-SDK-completed-v1",
+      "combined_peak_RSS_bytes": 1065000960,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "f2961c50e7a1972a2641eeaa0545a89f89322f267ccddfb81bd18e13b12417e1",
+      "observed_owned_postgres_identity_count": 416,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 139952128,
+      "source_count": 2378,
+      "source_pins_sha256": "66a8c4b55af9dbfd249e6174e14dfcf0a4c98a390499e832edd21b6524bb3e36",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "d6827374f4d75cb0be7a3f8844a9c2b4298919001878f504e55dfe85e2b13fa3",
+      "tool": "66669:0",
+      "wall_seconds": 163.06384627099033
+    },
+    "SDK_hold": {
+      "actual_child_exit": 0,
+      "case": "focused-held-context-native-SDK-hold-v1",
+      "combined_peak_RSS_bytes": 1068044288,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "f53bb33c11aaf788fac9c8f6149d6edb87617e0cae8eb789394467b30bf2955f",
+      "observed_owned_postgres_identity_count": 378,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137814016,
+      "source_count": 2378,
+      "source_pins_sha256": "66a8c4b55af9dbfd249e6174e14dfcf0a4c98a390499e832edd21b6524bb3e36",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "6fbafa0ea0a1c7d61e7cf5a47ed6d55f16399b57f29e44b67315ae72f63f7157",
+      "tool": "43191:0",
+      "wall_seconds": 148.48387511599867
+    },
+    "actual_GET": {
+      "actual_child_exit": 0,
+      "case": "focused-held-context-current-GET-v1",
+      "combined_peak_RSS_bytes": 997539840,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "f2a62f3a166c64b8eb2460208cb675d978514851df4a094ff25dfd76bc8d938a",
+      "observed_owned_postgres_identity_count": 242,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 147619840,
+      "source_count": 2378,
+      "source_pins_sha256": "66a8c4b55af9dbfd249e6174e14dfcf0a4c98a390499e832edd21b6524bb3e36",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "35c10a12f26fc155c50777ae6a76bf35fbd38808a186eb5c30c51600a4642849",
+      "tool": "92994:0",
+      "wall_seconds": 102.5107250999863
+    },
+    "binding": {
+      "actual_child_exit": 0,
+      "case": "regression-held-context-binding-v2",
+      "combined_peak_RSS_bytes": 1028898816,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "29ab490d3025d5c8b131df342d502a369ecd37275069066de33e42138337bc7a",
+      "observed_owned_postgres_identity_count": 461,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2375,
+      "source_pins_sha256": "8673ae789b598fc40057f233c21e19c63a0878036e0ab98dcb3fd23437c7955f",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "d0c5ffb6cac9fe2a2590b54b71b9103bb176336c9f4a25cd82b082196b4c8772",
+      "tool": "54377:0",
+      "wall_seconds": 205.488309990993
+    },
+    "current_and_owned": {
+      "actual_child_exit": 0,
+      "case": "regression-held-context-current-and-owned-v1",
+      "combined_peak_RSS_bytes": 1016291328,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "ac481ad9565dc1f4f7e209ae8707565de6ef12e58d8bd8cefd5b3437a93875d3",
+      "observed_owned_postgres_identity_count": 439,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2375,
+      "source_pins_sha256": "8673ae789b598fc40057f233c21e19c63a0878036e0ab98dcb3fd23437c7955f",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "c7046b047577ee444ea249de4387b1d7ee81d0f6066785854a5ec4ee4519282b",
+      "tool": "41509:0",
+      "wall_seconds": 173.60871966800187
+    },
+    "existing_readers": {
+      "actual_child_exit": 0,
+      "case": "regression-held-context-existing-readers-v1",
+      "combined_peak_RSS_bytes": 1067323392,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "aca21d6c133688c9be94320d730a948c9d457129446b7d5459230102e12fe364",
+      "observed_owned_postgres_identity_count": 717,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 150908928,
+      "source_count": 2375,
+      "source_pins_sha256": "ce2f4918cb8b0a3d76777137cf92a86c1e693b22552cbeef5a7a958acfc35fe9",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "07e25b7e3b5a280f32a54139bd0c31b51ce38c165e18ed4192f95f3762f07dca",
+      "tool": "81239:0",
+      "wall_seconds": 477.8872539150034
+    },
+    "first_GREEN": {
+      "actual_child_exit": 0,
+      "case": "regression-held-context-reader-green-v1",
+      "combined_peak_RSS_bytes": 985059328,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "19a93ff30f3e10b7619e06738aff245accfd194e9f01c4278f134873685b7dcc",
+      "observed_owned_postgres_identity_count": 33,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2375,
+      "source_pins_sha256": "7c33154aa0eb9ff106281520db10fc6328a6d96fb79103173a8f5ffc2d5bf294",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "c3c030ab8333c76e09b266bed26863ee09fb866849341e31c86e8445911aef43",
+      "tool": "76426:0",
+      "wall_seconds": 11.862859546003165
+    },
+    "initial_interrupted_tests": {
+      "actual_child_exit": 1,
+      "case": "regression-held-context-binding-v1",
+      "combined_peak_RSS_bytes": 1020772352,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "cea366b32086b53c6c6c50c1e4951326073913717e3f46040de74e596b511856",
+      "observed_owned_postgres_identity_count": 164,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 142991360,
+      "source_count": 2375,
+      "source_pins_sha256": "e9fbb7e7439acc73719ab33c7257feeaa4edf2457b10a1980826f03ab10a4dd3",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "8063b90197d41140f1a2d2caa283c8ec2ae1539c0ef2d63081804a7c47f23218",
+      "tool": "98710:1",
+      "wall_seconds": 53.44177630699414
+    },
+    "main_integration": {
+      "actual_child_exit": 0,
+      "case": "regression-held-context-main-integration-v1",
+      "combined_peak_RSS_bytes": 1036562432,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "1e6ee165bf8ff9a2d5e81c7c9afb816e676fd806448935ed030cab5d7ec50dc4",
+      "observed_owned_postgres_identity_count": 104,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137052160,
+      "source_count": 2378,
+      "source_pins_sha256": "66a8c4b55af9dbfd249e6174e14dfcf0a4c98a390499e832edd21b6524bb3e36",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "427ce9a0fa94aceff92ecf06303f7ca1eac8a8a7e6500f1ebbd101018acdb582",
+      "tool": "41542:0",
+      "wall_seconds": 33.4177653779916
+    },
+    "source_economic_and_scope": {
+      "actual_child_exit": 0,
+      "case": "regression-held-context-source-economic-v1",
+      "combined_peak_RSS_bytes": 1033256960,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "5e706aa5cbf89afd83d99c26779bdd08898b7a37b53568d6b5764d57516e222f",
+      "observed_owned_postgres_identity_count": 397,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 138596352,
+      "source_count": 2375,
+      "source_pins_sha256": "ce2f4918cb8b0a3d76777137cf92a86c1e693b22552cbeef5a7a958acfc35fe9",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "48d88c5cc82c9673f5385186c4035f2aff58bc65f3ccc668eb4b8546f96f41f4",
+      "tool": "69370:0",
+      "wall_seconds": 153.57394676300464
+    },
+    "status_HTTP": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 816263168,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "71c7084bb6b25e5e1f4303527e1e3c288344d32afdf4e2a7c9405d3b699af8d2",
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_pins_sha256": "eeb459824b812bc20d4f3eb972d64c8f4ee108abcb8e09ca94a95866a379b193",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "340bc9193ef975ab20993011eceb86b8b5c192601395cc6fbc3b24a7771b32a6",
+      "tool": "61442:0",
+      "wall_seconds": 0.33208178699715063
+    },
+    "status_parser": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 991371264,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "f423ca2b2b2fa7ec62d27d82881224e794bc33eb2de4f22fc9e64dd422fa854c",
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 183201792,
+      "source_pins_sha256": "bf00d0434cb0c6ce740b344412070aa88e1791265786d6d9a1ea83c389559f57",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "591ad10db764b70da27b65dff8c8f628457876a6d71211f25337ffc860773101",
+      "tool": "70338:0",
+      "wall_seconds": 0.8456095440051286
+    },
+    "test_setup_recheck": {
+      "actual_child_exit": 0,
+      "case": "regression-held-context-test-setup-v2",
+      "combined_peak_RSS_bytes": 998105088,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "92f7fa9ff475f5164efdb54ebfe001fecbaf1d2ce57f077b527e2be28dcf107b",
+      "observed_owned_postgres_identity_count": 74,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2375,
+      "source_pins_sha256": "8673ae789b598fc40057f233c21e19c63a0878036e0ab98dcb3fd23437c7955f",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "66319e400c45ffb045201ec881b6d9c9e80575e83a4104067cdc99481582047e",
+      "tool": "21191:0",
+      "wall_seconds": 26.407057303003967
+    }
+  },
+  "status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "browser_DOM_rerun": false,
+    "browser_rerun": false,
+    "current_HTML_matches_frozen_entry_both_ports": true,
+    "files": 2173,
+    "final_published_feed_validated_by_publisher_and_HTTP_probe": true,
+    "new_solar_user_deployed": false,
+    "parser_cases_passed": 28,
+    "reported_at": "2026-10-17T08:56:56.037972Z",
+    "retained_ventilation_frozen_source_preserved": true,
+    "source_sha256": "b81b4c452f0c22faa7013baeea74218258f17eb653a9c183ee2a53818a9a76d3"
+  },
+  "test_PG_shared_buffers_MiB": 1,
+  "test_only_Node_options": [
+    "--max-old-space-size=64",
+    "--max-semi-space-size=1",
+    "--liftoff-only"
+  ],
+  "unique_scoped_regressions_passed": 141
+}
