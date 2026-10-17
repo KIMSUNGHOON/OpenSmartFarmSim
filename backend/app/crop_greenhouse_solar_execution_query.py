@@ -115,39 +115,63 @@ class SolarExecutionQuery:
             (tenant, job_id, job['attempt_count'])).fetchall()
         return job, latest, links, pubs, outcomes, terminal
 
-    @contextmanager
-    def _checkpoint(self, tenant, raw, binding_raw, job, latest):
+    def _capture_checkpoint(self, tenant, raw, binding_raw, job, latest, retained):
         root = custody.files.job_store._open_directory_nofollow(self.server.directory)
         try: exists = custody.files._exists(root, custody._intent_id(tenant, json.loads(raw)))
         finally: os.close(root)
         if not exists:
             _need(latest is None)
-            yield 'none', None
-            return
+            return 'none', None, None, None, ()
         with ExitStack() as opened:
             try: session, _ = opened.enter_context(self.results._session(tenant, raw))
             except custody.SolarCustodyPending:
-                yield 'unavailable', None
-                return
+                return 'unavailable', None, None, None, ()
             _need(session.binding_raw == binding_raw)
             if not custody.files._exists(session.artifact, 'HEAD'):
                 _need(latest is None)
-                yield 'none', None
-                return
+                return 'none', None, None, None, ()
             sequence = latest['reason']['publication_sequence'] if latest else 1
             progress = session.progress()
             snapshot, proof = self.checkpoints._snapshot(session, progress, sequence, job['input_sha256'])
             self.checkpoints._descendant(session, latest, snapshot, proof)
             if latest is None or snapshot['head_sha256'] != latest['reason']['head_sha256']:
-                yield 'unavailable', None
-                return
+                return 'unavailable', None, None, None, ()
             _need(snapshot == latest['reason'])
             selected = {k: snapshot[k] for k in ('head_sha256', 'proof_sha256', 'artifact_sha256',
                 'status', 'steps', 'planned_steps', 'counts', 'computed_through_utc', 'publication_sequence',
                 'provenance_sha256', 'rights_or_gate_approval')}
             selected['checkpoint_recorded_at'] = _utc(latest['recorded_at'])
-            yield 'current', selected
-            _need(session.progress() == progress)
+            directories = []
+            for descriptor in (session.root, session.intent, session.proofs, session.artifact):
+                witness = os.dup(descriptor)
+                retained.callback(os.close, witness)
+                info = os.fstat(witness)
+                directories.append((witness, info.st_dev, info.st_ino))
+            return 'current', selected, progress, snapshot, tuple(directories)
+
+    @contextmanager
+    def _checkpoint(self, tenant, raw, binding_raw, job, latest):
+        with ExitStack() as retained:
+            status, selected, progress, snapshot, directories = self._capture_checkpoint(
+                tenant, raw, binding_raw, job, latest, retained)
+            yield status, selected
+            if status != 'current':
+                return
+            try:
+                with self.results._session(tenant, raw) as (session, _):
+                    _need(session.binding_raw == binding_raw)
+                    for (_, device, inode), descriptor in zip(directories,
+                            (session.root, session.intent, session.proofs, session.artifact), strict=True):
+                        info = os.fstat(descriptor)
+                        _need((info.st_dev, info.st_ino) == (device, inode))
+                    current = session.progress()
+                    if current != progress:
+                        after, proof = self.checkpoints._snapshot(session, current,
+                            snapshot['publication_sequence'], job['input_sha256'])
+                        self.checkpoints._descendant(session, {'reason':snapshot}, after, proof)
+                        raise SolarExecutionQueryPending('solar checkpoint advanced during read')
+            except custody.SolarCustodyPending:
+                raise SolarExecutionQueryPending('solar checkpoint busy during response') from None
 
     def _terminal(self, conn, tenant, value, binding_raw, bundle):
         job, latest, links, pubs, outcomes, terminal = bundle

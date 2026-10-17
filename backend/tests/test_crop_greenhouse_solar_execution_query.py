@@ -348,3 +348,98 @@ def test_terminal_bundle_faults_reject_without_mutation(setup, monkeypatch):
         rejected.append(fault)
     assert persisted_digest(worker.jobs) == before
     save('terminal-faults', {'returned_bundle_fault_injections': rejected, 'query_database_unchanged': True, 'calls': calls})
+
+
+@reference.pytestmark
+@pytest.mark.usefixtures('query_cleanup')
+@pytest.mark.parametrize('keep_competing_lock', [False, True])
+def test_checkpoint_lock_is_released_during_followup_checks(setup, monkeypatch, keep_competing_lock):
+    query, worker, job_id, raw, value = setup
+    lease = confirm(worker, job_id)
+    worker.server.advance('tenant-1', raw, budget=2)
+    first = worker.checkpoints.confirm('tenant-1', job_id,
+        attempt=lease['attempt'], lease_token=lease['lease_token'])
+    readonly(value); before = persisted_digest(worker.jobs)
+    terminal = query._terminal; owners = []
+    def competing_open(*args, **kwargs):
+        result = terminal(*args, **kwargs)
+        other = worker.server._open('tenant-1', raw, False)
+        other.__enter__();owners.append(other)
+        if not keep_competing_lock:
+            other.__exit__(None, None, None);owners.clear()
+        return result
+    try:
+        with monkeypatch.context() as patch:
+            calls = forbid(patch);patch.setattr(query, '_terminal', competing_open)
+            if keep_competing_lock:
+                with pytest.raises(model.SolarExecutionQueryPending):read(query, job_id)
+            else:
+                result = read(query, job_id)
+                assert result['checkpoint_status'] == 'current'
+                assert result['checkpoint']['head_sha256'] == first['checkpoint']['head_sha256']
+                assert result['checkpoint']['computed_through_utc'] == first['checkpoint']['computed_through_utc']
+            assert all(n == 0 for n in calls.values())
+    finally:
+        for other in reversed(owners):other.__exit__(None, None, None)
+    assert persisted_digest(worker.jobs) == before
+
+
+@reference.pytestmark
+@pytest.mark.usefixtures('query_cleanup')
+@pytest.mark.parametrize('change', ['signed_advance', 'corrupt'])
+def test_checkpoint_changed_after_snapshot_never_returns_partial_response(setup, monkeypatch, change):
+    query, worker, job_id, raw, value = setup
+    lease = confirm(worker, job_id)
+    worker.server.advance('tenant-1', raw, budget=2)
+    worker.checkpoints.confirm('tenant-1', job_id,
+        attempt=lease['attempt'], lease_token=lease['lease_token'])
+    _, artifact, _ = reference.producer.locations(worker.server, raw)
+    path = artifact/'HEAD';first = path.read_bytes();mode = path.stat().st_mode & 0o777
+    worker.server.advance('tenant-1', raw, budget=2)
+    following = path.read_bytes()
+    assert following != first
+    def publish(data):
+        path.chmod(0o600);path.write_bytes(data);path.chmod(mode)
+    publish(first)
+    terminal = query._terminal
+    def moved(*args, **kwargs):
+        result = terminal(*args, **kwargs)
+        publish(following if change == 'signed_advance' else b'{"untrusted":true}')
+        return result
+    readonly(value);before = persisted_digest(worker.jobs)
+    try:
+        with monkeypatch.context() as patch:
+            calls = forbid(patch);patch.setattr(query, '_terminal', moved)
+            expected = model.SolarExecutionQueryPending if change == 'signed_advance' else model.SolarExecutionQueryHold
+            with pytest.raises(expected):read(query, job_id)
+            assert all(n == 0 for n in calls.values())
+    finally:publish(following)
+    assert persisted_digest(worker.jobs) == before
+
+
+@reference.pytestmark
+@pytest.mark.usefixtures('query_cleanup')
+def test_checkpoint_directory_identity_survives_the_unlocked_interval(setup, monkeypatch):
+    import shutil
+    query, worker, job_id, raw, value = setup
+    lease = confirm(worker, job_id)
+    worker.server.advance('tenant-1', raw, budget=2)
+    worker.checkpoints.confirm('tenant-1', job_id,
+        attempt=lease['attempt'], lease_token=lease['lease_token'])
+    intent, _, _ = reference.producer.locations(worker.server, raw)
+    moved = worker.server.directory.parent/'progress-reader-original-intent'
+    terminal = query._terminal; swapped = []
+    def replace_directory(*args, **kwargs):
+        result = terminal(*args, **kwargs)
+        intent.rename(moved);shutil.copytree(moved, intent);swapped.append(True)
+        return result
+    readonly(value);before = persisted_digest(worker.jobs)
+    try:
+        with monkeypatch.context() as patch:
+            calls = forbid(patch);patch.setattr(query, '_terminal', replace_directory)
+            with pytest.raises(model.SolarExecutionQueryHold):read(query, job_id)
+            assert swapped == [True] and all(n == 0 for n in calls.values())
+    finally:
+        if moved.exists():
+            shutil.rmtree(intent);moved.rename(intent)
+    assert persisted_digest(worker.jobs) == before
