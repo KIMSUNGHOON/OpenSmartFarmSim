@@ -1,0 +1,512 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "aggregate_limit_bytes": 1073741824,
+  "base_commit": "b6125d5f9101aa746d6b8de41f1623e91cd042d6",
+  "before_connection_change": "Close initial unlocked lease/input read before full current validation; open a freshly audited connection for existing locked lease/input equality/cancel/expiry checks and renewal. No current check/audit/cache/model/version/schema/key/role/worker-barrier relaxation. Extra connection setup is a possible latency cost; no performance SLA claim.",
+  "browser_DOM_WebGL_rerun": false,
+  "code_sha256": {
+    "backend/app/crop_greenhouse_solar_execution_worker.py": "83fa8423c0901f4dcd4b3e282d6975054a9a7d2b06274f58e8ed754d04492be8",
+    "backend/tests/test_crop_greenhouse_solar_execution_worker.py": "4a20c3f9f104bc31d3b7d91addcf3ccec855be5169ec8c778f9dff4da5dfe42a",
+    "contracts/crop-greenhouse-solar-execution-core-v1.md": "7b14a908a1fe02b7676a7458bf55c7a2cb5b93cca32ee9c956c68571612959d8"
+  },
+  "component_fix_accepted": true,
+  "concurrency_accepted": false,
+  "dedicated_native_passed": 4,
+  "distinct_focused_checks": 10,
+  "excluded_attempts": [
+    {
+      "accepted": false,
+      "actual_child_exit": 1,
+      "case": "focused-adoption-connections-v1",
+      "cause": "Four owned live DB backends sampled during _before/current, including initial unlocked job read. Resource termination; not functional acceptance.",
+      "combined_peak_RSS_bytes": 1077469184,
+      "log_sha256": "67fda98a5e54ee6332f576bda19d16d5b29a3fbff14d1668a9177c783d78cab2",
+      "post_terminal_cleanup_sha256": null,
+      "reason": "RSS_limit",
+      "session": "84988",
+      "terminal_sha256": "473adca3449b8486c0284417a003ec4843894151b2c4d28a90b8e53d19ddc616",
+      "wall_seconds": 27.137778289994458
+    },
+    {
+      "accepted": false,
+      "actual_child_exit": 1,
+      "case": "focused-before-connection-red-v1",
+      "cause": "Expected RED: initial unlocked lease read connection remains open during full current validation.",
+      "combined_peak_RSS_bytes": 997769216,
+      "log_sha256": "1b25e50ca118d911e51d72915b1e5091fad77414f31762c147e4b6ca12ae80a0",
+      "post_terminal_cleanup_sha256": null,
+      "reason": null,
+      "session": "49887",
+      "terminal_sha256": "abb0b91a2be9a8bd63eb89c5929989c8aeedbafafa4065fcc338934d32d9c89e",
+      "wall_seconds": 16.575682193994
+    },
+    {
+      "accepted": false,
+      "actual_child_exit": 1,
+      "case": "focused-before-connection-green-v1",
+      "cause": "Test control UPDATE rejected by immutable job trigger. Replace this fixture action with explicitly labelled final-read fault injection; no trigger weakening.",
+      "combined_peak_RSS_bytes": 1023533056,
+      "log_sha256": "b2753ccb7115d38e00a43ec705392b640f9725cca2a60a39855eba5056ea1839",
+      "post_terminal_cleanup_sha256": null,
+      "reason": null,
+      "session": "24176",
+      "terminal_sha256": "a51f1c6f0c5c2311187ab49f43cc8311d2dab2f745623111104039a27301fe5a",
+      "wall_seconds": 65.96537828099827
+    },
+    {
+      "accepted": false,
+      "actual_child_exit": -15,
+      "case": "focused-before-connection-regression-v1",
+      "cause": "RSS_limit. Partial pass/failure/teardown markers excluded. Peak owned PostgreSQL process type not established. Scratch directory snapshot preceded automatic cleanup; post-terminal cleanup verified.",
+      "combined_peak_RSS_bytes": 1075302400,
+      "log_sha256": "249a9f47e2a6a1432bb14edd2f15cf085b9fe1ed285726eebb3d85ea81322c9f",
+      "post_terminal_cleanup_sha256": "d6a35c1420b888ab7be52174dd0b9f94bb7ceef9e0881cda6f621c8ed8715a66",
+      "reason": "RSS_limit",
+      "session": "69152",
+      "terminal_sha256": "f33d4b3b9c7bca2092acda3b75aea2aec17a160ccac10c2287457e8c524a8b90",
+      "wall_seconds": 445.6130240040002
+    }
+  ],
+  "existing_native_passed": 6,
+  "full_CI_rerun": false,
+  "full_product_completion": null,
+  "goal_status": "active",
+  "initial_peak_connection_call_sites": [
+    {
+      "call_stack": [
+        {
+          "file": "runtime_login.py",
+          "function": "connect_runtime",
+          "line": 36
+        },
+        {
+          "file": "job_store.py",
+          "function": "connect",
+          "line": 83
+        },
+        {
+          "file": "crop_greenhouse_solar_execution_worker.py",
+          "function": "_before",
+          "line": 67
+        },
+        {
+          "file": "crop_greenhouse_solar_execution_worker.py",
+          "function": "run_once",
+          "line": 131
+        },
+        {
+          "file": "deterministic_work.py",
+          "function": "run",
+          "line": 100
+        }
+      ],
+      "operations": [
+        "_before"
+      ],
+      "sampled_RSS_bytes": 12111872
+    },
+    {
+      "call_stack": [
+        {
+          "file": "runtime_login.py",
+          "function": "connect_runtime",
+          "line": 36
+        },
+        {
+          "file": "market_runtime.py",
+          "function": "connect_market",
+          "line": 17
+        },
+        {
+          "file": "market_source_store.py",
+          "function": "connect",
+          "line": 92
+        },
+        {
+          "file": "market_source_store.py",
+          "function": "read_scope",
+          "line": 99
+        },
+        {
+          "file": "contextlib.py",
+          "function": "__enter__",
+          "line": 137
+        },
+        {
+          "file": "market_candidate_store.py",
+          "function": "read_scope",
+          "line": 212
+        },
+        {
+          "file": "contextlib.py",
+          "function": "__enter__",
+          "line": 137
+        },
+        {
+          "file": "market_scenario.py",
+          "function": "validate_pinned",
+          "line": 627
+        },
+        {
+          "file": "farm_authoring_storage.py",
+          "function": "_prepare",
+          "line": 180
+        },
+        {
+          "file": "farm_authoring_storage.py",
+          "function": "_read",
+          "line": 261
+        },
+        {
+          "file": "farm_authoring_storage.py",
+          "function": "read_registration",
+          "line": 418
+        },
+        {
+          "file": "crop_greenhouse_solar_farm_binding.py",
+          "function": "_registration",
+          "line": 111
+        },
+        {
+          "file": "crop_greenhouse_solar_farm_binding.py",
+          "function": "_bind",
+          "line": 135
+        }
+      ],
+      "operations": [
+        "_before",
+        "current"
+      ],
+      "sampled_RSS_bytes": 12042240
+    },
+    {
+      "call_stack": [
+        {
+          "file": "runtime_login.py",
+          "function": "connect_runtime",
+          "line": 36
+        },
+        {
+          "file": "market_runtime.py",
+          "function": "connect_market",
+          "line": 17
+        },
+        {
+          "file": "market_candidate_store.py",
+          "function": "connect",
+          "line": 183
+        },
+        {
+          "file": "market_candidate_store.py",
+          "function": "read_scope",
+          "line": 213
+        },
+        {
+          "file": "contextlib.py",
+          "function": "__enter__",
+          "line": 137
+        },
+        {
+          "file": "market_scenario.py",
+          "function": "validate_pinned",
+          "line": 627
+        },
+        {
+          "file": "farm_authoring_storage.py",
+          "function": "_prepare",
+          "line": 180
+        },
+        {
+          "file": "farm_authoring_storage.py",
+          "function": "_read",
+          "line": 261
+        },
+        {
+          "file": "farm_authoring_storage.py",
+          "function": "read_registration",
+          "line": 418
+        },
+        {
+          "file": "crop_greenhouse_solar_farm_binding.py",
+          "function": "_registration",
+          "line": 111
+        },
+        {
+          "file": "crop_greenhouse_solar_farm_binding.py",
+          "function": "_bind",
+          "line": 135
+        },
+        {
+          "file": "crop_greenhouse_solar_farm_binding.py",
+          "function": "current",
+          "line": 151
+        }
+      ],
+      "operations": [
+        "_before",
+        "current"
+      ],
+      "sampled_RSS_bytes": 12230656
+    },
+    {
+      "call_stack": [
+        {
+          "file": "runtime_login.py",
+          "function": "connect_runtime",
+          "line": 36
+        },
+        {
+          "file": "thermal_run_store.py",
+          "function": "connect",
+          "line": 225
+        },
+        {
+          "file": "thermal_run_store.py",
+          "function": "get_decision_context",
+          "line": 320
+        },
+        {
+          "file": "market_hold_store.py",
+          "function": "_context",
+          "line": 114
+        },
+        {
+          "file": "market_hold_store.py",
+          "function": "_decision_context",
+          "line": 278
+        },
+        {
+          "file": "market_hold_store.py",
+          "function": "get_decision_context",
+          "line": 273
+        },
+        {
+          "file": "api_market_source.py",
+          "function": "get_decision_context",
+          "line": 48
+        },
+        {
+          "file": "market_candidate_store.py",
+          "function": "scoped_lookup",
+          "line": 246
+        },
+        {
+          "file": "market.py",
+          "function": "_lookup",
+          "line": 113
+        },
+        {
+          "file": "market.py",
+          "function": "resolve_market_context",
+          "line": 189
+        },
+        {
+          "file": "economics.py",
+          "function": "calculate",
+          "line": 183
+        },
+        {
+          "file": "market_scenario.py",
+          "function": "_prepare",
+          "line": 391
+        },
+        {
+          "file": "market_scenario.py",
+          "function": "_validate_pinned",
+          "line": 635
+        }
+      ],
+      "operations": [
+        "_before",
+        "current"
+      ],
+      "sampled_RSS_bytes": 6512640
+    }
+  ],
+  "input_change_case": "Final-read fault injection after actual locked lease SELECT, not actual immutable DB input mutation. Cancellation/expiry use real committed controls.",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "native_context_timestamp": "2026-10-17T01:45:07.781Z",
+    "raw_turn_context_sha256": "e5464a68af996e4d591572eba3b7a0388ca135f25ff6d4f7fee129b9d65cdffd",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+  },
+  "native_evidence": {
+    "cancel-validation-before.json": {
+      "bytes": 252,
+      "sha256": "d746e5ab84c2e5e14a4066d6cd92e808466f7668f95a4cf893b33939fe83a4bc"
+    },
+    "cancel-validation-confirm_before.json": {
+      "bytes": 261,
+      "sha256": "0af38876b9bf7028683bf4588c61545c9b73839b3cf5d3f8de45c10c4d638efb"
+    },
+    "cancel-validation-finish_before.json": {
+      "bytes": 259,
+      "sha256": "9d58bac1181156606d06c0a8391008a3d7382f39adc204e089bd60cd1aeee707"
+    },
+    "database-cleanup.json": {
+      "bytes": 32,
+      "sha256": "a6125b39f5a1d58e53d7d542dcb6218258c82df20a7f067cd30add514dc86b27"
+    },
+    "expiry.json": {
+      "bytes": 66471,
+      "final_attempt": 2,
+      "final_state": "succeeded",
+      "first_adoption_calls_zero": {
+        "CLI": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "sha256": "0394ab2a42c4f5b1e496ee04d4b437fcde1c2321e53bd3fc16e7a65fc43c7538"
+    },
+    "normal-completed.json": {
+      "bytes": 74408,
+      "calls": {
+        "CLI": 0,
+        "NIR": 94,
+        "PAR": 94,
+        "RHS": 100,
+        "advance": 3,
+        "event": 3,
+        "prepare_binding": 3,
+        "prepare_context": 3,
+        "restore": 2,
+        "solar": 94,
+        "start": 1,
+        "step": 16,
+        "ventilation": 94
+      },
+      "read_calls": {
+        "CLI": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "same_original_checkpoint_rows_all_states_utc": true,
+      "sha256": "20c67bfe98519eb16902fb9dbac28168316fd32b1bdeca20e8bda49715641873",
+      "status": "completed"
+    },
+    "normal-hold.json": {
+      "bytes": 40042,
+      "calls": {
+        "CLI": 0,
+        "NIR": 93,
+        "PAR": 93,
+        "RHS": 98,
+        "advance": 3,
+        "event": 3,
+        "prepare_binding": 3,
+        "prepare_context": 3,
+        "restore": 2,
+        "solar": 93,
+        "start": 1,
+        "step": 16,
+        "ventilation": 93
+      },
+      "read_calls": {
+        "CLI": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "advance": 0,
+        "event": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "same_original_checkpoint_rows_all_states_utc": true,
+      "sha256": "f01d0b20e73edf44bbf9988354891b415bdd453f800204294d995842c6c2f74f",
+      "status": "hold"
+    }
+  },
+  "new_solar_user_3D_deployed": false,
+  "next": "Same configured API plus independent unpaused worker on original64-step input/chunk1/10s polling/caps; use call-site trace to verify before/current backend decrease and identify any remaining resource hold. Then normal/hold/cancel/current-rights and original UTC/value acceptance before typed Solar3D/user activation.",
+  "nominal_resource_sample_seconds": 0.25,
+  "per_PID_limit_bytes": 536870912,
+  "remaining_focused_hours": null,
+  "reported_at": "2026-10-17T02:17:37.090926Z",
+  "required_roots": 5,
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-before-connection-fix-v1",
+  "successful_guards": [
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "all_required_sources_roots_services_preserved": true,
+      "case": "focused-before-connection-green-v2",
+      "combined_peak_RSS_bytes": 1026465792,
+      "log_sha256": "a82fce4f7d8f7e82921cba88a2e9e3f9ffbd8ebcc3d8d202a5371cdf1bee014f",
+      "owned_process_PG_passfile_temp_remaining": 0,
+      "passed": 4,
+      "reason": null,
+      "session": "52783",
+      "single_PID_peak_RSS_bytes": 137015296,
+      "terminal_sha256": "84e3517fed2d724cb8d73a66cdf2864791a91586d5fed57beecf19cd6ed2b418",
+      "wall_seconds": 65.2626172349992
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "all_required_sources_roots_services_preserved": true,
+      "case": "focused-before-normal-hold-expiry-v1",
+      "combined_peak_RSS_bytes": 1020248064,
+      "log_sha256": "3c3d04f2b03a45586e3088f6d793534fe88aa3809394560e7407f93e6060d7d0",
+      "owned_process_PG_passfile_temp_remaining": 0,
+      "passed": 3,
+      "reason": null,
+      "session": "60726",
+      "single_PID_peak_RSS_bytes": 137015296,
+      "terminal_sha256": "faefb5e7f0f73368fc40621bff52cd45ae653a351d6f2465a1ff549e4c1ae270",
+      "wall_seconds": 503.07034150399704
+    },
+    {
+      "FD_before_after": [
+        4,
+        4
+      ],
+      "actual_child_exit": 0,
+      "all_required_sources_roots_services_preserved": true,
+      "case": "focused-before-cancel-validation-v1",
+      "combined_peak_RSS_bytes": 1042776064,
+      "log_sha256": "2aa7a6e6ca1bf52eaa61ec6311c087370c1966eb63b68f68c65696edea180c97",
+      "owned_process_PG_passfile_temp_remaining": 0,
+      "passed": 3,
+      "reason": null,
+      "session": "33432",
+      "single_PID_peak_RSS_bytes": 137015296,
+      "terminal_sha256": "11902bce55c31f00928aefb632fdbb6af6adc43d44b181aaf0f31a1c4569c6cf",
+      "wall_seconds": 155.64239113600343
+    }
+  ]
+}

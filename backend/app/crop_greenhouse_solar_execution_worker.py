@@ -68,7 +68,8 @@ class SolarExecutionWorker:
             job = self.checkpoints._lease(conn, self.tenant_id, str(lease['job_id']),
                                          lease['attempt'], lease['lease_token'], lock=False)
             value, request_raw, binding_raw = self.checkpoints._input(self.tenant_id, job)
-            self.checkpoints._current(self.tenant_id, value, request_raw, binding_raw)
+        self.checkpoints._current(self.tenant_id, value, request_raw, binding_raw)
+        with self.jobs.connect() as conn:
             current = self.checkpoints._lease(conn, self.tenant_id, str(lease['job_id']),
                                              lease['attempt'], lease['lease_token'])
             if self.checkpoints._input(self.tenant_id, current) != (value, request_raw, binding_raw):

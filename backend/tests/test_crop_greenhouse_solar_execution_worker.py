@@ -521,3 +521,60 @@ def test_scoped_cancel_preserves_identity_permissions_and_revoked_rights(setup, 
     no_published_result(worker, job_id)
     save('scoped-cancel-' + str(active), {'active': active, 'rights_revoked_cancellation': True,
         'other_model_tenant_scope_and_terminal_denied': True, 'numerical_calls': calls})
+
+
+@pytest.mark.parametrize('change', ['none', 'cancel', 'expire', 'input'])
+def test_before_validation_releases_read_connection_and_fences_changes(setup, monkeypatch, change):
+    worker, job_id, raw, _ = setup
+    lease = worker.jobs.claim(600, allowed_stages=('simulation',), tenant_id='tenant-1', job_id=job_id)
+    connect, current, read_lease = worker.jobs.connect, worker.checkpoints._current, worker.checkpoints._lease
+    opened, observed, changed_reads = [], [], []
+
+    def tracked_connect():
+        opened[:] = [conn for conn in opened if not conn.closed]
+        conn = connect()
+        opened.append(conn)
+        return conn
+
+    def validating(*args, **kwargs):
+        observed.append(all(conn.closed for conn in opened))
+        assert observed[-1], 'unlocked lease read connection remained open during source validation'
+        result = current(*args, **kwargs)
+        if change == 'cancel':
+            assert worker.jobs.cancel('tenant-1', job_id)
+        elif change == 'expire':
+            expire(worker, job_id)
+        elif change == 'input':
+            changed_reads.append(True)
+        return result
+
+    def final_read(*args, **kwargs):
+        row = read_lease(*args, **kwargs)
+        if changed_reads:
+            assert kwargs.get('lock', True)
+            row = dict(row)
+            value = json.loads(row['input_bytes'])
+            value['input_resolver_version'] += '-changed'
+            row['input_bytes'] = model.checkpoints.execution.canonical_input_bytes(value)
+            row['input_sha256'] = sha256(row['input_bytes']).hexdigest()
+        return row
+
+    with monkeypatch.context() as patch:
+        calls = producer.reference.forbid(patch)
+        patch.setattr(worker.jobs, 'connect', tracked_connect)
+        patch.setattr(worker.checkpoints, '_current', validating)
+        patch.setattr(worker.checkpoints, '_lease', final_read)
+        if change == 'none':
+            assert worker._before(lease) == raw
+        else:
+            with pytest.raises(model.checkpoints.SolarCheckpointHold):
+                worker._before(lease)
+        assert all(n == 0 for n in calls.values())
+    assert observed == [True] and all(conn.closed for conn in opened)
+    no_published_result(worker, job_id)
+    assert not any(r['kind'] == model.checkpoints.EVENT_KIND for r in rows(worker, job_id, 'job_events'))
+    save('before-connection-' + change, {'read_connection_closed_before_current_check':True,
+        'late_change':change, 'late_change_denied':change != 'none',
+        'numerical_and_CLI_calls':calls, 'checkpoint_and_result_rows':0,
+        'test_control_SQL':change in ('cancel','expire'),
+        'final_input_read_fault_injection':change == 'input', 'actual_DB_input_mutation':False})
