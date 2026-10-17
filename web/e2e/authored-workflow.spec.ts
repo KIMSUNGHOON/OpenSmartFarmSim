@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { authoredJobId,authoredRunId,authoredResponses } from './authored-thermal-fixture';
@@ -19,7 +20,7 @@ async function connect(page:Page) {
   await page.goto('/');
   await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
   await page.getByLabel('시나리오 ID').fill('farm-1');
   await page.getByLabel('판본',{exact:true}).fill('r1');
@@ -43,7 +44,7 @@ test('saved farm catalog opens a server rechecked registration',async({page})=>{
   await page.goto('/');
   await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
   await page.getByRole('button',{name:'목록 보기'}).click();
   await expect(page.locator('.authored-catalog-list button')).toHaveCount(1);
@@ -82,7 +83,7 @@ test('stored 3D Runs reopen after exact current verification without a farm sele
   await page.goto('/');
   await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
   await page.getByRole('button',{name:'저장 Run 보기'}).click();
   const item=page.getByRole('button',{name:/저장된 열 Run.*3D 열기/});
@@ -127,7 +128,7 @@ test('saved authored jobs reopen a completed server Run after reconnect',async({
   await page.reload();
   await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
   await expect(page.getByText('입력 등록됨 · 계산 전')).toBeVisible();
   await page.getByRole('button',{name:'작업 이력 보기'}).click();
@@ -255,7 +256,7 @@ test('last farm is rechecked on reconnect and cleared when access is revoked',as
   await page.reload();
   await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
   await expect(page.getByText('입력 등록됨 · 계산 전')).toBeVisible();
   await expect(page.getByLabel('시나리오 ID')).toHaveValue('farm-1');
@@ -266,7 +267,7 @@ test('last farm is rechecked on reconnect and cleared when access is revoked',as
   await page.reload();
   await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
   await expect(page.getByRole('alert')).toContainText('서버 응답의 판본');
   await expect(page.getByText('입력 등록됨 · 계산 전')).toHaveCount(0);
@@ -281,7 +282,7 @@ test('last farm is rechecked on reconnect and cleared when access is revoked',as
   await page.reload();
   await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
   await expect(page.getByRole('alert')).toContainText('필요한 권한이 없습니다');
   await expect(page.getByText('입력 등록됨 · 계산 전')).toHaveCount(0);

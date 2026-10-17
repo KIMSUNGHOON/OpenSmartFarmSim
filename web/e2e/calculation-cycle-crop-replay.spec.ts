@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
@@ -25,7 +26,7 @@ const routePattern='**/v1/crop-cycle-calculation-research-results/**';
 test.setTimeout(90_000);
 async function connect(page:Page){
   await page.goto('/');await revealConnection(page);await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
+  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
 }
 async function lookup(page:Page,data=base){
   await page.getByLabel('저장 결과 판본').selectOption('calculation-cycle');
@@ -212,7 +213,7 @@ test('format, ID and account changes remove old scene, chart and playback state'
   await page.getByText('저장 연구 결과 조회',{exact:true}).click();await page.getByLabel(labels.result_id,{exact:true}).fill(base.summary.result_id.slice(0,-1)+'0');
   await expect(page.locator('.coupled-canvas')).toHaveCount(0);await expect(page.locator('.cycle-replay')).toHaveAttribute('data-window-phase','idle');
   await lookup(page);await sameSample(page,0,0);await page.getByLabel('접근 토큰').fill('own-synthetic-other-calculation-account');
-  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
+  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
   await page.getByLabel('저장 결과 판본').selectOption('calculation-cycle');await expect(page.locator('.coupled-canvas')).toHaveCount(0);
   await expect(page.locator('.coupled-plot')).toHaveCount(0);expect(errors).toEqual([]);
 });

@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
@@ -35,7 +36,7 @@ async function install(page:Page,historyDelayMs=0) {
 }
 async function connect(page:Page) {
   await page.goto('/');await revealConnection(page);
-  await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정',exact:true}).press('Enter');
+  await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정',exact:true}).press('Enter');await revealConnectedControls(page);
   await page.getByRole('button',{name:'07 작성 Run 경제·평가',exact:true}).press('Enter');
 }
 async function select(page:Page) {
@@ -132,11 +133,11 @@ test('history recovers after reload using GET and account reconnect clears resul
   await page.getByRole('button',{name:/작성 평가 기록.*현재 기록 조회/}).click();
   await expect(page.getByRole('heading',{name:'작성 Run 판단 보류 근거',exact:true})).toBeVisible();
   await page.reload();await revealConnection(page);
-  await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+  await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'07 작성 Run 경제·평가',exact:true}).click();await select(page);
   await page.getByRole('button',{name:/경제 계산 기록.*현재 기록 조회/}).click();
   await expect(page.getByText('9,007,199,254,740,993.0000000001 원',{exact:true})).toBeVisible();
-  await page.getByLabel('접근 토큰').fill(token+'-foreign');await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+  await page.getByLabel('접근 토큰').fill(token+'-foreign');await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'07 작성 Run 경제·평가',exact:true}).click();
   await expect(page.getByText('9,007,199,254,740,993.0000000001 원',{exact:true})).toHaveCount(0);
   await expect(page.getByRole('heading',{name:'작성 Run 판단 보류 근거',exact:true})).toHaveCount(0);

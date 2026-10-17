@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import { test, expect,type Page } from '@playwright/test';
 
 const jobId='11111111-1111-4111-8111-111111111111';
@@ -16,7 +17,7 @@ test('inactive workspaces mount on first visit and retain a farm draft on return
   await expect(page.locator('.authored-workflow')).toHaveCount(0);
   await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'04 작성 농장 실행',exact:true}).click();
   await page.getByRole('button',{name:'새 입력 판본 작성',exact:true}).click();
   await page.getByRole('button',{name:'참조 직접 입력',exact:true}).click();
@@ -47,7 +48,7 @@ test('keyboard admission, actual response state and bounded hold rendering',asyn
   await expect(page.getByRole('heading',{name:'시뮬레이션 입력 설정'})).toBeVisible();
   await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정'}).press('Enter');
+  await page.getByRole('button',{name:'연결 설정'}).press('Enter');await revealConnectedControls(page);
   await page.getByRole('button',{name:'합성 예시 채우기'}).press('Enter');
   await page.getByRole('button',{name:'자료 조사 요청'}).press('Enter');
   await expect(page.locator('#viewport-1-b-progress').getByText('대기 중',{exact:true})).toBeVisible();
@@ -70,7 +71,7 @@ test('lost admission reply retains exactly the same intent and never displays in
   await page.goto('/');
   await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'합성 예시 채우기'}).click();
   await page.getByRole('button',{name:'자료 조사 요청'}).click();
   await expect(page.getByRole('alert')).toContainText('같은 요청');
@@ -108,7 +109,7 @@ test('completed research advances through owned collection and review with stabl
   await page.goto('/');
   await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'합성 예시 채우기'}).click();
   await page.getByRole('button',{name:'자료 조사 요청'}).click();
   await page.getByRole('button',{name:'현재 상태 확인'}).click();
@@ -156,7 +157,7 @@ test('saved source jobs return after reload and revoked authority blocks a new s
   await page.goto('/');
   await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'02 작업과 근거'}).click();
   await page.getByRole('button',{name:'저장된 조사 보기'}).click();
   await page.getByRole('button',{name:/37\.5° N · 127° E/}).click();
@@ -170,7 +171,7 @@ test('saved source jobs return after reload and revoked authority blocks a new s
   await page.reload();
   await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'02 작업과 근거'}).click();
   await page.getByRole('button',{name:'저장된 조사 보기'}).click();
   await page.getByRole('button',{name:/37\.5° N · 127° E/}).click();

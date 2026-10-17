@@ -98,3 +98,14 @@ HTTPS API 실행 후보는 Uvicorn `0.54.0`을 추가 고정했다([안정 릴�
 첫 [웹 화면 후보](../contracts/web-location-shell-v1.md)는 Playwright Test `1.63.0`, Node 타입 `22.20.4`, 자체 호스팅 `@fontsource-variable/noto-sans-kr` `5.3.0`을 추가로 잠갔다. 글꼴의 원본 OFL-1.1 고지를 정적 결과에 복사하고 원격 글꼴 요청은 쓰지 않는다. Node `22.22.3`/npm `11.16.0`으로 TypeScript·Vitest·Vite 및 Chromium 연결을 검증했고, 새 웹 CI는 같은 도구와 잠금 설치를 사용한다. [검증 기록](../research/web-location-shell-implementation.md)은 실제 TLS/SCRAM 시험과 모의 응답 시험을 구분한다. 전체 운영 스택/라이선스·G1/G4 수용은 남아 있다.
 
 첫 [내부 열 재생 후보](../contracts/web-thermal-replay-v1.md)는 `three@0.186.1`(MIT), `echarts@6.1.0`(Apache-2.0), 개발용 `@types/three@0.186.0`(MIT)을 정확한 버전으로 잠갔다. 별도 React 3D 래퍼는 추가하지 않았다. [Three WebGLRenderer](https://threejs.org/docs/pages/WebGLRenderer.html)의 WebGL2와 [OrbitControls](https://threejs.org/docs/pages/OrbitControls.html)를 사용하며, 차트는 [ECharts core의 필요한 모듈](https://echarts.apache.org/handbook/en/basics/import/)과 [SVG 렌더러](https://echarts.apache.org/handbook/en/best-practices/canvas-vs-svg/)를 선택했다. 라이선스 원문·ECharts NOTICE/d3 고지·zrender/tslib 고지를 `web/public/licenses/`에서 정적 빌드에 복사한다. 장면은 직접 작성한 개념 도형이고 외부 3D 자산은 없다. [검증 기록](../research/web-thermal-replay-implementation.md)은 지연 로딩·브라우저·API 연결 범위와 번들 크기 경고를 기록하며 지도·전체 운영/G1/G4 수용은 후속이다.
+
+
+## 웹 UI 검증 산출물 — 2026-10-17
+
+Web workflow의 기본 `all`은 전체 브라우저 회귀 관문이다. 명시적인 수동 `connection`
+선택은 연결 절차의 집중 검증이며 전체 CI로 표시하지 않는다. 첫 실패에서 종료해도
+관문은 실패이며, 전체 수용에는 `all`의 모든 사례 통과가 필요하다.15분 job 제한을 유지한다.
+합성 Solar 화면 PNG만3일 보관하는 CI 보조 action은 공식 [v7.0.2 릴리스](https://github.com/actions/upload-artifact/releases/tag/v7.0.2)의
+`actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9`로 고정했다.
+실제 tag/commit과 action.yml의 Node24·경로/보관 입력을 대조했다. 앱 의존성·서버 권한을
+추가하지 않으며 산출물은 현장 자료·실제 API/운영 용량 수용이 아니다.

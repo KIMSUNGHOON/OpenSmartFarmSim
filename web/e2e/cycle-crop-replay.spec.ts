@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { mkdir,writeFile } from 'node:fs/promises';
@@ -9,7 +10,7 @@ const labels={result_id:'저장 연구 결과 ID',scenario_id:'농장 시나리�
 test.setTimeout(90_000);
 async function connect(page:Page){
   await page.goto('/');await revealConnection(page);await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
+  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
   await page.getByLabel('저장 결과 판본').selectOption('cycle');await expect(page.locator('.cycle-replay')).toBeVisible();
 }
 async function lookup(page:Page,data=base){
@@ -147,7 +148,7 @@ test('ID edit and account change clear scene and prevent old autoplay from selec
   await page.getByText('저장 연구 결과 조회',{exact:true}).click();await page.getByLabel(labels.result_id,{exact:true}).fill(base.summary.result_id.slice(0,-1)+'0');
   await expect(page.locator('.coupled-canvas')).toHaveCount(0);await expect(page.locator('.cycle-replay')).toHaveAttribute('data-window-phase','idle');
   await lookup(page);await sameSample(page,0,0);await page.getByLabel('접근 토큰').fill('synthetic-other-cycle-account-only');
-  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
+  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
   await page.getByLabel('저장 결과 판본').selectOption('cycle');await expect(page.locator('.coupled-canvas')).toHaveCount(0);
 });
 test('mobile, 200 percent text enlargement, keyboard and reduced motion retain exact HTML access',async({page})=>{

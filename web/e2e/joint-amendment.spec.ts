@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 import {test,expect,type Page} from '@playwright/test';
 import {mkdir} from 'node:fs/promises';
@@ -55,7 +56,7 @@ test(`new assumption applies through explicit rights and immutable joint revisio
   });
   await page.route('**/v1/economic-results',route=>route.fulfill({status:202,json:{...job,stage:'simulation'}}));
   await page.goto('/');await revealConnection(page);
-  await page.getByLabel('접근 토큰').fill('synthetic-joint-amendment-token');await page.getByRole('button',{name:'연결 설정'}).press('Enter');
+  await page.getByLabel('접근 토큰').fill('synthetic-joint-amendment-token');await page.getByRole('button',{name:'연결 설정'}).press('Enter');await revealConnectedControls(page);
   await page.getByRole('button',{name:'03 경제 가정·계산'}).press('Enter');
   await choose(page,'숫자 가정');await page.getByLabel(/^새 가정값/).fill(value);
   await page.getByLabel('가정을 알게 된 날짜 (UTC)').fill(loss==='future' ? '2026-09-29' : '2026-09-27');

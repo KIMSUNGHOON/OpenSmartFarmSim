@@ -2,6 +2,12 @@ name: Web tests
 
 on:
   workflow_dispatch:
+    inputs:
+      browser_suite:
+        description: Browser acceptance scope (all is the complete regression gate)
+        type: choice
+        default: all
+        options: [all, connection]
   push:
     branches: [main]
   pull_request:
@@ -12,6 +18,7 @@ permissions:
 
 jobs:
   web:
+    name: web (${{ inputs.browser_suite || 'all' }})
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     defaults:
@@ -31,4 +38,25 @@ jobs:
       - run: npm run build
       - run: npm audit --audit-level=high
       - run: npx --no-install playwright install --with-deps chromium
-      - run: npm run test:browser -- --reporter=line
+      - name: Browser acceptance
+        env:
+          OSSF_BROWSER_SUITE: ${{ inputs.browser_suite || 'all' }}
+        run: |
+          case "$OSSF_BROWSER_SUITE" in
+            all)
+              npm run test:browser -- --reporter=line --max-failures=1
+              ;;
+            connection)
+              npm run test:browser -- --reporter=line --max-failures=1 connection-entry.spec.ts assessment.spec.ts authored-financial.spec.ts break-even.spec.ts
+              ;;
+            *) exit 1 ;;
+          esac
+      - name: Recorded Solar UI evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: solar-recorded-ui-${{ github.sha }}
+          path: research/artifacts/greenhouse-solar-*.png
+          retention-days: 3
+          compression-level: 0
+          if-no-files-found: ignore

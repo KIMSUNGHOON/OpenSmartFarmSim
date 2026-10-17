@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
@@ -17,7 +18,7 @@ const report={job_id:id,stage:'assessment',hold_id:thermal,status:'hold',recorde
 async function connect(page:Page) {
   await page.goto('/');await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정'}).press('Enter');
+  await page.getByRole('button',{name:'연결 설정'}).press('Enter');await revealConnectedControls(page);
   await page.getByRole('button',{name:'06 계산 평가'}).press('Enter');
 }
 async function parents(page:Page) {
@@ -109,7 +110,7 @@ test('saved assessment reopens after reload using only GET and reconnect clears 
   await page.reload();
   await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'06 계산 평가'}).click();
   await expect(page.getByRole('heading',{name:'판단 보류 근거'})).toHaveCount(0);
   await page.getByLabel('저장 평가 작업 ID').fill(id);
@@ -117,7 +118,7 @@ test('saved assessment reopens after reload using only GET and reconnect clears 
   await expect(page.getByRole('heading',{name:'판단 보류 근거'})).toBeVisible();
   foreign=true;
   await page.getByLabel('접근 토큰').fill('synthetic-another-account-token');
-  await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'06 계산 평가'}).click();
   await expect(page.getByLabel('저장 평가 작업 ID')).toHaveValue('');
   await expect(page.getByRole('heading',{name:'판단 보류 근거'})).toHaveCount(0);

@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { coupledReference } from './coupled-crop-fixture';
@@ -8,7 +9,7 @@ const labels={result_id:'저장 연구 결과 ID',scenario_id:'농장 시나리�
   registration_sha256:'등록 SHA-256',crop_id:'작물 ID'};
 async function connect(page:Page){
   await page.goto('/');await revealConnection(page);
-  await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+  await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
   await page.getByLabel('저장 결과 판본').selectOption('v2');
 }
@@ -139,7 +140,7 @@ test('editing a farm invalidates pending pages and account change clears previou
   await expect(page.locator('.coupled-replay')).toHaveAttribute('aria-busy','false');
   await expect(page.locator('.coupled-viewer')).toHaveCount(0);
   await page.unrouteAll();await mock(page);await lookup(page);await sameSample(page,0);
-  await page.getByLabel('접근 토큰').fill('another-synthetic-token');await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+  await page.getByLabel('접근 토큰').fill('another-synthetic-token');await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
   await expect(page.locator('.coupled-viewer,.coupled-canvas')).toHaveCount(0);
   expect(await page.evaluate(()=>({local:localStorage.length,session:sessionStorage.length}))).toEqual({local:0,session:0});

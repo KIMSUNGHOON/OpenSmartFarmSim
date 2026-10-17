@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { thermalJobId,thermalResponses } from './thermal-fixture';
@@ -13,7 +14,7 @@ async function routes(page:Page,data=thermalResponses()) {
 }
 async function connect(page:Page) {
   await page.goto('/');await revealConnection(page);
-  await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정'}).click();
+  await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'05 3D 열 재생'}).click();
 }
 async function load(page:Page) {

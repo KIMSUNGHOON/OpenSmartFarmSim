@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 import { test,expect,type Page,type Route } from '@playwright/test';
 import { readFileSync } from 'node:fs';
@@ -41,7 +42,7 @@ async function designSnapshot(page:Page,name:string){
 }
 async function connect(page:Page){
   await page.goto('/');await revealConnection(page);await page.getByLabel('접근 토큰').fill('owned-joint-screen-test');
-  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
+  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
   await page.getByLabel('저장 결과 판본').selectOption('joint');
 }
 async function lookup(page:Page,data=base){
@@ -166,7 +167,7 @@ test('account change while a normal response is pending cannot restore old value
   await page.getByRole('button',{name:'현재 권리 다시 조회',exact:true}).click();await begun;
   const connection=page.locator('.connection');if(await connection.getAttribute('open')===null)await connection.locator(':scope>summary').click();
   await page.getByLabel('접근 토큰',{exact:true}).fill('owned-joint-screen-account-change');
-  await page.getByRole('button',{name:'연결 설정',exact:true}).click();release();await page.unroute(pattern,late);
+  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);release();await page.unroute(pattern,late);
   await expect(page.locator('.joint-viewer,.joint-evidence,.cycle-events')).toHaveCount(0);
 });
 test('mobile keyboard/reduced motion and WebGL loss retain exact table and time navigation',async({page})=>{

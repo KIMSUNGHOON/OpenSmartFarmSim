@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import { test,expect } from '@playwright/test';
 import { source,candidate,research,selected,sourcePath,sourceToken,routeSourceFixture,
   openComposer,chooseSource,chooseEconomics,fillExplicitFarm } from './source-farm-fixture';
@@ -168,7 +169,7 @@ test('late old-account response is discarded and reconnect requires a fresh serv
   try {
     await page.getByRole('button',{name:'economic-1 r1 현재 참조 확인',exact:true}).click();await ready;
     await page.getByLabel('접근 토큰').fill('synthetic-second-account-token');
-    await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+    await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);
     await page.getByRole('button',{name:'04 작성 농장 실행',exact:true}).click();
     await page.getByRole('button',{name:'새 입력 판본 작성',exact:true}).click();
   } finally {release();}

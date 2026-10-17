@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
@@ -60,7 +61,7 @@ test.afterEach(async({page},info)=>{const value=diagnostics.get(page)!;
 async function enter(page:Page,d=fixture()){
   await page.clock.install();await page.goto('/#ventilation-execution');
   if(await page.locator('.connection').getAttribute('open')===null)await page.getByText('내부 시험 연결',{exact:true}).click();
-  await page.getByLabel('접근 토큰').fill(TOKEN);await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+  await page.getByLabel('접근 토큰').fill(TOKEN);await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);
   await expect(page.getByLabel('계산 모델',{exact:true})).toHaveValue('ventilation');
   const labels={job_id:'계산 작업 ID',scenario_id:'계산 농장 시나리오 ID',scenario_revision:'계산 농장 판본',registration_sha256:'계산 농장 등록 SHA-256',crop_id:'계산 작물 ID'};
   for(const [key,value] of Object.entries({job_id:ID,...d.farm}))await page.getByLabel(labels[key as keyof typeof labels],{exact:true}).fill(value);
@@ -238,7 +239,7 @@ for(const change of ['selection','account'])test(`P5 10 late prefix response aft
     await page.locator('.joint-execution>.crop-lookup summary').click();await page.getByLabel('계산 농장 판본',{exact:true}).fill('r2');
   }else{
     if(!await page.getByLabel('접근 토큰').isVisible())await page.getByText('내부 시험 연결',{exact:true}).click();
-    await page.getByLabel('접근 토큰').fill(TOKEN+'-changed');await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+    await page.getByLabel('접근 토큰').fill(TOKEN+'-changed');await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);
   }
   release();await expect(page.locator('.joint-prefix')).toHaveCount(0);await expect(page.getByLabel('계산 진행 상태')).toHaveCount(0);
 });

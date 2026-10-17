@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 // Self-authored browser DTOs; actual server/worker proof is a separate TLS/PG smoke.
 import {test,expect} from '@playwright/test';
@@ -38,7 +39,7 @@ async function setup(page:import('@playwright/test').Page,missing=false) {
       : {...meta('joint_shock','joint-'+index,index===0 ? 'b' : 'c'),input:shock(index)}});
   });
   await page.goto('/');await revealConnection(page);await page.getByLabel('접근 토큰').fill('synthetic-browser-token-abcdefghijklmnopqrstuvwxyz');
-  await page.getByRole('button',{name:'연결 설정'}).click();await page.getByRole('button',{name:'03 경제 가정·계산'}).click();
+  await page.getByRole('button',{name:'연결 설정'}).click();await revealConnectedControls(page);await page.getByRole('button',{name:'03 경제 가정·계산'}).click();
   const area=page.getByRole('region',{name:'손익분기 계획과 결과',exact:true});
   const picker=area.getByRole('region',{name:'손익분기 기준 원장',exact:true});await picker.getByRole('button',{name:'목록 조회'}).click();await picker.locator('li button').click();
   await expect(area.getByLabel('손익분기 판매·수금')).toBeVisible();return area;

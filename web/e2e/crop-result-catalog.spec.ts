@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 import {test,expect,type Page} from '@playwright/test';
 import {readFileSync} from 'node:fs';
@@ -41,7 +42,7 @@ async function mocked(page:Page,options:{emptyFarms?:boolean;emptyResults?:boole
 }
 async function connected(page:Page){
   await page.goto('/');await revealConnection(page);
-  await page.getByLabel('접근 토큰',{exact:true}).fill(token);await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+  await page.getByLabel('접근 토큰',{exact:true}).fill(token);await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:/08 성장 연구 3D/}).click();
   await page.getByRole('button',{name:'저장 결과 목록에서 선택',exact:true}).click();
 }
@@ -109,7 +110,7 @@ test('ignores a late list reply after the user cancels a refresh',async({page})=
 test('clears catalogue and replay on reconnect while a previous list reply is pending',async({page})=>{
   const api=await mocked(page);await connected(page);const panel=await selected(page),g=deferred(),entered=deferred();
   api.hold(g.promise,entered.release);await panel.getByRole('button',{name:'결과 목록 새로고침',exact:true}).click();await entered.promise;
-  await page.getByLabel('접근 토큰',{exact:true}).fill(token+'-other');await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+  await page.getByLabel('접근 토큰',{exact:true}).fill(token+'-other');await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);
   api.release();g.release();await expect(page.locator('.crop-result-catalog')).toHaveCount(0);
   await page.getByRole('button',{name:/08 성장 연구 3D/}).click();await expect(page.locator('.crop-result-catalog')).toHaveCount(0);
 });

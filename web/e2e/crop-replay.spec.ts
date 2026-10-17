@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { cropReferenceResponse,cropReferenceSelection } from './crop-fixture';
@@ -9,7 +10,7 @@ const labels={result_id:'저장 연구 결과 ID',scenario_id:'농장 시나리�
   registration_sha256:'등록 SHA-256',crop_id:'작물 ID'};
 async function connect(page:Page,bearer=token){
   await page.goto('/');await revealConnection(page);
-  await page.getByLabel('접근 토큰').fill(bearer);await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+  await page.getByLabel('접근 토큰').fill(bearer);await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
 }
 async function selection(page:Page){
@@ -140,7 +141,7 @@ test('editing the lookup discards a pending response',async({page})=>{
 test('connection change and reconnect never reuse previous results',async({page})=>{
   await mock(page);await connect(page);await load(page);await sameSample(page,0);
   await page.getByLabel('접근 토큰').fill('different-crop-browser-token-only');
-  await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
   await expect(page.locator('.crop-viewer,.crop-canvas')).toHaveCount(0);
   await expect(page.getByLabel('저장 연구 결과 ID',{exact:true})).toHaveValue('');
@@ -166,7 +167,7 @@ test('a pending response cannot restore another connection’s results',async({p
   await connect(page);await selection(page);await page.getByRole('button',{name:'저장 연구 조회',exact:true}).click();
   await expect.poll(()=>Boolean(resolve)).toBe(true);
   await page.getByLabel('접근 토큰').fill('different-crop-browser-token-only');
-  await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
   await expect(page.getByLabel('저장 연구 결과 ID',{exact:true})).toHaveValue('');
   const late=page.waitForResponse('**/v1/crop-research-results/**');resolve!();await (await late).finished();

@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
@@ -29,7 +30,7 @@ test.beforeEach(({page})=>{const errors:string[]=[];applicationErrors.set(page,e
 test.afterEach(({page})=>{expect(applicationErrors.get(page)).toEqual([]);});
 async function connect(page:Page,data:Data){
   await page.goto('/');await revealConnection(page);await page.getByLabel('접근 토큰').fill(token);
-  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
+  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
   await page.getByLabel('저장 결과 판본').selectOption('calculation-cycle');
   for(const [key,value] of Object.entries({result_id:data.crop.result_id,...data.crop.farm}))
     await page.getByLabel(labels[key as keyof typeof labels],{exact:true}).fill(String(value));
@@ -146,7 +147,7 @@ test('account replacement during a late response cannot restore old rows or 3D',
   await connect(page,data);await page.getByLabel('저장 수확 결과 ID').fill(data.summary.result_id);
   await page.getByRole('button',{name:'저장 수확 조회',exact:true}).click();await started;
   const connection=page.locator('.connection');if(await connection.getAttribute('open')===null)await page.getByText('내부 시험 연결',{exact:true}).click();
-  await page.getByLabel('접근 토큰').fill('owned-replaced-account-token-only');await page.getByRole('button',{name:'연결 설정',exact:true}).click();release();
+  await page.getByLabel('접근 토큰').fill('owned-replaced-account-token-only');await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);release();
   await expect(page.locator('[data-harvest-index]')).toHaveCount(0);await expect(page.locator('.coupled-viewer')).toHaveCount(0);
 });
 test('mobile keyboard and enlarged text keep the table accessible without page overflow',async({page})=>{

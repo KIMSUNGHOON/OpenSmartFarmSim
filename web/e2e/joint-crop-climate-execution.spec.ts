@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
@@ -41,7 +42,7 @@ async function enter(page:Page){
     window.fetch=async(...args)=>{const path=String(args[0]),start=Date.now(),response=await original(...args);
       if(/\/crop-climate-joint-execution$/.test(path))w.executionReads.push({start,end:Date.now()});return response;};
   });await page.goto('/');await revealConnection(page);
-  await page.getByLabel('접근 토큰').fill(TOKEN);await page.getByRole('button',{name:'연결 설정',exact:true}).click();
+  await page.getByLabel('접근 토큰').fill(TOKEN);await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);
   await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
   await page.getByLabel('저장 결과 판본').selectOption('joint-execution');
   await expect(page.getByRole('heading',{name:'작물·기후 계산 상태',exact:true})).toBeVisible();
@@ -135,7 +136,7 @@ test('E8 05 selection and account changes discard late responses',async({page})=
   await attach(page);await expect.poll(()=>count).toBe(2);
   if(!await page.getByLabel('접근 토큰').isVisible())await page.getByText('내부 시험 연결',{exact:true}).click();
   await page.getByLabel('접근 토큰').fill(TOKEN+'-changed');
-  await page.getByRole('button',{name:'연결 설정',exact:true}).click();releaseAccount();
+  await page.getByRole('button',{name:'연결 설정',exact:true}).click();await revealConnectedControls(page);releaseAccount();
   await expect(page.getByLabel('계산 진행 상태')).toHaveCount(0);
   await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();await page.getByLabel('저장 결과 판본').selectOption('joint-execution');
   await expect(page.getByLabel('계산 농장 판본',{exact:true})).toHaveValue('');

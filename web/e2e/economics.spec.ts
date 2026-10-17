@@ -1,3 +1,4 @@
+import {revealConnectedControls} from './connection-fixture';
 import {revealConnection} from './connection-fixture';
 import { test, expect, type Page } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
@@ -29,7 +30,7 @@ const result={economic_result_id:'d'.repeat(64),market_scenario_result_id:'e'.re
   operating_cash_krw:null,business_cash_krw:null,equity_cash_krw:null,minimum_cash_balance_krw:null,cash_shortage_krw:null},hold_reason_codes:['DETAIL_WITHHELD']};
 async function connect(page:Page) {
   await page.goto('/');await revealConnection(page);
-  await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정'}).press('Enter');
+  await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정'}).press('Enter');await revealConnectedControls(page);
   await page.getByRole('button',{name:'03 경제 가정·계산'}).press('Enter');
 }
 async function reads(page:Page) {
