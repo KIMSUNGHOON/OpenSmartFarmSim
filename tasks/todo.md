@@ -1,5 +1,11 @@
 # 첫 구현 작업 목록
 
+- [ ] **`crop-solar-unpaused-hosted-normal`** — [정상 기능의 호스팅 검증](../contracts/crop-solar-unpaused-hosted-v1.md).
+  원 prototype/64걸음·독립 unpaused API/worker·두 전진 prefix·원 값/UTC·원 후검사·DB/FD/소유 정리와
+  실제 CI 종료/자원 증거를 확인한다. 원5root가 없는 호스팅 성공으로 로컬 용량·S3/S4를 체크하지 않는다.
+  로컬 부모 exec 시험은3.5MB까지 감소했으나 합 RSS1,096,474,624bytes로 미수용이다.
+  먼저 기능 정상 한 사례를 확인하고 hold/취소·계산 중3D와 로컬 자원 수명 수정을 각각 진행한다.
+
 **현재 — 2026-10-17:** [호스팅 실제 정상/hold 저장 WebGL 기능 수용](../research/crop-solar-current-webgl-verification-20261017.md).
 원 수치/UTC·권리/재접속·정리를 통과했다. 다음은 reader 변경 뒤 독립 API/worker 정상 한 사례다.
 로컬 동시 RSS·S2b/S3/S4·부모 체크는 유지하며 아래 기록은 당시 상태다.
