@@ -1,0 +1,896 @@
+{
+  "G0_G4": "not_assessed",
+  "Node": {
+    "embedded_undici_sha256": "590b397c3ef9b1310b17214196319ede352f8c782ddfb6f3d1635f8b6d65445c",
+    "embedded_undici_version": "6.24.1",
+    "version": "v22.22.3"
+  },
+  "S1b_accepted": false,
+  "S2a_accepted": true,
+  "S2b_accepted": false,
+  "S3_accepted": false,
+  "S4_accepted": false,
+  "SDK_normal_resource_holds_cumulative": 7,
+  "actual_farm_Runs": 0,
+  "actual_hold_SDK_executed": false,
+  "backend_CI": {
+    "conclusion": "",
+    "databaseId": 39015742702,
+    "headSha": "9af2f97caad5a6e5928f8e1d570d7ab28e1524d1",
+    "jobs": [
+      {
+        "conclusion": "",
+        "databaseId": 117347376202,
+        "name": "backend-partition-0",
+        "status": "in_progress"
+      },
+      {
+        "conclusion": "",
+        "databaseId": 117347376211,
+        "name": "backend-partition-3",
+        "status": "queued"
+      },
+      {
+        "conclusion": "",
+        "databaseId": 117347376234,
+        "name": "backend-partition-5",
+        "status": "queued"
+      },
+      {
+        "conclusion": "",
+        "databaseId": 117347376243,
+        "name": "backend-partition-4",
+        "status": "queued"
+      },
+      {
+        "conclusion": "",
+        "databaseId": 117347376261,
+        "name": "backend-partition-2",
+        "status": "queued"
+      },
+      {
+        "conclusion": "",
+        "databaseId": 117347376356,
+        "name": "backend-partition-1",
+        "status": "in_progress"
+      }
+    ],
+    "status": "queued",
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39015742702"
+  },
+  "current_GET": {
+    "SDK": false,
+    "actual_SCRAM": true,
+    "calls": {
+      "CLI": 0,
+      "NIR": 0,
+      "PAR": 0,
+      "RHS": 0,
+      "SQL_writes": 0,
+      "advance": 0,
+      "event": 0,
+      "prepare_binding": 0,
+      "prepare_context": 0,
+      "restore": 0,
+      "solar": 0,
+      "start": 0,
+      "step": 0,
+      "ventilation": 0
+    },
+    "connection_callers": [
+      {
+        "count": 33,
+        "owner": "JobStore",
+        "phase": "samples"
+      },
+      {
+        "count": 30,
+        "owner": "MarketHoldStore",
+        "phase": "samples"
+      },
+      {
+        "count": 10,
+        "owner": "MarketSourceStore",
+        "phase": "samples"
+      },
+      {
+        "count": 80,
+        "owner": "ThermalRunStore",
+        "phase": "samples"
+      },
+      {
+        "count": 33,
+        "owner": "JobStore",
+        "phase": "summary"
+      },
+      {
+        "count": 30,
+        "owner": "MarketHoldStore",
+        "phase": "summary"
+      },
+      {
+        "count": 10,
+        "owner": "MarketSourceStore",
+        "phase": "summary"
+      },
+      {
+        "count": 80,
+        "owner": "ThermalRunStore",
+        "phase": "summary"
+      }
+    ],
+    "connections": 306,
+    "economic_calculate_calls": {
+      "samples": 10,
+      "summary": 10
+    },
+    "hold_store_binding": {
+      "same_DSN": true,
+      "same_principal_provider": true,
+      "same_runtime_kind": true,
+      "same_runtime_policy_object": true,
+      "same_schema": true,
+      "types": [
+        "_MarketSources",
+        "MarketSourceStore",
+        "MarketHoldStore",
+        "ThermalRunStore"
+      ]
+    },
+    "max_live_owned_backends": 2,
+    "overlapping_connections_by_owner": {
+      "MarketHoldStore": 40,
+      "ThermalRunStore": 80
+    },
+    "profile_instrumentation_included": true,
+    "profiles": [
+      {
+        "RSS_after": 144805888,
+        "RSS_before": 116944896,
+        "active_count_after": 0,
+        "top_live": [
+          {
+            "bytes": 179288,
+            "count": 1502,
+            "file": "rows.py",
+            "line": 121
+          },
+          {
+            "bytes": 170156,
+            "count": 2800,
+            "file": "http-verifier.private.py",
+            "line": 215
+          },
+          {
+            "bytes": 45064,
+            "count": 664,
+            "file": "_queries.py",
+            "line": 103
+          },
+          {
+            "bytes": 39688,
+            "count": 710,
+            "file": "encoder.py",
+            "line": 258
+          },
+          {
+            "bytes": 34224,
+            "count": 713,
+            "file": "_encodings.py",
+            "line": 87
+          },
+          {
+            "bytes": 31200,
+            "count": 260,
+            "file": "crop_cycle_input_stream.py",
+            "line": 49
+          },
+          {
+            "bytes": 30971,
+            "count": 520,
+            "file": "http-verifier.private.py",
+            "line": 216
+          },
+          {
+            "bytes": 30403,
+            "count": 1,
+            "file": "api_crop_greenhouse_solar_replay.py",
+            "line": 475
+          },
+          {
+            "bytes": 24696,
+            "count": 441,
+            "file": "_preparing.py",
+            "line": 56
+          },
+          {
+            "bytes": 24500,
+            "count": 490,
+            "file": "economic_contracts.py",
+            "line": 22
+          },
+          {
+            "bytes": 24192,
+            "count": 363,
+            "file": "_cursor_base.py",
+            "line": 514
+          },
+          {
+            "bytes": 23728,
+            "count": 312,
+            "file": "_preparing.py",
+            "line": 157
+          },
+          {
+            "bytes": 18654,
+            "count": 373,
+            "file": "http_identity.py",
+            "line": 25
+          },
+          {
+            "bytes": 18600,
+            "count": 155,
+            "file": "economic_contracts.py",
+            "line": 397
+          },
+          {
+            "bytes": 18320,
+            "count": 245,
+            "file": "array.py",
+            "line": 138
+          },
+          {
+            "bytes": 13200,
+            "count": 198,
+            "file": "array.py",
+            "line": 126
+          }
+        ],
+        "traced_live": 994950,
+        "traced_peak": 10844301,
+        "view": "summary"
+      },
+      {
+        "RSS_after": 150134784,
+        "RSS_before": 144908288,
+        "active_count_after": 0,
+        "top_live": [
+          {
+            "bytes": 178624,
+            "count": 1489,
+            "file": "rows.py",
+            "line": 121
+          },
+          {
+            "bytes": 168388,
+            "count": 2786,
+            "file": "http-verifier.private.py",
+            "line": 215
+          },
+          {
+            "bytes": 64760,
+            "count": 924,
+            "file": "_queries.py",
+            "line": 103
+          },
+          {
+            "bytes": 48848,
+            "count": 617,
+            "file": "_preparing.py",
+            "line": 157
+          },
+          {
+            "bytes": 47280,
+            "count": 845,
+            "file": "encoder.py",
+            "line": 258
+          },
+          {
+            "bytes": 39112,
+            "count": 584,
+            "file": "_cursor_base.py",
+            "line": 514
+          },
+          {
+            "bytes": 32400,
+            "count": 270,
+            "file": "crop_cycle_input_stream.py",
+            "line": 49
+          },
+          {
+            "bytes": 32059,
+            "count": 520,
+            "file": "http-verifier.private.py",
+            "line": 216
+          },
+          {
+            "bytes": 29856,
+            "count": 399,
+            "file": "array.py",
+            "line": 138
+          },
+          {
+            "bytes": 28728,
+            "count": 513,
+            "file": "_preparing.py",
+            "line": 56
+          },
+          {
+            "bytes": 28608,
+            "count": 596,
+            "file": "_encodings.py",
+            "line": 87
+          },
+          {
+            "bytes": 23560,
+            "count": 62,
+            "file": "_preparing.py",
+            "line": 52
+          },
+          {
+            "bytes": 23560,
+            "count": 62,
+            "file": "_connection_base.py",
+            "line": 118
+          },
+          {
+            "bytes": 23327,
+            "count": 1,
+            "file": "api_crop_greenhouse_solar_replay.py",
+            "line": 475
+          },
+          {
+            "bytes": 22456,
+            "count": 449,
+            "file": "economic_contracts.py",
+            "line": 22
+          },
+          {
+            "bytes": 21600,
+            "count": 324,
+            "file": "array.py",
+            "line": 126
+          }
+        ],
+        "traced_live": 1162106,
+        "traced_peak": 11113630,
+        "view": "samples"
+      }
+    ],
+    "raw_sha256": "5c085a7814a0337411ab3d380b7383c81df55909b639153a87ff309f52d112ad",
+    "replies": {
+      "samples": {
+        "HTTP": 200,
+        "bytes": 23294,
+        "sha256": "d33e70d372fe32c4c88d82b9a72e46db532004c51e45a4bae2a60a8209dcba78"
+      },
+      "summary": {
+        "HTTP": 200,
+        "bytes": 30370,
+        "sha256": "8a8afd57a2db0db334b0b21d6d54a2497f38c25c6bb328ebdc6b035b10549881"
+      }
+    },
+    "verified_TLS": true
+  },
+  "full_product_completion": null,
+  "goal_status": "active",
+  "held_context_RED": {
+    "G0_G4": "not_assessed",
+    "actual_farm_Runs": 0,
+    "adopted": false,
+    "all_connections_closed_with_actual_password": true,
+    "candidate_test_commit": "21b230c35badc3d25e6a3ee6281f0bccb5025c78",
+    "eligible_connections": {
+      "contexts": 6,
+      "holds": 3,
+      "source": 2
+    },
+    "expected_connections": {
+      "source": 2
+    },
+    "fallback_connections": {
+      "contexts": 6,
+      "holds": 3,
+      "source": 2
+    },
+    "raw_sha256": "5bb53011b5e3f0c38547acb76f59b9d89d1be454d6d3c95a7d86de19f66261e2",
+    "same_decimal_ledger_and_result_id": true,
+    "same_hold_context_validator_sequence": true,
+    "same_typed_request_scenario_pin": true,
+    "test_source_sha256": "94fd3e6c4dca7978dee375342019ea7435c9932bd93738f576ee545634c1e544"
+  },
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "native_context_timestamp": "2026-10-17T08:01:39.302Z",
+    "raw_turn_context_sha256": "c0a342b7d86b1a49fb884be572567a00590bc8b6da9e1b6a1274e48dbb298f96",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+  },
+  "new_solar_user_deployed": false,
+  "next": "Scoped current hold/DecisionContext reads on the same audited candidate connection with exact bindings, current rights, signatures, checks, arithmetic, fallback and adversarial validation preserved. Native SDK retry only after accepted implementation and new measurement.",
+  "official_sources": [
+    {
+      "data_adoption": false,
+      "scope": "Node memory counters only; not an allocation cause",
+      "url": "https://nodejs.org/download/release/v22.22.3/docs/api/process.html#processmemoryusage"
+    },
+    {
+      "data_adoption": false,
+      "scope": "liftoff_only disables both wasm tier-up flags; version-pinned software source",
+      "url": "https://raw.githubusercontent.com/nodejs/node/v22.22.3/deps/v8/src/flags/flag-definitions.h"
+    },
+    {
+      "data_adoption": false,
+      "scope": "wasm_tier_up controls eager path when dynamic tiering is false",
+      "url": "https://raw.githubusercontent.com/nodejs/node/v22.22.3/deps/v8/src/wasm/module-compiler.cc"
+    }
+  ],
+  "private_diagnostic_sources": {
+    "controller.py": "cb72e2facf4dcd7a2704a3130e0c3cc50195943d2ab33809f2fd9957aaad7bf4",
+    "memory-hook-tier.mjs": "44851072eaabd2a263ccecdebc7f3edbf814f75608d64500ce77583a8b84a117",
+    "memory-hook.mjs": "6537d83a87ba06e8fe93806b1669c77ddca2492a3b722ff42c6045f44dbff3ca",
+    "profile-current-GET-hold-readers.py": "0b266c7658687b7887e84700f823c07ad4b65d9b08274729894a871236f9800a",
+    "profile-successful-HTTP-liftoff.py": "c1e598c448da31bb42a7b6372cb119c9b28fca9e19e846a6fd1bf3916b1b3b55",
+    "profile-successful-HTTP-v2.py": "cded7ecfdf2eef092457d8090f6d3fa50b73272577e04482117895f1d0a8a1ba",
+    "profile-successful-HTTP-v3.py": "9172c44ba29080a1049760f2b7588c99adf7775ea4227dfb4e60cc5e441126c4",
+    "run-native-liftoff.py": "846ee855d8d5fcec4de9077c6b8cfd87c0da103cc9cdb31ad4d289628ac6aa3f"
+  },
+  "product_source_changed": false,
+  "reader_core_commit": "fce9009",
+  "recorded_HTTPS_profiles": [
+    {
+      "actual_API": false,
+      "bundle_sha256": "7d9837d99f7f6f9e18be17cfcb5ba2e4a3078b8a662d2ec151556216633f689b",
+      "case": "focused-SDK-successful-HTTP-memory-v2",
+      "fixture_sha256": "b9be03e0dc7ea9e5ac9aa80bfbf7e013d855acdbfc77dc6f89f2e14df672a908",
+      "raw_sha256": "0153ad5c26d13809a1068d608af0314acc37c54dcf1f41f7a488ee7d9e8f9ecb",
+      "request_count": 12,
+      "variants": [
+        {
+          "case": "completed",
+          "flags": [],
+          "max_JS_heap_used_bytes": 10064448,
+          "max_Node_RSS_bytes": 84049920,
+          "max_V8_malloced_bytes": 14399680,
+          "successful_summaries": 6,
+          "variant": "baseline",
+          "wasm_compile_input_bytes": []
+        },
+        {
+          "case": "hold",
+          "flags": [],
+          "max_JS_heap_used_bytes": 10052808,
+          "max_Node_RSS_bytes": 84422656,
+          "max_V8_malloced_bytes": 14654440,
+          "successful_summaries": 6,
+          "variant": "baseline",
+          "wasm_compile_input_bytes": []
+        }
+      ]
+    },
+    {
+      "actual_API": false,
+      "bundle_sha256": "7d9837d99f7f6f9e18be17cfcb5ba2e4a3078b8a662d2ec151556216633f689b",
+      "case": "focused-SDK-Wasm-tier-allocation-v1",
+      "fixture_sha256": "b9be03e0dc7ea9e5ac9aa80bfbf7e013d855acdbfc77dc6f89f2e14df672a908",
+      "raw_sha256": "cb0e8aca018de38e384e11a1907bd1e464f39c168726d048f1b35d1e9ae5ec63",
+      "request_count": 24,
+      "variants": [
+        {
+          "case": "completed",
+          "flags": [],
+          "max_JS_heap_used_bytes": 10015368,
+          "max_Node_RSS_bytes": 84123648,
+          "max_V8_malloced_bytes": 14654440,
+          "successful_summaries": 6,
+          "variant": "baseline",
+          "wasm_compile_input_bytes": [
+            48643
+          ]
+        },
+        {
+          "case": "hold",
+          "flags": [],
+          "max_JS_heap_used_bytes": 10050608,
+          "max_Node_RSS_bytes": 84115456,
+          "max_V8_malloced_bytes": 14293168,
+          "successful_summaries": 6,
+          "variant": "baseline",
+          "wasm_compile_input_bytes": [
+            48643
+          ]
+        },
+        {
+          "case": "completed",
+          "flags": [
+            "--no-wasm-tier-up"
+          ],
+          "max_JS_heap_used_bytes": 10031368,
+          "max_Node_RSS_bytes": 84242432,
+          "max_V8_malloced_bytes": 14374600,
+          "successful_summaries": 6,
+          "variant": "no-tier-up",
+          "wasm_compile_input_bytes": [
+            48643
+          ]
+        },
+        {
+          "case": "hold",
+          "flags": [
+            "--no-wasm-tier-up"
+          ],
+          "max_JS_heap_used_bytes": 10049400,
+          "max_Node_RSS_bytes": 82030592,
+          "max_V8_malloced_bytes": 14654440,
+          "successful_summaries": 6,
+          "variant": "no-tier-up",
+          "wasm_compile_input_bytes": [
+            48643
+          ]
+        }
+      ]
+    },
+    {
+      "actual_API": false,
+      "bundle_sha256": "7d9837d99f7f6f9e18be17cfcb5ba2e4a3078b8a662d2ec151556216633f689b",
+      "case": "focused-SDK-Wasm-liftoff-allocation-v1",
+      "fixture_sha256": "b9be03e0dc7ea9e5ac9aa80bfbf7e013d855acdbfc77dc6f89f2e14df672a908",
+      "raw_sha256": "7725fa2024ff482027ff9af8b4df84f050b2d021d4cdf0640021f936e00fd06a",
+      "request_count": 24,
+      "variants": [
+        {
+          "case": "completed",
+          "flags": [],
+          "max_JS_heap_used_bytes": 10009656,
+          "max_Node_RSS_bytes": 84332544,
+          "max_V8_malloced_bytes": 14301384,
+          "successful_summaries": 6,
+          "variant": "baseline",
+          "wasm_compile_input_bytes": [
+            48643
+          ]
+        },
+        {
+          "case": "hold",
+          "flags": [],
+          "max_JS_heap_used_bytes": 10049352,
+          "max_Node_RSS_bytes": 84160512,
+          "max_V8_malloced_bytes": 14399680,
+          "successful_summaries": 6,
+          "variant": "baseline",
+          "wasm_compile_input_bytes": [
+            48643
+          ]
+        },
+        {
+          "case": "completed",
+          "flags": [
+            "--liftoff-only"
+          ],
+          "max_JS_heap_used_bytes": 10042312,
+          "max_Node_RSS_bytes": 70787072,
+          "max_V8_malloced_bytes": 566168,
+          "successful_summaries": 6,
+          "variant": "liftoff-only",
+          "wasm_compile_input_bytes": [
+            48643
+          ]
+        },
+        {
+          "case": "hold",
+          "flags": [
+            "--liftoff-only"
+          ],
+          "max_JS_heap_used_bytes": 10050664,
+          "max_Node_RSS_bytes": 70422528,
+          "max_V8_malloced_bytes": 557416,
+          "successful_summaries": 6,
+          "variant": "liftoff-only",
+          "wasm_compile_input_bytes": [
+            48643
+          ]
+        }
+      ]
+    }
+  ],
+  "recorded_at": "2026-10-17T08:15:19.188508Z",
+  "remaining_focused_hours": null,
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-native-HTTP-allocation-v1",
+  "source_commit": "9af2f97caad5a6e5928f8e1d570d7ab28e1524d1",
+  "stages": {
+    "actual_SDK": {
+      "actual_child_exit": 1,
+      "case": "focused-native-SDK-liftoff-completed-v1",
+      "combined_peak_RSS_bytes": 1083203584,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "6c61d880b58bb4c743dff7fccc6230b54567e28d838a8457254c206baa1febfc",
+      "observed_owned_postgres_identity_count": 310,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": "RSS_limit",
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2372,
+      "source_pins_sha256": "c06cc261c727b9dde6b5d652e6b01b41ff764f36f7cea76cf01633399d5bea0b",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "65eacfc1023bcb666c8f36724f7b888707d253bd704d5323c9acd9f5c5206654",
+      "tool": "18647:1",
+      "wall_seconds": 105.05749621200084
+    },
+    "current_GET": {
+      "actual_child_exit": 0,
+      "case": "focused-current-GET-hold-readers-v1",
+      "combined_peak_RSS_bytes": 1034514432,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "f2a62f3a166c64b8eb2460208cb675d978514851df4a094ff25dfd76bc8d938a",
+      "observed_owned_postgres_identity_count": 287,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 149815296,
+      "source_count": 2374,
+      "source_pins_sha256": "9c71d9c784be149da22d83b707fb724a6ac7b8de3a136afbb23531f9650e9237",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "2b65046686dbfdaa1e896492a48cfbe213c72245034ed2a5b3caea197cd0ee4b",
+      "tool": "66294:0",
+      "wall_seconds": 105.12781726699905
+    },
+    "diagnostic_setup_failure": {
+      "actual_child_exit": 1,
+      "case": "focused-SDK-successful-HTTP-memory-v1",
+      "combined_peak_RSS_bytes": 854945792,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "f999c512f0b6f29462001ac94ada0457be6c5a48026744baef6c57276d8533af",
+      "observed_owned_postgres_identity_count": 0,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2374,
+      "source_pins_sha256": "9c71d9c784be149da22d83b707fb724a6ac7b8de3a136afbb23531f9650e9237",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "b2654c7e654a4d8f1013971a2b75d9953de41615ce67bfa8fec30d3d2acf5076",
+      "tool": "65255:1",
+      "wall_seconds": 0.8463744269974995
+    },
+    "held_context_RED": {
+      "actual_child_exit": 1,
+      "case": "regression-held-context-reader-red-v1",
+      "combined_peak_RSS_bytes": 1004064768,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "1b9c35fd83e2c42dc38e3568a25a05f738971b85aaa5b30843364aee7642d1cb",
+      "observed_owned_postgres_identity_count": 34,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2375,
+      "source_pins_sha256": "37c39777eaa3c93c53388dbdce8da289bf916fe6884ec822004c3350f2ec668f",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "0e12b166ba1ca771304333b0e2810fab53329960f0e7a23df5e6f8d4c6c88e29",
+      "tool": "37657:1",
+      "wall_seconds": 11.850656547001563
+    },
+    "liftoff_comparison": {
+      "actual_child_exit": 0,
+      "case": "focused-SDK-Wasm-liftoff-allocation-v1",
+      "combined_peak_RSS_bytes": 940081152,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "e903482051518e81bd0c30fffd255b5341f6ea757a90266b59593f752e5c074e",
+      "observed_owned_postgres_identity_count": 0,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2374,
+      "source_pins_sha256": "9c71d9c784be149da22d83b707fb724a6ac7b8de3a136afbb23531f9650e9237",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "56235fdd0d4ca27debe9ac24b0932ceaf4d5081506e83ce5015a27a632ceaf26",
+      "tool": "40031:0",
+      "wall_seconds": 2.1665258959983476
+    },
+    "no_tier_up_comparison": {
+      "actual_child_exit": 0,
+      "case": "focused-SDK-Wasm-tier-allocation-v1",
+      "combined_peak_RSS_bytes": 924594176,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "1603f2e10766c213fa63d85b2dde381cc36ef9c609d0bad9d07470be53b3f05b",
+      "observed_owned_postgres_identity_count": 0,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2374,
+      "source_pins_sha256": "9c71d9c784be149da22d83b707fb724a6ac7b8de3a136afbb23531f9650e9237",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "dd7a888647b65f917e925ffb669fff304590ae758b516ff5a3291e71b3a1fa5d",
+      "tool": "94020:0",
+      "wall_seconds": 2.177444834000198
+    },
+    "recorded_HTTPS": {
+      "actual_child_exit": 0,
+      "case": "focused-SDK-successful-HTTP-memory-v2",
+      "combined_peak_RSS_bytes": 935739392,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "a7213901b69b1ca0e4a61d4d7989b3130ff34bf1e694fe863de1f3125e90572e",
+      "observed_owned_postgres_identity_count": 0,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2374,
+      "source_pins_sha256": "9c71d9c784be149da22d83b707fb724a6ac7b8de3a136afbb23531f9650e9237",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "a9b9812de2a307b9c1d0783c26ee64e1a1bc6f3523d743067c264fc8adb9caf4",
+      "tool": "10765:0",
+      "wall_seconds": 1.3872344310075277
+    },
+    "status_HTTP": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 810545152,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "080dea66427e0c6d3ee453a0e85cbcc528ca5fcb12316936bced1cdf8df1eb19",
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_pins_sha256": "5e1f8d212265ca49e88cfb5cca89c9ff2721ca69d42736770306974bf985adf3",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "1de0df7b100c347d9f2cee6dfa4930d581261dbde90f6a3c906c9a5f924209b1",
+      "tool": "26923:0",
+      "wall_seconds": 0.3333488339994801
+    },
+    "status_parser": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 988975104,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "ba1f8588eaf94b930f2822aee8f2e723791e2c2933669319570048b629b198a0",
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 186650624,
+      "source_pins_sha256": "5e1f8d212265ca49e88cfb5cca89c9ff2721ca69d42736770306974bf985adf3",
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "5cffd42c37194373dcbadfb97be0be599cc846cd50f110b9457cb920126f6ec4",
+      "tool": "27744:0",
+      "wall_seconds": 0.846640927993576
+    }
+  },
+  "status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "browser_DOM_rerun": false,
+    "browser_rerun": false,
+    "current_HTML_matches_frozen_entry_both_ports": true,
+    "files": 2173,
+    "new_solar_user_deployed": false,
+    "parser_cases_passed": 28,
+    "reported_at": "2026-10-17T08:15:19.188508Z",
+    "retained_ventilation_frozen_source_preserved": true,
+    "source_sha256": "13be5e7936e483bc32cb960397ffdad83532049f4c9516657a6777f2ccf49de9"
+  },
+  "test_PG_setting_adopted_for_product": false,
+  "test_PG_shared_buffers_MiB": 1,
+  "test_liftoff_option_adopted": false
+}
