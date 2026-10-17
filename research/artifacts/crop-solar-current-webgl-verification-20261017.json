@@ -14,7 +14,7 @@
     "checks": {
       "parser": {
         "actual_child_exit": 0,
-        "combined_peak_RSS_bytes": 994562048,
+        "combined_peak_RSS_bytes": 991330304,
         "controller_FD_before_after": [
           4,
           4
@@ -23,11 +23,11 @@
         "owned_non_zombie_remaining": [],
         "protected_live": true,
         "reason": null,
-        "wall_seconds": 0.8459179109922843
+        "wall_seconds": 0.8424061270052334
       },
       "published_HTTP": {
         "actual_child_exit": 0,
-        "combined_peak_RSS_bytes": 815448064,
+        "combined_peak_RSS_bytes": 813580288,
         "controller_FD_before_after": [
           4,
           4
@@ -36,7 +36,7 @@
         "owned_non_zombie_remaining": [],
         "protected_live": true,
         "reason": null,
-        "wall_seconds": 0.33193812900572084
+        "wall_seconds": 0.33882502699270844
       }
     },
     "frozen_HTML_both_preserved": true,
@@ -44,8 +44,8 @@
     "new_DOM_exercised": false,
     "parser_tests": 28,
     "published_HTTP_both_ports": 200,
-    "reported_at": "2026-10-17T09:58:41.767632Z",
-    "source_sha256": "42ed0dd15bff2864a4d6711e6be22c7fb179bd284ef16485e5e438a6ff1e63f8"
+    "reported_at": "2026-10-17T10:09:33.079531Z",
+    "source_sha256": "ac7a137d18bd06d295a34c94727d3f1062ff544dfceda3e20e72b03d1a6ba3ad"
   },
   "development_feed_previous": {
     "bytes_equal": true,
@@ -85,6 +85,45 @@
     "published_HTTP_both_ports": 200,
     "reported_at": "2026-10-17T09:39:28.844543Z",
     "source_sha256": "563d98c0de9bec53bfd2f229cad8d1ab641b87e8842919426610d7d942147ca9"
+  },
+  "development_feed_prior_to_lookup_ready": {
+    "bytes_equal": true,
+    "cache_control": "no-store",
+    "checks": {
+      "parser": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 994562048,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "protected_live": true,
+        "reason": null,
+        "wall_seconds": 0.8459179109922843
+      },
+      "published_HTTP": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 815448064,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "protected_live": true,
+        "reason": null,
+        "wall_seconds": 0.33193812900572084
+      }
+    },
+    "frozen_HTML_both_preserved": true,
+    "frozen_ventilation_source_files_preserved": 2173,
+    "new_DOM_exercised": false,
+    "parser_tests": 28,
+    "published_HTTP_both_ports": 200,
+    "reported_at": "2026-10-17T09:58:41.767632Z",
+    "source_sha256": "42ed0dd15bff2864a4d6711e6be22c7fb179bd284ef16485e5e438a6ff1e63f8"
   },
   "downloaded_build": {
     "archive_paths_checked": true,
@@ -255,15 +294,243 @@
       "offscreen_navigation_center_y": 829.4375,
       "run": 39022453909,
       "viewport_height": 768
+    },
+    {
+      "Solar_format_selected": true,
+      "artifact": {
+        "digest_verified": true,
+        "id": 12098000164,
+        "sha256": "3f4756cfb59d416ce59eeb12ebc4939d5325196734563d934291150ee50646b8"
+      },
+      "completed_case": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "RSS_samples": 507,
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 451080192,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 262729728,
+        "wall_seconds": 129.31594076100004
+      },
+      "conclusion": "failure",
+      "database_role_cleanup_assertion_executed": false,
+      "failure": {
+        "actual_HTTP_count": 0,
+        "frames_saved": 0,
+        "last_pointer": {
+          "control": "저장 연구 결과 ID",
+          "point": {
+            "hit": false,
+            "hit_tag": "P",
+            "outer": [
+              800,
+              600
+            ],
+            "rect": [
+              205,
+              620.1875,
+              972,
+              668.1875
+            ],
+            "screen": [
+              800,
+              600
+            ],
+            "viewport": [
+              1024,
+              768
+            ],
+            "visible": true,
+            "x": 588.5,
+            "y": 644.1875
+          }
+        },
+        "native_actions": [
+          {
+            "active": {
+              "name": null,
+              "tag": "INPUT",
+              "type": "password"
+            },
+            "control": "접근 토큰",
+            "point": {
+              "hit": true,
+              "hit_tag": "INPUT",
+              "outer": [
+                800,
+                600
+              ],
+              "rect": [
+                205,
+                360.1875,
+                854,
+                408.1875
+              ],
+              "screen": [
+                800,
+                600
+              ],
+              "viewport": [
+                1024,
+                768
+              ],
+              "visible": true,
+              "x": 529.5,
+              "y": 384.1875
+            }
+          },
+          {
+            "active": {
+              "name": null,
+              "tag": "BODY",
+              "type": null
+            },
+            "control": "연결 설정",
+            "point": {
+              "hit": true,
+              "hit_tag": "BUTTON",
+              "outer": [
+                800,
+                600
+              ],
+              "rect": [
+                866,
+                359.59375,
+                972,
+                409.1875
+              ],
+              "screen": [
+                800,
+                600
+              ],
+              "viewport": [
+                1024,
+                768
+              ],
+              "visible": true,
+              "x": 919,
+              "y": 384.390625
+            }
+          },
+          {
+            "active": {
+              "name": null,
+              "tag": "BUTTON",
+              "type": null
+            },
+            "control": "08 성장 연구 3D",
+            "point": {
+              "hit": true,
+              "hit_tag": "SPAN",
+              "outer": [
+                800,
+                600
+              ],
+              "rect": [
+                32,
+                530.359375,
+                154,
+                611.546875
+              ],
+              "screen": [
+                800,
+                600
+              ],
+              "viewport": [
+                1024,
+                768
+              ],
+              "visible": true,
+              "x": 93,
+              "y": 570.953125
+            }
+          },
+          {
+            "active": {
+              "name": null,
+              "tag": "SELECT",
+              "type": null
+            },
+            "control": "저장 결과 판본",
+            "point": {
+              "hit": true,
+              "hit_tag": "SELECT",
+              "outer": [
+                800,
+                600
+              ],
+              "rect": [
+                284,
+                359.8125,
+                634,
+                407.8125
+              ],
+              "screen": [
+                800,
+                600
+              ],
+              "viewport": [
+                1024,
+                768
+              ],
+              "visible": true,
+              "x": 459,
+              "y": 383.8125
+            }
+          },
+          {
+            "active": {
+              "name": null,
+              "tag": "SUMMARY",
+              "type": null
+            },
+            "control": "저장 연구 결과 조회",
+            "point": {
+              "hit": true,
+              "hit_tag": "SUMMARY",
+              "outer": [
+                800,
+                600
+              ],
+              "rect": [
+                205,
+                371.203125,
+                972,
+                396.796875
+              ],
+              "screen": [
+                800,
+                600
+              ],
+              "viewport": [
+                1024,
+                768
+              ],
+              "visible": true,
+              "x": 588.5,
+              "y": 384
+            }
+          }
+        ],
+        "reason": "control not visible or hit: 저장 연구 결과 ID",
+        "type": "AssertionError"
+      },
+      "head": "ca9f9cf23b96b2c600bbd01a178bf9b17fdfaf11",
+      "hold_case_executed": false,
+      "lookup_open_state_recorded": false,
+      "run": 39023069641
     }
   ],
   "hosted_native_CI": {
-    "head": "ca9f9cf23b96b2c600bbd01a178bf9b17fdfaf11",
+    "head": "cae7fc4ddc1450bd98984d878a689d07de4e0786",
     "native_success_claimed": false,
-    "run": 39023069641,
+    "run": 39023732519,
     "selected_browser_suite": "solar",
     "state": "in_progress",
-    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39023069641"
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39023732519"
   },
   "local_capacity_hold": true,
   "local_checks": [
@@ -529,6 +796,12 @@
       "wall_seconds": 0.33189795099315234
     }
   ],
+  "lookup_readiness": {
+    "accepted": false,
+    "change": "wait until actual Solar form exists, distinguish unmounted from closed details, assert open before field input; record lookup open on failure",
+    "head": "cae7fc4ddc1450bd98984d878a689d07de4e0786",
+    "runtime_cause_is_inference": true
+  },
   "native_CLI": {
     "model": "gpt-6.1-sol",
     "native_context_timestamp": "2026-10-17T09:18:24.061Z",
@@ -596,6 +869,7 @@
       "use": "locked Playwright1.63.0 headless shell installation"
     }
   ],
+  "updated_at": "2026-10-17T10:12:09.815824+00:00",
   "visible_pointer_syntax_check": {
     "actual_child_exit": 0,
     "controller_FD_before_after": [

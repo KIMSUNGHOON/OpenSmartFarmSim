@@ -121,3 +121,21 @@ native Codex gpt-6.1-sol/xhigh의 현재 context/hash를 기계 기록에 남겼
 두 호스팅 진입 실패와 새 visible-pointer source를 반영해 feed를
 `2026-10-17T09:58:41.767632Z`로 다시 게시했다. parser28개·양쪽 실제 HTTP200/no-store/원문·
 기존 HTML/환기2,173파일 보존과 원5root/원본/FD4→4·소유 정리를 통과했다.
+
+## 조회 폼 준비 순서 보완
+
+세 번째 [39023069641](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39023069641)는
+129.316초·자식 exit1/reason없음·단일262,729,728/합451,080,192bytes·FD7→7·소유 잔여0으로
+종료됐다. 연결/탐색 버튼과 Solar 선택까지 실제 입력이 진행됐지만 첫 조회 필드의 hit가 다른
+문단이었다. API 요청/3D 프레임0이며 hold/DB 역할 정리 단언은 미실행이다.
+
+lazy Solar 화면이 마운트되기 전의 `undefined`를 닫힌 details로 간주할 수 있는 코드와
+원 summary 클릭 순서를 확인했다. 그 실패의 lookup open 상태는 보존하지 않아 런타임 원인
+해석은 추론으로 구분한다. `cae7fc4`에서 실제 폼 존재를 기다린 뒤 열림을 구분하고 입력 전에
+open을 확인한다. 실패 진단에도 그 상태를 추가했다. 원 데이터/권리/3D·정리 단언은 유지했다.
+Python/내장 script 구문·원 helper/웹 앱·원5root/원본/FD·소유 정리를 통과했고
+[후속39023732519](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39023732519)를
+접수했다. 앞선 실패를 수용으로 세지 않으며 실제 저장 WebGL 수용은 여전히0시점이다.
+
+최신 진행 feed는 `2026-10-17T10:09:33.079531Z`다. parser28개와 양쪽 실제
+HTTP200/no-store·원문/기존 HTML·환기2,173파일/원5root/원본/FD·소유 정리를 확인했다.
