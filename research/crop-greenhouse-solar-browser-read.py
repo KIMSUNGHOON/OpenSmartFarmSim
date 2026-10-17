@@ -6,7 +6,7 @@ R=Path(os.environ['OSSF_SOLAR_BROWSER_SOURCE_ROOT']);web_build=Path(os.environ['
 assert (web_build/'index.html').is_file()
 asset_hashes={str(p.relative_to(web_build)):sha256(p.read_bytes()).hexdigest() for p in web_build.rglob('*') if p.is_file()}
 assets={('/'+name):web_build/name for name in asset_hashes};assets['/']=web_build/'index.html'
-actions=[];requests=[];frames=[];screens=[];proxy_errors=[];browser_exit=None;browser=None;pipe_fds=[];browser_scope=None
+last_pointer={};actions=[];requests=[];frames=[];screens=[];proxy_errors=[];browser_exit=None;browser=None;pipe_fds=[];browser_scope=None
 spki=base64.b64encode(sha256(key.public_key().public_bytes(serialization.Encoding.DER,serialization.PublicFormat.SubjectPublicKeyInfo)).digest()).decode()
 upstream_context=ssl.create_default_context(cafile=str(cert))
 thread=threading.Thread(target=server.run,daemon=True);thread.start()
@@ -86,8 +86,12 @@ try:
    if(kind==='label'){const label=[...document.querySelectorAll('label')].find(e=>normalize([...e.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE).map(n=>n.textContent).join(' '))===text);return label?.control||[...document.querySelectorAll('[aria-label]')].find(e=>e.getAttribute('aria-label')===text);}
    return [...document.querySelectorAll(kind==='button'?'button':'summary')].find(e=>normalize(e.textContent)===text||e.getAttribute('aria-label')===text);})()""".replace('__CONTROL_TEXT__',json.dumps(text)).replace('__CONTROL_KIND__',json.dumps(kind))
  def click(kind,text):
-  point=until(lambda:cdp.evaluate("""(()=>{const e=ELEMENT;if(!e||e.disabled)return null;e.scrollIntoView({block:'center',behavior:'instant'});const r=e.getBoundingClientRect(),x=r.x+r.width/2,y=r.y+r.height/2,hit=document.elementFromPoint(x,y);return r.width&&r.height?{x,y,hit:!!hit&&(hit===e||e.contains(hit)),hit_tag:hit?.tagName,viewport:[innerWidth,innerHeight],screen:[screen.width,screen.height],outer:[outerWidth,outerHeight]}:null})()""".replace('ELEMENT',element(kind,text))),'control unavailable: '+text)
-  actions.append({'control':text,'point':point});assert point['hit'],'control center is not hit: '+text
+  def position():
+   point=cdp.evaluate("""(()=>{const e=ELEMENT;if(!e||e.disabled)return null;e.scrollIntoView({block:'center',behavior:'instant'});return new Promise(resolve=>requestAnimationFrame(()=>{const r=e.getBoundingClientRect(),left=Math.max(0,r.left),right=Math.min(innerWidth,r.right),top=Math.max(0,r.top),bottom=Math.min(innerHeight,r.bottom),x=(left+right)/2,y=(top+bottom)/2,hit=document.elementFromPoint(x,y);resolve({x,y,visible:right>left&&bottom>top,hit:!!hit&&(hit===e||e.contains(hit)),hit_tag:hit?.tagName,rect:[r.left,r.top,r.right,r.bottom],viewport:[innerWidth,innerHeight],screen:[screen.width,screen.height],outer:[outerWidth,outerHeight]});}));})()""".replace('ELEMENT',element(kind,text)))
+   last_pointer.update(control=text,point=point)
+   return point if point and point['visible'] and point['hit'] else None
+  point=until(position,'control not visible or hit: '+text)
+  actions.append({'control':text,'point':point})
   coordinates={k:point[k] for k in ('x','y')}
   cdp.send('Input.dispatchMouseEvent',{'type':'mouseMoved',**coordinates})
   for event in ('mousePressed','mouseReleased'):cdp.send('Input.dispatchMouseEvent',{'type':event,'button':'left','clickCount':1,**coordinates})
@@ -158,7 +162,7 @@ try:
  browser_scope.sample();browser_scope.signal_owned(__import__('signal').SIGTERM)
 except BaseException as error:
  try:
-  diagnostic={'error_type':type(error).__name__,'reason':str(error),'HTTP':requests,'frames_saved':len(frames),'native_actions':actions}
+  diagnostic={'error_type':type(error).__name__,'reason':str(error),'HTTP':requests,'frames_saved':len(frames),'native_actions':actions,'last_pointer':last_pointer}
   if browser is not None and browser.poll() is None:
    diagnostic['controls']=cdp.evaluate("({labels:[...document.querySelectorAll('label')].map(e=>[...e.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE).map(n=>n.textContent).join(' ').trim()),buttons:[...document.querySelectorAll('button')].map(e=>({text:e.textContent,aria:e.getAttribute('aria-label'),disabled:e.disabled})),alerts:[...document.querySelectorAll('[role=alert]')].map(e=>e.textContent),format:document.querySelector('.crop-format select')?.value})")
   save('browser-failure.private.json',diagnostic)
