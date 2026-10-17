@@ -1,6 +1,8 @@
 # 일사 실행·확정 구간 명시 runtime — v1 (구현·검증 중)
 
 [설정·API 조립 부분 수용109검사](../research/crop-greenhouse-solar-execution-assembly-implementation-20261017.md). 독립 unpaused worker와 단계 전체는 미수용이다.
+[독립 동시 실행은 자원 hold](../research/crop-greenhouse-solar-unpaused-resource-hold-20261017.md)이며 누락된 수용 증거를 대체하지 않는다.
+
 
 선행: [결과 runtime](crop-greenhouse-solar-runtime-v1.md), [실행/prefix HTTP](api-crop-greenhouse-solar-execution-http-v1.md),
 [내부 worker](crop-greenhouse-solar-execution-core-v1.md).

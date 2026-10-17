@@ -69,6 +69,8 @@
 
 [solar 실행·확정 구간 보호 HTTP](../research/crop-greenhouse-solar-execution-http-implementation-20261017.md)를 고유355검사(pytest353/독립 계약2)로 수용했다. 실제 SCRAM/TLS 접수/retry/진행/취소·원 세 view/UTC·정상/hold 저장 연결·직렬화 뒤 권리/페이지/witness·독립 heartbeat/cancel/원 HEAD/DB 전진·읽기 계산/SQL 변경0·기존65 operation/389 schema·원본/두 UI/5root/자원을 확인했다. 초기 종료 합배치 assertion/RSS 중단과 다른 초기 실패·중복은 제외했고 정상/hold 단독 증거를 수용했다. 초기 assertion 원인은 미확정이며 합배치/동시 운영 용량 수용은 아니다.
 
+[명시 설정·API 조립109검사](../research/crop-greenhouse-solar-execution-assembly-implementation-20261017.md)는 부분 수용했다. 실제 정상/hold SCRAM/TLS·원 응답/권리·동일 graph를 확인했다. [독립 동시 실행](../research/crop-greenhouse-solar-unpaused-resource-hold-20261017.md)은 원5root를 포함한 합 RSS 관문에서 미수용이다. 먼저 owned API/worker의 할당을 분리 계측하고, 근거가 있는 작은 회수 수정만 같은 관문으로 검증한다. 누락/충돌하는 증거에서 운영 조립·입력/판본/권리를 채택하지 않는다.
+
 다음 한 단계는 **명시 solar operator/runtime·독립 unpaused worker**다. 닫힌 기본False 설정/기존 loader·정확한 같은 jobs/admission/checkpoint/custody/result/current/prefix/farm/resolver/키/principal 조립, 실제 SCRAM/TLS의 정상/hold/취소·권리 철회·계산 중 원 prefix/UTC와 조회 계산/SQL 변경0을 검증한다. 준비 프로세스 종료 뒤 가벼운 별도 API/작업자 실행을 우선 검토하고, 원5root/동적 자식·필수 소비자·원본/키/역할/두 서비스를 포함한512MiB/PID·합1GiB/소유 정리를 지킨다. 초기 합배치 실패를 보존하며 독립 작업자가 장벽 없이 실제 계산하는 동안 API가 읽는 증거가 있어야 이 자식을 완료한다. 이어 typed 웹/같은 UTC3D→사용자 재접속/재시작 순서다. 부모는 미완료이며 전체 날짜·남은 집중 시간은 외부 자료와 후속 실측이 없어 미정이다.
 
 실제 시설/스펙트럼·품종/지역/독립 농장·시장 자료 확보는 병행한다. 합성 개발 착수와 G0–G4/예측·추천 게시 조건을 구분하며, 외부 자료와 후속 판본 수용이 확보되지 않아 전체 완료일·남은 집중 시간은 미정이다.

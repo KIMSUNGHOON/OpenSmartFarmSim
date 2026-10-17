@@ -1,5 +1,7 @@
 # OpenSmartFarmSim 제품 명세
 
+**현재 일사 실행 조립 — 2026-10-17:** [설정·실제 API 조립109검사](../research/crop-greenhouse-solar-execution-assembly-implementation-20261017.md)는 부분 수용했다. [독립 작업자/API 동시 실행](../research/crop-greenhouse-solar-unpaused-resource-hold-20261017.md)은 합 RSS 한도로 미수용이다. 다음은 owned API/worker 할당의 분리 계측과 근거가 있는 작은 수정이다. 원5root/두 서비스/키/자료·한도·관문을 유지하며 새 Solar3D·전체 CI·실제 농장/생산/경제/추천·전체 완료일은 미수용/미정이다. goal active를 유지한다.
+
 **현재 일사 API 경계 — 2026-10-17:** [실행·확정 구간 보호 HTTP](../research/crop-greenhouse-solar-execution-http-implementation-20261017.md)를355검사로 로컬 수용했다. 기존 진행/저장 원 값·UTC·False 승인과 제품 관문은 유지한다. 지속 runtime/독립 작업자 동시 실행→같은 UTC3D→사용자 적용, 실제 품종/독립 자료·생산/경제/최종 UI는 후속이며 전체 완료일은 미정이다.
 
 **현재 일사 확정 구간 공개 응답 — 2026-10-17:** [원 값/단위/UTC·현재 권리·직렬화 후검사](../research/crop-greenhouse-solar-prefix-projection-implementation-20261017.md)를 전용 고유91검사로 수용했다. 실제 SCRAM/독립 fresh 원 응답·새 row 추가 뒤 원 선택자/최초 시각·직렬화 뒤 권리/페이지/취소/이력 변경·조회 계산/SQL 변경0·원본/두 UI/5root/자원을 확인했다. 다음은 접수/진행/취소·prefix 보호 HTTP/명시 runtime→같은 UTC3D·사용자 수용이다. 새 일사 미배포·실제 자료/G0–G4·생산/경제/최종 UI·완료일 미정, 전체 CI 미실행·goal active를 유지한다. 아래 이전 기록은 당시 상태다.

@@ -1,0 +1,193 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "aggregate_limit_bytes": 1073741824,
+  "allocator_profiles": {
+    "profiles_only_not_execution_acceptance": true,
+    "rows": [
+      {
+        "RSS_bytes": 66617344,
+        "allocator": "malloc",
+        "module": "app.api_runtime",
+        "peak_RSS_bytes": 66318336
+      },
+      {
+        "RSS_bytes": 71700480,
+        "allocator": "malloc",
+        "module": "app.deterministic_work",
+        "peak_RSS_bytes": 71540736
+      },
+      {
+        "RSS_bytes": 64966656,
+        "allocator": "pymalloc",
+        "module": "app.api_runtime",
+        "peak_RSS_bytes": 64909312
+      },
+      {
+        "RSS_bytes": 69976064,
+        "allocator": "pymalloc",
+        "module": "app.deterministic_work",
+        "peak_RSS_bytes": 69713920
+      }
+    ]
+  },
+  "assembly_commit": "c2725cdd029b2ec5220a4830c472544fd342a764",
+  "assembly_component_checks_preserved": 109,
+  "attempts": [
+    {
+      "accepted": false,
+      "actual_child_exit": 1,
+      "case": "focused-unpaused-normal-v1",
+      "combined_peak_RSS_bytes": 991019008,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "0f9d17505c4f353ef80dc9e45062fd4c522d4629bb0c98c54cb241fcf32d1998",
+      "owned_process_PG_remaining": 0,
+      "post_terminal_cleanup": null,
+      "reason": null,
+      "required_roots_source_preserved": true,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "terminal_sha256": "1b9c79381050fb7c15ffb3e6aa4c35e4b2bbe9acee0154bf15d13b1036d9b6c3"
+    },
+    {
+      "accepted": false,
+      "actual_child_exit": 1,
+      "case": "focused-unpaused-normal-v2",
+      "combined_peak_RSS_bytes": 994033664,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "bf256a4d9c03d14440f50e56b9ec1305d615bde1989c6ac0e9f80eb1ee3f1cf0",
+      "owned_process_PG_remaining": 0,
+      "post_terminal_cleanup": null,
+      "reason": null,
+      "required_roots_source_preserved": true,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "terminal_sha256": "9a9b7c485c59f0f26b11a741b3ae88337511c1563406dc3d32a9093563a29605"
+    },
+    {
+      "accepted": false,
+      "actual_child_exit": 1,
+      "case": "focused-unpaused-normal-v3",
+      "combined_peak_RSS_bytes": 1091862528,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "864f4338be1bc1c5e661d4025bb6dce52e7b0b6155d83e34f23b5fd561399d97",
+      "owned_process_PG_remaining": 0,
+      "post_terminal_cleanup": null,
+      "reason": "RSS_limit",
+      "required_roots_source_preserved": true,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "terminal_sha256": "8028f4f29a95f3384d72d2dc4184870caac70563da3ad3b21e5237248f79d283"
+    },
+    {
+      "accepted": false,
+      "actual_child_exit": 1,
+      "case": "focused-unpaused-normal-v4",
+      "combined_peak_RSS_bytes": 1089429504,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "864f4338be1bc1c5e661d4025bb6dce52e7b0b6155d83e34f23b5fd561399d97",
+      "owned_process_PG_remaining": 0,
+      "post_terminal_cleanup": null,
+      "reason": "RSS_limit",
+      "required_roots_source_preserved": true,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "terminal_sha256": "a3023ba5a960976164660ec347ee041386d2856bd8111ad8ca7586175626b7c5"
+    },
+    {
+      "accepted": false,
+      "actual_child_exit": -15,
+      "case": "focused-unpaused-normal-v5",
+      "combined_peak_RSS_bytes": 1080832000,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "owned_process_PG_remaining": 0,
+      "post_terminal_cleanup": {
+        "known_owned_credential_files_removed": 4,
+        "remaining": 0,
+        "sha256": "bc2f5bb862c9d5b02c2a998b5ad1f5adce7fc7b7278213b4d5ef79dda8d7efbd"
+      },
+      "reason": "RSS_limit",
+      "required_roots_source_preserved": true,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "terminal_sha256": "20318fd690a8070291a272b56d14fb1cf7f4115e412419830d2578bd6f80e710"
+    },
+    {
+      "accepted": false,
+      "actual_child_exit": -15,
+      "case": "focused-unpaused-normal-v6",
+      "combined_peak_RSS_bytes": 1079803904,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "owned_process_PG_remaining": 0,
+      "post_terminal_cleanup": {
+        "known_owned_credential_files_removed": 4,
+        "remaining": 0,
+        "sha256": "d5de64efbfaa6f00edf8a17c498c2ed620fe6228f0880992df8d38aaa91c626c"
+      },
+      "reason": "RSS_limit",
+      "required_roots_source_preserved": true,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "terminal_sha256": "3af3c741072d1a4c98c806e0a57c847f6d086b505da3878a3daaa4da36502d46"
+    }
+  ],
+  "client_interval_seconds": 10,
+  "concurrency_accepted": false,
+  "development_status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_child_exit": 0,
+    "browser_DOM_WebGL_rerun": false,
+    "browser_rerun": false,
+    "log_sha256": "918f55c5465d54ae10b848c8e8095cfbe0f917f271fd0ba600def1e74ba2b457",
+    "original_HTML_both_ports_preserved": true,
+    "reported_at": "2026-10-17T01:15:59.475846Z",
+    "retained_ventilation_files": 2173,
+    "source_sha256": "7d2a8ead3c83e8f95cec69d2df42d50762abf26900cfc8960b4043ad86e925eb",
+    "terminal_sha256": "e31e3062dd6f6e5538b023f48a74f9dc0a30fe74483e90a2a694f04c68f5a20e",
+    "tool_session": "70605"
+  },
+  "full_CI_rerun": false,
+  "goal_status": "active",
+  "new_solar_user_3D_deployed": false,
+  "next_safe_action": "Profile owned API and worker constructor/query allocations separately under unchanged required roots and caps; select one measured reversible correction before any new concurrency attempt. No service handover, input/model/current-rights adoption or gate relaxation from missing/conflicting evidence.",
+  "observed_at": "2026-10-17T01:13:53.562093Z",
+  "owned_credentials_remaining": 0,
+  "prototype": "research/crop-greenhouse-solar-unpaused-probe.py",
+  "prototype_not_a_default_passing_test": true,
+  "prototype_sha256": "b8e9d2058ca0bd5fbf3fbcdeed8f44baff985ae48b69e72ffc5d78693139bf81",
+  "required_roots": 5,
+  "rights_or_gate_approval": false,
+  "roots_restarted_replaced_or_omitted": false,
+  "single_PID_limit_bytes": 536870912,
+  "status": "hold",
+  "worker_blocking_test_barriers": false,
+  "worker_chunk_budget": 1
+}

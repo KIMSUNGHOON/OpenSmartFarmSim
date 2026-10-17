@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**현재 일사 실행 조립 — 2026-10-17:** [설정·실제 API 조립109검사](../research/crop-greenhouse-solar-execution-assembly-implementation-20261017.md)는 부분 수용했다. [독립 작업자/API 동시 실행](../research/crop-greenhouse-solar-unpaused-resource-hold-20261017.md)은 합 RSS 한도로 미수용이다. 다음은 owned API/worker 할당의 분리 계측과 근거가 있는 작은 수정이다. 원5root/두 서비스/키/자료·한도·관문을 유지하며 새 Solar3D·전체 CI·실제 농장/생산/경제/추천·전체 완료일은 미수용/미정이다. goal active를 유지한다.
+
 **현재 상태 — 2026-10-17:** [일사 실행·확정 구간 보호 HTTP355검사](../research/crop-greenhouse-solar-execution-http-implementation-20261017.md)를 로컬 수용했다. 다음 착수점은 명시 runtime·독립 unpaused worker다. 초기 종료 합배치의 assertion 원인은 미확정이고 RSS 중단은 미수용이며 정상/hold 단독 검증은 통과했다. 동시 소비/전체 CI·같은 UTC3D·사용자 적용과 실제 자료/관문·생산/경제/최종 UI는 남아 있다. 기존 두 서비스/5root를 유지하며 전체 날짜는 미정이다.
 
 **현재 상태 — 2026-10-17:** [일사 확정 구간 공개 응답](../research/crop-greenhouse-solar-prefix-projection-implementation-20261017.md)을91검사로 수용했다. 현재/원 구간 조회·공개 타입/직렬화 후검사는 내부 구현이며 기존 환기 사용자 실행/두 서비스를 유지한다. 접수/진행/취소·prefix 보호 API/runtime·독립 worker/같은 UTC3D·사용자 적용과 실제 자료/G0–G4/생산/경제/최종 UI/전체 CI가 남아 전체 날짜는 미정이다. 아래 기록은 당시 관측이다.

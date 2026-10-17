@@ -1811,6 +1811,7 @@
             - [ ] **solar 명시 runtime·독립 unpaused worker** — 선행 보호 HTTP. 기본False/닫힌 전용 operator 설정·기존 loader/계정/키/판본과 정확한 같은 graph를 유지한다. 실제 별도 작업자의 장벽 없는 정상/hold/취소 계산 중 API의 원 prefix/UTC/최초 시각·현재 권리/계정·읽기 계산/SQL 변경0과 원본/두 서비스/필수5root·512MiB/PID/합1GiB·소유 정리를 확인한다. 초기 합배치 실패는 보존하고 동시 실행 증거가 있을 때 완료한다.
               - [x] **명시 설정·실제 API 조립** — [부분 수용109검사](../research/crop-greenhouse-solar-execution-assembly-implementation-20261017.md). 기본False/기존9 loader·파일/graph·실제 SCRAM/TLS 정상/hold/현재 권리·원 응답/UTC·읽기 수치/SQL 변경0·원본/5root/소유 정리. 초기 RSS 두 배치는 제외했다. worker import 관측은 동시 실행 증거가 아니다.
               - [ ] **독립 unpaused worker·동시 API 수용** — 위 계약의 정상/hold/취소·권리 철회·실제 전진한 prefix/UTC/최초 시각과 전체 필수 소비자/자원·원본 보존을 검증한다. 성공 전 부모를 완료하지 않는다.
+                - 현재 [동시 실행 자원 hold](../research/crop-greenhouse-solar-unpaused-resource-hold-20261017.md). 원5root·한도·입력/권리/타입 검사는 보존됐으나 실제 네 배치가 합 RSS에서 종료됐다. 다음은 API/worker 할당의 분리 계측→근거가 있는 작은 회수 수정→동일 관문 재검증이다. 미수용 prototype은 연구 기록으로 남겼다.
           - [ ] **solar typed 웹·같은 UTC3D** — 선행 자동 실행/조회. 같은 API의 원 상태/단위/UTC를 표·장면과 대사하고 정상/hold/취소·권리/재접속·기존 소비자/WebGL/WSL을 수용한다.
           - [ ] **solar 사용자 적용·재시작** — 같은 고정 source/영역/키의 지속 API/worker에서 정상/hold/취소·원 수치/UTC3D·재접속/재시작/현재 권리와 기존 두 주소/원본/자원을 확인하고 접속·진행 안내를 갱신한다.
 
