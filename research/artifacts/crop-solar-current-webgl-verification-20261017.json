@@ -14,6 +14,45 @@
     "checks": {
       "parser": {
         "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 994562048,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "protected_live": true,
+        "reason": null,
+        "wall_seconds": 0.8459179109922843
+      },
+      "published_HTTP": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 815448064,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "protected_live": true,
+        "reason": null,
+        "wall_seconds": 0.33193812900572084
+      }
+    },
+    "frozen_HTML_both_preserved": true,
+    "frozen_ventilation_source_files_preserved": 2173,
+    "new_DOM_exercised": false,
+    "parser_tests": 28,
+    "published_HTTP_both_ports": 200,
+    "reported_at": "2026-10-17T09:58:41.767632Z",
+    "source_sha256": "42ed0dd15bff2864a4d6711e6be22c7fb179bd284ef16485e5e438a6ff1e63f8"
+  },
+  "development_feed_previous": {
+    "bytes_equal": true,
+    "cache_control": "no-store",
+    "checks": {
+      "parser": {
+        "actual_child_exit": 0,
         "combined_peak_RSS_bytes": 990429184,
         "controller_FD_before_after": [
           4,
@@ -108,15 +147,123 @@
       "run": 39021689429,
       "web_browser_tests": 38,
       "web_unit_tests": 1864
+    },
+    {
+      "artifact": {
+        "digest_verified": true,
+        "id": 12096589415,
+        "sha256": "8417a206529f5d14ef3d1c4276a296d486ee8f9b904ebb3a6daaa92ad69650a5"
+      },
+      "completed_case": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "RSS_samples": 262,
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 400105472,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 211652608,
+        "wall_seconds": 66.625773445
+      },
+      "conclusion": "failure",
+      "connection_accepted": true,
+      "database_role_cleanup_assertion_executed": false,
+      "failure": {
+        "actual_HTTP_count": 0,
+        "frames_saved": 0,
+        "native_actions": [
+          {
+            "active": {
+              "name": null,
+              "tag": "INPUT",
+              "type": "password"
+            },
+            "control": "접근 토큰",
+            "point": {
+              "hit": true,
+              "hit_tag": "INPUT",
+              "outer": [
+                800,
+                600
+              ],
+              "screen": [
+                800,
+                600
+              ],
+              "viewport": [
+                1024,
+                768
+              ],
+              "x": 529.5,
+              "y": 383.78125
+            }
+          },
+          {
+            "active": {
+              "name": null,
+              "tag": "BODY",
+              "type": null
+            },
+            "control": "연결 설정",
+            "point": {
+              "hit": true,
+              "hit_tag": "BUTTON",
+              "outer": [
+                800,
+                600
+              ],
+              "screen": [
+                800,
+                600
+              ],
+              "viewport": [
+                1024,
+                768
+              ],
+              "x": 919,
+              "y": 383.984375
+            }
+          },
+          {
+            "control": "08 성장 연구 3D",
+            "point": {
+              "hit": false,
+              "outer": [
+                800,
+                600
+              ],
+              "screen": [
+                800,
+                600
+              ],
+              "viewport": [
+                1024,
+                768
+              ],
+              "x": 93,
+              "y": 829.4375
+            }
+          }
+        ],
+        "reason": "control center is not hit: 08 성장 연구 3D",
+        "type": "AssertionError"
+      },
+      "head": "0920f70559d7bbf2fb2908fe5f6429bc82958da3",
+      "hold_case_executed": false,
+      "offscreen_navigation_center_y": 829.4375,
+      "run": 39022453909,
+      "viewport_height": 768
     }
   ],
   "hosted_native_CI": {
-    "head": "0920f70559d7bbf2fb2908fe5f6429bc82958da3",
+    "head": "ca9f9cf23b96b2c600bbd01a178bf9b17fdfaf11",
     "native_success_claimed": false,
-    "run": 39022453909,
+    "run": 39023069641,
     "selected_browser_suite": "solar",
     "state": "in_progress",
-    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39022453909"
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39023069641"
   },
   "local_capacity_hold": true,
   "local_checks": [
@@ -393,9 +540,10 @@
   },
   "native_pointer_diagnostic": {
     "accepted": false,
-    "cause_proven": false,
-    "changes": "explicit font readiness, native hit/focus evidence, connection transition assertion; no product changes",
-    "head": "0920f70559d7bbf2fb2908fe5f6429bc82958da3"
+    "cause_proven": true,
+    "cause_scope": "Second hosted navigation attempt was outside viewport. First hosted connection failure cause remains unproved.",
+    "changes": "wait for animation frame, visible clipped rectangle and native hit before dispatch; preserve original API/quantity/gate assertions",
+    "head": "ca9f9cf23b96b2c600bbd01a178bf9b17fdfaf11"
   },
   "new_solar_deployed": false,
   "pointer_syntax_checks": [
@@ -448,6 +596,17 @@
       "use": "locked Playwright1.63.0 headless shell installation"
     }
   ],
+  "visible_pointer_syntax_check": {
+    "actual_child_exit": 0,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "owned_non_zombie_remaining": [],
+    "protected_live": true,
+    "reason": null,
+    "source_preserved": true
+  },
   "workflow_parse_failure": {
     "head": "dee52e5ba9a68159a7f1995586e3614bf81041db",
     "native_test_executed": false,

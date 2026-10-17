@@ -82,8 +82,15 @@ hold 사례와 DB 역할 정리 단언은 실행하지 않았다.** PNG도 없�
 상태 전환 단언을 추가했다. 제품 코드는 바꾸지 않았고 클릭이 적용되지 않은 원인은 아직 미확정이다.
 구문 검사 시 새 진행 JSON까지 불변 웹으로 간주한 실행기의 단언 실패를 보존했다. 해당 JSON의
 차이만 명시해 검사했고 Python/내장 script·원 helper·웹 앱 소스 보존 검사를 통과했다.
-[현재39022453909](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39022453909)를
-재시작 없이 따라간다. 동일 source의 무조건 재실행이 아니다.
+두 번째 [39022453909](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39022453909)도
+미수용이다.66.626초·자식 exit1/reason없음·단일211,652,608/합400,105,472bytes·FD7→7·소유
+잔여0이었다. 연결 설정은 실제로 성공했으나 다음 탐색 버튼의 중심y829.4375가 viewport768 밖이었다.
+원 native 좌표/적중/포커스가 이를 보이며 실제 API 요청/프레임은0, hold/DB 역할 정리 단언은 미실행이다.
+`ca9f9cf`는 scroll 다음 프레임에서 화면 안의 실제 적중 영역이 생길 때까지 대기한다.
+원 값/권리/페이지/정리 단언과 timeout은 유지했다. 제품 CSS/동작을 수정하거나 DOM click으로
+대체하지 않았다. 구문·원 source/5root·FD/소유 정리를 확인했고
+[현재39023069641](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39023069641)를
+따라간다. 이전 두 실패를 성공이나 동일 source의 무조건 재실행으로 처리하지 않는다.
 
 호스팅 시험 성공은 해당 환경의 실제 기능 증거로만 추가한다. **현재 WSL5root와의 동시 용량
 보류와 S2b/S3/S4의 기존 조건은 해제하지 않는다.** 로컬 동일 실패를 새 근거 없이 반복하지 않는다.
@@ -110,3 +117,7 @@ native Codex gpt-6.1-sol/xhigh의 현재 context/hash를 기계 기록에 남겼
 진행 feed를 `2026-10-17T09:39:28.844543Z`로 게시했다. parser28개와 실제 두 UI의
 200/no-store·새 원문 일치/기존 HTML·환기2,173파일 보존을 통과했다. 새 DOM/WebGL 수용을
 이 게시 확인으로 대신하지 않았다.
+
+두 호스팅 진입 실패와 새 visible-pointer source를 반영해 feed를
+`2026-10-17T09:58:41.767632Z`로 다시 게시했다. parser28개·양쪽 실제 HTTP200/no-store/원문·
+기존 HTML/환기2,173파일 보존과 원5root/원본/FD4→4·소유 정리를 통과했다.
