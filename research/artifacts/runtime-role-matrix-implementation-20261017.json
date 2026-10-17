@@ -69,7 +69,13 @@
     "timestamp": "2026-10-17T14:32:51.310Z"
   },
   "new_Solar_deployed": false,
-  "next_CI": null,
+  "next_CI": {
+    "actor_instrumentation": false,
+    "created_at": "2026-10-17T14:52:37Z",
+    "head_sha": "d303b903f37b1ec2e25ddeda319b3bddf6404221",
+    "pending": true,
+    "run_id": 39042611904
+  },
   "normal_unpaused_execution_accepted": false,
   "paired_audits": {
     "G0_G4": "not_assessed",
@@ -142,6 +148,40 @@
   "paired_median_seconds_per_21_audits": {
     "after": 0.3556953910010634,
     "before": 0.4053108714942937
+  },
+  "pending_CI_status_publication": {
+    "HTTP_bytes_no_store_and_frozen_HTML_verified": true,
+    "actual_tool": "14529:0",
+    "raw_terminal_sha256": "f3a09823b92d7c9b20d89e220acb6d5f620ea88188d9a27060bdcd59218ff515",
+    "result": {
+      "RSS_samples": 1,
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 852623360,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "c30fef6c8003d7dc736ee3606b1aef2708fddd0e7461af9c006bb0b90b6eec06",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 143671296,
+      "source_count": 2423,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 0.3417078600032255
+    }
   },
   "probe_hashes": {
     "runtime-roles-before-matrix.py": "eef434bd9ed883d3ab440ac7375f05f2f58b33551f7d771b923bac8763c2bb99",
@@ -721,6 +761,40 @@
         "temporary_PG_directories_remaining": [],
         "wall_seconds": 30.584118149999995
       }
+    }
+  },
+  "status_publication": {
+    "HTTP_bytes_no_store_and_frozen_HTML_verified": true,
+    "actual_tool": "2398:0",
+    "raw_terminal_sha256": "c0e95df0d37c6c8690b6087ccccaa9b27c46cbdab9ebffe80288decb340605c8",
+    "result": {
+      "RSS_samples": 1,
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 852029440,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "8e87093864ff71786eceb4fab2a93ccfa7d54cada67c7b1a3eb4c32d5ba7b8d6",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 143671296,
+      "source_count": 2423,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 0.3428340219979873
     }
   }
 }

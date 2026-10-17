@@ -54,7 +54,8 @@ owner/역할·멤버십/DDL/sequence/routine/default/추가 ACL 검사와 정책
 성능: 반환량0행과 paired 컴포넌트 관측만 수용한다. 정책/설치/discovery 함수와
 행렬 이외 감사의 앞18/뒤4 statement AST가 같다. 검토는 현재 native CLI에서 수행했다.
 
-다음은 계측하지 않은 원 API/worker의 독립64단계 정상 한 사례다. 같은 source로 근거 없는
+[CI39042611904](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39042611904),
+source `d303b903f37b1ec2e25ddeda319b3bddf6404221`에서 계측하지 않은 원 API/worker의 독립64단계 정상을 실행 중이다. 같은 source로 근거 없는
 반복 실행은 하지 않는다. 성공 뒤 독립 hold→실제 취소→계산 중 WebGL 순서를 유지한다.
 S3/S4·WSL 동시 용량·새 Solar 사용자 적용·실제 품종/독립 농장·경제 전망/추천·G0–G4와
 전체 완료일은 미완료/미정이다. 실제 농장 Run0·권리/관문 승인False·goal active를 유지한다.
@@ -62,3 +63,6 @@ S3/S4·WSL 동시 용량·새 Solar 사용자 적용·실제 품종/독립 농�
 근거 문서는 PostgreSQL16의 [권한 inquiry](https://www.postgresql.org/docs/16/functions-info.html#FUNCTIONS-INFO-ACCESS-TABLE)와
 [NULL 비교](https://www.postgresql.org/docs/16/functions-comparison.html)다. 공개 문서 참조이며
 농업/경제 입력으로 채택·복제한 자료는 없다. 판단은 기록된 `gpt-6.1-sol/xhigh` 현재 세션에서 수행했고 CLI를 재귀 실행하지 않았다.
+
+2398:0에서 최신 검증 기록을5173/5174의 no-store 동일 bytes로 게시하고 원 HTML/frozen source·5root를 확인했다. UI 코드/브라우저 재검사는 하지 않았다.
+14529:0에서 실제 진행 중 CI ID를 포함한 갱신 feed도 같은 두 HTTP·보존 검사로 게시했다.
