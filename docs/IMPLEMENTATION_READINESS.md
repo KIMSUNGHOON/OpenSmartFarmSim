@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**독립 일사 계산 검증 진행 — 2026-10-17:** [대기 부모 구현/실제 자원 보류](../research/crop-solar-unpaused-parent-resource-20261017.md). 원 actor hash/환경은 보존했으나 정상 완료 proof가 없고 새 판본은 미배포다. [호스팅 정상 기능 한 사례](../contracts/crop-solar-unpaused-hosted-v1.md)를 수동 CI로 검증 중이다. 로컬 원5root 동시 용량·hold/취소·계산 중3D·외부 자료/권리·G0–G4·전체 완료일은 미완료/미정이다. 아래 기록은 당시 상태다.
+
 **현재 — 2026-10-17:** [호스팅 실제 정상/보류 저장3D 기능](../research/crop-solar-current-webgl-verification-20261017.md)을 수용했다. 로컬5root 전체 앱의 RSS 보류는 유지한다. [현재 독립 동시 실행의 RSS 보류](../research/crop-solar-current-unpaused-resource-20261017.md)를 기록했고 시험 대기 부모 회수를 준비한다. 다음 S2b/부모·S3/S4·사용자 배포/전체 완료일은 미완료/미정이다. 아래 기록은 당시 상태다.
 
 **현재 보류/판단 맥락 reader·실제 SDK 수용 — 2026-10-17:** [구현/고유141검사·현재4반복·정상/hold SDK](../research/crop-market-held-context-reader-implementation-20261017.md)를 로컬 소프트웨어 범위로 수용했다. 실제 GET2건 연결306→186/동시2→1·경제 참조20회 보존을 확인했다. 다음은 S2b 실제 현재 HTTPS→저장 WebGL이다. S3 독립 동시 실행/계산 중3D·S4 사용자 적용·새 Solar 배포/전체 CI/실제 자료·관문은 미완료다. 원5root/두 UI/원본/한도와 goal active·전체 완료일 미정을 유지한다. 아래 기록은 당시 상태다.

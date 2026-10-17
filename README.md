@@ -1,5 +1,7 @@
 # OpenSmartFarmSim
 
+**독립 일사 계산 검증 진행 — 2026-10-17:** [시험 대기 부모 변경](research/crop-solar-unpaused-parent-resource-20261017.md)은 부모3.5MB를 관측했으나 합 RSS로 보류됐다. 다음은 [호스팅 정상64걸음의 기능 한 사례](contracts/crop-solar-unpaused-hosted-v1.md)다. 저장 정상/hold3D 수용은 유지하며 로컬 용량·계산 중3D·새 Solar 사용자 적용·외부 자료/G0–G4와 전체 완료일은 미완료/미정이다. 전체 goal active다. 아래 기록은 당시 상태다.
+
 **저장3D 호스팅 기능 수용 — 2026-10-17:** [실제 정상/보류 HTTPS·WebGL·권리·재접속·정리](research/crop-solar-current-webgl-verification-20261017.md)를 수용했다. 정상3/보류2개 저장시점을 3D·표·그래프로 대사했다. [현재 독립 API/worker 정상 점검](research/crop-solar-current-unpaused-resource-20261017.md)은 RSS로 보류됐으며 다음은 시험 대기 부모22.4MB 회수다. 로컬 RSS·S2b/부모·S3/S4·새 Solar 배포와 실제 자료/관문은 미완료이며 전체 goal은 active다. 아래 기록은 당시 상태다.
 
 **현재 보류/판단 맥락 reader·실제 SDK 수용 — 2026-10-17:** [구현/고유141검사·현재4반복·정상/hold SDK](research/crop-market-held-context-reader-implementation-20261017.md)를 로컬 소프트웨어 범위로 수용했다. 실제 GET2건 연결306→186/동시2→1·경제 참조20회 보존을 확인했다. 다음은 S2b 실제 현재 HTTPS→저장 WebGL이다. S3 독립 동시 실행/계산 중3D·S4 사용자 적용·새 Solar 배포/전체 CI/실제 자료·관문은 미완료다. 원5root/두 UI/원본/한도와 goal active·전체 완료일 미정을 유지한다. 아래 기록은 당시 상태다.
