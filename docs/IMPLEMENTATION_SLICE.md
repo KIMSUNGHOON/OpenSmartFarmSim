@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 일사 메모리 진단·관측 수정 — 2026-10-17:** [새5/기존32=37검사와 실제 재검증](../research/crop-greenhouse-solar-reclamation-and-observer-20261017.md)으로 자원 관측의 중복 트리 순회를 수정했다. 작업자 GC·공개 DTO 지연 구축 후보는 미채택이다. 수정 관측기로도 실제 동시 실행은 합 RSS1,079,226,368bytes로 미수용이다. 다음은 API 생성/접수와 worker 첫 claim이 겹치는 구간의 보유/일시 할당 분리다. 기존 두 UI/5root·원본·한도를 유지하며 새 Solar3D/전체 CI/실제 자료·생산/경제/추천/완료일은 미완료·미정, goal active다.
+**현재 일사 접수 계측·저장3D 의존성 — 2026-10-17:** [실제 분리 계측과 후보 제외](../research/crop-greenhouse-solar-admission-allocation-20261017.md)를 기록했다. 실제 API POST/독립 작업 선택·임대 진단은 통과했고 세 연결 수명 후보의 동시 실행은 RSS hold로 미채택이다. [저장 응답 클라이언트](../contracts/web-crop-greenhouse-solar-replay-v1.md)의 개발 선행을 수용된 결과 API로 분리했으며 다음은 S1a다. 실행 중3D/사용자 적용 부모·전체 CI·실제 자료/생산/경제/추천은 미수용이다. 원5root/두 UI/원본/한도·goal active와 전체 완료일 미정을 유지한다.
 
 **이전 일사 실행 조립 — 2026-10-17:** [설정·실제 API 조립109검사](../research/crop-greenhouse-solar-execution-assembly-implementation-20261017.md)는 부분 수용했다. [독립 작업자/API 동시 실행](../research/crop-greenhouse-solar-unpaused-resource-hold-20261017.md)은 합 RSS 한도로 미수용이다. 다음은 owned API/worker 할당의 분리 계측과 근거가 있는 작은 수정이다. 원5root/두 서비스/키/자료·한도·관문을 유지하며 새 Solar3D·전체 CI·실제 농장/생산/경제/추천·전체 완료일은 미수용/미정이다. goal active를 유지한다.
 

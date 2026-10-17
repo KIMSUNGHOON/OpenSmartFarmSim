@@ -1,0 +1,1249 @@
+{
+  "DOM_WebGL_rerun": false,
+  "G0_G4": "not_assessed",
+  "accepted_diagnostics": [
+    "sequential actual SCRAM/TLS API POST then independent worker discovery/claim",
+    "fresh import-only comparison with DB connections forbidden"
+  ],
+  "actual_farm_Runs": 0,
+  "base_commit": "f8be5fd5e22bc6876ae71f3ce37f28b46b7f9cff",
+  "candidate_adopted": false,
+  "candidate_traces": {
+    "focused-candidate-read-release-unpaused-v1": {
+      "api": {
+        "GET_begun": 0,
+        "GET_ended": 0,
+        "advance_begun_count": 0,
+        "current_begun": false,
+        "first_before_begun": false,
+        "max_live_backend_count": 3,
+        "records": 660,
+        "sha256": "173188a4b2ca6896f00240785c52b108f62c1ebe28ad81817f74d9606d4fd1ea"
+      },
+      "worker": {
+        "GET_begun": 0,
+        "GET_ended": 0,
+        "advance_begun_count": 0,
+        "current_begun": true,
+        "first_before_begun": true,
+        "max_live_backend_count": 2,
+        "records": 127,
+        "sha256": "c2fa3c4db3b67f11761e46bf391eee855cb29bf4a533f84e1da61cfaa572734b"
+      }
+    },
+    "focused-shared-candidate-scope-unpaused-v1": {
+      "api": {
+        "GET_begun": 0,
+        "GET_ended": 0,
+        "advance_begun_count": 0,
+        "current_begun": false,
+        "first_before_begun": false,
+        "max_live_backend_count": 3,
+        "records": 192,
+        "sha256": "5be887e7a883aad2c3dc2bd4903138fce2e2665c9cc2395e1e30fd9d28fea604"
+      },
+      "worker": {
+        "GET_begun": 0,
+        "GET_ended": 0,
+        "advance_begun_count": 0,
+        "current_begun": true,
+        "first_before_begun": true,
+        "max_live_backend_count": 2,
+        "records": 403,
+        "sha256": "2931fcf410f4dffd8b0027b23bf341d2da25c1682b2b106319107defdef8f992"
+      }
+    },
+    "focused-shared-market-read-unpaused-v1": {
+      "api": {
+        "GET_begun": 1,
+        "GET_ended": 0,
+        "advance_begun_count": 0,
+        "current_begun": false,
+        "first_before_begun": false,
+        "max_live_backend_count": 2,
+        "records": 144,
+        "sha256": "9936284bf4138ed4dabf179f8173ea067084e48cb0411a4b69845667b01036aa"
+      },
+      "worker": {
+        "GET_begun": 0,
+        "GET_ended": 0,
+        "advance_begun_count": 1,
+        "current_begun": true,
+        "first_before_begun": true,
+        "max_live_backend_count": 1,
+        "records": 379,
+        "sha256": "60d7d25b160781724e2a62f2ce48817b33a4f31dbf1483b3566dbbf834b138ea"
+      }
+    }
+  },
+  "concurrency_accepted": false,
+  "development_status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_child_exit": 0,
+    "browser_DOM_WebGL_rerun": false,
+    "browser_rerun": false,
+    "log_sha256": "441fa54bc23df4151749180a5c1511b546f5df1773de6ff18470ea4f7aa726a6",
+    "original_HTML_both_ports_preserved": true,
+    "reported_at": "2026-10-17T04:22:14.945111Z",
+    "retained_ventilation_frozen_files": 2173,
+    "source_sha256": "edd0fd6e73cefb298198d9f69e251114ef32c268c1a2ccf35e540fcd14c8a8cf",
+    "terminal_sha256": "8e716e8822b1fd2de21b8df28b21305a89b83e833eccee4aebca90598aee1e3e",
+    "tool_session": "50893"
+  },
+  "external_dependencies": [
+    "rights-checked local cultivar/facility/weather data",
+    "independent local crop/resource measurements and future validation",
+    "market demand/supply/macro vintages and economic validation"
+  ],
+  "full_CI_rerun": false,
+  "full_completion_date": null,
+  "goal_status": "active",
+  "guards": [
+    {
+      "case": "focused-admission-allocation-v1",
+      "retained_actor_script_sha256": {
+        "admission-profile/fresh-verifier.private.py": "da599b2ffc3a3abee7e844c1dd04e10834a3bce1dce97a31db18ec7ee5cbcd5e",
+        "admission-profile/http-verifier.private.py": "2a9dfb01e77acdb8875bd131184ab22d07236fd216ac451bdfc1f0ac61349889",
+        "admission-profile/worker-profile.private.py": "29241f4dc5afd3e8dd221539a33d7d527fdaa937050773a091b8bdf0e58a5d68"
+      },
+      "source_pins_sha256": "99ac1ed03bcc4b0ea968cfff5c892e48becbf86c636ab0e3c4fb50afb44e449f",
+      "started_sha256": "7154850711f3e9514802c7b45434e91d9300702e7c498d43f2484be527c82342",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity_count": 109,
+        "RSS_samples": 98,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1030930432,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "82ac6d7f3284a24cc3dab70e8b1802903896a6ad167e9931107eb1d750b3245a",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 67,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 152596480,
+        "source_count": 2347,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 26.296762064994255
+      },
+      "terminal_sha256": "089b9d16ce9e3ada14ddbb74e25aa8c9ffc885b428d456a967dab6840e9b0453",
+      "tool_session": "11054"
+    },
+    {
+      "case": "focused-admission-allocation-v2",
+      "retained_actor_script_sha256": {
+        "admission-profile/fresh-verifier.private.py": "da599b2ffc3a3abee7e844c1dd04e10834a3bce1dce97a31db18ec7ee5cbcd5e",
+        "admission-profile/http-verifier.private.py": "2a9dfb01e77acdb8875bd131184ab22d07236fd216ac451bdfc1f0ac61349889",
+        "admission-profile/worker-profile.private.py": "12152935bf3f655b1b3fa5a5275045e43625cec3e6c4f7673f14fd327c30ea5a"
+      },
+      "source_pins_sha256": "99ac1ed03bcc4b0ea968cfff5c892e48becbf86c636ab0e3c4fb50afb44e449f",
+      "started_sha256": "e61b9b08105da260b90e1b99fb7bf7ff2eb1690a20fe63c22fe34098a539c9ef",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity_count": 103,
+        "RSS_samples": 100,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1035333632,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "ca32b49137e53f62c5972d911a8e7832b65f0cfa3bc3ddaf0cb138aa3328ca03",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 64,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 152727552,
+        "source_count": 2347,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 26.718528490004246
+      },
+      "terminal_sha256": "1b67daabd3b7d2e6bb2568d86ec5c79e7ac4c861d40efd2a9541d07d57903919",
+      "tool_session": "69294"
+    },
+    {
+      "case": "focused-loop-import-baseline-v1",
+      "retained_actor_script_sha256": {},
+      "source_pins_sha256": "99ac1ed03bcc4b0ea968cfff5c892e48becbf86c636ab0e3c4fb50afb44e449f",
+      "started_sha256": "af0a03896e5b7254ca2ee8c45203b9d4b5b0ab8db962ae73826ce160f896ad8c",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity_count": 25,
+        "RSS_samples": 3,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 891297792,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "ca9c156dfc61f1eaaf3b3608c1c12afca004e1f6fb9775028796ea52f8d7bd56",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 0,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 137015296,
+        "source_count": 2347,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 0.8734315949986922
+      },
+      "terminal_sha256": "4baf5872a7f6bfa780af230b6680d43bcdca0c8c4cbb028a09137cbfa84ad50a",
+      "tool_session": "91231"
+    },
+    {
+      "case": "focused-candidate-read-release-unpaused-v1",
+      "retained_actor_script_sha256": {
+        "normal-unpaused/api.private.py": "ab6318eab56f996b14c5adef1651d83ffeb2e2fc774c35c3fb8dad9ed48f3513",
+        "normal-unpaused/fresh-verifier.private.py": "da599b2ffc3a3abee7e844c1dd04e10834a3bce1dce97a31db18ec7ee5cbcd5e",
+        "normal-unpaused/worker.private.py": "6978c0b94a790db47c0bf004a542576bf8e896bdb11841e9076f740d6db7ad32"
+      },
+      "source_pins_sha256": "3e22911bf9ae2b9e0e041dca27592145f5ea92ec9286213edffc052b1de1787d",
+      "started_sha256": "ccb9ea7b2f59bc66cb60295c63504fab55204993fd3ff72cdc1aa0d4c066488a",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity_count": 143,
+        "RSS_samples": 140,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1082781696,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "8ac397574af4c37c1bee8ce4cc240beea5773dd960fdeb2869b1ec46b1e78d42",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 97,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": "RSS_limit",
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 137015296,
+        "source_count": 2347,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 38.07609754800069
+      },
+      "terminal_sha256": "76066e5578ae2cb04a5d691f81513f70ce67d3a58ead63eeba813f71259f8d49",
+      "tool_session": "37602"
+    },
+    {
+      "case": "focused-shared-candidate-scope-unpaused-v1",
+      "retained_actor_script_sha256": {
+        "normal-unpaused/api.private.py": "ab6318eab56f996b14c5adef1651d83ffeb2e2fc774c35c3fb8dad9ed48f3513",
+        "normal-unpaused/fresh-verifier.private.py": "da599b2ffc3a3abee7e844c1dd04e10834a3bce1dce97a31db18ec7ee5cbcd5e",
+        "normal-unpaused/worker.private.py": "6978c0b94a790db47c0bf004a542576bf8e896bdb11841e9076f740d6db7ad32"
+      },
+      "source_pins_sha256": "29e39f66a8604174450dbc8f97b137631eccf664432e409861d7a30596c003f4",
+      "started_sha256": "b04a24529c268eacf68fa95ab9568fb2fd850324c271b9111138a3de691801b5",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity_count": 115,
+        "RSS_samples": 111,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1080963072,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "be80ba4b50a0df38eb02efd4b402ed710f2de5e2e0114568491c26b671078c7b",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 72,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": "RSS_limit",
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 137015296,
+        "source_count": 2347,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 30.059436715004267
+      },
+      "terminal_sha256": "923ccee4a7cd6fb5475dd7287e1ced31f70ff4b163d5ab5bf186b4b3d7367dec",
+      "tool_session": "60109"
+    },
+    {
+      "case": "focused-shared-market-read-unpaused-v1",
+      "retained_actor_script_sha256": {
+        "normal-unpaused/api.private.py": "ab6318eab56f996b14c5adef1651d83ffeb2e2fc774c35c3fb8dad9ed48f3513",
+        "normal-unpaused/fresh-verifier.private.py": "da599b2ffc3a3abee7e844c1dd04e10834a3bce1dce97a31db18ec7ee5cbcd5e",
+        "normal-unpaused/worker.private.py": "6978c0b94a790db47c0bf004a542576bf8e896bdb11841e9076f740d6db7ad32"
+      },
+      "source_pins_sha256": "29d775caa143ffa4428cfcba6601b38d6c881d17964263674daf2e7e75c3530d",
+      "started_sha256": "a034ed6cd59fb6c9bb2db18366498982fa7dd45ce58f6d3743896caf26afb4cd",
+      "terminal": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity_count": 116,
+        "RSS_samples": 115,
+        "actual_child_exit": -15,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1082417152,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed_count": 75,
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": "RSS_limit",
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 137015296,
+        "source_count": 2347,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [
+          "ossf-login-pg-2cqyn_lr"
+        ],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 31.010520579002332
+      },
+      "terminal_sha256": "1855e73f88163e1bee9e6c15b24d24aeaac78052ed06abcb724f39a1a99ba183",
+      "tool_session": "30006"
+    }
+  ],
+  "import_profile": {
+    "DB_connections": 0,
+    "before_RSS_bytes": 67047424,
+    "concurrency_accepted": false,
+    "new_modules": [
+      "app.break_even_verification_worker",
+      "app.crop_climate_joint_execution",
+      "app.crop_climate_joint_execution_checkpoint",
+      "app.crop_climate_joint_execution_worker",
+      "app.crop_climate_joint_farm_binding",
+      "app.crop_climate_joint_input_evidence",
+      "app.crop_climate_joint_result_schema",
+      "app.crop_climate_joint_result_store",
+      "app.crop_climate_joint_server_custody",
+      "app.crop_climate_joint_storage",
+      "app.crop_greenhouse_ventilation_continuation",
+      "app.crop_greenhouse_ventilation_execution",
+      "app.crop_greenhouse_ventilation_execution_checkpoint",
+      "app.crop_greenhouse_ventilation_execution_worker",
+      "app.crop_greenhouse_ventilation_farm_binding",
+      "app.crop_greenhouse_ventilation_input_evidence",
+      "app.crop_greenhouse_ventilation_program",
+      "app.crop_greenhouse_ventilation_result_schema",
+      "app.crop_greenhouse_ventilation_result_store",
+      "app.crop_greenhouse_ventilation_server_custody",
+      "app.crop_greenhouse_ventilation_storage",
+      "app.crop_greenhouse_ventilation_time",
+      "app.deterministic_job_discovery",
+      "app.deterministic_work",
+      "app.process_stop",
+      "argparse",
+      "gettext"
+    ],
+    "profile_only": true,
+    "raw_after_RSS_bytes": 68681728,
+    "settled_after_RSS_bytes": 68038656
+  },
+  "limits": {
+    "combined_bytes": 1073741824,
+    "dynamic_descendants_included": true,
+    "nominal_sample_seconds": 0.25,
+    "protected_roots": 5,
+    "single_PID_bytes": 536870912
+  },
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "native_context_timestamp": "2026-10-17T03:46:14.211Z",
+    "raw_turn_context_sha256": "192624eb83bcffde0e4452ffe21103ea7c4b80b51d8eecd66ca3261f1f30ecd6",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+  },
+  "native_context_sha256": "87c4bd9e68e88287eb83f231bae47bc0133b664689aa0fdc19bef5bd2c72d74d",
+  "new_SDK_or_3D_implemented": false,
+  "new_functional_tests_accepted": 0,
+  "new_solar_user_deployed": false,
+  "next_task": "S1a: typed saved Solar result decoder/request client from accepted result HTTP API and original completed/hold responses, independent of unpaused runtime acceptance; retain S1b/current HTTPS, S2/saved WebGL, S3/running WebGL and S4/user activation as separate unchecked gates.",
+  "official_reference_sources": [
+    {
+      "adopted_data": false,
+      "available_at": null,
+      "publication_time": null,
+      "raw_redistributed": false,
+      "retrieved_at": "2026-10-17T04:20:09.298874+00:00",
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh",
+      "url": "https://www.postgresql.org/docs/16/transaction-iso.html#XACT-READ-COMMITTED"
+    },
+    {
+      "adopted_data": false,
+      "available_at": null,
+      "publication_time": null,
+      "raw_redistributed": false,
+      "retrieved_at": "2026-10-17T04:20:09.298884+00:00",
+      "reviewer": "Codex CLI gpt-6.1-sol/xhigh",
+      "url": "https://www.psycopg.org/psycopg3/docs/basic/usage.html#with-connection"
+    }
+  ],
+  "pending_guard": null,
+  "positive_time_integration_checkpoint_or_advancing_prefix_accepted": false,
+  "post_profile_GC_trim_is_test_only": true,
+  "post_terminal_cleanup": {
+    "no_additional_signals_sent": true,
+    "observed_at": "2026-10-17T04:17:29.337159+00:00",
+    "owned_PG_alive_after_controller": false,
+    "protected_roots": 5,
+    "protected_roots_live": true,
+    "reason": "controller terminal snapshot precedes short_temp.cleanup; explicit audit after terminal confirms removal",
+    "temporary_PG_names_after_controller_cleanup": [],
+    "terminal_snapshot_temporary_PG_names": [
+      "ossf-login-pg-2cqyn_lr"
+    ]
+  },
+  "post_terminal_cleanup_sha256": "c99008d552679c38acaf545cf42f7afc0a0f0ee2039d2d4603cd61ad58fe95a2",
+  "prior_terminal_trace_reconciliation": {
+    "api": {
+      "GET_begun": 0,
+      "GET_ended": 0,
+      "advance_begun_count": 0,
+      "current_begun": false,
+      "first_before_begun": false,
+      "max_live_backend_count": 4,
+      "records": 204,
+      "sha256": "f58fb7f861af85881ae054d116f0e435050b2cc45fac506610e301f1bddcc4df"
+    },
+    "worker": {
+      "GET_begun": 0,
+      "GET_ended": 0,
+      "advance_begun_count": 0,
+      "current_begun": true,
+      "first_before_begun": true,
+      "max_live_backend_count": 3,
+      "records": 68,
+      "sha256": "b69631af5ba452dd2ba9fd98c125d629f280878a1b459c26e5833f6f6a544492"
+    }
+  },
+  "production_implementation_changed": false,
+  "profiles": {
+    "API-admission-allocation.private.json": {
+      "allocations": {
+        "POST": [
+          {
+            "bytes": 1920722,
+            "count": 16633,
+            "file": "<frozen importlib._bootstrap_external>",
+            "line": 753
+          },
+          {
+            "bytes": 197090,
+            "count": 669,
+            "file": "<frozen abc>",
+            "line": 106
+          },
+          {
+            "bytes": 91908,
+            "count": 407,
+            "file": "typing.py",
+            "line": 2872
+          },
+          {
+            "bytes": 80784,
+            "count": 102,
+            "file": "core.py",
+            "line": 3027
+          },
+          {
+            "bytes": 50975,
+            "count": 537,
+            "file": "dataclasses.py",
+            "line": 473
+          },
+          {
+            "bytes": 41564,
+            "count": 442,
+            "file": "typing.py",
+            "line": 897
+          },
+          {
+            "bytes": 33400,
+            "count": 497,
+            "file": "_queries.py",
+            "line": 103
+          },
+          {
+            "bytes": 31640,
+            "count": 566,
+            "file": "encoder.py",
+            "line": 258
+          },
+          {
+            "bytes": 29488,
+            "count": 345,
+            "file": "h11_impl.py",
+            "line": 38
+          },
+          {
+            "bytes": 27456,
+            "count": 572,
+            "file": "_encodings.py",
+            "line": 87
+          },
+          {
+            "bytes": 25443,
+            "count": 294,
+            "file": "<frozen abc>",
+            "line": 123
+          },
+          {
+            "bytes": 25432,
+            "count": 144,
+            "file": "<frozen abc>",
+            "line": 107
+          }
+        ],
+        "constructor": [
+          {
+            "bytes": 2920656,
+            "count": 24390,
+            "file": "<frozen importlib._bootstrap_external>",
+            "line": 753
+          },
+          {
+            "bytes": 719883,
+            "count": 2269,
+            "file": "<frozen abc>",
+            "line": 106
+          },
+          {
+            "bytes": 677784,
+            "count": 3589,
+            "file": "fields.py",
+            "line": 567
+          },
+          {
+            "bytes": 513272,
+            "count": 4176,
+            "file": "fields.py",
+            "line": 237
+          },
+          {
+            "bytes": 479838,
+            "count": 3192,
+            "file": "<frozen importlib._bootstrap>",
+            "line": 488
+          },
+          {
+            "bytes": 439680,
+            "count": 6372,
+            "file": "core_schema.py",
+            "line": 4350
+          },
+          {
+            "bytes": 370656,
+            "count": 1716,
+            "file": "introspection.py",
+            "line": 444
+          },
+          {
+            "bytes": 334368,
+            "count": 1548,
+            "file": "fields.py",
+            "line": 280
+          },
+          {
+            "bytes": 290341,
+            "count": 3305,
+            "file": "<frozen abc>",
+            "line": 123
+          },
+          {
+            "bytes": 289144,
+            "count": 2865,
+            "file": "_known_annotated_metadata.py",
+            "line": 193
+          },
+          {
+            "bytes": 244128,
+            "count": 1227,
+            "file": "_generate_schema.py",
+            "line": 2849
+          },
+          {
+            "bytes": 236544,
+            "count": 896,
+            "file": "fields.py",
+            "line": 316
+          }
+        ]
+      },
+      "max_live_owned_backends": 4,
+      "rows": [
+        {
+          "GC_counts": [
+            324,
+            4,
+            3
+          ],
+          "RSS_bytes": 77025280,
+          "allocated_blocks": 279699,
+          "live_owned_backends": 0,
+          "phase": "API_before_assembly_imports",
+          "traced_live_bytes": 0,
+          "traced_peak_bytes": 0
+        },
+        {
+          "GC_counts": [
+            0,
+            11,
+            2
+          ],
+          "RSS_bytes": 127107072,
+          "allocated_blocks": 416518,
+          "live_owned_backends": 0,
+          "phase": "API_constructed",
+          "traced_live_bytes": 15721432,
+          "traced_peak_bytes": 16176832
+        },
+        {
+          "GC_counts": [
+            28,
+            0,
+            0
+          ],
+          "RSS_bytes": 124551168,
+          "allocated_blocks": 413521,
+          "live_owned_backends": 0,
+          "phase": "API_after_constructor_GC_trim",
+          "traced_live_bytes": 0,
+          "traced_peak_bytes": 0
+        },
+        {
+          "GC_counts": [
+            0,
+            2,
+            18
+          ],
+          "RSS_bytes": 132018176,
+          "allocated_blocks": 448588,
+          "live_owned_backends": 0,
+          "phase": "API_after_POST",
+          "traced_live_bytes": 4268982,
+          "traced_peak_bytes": 7011579
+        },
+        {
+          "GC_counts": [
+            29,
+            0,
+            0
+          ],
+          "RSS_bytes": 130482176,
+          "allocated_blocks": 443818,
+          "live_owned_backends": 0,
+          "phase": "API_after_POST_GC_trim",
+          "traced_live_bytes": 0,
+          "traced_peak_bytes": 0
+        }
+      ],
+      "sha256": "e8f7762c790f51918fb7f3cf90260b9e871a89ee13985ce7583e538412c2fdfd"
+    },
+    "worker-claim-allocation.private.json": {
+      "allocations": {
+        "claim": [
+          {
+            "bytes": 36206,
+            "count": 29,
+            "file": "cursor.py",
+            "line": 250
+          },
+          {
+            "bytes": 15811,
+            "count": 236,
+            "file": "_cursor_base.py",
+            "line": 514
+          },
+          {
+            "bytes": 15672,
+            "count": 213,
+            "file": "_queries.py",
+            "line": 103
+          },
+          {
+            "bytes": 12480,
+            "count": 111,
+            "file": "rows.py",
+            "line": 121
+          },
+          {
+            "bytes": 10072,
+            "count": 133,
+            "file": "array.py",
+            "line": 138
+          },
+          {
+            "bytes": 8327,
+            "count": 78,
+            "file": "_queries.py",
+            "line": 385
+          },
+          {
+            "bytes": 8000,
+            "count": 125,
+            "file": "tracemalloc.py",
+            "line": 67
+          },
+          {
+            "bytes": 7780,
+            "count": 23,
+            "file": "_queries.py",
+            "line": 245
+          },
+          {
+            "bytes": 7360,
+            "count": 100,
+            "file": "_conninfo_utils.py",
+            "line": 105
+          },
+          {
+            "bytes": 7200,
+            "count": 100,
+            "file": "<string>",
+            "line": 1
+          },
+          {
+            "bytes": 7032,
+            "count": 105,
+            "file": "array.py",
+            "line": 126
+          },
+          {
+            "bytes": 6096,
+            "count": 127,
+            "file": "tracemalloc.py",
+            "line": 193
+          }
+        ],
+        "constructor": [
+          {
+            "bytes": 592,
+            "count": 5,
+            "file": "farm_replay_scenario.py",
+            "line": 99
+          },
+          {
+            "bytes": 528,
+            "count": 3,
+            "file": "worker-profile.private.py",
+            "line": 149
+          },
+          {
+            "bytes": 320,
+            "count": 2,
+            "file": "owned_research.py",
+            "line": 46
+          },
+          {
+            "bytes": 312,
+            "count": 2,
+            "file": "deterministic_work.py",
+            "line": 49
+          },
+          {
+            "bytes": 312,
+            "count": 2,
+            "file": "worker-profile.private.py",
+            "line": 148
+          },
+          {
+            "bytes": 312,
+            "count": 2,
+            "file": "worker-profile.private.py",
+            "line": 147
+          },
+          {
+            "bytes": 312,
+            "count": 2,
+            "file": "worker-profile.private.py",
+            "line": 146
+          },
+          {
+            "bytes": 312,
+            "count": 2,
+            "file": "worker-profile.private.py",
+            "line": 145
+          },
+          {
+            "bytes": 270,
+            "count": 4,
+            "file": "pathlib.py",
+            "line": 1015
+          },
+          {
+            "bytes": 236,
+            "count": 2,
+            "file": "worker-profile.private.py",
+            "line": 134
+          },
+          {
+            "bytes": 216,
+            "count": 1,
+            "file": "deterministic_job_discovery.py",
+            "line": 61
+          },
+          {
+            "bytes": 176,
+            "count": 2,
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "line": 235
+          }
+        ],
+        "discovery": [
+          {
+            "bytes": 11400,
+            "count": 153,
+            "file": "_queries.py",
+            "line": 103
+          },
+          {
+            "bytes": 10368,
+            "count": 92,
+            "file": "rows.py",
+            "line": 121
+          },
+          {
+            "bytes": 10251,
+            "count": 156,
+            "file": "_cursor_base.py",
+            "line": 514
+          },
+          {
+            "bytes": 7608,
+            "count": 102,
+            "file": "array.py",
+            "line": 138
+          },
+          {
+            "bytes": 7360,
+            "count": 100,
+            "file": "_conninfo_utils.py",
+            "line": 105
+          },
+          {
+            "bytes": 6116,
+            "count": 51,
+            "file": "_queries.py",
+            "line": 385
+          },
+          {
+            "bytes": 5676,
+            "count": 18,
+            "file": "_queries.py",
+            "line": 245
+          },
+          {
+            "bytes": 5400,
+            "count": 81,
+            "file": "array.py",
+            "line": 126
+          },
+          {
+            "bytes": 5009,
+            "count": 20,
+            "file": "_queries.py",
+            "line": 167
+          },
+          {
+            "bytes": 4896,
+            "count": 68,
+            "file": "<string>",
+            "line": 1
+          },
+          {
+            "bytes": 3770,
+            "count": 38,
+            "file": "<frozen abc>",
+            "line": 123
+          },
+          {
+            "bytes": 3512,
+            "count": 70,
+            "file": "cursor.py",
+            "line": 282
+          }
+        ]
+      },
+      "max_live_owned_backends": 1,
+      "rows": [
+        {
+          "GC_counts": [
+            136,
+            1,
+            2
+          ],
+          "RSS_bytes": 70590464,
+          "allocated_blocks": 260899,
+          "live_owned_backends": 0,
+          "phase": "worker_imported",
+          "traced_live_bytes": 0,
+          "traced_peak_bytes": 0
+        },
+        {
+          "GC_counts": [
+            153,
+            1,
+            2
+          ],
+          "RSS_bytes": 70590464,
+          "allocated_blocks": 260930,
+          "live_owned_backends": 0,
+          "phase": "worker_loop_constructed",
+          "traced_live_bytes": 3544,
+          "traced_peak_bytes": 99402
+        },
+        {
+          "GC_counts": [
+            0,
+            7,
+            3
+          ],
+          "RSS_bytes": 76029952,
+          "allocated_blocks": 262821,
+          "live_owned_backends": 0,
+          "phase": "worker_discovered",
+          "traced_live_bytes": 156022,
+          "traced_peak_bytes": 659331
+        },
+        {
+          "GC_counts": [
+            135,
+            10,
+            3
+          ],
+          "RSS_bytes": 76349440,
+          "allocated_blocks": 265928,
+          "live_owned_backends": 0,
+          "phase": "worker_claimed",
+          "traced_live_bytes": 248274,
+          "traced_peak_bytes": 659331
+        },
+        {
+          "GC_counts": [
+            28,
+            0,
+            0
+          ],
+          "RSS_bytes": 74555392,
+          "allocated_blocks": 261823,
+          "live_owned_backends": 0,
+          "phase": "worker_after_claim_GC_trim",
+          "traced_live_bytes": 0,
+          "traced_peak_bytes": 0
+        }
+      ],
+      "sha256": "2eeba95cd286008161680d0f475de8564236111af49c7969ad61d7a00796b1e7"
+    }
+  },
+  "recorded_at": "2026-10-17T04:20:09.280749+00:00",
+  "recursive_CLI_invocations": 0,
+  "remaining_focused_hours": null,
+  "remote_CI_backend_detail": {
+    "command": [
+      "gh",
+      "run",
+      "view",
+      "37995386543",
+      "--repo",
+      "KIMSUNGHOON/OpenSmartFarmSim",
+      "--json",
+      "conclusion,headSha,jobs"
+    ],
+    "conclusion": "failure",
+    "current_local_revision_tested": false,
+    "headSha": "f06fb67b7eb1b7e129b14b0b41eac266d20de146",
+    "partitions": [
+      {
+        "conclusion": "failure",
+        "failed_steps": [
+          "Start disposable PostgreSQL"
+        ],
+        "name": "backend-partition-1",
+        "test_step": [
+          "skipped"
+        ]
+      },
+      {
+        "conclusion": "failure",
+        "failed_steps": [
+          "Start disposable PostgreSQL"
+        ],
+        "name": "backend-partition-0",
+        "test_step": [
+          "skipped"
+        ]
+      },
+      {
+        "conclusion": "failure",
+        "failed_steps": [
+          "Start disposable PostgreSQL"
+        ],
+        "name": "backend-partition-4",
+        "test_step": [
+          "skipped"
+        ]
+      },
+      {
+        "conclusion": "failure",
+        "failed_steps": [
+          "Start disposable PostgreSQL"
+        ],
+        "name": "backend-partition-2",
+        "test_step": [
+          "skipped"
+        ]
+      },
+      {
+        "conclusion": "failure",
+        "failed_steps": [
+          "Start disposable PostgreSQL"
+        ],
+        "name": "backend-partition-5",
+        "test_step": [
+          "skipped"
+        ]
+      },
+      {
+        "conclusion": "failure",
+        "failed_steps": [
+          "Start disposable PostgreSQL"
+        ],
+        "name": "backend-partition-3",
+        "test_step": [
+          "skipped"
+        ]
+      }
+    ],
+    "return_code": 0,
+    "source_sha256": "a961c786b40c89279f3fa626b35106a8ead11a17818f755e834547a1b7602259"
+  },
+  "remote_CI_list": [
+    {
+      "conclusion": "failure",
+      "databaseId": 37995386493,
+      "headSha": "f06fb67b7eb1b7e129b14b0b41eac266d20de146",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37995386493",
+      "workflowName": "C0 Compose verification"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 37995386531,
+      "headSha": "f06fb67b7eb1b7e129b14b0b41eac266d20de146",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37995386531",
+      "workflowName": "Authored API PostgreSQL smoke"
+    },
+    {
+      "conclusion": "failure",
+      "databaseId": 37995386543,
+      "headSha": "f06fb67b7eb1b7e129b14b0b41eac266d20de146",
+      "status": "completed",
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/37995386543",
+      "workflowName": "Backend tests"
+    }
+  ],
+  "remote_CI_list_sha256": "3f052401572fe5522fa23f8ec69873024df6bf910d17395c4ddfcc03be2a66ee",
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-admission-allocation-research-v1",
+  "scope": "sequential owned configured API admission/discovery/claim software diagnostic and unaccepted isolated connection-scope experiments",
+  "tracemalloc_depth": 1,
+  "tracemalloc_used_for_sequential_diagnostic_only": true,
+  "turn_kind": "progress",
+  "variants": [
+    {
+      "adopted": false,
+      "design": {
+        "acceptance": "Actual unchanged64step/chunk1 unpaused worker/configured API, advancing original UTC prefixes then terminal, five protected roots/512MiB per PID/aggregate1GiB/pidfd/source preservation. If native RSS fails do not adopt. Before any product adoption, meaningful real SCRAM scope/late rights/audit/cleanup regressions required.",
+        "base_commit": "f8be5fd",
+        "candidate_files": [
+          "backend/app/market_candidate_store.py"
+        ],
+        "claim_scope": "Unaccepted isolated fork experiment; no actual farm/gate/3D/production/economic acceptance.",
+        "effort": "xhigh",
+        "hypothesis": "Close candidate SQL connections after their complete candidate/input reads instead of keeping one idle during hold/context callbacks. Source scope and current guards/audits remain; no shared DB session, no caching, no field/type/physics/schema change.",
+        "model": "gpt-6.1-sol",
+        "recursive_cli": false,
+        "risk": "More SCRAM connections/audits can increase latency; not adopted without regression and resource proof. READ COMMITTED did not supply a transaction-wide repeatable snapshot; no broader atomicity claim."
+      },
+      "name": "source-candidate-read-release-v1",
+      "pins_sha256": "3e22911bf9ae2b9e0e041dca27592145f5ea92ec9286213edffc052b1de1787d",
+      "source_preserved": true,
+      "tracked_files": 2347
+    },
+    {
+      "adopted": false,
+      "design": {
+        "adopted": false,
+        "base_commit": "f8be5fd",
+        "candidate_files": [
+          "backend/app/market_candidate_store.py",
+          "backend/app/market_source_store.py"
+        ],
+        "effort": "xhigh",
+        "guards": [
+          "source context owns connection lifetime",
+          "actual active context tuple and exact psycopg connection",
+          "configured explicit host/port equal actual connection",
+          "SCRAM password and authenticated/effective user/database verification before/after",
+          "READ COMMITTED READ ONLY actual SHOW before/after",
+          "full candidate effective role audit before/after plus original source audit",
+          "unchanged candidate/context/rights/schema/model/current replay checks",
+          "ineligible sources retain original separate connection path"
+        ],
+        "hypothesis": "Borrow only the already authenticated active source read-only session for candidate reads when exact trusted source/view types, same DSN/schema/policy/provider and tenant match. Avoid an idle second SQL backend without opening a new backend for every candidate query.",
+        "model": "gpt-6.1-sol",
+        "recursive_cli": false,
+        "risk": "Changes SQL scope ownership and must remain experimental until real identity/role/late mutation/concurrency/cleanup regressions plus actual unpaused resource proof. No shared-session adoption is authorized by the experiment itself.",
+        "scope": "Software diagnostic only; no farm/gate/UI/economic claims."
+      },
+      "name": "source-shared-candidate-scope-v1",
+      "pins_sha256": "29e39f66a8604174450dbc8f97b137631eccf664432e409861d7a30596c003f4",
+      "source_preserved": true,
+      "tracked_files": 2347
+    },
+    {
+      "adopted": false,
+      "design": {
+        "adopted": false,
+        "base_commit": "f8be5fd",
+        "candidate_files": [
+          "backend/app/market_candidate_store.py",
+          "backend/app/market_source_store.py",
+          "backend/app/api_market_source.py"
+        ],
+        "effort": "xhigh",
+        "guards": [
+          "source context owns connection lifetime",
+          "actual active context tuple and exact psycopg connection",
+          "configured explicit host/port equal actual connection",
+          "SCRAM password and authenticated/effective user/database verification before/after",
+          "READ COMMITTED READ ONLY actual SHOW before/after",
+          "full candidate effective role audit before/after plus original source audit",
+          "unchanged candidate/context/rights/schema/model/current replay checks",
+          "ineligible sources retain original separate connection path"
+        ],
+        "hypothesis": "Extend only matching exact trusted source/hold/context stores within an active source readonly scope to existing private in-transaction hold/context readers, with full role audits and identity/readonly/context checks before and after. Avoid additional idle/authenticating DB backends; preserve delegated current context/signature/scope validation.",
+        "model": "gpt-6.1-sol",
+        "recursive_cli": false,
+        "risk": "Changes SQL scope ownership and must remain experimental until real identity/role/late mutation/concurrency/cleanup regressions plus actual unpaused resource proof. No shared-session adoption is authorized by the experiment itself.",
+        "scope": "Software diagnostic only; no farm/gate/UI/economic claims."
+      },
+      "name": "source-shared-market-read-v1",
+      "pins_sha256": "29d775caa143ffa4428cfcba6601b38d6c881d17964263674daf2e7e75c3530d",
+      "source_preserved": true,
+      "tracked_files": 2347
+    }
+  ]
+}
