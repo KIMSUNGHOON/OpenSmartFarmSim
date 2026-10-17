@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from hashlib import sha256
 import json
 from pathlib import Path
+import time
 from uuid import UUID
 
 from psycopg import sql
@@ -15,8 +16,11 @@ from .jobs import require_name, require_seconds
 VERSION = 'joint-solar-execution-publication-v1'
 RESULT_LINK_VERSION = 'joint-solar-execution-result-link-v1'
 RESULT_EVENT_KIND = 'solar_execution_result_registered_v1'
+CUSTODY_WAIT_SECONDS = 5.0
+CUSTODY_RETRY_SECONDS = .05
 CODE_SHA256 = sha256(Path(__file__).read_bytes()).hexdigest()
-_CONTRACT = (VERSION, RESULT_LINK_VERSION, RESULT_EVENT_KIND, checkpoints.CODE_SHA256, results.CODE_SHA256)
+_CONTRACT = (VERSION, RESULT_LINK_VERSION, RESULT_EVENT_KIND, checkpoints.CODE_SHA256, results.CODE_SHA256,
+             CUSTODY_WAIT_SECONDS, CUSTODY_RETRY_SECONDS)
 
 
 @dataclass(frozen=True)
@@ -55,7 +59,8 @@ class SolarExecutionWorker:
                     or self.checkpoints.jobs is not self.jobs or self.checkpoints.server is not self.server
                     or self._pointers() != self._fixed
                     or (VERSION, RESULT_LINK_VERSION, RESULT_EVENT_KIND,
-                        checkpoints.CODE_SHA256, results.CODE_SHA256) != _CONTRACT
+                        checkpoints.CODE_SHA256, results.CODE_SHA256,
+                        CUSTODY_WAIT_SECONDS, CUSTODY_RETRY_SECONDS) != _CONTRACT
                     or sha256(Path(__file__).read_bytes()).hexdigest() != CODE_SHA256):
                 raise ValueError()
             self.checkpoints._binding(); self.results._binding()
@@ -87,6 +92,25 @@ class SolarExecutionWorker:
     def _confirm(self, lease):
         return self.checkpoints.confirm(self.tenant_id, str(lease['job_id']),
             attempt=lease['attempt'], lease_token=lease['lease_token'])
+
+    def _custody_call(self, lease, operation):
+        deadline = None
+        while True:
+            try:
+                return operation()
+            except checkpoints.custody.SolarCustodyPending:
+                now = time.monotonic()
+                if deadline is None:
+                    deadline = now + CUSTODY_WAIT_SECONDS
+                if now >= deadline:
+                    raise
+                self._before(lease)
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    raise
+                time.sleep(min(CUSTODY_RETRY_SECONDS, remaining))
+                if time.monotonic() >= deadline:
+                    raise
 
     def _close(self, lease, kind, code):
         try:
@@ -130,14 +154,14 @@ class SolarExecutionWorker:
         if lease is None: return None
         try:
             raw = self._before(lease)
-            progress = self._adopt(raw)
-            confirmed = self._confirm(lease) if progress is not None else None
+            progress = self._custody_call(lease, lambda:self._adopt(raw))
+            confirmed = self._custody_call(lease, lambda:self._confirm(lease)) if progress is not None else None
             for _ in range(checkpoints.MAX_EVENTS):
                 if confirmed is not None and confirmed['checkpoint']['status'] in ('completed', 'hold'):
-                    return self._finish(lease, confirmed)
+                    return self._custody_call(lease, lambda:self._finish(lease, confirmed))
                 raw = self._before(lease)
-                self.server.advance(self.tenant_id, raw, budget=self.chunk_budget)
-                next_confirmed = self._confirm(lease)
+                self._custody_call(lease, lambda:self.server.advance(self.tenant_id, raw, budget=self.chunk_budget))
+                next_confirmed = self._custody_call(lease, lambda:self._confirm(lease))
                 if confirmed is not None and next_confirmed['event_id'] == confirmed['event_id']:
                     raise checkpoints.SolarCheckpointHold('solar worker made no checkpoint progress')
                 confirmed = next_confirmed
