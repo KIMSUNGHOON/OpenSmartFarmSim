@@ -108,7 +108,7 @@ def supervise(case, evidence):
         'FD_before_after':[before, after], 'hosted_only':True, 'WSL_capacity_accepted':False,
         'actual_crop_Runs':0, 'G0_G4':'not_assessed', 'rights_or_gate_approval':False}
     save(evidence/('resource-'+case+'.json'), result)
-    assert process.returncode == 0 and reason is None and not remaining and before == after, result
+    assert process.returncode == 0 and reason is None and not remaining and before == after, {k:result[k] for k in ('case','actual_child_exit','reason','wall_seconds','single_PID_peak_RSS_bytes','combined_peak_RSS_bytes','FD_before_after','owned_non_zombie_remaining')}
 
 
 if __name__ == '__main__':

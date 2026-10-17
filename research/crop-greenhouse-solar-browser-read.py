@@ -6,7 +6,7 @@ R=Path(os.environ['OSSF_SOLAR_BROWSER_SOURCE_ROOT']);web_build=Path(os.environ['
 assert (web_build/'index.html').is_file()
 asset_hashes={str(p.relative_to(web_build)):sha256(p.read_bytes()).hexdigest() for p in web_build.rglob('*') if p.is_file()}
 assets={('/'+name):web_build/name for name in asset_hashes};assets['/']=web_build/'index.html'
-requests=[];frames=[];screens=[];proxy_errors=[];browser_exit=None;browser=None;pipe_fds=[];browser_scope=None
+actions=[];requests=[];frames=[];screens=[];proxy_errors=[];browser_exit=None;browser=None;pipe_fds=[];browser_scope=None
 spki=base64.b64encode(sha256(key.public_key().public_bytes(serialization.Encoding.DER,serialization.PublicFormat.SubjectPublicKeyInfo)).digest()).decode()
 upstream_context=ssl.create_default_context(cafile=str(cert))
 thread=threading.Thread(target=server.run,daemon=True);thread.start()
@@ -86,8 +86,12 @@ try:
    if(kind==='label'){const label=[...document.querySelectorAll('label')].find(e=>normalize([...e.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE).map(n=>n.textContent).join(' '))===text);return label?.control||[...document.querySelectorAll('[aria-label]')].find(e=>e.getAttribute('aria-label')===text);}
    return [...document.querySelectorAll(kind==='button'?'button':'summary')].find(e=>normalize(e.textContent)===text||e.getAttribute('aria-label')===text);})()""".replace('__CONTROL_TEXT__',json.dumps(text)).replace('__CONTROL_KIND__',json.dumps(kind))
  def click(kind,text):
-  point=until(lambda:cdp.evaluate("""(()=>{const e=ELEMENT;if(!e||e.disabled)return null;e.scrollIntoView({block:'center'});const r=e.getBoundingClientRect();return r.width&&r.height?{x:r.x+r.width/2,y:r.y+r.height/2}:null})()""".replace('ELEMENT',element(kind,text))),'control unavailable: '+text)
-  for event in ('mousePressed','mouseReleased'):cdp.send('Input.dispatchMouseEvent',{'type':event,'button':'left','clickCount':1,**point})
+  point=until(lambda:cdp.evaluate("""(()=>{const e=ELEMENT;if(!e||e.disabled)return null;e.scrollIntoView({block:'center',behavior:'instant'});const r=e.getBoundingClientRect(),x=r.x+r.width/2,y=r.y+r.height/2,hit=document.elementFromPoint(x,y);return r.width&&r.height?{x,y,hit:!!hit&&(hit===e||e.contains(hit)),hit_tag:hit?.tagName,viewport:[innerWidth,innerHeight],screen:[screen.width,screen.height],outer:[outerWidth,outerHeight]}:null})()""".replace('ELEMENT',element(kind,text))),'control unavailable: '+text)
+  actions.append({'control':text,'point':point});assert point['hit'],'control center is not hit: '+text
+  coordinates={k:point[k] for k in ('x','y')}
+  cdp.send('Input.dispatchMouseEvent',{'type':'mouseMoved',**coordinates})
+  for event in ('mousePressed','mouseReleased'):cdp.send('Input.dispatchMouseEvent',{'type':event,'button':'left','clickCount':1,**coordinates})
+  actions[-1]['active']=cdp.evaluate("({tag:document.activeElement?.tagName,type:document.activeElement?.getAttribute('type'),name:document.activeElement?.getAttribute('name')})")
  def fill(label,value):
   click('label',label)
   for event in ('keyDown','keyUp'):cdp.send('Input.dispatchKeyEvent',{'type':event,'key':'a','code':'KeyA','modifiers':2,'windowsVirtualKeyCode':65})
@@ -97,7 +101,9 @@ try:
  def connect():
   until(lambda:cdp.evaluate('Boolean('+element('label','접근 토큰')+')'),'connection input missing')
   if not cdp.evaluate("document.querySelector('.connection')?.open"):click('summary','내부 시험 연결')
+  cdp.evaluate('document.fonts.ready.then(()=>true)')
   fill('접근 토큰',TOKEN.decode());click('button','연결 설정')
+  until(lambda:cdp.evaluate('Boolean('+element('button','연결 해제')+')'),'connection was not accepted')
   click('button','08 성장 연구 3D');click('label','저장 결과 판본');key('End',35);key('ArrowUp',38);key('Enter',13)
   until(lambda:cdp.evaluate('('+element('label','저장 결과 판본')+').value')=='solar','Solar format not selected')
  def load():
@@ -152,7 +158,7 @@ try:
  browser_scope.sample();browser_scope.signal_owned(__import__('signal').SIGTERM)
 except BaseException as error:
  try:
-  diagnostic={'error_type':type(error).__name__,'reason':str(error),'HTTP':requests,'frames_saved':len(frames)}
+  diagnostic={'error_type':type(error).__name__,'reason':str(error),'HTTP':requests,'frames_saved':len(frames),'native_actions':actions}
   if browser is not None and browser.poll() is None:
    diagnostic['controls']=cdp.evaluate("({labels:[...document.querySelectorAll('label')].map(e=>[...e.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE).map(n=>n.textContent).join(' ').trim()),buttons:[...document.querySelectorAll('button')].map(e=>({text:e.textContent,aria:e.getAttribute('aria-label'),disabled:e.disabled})),alerts:[...document.querySelectorAll('[role=alert]')].map(e=>e.textContent),format:document.querySelector('.crop-format select')?.value})")
   save('browser-failure.private.json',diagnostic)
@@ -171,4 +177,4 @@ finally:
 mode['preparing']=True
 assert browser_exit==0 and inventory()==baseline and current_principal() is None and counts(service)==before and all(v==0 for v in calls.values())
 with jobs.connect() as conn:assert conn.execute(sql.SQL('SELECT count(*) AS n FROM {}').format(jobs._table(result_model.schema.TABLE))).fetchone()['n']==rows
-print(json.dumps({'PID':os.getpid(),'status':status,'actual_scram':True,'verified_TLS':True,'actual_TypeScript_SDK':True,'actual_WebGL_browser':True,'browser_exit_code':browser_exit,'browser_TLS_trust':'owned SPKI pin; upstream Python SSL validates CA/name/time','shared_market_reader_observed':shared_reader_observed,'held_context_reader_observed':shared_reader_observed,'owned_shared_buffers_actual':buffer_actual,'native_fetch_mocked':False,'response_bytes_forwarded_unchanged':True,'current_rights_scene_removed':True,'reconnect_same_original_result':True,'device_scale_factor':.5,'frames':frames,'screenshots':screens,'actual_HTTP':requests,'calls':calls,'counts_unchanged':True,'FD_before_after':[len(baseline),len(inventory())],'actual_crop_Runs':0,'G0_G4':'not_assessed','rights_or_gate_approval':False}))
+print(json.dumps({'PID':os.getpid(),'status':status,'actual_scram':True,'verified_TLS':True,'actual_TypeScript_SDK':True,'actual_WebGL_browser':True,'browser_exit_code':browser_exit,'browser_TLS_trust':'owned SPKI pin; upstream Python SSL validates CA/name/time','shared_market_reader_observed':shared_reader_observed,'held_context_reader_observed':shared_reader_observed,'owned_shared_buffers_actual':buffer_actual,'native_fetch_mocked':False,'response_bytes_forwarded_unchanged':True,'current_rights_scene_removed':True,'reconnect_same_original_result':True,'device_scale_factor':.5,'frames':frames,'screenshots':screens,'actual_HTTP':requests,'native_actions':actions,'calls':calls,'counts_unchanged':True,'FD_before_after':[len(baseline),len(inventory())],'actual_crop_Runs':0,'G0_G4':'not_assessed','rights_or_gate_approval':False}))
