@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**독립 일사 계산 검증 — 2026-10-17:** [실제 단계 계측](../research/crop-solar-worker-progress-diagnostics-20261017.md)에서 합성64단계 중 확정16단계·농장 등록 반복 검증의 긴 시간을 확인했다. 관찰기6검사를 통과했고 CI39033602306에서 등록 내부 조회/참조/컴파일 비용을 구분한다. 정상 실행·로컬 용량·계산 중3D·새 Solar 배포·실제 자료/G0–G4·전체 완료일은 미완료/미정이다. 전체 goal active다.
+**독립 일사 계산 후속 — 2026-10-17:** [현재 참조 읽기](../research/farm-pinned-context-reader-implementation-20261017.md)를 고유14검사·실제 SCRAM 조합 조회4→1연결로 수용했다. 원 현재 참조/경제 검증을 유지한다. 다음은 계측을 끈 원64단계 CI39034668788이다. 정상 실행·WSL 용량·계산 중3D·S3/S4·새 Solar 배포·실제 자료/관문은 미완료이며 goal active·전체 완료일 미정이다.
 
 **현재 저장3D 호스팅 기능 수용 — 2026-10-17:** [정상/보류 원 값·UTC/WebGL·권리/재접속/정리](../research/crop-solar-current-webgl-verification-20261017.md). [현재 독립 실행](../research/crop-solar-current-unpaused-resource-20261017.md)은 RSS 보류이며 다음은 시험 대기 부모 회수다. 로컬5root RSS와 S2b/부모·S3/S4·새 Solar 배포 조건은 유지한다. 아래 기록은 당시 상태다.
 

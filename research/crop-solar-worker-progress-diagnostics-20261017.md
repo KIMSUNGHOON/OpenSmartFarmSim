@@ -84,8 +84,29 @@ run/head/ZIP digest·안전 경로·prototype/header/actor hash를 대사했다.
 75150:0에서6검사를 통과했다. 반환 원문 미노출·확정 단계 불변과 기존 bounded/SIGTERM 검사를 포함한다.
 새5root/원2,148항목·두 UI/소스·자원 상한·FD/소유/PG/임시/passfile0을 보존했다.
 
+## 등록 내부 진단 완료와 선택한 수정
+
 [CI39033602306](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39033602306),
-source98bd4dc는 등록 내부 진단 중이다. 후속 변경은 이 측정에서 비용이 확인된 부분으로 제한한다.
-원 수치·검사·cache·입력·chunk·조회 주기·시간/RSS 상한은 바꾸지 않았다.
-정상 실행·WSL 용량·S3/S4·새 Solar 사용자 적용·실제 자료/G0–G4와 전체 완료일은 미완료/미정이다.
-판단은 현재 native gpt-6.1-sol/xhigh 문맥이며 실제 context/hash를 기록했다. 재귀 CLI·새 agent는 없다.
+source98bd4dc도 원360초 계산 상한에서 실패했다. 원 반환 확정/advance는 **15/64·yielded·
+2026-10-01T00:00:30.123456Z**다. 관찰 메서드가 추가돼 이전 진단과 처리량을 비교하지 않는다.
+
+| 관찰된 구간 | 완료 return 사건 | 중첩 포함 누적 초 |
+| --- | ---: | ---: |
+| 등록 `_prepare` |674|269.181|
+| 경제 pin 검증 |674|159.035|
+| 별도 hold 조회 |674|33.791|
+| context 조회 |2022|49.780|
+| 등록 `_find` |1348|33.540|
+| 입력 compiler |674|3.080|
+| 모델 chunk |17|0.721|
+
+중첩 시간은 합산하지 않는다. 실제 SolarCustodyPending3사건도 관찰됐으며 최종 outcome은 없다.
+감독376.526초·자식1·단일134,590,464/합375,115,776bytes·FD7→7·소유/임시0,
+정상/DB 정리 proof 없음·두 actor -15다. artifact12101323115/19,919bytes와 실제
+run/head/digest/안전 경로·header/actor/prototype hash를 대사했다.
+
+다음 변경은 [현재 참조를 경제 pin과 같은 읽기 범위에 묶기](farm-pinned-context-reader-implementation-20261017.md)다.
+이미 검증된 source-owned reader를 재사용하며 current 원 행/서명·권한·부적합 fallback을 유지했다.
+실제 조합 조회 연결4→1·검증 순서/원 값 동일과14검사를 확인했다. 컴파일/cache·수식·상한은 바꾸지 않았다.
+이 측정/진단 단계는 완료했지만 정상 실행·WSL 용량·S3/S4·새 Solar 적용·실제 자료/G0–G4는 미수용이다.
+현재 native gpt-6.1-sol/xhigh 문맥의 실제 context/hash를 기록했다. 재귀 CLI·새 agent는 없다.

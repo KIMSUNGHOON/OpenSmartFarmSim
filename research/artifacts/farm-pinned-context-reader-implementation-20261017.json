@@ -1,0 +1,6235 @@
+{
+  "G0_G4": "not_assessed",
+  "S3_accepted": false,
+  "actual_farm_Runs": 0,
+  "baseline_fine_CI": 39033602306,
+  "component_accepted": true,
+  "distinct_tests_passed": 14,
+  "first_red_v1_setup_error": "missing imported economic_api fixture; not counted as behavior RED or acceptance",
+  "focused_tests": {
+    "focused-pinned-context-all-v1": {
+      "actual_tool": "78944:0",
+      "raw_terminal_sha256": "f86334341faf48f8ce91b598e35fa033653e9698c543bb897e53597e74ac33f1",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity": [
+          {
+            "RSS_bytes": 35708928,
+            "comm": "python",
+            "pid": 836786
+          },
+          {
+            "RSS_bytes": 126775296,
+            "comm": "python",
+            "pid": 836789
+          },
+          {
+            "RSS_bytes": 8880128,
+            "comm": "nginx",
+            "pid": 836804
+          },
+          {
+            "RSS_bytes": 7589888,
+            "comm": "nginx",
+            "pid": 837682
+          },
+          {
+            "RSS_bytes": 120188928,
+            "comm": "python",
+            "pid": 836803
+          },
+          {
+            "RSS_bytes": 18280448,
+            "comm": "postgres",
+            "pid": 836793
+          },
+          {
+            "RSS_bytes": 5480448,
+            "comm": "postgres",
+            "pid": 836799
+          },
+          {
+            "RSS_bytes": 6012928,
+            "comm": "postgres",
+            "pid": 836798
+          },
+          {
+            "RSS_bytes": 7540736,
+            "comm": "postgres",
+            "pid": 836797
+          },
+          {
+            "RSS_bytes": 4648960,
+            "comm": "postgres",
+            "pid": 836795
+          },
+          {
+            "RSS_bytes": 6156288,
+            "comm": "postgres",
+            "pid": 836794
+          },
+          {
+            "RSS_bytes": 24838144,
+            "comm": "python",
+            "pid": 837436
+          },
+          {
+            "RSS_bytes": 143671296,
+            "comm": "python",
+            "pid": 837440
+          },
+          {
+            "RSS_bytes": 8888320,
+            "comm": "nginx",
+            "pid": 837482
+          },
+          {
+            "RSS_bytes": 7516160,
+            "comm": "nginx",
+            "pid": 837557
+          },
+          {
+            "RSS_bytes": 18333696,
+            "comm": "postgres",
+            "pid": 837462
+          },
+          {
+            "RSS_bytes": 5246976,
+            "comm": "postgres",
+            "pid": 837468
+          },
+          {
+            "RSS_bytes": 6316032,
+            "comm": "postgres",
+            "pid": 837467
+          },
+          {
+            "RSS_bytes": 7467008,
+            "comm": "postgres",
+            "pid": 837466
+          },
+          {
+            "RSS_bytes": 5296128,
+            "comm": "postgres",
+            "pid": 837464
+          },
+          {
+            "RSS_bytes": 11628544,
+            "comm": "postgres",
+            "pid": 837463
+          },
+          {
+            "RSS_bytes": 119697408,
+            "comm": "python",
+            "pid": 837580
+          },
+          {
+            "RSS_bytes": 107999232,
+            "comm": "python",
+            "pid": 837589
+          },
+          {
+            "RSS_bytes": 28090368,
+            "comm": "python3",
+            "pid": 851559
+          },
+          {
+            "RSS_bytes": 139751424,
+            "comm": "python",
+            "pid": 851566
+          },
+          {
+            "RSS_bytes": 4481024,
+            "comm": "initdb",
+            "pid": 851569
+          },
+          {
+            "RSS_bytes": 1781760,
+            "comm": "sh",
+            "pid": 851576
+          },
+          {
+            "RSS_bytes": 19197952,
+            "comm": "postgres",
+            "pid": 851577
+          },
+          {
+            "RSS_bytes": 1781760,
+            "comm": "sh",
+            "pid": 851578
+          },
+          {
+            "RSS_bytes": 34037760,
+            "comm": "postgres",
+            "pid": 851579
+          },
+          {
+            "RSS_bytes": 18411520,
+            "comm": "postgres",
+            "pid": 851595
+          },
+          {
+            "RSS_bytes": 11632640,
+            "comm": "postgres",
+            "pid": 851586
+          },
+          {
+            "RSS_bytes": 14376960,
+            "comm": "postgres",
+            "pid": 851594
+          },
+          {
+            "RSS_bytes": 5296128,
+            "comm": "postgres",
+            "pid": 851592
+          },
+          {
+            "RSS_bytes": 5922816,
+            "comm": "postgres",
+            "pid": 851591
+          },
+          {
+            "RSS_bytes": 3506176,
+            "comm": "postgres",
+            "pid": 851590
+          },
+          {
+            "RSS_bytes": 8343552,
+            "comm": "postgres",
+            "pid": 851588
+          },
+          {
+            "RSS_bytes": 8146944,
+            "comm": "postgres",
+            "pid": 851587
+          },
+          {
+            "RSS_bytes": 6340608,
+            "comm": "postgres",
+            "pid": 851605
+          },
+          {
+            "RSS_bytes": 5603328,
+            "comm": "postgres",
+            "pid": 851622
+          },
+          {
+            "RSS_bytes": 7716864,
+            "comm": "postgres",
+            "pid": 851641
+          },
+          {
+            "RSS_bytes": 15904768,
+            "comm": "postgres",
+            "pid": 851658
+          },
+          {
+            "RSS_bytes": 7581696,
+            "comm": "postgres",
+            "pid": 851660
+          },
+          {
+            "RSS_bytes": 14733312,
+            "comm": "postgres",
+            "pid": 851678
+          },
+          {
+            "RSS_bytes": 13418496,
+            "comm": "postgres",
+            "pid": 851696
+          },
+          {
+            "RSS_bytes": 17080320,
+            "comm": "postgres",
+            "pid": 851715
+          },
+          {
+            "RSS_bytes": 16424960,
+            "comm": "postgres",
+            "pid": 851733
+          },
+          {
+            "RSS_bytes": 16035840,
+            "comm": "postgres",
+            "pid": 851754
+          },
+          {
+            "RSS_bytes": 15077376,
+            "comm": "postgres",
+            "pid": 851772
+          },
+          {
+            "RSS_bytes": 16105472,
+            "comm": "postgres",
+            "pid": 851798
+          },
+          {
+            "RSS_bytes": 6287360,
+            "comm": "postgres",
+            "pid": 851812
+          },
+          {
+            "RSS_bytes": 16039936,
+            "comm": "postgres",
+            "pid": 851825
+          },
+          {
+            "RSS_bytes": 16105472,
+            "comm": "postgres",
+            "pid": 851838
+          },
+          {
+            "RSS_bytes": 16433152,
+            "comm": "postgres",
+            "pid": 851852
+          },
+          {
+            "RSS_bytes": 6340608,
+            "comm": "postgres",
+            "pid": 851866
+          },
+          {
+            "RSS_bytes": 17883136,
+            "comm": "gone",
+            "pid": 851877
+          },
+          {
+            "RSS_bytes": 14667776,
+            "comm": "postgres",
+            "pid": 851879
+          },
+          {
+            "RSS_bytes": 14602240,
+            "comm": "postgres",
+            "pid": 851892
+          },
+          {
+            "RSS_bytes": 11243520,
+            "comm": "postgres",
+            "pid": 851906
+          },
+          {
+            "RSS_bytes": 11223040,
+            "comm": "postgres",
+            "pid": 851919
+          },
+          {
+            "RSS_bytes": 16367616,
+            "comm": "postgres",
+            "pid": 851909
+          },
+          {
+            "RSS_bytes": 17231872,
+            "comm": "postgres",
+            "pid": 851932
+          },
+          {
+            "RSS_bytes": 8974336,
+            "comm": "postgres",
+            "pid": 851933
+          },
+          {
+            "RSS_bytes": 13287424,
+            "comm": "postgres",
+            "pid": 851945
+          },
+          {
+            "RSS_bytes": 17788928,
+            "comm": "postgres",
+            "pid": 851949
+          },
+          {
+            "RSS_bytes": 17461248,
+            "comm": "postgres",
+            "pid": 851955
+          },
+          {
+            "RSS_bytes": 16879616,
+            "comm": "postgres",
+            "pid": 851957
+          },
+          {
+            "RSS_bytes": 17661952,
+            "comm": "postgres",
+            "pid": 851956
+          },
+          {
+            "RSS_bytes": 17313792,
+            "comm": "postgres",
+            "pid": 851961
+          },
+          {
+            "RSS_bytes": 16318464,
+            "comm": "postgres",
+            "pid": 851974
+          },
+          {
+            "RSS_bytes": 13844480,
+            "comm": "postgres",
+            "pid": 851987
+          },
+          {
+            "RSS_bytes": 6520832,
+            "comm": "postgres",
+            "pid": 852005
+          },
+          {
+            "RSS_bytes": 17203200,
+            "comm": "gone",
+            "pid": 852004
+          },
+          {
+            "RSS_bytes": 17051648,
+            "comm": "postgres",
+            "pid": 852023
+          },
+          {
+            "RSS_bytes": 14352384,
+            "comm": "postgres",
+            "pid": 852042
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 852059
+          },
+          {
+            "RSS_bytes": 16011264,
+            "comm": "postgres",
+            "pid": 852077
+          },
+          {
+            "RSS_bytes": 16580608,
+            "comm": "postgres",
+            "pid": 852095
+          },
+          {
+            "RSS_bytes": 15994880,
+            "comm": "postgres",
+            "pid": 852114
+          },
+          {
+            "RSS_bytes": 17485824,
+            "comm": "postgres",
+            "pid": 852131
+          },
+          {
+            "RSS_bytes": 15532032,
+            "comm": "postgres",
+            "pid": 852153
+          },
+          {
+            "RSS_bytes": 6291456,
+            "comm": "postgres",
+            "pid": 852167
+          },
+          {
+            "RSS_bytes": 17035264,
+            "comm": "gone",
+            "pid": 852179
+          },
+          {
+            "RSS_bytes": 16318464,
+            "comm": "postgres",
+            "pid": 852195
+          },
+          {
+            "RSS_bytes": 16187392,
+            "comm": "postgres",
+            "pid": 852210
+          },
+          {
+            "RSS_bytes": 15532032,
+            "comm": "postgres",
+            "pid": 852224
+          },
+          {
+            "RSS_bytes": 16318464,
+            "comm": "postgres",
+            "pid": 852236
+          },
+          {
+            "RSS_bytes": 15269888,
+            "comm": "postgres",
+            "pid": 852249
+          },
+          {
+            "RSS_bytes": 9461760,
+            "comm": "postgres",
+            "pid": 852263
+          },
+          {
+            "RSS_bytes": 16449536,
+            "comm": "postgres",
+            "pid": 852276
+          },
+          {
+            "RSS_bytes": 16232448,
+            "comm": "postgres",
+            "pid": 852289
+          },
+          {
+            "RSS_bytes": 15515648,
+            "comm": "postgres",
+            "pid": 852304
+          },
+          {
+            "RSS_bytes": 14221312,
+            "comm": "postgres",
+            "pid": 852317
+          },
+          {
+            "RSS_bytes": 16187392,
+            "comm": "postgres",
+            "pid": 852321
+          },
+          {
+            "RSS_bytes": 16580608,
+            "comm": "postgres",
+            "pid": 852322
+          },
+          {
+            "RSS_bytes": 17694720,
+            "comm": "postgres",
+            "pid": 852323
+          },
+          {
+            "RSS_bytes": 15826944,
+            "comm": "postgres",
+            "pid": 852330
+          },
+          {
+            "RSS_bytes": 11608064,
+            "comm": "postgres",
+            "pid": 852346
+          },
+          {
+            "RSS_bytes": 15671296,
+            "comm": "postgres",
+            "pid": 852364
+          },
+          {
+            "RSS_bytes": 15671296,
+            "comm": "postgres",
+            "pid": 852382
+          },
+          {
+            "RSS_bytes": 14491648,
+            "comm": "postgres",
+            "pid": 852401
+          },
+          {
+            "RSS_bytes": 6344704,
+            "comm": "postgres",
+            "pid": 852420
+          },
+          {
+            "RSS_bytes": 12001280,
+            "comm": "postgres",
+            "pid": 852438
+          },
+          {
+            "RSS_bytes": 15802368,
+            "comm": "postgres",
+            "pid": 852456
+          },
+          {
+            "RSS_bytes": 15171584,
+            "comm": "postgres",
+            "pid": 852474
+          },
+          {
+            "RSS_bytes": 17022976,
+            "comm": "gone",
+            "pid": 852492
+          },
+          {
+            "RSS_bytes": 11345920,
+            "comm": "postgres",
+            "pid": 852511
+          },
+          {
+            "RSS_bytes": 6344704,
+            "comm": "postgres",
+            "pid": 852527
+          },
+          {
+            "RSS_bytes": 15802368,
+            "comm": "postgres",
+            "pid": 852540
+          },
+          {
+            "RSS_bytes": 16326656,
+            "comm": "postgres",
+            "pid": 852553
+          },
+          {
+            "RSS_bytes": 9621504,
+            "comm": "postgres",
+            "pid": 852566
+          },
+          {
+            "RSS_bytes": 8278016,
+            "comm": "postgres",
+            "pid": 852580
+          },
+          {
+            "RSS_bytes": 16588800,
+            "comm": "gone",
+            "pid": 852593
+          },
+          {
+            "RSS_bytes": 14229504,
+            "comm": "postgres",
+            "pid": 852606
+          },
+          {
+            "RSS_bytes": 16588800,
+            "comm": "gone",
+            "pid": 852618
+          },
+          {
+            "RSS_bytes": 15540224,
+            "comm": "postgres",
+            "pid": 852632
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 852645
+          },
+          {
+            "RSS_bytes": 16588800,
+            "comm": "postgres",
+            "pid": 852641
+          },
+          {
+            "RSS_bytes": 16240640,
+            "comm": "postgres",
+            "pid": 852658
+          },
+          {
+            "RSS_bytes": 16240640,
+            "comm": "postgres",
+            "pid": 852671
+          },
+          {
+            "RSS_bytes": 17285120,
+            "comm": "postgres",
+            "pid": 852680
+          },
+          {
+            "RSS_bytes": 16719872,
+            "comm": "postgres",
+            "pid": 852684
+          },
+          {
+            "RSS_bytes": 16588800,
+            "comm": "postgres",
+            "pid": 852685
+          },
+          {
+            "RSS_bytes": 17870848,
+            "comm": "postgres",
+            "pid": 852686
+          },
+          {
+            "RSS_bytes": 17674240,
+            "comm": "postgres",
+            "pid": 852691
+          },
+          {
+            "RSS_bytes": 15671296,
+            "comm": "postgres",
+            "pid": 852706
+          },
+          {
+            "RSS_bytes": 8441856,
+            "comm": "postgres",
+            "pid": 852723
+          },
+          {
+            "RSS_bytes": 16195584,
+            "comm": "postgres",
+            "pid": 852740
+          },
+          {
+            "RSS_bytes": 16326656,
+            "comm": "postgres",
+            "pid": 852759
+          },
+          {
+            "RSS_bytes": 16326656,
+            "comm": "postgres",
+            "pid": 852778
+          },
+          {
+            "RSS_bytes": 16891904,
+            "comm": "postgres",
+            "pid": 852794
+          },
+          {
+            "RSS_bytes": 16588800,
+            "comm": "gone",
+            "pid": 852810
+          },
+          {
+            "RSS_bytes": 6291456,
+            "comm": "postgres",
+            "pid": 852829
+          },
+          {
+            "RSS_bytes": 16195584,
+            "comm": "postgres",
+            "pid": 852846
+          },
+          {
+            "RSS_bytes": 16326656,
+            "comm": "postgres",
+            "pid": 852864
+          },
+          {
+            "RSS_bytes": 17022976,
+            "comm": "gone",
+            "pid": 852885
+          },
+          {
+            "RSS_bytes": 6291456,
+            "comm": "postgres",
+            "pid": 852900
+          },
+          {
+            "RSS_bytes": 16326656,
+            "comm": "postgres",
+            "pid": 852913
+          },
+          {
+            "RSS_bytes": 2125824,
+            "comm": "postgres",
+            "pid": 852927
+          },
+          {
+            "RSS_bytes": 16326656,
+            "comm": "postgres",
+            "pid": 852940
+          },
+          {
+            "RSS_bytes": 16588800,
+            "comm": "gone",
+            "pid": 852954
+          },
+          {
+            "RSS_bytes": 16326656,
+            "comm": "postgres",
+            "pid": 852967
+          },
+          {
+            "RSS_bytes": 16064512,
+            "comm": "postgres",
+            "pid": 852981
+          },
+          {
+            "RSS_bytes": 15671296,
+            "comm": "postgres",
+            "pid": 852995
+          },
+          {
+            "RSS_bytes": 6524928,
+            "comm": "postgres",
+            "pid": 853009
+          },
+          {
+            "RSS_bytes": 16588800,
+            "comm": "postgres",
+            "pid": 853002
+          },
+          {
+            "RSS_bytes": 6340608,
+            "comm": "postgres",
+            "pid": 853022
+          },
+          {
+            "RSS_bytes": 6279168,
+            "comm": "postgres",
+            "pid": 853035
+          },
+          {
+            "RSS_bytes": 17469440,
+            "comm": "postgres",
+            "pid": 853042
+          },
+          {
+            "RSS_bytes": 17137664,
+            "comm": "postgres",
+            "pid": 853045
+          },
+          {
+            "RSS_bytes": 17342464,
+            "comm": "postgres",
+            "pid": 853047
+          },
+          {
+            "RSS_bytes": 15589376,
+            "comm": "postgres",
+            "pid": 853050
+          },
+          {
+            "RSS_bytes": 16330752,
+            "comm": "postgres",
+            "pid": 853061
+          },
+          {
+            "RSS_bytes": 11284480,
+            "comm": "postgres",
+            "pid": 853079
+          },
+          {
+            "RSS_bytes": 14626816,
+            "comm": "postgres",
+            "pid": 853097
+          },
+          {
+            "RSS_bytes": 16396288,
+            "comm": "postgres",
+            "pid": 853115
+          },
+          {
+            "RSS_bytes": 16334848,
+            "comm": "postgres",
+            "pid": 853134
+          },
+          {
+            "RSS_bytes": 13905920,
+            "comm": "postgres",
+            "pid": 853153
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 853170
+          },
+          {
+            "RSS_bytes": 11284480,
+            "comm": "postgres",
+            "pid": 853189
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 853207
+          },
+          {
+            "RSS_bytes": 17027072,
+            "comm": "gone",
+            "pid": 853225
+          },
+          {
+            "RSS_bytes": 16330752,
+            "comm": "postgres",
+            "pid": 853241
+          },
+          {
+            "RSS_bytes": 15282176,
+            "comm": "postgres",
+            "pid": 853255
+          },
+          {
+            "RSS_bytes": 12398592,
+            "comm": "postgres",
+            "pid": 853269
+          },
+          {
+            "RSS_bytes": 9306112,
+            "comm": "postgres",
+            "pid": 853282
+          },
+          {
+            "RSS_bytes": 16158720,
+            "comm": "postgres",
+            "pid": 853296
+          },
+          {
+            "RSS_bytes": 6332416,
+            "comm": "postgres",
+            "pid": 853313
+          },
+          {
+            "RSS_bytes": 6332416,
+            "comm": "postgres",
+            "pid": 853327
+          },
+          {
+            "RSS_bytes": 16396288,
+            "comm": "postgres",
+            "pid": 853339
+          },
+          {
+            "RSS_bytes": 6266880,
+            "comm": "postgres",
+            "pid": 853352
+          },
+          {
+            "RSS_bytes": 16265216,
+            "comm": "postgres",
+            "pid": 853365
+          },
+          {
+            "RSS_bytes": 16592896,
+            "comm": "postgres",
+            "pid": 853367
+          },
+          {
+            "RSS_bytes": 16637952,
+            "comm": "postgres",
+            "pid": 853378
+          },
+          {
+            "RSS_bytes": 16441344,
+            "comm": "postgres",
+            "pid": 853391
+          },
+          {
+            "RSS_bytes": 16330752,
+            "comm": "postgres",
+            "pid": 853403
+          },
+          {
+            "RSS_bytes": 17801216,
+            "comm": "postgres",
+            "pid": 853406
+          },
+          {
+            "RSS_bytes": 17743872,
+            "comm": "postgres",
+            "pid": 853410
+          },
+          {
+            "RSS_bytes": 17788928,
+            "comm": "postgres",
+            "pid": 853412
+          },
+          {
+            "RSS_bytes": 17444864,
+            "comm": "postgres",
+            "pid": 853416
+          },
+          {
+            "RSS_bytes": 15151104,
+            "comm": "postgres",
+            "pid": 853429
+          },
+          {
+            "RSS_bytes": 6397952,
+            "comm": "postgres",
+            "pid": 853448
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 853464
+          },
+          {
+            "RSS_bytes": 17027072,
+            "comm": "gone",
+            "pid": 853482
+          },
+          {
+            "RSS_bytes": 16330752,
+            "comm": "postgres",
+            "pid": 853501
+          },
+          {
+            "RSS_bytes": 16396288,
+            "comm": "postgres",
+            "pid": 853520
+          },
+          {
+            "RSS_bytes": 15675392,
+            "comm": "postgres",
+            "pid": 853538
+          },
+          {
+            "RSS_bytes": 15478784,
+            "comm": "postgres",
+            "pid": 853556
+          },
+          {
+            "RSS_bytes": 6266880,
+            "comm": "postgres",
+            "pid": 853575
+          },
+          {
+            "RSS_bytes": 18448384,
+            "comm": "gone",
+            "pid": 853590
+          },
+          {
+            "RSS_bytes": 16449536,
+            "comm": "gone",
+            "pid": 853593
+          },
+          {
+            "RSS_bytes": 16158720,
+            "comm": "postgres",
+            "pid": 853608
+          },
+          {
+            "RSS_bytes": 16723968,
+            "comm": "gone",
+            "pid": 853621
+          },
+          {
+            "RSS_bytes": 18448384,
+            "comm": "gone",
+            "pid": 853633
+          },
+          {
+            "RSS_bytes": 11415552,
+            "comm": "postgres",
+            "pid": 853635
+          },
+          {
+            "RSS_bytes": 16396288,
+            "comm": "postgres",
+            "pid": 853650
+          },
+          {
+            "RSS_bytes": 6266880,
+            "comm": "postgres",
+            "pid": 853663
+          },
+          {
+            "RSS_bytes": 11415552,
+            "comm": "postgres",
+            "pid": 853676
+          },
+          {
+            "RSS_bytes": 18395136,
+            "comm": "gone",
+            "pid": 853687
+          },
+          {
+            "RSS_bytes": 16269312,
+            "comm": "postgres",
+            "pid": 853689
+          },
+          {
+            "RSS_bytes": 16396288,
+            "comm": "postgres",
+            "pid": 853701
+          },
+          {
+            "RSS_bytes": 16396288,
+            "comm": "postgres",
+            "pid": 853713
+          },
+          {
+            "RSS_bytes": 16658432,
+            "comm": "postgres",
+            "pid": 853726
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 853738
+          },
+          {
+            "RSS_bytes": 9940992,
+            "comm": "postgres",
+            "pid": 853740
+          },
+          {
+            "RSS_bytes": 16658432,
+            "comm": "postgres",
+            "pid": 853730
+          },
+          {
+            "RSS_bytes": 16375808,
+            "comm": "postgres",
+            "pid": 853752
+          },
+          {
+            "RSS_bytes": 16506880,
+            "comm": "gone",
+            "pid": 853764
+          },
+          {
+            "RSS_bytes": 17494016,
+            "comm": "postgres",
+            "pid": 853769
+          },
+          {
+            "RSS_bytes": 17502208,
+            "comm": "postgres",
+            "pid": 853773
+          },
+          {
+            "RSS_bytes": 15405056,
+            "comm": "postgres",
+            "pid": 853780
+          },
+          {
+            "RSS_bytes": 17092608,
+            "comm": "postgres",
+            "pid": 853775
+          },
+          {
+            "RSS_bytes": 14921728,
+            "comm": "postgres",
+            "pid": 853787
+          },
+          {
+            "RSS_bytes": 15765504,
+            "comm": "postgres",
+            "pid": 853795
+          },
+          {
+            "RSS_bytes": 12988416,
+            "comm": "postgres",
+            "pid": 853811
+          },
+          {
+            "RSS_bytes": 16330752,
+            "comm": "postgres",
+            "pid": 853846
+          },
+          {
+            "RSS_bytes": 15609856,
+            "comm": "postgres",
+            "pid": 853865
+          },
+          {
+            "RSS_bytes": 17305600,
+            "comm": "gone",
+            "pid": 853883
+          },
+          {
+            "RSS_bytes": 17027072,
+            "comm": "gone",
+            "pid": 853900
+          },
+          {
+            "RSS_bytes": 16330752,
+            "comm": "postgres",
+            "pid": 853918
+          },
+          {
+            "RSS_bytes": 11546624,
+            "comm": "postgres",
+            "pid": 853937
+          },
+          {
+            "RSS_bytes": 11546624,
+            "comm": "postgres",
+            "pid": 853973
+          },
+          {
+            "RSS_bytes": 16330752,
+            "comm": "gone",
+            "pid": 853976
+          },
+          {
+            "RSS_bytes": 15548416,
+            "comm": "postgres",
+            "pid": 853990
+          },
+          {
+            "RSS_bytes": 11612160,
+            "comm": "postgres",
+            "pid": 854004
+          },
+          {
+            "RSS_bytes": 15609856,
+            "comm": "postgres",
+            "pid": 854017
+          },
+          {
+            "RSS_bytes": 14626816,
+            "comm": "postgres",
+            "pid": 854030
+          },
+          {
+            "RSS_bytes": 9363456,
+            "comm": "postgres",
+            "pid": 854044
+          },
+          {
+            "RSS_bytes": 3760128,
+            "comm": "postgres",
+            "pid": 854058
+          },
+          {
+            "RSS_bytes": 15241216,
+            "comm": "postgres",
+            "pid": 854073
+          },
+          {
+            "RSS_bytes": 17137664,
+            "comm": "gone",
+            "pid": 854085
+          },
+          {
+            "RSS_bytes": 16265216,
+            "comm": "postgres",
+            "pid": 854099
+          },
+          {
+            "RSS_bytes": 16658432,
+            "comm": "postgres",
+            "pid": 854102
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 854112
+          },
+          {
+            "RSS_bytes": 16310272,
+            "comm": "postgres",
+            "pid": 854125
+          },
+          {
+            "RSS_bytes": 17563648,
+            "comm": "postgres",
+            "pid": 854141
+          },
+          {
+            "RSS_bytes": 15929344,
+            "comm": "postgres",
+            "pid": 854149
+          },
+          {
+            "RSS_bytes": 10354688,
+            "comm": "postgres",
+            "pid": 854154
+          },
+          {
+            "RSS_bytes": 16396288,
+            "comm": "postgres",
+            "pid": 854169
+          },
+          {
+            "RSS_bytes": 9371648,
+            "comm": "postgres",
+            "pid": 854188
+          },
+          {
+            "RSS_bytes": 16896000,
+            "comm": "gone",
+            "pid": 854205
+          },
+          {
+            "RSS_bytes": 15593472,
+            "comm": "postgres",
+            "pid": 854223
+          },
+          {
+            "RSS_bytes": 15417344,
+            "comm": "postgres",
+            "pid": 854241
+          },
+          {
+            "RSS_bytes": 16265216,
+            "comm": "postgres",
+            "pid": 854260
+          },
+          {
+            "RSS_bytes": 15527936,
+            "comm": "postgres",
+            "pid": 854279
+          },
+          {
+            "RSS_bytes": 6266880,
+            "comm": "postgres",
+            "pid": 854297
+          },
+          {
+            "RSS_bytes": 6332416,
+            "comm": "postgres",
+            "pid": 854315
+          },
+          {
+            "RSS_bytes": 6397952,
+            "comm": "postgres",
+            "pid": 854334
+          },
+          {
+            "RSS_bytes": 16658432,
+            "comm": "gone",
+            "pid": 854347
+          },
+          {
+            "RSS_bytes": 16396288,
+            "comm": "postgres",
+            "pid": 854360
+          },
+          {
+            "RSS_bytes": 16068608,
+            "comm": "postgres",
+            "pid": 854374
+          },
+          {
+            "RSS_bytes": 15609856,
+            "comm": "postgres",
+            "pid": 854388
+          },
+          {
+            "RSS_bytes": 16265216,
+            "comm": "postgres",
+            "pid": 854401
+          },
+          {
+            "RSS_bytes": 8019968,
+            "comm": "postgres",
+            "pid": 854414
+          },
+          {
+            "RSS_bytes": 15872000,
+            "comm": "postgres",
+            "pid": 854427
+          },
+          {
+            "RSS_bytes": 7434240,
+            "comm": "postgres",
+            "pid": 854441
+          },
+          {
+            "RSS_bytes": 16330752,
+            "comm": "postgres",
+            "pid": 854453
+          },
+          {
+            "RSS_bytes": 16723968,
+            "comm": "postgres",
+            "pid": 854461
+          },
+          {
+            "RSS_bytes": 15654912,
+            "comm": "postgres",
+            "pid": 854466
+          },
+          {
+            "RSS_bytes": 6447104,
+            "comm": "postgres",
+            "pid": 854480
+          },
+          {
+            "RSS_bytes": 17436672,
+            "comm": "postgres",
+            "pid": 854501
+          },
+          {
+            "RSS_bytes": 10072064,
+            "comm": "gone",
+            "pid": 854508
+          },
+          {
+            "RSS_bytes": 16990208,
+            "comm": "postgres",
+            "pid": 854507
+          },
+          {
+            "RSS_bytes": 2134016,
+            "comm": "pg_ctl",
+            "pid": 854512
+          }
+        ],
+        "RSS_samples": 231,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1050988544,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "ac88ca7c7599dbd79046b0238725da9e6c073bc1f70f81f8be6fb50d92c66a19",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851577,
+            "start_ticks": 9038530
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851579,
+            "start_ticks": 9038540
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851586,
+            "start_ticks": 9038591
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851587,
+            "start_ticks": 9038593
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851588,
+            "start_ticks": 9038593
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851590,
+            "start_ticks": 9038593
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851591,
+            "start_ticks": 9038593
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851592,
+            "start_ticks": 9038593
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851594,
+            "start_ticks": 9038602
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851605,
+            "start_ticks": 9038636
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851622,
+            "start_ticks": 9038662
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851641,
+            "start_ticks": 9038687
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851660,
+            "start_ticks": 9038713
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851678,
+            "start_ticks": 9038738
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851696,
+            "start_ticks": 9038764
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851715,
+            "start_ticks": 9038790
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851733,
+            "start_ticks": 9038816
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851754,
+            "start_ticks": 9038842
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851772,
+            "start_ticks": 9038868
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851798,
+            "start_ticks": 9038944
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851812,
+            "start_ticks": 9038971
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851825,
+            "start_ticks": 9038996
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851838,
+            "start_ticks": 9039022
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851852,
+            "start_ticks": 9039047
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851866,
+            "start_ticks": 9039075
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851879,
+            "start_ticks": 9039100
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851892,
+            "start_ticks": 9039126
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851906,
+            "start_ticks": 9039153
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851909,
+            "start_ticks": 9039159
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851919,
+            "start_ticks": 9039178
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851933,
+            "start_ticks": 9039204
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851945,
+            "start_ticks": 9039230
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851949,
+            "start_ticks": 9039237
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851955,
+            "start_ticks": 9039269
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851956,
+            "start_ticks": 9039290
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851961,
+            "start_ticks": 9039331
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851974,
+            "start_ticks": 9039359
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851987,
+            "start_ticks": 9039386
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852023,
+            "start_ticks": 9039436
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852042,
+            "start_ticks": 9039463
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852077,
+            "start_ticks": 9039515
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852095,
+            "start_ticks": 9039540
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852114,
+            "start_ticks": 9039566
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852131,
+            "start_ticks": 9039593
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852153,
+            "start_ticks": 9039644
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852167,
+            "start_ticks": 9039671
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852195,
+            "start_ticks": 9039721
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852210,
+            "start_ticks": 9039747
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852224,
+            "start_ticks": 9039774
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852236,
+            "start_ticks": 9039799
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852249,
+            "start_ticks": 9039826
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852263,
+            "start_ticks": 9039852
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852276,
+            "start_ticks": 9039877
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852289,
+            "start_ticks": 9039903
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852304,
+            "start_ticks": 9039929
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852317,
+            "start_ticks": 9039956
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852321,
+            "start_ticks": 9039981
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852322,
+            "start_ticks": 9040006
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852323,
+            "start_ticks": 9040009
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852330,
+            "start_ticks": 9040059
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852346,
+            "start_ticks": 9040086
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852364,
+            "start_ticks": 9040111
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852382,
+            "start_ticks": 9040137
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852401,
+            "start_ticks": 9040163
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852420,
+            "start_ticks": 9040190
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852438,
+            "start_ticks": 9040215
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852456,
+            "start_ticks": 9040241
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852474,
+            "start_ticks": 9040267
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852511,
+            "start_ticks": 9040320
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852527,
+            "start_ticks": 9040371
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852540,
+            "start_ticks": 9040397
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852553,
+            "start_ticks": 9040423
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852566,
+            "start_ticks": 9040449
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852580,
+            "start_ticks": 9040475
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852606,
+            "start_ticks": 9040527
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852632,
+            "start_ticks": 9040579
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852641,
+            "start_ticks": 9040596
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852658,
+            "start_ticks": 9040630
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852671,
+            "start_ticks": 9040656
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852680,
+            "start_ticks": 9040676
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852684,
+            "start_ticks": 9040705
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852685,
+            "start_ticks": 9040733
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852686,
+            "start_ticks": 9040737
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852691,
+            "start_ticks": 9040781
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852706,
+            "start_ticks": 9040813
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852723,
+            "start_ticks": 9040840
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852740,
+            "start_ticks": 9040865
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852759,
+            "start_ticks": 9040890
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852778,
+            "start_ticks": 9040917
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852794,
+            "start_ticks": 9040942
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852829,
+            "start_ticks": 9040996
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852846,
+            "start_ticks": 9041021
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852864,
+            "start_ticks": 9041047
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852900,
+            "start_ticks": 9041126
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852913,
+            "start_ticks": 9041151
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852927,
+            "start_ticks": 9041178
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852967,
+            "start_ticks": 9041256
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852981,
+            "start_ticks": 9041282
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 852995,
+            "start_ticks": 9041308
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853002,
+            "start_ticks": 9041323
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853009,
+            "start_ticks": 9041335
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853022,
+            "start_ticks": 9041361
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853035,
+            "start_ticks": 9041387
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853042,
+            "start_ticks": 9041401
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853045,
+            "start_ticks": 9041427
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853047,
+            "start_ticks": 9041453
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853050,
+            "start_ticks": 9041483
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853061,
+            "start_ticks": 9041516
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853079,
+            "start_ticks": 9041543
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853097,
+            "start_ticks": 9041569
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853115,
+            "start_ticks": 9041594
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853134,
+            "start_ticks": 9041621
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853153,
+            "start_ticks": 9041647
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853189,
+            "start_ticks": 9041700
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853241,
+            "start_ticks": 9041803
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853255,
+            "start_ticks": 9041830
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853269,
+            "start_ticks": 9041856
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853282,
+            "start_ticks": 9041883
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853296,
+            "start_ticks": 9041908
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853313,
+            "start_ticks": 9041935
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853327,
+            "start_ticks": 9041961
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853339,
+            "start_ticks": 9041986
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853352,
+            "start_ticks": 9042013
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853365,
+            "start_ticks": 9042038
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853367,
+            "start_ticks": 9042043
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853403,
+            "start_ticks": 9042117
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853406,
+            "start_ticks": 9042124
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853410,
+            "start_ticks": 9042151
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853412,
+            "start_ticks": 9042178
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853416,
+            "start_ticks": 9042219
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853429,
+            "start_ticks": 9042248
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853448,
+            "start_ticks": 9042275
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853501,
+            "start_ticks": 9042352
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853520,
+            "start_ticks": 9042378
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853538,
+            "start_ticks": 9042405
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853556,
+            "start_ticks": 9042431
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853575,
+            "start_ticks": 9042458
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853608,
+            "start_ticks": 9042535
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853635,
+            "start_ticks": 9042589
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853650,
+            "start_ticks": 9042614
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853663,
+            "start_ticks": 9042641
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853676,
+            "start_ticks": 9042667
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853701,
+            "start_ticks": 9042719
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853713,
+            "start_ticks": 9042745
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853730,
+            "start_ticks": 9042779
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853740,
+            "start_ticks": 9042798
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853752,
+            "start_ticks": 9042823
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853769,
+            "start_ticks": 9042862
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853773,
+            "start_ticks": 9042889
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853775,
+            "start_ticks": 9042917
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853780,
+            "start_ticks": 9042929
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853787,
+            "start_ticks": 9042952
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853795,
+            "start_ticks": 9042981
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853846,
+            "start_ticks": 9043059
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853865,
+            "start_ticks": 9043086
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853918,
+            "start_ticks": 9043164
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853937,
+            "start_ticks": 9043191
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853973,
+            "start_ticks": 9043244
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 853990,
+            "start_ticks": 9043296
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854004,
+            "start_ticks": 9043322
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854017,
+            "start_ticks": 9043348
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854030,
+            "start_ticks": 9043375
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854044,
+            "start_ticks": 9043401
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854058,
+            "start_ticks": 9043428
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854073,
+            "start_ticks": 9043453
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854099,
+            "start_ticks": 9043505
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854102,
+            "start_ticks": 9043512
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854125,
+            "start_ticks": 9043558
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854141,
+            "start_ticks": 9043594
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854149,
+            "start_ticks": 9043636
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854154,
+            "start_ticks": 9043663
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854169,
+            "start_ticks": 9043689
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854188,
+            "start_ticks": 9043716
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854223,
+            "start_ticks": 9043768
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854241,
+            "start_ticks": 9043794
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854260,
+            "start_ticks": 9043820
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854279,
+            "start_ticks": 9043847
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854297,
+            "start_ticks": 9043874
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854315,
+            "start_ticks": 9043900
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854334,
+            "start_ticks": 9043926
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854360,
+            "start_ticks": 9044004
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854374,
+            "start_ticks": 9044030
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854388,
+            "start_ticks": 9044057
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854401,
+            "start_ticks": 9044083
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854414,
+            "start_ticks": 9044110
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854427,
+            "start_ticks": 9044136
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854441,
+            "start_ticks": 9044162
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854453,
+            "start_ticks": 9044188
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854461,
+            "start_ticks": 9044204
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854466,
+            "start_ticks": 9044215
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854480,
+            "start_ticks": 9044242
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854501,
+            "start_ticks": 9044285
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854507,
+            "start_ticks": 9044312
+          }
+        ],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2404,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 62.80094400499365
+      }
+    },
+    "focused-pinned-context-green-v1": {
+      "actual_tool": "52786:0",
+      "raw_terminal_sha256": "6bf035c64d511929c7945c6845b61696c94c5103a55e8db238f4512e37678204",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity": [
+          {
+            "RSS_bytes": 35708928,
+            "comm": "python",
+            "pid": 836786
+          },
+          {
+            "RSS_bytes": 126775296,
+            "comm": "python",
+            "pid": 836789
+          },
+          {
+            "RSS_bytes": 8880128,
+            "comm": "nginx",
+            "pid": 836804
+          },
+          {
+            "RSS_bytes": 7589888,
+            "comm": "nginx",
+            "pid": 837682
+          },
+          {
+            "RSS_bytes": 120188928,
+            "comm": "python",
+            "pid": 836803
+          },
+          {
+            "RSS_bytes": 18280448,
+            "comm": "postgres",
+            "pid": 836793
+          },
+          {
+            "RSS_bytes": 5480448,
+            "comm": "postgres",
+            "pid": 836799
+          },
+          {
+            "RSS_bytes": 6012928,
+            "comm": "postgres",
+            "pid": 836798
+          },
+          {
+            "RSS_bytes": 7540736,
+            "comm": "postgres",
+            "pid": 836797
+          },
+          {
+            "RSS_bytes": 4648960,
+            "comm": "postgres",
+            "pid": 836795
+          },
+          {
+            "RSS_bytes": 6156288,
+            "comm": "postgres",
+            "pid": 836794
+          },
+          {
+            "RSS_bytes": 17924096,
+            "comm": "postgres",
+            "pid": 851065
+          },
+          {
+            "RSS_bytes": 24838144,
+            "comm": "python",
+            "pid": 837436
+          },
+          {
+            "RSS_bytes": 143671296,
+            "comm": "python",
+            "pid": 837440
+          },
+          {
+            "RSS_bytes": 8888320,
+            "comm": "nginx",
+            "pid": 837482
+          },
+          {
+            "RSS_bytes": 7516160,
+            "comm": "nginx",
+            "pid": 837557
+          },
+          {
+            "RSS_bytes": 18333696,
+            "comm": "postgres",
+            "pid": 837462
+          },
+          {
+            "RSS_bytes": 5246976,
+            "comm": "postgres",
+            "pid": 837468
+          },
+          {
+            "RSS_bytes": 6316032,
+            "comm": "postgres",
+            "pid": 837467
+          },
+          {
+            "RSS_bytes": 7467008,
+            "comm": "postgres",
+            "pid": 837466
+          },
+          {
+            "RSS_bytes": 5296128,
+            "comm": "postgres",
+            "pid": 837464
+          },
+          {
+            "RSS_bytes": 11628544,
+            "comm": "postgres",
+            "pid": 837463
+          },
+          {
+            "RSS_bytes": 119697408,
+            "comm": "python",
+            "pid": 837580
+          },
+          {
+            "RSS_bytes": 107999232,
+            "comm": "python",
+            "pid": 837589
+          },
+          {
+            "RSS_bytes": 28139520,
+            "comm": "python3",
+            "pid": 851060
+          },
+          {
+            "RSS_bytes": 138051584,
+            "comm": "python",
+            "pid": 851066
+          },
+          {
+            "RSS_bytes": 16461824,
+            "comm": "postgres",
+            "pid": 851068
+          },
+          {
+            "RSS_bytes": 4476928,
+            "comm": "initdb",
+            "pid": 851069
+          },
+          {
+            "RSS_bytes": 1781760,
+            "comm": "sh",
+            "pid": 851076
+          },
+          {
+            "RSS_bytes": 21819392,
+            "comm": "postgres",
+            "pid": 851077
+          },
+          {
+            "RSS_bytes": 1781760,
+            "comm": "sh",
+            "pid": 851078
+          },
+          {
+            "RSS_bytes": 36143104,
+            "comm": "postgres",
+            "pid": 851079
+          },
+          {
+            "RSS_bytes": 11595776,
+            "comm": "postgres",
+            "pid": 851086
+          },
+          {
+            "RSS_bytes": 15949824,
+            "comm": "postgres",
+            "pid": 851095
+          },
+          {
+            "RSS_bytes": 5410816,
+            "comm": "postgres",
+            "pid": 851092
+          },
+          {
+            "RSS_bytes": 5894144,
+            "comm": "postgres",
+            "pid": 851091
+          },
+          {
+            "RSS_bytes": 3166208,
+            "comm": "postgres",
+            "pid": 851090
+          },
+          {
+            "RSS_bytes": 5500928,
+            "comm": "postgres",
+            "pid": 851088
+          },
+          {
+            "RSS_bytes": 3129344,
+            "comm": "postgres",
+            "pid": 851087
+          },
+          {
+            "RSS_bytes": 10780672,
+            "comm": "postgres",
+            "pid": 851108
+          },
+          {
+            "RSS_bytes": 16846848,
+            "comm": "gone",
+            "pid": 851126
+          },
+          {
+            "RSS_bytes": 16506880,
+            "comm": "postgres",
+            "pid": 851143
+          },
+          {
+            "RSS_bytes": 12304384,
+            "comm": "postgres",
+            "pid": 851162
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 851180
+          },
+          {
+            "RSS_bytes": 16162816,
+            "comm": "postgres",
+            "pid": 851199
+          },
+          {
+            "RSS_bytes": 16162816,
+            "comm": "postgres",
+            "pid": 851217
+          },
+          {
+            "RSS_bytes": 16031744,
+            "comm": "postgres",
+            "pid": 851235
+          },
+          {
+            "RSS_bytes": 3395584,
+            "comm": "postgres",
+            "pid": 851254
+          },
+          {
+            "RSS_bytes": 6389760,
+            "comm": "postgres",
+            "pid": 851284
+          },
+          {
+            "RSS_bytes": 15450112,
+            "comm": "postgres",
+            "pid": 851297
+          },
+          {
+            "RSS_bytes": 15499264,
+            "comm": "postgres",
+            "pid": 851311
+          },
+          {
+            "RSS_bytes": 15892480,
+            "comm": "postgres",
+            "pid": 851324
+          },
+          {
+            "RSS_bytes": 13139968,
+            "comm": "postgres",
+            "pid": 851338
+          },
+          {
+            "RSS_bytes": 6389760,
+            "comm": "postgres",
+            "pid": 851352
+          },
+          {
+            "RSS_bytes": 6389760,
+            "comm": "postgres",
+            "pid": 851368
+          },
+          {
+            "RSS_bytes": 16506880,
+            "comm": "gone",
+            "pid": 851380
+          },
+          {
+            "RSS_bytes": 16113664,
+            "comm": "postgres",
+            "pid": 851393
+          },
+          {
+            "RSS_bytes": 6393856,
+            "comm": "postgres",
+            "pid": 851407
+          },
+          {
+            "RSS_bytes": 15888384,
+            "comm": "postgres",
+            "pid": 851420
+          },
+          {
+            "RSS_bytes": 16293888,
+            "comm": "postgres",
+            "pid": 851410
+          },
+          {
+            "RSS_bytes": 16158720,
+            "comm": "postgres",
+            "pid": 851433
+          },
+          {
+            "RSS_bytes": 6438912,
+            "comm": "postgres",
+            "pid": 851446
+          },
+          {
+            "RSS_bytes": 17539072,
+            "comm": "postgres",
+            "pid": 851450
+          },
+          {
+            "RSS_bytes": 17096704,
+            "comm": "postgres",
+            "pid": 851456
+          },
+          {
+            "RSS_bytes": 17469440,
+            "comm": "postgres",
+            "pid": 851458
+          }
+        ],
+        "RSS_samples": 38,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1037217792,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "d7cd7d217f89f9da5446343b9ce35a2f8a970d6945fc54c7654246578131ee6a",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851077,
+            "start_ticks": 9033363
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851079,
+            "start_ticks": 9033373
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851086,
+            "start_ticks": 9033421
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851087,
+            "start_ticks": 9033422
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851088,
+            "start_ticks": 9033422
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851090,
+            "start_ticks": 9033422
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851091,
+            "start_ticks": 9033423
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851092,
+            "start_ticks": 9033423
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851095,
+            "start_ticks": 9033442
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851108,
+            "start_ticks": 9033471
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851143,
+            "start_ticks": 9033521
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851162,
+            "start_ticks": 9033549
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851199,
+            "start_ticks": 9033599
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851217,
+            "start_ticks": 9033625
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851235,
+            "start_ticks": 9033651
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851254,
+            "start_ticks": 9033678
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851284,
+            "start_ticks": 9033756
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851297,
+            "start_ticks": 9033781
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851311,
+            "start_ticks": 9033807
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851324,
+            "start_ticks": 9033832
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851338,
+            "start_ticks": 9033859
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851352,
+            "start_ticks": 9033885
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851368,
+            "start_ticks": 9033911
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851393,
+            "start_ticks": 9033962
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851407,
+            "start_ticks": 9033989
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851410,
+            "start_ticks": 9033995
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851420,
+            "start_ticks": 9034014
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851433,
+            "start_ticks": 9034039
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851446,
+            "start_ticks": 9034067
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851450,
+            "start_ticks": 9034073
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851456,
+            "start_ticks": 9034105
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851458,
+            "start_ticks": 9034126
+          }
+        ],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2404,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 10.284254719008459
+      }
+    },
+    "focused-pinned-context-red-v1": {
+      "actual_tool": "16186:1",
+      "raw_terminal_sha256": "02c1d537962b067dd2f4354e1c6b4ec1fd8366e257e206f2e2b1305faa0cb2cd",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity": [
+          {
+            "RSS_bytes": 35708928,
+            "comm": "python",
+            "pid": 836786
+          },
+          {
+            "RSS_bytes": 126775296,
+            "comm": "python",
+            "pid": 836789
+          },
+          {
+            "RSS_bytes": 8880128,
+            "comm": "nginx",
+            "pid": 836804
+          },
+          {
+            "RSS_bytes": 7589888,
+            "comm": "nginx",
+            "pid": 837682
+          },
+          {
+            "RSS_bytes": 120188928,
+            "comm": "python",
+            "pid": 836803
+          },
+          {
+            "RSS_bytes": 18280448,
+            "comm": "postgres",
+            "pid": 836793
+          },
+          {
+            "RSS_bytes": 5480448,
+            "comm": "postgres",
+            "pid": 836799
+          },
+          {
+            "RSS_bytes": 6012928,
+            "comm": "postgres",
+            "pid": 836798
+          },
+          {
+            "RSS_bytes": 7540736,
+            "comm": "postgres",
+            "pid": 836797
+          },
+          {
+            "RSS_bytes": 4648960,
+            "comm": "postgres",
+            "pid": 836795
+          },
+          {
+            "RSS_bytes": 6156288,
+            "comm": "postgres",
+            "pid": 836794
+          },
+          {
+            "RSS_bytes": 24838144,
+            "comm": "python",
+            "pid": 837436
+          },
+          {
+            "RSS_bytes": 143671296,
+            "comm": "python",
+            "pid": 837440
+          },
+          {
+            "RSS_bytes": 8888320,
+            "comm": "nginx",
+            "pid": 837482
+          },
+          {
+            "RSS_bytes": 7516160,
+            "comm": "nginx",
+            "pid": 837557
+          },
+          {
+            "RSS_bytes": 18333696,
+            "comm": "postgres",
+            "pid": 837462
+          },
+          {
+            "RSS_bytes": 5246976,
+            "comm": "postgres",
+            "pid": 837468
+          },
+          {
+            "RSS_bytes": 6316032,
+            "comm": "postgres",
+            "pid": 837467
+          },
+          {
+            "RSS_bytes": 7467008,
+            "comm": "postgres",
+            "pid": 837466
+          },
+          {
+            "RSS_bytes": 5296128,
+            "comm": "postgres",
+            "pid": 837464
+          },
+          {
+            "RSS_bytes": 11628544,
+            "comm": "postgres",
+            "pid": 837463
+          },
+          {
+            "RSS_bytes": 119697408,
+            "comm": "python",
+            "pid": 837580
+          },
+          {
+            "RSS_bytes": 107999232,
+            "comm": "python",
+            "pid": 837589
+          },
+          {
+            "RSS_bytes": 28110848,
+            "comm": "python3",
+            "pid": 850554
+          },
+          {
+            "RSS_bytes": 122769408,
+            "comm": "python",
+            "pid": 850564
+          },
+          {
+            "RSS_bytes": 4304896,
+            "comm": "initdb",
+            "pid": 850568
+          },
+          {
+            "RSS_bytes": 1781760,
+            "comm": "sh",
+            "pid": 850569
+          },
+          {
+            "RSS_bytes": 4055040,
+            "comm": "gone",
+            "pid": 850570
+          },
+          {
+            "RSS_bytes": 1781760,
+            "comm": "sh",
+            "pid": 850577
+          },
+          {
+            "RSS_bytes": 28962816,
+            "comm": "postgres",
+            "pid": 850578
+          },
+          {
+            "RSS_bytes": 2002944,
+            "comm": "pg_ctl",
+            "pid": 850582
+          },
+          {
+            "RSS_bytes": 11595776,
+            "comm": "postgres",
+            "pid": 850585
+          },
+          {
+            "RSS_bytes": 5894144,
+            "comm": "postgres",
+            "pid": 850591
+          },
+          {
+            "RSS_bytes": 2850816,
+            "comm": "postgres",
+            "pid": 850590
+          },
+          {
+            "RSS_bytes": 3022848,
+            "comm": "postgres",
+            "pid": 850588
+          },
+          {
+            "RSS_bytes": 3129344,
+            "comm": "postgres",
+            "pid": 850587
+          },
+          {
+            "RSS_bytes": 5275648,
+            "comm": "postgres",
+            "pid": 850592
+          }
+        ],
+        "RSS_samples": 10,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 988995584,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "7a8ca2d7d4922a8dd237693347b56242597dbd3250a51ba6a0940316cff2aada",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850578,
+            "start_ticks": 9029562
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850585,
+            "start_ticks": 9029613
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850587,
+            "start_ticks": 9029614
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850588,
+            "start_ticks": 9029614
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850590,
+            "start_ticks": 9029615
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850591,
+            "start_ticks": 9029615
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850592,
+            "start_ticks": 9029615
+          }
+        ],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2404,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 2.797720959992148
+      }
+    },
+    "focused-pinned-context-red-v2": {
+      "actual_tool": "57403:1",
+      "raw_terminal_sha256": "25d82c9a955db2e48683872a95c87c22434d8d0e03365420f286a4574af63931",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity": [
+          {
+            "RSS_bytes": 35708928,
+            "comm": "python",
+            "pid": 836786
+          },
+          {
+            "RSS_bytes": 126775296,
+            "comm": "python",
+            "pid": 836789
+          },
+          {
+            "RSS_bytes": 8880128,
+            "comm": "nginx",
+            "pid": 836804
+          },
+          {
+            "RSS_bytes": 7589888,
+            "comm": "nginx",
+            "pid": 837682
+          },
+          {
+            "RSS_bytes": 120188928,
+            "comm": "python",
+            "pid": 836803
+          },
+          {
+            "RSS_bytes": 18280448,
+            "comm": "postgres",
+            "pid": 836793
+          },
+          {
+            "RSS_bytes": 5480448,
+            "comm": "postgres",
+            "pid": 836799
+          },
+          {
+            "RSS_bytes": 6012928,
+            "comm": "postgres",
+            "pid": 836798
+          },
+          {
+            "RSS_bytes": 7540736,
+            "comm": "postgres",
+            "pid": 836797
+          },
+          {
+            "RSS_bytes": 4648960,
+            "comm": "postgres",
+            "pid": 836795
+          },
+          {
+            "RSS_bytes": 6156288,
+            "comm": "postgres",
+            "pid": 836794
+          },
+          {
+            "RSS_bytes": 24838144,
+            "comm": "python",
+            "pid": 837436
+          },
+          {
+            "RSS_bytes": 143671296,
+            "comm": "python",
+            "pid": 837440
+          },
+          {
+            "RSS_bytes": 8888320,
+            "comm": "nginx",
+            "pid": 837482
+          },
+          {
+            "RSS_bytes": 7516160,
+            "comm": "nginx",
+            "pid": 837557
+          },
+          {
+            "RSS_bytes": 18333696,
+            "comm": "postgres",
+            "pid": 837462
+          },
+          {
+            "RSS_bytes": 5246976,
+            "comm": "postgres",
+            "pid": 837468
+          },
+          {
+            "RSS_bytes": 6316032,
+            "comm": "postgres",
+            "pid": 837467
+          },
+          {
+            "RSS_bytes": 7467008,
+            "comm": "postgres",
+            "pid": 837466
+          },
+          {
+            "RSS_bytes": 5296128,
+            "comm": "postgres",
+            "pid": 837464
+          },
+          {
+            "RSS_bytes": 11628544,
+            "comm": "postgres",
+            "pid": 837463
+          },
+          {
+            "RSS_bytes": 119697408,
+            "comm": "python",
+            "pid": 837580
+          },
+          {
+            "RSS_bytes": 107999232,
+            "comm": "python",
+            "pid": 837589
+          },
+          {
+            "RSS_bytes": 28241920,
+            "comm": "python3",
+            "pid": 850623
+          },
+          {
+            "RSS_bytes": 134193152,
+            "comm": "python",
+            "pid": 850628
+          },
+          {
+            "RSS_bytes": 4284416,
+            "comm": "initdb",
+            "pid": 850632
+          },
+          {
+            "RSS_bytes": 1781760,
+            "comm": "sh",
+            "pid": 850639
+          },
+          {
+            "RSS_bytes": 20508672,
+            "comm": "postgres",
+            "pid": 850640
+          },
+          {
+            "RSS_bytes": 1781760,
+            "comm": "sh",
+            "pid": 850641
+          },
+          {
+            "RSS_bytes": 33783808,
+            "comm": "postgres",
+            "pid": 850642
+          },
+          {
+            "RSS_bytes": 11575296,
+            "comm": "postgres",
+            "pid": 850649
+          },
+          {
+            "RSS_bytes": 5476352,
+            "comm": "postgres",
+            "pid": 850655
+          },
+          {
+            "RSS_bytes": 5959680,
+            "comm": "postgres",
+            "pid": 850654
+          },
+          {
+            "RSS_bytes": 2957312,
+            "comm": "postgres",
+            "pid": 850653
+          },
+          {
+            "RSS_bytes": 5697536,
+            "comm": "postgres",
+            "pid": 850651
+          },
+          {
+            "RSS_bytes": 3366912,
+            "comm": "postgres",
+            "pid": 850650
+          },
+          {
+            "RSS_bytes": 15704064,
+            "comm": "postgres",
+            "pid": 850657
+          },
+          {
+            "RSS_bytes": 10842112,
+            "comm": "postgres",
+            "pid": 850669
+          },
+          {
+            "RSS_bytes": 16744448,
+            "comm": "postgres",
+            "pid": 850686
+          },
+          {
+            "RSS_bytes": 16310272,
+            "comm": "postgres",
+            "pid": 850705
+          },
+          {
+            "RSS_bytes": 15745024,
+            "comm": "postgres",
+            "pid": 850724
+          },
+          {
+            "RSS_bytes": 18460672,
+            "comm": "postgres",
+            "pid": 850760
+          },
+          {
+            "RSS_bytes": 6373376,
+            "comm": "postgres",
+            "pid": 850763
+          },
+          {
+            "RSS_bytes": 6373376,
+            "comm": "postgres",
+            "pid": 850781
+          },
+          {
+            "RSS_bytes": 10846208,
+            "comm": "postgres",
+            "pid": 850799
+          },
+          {
+            "RSS_bytes": 14860288,
+            "comm": "postgres",
+            "pid": 850818
+          },
+          {
+            "RSS_bytes": 17268736,
+            "comm": "postgres",
+            "pid": 850835
+          },
+          {
+            "RSS_bytes": 13287424,
+            "comm": "postgres",
+            "pid": 850837
+          },
+          {
+            "RSS_bytes": 7327744,
+            "comm": "postgres",
+            "pid": 850847
+          },
+          {
+            "RSS_bytes": 10797056,
+            "comm": "postgres",
+            "pid": 850861
+          },
+          {
+            "RSS_bytes": 6651904,
+            "comm": "postgres",
+            "pid": 850875
+          },
+          {
+            "RSS_bytes": 14778368,
+            "comm": "postgres",
+            "pid": 850874
+          },
+          {
+            "RSS_bytes": 16089088,
+            "comm": "postgres",
+            "pid": 850888
+          },
+          {
+            "RSS_bytes": 16089088,
+            "comm": "postgres",
+            "pid": 850901
+          },
+          {
+            "RSS_bytes": 16171008,
+            "comm": "postgres",
+            "pid": 850916
+          },
+          {
+            "RSS_bytes": 6324224,
+            "comm": "postgres",
+            "pid": 850930
+          },
+          {
+            "RSS_bytes": 16171008,
+            "comm": "postgres",
+            "pid": 850943
+          },
+          {
+            "RSS_bytes": 16039936,
+            "comm": "postgres",
+            "pid": 850956
+          },
+          {
+            "RSS_bytes": 16089088,
+            "comm": "postgres",
+            "pid": 850970
+          },
+          {
+            "RSS_bytes": 16351232,
+            "comm": "postgres",
+            "pid": 850971
+          },
+          {
+            "RSS_bytes": 16084992,
+            "comm": "postgres",
+            "pid": 850983
+          },
+          {
+            "RSS_bytes": 13201408,
+            "comm": "postgres",
+            "pid": 850997
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 851010
+          },
+          {
+            "RSS_bytes": 16175104,
+            "comm": "postgres",
+            "pid": 851014
+          },
+          {
+            "RSS_bytes": 17289216,
+            "comm": "postgres",
+            "pid": 851019
+          }
+        ],
+        "RSS_samples": 37,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1037119488,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "ca0d0796a64a3a6ace3fe55d85a2fc8a10303b46ef268602d1382b1076ef6157",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850640,
+            "start_ticks": 9030946
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850642,
+            "start_ticks": 9030957
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850649,
+            "start_ticks": 9031008
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850650,
+            "start_ticks": 9031009
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850651,
+            "start_ticks": 9031009
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850653,
+            "start_ticks": 9031010
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850654,
+            "start_ticks": 9031010
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850655,
+            "start_ticks": 9031010
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850657,
+            "start_ticks": 9031018
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850669,
+            "start_ticks": 9031054
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850686,
+            "start_ticks": 9031078
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850705,
+            "start_ticks": 9031106
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850724,
+            "start_ticks": 9031132
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850763,
+            "start_ticks": 9031184
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850781,
+            "start_ticks": 9031209
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850799,
+            "start_ticks": 9031235
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850818,
+            "start_ticks": 9031260
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850837,
+            "start_ticks": 9031287
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850847,
+            "start_ticks": 9031339
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850861,
+            "start_ticks": 9031364
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850874,
+            "start_ticks": 9031390
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850888,
+            "start_ticks": 9031416
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850901,
+            "start_ticks": 9031442
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850916,
+            "start_ticks": 9031467
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850930,
+            "start_ticks": 9031494
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850943,
+            "start_ticks": 9031519
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850956,
+            "start_ticks": 9031545
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850970,
+            "start_ticks": 9031571
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850971,
+            "start_ticks": 9031573
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850983,
+            "start_ticks": 9031597
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 850997,
+            "start_ticks": 9031623
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851014,
+            "start_ticks": 9031674
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 851019,
+            "start_ticks": 9031684
+          }
+        ],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2404,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 10.031366736002383
+      }
+    },
+    "regression-pinned-context-farm-v1": {
+      "actual_tool": "42818:0",
+      "raw_terminal_sha256": "de3055c3ff7be37a0a2117b9a7cb3b50bcdf4492d08e2ae613a713eb59f4fc7a",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity": [
+          {
+            "RSS_bytes": 35708928,
+            "comm": "python",
+            "pid": 836786
+          },
+          {
+            "RSS_bytes": 126775296,
+            "comm": "python",
+            "pid": 836789
+          },
+          {
+            "RSS_bytes": 8880128,
+            "comm": "nginx",
+            "pid": 836804
+          },
+          {
+            "RSS_bytes": 7589888,
+            "comm": "nginx",
+            "pid": 837682
+          },
+          {
+            "RSS_bytes": 119025664,
+            "comm": "python",
+            "pid": 836803
+          },
+          {
+            "RSS_bytes": 18280448,
+            "comm": "postgres",
+            "pid": 836793
+          },
+          {
+            "RSS_bytes": 5480448,
+            "comm": "postgres",
+            "pid": 836799
+          },
+          {
+            "RSS_bytes": 6012928,
+            "comm": "postgres",
+            "pid": 836798
+          },
+          {
+            "RSS_bytes": 7540736,
+            "comm": "postgres",
+            "pid": 836797
+          },
+          {
+            "RSS_bytes": 4648960,
+            "comm": "postgres",
+            "pid": 836795
+          },
+          {
+            "RSS_bytes": 6156288,
+            "comm": "postgres",
+            "pid": 836794
+          },
+          {
+            "RSS_bytes": 24838144,
+            "comm": "python",
+            "pid": 837436
+          },
+          {
+            "RSS_bytes": 143671296,
+            "comm": "python",
+            "pid": 837440
+          },
+          {
+            "RSS_bytes": 8888320,
+            "comm": "nginx",
+            "pid": 837482
+          },
+          {
+            "RSS_bytes": 7516160,
+            "comm": "nginx",
+            "pid": 837557
+          },
+          {
+            "RSS_bytes": 18333696,
+            "comm": "postgres",
+            "pid": 837462
+          },
+          {
+            "RSS_bytes": 5246976,
+            "comm": "postgres",
+            "pid": 837468
+          },
+          {
+            "RSS_bytes": 6316032,
+            "comm": "postgres",
+            "pid": 837467
+          },
+          {
+            "RSS_bytes": 7467008,
+            "comm": "postgres",
+            "pid": 837466
+          },
+          {
+            "RSS_bytes": 5296128,
+            "comm": "postgres",
+            "pid": 837464
+          },
+          {
+            "RSS_bytes": 11628544,
+            "comm": "postgres",
+            "pid": 837463
+          },
+          {
+            "RSS_bytes": 119697408,
+            "comm": "python",
+            "pid": 837580
+          },
+          {
+            "RSS_bytes": 107999232,
+            "comm": "python",
+            "pid": 837589
+          },
+          {
+            "RSS_bytes": 28205056,
+            "comm": "python3",
+            "pid": 854581
+          },
+          {
+            "RSS_bytes": 144310272,
+            "comm": "python",
+            "pid": 854588
+          },
+          {
+            "RSS_bytes": 4538368,
+            "comm": "initdb",
+            "pid": 854592
+          },
+          {
+            "RSS_bytes": 1781760,
+            "comm": "sh",
+            "pid": 854595
+          },
+          {
+            "RSS_bytes": 499712,
+            "comm": "postgres",
+            "pid": 854596
+          },
+          {
+            "RSS_bytes": 1777664,
+            "comm": "sh",
+            "pid": 854602
+          },
+          {
+            "RSS_bytes": 31698944,
+            "comm": "postgres",
+            "pid": 854603
+          },
+          {
+            "RSS_bytes": 11632640,
+            "comm": "postgres",
+            "pid": 854609
+          },
+          {
+            "RSS_bytes": 13721600,
+            "comm": "postgres",
+            "pid": 854618
+          },
+          {
+            "RSS_bytes": 5296128,
+            "comm": "postgres",
+            "pid": 854615
+          },
+          {
+            "RSS_bytes": 5922816,
+            "comm": "postgres",
+            "pid": 854614
+          },
+          {
+            "RSS_bytes": 3190784,
+            "comm": "postgres",
+            "pid": 854613
+          },
+          {
+            "RSS_bytes": 7421952,
+            "comm": "postgres",
+            "pid": 854611
+          },
+          {
+            "RSS_bytes": 7995392,
+            "comm": "postgres",
+            "pid": 854610
+          },
+          {
+            "RSS_bytes": 10379264,
+            "comm": "gone",
+            "pid": 854623
+          },
+          {
+            "RSS_bytes": 15974400,
+            "comm": "postgres",
+            "pid": 854640
+          },
+          {
+            "RSS_bytes": 17793024,
+            "comm": "gone",
+            "pid": 854675
+          },
+          {
+            "RSS_bytes": 16105472,
+            "comm": "postgres",
+            "pid": 854677
+          },
+          {
+            "RSS_bytes": 16801792,
+            "comm": "postgres",
+            "pid": 854695
+          },
+          {
+            "RSS_bytes": 15974400,
+            "comm": "postgres",
+            "pid": 854714
+          },
+          {
+            "RSS_bytes": 15933440,
+            "comm": "postgres",
+            "pid": 854732
+          },
+          {
+            "RSS_bytes": 17924096,
+            "comm": "postgres",
+            "pid": 854749
+          },
+          {
+            "RSS_bytes": 13684736,
+            "comm": "postgres",
+            "pid": 854751
+          },
+          {
+            "RSS_bytes": 6287360,
+            "comm": "postgres",
+            "pid": 854769
+          },
+          {
+            "RSS_bytes": 6287360,
+            "comm": "postgres",
+            "pid": 854788
+          },
+          {
+            "RSS_bytes": 8925184,
+            "comm": "postgres",
+            "pid": 854805
+          },
+          {
+            "RSS_bytes": 16875520,
+            "comm": "postgres",
+            "pid": 854806
+          },
+          {
+            "RSS_bytes": 15974400,
+            "comm": "postgres",
+            "pid": 854814
+          },
+          {
+            "RSS_bytes": 16105472,
+            "comm": "postgres",
+            "pid": 854828
+          },
+          {
+            "RSS_bytes": 6340608,
+            "comm": "postgres",
+            "pid": 854842
+          },
+          {
+            "RSS_bytes": 6459392,
+            "comm": "postgres",
+            "pid": 854855
+          },
+          {
+            "RSS_bytes": 6287360,
+            "comm": "postgres",
+            "pid": 854856
+          },
+          {
+            "RSS_bytes": 7843840,
+            "comm": "postgres",
+            "pid": 854869
+          },
+          {
+            "RSS_bytes": 14729216,
+            "comm": "postgres",
+            "pid": 854883
+          },
+          {
+            "RSS_bytes": 16039936,
+            "comm": "postgres",
+            "pid": 854897
+          },
+          {
+            "RSS_bytes": 14602240,
+            "comm": "postgres",
+            "pid": 854910
+          },
+          {
+            "RSS_bytes": 6340608,
+            "comm": "postgres",
+            "pid": 854924
+          },
+          {
+            "RSS_bytes": 16019456,
+            "comm": "postgres",
+            "pid": 854937
+          },
+          {
+            "RSS_bytes": 16367616,
+            "comm": "postgres",
+            "pid": 854931
+          },
+          {
+            "RSS_bytes": 14647296,
+            "comm": "postgres",
+            "pid": 854950
+          },
+          {
+            "RSS_bytes": 9629696,
+            "comm": "postgres",
+            "pid": 854963
+          },
+          {
+            "RSS_bytes": 17391616,
+            "comm": "postgres",
+            "pid": 854971
+          },
+          {
+            "RSS_bytes": 15228928,
+            "comm": "postgres",
+            "pid": 854977
+          },
+          {
+            "RSS_bytes": 16011264,
+            "comm": "postgres",
+            "pid": 854980
+          },
+          {
+            "RSS_bytes": 16314368,
+            "comm": "postgres",
+            "pid": 854995
+          },
+          {
+            "RSS_bytes": 10784768,
+            "comm": "postgres",
+            "pid": 855014
+          },
+          {
+            "RSS_bytes": 6283264,
+            "comm": "postgres",
+            "pid": 855033
+          },
+          {
+            "RSS_bytes": 17354752,
+            "comm": "postgres",
+            "pid": 855050
+          },
+          {
+            "RSS_bytes": 16576512,
+            "comm": "postgres",
+            "pid": 855067
+          },
+          {
+            "RSS_bytes": 16052224,
+            "comm": "postgres",
+            "pid": 855086
+          },
+          {
+            "RSS_bytes": 16314368,
+            "comm": "postgres",
+            "pid": 855105
+          },
+          {
+            "RSS_bytes": 16748544,
+            "comm": "postgres",
+            "pid": 855123
+          },
+          {
+            "RSS_bytes": 16695296,
+            "comm": "postgres",
+            "pid": 855141
+          },
+          {
+            "RSS_bytes": 16314368,
+            "comm": "postgres",
+            "pid": 855160
+          },
+          {
+            "RSS_bytes": 16576512,
+            "comm": "postgres",
+            "pid": 855188
+          },
+          {
+            "RSS_bytes": 16183296,
+            "comm": "postgres",
+            "pid": 855202
+          },
+          {
+            "RSS_bytes": 18407424,
+            "comm": "postgres",
+            "pid": 855215
+          },
+          {
+            "RSS_bytes": 16183296,
+            "comm": "postgres",
+            "pid": 855216
+          },
+          {
+            "RSS_bytes": 15224832,
+            "comm": "postgres",
+            "pid": 855229
+          },
+          {
+            "RSS_bytes": 16314368,
+            "comm": "postgres",
+            "pid": 855242
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 855255
+          },
+          {
+            "RSS_bytes": 17793024,
+            "comm": "postgres",
+            "pid": 855268
+          },
+          {
+            "RSS_bytes": 11464704,
+            "comm": "postgres",
+            "pid": 855269
+          },
+          {
+            "RSS_bytes": 16314368,
+            "comm": "postgres",
+            "pid": 855281
+          },
+          {
+            "RSS_bytes": 6471680,
+            "comm": "postgres",
+            "pid": 855294
+          },
+          {
+            "RSS_bytes": 16576512,
+            "comm": "postgres",
+            "pid": 855289
+          },
+          {
+            "RSS_bytes": 6393856,
+            "comm": "postgres",
+            "pid": 855308
+          },
+          {
+            "RSS_bytes": 17113088,
+            "comm": "postgres",
+            "pid": 855321
+          },
+          {
+            "RSS_bytes": 16166912,
+            "comm": "postgres",
+            "pid": 855320
+          },
+          {
+            "RSS_bytes": 17403904,
+            "comm": "postgres",
+            "pid": 855329
+          },
+          {
+            "RSS_bytes": 15536128,
+            "comm": "postgres",
+            "pid": 855333
+          },
+          {
+            "RSS_bytes": 15298560,
+            "comm": "postgres",
+            "pid": 855338
+          },
+          {
+            "RSS_bytes": 6651904,
+            "comm": "postgres",
+            "pid": 855352
+          },
+          {
+            "RSS_bytes": 11345920,
+            "comm": "postgres",
+            "pid": 855353
+          },
+          {
+            "RSS_bytes": 17022976,
+            "comm": "postgres",
+            "pid": 855370
+          },
+          {
+            "RSS_bytes": 17022976,
+            "comm": "postgres",
+            "pid": 855388
+          },
+          {
+            "RSS_bytes": 16457728,
+            "comm": "postgres",
+            "pid": 855407
+          },
+          {
+            "RSS_bytes": 15540224,
+            "comm": "postgres",
+            "pid": 855425
+          },
+          {
+            "RSS_bytes": 8798208,
+            "comm": "postgres",
+            "pid": 855443
+          },
+          {
+            "RSS_bytes": 17498112,
+            "comm": "postgres",
+            "pid": 855461
+          },
+          {
+            "RSS_bytes": 16588800,
+            "comm": "postgres",
+            "pid": 855479
+          },
+          {
+            "RSS_bytes": 16457728,
+            "comm": "postgres",
+            "pid": 855497
+          },
+          {
+            "RSS_bytes": 9715712,
+            "comm": "postgres",
+            "pid": 855516
+          },
+          {
+            "RSS_bytes": 15671296,
+            "comm": "postgres",
+            "pid": 855535
+          },
+          {
+            "RSS_bytes": 12132352,
+            "comm": "postgres",
+            "pid": 855566
+          },
+          {
+            "RSS_bytes": 6344704,
+            "comm": "postgres",
+            "pid": 855580
+          },
+          {
+            "RSS_bytes": 15671296,
+            "comm": "postgres",
+            "pid": 855606
+          },
+          {
+            "RSS_bytes": 10915840,
+            "comm": "postgres",
+            "pid": 855619
+          },
+          {
+            "RSS_bytes": 16326656,
+            "comm": "postgres",
+            "pid": 855632
+          },
+          {
+            "RSS_bytes": 15540224,
+            "comm": "postgres",
+            "pid": 855645
+          },
+          {
+            "RSS_bytes": 17068032,
+            "comm": "gone",
+            "pid": 855658
+          },
+          {
+            "RSS_bytes": 16240640,
+            "comm": "postgres",
+            "pid": 855667
+          },
+          {
+            "RSS_bytes": 16588800,
+            "comm": "postgres",
+            "pid": 855665
+          },
+          {
+            "RSS_bytes": 15454208,
+            "comm": "postgres",
+            "pid": 855680
+          },
+          {
+            "RSS_bytes": 16502784,
+            "comm": "postgres",
+            "pid": 855691
+          },
+          {
+            "RSS_bytes": 15409152,
+            "comm": "postgres",
+            "pid": 855704
+          },
+          {
+            "RSS_bytes": 17432576,
+            "comm": "postgres",
+            "pid": 855706
+          },
+          {
+            "RSS_bytes": 2134016,
+            "comm": "pg_ctl",
+            "pid": 855713
+          },
+          {
+            "RSS_bytes": 4415488,
+            "comm": "initdb",
+            "pid": 855714
+          },
+          {
+            "RSS_bytes": 1712128,
+            "comm": "sh",
+            "pid": 855721
+          },
+          {
+            "RSS_bytes": 19193856,
+            "comm": "postgres",
+            "pid": 855722
+          },
+          {
+            "RSS_bytes": 1781760,
+            "comm": "sh",
+            "pid": 855723
+          },
+          {
+            "RSS_bytes": 33812480,
+            "comm": "postgres",
+            "pid": 855724
+          },
+          {
+            "RSS_bytes": 11493376,
+            "comm": "postgres",
+            "pid": 855732
+          },
+          {
+            "RSS_bytes": 13930496,
+            "comm": "postgres",
+            "pid": 855740
+          },
+          {
+            "RSS_bytes": 5541888,
+            "comm": "postgres",
+            "pid": 855738
+          },
+          {
+            "RSS_bytes": 6025216,
+            "comm": "postgres",
+            "pid": 855737
+          },
+          {
+            "RSS_bytes": 3231744,
+            "comm": "postgres",
+            "pid": 855736
+          },
+          {
+            "RSS_bytes": 8052736,
+            "comm": "postgres",
+            "pid": 855734
+          },
+          {
+            "RSS_bytes": 3256320,
+            "comm": "postgres",
+            "pid": 855733
+          },
+          {
+            "RSS_bytes": 9568256,
+            "comm": "postgres",
+            "pid": 855746
+          },
+          {
+            "RSS_bytes": 16281600,
+            "comm": "postgres",
+            "pid": 855760
+          },
+          {
+            "RSS_bytes": 16543744,
+            "comm": "gone",
+            "pid": 855776
+          },
+          {
+            "RSS_bytes": 14663680,
+            "comm": "postgres",
+            "pid": 855795
+          },
+          {
+            "RSS_bytes": 15187968,
+            "comm": "postgres",
+            "pid": 855811
+          },
+          {
+            "RSS_bytes": 15974400,
+            "comm": "postgres",
+            "pid": 855828
+          },
+          {
+            "RSS_bytes": 9994240,
+            "comm": "postgres",
+            "pid": 855845
+          },
+          {
+            "RSS_bytes": 6242304,
+            "comm": "postgres",
+            "pid": 855863
+          },
+          {
+            "RSS_bytes": 16023552,
+            "comm": "postgres",
+            "pid": 855879
+          },
+          {
+            "RSS_bytes": 16498688,
+            "comm": "postgres",
+            "pid": 855896
+          },
+          {
+            "RSS_bytes": 13746176,
+            "comm": "postgres",
+            "pid": 855914
+          },
+          {
+            "RSS_bytes": 14532608,
+            "comm": "postgres",
+            "pid": 855933
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 855946
+          },
+          {
+            "RSS_bytes": 16027648,
+            "comm": "postgres",
+            "pid": 855959
+          },
+          {
+            "RSS_bytes": 14585856,
+            "comm": "postgres",
+            "pid": 855973
+          },
+          {
+            "RSS_bytes": 16158720,
+            "comm": "postgres",
+            "pid": 855985
+          },
+          {
+            "RSS_bytes": 15925248,
+            "comm": "postgres",
+            "pid": 855998
+          },
+          {
+            "RSS_bytes": 15978496,
+            "comm": "postgres",
+            "pid": 856011
+          },
+          {
+            "RSS_bytes": 15978496,
+            "comm": "postgres",
+            "pid": 856025
+          },
+          {
+            "RSS_bytes": 15978496,
+            "comm": "postgres",
+            "pid": 856037
+          },
+          {
+            "RSS_bytes": 6242304,
+            "comm": "postgres",
+            "pid": 856051
+          },
+          {
+            "RSS_bytes": 15896576,
+            "comm": "postgres",
+            "pid": 856063
+          },
+          {
+            "RSS_bytes": 16769024,
+            "comm": "postgres",
+            "pid": 856065
+          },
+          {
+            "RSS_bytes": 15892480,
+            "comm": "postgres",
+            "pid": 856089
+          },
+          {
+            "RSS_bytes": 14536704,
+            "comm": "postgres",
+            "pid": 856102
+          },
+          {
+            "RSS_bytes": 6197248,
+            "comm": "postgres",
+            "pid": 856115
+          },
+          {
+            "RSS_bytes": 13533184,
+            "comm": "postgres",
+            "pid": 856155
+          },
+          {
+            "RSS_bytes": 11698176,
+            "comm": "postgres",
+            "pid": 856168
+          },
+          {
+            "RSS_bytes": 15237120,
+            "comm": "postgres",
+            "pid": 856181
+          },
+          {
+            "RSS_bytes": 16154624,
+            "comm": "postgres",
+            "pid": 856193
+          },
+          {
+            "RSS_bytes": 8765440,
+            "comm": "postgres",
+            "pid": 856207
+          },
+          {
+            "RSS_bytes": 15990784,
+            "comm": "postgres",
+            "pid": 856219
+          },
+          {
+            "RSS_bytes": 16896000,
+            "comm": "postgres",
+            "pid": 856229
+          },
+          {
+            "RSS_bytes": 15978496,
+            "comm": "postgres",
+            "pid": 856235
+          },
+          {
+            "RSS_bytes": 17362944,
+            "comm": "postgres",
+            "pid": 856240
+          },
+          {
+            "RSS_bytes": 16633856,
+            "comm": "postgres",
+            "pid": 856246
+          },
+          {
+            "RSS_bytes": 16633856,
+            "comm": "postgres",
+            "pid": 856242
+          },
+          {
+            "RSS_bytes": 10739712,
+            "comm": "postgres",
+            "pid": 856250
+          },
+          {
+            "RSS_bytes": 17481728,
+            "comm": "postgres",
+            "pid": 856253
+          },
+          {
+            "RSS_bytes": 16637952,
+            "comm": "postgres",
+            "pid": 856254
+          },
+          {
+            "RSS_bytes": 17297408,
+            "comm": "postgres",
+            "pid": 856259
+          },
+          {
+            "RSS_bytes": 17670144,
+            "comm": "postgres",
+            "pid": 856264
+          },
+          {
+            "RSS_bytes": 17694720,
+            "comm": "postgres",
+            "pid": 856270
+          },
+          {
+            "RSS_bytes": 17694720,
+            "comm": "postgres",
+            "pid": 856280
+          },
+          {
+            "RSS_bytes": 16683008,
+            "comm": "postgres",
+            "pid": 856286
+          },
+          {
+            "RSS_bytes": 16687104,
+            "comm": "postgres",
+            "pid": 856282
+          },
+          {
+            "RSS_bytes": 16080896,
+            "comm": "postgres",
+            "pid": 856289
+          },
+          {
+            "RSS_bytes": 15896576,
+            "comm": "postgres",
+            "pid": 856293
+          },
+          {
+            "RSS_bytes": 11403264,
+            "comm": "postgres",
+            "pid": 856308
+          },
+          {
+            "RSS_bytes": 16252928,
+            "comm": "postgres",
+            "pid": 856325
+          },
+          {
+            "RSS_bytes": 16646144,
+            "comm": "gone",
+            "pid": 856341
+          },
+          {
+            "RSS_bytes": 16838656,
+            "comm": "postgres",
+            "pid": 856359
+          },
+          {
+            "RSS_bytes": 15384576,
+            "comm": "postgres",
+            "pid": 856376
+          },
+          {
+            "RSS_bytes": 16695296,
+            "comm": "postgres",
+            "pid": 856393
+          },
+          {
+            "RSS_bytes": 6295552,
+            "comm": "postgres",
+            "pid": 856411
+          },
+          {
+            "RSS_bytes": 16646144,
+            "comm": "gone",
+            "pid": 856428
+          },
+          {
+            "RSS_bytes": 16252928,
+            "comm": "postgres",
+            "pid": 856446
+          },
+          {
+            "RSS_bytes": 16515072,
+            "comm": "postgres",
+            "pid": 856463
+          },
+          {
+            "RSS_bytes": 12632064,
+            "comm": "postgres",
+            "pid": 856484
+          },
+          {
+            "RSS_bytes": 15384576,
+            "comm": "postgres",
+            "pid": 856499
+          },
+          {
+            "RSS_bytes": 16302080,
+            "comm": "postgres",
+            "pid": 856512
+          },
+          {
+            "RSS_bytes": 16646144,
+            "comm": "gone",
+            "pid": 856524
+          },
+          {
+            "RSS_bytes": 16252928,
+            "comm": "postgres",
+            "pid": 856538
+          },
+          {
+            "RSS_bytes": 11665408,
+            "comm": "postgres",
+            "pid": 856551
+          },
+          {
+            "RSS_bytes": 16252928,
+            "comm": "postgres",
+            "pid": 856564
+          },
+          {
+            "RSS_bytes": 6160384,
+            "comm": "postgres",
+            "pid": 856577
+          },
+          {
+            "RSS_bytes": 16433152,
+            "comm": "postgres",
+            "pid": 856589
+          },
+          {
+            "RSS_bytes": 15384576,
+            "comm": "postgres",
+            "pid": 856602
+          },
+          {
+            "RSS_bytes": 16302080,
+            "comm": "postgres",
+            "pid": 856615
+          },
+          {
+            "RSS_bytes": 16379904,
+            "comm": "gone",
+            "pid": 856627
+          },
+          {
+            "RSS_bytes": 17346560,
+            "comm": "postgres",
+            "pid": 856619
+          },
+          {
+            "RSS_bytes": 16248832,
+            "comm": "postgres",
+            "pid": 856640
+          },
+          {
+            "RSS_bytes": 6156288,
+            "comm": "postgres",
+            "pid": 856653
+          },
+          {
+            "RSS_bytes": 16248832,
+            "comm": "postgres",
+            "pid": 856665
+          },
+          {
+            "RSS_bytes": 6156288,
+            "comm": "postgres",
+            "pid": 856678
+          },
+          {
+            "RSS_bytes": 16429056,
+            "comm": "gone",
+            "pid": 856690
+          },
+          {
+            "RSS_bytes": 12103680,
+            "comm": "postgres",
+            "pid": 856703
+          },
+          {
+            "RSS_bytes": 16379904,
+            "comm": "postgres",
+            "pid": 856729
+          },
+          {
+            "RSS_bytes": 16248832,
+            "comm": "postgres",
+            "pid": 856744
+          },
+          {
+            "RSS_bytes": 16248832,
+            "comm": "postgres",
+            "pid": 856756
+          },
+          {
+            "RSS_bytes": 16642048,
+            "comm": "gone",
+            "pid": 856769
+          },
+          {
+            "RSS_bytes": 16252928,
+            "comm": "postgres",
+            "pid": 856781
+          },
+          {
+            "RSS_bytes": 17661952,
+            "comm": "postgres",
+            "pid": 856784
+          },
+          {
+            "RSS_bytes": 16433152,
+            "comm": "postgres",
+            "pid": 856796
+          },
+          {
+            "RSS_bytes": 16302080,
+            "comm": "postgres",
+            "pid": 856809
+          },
+          {
+            "RSS_bytes": 17686528,
+            "comm": "postgres",
+            "pid": 856811
+          },
+          {
+            "RSS_bytes": 15605760,
+            "comm": "postgres",
+            "pid": 856820
+          },
+          {
+            "RSS_bytes": 6205440,
+            "comm": "postgres",
+            "pid": 856829
+          },
+          {
+            "RSS_bytes": 16588800,
+            "comm": "postgres",
+            "pid": 856845
+          },
+          {
+            "RSS_bytes": 16277504,
+            "comm": "postgres",
+            "pid": 856862
+          },
+          {
+            "RSS_bytes": 15478784,
+            "comm": "postgres",
+            "pid": 856881
+          },
+          {
+            "RSS_bytes": 16707584,
+            "comm": "gone",
+            "pid": 856905
+          },
+          {
+            "RSS_bytes": 6205440,
+            "comm": "postgres",
+            "pid": 856924
+          },
+          {
+            "RSS_bytes": 17227776,
+            "comm": "gone",
+            "pid": 856941
+          },
+          {
+            "RSS_bytes": 16265216,
+            "comm": "postgres",
+            "pid": 856959
+          },
+          {
+            "RSS_bytes": 6156288,
+            "comm": "postgres",
+            "pid": 856977
+          },
+          {
+            "RSS_bytes": 16265216,
+            "comm": "postgres",
+            "pid": 856994
+          },
+          {
+            "RSS_bytes": 6205440,
+            "comm": "postgres",
+            "pid": 857012
+          },
+          {
+            "RSS_bytes": 0,
+            "comm": "gone",
+            "pid": 857047
+          },
+          {
+            "RSS_bytes": 16265216,
+            "comm": "postgres",
+            "pid": 857060
+          },
+          {
+            "RSS_bytes": 15527936,
+            "comm": "postgres",
+            "pid": 857072
+          },
+          {
+            "RSS_bytes": 3198976,
+            "comm": "postgres",
+            "pid": 857085
+          },
+          {
+            "RSS_bytes": 16662528,
+            "comm": "gone",
+            "pid": 857109
+          },
+          {
+            "RSS_bytes": 16445440,
+            "comm": "postgres",
+            "pid": 857121
+          },
+          {
+            "RSS_bytes": 16576512,
+            "comm": "postgres",
+            "pid": 857134
+          },
+          {
+            "RSS_bytes": 16576512,
+            "comm": "postgres",
+            "pid": 857146
+          },
+          {
+            "RSS_bytes": 6156288,
+            "comm": "postgres",
+            "pid": 857159
+          },
+          {
+            "RSS_bytes": 16879616,
+            "comm": "postgres",
+            "pid": 857154
+          },
+          {
+            "RSS_bytes": 16261120,
+            "comm": "postgres",
+            "pid": 857170
+          },
+          {
+            "RSS_bytes": 11935744,
+            "comm": "postgres",
+            "pid": 857183
+          },
+          {
+            "RSS_bytes": 16261120,
+            "comm": "postgres",
+            "pid": 857194
+          },
+          {
+            "RSS_bytes": 16261120,
+            "comm": "postgres",
+            "pid": 857207
+          },
+          {
+            "RSS_bytes": 16441344,
+            "comm": "postgres",
+            "pid": 857219
+          },
+          {
+            "RSS_bytes": 16441344,
+            "comm": "postgres",
+            "pid": 857232
+          },
+          {
+            "RSS_bytes": 8945664,
+            "comm": "postgres",
+            "pid": 857245
+          },
+          {
+            "RSS_bytes": 15474688,
+            "comm": "postgres",
+            "pid": 857258
+          },
+          {
+            "RSS_bytes": 11280384,
+            "comm": "postgres",
+            "pid": 857270
+          },
+          {
+            "RSS_bytes": 6156288,
+            "comm": "postgres",
+            "pid": 857283
+          },
+          {
+            "RSS_bytes": 16261120,
+            "comm": "postgres",
+            "pid": 857295
+          },
+          {
+            "RSS_bytes": 16261120,
+            "comm": "postgres",
+            "pid": 857308
+          },
+          {
+            "RSS_bytes": 16969728,
+            "comm": "postgres",
+            "pid": 857317
+          },
+          {
+            "RSS_bytes": 16314368,
+            "comm": "postgres",
+            "pid": 857323
+          },
+          {
+            "RSS_bytes": 17301504,
+            "comm": "postgres",
+            "pid": 857329
+          },
+          {
+            "RSS_bytes": 9076736,
+            "comm": "postgres",
+            "pid": 857336
+          },
+          {
+            "RSS_bytes": 17727488,
+            "comm": "postgres",
+            "pid": 857337
+          },
+          {
+            "RSS_bytes": 17166336,
+            "comm": "postgres",
+            "pid": 857343
+          },
+          {
+            "RSS_bytes": 16838656,
+            "comm": "postgres",
+            "pid": 857339
+          },
+          {
+            "RSS_bytes": 16707584,
+            "comm": "postgres",
+            "pid": 857348
+          },
+          {
+            "RSS_bytes": 15527936,
+            "comm": "postgres",
+            "pid": 857350
+          },
+          {
+            "RSS_bytes": 17727488,
+            "comm": "postgres",
+            "pid": 857354
+          },
+          {
+            "RSS_bytes": 2134016,
+            "comm": "pg_ctl",
+            "pid": 857359
+          }
+        ],
+        "RSS_samples": 229,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 1056989184,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "e48d6ea6161619444feffe800ef34e6c1c77193d1c81fff42170e606ce2e4474",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854596,
+            "start_ticks": 9047387
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854603,
+            "start_ticks": 9047401
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854609,
+            "start_ticks": 9047450
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854610,
+            "start_ticks": 9047452
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854611,
+            "start_ticks": 9047452
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854613,
+            "start_ticks": 9047453
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854614,
+            "start_ticks": 9047453
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854615,
+            "start_ticks": 9047453
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854618,
+            "start_ticks": 9047461
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854640,
+            "start_ticks": 9047515
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854677,
+            "start_ticks": 9047566
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854695,
+            "start_ticks": 9047592
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854714,
+            "start_ticks": 9047619
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854732,
+            "start_ticks": 9047644
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854751,
+            "start_ticks": 9047671
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854769,
+            "start_ticks": 9047697
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854788,
+            "start_ticks": 9047723
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854805,
+            "start_ticks": 9047749
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854814,
+            "start_ticks": 9047799
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854828,
+            "start_ticks": 9047825
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854842,
+            "start_ticks": 9047852
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854856,
+            "start_ticks": 9047878
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854869,
+            "start_ticks": 9047904
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854883,
+            "start_ticks": 9047929
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854897,
+            "start_ticks": 9047955
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854910,
+            "start_ticks": 9047981
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854924,
+            "start_ticks": 9048008
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854931,
+            "start_ticks": 9048022
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854937,
+            "start_ticks": 9048033
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854950,
+            "start_ticks": 9048059
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854963,
+            "start_ticks": 9048085
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854971,
+            "start_ticks": 9048101
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854977,
+            "start_ticks": 9048137
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854980,
+            "start_ticks": 9048161
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 854995,
+            "start_ticks": 9048188
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855014,
+            "start_ticks": 9048215
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855033,
+            "start_ticks": 9048241
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855050,
+            "start_ticks": 9048266
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855067,
+            "start_ticks": 9048291
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855086,
+            "start_ticks": 9048317
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855105,
+            "start_ticks": 9048343
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855123,
+            "start_ticks": 9048368
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855141,
+            "start_ticks": 9048394
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855160,
+            "start_ticks": 9048421
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855188,
+            "start_ticks": 9048498
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855202,
+            "start_ticks": 9048525
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855216,
+            "start_ticks": 9048551
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855229,
+            "start_ticks": 9048577
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855242,
+            "start_ticks": 9048603
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855269,
+            "start_ticks": 9048655
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855281,
+            "start_ticks": 9048681
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855289,
+            "start_ticks": 9048697
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855294,
+            "start_ticks": 9048707
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855308,
+            "start_ticks": 9048733
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855320,
+            "start_ticks": 9048758
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855329,
+            "start_ticks": 9048777
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855333,
+            "start_ticks": 9048811
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855338,
+            "start_ticks": 9048837
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855353,
+            "start_ticks": 9048863
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855370,
+            "start_ticks": 9048888
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855407,
+            "start_ticks": 9048940
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855425,
+            "start_ticks": 9048966
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855443,
+            "start_ticks": 9048993
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855479,
+            "start_ticks": 9049043
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855497,
+            "start_ticks": 9049069
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855516,
+            "start_ticks": 9049096
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855535,
+            "start_ticks": 9049148
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855566,
+            "start_ticks": 9049174
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855580,
+            "start_ticks": 9049201
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855606,
+            "start_ticks": 9049252
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855619,
+            "start_ticks": 9049278
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855632,
+            "start_ticks": 9049303
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855645,
+            "start_ticks": 9049330
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855665,
+            "start_ticks": 9049369
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855667,
+            "start_ticks": 9049381
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855680,
+            "start_ticks": 9049408
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855691,
+            "start_ticks": 9049433
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855704,
+            "start_ticks": 9049460
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855706,
+            "start_ticks": 9049465
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855722,
+            "start_ticks": 9049537
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855724,
+            "start_ticks": 9049547
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855732,
+            "start_ticks": 9049600
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855733,
+            "start_ticks": 9049602
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855734,
+            "start_ticks": 9049602
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855736,
+            "start_ticks": 9049602
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855737,
+            "start_ticks": 9049602
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855738,
+            "start_ticks": 9049602
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855740,
+            "start_ticks": 9049611
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855746,
+            "start_ticks": 9049643
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855760,
+            "start_ticks": 9049667
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855795,
+            "start_ticks": 9049720
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855811,
+            "start_ticks": 9049746
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855828,
+            "start_ticks": 9049772
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855845,
+            "start_ticks": 9049799
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855863,
+            "start_ticks": 9049825
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855879,
+            "start_ticks": 9049850
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855896,
+            "start_ticks": 9049875
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855914,
+            "start_ticks": 9049903
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855933,
+            "start_ticks": 9049955
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855959,
+            "start_ticks": 9050006
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855973,
+            "start_ticks": 9050033
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855985,
+            "start_ticks": 9050058
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 855998,
+            "start_ticks": 9050084
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856011,
+            "start_ticks": 9050110
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856025,
+            "start_ticks": 9050137
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856037,
+            "start_ticks": 9050163
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856051,
+            "start_ticks": 9050190
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856063,
+            "start_ticks": 9050215
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856065,
+            "start_ticks": 9050219
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856089,
+            "start_ticks": 9050267
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856102,
+            "start_ticks": 9050294
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856115,
+            "start_ticks": 9050321
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856155,
+            "start_ticks": 9050398
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856168,
+            "start_ticks": 9050425
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856181,
+            "start_ticks": 9050450
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856193,
+            "start_ticks": 9050476
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856207,
+            "start_ticks": 9050503
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856219,
+            "start_ticks": 9050528
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856229,
+            "start_ticks": 9050548
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856235,
+            "start_ticks": 9050581
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856240,
+            "start_ticks": 9050591
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856242,
+            "start_ticks": 9050619
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856246,
+            "start_ticks": 9050628
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856250,
+            "start_ticks": 9050660
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856253,
+            "start_ticks": 9050666
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856254,
+            "start_ticks": 9050693
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856259,
+            "start_ticks": 9050702
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856264,
+            "start_ticks": 9050738
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856270,
+            "start_ticks": 9050774
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856280,
+            "start_ticks": 9050816
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856282,
+            "start_ticks": 9050853
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856286,
+            "start_ticks": 9050862
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856293,
+            "start_ticks": 9050920
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856308,
+            "start_ticks": 9050947
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856325,
+            "start_ticks": 9050972
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856376,
+            "start_ticks": 9051051
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856411,
+            "start_ticks": 9051104
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856446,
+            "start_ticks": 9051156
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856463,
+            "start_ticks": 9051181
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856484,
+            "start_ticks": 9051235
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856499,
+            "start_ticks": 9051261
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856512,
+            "start_ticks": 9051286
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856538,
+            "start_ticks": 9051339
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856551,
+            "start_ticks": 9051366
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856564,
+            "start_ticks": 9051391
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856577,
+            "start_ticks": 9051418
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856602,
+            "start_ticks": 9051470
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856615,
+            "start_ticks": 9051496
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856619,
+            "start_ticks": 9051505
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856640,
+            "start_ticks": 9051548
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856653,
+            "start_ticks": 9051575
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856665,
+            "start_ticks": 9051600
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856678,
+            "start_ticks": 9051628
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856703,
+            "start_ticks": 9051680
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856729,
+            "start_ticks": 9051732
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856744,
+            "start_ticks": 9051758
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856756,
+            "start_ticks": 9051784
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856781,
+            "start_ticks": 9051837
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856784,
+            "start_ticks": 9051844
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856796,
+            "start_ticks": 9051889
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856809,
+            "start_ticks": 9051916
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856811,
+            "start_ticks": 9051920
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856820,
+            "start_ticks": 9051963
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856829,
+            "start_ticks": 9051996
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856881,
+            "start_ticks": 9052074
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856924,
+            "start_ticks": 9052127
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856959,
+            "start_ticks": 9052178
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856977,
+            "start_ticks": 9052206
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 856994,
+            "start_ticks": 9052230
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857012,
+            "start_ticks": 9052258
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857060,
+            "start_ticks": 9052388
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857072,
+            "start_ticks": 9052415
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857085,
+            "start_ticks": 9052442
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857121,
+            "start_ticks": 9052519
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857134,
+            "start_ticks": 9052546
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857154,
+            "start_ticks": 9052588
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857159,
+            "start_ticks": 9052600
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857170,
+            "start_ticks": 9052625
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857183,
+            "start_ticks": 9052652
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857194,
+            "start_ticks": 9052678
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857207,
+            "start_ticks": 9052704
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857245,
+            "start_ticks": 9052784
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857258,
+            "start_ticks": 9052810
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857270,
+            "start_ticks": 9052837
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857283,
+            "start_ticks": 9052863
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857295,
+            "start_ticks": 9052889
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857308,
+            "start_ticks": 9052914
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857317,
+            "start_ticks": 9052935
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857323,
+            "start_ticks": 9052968
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857329,
+            "start_ticks": 9052981
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857336,
+            "start_ticks": 9053021
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857337,
+            "start_ticks": 9053023
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857339,
+            "start_ticks": 9053052
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857343,
+            "start_ticks": 9053061
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857348,
+            "start_ticks": 9053098
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857350,
+            "start_ticks": 9053126
+          },
+          {
+            "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+            "pid": 857354,
+            "start_ticks": 9053135
+          }
+        ],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 144310272,
+        "source_count": 2404,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 62.29925882999669
+      }
+    }
+  },
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "84ae345df7088771bb9c6fdc7aedaf36250d10681e3bd222caa20664969afce3",
+    "recursive_cli": false,
+    "timestamp": "2026-10-17T11:45:30.208Z"
+  },
+  "new_Solar_deployed": false,
+  "normal_CI": {
+    "diagnostics": false,
+    "pending": true,
+    "run_id": 39034668788,
+    "source_commit": "8423263f1a309b5011d76d41b0c5c1eacca0cab5"
+  },
+  "normal_execution_accepted": false,
+  "not_run": [
+    "full backend current regression",
+    "updated worker original normal completion",
+    "updated WSL concurrent worker capacity",
+    "updated live calculation to WebGL",
+    "new Solar deployment",
+    "G0-G4 and actual field validation"
+  ],
+  "observation": {
+    "all_actual_SCRAM_connections_owned_and_closed": true,
+    "current_connections": {
+      "source": 1
+    },
+    "identical_context_hold_typed_pin": true,
+    "identical_current_validator_sequence": true,
+    "original_connections": {
+      "contexts": 2,
+      "holds": 1,
+      "source": 1
+    }
+  },
+  "review": {
+    "current_readers_and_decimal_body_unchanged": true,
+    "farm_joins_references_to_research_and_registration_after_read": true,
+    "new_module_interface_only_no_HTTP_contract_changes": true,
+    "no_pool_or_result_cache": true,
+    "ordering_change": "Market pin validation now completes before farm-specific research/time/economic joins; those original joins and their generic hold boundary remain.",
+    "original_prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4"
+  },
+  "rights_or_gate_approval": false,
+  "schema_version": "farm-pinned-context-reader-implementation-v1",
+  "source_commit": "8423263f1a309b5011d76d41b0c5c1eacca0cab5",
+  "status_publication": {
+    "actual_tool": "72387:0",
+    "raw_terminal_sha256": "9a938e44ec4e8f8f70723a1f8101d823f72523cfe417bf140eb9a3d1791d89d9",
+    "result": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 35708928,
+          "comm": "python",
+          "pid": 836786
+        },
+        {
+          "RSS_bytes": 126775296,
+          "comm": "python",
+          "pid": 836789
+        },
+        {
+          "RSS_bytes": 8880128,
+          "comm": "nginx",
+          "pid": 836804
+        },
+        {
+          "RSS_bytes": 7589888,
+          "comm": "nginx",
+          "pid": 837682
+        },
+        {
+          "RSS_bytes": 119025664,
+          "comm": "python",
+          "pid": 836803
+        },
+        {
+          "RSS_bytes": 18280448,
+          "comm": "postgres",
+          "pid": 836793
+        },
+        {
+          "RSS_bytes": 5480448,
+          "comm": "postgres",
+          "pid": 836799
+        },
+        {
+          "RSS_bytes": 6012928,
+          "comm": "postgres",
+          "pid": 836798
+        },
+        {
+          "RSS_bytes": 7540736,
+          "comm": "postgres",
+          "pid": 836797
+        },
+        {
+          "RSS_bytes": 4648960,
+          "comm": "postgres",
+          "pid": 836795
+        },
+        {
+          "RSS_bytes": 6156288,
+          "comm": "postgres",
+          "pid": 836794
+        },
+        {
+          "RSS_bytes": 24838144,
+          "comm": "python",
+          "pid": 837436
+        },
+        {
+          "RSS_bytes": 143671296,
+          "comm": "python",
+          "pid": 837440
+        },
+        {
+          "RSS_bytes": 8888320,
+          "comm": "nginx",
+          "pid": 837482
+        },
+        {
+          "RSS_bytes": 7516160,
+          "comm": "nginx",
+          "pid": 837557
+        },
+        {
+          "RSS_bytes": 18333696,
+          "comm": "postgres",
+          "pid": 837462
+        },
+        {
+          "RSS_bytes": 5246976,
+          "comm": "postgres",
+          "pid": 837468
+        },
+        {
+          "RSS_bytes": 6316032,
+          "comm": "postgres",
+          "pid": 837467
+        },
+        {
+          "RSS_bytes": 7467008,
+          "comm": "postgres",
+          "pid": 837466
+        },
+        {
+          "RSS_bytes": 5296128,
+          "comm": "postgres",
+          "pid": 837464
+        },
+        {
+          "RSS_bytes": 11628544,
+          "comm": "postgres",
+          "pid": 837463
+        },
+        {
+          "RSS_bytes": 119828480,
+          "comm": "python",
+          "pid": 837580
+        },
+        {
+          "RSS_bytes": 107999232,
+          "comm": "python",
+          "pid": 837589
+        },
+        {
+          "RSS_bytes": 28192768,
+          "comm": "python3",
+          "pid": 857648
+        },
+        {
+          "RSS_bytes": 8249344,
+          "comm": "python",
+          "pid": 857657
+        }
+      ],
+      "RSS_samples": 1,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 849571840,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "1a98a3f9cd9ff8847de43a383a5e02e1d9ca78feb439f87c5beadb4164563bd9",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 143671296,
+      "source_count": 2406,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.3388417100068182
+    }
+  },
+  "validator_sequence_observation_scope": [
+    "MarketHoldStore._verified",
+    "ThermalRunStore._decision_context_in_transaction"
+  ]
+}

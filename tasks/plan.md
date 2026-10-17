@@ -1,5 +1,15 @@
 # 구현 순서
 
+## 현재 참조 읽기 수용과 원 정상 실행 — 2026-10-17
+
+[실제 진단](../research/crop-solar-worker-progress-diagnostics-20261017.md)은 등록 내부의 반복 경제/맥락 검증을 확인했다.
+[같은 범위 참조 reader](../research/farm-pinned-context-reader-implementation-20261017.md)를
+원 값/검증 순서·실제4→1연결·고유14검사로 수용했다. 산술/cache·현재 검사·한도를 바꾸지 않았다.
+다음은 source8423263/trace-OFF CI39034668788의 원 정상64걸음·두 전진 prefix·원 값/UTC·후검사·정리다.
+이것을 통과하기 전 정상/S3 체크를 하지 않는다. 이후 hold/취소→계산 중3D→로컬 용량/사용자 적용을 각각 검증한다.
+기존 원5root/두 화면/원본·자원 한도와 실제 자료/관문·전체 완료일 미정·goal active를 유지한다.
+아래 기록은 당시 상태다.
+
 ## 현재 독립 실행의 후속 — 2026-10-17
 
 호스팅 선택 진단은 실제 `SolarCustodyPending`을 worker advance/open에서 확인했다.

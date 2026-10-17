@@ -1,8 +1,12 @@
 # 첫 구현 작업 목록
 
-- [ ] **`crop-solar-farm-registration-cost`** — [실제 병목 분해](../research/crop-solar-worker-progress-diagnostics-20261017.md).
-  확정16/64·등록726반환290.968초의 실제 근거로, 내부 조회·현재 연구/맥락·경제 참조·compiler 시간을 구분한다.
-  관찰기6검사 통과·CI39033602306 진행 중이다. 검사/수치/상한을 보존한 작은 변경과 별도 원 정상 검증이 후속이다.
+- [x] **`farm-pinned-context-reader`** — [원 현재 참조·경제 검증을 같은 범위로 읽기](../research/farm-pinned-context-reader-implementation-20261017.md).
+  고유14검사·실제 SCRAM 조합4→1연결·동일 값/검증 순서, 철회/변조/부적합/활성 변경·농장 등록 회귀와 정리 통과.
+  source8423263/trace-OFF 원 정상 CI39034668788은 진행 중이며 정상/S3 수용이 아니다.
+
+- [x] **`crop-solar-farm-registration-cost`** — [실제 등록 내부 비용](../research/crop-solar-worker-progress-diagnostics-20261017.md).
+  CI39033602306의 원 확정15/64·등록674반환/경제159.035초·compiler3.080초를 구분하고 변경 범위를 고정했다.
+  중첩/계측 비용을 보존하며, 후속 현재 참조 reader를 위 별도 컴포넌트로 검증했다.
 
 - [x] **`crop-solar-worker-progress-diagnostics`** — [원 반환 단계·실제 구간 시간·한계](../research/crop-solar-worker-progress-diagnostics-20261017.md).
   실제2사례·run/head/digest와 종료/소유 정리를 대사했다. 마지막 확정16/64·등록 반복 비용이 후속 근거다.
