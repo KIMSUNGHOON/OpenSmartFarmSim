@@ -14,7 +14,7 @@
     "checks": {
       "parser": {
         "actual_child_exit": 0,
-        "combined_peak_RSS_bytes": 991330304,
+        "combined_peak_RSS_bytes": 983785472,
         "controller_FD_before_after": [
           4,
           4
@@ -23,11 +23,11 @@
         "owned_non_zombie_remaining": [],
         "protected_live": true,
         "reason": null,
-        "wall_seconds": 0.8424061270052334
+        "wall_seconds": 0.8551002210006118
       },
       "published_HTTP": {
         "actual_child_exit": 0,
-        "combined_peak_RSS_bytes": 813580288,
+        "combined_peak_RSS_bytes": 809566208,
         "controller_FD_before_after": [
           4,
           4
@@ -36,16 +36,16 @@
         "owned_non_zombie_remaining": [],
         "protected_live": true,
         "reason": null,
-        "wall_seconds": 0.33882502699270844
+        "wall_seconds": 0.3333242319931742
       }
     },
     "frozen_HTML_both_preserved": true,
     "frozen_ventilation_source_files_preserved": 2173,
-    "new_DOM_exercised": false,
+    "new_local_DOM_exercised": false,
     "parser_tests": 28,
     "published_HTTP_both_ports": 200,
-    "reported_at": "2026-10-17T10:09:33.079531Z",
-    "source_sha256": "ac7a137d18bd06d295a34c94727d3f1062ff544dfceda3e20e72b03d1a6ba3ad"
+    "reported_at": "2026-10-17T10:20:15.870005Z",
+    "source_sha256": "0ce50c3613ab6ed2f84751ed4cbc767ef0f971fbf71895b7cf438b13c93f3c7e"
   },
   "development_feed_previous": {
     "bytes_equal": true,
@@ -125,6 +125,45 @@
     "reported_at": "2026-10-17T09:58:41.767632Z",
     "source_sha256": "42ed0dd15bff2864a4d6711e6be22c7fb179bd284ef16485e5e438a6ff1e63f8"
   },
+  "development_feed_prior_to_observed_frames": {
+    "bytes_equal": true,
+    "cache_control": "no-store",
+    "checks": {
+      "parser": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 991330304,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "protected_live": true,
+        "reason": null,
+        "wall_seconds": 0.8424061270052334
+      },
+      "published_HTTP": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 813580288,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "protected_live": true,
+        "reason": null,
+        "wall_seconds": 0.33882502699270844
+      }
+    },
+    "frozen_HTML_both_preserved": true,
+    "frozen_ventilation_source_files_preserved": 2173,
+    "new_DOM_exercised": false,
+    "parser_tests": 28,
+    "published_HTTP_both_ports": 200,
+    "reported_at": "2026-10-17T10:09:33.079531Z",
+    "source_sha256": "ac7a137d18bd06d295a34c94727d3f1062ff544dfceda3e20e72b03d1a6ba3ad"
+  },
   "downloaded_build": {
     "archive_paths_checked": true,
     "artifact": {
@@ -152,6 +191,7 @@
     "unit_tests": 1864,
     "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39020017901"
   },
+  "fully_accepted_native_browser_cases": 0,
   "goal_status": "active",
   "hosted_attempts": [
     {
@@ -522,15 +562,104 @@
       "hold_case_executed": false,
       "lookup_open_state_recorded": false,
       "run": 39023069641
+    },
+    {
+      "artifact": {
+        "digest_verified": true,
+        "id": 12098190337,
+        "sha256": "89f417dfaaca4620d9571563afef36007e817387c52be874822c6328f2f20293"
+      },
+      "completed_case": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "RSS_samples": 322,
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 585203712,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 375394304,
+        "wall_seconds": 82.07855435800002
+      },
+      "conclusion": "failure",
+      "current_rights_reconnect_checks_executed": false,
+      "database_role_cleanup_assertion_executed": false,
+      "failure": {
+        "actual_HTTP": [
+          {
+            "bytes": 30372,
+            "method": "GET",
+            "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3A3cbc9a39bdf096587f0582cdc4f62094832f2a85185af98ffc95806c7a5996ed",
+            "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=fc2b8475348763fcb12c0f4ef897a03aca94cb526f8800890e60411010e53ac8&crop_id=crop-1&view=summary",
+            "source_body_equal": true,
+            "status": 200,
+            "view": "summary",
+            "wire_sha256": "164f4dd9e1a11b1abecf71b4f8cdf6f4d585f29f83cde39ad1173b4dc3123c97"
+          },
+          {
+            "bytes": 57966,
+            "method": "GET",
+            "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3A3cbc9a39bdf096587f0582cdc4f62094832f2a85185af98ffc95806c7a5996ed",
+            "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=fc2b8475348763fcb12c0f4ef897a03aca94cb526f8800890e60411010e53ac8&crop_id=crop-1&view=samples&offset=0&limit=64",
+            "source_body_equal": true,
+            "status": 200,
+            "view": "samples",
+            "wire_sha256": "2e3bdf433e1cbcd6702cd5a5e4b7d4b542b5a3db1c52d1fb6024c989a11bf553"
+          }
+        ],
+        "frames_saved": 3,
+        "reason": "unsupported operand type(s) for +: 'PosixPath' and 'str'",
+        "type": "TypeError"
+      },
+      "head": "cae7fc4ddc1450bd98984d878a689d07de4e0786",
+      "hold_case_executed": false,
+      "observed_frames": [
+        {
+          "GL_version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "WebGL2": true,
+          "at": "2026-10-01T00:00:00.123456Z",
+          "chart_SVGs": 3,
+          "cohort_rows": 50,
+          "draw_calls": 109,
+          "scene_at": "2026-10-01T00:00:00.123456Z",
+          "source_frame_sha256": "4e08c8568c9580658cd91b326055d4188463c44c05583949c6c536389d933a18",
+          "source_values_assertions_completed_before_save": true
+        },
+        {
+          "GL_version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "WebGL2": true,
+          "at": "2026-10-01T00:00:16.123456Z",
+          "chart_SVGs": 3,
+          "cohort_rows": 50,
+          "draw_calls": 113,
+          "scene_at": "2026-10-01T00:00:16.123456Z",
+          "source_frame_sha256": "6785487751f281978ab30455603348551ad72a07ca8582ee7eba1b4bfb2c592f",
+          "source_values_assertions_completed_before_save": true
+        },
+        {
+          "GL_version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+          "WebGL2": true,
+          "at": "2026-10-01T00:00:32.123456Z",
+          "chart_SVGs": 3,
+          "cohort_rows": 50,
+          "draw_calls": 113,
+          "scene_at": "2026-10-01T00:00:32.123456Z",
+          "source_frame_sha256": "701950cadb3b61eea0f3d9f2c38cbbcd2f1e3db9eb2c1ad73060410792c925bf",
+          "source_values_assertions_completed_before_save": true
+        }
+      ],
+      "run": 39023732519,
+      "screenshot_saved": false
     }
   ],
   "hosted_native_CI": {
-    "head": "cae7fc4ddc1450bd98984d878a689d07de4e0786",
+    "head": "20831eb83c3b7703e432e0841f329cbba47f1742",
     "native_success_claimed": false,
-    "run": 39023732519,
+    "run": 39024412408,
     "selected_browser_suite": "solar",
     "state": "in_progress",
-    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39023732519"
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39024412408"
   },
   "local_capacity_hold": true,
   "local_checks": [
@@ -819,6 +948,7 @@
     "head": "ca9f9cf23b96b2c600bbd01a178bf9b17fdfaf11"
   },
   "new_solar_deployed": false,
+  "observed_normal_current_WebGL_frames": 3,
   "pointer_syntax_checks": [
     {
       "actual_child_exit": 1,
@@ -869,7 +999,7 @@
       "use": "locked Playwright1.63.0 headless shell installation"
     }
   ],
-  "updated_at": "2026-10-17T10:12:09.815824+00:00",
+  "updated_at": "2026-10-17T10:21:40.223700+00:00",
   "visible_pointer_syntax_check": {
     "actual_child_exit": 0,
     "controller_FD_before_after": [

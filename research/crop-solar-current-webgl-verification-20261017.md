@@ -139,3 +139,22 @@ Python/내장 script 구문·원 helper/웹 앱·원5root/원본/FD·소유 정�
 
 최신 진행 feed는 `2026-10-17T10:09:33.079531Z`다. parser28개와 양쪽 실제
 HTTP200/no-store·원문/기존 HTML·환기2,173파일/원5root/원본/FD·소유 정리를 확인했다.
+
+## 현재 API→실제3D의 부분 증거와 스크린샷 경로 수정
+
+네 번째 [39023732519](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39023732519)는
+실제 정상 결과의 HTTPS summary/sample200 두 원문 bytes/hash와 **원3시점의 WebGL·표·그래프
+대사**에 도달했다. 원 `00:00:00.123456Z`/`00:00:16.123456Z`/`00:00:32.123456Z`, 각50구획·
+원 scalar/단위·41/6장부·수지·PAR/NIR/환기·원 참조/장면 UTC·온도 marker·실제 draw/SVG3을
+검사한 뒤 세 frame JSON을 보존했다. 합성32초 소프트웨어의 부분 증거이며 농장/관문 승인은 아니다.
+
+이후 스크린샷 이름에서 `Path / 'solar-' + status`가 되어 TypeError로 종료됐다. **PNG/사건/
+권리 철회·재접속/hold/최종 조회·DB 역할 정리는 미검증**이며 전체 native 사례/S2b 수용은0이다.
+82.079초·자식 exit1/reason없음·단일375,394,304/합585,203,712bytes·FD7→7·소유 잔여0이다.
+`20831eb`에서 파일명을 괄호로 묶었다. 원 데이터·수용 단언과 한도는 유지했고 구문/원본/5root/
+FD·소유 정리를 확인했다. [후속39024412408](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39024412408)을
+따라간다. 세 시점의 부분 성공과 전체 정상/hold·현재 권리/정리 수용을 구분한다.
+
+최신 feed는 `2026-10-17T10:20:15.870005Z`로 부분3시점과 최종 미수용을 구분한다.
+parser28개·실제 양쪽200/no-store·같은 원문/기존 HTML·환기2,173파일·원5root/원본·
+FD4→4/소유 정리를 확인했다. 로컬 새 Solar 배포/전체 goal 완료는 아니다.
