@@ -27,6 +27,215 @@
   },
   "actual_crop_Runs": 0,
   "comparison_is_not_a_controlled_peak_RSS_bound": true,
+  "contention_fix": {
+    "file": "backend/app/crop_greenhouse_solar_execution_worker.py",
+    "first_green_tool": "43348:0",
+    "focused_tests_passed": 6,
+    "guard": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 4,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 931528704,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "204ee964b0c568221de00001d49155c46708c86169d670972934021295357d8a",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2395,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 1.1007437509979354
+    },
+    "maximum_contention_wait_interval_seconds": 0.05,
+    "normal_accepted": false,
+    "overall_stage_accepted": false,
+    "red_tool": "3491:1",
+    "retry_start_budget_seconds": 5,
+    "sha256": "a03ef72277169bc96759528cc895da28e2ea70fed63689625ee3410517d510ef",
+    "six_test_green_tool": "23759:0",
+    "source_commit": "63baae84d7f1d4bec3e66f2a35e1f75106a2d936",
+    "test_time_replaces_real_wait_in_unit_checks_only": true,
+    "unchanged_single_attempt64step_native_acceptance_pending": true
+  },
+  "diagnostics_preflight": {
+    "actual_tool": "14413:0",
+    "child_exit7_rejected": true,
+    "prototype_unchanged": true,
+    "synthetic_secret_not_exposed_in_message": true,
+    "workflow_original_steps_unchanged": true
+  },
+  "final_status_publication": {
+    "actual_tool": "47829:0",
+    "guard": {
+      "G0_G4": "not_assessed",
+      "RSS_samples": 1,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 819286016,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "8c3b60fe25ca5570bdf1d88bede4d232f5c9fbea7d552e19385337f74ca344ea",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2396,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.3279145529959351
+    },
+    "reported_at": "2026-10-17T11:43:54.474272Z"
+  },
+  "first_hosted_failure": {
+    "artifact": {
+      "digest": "sha256:524cfb577f3e761b5dec254bee8d0a0c5a4f14e855bc77c06f691f8ccabef466",
+      "id": 12099795312,
+      "name": "solar-unpaused-normal-abd11834f12da7a530d82ad481db1a26e0a0edd3",
+      "size_in_bytes": 658
+    },
+    "conclusion": "failure",
+    "digest_and_path_validated": true,
+    "head_sha": "abd11834f12da7a530d82ad481db1a26e0a0edd3",
+    "resource": {
+      "FD_before_after": [
+        7,
+        7
+      ],
+      "G0_G4": "not_assessed",
+      "RSS_samples": 508,
+      "WSL_capacity_accepted": false,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 367562752,
+      "hosted_only": true,
+      "local_protected_roots_present": false,
+      "owned_non_zombie_remaining": [],
+      "reason": null,
+      "rights_or_gate_approval": false,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 133337088,
+      "temporary_entries_remaining": 0,
+      "wall_seconds": 129.660855487
+    },
+    "run_id": 39027776829
+  },
+  "fourth_hosted_failure": {
+    "artifact": {
+      "digest": "sha256:b993451949036ef48fc65a0d4fc237e103fd6b3ce0f7f377da8cedb370cab46c",
+      "id": 12100050907,
+      "name": "solar-unpaused-normal-63baae84d7f1d4bec3e66f2a35e1f75106a2d936",
+      "size_in_bytes": 1752
+    },
+    "conclusion": "failure",
+    "digest_and_path_validated": true,
+    "evidence": {
+      "actor-diagnostics.json": [
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "api",
+          "worker_proof_present": false
+        },
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "worker",
+          "worker_proof_present": false
+        }
+      ],
+      "failure.json": {
+        "exception_type": "AssertionError",
+        "known_stage": "owned calculation timed out or failed",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_unpaused_smoke.py",
+            "function": "exercise",
+            "line": 106
+          },
+          {
+            "file": "crop-greenhouse-solar-unpaused-probe.py",
+            "function": "exercise",
+            "line": 210
+          }
+        ],
+        "original_normal_accepted": false
+      },
+      "resource.json": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "G0_G4": "not_assessed",
+        "RSS_samples": 1430,
+        "WSL_capacity_accepted": false,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 371167232,
+        "hosted_only": true,
+        "local_protected_roots_present": false,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "rights_or_gate_approval": false,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 135462912,
+        "temporary_entries_remaining": 0,
+        "wall_seconds": 379.784237457
+      }
+    },
+    "head_sha": "63baae84d7f1d4bec3e66f2a35e1f75106a2d936",
+    "run_id": 39029133073
+  },
   "goal_status": "active",
   "guard": {
     "RSS_samples": 114,
@@ -61,6 +270,8 @@
     "parent_preflight": "25378:0"
   },
   "native_CLI": {
+    "contention_review_output": "Native trace identifies SolarCustodyPending in advance/_open. Add only bounded same-lease contention retries with current authority, cancel and lease checks; preserve transient exhaustion and all normal64step/singleattempt assertions. Six focused tests pass. Trace-off normal test exceeded the original deadline; do not accept normal or infer completed steps. Measure actual phases and confirmed progress before changing performance policy. Preserve original protected services and frozen source.",
+    "contention_review_output_sha256": "760e3671bb49fe18d56cc3d503056eb0173eac465840f527d17ebb0bbe03a625",
     "model": "gpt-6.1-sol",
     "raw_turn_context_sha256": "fd92d5acf3e459d5b717cf714e55c4009b85c179a2bae16ab7ad589727bb5168",
     "reasoning_effort": "xhigh",
@@ -69,13 +280,8 @@
     "review_output_sha256": "a6f37165c729b099fa56f3ea6e07d83c210ab6e75b70729573303862f805cb30",
     "timestamp": "2026-10-17T11:06:24.372Z"
   },
-  "next_hosted": {
-    "WSL_capacity_accepted": false,
-    "accepted": false,
-    "run_id": 39027776829,
-    "scope": "normal64steps, original prototype, no original local five protected roots",
-    "source_commit": "abd11834f12da7a530d82ad481db1a26e0a0edd3"
-  },
+  "next": "contracts/crop-solar-worker-progress-diagnostics-v1.md: real confirmed-step and phase timing, no changed limits/input/chunk/claims",
+  "next_hosted": null,
   "normal_accepted": false,
   "normal_proof_present": false,
   "original_prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
@@ -423,6 +629,90 @@
   },
   "rights_or_gate_approval": false,
   "schema_version": "solar-parent-exec-resource-v1",
+  "second_hosted_failure": {
+    "artifact": {
+      "digest": "sha256:03123ea044e5ee624fa8a912272b8df6c0e18de13ce768e243fb91559f2acc80",
+      "id": 12099885195,
+      "name": "solar-unpaused-normal-00772f68dbb5039db652c1ded9d9b9acfe135620",
+      "size_in_bytes": 1901
+    },
+    "conclusion": "failure",
+    "digest_and_path_validated": true,
+    "evidence": {
+      "actor-diagnostics.json": [
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "api",
+          "worker_proof_present": false
+        },
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": 1,
+          "log": {
+            "exception_types": [
+              "AssertionError"
+            ],
+            "locations": [
+              {
+                "file": "worker.private.py",
+                "function": "<module>",
+                "line": 114
+              }
+            ]
+          },
+          "role": "worker",
+          "worker_proof_present": false
+        }
+      ],
+      "failure.json": {
+        "exception_type": "AssertionError",
+        "known_stage": "owned calculation timed out or failed",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_unpaused_smoke.py",
+            "function": "exercise",
+            "line": 82
+          },
+          {
+            "file": "crop-greenhouse-solar-unpaused-probe.py",
+            "function": "exercise",
+            "line": 210
+          }
+        ],
+        "original_normal_accepted": false
+      },
+      "resource.json": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "G0_G4": "not_assessed",
+        "RSS_samples": 357,
+        "WSL_capacity_accepted": false,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 357433344,
+        "hosted_only": true,
+        "local_protected_roots_present": false,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "rights_or_gate_approval": false,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 132378624,
+        "temporary_entries_remaining": 0,
+        "wall_seconds": 91.909390048
+      }
+    },
+    "head_sha": "00772f68dbb5039db652c1ded9d9b9acfe135620",
+    "run_id": 39028201921
+  },
   "source_commit": "1fc56d44f19ce3ebb06edcbae5341beb5f321578",
   "status_publication": {
     "actual_HTTP": {
@@ -476,9 +766,125 @@
     "reported_at": "2026-10-17T11:14:27.920327Z",
     "source_sha256": "9f2963b97ad3a1379a2bc7f2c8795d3e5770b69540088b68f027888e999e0fe7"
   },
+  "third_hosted_diagnostic": {
+    "artifact": {
+      "digest": "sha256:d16784d0f8e14e47c719e803ce03dd688ed168b198d6eaa66f092ad04ef963a2",
+      "id": 12099756714,
+      "name": "solar-unpaused-normal-51cb97117ca09d38fac4083375df8062281c5d74",
+      "size_in_bytes": 2624
+    },
+    "conclusion": "failure",
+    "digest_and_path_validated": true,
+    "evidence": {
+      "actor-diagnostics.json": [
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "api",
+          "worker_proof_present": false
+        },
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": 1,
+          "log": {
+            "exception_types": [
+              "AssertionError"
+            ],
+            "locations": [
+              {
+                "file": "worker.private.py",
+                "function": "<module>",
+                "line": 130
+              }
+            ]
+          },
+          "role": "worker",
+          "worker_proof_present": false
+        }
+      ],
+      "failure.json": {
+        "exception_type": "AssertionError",
+        "known_stage": "owned calculation timed out or failed",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_unpaused_smoke.py",
+            "function": "exercise",
+            "line": 106
+          },
+          {
+            "file": "crop-greenhouse-solar-unpaused-probe.py",
+            "function": "exercise",
+            "line": 210
+          }
+        ],
+        "original_normal_accepted": false
+      },
+      "resource.json": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "G0_G4": "not_assessed",
+        "RSS_samples": 198,
+        "WSL_capacity_accepted": false,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 359915520,
+        "hosted_only": true,
+        "local_protected_roots_present": false,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "rights_or_gate_approval": false,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 127455232,
+        "temporary_entries_remaining": 0,
+        "wall_seconds": 50.17614599800001
+      },
+      "worker-caught-diagnostics.json": [
+        {
+          "exception_type": "SolarCustodyPending",
+          "locations": [
+            {
+              "file": "crop_greenhouse_solar_execution_worker.py",
+              "function": "run_once",
+              "line": 139
+            },
+            {
+              "file": "crop_greenhouse_solar_server_custody.py",
+              "function": "advance",
+              "line": 301
+            },
+            {
+              "file": "contextlib.py",
+              "function": "__enter__",
+              "line": 137
+            },
+            {
+              "file": "crop_greenhouse_solar_server_custody.py",
+              "function": "_open",
+              "line": 294
+            }
+          ]
+        }
+      ]
+    },
+    "head_sha": "51cb97117ca09d38fac4083375df8062281c5d74",
+    "normal_acceptance_forbidden": true,
+    "run_id": 39028662821
+  },
   "waiting_parent_at_combined_peak": {
     "PID": 829334,
     "RSS_bytes": 3538944,
     "kind": "bash"
+  },
+  "worker_trace_preflight": {
+    "actual_tool": "90468:0",
+    "controlled_exception_and_no_message_exposure": true
   }
 }

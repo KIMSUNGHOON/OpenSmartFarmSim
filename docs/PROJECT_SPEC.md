@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**독립 일사 계산 검증 진행 — 2026-10-17:** [시험 대기 부모 구현/자원 보류](../research/crop-solar-unpaused-parent-resource-20261017.md)를 기록했다. 다음은 [호스팅 정상64걸음·원 prefix/UTC·후검사/정리](../contracts/crop-solar-unpaused-hosted-v1.md)의 기능 한 사례다. 로컬 동시 용량·계산 중3D·사용자 적용·G0–G4/외부 자료와 전체 완료일 미정은 별도 유지한다. 아래 기록은 당시 상태다.
+**독립 일사 계산 검증 — 2026-10-17:** [잠금 충돌 진단·제한 재시도와 집중6검사](../research/crop-solar-unpaused-parent-resource-20261017.md)를 기록했다. 원 정상64단계 CI는360초 계산 상한에서 미완료로 보류됐다. 다음은 [확정 단계·구간별 시간 계측](../contracts/crop-solar-worker-progress-diagnostics-v1.md)이다. 저장3D 수용은 유지하며 로컬 용량·계산 중3D·새 Solar 배포·외부 자료/G0–G4·전체 완료일은 미완료/미정이다. 전체 goal active다. 아래 기록은 당시 상태다.
 
 **현재 저장3D 호스팅 기능 수용 — 2026-10-17:** [정상/보류 실제 연결·권리·재접속/정리](../research/crop-solar-current-webgl-verification-20261017.md)를 수용했다. 로컬 동시 용량·S2b/부모·S3/S4·새 Solar 배포·제품 관문과 전체 완료일은 미완료/미정이다. 아래 기록은 당시 상태다.
 

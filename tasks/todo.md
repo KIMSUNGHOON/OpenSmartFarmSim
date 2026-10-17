@@ -1,5 +1,10 @@
 # 첫 구현 작업 목록
 
+- [ ] **`crop-solar-worker-progress-diagnostics`** — [실제 확정 단계·구간별 시간](../contracts/crop-solar-worker-progress-diagnostics-v1.md).
+  잠금 충돌 수정의 집중6검사는 통과했으나 원 정상 CI39029133073이360초 상한에서 미완료다.
+  계측의 비밀/용량/원 값·시각 보존→실제 한 사례의 마지막 단계/느린 구간과 정리를 대사한다.
+  시간/RSS 상한·입력/64걸음·chunk1·현재 권리·판정을 바꾸지 않는다. 진단을 정상 수용으로 계산하지 않는다.
+
 - [ ] **`crop-solar-unpaused-hosted-normal`** — [정상 기능의 호스팅 검증](../contracts/crop-solar-unpaused-hosted-v1.md).
   원 prototype/64걸음·독립 unpaused API/worker·두 전진 prefix·원 값/UTC·원 후검사·DB/FD/소유 정리와
   실제 CI 종료/자원 증거를 확인한다. 원5root가 없는 호스팅 성공으로 로컬 용량·S3/S4를 체크하지 않는다.

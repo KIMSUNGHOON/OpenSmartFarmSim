@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**독립 일사 계산 검증 진행 — 2026-10-17:** [대기 부모 구현/실제 자원 보류](../research/crop-solar-unpaused-parent-resource-20261017.md). 원 actor hash/환경은 보존했으나 정상 완료 proof가 없고 새 판본은 미배포다. [호스팅 정상 기능 한 사례](../contracts/crop-solar-unpaused-hosted-v1.md)를 수동 CI로 검증 중이다. 로컬 원5root 동시 용량·hold/취소·계산 중3D·외부 자료/권리·G0–G4·전체 완료일은 미완료/미정이다. 아래 기록은 당시 상태다.
+**독립 일사 계산 검증 — 2026-10-17:** [잠금 충돌 진단·제한 재시도와 집중6검사](../research/crop-solar-unpaused-parent-resource-20261017.md)를 기록했다. 원 정상64단계 CI는360초 계산 상한에서 미완료로 보류됐다. 다음은 [확정 단계·구간별 시간 계측](../contracts/crop-solar-worker-progress-diagnostics-v1.md)이다. 저장3D 수용은 유지하며 로컬 용량·계산 중3D·새 Solar 배포·외부 자료/G0–G4·전체 완료일은 미완료/미정이다. 전체 goal active다. 아래 기록은 당시 상태다.
 
 **현재 — 2026-10-17:** [호스팅 실제 정상/보류 저장3D 기능](../research/crop-solar-current-webgl-verification-20261017.md)을 수용했다. 로컬5root 전체 앱의 RSS 보류는 유지한다. [현재 독립 동시 실행의 RSS 보류](../research/crop-solar-current-unpaused-resource-20261017.md)를 기록했고 시험 대기 부모 회수를 준비한다. 다음 S2b/부모·S3/S4·사용자 배포/전체 완료일은 미완료/미정이다. 아래 기록은 당시 상태다.
 
