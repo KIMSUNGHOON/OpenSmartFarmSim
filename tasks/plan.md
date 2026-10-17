@@ -4,8 +4,8 @@
 
 [원 정상f6b3bde/CI39037993173](../research/crop-solar-unpaused-postmortem-20261017.md)은381.069초·원360초 계산 상한으로 미완료다.
 actor -15/정상 proof 없음이며 완료 단계는 모른다. 잠금 수명13검사는 컴포넌트 범위로 유지한다.
-다음은 application/actor를 그대로 둔 sourcec757a95/CI39039991262의 종료 뒤 저장 metadata 수집이다.
-4검사·기존 로직/해시/상한 불변을 확인했다. 실제 DB 관찰 값 뒤 다음 비용 개선을 정한다.
+application/actor를 그대로 둔 sourcec757a95/CI39039991262는380.771초로 미완료였다. 종료 뒤 저장 metadata는attempt1/simulating·18/64·yielded다.
+4검사·기존 로직/해시/상한 불변과 실제 DB 관찰을 확인했다. 다음은 실제 등록 조회 비용 분리와 근거가 있는 작은 수정이다.
 부분 metadata로 정상/S3·실제 생산/관문을 수용하지 않는다. 이후 원 정상→독립 보류→취소→계산 중 WebGL 순서를 유지한다.
 아래 기록은 당시 상태다.
 

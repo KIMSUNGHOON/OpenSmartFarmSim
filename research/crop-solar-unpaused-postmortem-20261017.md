@@ -37,9 +37,17 @@ DSN/경로/테넌트·작업 ID/원 입력·결과/메시지·인증값은 내�
 
 ## 다음
 
-[CI39039991262](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39039991262), sourcec757a95가 진행 중이다.
+[CI39039991262](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39039991262), sourcec757a95는 실패로 종료했다.
+380.770546346초·API/worker -15·정상 proof 없음이며 resource 중단 사유는 없다.
+단일135,471,104/합372,674,560bytes·FD7→7·소유 비좀비/임시0이다. DB 정리 proof는 없다.
+artifact12104096490/3,291bytes·actual run/head/ZIP digest와 허용 경로를 대사했다.
+종료 뒤 같은 DB의 Read Only/Repeatable Read 관찰은 **attempt1/simulating·18/64·yielded**,
+publication_sequence19·computed_through_utc `2026-10-01T00:00:36.123456Z`였다.
+저장 시각은 `2026-10-17T14:24:31.444080+00:00`, 관찰 시각은 `2026-10-17T14:24:46.969428+00:00`이다.
+이는 저장 metadata이며 종료 뒤 원천/권리/모델 검증이나 정상 완료 수용이 아니다.
+원 actor 해시ab5a93a…/14fe24d…·query SHAab699276…를 대사했다.
 원 actor/입력·64걸음/chunk1·조회 주기·5초 재시도·360/600초·RSS 상한을 바꾸지 않았다.
-실패하면 종료 뒤 저장 metadata를 근거로 다음 작은 비용 개선을 정한다. 같은 실패를 근거 없이 반복하지 않는다.
+다음은 실제 farm 등록 조회의 함수/SQL별 비용을 분리해 작은 개선을 정하는 것이다. 같은 실패를 근거 없이 반복하지 않는다.
 성공 수용은 기존 원 정상 proof·두 prefix·원 값/UTC·후검사/정리 전체가 필요하며 metadata로 대체하지 않는다.
 S3/S4·계산 중 WebGL·WSL 용량·새 Solar/실제 자료·G0–G4·전체 완료일은 미완료/미정이며 goal active다.
 

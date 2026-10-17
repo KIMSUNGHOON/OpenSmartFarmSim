@@ -356,11 +356,122 @@
   "new_Solar_deployed": false,
   "next_CI": {
     "actor_instrumentation": false,
+    "conclusion": "failure",
     "head_sha": "c757a956de6d4d1d66e7c280d272473994ba275f",
-    "pending": true,
+    "pending": false,
     "run_id": 39039991262
   },
   "normal_execution_accepted": false,
+  "postmortem_original": {
+    "artifact": {
+      "digest": "sha256:e5d113bc342f61b08821ac871a8aec1fe3286b6f98329e3a6e74532ca23bcd83",
+      "id": 12104096490,
+      "name": "solar-unpaused-normal-c757a956de6d4d1d66e7c280d272473994ba275f",
+      "size_in_bytes": 3291
+    },
+    "conclusion": "failure",
+    "digest_and_path_validated": true,
+    "evidence": {
+      "actor-diagnostics.json": [
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "api",
+          "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+          "worker_proof_present": false
+        },
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "worker",
+          "script_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+          "worker_proof_present": false
+        }
+      ],
+      "failure-checkpoint-diagnostics.json": {
+        "actors_stopped_before_collection": true,
+        "application_query_sha256": "ab6992768f580c4d46278fcbe2d3215583dfd3a55c9fe0aa84b51fb3e038d565",
+        "diagnostic_only": true,
+        "metadata": {
+          "G0_G4": "not_assessed",
+          "checkpoint_payload_sha256": "c34192ddc09889863d782033b1e0b37b90c48fc46d518b7b1566bf1f607d1d0c",
+          "checkpoint_recorded_at": "2026-10-17T14:24:31.444080+00:00",
+          "evidence_kind": "stored_owned_fixture_metadata_only",
+          "job": {
+            "attempt": 1,
+            "state": "simulating"
+          },
+          "normal_execution_accepted": false,
+          "observed_at": "2026-10-17T14:24:46.969428+00:00",
+          "owned_cluster_identity_verified": true,
+          "rights_or_gate_approval": false,
+          "stored_checkpoint": {
+            "computed_through_utc": "2026-10-01T00:00:36.123456Z",
+            "planned_steps": 64,
+            "publication_sequence": 19,
+            "status": "yielded",
+            "steps": 18
+          },
+          "transaction_isolation": "repeatable read",
+          "transaction_read_only": true
+        },
+        "normal_execution_accepted": false,
+        "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+        "run_id": "39039991262",
+        "source_commit": "c757a956de6d4d1d66e7c280d272473994ba275f"
+      },
+      "failure.json": {
+        "exception_type": "AssertionError",
+        "known_stage": "owned calculation timed out or failed",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_unpaused_smoke.py",
+            "function": "exercise",
+            "line": 133
+          },
+          {
+            "file": "crop-greenhouse-solar-unpaused-probe.py",
+            "function": "exercise",
+            "line": 210
+          }
+        ],
+        "original_normal_accepted": false
+      },
+      "resource.json": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "G0_G4": "not_assessed",
+        "RSS_samples": 1432,
+        "WSL_capacity_accepted": false,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 372674560,
+        "hosted_only": true,
+        "local_protected_roots_present": false,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "rights_or_gate_approval": false,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 135471104,
+        "temporary_entries_remaining": 0,
+        "wall_seconds": 380.77054634600006
+      }
+    },
+    "head_sha": "c757a956de6d4d1d66e7c280d272473994ba275f",
+    "run_id": 39039991262
+  },
   "preflight": {
     "application_unchanged_since_f6b3bde": true,
     "one_curated_artifact_path_added": true,

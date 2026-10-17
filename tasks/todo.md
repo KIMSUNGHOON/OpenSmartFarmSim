@@ -1,8 +1,8 @@
 # 첫 구현 작업 목록
 
-- [ ] **`crop-solar-failed-checkpoint-metadata`** — [종료 뒤 실제 저장 metadata](../research/crop-solar-unpaused-postmortem-20261017.md).
+- [x] **`crop-solar-failed-checkpoint-metadata`** — [종료 뒤 실제 저장 metadata](../research/crop-solar-unpaused-postmortem-20261017.md).
   원 정상381.069초·두 actor -15의 미완료를 보존한다. actor/계산을 바꾸지 않는 수집4검사·원 로직/해시/상한 불변 통과.
-  sourcec757a95/CI39039991262의 실제 저장 단계/수집 결과를 대사한 뒤 다음 비용 개선과 별도 원 정상 검증으로 진행한다.
+  sourcec757a95/CI39039991262는380.771초로 미완료다. 종료 뒤same-cluster Read Only/Repeatable Read에서attempt1/simulating·18/64·yielded를 대사했다. 정상 수용은 아니며 다음은 실제 등록 조회 비용 분리다.
 
 - [x] **`crop-solar-progress-lock-lifetime`** — [실제 경합·원 값/현재 권리/정리](../research/crop-solar-progress-lock-lifetime-implementation-20261017.md),sourcef6b3bde.
   고유13검사·원8메서드/worker/상한 불변을 확인했다. trace-OFF 원 정상 CI39037993173은381.069초·원360초 상한에서 미완료다. 다음은 종료 뒤 저장 단계 수집이며 정상/S3 수용은 아니다.
