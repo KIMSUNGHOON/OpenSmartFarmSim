@@ -627,6 +627,19 @@ class MarketScenarioService:
         with read_scope(authenticated_tenant_id) if callable(read_scope) else nullcontext():
             return self._validate_pinned(scenario_id, revision, authenticated_tenant_id)
 
+    def validate_pinned_context(self, scenario_id: str, revision: str,
+                                authenticated_tenant_id: str, snapshot_id: str,
+                                context_id: str, hold_report_id: str):
+        read_scope = getattr(self._repository, 'read_scope', None)
+        with read_scope(authenticated_tenant_id) if callable(read_scope) else nullcontext():
+            context = _load(self._repository, 'get_decision_context',
+                            authenticated_tenant_id, snapshot_id, context_id)
+            hold = _load(self._repository, 'get_market_hold_report', hold_report_id)
+            if not isinstance(context, dict) or not isinstance(hold, dict):
+                raise ValueError('current pinned references unavailable')
+            pinned = self._validate_pinned(scenario_id, revision, authenticated_tenant_id)
+            return context, hold, pinned
+
     def _validate_pinned(self, scenario_id: str, revision: str, authenticated_tenant_id: str):
         self._owned(authenticated_tenant_id)
         stored = _load(self._repository, "get_market_candidate", scenario_id, revision)

@@ -158,8 +158,9 @@ class FarmAuthoringService:
                 raise ValueError()
             runs=self.replay.thermal.runs
             snapshot=runs.get_snapshot(tenant,farm.snapshot_id)
-            context=runs.get_decision_context(tenant,farm.snapshot_id,farm.decision_context_id)
-            hold=self.replay.thermal.holds.get_market_hold_report(farm.market_context.hold_report_id)
+            context,hold,pinned=MarketScenarioService(self.replay.candidates).validate_pinned_context(
+                farm.economic.scenario_id,farm.economic.revision,tenant,
+                farm.snapshot_id,farm.decision_context_id,farm.market_context.hold_report_id)
             if snapshot is None or context is None or hold is None:
                 raise ValueError()
             weather=json.loads(snapshot['weather_raw'])
@@ -177,8 +178,7 @@ class FarmAuthoringService:
                     (tenant,farm.snapshot_id,farm.decision_context_id,farm.decision_at,
                      context['claim_mode'],context['decision_time_kind'])):
                 raise ValueError()
-            _,economic,candidate=MarketScenarioService(self.replay.candidates).validate_pinned(
-                farm.economic.scenario_id,farm.economic.revision,tenant)
+            _,economic,candidate=pinned
             if candidate['candidate_id']!=farm.economic.candidate_id:
                 raise ValueError()
             validate_economic_scope(farm,economic,tenant)
