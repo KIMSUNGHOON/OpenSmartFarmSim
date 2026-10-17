@@ -1,9 +1,12 @@
 # 첫 구현 작업 목록
 
-- [ ] **`crop-solar-worker-progress-diagnostics`** — [실제 확정 단계·구간별 시간](../contracts/crop-solar-worker-progress-diagnostics-v1.md).
-  잠금 충돌 수정의 집중6검사는 통과했으나 원 정상 CI39029133073이360초 상한에서 미완료다.
-  계측의 비밀/용량/원 값·시각 보존→실제 한 사례의 마지막 단계/느린 구간과 정리를 대사한다.
-  시간/RSS 상한·입력/64걸음·chunk1·현재 권리·판정을 바꾸지 않는다. 진단을 정상 수용으로 계산하지 않는다.
+- [ ] **`crop-solar-farm-registration-cost`** — [실제 병목 분해](../research/crop-solar-worker-progress-diagnostics-20261017.md).
+  확정16/64·등록726반환290.968초의 실제 근거로, 내부 조회·현재 연구/맥락·경제 참조·compiler 시간을 구분한다.
+  관찰기6검사 통과·CI39033602306 진행 중이다. 검사/수치/상한을 보존한 작은 변경과 별도 원 정상 검증이 후속이다.
+
+- [x] **`crop-solar-worker-progress-diagnostics`** — [원 반환 단계·실제 구간 시간·한계](../research/crop-solar-worker-progress-diagnostics-20261017.md).
+  실제2사례·run/head/digest와 종료/소유 정리를 대사했다. 마지막 확정16/64·등록 반복 비용이 후속 근거다.
+  v1 누락/중첩 이름의 한계를 보존하고5회귀·후속1추가를 통과했다. 진단은 정상 수용이 아니며 S3/S4는 열린다.
 
 - [ ] **`crop-solar-unpaused-hosted-normal`** — [정상 기능의 호스팅 검증](../contracts/crop-solar-unpaused-hosted-v1.md).
   원 prototype/64걸음·독립 unpaused API/worker·두 전진 prefix·원 값/UTC·원 후검사·DB/FD/소유 정리와

@@ -5,9 +5,12 @@
 호스팅 선택 진단은 실제 `SolarCustodyPending`을 worker advance/open에서 확인했다.
 [현재 입력/권리·취소/임대 검사를 보존한 제한 재시도](../contracts/crop-solar-worker-custody-contention-v1.md)를
 구현해 집중6개를 통과했다. trace-OFF CI39029133073은379.784초/원360초 계산 상한으로 종료1이며
-정상 proof가 없다. 정상 기능·S3는 미수용이다. 다음은
-[원 단계 수·구간별 실제 시간 계측](../contracts/crop-solar-worker-progress-diagnostics-v1.md)이다.
-시간/RSS 상한·원64걸음/청크/권리/판정을 유지해 병목 근거를 확보한 후 작은 수정을 한다.
+정상 proof가 없다. 정상 기능·S3는 미수용이다.
+[실제 단계 계측](../research/crop-solar-worker-progress-diagnostics-20261017.md)은 원 확정16/64걸음과
+농장 등록 읽기726반환/290.968초(중첩·계측 비용 포함)를 확인했다. 관찰기6검사를 통과했다.
+다음 한 단계는 CI39033602306에서 등록 내부 조회·현재 연구/맥락·경제 참조·compiler 비용을 구분하고,
+측정된 부분의 작은 수정 범위를 고정하는 것이다. 반환 원문·입력/64걸음·chunk1·현재 검사·상한은 유지한다.
+별도 trace-OFF 원 정상 실행을 통과하기 전 기능/S3 수용으로 승격하지 않는다.
 저장3D 기능 수용을 유지하며 로컬 용량·hold/취소·계산 중3D·사용자 적용과 외부 관문은 별도다.
 전체 goal active·전체 완료일 미정을 유지한다. 아래 기록은 당시 상태다.
 

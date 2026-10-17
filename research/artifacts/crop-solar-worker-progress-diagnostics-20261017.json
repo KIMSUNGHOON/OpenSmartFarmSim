@@ -1,0 +1,1593 @@
+{
+  "G0_G4": "not_assessed",
+  "S3_accepted": false,
+  "actual_farm_Runs": 0,
+  "binding_verified": {
+    "actual_run_head_archive_digest_paths": true,
+    "actual_worker_script_sha256_agrees_with_collector": true,
+    "prototype_original_sha256": true,
+    "source_header_sha256_at_actual_CI_commit": true
+  },
+  "coarse_observed_confirmed_steps": 3,
+  "coarse_observer_limitations": [
+    "outer and inner custody.advance shared one metric; inclusive durations must not be added",
+    "root progress contained a separate checkpoint hash; v1 incorrectly selected that nested hash, so last_advanced remained unavailable",
+    "instrumentation overhead included, not native performance acceptance"
+  ],
+  "fine_observed_confirmed_steps": 16,
+  "hosted_v1": {
+    "artifact": {
+      "digest": "sha256:eb84c520d4f86ea17a29ff5acb06ab7203e55528f87da54e5f2c22af5edb4ae8",
+      "id": 12100682772,
+      "name": "solar-unpaused-normal-be08f0740763c0ef91f92066ee3c58a3951f0f72",
+      "size_in_bytes": 9596
+    },
+    "conclusion": "failure",
+    "digest_and_path_validated": true,
+    "evidence": {
+      "actor-diagnostics.json": [
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "api",
+          "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+          "worker_proof_present": false
+        },
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "worker",
+          "script_sha256": "19029383c286f296e57b46e3d30fe7e9b1d5597e7768ff4d83e1557411322ba3",
+          "worker_proof_present": false
+        }
+      ],
+      "failure.json": {
+        "exception_type": "AssertionError",
+        "known_stage": "owned calculation timed out or failed",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_unpaused_smoke.py",
+            "function": "exercise",
+            "line": 101
+          },
+          {
+            "file": "crop-greenhouse-solar-unpaused-probe.py",
+            "function": "exercise",
+            "line": 210
+          }
+        ],
+        "original_normal_accepted": false
+      },
+      "resource.json": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "G0_G4": "not_assessed",
+        "RSS_samples": 1443,
+        "WSL_capacity_accepted": false,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 376705024,
+        "hosted_only": true,
+        "local_protected_roots_present": false,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "rights_or_gate_approval": false,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 133459968,
+        "temporary_entries_remaining": 0,
+        "wall_seconds": 377.526877617
+      },
+      "worker-progress-diagnostics.json": {
+        "collected_monotonic": 547.847859389,
+        "diagnostic_only": true,
+        "normal_execution_accepted": false,
+        "phases": {
+          "G0_G4": "not_assessed",
+          "active_phases": [
+            {
+              "phase": "worker.run_once",
+              "started_elapsed_seconds": 3.7115233439999997
+            },
+            {
+              "phase": "worker._custody_call",
+              "started_elapsed_seconds": 327.572145142
+            },
+            {
+              "phase": "custody.advance",
+              "started_elapsed_seconds": 327.572485426
+            },
+            {
+              "phase": "custody.advance",
+              "started_elapsed_seconds": 331.12868252899995
+            }
+          ],
+          "dropped_recent_events": 28,
+          "last_adopted": null,
+          "last_advanced": null,
+          "last_confirmed": {
+            "computed_through_utc": "2026-10-01T00:00:06.123456Z",
+            "planned_steps": 64,
+            "status": "yielded",
+            "steps": 3
+          },
+          "last_observed_monotonic": 519.923153463,
+          "normal_execution_accepted": false,
+          "observation_only": true,
+          "outcome": null,
+          "phase_totals": {
+            "custody.advance": {
+              "calls": 10,
+              "exception_events": 0,
+              "inclusive_seconds": 362.643387221,
+              "max_inclusive_seconds": 54.632945516999996,
+              "returns": 8
+            },
+            "worker._adopt": {
+              "calls": 1,
+              "exception_events": 0,
+              "inclusive_seconds": 7.512107624000009,
+              "max_inclusive_seconds": 7.512107624000009,
+              "returns": 1
+            },
+            "worker._before": {
+              "calls": 6,
+              "exception_events": 0,
+              "inclusive_seconds": 23.047704864999957,
+              "max_inclusive_seconds": 4.070447199,
+              "returns": 6
+            },
+            "worker._confirm": {
+              "calls": 4,
+              "exception_events": 0,
+              "inclusive_seconds": 104.75756622699998,
+              "max_inclusive_seconds": 26.42132305199999,
+              "returns": 4
+            },
+            "worker._custody_call": {
+              "calls": 10,
+              "exception_events": 0,
+              "inclusive_seconds": 300.65195433599985,
+              "max_inclusive_seconds": 54.63385044400002,
+              "returns": 9
+            },
+            "worker.run_once": {
+              "calls": 1,
+              "exception_events": 0,
+              "inclusive_seconds": 0.0,
+              "max_inclusive_seconds": 0.0,
+              "returns": 0
+            }
+          },
+          "recent_events": [
+            {
+              "elapsed_seconds": 147.637380017,
+              "event": "call",
+              "phase": "worker._confirm"
+            },
+            {
+              "elapsed_seconds": 173.56502171799997,
+              "event": "return",
+              "inclusive_seconds": 25.92764170099997,
+              "phase": "worker._confirm"
+            },
+            {
+              "elapsed_seconds": 173.56545855399997,
+              "event": "return",
+              "inclusive_seconds": 25.928457527999967,
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 173.56580334400002,
+              "event": "call",
+              "phase": "worker._before"
+            },
+            {
+              "elapsed_seconds": 177.61386861,
+              "event": "return",
+              "inclusive_seconds": 4.0480652659999805,
+              "phase": "worker._before"
+            },
+            {
+              "elapsed_seconds": 177.61431939699997,
+              "event": "call",
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 177.614651868,
+              "event": "call",
+              "phase": "custody.advance"
+            },
+            {
+              "elapsed_seconds": 181.388782037,
+              "event": "call",
+              "phase": "custody.advance"
+            },
+            {
+              "elapsed_seconds": 221.89475999799998,
+              "event": "return",
+              "inclusive_seconds": 40.505977960999985,
+              "phase": "custody.advance"
+            },
+            {
+              "elapsed_seconds": 221.89649350000002,
+              "event": "return",
+              "inclusive_seconds": 44.28184163200001,
+              "phase": "custody.advance"
+            },
+            {
+              "elapsed_seconds": 221.897127658,
+              "event": "return",
+              "inclusive_seconds": 44.282808261000014,
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 221.89745075500002,
+              "event": "call",
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 221.897807743,
+              "event": "call",
+              "phase": "worker._confirm"
+            },
+            {
+              "elapsed_seconds": 248.31913079499998,
+              "event": "return",
+              "inclusive_seconds": 26.42132305199999,
+              "phase": "worker._confirm"
+            },
+            {
+              "elapsed_seconds": 248.31959425999997,
+              "event": "return",
+              "inclusive_seconds": 26.42214350499995,
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 248.31993050699998,
+              "event": "call",
+              "phase": "worker._before"
+            },
+            {
+              "elapsed_seconds": 251.86726235499998,
+              "event": "return",
+              "inclusive_seconds": 3.547331847999999,
+              "phase": "worker._before"
+            },
+            {
+              "elapsed_seconds": 251.86772390800002,
+              "event": "call",
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 251.86804213800002,
+              "event": "call",
+              "phase": "custody.advance"
+            },
+            {
+              "elapsed_seconds": 255.376225691,
+              "event": "call",
+              "phase": "custody.advance"
+            },
+            {
+              "elapsed_seconds": 297.157226523,
+              "event": "return",
+              "inclusive_seconds": 41.78100083200002,
+              "phase": "custody.advance"
+            },
+            {
+              "elapsed_seconds": 297.159184167,
+              "event": "return",
+              "inclusive_seconds": 45.29114202899996,
+              "phase": "custody.advance"
+            },
+            {
+              "elapsed_seconds": 297.160060903,
+              "event": "return",
+              "inclusive_seconds": 45.29233699499997,
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 297.160419773,
+              "event": "call",
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 297.160765544,
+              "event": "call",
+              "phase": "worker._confirm"
+            },
+            {
+              "elapsed_seconds": 323.500291804,
+              "event": "return",
+              "inclusive_seconds": 26.339526260000014,
+              "phase": "worker._confirm"
+            },
+            {
+              "elapsed_seconds": 323.500818683,
+              "event": "return",
+              "inclusive_seconds": 26.340398909999976,
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 323.501216241,
+              "event": "call",
+              "phase": "worker._before"
+            },
+            {
+              "elapsed_seconds": 327.57166344,
+              "event": "return",
+              "inclusive_seconds": 4.070447199,
+              "phase": "worker._before"
+            },
+            {
+              "elapsed_seconds": 327.572145142,
+              "event": "call",
+              "phase": "worker._custody_call"
+            },
+            {
+              "elapsed_seconds": 327.572485426,
+              "event": "call",
+              "phase": "custody.advance"
+            },
+            {
+              "elapsed_seconds": 331.12868252899995,
+              "event": "call",
+              "phase": "custody.advance"
+            }
+          ],
+          "time_scope": "inclusive monotonic seconds; observer overhead included; nested durations overlap",
+          "trace_installed_monotonic": 188.794470934,
+          "version": "solar-worker-progress-observation-v1"
+        },
+        "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+        "run_id": "39031782329",
+        "source_commit": "be08f0740763c0ef91f92066ee3c58a3951f0f72",
+        "trace_header_sha256": "cb1ec04a2b08b9a2635faaa377171d917da3cafc12eb82f0e6cabba0d9e57963",
+        "worker_script_sha256": "19029383c286f296e57b46e3d30fe7e9b1d5597e7768ff4d83e1557411322ba3"
+      }
+    },
+    "head_sha": "be08f0740763c0ef91f92066ee3c58a3951f0f72",
+    "run_id": 39031782329
+  },
+  "hosted_v2": {
+    "artifact": {
+      "digest": "sha256:704d2c00d4eda18839e42b495f20a8b56e845e569841682d8f3d627bfa9b9001",
+      "id": 12101665601,
+      "name": "solar-unpaused-normal-20d2d0f47481d9049ef3009c7022bac68026b6e8",
+      "size_in_bytes": 14070
+    },
+    "conclusion": "failure",
+    "digest_and_path_validated": true,
+    "evidence": {
+      "actor-diagnostics.json": [
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "api",
+          "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+          "worker_proof_present": false
+        },
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "worker",
+          "script_sha256": "3c4dd4da08e3845b0971c1a3702632137b08ac2de88a50f924932b436032eb80",
+          "worker_proof_present": false
+        }
+      ],
+      "failure.json": {
+        "exception_type": "AssertionError",
+        "known_stage": "owned calculation timed out or failed",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_unpaused_smoke.py",
+            "function": "exercise",
+            "line": 101
+          },
+          {
+            "file": "crop-greenhouse-solar-unpaused-probe.py",
+            "function": "exercise",
+            "line": 210
+          }
+        ],
+        "original_normal_accepted": false
+      },
+      "resource.json": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "G0_G4": "not_assessed",
+        "RSS_samples": 1434,
+        "WSL_capacity_accepted": false,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 370135040,
+        "hosted_only": true,
+        "local_protected_roots_present": false,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "rights_or_gate_approval": false,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 134344704,
+        "temporary_entries_remaining": 0,
+        "wall_seconds": 374.85788001800006
+      },
+      "worker-progress-diagnostics.json": {
+        "collected_monotonic": 506.432664194,
+        "diagnostic_only": true,
+        "normal_execution_accepted": false,
+        "phases": {
+          "G0_G4": "not_assessed",
+          "active_phases": [
+            {
+              "phase": "worker.run_once",
+              "started_elapsed_seconds": 3.2971659419999924
+            },
+            {
+              "phase": "worker._custody_call",
+              "started_elapsed_seconds": 354.849692483
+            },
+            {
+              "phase": "worker._confirm",
+              "started_elapsed_seconds": 354.849926366
+            },
+            {
+              "phase": "binding.SolarFarmBinding.current",
+              "started_elapsed_seconds": 359.135081329
+            },
+            {
+              "phase": "binding.SolarFarmBinding._input",
+              "started_elapsed_seconds": 359.13888325199997
+            },
+            {
+              "phase": "evidence.SolarInputEvidenceAuthority.verify",
+              "started_elapsed_seconds": 359.140147582
+            }
+          ],
+          "dropped_recent_events": 17102,
+          "last_adopted": null,
+          "last_advanced": {
+            "computed_through_utc": "2026-10-01T00:00:34.123456Z",
+            "planned_steps": 64,
+            "status": "yielded",
+            "steps": 17
+          },
+          "last_confirmed": {
+            "computed_through_utc": "2026-10-01T00:00:32.123456Z",
+            "planned_steps": 64,
+            "status": "yielded",
+            "steps": 16
+          },
+          "last_observed_monotonic": 506.395173112,
+          "normal_execution_accepted": false,
+          "observation_only": true,
+          "outcome": null,
+          "phase_totals": {
+            "binding.SolarFarmBinding._guard": {
+              "calls": 1618,
+              "exception_events": 0,
+              "inclusive_seconds": 3.8134994510009506,
+              "max_inclusive_seconds": 0.0281448470000214,
+              "returns": 1618
+            },
+            "binding.SolarFarmBinding._input": {
+              "calls": 727,
+              "exception_events": 0,
+              "inclusive_seconds": 25.012500915999567,
+              "max_inclusive_seconds": 0.07541504599998916,
+              "returns": 726
+            },
+            "binding.SolarFarmBinding._registration": {
+              "calls": 726,
+              "exception_events": 0,
+              "inclusive_seconds": 309.8854881620001,
+              "max_inclusive_seconds": 0.5379200449999928,
+              "returns": 726
+            },
+            "binding.SolarFarmBinding.current": {
+              "calls": 363,
+              "exception_events": 0,
+              "inclusive_seconds": 339.42775938699947,
+              "max_inclusive_seconds": 1.1509253069999943,
+              "returns": 362
+            },
+            "custody.SolarServerCustody._open.<locals>.prepare": {
+              "calls": 18,
+              "exception_events": 0,
+              "inclusive_seconds": 35.38513932899991,
+              "max_inclusive_seconds": 2.2279413569999633,
+              "returns": 18
+            },
+            "custody.SolarServerCustody.advance": {
+              "calls": 18,
+              "exception_events": 0,
+              "inclusive_seconds": 214.57984321200001,
+              "max_inclusive_seconds": 14.340551587999983,
+              "returns": 18
+            },
+            "custody._Session._guard": {
+              "calls": 271,
+              "exception_events": 0,
+              "inclusive_seconds": 257.29187853699995,
+              "max_inclusive_seconds": 1.1577033639999854,
+              "returns": 271
+            },
+            "custody._Session._load": {
+              "calls": 88,
+              "exception_events": 0,
+              "inclusive_seconds": 5.342164194000389,
+              "max_inclusive_seconds": 0.12652440400000842,
+              "returns": 88
+            },
+            "custody._Session.advance": {
+              "calls": 18,
+              "exception_events": 0,
+              "inclusive_seconds": 197.70766768999985,
+              "max_inclusive_seconds": 13.500530867000009,
+              "returns": 18
+            },
+            "custody._Session.progress": {
+              "calls": 53,
+              "exception_events": 0,
+              "inclusive_seconds": 103.71320360299984,
+              "max_inclusive_seconds": 2.1932229939999957,
+              "returns": 53
+            },
+            "evidence.SolarInputEvidenceAuthority.verify": {
+              "calls": 745,
+              "exception_events": 0,
+              "inclusive_seconds": 15.49360977099954,
+              "max_inclusive_seconds": 0.06074563599997873,
+              "returns": 744
+            },
+            "farm.FarmAuthoringService._guard": {
+              "calls": 3070,
+              "exception_events": 0,
+              "inclusive_seconds": 1.7512201139992953,
+              "max_inclusive_seconds": 0.026143654000009064,
+              "returns": 3070
+            },
+            "farm.FarmAuthoringService.read_registration": {
+              "calls": 726,
+              "exception_events": 0,
+              "inclusive_seconds": 290.96842638600134,
+              "max_inclusive_seconds": 0.504695527000024,
+              "returns": 726
+            },
+            "model.advance_chunk": {
+              "calls": 18,
+              "exception_events": 0,
+              "inclusive_seconds": 0.7167734289999714,
+              "max_inclusive_seconds": 0.06663283800003228,
+              "returns": 18
+            },
+            "model.prepare_context": {
+              "calls": 18,
+              "exception_events": 0,
+              "inclusive_seconds": 0.12929790700010813,
+              "max_inclusive_seconds": 0.010319524999999885,
+              "returns": 18
+            },
+            "model.restore_checkpoint": {
+              "calls": 17,
+              "exception_events": 0,
+              "inclusive_seconds": 0.16303837800012388,
+              "max_inclusive_seconds": 0.013878171000044404,
+              "returns": 17
+            },
+            "worker._adopt": {
+              "calls": 1,
+              "exception_events": 0,
+              "inclusive_seconds": 1.6619776469999863,
+              "max_inclusive_seconds": 1.6619776469999863,
+              "returns": 1
+            },
+            "worker._before": {
+              "calls": 19,
+              "exception_events": 0,
+              "inclusive_seconds": 18.944278277000024,
+              "max_inclusive_seconds": 1.1528133020000269,
+              "returns": 19
+            },
+            "worker._confirm": {
+              "calls": 18,
+              "exception_events": 0,
+              "inclusive_seconds": 116.24682187199997,
+              "max_inclusive_seconds": 7.528834688000018,
+              "returns": 17
+            },
+            "worker._custody_call": {
+              "calls": 37,
+              "exception_events": 0,
+              "inclusive_seconds": 332.521722392,
+              "max_inclusive_seconds": 14.341655405000012,
+              "returns": 36
+            },
+            "worker.run_once": {
+              "calls": 1,
+              "exception_events": 0,
+              "inclusive_seconds": 0.0,
+              "max_inclusive_seconds": 0.0,
+              "returns": 0
+            }
+          },
+          "recent_events": [
+            {
+              "elapsed_seconds": 358.451833485,
+              "event": "call",
+              "phase": "binding.SolarFarmBinding._input"
+            },
+            {
+              "elapsed_seconds": 358.453123083,
+              "event": "call",
+              "phase": "evidence.SolarInputEvidenceAuthority.verify"
+            },
+            {
+              "elapsed_seconds": 358.47509571399996,
+              "event": "return",
+              "inclusive_seconds": 0.021972630999982812,
+              "phase": "evidence.SolarInputEvidenceAuthority.verify"
+            },
+            {
+              "elapsed_seconds": 358.487874627,
+              "event": "return",
+              "inclusive_seconds": 0.03604114199998776,
+              "phase": "binding.SolarFarmBinding._input"
+            },
+            {
+              "elapsed_seconds": 358.488479307,
+              "event": "call",
+              "phase": "binding.SolarFarmBinding._registration"
+            },
+            {
+              "elapsed_seconds": 358.488793361,
+              "event": "call",
+              "phase": "farm.FarmAuthoringService.read_registration"
+            },
+            {
+              "elapsed_seconds": 358.489118432,
+              "event": "call",
+              "phase": "farm.FarmAuthoringService._guard"
+            },
+            {
+              "elapsed_seconds": 358.48950957299996,
+              "event": "return",
+              "inclusive_seconds": 0.0003911409999659554,
+              "phase": "farm.FarmAuthoringService._guard"
+            },
+            {
+              "elapsed_seconds": 358.948447304,
+              "event": "call",
+              "phase": "farm.FarmAuthoringService._guard"
+            },
+            {
+              "elapsed_seconds": 358.949091637,
+              "event": "return",
+              "inclusive_seconds": 0.0006443329999683556,
+              "phase": "farm.FarmAuthoringService._guard"
+            },
+            {
+              "elapsed_seconds": 358.949565817,
+              "event": "return",
+              "inclusive_seconds": 0.46077245600002925,
+              "phase": "farm.FarmAuthoringService.read_registration"
+            },
+            {
+              "elapsed_seconds": 358.977439178,
+              "event": "return",
+              "inclusive_seconds": 0.48895987100002003,
+              "phase": "binding.SolarFarmBinding._registration"
+            },
+            {
+              "elapsed_seconds": 358.977896408,
+              "event": "call",
+              "phase": "binding.SolarFarmBinding._guard"
+            },
+            {
+              "elapsed_seconds": 358.979742401,
+              "event": "call",
+              "phase": "farm.FarmAuthoringService._guard"
+            },
+            {
+              "elapsed_seconds": 358.980349138,
+              "event": "return",
+              "inclusive_seconds": 0.0006067369999982475,
+              "phase": "farm.FarmAuthoringService._guard"
+            },
+            {
+              "elapsed_seconds": 358.980660518,
+              "event": "return",
+              "inclusive_seconds": 0.0027641099999868857,
+              "phase": "binding.SolarFarmBinding._guard"
+            },
+            {
+              "elapsed_seconds": 358.98138090599997,
+              "event": "return",
+              "inclusive_seconds": 1.0255325569999627,
+              "phase": "binding.SolarFarmBinding.current"
+            },
+            {
+              "elapsed_seconds": 358.982714911,
+              "event": "return",
+              "inclusive_seconds": 1.0329893600000446,
+              "phase": "custody._Session._guard"
+            },
+            {
+              "elapsed_seconds": 358.98303417299996,
+              "event": "return",
+              "inclusive_seconds": 2.111562188999983,
+              "phase": "custody._Session.progress"
+            },
+            {
+              "elapsed_seconds": 358.99483660199996,
+              "event": "call",
+              "phase": "custody._Session._load"
+            },
+            {
+              "elapsed_seconds": 359.11638726999996,
+              "event": "return",
+              "inclusive_seconds": 0.12155066799999759,
+              "phase": "custody._Session._load"
+            },
+            {
+              "elapsed_seconds": 359.124511332,
+              "event": "call",
+              "phase": "binding.SolarFarmBinding._guard"
+            },
+            {
+              "elapsed_seconds": 359.126216067,
+              "event": "call",
+              "phase": "farm.FarmAuthoringService._guard"
+            },
+            {
+              "elapsed_seconds": 359.126798857,
+              "event": "return",
+              "inclusive_seconds": 0.0005827900000099362,
+              "phase": "farm.FarmAuthoringService._guard"
+            },
+            {
+              "elapsed_seconds": 359.127201976,
+              "event": "return",
+              "inclusive_seconds": 0.002690643999983422,
+              "phase": "binding.SolarFarmBinding._guard"
+            },
+            {
+              "elapsed_seconds": 359.135081329,
+              "event": "call",
+              "phase": "binding.SolarFarmBinding.current"
+            },
+            {
+              "elapsed_seconds": 359.13553962099996,
+              "event": "call",
+              "phase": "binding.SolarFarmBinding._guard"
+            },
+            {
+              "elapsed_seconds": 359.137257736,
+              "event": "call",
+              "phase": "farm.FarmAuthoringService._guard"
+            },
+            {
+              "elapsed_seconds": 359.137832635,
+              "event": "return",
+              "inclusive_seconds": 0.000574899000014284,
+              "phase": "farm.FarmAuthoringService._guard"
+            },
+            {
+              "elapsed_seconds": 359.13823389099997,
+              "event": "return",
+              "inclusive_seconds": 0.002694270000006327,
+              "phase": "binding.SolarFarmBinding._guard"
+            },
+            {
+              "elapsed_seconds": 359.13888325199997,
+              "event": "call",
+              "phase": "binding.SolarFarmBinding._input"
+            },
+            {
+              "elapsed_seconds": 359.140147582,
+              "event": "call",
+              "phase": "evidence.SolarInputEvidenceAuthority.verify"
+            }
+          ],
+          "time_scope": "inclusive monotonic seconds; observer overhead included; nested durations overlap",
+          "trace_installed_monotonic": 147.25502553,
+          "version": "solar-worker-progress-observation-v2"
+        },
+        "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+        "run_id": "39032832587",
+        "source_commit": "20d2d0f47481d9049ef3009c7022bac68026b6e8",
+        "trace_header_sha256": "5a88cae8dadfdae1359e3de9caac00f0f6c6af304ec3580c3f27281cc11e9d82",
+        "worker_script_sha256": "3c4dd4da08e3845b0971c1a3702632137b08ac2de88a50f924932b436032eb80"
+      }
+    },
+    "head_sha": "20d2d0f47481d9049ef3009c7022bac68026b6e8",
+    "run_id": 39032832587
+  },
+  "local_tests": {
+    "focused-farm-phase-green-v1": {
+      "actual_tool": "75150:0",
+      "raw_terminal_sha256": "4d9b8605f4e2ff8b70244f19b637065cd468d57bfc5e15247e47954c46c49662",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity": [
+          {
+            "RSS_bytes": 35708928,
+            "comm": "python",
+            "pid": 836786
+          },
+          {
+            "RSS_bytes": 126775296,
+            "comm": "python",
+            "pid": 836789
+          },
+          {
+            "RSS_bytes": 8880128,
+            "comm": "nginx",
+            "pid": 836804
+          },
+          {
+            "RSS_bytes": 7589888,
+            "comm": "nginx",
+            "pid": 837682
+          },
+          {
+            "RSS_bytes": 122228736,
+            "comm": "python",
+            "pid": 836803
+          },
+          {
+            "RSS_bytes": 18280448,
+            "comm": "postgres",
+            "pid": 836793
+          },
+          {
+            "RSS_bytes": 5480448,
+            "comm": "postgres",
+            "pid": 836799
+          },
+          {
+            "RSS_bytes": 6012928,
+            "comm": "postgres",
+            "pid": 836798
+          },
+          {
+            "RSS_bytes": 7540736,
+            "comm": "postgres",
+            "pid": 836797
+          },
+          {
+            "RSS_bytes": 4648960,
+            "comm": "postgres",
+            "pid": 836795
+          },
+          {
+            "RSS_bytes": 6156288,
+            "comm": "postgres",
+            "pid": 836794
+          },
+          {
+            "RSS_bytes": 24838144,
+            "comm": "python",
+            "pid": 837436
+          },
+          {
+            "RSS_bytes": 143671296,
+            "comm": "python",
+            "pid": 837440
+          },
+          {
+            "RSS_bytes": 8888320,
+            "comm": "nginx",
+            "pid": 837482
+          },
+          {
+            "RSS_bytes": 7516160,
+            "comm": "nginx",
+            "pid": 837557
+          },
+          {
+            "RSS_bytes": 18333696,
+            "comm": "postgres",
+            "pid": 837462
+          },
+          {
+            "RSS_bytes": 5246976,
+            "comm": "postgres",
+            "pid": 837468
+          },
+          {
+            "RSS_bytes": 6316032,
+            "comm": "postgres",
+            "pid": 837467
+          },
+          {
+            "RSS_bytes": 7467008,
+            "comm": "postgres",
+            "pid": 837466
+          },
+          {
+            "RSS_bytes": 5296128,
+            "comm": "postgres",
+            "pid": 837464
+          },
+          {
+            "RSS_bytes": 11628544,
+            "comm": "postgres",
+            "pid": 837463
+          },
+          {
+            "RSS_bytes": 119697408,
+            "comm": "python",
+            "pid": 837580
+          },
+          {
+            "RSS_bytes": 108060672,
+            "comm": "python",
+            "pid": 837589
+          },
+          {
+            "RSS_bytes": 28073984,
+            "comm": "python3",
+            "pid": 848633
+          },
+          {
+            "RSS_bytes": 57720832,
+            "comm": "python",
+            "pid": 848638
+          },
+          {
+            "RSS_bytes": 17113088,
+            "comm": "postgres",
+            "pid": 848640
+          },
+          {
+            "RSS_bytes": 12091392,
+            "comm": "python",
+            "pid": 848639
+          }
+        ],
+        "RSS_samples": 3,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 916713472,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "2c74781560d9b77662946a06816fc3615b8619d49214a4ad88a2bab70a7ff2ce",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2402,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 0.8558511550072581
+      }
+    },
+    "focused-farm-phase-red-v2": {
+      "actual_tool": "76226:1",
+      "raw_terminal_sha256": "c285d10de34e32ecff60ce1e27313b23d5602a083d425d4324eec02579bce423",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_peaks_by_identity": [
+          {
+            "RSS_bytes": 35708928,
+            "comm": "python",
+            "pid": 836786
+          },
+          {
+            "RSS_bytes": 126775296,
+            "comm": "python",
+            "pid": 836789
+          },
+          {
+            "RSS_bytes": 8880128,
+            "comm": "nginx",
+            "pid": 836804
+          },
+          {
+            "RSS_bytes": 7589888,
+            "comm": "nginx",
+            "pid": 837682
+          },
+          {
+            "RSS_bytes": 122228736,
+            "comm": "python",
+            "pid": 836803
+          },
+          {
+            "RSS_bytes": 18280448,
+            "comm": "postgres",
+            "pid": 836793
+          },
+          {
+            "RSS_bytes": 5480448,
+            "comm": "postgres",
+            "pid": 836799
+          },
+          {
+            "RSS_bytes": 6012928,
+            "comm": "postgres",
+            "pid": 836798
+          },
+          {
+            "RSS_bytes": 7540736,
+            "comm": "postgres",
+            "pid": 836797
+          },
+          {
+            "RSS_bytes": 4648960,
+            "comm": "postgres",
+            "pid": 836795
+          },
+          {
+            "RSS_bytes": 6156288,
+            "comm": "postgres",
+            "pid": 836794
+          },
+          {
+            "RSS_bytes": 24838144,
+            "comm": "python",
+            "pid": 837436
+          },
+          {
+            "RSS_bytes": 143671296,
+            "comm": "python",
+            "pid": 837440
+          },
+          {
+            "RSS_bytes": 8888320,
+            "comm": "nginx",
+            "pid": 837482
+          },
+          {
+            "RSS_bytes": 7516160,
+            "comm": "nginx",
+            "pid": 837557
+          },
+          {
+            "RSS_bytes": 18333696,
+            "comm": "postgres",
+            "pid": 837462
+          },
+          {
+            "RSS_bytes": 5246976,
+            "comm": "postgres",
+            "pid": 837468
+          },
+          {
+            "RSS_bytes": 6316032,
+            "comm": "postgres",
+            "pid": 837467
+          },
+          {
+            "RSS_bytes": 7467008,
+            "comm": "postgres",
+            "pid": 837466
+          },
+          {
+            "RSS_bytes": 5296128,
+            "comm": "postgres",
+            "pid": 837464
+          },
+          {
+            "RSS_bytes": 11628544,
+            "comm": "postgres",
+            "pid": 837463
+          },
+          {
+            "RSS_bytes": 119697408,
+            "comm": "python",
+            "pid": 837580
+          },
+          {
+            "RSS_bytes": 108060672,
+            "comm": "python",
+            "pid": 837589
+          },
+          {
+            "RSS_bytes": 28135424,
+            "comm": "python3",
+            "pid": 848591
+          },
+          {
+            "RSS_bytes": 65601536,
+            "comm": "python",
+            "pid": 848598
+          },
+          {
+            "RSS_bytes": 12652544,
+            "comm": "python",
+            "pid": 848599
+          }
+        ],
+        "RSS_samples": 3,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 910000128,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "f1cc6d12d09db3bded90d15eab98844d4b608227dd45b9577e2f69864787fd42",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2402,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 0.8557677359931404
+      }
+    },
+    "focused-solar-phase-hosted-preflight-v1": {
+      "actual_tool": "90305:0",
+      "raw_terminal_sha256": "eb1a64027169bf2f86e75cc4a52c503e3c7af72d26672d5c2f742081f0dd139f",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 2,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 872710144,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "24492d2217cb4a3ed4ff88450f021131aaa68a061fa1e01bcf47ad49b45c3ca1",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2400,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 0.6042270629986888
+      }
+    },
+    "focused-solar-phase-shape-green-v1": {
+      "actual_tool": "81261:0",
+      "raw_terminal_sha256": "37c00e3a580a6d99e9b480a92540a73b79beb48d7e8aa0375d8f381fbba2c1c1",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 3,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 919834624,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "51267f2b68aafe7c1d543ced8a0aeced151803a7bd0355cf1fe45f54a83e85e7",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2400,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 0.8589382069912972
+      }
+    },
+    "focused-solar-phase-shape-red-v1": {
+      "actual_tool": "35887:1",
+      "raw_terminal_sha256": "9340b4886ae8a520403715f2c4ca084db6a35e442421b3612c504ac59c8824e7",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 3,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 912183296,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "18b5dd6e943a507d4d76a5bc3794a1bf7e20d2cb4d1a043e89458c6d89ff15a7",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2400,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 0.8602081849967362
+      }
+    },
+    "focused-solar-phase-trace-green-v1": {
+      "actual_tool": "8887:0",
+      "raw_terminal_sha256": "962315082aa5b161b7a8b47e764bf24e701ab08e967c8aef1c9fb97a765da623",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 2,
+        "actual_child_exit": 0,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 881364992,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "73606f0fdd8d2b1efa0d8609f2509e54e938c1ad166b776dd787b0dfba86b15a",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2400,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 0.6078063290042337
+      }
+    },
+    "focused-solar-phase-trace-red-v1": {
+      "actual_tool": "8820:1",
+      "raw_terminal_sha256": "ab9eb02778e40f86188917031523cc32e9d0257fae7f5f889443f7707f57c5ed",
+      "result": {
+        "G0_G4": "not_assessed",
+        "RSS_samples": 2,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 881029120,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "current_rights_restored": null,
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "known_invalid_test_passfiles_removed": 0,
+        "legacy_only_maintenance_window": false,
+        "log_sha256": "546ed0c08a842d9fe7dec45fd6dffa60b04d14a95136c7375d7a653281f7639e",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_processes_observed": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2399,
+        "source_preserved": true,
+        "supervisor_error_type": null,
+        "temporary_PG_directories_remaining": [],
+        "user_previews_maintenance_window": false,
+        "wall_seconds": 0.6100037019932643
+      }
+    }
+  },
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "84ae345df7088771bb9c6fdc7aedaf36250d10681e3bd222caa20664969afce3",
+    "recursive_cli": false,
+    "timestamp": "2026-10-17T11:45:30.208Z"
+  },
+  "new_Solar_deployed": false,
+  "next_hosted": {
+    "diagnostic_only": true,
+    "head_sha": "98bd4dcbf69c359c301046b0bd9d69a375476b55",
+    "normal_acceptance_forbidden": true,
+    "pending": true,
+    "run_id": 39033602306
+  },
+  "normal_execution_accepted": false,
+  "not_tested": [
+    "full backend suite on current source",
+    "normal execution acceptance",
+    "WSL concurrent capacity",
+    "live computation to WebGL",
+    "new Solar deployment",
+    "actual field and G0-G4 gates"
+  ],
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-worker-progress-diagnostics-v1",
+  "status_publication": {
+    "actual_tool": "22036:0",
+    "raw_terminal_sha256": "1b1cd25d73ff202ee5dceea82e9386ba85519a514646f1c5badfa61c41cf78c1",
+    "result": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 35708928,
+          "comm": "python",
+          "pid": 836786
+        },
+        {
+          "RSS_bytes": 126775296,
+          "comm": "python",
+          "pid": 836789
+        },
+        {
+          "RSS_bytes": 8880128,
+          "comm": "nginx",
+          "pid": 836804
+        },
+        {
+          "RSS_bytes": 7589888,
+          "comm": "nginx",
+          "pid": 837682
+        },
+        {
+          "RSS_bytes": 122228736,
+          "comm": "python",
+          "pid": 836803
+        },
+        {
+          "RSS_bytes": 18280448,
+          "comm": "postgres",
+          "pid": 836793
+        },
+        {
+          "RSS_bytes": 5480448,
+          "comm": "postgres",
+          "pid": 836799
+        },
+        {
+          "RSS_bytes": 6012928,
+          "comm": "postgres",
+          "pid": 836798
+        },
+        {
+          "RSS_bytes": 7540736,
+          "comm": "postgres",
+          "pid": 836797
+        },
+        {
+          "RSS_bytes": 4648960,
+          "comm": "postgres",
+          "pid": 836795
+        },
+        {
+          "RSS_bytes": 6156288,
+          "comm": "postgres",
+          "pid": 836794
+        },
+        {
+          "RSS_bytes": 24838144,
+          "comm": "python",
+          "pid": 837436
+        },
+        {
+          "RSS_bytes": 143671296,
+          "comm": "python",
+          "pid": 837440
+        },
+        {
+          "RSS_bytes": 8888320,
+          "comm": "nginx",
+          "pid": 837482
+        },
+        {
+          "RSS_bytes": 7516160,
+          "comm": "nginx",
+          "pid": 837557
+        },
+        {
+          "RSS_bytes": 18333696,
+          "comm": "postgres",
+          "pid": 837462
+        },
+        {
+          "RSS_bytes": 5246976,
+          "comm": "postgres",
+          "pid": 837468
+        },
+        {
+          "RSS_bytes": 6316032,
+          "comm": "postgres",
+          "pid": 837467
+        },
+        {
+          "RSS_bytes": 7467008,
+          "comm": "postgres",
+          "pid": 837466
+        },
+        {
+          "RSS_bytes": 5296128,
+          "comm": "postgres",
+          "pid": 837464
+        },
+        {
+          "RSS_bytes": 11628544,
+          "comm": "postgres",
+          "pid": 837463
+        },
+        {
+          "RSS_bytes": 119697408,
+          "comm": "python",
+          "pid": 837580
+        },
+        {
+          "RSS_bytes": 108060672,
+          "comm": "python",
+          "pid": 837589
+        },
+        {
+          "RSS_bytes": 28135424,
+          "comm": "python3",
+          "pid": 848970
+        },
+        {
+          "RSS_bytes": 8548352,
+          "comm": "python",
+          "pid": 848977
+        }
+      ],
+      "RSS_samples": 1,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 852946944,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "4f2aaf0b1be39091d8b86d24032fc766c23e47ab11dcc004252f36465644b820",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 143671296,
+      "source_count": 2402,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.33570112100278493
+    }
+  },
+  "v2_implementation": {
+    "no_input_chunk_clock_limits_or_model_changes": true,
+    "read_validation_and_model_phase_timing_added": true,
+    "root_progress_and_class_qualified_phase_names_fixed": true,
+    "source": "20d2d0f47481d9049ef3009c7022bac68026b6e8",
+    "tests_passed": 5
+  },
+  "v3_implementation": {
+    "only_reference_lookup_compilation_timings": true,
+    "source": "98bd4dcbf69c359c301046b0bd9d69a375476b55",
+    "tests_passed": 6
+  }
+}
