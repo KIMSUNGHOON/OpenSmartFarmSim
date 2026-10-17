@@ -52,6 +52,18 @@ S2의 개발과 실제 연결 수용을 나눈다. **다음 제품 구현 S2a**�
 두지 않는다. 해당 현재 결과 API와 원 응답이 선행이다. 이것으로 실행 중 결과 수용이나
 사용자 활성화를 완료하지 않는다.
 
+## S2a 구현 경계 — 2026-10-17
+
+핵심 파일은 `web/src/GreenhouseSolarReplay.tsx`, `web/src/CropReplay.tsx`,
+`web/e2e/greenhouse-solar-replay.spec.ts`다. 기존 scene/geometry/chart/CSS/잎 자산을 재사용한다.
+Solar 전용 해석기/요청으로 읽고 다른 모델 타입으로 캐스팅하지 않는다. 화면은 원108상태,
+41연속/6사건 장부·15수지, 같은 UTC의 PAR/NIR/환기와 관리 전후 진단을 보존한다.
+표·그래프·실제 WebGL·50구획·선택 시각의 원 값, 실패 이전 출력/빈 상태·페이지·지연 응답/
+선택/계정/취소/현재 거부 시 제거를 기록 응답으로 검증한다. 기존 세 판본 회귀도 함께 확인한다.
+CI의 집중 선택과 합성 화면 PNG 보존은 이 화면 검증의 보조 경계이며 전체 CI/G1/G4가 아니다.
+최초 적용 전 타입/기존 단위·기록 Chromium/원본·두 화면/자원과 원 디자인 대조를 기록한다.
+새 fixture fallback·생장/열·수확/금액 계산은 추가하지 않는다. 실제 HTTPS 결합은 S1b/S2b에 남는다.
+
 ## S3/S4 — 실행 중3D와 사용자 활성화
 
 계산 중3D는 [실행 runtime](crop-greenhouse-solar-execution-runtime-v1.md)의 실제 독립

@@ -7,7 +7,7 @@ on:
         description: Browser acceptance scope (all is the complete regression gate)
         type: choice
         default: all
-        options: [all, connection]
+        options: [all, connection, solar]
   push:
     branches: [main]
   pull_request:
@@ -48,6 +48,9 @@ jobs:
               ;;
             connection)
               npm run test:browser -- --reporter=line --max-failures=1 connection-entry.spec.ts assessment.spec.ts authored-financial.spec.ts break-even.spec.ts
+              ;;
+            solar)
+              npm run test:browser -- --reporter=line --max-failures=1 greenhouse-solar-replay.spec.ts greenhouse-ventilation-replay.spec.ts joint-crop-climate-replay.spec.ts
               ;;
             *) exit 1 ;;
           esac
