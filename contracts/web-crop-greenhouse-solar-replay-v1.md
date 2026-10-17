@@ -1,14 +1,16 @@
 # 일사 저장 결과 웹 연결 v1
 
-상태: 구현 전 계약. 계산/공개 응답의 선행은
+상태: S1a 구현 후보·원 HTTPS6응답과 로컬 회귀424검사 통과. 전체 TypeScript 컴파일은
+종료0을 관측했으나 로컬 합 RSS 관문을 통과하지 못해 S1a 전체 수용은 보류한다.
+S1b/S2/S3/S4는 미수용이다. 계산/공개 응답의 선행은
 [결과 조회](crop-greenhouse-solar-current-query-v1.md)와
 [보호 HTTP](api-crop-greenhouse-solar-route-v1.md)다.
 [제품 명세](../docs/PROJECT_SPEC.md#7-순서와-의존성)의 저장→3D 경로를 작은 자식으로 나눈다.
 
 ## S1a — 저장 응답 해석기와 요청 클라이언트
 
-예정 core: `web/src/greenhouseSolarReplay.ts`, 대응 `.test.ts`, 이 계약.
-기존 공통 요청/검사 유틸리티를 사용하며 API factory 연결은 필요할 때 별도 작은 변경으로 검증한다.
+구현 core: `web/src/greenhouseSolarReplay.ts`, 대응 `.test.ts`, `web/src/api.ts`의 공통 factory
+연결과 원 응답 fixture. 기존 공통 요청/검사 유틸리티를 사용한다.
 
 - 일사 모델의 별도 result ID·farm 선택자와 summary/samples/events 요청을 사용한다.
   환기/공동 기후 ID·버전·단위를 혼합하지 않는다.

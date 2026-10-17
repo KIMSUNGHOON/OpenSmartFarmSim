@@ -14,6 +14,7 @@ import { createCycleCropReplayApi } from './cycleCropReplay';
 import { createCalculationCycleCropReplayApi } from './calculationCycleCropReplay';
 import { createJointCropClimateReplayApi } from './jointCropClimateReplay';
 import { createGreenhouseVentilationReplayApi } from './greenhouseVentilationReplay';
+import { createGreenhouseSolarReplayApi } from './greenhouseSolarReplay';
 import { createJointCropClimateExecutionApi } from './jointCropClimateExecution';
 import { createJointCropClimatePrefixApi } from './jointCropClimatePrefix';
 import { createGreenhouseVentilationExecutionApi } from './greenhouseVentilationExecution';
@@ -204,6 +205,7 @@ export function createApi(token:string, fetcher:typeof fetch = fetch) {
     ...createCalculationCycleCropReplayApi(request),
     ...createJointCropClimateReplayApi(request),
     ...createGreenhouseVentilationReplayApi(request),
+    ...createGreenhouseSolarReplayApi(request),
     ...createJointCropClimateExecutionApi(request,decodeJob),
     ...createJointCropClimatePrefixApi(request,decodeJob),
     ...createGreenhouseVentilationExecutionApi(request,decodeJob),
