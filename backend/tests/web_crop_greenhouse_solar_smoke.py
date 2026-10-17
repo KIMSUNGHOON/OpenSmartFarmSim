@@ -44,7 +44,10 @@ def exercise(case, evidence):
     result = json.loads((evidence/('native-'+case+'.json')).read_bytes())
     assert result['actual_WebGL_browser'] and result['browser_exit_code'] == 0
     assert result['response_bytes_forwarded_unchanged'] and result['current_rights_scene_removed']
-    assert result['reconnect_same_original_result'] and result['FD_before_after'] == [3, 3]
+    assert result['reconnect_same_original_result']
+    before, after = result['FD_before_after']
+    assert type(before) is int and type(after) is int and before >= 3 and before == after
+    assert result['FD_identities_preserved'] is True
     assert result['actual_crop_Runs'] == 0 and result['G0_G4'] == 'not_assessed'
 
 
