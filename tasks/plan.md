@@ -2,7 +2,7 @@
 
 ## 단계별 goal 순서와 활성 상태 — 2026-10-17
 
-전체 목표는 active다. **현재 일사 저장 화면 S2a 수용 — 2026-10-17:** [구현·실제 검증 기록](../research/crop-greenhouse-solar-saved-web-implementation-20261017.md)의 원 응답 기반 같은 UTC3D·PAR/NIR/관리/보류·권한/취소·지연 응답 회귀를 수용했다. c500c79 전체 웹 브라우저243개·단위1,864개·타입/build/audit가 통과했다. localhost의 새 Solar 화면은 미배포이고 실제 SDK/HTTPS S1b와 실제 저장 WebGL S2b, 실행 중/사용자 적용 S3/S4·최종 디자인은 미수용이다. 다음은 S1b의 새 할당 근거와 작은 수정→실제 API/저장3D 결합이다. 기존 두 UI/5root/원본/한도·자료/G0–G4 보류와 goal active·전체 완료일 미정을 유지한다. 아래 날짜별 기록은 당시 상태다.
+전체 목표는 active다. **현재 저장 화면 수용·실제 연결 보류 — 2026-10-17:** [새 SDK/GET 계측](../research/crop-greenhouse-solar-sdk-read-allocation-20261017.md)에서 SDK2시도는 RSS hold, 실제 HTTPS2GET의 연결326회/동시3개와 경제 참조 재검증을 확인했다. “조회 계산0”은 기존 작물/CLI 진입점 범위이며 모든 산술0이 아니다. S2a·c500c79 전체 웹243/1,864·타입/build/audit 수용은 유지한다. 다음은 같은 신원 원천/후보 읽기 연결의 적합성·보안 회귀→실제 SDK S1b다. 이전 후보/새 시험 설정은 미채택이고 S1b/S2b/S3/S4·새 Solar 배포·실제 자료/관문·최종 디자인/완료일은 미수용/미정이다. 기존 두 UI/5root/원본·한도와 goal active를 유지한다. 아래 기록은 당시 상태다.
 
 | 순서 | 단계별 목표 | 다음 단계로 넘어갈 산출물 |
 | --- | --- | --- |

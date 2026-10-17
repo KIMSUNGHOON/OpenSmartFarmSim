@@ -43,3 +43,8 @@ route의 public import는 설치 시 수행해 기존 api/operator import 순환
 4. OpenAPI/기존 경로/import·원 artifact/기동 UI/FD/소유 PG·passfile와 WSL 자원 한도를 보존한다.
 
 작은 합성32초의 보호 조회다. 전체 작기 성능, runtime True, 웹/3D/U3, 실제 생산·미래 마진·추천과 G0–G4 승인은 포함하지 않는다.
+
+
+## 조회 계측 범위 보완 — 2026-10-17
+
+[실제 GET 계측](../research/crop-greenhouse-solar-sdk-read-allocation-20261017.md)에서 기존13개 작물/CLI 진입점과 SQL 변경은0이나 연결된 농장 경제 입력의 재검증 산술은 수행됨을 확인했다. 앞의 계산 없음은 새 작물 실행/등록을 뜻하며 모든 산술0의 증거가 아니다. 이 입력 검증을 생략하지 않고 다음 읽기 연결 후보에서 보존한다.
