@@ -139,6 +139,8 @@ jobs:
             ${{ runner.temp }}/solar-unpaused-evidence/normal.json
             ${{ runner.temp }}/solar-unpaused-evidence/database-cleanup.json
             ${{ runner.temp }}/solar-unpaused-evidence/resource.json
+            ${{ runner.temp }}/solar-unpaused-evidence/failure.json
+            ${{ runner.temp }}/solar-unpaused-evidence/actor-diagnostics.json
           retention-days: 3
           compression-level: 0
           if-no-files-found: ignore

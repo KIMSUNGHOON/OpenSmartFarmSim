@@ -5,11 +5,13 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import re
 import signal
 import subprocess
 import sys
 import tempfile
 import time
+import traceback
 
 ROOT = Path(__file__).resolve().parents[2]
 PROTOTYPE = ROOT/'research/crop-greenhouse-solar-unpaused-probe.py'
@@ -23,6 +25,18 @@ def save(path, value):
         os.fsync(output.fileno())
 
 
+def failure_locations(raw):
+    locations, kinds = [], []
+    for line in raw.splitlines():
+        location = re.fullmatch(r'\s*File "([^"]+)", line (\d+), in ([\w.<>]+)', line)
+        if location:
+            locations.append({'file':Path(location[1]).name, 'line':int(location[2]), 'function':location[3]})
+        kind = re.match(r'^([A-Za-z_][\w.]*(?:Error|Exception|Hold|Lost|Timeout|Failure|Interrupt))(?::|$)', line)
+        if kind:
+            kinds.append(kind[1])
+    return {'locations':locations[-16:], 'exception_types':kinds[-8:]}
+
+
 def exercise(evidence):
     sys.path[:0] = [str(ROOT/'backend'), str(ROOT/'backend/tests')]
     spec = importlib.util.spec_from_file_location('original_unpaused', PROTOTYPE)
@@ -31,9 +45,20 @@ def exercise(evidence):
     os.environ['OSSF_SOLAR_EXECUTION_RUNTIME_EVIDENCE'] = str(evidence)
     original_run, original_popen = subprocess.run, subprocess.Popen
     actors = []
+    processes = []
     cleanup_seen = []
 
     def observe_run(argv, *args, **kwargs):
+        if Path(str(argv[0])).name == 'pg_ctl' and 'stop' in argv:
+            diagnostics = []
+            for process, script in processes:
+                log = script.with_suffix('.log')
+                diagnostics.append({'role':script.stem.split('.')[0], 'exit_code':process.poll(),
+                    'log':failure_locations(log.read_text(errors='replace')) if log.exists() else None,
+                    'worker_proof_present':(script.parent/'worker-proof.private.json').exists(),
+                    'api_proof_present':(script.parent/'api-proof.private.json').exists(),
+                    'client_proof_present':(script.parent/'api-client-proof.private.json').exists()})
+            save(evidence/'actor-diagnostics.json', diagnostics)
         result = original_run(argv, *args, **kwargs)
         if len(argv) == 5 and argv[2:4] == ['-c', prototype.CLEANUP]:
             assert result.returncode == 0
@@ -46,6 +71,7 @@ def exercise(evidence):
     def observe_popen(argv, *args, **kwargs):
         actor = original_popen(argv, *args, **kwargs)
         if len(argv) == 4 and Path(str(argv[2])).name in ('api.private.py', 'worker.private.py'):
+            processes.append((actor, Path(argv[2])))
             actors.append({'role':Path(argv[2]).stem.split('.')[0], 'PID':actor.pid,
                 'script_sha256':sha256(Path(argv[2]).read_bytes()).hexdigest()})
         return actor
@@ -54,6 +80,15 @@ def exercise(evidence):
     try:
         with tempfile.TemporaryDirectory(prefix='owned-solar-unpaused-') as directory:
             prototype.exercise(Path(directory))
+    except Exception as error:
+        known = {'owned preparation failed', 'owned API startup failed', 'owned HTTP admission failed',
+                 'owned calculation timed out or failed'}
+        save(evidence/'failure.json', {'exception_type':type(error).__name__,
+            'known_stage':str(error) if str(error) in known else None,
+            'locations':[{'file':Path(item.filename).name, 'line':item.lineno, 'function':item.name}
+                         for item in traceback.extract_tb(error.__traceback__)[-16:]],
+            'original_normal_accepted':False})
+        raise
     finally:
         subprocess.run, subprocess.Popen = original_run, original_popen
     proof = json.loads((evidence/'unpaused-normal.private.json').read_bytes())
