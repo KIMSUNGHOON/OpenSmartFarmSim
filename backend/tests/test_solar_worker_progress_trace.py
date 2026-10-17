@@ -6,6 +6,7 @@ import select
 import signal
 import subprocess
 import sys
+import pytest
 
 
 TRACE = Path(__file__).resolve().parents[2]/'research/crop-solar-worker-progress-trace.py'
@@ -126,8 +127,9 @@ def test_farm_reference_phases_export_only_timing_not_returned_documents(tmp_pat
     assert value['last_confirmed'] is None and value['last_advanced'] is None
 
 
-def test_worker_only_detail_keeps_actual_busy_outcome_and_checkpoint(tmp_path, monkeypatch):
-    monkeypatch.setenv('OSSF_SOLAR_DIAGNOSTIC_DETAIL', 'worker')
+@pytest.mark.parametrize('detail', ['worker', 'worker-api'])
+def test_worker_only_detail_keeps_actual_busy_outcome_and_checkpoint(tmp_path, monkeypatch, detail):
+    monkeypatch.setenv('OSSF_SOLAR_DIAGNOSTIC_DETAIL', detail)
     body = r'''
 exec(compile('class FarmAuthoringService:\n def _guard(self):return "controlled_secret_never_export"\n', '/owned/app/farm_authoring_storage.py', 'exec'))
 class SolarExecutionOutcome:
@@ -145,7 +147,7 @@ run_once()
     assert result.returncode == 0, result.stderr.decode()
     raw = (tmp_path/'worker-progress-diagnostics.private.json').read_bytes()
     value = json.loads(raw)
-    assert value['detail'] == 'worker'
+    assert value['detail'] == detail
     assert set(value['phase_totals']) == {'worker._confirm', 'worker.run_once'}
     assert value['last_confirmed']['steps'] == 5
     assert value['outcome'] == {'state':'queued', 'attempt':1, 'reason_code':'solar_execution_busy'}

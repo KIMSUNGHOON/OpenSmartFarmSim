@@ -13,7 +13,7 @@ assert _obs_root.stat().st_uid == _obs_os.getuid()
 _obs_started = _obs_time.monotonic()
 _obs_worker = 'crop_greenhouse_solar_execution_worker.py'
 _obs_detail = _obs_os.environ.get('OSSF_SOLAR_DIAGNOSTIC_DETAIL', 'phases')
-assert _obs_detail in ('phases', 'worker')
+assert _obs_detail in ('phases', 'worker', 'worker-api')
 _obs_phases = {
     _obs_worker: frozenset({'run_once', '_before', '_adopt', '_custody_call', '_confirm', '_finish'}),
     'crop_greenhouse_solar_server_custody.py': frozenset({'advance', '_guard', '_load', 'progress', 'prepare'}),
@@ -32,7 +32,7 @@ _obs_prefixes = {'crop_greenhouse_solar_server_custody.py':'custody',
     'farm_authoring_storage.py':'farm', 'crop_greenhouse_solar_continuation.py':'model',
     'owned_research.py':'research', 'thermal_run_store.py':'thermal',
     'market_hold_store.py':'hold', 'market_scenario.py':'market', 'farm_input_compiler.py':'compiler'}
-if _obs_detail == 'worker':
+if _obs_detail != 'phases':
     _obs_phases = {_obs_worker:_obs_phases[_obs_worker]}
 _obs_totals, _obs_active, _obs_recent, _obs_errors = {}, {}, [], []
 _obs_dropped = 0

@@ -19,7 +19,7 @@ on:
         description: Diagnostic detail only; worker observes exceptions/outcome without farm phase journals
         type: choice
         default: phases
-        options: [phases, worker]
+        options: [phases, worker, worker-api]
       browser_suite:
         description: Browser acceptance scope (all is the complete regression gate)
         type: choice
@@ -154,6 +154,7 @@ jobs:
             ${{ runner.temp }}/solar-unpaused-evidence/actor-diagnostics.json
             ${{ runner.temp }}/solar-unpaused-evidence/worker-caught-diagnostics.json
             ${{ runner.temp }}/solar-unpaused-evidence/worker-progress-diagnostics.json
+            ${{ runner.temp }}/solar-unpaused-evidence/api-response-diagnostics.json
           retention-days: 3
           compression-level: 0
           if-no-files-found: ignore

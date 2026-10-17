@@ -64,3 +64,18 @@ source8423263/trace-OFF CI39034668788은121.021초·자식1로 종료했다.
 farm/시장/모델 단계의 journal을 쓰지 않는다. 기본 `phases`의 상세 계측은 유지한다.
 메시지/locals/입력/환경은 내보내지 않고 기존 유한/atomic 기록을 유지한다.
 실제 반환이 없는 단계나 outcome을 생성하지 않으며 이 모드도 정상 수용을 금지한다.
+
+## API 상태와 검증 예외의 후속 관찰
+
+CI39035225593/source65a609b/detail worker는 확정8/64·UTC00:00:16.123456Z에서 끝났다.
+confirm의 SolarCustodyPending을 확인했지만 최종 outcome은 없고 API exit1/worker-15다.
+원 API sha256ab5a93a…를 재구성해 line285가 prefix 응답의 status∈{200,503} 단언임을 대사했다.
+실제 status/error code가 없어 원인을 특정하지 않는다. 정상121초 실패와 동일 원인으로 합치지 않는다.
+
+선택 `worker-api`는 같은 worker 관찰에 API header를 추가한다.
+실제 `request_http` 반환 status·고정 allowlist 오류 코드·허용 prefix_status·호출 코드 행만 최근32건,
+prefix/projection/routes의 실제 서버 스레드 예외 종류·basename/행/함수만 최근16건/각16위치로 기록한다.
+응답 본문·message·경로/쿼리/ID·입력/환경/locals·인증값은 기록하지 않는다.
+스레드 간 직렬화·64KiB·atomic replace를 적용한다. 원 API 본문/작업자 본문·동작·단언·상한을 유지한다.
+부모는 source/actor/header/prototype hash와 함께 허용 artifact만 수집한다.
+normal 기본False 진단 플래그와 진단의 정상 수용 금지는 유지한다. 이 관측으로만 다음 수정 범위를 정한다.

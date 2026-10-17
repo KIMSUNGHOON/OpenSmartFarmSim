@@ -16,6 +16,7 @@ import traceback
 ROOT = Path(__file__).resolve().parents[2]
 PROTOTYPE = ROOT/'research/crop-greenhouse-solar-unpaused-probe.py'
 WORKER_TRACE = (ROOT/'research/crop-solar-worker-progress-trace.py').read_text()
+API_TRACE = (ROOT/'research/crop-solar-api-response-trace.py').read_text()
 
 
 def save(path, value):
@@ -46,6 +47,8 @@ def exercise(evidence):
     diagnostic = os.environ.get('OSSF_SOLAR_TRACE_WORKER') == '1'
     if diagnostic:
         prototype.WORKER = WORKER_TRACE + prototype.WORKER
+        if os.environ.get('OSSF_SOLAR_DIAGNOSTIC_DETAIL') == 'worker-api':
+            prototype.API = API_TRACE + prototype.API
     os.environ['OSSF_SOLAR_EXECUTION_RUNTIME_EVIDENCE'] = str(evidence)
     original_run, original_popen = subprocess.run, subprocess.Popen
     actors = []
@@ -64,6 +67,16 @@ def exercise(evidence):
                     'api_proof_present':(script.parent/'api-proof.private.json').exists(),
                     'client_proof_present':(script.parent/'api-client-proof.private.json').exists()})
             if processes:
+                api_trace = processes[0][1].parent/'api-response-diagnostics.private.json'
+                if api_trace.exists():
+                    assert api_trace.stat().st_size <= 64*1024
+                    save(evidence/'api-response-diagnostics.json', {
+                        'diagnostic_only':True, 'normal_execution_accepted':False,
+                        'source_commit':os.environ['GITHUB_SHA'], 'run_id':os.environ['GITHUB_RUN_ID'],
+                        'prototype_sha256':sha256(PROTOTYPE.read_bytes()).hexdigest(),
+                        'trace_header_sha256':sha256(API_TRACE.encode()).hexdigest(),
+                        'api_script_sha256':sha256(processes[0][1].read_bytes()).hexdigest(),
+                        'observations':json.loads(api_trace.read_bytes())})
                 caught = processes[-1][1].parent/'worker-caught-diagnostics.private.json'
                 if caught.exists():
                     save(evidence/'worker-caught-diagnostics.json', json.loads(caught.read_bytes()))
