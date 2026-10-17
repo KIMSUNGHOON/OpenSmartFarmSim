@@ -20,6 +20,7 @@ function dataset(name:'completed'|'hold'){
 const base=dataset('completed'),held=dataset('hold'),pattern='**/v1/crop-greenhouse-solar-research-results/**';
 const labels={result_id:'저장 연구 결과 ID',scenario_id:'농장 시나리오 ID',scenario_revision:'농장 판본',registration_sha256:'등록 SHA-256',crop_id:'작물 ID'};
 test.setTimeout(30_000);
+test.use({viewport:{width:1024,height:768}});
 test.afterEach(async({page})=>{const session=await page.context().newCDPSession(page);
   try{await session.send('HeapProfiler.collectGarbage');await session.send('HeapProfiler.collectGarbage');}finally{await session.detach();}});
 async function screenshot(page:Page,name:string){
@@ -97,6 +98,7 @@ test('all original completed samples share exact UTC/state/ledgers/chart and act
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));const calls=await mock(page);await connect(page);await lookup(page);
   for(let i=0;i<base.samples.length;i++){
     if(i)await page.getByRole('button',{name:'다음 저장 성장 시점',exact:true}).click();await sameSample(page,i);
+    if(i===0)await screenshot(page,'initial-desktop');
     for(const metric of ['canopy_temperature','air_temperature','leaf_area_index','ventilation_sensible_heat','ventilation_vapor','ventilation_latent_energy','solar_par_canopy_absorbed','solar_nir_canopy_absorbed']){
       await page.getByLabel('작물·기후 그래프 항목',{exact:true}).selectOption(metric);
       const quantities=base.samples.map(row=>metric==='air_temperature'?row.value.climate_state.air_temperature:metric.startsWith('ventilation_')||metric.startsWith('solar_')?row.value.integrated_transfers[metric as 'ventilation_sensible_heat'|'ventilation_vapor'|'ventilation_latent_energy'|'solar_par_canopy_absorbed'|'solar_nir_canopy_absorbed']:row.value.derived[metric as 'canopy_temperature'|'leaf_area_index']);
@@ -186,4 +188,15 @@ test('mixed sample units cannot restore the previous frame',async({page})=>{
   await page.route(pattern,route=>route.fulfill({json:new URL(route.request().url()).searchParams.get('view')==='summary'?base.summary:invalid}));
   await page.getByRole('button',{name:'현재 권리 다시 조회',exact:true}).click();
   await expect(page.getByRole('alert')).toBeVisible();await expect(page.locator('.solar-viewer,.joint-evidence,.cycle-events')).toHaveCount(0);
+});
+
+test('switching format while a response is pending cannot restore an unmounted solar frame',async({page})=>{
+  await mock(page);await connect(page);await lookup(page);await sameSample(page,0);
+  let release!:()=>void;const gate=new Promise<void>(r=>{release=r;});let started!:()=>void;const begun=new Promise<void>(r=>{started=r;});
+  const late=async(route:Route)=>{started();await gate;await route.fulfill({json:base.summary}).catch(()=>{});};await page.route(pattern,late);
+  await page.getByRole('button',{name:'현재 권리 다시 조회',exact:true}).click();await begun;
+  await page.getByLabel('저장 결과 판본').selectOption('ventilation');await expect(page.locator('.solar-replay,.solar-viewer')).toHaveCount(0);
+  release();await page.unroute(pattern,late);await page.getByLabel('저장 결과 판본').selectOption('solar');
+  await expect(page.getByRole('heading',{name:'저장된 일사·환기 계산을 선택해 주세요',exact:true})).toBeVisible();
+  await expect(page.locator('.solar-viewer,.joint-evidence,.cycle-events')).toHaveCount(0);
 });
