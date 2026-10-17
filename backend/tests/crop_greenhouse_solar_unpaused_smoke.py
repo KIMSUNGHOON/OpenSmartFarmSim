@@ -39,6 +39,24 @@ def failure_locations(raw):
     return {'locations':locations[-16:], 'exception_types':kinds[-8:]}
 
 
+def collect_stopped_checkpoint(evidence, processes, data_directory):
+    if (not processes or (evidence/'unpaused-normal.private.json').exists()
+            or any(process.poll() is None for process, _ in processes)):
+        return
+    from solar_unpaused_postmortem import read_stored_checkpoint
+    try:
+        metadata = read_stored_checkpoint(processes[0][1].parent/'cluster.private.json', data_directory)
+    except Exception as error:
+        metadata = {'collection_error_type':type(error).__name__,
+            'normal_execution_accepted':False, 'rights_or_gate_approval':False}
+    save(evidence/'failure-checkpoint-diagnostics.json', {
+        'diagnostic_only':True, 'normal_execution_accepted':False,
+        'source_commit':os.environ['GITHUB_SHA'], 'run_id':os.environ['GITHUB_RUN_ID'],
+        'prototype_sha256':sha256(PROTOTYPE.read_bytes()).hexdigest(),
+        'application_query_sha256':sha256((ROOT/'backend/app/crop_greenhouse_solar_execution_query.py').read_bytes()).hexdigest(),
+        'actors_stopped_before_collection':True, 'metadata':metadata})
+
+
 def exercise(evidence):
     sys.path[:0] = [str(ROOT/'backend'), str(ROOT/'backend/tests')]
     spec = importlib.util.spec_from_file_location('original_unpaused', PROTOTYPE)
@@ -91,6 +109,7 @@ def exercise(evidence):
                         'worker_script_sha256':sha256(processes[-1][1].read_bytes()).hexdigest(),
                         'collected_monotonic':time.monotonic(), 'phases':json.loads(progress.read_bytes())})
             save(evidence/'actor-diagnostics.json', diagnostics)
+            collect_stopped_checkpoint(evidence, processes, Path(argv[argv.index('-D')+1]))
         result = original_run(argv, *args, **kwargs)
         if len(argv) == 5 and argv[2:4] == ['-c', prototype.CLEANUP]:
             assert result.returncode == 0
