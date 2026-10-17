@@ -1,0 +1,739 @@
+{
+  "API_profile": {
+    "G0_G4": "not_assessed",
+    "actual_scram": true,
+    "allocations": {
+      "constructor": [
+        {
+          "bytes": 2917304,
+          "count": 24334,
+          "file": "<frozen importlib._bootstrap_external>",
+          "line": 753
+        },
+        {
+          "bytes": 719946,
+          "count": 2270,
+          "file": "<frozen abc>",
+          "line": 106
+        },
+        {
+          "bytes": 677784,
+          "count": 3589,
+          "file": "fields.py",
+          "line": 567
+        },
+        {
+          "bytes": 513456,
+          "count": 4178,
+          "file": "fields.py",
+          "line": 237
+        },
+        {
+          "bytes": 440360,
+          "count": 6373,
+          "file": "core_schema.py",
+          "line": 4350
+        },
+        {
+          "bytes": 415753,
+          "count": 2815,
+          "file": "<frozen importlib._bootstrap>",
+          "line": 488
+        },
+        {
+          "bytes": 370656,
+          "count": 1716,
+          "file": "introspection.py",
+          "line": 444
+        },
+        {
+          "bytes": 334368,
+          "count": 1548,
+          "file": "fields.py",
+          "line": 280
+        },
+        {
+          "bytes": 294851,
+          "count": 3387,
+          "file": "<frozen abc>",
+          "line": 123
+        },
+        {
+          "bytes": 288952,
+          "count": 2862,
+          "file": "_known_annotated_metadata.py",
+          "line": 193
+        },
+        {
+          "bytes": 244128,
+          "count": 1227,
+          "file": "_generate_schema.py",
+          "line": 2849
+        },
+        {
+          "bytes": 236544,
+          "count": 896,
+          "file": "fields.py",
+          "line": 316
+        }
+      ],
+      "reads": [
+        {
+          "bytes": 1912874,
+          "count": 16574,
+          "file": "<frozen importlib._bootstrap_external>",
+          "line": 753
+        },
+        {
+          "bytes": 196370,
+          "count": 658,
+          "file": "<frozen abc>",
+          "line": 106
+        },
+        {
+          "bytes": 194473,
+          "count": 2763,
+          "file": "decoder.py",
+          "line": 353
+        },
+        {
+          "bytes": 91908,
+          "count": 407,
+          "file": "typing.py",
+          "line": 2872
+        },
+        {
+          "bytes": 80784,
+          "count": 102,
+          "file": "core.py",
+          "line": 3027
+        },
+        {
+          "bytes": 54080,
+          "count": 967,
+          "file": "encoder.py",
+          "line": 258
+        },
+        {
+          "bytes": 50719,
+          "count": 535,
+          "file": "dataclasses.py",
+          "line": 473
+        },
+        {
+          "bytes": 47568,
+          "count": 697,
+          "file": "_queries.py",
+          "line": 103
+        },
+        {
+          "bytes": 41564,
+          "count": 442,
+          "file": "typing.py",
+          "line": 897
+        },
+        {
+          "bytes": 41088,
+          "count": 856,
+          "file": "_encodings.py",
+          "line": 87
+        },
+        {
+          "bytes": 36645,
+          "count": 330,
+          "file": "linecache.py",
+          "line": 137
+        },
+        {
+          "bytes": 32025,
+          "count": 681,
+          "file": "pathlib.py",
+          "line": 404
+        }
+      ]
+    },
+    "backend_peak_RSS_bytes": [
+      15958016,
+      15958016,
+      15958016,
+      15958016,
+      15958016,
+      15958016,
+      15958016,
+      15958016,
+      15958016,
+      15958016,
+      15958016,
+      15958016
+    ],
+    "calls": {
+      "CLI": 0,
+      "NIR": 0,
+      "PAR": 0,
+      "RHS": 0,
+      "SQL_writes_in_GET": 0,
+      "advance": 0,
+      "event": 0,
+      "prepare_binding": 0,
+      "prepare_context": 0,
+      "restore": 0,
+      "solar": 0,
+      "start": 0,
+      "step": 0,
+      "ventilation": 0
+    },
+    "concurrency_accepted": false,
+    "max_live_owned_backends": 4,
+    "profile_only": true,
+    "replies": [
+      {
+        "bytes": 1037,
+        "sha256": "212c5f6196497b2fd9f5e9e58bb002d4a7be7984414a46a6892aa6f647995a1c",
+        "status": 200,
+        "view": "progress"
+      },
+      {
+        "bytes": 7818,
+        "sha256": "025c09977d5d96fdac93b3fef25228b0f1c2d0aecc0fda527a6feb62ba0fe1ca",
+        "status": 200,
+        "view": "prefix_summary"
+      },
+      {
+        "bytes": 40261,
+        "sha256": "16ad88c88010bd557036116a07ad9e73b9672a929aea7704d0132f41282956d1",
+        "status": 200,
+        "view": "prefix_samples"
+      }
+    ],
+    "rights_or_gate_approval": false,
+    "rows": [
+      {
+        "RSS_bytes": 80154624,
+        "live_owned_backends": 0,
+        "phase": "API_imported",
+        "traced_live_bytes": 0,
+        "traced_peak_bytes": 0
+      },
+      {
+        "RSS_bytes": 130273280,
+        "live_owned_backends": 0,
+        "phase": "API_constructed",
+        "traced_live_bytes": 15629925,
+        "traced_peak_bytes": 16085230
+      },
+      {
+        "RSS_bytes": 124141568,
+        "live_owned_backends": 0,
+        "phase": "API_after_constructor_GC_trim",
+        "traced_live_bytes": 0,
+        "traced_peak_bytes": 0
+      },
+      {
+        "RSS_bytes": 141320192,
+        "live_owned_backends": 0,
+        "phase": "after_progress_GET",
+        "traced_live_bytes": 5278149,
+        "traced_peak_bytes": 9626965
+      },
+      {
+        "RSS_bytes": 142118912,
+        "live_owned_backends": 0,
+        "phase": "after_prefix_summary_GET",
+        "traced_live_bytes": 5116050,
+        "traced_peak_bytes": 9705148
+      },
+      {
+        "RSS_bytes": 143446016,
+        "live_owned_backends": 0,
+        "phase": "after_prefix_samples_GET",
+        "traced_live_bytes": 5021692,
+        "traced_peak_bytes": 9865136
+      },
+      {
+        "RSS_bytes": 131600384,
+        "live_owned_backends": 0,
+        "phase": "API_after_reads_GC_trim",
+        "traced_live_bytes": 0,
+        "traced_peak_bytes": 0
+      }
+    ],
+    "verified_TLS": true
+  },
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "attempts": [
+    {
+      "actual_child_exit": 1,
+      "case": "focused-worker-allocation-v1",
+      "combined_peak_RSS_bytes": 1020395520,
+      "concurrency_accepted": false,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "diagnostic_pass": false,
+      "log_sha256": "aa782f227d2964ca7edd9d850bbe79ea8cabdd8592072a618402ae390c9039da",
+      "owned_process_PG_passfile_temp_remaining": 0,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_originals_five_roots_preserved": true,
+      "terminal_sha256": "a94e41220a3f04e2a10163cc2579abc1776496928dfa5c0a420416a060508c25",
+      "wall_seconds": 82.15288316999795
+    },
+    {
+      "actual_child_exit": 0,
+      "case": "focused-worker-allocation-v2",
+      "combined_peak_RSS_bytes": 1013616640,
+      "concurrency_accepted": false,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "diagnostic_pass": true,
+      "log_sha256": "d990a38e9695ea4dd82a45a290e947871e2c2a0ee9ca60639cb54cc0291fff61",
+      "owned_process_PG_passfile_temp_remaining": 0,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_originals_five_roots_preserved": true,
+      "terminal_sha256": "bb819991d187ea067ceb648658a8b5e32241d191160226bca630f3375d954d17",
+      "wall_seconds": 83.05504603900044
+    },
+    {
+      "actual_child_exit": 1,
+      "case": "focused-api-allocation-v1",
+      "combined_peak_RSS_bytes": 1050554368,
+      "concurrency_accepted": false,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "diagnostic_pass": false,
+      "log_sha256": "bf53bd458ae8f8c974cede94632a3a93a7978ea515e9de97219558c784d2e84c",
+      "owned_process_PG_passfile_temp_remaining": 0,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 154664960,
+      "source_originals_five_roots_preserved": true,
+      "terminal_sha256": "d3f9f3c85caaa2143da298adf81666a5ea36d106f40641d0cdf50da3661df961",
+      "wall_seconds": 111.27798399699532
+    },
+    {
+      "actual_child_exit": 0,
+      "case": "focused-api-allocation-v2",
+      "combined_peak_RSS_bytes": 1068240896,
+      "concurrency_accepted": false,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "diagnostic_pass": true,
+      "log_sha256": "f9d0c2251308c43511dd1ddbbbc23cb3e74fa4ec0d012db15284d67b1f34db06",
+      "owned_process_PG_passfile_temp_remaining": 0,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 154669056,
+      "source_originals_five_roots_preserved": true,
+      "terminal_sha256": "0fa8302dd44642802e817e13e2236d8faea6a42a9fadf0781d1cc032af932e37",
+      "wall_seconds": 155.05725047799933
+    },
+    {
+      "actual_child_exit": 0,
+      "case": "focused-driver-import-profile-v1",
+      "combined_peak_RSS_bytes": 815325184,
+      "concurrency_accepted": false,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "diagnostic_pass": true,
+      "log_sha256": "6aca689b0d58f1c4f013a76a34dff67e44ad647ccf9225fecf6359471e2765e1",
+      "owned_process_PG_passfile_temp_remaining": 0,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_originals_five_roots_preserved": true,
+      "terminal_sha256": "6a127a07a6e5cd0adae57ba0254bf476fc4a10482cbc74ed08b883e3eca9aa4d",
+      "wall_seconds": 0.3660044710049988
+    },
+    {
+      "actual_child_exit": 1,
+      "case": "focused-unpaused-client-normal-v1",
+      "combined_peak_RSS_bytes": 993181696,
+      "concurrency_accepted": false,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "diagnostic_pass": false,
+      "log_sha256": "6614787455bc2de03a0b004586c5bdf67534fa950d31723df3c6db6802f61b37",
+      "owned_process_PG_passfile_temp_remaining": 0,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_originals_five_roots_preserved": true,
+      "terminal_sha256": "00b143714029c4f35b439cc3ed4ddc5fb279e909df2ddfe4d84f1fbe0df862c8",
+      "wall_seconds": 19.382518637998146
+    },
+    {
+      "actual_child_exit": 1,
+      "case": "focused-unpaused-client-normal-v2",
+      "combined_peak_RSS_bytes": 1082724352,
+      "concurrency_accepted": false,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "diagnostic_pass": false,
+      "log_sha256": "63004308d7f0c3a665eb3fb51ad89c98d7e793ca15fd96807999cd0813cd592e",
+      "owned_process_PG_passfile_temp_remaining": 0,
+      "reason": "RSS_limit",
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_originals_five_roots_preserved": true,
+      "terminal_sha256": "078da649d2b874b5f97b7f189f925ebf26213d4dc1faac01afda667b0361d252",
+      "wall_seconds": 27.716671397996834
+    },
+    {
+      "actual_child_exit": 1,
+      "case": "focused-concurrent-connections-v1",
+      "combined_peak_RSS_bytes": 1082331136,
+      "concurrency_accepted": false,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "diagnostic_pass": false,
+      "log_sha256": "c78fb43c9f1929462e96d8767e7a2bae625dc2ba5dcee81761a5bef2a6269863",
+      "owned_process_PG_passfile_temp_remaining": 0,
+      "reason": "RSS_limit",
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_originals_five_roots_preserved": true,
+      "terminal_sha256": "48d89a024e6950b52ca4974ed6df26bc79956fa64856cac69928f7c15b567e6c",
+      "wall_seconds": 26.195294426004693
+    }
+  ],
+  "browser_DOM_WebGL_rerun": false,
+  "concurrency_accepted": false,
+  "concurrent_connection_correlation": {
+    "API_request_begin_phases": [
+      "HTTP_POST"
+    ],
+    "event_counts": {
+      "api": 204,
+      "worker": 69
+    },
+    "first_advance_observed": false,
+    "interpretation": "Last observed API request was admission POST; no GET began and no first advance marker was observed before resource termination. This failure does not establish API GET overlap as the cause. Worker phase labels retain _before until the next wrapped operation; _adopt was not separately wrapped. No SQL/parameters or allocation call stack was captured.",
+    "max_observed_active_backend_counts": {
+      "api": 4,
+      "worker": 4
+    },
+    "trace_sha256": {
+      "api": "062579e6dddce7ea7972a4e399eced9f7199897e1b7b2f4cd2ed10e036cd6ae2",
+      "worker": "213a4af989f0263f675243ec6d64184883c9b9679a1965a37e09b34799fd6fda"
+    },
+    "worker_operation_begin_phases": [
+      "_before"
+    ]
+  },
+  "development_status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_child_exit": 0,
+    "browser_DOM_WebGL_rerun": false,
+    "browser_rerun": false,
+    "log_sha256": "b330aa78c3102309049e510aa579b369c683753ffe8da41166c5c413cd39922a",
+    "original_HTML_both_ports_preserved": true,
+    "reported_at": "2026-10-17T01:43:09.418282Z",
+    "retained_ventilation_files": 2173,
+    "source_sha256": "27922dbcb9443abf215362459aa102a8787927057f157a2a2d07387b65da7a92",
+    "terminal_sha256": "cf49e0a1632dc0a49d7a148bd243a2f8ae73adb6934b033eb88c3427213e2bbd",
+    "tool_session": "91040"
+  },
+  "diagnostics_completed": 3,
+  "driver_import_profile": {
+    "concurrency_accepted": false,
+    "independent_fresh_processes": true,
+    "rows": [
+      {
+        "RSS_bytes": 21209088,
+        "functional_acceptance": false,
+        "new_stdlib_transport_modules": [
+          "_ssl",
+          "email",
+          "email.parser",
+          "http.client",
+          "ssl"
+        ],
+        "variant": "current"
+      },
+      {
+        "RSS_bytes": 16146432,
+        "functional_acceptance": false,
+        "new_stdlib_transport_modules": [],
+        "variant": "client_in_API_actor_imports"
+      }
+    ]
+  },
+  "full_CI_rerun": false,
+  "full_product_completion": null,
+  "goal_status": "active",
+  "measurement_limits": [
+    "Depth-one tracemalloc adds memory and latency; its RSS is not uninstrumented deployment capacity.",
+    "Snapshot line totals are retained Python allocations, not all native allocations or a proven leak.",
+    "Per-operation connection observations are not continuous simultaneous RSS samples.",
+    "Fresh driver import delta is not proof that the aggregate peak will fall by that amount.",
+    "HTTPS polling client shares the API actor in the latest experimental probe; worker remains a separate unpaused process. Browser/WebGL and an independent client process remain unaccepted."
+  ],
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "native_context_timestamp": "2026-10-17T01:18:14.762Z",
+    "raw_turn_context_sha256": "5d55b6d2cbf4ebdd57cc08e5ab8ff695d889d26998cc88b1df776a614d80a38c",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+  },
+  "new_functional_acceptance_checks": 0,
+  "new_solar_user_3D_deployed": false,
+  "next_safe_action": "Localize owned worker first-adoption/current-check connection nesting with bounded call-site evidence while configured API remains idle. Existing trace does not distinguish _adopt from the retained _before label. Keep audits, current rights, model/source/type identities, all five roots and both UIs, and caps. Choose another correction only after that evidence, then actual unpaused normal/hold/cancel/current-rights and original UTC/value acceptance before typed Solar3D/user activation.",
+  "previous_HTTP_checks_preserved": 355,
+  "previous_component_checks_preserved": 109,
+  "private_diagnostic_source_sha256": {
+    "run-allocation-profile.py": "3a61ade0e9cd30c74de9f10855484b9b7b3f5b29d95d8d07d83dfc01c1e3e160",
+    "run-api-allocation-profile.py": "8e6314a3d59c63eb585045570f670bebfa2436b492d98c22c39d18fdd7743ee7",
+    "run-concurrent-connections.py": "0c8a1a9e61468f3561db0ac6f61b090d8fa12970c08b62c597d00788686684cd",
+    "run-driver-import-profile.py": "bb38888421e226aa7cbc28f5da1fd771b5ec08176e6910f794e2410938e49c68",
+    "unpaused-before-client-correction.private.py": "b8e9d2058ca0bd5fbf3fbcdeed8f44baff985ae48b69e72ffc5d78693139bf81"
+  },
+  "production_code_changed": false,
+  "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+  "remaining_focused_hours": null,
+  "reported_at": "2026-10-17T01:42:01.038591Z",
+  "research_prototype_changed": true,
+  "resource_limits": {
+    "aggregate_bytes": 1073741824,
+    "dynamic_descendants_included": true,
+    "nominal_sample_seconds": 0.25,
+    "per_PID_bytes": 536870912,
+    "required_roots": 5
+  },
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-allocation-diagnosis-v1",
+  "stage_status": "diagnostic_progress_concurrency_hold",
+  "worker_profile": {
+    "G0_G4": "not_assessed",
+    "actual_scram": true,
+    "allocations": {
+      "chunk_and_confirm": [
+        {
+          "bytes": 55770,
+          "count": 417,
+          "file": "cursor.py",
+          "line": 250
+        },
+        {
+          "bytes": 43450,
+          "count": 869,
+          "file": "economic_contracts.py",
+          "line": 22
+        },
+        {
+          "bytes": 39652,
+          "count": 843,
+          "file": "pathlib.py",
+          "line": 404
+        },
+        {
+          "bytes": 36944,
+          "count": 2,
+          "file": "http-verifier.private.py",
+          "line": 115
+        },
+        {
+          "bytes": 36516,
+          "count": 1,
+          "file": "crop_climate_joint_continuation.py",
+          "line": 31
+        },
+        {
+          "bytes": 31500,
+          "count": 533,
+          "file": "pathlib.py",
+          "line": 1015
+        },
+        {
+          "bytes": 27730,
+          "count": 521,
+          "file": "decoder.py",
+          "line": 329
+        },
+        {
+          "bytes": 27080,
+          "count": 844,
+          "file": "http-verifier.private.py",
+          "line": 108
+        },
+        {
+          "bytes": 26752,
+          "count": 836,
+          "file": "_connection_info.py",
+          "line": 179
+        },
+        {
+          "bytes": 17768,
+          "count": 210,
+          "file": "<frozen abc>",
+          "line": 123
+        },
+        {
+          "bytes": 16464,
+          "count": 243,
+          "file": "_queries.py",
+          "line": 103
+        },
+        {
+          "bytes": 15054,
+          "count": 248,
+          "file": "main.py",
+          "line": 782
+        }
+      ],
+      "constructor": [
+        {
+          "bytes": 408,
+          "count": 4,
+          "file": "farm_replay_scenario.py",
+          "line": 99
+        },
+        {
+          "bytes": 312,
+          "count": 2,
+          "file": "http-verifier.private.py",
+          "line": 146
+        },
+        {
+          "bytes": 312,
+          "count": 2,
+          "file": "http-verifier.private.py",
+          "line": 145
+        },
+        {
+          "bytes": 312,
+          "count": 2,
+          "file": "http-verifier.private.py",
+          "line": 144
+        },
+        {
+          "bytes": 312,
+          "count": 2,
+          "file": "http-verifier.private.py",
+          "line": 143
+        },
+        {
+          "bytes": 176,
+          "count": 2,
+          "file": "crop_greenhouse_solar_server_custody.py",
+          "line": 235
+        },
+        {
+          "bytes": 118,
+          "count": 2,
+          "file": "pathlib.py",
+          "line": 1015
+        },
+        {
+          "bytes": 64,
+          "count": 2,
+          "file": "http-verifier.private.py",
+          "line": 132
+        },
+        {
+          "bytes": 32,
+          "count": 1,
+          "file": "http-verifier.private.py",
+          "line": 108
+        }
+      ]
+    },
+    "backend_peak_RSS_bytes": [
+      17494016,
+      17248256,
+      17182720,
+      15716352,
+      15691776,
+      15691776,
+      15691776,
+      15691776,
+      15691776,
+      15691776,
+      15691776,
+      15691776
+    ],
+    "boundary_budget": 9,
+    "concurrency_accepted": false,
+    "max_live_owned_backends": 4,
+    "profile_only": true,
+    "rights_or_gate_approval": false,
+    "rows": [
+      {
+        "RSS_bytes": 71839744,
+        "live_owned_backends": 0,
+        "phase": "prefix_and_worker_imported",
+        "traced_live_bytes": 0,
+        "traced_peak_bytes": 0
+      },
+      {
+        "RSS_bytes": 71839744,
+        "live_owned_backends": 0,
+        "phase": "worker_constructed",
+        "traced_live_bytes": 1832,
+        "traced_peak_bytes": 97706
+      },
+      {
+        "RSS_bytes": 83677184,
+        "live_owned_backends": 0,
+        "phase": "claimed",
+        "traced_live_bytes": 420125,
+        "traced_peak_bytes": 2964676
+      },
+      {
+        "RSS_bytes": 83677184,
+        "live_owned_backends": 0,
+        "phase": "before_numerical_chunk",
+        "traced_live_bytes": 605703,
+        "traced_peak_bytes": 2964676
+      },
+      {
+        "RSS_bytes": 96808960,
+        "live_owned_backends": 0,
+        "phase": "after_numerical_chunk",
+        "traced_live_bytes": 2183871,
+        "traced_peak_bytes": 6605051
+      },
+      {
+        "RSS_bytes": 94830592,
+        "live_owned_backends": 0,
+        "phase": "after_checkpoint_confirm",
+        "traced_live_bytes": 632255,
+        "traced_peak_bytes": 6605051
+      },
+      {
+        "RSS_bytes": 86958080,
+        "live_owned_backends": 0,
+        "phase": "after_GC_trim",
+        "traced_live_bytes": 0,
+        "traced_peak_bytes": 0
+      }
+    ],
+    "status": "yielded",
+    "worker_steps": 8
+  }
+}

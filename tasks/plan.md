@@ -2,7 +2,7 @@
 
 ## 단계별 goal 순서와 활성 상태 — 2026-10-17
 
-사용자의 목표 재개와 실제 goal 도구의 `active` 반환을 확인했다. 이전 `usageLimited` 동안 수동 진행한 기록은 유지하며, 전체 목표의 범위를 바꾸지 않는다. 이번 goal 턴은 commit0f01369·355검사로 실행/prefix 보호 HTTP 경계를 수용한 **progress**다. 다음은 명시 runtime·독립 unpaused worker이며 전체 목표는 active다. 현재 수용된 작은 단계 뒤 다음 의존성을 구현하고 세부 체크는 [todo](todo.md)를 따른다.
+전체 목표는 active다. 이번 턴은 [API/worker 분리 진단3개와 저비용 연결 추적](../research/crop-greenhouse-solar-allocation-diagnosis-20261017.md)의 **progress**다. 이전 조립109/보호 HTTP355검사는 유지한다. 작은 클라이언트 절감 후 실제 동시 실행은 여전히 합 RSS hold이며, API GET/첫 advance 전 중단을 관측했다. 다음은 idle API와 첫 custody 채택/current 검사에서 연결 중첩의 호출 위치를 분리하고 그 근거로 수정한다. 정상/hold/취소·현재 권리·실제 전진 prefix/UTC·원본/자원 수용 뒤 같은 UTC3D와 사용자 적용으로 이어간다. 전체 완료일/남은 집중 시간은 미정이다.
 
 | 순서 | 단계별 목표 | 다음 단계로 넘어갈 산출물 |
 | --- | --- | --- |

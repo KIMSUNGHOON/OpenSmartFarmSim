@@ -1,11 +1,11 @@
 {
-  "estimate_reason": "일사 설정·API 조립109검사를 부분 수용했습니다. 독립 작업자/API 동시 실행은 합1GiB 한도로 미수용입니다. 먼저 할당을 분리 계측합니다. 새 Solar3D·실제 자료 검증과 전체 완료일은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-17T01:15:59.475846Z",
+  "estimate_reason": "일사 API/워커 분리 진단3개를 완료했습니다. 동시 실행은 여전히 합1GiB 한도로 미수용입니다. 첫 채택/current 검사 연결을 좁힙니다. 기존 환기 적용은 유지하며 새 Solar3D·실제 자료·전체 완료일은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-17T01:43:09.418282Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-17T01:15:59.475846Z",
+  "reported_at": "2026-10-17T01:43:09.418282Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -19,7 +19,7 @@
       "state": "completed"
     },
     {
-      "evidence": "보호 HTTP355검사·명시 설정/API 조립109검사를 수용했습니다. 독립 작업자/API 동시 기동은 합1GiB 한도 초과로 미수용입니다. 필수5root/두서비스/자료/키/관문을 보존했고 시험 자원을 정리했습니다. 다음은 할당 분리 계측입니다. 새 Solar3D는 미배포입니다.",
+      "evidence": "기존 환기 적용과 보호 HTTP355/조립109검사를 유지합니다. 일사 단독 워커/API 진단·3GET 계산/쓰기0을 확인했으나 동시 실행은 합 RSS hold입니다. GET/첫 advance 전 중단을 관측해 첫 채택/current 연결 위치를 조사합니다. 새 Solar3D는 미배포입니다.",
       "id": "api",
       "state": "completed"
     },

@@ -1,18 +1,15 @@
 """Unaccepted guarded experiment; failed resource evidence remains an explicit hold."""
 import ast
-import http.client as http_client
 import json
 import os
 from pathlib import Path
 import shlex
 import signal
 import socket
-import ssl
 import subprocess
 import sys
 import tempfile
 import time
-from urllib.parse import urlencode
 
 from test_crop_greenhouse_solar_current_fresh import PREPARE as BASE_PREPARE, CLEANUP
 import test_crop_greenhouse_solar_execution_runtime_native as assembly
@@ -94,8 +91,39 @@ try:
  port=server.servers[0].sockets[0].getsockname()[1]
 ready=root/'api-ready.private.json'
 with ready.open('x') as f:os.fchmod(f.fileno(),0o400);json.dump({'port':port,'PID':os.getpid()},f);f.flush();os.fsync(f.fileno())
-while not (root/'api-stop').exists():
- assert thread.is_alive();time.sleep(.05)
+from urllib.parse import urlencode
+context=ssl.create_default_context(cafile=str(cert));requests=[];observed=[]
+def request_http(method,path,body=None):
+ connection=http.client.HTTPSConnection('127.0.0.1',port,context=context,timeout=60)
+ try:
+  headers={'Authorization':'Bearer '+TOKEN.decode()}
+  if body is not None:headers['Content-Type']='application/json'
+  connection.request(method,path,body=body,headers=headers);response=connection.getresponse();raw=response.read(2*1024*1024+1)
+  assert len(raw)<=2*1024*1024 and response.getheader('Cache-Control')=='no-store'
+  requests.append({'status':response.status,'bytes':len(raw)});return response.status,json.loads(raw)
+ finally:connection.close()
+status,value=request_http('POST','/v1/crop-greenhouse-solar-executions',json.dumps(p['body']).encode())
+assert status==202;job=value['job_id'];path='/v1/jobs/'+job+'/crop-greenhouse-solar-execution'
+with (root/'client-job-ready.private.json').open('x') as f:
+ os.fchmod(f.fileno(),0o400);json.dump({'job_id':job},f);f.flush();os.fsync(f.fileno())
+deadline=time.monotonic()+360
+while True:
+ time.sleep(10)
+ assert thread.is_alive() and time.monotonic()<deadline,'owned calculation timed out'
+ status,progress=request_http('GET',path);assert status in (200,503)
+ if status==200 and progress['job']['state']=='succeeded':break
+ status,value=request_http('GET',path+'/prefix')
+ if status==200 and value['prefix_status']=='accepted' and value['reference']['checkpoint']['computed_through_utc'] is not None:
+  pin=value['reference']['selector'];status,page=request_http('GET',path+'/prefix/samples?'+urlencode(pin))
+  if status==200 and page['prefix_status']=='accepted':observed.append(page)
+ else:assert status in (200,503)
+result=progress['result'];assert result and result['rights_or_gate_approval'] is False
+status,saved=request_http('GET','/v1/crop-greenhouse-solar-research-results/'+result['result_id']+'?'+urlencode({**p['body']['farm'],'view':'samples'}));assert status==200
+assert len({v['reference']['checkpoint']['computed_through_utc'] for v in observed})>=2,'two advancing original prefixes not observed'
+for value in observed:
+ records=value['page']['records'];assert records==saved['page']['records'][:len(records)]
+with (root/'api-client-proof.private.json').open('x') as f:
+ os.fchmod(f.fileno(),0o400);json.dump({'advancing_prefixes':len(observed),'original_values_UTC_equal':True,'requests':requests,'verified_TLS':True,'client_PID':os.getpid()},f);f.flush();os.fsync(f.fileno())
 finally:
  server.should_exit=True;thread.join(20);assert not thread.is_alive()
  mode['preparing']=True
@@ -173,41 +201,21 @@ def exercise(tmp_path):
             api=launch('api');deadline=time.monotonic()+90
             while not (tmp_path/'api-ready.private.json').exists():
                 assert api.poll() is None and time.monotonic()<deadline,'owned API startup failed';time.sleep(.05)
-            ready=json.loads((tmp_path/'api-ready.private.json').read_bytes());context=ssl.create_default_context(cafile=str(tmp_path/'api.crt'))
-            def http(method,path,body=None):
-                connection=http_client.HTTPSConnection('127.0.0.1',ready['port'],context=context,timeout=60)
-                try:
-                    headers={'Authorization':'Bearer '+('owned-solar-concurrent-native-'+'c'*40)}
-                    if body is not None:headers['Content-Type']='application/json'
-                    connection.request(method,path,body=body,headers=headers);response=connection.getresponse();raw=response.read(2*1024*1024+1)
-                    assert len(raw)<=2*1024*1024 and response.getheader('Cache-Control')=='no-store'
-                    requests.append({'status':response.status,'bytes':len(raw)});return response.status,json.loads(raw)
-                finally:connection.close()
-            status,value=http('POST','/v1/crop-greenhouse-solar-executions',json.dumps(p['body']).encode())
-            assert status==202;job=value['job_id'];path='/v1/jobs/'+job+'/crop-greenhouse-solar-execution'
+            ready=json.loads((tmp_path/'api-ready.private.json').read_bytes())
+            deadline=time.monotonic()+90
+            while not (tmp_path/'client-job-ready.private.json').exists():
+                assert api.poll() is None and time.monotonic()<deadline,'owned HTTP admission failed';time.sleep(.05)
             worker=launch('worker');deadline=time.monotonic()+360
-            while True:
-                time.sleep(10)
-                assert api.poll() is None and time.monotonic()<deadline,'owned calculation timed out'
-                status,progress=http('GET',path);assert status in (200,503)
-                if status==200 and progress['job']['state']=='succeeded':break
-                status,value=http('GET',path+'/prefix')
-                if status==200 and value['prefix_status']=='accepted' and value['reference']['checkpoint']['computed_through_utc'] is not None:
-                    pin=value['reference']['selector'];status,page=http('GET',path+'/prefix/samples?'+urlencode(pin))
-                    if status==200 and page['prefix_status']=='accepted':observed.append(page)
-                else:assert status in (200,503)
-                assert worker.poll() in (None,0),'owned worker failed'
-            worker.wait(timeout=20);assert worker.returncode==0
-            result=progress['result'];assert result and result['rights_or_gate_approval'] is False
-            status,saved=http('GET','/v1/crop-greenhouse-solar-research-results/'+result['result_id']+'?'+urlencode({**p['body']['farm'],'view':'samples'}));assert status==200
-            assert len({v['reference']['checkpoint']['computed_through_utc'] for v in observed})>=2,'two advancing original prefixes not observed'
-            for value in observed:
-                records=value['page']['records'];assert records==saved['page']['records'][:len(records)]
-            (tmp_path/'api-stop').touch(mode=0o600);api.wait(timeout=30);assert api.returncode==0
+            while api.poll() is None:
+                assert worker.poll() in (None,0) and time.monotonic()<deadline,'owned calculation timed out or failed';time.sleep(.05)
+            api.wait(timeout=20);worker.wait(timeout=20);assert api.returncode==worker.returncode==0
             proof=json.loads((tmp_path/'worker-proof.private.json').read_bytes());assert proof['PID']!=ready['PID'] and proof['unpaused']
             api_proof=json.loads((tmp_path/'api-proof.private.json').read_bytes());assert not any(api_proof['calls'].values())
+            client_proof=json.loads((tmp_path/'api-client-proof.private.json').read_bytes())
+            assert client_proof['client_PID']==ready['PID'] and client_proof['verified_TLS'] and client_proof['advancing_prefixes']>=2 and client_proof['original_values_UTC_equal']
             root=Path(os.environ['OSSF_SOLAR_EXECUTION_RUNTIME_EVIDENCE'])
-            with (root/'unpaused-normal.private.json').open('x') as f:os.fchmod(f.fileno(),0o400);json.dump({'actual_SCRAM_TLS':True,'worker':proof,'api':api_proof,'advancing_prefixes':len(observed),'original_values_UTC_equal':True,'requests':requests},f,sort_keys=True)
+            with (root/'unpaused-normal.private.json').open('x') as f:
+                os.fchmod(f.fileno(),0o400);json.dump({'actual_SCRAM_TLS':True,'worker':proof,'api':api_proof,'client':client_proof,'advancing_prefixes':client_proof['advancing_prefixes'],'original_values_UTC_equal':True,'requests':client_proof['requests']},f,sort_keys=True)
             cleanup=subprocess.run([sys.executable,'-B','-c',CLEANUP,str(config)],env=env,capture_output=True,timeout=30);assert cleanup.returncode==0
         finally:
             (tmp_path/'api-stop').touch(mode=0o600)
