@@ -45,6 +45,42 @@
     "reported_at": "2026-10-17T10:43:30.654075Z",
     "source_sha256": "f9e6127cb7d90d3745ce57e4a17af58b81123f3a7ca711668ecc6249315fc4e3"
   },
+  "development_feed_after_unpaused_probe": {
+    "HTTP_both_200_no_store_equal": true,
+    "checks": {
+      "HTTP": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 817197056,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "protected_live": true,
+        "reason": null,
+        "wall_seconds": 0.32902494299924
+      },
+      "parser": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 997339136,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "protected_live": true,
+        "reason": null,
+        "wall_seconds": 0.8463610040053027
+      }
+    },
+    "frozen_HTML_preserved": true,
+    "frozen_ventilation_files": 2173,
+    "parser_tests": 28,
+    "reported_at": "2026-10-17T10:52:25.036312Z",
+    "source_sha256": "25993400ce7c47c1f4d07fe54bc0e20805307d4d650667fa4fd5f05166dfebe6"
+  },
   "development_feed_previous": {
     "bytes_equal": true,
     "cache_control": "no-store",
@@ -1556,10 +1592,11 @@
   },
   "new_solar_deployed": false,
   "next_step": {
-    "acceptance": "unchanged64steps/independent unpaused worker, configured SCRAM/TLS admission and>=2advancing prefixes/original valuesUTC/terminal, read cropCLI/SQL mutation0, original5roots/2148+2173/frozenUIs/keys/roles/FD/ownedPG/temp/passfiles and512MiBPID/1GiB combined",
-    "basis": "source6004735 adopted exact reader reduces actual currentGET physical connections306→186 and max2→1 after earlier unpaused prototype/candidate holds; this is a changed implementation basis, not identical retry",
-    "scope": "first normal backend-runtime evidence only; hold/cancel/runningWebGL/localbrowser/useractivation remain separate",
-    "task": "current-source independent unpaused API/worker normal prototype"
+    "basis": "current unchanged64step unpaused probe hit1075159040combinedRSS; identified waiting parent22401024bytes; preserve exact actors and checks/caps/ownership and try one small harness change",
+    "contract": "contracts/crop-solar-unpaused-probe-parent-v1.md",
+    "evidence": "research/artifacts/crop-solar-current-unpaused-resource-20261017.json",
+    "implementation_status": "not_started",
+    "task": "test-only waiting parent exec replacement"
   },
   "observed_normal_current_WebGL_frames": 3,
   "pointer_syntax_checks": [
@@ -1592,6 +1629,12 @@
       "wall_seconds": 0.3337714759982191
     }
   ],
+  "previous_next_step_before_current_unpaused": {
+    "acceptance": "unchanged64steps/independent unpaused worker, configured SCRAM/TLS admission and>=2advancing prefixes/original valuesUTC/terminal, read cropCLI/SQL mutation0, original5roots/2148+2173/frozenUIs/keys/roles/FD/ownedPG/temp/passfiles and512MiBPID/1GiB combined",
+    "basis": "source6004735 adopted exact reader reduces actual currentGET physical connections306→186 and max2→1 after earlier unpaused prototype/candidate holds; this is a changed implementation basis, not identical retry",
+    "scope": "first normal backend-runtime evidence only; hold/cancel/runningWebGL/localbrowser/useractivation remain separate",
+    "task": "current-source independent unpaused API/worker normal prototype"
+  },
   "recorded_at": "2026-10-17T09:37:35.364540+00:00",
   "rights_or_gate_approval": false,
   "schema_version": "solar-current-WebGL-verification-v1",
@@ -1620,7 +1663,7 @@
     "build_commit": "4510a938e57766fc7b4cad2e9f0323492166e553",
     "web_run_id": 39025035367
   },
-  "updated_at": "2026-10-17T10:45:06.846462+00:00",
+  "updated_at": "2026-10-17T10:54:26.882800+00:00",
   "visible_pointer_syntax_check": {
     "actual_child_exit": 0,
     "controller_FD_before_after": [

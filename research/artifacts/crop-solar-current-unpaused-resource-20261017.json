@@ -1,0 +1,78 @@
+{
+  "G0_G4": "not_assessed",
+  "S3_accepted": false,
+  "actor_changes": "parent observes identities/hashes only; actual API/worker program unchanged",
+  "actors": {
+    "api": {
+      "RSS_at_combined_peak": 116858880,
+      "allocator": "pymalloc",
+      "identity": {
+        "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+        "pid": 825918,
+        "start_ticks": 8280245
+      },
+      "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba"
+    },
+    "worker": {
+      "RSS_at_combined_peak": 83562496,
+      "allocator": "pymalloc",
+      "identity": {
+        "boot_id": "ac46e789-c48e-489a-be08-167adbf1e307",
+        "pid": 825996,
+        "start_ticks": 8280611
+      },
+      "script_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6"
+    }
+  },
+  "actual_crop_Runs": 0,
+  "adopted_reader_component": "6004735",
+  "controller_RSS_at_combined_peak": 28385280,
+  "goal_status": "active",
+  "guard": {
+    "RSS_samples": 113,
+    "actual_child_exit": 1,
+    "combined_peak_RSS_bytes": 1075159040,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "frontend_status": 200,
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 5,
+    "reason": "RSS_limit",
+    "sample_interval_seconds": 0.25,
+    "single_PID_peak_RSS_bytes": 137015296,
+    "source_count": 2386,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining": [],
+    "wall_seconds": 30.50217142200563
+  },
+  "native_CLI": {
+    "context_timestamp": "2026-10-17T10:22:22.680Z",
+    "model": "gpt-6.1-sol",
+    "raw_turn_context_sha256": "c66d997698a21fecaf79090573991fab66092d6eb4b5568d3993dbb2e653c81d",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false
+  },
+  "next": "replace test-only waiting parent after immutable actor generation with bounded low-memory wait; preserve all original actor bytes/checks and cleanup/ownership; one new reasoned trial only",
+  "normal_proof_present": false,
+  "normal_steps": 64,
+  "parent_kind_basis": "single owning Python coordinator in original prototype, excluding API/worker/controller and original protected trees",
+  "prototype": "research/crop-greenhouse-solar-unpaused-probe.py",
+  "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+  "recorded_at": "2026-10-17T10:51:08.076652+00:00",
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-current-unpaused-resource-v1",
+  "source_commit": "c33791f",
+  "unpaused_normal_accepted": false,
+  "waiting_parent_RSS_at_combined_peak": 22401024
+}
