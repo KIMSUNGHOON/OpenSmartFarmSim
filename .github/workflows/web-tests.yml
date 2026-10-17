@@ -86,7 +86,7 @@ jobs:
       contents: read
       actions: read
     env:
-      PLAYWRIGHT_BROWSERS_PATH: ${{ runner.temp }}/solar-browsers
+      PLAYWRIGHT_BROWSERS_PATH: /tmp/ossf-solar-browsers-${{ github.run_id }}-${{ github.run_attempt }}
       OSSF_BROWSER_SUITE: ${{ inputs.browser_suite || 'all' }}
       PYTHONDONTWRITEBYTECODE: '1'
       MALLOC_ARENA_MAX: '2'
