@@ -1,8 +1,12 @@
 # 첫 구현 작업 목록
 
+- [ ] **`crop-solar-worker-termination-diagnostics`** — [원 정상의 실제 작업자 반환 확인](../research/crop-solar-worker-termination-diagnostics-20261017.md).
+  원 정상121.021초·worker1의 실패를 보존한다. worker-only 관찰7검사/기존 workflow·원 actor/application 불변 preflight 통과.
+  CI39035225593의 실제 예외·outcome·확정 단계/종료·정리를 대사한 뒤 작은 수정과 별도 원 정상 검증으로 진행한다.
+
 - [x] **`farm-pinned-context-reader`** — [원 현재 참조·경제 검증을 같은 범위로 읽기](../research/farm-pinned-context-reader-implementation-20261017.md).
   고유14검사·실제 SCRAM 조합4→1연결·동일 값/검증 순서, 철회/변조/부적합/활성 변경·농장 등록 회귀와 정리 통과.
-  source8423263/trace-OFF 원 정상 CI39034668788은 진행 중이며 정상/S3 수용이 아니다.
+  source8423263/trace-OFF 원 정상 CI39034668788은121.021초·worker1로 실패했다. 다음은 실제 반환 진단이며 정상/S3 수용이 아니다.
 
 - [x] **`crop-solar-farm-registration-cost`** — [실제 등록 내부 비용](../research/crop-solar-worker-progress-diagnostics-20261017.md).
   CI39033602306의 원 확정15/64·등록674반환/경제159.035초·compiler3.080초를 구분하고 변경 범위를 고정했다.
@@ -1852,6 +1856,10 @@
                 - [x] **호스팅 실제 저장3D 기능 대사** — 4510a93/CI39025035367 정상·hold/원3·2시점·11프레임 방문/18HTTP·권리·재접속·두 browser/driver0·FD map/role/schema/소유 정리 수용. [실행 기록](../research/crop-solar-current-webgl-verification-20261017.md). 같은 CI의 검증 빌드/digest·실제 독립 producer/SCRAM/HTTPS/현재 권리·정상/hold 원 수치/단위/UTC·50구획/온도 mesh/그래프·관리 전후·거부 시 제거/재접속과 최종 종료·자원/정리가 기준이다. WSL 용량/배포 수용은 별도다.
                 - [ ] **현재 WSL 전체 앱 동시 용량 수용** — 같은 기록의 실제 native/브라우저 분리 RSS hold를 유지한다. 새 할당 근거가 있을 때 원5root/두 UI·한도·원 값/권리/정리를 유지한 작은 수정과 실제 현재 HTTP→WebGL로 평가한다. 호스팅 성공이나 임의 애니메이션으로 완료하지 않는다.
             - [ ] **S3 실행 중 prefix3D** — 선행은 독립 unpaused 정상/hold/취소·현재 권리·전진 prefix/원 UTC·조회 계산0·동시 자원 수용이다. 저장3D의 성공만으로 완료하지 않는다.
+              - [ ] **S3a 독립 정상 실행** — 원64걸음/start1/CLI0·attempt1·두 전진 prefix/원 값·UTC·종료/정리. 현재 원 정상 CI 결과로 평가한다.
+              - [ ] **S3b 독립 보류** — [독립 보류·취소 계약](../contracts/crop-solar-unpaused-hold-cancel-v1.md). 실제 reference hold 입력·이유·확정 UTC와 독립 API/worker 결과·저장 prefix/원 값을 대사한다. 저장 결과 조회 시험으로 대체하지 않는다.
+              - [ ] **S3c 독립 취소** — 같은 계약의 실제 계산 중 확정 prefix 뒤 인증 HTTP 취소·실제 canceled/새 확정/성공 게시 없음·원 prefix/FD/소유 정리. 임의 pause/barrier로 경합을 조절하지 않는다.
+              - [ ] **S3d 실제 계산 중 WebGL** — S3a–c 뒤 같은 source/실제 API/자동 worker에서 확정 UTC·원 상태/장부/장면 전진→terminal·현재 권리/취소 시 제거·재접속을 확인한다. WSL 용량과 사용자 적용은 별도다.
           - [ ] **solar 사용자 적용·재시작** — 같은 고정 source/영역/키의 지속 API/worker에서 정상/hold/취소·원 수치/UTC3D·재접속/재시작/현재 권리와 기존 두 주소/원본/자원을 확인하고 접속·진행 안내를 갱신한다.
 
     - [ ] **`crop-greenhouse-co2-stomatal`** — CO₂ 질량/ppm·압력/온도/부피·광합성 sink와 기공 closure.

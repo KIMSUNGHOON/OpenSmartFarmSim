@@ -32,7 +32,9 @@ FarmAuthoring은 받은 참조를 기존 연구/시간/농장/후보 조건과 �
 ## 다음과 남은 의존성
 
 [trace-OFF 원 정상 CI39034668788](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39034668788)는
-source8423263에서 진행 중이다. 원 prototype·64걸음·chunk1·조회 주기·360/600초·RSS 상한을 유지한다.
+source8423263에서121.021초·자식1로 실패했다. 작업자 exit1/최종 성공 단언만 있으며 실제 잡힌 예외/반환 outcome은 없다.
+원360초/RSS 상한 종료가 아니며 원인/완료 걸음/처리량 개선을 추정하지 않는다.
+[작업자 중심 진단](crop-solar-worker-termination-diagnostics-20261017.md)으로 원인을 확인한다. 원 prototype·64걸음·chunk1·조회 주기·360/600초·RSS 상한을 유지한다.
 정상 완료/원 수치·UTC·두 전진 prefix·후검사/정리를 모두 통과하기 전 정상 기능으로 수용하지 않는다.
 
 현재 컴포넌트만 로컬 소프트웨어 수용이다. 전체 backend·독립 정상/hold/취소·계산 중3D·WSL 용량·

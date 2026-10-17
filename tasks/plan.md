@@ -1,5 +1,15 @@
 # 구현 순서
 
+## 현재 작업자 종료 사유의 다음 단계 — 2026-10-17
+
+[원 정상 CI39034668788](../research/crop-solar-worker-termination-diagnostics-20261017.md)은121.021초·worker1로 실패했다.
+정상 proof·실제 잡힌 예외/반환이 없어 완료 단계·원인을 추정하지 않는다. reader14검사/조합4→1 수용은 유지한다.
+다음은 application8423263을 유지한 source65a609b/CI39035225593의 worker-only 진단이다.
+새 관찰7검사·기존 workflow/원 actor/application 불변 preflight를 통과했다. 진단은 정상 수용이 아니다.
+실제 예외/outcome 뒤 근거 있는 작은 수정→별도 trace-OFF 원 정상→S3b 보류→S3c 취소→S3d 계산 중 WebGL이다.
+현재 검사/입력/64걸음·chunk1·조회 주기·시간/RSS 상한을 유지하며 S3/S4·WSL 용량·배포/외부 관문은 열린다.
+아래 기록은 당시 상태다.
+
 ## 현재 참조 읽기 수용과 원 정상 실행 — 2026-10-17
 
 [실제 진단](../research/crop-solar-worker-progress-diagnostics-20261017.md)은 등록 내부의 반복 경제/맥락 검증을 확인했다.
@@ -8,6 +18,8 @@
 다음은 source8423263/trace-OFF CI39034668788의 원 정상64걸음·두 전진 prefix·원 값/UTC·후검사·정리다.
 이것을 통과하기 전 정상/S3 체크를 하지 않는다. 이후 hold/취소→계산 중3D→로컬 용량/사용자 적용을 각각 검증한다.
 기존 원5root/두 화면/원본·자원 한도와 실제 자료/관문·전체 완료일 미정·goal active를 유지한다.
+후속은 [독립 보류·취소](../contracts/crop-solar-unpaused-hold-cancel-v1.md)의 S3a 정상→S3b 보류→S3c 취소→S3d 실제 계산 중 WebGL이다.
+기존 native runtime의 저장 결과 조립/조회와 새 독립 실행 증거를 구분하며 각 사례의 종료/정리 전 체크하지 않는다.
 아래 기록은 당시 상태다.
 
 ## 현재 독립 실행의 후속 — 2026-10-17
