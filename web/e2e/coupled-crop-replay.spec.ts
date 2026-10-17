@@ -1,3 +1,4 @@
+import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { coupledReference } from './coupled-crop-fixture';
 
@@ -6,7 +7,7 @@ test.setTimeout(90_000);
 const labels={result_id:'저장 연구 결과 ID',scenario_id:'농장 시나리오 ID',scenario_revision:'농장 판본',
   registration_sha256:'등록 SHA-256',crop_id:'작물 ID'};
 async function connect(page:Page){
-  await page.goto('/');await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.goto('/');await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정',exact:true}).click();
   await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
   await page.getByLabel('저장 결과 판본').selectOption('v2');

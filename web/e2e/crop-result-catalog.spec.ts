@@ -1,3 +1,4 @@
+import {revealConnection} from './connection-fixture';
 import {test,expect,type Page} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 
@@ -39,7 +40,7 @@ async function mocked(page:Page,options:{emptyFarms?:boolean;emptyResults?:boole
   return {calls,hold:(promise:Promise<void>,onEnter:()=>void)=>{held=promise;entered=onEnter;},release:()=>{held=null;entered=null;}};
 }
 async function connected(page:Page){
-  await page.goto('/');await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.goto('/');await revealConnection(page);
   await page.getByLabel('접근 토큰',{exact:true}).fill(token);await page.getByRole('button',{name:'연결 설정',exact:true}).click();
   await page.getByRole('button',{name:/08 성장 연구 3D/}).click();
   await page.getByRole('button',{name:'저장 결과 목록에서 선택',exact:true}).click();

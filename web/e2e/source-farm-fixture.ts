@@ -1,3 +1,4 @@
+import {revealConnection} from './connection-fixture';
 import type { Page } from '@playwright/test';
 import type { SourceResearch,SourceActivityPage } from '../src/api';
 import type { SourceFarmSelection,FarmEconomicCandidate,FarmEconomicSelection } from '../src/source-farm-api';
@@ -46,7 +47,7 @@ export async function routeSourceFixture(page:Page) {
   });
 }
 export async function openComposer(page:Page,token=sourceToken) {
-  await page.goto('/');await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.goto('/');await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정',exact:true}).click();
   await page.getByRole('button',{name:'04 작성 농장 실행',exact:true}).click();
   await page.getByRole('button',{name:'새 입력 판본 작성',exact:true}).click();

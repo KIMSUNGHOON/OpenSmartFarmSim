@@ -1,3 +1,4 @@
+import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { authoredJobId,authoredRunId,authoredResponses } from './authored-thermal-fixture';
 
@@ -16,7 +17,7 @@ const registration={scenario_id:'farm-1',scenario_revision:'r1',scenario_sha256:
 
 async function connect(page:Page) {
   await page.goto('/');
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
@@ -40,7 +41,7 @@ test('saved farm catalog opens a server rechecked registration',async({page})=>{
     throw new Error('unexpected API path '+path);
   });
   await page.goto('/');
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
@@ -79,7 +80,7 @@ test('stored 3D Runs reopen after exact current verification without a farm sele
     throw new Error('unexpected API path '+path);
   });
   await page.goto('/');
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
@@ -124,7 +125,7 @@ test('saved authored jobs reopen a completed server Run after reconnect',async({
   });
   await connect(page);
   await page.reload();
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
@@ -252,7 +253,7 @@ test('last farm is rechecked on reconnect and cleared when access is revoked',as
   expect(stored).not.toContain(token);
 
   await page.reload();
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
@@ -263,7 +264,7 @@ test('last farm is rechecked on reconnect and cleared when access is revoked',as
   await page.evaluate(key=>sessionStorage.setItem(key,JSON.stringify({scenario_id:'farm-1',
     scenario_revision:'r1',scenario_sha256:'e'.repeat(64)})),'ossf.authored.last-farm.v1');
   await page.reload();
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
@@ -278,7 +279,7 @@ test('last farm is rechecked on reconnect and cleared when access is revoked',as
 
   allowed=false;
   await page.reload();
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();

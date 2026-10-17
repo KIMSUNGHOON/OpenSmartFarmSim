@@ -1,3 +1,4 @@
+import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
@@ -39,7 +40,7 @@ async function enter(page:Page){
     const w=window;w.executionReads=[];const original=window.fetch;
     window.fetch=async(...args)=>{const path=String(args[0]),start=Date.now(),response=await original(...args);
       if(/\/crop-climate-joint-execution$/.test(path))w.executionReads.push({start,end:Date.now()});return response;};
-  });await page.goto('/');await page.getByText('내부 시험 연결',{exact:true}).click();
+  });await page.goto('/');await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(TOKEN);await page.getByRole('button',{name:'연결 설정',exact:true}).click();
   await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
   await page.getByLabel('저장 결과 판본').selectOption('joint-execution');

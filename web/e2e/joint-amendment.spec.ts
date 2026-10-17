@@ -1,3 +1,4 @@
+import {revealConnection} from './connection-fixture';
 import {test,expect,type Page} from '@playwright/test';
 import {mkdir} from 'node:fs/promises';
 import {SOURCE_FIELDS} from '../src/source-fields';
@@ -53,7 +54,7 @@ test(`new assumption applies through explicit rights and immutable joint revisio
       scenario_sha256:'d'.repeat(64),registration_status:'pinned_user_assumption',recorded_at:time,intent_job:job}});
   });
   await page.route('**/v1/economic-results',route=>route.fulfill({status:202,json:{...job,stage:'simulation'}}));
-  await page.goto('/');await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.goto('/');await revealConnection(page);
   await page.getByLabel('접근 토큰').fill('synthetic-joint-amendment-token');await page.getByRole('button',{name:'연결 설정'}).press('Enter');
   await page.getByRole('button',{name:'03 경제 가정·계산'}).press('Enter');
   await choose(page,'숫자 가정');await page.getByLabel(/^새 가정값/).fill(value);

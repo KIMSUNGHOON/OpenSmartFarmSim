@@ -1,3 +1,4 @@
+import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 
@@ -14,7 +15,7 @@ const report={job_id:id,stage:'assessment',hold_id:thermal,status:'hold',recorde
   missing_evidence_count:6};
 
 async function connect(page:Page) {
-  await page.goto('/');await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.goto('/');await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).press('Enter');
   await page.getByRole('button',{name:'06 계산 평가'}).press('Enter');
@@ -106,7 +107,7 @@ test('saved assessment reopens after reload using only GET and reconnect clears 
   await page.getByRole('button',{name:'저장 평가 조회'}).click();
   await expect(page.getByRole('heading',{name:'판단 보류 근거'})).toBeVisible();
   await page.reload();
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'06 계산 평가'}).click();

@@ -1,3 +1,4 @@
+import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import { financialResponses,economicId,assessmentId } from './authored-financial-fixture';
@@ -33,7 +34,7 @@ async function install(page:Page,historyDelayMs=0) {
   return {fixture,posts};
 }
 async function connect(page:Page) {
-  await page.goto('/');await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.goto('/');await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정',exact:true}).press('Enter');
   await page.getByRole('button',{name:'07 작성 Run 경제·평가',exact:true}).press('Enter');
 }
@@ -130,7 +131,7 @@ test('history recovers after reload using GET and account reconnect clears resul
   const {posts}=await install(page);await connect(page);await select(page);
   await page.getByRole('button',{name:/작성 평가 기록.*현재 기록 조회/}).click();
   await expect(page.getByRole('heading',{name:'작성 Run 판단 보류 근거',exact:true})).toBeVisible();
-  await page.reload();await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.reload();await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);await page.getByRole('button',{name:'연결 설정',exact:true}).click();
   await page.getByRole('button',{name:'07 작성 Run 경제·평가',exact:true}).click();await select(page);
   await page.getByRole('button',{name:/경제 계산 기록.*현재 기록 조회/}).click();

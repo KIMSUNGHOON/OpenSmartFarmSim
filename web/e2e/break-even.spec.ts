@@ -1,3 +1,4 @@
+import {revealConnection} from './connection-fixture';
 // Self-authored browser DTOs; actual server/worker proof is a separate TLS/PG smoke.
 import {test,expect} from '@playwright/test';
 import {mkdir} from 'node:fs/promises';
@@ -36,7 +37,7 @@ async function setup(page:import('@playwright/test').Page,missing=false) {
     await route.fulfill({json:kind==='economic_scenario' ? {...meta(kind,baselineId),input:{...baseline,collections:missing ? null : baseline.collections}}
       : {...meta('joint_shock','joint-'+index,index===0 ? 'b' : 'c'),input:shock(index)}});
   });
-  await page.goto('/');await page.getByText('내부 시험 연결',{exact:true}).click();await page.getByLabel('접근 토큰').fill('synthetic-browser-token-abcdefghijklmnopqrstuvwxyz');
+  await page.goto('/');await revealConnection(page);await page.getByLabel('접근 토큰').fill('synthetic-browser-token-abcdefghijklmnopqrstuvwxyz');
   await page.getByRole('button',{name:'연결 설정'}).click();await page.getByRole('button',{name:'03 경제 가정·계산'}).click();
   const area=page.getByRole('region',{name:'손익분기 계획과 결과',exact:true});
   const picker=area.getByRole('region',{name:'손익분기 기준 원장',exact:true});await picker.getByRole('button',{name:'목록 조회'}).click();await picker.locator('li button').click();

@@ -1,3 +1,4 @@
+import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
@@ -58,7 +59,7 @@ test.afterEach(async({page},info)=>{const value=diagnostics.get(page)!;
   expect(unexpected).toEqual([]);const cdp=await page.context().newCDPSession(page);
   try{await cdp.send('HeapProfiler.collectGarbage');}finally{await cdp.detach();}});
 async function enter(page:Page,d=fixture()){
-  await page.clock.install();await page.goto('/');await page.getByText('내부 시험 연결',{exact:true}).click();
+  await page.clock.install();await page.goto('/');await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(TOKEN);await page.getByRole('button',{name:'연결 설정',exact:true}).click();
   await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();await page.getByLabel('저장 결과 판본').selectOption('joint-execution');
   const labels={job_id:'계산 작업 ID',scenario_id:'계산 농장 시나리오 ID',scenario_revision:'계산 농장 판본',registration_sha256:'계산 농장 등록 SHA-256',crop_id:'계산 작물 ID'};

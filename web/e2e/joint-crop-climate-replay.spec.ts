@@ -1,3 +1,4 @@
+import {revealConnection} from './connection-fixture';
 import { test,expect,type Page,type Route } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
@@ -39,7 +40,7 @@ async function designSnapshot(page:Page,name:string){
   await writeFile(join(root,name+'.html'),html);
 }
 async function connect(page:Page){
-  await page.goto('/');await page.getByText('내부 시험 연결',{exact:true}).click();await page.getByLabel('접근 토큰').fill('owned-joint-screen-test');
+  await page.goto('/');await revealConnection(page);await page.getByLabel('접근 토큰').fill('owned-joint-screen-test');
   await page.getByRole('button',{name:'연결 설정',exact:true}).click();await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
   await page.getByLabel('저장 결과 판본').selectOption('joint');
 }

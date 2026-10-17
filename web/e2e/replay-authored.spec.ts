@@ -1,3 +1,4 @@
+import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { authoredJobId,authoredRunId,authoredResponses } from './authored-thermal-fixture';
 
@@ -5,7 +6,7 @@ const token='synthetic-authored-browser-token-only';
 
 async function connect(page:Page) {
   await page.goto('/');
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'05 3D 열 재생'}).click();

@@ -1,3 +1,4 @@
+import {revealConnection} from './connection-fixture';
 import { test,expect,type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -27,7 +28,7 @@ const applicationErrors=new WeakMap<Page,string[]>();
 test.beforeEach(({page})=>{const errors:string[]=[];applicationErrors.set(page,errors);page.on('pageerror',error=>errors.push(error.message));});
 test.afterEach(({page})=>{expect(applicationErrors.get(page)).toEqual([]);});
 async function connect(page:Page,data:Data){
-  await page.goto('/');await page.getByText('내부 시험 연결',{exact:true}).click();await page.getByLabel('접근 토큰').fill(token);
+  await page.goto('/');await revealConnection(page);await page.getByLabel('접근 토큰').fill(token);
   await page.getByRole('button',{name:'연결 설정',exact:true}).click();await page.getByRole('button',{name:'08 성장 연구 3D',exact:true}).click();
   await page.getByLabel('저장 결과 판본').selectOption('calculation-cycle');
   for(const [key,value] of Object.entries({result_id:data.crop.result_id,...data.crop.farm}))

@@ -1,3 +1,4 @@
+import {revealConnection} from './connection-fixture';
 import { test,expect } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
 
@@ -19,7 +20,7 @@ test('new authored farm is reviewed, retried byte-identically, and server confir
     return route.fulfill({status:200,json:registration});
   });
   await page.goto('/');
-  await page.getByText('내부 시험 연결',{exact:true}).click();
+  await revealConnection(page);
   await page.getByLabel('접근 토큰').fill('synthetic-authored-form-token');
   await page.getByRole('button',{name:'연결 설정'}).click();
   await page.getByRole('button',{name:'04 작성 농장 실행'}).click();
