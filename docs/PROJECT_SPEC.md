@@ -1,5 +1,7 @@
 # OpenSmartFarmSim 제품 명세
 
+**현재 일사 저장 클라이언트 — 2026-10-17:** [구현/검증 기록](../research/crop-greenhouse-solar-web-client-implementation-20261017.md)의 원 정상/hold HTTPS6응답과 저장 Solar 클라이언트를 구현했다. 로컬424회귀·진행표28검사, 후속 hosted 전체 타입/단위/build/audit를 확인해 S1a를 수용했다. 로컬 전체 타입 검사의 합 RSS 보류는 유지한다. 다음은 실제 SDK→현재 HTTPS(S1b)이며 저장/실행 중3D·사용자 적용·전체 저장소 CI·실제 자료/생산/경제/추천은 미수용이다. 원5root/두 UI/원본·한도와 goal active·전체 완료일 미정을 유지한다. 아래 날짜별 기록은 당시 상태다.
+
 **현재 일사 접수 계측·저장3D 의존성 — 2026-10-17:** [실제 분리 계측과 후보 제외](../research/crop-greenhouse-solar-admission-allocation-20261017.md)를 기록했다. 실제 API POST/독립 작업 선택·임대 진단은 통과했고 세 연결 수명 후보의 동시 실행은 RSS hold로 미채택이다. [저장 응답 클라이언트](../contracts/web-crop-greenhouse-solar-replay-v1.md)의 개발 선행을 수용된 결과 API로 분리했으며 다음은 S1a다. 실행 중3D/사용자 적용 부모·전체 CI·실제 자료/생산/경제/추천은 미수용이다. 원5root/두 UI/원본/한도·goal active와 전체 완료일 미정을 유지한다.
 
 **현재 일사 API 경계 — 2026-10-17:** [실행·확정 구간 보호 HTTP](../research/crop-greenhouse-solar-execution-http-implementation-20261017.md)를355검사로 로컬 수용했다. 기존 진행/저장 원 값·UTC·False 승인과 제품 관문은 유지한다. 지속 runtime/독립 작업자 동시 실행→같은 UTC3D→사용자 적용, 실제 품종/독립 자료·생산/경제/최종 UI는 후속이며 전체 완료일은 미정이다.
