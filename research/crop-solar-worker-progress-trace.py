@@ -17,12 +17,19 @@ _obs_phases = {
     'crop_greenhouse_solar_server_custody.py': frozenset({'advance', '_guard', '_load', 'progress', 'prepare'}),
     'crop_greenhouse_solar_farm_binding.py': frozenset({'current', '_guard', '_input', '_registration'}),
     'crop_greenhouse_solar_input_evidence.py': frozenset({'verify'}),
-    'farm_authoring_storage.py': frozenset({'read_registration', '_guard'}),
+    'farm_authoring_storage.py': frozenset({'read_registration', '_guard', '_prepare', '_find'}),
+    'owned_research.py': frozenset({'authority_snapshot'}),
+    'thermal_run_store.py': frozenset({'get_snapshot', 'get_decision_context'}),
+    'market_hold_store.py': frozenset({'get_market_hold_report'}),
+    'market_scenario.py': frozenset({'validate_pinned'}),
+    'farm_input_compiler.py': frozenset({'compile_farm_inputs'}),
     'crop_greenhouse_solar_continuation.py': frozenset({'prepare_context', 'advance_chunk', 'restore_checkpoint'}),
 }
 _obs_prefixes = {'crop_greenhouse_solar_server_custody.py':'custody',
     'crop_greenhouse_solar_farm_binding.py':'binding', 'crop_greenhouse_solar_input_evidence.py':'evidence',
-    'farm_authoring_storage.py':'farm', 'crop_greenhouse_solar_continuation.py':'model'}
+    'farm_authoring_storage.py':'farm', 'crop_greenhouse_solar_continuation.py':'model',
+    'owned_research.py':'research', 'thermal_run_store.py':'thermal',
+    'market_hold_store.py':'hold', 'market_scenario.py':'market', 'farm_input_compiler.py':'compiler'}
 _obs_totals, _obs_active, _obs_recent, _obs_errors = {}, {}, [], []
 _obs_dropped = 0
 _obs_last_confirmed = _obs_last_advanced = _obs_last_adopted = _obs_outcome = None

@@ -109,3 +109,18 @@ SolarServerCustody().advance()
     assert value['phase_totals']['custody.SolarServerCustody.advance']['calls'] == 1
     assert value['phase_totals']['custody._Session.advance']['calls'] == 1
     assert 'custody.advance' not in value['phase_totals']
+
+
+def test_farm_reference_phases_export_only_timing_not_returned_documents(tmp_path):
+    body = "class FarmAuthoringService:\n def _prepare(self):return {'private':'controlled_secret_never_export'}\n def _find(self):return self._prepare()\nFarmAuthoringService()._find()\n"
+    result = subprocess.run(command(tmp_path, body, '/owned/app/farm_authoring_storage.py'),
+        capture_output=True, timeout=5)
+    assert result.returncode == 0, result.stderr.decode()
+    raw = (tmp_path/'worker-progress-diagnostics.private.json').read_bytes()
+    value = json.loads(raw)
+    for name in ('_prepare', '_find'):
+        phase = value['phase_totals']['farm.FarmAuthoringService.'+name]
+        assert phase['calls'] == phase['returns'] == 1
+        assert phase['inclusive_seconds'] >= 0
+    assert b'controlled_secret_never_export' not in raw
+    assert value['last_confirmed'] is None and value['last_advanced'] is None

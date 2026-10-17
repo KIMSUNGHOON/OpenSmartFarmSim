@@ -43,3 +43,12 @@ v2는 클래스/메서드 이름을 구별하고 root steps를 우선하며 원 
 farm binding의 current/input/registration/guard, 농장 등록/guard,
 입력 증거 verify, model context/restore/chunk 호출의 시간만 추가로 관찰한다.
 데이터·권리/판정·cache·상한/청크·수식은 바꾸지 않는다.
+
+## 농장 등록 내부의 후속 시간 분해
+
+CI39032832587/source20d2d0f는 원 확정16/64걸음에서360초 계산 상한으로 종료했다.
+farm 등록 읽기726반환의 중첩 포함290.968초, current362반환339.428초를 관찰했다.
+모델 chunk18반환은0.717초였다. 이 시간들은 중첩되며 관찰 비용을 포함한다.
+다음 진단은 등록 내부 `_find`/`_prepare`, 현재 연구 권한·snapshot/context/hold 조회,
+경제 시나리오 검증과 입력 compiler의 시간만 구분한다. 반환 문서는 기록하지 않는다.
+변경·검사 생략이나 캐시를 도입하기 전에 이 경계를 확인한다.
