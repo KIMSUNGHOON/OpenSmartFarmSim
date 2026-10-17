@@ -26,6 +26,9 @@ def launch():
         '--single-process', '--no-zygote', '--num-raster-threads=1', '--use-gl=angle', '--use-angle=swiftshader-webgl',
         '--js-flags=--jitless --max-old-space-size=24 --max-semi-space-size=1 --expose-gc',
         '--user-data-dir='+config['directory']+'/chromium-profile', '--remote-debugging-pipe', 'about:blank']
+    if config.get('spki'):
+        assert len(b64decode(config['spki'], validate=True)) == 32
+        flags.insert(-1, '--ignore-certificate-errors-spki-list='+config['spki'])
     os.execv(config['chromium'], [config['chromium'], *flags])
 
 

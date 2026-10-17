@@ -3,6 +3,10 @@ name: Web tests
 on:
   workflow_dispatch:
     inputs:
+      native_solar:
+        description: Also check actual stored Solar HTTPS and WebGL on an isolated hosted runner
+        type: boolean
+        default: false
       browser_suite:
         description: Browser acceptance scope (all is the complete regression gate)
         type: choice
@@ -71,3 +75,125 @@ jobs:
           retention-days: 3
           compression-level: 0
           if-no-files-found: error
+
+  native_solar:
+    name: native Solar HTTPS and WebGL
+    if: github.event_name == 'workflow_dispatch' && inputs.native_solar
+    needs: web
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      actions: read
+    env:
+      PLAYWRIGHT_BROWSERS_PATH: ${{ runner.temp }}/solar-browsers
+      OSSF_BROWSER_SUITE: ${{ inputs.browser_suite || 'all' }}
+      PYTHONDONTWRITEBYTECODE: '1'
+      MALLOC_ARENA_MAX: '2'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      NUMEXPR_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          version: '0.11.14'
+          python-version: '3.12.13'
+          enable-cache: false
+      - name: Install locked backend
+        working-directory: backend
+        run: |
+          uv python install 3.12.13
+          uv lock --check
+          uv sync --locked --group dev --python 3.12.13
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22.22.3'
+      - name: Install locked headless browser
+        working-directory: web
+        run: |
+          npm install --global npm@11.16.0
+          npm ci --strict-peer-deps
+          npx --no-install playwright install --with-deps --only-shell chromium
+      - name: Verify and extract the tested build from this run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 -B - <<'PY'
+          from pathlib import Path, PurePosixPath
+          from hashlib import sha256
+          import json, os, stat, subprocess, zipfile
+          endpoint='repos/'+os.environ['GITHUB_REPOSITORY']+'/actions/'
+          run=json.loads(subprocess.check_output(['gh','api',endpoint+'runs/'+os.environ['GITHUB_RUN_ID']]))
+          assert run['head_sha']==os.environ['GITHUB_SHA']
+          items=json.loads(subprocess.check_output(['gh','api',endpoint+'runs/'+str(run['id'])+'/artifacts']))
+          artifact=next(a for a in items['artifacts'] if a['name']=='web-build-'+run['head_sha'])
+          assert not artifact['expired'] and artifact['size_in_bytes']<100*1024**2
+          root=Path(os.environ['RUNNER_TEMP'])/'solar-tested-build';root.mkdir(mode=0o700)
+          archive=root/'build.zip'
+          with archive.open('xb') as f:
+              subprocess.run(['gh','api',endpoint+'artifacts/'+str(artifact['id'])+'/zip'],stdout=f,check=True)
+          assert 'sha256:'+sha256(archive.read_bytes()).hexdigest()==artifact['digest']
+          dist=root/'dist';dist.mkdir(mode=0o700)
+          with zipfile.ZipFile(archive) as z:
+              entries=z.infolist();assert len(entries)<1000 and sum(i.file_size for i in entries)<100*1024**2
+              names=set()
+              for i in entries:
+                  rel=PurePosixPath(i.filename)
+                  assert not rel.is_absolute() and '..' not in rel.parts and '\\' not in i.filename
+                  assert i.filename not in names and not stat.S_ISLNK(i.external_attr>>16);names.add(i.filename)
+                  p=dist.joinpath(*rel.parts)
+                  if i.is_dir():p.mkdir(mode=0o700,parents=True,exist_ok=True);continue
+                  p.parent.mkdir(mode=0o700,parents=True,exist_ok=True);p.write_bytes(z.read(i));p.chmod(0o400)
+          assert (dist/'index.html').is_file() and list((dist/'assets').glob('GreenhouseSolarReplay-*.js'))
+          provenance={'build_commit':run['head_sha'],'web_run_id':run['id'],'artifact_id':artifact['id'],
+              'artifact_digest':artifact['digest'],'archive_checked':True,'browser_suite':os.environ['OSSF_BROWSER_SUITE']}
+          (root/'build-provenance.json').write_text(json.dumps(provenance,indent=2))
+          PY
+        # This build passed the selected suite in the preceding job, not a new full-suite claim.
+      - name: Build the pinned native test PostgreSQL
+        run: |
+          set -euo pipefail
+          pg_task_root="$RUNNER_TEMP/solar-postgresql-16.15"
+          mkdir -m 700 "$pg_task_root"
+          curl --fail --silent --show-error --location --max-time 120 \
+            https://ftp.postgresql.org/pub/source/v16.15/postgresql-16.15.tar.bz2 \
+            --output "$pg_task_root/source.tar.bz2"
+          printf '%s  %s\n' c1575341fa7bd40f5274ea465b34390f4dc64cdd0770af327005caaeb9f6b7ed "$pg_task_root/source.tar.bz2" | sha256sum --check
+          mkdir "$pg_task_root/source" "$pg_task_root/build"
+          tar -xjf "$pg_task_root/source.tar.bz2" -C "$pg_task_root/source" --strip-components=1
+          cd "$pg_task_root/build"
+          "$pg_task_root/source/configure" --prefix="$pg_task_root/install" --without-icu --without-readline --without-zlib
+          make -j2
+          make install
+          "$pg_task_root/install/bin/postgres" --version | grep -Fx 'postgres (PostgreSQL) 16.15'
+      - name: Actual native stored Solar normal and hold browser checks
+        env:
+          OSSF_BROWSER_SUITE: ${{ inputs.browser_suite || 'all' }}
+        run: |
+          set -euo pipefail
+          export OSSF_TEST_PG_BIN="$RUNNER_TEMP/solar-postgresql-16.15/install/bin"
+          export OSSF_TEST_PG_DSN='host=/owned-fixture dbname=postgres user=ossf_login_admin'
+          export OSSF_SOLAR_WEB_DIST="$RUNNER_TEMP/solar-tested-build/dist"
+          export OSSF_SOLAR_CHROMIUM="$(python3 -c 'import os; from pathlib import Path; p=list(Path(os.environ["PLAYWRIGHT_BROWSERS_PATH"]).glob("chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell")); assert len(p)==1; print(p[0])')"
+          "$OSSF_SOLAR_CHROMIUM" --version
+          backend/.venv/bin/python -B backend/tests/web_crop_greenhouse_solar_smoke.py all "$RUNNER_TEMP/solar-native-evidence"
+      - name: Store curated native browser evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: solar-native-browser-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/solar-native-evidence/*/native-*.json
+            ${{ runner.temp }}/solar-native-evidence/*/database-cleanup-*.json
+            ${{ runner.temp }}/solar-native-evidence/*/resource-*.json
+            ${{ runner.temp }}/solar-native-evidence/*/browser-frame-*.private.json
+            ${{ runner.temp }}/solar-native-evidence/*/browser-failure.private.json
+            ${{ runner.temp }}/solar-native-evidence/*/solar-*.private.png
+            ${{ runner.temp }}/solar-tested-build/build-provenance.json
+          retention-days: 3
+          compression-level: 0
+          if-no-files-found: ignore
