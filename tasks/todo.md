@@ -1,6 +1,6 @@
 # 첫 구현 작업 목록
 
-**현재 goal active — 2026-10-17:** [실제 SDK/자원·브라우저 연결 수정](../research/crop-greenhouse-solar-sdk-resource-and-browser-entry-20261017.md)을 기록했다. S1a 수용은 유지하며 S1b 동시 시험3회는 RSS hold다. CI의 숨겨진 token 입력 원인을 수정한 f1aba2f는 타입/단위/build/audit 통과·브라우저 진행 중이다. 다음 제품 구현은 S2a 저장 화면/기록 회귀다. 실제 연결 S1b/S2b와 실행 중3D/사용자 적용·생산/경제/실제 관문은 미완료이고 전체 완료일은 미정이다.
+전체 목표는 active다. **현재 일사 저장 화면 S2a 수용 — 2026-10-17:** [구현·실제 검증 기록](../research/crop-greenhouse-solar-saved-web-implementation-20261017.md)의 원 응답 기반 같은 UTC3D·PAR/NIR/관리/보류·권한/취소·지연 응답 회귀를 수용했다. c500c79 전체 웹 브라우저243개·단위1,864개·타입/build/audit가 통과했다. localhost의 새 Solar 화면은 미배포이고 실제 SDK/HTTPS S1b와 실제 저장 WebGL S2b, 실행 중/사용자 적용 S3/S4·최종 디자인은 미수용이다. 다음은 S1b의 새 할당 근거와 작은 수정→실제 API/저장3D 결합이다. 기존 두 UI/5root/원본/한도·자료/G0–G4 보류와 goal active·전체 완료일 미정을 유지한다. 아래 날짜별 기록은 당시 상태다.
 
 ## 현재 실행 복구와 시험 정리 수정 — 2026-10-09
 
@@ -1822,7 +1822,7 @@
             - [x] **S1a 저장 응답 해석기/요청 클라이언트** — [수용](../research/crop-greenhouse-solar-web-client-implementation-20261017.md). 원6응답·새156/기존268=424검사와 hosted 전체 타입/단위/build/audit. 로컬 compiler0/guard1은 RSS 미수용으로 남긴다. 원 정상/hold 공개 응답 확보·108상태/41·6장부/15수지·PAR/NIR·관리·단위/UTC와 닫힌 타입/페이지/판본·혼합/변조 거부·취소/오류, TypeScript/기존 회귀. 기록 원문 해석과 실제 HTTPS의 증거 범위를 구분한다.
             - [ ] **S1b 현재 SDK/HTTPS** — [실제 동시3시도](../research/crop-greenhouse-solar-sdk-resource-and-browser-entry-20261017.md) 모두 RSS 미수용. 시험 후보는 사설 보존/미채택이며 정상·hold SDK 전체 수용은 아직 없다. 한도·필수 소비자·권리/타입을 유지하고 새 할당/원인 근거 뒤 필요한 작은 수정만 진행한다. 정상/hold의 실제 인증 현재 API에서 원 선택자/페이지/공통 참조·원 bytes/값/단위/UTC, 현재 권리 철회/복원·다른 계정/판본·취소/전송 정리·조회 계산/SQL 변경0·실제 종료/FD/소유 자원·원본/5root/두 UI/한도를 검증한다. 기록 응답은 이 수용 증거가 아니다.
             - [ ] **S2 같은 UTC 저장3D** — 개발은 S1a/원 응답, 실제 연결 수용은 S1b를 선행으로 나눈다. 부모 완료 조건은 유지한다.
-              - [ ] **S2a 저장 화면 개발/기록 회귀** — 다음 제품 구현. 별도 Solar 소비자/선택 연결/브라우저 시험3–5 core파일을 고정하고 기존 geometry/scene/chart/assets를 재사용한다. 같은 원 UTC/수치/단위·50구획/장부/PAR/NIR·관리/보류/빈 상태·선택/계정/취소/권리 거부 시 제거와 기록 원문 WebGL을 확인한다. fixture fallback·실제 연결/사용자 적용 수용은 추가하지 않는다.
+              - [x] **S2a 저장 화면 개발/기록 회귀** — [기록 응답 소프트웨어 수용](../research/crop-greenhouse-solar-saved-web-implementation-20261017.md): Solar14/전체243브라우저·1,864단위·타입/build/audit, 원 UTC·50구획/장부/PAR/NIR·관리·보류/빈 상태·선택/계정/취소/권리·지연 응답 제거·실제 WebGL/원 PNG·원 디자인 대조. 실제 HTTPS/WSL 브라우저 용량·최종 디자인/사용자 배포는 별도다.
               - [ ] **S2b 실제 현재 HTTPS→저장 WebGL** — 선행 S1b/S2a. 원 선택자/페이지/원 값/UTC와 실제 WebGL·현재 권리/거부 시 제거·재접속·두 UI/원본/자원을 확인한다. 기록 응답 시험으로 대체하지 않는다.
             - [ ] **S3 실행 중 prefix3D** — 선행은 독립 unpaused 정상/hold/취소·현재 권리·전진 prefix/원 UTC·조회 계산0·동시 자원 수용이다. 저장3D의 성공만으로 완료하지 않는다.
           - [ ] **solar 사용자 적용·재시작** — 같은 고정 source/영역/키의 지속 API/worker에서 정상/hold/취소·원 수치/UTC3D·재접속/재시작/현재 권리와 기존 두 주소/원본/자원을 확인하고 접속·진행 안내를 갱신한다.

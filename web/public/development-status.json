@@ -1,11 +1,11 @@
 {
-  "estimate_reason": "실제 SDK/API 동시3시도는 RSS hold입니다. 기존 브라우저 검사의 연결 절차를 수정해228개를 수집했습니다. 새 CI는 타입/단위/build/audit 통과·브라우저 검증 중입니다. 다음은 저장 화면 개발 S2a이며 실제 연결 S1b/S2b와 전체 완료일은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-17T06:04:21.508530Z",
+  "estimate_reason": "일사 저장 화면 S2a와 전체 웹243브라우저·1,864단위·타입/build/audit를 통과했습니다. 새 Solar는 미배포이며 실제 SDK/API의 자원 보류 S1b와 실제 연결 S2b·실행/사용자 적용 S3/S4가 남아 전체 완료일은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-17T06:42:54.428434Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-17T06:04:21.508530Z",
+  "reported_at": "2026-10-17T06:42:54.428434Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -19,19 +19,19 @@
       "state": "completed"
     },
     {
-      "evidence": "S1a 저장 클라이언트 수용은 유지합니다. 실제 SDK/API 동시3시도는 RSS hold로 S1b 미수용입니다. 브라우저 진입 오류20파일/28곳을 수정해228개를 수집했습니다. 새 CI 타입/단위/build/audit 통과·브라우저 진행 중입니다.",
+      "evidence": "S1a와 새 Solar 저장 화면 S2a의 기록 회귀를 수용했습니다. 전체 웹243브라우저·1,864단위·타입/build/audit 통과입니다. 실제 SDK/API 동시3시도 RSS hold로 S1b는 미수용입니다.",
       "id": "api",
       "state": "completed"
     },
     {
-      "evidence": "기존 환기 계산 중/저장3D 수용을 유지합니다. 다음 제품 구현은 S1a/원 응답을 선행으로 한 Solar 저장 화면 S2a입니다. 실제 연결 S1b/S2b는 여전히 필요하며 새 저장/계산 중3D·사용자 적용은 미수용입니다.",
+      "evidence": "새 Solar 저장 화면은 같은 UTC의 표·그래프·실제 WebGL/PAR/NIR를 기록 응답으로 검증했습니다. 현재 localhost에는 미배포입니다. 실제 연결 S1b/S2b와 실행 중3D S3가 남았습니다. 기존 환기3D는 유지합니다.",
       "id": "execution_3d",
-      "state": "completed"
+      "state": "next"
     },
     {
-      "evidence": "기존 환기 모델의 사용자 적용을 유지합니다. 새 일사 모델의 사용자 3D 적용·재시작 수용은 후속이며 원 키/결과/두 서비스를 보존했습니다. 실제 지역·품종의 생산/경제 예측·최종 제품과 전체 완료일은 미정입니다.",
+      "evidence": "기존 환기 모델의 사용자 연결을 유지합니다. 새 Solar의 실제 API/동시 자원·사용자 적용/재시작 S4·최종 UI·실제 지역/품종 생산·경제·추천 검증이 남았습니다. 전체 완료 날짜는 미정입니다.",
       "id": "activation",
-      "state": "completed"
+      "state": "pending"
     }
   ]
 }

@@ -3,7 +3,7 @@
 상태: [S1a 수용](../research/crop-greenhouse-solar-web-client-implementation-20261017.md).
 원 HTTPS6응답·로컬 회귀424검사와 hosted 전체 타입/단위/build/audit를 확인했다.
 로컬 전체 TypeScript의 합 RSS 관문은 미통과이며 호스팅 증거를 WSL 용량 수용으로 바꾸지 않는다.
-S1b/S2/S3/S4는 미수용이다. 계산/공개 응답의 선행은
+[S2a 기록 화면/회귀 수용](../research/crop-greenhouse-solar-saved-web-implementation-20261017.md)을 추가했다. S1b/S2부모/S2b/S3/S4는 미수용이다. 계산/공개 응답의 선행은
 [결과 조회](crop-greenhouse-solar-current-query-v1.md)와
 [보호 HTTP](api-crop-greenhouse-solar-route-v1.md)다.
 [제품 명세](../docs/PROJECT_SPEC.md#7-순서와-의존성)의 저장→3D 경로를 작은 자식으로 나눈다.
@@ -39,7 +39,7 @@ S1b는 실제 SDK→인증된 현재 API의 정상/hold·원 선택자/페이지
 
 **2026-10-17 의존성 보완:** 실제 SDK/API 동시 시험 세 번이 합 RSS hold여서 S1b는 미수용이다.
 [관측 기록](../research/crop-greenhouse-solar-sdk-resource-and-browser-entry-20261017.md)에 따라
-S2의 개발과 실제 연결 수용을 나눈다. **다음 제품 구현 S2a**는 수용된 S1a 타입/해석기와
+S2의 개발과 실제 연결 수용을 나눈다. **개발을 분리한 S2a**는 수용된 S1a 타입/해석기와
 원 정상/hold 응답을 선행으로 하는 저장 화면·회귀다. 별도 Solar 소비자/선택 연결/브라우저 시험의
 3–5 core파일을 고정하고 기존 geometry/scene/chart/assets를 재사용한다. 같은 원 UTC의
 수치·단위·50구획·PAR/NIR·관리 전후·보류/빈 상태, 선택·계정·취소/권리 거부 시 제거와

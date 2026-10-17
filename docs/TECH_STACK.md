@@ -103,7 +103,7 @@ HTTPS API 실행 후보는 Uvicorn `0.54.0`을 추가 고정했다([안정 릴�
 ## 웹 UI 검증 산출물 — 2026-10-17
 
 Web workflow의 기본 `all`은 전체 브라우저 회귀 관문이다. 명시적인 수동 `connection`
-선택은 연결 절차의 집중 검증이며 전체 CI로 표시하지 않는다. 첫 실패에서 종료해도
+선택은 연결 절차의 집중 검증이며 전체 CI로 표시하지 않는다. 수동 `solar`는 새 Solar와 기존 환기/공동기후 화면만 실행한다. 두 집중 선택 모두 `all`을 대신하지 않는다. 첫 실패에서 종료해도
 관문은 실패이며, 전체 수용에는 `all`의 모든 사례 통과가 필요하다.15분 job 제한을 유지한다.
 합성 Solar 화면 PNG만3일 보관하는 CI 보조 action은 공식 [v7.0.2 릴리스](https://github.com/actions/upload-artifact/releases/tag/v7.0.2)의
 `actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9`로 고정했다.

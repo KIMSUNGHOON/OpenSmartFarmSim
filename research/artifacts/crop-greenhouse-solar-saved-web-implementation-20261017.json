@@ -1,0 +1,1291 @@
+{
+  "CI": {
+    "complete_web": {
+      "browser_passed": 243,
+      "conclusion": "success",
+      "headSha": "c500c79588e7eb1220454d1fe57a3f5473446ec8",
+      "is_WSL_capacity_acceptance": false,
+      "jobs": [
+        {
+          "completedAt": "2026-10-17T06:41:43Z",
+          "conclusion": "success",
+          "databaseId": 117330726262,
+          "name": "web (all)",
+          "startedAt": "2026-10-17T06:30:01Z",
+          "status": "completed",
+          "steps": [
+            {
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 2,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 3,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm install --global npm@11.16.0",
+              "number": 4,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm ci --strict-peer-deps",
+              "number": 5,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run typecheck",
+              "number": 6,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run test",
+              "number": 7,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm run build",
+              "number": 8,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npm audit --audit-level=high",
+              "number": 9,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Run npx --no-install playwright install --with-deps chromium",
+              "number": 10,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Browser acceptance",
+              "number": 11,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Recorded Solar UI evidence",
+              "number": 12,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+              "number": 23,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+              "number": 24,
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 25,
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39010122550/job/117330726262"
+        }
+      ],
+      "scope": "all",
+      "status": "completed",
+      "unit_passed": 1864,
+      "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39010122550"
+    },
+    "connected_controls": {
+      "browser_passed": 19,
+      "conclusion": "success",
+      "id": 39009679433,
+      "scope": "connection",
+      "source": "c36dfe4ee2bbb85024030cb625f23a2e240b8e95"
+    },
+    "recorded_focus": {
+      "browser_passed": 37,
+      "conclusion": "success",
+      "id": 39009965582,
+      "scope": "solar+ventilation+joint",
+      "source": "b720890efd0f9bfe5960429b2d6c0c56c329d145"
+    }
+  },
+  "CI_log_sha256": {
+    "ci-39009679433-terminal.private.log": "0906c1f727bfc216c120349827c877ecdc9291055b14fc8e851793d7c91a6e2c",
+    "ci-39009965582-terminal.private.log": "85c2d19e0462ebe7f85e6af6379a61f82f5b5fc941c4fffa4ede212513eafcad",
+    "ci-39010122550-terminal.private.log": "e881524a05c8c60050fc87be0a97f22d8056f2f21c136d389e01ba588ae93da8"
+  },
+  "G0_G4": "not_assessed",
+  "S1a_accepted": true,
+  "S1b_accepted": false,
+  "S2_parent_accepted": false,
+  "S2a_recorded_software_accepted": true,
+  "S2b_accepted": false,
+  "S3_accepted": false,
+  "S4_accepted": false,
+  "design_close": {
+    "DOM_mapping_accepted": false,
+    "final_visual_alignment_accepted": false,
+    "product_scene_replaced": false,
+    "runs": [
+      {
+        "actual_exit": 0,
+        "image_only_unanchored": true,
+        "image_sha256": "f0cf689f41bdeeba452adcdc1b31955efaa0250630a5a5ce84daebd3777ecd7f",
+        "log_sha256": "137d22c7b9deaf46617f5a14c71e01f671a124563f78648762663e70d771cc77",
+        "name": "main",
+        "original_target_sha256": "5fa9acbd0f6eed724db74cb717ff8edba2aff7c4581eb6d83bec834a7484bb2f",
+        "rendered_commit": "c500c79588e7eb1220454d1fe57a3f5473446ec8",
+        "wall_seconds": 0.6066074370028218
+      },
+      {
+        "actual_exit": 0,
+        "image_only_unanchored": true,
+        "image_sha256": "9a96087997ddc9b53bcac9433e7b11de0d6300bd0b3548dbf6f9cffdebf6c598",
+        "log_sha256": "6487b49a898e307e48c52ec262df8b5638b984a8174f4362e8fe45c1c21b1dde",
+        "name": "past",
+        "original_target_sha256": "ba34b0a30e6a77d3003d7c60c81a5f1ee99f906a27c7e1ea79a2e4c8ad0c0fa3",
+        "rendered_commit": "c500c79588e7eb1220454d1fe57a3f5473446ec8",
+        "wall_seconds": 0.6187688329955563
+      },
+      {
+        "actual_exit": 0,
+        "image_only_unanchored": true,
+        "image_sha256": "5b7ac055b64370d56b5572136f7504a561b54c7928b032c1b76ac9b631a31e0a",
+        "log_sha256": "369003c2b3f977b565aa7b2f7406a4acafd5833a67b17bdbaefeb1221b435feb",
+        "name": "empty",
+        "original_target_sha256": "3bbf597592f3b25661445e562edb508055b53c8c8f91d61ae67a7b5558f3b769",
+        "rendered_commit": "c500c79588e7eb1220454d1fe57a3f5473446ec8",
+        "wall_seconds": 0.5812779910047539
+      }
+    ]
+  },
+  "development_status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "browser_DOM_rerun": false,
+    "browser_rerun": false,
+    "current_HTML_matches_frozen_entry_both_ports": true,
+    "files": 2173,
+    "new_solar_user_deployed": false,
+    "reported_at": "2026-10-17T06:42:54.428434Z",
+    "retained_ventilation_frozen_source_preserved": true,
+    "source_sha256": "aa5fec664b40b7ad323d27b85166dcfbf64edfdd564122684cd7a5b040441210",
+    "tool": "16257:0"
+  },
+  "exclusions": {
+    "image_flag_rejection": {
+      "case": "focused-solar-design-close-v2",
+      "reason": "URL-only repo/viewport options rejected for image input; no design acceptance",
+      "tool": "41396:1"
+    },
+    "previous_browser_failure": {
+      "conclusion": "cancelled",
+      "reason": "15min job; hidden connected token/disconnect controls; not full browser acceptance",
+      "run": 39008217480
+    },
+    "unintentional_inventory_under_design_name": {
+      "case": "focused-solar-design-close-v1",
+      "reason": "read-only config replacement failed; old inventory mode ran; not design evidence",
+      "tool": "98045:0"
+    }
+  },
+  "final_visual_alignment_accepted": false,
+  "full_product_completion": null,
+  "goal_status": "active",
+  "local_terminal_evidence": {
+    "focused-connected-controls-inventory-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 126324736,
+          "comm": "python",
+          "pid": 1738
+        },
+        {
+          "RSS_bytes": 8933376,
+          "comm": "nginx",
+          "pid": 1753
+        },
+        {
+          "RSS_bytes": 7503872,
+          "comm": "nginx",
+          "pid": 3882
+        },
+        {
+          "RSS_bytes": 128151552,
+          "comm": "python",
+          "pid": 1752
+        },
+        {
+          "RSS_bytes": 18178048,
+          "comm": "postgres",
+          "pid": 1742
+        },
+        {
+          "RSS_bytes": 5177344,
+          "comm": "postgres",
+          "pid": 1748
+        },
+        {
+          "RSS_bytes": 6115328,
+          "comm": "postgres",
+          "pid": 1747
+        },
+        {
+          "RSS_bytes": 7401472,
+          "comm": "postgres",
+          "pid": 1746
+        },
+        {
+          "RSS_bytes": 4816896,
+          "comm": "postgres",
+          "pid": 1744
+        },
+        {
+          "RSS_bytes": 6250496,
+          "comm": "postgres",
+          "pid": 1743
+        },
+        {
+          "RSS_bytes": 27279360,
+          "comm": "python",
+          "pid": 2969
+        },
+        {
+          "RSS_bytes": 137015296,
+          "comm": "python",
+          "pid": 2975
+        },
+        {
+          "RSS_bytes": 8798208,
+          "comm": "nginx",
+          "pid": 3036
+        },
+        {
+          "RSS_bytes": 7610368,
+          "comm": "nginx",
+          "pid": 3732
+        },
+        {
+          "RSS_bytes": 18141184,
+          "comm": "postgres",
+          "pid": 3015
+        },
+        {
+          "RSS_bytes": 5242880,
+          "comm": "postgres",
+          "pid": 3021
+        },
+        {
+          "RSS_bytes": 6184960,
+          "comm": "postgres",
+          "pid": 3020
+        },
+        {
+          "RSS_bytes": 7581696,
+          "comm": "postgres",
+          "pid": 3019
+        },
+        {
+          "RSS_bytes": 5029888,
+          "comm": "postgres",
+          "pid": 3017
+        },
+        {
+          "RSS_bytes": 11640832,
+          "comm": "postgres",
+          "pid": 3016
+        },
+        {
+          "RSS_bytes": 123408384,
+          "comm": "python",
+          "pid": 3733
+        },
+        {
+          "RSS_bytes": 108285952,
+          "comm": "python",
+          "pid": 3747
+        },
+        {
+          "RSS_bytes": 28184576,
+          "comm": "python",
+          "pid": 678455
+        },
+        {
+          "RSS_bytes": 195772416,
+          "comm": "node",
+          "pid": 678461
+        },
+        {
+          "RSS_bytes": 16932864,
+          "comm": "postgres",
+          "pid": 678469
+        },
+        {
+          "RSS_bytes": 15753216,
+          "comm": "postgres",
+          "pid": 678473
+        }
+      ],
+      "RSS_samples": 15,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 1009029120,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "e4a1812a8c82927f96e3a470da8609ff1e5146b1feac61194c8ec6436e01e276",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 195772416,
+      "source_count": 2359,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 4.011981860996457
+    },
+    "focused-solar-design-close-v4": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 126324736,
+          "comm": "python",
+          "pid": 1738
+        },
+        {
+          "RSS_bytes": 8933376,
+          "comm": "nginx",
+          "pid": 1753
+        },
+        {
+          "RSS_bytes": 7503872,
+          "comm": "nginx",
+          "pid": 3882
+        },
+        {
+          "RSS_bytes": 128131072,
+          "comm": "python",
+          "pid": 1752
+        },
+        {
+          "RSS_bytes": 18178048,
+          "comm": "postgres",
+          "pid": 1742
+        },
+        {
+          "RSS_bytes": 5177344,
+          "comm": "postgres",
+          "pid": 1748
+        },
+        {
+          "RSS_bytes": 6115328,
+          "comm": "postgres",
+          "pid": 1747
+        },
+        {
+          "RSS_bytes": 7401472,
+          "comm": "postgres",
+          "pid": 1746
+        },
+        {
+          "RSS_bytes": 4816896,
+          "comm": "postgres",
+          "pid": 1744
+        },
+        {
+          "RSS_bytes": 6250496,
+          "comm": "postgres",
+          "pid": 1743
+        },
+        {
+          "RSS_bytes": 27410432,
+          "comm": "python",
+          "pid": 2969
+        },
+        {
+          "RSS_bytes": 137015296,
+          "comm": "python",
+          "pid": 2975
+        },
+        {
+          "RSS_bytes": 8798208,
+          "comm": "nginx",
+          "pid": 3036
+        },
+        {
+          "RSS_bytes": 7610368,
+          "comm": "nginx",
+          "pid": 3732
+        },
+        {
+          "RSS_bytes": 18141184,
+          "comm": "postgres",
+          "pid": 3015
+        },
+        {
+          "RSS_bytes": 5242880,
+          "comm": "postgres",
+          "pid": 3021
+        },
+        {
+          "RSS_bytes": 6184960,
+          "comm": "postgres",
+          "pid": 3020
+        },
+        {
+          "RSS_bytes": 7581696,
+          "comm": "postgres",
+          "pid": 3019
+        },
+        {
+          "RSS_bytes": 5029888,
+          "comm": "postgres",
+          "pid": 3017
+        },
+        {
+          "RSS_bytes": 11640832,
+          "comm": "postgres",
+          "pid": 3016
+        },
+        {
+          "RSS_bytes": 123408384,
+          "comm": "python",
+          "pid": 3733
+        },
+        {
+          "RSS_bytes": 106954752,
+          "comm": "python",
+          "pid": 3747
+        },
+        {
+          "RSS_bytes": 28119040,
+          "comm": "python",
+          "pid": 682724
+        },
+        {
+          "RSS_bytes": 16887808,
+          "comm": "python",
+          "pid": 682729
+        },
+        {
+          "RSS_bytes": 116801536,
+          "comm": "node",
+          "pid": 682730
+        },
+        {
+          "RSS_bytes": 98103296,
+          "comm": "node",
+          "pid": 682753
+        },
+        {
+          "RSS_bytes": 110182400,
+          "comm": "node",
+          "pid": 682776
+        }
+      ],
+      "RSS_samples": 8,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 945553408,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "eebd4cd9fb816b570c71fb69effec883cc3448e347eb191a0558b0bae55aa0bf",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2361,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 2.165946263994556
+    },
+    "focused-solar-screen-inventory-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 126324736,
+          "comm": "python",
+          "pid": 1738
+        },
+        {
+          "RSS_bytes": 8933376,
+          "comm": "nginx",
+          "pid": 1753
+        },
+        {
+          "RSS_bytes": 7503872,
+          "comm": "nginx",
+          "pid": 3882
+        },
+        {
+          "RSS_bytes": 121577472,
+          "comm": "python",
+          "pid": 1752
+        },
+        {
+          "RSS_bytes": 18178048,
+          "comm": "postgres",
+          "pid": 1742
+        },
+        {
+          "RSS_bytes": 5177344,
+          "comm": "postgres",
+          "pid": 1748
+        },
+        {
+          "RSS_bytes": 6115328,
+          "comm": "postgres",
+          "pid": 1747
+        },
+        {
+          "RSS_bytes": 7401472,
+          "comm": "postgres",
+          "pid": 1746
+        },
+        {
+          "RSS_bytes": 4816896,
+          "comm": "postgres",
+          "pid": 1744
+        },
+        {
+          "RSS_bytes": 6250496,
+          "comm": "postgres",
+          "pid": 1743
+        },
+        {
+          "RSS_bytes": 18055168,
+          "comm": "postgres",
+          "pid": 679559
+        },
+        {
+          "RSS_bytes": 27279360,
+          "comm": "python",
+          "pid": 2969
+        },
+        {
+          "RSS_bytes": 137015296,
+          "comm": "python",
+          "pid": 2975
+        },
+        {
+          "RSS_bytes": 8798208,
+          "comm": "nginx",
+          "pid": 3036
+        },
+        {
+          "RSS_bytes": 7610368,
+          "comm": "nginx",
+          "pid": 3732
+        },
+        {
+          "RSS_bytes": 18141184,
+          "comm": "postgres",
+          "pid": 3015
+        },
+        {
+          "RSS_bytes": 5242880,
+          "comm": "postgres",
+          "pid": 3021
+        },
+        {
+          "RSS_bytes": 6184960,
+          "comm": "postgres",
+          "pid": 3020
+        },
+        {
+          "RSS_bytes": 7581696,
+          "comm": "postgres",
+          "pid": 3019
+        },
+        {
+          "RSS_bytes": 5029888,
+          "comm": "postgres",
+          "pid": 3017
+        },
+        {
+          "RSS_bytes": 11640832,
+          "comm": "postgres",
+          "pid": 3016
+        },
+        {
+          "RSS_bytes": 123408384,
+          "comm": "python",
+          "pid": 3733
+        },
+        {
+          "RSS_bytes": 108011520,
+          "comm": "python",
+          "pid": 3747
+        },
+        {
+          "RSS_bytes": 28336128,
+          "comm": "python",
+          "pid": 679555
+        },
+        {
+          "RSS_bytes": 205320192,
+          "comm": "node",
+          "pid": 679560
+        },
+        {
+          "RSS_bytes": 13467648,
+          "comm": "postgres",
+          "pid": 679573
+        }
+      ],
+      "RSS_samples": 16,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 1011879936,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "21869c095f5a3f5d4e3070c6c723d8b92c4a20a6ddd3bdfec6f8f1231779daaa",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 205320192,
+      "source_count": 2361,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 4.186040646003676
+    },
+    "focused-solar-screen-inventory-v2": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 126324736,
+          "comm": "python",
+          "pid": 1738
+        },
+        {
+          "RSS_bytes": 8933376,
+          "comm": "nginx",
+          "pid": 1753
+        },
+        {
+          "RSS_bytes": 7503872,
+          "comm": "nginx",
+          "pid": 3882
+        },
+        {
+          "RSS_bytes": 121577472,
+          "comm": "python",
+          "pid": 1752
+        },
+        {
+          "RSS_bytes": 18178048,
+          "comm": "postgres",
+          "pid": 1742
+        },
+        {
+          "RSS_bytes": 5177344,
+          "comm": "postgres",
+          "pid": 1748
+        },
+        {
+          "RSS_bytes": 6115328,
+          "comm": "postgres",
+          "pid": 1747
+        },
+        {
+          "RSS_bytes": 7401472,
+          "comm": "postgres",
+          "pid": 1746
+        },
+        {
+          "RSS_bytes": 4816896,
+          "comm": "postgres",
+          "pid": 1744
+        },
+        {
+          "RSS_bytes": 6250496,
+          "comm": "postgres",
+          "pid": 1743
+        },
+        {
+          "RSS_bytes": 27279360,
+          "comm": "python",
+          "pid": 2969
+        },
+        {
+          "RSS_bytes": 137015296,
+          "comm": "python",
+          "pid": 2975
+        },
+        {
+          "RSS_bytes": 8798208,
+          "comm": "nginx",
+          "pid": 3036
+        },
+        {
+          "RSS_bytes": 7610368,
+          "comm": "nginx",
+          "pid": 3732
+        },
+        {
+          "RSS_bytes": 18141184,
+          "comm": "postgres",
+          "pid": 3015
+        },
+        {
+          "RSS_bytes": 5242880,
+          "comm": "postgres",
+          "pid": 3021
+        },
+        {
+          "RSS_bytes": 6184960,
+          "comm": "postgres",
+          "pid": 3020
+        },
+        {
+          "RSS_bytes": 7581696,
+          "comm": "postgres",
+          "pid": 3019
+        },
+        {
+          "RSS_bytes": 5029888,
+          "comm": "postgres",
+          "pid": 3017
+        },
+        {
+          "RSS_bytes": 11640832,
+          "comm": "postgres",
+          "pid": 3016
+        },
+        {
+          "RSS_bytes": 123408384,
+          "comm": "python",
+          "pid": 3733
+        },
+        {
+          "RSS_bytes": 108011520,
+          "comm": "python",
+          "pid": 3747
+        },
+        {
+          "RSS_bytes": 28352512,
+          "comm": "python",
+          "pid": 680143
+        },
+        {
+          "RSS_bytes": 201478144,
+          "comm": "node",
+          "pid": 680149
+        }
+      ],
+      "RSS_samples": 16,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 1008054272,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "7020752cf951120e85dd044267bb55ca086753676b4ae56616db7c34b1f17dec",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 201478144,
+      "source_count": 2361,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 4.18924686399987
+    },
+    "focused-solar-status-HTTP-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 126324736,
+          "comm": "python",
+          "pid": 1738
+        },
+        {
+          "RSS_bytes": 8933376,
+          "comm": "nginx",
+          "pid": 1753
+        },
+        {
+          "RSS_bytes": 7503872,
+          "comm": "nginx",
+          "pid": 3882
+        },
+        {
+          "RSS_bytes": 128131072,
+          "comm": "python",
+          "pid": 1752
+        },
+        {
+          "RSS_bytes": 18178048,
+          "comm": "postgres",
+          "pid": 1742
+        },
+        {
+          "RSS_bytes": 5177344,
+          "comm": "postgres",
+          "pid": 1748
+        },
+        {
+          "RSS_bytes": 6115328,
+          "comm": "postgres",
+          "pid": 1747
+        },
+        {
+          "RSS_bytes": 7401472,
+          "comm": "postgres",
+          "pid": 1746
+        },
+        {
+          "RSS_bytes": 4816896,
+          "comm": "postgres",
+          "pid": 1744
+        },
+        {
+          "RSS_bytes": 6250496,
+          "comm": "postgres",
+          "pid": 1743
+        },
+        {
+          "RSS_bytes": 27410432,
+          "comm": "python",
+          "pid": 2969
+        },
+        {
+          "RSS_bytes": 137015296,
+          "comm": "python",
+          "pid": 2975
+        },
+        {
+          "RSS_bytes": 8798208,
+          "comm": "nginx",
+          "pid": 3036
+        },
+        {
+          "RSS_bytes": 7610368,
+          "comm": "nginx",
+          "pid": 3732
+        },
+        {
+          "RSS_bytes": 18141184,
+          "comm": "postgres",
+          "pid": 3015
+        },
+        {
+          "RSS_bytes": 5242880,
+          "comm": "postgres",
+          "pid": 3021
+        },
+        {
+          "RSS_bytes": 6184960,
+          "comm": "postgres",
+          "pid": 3020
+        },
+        {
+          "RSS_bytes": 7581696,
+          "comm": "postgres",
+          "pid": 3019
+        },
+        {
+          "RSS_bytes": 5029888,
+          "comm": "postgres",
+          "pid": 3017
+        },
+        {
+          "RSS_bytes": 11640832,
+          "comm": "postgres",
+          "pid": 3016
+        },
+        {
+          "RSS_bytes": 123408384,
+          "comm": "python",
+          "pid": 3733
+        },
+        {
+          "RSS_bytes": 106954752,
+          "comm": "python",
+          "pid": 3747
+        },
+        {
+          "RSS_bytes": 28192768,
+          "comm": "python",
+          "pid": 683029
+        },
+        {
+          "RSS_bytes": 8421376,
+          "comm": "python",
+          "pid": 683034
+        }
+      ],
+      "RSS_samples": 1,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 820465664,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "40e74541c0b02c981ff8fd7107adf274f1fb2f268a959551fa872e16be3f9fa6",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2368,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "tool": "16257:0",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.33710516600694973
+    },
+    "focused-solar-status-parser-v1": {
+      "G0_G4": "not_assessed",
+      "RSS_peaks_by_identity": [
+        {
+          "RSS_bytes": 126324736,
+          "comm": "python",
+          "pid": 1738
+        },
+        {
+          "RSS_bytes": 8933376,
+          "comm": "nginx",
+          "pid": 1753
+        },
+        {
+          "RSS_bytes": 7503872,
+          "comm": "nginx",
+          "pid": 3882
+        },
+        {
+          "RSS_bytes": 128131072,
+          "comm": "python",
+          "pid": 1752
+        },
+        {
+          "RSS_bytes": 18178048,
+          "comm": "postgres",
+          "pid": 1742
+        },
+        {
+          "RSS_bytes": 5177344,
+          "comm": "postgres",
+          "pid": 1748
+        },
+        {
+          "RSS_bytes": 6115328,
+          "comm": "postgres",
+          "pid": 1747
+        },
+        {
+          "RSS_bytes": 7401472,
+          "comm": "postgres",
+          "pid": 1746
+        },
+        {
+          "RSS_bytes": 4816896,
+          "comm": "postgres",
+          "pid": 1744
+        },
+        {
+          "RSS_bytes": 6250496,
+          "comm": "postgres",
+          "pid": 1743
+        },
+        {
+          "RSS_bytes": 27410432,
+          "comm": "python",
+          "pid": 2969
+        },
+        {
+          "RSS_bytes": 137015296,
+          "comm": "python",
+          "pid": 2975
+        },
+        {
+          "RSS_bytes": 8798208,
+          "comm": "nginx",
+          "pid": 3036
+        },
+        {
+          "RSS_bytes": 7610368,
+          "comm": "nginx",
+          "pid": 3732
+        },
+        {
+          "RSS_bytes": 18141184,
+          "comm": "postgres",
+          "pid": 3015
+        },
+        {
+          "RSS_bytes": 5242880,
+          "comm": "postgres",
+          "pid": 3021
+        },
+        {
+          "RSS_bytes": 6184960,
+          "comm": "postgres",
+          "pid": 3020
+        },
+        {
+          "RSS_bytes": 7581696,
+          "comm": "postgres",
+          "pid": 3019
+        },
+        {
+          "RSS_bytes": 5029888,
+          "comm": "postgres",
+          "pid": 3017
+        },
+        {
+          "RSS_bytes": 11640832,
+          "comm": "postgres",
+          "pid": 3016
+        },
+        {
+          "RSS_bytes": 123408384,
+          "comm": "python",
+          "pid": 3733
+        },
+        {
+          "RSS_bytes": 106954752,
+          "comm": "python",
+          "pid": 3747
+        },
+        {
+          "RSS_bytes": 28160000,
+          "comm": "python",
+          "pid": 682925
+        },
+        {
+          "RSS_bytes": 193622016,
+          "comm": "node",
+          "pid": 682931
+        }
+      ],
+      "RSS_samples": 3,
+      "actual_child_exit": 0,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 1005633536,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "current_rights_restored": null,
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "known_invalid_test_passfiles_removed": 0,
+      "legacy_only_maintenance_window": false,
+      "log_sha256": "5d2a480a712953b9cf7f1c9ebc1f9b271fa42862915144f3f7b6c50a18a10c75",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_processes_observed": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 193622016,
+      "source_count": 2368,
+      "source_preserved": true,
+      "supervisor_error_type": null,
+      "temporary_PG_directories_remaining": [],
+      "tool": "86043:0",
+      "user_previews_maintenance_window": false,
+      "wall_seconds": 0.8528589289926458
+    }
+  },
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "native_context_timestamp": "2026-10-17T06:09:01.916Z",
+    "raw_turn_context_sha256": "7e777cc9b26d44baeaceb5f8fde1ec17fda2d8efd9f5982764115f8f0c8906f2",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+  },
+  "new_solar_user_deployed": false,
+  "next": "S1b new measured allocation cause and small fix, then genuine SDK HTTPS and S2b stored WebGL; retain separate S3/S4 requirements",
+  "private_actor_sha256": {
+    "checkpoint.py": "daaa1466ac6d779f03a65edbb9708b113343613d03516c0dabbc50e6a9d3a869",
+    "close-final-image-design.py": "34002cf9bbb123e80e68727d46bab3ff5cb8d9608e61eada0c47b085696f1f19",
+    "controller.py": "da9eddee5cbb3dbffdbbe3f37c12b242b8a7e45efa264be6c82c330eb8ff80e1",
+    "prepare-report.py": "0b421ad89ef0e4fe2f7e834e8675eae8c998f86531f993f84adbce6ef640e664",
+    "status-HTTP-v1.py": "cd1cf02112afa89d5cc1e49deb83c44bd555e8e33671efcc68eee0162093d2b9"
+  },
+  "published_status_parser_passed": 28,
+  "real_farm_Runs": 0,
+  "recorded_at": "2026-10-17T06:42:54.428434Z",
+  "rights_or_gate_approval": false,
+  "screenshots": {
+    "research/artifacts/greenhouse-solar-completed-desktop.png": {
+      "actual_Chromium_capture": true,
+      "bytes": 1062444,
+      "sha256": "f0cf689f41bdeeba452adcdc1b31955efaa0250630a5a5ce84daebd3777ecd7f",
+      "source_commit": "c500c79588e7eb1220454d1fe57a3f5473446ec8",
+      "source_run": 39010122550,
+      "synthetic_recorded_transport_only": true
+    },
+    "research/artifacts/greenhouse-solar-empty-desktop.png": {
+      "actual_Chromium_capture": true,
+      "bytes": 487866,
+      "sha256": "5b7ac055b64370d56b5572136f7504a561b54c7928b032c1b76ac9b631a31e0a",
+      "source_commit": "c500c79588e7eb1220454d1fe57a3f5473446ec8",
+      "source_run": 39010122550,
+      "synthetic_recorded_transport_only": true
+    },
+    "research/artifacts/greenhouse-solar-hold-desktop.png": {
+      "actual_Chromium_capture": true,
+      "bytes": 1084216,
+      "sha256": "9a96087997ddc9b53bcac9433e7b11de0d6300bd0b3548dbf6f9cffdebf6c598",
+      "source_commit": "c500c79588e7eb1220454d1fe57a3f5473446ec8",
+      "source_run": 39010122550,
+      "synthetic_recorded_transport_only": true
+    },
+    "research/artifacts/greenhouse-solar-initial-desktop.png": {
+      "actual_Chromium_capture": true,
+      "bytes": 963416,
+      "sha256": "3c877b7ceebf80f9633ff6aafbade0f930f75eff24cfb20349ea32ece3001806",
+      "source_commit": "c500c79588e7eb1220454d1fe57a3f5473446ec8",
+      "source_run": 39010122550,
+      "synthetic_recorded_transport_only": true
+    },
+    "research/artifacts/greenhouse-solar-mobile-fallback.png": {
+      "actual_Chromium_capture": true,
+      "bytes": 918284,
+      "sha256": "6edfded95a89f389a415a4c4e887343c9e15ea18ae07dcabbb2fa971710e374d",
+      "source_commit": "c500c79588e7eb1220454d1fe57a3f5473446ec8",
+      "source_run": 39010122550,
+      "synthetic_recorded_transport_only": true
+    }
+  },
+  "source_commit": "c500c79588e7eb1220454d1fe57a3f5473446ec8",
+  "source_sha256": {
+    ".github/workflows/web-tests.yml": "08978ff523be696e17d2e51e0dcf7d53b578d1286b23e1490524fd30749276de",
+    "web/e2e/greenhouse-solar-recorded-responses.json": "b9be03e0dc7ea9e5ac9aa80bfbf7e013d855acdbfc77dc6f89f2e14df672a908",
+    "web/e2e/greenhouse-solar-replay.spec.ts": "42e8381fd7bc9e9521d418040ed3cc6c453b398147cd69943a46a8249b5e1c74",
+    "web/src/CropReplay.tsx": "6eb527ddf11c02055e7fd1b4acb299d9c1d20bfb146c0aa85d82d4f7e3b35e7b",
+    "web/src/GreenhouseSolarReplay.tsx": "cf70abef9856260670a612820b8787161f9d4b07f8899f66ba3962b9725a248e"
+  }
+}

@@ -446,3 +446,8 @@ python3 -B scripts/publish-development-status.py --published-dir <handoff의-pub
 과거/동시각 충돌·형식/범위 오류는 거부한다. 게시 후 실제HTTP bytes/시각과 handoff의 current SHA를 대사한다.
 재기동/배포 시 새 dist와 해당 NGINX alias를 함께 유지해야 한다. dist의 내장 기록은 빌드 당시 fallback이다.
 오래된 시각·조회 실패는 화면에 명시하며, 이 feed는 전체 Codex 실행 로그나 실제 농장 계산 자료가 아니다.
+
+
+## 일사 저장 화면 후보 — 2026-10-17
+
+[구현/검증 기록](../research/crop-greenhouse-solar-saved-web-implementation-20261017.md)의 Solar 선택 화면은 소스와 실제 CI 캡처로 확인한다. 현재5173/5174에는 미배포다. 합성 기록 응답의 같은 UTC/단위·표/그래프/WebGL을 검증했으며 실제 API/저장 화면 결합과 사용자 적용은 S1b/S2b/S4를 따른다.
