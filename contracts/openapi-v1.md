@@ -19,6 +19,15 @@ tests catch drift in methods, schemas, operation IDs, statuses and auth metadata
 Changes require reviewing the generated diff and client compatibility before
 updating the snapshot. This document does not authorize a deployed application.
 
+The [solar execution HTTP contract](api-crop-greenhouse-solar-execution-http-v1.md)
+adds admission, progress and owner cancellation operations. They return authenticated
+503 responses until explicitly assembled. The default snapshot preserves the baseline
+61 paths / 65 operations / 389 schemas and adds three paths / operations and six schemas.
+The solar prefix summary / sample / event routes are documented only by an explicitly
+assembled application using the same execution query and current prefix facade.
+This HTTP acceptance does not enable the operator runtime, independent automatic worker
+or solar user 3D.
+
 All documented operations require HTTP Bearer over HTTPS. `ServiceBearer`
 describes an opaque service credential, not JWT, OAuth or token issuance.
 `x-ossf-required-scopes` lists the AND requirements from the same immutable local
