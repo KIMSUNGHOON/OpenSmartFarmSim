@@ -1,11 +1,11 @@
 {
-  "estimate_reason": "일사 API/워커 분리 진단3개를 완료했습니다. 동시 실행은 여전히 합1GiB 한도로 미수용입니다. 첫 채택/current 검사 연결을 좁힙니다. 기존 환기 적용은 유지하며 새 Solar3D·실제 자료·전체 완료일은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-17T01:43:09.418282Z",
+  "estimate_reason": "일사 조회 연결 회수 native10검사를 통과했습니다. 실제 동시 실행에서 연결4→3·첫 advance 호출을 확인했으나 합1GiB 한도로 미수용입니다. 기존 환기 적용을 유지하며 새 Solar3D·실제 자료·전체 완료일은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-17T02:22:24.777818Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-17T01:43:09.418282Z",
+  "reported_at": "2026-10-17T02:22:24.777818Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -19,7 +19,7 @@
       "state": "completed"
     },
     {
-      "evidence": "기존 환기 적용과 보호 HTTP355/조립109검사를 유지합니다. 일사 단독 워커/API 진단·3GET 계산/쓰기0을 확인했으나 동시 실행은 합 RSS hold입니다. GET/첫 advance 전 중단을 관측해 첫 채택/current 연결 위치를 조사합니다. 새 Solar3D는 미배포입니다.",
+      "evidence": "기존 환기 적용을 유지합니다. 일사 검증 전 조회 연결 회수의 새4/기존6 native 검사를 통과했습니다. 같은 조건의 독립 워커/API에서 연결4→3·첫 advance 호출을 확인했으나 합 RSS hold입니다. 다음은 첫 advance/current 메모리 계측이며 새 Solar3D는 미배포입니다.",
       "id": "api",
       "state": "completed"
     },

@@ -1,0 +1,242 @@
+{
+  "API_request_begin_phases": [
+    "HTTP_POST"
+  ],
+  "G0_G4": "not_assessed",
+  "actual_child_exit": 1,
+  "actual_farm_Runs": 0,
+  "aggregate_limit_bytes": 1073741824,
+  "before_current_max_live_backends": 3,
+  "browser_DOM_WebGL_rerun": false,
+  "combined_peak_RSS_bytes": 1074204672,
+  "component_artifact_sha256": "6f06abfdf974c4efcee82670b8952e408ba1d0f011547715dd57fa8a8c2aa2b0",
+  "component_checks": 10,
+  "component_commit": "6a9eb4a",
+  "concurrency_accepted": false,
+  "controller_FD_before_after": [
+    4,
+    4
+  ],
+  "development_status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_child_exit": 0,
+    "browser_DOM_WebGL_rerun": false,
+    "browser_rerun": false,
+    "log_sha256": "217accf31901eaec077c5f43e6031f854a563ed28587686a465012937323a25b",
+    "original_HTML_both_ports_preserved": true,
+    "reported_at": "2026-10-17T02:22:24.777818Z",
+    "retained_ventilation_files": 2173,
+    "source_sha256": "649d379fc3e7a105693c562d73f18ac25080836bdf8e0e8b67168cb9c091a270",
+    "terminal_sha256": "cb3ac902f1212c1c14db097e478126984a43c9b15c3458e6d4d991bd5a835348",
+    "tool_session": "13149"
+  },
+  "excess_bytes": 462848,
+  "first_advance_invocation_observed": true,
+  "full_CI_rerun": false,
+  "full_product_completion": null,
+  "goal_status": "active",
+  "last_worker_operations": [
+    "advance",
+    "current"
+  ],
+  "log_sha256": "67fda98a5e54ee6332f576bda19d16d5b29a3fbff14d1668a9177c783d78cab2",
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "native_context_timestamp": "2026-10-17T01:45:07.781Z",
+    "raw_turn_context_sha256": "e5464a68af996e4d591572eba3b7a0388ca135f25ff6d4f7fee129b9d65cdffd",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+  },
+  "new_solar_user_3D_deployed": false,
+  "next_safe_action": "Measure owned worker RSS/lifetime retention at first advance/current with low-cost per-phase observations and a separately labelled GC reclamation diagnostic if justified. Do not infer that the small observed excess is sufficient production headroom or weaken current rights/audits/model/source/type/ownership/root/cap checks. No further identical start without new evidence. Then actual unpaused normal/hold/cancel/current-rights/original UTC values before typed Solar3D/user activation.",
+  "owned_process_PG_passfile_temp_remaining": 0,
+  "per_PID_limit_bytes": 536870912,
+  "positive_time_integration_or_completed_checkpoint_accepted": false,
+  "pre_fix_observed_before_current_max_live_backends": 4,
+  "private_probe_sha256": "14ed8ff5fd93900058fb22957b7921a5a6e3ae1d9c1fd5303a72f09ca8f5aa5a",
+  "reason": "RSS_limit",
+  "remaining_focused_hours": null,
+  "reported_at": "2026-10-17T02:22:24.712663Z",
+  "rights_or_gate_approval": false,
+  "same_probe_conditions": {
+    "TLS_client_in_API_actor": true,
+    "chunk_budget": 1,
+    "client_poll_seconds": 10,
+    "configured_API": true,
+    "input_steps": 64,
+    "separate_autonomous_worker": true,
+    "tracemalloc": false,
+    "worker_barrier": false
+  },
+  "sampled_peak_worker_backend_call_sites": [
+    {
+      "call_stack": [
+        {
+          "file": "runtime_login.py",
+          "function": "connect_runtime",
+          "line": 36
+        },
+        {
+          "file": "market_runtime.py",
+          "function": "connect_market",
+          "line": 17
+        },
+        {
+          "file": "market_source_store.py",
+          "function": "connect",
+          "line": 92
+        },
+        {
+          "file": "market_source_store.py",
+          "function": "read_scope",
+          "line": 99
+        },
+        {
+          "file": "contextlib.py",
+          "function": "__enter__",
+          "line": 137
+        },
+        {
+          "file": "market_candidate_store.py",
+          "function": "read_scope",
+          "line": 212
+        },
+        {
+          "file": "contextlib.py",
+          "function": "__enter__",
+          "line": 137
+        },
+        {
+          "file": "market_scenario.py",
+          "function": "validate_pinned",
+          "line": 627
+        },
+        {
+          "file": "farm_authoring_storage.py",
+          "function": "_prepare",
+          "line": 180
+        },
+        {
+          "file": "farm_authoring_storage.py",
+          "function": "_read",
+          "line": 261
+        },
+        {
+          "file": "farm_authoring_storage.py",
+          "function": "read_registration",
+          "line": 418
+        },
+        {
+          "file": "crop_greenhouse_solar_farm_binding.py",
+          "function": "_registration",
+          "line": 111
+        },
+        {
+          "file": "crop_greenhouse_solar_farm_binding.py",
+          "function": "_bind",
+          "line": 135
+        }
+      ],
+      "operations": [
+        "_before",
+        "current"
+      ],
+      "owned_PID_start_identity_matched": true,
+      "sampled_backend_RSS_bytes": 12546048
+    },
+    {
+      "call_stack": [
+        {
+          "file": "runtime_login.py",
+          "function": "connect_runtime",
+          "line": 36
+        },
+        {
+          "file": "market_runtime.py",
+          "function": "connect_market",
+          "line": 17
+        },
+        {
+          "file": "market_candidate_store.py",
+          "function": "connect",
+          "line": 183
+        },
+        {
+          "file": "market_candidate_store.py",
+          "function": "read_scope",
+          "line": 213
+        },
+        {
+          "file": "contextlib.py",
+          "function": "__enter__",
+          "line": 137
+        },
+        {
+          "file": "market_scenario.py",
+          "function": "validate_pinned",
+          "line": 627
+        },
+        {
+          "file": "farm_authoring_storage.py",
+          "function": "_prepare",
+          "line": 180
+        },
+        {
+          "file": "farm_authoring_storage.py",
+          "function": "_read",
+          "line": 261
+        },
+        {
+          "file": "farm_authoring_storage.py",
+          "function": "read_registration",
+          "line": 418
+        },
+        {
+          "file": "crop_greenhouse_solar_farm_binding.py",
+          "function": "_registration",
+          "line": 111
+        },
+        {
+          "file": "crop_greenhouse_solar_farm_binding.py",
+          "function": "_bind",
+          "line": 135
+        },
+        {
+          "file": "crop_greenhouse_solar_farm_binding.py",
+          "function": "current",
+          "line": 151
+        }
+      ],
+      "operations": [
+        "_before",
+        "current"
+      ],
+      "owned_PID_start_identity_matched": true,
+      "sampled_backend_RSS_bytes": 12541952
+    }
+  ],
+  "schema_version": "solar-post-fix-resource-hold-v1",
+  "source_original_2148_roots_5_both_services_preserved": true,
+  "terminal_sha256": "9b6022f80f506e9f40cb9f16253989b4b777a65adb4712d602c205b9bedfa10f",
+  "tool_session": "98447",
+  "trace_sha256": {
+    "api": "76886b035640b2123039725e04424f50db175dd37eff240ae3bbc6fcd874d4c2",
+    "worker": "dc1da636981262fb73af7c9b4e342777645bacce03abd238cc740b0bcdf16d9b"
+  },
+  "wall_seconds": 31.382017623000138
+}

@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**현재 일사 할당 진단 — 2026-10-17:** [워커/API 분리 진단3개](../research/crop-greenhouse-solar-allocation-diagnosis-20261017.md)를 완료했다. 실제 SCRAM/TLS 조회3건의 계산/SQL 변경0을 확인했으나 클라이언트 절감 뒤 동시 실행도 합 RSS에서 미수용이다. 추가 추적은 API GET/첫 수치 advance 이전 중단을 확인했다. 다음은 첫 custody 채택/current 검사의 연결 위치 분리다. 새 Solar3D·전체 CI·실제 농장/생산/경제/추천·완료일은 미수용/미정이며 goal active다.
+**현재 일사 조회 연결 회수 — 2026-10-17:** [새4/기존6=집중10개 native 검사](../research/crop-greenhouse-solar-before-connection-implementation-20261017.md)로 검증 전 조회 연결 회수를 수용했다. [같은 조건의 실제 재검증](../research/crop-greenhouse-solar-post-fix-resource-hold-20261017.md)에서 연결4→3·첫 advance 호출을 확인했으나 합 RSS로 동시 실행은 미수용이다. 다음은 첫 advance/current의 소유 메모리 보유 계측이다. 새 Solar3D·전체 CI·실제 농장/생산/경제/추천·완료일은 미완료/미정이며 goal active다.
 
 **이전 일사 실행 조립 — 2026-10-17:** [설정·실제 API 조립109검사](../research/crop-greenhouse-solar-execution-assembly-implementation-20261017.md)는 부분 수용했다. [독립 작업자/API 동시 실행](../research/crop-greenhouse-solar-unpaused-resource-hold-20261017.md)은 합 RSS 한도로 미수용이다. 다음은 owned API/worker 할당의 분리 계측과 근거가 있는 작은 수정이다. 원5root/두 서비스/키/자료·한도·관문을 유지하며 새 Solar3D·전체 CI·실제 농장/생산/경제/추천·전체 완료일은 미수용/미정이다. goal active를 유지한다.
 
