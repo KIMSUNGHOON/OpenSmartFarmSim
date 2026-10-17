@@ -11,6 +11,10 @@ on:
         description: Check only independent normal Solar API and worker execution (no WSL capacity claim)
         type: boolean
         default: false
+      solar_worker_diagnostics:
+        description: Observe caught worker exceptions only; this cannot accept normal execution
+        type: boolean
+        default: false
       browser_suite:
         description: Browser acceptance scope (all is the complete regression gate)
         type: choice
@@ -87,6 +91,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
+      OSSF_SOLAR_TRACE_WORKER: ${{ inputs.solar_worker_diagnostics && '1' || '0' }}
       PYTHONDONTWRITEBYTECODE: '1'
       PYTHONMALLOC: malloc
       MALLOC_ARENA_MAX: '2'
@@ -141,6 +146,7 @@ jobs:
             ${{ runner.temp }}/solar-unpaused-evidence/resource.json
             ${{ runner.temp }}/solar-unpaused-evidence/failure.json
             ${{ runner.temp }}/solar-unpaused-evidence/actor-diagnostics.json
+            ${{ runner.temp }}/solar-unpaused-evidence/worker-caught-diagnostics.json
           retention-days: 3
           compression-level: 0
           if-no-files-found: ignore

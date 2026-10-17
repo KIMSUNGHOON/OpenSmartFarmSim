@@ -15,6 +15,23 @@ import traceback
 
 ROOT = Path(__file__).resolve().parents[2]
 PROTOTYPE = ROOT/'research/crop-greenhouse-solar-unpaused-probe.py'
+WORKER_TRACE = r'''
+import sys as _trace_sys,traceback as _trace_tb
+_trace_records=[]
+def _observe_worker_exception(frame,event,arg):
+ selected=frame.f_code.co_filename.endswith('/app/crop_greenhouse_solar_execution_worker.py')
+ if selected and event=='exception':
+  kind,value,tb=arg
+  _trace_records.append({'exception_type':kind.__name__,'locations':[
+   {'file':Path(v.filename).name,'line':v.lineno,'function':v.name}
+   for v in _trace_tb.extract_tb(tb)[-16:]]})
+  del _trace_records[:-16]
+  destination=Path(_trace_sys.argv[1]).parent/'worker-caught-diagnostics.private.json'
+  with destination.open('w') as out:
+   os.fchmod(out.fileno(),0o600);json.dump(_trace_records,out)
+ return _observe_worker_exception if selected else None
+_trace_sys.settrace(_observe_worker_exception)
+'''
 
 
 def save(path, value):
@@ -42,6 +59,9 @@ def exercise(evidence):
     spec = importlib.util.spec_from_file_location('original_unpaused', PROTOTYPE)
     prototype = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(prototype)
+    diagnostic = os.environ.get('OSSF_SOLAR_TRACE_WORKER') == '1'
+    if diagnostic:
+        prototype.WORKER = WORKER_TRACE + prototype.WORKER
     os.environ['OSSF_SOLAR_EXECUTION_RUNTIME_EVIDENCE'] = str(evidence)
     original_run, original_popen = subprocess.run, subprocess.Popen
     actors = []
@@ -58,6 +78,10 @@ def exercise(evidence):
                     'worker_proof_present':(script.parent/'worker-proof.private.json').exists(),
                     'api_proof_present':(script.parent/'api-proof.private.json').exists(),
                     'client_proof_present':(script.parent/'api-client-proof.private.json').exists()})
+            if processes:
+                caught = processes[-1][1].parent/'worker-caught-diagnostics.private.json'
+                if caught.exists():
+                    save(evidence/'worker-caught-diagnostics.json', json.loads(caught.read_bytes()))
             save(evidence/'actor-diagnostics.json', diagnostics)
         result = original_run(argv, *args, **kwargs)
         if len(argv) == 5 and argv[2:4] == ['-c', prototype.CLEANUP]:
@@ -101,7 +125,8 @@ def exercise(evidence):
     assert proof['api']['FD_unchanged'] and not any(proof['api']['calls'].values())
     save(evidence/'normal.json', {'original_proof':proof, 'actors':actors,
         'prototype_sha256':sha256(PROTOTYPE.read_bytes()).hexdigest(),
-        'original_actor_program_and_arguments_unchanged':True,
+        'original_actor_program_and_arguments_unchanged':not diagnostic,
+        'diagnostic_observation_only':diagnostic,
         'hosted_only':True, 'WSL_capacity_accepted':False,
         'source_commit':os.environ['GITHUB_SHA'], 'run_id':os.environ['GITHUB_RUN_ID'],
         'actual_crop_Runs':0, 'G0_G4':'not_assessed', 'rights_or_gate_approval':False})
@@ -171,6 +196,7 @@ def supervise(evidence):
     save(evidence/'resource.json', result)
     assert child.returncode == 0 and reason is None and before == after and not remaining and temporary_entries == 0, result
     assert (evidence/'normal.json').is_file() and (evidence/'database-cleanup.json').is_file()
+    assert os.environ.get('OSSF_SOLAR_TRACE_WORKER') != '1', 'Diagnostic observations cannot accept normal execution'
 
 
 if __name__ == '__main__':
