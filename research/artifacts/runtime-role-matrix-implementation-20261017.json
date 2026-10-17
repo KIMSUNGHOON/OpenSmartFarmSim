@@ -1,0 +1,682 @@
+{
+  "G0_G4": "not_assessed",
+  "WSL_concurrent_capacity_accepted": false,
+  "acceptance_tests": {
+    "existing_role_and_login_regression": 39,
+    "new_current_matrix": 12,
+    "normal_hold_and_late_rights_solar_query": 3
+  },
+  "actual_farm_Runs": 0,
+  "changed_application_files": [
+    "backend/app/runtime_roles.py"
+  ],
+  "focused_distinct_tests_passed": 54,
+  "full_backend_or_browser_suite_run": false,
+  "limits": [
+    "Separate full-read profiles are timing-confounded; no speed claim from them.",
+    "Only paired component medians support the approximately12percent timing observation.",
+    "Original unpaused64-step normal, hold/cancel/liveWebGL/WSLcapacity and deployment require separate evidence."
+  ],
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "a1de333dff606368db95fed4a069a00723fe725d9f5387ead1dcd9058fa9bc25",
+    "recursive_cli": false,
+    "timestamp": "2026-10-17T14:32:51.310Z"
+  },
+  "new_Solar_deployed": false,
+  "next_CI": null,
+  "normal_unpaused_execution_accepted": false,
+  "paired_audits": {
+    "G0_G4": "not_assessed",
+    "rights_or_gate_approval": false,
+    "samples": [
+      {
+        "audits": 21,
+        "kind": "before",
+        "seconds": 0.3919432609982323
+      },
+      {
+        "audits": 21,
+        "kind": "after",
+        "seconds": 0.3197438659990439
+      },
+      {
+        "audits": 21,
+        "kind": "after",
+        "seconds": 0.36201004500617273
+      },
+      {
+        "audits": 21,
+        "kind": "before",
+        "seconds": 0.4993997209967347
+      },
+      {
+        "audits": 21,
+        "kind": "before",
+        "seconds": 0.4342241389967967
+      },
+      {
+        "audits": 21,
+        "kind": "after",
+        "seconds": 0.356256855011452
+      },
+      {
+        "audits": 21,
+        "kind": "after",
+        "seconds": 0.3551339269906748
+      },
+      {
+        "audits": 21,
+        "kind": "before",
+        "seconds": 0.41867848199035507
+      },
+      {
+        "audits": 21,
+        "kind": "before",
+        "seconds": 0.3611731169949053
+      },
+      {
+        "audits": 21,
+        "kind": "after",
+        "seconds": 0.3335083050042158
+      },
+      {
+        "audits": 21,
+        "kind": "after",
+        "seconds": 0.3694049019977683
+      },
+      {
+        "audits": 21,
+        "kind": "before",
+        "seconds": 0.372617219996755
+      }
+    ],
+    "scope": "paired component audits on same actual owned DB/connection; ABBA three cycles; no native throughput claim"
+  },
+  "paired_component_improvement_percent": 12.241339668563223,
+  "paired_median_seconds_per_21_audits": {
+    "after": 0.3556953910010634,
+    "before": 0.4053108714942937
+  },
+  "probe_hashes": {
+    "runtime-roles-before-matrix.py": "eef434bd9ed883d3ab440ac7375f05f2f58b33551f7d771b923bac8763c2bb99",
+    "test_farm_read_profile_v1.py": "aba898f32d25ae9cc72b77ba6ae50945108bcf9ba29bb615c28841153458c41a",
+    "test_farm_read_profile_v2.py": "cf5e212323763e62b68ee79845dd75ca72ab047a2c0acb543da980f7dd838e9f",
+    "test_farm_read_profile_v3.py": "a110cf1a63ba00aaaae17a96db020a8635db5a72fb6c382b6347796642d08c96",
+    "test_paired_runtime_audits_v1.py": "5c671ab8a97929ede0c27e48f2e96576056cb129bc8e051c508b30c919fdb7ee",
+    "test_runtime_matrix_regression_v1.py": "89e1e595481a3516bd4d8f2ff91619a5b305f423bd7568ba619e3acdbec40bff"
+  },
+  "profiles": {
+    "1": {
+      "G0_G4": "not_assessed",
+      "raw_sha256": "745d21da9c922c83d56a226b56d1474ad4066c7cb9d499e782feec07a5ccb479",
+      "rights_or_gate_approval": false,
+      "scope": "one actual current farm-registration read; profiled component only",
+      "selected_functions": [
+        {
+          "calls": 1,
+          "file": "farm_authoring_storage.py",
+          "function": "FarmAuthoringService.read_registration",
+          "inclusive_seconds": 0.514068795,
+          "recursive_calls": 0,
+          "self_seconds": 0.00011944600000000001
+        },
+        {
+          "calls": 1,
+          "file": "farm_authoring_storage.py",
+          "function": "FarmAuthoringService._prepare",
+          "inclusive_seconds": 0.48179190800000005,
+          "recursive_calls": 0,
+          "self_seconds": 0.00015757300000000002
+        },
+        {
+          "calls": 1,
+          "file": "market_scenario.py",
+          "function": "MarketScenarioService.validate_pinned_context",
+          "inclusive_seconds": 0.39115408700000004,
+          "recursive_calls": 0,
+          "self_seconds": 5.0817000000000005e-05
+        },
+        {
+          "calls": 21,
+          "file": "runtime_roles.py",
+          "function": "audit_runtime_roles",
+          "inclusive_seconds": 0.278957334,
+          "recursive_calls": 0,
+          "self_seconds": 0.001714898
+        }
+      ],
+      "wall_seconds": 0.5141644079994876
+    },
+    "2": {
+      "G0_G4": "not_assessed",
+      "audit_SQL": {
+        "column_matrix": {
+          "calls": 21,
+          "rows": 8736,
+          "seconds": 0.03661467997881118
+        },
+        "other_audit_SQL": {
+          "calls": 147,
+          "rows": 168,
+          "seconds": 0.09572779205336701
+        },
+        "table_matrix": {
+          "calls": 21,
+          "rows": 15288,
+          "seconds": 0.032740628957981244
+        }
+      },
+      "raw_sha256": "071a29a8552cabb079150f66c7264d7335dc33a68ba4115d57b7a4ce21513267",
+      "rights_or_gate_approval": false,
+      "scope": "one actual current farm-registration read; profiled component only",
+      "selected_functions": [
+        {
+          "calls": 1,
+          "file": "farm_authoring_storage.py",
+          "function": "FarmAuthoringService.read_registration",
+          "inclusive_seconds": 0.504567945,
+          "recursive_calls": 0,
+          "self_seconds": 0.00011034900000000001
+        },
+        {
+          "calls": 1,
+          "file": "farm_authoring_storage.py",
+          "function": "FarmAuthoringService._prepare",
+          "inclusive_seconds": 0.471740647,
+          "recursive_calls": 0,
+          "self_seconds": 0.000176126
+        },
+        {
+          "calls": 1,
+          "file": "market_scenario.py",
+          "function": "MarketScenarioService.validate_pinned_context",
+          "inclusive_seconds": 0.385386579,
+          "recursive_calls": 0,
+          "self_seconds": 6.2995e-05
+        },
+        {
+          "calls": 21,
+          "file": "runtime_roles.py",
+          "function": "audit_runtime_roles",
+          "inclusive_seconds": 0.275940684,
+          "recursive_calls": 0,
+          "self_seconds": 0.001557294
+        }
+      ],
+      "wall_seconds": 0.5046535509900423
+    },
+    "3": {
+      "G0_G4": "not_assessed",
+      "audit_SQL": {
+        "column_matrix": {
+          "calls": 21,
+          "rows": 0,
+          "seconds": 0.07630728796357289
+        },
+        "other_audit_SQL": {
+          "calls": 147,
+          "rows": 168,
+          "seconds": 0.20216327394882683
+        },
+        "table_matrix": {
+          "calls": 21,
+          "rows": 0,
+          "seconds": 0.07176685699960217
+        }
+      },
+      "raw_sha256": "eaa9d1f37eafb335af93f58197f3ba5e7d6e8dfd97a1a44ea4da654725ff2474",
+      "rights_or_gate_approval": false,
+      "scope": "one actual current farm-registration read; profiled component only",
+      "selected_functions": [
+        {
+          "calls": 1,
+          "file": "farm_authoring_storage.py",
+          "function": "FarmAuthoringService.read_registration",
+          "inclusive_seconds": 0.927605662,
+          "recursive_calls": 0,
+          "self_seconds": 0.00028464100000000003
+        },
+        {
+          "calls": 1,
+          "file": "farm_authoring_storage.py",
+          "function": "FarmAuthoringService._prepare",
+          "inclusive_seconds": 0.8720217240000001,
+          "recursive_calls": 0,
+          "self_seconds": 0.0007211050000000001
+        },
+        {
+          "calls": 1,
+          "file": "market_scenario.py",
+          "function": "MarketScenarioService.validate_pinned_context",
+          "inclusive_seconds": 0.7129504560000001,
+          "recursive_calls": 0,
+          "self_seconds": 0.000116032
+        },
+        {
+          "calls": 21,
+          "file": "runtime_roles.py",
+          "function": "audit_runtime_roles",
+          "inclusive_seconds": 0.507518339,
+          "recursive_calls": 0,
+          "self_seconds": 0.008961988
+        }
+      ],
+      "wall_seconds": 0.9277676429919666
+    }
+  },
+  "rights_or_gate_approval": false,
+  "runtime_roles_sha256": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0",
+  "schema_version": "runtime-role-matrix-implementation-v1",
+  "solar_query_evidence": {
+    "database-cleanup.json": {
+      "roles": 0,
+      "schemas": 0
+    },
+    "serialization-rights.json": {
+      "calls": {
+        "CLI": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "SQL_write_attempts": 0,
+        "_put_in_transaction": 0,
+        "advance": 0,
+        "confirm": 0,
+        "event": 0,
+        "jobs._durable_artifact": 0,
+        "jobs._event": 0,
+        "jobs._insert_publication": 0,
+        "jobs._outcome": 0,
+        "jobs.ack_cancel": 0,
+        "jobs.cancel": 0,
+        "jobs.claim": 0,
+        "jobs.fail": 0,
+        "jobs.renew": 0,
+        "jobs.submit": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "put": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "late_source_revocation_rejected": true,
+      "query_database_unchanged": true
+    },
+    "terminal-completed.json": {
+      "calls": {
+        "CLI": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "SQL_write_attempts": 0,
+        "_put_in_transaction": 0,
+        "advance": 0,
+        "confirm": 0,
+        "event": 0,
+        "jobs._durable_artifact": 0,
+        "jobs._event": 0,
+        "jobs._insert_publication": 0,
+        "jobs._outcome": 0,
+        "jobs.ack_cancel": 0,
+        "jobs.cancel": 0,
+        "jobs.claim": 0,
+        "jobs.fail": 0,
+        "jobs.renew": 0,
+        "jobs.submit": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "put": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "checkpoint": {
+        "artifact_sha256": "956d6f60824808c9ba7eaa62c2e82e6376491fb1c9bea00aa5b4e3e3f512bec5",
+        "checkpoint_recorded_at": "2026-10-17T14:47:32.706434Z",
+        "computed_through_utc": "2026-10-01T00:00:32.123456Z",
+        "counts": {
+          "events": 3,
+          "samples": 3
+        },
+        "head_sha256": "bca5371072871531cc139ed404e8636ac88c9c59ce794a3324cf509b49e28e9e",
+        "planned_steps": 16,
+        "proof_sha256": "8751c5371409659076be4df767e286ae112a100591d77510cfda24fa5ce46b01",
+        "provenance_sha256": "79beb12a6068b706d336ae091ac5c0310ed225549db36b2a97d04b563ffcac23",
+        "publication_sequence": 1,
+        "rights_or_gate_approval": false,
+        "status": "completed",
+        "steps": 16
+      },
+      "checkpoint_status": "current",
+      "job_state": "succeeded",
+      "publication_count": 1,
+      "query_database_unchanged": true
+    },
+    "terminal-hold.json": {
+      "calls": {
+        "CLI": 0,
+        "NIR": 0,
+        "PAR": 0,
+        "RHS": 0,
+        "SQL_write_attempts": 0,
+        "_put_in_transaction": 0,
+        "advance": 0,
+        "confirm": 0,
+        "event": 0,
+        "jobs._durable_artifact": 0,
+        "jobs._event": 0,
+        "jobs._insert_publication": 0,
+        "jobs._outcome": 0,
+        "jobs.ack_cancel": 0,
+        "jobs.cancel": 0,
+        "jobs.claim": 0,
+        "jobs.fail": 0,
+        "jobs.renew": 0,
+        "jobs.submit": 0,
+        "prepare_binding": 0,
+        "prepare_context": 0,
+        "put": 0,
+        "restore": 0,
+        "solar": 0,
+        "start": 0,
+        "step": 0,
+        "ventilation": 0
+      },
+      "checkpoint": {
+        "artifact_sha256": "4df85f9d87f8ec46a457cf594896f3033ca3b794168f78b696e905f16324a5f7",
+        "checkpoint_recorded_at": "2026-10-17T14:48:43.938477Z",
+        "computed_through_utc": "2026-10-01T00:00:32.123456Z",
+        "counts": {
+          "events": 2,
+          "samples": 2
+        },
+        "head_sha256": "ed0b11f15f88538231292d49c9552e7956dca901925842ec6d9b180313f26dcb",
+        "planned_steps": 16,
+        "proof_sha256": "c58fe4311814d026f61d0cfb4c6ad1d7ad8757996dc55fc07b1d0f1170450988",
+        "provenance_sha256": "0694451285d55ece28981b6d6e50b188819a60b007823ea809c89af1a4901c64",
+        "publication_sequence": 1,
+        "rights_or_gate_approval": false,
+        "status": "hold",
+        "steps": 16
+      },
+      "checkpoint_status": "current",
+      "job_state": "hold",
+      "publication_count": 0,
+      "query_database_unchanged": true
+    }
+  },
+  "source_commit": null,
+  "stages": {
+    "focused-farm-read-profile-v1": {
+      "actual_tool": "36683:0",
+      "raw_terminal_sha256": "ec89356cbdc6c67696dda140e7c894e71b67b5e474b00ee6b999a1f1529ba6f7",
+      "result": {
+        "RSS_samples": 64,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1031368704,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "bfbfc6c2526b9be6664e646c2dd993c4ed653300ca848d1db997e52c83f95b7c",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2419,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 17.29303140900447
+      }
+    },
+    "focused-farm-read-profile-v2": {
+      "actual_tool": "81413:0",
+      "raw_terminal_sha256": "48f1ca783557e8deccf63f2d231c25392d1c4e29899d4045d466b251e8346894",
+      "result": {
+        "RSS_samples": 64,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1037729792,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "2d59560c3fe7b5200a6051d19b8fd3fb1bb1a60c436b1adf4434a300577c2b99",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2419,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 17.306729837990133
+      }
+    },
+    "focused-farm-read-profile-v3": {
+      "actual_tool": "69214:0",
+      "raw_terminal_sha256": "ff014d2076dbef54b86c5cdddef17feb7fe901bf73321a5f28e568c266d3907c",
+      "result": {
+        "RSS_samples": 130,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1034100736,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "617ff6647d8c5b930583bb05b144437c0773b9a9a355d1635bd9533f95adcc13",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2421,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 35.96568702899094
+      }
+    },
+    "focused-paired-runtime-audits-v1": {
+      "actual_tool": "46703:0",
+      "raw_terminal_sha256": "39bc2b0e7508c30b3a1956bd1201f285faf9f32d9f5bcb37c659c1105f75ebd1",
+      "result": {
+        "RSS_samples": 46,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 988577792,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "0a69cce165d19d0d1e1555e18b6b16455c7ae236c3c6a6d53a875a5d98311619",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2421,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 12.363664516000426
+      }
+    },
+    "focused-runtime-role-matrix-green-v1": {
+      "actual_tool": "51842:0",
+      "raw_terminal_sha256": "4c59166d8d1dd8436e61ce0a8e4e450e7700ff92a80c396624c9c2443a1c6527",
+      "result": {
+        "RSS_samples": 67,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1008545792,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "a23f146062745536b78a30f8c90422efb041974662aaccac8b5025b64b2650d5",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2421,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 18.76888441698975
+      }
+    },
+    "focused-runtime-role-matrix-red-v1": {
+      "actual_tool": "31018:1",
+      "raw_terminal_sha256": "bcf71241f613d6caedb02c4f6103f9cedd383b1eb4e082a33ebc1c17a31d82a9",
+      "result": {
+        "RSS_samples": 15,
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 990048256,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "08de33a8654c6ab3fcf5011258f82fbbc38b7f54267d45f333292f7f7a843685",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2421,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 4.10079001300619
+      }
+    },
+    "regression-runtime-matrix-solar-v1": {
+      "actual_tool": "21391:0",
+      "raw_terminal_sha256": "cbc1b6a6f59d29c7ae3c35fc9b34a7e2c470fe9f53c9e1be3901e25431ef545a",
+      "result": {
+        "RSS_samples": 607,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1061945344,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "9636bf83cb77ee450e0ccd5a8b8b51e9c45cdf6a377fe4184d0221b32e1666af",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2421,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 167.43304738799634
+      }
+    },
+    "regression-runtime-role-matrix-v1": {
+      "actual_tool": "27737:0",
+      "raw_terminal_sha256": "facdd901ce3588f0f341decb640ea6a85998c1cba741a129ea1d6071fdef58a5",
+      "result": {
+        "RSS_samples": 112,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 989597696,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "a5ea3a017e3888c812944638825f155ac17a2cc1bf0e4007b39f5c455e837491",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2421,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 30.584118149999995
+      }
+    }
+  }
+}

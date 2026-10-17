@@ -231,28 +231,45 @@ def audit_runtime_roles(conn, policy):
         WHERE has_sequence_privilege(role_name,sequences.oid,privilege) LIMIT 1
     """, (role_names, sequence_ids)).fetchone():
         raise RolePolicyHold("runtime_sequence_privilege")
-    values = conn.execute("""
-        SELECT role_name, t.oid AS relation_oid, p AS privilege,
-            has_table_privilege(role_name,t.oid,p) AS allowed,
-            has_table_privilege(role_name,t.oid,p || ' WITH GRANT OPTION') AS grantable
-        FROM unnest(%s::name[]) profiles(role_name)
-            CROSS JOIN unnest(%s::oid[]) t(oid) CROSS JOIN unnest(%s::text[]) p
-    """, (role_names, list(table_names), privileges)).fetchall()
-    if any(item["allowed"] != _allowed(policy, role_kinds[item["role_name"]],
-            table_names[item["relation_oid"]], item["privilege"]) or item["grantable"] for item in values):
-        raise RolePolicyHold("runtime_table_grant_matrix")
-    columns = conn.execute("""
-        SELECT role_name, t.oid AS relation_oid, p AS privilege,
-            has_table_privilege(role_name,t.oid,p) AS table_allowed,
-            has_any_column_privilege(role_name,t.oid,p) AS allowed,
-            has_any_column_privilege(role_name,t.oid,p || ' WITH GRANT OPTION') AS grantable
+    expected = [(role, oid, privilege)
+        for role, kind in role_kinds.items() for oid, name in table_names.items()
+        for privilege in privileges if _allowed(policy, kind, name, privilege)]
+    expected_params = tuple([item[index] for item in expected] for index in range(3))
+    if conn.execute("""
+        WITH expected AS (
+            SELECT * FROM unnest(%s::name[],%s::oid[],%s::text[])
+                grants(role_name,relation_oid,privilege))
+        SELECT 1
         FROM unnest(%s::name[]) profiles(role_name)
             CROSS JOIN unnest(%s::oid[]) t(oid)
-            CROSS JOIN unnest(ARRAY['SELECT','INSERT','UPDATE','REFERENCES']) p
-    """, (role_names, list(table_names))).fetchall()
-    if any(item["allowed"] != _allowed(policy, role_kinds[item["role_name"]],
-            table_names[item["relation_oid"]], item["privilege"])
-            or item["table_allowed"] != item["allowed"] or item["grantable"] for item in columns):
+            CROSS JOIN unnest(%s::text[]) p(privilege)
+            LEFT JOIN expected e ON e.role_name=profiles.role_name
+                AND e.relation_oid=t.oid AND e.privilege=p.privilege
+        WHERE has_table_privilege(profiles.role_name,t.oid,p.privilege)
+                IS DISTINCT FROM (e.role_name IS NOT NULL)
+            OR has_table_privilege(profiles.role_name,t.oid,p.privilege || ' WITH GRANT OPTION')
+                IS DISTINCT FROM FALSE
+        LIMIT 1
+    """, (*expected_params, role_names, list(table_names), privileges)).fetchone():
+        raise RolePolicyHold("runtime_table_grant_matrix")
+    if conn.execute("""
+        WITH expected AS (
+            SELECT * FROM unnest(%s::name[],%s::oid[],%s::text[])
+                grants(role_name,relation_oid,privilege))
+        SELECT 1
+        FROM unnest(%s::name[]) profiles(role_name)
+            CROSS JOIN unnest(%s::oid[]) t(oid)
+            CROSS JOIN unnest(ARRAY['SELECT','INSERT','UPDATE','REFERENCES']) p(privilege)
+            LEFT JOIN expected e ON e.role_name=profiles.role_name
+                AND e.relation_oid=t.oid AND e.privilege=p.privilege
+        WHERE has_table_privilege(profiles.role_name,t.oid,p.privilege)
+                IS DISTINCT FROM (e.role_name IS NOT NULL)
+            OR has_any_column_privilege(profiles.role_name,t.oid,p.privilege)
+                IS DISTINCT FROM (e.role_name IS NOT NULL)
+            OR has_any_column_privilege(profiles.role_name,t.oid,p.privilege || ' WITH GRANT OPTION')
+                IS DISTINCT FROM FALSE
+        LIMIT 1
+    """, (*expected_params, role_names, list(table_names))).fetchone():
         raise RolePolicyHold("runtime_column_grant_matrix")
     if conn.execute("""
         SELECT 1 FROM unnest(%s::name[]) profiles(role_name)
