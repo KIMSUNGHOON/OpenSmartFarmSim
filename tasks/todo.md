@@ -1,8 +1,16 @@
 # 첫 구현 작업 목록
 
+- [x] **`crop-solar-current-binding-cost`** — [실제 한 청크의 검증 반복](../research/crop-solar-current-binding-cost-20261018.md).
+  원 source9144809·실제1→2/UTC·proof3개/identity·관찰1검사·5root/정리 통과.
+  current12/registration24/audit528·수치 청크0.048초를 분리했다. 계측 포함14.760초이며 원64 정상 수용은 아니다.
+- [ ] **`crop-solar-current-binding-validation-slice`** — 위 비용 기록의 다음 수용 기준을 따른다.
+  12개 current 경계의 mutable 참조/권리/판본을 먼저 대조해 최소 변경을 고정한다.
+  현재 검사·같은 binding/UTC/HMAC/ancestry·철회/변조/취소/만료 차단·FD/원본/정리를 보존하며
+  같은 조건에서 full registration 반복24보다 감소/paired 비용을 증명한다. 이후 원64 정상은 별도 통과한다.
+
 - [x] **`runtime-role-matrix-query`** — [현재 감사 전송량과 비용](../research/runtime-role-matrix-implementation-20261017.md), source9144809.
   새12/기존 역할·로그인39/Solar 결과·권리3의 고유54검사를 통과했다. 실제21감사·24,024→0행,
-  같은 DB의 paired21감사 중앙값0.405311→0.355695초다. 다음은 원 독립64단계 정상이다.
+  같은 DB의 paired21감사 중앙값0.405311→0.355695초다. 원 독립 CI39042611904는383.075초·저장16/64로 미완료다. 다음은 현재 binding 반복 비용 분리다.
   컴포넌트12.24% 관측으로 전체 처리량·S3/S4·WSL 용량·관문을 수용하지 않는다.
 
 - [x] **`crop-solar-failed-checkpoint-metadata`** — [종료 뒤 실제 저장 metadata](../research/crop-solar-unpaused-postmortem-20261017.md).

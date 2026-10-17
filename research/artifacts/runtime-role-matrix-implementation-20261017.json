@@ -54,12 +54,48 @@
   "changed_application_files": [
     "backend/app/runtime_roles.py"
   ],
+  "failed_CI_status_publication": {
+    "HTTP_bytes_no_store_and_frozen_HTML_verified": true,
+    "actual_tool": "86573:0",
+    "raw_terminal_sha256": "003092352fb0cd0aa47406d75a129c5d237d0de55c9a9162096ff9ad3a253d2b",
+    "result": {
+      "RSS_samples": 1,
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 859516928,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "4eb5c9eae7763476b3c0ed0ca2af21db4898c387668ae043f23be85ca546d16b",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 143671296,
+      "source_count": 2424,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 0.33905459199741017
+    }
+  },
   "focused_distinct_tests_passed": 54,
   "full_backend_or_browser_suite_run": false,
   "limits": [
     "Separate full-read profiles are timing-confounded; no speed claim from them.",
     "Only paired component medians support the approximately12percent timing observation.",
-    "Original unpaused64-step normal, hold/cancel/liveWebGL/WSLcapacity and deployment require separate evidence."
+    "Original unpaused64-step normal, hold/cancel/liveWebGL/WSLcapacity and deployment require separate evidence.",
+    "GET still performs current-reference economic arithmetic; zero new computation claims are limited to crop/climate numerics and CLI/SQL mutations.",
+    "Original native normal still timed out; stored16/64 does not establish throughput improvement over the prior18/64 case."
   ],
   "native_CLI": {
     "effort": "xhigh",
@@ -71,12 +107,123 @@
   "new_Solar_deployed": false,
   "next_CI": {
     "actor_instrumentation": false,
+    "conclusion": "failure",
     "created_at": "2026-10-17T14:52:37Z",
     "head_sha": "d303b903f37b1ec2e25ddeda319b3bddf6404221",
-    "pending": true,
+    "pending": false,
     "run_id": 39042611904
   },
   "normal_unpaused_execution_accepted": false,
+  "original_unpaused_result": {
+    "artifact": {
+      "digest": "sha256:2aa22fa9deafe6d1d1382e5a762342bce16f0f3286c3ec3126c4d88023262fbe",
+      "id": 12104977083,
+      "name": "solar-unpaused-normal-d303b903f37b1ec2e25ddeda319b3bddf6404221",
+      "size_in_bytes": 3291
+    },
+    "conclusion": "failure",
+    "digest_and_path_validated": true,
+    "evidence": {
+      "actor-diagnostics.json": [
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "api",
+          "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+          "worker_proof_present": false
+        },
+        {
+          "api_proof_present": false,
+          "client_proof_present": false,
+          "exit_code": -15,
+          "log": {
+            "exception_types": [],
+            "locations": []
+          },
+          "role": "worker",
+          "script_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+          "worker_proof_present": false
+        }
+      ],
+      "failure-checkpoint-diagnostics.json": {
+        "actors_stopped_before_collection": true,
+        "application_query_sha256": "ab6992768f580c4d46278fcbe2d3215583dfd3a55c9fe0aa84b51fb3e038d565",
+        "diagnostic_only": true,
+        "metadata": {
+          "G0_G4": "not_assessed",
+          "checkpoint_payload_sha256": "c8ba3e80c89b9a1015ec14572b2565a1d394dde2193f5aa8f060d78ab3dee0cb",
+          "checkpoint_recorded_at": "2026-10-17T15:01:22.129347+00:00",
+          "evidence_kind": "stored_owned_fixture_metadata_only",
+          "job": {
+            "attempt": 1,
+            "state": "simulating"
+          },
+          "normal_execution_accepted": false,
+          "observed_at": "2026-10-17T15:01:34.266637+00:00",
+          "owned_cluster_identity_verified": true,
+          "rights_or_gate_approval": false,
+          "stored_checkpoint": {
+            "computed_through_utc": "2026-10-01T00:00:32.123456Z",
+            "planned_steps": 64,
+            "publication_sequence": 17,
+            "status": "yielded",
+            "steps": 16
+          },
+          "transaction_isolation": "repeatable read",
+          "transaction_read_only": true
+        },
+        "normal_execution_accepted": false,
+        "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+        "run_id": "39042611904",
+        "source_commit": "d303b903f37b1ec2e25ddeda319b3bddf6404221"
+      },
+      "failure.json": {
+        "exception_type": "AssertionError",
+        "known_stage": "owned calculation timed out or failed",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_unpaused_smoke.py",
+            "function": "exercise",
+            "line": 133
+          },
+          {
+            "file": "crop-greenhouse-solar-unpaused-probe.py",
+            "function": "exercise",
+            "line": 210
+          }
+        ],
+        "original_normal_accepted": false
+      },
+      "resource.json": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "G0_G4": "not_assessed",
+        "RSS_samples": 1404,
+        "WSL_capacity_accepted": false,
+        "actual_child_exit": 1,
+        "actual_crop_Runs": 0,
+        "combined_peak_RSS_bytes": 364769280,
+        "hosted_only": true,
+        "local_protected_roots_present": false,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "rights_or_gate_approval": false,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 126861312,
+        "temporary_entries_remaining": 0,
+        "wall_seconds": 383.07524898299994
+      }
+    },
+    "head_sha": "d303b903f37b1ec2e25ddeda319b3bddf6404221",
+    "run_id": 39042611904
+  },
   "paired_audits": {
     "G0_G4": "not_assessed",
     "rights_or_gate_approval": false,

@@ -1,0 +1,789 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_database_cleanup": {
+    "roles": 0,
+    "schemas": 0
+  },
+  "actual_farm_Runs": 0,
+  "application_source_commit": "914480987233bb67255a819529f9ad285928a357",
+  "application_unchanged_since": "9144809",
+  "distinct_cost_observation_checks_passed": 1,
+  "limits": [
+    "Existing fixture planned16; not original independent API/worker64-step acceptance.",
+    "Single profiled custody call; timing overhead and nesting; do not add inclusive values.",
+    "Earlier observation failures are probe bugs, not accepted data or production failures."
+  ],
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "a1de333dff606368db95fed4a069a00723fe725d9f5387ead1dcd9058fa9bc25",
+    "recursive_cli": false,
+    "timestamp": "2026-10-17T14:32:51.310Z"
+  },
+  "new_Solar_deployed": false,
+  "next": "map current mutable-reference fences and implement one reviewed reduction of repeated full binding reconstruction; preserve all current checks and separately verify original64",
+  "observation": {
+    "G0_G4": "not_assessed",
+    "after": {
+      "computed_through_utc": "2026-10-01T00:00:04.123456Z",
+      "head_sha256": "c9f7ae480fb1ddbc5b041e2b59d97a3b8b96aa86a5833a1379d370acbc8c5329",
+      "planned_steps": 16,
+      "proof_sha256": "aa0738aecb22aa6eb68f2c0c6758b7ab19109ed9fbe11111ec619a5d0dc376ff",
+      "status": "yielded",
+      "steps": 2
+    },
+    "before": {
+      "computed_through_utc": "2026-10-01T00:00:02.123456Z",
+      "head_sha256": "cb463bd8012bb3073a12cbb2fc3437f50ff3b8bf44de586af9425d672aeadd53",
+      "planned_steps": 16,
+      "proof_sha256": "51c5a245604fb2945bf290c3d60ffa4b7340bb583a288ecda0f21e7b01e4a1cf",
+      "status": "yielded",
+      "steps": 1
+    },
+    "entries": [
+      {
+        "calls": 1,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "SolarServerCustody.advance",
+        "inclusive_seconds": 14.758640033,
+        "self_seconds": 0.0007461000000000001
+      },
+      {
+        "calls": 12,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "SolarServerCustody._open.<locals>.current",
+        "inclusive_seconds": 14.371733982,
+        "self_seconds": 6.8026e-05
+      },
+      {
+        "calls": 12,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding.current",
+        "inclusive_seconds": 14.322975251,
+        "self_seconds": 0.00047127400000000004
+      },
+      {
+        "calls": 12,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._bind",
+        "inclusive_seconds": 14.322498727000001,
+        "self_seconds": 0.014046920000000001
+      },
+      {
+        "calls": 1,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_Session.advance",
+        "inclusive_seconds": 13.533446384000001,
+        "self_seconds": 0.0021471850000000002
+      },
+      {
+        "calls": 24,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._registration",
+        "inclusive_seconds": 13.278609580000001,
+        "self_seconds": 0.0018964090000000002
+      },
+      {
+        "calls": 11,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_Session._guard",
+        "inclusive_seconds": 13.210767555,
+        "self_seconds": 0.00043845200000000004
+      },
+      {
+        "calls": 24,
+        "file": "farm_authoring_storage.py",
+        "function": "FarmAuthoringService.read_registration",
+        "inclusive_seconds": 12.602327974000001,
+        "self_seconds": 0.002598104
+      },
+      {
+        "calls": 24,
+        "file": "farm_authoring_storage.py",
+        "function": "FarmAuthoringService._read",
+        "inclusive_seconds": 12.595084714,
+        "self_seconds": 0.002920115
+      },
+      {
+        "calls": 24,
+        "file": "farm_authoring_storage.py",
+        "function": "FarmAuthoringService._prepare",
+        "inclusive_seconds": 11.826835372000001,
+        "self_seconds": 0.005274707
+      },
+      {
+        "calls": 528,
+        "file": "runtime_roles.py",
+        "function": "audit_runtime_roles",
+        "inclusive_seconds": 7.070495939000001,
+        "self_seconds": 0.12772760800000002
+      },
+      {
+        "calls": 1,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_Session.advance.<locals>.<lambda>",
+        "inclusive_seconds": 3.609609745,
+        "self_seconds": 6.9300000000000006e-06
+      },
+      {
+        "calls": 1,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_Session._publish",
+        "inclusive_seconds": 3.609602815,
+        "self_seconds": 4.9854e-05
+      },
+      {
+        "calls": 1,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "SolarServerCustody._open.<locals>.prepare",
+        "inclusive_seconds": 2.453625245,
+        "self_seconds": 0.0009760410000000001
+      },
+      {
+        "calls": 1,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_Session.progress",
+        "inclusive_seconds": 2.4244236110000004,
+        "self_seconds": 8.2988e-05
+      },
+      {
+        "calls": 528,
+        "file": "runtime_roles.py",
+        "function": "_scope",
+        "inclusive_seconds": 1.5111901840000002,
+        "self_seconds": 0.02908528
+      },
+      {
+        "calls": 2,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "SolarServerCustody._open",
+        "inclusive_seconds": 1.2242996670000001,
+        "self_seconds": 8.9826e-05
+      },
+      {
+        "calls": 48,
+        "file": "farm_authoring_storage.py",
+        "function": "FarmAuthoringService._find",
+        "inclusive_seconds": 1.2213603370000001,
+        "self_seconds": 0.001344193
+      },
+      {
+        "calls": 24,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._input",
+        "inclusive_seconds": 0.934379092,
+        "self_seconds": 0.006541636
+      },
+      {
+        "calls": 384384,
+        "file": "runtime_roles.py",
+        "function": "_allowed",
+        "inclusive_seconds": 0.16089003600000001,
+        "self_seconds": 0.061078406
+      },
+      {
+        "calls": 528,
+        "file": "runtime_roles.py",
+        "function": "_database",
+        "inclusive_seconds": 0.128510598,
+        "self_seconds": 0.003423232
+      },
+      {
+        "calls": 73,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._binding",
+        "inclusive_seconds": 0.118100298,
+        "self_seconds": 0.002821109
+      },
+      {
+        "calls": 96624,
+        "file": "runtime_roles.py",
+        "function": "_tables",
+        "inclusive_seconds": 0.104276141,
+        "self_seconds": 0.09782845600000001
+      },
+      {
+        "calls": 24,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "SolarServerCustody._binding",
+        "inclusive_seconds": 0.0976317,
+        "self_seconds": 0.000252417
+      },
+      {
+        "calls": 49,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._guard",
+        "inclusive_seconds": 0.088023746,
+        "self_seconds": 0.000132192
+      },
+      {
+        "calls": 2,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_Session._load",
+        "inclusive_seconds": 0.069563362,
+        "self_seconds": 0.000256887
+      },
+      {
+        "calls": 24,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_pins",
+        "inclusive_seconds": 0.057838379,
+        "self_seconds": 0.00094454
+      },
+      {
+        "calls": 1,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "advance_chunk",
+        "inclusive_seconds": 0.048147439,
+        "self_seconds": 0.001036442
+      },
+      {
+        "calls": 16,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "_context",
+        "inclusive_seconds": 0.036107331,
+        "self_seconds": 0.000245948
+      },
+      {
+        "calls": 8,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "checkpoint_bytes",
+        "inclusive_seconds": 0.019128333,
+        "self_seconds": 0.001509556
+      },
+      {
+        "calls": 2,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "_validate",
+        "inclusive_seconds": 0.015563238000000002,
+        "self_seconds": 0.00020209900000000002
+      },
+      {
+        "calls": 97,
+        "file": "farm_authoring_storage.py",
+        "function": "FarmAuthoringService._guard",
+        "inclusive_seconds": 0.012753871,
+        "self_seconds": 0.00025677400000000003
+      },
+      {
+        "calls": 1,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "restore_checkpoint",
+        "inclusive_seconds": 0.0117582,
+        "self_seconds": 9.1978e-05
+      },
+      {
+        "calls": 5232,
+        "file": "runtime_roles.py",
+        "function": "RuntimeRolePolicy.roles",
+        "inclusive_seconds": 0.009860319000000001,
+        "self_seconds": 0.009860319000000001
+      },
+      {
+        "calls": 1,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "prepare_context",
+        "inclusive_seconds": 0.009365739000000001,
+        "self_seconds": 3.5242e-05
+      },
+      {
+        "calls": 48,
+        "file": "farm_authoring_storage.py",
+        "function": "FarmAuthoringService._read.<locals>.<lambda>",
+        "inclusive_seconds": 0.006210681,
+        "self_seconds": 8.867900000000001e-05
+      },
+      {
+        "calls": 25,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "Context.program",
+        "inclusive_seconds": 0.006129465000000001,
+        "self_seconds": 2.2863e-05
+      },
+      {
+        "calls": 267,
+        "file": "farm_authoring_storage.py",
+        "function": "FarmAuthoringService._binding",
+        "inclusive_seconds": 0.005393874000000001,
+        "self_seconds": 0.000382221
+      },
+      {
+        "calls": 47,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "_identity",
+        "inclusive_seconds": 0.005022648,
+        "self_seconds": 0.0008729380000000001
+      },
+      {
+        "calls": 194,
+        "file": "farm_authoring_storage.py",
+        "function": "FarmAuthoringService._pointers",
+        "inclusive_seconds": 0.004714103,
+        "self_seconds": 0.00026221
+      },
+      {
+        "calls": 4,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_Session._selected",
+        "inclusive_seconds": 0.0041956120000000005,
+        "self_seconds": 8.668300000000001e-05
+      },
+      {
+        "calls": 2112,
+        "file": "runtime_roles.py",
+        "function": "audit_runtime_roles.<locals>.<genexpr>",
+        "inclusive_seconds": 0.003856075,
+        "self_seconds": 0.003856075
+      },
+      {
+        "calls": 48,
+        "file": "farm_authoring_storage.py",
+        "function": "FarmAuthoringService._key",
+        "inclusive_seconds": 0.0038216580000000003,
+        "self_seconds": 0.000195529
+      },
+      {
+        "calls": 271,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_hash",
+        "inclusive_seconds": 0.003605032,
+        "self_seconds": 0.00017785
+      },
+      {
+        "calls": 24,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._rights",
+        "inclusive_seconds": 0.002764967,
+        "self_seconds": 0.00025142400000000004
+      },
+      {
+        "calls": 25,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_checked",
+        "inclusive_seconds": 0.0027388300000000003,
+        "self_seconds": 0.00015914
+      },
+      {
+        "calls": 14,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_Session._proof",
+        "inclusive_seconds": 0.0026543820000000003,
+        "self_seconds": 0.000134948
+      },
+      {
+        "calls": 14256,
+        "file": "runtime_roles.py",
+        "function": "_scope.<locals>.<genexpr>",
+        "inclusive_seconds": 0.0026369790000000002,
+        "self_seconds": 0.0026369790000000002
+      },
+      {
+        "calls": 13,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._request",
+        "inclusive_seconds": 0.002225017,
+        "self_seconds": 0.00024072700000000001
+      },
+      {
+        "calls": 2,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_Session._reserve",
+        "inclusive_seconds": 0.002007776,
+        "self_seconds": 2.3731e-05
+      },
+      {
+        "calls": 11088,
+        "file": "runtime_roles.py",
+        "function": "_scope.<locals>.<genexpr>",
+        "inclusive_seconds": 0.001780941,
+        "self_seconds": 0.001780941
+      },
+      {
+        "calls": 73,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._pointers",
+        "inclusive_seconds": 0.001680452,
+        "self_seconds": 0.00011844600000000001
+      },
+      {
+        "calls": 13,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "SolarServerCustody._open.<locals>.resolve",
+        "inclusive_seconds": 0.00142318,
+        "self_seconds": 7.715e-05
+      },
+      {
+        "calls": 11088,
+        "file": "runtime_roles.py",
+        "function": "audit_runtime_roles.<locals>.<genexpr>",
+        "inclusive_seconds": 0.001384535,
+        "self_seconds": 0.001384535
+      },
+      {
+        "calls": 2640,
+        "file": "runtime_roles.py",
+        "function": "audit_runtime_roles.<locals>.<genexpr>",
+        "inclusive_seconds": 0.000896603,
+        "self_seconds": 0.000896603
+      },
+      {
+        "calls": 2,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "_seal",
+        "inclusive_seconds": 0.000871338,
+        "self_seconds": 2.0093000000000002e-05
+      },
+      {
+        "calls": 26,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_head",
+        "inclusive_seconds": 0.0008121920000000001,
+        "self_seconds": 9.048900000000001e-05
+      },
+      {
+        "calls": 18,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "Context.manifest",
+        "inclusive_seconds": 0.0007653310000000001,
+        "self_seconds": 2.0992e-05
+      },
+      {
+        "calls": 2640,
+        "file": "runtime_roles.py",
+        "function": "audit_runtime_roles.<locals>.<genexpr>",
+        "inclusive_seconds": 0.000765226,
+        "self_seconds": 0.000765226
+      },
+      {
+        "calls": 2,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "_initial",
+        "inclusive_seconds": 0.0007073450000000001,
+        "self_seconds": 2.9522000000000003e-05
+      },
+      {
+        "calls": 3696,
+        "file": "runtime_roles.py",
+        "function": "_scope.<locals>.<genexpr>",
+        "inclusive_seconds": 0.000612579,
+        "self_seconds": 0.000612579
+      },
+      {
+        "calls": 65,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._request.<locals>.<genexpr>",
+        "inclusive_seconds": 0.000542376,
+        "self_seconds": 2.2000000000000003e-05
+      },
+      {
+        "calls": 2,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_signed",
+        "inclusive_seconds": 0.0005336010000000001,
+        "self_seconds": 8.312000000000001e-06
+      },
+      {
+        "calls": 2,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "Checkpoint.value",
+        "inclusive_seconds": 0.00048740800000000005,
+        "self_seconds": 2.51e-06
+      },
+      {
+        "calls": 30,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_Session._proof.<locals>.<genexpr>",
+        "inclusive_seconds": 0.000202458,
+        "self_seconds": 9.060000000000001e-06
+      },
+      {
+        "calls": 275,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "restore_checkpoint.<locals>.pairs",
+        "inclusive_seconds": 0.000196832,
+        "self_seconds": 0.00016360000000000002
+      },
+      {
+        "calls": 24,
+        "file": "farm_authoring_storage.py",
+        "function": "FarmAssumptionRights.asserted_user_use",
+        "inclusive_seconds": 0.000178822,
+        "self_seconds": 4.3734000000000005e-05
+      },
+      {
+        "calls": 72,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._registration.<locals>.<genexpr>",
+        "inclusive_seconds": 0.000150466,
+        "self_seconds": 3.3430000000000003e-05
+      },
+      {
+        "calls": 168,
+        "file": "farm_authoring_storage.py",
+        "function": "FarmAssumptionRights.asserted_user_use.<locals>.<genexpr>",
+        "inclusive_seconds": 8.5486e-05,
+        "self_seconds": 3.7954e-05
+      },
+      {
+        "calls": 425,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "_need",
+        "inclusive_seconds": 7.4953e-05,
+        "self_seconds": 7.4953e-05
+      },
+      {
+        "calls": 872,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "_need",
+        "inclusive_seconds": 5.2073e-05,
+        "self_seconds": 5.2073e-05
+      },
+      {
+        "calls": 52,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._request.<locals>.<genexpr>",
+        "inclusive_seconds": 4.6901000000000004e-05,
+        "self_seconds": 1.757e-05
+      },
+      {
+        "calls": 24,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "SolarServerCustody._pointers",
+        "inclusive_seconds": 4.2801000000000006e-05,
+        "self_seconds": 4.2801000000000006e-05
+      },
+      {
+        "calls": 1,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_Session.__init__",
+        "inclusive_seconds": 3.8684000000000004e-05,
+        "self_seconds": 2.5e-06
+      },
+      {
+        "calls": 24,
+        "file": "farm_authoring_storage.py",
+        "function": "FarmAuthoringRequest.bound_rights",
+        "inclusive_seconds": 3.7605e-05,
+        "self_seconds": 3.7605e-05
+      },
+      {
+        "calls": 268,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_need",
+        "inclusive_seconds": 3.6401e-05,
+        "self_seconds": 3.6401e-05
+      },
+      {
+        "calls": 1,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_intent_id",
+        "inclusive_seconds": 2.1332000000000002e-05,
+        "self_seconds": 2.46e-06
+      },
+      {
+        "calls": 7,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "_profiles",
+        "inclusive_seconds": 1.95e-05,
+        "self_seconds": 1.95e-05
+      },
+      {
+        "calls": 24,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._registration.<locals>.<genexpr>",
+        "inclusive_seconds": 1.8301e-05,
+        "self_seconds": 1.8301e-05
+      },
+      {
+        "calls": 64,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "_context.<locals>.<genexpr>",
+        "inclusive_seconds": 1.3681000000000002e-05,
+        "self_seconds": 1.3681000000000002e-05
+      },
+      {
+        "calls": 91,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._request.<locals>.<genexpr>",
+        "inclusive_seconds": 1.2470000000000001e-05,
+        "self_seconds": 1.2470000000000001e-05
+      },
+      {
+        "calls": 4,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "prepare_context.<locals>.<genexpr>",
+        "inclusive_seconds": 2.3600000000000003e-06,
+        "self_seconds": 1.7800000000000001e-06
+      },
+      {
+        "calls": 8,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "_validate.<locals>.<genexpr>",
+        "inclusive_seconds": 1.76e-06,
+        "self_seconds": 1.76e-06
+      },
+      {
+        "calls": 8,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "_validate.<locals>.<genexpr>",
+        "inclusive_seconds": 1.4400000000000002e-06,
+        "self_seconds": 1.4400000000000002e-06
+      },
+      {
+        "calls": 8,
+        "file": "crop_greenhouse_solar_continuation.py",
+        "function": "_validate.<locals>.<genexpr>",
+        "inclusive_seconds": 1.1100000000000002e-06,
+        "self_seconds": 1.1100000000000002e-06
+      }
+    ],
+    "old_proofs": 3,
+    "old_proofs_preserved": true,
+    "proof_directory_identity_preserved": true,
+    "rights_or_gate_approval": false,
+    "scope": "one actual custody advance on existing owned fixture; no independent API/worker acceptance",
+    "wall_seconds": 14.760039566986961
+  },
+  "original_64_step_normal_accepted": false,
+  "profile_raw_sha256": "491751f52b32a22f6459cee61d42611368ffced056ef5041412d321d6884d316",
+  "rights_or_gate_approval": false,
+  "schema_version": "crop-solar-current-binding-cost-v1",
+  "stages": {
+    "1": {
+      "actual_tool": "71728:1",
+      "observer_error": "observer incorrectly counted initial boundary as step1",
+      "probe_sha256": "025cb7bf15898a6bb73613b682dc58afb98c76e044f3d52ffc5fd93bcdb739c7",
+      "raw_terminal_sha256": "1d10b3a4160831df8cd53b1faf8929cf155c7b43b195337d312d428a950f9301",
+      "result": {
+        "RSS_samples": 179,
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 1042444288,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "9afe91281039dc2fd05844fcb487397278bab67bdb63f92866fb529e009c1a40",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2424,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 48.32610410900088
+      }
+    },
+    "2": {
+      "actual_tool": "42699:1",
+      "observer_error": "observer used snapshot.at instead of times.last_confirmed.at",
+      "probe_sha256": "fcefcd075badc7087c0580f8acb5613efdfd6d9b59178791efd023679936b0df",
+      "raw_terminal_sha256": "181cf9434dd16e118ec995becd54b64d2417e1d64339318dffb50e4832a82709",
+      "result": {
+        "RSS_samples": 216,
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 1049505792,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "05214316ea9202fe92c1a376fcb77281cd7f5485a22fa5af26df1bb4760b0683",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2424,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 58.46970894798869
+      }
+    },
+    "3": {
+      "actual_tool": "97293:0",
+      "observer_error": null,
+      "probe_sha256": "c409afeee7c87c6479f7d3fd60a88ad7e367fab7dcb9b29acf9216477363b7cc",
+      "raw_terminal_sha256": "4902cd9cc4df2c066f40ef1063eb499e19aa1457cb4b611eaf046ba45f26906f",
+      "result": {
+        "RSS_samples": 222,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1042456576,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "674c255c9948b982a0241cecb8db1094306d6aaf28188d566d670797d6cde465",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143671296,
+        "source_count": 2424,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 60.013009513990255
+      }
+    }
+  },
+  "status_publication": {
+    "HTTP_both_ports_200_same_bytes_no_store_and_frozen_HTML": true,
+    "actual_tool": "9142:0",
+    "feed_sha256": "0285a4a1e219c91cb9e62868ba5d8989f01da169f2ff9a7b137bc15a4b06781f",
+    "raw_terminal_sha256": "f520ec04a8bfee49d6e472b9c19f31064fd9128d1c0ac2a998bc5e2fb7050586",
+    "result": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 859631616,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 143671296,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 0.34394471999257803
+    }
+  }
+}
