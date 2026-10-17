@@ -148,7 +148,7 @@ try:
  for index in range(1,len(samples)):click('button','다음 저장 성장 시점');frame(index)
  phase('last_frame');cdp.send('HeapProfiler.collectGarbage')
  cdp.evaluate("document.querySelector('.coupled-top-grid').scrollIntoView({block:'start'})")
- image=cdp.send('Page.captureScreenshot',{'format':'png'});path=Path(os.environ['OSSF_SOLAR_HTTP_EVIDENCE'])/'solar-'+status+'.private.png'
+ image=cdp.send('Page.captureScreenshot',{'format':'png'});path=Path(os.environ['OSSF_SOLAR_HTTP_EVIDENCE'])/('solar-'+status+'.private.png')
  with path.open('xb') as f:os.fchmod(f.fileno(),0o400);f.write(base64.b64decode(image['data']))
  screens.append({'name':path.name,'sha256':sha256(path.read_bytes()).hexdigest()})
  click('button','관리 사건 보기');until(lambda:cdp.evaluate("document.querySelectorAll('.cycle-events article').length")==len(events),'management events missing');assert cdp.evaluate("document.querySelectorAll('.solar-viewer').length")==0
