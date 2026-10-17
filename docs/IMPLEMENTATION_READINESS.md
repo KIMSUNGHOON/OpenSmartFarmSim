@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**현재 저장 화면 수용·실제 연결 보류 — 2026-10-17:** [새 SDK/GET 계측](../research/crop-greenhouse-solar-sdk-read-allocation-20261017.md)에서 SDK2시도는 RSS hold, 실제 HTTPS2GET의 연결326회/동시3개와 경제 참조 재검증을 확인했다. “조회 계산0”은 기존 작물/CLI 진입점 범위이며 모든 산술0이 아니다. S2a·c500c79 전체 웹243/1,864·타입/build/audit 수용은 유지한다. 다음은 같은 신원 원천/후보 읽기 연결의 적합성·보안 회귀→실제 SDK S1b다. 이전 후보/새 시험 설정은 미채택이고 S1b/S2b/S3/S4·새 Solar 배포·실제 자료/관문·최종 디자인/완료일은 미수용/미정이다. 기존 두 UI/5root/원본·한도와 goal active를 유지한다. 아래 기록은 당시 상태다.
+**현재 같은 신원 읽기 연결 구현 — 2026-10-17:** [코드/고유92검사 수용](../research/crop-solar-shared-market-reader-implementation-20261017.md), fce9009. 원 입력/Decimal 결과·검사 순서와 현재 권리를 유지하며 적합 구성의 물리 reader를 scope당2개에서1개로 줄였다. 현재 checkout3검사도 통과했다. 실제 SDK 동시 실행은 다시 RSS hold로 S1b/S2b/S3/S4·새 Solar 배포는 미완료다. 다음은 성공 HTTP 중 남은 SDK/API 할당 분리다. S2a·기존 웹 CI 수용, 두 UI/5root/원본·한도·실제 자료/관문/최종 디자인 보류와 goal active·전체 완료일 미정을 유지한다. 아래 기록은 당시 상태다.
 
 **현재 일사 접수 계측·저장3D 의존성 — 2026-10-17:** [실제 분리 계측과 후보 제외](../research/crop-greenhouse-solar-admission-allocation-20261017.md)를 기록했다. 실제 API POST/독립 작업 선택·임대 진단은 통과했고 세 연결 수명 후보의 동시 실행은 RSS hold로 미채택이다. [저장 응답 클라이언트](../contracts/web-crop-greenhouse-solar-replay-v1.md)의 개발 선행을 수용된 결과 API로 분리했으며 다음은 S1a다. 실행 중3D/사용자 적용 부모·전체 CI·실제 자료/생산/경제/추천은 미수용이다. 원5root/두 UI/원본/한도·goal active와 전체 완료일 미정을 유지한다.
 

@@ -8,7 +8,7 @@
 [보호 HTTP](api-crop-greenhouse-solar-route-v1.md)다.
 [제품 명세](../docs/PROJECT_SPEC.md#7-순서와-의존성)의 저장→3D 경로를 작은 자식으로 나눈다.
 
-**현재 S1b 후속:** [실제 GET 계측](../research/crop-greenhouse-solar-sdk-read-allocation-20261017.md) 뒤 [같은 신원 읽기 연결 후보](crop-solar-shared-market-reader-v1.md)의 적합성/보안 회귀를 먼저 평가한다. SDK 누적5회는 RSS hold이며 경제 참조 재검증을 작물/CLI0과 구분한다.
+**현재 S1b 후속:** [실제 GET 계측](../research/crop-greenhouse-solar-sdk-read-allocation-20261017.md) 뒤 [같은 신원 읽기 연결 후보](crop-solar-shared-market-reader-v1.md)의 적합성/보안 회귀를 [고유92검사로 수용](../research/crop-solar-shared-market-reader-implementation-20261017.md)했다. 실제 SDK 전체 동시 수용은 남았다. SDK 누적6회는 RSS hold이며 경제 참조 재검증을 작물/CLI0과 구분한다.
 
 ## S1a — 저장 응답 해석기와 요청 클라이언트
 

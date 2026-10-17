@@ -1,7 +1,7 @@
 # Solar 조회의 같은 신원 원천·후보 읽기 연결 — 후보 v1
 
-상태: 설계/검증 대기. [실제 GET 계측](../research/crop-greenhouse-solar-sdk-read-allocation-20261017.md)이
-근거이며 제품 미채택이다. 기존 [후보 읽기 범위](crop-cycle-candidate-read-scope-v1.md)와
+상태: [읽기 컴포넌트 수용](../research/crop-solar-shared-market-reader-implementation-20261017.md), fce9009. 고유92검사/현재 checkout3반복을 통과했다. S1b 전체와 기준5는 실제 SDK RSS hold로 미완료다. [실제 GET 계측](../research/crop-greenhouse-solar-sdk-read-allocation-20261017.md)이
+근거다. 기존 [후보 읽기 범위](crop-cycle-candidate-read-scope-v1.md)와
 [원천 읽기 범위](crop-cycle-market-read-scope-v1.md)의 현재 권한/원 자료 검증을 유지한다.
 
 ## 구현 경계와 조건

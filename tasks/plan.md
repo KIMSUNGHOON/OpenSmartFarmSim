@@ -2,7 +2,7 @@
 
 ## 단계별 goal 순서와 활성 상태 — 2026-10-17
 
-전체 목표는 active다. **현재 저장 화면 수용·실제 연결 보류 — 2026-10-17:** [새 SDK/GET 계측](../research/crop-greenhouse-solar-sdk-read-allocation-20261017.md)에서 SDK2시도는 RSS hold, 실제 HTTPS2GET의 연결326회/동시3개와 경제 참조 재검증을 확인했다. “조회 계산0”은 기존 작물/CLI 진입점 범위이며 모든 산술0이 아니다. S2a·c500c79 전체 웹243/1,864·타입/build/audit 수용은 유지한다. 다음은 같은 신원 원천/후보 읽기 연결의 적합성·보안 회귀→실제 SDK S1b다. 이전 후보/새 시험 설정은 미채택이고 S1b/S2b/S3/S4·새 Solar 배포·실제 자료/관문·최종 디자인/완료일은 미수용/미정이다. 기존 두 UI/5root/원본·한도와 goal active를 유지한다. 아래 기록은 당시 상태다.
+전체 목표는 active다. **현재 같은 신원 읽기 연결 구현 — 2026-10-17:** [코드/고유92검사 수용](../research/crop-solar-shared-market-reader-implementation-20261017.md), fce9009. 원 입력/Decimal 결과·검사 순서와 현재 권리를 유지하며 적합 구성의 물리 reader를 scope당2개에서1개로 줄였다. 현재 checkout3검사도 통과했다. 실제 SDK 동시 실행은 다시 RSS hold로 S1b/S2b/S3/S4·새 Solar 배포는 미완료다. 다음은 성공 HTTP 중 남은 SDK/API 할당 분리다. S2a·기존 웹 CI 수용, 두 UI/5root/원본·한도·실제 자료/관문/최종 디자인 보류와 goal active·전체 완료일 미정을 유지한다. 아래 기록은 당시 상태다.
 
 | 순서 | 단계별 목표 | 다음 단계로 넘어갈 산출물 |
 | --- | --- | --- |

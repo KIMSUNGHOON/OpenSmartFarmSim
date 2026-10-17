@@ -6,6 +6,8 @@
 기존 [원천 읽기 범위](crop-cycle-market-read-scope-v1.md)의 후보 연결 후속이며 운영 기반은
 [고정 범위](../research/crop-priority-and-runtime-freeze-20261004.md)를 따른다.
 
+**2026-10-17 후속:** [같은 신원 공유 reader](crop-solar-shared-market-reader-v1.md)를 범위 수용했다. 적합 구성은 총1개 원천 소유 연결, 불적합 구성은 아래 v1의 원천1+후보1을 유지한다. 아래 관측/수용은 당시 v1 기준이며 불변 기록을 덮어쓰지 않는다.
+
 ## 다음 한 단계
 
 `MarketCandidateStore.read_scope`가 현재 `validate_pinned` 한 호출 동안 자체 후보 연결 하나도 소유한다.
