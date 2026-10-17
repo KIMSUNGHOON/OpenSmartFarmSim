@@ -12,10 +12,10 @@ TRACE = Path(__file__).resolve().parents[2]/'research/crop-solar-worker-progress
 TARGET = '/owned/app/crop_greenhouse_solar_execution_worker.py'
 
 
-def command(directory, body):
+def command(directory, body, target=TARGET):
     script = ('from pathlib import Path\n'
         + 'exec(compile(Path('+repr(str(TRACE))+').read_text(),'+repr(str(TRACE))+',"exec"))\n'
-        + 'exec(compile('+repr(body)+','+repr(TARGET)+',"exec"))\n')
+        + 'exec(compile('+repr(body)+','+repr(target)+',"exec"))\n')
     return [sys.executable, '-B', '-c', script, str(directory/'pack')]
 
 
@@ -76,3 +76,36 @@ def test_termination_inside_a_phase_preserves_atomic_inflight_evidence(tmp_path)
     assert value['active_phases'][0]['phase'] == 'worker._before'
     assert value['phase_totals']['worker._before']['calls'] == 1
     assert value['phase_totals']['worker._before']['returns'] == 0
+
+
+def test_root_progress_is_retained_when_checkpoint_contains_only_a_hash(tmp_path):
+    body = '''
+class SolarServerCustody:
+ def advance(self):
+  return b'{"steps":4,"planned_steps":64,"status":"yielded","checkpoint":{"sha256":"hash"},"times":{"last_confirmed":{"at":"2026-10-17T00:00:08Z"}},"private":"controlled_secret_never_export"}'
+SolarServerCustody().advance()
+'''
+    target = '/owned/app/crop_greenhouse_solar_server_custody.py'
+    result = subprocess.run(command(tmp_path, body, target), capture_output=True, timeout=5)
+    assert result.returncode == 0, result.stderr.decode()
+    raw = (tmp_path/'worker-progress-diagnostics.private.json').read_bytes()
+    assert b'controlled_secret_never_export' not in raw
+    assert json.loads(raw)['last_advanced'] == {'steps':4, 'planned_steps':64, 'status':'yielded',
+        'computed_through_utc':'2026-10-17T00:00:08Z'}
+
+
+def test_nested_custody_methods_are_distinguished_without_combining_durations(tmp_path):
+    body = '''
+class _Session:
+ def advance(self):return b'private'
+class SolarServerCustody:
+ def advance(self):return _Session().advance()
+SolarServerCustody().advance()
+'''
+    target = '/owned/app/crop_greenhouse_solar_server_custody.py'
+    result = subprocess.run(command(tmp_path, body, target), capture_output=True, timeout=5)
+    assert result.returncode == 0, result.stderr.decode()
+    value = json.loads((tmp_path/'worker-progress-diagnostics.private.json').read_bytes())
+    assert value['phase_totals']['custody.SolarServerCustody.advance']['calls'] == 1
+    assert value['phase_totals']['custody._Session.advance']['calls'] == 1
+    assert 'custody.advance' not in value['phase_totals']

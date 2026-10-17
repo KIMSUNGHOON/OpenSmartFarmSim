@@ -29,3 +29,17 @@
 4. 새 수정을 제안할 때 이 관측을 근거로 범위를 정한다. 같은 조건의 검증 재실행만으로 끝내지 않는다.
 
 로컬5root 용량·hold/취소·실행 중3D·사용자 적용·외부 자료/G0–G4와 전체 완료일은 별도 미완료다.
+
+## 실제 첫 계측 뒤 보완
+
+CI39031782329/sourcebe08f07은 원 반환 checkpoint에서3/64걸음과
+`2026-10-01T00:00:06.123456Z`를 확인했지만 정상 완료하지 못했다.
+`_confirm`4회 누적104.758초·최대26.421초였고 advance도 길게 관찰했다.
+두 advance 메서드가 같은 이름으로 합쳐져 그 누적값은 합산/기여율에 쓰지 않는다.
+advance 원 progress에는 별도의 checkpoint hash도 있어 첫 관찰기가 root steps를 놓쳤다.
+
+v2는 클래스/메서드 이름을 구별하고 root steps를 우선하며 원 times의 UTC만 읽는다.
+검증/저장 비용을 더 좁히기 위해 custody guard/load/progress/prepare,
+farm binding의 current/input/registration/guard, 농장 등록/guard,
+입력 증거 verify, model context/restore/chunk 호출의 시간만 추가로 관찰한다.
+데이터·권리/판정·cache·상한/청크·수식은 바꾸지 않는다.

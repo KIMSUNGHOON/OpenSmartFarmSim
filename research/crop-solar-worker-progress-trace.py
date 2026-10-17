@@ -14,8 +14,15 @@ _obs_started = _obs_time.monotonic()
 _obs_worker = 'crop_greenhouse_solar_execution_worker.py'
 _obs_phases = {
     _obs_worker: frozenset({'run_once', '_before', '_adopt', '_custody_call', '_confirm', '_finish'}),
-    'crop_greenhouse_solar_server_custody.py': frozenset({'advance'}),
+    'crop_greenhouse_solar_server_custody.py': frozenset({'advance', '_guard', '_load', 'progress', 'prepare'}),
+    'crop_greenhouse_solar_farm_binding.py': frozenset({'current', '_guard', '_input', '_registration'}),
+    'crop_greenhouse_solar_input_evidence.py': frozenset({'verify'}),
+    'farm_authoring_storage.py': frozenset({'read_registration', '_guard'}),
+    'crop_greenhouse_solar_continuation.py': frozenset({'prepare_context', 'advance_chunk', 'restore_checkpoint'}),
 }
+_obs_prefixes = {'crop_greenhouse_solar_server_custody.py':'custody',
+    'crop_greenhouse_solar_farm_binding.py':'binding', 'crop_greenhouse_solar_input_evidence.py':'evidence',
+    'farm_authoring_storage.py':'farm', 'crop_greenhouse_solar_continuation.py':'model'}
 _obs_totals, _obs_active, _obs_recent, _obs_errors = {}, {}, [], []
 _obs_dropped = 0
 _obs_last_confirmed = _obs_last_advanced = _obs_last_adopted = _obs_outcome = None
@@ -38,7 +45,7 @@ def _obs_progress(value):
         except (ValueError, UnicodeError): return None
     if type(value) is not dict:
         return None
-    if 'checkpoint' in value:
+    if not {'steps', 'planned_steps', 'status'} <= value.keys() and 'checkpoint' in value:
         value = value['checkpoint']
     if (type(value) is not dict or type(value.get('steps')) is not int
             or type(value.get('planned_steps')) is not int
@@ -47,6 +54,10 @@ def _obs_progress(value):
         return None
     record = {key:value[key] for key in ('steps', 'planned_steps', 'status')}
     stamp = value.get('computed_through_utc')
+    if 'computed_through_utc' not in value and type(value.get('times')) is dict:
+        selected = value['times'].get('last_confirmed')
+        if type(selected) is dict:
+            stamp = selected.get('at')
     if stamp is None or (type(stamp) is str and _obs_re.fullmatch(
             r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?Z', stamp)):
         record['computed_through_utc'] = stamp
@@ -55,7 +66,7 @@ def _obs_progress(value):
 
 def _obs_dump(now):
     _obs_write('worker-progress-diagnostics.private.json', {
-        'version':'solar-worker-progress-observation-v1', 'observation_only':True,
+        'version':'solar-worker-progress-observation-v2', 'observation_only':True,
         'normal_execution_accepted':False, 'G0_G4':'not_assessed',
         'time_scope':'inclusive monotonic seconds; observer overhead included; nested durations overlap',
         'trace_installed_monotonic':_obs_started, 'last_observed_monotonic':now,
@@ -69,12 +80,13 @@ def _obs_dump(now):
 
 def _obs_trace(frame, event, arg):
     global _obs_dropped, _obs_last_confirmed, _obs_last_advanced, _obs_last_adopted, _obs_outcome
-    filename = _obs_Path(frame.f_code.co_filename).name
+    filename = frame.f_code.co_filename.rsplit('/', 1)[-1]
     function = frame.f_code.co_name
-    phase = ('worker.' if filename == _obs_worker else 'custody.')+function
     selected = function in _obs_phases.get(filename, ())
     if not selected and filename != _obs_worker:
         return None
+    phase = ('worker.'+function if filename == _obs_worker
+             else _obs_prefixes[filename]+'.'+frame.f_code.co_qualname)
     if event == 'call':
         frame.f_trace_lines = False
     if event == 'exception' and filename == _obs_worker:
@@ -104,7 +116,7 @@ def _obs_trace(frame, event, arg):
         metrics['max_inclusive_seconds'] = max(metrics['max_inclusive_seconds'], duration)
         item['inclusive_seconds'] = duration
         if phase == 'worker._confirm': _obs_last_confirmed = _obs_progress(arg) or _obs_last_confirmed
-        if phase == 'custody.advance': _obs_last_advanced = _obs_progress(arg) or _obs_last_advanced
+        if phase == 'custody.SolarServerCustody.advance': _obs_last_advanced = _obs_progress(arg) or _obs_last_advanced
         if phase == 'worker._adopt': _obs_last_adopted = _obs_progress(arg) or _obs_last_adopted
         if phase == 'worker.run_once' and type(arg).__name__ == 'SolarExecutionOutcome':
             if (arg.state in ('queued', 'succeeded', 'failed', 'hold', 'canceled', 'unclosed')
