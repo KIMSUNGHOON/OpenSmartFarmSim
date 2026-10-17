@@ -1,11 +1,11 @@
 {
-  "estimate_reason": "일사 확정 구간 공개 응답을 전용91검사로 수용했습니다. 원 값/단위/UTC·독립 조회와 직렬화 뒤 권리/페이지/취소·계산/SQL 변경0을 확인했습니다. 보호 API/runtime→같은 UTC3D와 실제 자료 검증이 남아 전체 완료일은 미정입니다.",
-  "estimate_reviewed_at": "2026-10-16T23:01:10.283576Z",
+  "estimate_reason": "일사 실행·확정 구간 보호 HTTP355검사를 수용했습니다. 원 값/UTC·권리/취소·저장 연결을 확인했습니다. 명시 runtime·독립 작업자 동시 실행→같은 UTC3D와 실제 자료 검증이 남아 전체 완료일은 미정입니다.",
+  "estimate_reviewed_at": "2026-10-17T00:05:37.195246Z",
   "full_product_completion": null,
   "new_model_deployed": true,
   "real_farm_runs": 0,
   "remaining_focused_hours": null,
-  "reported_at": "2026-10-16T23:01:10.283576Z",
+  "reported_at": "2026-10-17T00:05:37.195246Z",
   "schema_version": "development-status-v2",
   "stages": [
     {
@@ -19,17 +19,17 @@
       "state": "completed"
     },
     {
-      "evidence": "일사 확정 구간 공개 응답91검사: 원 값/단위/UTC·선택자/최초 시각·직렬화 뒤 권리/페이지/취소·독립 원 응답·계산/SQL 변경0을 확인했습니다. 다음은 접수/진행/취소·prefix 보호 API/runtime→같은 UTC3D입니다. 새 일사는 미배포입니다.",
+      "evidence": "일사 접수/진행/취소·확정 구간 보호 HTTP355검사: 실제 DB/TLS 원 값/UTC·권리/파일 변경 차단·조회 계산/SQL 변경0을 확인했습니다. 정상/hold 단독 수용이며 합배치/전체 CI는 미수용입니다. 다음은 명시 runtime·독립 작업자→같은 UTC3D입니다. 새 일사는 미배포입니다.",
       "id": "api",
       "state": "completed"
     },
     {
-      "evidence": "실제 사용자 주소의 정상·보류·취소에서 원 수치/UTC의 계산 중·저장 3D, 재접속·권리 철회/복원·취소 뒤 결과 행0을 검증했습니다. 합성 입력·저해상도 조건이며 메모리 한도를 유지했습니다.",
+      "evidence": "기존 환기 모델의 원 수치/UTC·계산 중/저장3D·취소·재접속/현재 권리 검증을 유지합니다. 새 일사 모델의 같은 UTC3D는 서버·독립 작업자의 동시 실행 검증 뒤 연결합니다. 합성 입력이며 실제 농장 검증은 남았습니다.",
       "id": "execution_3d",
       "state": "completed"
     },
     {
-      "evidence": "기존 환기 모델의 사용자 적용 상태를 유지합니다. 새 일사 모델의 사용자 3D 적용은 후속이며 원 키/결과/두 서비스를 보존했습니다. 실제 지역·품종의 생산/경제 예측과 최종 제품 완료일은 미정입니다.",
+      "evidence": "기존 환기 모델의 사용자 적용을 유지합니다. 새 일사 모델의 사용자 3D 적용·재시작 수용은 후속이며 원 키/결과/두 서비스를 보존했습니다. 실제 지역·품종의 생산/경제 예측·최종 제품과 전체 완료일은 미정입니다.",
       "id": "activation",
       "state": "completed"
     }

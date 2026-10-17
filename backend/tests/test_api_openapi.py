@@ -28,6 +28,9 @@ from app.api_crop_climate_joint_execution import SUBMIT_SCOPES as JOINT_SUBMIT_S
 
 
 OPERATIONS = {
+    ('/v1/crop-greenhouse-solar-executions','post'): ('submitGreenhouseSolarExecution',list(JOINT_SUBMIT_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-greenhouse-solar-execution','get'): ('getGreenhouseSolarExecution',list(JOINT_PROGRESS_SCOPES)),
+    ('/v1/jobs/{job_id}/crop-greenhouse-solar-execution/cancel','post'): ('cancelGreenhouseSolarExecution',['cancel']),
     ('/v1/crop-greenhouse-solar-research-results/{result_id}','get'): ('getGreenhouseSolarResearchResult',list(CROP_READ_SCOPES)),
     ('/v1/crop-greenhouse-ventilation-executions','post'): ('submitGreenhouseVentilationExecution',list(JOINT_SUBMIT_SCOPES)),
     ('/v1/jobs/{job_id}/crop-greenhouse-ventilation-execution','get'): ('getGreenhouseVentilationExecution',list(JOINT_PROGRESS_SCOPES)),

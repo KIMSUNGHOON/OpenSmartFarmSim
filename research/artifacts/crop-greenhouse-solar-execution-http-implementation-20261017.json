@@ -1,0 +1,379 @@
+{
+  "G0_G4": "not_assessed",
+  "OpenAPI": {
+    "baseline_operations_preserved": 65,
+    "baseline_paths_preserved": 61,
+    "baseline_schemas_preserved": 389,
+    "default_operations": 68,
+    "default_paths": 64,
+    "default_schemas": 395,
+    "execution_paths_added": 3,
+    "fresh_module_CLI_check": true,
+    "operational_imports_during_default_schema": 0,
+    "prefix_paths_explicit_only": 3,
+    "schema_connections": 0
+  },
+  "RSS_rejection_cleanup": {
+    "cleanup_evidence_sha256": "3fd1910c807bbaabdd41d0d65abf4db7a892c8871051f3507aa85a8e35b808f9",
+    "known_owned_passfiles_removed": 4,
+    "protected_roots_live": 5,
+    "remaining": 0
+  },
+  "accepted_at": "2026-10-17T00:03:00.002199Z",
+  "accepted_combined_peak_RSS_bytes": 1068032000,
+  "accepted_guards": [
+    {
+      "RSS_samples": 23,
+      "actual_child_exit": 0,
+      "case": "schema-export-v4",
+      "combined_peak_RSS_bytes": 929550336,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "1bacb688c014c3a24cda48eb5420f65894a9fdc3e08ad49f7aac0ba1fef02261",
+      "owned_process_PG_temp_passfiles_remaining": 0,
+      "preservation_checks_all_passed": true,
+      "protected_root_count": 5,
+      "pytest_passed": 0,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "standalone_checks": 1,
+      "terminal_sha256": "dcecc0503b4a30bd3b5e205f4490f6c2c91e839e30f4d20b0b9718b86ce9a972",
+      "tool_session": "72207",
+      "wall_seconds": 6.1023517650028225
+    },
+    {
+      "RSS_samples": 1372,
+      "actual_child_exit": 0,
+      "case": "focused-native-controls-v3",
+      "combined_peak_RSS_bytes": 1064341504,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "ef392f5900087ed2b32ec38a2d8e921b28d640796fd32db55fbcba53ff968427",
+      "owned_process_PG_temp_passfiles_remaining": 0,
+      "preservation_checks_all_passed": true,
+      "protected_root_count": 5,
+      "pytest_passed": 6,
+      "single_PID_peak_RSS_bytes": 191115264,
+      "standalone_checks": 0,
+      "terminal_sha256": "342fc976982420d324a5a4401f749328b494c84a315ec3f622b405cc61fc82e5",
+      "tool_session": "46585",
+      "wall_seconds": 416.1025298359964
+    },
+    {
+      "RSS_samples": 220,
+      "actual_child_exit": 0,
+      "case": "focused-native-heartbeat-v1",
+      "combined_peak_RSS_bytes": 1031946240,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "1416d1f3480442a6f7842d739b06018e5d6400f26457c02e581732f5bc487c4c",
+      "owned_process_PG_temp_passfiles_remaining": 0,
+      "preservation_checks_all_passed": true,
+      "protected_root_count": 5,
+      "pytest_passed": 1,
+      "single_PID_peak_RSS_bytes": 163926016,
+      "standalone_checks": 0,
+      "terminal_sha256": "b9bbefc1002db8dd6a89e90b528d765167cc6ce451f3d3c3a446af2333c23d9d",
+      "tool_session": "69025",
+      "wall_seconds": 62.61678580500302
+    },
+    {
+      "RSS_samples": 830,
+      "actual_child_exit": 0,
+      "case": "focused-native-concurrent-prefix-v1",
+      "combined_peak_RSS_bytes": 1063251968,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "403354484a07a991222a9b5cfe07af18d30580ef8b3ba6e652a49e093a2da12b",
+      "owned_process_PG_temp_passfiles_remaining": 0,
+      "preservation_checks_all_passed": true,
+      "protected_root_count": 5,
+      "pytest_passed": 3,
+      "single_PID_peak_RSS_bytes": 182996992,
+      "standalone_checks": 0,
+      "terminal_sha256": "406b39c29b3d8a2673ac287be7b827e49215b8ed237eb7aa338033afa160037b",
+      "tool_session": "79717",
+      "wall_seconds": 245.3945365460022
+    },
+    {
+      "RSS_samples": 414,
+      "actual_child_exit": 0,
+      "case": "focused-native-terminal-normal-v3",
+      "combined_peak_RSS_bytes": 1051377664,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "9a597e9f0f4e2ea9e1064615a8e78aa606d08fb9d9b5e6802d9f64eac78cbfe0",
+      "owned_process_PG_temp_passfiles_remaining": 0,
+      "preservation_checks_all_passed": true,
+      "protected_root_count": 5,
+      "pytest_passed": 1,
+      "single_PID_peak_RSS_bytes": 168677376,
+      "standalone_checks": 0,
+      "terminal_sha256": "50451c316754b0fe8819386b10114e6909f9871424b18c02a7c02a3e15b27edb",
+      "tool_session": "95116",
+      "wall_seconds": 120.44906606899895
+    },
+    {
+      "RSS_samples": 418,
+      "actual_child_exit": 0,
+      "case": "focused-native-terminal-hold-v2",
+      "combined_peak_RSS_bytes": 1068032000,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "9421d3bb2fbabb1e545e9579d0a6f6be16e97d71868c9be6a4406fcba314c461",
+      "owned_process_PG_temp_passfiles_remaining": 0,
+      "preservation_checks_all_passed": true,
+      "protected_root_count": 5,
+      "pytest_passed": 1,
+      "single_PID_peak_RSS_bytes": 168607744,
+      "standalone_checks": 0,
+      "terminal_sha256": "59a33beb47a8cb655e53d966d1dedb20160f944b9040347809e7da88587c689c",
+      "tool_session": "57929",
+      "wall_seconds": 121.06050198199955
+    },
+    {
+      "RSS_samples": 759,
+      "actual_child_exit": 0,
+      "case": "focused-contract-regression-v3",
+      "combined_peak_RSS_bytes": 1019166720,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "b02fa643eace07ee44f05af09af30a2cd3758d0d0e92df9a4c65033b2b579f61",
+      "owned_process_PG_temp_passfiles_remaining": 0,
+      "preservation_checks_all_passed": true,
+      "protected_root_count": 5,
+      "pytest_passed": 335,
+      "single_PID_peak_RSS_bytes": 196952064,
+      "standalone_checks": 0,
+      "terminal_sha256": "ec6b40b7e4b2598f2e8044d2956a6b0764226ee2eade2cef77fab7bbb5f42bc6",
+      "tool_session": "4086",
+      "wall_seconds": 198.06235541399656
+    },
+    {
+      "RSS_samples": 8,
+      "actual_child_exit": 0,
+      "case": "focused-route-code-drift-v1",
+      "combined_peak_RSS_bytes": 927637504,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "d904d39b7d22ae7d25a68fecfa2ebd7be99ecbf02c0934dc7d646667d49271a0",
+      "owned_process_PG_temp_passfiles_remaining": 0,
+      "preservation_checks_all_passed": true,
+      "protected_root_count": 5,
+      "pytest_passed": 6,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "standalone_checks": 0,
+      "terminal_sha256": "89f2881ce080a9d55d0dc3c4a6f252cf6e7b29722e394cffe38d3de5f6becae1",
+      "tool_session": "30559",
+      "wall_seconds": 2.186742769998091
+    },
+    {
+      "RSS_samples": 11,
+      "actual_child_exit": 0,
+      "case": "focused-schema-cli-v1",
+      "combined_peak_RSS_bytes": 947351552,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "80a44a56aa92a7930559fcd33632cce3e6e0627394de3fc91b50020e9928c11a",
+      "owned_process_PG_temp_passfiles_remaining": 0,
+      "preservation_checks_all_passed": true,
+      "protected_root_count": 5,
+      "pytest_passed": 0,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "standalone_checks": 1,
+      "terminal_sha256": "1c28a75fd71fc56b33068dd7db46d3f8bf3576c9a625f5506ab48a2dc8df46c0",
+      "tool_session": "36295",
+      "wall_seconds": 2.9961475289965165
+    }
+  ],
+  "accepted_single_PID_peak_RSS_bytes": 196952064,
+  "actual_farm_Runs": 0,
+  "automatic_worker_concurrency_verified": false,
+  "base_commit": "52c66b5027e92a052eae47bfdf148398926f6d4b",
+  "browser_DOM_WebGL_rerun": false,
+  "claim_scope": "synthetic_joint_solar_HTTP_contract_only",
+  "code_sha256": {
+    "backend/app/api.py": "8ca43cfd823693b41b52a48fd4e42ed3eb537df216d6b7b9537acd18529813bd",
+    "backend/app/api_crop_greenhouse_solar_execution_http.py": "d7a7572b46e087ee69a6a2f14d3d78326376ad6ef14f73e6f00f40a69a09c95c",
+    "backend/app/api_crop_greenhouse_solar_prefix_routes.py": "05ac3f55edbfd12a5389474a8744c194e9ee8b4f5510963226aa2e0c770572d6",
+    "backend/tests/test_api_crop_greenhouse_solar_execution_http.py": "4e8e8d2b0337df8fb21409acdffc9339004a5b0b5775b28eb969336a3f2b8ee0",
+    "backend/tests/test_api_crop_greenhouse_solar_execution_http_native.py": "a8312a473239804e46c04c30e94be00c90753bd60f46f694dbe328f33b0e6e98",
+    "backend/tests/test_api_crop_greenhouse_solar_prefix_routes.py": "b64a5f64f9ca6b379c2e81cd474b16de268719f3e4d0d81d759d4a6013f5316d",
+    "backend/tests/test_api_openapi.py": "eceef0f1d440039790822c44416e1e1a2380c4015836c059f486cbf277de80d1",
+    "contracts/openapi-v1.json": "e15626fb11db686b01e3e996b47314b4380eec9122020c81eb4e4d42e3dda3a6"
+  },
+  "common_regression_passed": 79,
+  "counts_by_file_main_regression": {
+    "tests/test_api_crop_greenhouse_solar_execution_http.py": {
+      "failed": 0,
+      "passed": 107,
+      "skipped": 0
+    },
+    "tests/test_api_crop_greenhouse_solar_prefix_routes.py": {
+      "failed": 0,
+      "passed": 149,
+      "skipped": 0
+    },
+    "tests/test_api_crop_greenhouse_ventilation_execution.py": {
+      "failed": 0,
+      "passed": 1,
+      "skipped": 0
+    },
+    "tests/test_api_openapi.py": {
+      "failed": 0,
+      "passed": 78,
+      "skipped": 0
+    }
+  },
+  "dedicated_passed": 274,
+  "development_status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_child_exit": 0,
+    "browser_DOM_WebGL_rerun": false,
+    "browser_rerun": false,
+    "log_sha256": "e628803898918494990eb6085aef8612843d408e6278c2c084409a1aa65dd97d",
+    "new_model_deployed_scope": "Retained ventilation only. Solar HTTP accepted locally; explicit runtime, unpaused worker and Solar user3D remain undeployed.",
+    "original_HTML_both_ports_preserved": true,
+    "reported_at": "2026-10-17T00:05:37.195246Z",
+    "retained_ventilation_files": 2173,
+    "source_sha256": "25e74ff3c2a7770da6a8d1ef1fbbd1125d982c515316363a4d956e7ccdc3f234",
+    "terminal_sha256": "caaeb02112e9ff76e194ae7e00559a004403529a98b9e9d29f0a650567dd70a8",
+    "tool_session": "8918"
+  },
+  "distinct_checks": 355,
+  "duplicate_batches_not_counted": [
+    "focused-initial-default-v1",
+    "focused-asgi-contract-v2",
+    "focused-native-lifecycle-v1",
+    "focused-native-terminal-normal-v2"
+  ],
+  "evidence_privacy": "Only code/evidence hashes and selected software counters; no credentials, personal farm records or restricted raw data. Intentional actor metadata SQL is separate from product read SQL0.",
+  "excluded_attempts": [
+    {
+      "actual_child_exit": 1,
+      "case": "focused-asgi-contract-v1",
+      "guard_reason": null,
+      "log_sha256": "0b5c86a22f7abeaa5db5adf6daf54b9cf725eb959e75aef60369e77f266cb1ce",
+      "not_in_accepted_count": true,
+      "reason": "Old cancellation field and facade-None expectations; corrected only the tests.",
+      "terminal_sha256": "c834643ce0a9743c3a7bbb1584939968e415a4dbe784f4086c03c16c799d9f38"
+    },
+    {
+      "actual_child_exit": 1,
+      "case": "schema-export-v2",
+      "guard_reason": null,
+      "log_sha256": "e321cb0290c5f06263fb587a7e669ee6656a7b1d3a7a38cf84c6e9bfbd0e0721",
+      "not_in_accepted_count": true,
+      "reason": "Stale baseline path/schema count assertion; no export occurred.",
+      "terminal_sha256": "b291dee0a537af2471f00ade4ba5e3345ef20671f2fb1be0297974631f1ccb07"
+    },
+    {
+      "actual_child_exit": 1,
+      "case": "schema-export-v3",
+      "guard_reason": null,
+      "log_sha256": "5ac538793fec0b9ad763519319e4f3ed67a3adfe85060c1675aaaa90dda84df7",
+      "not_in_accepted_count": true,
+      "reason": "Stale baseline operation count assertion; no export occurred.",
+      "terminal_sha256": "88febc7c2be2a47abfd249f31a1ed4e064474262b81db20a54fad5c2e52c55cd"
+    },
+    {
+      "actual_child_exit": 1,
+      "case": "focused-native-controls-v2",
+      "guard_reason": null,
+      "log_sha256": "8c12fc740cbc95b0a25046abf59a78e6a9dbda34f285f18654aab099428afb84",
+      "not_in_accepted_count": true,
+      "reason": "Reference prefix read lacked test principal context; HTTP authorization not bypassed.",
+      "terminal_sha256": "b616c55ab4f247ed57a16d3281a7e212bdae5dcfc3daa07813b9221f8c8006b7"
+    },
+    {
+      "actual_child_exit": -15,
+      "case": "focused-native-terminal-v1",
+      "guard_reason": "RSS_limit",
+      "log_sha256": "943492bf112059dbb51d61d654af6e76af050de61558da33022460f4e0966a6a",
+      "not_in_accepted_count": true,
+      "reason": "First completion assertion failed; second fixture setup hit aggregate RSS limit. Cause of initial completion failure is not established; isolated original-import-order cases passed. Combined batch is not accepted.",
+      "terminal_sha256": "2be017d8778a7f9014fe12f2ffe7b2bc384f3652c71bc43c631543e34fae5e19"
+    }
+  ],
+  "full_CI_rerun": false,
+  "full_product_completion": null,
+  "goal_status": "active",
+  "guard_wall_seconds": 1174.971017715994,
+  "implementation_commit": "0f013696b182a10291d2803a0782ab79c03192d5",
+  "independent_actors_scope": "Intentional metadata SQL and publication of precomputed original signed HEAD/checkpoint. No concurrent unpaused numerical worker claim.",
+  "native_CLI": {
+    "accepted_output_sha256": "6d1093b974dd09d8059e01f7b753274cae2e50f3d86b236742089e0002d850a3",
+    "context_file_sha256": "54a0eb81f2ecfb41f27d829bb6869e216394fe9b95595b9bb251444e30beabc1",
+    "design_output_sha256": "9c90b94f1172cf3b905bb4baee796425d17a5fb4d35a36219336391d679e8b2b",
+    "model": "gpt-6.1-sol",
+    "native_context_timestamp": "2026-10-16T23:04:18.295Z",
+    "raw_turn_context_sha256": "4b86226e0a603675ab53a33ceb73fbcff4f336128fe3deee68b211feeda141a1",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+  },
+  "native_dedicated_cases": 12,
+  "new_solar_user_deployed": false,
+  "next": "Explicit Solar operator/runtime and independent unpaused worker under the same five-root budget; then typed web / original UTC3D and user activation/restart.",
+  "original_source_entries": 2148,
+  "original_sources_and_two_services_preserved": true,
+  "preflight_excluded": "schema-export-v1 rejected its private guard case label before creating any stage/process; not a verification pass.",
+  "pure_dedicated_cases": 262,
+  "pytest_passed": 353,
+  "read_calculation_and_SQL_writes": 0,
+  "resource_policy": {
+    "combined_limit_bytes": 1073741824,
+    "maintenance_window": false,
+    "nice": 19,
+    "nominal_sample_seconds": 0.25,
+    "numeric_threads": 1,
+    "protected_roots": 5,
+    "single_PID_limit_bytes": 536870912
+  },
+  "rights_or_gate_approval": false,
+  "same_UTC_3D_user_accepted": false,
+  "standalone_contract_checks": 2,
+  "unchanged_core_store_runtime_sha256": {
+    "backend/app/api_crop_greenhouse_solar_execution.py": "90ce308d15db923469d5db7a68d6bc236c1ec027faa0936085823afdee75f896",
+    "backend/app/api_crop_greenhouse_solar_prefix.py": "af95fff50bf4c7166fa27c4a98f465ee3d22c17827c60a0652f173f5c438ef9a",
+    "backend/app/api_runtime.py": "cc93dfee795a383fcd8c1edbb2442eed62168bf01eed98f951097155afd80d7f",
+    "backend/app/crop_greenhouse_solar_execution.py": "4a47a3d877850428fba1aec031ba59827d3d5270992e46f90903cf0a0e8ea5de",
+    "backend/app/crop_greenhouse_solar_execution_checkpoint.py": "5cc224dabbc74f53627d82f7ceb98ac566e1959c707acac0bb9ff4725af8aa49",
+    "backend/app/crop_greenhouse_solar_execution_query.py": "087dd4988175f465b2d3d1dac5063e0ac68a55705df9d82b4bd3e35b327a38fb",
+    "backend/app/crop_greenhouse_solar_execution_worker.py": "73dcfe24bcaffb9f17b176cb578257cb11d7a57f5d8682a3ed19c4926963b559",
+    "backend/app/crop_greenhouse_solar_operator_config.py": "ba5dc61aa3e9f9fb72f98de3ddb992122ecb84784de8666d83a2759ea6454742",
+    "backend/app/crop_greenhouse_solar_prefix.py": "5b8e9f84f9b87567177b38a3ffd58e405d3ddfde0b890995ee76cfc74323dec4",
+    "backend/app/crop_greenhouse_solar_result_store.py": "c3ff0a62f8dbd9b9a2e10827ca29e756f4e2419eefb53f405fc2db8acd13da0a"
+  }
+}

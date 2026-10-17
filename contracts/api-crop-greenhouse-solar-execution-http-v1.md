@@ -1,5 +1,7 @@
 # 일사 접수·진행·취소·확정 구간 보호 HTTP v1
 
+[로컬 수용 증거](../research/crop-greenhouse-solar-execution-http-implementation-20261017.md). 지속 runtime·독립 자동 작업자·사용자 3D 적용은 후속이다.
+
 선행: [내부 실행](crop-greenhouse-solar-execution-core-v1.md), [현재 진행](crop-greenhouse-solar-execution-query-v1.md),
 [확정 공개 응답](api-crop-greenhouse-solar-prefix-v1.md), [저장 결과 HTTP](api-crop-greenhouse-solar-route-v1.md).
 
