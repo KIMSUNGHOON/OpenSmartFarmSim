@@ -203,24 +203,83 @@ class MarketCandidateStore:
     def tenant_is_authenticated(self, tenant_id):
         return self._tenant("market_candidate_read") == tenant_id
 
+    def _shared_reader(self, tenant, conn, expected=None):
+        if conn is None:
+            return None
+        from .api_market_source import _MarketSources
+        from .market_source_store import MarketSourceStore
+        from .runtime_login import verify_runtime_identity
+        from psycopg.conninfo import conninfo_to_dict
+        from psycopg.pq import TransactionStatus
+        view = self._source
+        if type(view) is not _MarketSources or type(view._source) is not MarketSourceStore:
+            return None
+        source = view._source
+        if (type(self.runtime_identity) is not tuple or len(self.runtime_identity) != 2
+                or type(source.runtime_identity) is not tuple or len(source.runtime_identity) != 2
+                or source.runtime_identity[0] is not self.runtime_identity[0]
+                or source.runtime_identity[1] != self.runtime_identity[1]
+                or source.dsn != self.dsn or source.schema != self.schema
+                or source._principal_provider is not self._principal_provider
+                or view._principal_provider is not self._principal_provider):
+            return None
+        try:
+            validate_market_identity(self.schema, self.runtime_identity, calculation=True)
+            validate_market_identity(source.schema, source.runtime_identity,
+                                     calculation=True, source_storage=True)
+        except ValueError:
+            raise MarketCandidateDenied('market candidate shared profile rejected') from None
+        refs = (view, source, self.runtime_identity, source.runtime_identity,
+                self._principal_provider, view._principal_provider, source._principal_provider,
+                self._scoped_reader, source._scoped_reader, view._holds)
+        values = (self.dsn, source.dsn, self.schema, source.schema)
+        if expected is not None and (values != expected[1]
+                or any(now is not before for now, before in zip(refs, expected[0]))):
+            raise MarketCandidateDenied('market candidate shared read authority changed')
+        try:
+            configured = conninfo_to_dict(self.dsn)
+        except Exception:
+            raise MarketCandidateDenied('market candidate shared read binding rejected') from None
+        if not (('host' in configured or 'hostaddr' in configured) and 'port' in configured):
+            return None
+        if (type(conn) is not psycopg.Connection or conn.closed or conn.autocommit
+                or conn.info.transaction_status != TransactionStatus.INTRANS
+                or source._scoped_reader.get() != (conn, tenant)
+                or self._tenant('market_candidate_read') != tenant
+                or any(conn.info.get_parameters().get(key) != configured[key]
+                       for key in ('host', 'hostaddr', 'port', 'dbname', 'user') if key in configured)):
+            raise MarketCandidateDenied('market candidate shared read authority denied')
+        verify_runtime_identity(conn, *self.runtime_identity)
+        if (conn.execute('SHOW transaction_read_only').fetchone()['transaction_read_only'] != 'on'
+                or conn.execute('SHOW transaction_isolation').fetchone()['transaction_isolation'] != 'read committed'):
+            raise MarketCandidateDenied('market candidate shared read transaction changed')
+        return refs, values
+
     @contextmanager
     def read_scope(self, tenant):
         if (type(tenant) is not str or not tenant or self._tenant('market_candidate_read') != tenant
                 or self._scoped_reader.get() is not None):
             raise MarketCandidateDenied('market candidate read authority denied')
+        slot = self._scoped_reader
         source_scope = getattr(self._source, 'read_scope', None)
-        with source_scope(tenant) if callable(source_scope) else nullcontext():
-            with self.connect() as conn:
-                conn.execute('SET TRANSACTION ISOLATION LEVEL READ COMMITTED READ ONLY')
-                token = self._scoped_reader.set((conn, tenant))
+        with source_scope(tenant) if callable(source_scope) else nullcontext() as source_conn:
+            shared = self._shared_reader(tenant, source_conn)
+            with nullcontext(source_conn) if shared is not None else self.connect() as conn:
+                if shared is not None:
+                    audit_runtime_roles(conn, self.runtime_identity[0])
+                else:
+                    conn.execute('SET TRANSACTION ISOLATION LEVEL READ COMMITTED READ ONLY')
+                token = slot.set((conn, tenant))
                 try:
                     yield
                     if self._tenant('market_candidate_read') != tenant:
                         raise MarketCandidateDenied('market candidate read authority denied')
+                    if shared is not None and self._shared_reader(tenant, conn, shared) is None:
+                        raise MarketCandidateDenied('market candidate shared read authority changed')
                     if self.runtime_identity is not None:
                         audit_runtime_roles(conn, self.runtime_identity[0])
                 finally:
-                    self._scoped_reader.reset(token)
+                    slot.reset(token)
 
     @contextmanager
     def _read_context(self, tenant):

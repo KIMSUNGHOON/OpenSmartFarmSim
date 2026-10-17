@@ -98,14 +98,15 @@ class MarketSourceStore:
             raise MarketSourceDenied('market source read scope denied')
         with self.connect() as conn:
             conn.execute('SET TRANSACTION ISOLATION LEVEL READ COMMITTED READ ONLY')
-            token = self._scoped_reader.set((conn, tenant))
+            slot = self._scoped_reader
+            token = slot.set((conn, tenant))
             try:
-                yield
+                yield conn
                 if self._tenant('market_source_read') != tenant:
                     raise MarketSourceDenied('market source read scope denied')
                 audit_runtime_roles(conn, self.runtime_identity[0])
             finally:
-                self._scoped_reader.reset(token)
+                slot.reset(token)
 
     @contextmanager
     def _read_context(self, tenant):

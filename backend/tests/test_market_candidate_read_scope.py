@@ -45,23 +45,31 @@ def audit_cleanup(login_database, tmp_path_factory):
         'passfiles_after':len(passfiles),'server_host_auth_methods':methods})
 
 
+@pytest.fixture(params=('shared', 'fallback'))
+def reader_mode(request):
+    return request.param
+
+
 @pytest.fixture
-def candidate(economic_api, login_scope):
+def candidate(economic_api, login_scope, reader_mode):
     _, _, store, principal, _, request = economic_api
+    if reader_mode == 'fallback':
+        provider = store._source._principal_provider
+        store._source._principal_provider = lambda: provider()
     pinned = MarketScenarioService(store).build_candidate(request, 'tenant-1')
     return login_scope[0], store, principal, pinned
 
 
-def test_validation_reuses_candidate_connection_without_caching_rows(candidate, monkeypatch):
+def test_validation_reuses_candidate_connection_without_caching_rows(candidate, monkeypatch, reader_mode):
     _, store, _, pinned = candidate
     source = store._source._source
-    connections = []; source_connections = []; checks = []; password_auth = []
+    connections = []; source_connections = []; checks = []; password_auth = []; source_password_auth = []
     original_connect, original_source_connect = store.connect, source.connect
     def connect():
         conn = original_connect(); connections.append(conn)
         password_auth.append(conn.pgconn.used_password); return conn
     def source_connect():
-        conn = original_source_connect(); source_connections.append(conn); return conn
+        conn = original_source_connect(); source_connections.append(conn); source_password_auth.append(conn.pgconn.used_password); return conn
     monkeypatch.setattr(store, 'connect', connect)
     monkeypatch.setattr(source, 'connect', source_connect)
     for owner, name in ((store, '_candidate_in_transaction'), (store, '_input_in_transaction'),
@@ -78,7 +86,7 @@ def test_validation_reuses_candidate_connection_without_caching_rows(candidate, 
         baseline_seconds = perf_counter()-start
     baseline_connections = len(connections); baseline_source_connections = len(source_connections)
     baseline_checks = list(checks)
-    connections.clear(); source_connections.clear(); checks.clear(); password_auth.clear()
+    connections.clear(); source_connections.clear(); checks.clear(); password_auth.clear(); source_password_auth.clear()
     start = perf_counter()
     current = service.validate_pinned(pinned.scenario_id, pinned.revision, 'tenant-1')
     current_seconds = perf_counter()-start
@@ -93,9 +101,10 @@ def test_validation_reuses_candidate_connection_without_caching_rows(candidate, 
         'checks':{name:checks.count(name) for name in set(checks)}}
     evidence('candidate-read-observation.json', observation)
     assert current == baseline and checks == baseline_checks
-    assert baseline_connections > 10 and len(connections) == 1
+    assert baseline_connections > 10 and len(connections) == (0 if reader_mode == 'shared' else 1)
     assert baseline_source_connections == len(source_connections) == 1
-    assert password_auth == [True]
+    assert password_auth == ([] if reader_mode == 'shared' else [True])
+    assert source_password_auth == [True]
     assert all(conn.closed for conn in connections+source_connections)
     with store.read_scope('tenant-1'):
         actual = EconomicLedger(store).calculate(current[1])
@@ -111,6 +120,7 @@ def test_denied_scope_opens_no_candidate_connection(candidate, monkeypatch, chan
     elif change == 'tenant': principal['tenant_id'] = 'foreign'
     else: principal['authenticated'] = False
     monkeypatch.setattr(store,'connect',lambda:pytest.fail('denied scope connected'))
+    monkeypatch.setattr(store._source._source,'connect',lambda:pytest.fail('denied source scope connected'))
     with pytest.raises(MarketCandidateDenied):
         with store.read_scope('tenant-1'):pytest.fail('denied scope entered')
 
@@ -133,24 +143,29 @@ def test_current_principal_withdrawal_cannot_reuse_scope(candidate, change):
     assert store.get_market_candidate(pinned.scenario_id,pinned.revision)
 
 
-def test_nested_and_exceptional_scope_closes_connection_and_resets(candidate, monkeypatch):
+def test_nested_and_exceptional_scope_closes_connection_and_resets(candidate, monkeypatch, reader_mode):
     _, store, _, pinned = candidate
     connections=[];connect=store.connect;descriptors=len(os.listdir('/proc/self/fd'))
     def traced():
         conn=connect();connections.append(conn);return conn
     monkeypatch.setattr(store,'connect',traced)
+    source=store._source._source;source_connect=source.connect
+    def traced_source():
+        conn=source_connect();connections.append(conn);return conn
+    monkeypatch.setattr(source,'connect',traced_source)
+    count=1 if reader_mode=='shared' else 2
     with pytest.raises(RuntimeError,match='controlled interruption'):
         with store.read_scope('tenant-1'):
             with pytest.raises(MarketCandidateDenied):
                 with store.read_scope('tenant-1'):pytest.fail('nested scope entered')
             assert store.get_market_candidate(pinned.scenario_id,pinned.revision)
             raise RuntimeError('controlled interruption')
-    assert len(connections)==1 and connections[0].closed and store._scoped_reader.get() is None
+    assert len(connections)==count and all(conn.closed for conn in connections) and store._scoped_reader.get() is None
     with store.read_scope('tenant-1'):
         assert store.get_market_candidate(pinned.scenario_id,pinned.revision)
-    assert len(connections)==2 and all(conn.closed for conn in connections)
+    assert len(connections)==2*count and all(conn.closed for conn in connections)
     assert store.get_market_candidate(pinned.scenario_id,pinned.revision)
-    assert len(connections)==3 and all(conn.closed for conn in connections)
+    assert len(connections)==2*count+1 and all(conn.closed for conn in connections)
     assert len(os.listdir('/proc/self/fd'))==descriptors
 
 
