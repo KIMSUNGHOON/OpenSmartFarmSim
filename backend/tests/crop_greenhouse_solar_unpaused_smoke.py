@@ -15,23 +15,7 @@ import traceback
 
 ROOT = Path(__file__).resolve().parents[2]
 PROTOTYPE = ROOT/'research/crop-greenhouse-solar-unpaused-probe.py'
-WORKER_TRACE = r'''
-import sys as _trace_sys,traceback as _trace_tb
-_trace_records=[]
-def _observe_worker_exception(frame,event,arg):
- selected=frame.f_code.co_filename.endswith('/app/crop_greenhouse_solar_execution_worker.py')
- if selected and event=='exception':
-  kind,value,tb=arg
-  _trace_records.append({'exception_type':kind.__name__,'locations':[
-   {'file':Path(v.filename).name,'line':v.lineno,'function':v.name}
-   for v in _trace_tb.extract_tb(tb)[-16:]]})
-  del _trace_records[:-16]
-  destination=Path(_trace_sys.argv[1]).parent/'worker-caught-diagnostics.private.json'
-  with destination.open('w') as out:
-   os.fchmod(out.fileno(),0o600);json.dump(_trace_records,out)
- return _observe_worker_exception if selected else None
-_trace_sys.settrace(_observe_worker_exception)
-'''
+WORKER_TRACE = (ROOT/'research/crop-solar-worker-progress-trace.py').read_text()
 
 
 def save(path, value):
@@ -74,6 +58,7 @@ def exercise(evidence):
             for process, script in processes:
                 log = script.with_suffix('.log')
                 diagnostics.append({'role':script.stem.split('.')[0], 'exit_code':process.poll(),
+                    'script_sha256':sha256(script.read_bytes()).hexdigest(),
                     'log':failure_locations(log.read_text(errors='replace')) if log.exists() else None,
                     'worker_proof_present':(script.parent/'worker-proof.private.json').exists(),
                     'api_proof_present':(script.parent/'api-proof.private.json').exists(),
@@ -82,6 +67,16 @@ def exercise(evidence):
                 caught = processes[-1][1].parent/'worker-caught-diagnostics.private.json'
                 if caught.exists():
                     save(evidence/'worker-caught-diagnostics.json', json.loads(caught.read_bytes()))
+                progress = processes[-1][1].parent/'worker-progress-diagnostics.private.json'
+                if progress.exists():
+                    assert progress.stat().st_size <= 64*1024
+                    save(evidence/'worker-progress-diagnostics.json', {
+                        'diagnostic_only':True, 'normal_execution_accepted':False,
+                        'source_commit':os.environ['GITHUB_SHA'], 'run_id':os.environ['GITHUB_RUN_ID'],
+                        'prototype_sha256':sha256(PROTOTYPE.read_bytes()).hexdigest(),
+                        'trace_header_sha256':sha256(WORKER_TRACE.encode()).hexdigest(),
+                        'worker_script_sha256':sha256(processes[-1][1].read_bytes()).hexdigest(),
+                        'collected_monotonic':time.monotonic(), 'phases':json.loads(progress.read_bytes())})
             save(evidence/'actor-diagnostics.json', diagnostics)
         result = original_run(argv, *args, **kwargs)
         if len(argv) == 5 and argv[2:4] == ['-c', prototype.CLEANUP]:

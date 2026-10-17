@@ -14,6 +14,10 @@
   이 단계에서 상한 증가·sleep 조절·fixture 축소·context 캐시나 수식 변경을 하지 않는다.
 - frame locals·원 결과/예외 메시지·입력/환경·접속 정보를 내보내지 않는다.
   기록은 최대 용량/건수, monotonic 시각, 원 source/actor hash 및 실제 종료와 연결한다.
+- 관찰 파일은 최대64KiB, 최근32사건·동시16단계·최근16예외로 제한한다.
+  단계별 누적/최대 시간은 중첩을 포함한 시간이며 합산하지 않는다. 관찰 자체 비용도 포함한다.
+  `_confirm`의 실제 반환 checkpoint만 `last_confirmed`로 기록하고 adopt/advance는 따로 기록한다.
+  진행 파일은 atomic replace로 남겨 강제 종료 뒤에도 마지막 완결 기록을 수집한다.
 - 진단 header가 있는 실행은 정상 수용으로 계산하지 않는다. 원 코드로 돌아온 별도 실행이 선행
   [정상 기준](crop-solar-unpaused-hosted-v1.md)을 모두 통과해야 한다.
 
