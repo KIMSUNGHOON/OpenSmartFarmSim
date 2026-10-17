@@ -111,7 +111,9 @@ try:
   click('button','08 성장 연구 3D');click('label','저장 결과 판본');key('End',35);key('ArrowUp',38);key('Enter',13)
   until(lambda:cdp.evaluate('('+element('label','저장 결과 판본')+').value')=='solar','Solar format not selected')
  def load():
+  until(lambda:cdp.evaluate("Boolean(document.querySelector('.solar-replay .crop-lookup'))"),'Solar lookup form not mounted')
   if not cdp.evaluate("document.querySelector('.solar-replay .crop-lookup')?.open"):click('summary','저장 연구 결과 조회')
+  until(lambda:cdp.evaluate("document.querySelector('.solar-replay .crop-lookup')?.open"),'Solar lookup form not open')
   labels={'result_id':'저장 연구 결과 ID','scenario_id':'농장 시나리오 ID','scenario_revision':'농장 판본','registration_sha256':'등록 SHA-256','crop_id':'작물 ID'}
   for field,value in {'result_id':result_id,**farm}.items():fill(labels[field],value)
   click('button','저장 연구 조회')
@@ -164,7 +166,7 @@ except BaseException as error:
  try:
   diagnostic={'error_type':type(error).__name__,'reason':str(error),'HTTP':requests,'frames_saved':len(frames),'native_actions':actions,'last_pointer':last_pointer}
   if browser is not None and browser.poll() is None:
-   diagnostic['controls']=cdp.evaluate("({labels:[...document.querySelectorAll('label')].map(e=>[...e.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE).map(n=>n.textContent).join(' ').trim()),buttons:[...document.querySelectorAll('button')].map(e=>({text:e.textContent,aria:e.getAttribute('aria-label'),disabled:e.disabled})),alerts:[...document.querySelectorAll('[role=alert]')].map(e=>e.textContent),format:document.querySelector('.crop-format select')?.value})")
+   diagnostic['controls']=cdp.evaluate("({lookupOpen:document.querySelector('.solar-replay .crop-lookup')?.open,labels:[...document.querySelectorAll('label')].map(e=>[...e.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE).map(n=>n.textContent).join(' ').trim()),buttons:[...document.querySelectorAll('button')].map(e=>({text:e.textContent,aria:e.getAttribute('aria-label'),disabled:e.disabled})),alerts:[...document.querySelectorAll('[role=alert]')].map(e=>e.textContent),format:document.querySelector('.crop-format select')?.value})")
   save('browser-failure.private.json',diagnostic)
  except Exception:pass
  raise
