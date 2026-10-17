@@ -1,0 +1,457 @@
+{
+  "G0_G4": "not_assessed",
+  "S1a_accepted": true,
+  "S1b_accepted": true,
+  "S2_parent_accepted": false,
+  "S2a_accepted": true,
+  "S2b_accepted": false,
+  "S3_accepted": false,
+  "S4_accepted": false,
+  "actual_crop_Runs": 0,
+  "development_feed": {
+    "bytes_equal": true,
+    "cache_control": "no-store",
+    "checks": {
+      "parser": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 990429184,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "protected_live": true,
+        "reason": null,
+        "wall_seconds": 0.8468631269934122
+      },
+      "published_HTTP": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 811868160,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "protected_live": true,
+        "reason": null,
+        "wall_seconds": 0.33498770400183275
+      }
+    },
+    "frozen_HTML_both_preserved": true,
+    "frozen_ventilation_source_files_preserved": 2173,
+    "new_DOM_exercised": false,
+    "parser_tests": 28,
+    "published_HTTP_both_ports": 200,
+    "reported_at": "2026-10-17T09:39:28.844543Z",
+    "source_sha256": "563d98c0de9bec53bfd2f229cad8d1ab641b87e8842919426610d7d942147ca9"
+  },
+  "downloaded_build": {
+    "archive_paths_checked": true,
+    "artifact": {
+      "created_at": "2026-10-17T09:20:50Z",
+      "digest": "sha256:df95479f320664c1c4e348b259f888a74d6c638a2ffb0798bf554022c63789ff",
+      "expires_at": "2026-10-20T09:20:49Z",
+      "id": 12096407087,
+      "name": "web-build-28e7a28f4e36e7a39b2c9d349e451a854a006356",
+      "size_in_bytes": 5859385
+    },
+    "digest_verified": true,
+    "files": 184,
+    "source_matches_current_web_before_feed_update": true
+  },
+  "external_farm_records": 0,
+  "full_product_completion": null,
+  "full_web_CI": {
+    "browser_tests": 243,
+    "conclusion": "success",
+    "head": "28e7a28f4e36e7a39b2c9d349e451a854a006356",
+    "run": 39020017901,
+    "status": "completed",
+    "typecheck_build_audit_passed": true,
+    "unit_files": 35,
+    "unit_tests": 1864,
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39020017901"
+  },
+  "goal_status": "active",
+  "hosted_attempts": [
+    {
+      "artifact": {
+        "digest_verified": true,
+        "id": 12096663099,
+        "sha256": "f449fef481b1b00f8c0aa6bb1a2b1937981cbb7720ef433ec5b68f4bfead3d66"
+      },
+      "completed_case": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "RSS_samples": 505,
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 436654080,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 248606720,
+        "wall_seconds": 128.764982623
+      },
+      "conclusion": "failure",
+      "database_role_cleanup_assertion_executed": false,
+      "failure": {
+        "actual_HTTP_count": 0,
+        "frames_saved": 0,
+        "reason": "control unavailable: 저장 결과 판본",
+        "type": "AssertionError"
+      },
+      "head": "3dd211cbf6d47521cd0406426e40e3f05a8ba855",
+      "hold_case_executed": false,
+      "run": 39021689429,
+      "web_browser_tests": 38,
+      "web_unit_tests": 1864
+    }
+  ],
+  "hosted_native_CI": {
+    "head": "0920f70559d7bbf2fb2908fe5f6429bc82958da3",
+    "native_success_claimed": false,
+    "run": 39022453909,
+    "selected_browser_suite": "solar",
+    "state": "in_progress",
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39022453909"
+  },
+  "local_capacity_hold": true,
+  "local_checks": [
+    {
+      "RSS_samples": 3,
+      "actual_child_exit": -15,
+      "case": "focused-solar-current-web-build-v1",
+      "combined_peak_RSS_bytes": 1094057984,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "45ac9ac3b24cbc8e861baf8755b2e8cf11fcc8d6ccd7e847c0ce48d902fcc6e4",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": "RSS_limit",
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 287875072,
+      "source_count": 2380,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "385bcc8a7804e47355a153adaed9deaaaf61d602fb07345d147dbd9339fdb558",
+      "top_actor_at_combined_peak": {
+        "RSS_bytes": 287875072,
+        "comm": "node"
+      },
+      "wall_seconds": 1.189250955998432
+    },
+    {
+      "RSS_samples": 275,
+      "actual_child_exit": 1,
+      "case": "focused-solar-current-webgl-completed-v1",
+      "combined_peak_RSS_bytes": 1053462528,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "last_browser_phase": {
+        "API_RSS": 118607872,
+        "stage": "before_browser"
+      },
+      "log_sha256": "434f79f72d67b9f3f6ad698aa1065fe6bbccec7a478008b6581733f58aea2f91",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2380,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "c4bcb6a01b77e570b9f524d1c694ff4ed28f6167ee01894093e7761c8c5289c7",
+      "top_actor_at_combined_peak": {
+        "RSS_bytes": 137015296,
+        "comm": "python"
+      },
+      "wall_seconds": 74.3610344149929
+    },
+    {
+      "RSS_samples": 277,
+      "actual_child_exit": 1,
+      "case": "focused-solar-current-webgl-completed-v2",
+      "combined_peak_RSS_bytes": 1088266240,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "last_browser_phase": {
+        "API_RSS": 118759424,
+        "stage": "before_browser"
+      },
+      "log_sha256": "40c7470db40f009efd05f028d863f16b1f9a58c262016e26a059975e864da67e",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": "RSS_limit",
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 140173312,
+      "source_count": 2380,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "db0683e4f9c20a850b1431afc9cd6d262cde9a7ac5a67f2b7db75083ad0555cc",
+      "top_actor_at_combined_peak": {
+        "RSS_bytes": 140173312,
+        "comm": "chrome-headless"
+      },
+      "wall_seconds": 75.90644990699366
+    },
+    {
+      "RSS_samples": 4,
+      "actual_child_exit": 1,
+      "case": "focused-solar-browser-allocation-v1",
+      "combined_peak_RSS_bytes": 980869120,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "last_browser_phase": {
+        "driver_RSS": 24576000,
+        "stage": "before_browser"
+      },
+      "log_sha256": "8ec1b0e9187e6b8ed3d00138bbe82652eb86bf87deb67f04b3562ea094d99d2a",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 147537920,
+      "source_count": 2380,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "271b587e4fee4dce9b86847f8c501cb0a23f758b8f61b3eea9955ab2f4730ea7",
+      "top_actor_at_combined_peak": {
+        "RSS_bytes": 147537920,
+        "comm": "chrome-headless"
+      },
+      "wall_seconds": 1.11177601700183
+    },
+    {
+      "RSS_samples": 4,
+      "actual_child_exit": -15,
+      "case": "focused-solar-browser-allocation-v2",
+      "combined_peak_RSS_bytes": 1111031808,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "last_browser_phase": {
+        "driver_RSS": 24670208,
+        "stage": "app_loaded"
+      },
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": "RSS_limit",
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 277032960,
+      "source_count": 2380,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "1df801488c7164cb6df26f8225f0b2858621b5e7eb3e2fbe2cfabd2313ebe1dc",
+      "top_actor_at_combined_peak": {
+        "RSS_bytes": 277032960,
+        "comm": "chrome-headless"
+      },
+      "wall_seconds": 0.9038013230019715
+    },
+    {
+      "RSS_samples": 1,
+      "actual_child_exit": 1,
+      "case": "focused-solar-portable-native-syntax-v1",
+      "combined_peak_RSS_bytes": 813912064,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "c79817573fe6e369fab64af40a3a37b50986546e7c075526bd87b1563cde5a0b",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2382,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "255ce499ac3c7f584d6269402a6987d20ee79390201b6af05578164bf35a1334",
+      "top_actor_at_combined_peak": {
+        "RSS_bytes": 137015296,
+        "comm": "python"
+      },
+      "wall_seconds": 0.3321326580044115
+    },
+    {
+      "RSS_samples": 1,
+      "actual_child_exit": 0,
+      "case": "focused-solar-portable-native-syntax-v2",
+      "combined_peak_RSS_bytes": 814247936,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "log_sha256": "e5bca52f16fea29097eb25b6e254c99a3fefccc5df9d162045793c4456f42d9a",
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 137015296,
+      "source_count": 2382,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "terminal_sha256": "c44b91a06d3e7714902f2f6d69b9be2d225926bee4038570f59a1b82b83b0230",
+      "top_actor_at_combined_peak": {
+        "RSS_bytes": 137015296,
+        "comm": "python"
+      },
+      "wall_seconds": 0.33189795099315234
+    }
+  ],
+  "native_CLI": {
+    "model": "gpt-6.1-sol",
+    "native_context_timestamp": "2026-10-17T09:18:24.061Z",
+    "raw_turn_context_sha256": "16c96c10864beacb53290b4272b09220baaa263b1727610bab25c17e77acc47c",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "review": "Keep native HTTPS/current-rights and original quantity/UTC checks. The local full application already exceeds combined1GiB with preserved original5root trees. Stop unchanged local retries; isolate actual functional verification in hosted CI, retaining the separate WSL capacity hold and S2/S3/S4 acceptance conditions.",
+    "session": "01a0e064-b01b-7a22-8ef8-dd4afe0eb7dc"
+  },
+  "native_pointer_diagnostic": {
+    "accepted": false,
+    "cause_proven": false,
+    "changes": "explicit font readiness, native hit/focus evidence, connection transition assertion; no product changes",
+    "head": "0920f70559d7bbf2fb2908fe5f6429bc82958da3"
+  },
+  "new_solar_deployed": false,
+  "pointer_syntax_checks": [
+    {
+      "actual_child_exit": 1,
+      "case": "focused-solar-pointer-reference-syntax-v1",
+      "combined_peak_RSS_bytes": 810188800,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "protected_live": true,
+      "reason": null,
+      "source_preserved": true,
+      "wall_seconds": 0.3320186589990044
+    },
+    {
+      "actual_child_exit": 0,
+      "case": "focused-solar-pointer-reference-syntax-v2",
+      "combined_peak_RSS_bytes": 810897408,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "owned_non_zombie_remaining": [],
+      "protected_live": true,
+      "reason": null,
+      "source_preserved": true,
+      "wall_seconds": 0.3337714759982191
+    }
+  ],
+  "recorded_at": "2026-10-17T09:37:35.364540+00:00",
+  "rights_or_gate_approval": false,
+  "schema_version": "solar-current-WebGL-verification-v1",
+  "scope": "owned synthetic software verification; local S2b capacity held; hosted actual verification pending",
+  "software_primary_sources": [
+    {
+      "pinned_archive_sha256": "c1575341fa7bd40f5274ea465b34390f4dc64cdd0770af327005caaeb9f6b7ed",
+      "retrieved_at": "2026-10-17T09:39:29.137672+00:00",
+      "url": "https://ftp.postgresql.org/pub/source/v16.15/postgresql-16.15.tar.bz2.sha256",
+      "use": "native test build checksum, not agricultural data"
+    },
+    {
+      "url": "https://www.postgresql.org/docs/16/install-make.html",
+      "use": "native16 source build procedure"
+    },
+    {
+      "url": "https://playwright.dev/docs/browsers#chromium-headless-shell",
+      "use": "locked Playwright1.63.0 headless shell installation"
+    }
+  ],
+  "workflow_parse_failure": {
+    "head": "dee52e5ba9a68159a7f1995586e3614bf81041db",
+    "native_test_executed": false,
+    "reason": "runner context unavailable in jobs.env; replaced with github run ID owned path",
+    "run": 39021667248
+  }
+}

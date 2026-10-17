@@ -1,5 +1,7 @@
 # 구현 준비 현황
 
+**현재 관측 보류 — 2026-10-17:** [실제 저장 WebGL 시도와 분리 계측](../research/crop-solar-current-webgl-verification-20261017.md)에서 현재 WSL 전체 앱/기존 서비스의 합 RSS가 한도를 넘었다. 전체 웹 회귀는 통과했고 호스팅 실제 기능 검증을 추가했다. S2b/S3/S4·새 Solar 사용자 적용과 전체 완료일은 미완료/미정이다. 아래 기록은 당시 상태다.
+
 **현재 보류/판단 맥락 reader·실제 SDK 수용 — 2026-10-17:** [구현/고유141검사·현재4반복·정상/hold SDK](../research/crop-market-held-context-reader-implementation-20261017.md)를 로컬 소프트웨어 범위로 수용했다. 실제 GET2건 연결306→186/동시2→1·경제 참조20회 보존을 확인했다. 다음은 S2b 실제 현재 HTTPS→저장 WebGL이다. S3 독립 동시 실행/계산 중3D·S4 사용자 적용·새 Solar 배포/전체 CI/실제 자료·관문은 미완료다. 원5root/두 UI/원본/한도와 goal active·전체 완료일 미정을 유지한다. 아래 기록은 당시 상태다.
 
 **현재 일사 접수 계측·저장3D 의존성 — 2026-10-17:** [실제 분리 계측과 후보 제외](../research/crop-greenhouse-solar-admission-allocation-20261017.md)를 기록했다. 실제 API POST/독립 작업 선택·임대 진단은 통과했고 세 연결 수명 후보의 동시 실행은 RSS hold로 미채택이다. [저장 응답 클라이언트](../contracts/web-crop-greenhouse-solar-replay-v1.md)의 개발 선행을 수용된 결과 API로 분리했으며 다음은 S1a다. 실행 중3D/사용자 적용 부모·전체 CI·실제 자료/생산/경제/추천은 미수용이다. 원5root/두 UI/원본/한도·goal active와 전체 완료일 미정을 유지한다.

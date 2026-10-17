@@ -66,6 +66,15 @@ CI의 집중 선택과 합성 화면 PNG 보존은 이 화면 검증의 보조 �
 최초 적용 전 타입/기존 단위·기록 Chromium/원본·두 화면/자원과 원 디자인 대조를 기록한다.
 새 fixture fallback·생장/열·수확/금액 계산은 추가하지 않는다. 실제 HTTPS 결합은 S1b/S2b에 남는다.
 
+## S2b 검증 환경의 관측과 추가 자동화 — 2026-10-17
+
+[실제 시도/분리 계측](../research/crop-solar-current-webgl-verification-20261017.md)에서 현재 WSL의
+전체 앱과 보호5root 동시 RSS가 한도를 넘었다. 기존 수용 조건은 유지한다.
+같은 검증 빌드의 digest와 실제 SCRAM/HTTPS·현재 권리·원 bytes/수치/단위/UTC·mesh/그래프·
+거부 시 제거/재접속·정리를 정상/hold로 검사하는 명시 호스팅 CI를 추가했다.
+호스팅 성공은 해당 환경의 실제 기능 증거만 추가하며, WSL 동시 용량·S2b 부모·S3/S4와
+사용자 배포 완료를 대신하지 않는다. 현재 로컬 실패는 새 근거 없이 반복하지 않는다.
+
 ## S3/S4 — 실행 중3D와 사용자 활성화
 
 계산 중3D는 [실행 runtime](crop-greenhouse-solar-execution-runtime-v1.md)의 실제 독립

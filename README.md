@@ -1,5 +1,7 @@
 # OpenSmartFarmSim
 
+**저장3D 실제 연결 검증 — 2026-10-17:** [전체 웹 회귀·로컬 용량 보류·호스팅 실제 검증](research/crop-solar-current-webgl-verification-20261017.md)을 진행 중이다. 전체 웹243브라우저/1,864단위는 통과했다. 현재 WSL의 앱/기존 서비스 동시 RSS 보류로 S2b/S3/S4·새 Solar 배포는 미완료다. 기존 두 화면과 active goal을 유지하며 아래 기록은 당시 상태다.
+
 **현재 보류/판단 맥락 reader·실제 SDK 수용 — 2026-10-17:** [구현/고유141검사·현재4반복·정상/hold SDK](research/crop-market-held-context-reader-implementation-20261017.md)를 로컬 소프트웨어 범위로 수용했다. 실제 GET2건 연결306→186/동시2→1·경제 참조20회 보존을 확인했다. 다음은 S2b 실제 현재 HTTPS→저장 WebGL이다. S3 독립 동시 실행/계산 중3D·S4 사용자 적용·새 Solar 배포/전체 CI/실제 자료·관문은 미완료다. 원5root/두 UI/원본/한도와 goal active·전체 완료일 미정을 유지한다. 아래 기록은 당시 상태다.
 
 **현재 일사 접수 계측·저장3D 의존성 — 2026-10-17:** [실제 분리 계측과 후보 제외](research/crop-greenhouse-solar-admission-allocation-20261017.md)를 기록했다. 실제 API POST/독립 작업 선택·임대 진단은 통과했고 세 연결 수명 후보의 동시 실행은 RSS hold로 미채택이다. [저장 응답 클라이언트](contracts/web-crop-greenhouse-solar-replay-v1.md)의 개발 선행을 수용된 결과 API로 분리했으며 다음은 S1a다. 실행 중3D/사용자 적용 부모·전체 CI·실제 자료/생산/경제/추천은 미수용이다. 원5root/두 UI/원본/한도·goal active와 전체 완료일 미정을 유지한다.
