@@ -1,9 +1,11 @@
 # 첫 구현 작업 목록
 
-- [ ] **`crop-solar-worker-termination-diagnostics`** — [원 정상과 API의 실제 실패](../research/crop-solar-worker-termination-diagnostics-20261017.md).
-  원 정상121.021초·worker1을 보존한다. 후속은8/64·confirm Pending을 확인했으나 API의 prefix status 단언으로 종료해 최종 outcome이 없다.
-  API/worker 관찰11검사·원 body/hash/기존 workflow 불변 preflight 통과. CI39036105645에서 실제 HTTP 코드/검증 위치를 확인한 뒤
-  근거 있는 작은 수정과 별도 원 정상 검증으로 진행한다. 실제 없는 반환·처리량·정상 수용을 추정하지 않는다.
+- [x] **`crop-solar-progress-lock-lifetime`** — [실제 경합·원 값/현재 권리/정리](../research/crop-solar-progress-lock-lifetime-implementation-20261017.md),sourcef6b3bde.
+  고유13검사·원8메서드/worker/상한 불변을 확인했다. trace-OFF 원 정상 CI39037993173은 진행 중이며 정상/S3 수용은 아니다.
+
+- [x] **`crop-solar-worker-termination-diagnostics`** — [실제 반환·코드 위치](../research/crop-solar-worker-termination-diagnostics-20261017.md).
+  CI39036105645의4/64·attempt1/queued/solar_execution_busy와 confirm Pending을 대사해 잠금 수명 수정의 근거를 확보했다.
+  이전 API의 예상 밖 status 원인은 미해결로 보존한다. 관찰11검사/원 body/hash·source/actual run/digest·한계를 기록했다.
 
 - [x] **`farm-pinned-context-reader`** — [원 현재 참조·경제 검증을 같은 범위로 읽기](../research/farm-pinned-context-reader-implementation-20261017.md).
   고유14검사·실제 SCRAM 조합4→1연결·동일 값/검증 순서, 철회/변조/부적합/활성 변경·농장 등록 회귀와 정리 통과.

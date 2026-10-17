@@ -1,5 +1,15 @@
 # 구현 순서
 
+## 현재 진행 조회 잠금 수명 수용 — 2026-10-17
+
+[실제 작업자 queued/busy](../research/crop-solar-worker-termination-diagnostics-20261017.md)에 따라
+[짧은 진행 snapshot 잠금](../research/crop-solar-progress-lock-lifetime-implementation-20261017.md)을 고유13검사로 수용했다.
+후속 권리/DB/직렬화 검증 동안 잠금을 풀고 원 directory FD/판본·signed ancestry와 종료 시 재대사를 유지한다.
+기존8메서드/작업자/수식·5초 재시도·원64/chunk1·조회 주기·전체 상한은 유지한다.
+다음은 sourcef6b3bde/trace-OFF CI39037993173의 원 정상 완료·두 prefix·원 값/UTC·후검사/정리다.
+원 정상 뒤 독립 보류→취소→계산 중 WebGL→로컬 용량/사용자 적용을 각각 검증한다.
+S3/S4·새 Solar/전체 CI·실제 자료/관문·전체 완료일은 미완료/미정이며 goal active다. 아래 기록은 당시 상태다.
+
 ## 현재 prefix HTTP 실패의 다음 단계 — 2026-10-17
 
 [작업자 진단](../research/crop-solar-worker-termination-diagnostics-20261017.md)은 원 확정8/64·confirm 잠금 충돌과

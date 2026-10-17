@@ -61,13 +61,17 @@ HTTP 본문·message·경로/쿼리/ID·locals/입력/환경/인증값은 내보
   원 API 본문 그대로의 header 주입/실제 원 SHA와 AST를 확인했다. artifact 경로1개만 추가했다.
 - 기존 원5root/두 UI/소스·자산·2,148원본·512MiB/PID/합1GiB·감독FD4→4·소유/PG/임시/passfile0을 유지했다.
 
-[CI39036105645](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39036105645),
-sourceba87cb8/detail worker-api가 진행 중이다. application8423263과 원 API/worker 본문·입력·64걸음·chunk1·
-조회 주기·현재 검사·시간/RSS 상한을 유지한다. 실제 HTTP 오류 코드/검증 위치를 근거로 다음 작은 수정을 정한다.
-진단은 정상 수용이 아니며, 수정 후 별도 trace-OFF 원 정상 기준이 필요하다.
+[CI39036105645](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39036105645), sourceba87cb8는
+**221.256초·worker1/API-15**, 확정 **4/64·00:00:08.123456Z**로 끝났다.
+실제 worker 반환은 **attempt1/queued/solar_execution_busy**다. confirm의 Pending 재시도 후 종료와 연결된다.
+API14응답의 실제 status는202/200/503이며 accepted prefix/page도 있다.
+이 실행에서는 앞선 예상 밖 prefix 응답이 관찰되지 않았다. 이전 API 오류 원인까지 해결했다고 주장하지 않는다.
 
-[독립 보류·취소 후속](../contracts/crop-solar-unpaused-hold-cancel-v1.md)은 정상→보류→취소→실제 계산 중 WebGL의
-개별 수용이다. 기존 저장 결과 조회를 독립 실행 증거로 대체하지 않는다.
-S3/S4·WSL 용량·새 Solar 배포·실제 품종/독립 농장 자료·권리/G0–G4와 전체 완료일은 미완료/미정이며 goal active다.
+단일135,626,752/합370,479,104bytes·FD7→7·소유 비좀비/임시0이며 정상/DB 정리 proof는 없다.
+artifact12101889950/20,294bytes의 actual run/head/ZIP digest/안전 경로·API/worker/header/prototype hash를 대사했다.
+API 예외 journal 최신16건은 통상 StopIteration/StopAsyncIteration이며19이전 기록이 삭제됐다.
+이 한계를 보존하고 누락 예외를 추정하지 않는다. 관찰 시간은 native 처리량이 아니다.
 
-최신8/64·API/worker 관찰 진행 기록은15158:0에서5173/5174 HTTP200·no-store·원 HTML/source·5root/원본·FD/소유 정리를 확인해 게시했다. 브라우저/디자인 재검사는 하지 않았다.
+관측 근거로 [진행 조회 잠금 수명](crop-solar-progress-lock-lifetime-implementation-20261017.md)을 수정해 고유13검사를 통과했다.
+원 현재 권리/숫자/시각·5초 재시도·전체 상한을 유지한다. 다음은 해당 기록의 별도 trace-OFF 원 정상 CI다.
+S3/S4·WSL 용량·새 Solar 배포·실제 자료/관문·전체 완료일 미정과 goal active를 유지한다.
