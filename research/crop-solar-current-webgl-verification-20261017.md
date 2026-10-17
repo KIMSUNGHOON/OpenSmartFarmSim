@@ -5,9 +5,9 @@
 
 ## 현재 범위
 
-S1a/S1b/S2a는 기존 수용을 유지한다. **S2b·S2 부모·S3·S4는 미완료이며 새 Solar는 미배포다.**
-현재 보호 서비스와 전체 앱의 로컬 동시 실행이 합 RSS 한도를 넘었다.
-새 호스팅 실제 검증은 실행 중이며 성공으로 세지 않는다.
+S1a/S1b/S2a는 기존 수용을 유지한다. **현재 호스팅의 실제 정상/hold 저장 WebGL 기능 검증을 수용했다.**
+**로컬 동시 용량·S2b/S2 부모·S3·S4는 미완료이며 새 Solar는 미배포다.**
+현재 보호 서비스와 전체 앱의 로컬 동시 실행 RSS 보류는 유지한다. 아래 실패/대기 기록은 당시 상태다.
 실제 농장 Run0/G0–G4 미평가/승인False·전체 goal active다.
 
 ## 통과한 전체 웹 회귀와 검증 빌드
@@ -158,3 +158,55 @@ FD·소유 정리를 확인했다. [후속39024412408](https://github.com/KIMSUN
 최신 feed는 `2026-10-17T10:20:15.870005Z`로 부분3시점과 최종 미수용을 구분한다.
 parser28개·실제 양쪽200/no-store·같은 원문/기존 HTML·환기2,173파일·원5root/원본·
 FD4→4/소유 정리를 확인했다. 로컬 새 Solar 배포/전체 goal 완료는 아니다.
+
+## 정상 본문·권리/재접속/정리 확인과 FD 기준 보완
+
+다섯 번째 [39024412408](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39024412408)는
+정상 본문의 실제 HTTP9건(200×8/현재 권리422×1), 원3시점/재조회 포함6프레임·WebGL/표/그래프·
+관리 전후·권리 철회 시 제거/복원·연결 해제/재접속을 통과했다. browser exit0·조회 작물/CLI13hook/
+SQL 변경0·원 counts 동일·현재 principal 복원·DB roles/schema0을 보존했다.
+[실제 캡처](artifacts/solar-current-native-completed-20261017.png)는 hash와 화면을 확인했다.
+합성32초 연구 표시이며 실제 재배 형태나 농장 예측의 수용은 아니다.
+
+이후 외부 실행기가 reader FD를 `[3,3]`으로 고정한 단언에서 실패했다. 실제 reader는4→4이고
+본문의 **전체 FD identity map 동일** 단언도 통과했다. 그 네 번째 FD의 용도/기원을 추정하지 않는다.
+외부 guard도7→7·소유 잔여0,69.916초·단일379,379,712/합608,563,200bytes였다.
+`4510a93`은 원 map 동일성 단언을 유지하고 그 결과도 출력한다. 외부 검사에서 정수 시작/종료 값의
+동일성과 map 보존을 요구하며 특정 환경의3개를 강제하지 않는다. 보존 검사를 생략하지 않았다.
+구문/원본/5root/FD·소유 정리를 확인했고
+[후속39025035367](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39025035367)를
+따라간다. **원 driver의 실패·hold 미실행과 전체 native/S2b 미수용을 유지**한다.
+
+## 정상·보류 실제 호스팅 기능 수용
+
+`4510a93`의 [39025035367](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39025035367)는
+웹 solar38브라우저/1,864단위·타입/빌드/audit와 실제 native 정상/hold 두 사례를 통과했다.
+같은 run/commit의 빌드 provenance와 원 artifact12098935187의 digest/경로·각 frame/PNG hash를 대사했다.
+
+| 사례 | 원 저장 UTC/프레임 방문 | 실제 HTTP | reader/guard FD | 시간 | 단일/합 최고 RSS bytes |
+| --- | --- | --- | --- | ---: | --- |
+| 정상 |3개/6회|9건:200×8/권리422×1|4→4/7→7|117.601초|378,368,000/605,192,192|
+| 보류 |2개/5회|9건:200×8/권리422×1|4→4/7→7|117.300초|378,515,456/605,327,360|
+
+각각 원 값/단위/microsecond UTC·참조/50구획/온도 marker·실제 WebGL/세 그래프·장부/수지/
+PAR/NIR/환기·관리 전후와 현재 거부 시 장면 제거·복원/연결 해제·재접속을 확인했다.
+두 browser/driver exit0·전체 FD identity 보존·원 counts·현재 principal 복원·작물/CLI13진입점과
+SQL 변경0·DB roles/schema0·소유 비좀비0을 통과했다. 기존 경제 참조의 재검증 산술은 생략하지
+않았다. 이 증거를 모든 산술0 또는 독립 농장 검증으로 해석하지 않는다.
+
+[정상 캡처](artifacts/solar-current-native-completed-20261017.png)와
+[보류 캡처](artifacts/solar-current-native-hold-20261017.png)를 실제로 확인했다.
+1024×768/device scale0.5의 합성32초 연구 모식도이며 최종 UI 디자인·실제 재배/수확/경제 예측은 아니다.
+브라우저의 소유 SPKI pin/전달 구간 CA·호스트명·시각 검증 구분과 시험 PG1MiB를 유지한다.
+이전 로컬/호스팅 실패는 삭제하거나 성공으로 재분류하지 않는다.
+
+호스팅 기능 자식만 수용한다. 로컬 원5root와 전체 앱의 동시 RSS, S2b/S2 부모·독립 unpaused의
+정상/hold/취소·계산 중3D·사용자 적용/재시작·G0–G4·실제 자료/최종 UI는 별도 미완료다.
+다음은 새 reader6004735의 실제 연결306→186/동시2→1 근거에 따른 현재 source의 독립 API/worker
+정상 한 사례다. 원64걸음·중단 장벽 없는 worker·전진 prefix/원 UTC·현재 권리·원본/5root/같은
+자원·정리 조건을 유지한다. 해당 runtime 계약이 개발 선행이며 저장 브라우저의 로컬 용량 보류로
+이 독립 backend 진단의 착수를 잠그지 않는다. 이 한 사례를 S3 전체/보류·취소·3D/배포로 완료하지 않는다.
+
+호스팅 수용과 다음 독립 실행 기준을 feed `2026-10-17T10:43:30.654075Z`로 게시했다.
+parser28개·실제 두 UI의200/no-store/같은 bytes·기존 HTML/환기2,173파일·원5root/원본/
+FD4→4/소유 PG·임시·passfile0을 확인했다. 새 Solar 배포/전체 goal 완료는 아니다.

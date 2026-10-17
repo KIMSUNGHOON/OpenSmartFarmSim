@@ -2,11 +2,14 @@
 
 ## 현재 저장 WebGL 검증 — 2026-10-17
 
-[전체 웹 회귀/로컬 RSS/호스팅 실제 검증](../research/crop-solar-current-webgl-verification-20261017.md)을 따른다.
-전체243브라우저/1,864단위의 성공과 현재 로컬5root 동시 용량 보류를 구별한다.
-호스팅 실제 정상/hold의 원 bytes·UTC/mesh/그래프·권리·재접속/정리 대사 → 로컬 용량 재검토 →
-S3 독립 unpaused/prefix·계산 중3D → S4 사용자 적용 순서다. S2b/부모 체크는 유지한다.
-동일 실패의 근거 없는 반복을 피하며, 실제 비용/자료 확보 전 전체 날짜는 미정이다.
+[호스팅 실제 정상/보류 기능 수용](../research/crop-solar-current-webgl-verification-20261017.md)을 따르고 로컬5root RSS 보류를 구별한다.
+다음은 기존 실행 runtime 계약에 따른 **현재 source의 독립 API/worker 정상 한 사례**다.
+6004735의 실제 연결306→186/동시2→1 변경이 이전 동시 실행과 다른 근거다.
+원64걸음·독립 unpaused worker·configured SCRAM/TLS 접수·두 전진 prefix/원 값·UTC/terminal과
+원본/5root/두 UI·512MiB/PID/합1GiB·FD/PG/임시/자격 파일 정리를 유지한다.
+독립 backend 진단의 착수는 저장 브라우저의 로컬 용량 수용과 묶지 않는다. 성공해도 정상 한 사례만
+기록하며 hold/취소·S3 계산 중3D·로컬 용량·S2b/부모·S4 사용자 적용은 별도 수용한다.
+같은 실패의 근거 없는 반복을 피하고 실제 비용/자료 확보 전 전체 날짜는 미정이다.
 아래 기존 수용 기록은 당시 상태다.
 
 ## 단계별 goal 순서와 활성 상태 — 2026-10-17

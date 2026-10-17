@@ -9,12 +9,11 @@
   "S4_accepted": false,
   "actual_crop_Runs": 0,
   "development_feed": {
-    "bytes_equal": true,
-    "cache_control": "no-store",
+    "HTTP_both_200_no_store_equal": true,
     "checks": {
       "parser": {
         "actual_child_exit": 0,
-        "combined_peak_RSS_bytes": 983785472,
+        "combined_peak_RSS_bytes": 999530496,
         "controller_FD_before_after": [
           4,
           4
@@ -23,11 +22,11 @@
         "owned_non_zombie_remaining": [],
         "protected_live": true,
         "reason": null,
-        "wall_seconds": 0.8551002210006118
+        "wall_seconds": 0.8472909639967838
       },
       "published_HTTP": {
         "actual_child_exit": 0,
-        "combined_peak_RSS_bytes": 809566208,
+        "combined_peak_RSS_bytes": 817004544,
         "controller_FD_before_after": [
           4,
           4
@@ -36,16 +35,15 @@
         "owned_non_zombie_remaining": [],
         "protected_live": true,
         "reason": null,
-        "wall_seconds": 0.3333242319931742
+        "wall_seconds": 0.332728021996445
       }
     },
-    "frozen_HTML_both_preserved": true,
-    "frozen_ventilation_source_files_preserved": 2173,
+    "frozen_HTML_preserved": true,
+    "frozen_ventilation_files": 2173,
     "new_local_DOM_exercised": false,
     "parser_tests": 28,
-    "published_HTTP_both_ports": 200,
-    "reported_at": "2026-10-17T10:20:15.870005Z",
-    "source_sha256": "0ce50c3613ab6ed2f84751ed4cbc767ef0f971fbf71895b7cf438b13c93f3c7e"
+    "reported_at": "2026-10-17T10:43:30.654075Z",
+    "source_sha256": "f9e6127cb7d90d3745ce57e4a17af58b81123f3a7ca711668ecc6249315fc4e3"
   },
   "development_feed_previous": {
     "bytes_equal": true,
@@ -85,6 +83,45 @@
     "published_HTTP_both_ports": 200,
     "reported_at": "2026-10-17T09:39:28.844543Z",
     "source_sha256": "563d98c0de9bec53bfd2f229cad8d1ab641b87e8842919426610d7d942147ca9"
+  },
+  "development_feed_prior_to_hosted_acceptance": {
+    "bytes_equal": true,
+    "cache_control": "no-store",
+    "checks": {
+      "parser": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 983785472,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "protected_live": true,
+        "reason": null,
+        "wall_seconds": 0.8551002210006118
+      },
+      "published_HTTP": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 809566208,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "protected_live": true,
+        "reason": null,
+        "wall_seconds": 0.3333242319931742
+      }
+    },
+    "frozen_HTML_both_preserved": true,
+    "frozen_ventilation_source_files_preserved": 2173,
+    "new_local_DOM_exercised": false,
+    "parser_tests": 28,
+    "published_HTTP_both_ports": 200,
+    "reported_at": "2026-10-17T10:20:15.870005Z",
+    "source_sha256": "0ce50c3613ab6ed2f84751ed4cbc767ef0f971fbf71895b7cf438b13c93f3c7e"
   },
   "development_feed_prior_to_lookup_ready": {
     "bytes_equal": true,
@@ -179,6 +216,14 @@
     "source_matches_current_web_before_feed_update": true
   },
   "external_farm_records": 0,
+  "followup_native_CLI": {
+    "model": "gpt-6.1-sol",
+    "raw_turn_context_sha256": "c66d997698a21fecaf79090573991fab66092d6eb4b5568d3993dbb2e653c81d",
+    "reasoning_effort": "xhigh",
+    "recursive_cli": false,
+    "review": "Exact descriptor identity map is already asserted in the real reader. Fixed3 startupFD is not a protocol contract; keep exact identity preservation and compare observed integer before/after counts. Normal9HTTP, rights removal/reconnect,6frames, browser exit0 and roles/schemas0 observed. Overall driver failed; hold and full new-source acceptance remain pending.",
+    "timestamp": "2026-10-17T10:22:22.680Z"
+  },
   "full_product_completion": null,
   "full_web_CI": {
     "browser_tests": 243,
@@ -191,8 +236,13 @@
     "unit_tests": 1864,
     "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39020017901"
   },
-  "fully_accepted_native_browser_cases": 0,
+  "fully_accepted_native_browser_cases": 2,
   "goal_status": "active",
+  "hosted_artifact": {
+    "digest_verified": true,
+    "id": 12098935187,
+    "sha256": "4fbc0098894f5f3a1796c898fa14b674227a732be8e41cbe568d4f571c1ebfb7"
+  },
   "hosted_attempts": [
     {
       "artifact": {
@@ -651,15 +701,572 @@
       ],
       "run": 39023732519,
       "screenshot_saved": false
+    },
+    {
+      "HTTP": [
+        {
+          "bytes": 30372,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Aee494b5620eaf042f9ab58b55874dcf7b74c67629f2210cf1c514f27e4cf33ec",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=6a18ca0525a392e0350438868d92af26fe11f3cb254164c4c28a0e395a25dbc9&crop_id=crop-1&view=summary",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "summary",
+          "wire_sha256": "4c957c7951b092cd9406d2c6d441b7b423bc76d82b9e1a9af8d75062cbbf7b58"
+        },
+        {
+          "bytes": 57966,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Aee494b5620eaf042f9ab58b55874dcf7b74c67629f2210cf1c514f27e4cf33ec",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=6a18ca0525a392e0350438868d92af26fe11f3cb254164c4c28a0e395a25dbc9&crop_id=crop-1&view=samples&offset=0&limit=64",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "samples",
+          "wire_sha256": "9f2b9e91d33a810f366f189477c6d34aa86ec512f57f50000af4eab9e2ca33a7"
+        },
+        {
+          "bytes": 102134,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Aee494b5620eaf042f9ab58b55874dcf7b74c67629f2210cf1c514f27e4cf33ec",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=6a18ca0525a392e0350438868d92af26fe11f3cb254164c4c28a0e395a25dbc9&crop_id=crop-1&view=events&offset=0&limit=8",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "events",
+          "wire_sha256": "8d182e39b0c707080cf3f5d72feda57ffb47ae11e09ac9d12a5a0acc52c2068f"
+        },
+        {
+          "bytes": 57966,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Aee494b5620eaf042f9ab58b55874dcf7b74c67629f2210cf1c514f27e4cf33ec",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=6a18ca0525a392e0350438868d92af26fe11f3cb254164c4c28a0e395a25dbc9&crop_id=crop-1&view=samples&offset=0&limit=64",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "samples",
+          "wire_sha256": "9f2b9e91d33a810f366f189477c6d34aa86ec512f57f50000af4eab9e2ca33a7"
+        },
+        {
+          "bytes": 88,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Aee494b5620eaf042f9ab58b55874dcf7b74c67629f2210cf1c514f27e4cf33ec",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=6a18ca0525a392e0350438868d92af26fe11f3cb254164c4c28a0e395a25dbc9&crop_id=crop-1&view=summary",
+          "source_body_equal": false,
+          "status": 422,
+          "view": "summary",
+          "wire_sha256": "ff667132bbdddfd23a06980151481b48e629ee2dcfd6a5ec779ed4012cb76526"
+        },
+        {
+          "bytes": 30372,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Aee494b5620eaf042f9ab58b55874dcf7b74c67629f2210cf1c514f27e4cf33ec",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=6a18ca0525a392e0350438868d92af26fe11f3cb254164c4c28a0e395a25dbc9&crop_id=crop-1&view=summary",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "summary",
+          "wire_sha256": "4c957c7951b092cd9406d2c6d441b7b423bc76d82b9e1a9af8d75062cbbf7b58"
+        },
+        {
+          "bytes": 57966,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Aee494b5620eaf042f9ab58b55874dcf7b74c67629f2210cf1c514f27e4cf33ec",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=6a18ca0525a392e0350438868d92af26fe11f3cb254164c4c28a0e395a25dbc9&crop_id=crop-1&view=samples&offset=0&limit=64",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "samples",
+          "wire_sha256": "9f2b9e91d33a810f366f189477c6d34aa86ec512f57f50000af4eab9e2ca33a7"
+        },
+        {
+          "bytes": 30372,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Aee494b5620eaf042f9ab58b55874dcf7b74c67629f2210cf1c514f27e4cf33ec",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=6a18ca0525a392e0350438868d92af26fe11f3cb254164c4c28a0e395a25dbc9&crop_id=crop-1&view=summary",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "summary",
+          "wire_sha256": "4c957c7951b092cd9406d2c6d441b7b423bc76d82b9e1a9af8d75062cbbf7b58"
+        },
+        {
+          "bytes": 57966,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Aee494b5620eaf042f9ab58b55874dcf7b74c67629f2210cf1c514f27e4cf33ec",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=6a18ca0525a392e0350438868d92af26fe11f3cb254164c4c28a0e395a25dbc9&crop_id=crop-1&view=samples&offset=0&limit=64",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "samples",
+          "wire_sha256": "9f2b9e91d33a810f366f189477c6d34aa86ec512f57f50000af4eab9e2ca33a7"
+        }
+      ],
+      "artifact": {
+        "digest_verified": true,
+        "id": 12098605244,
+        "sha256": "944e65f7b0bb8fa32d4b5e032362de3a2577686b7d187e8888b961dec375c7cc"
+      },
+      "conclusion": "failure",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "failure_scope": "postflight wrapper assumes exactly3FD; reader startup/end4 and exact identity map preserved by original reader assertion",
+      "head": "20831eb83c3b7703e432e0841f329cbba47f1742",
+      "hold_case_executed": false,
+      "native_completed": {
+        "FD_before_after": [
+          4,
+          4
+        ],
+        "G0_G4": "not_assessed",
+        "actual_TypeScript_SDK": true,
+        "actual_WebGL_browser": true,
+        "actual_crop_Runs": 0,
+        "actual_scram": true,
+        "browser_TLS_trust": "owned SPKI pin; upstream Python SSL validates CA/name/time",
+        "browser_exit_code": 0,
+        "calls": {
+          "CLI": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "SQL_writes": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "counts_unchanged": true,
+        "current_rights_scene_removed": true,
+        "held_context_reader_observed": true,
+        "native_fetch_mocked": false,
+        "owned_shared_buffers_actual": "1MB",
+        "reconnect_same_original_result": true,
+        "response_bytes_forwarded_unchanged": true,
+        "rights_or_gate_approval": false,
+        "shared_market_reader_observed": true,
+        "verified_TLS": true
+      },
+      "observed_frames": 6,
+      "resource": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 608563200,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 379379712,
+        "wall_seconds": 69.91551354299997
+      },
+      "run": 39024412408,
+      "screenshot": {
+        "path": "solar-current-native-completed-20261017.png",
+        "sha256": "2c1bcdbed5b849c380806954a4e048cbcc2e419746e87646ef654dd808340a71",
+        "visually_reviewed": true
+      }
     }
   ],
+  "hosted_cases": {
+    "completed": {
+      "HTTP": [
+        {
+          "bytes": 30372,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Ae594b93cb84f7dd7239dadec3bdc0be86a802601bb5f45ed5278c8f60dd79e67",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=03f38cc25f9cc476a02dc4c2c1c04dba628369e8bac221c0d19cdbce9b147c2a&crop_id=crop-1&view=summary",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "summary",
+          "wire_sha256": "aa2a490bc5e813f78f67fbe6fa3d4dbfa030e20ab5e362d152fe2167cba8a2fc"
+        },
+        {
+          "bytes": 57966,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Ae594b93cb84f7dd7239dadec3bdc0be86a802601bb5f45ed5278c8f60dd79e67",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=03f38cc25f9cc476a02dc4c2c1c04dba628369e8bac221c0d19cdbce9b147c2a&crop_id=crop-1&view=samples&offset=0&limit=64",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "samples",
+          "wire_sha256": "8fcb7ebe60d2e89249418fd51b4276a8d9791a6c8c8f16707229b99d4be9be39"
+        },
+        {
+          "bytes": 102134,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Ae594b93cb84f7dd7239dadec3bdc0be86a802601bb5f45ed5278c8f60dd79e67",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=03f38cc25f9cc476a02dc4c2c1c04dba628369e8bac221c0d19cdbce9b147c2a&crop_id=crop-1&view=events&offset=0&limit=8",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "events",
+          "wire_sha256": "dc040eb3f0a96e21b79ecca51357fda89581962838bb5ddc663fd0aac5968e87"
+        },
+        {
+          "bytes": 57966,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Ae594b93cb84f7dd7239dadec3bdc0be86a802601bb5f45ed5278c8f60dd79e67",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=03f38cc25f9cc476a02dc4c2c1c04dba628369e8bac221c0d19cdbce9b147c2a&crop_id=crop-1&view=samples&offset=0&limit=64",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "samples",
+          "wire_sha256": "8fcb7ebe60d2e89249418fd51b4276a8d9791a6c8c8f16707229b99d4be9be39"
+        },
+        {
+          "bytes": 88,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Ae594b93cb84f7dd7239dadec3bdc0be86a802601bb5f45ed5278c8f60dd79e67",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=03f38cc25f9cc476a02dc4c2c1c04dba628369e8bac221c0d19cdbce9b147c2a&crop_id=crop-1&view=summary",
+          "source_body_equal": false,
+          "status": 422,
+          "view": "summary",
+          "wire_sha256": "ff667132bbdddfd23a06980151481b48e629ee2dcfd6a5ec779ed4012cb76526"
+        },
+        {
+          "bytes": 30372,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Ae594b93cb84f7dd7239dadec3bdc0be86a802601bb5f45ed5278c8f60dd79e67",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=03f38cc25f9cc476a02dc4c2c1c04dba628369e8bac221c0d19cdbce9b147c2a&crop_id=crop-1&view=summary",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "summary",
+          "wire_sha256": "aa2a490bc5e813f78f67fbe6fa3d4dbfa030e20ab5e362d152fe2167cba8a2fc"
+        },
+        {
+          "bytes": 57966,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Ae594b93cb84f7dd7239dadec3bdc0be86a802601bb5f45ed5278c8f60dd79e67",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=03f38cc25f9cc476a02dc4c2c1c04dba628369e8bac221c0d19cdbce9b147c2a&crop_id=crop-1&view=samples&offset=0&limit=64",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "samples",
+          "wire_sha256": "8fcb7ebe60d2e89249418fd51b4276a8d9791a6c8c8f16707229b99d4be9be39"
+        },
+        {
+          "bytes": 30372,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Ae594b93cb84f7dd7239dadec3bdc0be86a802601bb5f45ed5278c8f60dd79e67",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=03f38cc25f9cc476a02dc4c2c1c04dba628369e8bac221c0d19cdbce9b147c2a&crop_id=crop-1&view=summary",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "summary",
+          "wire_sha256": "aa2a490bc5e813f78f67fbe6fa3d4dbfa030e20ab5e362d152fe2167cba8a2fc"
+        },
+        {
+          "bytes": 57966,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3Ae594b93cb84f7dd7239dadec3bdc0be86a802601bb5f45ed5278c8f60dd79e67",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=03f38cc25f9cc476a02dc4c2c1c04dba628369e8bac221c0d19cdbce9b147c2a&crop_id=crop-1&view=samples&offset=0&limit=64",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "samples",
+          "wire_sha256": "8fcb7ebe60d2e89249418fd51b4276a8d9791a6c8c8f16707229b99d4be9be39"
+        }
+      ],
+      "cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "frame_files": [
+        {
+          "name": "browser-frame-1.private.json",
+          "sha256": "81b2454f43a1cb24c48ae5a8660ab5486e0efc145567ee4a671e65f76a26d52a"
+        },
+        {
+          "name": "browser-frame-2.private.json",
+          "sha256": "cf9eca29c041f9c22522987607600deccb4c0eaea2c670edf6b50062f356e7c6"
+        },
+        {
+          "name": "browser-frame-3.private.json",
+          "sha256": "a54f5e028e6a793a18132fdc4741ff57edda3c1a0a934c83df2363f8e7131ad5"
+        },
+        {
+          "name": "browser-frame-4.private.json",
+          "sha256": "81b2454f43a1cb24c48ae5a8660ab5486e0efc145567ee4a671e65f76a26d52a"
+        },
+        {
+          "name": "browser-frame-5.private.json",
+          "sha256": "81b2454f43a1cb24c48ae5a8660ab5486e0efc145567ee4a671e65f76a26d52a"
+        },
+        {
+          "name": "browser-frame-6.private.json",
+          "sha256": "81b2454f43a1cb24c48ae5a8660ab5486e0efc145567ee4a671e65f76a26d52a"
+        }
+      ],
+      "frame_visits": 6,
+      "native": {
+        "FD_before_after": [
+          4,
+          4
+        ],
+        "FD_identities_preserved": true,
+        "G0_G4": "not_assessed",
+        "actual_TypeScript_SDK": true,
+        "actual_WebGL_browser": true,
+        "actual_crop_Runs": 0,
+        "actual_scram": true,
+        "browser_TLS_trust": "owned SPKI pin; upstream Python SSL validates CA/name/time",
+        "browser_exit_code": 0,
+        "calls": {
+          "CLI": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "SQL_writes": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "counts_unchanged": true,
+        "current_rights_scene_removed": true,
+        "held_context_reader_observed": true,
+        "native_fetch_mocked": false,
+        "owned_shared_buffers_actual": "1MB",
+        "reconnect_same_original_result": true,
+        "response_bytes_forwarded_unchanged": true,
+        "rights_or_gate_approval": false,
+        "shared_market_reader_observed": true,
+        "verified_TLS": true
+      },
+      "original_UTCs": [
+        "2026-10-01T00:00:00.123456Z",
+        "2026-10-01T00:00:16.123456Z",
+        "2026-10-01T00:00:32.123456Z"
+      ],
+      "resource": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "RSS_samples": 459,
+        "WSL_capacity_accepted": false,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 605192192,
+        "hosted_only": true,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 378368000,
+        "wall_seconds": 117.600556883
+      },
+      "screenshots": [
+        {
+          "name": "solar-completed.private.png",
+          "sha256": "2c1bcdbed5b849c380806954a4e048cbcc2e419746e87646ef654dd808340a71"
+        }
+      ],
+      "visually_reviewed": true
+    },
+    "hold": {
+      "HTTP": [
+        {
+          "bytes": 30479,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3A85b0c2251d2bdb53d99b426b078c33caabd240577dd734e8024021581efa4e49",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=b60ae2f7d36298bf351965bb4d3deab774932914e1f6df6d7893683846093e2c&crop_id=crop-1&view=summary",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "summary",
+          "wire_sha256": "5405f9a510a71205d6ff9e943f2302804487f3f4a9d3fe70bacb48f655a95c60"
+        },
+        {
+          "bytes": 40660,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3A85b0c2251d2bdb53d99b426b078c33caabd240577dd734e8024021581efa4e49",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=b60ae2f7d36298bf351965bb4d3deab774932914e1f6df6d7893683846093e2c&crop_id=crop-1&view=samples&offset=0&limit=64",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "samples",
+          "wire_sha256": "d3e57340e499bf66d0d5bf71ea63deea65ab2e7b9ed304a4e971d8b305242761"
+        },
+        {
+          "bytes": 69548,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3A85b0c2251d2bdb53d99b426b078c33caabd240577dd734e8024021581efa4e49",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=b60ae2f7d36298bf351965bb4d3deab774932914e1f6df6d7893683846093e2c&crop_id=crop-1&view=events&offset=0&limit=8",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "events",
+          "wire_sha256": "c162e2c664aea1493ec1d24fcb4dd3feb54a724ffdef4d9a4573790f08185dd7"
+        },
+        {
+          "bytes": 40660,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3A85b0c2251d2bdb53d99b426b078c33caabd240577dd734e8024021581efa4e49",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=b60ae2f7d36298bf351965bb4d3deab774932914e1f6df6d7893683846093e2c&crop_id=crop-1&view=samples&offset=0&limit=64",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "samples",
+          "wire_sha256": "d3e57340e499bf66d0d5bf71ea63deea65ab2e7b9ed304a4e971d8b305242761"
+        },
+        {
+          "bytes": 88,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3A85b0c2251d2bdb53d99b426b078c33caabd240577dd734e8024021581efa4e49",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=b60ae2f7d36298bf351965bb4d3deab774932914e1f6df6d7893683846093e2c&crop_id=crop-1&view=summary",
+          "source_body_equal": false,
+          "status": 422,
+          "view": "summary",
+          "wire_sha256": "ff667132bbdddfd23a06980151481b48e629ee2dcfd6a5ec779ed4012cb76526"
+        },
+        {
+          "bytes": 30479,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3A85b0c2251d2bdb53d99b426b078c33caabd240577dd734e8024021581efa4e49",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=b60ae2f7d36298bf351965bb4d3deab774932914e1f6df6d7893683846093e2c&crop_id=crop-1&view=summary",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "summary",
+          "wire_sha256": "5405f9a510a71205d6ff9e943f2302804487f3f4a9d3fe70bacb48f655a95c60"
+        },
+        {
+          "bytes": 40660,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3A85b0c2251d2bdb53d99b426b078c33caabd240577dd734e8024021581efa4e49",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=b60ae2f7d36298bf351965bb4d3deab774932914e1f6df6d7893683846093e2c&crop_id=crop-1&view=samples&offset=0&limit=64",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "samples",
+          "wire_sha256": "d3e57340e499bf66d0d5bf71ea63deea65ab2e7b9ed304a4e971d8b305242761"
+        },
+        {
+          "bytes": 30479,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3A85b0c2251d2bdb53d99b426b078c33caabd240577dd734e8024021581efa4e49",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=b60ae2f7d36298bf351965bb4d3deab774932914e1f6df6d7893683846093e2c&crop_id=crop-1&view=summary",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "summary",
+          "wire_sha256": "5405f9a510a71205d6ff9e943f2302804487f3f4a9d3fe70bacb48f655a95c60"
+        },
+        {
+          "bytes": 40660,
+          "method": "GET",
+          "path": "/v1/crop-greenhouse-solar-research-results/joint-solar-result-v1%3A85b0c2251d2bdb53d99b426b078c33caabd240577dd734e8024021581efa4e49",
+          "query": "scenario_id=farm-1&scenario_revision=r1&registration_sha256=b60ae2f7d36298bf351965bb4d3deab774932914e1f6df6d7893683846093e2c&crop_id=crop-1&view=samples&offset=0&limit=64",
+          "source_body_equal": true,
+          "status": 200,
+          "view": "samples",
+          "wire_sha256": "d3e57340e499bf66d0d5bf71ea63deea65ab2e7b9ed304a4e971d8b305242761"
+        }
+      ],
+      "cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "frame_files": [
+        {
+          "name": "browser-frame-1.private.json",
+          "sha256": "72103f3bf4e369e93837a6959f10937d3c691c1e9a68ca689d76ac80dad3e9a3"
+        },
+        {
+          "name": "browser-frame-2.private.json",
+          "sha256": "0209400a690f9c2b5897a25c60e1213de57909bac18dc68590545f087eb4f702"
+        },
+        {
+          "name": "browser-frame-3.private.json",
+          "sha256": "72103f3bf4e369e93837a6959f10937d3c691c1e9a68ca689d76ac80dad3e9a3"
+        },
+        {
+          "name": "browser-frame-4.private.json",
+          "sha256": "72103f3bf4e369e93837a6959f10937d3c691c1e9a68ca689d76ac80dad3e9a3"
+        },
+        {
+          "name": "browser-frame-5.private.json",
+          "sha256": "72103f3bf4e369e93837a6959f10937d3c691c1e9a68ca689d76ac80dad3e9a3"
+        }
+      ],
+      "frame_visits": 5,
+      "native": {
+        "FD_before_after": [
+          4,
+          4
+        ],
+        "FD_identities_preserved": true,
+        "G0_G4": "not_assessed",
+        "actual_TypeScript_SDK": true,
+        "actual_WebGL_browser": true,
+        "actual_crop_Runs": 0,
+        "actual_scram": true,
+        "browser_TLS_trust": "owned SPKI pin; upstream Python SSL validates CA/name/time",
+        "browser_exit_code": 0,
+        "calls": {
+          "CLI": 0,
+          "NIR": 0,
+          "PAR": 0,
+          "RHS": 0,
+          "SQL_writes": 0,
+          "advance": 0,
+          "event": 0,
+          "prepare_binding": 0,
+          "prepare_context": 0,
+          "restore": 0,
+          "solar": 0,
+          "start": 0,
+          "step": 0,
+          "ventilation": 0
+        },
+        "counts_unchanged": true,
+        "current_rights_scene_removed": true,
+        "held_context_reader_observed": true,
+        "native_fetch_mocked": false,
+        "owned_shared_buffers_actual": "1MB",
+        "reconnect_same_original_result": true,
+        "response_bytes_forwarded_unchanged": true,
+        "rights_or_gate_approval": false,
+        "shared_market_reader_observed": true,
+        "verified_TLS": true
+      },
+      "original_UTCs": [
+        "2026-10-01T00:00:00.123456Z",
+        "2026-10-01T00:00:16.123456Z"
+      ],
+      "resource": {
+        "FD_before_after": [
+          7,
+          7
+        ],
+        "RSS_samples": 458,
+        "WSL_capacity_accepted": false,
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 605327360,
+        "hosted_only": true,
+        "owned_non_zombie_remaining": [],
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 378515456,
+        "wall_seconds": 117.30040496699996
+      },
+      "screenshots": [
+        {
+          "name": "solar-hold.private.png",
+          "sha256": "a8b2a5f846085b74555afc12ac9cb007a665de0b3b75acb24369ef340322f107"
+        }
+      ],
+      "visually_reviewed": true
+    }
+  },
   "hosted_native_CI": {
-    "head": "20831eb83c3b7703e432e0841f329cbba47f1742",
-    "native_success_claimed": false,
-    "run": 39024412408,
+    "conclusion": "success",
+    "head": "4510a938e57766fc7b4cad2e9f0323492166e553",
+    "native_success_claimed": true,
+    "run": 39025035367,
     "selected_browser_suite": "solar",
-    "state": "in_progress",
-    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39024412408"
+    "state": "completed",
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39025035367"
+  },
+  "hosted_native_functional_accepted": true,
+  "hosted_web_regression": {
+    "browser_suite": "solar",
+    "browser_tests": 38,
+    "typecheck_build_audit": true,
+    "unit_files": 35,
+    "unit_tests": 1864
   },
   "local_capacity_hold": true,
   "local_checks": [
@@ -948,6 +1555,12 @@
     "head": "ca9f9cf23b96b2c600bbd01a178bf9b17fdfaf11"
   },
   "new_solar_deployed": false,
+  "next_step": {
+    "acceptance": "unchanged64steps/independent unpaused worker, configured SCRAM/TLS admission and>=2advancing prefixes/original valuesUTC/terminal, read cropCLI/SQL mutation0, original5roots/2148+2173/frozenUIs/keys/roles/FD/ownedPG/temp/passfiles and512MiBPID/1GiB combined",
+    "basis": "source6004735 adopted exact reader reduces actual currentGET physical connections306→186 and max2→1 after earlier unpaused prototype/candidate holds; this is a changed implementation basis, not identical retry",
+    "scope": "first normal backend-runtime evidence only; hold/cancel/runningWebGL/localbrowser/useractivation remain separate",
+    "task": "current-source independent unpaused API/worker normal prototype"
+  },
   "observed_normal_current_WebGL_frames": 3,
   "pointer_syntax_checks": [
     {
@@ -999,7 +1612,15 @@
       "use": "locked Playwright1.63.0 headless shell installation"
     }
   ],
-  "updated_at": "2026-10-17T10:21:40.223700+00:00",
+  "tested_build_provenance": {
+    "archive_checked": true,
+    "artifact_digest": "sha256:1c0dbb57b1b62402c87c3a2d849250e6e6ba8717431f06f990c280d9c7df80be",
+    "artifact_id": 12098131691,
+    "browser_suite": "solar",
+    "build_commit": "4510a938e57766fc7b4cad2e9f0323492166e553",
+    "web_run_id": 39025035367
+  },
+  "updated_at": "2026-10-17T10:45:06.846462+00:00",
   "visible_pointer_syntax_check": {
     "actual_child_exit": 0,
     "controller_FD_before_after": [

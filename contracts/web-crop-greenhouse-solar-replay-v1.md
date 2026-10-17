@@ -68,6 +68,10 @@ CI의 집중 선택과 합성 화면 PNG 보존은 이 화면 검증의 보조 �
 
 ## S2b 검증 환경의 관측과 추가 자동화 — 2026-10-17
 
+[4510a93/실제 호스팅 정상·hold 기능](../research/crop-solar-current-webgl-verification-20261017.md)을 수용했다.
+원3·2시점/11프레임 방문·권리/재접속·두 실제 browser/driver0와 정리를 확인했다.
+로컬 용량·S2b 부모와 배포 조건은 유지한다.
+
 [실제 시도/분리 계측](../research/crop-solar-current-webgl-verification-20261017.md)에서 현재 WSL의
 전체 앱과 보호5root 동시 RSS가 한도를 넘었다. 기존 수용 조건은 유지한다.
 같은 검증 빌드의 digest와 실제 SCRAM/HTTPS·현재 권리·원 bytes/수치/단위/UTC·mesh/그래프·

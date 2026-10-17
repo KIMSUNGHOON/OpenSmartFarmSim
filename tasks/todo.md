@@ -1,8 +1,8 @@
 # 첫 구현 작업 목록
 
-**현재 — 2026-10-17:** [실제 저장 WebGL 검증](../research/crop-solar-current-webgl-verification-20261017.md).
-전체 웹 회귀243/1,864는 통과했고 로컬 동시 RSS는 보류다. 호스팅 정상/hold 검증은 진행 중이며
-S2b/S3/S4와 부모 체크는 유지한다. 아래 이전 기록은 당시 상태다.
+**현재 — 2026-10-17:** [호스팅 실제 정상/hold 저장 WebGL 기능 수용](../research/crop-solar-current-webgl-verification-20261017.md).
+원 수치/UTC·권리/재접속·정리를 통과했다. 다음은 reader 변경 뒤 독립 API/worker 정상 한 사례다.
+로컬 동시 RSS·S2b/S3/S4·부모 체크는 유지하며 아래 기록은 당시 상태다.
 
 전체 목표는 active다. **현재 보류/판단 맥락 reader·실제 SDK 수용 — 2026-10-17:** [구현/고유141검사·현재4반복·정상/hold SDK](../research/crop-market-held-context-reader-implementation-20261017.md)를 로컬 소프트웨어 범위로 수용했다. 실제 GET2건 연결306→186/동시2→1·경제 참조20회 보존을 확인했다. 다음은 S2b 실제 현재 HTTPS→저장 WebGL이다. S3 독립 동시 실행/계산 중3D·S4 사용자 적용·새 Solar 배포/전체 CI/실제 자료·관문은 미완료다. 원5root/두 UI/원본/한도와 goal active·전체 완료일 미정을 유지한다. 아래 기록은 당시 상태다.
 
@@ -1830,7 +1830,7 @@ S2b/S3/S4와 부모 체크는 유지한다. 아래 이전 기록은 당시 상�
             - [ ] **S2 같은 UTC 저장3D** — 개발은 S1a/원 응답, 실제 연결 수용은 S1b를 선행으로 나눈다. 부모 완료 조건은 유지한다.
               - [x] **S2a 저장 화면 개발/기록 회귀** — [기록 응답 소프트웨어 수용](../research/crop-greenhouse-solar-saved-web-implementation-20261017.md): Solar14/전체243브라우저·1,864단위·타입/build/audit, 원 UTC·50구획/장부/PAR/NIR·관리·보류/빈 상태·선택/계정/취소/권리·지연 응답 제거·실제 WebGL/원 PNG·원 디자인 대조. 실제 HTTPS/WSL 브라우저 용량·최종 디자인/사용자 배포는 별도다.
               - [ ] **S2b 실제 현재 HTTPS→저장 WebGL** — 선행 S1b/S2a. 원 선택자/페이지/원 값/UTC와 실제 WebGL·현재 권리/거부 시 제거·재접속·두 UI/원본/자원을 확인한다. 기록 응답 시험으로 대체하지 않는다.
-                - [ ] **호스팅 실제 저장3D 기능 대사** — [실행 기록](../research/crop-solar-current-webgl-verification-20261017.md). 같은 CI의 검증 빌드/digest·실제 독립 producer/SCRAM/HTTPS/현재 권리·정상/hold 원 수치/단위/UTC·50구획/온도 mesh/그래프·관리 전후·거부 시 제거/재접속과 최종 종료·자원/정리가 기준이다. WSL 용량/배포 수용은 별도다.
+                - [x] **호스팅 실제 저장3D 기능 대사** — 4510a93/CI39025035367 정상·hold/원3·2시점·11프레임 방문/18HTTP·권리·재접속·두 browser/driver0·FD map/role/schema/소유 정리 수용. [실행 기록](../research/crop-solar-current-webgl-verification-20261017.md). 같은 CI의 검증 빌드/digest·실제 독립 producer/SCRAM/HTTPS/현재 권리·정상/hold 원 수치/단위/UTC·50구획/온도 mesh/그래프·관리 전후·거부 시 제거/재접속과 최종 종료·자원/정리가 기준이다. WSL 용량/배포 수용은 별도다.
                 - [ ] **현재 WSL 전체 앱 동시 용량 수용** — 같은 기록의 실제 native/브라우저 분리 RSS hold를 유지한다. 새 할당 근거가 있을 때 원5root/두 UI·한도·원 값/권리/정리를 유지한 작은 수정과 실제 현재 HTTP→WebGL로 평가한다. 호스팅 성공이나 임의 애니메이션으로 완료하지 않는다.
             - [ ] **S3 실행 중 prefix3D** — 선행은 독립 unpaused 정상/hold/취소·현재 권리·전진 prefix/원 UTC·조회 계산0·동시 자원 수용이다. 저장3D의 성공만으로 완료하지 않는다.
           - [ ] **solar 사용자 적용·재시작** — 같은 고정 source/영역/키의 지속 API/worker에서 정상/hold/취소·원 수치/UTC3D·재접속/재시작/현재 권리와 기존 두 주소/원본/자원을 확인하고 접속·진행 안내를 갱신한다.
