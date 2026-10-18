@@ -3,10 +3,14 @@
 - [x] **`crop-solar-current-binding-cost`** — [실제 한 청크의 검증 반복](../research/crop-solar-current-binding-cost-20261018.md).
   원 source9144809·실제1→2/UTC·proof3개/identity·관찰1검사·5root/정리 통과.
   current12/registration24/audit528·수치 청크0.048초를 분리했다. 계측 포함14.760초이며 원64 정상 수용은 아니다.
-- [ ] **`crop-solar-current-binding-validation-slice`** — 위 비용 기록의 다음 수용 기준을 따른다.
-  12개 current 경계의 mutable 참조/권리/판본을 먼저 대조해 최소 변경을 고정한다.
-  현재 검사·같은 binding/UTC/HMAC/ancestry·철회/변조/취소/만료 차단·FD/원본/정리를 보존하며
-  같은 조건에서 full registration 반복24보다 감소/paired 비용을 증명한다. 이후 원64 정상은 별도 통과한다.
+- [x] **`crop-solar-current-binding-validation-slice`** — [요청 수명 내 재구성 수용](../research/farm-registration-read-scope-implementation-20261019.md).
+  고유26검사·실제 paired advance의 원 값/UTC·현재12/등록24/role감사528/원천읽기1,824·중복 순서를 보존했다.
+  전체 재구성24→1·두 관측13.663→12.526초/13.396→12.248초다. 약8% 컴포넌트 관측으로 원64 정상은 미수용이다.
+  권리/원천/행/grant/pointer/code/Decimal 변경·취소/만료·늦은 게시 rollback·수명 격리/정리와5root/원본/상한 통과.
+- [ ] **`crop-solar-registration-scope-native-normal`** — 위 후보의 원64 독립 API/worker, 계측 OFF.
+  원 입력/chunk1/조회·재시도/360초/메모리 상한 그대로 두 전진 prefix·원 값/UTC·64단계/start1/CLI0,
+  attempt1/success event1·두 actor 종료0·조회 계산/SQL 변경0·FD/역할/schema/PG/임시 정리를 통과한다.
+  이후 독립 hold→실제 취소→계산 중 WebGL→WSL 용량/사용자 적용은 기존 별도 작업으로 진행한다.
 
 - [x] **`runtime-role-matrix-query`** — [현재 감사 전송량과 비용](../research/runtime-role-matrix-implementation-20261017.md), source9144809.
   새12/기존 역할·로그인39/Solar 결과·권리3의 고유54검사를 통과했다. 실제21감사·24,024→0행,

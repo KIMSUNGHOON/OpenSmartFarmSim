@@ -1,5 +1,7 @@
 """Tenant-owned immutable authored farm intents over actual source authorities."""
 
+from contextlib import contextmanager
+from contextvars import ContextVar
 from datetime import date, datetime, timezone
 from hashlib import sha256
 import json
@@ -20,6 +22,7 @@ from .jobs import canonical_input_bytes
 from .market_scenario import MarketScenarioService
 from .provenance import Digest, FrozenContract
 from .thermal_units import utc as utc_text
+from .farm_registration_read_scope import RegistrationRead, RegistrationScopeHold
 
 
 INPUT_VERSION='farm-authoring-input-v1'
@@ -115,6 +118,7 @@ class FarmAuthoringHold(ValueError):
 class FarmAuthoringService:
     def __init__(self,replay):
         self.replay=replay
+        self._registration_read=ContextVar('farm_registration_read',default=None)
         self._binding()
 
     def _binding(self):
@@ -124,7 +128,7 @@ class FarmAuthoringService:
 
     def _pointers(self):
         self._binding()
-        return (self.replay,self.replay._pointers())
+        return (self.replay,self.replay._pointers(),self._registration_read)
 
     def _guard(self,tenant,pointers,scopes):
         if self._pointers()!=pointers:
@@ -158,7 +162,10 @@ class FarmAuthoringService:
                 raise ValueError()
             runs=self.replay.thermal.runs
             snapshot=runs.get_snapshot(tenant,farm.snapshot_id)
-            context,hold,pinned=MarketScenarioService(self.replay.candidates).validate_pinned_context(
+            scoped=self._registration_read.get()
+            recording=scoped is not None and scoped.loading
+            if recording: scoped.capture(root,snapshot)
+            context,hold,pinned=MarketScenarioService(scoped.recorder if recording else self.replay.candidates).validate_pinned_context(
                 farm.economic.scenario_id,farm.economic.revision,tenant,
                 farm.snapshot_id,farm.decision_context_id,farm.market_context.hold_report_id)
             if snapshot is None or context is None or hold is None:
@@ -414,7 +421,27 @@ class FarmAuthoringService:
         finally:
             guard()
 
+    @contextmanager
+    def registration_read_scope(self,tenant,scenario_id,revision,expected_sha256):
+        slot=self._registration_read
+        if slot.get() is not None:
+            raise FarmAuthoringHold('nested farm registration scope unavailable')
+        scoped=RegistrationRead(self,(tenant,scenario_id,revision,expected_sha256),slot,READ_SCOPES)
+        token=slot.set(scoped)
+        try: yield
+        finally:
+            scoped.close();slot.reset(token)
+
     def read_registration(self,tenant,scenario_id,revision,expected_sha256):
+        scoped=self._registration_read.get()
+        if scoped is None:
+            return self._read_registration(tenant,scenario_id,revision,expected_sha256)
+        try: return scoped.read(tenant,scenario_id,revision,expected_sha256)
+        except PermissionError: raise
+        except Exception:
+            raise FarmAuthoringHold('current farm registration scope unavailable') from None
+
+    def _read_registration(self,tenant,scenario_id,revision,expected_sha256):
         record=self._read(tenant,scenario_id,revision)
         if record is None or record[0]['input_sha256']!=expected_sha256:
             raise FarmAuthoringHold('authored farm execution input unavailable')

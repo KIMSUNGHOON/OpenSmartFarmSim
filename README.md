@@ -1,5 +1,7 @@
 # OpenSmartFarmSim
 
+**현재 진행 — 2026-10-19 KST:** [농장 입력 재구성 감소](research/farm-registration-read-scope-implementation-20261019.md)를 고유26검사로 수용했다. 실제 원천·권리·감사를 유지하고 한 작업의 전체 재구성24→1, 두 paired 관측 약8% 감소를 확인했다. 다음은 원 조건 그대로의 독립64단계 정상 실행이며 전체 속도·계산 중3D·새 Solar 배포 수용은 남았다. [기존 두 UI](research/post-boot-preview-recovery-20261019.md)는 WSL 재기동 뒤 인증된 응답까지 복구했다. 실제 농장 자료/독립 검증·G0–G4·전체 완료일은 미완료/미정이다. goal active를 유지한다. 아래는 당시 기록이다.
+
 **기존 UI 인증 갱신 — 2026-10-17:** [동일 토큰·원 생장/수확·joint/환기 응답·두 화면 보존](research/frozen-preview-authentication-renewal-20261017.md)을 확인했다. 새5root/자원 상한을 유지하며 기존 경로만 복원했다. 새 Solar 미배포·원360초 정상 실행 미수용이며 다음은 계산 단계별 시간 계측이다.
 
 **독립 일사 계산 후속 — 2026-10-17:** [현재 권한 감사 query](research/runtime-role-matrix-implementation-20261017.md)를 고유54검사로 수용했다. 등록 조회21감사의 반환24,024→0행·같은 DB paired 중앙값 약12.24% 감소를 관측했다. 후속 원 독립 실행 CI39042611904는383.075초·저장16/64로 미완료여서 전체 속도 개선은 미수용이다. [실제 한 청크 관찰](research/crop-solar-current-binding-cost-20261018.md)에서 current12/등록24/감사528을 확인했다. 다음은 현재 검사를 유지하는 반복 재구성 감소다. 전체 처리량·S3/S4·WSL 용량·계산 중3D·새 Solar/실제 자료·관문은 미완료이며 goal active·전체 완료일 미정이다.

@@ -1,0 +1,447 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "focused_distinct_tests_passed": 26,
+  "full_backend_or_browser_suite_run": false,
+  "limitations": [
+    "Two paired component samples include profiler overhead and do not establish total throughput or a completion date.",
+    "528 current role audits and1824 ordered physical source reads remain per measured advance.",
+    "Terminal query regression itself does not prove a fresh reader process.",
+    "Original independent64-step normal acceptance, hold/cancel/live WebGL/WSL capacity and deployment are separate.",
+    "Private farm rights, independent local measurements and future economic/candidate validation remain external dependencies."
+  ],
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "ca0c8cd7ab068eeb4f4fd5976df0890bd23609dfa7a5530323ef6e50d7bc4584",
+    "recursive_cli": false,
+    "timestamp": "2026-10-18T22:56:29.294Z"
+  },
+  "new_Solar_deployed": false,
+  "normal_unpaused_execution_accepted": false,
+  "paired_observation": {
+    "guard": {
+      "actual_tool": "8120:0",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "distinct_tests": 0,
+      "raw_terminal_sha256": "870f57bdfa27888aadc42b3a7afc91b2eeaee7a8fb5f09d937be931bd2db5e48",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1000124416,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "869310fb15e1059dac271bbebb6a3bff1149d4ab1dc4263a143fcd74215ad2de",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143675392,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 115.76570203100005
+      },
+      "stage": "focused-registration-scope-advance-pair-v1"
+    },
+    "probe_sha256": "fe5368abafb7bce114c6aebd8478ab052d3c68f755040ce7374daee7e1530205",
+    "raw_result_sha256": "c9a402fb517e409f4d666700868f0667fcf2c76412e120406fd47cd165c68997",
+    "result": {
+      "G0_G4": "not_assessed",
+      "actual_source_read_order_and_duplicates_preserved": true,
+      "original_values_UTC_checkpoint_counts_preserved": true,
+      "rights_or_gate_approval": false,
+      "samples": [
+        {
+          "full_reconstructions": 24,
+          "functions": [
+            {
+              "calls": 12,
+              "file": "crop_greenhouse_solar_farm_binding.py",
+              "function": "SolarFarmBinding.current",
+              "inclusive_seconds": 13.235742046,
+              "self_seconds": 0.000363965
+            },
+            {
+              "calls": 24,
+              "file": "economics.py",
+              "function": "EconomicLedger.calculate",
+              "inclusive_seconds": 2.448381146,
+              "self_seconds": 0.001536278
+            },
+            {
+              "calls": 528,
+              "file": "runtime_roles.py",
+              "function": "audit_runtime_roles",
+              "inclusive_seconds": 6.407250265,
+              "self_seconds": 0.112257142
+            },
+            {
+              "calls": 1,
+              "file": "crop_greenhouse_solar_continuation.py",
+              "function": "advance_chunk",
+              "inclusive_seconds": 0.045811699000000004,
+              "self_seconds": 0.00049266
+            },
+            {
+              "calls": 24,
+              "file": "farm_authoring_storage.py",
+              "function": "FarmAuthoringService._prepare",
+              "inclusive_seconds": 10.809507225,
+              "self_seconds": 0.004415762
+            },
+            {
+              "calls": 24,
+              "file": "farm_authoring_storage.py",
+              "function": "FarmAuthoringService.read_registration",
+              "inclusive_seconds": 11.536779511,
+              "self_seconds": 0.000300157
+            }
+          ],
+          "mode": "baseline",
+          "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+          "source_reads": 1824,
+          "wall_seconds": 13.663052502000028
+        },
+        {
+          "full_reconstructions": 1,
+          "functions": [
+            {
+              "calls": 12,
+              "file": "crop_greenhouse_solar_farm_binding.py",
+              "function": "SolarFarmBinding.current",
+              "inclusive_seconds": 12.049396374,
+              "self_seconds": 0.00037537100000000005
+            },
+            {
+              "calls": 1,
+              "file": "economics.py",
+              "function": "EconomicLedger.calculate",
+              "inclusive_seconds": 0.108660723,
+              "self_seconds": 8.0728e-05
+            },
+            {
+              "calls": 528,
+              "file": "runtime_roles.py",
+              "function": "audit_runtime_roles",
+              "inclusive_seconds": 6.214285286,
+              "self_seconds": 0.10842890200000001
+            },
+            {
+              "calls": 1,
+              "file": "crop_greenhouse_solar_continuation.py",
+              "function": "advance_chunk",
+              "inclusive_seconds": 0.108536268,
+              "self_seconds": 0.000499782
+            },
+            {
+              "calls": 1,
+              "file": "farm_authoring_storage.py",
+              "function": "FarmAuthoringService._prepare",
+              "inclusive_seconds": 0.45273446100000003,
+              "self_seconds": 0.00020960300000000002
+            },
+            {
+              "calls": 24,
+              "file": "farm_authoring_storage.py",
+              "function": "FarmAuthoringService.read_registration",
+              "inclusive_seconds": 10.445330676000001,
+              "self_seconds": 0.00012941
+            },
+            {
+              "calls": 23,
+              "file": "farm_registration_read_scope.py",
+              "function": "RegistrationRead._current",
+              "inclusive_seconds": 9.847967182000001,
+              "self_seconds": 0.010645382
+            }
+          ],
+          "mode": "candidate",
+          "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+          "source_reads": 1824,
+          "wall_seconds": 12.526265480999882
+        },
+        {
+          "full_reconstructions": 1,
+          "functions": [
+            {
+              "calls": 12,
+              "file": "crop_greenhouse_solar_farm_binding.py",
+              "function": "SolarFarmBinding.current",
+              "inclusive_seconds": 11.810423744000001,
+              "self_seconds": 0.00034571
+            },
+            {
+              "calls": 1,
+              "file": "economics.py",
+              "function": "EconomicLedger.calculate",
+              "inclusive_seconds": 0.105479898,
+              "self_seconds": 5.9741e-05
+            },
+            {
+              "calls": 528,
+              "file": "runtime_roles.py",
+              "function": "audit_runtime_roles",
+              "inclusive_seconds": 6.11054311,
+              "self_seconds": 0.10539904800000001
+            },
+            {
+              "calls": 1,
+              "file": "crop_greenhouse_solar_continuation.py",
+              "function": "advance_chunk",
+              "inclusive_seconds": 0.04546196,
+              "self_seconds": 0.00038999600000000004
+            },
+            {
+              "calls": 1,
+              "file": "farm_authoring_storage.py",
+              "function": "FarmAuthoringService._prepare",
+              "inclusive_seconds": 0.445833764,
+              "self_seconds": 0.00017269
+            },
+            {
+              "calls": 24,
+              "file": "farm_authoring_storage.py",
+              "function": "FarmAuthoringService.read_registration",
+              "inclusive_seconds": 10.24938292,
+              "self_seconds": 0.000117801
+            },
+            {
+              "calls": 23,
+              "file": "farm_registration_read_scope.py",
+              "function": "RegistrationRead._current",
+              "inclusive_seconds": 9.657099065,
+              "self_seconds": 0.010328529000000001
+            }
+          ],
+          "mode": "candidate",
+          "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+          "source_reads": 1824,
+          "wall_seconds": 12.247702952000054
+        },
+        {
+          "full_reconstructions": 24,
+          "functions": [
+            {
+              "calls": 12,
+              "file": "crop_greenhouse_solar_farm_binding.py",
+              "function": "SolarFarmBinding.current",
+              "inclusive_seconds": 12.958490441,
+              "self_seconds": 0.000429998
+            },
+            {
+              "calls": 24,
+              "file": "economics.py",
+              "function": "EconomicLedger.calculate",
+              "inclusive_seconds": 2.4022650700000003,
+              "self_seconds": 0.00144965
+            },
+            {
+              "calls": 528,
+              "file": "runtime_roles.py",
+              "function": "audit_runtime_roles",
+              "inclusive_seconds": 6.249682537,
+              "self_seconds": 0.11103718100000001
+            },
+            {
+              "calls": 1,
+              "file": "crop_greenhouse_solar_continuation.py",
+              "function": "advance_chunk",
+              "inclusive_seconds": 0.051935566,
+              "self_seconds": 0.00061105
+            },
+            {
+              "calls": 24,
+              "file": "farm_authoring_storage.py",
+              "function": "FarmAuthoringService._prepare",
+              "inclusive_seconds": 10.598764656,
+              "self_seconds": 0.0042297260000000005
+            },
+            {
+              "calls": 24,
+              "file": "farm_authoring_storage.py",
+              "function": "FarmAuthoringService.read_registration",
+              "inclusive_seconds": 11.302908416000001,
+              "self_seconds": 0.00016604
+            }
+          ],
+          "mode": "baseline",
+          "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+          "source_reads": 1824,
+          "wall_seconds": 13.395898310999655
+        }
+      ],
+      "scope": "paired actual custody advances, same owned input/state; original full validation baseline selected only by test nullcontext; no native64 acceptance"
+    }
+  },
+  "review": {
+    "architecture": "One explicit custody lifetime, bounded trace and copied deterministic result; ordinary path unchanged.",
+    "correctness": "Same current logical inputs, ordered duplicate source reads and deterministic output; fail closed on changes.",
+    "performance": "24to1 reconstruction only; about8percent paired observation, not native completion.",
+    "security": "No permission or role audit result cache, SQL mutation or cross-request lifetime; no new package."
+  },
+  "rights_or_gate_approval": false,
+  "scope": "request-local deterministic reconstruction; fresh ordered source/rights/role validation retained",
+  "source_sha256": {
+    "backend/app/crop_greenhouse_solar_farm_binding.py": "e7190ac2e067a2515fe162bf1430e615f837c83064b4cf86a47f9832d5728bae",
+    "backend/app/crop_greenhouse_solar_server_custody.py": "6a1af5c6215412edc8a07b65ed5d2b589397ad1d26d47d8558b5c25dbd3b8344",
+    "backend/app/farm_authoring_storage.py": "3c1049d1034a45a3bdbf390fb671e8436c3c52bf43a60e2c42c8e4a8090b06c3",
+    "backend/app/farm_registration_read_scope.py": "2f221d3df69d7aa7e65f829e174728eaf094e1f042fb426b11757630bccba88b",
+    "backend/tests/test_farm_registration_read_scope.py": "7b5f68700bb42a5d58f6690dee1e7800160143485571f69c39ffc2c3966cc5fc"
+  },
+  "stages": [
+    {
+      "actual_tool": "94107:0",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "distinct_tests": 16,
+      "raw_terminal_sha256": "285a76016516f57795f39b2db7382284d42fb3fba358ddcb6543cd7e6d5c34d6",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1038716928,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "eb672f684db97392f25792353868d0715630e72d746bd6187decaccb3cf5dcb7",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 154402816,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 184.9394686280002
+      },
+      "stage": "regression-farm-registration-scope-integrated-v1"
+    },
+    {
+      "actual_tool": "controller45038:0; initial tool handle lost during compaction",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "distinct_tests": 3,
+      "raw_terminal_sha256": "357db912deaf5b3a53746ab4dc7b2b0224dc55368517ccab62ff14a7cc3e599c",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1040269312,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "5b8ddb45f3e2c99eba97828b7a0af3a8e96b2d33fbfbfcdb5e448b619f3821bf",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143675392,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 143.28748421599994
+      },
+      "stage": "regression-registration-scope-solar-terminal-v1"
+    },
+    {
+      "actual_tool": "79811:0",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "distinct_tests": 7,
+      "raw_terminal_sha256": "8069a65a93982f68f5a4f0f7c07184ef32e53b9f0dae6b9d96650de49f9c3246",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1041297408,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "log_sha256": "b0921010a84d2a9c593fa8ec4e49b47d0b9ebf3fe9d7a1dae4770f97749336f2",
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "sample_interval_seconds": 0.25,
+        "single_PID_peak_RSS_bytes": 143675392,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 357.33589917400013
+      },
+      "stage": "regression-registration-scope-worker-lifetime-v1"
+    }
+  ],
+  "status_publication_and_actor_preflight": {
+    "UI_code_changed": false,
+    "actual_tool": "58106:0",
+    "both_HTTP_200_bytes_equal_no_store": true,
+    "browser_rerun": false,
+    "frozen_HTML_both_ports": true,
+    "original_actor_query_probe_hashes_preserved": true,
+    "raw_terminal_sha256": "3ad1c5dd84e6c170aed6372939cbc6d9d538363ec8efd6dc19f3129edabbddce",
+    "result": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 924368896,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "log_sha256": "ed9358155f3323d39a650b528405683de8523e1e0ed2dfdcc6a68474f8488f46",
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 143675392,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 1.3563406819998818
+    }
+  }
+}

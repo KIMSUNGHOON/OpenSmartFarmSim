@@ -1,5 +1,5 @@
 """Server signatures over original solar calculations and confirmed HEADs."""
-from contextlib import contextmanager
+from contextlib import contextmanager, ExitStack
 from hashlib import sha256
 import hmac
 import os
@@ -242,9 +242,12 @@ class SolarServerCustody:
 
     @contextmanager
     def _open(self,tenant,request_raw,write):
-        opened=[]
+        opened=[];lifetime=ExitStack()
         try:
             self._binding();self.binding._guard(tenant,write);request=self.binding._request(request_raw)
+            ref=request['farm']
+            lifetime.enter_context(self.binding.farms.registration_read_scope(tenant,
+                ref['scenario_id'],ref['scenario_revision'],ref['registration_sha256']))
             def resolve():
                 value=self.input_resolver(tenant,request['input']['source_sha256'],request['input']['evidence_sha256'])
                 _need(type(value) is tuple and len(value)==2 and isinstance(value[0],(str,Path)) and type(value[1]) is bytes)
@@ -294,7 +297,9 @@ class SolarServerCustody:
         except files.CycleCustodyPending:raise SolarCustodyPending('solar calculation custody busy') from None
         except Exception:raise SolarCustodyHold('solar calculation custody unavailable') from None
         finally:
-            for fd in reversed(opened):os.close(fd)
+            try:lifetime.close()
+            finally:
+                for fd in reversed(opened):os.close(fd)
 
     def advance(self,tenant,request_raw,*,budget):
         _need(type(budget) is int and 1<=budget<=continuation.MAX_CHUNK_BOUNDARIES)
