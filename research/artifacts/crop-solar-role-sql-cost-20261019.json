@@ -1,0 +1,189 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "actual_tool": "62021:0",
+  "database_cleanup": {
+    "roles": 0,
+    "schemas": 0
+  },
+  "guard": {
+    "actual_child_exit": 0,
+    "combined_peak_RSS_bytes": 992739328,
+    "controller_FD_before_after": [
+      4,
+      4
+    ],
+    "joint_preview_assets_preserved": true,
+    "joint_preview_source_preserved": true,
+    "log_sha256": "d8020168b2c7c13737bd6dafc24e78a149249113847f193be8ef7d82ac0b1c5f",
+    "original_source_entries": 2148,
+    "original_sources_preserved": true,
+    "owned_non_zombie_remaining": [],
+    "owned_postgres_remaining": [],
+    "passfiles_remaining": [],
+    "preview_assets_preserved": true,
+    "preview_source_preserved": true,
+    "protected_live": true,
+    "protected_root_count": 5,
+    "reason": null,
+    "single_PID_peak_RSS_bytes": 143675392,
+    "source_preserved": true,
+    "temporary_PG_directories_remaining": [],
+    "wall_seconds": 47.91850498399981
+  },
+  "limitations": [
+    "One local instrumented sample, SQL execute time only; excludes fetch and Python work.",
+    "Not paired with prior cProfile observation; no speed improvement or native throughput claim.",
+    "No source values, SQL parameters or credentials published.",
+    "Any next implementation requires original normal result and a separate equivalent-current-validation contract."
+  ],
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "ca0c8cd7ab068eeb4f4fd5976df0890bd23609dfa7a5530323ef6e50d7bc4584",
+    "recursive_cli": false,
+    "timestamp": "2026-10-18T22:56:29.294Z"
+  },
+  "normal_unpaused_execution_accepted": false,
+  "observer_sha256": "83c436da5ae09d917245def8a254dbad6d5086444bab3e5e83b9c04850d576a0",
+  "raw_result_sha256": "be37d90394cdb6deda3c9cbba0357e5758edbc10e889f4a5e207acae50cc8e5c",
+  "raw_terminal_sha256": "7647b521946fcb99e8740c254b6db447759687c7d7911692747023a79cef7b08",
+  "result": {
+    "G0_G4": "not_assessed",
+    "SQL_execute_calls": 7920,
+    "after_steps": 2,
+    "before_steps": 1,
+    "queries": [
+      {
+        "calls": 528,
+        "execute_seconds": 0.8873030899940204,
+        "function": "audit_runtime_roles",
+        "line": 255,
+        "max_execute_seconds": 0.003045779999865772,
+        "statement_sha256": "4acc7079133cd86bb909a557339d0a9c79bc50cbb76a40ad1dbdf2c02704b77f"
+      },
+      {
+        "calls": 528,
+        "execute_seconds": 0.7592078739980934,
+        "function": "audit_runtime_roles",
+        "line": 238,
+        "max_execute_seconds": 0.002263445999687974,
+        "statement_sha256": "9f23313ace484502d0424d7b75a54f0933c8ac1b5ca239e524c7b5cd2d434fc9"
+      },
+      {
+        "calls": 528,
+        "execute_seconds": 0.6882980460050021,
+        "function": "audit_runtime_roles",
+        "line": 196,
+        "max_execute_seconds": 0.0024602080002296134,
+        "statement_sha256": "cbfdafea45d27f96ac9840fe237963e753684d29822fbeaf01267caa2d0b3457"
+      },
+      {
+        "calls": 528,
+        "execute_seconds": 0.6381676049918497,
+        "function": "audit_runtime_roles",
+        "line": 214,
+        "max_execute_seconds": 0.001957120000042778,
+        "statement_sha256": "14289040a6b5189fd5746f5ab756b6db4d68c5209b85984365c2f48f6ff8f885"
+      },
+      {
+        "calls": 528,
+        "execute_seconds": 0.37445115100354087,
+        "function": "_scope",
+        "line": 137,
+        "max_execute_seconds": 0.0012894720002805116,
+        "statement_sha256": "1be95a80446f6763f69f3183ef8c82a3bd7df7613b88e3b14439ca615b937efb"
+      },
+      {
+        "calls": 528,
+        "execute_seconds": 0.23170929700063425,
+        "function": "_scope",
+        "line": 128,
+        "max_execute_seconds": 0.0015343340000981698,
+        "statement_sha256": "0cc3d12711aa970829f1d6888cde06507508e59c4baa32526b95006e9eccb928"
+      },
+      {
+        "calls": 528,
+        "execute_seconds": 0.20770416000141267,
+        "function": "_scope",
+        "line": 157,
+        "max_execute_seconds": 0.0007615300000907155,
+        "statement_sha256": "2574c8527a94e2bb4a75185395526c1a3c0f692084c3a07c9df24fd23216b8e1"
+      },
+      {
+        "calls": 528,
+        "execute_seconds": 0.19045511800140957,
+        "function": "audit_runtime_roles",
+        "line": 280,
+        "max_execute_seconds": 0.0008989039997686632,
+        "statement_sha256": "58e1ac71c9803c95a28ed46c37a73b5d1cb6d7d494874c8880264f7dce9572ee"
+      },
+      {
+        "calls": 528,
+        "execute_seconds": 0.17050234000225828,
+        "function": "audit_runtime_roles",
+        "line": 274,
+        "max_execute_seconds": 0.00107585800014931,
+        "statement_sha256": "4bca2145ef8d7e80efc0a7fed112b2b27117da4929ca11631756fd32339d2b23"
+      },
+      {
+        "calls": 528,
+        "execute_seconds": 0.16408244299691432,
+        "function": "_scope",
+        "line": 152,
+        "max_execute_seconds": 0.0007252939999489172,
+        "statement_sha256": "fcdd2a5635be3a3d2b007ded2c34dae5be613fad10ec765514aae317652e4b66"
+      },
+      {
+        "calls": 528,
+        "execute_seconds": 0.1367678299943691,
+        "function": "audit_runtime_roles",
+        "line": 177,
+        "max_execute_seconds": 0.0007307840000976285,
+        "statement_sha256": "bdb3083a9fd039c375128f7c75ac7b49d27504f1037ab75400633bc10aef0b92"
+      },
+      {
+        "calls": 528,
+        "execute_seconds": 0.13486903199964217,
+        "function": "_scope",
+        "line": 146,
+        "max_execute_seconds": 0.0005663120000463095,
+        "statement_sha256": "214c2e5382417118a1d0b8537039e56c33c5fda9c77794f87919070538e4119a"
+      },
+      {
+        "calls": 528,
+        "execute_seconds": 0.13342705000104615,
+        "function": "audit_runtime_roles",
+        "line": 186,
+        "max_execute_seconds": 0.0009387119998791604,
+        "statement_sha256": "b86e9d19e118e23f5603abd0ec22fa73783d620e3f51a694748ae166250238b6"
+      },
+      {
+        "calls": 528,
+        "execute_seconds": 0.13103195898793274,
+        "function": "audit_runtime_roles",
+        "line": 190,
+        "max_execute_seconds": 0.0007477849999304453,
+        "statement_sha256": "e1c7b027ace0dbe26e1abb1532d53dc0a335dced08ad8ae9c36b75948fc5ce05"
+      },
+      {
+        "calls": 528,
+        "execute_seconds": 0.09064581299890051,
+        "function": "_database",
+        "line": 123,
+        "max_execute_seconds": 0.0003901330001099268,
+        "statement_sha256": "4e64c8dc961a2897e924462efa6682284b2ad9aacc203b5ebef3f4076539b6d9"
+      }
+    ],
+    "rights_or_gate_approval": false,
+    "role_SQL_execute_seconds": 4.938622807977026,
+    "scope": "one instrumented actual advance, SQL execute wall times only; not throughput acceptance",
+    "source_read_order_and_duplicates_preserved": true,
+    "source_reads": 1824,
+    "wall_seconds": 9.42172407499993
+  },
+  "rights_or_gate_approval": false,
+  "runtime_roles_sha256": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0",
+  "scope": "one actual advance; role SQL timing diagnosis only",
+  "source_head": "c2bc1f607e315be4a81448455608cd49ce265d95"
+}

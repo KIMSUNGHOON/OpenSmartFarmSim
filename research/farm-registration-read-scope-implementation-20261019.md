@@ -78,3 +78,23 @@ CLI/SQL 변경0·FD identity/역할/schema/PG/임시 정리를 모두 대사한�
 `58106:0`에서 현재 source/syntax와 원 actor/query/probe 해시를 대사하고26검사·다음
 원64 정상/기존 보류를5173/5174에 no-store 동일 bytes로 게시했다. 원 HTML과 환기 frozen
 2,173파일·5root/원본/상한·감독FD/소유 정리를 보존했다. UI 코드/DOM/WebGL은 바꾸거나 재검사하지 않았다.
+
+## 후속 원 독립 실행: 미완료
+
+[CI39177777624](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39177777624),
+source `c2bc1f607e315be4a81448455608cd49ce265d95`는 실패했다. 원360초 계산 상한·전체
+382.576439초·API/worker -15이며 resource 중단 사유는 없다. 단일126,865,408/합361,558,016bytes,
+FD7→7·소유 비좀비/임시0이다. 정상/DB 정리 proof는 없으며 로컬5root가 없는 hosted 관측이다.
+
+종료 뒤 실제 같은 cluster의 Read Only/Repeatable Read metadata는attempt1/simulating·
+**16/64·yielded·sequence17**, UTC `2026-10-01T00:00:32.123456Z`였다.
+checkpoint 기록2026-10-18T23:52:59.020870Z/관측23:53:23.059290Z다.
+이 metadata를 현재 권리/원천/모델 재검증이나 정상 완료 증거로 쓰지 않는다.
+원 actor/query/probe SHA·actual run/head·artifact12155356059/3,285bytes·ZIP digest와 경로를 대사했다.
+직전 source의16/64와 같으며 **전체 처리량 개선은 미수용**이다. 같은 시험을 그대로 반복하지 않는다.
+
+[현재 SQL 위치별 관찰](crop-solar-role-sql-cost-20261019.md)을 근거로 다음은12개 current 경계 안의
+중첩 연결·원천·권한 검사 범위를 대조하고 가장 작은 중복 감소를 설계/검증하는 작업이다.
+현재 권리/판본/자료 변경과 늦은 철회·취소/만료를 동등하게 차단해야 하며, 원 값/UTC/HMAC/
+ancestry·조회 계산/쓰기0·종료/원본/FD/정리를 유지한다. 실제 반복 수와 같은 조건의 paired 비용을
+입증한 뒤 원64 정상은 별도로 통과한다. 관측 두 행렬의 비용만으로 제한 해결을 약속하지 않는다.

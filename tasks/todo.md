@@ -11,6 +11,17 @@
   원 입력/chunk1/조회·재시도/360초/메모리 상한 그대로 두 전진 prefix·원 값/UTC·64단계/start1/CLI0,
   attempt1/success event1·두 actor 종료0·조회 계산/SQL 변경0·FD/역할/schema/PG/임시 정리를 통과한다.
   이후 독립 hold→실제 취소→계산 중 WebGL→WSL 용량/사용자 적용은 기존 별도 작업으로 진행한다.
+  sourcec2bc1f6/CI39177777624는382.576초·원360초 제한/actor -15·종료 뒤 저장16/64로 미완료다.
+  정상/DB 정리 proof는 없고 전체 처리량 개선은 미수용이다. 같은 source로 반복하지 않는다.
+- [x] **`crop-solar-role-sql-cost`** — [현재 한 advance의 SQL 위치별 관찰](../research/crop-solar-role-sql-cost-20261019.md).
+  실제1→2단계/원천1,824의 순서·528감사/7,920execute·15위치와 보존/정리를 확인했다.
+  SQL execute4.939초·advance9.422초는 한 계측 표본이며 처리량이나 최적화 수용이 아니다.
+  원 정상 결과 뒤 변경이 필요하면 현재 검사 동등성과 늦은 철회 차단을 별도 계약/검사로 입증한다.
+- [ ] **`crop-solar-current-read-validation-boundaries`** — 위 원16/64 미완료와 실제 SQL 관측의 다음 작은 수정.
+  12개 current 경계의 중첩 연결/원천/권한 검사와 실제 변경 가능 입력을 코드 위치로 대조하고 최소 변경을 정한다.
+  각 경계의 현재 계정/권한/판본·원천 변경과 늦은 철회·취소/만료 차단을 동등하게 유지한다.
+  원 binding/수치/UTC/HMAC/ancestry·조회 계산/쓰기0·FD/원본/정리를 보존하고 실제 반복 수/paired 비용을 입증한다.
+  원 입력/chunk1/조회/재시도/360초/메모리 상한은 그대로 두며 원64 정상은 별도 수용한다.
 
 - [x] **`runtime-role-matrix-query`** — [현재 감사 전송량과 비용](../research/runtime-role-matrix-implementation-20261017.md), source9144809.
   새12/기존 역할·로그인39/Solar 결과·권리3의 고유54검사를 통과했다. 실제21감사·24,024→0행,
