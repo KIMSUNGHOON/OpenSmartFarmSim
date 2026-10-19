@@ -53,10 +53,17 @@
   CI39190518816/sourceeb943d9는 원360초/감독382.909초·종료 뒤22/64로 미완료다. 정상/DB 정리 proof는 없다.
 - [x] **`crop-solar-audit-scope-v2-remaining-cost`** — [29243:0 현재 실제 청크 관측](../research/crop-solar-audit-scope-v2-remaining-cost-20261019.md).
   실제1→2·144연결/183감사/7,113SQL과 current12/등록24/재구성1·원천1,824/순서·원 UTC/proof3·5root/원본/상한/정리 확인.
-- [ ] **`crop-solar-audit-scope-v2-native-worker-api-diagnostic`** — [기존 bounded 선택 진단](../contracts/crop-solar-worker-progress-diagnostics-v1.md)을 현재 코드에 적용한다.
+- [x] **`crop-solar-audit-scope-v2-native-worker-api-diagnostic`** — [기존 bounded 선택 진단](../contracts/crop-solar-worker-progress-diagnostics-v1.md)을 현재 코드에 적용한다.
   원 actor 본문/입력64/chunk1/조회·재시도/360초/RSS 유지, 실제 phase/진행·HTTP 상태/허용 오류 코드/예외 위치와
   정확한 run/head/app/header/actor hash·bounded journal·실제 종료/자원·정리 증거로 최소 다음 수정 범위를 정한다.
   계측은 정상/처리량 수용이 아니며 미사용 원문/인증/SQL/개인 자료를 기록하지 않는다.
+  [실제 결과/actor 해시/유한 journal](../research/crop-solar-audit-scope-v2-worker-api-diagnostic-20261019.md):8/64 확인 뒤 confirm Pending·attempt1/queued/busy.
+- [ ] **`crop-solar-custody-shared-read-locks`** — [공유 읽기/배타 쓰기 후보](../contracts/crop-solar-custody-shared-read-locks-v1.md).
+  Solar read 세션끼리 실제 공존·confirm 진행, 독립 open description/process·writer 배제/해제, 읽기 prepare/advance/게시/파일 생성 금지,
+  현재 권리/서명/원문/UTC·late 변경/취소/임대·기존 custody/query/prefix와5root/원본/상한/정리를 검증한다. 원 retry/360초는 유지한다.
+  [현재 후보20검사](../research/crop-solar-shared-read-locks-implementation-20261019.md)는 통과했으나 미채택이다. worker 정상/hold·취소/임대·query/prefix 관련 회귀/검토가 남았다.
+- [ ] **`crop-solar-shared-read-native-normal`** — 위 컴포넌트 수용 뒤 원 계측 OFF64 독립 정상·두 전진 prefix·원 값/UTC,
+  64/start1/CLI0/attempt1/success1·두 actor 종료0·조회 계산/쓰기0·FD/역할/schema/소유 PG/임시 정리를 대사한다.
 
 - [x] **`runtime-role-matrix-query`** — [현재 감사 전송량과 비용](../research/runtime-role-matrix-implementation-20261017.md), source9144809.
   새12/기존 역할·로그인39/Solar 결과·권리3의 고유54검사를 통과했다. 실제21감사·24,024→0행,

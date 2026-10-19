@@ -1,6 +1,8 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 감사 scope v2 — 2026-10-19 KST:** [현재 참조 검증116검사](../research/market-current-reference-audit-scope-v2-implementation-20261019.md)를 로컬 소프트웨어 범위로 수용했다. 원 값/UTC·현재 권리/수명·current12/등록24/재구성1·원천1,824/순서와 일반/대체 조회를 유지하고 감사298→183·두 실제 청크 약15.5%/13.7% 감소를 관측했다. 후속 원 독립 CI39190518816은22/64·시간 제한으로 미완료다. [현재 청크 관측](../research/crop-solar-audit-scope-v2-remaining-cost-20261019.md) 뒤 기존 worker/API 단계 계측으로 전체 실행 경로의 비용을 구분한다. 전체 처리량·계산 중3D·새 Solar 배포·실제 자료/관문과 전체 완료일은 미수용/미정이며 goal active다. 아래는 당시 기록이다.
+**현재 공유 읽기 후보 — 2026-10-19 KST:** [읽기 공유/쓰기 배타 잠금 구현·20검사](../research/crop-solar-shared-read-locks-implementation-20261019.md)를 확인했다. 실제 읽기/확인·조회 공존과 writer 배제/해제·읽기 계산/게시/파일 생성 차단을 검증했다. 후보는 미채택이며 작업자 정상/보류·취소/임대와 query/prefix 회귀·원64 정상 수용이 남았다. 이전116검사는 그 판본의 기록이다. 새 Solar 배포·계산 중3D·실제 자료/관문과 전체 완료일은 미수용/미정이며 goal active다. 아래는 당시 기록이다.
+
+**현재 감사 scope v2 — 2026-10-19 KST:** [현재 참조 검증116검사](../research/market-current-reference-audit-scope-v2-implementation-20261019.md)를 로컬 소프트웨어 범위로 수용했다. 원 값/UTC·현재 권리/수명·current12/등록24/재구성1·원천1,824/순서와 일반/대체 조회를 유지하고 감사298→183·두 실제 청크 약15.5%/13.7% 감소를 관측했다. 후속 원 독립 CI39190518816은22/64·시간 제한으로 미완료다. [실제 worker/API 진단](../research/crop-solar-audit-scope-v2-worker-api-diagnostic-20261019.md)에서8/64 확정 뒤 confirm 잠금 대기/queued busy를 확인했다. 다음은 읽기 공유/쓰기 배타 잠금과 읽기 세션 변경 차단이다. 전체 처리량·계산 중3D·새 Solar 배포·실제 자료/관문과 전체 완료일은 미수용/미정이며 goal active다. 아래는 당시 기록이다.
 
 **현재 참조 검증 — 2026-10-19 KST:** [순수 내부 읽기 묶음96검사](../research/market-current-reference-bundle-implementation-20261019.md)를 로컬 소프트웨어 범위로 수용했다. 원 데이터/UTC·현재 권리·수명·일반 조회를 유지하며 두 실제 청크에서 감사528→298/약15–17% 감소를 관측했다. 후속 원 독립 CI39185424202는25/64·시간 제한으로 미완료다. [현재 청크 관측](../research/crop-solar-reference-bundle-remaining-cost-20261019.md)으로144연결/298감사/8,976SQL과 원 값/UTC·원천/파일 보존을 확인했다. 다음은 순수 검증의 내부 중복 감사 축소 후보다. 전체 처리량·계산 중3D·새 Solar 배포·실제 자료/관문과 전체 완료일은 미수용/미정이다. 아래는 당시 기록이다.
 

@@ -89,11 +89,13 @@ def _head(value):
 
 
 class _Session:
-    def __init__(self,owner,root,intent,proofs,artifact,identity,intent_raw,binding_raw,current):
+    def __init__(self,owner,root,intent,proofs,artifact,identity,intent_raw,binding_raw,current,*,write=False):
+        _need(type(write) is bool)
         self.owner,self.root,self.intent,self.proofs,self.artifact=owner,root,intent,proofs,artifact
         self.identity,self.intent_raw,self.binding_raw,self.current=identity,intent_raw,binding_raw,current
         self.path='/proc/self/fd/'+str(intent)+'/artifact'
         self.intent_sha256=_hash(intent_raw);self.binding_sha256=_hash(binding_raw)
+        self._writable=write
 
     def _guard(self):
         self.owner._binding();_need(self.current()==self.binding_raw)
@@ -161,6 +163,7 @@ class _Session:
         _need(n+extra<=storage.LIMITS['directory_bytes'] and c+count<=storage.LIMITS['files'])
 
     def _publish(self,writer,original,head):
+        _need(self._writable is True)
         self._guard();new=_head(head)
         if files._exists(self.artifact,'HEAD'):
             old=files.inputs._json(files._read(self.artifact,'HEAD',8192));p,digest=self._selected(old)
@@ -196,6 +199,7 @@ class _Session:
         raw=_canonical(value);_need(len(raw)<=LIMITS['progress_bytes']);self._guard();return raw
 
     def advance(self,budget,prepare):
+        _need(self._writable is True)
         self._guard();existing=files._exists(self.artifact,'HEAD')
         data=None
         if existing:
@@ -242,6 +246,7 @@ class SolarServerCustody:
 
     @contextmanager
     def _open(self,tenant,request_raw,write):
+        _need(type(write) is bool)
         opened=[];lifetime=ExitStack()
         try:
             self._binding();self.binding._guard(tenant,write);request=self.binding._request(request_raw)
@@ -253,12 +258,12 @@ class SolarServerCustody:
                 _need(type(value) is tuple and len(value)==2 and isinstance(value[0],(str,Path)) and type(value[1]) is bytes)
                 return value
             root=files.job_store._open_directory_nofollow(self.directory);opened.append(root)
-            opened.append(files._file(root,'.custody-lock',lock=True));files._usage(root,'root')
+            opened.append(files._file(root,'.custody-lock',lock=True,shared=not write));files._usage(root,'root')
             identity=_intent_id(tenant,request)
             if not files._exists(root,identity):
                 _need(write and sum(_digest(n) for n in os.listdir(root))<LIMITS['root_intents'])
             intent=files._directory(root,identity,create=write);opened.append(intent)
-            opened.append(files._file(intent,'.intent-lock',lock=True))
+            opened.append(files._file(intent,'.intent-lock',lock=True,shared=not write))
             if files._exists(intent,'intent.json'):
                 raw=files._read(intent,'intent.json',LIMITS['intent_bytes'])
                 old=_checked(raw,self.integrity_key,INTENT_DOMAIN,LIMITS['intent_bytes'])
@@ -279,11 +284,13 @@ class SolarServerCustody:
             if not files._exists(intent,'intent.json'):
                 n,c=files._usage(root,'root')
                 _need(n+2*LIMITS['intent_bytes']<=LIMITS['root_bytes'] and c+4<=LIMITS['root_files'])
-            files._immutable(intent,'intent.json',intent_raw,LIMITS['intent_bytes'],'.intent-')
+            if write:files._immutable(intent,'intent.json',intent_raw,LIMITS['intent_bytes'],'.intent-')
+            else:_need(files._read(intent,'intent.json',LIMITS['intent_bytes'])==intent_raw)
             proofs=files._directory(intent,'proofs',create=write);opened.append(proofs)
             artifact=files._directory(intent,'artifact',create=write);opened.append(artifact)
-            session=_Session(self,root,intent,proofs,artifact,identity,intent_raw,binding_raw,current)
+            session=_Session(self,root,intent,proofs,artifact,identity,intent_raw,binding_raw,current,write=write)
             def prepare():
+                _need(write is True)
                 session._guard();d,r=resolve();source=request['input']
                 verified=self.binding.input_authority.verify(d,source['source_sha256'],r,
                     expected_context_sha256=source['context_sha256'],expected_binding_sha256=source['time_binding_sha256'])

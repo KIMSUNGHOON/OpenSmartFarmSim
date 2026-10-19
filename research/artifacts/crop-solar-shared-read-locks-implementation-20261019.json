@@ -1,0 +1,172 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "adopted": false,
+  "focused_distinct_tests_passed": 20,
+  "fresh_exec_or_SIGKILL_rerun": false,
+  "full_backend_or_browser_suite_run": false,
+  "full_product_completion": null,
+  "implemented": true,
+  "meaningful_RED": {
+    "actual_tool": "11456:1",
+    "exception": "SolarCustodyPending",
+    "real_reader_vs_confirmation": true,
+    "stage": "focused-solar-shared-read-locks-red-v2"
+  },
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "7285a4af58b71b2fbc51bfff8f73b08da8a1b99cbc1cc24ec90880cf71e12e93",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T02:52:30.622Z"
+  },
+  "new_Solar_deployed": false,
+  "nonacceptance": [
+    "35671:1 initial childexception wrappedbyparentcontext, testrethrowsafterparentclose in finalRED",
+    "10219:2 collection failure from DBfixtureparam on fastOS tests; no testsran; fast module separated"
+  ],
+  "normal_native_accepted": false,
+  "recorded_at": "2026-10-19T03:32:16.590515+00:00",
+  "remaining_checks": [
+    "worker actualnormal/hold",
+    "worker cancel/expiry/lateinput/lease",
+    "query current/locks/rights/terminal",
+    "prefix readonly/current/lock/rights",
+    "review and original uninstrumented64 normal"
+  ],
+  "rights_or_gate_approval": false,
+  "source_parent_commit": "4625c6a7e8626cb345bcdc0cb3253e02bb115654",
+  "source_sha256": {
+    "backend/app/crop_cycle_server_custody.py": "1b999cb6af59da487f204b1d3dd9e8bc4edf1112147a0d71ff05276aeb751a0f",
+    "backend/app/crop_greenhouse_solar_server_custody.py": "d773176ebb9419339dff5c94cb9d28635b99660957e40e124d856cc5e7649edd"
+  },
+  "stages": [
+    {
+      "actual_tool": "76849:0",
+      "current_source_pins": true,
+      "distinct_tests": 9,
+      "raw_terminal_sha256": "ad08d5a00cc0d34b0b33a83e6523ee1cc0166f091fc021ab2269e74e967d30f9",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1033306112,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 152121344,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 276.02491227800056
+      },
+      "stage": "focused-solar-shared-read-locks-boundaries-v2"
+    },
+    {
+      "actual_tool": "19041:0",
+      "current_source_pins": true,
+      "distinct_tests": 7,
+      "raw_terminal_sha256": "f336cfead79da2646d6dd95790e6df0742334c8a8c3e143a4c3e735592dbeceb",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 913944576,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 4.443817137998849
+      },
+      "stage": "regression-solar-shared-read-locks-default-files-v1"
+    },
+    {
+      "actual_tool": "10790:0",
+      "current_source_pins": true,
+      "distinct_tests": 4,
+      "raw_terminal_sha256": "cc62c9e4fe3d7a24b4c8bd7cc90cd330727a3387392e1234af99091b679eeb83",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 997924864,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 150.05012092800098
+      },
+      "stage": "regression-solar-shared-read-locks-custody-v1"
+    }
+  ],
+  "state": "candidate_under_verification",
+  "status_publication": {
+    "UI_code_changed": false,
+    "actual_tool": "76973:0",
+    "both_HTTP_200_same_bytes_no_store": true,
+    "browser_rerun": false,
+    "frozen_HTML_and_2173_ventilation_source_files_preserved": true,
+    "local_links_checked": 2301,
+    "raw_terminal_sha256": "d43de3f39d9cd3439e77e931b8eb45a92b7e840b4ba9bd859e1b66f5e9cba0fa",
+    "result": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 897830912,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 1.8812807719987177
+    },
+    "stage": "focused-solar-shared-read-locks-wip20-status-v1"
+  },
+  "supporting_GREEN": "2892:0 sameactualreader/confirm+samehead/proof/UTC (duplicatecase notcounted)"
+}

@@ -1,0 +1,886 @@
+{
+  "API_error_free_whole_execution_claim": false,
+  "API_exceptions_dropped": 20,
+  "G0_G4": "not_assessed",
+  "actor_preflight_guard": "51691:0",
+  "actual_actor_header_body_hashes_verified": {
+    "API_header_sha256": "5dd560be01ea655dc9645e47091a536256fe3cb514f37755fb3fc5fdffa0298c",
+    "application_source_changes": false,
+    "both_AST_parse": true,
+    "both_original_bodies_unchanged": true,
+    "diagnostic_normal_acceptance": false,
+    "expected_diagnostic_API_sha256": "4c589b25aa265e748d4ebf08c2853799589f9aa5c4fc9b92ffcb19ed6e12a291",
+    "expected_diagnostic_worker_sha256": "d1a1aac571a7a4ae7222a939fca4806f85747fd2e3b9dd501955a565e56d75c8",
+    "mode": "worker-api",
+    "original_API_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+    "original_worker_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+    "worker_header_sha256": "40408e24d8c9fdc8d415c794526ac94b266b5a2962e76b6b58e9943c850e1373"
+  },
+  "actual_farm_Runs": 0,
+  "artifact": {
+    "digest": "sha256:ad7026c7f188f2863d11570116dfe9fa77f16abaccc13d3f5e068913ab11558d",
+    "id": 12160164099,
+    "name": "solar-unpaused-normal-7901e0891f0ff0e051602a7a061b8efa062d1bb0",
+    "size_in_bytes": 21747
+  },
+  "bounded_worker_API_journals_verified": true,
+  "conclusion": "failure",
+  "diagnostic_result_publication": {
+    "UI_code_changed": false,
+    "actual_tool": "69486:0",
+    "both_HTTP_200_same_bytes_no_store": true,
+    "browser_rerun": false,
+    "protected_live": true,
+    "raw_terminal_sha256": "943e050688c042c7a13efacc02077ae28cab44ef6f588db002770d3ed8a42f41",
+    "source_preserved": true,
+    "stage": "focused-audit-scope-v2-diagnostic-result-status-v1"
+  },
+  "digest_and_path_validated": true,
+  "evidence": {
+    "actor-diagnostics.json": [
+      {
+        "api_proof_present": false,
+        "client_proof_present": false,
+        "exit_code": -15,
+        "log": {
+          "exception_types": [],
+          "locations": []
+        },
+        "role": "api",
+        "script_sha256": "4c589b25aa265e748d4ebf08c2853799589f9aa5c4fc9b92ffcb19ed6e12a291",
+        "worker_proof_present": false
+      },
+      {
+        "api_proof_present": false,
+        "client_proof_present": false,
+        "exit_code": 1,
+        "log": {
+          "exception_types": [
+            "AssertionError"
+          ],
+          "locations": [
+            {
+              "file": "worker.private.py",
+              "function": "<module>",
+              "line": 263
+            }
+          ]
+        },
+        "role": "worker",
+        "script_sha256": "d1a1aac571a7a4ae7222a939fca4806f85747fd2e3b9dd501955a565e56d75c8",
+        "worker_proof_present": false
+      }
+    ],
+    "api-response-diagnostics.json": {
+      "api_script_sha256": "4c589b25aa265e748d4ebf08c2853799589f9aa5c4fc9b92ffcb19ed6e12a291",
+      "diagnostic_only": true,
+      "normal_execution_accepted": false,
+      "observations": {
+        "diagnostic_only": true,
+        "dropped_exceptions": 20,
+        "dropped_responses": 0,
+        "exceptions": [
+          {
+            "exception_type": "StopIteration",
+            "locations": []
+          },
+          {
+            "exception_type": "StopAsyncIteration",
+            "locations": [
+              {
+                "file": "api_crop_greenhouse_solar_prefix_routes.py",
+                "function": "handle",
+                "line": 94
+              }
+            ]
+          },
+          {
+            "exception_type": "StopIteration",
+            "locations": []
+          },
+          {
+            "exception_type": "StopIteration",
+            "locations": []
+          },
+          {
+            "exception_type": "StopIteration",
+            "locations": []
+          },
+          {
+            "exception_type": "StopAsyncIteration",
+            "locations": [
+              {
+                "file": "api_crop_greenhouse_solar_prefix_routes.py",
+                "function": "handle",
+                "line": 94
+              }
+            ]
+          },
+          {
+            "exception_type": "StopIteration",
+            "locations": []
+          },
+          {
+            "exception_type": "StopIteration",
+            "locations": []
+          },
+          {
+            "exception_type": "StopIteration",
+            "locations": []
+          },
+          {
+            "exception_type": "StopAsyncIteration",
+            "locations": [
+              {
+                "file": "api_crop_greenhouse_solar_prefix_routes.py",
+                "function": "handle",
+                "line": 94
+              }
+            ]
+          },
+          {
+            "exception_type": "StopIteration",
+            "locations": []
+          },
+          {
+            "exception_type": "StopIteration",
+            "locations": []
+          },
+          {
+            "exception_type": "StopIteration",
+            "locations": []
+          },
+          {
+            "exception_type": "StopAsyncIteration",
+            "locations": [
+              {
+                "file": "api_crop_greenhouse_solar_prefix_routes.py",
+                "function": "handle",
+                "line": 94
+              }
+            ]
+          },
+          {
+            "exception_type": "StopIteration",
+            "locations": []
+          },
+          {
+            "exception_type": "StopIteration",
+            "locations": []
+          }
+        ],
+        "normal_execution_accepted": false,
+        "responses": [
+          {
+            "caller_line": 345,
+            "status": 202
+          },
+          {
+            "caller_line": 353,
+            "status": 200
+          },
+          {
+            "caller_line": 355,
+            "prefix_status": "none",
+            "status": 200
+          },
+          {
+            "caller_line": 353,
+            "status": 200
+          },
+          {
+            "caller_line": 355,
+            "prefix_status": "accepted",
+            "status": 200
+          },
+          {
+            "caller_line": 357,
+            "prefix_status": "accepted",
+            "status": 200
+          },
+          {
+            "caller_line": 353,
+            "status": 200
+          },
+          {
+            "caller_line": 355,
+            "prefix_status": "accepted",
+            "status": 200
+          },
+          {
+            "caller_line": 357,
+            "prefix_status": "accepted",
+            "status": 200
+          },
+          {
+            "caller_line": 353,
+            "status": 200
+          },
+          {
+            "caller_line": 355,
+            "prefix_status": "accepted",
+            "status": 200
+          },
+          {
+            "caller_line": 357,
+            "prefix_status": "accepted",
+            "status": 200
+          },
+          {
+            "caller_line": 353,
+            "status": 200
+          },
+          {
+            "caller_line": 355,
+            "prefix_status": "accepted",
+            "status": 200
+          },
+          {
+            "caller_line": 357,
+            "prefix_status": "accepted",
+            "status": 200
+          }
+        ]
+      },
+      "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+      "run_id": "39191823795",
+      "source_commit": "7901e0891f0ff0e051602a7a061b8efa062d1bb0",
+      "trace_header_sha256": "5dd560be01ea655dc9645e47091a536256fe3cb514f37755fb3fc5fdffa0298c"
+    },
+    "failure-checkpoint-diagnostics.json": {
+      "actors_stopped_before_collection": true,
+      "application_query_sha256": "ab6992768f580c4d46278fcbe2d3215583dfd3a55c9fe0aa84b51fb3e038d565",
+      "diagnostic_only": true,
+      "metadata": {
+        "G0_G4": "not_assessed",
+        "checkpoint_payload_sha256": "f25689813b35c5145dcd1119d4d2540e903680585e53cbc1d050aa859acb8649",
+        "checkpoint_recorded_at": "2026-10-19T02:56:30.088402+00:00",
+        "evidence_kind": "stored_owned_fixture_metadata_only",
+        "job": {
+          "attempt": 1,
+          "reason_code": "solar_execution_busy",
+          "state": "queued"
+        },
+        "normal_execution_accepted": false,
+        "observed_at": "2026-10-19T02:56:53.718662+00:00",
+        "owned_cluster_identity_verified": true,
+        "rights_or_gate_approval": false,
+        "stored_checkpoint": {
+          "computed_through_utc": "2026-10-01T00:00:16.123456Z",
+          "planned_steps": 64,
+          "publication_sequence": 9,
+          "status": "yielded",
+          "steps": 8
+        },
+        "transaction_isolation": "repeatable read",
+        "transaction_read_only": true
+      },
+      "normal_execution_accepted": false,
+      "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+      "run_id": "39191823795",
+      "source_commit": "7901e0891f0ff0e051602a7a061b8efa062d1bb0"
+    },
+    "failure.json": {
+      "exception_type": "AssertionError",
+      "known_stage": "owned calculation timed out or failed",
+      "locations": [
+        {
+          "file": "crop_greenhouse_solar_unpaused_smoke.py",
+          "function": "exercise",
+          "line": 133
+        },
+        {
+          "file": "crop-greenhouse-solar-unpaused-probe.py",
+          "function": "exercise",
+          "line": 210
+        }
+      ],
+      "original_normal_accepted": false
+    },
+    "resource.json": {
+      "FD_before_after": [
+        7,
+        7
+      ],
+      "G0_G4": "not_assessed",
+      "RSS_samples": 911,
+      "WSL_capacity_accepted": false,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 361889792,
+      "hosted_only": true,
+      "local_protected_roots_present": false,
+      "owned_non_zombie_remaining": [],
+      "reason": null,
+      "rights_or_gate_approval": false,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 128888832,
+      "temporary_entries_remaining": 0,
+      "wall_seconds": 240.708106841
+    },
+    "worker-caught-diagnostics.json": [
+      {
+        "exception_type": "SolarCustodyPending",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "_confirm",
+            "line": 93
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "confirm",
+            "line": 209
+          },
+          {
+            "file": "contextlib.py",
+            "function": "__enter__",
+            "line": 137
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "_session",
+            "line": 159
+          },
+          {
+            "file": "contextlib.py",
+            "function": "__enter__",
+            "line": 137
+          },
+          {
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "_open",
+            "line": 297
+          }
+        ]
+      },
+      {
+        "exception_type": "SolarCustodyPending",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "<lambda>",
+            "line": 164
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "_confirm",
+            "line": 93
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "confirm",
+            "line": 209
+          },
+          {
+            "file": "contextlib.py",
+            "function": "__enter__",
+            "line": 137
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "_session",
+            "line": 159
+          },
+          {
+            "file": "contextlib.py",
+            "function": "__enter__",
+            "line": 137
+          },
+          {
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "_open",
+            "line": 297
+          }
+        ]
+      },
+      {
+        "exception_type": "SolarCustodyPending",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "_custody_call",
+            "line": 100
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "<lambda>",
+            "line": 164
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "_confirm",
+            "line": 93
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "confirm",
+            "line": 209
+          },
+          {
+            "file": "contextlib.py",
+            "function": "__enter__",
+            "line": 137
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "_session",
+            "line": 159
+          },
+          {
+            "file": "contextlib.py",
+            "function": "__enter__",
+            "line": 137
+          },
+          {
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "_open",
+            "line": 297
+          }
+        ]
+      },
+      {
+        "exception_type": "SolarCustodyPending",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "_confirm",
+            "line": 93
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "confirm",
+            "line": 209
+          },
+          {
+            "file": "contextlib.py",
+            "function": "__enter__",
+            "line": 137
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "_session",
+            "line": 159
+          },
+          {
+            "file": "contextlib.py",
+            "function": "__enter__",
+            "line": 137
+          },
+          {
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "_open",
+            "line": 297
+          }
+        ]
+      },
+      {
+        "exception_type": "SolarCustodyPending",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "<lambda>",
+            "line": 164
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "_confirm",
+            "line": 93
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "confirm",
+            "line": 209
+          },
+          {
+            "file": "contextlib.py",
+            "function": "__enter__",
+            "line": 137
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "_session",
+            "line": 159
+          },
+          {
+            "file": "contextlib.py",
+            "function": "__enter__",
+            "line": 137
+          },
+          {
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "_open",
+            "line": 297
+          }
+        ]
+      },
+      {
+        "exception_type": "SolarCustodyPending",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "_custody_call",
+            "line": 100
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "<lambda>",
+            "line": 164
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "_confirm",
+            "line": 93
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "confirm",
+            "line": 209
+          },
+          {
+            "file": "contextlib.py",
+            "function": "__enter__",
+            "line": 137
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "_session",
+            "line": 159
+          },
+          {
+            "file": "contextlib.py",
+            "function": "__enter__",
+            "line": 137
+          },
+          {
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "_open",
+            "line": 297
+          }
+        ]
+      },
+      {
+        "exception_type": "SolarCustodyPending",
+        "locations": [
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "run_once",
+            "line": 164
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "_custody_call",
+            "line": 100
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "<lambda>",
+            "line": 164
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_worker.py",
+            "function": "_confirm",
+            "line": 93
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "confirm",
+            "line": 209
+          },
+          {
+            "file": "contextlib.py",
+            "function": "__enter__",
+            "line": 137
+          },
+          {
+            "file": "crop_greenhouse_solar_execution_checkpoint.py",
+            "function": "_session",
+            "line": 159
+          },
+          {
+            "file": "contextlib.py",
+            "function": "__enter__",
+            "line": 137
+          },
+          {
+            "file": "crop_greenhouse_solar_server_custody.py",
+            "function": "_open",
+            "line": 297
+          }
+        ]
+      }
+    ],
+    "worker-progress-diagnostics.json": {
+      "collected_monotonic": 481.496558954,
+      "diagnostic_only": true,
+      "normal_execution_accepted": false,
+      "phases": {
+        "G0_G4": "not_assessed",
+        "active_phases": [],
+        "detail": "worker-api",
+        "dropped_recent_events": 67,
+        "last_adopted": null,
+        "last_advanced": null,
+        "last_confirmed": {
+          "computed_through_utc": "2026-10-01T00:00:16.123456Z",
+          "planned_steps": 64,
+          "status": "yielded",
+          "steps": 8
+        },
+        "last_observed_monotonic": 481.297254333,
+        "normal_execution_accepted": false,
+        "observation_only": true,
+        "outcome": {
+          "attempt": 1,
+          "reason_code": "solar_execution_busy",
+          "state": "queued"
+        },
+        "phase_totals": {
+          "worker._adopt": {
+            "calls": 1,
+            "exception_events": 0,
+            "inclusive_seconds": 1.8809299989999886,
+            "max_inclusive_seconds": 1.8809299989999886,
+            "returns": 1
+          },
+          "worker._before": {
+            "calls": 13,
+            "exception_events": 0,
+            "inclusive_seconds": 19.558752319000007,
+            "max_inclusive_seconds": 1.8221382199999994,
+            "returns": 13
+          },
+          "worker._confirm": {
+            "calls": 11,
+            "exception_events": 2,
+            "inclusive_seconds": 72.39366823,
+            "max_inclusive_seconds": 8.054482016999998,
+            "returns": 11
+          },
+          "worker._custody_call": {
+            "calls": 21,
+            "exception_events": 2,
+            "inclusive_seconds": 194.9716783059999,
+            "max_inclusive_seconds": 14.73934542500001,
+            "returns": 21
+          },
+          "worker.run_once": {
+            "calls": 1,
+            "exception_events": 1,
+            "inclusive_seconds": 211.261648407,
+            "max_inclusive_seconds": 211.261648407,
+            "returns": 1
+          }
+        },
+        "recent_events": [
+          {
+            "elapsed_seconds": 165.913451905,
+            "event": "call",
+            "phase": "worker._custody_call"
+          },
+          {
+            "elapsed_seconds": 165.91384158799997,
+            "event": "call",
+            "phase": "worker._confirm"
+          },
+          {
+            "elapsed_seconds": 173.96832360499997,
+            "event": "return",
+            "inclusive_seconds": 8.054482016999998,
+            "phase": "worker._confirm"
+          },
+          {
+            "elapsed_seconds": 173.96902234799995,
+            "event": "return",
+            "inclusive_seconds": 8.055570442999965,
+            "phase": "worker._custody_call"
+          },
+          {
+            "elapsed_seconds": 173.96940534699996,
+            "event": "call",
+            "phase": "worker._before"
+          },
+          {
+            "elapsed_seconds": 175.535069271,
+            "event": "return",
+            "inclusive_seconds": 1.5656639240000345,
+            "phase": "worker._before"
+          },
+          {
+            "elapsed_seconds": 175.53565040299998,
+            "event": "call",
+            "phase": "worker._custody_call"
+          },
+          {
+            "elapsed_seconds": 187.75846863699996,
+            "event": "return",
+            "inclusive_seconds": 12.222818233999988,
+            "phase": "worker._custody_call"
+          },
+          {
+            "elapsed_seconds": 187.758958206,
+            "event": "call",
+            "phase": "worker._custody_call"
+          },
+          {
+            "elapsed_seconds": 187.759318904,
+            "event": "call",
+            "phase": "worker._confirm"
+          },
+          {
+            "elapsed_seconds": 195.66806617599997,
+            "event": "return",
+            "inclusive_seconds": 7.908747271999971,
+            "phase": "worker._confirm"
+          },
+          {
+            "elapsed_seconds": 195.670213941,
+            "event": "return",
+            "inclusive_seconds": 7.9112557349999975,
+            "phase": "worker._custody_call"
+          },
+          {
+            "elapsed_seconds": 195.670573817,
+            "event": "call",
+            "phase": "worker._before"
+          },
+          {
+            "elapsed_seconds": 197.218525012,
+            "event": "return",
+            "inclusive_seconds": 1.547951194999996,
+            "phase": "worker._before"
+          },
+          {
+            "elapsed_seconds": 197.21903540099999,
+            "event": "call",
+            "phase": "worker._custody_call"
+          },
+          {
+            "elapsed_seconds": 207.85384113699996,
+            "event": "return",
+            "inclusive_seconds": 10.634805735999976,
+            "phase": "worker._custody_call"
+          },
+          {
+            "elapsed_seconds": 207.85440493599998,
+            "event": "call",
+            "phase": "worker._custody_call"
+          },
+          {
+            "elapsed_seconds": 207.85479086099997,
+            "event": "call",
+            "phase": "worker._confirm"
+          },
+          {
+            "elapsed_seconds": 209.411923425,
+            "event": "exception",
+            "phase": "worker._confirm"
+          },
+          {
+            "elapsed_seconds": 209.41233003899998,
+            "event": "return",
+            "inclusive_seconds": 1.5575391780000132,
+            "phase": "worker._confirm"
+          },
+          {
+            "elapsed_seconds": 209.41355535099996,
+            "event": "exception",
+            "phase": "worker._custody_call"
+          },
+          {
+            "elapsed_seconds": 209.41390373499996,
+            "event": "call",
+            "phase": "worker._before"
+          },
+          {
+            "elapsed_seconds": 211.059427497,
+            "event": "return",
+            "inclusive_seconds": 1.645523762000039,
+            "phase": "worker._before"
+          },
+          {
+            "elapsed_seconds": 211.110184243,
+            "event": "call",
+            "phase": "worker._confirm"
+          },
+          {
+            "elapsed_seconds": 212.78228106399996,
+            "event": "exception",
+            "phase": "worker._confirm"
+          },
+          {
+            "elapsed_seconds": 212.78267062599997,
+            "event": "return",
+            "inclusive_seconds": 1.6724863829999776,
+            "phase": "worker._confirm"
+          },
+          {
+            "elapsed_seconds": 212.784029509,
+            "event": "exception",
+            "phase": "worker._custody_call"
+          },
+          {
+            "elapsed_seconds": 212.78433462199996,
+            "event": "call",
+            "phase": "worker._before"
+          },
+          {
+            "elapsed_seconds": 214.60647284199996,
+            "event": "return",
+            "inclusive_seconds": 1.8221382199999994,
+            "phase": "worker._before"
+          },
+          {
+            "elapsed_seconds": 214.607188888,
+            "event": "return",
+            "inclusive_seconds": 6.752783952000016,
+            "phase": "worker._custody_call"
+          },
+          {
+            "elapsed_seconds": 214.60824344899999,
+            "event": "exception",
+            "phase": "worker.run_once"
+          },
+          {
+            "elapsed_seconds": 214.695115086,
+            "event": "return",
+            "inclusive_seconds": 211.261648407,
+            "phase": "worker.run_once"
+          }
+        ],
+        "time_scope": "inclusive monotonic seconds; observer overhead included; nested durations overlap",
+        "trace_installed_monotonic": 266.602139247,
+        "version": "solar-worker-progress-observation-v2"
+      },
+      "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+      "run_id": "39191823795",
+      "source_commit": "7901e0891f0ff0e051602a7a061b8efa062d1bb0",
+      "trace_header_sha256": "40408e24d8c9fdc8d415c794526ac94b266b5a2962e76b6b58e9943c850e1373",
+      "worker_script_sha256": "d1a1aac571a7a4ae7222a939fca4806f85747fd2e3b9dd501955a565e56d75c8"
+    }
+  },
+  "full_product_completion": null,
+  "generator_completion_exception_is_application_failure": false,
+  "head_sha": "7901e0891f0ff0e051602a7a061b8efa062d1bb0",
+  "last_advanced_not_observed_in_worker_only_detail": true,
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "7285a4af58b71b2fbc51bfff8f73b08da8a1b99cbc1cc24ec90880cf71e12e93",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T02:52:30.622Z"
+  },
+  "new_Solar_deployed": false,
+  "next_task": "crop-solar-custody-shared-read-locks",
+  "normal_and_database_cleanup_proof_present": false,
+  "normal_execution_accepted": false,
+  "observed_last_adopted": null,
+  "observed_last_advanced": null,
+  "retained_API_exceptions_only": true,
+  "review_completed_at": "2026-10-19T03:03:25.974492+00:00",
+  "rights_or_gate_approval": false,
+  "run_id": 39191823795,
+  "source_application_commit": "eb943d9d44c7bcf369758b2015a0889d360a99ef",
+  "timings_are_overlapping_and_instrumented": true,
+  "unexpected_API_error_observed": false
+}

@@ -1,5 +1,28 @@
 # 구현 순서
 
+## 읽기 공유 후보 구현·20검사/남은 수용 — 2026-10-19 KST
+
+[현재 구현/검증 기록](../research/crop-solar-shared-read-locks-implementation-20261019.md)에 실제20개 고유 검사를 기록했다.
+writer 기본 배타 잠금 유지·독립 reader/confirm/query 공존·writer 배제/해제·읽기 prepare/advance/게시/파일 생성 금지,
+기본 helper/파일 보안·권리 철회·Solar 권리/서명/수치 보류/도메인 분리와 원본/5root/자원/정리를 확인했다.
+**후보 미채택**이다. 다음은 실제 작업자 정상/hold → 취소/임대/늦은 입력 → query의 현재/잠금/권리/terminal →
+prefix read/current/잠금/권리의 관련 회귀 → 검토/로컬 수용 → 원 계측 OFF64 독립 정상이다.
+전체 backend/browser·fresh exec/SIGKILL은 새 source에서 재실행하지 않았다. 이전116검사를 이 후보의 수로 합산하지 않는다.
+원 retry/입력/청크/조회/360초/RSS·수식/권한 검사는 유지한다. 이후 독립 hold/실제 취소/계산 중 WebGL/WSL 용량·사용자 적용,
+실제 자료 권리·독립 현장/미래/비교 관문과 전체 완료일 미정/goal active를 유지한다.
+
+## 현재 진단 수용·Solar 읽기 공유 잠금 후보 — 2026-10-19 KST
+
+[진단 CI39191823795](../research/crop-solar-audit-scope-v2-worker-api-diagnostic-20261019.md)의 실제 actor/header/source/유한 journal을 대사했다.
+8/64·UTC16.123456Z 확정 뒤 confirm→custody open Pending 재시도로 attempt1/queued/solar_execution_busy를 반환했다.
+수집된15HTTP응답은202/200·accepted prefix/page를 포함한다. 예외 journal은 유한하며 전체 무오류를 주장하지 않는다.
+checkpoint와 진행 조회의 write=False 세션도 같은 root/intent 배타 잠금을 사용함을 코드로 확인했다.
+다음 한 단계는 [공유 읽기 잠금 후보](../contracts/crop-solar-custody-shared-read-locks-v1.md)다.
+원 쓰기 배타 잠금을 유지하며 실제 독립 reader/confirm 공존·writer 배제/해제·읽기 계산/게시/파일 생성 금지와
+권리/원문/서명/원 값/UTC·취소/임대·기존 query/prefix·5root/원본/상한/정리를 RED/GREEN으로 검증한다.
+원 retry/입력/청크/조회·360초·수식/권한 검사를 유지한다. local 수용 뒤 원 계측 OFF64 정상을 별도로 통과한다.
+현재 후보 미구현/미수용이며 새 Solar/계산 중3D·실제 자료/독립 관문·전체 완료일은 미수용/미정, goal active다.
+
 ## v2 원 정상 미완료·현재 청크 관측/전체 경로 진단 — 2026-10-19 KST
 
 [현재 관측29243:0](../research/crop-solar-audit-scope-v2-remaining-cost-20261019.md)에서

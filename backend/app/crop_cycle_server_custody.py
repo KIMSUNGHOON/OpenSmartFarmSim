@@ -82,14 +82,15 @@ def _directory(parent,name,*,create=False):
     except BaseException:os.close(fd);raise
 
 
-def _file(parent,name,*,lock=False,modes=(0o400,)):
-    flags=(os.O_RDWR|os.O_CREAT) if lock else os.O_RDONLY
+def _file(parent,name,*,lock=False,shared=False,modes=(0o400,)):
+    _need(type(shared) is bool and (not shared or lock is True))
+    flags=os.O_RDONLY if shared else (os.O_RDWR|os.O_CREAT) if lock else os.O_RDONLY
     fd=os.open(name,flags|os.O_NOFOLLOW|os.O_NONBLOCK|os.O_CLOEXEC,0o600,dir_fd=parent)
     try:
         info=_secure(fd,modes=(0o600,) if lock else modes)
         if lock:
             _need(info.st_size==0)
-            try:fcntl.flock(fd,fcntl.LOCK_EX|fcntl.LOCK_NB)
+            try:fcntl.flock(fd,(fcntl.LOCK_SH if shared else fcntl.LOCK_EX)|fcntl.LOCK_NB)
             except BlockingIOError:raise CycleCustodyPending('cycle execution custody busy') from None
         return fd
     except BaseException:os.close(fd);raise
