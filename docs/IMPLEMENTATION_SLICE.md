@@ -1,6 +1,6 @@
 # 첫 구현 범위
 
-**현재 읽기 검증 잠금 후보 — 2026-10-19 KST:** [새 구현/현재7검사](../research/crop-solar-read-validation-lock-implementation-20261019.md)를 확인했다. 실제 writer step2 진행·stale reader Pending·fresh 원 값/UTC, 재잠금/교체/게시 실패/권리 철회를 검증했다. 후보는 미채택이며 기존55관련 회귀/검토 → 변경 source 원64 정상 → hold/취소/계산 중3D/WSL·사용자 적용이 남았다. 이전 shared read55와 원 독립22/64/진단15/64는 이전 판본의 기록이다. 실제 자료/독립 G0–G4·새 Solar 배포·전체 완료일은 미수용/미정이며 goal active다. 아래는 당시 기록이다.
+**현재 읽기 검증 잠금 후보 — 2026-10-19 KST:** [새 구현/현재40검사](../research/crop-solar-read-validation-lock-implementation-20261019.md)를 확인했다. 실제 writer step2 진행·stale reader Pending·fresh 원 값/UTC, 재잠금/교체/게시 실패/권리 철회를 검증했다. 후보는 미채택이며 기존55관련 회귀/검토 → 변경 source 원64 정상 → hold/취소/계산 중3D/WSL·사용자 적용이 남았다. 이전 shared read55와 원 독립22/64/진단15/64는 이전 판본의 기록이다. 실제 자료/독립 G0–G4·새 Solar 배포·전체 완료일은 미수용/미정이며 goal active다. 아래는 당시 기록이다.
 
 **현재 감사 scope v2 — 2026-10-19 KST:** [현재 참조 검증116검사](../research/market-current-reference-audit-scope-v2-implementation-20261019.md)를 로컬 소프트웨어 범위로 수용했다. 원 값/UTC·현재 권리/수명·current12/등록24/재구성1·원천1,824/순서와 일반/대체 조회를 유지하고 감사298→183·두 실제 청크 약15.5%/13.7% 감소를 관측했다. 후속 원 독립 CI39190518816은22/64·시간 제한으로 미완료다. [실제 worker/API 진단](../research/crop-solar-audit-scope-v2-worker-api-diagnostic-20261019.md)에서8/64 확정 뒤 confirm 잠금 대기/queued busy를 확인했다. 다음은 읽기 공유/쓰기 배타 잠금과 읽기 세션 변경 차단이다. 전체 처리량·계산 중3D·새 Solar 배포·실제 자료/관문과 전체 완료일은 미수용/미정이며 goal active다. 아래는 당시 기록이다.
 

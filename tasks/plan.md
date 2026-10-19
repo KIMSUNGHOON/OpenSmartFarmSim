@@ -1,10 +1,10 @@
 # 구현 순서
 
-## 읽기 검증 잠금 후보·현재7검사/남은 수용 — 2026-10-19 KST
+## 읽기 검증 잠금 후보·현재40검사/남은 수용 — 2026-10-19 KST
 
-[현재 새 구현7검사](../research/crop-solar-read-validation-lock-implementation-20261019.md)에서
+[현재 새 구현40검사](../research/crop-solar-read-validation-lock-implementation-20261019.md)에서
 actual writer step2·stale reader Pending/fresh 원 UTC, root/intent 재잠금 실패/교체와 권리·pre-HEAD 실패를 확인했다.
-후보 미채택이다. 다음은 기존 reader/helper9 → default7/custody4 → worker13 → query13 → prefix9 → 검토다.
+후보 미채택이다. reader/helper9·default7/custody4도 통과해 현재40건이다. worker13도 통과했다. 다음은 query13 → prefix9 → 검토다.
 기존55는 그 이전 source의 기록으로 새 후보7에 합산하지 않는다. 원64 독립/hold/취소/계산 중WebGL/
 WSL 용량·사용자 적용·실제 자료/관문과 전체 완료일 미정/goal active를 유지한다. 아래는 이전 판본의 기록이다.
 
@@ -16,7 +16,7 @@ WSL 용량·사용자 적용·실제 자료/관문과 전체 완료일 미정/go
 5root/동적 자식·원본/두 UI·512MiB/PID/합1GiB·FD4→4·소유 PG/임시/passfile 정리를 보존했다.
 **로컬 소프트웨어 컴포넌트만 수용**한다. 후속 원 계측 OFF64 CI39197827938/source4478d28은
 원360초/guard382.741초·종료 뒤22/64로 미완료다. 정상/DB 정리 proof는 없다.
-현재76498:0에서 실제 청크9.732초·연결144/감사183/SQL7,113·원 수치/UTC/원천 순서·5root/정리를 확인했다.
+현재406498:0에서 실제 청크9.732초·연결144/감사183/SQL7,113·원 수치/UTC/원천 순서·5root/정리를 확인했다.
 현재 bounded worker/API CI39198782317은15/64·시간 제한으로 종료했다. confirm16반환/예외0,
 실제 advance writer Pending7사건·HTTP25건·원 actor/header/정리를 관측 범위로 대사했다.
 다음은 [읽기 current 검증의 잠금 후보](../contracts/crop-solar-read-validation-lock-v1.md)의 실제 RED →
@@ -1011,11 +1011,11 @@ schema/QC/context/현재 권리/API는 제외했다. reader 코드 SHA와 root/m
 기준33.05초/계측44.70초·동일 원 context/계획·RHS0·FD4→4를 확인했다.
 반복 JSON·정규화·canonical 검사를 다음 집중 수정 대상으로 좁혔으며 현재 권리·QC와 판본을 유지한다.
 [원 검증 증명 대사 실험](../research/crop-cycle-input-witness-experiment-20261006.md)은 집중16개와
-원 발행31.61초/현재749블록 대사0.172·0.180초·동일 원 context/grid/RHS0/FD4→4를 확인했다.
+원 발행31.61초/현재4049블록 대사0.172·0.180초·동일 원 context/grid/RHS0/FD4→4를 확인했다.
 연구용 JSON/HMAC의 비용 근거이며 제품 발행/키·재시작·현재 권리/typed reader·판본/과거 재현과
 실제 전체 공개 조회 수용은 별도다.
 [서버 영수증 primitive](../research/crop-cycle-input-evidence-implementation-20261006.md)는 집중33개·
-원 발행31.34초/별도 Python 재조회0.176초·현재749 blob/원 context/index·RHS0/FD4→4로 로컬 수용했다.
+원 발행31.34초/별도 Python 재조회0.176초·현재4049 blob/원 context/index·RHS0/FD4→4로 로컬 수용했다.
 원53 source를 바꾸지 않아 전체 RHS와 병행했다. 결과 조회 타입·과거 재생 연결과
 현재 farm/Scope·등록/권리·30초/2MiB/전체 API/3D는 별도다. 원 v1 private 객체 구성/새 code의 재표시로 우회하지 않는다.
 독립 primitive 개발은 아래 착수 조건으로 병행하고, 실제 전체 결과/농장/API 연결 수용은 원166일 종료 증거 뒤 진행한다.

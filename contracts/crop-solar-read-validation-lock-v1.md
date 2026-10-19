@@ -5,7 +5,7 @@ The current diagnostic has16 confirm returns/0 exception events, but7 actual
 writer advance Pending events. Current validation remains expensive. This is an
 implemented read/read boundary followed by a proposed narrower read lock scope;
 the new candidate is implemented and under verification;
-[7 current-source checks](../research/crop-solar-read-validation-lock-implementation-20261019.md)
+[40 current-source checks](../research/crop-solar-read-validation-lock-implementation-20261019.md)
 have passed. It is not adopted or fully accepted. The actual post-capture
 reader/current vs writer RED passed as a diagnosis in41317:1: writer advance
 was rejected with SolarCustodyPending. Initial GREEN28208:0 and final-source

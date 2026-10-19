@@ -2,7 +2,7 @@
   "G0_G4": "not_assessed",
   "actual_farm_Runs": 0,
   "adopted": false,
-  "focused_distinct_tests_passed": 7,
+  "focused_distinct_tests_passed": 40,
   "fresh_exec_or_SIGKILL_rerun": false,
   "full_backend_or_browser_suite_run": false,
   "full_product_completion": null,
@@ -54,11 +54,8 @@
     "included_in_current_count": false,
     "source_sha256": "54350efd0dd0b98b685de00ecbbc749333ed3872163c18435c928744f9bb977c"
   },
-  "recorded_at": "2026-10-19T04:48:04.801524+00:00",
+  "recorded_at": "2026-10-19T05:07:54.806951+00:00",
   "remaining_checks": [
-    "existing shared reader and file boundary9",
-    "default files7 and custody4",
-    "worker13",
     "query13",
     "prefix9",
     "review and local adoption",
@@ -101,6 +98,161 @@
         "wall_seconds": 245.06625349300157
       },
       "stage": "focused-solar-read-validation-lock-boundaries-v1"
+    },
+    {
+      "actual_tool": "65643:0",
+      "current_source_pins": true,
+      "distinct_tests": 9,
+      "raw_terminal_sha256": "a3414e494c88831d1369519244c6b2b3877842030cf1b2a9667267951e9f6d0d",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1023176704,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 144494592,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 240.7314446249984
+      },
+      "stage": "regression-solar-read-validation-lock-shared-files-v1"
+    },
+    {
+      "actual_tool": "91471:0",
+      "current_source_pins": true,
+      "distinct_tests": 7,
+      "raw_terminal_sha256": "920abecdee6c8a21846e4d46c969ab9f5a8f1218856d44a5d0b1019827c544b5",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 915861504,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 4.441016741002386
+      },
+      "stage": "regression-solar-read-validation-lock-default-files-v1"
+    },
+    {
+      "actual_tool": "83327:0",
+      "current_source_pins": true,
+      "distinct_tests": 4,
+      "raw_terminal_sha256": "a57c4e47b28854439bc938f2f227f2c59e8353df0cc91d699f5f827f0531b3c7",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 993751040,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 142.1482469069997
+      },
+      "stage": "regression-solar-read-validation-lock-custody-v1"
+    },
+    {
+      "actual_tool": "72509:0",
+      "current_source_pins": true,
+      "distinct_tests": 5,
+      "raw_terminal_sha256": "674574b9dbf12b05b70ad124ed39f6ae49824c2e898542be4ee088a2a05da00d",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1012281344,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 148021248,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 311.01357145099973
+      },
+      "stage": "regression-solar-read-validation-lock-worker-normal-cancel-expiry-v1"
+    },
+    {
+      "actual_tool": "97316:0",
+      "current_source_pins": true,
+      "distinct_tests": 8,
+      "raw_terminal_sha256": "184e8c364804fe2408d40e2107c1449f07712a45e293bb3b7e71415094f391b8",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1062330368,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 271.3427370270001
+      },
+      "stage": "regression-solar-read-validation-lock-worker-validation-fences-v1"
     }
   ]
 }

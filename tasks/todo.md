@@ -67,7 +67,7 @@
   CI39197827938/source4478d28은 원360초/guard382.741초·종료 뒤22/64로 미완료다. 정상/DB 정리 proof 없음.
 - [x] **`crop-solar-shared-read-remaining-cost`** — 현재 source의 실제1→2 청크·현재12/등록24/재구성1·원천1,824/순서·원 UTC/proof 보존과 연결/감사/SQL 비용을 관측한다. 한 계측 사례이며 원64 수용/처리량 수치가 아니다. [76498:0](../research/crop-solar-shared-read-locks-implementation-20261019.md): 청크9.732초·연결144/감사183/SQL7,113/원 수치·순서·UTC·5root/정리 확인.
 - [x] **`crop-solar-shared-read-worker-api-diagnostic`** — [기존 bounded 관찰](../contracts/crop-solar-worker-progress-diagnostics-v1.md)을 변경 source에서1회 적용한다. 원 actor/64/chunk1/조회/retry360/RSS 유지·실제 phase/HTTP/예외·원 progress/actor/head/digest를 대사한다. 정상 수용으로 세지 않는다. CI39198782317의 실제15/64·confirm16반환/예외0·advance writer Pending7사건·HTTP25/원 actor/header/종료를 대사했다.
-- [ ] **`crop-solar-read-validation-lock`** — [현재 권리 검증의 짧은 잠금 후보](../contracts/crop-solar-read-validation-lock-v1.md). 실제 current 검증 중 writer 진행 RED → 보호 snapshot capture/재확인 → 권리/HEAD/identity·원 값/UTC·취소/임대·조회 계산/쓰기0·55관련 회귀와5root/원본/상한/정리를 검증한다. 원 정상/계산 중3D 수용은 별도다. 41317:1의 실제 post-capture current 검증 중 writer Pending RED는 확보했다. [현재 구현7검사](../research/crop-solar-read-validation-lock-implementation-20261019.md)는 통과했으나 미채택이다. 기존55관련 회귀와 검토가 남았다.
+- [ ] **`crop-solar-read-validation-lock`** — [현재 권리 검증의 짧은 잠금 후보](../contracts/crop-solar-read-validation-lock-v1.md). 실제 current 검증 중 writer 진행 RED → 보호 snapshot capture/재확인 → 권리/HEAD/identity·원 값/UTC·취소/임대·조회 계산/쓰기0·55관련 회귀와5root/원본/상한/정리를 검증한다. 원 정상/계산 중3D 수용은 별도다. 41317:1의 실제 post-capture current 검증 중 writer Pending RED는 확보했다. [현재 구현40검사](../research/crop-solar-read-validation-lock-implementation-20261019.md)는 통과했으나 미채택이다. 기존55관련 회귀와 검토가 남았다.
 
 
 
@@ -772,7 +772,7 @@
       같은 원 context/계획을 대사했고 기준33.05초·계측44.70초/RHS0·FD4→4를 기록했다.
       반복 JSON/정규화/canonical 검사가 집중 수정 대상이다. 현재 권리·QC/판본의 생략 승인은 아니다.
       [원 증명 재사용 실험](../research/crop-cycle-input-witness-experiment-20261006.md)은 집중16개·원 발행31.61초/
-      현재749블록 대사0.172/0.180초·같은 원 context/grid·RHS0/FD4→4를 확인했다.
+      현재4049블록 대사0.172/0.180초·같은 원 context/grid·RHS0/FD4→4를 확인했다.
       연구용 JSON/HMAC뿐이며 제품 worker 발행/키·재시작·현재 권리/typed reader·판본/과거 재현과
       실제 전체 API/3D 증거는 남는다. 실험으로 수용 checkbox를 변경하지 않는다.
       - [x] **`crop-cycle-input-evidence`** — 선행 profile/원 검증 대사 실험; 전체 RHS와 병행할 독립3 core파일:
@@ -780,7 +780,7 @@
         [영수증 계약](../contracts/crop-cycle-input-evidence-v1.md). 수용 범위는 서버 제공 키/ID의 입력 수학 검사
         primitive이며 실제 농장/운영 발행자나 typed reader/API 수용은 아니다.
         [로컬 증거](../research/crop-cycle-input-evidence-implementation-20261006.md): 최종33개/1.89초·실제 원 발행31.34초/
-        보존 키의 별도 Python 재조회0.176초·현재749 blob/113,920,841bytes·원 context/index·RHS0/FD4→4.
+        보존 키의 별도 Python 재조회0.176초·현재4049 blob/113,920,841bytes·원 context/index·RHS0/FD4→4.
         소유권/readonly byte 검사 → 원 전체 QC/context → 재대사 후만 발행하며 서명/판본/키·변조/파일 계약을 거부한다.
         원53 source를 보존했고 첫 측정기 해시 형식 오류 종료1과 최종 종료0을 구분했다.
         후속 입력 조회 문맥은 아래 증거로 수용했다. 결과 조회 타입·과거 재생 연결·현재 farm/Scope/등록/권리와
