@@ -1,6 +1,6 @@
 # 구현 준비 현황
 
-**현재 권한 배열 후보 미채택 — 2026-10-20 KST:** [실제 경계3·계산 비용1](../research/solar-role-array-binding-evaluation-20261020.md)을 확인했다. 원 SQL/statement·값/UTC·current15/SQL9,929를 보존했으나 guard 포함 평균0.572706% 느려 제품에 적용하지 않았다. [원 실행 계획1](../research/solar-role-matrix-plan-observation-20261020.md)에서 spill/조인 확대는 미관측이며 다음은 driver 호출자별 경과 시간 관측이다. 원 정상64 미완료·기존 두 UI/서비스·같은 app82와 정상→hold→취소→계산 중WebGL→WSL 순서는 유지한다. 새 Solar 미배포·실제 농장 Run0·G0–G4 보류·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
+**현재 호출자별 시간/컬럼 mask 평가 — 2026-10-20 KST:** [원 관측1·경계1·비용1](../research/solar-driver-column-mask-evaluation-20261020.md)을 확인했다. 원 current15/SQL9,929·값/UTC·5root/정리를 보존했다. native 컬럼 후보는 평균0.883428%/한 짝 악화로 미채택했다. 제품 app과 기존 두 UI는 유지하며 다음은 confirm load 소비·검증 소유권 검토다. 원 정상64 미완료·같은 app82와 정상→hold→취소→계산 중WebGL→WSL 순서는 유지한다. 새 Solar 미배포·실제 농장 Run0·G0–G4 보류·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
 
 **현재 권한 matrix 평가 미채택 — 2026-10-20 KST:** [실제 오류 순서1·snapshot 반례1](../research/solar-role-matrix-conditional-review-20261020.md)을 확인했다. CASE 결합은 해당 첫 오류는 보존했으나 동시 변경에서 원 경로의 hold와 후보 정상 값이 달라 미채택·비용 trial 없음이다. 제품 app은 유지한다. 기존 두 UI의 [동일 입력 인증/TLS 갱신](../research/frozen-preview-authentication-renewal-20261020.md)과 원 조회를 확인했다. 다음은 원 SQL/statement 순서를 유지하는 bound-array 표현 검토다. [원 계측 OFF CI의44/64 미완료](../research/solar-worker-checkpoint-advance-native-normal-20261020.md)·같은 app82의 로컬 범위와 정상→hold→취소→계산 중WebGL→WSL 순서를 유지한다. 새 Solar 미배포·실제 농장 Run0·G0–G4 보류·전체 완료일 미정·goal active다. 아래는 당시 기록이다.
 
