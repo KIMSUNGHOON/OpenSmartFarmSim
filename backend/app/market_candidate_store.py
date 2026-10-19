@@ -22,6 +22,7 @@ from .economics import canonical_scenario_sha256
 from .market_scenario import MarketScenarioRequest, _json
 from .market_runtime import connect_market, validate_market_identity
 from .runtime_roles import audit_runtime_roles
+from . import market_reference_bundle
 
 
 _DIGEST = re.compile(r"[0-9a-f]{64}\Z")
@@ -178,6 +179,7 @@ class MarketCandidateStore:
         self._principal_provider = principal_provider
         self._scoped_reader = ContextVar('market_candidate_scoped_reader', default=None)
         self._scoped_references = ContextVar('market_candidate_scoped_references', default=None)
+        self._reference_bundle = ContextVar('market_candidate_reference_bundle', default=None)
 
     def connect(self):
         if self.runtime_identity is not None:
@@ -232,7 +234,7 @@ class MarketCandidateStore:
             raise MarketCandidateDenied('market candidate shared profile rejected') from None
         refs = (view, source, self.runtime_identity, source.runtime_identity,
                 self._principal_provider, view._principal_provider, source._principal_provider,
-                self._scoped_reader, source._scoped_reader, view._holds)
+                self._scoped_reader, source._scoped_reader, view._holds, self._reference_bundle)
         values = (self.dsn, source.dsn, self.schema, source.schema)
         if expected is not None and (values != expected[1]
                 or any(now is not before for now, before in zip(refs, expected[0]))):
@@ -279,7 +281,7 @@ class MarketCandidateStore:
                  holds._scope_resolver, holds._key, contexts._context_verifier),
                 (holds.dsn, contexts.dsn, holds.schema, contexts.schema))
 
-    def _reference_guard(self, tenant):
+    def _reference_reader(self, tenant):
         scoped = self._scoped_references.get()
         reader = self._scoped_reader.get()
         if scoped is None:
@@ -298,17 +300,29 @@ class MarketCandidateStore:
         if (current is None or current[1] != held[1]
                 or any(now is not before for now, before in zip(current[0], held[0]))):
             raise MarketCandidateDenied('market candidate reference authority changed')
-        audit_runtime_roles(conn, self.runtime_identity[0])
         return conn, held[0][0]
 
+    def _reference_guard(self, tenant):
+        reader = self._reference_reader(tenant)
+        if reader is not None:
+            audit_runtime_roles(reader[0], self.runtime_identity[0])
+        return reader
+
+    def verify_current_reads(self, tenant, lookups):
+        return market_reference_bundle.verify(self, tenant, lookups)
+
     def _reference_value(self, tenant, name, args):
-        reader = self._reference_guard(tenant)
+        bundle = self._reference_bundle.get()
+        if bundle is not None and type(bundle) is not market_reference_bundle._Bundle:
+            raise MarketCandidateDenied('market candidate reference lifetime changed')
+        reader = self._reference_guard(tenant) if bundle is None else bundle.guard(self, tenant)
         if reader is None:
             return getattr(self._source, name)(*args)
         conn, holds = reader
         value = (holds._market_hold_report(*args, conn=conn) if name == 'get_market_hold_report'
                  else holds._decision_context(*args, conn=conn))
-        self._reference_guard(tenant)
+        if bundle is None: self._reference_guard(tenant)
+        else: bundle.guard(self, tenant)
         return value
 
     @contextmanager

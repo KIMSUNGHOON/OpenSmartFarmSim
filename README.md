@@ -1,6 +1,6 @@
 # OpenSmartFarmSim
 
-**현재 진행 — 2026-10-19 KST:** [15→4 SQL 후보](research/runtime-role-audit-phases-evaluation-20261019.md)는82검사를 통과했으나 실제 청크 개선 근거가 부족해 미채택했고 제품 코드를 복원했다. current12/감사528/연결144 중 내부 참조 검증312회의 호출 위치를 확인했으며 다음은 이 순수 읽기 묶음의 최소 구현이다. 기존 [재구성 감소26검사](research/farm-registration-read-scope-implementation-20261019.md)는 유지한다. 원64 독립 실행16/64 미완료·계산 중3D·새 Solar 배포는 남았다. [기존 두 UI](research/post-boot-preview-recovery-20261019.md)는 복구 상태다. 실제 자료/독립 검증·G0–G4·전체 완료일은 미완료/미정이며 goal active다. 아래는 당시 기록이다.
+**현재 진행 — 2026-10-19 KST:** [현재 참조 읽기 묶음](research/market-current-reference-bundle-implementation-20261019.md)을 고유96검사로 로컬 수용했다. 원 current12/등록24/원천1,824·수치/UTC/현재 권리와 수명을 보존하고 감사528→298·두 실제 청크 관측 약15–17% 감소를 확인했다. 다음은 원 조건의 독립64단계 정상 실행이다. 전체 처리량·계산 중3D·새 Solar 배포는 미수용이다. [기존 두 UI](research/post-boot-preview-recovery-20261019.md)는 유지했다. 실제 자료/독립 검증·G0–G4·전체 완료일은 미완료/미정이며 goal active다. 아래는 당시 기록이다.
 
 **기존 UI 인증 갱신 — 2026-10-17:** [동일 토큰·원 생장/수확·joint/환기 응답·두 화면 보존](research/frozen-preview-authentication-renewal-20261017.md)을 확인했다. 새5root/자원 상한을 유지하며 기존 경로만 복원했다. 새 Solar 미배포·원360초 정상 실행 미수용이며 다음은 계산 단계별 시간 계측이다.
 

@@ -17,7 +17,7 @@
   실제1→2단계/원천1,824의 순서·528감사/7,920execute·15위치와 보존/정리를 확인했다.
   SQL execute4.939초·advance9.422초는 한 계측 표본이며 처리량이나 최적화 수용이 아니다.
   원 정상 결과 뒤 변경이 필요하면 현재 검사 동등성과 늦은 철회 차단을 별도 계약/검사로 입증한다.
-- [ ] **`crop-solar-current-read-validation-boundaries`** — 위 원16/64 미완료와 실제 SQL 관측의 다음 작은 수정.
+- [x] **`crop-solar-current-read-validation-boundaries`** — [현재 참조 읽기 묶음96검사](../research/market-current-reference-bundle-implementation-20261019.md)로 로컬 컴포넌트 수용.
   12개 current 경계의 중첩 연결/원천/권한 검사와 실제 변경 가능 입력을 코드 위치로 대조하고 최소 변경을 정한다.
   각 경계의 현재 계정/권한/판본·원천 변경과 늦은 철회·취소/만료 차단을 동등하게 유지한다.
   원 binding/수치/UTC/HMAC/ancestry·조회 계산/쓰기0·FD/원본/정리를 보존하고 실제 반복 수/paired 비용을 입증한다.
@@ -27,10 +27,16 @@
     제품 코드 원 bytes를 복원했고 patch만 연구 증거로 보존했다. 변경 없는 native CI를 반복하지 않았다.
   - [x] **`crop-solar-current-audit-call-paths`** — 같은 기록의 실제 current12/감사528/연결144와 호출 위치.
     내부 `_reference_guard`312회·나머지 연결/경계 감사216회를 분리하고5root/원본/정리를 대사했다.
-  - [ ] **`crop-solar-current-reference-bundle`** — 위 기록의 다음 한 단계 기준1–4를 따른다.
+  - [x] **`crop-solar-current-reference-bundle`** — [96검사/최종 실제 paired 관측](../research/market-current-reference-bundle-implementation-20261019.md).
     한 current 경계의 서버 전용 참조 읽기 묶음·현재 원문/권리/서명·principal/pointer와 작업 전후 실제 role 검증,
     종료 전 외부 결과/서명/게시0·도중 변경 시 전체 차단·수명/오류/정리·원12경계와 실제 paired 비용을 입증한다.
     성능이나 권한 결과 캐시를 이유로 판본/원천 검사 또는 원 시간/청크/조회/RSS 한도를 바꾸지 않는다.
+    원 current12/등록24/재구성1·원천1,824/순서·수치/UTC를 보존하고 감사528→298·두 표본 약14.6%/16.9% 감소.
+    복제 Context 토큰 소유·중첩/오류/늦은 변경·일반/대체 조회·정상/보류·취소/만료·원본/5root/정리 통과.
+    원64 정상·계산 중3D/WSL 용량/배포·전체 backend/browser·실제 자료/관문 수용은 아니다.
+- [ ] **`crop-solar-reference-bundle-native-normal`** — 현재 묶음 코드의 원 계측 OFF 독립 정상64단계.
+  원 입력/chunk1/조회·재시도/360초/RSS 그대로 두 전진 prefix·원 값/UTC·64/start1/CLI0/attempt1/success event1,
+  두 actor 종료0·조회 계산/SQL 변경0·FD/role/schema/PG/임시 정리를 대사한다. 이후 hold→취소→계산 중3D 순서다.
 
 - [x] **`runtime-role-matrix-query`** — [현재 감사 전송량과 비용](../research/runtime-role-matrix-implementation-20261017.md), source9144809.
   새12/기존 역할·로그인39/Solar 결과·권리3의 고유54검사를 통과했다. 실제21감사·24,024→0행,

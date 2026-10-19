@@ -12,6 +12,7 @@ from . import thermal_run_store as documents
 from . import farm_inputs
 from . import jobs
 from . import farm_registration_read_scope as registration_reads
+from . import market_candidate_store, market_reference_bundle
 
 VERSION='joint-solar-farm-binding-v1'
 RIGHTS_VERSION='joint-solar-input-rights-v1'
@@ -19,7 +20,8 @@ MAX_BINDING_BYTES=128*1024
 CODE_SHA256=sha256(Path(__file__).read_bytes()).hexdigest()
 _MODULES={'input_evidence':evidence,'farm_authority':authored,'farm_inputs':farm_inputs,'job_inputs':jobs,
     'permission_scopes':permissions,'runtime_roles':runtime_roles,'canonical_documents':documents,
-    'registration_read_scope':registration_reads}
+    'registration_read_scope':registration_reads,'market_candidate_store':market_candidate_store,
+    'market_reference_bundle':market_reference_bundle}
 DEPENDENCY_SHA256={k:sha256(Path(m.__file__).read_bytes()).hexdigest() for k,m in _MODULES.items()}
 _DEPENDENCY_RAW=documents._canonical(DEPENDENCY_SHA256)
 

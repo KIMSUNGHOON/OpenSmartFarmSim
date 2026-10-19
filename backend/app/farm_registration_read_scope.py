@@ -9,16 +9,13 @@ import sys
 from threading import get_ident
 
 from . import economic_contracts, economics, farm_input_compiler, farm_inputs, market, market_scenario
+from . import market_candidate_store, market_reference_bundle
 
 
-MAX_LOOKUPS = 16384
-MAX_VALUE_BYTES = 1048576
+MAX_LOOKUPS = market_reference_bundle.MAX_LOOKUPS
+MAX_VALUE_BYTES = market_reference_bundle.MAX_VALUE_BYTES
 CODE_SHA256 = sha256(Path(__file__).read_bytes()).hexdigest()
-_READS = frozenset({'tenant_is_authenticated', 'get_market_candidate',
-    'get_economic_scenario', 'get_economic_scenario_pin', 'get_economic_input',
-    'get_joint_shock', 'get_joint_shock_pin', 'get_input_rights',
-    'get_settlement_applicability', 'get_settlement_evidence', 'get_prior_batch_cost',
-    'get_market_hold_report', 'get_decision_context'})
+_READS = market_reference_bundle.READS
 
 
 class RegistrationScopeHold(ValueError):
@@ -43,9 +40,7 @@ def _decimal():
 
 
 def _fingerprint(value):
-    raw = market_scenario._json(economic_contracts.untrusted_data(value)).encode()
-    _need(len(raw) <= MAX_VALUE_BYTES)
-    return sha256(raw).digest()
+    return market_reference_bundle.fingerprint(value)
 
 
 class _Recorder:
@@ -77,16 +72,21 @@ class RegistrationRead:
     def _code(self):
         module = sys.modules[type(self.owner).__module__]
         modules = (module, economic_contracts, economics, farm_input_compiler,
-                   farm_inputs, market, market_scenario)
+                   farm_inputs, market, market_scenario, market_candidate_store, market_reference_bundle)
         methods = (self.owner._read_registration, self.owner._read, self.owner._prepare,
                    module.compile_farm_inputs, module.validate_economic_scope,
                    economics.EconomicLedger.calculate, economics.EconomicLedger._calculate_verified,
                    market_scenario.MarketScenarioService._prepare,
                    market_scenario.MarketScenarioService._check_caps,
-                   market_scenario.MarketScenarioService._check_bindings)
+                   market_scenario.MarketScenarioService._check_bindings,
+                   self.repository.verify_current_reads, self.repository._reference_guard,
+                   self.repository._reference_reader, self.repository._reference_value,
+                   market_reference_bundle.verify, market_reference_bundle.fingerprint,
+                   market_reference_bundle._Bundle.check, market_reference_bundle._Bundle.guard,
+                   market_reference_bundle._Bundle.close)
         policy = (market_scenario._json(market_scenario._FIELDS),
                   tuple(sorted((k, tuple(sorted(v))) for k, v in market_scenario._DRIVER_GROUPS.items())),
-                  module.READ_SCOPES)
+                  module.READ_SCOPES, self.repository._reference_bundle)
         return (tuple(sha256(Path(m.__file__).read_bytes()).digest() for m in modules),
                 methods, policy, sha256(Path(__file__).read_bytes()).hexdigest())
 
@@ -120,9 +120,7 @@ class RegistrationRead:
         _need((str(root['job_id']), root['input_sha256'], root['created_at']) == self.root
               and replay.owned_research.authority_snapshot(root, research) is not None)
         _need(replay.thermal.runs.get_snapshot(tenant, farm.snapshot_id) == self.snapshot)
-        with self.repository.read_scope(tenant):
-            for name, args, expected in self.lookups:
-                _need(_fingerprint(getattr(self.repository, name)(*args)) == expected)
+        self.repository.verify_current_reads(tenant, self.lookups)
 
     def read(self, *args):
         try:
