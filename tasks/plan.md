@@ -29,10 +29,16 @@ primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회
 
 | 순서 | 산출물 | 수용 기준 |
 | --- | --- | --- |
-| 1 — 다음 | 정확한 키 SQL 지문 primitive·실제 SCRAM 증거 | source/job·candidate 입력/pin의 실제 원 bytes/metadata 지문·명시 부재·정규화/판본·한도·tenant/owner/connection/수명·도중 변경/정리. 기존 제품 verifier 미연결. |
-| 2 | 순수 default getter 동등성/의존성 증거 | code/schema/Decimal·완전한 mutable 의존성을 원 full trace와 대사. dynamic/unknown/미입증 경로는 v2. 늦은 변경·권리·파생 manifest/대체 우선순위와 원 값/UTC를 확인. |
+| 1 — 로컬 수용 | [원문 지문 primitive48](../research/market-current-reference-receipt-primitive-20261019.md) | 실제 SCRAM 원 bytes/metadata·명시 부재·PG16/정규화·128키/범주 합1MiB·tenant/owner/connection/수명·같은 저장 hash의 원문 변경/권리·정리 통과. 제품 verifier 호출0·동등성/성능 미수용. |
+| 2 — 다음 | 순수 default getter 동등성/의존성 증거 | code/schema/Decimal·완전한 mutable 의존성을 원 full trace와 대사. dynamic/unknown/미입증 경로는 v2. 늦은 변경·권리·파생 manifest/대체 우선순위와 원 값/UTC를 확인. |
 | 3 | 같은 registration 수명의 anchor/현재 지문 연결 | 최초 full 검증 및 같은 지문의 전후 full trace 성공 뒤에만 반복 순수 data 재구성 생략. 동적/현재 권한·role 전후·취소/임대 보존, 회귀/동등성/paired 실제 비용·검토 통과 뒤 채택. |
 
+primitive48은 같은 app source에서 경계11/철회1/변경18/수명·schema18을 실제 실행했다.
+현재 수용 guard 합578.605초이며 초기 fixture 실패/확인된 시험 DDL 자기 잠금과 정리는 기록에 분리했다.
+다음 한 단계의 산출물은 getter별 실제 반환값/코드·설정·원문/동적 의존성 목록과 full trace 동등성 증거다.
+기본 source7종·candidate 우선/fallback·pin/파생 manifest·Decimal/정규화/현재 scope를 대사하고,
+시간·외부 상태·callback·미입증 의존성 경로는 v2 유지/명시 비적격으로 처리한다.
+동등성 증거 전에는 반복 getter를 생략하거나 현재 계산 경로를 변경하지 않는다.
 어느 단계도 원64 정상·새 Solar/계산 중3D 또는 G0–G4 통과가 아니다.
 같은 정상 반복이나 상한/actor/입력 변경은 하지 않는다. 그 뒤 수정 source의 독립 정상은 다음을 유지한다. 원64/chunk1/조회·retry360/RSS,
 64/start1/CLI0/attempt1/success1·두 전진 prefix·원 UTC/수치·두 actor 종료0·FD/역할/schema/소유 PG/임시 정리 proof가 수용 기준이다.

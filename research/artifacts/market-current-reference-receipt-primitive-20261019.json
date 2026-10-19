@@ -1,0 +1,297 @@
+{
+  "G0_G4": "not_assessed",
+  "MAX_KEYS": 128,
+  "MAX_UNCOMPRESSED_DEPENDENCY_BYTES": 1048576,
+  "PG_producer_family": 16,
+  "accepted_guard_wall_seconds": 578.6051373939918,
+  "actual_farm_Runs": 0,
+  "existing_baseline_source_sha256": {
+    "backend/app/crop_greenhouse_solar_farm_binding.py": "ff4daddacecd43f5cfa43e8dac484661e94e3ea3cd8f0a6f424573f4afa501f7",
+    "backend/app/farm_registration_read_scope.py": "1e471952b68d93c5654f713b8c6bac3c3a5a22fd670f58835522860515b4f159",
+    "backend/app/market_candidate_store.py": "0420835e211222fced5927de62b478ba296a2f83bde14e70d9fd164883e2e182",
+    "backend/app/market_reference_bundle.py": "7994806cb008d268f7d85eeda2c7bd15076e28a52c2a103c9646ee6ebe8a4dcf",
+    "backend/app/market_reference_row_readset.py": "587be5012156f297835234885ec7bfee582d81022437988e37ee591e3c97d153",
+    "backend/app/market_source_store.py": "b96c4704295eb8fa282357f2ec8bad9c518a565d4fc1e7536d2793be1b0951bf"
+  },
+  "existing_v2_and_primitive34_preserved": true,
+  "fingerprint_protocol": "market-reference-receipts-v1/pg16/jsonb-array/epoch/raw-sha256",
+  "focused_distinct_cases": 48,
+  "fresh_exec_or_SIGKILL_rerun": false,
+  "full_backend_or_browser_suite_run": false,
+  "full_product_completion": null,
+  "local_primitive_accepted": true,
+  "native64_normal_accepted": false,
+  "native_CI_dispatched": false,
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "827a1bc7b7923018009959609c109267f1911da3746007d0050f2d9d8f70db0b",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T08:33:24.258Z"
+  },
+  "new_Solar_deployed": false,
+  "output": "requested keys mapped to fresh raw-byte DB-computed32-byte receipt or explicit absent None; no raw payload/permission/gate approval",
+  "performance_acceptance": false,
+  "preliminary_not_counted": [
+    {
+      "actual_child_exit": 1,
+      "actual_tool": "34673:1",
+      "all_sources_and_five_roots_preserved": true,
+      "counted_in48": false,
+      "explanation": "expected missing module after actual fixture construction",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "stage": "focused-reference-receipt-primitive-RED-v1",
+      "terminal_sha256": "fe8dc2984393e1921fb7012e620aef82ae30a97347d8ea83a5ea223b884b7450",
+      "wall_seconds": 15.374587566999253
+    },
+    {
+      "actual_child_exit": 0,
+      "actual_tool": "67029:0",
+      "all_sources_and_five_roots_preserved": true,
+      "counted_in48": false,
+      "explanation": "initial limited normal check, not added to48",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "stage": "focused-reference-receipt-primitive-first-v1",
+      "terminal_sha256": "13f31eb229ec7b4c2fd8a3288745805532d16eb3aaa40b36d4bdde6b4d90662b",
+      "wall_seconds": 15.366368430004513
+    },
+    {
+      "actual_child_exit": 1,
+      "actual_tool": "54608:1",
+      "all_sources_and_five_roots_preserved": true,
+      "counted_in48": false,
+      "explanation": "test mistakenly had no physical pin key for combined budget case",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "stage": "focused-reference-receipt-primitive-boundary-v1",
+      "terminal_sha256": "b8eb2c04f33fb3ddee9e57311ff3f58512309d74523a78ed3449fe3876feb077",
+      "wall_seconds": 130.24568373499642
+    },
+    {
+      "actual_child_exit": 1,
+      "actual_tool": "54805:1",
+      "all_sources_and_five_roots_preserved": true,
+      "counted_in48": false,
+      "explanation": "test treated source fallback scenario keys as present pins; fixture corrected",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "stage": "focused-reference-receipt-primitive-boundary-v2",
+      "terminal_sha256": "06cea04745ead73f1403d13af2c8edaa88a8ba59423ba78cca9a0215abb4a52b",
+      "wall_seconds": 129.11546839400398
+    },
+    {
+      "actual_child_exit": 2,
+      "actual_tool": "30773:2",
+      "all_sources_and_five_roots_preserved": true,
+      "counted_in48": false,
+      "explanation": "confirmed test DROP CONSTRAINT self lock; interrupted exact owned pytest, moved test DDL before read lifetime",
+      "owned_cleanup_complete": true,
+      "reason": null,
+      "stage": "focused-reference-receipt-primitive-late-v1",
+      "terminal_sha256": "62ca08e1592b9093e486e5f347ed1a44499a0e706b49b7bd68f7ee448a554305",
+      "wall_seconds": 159.00504202799493
+    }
+  ],
+  "product_verifier_integration": false,
+  "pure_getter_equivalence_proven": false,
+  "recorded_at": "2026-10-19T08:59:25.459270+00:00",
+  "rights_or_gate_approval": false,
+  "scope": "standalone raw dependency receipt primitive only; no verifier shortcut or agronomic claim",
+  "source_baseline_commit": "f2526625654c04449dc6f87104e19c93d65eb084",
+  "source_sha256": {
+    "backend/app/market_reference_receipts.py": "e93170b4c93b657a0b0890f05108d8590ea7254f222a8bee6fe5f22f64ae1cb9",
+    "backend/tests/test_market_reference_receipts.py": "eccd19e1599c0d339ce3afdff049bc8eeab985e8a30b3fa0922e570f3eaa50bd"
+  },
+  "stages": [
+    {
+      "actual_tool": "67888:0",
+      "app_source_sha256": "e93170b4c93b657a0b0890f05108d8590ea7254f222a8bee6fe5f22f64ae1cb9",
+      "distinct_cases": 11,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1012449280,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 131.38781637800275
+      },
+      "pytest_summary": "11 passed, 36 deselected in 124.99s (0:02:04)",
+      "scope": "exact key/present/absent/tenant/unrelated/timezone/bytea/global uncompressed caps/owned entry",
+      "stage": "focused-reference-receipt-primitive-boundary-v3",
+      "terminal_sha256": "fc80b65909c0377970d6087647d38cbc6c60aabd7692b46212bccc3215b8ba33",
+      "test_source_sha256": "85d031f93c22e7aebad3e5d05a2c10f2e3a0fac81f4fe570b79ea576acd34434"
+    },
+    {
+      "actual_tool": "40020:0",
+      "app_source_sha256": "e93170b4c93b657a0b0890f05108d8590ea7254f222a8bee6fe5f22f64ae1cb9",
+      "distinct_cases": 1,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 993624064,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 15.421727776993066
+      },
+      "pytest_summary": "1 passed in 14.05s",
+      "scope": "existing source scope guard denies before further SQL; historical RED stage name was not an actual failure",
+      "stage": "focused-reference-receipt-scope-RED-v1",
+      "terminal_sha256": "de6058b4ece709d444817cccf1c6bd90f1c35d95af280bf6c4009057bda9d86a",
+      "test_source_sha256": "25d2042af55844e2b90f09a46247853902b344717251cdcc99350f9dbb969662"
+    },
+    {
+      "actual_tool": "59901:0",
+      "app_source_sha256": "e93170b4c93b657a0b0890f05108d8590ea7254f222a8bee6fe5f22f64ae1cb9",
+      "distinct_cases": 18,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1012928512,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 213.1955418899961
+      },
+      "pytest_summary": "18 passed, 30 deselected in 202.70s (0:03:22)",
+      "scope": "raw same stored hash/source-job/candidate/pin metadata/raw/presence/grant/principal changes",
+      "stage": "focused-reference-receipt-primitive-late-v2",
+      "terminal_sha256": "af03f87397b3b46c59666cf000b40edf33bcce29f6810d3cfd0c0b1288a36045",
+      "test_source_sha256": "eccd19e1599c0d339ce3afdff049bc8eeab985e8a30b3fa0922e570f3eaa50bd"
+    },
+    {
+      "actual_tool": "24869:0",
+      "app_source_sha256": "e93170b4c93b657a0b0890f05108d8590ea7254f222a8bee6fe5f22f64ae1cb9",
+      "distinct_cases": 18,
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1008173056,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 142536704,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 218.60005134899984
+      },
+      "pytest_summary": "18 passed, 30 deselected in 207.71s (0:03:27)",
+      "scope": "lifetime poisoning/cleanup/retry and unsupported column schema rejection before callback",
+      "stage": "focused-reference-receipt-primitive-lifetime-v1",
+      "terminal_sha256": "5f9c8753af367e692cd90114768de942a0090edb5a9bce8c0a2e5f32f3d9f24f",
+      "test_source_sha256": "eccd19e1599c0d339ce3afdff049bc8eeab985e8a30b3fa0922e570f3eaa50bd"
+    }
+  ],
+  "status_publication": {
+    "HTTP": [
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "bytes_equal": true,
+        "cache_control": "no-store",
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "actual_tool": "62073:0",
+    "browser_rerun": false,
+    "frozen_ventilation_files_preserved": 2173,
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 893399040,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 2.396148544001335
+    },
+    "local_links_checked": 2364,
+    "new_source_syntax_checked": 2,
+    "original_actor_body_and_header_checked": true,
+    "product_verifier_callers": 0,
+    "reported_at": "2026-10-19T09:00:58.366129Z",
+    "stage": "focused-reference-receipt-primitive48-status-v1",
+    "status_sha256": "6da4828e18dc3e1ee6ac56f4efbcbea76c5d2ec0be11b44b9ca7dbf5ed3eb891",
+    "terminal_sha256": "8110518cce00e3433fe209222b2ee145e5c5f4cd7a3b72109ff2451c093fe79e"
+  }
+}

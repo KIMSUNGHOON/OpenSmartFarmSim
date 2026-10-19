@@ -1,12 +1,28 @@
 # Current raw dependency receipt agreement — v4 proposal
 
-Status: **research proposal; no production implementation or adoption**.
+Status: **standalone receipt primitive locally accepted by48 actual SCRAM checks;
+pure-getter equivalence and verifier integration remain proposed**.
+[Primitive implementation/evidence](../research/market-current-reference-receipt-primitive-20261019.md).
 [Measured v3 rejection and private v4 feasibility](../research/market-current-reference-row-integration-evaluation-20261019.md).
 The accepted v2 verifier and standalone v3 primitive remain unchanged.
 
+## Implemented primitive interface
+
+`market_reference_receipts.verify_receipts(owner, tenant, source_keys,
+candidate_keys, pin_keys, consume) -> None` borrows the exact owned bundle's
+supported connection. It returns no public result. Its trusted internal callback
+must return `None` and must not publish intermediate data. The private reader
+returns32-byte receipts or explicit `None` for requested absent keys, with no
+lookup SQL; it rejects unknown keys and cannot be reused after close/failure.
+Fresh pre/post SQL receipts, field/type/nullability and physical relation OID
+descriptors, current binding/code/lifetime checks and final enclosing audit are
+required. This fingerprints dependencies; it does not validate raw domain data,
+approve rights, prove getter equivalence or cache permissions. Unsupported
+primitive inputs reject; future baseline eligibility fallback is not implemented.
+
 ## Development order
 
-1. Implement a closed exact-key SQL receipt primitive with real DB evidence.
+1. Accepted: closed exact-key SQL receipt primitive with48 real DB checks.
 2. Specify and prove eligible pure-data/default-getter semantics and complete
    mutable dependencies; unsupported callbacks, schemas or repositories use v2.
 3. Bind an expectation only after a full original trace passes between matching
