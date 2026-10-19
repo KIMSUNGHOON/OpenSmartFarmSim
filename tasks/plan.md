@@ -7,7 +7,10 @@
 기본 helper/파일 보안·현재 권리/서명·worker 정상/hold/취소/임대/늦은 입력과 query/prefix의
 원 값/UTC·현재/잠금/늦은 권리·원문/디렉터리/서명 이력 변경 거부·조회 계산/SQL 변경0을 확인했다.
 5root/동적 자식·원본/두 UI·512MiB/PID/합1GiB·FD4→4·소유 PG/임시/passfile 정리를 보존했다.
-**로컬 소프트웨어 컴포넌트만 수용**한다. 다음은 원 계측 OFF64 독립 API/worker 정상이다.
+**로컬 소프트웨어 컴포넌트만 수용**한다. 후속 원 계측 OFF64 CI39197827938/source4478d28은
+원360초/guard382.741초·종료 뒤22/64로 미완료다. 정상/DB 정리 proof는 없다.
+다음은 현재 source 한 청크의 실제 비용 → 기존 bounded worker/API 관찰1회 → 근거 있는 최소 수정/검증이다.
+같은 원 정상의 반복이나 새 기반 작업 추가로 대체하지 않는다. 후속 정상 수용은 다음을 유지한다.
 원 입력64/chunk1/조회·retry/360초·수식/현재 권한/RSS를 유지하며 두 전진 prefix·원 값/UTC,
 64/start1/CLI0/attempt1/success1·두 actor 종료0·조회 계산/쓰기0·전체 owned 정리 증거를 대사한다.
 이후 독립 hold → 실제 HTTP 취소 → 계산 중 WebGL → WSL 용량/사용자 적용 순서다.

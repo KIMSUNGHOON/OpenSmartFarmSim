@@ -1,6 +1,6 @@
 # Solar 읽기 공유 잠금 로컬 수용 — 2026-10-19 KST
 
-상태: **55개 고유 검사·검토로 로컬 소프트웨어 수용. 독립 원64 정상·운영 수용은 미완료**.
+상태: **55개 고유 검사·검토로 로컬 소프트웨어 수용. 원 독립64는22/64·시간 제한으로 미완료**.
 [계약](../contracts/crop-solar-custody-shared-read-locks-v1.md) ·
 [실제 진단](crop-solar-audit-scope-v2-worker-api-diagnostic-20261019.md) ·
 [기계 증거](artifacts/crop-solar-shared-read-locks-implementation-20261019.json).
@@ -69,7 +69,19 @@ native `gpt-6.1-sol/xhigh`에서 구현·판단을 수행했으며 재귀 CLI/�
 미확정/실제 EX 충돌은60265:0, followup EX/해제는34045:0, prefix EX는3791:0에서 통과했다.
 제품의2개 app 파일은 추가 변경하지 않았다.24986:0에서는 중간39건을 두 UI에 게시하고
 source/actor/header·2,301링크·frozen2,173파일/HTML·5root/상한/정리를 확인했다.
-이후55건의 현재 수용 상태 게시와 정확한 feature head의 원 독립 실행을 이어 간다.
+8308:0에서55건의 로컬 수용 상태를 두 UI에 게시했고 같은 HTTP bytes/no-store·2,301링크·frozen HTML/2,173파일·5root/상한/정리를 확인했다. UI 코드/DOM/WebGL은 변경·재검사하지 않았다.
+
+로컬 수용 commit `4478d28e8633f5c96be62974234e2d576fa3ed66`의 원 계측 OFF 독립64
+[CI39197827938](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39197827938)은 원360초/guard382.741초로 실패했다.
+두 actor는 정리에서-15로 종료됐고 resource reason은null이다. 합 RSS364,638,208bytes·단일127,266,816bytes,
+FD7→7·소유 비좀비/임시0을 확인했으나 정상/DB 정리 proof는 없다.
+종료 뒤 같은 owned cluster의 Read Only/Repeatable Read metadata만22/64·yielded·sequence23,
+UTC `2026-10-01T00:00:44.123456Z`·attempt1/simulating이다. 현재 권리/자료 검증이나 정상 수용이 아니다.
+원 actor/query/prototype 해시를 대사했고 ZIP은id12163340617/3,286bytes,
+SHA256 `01580126142fd287a845cb8c3e2728d2435d4e71657c6e1074448760452e0445`다.
+이전 source의22/64와 같은 저장 수만으로 전체 처리량 개선/회귀나 충돌 해결을 주장하지 않는다.
+다음은 현재 source의 한 청크 비용과 기존 bounded worker/API 관찰1회다. 새 기반 작업을 추가하지 않고,
+현재 실제 단계 시간/예외와 원천/권리/원 UTC를 대사해 다음 수정 범위를 정한다. 같은 원 정상을 재실행하지 않는다.
 
 약32.1분은 위55검사의 관측된 로컬 guard 시간이다. CI 대기·독립 실행/후속3D와 실제 자료 확보가
 미완료여서 전체 완료 날짜는 정하지 않는다. 기존 두 UI는 이전에 수용된 합성 저장3D/환기를 유지한다.

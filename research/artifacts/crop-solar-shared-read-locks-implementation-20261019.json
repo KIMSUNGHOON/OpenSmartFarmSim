@@ -11,6 +11,7 @@
   "full_product_completion": null,
   "guard_total_seconds": 1927.0818701819953,
   "implemented": true,
+  "local_acceptance_commit": "4478d28e8633f5c96be62974234e2d576fa3ed66",
   "local_component_accepted": true,
   "meaningful_RED": {
     "actual_tool": "11456:1",
@@ -25,13 +26,132 @@
     "recursive_cli": false,
     "timestamp": "2026-10-19T02:52:30.622Z"
   },
+  "native_normal": {
+    "accepted": false,
+    "actors": [
+      {
+        "api_proof_present": false,
+        "client_proof_present": false,
+        "exit_code": -15,
+        "log": {
+          "exception_types": [],
+          "locations": []
+        },
+        "role": "api",
+        "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+        "worker_proof_present": false
+      },
+      {
+        "api_proof_present": false,
+        "client_proof_present": false,
+        "exit_code": -15,
+        "log": {
+          "exception_types": [],
+          "locations": []
+        },
+        "role": "worker",
+        "script_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+        "worker_proof_present": false
+      }
+    ],
+    "artifact": {
+      "digest": "sha256:01580126142fd287a845cb8c3e2728d2435d4e71657c6e1074448760452e0445",
+      "id": 12163340617,
+      "name": "solar-unpaused-normal-4478d28e8633f5c96be62974234e2d576fa3ed66",
+      "size_in_bytes": 3286
+    },
+    "conclusion": "failure",
+    "database_cleanup_proof_present": false,
+    "diagnostics": false,
+    "digest_and_path_validated": true,
+    "failure": {
+      "exception_type": "AssertionError",
+      "known_stage": "owned calculation timed out or failed",
+      "locations": [
+        {
+          "file": "crop_greenhouse_solar_unpaused_smoke.py",
+          "function": "exercise",
+          "line": 133
+        },
+        {
+          "file": "crop-greenhouse-solar-unpaused-probe.py",
+          "function": "exercise",
+          "line": 210
+        }
+      ],
+      "original_normal_accepted": false
+    },
+    "failure_checkpoint": {
+      "actors_stopped_before_collection": true,
+      "application_query_sha256": "ab6992768f580c4d46278fcbe2d3215583dfd3a55c9fe0aa84b51fb3e038d565",
+      "diagnostic_only": true,
+      "metadata": {
+        "G0_G4": "not_assessed",
+        "checkpoint_payload_sha256": "073032343e745bc252f0b6cf6ee9481abed299a4cf8faee58f3c0d85ede992ec",
+        "checkpoint_recorded_at": "2026-10-19T04:15:10.456374+00:00",
+        "evidence_kind": "stored_owned_fixture_metadata_only",
+        "job": {
+          "attempt": 1,
+          "state": "simulating"
+        },
+        "normal_execution_accepted": false,
+        "observed_at": "2026-10-19T04:15:24.807243+00:00",
+        "owned_cluster_identity_verified": true,
+        "rights_or_gate_approval": false,
+        "stored_checkpoint": {
+          "computed_through_utc": "2026-10-01T00:00:44.123456Z",
+          "planned_steps": 64,
+          "publication_sequence": 23,
+          "status": "yielded",
+          "steps": 22
+        },
+        "transaction_isolation": "repeatable read",
+        "transaction_read_only": true
+      },
+      "normal_execution_accepted": false,
+      "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+      "run_id": "39197827938",
+      "source_commit": "4478d28e8633f5c96be62974234e2d576fa3ed66"
+    },
+    "head_sha": "4478d28e8633f5c96be62974234e2d576fa3ed66",
+    "normal_proof_present": false,
+    "resource": {
+      "FD_before_after": [
+        7,
+        7
+      ],
+      "G0_G4": "not_assessed",
+      "RSS_samples": 1404,
+      "WSL_capacity_accepted": false,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 364638208,
+      "hosted_only": true,
+      "local_protected_roots_present": false,
+      "owned_non_zombie_remaining": [],
+      "reason": null,
+      "rights_or_gate_approval": false,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 127266816,
+      "temporary_entries_remaining": 0,
+      "wall_seconds": 382.740570172
+    },
+    "run_id": 39197827938,
+    "status": "completed",
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39197827938"
+  },
   "new_Solar_deployed": false,
+  "next_diagnosis": {
+    "actual_current_one_chunk_cost": "pending",
+    "bounded_worker_api_on_changed_source": "pending",
+    "unchanged_normal_rerun_allowed": false
+  },
   "nonacceptance": [
     "35671:1 initial childexception wrappedbyparentcontext, testrethrowsafterparentclose in finalRED",
     "10219:2 collection failure from DBfixtureparam on fastOS tests; no testsran; fast module separated"
   ],
   "normal_native_accepted": false,
-  "recorded_at": "2026-10-19T04:05:34.430206+00:00",
+  "recorded_at": "2026-10-19T04:17:38.164223+00:00",
   "remaining_checks": [
     "original uninstrumented64 independent API/worker normal",
     "independent unpaused hold and actual HTTP cancel",
@@ -406,36 +526,12 @@
   ],
   "state": "candidate_under_verification",
   "status_publication": {
-    "UI_code_changed": false,
-    "actual_tool": "76973:0",
-    "both_HTTP_200_same_bytes_no_store": true,
-    "browser_rerun": false,
-    "frozen_HTML_and_2173_ventilation_source_files_preserved": true,
-    "local_links_checked": 2301,
-    "raw_terminal_sha256": "d43de3f39d9cd3439e77e931b8eb45a92b7e840b4ba9bd859e1b66f5e9cba0fa",
-    "result": {
-      "actual_child_exit": 0,
-      "combined_peak_RSS_bytes": 897830912,
-      "controller_FD_before_after": [
-        4,
-        4
-      ],
-      "joint_preview_assets_preserved": true,
-      "joint_preview_source_preserved": true,
-      "original_sources_preserved": true,
-      "owned_non_zombie_remaining": [],
-      "owned_postgres_remaining": [],
-      "passfiles_remaining": [],
-      "preview_assets_preserved": true,
-      "preview_source_preserved": true,
-      "protected_live": true,
-      "protected_root_count": 5,
-      "reason": null,
-      "source_preserved": true,
-      "temporary_PG_directories_remaining": [],
-      "wall_seconds": 1.8812807719987177
-    },
-    "stage": "focused-solar-shared-read-locks-wip20-status-v1"
+    "UI_code_or_browser_changed": false,
+    "actual_tool": "8308:0",
+    "both_UI_HTTP_same_no_store": true,
+    "focused_checks": 55,
+    "frozen_ventilation_files": 2173,
+    "local_links": 2301
   },
   "supporting_GREEN": "2892:0 sameactualreader/confirm+samehead/proof/UTC (duplicatecase notcounted)",
   "test_fixture_update": "Read/read coexistence is expected. Existing query/prefix writer-lock cases now hold independent exclusive root/intent open descriptions. Unconfirmed and independent busy states are checked separately."

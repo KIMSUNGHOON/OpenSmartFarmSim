@@ -1,6 +1,6 @@
 # OpenSmartFarmSim 제품 명세
 
-**현재 공유 읽기 잠금 — 2026-10-19 KST:** [읽기 공유/쓰기 배타 잠금·55검사](../research/crop-solar-shared-read-locks-implementation-20261019.md)를 로컬 소프트웨어 범위로 수용했다. 실제 reader/confirm/query 공존·writer 배제·읽기 변경 금지, worker 정상/hold/취소/임대, query/prefix의 원 값/UTC·권리/변조/잠금 회귀를 확인했다. 원 계측 OFF64 독립 정상은 아직 미수용이며 다음 단계다. 이전116검사는 그 판본의 기록이다. 이후 독립 hold/취소·계산 중3D·WSL 용량/사용자 적용, 실제 자료/관문과 전체 완료일은 미수용/미정이며 goal active다. 아래는 당시 기록이다.
+**현재 공유 읽기 잠금 — 2026-10-19 KST:** [읽기 공유/쓰기 배타 잠금·55검사](../research/crop-solar-shared-read-locks-implementation-20261019.md)를 로컬 소프트웨어 범위로 수용했다. 실제 reader/confirm/query 공존·writer 배제·읽기 변경 금지, worker 정상/hold/취소/임대, query/prefix의 원 값/UTC·권리/변조/잠금 회귀를 확인했다. 원 계측 OFF64 독립 CI39197827938/source4478d28은22/64·원360초 제한으로 미완료다. 다음은 현재 한 청크 비용/작업자 API 시간 관측이며 같은 원 정상 재실행은 하지 않는다. 이전116검사는 그 판본의 기록이다. 이후 독립 hold/취소·계산 중3D·WSL 용량/사용자 적용, 실제 자료/관문과 전체 완료일은 미수용/미정이며 goal active다. 아래는 당시 기록이다.
 
 **현재 감사 scope v2 — 2026-10-19 KST:** [현재 참조 검증116검사](../research/market-current-reference-audit-scope-v2-implementation-20261019.md)를 로컬 소프트웨어 범위로 수용했다. 원 값/UTC·현재 권리/수명·current12/등록24/재구성1·원천1,824/순서와 일반/대체 조회를 유지하고 감사298→183·두 실제 청크 약15.5%/13.7% 감소를 관측했다. 후속 원 독립 CI39190518816은22/64·시간 제한으로 미완료다. [실제 worker/API 진단](../research/crop-solar-audit-scope-v2-worker-api-diagnostic-20261019.md)에서8/64 확정 뒤 confirm 잠금 대기/queued busy를 확인했다. 다음은 읽기 공유/쓰기 배타 잠금과 읽기 세션 변경 차단이다. 전체 처리량·계산 중3D·새 Solar 배포·실제 자료/관문과 전체 완료일은 미수용/미정이며 goal active다. 아래는 당시 기록이다.
 
