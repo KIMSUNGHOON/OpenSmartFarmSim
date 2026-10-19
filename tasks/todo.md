@@ -50,6 +50,13 @@
 - [ ] **`crop-solar-audit-scope-v2-native-normal`** — 위 변경의 원 계측 OFF64단계 독립 API/worker 정상.
   원 입력/chunk1/조회·재시도/360초/RSS 유지·두 전진 prefix·원 값/UTC·64/start1/CLI0/attempt1/success event1,
   두 actor 종료0·조회 계산/SQL 변경0·FD/역할/schema/소유 PG/임시 정리를 대사한다. 이후 독립 hold→취소→계산 중3D 순서다.
+  CI39190518816/sourceeb943d9는 원360초/감독382.909초·종료 뒤22/64로 미완료다. 정상/DB 정리 proof는 없다.
+- [x] **`crop-solar-audit-scope-v2-remaining-cost`** — [29243:0 현재 실제 청크 관측](../research/crop-solar-audit-scope-v2-remaining-cost-20261019.md).
+  실제1→2·144연결/183감사/7,113SQL과 current12/등록24/재구성1·원천1,824/순서·원 UTC/proof3·5root/원본/상한/정리 확인.
+- [ ] **`crop-solar-audit-scope-v2-native-worker-api-diagnostic`** — [기존 bounded 선택 진단](../contracts/crop-solar-worker-progress-diagnostics-v1.md)을 현재 코드에 적용한다.
+  원 actor 본문/입력64/chunk1/조회·재시도/360초/RSS 유지, 실제 phase/진행·HTTP 상태/허용 오류 코드/예외 위치와
+  정확한 run/head/app/header/actor hash·bounded journal·실제 종료/자원·정리 증거로 최소 다음 수정 범위를 정한다.
+  계측은 정상/처리량 수용이 아니며 미사용 원문/인증/SQL/개인 자료를 기록하지 않는다.
 
 - [x] **`runtime-role-matrix-query`** — [현재 감사 전송량과 비용](../research/runtime-role-matrix-implementation-20261017.md), source9144809.
   새12/기존 역할·로그인39/Solar 결과·권리3의 고유54검사를 통과했다. 실제21감사·24,024→0행,

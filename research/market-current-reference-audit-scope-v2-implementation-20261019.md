@@ -94,3 +94,19 @@ source `eb943d9d44c7bcf369758b2015a0889d360a99ef`의
 계측 OFF로 기동하고 실제 같은 head의 실행 중 상태를 확인했다. 정상 완료/처리량은 아직 미수용이다.
 
 59672:0에서 같은 원 CI 실행 중 상태를 두 UI에 게시하고 source/원본/5root/상한/FD·소유 정리를 보존했다.
+
+## 후속 원 독립 정상 결과
+
+위 CI39190518816/sourceeb943d9는 **실패**로 종료했다. 원360초 제한·감독382.909초,
+API/worker 각각 -15였다. 종료 뒤 소유 cluster의 읽기 전용/repeatable read 진단은
+**22/64·yielded·sequence23·UTC2026-10-01T00:00:44.123456Z·attempt1/simulating**을 읽었다.
+저장 메타데이터만의 관측이며 현재 원천/권리 검증·정상 수용이 아니다. 원 actor/query/probe hash와
+artifact ZIP/digest/path를 대사했다. hosted 합 RSS364,032,000bytes·단일128,819,200bytes,
+resource reason null·FD7→7·소유 비좀비/임시0이나 정상/DB 정리 proof는 없다.
+앞선25/64와 이번22/64는 각 실행의 관측이며 통제된 전체 처리량 비교나 개선/회귀 판정이 아니다.
+
+116개 로컬 컴포넌트 수용과 원64 정상 미수용을 구분한다. 같은 source로 CI를 반복하지 않는다.
+다음은 [기존 실제 청크 비용 계약](../contracts/crop-solar-current-binding-cost-v1.md)의 현재 v2 적용이다.
+실제1→2단계의 남은 연결/감사/SQL·원천/수치 비용과 원 UTC/확정 proof·source 순서를 확인한다.
+원5root·원본/두 UI·512MiB/PID/합1GiB·FD/소유 정리를 통과한 관측으로 최소 후속 변경을 정한다.
+이는 컴포넌트 진단이며 native/계산 중3D·배포/실제 자료·관문·완료 날짜의 증거가 아니다.

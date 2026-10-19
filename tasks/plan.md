@@ -1,5 +1,17 @@
 # 구현 순서
 
+## v2 원 정상 미완료·현재 청크 관측/전체 경로 진단 — 2026-10-19 KST
+
+[현재 관측29243:0](../research/crop-solar-audit-scope-v2-remaining-cost-20261019.md)에서
+144연결/183감사/7,113SQL·원 current12/등록24/재구성1·원천1,824/순서·원 UTC/proof3·원본/5root/정리를 확인했다.
+원 독립 CI39190518816/sourceeb943d9는 원360초/감독382.909초·종료 뒤22/64로 미완료다.
+정상/DB 정리 proof는 없고 앞선25/64와의 차이를 단독 청크 관측으로 개선/회귀 판정하지 않는다.
+다음은 기존 bounded worker-api 계측의 단일 진단이다. 원 actor 본문/입력64/chunk1/조회·재시도/360초/RSS는 유지한다.
+현재 전체 worker의 확인/채택/재시도와 동시 HTTP 단계/오류·원 실제 progress/종료를 기록해 최소 다음 수정을 정한다.
+계측 overhead가 있어 정상/처리량 수용은 불가하며, 원 계측 OFF64 정상은 변경 근거 뒤 별도로 통과한다.
+새 계산/권한/저장 기반 작업을 먼저 추가하지 않는다. 이후 독립 hold→취소→계산 중 WebGL→WSL 용량/사용자 적용,
+실제 자료 권리/독립 현장·미래·비교 관문과 전체 완료일 미정/goal active를 유지한다.
+
 ## 감사 scope v2 로컬 수용·원 독립 정상 — 2026-10-19 KST
 
 [116검사/최종 실제 paired 관측](../research/market-current-reference-audit-scope-v2-implementation-20261019.md)을 수용했다.
