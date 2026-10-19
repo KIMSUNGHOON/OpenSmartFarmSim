@@ -4,6 +4,205 @@
   "adopted": true,
   "code_commit": "db7554553c6a48c36186619465436d26e8ba55bc",
   "combined_peak_RSS_bytes": 1047568384,
+  "current_remaining_cost": {
+    "DB_roles_schemas_remaining": 0,
+    "actual_tool": "76498:0",
+    "additional_focused_acceptance_tests": 0,
+    "diagnostic_only": true,
+    "measurement": {
+      "SQL_execute_calls": 7113,
+      "SQL_execute_seconds": 3.918209984105488,
+      "after": {
+        "computed_through_utc": "2026-10-01T00:00:04.123456Z",
+        "head_sha256": "c9f7ae480fb1ddbc5b041e2b59d97a3b8b96aa86a5833a1379d370acbc8c5329",
+        "planned_steps": 16,
+        "proof_sha256": "a8b259a2456ff971cb9a5d199d208a2974d9d53a386e6c6422a36e5215dc4993",
+        "status": "yielded",
+        "steps": 2
+      },
+      "before": {
+        "computed_through_utc": "2026-10-01T00:00:02.123456Z",
+        "head_sha256": "cb463bd8012bb3073a12cbb2fc3437f50ff3b8bf44de586af9425d672aeadd53",
+        "planned_steps": 16,
+        "proof_sha256": "dcbb38728a7f766ce8d6a83eb0cf3c40d5eea9e9523e0083e7cf84a44d7a067a",
+        "status": "yielded",
+        "steps": 1
+      },
+      "current_boundaries": 12,
+      "old_proofs": 3,
+      "old_proofs_preserved": true,
+      "proof_directory_identity_preserved": true,
+      "reconstructions": 1,
+      "registration_reads": 24,
+      "role_audits": 183,
+      "runtime_connections": 144,
+      "scope": "one instrumented actual advance; overlapping profiler/SQL times, no native throughput acceptance",
+      "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+      "source_reads": 1824,
+      "wall_seconds": 9.73175219300174
+    },
+    "raw_profile_sha256": "083416403c412f04babe6badc37f3cf846cc98f9bd121cf3c7637a771ecf392e",
+    "raw_terminal_sha256": "1b617bfca7cbd7d1ddcd6805e80d060deacf43932a4a6ed5acbb5f732ca8e277",
+    "resource": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 996966400,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 43.39021743199919
+    },
+    "role_callers": [
+      {
+        "calls": 72,
+        "file": "job_store.py",
+        "function": "JobStore.connect",
+        "inclusive_seconds": 1.222196021
+      },
+      {
+        "calls": 48,
+        "file": "thermal_run_store.py",
+        "function": "ThermalRunStore.connect",
+        "inclusive_seconds": 0.8133347630000001
+      },
+      {
+        "calls": 24,
+        "file": "market_runtime.py",
+        "function": "connect_market",
+        "inclusive_seconds": 0.414586281
+      },
+      {
+        "calls": 24,
+        "file": "market_source_store.py",
+        "function": "MarketSourceStore.read_scope",
+        "inclusive_seconds": 0.314168973
+      },
+      {
+        "calls": 13,
+        "file": "market_candidate_store.py",
+        "function": "MarketCandidateStore._reference_guard",
+        "inclusive_seconds": 0.16020283100000002
+      },
+      {
+        "calls": 2,
+        "file": "market_candidate_store.py",
+        "function": "MarketCandidateStore.read_scope",
+        "inclusive_seconds": 0.02334293
+      }
+    ],
+    "source_commit": "4c4cff80002cc64508dd9af1a3757e5d0ba7bfa9",
+    "stage": "focused-solar-shared-read-current-remaining-cost-v1",
+    "top_SQL": [
+      {
+        "calls": 1824,
+        "execute_seconds": 0.5446679499982565,
+        "file": "market_source_store.py",
+        "function": "MarketSourceStore._select_with_job",
+        "line": 220
+      },
+      {
+        "calls": 183,
+        "execute_seconds": 0.4790421539983072,
+        "file": "runtime_roles.py",
+        "function": "audit_runtime_roles",
+        "line": 255
+      },
+      {
+        "calls": 183,
+        "execute_seconds": 0.40290991299116286,
+        "file": "runtime_roles.py",
+        "function": "audit_runtime_roles",
+        "line": 238
+      },
+      {
+        "calls": 183,
+        "execute_seconds": 0.3444033230189234,
+        "file": "runtime_roles.py",
+        "function": "audit_runtime_roles",
+        "line": 196
+      },
+      {
+        "calls": 183,
+        "execute_seconds": 0.2844640559887921,
+        "file": "runtime_roles.py",
+        "function": "audit_runtime_roles",
+        "line": 214
+      }
+    ],
+    "top_inclusive_overlapping": [
+      {
+        "calls": 1,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "SolarServerCustody.advance",
+        "inclusive_seconds": 9.730223185,
+        "self_seconds": 0.0006897380000000001
+      },
+      {
+        "calls": 12,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "SolarServerCustody._open.<locals>.current",
+        "inclusive_seconds": 9.349293905000001,
+        "self_seconds": 6.0830000000000005e-05
+      },
+      {
+        "calls": 12,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding.current",
+        "inclusive_seconds": 9.300036045,
+        "self_seconds": 0.000439315
+      },
+      {
+        "calls": 12,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._bind",
+        "inclusive_seconds": 9.299592378,
+        "self_seconds": 0.012200377
+      },
+      {
+        "calls": 1,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_Session.advance",
+        "inclusive_seconds": 8.710331738,
+        "self_seconds": 0.0017865140000000001
+      },
+      {
+        "calls": 11,
+        "file": "crop_greenhouse_solar_server_custody.py",
+        "function": "_Session._guard",
+        "inclusive_seconds": 8.395304035,
+        "self_seconds": 0.000411244
+      },
+      {
+        "calls": 24,
+        "file": "crop_greenhouse_solar_farm_binding.py",
+        "function": "SolarFarmBinding._registration",
+        "inclusive_seconds": 8.272020648,
+        "self_seconds": 0.001868094
+      },
+      {
+        "calls": 24,
+        "file": "farm_authoring_storage.py",
+        "function": "FarmAuthoringService.read_registration",
+        "inclusive_seconds": 7.606876067000001,
+        "self_seconds": 0.000151449
+      }
+    ]
+  },
   "focused_distinct_tests_passed": 55,
   "fresh_exec_or_SIGKILL_rerun": false,
   "full_acceptance": false,
@@ -142,8 +341,11 @@
   },
   "new_Solar_deployed": false,
   "next_diagnosis": {
-    "actual_current_one_chunk_cost": "pending",
-    "bounded_worker_api_on_changed_source": "pending",
+    "actual_current_one_chunk_cost": "completed",
+    "bounded_worker_api_on_changed_source": "in_progress",
+    "head_sha": "4c4cff80002cc64508dd9af1a3757e5d0ba7bfa9",
+    "normal_accepted": false,
+    "run_id": 39198782317,
     "unchanged_normal_rerun_allowed": false
   },
   "nonacceptance": [
@@ -151,7 +353,7 @@
     "10219:2 collection failure from DBfixtureparam on fastOS tests; no testsran; fast module separated"
   ],
   "normal_native_accepted": false,
-  "recorded_at": "2026-10-19T04:17:38.164223+00:00",
+  "recorded_at": "2026-10-19T04:20:08.991616+00:00",
   "remaining_checks": [
     "original uninstrumented64 independent API/worker normal",
     "independent unpaused hold and actual HTTP cancel",

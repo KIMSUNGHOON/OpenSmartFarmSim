@@ -65,7 +65,7 @@
 - [ ] **`crop-solar-shared-read-native-normal`** — 위 컴포넌트 수용 뒤 원 계측 OFF64 독립 정상·두 전진 prefix·원 값/UTC,
   64/start1/CLI0/attempt1/success1·두 actor 종료0·조회 계산/쓰기0·FD/역할/schema/소유 PG/임시 정리를 대사한다.
   CI39197827938/source4478d28은 원360초/guard382.741초·종료 뒤22/64로 미완료다. 정상/DB 정리 proof 없음.
-- [ ] **`crop-solar-shared-read-remaining-cost`** — 현재 source의 실제1→2 청크·현재12/등록24/재구성1·원천1,824/순서·원 UTC/proof 보존과 연결/감사/SQL 비용을 관측한다. 한 계측 사례이며 원64 수용/처리량 수치가 아니다.
+- [x] **`crop-solar-shared-read-remaining-cost`** — 현재 source의 실제1→2 청크·현재12/등록24/재구성1·원천1,824/순서·원 UTC/proof 보존과 연결/감사/SQL 비용을 관측한다. 한 계측 사례이며 원64 수용/처리량 수치가 아니다. [76498:0](../research/crop-solar-shared-read-locks-implementation-20261019.md): 청크9.732초·연결144/감사183/SQL7,113/원 수치·순서·UTC·5root/정리 확인.
 - [ ] **`crop-solar-shared-read-worker-api-diagnostic`** — [기존 bounded 관찰](../contracts/crop-solar-worker-progress-diagnostics-v1.md)을 변경 source에서1회 적용한다. 원 actor/64/chunk1/조회/retry360/RSS 유지·실제 phase/HTTP/예외·원 progress/actor/head/digest를 대사한다. 정상 수용으로 세지 않는다.
 
 

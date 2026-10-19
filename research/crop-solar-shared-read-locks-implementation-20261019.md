@@ -85,3 +85,20 @@ SHA256 `01580126142fd287a845cb8c3e2728d2435d4e71657c6e1074448760452e0445`다.
 
 약32.1분은 위55검사의 관측된 로컬 guard 시간이다. CI 대기·독립 실행/후속3D와 실제 자료 확보가
 미완료여서 전체 완료 날짜는 정하지 않는다. 기존 두 UI는 이전에 수용된 합성 저장3D/환기를 유지한다.
+
+## 현재 한 청크 관측 — 76498:0
+
+현재4c4cff8(제품2파일은db75545와 동일)의 실제1→2/원16단계 fixture를 계측했다.
+계측 청크9.731752초·전체 guard43.390초, current12/등록24/재구성1·연결144/감사183/원천1,824,
+원천 조회 순서 hash `7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401`를 확인했다.
+SQL은7,113회/execute3.918210초다. 등록 읽기24회7.606876초·current12회9.300036초는
+중첩·계측 overhead를 포함하므로 더하거나 전체 경로 기여율/64단계 처리량으로 환산하지 않는다.
+역할 감사 호출자는 job72/thermal48/market24/source24/reference13/candidate2다.
+원 UTC02.123456Z→04.123456Z·원 proof3개의 inode/mode/size/time/hash와 directory identity를 보존했다.
+5root/원본/frozen·512MiB/PID/합1GiB·최대 합996,966,400bytes·FD4→4·소유 자원/passfile/역할/schema0을 확인했다.
+이1건은 진단이며 앞선55건에 합산하지 않는다. 앞선EB의9.707초와 비교한 속도 개선도 주장하지 않는다.
+
+현재 source의 bounded worker/API [CI39198782317](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39198782317)이
+진행 중이다. 정확한 head는 `4c4cff80002cc64508dd9af1a3757e5d0ba7bfa9`이며 원 actor 본문/64/chunk1/
+조회·retry360/RSS는 유지하고 기존 선택 header만 켰다. 진단은 정상 수용을 금지한다.
+현재 등록/current 검사의 반복 비용 관측과 실제 동시 단계/예외를 함께 대사한 뒤 다음 최소 수정을 정한다.
