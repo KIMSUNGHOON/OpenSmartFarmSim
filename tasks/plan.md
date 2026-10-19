@@ -1,11 +1,22 @@
 # 구현 순서
 
-## 읽기 검증의 짧은 잠금 로컬 수용·62검사/독립 실행 — 2026-10-19 KST
+## capture Pending HTTP 후보·실제1검사/남은 수용 — 2026-10-19 KST
+
+[새 후보/실제 TLS1검사](../research/crop-solar-capture-pending-http-implementation-20261019.md)는
+GET의 제어된 writer 진행422를503/부분 수치 없음·후속200/DB 불변/원 UTC로 수정했다.
+미채택이다. 확장 TLS 권리422/scope403도93137:0에서 통과했다. 남은 Solar 읽기7 → worker13 → query13 → HTTP 오류24 → 검토다.
+public TLS1을 포함해 모두 현재 source에서 통과하면58건이며 같은 private GREEN은 중복 합산하지 않는다.
+이전 read-scope62는 이전 source의 기록으로 새1검사에 합산하지 않는다. 원64·hold/취소/계산 중3D·
+WSL 사용자 적용·실제 자료/독립 관문과 전체 완료일 미정/goal active를 유지한다. 아래는 이전 판본의 기록이다.
+
 
 [현재 구현/62검사](../research/crop-solar-read-validation-lock-implementation-20261019.md)를 로컬 소프트웨어로 수용했다.
 새 경계7와 기존55를 현재 최종source에서 실행했고, 원 값/UTC·모든 current 권리/원천 검사·writer EX,
 읽기 변경 금지·HEAD/proof/intent/디렉터리·동일 named lock FD·파일 사용량과5root/상한/정리를 확인했다.
-다음은 변경 source 원 계측 OFF64 독립 API/worker 정상이다. 원64/chunk1/조회/retry360/RSS,
+후속 원 독립 CI39204795867/source3d662d2는 API 단언279/worker.wait 시간 초과로 미완료이며 종료 뒤39/64였다.
+65474:0의 원 API hash/AST는 line279가 status∈{200,503}임을 확인했다. 실제 CI status는 아직 없다.
+다음은 실제 SCRAM/TLS의 capture Pending 분류 재현 → 최소 수정/관련 회귀 → 변경 source 원 정상이다.
+같은 미완료 source의 정상 반복이나 원 actor/상한 변경으로 대체하지 않는다. 독립 정상은 다음을 유지한다. 원64/chunk1/조회/retry360/RSS,
 64/start1/CLI0/attempt1/success1·두 전진 prefix·원 UTC/수치·두 actor 종료0·전체 owned 정리가 수용 조건이다.
 이후 독립 hold → 실제 HTTP 취소 → 계산 중 WebGL → WSL 용량/사용자 적용 순서다.
 새62검사의 guard 합계는 약34.7분이다. 독립 정상은 원360초에 준비/정리·CI 대기가 추가되며 아직 미수용이다.

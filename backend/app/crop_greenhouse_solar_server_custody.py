@@ -110,9 +110,9 @@ class _Session:
             _need(self.current()==self.binding_raw)
             for _,_,fd in self._read_locks:
                 try:fcntl.flock(fd,fcntl.LOCK_SH|fcntl.LOCK_NB)
-                except BlockingIOError:raise files.CycleCustodyPending('solar calculation custody busy') from None
+                except BlockingIOError:raise SolarCustodyPending('solar calculation custody busy') from None
             self.owner._binding()
-            if self._read_snapshot()!=before:raise files.CycleCustodyPending('solar calculation snapshot changed')
+            if self._read_snapshot()!=before:raise SolarCustodyPending('solar calculation snapshot changed')
             self._read_active=True
         else:_need(self.current()==self.binding_raw)
         self._files_guard()
@@ -332,7 +332,7 @@ class SolarServerCustody:
                 binding=clock.prepare_binding(ctx,origin=v['time_origin'])
                 _need(_canonical(evidence._record(binding,verified.record['provenance']))==_canonical(verified.record));session._guard();return binding
             yield session,prepare
-        except (SolarCustodyConflict,PermissionError):raise
+        except (SolarCustodyConflict,SolarCustodyPending,PermissionError):raise
         except files.CycleCustodyPending:raise SolarCustodyPending('solar calculation custody busy') from None
         except Exception:raise SolarCustodyHold('solar calculation custody unavailable') from None
         finally:

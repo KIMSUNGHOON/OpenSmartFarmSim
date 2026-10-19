@@ -1,0 +1,154 @@
+{
+  "G0_G4": "not_assessed",
+  "RED": {
+    "actual_SCRAM_TLS": true,
+    "actual_tool": "45733:1",
+    "code": "solar_execution_hold",
+    "status": 422
+  },
+  "actual_TLS": {
+    "DB_unchanged": true,
+    "G0_G4": "not_assessed",
+    "actual_SCRAM": true,
+    "advanced": {
+      "computed_through_utc": "2026-10-01T00:00:04.123456Z",
+      "steps": 2
+    },
+    "code": "solar_execution_unavailable",
+    "insufficient_scope_status": 403,
+    "only_error_no_partial_fields": true,
+    "original_steps": 1,
+    "recovered_status": 200,
+    "rights_hold_status": 422,
+    "rights_or_gate_approval": false,
+    "scope": "one controlled actual SCRAM and verified TLS capture race; not actual CI response",
+    "status": 503,
+    "verified_TLS": true
+  },
+  "actual_farm_Runs": 0,
+  "actual_original_CI_response_known": false,
+  "adopted": false,
+  "focused_distinct_tests_passed": 1,
+  "full_backend_or_browser_suite_run": false,
+  "full_product_completion": null,
+  "implemented": true,
+  "initial_actual_TLS_GREEN": {
+    "DB_unchanged": true,
+    "G0_G4": "not_assessed",
+    "actual_SCRAM": true,
+    "advanced": {
+      "computed_through_utc": "2026-10-01T00:00:04.123456Z",
+      "steps": 2
+    },
+    "code": "solar_execution_unavailable",
+    "only_error_no_partial_fields": true,
+    "original_steps": 1,
+    "rights_or_gate_approval": false,
+    "scope": "one controlled actual SCRAM and verified TLS capture race; not actual CI response",
+    "status": 503,
+    "verified_TLS": true
+  },
+  "initial_private_GREEN_not_added": {
+    "actual_tool": "2592:0",
+    "current_source_pins": true,
+    "distinct_tests": 1,
+    "raw_TLS_proof_sha256": "1e9f519fa39896c4c67f42c2fbc741037d10fb7fc826717d888405b01a9ced23",
+    "raw_terminal_sha256": "8606e6b0919801137bef2111c11ab81588320225c8796608bcafc3f23bcad6fa",
+    "result": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 1006923776,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 156938240,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 46.64691890600079
+    },
+    "stage": "focused-solar-capture-pending-HTTP-green-v2"
+  },
+  "insufficient_first_fix": {
+    "actual_tool": "56220:1",
+    "included_in_passed_count": false,
+    "query_only_catch_status": 422
+  },
+  "native_CLI": {
+    "effort": "xhigh",
+    "model": "gpt-6.1-sol",
+    "raw_sha256": "42696108b6b33c9cd305b93a0d89622dea04983a3c2fca3756cab041cfcef059",
+    "recursive_cli": false,
+    "timestamp": "2026-10-19T04:36:15.957Z"
+  },
+  "new_Solar_deployed": false,
+  "normal_native_accepted": false,
+  "recorded_at": "2026-10-19T06:00:57.248716+00:00",
+  "remaining_checks": [
+    "public TLS1 + Solar7 + worker13 + query13 + HTTP24 =58 targeted checks after all current pins pass",
+    "Solar read validation7",
+    "worker13",
+    "query13",
+    "HTTP fixed error taxonomy24",
+    "review and changed-source original64"
+  ],
+  "rights_or_gate_approval": false,
+  "source_parent_commit": "3d662d23d790917f0dcbbc6f62c688cbfd622df0",
+  "source_sha256": {
+    "backend/app/crop_greenhouse_solar_execution_query.py": "95d52950af17fa8ad90a2999c8c1410f3e5228c823cfd3f9ccac11bd794ae747",
+    "backend/app/crop_greenhouse_solar_server_custody.py": "ec175e16dd03d2f9546284e2ccafab9201b70e7a9a7ec2969253dcf9e4b4f34a"
+  },
+  "stages": [
+    {
+      "actual_tool": "93137:0",
+      "current_source_pins": true,
+      "distinct_tests": 1,
+      "raw_TLS_proof_sha256": "b088244a4641ccf1e957411be04118edfb36997393a5bc26b983ecf2f805e1fa",
+      "raw_terminal_sha256": "08b1a38bf65bee2935d6ac5cf4905795f46239f95c29e792fffa97c175e0eb05",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1022504960,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 169287680,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 46.40892902599808
+      },
+      "stage": "focused-solar-capture-pending-HTTP-expanded-v1"
+    }
+  ],
+  "status_publication": {
+    "UI_code_or_DOM_or_WebGL_rerun": false,
+    "actual_tool": "17427:0",
+    "both_UI_same_no_store": true,
+    "frozen_HTML_ventilation2173_and_five_roots_preserved": true,
+    "pair_pins_and_syntax_links_verified": true
+  },
+  "status_publication_nonacceptance": "69155:1 reason252characters exceeds existing240; shortened reason234, no validator/cap changes"
+}

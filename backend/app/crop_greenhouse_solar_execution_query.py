@@ -263,5 +263,7 @@ class SolarExecutionQuery:
                     _need(1 <= len(wire) <= MAX_RESPONSE_BYTES)
             self._current(tenant, value, raw, binding_raw)
             return wire
+        except custody.SolarCustodyPending:
+            raise SolarExecutionQueryPending('solar checkpoint busy during read') from None
         except (PermissionError, RolePolicyHold, SolarExecutionQueryPending): raise
         except Exception: raise SolarExecutionQueryHold('solar execution query unavailable') from None

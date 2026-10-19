@@ -12,6 +12,7 @@
   "guard_total_seconds": 2083.3394687090004,
   "historical_shared_read_checks": 55,
   "implemented": true,
+  "local_acceptance_commit": "3d662d23d790917f0dcbbc6f62c688cbfd622df0",
   "local_component_accepted": true,
   "meaningful_RED": {
     "actual_tool": "41317:1",
@@ -52,14 +53,162 @@
     "recursive_cli": false,
     "timestamp": "2026-10-19T04:36:15.957Z"
   },
+  "native_normal": {
+    "API_assertion_proof": {
+      "application_changes": false,
+      "assertion": "status in (200, 503)",
+      "assertion_AST": "Compare(left=Name(id='status', ctx=Load()), ops=[In()], comparators=[Tuple(elts=[Constant(value=200), Constant(value=503)], ctx=Load())])",
+      "failure_line": 279,
+      "original_API_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+      "original_bodies_preserved": true,
+      "original_worker_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6"
+    },
+    "accepted": false,
+    "actors": [
+      {
+        "api_proof_present": false,
+        "client_proof_present": false,
+        "exit_code": 1,
+        "log": {
+          "exception_types": [
+            "AssertionError"
+          ],
+          "locations": [
+            {
+              "file": "api.private.py",
+              "function": "<module>",
+              "line": 279
+            }
+          ]
+        },
+        "role": "api",
+        "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+        "worker_proof_present": false
+      },
+      {
+        "api_proof_present": false,
+        "client_proof_present": false,
+        "exit_code": -15,
+        "log": {
+          "exception_types": [],
+          "locations": []
+        },
+        "role": "worker",
+        "script_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+        "worker_proof_present": false
+      }
+    ],
+    "actual_API_response_status_known": false,
+    "artifact": {
+      "digest": "sha256:98857637a3629bbdf42321dabe50f08df916944b2431370270eca6233a743f2a",
+      "id": 12165044594,
+      "name": "solar-unpaused-normal-3d662d23d790917f0dcbbc6f62c688cbfd622df0",
+      "size_in_bytes": 3578
+    },
+    "conclusion": "failure",
+    "database_cleanup_proof_present": false,
+    "diagnostics": false,
+    "digest_and_path_validated": true,
+    "failure": {
+      "exception_type": "TimeoutExpired",
+      "known_stage": null,
+      "locations": [
+        {
+          "file": "crop_greenhouse_solar_unpaused_smoke.py",
+          "function": "exercise",
+          "line": 133
+        },
+        {
+          "file": "crop-greenhouse-solar-unpaused-probe.py",
+          "function": "exercise",
+          "line": 211
+        },
+        {
+          "file": "subprocess.py",
+          "function": "wait",
+          "line": 1264
+        },
+        {
+          "file": "subprocess.py",
+          "function": "_wait",
+          "line": 2045
+        }
+      ],
+      "original_normal_accepted": false
+    },
+    "head_sha": "3d662d23d790917f0dcbbc6f62c688cbfd622df0",
+    "normal_proof_present": false,
+    "post_stop_checkpoint": {
+      "actors_stopped_before_collection": true,
+      "application_query_sha256": "ab6992768f580c4d46278fcbe2d3215583dfd3a55c9fe0aa84b51fb3e038d565",
+      "diagnostic_only": true,
+      "metadata": {
+        "G0_G4": "not_assessed",
+        "checkpoint_payload_sha256": "578352b164a0a61cf9e2cdbe0a01b1b4a6c2d3d925db02f81ffe88d24b398278",
+        "checkpoint_recorded_at": "2026-10-19T05:36:55.900019+00:00",
+        "evidence_kind": "stored_owned_fixture_metadata_only",
+        "job": {
+          "attempt": 1,
+          "state": "simulating"
+        },
+        "normal_execution_accepted": false,
+        "observed_at": "2026-10-19T05:37:02.359842+00:00",
+        "owned_cluster_identity_verified": true,
+        "rights_or_gate_approval": false,
+        "stored_checkpoint": {
+          "computed_through_utc": "2026-10-01T00:01:18.123456Z",
+          "planned_steps": 64,
+          "publication_sequence": 40,
+          "status": "yielded",
+          "steps": 39
+        },
+        "transaction_isolation": "repeatable read",
+        "transaction_read_only": true
+      },
+      "normal_execution_accepted": false,
+      "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+      "run_id": "39204795867",
+      "source_commit": "3d662d23d790917f0dcbbc6f62c688cbfd622df0"
+    },
+    "resource": {
+      "FD_before_after": [
+        7,
+        7
+      ],
+      "G0_G4": "not_assessed",
+      "RSS_samples": 1411,
+      "WSL_capacity_accepted": false,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 364888064,
+      "hosted_only": true,
+      "local_protected_roots_present": false,
+      "owned_non_zombie_remaining": [],
+      "reason": null,
+      "rights_or_gate_approval": false,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 129732608,
+      "temporary_entries_remaining": 0,
+      "wall_seconds": 368.90054709
+    },
+    "run_id": 39204795867,
+    "status": "completed",
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39204795867"
+  },
   "new_Solar_deployed": false,
+  "next_step": {
+    "controlled_reproduction": "pending",
+    "product_code_changed_since_native": false,
+    "scope": "actual SCRAM/TLS reproduction of transient custody capture exception classification",
+    "unchanged_native_rerun_allowed": false
+  },
   "normal_native_accepted": false,
   "pre_final_GREEN": {
     "actual_tool": "28208:0",
     "included_in_current_count": false,
     "source_sha256": "54350efd0dd0b98b685de00ecbbc749333ed3872163c18435c928744f9bb977c"
   },
-  "recorded_at": "2026-10-19T05:27:44.056452+00:00",
+  "recorded_at": "2026-10-19T05:47:22.693421+00:00",
   "remaining_checks": [
     "changed-source original uninstrumented64 normal",
     "independent unpaused hold and actual HTTP cancel",

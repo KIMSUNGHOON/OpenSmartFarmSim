@@ -64,3 +64,23 @@ syntax2파일·git diff와 실제62건/10guard의 동일 최종source5f5bbcc를 
 92807:0에서 중간7검사·미채택 상태를 두 UI에 같은 no-store bytes로 게시했고, 현재source/2syntax·2,303링크·원 actor/header·frozen HTML/2,173파일·5root/원본/상한/FD/소유 정리를 확인했다. UI 코드/DOM/WebGL은 변경·재검사하지 않았다.
 
 3518:0에서62건 로컬 수용/남은 원64·후속 조건을 두 UI에 같은 no-store bytes로 게시했다. 현재 source/syntax/링크·원 actor/header·frozen HTML/2,173파일·5root/상한/FD/소유 정리를 확인했다. UI 코드/DOM/WebGL은 변경·재검사하지 않았다.
+
+로컬 수용 commit `3d662d23d790917f0dcbbc6f62c688cbfd622df0`의 원 계측 OFF 독립64 [CI39204795867](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39204795867)은 실패로 종료됐다. 정상 완료/DB 정리 증거는 없으며 독립 정상은 수용하지 않는다.
+
+## 원 독립 실행의 새 실패 — CI39204795867
+
+정확한 source3d662d2·원 API/worker hash와 ZIP digest/path를 검증했다. artifact12165044594/3,578bytes,
+SHA256 `98857637a3629bbdf42321dabe50f08df916944b2431370270eca6233a743f2a`다.
+전체 guard368.901초·자식1·resource reasonnull·최대 합364,888,064bytes/단일129,732,608bytes,
+FD7→7·소유 비좀비/임시0이다. API exit1/AssertionError line279, worker는 정리에서-15로 종료됐다.
+부모는 API 종료를 관찰한 뒤 worker.wait에서TimeoutExpired가 발생했다(원line211).
+이것을 이전의 원360초 단언 실패와 같은 원인으로 합치지 않는다. 정상/DB 정리 proof는 없다.
+종료 후 Read Only/Repeatable Read metadata는39/64·yielded·sequence40·UTC01:18.123456Z,
+attempt1/simulating이다. 현재 권리/자료 검증이나 정상 수용이 아니며22/64와의 처리량 비교도 하지 않는다.
+
+65474:0에서 원 API hashab5a93…의 line279를 실제 생성 코드/AST로 대사했다.
+단언은 `status in (200, 503)`다. 실제 CI HTTP status/error code는 수집되지 않아 특정하지 않는다.
+현재 query의 capture 중 SolarCustodyPending이 generic QueryHold로 분류될 수 있고,
+HTTP는 hold422/pending503으로 구분한다. 다음은 실제 SCRAM/TLS에서 그 경계를 제어 재현한다.
+재현 시 실제 writer 진행/원 UTC, GET의 일시 변경503·부분 수치 없음/조회 SQL 변경0과
+기존 권리 hold422·접근 거부403을 보존하는 것이 수용 기준이다. 원 actor/상한은 바꾸지 않는다.
