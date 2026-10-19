@@ -1,0 +1,208 @@
+{
+  "G0_G4": "not_assessed",
+  "actor_input_chunk_retry_RSS_gates_changed": false,
+  "actual_API_status_observed": false,
+  "actual_farm_Runs": 0,
+  "application_source_commit": "c08d56453a7d95d87c29462aec5cfe206cebff6e",
+  "artifact": {
+    "digest": "sha256:c1cfc4f7c29a8a70a1b3a02b4891a46cf06c84972a0681aa0a75deaa2347d6a3",
+    "id": 12184778914,
+    "name": "solar-unpaused-normal-f403b546ec1cc4d6b3f061b60e0fe74a052d634d",
+    "size_in_bytes": 3291
+  },
+  "conclusion": "failure",
+  "core52_adoption_unchanged": true,
+  "database_cleanup_proof_present": false,
+  "digest_and_path_validated": true,
+  "evidence": {
+    "actor-diagnostics.json": [
+      {
+        "api_proof_present": false,
+        "client_proof_present": false,
+        "exit_code": -15,
+        "log": {
+          "exception_types": [],
+          "locations": []
+        },
+        "role": "api",
+        "script_sha256": "ab5a93aed402874bb85f723f272feafd64a44b257f6351256fc84b01b4769cba",
+        "worker_proof_present": false
+      },
+      {
+        "api_proof_present": false,
+        "client_proof_present": false,
+        "exit_code": -15,
+        "log": {
+          "exception_types": [],
+          "locations": []
+        },
+        "role": "worker",
+        "script_sha256": "14fe24de5cf95f3f43a955b0e5c042a39d802d3dc3e67c89f6458b33448fade6",
+        "worker_proof_present": false
+      }
+    ],
+    "failure-checkpoint-diagnostics.json": {
+      "actors_stopped_before_collection": true,
+      "application_query_sha256": "95d52950af17fa8ad90a2999c8c1410f3e5228c823cfd3f9ccac11bd794ae747",
+      "diagnostic_only": true,
+      "metadata": {
+        "G0_G4": "not_assessed",
+        "checkpoint_payload_sha256": "8e5594d4ff6bca1fed316c61f187f810ffab7337dd285b608d8d5197bd123722",
+        "checkpoint_recorded_at": "2026-10-19T12:12:41.828693+00:00",
+        "evidence_kind": "stored_owned_fixture_metadata_only",
+        "job": {
+          "attempt": 1,
+          "state": "simulating"
+        },
+        "normal_execution_accepted": false,
+        "observed_at": "2026-10-19T12:12:49.860087+00:00",
+        "owned_cluster_identity_verified": true,
+        "rights_or_gate_approval": false,
+        "stored_checkpoint": {
+          "computed_through_utc": "2026-10-01T00:01:06.123456Z",
+          "planned_steps": 64,
+          "publication_sequence": 34,
+          "status": "yielded",
+          "steps": 33
+        },
+        "transaction_isolation": "repeatable read",
+        "transaction_read_only": true
+      },
+      "normal_execution_accepted": false,
+      "prototype_sha256": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4",
+      "run_id": "39249166964",
+      "source_commit": "f403b546ec1cc4d6b3f061b60e0fe74a052d634d"
+    },
+    "failure.json": {
+      "exception_type": "AssertionError",
+      "known_stage": "owned calculation timed out or failed",
+      "locations": [
+        {
+          "file": "crop_greenhouse_solar_unpaused_smoke.py",
+          "function": "exercise",
+          "line": 133
+        },
+        {
+          "file": "crop-greenhouse-solar-unpaused-probe.py",
+          "function": "exercise",
+          "line": 210
+        }
+      ],
+      "original_normal_accepted": false
+    },
+    "resource.json": {
+      "FD_before_after": [
+        7,
+        7
+      ],
+      "G0_G4": "not_assessed",
+      "RSS_samples": 1432,
+      "WSL_capacity_accepted": false,
+      "actual_child_exit": 1,
+      "actual_crop_Runs": 0,
+      "combined_peak_RSS_bytes": 368951296,
+      "hosted_only": true,
+      "local_protected_roots_present": false,
+      "owned_non_zombie_remaining": [],
+      "reason": null,
+      "rights_or_gate_approval": false,
+      "sample_interval_seconds": 0.25,
+      "single_PID_peak_RSS_bytes": 128868352,
+      "temporary_entries_remaining": 0,
+      "wall_seconds": 382.00487427099995
+    }
+  },
+  "full_product_completion": null,
+  "independent_normal64_accepted": false,
+  "local_integration58_adoption_unchanged": true,
+  "metadata_is_current_rights_or_normal_validation": false,
+  "native_cli": {
+    "effort": "xhigh",
+    "existing_native_CLI": true,
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "9b563d616c63268971f8b0f7a966166acc43dc182908cfbb5b5c25c1c5afe959",
+    "recursive_CLI": false,
+    "subagents": false,
+    "timestamp": "2026-10-19T11:33:39.582Z"
+  },
+  "new_solar_deployed": false,
+  "next_action": "Observe the existing bounded phases diagnostic once, validate its run/head/artifact and phase data, then choose the smallest actual remaining cost change. Do not rerun unchanged normal64 or alter original gates.",
+  "next_diagnostic": {
+    "detail": "phases",
+    "dispatch_tool": "8640:0",
+    "head": "f403b546ec1cc4d6b3f061b60e0fe74a052d634d",
+    "id": 39250605987,
+    "last_verified_status": "in_progress",
+    "last_verified_step": "Build the pinned native test PostgreSQL",
+    "normal_execution_accepted": false,
+    "original_actor_body_input_chunk_retry_RSS_preserved": true,
+    "run_list_head_verified": true,
+    "url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39250605987"
+  },
+  "next_diagnostic_observations": [
+    {
+      "head": "f403b546ec1cc4d6b3f061b60e0fe74a052d634d",
+      "job": "Solar worker progress diagnostic (no acceptance)",
+      "normal_acceptance": false,
+      "observed_at": "2026-10-19T12:21:07.175819Z",
+      "run_id": 39250605987,
+      "status": "in_progress",
+      "step": "Original independent unpaused normal execution"
+    }
+  ],
+  "normal_proof_present": false,
+  "raw_evidence_sha256": {
+    "actor-diagnostics.json": "c7be673c60fa87d7b5944f9255e76ab0085f36af846fde199d8b45f2f0c3f257",
+    "failure-checkpoint-diagnostics.json": "e759b3ac3f0f8905044cdabd7ef292235888c88e2e9bf17dad6c2a8e140ecf64",
+    "failure.json": "caeef10a9162d92609cde8d7f0459a8b7e469119a2d13e2ea63663f3c9bd6d3e",
+    "resource.json": "48d52b26541bfe60f263e237ca5de36f29056f357fe9fb45aee3a5dec2490d9d"
+  },
+  "recorded_at": "2026-10-19T12:17:57.160441Z",
+  "rights_or_gate_approval": false,
+  "run_id": 39249166964,
+  "run_url": "https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39249166964",
+  "schema_version": "registration-connection-lifetime-native-normal-v1",
+  "source_commit": "f403b546ec1cc4d6b3f061b60e0fe74a052d634d",
+  "source_sha256": {
+    "backend/app/farm_authoring_storage.py": "96ec01beb3e39d7bb0f5b0896824f6208a3219fb926e6ab860c42a6297b57966",
+    "backend/app/farm_registration_read_scope.py": "cbbfb1ef7da1cfb26cb3f2e8d78e80e8a940a30ebdf5186abbef8b70cea3cbe1",
+    "backend/app/market_source_store.py": "4e81a33032f68a53b84f81beb7df1b6408d080facf78b53acb0d16497a109254",
+    "backend/app/runtime_connection_scope.py": "d983e38331ceab33509eab63a2bf4120fc5a725fcbfb401f655d1859f03c5a2c",
+    "backend/app/runtime_login.py": "dffdcee5f410ab56465e60ff4227f2dbe3e2dc0846f51658fc50a73033000aa8",
+    "backend/app/thermal_run_store.py": "3d3fbaee88e4d60ea95f574dfff57d1b32ac2d12eb8d2512ccfa4e4e3705a6c8",
+    "backend/tests/test_registration_connection_lifetime.py": "014ca84a1a7174cc06a9ec618e7579ad7e74d57d36c0beac73f82ff919861d0d"
+  },
+  "status_publication": {
+    "HTTP200_same_bytes_no_store": true,
+    "HTTP_ports": [
+      5173,
+      5174
+    ],
+    "UI_code_DOM_WebGL_changed_or_rerun": false,
+    "frozen_HTML_and_ventilation2173_preserved": true,
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 898834432,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 1.363206130998151
+    },
+    "local_links_checked": 2380,
+    "status_sha256": "9a73a10bf89bf1868fa226f8194bc0671272735c298fa59be8d2d1a160d29218",
+    "terminal_sha256": "28f7c38f7646f761c37825cba5527f9031bdc79afb5e8dc729f9fa5c8778e462",
+    "tool_terminal": "8966:0"
+  }
+}

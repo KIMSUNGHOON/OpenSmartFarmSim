@@ -11,6 +11,10 @@ application 기준은 `c08d56453a7d95d87c29462aec5cfe206cebff6e`다.
 조사·검토는 현재 native Codex CLI `gpt-6.1-sol/xhigh`에서 수행했고 실제 문맥 시각/해시를 기록했다.
 재귀 CLI·하위 에이전트는 사용하지 않았다.
 
+후속 [원 독립 CI39249166964](registration-connection-lifetime-native-normal-20261019.md)는
+원360초·종료 뒤33/64로 미완료다. 로컬58 수용은 유지하고 현재 다음은 같은 source의
+기존 단계 진단1회(CI39250605987) 결과 대사다. 아래 다음 단계는 이 원 실행 전의 계획이다.
+
 ## 같은 source의 원 회귀
 
 [앞선 capture Pending58](crop-solar-capture-pending-http-implementation-20261019.md)의 대상과

@@ -37,7 +37,8 @@ primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회
 | 3 — 비용 미통과/미채택 | 같은 registration 수명의 anchor/현재 지문 시험 후보 | 실제 step2/3의 원 수치·UTC·감사183은 보존했으나 약18.8%/17.4% 느렸다. 제품 통합/보안 전체 회귀는 수용하지 않으며 같은 후보를 적용하지 않는다. |
 | 4 — 본체 로컬 수용 | [등록 연결 수명 본체52검사](../research/registration-connection-lifetime-core-20261019.md) | 최종 같은 source의 core41/일반 로그인10·별도 정리/paired1. 실제144→1·감사183/원천1,824/트랜잭션 종료432·수치/UTC·현재 권한/수명·정리를 보존했다. 두 구간 약19.8%/21.3% 감소다. 전체 통합/새 배포 수용은 아니다. |
 | 5 — 로컬 수용 | [관련 원 worker/query/HTTP58 회귀·검토](../research/registration-connection-lifetime-integration-20261019.md) | 같은 제품 source의 실제 TLS1/Solar7/worker13/query13/HTTP24와 원 정상/hold/취소·임대/현재·늦은 권리/동시 변경·원 수치/UTC·조회 계산/쓰기0·자원/정리를 확인했다. 본체52는 중복 합산하지 않는다. |
-| 6 — 다음 | 변경 source 원 계측 OFF64 독립 정상 | 원 actor/64/chunk1/조회·retry360/RSS, 두 전진 prefix·원 수치/UTC·start1/CLI0/attempt1/success1·actor 종료0·전체 소유 정리를 대사한다. 이후 독립 hold/취소→계산 중 WebGL→WSL 용량/사용자 적용이다. |
+| 6 — 미완료 | [변경 source 원 계측 OFF64](../research/registration-connection-lifetime-native-normal-20261019.md) | CI39249166964/sourcef403b54는 원360초·종료 뒤33/64·정상/DB 정리 proof 없음으로 미수용이다. 원 actor/64/chunk1/조회·retry360/RSS와 전체 정상 수용 기준은 유지한다. |
+| 7 — 현재 실행 | 같은 source의 기존 bounded `phases` 진단1회 | 실제 CI39250605987의 job in_progress를 확인했다. 원 body/입력/한도를 유지하며 실제 current/등록/확정/advance·checkpoint/UTC·예외/종료/정리·run/head/digest를 대사한다. 결과로 최소 수정 범위를 정하고 진단 자체는 정상/처리량 수용으로 세지 않는다. |
 
 primitive48은 같은 app source에서 경계11/철회1/변경18/수명·schema18을 실제 실행했다.
 현재 수용 guard 합578.605초이며 초기 fixture 실패/확인된 시험 DDL 자기 잠금과 정리는 기록에 분리했다.
