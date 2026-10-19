@@ -29,7 +29,8 @@
       "source_preserved": true,
       "temporary_PG_directories_remaining": [],
       "wall_seconds": 1.3609572000004846
-    }
+    },
+    "review_patch_sha256": "fd50c9126a59515990606a6e96c89100c4092b4707811f0126bf78e2962370fb"
   },
   "candidate_adopted": false,
   "candidate_correctness_distinct_tests_passed": 82,
@@ -719,6 +720,39 @@
       }
     }
   ],
+  "patch_format_correction": {
+    "added_and_removed_lines_unchanged": true,
+    "corrected_sha256": "66a48718846ada4007cb79adb26a9588794414725c9e8afa2e8a33c65ef0422e",
+    "git_apply_check": true,
+    "guarded_final_verification": {
+      "actual_tool": "73656:0",
+      "raw_terminal_sha256": "38f50bde8b66ba7deb04979e554911ace860190f4049b5d231c454e0b0304dbf",
+      "result": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 905936896,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "log_sha256": "3f5ab5206100e1f63546f13489afe35f57ba597f8010650487f94f15e956838c",
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 1.3633552549999877
+      },
+      "review_patch_sha256": "66a48718846ada4007cb79adb26a9588794414725c9e8afa2e8a33c65ef0422e",
+      "runtime_restored_and_patch_check": true,
+      "same_published_status_both_HTTP_200_no_store": true
+    },
+    "only_blank_context_markers_normalized": true,
+    "original_sha256": "fd50c9126a59515990606a6e96c89100c4092b4707811f0126bf78e2962370fb"
+  },
   "post_abort_cleanup": {
     "controller_short_temp_cleanup_verified": true,
     "explicit_owned_passfiles_removed_after_second_abort": 4,
@@ -802,7 +836,8 @@
     "baseline_matches_HEAD": true,
     "candidate_adopted": false,
     "candidate_sha256": "378446e25bccd751fe9875631cba72816a6e11f387f09415385359e4801c51aa",
-    "patch_sha256": "fd50c9126a59515990606a6e96c89100c4092b4707811f0126bf78e2962370fb",
+    "initial_patch_sha256": "fd50c9126a59515990606a6e96c89100c4092b4707811f0126bf78e2962370fb",
+    "patch_sha256": "66a48718846ada4007cb79adb26a9588794414725c9e8afa2e8a33c65ef0422e",
     "restored_baseline_sha256": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0"
   },
   "rights_or_gate_approval": false,

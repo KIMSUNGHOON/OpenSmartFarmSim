@@ -2,8 +2,8 @@
 +++ b/backend/app/runtime_roles.py
 @@ -169,68 +169,115 @@
      return kind == "supervisor" and name in SUPERVISOR_TABLES and privilege == "SELECT"
- 
- 
+
+
 +def _audit_current_scope(conn, policy):
 +    login = isinstance(policy, RuntimeLoginPolicy)
 +    row = conn.execute("""
