@@ -57,3 +57,9 @@ API 상태/허용 오류 코드·예외 타입/위치와 실제 종료/자원을
 33338:0에서 실제22/64 미완료·현재 관측/다음 진단을5173/5174에 no-store 동일 bytes로 게시했다.
 현재 source/문서 링크·원 actor/query/probe/역할/worker·HTML/환기 frozen2,173파일,
 5root/원본/상한/FD·소유 정리를 확인했다. UI 코드·DOM/WebGL은 변경하거나 재검사하지 않았다.
+
+[진단 CI39191823795](https://github.com/KIMSUNGHOON/OpenSmartFarmSim/actions/runs/39191823795),
+head `7901e0891f0ff0e051602a7a061b8efa062d1bb0`에서 기존 `worker-api` 선택을 기동하고 실제 실행 중 상태를 확인했다.
+현재 backend/원 probe/계측 header/workflow는 sourceeb943d9와 같은 bytes다. 진단 결과는 대기 중이며 정상/처리량 수용이 아니다.
+
+28978:0에서 같은 진단 실행 중 상태를 두 UI에 게시하고 source/원본/5root/상한/FD·소유 정리를 확인했다.
