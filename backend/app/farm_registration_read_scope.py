@@ -10,6 +10,7 @@ from threading import get_ident
 
 from . import economic_contracts, economics, farm_input_compiler, farm_inputs, market, market_scenario
 from . import market_candidate_store, market_reference_bundle
+from . import runtime_connection_scope
 
 
 MAX_LOOKUPS = market_reference_bundle.MAX_LOOKUPS
@@ -72,7 +73,8 @@ class RegistrationRead:
     def _code(self):
         module = sys.modules[type(self.owner).__module__]
         modules = (module, economic_contracts, economics, farm_input_compiler,
-                   farm_inputs, market, market_scenario, market_candidate_store, market_reference_bundle)
+                   farm_inputs, market, market_scenario, market_candidate_store, market_reference_bundle,
+                   runtime_connection_scope)
         methods = (self.owner._read_registration, self.owner._read, self.owner._prepare,
                    module.compile_farm_inputs, module.validate_economic_scope,
                    economics.EconomicLedger.calculate, economics.EconomicLedger._calculate_verified,
@@ -86,10 +88,16 @@ class RegistrationRead:
                    market_reference_bundle._verify_shared, market_reference_bundle._verify_trace,
                    market_reference_bundle._same_binding,
                    market_reference_bundle._Bundle.check, market_reference_bundle._Bundle.guard,
-                   market_reference_bundle._Bundle.close)
+                   market_reference_bundle._Bundle.close,
+                   runtime_connection_scope.registration_connections,
+                   runtime_connection_scope.read_connection,
+                   runtime_connection_scope.factory_connection,
+                   runtime_connection_scope.verify_owned_session)
         policy = (market_scenario._json(market_scenario._FIELDS),
                   tuple(sorted((k, tuple(sorted(v))) for k, v in market_scenario._DRIVER_GROUPS.items())),
-                  module.READ_SCOPES, self.repository._reference_bundle)
+                  module.READ_SCOPES, self.repository._reference_bundle,
+                  runtime_connection_scope.state, runtime_connection_scope.state.__code__,
+                  runtime_connection_scope.state())
         return (tuple(sha256(Path(m.__file__).read_bytes()).digest() for m in modules),
                 methods, policy, sha256(Path(__file__).read_bytes()).hexdigest())
 
@@ -115,7 +123,7 @@ class RegistrationRead:
         row = self.owner._find(tenant, scenario, revision)
         _need(row is not None and row['input_sha256'] == expected_sha)
         farm = self.value['farm']; replay = self.owner.replay
-        with replay.jobs.connect() as conn:
+        with runtime_connection_scope.read_connection(replay.jobs) as conn:
             root = replay.jobs._locked_job(conn, tenant, farm.research_job_id)
             _need(root is not None and root['stage'] == 'research'
                   and root['state'] not in ('canceled', 'failed'))

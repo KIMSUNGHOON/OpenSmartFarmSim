@@ -1,0 +1,79 @@
+from pathlib import Path
+from hashlib import sha256
+import json, os, sys, time
+from contextlib import nullcontext
+ROOT = Path('/home/sunghoonk/Workspaces/OpenSmartFarmSim')
+sys.path[:0] = [str(ROOT/'backend'), str(ROOT/'backend/tests')]
+from app import farm_authoring_storage as storage
+import pytest, psycopg
+from psycopg.pq import TransactionStatus
+from test_crop_greenhouse_solar_execution_query import (worker_setup, producer_setup, authoring, profiles, login_database, original_login_scope, login_scope, query_cleanup)
+import test_crop_greenhouse_solar_execution_query as reference
+
+@reference.reference.pytestmark
+@pytest.mark.usefixtures('query_cleanup')
+def test_connection_lifetime_same_actual_advances(worker_setup, tmp_path, monkeypatch):
+    worker, _, raw, _ = worker_setup
+    candidate = worker.server
+    directory = tmp_path/'original-connection-lifetime'; directory.mkdir(mode=0o700)
+    baseline = type(candidate)(candidate.binding, directory, input_resolver=candidate.input_resolver, integrity_key=candidate.integrity_key)
+    execute, commit, rollback = psycopg.Connection.execute, psycopg.Connection.commit, psycopg.Connection.rollback
+    def run(mode, measure=False):
+        counts = {'role_SQL': 0, 'audits': 0, 'source': [], 'SQL': 0, 'ends': [], 'locks': 0, 'lock_ends': 0, 'session_SQL': 0}
+        backends, locked, observed = set(), set(), set()
+        def executing(conn, query, params=None, **kw):
+            frame = sys._getframe(1); module = frame.f_globals.get('__name__'); name = frame.f_code.co_name
+            counts['SQL'] += 1
+            if module == 'app.runtime_connection_scope' and name == '_session': counts['session_SQL'] += 1
+            if module == 'app.runtime_roles':
+                counts['role_SQL'] += 1
+                if name == '_database': counts['audits'] += 1; backends.add(conn.info.backend_pid); observed.add(conn)
+            if module == 'app.market_source_store' and name == '_select_with_job':
+                counts['source'].append((*params, frame.f_back.f_locals.get('pin', False)))
+            value = execute(conn, query, params, **kw)
+            if module == 'app.job_store' and name == '_locked_job':
+                assert conn.info.transaction_status == TransactionStatus.INTRANS
+                locked.add(conn); counts['locks'] += 1
+            return value
+        def ending(conn, method, kind):
+            active = conn.info.transaction_status != TransactionStatus.IDLE
+            result = method(conn)
+            assert conn.info.transaction_status == TransactionStatus.IDLE
+            counts['ends'].append((kind, active))
+            if conn in locked: locked.remove(conn); counts['lock_ends'] += 1
+            return result
+        with monkeypatch.context() as patch:
+            if mode == 'baseline': patch.setattr(storage, 'registration_connections', lambda *args: nullcontext())
+            if measure:
+                patch.setattr(psycopg.Connection, 'execute', executing)
+                patch.setattr(psycopg.Connection, 'commit', lambda conn: ending(conn, commit, 'commit'))
+                patch.setattr(psycopg.Connection, 'rollback', lambda conn: ending(conn, rollback, 'rollback'))
+            start = time.perf_counter()
+            result = json.loads((candidate if mode == 'candidate' else baseline).advance('tenant-1', raw, budget=1))
+            wall = time.perf_counter() - start
+        assert not locked
+        return result, {'mode': mode, 'wall_seconds': wall, 'role_audits': counts['audits'], 'role_SQL_execute_calls': counts['role_SQL'], 'source_row_queries': len(counts['source']), 'source_read_trace_sha256': sha256(json.dumps(counts['source'], separators=(',', ':')).encode()).hexdigest(), 'total_SQL': counts['SQL'], 'audited_physical_backend_count': len(backends), 'transaction_ends': len(counts['ends']), 'transaction_end_trace_sha256': sha256(json.dumps(counts['ends'], separators=(',', ':')).encode()).hexdigest(), 'locked_queries': counts['locks'], 'lock_transactions_ended_IDLE': counts['lock_ends'], 'session_checks_SQL': counts['session_SQL'], 'all_audited_connections_closed': all(conn.closed for conn in observed)}
+    fields = ('steps', 'planned_steps', 'status', 'counts', 'checkpoint', 'last_confirmed', 'times', 'provenance_sha256', 'artifact_sha256')
+    def same(a, b): assert all(a[k] == b[k] for k in fields)
+    for _ in range(2): same(run('baseline')[0], run('candidate')[0])
+    rows = []
+    for step, order in ((2, ('baseline', 'candidate')), (3, ('candidate', 'baseline'))):
+        selected = {}
+        for mode in order:
+            result, sample = run(mode, True); selected[mode] = result, sample
+            assert result['steps'] == step and sample['role_audits'] == 183 and sample['role_SQL_execute_calls'] == 2745
+            assert sample['source_row_queries'] == 1824
+            assert sample['total_SQL'] == 7113 + sample['session_checks_SQL']
+            assert sample['session_checks_SQL'] == (288 if mode == 'candidate' else 0)
+            assert sample['all_audited_connections_closed']
+            assert sample['locked_queries'] == sample['lock_transactions_ended_IDLE'] == 24
+            rows.append(sample)
+        same(selected['baseline'][0], selected['candidate'][0])
+        a, b = selected['baseline'][1], selected['candidate'][1]
+        assert a['source_read_trace_sha256'] == b['source_read_trace_sha256']
+        assert (a['transaction_ends'], a['transaction_end_trace_sha256']) == (b['transaction_ends'], b['transaction_end_trace_sha256'])
+        assert b['audited_physical_backend_count'] < a['audited_physical_backend_count']
+        assert b['audited_physical_backend_count'] == 1
+    record = {'scope': 'product candidate normal-cost comparison against same code with connection scope disabled; base Connection and original transaction ends retained; security adoption pending', 'samples': rows, 'original_values_UTC_checkpoint_counts_preserved': True, 'source_count_order_and_transaction_end_trace_preserved': True, 'role_audits_preserved': 183, 'app_source_changed': True, 'integration_adopted': False, 'SQL_interception': False, 'normal64_accepted': False, 'G0_G4': 'not_assessed', 'rights_or_gate_approval': False}
+    target = Path(os.environ['OSSF_SOLAR_EXECUTION_QUERY_EVIDENCE'])/'registration-connection-lifetime-product-pair.json'
+    with target.open('x') as f: os.fchmod(f.fileno(), 0o400); json.dump(record, f, sort_keys=True, indent=2); f.flush(); os.fsync(f.fileno())

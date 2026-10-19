@@ -278,7 +278,8 @@ class ThermalRunStore:
     def get_snapshot(self, tenant, snapshot_id):
         if not self._scope(tenant, "thermal_snapshot_read"):
             return None
-        with self.connect() as conn:
+        from .runtime_connection_scope import read_connection
+        with read_connection(self) as conn:
             row = conn.execute(sql.SQL("""
                 SELECT * FROM {} WHERE tenant_id = %s AND snapshot_id = %s
             """).format(self._table("thermal_input_snapshots")),
@@ -317,7 +318,8 @@ class ThermalRunStore:
     def get_decision_context(self, tenant, snapshot_id, context_id):
         if not self._scope(tenant, "decision_context_read"):
             return None
-        with self.connect() as conn:
+        from .runtime_connection_scope import read_connection
+        with read_connection(self) as conn:
             return self._decision_context_in_transaction(conn, tenant, snapshot_id, context_id)
 
     def _decision_context_in_transaction(self, conn, tenant, snapshot_id, context_id):

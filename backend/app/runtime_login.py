@@ -33,9 +33,11 @@ def connect_runtime(dsn, policy, kind):
         options = configured.get("options", "") + (
             " -c statement_timeout=2000 -c default_transaction_read_only=on" if readonly else
             " -c statement_timeout=5000")
-        conn = psycopg.connect(dsn, row_factory=dict_row, connect_timeout=3,
+        from .runtime_connection_scope import factory_connection, verify_owned_session
+        conn = factory_connection(dsn, policy, kind, row_factory=dict_row, connect_timeout=3,
             require_auth="scram-sha-256", options=options)
         verify_runtime_identity(conn, policy, kind)
+        verify_owned_session(conn)
         # Identity inspection must not leave a transaction open (advisory reservations set autocommit).
         conn.commit()
         return conn

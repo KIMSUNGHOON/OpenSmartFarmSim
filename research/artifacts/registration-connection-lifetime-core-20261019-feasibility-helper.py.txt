@@ -1,0 +1,86 @@
+"""Private normal-cost experiment; replaces physical close, never transaction end."""
+from weakref import WeakKeyDictionary
+import sys
+import psycopg
+from psycopg.pq import TransactionStatus
+
+
+def install(farms, patch):
+    from app.farm_registration_read_scope import RegistrationRead
+    jobs = farms.replay.jobs
+    frames, owned = WeakKeyDictionary(), {}
+    original_connect = psycopg.connect
+    original_exit = psycopg.Connection.__exit__
+    original_close = RegistrationRead.close
+    stats = {'physical_opened': 0, 'leases': 0, 'reused': 0,
+             'transaction_contexts_ended': 0, 'physical_closed': 0,
+             'frames_closed': 0, 'max_live_physical': 0}
+
+    def connect(*args, **kwargs):
+        witness = farms._registration_read.get()
+        caller = sys._getframe(1)
+        values = caller.f_locals
+        if (witness is None or not witness.active or witness.owner is not farms
+                or caller.f_globals.get('__name__') != 'app.runtime_login'
+                or caller.f_code.co_name != 'connect_runtime'
+                or values.get('policy') is not jobs.runtime_identity[0]
+                or values.get('kind') != 'authority'
+                or values.get('dsn') != jobs._dsn):
+            return original_connect(*args, **kwargs)
+        assert not witness.failed and witness.slot.get() is witness
+        frame = frames.setdefault(witness, [])
+        stats['leases'] += 1
+        for lease in frame:
+            if not lease['busy'] and not lease['conn'].closed and lease['args'] == args and lease['kwargs'] == kwargs:
+                conn = lease['conn']
+                assert conn.info.transaction_status == TransactionStatus.IDLE and not conn.autocommit
+                lease['busy'] = True
+                stats['reused'] += 1
+                return conn
+        conn = original_connect(*args, **kwargs)
+        assert type(conn) is psycopg.Connection and not conn.autocommit
+        lease = {'conn': conn, 'busy': True, 'args': args, 'kwargs': kwargs}
+        frame.append(lease)
+        owned[conn] = lease
+        stats['physical_opened'] += 1
+        stats['max_live_physical'] = max(stats['max_live_physical'], sum(not c.closed for c in owned))
+        return conn
+
+    def exiting(conn, exc_type, exc_value, traceback):
+        lease = owned.get(conn)
+        if lease is None:
+            return original_exit(conn, exc_type, exc_value, traceback)
+        assert lease['busy']
+        if exc_type is not None:
+            try:
+                return original_exit(conn, exc_type, exc_value, traceback)
+            finally:
+                lease['busy'] = False
+        try:
+            conn.commit()
+            assert conn.info.transaction_status == TransactionStatus.IDLE
+            stats['transaction_contexts_ended'] += 1
+            lease['busy'] = False
+        except BaseException:
+            conn.close()
+            lease['busy'] = False
+            raise
+
+    def closing(witness):
+        frame = frames.pop(witness, [])
+        try:
+            for lease in frame:
+                conn = lease['conn']
+                assert not lease['busy'] and conn.info.transaction_status == TransactionStatus.IDLE
+                conn.close()
+                assert conn.closed
+                owned.pop(conn)
+                stats['physical_closed'] += 1
+            stats['frames_closed'] += bool(frame)
+        finally:
+            original_close(witness)
+
+    patch.setattr(psycopg, 'connect', connect)
+    patch.setattr(psycopg.Connection, '__exit__', exiting)
+    patch.setattr(RegistrationRead, 'close', closing)
+    return stats, frames, owned

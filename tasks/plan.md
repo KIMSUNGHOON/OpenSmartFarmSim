@@ -35,12 +35,13 @@ primitive34/로컬58/v2 baseline은 그대로다. 미채택 후보의 보안 회
 | 2 — 로컬 수용 | [조건부 대조·반례12](../research/market-current-reference-receipt-equivalence-20261019.md) + [의존성 guard37](../research/market-current-reference-dependency-guard-20261019.md) | 검토한 default DTO 재구성 범위만 수용했다. 원88참조2회/7종172반환·동적 manifest/현재 인증·우선/fallback과 실제 guard/원문 지문 결합을 대사했다. 무조건 전체 getter 동등성/생략·성능 미수용. |
 | 2a — 로컬 수용 | [의존성 guard37](../research/market-current-reference-dependency-guard-20261019.md) | guard 자체 SQL0·36모델/코드/정책·JSON/copy 전이 상태/잠금 판본·초기 비적격 v2·도중 변경 poison·HTTP principal과 authority 구성·취소/복제/정리 통과. 제품 호출0이며 새 배포는 미수용. |
 | 3 — 비용 미통과/미채택 | 같은 registration 수명의 anchor/현재 지문 시험 후보 | 실제 step2/3의 원 수치·UTC·감사183은 보존했으나 약18.8%/17.4% 느렸다. 제품 통합/보안 전체 회귀는 수용하지 않으며 같은 후보를 적용하지 않는다. |
-| 4 — 다음 평가 | 같은 authority의 물리 연결 수명 후보 | 실제144연결의 같은 구성을 근거로 원래 분리된 트랜잭션·행 잠금 해제/현재 검사·감사183·원천1,824/순서·수치/UTC를 보존한다. 실제 두 구간 순서 교대 비용에서 유용하고 일관된 개선 후에만 변경/수명·worker/HTTP 회귀와 제품 채택으로 진행한다. |
+| 4 — 본체 로컬 수용 | [등록 연결 수명 본체52검사](../research/registration-connection-lifetime-core-20261019.md) | 최종 같은 source의 core41/일반 로그인10·별도 정리/paired1. 실제144→1·감사183/원천1,824/트랜잭션 종료432·수치/UTC·현재 권한/수명·정리를 보존했다. 두 구간 약19.8%/21.3% 감소다. 전체 통합/새 배포 수용은 아니다. |
+| 5 — 다음 | 관련 원 worker/query/HTTP 회귀·검토 | 이52건으로 전체 회귀를 대신하지 않는다. 원 정상/hold/취소·임대/현재·늦은 권리/동시 변경·원 수치/UTC와 조회 계산/쓰기0·자원/정리를 변경 source에서 확인한다. 통과 후 원 계측 OFF64 독립 정상으로 진행한다. |
 
 primitive48은 같은 app source에서 경계11/철회1/변경18/수명·schema18을 실제 실행했다.
 현재 수용 guard 합578.605초이며 초기 fixture 실패/확인된 시험 DDL 자기 잠금과 정리는 기록에 분리했다.
 연구 대조12와 실제 guard37에서 검토한 default DTO의 조건부 범위를 수용했다. 같은 최종 source의 guard37은 원문 primitive와 원88참조2회를 결합하고 모든 원 getter를 실행했다. guard 합427.697초다. 후속 시험 전용 연결 후보는 실제 paired 비용 기준을 통과하지 못했다. 비교/비용 분리/연결 관측의3개 진단 검사·guard209.877초를 별도 기록했고 기존37/48/34/58을 재실행한 것으로 세지 않는다. 제품 app260파일은 그대로이며 v4 통합은 보류한다.
-다음 연결 수명 후보는 원 `.connect()`와 commit/rollback·`FOR UPDATE` 해제 의미를 먼저 유지한다. 모든 현재 identity/권한/자료/역할 감사를 실행하고 요청/등록·tenant/Task/thread 수명과 종료 정리를 분리한다. 범용 pool·교차 요청 캐시는 추가하지 않는다. 실제 paired 개선 뒤 권한/identity 변경·rollback·취소/수명·관련 worker/HTTP 회귀와 원64 정상 순서로 진행한다. 개선이 없으면 미채택하며 기존 검사를 줄이지 않는다. 아직 이 후보의 구현/개선 증거는 없다.
+연결 수명 본체는 원 `.connect()` 메서드 AST와 commit/rollback·실제 `NOWAIT` 잠금 해제를 보존했다. 모든 현재 identity/권한/자료/역할 감사를 실행하고 요청/등록·Task/thread/복제 문맥·종료 정리를 확인했다. 준비된 SQL 뒤 실제 SELECT 철회/NOLOGIN/역할 변경을 거부했다. 범용 pool·교차 요청 캐시는 추가하지 않았다. 원천1,824/순서와 트랜잭션 종료432는 같고 세션 점검 SQL288개가 추가됐다. 최종 source의 실제 두 구간 비용·core41·일반 로그인10/별도 fixture 정리만 로컬 수용했다. 다음은 관련 worker/query/HTTP 회귀·검토 후 원64 정상이며 전체 통합/새 배포는 아직 미수용이다.
 기본 source7종·candidate 우선/fallback·pin/파생 manifest·Decimal/정규화/현재 scope를 대사하고,
 시간·외부 상태·callback·미입증 의존성 경로는 v2 유지/명시 비적격으로 처리한다.
 동등성 증거 전에는 반복 getter를 생략하거나 현재 계산 경로를 변경하지 않는다.

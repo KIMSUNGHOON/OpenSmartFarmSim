@@ -1,0 +1,6 @@
+from pathlib import Path
+import sys
+ROOT=Path('/home/sunghoonk/Workspaces/OpenSmartFarmSim')
+sys.path[:0]=[str(ROOT/'backend'),str(ROOT/'backend/tests')]
+from test_farm_registration_read_scope import *
+from test_registration_connection_lifetime import *

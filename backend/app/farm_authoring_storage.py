@@ -23,6 +23,7 @@ from .market_scenario import MarketScenarioService
 from .provenance import Digest, FrozenContract
 from .thermal_units import utc as utc_text
 from .farm_registration_read_scope import RegistrationRead, RegistrationScopeHold
+from .runtime_connection_scope import read_connection, registration_connections
 
 
 INPUT_VERSION='farm-authoring-input-v1'
@@ -142,7 +143,7 @@ class FarmAuthoringService:
 
     def _find(self,tenant,scenario_id,revision):
         jobs=self.replay.jobs
-        with jobs.connect() as conn:
+        with read_connection(jobs) as conn:
             row=conn.execute(sql.SQL("SELECT * FROM {} WHERE tenant_id=%s AND stage='collection' AND idempotency_key=%s")
                 .format(jobs._table('jobs')),(tenant,self._key(scenario_id,revision))).fetchone()
             if row is not None:
@@ -153,7 +154,7 @@ class FarmAuthoringService:
         try:
             farm=body.farm
             owned=self.replay.owned_research
-            with self.replay.jobs.connect() as conn:
+            with read_connection(self.replay.jobs) as conn:
                 root=self.replay.jobs._locked_job(conn,tenant,farm.research_job_id)
                 if root is None or root['stage']!='research' or root['state'] in ('canceled','failed'):
                     raise ValueError()
@@ -428,7 +429,9 @@ class FarmAuthoringService:
             raise FarmAuthoringHold('nested farm registration scope unavailable')
         scoped=RegistrationRead(self,(tenant,scenario_id,revision,expected_sha256),slot,READ_SCOPES)
         token=slot.set(scoped)
-        try: yield
+        try:
+            with registration_connections(self,scoped):
+                yield
         finally:
             scoped.close();slot.reset(token)
 

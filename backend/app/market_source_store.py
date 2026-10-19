@@ -96,7 +96,8 @@ class MarketSourceStore:
         if (not _name(tenant) or self._tenant('market_source_read') != tenant or
                 self._scoped_reader.get() is not None):
             raise MarketSourceDenied('market source read scope denied')
-        with self.connect() as conn:
+        from .runtime_connection_scope import read_connection
+        with read_connection(self) as conn:
             conn.execute('SET TRANSACTION ISOLATION LEVEL READ COMMITTED READ ONLY')
             slot = self._scoped_reader
             token = slot.set((conn, tenant))

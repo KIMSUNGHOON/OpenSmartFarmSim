@@ -1,0 +1,911 @@
+{
+  "G0_G4": "not_assessed",
+  "actual_farm_Runs": 0,
+  "baseline_commit": "145c46efe7012801e843140dae761c58c60e97c1",
+  "baseline_total_SQL": 7113,
+  "comparison_control": "same final app code; baseline disables registration_connections via private test alias; no raw SQL result substitution",
+  "connect_method_AST_unchanged": [
+    "backend/app/job_store.py",
+    "backend/app/market_source_store.py",
+    "backend/app/thermal_run_store.py"
+  ],
+  "connect_method_public_interface_changed": false,
+  "core_locally_accepted": true,
+  "core_tests": {
+    "existing_registration": 13,
+    "new_lifetime": 28
+  },
+  "early_stages_excluded_from_final_test_count": [
+    {
+      "case": "focused-registration-connection-lifetime-RED-v1",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "guard": {
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 992935936,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 162062336,
+        "source_count": 2500,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 15.98889247400075
+      },
+      "log_sha256": "74f9e4369416fa16dc99117d00370f806626a2a332ed00ce5e35341f12d8c90b",
+      "same_final_source_and_test": false,
+      "source_pin_manifest_sha256": "7200b7640f33e9e275d35b0f818fc1bc6b282919e6158ccdc4bdff90ef99fe5b",
+      "terminal_sha256": "853dd11a8339d51ffe43088ff590234952fbd5edb098fc23fde101702258320d",
+      "test_summary": [],
+      "tests_passed": 0,
+      "tool_terminal": "93653:1"
+    },
+    {
+      "case": "focused-registration-connection-lifetime-GREEN-v1",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 994463744,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_count": 2501,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 15.344864484002755
+      },
+      "log_sha256": "41319db5b5263b3477ae4eca4004d74e0bc5513b099aae765460c8be67fc916d",
+      "same_final_source_and_test": false,
+      "source_pin_manifest_sha256": "cbaa86627de00982eb2a3d53ae3e9894cbee0c204fb06dce37fc9734f70feaac",
+      "terminal_sha256": "2df97739d0849ca69d868f77a2709e495b3c8710406565b5005e4a6d689e3bab",
+      "test_summary": [
+        "1 passed in 13.92s"
+      ],
+      "tests_passed": 0,
+      "tool_terminal": "24678:0"
+    },
+    {
+      "case": "focused-registration-connection-lifetime-product-pair-v1",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 986845184,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_count": 2501,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 71.6241377059996
+      },
+      "log_sha256": "f6ebeac54617050dee9a73129fb49f1be467b678ceb5c7d428ce04cdb4ba2e51",
+      "same_final_source_and_test": false,
+      "source_pin_manifest_sha256": "cbaa86627de00982eb2a3d53ae3e9894cbee0c204fb06dce37fc9734f70feaac",
+      "terminal_sha256": "e47f1d4b77225b2b5e9c40fb119ab5b901bc80e9dd9dc6b9f4120a5d3e46da18",
+      "test_summary": [
+        "1 passed in 68.99s (0:01:08)"
+      ],
+      "tests_passed": 0,
+      "tool_terminal": "57117:0"
+    },
+    {
+      "case": "focused-registration-connection-lifetime-caught-denial-RED-v1",
+      "guard": {
+        "actual_child_exit": 4,
+        "combined_peak_RSS_bytes": 936026112,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_count": 2501,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 3.415523037998355
+      },
+      "log_sha256": "db73445b1da91fa8605c6f6ca0b709762d1fdf6ab87d493999e44893c40b42e6",
+      "same_final_source_and_test": false,
+      "source_pin_manifest_sha256": "cbaa86627de00982eb2a3d53ae3e9894cbee0c204fb06dce37fc9734f70feaac",
+      "terminal_sha256": "ce90af5c7e030de2c5303bd9e454443eb62f97b5f801e0f68acb8539901d5cc3",
+      "test_summary": [
+        "no tests ran in 2.53s"
+      ],
+      "tests_passed": 0,
+      "tool_terminal": "88376:4"
+    },
+    {
+      "case": "focused-registration-connection-lifetime-existing-RED-v1",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "guard": {
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 1030914048,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_count": 2501,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 153.6424670810011
+      },
+      "log_sha256": "976977a97d2891734ade2b69d6d2c650d18d4e20bafe6588296be39d0c77b65f",
+      "same_final_source_and_test": false,
+      "source_pin_manifest_sha256": "cbaa86627de00982eb2a3d53ae3e9894cbee0c204fb06dce37fc9734f70feaac",
+      "terminal_sha256": "7951a3277cfc9c986299384ee560c9afb3445eb6a72d31b4cf2b389ab71a84e6",
+      "test_summary": [
+        "11 failed, 2 passed in 145.61s (0:02:25)"
+      ],
+      "tests_passed": 0,
+      "tool_terminal": "82976:1"
+    },
+    {
+      "case": "focused-registration-connection-lifetime-existing-GREEN-v2",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "guard": {
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 1007824896,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 144764928,
+        "source_count": 2501,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 166.97627282400208
+      },
+      "log_sha256": "fecb976ac2ac63c8262721cda1a0f839f8dabe65eabbe3815c83f6f0cfbc7ec6",
+      "same_final_source_and_test": false,
+      "source_pin_manifest_sha256": "2fb83092407e60819734967bd75792101e2f754227d331c16013a0f5ebf99fce",
+      "terminal_sha256": "4ca27506d3d6c2163112f44c98a3922ed537ab3d02382439e6f7b6ea5498a8c4",
+      "test_summary": [
+        "14 passed, 1 error in 158.75s (0:02:38)"
+      ],
+      "tests_passed": 0,
+      "tool_terminal": "93814:1"
+    },
+    {
+      "case": "focused-registration-connection-lifetime-closed-RED-v2",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "guard": {
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 999026688,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_count": 2501,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 15.103467330001877
+      },
+      "log_sha256": "b4b45d0c2e77571217c6a7951e850ec5a25f1fbe3f6abaddef4d3683ada4091c",
+      "same_final_source_and_test": false,
+      "source_pin_manifest_sha256": "efce27a5ab3f279e4b1162778ed51bd011bfd25bf934f84a657fe48fdf37bd33",
+      "terminal_sha256": "eeaea18d135889fd295b16ffceeb5810d73c206875b532bec7bec6fce0f7c49e",
+      "test_summary": [
+        "1 failed, 17 deselected in 13.61s"
+      ],
+      "tests_passed": 0,
+      "tool_terminal": "40628:1"
+    },
+    {
+      "case": "focused-registration-connection-lifetime-combined-v3",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "guard": {
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 1008005120,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_count": 2501,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 476.605328286998
+      },
+      "log_sha256": "0f9240f08b6fca1eaa6a9f035de82659230351ee633c0878cb705b156fe67468",
+      "same_final_source_and_test": false,
+      "source_pin_manifest_sha256": "7d72ca7b8834b32f5a1206e73be30172770802f03fd516f98126a13ea7a588c8",
+      "terminal_sha256": "12fb5628a242c4b3c22ad7a709e72c1da78546596482755dbc2dbda963689830",
+      "test_summary": [
+        "1 failed, 38 passed in 451.62s (0:07:31)"
+      ],
+      "tests_passed": 0,
+      "tool_terminal": "41326:1"
+    },
+    {
+      "case": "focused-registration-connection-lifetime-rollback-RED-v3",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "guard": {
+        "actual_child_exit": 1,
+        "combined_peak_RSS_bytes": 1010642944,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141488128,
+        "source_count": 2501,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 15.117186144001607
+      },
+      "log_sha256": "e3a7268e0ac084937b43ec533ba743e738bdd41265a57645ab10ab074ba97b22",
+      "same_final_source_and_test": false,
+      "source_pin_manifest_sha256": "29d000b7aff9db09395fa43d1bd7dc1860f4976af8bb771067f0ab8655112e3b",
+      "terminal_sha256": "90328cb3d82edf81f0fba57f42f8007495595ae519b7c4588758d05cf0a86bfe",
+      "test_summary": [
+        "1 failed, 27 deselected in 13.63s"
+      ],
+      "tests_passed": 0,
+      "tool_terminal": "43489:1"
+    }
+  ],
+  "final_core_and_cost_guard_seconds": 570.2122101490022,
+  "final_distinct_tests_passed": 52,
+  "final_paired_actual_cost": [
+    {
+      "baseline_seconds": 6.74094607400184,
+      "candidate_seconds": 5.405257599995821,
+      "reduction_percent": 19.81455509868918,
+      "step": 2
+    },
+    {
+      "baseline_seconds": 6.657643505997839,
+      "candidate_seconds": 5.239237467001658,
+      "reduction_percent": 21.304926250832533,
+      "step": 3
+    }
+  ],
+  "final_stages": [
+    {
+      "case": "focused-registration-connection-lifetime-combined-v4",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1005674496,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_count": 2501,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 501.6288483460012
+      },
+      "log_sha256": "869f2c2c0779172742dd2e09e9116d0aec97843dc24d8fb2e20b2a6a35bd95f5",
+      "same_final_source_and_test": true,
+      "source_pin_manifest_sha256": "20b402f15afd204e505a79d2d7d73ed5d2e656ae13f3b643bc8612da148efdad",
+      "terminal_sha256": "ecb1e170f1f607f7dbbeef0f53e4aea3d8703c636c38463f89e8795c09d34fb2",
+      "test_summary": [
+        "41 passed in 475.00s (0:07:55)"
+      ],
+      "tests_passed": 41,
+      "tool_terminal": "48149:0"
+    },
+    {
+      "case": "focused-registration-connection-lifetime-product-pair-v4",
+      "database_cleanup": {
+        "roles": 0,
+        "schemas": 0
+      },
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 1005604864,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_count": 2501,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 68.58336180300103
+      },
+      "log_sha256": "df393cde71ae47daada82065615fe68760b9aaa4f871e00901708eb3c5738981",
+      "observation": {
+        "G0_G4": "not_assessed",
+        "SQL_interception": false,
+        "app_source_changed": true,
+        "integration_adopted": false,
+        "normal64_accepted": false,
+        "original_values_UTC_checkpoint_counts_preserved": true,
+        "rights_or_gate_approval": false,
+        "role_audits_preserved": 183,
+        "samples": [
+          {
+            "all_audited_connections_closed": true,
+            "audited_physical_backend_count": 144,
+            "lock_transactions_ended_IDLE": 24,
+            "locked_queries": 24,
+            "mode": "baseline",
+            "role_SQL_execute_calls": 2745,
+            "role_audits": 183,
+            "session_checks_SQL": 0,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_row_queries": 1824,
+            "total_SQL": 7113,
+            "transaction_end_trace_sha256": "fcdb5ab15971bb7c663f2f5f5116bdc0f86ceca162bd2a54ecbe4f5b9aacf742",
+            "transaction_ends": 432,
+            "wall_seconds": 6.74094607400184
+          },
+          {
+            "all_audited_connections_closed": true,
+            "audited_physical_backend_count": 1,
+            "lock_transactions_ended_IDLE": 24,
+            "locked_queries": 24,
+            "mode": "candidate",
+            "role_SQL_execute_calls": 2745,
+            "role_audits": 183,
+            "session_checks_SQL": 288,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_row_queries": 1824,
+            "total_SQL": 7401,
+            "transaction_end_trace_sha256": "fcdb5ab15971bb7c663f2f5f5116bdc0f86ceca162bd2a54ecbe4f5b9aacf742",
+            "transaction_ends": 432,
+            "wall_seconds": 5.405257599995821
+          },
+          {
+            "all_audited_connections_closed": true,
+            "audited_physical_backend_count": 1,
+            "lock_transactions_ended_IDLE": 24,
+            "locked_queries": 24,
+            "mode": "candidate",
+            "role_SQL_execute_calls": 2745,
+            "role_audits": 183,
+            "session_checks_SQL": 288,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_row_queries": 1824,
+            "total_SQL": 7401,
+            "transaction_end_trace_sha256": "fcdb5ab15971bb7c663f2f5f5116bdc0f86ceca162bd2a54ecbe4f5b9aacf742",
+            "transaction_ends": 432,
+            "wall_seconds": 5.239237467001658
+          },
+          {
+            "all_audited_connections_closed": true,
+            "audited_physical_backend_count": 144,
+            "lock_transactions_ended_IDLE": 24,
+            "locked_queries": 24,
+            "mode": "baseline",
+            "role_SQL_execute_calls": 2745,
+            "role_audits": 183,
+            "session_checks_SQL": 0,
+            "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+            "source_row_queries": 1824,
+            "total_SQL": 7113,
+            "transaction_end_trace_sha256": "fcdb5ab15971bb7c663f2f5f5116bdc0f86ceca162bd2a54ecbe4f5b9aacf742",
+            "transaction_ends": 432,
+            "wall_seconds": 6.657643505997839
+          }
+        ],
+        "scope": "product candidate normal-cost comparison against same code with connection scope disabled; base Connection and original transaction ends retained; security adoption pending",
+        "source_count_order_and_transaction_end_trace_preserved": true
+      },
+      "observation_sha256": "292942daa9bf292f7f138259ff4a4618aa0420321be194ac9ed8997c3d4ef8dc",
+      "same_final_source_and_test": true,
+      "source_pin_manifest_sha256": "20b402f15afd204e505a79d2d7d73ed5d2e656ae13f3b643bc8612da148efdad",
+      "terminal_sha256": "10a6d56e9ed0799f8edd1a508f4bf993d76bb6b546768adf6d28dc9647cb856e",
+      "test_summary": [
+        "1 passed in 66.13s (0:01:06)"
+      ],
+      "tests_passed": 1,
+      "tool_terminal": "43472:0"
+    },
+    {
+      "case": "focused-registration-connection-lifetime-login-smoke-v4",
+      "guard": {
+        "actual_child_exit": 0,
+        "combined_peak_RSS_bytes": 948662272,
+        "controller_FD_before_after": [
+          4,
+          4
+        ],
+        "frontend_status": 200,
+        "joint_preview_assets_preserved": true,
+        "joint_preview_source_preserved": true,
+        "original_source_entries": 2148,
+        "original_sources_preserved": true,
+        "owned_non_zombie_remaining": [],
+        "owned_postgres_remaining": [],
+        "passfiles_remaining": [
+          "pytest/test_runtime_connect_rejects_m1/invalid.pgpass",
+          "pytest/test_runtime_connect_rejects_m0/invalid.pgpass"
+        ],
+        "preview_assets_preserved": true,
+        "preview_source_preserved": true,
+        "protected_live": true,
+        "protected_root_count": 5,
+        "reason": null,
+        "single_PID_peak_RSS_bytes": 141316096,
+        "source_count": 2501,
+        "source_preserved": true,
+        "temporary_PG_directories_remaining": [],
+        "wall_seconds": 5.522229902002437
+      },
+      "guard_exit_note": "child passed10; controller exited1 because two known invalid fixture files remained; unchanged terminal and subsequent owned cleanup proof retained",
+      "log_sha256": "811149e92687c817927eecbe410ec41bd6730eb7eb52c87183372a44d02037e7",
+      "post_cleanup": {
+        "actual_credentials_removed": false,
+        "original_child_exit": 0,
+        "original_guard_passfiles": 2,
+        "original_terminal_unchanged": true,
+        "post_cleanup_remaining": 0,
+        "removed_known_nonsecret_fixture_files": [
+          {
+            "only_known_nonsecret_fixture_value": true,
+            "relative": "pytest/test_runtime_connect_rejects_m0/invalid.pgpass",
+            "sha256": "2ff34ae0c5dae12da7a06dfb49eaed2a7ed27231991436391f2024123cd7c279"
+          },
+          {
+            "only_known_nonsecret_fixture_value": true,
+            "relative": "pytest/test_runtime_connect_rejects_m1/invalid.pgpass",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        ]
+      },
+      "same_final_source_and_test": true,
+      "source_pin_manifest_sha256": "20b402f15afd204e505a79d2d7d73ed5d2e656ae13f3b643bc8612da148efdad",
+      "terminal_sha256": "35f6bd0714ffaecabd1248f85fe274981171ac626c9be5558bc04b1c3552e5be",
+      "test_summary": [
+        "10 passed, 18 deselected in 4.75s"
+      ],
+      "tests_passed": 10,
+      "tool_terminal": "63029:1"
+    }
+  ],
+  "final_total_SQL": 7401,
+  "full_product_completion": null,
+  "full_worker_HTTP_integration_accepted": false,
+  "global_connection_monkeypatch_in_product": false,
+  "hosted_CI_current_live": [],
+  "installed_psycopg": {
+    "connection_source_path": "backend/.venv/lib/python3.12/site-packages/psycopg/connection.py",
+    "connection_source_sha256": "0095cbe8262b43645f54611b817226ecab68a24252a1d38afbdfdc6d72573ab4",
+    "no_package_changes": true,
+    "version": "3.3.6",
+    "web_docs_version": "3.3.7.dev1"
+  },
+  "locked_job_transactions_ended_IDLE": 24,
+  "native_cli": {
+    "effort": "xhigh",
+    "invocation": "existing native CLI turn",
+    "model": "gpt-6.1-sol",
+    "raw_line_sha256": "f8da566e61c34996f63946a84aea1508d56b66dfa136552b2d024ce69d9ea7e6",
+    "recursive_CLI": false,
+    "subagents": false,
+    "timestamp": "2026-10-19T10:38:43.133Z"
+  },
+  "new_hosted_CI_dispatched": false,
+  "new_solar_deployed": false,
+  "next": "Related original worker/query/HTTP regression and review, then changed-source original trace-OFF64. Core52 and paired advances do not accept independent completion, calculating WebGL, WSL capacity or domain gates.",
+  "normal64_accepted": false,
+  "post_login_fixture_cleanup": {
+    "case": "focused-registration-connection-lifetime-login-cleanup-v4",
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 816021504,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_count": 2501,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 0.3331291770009557
+    },
+    "log_sha256": "82a5ae5bad75afc49fdaa92f83b2247c110e58d6009226ef900d46bc6d07be54",
+    "same_final_source_and_test": true,
+    "source_pin_manifest_sha256": "20b402f15afd204e505a79d2d7d73ed5d2e656ae13f3b643bc8612da148efdad",
+    "terminal_sha256": "eccc9d9495215b5192b790eec4fb5deccd681331f64114933561807162f0777b",
+    "test_summary": [],
+    "tests_passed": 0,
+    "tool_terminal": "73102:0"
+  },
+  "private_feasibility_before_product_changes": {
+    "case": "focused-registration-connection-lifetime-pair-v1",
+    "database_cleanup": {
+      "roles": 0,
+      "schemas": 0
+    },
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 989818880,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "frontend_status": 200,
+      "joint_preview_assets_preserved": true,
+      "joint_preview_source_preserved": true,
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "preview_assets_preserved": true,
+      "preview_source_preserved": true,
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_count": 2498,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 68.818224638002
+    },
+    "log_sha256": "81db0a05436545ff9a84d47b1c7692754b01fac569dcb620108dc0cfe82d7676",
+    "observation": {
+      "G0_G4": "not_assessed",
+      "SQL_interception": false,
+      "app_source_changed": false,
+      "normal64_accepted": false,
+      "original_values_UTC_checkpoint_counts_preserved": true,
+      "rights_or_gate_approval": false,
+      "role_audits_preserved": 183,
+      "samples": [
+        {
+          "audited_physical_backend_count": 144,
+          "connection_lifetime": {},
+          "lock_transactions_ended_IDLE": 24,
+          "locked_queries": 24,
+          "mode": "baseline",
+          "role_SQL_execute_calls": 2745,
+          "role_audits": 183,
+          "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+          "source_row_queries": 1824,
+          "total_SQL": 7113,
+          "transaction_end_trace_sha256": "fcdb5ab15971bb7c663f2f5f5116bdc0f86ceca162bd2a54ecbe4f5b9aacf742",
+          "transaction_ends": 432,
+          "wall_seconds": 6.986858114003553
+        },
+        {
+          "audited_physical_backend_count": 1,
+          "connection_lifetime": {
+            "frames_closed": 1,
+            "leases": 144,
+            "max_live_physical": 1,
+            "physical_closed": 1,
+            "physical_opened": 1,
+            "reused": 143,
+            "transaction_contexts_ended": 144
+          },
+          "lock_transactions_ended_IDLE": 24,
+          "locked_queries": 24,
+          "mode": "candidate",
+          "role_SQL_execute_calls": 2745,
+          "role_audits": 183,
+          "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+          "source_row_queries": 1824,
+          "total_SQL": 7113,
+          "transaction_end_trace_sha256": "fcdb5ab15971bb7c663f2f5f5116bdc0f86ceca162bd2a54ecbe4f5b9aacf742",
+          "transaction_ends": 432,
+          "wall_seconds": 5.168508540999028
+        },
+        {
+          "audited_physical_backend_count": 1,
+          "connection_lifetime": {
+            "frames_closed": 1,
+            "leases": 144,
+            "max_live_physical": 1,
+            "physical_closed": 1,
+            "physical_opened": 1,
+            "reused": 143,
+            "transaction_contexts_ended": 144
+          },
+          "lock_transactions_ended_IDLE": 24,
+          "locked_queries": 24,
+          "mode": "candidate",
+          "role_SQL_execute_calls": 2745,
+          "role_audits": 183,
+          "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+          "source_row_queries": 1824,
+          "total_SQL": 7113,
+          "transaction_end_trace_sha256": "fcdb5ab15971bb7c663f2f5f5116bdc0f86ceca162bd2a54ecbe4f5b9aacf742",
+          "transaction_ends": 432,
+          "wall_seconds": 5.351144216998364
+        },
+        {
+          "audited_physical_backend_count": 144,
+          "connection_lifetime": {},
+          "lock_transactions_ended_IDLE": 24,
+          "locked_queries": 24,
+          "mode": "baseline",
+          "role_SQL_execute_calls": 2745,
+          "role_audits": 183,
+          "source_read_trace_sha256": "7b1fb256c577daf82221447c22b02c3697f014737e136837f04e0678d41ea401",
+          "source_row_queries": 1824,
+          "total_SQL": 7113,
+          "transaction_end_trace_sha256": "fcdb5ab15971bb7c663f2f5f5116bdc0f86ceca162bd2a54ecbe4f5b9aacf742",
+          "transaction_ends": 432,
+          "wall_seconds": 6.9852195710045635
+        }
+      ],
+      "scope": "private connection lifetime normal-cost experiment; base Connection type and original transaction ends retained; no production or security adoption",
+      "source_count_order_and_transaction_end_trace_preserved": true
+    },
+    "observation_sha256": "454e31e0941513a03d87e3062a20aebfdac7bf8f6f986e90f5b0663c73353d91",
+    "same_final_source_and_test": false,
+    "source_pin_manifest_sha256": "d54c03918040dce1947a786e6fd7f4598b208e22e1fc92742f69e56039e56ffe",
+    "terminal_sha256": "960d73bb83d9e506494516733fccce3726c1a4b8ca95f629a72032cd87e56b7c",
+    "test_summary": [
+      "1 passed in 66.47s (0:01:06)"
+    ],
+    "tests_passed": 1,
+    "tool_terminal": "43031:0"
+  },
+  "public_research_files_sha256": {
+    "research/artifacts/registration-connection-lifetime-core-20261019-feasibility-helper.py.txt": "678ead698699d433ea0eecabe0160212394488447b7805e037d1d77ef32564b3",
+    "research/artifacts/registration-connection-lifetime-core-20261019-feasibility-test.py.txt": "750b842732a72f8c34c80a60e5e25077b26a01cd425061c5ee64ce93853b6722",
+    "research/artifacts/registration-connection-lifetime-core-20261019-fixture-shim.py.txt": "2402a373bc8e7b1ddcc807166af64e7cee00003338f1b30a2f5edde0f8bd1957",
+    "research/artifacts/registration-connection-lifetime-core-20261019-product-cost-test.py.txt": "9bf072184de34575b2616fa0d1a76e439a8d8ea356a7ccd0202030d3cdefe72f"
+  },
+  "recorded_at": "2026-10-19T11:25:10.162330Z",
+  "rights_or_gate_approval": false,
+  "role_SQL_per_advance": 2745,
+  "role_audits_per_advance": 183,
+  "schema_version": "registration-connection-lifetime-core-v1",
+  "session_check_SQL_added_per_advance": 288,
+  "source_reads_per_advance": 1824,
+  "source_sha256": {
+    "backend/app/farm_authoring_storage.py": "96ec01beb3e39d7bb0f5b0896824f6208a3219fb926e6ab860c42a6297b57966",
+    "backend/app/farm_registration_read_scope.py": "cbbfb1ef7da1cfb26cb3f2e8d78e80e8a940a30ebdf5186abbef8b70cea3cbe1",
+    "backend/app/market_source_store.py": "4e81a33032f68a53b84f81beb7df1b6408d080facf78b53acb0d16497a109254",
+    "backend/app/runtime_connection_scope.py": "d983e38331ceab33509eab63a2bf4120fc5a725fcbfb401f655d1859f03c5a2c",
+    "backend/app/runtime_login.py": "dffdcee5f410ab56465e60ff4227f2dbe3e2dc0846f51658fc50a73033000aa8",
+    "backend/app/thermal_run_store.py": "3d3fbaee88e4d60ea95f574dfff57d1b32ac2d12eb8d2512ccfa4e4e3705a6c8",
+    "backend/tests/test_registration_connection_lifetime.py": "014ca84a1a7174cc06a9ec618e7579ad7e74d57d36c0beac73f82ff919861d0d"
+  },
+  "status_publication": {
+    "HTTP": [
+      {
+        "port": 5173,
+        "status": 200
+      },
+      {
+        "port": 5174,
+        "status": 200
+      }
+    ],
+    "UI_code_changed": false,
+    "browser_DOM_or_WebGL_rerun": false,
+    "cache_control": "no-store",
+    "frozen_HTML_preserved": true,
+    "guard": {
+      "actual_child_exit": 0,
+      "combined_peak_RSS_bytes": 913375232,
+      "controller_FD_before_after": [
+        4,
+        4
+      ],
+      "original_source_entries": 2148,
+      "original_sources_preserved": true,
+      "owned_non_zombie_remaining": [],
+      "owned_postgres_remaining": [],
+      "passfiles_remaining": [],
+      "protected_live": true,
+      "protected_root_count": 5,
+      "reason": null,
+      "single_PID_peak_RSS_bytes": 141316096,
+      "source_count": 2507,
+      "source_preserved": true,
+      "temporary_PG_directories_remaining": [],
+      "wall_seconds": 1.6223886440056958
+    },
+    "local_links_checked": 2367,
+    "publisher_sha256": "334c207ee55d7947f5a34d821676326f1ef9b605650bb7209c2525eb170a15ec",
+    "same_JSON_bytes": true,
+    "status_sha256": "ffecbcfee718d48d6e22f94922c9e8ba998802a7b32d5f7b09129102072ba58f",
+    "terminal_sha256": "6a95d8be83840daa7de9f00016f309f8e5193b9bd58a5ee0b7cc2fcf4fe3c696",
+    "tool_terminal": "43166:0",
+    "ventilation_frozen_files_preserved": 2173
+  },
+  "third_party_or_lock_changes": false,
+  "transaction_ends_per_advance": 432,
+  "unchanged_baseline_source_sha256": {
+    ".github/workflows/web-tests.yml": "6f0aff09b817cbb3c9b2ac64546a8e796b4d93f3ac9ddf8b94c36566784586d8",
+    "backend/app/api_crop_greenhouse_solar_execution_http.py": "d7a7572b46e087ee69a6a2f14d3d78326376ad6ef14f73e6f00f40a69a09c95c",
+    "backend/app/crop_greenhouse_solar_continuation.py": "37d43747e54160cbb4aa590375442abe4bb4b88d2584ccddfe70aa1b68b170ee",
+    "backend/app/crop_greenhouse_solar_execution_worker.py": "a03ef72277169bc96759528cc895da28e2ea70fed63689625ee3410517d510ef",
+    "backend/app/crop_greenhouse_solar_prefix.py": "5b8e9f84f9b87567177b38a3ffd58e405d3ddfde0b890995ee76cfc74323dec4",
+    "backend/app/job_store.py": "9b54b6be6765b62c1ba66f8938f8023bf5e882193d580ee3fd0c6d5ba1f80ca7",
+    "backend/app/market_reference_dependencies.py": "43caa3725bbda5dc5f4e40c5babeb3bb6222211be4f99bcffe999f1b0686be24",
+    "backend/app/market_reference_receipts.py": "e93170b4c93b657a0b0890f05108d8590ea7254f222a8bee6fe5f22f64ae1cb9",
+    "backend/app/market_reference_row_readset.py": "587be5012156f297835234885ec7bfee582d81022437988e37ee591e3c97d153",
+    "backend/app/market_runtime.py": "5876455a7ce011c7635d77270f616dbad0ed1f31a584369677b6e0d9a31a9181",
+    "backend/app/runtime_roles.py": "12a47d705ca5595606fa962ffaee6ab9d3f53df2c97f29cadac524113ec845d0",
+    "backend/uv.lock": "e73e9ec049e80bfa4ad96afc33bfa25f5fddab60d60771284d6292178241beb3",
+    "research/crop-greenhouse-solar-unpaused-probe.py": "f20d3d3f7d516c9ee3d3f237decc0707f195682ae1d2552207e1ba5707c739d4"
+  }
+}
